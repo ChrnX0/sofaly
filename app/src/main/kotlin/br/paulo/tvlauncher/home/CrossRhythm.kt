@@ -36,7 +36,7 @@ enum class CrossRhythm(
     /** B "Quadros": grade de 8 dp, cada ícone num quadro igual, mais ar entre os mundos. */
     FRAMED(240f, 224f, 136f, 104, 96, 80, 72, 0.6f, 72f, 96f, 88f, 96f, 664f, 112f, 520f, true, 24, 1f, 3, true),
     /** C "Ar": ícones menores, mundos de fora mais calmos, 2 vizinhos; a tela respira. */
-    AIRY(236f, 232f, 144f, 100, 84, 68, 58, 0.56f, 64f, 88f, 80f, 104f, 680f, 120f, 470f, true, 20, 0.62f, 2, false);
+    AIRY(236f, 232f, 144f, 100, 84, 68, 58, 0.56f, 64f, 88f, 80f, 104f, 656f, 116f, 470f, true, 20, 0.62f, 2, false);
 
     companion object {
         const val KEY = "cruz_ritmo"

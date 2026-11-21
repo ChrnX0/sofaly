@@ -770,8 +770,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      */
     private fun nomeNoMeio(iv: ItemView, pequeno: Boolean, animar: Boolean) {
         val textos = iv.nome.parent?.parent as? View ?: return
-        val alvo = if (pequeno && CrossRhythm.atual.nomeNoMeio && iv.nome.height > 0)
-            (dp(ICONE_A.toFloat()) - iv.nome.height) / 2f - dp(TEXTO_TOPO.toFloat()) else 0f
+        // Altura da letra pela fonte (a view pode ainda não ter sido medida na 1ª arrumação).
+        val fm = iv.nome.paint.fontMetrics
+        val alvo = if (pequeno && CrossRhythm.atual.nomeNoMeio)
+            (dp(ICONE_A.toFloat()) - (fm.descent - fm.ascent)) / 2f - dp(TEXTO_TOPO.toFloat()) else 0f
         if (textos.translationY == alvo) return
         if (animar && !semMov) textos.animate().translationY(alvo).setDuration(200L).start()
         else { textos.animate().cancel(); textos.translationY = alvo }
