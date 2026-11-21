@@ -45,7 +45,9 @@ class AppShowcase(ctx: Context, fonte: Typeface, fonteForte: Typeface) : LinearL
     private var pacoteAgora: String? = null
     private val curva = PathInterpolator(0.22f, 1f, 0.36f, 1f)
 
-    companion object { const val LARGURA = 150 }
+    // 120 dp (visto na Sala 21/11, v467855: com 150 dp os nomes das capas encostavam no nome do item escolhido e no
+    // ícone do mundo ao lado). 3 x 120 + 2 x 14 = 388 dp, à direita da margem: começa depois do texto do item.
+    companion object { const val LARGURA = 120 }
 
     init {
         orientation = VERTICAL
