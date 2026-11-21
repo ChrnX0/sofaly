@@ -224,7 +224,7 @@
     <string name="pv_detalhes">التفاصيل</string>
     <string name="pv_sensacao">الإحساس الحراري</string>
     <string name="pv_vento">الرياح</string>
-    <string name="pv_uv">مؤشر الأشعة فوق البنفسجية</string>
+    <string name="pv_uv">مؤشر UV</string>
     <string name="pv_visib">مدى الرؤية</string>
     <string name="pv_orvalho">نقطة الندى</string>
     <string name="pv_pressao">الضغط</string>
