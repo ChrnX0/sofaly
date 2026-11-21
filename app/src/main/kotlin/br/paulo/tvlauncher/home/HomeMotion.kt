@@ -99,8 +99,16 @@ internal fun MainActivity.pacoteDoItem(id0: String): String? = id0.removePrefix(
     id.startsWith("app:") -> id.removePrefix("app:")
     id.startsWith("c:jogo:") -> id.removePrefix("c:jogo:")
     id.startsWith("c:midia:") -> id.removePrefix("c:midia:")
+    id.startsWith("card:") -> id.removePrefix("card:").toLongOrNull()?.let { n -> cartoesApps.firstOrNull { it.id == n }?.pacote }
     else -> null
 } }
+
+/** Proposta B (AppShowcase): com um app escolhido que tem cartões, a vitrine dele; qualquer outro item, nada. */
+internal fun MainActivity.vitrineDoItem(item: HomeCruz.Item) {
+    val v = vitrine ?: return
+    val p = pacoteDoItem(item.id) ?: return v.esconder()
+    v.mostrar(p, nomeDe(p), AppChannels.doApp(cartoesApps, p).take(AppChannels.MAX_VITRINE), item.icone)
+}
 
 /** Id do item "Continuar" no topo de cada mundo: este prefixo + o id do que ele retoma (não repete o id da coluna). */
 internal const val PREFIXO_CONTINUAR = "cont:"
@@ -257,8 +265,19 @@ internal fun MainActivity.atualizarCruz() {
         guardar(CruzLogica.Categoria.APLICATIVOS, em, HomeCruz.Item("app:$id", app.nome,
             CruzLogica.linhas(app.nome, quando(em)?.let { getString(R.string.cruz_aberto, it) }), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) }))
     }
+    // Proposta A dos cartões dos apps (AppChannels.Mode.COLUMN): até 6 cartões no fim da coluna do mundo do app,
+    // um de cada app por vez; só de apps visíveis.
+    val modoCartoes = AppChannels.mode(this)
+    fun cartoesColuna(k: CruzLogica.Categoria): List<HomeCruz.Item> = if (modoCartoes != AppChannels.Mode.COLUMN) emptyList() else
+        AppChannels.intercalar(cartoesApps.filter { cd -> cd.pacote in porPacote &&
+            CategoriaApps.destino(cd.pacote, this@atualizarCruz.categoria(cd.pacote), false, escolhasCat[cd.pacote], catsFicha?.get(cd.pacote)) == k },
+            AppChannels.MAX_NA_COLUNA).map { cd ->
+            HomeCruz.Item("card:${cd.id}", nomeDe(cd.pacote), CruzLogica.linhas(cd.titulo, cd.detalhe.takeIf { it.isNotBlank() }, cd.canal.takeIf { it.isNotBlank() }),
+                PosterDrawable(this, cd.poster, porPacote[cd.pacote]?.let { icApp(it) }),
+                { if (!AppChannels.abrir(this, cd)) cruz?.naoAbriu() }, opcoes = { menuAppCruz(cd.pacote) })
+        }
     fun comContinuar(k: CruzLogica.Categoria, itens: List<HomeCruz.Item>): List<HomeCruz.Item> =
-        itemContinuar(k, doMundo[k].orEmpty())?.let { listOf(it) + itens } ?: itens
+        (itens + cartoesColuna(k)).let { l -> itemContinuar(k, doMundo[k].orEmpty())?.let { listOf(it) + l } ?: l }
 
     // Ferramentas (21/11/2026, Paulo: entra no lugar do Continuar, "vamos ver o q colocar aqui"): o que a casa usa
     // para cuidar da TV e do dia. Começa com o que já existe; a lista é dele para mudar.
@@ -371,6 +390,7 @@ internal fun MainActivity.atualizarCruz() {
             val ic = item.icone as? IconeCruz
             if (item.opcoes != null || ic == null) item else item.comOpcoes { trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) }
         })
+    c.itemAtual()?.let { vitrineDoItem(it) }   // os cartões chegam depois do 1º desenho: a vitrine se acerta
     })
     if (focoInicialNaTv && !todosAbertos) { focoInicialNaTv = false; c.requestFocus() }
     else if (currentFocus == null && !todosAbertos) c.requestFocus()

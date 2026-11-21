@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">Işıklar, kameralar ve kapı zili</string>
     <string name="tl_painel_sub">Bluetooth, ses, Wi-Fi ve zamanlayıcı</string>
     <string name="tl_config_sub">Başlatıcıyla ilgili her şey</string>
+    <string name="ac_cartoes">Uygulama kartları</string>
+    <string name="ac_coluna">Sütunda</string>
+    <string name="ac_vitrine">Vitrin</string>
+    <string name="ac_ver_tudo">Uygulamada ne var gör</string>
 </resources>

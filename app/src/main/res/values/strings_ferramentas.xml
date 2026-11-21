@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">Lights, cameras and doorbell</string>
     <string name="tl_painel_sub">Bluetooth, sound, Wi-Fi and timer</string>
     <string name="tl_config_sub">Everything about the launcher</string>
+    <string name="ac_cartoes">App cards</string>
+    <string name="ac_coluna">In the column</string>
+    <string name="ac_vitrine">Showcase</string>
+    <string name="ac_ver_tudo">See what is in the app</string>
 </resources>

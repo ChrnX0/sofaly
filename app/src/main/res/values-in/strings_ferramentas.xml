@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">Lampu, kamera, dan bel</string>
     <string name="tl_painel_sub">Bluetooth, suara, Wi-Fi, dan timer</string>
     <string name="tl_config_sub">Semua tentang launcher</string>
+    <string name="ac_cartoes">Kartu aplikasi</string>
+    <string name="ac_coluna">Di kolom</string>
+    <string name="ac_vitrine">Etalase</string>
+    <string name="ac_ver_tudo">Lihat isi aplikasi</string>
 </resources>

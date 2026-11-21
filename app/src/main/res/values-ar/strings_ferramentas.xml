@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">الأضواء والكاميرات والجرس</string>
     <string name="tl_painel_sub">بلوتوث والصوت وواي فاي والمؤقت</string>
     <string name="tl_config_sub">كل ما يخص المشغّل</string>
+    <string name="ac_cartoes">بطاقات التطبيقات</string>
+    <string name="ac_coluna">في العمود</string>
+    <string name="ac_vitrine">واجهة العرض</string>
+    <string name="ac_ver_tudo">عرض محتوى التطبيق</string>
 </resources>

@@ -409,7 +409,8 @@ class MainActivity : Activity() {
     private fun assinaturaDoLayout() = "${LayoutHome.iconesCruz(this)}|${LayoutHome.barraCruz(this)}|${LayoutHome.arteCruz(this)}|" +
         "${AltoContraste.ligado(this)}|${TamanhoTexto.atual(this)}|${PacoteIcones.versao(this)}|${LayoutHome.iconesTrocados(this)}|" +
         "${br.paulo.tvlauncher.settings.FontChoice.currentId(this)}|${br.paulo.tvlauncher.settings.ClockStyle.format(this)}|${br.paulo.tvlauncher.settings.ClockStyle.color(this)}|" +
-        "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}"   // ajuste fino (21/11/2026)
+        "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
+        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}"   // ajuste fino (21/11/2026)
 
     override fun onResume() {
         super.onResume()
@@ -986,6 +987,9 @@ class MainActivity : Activity() {
     internal lateinit var pilulaAlarme: LinearLayout
     @Volatile internal var gravandoTv: String? = null   // "Globo até 22:05" enquanto grava (Gravacoes.resumoParaHome)
     internal var ultimoTvEm = 0L
+    /** Cartões que os outros apps publicam (AppChannels), lidos com o Continuar; e a vitrine da proposta B. */
+    @Volatile internal var cartoesApps: List<br.paulo.tvlauncher.home.AppChannels.Card> = emptyList()
+    internal var vitrine: br.paulo.tvlauncher.home.AppShowcase? = null
     internal var ultimoTv: PlayerArmazem.Ultimo? = null   // último canal + programas (lido no onResume, em preencherContinuar)
     internal lateinit var txtTimer: TextView   // "4:32" na pílula do timer enquanto um timer corre (ver Timer.kt)
     internal lateinit var pilulaTimer: LinearLayout
@@ -1946,7 +1950,12 @@ class MainActivity : Activity() {
         cruz = c
         c.id = View.generateViewId()
         c.detalheEmCima = barraCruz == LayoutHome.BarraCruz.RELOGIO
-        c.aoMudar = { _, item -> arteDoItem(item) }
+        c.aoMudar = { _, item -> arteDoItem(item); vitrineDoItem(item) }
+        // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
+        if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)
+            vitrine = br.paulo.tvlauncher.home.AppShowcase(this, fonteUi, Typeface.create(fonteUi, Typeface.BOLD)).also {
+                raiz.addView(it, FrameLayout.LayoutParams(WRAP, WRAP, Gravity.TOP or Gravity.END).apply { topMargin = dp(84); marginEnd = dp(Grade.MARGEM) })
+            }
         c.aoSom = { som, cat -> if (homeNaFrente) SonsCruz.tocar(this, som, cat) }   // voltando de um app (HOME), sem som
         c.aoSubirTopo = { repeticao ->
             // Só o ▲ que SAI da cruz para a barra arma a Central (▲ entre itens da cruz continua repetindo normalmente).
@@ -2204,6 +2213,8 @@ class MainActivity : Activity() {
 
     /** Lê, na fila dos apps, o que o Continuar da cruz mostra além de TV/série/filme. */
     private fun lerContinuarCruz() {
+        cartoesApps = if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.OFF) emptyList()
+            else br.paulo.tvlauncher.home.AppChannels.ler(this)
         radioCruz = runCatching { Radios.ultima(this) }.getOrNull()
         midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis()).associateBy { it.pacote } }.getOrDefault(emptyMap())
         assinadosCruz = runCatching { Podcasts.assinaturas(this).size }.getOrDefault(0)

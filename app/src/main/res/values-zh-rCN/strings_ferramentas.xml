@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">灯光、摄像头和门铃</string>
     <string name="tl_painel_sub">蓝牙、声音、Wi-Fi 和定时器</string>
     <string name="tl_config_sub">启动器的全部设置</string>
+    <string name="ac_cartoes">应用卡片</string>
+    <string name="ac_coluna">在列中</string>
+    <string name="ac_vitrine">橱窗</string>
+    <string name="ac_ver_tudo">查看应用里的内容</string>
 </resources>

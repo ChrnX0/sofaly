@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">Свет, камеры и звонок</string>
     <string name="tl_painel_sub">Bluetooth, звук, Wi-Fi и таймер</string>
     <string name="tl_config_sub">Всё о лаунчере</string>
+    <string name="ac_cartoes">Карточки приложений</string>
+    <string name="ac_coluna">В столбце</string>
+    <string name="ac_vitrine">Витрина</string>
+    <string name="ac_ver_tudo">Что есть в приложении</string>
 </resources>

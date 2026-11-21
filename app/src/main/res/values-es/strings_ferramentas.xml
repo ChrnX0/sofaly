@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">Luces, cámaras y timbre</string>
     <string name="tl_painel_sub">Bluetooth, sonido, Wi-Fi y temporizador</string>
     <string name="tl_config_sub">Todo del launcher</string>
+    <string name="ac_cartoes">Tarjetas de las apps</string>
+    <string name="ac_coluna">En la columna</string>
+    <string name="ac_vitrine">Escaparate</string>
+    <string name="ac_ver_tudo">Ver lo que hay en la app</string>
 </resources>

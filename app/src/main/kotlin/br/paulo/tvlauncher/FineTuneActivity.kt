@@ -90,6 +90,12 @@ class FineTuneActivity : Activity() {
     }
 
     private fun ajustes(): List<Ajuste> = listOf(
+        // Cartões dos apps (itens 3+4, 21/11/2026): as duas propostas para o Paulo comparar vendo a tela.
+        Ajuste(R.string.ac_cartoes, { nomeCartoes(br.paulo.tvlauncher.home.AppChannels.mode(this)) }) { passo ->
+            val m = br.paulo.tvlauncher.home.AppChannels.Mode.entries
+            nomeCartoes(m[Math.floorMod(br.paulo.tvlauncher.home.AppChannels.mode(this).ordinal + passo, m.size)]
+                .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.AppChannels.KEY_MODE, it.ordinal) })
+        },
         Ajuste(R.string.fc_titulo, { FontChoice.current(this).name }) { passo -> trocarFonte(passo) },
         Ajuste(R.string.ck_formato, { nomeFormato(ClockStyle.format(this)) }) { passo ->
             nomeFormato(ClockStyle.Format.entries[Math.floorMod(ClockStyle.format(this).ordinal + passo, ClockStyle.Format.entries.size)]
@@ -174,6 +180,12 @@ class FineTuneActivity : Activity() {
         BackgroundStyle.Blur.SOFT -> R.string.cs_suave
         BackgroundStyle.Blur.STRONG -> R.string.cs_forte
     })
+    private fun nomeCartoes(k: br.paulo.tvlauncher.home.AppChannels.Mode) = getString(when (k) {
+        br.paulo.tvlauncher.home.AppChannels.Mode.OFF -> R.string.cs_sem
+        br.paulo.tvlauncher.home.AppChannels.Mode.COLUMN -> R.string.ac_coluna
+        br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE -> R.string.ac_vitrine
+    })
+
     private fun nomeTransicao(k: BackgroundStyle.Fade) = getString(when (k) {
         BackgroundStyle.Fade.CUT -> R.string.bg_corte
         BackgroundStyle.Fade.SOFT -> R.string.cs_suave

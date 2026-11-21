@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">조명, 카메라, 초인종</string>
     <string name="tl_painel_sub">블루투스, 소리, Wi-Fi, 타이머</string>
     <string name="tl_config_sub">런처의 모든 설정</string>
+    <string name="ac_cartoes">앱 카드</string>
+    <string name="ac_coluna">열에 표시</string>
+    <string name="ac_vitrine">쇼케이스</string>
+    <string name="ac_ver_tudo">앱 내용 보기</string>
 </resources>

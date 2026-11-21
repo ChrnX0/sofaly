@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">照明、カメラ、ドアベル</string>
     <string name="tl_painel_sub">Bluetooth、音、Wi-Fi、タイマー</string>
     <string name="tl_config_sub">ランチャーのすべて</string>
+    <string name="ac_cartoes">アプリのカード</string>
+    <string name="ac_coluna">列に表示</string>
+    <string name="ac_vitrine">ショーケース</string>
+    <string name="ac_ver_tudo">アプリの内容を見る</string>
 </resources>

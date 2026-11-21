@@ -8,4 +8,8 @@
     <string name="tl_casa_sub">लाइट, कैमरे और डोरबेल</string>
     <string name="tl_painel_sub">ब्लूटूथ, आवाज़, वाई-फ़ाई और टाइमर</string>
     <string name="tl_config_sub">लॉन्चर की हर सेटिंग</string>
+    <string name="ac_cartoes">ऐप कार्ड</string>
+    <string name="ac_coluna">कॉलम में</string>
+    <string name="ac_vitrine">शोकेस</string>
+    <string name="ac_ver_tudo">ऐप में क्या है देखें</string>
 </resources>
