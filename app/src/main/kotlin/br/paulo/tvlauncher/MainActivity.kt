@@ -1955,7 +1955,7 @@ class MainActivity : Activity() {
         // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
         if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)
             vitrine = br.paulo.tvlauncher.home.AppShowcase(this, fonteUi, Typeface.create(fonteUi, Typeface.BOLD)).also {
-                raiz.addView(it, FrameLayout.LayoutParams(WRAP, WRAP, Gravity.TOP or Gravity.END).apply { topMargin = dp(80); marginEnd = dp(Grade.MARGEM)   // embaixo da ilha; termina antes da linha dos mundos (~206 dp) })
+                raiz.addView(it, FrameLayout.LayoutParams(WRAP, WRAP, Gravity.TOP or Gravity.END).apply { topMargin = dp(80); marginEnd = dp(Grade.MARGEM) })   // embaixo da ilha; termina antes da linha dos mundos (~206 dp)
             }
         c.aoSom = { som, cat -> if (homeNaFrente) SonsCruz.tocar(this, som, cat) }   // voltando de um app (HOME), sem som
         c.aoSubirTopo = { repeticao ->
