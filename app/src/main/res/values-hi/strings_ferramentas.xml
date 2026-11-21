@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">टूल</string>
+    <string name="cont_mais_opcoes">और विकल्प</string>
+    <string name="tl_proximo">अगला: %1$s</string>
+    <string name="tl_clima_sub">आने वाले दिनों का मौसम</string>
+    <string name="tl_casa_sub">लाइट, कैमरे और डोरबेल</string>
+    <string name="tl_painel_sub">ब्लूटूथ, आवाज़, वाई-फ़ाई और टाइमर</string>
+    <string name="tl_config_sub">लॉन्चर की हर सेटिंग</string>
+</resources>

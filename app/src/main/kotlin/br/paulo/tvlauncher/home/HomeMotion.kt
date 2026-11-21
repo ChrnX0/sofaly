@@ -3,6 +3,11 @@ package br.paulo.tvlauncher.home
 import android.content.Intent
 import android.util.Log
 import br.paulo.tvlauncher.AddonsActivity
+import br.paulo.tvlauncher.AlarmesActivity
+import br.paulo.tvlauncher.CasaActivity
+import br.paulo.tvlauncher.ConfigLauncherActivity
+import br.paulo.tvlauncher.FineTuneActivity
+import br.paulo.tvlauncher.PainelRapidoActivity
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.FilmesActivity
 import br.paulo.tvlauncher.JogosActivity
@@ -66,7 +71,7 @@ internal fun MainActivity.arteDoItem(item: HomeCruz.Item) {
     // Plugin de fundo que pediu o foco (a arte do item vem dele): nome e pacote do item, nada mais.
     (fundo as? WallpaperPluginView)?.focar(item.nome, pacoteDoItem(item.id))
     if (capa.desligada) return
-    val id = item.id
+    val id = item.id.removePrefix(PREFIXO_CONTINUAR)   // o Continuar de cada mundo mostra a arte do que ele retoma
     when {
         id == "tv" || id == "c:tv" -> mostrarCapaAtalho(IconeApp.Tipo.TV)
         id == "series" || id == "c:serie" -> mostrarCapaAtalho(IconeApp.Tipo.SERIES)
@@ -90,11 +95,35 @@ internal fun MainActivity.arteDoItem(item: HomeCruz.Item) {
 }
 
 /** O pacote por trás de um item da cruz ("app:", "c:jogo:", "c:midia:"), ou null (atalhos nossos). */
-internal fun MainActivity.pacoteDoItem(id: String): String? = when {
+internal fun MainActivity.pacoteDoItem(id0: String): String? = id0.removePrefix(PREFIXO_CONTINUAR).let { id -> when {
     id.startsWith("app:") -> id.removePrefix("app:")
     id.startsWith("c:jogo:") -> id.removePrefix("c:jogo:")
     id.startsWith("c:midia:") -> id.removePrefix("c:midia:")
     else -> null
+} }
+
+/** Id do item "Continuar" no topo de cada mundo: este prefixo + o id do que ele retoma (não repete o id da coluna). */
+internal const val PREFIXO_CONTINUAR = "cont:"
+
+/**
+ * O "Continuar" de um mundo (Paulo, 21/11/2026: "cada categoria recebe um continuar como primeiro item"): a última coisa
+ * daquele mundo, com o nome "Continuar", o que é + o título embaixo, a barra de progresso e a mesma ação (OK continua
+ * de onde parou). Segurar OK: os outros recentes do mundo e, se o item tinha, as opções dele. null = nada recente.
+ */
+internal fun MainActivity.itemContinuar(k: CruzLogica.Categoria, lista: List<Pair<Long, HomeCruz.Item>>): HomeCruz.Item? {
+    val ordem = CruzLogica.recentes(lista, MainActivity.CONTINUAR_MAX)
+    val r = ordem.firstOrNull() ?: return null
+    val outros = ordem.drop(1)
+    val menu: (() -> Unit)? = if (outros.isEmpty() && r.opcoes == null) null else ({
+        val rotulos = outros.map { o -> listOfNotNull(o.nome, o.sub.lineSequence().firstOrNull()?.takeIf { it.isNotBlank() }).joinToString(" · ") } +
+            listOfNotNull(r.opcoes?.let { getString(R.string.cont_mais_opcoes) })
+        menuAberto = Estilo.lista(this, getString(R.string.cruz_continuar), rotulos) { i ->
+            if (i < outros.size) outros[i].abrir() else r.opcoes?.invoke()
+        }
+    })
+    return HomeCruz.Item(PREFIXO_CONTINUAR + r.id, getString(R.string.cruz_continuar), CruzLogica.linhas(r.nome, *r.sub.split("\n").toTypedArray()),
+        icCruz(PREFIXO_CONTINUAR + k.id, IconeCruz.Tipo.CONTINUAR), r.abrir, opcoes = menu, aoEscolher = r.aoEscolher,
+        progresso = r.progresso, situacao = r.situacao)
 }
 
 /**
@@ -167,11 +196,15 @@ internal fun MainActivity.atualizarCruz() {
     // O nome de cada item é O QUE ele é (TV, Série, Filme, Rádio, Podcast, Jogo, ou o app), como nas outras categorias;
     // o título vem embaixo e o resto no canto (Paulo, 19/11/2026 12:30 local: "tem q mostrar o nome do que é… eu gosto
     // de coerência"). Antes o nome era o título, cortado ("Lei e Ordem: Unid…") e sem dizer o que era.
-    val continuar = ArrayList<HomeCruz.Item>()
+    // 21/11/2026 (Paulo): o Continuar deixou de ser um mundo. Cada mundo ganha um item "Continuar" no topo com a última
+    // coisa dele (itemContinuar): TV, série, filme e apps de vídeo em Assistir; rádio, podcast e apps de música em Ouvir;
+    // o último jogo em Jogar; o último app em Aplicativos. Os itens abaixo são os mesmos de antes, só vão para o mundo certo.
+    val doMundo = HashMap<CruzLogica.Categoria, ArrayList<Pair<Long, HomeCruz.Item>>>()
+    fun guardar(k: CruzLogica.Categoria, quando: Long, item: HomeCruz.Item) { doMundo.getOrPut(k) { ArrayList() } += quando to item }
     ultimoTv?.let { u ->
-        continuar += HomeCruz.Item("c:tv", getString(R.string.home_card_tv),
+        guardar(CruzLogica.Categoria.ASSISTIR, ultimoTvEm, HomeCruz.Item("c:tv", getString(R.string.home_card_tv),
             CruzLogica.linhas(programa?.titulo, linhasTvCruz(u, programa, agora, comPrograma = false)), icCruz("c:tv", IconeCruz.Tipo.TV), { abrirTv() }, progresso = noAr,
-            situacao = situacaoTv(null, linhaAgoraTv(programa, agora, comPrograma = false)))
+            situacao = situacaoTv(null, linhaAgoraTv(programa, agora, comPrograma = false))))
     }
     val recentes = ArrayList<Pair<Long, HomeCruz.Item>>()
     if (cruzTemVod) {
@@ -204,9 +237,50 @@ internal fun MainActivity.atualizarCruz() {
             opcoes = { menuMidiaCruz(m.registro.pacote, nomeApp) },
             situacao = situacaoParou(null, MidiaRecente.progresso(m.registro), faltaMidia(m.registro), faltaMidia(m.registro), "c:midia"))
     }
-    continuar += CruzLogica.recentes(recentes, CONTINUAR_MAX - continuar.size)
-    itemDormir()?.let { continuar += it }   // onda 3: à noite, "Dormir em 30 min" no fim do Continuar
-    categoria(CruzLogica.Categoria.CONTINUAR, R.string.cruz_continuar, IconeCruz.Tipo.CONTINUAR, continuar)
+    for ((quando, item) in recentes) {
+        val id = item.id
+        val k = when {
+            id == "c:serie" || id == "c:filme" -> CruzLogica.Categoria.ASSISTIR
+            id == "c:radio" || id == "c:podcast" -> CruzLogica.Categoria.OUVIR
+            id.startsWith("c:jogo:") -> CruzLogica.Categoria.JOGAR
+            id.startsWith("c:midia:") -> id.removePrefix("c:midia:").let { p ->
+                if (CategoriaApps.destino(p, this@atualizarCruz.categoria(p), false, escolhasCat[p], catsFicha?.get(p)) == CruzLogica.Categoria.OUVIR)
+                    CruzLogica.Categoria.OUVIR else CruzLogica.Categoria.ASSISTIR }
+            else -> CruzLogica.Categoria.ASSISTIR
+        }
+        guardar(k, quando, item)
+    }
+    // Aplicativos: os apps que moram lá, pelo último uso.
+    for (id in porDestino[CruzLogica.Categoria.APLICATIVOS].orEmpty()) {
+        val em = ultimoUso[id]?.takeIf { it > 0L } ?: continue
+        val app = porPacote.getValue(id)
+        guardar(CruzLogica.Categoria.APLICATIVOS, em, HomeCruz.Item("app:$id", app.nome,
+            CruzLogica.linhas(app.nome, quando(em)?.let { getString(R.string.cruz_aberto, it) }), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) }))
+    }
+    fun comContinuar(k: CruzLogica.Categoria, itens: List<HomeCruz.Item>): List<HomeCruz.Item> =
+        itemContinuar(k, doMundo[k].orEmpty())?.let { listOf(it) + itens } ?: itens
+
+    // Ferramentas (21/11/2026, Paulo: entra no lugar do Continuar, "vamos ver o q colocar aqui"): o que a casa usa
+    // para cuidar da TV e do dia. Começa com o que já existe; a lista é dele para mudar.
+    val hora = android.text.format.DateFormat.getTimeFormat(this)
+    val ferramentas = ArrayList<HomeCruz.Item>()
+    itemDormir(sempre = true)?.let { ferramentas += it }
+    ferramentas += HomeCruz.Item("t:despertador", getString(R.string.pr_despertador),
+        runCatching { br.paulo.tvlauncher.alarm.Despertador.proximo(this) }.getOrNull()?.let { (_, em) -> getString(R.string.tl_proximo, hora.format(java.util.Date(em))) }
+            ?: getString(R.string.al_nenhum),
+        icCruz("t:despertador", IconeCruz.Tipo.DESPERTADOR), { abrirCatalogo(AlarmesActivity::class.java) })
+    ferramentas += HomeCruz.Item("t:clima", getString(R.string.cl_clima),
+        CruzLogica.linhas(txtTemp.text?.toString()?.takeIf { it.isNotBlank() && it != "…" }, getString(R.string.tl_clima_sub)),
+        icCruz("t:clima", IconeCruz.Tipo.CLIMA), { abrirPrevisao() })
+    if (br.paulo.tvlauncher.network.CasaHA.configurado(this)) ferramentas += HomeCruz.Item("t:casa", getString(R.string.casa_titulo),
+        getString(R.string.tl_casa_sub), icCruz("t:casa", IconeCruz.Tipo.CASA), { abrirCatalogo(CasaActivity::class.java) })
+    ferramentas += HomeCruz.Item("t:ajuste", getString(R.string.ft_titulo), getString(R.string.ft_abrir_det),
+        icCruz("t:ajuste", IconeCruz.Tipo.AJUSTE), { FineTuneActivity.abrir(this) })
+    ferramentas += HomeCruz.Item("t:painel", getString(R.string.aj_painel_titulo), getString(R.string.tl_painel_sub),
+        icCruz("t:painel", IconeCruz.Tipo.CONFIG), { PainelRapidoActivity.abrir(this) })
+    ferramentas += HomeCruz.Item("t:config", getString(R.string.cfg_titulo), getString(R.string.tl_config_sub),
+        icCruz("t:config", IconeCruz.Tipo.CONFIG), { abrirCatalogo(ConfigLauncherActivity::class.java) })
+    categoria(CruzLogica.Categoria.FERRAMENTAS, R.string.cruz_ferramentas, IconeCruz.Tipo.FERRAMENTAS, ferramentas)
 
     // Assistir: os cards de hoje (TV, Séries, Filmes, Na rede, Addons, plugins), cada um só se o recurso existe.
     val assistir = ArrayList<HomeCruz.Item>()
@@ -241,7 +315,7 @@ internal fun MainActivity.atualizarCruz() {
         if (p.titulo.isEmpty()) p.detalhe else listOf(p.valor, p.detalhe).filter { it.isNotEmpty() }.joinToString(" · "),
         icCruz("plugin:${p.pacote}:$i", IconeCruz.Tipo.PLUGIN), { PluginsTv.abrir(this, p) })
     assistir += appsDe(CruzLogica.Categoria.ASSISTIR)   // YouTube, Netflix… (movidos ou pelo tipo do app)
-    categoria(CruzLogica.Categoria.ASSISTIR, R.string.cruz_assistir, IconeCruz.Tipo.ASSISTIR, assistir)
+    categoria(CruzLogica.Categoria.ASSISTIR, R.string.cruz_assistir, IconeCruz.Tipo.ASSISTIR, comContinuar(CruzLogica.Categoria.ASSISTIR, assistir))
 
     // Ouvir: as rádios (catálogo mundial, sem conta) e os podcasts (plano Básico, Paulo 17/11/2026).
     val ouvir = listOf(
@@ -261,7 +335,7 @@ internal fun MainActivity.atualizarCruz() {
             catch (e: Exception) { Log.w("TvLauncher.Cruz", "podcasts não abriram: ${e.javaClass.simpleName}"); cruz?.naoAbriu() }
         }, situacao = situacaoTocando("podcast") ?: podcastCruz?.let { p ->
             situacaoParou(p.titulo, fracaoPodcast(p), faltaPodcast(p), CruzLogica.juntar(p.titulo, faltaPodcast(p)), "podcasts") })) + appsDe(CruzLogica.Categoria.OUVIR)
-    categoria(CruzLogica.Categoria.OUVIR, R.string.cruz_ouvir, IconeCruz.Tipo.OUVIR, ouvir)
+    categoria(CruzLogica.Categoria.OUVIR, R.string.cruz_ouvir, IconeCruz.Tipo.OUVIR, comContinuar(CruzLogica.Categoria.OUVIR, ouvir))
 
     // Jogar (18/11/2026, pedido do dono: "Jogos" e "Sofá" abriam a mesma tela): a Central de jogos no topo (o painel com
     // controles, turma do Discord, rede e recentes) e cada jogo instalado, do jogado por último ao mais antigo.
@@ -275,7 +349,7 @@ internal fun MainActivity.atualizarCruz() {
                 CruzLogica.linhas(subApp(p, app.nome), quando(ultimoUso[p])?.let { getString(R.string.cruz_jogado, it) }),
                 icApp(app), { abrir(p) }, opcoes = { menuAppCruz(p) })
         }
-        categoria(CruzLogica.Categoria.JOGAR, R.string.cruz_jogar, IconeCruz.Tipo.JOGAR, jogos)
+        categoria(CruzLogica.Categoria.JOGAR, R.string.cruz_jogar, IconeCruz.Tipo.JOGAR, comContinuar(CruzLogica.Categoria.JOGAR, jogos))
     }
 
     // Aplicativos: os 8 mais usados dos que moram aqui (nem movidos nem automáticos de Assistir/Ouvir) e "Todos os apps".
@@ -287,7 +361,7 @@ internal fun MainActivity.atualizarCruz() {
             HomeCruz.Item("app:$id", app.nome, linhasApp(id, app.nome), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) })
         }
     }
-    categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, apps)
+    categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, comContinuar(CruzLogica.Categoria.APLICATIVOS, apps))
 
     // Trocar ícone item a item (21/11/2026): segurar OK num item do Sofaly que não tem menu próprio troca o desenho dele
     // ou o da categoria (MainActivity.trocarIconeSofaly). Itens de app e de mídia continuam com o menu deles.

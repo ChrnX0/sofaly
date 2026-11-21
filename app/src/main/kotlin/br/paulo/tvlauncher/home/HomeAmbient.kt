@@ -140,10 +140,11 @@ internal fun MainActivity.talvezPerguntarQuemVe() {
     }
 }
 
-internal fun MainActivity.itemDormir(): HomeCruz.Item? {
+/** [sempre] = true nas Ferramentas (21/11/2026): lá o item fica o dia todo, não só à noite. */
+internal fun MainActivity.itemDormir(sempre: Boolean = false): HomeCruz.Item? {
     val marcado = Desligamento.marcado(this)
     val hora = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
-    if (!CruzOnda3.mostraDormir(CruzOnda3.ligado(this, CruzOnda3.CHAVE_DORMIR), hora, marcado != null)) return null
+    if (!sempre && !CruzOnda3.mostraDormir(CruzOnda3.ligado(this, CruzOnda3.CHAVE_DORMIR), hora, marcado != null)) return null
     val ic = icCruz("c:dormir", IconeCruz.Tipo.DORMIR)
     return if (marcado != null) HomeCruz.Item("c:dormir",
         getString(R.string.cruz_desliga_as, android.text.format.DateFormat.getTimeFormat(this).format(java.util.Date(marcado))),

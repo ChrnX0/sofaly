@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">도구</string>
+    <string name="cont_mais_opcoes">추가 옵션</string>
+    <string name="tl_proximo">다음: %1$s</string>
+    <string name="tl_clima_sub">앞으로 며칠간의 날씨</string>
+    <string name="tl_casa_sub">조명, 카메라, 초인종</string>
+    <string name="tl_painel_sub">블루투스, 소리, Wi-Fi, 타이머</string>
+    <string name="tl_config_sub">런처의 모든 설정</string>
+</resources>

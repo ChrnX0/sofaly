@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">ツール</string>
+    <string name="cont_mais_opcoes">その他のオプション</string>
+    <string name="tl_proximo">次回: %1$s</string>
+    <string name="tl_clima_sub">この先数日の天気</string>
+    <string name="tl_casa_sub">照明、カメラ、ドアベル</string>
+    <string name="tl_painel_sub">Bluetooth、音、Wi-Fi、タイマー</string>
+    <string name="tl_config_sub">ランチャーのすべて</string>
+</resources>

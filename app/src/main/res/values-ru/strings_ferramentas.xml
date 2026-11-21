@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Инструменты</string>
+    <string name="cont_mais_opcoes">Другие параметры</string>
+    <string name="tl_proximo">Следующий: %1$s</string>
+    <string name="tl_clima_sub">Прогноз на ближайшие дни</string>
+    <string name="tl_casa_sub">Свет, камеры и звонок</string>
+    <string name="tl_painel_sub">Bluetooth, звук, Wi-Fi и таймер</string>
+    <string name="tl_config_sub">Всё о лаунчере</string>
+</resources>

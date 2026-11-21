@@ -985,6 +985,7 @@ class MainActivity : Activity() {
     internal lateinit var txtAlarme: TextView          // "⏰ amanhã 6:30" na pílula do despertador
     internal lateinit var pilulaAlarme: LinearLayout
     @Volatile internal var gravandoTv: String? = null   // "Globo até 22:05" enquanto grava (Gravacoes.resumoParaHome)
+    internal var ultimoTvEm = 0L
     internal var ultimoTv: PlayerArmazem.Ultimo? = null   // último canal + programas (lido no onResume, em preencherContinuar)
     internal lateinit var txtTimer: TextView   // "4:32" na pílula do timer enquanto um timer corre (ver Timer.kt)
     internal lateinit var pilulaTimer: LinearLayout
@@ -1021,7 +1022,7 @@ class MainActivity : Activity() {
     private var ultimaTemp: Int? = null   // a temperatura mostrada no topo (para a linha "Hoje" da previsao bater com ela)
 
     /** Abre a tela da previsao (ver PrevisaoActivity.kt); leva a temperatura do topo para as duas telas baterem. */
-    private fun abrirPrevisao() {
+    internal fun abrirPrevisao() {
         startActivity(Intent(this, PrevisaoActivity::class.java)
             .putExtra(PrevisaoActivity.EXTRA_TEMP, ultimaTemp ?: Int.MIN_VALUE)
             .putExtra(PrevisaoActivity.EXTRA_CHOVENDO, ultimoChovendo)
@@ -1652,6 +1653,8 @@ class MainActivity : Activity() {
     /** O que preencherContinuar leu (TV, Séries/Filmes, último canal) chega à cruz, na thread da tela. */
     private fun desenharContinuar(temTv: Boolean, temVod: Boolean, ultimo: PlayerArmazem.Ultimo?) {
         ultimoTv = ultimo; cruzTemTv = temTv; cruzTemVod = temVod; cruzContinuarLido = true
+        // Quando a TV foi vista por último (o player regrava o ultimo.json a cada troca de canal): ordena o Continuar de Assistir.
+        ultimoTvEm = runCatching { java.io.File(java.io.File(filesDir, "player"), "ultimo.json").lastModified() }.getOrDefault(0L)
         atualizarCruz()
     }
 
