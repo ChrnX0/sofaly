@@ -42,6 +42,9 @@ class SleepingHomeTelaTest {
     private fun andar(lingua: String) {
         Forecast.dadosDeTeste = ClimaTelaTest().previsao()
         val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+        // Sem animação (o caminho "sem movimento" do app): o fio do giro, a Sofy e a troca de linha animam a cada quadro,
+        // e cada quadro com gráficos nativos custa caro; com elas ligadas o teste levou mais de 20 minutos sem acabar.
+        android.provider.Settings.Global.putFloat(a.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 0f)
         val s = SleepingHome(a)
         a.setContentView(s.montar(), FrameLayout.LayoutParams(-1, -1))
         // A previsão "chega" numa thread (Fundo.rodar), como na TV: espera a faixa ganhar as linhas.
