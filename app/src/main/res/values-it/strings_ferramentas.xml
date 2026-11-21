@@ -12,4 +12,9 @@
     <string name="ac_coluna">Nella colonna</string>
     <string name="ac_vitrine">Vetrina</string>
     <string name="ac_ver_tudo">Vedi cosa c’è nell’app</string>
+    <string name="ac_ritmo">Spaziatura della home</string>
+    <string name="rt_antes">Come prima</string>
+    <string name="rt_a">A · Compatta</string>
+    <string name="rt_b">B · Cornici</string>
+    <string name="rt_c">C · Ariosa</string>
 </resources>

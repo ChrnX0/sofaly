@@ -149,6 +149,56 @@ class CruzTelaTest {
         }
     }
 
+    /**
+     * Espaçamento da cruz (21/11/2026): a mesma cruz nova (Ferramentas · Assistir · Ouvir · Jogar · Aplicativos) em cada
+     * [br.paulo.tvlauncher.home.CrossRhythm], para o Paulo comparar lado a lado (app/build/telas/ritmo-*.png).
+     */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun ritmos() {
+        try {
+            for (r in br.paulo.tvlauncher.home.CrossRhythm.entries) {
+                br.paulo.tvlauncher.home.CrossRhythm.atual = r
+                InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
+                saida.mkdirs()
+                val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+                val raiz = FrameLayout(a).apply { setBackgroundColor(Estilo.FUNDO) }
+                a.setContentView(raiz)
+                val cruz = HomeCruz(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
+                raiz.addView(cruz, FrameLayout.LayoutParams(-1, -1))
+                fun ic(t: IconeCruz.Tipo) = IconeCruz(t, IconeCruz.Estilo.VINTAGE2)
+                fun it(id: String, n: String, sub: String, t: IconeCruz.Tipo, visto: Float? = null) =
+                    HomeCruz.Item(id, n, sub, ic(t), {}, progresso = visto)
+                cruz.definir(listOf(
+                    HomeCruz.Categoria(CruzLogica.Categoria.FERRAMENTAS, "Ferramentas", ic(IconeCruz.Tipo.FERRAMENTAS), listOf(
+                        it("dormir", "Dormir em 30 min", "A tela escurece devagar e a TV desliga", IconeCruz.Tipo.DORMIR),
+                        it("t:despertador", "Alarme", "Próximo: seg 07:00", IconeCruz.Tipo.DESPERTADOR),
+                        it("t:clima", "Clima", "30° · previsão de 7 dias", IconeCruz.Tipo.CLIMA),
+                        it("t:casa", "Casa", "Luzes e câmeras", IconeCruz.Tipo.CASA),
+                        it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.ASSISTIR, "Assistir", ic(IconeCruz.Tipo.ASSISTIR), listOf(
+                        it("cont:yt", "Continuar", "YouTube · Vini Jr tá de volta", IconeCruz.Tipo.CONTINUAR, visto = 0.58f),
+                        it("tv", "TV", "Canal 156 · Discovery", IconeCruz.Tipo.TV),
+                        it("series", "Séries", "O Último Farol", IconeCruz.Tipo.SERIES),
+                        it("filmes", "Filmes", "Maré Alta", IconeCruz.Tipo.FILMES))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.OUVIR, "Ouvir", ic(IconeCruz.Tipo.OUVIR), listOf(
+                        it("radio", "Rádio", "Rádios do mundo inteiro", IconeCruz.Tipo.RADIO))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.JOGAR, "Jogar", ic(IconeCruz.Tipo.JOGAR), listOf(
+                        it("central", "Central de jogos", "Geral", IconeCruz.Tipo.CENTRAL))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.APLICATIVOS, "Aplicativos", ic(IconeCruz.Tipo.APLICATIVOS), listOf(
+                        it(CruzLogica.ID_TODOS_APPS, "Todos os apps", "Ver, mover e esconder", IconeCruz.Tipo.TODOS_APPS))),
+                ))
+                cruz.requestFocus()
+                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-1-ferramentas")
+                cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_RIGHT)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_RIGHT))
+                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                assertEquals(CruzLogica.Categoria.ASSISTIR, cruz.categoriaAtual()?.cat)
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-2-assistir")
+                a.finish()
+            }
+        } finally { br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.BEFORE }
+    }
+
     private fun conferir(estilo: IconeCruz.Estilo, nome: String) {
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
         saida.mkdirs()

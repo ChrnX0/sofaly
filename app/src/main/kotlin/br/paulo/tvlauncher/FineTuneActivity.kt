@@ -90,6 +90,12 @@ class FineTuneActivity : Activity() {
     }
 
     private fun ajustes(): List<Ajuste> = listOf(
+        // Espaçamento da cruz (21/11/2026): as 3 propostas de ritmo e o de antes, para o Paulo comparar na TV.
+        Ajuste(R.string.ac_ritmo, { nomeRitmo(br.paulo.tvlauncher.home.CrossRhythm.ler(this)) }) { passo ->
+            val r = br.paulo.tvlauncher.home.CrossRhythm.entries
+            nomeRitmo(r[Math.floorMod(br.paulo.tvlauncher.home.CrossRhythm.ler(this).ordinal + passo, r.size)]
+                .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.CrossRhythm.KEY, it.ordinal) })
+        },
         // Cartões dos apps (itens 3+4, 21/11/2026): as duas propostas para o Paulo comparar vendo a tela.
         Ajuste(R.string.ac_cartoes, { nomeCartoes(br.paulo.tvlauncher.home.AppChannels.mode(this)) }) { passo ->
             val m = br.paulo.tvlauncher.home.AppChannels.Mode.entries
@@ -272,4 +278,11 @@ class FineTuneActivity : Activity() {
             CardStyle.Size.LARGE -> R.string.cs_maior
         })
     }
+
+    private fun nomeRitmo(r: br.paulo.tvlauncher.home.CrossRhythm) = getString(when (r) {
+        br.paulo.tvlauncher.home.CrossRhythm.BEFORE -> R.string.rt_antes
+        br.paulo.tvlauncher.home.CrossRhythm.TIGHT -> R.string.rt_a
+        br.paulo.tvlauncher.home.CrossRhythm.FRAMED -> R.string.rt_b
+        br.paulo.tvlauncher.home.CrossRhythm.AIRY -> R.string.rt_c
+    })
 }

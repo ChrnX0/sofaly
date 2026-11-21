@@ -12,4 +12,9 @@
     <string name="ac_coluna">In der Spalte</string>
     <string name="ac_vitrine">Schaufenster</string>
     <string name="ac_ver_tudo">Inhalte der App ansehen</string>
+    <string name="ac_ritmo">Abstände der Startseite</string>
+    <string name="rt_antes">Wie vorher</string>
+    <string name="rt_a">A · Enger</string>
+    <string name="rt_b">B · Rahmen</string>
+    <string name="rt_c">C · Luftig</string>
 </resources>

@@ -65,29 +65,29 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
     companion object {
         // Geometria da HomeCruz (dp numa tela de 960 x 540): o mesmo lugar da linha, da coluna e das prateleiras.
-        private const val LINHA = HomeCruz.LINHA
-        private const val COLUNA = HomeCruz.COLUNA
-        private const val CAPA = HomeCruz.ICONE_A          // capa quadrada de 94 dp no item escolhido
-        private const val CAT = HomeCruz.CAT_A             // ícone da prateleira na linha (70 dp)
-        private const val ESCALA_PEQUENO = HomeCruz.ESCALA_PEQUENO
-        private const val PASSO_COLUNA = HomeCruz.PASSO_COLUNA
-        private const val VAO_ESCOLHIDO = HomeCruz.VAO_ESCOLHIDO
-        private const val VAO_CIMA = HomeCruz.VAO_CIMA
-        private const val CAT_ESQUERDA = HomeCruz.CAT_ESQUERDA
-        private const val CAT_DIREITA = HomeCruz.CAT_DIREITA
-        private const val PASSO_CATS = HomeCruz.PASSO_CATS
-        private const val ROTULO_Y = HomeCruz.ROTULO_Y
+        private val LINHA get() = HomeCruz.LINHA
+        private val COLUNA get() = HomeCruz.COLUNA
+        private val CAPA get() = HomeCruz.ICONE_A          // capa quadrada de 94 dp no item escolhido
+        private val CAT get() = HomeCruz.CAT_A             // ícone da prateleira na linha (70 dp)
+        private val ESCALA_PEQUENO get() = HomeCruz.ESCALA_PEQUENO
+        private val PASSO_COLUNA get() = HomeCruz.PASSO_COLUNA
+        private val VAO_ESCOLHIDO get() = HomeCruz.VAO_ESCOLHIDO
+        private val VAO_CIMA get() = HomeCruz.VAO_CIMA
+        private val CAT_ESQUERDA get() = HomeCruz.CAT_ESQUERDA
+        private val CAT_DIREITA get() = HomeCruz.CAT_DIREITA
+        private val PASSO_CATS get() = HomeCruz.PASSO_CATS
+        private val ROTULO_Y get() = HomeCruz.ROTULO_Y
         private const val ROTULO_VAO = 40f   // do topo do item escolhido ao topo do nome da prateleira, quando nada há acima
-        private const val TEXTO_MAX = HomeCruz.TEXTO_MAX
-        private const val SUB_LINHAS = HomeCruz.SUB_LINHAS
-        private const val SUB_SOBRA = HomeCruz.SUB_SOBRA
-        private const val TELA_L = HomeCruz.TELA_L
-        private const val PONTO = HomeCruz.PONTO
-        private const val LARGURA_ITEM = HomeCruz.LARGURA_ITEM
+        private val TEXTO_MAX get() = HomeCruz.TEXTO_MAX
+        private val SUB_LINHAS get() = HomeCruz.SUB_LINHAS
+        private val SUB_SOBRA get() = HomeCruz.SUB_SOBRA
+        private val TELA_L get() = HomeCruz.TELA_L
+        private val PONTO get() = HomeCruz.PONTO
+        private val LARGURA_ITEM get() = HomeCruz.LARGURA_ITEM
         /** O nome do escolhido em até 2 linhas, e a sobra embaixo para a 2ª (dp). */
         const val NOME_LINHAS = 2
         /** Largura do nome de uma prateleira de lado: o vão entre dois ícones vizinhos, menos uma folga. */
-        val ROTULO_CAT = (PASSO_CATS - 8).toInt()
+        val ROTULO_CAT get() = (PASSO_CATS - 8).toInt()
         const val NOME_SOBRA = 44
         private val ALFA_COLUNA get() = HomeCruz.ALFA_COLUNA
 

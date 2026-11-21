@@ -12,4 +12,9 @@
     <string name="ac_coluna">W kolumnie</string>
     <string name="ac_vitrine">Witryna</string>
     <string name="ac_ver_tudo">Zobacz, co jest w aplikacji</string>
+    <string name="ac_ritmo">Odstępy ekranu głównego</string>
+    <string name="rt_antes">Jak wcześniej</string>
+    <string name="rt_a">A · Ciaśniej</string>
+    <string name="rt_b">B · Ramki</string>
+    <string name="rt_c">C · Przestronnie</string>
 </resources>

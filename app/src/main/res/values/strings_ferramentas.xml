@@ -12,4 +12,9 @@
     <string name="ac_coluna">In the column</string>
     <string name="ac_vitrine">Showcase</string>
     <string name="ac_ver_tudo">See what is in the app</string>
+    <string name="ac_ritmo">Home spacing</string>
+    <string name="rt_antes">As before</string>
+    <string name="rt_a">A · Tighter</string>
+    <string name="rt_b">B · Frames</string>
+    <string name="rt_c">C · Airy</string>
 </resources>

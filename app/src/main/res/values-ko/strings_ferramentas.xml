@@ -12,4 +12,9 @@
     <string name="ac_coluna">열에 표시</string>
     <string name="ac_vitrine">쇼케이스</string>
     <string name="ac_ver_tudo">앱 내용 보기</string>
+    <string name="ac_ritmo">홈 간격</string>
+    <string name="rt_antes">이전처럼</string>
+    <string name="rt_a">A · 촘촘하게</string>
+    <string name="rt_b">B · 프레임</string>
+    <string name="rt_c">C · 여유롭게</string>
 </resources>

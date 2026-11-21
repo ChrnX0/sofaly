@@ -12,4 +12,9 @@
     <string name="ac_coluna">Dans la colonne</string>
     <string name="ac_vitrine">Vitrine</string>
     <string name="ac_ver_tudo">Voir ce que contient l’appli</string>
+    <string name="ac_ritmo">Espacement de l\'accueil</string>
+    <string name="rt_antes">Comme avant</string>
+    <string name="rt_a">A · Resserré</string>
+    <string name="rt_b">B · Cadres</string>
+    <string name="rt_c">C · Aéré</string>
 </resources>

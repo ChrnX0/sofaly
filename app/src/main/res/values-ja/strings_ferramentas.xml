@@ -12,4 +12,9 @@
     <string name="ac_coluna">列に表示</string>
     <string name="ac_vitrine">ショーケース</string>
     <string name="ac_ver_tudo">アプリの内容を見る</string>
+    <string name="ac_ritmo">ホームの間隔</string>
+    <string name="rt_antes">以前のまま</string>
+    <string name="rt_a">A · 詰める</string>
+    <string name="rt_b">B · フレーム</string>
+    <string name="rt_c">C · ゆったり</string>
 </resources>

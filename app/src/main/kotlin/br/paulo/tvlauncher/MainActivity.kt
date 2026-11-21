@@ -411,7 +411,7 @@ class MainActivity : Activity() {
         "${AltoContraste.ligado(this)}|${TamanhoTexto.atual(this)}|${PacoteIcones.versao(this)}|${LayoutHome.iconesTrocados(this)}|" +
         "${br.paulo.tvlauncher.settings.FontChoice.currentId(this)}|${br.paulo.tvlauncher.settings.ClockStyle.format(this)}|${br.paulo.tvlauncher.settings.ClockStyle.color(this)}|" +
         "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
-        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}"   // ajuste fino (21/11/2026)
+        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}"   // ajuste fino (21/11/2026)
 
     override fun onResume() {
         super.onResume()
@@ -1938,6 +1938,7 @@ class MainActivity : Activity() {
 
     private fun montarCruz(raiz: FrameLayout) {
         val prefs = getSharedPreferences(PREFS_CRUZ, MODE_PRIVATE)
+        br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.ler(this)   // espaçamento escolhido
         val c = HomeCruz(this, fonteUi, Typeface.create(fonteUi, Typeface.BOLD))
         c.lembrados = CruzLogica.Categoria.entries.mapNotNull { k -> prefs.getString(k.id, null)?.let { k.id to it } }.toMap()
         // HOME refeita pelo Android (memória para um app grande) até 6 h depois de abrir algo: volta naquele item.

@@ -12,4 +12,9 @@
     <string name="ac_coluna">En la columna</string>
     <string name="ac_vitrine">Escaparate</string>
     <string name="ac_ver_tudo">Ver lo que hay en la app</string>
+    <string name="ac_ritmo">Espaciado del inicio</string>
+    <string name="rt_antes">Como antes</string>
+    <string name="rt_a">A · Ajustado</string>
+    <string name="rt_b">B · Marcos</string>
+    <string name="rt_c">C · Aire</string>
 </resources>

@@ -12,4 +12,9 @@
     <string name="ac_coluna">في العمود</string>
     <string name="ac_vitrine">واجهة العرض</string>
     <string name="ac_ver_tudo">عرض محتوى التطبيق</string>
+    <string name="ac_ritmo">تباعد الشاشة الرئيسية</string>
+    <string name="rt_antes">كما كان</string>
+    <string name="rt_a">A · أضيق</string>
+    <string name="rt_b">B · إطارات</string>
+    <string name="rt_c">C · فسيح</string>
 </resources>

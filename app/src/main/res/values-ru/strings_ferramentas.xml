@@ -12,4 +12,9 @@
     <string name="ac_coluna">В столбце</string>
     <string name="ac_vitrine">Витрина</string>
     <string name="ac_ver_tudo">Что есть в приложении</string>
+    <string name="ac_ritmo">Отступы главного экрана</string>
+    <string name="rt_antes">Как было</string>
+    <string name="rt_a">A · Плотнее</string>
+    <string name="rt_b">B · Рамки</string>
+    <string name="rt_c">C · Просторно</string>
 </resources>

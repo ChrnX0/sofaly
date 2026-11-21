@@ -12,4 +12,9 @@
     <string name="ac_coluna">在列中</string>
     <string name="ac_vitrine">橱窗</string>
     <string name="ac_ver_tudo">查看应用里的内容</string>
+    <string name="ac_ritmo">主屏幕间距</string>
+    <string name="rt_antes">保持原样</string>
+    <string name="rt_a">A · 紧凑</string>
+    <string name="rt_b">B · 边框</string>
+    <string name="rt_c">C · 宽松</string>
 </resources>

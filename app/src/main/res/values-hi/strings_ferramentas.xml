@@ -12,4 +12,9 @@
     <string name="ac_coluna">कॉलम में</string>
     <string name="ac_vitrine">शोकेस</string>
     <string name="ac_ver_tudo">ऐप में क्या है देखें</string>
+    <string name="ac_ritmo">होम की दूरी</string>
+    <string name="rt_antes">पहले जैसा</string>
+    <string name="rt_a">A · कसा हुआ</string>
+    <string name="rt_b">B · फ़्रेम</string>
+    <string name="rt_c">C · खुला</string>
 </resources>
