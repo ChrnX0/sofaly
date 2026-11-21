@@ -165,7 +165,7 @@ class CruzTelaTest {
                 a.setContentView(raiz)
                 val cruz = HomeCruz(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
                 raiz.addView(cruz, FrameLayout.LayoutParams(-1, -1))
-                fun ic(t: IconeCruz.Tipo) = IconeCruz(t, IconeCruz.Estilo.VINTAGE2)
+                fun ic(t: IconeCruz.Tipo) = IconeCruz(t, IconeCruz.Estilo.OBJETO)   // o conjunto da Sala
                 fun it(id: String, n: String, sub: String, t: IconeCruz.Tipo, visto: Float? = null) =
                     HomeCruz.Item(id, n, sub, ic(t), {}, progresso = visto)
                 cruz.definir(listOf(

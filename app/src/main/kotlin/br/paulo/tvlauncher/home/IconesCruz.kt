@@ -204,13 +204,79 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.SOFA -> sofa(c)
             Tipo.APLICATIVOS, Tipo.TODOS_APPS -> quadradinhos(c)
             Tipo.DORMIR -> lua(c)
-            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG -> {
-                // Sem objeto desenhado ainda: o traço da Linha, grande, na cor do item (quadro 24 dentro do 120 x 100).
-                c.save(); c.translate(10f, 0f); c.scale(100f / 24f, 100f / 24f)
-                corTraco = corLinha(tipo); ferramenta(c, 1.6f); c.restore()
-            }
+            // Ferramentas (21/11/2026): objetos cheios como os dos mundos (na Sala o traço fino destoava da TV e do controle).
+            Tipo.FERRAMENTAS -> caixaFerramentas(c)
+            Tipo.DESPERTADOR -> despertador(c)
+            Tipo.CASA -> casa(c)
+            Tipo.CLIMA -> solNuvem(c)
+            Tipo.AJUSTE -> controles(c)
+            Tipo.CONFIG -> engrenagem(c)
         }
         cheio.shader = null; cheio.alpha = 255
+    }
+
+    private fun caixaFerramentas(c: Canvas) {
+        // chave inglesa laranja cruzada com uma chave de fenda
+        c.save(); c.rotate(-40f, 60f, 52f)
+        vert(0xFF9AA3B5, 0xFF5B6272, 14f, 90f); rr(c, 54f, 30f, 12f, 62f, 5f)          // cabo da fenda
+        solido(0xFF2E3340); rr(c, 57f, 8f, 6f, 26f, 2f)
+        c.restore()
+        c.save(); c.rotate(40f, 60f, 52f)
+        vert(0xFFFFA36B, 0xFFE0581F, 10f, 92f); rr(c, 53f, 34f, 14f, 58f, 7f)           // cabo da chave
+        c.drawCircle(60f, 26f, 17f, cheio)
+        solido(0xFF141821); rr(c, 54f, 6f, 12f, 22f, 3f)                               // boca
+        solido(0xFFFFFFFF, .18f); rr(c, 55f, 38f, 4f, 48f, 2f)
+        c.restore()
+    }
+
+    private fun despertador(c: Canvas) {
+        linha(c, 0xFF8A6A3A, 5f, 36f, 86f, 30f, 94f, 84f, 86f, 90f, 94f)                    // pés
+        vert(0xFFFFD27A, 0xFFE09A2E, 6f, 30f)
+        c.drawArc(r.apply { set(16f, 8f, 46f, 38f) }, 180f, 180f, true, cheio)          // sinos
+        c.drawArc(r.apply { set(74f, 8f, 104f, 38f) }, 180f, 180f, true, cheio)
+        vert(0xFFFFC15E, 0xFFD2721F, 16f, 92f); c.drawCircle(60f, 56f, 36f, cheio)        // corpo
+        solido(0xFFFFF6E6); c.drawCircle(60f, 56f, 28f, cheio)                           // mostrador
+        linha(c, 0xFF2E2A26, 4.5f, 60f, 56f, 60f, 38f)
+        linha(c, LARANJA, 4f, 60f, 56f, 73f, 63f)
+        solido(0xFF2E2A26); c.drawCircle(60f, 56f, 4f, cheio)
+    }
+
+    private fun casa(c: Canvas) {
+        vert(0xFFFFF1DE, 0xFFE9CFAE, 44f, 92f); rr(c, 24f, 44f, 72f, 48f, 6f)           // paredes
+        vert(0xFFFF8A4C, 0xFFD04F16, 8f, 52f)
+        p.reset(); p.moveTo(60f, 8f); p.lineTo(110f, 50f); p.lineTo(100f, 56f); p.lineTo(60f, 22f); p.lineTo(20f, 56f); p.lineTo(10f, 50f); p.close()
+        c.drawPath(p, cheio)                                                              // telhado
+        solido(0xFF9A4A22); rr(c, 80f, 16f, 10f, 22f, 2f)                                 // chaminé
+        vert(0xFF6B4630, 0xFF4A2E1E, 62f, 92f); rr(c, 50f, 62f, 20f, 30f, 4f)           // porta
+        solido(0xFFFFD166); rr(c, 30f, 56f, 14f, 14f, 3f); rr(c, 76f, 56f, 14f, 14f, 3f) // janelas acesas
+    }
+
+    private fun solNuvem(c: Canvas) {
+        solido(0xFFFFC94A); for (k in 0 until 8) { c.save(); c.rotate(k * 45f, 46f, 40f); rr(c, 43f, 6f, 6f, 12f, 3f); c.restore() }
+        vert(0xFFFFE07A, 0xFFF39A2B, 18f, 62f); c.drawCircle(46f, 40f, 21f, cheio)        // sol
+        vert(0xFFFFFFFF, 0xFFC9D6E6, 46f, 92f)
+        c.drawCircle(58f, 66f, 20f, cheio); c.drawCircle(82f, 60f, 22f, cheio); c.drawCircle(100f, 74f, 15f, cheio)
+        rr(c, 40f, 66f, 72f, 26f, 13f)                                                    // nuvem
+    }
+
+    private fun controles(c: Canvas) {
+        vert(0xFF4A5060, 0xFF22252E, 10f, 92f); rr(c, 10f, 10f, 100f, 82f, 14f)          // placa
+        solido(0xFFFFFFFF, .08f); rr(c, 10f, 10f, 100f, 24f, 12f)
+        val ys = floatArrayOf(30f, 51f, 72f); val xs = floatArrayOf(72f, 40f, 84f)
+        for (i in 0..2) {
+            solido(0xFF14161C); rr(c, 24f, ys[i] - 3f, 72f, 6f, 3f)
+            solido(LARANJA); rr(c, 24f, ys[i] - 3f, xs[i] - 24f, 6f, 3f)
+            vert(0xFFFFFFFF, 0xFFD8DCE4, ys[i] - 8f, ys[i] + 8f); c.drawCircle(xs[i], ys[i], 8f, cheio)
+        }
+    }
+
+    private fun engrenagem(c: Canvas) {
+        vert(0xFFC9CED8, 0xFF6E7585, 8f, 94f)
+        for (k in 0 until 8) { c.save(); c.rotate(k * 45f, 60f, 51f); rr(c, 52f, 6f, 16f, 18f, 4f); c.restore() }
+        c.drawCircle(60f, 51f, 34f, cheio)
+        solido(0xFFFFFFFF, .18f); c.drawCircle(60f, 45f, 26f, cheio)
+        vert(0xFFFF9A5C, 0xFFD9561C, 37f, 65f); c.drawCircle(60f, 51f, 14f, cheio)
+        solido(0xFF1C1F26); c.drawCircle(60f, 51f, 6f, cheio)
     }
 
     private fun tv(c: Canvas) {
