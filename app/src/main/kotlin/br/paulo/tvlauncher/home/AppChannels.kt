@@ -34,7 +34,8 @@ import br.paulo.tvlauncher.settings.Extras
 object AppChannels {
     const val KEY_MODE = "app_rows"
     enum class Mode { OFF, COLUMN, SHOWCASE }
-    fun mode(ctx: Context) = Mode.entries.getOrElse(Extras.numero(ctx, KEY_MODE, Mode.SHOWCASE.ordinal)) { Mode.SHOWCASE }
+    // Padrão DESLIGADO (21/11, Paulo viu a vitrine na Sala: "poluiu"). A e B seguem no Ajuste fino para quem quiser.
+    fun mode(ctx: Context) = Mode.entries.getOrElse(Extras.numero(ctx, KEY_MODE, Mode.OFF.ordinal)) { Mode.OFF }
 
     const val MAX_NA_COLUNA = 6
     const val MAX_VITRINE = 3
