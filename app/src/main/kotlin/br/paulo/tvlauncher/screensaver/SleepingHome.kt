@@ -173,7 +173,7 @@ class SleepingHome(private val ctx: Context) {
                 addView(fio, FrameLayout.LayoutParams(-1, -1))
             }, LinearLayout.LayoutParams(-1, dp(1)).apply { bottomMargin = dp(12) })
         }
-        faixa.addView(janela, LinearLayout.LayoutParams(-1, dp(78)))
+        faixa.addView(janela, LinearLayout.LayoutParams(-1, dp(92)))   // 3 linhas (nome, valor, detalhe) com folga para a sombra
         coluna.addView(faixa, LinearLayout.LayoutParams(-1, -2))
         camadaInfo.addView(coluna, FrameLayout.LayoutParams(-1, -1))
         raiz.addView(camadaInfo, FrameLayout.LayoutParams(-1, -1))
@@ -412,7 +412,7 @@ class SleepingHome(private val ctx: Context) {
         val antes = linhas[atual].view
         atual = girar(atual, passoFaixa, linhas.size)
         val depois = linhas[atual].view
-        val h = janela.height.toFloat().coerceAtLeast(dp(78).toFloat())
+        val h = janela.height.toFloat().coerceAtLeast(dp(92).toFloat())
         if (semMovimento()) {
             antes.visibility = View.INVISIBLE; depois.visibility = View.VISIBLE; depois.translationY = 0f; depois.alpha = 1f
         } else {
