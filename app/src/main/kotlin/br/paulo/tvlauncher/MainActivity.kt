@@ -70,6 +70,7 @@ import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.home.abrirCongelado
 import br.paulo.tvlauncher.home.aplicarIlha
 import br.paulo.tvlauncher.home.arteDoItem
+import br.paulo.tvlauncher.home.vitrineDoItem
 import br.paulo.tvlauncher.home.atualizarCruz
 import br.paulo.tvlauncher.home.atualizarIlha
 import br.paulo.tvlauncher.home.bannerTodos

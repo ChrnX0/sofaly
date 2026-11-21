@@ -390,8 +390,8 @@ internal fun MainActivity.atualizarCruz() {
             val ic = item.icone as? IconeCruz
             if (item.opcoes != null || ic == null) item else item.comOpcoes { trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) }
         })
-    c.itemAtual()?.let { vitrineDoItem(it) }   // os cartões chegam depois do 1º desenho: a vitrine se acerta
     })
+    c.itemAtual()?.let { vitrineDoItem(it) }   // os cartões chegam depois do 1º desenho: a vitrine se acerta
     if (focoInicialNaTv && !todosAbertos) { focoInicialNaTv = false; c.requestFocus() }
     else if (currentFocus == null && !todosAbertos) c.requestFocus()
 }
