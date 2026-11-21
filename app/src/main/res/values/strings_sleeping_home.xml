@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Hours</string>
+    <string name="sh_dias">Days</string>
+    <string name="sh_dicas">Tips</string>
+    <string name="sh_ar">Air</string>
+    <string name="sh_orvalho">dew point %1$d°</string>
+    <string name="sh_nuvens">Clouds</string>
+    <string name="sh_nascer">Sunrise</string>
+    <string name="sh_por">Sunset</string>
+    <string name="sh_duracao">Day length</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Golden hour</string>
+    <string name="sh_fase">Phase</string>
+    <string name="sh_iluminada">%1$s lit</string>
+    <string name="sh_cheia">Full moon</string>
+    <string name="sh_nova">New moon</string>
+    <string name="sh_em_dias">in %1$d d</string>
+    <string name="sh_rodar">Rotate the bottom strip</string>
+    <string name="sh_rodar_det">While resting, the bottom strip changes by itself. ↑ and ↓ change it right away.</string>
+    <string name="sh_rodar_desl">Off</string>
+    <string name="sh_rodar_s">Every %1$d s</string>
+    <string name="sh_rodar_min">Every 1 min</string>
+    <string name="sh_vidro">Glass behind the bottom strip</string>
+    <string name="sh_vidro_det">A glass panel behind the strip. Off: just a thin line.</string>
+</resources>

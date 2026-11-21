@@ -42,7 +42,7 @@ class ClimaTelaTest {
     @After fun limpar() { PrevisaoActivity.dadosDeTeste = null }
 
     /** Sábado 11h, 27°, chuva forte entre 15h e 17h, sol forte ao meio-dia: frase "chuva por volta das 15h". */
-    private fun previsao(): JSONObject {
+    internal fun previsao(): JSONObject {
         fun arr(n: Int, f: (Int) -> Any) = JSONArray().apply { (0 until n).forEach { put(f(it)) } }
         val horas = 72
         fun hh(i: Int) = i % 24

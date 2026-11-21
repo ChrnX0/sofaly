@@ -7,11 +7,10 @@ import android.os.Handler
 import android.os.Looper
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
-import br.paulo.tvlauncher.screensaver.ProtetorGaleria
 
 /**
  * As notificações que valem mostrar no protetor de tela (10/11/2026, dono: "sinto falta de notificações ali").
- * Quem enche a lista é o [OuvinteNotificacoes]; quem lê é o [ProtetorGaleria]. Só memória: nada vai para disco.
+ * Quem enche a lista é o [OuvinteNotificacoes]; quem lia era o protetor antigo (ProtetorGaleria, aposentado em 21/11/2026). Só memória: nada vai para disco.
  *
  * Filtro (medido na Sala em 10/11/2026, a maior parte do que o sistema mantém é ruído):
  * - fora: notificações fixas (mídia tocando, "Depuração por Wi-Fi conectada", serviços em primeiro plano), resumos de

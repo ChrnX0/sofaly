@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">الساعات</string>
+    <string name="sh_dias">الأيام</string>
+    <string name="sh_dicas">نصائح</string>
+    <string name="sh_ar">الهواء</string>
+    <string name="sh_orvalho">نقطة الندى %1$d°</string>
+    <string name="sh_nuvens">الغيوم</string>
+    <string name="sh_nascer">الشروق</string>
+    <string name="sh_por">الغروب</string>
+    <string name="sh_duracao">طول النهار</string>
+    <string name="sh_horas_min">%1$d س %2$02d د</string>
+    <string name="sh_dourada">الساعة الذهبية</string>
+    <string name="sh_fase">الطور</string>
+    <string name="sh_iluminada">مضاء %1$s</string>
+    <string name="sh_cheia">بدر</string>
+    <string name="sh_nova">محاق</string>
+    <string name="sh_em_dias">بعد %1$d ي</string>
+    <string name="sh_rodar">تدوير الشريط السفلي</string>
+    <string name="sh_rodar_det">أثناء الاستراحة يتغير الشريط السفلي وحده. ↑ و↓ يغيّرانه فورًا.</string>
+    <string name="sh_rodar_desl">متوقف</string>
+    <string name="sh_rodar_s">كل %1$d ث</string>
+    <string name="sh_rodar_min">كل دقيقة</string>
+    <string name="sh_vidro">زجاج خلف الشريط السفلي</string>
+    <string name="sh_vidro_det">لوح زجاجي خلف الشريط. عند الإيقاف: خط رفيع فقط.</string>
+</resources>

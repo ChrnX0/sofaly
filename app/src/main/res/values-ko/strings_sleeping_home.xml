@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">시간</string>
+    <string name="sh_dias">일</string>
+    <string name="sh_dicas">팁</string>
+    <string name="sh_ar">공기</string>
+    <string name="sh_orvalho">이슬점 %1$d°</string>
+    <string name="sh_nuvens">구름</string>
+    <string name="sh_nascer">일출</string>
+    <string name="sh_por">일몰</string>
+    <string name="sh_duracao">낮 길이</string>
+    <string name="sh_horas_min">%1$d시간 %2$02d분</string>
+    <string name="sh_dourada">골든 아워</string>
+    <string name="sh_fase">위상</string>
+    <string name="sh_iluminada">%1$s 밝음</string>
+    <string name="sh_cheia">보름달</string>
+    <string name="sh_nova">신월</string>
+    <string name="sh_em_dias">%1$d일 후</string>
+    <string name="sh_rodar">아래 줄 자동 넘기기</string>
+    <string name="sh_rodar_det">쉬는 동안 아래 줄이 저절로 바뀝니다. ↑와 ↓로 바로 바꿉니다.</string>
+    <string name="sh_rodar_desl">끔</string>
+    <string name="sh_rodar_s">%1$d초마다</string>
+    <string name="sh_rodar_min">1분마다</string>
+    <string name="sh_vidro">아래 줄 뒤 유리</string>
+    <string name="sh_vidro_det">줄 뒤의 유리 패널. 끔: 가는 선만.</string>
+</resources>

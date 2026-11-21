@@ -3,11 +3,14 @@ package br.paulo.tvlauncher.screensaver
 import android.content.Context
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.alarm.HoraPorExtenso
-import br.paulo.tvlauncher.home.FundoTerra
 
 /**
+ * ATENÇÃO (21/11/2026): o protetor virou a home que adormece ([SleepingHome]); o fundo é sempre o do tema e as escolhas
+ * de relógio, posição, widgets e elementos abaixo não são mais lidas pela tela. Ficam porque o painel web e
+ * [br.paulo.tvlauncher.player.LinhasTempo] ainda as usam; saem quando o painel deixar de mostrá-las.
+ *
  * Estilo do nosso protetor de tela (10/11/2026). "galeria" (padrão): a pintura do dia do tema Galeria com hora, data,
- * clima, céu e avisos por cima ([ProtetorGaleria]). "classico": o protetor de 03/11 (relógio com degradê e 4 quadrados).
+ * clima, céu e avisos por cima (ProtetorGaleria, aposentado). "classico": o protetor de 03/11 (relógio com degradê e 4 quadrados).
  * Gravado nas prefs "launcher", que entram no backup.
  */
 object Protetor {
@@ -73,12 +76,7 @@ object Protetor {
         fun gravar(ctx: Context, v: String) { prefs(ctx).edit().putString(chave, normalizar(v)).apply() }
     }
 
-    /** O fundo: o do TEMA (pintura do The Met, wallpaper Escuro ou Céu de verdade) ou as fotos da Terra da NASA ([FundoTerra]). */
-    const val FUNDO_TEMA = "tema"
-    const val FUNDO_TERRA = "terra"
-    val FUNDO = Escolha("protetor_fundo", listOf(FUNDO_TEMA, FUNDO_TERRA))
-
-    /** O relógio ([RelogioProtetor]). "fino" é o de antes (hora cheia forte, minuto fino). "extenso" só em português. */
+    /** O relógio (RelogioProtetor, aposentado). "fino" é o de antes (hora cheia forte, minuto fino). "extenso" só em português. */
     const val REL_FINO = "fino"
     const val REL_EDITORIAL = "editorial"
     const val REL_MONUMENTAL = "monumental"

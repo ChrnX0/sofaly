@@ -40,7 +40,7 @@ import br.paulo.tvlauncher.weather.AvisoRegras
 object AvisoTv {
     private const val TAG = "TvLauncher.Aviso"
     private const val PREFS = "aviso_tv"
-    /** Último aviso mostrado (lido pelo ProtetorGaleria). Fora do backup: é passageiro. */
+    /** Último aviso mostrado (lido pelo protetor antigo, aposentado em 21/11/2026). Fora do backup: é passageiro. */
     const val PREFS_ULTIMO = "aviso_tv_ultimo"
     private const val SOFY_DP = 60   // a Sofy inteira na pílula; 44 dp ficou pequeno a 3 m (Sala, 20/11/2026): agora ~50% maior
     private const val VALIDADE_PENDENTE_MS = 12 * 60 * 60_000L   // recado de mais de 12 h atrás já não serve

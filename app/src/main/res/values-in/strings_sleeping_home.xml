@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Jam</string>
+    <string name="sh_dias">Hari</string>
+    <string name="sh_dicas">Tips</string>
+    <string name="sh_ar">Udara</string>
+    <string name="sh_orvalho">titik embun %1$d°</string>
+    <string name="sh_nuvens">Awan</string>
+    <string name="sh_nascer">Matahari terbit</string>
+    <string name="sh_por">Matahari terbenam</string>
+    <string name="sh_duracao">Lama siang</string>
+    <string name="sh_horas_min">%1$dj%2$02d</string>
+    <string name="sh_dourada">Jam emas</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s terang</string>
+    <string name="sh_cheia">Bulan purnama</string>
+    <string name="sh_nova">Bulan baru</string>
+    <string name="sh_em_dias">dalam %1$d h</string>
+    <string name="sh_rodar">Putar strip bawah</string>
+    <string name="sh_rodar_det">Saat istirahat, strip bawah berganti sendiri. ↑ dan ↓ menggantinya langsung.</string>
+    <string name="sh_rodar_desl">Mati</string>
+    <string name="sh_rodar_s">Setiap %1$d dtk</string>
+    <string name="sh_rodar_min">Setiap 1 mnt</string>
+    <string name="sh_vidro">Kaca di belakang strip bawah</string>
+    <string name="sh_vidro_det">Panel kaca di belakang strip. Mati: hanya garis tipis.</string>
+</resources>

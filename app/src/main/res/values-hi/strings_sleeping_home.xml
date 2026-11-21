@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">घंटे</string>
+    <string name="sh_dias">दिन</string>
+    <string name="sh_dicas">सुझाव</string>
+    <string name="sh_ar">हवा</string>
+    <string name="sh_orvalho">ओस बिंदु %1$d°</string>
+    <string name="sh_nuvens">बादल</string>
+    <string name="sh_nascer">सूर्योदय</string>
+    <string name="sh_por">सूर्यास्त</string>
+    <string name="sh_duracao">दिन की लंबाई</string>
+    <string name="sh_horas_min">%1$d घं %2$02d मि</string>
+    <string name="sh_dourada">गोल्डन आवर</string>
+    <string name="sh_fase">कला</string>
+    <string name="sh_iluminada">%1$s रोशन</string>
+    <string name="sh_cheia">पूर्णिमा</string>
+    <string name="sh_nova">अमावस्या</string>
+    <string name="sh_em_dias">%1$d दिन में</string>
+    <string name="sh_rodar">नीचे की पट्टी घुमाएँ</string>
+    <string name="sh_rodar_det">आराम में नीचे की पट्टी अपने आप बदलती है। ↑ और ↓ तुरंत बदलते हैं।</string>
+    <string name="sh_rodar_desl">बंद</string>
+    <string name="sh_rodar_s">हर %1$d से</string>
+    <string name="sh_rodar_min">हर 1 मिनट</string>
+    <string name="sh_vidro">नीचे की पट्टी के पीछे काँच</string>
+    <string name="sh_vidro_det">पट्टी के पीछे काँच का पैनल। बंद: सिर्फ़ पतली रेखा।</string>
+</resources>

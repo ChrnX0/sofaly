@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Stunden</string>
+    <string name="sh_dias">Tage</string>
+    <string name="sh_dicas">Tipps</string>
+    <string name="sh_ar">Luft</string>
+    <string name="sh_orvalho">Taupunkt %1$d°</string>
+    <string name="sh_nuvens">Wolken</string>
+    <string name="sh_nascer">Sonnenaufgang</string>
+    <string name="sh_por">Sonnenuntergang</string>
+    <string name="sh_duracao">Tageslänge</string>
+    <string name="sh_horas_min">%1$d:%2$02d h</string>
+    <string name="sh_dourada">Goldene Stunde</string>
+    <string name="sh_fase">Phase</string>
+    <string name="sh_iluminada">%1$s beleuchtet</string>
+    <string name="sh_cheia">Vollmond</string>
+    <string name="sh_nova">Neumond</string>
+    <string name="sh_em_dias">in %1$d T</string>
+    <string name="sh_rodar">Untere Leiste wechseln</string>
+    <string name="sh_rodar_det">Im Ruhemodus wechselt die untere Leiste von selbst. ↑ und ↓ wechseln sofort.</string>
+    <string name="sh_rodar_desl">Aus</string>
+    <string name="sh_rodar_s">Alle %1$d s</string>
+    <string name="sh_rodar_min">Jede Minute</string>
+    <string name="sh_vidro">Glas hinter der unteren Leiste</string>
+    <string name="sh_vidro_det">Eine Glasfläche hinter der Leiste. Aus: nur eine feine Linie.</string>
+</resources>

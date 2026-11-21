@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">時間</string>
+    <string name="sh_dias">日</string>
+    <string name="sh_dicas">ヒント</string>
+    <string name="sh_ar">空気</string>
+    <string name="sh_orvalho">露点 %1$d°</string>
+    <string name="sh_nuvens">雲</string>
+    <string name="sh_nascer">日の出</string>
+    <string name="sh_por">日の入り</string>
+    <string name="sh_duracao">日の長さ</string>
+    <string name="sh_horas_min">%1$d時間%2$02d分</string>
+    <string name="sh_dourada">ゴールデンアワー</string>
+    <string name="sh_fase">月相</string>
+    <string name="sh_iluminada">%1$s 照明</string>
+    <string name="sh_cheia">満月</string>
+    <string name="sh_nova">新月</string>
+    <string name="sh_em_dias">%1$d日後</string>
+    <string name="sh_rodar">下の帯を自動で切り替え</string>
+    <string name="sh_rodar_det">休止中、下の帯が自動で切り替わります。↑と↓ですぐ切り替え。</string>
+    <string name="sh_rodar_desl">オフ</string>
+    <string name="sh_rodar_s">%1$d秒ごと</string>
+    <string name="sh_rodar_min">1分ごと</string>
+    <string name="sh_vidro">下の帯の後ろにガラス</string>
+    <string name="sh_vidro_det">帯の後ろにガラスのパネル。オフ: 細い線だけ。</string>
+</resources>

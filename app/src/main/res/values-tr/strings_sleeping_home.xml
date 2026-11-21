@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Saatler</string>
+    <string name="sh_dias">Günler</string>
+    <string name="sh_dicas">İpuçları</string>
+    <string name="sh_ar">Hava</string>
+    <string name="sh_orvalho">çiy noktası %1$d°</string>
+    <string name="sh_nuvens">Bulutlar</string>
+    <string name="sh_nascer">Gün doğumu</string>
+    <string name="sh_por">Gün batımı</string>
+    <string name="sh_duracao">Gün uzunluğu</string>
+    <string name="sh_horas_min">%1$d sa %2$02d dk</string>
+    <string name="sh_dourada">Altın saat</string>
+    <string name="sh_fase">Evre</string>
+    <string name="sh_iluminada">%1$s aydınlık</string>
+    <string name="sh_cheia">Dolunay</string>
+    <string name="sh_nova">Yeni ay</string>
+    <string name="sh_em_dias">%1$d g sonra</string>
+    <string name="sh_rodar">Alt şeridi döndür</string>
+    <string name="sh_rodar_det">Dinlenirken alt şerit kendi değişir. ↑ ve ↓ hemen değiştirir.</string>
+    <string name="sh_rodar_desl">Kapalı</string>
+    <string name="sh_rodar_s">Her %1$d sn</string>
+    <string name="sh_rodar_min">Her 1 dk</string>
+    <string name="sh_vidro">Alt şeridin arkasında cam</string>
+    <string name="sh_vidro_det">Şeridin arkasında cam panel. Kapalı: sadece ince bir çizgi.</string>
+</resources>

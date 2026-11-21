@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Часы</string>
+    <string name="sh_dias">Дни</string>
+    <string name="sh_dicas">Советы</string>
+    <string name="sh_ar">Воздух</string>
+    <string name="sh_orvalho">точка росы %1$d°</string>
+    <string name="sh_nuvens">Облака</string>
+    <string name="sh_nascer">Восход</string>
+    <string name="sh_por">Закат</string>
+    <string name="sh_duracao">Долгота дня</string>
+    <string name="sh_horas_min">%1$d ч %2$02d</string>
+    <string name="sh_dourada">Золотой час</string>
+    <string name="sh_fase">Фаза</string>
+    <string name="sh_iluminada">освещено %1$s</string>
+    <string name="sh_cheia">Полнолуние</string>
+    <string name="sh_nova">Новолуние</string>
+    <string name="sh_em_dias">через %1$d д</string>
+    <string name="sh_rodar">Листать нижнюю полосу</string>
+    <string name="sh_rodar_det">В режиме покоя нижняя полоса меняется сама. ↑ и ↓ меняют её сразу.</string>
+    <string name="sh_rodar_desl">Выкл.</string>
+    <string name="sh_rodar_s">Каждые %1$d с</string>
+    <string name="sh_rodar_min">Каждую минуту</string>
+    <string name="sh_vidro">Стекло за нижней полосой</string>
+    <string name="sh_vidro_det">Стеклянная панель за полосой. Выкл.: только тонкая линия.</string>
+</resources>

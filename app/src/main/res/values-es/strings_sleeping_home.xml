@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Horas</string>
+    <string name="sh_dias">Días</string>
+    <string name="sh_dicas">Consejos</string>
+    <string name="sh_ar">Aire</string>
+    <string name="sh_orvalho">punto de rocío %1$d°</string>
+    <string name="sh_nuvens">Nubes</string>
+    <string name="sh_nascer">Amanecer</string>
+    <string name="sh_por">Atardecer</string>
+    <string name="sh_duracao">Duración del día</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Hora dorada</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s iluminada</string>
+    <string name="sh_cheia">Luna llena</string>
+    <string name="sh_nova">Luna nueva</string>
+    <string name="sh_em_dias">en %1$d d</string>
+    <string name="sh_rodar">Rotar la franja inferior</string>
+    <string name="sh_rodar_det">En reposo, la franja inferior cambia sola. ↑ y ↓ la cambian al instante.</string>
+    <string name="sh_rodar_desl">Desactivado</string>
+    <string name="sh_rodar_s">Cada %1$d s</string>
+    <string name="sh_rodar_min">Cada 1 min</string>
+    <string name="sh_vidro">Vidrio detrás de la franja inferior</string>
+    <string name="sh_vidro_det">Un panel de vidrio detrás de la franja. Desactivado: solo una línea fina.</string>
+</resources>

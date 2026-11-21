@@ -35,7 +35,11 @@ import br.paulo.tvlauncher.settings.Extras
 import br.paulo.tvlauncher.settings.Fontes
 import br.paulo.tvlauncher.settings.Tema
 import br.paulo.tvlauncher.weather.Astronomia
-import br.paulo.tvlauncher.weather.DataSources
+import br.paulo.tvlauncher.weather.ArcoSol
+import br.paulo.tvlauncher.weather.BarraAqi
+import br.paulo.tvlauncher.weather.Forecast
+import br.paulo.tvlauncher.weather.ForecastData
+import br.paulo.tvlauncher.weather.ForecastText
 import br.paulo.tvlauncher.weather.IconesClima
 import br.paulo.tvlauncher.weather.Localizacao
 import br.paulo.tvlauncher.weather.Lua
@@ -68,7 +72,9 @@ class PrevisaoActivity : Activity() {
         const val EXTRA_BOM_DIA = "bom_dia"      // falar "Bom dia", a hora e a agenda de hoje junto (despertador)
 
         /** Teste de telas (ClimaTelaTest): uma previsão fixa no formato da Open-Meteo, para desenhar as 3 telas sem rede. */
-        @Volatile internal var dadosDeTeste: JSONObject? = null
+        internal var dadosDeTeste: JSONObject?
+            get() = Forecast.dadosDeTeste
+            set(v) { Forecast.dadosDeTeste = v }
     }
 
     // Voz: o TextToSpeech do Android (motor do Google, já instalado na TV). Liga só quando a tela foi aberta para falar
@@ -186,7 +192,7 @@ class PrevisaoActivity : Activity() {
     }
 
     /** "Agora faz 20 graus, chuva. Hoje, máxima de 27 e mínima de 20, com 86 por cento de chance de chuva. Amanhã, ..." */
-    private fun boletim(d: Dados, tempAgora: Int, maxHoje: Int, minHoje: Int, chovendo: Boolean): String {
+    private fun boletim(d: ForecastData, tempAgora: Int, maxHoje: Int, minHoje: Int, chovendo: Boolean): String {
         val b = StringBuilder(getString(R.string.pv_voz_agora, tempAgora, IconesClima.texto(d.codigo, chovendo).lowercase()))
         b.append(getString(R.string.pv_voz_hoje, maxHoje, minHoje))
         b.append(if (d.dChuva[0] >= 20) getString(R.string.pv_voz_chuva, d.dChuva[0]) else getString(R.string.pv_voz_sem_chuva))
@@ -200,67 +206,12 @@ class PrevisaoActivity : Activity() {
 
     // ---------------------------------------------------------------- dados
 
-    private class Dados(
-        val ponto: Localizacao.Ponto,
-        val agoraTexto: String,            // "2026-11-02T16:15" (hora local do lugar)
-        val temp: Double, val sensacao: Double, var umidade: Int, var codigo: Int, val pressao: Double,   // var: o topo da HOME manda (montar)
-        val vento: Double, val ventoDir: Int, val eDia: Boolean,
-        val hTempo: List<String>, val hTemp: List<Double>, val hChuva: List<Int>, val hCodigo: List<Int>,
-        val hVento: List<Double>, val hVisib: List<Double>, val hOrvalho: List<Double>, val hUv: List<Double>,
-        val dData: List<String>, val dCodigo: List<Int>, val dMax: List<Double>, val dMin: List<Double>, val dChuva: List<Int>,
-        val dNascer: List<String>, val dPoente: List<String>, val dChuvaMm: Double,
-        val aqi: Int?,
-        /** "weatherapi.com", "met.no" ou "" (Open-Meteo): a WeatherAPI pede o crédito na tela. */
-        val fonte: String = "",
-    )
-
-    private fun carregar(): Dados? {
-        dadosDeTeste?.let { return dados(it, Localizacao.Ponto(-23.55, -46.63, "teste", "Bairro de exemplo"), 42) }
-        val ponto = Localizacao.atual(this) { Http.getText(it) } ?: return null
-        val unidade = if (Config.USAR_FAHRENHEIT) "&temperature_unit=fahrenheit" else ""
-        val openMeteo = DataSources.weather(this) == DataSources.Weather.OPEN_METEO
-        val j = if (!openMeteo) DataSources.forecast(this, ponto.lat, ponto.lon, desdeAgora = false) ?: return null else JSONObject(Http.getText(
-            "https://api.open-meteo.com/v1/forecast?latitude=${ponto.lat}&longitude=${ponto.lon}" +
-                "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,is_day" +
-                "&hourly=temperature_2m,precipitation_probability,weather_code,wind_speed_10m,visibility,dew_point_2m,uv_index" +
-                "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,precipitation_sum" +
-                "&timezone=auto&forecast_days=${FaixaDias.DIAS}$unidade"
-        ) ?: return null)
-        // Qualidade do ar: Open-Meteo (Ultra) ou WeatherAPI (Pro, já no JSON convertido); no MET (Básico) o cartão some.
-        val aqi = if (!openMeteo) j.optJSONObject("air_quality")?.optInt("us_aqi", -1)?.takeIf { it >= 0 } else try {
-            JSONObject(Http.getText("https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${ponto.lat}&longitude=${ponto.lon}&current=us_aqi")
-                ?: "{}").optJSONObject("current")?.optInt("us_aqi", -1)?.takeIf { it >= 0 }
-        } catch (e: Exception) { null }
-        return dados(j, ponto, aqi)
-    }
-
-    /** O JSON no formato da Open-Meteo (o MET e a WeatherAPI já chegam convertidos nele) vira [Dados]. */
-    private fun dados(j: JSONObject, ponto: Localizacao.Ponto, aqi: Int?): Dados {
-        val c = j.getJSONObject("current"); val h = j.getJSONObject("hourly"); val d = j.getJSONObject("daily")
-        fun <T> lista(o: JSONObject, k: String, f: (org.json.JSONArray, Int) -> T) = o.getJSONArray(k).let { a -> (0 until a.length()).map { f(a, it) } }
-        return Dados(
-            ponto, c.getString("time"),
-            c.getDouble("temperature_2m"), c.getDouble("apparent_temperature"), c.getInt("relative_humidity_2m"), c.getInt("weather_code"),
-            c.getDouble("pressure_msl"), c.getDouble("wind_speed_10m"), c.getInt("wind_direction_10m"),
-            // Mesma regra da HOME (Astronomia.eDia, com o crepúsculo): antes era o is_day cru da API e as telas discordavam.
-            Astronomia.eDia(System.currentTimeMillis(), ponto.lat, ponto.lon, c.getInt("is_day") == 1),
-            lista(h, "time") { a, i -> a.getString(i) }, lista(h, "temperature_2m") { a, i -> a.optDouble(i) },
-            lista(h, "precipitation_probability") { a, i -> a.optInt(i, 0) }, lista(h, "weather_code") { a, i -> a.optInt(i, 3) },
-            lista(h, "wind_speed_10m") { a, i -> a.optDouble(i) }, lista(h, "visibility") { a, i -> a.optDouble(i) },
-            lista(h, "dew_point_2m") { a, i -> a.optDouble(i) }, lista(h, "uv_index") { a, i -> a.optDouble(i, 0.0) },
-            lista(d, "time") { a, i -> a.getString(i) }, lista(d, "weather_code") { a, i -> a.optInt(i, 3) },
-            lista(d, "temperature_2m_max") { a, i -> a.optDouble(i) }, lista(d, "temperature_2m_min") { a, i -> a.optDouble(i) },
-            lista(d, "precipitation_probability_max") { a, i -> a.optInt(i, 0) },
-            lista(d, "sunrise") { a, i -> a.getString(i) }, lista(d, "sunset") { a, i -> a.getString(i) },
-            d.getJSONArray("precipitation_sum").optDouble(0, 0.0),
-            aqi,
-            j.optString("fonte"),
-        )
-    }
+    /** A busca mora em [Forecast] (dividida com a home que adormece). */
+    private fun carregar(): ForecastData? = Forecast.load(this)
 
     // ---------------------------------------------------------------- tela
 
-    private fun montar(d: Dados?, tempTopo: Int?, chovendo: Boolean) {
+    private fun montar(d: ForecastData?, tempTopo: Int?, chovendo: Boolean) {
         palco.removeAllViews(); paginas.clear()
         if (d == null) {
             // Erro com saída (crítica de design 19/11/2026) e com o mascote no meio da tela (estudo global 20/11, ideia 6).
@@ -482,32 +433,8 @@ class PrevisaoActivity : Activity() {
         sofy.start()
     }
 
-    /** A frase do dia (ver [DicasClima.frase]) no idioma da TV. */
-    private fun textoFrase(f: DicasClima.Frase): String = when (f.tipo) {
-        DicasClima.TipoFrase.PARA_AS -> getString(R.string.cl_f_parar, hora(f.a))
-        DicasClima.TipoFrase.CHUVA_SEGUE -> getString(R.string.cl_f_segue)
-        DicasClima.TipoFrase.CHUVA_AS -> getString(R.string.cl_f_chuva, hora(f.a), f.b)
-        DicasClima.TipoFrase.CALOR -> getString(R.string.cl_f_calor, f.a, hora(f.b))
-        DicasClima.TipoFrase.FRIO -> getString(R.string.cl_f_frio, f.a)
-        DicasClima.TipoFrase.SOL_FORTE -> getString(R.string.cl_f_sol, hora(f.a), hora(f.b))
-        DicasClima.TipoFrase.AMANHA_CHUVA -> getString(R.string.cl_f_amanha, f.a)
-        DicasClima.TipoFrase.CALMO -> getString(R.string.cl_f_calmo, f.a)
-    }
-
-    private fun textoDica(d: DicasClima.Dica): String = when (d.resposta) {
-        DicasClima.Resposta.AGORA -> getString(R.string.cl_v_agora)
-        DicasClima.Resposta.SIM_AS -> getString(R.string.cl_v_sim_as, hora(d.hora))
-        DicasClima.Resposta.TALVEZ -> getString(R.string.cl_v_talvez)
-        DicasClima.Resposta.NAO -> getString(R.string.cl_v_nao)
-        DicasClima.Resposta.ATE -> getString(R.string.cl_v_ate, hora(d.hora))
-        DicasClima.Resposta.SECA_HOJE -> getString(R.string.cl_v_seca)
-        DicasClima.Resposta.MELHOR_NAO -> getString(R.string.cl_v_melhor_nao)
-        DicasClima.Resposta.AMANHA_SIM -> getString(R.string.cl_v_amanha_sim)
-        DicasClima.Resposta.AMANHA_NAO -> getString(R.string.cl_v_amanha_nao)
-        DicasClima.Resposta.AS -> getString(R.string.cl_v_as, hora(d.hora))
-        DicasClima.Resposta.AMANHA_AS -> getString(R.string.cl_v_amanha_as, hora(d.hora))
-        DicasClima.Resposta.HOJE_NAO -> getString(R.string.cl_v_hoje_nao)
-    }
+    private fun textoFrase(f: DicasClima.Frase) = ForecastText.frase(this, f)
+    private fun textoDica(d: DicasClima.Dica) = ForecastText.dica(this, d)
 
     private fun hora(h: Int) = getString(R.string.cl_hora, h)
 
@@ -543,21 +470,11 @@ class PrevisaoActivity : Activity() {
         addView(texto(Estilo.Papel.LEGENDA.sp, textoSuave).apply { text = extra.ifEmpty { " " } })
     }
 
-    private fun rotuloUv(uv: Double) = when {
-        uv < 3 -> getString(R.string.uv_baixo); uv < 6 -> getString(R.string.uv_moderado); uv < 8 -> getString(R.string.uv_alto); uv < 11 -> getString(R.string.uv_muito_alto); else -> getString(R.string.uv_extremo)
-    }
-
-    private fun rotuloAqi(a: Int): Pair<String, Int> = when {
-        a <= 50 -> getString(R.string.aq_boa) to 0xFF7BE0A0.toInt()
-        a <= 100 -> getString(R.string.aq_moderada) to 0xFFF2E26B.toInt()
-        a <= 150 -> getString(R.string.aq_sensiveis) to 0xFFFFB566.toInt()
-        a <= 200 -> getString(R.string.aq_ruim) to 0xFFFF7A6B.toInt()
-        a <= 300 -> getString(R.string.aq_muito_ruim) to 0xFFD08CFF.toInt()
-        else -> getString(R.string.aq_perigosa) to 0xFFFF5C7A.toInt()
-    }
+    private fun rotuloUv(uv: Double) = ForecastText.uv(this, uv)
+    private fun rotuloAqi(a: Int) = ForecastText.aqi(this, a)
 
     /** "2026-11-02T16:15" -> minutos desde a meia-noite (só a hora do lugar; sem fuso, de propósito). */
-    private fun minutos(t: String) = t.substring(11, 13).toInt() * 60 + t.substring(14, 16).toInt()
+    private fun minutos(t: String) = Forecast.minutos(t)
 
     // ---------------------------------------------------------------- cartões e foco
 
@@ -680,38 +597,6 @@ class PrevisaoActivity : Activity() {
     // ---------------------------------------------------------------- desenhos
 
 
-    /** Escala de 0 a 300+ do índice de qualidade do ar (verde a vinho) com um marcador onde o valor está. */
-    private class BarraAqi(ctx: Context, val aqi: Int) : View(ctx) {
-        private val p = Paint(Paint.ANTI_ALIAS_FLAG)
-        override fun onDraw(c: Canvas) = Rtl.espelhar(this, c) { desenhar(c) }   // 16.8: o tempo anda para a esquerda no árabe
-        private fun desenhar(c: Canvas) {
-            val h = height.toFloat()
-            p.shader = LinearGradient(0f, 0f, width.toFloat(), 0f,
-                intArrayOf(0xFF7BE0A0.toInt(), 0xFFF2E26B.toInt(), 0xFFFFB566.toInt(), 0xFFFF7A6B.toInt(), 0xFFD08CFF.toInt()), null, Shader.TileMode.CLAMP)
-            c.drawRoundRect(RectF(0f, 0f, width.toFloat(), h), h / 2, h / 2, p); p.shader = null
-            p.color = Color.WHITE
-            c.drawCircle(((aqi.coerceIn(0, 300) / 300f) * (width - h) + h / 2), h / 2, h * 0.9f, p)
-        }
-    }
-
-    /** O arco do sol: tracejado do nascer ao pôr, com o sol (bolinha amarela) na posição de agora ([fracao] 0 = nascer, 1 = pôr). */
-    private class ArcoSol(ctx: Context, val fracao: Float) : View(ctx) {
-        private val p = Paint(Paint.ANTI_ALIAS_FLAG)
-        override fun onDraw(c: Canvas) = Rtl.espelhar(this, c) { desenhar(c) }   // 16.8: o tempo anda para a esquerda no árabe
-        private fun desenhar(c: Canvas) {
-            val d = resources.displayMetrics.density
-            val raioX = width / 2f - 12 * d; val raioY = height - 10 * d; val cx = width / 2f; val cy = height - 4 * d
-            p.style = Paint.Style.STROKE; p.strokeWidth = 2 * d; p.color = 0x55FFFFFF
-            p.pathEffect = android.graphics.DashPathEffect(floatArrayOf(5 * d, 5 * d), 0f)
-            c.drawArc(RectF(cx - raioX, cy - raioY, cx + raioX, cy + raioY), 180f, 180f, false, p); p.pathEffect = null
-            p.color = 0x55FFFFFF; c.drawLine(8 * d, cy, width - 8 * d, cy, p)
-            val ang = PI * (1 - fracao.coerceIn(0f, 1f))
-            val x = cx + raioX * cos(ang).toFloat(); val y = cy - raioY * sin(ang).toFloat()
-            p.style = Paint.Style.FILL
-            p.color = 0x55FFD36B; c.drawCircle(x, y, 11 * d, p)
-            p.color = 0xFFFFD36B.toInt(); c.drawCircle(x, y, 6.5f * d, p)
-        }
-    }
 }
 
 /** O que a previsão fala em voz alta. Pura, para testar no computador (PrevisaoFalaTest). */
