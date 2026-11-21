@@ -189,11 +189,12 @@ class CruzTelaTest {
                 ))
                 cruz.requestFocus()
                 ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
-                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-1-ferramentas")
-                cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_RIGHT)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_RIGHT))
-                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
-                assertEquals(CruzLogica.Categoria.ASSISTIR, cruz.categoriaAtual()?.cat)
+                assertEquals(CruzLogica.Categoria.ASSISTIR, cruz.categoriaAtual()?.cat)   // a HOME abre em Assistir
                 foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-2-assistir")
+                cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_LEFT)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_LEFT))
+                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                assertEquals(CruzLogica.Categoria.FERRAMENTAS, cruz.categoriaAtual()?.cat)
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-1-ferramentas")
                 a.finish()
             }
         } finally { br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.BEFORE }
