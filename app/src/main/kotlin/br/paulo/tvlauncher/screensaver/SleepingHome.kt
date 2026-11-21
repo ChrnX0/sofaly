@@ -241,15 +241,16 @@ class SleepingHome(private val ctx: Context) {
         val entrada = if (f != null && tempAgora != null) f.entrada(tempAgora, chovendo) else null
         val fr = entrada?.let { DicasClima.frase(it) }
         // Embaixo da data, a dica que mais pesa no dia (Paulo: "tipo se vai chover?"): a do guarda-chuva, em azul de chuva.
-        val dicaTopo = entrada?.let { "${ctx.getString(R.string.cl_d_guarda)}: ${ForecastText.dica(ctx, DicasClima.guardaChuva(it))}" }
+        val dicaTopo = entrada?.let { "${ctx.getString(R.string.cl_d_guarda)}: ${ForecastText.dica(ctx, DicasClima.guardaChuva(it)).replaceFirstChar { c -> c.lowercase(ctx.resources.configuration.locales[0]) }}" }
         lugar.text = dicaTopo ?: ""; lugar.visibility = if (dicaTopo == null) View.GONE else View.VISIBLE
         if (tempAgora != null) {
             if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.chave(codigo, eDia, chovendo)),
                 LinearLayout.LayoutParams(dp(44), dp(44)))
-            topoDireita.addView(texto(44f, Estilo.TEXTO, leve).apply { text = "$tempAgora°"; includeFontPadding = false })
+            topoDireita.addView(texto(44f, Estilo.TEXTO, leve).apply { text = "$tempAgora°"; includeFontPadding = false },
+                LinearLayout.LayoutParams(-2, -2))   // sem isto a coluna vertical dá MATCH_PARENT e o texto fica da largura do ícone
             if (f != null) {
                 val maxHoje = max(Math.round(f.dMax[0]).toInt(), tempAgora); val minHoje = min(Math.round(f.dMin[0]).toInt(), tempAgora)
-                topoDireita.addView(texto(20f, Estilo.TEXTO, leve).apply { text = "$maxHoje°/$minHoje°" })
+                topoDireita.addView(texto(20f, Estilo.TEXTO, leve).apply { text = "$maxHoje°/$minHoje°" }, LinearLayout.LayoutParams(-2, -2))
             }
         }
 
