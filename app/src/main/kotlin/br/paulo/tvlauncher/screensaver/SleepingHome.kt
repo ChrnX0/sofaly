@@ -63,6 +63,9 @@ import kotlin.math.min
  */
 class SleepingHome(private val ctx: Context) {
 
+    /** O que uma tecla faz no descanso (fora do companion para ser SleepingHome.Acao). */
+    enum class Acao { ANTERIOR, PROXIMA, PASSAR, FECHAR }
+
     companion object {
         /** Prefs "launcher" (entram no backup). */
         const val KEY_ROTATE = "sleeping_rotate_s"
@@ -85,7 +88,6 @@ class SleepingHome(private val ctx: Context) {
         private fun prefs(ctx: Context) = ctx.getSharedPreferences(Prefs.LAUNCHER, Context.MODE_PRIVATE)
 
         /** O que uma tecla faz no descanso. Pura (SleepingHomeTest). */
-        enum class Acao { ANTERIOR, PROXIMA, PASSAR, FECHAR }
         fun acao(keyCode: Int): Acao = when (keyCode) {
             KeyEvent.KEYCODE_DPAD_UP -> Acao.ANTERIOR
             KeyEvent.KEYCODE_DPAD_DOWN -> Acao.PROXIMA
