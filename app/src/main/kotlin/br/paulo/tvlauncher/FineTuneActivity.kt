@@ -192,15 +192,15 @@ class FineTuneActivity : Activity() {
         BackgroundStyle.Blur.SOFT -> R.string.cs_suave
         BackgroundStyle.Blur.STRONG -> R.string.cs_forte
     })
-    private fun nomeLugarMundo(k: br.paulo.tvlauncher.home.WorldLabel.Place) = getString(when (k) {
-        br.paulo.tvlauncher.home.WorldLabel.Place.COLUMN -> R.string.ac_coluna
-        br.paulo.tvlauncher.home.WorldLabel.Place.PILL -> R.string.wl_pilula
-    })
-
     private fun nomeCartoes(k: br.paulo.tvlauncher.home.AppChannels.Mode) = getString(when (k) {
         br.paulo.tvlauncher.home.AppChannels.Mode.OFF -> R.string.cs_sem
         br.paulo.tvlauncher.home.AppChannels.Mode.COLUMN -> R.string.ac_coluna
         br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE -> R.string.ac_vitrine
+    })
+
+    private fun nomeLugarMundo(k: br.paulo.tvlauncher.home.WorldLabel.Place) = getString(when (k) {
+        br.paulo.tvlauncher.home.WorldLabel.Place.COLUMN -> R.string.ac_coluna
+        br.paulo.tvlauncher.home.WorldLabel.Place.PILL -> R.string.wl_pilula
     })
 
     private fun nomeTransicao(k: BackgroundStyle.Fade) = getString(when (k) {
