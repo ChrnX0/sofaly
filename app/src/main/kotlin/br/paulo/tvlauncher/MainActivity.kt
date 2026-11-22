@@ -87,6 +87,7 @@ import br.paulo.tvlauncher.home.liberarEscondidos
 import br.paulo.tvlauncher.home.ligarMovimento
 import br.paulo.tvlauncher.home.menuTodos
 import br.paulo.tvlauncher.home.montarIlha
+import br.paulo.tvlauncher.home.mundoNaIlha
 import br.paulo.tvlauncher.home.prateleirasManuais
 import br.paulo.tvlauncher.home.prefsApps
 import br.paulo.tvlauncher.home.reagendarAmbiente
