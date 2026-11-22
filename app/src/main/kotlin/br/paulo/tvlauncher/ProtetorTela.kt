@@ -49,6 +49,12 @@ class ProtetorTela : DreamService() {
             }
         }
         setContentView(raiz)
+        // No Google TV a janela do protetor nasce com a barra de título do sistema ("Relógio", o rótulo do serviço),
+        // mesmo com o tema sem título. Esconde a barra: o descanso ocupa a tela inteira.
+        window?.decorView?.findViewById<View>(android.R.id.title)?.let { t ->
+            (t.parent as? View)?.visibility = View.GONE
+            t.visibility = View.GONE
+        }
         descanso = s
     }
 
