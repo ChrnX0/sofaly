@@ -197,7 +197,7 @@ class CruzTelaTest {
                 foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-1-ferramentas")
                 a.finish()
             }
-        } finally { br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.BEFORE }
+        } finally { br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.TIGHT }
     }
 
     private fun conferir(estilo: IconeCruz.Estilo, nome: String) {

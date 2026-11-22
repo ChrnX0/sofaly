@@ -41,7 +41,8 @@ enum class CrossRhythm(
     companion object {
         const val KEY = "cruz_ritmo"
         /** Lido pela [HomeCruz] ao montar; a MainActivity põe o valor de [ler] antes de criar a cruz. */
-        @Volatile var atual: CrossRhythm = BEFORE
-        fun ler(ctx: Context): CrossRhythm = entries.getOrElse(Extras.numero(ctx, KEY, BEFORE.ordinal)) { BEFORE }
+        // Padrão = A "Ajustada" (22/11/2026: escolhida para ir à Sala; as outras seguem no Ajuste fino).
+        @Volatile var atual: CrossRhythm = TIGHT
+        fun ler(ctx: Context): CrossRhythm = entries.getOrElse(Extras.numero(ctx, KEY, TIGHT.ordinal)) { TIGHT }
     }
 }
