@@ -77,8 +77,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val ITEM_LINHAS = 2
         const val TEXTO_TOPO = 9        // do topo do ícone ao topo do nome (o nome fica na metade de cima do ícone)
         const val PONTO = 10            // ponto laranja à esquerda do nome do escolhido (era uma barra embaixo dele)
-        const val TRACO_L = 3           // régua 22/11/2026: o ponto virou traço vertical de 3 x 20 dp, pontas redondas
-        const val TRACO_A = 20
+        const val TRACO_L = 4           // régua 22/11/2026: o ponto virou traço vertical de 4 x 14 dp, pontas redondas
+        const val TRACO_A = 14
         val CAT_ESQUERDA get() = CrossRhythm.atual.catEsquerda    // centro da categoria logo à esquerda da coluna
         val CAT_DIREITA get() = CrossRhythm.atual.catDireita    // centro da 1ª categoria à direita (depois do texto mais longo)
         val PASSO_CATS get() = CrossRhythm.atual.passoCats     // entre categorias à direita

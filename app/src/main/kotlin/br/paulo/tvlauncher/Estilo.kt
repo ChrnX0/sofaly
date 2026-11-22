@@ -186,16 +186,16 @@ object Estilo {
 
     /**
      * O traço do foco [FocusStyle.LINE] (Paulo, 22/11/2026): laranja, VERTICAL (horizontal parecia barra de progresso),
-     * curto (40% da altura, entre 12 e 22 dp) e de pontas redondas, encostado à esquerda do item.
+     * curto (30% da altura, entre 10 e 14 dp; 22/11 00:30 "um tiquinho menor e mais gordinho": 4 dp de largura) e de pontas redondas, encostado à esquerda do item.
      */
-    fun traco(ctx: Context, cor: Int = ACENTO): Drawable = Traco(dp(ctx, 3).toFloat(), dp(ctx, 6).toFloat(), dp(ctx, 12).toFloat(), dp(ctx, 22).toFloat(), cor)
+    fun traco(ctx: Context, cor: Int = ACENTO): Drawable = Traco(dp(ctx, 4).toFloat(), dp(ctx, 6).toFloat(), dp(ctx, 10).toFloat(), dp(ctx, 14).toFloat(), cor)
 
     private class Traco(val larg: Float, val margem: Float, val minA: Float, val maxA: Float, cor: Int) : Drawable() {
         private val tinta = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { color = cor }
         private val r = android.graphics.RectF()
         override fun draw(c: android.graphics.Canvas) {
             val b = bounds
-            val a = (b.height() * 0.4f).coerceIn(minA, maxA)
+            val a = (b.height() * 0.3f).coerceIn(minA, maxA)
             val x = b.left + margem
             r.set(x, b.exactCenterY() - a / 2f, x + larg, b.exactCenterY() + a / 2f)
             c.drawRoundRect(r, larg / 2f, larg / 2f, tinta)
