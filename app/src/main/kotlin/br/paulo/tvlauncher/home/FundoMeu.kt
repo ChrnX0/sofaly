@@ -7,12 +7,8 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.ImageDecoder
 import android.graphics.Paint
-import android.graphics.SurfaceTexture
 import android.graphics.drawable.AnimatedImageDrawable
 import android.media.MediaMetadataRetriever
-import android.media.MediaPlayer
-import android.view.Surface
-import android.view.TextureView
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -27,22 +23,21 @@ import java.io.File
  * Cuidados (ressalvas do plano):
  *  - O vídeo e o GIF só andam com a HOME visível: [onWindowVisibilityChanged] pausa quando outra tela cobre a HOME ou
  *    a TV dorme. Assim não gastam CPU/bateria fora da HOME e não seguram a tela acesa (o protetor começa normalmente).
- *  - Vídeo sem som, em laço, pelo MediaPlayer do sistema (decodificador de hardware; nada do player de filmes).
+ *  - Vídeo sem som, em laço, pelo motor leve [VideoLayer] (camada de vídeo da TV, decodificador de hardware).
  *  - Imagem decodificada já reduzida ao tamanho da tela ([FundoMeuRegras.amostragem]): uma foto de 12 MP não ocupa
  *    48 MB num aparelho de 2 GB.
  *  - Arquivo apagado ou ilegível: fica preto e a HOME segue (nada aqui pode derrubar o launcher).
  */
-class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit) : FrameLayout(ctx), FundoVivo {
-    private val arquivo: File? = FundoMeuDados.arquivo(ctx)
+class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit, escolhido: File? = null) : FrameLayout(ctx), FundoVivo {
+    /** [escolhido]: um arquivo que não é o "Meu fundo" da home (o do descanso, ou um item das fotos e vídeos passando). */
+    private val arquivo: File? = escolhido ?: FundoMeuDados.arquivo(ctx)
     private val tipo = arquivo?.let { FundoMeuRegras.tipo(it.name) }
     private var imagem: ImageView? = null
     private var animada: AnimatedImageDrawable? = null
-    private var textura: TextureView? = null
-    private var tocador: MediaPlayer? = null
-    private var superficie: Surface? = null   // a Surface criada para o MediaPlayer: solta junto com ele
+    private var video: VideoLayer? = null
 
     /** Filtro de brilho/contraste: o criarFundo usa como pintura da camada de hardware (null = sem filtro). */
-    val pintura: Paint? = FundoMeuRegras.matriz(FundoMeuDados.brilho(ctx), FundoMeuDados.contraste(ctx))?.let {
+    val pintura: Paint? = if (escolhido != null) null else FundoMeuRegras.matriz(FundoMeuDados.brilho(ctx), FundoMeuDados.contraste(ctx))?.let {
         Paint().apply { colorFilter = ColorMatrixColorFilter(ColorMatrix(it)) }
     }
 
@@ -105,56 +100,27 @@ class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit) :
                 }
             }
         }
-        val tv = TextureView(context)
-        textura = tv
-        tv.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
-            override fun onSurfaceTextureAvailable(st: SurfaceTexture, w: Int, h: Int) = abrirVideo(f, Surface(st).also { superficie = it })
-            override fun onSurfaceTextureSizeChanged(st: SurfaceTexture, w: Int, h: Int) {}
-            override fun onSurfaceTextureDestroyed(st: SurfaceTexture): Boolean { soltarSuperficie(); return true }
-            override fun onSurfaceTextureUpdated(st: SurfaceTexture) {}
+        // Motor leve (VideoLayer): camada de vídeo da TV, laço sem piscar, sem som. O brilho vira véu (a pintura de camada
+        // não alcança um SurfaceView); o contraste não vale para vídeo.
+        video = VideoLayer(context).apply {
+            if (pintura != null) brilho(FundoMeuDados.brilho(context))
+            tocar(f)
         }
-        addView(tv, LayoutParams(-1, -1))
+        addView(video, LayoutParams(-1, -1))
     }
 
-    private fun abrirVideo(f: File, s: Surface) {
-        soltarVideo()
-        tocador = runCatching {
-            MediaPlayer().apply {
-                setDataSource(f.path)
-                setSurface(s)
-                isLooping = true
-                setVolume(0f, 0f)
-                setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
-                setOnPreparedListener { if (windowVisibility == View.VISIBLE) it.start() }
-                setOnErrorListener { _, _, _ -> true }   // vídeo que o aparelho não toca: fica preto, sem caixa de erro
-                prepareAsync()
-            }
-        }.getOrNull()
-    }
-
-    private fun soltarVideo() {
-        tocador?.let { runCatching { it.release() } }
-        tocador = null
-    }
-
-    /** Ao perder a textura: solta o player e a Surface (antes a Surface ficava viva até o coletor de lixo). */
-    private fun soltarSuperficie() {
-        soltarVideo()
-        superficie?.let { runCatching { it.release() } }
-        superficie = null
-    }
+    /** true quando este fundo é um vídeo (o criarFundo não põe camada de hardware nem desfoque nele). */
+    val temVideo get() = tipo == FundoMeuRegras.Tipo.VIDEO
 
     override fun onWindowVisibilityChanged(v: Int) {
         super.onWindowVisibilityChanged(v)
         val visivel = v == View.VISIBLE
         animada?.let { if (visivel) it.start() else it.stop() }
-        tocador?.let { runCatching { if (visivel) { if (!it.isPlaying) it.start() } else if (it.isPlaying) it.pause() } }
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         animada?.stop()
-        soltarVideo()
     }
 }
 

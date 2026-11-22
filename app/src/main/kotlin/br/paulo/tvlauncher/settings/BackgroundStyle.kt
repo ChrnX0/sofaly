@@ -70,6 +70,11 @@ object BackgroundStyle {
         val t = tint(ctx)
         if (t != Tint.OFF && t != Tint.SOLID)
             fundo.foreground = android.graphics.drawable.ColorDrawable(Estilo.alfa(cor(tintColor(ctx), Estilo.ACENTO), (t.alpha * 255).toInt()))
+        desfocar(ctx, fundo)
+    }
+
+    /** O desfoque escolhido (o VideoLayer tira enquanto há vídeo, que não pode ficar atrás de desfoque, e devolve aqui). */
+    fun desfocar(ctx: Context, fundo: View) {
         val b = blur(ctx)
         if (b != Blur.OFF && blurPossivel) {
             val r = b.dp * ctx.resources.displayMetrics.density
