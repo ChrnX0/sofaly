@@ -82,7 +82,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val CAT_ESQUERDA get() = CrossRhythm.atual.catEsquerda    // centro da categoria logo à esquerda da coluna
         val CAT_DIREITA get() = CrossRhythm.atual.catDireita    // centro da 1ª categoria à direita (depois do texto mais longo)
         val PASSO_CATS get() = CrossRhythm.atual.passoCats     // entre categorias à direita
-        val ROTULO_Y get() = CrossRhythm.atual.rotuloY        // nome da categoria em foco, acima da linha à esquerda
+        val ROTULO_Y get() = CrossRhythm.atual.rotuloY
+        const val ROTULO_VAO = 12f        // ritmos novos: do pé do nome do mundo ao topo do que está logo abaixo dele        // nome da categoria em foco, acima da linha à esquerda
         const val LARGURA_ITEM = 470    // ícone + texto do item
         const val TEXTO_MAX = 300       // largura máxima do nome/linha de baixo (termina antes das categorias da direita)
         const val TELA_L = 960f
@@ -257,7 +258,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             // Régua 22/11/2026 ("informação sob demanda"): o "1 de 4" sai da tela; o TalkBack continua lendo (descrição).
             visibility = View.GONE
         }
-        val cabecalho = LinearLayout(ctx).apply {
+        cabecalho = LinearLayout(ctx).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.BOTTOM
             addView(rotulo, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
@@ -266,6 +267,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         addView(cabecalho, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         cabecalho.translationX = dp(COLUNA - ICONE_L / 2f)
         cabecalho.translationY = dp(ROTULO_Y)
+        // a altura do nome só existe depois de medir (e muda com a letra): reposiciona quando ela muda
+        cabecalho.addOnLayoutChangeListener { _, _, t, _, b, _, ot, _, ob -> if (b - t != ob - ot) posicionarRotulo(false) }
         maisAbaixo = Seta(ctx).apply { alpha = 0f; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
         addView(maisAbaixo, LayoutParams(dpi(SETA_L), dpi(SETA_A)))
         // Ao lado dos ícones, embaixo do nome (crítica de design 19/11/2026): no eixo, a seta caía em cima do logo do 4º app.
@@ -581,7 +584,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
         addView(ImageView(context).apply {
             setImageDrawable(c.icone)
-            if (CrossRhythm.atual.quadro) { background = quadro(); setPadding(dpi(10), dpi(8), dpi(10), dpi(8)) }
+            if (CrossRhythm.atual.quadro) { background = quadro(); setPaddingRelative(dpi(10), dpi(8), dpi(10), dpi(8)) }
         }, LinearLayout.LayoutParams(dpi(CAT_L), dpi(CAT_A)))
         addView(TextView(context).apply {
             text = c.nome
@@ -609,7 +612,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             } else null
             // Ritmo B "Quadros": o ícone num quadro igual para todos (o halo, se houver, fica por cima do quadro).
             background = if (CrossRhythm.atual.quadro) {
-                setPadding(dpi(12), dpi(10), dpi(12), dpi(10))
+                setPaddingRelative(dpi(12), dpi(10), dpi(12), dpi(10))
                 if (halo != null) android.graphics.drawable.LayerDrawable(arrayOf(quadro(), halo)) else quadro()
             } else halo
         }
@@ -703,6 +706,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        posicionarRotulo(animar)
         val f = estado.cat
         val focada = hasFocus() || isFocused
         val semMovimento = semAnimacao()
@@ -764,6 +768,29 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             }
         }
     }
+
+    private lateinit var cabecalho: LinearLayout
+    /** Para o teste de tela: o nome do mundo em foco ("ASSISTIR  1 de 4"). */
+    internal fun rotuloAtual(): View = cabecalho
+
+    /**
+     * Nome do mundo ("ASSISTIR  1 de 4") logo acima do que está em cima na coluna (ritmos novos, 22/11/2026).
+     * Na Sala, com o ritmo A o nome ficava fixo a 132 dp e, a partir do 2º item, caía em cima do vizinho de cima
+     * ("FerramentasAlarme"). Agora ele fica 12 dp acima do vizinho de cima quando há um, e 12 dp acima do escolhido
+     * quando é o 1º item. O ritmo de antes mantém o lugar fixo dele (que já ficava acima do vizinho).
+     */
+    private fun posicionarRotulo(animar: Boolean) {
+        if (!::cabecalho.isInitialized) return
+        if (CrossRhythm.atual == CrossRhythm.BEFORE) { cabecalho.translationY = dp(ROTULO_Y); return }
+        val sel = estado.sel.getOrElse(estado.cat) { 0 }
+        val altura = if (cabecalho.height > 0) cabecalho.height.toFloat() else dp(30f)
+        val base = if (sel > 0) LINHA - VAO_CIMA - ICONE_A * ESCALA_PEQUENO / 2f else LINHA - ICONE_A / 2f
+        val alvo = dp(base - ROTULO_VAO) - altura
+        if (cabecalho.translationY == alvo) return
+        if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(300L).setInterpolator(curvaRotulo).start()
+        else { cabecalho.animate().cancel(); cabecalho.translationY = alvo }
+    }
+    private val curvaRotulo = android.view.animation.PathInterpolator(0.22f, 1f, 0.36f, 1f)
 
     /** Quadro do ritmo B: o mesmo retângulo suave atrás de cada ícone, para desenhos diferentes terem o mesmo peso. */
     private fun quadro() = GradientDrawable().apply {
