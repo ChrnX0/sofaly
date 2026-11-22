@@ -189,14 +189,17 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         titulo.translationX = dp(COLUNA - CAPA / 2f); titulo.translationY = dp(34f)
 
         rotulo = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); setTextColor(Estilo.ACENTO); typeface = fonteForte
-            letterSpacing = 0.16f; includeFontPadding = false; maxLines = 1
+            // Régua de estilo (22/11/2026), igual à cruz da HOME: nome do grupo em creme 72%, leve, sem maiúsculas.
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); setTextColor(Estilo.TEXTO_2); typeface = fonteForte
+            includeFontPadding = false; maxLines = 1
+            setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         posicao = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_POSICAO); setTextColor(HomeCruz.COR_SUB); typeface = fonte
             includeFontPadding = false; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            visibility = View.GONE   // régua 22/11/2026: o "5 de 6" sai da tela (o TalkBack continua lendo)
         }
         cabecalho = LinearLayout(ctx).apply {
             orientation = LinearLayout.HORIZONTAL; gravity = Gravity.BOTTOM
@@ -208,8 +211,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
         // ---- cartão "Tocando agora": texto à esquerda, capa grande à direita
         cartaoRotulo = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f); setTextColor(Estilo.ACENTO); typeface = fonteForte
-            letterSpacing = 0.14f; includeFontPadding = false; maxLines = 1
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setTextColor(Estilo.ACENTO); typeface = fonteForte   // régua: mín. 18 sp
+            includeFontPadding = false; maxLines = 1
         }
         cartaoTitulo = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_CARTAO_TITULO); setTextColor(Estilo.TEXTO); typeface = fonteForte
@@ -338,7 +341,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             arte.animate().alpha(0f).setDuration(if (animar) 400 else 0).start()
             return
         }
-        cartaoRotulo.text = t.aoVivo ?: context.getString(if (t.pausado) R.string.ouv_pausado else R.string.ouv_tocando_agora).uppercase()
+        cartaoRotulo.text = t.aoVivo ?: context.getString(if (t.pausado) R.string.ouv_pausado else R.string.ouv_tocando_agora)   // régua: sem maiúsculas
         cartaoRotulo.setTextColor(if (t.pausado) HomeCruz.COR_SUB else Estilo.ACENTO)
         val titulo = caber(t.titulo, cartaoTitulo, dpi(CARTAO_TEXTO), 2)
         if (cartaoTitulo.text.toString() != titulo) cartaoTitulo.text = titulo
@@ -633,7 +636,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         val focada = hasFocus() || isFocused
         val semMovimento = MolaViews.semAnimacao(this)
         val p = prats.getOrNull(cat)
-        rotulo.text = p?.nome?.replace("\n", " · ")?.uppercase().orEmpty()   // nome em 2 linhas ("Sua turma\n0 online") vira uma linha no título
+        rotulo.text = p?.nome?.replace("\n", " · ").orEmpty()   // régua 22/11/2026: sem maiúsculas   // nome em 2 linhas ("Sua turma\n0 online") vira uma linha no título
         posicao.text = p?.takeIf { it.itens.size > 1 }?.let { context.getString(R.string.cruz_posicao, indiceSel(it) + 1, it.itens.size) }.orEmpty()
         // Sem item acima do escolhido, o nome da prateleira desce para junto dele (pente fino 19/11/2026: ficava um vão
         // grande entre "RECENTES" e o 1º item). Com item acima, volta ao lugar de sempre, acima do vizinho.
