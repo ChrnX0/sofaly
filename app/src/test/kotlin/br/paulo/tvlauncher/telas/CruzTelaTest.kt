@@ -88,14 +88,14 @@ class CruzTelaTest {
         assertEquals("uma informação em até 2 linhas", HomeCruz.ITEM_LINHAS, sub.lineCount)
         assertEquals(comprida, sub.text.toString())   // o "…" é do TextView (ellipsize), o texto fica inteiro
         // a principal não coube: vai inteira para o canto, seguida das outras
-        assertEquals("$comprida\nVídeos e canais\nAberto há 12 min", cruz.detalheAtual().text.toString())
+        assertEquals("$comprida\nVídeos e canais\nAberto há 12 min", cruz.detalheAtual().text.toString().replace('\u00A0', ' '))
         assertEquals(1f, cruz.detalheAtual().alpha)
         foto(a, "cruz-linha-comprida")
         cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_DOWN)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_DOWN))
         assertEquals("some na hora ao andar", 0f, cruz.detalheAtual().alpha)
         ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
         assertEquals("Canal 2 · Globo SP", cruz.subAtual()!!.text.toString())
-        assertEquals("a situação abre os detalhes, sem repetir", "No ar  Mil Lugares para Conhecer Antes de Morrer · faltam 25 min\nDepois, 09:30: Encontro", cruz.detalheAtual().text.toString())
+        assertEquals("a situação abre os detalhes, sem repetir", "No ar  Mil Lugares para Conhecer Antes de Morrer · faltam 25 min\nDepois, 09:30: Encontro", cruz.detalheAtual().text.toString().replace('\u00A0', ' '))
         foto(a, "cruz-tv-detalhes")
     }
 
@@ -114,7 +114,7 @@ class CruzTelaTest {
                 situacao = CruzLogica.Situacao("Parou em", "3% · faltam 28 min", "c:podcast"))))))
         cruz.requestFocus()
         ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
-        assertEquals("$nome\nParou em  3% · faltam 28 min\nTocou há 1 h", cruz.detalheAtual().text.toString())
+        assertEquals("$nome\nParou em  3% · faltam 28 min\nTocou há 1 h", cruz.detalheAtual().text.toString().replace('\u00A0', ' '))
     }
 
     /** Prévia da animação de cada ícone Linha (18/11/2026): uma linha por ícone, o estático e 8 quadros da passada. */
