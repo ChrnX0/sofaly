@@ -569,7 +569,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
         addView(ImageView(context).apply {
             setImageDrawable(c.icone)
-            if (CrossRhythm.atual.quadro) { background = quadro(); setPadding(dpi(10), dpi(8), dpi(10), dpi(8)) }
+            if (CrossRhythm.atual.quadro) { background = quadro(); setPaddingRelative(dpi(10), dpi(8), dpi(10), dpi(8)) }
         }, LinearLayout.LayoutParams(dpi(CAT_L), dpi(CAT_A)))
         addView(TextView(context).apply {
             text = c.nome
@@ -597,7 +597,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             } else null
             // Ritmo B "Quadros": o ícone num quadro igual para todos (o halo, se houver, fica por cima do quadro).
             background = if (CrossRhythm.atual.quadro) {
-                setPadding(dpi(12), dpi(10), dpi(12), dpi(10))
+                setPaddingRelative(dpi(12), dpi(10), dpi(12), dpi(10))
                 if (halo != null) android.graphics.drawable.LayerDrawable(arrayOf(quadro(), halo)) else quadro()
             } else halo
         }

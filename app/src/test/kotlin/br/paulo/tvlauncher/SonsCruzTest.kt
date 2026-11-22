@@ -28,7 +28,8 @@ class SonsCruzTest {
     }
 
     @Test fun cadaCategoriaTemSuaNotaNoGrupoEAbrir() {
-        val notas = CruzLogica.Categoria.entries.map { SonsCruz.tom(SonsCruz.Som.GRUPO, it) }
+        // os 5 mundos da linha (o Continuar virou item de cada mundo, 21/11/2026)
+        val notas = (CruzLogica.Categoria.entries - CruzLogica.Categoria.CONTINUAR).map { SonsCruz.tom(SonsCruz.Som.GRUPO, it) }
         assertEquals("notas distintas", notas.size, notas.toSet().size)
         assertTrue("dentro do que o SoundPool aceita (0,5 a 2)", notas.all { it in 0.5f..2f })
         assertEquals(SonsCruz.tom(SonsCruz.Som.GRUPO, CruzLogica.Categoria.OUVIR), SonsCruz.tom(SonsCruz.Som.ABRIR, CruzLogica.Categoria.OUVIR))
