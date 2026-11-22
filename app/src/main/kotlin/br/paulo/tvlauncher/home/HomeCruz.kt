@@ -555,10 +555,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
                 val ini = length
                 append(s.rotulo, android.text.style.ForegroundColorSpan(Estilo.TEXTO), android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 setSpan(android.text.style.StyleSpan(android.graphics.Typeface.BOLD), ini, length, android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                append("  ").append(s.texto)
+                append("  ").append(CruzLogica.colar(s.texto))
                 if (linhas.isNotEmpty()) append("\n")
             }
-            append(linhas.joinToString("\n"))
+            append(linhas.joinToString("\n") { CruzLogica.colar(it) })
         }
         if (detalhe.text.toString() != texto.toString()) detalhe.text = texto
         detalhe.animate().alpha(1f).setDuration(if (semAnimacao()) 0L else 220L).start()
@@ -778,9 +778,11 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun posicionarRotulo(animar: Boolean) {
         if (!::cabecalho.isInitialized) return
         if (CrossRhythm.atual == CrossRhythm.BEFORE) { cabecalho.translationY = dp(ROTULO_Y); return }
-        val sel = estado.sel.getOrElse(estado.cat) { 0 }
+        // Posição FIXA (22/11/2026, Paulo na Sala: "o nome do mundo se move, tem que ficar numa posição segura e fixa").
+        // Fica sempre acima do lugar do vizinho de cima, o ponto mais alto que a coluna ocupa; com o 1º item escolhido
+        // sobra ar entre o nome e o ícone, mas o nome não anda ao trocar de item.
         val altura = if (cabecalho.height > 0) cabecalho.height.toFloat() else dp(30f)
-        val base = if (sel > 0) LINHA - VAO_CIMA - ICONE_A * ESCALA_PEQUENO / 2f else LINHA - ICONE_A / 2f
+        val base = LINHA - VAO_CIMA - ICONE_A * ESCALA_PEQUENO / 2f
         val alvo = dp(base - ROTULO_VAO) - altura
         if (cabecalho.translationY == alvo) return
         if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(300L).setInterpolator(curvaRotulo).start()

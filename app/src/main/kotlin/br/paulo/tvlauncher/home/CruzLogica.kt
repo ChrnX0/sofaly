@@ -21,6 +21,16 @@ import br.paulo.tvlauncher.player.item
  */
 object CruzLogica {
     /**
+     * Texto do canto sem quebra feia (22/11/2026, Sala: "há 16" numa linha e o "h" sozinho na de baixo): cada trecho
+     * curto entre " · " (até [CURTO] letras, como "há 16 h", "T1 E4", "faltam 18 min") vira um bloco só, e o " · " nunca
+     * começa uma linha. Puro.
+     */
+    const val CURTO = 16
+    fun colar(t: String): String = t.split(" · ").joinToString("\u00A0· ") { seg ->
+        if (seg.length <= CURTO) seg.replace(' ', '\u00A0') else seg
+    }
+
+    /**
      * Largura (dp) do texto do item escolhido: do começo do texto (centro da coluna + meio ícone + vão + recuo do ponto)
      * até [folga] antes da borda esquerda do ícone da 1ª categoria à direita; nunca mais que [teto].
      */

@@ -25,7 +25,9 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
 
     enum class Tipo { CONTINUAR, ASSISTIR, OUVIR, JOGAR, APLICATIVOS, TV, SERIES, FILMES, REDE, ADDONS, RADIO, PODCASTS, JOGOS, SOFA, TODOS_APPS, PLUGIN, DORMIR, CENTRAL,
         // Ferramentas (21/11/2026, Paulo: o mundo que entra no lugar do Continuar). No FIM do enum (o painel guarda pelo nome).
-        FERRAMENTAS, DESPERTADOR, CASA, CLIMA, AJUSTE, CONFIG }
+        FERRAMENTAS, DESPERTADOR, CASA, CLIMA, AJUSTE, CONFIG,
+        // Painel rápido (22/11/2026, Paulo: usava a mesma engrenagem das Configurações): dois interruptores.
+        PAINEL }
     /**
      * [DUOTOM] (17/11/2026, 3º estilo embutido): o traço do Símbolo em branco quente sobre um halo suave na cor do grupo.
      * [LINHA] (18/11/2026, PADRÃO): o dono achou os desenhos "infantis". Traço fino de uma cor só (creme), desenho adulto
@@ -211,6 +213,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.CLIMA -> solNuvem(c)
             Tipo.AJUSTE -> controles(c)
             Tipo.CONFIG -> engrenagem(c)
+            Tipo.PAINEL -> interruptores(c)
         }
         cheio.shader = null; cheio.alpha = 255
     }
@@ -268,6 +271,16 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             solido(LARANJA); rr(c, 24f, ys[i] - 3f, xs[i] - 24f, 6f, 3f)
             vert(0xFFFFFFFF, 0xFFD8DCE4, ys[i] - 8f, ys[i] + 8f); c.drawCircle(xs[i], ys[i], 8f, cheio)
         }
+    }
+
+    /** Painel rápido: dois interruptores, um ligado (verde-água, bolinha à direita) e um desligado. */
+    private fun interruptores(c: Canvas) {
+        vert(0xFF7FD9C6, 0xFF2F8F7C, 14f, 46f); rr(c, 14f, 14f, 92f, 32f, 16f)
+        solido(0xFFFFFFFF, .16f); rr(c, 18f, 17f, 84f, 10f, 5f)
+        solido(0xFFFFFFFF); c.drawCircle(90f, 30f, 12f, cheio)
+        vert(0xFF5A606E, 0xFF2A2E37, 56f, 88f); rr(c, 14f, 56f, 92f, 32f, 16f)
+        solido(0xFFFFFFFF, .08f); rr(c, 18f, 59f, 84f, 10f, 5f)
+        solido(0xFFC9CED8); c.drawCircle(30f, 72f, 12f, cheio)
     }
 
     private fun engrenagem(c: Canvas) {
@@ -478,7 +491,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 c.drawPath(p, traco)
                 c.drawLine(17f, 6f, 21f, 6f, traco); c.drawLine(21f, 6f, 17f, 10f, traco); c.drawLine(17f, 10f, 21f, 10f, traco)
             }
-            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG -> ferramenta(c, 1.5f)
+            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL -> ferramenta(c, 1.5f)
         }
     }
 
@@ -519,6 +532,10 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             }
             Tipo.AJUSTE -> for ((y, x) in listOf(6f to 9f, 12f to 15f, 18f to 7f)) {
                 c.drawLine(4f, y, x - 2.2f, y, traco); c.drawLine(x + 2.2f, y, 20f, y, traco); c.drawCircle(x, y, 2.2f, traco)
+            }
+            Tipo.PAINEL -> {   // dois interruptores: o de cima ligado (bolinha à direita), o de baixo desligado
+                r.set(3.5f, 4.5f, 20.5f, 11.5f); c.drawRoundRect(r, 3.5f, 3.5f, traco); c.drawCircle(17f, 8f, 1.9f, traco)
+                r.set(3.5f, 12.5f, 20.5f, 19.5f); c.drawRoundRect(r, 3.5f, 3.5f, traco); c.drawCircle(7f, 16f, 1.9f, traco)
             }
             Tipo.CONFIG -> {
                 c.drawCircle(12f, 12f, 3f, traco); c.drawCircle(12f, 12f, 6.6f, traco)
@@ -635,7 +652,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 c.drawPath(p, traco)
                 c.drawLine(18.5f, 5f, 18.5f, 9f, traco); c.drawLine(16.5f, 7f, 20.5f, 7f, traco)
             }
-            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG -> ferramenta(c, TRACO_FINO)
+            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL -> ferramenta(c, TRACO_FINO)
         }
     }
 
@@ -763,7 +780,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.CLIMA -> {   // os raios do sol brilham
                 alfa(sino); c.drawCircle(9f, 9f, 5.4f, traco)
             }
-            Tipo.FERRAMENTAS, Tipo.CASA, Tipo.AJUSTE, Tipo.CONFIG -> {   // a luz da janela / o ponto acende de leve
+            Tipo.FERRAMENTAS, Tipo.CASA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL -> {   // a luz da janela / o ponto acende de leve
                 cheio.alpha = (sino * 0.6f * 255).toInt(); c.drawCircle(12f, 12f, 1.4f, cheio)
             }
         }
@@ -822,10 +839,11 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.CLIMA -> 0xFF8FC8F0.toInt()          // céu
             Tipo.AJUSTE -> 0xFFF59E5B.toInt()         // laranja claro
             Tipo.CONFIG -> 0xFFD9CFC2.toInt()         // cinza quente
+            Tipo.PAINEL -> 0xFF8FD3C4.toInt()         // verde-água (interruptor ligado)
         }
 
         /** Tipos ainda sem arte pronta nos conjuntos (Vintage, Joia...): desenham o traço da Linha (IconSetsTest). */
-        val SEM_ARTE = setOf(Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG)
+        val SEM_ARTE = setOf(Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL)
 
         /** A cor clara do traço (Símbolo/Duotom), também nos ícones de app do pacote embutido. */
         const val COR_TRACO = 0xFFFFF3E6.toInt()
