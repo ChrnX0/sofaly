@@ -772,6 +772,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Nome do mundo na coluna (false = ele mora na pílula do topo, [WorldLabel]). Some sem mudar a posição de nada. */
     fun nomeNaColuna(mostrar: Boolean) { cabecalho.visibility = if (mostrar) View.VISIBLE else View.INVISIBLE }
 
+    /** Os nomes de todos os mundos (a pílula reserva a largura do maior, para a hora não andar de um mundo ao outro). */
+    internal fun nomesDosMundos(): List<String> = cats.map { it.nome }
+
     /**
      * Nome do mundo ("ASSISTIR  1 de 4") logo acima do que está em cima na coluna (ritmos novos, 22/11/2026).
      * Na Sala, com o ritmo A o nome ficava fixo a 132 dp e, a partir do 2º item, caía em cima do vizinho de cima

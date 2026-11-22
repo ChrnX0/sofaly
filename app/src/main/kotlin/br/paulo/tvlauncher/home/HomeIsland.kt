@@ -162,7 +162,12 @@ internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
         android.transition.TransitionManager.beginDelayedTransition(it, android.transition.AutoTransition().setDuration(200))
     }
     ilhaMundoIcone?.setImageDrawable(icCruz("ilha:" + c.cat.id, WorldLabel.tipo(c.cat)))   // outra cópia do desenho da categoria
-    ilhaMundoNome?.text = c.nome
+    ilhaMundoNome?.let { t ->
+        // Largura do maior nome de mundo: a pílula fica do mesmo tamanho em todos os mundos (a hora não anda).
+        val maior = cruz?.nomesDosMundos()?.maxOfOrNull { t.paint.measureText(it) } ?: 0f
+        t.minWidth = kotlin.math.ceil(maior).toInt()
+        t.text = c.nome
+    }
     mundo.visibility = View.VISIBLE
 }
 

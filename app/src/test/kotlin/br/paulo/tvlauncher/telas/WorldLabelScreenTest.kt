@@ -73,7 +73,7 @@ class WorldLabelScreenTest {
             repeat(8) { tecla(KeyEvent.KEYCODE_DPAD_LEFT) }   // o 1º mundo da linha
             val d = a.resources.displayMetrics.density
             val largura = a.window.decorView.width
-            var topoPilula: Int? = null
+            var pilula0: Rect? = null
             val vistos = mutableListOf<String>()
             var n = 0
             while (true) {
@@ -96,8 +96,8 @@ class WorldLabelScreenTest {
                     // Pílula inteira dentro da borda segura (32 dp) e sempre na mesma altura.
                     val p = Rect(); a.ilhaPilula!!.getGlobalVisibleRect(p)
                     assertTrue("$onde: pílula dentro da borda segura ($p)", p.left >= 32 * d - 1 && p.right <= largura - 32 * d + 1)
-                    val t0 = topoPilula ?: p.top.also { topoPilula = it }
-                    assertEquals("$onde: a pílula mudou de altura", t0, p.top)
+                    val p0 = pilula0 ?: Rect(p).also { pilula0 = it }
+                    assertEquals("$onde: a pílula mudou de lugar ou de tamanho (a hora andaria)", p0, p)
                     // Nenhum texto da cruz encosta na pílula (folga de 8 dp).
                     val folga = Rect(p).apply { inset(0, (-8 * d).toInt()) }
                     for (t in textos(cruz)) {
