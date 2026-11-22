@@ -20,7 +20,7 @@ import br.paulo.tvlauncher.screensaver.SleepingHome
  * HOME QUE ADORMECE ([SleepingHome]): o MESMO fundo da tela inicial, sem a cruz, com a hora, o tempo de agora e a
  * frase do dia em cima e a faixa de baixo que roda sozinha ou com ↑/↓. HOME, VOLTAR e as outras teclas acordam a TV
  * (a cruz volta); volume não acorda. Saíram a pintura própria do protetor, as fotos da NASA e os 14 liga/desliga.
- * Fotos enviadas pelo painel ou da pasta da rede (ideia 27) continuam passando por trás, como antes.
+ * Fotos enviadas pelo painel ou da pasta da rede (ideia 27) passam por trás quando o fundo do descanso é "Fotos passando".
  */
 class ProtetorTela : DreamService() {
     private val ui = Handler(Looper.getMainLooper())
@@ -37,7 +37,9 @@ class ProtetorTela : DreamService() {
         FotosRede.talvezSincronizar(this)   // pasta da rede (ideia 27): renova a cópia se tiver mais de 6 h
         val s = SleepingHome(this)
         val raiz = s.montar() as FrameLayout
-        fotos = (FotosProtetor.listar(this) + FotosRede.listar(this)).shuffled()
+        val todas = FotosProtetor.listar(this) + FotosRede.listar(this)
+        // Fotos só quando a pessoa escolheu "Fotos passando" no fundo do descanso; o padrão é o fundo da home.
+        fotos = if (SleepingHome.background(this, todas.isNotEmpty()) == SleepingHome.BG_PHOTOS) todas.shuffled() else emptyList()
         if (fotos.isNotEmpty()) {
             // Por cima do fundo do tema e por baixo do véu e do texto (posição 1).
             var i = 1

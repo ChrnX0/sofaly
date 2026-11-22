@@ -24,4 +24,8 @@
     <string name="sh_rodar_min">A cada 1 min</string>
     <string name="sh_vidro">Vidro atrás da faixa de baixo</string>
     <string name="sh_vidro_det">Uma placa de vidro atrás da faixa. Desligado: só um fio fino.</string>
+    <string name="sh_fundo">Fundo do descanso</string>
+    <string name="sh_fundo_det">O que aparece atrás do relógio quando a TV descansa. O mesmo da home, outro tema só aqui, ou as suas fotos passando.</string>
+    <string name="sh_fundo_home">Igual à home</string>
+    <string name="sh_fundo_fotos">Fotos passando</string>
 </resources>

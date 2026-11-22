@@ -503,6 +503,19 @@ class ConfigLauncherActivity : Activity() {
             SleepingHome.setRotate(this, novo); linhaRodar.valor(rotuloRodar(novo))
         }
         c.addView(linhaRodar, lp())
+        // Fundo do descanso (22/11/2026): o da home (padrão), outro tema só no descanso, ou as fotos do painel/pasta passando.
+        val temFotos = br.paulo.tvlauncher.screensaver.FotosProtetor.listar(this).isNotEmpty() || br.paulo.tvlauncher.panel.FotosRede.listar(this).isNotEmpty()
+        fun rotuloFundo(v: String) = when (v) {
+            SleepingHome.BG_HOME -> getString(R.string.sh_fundo_home)
+            SleepingHome.BG_PHOTOS -> getString(R.string.sh_fundo_fotos)
+            else -> runCatching { br.paulo.tvlauncher.settings.Tema.valueOf(v).nome }.getOrDefault(v)
+        }
+        lateinit var linhaFundo: LinhaCfg
+        linhaFundo = linha(getString(R.string.sh_fundo), getString(R.string.sh_fundo_det), valor = rotuloFundo(SleepingHome.background(this, temFotos))) {
+            val novo = SleepingHome.nextOf(SleepingHome.backgroundOptions(this, temFotos), SleepingHome.background(this, temFotos))
+            SleepingHome.setBackground(this, novo); linhaFundo.valor(rotuloFundo(novo))
+        }
+        c.addView(linhaFundo, lp())
         lateinit var linhaVidro: LinhaCfg
         linhaVidro = linha(getString(R.string.sh_vidro), getString(R.string.sh_vidro_det), chave = SleepingHome.glass(this)) {
             SleepingHome.setGlass(this, !SleepingHome.glass(this)); linhaVidro.ligado(SleepingHome.glass(this))

@@ -83,6 +83,25 @@ class SleepingHome(private val ctx: Context) {
         fun rotateSeconds(ctx: Context): Int = prefs(ctx).getInt(KEY_ROTATE, 15).let { if (it in ROTATE_OPTIONS) it else 15 }
         fun nextRotate(atual: Int): Int = ROTATE_OPTIONS[(ROTATE_OPTIONS.indexOf(atual).coerceAtLeast(0) + 1) % ROTATE_OPTIONS.size]
         fun setRotate(ctx: Context, s: Int) = prefs(ctx).edit().putInt(KEY_ROTATE, s).apply()
+        /**
+         * O fundo do descanso (Paulo, 22/11/2026: "a priori é o mesmo da home, mas o usuário escolhe"): [BG_HOME] = o tema
+         * da home; o nome de um [Tema] = outro tema só no descanso; [BG_PHOTOS] = as fotos do painel e da pasta da rede
+         * passando (por cima do tema da home). Um valor que não vale mais (tema sem arquivo, fotos apagadas) cai na home.
+         */
+        const val KEY_BACKGROUND = "sleeping_background"
+        const val BG_HOME = "home"
+        const val BG_PHOTOS = "photos"
+        fun backgroundOptions(ctx: Context, temFotos: Boolean): List<String> =
+            listOf(BG_HOME) + Tema.disponiveis(ctx).map { it.name } + (if (temFotos) listOf(BG_PHOTOS) else emptyList())
+        fun background(ctx: Context, temFotos: Boolean): String =
+            prefs(ctx).getString(KEY_BACKGROUND, BG_HOME).takeIf { it in backgroundOptions(ctx, temFotos) } ?: BG_HOME
+        fun setBackground(ctx: Context, v: String) = prefs(ctx).edit().putString(KEY_BACKGROUND, v).apply()
+        /** O tema que o descanso desenha embaixo de tudo. */
+        fun backgroundTheme(ctx: Context): Tema =
+            prefs(ctx).getString(KEY_BACKGROUND, BG_HOME)?.let { v -> Tema.disponiveis(ctx).firstOrNull { it.name == v } } ?: Tema.atual(ctx)
+        /** Próxima opção da lista (dá a volta). Pura sobre a lista. */
+        fun nextOf(opcoes: List<String>, atual: String): String = opcoes[(opcoes.indexOf(atual).coerceAtLeast(-1) + 1) % opcoes.size]
+
         fun glass(ctx: Context): Boolean = prefs(ctx).getBoolean(KEY_GLASS, false)
         fun setGlass(ctx: Context, v: Boolean) = prefs(ctx).edit().putBoolean(KEY_GLASS, v).apply()
         private fun prefs(ctx: Context) = ctx.getSharedPreferences(Prefs.LAUNCHER, Context.MODE_PRIVATE)
@@ -134,7 +153,7 @@ class SleepingHome(private val ctx: Context) {
     // ------------------------------------------------------------------ montar
 
     fun montar(): View {
-        raiz.addView(criarFundo(ctx, Tema.atual(ctx), decoracao = false) { bloco -> Fundo.rodar("descanso-fundo") { bloco() } },
+        raiz.addView(criarFundo(ctx, backgroundTheme(ctx), decoracao = false) { bloco -> Fundo.rodar("descanso-fundo") { bloco() } },
             FrameLayout.LayoutParams(-1, -1))
         // Véu: só luz, não caixa. Escurece um pouco em cima e embaixo, onde mora o texto, para ler em qualquer fundo.
         raiz.addView(View(ctx).apply {

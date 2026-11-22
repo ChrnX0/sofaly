@@ -24,4 +24,8 @@
     <string name="sh_rodar_min">كل دقيقة</string>
     <string name="sh_vidro">زجاج خلف الشريط السفلي</string>
     <string name="sh_vidro_det">لوح زجاجي خلف الشريط. عند الإيقاف: خط رفيع فقط.</string>
+    <string name="sh_fundo">خلفية وضع الراحة</string>
+    <string name="sh_fundo_det">ما يظهر خلف الساعة عندما يرتاح التلفاز. نفس الشاشة الرئيسية، أو سمة أخرى هنا فقط، أو صورك تتوالى.</string>
+    <string name="sh_fundo_home">مثل الشاشة الرئيسية</string>
+    <string name="sh_fundo_fotos">صور تتوالى</string>
 </resources>

@@ -24,4 +24,8 @@
     <string name="sh_rodar_min">每 1 分钟</string>
     <string name="sh_vidro">底部信息条后加玻璃</string>
     <string name="sh_vidro_det">信息条后面的玻璃面板。关闭：只有一条细线。</string>
+    <string name="sh_fundo">休息时的背景</string>
+    <string name="sh_fundo_det">电视休息时时钟后面显示的内容。与主屏幕相同、仅在此使用其他主题，或轮播你的照片。</string>
+    <string name="sh_fundo_home">与主屏幕相同</string>
+    <string name="sh_fundo_fotos">照片轮播</string>
 </resources>

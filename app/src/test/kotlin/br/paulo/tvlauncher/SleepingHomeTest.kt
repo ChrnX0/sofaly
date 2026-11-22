@@ -30,4 +30,11 @@ class SleepingHomeTest {
         assertEquals(15, SleepingHome.nextRotate(0))
         assertEquals(30, SleepingHome.nextRotate(7))   // valor estranho: começa da primeira e vai à próxima
     }
+
+    @Test fun fundoDoDescanso() {
+        val l = listOf("home", "ESCURO", "GALERIA", "photos")
+        assertEquals("ESCURO", SleepingHome.nextOf(l, "home"))
+        assertEquals("home", SleepingHome.nextOf(l, "photos"))   // dá a volta
+        assertEquals("home", SleepingHome.nextOf(l, "MEU"))      // opção que sumiu: volta ao começo
+    }
 }

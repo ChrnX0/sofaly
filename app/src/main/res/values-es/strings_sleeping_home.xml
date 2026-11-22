@@ -24,4 +24,8 @@
     <string name="sh_rodar_min">Cada 1 min</string>
     <string name="sh_vidro">Vidrio detrás de la franja inferior</string>
     <string name="sh_vidro_det">Un panel de vidrio detrás de la franja. Desactivado: solo una línea fina.</string>
+    <string name="sh_fundo">Fondo del reposo</string>
+    <string name="sh_fundo_det">Lo que aparece detrás del reloj cuando la TV descansa. El mismo de la pantalla de inicio, otro tema solo aquí o tus fotos pasando.</string>
+    <string name="sh_fundo_home">Igual que el inicio</string>
+    <string name="sh_fundo_fotos">Fotos pasando</string>
 </resources>

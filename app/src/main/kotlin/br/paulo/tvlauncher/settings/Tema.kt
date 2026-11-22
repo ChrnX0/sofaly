@@ -44,9 +44,13 @@ enum class Tema(private val rotulo: Int) {
             ctx.getSharedPreferences(Prefs.LAUNCHER, Context.MODE_PRIVATE).edit().putString(CHAVE, t.name).apply()
         }
 
+        /** Os temas que dá para usar agora ("Meu fundo" só com arquivo, plugin só com um escolhido). */
+        fun disponiveis(ctx: Context): List<Tema> =
+            values().filter { (it != MEU || FundoMeuDados.arquivo(ctx) != null) && (it != PLUGIN || WallpaperPlugins.escolhidoId(ctx) != null) }
+
         /** Passa para o próximo tema da lista (dá a volta). */
         fun proximo(ctx: Context): Tema {
-            val opcoes = values().filter { (it != MEU || FundoMeuDados.arquivo(ctx) != null) && (it != PLUGIN || WallpaperPlugins.escolhidoId(ctx) != null) }
+            val opcoes = disponiveis(ctx)
             val novo = opcoes[(opcoes.indexOf(atual(ctx)) + 1).coerceAtLeast(0) % opcoes.size]
             ctx.getSharedPreferences(Prefs.LAUNCHER, Context.MODE_PRIVATE).edit().putString(CHAVE, novo.name).apply()
             return novo

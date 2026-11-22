@@ -24,4 +24,8 @@
     <string name="sh_rodar_min">Jede Minute</string>
     <string name="sh_vidro">Glas hinter der unteren Leiste</string>
     <string name="sh_vidro_det">Eine Glasfläche hinter der Leiste. Aus: nur eine feine Linie.</string>
+    <string name="sh_fundo">Hintergrund im Ruhemodus</string>
+    <string name="sh_fundo_det">Was hinter der Uhr erscheint, wenn der Fernseher ruht. Wie der Startbildschirm, ein anderes Design nur hier oder Ihre Fotos im Wechsel.</string>
+    <string name="sh_fundo_home">Wie der Startbildschirm</string>
+    <string name="sh_fundo_fotos">Fotos im Wechsel</string>
 </resources>

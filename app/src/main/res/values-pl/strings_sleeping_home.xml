@@ -24,4 +24,8 @@
     <string name="sh_rodar_min">Co 1 min</string>
     <string name="sh_vidro">Szkło za dolnym paskiem</string>
     <string name="sh_vidro_det">Szklany panel za paskiem. Wył.: tylko cienka linia.</string>
+    <string name="sh_fundo">Tło w trybie spoczynku</string>
+    <string name="sh_fundo_det">Co widać za zegarem, gdy telewizor odpoczywa. Tak jak ekran główny, inny motyw tylko tutaj albo Twoje zdjęcia po kolei.</string>
+    <string name="sh_fundo_home">Jak ekran główny</string>
+    <string name="sh_fundo_fotos">Zdjęcia po kolei</string>
 </resources>
