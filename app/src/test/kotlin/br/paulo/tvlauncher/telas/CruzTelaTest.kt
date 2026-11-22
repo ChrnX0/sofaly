@@ -214,18 +214,25 @@ class CruzTelaTest {
     }
 
     /**
-     * Os 5 mundos no espaçamento padrão (A), no 1º, 2º e 3º item de cada um (22/11/2026: na Sala o nome do mundo caía
+     * Os 5 mundos no espaçamento padrão (A), item por item (todos os itens de cada mundo) (22/11/2026: na Sala o nome do mundo caía
      * sobre o item de cima a partir do 2º). app/build/telas/mundos-<mundo>-<n>.png; confere que o nome fica acima do vizinho.
      */
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
-    @Test fun cincoMundos() {
+    @Test fun cincoMundosLetraReal() = cincoMundos(true)
+
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun cincoMundos() = cincoMundos(false)
+
+    /** [real]: a letra que a Sala usa (FontChoice padrão + Nunito 300 da cruz) e o foco Fio, não a Typeface.DEFAULT. */
+    private fun cincoMundos(real: Boolean) {
         br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.TIGHT
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
         saida.mkdirs()
         val a = Robolectric.buildActivity(Activity::class.java).setup().get()
         val raiz = FrameLayout(a).apply { setBackgroundColor(Estilo.FUNDO) }
         a.setContentView(raiz)
-        val cruz = HomeCruz(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
+        val cruz = if (real) HomeCruz(a, br.paulo.tvlauncher.settings.Fontes.ui(a, br.paulo.tvlauncher.settings.Tema.ESCURO), br.paulo.tvlauncher.settings.Fontes.nunito(a, 300))
+            else HomeCruz(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
         raiz.addView(cruz, FrameLayout.LayoutParams(-1, -1))
         fun ic(t: IconeCruz.Tipo) = IconeCruz(t, IconeCruz.Estilo.OBJETO)
         fun it(id: String, n: String, sub: String, t: IconeCruz.Tipo, visto: Float? = null) = HomeCruz.Item(id, n, sub, ic(t), {}, progresso = visto)
@@ -236,7 +243,9 @@ class CruzTelaTest {
                 it("t:despertador", "Alarme", "Próximo: seg 07:00", IconeCruz.Tipo.DESPERTADOR),
                 it("t:clima", "Clima", "30° · previsão de 7 dias", IconeCruz.Tipo.CLIMA),
                 it("t:casa", "Casa", "Luzes e câmeras", IconeCruz.Tipo.CASA),
-                it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE))),
+                it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE),
+                it("t:painel", "Painel rápido", "Bluetooth, som, Wi-Fi e timer", IconeCruz.Tipo.PAINEL),
+                it("t:config", "Configurações", "Tudo do launcher", IconeCruz.Tipo.CONFIG))),
             HomeCruz.Categoria(CruzLogica.Categoria.ASSISTIR, "Assistir", ic(IconeCruz.Tipo.ASSISTIR), listOf(
                 it("cont:yt", "Continuar", "YouTube · Vini Jr tá de volta", IconeCruz.Tipo.CONTINUAR, visto = 0.58f),
                 it("tv", "TV", "Canal 156 · Discovery", IconeCruz.Tipo.TV),
@@ -266,10 +275,11 @@ class CruzTelaTest {
         try {
             for ((m, nome) in listOf("ferramentas", "assistir", "ouvir", "jogar", "aplicativos").withIndex()) {
                 if (m > 0) tecla(KeyEvent.KEYCODE_DPAD_RIGHT)
-                for (n in 1..3) {
+                val total = cruz.categoriaAtual()!!.itens.size
+                for (n in 1..total) {
                     if (n > 1) tecla(KeyEvent.KEYCODE_DPAD_DOWN)
                     ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
-                    foto(a, "mundos-${m + 1}-$nome-$n")
+                    foto(a, (if (real) "regua-" else "") + "mundos-${m + 1}-$nome-$n")
                     val r = cruz.rotuloAtual()
                     val topo = if (n == 1) (HomeCruz.LINHA - HomeCruz.ICONE_A / 2f) * d
                         else (HomeCruz.LINHA - HomeCruz.VAO_CIMA - HomeCruz.ICONE_A * HomeCruz.ESCALA_PEQUENO / 2f) * d
@@ -286,7 +296,8 @@ class CruzTelaTest {
                         assertTrue("$nome item $n: texto termina em ${fim / d} dp, limite ${limite / d} dp", fim <= limite)
                     }
                 }
-                tecla(KeyEvent.KEYCODE_DPAD_UP); tecla(KeyEvent.KEYCODE_DPAD_UP)
+                assertEquals("$nome: passou por todos os itens", total - 1, cruz.categoriaAtual()!!.itens.indexOf(cruz.itemAtual()))
+                repeat(total - 1) { tecla(KeyEvent.KEYCODE_DPAD_UP) }
             }
         } finally { a.finish() }
     }
