@@ -220,6 +220,7 @@ class CruzTelaTest {
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
     @Test fun cincoMundosLetraReal() = cincoMundos(true)
 
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
     @Test fun cincoMundos() = cincoMundos(false)
 
     /** [real]: a letra que a Sala usa (FontChoice padrão + Nunito 300 da cruz) e o foco Fio, não a Typeface.DEFAULT. */
