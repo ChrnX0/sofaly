@@ -68,6 +68,7 @@ class LauncherApp : Application() {
                 TamanhoTexto.aplicar(a)
                 AltoContraste.aplicar(a)   // elevação 16.3
                 br.paulo.tvlauncher.settings.CardStyle.aplicar(a)   // cor de destaque e cantos (Ajuste fino)
+                br.paulo.tvlauncher.settings.FocusStyle.ler(a)   // forma do foco: as cores "no foco" do Estilo dependem dela
             }
             override fun onActivityCreated(a: android.app.Activity, salvo: android.os.Bundle?) {
                 if (salvo == null) UsoLocal.contarTela(a)   // ideia 67

@@ -64,14 +64,18 @@ object Estilo {
     const val TEXTO = DesignTokens.CREAM
     val TEXTO_2: Int get() = if (altoContraste) 0xFFFFF3E6.toInt() else 0xB3FFF3E6.toInt()
     val TEXTO_3: Int get() = if (altoContraste) 0xD9FFF3E6.toInt() else 0x86FFF3E6.toInt()   // era 0x7A: 4,4:1 nos cartões (pente fino 19/11/2026); 0x86 dá ≥ 4,7:1 em todo fundo da casa
-    /** Texto em cima do foco branco (linha de lista focada). */
-    const val TEXTO_NO_FOCO = DesignTokens.NIGHT
-    val TEXTO_NO_FOCO_2: Int get() = if (altoContraste) TEXTO_NO_FOCO else 0xA6121528.toInt()
+    /**
+     * Texto em cima do foco. Só o Quadro (foco branco) escurece o texto; no Fio e no Véu o fundo continua escuro,
+     * então o texto focado fica creme (régua de estilo, 22/11/2026: no painel rápido ele sumia, escuro sobre escuro).
+     */
+    private val focoBranco: Boolean get() = br.paulo.tvlauncher.settings.FocusStyle.atual == br.paulo.tvlauncher.settings.FocusStyle.BOX
+    val TEXTO_NO_FOCO: Int get() = if (focoBranco) DesignTokens.NIGHT else TEXTO
+    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6121528.toInt()
 
     /** O ÚNICO acento: "ligado", valor escolhido, progresso. Foco NÃO usa acento: foco é branco. */
     val ACENTO: Int get() = if (altoContraste) acentoAlto else acentoBase
     /** Acento legível sobre o foco branco. */
-    val ACENTO_NO_FOCO: Int get() = if (altoContraste && acentoBase == DesignTokens.ORANGE) 0xFF8A2900.toInt() else acentoNoFocoBase
+    val ACENTO_NO_FOCO: Int get() = if (!focoBranco) ACENTO else if (altoContraste && acentoBase == DesignTokens.ORANGE) 0xFF8A2900.toInt() else acentoNoFocoBase
     /** A cor de destaque escolhida no Ajuste fino (CardStyle.aplicar); laranja da marca de fábrica. */
     @Volatile var acentoBase = DesignTokens.ORANGE
     @Volatile var acentoAlto = DesignTokens.ORANGE_HIGH
@@ -781,11 +785,11 @@ object Estilo {
         val sombra = 0x99000000.toInt()
         val anima = android.provider.Settings.Global.getFloat(ctx.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
         val suave = DecelerateInterpolator(1.6f)
-        val nomeLista = titulo.toString().uppercase()
+        val nomeLista = titulo.toString()   // régua: sem maiúsculas
         // Cabeçalho só com o nome da lista (crítica de design 19/11/2026: o "3 de 14" ao lado era ruído; o foco já diz onde se está).
         val cabecalho = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); typeface = forte; setTextColor(HomeCruz.COR_SUB)   // rótulo: cinza (laranja só no mundo da cruz)
-            letterSpacing = 0.08f; includeFontPadding = false; maxLines = 3; setLineSpacing(dp(ctx, 4).toFloat(), 1f)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); typeface = fonte(300); setTextColor(HomeCruz.COR_SUB)   // rótulo: cinza (laranja só no mundo da cruz)
+            includeFontPadding = false; maxLines = 3; setLineSpacing(dp(ctx, 4).toFloat(), 1f)
             setShadowLayer(dp(ctx, 6).toFloat(), 0f, 0f, sombra)
             text = nomeLista
         }

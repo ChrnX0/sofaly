@@ -197,7 +197,7 @@ class CuidarTelaActivity : Activity() {
         // acessibilidade (tocar_elemento) cai aqui e não faz nada.
         val sim = botao(getString(R.string.cuidar_aceito), true, null)
         aceito = sim
-        montar(getString(R.string.cuidar_titulo).uppercase(), getString(R.string.cuidar_pergunta_consentimento, c.nome), null,
+        montar(getString(R.string.cuidar_titulo), getString(R.string.cuidar_pergunta_consentimento, c.nome), null,
             listOf(nao, sim), nao, tituloSp = Estilo.Leitura.PERGUNTA_MENOR, lista = itens, rodape = getString(R.string.cuidar_pode_desligar))
     }
 
@@ -285,7 +285,7 @@ class CuidarTelaActivity : Activity() {
         }
         val explica = if (CuidarDeLongeTv.ativo(this, CuidarDeLonge.Aviso.LEMBRETE)) getString(R.string.cuidar_lembrete_explica_aviso, c.prazoMin, c.nome)
             else getString(R.string.cuidar_lembrete_explica)
-        montar(getString(R.string.cuidar_lembrete_sobre, CuidarDeLonge.textoHora(momento, java.util.TimeZone.getDefault())).uppercase(),
+        montar(getString(R.string.cuidar_lembrete_sobre, CuidarDeLonge.textoHora(momento, java.util.TimeZone.getDefault())),
             texto, explica, listOf(depois, feito), feito)
         bipe()
     }

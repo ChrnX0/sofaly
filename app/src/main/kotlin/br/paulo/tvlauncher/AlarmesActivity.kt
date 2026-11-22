@@ -319,7 +319,7 @@ class AlarmesActivity : Activity() {
         fun cabecalhoEProximo() {
             cab.text = cabecalho(getString(R.string.al_titulo), coluna.escolhido, coluna.tamanho)
             val prox = Despertador.proximo(this@AlarmesActivity)
-            proxRotulo.text = getString(R.string.al_proximo_rotulo).uppercase()
+            proxRotulo.text = getString(R.string.al_proximo_rotulo)
             if (prox == null) {
                 proxHora.text = "--:--"; proxHora.alpha = 0.35f
                 proxDia.text = getString(R.string.al_nenhum)

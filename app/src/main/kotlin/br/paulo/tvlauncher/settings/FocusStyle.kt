@@ -23,8 +23,15 @@ enum class FocusStyle {
         /** A escolha gravada; padrão [LINE]. Puro sobre o número (testável): fora da faixa volta ao padrão. */
         fun deNumero(n: Int): FocusStyle = entries.getOrElse(n) { LINE }
 
-        fun ler(ctx: Context): FocusStyle = deNumero(Extras.numero(ctx, KEY, LINE.ordinal))
+        /**
+         * A última escolha lida, para as cores "no foco" do Estilo (TEXTO_NO_FOCO...), que não recebem Context.
+         * Porquê: na Sala (22/11) o painel rápido pintava o título focado de escuro sobre o Fio (fundo escuro) e ele sumia.
+         */
+        @Volatile var atual: FocusStyle = LINE
+            internal set
 
-        fun gravar(ctx: Context, f: FocusStyle) = Extras.definirNumero(ctx, KEY, f.ordinal)
+        fun ler(ctx: Context): FocusStyle = deNumero(Extras.numero(ctx, KEY, LINE.ordinal)).also { atual = it }
+
+        fun gravar(ctx: Context, f: FocusStyle) { atual = f; Extras.definirNumero(ctx, KEY, f.ordinal) }
     }
 }

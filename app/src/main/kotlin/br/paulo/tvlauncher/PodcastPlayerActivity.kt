@@ -257,7 +257,7 @@ class PodcastPlayerActivity : Activity() {
             orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false
             setPaddingRelative(dpi(MARGEM), dpi(14), dpi(MARGEM), dpi(22))
             background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xE6121528.toInt(), 0xFA121528.toInt()))
-            addView(texto(15f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f; text = getString(R.string.pl_a_seguir).uppercase() },
+            addView(texto(18f, Estilo.TEXTO_2).apply { text = getString(R.string.pl_a_seguir) },
                 LinearLayout.LayoutParams(-1, -2))
             addView(fila, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dpi(10) })
             visibility = View.INVISIBLE
@@ -341,7 +341,7 @@ class PodcastPlayerActivity : Activity() {
         rotulo.text = listOfNotNull(
             getString(if (pausado) R.string.ouv_pausado else R.string.ouv_tocando_agora),
             dormir.takeIf { it > 0 }?.let { getString(R.string.pl_dorme_em, it) },
-        ).joinToString("  ·  ").uppercase()
+        ).joinToString("  ·  ")
         if (andar != ANDAR_SEGUIR) rotuloBotao.text = rotuloDoBotao(Acao.entries[botao])
     }
 
@@ -646,13 +646,13 @@ class PodcastPlayerActivity : Activity() {
             if (palcoVisto != -3) {
                 palcoVisto = -3
                 linhasPalco.forEachIndexed { k, tv -> tv.text = if (k == 1) getString(R.string.tx_gerando_det) else "" }
-                p.findViewWithTag<TextView>("topo")?.text = (getString(R.string.tx_titulo) + " · " + (ep?.podcast ?: "")).uppercase()
+                p.findViewWithTag<TextView>("topo")?.text = (getString(R.string.tx_titulo) + " · " + (ep?.podcast ?: ""))
             }
             return
         }
         if (l.isEmpty()) { fecharPalco(); return }
         val i = Transcricao.atual(l, pos)
-        p.findViewWithTag<TextView>("topo")?.text = (getString(R.string.tx_titulo) + " · " + (ep?.podcast ?: "")).uppercase()
+        p.findViewWithTag<TextView>("topo")?.text = (getString(R.string.tx_titulo) + " · " + (ep?.podcast ?: ""))
         p.findViewWithTag<TextView>("pe")?.text = if (achados.isNotEmpty()) getString(R.string.tx_pe_busca, noAchado + 1, achados.size) else getString(R.string.tx_pe)
         if (i == palcoVisto) return
         palcoVisto = i

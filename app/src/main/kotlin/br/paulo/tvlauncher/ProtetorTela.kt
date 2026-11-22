@@ -304,7 +304,7 @@ class ProtetorTela : DreamService() {
                 setLineSpacing(0f, 0.95f)   // nascer/pôr em 2 linhas; o quadrado tem altura fixa, então não desalinha os outros
             })
             addView(TextView(this@ProtetorTela).apply {
-                text = rotulo.uppercase(); setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f); setTextColor(0x99FFF3E6.toInt())
+                text = rotulo; setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f); setTextColor(0x99FFF3E6.toInt())
                 letterSpacing = 0.06f; gravity = Gravity.CENTER; maxLines = 2; setPaddingRelative(dp(8), dp(3), dp(8), 0)   // nome da fase da lua pode ser longo
             })
         }
