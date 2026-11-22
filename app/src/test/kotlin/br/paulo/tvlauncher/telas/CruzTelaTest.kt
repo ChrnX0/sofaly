@@ -88,14 +88,14 @@ class CruzTelaTest {
         assertEquals("uma informação em até 2 linhas", HomeCruz.ITEM_LINHAS, sub.lineCount)
         assertEquals(comprida, sub.text.toString())   // o "…" é do TextView (ellipsize), o texto fica inteiro
         // a principal não coube: vai inteira para o canto, seguida das outras
-        assertEquals("$comprida\nVídeos e canais\nAberto há 12 min", cruz.detalheAtual().text.toString())
+        assertEquals("$comprida\nVídeos e canais\nAberto há 12 min", cruz.detalheAtual().text.toString().replace('\u00A0', ' '))
         assertEquals(1f, cruz.detalheAtual().alpha)
         foto(a, "cruz-linha-comprida")
         cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_DOWN)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_DOWN))
         assertEquals("some na hora ao andar", 0f, cruz.detalheAtual().alpha)
         ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
         assertEquals("Canal 2 · Globo SP", cruz.subAtual()!!.text.toString())
-        assertEquals("a situação abre os detalhes, sem repetir", "No ar  Mil Lugares para Conhecer Antes de Morrer · faltam 25 min\nDepois, 09:30: Encontro", cruz.detalheAtual().text.toString())
+        assertEquals("a situação abre os detalhes, sem repetir", "No ar  Mil Lugares para Conhecer Antes de Morrer · faltam 25 min\nDepois, 09:30: Encontro", cruz.detalheAtual().text.toString().replace('\u00A0', ' '))
         foto(a, "cruz-tv-detalhes")
     }
 
@@ -114,7 +114,7 @@ class CruzTelaTest {
                 situacao = CruzLogica.Situacao("Parou em", "3% · faltam 28 min", "c:podcast"))))))
         cruz.requestFocus()
         ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
-        assertEquals("$nome\nParou em  3% · faltam 28 min\nTocou há 1 h", cruz.detalheAtual().text.toString())
+        assertEquals("$nome\nParou em  3% · faltam 28 min\nTocou há 1 h", cruz.detalheAtual().text.toString().replace('\u00A0', ' '))
     }
 
     /** Prévia da animação de cada ícone Linha (18/11/2026): uma linha por ícone, o estático e 8 quadros da passada. */
@@ -181,7 +181,7 @@ class CruzTelaTest {
                         it("series", "Séries", "O Último Farol", IconeCruz.Tipo.SERIES),
                         it("filmes", "Filmes", "Maré Alta", IconeCruz.Tipo.FILMES))),
                     HomeCruz.Categoria(CruzLogica.Categoria.OUVIR, "Ouvir", ic(IconeCruz.Tipo.OUVIR), listOf(
-                        it("radio", "Rádio", "Rádios do mundo inteiro, ao vivo e sem cadastro nenhum", IconeCruz.Tipo.RADIO))),
+                        it("radio", "Rádio", "Rádios do mundo inteiro, ao vivo e sem cadastro nenhum\nPor último: Your Classical - Relax · há 16 h", IconeCruz.Tipo.RADIO))),
                     HomeCruz.Categoria(CruzLogica.Categoria.JOGAR, "Jogar", ic(IconeCruz.Tipo.JOGAR), listOf(
                         it("central", "Central de jogos", "Seus jogos, os retrô e os do celular num lugar só", IconeCruz.Tipo.CENTRAL))),
                     HomeCruz.Categoria(CruzLogica.Categoria.APLICATIVOS, "Aplicativos", ic(IconeCruz.Tipo.APLICATIVOS), listOf(
@@ -214,7 +214,7 @@ class CruzTelaTest {
     }
 
     /**
-     * Os 5 mundos no espaçamento padrão (A), no 1º, 2º e 3º item de cada um (22/11/2026: na Sala o nome do mundo caía
+     * Os 5 mundos no espaçamento padrão (A), item por item (todos os itens de cada mundo) (22/11/2026: na Sala o nome do mundo caía
      * sobre o item de cima a partir do 2º). app/build/telas/mundos-<mundo>-<n>.png; confere que o nome fica acima do vizinho.
      */
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
@@ -243,7 +243,9 @@ class CruzTelaTest {
                 it("t:despertador", "Alarme", "Próximo: seg 07:00", IconeCruz.Tipo.DESPERTADOR),
                 it("t:clima", "Clima", "30° · previsão de 7 dias", IconeCruz.Tipo.CLIMA),
                 it("t:casa", "Casa", "Luzes e câmeras", IconeCruz.Tipo.CASA),
-                it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE))),
+                it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE),
+                it("t:painel", "Painel rápido", "Bluetooth, som, Wi-Fi e timer", IconeCruz.Tipo.PAINEL),
+                it("t:config", "Configurações", "Tudo do launcher", IconeCruz.Tipo.CONFIG))),
             HomeCruz.Categoria(CruzLogica.Categoria.ASSISTIR, "Assistir", ic(IconeCruz.Tipo.ASSISTIR), listOf(
                 it("cont:yt", "Continuar", "YouTube · Vini Jr tá de volta", IconeCruz.Tipo.CONTINUAR, visto = 0.58f),
                 it("tv", "TV", "Canal 156 · Discovery", IconeCruz.Tipo.TV),
@@ -269,10 +271,12 @@ class CruzTelaTest {
         fun tecla(k: Int) { cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, k)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, k)); ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS) }
         tecla(KeyEvent.KEYCODE_DPAD_LEFT)   // abre em Assistir; vai para Ferramentas
         val d = a.resources.displayMetrics.density
+        var rotuloY: Float? = null
         try {
             for ((m, nome) in listOf("ferramentas", "assistir", "ouvir", "jogar", "aplicativos").withIndex()) {
                 if (m > 0) tecla(KeyEvent.KEYCODE_DPAD_RIGHT)
-                for (n in 1..3) {
+                val total = cruz.categoriaAtual()!!.itens.size
+                for (n in 1..total) {
                     if (n > 1) tecla(KeyEvent.KEYCODE_DPAD_DOWN)
                     ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
                     foto(a, (if (real) "regua-" else "") + "mundos-${m + 1}-$nome-$n")
@@ -280,6 +284,10 @@ class CruzTelaTest {
                     val topo = if (n == 1) (HomeCruz.LINHA - HomeCruz.ICONE_A / 2f) * d
                         else (HomeCruz.LINHA - HomeCruz.VAO_CIMA - HomeCruz.ICONE_A * HomeCruz.ESCALA_PEQUENO / 2f) * d
                     assertTrue("$nome item $n: nome do mundo acima do que está embaixo dele", r.translationY + r.height <= topo + 1f)
+                    // Nome do mundo FIXO (Paulo, 22/11/2026): o mesmo lugar em todos os mundos e itens.
+                    val y0 = rotuloY ?: r.translationY.also { rotuloY = it }
+                    assertEquals("$nome item $n: o nome do mundo mudou de lugar", y0, r.translationY, 0.5f)
+                    conferirTextos(cruz, "$nome item $n", d)
                     // Texto do escolhido termina antes do ícone da 1ª categoria à direita, com folga (Sala v468193, Podcasts x Jogar).
                     val limite = (HomeCruz.CAT_DIREITA - HomeCruz.CAT_L / 2f - HomeCruz.FOLGA_CAT) * d + 1f
                     for (t in listOfNotNull(cruz.subAtual(), cruz.nomeAtual())) {
@@ -288,7 +296,8 @@ class CruzTelaTest {
                         assertTrue("$nome item $n: texto termina em ${fim / d} dp, limite ${limite / d} dp", fim <= limite)
                     }
                 }
-                tecla(KeyEvent.KEYCODE_DPAD_UP); tecla(KeyEvent.KEYCODE_DPAD_UP)
+                assertEquals("$nome: passou por todos os itens", total - 1, cruz.categoriaAtual()!!.itens.indexOf(cruz.itemAtual()))
+                repeat(total - 1) { tecla(KeyEvent.KEYCODE_DPAD_UP) }
             }
         } finally { a.finish() }
     }
@@ -361,6 +370,37 @@ class CruzTelaTest {
         ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
         assertEquals(CruzLogica.Categoria.ASSISTIR, cruz.categoriaAtual()?.cat)
         a.finish()
+    }
+
+    /**
+     * Varre todo texto visível da cruz (22/11/2026, verificação minuciosa pedida pelo Paulo): nada cortado com "…" (o
+     * nome comprido de propósito do teste vai inteiro para o canto), nada a menos de [MARGEM_SEGURA] da borda (TVs como
+     * a LG da Sala cortam uns 2 a 3% de cada lado) e nenhuma linha quebrada com um pedaço solto ("há 16" + "h").
+     */
+    private val MARGEM_SEGURA = 32
+
+    private fun conferirTextos(raiz: View, onde: String, d: Float) {
+        val telaL = raiz.rootView.width
+        fun varrer(v: View) {
+            if (v.visibility != View.VISIBLE || v.alpha < 0.05f) return
+            if (v is android.view.ViewGroup) { for (i in 0 until v.childCount) varrer(v.getChildAt(i)); return }
+            val t = v as? android.widget.TextView ?: return
+            val l = t.layout ?: return
+            if (t.text.isNullOrBlank()) return
+            val xy = IntArray(2); t.getLocationInWindow(xy)
+            var esc = 1f; var p: View? = t
+            while (p != null) { esc *= p.scaleX; p = p.parent as? View }   // vizinhos pequenos vêm em escala 0,6
+            val esq = xy[0] + esc * (t.totalPaddingLeft + (0 until l.lineCount).minOf { l.getLineLeft(it) })
+            val dir = xy[0] + esc * (t.totalPaddingLeft + (0 until l.lineCount).maxOf { l.getLineRight(it) })
+            assertTrue("$onde: \"${t.text}\" sai da área segura à direita (${dir / d} dp)", dir <= telaL - MARGEM_SEGURA * d + 1)
+            assertTrue("$onde: \"${t.text}\" sai da área segura à esquerda (${esq / d} dp)", esq >= MARGEM_SEGURA * d - 1)
+            for (i in 0 until l.lineCount) {
+                val linha = t.text.subSequence(l.getLineStart(i), l.getLineEnd(i)).toString().trim()
+                if (!t.text.contains("comprido")) assertEquals("$onde: \"${t.text}\" cortado com …", 0, l.getEllipsisCount(i))
+                if (i > 0) assertTrue("$onde: \"${t.text}\" quebrou deixando \"$linha\" sozinho", linha.length > 2)
+            }
+        }
+        varrer(raiz)
     }
 
     private fun foto(a: Activity, arquivo: String) {

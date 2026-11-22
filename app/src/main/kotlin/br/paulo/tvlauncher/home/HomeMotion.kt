@@ -296,7 +296,7 @@ internal fun MainActivity.atualizarCruz() {
     ferramentas += HomeCruz.Item("t:ajuste", getString(R.string.ft_titulo), getString(R.string.ft_abrir_det),
         icCruz("t:ajuste", IconeCruz.Tipo.AJUSTE), { FineTuneActivity.abrir(this) })
     ferramentas += HomeCruz.Item("t:painel", getString(R.string.aj_painel_titulo), getString(R.string.tl_painel_sub),
-        icCruz("t:painel", IconeCruz.Tipo.CONFIG), { PainelRapidoActivity.abrir(this) })
+        icCruz("t:painel", IconeCruz.Tipo.PAINEL), { PainelRapidoActivity.abrir(this) })
     ferramentas += HomeCruz.Item("t:config", getString(R.string.cfg_titulo), getString(R.string.tl_config_sub),
         icCruz("t:config", IconeCruz.Tipo.CONFIG), { abrirCatalogo(ConfigLauncherActivity::class.java) })
     categoria(CruzLogica.Categoria.FERRAMENTAS, R.string.cruz_ferramentas, IconeCruz.Tipo.FERRAMENTAS, ferramentas)

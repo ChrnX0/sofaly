@@ -42,3 +42,11 @@ class LarguraTextoCruzTest {
         }
     }
 }
+
+class ColarTextoCantoTest {
+    @Test fun tempoCurtoNaoQuebra() {
+        val t = br.paulo.tvlauncher.home.CruzLogica.colar("Por último: Your Classical - Relax · há 16 h")
+        assertTrue(t.endsWith("Relax · há 16 h"))
+        assertEquals("T1 E4 · faltam 18 min", br.paulo.tvlauncher.home.CruzLogica.colar("T1 E4 · faltam 18 min"))
+    }
+}
