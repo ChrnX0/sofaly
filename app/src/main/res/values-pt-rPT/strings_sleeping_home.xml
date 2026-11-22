@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Horas</string>
+    <string name="sh_dias">Dias</string>
+    <string name="sh_dicas">Dicas</string>
+    <string name="sh_ar">Ar</string>
+    <string name="sh_orvalho">orvalho %1$d°</string>
+    <string name="sh_nuvens">Nuvens</string>
+    <string name="sh_nascer">Nascer do sol</string>
+    <string name="sh_por">Pôr do sol</string>
+    <string name="sh_duracao">Duração do dia</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Hora dourada</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s iluminada</string>
+    <string name="sh_cheia">Lua cheia</string>
+    <string name="sh_nova">Lua nova</string>
+    <string name="sh_em_dias">dentro de %1$d d</string>
+    <string name="sh_rodar">Rodar a faixa de baixo</string>
+    <string name="sh_rodar_det">Em descanso, a faixa de baixo muda sozinha. ↑ e ↓ mudam logo.</string>
+    <string name="sh_rodar_desl">Desligado</string>
+    <string name="sh_rodar_s">A cada %1$d s</string>
+    <string name="sh_rodar_min">A cada 1 min</string>
+    <string name="sh_vidro">Vidro atrás da faixa de baixo</string>
+    <string name="sh_vidro_det">Uma placa de vidro atrás da faixa. Desligado: só uma linha fina.</string>
+    <string name="sh_fundo">Fundo do descanso</string>
+    <string name="sh_fundo_det">O que aparece atrás do relógio quando a TV descansa: o mesmo do ecrã inicial, outro tema, uma foto ou vídeo só daqui, ou fotos e vídeos a passar.</string>
+    <string name="sh_fundo_home">Igual ao ecrã inicial</string>
+    <string name="sh_fundo_fotos">Fotos e vídeos a passar</string>
+    <string name="sh_fundo_arquivo">Um ficheiro só do descanso</string>
+</resources>

@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.alarm.HoraPorExtenso
-import br.paulo.tvlauncher.screensaver.Protetor
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -41,7 +40,5 @@ class HoraPorExtensoTest {
     @Test fun soEmPortugues() {
         assertTrue(HoraPorExtenso.disponivel("pt"))
         assertFalse(HoraPorExtenso.disponivel("en"))
-        assertFalse(Protetor.REL_EXTENSO in Protetor.relogiosDaLingua("es"))
-        assertTrue(Protetor.REL_EXTENSO in Protetor.relogiosDaLingua("pt"))
     }
 }

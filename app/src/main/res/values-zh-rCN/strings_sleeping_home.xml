@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">逐时</string>
+    <string name="sh_dias">逐日</string>
+    <string name="sh_dicas">提示</string>
+    <string name="sh_ar">空气</string>
+    <string name="sh_orvalho">露点 %1$d°</string>
+    <string name="sh_nuvens">云量</string>
+    <string name="sh_nascer">日出</string>
+    <string name="sh_por">日落</string>
+    <string name="sh_duracao">白昼时长</string>
+    <string name="sh_horas_min">%1$d小时%2$02d分</string>
+    <string name="sh_dourada">黄金时刻</string>
+    <string name="sh_fase">月相</string>
+    <string name="sh_iluminada">照亮 %1$s</string>
+    <string name="sh_cheia">满月</string>
+    <string name="sh_nova">新月</string>
+    <string name="sh_em_dias">%1$d 天后</string>
+    <string name="sh_rodar">自动切换底部信息条</string>
+    <string name="sh_rodar_det">休息时底部信息条会自动切换。↑ 和 ↓ 立即切换。</string>
+    <string name="sh_rodar_desl">关闭</string>
+    <string name="sh_rodar_s">每 %1$d 秒</string>
+    <string name="sh_rodar_min">每 1 分钟</string>
+    <string name="sh_vidro">底部信息条后加玻璃</string>
+    <string name="sh_vidro_det">信息条后面的玻璃面板。关闭：只有一条细线。</string>
+    <string name="sh_fundo">休息时的背景</string>
+    <string name="sh_fundo_det">电视休息时时钟后面显示的内容：与主屏幕相同、其他主题、仅在此使用的照片或视频，或照片和视频轮播。</string>
+    <string name="sh_fundo_home">与主屏幕相同</string>
+    <string name="sh_fundo_fotos">照片和视频轮播</string>
+    <string name="sh_fundo_arquivo">仅用于休息的文件</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Ore</string>
+    <string name="sh_dias">Giorni</string>
+    <string name="sh_dicas">Consigli</string>
+    <string name="sh_ar">Aria</string>
+    <string name="sh_orvalho">punto di rugiada %1$d°</string>
+    <string name="sh_nuvens">Nuvole</string>
+    <string name="sh_nascer">Alba</string>
+    <string name="sh_por">Tramonto</string>
+    <string name="sh_duracao">Durata del giorno</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Ora d\'oro</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s illuminata</string>
+    <string name="sh_cheia">Luna piena</string>
+    <string name="sh_nova">Luna nuova</string>
+    <string name="sh_em_dias">tra %1$d g</string>
+    <string name="sh_rodar">Ruota la fascia in basso</string>
+    <string name="sh_rodar_det">A riposo, la fascia in basso cambia da sola. ↑ e ↓ la cambiano subito.</string>
+    <string name="sh_rodar_desl">Disattivato</string>
+    <string name="sh_rodar_s">Ogni %1$d s</string>
+    <string name="sh_rodar_min">Ogni minuto</string>
+    <string name="sh_vidro">Vetro dietro la fascia in basso</string>
+    <string name="sh_vidro_det">Un pannello di vetro dietro la fascia. Disattivato: solo una linea sottile.</string>
+    <string name="sh_fundo">Sfondo del riposo</string>
+    <string name="sh_fundo_det">Cosa appare dietro l\'orologio quando la TV riposa: come la home, un altro tema, una foto o un video solo qui, o foto e video che scorrono.</string>
+    <string name="sh_fundo_home">Uguale alla home</string>
+    <string name="sh_fundo_fotos">Foto e video che scorrono</string>
+    <string name="sh_fundo_arquivo">Un file solo per il riposo</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Heures</string>
+    <string name="sh_dias">Jours</string>
+    <string name="sh_dicas">Conseils</string>
+    <string name="sh_ar">Air</string>
+    <string name="sh_orvalho">point de rosée %1$d°</string>
+    <string name="sh_nuvens">Nuages</string>
+    <string name="sh_nascer">Lever du soleil</string>
+    <string name="sh_por">Coucher du soleil</string>
+    <string name="sh_duracao">Durée du jour</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Heure dorée</string>
+    <string name="sh_fase">Phase</string>
+    <string name="sh_iluminada">%1$s éclairée</string>
+    <string name="sh_cheia">Pleine lune</string>
+    <string name="sh_nova">Nouvelle lune</string>
+    <string name="sh_em_dias">dans %1$d j</string>
+    <string name="sh_rodar">Faire défiler la bande du bas</string>
+    <string name="sh_rodar_det">Au repos, la bande du bas change toute seule. ↑ et ↓ la changent tout de suite.</string>
+    <string name="sh_rodar_desl">Désactivé</string>
+    <string name="sh_rodar_s">Toutes les %1$d s</string>
+    <string name="sh_rodar_min">Toutes les minutes</string>
+    <string name="sh_vidro">Verre derrière la bande du bas</string>
+    <string name="sh_vidro_det">Un panneau de verre derrière la bande. Désactivé : juste un filet fin.</string>
+    <string name="sh_fundo">Fond du repos</string>
+    <string name="sh_fundo_det">Ce qui apparaît derrière l\'horloge quand la TV se repose : comme l\'accueil, un autre thème, une photo ou vidéo rien qu\'ici, ou des photos et vidéos qui défilent.</string>
+    <string name="sh_fundo_home">Comme l\'accueil</string>
+    <string name="sh_fundo_fotos">Photos et vidéos qui défilent</string>
+    <string name="sh_fundo_arquivo">Un fichier rien que pour le repos</string>
+</resources>

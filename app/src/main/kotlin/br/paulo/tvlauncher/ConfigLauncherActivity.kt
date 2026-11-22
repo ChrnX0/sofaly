@@ -49,7 +49,7 @@ import br.paulo.tvlauncher.player.avisar
 import br.paulo.tvlauncher.privilege.Confirmacoes
 import br.paulo.tvlauncher.privilege.Debloat
 import br.paulo.tvlauncher.privilege.PrivilegioDO
-import br.paulo.tvlauncher.screensaver.Protetor
+import br.paulo.tvlauncher.screensaver.SleepingHome
 import br.paulo.tvlauncher.settings.AjudaQr
 import br.paulo.tvlauncher.settings.BuscaAjustes
 import br.paulo.tvlauncher.settings.Extras
@@ -482,70 +482,6 @@ class ConfigLauncherActivity : Activity() {
 
     // ================================================================ aba: Tela e energia
 
-    /**
-     * Protetor v2 (17/11/2026, protótipo "Protetor Vivo 2"): fundo, relógio (estilo, lugar, tamanho), quando o resto
-     * aparece e o liga/desliga de cada elemento. OK passa para a próxima opção; vale no próximo protetor ([Protetor]).
-     */
-    private fun protetorV2(c: LinearLayout) {
-        fun escolha(titulo: Int, detalhe: Int, e: Protetor.Escolha, rotulos: Map<String, Int>) {
-            lateinit var l: LinhaCfg
-            l = linha(getString(titulo), getString(detalhe), valor = getString(rotulos.getValue(e.ler(this)))) {
-                val novo = e.proximo(e.ler(this)); e.gravar(this, novo); l.valor(getString(rotulos.getValue(novo)))
-            }
-            c.addView(l, lp())
-        }
-        escolha(R.string.pv2_fundo, R.string.pv2_fundo_det, Protetor.FUNDO,
-            mapOf(Protetor.FUNDO_TEMA to R.string.pv2_fundo_tema, Protetor.FUNDO_TERRA to R.string.pv2_fundo_terra))
-        // Relógio: a lista depende da língua da TV ("por extenso" só em português).
-        val lingua = java.util.Locale.getDefault().language
-        val nomesRelogio = mapOf(Protetor.REL_FINO to R.string.pv2_rel_fino, Protetor.REL_EDITORIAL to R.string.pv2_rel_editorial,
-            Protetor.REL_MONUMENTAL to R.string.pv2_rel_monumental, Protetor.REL_PONTEIROS to R.string.pv2_rel_ponteiros,
-            Protetor.REL_EXTENSO to R.string.pv2_rel_extenso, Protetor.REL_EMPILHADO to R.string.pv2_rel_empilhado)
-        lateinit var linhaRel: LinhaCfg
-        linhaRel = linha(getString(R.string.pv2_relogio), getString(R.string.pv2_relogio_det),
-            valor = getString(nomesRelogio.getValue(Protetor.relogio(this, lingua)))) {
-            val novo = Protetor.proximoRelogio(Protetor.relogio(this, lingua), lingua)
-            Protetor.RELOGIO.gravar(this, novo); linhaRel.valor(getString(nomesRelogio.getValue(novo)))
-        }
-        c.addView(linhaRel, lp())
-        escolha(R.string.pv2_posicao, R.string.pv2_posicao_det, Protetor.POSICAO,
-            mapOf(Protetor.POS_ALTO to R.string.pv2_pos_alto, Protetor.POS_BAIXO to R.string.pv2_pos_baixo, Protetor.POS_CENTRO to R.string.pv2_pos_centro))
-        escolha(R.string.pv2_tamanho, R.string.pv2_tamanho_det, Protetor.TAMANHO,
-            mapOf("normal" to R.string.pv2_tam_normal, "grande" to R.string.pv2_tam_grande))
-        escolha(R.string.pv2_mostrar, R.string.pv2_mostrar_det, Protetor.MOSTRAR,
-            mapOf(Protetor.MOSTRAR_SO_HORA to R.string.pv2_mostrar_so, Protetor.MOSTRAR_DE_VEZ to R.string.pv2_mostrar_vez,
-                Protetor.MOSTRAR_SEMPRE to R.string.pv2_mostrar_sempre))
-        // Variações de cada elemento (17/11/2026, Paulo: "variações também para o clima e todos os outros").
-        escolha(R.string.pv2_est_avisos, R.string.pv2_est_avisos_det, Protetor.AVISOS,
-            mapOf(Protetor.AVISOS_CARTOES to R.string.pv2_av_cartoes, Protetor.AVISOS_LISTA to R.string.pv2_av_lista,
-                Protetor.AVISOS_UM to R.string.pv2_av_um))
-        escolha(R.string.pv2_est_textos, R.string.pv2_est_textos_det, Protetor.TEXTOS,
-            mapOf(Protetor.TEXTOS_MODERNO to R.string.pv2_tx_moderno, Protetor.TEXTOS_SERIFA to R.string.pv2_tx_serifa,
-                Protetor.TEXTOS_MAIUSCULAS to R.string.pv2_tx_maiusculas))
-        escolha(R.string.pv2_est_linhas, R.string.pv2_est_linhas_det, Protetor.LINHAS,
-            mapOf(Protetor.LINHAS_ICONES to R.string.pv2_ln_icones, Protetor.LINHAS_VIDRO to R.string.pv2_ln_vidro,
-                Protetor.LINHAS_TEXTO to R.string.pv2_ln_texto))
-        escolha(R.string.pv2_est_credito, R.string.pv2_est_credito_det, Protetor.CREDITO,
-            mapOf(Protetor.CREDITO_ETIQUETA to R.string.pv2_cr_etiqueta, Protetor.CREDITO_DISCRETO to R.string.pv2_cr_discreto))
-    }
-
-    /** Liga/desliga de cada elemento do protetor (a hora não desliga), numa seção no fim da aba. */
-    private fun protetorElementos(c: LinearLayout) {
-        secao(c, getString(R.string.pv2_elementos))
-        val nomes = mapOf(Protetor.Elemento.SAUDACAO to R.string.pv2_el_saudacao, Protetor.Elemento.DATA to R.string.pv2_el_data,
-            Protetor.Elemento.LINHA_DIA to R.string.pv2_el_linha_dia, Protetor.Elemento.AGENDA to R.string.pv2_el_agenda,
-            Protetor.Elemento.FRASE to R.string.pv2_el_frase, Protetor.Elemento.CURIOSIDADES to R.string.pv2_el_curiosidades,
-            Protetor.Elemento.AVISOS to R.string.pv2_el_avisos, Protetor.Elemento.WIDGET to R.string.pv2_el_widget,
-            Protetor.Elemento.CREDITO to R.string.pv2_el_credito)
-        Protetor.Elemento.entries.forEach { e ->
-            lateinit var l: LinhaCfg
-            l = linha(getString(nomes.getValue(e)), getString(R.string.pv2_el_det), chave = Protetor.ligado(this, e)) {
-                Protetor.alternar(this, e); l.ligado(Protetor.ligado(this, e))
-            }
-            c.addView(l, lp())
-        }
-    }
-
     private fun abaEnergia(c: LinearLayout) {
         // OK passa para a próxima opção da lista e grava na hora.
         val opcoes = listOf(60_000, 5 * 60_000, 10 * 60_000, 15 * 60_000, 30 * 60_000, Int.MAX_VALUE)
@@ -560,23 +496,54 @@ class ConfigLauncherActivity : Activity() {
             else linhaDescanso.detalhe(getString(R.string.cfg_nao_gravou_do))
         }
         c.addView(linhaDescanso, lp())
-        // Estilo dos widgets de baixo do protetor (Protetor.widget, 15/11/2026). OK passa para o próximo; vale no próximo protetor.
-        fun rotuloBarra(v: String) = getString(when (v) {
-            Protetor.WIDGET_CARTOES -> R.string.cl_widget_cartoes
-            Protetor.WIDGET_SOLTO -> R.string.cl_widget_solto
-            Protetor.WIDGET_LINHA -> R.string.cl_widget_linha
-            Protetor.WIDGET_GRANDE -> R.string.cl_widget_grande
-            else -> R.string.cl_widget_faixa
-        })
-        lateinit var linhaBarra: LinhaCfg
-        linhaBarra = linha(getString(R.string.cl_linha_baixo), getString(R.string.pv2_widget_det),
-            valor = rotuloBarra(Protetor.widget(this))) {
-            val novo = Protetor.proximoWidget(Protetor.widget(this))
-            Protetor.definirWidget(this, novo)
-            linhaBarra.valor(rotuloBarra(novo))
+        // Home que adormece (SleepingHome, 21/11/2026): a faixa de baixo roda sozinha (15 s, 30 s, 1 min ou desligado) e o
+        // vidro atrás dela é opcional. Substituem as escolhas do protetor antigo (relógios, widgets, 14 liga/desliga).
+        fun rotuloRodar(sg: Int) = when (sg) { 0 -> getString(R.string.sh_rodar_desl); 60 -> getString(R.string.sh_rodar_min); else -> getString(R.string.sh_rodar_s, sg) }
+        lateinit var linhaRodar: LinhaCfg
+        linhaRodar = linha(getString(R.string.sh_rodar), getString(R.string.sh_rodar_det), valor = rotuloRodar(SleepingHome.rotateSeconds(this))) {
+            val novo = SleepingHome.nextRotate(SleepingHome.rotateSeconds(this))
+            SleepingHome.setRotate(this, novo); linhaRodar.valor(rotuloRodar(novo))
         }
-        c.addView(linhaBarra, lp())
-        protetorV2(c)
+        c.addView(linhaRodar, lp())
+        // Fundo do descanso (Paulo, 22/11/2026: "deixar o user fazer o que ele quiser"): o da home (padrão), outro tema só
+        // no descanso, uma foto/GIF/vídeo só do descanso, ou fotos e vídeos passando (painel, pasta da rede, pastas da TV).
+        fun rotuloFundo(v: String) = when (v) {
+            SleepingHome.BG_HOME -> getString(R.string.sh_fundo_home)
+            SleepingHome.BG_PHOTOS -> getString(R.string.sh_fundo_fotos)
+            SleepingHome.BG_FILE -> SleepingHome.file(this)?.name ?: getString(R.string.sh_fundo_arquivo)
+            else -> runCatching { br.paulo.tvlauncher.settings.Tema.valueOf(v).nome }.getOrDefault(v)
+        }
+        lateinit var linhaFundo: LinhaCfg
+        linhaFundo = linha(getString(R.string.sh_fundo), getString(R.string.sh_fundo_det), valor = rotuloFundo(SleepingHome.background(this))) {
+            val opcoes = SleepingHome.backgroundOptions(this)
+            val nomes = opcoes.map { if (it == SleepingHome.BG_FILE) getString(R.string.sh_fundo_arquivo) else rotuloFundo(it) }
+            Estilo.lista(this, getString(R.string.sh_fundo), nomes, marcadas = listOf(opcoes.indexOf(SleepingHome.background(this)))) { i ->
+                val escolha = opcoes.getOrNull(i) ?: return@lista
+                if (escolha != SleepingHome.BG_FILE) { SleepingHome.setBackground(this, escolha); linhaFundo.valor(rotuloFundo(escolha)); return@lista }
+                // Um arquivo só do descanso: as mesmas pastas do "Meu fundo" (fotos, GIFs e vídeos).
+                trabalho.execute {
+                    val arquivos = br.paulo.tvlauncher.home.FundoMeuDados.candidatos()
+                    runOnUiThread {
+                        if (isDestroyed) return@runOnUiThread
+                        if (arquivos.isEmpty()) { aviso(getString(R.string.fm_vazio)); return@runOnUiThread }
+                        val repetidos = arquivos.groupingBy { it.name }.eachCount().filterValues { it > 1 }.keys
+                        val nomesArq = arquivos.map { f -> if (f.name in repetidos) "${f.parentFile?.name ?: "?"}/${f.name}" else f.name }
+                        Estilo.lista(this, getString(R.string.sh_fundo_arquivo), nomesArq,
+                            marcadas = listOf(arquivos.indexOfFirst { it == SleepingHome.file(this) })) { k ->
+                            val f = arquivos.getOrNull(k) ?: return@lista
+                            SleepingHome.setFile(this, f); SleepingHome.setBackground(this, SleepingHome.BG_FILE)
+                            linhaFundo.valor(rotuloFundo(SleepingHome.BG_FILE))
+                        }
+                    }
+                }
+            }
+        }
+        c.addView(linhaFundo, lp())
+        lateinit var linhaVidro: LinhaCfg
+        linhaVidro = linha(getString(R.string.sh_vidro), getString(R.string.sh_vidro_det), chave = SleepingHome.glass(this)) {
+            SleepingHome.setGlass(this, !SleepingHome.glass(this)); linhaVidro.ligado(SleepingHome.glass(this))
+        }
+        c.addView(linhaVidro, lp())
         // (11/11/2026) Saiu a linha "Estilo do protetor": o protetor é um só (o da Galeria) e o TEMA decide o fundo
         // (pintura na Galeria, wallpaper escuro no Escuro). O "clássico" escolhido por engano deixava o Escuro diferente.
         // Desligar sozinha (AutoDesligar): depois de X min sem ninguém apertar o controle, avisa por 60 s e apaga a TV.
@@ -593,7 +560,6 @@ class ConfigLauncherActivity : Activity() {
         linhasAoLigar(c)   // "Ao ligar a TV" (StartupApp): o que abre quando a TV acende
         linhaQr(c, DestinoPainel.FOTOS, R.string.qrd_fotos, R.string.qrd_fotos_det)
         linhaQr(c, DestinoPainel.MURAL, R.string.qrd_mural, R.string.qrd_mural_det)
-        protetorElementos(c)
         extrasDaAba(c, ExtrasAbas.Aba.ENERGIA)
     }
 

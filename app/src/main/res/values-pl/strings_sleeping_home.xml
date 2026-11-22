@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Godziny</string>
+    <string name="sh_dias">Dni</string>
+    <string name="sh_dicas">Porady</string>
+    <string name="sh_ar">Powietrze</string>
+    <string name="sh_orvalho">punkt rosy %1$d°</string>
+    <string name="sh_nuvens">Chmury</string>
+    <string name="sh_nascer">Wschód słońca</string>
+    <string name="sh_por">Zachód słońca</string>
+    <string name="sh_duracao">Długość dnia</string>
+    <string name="sh_horas_min">%1$d h %2$02d</string>
+    <string name="sh_dourada">Złota godzina</string>
+    <string name="sh_fase">Faza</string>
+    <string name="sh_iluminada">%1$s oświetlone</string>
+    <string name="sh_cheia">Pełnia</string>
+    <string name="sh_nova">Nów</string>
+    <string name="sh_em_dias">za %1$d d</string>
+    <string name="sh_rodar">Przewijaj dolny pasek</string>
+    <string name="sh_rodar_det">W spoczynku dolny pasek zmienia się sam. ↑ i ↓ zmieniają go od razu.</string>
+    <string name="sh_rodar_desl">Wył.</string>
+    <string name="sh_rodar_s">Co %1$d s</string>
+    <string name="sh_rodar_min">Co 1 min</string>
+    <string name="sh_vidro">Szkło za dolnym paskiem</string>
+    <string name="sh_vidro_det">Szklany panel za paskiem. Wył.: tylko cienka linia.</string>
+    <string name="sh_fundo">Tło w trybie spoczynku</string>
+    <string name="sh_fundo_det">Co widać za zegarem, gdy telewizor odpoczywa: jak ekran główny, inny motyw, zdjęcie lub film tylko tutaj albo zdjęcia i filmy po kolei.</string>
+    <string name="sh_fundo_home">Jak ekran główny</string>
+    <string name="sh_fundo_fotos">Zdjęcia i filmy po kolei</string>
+    <string name="sh_fundo_arquivo">Plik tylko do spoczynku</string>
+</resources>
