@@ -51,7 +51,8 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     if (TravaHome.precisaPin(this)) { TravaHome.comPin(this) { menuDoMundo(cat, nome) }; return }
     val o = WorldOptions.of(this, cat)
     val opcoes = mutableListOf<MainActivity.Opcao>()
-    opcoes += MainActivity.Opcao(getString(R.string.wo_ordenar)) { escolherOrdem(cat, nome) }
+    // Ordenar só arruma apps: em Ferramentas (só itens do Sofaly) a linha não aparece.
+    if (appsDoMundo().isNotEmpty()) opcoes += MainActivity.Opcao(getString(R.string.wo_ordenar)) { escolherOrdem(cat, nome) }
     opcoes += MainActivity.Opcao(getString(R.string.wo_renomear_mundo)) {
         pedirNome(getString(R.string.wo_renomear_mundo), o.name ?: nome, AppNames.MAX) { novo ->
             WorldOptions.save(this, cat, o.copy(name = AppNames.clean(novo))); atualizarAposMudanca(null)

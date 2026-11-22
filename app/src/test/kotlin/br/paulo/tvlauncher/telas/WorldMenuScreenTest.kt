@@ -71,8 +71,11 @@ class WorldMenuScreenTest {
                     val d = ShadowDialog.getLatestDialog()
                     assertNotNull("${c.nome}: menu abriu", d)
                     val textos = textos(d.window!!.decorView).map { it.text.toString() }
-                    val esperado = if (idioma == "pt") "Ordenar" else "Sort"
+                    val esperado = if (idioma == "pt") "Renomear o mundo" else "Rename this world"
                     assertTrue("${c.nome}: tem $esperado ($textos)", esperado in textos)
+                    val ordenar = if (idioma == "pt") "Ordenar" else "Sort"
+                    val temApps = c.itens.any { it.id.startsWith("app:") }
+                    assertEquals("${c.nome}: Ordenar só onde há apps", temApps, ordenar in textos)
                     val esconde = if (idioma == "pt") "Esconder o mundo" else "Hide this world"
                     assertEquals("${c.nome}: Esconder só em Assistir/Ouvir/Jogar", c.cat == CruzLogica.Categoria.ASSISTIR, esconde in textos)
                     foto(d.window!!.decorView, "menu-mundo-$idioma-${c.cat.id}")
