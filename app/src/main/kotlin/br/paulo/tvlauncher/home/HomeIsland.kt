@@ -100,7 +100,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         visibility = View.GONE
-        addView(mundoIcone, LinearLayout.LayoutParams(dp(26), dp(22)).apply { marginEnd = dp(9) })
+        addView(mundoIcone, LinearLayout.LayoutParams(dp(34), dp(28)).apply { marginEnd = dp(10) })
         addView(mundoNome)
         addView(View(this@montarIlha).apply { setBackgroundColor(0x33FFFFFF) },
             LinearLayout.LayoutParams(dp(1), dp(18)).apply { marginStart = dp(14); marginEnd = dp(14) })
@@ -138,6 +138,14 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         topMargin = dp(TOPO_PALCO + (ALTURA_TOPO - 40) / 2 + 46)
     })
     ilhaDica = dica
+    // A hora fica presa no centro da tela (Paulo, 22/11/2026): a pílula abraça o nome do mundo e cresce para a
+    // esquerda; o que vem depois da hora (eventos) cresce para a direita. Nunca passa da borda segura.
+    pilula.addOnLayoutChangeListener { v, l, _, r, _, _, _, _, _ ->
+        val tela = (v.parent as View).width
+        if (tela <= 0) return@addOnLayoutChangeListener
+        val alvo = WorldLabel.deslocamento(tela, l, r - l, hora.left, hora.width, dp(32))
+        if (v.translationX != alvo) v.translationX = alvo
+    }
     ilhaPilula = pilula; ilhaExtra = extra; ilhaIcone = icone; ilhaBarras = barras; ilhaTexto = txt; ilhaTemp = temp
     copiarTemp()
     // As pílulas da barra mudam por todo lado (timer a cada segundo, rádio, rede): a Ilha lê o estado delas a cada
@@ -158,16 +166,10 @@ internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
     cruz?.nomeNaColuna(!naPilula)
     if (!naPilula || mundo == null) return
     if (ilhaMundoNome?.text?.toString() == c.nome && mundo.visibility == View.VISIBLE) return
-    if (capaPronta && !semAnimacoes()) ilhaPilula?.let {
-        android.transition.TransitionManager.beginDelayedTransition(it, android.transition.AutoTransition().setDuration(200))
-    }
+    // Troca na hora (a hora não pode deslizar junto); só o mundo novo acende rápido.
+    if (capaPronta && !semAnimacoes()) { mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(160L).start() }
     ilhaMundoIcone?.setImageDrawable(icCruz("ilha:" + c.cat.id, WorldLabel.tipo(c.cat)))   // outra cópia do desenho da categoria
-    ilhaMundoNome?.let { t ->
-        // Largura do maior nome de mundo: a pílula fica do mesmo tamanho em todos os mundos (a hora não anda).
-        val maior = cruz?.nomesDosMundos()?.maxOfOrNull { t.paint.measureText(it) } ?: 0f
-        t.minWidth = kotlin.math.ceil(maior).toInt()
-        t.text = c.nome
-    }
+    ilhaMundoNome?.text = c.nome
     mundo.visibility = View.VISIBLE
 }
 
