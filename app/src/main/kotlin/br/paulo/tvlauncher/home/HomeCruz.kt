@@ -83,7 +83,13 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val ROTULO_Y get() = CrossRhythm.atual.rotuloY
         const val ROTULO_VAO = 12f        // ritmos novos: do pé do nome do mundo ao topo do que está logo abaixo dele        // nome da categoria em foco, acima da linha à esquerda
         const val LARGURA_ITEM = 470    // ícone + texto do item
-        const val TEXTO_MAX = 300       // largura máxima do nome/linha de baixo (termina antes das categorias da direita)
+        // Largura do nome/linha de baixo do escolhido: termina FOLGA_CAT antes do ícone da 1ª categoria à direita, em
+        // qualquer ritmo (22/11/2026, Sala v468193: em Ouvir o "Programas, notícias e conversas..." de Podcasts
+        // encostava a ~13 px do Jogar porque a largura era fixa em 300 dp e o ritmo A aproximou as categorias).
+        const val TEXTO_TETO = 300
+        const val FOLGA_CAT = 32
+        val TEXTO_MAX: Int get() = CruzLogica.larguraTexto(COLUNA, ICONE_L, CrossRhythm.atual.vaoTexto, PONTO + 10,
+            CAT_DIREITA, CAT_L, FOLGA_CAT, TEXTO_TETO)
         const val TELA_L = 960f
         // ---- fontes (sp): tabela do estudo 32 / 20 / 16 / 18
         const val FONTE_ESCOLHIDO = 32f // nome do item escolhido (fora da escolha fica 0,6 x = ~19)
@@ -502,6 +508,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Para o teste de tela: o texto de baixo do item em foco, como está desenhado. */
     internal fun subAtual(): TextView? = viewAtual()?.sub
+    internal fun nomeAtual(): TextView? = viewAtual()?.nome
 
     private fun viewAtual(): ItemView? = viewsItem.getOrNull(estado.cat)?.getOrNull(estado.sel.getOrElse(estado.cat) { 0 })
 

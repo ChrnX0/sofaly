@@ -32,3 +32,13 @@ class VideoLayerRulesTest {
         assertEquals(VideoLayerRules.alfaVeu(100), VideoLayerRules.alfaVeu(300))
     }
 }
+
+class LarguraTextoCruzTest {
+    @Test fun textoNuncaEncostaNaCategoriaDaDireita() {
+        for (r in br.paulo.tvlauncher.home.CrossRhythm.entries) {
+            val l = br.paulo.tvlauncher.home.CruzLogica.larguraTexto(r.coluna, r.iconeL, r.vaoTexto, 20, r.catDireita, r.catL, 32, 300)
+            val fimTexto = r.coluna + r.iconeL / 2f + r.vaoTexto + 20 + l
+            assertTrue("${r.name}: texto termina em $fimTexto", fimTexto <= r.catDireita - r.catL / 2f - 32)
+        }
+    }
+}
