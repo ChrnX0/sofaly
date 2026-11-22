@@ -195,6 +195,19 @@ class CruzTelaTest {
                 ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
                 assertEquals(CruzLogica.Categoria.FERRAMENTAS, cruz.categoriaAtual()?.cat)
                 foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-1-ferramentas")
+                // 3º item: tem vizinho em cima; o nome do mundo não pode cair em cima dele (defeito visto na Sala, 22/11)
+                repeat(2) {
+                    cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_DOWN)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_DOWN))
+                    ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                }
+                assertEquals("t:clima", cruz.itemAtual()?.id)
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-3-ferramentas-clima")
+                val rotulo = cruz.rotuloAtual()
+                if (r != br.paulo.tvlauncher.home.CrossRhythm.BEFORE) {
+                    val d = a.resources.displayMetrics.density
+                    val cimaDoVizinho = (HomeCruz.LINHA - HomeCruz.VAO_CIMA - HomeCruz.ICONE_A * HomeCruz.ESCALA_PEQUENO / 2f) * d
+                    assertTrue("nome do mundo acima do vizinho de cima (${r.name})", rotulo.translationY + rotulo.height <= cimaDoVizinho + 1f)
+                }
                 a.finish()
             }
         } finally { br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.TIGHT }
