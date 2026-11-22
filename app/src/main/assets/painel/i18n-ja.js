@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"画面に表示する時間",
 "Quedas":"断線",
 "Quem depende dele (pela TV)":"これに依存するもの(テレビ調べ)",
-"Quem mais ocupa memória":"メモリを最も使っているもの",
+"Quem está pesando a TV":"テレビの負担になっているもの",
 "Recado":"メッセージ",
 "Recado com foto":"写真付きメッセージ",
 "Recado na TV":"テレビにメッセージ",

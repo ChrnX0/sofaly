@@ -66,14 +66,26 @@ object PainelSaude {
             // Sem ele, o dumpsys meminfo levava 20 a 40 s e a aba Saúde ficava em "Lendo…".
             val saida = GuardiaoShizuku.comando(ctx, "dumpsys meminfo -S")
             if (saida == null) o.put("semShell", true)
-            else o.put("apps", JSONArray().apply {
-                val pm = ctx.packageManager
-                for (p in maioresProcessos(saida, 12)) {
-                    val pacote = p.nome.substringBefore(':')
-                    val rotulo = try { pm.getApplicationLabel(pm.getApplicationInfo(pacote, 0)).toString() } catch (_: Exception) { null }
-                    put(JSONObject().put("processo", p.nome).put("nome", rotulo ?: p.nome).put("kb", p.kb))
-                }
-            })
+            else {
+                // "Quem está pesando a TV" (22/11/2026, estudo do Tellyscope, proposta B): além da memória, o processador
+                // de cada app no último minuto (dumpsys cpuinfo, ~0,1 s) e a internet de hoje (ConsumoRedeTv, a mesma
+                // conta da aba Extras). Entram os 12 que mais ocupam memória e os que mais usam o processador.
+                val cpu = GuardiaoShizuku.comando(ctx, "dumpsys cpuinfo")?.let { cpuPorProcesso(it) } ?: emptyMap()
+                val rede = runCatching { br.paulo.tvlauncher.network.ConsumoRedeTv.medir(ctx, 1).getOrNull() }.getOrNull()
+                    ?.associate { it.nome to it.bytes } ?: emptyMap()
+                o.put("cpuMedida", cpu.isNotEmpty())
+                o.put("apps", JSONArray().apply {
+                    val pm = ctx.packageManager
+                    for (p in pesados(maioresProcessos(saida, Int.MAX_VALUE), cpu, 12, 5)) {
+                        val pacote = p.nome.substringBefore(':')
+                        val rotulo = try { pm.getApplicationLabel(pm.getApplicationInfo(pacote, 0)).toString() } catch (_: Exception) { null }
+                        val j = JSONObject().put("processo", p.nome).put("nome", rotulo ?: p.nome).put("kb", p.kb)
+                        cpu[p.nome]?.let { j.put("cpu", it) }
+                        (rotulo?.let { rede[it] })?.let { j.put("rede", it) }
+                        put(j)
+                    }
+                })
+            }
         }
         return o
     }
@@ -160,6 +172,30 @@ object PainelSaude {
             l.add(Processo(r.groupValues[2], r.groupValues[1].replace(",", "").toLong()))
         }
         return l.sortedByDescending { it.kb }.take(quantos)
+    }
+
+    /**
+     * Da saída do `dumpsys cpuinfo`, o uso de processador de cada processo no último minuto, em %. Linha típica:
+     * "  12% 1234/com.foo: 8% user + 4% kernel / faults: 100 minor". Linhas repetidas do mesmo nome somam.
+     */
+    fun cpuPorProcesso(saida: String): Map<String, Double> {
+        val m = HashMap<String, Double>()
+        val re = Regex("""^\s*([\d.]+)% \d+/([^:\s]+): """)
+        for (linha in saida.lineSequence()) {
+            val r = re.find(linha) ?: continue
+            val v = r.groupValues[1].toDoubleOrNull() ?: continue
+            m[r.groupValues[2]] = (m[r.groupValues[2]] ?: 0.0) + v
+        }
+        return m.mapValues { Math.round(it.value * 10) / 10.0 }
+    }
+
+    /** Os [porMemoria] que mais ocupam memória e, somados, os [porCpu] que mais usam processador (≥ 1%), sem repetir. */
+    fun pesados(todos: List<Processo>, cpu: Map<String, Double>, porMemoria: Int, porCpu: Int): List<Processo> {
+        val mem = todos.sortedByDescending { it.kb }.take(porMemoria)
+        val nomes = mem.map { it.nome }.toSet()
+        val doCpu = todos.filter { it.nome !in nomes && (cpu[it.nome] ?: 0.0) >= 1.0 }
+            .sortedByDescending { cpu[it.nome] }.take(porCpu)
+        return mem + doCpu
     }
 
     fun rotuloTermico(s: Int) = when (s) {

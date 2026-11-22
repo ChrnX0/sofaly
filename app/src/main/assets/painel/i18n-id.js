@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"Berapa lama tetap di layar",
 "Quedas":"Gangguan",
 "Quem depende dele (pela TV)":"Siapa yang bergantung padanya (menurut TV)",
-"Quem mais ocupa memória":"Yang paling banyak memakai memori",
+"Quem está pesando a TV":"Apa yang membebani TV",
 "Recado":"Pesan",
 "Recado com foto":"Pesan dengan foto",
 "Recado na TV":"Pesan di TV",

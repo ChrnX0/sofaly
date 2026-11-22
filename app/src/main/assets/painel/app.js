@@ -1735,6 +1735,12 @@ async function carregarSaude() {
       linha.className = 'linha-registro';
       const q = document.createElement('span'); q.className = 'quando'; q.textContent = mb(a.kb * 1024);
       linha.append(q, ' ', a.nome);
+      // Quem está pesando (estudo do Tellyscope, 22/11/2026): processador no último minuto e internet de hoje.
+      if (a.cpu >= 1 || a.rede > 0) {
+        const x = document.createElement('span'); x.className = 'aviso-curto';
+        x.textContent = [a.cpu >= 1 ? ` · CPU ${Math.round(a.cpu)}%` : '', a.rede > 0 ? ` · ↓↑ ${mb(a.rede)}` : ''].join('');
+        linha.appendChild(x);
+      }
       if (a.nome !== a.processo) { const p = document.createElement('span'); p.className = 'aviso-curto'; p.textContent = ` ${a.processo}`; linha.appendChild(p); }
       lista.appendChild(linha);
     }

@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"Quanto resta sullo schermo",
 "Quedas":"Interruzioni",
 "Quem depende dele (pela TV)":"Chi ne dipende (secondo la TV)",
-"Quem mais ocupa memória":"Cosa usa più memoria",
+"Quem está pesando a TV":"Cosa sta appesantendo la TV",
 "Recado":"Messaggio",
 "Recado com foto":"Messaggio con foto",
 "Recado na TV":"Messaggio sulla TV",

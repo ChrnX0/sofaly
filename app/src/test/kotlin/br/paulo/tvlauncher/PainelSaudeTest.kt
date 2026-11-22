@@ -52,4 +52,27 @@ Total PSS by OOM adjustment:
         assertEquals(listOf("system", "br.paulo.tvlauncher"), l.map { it.nome })
         assertEquals(111164L, l[1].kb)
     }
+
+    @Test fun cpuPorProcessoDoDumpsys() {
+        val saida = """
+Load: 3.2 / 3.1 / 3.0
+CPU usage from 61234ms to 1234ms ago (2026-11-22 10:00:00.000 to 2026-11-22 10:01:00.000):
+  12% 1234/com.onestream.player: 8% user + 4% kernel / faults: 100 minor
+  5.1% 600/system_server: 3% user + 2.1% kernel
+  0.3% 99/kworker/u8:1: 0% user + 0.3% kernel
+  2% 1240/com.onestream.player: 1% user + 1% kernel
+45% TOTAL: 30% user + 15% kernel
+""".trimIndent()
+        val m = PainelSaude.cpuPorProcesso(saida)
+        assertEquals(14.0, m["com.onestream.player"]!!, 0.01)
+        assertEquals(5.1, m["system_server"]!!, 0.01)
+        assertEquals(null, m["TOTAL"])
+    }
+
+    @Test fun pesadosJuntaMemoriaEProcessador() {
+        val todos = listOf(PainelSaude.Processo("a", 900), PainelSaude.Processo("b", 800), PainelSaude.Processo("c", 10),
+            PainelSaude.Processo("d", 5), PainelSaude.Processo("e", 1))
+        val l = PainelSaude.pesados(todos, mapOf("c" to 30.0, "d" to 0.5, "a" to 50.0, "e" to 2.0), 2, 5)
+        assertEquals(listOf("a", "b", "c", "e"), l.map { it.nome })   // d (0,5%) fica fora; a não repete
+    }
 }

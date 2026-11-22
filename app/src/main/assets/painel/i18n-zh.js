@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"在屏幕上停留多久",
 "Quedas":"中断",
 "Quem depende dele (pela TV)":"依赖它的项目(电视统计)",
-"Quem mais ocupa memória":"占用内存最多的",
+"Quem está pesando a TV":"是什么在拖慢电视",
 "Recado":"消息",
 "Recado com foto":"带照片的消息",
 "Recado na TV":"电视上的消息",

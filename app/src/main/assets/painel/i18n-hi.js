@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"स्क्रीन पर कितनी देर रहे",
 "Quedas":"रुकावटें",
 "Quem depende dele (pela TV)":"इस पर कौन निर्भर है (TV के अनुसार)",
-"Quem mais ocupa memória":"सबसे ज़्यादा मेमोरी कौन लेता है",
+"Quem está pesando a TV":"टीवी पर किसका बोझ है",
 "Recado":"संदेश",
 "Recado com foto":"फ़ोटो के साथ संदेश",
 "Recado na TV":"TV पर संदेश",

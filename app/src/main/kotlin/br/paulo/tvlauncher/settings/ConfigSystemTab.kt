@@ -38,6 +38,9 @@ import br.paulo.tvlauncher.observer.LimpezaMedida
 import br.paulo.tvlauncher.observer.Recursos
 import br.paulo.tvlauncher.player.item
 import br.paulo.tvlauncher.privilege.Debloat
+import br.paulo.tvlauncher.privilege.DebloatCatalog
+import br.paulo.tvlauncher.privilege.FactoryBaseline
+import br.paulo.tvlauncher.privilege.FactoryBaselineRules
 import br.paulo.tvlauncher.privilege.PareamentoNaTv
 import br.paulo.tvlauncher.privilege.PrivilegioDO
 import br.paulo.tvlauncher.privilege.SaudeAcesso
@@ -242,7 +245,8 @@ internal fun ConfigLauncherActivity.abaAvancado(c: LinearLayout) {
     // Chave ligada = app visível (como na seção de cima).
     secao(c, getString(R.string.cl_limpeza))
     val limpaveis = Debloat.disponiveis(this)
-    if (limpaveis.isEmpty()) c.addView(info(getString(R.string.cl_nenhum_liberado), getString(R.string.cl_nenhum_liberado_det)), lp())
+    val sugeridas = DebloatCatalog.sugestoes(this)
+    if (limpaveis.isEmpty() && sugeridas.isEmpty()) c.addView(info(getString(R.string.cl_nenhum_liberado), getString(R.string.cl_nenhum_liberado_det)), lp())
     limpaveis.forEach { item ->
         lateinit var linhaApp: LinhaCfg
         linhaApp = linha(nomeDebloat(item), getString(R.string.cl_ocultar_perde, perdeDebloat(item)), chave = !PrivilegioDO.estaOculto(this, item.pacote)) {
@@ -263,8 +267,41 @@ internal fun ConfigLauncherActivity.abaAvancado(c: LinearLayout) {
         }
         c.addView(linhaApp, lp())
     }
+    // Sugestões do catálogo mundial (DebloatCatalog, 22/11/2026): não testadas nesta TV, nunca marcadas de fábrica.
+    // Uma chave por app (ligada = visível), o mesmo caminho da lista testada: Debloat.definir + Desfazer.
+    if (sugeridas.isNotEmpty()) {
+        secao(c, getString(R.string.cl_sugestoes))
+        c.addView(info(getString(R.string.cl_sugestoes_aviso), getString(R.string.cl_sugestoes_aviso_det, DebloatCatalog.catalogo(this).devices)), lp())
+        val ingles = resources.configuration.locales[0].language == "en"
+        sugeridas.forEach { sug ->
+            val nome = runCatching { packageManager.getApplicationLabel(packageManager.getApplicationInfo(sug.pkg, android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES)).toString() }
+                .getOrNull()?.takeIf { it.isNotBlank() && it != sug.pkg } ?: sug.pkg
+            val tipo = getString(when (sug.entry.kind) {
+                DebloatCatalog.Kind.TELEMETRY -> R.string.cl_sug_telemetria
+                DebloatCatalog.Kind.PRELOADED -> R.string.cl_sug_fabrica
+                DebloatCatalog.Kind.OTHER -> R.string.cl_sug_outro
+            })
+            val det = (if (ingles) sug.entry.note else null)
+                ?: getString(if (sug.sameBrand) R.string.cl_sug_marca else R.string.cl_sug_listas, tipo, sug.entry.lists)
+            lateinit var linhaSug: LinhaCfg
+            linhaSug = linha(nome, det, chave = !PrivilegioDO.estaOculto(this, sug.pkg)) {
+                val app = applicationContext
+                Fundo.rodar {
+                    val ocultar = !PrivilegioDO.estaOculto(app, sug.pkg)
+                    val mudou = Debloat.definir(app, sug.pkg, ocultar)
+                    val ocultoAgora = PrivilegioDO.estaOculto(app, sug.pkg)
+                    if (mudou) Desfazer.registrarLimpeza(app, sug.pkg, nome, ocultar)
+                    runOnUiThread {
+                        if (isDestroyed) return@runOnUiThread
+                        if (mudou) linhaSug.ligado(!ocultoAgora) else linhaSug.detalhe(getString(R.string.cl_nao_mudou))
+                    }
+                }
+            }
+            c.addView(linhaSug, lp())
+        }
+    }
     // Antes e depois (elevação 14.3): memória livre e tempo de abrir os 3 apps mais usados, medidos a pedido.
-    if (limpaveis.isNotEmpty()) {
+    if (limpaveis.isNotEmpty() || sugeridas.isNotEmpty()) {
         val antes = LimpezaMedida.antes(this)
         val det = when {
             antes == null -> getString(R.string.elv_lp_det_antes)
@@ -304,6 +341,62 @@ internal fun ConfigLauncherActivity.abaAvancado(c: LinearLayout) {
             }
         }
         c.addView(linhaDesfazer, lp())
+    }
+
+    // "Como estava antes da Sofaly" (FactoryBaseline, 22/11/2026): só aparece depois da 1ª mudança (quando há foto).
+    // O plano lê todos os apps (lento): a linha nasce "conferindo" e se preenche fora da thread da tela.
+    // OK pede confirmação (2º OK) e restaura; depois aparece "Desfazer a restauração" (uma vez).
+    FactoryBaseline.foto(this)?.let { foto ->
+        val data = java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM).format(java.util.Date(foto.quando))
+        var plano: FactoryBaselineRules.Plano? = null
+        var confirmar = false
+        lateinit var linhaAntes: LinhaCfg
+        linhaAntes = linha(getString(R.string.fb_titulo), getString(R.string.fb_conferindo), seta = true) {
+            val p = plano ?: return@linha
+            if (p.vazio) return@linha
+            if (!confirmar) { confirmar = true; linhaAntes.detalhe(getString(R.string.fb_confirmar, p.mostrar.size)); return@linha }
+            confirmar = false
+            linhaAntes.detalhe(getString(R.string.fb_restaurando))
+            val app = applicationContext
+            Fundo.rodar("factory-restore") {
+                val r = FactoryBaseline.restaurar(app)
+                runOnUiThread {
+                    if (isDestroyed) return@runOnUiThread
+                    linhaAntes.detalhe(if (r == null) getString(R.string.cl_nao_mudou)
+                        else getString(R.string.fb_feito, r.voltaram, r.falharam))
+                    ui.postDelayed({ if (!isDestroyed) recarregarAba() }, 1500)
+                }
+            }
+        }
+        c.addView(linhaAntes, lp())
+        val app = applicationContext
+        Fundo.rodar("factory-plan") {
+            val p = FactoryBaseline.plano(app)
+            runOnUiThread {
+                if (isDestroyed) return@runOnUiThread
+                plano = p
+                linhaAntes.detalhe(when {
+                    p == null || p.vazio -> getString(R.string.fb_nada, data)
+                    p.dnsMudou -> getString(R.string.fb_resumo_dns, data, p.mostrar.size)
+                    else -> getString(R.string.fb_resumo, data, p.mostrar.size)
+                })
+            }
+        }
+        if (FactoryBaseline.podeDesfazerRestauracao(this)) {
+            lateinit var linhaVolta: LinhaCfg
+            linhaVolta = linha(getString(R.string.fb_desfazer), getString(R.string.fb_desfazer_det), seta = true) {
+                linhaVolta.detalhe(getString(R.string.fb_restaurando))
+                Fundo.rodar("factory-undo") {
+                    val r = FactoryBaseline.desfazerRestauracao(app)
+                    runOnUiThread {
+                        if (isDestroyed) return@runOnUiThread
+                        linhaVolta.detalhe(if (r == null) getString(R.string.cl_nao_mudou) else getString(R.string.fb_feito, r.voltaram, r.falharam))
+                        ui.postDelayed({ if (!isDestroyed) recarregarAba() }, 1500)
+                    }
+                }
+            }
+            c.addView(linhaVolta, lp())
+        }
     }
 
     // Permissões: o que o launcher usa para funcionar sem o computador por perto. OK num que falta tenta ligar sem PC.

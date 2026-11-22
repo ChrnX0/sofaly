@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"화면에 머무는 시간",
 "Quedas":"끊김",
 "Quem depende dele (pela TV)":"이 앱에 의존하는 것(TV 기준)",
-"Quem mais ocupa memória":"메모리를 가장 많이 쓰는 것",
+"Quem está pesando a TV":"TV를 무겁게 하는 것",
 "Recado":"메시지",
 "Recado com foto":"사진 포함 메시지",
 "Recado na TV":"TV에 메시지",
