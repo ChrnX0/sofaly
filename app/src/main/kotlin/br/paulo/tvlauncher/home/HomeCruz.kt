@@ -215,6 +215,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         override fun getOpacity() = android.graphics.PixelFormat.TRANSLUCENT
     }
 
+    /** Nome do mundo em foco + "1 de 4" (declarado antes do init, que o cria). */
+    private lateinit var cabecalho: LinearLayout
+    private val curvaRotulo = android.view.animation.PathInterpolator(0.22f, 1f, 0.36f, 1f)
+
     init {
         isFocusable = true
         isFocusableInTouchMode = false
@@ -755,7 +759,6 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         }
     }
 
-    private lateinit var cabecalho: LinearLayout
     /** Para o teste de tela: o nome do mundo em foco ("ASSISTIR  1 de 4"). */
     internal fun rotuloAtual(): View = cabecalho
 
@@ -776,7 +779,6 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(300L).setInterpolator(curvaRotulo).start()
         else { cabecalho.animate().cancel(); cabecalho.translationY = alvo }
     }
-    private val curvaRotulo = android.view.animation.PathInterpolator(0.22f, 1f, 0.36f, 1f)
 
     /** Quadro do ritmo B: o mesmo retângulo suave atrás de cada ícone, para desenhos diferentes terem o mesmo peso. */
     private fun quadro() = GradientDrawable().apply {
