@@ -17,4 +17,6 @@
     <string name="rt_a">A · Ciaśniej</string>
     <string name="rt_b">B · Ramki</string>
     <string name="rt_c">C · Przestronnie</string>
+    <string name="wl_titulo">Nazwa świata</string>
+    <string name="wl_pilula">Obok zegara</string>
 </resources>

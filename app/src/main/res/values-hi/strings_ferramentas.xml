@@ -17,4 +17,6 @@
     <string name="rt_a">A · कसा हुआ</string>
     <string name="rt_b">B · फ़्रेम</string>
     <string name="rt_c">C · खुला</string>
+    <string name="wl_titulo">दुनिया का नाम</string>
+    <string name="wl_pilula">घड़ी के पास</string>
 </resources>

@@ -411,7 +411,7 @@ class MainActivity : Activity() {
         "${AltoContraste.ligado(this)}|${TamanhoTexto.atual(this)}|${PacoteIcones.versao(this)}|${LayoutHome.iconesTrocados(this)}|" +
         "${br.paulo.tvlauncher.settings.FontChoice.currentId(this)}|${br.paulo.tvlauncher.settings.ClockStyle.format(this)}|${br.paulo.tvlauncher.settings.ClockStyle.color(this)}|" +
         "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
-        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}"   // ajuste fino (21/11/2026)
+        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}"   // ajuste fino (21/11/2026)
 
     override fun onResume() {
         super.onResume()
@@ -1952,7 +1952,7 @@ class MainActivity : Activity() {
         cruz = c
         c.id = View.generateViewId()
         c.detalheEmCima = barraCruz == LayoutHome.BarraCruz.RELOGIO
-        c.aoMudar = { _, item -> arteDoItem(item); vitrineDoItem(item) }
+        c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
         // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
         if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)
             vitrine = br.paulo.tvlauncher.home.AppShowcase(this, fonteUi, Typeface.create(fonteUi, Typeface.BOLD)).also {
@@ -2129,6 +2129,9 @@ class MainActivity : Activity() {
     // ------------------------------------------------------------------ barra Ilha (A+B+D, 18/11/2026; ver BarraIlha)
 
     internal var ilhaPilula: LinearLayout? = null
+    internal var ilhaMundo: LinearLayout? = null
+    internal var ilhaMundoIcone: ImageView? = null
+    internal var ilhaMundoNome: TextView? = null
     internal var ilhaExtra: LinearLayout? = null
     internal var ilhaIcone: ImageView? = null
     internal var ilhaBarras: BarrasSom? = null

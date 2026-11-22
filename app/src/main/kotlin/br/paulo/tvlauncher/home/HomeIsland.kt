@@ -92,6 +92,20 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         addView(barras, LinearLayout.LayoutParams(dp(11), dp(12)).apply { marginEnd = dp(8) })
         addView(txt)
     }
+    // Nome do mundo da cruz na pílula, com o ícone dele à esquerda (WorldLabel, Paulo 22/11/2026): lugar fixo, a
+    // coluna fica sem nome. Um fio separa o mundo (onde estou) da hora (o sistema). Só aparece no modo PILL.
+    val mundoIcone = ImageView(this).apply { importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+    val mundoNome = texto(18f, Estilo.TEXTO, fonteUi).apply { includeFontPadding = false; maxLines = 1 }
+    val mundo = LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        visibility = View.GONE
+        addView(mundoIcone, LinearLayout.LayoutParams(dp(26), dp(22)).apply { marginEnd = dp(9) })
+        addView(mundoNome)
+        addView(View(this@montarIlha).apply { setBackgroundColor(0x33FFFFFF) },
+            LinearLayout.LayoutParams(dp(1), dp(18)).apply { marginStart = dp(14); marginEnd = dp(14) })
+    }
+    ilhaMundo = mundo; ilhaMundoIcone = mundoIcone; ilhaMundoNome = mundoNome
     val pilula = LinearLayout(this).apply {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
@@ -102,6 +116,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         // O leitor de tela lê a fila inteira (antes a pílula era invisível para ele e para o MCP).
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
         accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE
+        addView(mundo, LinearLayout.LayoutParams(WRAP, WRAP))
         addView(ponto, LinearLayout.LayoutParams(dp(8), dp(8)).apply { marginEnd = dp(10) })
         addView(hora)
         addView(trilho)
@@ -130,6 +145,25 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     topo.viewTreeObserver.addOnGlobalLayoutListener { atualizarIlha() }
     atualizarIlha()
     ui.post(tarefaIlhaTique)
+    cruz?.categoriaAtual()?.let { mundoNaIlha(it) }
+}
+
+/**
+ * Põe o mundo em foco na pílula (modo [WorldLabel.Place.PILL]) e tira o nome da coluna. Sem pílula (outra barra) ou no
+ * modo coluna, a coluna mostra o nome como antes.
+ */
+internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
+    val mundo = ilhaMundo
+    val naPilula = mundo != null && WorldLabel.place(this) == WorldLabel.Place.PILL
+    cruz?.nomeNaColuna(!naPilula)
+    if (!naPilula || mundo == null) return
+    if (ilhaMundoNome?.text?.toString() == c.nome && mundo.visibility == View.VISIBLE) return
+    if (capaPronta && !semAnimacoes()) ilhaPilula?.let {
+        android.transition.TransitionManager.beginDelayedTransition(it, android.transition.AutoTransition().setDuration(200))
+    }
+    ilhaMundoIcone?.setImageDrawable(icCruz("ilha:" + c.cat.id, WorldLabel.tipo(c.cat)))   // outra cópia do desenho da categoria
+    ilhaMundoNome?.text = c.nome
+    mundo.visibility = View.VISIBLE
 }
 
 /** Fora da thread da tela: o que a Ilha lê de banco/agenda/sistema. Modo visita fecha a agenda (como no "Bom dia"). */

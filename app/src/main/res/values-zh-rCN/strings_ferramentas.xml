@@ -17,4 +17,6 @@
     <string name="rt_a">A · 紧凑</string>
     <string name="rt_b">B · 边框</string>
     <string name="rt_c">C · 宽松</string>
+    <string name="wl_titulo">世界名称</string>
+    <string name="wl_pilula">时钟旁边</string>
 </resources>

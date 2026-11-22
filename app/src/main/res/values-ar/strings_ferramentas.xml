@@ -17,4 +17,6 @@
     <string name="rt_a">A · أضيق</string>
     <string name="rt_b">B · إطارات</string>
     <string name="rt_c">C · فسيح</string>
+    <string name="wl_titulo">اسم العالم</string>
+    <string name="wl_pilula">بجانب الساعة</string>
 </resources>

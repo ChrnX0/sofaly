@@ -17,4 +17,6 @@
     <string name="rt_a">A · Enger</string>
     <string name="rt_b">B · Rahmen</string>
     <string name="rt_c">C · Luftig</string>
+    <string name="wl_titulo">Name der Welt</string>
+    <string name="wl_pilula">Neben der Uhr</string>
 </resources>

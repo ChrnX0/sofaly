@@ -17,4 +17,6 @@
     <string name="rt_a">A · Ajustado</string>
     <string name="rt_b">B · Marcos</string>
     <string name="rt_c">C · Aire</string>
+    <string name="wl_titulo">Nombre del mundo</string>
+    <string name="wl_pilula">Junto a la hora</string>
 </resources>

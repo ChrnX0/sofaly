@@ -96,6 +96,12 @@ class FineTuneActivity : Activity() {
             nomeRitmo(r[Math.floorMod(br.paulo.tvlauncher.home.CrossRhythm.ler(this).ordinal + passo, r.size)]
                 .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.CrossRhythm.KEY, it.ordinal) })
         },
+        // Nome do mundo (22/11/2026, Paulo): junto da hora, na pílula do topo, ou na coluna como era.
+        Ajuste(R.string.wl_titulo, { nomeLugarMundo(br.paulo.tvlauncher.home.WorldLabel.place(this)) }) { passo ->
+            val m = br.paulo.tvlauncher.home.WorldLabel.Place.entries
+            nomeLugarMundo(m[Math.floorMod(br.paulo.tvlauncher.home.WorldLabel.place(this).ordinal + passo, m.size)]
+                .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.WorldLabel.KEY, it.ordinal) })
+        },
         // Cartões dos apps (itens 3+4, 21/11/2026): as duas propostas para o Paulo comparar vendo a tela.
         Ajuste(R.string.ac_cartoes, { nomeCartoes(br.paulo.tvlauncher.home.AppChannels.mode(this)) }) { passo ->
             val m = br.paulo.tvlauncher.home.AppChannels.Mode.entries
@@ -186,6 +192,11 @@ class FineTuneActivity : Activity() {
         BackgroundStyle.Blur.SOFT -> R.string.cs_suave
         BackgroundStyle.Blur.STRONG -> R.string.cs_forte
     })
+    private fun nomeLugarMundo(k: br.paulo.tvlauncher.home.WorldLabel.Place) = getString(when (k) {
+        br.paulo.tvlauncher.home.WorldLabel.Place.COLUMN -> R.string.ac_coluna
+        br.paulo.tvlauncher.home.WorldLabel.Place.PILL -> R.string.wl_pilula
+    })
+
     private fun nomeCartoes(k: br.paulo.tvlauncher.home.AppChannels.Mode) = getString(when (k) {
         br.paulo.tvlauncher.home.AppChannels.Mode.OFF -> R.string.cs_sem
         br.paulo.tvlauncher.home.AppChannels.Mode.COLUMN -> R.string.ac_coluna
