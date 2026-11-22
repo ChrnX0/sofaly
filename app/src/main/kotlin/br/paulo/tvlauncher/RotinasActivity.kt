@@ -233,5 +233,5 @@ class RotinasActivity : Activity() {
     }
 
     /** Superfície padrão do sistema de design (Estilo.superficie); o foco é aplicado por Estilo.focarLinha. */
-    private fun vidro(focado: Boolean): GradientDrawable = Estilo.superficie(this, focado)
+    private fun vidro(focado: Boolean): android.graphics.drawable.Drawable = Estilo.superficie(this, focado)
 }

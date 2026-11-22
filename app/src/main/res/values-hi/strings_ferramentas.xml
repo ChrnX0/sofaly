@@ -17,4 +17,8 @@
     <string name="rt_a">A · कसा हुआ</string>
     <string name="rt_b">B · फ़्रेम</string>
     <string name="rt_c">C · खुला</string>
+    <string name="ft_foco">फ़ोकस</string>
+    <string name="ft_foco_fio">रेखा</string>
+    <string name="ft_foco_veu">पर्दा</string>
+    <string name="ft_foco_quadro">बॉक्स</string>
 </resources>

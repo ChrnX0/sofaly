@@ -17,4 +17,8 @@
     <string name="rt_a">A · Tighter</string>
     <string name="rt_b">B · Frames</string>
     <string name="rt_c">C · Airy</string>
+    <string name="ft_foco">Focus</string>
+    <string name="ft_foco_fio">Line</string>
+    <string name="ft_foco_veu">Veil</string>
+    <string name="ft_foco_quadro">Box</string>
 </resources>

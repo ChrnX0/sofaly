@@ -17,4 +17,8 @@
     <string name="rt_a">A · 詰める</string>
     <string name="rt_b">B · フレーム</string>
     <string name="rt_c">C · ゆったり</string>
+    <string name="ft_foco">フォーカス</string>
+    <string name="ft_foco_fio">ライン</string>
+    <string name="ft_foco_veu">ベール</string>
+    <string name="ft_foco_quadro">ボックス</string>
 </resources>

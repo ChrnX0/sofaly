@@ -1939,7 +1939,8 @@ class MainActivity : Activity() {
     private fun montarCruz(raiz: FrameLayout) {
         val prefs = getSharedPreferences(PREFS_CRUZ, MODE_PRIVATE)
         br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.ler(this)   // espaçamento escolhido
-        val c = HomeCruz(this, fonteUi, Typeface.create(fonteUi, Typeface.BOLD))
+        // Régua de estilo (22/11/2026): sem negrito; o nome do escolhido e o do mundo vão no peso leve (300).
+        val c = HomeCruz(this, fonteUi, Fontes.nunito(this, 300))
         c.lembrados = CruzLogica.Categoria.entries.mapNotNull { k -> prefs.getString(k.id, null)?.let { k.id to it } }.toMap()
         // HOME refeita pelo Android (memória para um app grande) até 6 h depois de abrir algo: volta naquele item.
         c.ultimoAberto = prefs.getString(ULTIMO_ABERTO, null)

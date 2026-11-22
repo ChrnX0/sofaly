@@ -147,7 +147,14 @@ class FineTuneActivity : Activity() {
             BackgroundStyle.setDoorbell(this, !BackgroundStyle.doorbell(this))
             getString(if (BackgroundStyle.doorbell(this)) R.string.bg_ligado else R.string.cs_sem)
         },
-    ) else emptyList())
+    ) else emptyList()) + listOf(
+        // Foco (régua de estilo, 22/11/2026): Fio é o padrão (Paulo); Véu e Quadro para quem quer o foco mais visível.
+        Ajuste(R.string.ft_foco, { nomeFoco(br.paulo.tvlauncher.settings.FocusStyle.ler(this)) }) { passo ->
+            val f = br.paulo.tvlauncher.settings.FocusStyle.entries
+            nomeFoco(f[Math.floorMod(br.paulo.tvlauncher.settings.FocusStyle.ler(this).ordinal + passo, f.size)]
+                .also { br.paulo.tvlauncher.settings.FocusStyle.gravar(this, it) })
+        },
+    )
 
     /** Nome da câmera escolhida (o id do HA, sem o "camera."), ou "Nenhuma". */
     private val nomeCamera: String get() = BackgroundStyle.camera(this).removePrefix("camera.").ifEmpty { getString(R.string.bg_nenhuma) }
@@ -185,6 +192,11 @@ class FineTuneActivity : Activity() {
         BackgroundStyle.Blur.OFF -> R.string.cs_sem
         BackgroundStyle.Blur.SOFT -> R.string.cs_suave
         BackgroundStyle.Blur.STRONG -> R.string.cs_forte
+    })
+    private fun nomeFoco(k: br.paulo.tvlauncher.settings.FocusStyle) = getString(when (k) {
+        br.paulo.tvlauncher.settings.FocusStyle.LINE -> R.string.ft_foco_fio
+        br.paulo.tvlauncher.settings.FocusStyle.VEIL -> R.string.ft_foco_veu
+        br.paulo.tvlauncher.settings.FocusStyle.BOX -> R.string.ft_foco_quadro
     })
     private fun nomeCartoes(k: br.paulo.tvlauncher.home.AppChannels.Mode) = getString(when (k) {
         br.paulo.tvlauncher.home.AppChannels.Mode.OFF -> R.string.cs_sem

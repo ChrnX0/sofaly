@@ -27,17 +27,20 @@ import java.net.URL
 object FontChoice {
     private const val TAG = "TvLauncher.Fonte"
     const val KEY = "font_family"
-    const val DEFAULT = "nunito"
+    /** Régua de estilo (22/11/2026, variação A escolhida pelo Paulo): a Roboto do próprio Android, sem baixar nada. */
+    const val DEFAULT = "roboto"
+    /** A Nunito embutida no APK (a de antes; a família do logo). */
+    const val NUNITO = "nunito"
 
     /** id, nome para mostrar, caminho no google/fonts (null = embutida), true = serifa. */
     class Font(val id: String, val name: String, val path: String?)
 
     val FONTS = listOf(
-        Font(DEFAULT, "Nunito", null),
+        Font(DEFAULT, "Roboto", null),       // do sistema (Typeface.create): todos os pesos, de 100 a 900
+        Font(NUNITO, "Nunito", null),
         Font("atkinson", "Atkinson Hyperlegible", "ofl/atkinsonhyperlegiblenext/AtkinsonHyperlegibleNext%5Bwght%5D.ttf"),
         Font("lexend", "Lexend", "ofl/lexend/Lexend%5Bwght%5D.ttf"),
         Font("inter", "Inter", "ofl/inter/Inter%5Bopsz,wght%5D.ttf"),
-        Font("roboto", "Roboto", "ofl/roboto/Roboto%5Bwdth,wght%5D.ttf"),
         Font("figtree", "Figtree", "ofl/figtree/Figtree%5Bwght%5D.ttf"),
         Font("outfit", "Outfit", "ofl/outfit/Outfit%5Bwght%5D.ttf"),
         Font("dmsans", "DM Sans", "ofl/dmsans/DMSans%5Bopsz,wght%5D.ttf"),
@@ -113,6 +116,10 @@ object FontChoice {
      */
     fun typeface(ctx: Context, peso: Int): Typeface? {
         val f = current(ctx)
+        if (f.id == DEFAULT) return synchronized(cache) {
+            val w = weight(peso)
+            cache.getOrPut("roboto|$w") { Typeface.create(Typeface.SANS_SERIF, w, false) }
+        }
         if (f.path == null) return null
         val arq = file(ctx, f)
         if (!arq.exists()) return null
@@ -125,15 +132,19 @@ object FontChoice {
         }
     }
 
-    /** Mesmo degrau da Nunito (Fontes.nunito): as fontes do Google são mais finas que a Nunito, então sobem igual. Puro. */
-    fun weight(peso: Int) = when { peso <= 450 -> 500; peso <= 550 -> 600; else -> 800 }
+    /**
+     * O peso de verdade de um pedido. Régua de estilo (22/11/2026: "pesos leves, sem negrito"): o que pedia 500 vira
+     * regular (400) e o que pedia negrito (600-800) vira médio (500); 300 e abaixo ficam finos. Assim as ~125 chamadas
+     * antigas que pediam negrito ficam leves sem mexer em cada uma. A Nunito embutida só tem 600-800 e segue o dela. Puro.
+     */
+    fun weight(peso: Int) = when { peso <= 250 -> 200; peso <= 350 -> 300; peso <= 550 -> 400; else -> 500 }
 
     /**
      * Troca a letra dos textos que só herdaram a fonte do tema (não chamaram setTypeface). Roda a cada desenho novo da
      * tela, só quando há fonte escolhida; cada TextView é marcada para não ser trocada duas vezes.
      */
     fun aplicarNaTela(a: Activity) {
-        if (current(a).path == null) return
+        if (current(a).id == NUNITO) return
         val raiz = a.window?.decorView ?: return
         raiz.viewTreeObserver.addOnGlobalLayoutListener { trocar(a, raiz) }
     }

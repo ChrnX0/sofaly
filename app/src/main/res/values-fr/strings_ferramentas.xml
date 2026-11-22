@@ -17,4 +17,8 @@
     <string name="rt_a">A · Resserré</string>
     <string name="rt_b">B · Cadres</string>
     <string name="rt_c">C · Aéré</string>
+    <string name="ft_foco">Focus</string>
+    <string name="ft_foco_fio">Trait</string>
+    <string name="ft_foco_veu">Voile</string>
+    <string name="ft_foco_quadro">Cadre</string>
 </resources>

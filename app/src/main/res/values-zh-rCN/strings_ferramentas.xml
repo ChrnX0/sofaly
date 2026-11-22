@@ -17,4 +17,8 @@
     <string name="rt_a">A · 紧凑</string>
     <string name="rt_b">B · 边框</string>
     <string name="rt_c">C · 宽松</string>
+    <string name="ft_foco">焦点</string>
+    <string name="ft_foco_fio">线条</string>
+    <string name="ft_foco_veu">薄纱</string>
+    <string name="ft_foco_quadro">方框</string>
 </resources>

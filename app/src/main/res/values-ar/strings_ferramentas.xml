@@ -17,4 +17,8 @@
     <string name="rt_a">A · أضيق</string>
     <string name="rt_b">B · إطارات</string>
     <string name="rt_c">C · فسيح</string>
+    <string name="ft_foco">التركيز</string>
+    <string name="ft_foco_fio">خط</string>
+    <string name="ft_foco_veu">غشاء</string>
+    <string name="ft_foco_quadro">مربع</string>
 </resources>

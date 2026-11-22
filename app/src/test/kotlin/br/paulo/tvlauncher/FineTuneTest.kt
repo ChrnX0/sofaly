@@ -17,17 +17,37 @@ class FineTuneTest {
         assertFalse(FontChoice.looksLikeFont(byteArrayOf(0, 1)))
     }
 
-    @Test fun listaSemRepetidosEComNunitoPrimeiro() {
+    @Test fun listaSemRepetidosEComRobotoPrimeiro() {
         assertEquals(FontChoice.DEFAULT, FontChoice.FONTS.first().id)
+        assertEquals("roboto", FontChoice.DEFAULT)   // régua de estilo 22/11/2026: a do sistema, sem baixar
+        assertEquals(FontChoice.NUNITO, FontChoice.FONTS[1].id)
         assertEquals(FontChoice.FONTS.size, FontChoice.FONTS.map { it.id }.toSet().size)
-        assertTrue(FontChoice.FONTS.drop(1).all { it.path!!.startsWith("ofl/") && it.path!!.endsWith(".ttf") })
+        assertTrue(FontChoice.FONTS.drop(2).all { it.path!!.startsWith("ofl/") && it.path!!.endsWith(".ttf") })
         assertEquals(FontChoice.FONTS[0], FontChoice.byId("nao-existe"))
     }
 
     @Test fun pesos() {
-        assertEquals(500, FontChoice.weight(400))
-        assertEquals(600, FontChoice.weight(500))
-        assertEquals(800, FontChoice.weight(700))
+        // Régua 22/11/2026: sem negrito; o antigo negrito vira médio, o resto fica leve.
+        assertEquals(200, FontChoice.weight(200))
+        assertEquals(300, FontChoice.weight(300))
+        assertEquals(400, FontChoice.weight(400))
+        assertEquals(400, FontChoice.weight(500))
+        assertEquals(500, FontChoice.weight(700))
+        assertEquals(500, FontChoice.weight(800))
+    }
+
+    @Test fun focoPadraoEFaixa() {
+        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.LINE, br.paulo.tvlauncher.settings.FocusStyle.deNumero(0))
+        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.BOX, br.paulo.tvlauncher.settings.FocusStyle.deNumero(2))
+        assertEquals(br.paulo.tvlauncher.settings.FocusStyle.LINE, br.paulo.tvlauncher.settings.FocusStyle.deNumero(9))
+    }
+
+    @Test fun reguaSemLetraPequenaNemMaiuscula() {
+        for (p in Estilo.Papel.entries) {
+            assertTrue("${p.name} ${p.sp} sp", p.sp >= 18f)
+            assertFalse(p.name, p.caixaAlta)
+            assertTrue(p.name, p.peso <= 400)
+        }
     }
 
     @Test fun formatoDaHora() {

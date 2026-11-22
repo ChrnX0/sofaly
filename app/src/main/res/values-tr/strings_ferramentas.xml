@@ -17,4 +17,8 @@
     <string name="rt_a">A · Sıkı</string>
     <string name="rt_b">B · Çerçeveler</string>
     <string name="rt_c">C · Ferah</string>
+    <string name="ft_foco">Odak</string>
+    <string name="ft_foco_fio">Çizgi</string>
+    <string name="ft_foco_veu">Tül</string>
+    <string name="ft_foco_quadro">Kutu</string>
 </resources>

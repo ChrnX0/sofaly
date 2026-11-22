@@ -77,6 +77,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val ITEM_LINHAS = 2
         const val TEXTO_TOPO = 9        // do topo do ícone ao topo do nome (o nome fica na metade de cima do ícone)
         const val PONTO = 10            // ponto laranja à esquerda do nome do escolhido (era uma barra embaixo dele)
+        const val TRACO_L = 3           // régua 22/11/2026: o ponto virou traço vertical de 3 x 20 dp, pontas redondas
+        const val TRACO_A = 20
         val CAT_ESQUERDA get() = CrossRhythm.atual.catEsquerda    // centro da categoria logo à esquerda da coluna
         val CAT_DIREITA get() = CrossRhythm.atual.catDireita    // centro da 1ª categoria à direita (depois do texto mais longo)
         val PASSO_CATS get() = CrossRhythm.atual.passoCats     // entre categorias à direita
@@ -183,6 +185,12 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun dp(v: Float) = v * dm.density
     private fun dpi(v: Int) = (v * dm.density + 0.5f).toInt()
 
+    /** O traço do escolhido no jeito de foco atual (Ajuste fino > Foco): laranja no Fio, creme no Véu e no Quadro. */
+    private fun tracoDoFoco() = GradientDrawable().apply {
+        cornerRadius = dp(TRACO_L / 2f)
+        setColor(if (Estilo.focoAtual(context) == br.paulo.tvlauncher.settings.FocusStyle.LINE) Estilo.ACENTO else Estilo.TEXTO)
+    }
+
     /** As partes de um item que mudam com a escolha. */
     private inner class ItemView(val raiz: LinearLayout, val icone: ImageView, val nome: TextView, val sub: TextView, val traco: View) {
         /** Linhas da linha de baixo na última arrumação (1 ou 2; com 2, os vizinhos de baixo descem uma linha). */
@@ -231,9 +239,11 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         }, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
         rotulo = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_ROTULO)
-            setTextColor(Estilo.ACENTO)
+            // Régua de estilo (22/11/2026): o nome do mundo em creme 72%, leve e sem espaçamento; o laranja ficou só
+            // para detalhe (progresso e o traço do foco).
+            setTextColor(Estilo.TEXTO_2)
             typeface = fonteForte
-            letterSpacing = 0.16f
+            setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
             includeFontPadding = false
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
@@ -244,6 +254,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             includeFontPadding = false
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            // Régua 22/11/2026 ("informação sob demanda"): o "1 de 4" sai da tela; o TalkBack continua lendo (descrição).
+            visibility = View.GONE
         }
         val cabecalho = LinearLayout(ctx).apply {
             orientation = LinearLayout.HORIZONTAL
@@ -501,7 +513,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun avisarMudanca() {
         val c = categoriaAtual() ?: return
         val i = itemAtual() ?: return
-        rotulo.text = c.nome.uppercase()
+        rotulo.text = c.nome   // régua 22/11/2026: sem maiúsculas
         val n = c.itens.size
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
         posicao.text = if (n > 1) context.getString(R.string.cruz_posicao, sel + 1, n) else ""
@@ -611,8 +623,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             maxWidth = dpi(TEXTO_MAX)
             setShadowLayer(dp(8f), 0f, 0f, 0x99000000.toInt())
         }
-        // O ponto laranja do escolhido (Paulo, 18/11/2026: a barra embaixo do nome virou um ponto à esquerda dele).
-        val traco = View(context).apply { background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.ACENTO) } }
+        // O traço do escolhido (Paulo, 18/11/2026: ponto à esquerda do nome; 22/11/2026: traço VERTICAL curto de pontas
+        // redondas, para não parecer a barra de progresso). Laranja no foco Fio; creme no Véu e no Quadro.
+        val traco = View(context).apply { background = tracoDoFoco() }
         val sub = TextView(context).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_SUB)
             setTextColor(COR_SUB)   // creme claro (contraste > 4,5:1 sobre o véu)
@@ -628,7 +641,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val linhaNome = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(traco, LinearLayout.LayoutParams(dpi(PONTO), dpi(PONTO)).apply { marginEnd = dpi(10) })
+            addView(traco, LinearLayout.LayoutParams(dpi(TRACO_L), dpi(TRACO_A)).apply { marginEnd = dpi(PONTO + 10 - TRACO_L) })
             addView(nome, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         }
         val textos = LinearLayout(context).apply {
@@ -740,6 +753,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
                 // Com o painel do Ajuste fino por cima, o ponto e o brilho ficam: é justamente o que se está ajustando.
                 val semMenu = hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto
                 iv.traco.alpha = if (rel == 0 && focada && semMenu) 1f else 0f
+                if (rel == 0 && focada) iv.traco.background = tracoDoFoco()
                 haloDe(iv.icone)?.alpha = if (rel == 0 && focada && semMenu) (brilho * 255).toInt() else 0
                 // Ícones "Linha" (IconeCruz): o escolhido toca a animação dele (a cor é de cada ícone, sempre).
                 val aceso = rel == 0 && focada

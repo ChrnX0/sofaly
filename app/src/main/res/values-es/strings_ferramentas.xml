@@ -17,4 +17,8 @@
     <string name="rt_a">A · Ajustado</string>
     <string name="rt_b">B · Marcos</string>
     <string name="rt_c">C · Aire</string>
+    <string name="ft_foco">Foco</string>
+    <string name="ft_foco_fio">Línea</string>
+    <string name="ft_foco_veu">Velo</string>
+    <string name="ft_foco_quadro">Recuadro</string>
 </resources>
