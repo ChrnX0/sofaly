@@ -46,7 +46,7 @@ object CortinaVideo {
         }
         val bloco = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL }
         if (!linha.isNullOrBlank()) bloco.addView(TextView(ctx).apply {
-            text = linha.uppercase(); textSize = 20f; letterSpacing = 0.12f
+            text = linha; textSize = 20f
             typeface = Fontes.nunito(ctx, 800); setTextColor(Estilo.ACENTO)
         })
         if (titulo.isNotBlank()) bloco.addView(TextView(ctx).apply {

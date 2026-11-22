@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Herramientas</string>
+    <string name="cont_mais_opcoes">Más opciones</string>
+    <string name="tl_proximo">Próxima: %1$s</string>
+    <string name="tl_clima_sub">Pronóstico de los próximos días</string>
+    <string name="tl_casa_sub">Luces, cámaras y timbre</string>
+    <string name="tl_painel_sub">Bluetooth, sonido, Wi-Fi y temporizador</string>
+    <string name="tl_config_sub">Todo del launcher</string>
+    <string name="ac_cartoes">Tarjetas de las apps</string>
+    <string name="ac_coluna">En la columna</string>
+    <string name="ac_vitrine">Escaparate</string>
+    <string name="ac_ver_tudo">Ver lo que hay en la app</string>
+    <string name="ac_ritmo">Espaciado del inicio</string>
+    <string name="rt_antes">Como antes</string>
+    <string name="rt_a">A · Ajustado</string>
+    <string name="rt_b">B · Marcos</string>
+    <string name="rt_c">C · Aire</string>
+    <string name="ft_foco">Foco</string>
+    <string name="ft_foco_fio">Línea</string>
+    <string name="ft_foco_veu">Velo</string>
+    <string name="ft_foco_quadro">Recuadro</string>
+</resources>

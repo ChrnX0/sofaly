@@ -23,7 +23,9 @@ import br.paulo.tvlauncher.R
  */
 class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable() {
 
-    enum class Tipo { CONTINUAR, ASSISTIR, OUVIR, JOGAR, APLICATIVOS, TV, SERIES, FILMES, REDE, ADDONS, RADIO, PODCASTS, JOGOS, SOFA, TODOS_APPS, PLUGIN, DORMIR, CENTRAL }
+    enum class Tipo { CONTINUAR, ASSISTIR, OUVIR, JOGAR, APLICATIVOS, TV, SERIES, FILMES, REDE, ADDONS, RADIO, PODCASTS, JOGOS, SOFA, TODOS_APPS, PLUGIN, DORMIR, CENTRAL,
+        // Ferramentas (21/11/2026, Paulo: o mundo que entra no lugar do Continuar). No FIM do enum (o painel guarda pelo nome).
+        FERRAMENTAS, DESPERTADOR, CASA, CLIMA, AJUSTE, CONFIG }
     /**
      * [DUOTOM] (17/11/2026, 3º estilo embutido): o traço do Símbolo em branco quente sobre um halo suave na cor do grupo.
      * [LINHA] (18/11/2026, PADRÃO): o dono achou os desenhos "infantis". Traço fino de uma cor só (creme), desenho adulto
@@ -202,8 +204,79 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.SOFA -> sofa(c)
             Tipo.APLICATIVOS, Tipo.TODOS_APPS -> quadradinhos(c)
             Tipo.DORMIR -> lua(c)
+            // Ferramentas (21/11/2026): objetos cheios como os dos mundos (na Sala o traço fino destoava da TV e do controle).
+            Tipo.FERRAMENTAS -> caixaFerramentas(c)
+            Tipo.DESPERTADOR -> despertador(c)
+            Tipo.CASA -> casa(c)
+            Tipo.CLIMA -> solNuvem(c)
+            Tipo.AJUSTE -> controles(c)
+            Tipo.CONFIG -> engrenagem(c)
         }
         cheio.shader = null; cheio.alpha = 255
+    }
+
+    private fun caixaFerramentas(c: Canvas) {
+        // chave inglesa laranja cruzada com uma chave de fenda
+        c.save(); c.rotate(-40f, 60f, 52f)
+        vert(0xFF9AA3B5, 0xFF5B6272, 14f, 90f); rr(c, 54f, 30f, 12f, 62f, 5f)          // cabo da fenda
+        solido(0xFF2E3340); rr(c, 57f, 8f, 6f, 26f, 2f)
+        c.restore()
+        c.save(); c.rotate(40f, 60f, 52f)
+        vert(0xFFFFA36B, 0xFFE0581F, 10f, 92f); rr(c, 53f, 34f, 14f, 58f, 7f)           // cabo da chave
+        c.drawCircle(60f, 26f, 17f, cheio)
+        solido(0xFF141821); rr(c, 54f, 6f, 12f, 22f, 3f)                               // boca
+        solido(0xFFFFFFFF, .18f); rr(c, 55f, 38f, 4f, 48f, 2f)
+        c.restore()
+    }
+
+    private fun despertador(c: Canvas) {
+        linha(c, 0xFF8A6A3A, 5f, 36f, 86f, 30f, 94f, 84f, 86f, 90f, 94f)                    // pés
+        vert(0xFFFFD27A, 0xFFE09A2E, 6f, 30f)
+        c.drawArc(r.apply { set(16f, 8f, 46f, 38f) }, 180f, 180f, true, cheio)          // sinos
+        c.drawArc(r.apply { set(74f, 8f, 104f, 38f) }, 180f, 180f, true, cheio)
+        vert(0xFFFFC15E, 0xFFD2721F, 16f, 92f); c.drawCircle(60f, 56f, 36f, cheio)        // corpo
+        solido(0xFFFFF6E6); c.drawCircle(60f, 56f, 28f, cheio)                           // mostrador
+        linha(c, 0xFF2E2A26, 4.5f, 60f, 56f, 60f, 38f)
+        linha(c, LARANJA, 4f, 60f, 56f, 73f, 63f)
+        solido(0xFF2E2A26); c.drawCircle(60f, 56f, 4f, cheio)
+    }
+
+    private fun casa(c: Canvas) {
+        vert(0xFFFFF1DE, 0xFFE9CFAE, 44f, 92f); rr(c, 24f, 44f, 72f, 48f, 6f)           // paredes
+        vert(0xFFFF8A4C, 0xFFD04F16, 8f, 52f)
+        p.reset(); p.moveTo(60f, 8f); p.lineTo(110f, 50f); p.lineTo(100f, 56f); p.lineTo(60f, 22f); p.lineTo(20f, 56f); p.lineTo(10f, 50f); p.close()
+        c.drawPath(p, cheio)                                                              // telhado
+        solido(0xFF9A4A22); rr(c, 80f, 16f, 10f, 22f, 2f)                                 // chaminé
+        vert(0xFF6B4630, 0xFF4A2E1E, 62f, 92f); rr(c, 50f, 62f, 20f, 30f, 4f)           // porta
+        solido(0xFFFFD166); rr(c, 30f, 56f, 14f, 14f, 3f); rr(c, 76f, 56f, 14f, 14f, 3f) // janelas acesas
+    }
+
+    private fun solNuvem(c: Canvas) {
+        solido(0xFFFFC94A); for (k in 0 until 8) { c.save(); c.rotate(k * 45f, 46f, 40f); rr(c, 43f, 6f, 6f, 12f, 3f); c.restore() }
+        vert(0xFFFFE07A, 0xFFF39A2B, 18f, 62f); c.drawCircle(46f, 40f, 21f, cheio)        // sol
+        vert(0xFFFFFFFF, 0xFFC9D6E6, 46f, 92f)
+        c.drawCircle(58f, 66f, 20f, cheio); c.drawCircle(82f, 60f, 22f, cheio); c.drawCircle(100f, 74f, 15f, cheio)
+        rr(c, 40f, 66f, 72f, 26f, 13f)                                                    // nuvem
+    }
+
+    private fun controles(c: Canvas) {
+        vert(0xFF4A5060, 0xFF22252E, 10f, 92f); rr(c, 10f, 10f, 100f, 82f, 14f)          // placa
+        solido(0xFFFFFFFF, .08f); rr(c, 10f, 10f, 100f, 24f, 12f)
+        val ys = floatArrayOf(30f, 51f, 72f); val xs = floatArrayOf(72f, 40f, 84f)
+        for (i in 0..2) {
+            solido(0xFF14161C); rr(c, 24f, ys[i] - 3f, 72f, 6f, 3f)
+            solido(LARANJA); rr(c, 24f, ys[i] - 3f, xs[i] - 24f, 6f, 3f)
+            vert(0xFFFFFFFF, 0xFFD8DCE4, ys[i] - 8f, ys[i] + 8f); c.drawCircle(xs[i], ys[i], 8f, cheio)
+        }
+    }
+
+    private fun engrenagem(c: Canvas) {
+        vert(0xFFC9CED8, 0xFF6E7585, 8f, 94f)
+        for (k in 0 until 8) { c.save(); c.rotate(k * 45f, 60f, 51f); rr(c, 52f, 6f, 16f, 18f, 4f); c.restore() }
+        c.drawCircle(60f, 51f, 34f, cheio)
+        solido(0xFFFFFFFF, .18f); c.drawCircle(60f, 45f, 26f, cheio)
+        vert(0xFFFF9A5C, 0xFFD9561C, 37f, 65f); c.drawCircle(60f, 51f, 14f, cheio)
+        solido(0xFF1C1F26); c.drawCircle(60f, 51f, 6f, cheio)
     }
 
     private fun tv(c: Canvas) {
@@ -405,6 +478,57 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 c.drawPath(p, traco)
                 c.drawLine(17f, 6f, 21f, 6f, traco); c.drawLine(21f, 6f, 17f, 10f, traco); c.drawLine(17f, 10f, 21f, 10f, traco)
             }
+            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG -> ferramenta(c, 1.5f)
+        }
+    }
+
+    /**
+     * Os ícones das Ferramentas (21/11/2026), no quadro 24 x 24 com o traço de [larg] na cor [corTraco]: chave
+     * (o mundo), despertador, casa, sol com nuvem, controles deslizantes (Ajuste fino) e engrenagem.
+     */
+    private fun ferramenta(c: Canvas, larg: Float) {
+        traco.shader = null; traco.color = corTraco; traco.strokeWidth = larg; traco.pathEffect = null; traco.alpha = 255
+        cheio.shader = null; cheio.color = corTraco; cheio.alpha = 255
+        when (tipo) {
+            Tipo.FERRAMENTAS -> {   // chave de boca: a cabeça aberta em cima à direita e o cabo descendo
+                r.set(12f, 3.5f, 21f, 12.5f); c.drawArc(r, 0f, 270f, false, traco)
+                c.drawLine(13.3f, 11.2f, 5f, 19.5f, traco); c.drawCircle(5f, 19.5f, 1.2f, traco)
+            }
+            Tipo.DESPERTADOR -> {
+                c.drawCircle(12f, 13f, 7f, traco)
+                c.drawLine(12f, 13f, 12f, 9.3f, traco); c.drawLine(12f, 13f, 14.6f, 14.6f, traco)
+                c.drawLine(4.2f, 6.6f, 7.4f, 3.8f, traco); c.drawLine(19.8f, 6.6f, 16.6f, 3.8f, traco)
+                c.drawLine(7.4f, 19.2f, 5.8f, 21f, traco); c.drawLine(16.6f, 19.2f, 18.2f, 21f, traco)
+            }
+            Tipo.CASA -> {
+                p.reset(); p.moveTo(3f, 11.5f); p.lineTo(12f, 4f); p.lineTo(21f, 11.5f); c.drawPath(p, traco)
+                p.reset(); p.moveTo(5.5f, 9.6f); p.lineTo(5.5f, 20f); p.lineTo(18.5f, 20f); p.lineTo(18.5f, 9.6f); c.drawPath(p, traco)
+                r.set(10f, 14f, 14f, 20f); c.drawRoundRect(r, 0.8f, 0.8f, traco)
+            }
+            Tipo.CLIMA -> {
+                c.drawCircle(9f, 9f, 3.3f, traco)
+                for (a in 0 until 8) {
+                    if (a in 0..1) continue   // os raios de baixo à direita ficam atrás da nuvem
+                    val rad = Math.toRadians(a * 45.0 + 22.5)
+                    val cs = Math.cos(rad).toFloat(); val sn = Math.sin(rad).toFloat()
+                    c.drawLine(9f + 5f * cs, 9f + 5f * sn, 9f + 6.6f * cs, 9f + 6.6f * sn, traco)
+                }
+                p.reset(); p.moveTo(9.5f, 20f); p.lineTo(19f, 20f); p.quadTo(22f, 20f, 22f, 17f); p.quadTo(22f, 14f, 19f, 14f)
+                p.quadTo(18f, 10.5f, 14.5f, 11f); p.quadTo(11.5f, 11.5f, 11.5f, 14.5f); p.quadTo(8f, 14.5f, 8f, 17.3f); p.quadTo(8f, 20f, 9.5f, 20f); p.close()
+                c.drawPath(p, traco)
+            }
+            Tipo.AJUSTE -> for ((y, x) in listOf(6f to 9f, 12f to 15f, 18f to 7f)) {
+                c.drawLine(4f, y, x - 2.2f, y, traco); c.drawLine(x + 2.2f, y, 20f, y, traco); c.drawCircle(x, y, 2.2f, traco)
+            }
+            Tipo.CONFIG -> {
+                c.drawCircle(12f, 12f, 3f, traco); c.drawCircle(12f, 12f, 6.6f, traco)
+                for (a in 0 until 8) {
+                    val rad = Math.toRadians(a * 45.0)
+                    val cs = Math.cos(rad).toFloat(); val sn = Math.sin(rad).toFloat()
+                    c.drawLine(12f + 6.6f * cs, 12f + 6.6f * sn, 12f + 9f * cs, 12f + 9f * sn, traco)
+                }
+            }
+            else -> {}
         }
     }
 
@@ -511,6 +635,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 c.drawPath(p, traco)
                 c.drawLine(18.5f, 5f, 18.5f, 9f, traco); c.drawLine(16.5f, 7f, 20.5f, 7f, traco)
             }
+            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG -> ferramenta(c, TRACO_FINO)
         }
     }
 
@@ -632,6 +757,15 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 val y = 15.5f - 5f * f; val x = 14.5f + 1.5f * f; val t = 1.6f
                 alfa(sino); c.drawLine(x, y, x + t, y, traco); c.drawLine(x + t, y, x, y + t, traco); c.drawLine(x, y + t, x + t, y + t, traco)
             }
+            Tipo.DESPERTADOR -> {   // o martelinho bate nos dois sinos
+                alfa(sino); c.drawLine(10.2f, 3.2f, 13.8f, 3.2f, traco)
+            }
+            Tipo.CLIMA -> {   // os raios do sol brilham
+                alfa(sino); c.drawCircle(9f, 9f, 5.4f, traco)
+            }
+            Tipo.FERRAMENTAS, Tipo.CASA, Tipo.AJUSTE, Tipo.CONFIG -> {   // a luz da janela / o ponto acende de leve
+                cheio.alpha = (sino * 0.6f * 255).toInt(); c.drawCircle(12f, 12f, 1.4f, cheio)
+            }
         }
         traco.alpha = 255; cheio.alpha = 255
     }
@@ -682,7 +816,16 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.SOFA -> 0xFFA9B0FF.toInt()
             Tipo.APLICATIVOS, Tipo.TODOS_APPS -> DesignTokens.WORLD_APPS   // verde-folha
             Tipo.DORMIR -> 0xFFB9C6E4.toInt()         // luar
+            Tipo.FERRAMENTAS -> DesignTokens.WORLD_CONTINUE   // âmbar (o lugar e a cor que eram do Continuar)
+            Tipo.DESPERTADOR -> 0xFFF5C77E.toInt()    // âmbar claro
+            Tipo.CASA -> 0xFFE8B48A.toInt()           // terracota claro
+            Tipo.CLIMA -> 0xFF8FC8F0.toInt()          // céu
+            Tipo.AJUSTE -> 0xFFF59E5B.toInt()         // laranja claro
+            Tipo.CONFIG -> 0xFFD9CFC2.toInt()         // cinza quente
         }
+
+        /** Tipos ainda sem arte pronta nos conjuntos (Vintage, Joia...): desenham o traço da Linha (IconSetsTest). */
+        val SEM_ARTE = setOf(Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG)
 
         /** A cor clara do traço (Símbolo/Duotom), também nos ícones de app do pacote embutido. */
         const val COR_TRACO = 0xFFFFF3E6.toInt()

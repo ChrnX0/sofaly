@@ -20,9 +20,23 @@ import br.paulo.tvlauncher.player.item
  * Categoria sem itens não existe (quem monta já a tira); item de recurso desligado também não.
  */
 object CruzLogica {
+    /**
+     * Largura (dp) do texto do item escolhido: do começo do texto (centro da coluna + meio ícone + vão + recuo do ponto)
+     * até [folga] antes da borda esquerda do ícone da 1ª categoria à direita; nunca mais que [teto].
+     */
+    fun larguraTexto(coluna: Float, iconeL: Int, vao: Int, recuo: Int, catDireita: Float, catL: Int, folga: Int, teto: Int): Int {
+        val inicio = coluna + iconeL / 2f + vao + recuo
+        val fim = catDireita - catL / 2f - folga
+        return kotlin.math.floor(fim - inicio).toInt().coerceIn(120, teto)
+    }
+
 
     /** As categorias da linha, na ordem fixa da especificação. O [id] é o que vai para as preferências. */
-    enum class Categoria(val id: String) { CONTINUAR("continuar"), ASSISTIR("assistir"), OUVIR("ouvir"), JOGAR("jogar"), APLICATIVOS("aplicativos") }
+    /**
+     * Os mundos da cruz. FERRAMENTAS (21/11/2026, Paulo) entra no lugar do CONTINUAR, que virou o 1º item de cada mundo;
+     * CONTINUAR fica no enum só para o que ainda o cita (prefs antigas, testes de tela), a HOME não o monta mais.
+     */
+    enum class Categoria(val id: String) { FERRAMENTAS("ferramentas"), CONTINUAR("continuar"), ASSISTIR("assistir"), OUVIR("ouvir"), JOGAR("jogar"), APLICATIVOS("aplicativos") }
 
     enum class Tecla { ESQUERDA, DIREITA, CIMA, BAIXO, OK, VOLTAR, HOME }
 

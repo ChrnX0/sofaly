@@ -60,7 +60,13 @@ object SonsCruz {
     /** A velocidade de reprodução do SoundPool muda o tom: 1,5 = uma quinta acima. ANDAR e BORDA ficam no tom de sempre. */
     fun tom(som: Som, categoria: CruzLogica.Categoria?): Float =
         if (categoria == null || (som != Som.GRUPO && som != Som.ABRIR)) 1f
-        else PENTATONICA[categoria.ordinal % PENTATONICA.size]
+        else PENTATONICA[NA_CRUZ.indexOf(categoria).coerceAtLeast(0) % PENTATONICA.size]
+
+    /**
+     * Os 5 mundos que aparecem na cruz, na ordem da linha (Ferramentas · Assistir · Ouvir · Jogar · Aplicativos, 21/11/2026).
+     * O Continuar saiu da linha (virou o 1º item de cada mundo): pelo número do enum, Aplicativos repetiria a nota das Ferramentas.
+     */
+    private val NA_CRUZ = CruzLogica.Categoria.entries - CruzLogica.Categoria.CONTINUAR
 
     /** 40% mais baixo das 22 h às 7 h (casa dormindo). */
     fun volume(hora: Int): Float = if (hora >= 22 || hora < 7) VOLUME * 0.6f else VOLUME

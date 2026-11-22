@@ -305,7 +305,7 @@ class JogosActivity : Activity() {
         ).joinToString("\n")
         return CruzOuvir.Tocando(titulo, linhas, "", COR_JOGAR, "", false, null, null, false,
             // O rótulo diz o que está embaixo: "ESTA SEMANA" só quando há horas jogadas; senão o cartão é só a rede.
-            aoVivo = getString(if (linhas.isNotEmpty()) R.string.jogos_semana else R.string.cfg_sec_rede).uppercase())
+            aoVivo = getString(if (linhas.isNotEmpty()) R.string.jogos_semana else R.string.cfg_sec_rede))
     }
 
     private fun parear() {

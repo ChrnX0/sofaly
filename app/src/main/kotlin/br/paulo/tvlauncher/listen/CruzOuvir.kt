@@ -65,29 +65,29 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
     companion object {
         // Geometria da HomeCruz (dp numa tela de 960 x 540): o mesmo lugar da linha, da coluna e das prateleiras.
-        private const val LINHA = HomeCruz.LINHA
-        private const val COLUNA = HomeCruz.COLUNA
-        private const val CAPA = HomeCruz.ICONE_A          // capa quadrada de 94 dp no item escolhido
-        private const val CAT = HomeCruz.CAT_A             // ícone da prateleira na linha (70 dp)
-        private const val ESCALA_PEQUENO = HomeCruz.ESCALA_PEQUENO
-        private const val PASSO_COLUNA = HomeCruz.PASSO_COLUNA
-        private const val VAO_ESCOLHIDO = HomeCruz.VAO_ESCOLHIDO
-        private const val VAO_CIMA = HomeCruz.VAO_CIMA
-        private const val CAT_ESQUERDA = HomeCruz.CAT_ESQUERDA
-        private const val CAT_DIREITA = HomeCruz.CAT_DIREITA
-        private const val PASSO_CATS = HomeCruz.PASSO_CATS
-        private const val ROTULO_Y = HomeCruz.ROTULO_Y
+        private val LINHA get() = HomeCruz.LINHA
+        private val COLUNA get() = HomeCruz.COLUNA
+        private val CAPA get() = HomeCruz.ICONE_A          // capa quadrada de 94 dp no item escolhido
+        private val CAT get() = HomeCruz.CAT_A             // ícone da prateleira na linha (70 dp)
+        private val ESCALA_PEQUENO get() = HomeCruz.ESCALA_PEQUENO
+        private val PASSO_COLUNA get() = HomeCruz.PASSO_COLUNA
+        private val VAO_ESCOLHIDO get() = HomeCruz.VAO_ESCOLHIDO
+        private val VAO_CIMA get() = HomeCruz.VAO_CIMA
+        private val CAT_ESQUERDA get() = HomeCruz.CAT_ESQUERDA
+        private val CAT_DIREITA get() = HomeCruz.CAT_DIREITA
+        private val PASSO_CATS get() = HomeCruz.PASSO_CATS
+        private val ROTULO_Y get() = HomeCruz.ROTULO_Y
         private const val ROTULO_VAO = 40f   // do topo do item escolhido ao topo do nome da prateleira, quando nada há acima
-        private const val TEXTO_MAX = HomeCruz.TEXTO_MAX
-        private const val SUB_LINHAS = HomeCruz.SUB_LINHAS
-        private const val SUB_SOBRA = HomeCruz.SUB_SOBRA
-        private const val TELA_L = HomeCruz.TELA_L
-        private const val PONTO = HomeCruz.PONTO
-        private const val LARGURA_ITEM = HomeCruz.LARGURA_ITEM
+        private val TEXTO_MAX get() = HomeCruz.TEXTO_MAX
+        private val SUB_LINHAS get() = HomeCruz.SUB_LINHAS
+        private val SUB_SOBRA get() = HomeCruz.SUB_SOBRA
+        private val TELA_L get() = HomeCruz.TELA_L
+        private val PONTO get() = HomeCruz.PONTO
+        private val LARGURA_ITEM get() = HomeCruz.LARGURA_ITEM
         /** O nome do escolhido em até 2 linhas, e a sobra embaixo para a 2ª (dp). */
         const val NOME_LINHAS = 2
         /** Largura do nome de uma prateleira de lado: o vão entre dois ícones vizinhos, menos uma folga. */
-        val ROTULO_CAT = (PASSO_CATS - 8).toInt()
+        val ROTULO_CAT get() = (PASSO_CATS - 8).toInt()
         const val NOME_SOBRA = 44
         private val ALFA_COLUNA get() = HomeCruz.ALFA_COLUNA
 
@@ -189,14 +189,17 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         titulo.translationX = dp(COLUNA - CAPA / 2f); titulo.translationY = dp(34f)
 
         rotulo = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); setTextColor(Estilo.ACENTO); typeface = fonteForte
-            letterSpacing = 0.16f; includeFontPadding = false; maxLines = 1
+            // Régua de estilo (22/11/2026), igual à cruz da HOME: nome do grupo em creme 72%, leve, sem maiúsculas.
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); setTextColor(Estilo.TEXTO_2); typeface = fonteForte
+            includeFontPadding = false; maxLines = 1
+            setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         posicao = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_POSICAO); setTextColor(HomeCruz.COR_SUB); typeface = fonte
             includeFontPadding = false; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            visibility = View.GONE   // régua 22/11/2026: o "5 de 6" sai da tela (o TalkBack continua lendo)
         }
         cabecalho = LinearLayout(ctx).apply {
             orientation = LinearLayout.HORIZONTAL; gravity = Gravity.BOTTOM
@@ -208,8 +211,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
         // ---- cartão "Tocando agora": texto à esquerda, capa grande à direita
         cartaoRotulo = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f); setTextColor(Estilo.ACENTO); typeface = fonteForte
-            letterSpacing = 0.14f; includeFontPadding = false; maxLines = 1
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setTextColor(Estilo.ACENTO); typeface = fonteForte   // régua: mín. 18 sp
+            includeFontPadding = false; maxLines = 1
         }
         cartaoTitulo = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_CARTAO_TITULO); setTextColor(Estilo.TEXTO); typeface = fonteForte
@@ -338,7 +341,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             arte.animate().alpha(0f).setDuration(if (animar) 400 else 0).start()
             return
         }
-        cartaoRotulo.text = t.aoVivo ?: context.getString(if (t.pausado) R.string.ouv_pausado else R.string.ouv_tocando_agora).uppercase()
+        cartaoRotulo.text = t.aoVivo ?: context.getString(if (t.pausado) R.string.ouv_pausado else R.string.ouv_tocando_agora)   // régua: sem maiúsculas
         cartaoRotulo.setTextColor(if (t.pausado) HomeCruz.COR_SUB else Estilo.ACENTO)
         val titulo = caber(t.titulo, cartaoTitulo, dpi(CARTAO_TEXTO), 2)
         if (cartaoTitulo.text.toString() != titulo) cartaoTitulo.text = titulo
@@ -633,7 +636,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         val focada = hasFocus() || isFocused
         val semMovimento = MolaViews.semAnimacao(this)
         val p = prats.getOrNull(cat)
-        rotulo.text = p?.nome?.replace("\n", " · ")?.uppercase().orEmpty()   // nome em 2 linhas ("Sua turma\n0 online") vira uma linha no título
+        rotulo.text = p?.nome?.replace("\n", " · ").orEmpty()   // régua 22/11/2026: sem maiúsculas   // nome em 2 linhas ("Sua turma\n0 online") vira uma linha no título
         posicao.text = p?.takeIf { it.itens.size > 1 }?.let { context.getString(R.string.cruz_posicao, indiceSel(it) + 1, it.itens.size) }.orEmpty()
         // Sem item acima do escolhido, o nome da prateleira desce para junto dele (pente fino 19/11/2026: ficava um vão
         // grande entre "RECENTES" e o 1º item). Com item acima, volta ao lugar de sempre, acima do vizinho.

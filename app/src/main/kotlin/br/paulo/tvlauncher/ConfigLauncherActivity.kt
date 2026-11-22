@@ -30,6 +30,7 @@ import br.paulo.tvlauncher.family.UsoTv
 import br.paulo.tvlauncher.home.SofalyWordmark
 import br.paulo.tvlauncher.home.WrapRow
 import br.paulo.tvlauncher.home.abrir
+import br.paulo.tvlauncher.settings.linhasAoLigar
 import br.paulo.tvlauncher.mcp.McpServidor
 import br.paulo.tvlauncher.mcp.TunelTailscale
 import br.paulo.tvlauncher.network.CasaHA
@@ -330,10 +331,11 @@ class ConfigLauncherActivity : Activity() {
 
     /** Menu das abas no sistema de design: foco = pílula branca com texto escuro; aba aberta = pílula clara. */
     internal fun pintarItemMenu(t: TextView, foco: Boolean, escolhido: Boolean) {
-        t.setTextColor(when { foco -> Estilo.TEXTO_NO_FOCO; escolhido -> Estilo.TEXTO; else -> Estilo.TEXTO_2 })
-        t.typeface = Estilo.fonte(if (foco || escolhido) 600 else 500)
+        // Régua 22/11/2026: o foco no jeito escolhido (Fio, Véu ou Quadro); só o Quadro escurece o texto.
+        t.setTextColor(when { foco && Estilo.focoEscurece(this) -> Estilo.TEXTO_NO_FOCO; foco || escolhido -> Estilo.TEXTO; else -> Estilo.TEXTO_2 })
+        t.typeface = Estilo.fonte(if (foco || escolhido) 400 else 300)
         t.background = when {
-            foco -> Estilo.fundo(this, Estilo.FOCO, Estilo.RAIO_PILULA)
+            foco -> Estilo.fundoFocado(this, Estilo.RAIO_PILULA, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA) else null)
             escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA)
             else -> null
         }
@@ -555,6 +557,7 @@ class ConfigLauncherActivity : Activity() {
             linhaDesligar.valor(rotuloDesligar(proximo))
         }
         c.addView(linhaDesligar, lp())
+        linhasAoLigar(c)   // "Ao ligar a TV" (StartupApp): o que abre quando a TV acende
         linhaQr(c, DestinoPainel.FOTOS, R.string.qrd_fotos, R.string.qrd_fotos_det)
         linhaQr(c, DestinoPainel.MURAL, R.string.qrd_mural, R.string.qrd_mural_det)
         extrasDaAba(c, ExtrasAbas.Aba.ENERGIA)
@@ -1111,7 +1114,7 @@ class ConfigLauncherActivity : Activity() {
     /** Cartão de vidro que agrupa linhas de "rótulo: valor" (dados da conta, sobre). */
     internal fun cartao() = LinearLayout(this).apply {
         orientation = LinearLayout.VERTICAL
-        background = vidro(false)
+        background = Estilo.superficie(this@ConfigLauncherActivity, false)
         setPaddingRelative(dp(24), dp(12), dp(24), dp(12))
     }
 
@@ -1230,8 +1233,9 @@ class ConfigLauncherActivity : Activity() {
     }
 
     /** Superfície das linhas e cartões (sistema de design): repouso = branco 6% com fio; foco = branco sólido. */
-    internal fun vidro(focado: Boolean): GradientDrawable =
-        if (focado) Estilo.fundo(this, Estilo.FOCO, Estilo.RAIO) else Estilo.fundo(this, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
+    // Régua 22/11/2026: a linha não tem caixa (um fio embaixo separa); o foco segue Ajuste fino > Foco.
+    internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable =
+        if (focado) Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this)) else Estilo.fioBaixo(this)
 
     /**
      * A linha das Configurações: [título / detalhe] à esquerda e um acessório à direita (chave, valor ou seta).
@@ -1284,10 +1288,11 @@ class ConfigLauncherActivity : Activity() {
 
         /** Foco = linha branca: os textos escurecem (o valor também; laranja ficou só para marca, foco e progresso). */
         private fun pintarTextos() {
-            tTitulo.setTextColor(if (focada) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
-            tDetalhe.setTextColor(if (focada) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
-            tValor?.setTextColor(if (focada) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)   // valor sem laranja (crítica de design 19/11/2026)
-            tSeta?.setTextColor(if (focada) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
+            val escura = focada && Estilo.focoEscurece(context)   // só o Quadro (fundo branco) escurece o texto
+            tTitulo.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
+            tDetalhe.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
+            tValor?.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)   // valor sem laranja (crítica de design 19/11/2026)
+            tSeta?.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
             ligadoAgora?.let { pintarChave(it) }
         }
 
@@ -1312,6 +1317,7 @@ class ConfigLauncherActivity : Activity() {
 
         /** Interruptor: ligado = acento (no foco, acento escuro); desligado = trilho apagado. */
         private fun pintarChave(sim: Boolean) {
+            val focada = focada && Estilo.focoEscurece(context)   // no Fio e no Véu a chave fica como está
             trilho?.background = Estilo.fundo(context,
                 when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33121528; else -> 0x33FFFFFF },
                 Estilo.RAIO_PILULA)

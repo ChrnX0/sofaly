@@ -20,7 +20,7 @@ class IconSetsTest {
         val m = IconSetArt.lerMovimentos(File(pasta(), "motion.json").readText())
         val conjuntos = IconeCruz.Estilo.entries.mapNotNull { it.pasta }
         assertEquals(listOf("vintage", "jewel", "photoreal", "vintage2"), conjuntos)
-        for (c in conjuntos) for (t in IconeCruz.Tipo.entries) {
+        for (c in conjuntos) for (t in IconeCruz.Tipo.entries - IconeCruz.SEM_ARTE) {   // SEM_ARTE: desenham a Linha
             val nome = IconSetArt.arquivo(t)
             assertTrue("falta $c/$nome.webp", File(pasta(), "$c/$nome.webp").isFile)
             assertTrue("falta $c/$nome-a.webp", File(pasta(), "$c/$nome-a.webp").isFile)

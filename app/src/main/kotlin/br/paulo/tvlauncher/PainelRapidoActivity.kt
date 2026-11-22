@@ -148,7 +148,7 @@ class PainelRapidoActivity : Activity() {
             val foco = casca.isFocused
             casca.background = Estilo.superficie(this@PainelRapidoActivity, foco)
             titulo.setTextColor(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
-            titulo.typeface = Estilo.fonte(if (foco) 600 else 500)   // no branco o texto escuro precisa de mais peso
+            titulo.typeface = Estilo.fonte(if (foco && Estilo.focoEscurece(this@PainelRapidoActivity)) 600 else 500)   // só no Quadro branco o texto escuro precisa de mais peso
             icone.definirCor(when {
                 ligado && foco -> Estilo.ACENTO_NO_FOCO
                 ligado -> Estilo.ACENTO
@@ -387,8 +387,11 @@ class PainelRapidoActivity : Activity() {
         val bmp = IconesClima.bitmap(this, chave)
         imgClima.visibility = if (bmp != null) View.VISIBLE else View.GONE
         if (bmp != null) imgClima.setImageBitmap(bmp)
-        txtClima.text = "${c.getInt("temp", 0)}° ${IconesClima.texto(codigo, chovendo)}"
+        val temp = "${c.getInt("temp", 0)}°"
+        txtClima.text = "$temp ${IconesClima.texto(codigo, chovendo)}"
         txtClima.visibility = View.VISIBLE
+        // Sem "25° Pou...": se a condição não cabe inteira ao lado da data, fica só a temperatura (o ícone já diz o tempo).
+        txtClima.post { if ((txtClima.layout?.getEllipsisCount(0) ?: 0) > 0) txtClima.text = temp }
         sepClima.visibility = View.VISIBLE
     }
 
@@ -675,7 +678,8 @@ class PainelRapidoActivity : Activity() {
             gravity = Gravity.CENTER_VERTICAL
             isFocusable = true
             isClickable = true
-            setPaddingRelative(dp(12), 0, dp(6), 0)
+            // 18 dp antes do ícone: o Fio do foco (6 a 10 dp) fica com 8 dp de ar até o ícone (régua, Sala 22/11: colava)
+            setPaddingRelative(dp(18), 0, dp(6), 0)
             addView(icone, LinearLayout.LayoutParams(dp(18), dp(18)).apply { marginEnd = dp(9) })
             addView(textos, LinearLayout.LayoutParams(0, -2, 1f))
             setOnClickListener { aoClicar() }
@@ -867,8 +871,8 @@ class PainelRapidoActivity : Activity() {
         val indiceFocado = linhaFocada?.let { listaAvisos.indexOfChild(it) } ?: -1
         val noX = focado?.tag == TAG_X
         listaAvisos.removeAllViews()
-        txtSecao.text = if (avisos.isEmpty()) getString(R.string.pr_notificacoes).uppercase()
-            else "${getString(R.string.pr_notificacoes).uppercase()} · ${avisos.size}"
+        txtSecao.text = if (avisos.isEmpty()) getString(R.string.pr_notificacoes)
+            else "${getString(R.string.pr_notificacoes)} · ${avisos.size}"
         limpar.visibility = if (avisos.isEmpty() && daTv.isEmpty()) View.GONE else View.VISIBLE
         if (avisos.isEmpty()) {
             listaAvisos.addView(Estilo.texto(this, Estilo.Papel.LEGENDA,
@@ -881,7 +885,7 @@ class PainelRapidoActivity : Activity() {
         // Central de avisos (ideia 35): os últimos avisos do próprio launcher (chuva, recado, manutenção...), que antes
         // sumiam quando o seguinte chegava. OK mostra de novo na tela; o X tira da lista.
         if (daTv.isNotEmpty()) {
-            listaAvisos.addView(Estilo.secao(this, getString(R.string.pr_avisos_tv).uppercase() + " · ${daTv.size}"))
+            listaAvisos.addView(Estilo.secao(this, getString(R.string.pr_avisos_tv) + " · ${daTv.size}"))
             val app = "Sofaly"   // nome do produto, não traduz
             for ((i, h) in daTv.withIndex()) {
                 val a = NotificacoesTv.Aviso("tv:${h.quando}", packageName, app, h.titulo, h.texto, h.quando)
@@ -897,12 +901,12 @@ class PainelRapidoActivity : Activity() {
         val compras = mural.compras
         // Ideia 95: os recados fixos, editáveis pela TV: OK marca como lido (sai do protetor), X apaga.
         if (mural.recados.isNotEmpty()) {
-            listaAvisos.addView(Estilo.secao(this, getString(R.string.pg_recado).uppercase() + " · ${mural.recados.size}"))
+            listaAvisos.addView(Estilo.secao(this, getString(R.string.pg_recado) + " · ${mural.recados.size}"))
             for ((i, r) in mural.recados.withIndex())
                 listaAvisos.addView(linhaRecado(r, mural.lido(r)), LinearLayout.LayoutParams(-1, -2).apply { if (i > 0) topMargin = dp(Estilo.E1) })
         }
         if (compras.isNotEmpty()) {
-            listaAvisos.addView(Estilo.secao(this, getString(R.string.pg_compras).uppercase() + " · ${compras.size}"))
+            listaAvisos.addView(Estilo.secao(this, getString(R.string.pg_compras) + " · ${compras.size}"))
             for ((i, item) in compras.withIndex())
                 listaAvisos.addView(linhaCompra(item), LinearLayout.LayoutParams(-1, -2).apply { if (i > 0) topMargin = dp(Estilo.E1) })
         }

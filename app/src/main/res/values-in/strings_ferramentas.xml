@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Alat</string>
+    <string name="cont_mais_opcoes">Opsi lainnya</string>
+    <string name="tl_proximo">Berikutnya: %1$s</string>
+    <string name="tl_clima_sub">Prakiraan beberapa hari ke depan</string>
+    <string name="tl_casa_sub">Lampu, kamera, dan bel</string>
+    <string name="tl_painel_sub">Bluetooth, suara, Wi-Fi, dan timer</string>
+    <string name="tl_config_sub">Semua tentang launcher</string>
+    <string name="ac_cartoes">Kartu aplikasi</string>
+    <string name="ac_coluna">Di kolom</string>
+    <string name="ac_vitrine">Etalase</string>
+    <string name="ac_ver_tudo">Lihat isi aplikasi</string>
+    <string name="ac_ritmo">Jarak beranda</string>
+    <string name="rt_antes">Seperti dulu</string>
+    <string name="rt_a">A · Rapat</string>
+    <string name="rt_b">B · Bingkai</string>
+    <string name="rt_c">C · Lapang</string>
+    <string name="ft_foco">Fokus</string>
+    <string name="ft_foco_fio">Garis</string>
+    <string name="ft_foco_veu">Selubung</string>
+    <string name="ft_foco_quadro">Kotak</string>
+</resources>

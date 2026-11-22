@@ -72,7 +72,8 @@ class ProtetorTela : DreamService() {
             indice = (indice + 1) % midias.size
             val entra = FundoMeu(this@ProtetorTela, { bloco -> Fundo.rodar("descanso-midia") { bloco() } }, midias[indice]).apply { alpha = 0f }
             p.addView(entra, FrameLayout.LayoutParams(-1, -1))
-            entra.animate().alpha(1f).setDuration(2000).start()
+            // Vídeo (SurfaceView) não esmaece por alpha do pai: entra inteiro e o próprio VideoLayer clareia do preto.
+            if (entra.temVideo) entra.alpha = 1f else entra.animate().alpha(1f).setDuration(2000).start()
             val sai = naTela
             sai?.animate()?.alpha(0f)?.setDuration(2000)?.withEndAction { p.removeView(sai) }?.start()   // solta imagem e vídeo
             naTela = entra
