@@ -172,18 +172,18 @@ class CruzTelaTest {
                     HomeCruz.Categoria(CruzLogica.Categoria.FERRAMENTAS, "Ferramentas", ic(IconeCruz.Tipo.FERRAMENTAS), listOf(
                         it("dormir", "Dormir em 30 min", "A tela escurece devagar e a TV desliga", IconeCruz.Tipo.DORMIR),
                         it("t:despertador", "Alarme", "Próximo: seg 07:00", IconeCruz.Tipo.DESPERTADOR),
-                        it("t:clima", "Clima", "30° · previsão de 7 dias", IconeCruz.Tipo.CLIMA),
+                        it("t:clima", "Clima", "30° · previsão de 7 dias, chuva por hora e qualidade do ar", IconeCruz.Tipo.CLIMA),
                         it("t:casa", "Casa", "Luzes e câmeras", IconeCruz.Tipo.CASA),
                         it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE))),
                     HomeCruz.Categoria(CruzLogica.Categoria.ASSISTIR, "Assistir", ic(IconeCruz.Tipo.ASSISTIR), listOf(
                         it("cont:yt", "Continuar", "YouTube · Vini Jr tá de volta", IconeCruz.Tipo.CONTINUAR, visto = 0.58f),
-                        it("tv", "TV", "Canal 156 · Discovery", IconeCruz.Tipo.TV),
+                        it("tv", "TV", "Canal 156 · Discovery · Como é feito: fábricas gigantes do mundo", IconeCruz.Tipo.TV),
                         it("series", "Séries", "O Último Farol", IconeCruz.Tipo.SERIES),
                         it("filmes", "Filmes", "Maré Alta", IconeCruz.Tipo.FILMES))),
                     HomeCruz.Categoria(CruzLogica.Categoria.OUVIR, "Ouvir", ic(IconeCruz.Tipo.OUVIR), listOf(
-                        it("radio", "Rádio", "Rádios do mundo inteiro", IconeCruz.Tipo.RADIO))),
+                        it("radio", "Rádio", "Rádios do mundo inteiro, ao vivo e sem cadastro nenhum", IconeCruz.Tipo.RADIO))),
                     HomeCruz.Categoria(CruzLogica.Categoria.JOGAR, "Jogar", ic(IconeCruz.Tipo.JOGAR), listOf(
-                        it("central", "Central de jogos", "Geral", IconeCruz.Tipo.CENTRAL))),
+                        it("central", "Central de jogos", "Seus jogos, os retrô e os do celular num lugar só", IconeCruz.Tipo.CENTRAL))),
                     HomeCruz.Categoria(CruzLogica.Categoria.APLICATIVOS, "Aplicativos", ic(IconeCruz.Tipo.APLICATIVOS), listOf(
                         it(CruzLogica.ID_TODOS_APPS, "Todos os apps", "Ver, mover e esconder", IconeCruz.Tipo.TODOS_APPS))),
                 ))
@@ -251,7 +251,7 @@ class CruzTelaTest {
             HomeCruz.Categoria(CruzLogica.Categoria.OUVIR, "Ouvir", ic(IconeCruz.Tipo.OUVIR), listOf(
                 it("cont:radio", "Continuar", "Rádio Mar Azul FM", IconeCruz.Tipo.CONTINUAR),
                 it("radio", "Rádio", "Rádios do mundo inteiro", IconeCruz.Tipo.RADIO),
-                it("podcasts", "Podcasts", "Café com Ciência", IconeCruz.Tipo.PODCASTS),
+                it("podcasts", "Podcasts", "Programas, notícias e conversas que você segue", IconeCruz.Tipo.PODCASTS),
                 it("app:spotify", "Spotify", "Música", A))),
             HomeCruz.Categoria(CruzLogica.Categoria.JOGAR, "Jogar", ic(IconeCruz.Tipo.JOGAR), listOf(
                 it("central", "Central de jogos", "Geral", IconeCruz.Tipo.CENTRAL),
@@ -259,7 +259,7 @@ class CruzTelaTest {
                 it("app:xadrez", "Xadrez", "Tabuleiro", IconeCruz.Tipo.JOGOS))),
             HomeCruz.Categoria(CruzLogica.Categoria.APLICATIVOS, "Aplicativos", ic(A), listOf(
                 it(CruzLogica.ID_TODOS_APPS, "Todos os apps", "Ver, mover e esconder", IconeCruz.Tipo.TODOS_APPS),
-                it("app:downloader", "Downloader", "Aberto há 2 h", A),
+                it("app:downloader", "Downloader com um nome de aplicativo bem comprido", "Aberto há 2 h, baixou três arquivos grandes", A),
                 it("app:prime", "Prime Video", "Filmes e séries", A),
                 it("app:globoplay", "Globoplay", "TV e novelas", A))),
         ))
@@ -279,6 +279,13 @@ class CruzTelaTest {
                     val topo = if (n == 1) (HomeCruz.LINHA - HomeCruz.ICONE_A / 2f) * d
                         else (HomeCruz.LINHA - HomeCruz.VAO_CIMA - HomeCruz.ICONE_A * HomeCruz.ESCALA_PEQUENO / 2f) * d
                     assertTrue("$nome item $n: nome do mundo acima do que está embaixo dele", r.translationY + r.height <= topo + 1f)
+                    // Texto do escolhido termina antes do ícone da 1ª categoria à direita, com folga (Sala v468193, Podcasts x Jogar).
+                    val limite = (HomeCruz.CAT_DIREITA - HomeCruz.CAT_L / 2f - HomeCruz.FOLGA_CAT) * d + 1f
+                    for (t in listOfNotNull(cruz.subAtual(), cruz.nomeAtual())) {
+                        val xy = IntArray(2); t.getLocationInWindow(xy)
+                        val fim = xy[0] + t.width
+                        assertTrue("$nome item $n: texto termina em ${fim / d} dp, limite ${limite / d} dp", fim <= limite)
+                    }
                 }
                 tecla(KeyEvent.KEYCODE_DPAD_UP); tecla(KeyEvent.KEYCODE_DPAD_UP)
             }

@@ -11,20 +11,16 @@ import android.graphics.Canvas
 import android.graphics.ImageDecoder
 import android.graphics.Paint
 import android.graphics.RectF
-import android.graphics.SurfaceTexture
 import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.SystemClock
 import android.util.TypedValue
 import android.view.Gravity
-import android.view.Surface
-import android.view.TextureView
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -66,9 +62,7 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
     private val dm = resources.displayMetrics
     private val camadas = arrayOf(imagem(), imagem())
     private var frente = 0
-    private var textura: TextureView? = null
-    private var tocador: MediaPlayer? = null
-    private var superficie: Surface? = null
+    private var video: br.paulo.tvlauncher.home.VideoLayer? = null   // motor leve (VideoLayer.kt): um decodificador só
     private var animada: AnimatedImageDrawable? = null
     private val credito: TextView
     @Volatile private var provider: WallpaperPlugins.Provider? = null
@@ -242,7 +236,6 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
         frente = 1 - frente
         if (windowVisibility == View.VISIBLE) animada?.start()
         credito.text = texto ?: ""
-        textura?.alpha = 0f
     }
 
     private fun liberar(v: ImageView) {
@@ -338,41 +331,22 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
     }
 
     private fun mostrarVideo(g: Int, item: WallpaperPluginContract.Item, texto: String?) {
-        soltarVideo()
-        val tv = textura ?: TextureView(context).also { t ->
-            textura = t
-            addView(t, 2, LayoutParams(-1, -1))   // acima das imagens, abaixo do véu e do crédito
-        }
-        val abrir = { st: SurfaceTexture ->
-            superficie?.release()
-            val s = Surface(st).also { superficie = it }
-            tocador = runCatching {
-                MediaPlayer().apply {
-                    setDataSource(app, Uri.parse(item.uri))
-                    setSurface(s)
-                    isLooping = true
-                    setVolume(0f, 0f)
-                    setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
-                    setOnPreparedListener { if (g == geracao) { tv.animate().alpha(1f).setDuration(br.paulo.tvlauncher.settings.BackgroundStyle.fadeMs(app)).start(); if (windowVisibility == View.VISIBLE) it.start() } }
-                    setOnErrorListener { _, _, _ -> true }   // vídeo que o aparelho não toca: fica a imagem anterior
-                    prepareAsync()
-                }
-            }.getOrNull()
+        val v = video ?: br.paulo.tvlauncher.home.VideoLayer(context).also { n ->
+            video = n
+            addView(n, 2, LayoutParams(-1, -1))   // acima das imagens, abaixo do véu e do crédito
         }
         credito.text = texto ?: ""
-        tv.alpha = 0f
-        val st = tv.surfaceTexture
-        if (st != null) abrir(st) else tv.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
-            override fun onSurfaceTextureAvailable(s: SurfaceTexture, w: Int, h: Int) { if (g == geracao) abrir(s) }
-            override fun onSurfaceTextureSizeChanged(s: SurfaceTexture, w: Int, h: Int) {}
-            override fun onSurfaceTextureDestroyed(s: SurfaceTexture): Boolean { soltarVideo(); superficie?.release(); superficie = null; return true }
-            override fun onSurfaceTextureUpdated(s: SurfaceTexture) {}
-        }
+        v.visibility = View.VISIBLE
+        br.paulo.tvlauncher.home.VideoLayer.liberar(this)   // sem camada nem desfoque por cima do furo do vídeo
+        if (g == geracao) v.tocar(Uri.parse(item.uri))
     }
 
+    /** Vídeo sai (a próxima é imagem ou cor): solta o decodificador e devolve a camada de hardware ao fundo. */
     private fun soltarVideo() {
-        tocador?.let { runCatching { it.release() } }
-        tocador = null
+        val v = video ?: return
+        v.soltar()
+        v.visibility = View.GONE
+        br.paulo.tvlauncher.home.VideoLayer.restaurar(this)
     }
 
     // ---------------------------------------------------------------- ciclo de vida
@@ -381,7 +355,6 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
         super.onWindowVisibilityChanged(v)
         val visivel = v == View.VISIBLE
         animada?.let { if (visivel) it.start() else it.stop() }
-        tocador?.let { runCatching { if (visivel) { if (!it.isPlaying) it.start() } else if (it.isPlaying) it.pause() } }
         if (visivel && trocadoEm > 0L && SystemClock.elapsedRealtime() - trocadoEm >= WallpaperPluginContract.TROCA_MS) { mostrarProximo(); agendar() }
     }
 
@@ -411,8 +384,7 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
         fila.shutdown()
         receptor = null
         animada?.stop()
-        soltarVideo()
-        superficie?.release(); superficie = null
+        video?.soltar()
     }
 
     companion object {
