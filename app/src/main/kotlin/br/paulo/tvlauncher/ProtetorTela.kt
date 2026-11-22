@@ -1,13 +1,13 @@
 package br.paulo.tvlauncher
 
-import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
 import android.service.dreams.DreamService
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.ImageView
 import br.paulo.tvlauncher.games.JogosTv
+import br.paulo.tvlauncher.home.FundoMeu
+import br.paulo.tvlauncher.home.FundoMeuDados
 import br.paulo.tvlauncher.panel.FotosRede
 import br.paulo.tvlauncher.screensaver.FotosProtetor
 import br.paulo.tvlauncher.screensaver.SleepingHome
@@ -20,7 +20,8 @@ import br.paulo.tvlauncher.screensaver.SleepingHome
  * HOME QUE ADORMECE ([SleepingHome]): o MESMO fundo da tela inicial, sem a cruz, com a hora, o tempo de agora e a
  * frase do dia em cima e a faixa de baixo que roda sozinha ou com ↑/↓. HOME, VOLTAR e as outras teclas acordam a TV
  * (a cruz volta); volume não acorda. Saíram a pintura própria do protetor, as fotos da NASA e os 14 liga/desliga.
- * Fotos enviadas pelo painel ou da pasta da rede (ideia 27) passam por trás quando o fundo do descanso é "Fotos passando".
+ * O fundo é o da home por padrão; nas Configs a pessoa escolhe outro tema, um arquivo só do descanso ou fotos e vídeos
+ * passando (painel, pasta da rede e as pastas da TV), ver [SleepingHome.background].
  */
 class ProtetorTela : DreamService() {
     private val ui = Handler(Looper.getMainLooper())
@@ -37,51 +38,39 @@ class ProtetorTela : DreamService() {
         FotosRede.talvezSincronizar(this)   // pasta da rede (ideia 27): renova a cópia se tiver mais de 6 h
         val s = SleepingHome(this)
         val raiz = s.montar() as FrameLayout
-        val todas = FotosProtetor.listar(this) + FotosRede.listar(this)
-        // Fotos só quando a pessoa escolheu "Fotos passando" no fundo do descanso; o padrão é o fundo da home.
-        fotos = if (SleepingHome.background(this, todas.isNotEmpty()) == SleepingHome.BG_PHOTOS) todas.shuffled() else emptyList()
-        if (fotos.isNotEmpty()) {
-            // Por cima do fundo do tema e por baixo do véu e do texto (posição 1).
-            var i = 1
-            for (v in camadas) raiz.addView(v.apply { scaleType = ImageView.ScaleType.CENTER_CROP; alpha = 0f }, i++, FrameLayout.LayoutParams(-1, -1))
-            raiz.addView(View(this).apply {
-                background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x66000000, 0x22000000, 0x66000000))
-            }, i, FrameLayout.LayoutParams(-1, -1))
-            ui.post(trocarFoto)
+        if (SleepingHome.background(this) == SleepingHome.BG_PHOTOS) {
+            // Fotos e vídeos passando: um palco por cima do fundo da home e por baixo do véu e do texto (posição 1).
+            val p = FrameLayout(this)
+            raiz.addView(p, 1, FrameLayout.LayoutParams(-1, -1))
+            palco = p
+            Fundo.rodar("descanso-midias") {
+                val l = (FotosProtetor.listar(this) + FotosRede.listar(this) + FundoMeuDados.candidatos()).distinctBy { it.path }.shuffled()
+                ui.post { if (palco != null) { midias = l; ui.post(trocar) } }
+            }
         }
         setContentView(raiz)
         descanso = s
     }
 
-    // ---------------------------------------------------------------- fotos (FotosProtetor.kt)
-    private var fotos: List<java.io.File> = emptyList()
-    private val camadas by lazy { arrayOf(ImageView(this), ImageView(this)) }
-    private var indiceFoto = -1
-    private var camadaAtual = 0
-    private val carregador = java.util.concurrent.Executors.newSingleThreadExecutor()
+    // ------------------------------------------------- fotos e vídeos passando (painel, pasta da rede, pastas da TV)
+    private var midias: List<java.io.File> = emptyList()
+    private var palco: FrameLayout? = null
+    private var naTela: View? = null
+    private var indice = -1
 
-    /** Decodifica a próxima foto fora da thread da tela e esmaece da atual para ela em 2 s. */
-    private val trocarFoto = object : Runnable {
+    /** Põe o próximo item (foto, GIF ou vídeo sem som, pelo [FundoMeu]) e esmaece do atual para ele em 2 s. */
+    private val trocar = object : Runnable {
         override fun run() {
-            if (fotos.isEmpty()) return
-            indiceFoto = (indiceFoto + 1) % fotos.size
-            val f = fotos[indiceFoto]
-            val m = resources.displayMetrics
-            carregador.execute {
-                val bmp = FotosProtetor.carregar(f, m.widthPixels, m.heightPixels)
-                ui.post {
-                    if (carregador.isShutdown) return@post   // o protetor já fechou enquanto a foto carregava
-                    if (bmp != null) {
-                        val entra = camadas[1 - camadaAtual]
-                        val sai = camadas[camadaAtual]
-                        entra.setImageBitmap(bmp)
-                        entra.animate().alpha(1f).setDuration(2000).start()
-                        sai.animate().alpha(0f).setDuration(2000).withEndAction { sai.setImageDrawable(null) }.start()   // solta a memória
-                        camadaAtual = 1 - camadaAtual
-                    }
-                    ui.postDelayed(this, FotosProtetor.TROCA_MS)
-                }
-            }
+            val p = palco ?: return
+            if (midias.isEmpty()) return
+            indice = (indice + 1) % midias.size
+            val entra = FundoMeu(this@ProtetorTela, { bloco -> Fundo.rodar("descanso-midia") { bloco() } }, midias[indice]).apply { alpha = 0f }
+            p.addView(entra, FrameLayout.LayoutParams(-1, -1))
+            entra.animate().alpha(1f).setDuration(2000).start()
+            val sai = naTela
+            sai?.animate()?.alpha(0f)?.setDuration(2000)?.withEndAction { p.removeView(sai) }?.start()   // solta imagem e vídeo
+            naTela = entra
+            ui.postDelayed(this, FotosProtetor.TROCA_MS)
         }
     }
 
@@ -104,10 +93,9 @@ class ProtetorTela : DreamService() {
 
     override fun onDetachedFromWindow() {
         if (atual?.get() === this) atual = null
-        ui.removeCallbacks(trocarFoto)
+        ui.removeCallbacks(trocar)
         descanso?.soltar(); descanso = null
-        carregador.shutdownNow()
-        camadas.forEach { it.setImageDrawable(null) }
+        palco = null; naTela = null
         super.onDetachedFromWindow()
     }
 

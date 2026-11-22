@@ -25,7 +25,8 @@
     <string name="sh_vidro">아래 줄 뒤 유리</string>
     <string name="sh_vidro_det">줄 뒤의 유리 패널. 끔: 가는 선만.</string>
     <string name="sh_fundo">휴식 화면 배경</string>
-    <string name="sh_fundo_det">TV가 쉬는 동안 시계 뒤에 보이는 것. 홈과 같게, 여기만 다른 테마, 또는 사진이 차례로.</string>
+    <string name="sh_fundo_det">TV가 쉬는 동안 시계 뒤에 보이는 것: 홈과 같게, 다른 테마, 여기만의 사진이나 동영상, 또는 사진과 동영상이 차례로.</string>
     <string name="sh_fundo_home">홈과 같게</string>
-    <string name="sh_fundo_fotos">사진 차례로</string>
+    <string name="sh_fundo_fotos">사진과 동영상 차례로</string>
+    <string name="sh_fundo_arquivo">휴식 화면 전용 파일</string>
 </resources>

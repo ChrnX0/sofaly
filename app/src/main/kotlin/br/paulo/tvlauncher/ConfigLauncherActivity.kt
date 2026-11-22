@@ -503,17 +503,38 @@ class ConfigLauncherActivity : Activity() {
             SleepingHome.setRotate(this, novo); linhaRodar.valor(rotuloRodar(novo))
         }
         c.addView(linhaRodar, lp())
-        // Fundo do descanso (22/11/2026): o da home (padrão), outro tema só no descanso, ou as fotos do painel/pasta passando.
-        val temFotos = br.paulo.tvlauncher.screensaver.FotosProtetor.listar(this).isNotEmpty() || br.paulo.tvlauncher.panel.FotosRede.listar(this).isNotEmpty()
+        // Fundo do descanso (Paulo, 22/11/2026: "deixar o user fazer o que ele quiser"): o da home (padrão), outro tema só
+        // no descanso, uma foto/GIF/vídeo só do descanso, ou fotos e vídeos passando (painel, pasta da rede, pastas da TV).
         fun rotuloFundo(v: String) = when (v) {
             SleepingHome.BG_HOME -> getString(R.string.sh_fundo_home)
             SleepingHome.BG_PHOTOS -> getString(R.string.sh_fundo_fotos)
+            SleepingHome.BG_FILE -> SleepingHome.file(this)?.name ?: getString(R.string.sh_fundo_arquivo)
             else -> runCatching { br.paulo.tvlauncher.settings.Tema.valueOf(v).nome }.getOrDefault(v)
         }
         lateinit var linhaFundo: LinhaCfg
-        linhaFundo = linha(getString(R.string.sh_fundo), getString(R.string.sh_fundo_det), valor = rotuloFundo(SleepingHome.background(this, temFotos))) {
-            val novo = SleepingHome.nextOf(SleepingHome.backgroundOptions(this, temFotos), SleepingHome.background(this, temFotos))
-            SleepingHome.setBackground(this, novo); linhaFundo.valor(rotuloFundo(novo))
+        linhaFundo = linha(getString(R.string.sh_fundo), getString(R.string.sh_fundo_det), valor = rotuloFundo(SleepingHome.background(this))) {
+            val opcoes = SleepingHome.backgroundOptions(this)
+            val nomes = opcoes.map { if (it == SleepingHome.BG_FILE) getString(R.string.sh_fundo_arquivo) else rotuloFundo(it) }
+            Estilo.lista(this, getString(R.string.sh_fundo), nomes, marcadas = listOf(opcoes.indexOf(SleepingHome.background(this)))) { i ->
+                val escolha = opcoes.getOrNull(i) ?: return@lista
+                if (escolha != SleepingHome.BG_FILE) { SleepingHome.setBackground(this, escolha); linhaFundo.valor(rotuloFundo(escolha)); return@lista }
+                // Um arquivo só do descanso: as mesmas pastas do "Meu fundo" (fotos, GIFs e vídeos).
+                trabalho.execute {
+                    val arquivos = br.paulo.tvlauncher.home.FundoMeuDados.candidatos()
+                    runOnUiThread {
+                        if (isDestroyed) return@runOnUiThread
+                        if (arquivos.isEmpty()) { aviso(getString(R.string.fm_vazio)); return@runOnUiThread }
+                        val repetidos = arquivos.groupingBy { it.name }.eachCount().filterValues { it > 1 }.keys
+                        val nomesArq = arquivos.map { f -> if (f.name in repetidos) "${f.parentFile?.name ?: "?"}/${f.name}" else f.name }
+                        Estilo.lista(this, getString(R.string.sh_fundo_arquivo), nomesArq,
+                            marcadas = listOf(arquivos.indexOfFirst { it == SleepingHome.file(this) })) { k ->
+                            val f = arquivos.getOrNull(k) ?: return@lista
+                            SleepingHome.setFile(this, f); SleepingHome.setBackground(this, SleepingHome.BG_FILE)
+                            linhaFundo.valor(rotuloFundo(SleepingHome.BG_FILE))
+                        }
+                    }
+                }
+            }
         }
         c.addView(linhaFundo, lp())
         lateinit var linhaVidro: LinhaCfg

@@ -32,8 +32,9 @@ import java.io.File
  *    48 MB num aparelho de 2 GB.
  *  - Arquivo apagado ou ilegível: fica preto e a HOME segue (nada aqui pode derrubar o launcher).
  */
-class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit) : FrameLayout(ctx), FundoVivo {
-    private val arquivo: File? = FundoMeuDados.arquivo(ctx)
+class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit, escolhido: File? = null) : FrameLayout(ctx), FundoVivo {
+    /** [escolhido]: um arquivo que não é o "Meu fundo" da home (o do descanso, ou um item das fotos e vídeos passando). */
+    private val arquivo: File? = escolhido ?: FundoMeuDados.arquivo(ctx)
     private val tipo = arquivo?.let { FundoMeuRegras.tipo(it.name) }
     private var imagem: ImageView? = null
     private var animada: AnimatedImageDrawable? = null
@@ -42,7 +43,7 @@ class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit) :
     private var superficie: Surface? = null   // a Surface criada para o MediaPlayer: solta junto com ele
 
     /** Filtro de brilho/contraste: o criarFundo usa como pintura da camada de hardware (null = sem filtro). */
-    val pintura: Paint? = FundoMeuRegras.matriz(FundoMeuDados.brilho(ctx), FundoMeuDados.contraste(ctx))?.let {
+    val pintura: Paint? = if (escolhido != null) null else FundoMeuRegras.matriz(FundoMeuDados.brilho(ctx), FundoMeuDados.contraste(ctx))?.let {
         Paint().apply { colorFilter = ColorMatrixColorFilter(ColorMatrix(it)) }
     }
 

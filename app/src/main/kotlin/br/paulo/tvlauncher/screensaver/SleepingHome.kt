@@ -28,6 +28,7 @@ import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.alarm.Agenda
 import br.paulo.tvlauncher.alarm.Despertador
 import br.paulo.tvlauncher.home.MovimentoAdaptativo
+import br.paulo.tvlauncher.home.FundoMeu
 import br.paulo.tvlauncher.home.criarFundo
 import br.paulo.tvlauncher.observer.SofyDrawable
 import br.paulo.tvlauncher.observer.SofyPolicy
@@ -84,21 +85,34 @@ class SleepingHome(private val ctx: Context) {
         fun nextRotate(atual: Int): Int = ROTATE_OPTIONS[(ROTATE_OPTIONS.indexOf(atual).coerceAtLeast(0) + 1) % ROTATE_OPTIONS.size]
         fun setRotate(ctx: Context, s: Int) = prefs(ctx).edit().putInt(KEY_ROTATE, s).apply()
         /**
-         * O fundo do descanso (Paulo, 22/11/2026: "a priori é o mesmo da home, mas o usuário escolhe"): [BG_HOME] = o tema
-         * da home; o nome de um [Tema] = outro tema só no descanso; [BG_PHOTOS] = as fotos do painel e da pasta da rede
-         * passando (por cima do tema da home). Um valor que não vale mais (tema sem arquivo, fotos apagadas) cai na home.
+         * O fundo do descanso (Paulo, 22/11/2026: "a priori é o mesmo da home, mas nas configs o user pode escolher se passa
+         * várias imagens/vídeos ou se quer uma imagem na home e outra no descanso... deixar o user fazer o que quiser"):
+         *  - [BG_HOME] (padrão): o tema da home;
+         *  - o nome de um [Tema]: outro tema só no descanso;
+         *  - [BG_FILE]: uma foto, GIF ou vídeo só do descanso ([KEY_FILE]);
+         *  - [BG_PHOTOS]: fotos e vídeos passando (painel, pasta da rede e as pastas da TV), por cima do tema da home.
+         * Um valor que não vale mais (tema sem arquivo, arquivo apagado) cai na home.
          */
         const val KEY_BACKGROUND = "sleeping_background"
+        const val KEY_FILE = "sleeping_file"
         const val BG_HOME = "home"
+        const val BG_FILE = "file"
         const val BG_PHOTOS = "photos"
-        fun backgroundOptions(ctx: Context, temFotos: Boolean): List<String> =
-            listOf(BG_HOME) + Tema.disponiveis(ctx).map { it.name } + (if (temFotos) listOf(BG_PHOTOS) else emptyList())
-        fun background(ctx: Context, temFotos: Boolean): String =
-            prefs(ctx).getString(KEY_BACKGROUND, BG_HOME).takeIf { it in backgroundOptions(ctx, temFotos) } ?: BG_HOME
+        fun file(ctx: Context): java.io.File? = prefs(ctx).getString(KEY_FILE, null)?.let { java.io.File(it) }?.takeIf { it.isFile && it.canRead() }
+        fun setFile(ctx: Context, f: java.io.File?) = prefs(ctx).edit().putString(KEY_FILE, f?.path).apply()
+        fun backgroundOptions(ctx: Context): List<String> =
+            listOf(BG_HOME) + Tema.disponiveis(ctx).map { it.name } + listOf(BG_FILE, BG_PHOTOS)
+        fun background(ctx: Context): String {
+            val v = prefs(ctx).getString(KEY_BACKGROUND, BG_HOME) ?: BG_HOME
+            return when {
+                v == BG_FILE -> if (file(ctx) != null) v else BG_HOME
+                v in backgroundOptions(ctx) -> v
+                else -> BG_HOME
+            }
+        }
         fun setBackground(ctx: Context, v: String) = prefs(ctx).edit().putString(KEY_BACKGROUND, v).apply()
-        /** O tema que o descanso desenha embaixo de tudo. */
-        fun backgroundTheme(ctx: Context): Tema =
-            prefs(ctx).getString(KEY_BACKGROUND, BG_HOME)?.let { v -> Tema.disponiveis(ctx).firstOrNull { it.name == v } } ?: Tema.atual(ctx)
+        /** O tema que o descanso desenha embaixo de tudo (no "arquivo só do descanso", ele fica no lugar). */
+        fun backgroundTheme(ctx: Context): Tema = background(ctx).let { v -> Tema.disponiveis(ctx).firstOrNull { it.name == v } } ?: Tema.atual(ctx)
         /** Próxima opção da lista (dá a volta). Pura sobre a lista. */
         fun nextOf(opcoes: List<String>, atual: String): String = opcoes[(opcoes.indexOf(atual).coerceAtLeast(-1) + 1) % opcoes.size]
 
@@ -153,8 +167,10 @@ class SleepingHome(private val ctx: Context) {
     // ------------------------------------------------------------------ montar
 
     fun montar(): View {
-        raiz.addView(criarFundo(ctx, backgroundTheme(ctx), decoracao = false) { bloco -> Fundo.rodar("descanso-fundo") { bloco() } },
-            FrameLayout.LayoutParams(-1, -1))
+        val noFundo: (() -> Unit) -> Unit = { bloco -> Fundo.rodar("descanso-fundo") { bloco() } }
+        val arquivoProprio = if (background(ctx) == BG_FILE) file(ctx) else null
+        raiz.addView(if (arquivoProprio != null) FundoMeu(ctx, noFundo, arquivoProprio).apply { setBackgroundColor(Color.BLACK) }
+            else criarFundo(ctx, backgroundTheme(ctx), decoracao = false, noFundo), FrameLayout.LayoutParams(-1, -1))
         // Véu: só luz, não caixa. Escurece um pouco em cima e embaixo, onde mora o texto, para ler em qualquer fundo.
         raiz.addView(View(ctx).apply {
             background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x73000000, 0x1A000000, 0x1A000000, 0x8C000000.toInt()))

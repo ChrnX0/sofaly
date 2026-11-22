@@ -25,7 +25,8 @@
     <string name="sh_vidro">Vetro dietro la fascia in basso</string>
     <string name="sh_vidro_det">Un pannello di vetro dietro la fascia. Disattivato: solo una linea sottile.</string>
     <string name="sh_fundo">Sfondo del riposo</string>
-    <string name="sh_fundo_det">Cosa appare dietro l\'orologio quando la TV riposa. Lo stesso della home, un altro tema solo qui o le tue foto che scorrono.</string>
+    <string name="sh_fundo_det">Cosa appare dietro l\'orologio quando la TV riposa: come la home, un altro tema, una foto o un video solo qui, o foto e video che scorrono.</string>
     <string name="sh_fundo_home">Uguale alla home</string>
-    <string name="sh_fundo_fotos">Foto che scorrono</string>
+    <string name="sh_fundo_fotos">Foto e video che scorrono</string>
+    <string name="sh_fundo_arquivo">Un file solo per il riposo</string>
 </resources>

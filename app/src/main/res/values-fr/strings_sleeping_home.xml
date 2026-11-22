@@ -25,7 +25,8 @@
     <string name="sh_vidro">Verre derrière la bande du bas</string>
     <string name="sh_vidro_det">Un panneau de verre derrière la bande. Désactivé : juste un filet fin.</string>
     <string name="sh_fundo">Fond du repos</string>
-    <string name="sh_fundo_det">Ce qui apparaît derrière l\'horloge quand la TV se repose. Le même que l\'accueil, un autre thème rien qu\'ici, ou vos photos qui défilent.</string>
+    <string name="sh_fundo_det">Ce qui apparaît derrière l\'horloge quand la TV se repose : comme l\'accueil, un autre thème, une photo ou vidéo rien qu\'ici, ou des photos et vidéos qui défilent.</string>
     <string name="sh_fundo_home">Comme l\'accueil</string>
-    <string name="sh_fundo_fotos">Photos qui défilent</string>
+    <string name="sh_fundo_fotos">Photos et vidéos qui défilent</string>
+    <string name="sh_fundo_arquivo">Un fichier rien que pour le repos</string>
 </resources>

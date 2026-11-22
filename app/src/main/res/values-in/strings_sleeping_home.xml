@@ -25,7 +25,8 @@
     <string name="sh_vidro">Kaca di belakang strip bawah</string>
     <string name="sh_vidro_det">Panel kaca di belakang strip. Mati: hanya garis tipis.</string>
     <string name="sh_fundo">Latar saat istirahat</string>
-    <string name="sh_fundo_det">Yang tampil di balik jam saat TV istirahat. Sama seperti beranda, tema lain khusus di sini, atau foto Anda bergantian.</string>
+    <string name="sh_fundo_det">Yang tampil di balik jam saat TV istirahat: sama seperti beranda, tema lain, satu foto atau video khusus di sini, atau foto dan video bergantian.</string>
     <string name="sh_fundo_home">Sama seperti beranda</string>
-    <string name="sh_fundo_fotos">Foto bergantian</string>
+    <string name="sh_fundo_fotos">Foto dan video bergantian</string>
+    <string name="sh_fundo_arquivo">Satu file khusus istirahat</string>
 </resources>

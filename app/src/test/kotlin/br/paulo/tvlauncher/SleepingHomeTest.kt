@@ -32,7 +32,7 @@ class SleepingHomeTest {
     }
 
     @Test fun fundoDoDescanso() {
-        val l = listOf("home", "ESCURO", "GALERIA", "photos")
+        val l = listOf("home", "ESCURO", "GALERIA", "file", "photos")
         assertEquals("ESCURO", SleepingHome.nextOf(l, "home"))
         assertEquals("home", SleepingHome.nextOf(l, "photos"))   // dá a volta
         assertEquals("home", SleepingHome.nextOf(l, "MEU"))      // opção que sumiu: volta ao começo

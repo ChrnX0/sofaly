@@ -25,7 +25,8 @@
     <string name="sh_vidro">Стекло за нижней полосой</string>
     <string name="sh_vidro_det">Стеклянная панель за полосой. Выкл.: только тонкая линия.</string>
     <string name="sh_fundo">Фон в режиме отдыха</string>
-    <string name="sh_fundo_det">Что видно за часами, пока телевизор отдыхает. Как на главном экране, другая тема только здесь или ваши фото по очереди.</string>
+    <string name="sh_fundo_det">Что видно за часами, пока телевизор отдыхает: как на главном экране, другая тема, фото или видео только здесь или фото и видео по очереди.</string>
     <string name="sh_fundo_home">Как на главном экране</string>
-    <string name="sh_fundo_fotos">Фото по очереди</string>
+    <string name="sh_fundo_fotos">Фото и видео по очереди</string>
+    <string name="sh_fundo_arquivo">Файл только для отдыха</string>
 </resources>

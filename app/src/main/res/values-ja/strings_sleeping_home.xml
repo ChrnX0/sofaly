@@ -25,7 +25,8 @@
     <string name="sh_vidro">下の帯の後ろにガラス</string>
     <string name="sh_vidro_det">帯の後ろにガラスのパネル。オフ: 細い線だけ。</string>
     <string name="sh_fundo">休憩中の背景</string>
-    <string name="sh_fundo_det">テレビが休憩中に時計の後ろに表示するもの。ホームと同じ、ここだけ別のテーマ、または写真のスライド。</string>
+    <string name="sh_fundo_det">テレビが休憩中に時計の後ろに表示するもの：ホームと同じ、別のテーマ、ここだけの写真や動画、または写真と動画のスライド。</string>
     <string name="sh_fundo_home">ホームと同じ</string>
-    <string name="sh_fundo_fotos">写真のスライド</string>
+    <string name="sh_fundo_fotos">写真と動画のスライド</string>
+    <string name="sh_fundo_arquivo">休憩中だけのファイル</string>
 </resources>
