@@ -124,7 +124,12 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         addView(extra, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(12) })
         addView(contador, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(10) })
     }
-    raiz.addView(pilula, FrameLayout.LayoutParams(WRAP, dp(40), Gravity.TOP or Gravity.CENTER_HORIZONTAL).apply {
+    // Pílula SEMPRE no centro (Paulo, 22/11/2026: "dinâmica" = se adapta ao que aparece nela). Mora numa faixa da
+    // largura da tela só dela: a troca de tamanho anima nessa faixa (cresce/encolhe para os dois lados igual, como a
+    // Dynamic Island) sem animar mais nada da HOME.
+    val palco = FrameLayout(this).apply { clipChildren = false; clipToPadding = false; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+    palco.addView(pilula, FrameLayout.LayoutParams(WRAP, dp(40), Gravity.CENTER_HORIZONTAL))
+    raiz.addView(palco, FrameLayout.LayoutParams(MATCH, dp(40), Gravity.TOP).apply {
         topMargin = dp(TOPO_PALCO + (ALTURA_TOPO - 40) / 2)
     })
     val dica = texto(15f, Estilo.TEXTO, fonteUi).apply {
@@ -138,14 +143,6 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         topMargin = dp(TOPO_PALCO + (ALTURA_TOPO - 40) / 2 + 46)
     })
     ilhaDica = dica
-    // A hora fica presa no centro da tela (Paulo, 22/11/2026): a pílula abraça o nome do mundo e cresce para a
-    // esquerda; o que vem depois da hora (eventos) cresce para a direita. Nunca passa da borda segura.
-    pilula.addOnLayoutChangeListener { v, l, _, r, _, _, _, _, _ ->
-        val tela = (v.parent as View).width
-        if (tela <= 0) return@addOnLayoutChangeListener
-        val alvo = WorldLabel.deslocamento(tela, l, r - l, hora.left, hora.width, dp(32))
-        if (v.translationX != alvo) v.translationX = alvo
-    }
     ilhaPilula = pilula; ilhaExtra = extra; ilhaIcone = icone; ilhaBarras = barras; ilhaTexto = txt; ilhaTemp = temp
     copiarTemp()
     // As pílulas da barra mudam por todo lado (timer a cada segundo, rádio, rede): a Ilha lê o estado delas a cada
@@ -166,8 +163,11 @@ internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
     cruz?.nomeNaColuna(!naPilula)
     if (!naPilula || mundo == null) return
     if (ilhaMundoNome?.text?.toString() == c.nome && mundo.visibility == View.VISIBLE) return
-    // Troca na hora (a hora não pode deslizar junto); só o mundo novo acende rápido.
-    if (capaPronta && !semAnimacoes()) { mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(160L).start() }
+    // A pílula muda de largura deslizando para os dois lados (centro fixo); o mundo novo acende junto.
+    if (capaPronta && !semAnimacoes()) {
+        (ilhaPilula?.parent as? ViewGroup)?.let { android.transition.TransitionManager.beginDelayedTransition(it, android.transition.ChangeBounds().setDuration(250)) }
+        mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(200L).start()
+    }
     ilhaMundoIcone?.setImageDrawable(icCruz("ilha:" + c.cat.id, WorldLabel.tipo(c.cat)))   // outra cópia do desenho da categoria
     ilhaMundoNome?.text = c.nome
     mundo.visibility = View.VISIBLE
@@ -318,7 +318,7 @@ internal fun MainActivity.aplicarIlha() {
     if (e == ilhaEvento) return
     val mudouTipo = e?.tipo != ilhaEvento?.tipo
     if (mudouTipo && capaPronta && !semAnimacoes()) {
-        android.transition.TransitionManager.beginDelayedTransition(pilula, android.transition.AutoTransition().setDuration(260))
+        android.transition.TransitionManager.beginDelayedTransition(pilula.parent as? ViewGroup ?: pilula, android.transition.AutoTransition().setDuration(260))
     }
     ilhaEvento = e
     val extra = ilhaExtra ?: return

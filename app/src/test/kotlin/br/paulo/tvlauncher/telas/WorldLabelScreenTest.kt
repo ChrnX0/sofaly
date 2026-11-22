@@ -96,12 +96,12 @@ class WorldLabelScreenTest {
                     // Pílula inteira dentro da borda segura (32 dp) e sempre na mesma altura.
                     val p = Rect(); a.ilhaPilula!!.getGlobalVisibleRect(p)
                     assertTrue("$onde: pílula dentro da borda segura ($p)", p.left >= 32 * d - 1 && p.right <= largura - 32 * d + 1)
-                    // A hora presa no meio da tela, no mesmo ponto em todos os mundos (a pílula cresce para a esquerda).
+                    // Pílula sempre no centro da tela (Paulo, 22/11/2026); a largura muda com o que aparece nela.
+                    assertEquals("$onde: a pílula está no centro da tela", largura / 2f, p.exactCenterX(), 1.5f)
+                    val t0 = pilula0 ?: Rect(p).also { pilula0 = it }
+                    assertEquals("$onde: a pílula mudou de altura", t0.top, p.top)
                     val h = Rect(); a.ilhaHora!!.getGlobalVisibleRect(h)
-                    assertEquals("$onde: o meio da hora está no meio da tela", largura / 2f, h.exactCenterX(), 1.5f)
-                    val h0 = pilula0 ?: Rect(h).also { pilula0 = it }
-                    assertEquals("$onde: a hora mudou de lugar", h0, h)
-                    assertTrue("$onde: o nome do mundo fica à esquerda da hora", nome.let { val r = Rect(); it.getGlobalVisibleRect(r); r.right < h.left })
+                    assertTrue("$onde: o nome do mundo fica à esquerda da hora", Rect().also { nome.getGlobalVisibleRect(it) }.right < h.left)
                     // Nenhum texto da cruz encosta na pílula (folga de 8 dp).
                     val folga = Rect(p).apply { inset(0, (-8 * d).toInt()) }
                     for (t in textos(cruz)) {

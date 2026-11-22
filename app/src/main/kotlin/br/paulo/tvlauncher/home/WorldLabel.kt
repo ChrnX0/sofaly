@@ -28,15 +28,4 @@ object WorldLabel {
         CruzLogica.Categoria.JOGAR -> IconeCruz.Tipo.JOGAR
         CruzLogica.Categoria.APLICATIVOS -> IconeCruz.Tipo.APLICATIVOS
     }
-
-    /**
-     * Quanto mover a pílula (translationX) para o meio da hora cair no meio da [tela], sem passar da [borda].
-     * [esquerda] e [largura] são da pílula já centralizada; [horaX] e [horaL], da hora dentro dela.
-     */
-    fun deslocamento(tela: Int, esquerda: Int, largura: Int, horaX: Int, horaL: Int, borda: Int): Float {
-        val desejado = tela / 2f - (esquerda + horaX + horaL / 2f)
-        val min = borda - esquerda.toFloat()                      // não passar da borda esquerda
-        val max = (tela - borda) - (esquerda + largura).toFloat()  // nem da direita
-        return if (min > max) 0f else desejado.coerceIn(min, max)
-    }
 }
