@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Opções de %1$s</string>
+    <string name="wo_ordenar">Ordenar</string>
+    <string name="wo_ordenar_de">Ordenar %1$s</string>
+    <string name="wo_por_uso">Mais usados primeiro</string>
+    <string name="wo_az">De A a Z</string>
+    <string name="wo_a_mao">Do meu jeito</string>
+    <string name="wo_renomear_mundo">Renomear o mundo</string>
+    <string name="wo_icone_mundo">Trocar o ícone do mundo</string>
+    <string name="wo_esconder">Esconder o mundo</string>
+    <string name="wo_mostrar">Mostrar mundos escondidos (%1$d)</string>
+    <string name="wo_padrao">Voltar ao padrão</string>
+    <string name="wo_subir">Subir</string>
+    <string name="wo_descer">Descer</string>
+    <string name="wo_renomear_app">Renomear</string>
+    <string name="wo_vazio_original">Vazio = nome original</string>
+</resources>

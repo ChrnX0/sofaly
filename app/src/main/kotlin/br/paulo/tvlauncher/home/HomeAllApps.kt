@@ -336,8 +336,14 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
             if (!AppChannels.abrir(this, cartoes[i])) cruz?.naoAbriu()
         }
     })
+    opcoes += opcoesDeOrdem(pacote)   // Subir/Descer quando o mundo está "Do meu jeito" (WorldOptions)
     opcoes += Opcao(getString(R.string.cruz_mover)) { moverAppCruz(pacote) }
     opcoes += Opcao(getString(R.string.wp_trocar_icone)) { trocarIconeCruz(pacote) }
+    opcoes += Opcao(getString(R.string.wo_renomear_app)) {
+        pedirNome(getString(R.string.wo_renomear_app), AppNames.custom(this, pacote) ?: nomeDe(pacote), AppNames.MAX) { novo ->
+            AppNames.set(this, pacote, novo); atualizarAposMudanca("app:$pacote")
+        }
+    }
     opcoes += Opcao(getString(R.string.home_ocultar)) { Organizacao.ocultar(this, pacote); atualizarAposMudanca(null); avisarOculto() }
     // Congelar sob demanda (OnDemandTv): só existia no menu da HOME antiga; na cruz ficava sem caminho (21/11/2026).
     when {
@@ -353,8 +359,9 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
         opcoes += Opcao(getString(R.string.home_liberar_arquivos)) { liberarArquivos(pacote) }
     AppStorage.atualizarEmFundo(this)
     val desinstala = PainelApps.podeDesinstalar(this, pacote)
+    if (!todosAbertos) opcaoDoMundo()?.let { opcoes += it }   // "Opções de <mundo>" (HomeWorldMenu)
     if (desinstala) opcoes += Opcao(getString(R.string.home_desinstalar)) { confirmarDesinstalar(pacote) }
-    val titulo = nomeDe(pacote) + if (PainelApps.eSistema(this, pacote)) getString(R.string.home_app_sistema) else ""
+    val titulo = AppNames.name(this, pacote, nomeDe(pacote)) + if (PainelApps.eSistema(this, pacote)) getString(R.string.home_app_sistema) else ""
     menuAberto = Estilo.lista(this, titulo, opcoes.map { it.rotulo }, separarUltimo = desinstala) { i -> opcoes[i].acao() }
 }
 

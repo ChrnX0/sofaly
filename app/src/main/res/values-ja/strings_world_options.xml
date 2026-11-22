@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">%1$sのオプション</string>
+    <string name="wo_ordenar">並べ替え</string>
+    <string name="wo_ordenar_de">%1$sの並べ替え</string>
+    <string name="wo_por_uso">よく使う順</string>
+    <string name="wo_az">A〜Z順</string>
+    <string name="wo_a_mao">自分の順番</string>
+    <string name="wo_renomear_mundo">ワールド名を変更</string>
+    <string name="wo_icone_mundo">ワールドのアイコンを変更</string>
+    <string name="wo_esconder">ワールドを隠す</string>
+    <string name="wo_mostrar">隠したワールドを表示 (%1$d)</string>
+    <string name="wo_padrao">元に戻す</string>
+    <string name="wo_subir">上へ</string>
+    <string name="wo_descer">下へ</string>
+    <string name="wo_renomear_app">名前を変更</string>
+    <string name="wo_vazio_original">空欄 = 元の名前</string>
+</resources>

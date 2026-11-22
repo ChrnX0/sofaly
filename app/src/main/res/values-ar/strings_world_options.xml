@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">خيارات %1$s</string>
+    <string name="wo_ordenar">ترتيب</string>
+    <string name="wo_ordenar_de">ترتيب %1$s</string>
+    <string name="wo_por_uso">الأكثر استخدامًا أولًا</string>
+    <string name="wo_az">من أ إلى ي</string>
+    <string name="wo_a_mao">ترتيبي الخاص</string>
+    <string name="wo_renomear_mundo">إعادة تسمية العالم</string>
+    <string name="wo_icone_mundo">تغيير رمز العالم</string>
+    <string name="wo_esconder">إخفاء العالم</string>
+    <string name="wo_mostrar">إظهار العوالم المخفية (%1$d)</string>
+    <string name="wo_padrao">العودة إلى الافتراضي</string>
+    <string name="wo_subir">لأعلى</string>
+    <string name="wo_descer">لأسفل</string>
+    <string name="wo_renomear_app">إعادة التسمية</string>
+    <string name="wo_vazio_original">فارغ = الاسم الأصلي</string>
+</resources>

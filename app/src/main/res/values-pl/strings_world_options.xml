@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Opcje: %1$s</string>
+    <string name="wo_ordenar">Sortuj</string>
+    <string name="wo_ordenar_de">Sortuj: %1$s</string>
+    <string name="wo_por_uso">Najczęściej używane</string>
+    <string name="wo_az">Od A do Z</string>
+    <string name="wo_a_mao">Po mojemu</string>
+    <string name="wo_renomear_mundo">Zmień nazwę świata</string>
+    <string name="wo_icone_mundo">Zmień ikonę świata</string>
+    <string name="wo_esconder">Ukryj świat</string>
+    <string name="wo_mostrar">Pokaż ukryte światy (%1$d)</string>
+    <string name="wo_padrao">Przywróć domyślne</string>
+    <string name="wo_subir">W górę</string>
+    <string name="wo_descer">W dół</string>
+    <string name="wo_renomear_app">Zmień nazwę</string>
+    <string name="wo_vazio_original">Puste = oryginalna nazwa</string>
+</resources>

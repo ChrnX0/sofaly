@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">%1$s के विकल्प</string>
+    <string name="wo_ordenar">क्रम</string>
+    <string name="wo_ordenar_de">%1$s का क्रम</string>
+    <string name="wo_por_uso">सबसे ज़्यादा इस्तेमाल पहले</string>
+    <string name="wo_az">A से Z</string>
+    <string name="wo_a_mao">मेरा अपना क्रम</string>
+    <string name="wo_renomear_mundo">दुनिया का नाम बदलें</string>
+    <string name="wo_icone_mundo">दुनिया का आइकन बदलें</string>
+    <string name="wo_esconder">दुनिया छिपाएँ</string>
+    <string name="wo_mostrar">छिपी दुनिया दिखाएँ (%1$d)</string>
+    <string name="wo_padrao">पहले जैसा करें</string>
+    <string name="wo_subir">ऊपर</string>
+    <string name="wo_descer">नीचे</string>
+    <string name="wo_renomear_app">नाम बदलें</string>
+    <string name="wo_vazio_original">खाली = मूल नाम</string>
+</resources>

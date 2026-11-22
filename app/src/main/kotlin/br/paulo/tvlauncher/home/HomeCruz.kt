@@ -376,6 +376,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     fun itemAtual(): Item? = cats.getOrNull(estado.cat)?.itens?.getOrNull(estado.sel.getOrElse(estado.cat) { 0 })
     fun categoriaAtual(): Categoria? = cats.getOrNull(estado.cat)
+    /** Os mundos montados agora, na ordem da linha (testes de tela). */
+    fun categorias(): List<Categoria> = cats
 
     // ------------------------------------------------------------------ teclas
 

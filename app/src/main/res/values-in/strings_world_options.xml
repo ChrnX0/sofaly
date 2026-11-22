@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Opsi %1$s</string>
+    <string name="wo_ordenar">Urutkan</string>
+    <string name="wo_ordenar_de">Urutkan %1$s</string>
+    <string name="wo_por_uso">Paling sering dulu</string>
+    <string name="wo_az">A sampai Z</string>
+    <string name="wo_a_mao">Urutan saya</string>
+    <string name="wo_renomear_mundo">Ganti nama dunia</string>
+    <string name="wo_icone_mundo">Ganti ikon dunia</string>
+    <string name="wo_esconder">Sembunyikan dunia</string>
+    <string name="wo_mostrar">Tampilkan dunia tersembunyi (%1$d)</string>
+    <string name="wo_padrao">Kembali seperti semula</string>
+    <string name="wo_subir">Naik</string>
+    <string name="wo_descer">Turun</string>
+    <string name="wo_renomear_app">Ganti nama</string>
+    <string name="wo_vazio_original">Kosong = nama asli</string>
+</resources>

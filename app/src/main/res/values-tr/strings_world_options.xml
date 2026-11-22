@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">%1$s seçenekleri</string>
+    <string name="wo_ordenar">Sırala</string>
+    <string name="wo_ordenar_de">%1$s sırala</string>
+    <string name="wo_por_uso">En çok kullanılanlar önce</string>
+    <string name="wo_az">A\'dan Z\'ye</string>
+    <string name="wo_a_mao">Benim sıram</string>
+    <string name="wo_renomear_mundo">Dünyayı yeniden adlandır</string>
+    <string name="wo_icone_mundo">Dünyanın simgesini değiştir</string>
+    <string name="wo_esconder">Dünyayı gizle</string>
+    <string name="wo_mostrar">Gizli dünyaları göster (%1$d)</string>
+    <string name="wo_padrao">Varsayılana dön</string>
+    <string name="wo_subir">Yukarı</string>
+    <string name="wo_descer">Aşağı</string>
+    <string name="wo_renomear_app">Yeniden adlandır</string>
+    <string name="wo_vazio_original">Boş = özgün ad</string>
+</resources>

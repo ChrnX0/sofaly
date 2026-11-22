@@ -407,7 +407,13 @@ internal fun MainActivity.atualizarCruz() {
         val tipoCat = (cat.icone as? IconeCruz)?.tipo
         HomeCruz.Categoria(cat.cat, cat.nome, cat.icone, cat.itens.map { item ->
             val ic = item.icone as? IconeCruz
-            if (item.opcoes != null || ic == null) item else item.comOpcoes { trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) }
+            if (item.opcoes != null || ic == null) item else item.comOpcoes {
+                // Itens do Sofaly: trocar o desenho e as opções do mundo (HomeWorldMenu, 22/11/2026).
+                val l = listOf<CharSequence>(getString(R.string.wp_trocar_icone), getString(R.string.wo_opcoes, cat.nome))
+                menuAberto = Estilo.lista(this, item.nome, l) { i ->
+                    if (i == 0) trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) else menuDoMundo(cat.cat, cat.nome)
+                }
+            }
         })
     })
     c.itemAtual()?.let { vitrineDoItem(it) }   // os cartões chegam depois do 1º desenho: a vitrine se acerta
