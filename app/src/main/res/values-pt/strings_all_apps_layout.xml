@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Tela Todos os apps</string>
+    <string name="aa_layout_shelves">Prateleiras</string>
+    <string name="aa_layout_folders">Pastas e canais</string>
+    <string name="aa_layout_library">Biblioteca</string>
+    <string name="aa_favoritos">Favoritos</string>
+    <string name="aa_pastas">Pastas</string>
+    <string name="aa_nova_pasta">Nova pasta</string>
+    <string name="aa_por_na_pasta">Pôr na pasta…</string>
+    <string name="aa_tirar_da_pasta">Tirar desta pasta</string>
+    <string name="aa_renomear_pasta">Renomear a pasta</string>
+    <string name="aa_apagar_pasta">Apagar a pasta</string>
+    <string name="aa_fixar_cruz">Mostrar na tela inicial</string>
+    <string name="aa_soltar_cruz">Tirar da tela inicial</string>
+    <string name="aa_ordenar">Ordenar todos os apps</string>
+    <string name="aa_f_tudo">Tudo</string>
+    <string name="aa_f_uso">Mais usados</string>
+    <string name="aa_f_novos">Novos</string>
+    <string name="aa_canais">Agora no %1$s</string>
+    <string name="aa_hint_folder">OK abre · segure OK para opções</string>
+</resources>

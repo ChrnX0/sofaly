@@ -32,7 +32,7 @@ import br.paulo.tvlauncher.settings.Fontes
  * (ficha do Observador, último uso, espaço, dica). OK abre; segurar OK abre as opções (as mesmas da cruz, mais Congelar).
  * A tela só desenha: quem decide e age é o [Host] (MainActivity).
  */
-class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
+class AllAppsScreen(ctx: Context, private val host: Host, val mode: AllAppsLayout.Mode = AllAppsLayout.Mode.SHELVES) : FrameLayout(ctx) {
 
     interface Host {
         fun open(card: Card)
@@ -40,9 +40,12 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
         /** O app em foco mudou: o host preenche o painel (pode demorar; chama [showInfo] depois). */
         fun focused(card: Card)
         fun loadBanner(card: Card, done: (Drawable?) -> Unit)
+        /** Biblioteca (C): a pessoa escolheu um filtro do trilho. */
+        fun filter(f: AllAppsLayout.Filter) {}
     }
 
-    enum class Kind { APP, HIDDEN, FROZEN, LOCK }
+    /** FOLDER = uma pasta da pessoa (AppFolders, [Card.pkg] = id da pasta); NEW_FOLDER = "+ Nova pasta". */
+    enum class Kind { APP, HIDDEN, FROZEN, LOCK, FOLDER, NEW_FOLDER }
 
     class Card(val pkg: String, val name: String, val kind: Kind, val icon: Drawable?)
 
@@ -77,6 +80,12 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
     private val painelAjuda = TextView(ctx)
     private val views = HashMap<String, View>()
     private var emFoco: Card? = null
+    private lateinit var painel: LinearLayout
+    /** A e C (sem painel): o app em foco numa linha embaixo, como a linha de baixo da cruz. */
+    private val rodape = TextView(ctx)
+    /** C: o trilho de filtros à esquerda. */
+    private val trilho = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL }
+    private val comPainel get() = mode == AllAppsLayout.Mode.FOLDERS
 
     init {
         isFocusable = false
@@ -101,14 +110,24 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
             addView(titulo)
             addView(conta, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(14) })
         }, LayoutParams(WRAP, WRAP).apply { marginStart = margem; topMargin = dp(28) })
+        val trilhoL = if (mode == AllAppsLayout.Mode.LIBRARY) dp(TRILHO) else 0
+        if (mode == AllAppsLayout.Mode.LIBRARY) addView(trilho, LayoutParams(dp(TRILHO - 24), MATCH).apply {
+            topMargin = dp(64); marginStart = margem
+        })
         addView(rolagem, LayoutParams(MATCH, MATCH).apply {
-            topMargin = dp(56); marginStart = margem - dp(8); marginEnd = dp(PAINEL + 20) + margem
+            topMargin = dp(56); marginStart = margem - dp(8) + trilhoL
+            marginEnd = if (comPainel) dp(PAINEL + 20) + margem else margem
+            bottomMargin = if (comPainel) 0 else dp(56)
+        })
+        rodape.apply { setTextColor(Estilo.TEXTO_2); typeface = medio; sp(this, 18f); maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false }
+        if (!comPainel) addView(rodape, LayoutParams(MATCH, WRAP).apply {
+            gravity = Gravity.BOTTOM; marginStart = margem + trilhoL; marginEnd = margem; bottomMargin = dp(24)
         })
         // Painel do app em foco.
         painelNome.apply { setTextColor(Estilo.TEXTO); typeface = forte; sp(this, 26f); maxLines = 2; ellipsize = TextUtils.TruncateAt.END }
         painelDica.apply { setTextColor(DesignTokens.ATTENTION); typeface = medio; sp(this, 17f); visibility = GONE }
         painelAjuda.apply { setTextColor(Estilo.TEXTO_2); typeface = medio; sp(this, 16f) }
-        addView(LinearLayout(ctx).apply {
+        painel = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             setPaddingRelative(dp(20), dp(20), dp(20), dp(20))
             background = GradientDrawable().apply { cornerRadius = dp(DesignTokens.RADIUS_MEDIUM).toFloat(); setColor(0x8C000000.toInt()) }
@@ -118,9 +137,37 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
             addView(View(ctx), LinearLayout.LayoutParams(MATCH, 0, 1f))
             addView(painelDica, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(10) })
             addView(painelAjuda, LinearLayout.LayoutParams(MATCH, WRAP))
-        }, LayoutParams(dp(PAINEL), MATCH).apply {
+        }
+        if (comPainel) addView(painel, LayoutParams(dp(PAINEL), MATCH).apply {
             gravity = Gravity.END; marginEnd = margem; topMargin = dp(28); bottomMargin = dp(28)
         })
+    }
+
+    /** C: desenha o trilho de filtros; [current] fica marcado com o fio da régua. */
+    fun showRail(filters: List<Pair<AllAppsLayout.Filter, String>>, current: AllAppsLayout.Filter) {
+        trilho.removeAllViews()
+        for ((f, nome) in filters) trilho.addView(TextView(context).apply {
+            text = nome; includeFontPadding = false; isFocusable = true; isFocusableInTouchMode = true
+            typeface = medio; sp(this, 20f); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+            setPaddingRelative(dp(18), dp(10), dp(8), dp(10))
+            val marcado = f == current
+            setTextColor(if (marcado) Estilo.TEXTO else HomeCruz.COR_SUB)
+            val fio = GradientDrawable().apply { cornerRadius = dp(2).toFloat(); setColor(DesignTokens.FOCUS) }
+            fun pintar(foco: Boolean) {
+                background = if (foco) GradientDrawable().apply { cornerRadius = dp(DesignTokens.RADIUS_SMALL).toFloat(); setColor(0x22FFFFFF) } else null
+                foreground = if (marcado || foco) android.graphics.drawable.InsetDrawable(fio, 0, dp(12), 0, dp(12)).let {
+                    android.graphics.drawable.LayerDrawable(arrayOf(it)).apply { setLayerSize(0, dp(4), 0); setLayerGravity(0, Gravity.START or Gravity.CENTER_VERTICAL) }
+                } else null
+                setTextColor(if (marcado || foco) Estilo.TEXTO else HomeCruz.COR_SUB)
+            }
+            pintar(false)
+            setOnFocusChangeListener { _, tem -> pintar(tem) }
+            setOnClickListener { host.filter(f) }
+            setOnKeyListener { _, k, e ->
+                val ok = k == KeyEvent.KEYCODE_DPAD_CENTER || k == KeyEvent.KEYCODE_ENTER
+                if (ok && e.action == KeyEvent.ACTION_UP) { host.filter(f); true } else ok
+            }
+        }, LinearLayout.LayoutParams(MATCH, WRAP))
     }
 
     /** Desenha as prateleiras. [focus] = pacote que fica com o foco (null = o primeiro). */
@@ -134,6 +181,19 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
             if (s.title != null) coluna.addView(rotulo(s), LinearLayout.LayoutParams(WRAP, WRAP).apply {
                 marginStart = dp(8); topMargin = if (coluna.childCount == 0) 0 else dp(18); bottomMargin = dp(8)
             })
+            if (mode == AllAppsLayout.Mode.LIBRARY) {
+                // Biblioteca: grade que quebra a linha (sem rolagem para o lado), como a do Xbox/PS5.
+                val grade = WrapRow(context, dp(VAO), dp(VAO)).apply { clipChildren = false; clipToPadding = false; setPaddingRelative(dp(8), dp(8), dp(8), dp(8)) }
+                for (c in s.cards) {
+                    val v = cartao(c)
+                    grade.addView(v, ViewGroup.LayoutParams(dp(CARTAO_L), dp(CARTAO_A)))
+                    views[c.pkg + "|" + c.kind] = v
+                    if (primeiro == null) primeiro = v
+                    if (alvo == null && c.pkg == focus) alvo = v
+                }
+                coluna.addView(grade, LinearLayout.LayoutParams(MATCH, WRAP))
+                continue
+            }
             val linha = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
             for (c in s.cards) {
                 val v = cartao(c)
@@ -150,6 +210,7 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
             }, LinearLayout.LayoutParams(MATCH, WRAP))
         }
         (alvo ?: primeiro)?.let { v -> post { v.requestFocus() } }
+        if (primeiro == null) rodape.text = ""
     }
 
     fun showInfo(card: Card, info: Info) {
@@ -161,6 +222,8 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
         }, LinearLayout.LayoutParams(MATCH, WRAP).apply { topMargin = dp(4) })
         painelDica.text = info.tip ?: ""; painelDica.visibility = if (info.tip == null) GONE else VISIBLE
         painelAjuda.text = info.hint
+        // A e C: uma linha só, "nome · o que ele é (ou quando abriu)".
+        rodape.text = listOfNotNull(info.title, info.lines.firstOrNull(), info.tip).joinToString("  ·  ")
     }
 
     fun hasCard(pkg: String) = views.keys.any { it.startsWith("$pkg|") }
@@ -215,6 +278,14 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
         moldura.addView(nome, LayoutParams(MATCH, MATCH))
         if (c.kind == Kind.LOCK) {
             nome.text = c.name
+        } else if (c.kind == Kind.FOLDER || c.kind == Kind.NEW_FOLDER) {
+            // Pasta: a cor de Aplicativos por baixo e o nome no meio; "+ Nova pasta" só com o contorno.
+            nome.text = c.name; nome.maxLines = 2
+            moldura.background = GradientDrawable().apply {
+                cornerRadius = raio
+                if (c.kind == Kind.FOLDER) setColor((DesignTokens.WORLD_APPS and 0x00FFFFFF) or 0x40000000)
+                else { setColor(0x14FFFFFF); setStroke(dp(1), 0x40FFFFFF) }
+            }
         } else {
             // Sem banner (ainda, ou o app não tem): o ícone no meio de cima e o nome embaixo.
             c.icon?.let { ic ->
@@ -249,6 +320,7 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
                 // Sem imagem (cartão "Escondidos", app sem banner): o painel não guarda um buraco vazio em cima do nome.
                 painelBanner.visibility = if (img.drawable == null) GONE else VISIBLE
                 painelNome.text = c.name; painelLinhas.removeAllViews(); painelDica.visibility = GONE
+                rodape.text = c.name
                 host.focused(c)
                 v.postDelayed({ folgaEmbaixo(v) }, DesignTokens.MS_FAST + 50L)
             }
@@ -273,11 +345,12 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
         Kind.FROZEN -> context.getString(R.string.aa_badge_frozen)
         Kind.HIDDEN -> context.getString(R.string.aa_badge_hidden)
         Kind.LOCK -> "PIN"
-        Kind.APP -> null
+        Kind.APP, Kind.FOLDER, Kind.NEW_FOLDER -> null
     }
 
     companion object {
         const val PAINEL = 270        // largura do painel do app em foco (dp)
+        const val TRILHO = 220        // Biblioteca: largura do trilho de filtros mais o vão (dp)
         const val CARTAO_L = 168      // 16:9, ~1,3x o cartão da grade antiga; 3 por fileira à vista
         const val CARTAO_A = 95
         const val VAO = 18

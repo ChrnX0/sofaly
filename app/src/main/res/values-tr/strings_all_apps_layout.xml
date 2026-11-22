@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Tüm uygulamalar ekranı</string>
+    <string name="aa_layout_shelves">Raflar</string>
+    <string name="aa_layout_folders">Klasörler ve kanallar</string>
+    <string name="aa_layout_library">Kitaplık</string>
+    <string name="aa_favoritos">Favoriler</string>
+    <string name="aa_pastas">Klasörler</string>
+    <string name="aa_nova_pasta">Yeni klasör</string>
+    <string name="aa_por_na_pasta">Klasöre ekle…</string>
+    <string name="aa_tirar_da_pasta">Bu klasörden çıkar</string>
+    <string name="aa_renomear_pasta">Klasörü yeniden adlandır</string>
+    <string name="aa_apagar_pasta">Klasörü sil</string>
+    <string name="aa_fixar_cruz">Ana ekranda göster</string>
+    <string name="aa_soltar_cruz">Ana ekrandan kaldır</string>
+    <string name="aa_ordenar">Tüm uygulamaları sırala</string>
+    <string name="aa_f_tudo">Tümü</string>
+    <string name="aa_f_uso">En çok kullanılan</string>
+    <string name="aa_f_novos">Yeni</string>
+    <string name="aa_canais">Şimdi %1$s\'da</string>
+    <string name="aa_hint_folder">OK açar · seçenekler için OK\'u basılı tutun</string>
+</resources>

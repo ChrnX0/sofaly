@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Schermata Tutte le app</string>
+    <string name="aa_layout_shelves">Scaffali</string>
+    <string name="aa_layout_folders">Cartelle e canali</string>
+    <string name="aa_layout_library">Libreria</string>
+    <string name="aa_favoritos">Preferiti</string>
+    <string name="aa_pastas">Cartelle</string>
+    <string name="aa_nova_pasta">Nuova cartella</string>
+    <string name="aa_por_na_pasta">Aggiungi a cartella…</string>
+    <string name="aa_tirar_da_pasta">Togli da questa cartella</string>
+    <string name="aa_renomear_pasta">Rinomina cartella</string>
+    <string name="aa_apagar_pasta">Elimina cartella</string>
+    <string name="aa_fixar_cruz">Mostra nella schermata iniziale</string>
+    <string name="aa_soltar_cruz">Togli dalla schermata iniziale</string>
+    <string name="aa_ordenar">Ordina tutte le app</string>
+    <string name="aa_f_tudo">Tutte</string>
+    <string name="aa_f_uso">Più usate</string>
+    <string name="aa_f_novos">Nuove</string>
+    <string name="aa_canais">Ora su %1$s</string>
+    <string name="aa_hint_folder">OK apre · tieni premuto OK per le opzioni</string>
+</resources>

@@ -71,3 +71,12 @@ class WorldOptionsTest {
         assertEquals(AppNames.MAX, AppNames.clean("x".repeat(60))!!.length)
     }
 }
+
+class AllAppsLayoutTest {
+    @Test fun novosDoMaisNovo() {
+        val dia = 86_400_000L
+        val agora = 100 * dia
+        org.junit.Assert.assertEquals(listOf("b", "a"),
+            br.paulo.tvlauncher.home.AllAppsLayout.newest(mapOf("a" to agora - 10 * dia, "b" to agora - dia, "velho" to agora - 40 * dia), agora))
+    }
+}

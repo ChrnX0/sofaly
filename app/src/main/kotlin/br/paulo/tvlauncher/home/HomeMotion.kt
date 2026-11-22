@@ -399,7 +399,13 @@ internal fun MainActivity.atualizarCruz() {
             HomeCruz.Item("app:$id", nome, linhasApp(id, nome), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) })
         }
     }
-    categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, comContinuar(CruzLogica.Categoria.APLICATIVOS, apps))
+    // Pastas mostradas na tela inicial (AppFolders, 22/11/2026): entram antes de "Todos os apps" e abrem a tela já nelas.
+    val pastasNaCruz = AppFolders.Rules.pinned(AppFolders.all(this), CruzLogica.Categoria.APLICATIVOS.id).map { f ->
+        HomeCruz.Item("pasta:${f.id}", f.name, getString(R.string.cruz_apps_n, f.apps.count { it in porPacote }),
+            icCruz("pasta:${f.id}", IconeCruz.Tipo.TODOS_APPS), { abrirTodosNaPasta(f.id) }, opcoes = { menuPasta(f.id) })
+    }
+    val appsComPastas = if (pastasNaCruz.isEmpty()) apps else apps.dropLast(1) + pastasNaCruz + apps.last()
+    categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, comContinuar(CruzLogica.Categoria.APLICATIVOS, appsComPastas))
 
     // Trocar ícone item a item (21/11/2026): segurar OK num item do Sofaly que não tem menu próprio troca o desenho dele
     // ou o da categoria (MainActivity.trocarIconeSofaly). Itens de app e de mídia continuam com o menu deles.
