@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">टूल</string>
+    <string name="cont_mais_opcoes">और विकल्प</string>
+    <string name="tl_proximo">अगला: %1$s</string>
+    <string name="tl_clima_sub">आने वाले दिनों का मौसम</string>
+    <string name="tl_casa_sub">लाइट, कैमरे और डोरबेल</string>
+    <string name="tl_painel_sub">ब्लूटूथ, आवाज़, वाई-फ़ाई और टाइमर</string>
+    <string name="tl_config_sub">लॉन्चर की हर सेटिंग</string>
+    <string name="ac_cartoes">ऐप कार्ड</string>
+    <string name="ac_coluna">कॉलम में</string>
+    <string name="ac_vitrine">शोकेस</string>
+    <string name="ac_ver_tudo">ऐप में क्या है देखें</string>
+    <string name="ac_ritmo">होम की दूरी</string>
+    <string name="rt_antes">पहले जैसा</string>
+    <string name="rt_a">A · कसा हुआ</string>
+    <string name="rt_b">B · फ़्रेम</string>
+    <string name="rt_c">C · खुला</string>
+    <string name="ft_foco">फ़ोकस</string>
+    <string name="ft_foco_fio">रेखा</string>
+    <string name="ft_foco_veu">पर्दा</string>
+    <string name="ft_foco_quadro">बॉक्स</string>
+</resources>

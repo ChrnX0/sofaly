@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">工具</string>
+    <string name="cont_mais_opcoes">更多选项</string>
+    <string name="tl_proximo">下一个：%1$s</string>
+    <string name="tl_clima_sub">未来几天的天气预报</string>
+    <string name="tl_casa_sub">灯光、摄像头和门铃</string>
+    <string name="tl_painel_sub">蓝牙、声音、Wi-Fi 和定时器</string>
+    <string name="tl_config_sub">启动器的全部设置</string>
+    <string name="ac_cartoes">应用卡片</string>
+    <string name="ac_coluna">在列中</string>
+    <string name="ac_vitrine">橱窗</string>
+    <string name="ac_ver_tudo">查看应用里的内容</string>
+    <string name="ac_ritmo">主屏幕间距</string>
+    <string name="rt_antes">保持原样</string>
+    <string name="rt_a">A · 紧凑</string>
+    <string name="rt_b">B · 边框</string>
+    <string name="rt_c">C · 宽松</string>
+    <string name="ft_foco">焦点</string>
+    <string name="ft_foco_fio">线条</string>
+    <string name="ft_foco_veu">薄纱</string>
+    <string name="ft_foco_quadro">方框</string>
+</resources>

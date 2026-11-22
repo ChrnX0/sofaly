@@ -329,6 +329,13 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
         guardarFixadosCruz(if (fixado) fixados - pacote else fixados + pacote)
         atualizarAposMudanca(null)
     })
+    // Cartões que o app publicou (AppChannels): a lista inteira, para abrir um direto (proposta B: "ver tudo do app").
+    val cartoes = AppChannels.doApp(cartoesApps, pacote)
+    if (cartoes.isNotEmpty()) opcoes.add(0, Opcao(getString(R.string.ac_ver_tudo)) {
+        menuAberto = Estilo.lista(this, nomeDe(pacote), cartoes.map { cd -> listOf(cd.titulo, cd.canal).filter { it.isNotBlank() }.joinToString(" · ") }) { i ->
+            if (!AppChannels.abrir(this, cartoes[i])) cruz?.naoAbriu()
+        }
+    })
     opcoes += Opcao(getString(R.string.cruz_mover)) { moverAppCruz(pacote) }
     opcoes += Opcao(getString(R.string.wp_trocar_icone)) { trocarIconeCruz(pacote) }
     opcoes += Opcao(getString(R.string.home_ocultar)) { Organizacao.ocultar(this, pacote); atualizarAposMudanca(null); avisarOculto() }

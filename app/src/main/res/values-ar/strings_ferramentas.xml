@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">الأدوات</string>
+    <string name="cont_mais_opcoes">خيارات أخرى</string>
+    <string name="tl_proximo">التالي: %1$s</string>
+    <string name="tl_clima_sub">توقعات الأيام القادمة</string>
+    <string name="tl_casa_sub">الأضواء والكاميرات والجرس</string>
+    <string name="tl_painel_sub">بلوتوث والصوت وواي فاي والمؤقت</string>
+    <string name="tl_config_sub">كل ما يخص المشغّل</string>
+    <string name="ac_cartoes">بطاقات التطبيقات</string>
+    <string name="ac_coluna">في العمود</string>
+    <string name="ac_vitrine">واجهة العرض</string>
+    <string name="ac_ver_tudo">عرض محتوى التطبيق</string>
+    <string name="ac_ritmo">تباعد الشاشة الرئيسية</string>
+    <string name="rt_antes">كما كان</string>
+    <string name="rt_a">A · أضيق</string>
+    <string name="rt_b">B · إطارات</string>
+    <string name="rt_c">C · فسيح</string>
+    <string name="ft_foco">التركيز</string>
+    <string name="ft_foco_fio">خط</string>
+    <string name="ft_foco_veu">غشاء</string>
+    <string name="ft_foco_quadro">مربع</string>
+</resources>

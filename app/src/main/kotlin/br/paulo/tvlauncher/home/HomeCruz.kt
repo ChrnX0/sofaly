@@ -52,16 +52,16 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     companion object {
         // ---- posições (dp) e tamanhos: o lugar único para refinar
-        const val LINHA = 250f          // centro vertical da linha de categorias (onde a coluna cruza)
-        const val COLUNA = 225f         // centro horizontal da coluna (onde a linha cruza)
-        const val ICONE_L = 112         // ícone do item escolhido (o grande da cruz)
-        const val ICONE_A = 94
-        const val CAT_L = 84            // ícone de categoria na linha
-        const val CAT_A = 70
-        const val ESCALA_PEQUENO = 0.6f // item fora da escolha: 112 -> 67 dp; nome 32 -> 19 sp
-        const val PASSO_COLUNA = 71f    // distância entre itens pequenos na coluna
-        const val VAO_ESCOLHIDO = 94f   // do centro do escolhido ao centro do vizinho de baixo (o grande ocupa mais)
-        const val VAO_CIMA = 89f        // do centro do escolhido ao centro do vizinho de cima
+        val LINHA get() = CrossRhythm.atual.linha          // centro vertical da linha de categorias (onde a coluna cruza)
+        val COLUNA get() = CrossRhythm.atual.coluna         // centro horizontal da coluna (onde a linha cruza)
+        val ICONE_L get() = CrossRhythm.atual.iconeL         // ícone do item escolhido (o grande da cruz)
+        val ICONE_A get() = CrossRhythm.atual.iconeA
+        val CAT_L get() = CrossRhythm.atual.catL            // ícone de categoria na linha
+        val CAT_A get() = CrossRhythm.atual.catA
+        val ESCALA_PEQUENO get() = CrossRhythm.atual.escalaPequeno // item fora da escolha: 112 -> 67 dp; nome 32 -> 19 sp
+        val PASSO_COLUNA get() = CrossRhythm.atual.passoColuna    // distância entre itens pequenos na coluna
+        val VAO_ESCOLHIDO get() = CrossRhythm.atual.vaoEscolhido   // do centro do escolhido ao centro do vizinho de baixo (o grande ocupa mais)
+        val VAO_CIMA get() = CrossRhythm.atual.vaoCima        // do centro do escolhido ao centro do vizinho de cima
         // Até 4 linhas por item nas telas de Ouvir (CruzOuvir); o item tem SUB_SOBRA dp a mais embaixo do ícone para o texto.
         const val SUB_LINHAS = 4
         const val SUB_SOBRA = 76
@@ -77,12 +77,21 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val ITEM_LINHAS = 2
         const val TEXTO_TOPO = 9        // do topo do ícone ao topo do nome (o nome fica na metade de cima do ícone)
         const val PONTO = 10            // ponto laranja à esquerda do nome do escolhido (era uma barra embaixo dele)
-        const val CAT_ESQUERDA = 97f    // centro da categoria logo à esquerda da coluna
-        const val CAT_DIREITA = 670f    // centro da 1ª categoria à direita (depois do texto mais longo)
-        const val PASSO_CATS = 104f     // entre categorias à direita
-        const val ROTULO_Y = 96f        // nome da categoria em foco, acima da linha à esquerda
+        const val TRACO_L = 4           // régua 22/11/2026: o ponto virou traço vertical de 4 x 14 dp, pontas redondas
+        const val TRACO_A = 14
+        val CAT_ESQUERDA get() = CrossRhythm.atual.catEsquerda    // centro da categoria logo à esquerda da coluna
+        val CAT_DIREITA get() = CrossRhythm.atual.catDireita    // centro da 1ª categoria à direita (depois do texto mais longo)
+        val PASSO_CATS get() = CrossRhythm.atual.passoCats     // entre categorias à direita
+        val ROTULO_Y get() = CrossRhythm.atual.rotuloY
+        const val ROTULO_VAO = 12f        // ritmos novos: do pé do nome do mundo ao topo do que está logo abaixo dele        // nome da categoria em foco, acima da linha à esquerda
         const val LARGURA_ITEM = 470    // ícone + texto do item
-        const val TEXTO_MAX = 300       // largura máxima do nome/linha de baixo (termina antes das categorias da direita)
+        // Largura do nome/linha de baixo do escolhido: termina FOLGA_CAT antes do ícone da 1ª categoria à direita, em
+        // qualquer ritmo (22/11/2026, Sala v468193: em Ouvir o "Programas, notícias e conversas..." de Podcasts
+        // encostava a ~13 px do Jogar porque a largura era fixa em 300 dp e o ritmo A aproximou as categorias).
+        const val TEXTO_TETO = 300
+        const val FOLGA_CAT = 32
+        val TEXTO_MAX: Int get() = CruzLogica.larguraTexto(COLUNA, ICONE_L, CrossRhythm.atual.vaoTexto, PONTO + 10,
+            CAT_DIREITA, CAT_L, FOLGA_CAT, TEXTO_TETO)
         const val TELA_L = 960f
         // ---- fontes (sp): tabela do estudo 32 / 20 / 16 / 18
         const val FONTE_ESCOLHIDO = 32f // nome do item escolhido (fora da escolha fica 0,6 x = ~19)
@@ -94,7 +103,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         private val ALFA_NORMAL = mapOf(-1 to 0.6f, 1 to 0.9f, 2 to 0.72f, 3 to 0.6f)
         // Alto contraste (crítica de design 19/11/2026): nada apagado demais; a distância do foco fica só na escala.
         private val ALFA_CONTRASTE = mapOf(-1 to 0.9f, 1 to 1f, 2 to 0.95f, 3 to 0.9f)
-        val ALFA_COLUNA: Map<Int, Float> get() = if (Estilo.altoContraste) ALFA_CONTRASTE else ALFA_NORMAL
+        val ALFA_COLUNA: Map<Int, Float> get() = (if (Estilo.altoContraste) ALFA_CONTRASTE else ALFA_NORMAL).filterKeys { it <= CrossRhythm.atual.vizinhos }
         /** Item escolhido de outra coluna (fora do foco): 75% normal, inteiro no alto contraste. */
         val ALFA_ESCOLHIDO_FORA: Float get() = if (Estilo.altoContraste) 1f else 0.75f
         // ---- movimento (Paulo 18/11/2026: "mais suave e orgânico"): mola em vez de tempo fixo. A mola guarda a velocidade
@@ -119,7 +128,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Seta ▼ "tem mais embaixo": abaixo do 3º vizinho (o último visível), no centro dos ícones pequenos.
         const val SETA_L = 28
         const val SETA_A = 12
-        const val SETA_Y = 526f
+        val SETA_Y get() = CrossRhythm.atual.setaY
         const val SETA_DX = 64f        // a seta sai do eixo dos ícones e fica sob os nomes
         const val DICA_MS = 1500L       // cruz parada por este tempo: a seta aparece (some na próxima tecla)
         // O ícone escolhido começa a animação dele depois que a coluna assenta (~0,3 s de mola): durante o movimento a view
@@ -155,6 +164,11 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             detalhe.gravity = (if (v) Gravity.TOP else Gravity.BOTTOM) or Gravity.END
             detalhe.requestLayout()
         }
+    /**
+     * Brilho atrás do ícone escolhido (Ajuste fino, CardStyle.Glow): 0 = sem (padrão). Na cor de destaque, só no item
+     * escolhido da coluna em foco. Quem usa define antes de montar a cruz.
+     */
+    var brilho = 0f
     /** Itens lembrados (id da categoria -> id do item), lidos por quem usa; valem só na 1ª montagem. */
     var lembrados: Map<String, String> = emptyMap()
     /** O último item aberto ("categoria|item"); quem usa grava e devolve aqui na 1ª montagem (HOME refeita). */
@@ -177,6 +191,12 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private val dm = resources.displayMetrics
     private fun dp(v: Float) = v * dm.density
     private fun dpi(v: Int) = (v * dm.density + 0.5f).toInt()
+
+    /** O traço do escolhido no jeito de foco atual (Ajuste fino > Foco): laranja no Fio, creme no Véu e no Quadro. */
+    private fun tracoDoFoco() = GradientDrawable().apply {
+        cornerRadius = dp(TRACO_L / 2f)
+        setColor(if (Estilo.focoAtual(context) == br.paulo.tvlauncher.settings.FocusStyle.LINE) Estilo.ACENTO else Estilo.TEXTO)
+    }
 
     /** As partes de um item que mudam com a escolha. */
     private inner class ItemView(val raiz: LinearLayout, val icone: ImageView, val nome: TextView, val sub: TextView, val traco: View) {
@@ -209,6 +229,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         override fun getOpacity() = android.graphics.PixelFormat.TRANSLUCENT
     }
 
+    /** Nome do mundo em foco + "1 de 4" (declarado antes do init, que o cria). */
+    private lateinit var cabecalho: LinearLayout
+    private val curvaRotulo = android.view.animation.PathInterpolator(0.22f, 1f, 0.36f, 1f)
+
     init {
         isFocusable = true
         isFocusableInTouchMode = false
@@ -226,9 +250,11 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         }, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
         rotulo = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_ROTULO)
-            setTextColor(Estilo.ACENTO)
+            // Régua de estilo (22/11/2026): o nome do mundo em creme 72%, leve e sem espaçamento; o laranja ficou só
+            // para detalhe (progresso e o traço do foco).
+            setTextColor(Estilo.TEXTO_2)
             typeface = fonteForte
-            letterSpacing = 0.16f
+            setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
             includeFontPadding = false
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
@@ -239,8 +265,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             includeFontPadding = false
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            // Régua 22/11/2026 ("informação sob demanda"): o "1 de 4" sai da tela; o TalkBack continua lendo (descrição).
+            visibility = View.GONE
         }
-        val cabecalho = LinearLayout(ctx).apply {
+        cabecalho = LinearLayout(ctx).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.BOTTOM
             addView(rotulo, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
@@ -249,6 +277,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         addView(cabecalho, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         cabecalho.translationX = dp(COLUNA - ICONE_L / 2f)
         cabecalho.translationY = dp(ROTULO_Y)
+        // a altura do nome só existe depois de medir (e muda com a letra): reposiciona quando ela muda
+        cabecalho.addOnLayoutChangeListener { _, _, t, _, b, _, ot, _, ob -> if (b - t != ob - ot) posicionarRotulo(false) }
         maisAbaixo = Seta(ctx).apply { alpha = 0f; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
         addView(maisAbaixo, LayoutParams(dpi(SETA_L), dpi(SETA_A)))
         // Ao lado dos ícones, embaixo do nome (crítica de design 19/11/2026): no eixo, a seta caía em cima do logo do 4º app.
@@ -490,13 +520,14 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Para o teste de tela: o texto de baixo do item em foco, como está desenhado. */
     internal fun subAtual(): TextView? = viewAtual()?.sub
+    internal fun nomeAtual(): TextView? = viewAtual()?.nome
 
     private fun viewAtual(): ItemView? = viewsItem.getOrNull(estado.cat)?.getOrNull(estado.sel.getOrElse(estado.cat) { 0 })
 
     private fun avisarMudanca() {
         val c = categoriaAtual() ?: return
         val i = itemAtual() ?: return
-        rotulo.text = c.nome.uppercase()
+        rotulo.text = c.nome   // régua 22/11/2026: sem maiúsculas
         val n = c.itens.size
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
         posicao.text = if (n > 1) context.getString(R.string.cruz_posicao, sel + 1, n) else ""
@@ -562,7 +593,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         orientation = LinearLayout.VERTICAL
         gravity = Gravity.CENTER_HORIZONTAL
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-        addView(ImageView(context).apply { setImageDrawable(c.icone) }, LinearLayout.LayoutParams(dpi(CAT_L), dpi(CAT_A)))
+        addView(ImageView(context).apply {
+            setImageDrawable(c.icone)
+            if (CrossRhythm.atual.quadro) { background = quadro(); setPaddingRelative(dpi(10), dpi(8), dpi(10), dpi(8)) }
+        }, LinearLayout.LayoutParams(dpi(CAT_L), dpi(CAT_A)))
         addView(TextView(context).apply {
             text = c.nome
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_CATEGORIA)
@@ -578,7 +612,21 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     }
 
     private fun criarItem(): ItemView {
-        val icone = ImageView(context).apply { scaleType = ImageView.ScaleType.FIT_CENTER }
+        val icone = ImageView(context).apply {
+            scaleType = ImageView.ScaleType.FIT_CENTER
+            // Halo radial atrás do ícone (só existe com brilho ligado; apagado até o item ser o escolhido).
+            val halo = if (brilho > 0f) GradientDrawable().apply {
+                gradientType = GradientDrawable.RADIAL_GRADIENT
+                gradientRadius = dp(ICONE_A / 2f)
+                colors = intArrayOf(Estilo.ACENTO, Estilo.alfa(Estilo.ACENTO, 0))
+                alpha = 0
+            } else null
+            // Ritmo B "Quadros": o ícone num quadro igual para todos (o halo, se houver, fica por cima do quadro).
+            background = if (CrossRhythm.atual.quadro) {
+                setPaddingRelative(dpi(12), dpi(10), dpi(12), dpi(10))
+                if (halo != null) android.graphics.drawable.LayerDrawable(arrayOf(quadro(), halo)) else quadro()
+            } else halo
+        }
         val nome = TextView(context).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_ESCOLHIDO)
             setTextColor(Estilo.TEXTO)
@@ -589,8 +637,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             maxWidth = dpi(TEXTO_MAX)
             setShadowLayer(dp(8f), 0f, 0f, 0x99000000.toInt())
         }
-        // O ponto laranja do escolhido (Paulo, 18/11/2026: a barra embaixo do nome virou um ponto à esquerda dele).
-        val traco = View(context).apply { background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.ACENTO) } }
+        // O traço do escolhido (Paulo, 18/11/2026: ponto à esquerda do nome; 22/11/2026: traço VERTICAL curto de pontas
+        // redondas, para não parecer a barra de progresso). Laranja no foco Fio; creme no Véu e no Quadro.
+        val traco = View(context).apply { background = tracoDoFoco() }
         val sub = TextView(context).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_SUB)
             setTextColor(COR_SUB)   // creme claro (contraste > 4,5:1 sobre o véu)
@@ -606,7 +655,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val linhaNome = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            addView(traco, LinearLayout.LayoutParams(dpi(PONTO), dpi(PONTO)).apply { marginEnd = dpi(10) })
+            addView(traco, LinearLayout.LayoutParams(dpi(TRACO_L), dpi(TRACO_A)).apply { marginEnd = dpi(PONTO + 10 - TRACO_L) })
             addView(nome, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         }
         val textos = LinearLayout(context).apply {
@@ -630,7 +679,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             clipChildren = false
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
             addView(icone, LinearLayout.LayoutParams(dpi(ICONE_L), dpi(ICONE_A)))
-            addView(textos, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT).apply { marginStart = dpi(20) })
+            addView(textos, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT).apply { marginStart = dpi(CrossRhythm.atual.vaoTexto) })
             pivotX = 0f; pivotY = dp(ICONE_A / 2f)
             visibility = View.INVISIBLE
             alpha = 0f
@@ -668,6 +717,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        posicionarRotulo(animar)
         val f = estado.cat
         val focada = hasFocus() || isFocused
         val semMovimento = semAnimacao()
@@ -682,7 +732,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
                 else -> CAT_DIREITA + (k - 1) * PASSO_CATS
             }
             val visivel = k != 0 && cx > 30f && cx < TELA_L - 40f
-            mover(v, dp(cx - 75f), dp(LINHA - CAT_A / 2f), if (visivel) 1f else 0f, 1f, animar, onda(kotlin.math.abs(k)))
+            mover(v, dp(cx - 75f), dp(LINHA - CAT_A / 2f), if (visivel) CrossRhythm.atual.alfaCategoria else 0f, 1f, animar, onda(kotlin.math.abs(k)))
             // As categorias dos lados tocam a animação delas de vez em quando, uma de cada vez (atraso pela posição).
             // Quanto: MovimentoAdaptativo (em ciclo, uma vez ao chegar, ou nada), conforme o aparelho aguenta.
             val descCat = MovimentoAdaptativo.descansoCategoria(nivelAgora)
@@ -715,14 +765,68 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
                 val x = if (rel == 0) COLUNA - ICONE_L / 2f else COLUNA - ICONE_L * ESCALA_PEQUENO / 2f
                 mover(iv.raiz, dp(x), dp(cy - ICONE_A / 2f), alfa, escala, animar, onda(kotlin.math.abs(rel)))
                 // Sem o ponto quando outra janela (menu do app, lista) está por cima: um foco só na tela (crítica 19/11/2026).
-                iv.traco.alpha = if (rel == 0 && focada && hasWindowFocus()) 1f else 0f
+                // Com o painel do Ajuste fino por cima, o ponto e o brilho ficam: é justamente o que se está ajustando.
+                val semMenu = hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto
+                iv.traco.alpha = if (rel == 0 && focada && semMenu) 1f else 0f
+                if (rel == 0 && focada) iv.traco.background = tracoDoFoco()
+                haloDe(iv.icone)?.alpha = if (rel == 0 && focada && semMenu) (brilho * 255).toInt() else 0
                 // Ícones "Linha" (IconeCruz): o escolhido toca a animação dele (a cor é de cada ícone, sempre).
                 val aceso = rel == 0 && focada
                 if (iv.icone.isActivated != aceso) iv.icone.isActivated = aceso
                 (iv.icone.drawable as? IconeCruz)?.animar(aceso && descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS, if (animar) ICONE_ESPERA_MS else 0L)
                 iv.sub.alpha = if (rel == 0) 1f else 0f
+                nomeNoMeio(iv, rel != 0, animar)
             }
         }
+    }
+
+    /** Para o teste de tela: o nome do mundo em foco ("ASSISTIR  1 de 4"). */
+    internal fun rotuloAtual(): View = cabecalho
+
+    /**
+     * Nome do mundo ("ASSISTIR  1 de 4") logo acima do que está em cima na coluna (ritmos novos, 22/11/2026).
+     * Na Sala, com o ritmo A o nome ficava fixo a 132 dp e, a partir do 2º item, caía em cima do vizinho de cima
+     * ("FerramentasAlarme"). Agora ele fica 12 dp acima do vizinho de cima quando há um, e 12 dp acima do escolhido
+     * quando é o 1º item. O ritmo de antes mantém o lugar fixo dele (que já ficava acima do vizinho).
+     */
+    private fun posicionarRotulo(animar: Boolean) {
+        if (!::cabecalho.isInitialized) return
+        if (CrossRhythm.atual == CrossRhythm.BEFORE) { cabecalho.translationY = dp(ROTULO_Y); return }
+        val sel = estado.sel.getOrElse(estado.cat) { 0 }
+        val altura = if (cabecalho.height > 0) cabecalho.height.toFloat() else dp(30f)
+        val base = if (sel > 0) LINHA - VAO_CIMA - ICONE_A * ESCALA_PEQUENO / 2f else LINHA - ICONE_A / 2f
+        val alvo = dp(base - ROTULO_VAO) - altura
+        if (cabecalho.translationY == alvo) return
+        if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(300L).setInterpolator(curvaRotulo).start()
+        else { cabecalho.animate().cancel(); cabecalho.translationY = alvo }
+    }
+
+    /** Quadro do ritmo B: o mesmo retângulo suave atrás de cada ícone, para desenhos diferentes terem o mesmo peso. */
+    private fun quadro() = GradientDrawable().apply {
+        cornerRadius = dp(Estilo.RAIO_PEQUENO.toFloat())
+        setColor(0x14FFFFFF)
+        setStroke(dpi(1), 0x1FFFFFFF)
+    }
+
+    private fun haloDe(v: ImageView): android.graphics.drawable.Drawable? = when (val b = v.background) {
+        is android.graphics.drawable.LayerDrawable -> b.getDrawable(b.numberOfLayers - 1).takeIf { b.numberOfLayers > 1 }
+        is GradientDrawable -> b.takeIf { !CrossRhythm.atual.quadro }
+        else -> null
+    }
+
+    /**
+     * Item pequeno com o nome no meio da altura do ícone (ritmos novos, 21/11/2026): no alto do ícone ele parecia torto
+     * na foto da Sala. O escolhido mantém o nome no alto, porque embaixo dele vem a linha de informação.
+     */
+    private fun nomeNoMeio(iv: ItemView, pequeno: Boolean, animar: Boolean) {
+        val textos = iv.nome.parent?.parent as? View ?: return
+        // Altura da letra pela fonte (a view pode ainda não ter sido medida na 1ª arrumação).
+        val fm = iv.nome.paint.fontMetrics
+        val alvo = if (pequeno && CrossRhythm.atual.nomeNoMeio)
+            (dp(ICONE_A.toFloat()) - (fm.descent - fm.ascent)) / 2f - dp(TEXTO_TOPO.toFloat()) else 0f
+        if (textos.translationY == alvo) return
+        if (animar && !semMov) textos.animate().translationY(alvo).setDuration(200L).start()
+        else { textos.animate().cancel(); textos.translationY = alvo }
     }
 
     private fun mover(v: View, x: Float, y: Float, alfa: Float, escala: Float, animar: Boolean, atrasoMs: Long = 0L) {

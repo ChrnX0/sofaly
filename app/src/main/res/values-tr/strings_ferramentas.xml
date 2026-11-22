@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Araçlar</string>
+    <string name="cont_mais_opcoes">Diğer seçenekler</string>
+    <string name="tl_proximo">Sonraki: %1$s</string>
+    <string name="tl_clima_sub">Önümüzdeki günlerin tahmini</string>
+    <string name="tl_casa_sub">Işıklar, kameralar ve kapı zili</string>
+    <string name="tl_painel_sub">Bluetooth, ses, Wi-Fi ve zamanlayıcı</string>
+    <string name="tl_config_sub">Başlatıcıyla ilgili her şey</string>
+    <string name="ac_cartoes">Uygulama kartları</string>
+    <string name="ac_coluna">Sütunda</string>
+    <string name="ac_vitrine">Vitrin</string>
+    <string name="ac_ver_tudo">Uygulamada ne var gör</string>
+    <string name="ac_ritmo">Ana ekran aralığı</string>
+    <string name="rt_antes">Eskisi gibi</string>
+    <string name="rt_a">A · Sıkı</string>
+    <string name="rt_b">B · Çerçeveler</string>
+    <string name="rt_c">C · Ferah</string>
+    <string name="ft_foco">Odak</string>
+    <string name="ft_foco_fio">Çizgi</string>
+    <string name="ft_foco_veu">Tül</string>
+    <string name="ft_foco_quadro">Kutu</string>
+</resources>

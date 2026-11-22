@@ -64,14 +64,22 @@ object Estilo {
     const val TEXTO = DesignTokens.CREAM
     val TEXTO_2: Int get() = if (altoContraste) 0xFFFFF3E6.toInt() else 0xB3FFF3E6.toInt()
     val TEXTO_3: Int get() = if (altoContraste) 0xD9FFF3E6.toInt() else 0x86FFF3E6.toInt()   // era 0x7A: 4,4:1 nos cartões (pente fino 19/11/2026); 0x86 dá ≥ 4,7:1 em todo fundo da casa
-    /** Texto em cima do foco branco (linha de lista focada). */
-    const val TEXTO_NO_FOCO = DesignTokens.NIGHT
-    val TEXTO_NO_FOCO_2: Int get() = if (altoContraste) TEXTO_NO_FOCO else 0xA6121528.toInt()
+    /**
+     * Texto em cima do foco. Só o Quadro (foco branco) escurece o texto; no Fio e no Véu o fundo continua escuro,
+     * então o texto focado fica creme (régua de estilo, 22/11/2026: no painel rápido ele sumia, escuro sobre escuro).
+     */
+    private val focoBranco: Boolean get() = br.paulo.tvlauncher.settings.FocusStyle.atual == br.paulo.tvlauncher.settings.FocusStyle.BOX
+    val TEXTO_NO_FOCO: Int get() = if (focoBranco) DesignTokens.NIGHT else TEXTO
+    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6121528.toInt()
 
     /** O ÚNICO acento: "ligado", valor escolhido, progresso. Foco NÃO usa acento: foco é branco. */
-    val ACENTO: Int get() = if (altoContraste) DesignTokens.ORANGE_HIGH else DesignTokens.ORANGE
+    val ACENTO: Int get() = if (altoContraste) acentoAlto else acentoBase
     /** Acento legível sobre o foco branco. */
-    val ACENTO_NO_FOCO: Int get() = if (altoContraste) 0xFF8A2900.toInt() else DesignTokens.ORANGE_ON_LIGHT
+    val ACENTO_NO_FOCO: Int get() = if (!focoBranco) ACENTO else if (altoContraste && acentoBase == DesignTokens.ORANGE) 0xFF8A2900.toInt() else acentoNoFocoBase
+    /** A cor de destaque escolhida no Ajuste fino (CardStyle.aplicar); laranja da marca de fábrica. */
+    @Volatile var acentoBase = DesignTokens.ORANGE
+    @Volatile var acentoAlto = DesignTokens.ORANGE_HIGH
+    @Volatile var acentoNoFocoBase = DesignTokens.ORANGE_ON_LIGHT
     /** Semânticas: atenção (chuva, vencimento) e erro/ao vivo. Não contam como acento. */
     const val ATENCAO = DesignTokens.ATTENTION
     val ERRO: Int get() = if (altoContraste) 0xFFFFA08C.toInt() else DesignTokens.ERROR
@@ -83,15 +91,15 @@ object Estilo {
     /** Papel do texto: tamanho em sp, peso pedido (escala antiga 400-600; [Fontes.nunito] sobe um degrau) e cor. Caixa alta + espaçamento só na SECAO. */
     enum class Papel(val sp: Float, val peso: Int, private val nivel: Int, val caixaAlta: Boolean = false, val espaco: Float = 0f) {
         /** Hora, temperatura grande. */
-        DISPLAY(56f, 800, 1),
+        DISPLAY(56f, 200, 1),      // régua 22/11/2026: número fino (era 800)
         /** Título de tela, nome do item em destaque. */
-        TITULO(30f, 600, 1),       // era 28
+        TITULO(32f, 300, 1),       // era 28, depois 30·600 (régua 22/11/2026: leve, sem negrito)
         /** Linhas, cards, botões. */
-        CORPO(18f, 500, 1),        // era 16 (18/11/2026: ler a 3 m, pensando em idosos; a cruz usa 22-32)
+        CORPO(20f, 400, 1),        // era 16, depois 18·500 (régua 22/11/2026: 20 sp regular)
         /** Explicação, metadado. */
-        LEGENDA(17f, 400, 2),      // era 13, depois 15 (estudo global 20/11: explicações das listas se leem do sofá)
+        LEGENDA(18f, 400, 2),      // era 13, 15, 17 (régua 22/11/2026: nada na TV abaixo de 18 sp)
         /** Nome de grupo ("PRÓXIMOS 9 DIAS"). */
-        SECAO(15f, 600, 3, caixaAlta = true, espaco = 0.14f);   // era 13 (pente fino 19/11/2026: nada menor que 15 sp a 3 m)
+        SECAO(18f, 400, 3);   // era 13·caixa alta, depois 15 (régua 22/11/2026: sem maiúsculas; o grupo se separa por tamanho e cor)
 
         /** A cor do papel na hora (o alto contraste, 16.3, muda TEXTO_2 e TEXTO_3). */
         val cor: Int get() = when (nivel) { 1 -> TEXTO; 2 -> TEXTO_2; else -> TEXTO_3 }
@@ -107,22 +115,22 @@ object Estilo {
     object Leitura {
         // Ficha de filme/série
         const val TITULO = 32f          // era 28 (filme) / 26 (série)
-        const val DADOS = 17f           // ano · duração · nota · gênero; era 14 / 13,5
+        const val DADOS = 18f           // régua 22/11: mín. 18 (era 17); ano · duração · nota · gênero; era 14 / 13,5
         const val SINOPSE = 18f         // era 15 / 13,5
-        const val CREDITOS = 16f        // Direção, Elenco; era 13
-        const val AVISO = 15f           // "carregando…", "sem episódios"; era 13 / 14
+        const val CREDITOS = 18f        // régua 22/11: mín. 18 (era 16); Direção, Elenco; era 13
+        const val AVISO = 18f           // régua 22/11: mín. 18 (era 15); "carregando…", "sem episódios"; era 13 / 14
         const val BOTAO = 18f           // Assistir, Trailer…; era 16
-        const val BOTAO_PEQUENO = 16f   // temporadas; era 13,5
+        const val BOTAO_PEQUENO = 18f   // régua 22/11: mín. 18 (era 16); temporadas; era 13,5
         // Linhas de lista: episódio, canal
-        const val ITEM = 17f            // número e nome; era 14 / 14,5
-        const val ITEM_DETALHE = 15f    // sinopse do episódio, programa do canal; era 12
+        const val ITEM = 18f            // régua 22/11: mín. 18 (era 17); número e nome; era 14 / 14,5
+        const val ITEM_DETALHE = 18f    // régua 22/11: mín. 18 (era 15); sinopse do episódio, programa do canal; era 12
         // Coluna de categorias e cabeçalhos
-        const val CATEGORIA = 16f       // era 14,5
-        const val CONTAGEM = 15f        // número ao lado da categoria; era 13,5 (19/11/2026: mínimo 15)
-        const val ROTULO = 15f          // "CATEGORIAS", "A SEGUIR"; era 13 (19/11/2026: mínimo 15)
-        const val DICA = 15f            // linha de teclas no rodapé; era 12,5 (19/11/2026: mínimo 15)
+        const val CATEGORIA = 18f       // régua 22/11: mín. 18 (era 16); era 14,5
+        const val CONTAGEM = 18f        // régua 22/11: mín. 18 (era 15); número ao lado da categoria; era 13,5 (19/11/2026: mínimo 15)
+        const val ROTULO = 18f          // régua 22/11: mín. 18 (era 15); "CATEGORIAS", "A SEGUIR"; era 13 (19/11/2026: mínimo 15)
+        const val DICA = 18f            // régua 22/11: mín. 18 (era 15); linha de teclas no rodapé; era 12,5 (19/11/2026: mínimo 15)
         // Grade de pôsteres e painel do canal
-        const val CARD = 15f            // nome embaixo do pôster; era 14,5 (19/11/2026: mínimo 15)
+        const val CARD = 18f            // régua 22/11: mín. 18 (era 15); nome embaixo do pôster; era 14,5 (19/11/2026: mínimo 15)
         // Pergunta grande do "Cuidar de longe" (15/11/2026): para quem lê com dificuldade, de longe, às vezes com pressa.
         const val PERGUNTA = 40f        // "Mandar pedido de ajuda para Ana?"
         const val PERGUNTA_TEXTO = 24f  // a explicação embaixo
@@ -136,18 +144,20 @@ object Estilo {
          * Nome EM CIMA do pôster (13/11/2026): na fileira cortada embaixo da tela o nome continua aparecendo. Altura fixa
          * de 2 linhas, texto alinhado embaixo (encostado no pôster dele), para os pôsteres ficarem alinhados.
          */
-        const val NOME_CARD_ALTURA = 48 // dp: 2 linhas de [CARD] + 6 de folga até o pôster
+        const val NOME_CARD_ALTURA = 54 // dp: 2 linhas de [CARD] (18 sp, régua 22/11) + 6 de folga até o pôster
         const val SUB_CARD_ALTURA = 18  // dp: a linha "T2E5" da Série, embaixo do nome
         const val GRADE_VAO = 20        // dp entre fileiras (era 14): separa o nome do pôster de cima
-        const val FOCADO = 16f          // linha do item em foco acima da grade; era 14
+        const val FOCADO = 18f          // régua 22/11: mín. 18 (era 16); linha do item em foco acima da grade; era 14
         const val PROGRAMA = 22f        // título do programa no detalhe do canal; era 19
     }
 
     // ------------------------------------------------------------------ forma, espaço, movimento
 
     /** Só 3 raios: chip pequeno, card/painel e pílula (botão, foco de lista, avisos). */
-    const val RAIO_PEQUENO = DesignTokens.RADIUS_SMALL
-    const val RAIO = DesignTokens.RADIUS_MEDIUM
+    /** Cantos do Ajuste fino (CardStyle.Corners): multiplica os raios abaixo. A pílula continua pílula. */
+    @Volatile var escalaRaio = 1f
+    val RAIO_PEQUENO: Int get() = br.paulo.tvlauncher.settings.CardStyle.raio(DesignTokens.RADIUS_SMALL, escalaRaio)
+    val RAIO: Int get() = br.paulo.tvlauncher.settings.CardStyle.raio(DesignTokens.RADIUS_MEDIUM, escalaRaio)
     const val RAIO_PILULA = DesignTokens.RADIUS_PILL
 
     /** Grade de 8 dp. */
@@ -166,8 +176,81 @@ object Estilo {
     private val desacelera = DesignTokens.EASE_OUT.let { PathInterpolator(it[0], it[1], it[2], it[3]) }
 
     /** Quanto cresce o que ganha foco: card 8%, linha de lista 2%. */
-    const val ESCALA_CARD = 1.08f
-    const val ESCALA_LINHA = 1.02f
+    const val ESCALA_CARD = 1.05f   // era 1,08 (régua 22/11/2026: nada "pula" na tela)
+    const val ESCALA_LINHA = 1f      // era 1,02: linha de lista não cresce; o foco basta
+
+    /** Véu do foco [FocusStyle.VEIL]: branco a 10% com fio branco a 38%. */
+    const val VEU_TINTA = 0x1AFFFFFF
+    const val VEU_BORDA = 0x61FFFFFF
+    /** Fio que separa as opções de uma lista (régua: separar por fio, não por caixa): branco a 12%. */
+    const val FIO = 0x1FFFFFFF
+
+    /** O jeito de foco escolhido (Ajuste fino > Foco). Lido a cada mudança de foco: trocar vale na hora. */
+    fun focoAtual(ctx: Context): br.paulo.tvlauncher.settings.FocusStyle = br.paulo.tvlauncher.settings.FocusStyle.ler(ctx)
+
+    /**
+     * O traço do foco [FocusStyle.LINE] (Paulo, 22/11/2026): laranja, VERTICAL (horizontal parecia barra de progresso),
+     * curto (30% da altura, entre 10 e 14 dp; 22/11 00:30 "um tiquinho menor e mais gordinho": 4 dp de largura) e de pontas redondas, encostado à esquerda do item.
+     */
+    fun traco(ctx: Context, cor: Int = ACENTO): Drawable = Traco(dp(ctx, 4).toFloat(), dp(ctx, 6).toFloat(), dp(ctx, 10).toFloat(), dp(ctx, 14).toFloat(), cor)
+
+    private class Traco(val larg: Float, val margem: Float, val minA: Float, val maxA: Float, cor: Int) : Drawable() {
+        private val tinta = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { color = cor }
+        private val r = android.graphics.RectF()
+        override fun draw(c: android.graphics.Canvas) {
+            val b = bounds
+            val a = (b.height() * 0.3f).coerceIn(minA, maxA)
+            val x = b.left + margem
+            r.set(x, b.exactCenterY() - a / 2f, x + larg, b.exactCenterY() + a / 2f)
+            c.drawRoundRect(r, larg / 2f, larg / 2f, tinta)
+        }
+        override fun setAlpha(alpha: Int) { tinta.alpha = alpha }
+        override fun setColorFilter(cf: android.graphics.ColorFilter?) {}
+        @Deprecated("Deprecated in Java")
+        override fun getOpacity() = android.graphics.PixelFormat.TRANSLUCENT
+    }
+
+    /** Fio de 1 dp embaixo da linha de lista, com recuo dos lados (régua: opção sem caixa, separada por fio). */
+    fun fioBaixo(ctx: Context): Drawable = FioBaixo(dp(ctx, 1).toFloat(), dp(ctx, E2).toFloat())
+
+    private class FioBaixo(val esp: Float, val recuo: Float) : Drawable() {
+        private val tinta = android.graphics.Paint().apply { color = FIO }
+        override fun draw(c: android.graphics.Canvas) {
+            val b = bounds
+            c.drawRect(b.left + recuo, b.bottom - esp, b.right - recuo, b.bottom.toFloat(), tinta)
+        }
+        override fun setAlpha(alpha: Int) {}
+        override fun setColorFilter(cf: android.graphics.ColorFilter?) {}
+        @Deprecated("Deprecated in Java")
+        override fun getOpacity() = android.graphics.PixelFormat.TRANSLUCENT
+    }
+
+    /**
+     * O fundo de um item focado, no jeito escolhido. [base] = o fundo que o item tem sem foco (no Fio ele fica, com o
+     * traço por cima; no Véu e no Quadro o foco o substitui).
+     */
+    fun fundoFocado(ctx: Context, raioDp: Int, base: Drawable? = null): Drawable = when (focoAtual(ctx)) {
+        br.paulo.tvlauncher.settings.FocusStyle.BOX -> fundo(ctx, FOCO, raioDp)
+        br.paulo.tvlauncher.settings.FocusStyle.VEIL -> fundo(ctx, VEU_TINTA, raioDp, VEU_BORDA)
+        br.paulo.tvlauncher.settings.FocusStyle.LINE ->
+            if (base == null) traco(ctx) else android.graphics.drawable.LayerDrawable(arrayOf(base, traco(ctx)))
+    }
+
+    /** O foco escurece o texto? Só no Quadro (texto escuro sobre branco); no Fio e no Véu o texto acende para o creme pleno. */
+    fun focoEscurece(ctx: Context): Boolean = focoAtual(ctx) == br.paulo.tvlauncher.settings.FocusStyle.BOX
+
+    /**
+     * Cor do texto focado. No Fio, o texto ganha uma sombra difusa (6 dp, preto a 45%): some no fundo escuro e segura a
+     * leitura quando o fundo atrás é claro, o ponto fraco do Fio (coordenador, 22/11/2026).
+     */
+    private fun pintarFocado(t: TextView, foco: Boolean, escura: Int) {
+        val ctx = t.context
+        if (focoEscurece(ctx)) { if (foco) t.setTextColor(escura); return }
+        if (foco) t.setTextColor(TEXTO)
+        if (focoAtual(ctx) == br.paulo.tvlauncher.settings.FocusStyle.LINE) {
+            if (foco) t.setShadowLayer(dp(ctx, 6).toFloat(), 0f, 0f, 0x73000000) else t.setShadowLayer(0f, 0f, 0f, 0)
+        }
+    }
 
     /**
      * Matiz escuro de uma cor (dono, 10/11/2026, decisão 3): mistura [cor] com o [FUNDO], ficando só [quanto] da cor.
@@ -221,11 +304,15 @@ object Estilo {
      */
     fun focoCard(v: View) {
         val ctx = v.context
-        val anel = fundo(ctx, 0, RAIO + 3, FOCO, 3)
         v.setOnFocusChangeListener { view, foco ->
-            view.foreground = if (foco) anel else null
+            val jeito = focoAtual(ctx)
+            view.foreground = if (!foco) null else when (jeito) {
+                br.paulo.tvlauncher.settings.FocusStyle.BOX -> fundo(ctx, 0, RAIO + 3, FOCO, 3)
+                br.paulo.tvlauncher.settings.FocusStyle.VEIL -> fundo(ctx, VEU_TINTA, RAIO + 1, VEU_BORDA)
+                br.paulo.tvlauncher.settings.FocusStyle.LINE -> traco(ctx)
+            }
             view.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
-                .translationZ(if (foco) dp(ctx, 8).toFloat() else 0f)
+                .translationZ(if (foco && jeito == br.paulo.tvlauncher.settings.FocusStyle.BOX) dp(ctx, 8).toFloat() else 0f)
                 .setDuration(FOCO_MS).setInterpolator(desacelera).start()
         }
     }
@@ -236,19 +323,21 @@ object Estilo {
      */
     fun focoLinha(v: View, vararg textos: Pair<TextView, Papel>) {
         val ctx = v.context
-        val normal = fundo(ctx, SUPERFICIE, RAIO, BORDA)
-        val focado = fundo(ctx, FOCO, RAIO)
+        // Régua 22/11/2026: a opção não tem caixa; um fio embaixo separa uma da outra.
+        val normal = fioBaixo(ctx)
         v.background = normal
         v.setOnFocusChangeListener { view, foco ->
-            view.background = if (foco) focado else normal
-            for ((t, papel) in textos) t.setTextColor(
-                when {
-                    !foco -> t.getTag(R.id.estilo_cor_normal) as? Int ?: papel.cor
+            view.background = if (foco) fundoFocado(ctx, RAIO, normal) else normal
+            for ((t, papel) in textos) {
+                if (!foco) t.setTextColor(t.getTag(R.id.estilo_cor_normal) as? Int ?: papel.cor)
+                pintarFocado(t, foco, when {
                     papel == Papel.LEGENDA || papel == Papel.SECAO -> TEXTO_NO_FOCO_2
                     t.getTag(R.id.estilo_cor_normal) == ACENTO -> ACENTO_NO_FOCO
                     else -> TEXTO_NO_FOCO
-                }
-            )
+                })
+                // Legenda e explicação continuam um tom abaixo do título no Fio e no Véu (só o título acende).
+                if (foco && !focoEscurece(ctx) && (papel == Papel.LEGENDA || papel == Papel.SECAO)) t.setTextColor(TEXTO_2)
+            }
             view.animate().scaleX(if (foco) ESCALA_LINHA else 1f).scaleY(if (foco) ESCALA_LINHA else 1f)
                 .setDuration(FOCO_MS).setInterpolator(desacelera).start()
         }
@@ -317,10 +406,9 @@ object Estilo {
         if (focavel) {
             isFocusable = true
             isClickable = true
-            val focado = fundo(ctx, FOCO, RAIO_PILULA)
             setOnFocusChangeListener { v, foco ->
-                v.background = if (foco) focado else normal
-                tingir(v as ViewGroup, if (foco) TEXTO_NO_FOCO else null)
+                v.background = if (foco) fundoFocado(ctx, RAIO_PILULA, normal) else normal
+                tingir(v as ViewGroup, if (foco) (if (focoEscurece(ctx)) TEXTO_NO_FOCO else TEXTO) else null)
                 v.animate().scaleX(if (foco) ESCALA_LINHA else 1f).scaleY(if (foco) ESCALA_LINHA else 1f)
                     .setDuration(FOCO_MS).setInterpolator(desacelera).start()
             }
@@ -332,8 +420,10 @@ object Estilo {
         arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()), intArrayOf(TEXTO_NO_FOCO, TEXTO))
 
     /** Superfície de linha/botão de lista: repouso = branco 6% com fio; foco = branco sólido (use com [focarLinha]). */
-    fun superficie(ctx: Context, focado: Boolean): GradientDrawable =
-        if (focado) fundo(ctx, FOCO, RAIO) else fundo(ctx, SUPERFICIE, RAIO, BORDA)
+    fun superficie(ctx: Context, focado: Boolean): Drawable {
+        val normal = fundo(ctx, SUPERFICIE, RAIO, BORDA)
+        return if (focado) fundoFocado(ctx, RAIO, normal) else normal
+    }
 
     /**
      * Foco de linha para telas que montam a linha do seu jeito: troca o fundo ([superficie]) e escurece TODOS os textos
@@ -341,10 +431,11 @@ object Estilo {
      */
     fun focarLinha(v: View, foco: Boolean) {
         v.background = superficie(v.context, foco)
-        if (v is ViewGroup) tingir(v, if (foco) TEXTO_NO_FOCO else null)
+        val cor = if (focoEscurece(v.context)) TEXTO_NO_FOCO else TEXTO
+        if (v is ViewGroup) tingir(v, if (foco) cor else null)
         else if (v is TextView) {
             if (v.getTag(R.id.estilo_cor_normal) == null) v.setTag(R.id.estilo_cor_normal, v.currentTextColor)
-            v.setTextColor(if (foco) TEXTO_NO_FOCO else v.getTag(R.id.estilo_cor_normal) as Int)
+            v.setTextColor(if (foco) cor else v.getTag(R.id.estilo_cor_normal) as Int)
         }
     }
 
@@ -370,11 +461,11 @@ object Estilo {
         isFocusable = true
         isClickable = true
         val normal = fundo(ctx, if (primario) SUPERFICIE_ALTA else SUPERFICIE, RAIO_PILULA, BORDA)
-        val focado = fundo(ctx, FOCO, RAIO_PILULA)
         background = normal
         setOnFocusChangeListener { v, foco ->
-            v.background = if (foco) focado else normal
-            (v as TextView).setTextColor(if (foco) TEXTO_NO_FOCO else TEXTO)
+            v.background = if (foco) fundoFocado(ctx, RAIO_PILULA, normal) else normal
+            (v as TextView).setTextColor(TEXTO)
+            pintarFocado(v, foco, TEXTO_NO_FOCO)
             v.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
                 .setDuration(FOCO_MS).setInterpolator(desacelera).start()
         }
@@ -399,13 +490,12 @@ object Estilo {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             addView(TextView(ctx).apply {
-                text = tecla; setTextSize(TypedValue.COMPLEX_UNIT_SP, LISTA_FONTE_DICA); typeface = fonte(800); setTextColor(TEXTO)
+                // Régua 22/11/2026: a tecla sem moldura e sem negrito; só um tom acima da ação.
+                text = tecla; setTextSize(TypedValue.COMPLEX_UNIT_SP, LISTA_FONTE_DICA); typeface = fonte(400); setTextColor(TEXTO_2)
                 includeFontPadding = false
-                background = GradientDrawable().apply { cornerRadius = dp(ctx, 7).toFloat(); setColor(0x40FFFFFF) }
-                setPaddingRelative(dp(ctx, 8), dp(ctx, 3), dp(ctx, 8), dp(ctx, 3))
             })
             addView(TextView(ctx).apply {
-                text = acao; setTextSize(TypedValue.COMPLEX_UNIT_SP, LISTA_FONTE_DICA); typeface = fonte(500); setTextColor(TEXTO_2)
+                text = acao; setTextSize(TypedValue.COMPLEX_UNIT_SP, LISTA_FONTE_DICA); typeface = fonte(400); setTextColor(TEXTO_3)
                 includeFontPadding = false; setShadowLayer(dp(ctx, 6).toFloat(), 0f, 0f, 0x99000000.toInt())
             }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginStart = dp(ctx, 8) })
         }, ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -695,11 +785,11 @@ object Estilo {
         val sombra = 0x99000000.toInt()
         val anima = android.provider.Settings.Global.getFloat(ctx.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
         val suave = DecelerateInterpolator(1.6f)
-        val nomeLista = titulo.toString().uppercase()
+        val nomeLista = titulo.toString()   // régua: sem maiúsculas
         // Cabeçalho só com o nome da lista (crítica de design 19/11/2026: o "3 de 14" ao lado era ruído; o foco já diz onde se está).
         val cabecalho = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); typeface = forte; setTextColor(HomeCruz.COR_SUB)   // rótulo: cinza (laranja só no mundo da cruz)
-            letterSpacing = 0.08f; includeFontPadding = false; maxLines = 3; setLineSpacing(dp(ctx, 4).toFloat(), 1f)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); typeface = fonte(300); setTextColor(HomeCruz.COR_SUB)   // rótulo: cinza (laranja só no mundo da cruz)
+            includeFontPadding = false; maxLines = 3; setLineSpacing(dp(ctx, 4).toFloat(), 1f)
             setShadowLayer(dp(ctx, 6).toFloat(), 0f, 0f, sombra)
             text = nomeLista
         }
@@ -895,7 +985,7 @@ object Estilo {
     const val LISTA_ALFA_LONGE = 0.5f
     const val LISTA_FONTE_MARCA = 20f
     /** Dicas do pé: 16 sp, o mínimo da casa (idosos); as do Rádio usam 14 na tecla. */
-    const val LISTA_FONTE_DICA = 16f
+    const val LISTA_FONTE_DICA = 18f   // régua 22/11/2026: mínimo 18 sp
     const val LISTA_FOCO_MS = 180L
     const val LISTA_ENTRAR_MS = 260L
     /** Cada linha chega este tanto depois da vizinha (a "onda" da cruz é 16 ms por passo). */

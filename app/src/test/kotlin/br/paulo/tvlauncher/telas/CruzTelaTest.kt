@@ -149,6 +149,150 @@ class CruzTelaTest {
         }
     }
 
+    /**
+     * Espaçamento da cruz (21/11/2026): a mesma cruz nova (Ferramentas · Assistir · Ouvir · Jogar · Aplicativos) em cada
+     * [br.paulo.tvlauncher.home.CrossRhythm], para o Paulo comparar lado a lado (app/build/telas/ritmo-*.png).
+     */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun ritmos() {
+        try {
+            for (r in br.paulo.tvlauncher.home.CrossRhythm.entries) {
+                br.paulo.tvlauncher.home.CrossRhythm.atual = r
+                InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
+                saida.mkdirs()
+                val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+                val raiz = FrameLayout(a).apply { setBackgroundColor(Estilo.FUNDO) }
+                a.setContentView(raiz)
+                val cruz = HomeCruz(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
+                raiz.addView(cruz, FrameLayout.LayoutParams(-1, -1))
+                fun ic(t: IconeCruz.Tipo) = IconeCruz(t, IconeCruz.Estilo.OBJETO)   // o conjunto da Sala
+                fun it(id: String, n: String, sub: String, t: IconeCruz.Tipo, visto: Float? = null) =
+                    HomeCruz.Item(id, n, sub, ic(t), {}, progresso = visto)
+                cruz.definir(listOf(
+                    HomeCruz.Categoria(CruzLogica.Categoria.FERRAMENTAS, "Ferramentas", ic(IconeCruz.Tipo.FERRAMENTAS), listOf(
+                        it("dormir", "Dormir em 30 min", "A tela escurece devagar e a TV desliga", IconeCruz.Tipo.DORMIR),
+                        it("t:despertador", "Alarme", "Próximo: seg 07:00", IconeCruz.Tipo.DESPERTADOR),
+                        it("t:clima", "Clima", "30° · previsão de 7 dias, chuva por hora e qualidade do ar", IconeCruz.Tipo.CLIMA),
+                        it("t:casa", "Casa", "Luzes e câmeras", IconeCruz.Tipo.CASA),
+                        it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.ASSISTIR, "Assistir", ic(IconeCruz.Tipo.ASSISTIR), listOf(
+                        it("cont:yt", "Continuar", "YouTube · Vini Jr tá de volta", IconeCruz.Tipo.CONTINUAR, visto = 0.58f),
+                        it("tv", "TV", "Canal 156 · Discovery · Como é feito: fábricas gigantes do mundo", IconeCruz.Tipo.TV),
+                        it("series", "Séries", "O Último Farol", IconeCruz.Tipo.SERIES),
+                        it("filmes", "Filmes", "Maré Alta", IconeCruz.Tipo.FILMES))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.OUVIR, "Ouvir", ic(IconeCruz.Tipo.OUVIR), listOf(
+                        it("radio", "Rádio", "Rádios do mundo inteiro, ao vivo e sem cadastro nenhum", IconeCruz.Tipo.RADIO))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.JOGAR, "Jogar", ic(IconeCruz.Tipo.JOGAR), listOf(
+                        it("central", "Central de jogos", "Seus jogos, os retrô e os do celular num lugar só", IconeCruz.Tipo.CENTRAL))),
+                    HomeCruz.Categoria(CruzLogica.Categoria.APLICATIVOS, "Aplicativos", ic(IconeCruz.Tipo.APLICATIVOS), listOf(
+                        it(CruzLogica.ID_TODOS_APPS, "Todos os apps", "Ver, mover e esconder", IconeCruz.Tipo.TODOS_APPS))),
+                ))
+                cruz.requestFocus()
+                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                assertEquals(CruzLogica.Categoria.ASSISTIR, cruz.categoriaAtual()?.cat)   // a HOME abre em Assistir
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-2-assistir")
+                cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_LEFT)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_LEFT))
+                ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                assertEquals(CruzLogica.Categoria.FERRAMENTAS, cruz.categoriaAtual()?.cat)
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-1-ferramentas")
+                // 3º item: tem vizinho em cima; o nome do mundo não pode cair em cima dele (defeito visto na Sala, 22/11)
+                repeat(2) {
+                    cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_DOWN)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DPAD_DOWN))
+                    ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                }
+                assertEquals("t:clima", cruz.itemAtual()?.id)
+                foto(a, "ritmo-${r.ordinal}-${r.name.lowercase()}-3-ferramentas-clima")
+                val rotulo = cruz.rotuloAtual()
+                if (r != br.paulo.tvlauncher.home.CrossRhythm.BEFORE) {
+                    val d = a.resources.displayMetrics.density
+                    val cimaDoVizinho = (HomeCruz.LINHA - HomeCruz.VAO_CIMA - HomeCruz.ICONE_A * HomeCruz.ESCALA_PEQUENO / 2f) * d
+                    assertTrue("nome do mundo acima do vizinho de cima (${r.name})", rotulo.translationY + rotulo.height <= cimaDoVizinho + 1f)
+                }
+                a.finish()
+            }
+        } finally { br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.TIGHT }
+    }
+
+    /**
+     * Os 5 mundos no espaçamento padrão (A), no 1º, 2º e 3º item de cada um (22/11/2026: na Sala o nome do mundo caía
+     * sobre o item de cima a partir do 2º). app/build/telas/mundos-<mundo>-<n>.png; confere que o nome fica acima do vizinho.
+     */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun cincoMundosLetraReal() = cincoMundos(true)
+
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun cincoMundos() = cincoMundos(false)
+
+    /** [real]: a letra que a Sala usa (FontChoice padrão + Nunito 300 da cruz) e o foco Fio, não a Typeface.DEFAULT. */
+    private fun cincoMundos(real: Boolean) {
+        br.paulo.tvlauncher.home.CrossRhythm.atual = br.paulo.tvlauncher.home.CrossRhythm.TIGHT
+        InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
+        saida.mkdirs()
+        val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+        val raiz = FrameLayout(a).apply { setBackgroundColor(Estilo.FUNDO) }
+        a.setContentView(raiz)
+        val cruz = if (real) HomeCruz(a, br.paulo.tvlauncher.settings.Fontes.ui(a, br.paulo.tvlauncher.settings.Tema.ESCURO), br.paulo.tvlauncher.settings.Fontes.nunito(a, 300))
+            else HomeCruz(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
+        raiz.addView(cruz, FrameLayout.LayoutParams(-1, -1))
+        fun ic(t: IconeCruz.Tipo) = IconeCruz(t, IconeCruz.Estilo.OBJETO)
+        fun it(id: String, n: String, sub: String, t: IconeCruz.Tipo, visto: Float? = null) = HomeCruz.Item(id, n, sub, ic(t), {}, progresso = visto)
+        val A = IconeCruz.Tipo.APLICATIVOS
+        cruz.definir(listOf(
+            HomeCruz.Categoria(CruzLogica.Categoria.FERRAMENTAS, "Ferramentas", ic(IconeCruz.Tipo.FERRAMENTAS), listOf(
+                it("dormir", "Dormir em 30 min", "A tela escurece devagar e a TV desliga", IconeCruz.Tipo.DORMIR),
+                it("t:despertador", "Alarme", "Próximo: seg 07:00", IconeCruz.Tipo.DESPERTADOR),
+                it("t:clima", "Clima", "30° · previsão de 7 dias", IconeCruz.Tipo.CLIMA),
+                it("t:casa", "Casa", "Luzes e câmeras", IconeCruz.Tipo.CASA),
+                it("t:ajuste", "Ajuste fino", "Ajustar vendo a tela inicial", IconeCruz.Tipo.AJUSTE))),
+            HomeCruz.Categoria(CruzLogica.Categoria.ASSISTIR, "Assistir", ic(IconeCruz.Tipo.ASSISTIR), listOf(
+                it("cont:yt", "Continuar", "YouTube · Vini Jr tá de volta", IconeCruz.Tipo.CONTINUAR, visto = 0.58f),
+                it("tv", "TV", "Canal 156 · Discovery", IconeCruz.Tipo.TV),
+                it("series", "Séries", "O Último Farol", IconeCruz.Tipo.SERIES),
+                it("filmes", "Filmes", "Maré Alta", IconeCruz.Tipo.FILMES))),
+            HomeCruz.Categoria(CruzLogica.Categoria.OUVIR, "Ouvir", ic(IconeCruz.Tipo.OUVIR), listOf(
+                it("cont:radio", "Continuar", "Rádio Mar Azul FM", IconeCruz.Tipo.CONTINUAR),
+                it("radio", "Rádio", "Rádios do mundo inteiro", IconeCruz.Tipo.RADIO),
+                it("podcasts", "Podcasts", "Programas, notícias e conversas que você segue", IconeCruz.Tipo.PODCASTS),
+                it("app:spotify", "Spotify", "Música", A))),
+            HomeCruz.Categoria(CruzLogica.Categoria.JOGAR, "Jogar", ic(IconeCruz.Tipo.JOGAR), listOf(
+                it("central", "Central de jogos", "Geral", IconeCruz.Tipo.CENTRAL),
+                it("app:corrida", "Asfalto Veloz", "Corrida", IconeCruz.Tipo.JOGOS),
+                it("app:xadrez", "Xadrez", "Tabuleiro", IconeCruz.Tipo.JOGOS))),
+            HomeCruz.Categoria(CruzLogica.Categoria.APLICATIVOS, "Aplicativos", ic(A), listOf(
+                it(CruzLogica.ID_TODOS_APPS, "Todos os apps", "Ver, mover e esconder", IconeCruz.Tipo.TODOS_APPS),
+                it("app:downloader", "Downloader com um nome de aplicativo bem comprido", "Aberto há 2 h, baixou três arquivos grandes", A),
+                it("app:prime", "Prime Video", "Filmes e séries", A),
+                it("app:globoplay", "Globoplay", "TV e novelas", A))),
+        ))
+        cruz.requestFocus()
+        ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+        fun tecla(k: Int) { cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, k)); cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP, k)); ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS) }
+        tecla(KeyEvent.KEYCODE_DPAD_LEFT)   // abre em Assistir; vai para Ferramentas
+        val d = a.resources.displayMetrics.density
+        try {
+            for ((m, nome) in listOf("ferramentas", "assistir", "ouvir", "jogar", "aplicativos").withIndex()) {
+                if (m > 0) tecla(KeyEvent.KEYCODE_DPAD_RIGHT)
+                for (n in 1..3) {
+                    if (n > 1) tecla(KeyEvent.KEYCODE_DPAD_DOWN)
+                    ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+                    foto(a, (if (real) "regua-" else "") + "mundos-${m + 1}-$nome-$n")
+                    val r = cruz.rotuloAtual()
+                    val topo = if (n == 1) (HomeCruz.LINHA - HomeCruz.ICONE_A / 2f) * d
+                        else (HomeCruz.LINHA - HomeCruz.VAO_CIMA - HomeCruz.ICONE_A * HomeCruz.ESCALA_PEQUENO / 2f) * d
+                    assertTrue("$nome item $n: nome do mundo acima do que está embaixo dele", r.translationY + r.height <= topo + 1f)
+                    // Texto do escolhido termina antes do ícone da 1ª categoria à direita, com folga (Sala v468193, Podcasts x Jogar).
+                    val limite = (HomeCruz.CAT_DIREITA - HomeCruz.CAT_L / 2f - HomeCruz.FOLGA_CAT) * d + 1f
+                    for (t in listOfNotNull(cruz.subAtual(), cruz.nomeAtual())) {
+                        val xy = IntArray(2); t.getLocationInWindow(xy)
+                        val fim = xy[0] + t.width
+                        assertTrue("$nome item $n: texto termina em ${fim / d} dp, limite ${limite / d} dp", fim <= limite)
+                    }
+                }
+                tecla(KeyEvent.KEYCODE_DPAD_UP); tecla(KeyEvent.KEYCODE_DPAD_UP)
+            }
+        } finally { a.finish() }
+    }
+
     private fun conferir(estilo: IconeCruz.Estilo, nome: String) {
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
         saida.mkdirs()

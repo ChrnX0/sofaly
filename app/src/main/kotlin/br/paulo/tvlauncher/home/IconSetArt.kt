@@ -53,6 +53,12 @@ object IconSetArt {
         IconeCruz.Tipo.PLUGIN -> "plugin"
         IconeCruz.Tipo.DORMIR -> "sleep"
         IconeCruz.Tipo.CENTRAL -> "hub"
+        IconeCruz.Tipo.FERRAMENTAS -> "tools"
+        IconeCruz.Tipo.DESPERTADOR -> "alarm"
+        IconeCruz.Tipo.CASA -> "home"
+        IconeCruz.Tipo.CLIMA -> "weather"
+        IconeCruz.Tipo.AJUSTE -> "tune"
+        IconeCruz.Tipo.CONFIG -> "settings"
     }
 
     /** A camada parada ([movel] = false) ou a que se mexe, ou null sem arte. */

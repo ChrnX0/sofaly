@@ -282,7 +282,7 @@ class BloqueioCanaisActivity : Activity() {
     }
 
     /** Lista (ListView) não deixa escurecer o texto do item focado: aqui o foco é a superfície alta com anel branco. */
-    private fun vidro(focado: Boolean): GradientDrawable =
+    private fun vidro(focado: Boolean): android.graphics.drawable.Drawable =
         if (focado) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO, Estilo.FOCO, 2) else Estilo.superficie(this, false)
 
     private fun dp(v: Int) = (v * resources.displayMetrics.density + 0.5f).toInt()

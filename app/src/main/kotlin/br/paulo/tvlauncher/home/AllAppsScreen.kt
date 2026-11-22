@@ -91,8 +91,9 @@ class AllAppsScreen(ctx: Context, private val host: Host) : FrameLayout(ctx) {
             intArrayOf(0xFF121528.toInt(), 0xF0121528.toInt(), 0xF5121528.toInt()))
         val margem = dp(Grade.MARGEM)
         val titulo = TextView(ctx).apply {
-            text = ctx.getString(R.string.cruz_todos_apps).uppercase(); letterSpacing = 0.16f; includeFontPadding = false
-            setTextColor(Estilo.ACENTO); typeface = forte; sp(this, HomeCruz.FONTE_ROTULO)
+            // Régua de estilo (22/11/2026): título leve em creme, sem maiúsculas (o laranja é só detalhe).
+            text = ctx.getString(R.string.cruz_todos_apps); includeFontPadding = false
+            setTextColor(Estilo.TEXTO_2); typeface = forte; sp(this, HomeCruz.FONTE_ROTULO)
         }
         conta = TextView(ctx).apply { includeFontPadding = false; setTextColor(HomeCruz.COR_SUB); typeface = medio; sp(this, HomeCruz.FONTE_POSICAO) }
         addView(LinearLayout(ctx).apply {
