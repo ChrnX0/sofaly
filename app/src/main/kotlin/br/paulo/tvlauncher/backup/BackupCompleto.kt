@@ -90,6 +90,7 @@ object BackupCompleto {
         "qualidade_tv",   // TV ao vivo: banda, travadas e resolução real medidas NESTA rede e neste aparelho (QualidadeTv)
         "observer",   // Observador (20/11/2026): leituras, registro e recados DESTA TV; de outro aparelho não dizem nada
         "app_storage",   // pen drive (20/11/2026): volume adotado, apps movidos e velocidade medida são DESTE pen drive nesta TV
+        "google_home_trim",   // launcher do Google parado (GoogleHomeTrimTv): contagem e horários desta TV
         "on_demand",   // congelar sob demanda (OnDemandTv): o congelamento é desta TV; na outra o app nem está congelado
         "aot",   // versão já compilada (CompilarAot): é do APK instalado, não da configuração
         "cobranca",   // plano comprado (CobrancaPlay): vem sempre da Play, nunca de um backup (restaurar não pode virar Ultra)
