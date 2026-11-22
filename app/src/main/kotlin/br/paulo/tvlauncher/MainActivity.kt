@@ -68,6 +68,10 @@ import br.paulo.tvlauncher.home.SplashOverlay
 import br.paulo.tvlauncher.home.SplashRules
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.home.abrirCongelado
+import br.paulo.tvlauncher.home.abrirPasta
+import br.paulo.tvlauncher.home.novaPasta
+import br.paulo.tvlauncher.home.menuPasta
+import br.paulo.tvlauncher.home.montarTodos
 import br.paulo.tvlauncher.home.aplicarIlha
 import br.paulo.tvlauncher.home.arteDoItem
 import br.paulo.tvlauncher.home.vitrineDoItem
