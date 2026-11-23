@@ -306,16 +306,17 @@ class ConfigLauncherActivity : Activity() {
         text = aba.titulo
         Estilo.aplicar(this, Estilo.Papel.CORPO)
         setPaddingRelative(dp(20), dp(11), dp(20), dp(11))
-        maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+        // 2 linhas (23/11/2026): com o azulejo antes do nome, "Home and automations" não cabia numa linha em inglês.
+        maxLines = 2; ellipsize = TextUtils.TruncateAt.END
         isFocusable = true; isClickable = true
         // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
         // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
-        val lado = dp(30)
+        val lado = dp(28)
         setCompoundDrawablesRelative(IconeCruz(aba.icone, IconeCruz.Estilo.AZULEJO).apply {
             corAzulejo = aba.area ?: AZULEJO_NEUTRO
             setBounds(0, 0, lado, lado)
         }, null, null, null)
-        compoundDrawablePadding = dp(14)
+        compoundDrawablePadding = dp(10)
         pintarItemMenu(this, foco = false, escolhido = i == abaAtual)
         setOnFocusChangeListener { v, temFoco ->
             if (temFoco && abaAtual != i) {
