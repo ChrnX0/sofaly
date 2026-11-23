@@ -1959,7 +1959,7 @@ class MainActivity : Activity() {
         raiz.addView(c, 0, FrameLayout.LayoutParams(MATCH, MATCH))   // atrás da barra de cima (o véu não a escurece)
         cruz = c
         c.id = View.generateViewId()
-        c.detalheEmCima = barraCruz == LayoutHome.BarraCruz.RELOGIO
+        c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)
         c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
         // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
         if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)

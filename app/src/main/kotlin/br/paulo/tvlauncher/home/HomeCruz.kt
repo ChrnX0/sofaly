@@ -72,6 +72,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val DETALHE_L = 330         // largura do bloco de detalhes
         const val DETALHE_MARGEM = 48     // da borda direita
         const val DETALHE_BAIXO = 44      // da borda de baixo
+        // 23/11/2026 (Paulo, foto da Sala): com a cruz mais baixa os detalhes saíram do canto de baixo e foram para o
+        // canto de cima à direita, abaixo da pílula da hora (que vai até ~72 dp), onde a tela está vazia.
+        const val DETALHE_TOPO = 96
         const val DETALHE_LINHAS = 5
         const val DETALHE_ESPERA_MS = 300L
         // A informação de baixo é UMA, mas pode quebrar em 2 linhas na palavra (cortar "Vídeos, músicas e fotos da rede
@@ -154,13 +157,13 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** OK num item (antes de [Item.abrir]): quem usa grava o "lembrado" da categoria. */
     var aoAbrir: ((CruzLogica.Categoria, String) -> Unit)? = null
     /** Barra "Relógio" ocupa o canto de baixo com a hora grande: os detalhes vão para o canto de cima, à direita. */
-    var detalheEmCima = false
+    var detalheEmCima = true
         set(v) {
             if (field == v) return
             field = v
             (detalhe.layoutParams as LayoutParams).apply {
                 gravity = (if (v) Gravity.TOP else Gravity.BOTTOM) or Gravity.END
-                topMargin = if (v) dpi(DETALHE_BAIXO) else 0
+                topMargin = if (v) dpi(DETALHE_TOPO) else 0
                 bottomMargin = if (v) 0 else dpi(DETALHE_BAIXO)
             }
             detalhe.gravity = (if (v) Gravity.TOP else Gravity.BOTTOM) or Gravity.END
@@ -291,7 +294,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             setTextColor(COR_SUB)
             typeface = fonte
             // à direita, colado no canto (a cruz é sempre da esquerda para a direita: END = direita)
-            gravity = Gravity.END or Gravity.BOTTOM
+            gravity = Gravity.END or Gravity.TOP
             maxLines = DETALHE_LINHAS
             ellipsize = TextUtils.TruncateAt.END
             includeFontPadding = false
@@ -300,8 +303,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             alpha = 0f
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO   // o TalkBack já ouve tudo no item
         }
-        addView(detalhe, LayoutParams(dpi(DETALHE_L), LayoutParams.WRAP_CONTENT, Gravity.BOTTOM or Gravity.END).apply {
-            marginEnd = dpi(DETALHE_MARGEM); bottomMargin = dpi(DETALHE_BAIXO)
+        addView(detalhe, LayoutParams(dpi(DETALHE_L), LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END).apply {
+            marginEnd = dpi(DETALHE_MARGEM); topMargin = dpi(DETALHE_TOPO)
         })
         setOnFocusChangeListener { _, tem -> posicionar(animar = false); anunciar(); atualizarDetalhe(); if (tem) dicaDepois() else esconderDica() }
     }
