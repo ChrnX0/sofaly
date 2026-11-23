@@ -26,8 +26,10 @@ class RegraTelasTest {
             val s = f.readText()
             padroes.forEach { (tipo, p) -> p.findAll(s).count().takeIf { it > 0 }?.let { r["${f.name} $tipo"] = it } }
             if (tela.containsMatchIn(s)) {
-                if ("barraDicas" !in s) r["${f.name} dicas"] = 1
-                if ("tituloTela" !in s) r["${f.name} titulo"] = 1
+                // Estilo.telaLista já traz o título e (sem dicas = false) a barra de dicas.
+                val lista = "telaLista(" in s
+                if ("barraDicas" !in s && "dicasDeTexto" !in s && !(lista && "dicas = false" !in s)) r["${f.name} dicas"] = 1
+                if ("tituloTela" !in s && !lista) r["${f.name} titulo"] = 1
             }
         }
         return r
