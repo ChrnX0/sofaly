@@ -43,6 +43,7 @@
     <string name="tec_toque">Naciśnięcie</string>
     <string name="tec_segurar">Przytrzymanie</string>
     <string name="tec_duplo">Podwójne naciśnięcie</string>
+    <string name="tec_triplo">Potrójne naciśnięcie</string>
     <string name="tec_padrao">domyślnie (zapisana aplikacja; przytrzymaj 3 s = wybierz)</string>
     <string name="tec_cena">scena %1$s</string>
     <string name="tec_salvo">Zapisano %1$s</string>

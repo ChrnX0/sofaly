@@ -7,13 +7,24 @@
     <string name="wo_por_uso">Najczęściej używane</string>
     <string name="wo_az">Od A do Z</string>
     <string name="wo_a_mao">Po mojemu</string>
-    <string name="wo_renomear_mundo">Zmień nazwę świata</string>
-    <string name="wo_icone_mundo">Zmień ikonę świata</string>
-    <string name="wo_esconder">Ukryj świat</string>
-    <string name="wo_mostrar">Pokaż ukryte światy (%1$d)</string>
+    <string name="wo_renomear_mundo">Zmień nazwę kategorii</string>
+    <string name="wo_icone_mundo">Zmień ikonę kategorii</string>
+    <string name="wo_esconder">Ukryj kategorię</string>
+    <string name="wo_mostrar">Pokaż ukryte kategorie (%1$d)</string>
     <string name="wo_padrao">Przywróć domyślne</string>
     <string name="wo_subir">W górę</string>
     <string name="wo_descer">W dół</string>
     <string name="wo_renomear_app">Zmień nazwę</string>
     <string name="wo_vazio_original">Puste = oryginalna nazwa</string>
+    <string name="wo_so_icone">Pokaż tylko ikonę</string>
+    <string name="wo_com_nome">Pokaż nazwę</string>
+    <string name="wo_nomes_titulo">Nazwy kategorii</string>
+    <string name="wo_so_icone_curto">Tylko ikona</string>
+    <string name="wo_com_nome_curto">Z nazwą</string>
+    <string name="co_titulo">Kontynuuj</string>
+    <string name="co_mostrar">Widoczne</string>
+    <string name="co_esconder">Ukryte</string>
+    <string name="wo_nomes_det">Nazwa pod ikoną każdej kategorii albo tylko ikona</string>
+    <string name="co_det">To, co zostało w połowie, na górze każdej kategorii</string>
+    <string name="tec_cfg_det">Naciśnij, przytrzymaj, podwójnie i potrójnie dla każdego przycisku</string>
 </resources>

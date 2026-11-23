@@ -43,6 +43,7 @@
     <string name="tec_toque">ضغطة</string>
     <string name="tec_segurar">ضغطة مطولة</string>
     <string name="tec_duplo">ضغطة مزدوجة</string>
+    <string name="tec_triplo">ضغطة ثلاثية</string>
     <string name="tec_padrao">افتراضي (التطبيق المحفوظ؛ اضغط 3 ث = اختيار)</string>
     <string name="tec_cena">المشهد %1$s</string>
     <string name="tec_salvo">تم حفظ %1$s</string>

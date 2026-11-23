@@ -185,7 +185,7 @@ internal fun MainActivity.atualizarCruz() {
     fun categoria(k: CruzLogica.Categoria, nome: Int, tipo: IconeCruz.Tipo, itens: List<HomeCruz.Item>) {
         val o = WorldOptions.of(this, k)
         if (itens.isNotEmpty() && WorldOptions.Rules.visible(k, o))
-            cats += HomeCruz.Categoria(k, o.name ?: getString(nome), icCruz("cat:" + k.id, tipo), itens)
+            cats += HomeCruz.Categoria(k, o.name ?: getString(nome), icCruz("cat:" + k.id, tipo), itens, soIcone = o.iconOnly)
     }
     // Arruma os ids de um mundo pela ordem que a pessoa escolheu (uso = como sempre; A–Z; à mão).
     fun arrumar(k: CruzLogica.Categoria, ids: List<String>, nomes: Map<String, String>, fixos: Collection<String>): List<String> {
@@ -287,8 +287,13 @@ internal fun MainActivity.atualizarCruz() {
                 PosterDrawable(this, cd.poster, porPacote[cd.pacote]?.let { icApp(it) }),
                 { if (!AppChannels.abrir(this, cd)) cruz?.naoAbriu() }, opcoes = { menuAppCruz(cd.pacote) })
         }
+    // Continuar é opção (Paulo, 22/11/2026: os apps já guardam onde pararam, o item repetia a função). Desligado de
+    // fábrica; ligado, só retoma o que guarda a posição: TV, séries, filmes, rádio e podcast nossos e os apps que avisam
+    // pela sessão de mídia onde pararam (c:midia). Jogo e app só "aberto por último" ficam de fora.
+    val mostrarContinuar = ContinueOption.on(this)
     fun comContinuar(k: CruzLogica.Categoria, itens: List<HomeCruz.Item>): List<HomeCruz.Item> =
-        (itens + cartoesColuna(k)).let { l -> itemContinuar(k, doMundo[k].orEmpty())?.let { listOf(it) + l } ?: l }
+        (itens + cartoesColuna(k)).let { l -> if (!mostrarContinuar) l else
+            itemContinuar(k, doMundo[k].orEmpty().filter { ContinueOption.keeps(it.second.id) })?.let { listOf(it) + l } ?: l }
 
     // Ferramentas (21/11/2026, Paulo: entra no lugar do Continuar, "vamos ver o q colocar aqui"): o que a casa usa
     // para cuidar da TV e do dia. Começa com o que já existe; a lista é dele para mudar.

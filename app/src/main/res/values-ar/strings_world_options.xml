@@ -7,13 +7,24 @@
     <string name="wo_por_uso">الأكثر استخدامًا أولًا</string>
     <string name="wo_az">من أ إلى ي</string>
     <string name="wo_a_mao">ترتيبي الخاص</string>
-    <string name="wo_renomear_mundo">إعادة تسمية العالم</string>
-    <string name="wo_icone_mundo">تغيير رمز العالم</string>
-    <string name="wo_esconder">إخفاء العالم</string>
-    <string name="wo_mostrar">إظهار العوالم المخفية (%1$d)</string>
+    <string name="wo_renomear_mundo">إعادة تسمية الفئة</string>
+    <string name="wo_icone_mundo">تغيير رمز الفئة</string>
+    <string name="wo_esconder">إخفاء الفئة</string>
+    <string name="wo_mostrar">إظهار الفئات المخفية (%1$d)</string>
     <string name="wo_padrao">العودة إلى الافتراضي</string>
     <string name="wo_subir">لأعلى</string>
     <string name="wo_descer">لأسفل</string>
     <string name="wo_renomear_app">إعادة التسمية</string>
     <string name="wo_vazio_original">فارغ = الاسم الأصلي</string>
+    <string name="wo_so_icone">إظهار الرمز فقط</string>
+    <string name="wo_com_nome">إظهار الاسم</string>
+    <string name="wo_nomes_titulo">أسماء الفئات</string>
+    <string name="wo_so_icone_curto">الرمز فقط</string>
+    <string name="wo_com_nome_curto">مع الاسم</string>
+    <string name="co_titulo">متابعة</string>
+    <string name="co_mostrar">ظاهر</string>
+    <string name="co_esconder">مخفي</string>
+    <string name="wo_nomes_det">الاسم تحت رمز كل فئة، أو الرمز فقط</string>
+    <string name="co_det">ما توقفت عنده، في أعلى كل فئة</string>
+    <string name="tec_cfg_det">ضغطة، ضغط مطوّل، مزدوجة وثلاثية لكل زر</string>
 </resources>

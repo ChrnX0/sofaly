@@ -417,7 +417,8 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.settings.FontChoice.currentId(this)}|${br.paulo.tvlauncher.settings.ClockStyle.format(this)}|${br.paulo.tvlauncher.settings.ClockStyle.color(this)}|" +
         "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
-        "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}"   // ajuste fino (21/11/2026)
+        "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
+        "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}"   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
 
     override fun onResume() {
         super.onResume()

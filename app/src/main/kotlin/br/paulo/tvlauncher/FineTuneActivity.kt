@@ -102,6 +102,20 @@ class FineTuneActivity : Activity() {
             nomeLugarMundo(m[Math.floorMod(br.paulo.tvlauncher.home.WorldLabel.place(this).ordinal + passo, m.size)]
                 .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.WorldLabel.KEY, it.ordinal) })
         },
+        // Nome das categorias na cruz (Paulo, 22/11/2026): com nome ou só o ícone, em todas de uma vez. Cada categoria
+        // também troca sozinha no menu dela (segurar OK); aqui mostra "Só o ícone" só quando todas estão assim.
+        Ajuste(R.string.wo_nomes_titulo, { nomeDasCategorias() }) { _ ->
+            val todasSo = soIconeEmTodas()
+            for (c in br.paulo.tvlauncher.home.CruzLogica.Categoria.entries)
+                br.paulo.tvlauncher.home.WorldOptions.update(this, c) { it.copy(iconOnly = !todasSo) }
+            nomeDasCategorias()
+        },
+        // Continuar no topo de cada categoria (Paulo, 22/11/2026): desligado de fábrica (ContinueOption).
+        Ajuste(R.string.co_titulo, { getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder) }) { _ ->
+            val on = !br.paulo.tvlauncher.home.ContinueOption.on(this)
+            br.paulo.tvlauncher.home.ContinueOption.set(this, on)
+            getString(if (on) R.string.co_mostrar else R.string.co_esconder)
+        },
         // Forma de "Todos os apps" (22/11/2026, Paulo: as 3; padrão Prateleiras, "mais familiar").
         Ajuste(R.string.aa_layout_titulo, { nomeFormaTodos(br.paulo.tvlauncher.home.AllAppsLayout.mode(this)) }) { passo ->
             val m = br.paulo.tvlauncher.home.AllAppsLayout.Mode.entries
@@ -167,6 +181,10 @@ class FineTuneActivity : Activity() {
                 .also { br.paulo.tvlauncher.settings.FocusStyle.gravar(this, it) })
         },
     )
+
+    private fun soIconeEmTodas() = br.paulo.tvlauncher.home.CruzLogica.Categoria.entries
+        .all { br.paulo.tvlauncher.home.WorldOptions.of(this, it).iconOnly }
+    private fun nomeDasCategorias() = getString(if (soIconeEmTodas()) R.string.wo_so_icone_curto else R.string.wo_com_nome_curto)
 
     /** Nome da câmera escolhida (o id do HA, sem o "camera."), ou "Nenhuma". */
     private val nomeCamera: String get() = BackgroundStyle.camera(this).removePrefix("camera.").ifEmpty { getString(R.string.bg_nenhuma) }

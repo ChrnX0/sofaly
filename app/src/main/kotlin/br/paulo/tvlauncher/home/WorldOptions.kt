@@ -27,6 +27,8 @@ object WorldOptions {
         val manual: List<String> = emptyList(),
         val name: String? = null,
         val hidden: Boolean = false,
+        /** Só o ícone na linha da cruz, sem o nome embaixo (Paulo, 22/11/2026). O nome segue na pílula do topo com o foco. */
+        val iconOnly: Boolean = false,
     )
 
     private fun p(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -51,6 +53,7 @@ object WorldOptions {
                 manual = if (m == null) emptyList() else (0 until m.length()).map { m.getString(it) },
                 name = o.optString("name").trim().takeIf { it.isNotEmpty() },
                 hidden = o.optBoolean("hidden", false),
+                iconOnly = o.optBoolean("iconOnly", false),
             )
         }.getOrDefault(Options())   // JSON estragado = como era, nunca derruba a HOME
 
@@ -59,6 +62,7 @@ object WorldOptions {
             if (o.manual.isNotEmpty()) put("manual", JSONArray(o.manual))
             o.name?.let { put("name", it) }
             if (o.hidden) put("hidden", true)
+            if (o.iconOnly) put("iconOnly", true)
         }.toString()
 
         /**

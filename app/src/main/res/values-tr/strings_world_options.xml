@@ -7,13 +7,24 @@
     <string name="wo_por_uso">En çok kullanılanlar önce</string>
     <string name="wo_az">A\'dan Z\'ye</string>
     <string name="wo_a_mao">Benim sıram</string>
-    <string name="wo_renomear_mundo">Dünyayı yeniden adlandır</string>
-    <string name="wo_icone_mundo">Dünyanın simgesini değiştir</string>
-    <string name="wo_esconder">Dünyayı gizle</string>
-    <string name="wo_mostrar">Gizli dünyaları göster (%1$d)</string>
+    <string name="wo_renomear_mundo">Kategoriyi yeniden adlandır</string>
+    <string name="wo_icone_mundo">Kategorinin simgesini değiştir</string>
+    <string name="wo_esconder">Kategoriyi gizle</string>
+    <string name="wo_mostrar">Gizli kategorileri göster (%1$d)</string>
     <string name="wo_padrao">Varsayılana dön</string>
     <string name="wo_subir">Yukarı</string>
     <string name="wo_descer">Aşağı</string>
     <string name="wo_renomear_app">Yeniden adlandır</string>
     <string name="wo_vazio_original">Boş = özgün ad</string>
+    <string name="wo_so_icone">Yalnızca simgeyi göster</string>
+    <string name="wo_com_nome">Adı göster</string>
+    <string name="wo_nomes_titulo">Kategori adları</string>
+    <string name="wo_so_icone_curto">Yalnızca simge</string>
+    <string name="wo_com_nome_curto">Adıyla</string>
+    <string name="co_titulo">Devam et</string>
+    <string name="co_mostrar">Görünür</string>
+    <string name="co_esconder">Gizli</string>
+    <string name="wo_nomes_det">Her kategori simgesinin altında ad ya da yalnızca simge</string>
+    <string name="co_det">Yarım kalanlar, her kategorinin en üstünde</string>
+    <string name="tec_cfg_det">Her tuşta bas, basılı tut, iki ve üç kez bas</string>
 </resources>

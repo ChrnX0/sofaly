@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Onde mora o nome do mundo da cruz (WorldLabel, 22/11/2026). -->
 <resources>
-    <string name="wl_titulo">Nom du monde</string>
+    <string name="wl_titulo">Nom de la catégorie</string>
     <string name="wl_pilula">À côté de l\'heure</string>
 </resources>

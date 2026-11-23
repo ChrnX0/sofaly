@@ -43,6 +43,7 @@
     <string name="tec_toque">दबाएँ</string>
     <string name="tec_segurar">दबाए रखें</string>
     <string name="tec_duplo">दो बार दबाएँ</string>
+    <string name="tec_triplo">तीन बार दबाना</string>
     <string name="tec_padrao">डिफ़ॉल्ट (सेव किया ऐप; 3 s दबाए रखें = चुनें)</string>
     <string name="tec_cena">सीन %1$s</string>
     <string name="tec_salvo">%1$s सेव हुआ</string>

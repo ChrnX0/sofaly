@@ -7,13 +7,24 @@
     <string name="wo_por_uso">Paling sering dulu</string>
     <string name="wo_az">A sampai Z</string>
     <string name="wo_a_mao">Urutan saya</string>
-    <string name="wo_renomear_mundo">Ganti nama dunia</string>
-    <string name="wo_icone_mundo">Ganti ikon dunia</string>
-    <string name="wo_esconder">Sembunyikan dunia</string>
-    <string name="wo_mostrar">Tampilkan dunia tersembunyi (%1$d)</string>
+    <string name="wo_renomear_mundo">Ganti nama kategori</string>
+    <string name="wo_icone_mundo">Ganti ikon kategori</string>
+    <string name="wo_esconder">Sembunyikan kategori</string>
+    <string name="wo_mostrar">Tampilkan kategori tersembunyi (%1$d)</string>
     <string name="wo_padrao">Kembali seperti semula</string>
     <string name="wo_subir">Naik</string>
     <string name="wo_descer">Turun</string>
     <string name="wo_renomear_app">Ganti nama</string>
     <string name="wo_vazio_original">Kosong = nama asli</string>
+    <string name="wo_so_icone">Tampilkan ikon saja</string>
+    <string name="wo_com_nome">Tampilkan nama</string>
+    <string name="wo_nomes_titulo">Nama kategori</string>
+    <string name="wo_so_icone_curto">Ikon saja</string>
+    <string name="wo_com_nome_curto">Dengan nama</string>
+    <string name="co_titulo">Lanjutkan</string>
+    <string name="co_mostrar">Tampil</string>
+    <string name="co_esconder">Tersembunyi</string>
+    <string name="wo_nomes_det">Nama di bawah ikon tiap kategori, atau ikon saja</string>
+    <string name="co_det">Yang belum selesai, di atas tiap kategori</string>
+    <string name="tec_cfg_det">Tekan, tahan, dua kali dan tiga kali di tiap tombol</string>
 </resources>

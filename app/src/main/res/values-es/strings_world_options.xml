@@ -7,13 +7,24 @@
     <string name="wo_por_uso">Más usadas primero</string>
     <string name="wo_az">De la A a la Z</string>
     <string name="wo_a_mao">A mi manera</string>
-    <string name="wo_renomear_mundo">Cambiar el nombre del mundo</string>
-    <string name="wo_icone_mundo">Cambiar el icono del mundo</string>
-    <string name="wo_esconder">Ocultar el mundo</string>
-    <string name="wo_mostrar">Mostrar mundos ocultos (%1$d)</string>
+    <string name="wo_renomear_mundo">Cambiar el nombre de la categoría</string>
+    <string name="wo_icone_mundo">Cambiar el icono de la categoría</string>
+    <string name="wo_esconder">Ocultar la categoría</string>
+    <string name="wo_mostrar">Mostrar categorías ocultas (%1$d)</string>
     <string name="wo_padrao">Volver a lo de antes</string>
     <string name="wo_subir">Subir</string>
     <string name="wo_descer">Bajar</string>
     <string name="wo_renomear_app">Cambiar el nombre</string>
     <string name="wo_vazio_original">Vacío = nombre original</string>
+    <string name="wo_so_icone">Mostrar solo el icono</string>
+    <string name="wo_com_nome">Mostrar el nombre</string>
+    <string name="wo_nomes_titulo">Nombre de las categorías</string>
+    <string name="wo_so_icone_curto">Solo el icono</string>
+    <string name="wo_com_nome_curto">Con nombre</string>
+    <string name="co_titulo">Continuar</string>
+    <string name="co_mostrar">Visible</string>
+    <string name="co_esconder">Oculto</string>
+    <string name="wo_nomes_det">El nombre bajo el icono de cada categoría, o solo el icono</string>
+    <string name="co_det">Lo que quedó a medias, arriba en cada categoría</string>
+    <string name="tec_cfg_det">Pulsar, mantener, doble y triple en cada botón</string>
 </resources>

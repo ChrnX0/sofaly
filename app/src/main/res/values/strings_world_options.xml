@@ -7,13 +7,24 @@
     <string name="wo_por_uso">Most used first</string>
     <string name="wo_az">A to Z</string>
     <string name="wo_a_mao">My own order</string>
-    <string name="wo_renomear_mundo">Rename this world</string>
-    <string name="wo_icone_mundo">Change this world\'s icon</string>
-    <string name="wo_esconder">Hide this world</string>
-    <string name="wo_mostrar">Show hidden worlds (%1$d)</string>
+    <string name="wo_renomear_mundo">Rename this category</string>
+    <string name="wo_icone_mundo">Change this category\'s icon</string>
+    <string name="wo_esconder">Hide this category</string>
+    <string name="wo_mostrar">Show hidden categories (%1$d)</string>
     <string name="wo_padrao">Back to how it was</string>
     <string name="wo_subir">Move up</string>
     <string name="wo_descer">Move down</string>
     <string name="wo_renomear_app">Rename</string>
     <string name="wo_vazio_original">Empty = original name</string>
+    <string name="wo_so_icone">Show only the icon</string>
+    <string name="wo_com_nome">Show the name</string>
+    <string name="wo_nomes_titulo">Category names</string>
+    <string name="wo_so_icone_curto">Icon only</string>
+    <string name="wo_com_nome_curto">With name</string>
+    <string name="co_titulo">Continue</string>
+    <string name="co_mostrar">Shown</string>
+    <string name="co_esconder">Hidden</string>
+    <string name="wo_nomes_det">Name under each category icon, or the icon only</string>
+    <string name="co_det">What you left halfway, at the top of each category</string>
+    <string name="tec_cfg_det">Press, hold, double and triple press on each button</string>
 </resources>

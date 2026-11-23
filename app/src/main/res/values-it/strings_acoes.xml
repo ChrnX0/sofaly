@@ -43,6 +43,7 @@
     <string name="tec_toque">Pressione</string>
     <string name="tec_segurar">Pressione lunga</string>
     <string name="tec_duplo">Doppia pressione</string>
+    <string name="tec_triplo">Tocco triplo</string>
     <string name="tec_padrao">predefinito (app salvata; tieni premuto 3 s = scegli)</string>
     <string name="tec_cena">scena %1$s</string>
     <string name="tec_salvo">%1$s salvato</string>

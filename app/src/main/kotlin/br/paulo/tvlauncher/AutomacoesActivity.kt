@@ -146,6 +146,7 @@ class AutomacoesActivity : Activity() {
         RemapTeclas.Gesto.TOQUE -> R.string.tec_toque
         RemapTeclas.Gesto.SEGURAR -> R.string.tec_segurar
         RemapTeclas.Gesto.DUPLO -> R.string.tec_duplo
+        RemapTeclas.Gesto.TRIPLO -> R.string.tec_triplo
     })
 
     private fun nomeEvento(e: Gatilhos.Evento) = getString(when (e) {

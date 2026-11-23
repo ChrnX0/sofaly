@@ -48,7 +48,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         /** O mesmo item com outro menu do OK segurado (o "Trocar ícone" dos itens do Sofaly, HomeMotion). */
         fun comOpcoes(o: () -> Unit) = Item(id, nome, sub, icone, abrir, o, aoEscolher, progresso, situacao)
     }
-    class Categoria(val cat: CruzLogica.Categoria, val nome: String, val icone: Drawable, val itens: List<Item>)
+    class Categoria(val cat: CruzLogica.Categoria, val nome: String, val icone: Drawable, val itens: List<Item>,
+                    /** Só o ícone na linha (opção da categoria); o nome some mas guarda o lugar, nada se mexe. */
+                    val soIcone: Boolean = false)
 
     companion object {
         // ---- posições (dp) e tamanhos: o lugar único para refinar
@@ -608,7 +610,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             includeFontPadding = false
             gravity = Gravity.CENTER_HORIZONTAL
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            if (c.soIcone) visibility = View.INVISIBLE
         }, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(6) })
+        if (c.soIcone) contentDescription = c.nome   // leitor de tela continua dizendo o nome
         // a altura vem do conteúdo; o centro do ícone é que fica na linha
         pivotX = dp(75f); pivotY = dp(CAT_A / 2f)
     }

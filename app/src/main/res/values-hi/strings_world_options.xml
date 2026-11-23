@@ -7,13 +7,24 @@
     <string name="wo_por_uso">सबसे ज़्यादा इस्तेमाल पहले</string>
     <string name="wo_az">A से Z</string>
     <string name="wo_a_mao">मेरा अपना क्रम</string>
-    <string name="wo_renomear_mundo">दुनिया का नाम बदलें</string>
-    <string name="wo_icone_mundo">दुनिया का आइकन बदलें</string>
-    <string name="wo_esconder">दुनिया छिपाएँ</string>
-    <string name="wo_mostrar">छिपी दुनिया दिखाएँ (%1$d)</string>
+    <string name="wo_renomear_mundo">श्रेणी का नाम बदलें</string>
+    <string name="wo_icone_mundo">श्रेणी का आइकन बदलें</string>
+    <string name="wo_esconder">श्रेणी छिपाएँ</string>
+    <string name="wo_mostrar">छिपी श्रेणियाँ दिखाएँ (%1$d)</string>
     <string name="wo_padrao">पहले जैसा करें</string>
     <string name="wo_subir">ऊपर</string>
     <string name="wo_descer">नीचे</string>
     <string name="wo_renomear_app">नाम बदलें</string>
     <string name="wo_vazio_original">खाली = मूल नाम</string>
+    <string name="wo_so_icone">सिर्फ़ आइकन दिखाएँ</string>
+    <string name="wo_com_nome">नाम दिखाएँ</string>
+    <string name="wo_nomes_titulo">श्रेणियों के नाम</string>
+    <string name="wo_so_icone_curto">सिर्फ़ आइकन</string>
+    <string name="wo_com_nome_curto">नाम के साथ</string>
+    <string name="co_titulo">जारी रखें</string>
+    <string name="co_mostrar">दिखता है</string>
+    <string name="co_esconder">छिपा है</string>
+    <string name="wo_nomes_det">हर श्रेणी के आइकन के नीचे नाम, या सिर्फ़ आइकन</string>
+    <string name="co_det">जो अधूरा रह गया, हर श्रेणी में सबसे ऊपर</string>
+    <string name="tec_cfg_det">हर बटन पर दबाना, दबाए रखना, दो और तीन बार</string>
 </resources>

@@ -61,6 +61,10 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     opcoes += MainActivity.Opcao(getString(R.string.wo_icone_mundo)) {
         trocarIconeSofaly(WorldLabel.tipo(cat), nome, null, null)
     }
+    // Só o ícone na linha (Paulo, 22/11/2026): o nome some da cruz e fica na pílula do topo quando a categoria tem o foco.
+    opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {
+        WorldOptions.save(this, cat, o.copy(iconOnly = !o.iconOnly)); atualizarAposMudanca(null)
+    }
     if (WorldOptions.Rules.canHide(cat)) opcoes += MainActivity.Opcao(getString(R.string.wo_esconder)) {
         WorldOptions.save(this, cat, o.copy(hidden = true)); atualizarAposMudanca(null)
     }

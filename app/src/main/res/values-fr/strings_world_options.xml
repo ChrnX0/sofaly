@@ -7,13 +7,24 @@
     <string name="wo_por_uso">Les plus utilisées d\'abord</string>
     <string name="wo_az">De A à Z</string>
     <string name="wo_a_mao">À ma façon</string>
-    <string name="wo_renomear_mundo">Renommer ce monde</string>
-    <string name="wo_icone_mundo">Changer l\'icône du monde</string>
-    <string name="wo_esconder">Masquer ce monde</string>
-    <string name="wo_mostrar">Afficher les mondes masqués (%1$d)</string>
+    <string name="wo_renomear_mundo">Renommer cette catégorie</string>
+    <string name="wo_icone_mundo">Changer l\'icône de la catégorie</string>
+    <string name="wo_esconder">Masquer cette catégorie</string>
+    <string name="wo_mostrar">Afficher les catégories masquées (%1$d)</string>
     <string name="wo_padrao">Revenir comme avant</string>
     <string name="wo_subir">Monter</string>
     <string name="wo_descer">Descendre</string>
     <string name="wo_renomear_app">Renommer</string>
     <string name="wo_vazio_original">Vide = nom d\'origine</string>
+    <string name="wo_so_icone">Afficher seulement l\'icône</string>
+    <string name="wo_com_nome">Afficher le nom</string>
+    <string name="wo_nomes_titulo">Nom des catégories</string>
+    <string name="wo_so_icone_curto">Icône seule</string>
+    <string name="wo_com_nome_curto">Avec le nom</string>
+    <string name="co_titulo">Reprendre</string>
+    <string name="co_mostrar">Affiché</string>
+    <string name="co_esconder">Masqué</string>
+    <string name="wo_nomes_det">Le nom sous l\'icône de chaque catégorie, ou l\'icône seule</string>
+    <string name="co_det">Ce qui est resté à moitié, en haut de chaque catégorie</string>
+    <string name="tec_cfg_det">Appui, appui long, double et triple sur chaque bouton</string>
 </resources>

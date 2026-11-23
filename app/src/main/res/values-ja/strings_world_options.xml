@@ -7,13 +7,24 @@
     <string name="wo_por_uso">よく使う順</string>
     <string name="wo_az">A〜Z順</string>
     <string name="wo_a_mao">自分の順番</string>
-    <string name="wo_renomear_mundo">ワールド名を変更</string>
-    <string name="wo_icone_mundo">ワールドのアイコンを変更</string>
-    <string name="wo_esconder">ワールドを隠す</string>
-    <string name="wo_mostrar">隠したワールドを表示 (%1$d)</string>
+    <string name="wo_renomear_mundo">カテゴリ名を変更</string>
+    <string name="wo_icone_mundo">カテゴリのアイコンを変更</string>
+    <string name="wo_esconder">カテゴリを隠す</string>
+    <string name="wo_mostrar">隠したカテゴリを表示 (%1$d)</string>
     <string name="wo_padrao">元に戻す</string>
     <string name="wo_subir">上へ</string>
     <string name="wo_descer">下へ</string>
     <string name="wo_renomear_app">名前を変更</string>
     <string name="wo_vazio_original">空欄 = 元の名前</string>
+    <string name="wo_so_icone">アイコンだけ表示</string>
+    <string name="wo_com_nome">名前を表示</string>
+    <string name="wo_nomes_titulo">カテゴリ名の表示</string>
+    <string name="wo_so_icone_curto">アイコンのみ</string>
+    <string name="wo_com_nome_curto">名前あり</string>
+    <string name="co_titulo">続きから</string>
+    <string name="co_mostrar">表示</string>
+    <string name="co_esconder">非表示</string>
+    <string name="wo_nomes_det">各カテゴリのアイコンの下に名前、またはアイコンだけ</string>
+    <string name="co_det">途中までのものを各カテゴリの先頭に</string>
+    <string name="tec_cfg_det">各ボタンの押す・長押し・2回・3回</string>
 </resources>

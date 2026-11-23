@@ -7,13 +7,24 @@
     <string name="wo_por_uso">Più usate prima</string>
     <string name="wo_az">Dalla A alla Z</string>
     <string name="wo_a_mao">A modo mio</string>
-    <string name="wo_renomear_mundo">Rinomina il mondo</string>
-    <string name="wo_icone_mundo">Cambia l\'icona del mondo</string>
-    <string name="wo_esconder">Nascondi il mondo</string>
-    <string name="wo_mostrar">Mostra mondi nascosti (%1$d)</string>
+    <string name="wo_renomear_mundo">Rinomina la categoria</string>
+    <string name="wo_icone_mundo">Cambia l\'icona della categoria</string>
+    <string name="wo_esconder">Nascondi la categoria</string>
+    <string name="wo_mostrar">Mostra categorie nascoste (%1$d)</string>
     <string name="wo_padrao">Torna com\'era</string>
     <string name="wo_subir">Sposta su</string>
     <string name="wo_descer">Sposta giù</string>
     <string name="wo_renomear_app">Rinomina</string>
     <string name="wo_vazio_original">Vuoto = nome originale</string>
+    <string name="wo_so_icone">Mostra solo l\'icona</string>
+    <string name="wo_com_nome">Mostra il nome</string>
+    <string name="wo_nomes_titulo">Nome delle categorie</string>
+    <string name="wo_so_icone_curto">Solo icona</string>
+    <string name="wo_com_nome_curto">Con nome</string>
+    <string name="co_titulo">Continua</string>
+    <string name="co_mostrar">Visibile</string>
+    <string name="co_esconder">Nascosto</string>
+    <string name="wo_nomes_det">Il nome sotto l\'icona di ogni categoria, o solo l\'icona</string>
+    <string name="co_det">Quello lasciato a metà, in cima a ogni categoria</string>
+    <string name="tec_cfg_det">Tocco, tieni premuto, doppio e triplo su ogni tasto</string>
 </resources>

@@ -35,8 +35,9 @@ class WorldOptionsTest {
     }
 
     @Test fun guardarELer() {
-        val o = Options(Sort.MANUAL, listOf("a", "b"), "Filmes", hidden = true)
+        val o = Options(Sort.MANUAL, listOf("a", "b"), "Filmes", hidden = true, iconOnly = true)
         assertEquals(o, Rules.read(Rules.write(o)))
+        assertFalse(Rules.read("""{"sort":"usage"}""").iconOnly)   // guardado antes de 23/11: com nome
         assertEquals(Options(), Rules.read(null))
         assertEquals(Options(), Rules.read("{estragado"))
     }
@@ -78,5 +79,12 @@ class AllAppsLayoutTest {
         val agora = 100 * dia
         org.junit.Assert.assertEquals(listOf("b", "a"),
             br.paulo.tvlauncher.home.AllAppsLayout.newest(mapOf("a" to agora - 10 * dia, "b" to agora - dia, "velho" to agora - 40 * dia), agora))
+    }
+
+    // Continuar ligado (23/11/2026): só o que retoma de onde parou; jogo e app "aberto por último" ficam de fora.
+    @Test fun continuarSoComPosicao() {
+        val k = br.paulo.tvlauncher.home.ContinueOption
+        for (id in listOf("c:tv", "c:serie", "c:filme", "c:radio", "c:podcast", "c:midia:com.netflix.ninja")) assertTrue(id, k.keeps(id))
+        for (id in listOf("c:jogo:com.exemplo", "app:com.exemplo", "c:midia")) assertFalse(id, k.keeps(id))
     }
 }
