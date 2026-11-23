@@ -60,6 +60,7 @@ object IconSetArt {
         IconeCruz.Tipo.AJUSTE -> "tune"
         IconeCruz.Tipo.CONFIG -> "settings"
         IconeCruz.Tipo.PAINEL -> "quick-panel"
+        IconeCruz.Tipo.AJUDA -> "help"
     }
 
     /** A camada parada ([movel] = false) ou a que se mexe, ou null sem arte. */

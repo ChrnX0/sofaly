@@ -53,6 +53,7 @@ import br.paulo.tvlauncher.screensaver.SleepingHome
 import br.paulo.tvlauncher.settings.AjudaQr
 import br.paulo.tvlauncher.settings.BuscaAjustes
 import br.paulo.tvlauncher.settings.Extras
+import br.paulo.tvlauncher.home.IconeCruz
 import br.paulo.tvlauncher.settings.ExtrasAbas
 import br.paulo.tvlauncher.settings.ExtrasTv
 import br.paulo.tvlauncher.settings.Fontes
@@ -92,7 +93,9 @@ private const val MATCH = ViewGroup.LayoutParams.MATCH_PARENT
  */
 class ConfigLauncherActivity : Activity() {
     companion object {
-        const val EXTRA_ABA = "aba"   // índice da aba para abrir (ex.: o atalho "Conta" de outra tela)
+        const val EXTRA_ABA = "aba"
+        /** Azulejo das abas técnicas (Sistema, Ajuda, Avançado): cinza quente, sem cor de área. */
+        const val AZULEJO_NEUTRO = 0xFFD9CFC2.toInt()   // índice da aba para abrir (ex.: o atalho "Conta" de outra tela)
         /** Índices das abas que outras telas abrem direto (a ordem mudou em 14/11/2026: use estes, não números). */
         const val ABA_CONTA = 1
         const val ABA_REMOTO = 5
@@ -118,24 +121,25 @@ class ConfigLauncherActivity : Activity() {
 
     /** Uma aba do menu: título, explicação curta (aparece no alto do conteúdo) e quem monta o conteúdo. */
     /** [area] = cor da área (estudo do painel 20/11/2026, regra "cor quer dizer área"): a mesma do ícone da página no
-     *  painel web, num ponto antes do nome. null = neutra de propósito (Sistema, Ajuda, Avançado: técnico). */
-    internal class Aba(val titulo: String, val explica: String, val area: Int?, val montar: (LinearLayout) -> Unit)
+     *  painel web, num ponto antes do nome. null = neutra de propósito (Sistema, Ajuda, Avançado: técnico).
+     *  [icone] (23/11/2026, caminho B "Azulejos"): o desenho do azulejo da aba, na cor da área (neutra = cinza quente). */
+    internal class Aba(val titulo: String, val explica: String, val area: Int?, val icone: IconeCruz.Tipo, val montar: (LinearLayout) -> Unit)
 
     internal val abas: List<Aba> by lazy {
         // 14/11/2026 (pedido do dono: "complexo demais"): abas por assunto, na ordem do uso do dia a dia; o técnico
         // (rede, permissões, shell, limpeza de fábrica, confirmações) foi para "Avançado", a última. Antes: 8 abas
         // por origem do código (Conta, Controle parental, Aparência, Tela e energia, Visitas, Rede, Remoto, Sistema).
         listOf(
-            Aba(getString(R.string.cfg2_aba_inicio), getString(R.string.cfg2_aba_inicio_det), DesignTokens.WORLD_APPS, this::abaAparencia),
-            Aba(getString(R.string.cl_aba_conta), getString(R.string.cl_aba_conta_det), DesignTokens.WORLD_WATCH, this::abaConta),   // ABA_CONTA
-            Aba(getString(R.string.cfg2_aba_familia), getString(R.string.cfg2_aba_familia_det), DesignTokens.AREA_HOME, this::abaFamilia),
-            Aba(getString(R.string.cl_aba_energia), getString(R.string.cl_aba_energia_det), DesignTokens.AREA_HOME, this::abaEnergia),
-            Aba(getString(R.string.cfg2_aba_casa), getString(R.string.cfg2_aba_casa_det), DesignTokens.WORLD_NETWORK, this::abaCasa),
-            Aba(getString(R.string.cl_aba_remoto), getString(R.string.cl_aba_remoto_det), DesignTokens.WORLD_NETWORK, this::abaRemoto),
-            Aba(getString(R.string.cl_aba_sistema), getString(R.string.cfg2_aba_sistema_det), null, this::abaSistema),
+            Aba(getString(R.string.cfg2_aba_inicio), getString(R.string.cfg2_aba_inicio_det), DesignTokens.WORLD_APPS, IconeCruz.Tipo.APLICATIVOS, this::abaAparencia),
+            Aba(getString(R.string.cl_aba_conta), getString(R.string.cl_aba_conta_det), DesignTokens.WORLD_WATCH, IconeCruz.Tipo.TV, this::abaConta),   // ABA_CONTA
+            Aba(getString(R.string.cfg2_aba_familia), getString(R.string.cfg2_aba_familia_det), DesignTokens.AREA_HOME, IconeCruz.Tipo.SOFA, this::abaFamilia),
+            Aba(getString(R.string.cl_aba_energia), getString(R.string.cl_aba_energia_det), DesignTokens.AREA_HOME, IconeCruz.Tipo.DORMIR, this::abaEnergia),
+            Aba(getString(R.string.cfg2_aba_casa), getString(R.string.cfg2_aba_casa_det), DesignTokens.WORLD_NETWORK, IconeCruz.Tipo.CASA, this::abaCasa),
+            Aba(getString(R.string.cl_aba_remoto), getString(R.string.cl_aba_remoto_det), DesignTokens.WORLD_NETWORK, IconeCruz.Tipo.REDE, this::abaRemoto),
+            Aba(getString(R.string.cl_aba_sistema), getString(R.string.cfg2_aba_sistema_det), null, IconeCruz.Tipo.CONFIG, this::abaSistema),
             // Ajuda (14/11/2026, pedido do dono): o manual de tudo o que o launcher faz, antes do Avançado.
-            Aba(getString(R.string.aj_aba), getString(R.string.aj_aba_det), null, this::abaAjuda),
-            Aba(getString(R.string.cfg2_aba_avancado), getString(R.string.cfg2_aba_avancado_det), null, this::abaAvancado),   // ABA_AVANCADO
+            Aba(getString(R.string.aj_aba), getString(R.string.aj_aba_det), null, IconeCruz.Tipo.AJUDA, this::abaAjuda),
+            Aba(getString(R.string.cfg2_aba_avancado), getString(R.string.cfg2_aba_avancado_det), null, IconeCruz.Tipo.AJUSTE, this::abaAvancado),   // ABA_AVANCADO
         )
     }
 
@@ -304,14 +308,14 @@ class ConfigLauncherActivity : Activity() {
         setPaddingRelative(dp(20), dp(11), dp(20), dp(11))
         maxLines = 1; ellipsize = TextUtils.TruncateAt.END
         isFocusable = true; isClickable = true
-        // Ponto da cor da área (o mesmo do ícone no painel web). Aba neutra leva um ponto transparente do mesmo
-        // tamanho, para todos os nomes começarem na mesma coluna.
-        val ponto = dp(10)
-        setCompoundDrawablesRelative(GradientDrawable().apply {
-            shape = GradientDrawable.OVAL; setColor(aba.area ?: android.graphics.Color.TRANSPARENT); setSize(ponto, ponto)
-            setBounds(0, 0, ponto, ponto)
+        // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
+        // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
+        val lado = dp(30)
+        setCompoundDrawablesRelative(IconeCruz(aba.icone, IconeCruz.Estilo.AZULEJO).apply {
+            corAzulejo = aba.area ?: AZULEJO_NEUTRO
+            setBounds(0, 0, lado, lado)
         }, null, null, null)
-        compoundDrawablePadding = dp(12)
+        compoundDrawablePadding = dp(14)
         pintarItemMenu(this, foco = false, escolhido = i == abaAtual)
         setOnFocusChangeListener { v, temFoco ->
             if (temFoco && abaAtual != i) {
