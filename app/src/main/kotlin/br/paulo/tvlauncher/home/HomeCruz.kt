@@ -314,7 +314,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      * mantém o lugar ([CruzLogica.reajustar]).
      */
     fun definir(novas: List<Categoria>) {
-        val sig = novas.flatMap { c -> listOf("#" + c.cat.id) + c.itens.map { it.id } }
+        // nome e "só o ícone" entram na assinatura: renomear ou esconder o nome refaz a linha das categorias (23/11/2026)
+        val sig = novas.flatMap { c -> listOf("#" + c.cat.id + "|" + c.nome + "|" + c.soIcone) + c.itens.map { it.id } }
         val novoMapa = CruzLogica.Mapa(novas.map { it.cat }, novas.map { c -> c.itens.map { it.id } })
         if (sig == assinatura) {
             val antes = itemAtual()
