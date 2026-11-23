@@ -360,7 +360,10 @@ class SleepingHome(private val ctx: Context) {
 
     private fun item(icone: String?, titulo: String, nota: String) = LinearLayout(ctx).apply {
         orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
-        if (icone != null) addView(IconesClima.imagem(ctx, IconesClima.PREFIXO + "3d/" + icone), LinearLayout.LayoutParams(dp(30), dp(30)).apply { marginEnd = dp(12) }); getChildAt(0).alpha = 0.9f
+        // O alpha é do ícone e só existe com ícone: a linha da agenda (linhaItens) passa null, e o getChildAt(0) fora do
+        // if dava NPE que derrubava o launcher inteiro ao abrir o descanso (6 vezes na Sala entre 22 e 23/11/2026).
+        if (icone != null) addView(IconesClima.imagem(ctx, IconesClima.PREFIXO + "3d/" + icone).apply { alpha = 0.9f },
+            LinearLayout.LayoutParams(dp(30), dp(30)).apply { marginEnd = dp(12) })
         addView(LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             addView(texto(21f, Estilo.TEXTO, Estilo.fonte(500)).apply { text = titulo; maxLines = 1; ellipsize = TextUtils.TruncateAt.END })
@@ -376,7 +379,8 @@ class SleepingHome(private val ctx: Context) {
         ).forEach { (ic, rot, dica) -> addView(item(ic, ctx.getString(rot), ForecastText.dica(ctx, dica)), LinearLayout.LayoutParams(0, -2, 1f)) }
     }
 
-    private fun linhaItens(itens: List<Triple<String, String, String>>): View = linhaBase().apply {
+    @androidx.annotation.VisibleForTesting
+    internal fun linhaItens(itens: List<Triple<String, String, String>>): View = linhaBase().apply {
         // Sem ícone: os ícones 3D são do tempo (não há calendário nem relógio); o título e o "quando" bastam.
         itens.forEach { (_, t, q) -> addView(item(null, t, q), LinearLayout.LayoutParams(0, -2, 1f)) }
         repeat(3 - itens.size) { addView(View(ctx), LinearLayout.LayoutParams(0, 1, 1f)) }

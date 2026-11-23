@@ -22,7 +22,10 @@ import org.json.JSONObject
  * mais velha por cima sem permissão de sistema (não verificado na TV).
  */
 object ErrosFiltrados {
-    private val FRAME = Regex("^\\s*at ([A-Za-z0-9_$.<>]+)\\(([A-Za-z0-9_$.]+:\\d+|Unknown Source|Native Method)\\)\\s*$")
+    // O arquivo aceita "-": no APK de Release o R8 troca o nome do arquivo por "r8-map-id-<hash>" e, sem o hífen, os
+    // frames DO APP sumiam e só sobrava o Android (Handler/Looper): o travamento do descanso de 22-23/11/2026 chegou
+    // ao MCP sem uma linha nossa. O map-id diz qual mapping.txt traduz a pilha; não descreve a casa.
+    private val FRAME = Regex("^\\s*at ([A-Za-z0-9_$.<>-]+)\\(([A-Za-z0-9_$.-]+:\\d+|Unknown Source|Native Method)\\)\\s*$")
     private val CAUSA = Regex("^\\s*Caused by: ([A-Za-z0-9_$.]+)")
     private val ERRO = Regex("^Erro: ([A-Za-z0-9_$]+)")
     // Aceita o formato que o RegistroErros grava: "0.2 (12345)" = versionName (versionCode). Antes não aceitava o
