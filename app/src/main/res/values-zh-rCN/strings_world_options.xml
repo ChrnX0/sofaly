@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">每个分类图标下显示名称，或只显示图标</string>
     <string name="co_det">没看完的内容，放在每个分类最上面</string>
     <string name="tec_cfg_det">每个按键的按下、长按、按两下和按三下</string>
+    <string name="bb_titulo">主屏幕样式</string>
+    <string name="bb_cruz">十字</string>
+    <string name="bb_barra">底部栏</string>
+    <string name="bb_det">分类呈十字排列，或固定在底部、应用在上方 (▲)</string>
 </resources>

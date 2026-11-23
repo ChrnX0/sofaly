@@ -418,7 +418,7 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
         "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
-        "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}"   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.on(this)}"   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
 
     override fun onResume() {
         super.onResume()
@@ -1960,6 +1960,7 @@ class MainActivity : Activity() {
         cruz = c
         c.id = View.generateViewId()
         c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)
+        c.barra = br.paulo.tvlauncher.home.BottomBar.on(this)   // 23/11/2026: 2º jeito, categorias paradas embaixo
         c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
         // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
         if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)
@@ -1978,7 +1979,7 @@ class MainActivity : Activity() {
         c.aoPasso = { t -> deslizarArte(t) }
         // Ajuste fino (CardStyle): brilho atrás do escolhido e tamanho da cruz, com o centro no cruzamento (não sai do lugar).
         c.brilho = br.paulo.tvlauncher.settings.CardStyle.glow(this).alpha
-        br.paulo.tvlauncher.settings.CardStyle.size(this).scale.takeIf { it != 1f }?.let { k ->
+        br.paulo.tvlauncher.settings.CardStyle.size(this).scale.takeIf { it != 1f && !c.barra }?.let { k ->
             val d = resources.displayMetrics.density
             c.pivotX = HomeCruz.COLUNA * d; c.pivotY = HomeCruz.LINHA * d; c.scaleX = k; c.scaleY = k
         }
@@ -2100,7 +2101,8 @@ class MainActivity : Activity() {
         ilhaPilula?.animate()?.alpha(if (recolher) 1f else 0f)?.translationY(if (recolher) 0f else -dp(16).toFloat())?.setDuration(d)?.start()
         ilhaVeu?.animate()?.alpha(if (recolher) 0f else 1f)?.setDuration(d)?.start()
         relogioCruz?.animate()?.alpha(if (recolher) 1f else 0.35f)?.setDuration(d)?.start()
-        cruz?.animate()?.translationY(if (recolher) 0f else dp(34).toFloat())?.setDuration(d)?.start()
+        // Na barra embaixo a placa mora no pé da tela: descer 34 dp a cortaria.
+        if (cruz?.barra != true) cruz?.animate()?.translationY(if (recolher) 0f else dp(34).toFloat())?.setDuration(d)?.start()
     }
 
     /** Relógio grande da barra RELOGIO: hora, data por extenso e o tempo de agora (espelha a pílula do clima). */

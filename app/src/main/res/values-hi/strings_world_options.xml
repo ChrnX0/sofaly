@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">हर श्रेणी के आइकन के नीचे नाम, या सिर्फ़ आइकन</string>
     <string name="co_det">जो अधूरा रह गया, हर श्रेणी में सबसे ऊपर</string>
     <string name="tec_cfg_det">हर बटन पर दबाना, दबाए रखना, दो और तीन बार</string>
+    <string name="bb_titulo">होम स्क्रीन का रूप</string>
+    <string name="bb_cruz">क्रॉस</string>
+    <string name="bb_barra">नीचे की पट्टी</string>
+    <string name="bb_det">श्रेणियाँ क्रॉस में, या नीचे स्थिर और ऐप ऊपर (▲)</string>
 </resources>

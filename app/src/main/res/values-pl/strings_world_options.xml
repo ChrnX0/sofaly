@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Nazwa pod ikoną każdej kategorii albo tylko ikona</string>
     <string name="co_det">To, co zostało w połowie, na górze każdej kategorii</string>
     <string name="tec_cfg_det">Naciśnij, przytrzymaj, podwójnie i potrójnie dla każdego przycisku</string>
+    <string name="bb_titulo">Układ ekranu głównego</string>
+    <string name="bb_cruz">Krzyż</string>
+    <string name="bb_barra">Pasek na dole</string>
+    <string name="bb_det">Kategorie w krzyżu albo stałe na dole, z aplikacjami powyżej (▲)</string>
 </resources>

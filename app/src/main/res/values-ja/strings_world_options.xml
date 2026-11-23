@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">各カテゴリのアイコンの下に名前、またはアイコンだけ</string>
     <string name="co_det">途中までのものを各カテゴリの先頭に</string>
     <string name="tec_cfg_det">各ボタンの押す・長押し・2回・3回</string>
+    <string name="bb_titulo">ホーム画面の形</string>
+    <string name="bb_cruz">クロス</string>
+    <string name="bb_barra">下のバー</string>
+    <string name="bb_det">カテゴリをクロスに、または下に固定してアプリをその上に (▲)</string>
 </resources>

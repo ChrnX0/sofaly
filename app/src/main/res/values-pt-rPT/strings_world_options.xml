@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">O nome por baixo do ícone de cada categoria, ou só o ícone</string>
     <string name="co_det">O que ficou a meio, no topo de cada categoria</string>
     <string name="tec_cfg_det">Toque, manter premido, duplo e triplo em cada botão</string>
+    <string name="bb_titulo">Forma do ecrã inicial</string>
+    <string name="bb_cruz">Cruz</string>
+    <string name="bb_barra">Barra em baixo</string>
+    <string name="bb_det">Categorias em cruz, ou fixas em baixo com as apps acima (▲)</string>
 </resources>

@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Название под значком каждой категории или только значок</string>
     <string name="co_det">Недосмотренное — вверху каждой категории</string>
     <string name="tec_cfg_det">Нажатие, удержание, двойное и тройное для каждой кнопки</string>
+    <string name="bb_titulo">Вид главного экрана</string>
+    <string name="bb_cruz">Крест</string>
+    <string name="bb_barra">Панель внизу</string>
+    <string name="bb_det">Категории крестом или внизу, а приложения над ними (▲)</string>
 </resources>

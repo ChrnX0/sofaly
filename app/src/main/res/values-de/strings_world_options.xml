@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Name unter dem Symbol jeder Kategorie oder nur das Symbol</string>
     <string name="co_det">Was halb fertig blieb, oben in jeder Kategorie</string>
     <string name="tec_cfg_det">Drücken, halten, doppelt und dreifach für jede Taste</string>
+    <string name="bb_titulo">Startbildschirm-Layout</string>
+    <string name="bb_cruz">Kreuz</string>
+    <string name="bb_barra">Leiste unten</string>
+    <string name="bb_det">Kategorien als Kreuz oder fest unten, mit den Apps darüber (▲)</string>
 </resources>

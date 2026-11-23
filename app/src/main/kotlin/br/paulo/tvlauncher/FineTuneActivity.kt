@@ -110,6 +110,12 @@ class FineTuneActivity : Activity() {
                 br.paulo.tvlauncher.home.WorldOptions.update(this, c) { it.copy(iconOnly = !todasSo) }
             nomeDasCategorias()
         },
+        // Jeito da tela inicial (Paulo, 23/11/2026): a cruz (padrão) ou a barra embaixo (BottomBar).
+        Ajuste(R.string.bb_titulo, { getString(if (br.paulo.tvlauncher.home.BottomBar.on(this)) R.string.bb_barra else R.string.bb_cruz) }) { _ ->
+            val on = !br.paulo.tvlauncher.home.BottomBar.on(this)
+            br.paulo.tvlauncher.home.BottomBar.set(this, on)
+            getString(if (on) R.string.bb_barra else R.string.bb_cruz)
+        },
         // Continuar no topo de cada categoria (Paulo, 22/11/2026): desligado de fábrica (ContinueOption).
         Ajuste(R.string.co_titulo, { getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder) }) { _ ->
             val on = !br.paulo.tvlauncher.home.ContinueOption.on(this)

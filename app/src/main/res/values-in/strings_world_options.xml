@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Nama di bawah ikon tiap kategori, atau ikon saja</string>
     <string name="co_det">Yang belum selesai, di atas tiap kategori</string>
     <string name="tec_cfg_det">Tekan, tahan, dua kali dan tiga kali di tiap tombol</string>
+    <string name="bb_titulo">Tata letak beranda</string>
+    <string name="bb_cruz">Silang</string>
+    <string name="bb_barra">Bilah bawah</string>
+    <string name="bb_det">Kategori berbentuk silang, atau tetap di bawah dengan aplikasi di atasnya (▲)</string>
 </resources>

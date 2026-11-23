@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Le nom sous l\'icône de chaque catégorie, ou l\'icône seule</string>
     <string name="co_det">Ce qui est resté à moitié, en haut de chaque catégorie</string>
     <string name="tec_cfg_det">Appui, appui long, double et triple sur chaque bouton</string>
+    <string name="bb_titulo">Disposition de l\'accueil</string>
+    <string name="bb_cruz">Croix</string>
+    <string name="bb_barra">Barre en bas</string>
+    <string name="bb_det">Catégories en croix, ou fixes en bas avec les applis au-dessus (▲)</string>
 </resources>

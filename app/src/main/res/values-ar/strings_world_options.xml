@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">الاسم تحت رمز كل فئة، أو الرمز فقط</string>
     <string name="co_det">ما توقفت عنده، في أعلى كل فئة</string>
     <string name="tec_cfg_det">ضغطة، ضغط مطوّل، مزدوجة وثلاثية لكل زر</string>
+    <string name="bb_titulo">شكل الشاشة الرئيسية</string>
+    <string name="bb_cruz">صليب</string>
+    <string name="bb_barra">شريط في الأسفل</string>
+    <string name="bb_det">الفئات على شكل صليب، أو ثابتة في الأسفل والتطبيقات فوقها (▲)</string>
 </resources>

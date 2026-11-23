@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">각 카테고리 아이콘 아래 이름, 또는 아이콘만</string>
     <string name="co_det">보다 만 것을 각 카테고리 맨 위에</string>
     <string name="tec_cfg_det">버튼마다 누르기, 길게, 두 번, 세 번</string>
+    <string name="bb_titulo">홈 화면 모양</string>
+    <string name="bb_cruz">크로스</string>
+    <string name="bb_barra">하단 바</string>
+    <string name="bb_det">카테고리를 십자형으로, 또는 아래에 고정하고 앱은 위에 (▲)</string>
 </resources>

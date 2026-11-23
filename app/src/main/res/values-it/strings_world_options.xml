@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Il nome sotto l\'icona di ogni categoria, o solo l\'icona</string>
     <string name="co_det">Quello lasciato a metà, in cima a ogni categoria</string>
     <string name="tec_cfg_det">Tocco, tieni premuto, doppio e triplo su ogni tasto</string>
+    <string name="bb_titulo">Disposizione della home</string>
+    <string name="bb_cruz">Croce</string>
+    <string name="bb_barra">Barra in basso</string>
+    <string name="bb_det">Categorie a croce, o fisse in basso con le app sopra (▲)</string>
 </resources>

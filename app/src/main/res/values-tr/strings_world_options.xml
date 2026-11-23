@@ -27,4 +27,8 @@
     <string name="wo_nomes_det">Her kategori simgesinin altında ad ya da yalnızca simge</string>
     <string name="co_det">Yarım kalanlar, her kategorinin en üstünde</string>
     <string name="tec_cfg_det">Her tuşta bas, basılı tut, iki ve üç kez bas</string>
+    <string name="bb_titulo">Ana ekran düzeni</string>
+    <string name="bb_cruz">Haç</string>
+    <string name="bb_barra">Alt çubuk</string>
+    <string name="bb_det">Kategoriler haç şeklinde ya da altta sabit, uygulamalar üstte (▲)</string>
 </resources>
