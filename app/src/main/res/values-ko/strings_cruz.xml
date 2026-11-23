@@ -52,6 +52,7 @@
     <string name="cruz_desliga_as">%1$s에 꺼짐</string>
     <string name="cruz_dormir_cancelar">OK를 눌러 취소</string>
     <string name="cruz_linha">에센셜</string>
+    <string name="cruz_azulejo">타일</string>
     <string name="cruz_mover">이동…</string>
     <string name="cruz_mover_titulo">%1$s 이동</string>
     <string name="cruz_central">게임 허브</string>

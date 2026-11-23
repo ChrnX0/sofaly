@@ -16,6 +16,7 @@ class LayoutHomeTest {
         assertEquals(IconeCruz.Estilo.SIMBOLO, LayoutHome.iconesCruz(1))   // o 1 já gravado antes do Duotom continua Símbolo
         assertEquals(IconeCruz.Estilo.DUOTOM, LayoutHome.iconesCruz(2))
         assertEquals(IconeCruz.Estilo.LINHA, LayoutHome.iconesCruz(3))     // 18/11/2026: Linha entrou no fim
-        assertEquals(IconeCruz.Estilo.LINHA, LayoutHome.iconesCruz(-1))    // valor estranho: o padrão (Linha)
+        assertEquals(IconeCruz.Estilo.AZULEJO, LayoutHome.iconesCruz(-1))  // valor estranho: o padrão (Azulejo, 23/11/2026)
+        assertEquals(IconeCruz.Estilo.AZULEJO, LayoutHome.iconesCruz(8))   // Azulejo entrou no fim
     }
 }

@@ -52,6 +52,7 @@
     <string name="cruz_desliga_as">将于 %1$s 关闭</string>
     <string name="cruz_dormir_cancelar">按 OK 取消</string>
     <string name="cruz_linha">基础</string>
+    <string name="cruz_azulejo">瓷砖</string>
     <string name="cruz_mover">移动到…</string>
     <string name="cruz_mover_titulo">将 %1$s 移动到</string>
     <string name="cruz_central">游戏中心</string>
