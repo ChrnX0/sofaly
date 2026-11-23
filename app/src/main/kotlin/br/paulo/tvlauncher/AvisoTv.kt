@@ -193,7 +193,7 @@ object AvisoTv {
 
     /**
      * O aviso é a PÍLULA do sistema de design (dono, 10/11/2026: "gosto dela… só adapta"): a mesma pílula de vidro do
-     * topo da HOME, do mesmo tamanho, à direita logo abaixo da linha do topo (onde o protetor mostra as notificações). Um formato só para
+     * topo da HOME, do mesmo tamanho, no canto de baixo à direita (até 23/11/2026 ficava no de cima). Um formato só para
      * tudo que a TV avisa: Claude, chuva, recado, campainha, hora de dormir.
      *
      * Vidro sem desfoque: o Android só desfoca o que está atrás de uma janela de Activity (Window.setBackgroundBlurRadius);
@@ -268,10 +268,11 @@ object AvisoTv {
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
             PixelFormat.TRANSLUCENT
         ).apply {
-            gravity = Gravity.TOP or Gravity.END
-            // Logo ABAIXO da linha do topo da HOME (que termina em ~76 dp), alinhada à direita: não cobre a voz, o painel
-            // nem o perfil (dono, 10/11: "cobre os ícones atrás").
-            x = dp(Estilo.MARGEM_LATERAL); y = dp(84)
+            // Canto de BAIXO à direita (teste 100%, 23/11/2026): no canto de cima (y 84 dp) o aviso cobria a 1ª linha dos
+            // detalhes da cruz, que subiram para lá, e o subtítulo de várias telas. Embaixo à direita a cruz não tem nada;
+            // em outras telas cobre no máximo dicas por 5 s, nunca o texto que a pessoa está lendo.
+            gravity = Gravity.BOTTOM or Gravity.END
+            x = dp(Estilo.MARGEM_LATERAL); y = dp(44)
             windowAnimations = android.R.style.Animation_Toast   // entra e sai esmaecendo, como as notificações do sistema
         }
         try {

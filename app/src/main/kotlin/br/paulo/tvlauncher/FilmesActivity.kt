@@ -451,7 +451,9 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
                     depois?.invoke()
                 }
             },
-            demorou = { if (!isDestroyed) { aviso.text = getString(R.string.filmes_carregando); aviso.visibility = View.VISIBLE; avisoDaConta = true } },
+            // Grade já com pôsteres (ex.: a conta que junta as versões, que roda depois da 1ª): nada de "Carregando" por cima
+            // dela; a grade continua usável e se arruma sozinha (teste 100%, Sala, 23/11/2026, 18:32).
+            demorou = { if (!isDestroyed && naGrade.isEmpty()) { aviso.text = getString(R.string.filmes_carregando); aviso.visibility = View.VISIBLE; avisoDaConta = true } },
             // pedidoPendente também aqui: o fim roda com erro ou sucesso (com erro o aplicar não roda e o pedido ficava
             // preso, e toda conta seguinte voltava a grade ao topo; debug 20/11/2026).
             fim = { pedidoPendente = null; if (avisoDaConta) { aviso.visibility = View.GONE; avisoDaConta = false } },
