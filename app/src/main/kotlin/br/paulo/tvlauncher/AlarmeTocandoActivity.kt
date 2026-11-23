@@ -400,7 +400,7 @@ class AlarmeTocandoActivity : Activity() {
         setOnClickListener { aoClicar() }
         setOnFocusChangeListener { v, f ->
             v.background = if (f) focado else normal
-            (v as TextView).setTextColor(if (f) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
+            (v as TextView).setTextColor(if (f) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO)
             v.typeface = Estilo.fonte(if (f) 600 else 500)
             v.animate().scaleX(if (f) 1.06f else 1f).scaleY(if (f) 1.06f else 1f).setDuration(Estilo.FOCO_MS).start()
         }

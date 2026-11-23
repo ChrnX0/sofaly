@@ -43,8 +43,8 @@ object FichaAcoes {
     // A pílula do foco aqui é SEMPRE creme (Estilo.TEXTO), em qualquer estilo de foco. Depois da régua de estilo (22/11/2026)
     // o Estilo.TEXTO_NO_FOCO ficou creme no Fio e no Véu, e o botão focado da ficha virou um retângulo creme vazio: texto
     // creme sobre creme (teste 100%, Sala, 23/11/2026). Por isso o texto em foco aqui é sempre o escuro da marca.
-    private val NO_FOCO = DesignTokens.NIGHT
-    private val NO_FOCO_2 = 0xA6121528.toInt()
+    private const val NO_FOCO = Estilo.TEXTO_SOBRE_FOCO
+    private const val NO_FOCO_2 = Estilo.TEXTO_SOBRE_FOCO_2
     private val CORES_TEXTO get() = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()), intArrayOf(NO_FOCO, Estilo.TEXTO))
     private val CORES_ICONE get() = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()), intArrayOf(NO_FOCO, Estilo.TEXTO_2))
 

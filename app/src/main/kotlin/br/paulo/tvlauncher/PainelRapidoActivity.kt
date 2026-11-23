@@ -406,7 +406,7 @@ class PainelRapidoActivity : Activity() {
         setOnClickListener { aoClicar() }
         setOnFocusChangeListener { v, foco ->
             v.background = if (dentro is ImageView && !foco) null else anel(foco)
-            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
+            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO)
             v.animate().scaleX(if (foco) 1.1f else 1f).scaleY(if (foco) 1.1f else 1f).setDuration(Estilo.FOCO_MS).start()
         }
     }
@@ -482,7 +482,7 @@ class PainelRapidoActivity : Activity() {
             }
             setOnFocusChangeListener { v, foco ->
                 v.background = Estilo.fundo(this@PainelRapidoActivity, if (foco) Estilo.FOCO else Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
-                (v as TextView).setTextColor(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO_2)
+                (v as TextView).setTextColor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO_2)
             }
             visibility = if (contas.isEmpty()) View.GONE else View.VISIBLE
         }
@@ -840,7 +840,7 @@ class PainelRapidoActivity : Activity() {
             }
             setOnFocusChangeListener { v, foco ->
                 v.background = Estilo.fundo(this@PainelRapidoActivity, if (foco) Estilo.FOCO else Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
-                (v as TextView).setTextColor(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO_2)
+                (v as TextView).setTextColor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO_2)
             }
         }
         return limpar
