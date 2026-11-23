@@ -100,6 +100,7 @@ internal fun ConfigLauncherActivity.indiceDosAjustes(): List<BuscaAjustes.Entrad
 
 /** Abre a aba [aba] e põe o foco na linha [titulo] (rolando até ela). */
 internal fun ConfigLauncherActivity.irPara(aba: Int, titulo: String) {
+    abasAbertas += aba   // achado pela busca: a aba inteira, mesmo no modo Simples (a linha pode estar no "Mais ajustes")
     abaAtual = aba
     mostrarAba(aba)
     mostrarAbasDoUso()

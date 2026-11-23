@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">홈 및 네트워크</string>
+    <string name="cfg3_mais_ajustes">설정 더 보기</string>
+    <string name="cfg3_mais_ajustes_det">간단 모드에서 숨김: %1$d개</string>
+    <string name="cfg3_modo">모드: %1$s</string>
+</resources>

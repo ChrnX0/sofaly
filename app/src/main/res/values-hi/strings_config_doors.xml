@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">घर और नेटवर्क</string>
+    <string name="cfg3_mais_ajustes">और सेटिंग्स</string>
+    <string name="cfg3_mais_ajustes_det">सरल मोड में छिपी: %1$d</string>
+    <string name="cfg3_modo">मोड: %1$s</string>
+</resources>

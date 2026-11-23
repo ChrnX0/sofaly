@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Casa y red</string>
+    <string name="cfg3_mais_ajustes">Más ajustes</string>
+    <string name="cfg3_mais_ajustes_det">Ocultos en el modo Simple: %1$d</string>
+    <string name="cfg3_modo">Modo: %1$s</string>
+</resources>
