@@ -71,12 +71,12 @@ class WorldMenuScreenTest {
                     val d = ShadowDialog.getLatestDialog()
                     assertNotNull("${c.nome}: menu abriu", d)
                     val textos = textos(d.window!!.decorView).map { it.text.toString() }
-                    val esperado = if (idioma == "pt") "Renomear o mundo" else "Rename this world"
+                    val esperado = if (idioma == "pt") "Renomear a categoria" else "Rename this category"
                     assertTrue("${c.nome}: tem $esperado ($textos)", esperado in textos)
                     val ordenar = if (idioma == "pt") "Ordenar" else "Sort"
                     val temApps = c.itens.any { it.id.startsWith("app:") }
                     assertEquals("${c.nome}: Ordenar só onde há apps", temApps, ordenar in textos)
-                    val esconde = if (idioma == "pt") "Esconder o mundo" else "Hide this world"
+                    val esconde = if (idioma == "pt") "Esconder a categoria" else "Hide this category"
                     assertEquals("${c.nome}: Esconder só em Assistir/Ouvir/Jogar", c.cat == CruzLogica.Categoria.ASSISTIR, esconde in textos)
                     foto(d.window!!.decorView, "menu-mundo-$idioma-${c.cat.id}")
                     d.dismiss(); esperar(); achou++
@@ -86,6 +86,12 @@ class WorldMenuScreenTest {
                 if (cruz.categoriaAtual()?.nome == antes) break
             }
             assertEquals("passou por Ferramentas e Assistir", 2, achou)
+            // Só o ícone (23/11/2026): todas as categorias sem nome na linha; a foto vai para o Paulo conferir.
+            for (k in CruzLogica.Categoria.entries) WorldOptions.save(app, k, WorldOptions.Options(iconOnly = true))
+            a.atualizarAposMudanca(null); esperar(); esperar()
+            assertTrue("só ícone chegou à cruz", cruz.categorias().all { it.soIcone })
+            foto(a.window.decorView, "cruz-so-icone-$idioma")
+            for (k in CruzLogica.Categoria.entries) WorldOptions.save(app, k, WorldOptions.Options())
             // Renomear Assistir: a cruz mostra o nome novo; esconder: o mundo some e Ferramentas continua.
             WorldOptions.save(app, CruzLogica.Categoria.ASSISTIR, WorldOptions.Options(name = "Filmes"))
             a.atualizarAposMudanca(null); esperar(); esperar()
