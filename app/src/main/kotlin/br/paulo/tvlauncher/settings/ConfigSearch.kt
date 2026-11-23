@@ -102,8 +102,14 @@ internal fun ConfigLauncherActivity.indiceDosAjustes(): List<BuscaAjustes.Entrad
 internal fun ConfigLauncherActivity.irPara(aba: Int, titulo: String) {
     abasAbertas += aba   // achado pela busca: a aba inteira, mesmo no modo Simples (a linha pode estar no "Mais ajustes")
     abaAtual = aba
-    mostrarAba(aba)
+    // O foco sai da linha da busca ANTES de a busca sumir (23/11/2026, achado na Sala): ao apagar o conteúdo, o Android
+    // jogava o foco no "Buscar" do menu, e o foco nele remontava a busca por cima da aba aberta (OK "não fazia nada").
+    // Agora o menu já vira o da porta da aba, o foco pousa no item dela e só então a aba é montada.
+    abaMontada = aba
     mostrarAbasDoUso()
+    itensMenu.getOrNull(aba)?.requestFocus()
+    ui.removeCallbacks(trocarAba)
+    mostrarAba(aba)
     itensMenu.forEachIndexed { j, t -> pintarItemMenu(t, foco = false, escolhido = j == abaAtual) }
     itemBusca?.let { pintarItemMenu(it, foco = false, escolhido = false) }
     conteudo.post {

@@ -472,6 +472,10 @@ class ConfigLauncherActivity : Activity() {
                     return true
                 }
                 KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_DPAD_DOWN -> if (foco != null && (noConteudo || noMenu)) {
+                    // ▼ na caixa da busca vai para o primeiro resultado (23/11/2026, Sala: o foco ficava preso na caixa).
+                    if (foco is android.widget.EditText && e.keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
+                        focaveis(conteudo).firstOrNull { it !is android.widget.EditText }?.let { it.requestFocus(); return true }
+                    }
                     val dir = if (e.keyCode == KeyEvent.KEYCODE_DPAD_UP) View.FOCUS_UP else View.FOCUS_DOWN
                     val prox = foco.focusSearch(dir)
                     if (prox == null || !prox.dentroDe(if (noConteudo) conteudo else menu)) {
