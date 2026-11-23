@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">%1$d kanalı yok.</string>
     <string name="player_ao_vivo">CANLI</string>
     <string name="player_a_seguir">sonraki: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanal · OK kanal listesi · OK 2 sn basılı: favori · ◀ önceki kanal · ▶▶ seçenekler · GERİ çık</string>
+    <string name="player_teclas">▲ ▼ kanal · OK kanal listesi · OK 2 sn basılı: favori · ◀ önceki kanal · ▶ ▶ seçenekler · GERİ çık</string>
     <string name="player_teclas_pausa">▶❙❙ veya OK devam · ▶ seçenekler (canlıya dön) · ▲ ▼ kanal · GERİ çık</string>
     <string name="player_cat_busca">Ara: %1$s</string>
     <string name="player_acao_buscar">Ara</string>

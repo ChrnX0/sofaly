@@ -409,8 +409,10 @@ class PrevisaoActivity : Activity() {
                 addView(texto(18f, textoSuave).apply { text = "${partes.getOrElse(1) { "" }} · ${partes.getOrElse(2) { "" }}" })
             })
         })
-        trio.addView(ar, LinearLayout.LayoutParams(0, -1, 1f).apply { marginEnd = dp(Grade.VAO / 2) })
-        trio.addView(sol, LinearLayout.LayoutParams(0, -1, 1.15f).apply { marginStart = dp(Grade.VAO / 2); marginEnd = dp(Grade.VAO / 2) })
+        // Sem índice do ar (MET Norway e WeatherAPI no Básico não mandam), o cartão some em vez de ficar "Sem dados agora"
+        // ocupando um terço da linha (teste 100%, Sala, 23/11/2026; é o que o comentário do WeatherApiSource já prometia).
+        if (d.aqi != null) trio.addView(ar, LinearLayout.LayoutParams(0, -1, 1f).apply { marginEnd = dp(Grade.VAO / 2) })
+        trio.addView(sol, LinearLayout.LayoutParams(0, -1, 1.15f).apply { if (d.aqi != null) marginStart = dp(Grade.VAO / 2); marginEnd = dp(Grade.VAO / 2) })
         if (Extras.ligado(this, Extras.Chave.CARTAO_LUA))   // chave CARTAO_LUA (HomeCards, 18/11/2026)
             trio.addView(lua, LinearLayout.LayoutParams(0, -1, 1.15f).apply { marginStart = dp(Grade.VAO / 2) })
         p3.addView(trio, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) })

@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">チャンネル %1$d はありません。</string>
     <string name="player_ao_vivo">ライブ</string>
     <string name="player_a_seguir">次: %1$s</string>
-    <string name="player_teclas">▲ ▼ チャンネル · OK チャンネルリスト · OK を 2 秒長押し: お気に入り · ◀ 前のチャンネル · ▶▶ オプション · 戻る 終了</string>
+    <string name="player_teclas">▲ ▼ チャンネル · OK チャンネルリスト · OK を 2 秒長押し: お気に入り · ◀ 前のチャンネル · ▶ ▶ オプション · 戻る 終了</string>
     <string name="player_teclas_pausa">▶❙❙ または OK 再開 · ▶ オプション（ライブに戻る） · ▲ ▼ チャンネル · 戻る 終了</string>
     <string name="player_cat_busca">検索: %1$s</string>
     <string name="player_acao_buscar">検索</string>

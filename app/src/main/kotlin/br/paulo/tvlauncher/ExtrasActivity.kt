@@ -199,10 +199,15 @@ class ExtrasActivity : Activity() {
     /** Roda [tarefa] fora da thread da tela e mostra o resultado (aviso curto, ou caixa com [dialogo] de título). */
     private fun emSegundoPlano(dialogo: Int? = null, tarefa: (android.content.Context) -> String) {
         val app = applicationContext
-        aviso(getString(R.string.extras_aguarde))
+        // "Um momento…" só se demorar: antes ficava na tela por cima da caixa do resultado (teste 100%, Sala, 23/11/2026).
+        val pronto = java.util.concurrent.atomic.AtomicBoolean(false)
+        val aguarde = Runnable { if (!pronto.get() && !isDestroyed) aviso(getString(R.string.extras_aguarde)) }
+        window.decorView.postDelayed(aguarde, 700)
         Fundo.rodar {
             val r = tarefa(app)
+            pronto.set(true)
             runOnUiThread {
+                window.decorView.removeCallbacks(aguarde)
                 if (isDestroyed) return@runOnUiThread
                 if (dialogo == null) aviso(r)
                 else CaixaTv(this).setTitle(dialogo).setMessage(r).setPositiveButton(android.R.string.ok, null).show()

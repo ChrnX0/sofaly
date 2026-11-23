@@ -118,11 +118,12 @@ object PainelControle {
         val servico = AutorizaShizukuService.instancia.takeIf { !pelaIa || PlayPolicy.aiMayUseAccessibility(BuildConfig.PLAY) }
         // `input keyevent 3` não passa pelo filtro de teclas da acessibilidade e cairia no launcher do Google: sem o
         // serviço (IA na versão da Play), INÍCIO é a nossa própria tela inicial por Intent.
-        if (pelaIa && nome == "inicio" && !PlayPolicy.aiMayUseAccessibility(BuildConfig.PLAY))
-            return null.also { Home.irParaHome(ctx) }
+        // Teste 100% (Sala, 23/11/2026): o GLOBAL_ACTION_HOME da acessibilidade também resolve para o HomeActivity do
+        // Google (prioridade 2) e o esqueleto dele aparecia ~1 s antes do vigia trazer a Sofaly. Agora INÍCIO é sempre a
+        // nossa tela inicial por Intent, com ou sem o serviço.
+        if (nome == "inicio") return null.also { Home.irParaHome(ctx) }
         // VOLTAR e INÍCIO pela acessibilidade: imediatos e sem shell.
         if (servico != null && nome == "voltar") return if (servico.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)) null else "o Android recusou"
-        if (servico != null && nome == "inicio") return if (servico.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)) null else "o Android recusou"
         // Volume com a LG pareada pela rede (ideia 49): a saída HDMI tem volume fixo e esta LG ignora o volume por CEC,
         // então `input keyevent 24` não mudava nada (debug 20/11/2026). Sem resposta da LG, tenta a tecla como antes.
         // Quem chama já está fora da thread da tela (painel e MCP); VolumeLg espera a rede.

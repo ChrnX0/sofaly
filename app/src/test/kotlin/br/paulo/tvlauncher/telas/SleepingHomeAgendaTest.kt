@@ -23,4 +23,15 @@ class SleepingHomeAgendaTest {
         val linha = s.linhaItens(listOf(Triple("", "Dentista", "amanhã 9:00"), Triple("", "Aniversário da Ana", "sábado"))) as ViewGroup
         assertEquals(3, linha.childCount)   // 2 itens + 1 espaço para completar as 3 colunas
     }
+
+    /** Teste 100% (23/11/2026): às 17:23 um compromisso de amanhã às 14:00 saía "Hoje, 14:00". */
+    @Test fun amanhaNaoViraHoje() {
+        val s = SleepingHome(RuntimeEnvironment.getApplication())
+        val sp = java.util.TimeZone.getTimeZone("America/Sao_Paulo")
+        fun ms(d: Int, h: Int, m: Int) = java.util.Calendar.getInstance(sp).apply { clear(); set(2026, 10, d, h, m) }.timeInMillis
+        assertEquals(1, s.diasAte(ms(23, 17, 23), ms(24, 14, 0), sp))
+        assertEquals(0, s.diasAte(ms(23, 17, 23), ms(23, 23, 59), sp))
+        assertEquals(1, s.diasAte(ms(23, 23, 59), ms(24, 0, 1), sp))
+        assertEquals(2, s.diasAte(ms(23, 8, 0), ms(25, 7, 0), sp))
+    }
 }

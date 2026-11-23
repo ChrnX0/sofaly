@@ -445,6 +445,9 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
                     val primeira = e.deLista?.let { (n, t) -> getString(R.string.sync_n_de, n, t) to false }
                         ?: (getString(R.string.coluna_filtro_ordem, nomeOrdem(ordem)) to false)
                     painel.mostrarTopo(nome, naGrade.size, listOf(primeira) + pilulasFiltro())
+                    // Com pôsteres na grade, o "Carregando os filmes…" sai: ficava ~10 s em cima do Continuar enquanto o
+                    // catálogo inteiro terminava de chegar (teste 100%, Sala, 23/11/2026).
+                    if (naGrade.isNotEmpty() && aviso.visibility == View.VISIBLE && aviso.text == getString(R.string.filmes_carregando)) aviso.visibility = View.GONE
                     depois?.invoke()
                 }
             },
