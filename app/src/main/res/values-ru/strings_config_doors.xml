@@ -3,7 +3,7 @@
 <resources>
     <string name="cfg3_porta_casa_rede">Дом и сеть</string>
     <string name="cfg3_mais_ajustes">Другие настройки</string>
-    <string name="cfg3_mais_ajustes_det">Скрыто в простом режиме: %1$d</string>
+    <string name="cfg3_mais_ajustes_det">Скрыто для краткости: %1$d</string>
     <string name="cfg3_modo">Режим: %1$s</string>
     <string name="cfg3_porta_0_det">Крест, значки и фон</string>
     <string name="cfg3_porta_1_det">ТВ-аккаунты, язык, текст</string>

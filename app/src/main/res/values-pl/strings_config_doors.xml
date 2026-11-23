@@ -3,7 +3,7 @@
 <resources>
     <string name="cfg3_porta_casa_rede">Dom i sieć</string>
     <string name="cfg3_mais_ajustes">Więcej ustawień</string>
-    <string name="cfg3_mais_ajustes_det">Ukryte w trybie prostym: %1$d</string>
+    <string name="cfg3_mais_ajustes_det">Ukryte dla zwięzłości: %1$d</string>
     <string name="cfg3_modo">Tryb: %1$s</string>
     <string name="cfg3_porta_0_det">Krzyż, ikony i tło</string>
     <string name="cfg3_porta_1_det">Konta TV, język, tekst</string>

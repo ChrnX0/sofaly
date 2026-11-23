@@ -3,7 +3,7 @@
 <resources>
     <string name="cfg3_porta_casa_rede">Maison et réseau</string>
     <string name="cfg3_mais_ajustes">Plus de réglages</string>
-    <string name="cfg3_mais_ajustes_det">Masqués en mode Simple : %1$d</string>
+    <string name="cfg3_mais_ajustes_det">Masqués pour faire court : %1$d</string>
     <string name="cfg3_modo">Mode : %1$s</string>
     <string name="cfg3_porta_0_det">Croix, icônes et fond</string>
     <string name="cfg3_porta_1_det">Comptes TV, langue, texte</string>

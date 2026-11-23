@@ -3,7 +3,7 @@
 <resources>
     <string name="cfg3_porta_casa_rede">Casa e rede</string>
     <string name="cfg3_mais_ajustes">Mais ajustes</string>
-    <string name="cfg3_mais_ajustes_det">Escondidos no modo Simples: %1$d</string>
+    <string name="cfg3_mais_ajustes_det">Escondidos para ficar mais curto: %1$d</string>
     <string name="cfg3_modo">Modo: %1$s</string>
     <string name="cfg3_porta_0_det">Cruz, ícones e fundo</string>
     <string name="cfg3_porta_1_det">Contas de TV, idioma, letra</string>

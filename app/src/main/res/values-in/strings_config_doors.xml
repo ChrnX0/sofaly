@@ -3,7 +3,7 @@
 <resources>
     <string name="cfg3_porta_casa_rede">Rumah dan jaringan</string>
     <string name="cfg3_mais_ajustes">Setelan lainnya</string>
-    <string name="cfg3_mais_ajustes_det">Disembunyikan di mode Sederhana: %1$d</string>
+    <string name="cfg3_mais_ajustes_det">Disembunyikan agar ringkas: %1$d</string>
     <string name="cfg3_modo">Mode: %1$s</string>
     <string name="cfg3_porta_0_det">Salib, ikon, dan latar</string>
     <string name="cfg3_porta_1_det">Akun TV, bahasa, teks</string>
