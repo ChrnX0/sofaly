@@ -5,4 +5,10 @@
     <string name="cfg3_mais_ajustes">और सेटिंग्स</string>
     <string name="cfg3_mais_ajustes_det">सरल मोड में छिपी: %1$d</string>
     <string name="cfg3_modo">मोड: %1$s</string>
+    <string name="cfg3_porta_0_det">क्रॉस, आइकन और बैकग्राउंड</string>
+    <string name="cfg3_porta_1_det">टीवी खाते, भाषा, अक्षर</string>
+    <string name="cfg3_porta_2_det">बच्चे, PIN और मेहमान</string>
+    <string name="cfg3_porta_3_det">स्क्रीनसेवर, स्लीप, अलार्म</string>
+    <string name="cfg3_porta_4_det">घर, फ़ोन और पैनल</string>
+    <string name="cfg3_porta_5_det">अपडेट, बैकअप और मदद</string>
 </resources>

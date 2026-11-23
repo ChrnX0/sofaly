@@ -5,4 +5,10 @@
     <string name="cfg3_mais_ajustes">Więcej ustawień</string>
     <string name="cfg3_mais_ajustes_det">Ukryte w trybie prostym: %1$d</string>
     <string name="cfg3_modo">Tryb: %1$s</string>
+    <string name="cfg3_porta_0_det">Krzyż, ikony i tło</string>
+    <string name="cfg3_porta_1_det">Konta TV, język, tekst</string>
+    <string name="cfg3_porta_2_det">Dzieci, PIN i goście</string>
+    <string name="cfg3_porta_3_det">Wygaszacz, uśpienie, budzik</string>
+    <string name="cfg3_porta_4_det">Dom, telefon i panel</string>
+    <string name="cfg3_porta_5_det">Aktualizacje, kopia, pomoc</string>
 </resources>

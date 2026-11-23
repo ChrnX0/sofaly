@@ -58,27 +58,14 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
     grade.removeAllViews()
     val uso = UsoTv.atual(this)
 
-    // Busca em cima, do jeito do Ajustes do Apple Watch e do Reddit (Mobbin): a mesma busca de dentro, aberta daqui.
-    val busca = Estilo.pilula(this).apply {
+    // Busca e Simples/Completo numa linha só, em cima (Ajustes do Apple Watch e Reddit no Mobbin: a busca vem antes de tudo).
+    val topo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
+    topo.addView(Estilo.pilula(this).apply {
         addView(Estilo.texto(context, Estilo.Papel.CORPO, "⌕  " + getString(R.string.elv_aj_buscar)).apply { maxLines = 1 })
         setOnClickListener { abrirBuscaDasPortas() }
-    }
-    grade.addView(busca, LinearLayout.LayoutParams(WRAP, WRAP).apply { bottomMargin = dp(Estilo.E3); marginStart = dp(4) })
-
-    val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
-    val tabela = GridLayout(this).apply { columnCount = 3; clipChildren = false; clipToPadding = false }
-    var focar: View? = null
-    portas.forEachIndexed { n, p ->
-        val cartao = cartaoDaPorta(p, uso)
-        tabela.addView(cartao, GridLayout.LayoutParams(GridLayout.spec(n / 3), GridLayout.spec(n % 3, 1f)).apply {
-            width = 0; setMargins(dp(4), dp(4), dp(Estilo.E2), dp(Estilo.E2))
-        })
-        if (p == foco || focar == null) focar = cartao   // a porta pedida; sem ela (escondida no Simples), a primeira
-    }
-    grade.addView(tabela, LinearLayout.LayoutParams(MATCH, WRAP))
-
+    }, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E2) })
     // Simples / Completo (proposta E), à vista: a mesma escolha de Sistema > "Como esta TV é usada".
-    val modo = Estilo.pilula(this).apply {
+    topo.addView(Estilo.pilula(this).apply {
         addView(Estilo.texto(context, Estilo.Papel.CORPO, getString(R.string.cfg3_modo, nomeUso(uso))).apply { maxLines = 1 })
         setOnClickListener {
             UsoTv.escolher(this@mostrarPortas, UsoTv.proximo(UsoTv.atual(this@mostrarPortas)))
@@ -86,8 +73,20 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
             grade.post { grade.findViewWithTag<View>(TAG_MODO)?.requestFocus() }
         }
         tag = TAG_MODO
+    })
+    grade.addView(topo, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2); marginStart = dp(4) })
+
+    val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
+    val tabela = GridLayout(this).apply { columnCount = 3; clipChildren = false; clipToPadding = false }
+    var focar: View? = null
+    portas.forEachIndexed { n, p ->
+        val cartao = cartaoDaPorta(p)
+        tabela.addView(cartao, GridLayout.LayoutParams(GridLayout.spec(n / 3), GridLayout.spec(n % 3, 1f)).apply {
+            width = 0; setMargins(dp(4), dp(4), dp(Estilo.E2), dp(Estilo.E2))
+        })
+        if (p == foco || focar == null) focar = cartao   // a porta pedida; sem ela (escondida no Simples), a primeira
     }
-    grade.addView(modo, LinearLayout.LayoutParams(WRAP, WRAP).apply { topMargin = dp(Estilo.E2); marginStart = dp(4) })
+    grade.addView(tabela, LinearLayout.LayoutParams(MATCH, WRAP))
 
     mostrarDicaDasPortas()
     focar?.post { focar?.requestFocus() }
@@ -95,27 +94,28 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
 
 private const val TAG_MODO = "cfg3_modo"
 
-/** Um cartão de porta: azulejo grande da área, nome e a frase do que tem dentro. */
-private fun ConfigLauncherActivity.cartaoDaPorta(p: Int, uso: UsoTv): View {
-    val abasDela = PortasConfig.abasVisiveis(p, uso)
+/** Um cartão de porta: o azulejo da área ao lado do nome e, embaixo, o que tem dentro em poucas palavras. */
+private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
     val primeira = abas[PortasConfig.PORTAS[p].first()]
     val nome = if (p == PORTA_CASA_REDE) getString(R.string.cfg3_porta_casa_rede) else primeira.titulo
-    val frase = if (abasDela.size > 1) abasDela.joinToString(" · ") { abas[it].titulo } else abas[abasDela.first()].explica
+    val frase = getString(FRASES[p])
     return LinearLayout(this).apply {
         orientation = LinearLayout.VERTICAL
-        setPaddingRelative(dp(Estilo.E3), dp(Estilo.E3), dp(Estilo.E3), dp(Estilo.E3))
+        setPaddingRelative(dp(Estilo.E3), dp(Estilo.E2 + 4), dp(Estilo.E3), dp(Estilo.E2 + 4))
         isFocusable = true; isClickable = true
         val normal = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO + 4, Estilo.BORDA)
         background = normal
-        val lado = dp(52)
-        addView(View(context).apply {
+        val cabeca = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
+        val lado = dp(40)
+        cabeca.addView(View(context).apply {
             background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
                 corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
             }
-        }, LinearLayout.LayoutParams(lado, lado).apply { bottomMargin = dp(Estilo.E2) })
-        val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { textSize = 24f; maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
-        val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, frase).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setPaddingRelative(0, dp(4), 0, 0) }
-        addView(tNome); addView(tFrase)
+        }, LinearLayout.LayoutParams(lado, lado).apply { marginEnd = dp(12) })
+        val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { textSize = 22f; maxLines = 2 }
+        cabeca.addView(tNome, LinearLayout.LayoutParams(0, WRAP, 1f))
+        val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, frase).apply { maxLines = 2; setPaddingRelative(0, dp(8), 0, 0) }
+        addView(cabeca); addView(tFrase)
         setOnFocusChangeListener { v, foco ->
             v.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO + 4, Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO + 4, Estilo.BORDA)) else normal
             tNome.setTextColor(if (foco && Estilo.focoEscurece(context)) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
@@ -124,10 +124,12 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int, uso: UsoTv): View {
             if (foco) mostrarDicaDasPortas()
         }
         setOnClickListener { abrirPorta(p) }
-        minimumHeight = dp(150)
-        gravity = Gravity.TOP
     }
 }
+
+/** O que tem atrás de cada porta, em poucas palavras (as explicações das abas eram longas demais para o cartão). */
+private val FRASES = intArrayOf(R.string.cfg3_porta_0_det, R.string.cfg3_porta_1_det, R.string.cfg3_porta_2_det,
+    R.string.cfg3_porta_3_det, R.string.cfg3_porta_4_det, R.string.cfg3_porta_5_det)
 
 private const val PORTA_CASA_REDE = 4
 

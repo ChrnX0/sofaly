@@ -5,4 +5,10 @@
     <string name="cfg3_mais_ajustes">مزيد من الإعدادات</string>
     <string name="cfg3_mais_ajustes_det">مخفية في الوضع البسيط: %1$d</string>
     <string name="cfg3_modo">الوضع: %1$s</string>
+    <string name="cfg3_porta_0_det">الصليب والأيقونات والخلفية</string>
+    <string name="cfg3_porta_1_det">حسابات التلفاز واللغة والخط</string>
+    <string name="cfg3_porta_2_det">الأطفال وPIN والضيوف</string>
+    <string name="cfg3_porta_3_det">شاشة التوقف والنوم والمنبه</string>
+    <string name="cfg3_porta_4_det">المنزل والهاتف واللوحة</string>
+    <string name="cfg3_porta_5_det">التحديث والنسخ والمساعدة</string>
 </resources>

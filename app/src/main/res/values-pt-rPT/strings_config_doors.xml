@@ -5,4 +5,10 @@
     <string name="cfg3_mais_ajustes">Mais definições</string>
     <string name="cfg3_mais_ajustes_det">Ocultas no modo Simples: %1$d</string>
     <string name="cfg3_modo">Modo: %1$s</string>
+    <string name="cfg3_porta_0_det">Cruz, ícones e fundo</string>
+    <string name="cfg3_porta_1_det">Contas de TV, idioma, letra</string>
+    <string name="cfg3_porta_2_det">Crianças, PIN e visitas</string>
+    <string name="cfg3_porta_3_det">Proteção, sono e despertar</string>
+    <string name="cfg3_porta_4_det">Casa, telemóvel e painel</string>
+    <string name="cfg3_porta_5_det">Atualizar, cópia e ajuda</string>
 </resources>

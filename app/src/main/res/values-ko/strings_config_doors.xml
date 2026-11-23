@@ -5,4 +5,10 @@
     <string name="cfg3_mais_ajustes">설정 더 보기</string>
     <string name="cfg3_mais_ajustes_det">간단 모드에서 숨김: %1$d개</string>
     <string name="cfg3_modo">모드: %1$s</string>
+    <string name="cfg3_porta_0_det">십자 메뉴, 아이콘, 배경</string>
+    <string name="cfg3_porta_1_det">TV 계정, 언어, 글자</string>
+    <string name="cfg3_porta_2_det">어린이, PIN, 손님</string>
+    <string name="cfg3_porta_3_det">화면 보호기, 절전, 알람</string>
+    <string name="cfg3_porta_4_det">홈, 휴대폰, 패널</string>
+    <string name="cfg3_porta_5_det">업데이트, 백업, 도움말</string>
 </resources>
