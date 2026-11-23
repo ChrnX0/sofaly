@@ -425,7 +425,7 @@ internal fun MainActivity.atualizarCruz() {
                     if (i == 0) trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) else menuDoMundo(cat.cat, cat.nome)
                 }
             }
-        })
+        }, soIcone = cat.soIcone)
     })
     c.itemAtual()?.let { vitrineDoItem(it) }   // os cartões chegam depois do 1º desenho: a vitrine se acerta
     if (focoInicialNaTv && !todosAbertos) { focoInicialNaTv = false; c.requestFocus() }
