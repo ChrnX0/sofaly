@@ -31,5 +31,5 @@
         <item>Geminídeas</item>
     </string-array>
     <string name="ns_titulo">Céu da noite</string>
-    <string name="ilha_uv">UV %1$d: passe protetor solar</string>
+    <string name="ilha_uv">UV %1$d: use protetor solar</string>
 </resources>
