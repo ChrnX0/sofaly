@@ -40,6 +40,7 @@ import br.paulo.tvlauncher.family.Uso
 import br.paulo.tvlauncher.games.Jogos
 import br.paulo.tvlauncher.games.JogosTv
 import br.paulo.tvlauncher.games.TurmaDiscordTv
+import br.paulo.tvlauncher.home.PluginWidgetsTv
 import br.paulo.tvlauncher.home.AllAppsScreen
 import br.paulo.tvlauncher.home.AppShelf
 import br.paulo.tvlauncher.home.AppStorage
@@ -425,6 +426,7 @@ class MainActivity : Activity() {
     override fun onResume() {
         super.onResume()
         homeNaFrente = true
+        PluginWidgetsTv.ouvir(this)   // widgets de outros apps: avisos de mudança só com a HOME na frente
         recongelarPendentes()   // "congelar de novo ao voltar" (Todos os apps, 20/11/2026)
         // Pen drive com apps foi tirado (AppStorage): diz quais sumiram até ele voltar.
         AppStorage.ausentes(this).takeIf { it.isNotEmpty() }?.let { f ->
@@ -526,6 +528,7 @@ class MainActivity : Activity() {
     override fun onPause() {
         super.onPause()
         homeNaFrente = false
+        PluginWidgetsTv.parar()
         SonsCruz.naFrente = false
         ui.removeCallbacks(tarefaIlhaTique); ui.removeCallbacks(tarefaIlhaGira)
         CasaHA.aoTocarCampainha = null
@@ -1591,10 +1594,13 @@ class MainActivity : Activity() {
             ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) }
             // Plugins (degrau 3, PluginsTv): desenha já com os cartões da última leitura e só redesenha se mudaram. Sem
             // plugin permitido, cartoes() volta na hora; com plugin, cada um tem 2 s de prazo (aqui, fora da tela).
-            val novos = PluginsTv.cartoes(this)
+            // Widgets de outros apps (PluginWidgetsTv): entram como cartões do mundo Apps, com a foto do widget por imagem.
+            val widgets = PluginWidgetsTv.cartoes(this)
+            val fotos = widgets.associate { (c, d) -> c.pacote + "|" + c.imagem to d }
+            val novos = PluginsTv.cartoes(this) + widgets.map { it.first }
             if (novos != cartoesPlugin) {
                 // Imagens dos cartões v2: lidas aqui, fora da tela, antes de trocar a lista (a HOME só desenha o que já tem).
-                imagensPlugin = novos.mapNotNull { c -> c.imagem?.let { u -> (imagensPlugin[c.pacote + "|" + u] ?: PluginsTv.imagem(this, c))?.let { c.pacote + "|" + u to it } } }.toMap()
+                imagensPlugin = novos.mapNotNull { c -> c.imagem?.let { u -> (fotos[c.pacote + "|" + u] ?: imagensPlugin[c.pacote + "|" + u] ?: PluginsTv.imagem(this, c))?.let { c.pacote + "|" + u to it } } }.toMap()
                 cartoesPlugin = novos; ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) }
             }
             carregarArte(IconeApp.Tipo.FILMES, filme)

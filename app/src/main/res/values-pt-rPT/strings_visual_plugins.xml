@@ -47,4 +47,12 @@
     <string name="ext_secao_botoes">Botões do painel rápido</string>
     <string name="ext_nenhum_botao">Ainda não há botões de outras aplicações. Algumas aplicações põem um botão de ligar e desligar no painel rápido (mantenha VOLTAR premido).</string>
     <string name="ext_off_blocked">Desativado pela Sofaly: este plugin tem um problema conhecido.</string>
+    <string name="ext_secao_widgets">Widgets de outras apps</string>
+    <string name="ext_widget_onde">No ecrã inicial, em Apps</string>
+    <string name="ext_widget_tirar">Tirar</string>
+    <string name="ext_widget_por">Pôr um widget</string>
+    <string name="ext_widget_por_det">A imagem do widget torna-se um cartão em Apps. OK abre a app dele.</string>
+    <string name="ext_widget_nenhum">Nenhuma app desta TV tem widget ainda.</string>
+    <string name="ext_widget_sem_permissao">A TV não deixou a Sofaly pôr widgets.</string>
+    <string name="ext_widget_falhou">Não foi possível pôr este widget.</string>
 </resources>

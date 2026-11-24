@@ -47,4 +47,12 @@
     <string name="ext_secao_botoes">빠른 패널 버튼</string>
     <string name="ext_nenhum_botao">아직 다른 앱의 버튼이 없습니다. 일부 앱은 빠른 패널에 켜기/끄기 버튼을 추가합니다(뒤로를 길게 누르기).</string>
     <string name="ext_off_blocked">Sofaly가 껐습니다: 이 플러그인에 알려진 문제가 있습니다.</string>
+    <string name="ext_secao_widgets">다른 앱의 위젯</string>
+    <string name="ext_widget_onde">홈 화면의 앱에 표시</string>
+    <string name="ext_widget_tirar">제거</string>
+    <string name="ext_widget_por">위젯 추가</string>
+    <string name="ext_widget_por_det">위젯 이미지가 앱의 카드가 됩니다. OK를 누르면 해당 앱이 열립니다.</string>
+    <string name="ext_widget_nenhum">이 TV에는 아직 위젯이 있는 앱이 없습니다.</string>
+    <string name="ext_widget_sem_permissao">TV가 Sofaly의 위젯 추가를 허용하지 않았습니다.</string>
+    <string name="ext_widget_falhou">이 위젯을 추가할 수 없습니다.</string>
 </resources>

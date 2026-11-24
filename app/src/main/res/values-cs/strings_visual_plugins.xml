@@ -43,4 +43,12 @@
     <string name="wp_d_tvicons">Přes 800 ikon vytvořených pro TV</string>
     <string name="wp_d_minimalist">Čisté symboly na jedné barvě pozadí</string>
     <string name="wp_d_arcticons">15 000 tenkých čárových ikon (pro telefony, funguje i zde)</string>
+    <string name="ext_secao_widgets">Widgety jiných aplikací</string>
+    <string name="ext_widget_onde">Na domovské obrazovce, v Aplikacích</string>
+    <string name="ext_widget_tirar">Odebrat</string>
+    <string name="ext_widget_por">Přidat widget</string>
+    <string name="ext_widget_por_det">Obrázek widgetu se stane kartou v Aplikacích. OK otevře jeho aplikaci.</string>
+    <string name="ext_widget_nenhum">Žádná aplikace na této TV zatím nemá widget.</string>
+    <string name="ext_widget_sem_permissao">TV nedovolila Sofaly přidat widgety.</string>
+    <string name="ext_widget_falhou">Tento widget se nepodařilo přidat.</string>
 </resources>

@@ -47,4 +47,12 @@
     <string name="ext_secao_botoes">クイックパネルのボタン</string>
     <string name="ext_nenhum_botao">他のアプリのボタンはまだありません。クイックパネルにオン/オフのボタンを追加するアプリがあります（戻るを長押し）。</string>
     <string name="ext_off_blocked">Sofalyがオフにしました：このプラグインには既知の問題があります。</string>
+    <string name="ext_secao_widgets">他のアプリのウィジェット</string>
+    <string name="ext_widget_onde">ホーム画面の「アプリ」に表示</string>
+    <string name="ext_widget_tirar">外す</string>
+    <string name="ext_widget_por">ウィジェットを追加</string>
+    <string name="ext_widget_por_det">ウィジェットの画像が「アプリ」のカードになります。OKでそのアプリが開きます。</string>
+    <string name="ext_widget_nenhum">このテレビにはウィジェットのあるアプリがまだありません。</string>
+    <string name="ext_widget_sem_permissao">テレビがSofalyのウィジェット追加を許可しませんでした。</string>
+    <string name="ext_widget_falhou">このウィジェットを追加できませんでした。</string>
 </resources>

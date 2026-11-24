@@ -8,11 +8,13 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import br.paulo.tvlauncher.home.PacoteIcones
+import br.paulo.tvlauncher.home.PluginWidgetsTv
 import br.paulo.tvlauncher.panel.QrCodigo
 import br.paulo.tvlauncher.player.LojaCurada
 import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.PluginCatalog
 import br.paulo.tvlauncher.screensaver.PluginTile
+import br.paulo.tvlauncher.screensaver.PluginWidget
 import br.paulo.tvlauncher.screensaver.WallpaperPlugins
 import br.paulo.tvlauncher.screensaver.ExtensionHealth
 import br.paulo.tvlauncher.settings.Planos
@@ -62,6 +64,7 @@ object PluginsTv {
         for (pac in ExtensionHealth.definirBloqueados(ctx, lista)) {
             definir(ctx, pac, false)
             PluginTilesTv.definir(ctx, pac, false)
+            PluginWidgetsTv.removerPacote(ctx, pac)
             WallpaperPlugins.escolhido(ctx)?.takeIf { it.pacote == pac }?.let { WallpaperPlugins.parar(ctx, it) }
             if (PacoteIcones.escolhido(ctx) == pac) PacoteIcones.escolher(ctx, "")
             runCatching { br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "sofy", "plugin desligado pela Sofaly (problema conhecido)", "ok") }
@@ -349,6 +352,26 @@ class PluginsActivity : Activity() {
             }, Estilo.lpLinha(this))
         }
 
+        // ---- Widgets de outros apps (PluginWidgetsTv, 24/11/2026): a foto do widget vira um cartão do mundo Apps.
+        if (PluginWidgetsTv.existe(this)) {
+            coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_widgets)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+            val ligados = PluginWidgetsTv.escolhidos(this)
+            val awm = android.appwidget.AppWidgetManager.getInstance(this)
+            for (w in ligados) {
+                val info = runCatching { awm.getAppWidgetInfo(w.id) }.getOrNull()
+                val nome = info?.let { PluginWidgetsTv.nome(this, it) } ?: w.pacote
+                val sub = PluginsTv.motivoDesligado(this, w.pacote) ?: getString(R.string.ext_widget_onde)
+                coluna.addView(Estilo.linhaOpcao(this, nome, sub, Estilo.valor(this, getString(R.string.ext_widget_tirar), seta = false)).apply {
+                    setOnClickListener { PluginWidgetsTv.remover(this@PluginsActivity, w.id); montar() }
+                }, Estilo.lpLinha(this))
+            }
+            if (ligados.size < PluginWidget.MAX) {
+                coluna.addView(Estilo.linhaOpcao(this, getString(R.string.ext_widget_por), getString(R.string.ext_widget_por_det), Estilo.valor(this, "")).apply {
+                    setOnClickListener { escolherWidget() }
+                }, Estilo.lpLinha(this))
+            }
+        }
+
         // ---- Conseguir plugins (vitrine)
         coluna.addView(Estilo.secao(this, getString(R.string.wp_secao_descobrir)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
         val instalados = (fundos.map { it.pacote } + pacotes.map { it.first }).toSet()
@@ -373,6 +396,59 @@ class PluginsActivity : Activity() {
         runCatching { packageManager.getApplicationInfo(p, PackageManager.MATCH_DISABLED_COMPONENTS); true }.getOrDefault(false)
 
     /** Fundo instalado: usar como fundo, ajustes do próprio plugin, parar de usar. */
+    /** Lista dos widgets instalados; o escolhido é ligado fora da tela (pode chamar o shell) e entra na HOME. */
+    private fun escolherWidget() {
+        if (!pro()) return
+        val lista = PluginWidgetsTv.disponiveis(this)
+        if (lista.isEmpty()) {
+            android.widget.Toast.makeText(this, getString(R.string.ext_widget_nenhum), android.widget.Toast.LENGTH_LONG).show(); return
+        }
+        aberto = Estilo.lista(this, getString(R.string.ext_widget_por), lista.map { PluginWidgetsTv.nome(this, it) }) { i ->
+            val info = lista[i]
+            runCatching {
+                trabalho.execute {
+                    val (r, id) = PluginWidgetsTv.adicionar(applicationContext, info)
+                    runOnUiThread {
+                        if (isDestroyed) return@runOnUiThread
+                        when {
+                            r == PluginWidgetsTv.Resultado.OK && PluginWidgetsTv.precisaAjuste(info) -> {
+                                widgetAjuste = id to info.provider.flattenToString()
+                                if (!PluginWidgetsTv.abrirAjuste(this, id, PEDIDO_AJUSTE)) { widgetAjuste = null; PluginWidgetsTv.desfazer(this, id); avisoWidget(PluginWidgetsTv.Resultado.FALHOU) }
+                            }
+                            r == PluginWidgetsTv.Resultado.OK -> montar()
+                            else -> avisoWidget(r)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private var widgetAjuste: Pair<Int, String>? = null
+
+    /** Volta da tela de ajuste do widget: OK liga; voltar sem OK devolve o id ao sistema. */
+    @Deprecated("Activity.onActivityResult")
+    override fun onActivityResult(pedido: Int, resultado: Int, dados: Intent?) {
+        @Suppress("DEPRECATION") super.onActivityResult(pedido, resultado, dados)
+        if (pedido != PEDIDO_AJUSTE) return
+        val (id, prov) = widgetAjuste ?: return
+        widgetAjuste = null
+        if (resultado == RESULT_OK) PluginWidgetsTv.confirmar(this, id, prov) else PluginWidgetsTv.desfazer(this, id)
+        montar()
+    }
+
+    private fun avisoWidget(r: PluginWidgetsTv.Resultado) {
+        val t = when (r) {
+            PluginWidgetsTv.Resultado.LIMITE -> getString(R.string.plg_limite, PluginWidget.MAX)
+            PluginWidgetsTv.Resultado.SEM_PERMISSAO -> getString(R.string.ext_widget_sem_permissao)
+            PluginWidgetsTv.Resultado.BLOQUEADO -> getString(R.string.ext_off_blocked)
+            else -> getString(R.string.ext_widget_falhou)
+        }
+        android.widget.Toast.makeText(this, t, android.widget.Toast.LENGTH_LONG).show()
+    }
+
+    private companion object { const val PEDIDO_AJUSTE = 0x57 }
+
     private fun menuFundo(f: WallpaperPlugins.Provider, emUso: Boolean) {
         val opcoes = mutableListOf<Pair<String, () -> Unit>>()
         if (!emUso) opcoes += getString(R.string.wp_usar) to {

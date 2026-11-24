@@ -43,4 +43,12 @@
     <string name="wp_d_tvicons">Πάνω από 800 εικονίδια φτιαγμένα για TV</string>
     <string name="wp_d_minimalist">Καθαρά σύμβολα σε ένα χρώμα φόντου</string>
     <string name="wp_d_arcticons">15.000 λεπτά γραμμικά εικονίδια (φτιαγμένα για κινητά, λειτουργούν και εδώ)</string>
+    <string name="ext_secao_widgets">Γραφικά στοιχεία άλλων εφαρμογών</string>
+    <string name="ext_widget_onde">Στην αρχική οθόνη, στις Εφαρμογές</string>
+    <string name="ext_widget_tirar">Αφαίρεση</string>
+    <string name="ext_widget_por">Προσθήκη γραφικού στοιχείου</string>
+    <string name="ext_widget_por_det">Μια εικόνα του στοιχείου γίνεται κάρτα στις Εφαρμογές. Το OK ανοίγει την εφαρμογή του.</string>
+    <string name="ext_widget_nenhum">Καμία εφαρμογή αυτής της τηλεόρασης δεν έχει ακόμη γραφικό στοιχείο.</string>
+    <string name="ext_widget_sem_permissao">Η τηλεόραση δεν επέτρεψε στη Sofaly να προσθέσει γραφικά στοιχεία.</string>
+    <string name="ext_widget_falhou">Δεν ήταν δυνατή η προσθήκη αυτού του στοιχείου.</string>
 </resources>
