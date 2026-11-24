@@ -139,8 +139,12 @@ object StripHome {
     fun semGritar(s: String): String {
         val letras = s.filter { it.isLetter() }
         if (letras.length < 8 || letras.count { it.isUpperCase() } < letras.length * 0.8) return s
-        return s.lowercase().split(" ").joinToString(" ") { w -> w.replaceFirstChar { it.titlecase() } }
+        return s.lowercase().split(" ").mapIndexed { i, w -> if (i > 0 && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() } }.joinToString(" ")
     }
+
+    /** Palavras pequenas que ficam minúsculas no meio do título (pt, es, en, fr, it). */
+    private val MIUDAS = setOf("e", "de", "da", "do", "das", "dos", "a", "o", "as", "os", "em", "no", "na", "y", "del", "la", "el",
+        "and", "of", "the", "to", "in", "et", "le", "les", "des", "di", "il")
 
     /** Partes de um texto com ** ** (negrito) para quem desenha: (texto, negrito?). */
     fun partes(s: String): List<Pair<String, Boolean>> =
