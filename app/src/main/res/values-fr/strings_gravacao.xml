@@ -12,7 +12,7 @@
     <string name="grv_selo">ENREGISTREMENT jusqu’à %1$s</string>
     <string name="grv_sem_canal">La chaîne n’est pas dans la liste enregistrée. Ouvrez la TV en direct une fois et réessayez.</string>
     <string name="grv_sem_destino">Nulle part où enregistrer : branchez une clé USB sur le hub, ou choisissez un dossier réseau dans TV › Enregistrements.</string>
-    <string name="grv_pendrive_formato">La clé USB « %1$s » utilise un format que la TV ne lit pas (NTFS). Utilisez une clé en exFAT ou FAT32, ou formatez celle-ci dans Paramètres › Système › Stockage (cela efface son contenu).</string>
+    <string name="grv_pendrive_formato">La clé USB « %1$s » utilise un format que la TV ne lit pas (NTFS). Utilisez une clé en exFAT ou FAT32, ou formatez celle-ci dans Paramètres de la TV › Système › Stockage (cela efface son contenu).</string>
     <string name="grv_pendrive_cheio">La clé USB « %1$s » est pleine ou trop petite pour enregistrer (il faut 512 Mo libres). Utilisez une autre clé ou libérez de l’espace.</string>
     <string name="grv_sem_destino_ainda">branchez une clé USB avant le début</string>
     <string name="grv_nao_gravou">%1$s n’a pas été enregistré</string>

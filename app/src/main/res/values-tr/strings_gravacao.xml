@@ -12,7 +12,7 @@
     <string name="grv_selo">%1$s’e kadar KAYIT</string>
     <string name="grv_sem_canal">Kanal kayıtlı listede yok. Canlı TV’yi bir kez açın ve yeniden deneyin.</string>
     <string name="grv_sem_destino">Kayıt yapılacak yer yok: hub’a bir USB bellek takın veya TV › Kayıtlar’da bir ağ klasörü seçin.</string>
-    <string name="grv_pendrive_formato">«%1$s» USB belleği TV’nin okuyamadığı bir biçim (NTFS) kullanıyor. exFAT veya FAT32 bir bellek kullanın ya da bunu Ayarlar › Sistem › Depolama’da biçimlendirin (içindekileri siler).</string>
+    <string name="grv_pendrive_formato">«%1$s» USB belleği TV’nin okuyamadığı bir biçim (NTFS) kullanıyor. exFAT veya FAT32 bir bellek kullanın ya da bunu TV ayarları › Sistem › Depolama’da biçimlendirin (içindekileri siler).</string>
     <string name="grv_pendrive_cheio">«%1$s» USB belleği dolu veya kayıt için çok küçük (512 MB boş alan gerekir). Başka bir bellek kullanın veya yer açın.</string>
     <string name="grv_sem_destino_ainda">başlamadan önce bir USB bellek takın</string>
     <string name="grv_nao_gravou">%1$s kaydedilmedi</string>

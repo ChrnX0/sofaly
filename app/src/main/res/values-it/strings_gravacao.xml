@@ -12,7 +12,7 @@
     <string name="grv_selo">REGISTRAZIONE fino alle %1$s</string>
     <string name="grv_sem_canal">Il canale non è nella lista salvata. Apri una volta la TV in diretta e riprova.</string>
     <string name="grv_sem_destino">Nessun posto dove registrare: collega una chiavetta USB all’hub, o scegli una cartella di rete in TV › Registrazioni.</string>
-    <string name="grv_pendrive_formato">La chiavetta USB “%1$s” usa un formato che la TV non legge (NTFS). Usa una chiavetta exFAT o FAT32, o formatta questa in Impostazioni › Sistema › Memoria (cancella ciò che contiene).</string>
+    <string name="grv_pendrive_formato">La chiavetta USB “%1$s” usa un formato che la TV non legge (NTFS). Usa una chiavetta exFAT o FAT32, o formatta questa in Impostazioni della TV › Sistema › Memoria (cancella ciò che contiene).</string>
     <string name="grv_pendrive_cheio">La chiavetta USB “%1$s” è piena o troppo piccola per registrare (servono 512 MB liberi). Usa un’altra chiavetta o libera spazio.</string>
     <string name="grv_sem_destino_ainda">collega una chiavetta USB prima che inizi</string>
     <string name="grv_nao_gravou">%1$s non è stato registrato</string>

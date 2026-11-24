@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"Im Schnellmenü des Fernsehers (ZURÜCK gedrückt halten), mit dem Schalter \"Familienpinnwand im Schnellmenü\" an: Einkaufsliste und bis zu 3 angeheftete Notizen. Dort kannst du eine Notiz als gelesen markieren und löschen.",
 "Aniversários":"Geburtstage",
 "Rádios":"Radio",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"Am Fernseher: Hören › Radio (Sender aus aller Welt, von radio-browser.info). Hier kannst du die Adresse jedes Senders einfügen (.mp3, .aac, .m3u8, .pls oder .m3u); er wird am Fernseher zum Favoriten.",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"Am Fernseher: Hören › Radio (Sender aus aller Welt, von radio-browser.info). Hier kannst du die Adresse jedes Senders einfügen (.mp3, .aac, .m3u8, .pls oder .m3u); er wird am Fernseher zum Favoriten.",
 "Nome da rádio":"Sendername",
 "Pôr na TV":"An den Fernseher senden",
 "Nenhuma rádio favorita.":"Keine Lieblingssender.",

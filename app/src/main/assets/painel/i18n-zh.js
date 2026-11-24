@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"在电视的快捷面板中（长按返回），打开“快捷面板中的家庭留言板”开关后：购物清单和最多 3 条置顶留言。在那里可以把留言标为已读并删除。",
 "Aniversários":"生日",
 "Rádios":"电台",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"在电视上:收听 › 电台(来自 radio-browser.info 的全球电台)。可以在这里粘贴任意电台地址(.mp3、.aac、.m3u8、.pls 或 .m3u),它会成为电视上的收藏。",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"在电视上:收听 › 电台(来自 radio-browser.info 的全球电台)。可以在这里粘贴任意电台地址(.mp3、.aac、.m3u8、.pls 或 .m3u),它会成为电视上的收藏。",
 "Nome da rádio":"电台名称",
 "Pôr na TV":"发送到电视",
 "Nenhuma rádio favorita.":"没有收藏的电台。",

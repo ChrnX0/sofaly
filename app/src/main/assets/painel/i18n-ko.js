@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"TV의 빠른 패널(뒤로 길게 누르기)에서 \"빠른 패널의 가족 게시판\" 스위치가 켜져 있으면: 장보기 목록과 고정 메모 최대 3개. 거기서 메모를 읽음으로 표시하고 지울 수 있습니다.",
 "Aniversários":"생일",
 "Rádios":"라디오",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"TV에서: 듣기 › 라디오(radio-browser.info의 전 세계 방송국). 여기에 아무 방송국 주소(.mp3, .aac, .m3u8, .pls 또는 .m3u)나 붙여 넣으면 TV에서 즐겨찾기가 됩니다.",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"TV에서: 듣기 › 라디오(radio-browser.info의 전 세계 방송국). 여기에 아무 방송국 주소(.mp3, .aac, .m3u8, .pls 또는 .m3u)나 붙여 넣으면 TV에서 즐겨찾기가 됩니다.",
 "Nome da rádio":"방송국 이름",
 "Pôr na TV":"TV로 보내기",
 "Nenhuma rádio favorita.":"즐겨찾는 방송국이 없습니다.",
