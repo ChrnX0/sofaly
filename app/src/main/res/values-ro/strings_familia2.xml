@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Zi de naștere</string>
+    <string name="an_hoje">Azi e ziua lui %s</string>
+    <string name="an_amanha">Mâine e ziua lui %s</string>
+    <plurals name="an_anos">
+        <item quantity="one">împlinește %d an</item>
+        <item quantity="few">împlinește %d ani</item>
+        <item quantity="other">împlinește %d de ani</item>
+    </plurals>
+    <string name="tp_calor">Căldură puternică</string>
+    <string name="tp_calor_texto">Până la %d° azi · Beți apă</string>
+    <string name="tp_frio">Frig puternic</string>
+    <string name="tp_frio_texto">Până la %d° la noapte · Îmbrăcați-vă gros</string>
+    <string name="tp_cfg">Alertă de căldură și frig</string>
+    <string name="tp_cfg_det">Un card peste orice aplicație când azi se ajunge la %1$d° sau noaptea scade la %2$d°</string>
+    <string name="mu_ok_lido">OK marchează ca citit</string>
+    <string name="mu_ok_nao_lido">Citit · OK marchează ca necitit</string>
+    <string name="mu_lido_desc">Mesaj, citit: %s. OK marchează ca necitit.</string>
+    <string name="mu_nao_lido_desc">Mesaj: %s. OK marchează ca citit.</string>
+    <string name="mu_apagar">Șterge mesajul: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">TV-ul dvs. anul acesta (în decembrie, pe screensaver)</string>
+    <string name="extras_ENTRADAS_TV">Intrări HDMI în Aplicații (doar pe TV-urile cu intrări)</string>
+    <string name="ra_titulo">TV-ul dvs. în %d</string>
+    <string name="ra_canal">Canal preferat: %1$s (%2$s)</string>
+    <string name="ra_coluna">Radio</string>
+    <string name="ra_dica_ouvir">ascultă</string>
+    <string name="ra_dica_favoritar">preferat</string>
+    <string name="ra_carregando">Se încarcă posturile…</string>
+    <string name="ra_sem_catalogo">Catalogul de radio nu a răspuns. Preferatele funcționează în continuare.</string>
+    <string name="ra_nada">Niciun post găsit.</string>
+    <string name="ra_continuar">continuă</string>
+    <string name="ra_pausar">pauză</string>
+    <string name="ra_favoritas">Preferate</string>
+    <string name="ra_procurar">Caută</string>
+    <string name="ra_buscar">Caută după nume</string>
+    <string name="ra_buscar_det">Orice post din lume</string>
+    <string name="ra_generos">Genuri</string>
+    <string name="ra_perto">În apropiere</string>
+    <string name="ra_mundo">Cele mai ascultate din lume</string>
+    <string name="ra_resultado">Căutare: %s</string>
+    <string name="ra_favoritada">Adăugat la preferate</string>
+    <string name="ra_desfavoritada">Eliminat din preferate</string>
+    <string name="ra_falhou">Acest post nu emite acum. Încercați altul.</string>
+</resources>

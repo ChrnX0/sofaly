@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player de podcast em tela cheia (PodcastPlayerActivity, 18/11/2026). -->
+<resources>
+    <string name="pl_termina">se termină la %1$s</string>
+    <string name="pl_dorme_em">adoarme în %1$d min</string>
+    <string name="pl_a_seguir">Urmează</string>
+    <string name="pl_dormir">Temporizator de oprire</string>
+    <string name="pl_dormir_min">În %1$d min</string>
+    <string name="pl_barra_dica">◀ ▶ mută 10 s · țineți pentru mai repede</string>
+    <string name="pl_abrir">Deschide playerul</string>
+    <string name="pl_abrir_det">Ecran complet, cu ce urmează</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Font</string>
+    <string name="fc_det">Literele de pe fiecare ecran. Fonturile Google se descarcă prima dată</string>
+    <string name="fc_baixando">se descarcă…</string>
+    <string name="fc_falhou">Nu s-a putut descărca. Verificați internetul</string>
+    <string name="ck_formato">Formatul orei</string>
+    <string name="ck_formato_det">În bara de sus, Insulă și ceasul mare</string>
+    <string name="ck_auto">Automat</string>
+    <string name="ck_24">24 h (15:40)</string>
+    <string name="ck_12">12 h (3:40)</string>
+    <string name="ck_12ampm">12 h cu AM/PM</string>
+    <string name="ck_seg">Cu secunde</string>
+    <string name="ck_cor">Culoarea orei</string>
+    <string name="ck_cor_det">În bara de sus, Insulă și ceasul mare</string>
+    <string name="ck_padrao">Implicit</string>
+    <string name="ck_laranja">Portocaliu</string>
+    <string name="ck_creme">Crem</string>
+    <string name="ck_ambar">Chihlimbar</string>
+    <string name="ck_verde">Turcoaz</string>
+</resources>

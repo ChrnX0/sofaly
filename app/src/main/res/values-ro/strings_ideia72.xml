@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Deschide %1$s</string>
+    <string name="l72_tela_previsao">prognoza meteo</string>
+    <string name="l72_tela_agenda">calendarul</string>
+    <string name="l72_tela_despertador">ceasul cu alarmă</string>
+    <string name="l72_tela_configuracoes">Setările launcherului</string>
+    <string name="l72_tela_inicio">ecranul principal</string>
+    <string name="l72_despertador">Creează o alarmă la %1$s (%2$s)</string>
+    <string name="l72_dias_uma">o dată</string>
+    <string name="l72_dias_todos">în fiecare zi</string>
+    <string name="l72_dias_uteis">Lun–Vin</string>
+    <string name="l72_dias_fds">weekendurile</string>
+    <string name="l72_dias_nomes">Dum,Lun,Mar,Mie,Joi,Vin,Sâm</string>
+    <string name="l72_vol_subir">Dă volumul mai tare</string>
+    <string name="l72_vol_descer">Dă volumul mai încet</string>
+    <string name="l72_vol_mudo">Mut/sunet</string>
+    <string name="l72_vezes">(de %1$d ori)</string>
+    <string name="l72_midia_pausar">Pauză</string>
+    <string name="l72_midia_tocar">Reia redarea</string>
+    <string name="l72_midia_proxima">Următorul</string>
+    <string name="l72_midia_anterior">Anteriorul</string>
+    <string name="l72_visita_liga">Activează modul invitat</string>
+    <string name="l72_visita_desliga">Dezactivează modul invitat</string>
+    <string name="l72_canal_pedido">Comută pe canalul %1$s</string>
+    <string name="l72_canal">Comută pe canalul %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Vezi ce e pe %1$s</string>
+    <string name="l72_casa_ligar">Pornește</string>
+    <string name="l72_casa_desligar">Oprește</string>
+    <string name="l72_casa_alternar">Comută</string>
+    <string name="l72_casa">%1$s %2$s (casă)</string>
+    <string name="l72_guia_vazio">%1$s: nimic în ghid.</string>
+    <string name="l72_guia_agora">%1$s acum: %2$s (până la %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: nimic în ghid acum</string>
+    <string name="l72_guia_depois">Urmează: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Se redă acum: %1$s, %2$s. OK pune pauză sau reia; țineți OK pentru a deschide aplicația</string>
+</resources>

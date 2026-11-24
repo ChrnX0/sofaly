@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Cont Google Drive</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Cont Google Drive</string>
+    <string name="drv_nao_conectada">neconectat</string>
+    <string name="drv_passos">1. Pe telefon, deschideți %1$s (sau îndreptați camera spre codul din dreapta).\n2. Conectați-vă cu un cont Google care este pe acest TV și tastați:\n\n%2$s\n\n3. Permiteți accesul la Google Drive. TV-ul vede doar fișierele pe care le creează singur (folderul OneTV-backup), niciodată restul Drive-ului dvs.\n\nAcest ecran continuă singur.</string>
+    <string name="drv_ok">Gata: %1$s este conectat. Alegeți \"Google Drive\" pe linia Copie suplimentară, ca și copia de noapte să meargă acolo.</string>
+    <string name="drv_sem_google">Conectarea Google nu este încă configurată pe acest TV.\n\nConfigurați-o în panoul web > fila Claude (propriul client OAuth, de tip \"TVs and Limited Input devices\"), activați Google Drive API în același proiect Google Cloud și reveniți aici.</string>
+    <string name="drv_desconectar_pergunta">Deconectați %1$s? Copiile deja aflate în Google Drive rămân acolo; TV-ul nu mai trimite altele noi.</string>
+    <string name="drv_desconectar">Deconectează</string>
+    <string name="drv_restaurar">Restaurare din Google Drive</string>
+    <string name="drv_precisa_conta">Conectați mai întâi contul Google Drive (linia de mai sus).</string>
+    <string name="drv_falhou">Nu a funcționat: %1$s</string>
+    <string name="drv_nenhuma">Nu există încă copii în folderul OneTV-backup din Google Drive.</string>
+    <string name="drv_escolha">Ce copie?</string>
+    <string name="drv_senha">Parola copiei</string>
+    <string name="drv_senha_errada">Parolă greșită a copiei (sau fișierul a fost modificat). Nu s-a restaurat nimic.</string>
+    <string name="drv_restaurado">Restaurat. Launcherul repornește imediat.</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Conexiunea a căzut. Se reîncearcă (%1$d din %2$d)…</string>
+    <string name="vod_proximo_episodio">Episodul următor</string>
+    <string name="vod_proximo_agora">Vizionează acum · %1$d s</string>
+    <string name="vod_proximo_cancelar">Anulează</string>
+    <string name="vod_proximo_continuar">Continuă vizionarea</string>
+    <string name="vod_ainda_assistindo">Mai vizionați?</string>
+    <string name="vod_ainda_assistindo_texto">Câteva episoade au rulat fără ca cineva să atingă telecomanda, așa că următorul vă așteaptă.</string>
+    <string name="vod_desligar_ao_fim">Oprește TV-ul când se termină</string>
+    <string name="vod_legenda_tamanho_titulo">Mărimea subtitrărilor</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Mică</item>
+        <item>Normală</item>
+        <item>Mare</item>
+        <item>Uriașă</item>
+    </string-array>
+</resources>

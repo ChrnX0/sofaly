@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Mai multe opțiuni</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Fotografii pentru screensaver de pe telefon</string>
+    <string name="qrd_fotos_det">Arată un cod: telefonul deschide panoul direct pe pagina de fotografii</string>
+    <string name="qrd_mural">Panoul familiei de pe telefon</string>
+    <string name="qrd_mural_det">Lista de cumpărături și notițe fixate</string>
+    <string name="qrd_cenas">Scene de pe telefon</string>
+    <string name="qrd_cenas_det">Creați și testați scene în panoul web</string>
+    <string name="qrd_casa">Home Assistant de pe telefon</string>
+    <string name="qrd_casa_det">Adresa și tokenul Home Assistant-ului dvs., în panoul web</string>
+    <string name="qrd_time">Echipa mea și mementouri de pe telefon</string>
+    <string name="qrd_time_det">Cuvinte care transformă programele din ghid în mementouri</string>
+    <string name="qrd_roteador">Router de pe telefon</string>
+    <string name="qrd_roteador_det">Adresa și cheia API a routerului UniFi, în panoul web</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Plăcile panoului rapid</string>
+    <string name="pb_subtitulo">OK afișează sau ascunde · ◀ ▶ schimbă ordinea</string>
+    <string name="pb_cfg_det">Alegeți ce plăci arată panoul rapid (țineți ÎNAPOI) și în ce ordine</string>
+    <string name="pb_mostrado">afișată</string>
+    <string name="pb_escondido">ascunsă</string>
+    <string name="pb_padrao">Înapoi la plăcile standard</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Filtru de noapte</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Ecran principal</string>
+    <string name="cfg2_aba_inicio_det">Temă, aplicații ascunse, panou rapid și vreme</string>
+    <string name="cfg2_aba_familia">Familie</string>
+    <string name="cfg2_aba_familia_det">Control parental, PIN copii, ora de culcare și invitați</string>
+    <string name="cfg2_aba_casa">Casă și automatizări</string>
+    <string name="cfg2_aba_casa_det">Automatizări, casă inteligentă și ce configurați de pe telefon</string>
+    <string name="cfg2_aba_sistema_det">Diagnosticare, actualizări, copie de siguranță și despre</string>
+    <string name="cfg2_aba_avancado">Avansat</string>
+    <string name="cfg2_aba_avancado_det">Rețea, instrumente, aplicații de fabrică, permisiuni și shell. Rareori necesar.</string>
+    <string name="cfg2_sec_visitas">Invitați</string>
+    <string name="cfg2_sec_celular">De pe telefon</string>
+    <string name="cfg2_sec_ferramentas">Instrumente</string>
+    <string name="cfg2_sec_ocultos_sistema">Aplicații de sistem ascunse de launcher</string>
+    <string name="cfg2_apps_visita_det">Alegeți ce aplicații dispar cât timp modul invitat e activ</string>
+    <string name="cfg2_apps_visita_sub">OK comută · acestea dispar cât timp modul invitat e activ</string>
+    <string name="cfg2_some_visita">ascunsă pentru invitați</string>
+    <string name="cfg2_fica_visita">rămâne</string>
+    <string name="cfg2_casa_det">Lumini, prize și scene din Google Home sau Home Assistant</string>
+    <string name="oc_titulo">Aplicații ascunse</string>
+    <string name="oc_subtitulo">OK afișează sau ascunde o aplicație pe ecranul principal · cele ascunse sunt primele</string>
+    <string name="oc_nenhum">Nicio aplicație ascunsă · OK pentru a alege</string>
+    <string name="oc_quantos">Ascunse: %1$d · OK pentru a le afișa din nou</string>
+    <string name="oc_oculto">ascunsă</string>
+    <string name="oc_aparece">pe ecranul principal</string>
+    <string name="oc_aviso_titulo">Aplicație ascunsă</string>
+    <string name="oc_aviso">Pentru a o afișa din nou: Setări › Ecran principal › Aplicații ascunse</string>
+    <string name="extras_LER_FOCO">Citește cu voce tare elementul selectat, pe fiecare ecran al launcherului</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Să se oprească TV-ul singur?</string>
+    <string name="sug_desligar">TV-ul a fost pornit după miezul nopții în %1$d nopți săptămâna aceasta. Să se oprească după 2 ore fără ca cineva să folosească telecomanda? (Avertizează cu 60 de secunde înainte.)</string>
+    <string name="sug_filtro_titulo">Activați filtrul de noapte?</string>
+    <string name="sug_filtro">TV-ul a fost folosit după ora 22 în %1$d nopți săptămâna aceasta. Filtrul de noapte încălzește și estompează ecranul noaptea, mai blând cu ochii.</string>
+    <string name="sug_ligar">Activează</string>
+    <string name="sug_agora_nao">Nu acum</string>
+    <string name="sug_nunca">Nu mai sugera</string>
+    <string name="sug_feito_titulo">Gata</string>
+    <string name="sug_feito">Pentru a schimba mai târziu: Setări › Ecran și alimentare</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Mărimea textului</string>
+    <string name="tt_det">Pe fiecare ecran al launcherului. Filmele, serialele și TV-ul live erau deja mai mari și cresc odată cu el</string>
+    <string name="tt_normal">Normal</string>
+    <string name="tt_grande">Mare</string>
+    <string name="tt_maior">Mai mare</string>
+    <string name="pi_titulo">Pachet de pictograme</string>
+    <string name="pi_det">Înlocuiți pictogramele aplicațiilor cu un stil integrat (Simbol, Bicolor) sau cu un pachet instalat. OK alege următorul.</string>
+    <string name="pi_det_vazio">Niciun pachet de pictograme instalat. Luați unul din Magazin Play și va apărea aici.</string>
+    <string name="pi_nenhum">Niciunul</string>
+    <string name="fm_titulo">Fundalul meu</string>
+    <string name="fm_det">Fotografia, GIF-ul sau videoclipul dvs. în spatele ecranului principal. Puneți fișierul în folderul Fundo, Pictures, DCIM, Movies sau Download.</string>
+    <string name="fm_vazio">Nicio fotografie sau videoclip găsit. Copiați unul în folderul Fundo (unitate de rețea sau USB) și reveniți.</string>
+    <string name="fm_nenhum">Niciunul (înapoi la Întunecat)</string>
+    <string name="fm_brilho">Luminozitatea fundalului</string>
+    <string name="fm_contraste">Contrastul fundalului</string>
+    <string name="fm_ajuste_det">Se aplică la Fundalul meu. OK schimbă treapta.</string>
+    <string name="vp_titulo">Veniți de la Projectivy?</string>
+    <string name="vp_texto">Patru pași vă aduc configurația în aproximativ un minut. Fiecare poate fi făcut mai târziu în Setări.</string>
+    <string name="vp_cfg_det">Aduceți aplicațiile ascunse, pachetul de pictograme și fundalul din Projectivy.</string>
+    <string name="vp_1">1. Aplicații ascunse</string>
+    <string name="vp_1_det">Marcați aplicațiile pe care le aveați ascunse. Pentru a reordona, țineți OK pe o aplicație de pe ecranul principal.</string>
+    <string name="vp_2">2. Pachet de pictograme</string>
+    <string name="vp_2_det">Aceleași pachete de pictograme pe care le folosește Projectivy funcționează aici.</string>
+    <string name="vp_3">3. Fundal</string>
+    <string name="vp_3_det">Fotografia, GIF-ul sau videoclipul dvs. Copiați-l mai întâi în folderul Fundo.</string>
+    <string name="vp_4">4. Dezactivați butonul Home al Projectivy</string>
+    <string name="vp_4_det">În Accesibilitate, dezactivați Projectivy. Două aplicații care prind Home îl fac să deschidă aplicația greșită.</string>
+    <string name="vp_pronto">Gata</string>
+    <string name="vp_pronto_det">Mergeți la ecranul principal.</string>
+    <string name="vq_titulo">Distribuie aspectul</string>
+    <string name="vq_det">Arată un cod QR cu aspectul acestui TV: temă, mărimea textului, pictograme.</string>
+    <string name="vq_texto">Scanați-l cu telefonul pentru a-l păstra sau a-l trimite cuiva cu Sofaly.</string>
+    <string name="vq_fechar">Închide</string>
+    <string name="pl_titulo">Planuri</string>
+    <string name="pl_texto">Totul e gratuit cât timp vânzările nu sunt deschise. Mai târziu, Pro și Ultra se cumpără de pe telefon.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Ecran principal, screensaver\n• Alarmă, ecran simplu\n• Player și radiouri\n• 1 listă IPTV\n• 2 teme</string>
+    <string name="pl_pro_itens">• Tot ce are Basic\n• Multe liste IPTV, înregistrare\n• Panou web complet\n• Claude, rutine, Home Assistant\n• Toate temele, copie în cloud</string>
+    <string name="pl_ultra_itens">• Tot ce are Pro\n• Vreme mai bună (3 modele)\n• Pagini de film bogate\n• Subtitrări automate\n• Până la 3 TV-uri</string>
+    <string name="pl_qr">Scanați cu telefonul pentru a vedea prețurile și a cumpăra.</string>
+    <string name="pl_assinar">Abonează-te</string>
+    <string name="pl_assinar_preco">Abonează-te · %1$s</string>
+    <string name="pl_seu_plano">Planul dvs.</string>
+    <string name="pl_loja_indisponivel">Google Play nu a putut deschide achiziția. Verificați internetul și încercați din nou.</string>
+    <string name="atu_pela_play">Actualizările vin din Google Play.</string>
+</resources>

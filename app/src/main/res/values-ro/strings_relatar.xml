@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Raportează o problemă</string>
+    <string name="rel_linha_det">Un cod QR deschide formularul pe telefon, cu detaliile tehnice deja completate</string>
+    <string name="rel_texto">Îndreptați camera telefonului spre cod. Scrieți ce s-a întâmplat și trimiteți. Numele, contul, rețeaua și orașul dvs. nu sunt incluse.</string>
+    <string name="rel_vai_junto">Ce se trimite</string>
+    <string name="rel_l_oque">Ce s-a întâmplat</string>
+    <string name="rel_l_versao">Versiune</string>
+    <string name="rel_l_uso">Mod</string>
+    <string name="rel_l_quedas">Blocări / înghețări (7 zile)</string>
+    <string name="rel_l_erro">Ultima eroare</string>
+</resources>

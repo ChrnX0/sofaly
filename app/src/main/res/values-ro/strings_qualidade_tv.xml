@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV ao vivo: canais novos, qualidade automática e motivo do "sem sinal" (18/11/2026). -->
+<resources>
+    <string name="coluna_novos_canais">Nou</string>
+    <string name="qual_menu">Calitate: %1$s</string>
+    <string name="qual_auto">Automat</string>
+    <string name="qual_auto_curto">auto</string>
+    <string name="qual_titulo">Calitatea imaginii</string>
+    <string name="qual_padrao">Standard</string>
+    <string name="player_conta_vencida">Lista dvs. a expirat pe %1$s. Reînnoiți-o la vânzător.</string>
+    <string name="player_conta_recusada">Serverul listei a refuzat contul. Verificați cu vânzătorul.</string>
+    <string name="player_telas_cheias">Lista este deja deschisă pe %1$d din %2$d ecrane. Închideți-o pe alt dispozitiv.</string>
+</resources>

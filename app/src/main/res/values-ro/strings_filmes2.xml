@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Filtrează filmele</string>
+    <string name="filmes_filtro_genero">Gen: %1$s</string>
+    <string name="filmes_filtro_epoca">Perioadă: %1$s</string>
+    <string name="filmes_filtro_nota">Notă minimă: %1$s</string>
+    <string name="filmes_filtro_lista">Listă: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Doar nevăzute: %1$s</string>
+    <string name="filmes_filtro_limpar">Șterge filtrul</string>
+    <string name="filmes_filtro_qualquer">Oricare</string>
+    <string name="filmes_filtro_sim">Da</string>
+    <string name="filmes_filtro_nao">Nu</string>
+    <string name="filmes_filtro_decada">Anii %1$d</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">nevăzute</string>
+    <string name="filmes_filtro_sem_genero">Nicio categorie din această listă nu numește un gen</string>
+    <string name="filmes_filtro_vazio">Niciun film nu corespunde acestui filtru în această categorie</string>
+    <string name="filmes_sorteio_vazio">Niciun film de ales de aici</string>
+    <string name="filmes_colecao">Colecția acestui film</string>
+    <string name="filmes_colecao_cat">Colecție: %1$s</string>
+    <string name="genero_acao">Acțiune</string>
+    <string name="genero_aventura">Aventură</string>
+    <string name="genero_comedia">Comedie</string>
+    <string name="genero_drama">Dramă</string>
+    <string name="genero_terror">Groază</string>
+    <string name="genero_suspense">Thriller</string>
+    <string name="genero_romance">Romantic</string>
+    <string name="genero_ficcao">SF</string>
+    <string name="genero_fantasia">Fantasy</string>
+    <string name="genero_animacao">Animație</string>
+    <string name="genero_infantil">Copii și familie</string>
+    <string name="genero_documentario">Documentar</string>
+    <string name="genero_crime">Polițist</string>
+    <string name="genero_guerra">Război</string>
+    <string name="genero_faroeste">Western</string>
+    <string name="genero_musical">Muzical</string>
+</resources>

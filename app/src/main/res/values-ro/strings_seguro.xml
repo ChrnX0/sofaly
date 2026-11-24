@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Mod sigur</string>
+    <string name="seg_texto">Ecranul principal s-a oprit de %1$d ori la rând. Aceasta e o versiune simplă a lui, ca să puteți folosi în continuare TV-ul.</string>
+    <string name="seg_procurar">Caută o versiune reparată</string>
+    <string name="seg_procurar_det">Dacă există una, se descarcă și se instalează acum.</string>
+    <string name="seg_procurando">Se caută o versiune nouă…</string>
+    <string name="seg_normal">Încearcă ecranul principal normal</string>
+    <string name="seg_normal_det">Dacă se mai oprește de 3 ori, acest ecran revine.</string>
+    <string name="seg_config_tv">Setările TV-ului</string>
+    <string name="seg_erro">Vezi ce nu a mers</string>
+    <string name="seg_erro_det">Diagnosticare, cu erorile salvate.</string>
+    <string name="seg_apps">Aplicații</string>
+</resources>

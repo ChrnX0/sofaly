@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Instrumente</string>
+    <string name="cont_mais_opcoes">Mai multe opțiuni</string>
+    <string name="tl_proximo">Urmează: %1$s</string>
+    <string name="tl_clima_sub">Prognoza pentru zilele următoare</string>
+    <string name="tl_casa_sub">Lumini, camere și sonerie</string>
+    <string name="tl_painel_sub">Bluetooth, sunet, Wi-Fi și temporizator</string>
+    <string name="tl_config_sub">Totul despre launcher</string>
+    <string name="ac_cartoes">Cardurile aplicațiilor</string>
+    <string name="ac_coluna">În coloană</string>
+    <string name="ac_vitrine">Vitrină</string>
+    <string name="ac_ver_tudo">Vedeți ce e în aplicație</string>
+    <string name="ac_ritmo">Spațierea ecranului principal</string>
+    <string name="rt_antes">Ca înainte</string>
+    <string name="rt_a">A · Mai strâns</string>
+    <string name="rt_b">B · Rame</string>
+    <string name="rt_c">C · Aerisit</string>
+    <string name="ft_foco">Focalizare</string>
+    <string name="ft_foco_fio">Linie</string>
+    <string name="ft_foco_veu">Văl</string>
+    <string name="ft_foco_quadro">Cadru</string>
+</resources>

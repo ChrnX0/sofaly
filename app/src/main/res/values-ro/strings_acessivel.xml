@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Subtitrări cu fundal negru</string>
+    <string name="acess_legenda_amarela">Subtitrări galbene</string>
+    <string name="acess_volume">Volum uniform între canale</string>
+    <string name="acess_voz">Voci mai clare</string>
+    <string name="acess_volume_ligado">Volum uniform activat: canalele și filmele încete devin mai tare</string>
+    <string name="acess_volume_desligado">Volum uniform dezactivat</string>
+    <string name="acess_voz_ligado">Voci mai clare activate</string>
+    <string name="acess_voz_desligado">Voci mai clare dezactivate</string>
+    <string name="acess_config_titulo">Sunet și subtitrări</string>
+    <string name="acess_config_texto">Pentru cine vede sau aude mai puțin bine. Și în meniul ▼ al playerului.</string>
+</resources>

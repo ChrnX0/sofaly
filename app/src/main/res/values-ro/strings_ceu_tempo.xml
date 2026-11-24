@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor que reage ao tempo, caminho 2 (17/11/2026): frase do tempo, curiosidades do céu e o tema "Céu de verdade". -->
+<resources>
+    <string name="tema_ceu">Cerul real</string>
+    <string name="cu_estacao">Stația Spațială la %1$s</string>
+    <string name="cu_estacao_d">%1$d min · %2$s → %3$s</string>
+    <string name="cu_meteoros">Ploaie de meteori în noaptea asta</string>
+    <string name="cu_meteoros_d">%1$s · până la %2$d pe oră</string>
+    <string name="cu_eclipse">Eclipsă de soare %1$s</string>
+    <string name="cu_eclipse_d">nu priviți niciodată direct în soare</string>
+    <string name="cu_superlua">Superlună în noaptea asta</string>
+    <string name="cu_lua_cheia_d">răsare la est la amurg</string>
+    <string-array name="ceu_rumos">
+        <item>nord</item>
+        <item>nord-est</item>
+        <item>est</item>
+        <item>sud-est</item>
+        <item>sud</item>
+        <item>sud-vest</item>
+        <item>vest</item>
+        <item>nord-vest</item>
+    </string-array>
+    <string-array name="ceu_meteoros">
+        <item>Quadrantide</item>
+        <item>Lyride</item>
+        <item>Eta Acvaride</item>
+        <item>Delta Acvaride</item>
+        <item>Perseide</item>
+        <item>Orionide</item>
+        <item>Leonide</item>
+        <item>Geminide</item>
+    </string-array>
+    <string name="ns_titulo">Cerul nopții</string>
+    <!-- Ilha: sol forte (SunAlert, UV ≥ 8). -->
+    <string name="ilha_uv">UV %1$d: folosiți protecție solară</string>
+</resources>

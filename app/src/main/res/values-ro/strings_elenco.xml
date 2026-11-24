@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Distribuție</string>
+    <string name="elenco_titulo">Distribuție</string>
+    <string name="elenco_carregando">Se încarcă distribuția…</string>
+    <string name="elenco_vazio">TMDB nu are distribuția acestui titlu.</string>
+    <string name="elenco_dica">Treceți prin persoane: dedesubt, în ce altceva din lista dvs. mai apar.</string>
+    <string name="elenco_na_lista">Tot în lista dvs.</string>
+    <string name="elenco_procurando">Se caută în lista dvs.…</string>
+    <string name="elenco_nada_na_lista">Nimic altceva cu această persoană în lista dvs.</string>
+    <string name="elenco_filme">Film</string>
+    <string name="elenco_serie">Serial</string>
+    <string name="elenco_opcao_player">Distribuție (cine e acest actor?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Anterior în %1$s</string>
+    <string name="anteriormente_assistir">Vizionează %1$s</string>
+    <string name="anteriormente_pular_sempre">Nu arăta niciodată</string>
+    <string name="anteriormente_desligado">Rezumatele sunt dezactivate. Pentru a le activa din nou: țineți OK pe un episod.</string>
+    <string name="anteriormente_ligar">Afișează rezumatele „Anterior în”</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Vârsta maximă în modul copii</string>
+    <string name="idade_det">Filmele și serialele clasificate până la această vârstă apar din orice categorie (clasificare TMDB). Cele neclasificate doar în categoriile pentru copii.</string>
+    <string name="idade_so_categorias">Doar categoriile pentru copii</string>
+    <string name="idade_livre">Toate vârstele</string>
+    <string name="idade_anos">Până la %1$d ani</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Și pe: %1$s (JustWatch)</string>
+    <string name="onde_fora">Nu e în lista dvs. · pe %1$s</string>
+    <string name="onde_grupo">În altă parte (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Subtitrări descărcate automat (făcute pentru acest fișier) · ▼ pentru a schimba</string>
+    <string name="legenda_auto_pronta_nome">Subtitrări descărcate automat · ▼ pentru a schimba sau a ajusta întârzierea</string>
+    <string name="legenda_trad_rotulo">Traducere automată</string>
+    <string name="legenda_trad_traduzindo">Nu există subtitrări în limba dvs.: se traduc pe TV cele în engleză…</string>
+    <string name="legenda_trad_parcial">Subtitrări traduse pe TV (traducere automată). Restul continuă să se traducă.</string>
+    <string name="legenda_trad_pronta">Traducerea subtitrărilor s-a terminat</string>
+    <string name="series_sinopse_mais">Rezumat complet</string>
+    <string name="series_continuar_curto">▶  Continuă %1$s</string>
+    <string name="series_episodios">Episoade</string>
+    <string name="series_trocar_temporada">Schimbă sezonul</string>
+    <string name="fechar">Închide</string>
+    <string name="onde_assistir_botao">Unde se vizionează</string>
+</resources>

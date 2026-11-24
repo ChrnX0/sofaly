@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">verificarea restaurării a trecut</string>
+    <string name="l51_ensaio_falhou">copia salvată nu s-ar restaura (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Wi-Fi pentru invitați</string>
+    <string name="l51_wifi_nao">nesetat: introduceți-l o dată, iar vizitatorii scanează un QR</string>
+    <string name="l51_wifi_dica">Folosiți rețeaua pentru invitați a routerului: oricine din cameră poate citi parola pe ecran.</string>
+    <string name="l51_wifi_rede">Numele rețelei</string>
+    <string name="l51_wifi_senha">Parolă</string>
+    <string name="l51_wifi_invalido">Nume de până la 32 de caractere; parola goală (rețea deschisă) sau de 8 până la 63 de caractere.</string>
+    <string name="l51_wifi_qr_titulo">Arată QR-ul Wi-Fi pentru invitați</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Ce se folosește</string>
+    <string name="l51_uso_det">Ecrane și setări după utilizare, numărate doar pe acest TV (nimic nu iese de pe el)</string>
+    <string name="l51_uso_vazio">Încă nimic numărat. Reveniți în câteva zile.</string>
+    <string name="l51_uso_tela">ecran</string>
+    <string name="l51_uso_opcao">setare</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d dată</item>
+        <item quantity="few">%d ori</item>
+        <item quantity="other">%d de ori</item>
+    </plurals>
+    <string name="l51_uso_hoje">ultima azi</string>
+    <string name="l51_uso_ontem">ultima ieri</string>
+    <string name="l51_uso_dias">ultima acum %d zile</string>
+    <string name="l51_tela_Main">Ecran principal</string>
+    <string name="l51_tela_Dream">Screensaver</string>
+    <string name="l51_tela_Filmes">Filme</string>
+    <string name="l51_tela_Series">Seriale</string>
+    <string name="l51_tela_Jogos">Jocuri</string>
+    <string name="l51_tela_Player">TV live și videoclipuri</string>
+    <string name="l51_tela_PainelRapido">Panou rapid</string>
+    <string name="l51_tela_Vod">Catalogul listei</string>
+    <string name="l51_tela_Previsao">Prognoza meteo</string>
+    <string name="l51_tela_Elenco">Distribuție</string>
+    <string name="l51_tela_ConfigLauncher">Setări</string>
+    <string name="l51_tela_MidiaRede">Rețea</string>
+    <string name="l51_tela_Calendario">Calendar</string>
+    <string name="l51_tela_Gravacoes">Înregistrări</string>
+    <string name="l51_tela_Busca">Căutare</string>
+    <string name="l51_tela_Casa">Casa mea</string>
+    <string name="l51_tela_AlarmeTocando">Alarma sună</string>
+    <string name="l51_tela_Radio">Radio</string>
+    <string name="l51_tela_Diagnostico">Diagnosticare</string>
+    <string name="l51_uso_zerar">Resetare</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Tastați pe TV</string>
+    <string name="l51_digitar_texto">O casetă de text este deschisă în %1$s. Atingeți pentru a tasta de aici.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">camera %1$s</string>
+    <string name="casa_movimento">Mișcare</string>
+    <string name="casa_sem_movimento">Fără mișcare</string>
+    <string name="casa_molhado">Ud</string>
+    <string name="casa_seco">Uscat</string>
+    <string name="casa_fumaca">Fum!</string>
+    <string name="casa_sem_fumaca">Fără fum</string>
+    <string name="casa_dica_temp">temperatură</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Se deschide camera…</string>
+    <string name="casa_camera_ver">Arată pe TV</string>
+</resources>

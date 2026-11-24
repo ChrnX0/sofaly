@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d joc</item>
+        <item quantity="few">%d jocuri</item>
+        <item quantity="other">%d de jocuri</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d controler conectat</item>
+        <item quantity="few">%d controlere conectate</item>
+        <item quantity="other">%d de controlere conectate</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Categoria Joc pe ecranul principal (dezactivată, jocurile rămân în Aplicații)</string>
+    <string name="extras_MODO_JOGO">Mod joc: cât timp un joc e deschis, screensaverul, filtrul de noapte și anunțurile așteaptă</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Pornirea unui controler de jocuri deschide ecranul Jocuri</string>
+
+    <string name="jogos_titulo">Jocuri</string>
+    <string name="jogos_medindo">Se verifică rețeaua…</string>
+    <string name="jogos_sem_controle">Niciun controler de jocuri conectat</string>
+    <string name="jogos_rede_boa">Rețea: bună pentru jocuri în cloud</string>
+    <string name="jogos_rede_ok">Rețea: în regulă pentru jocuri în cloud</string>
+    <string name="jogos_rede_fraca">Rețea: slabă pentru jocuri în cloud</string>
+    <string name="jogos_rede_sem">Fără internet</string>
+    <string name="jogos_testar_rede">Testează rețeaua</string>
+    <string name="jogos_jogar_pc">Joacă pe PC</string>
+    <string name="jogos_parear">Asociază un controler</string>
+    <string name="jogos_parear_falhou">Acest TV nu a deschis setările Bluetooth. Deschideți Setări, Telecomenzi și accesorii.</string>
+    <string name="jogos_baixar">Obține jocuri</string>
+    <string name="jogos_escolher">Alege aplicații</string>
+    <string name="jogos_escolher_sub">Ce aplicații stau în Joc. OK comută între Joc și Aplicații.</string>
+    <string name="jogos_no_card">în Joc</string>
+    <string name="jogos_na_linha">în Aplicații</string>
+    <string name="jogos_grupo_nuvem">În cloud</string>
+    <string name="jogos_grupo_pc">De pe PC și consolă</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Jocuri pe TV</string>
+    <string name="jogos_para_comecar">Pentru început</string>
+    <string name="jogos_aviso_fraca_titulo">Rețea slabă pentru jocuri în cloud</string>
+    <string name="jogos_aviso_fraca">Jocul poate sacada sau întârzia. Un cablu de rețea sau TV-ul mai aproape de router ajută.</string>
+    <string name="jogos_jogar_assim">Joacă oricum</string>
+    <string name="jogos_nao_abriu">Această aplicație nu s-a deschis.</string>
+    <string name="jogos_tirar">Scoate din Joc</string>
+    <string name="jogos_automatico">Înapoi la automat</string>
+    <string name="jogos_loja_tudo">Aplicațiile sugerate sunt deja pe acest TV.</string>
+    <string name="jogos_loja_explica">Deschide pagina aplicației în Magazin Play. Dacă Magazin Play spune că nu rulează pe acest TV, e limita aplicației.</string>
+    <string name="jogos_sem_loja">Magazin Play nu s-a deschis.</string>
+    <string name="jogos_pc_sem_mac">Pentru a trezi PC-ul, salvați adresa MAC a lui în panoul web: Extra, Trezește computerul. PC-ul are nevoie și de Wake-on-LAN activat și, de obicei, de un cablu de rețea.</string>
+    <string name="jogos_pc_sem_app">Pentru a juca pe PC, instalați Moonlight sau Steam Link pe TV.</string>
+    <string name="jogos_pc_qual_app">Ce aplicație joacă pe PC?</string>
+    <string name="jogos_pc_acordando">Se trezește PC-ul… %1$d s</string>
+    <string name="jogos_pc_nao_respondeu">PC-ul nu a răspuns. Se deschide aplicația oricum.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Mai multe jocuri</string>
+    <string name="jogos_mais_opcoes">Mai mult</string>
+    <string name="jogos_ligar_pc_jogar">Pornește PC-ul și joacă</string>
+    <string name="jogos_desc_pc">Jucați chiar aici pe TV jocurile de pe computerul sau consola de acasă.</string>
+    <string name="jogos_chip_medindo">Se verifică rețeaua…</string>
+    <string name="jogos_chip_boa">Rețea bună</string>
+    <string name="jogos_chip_ok">Rețea în regulă</string>
+    <string name="jogos_chip_fraca">Rețea slabă</string>
+    <string name="jogos_chip_sem">Fără internet</string>
+    <string name="jogos_tecla_jogar">joacă</string>
+    <string name="jogos_tecla_segurar">țineți OK</string>
+    <string name="jogos_tecla_opcoes">schimbă grupul</string>
+</resources>

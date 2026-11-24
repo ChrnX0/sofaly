@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Telas Rádio e Podcasts redesenhadas em cruz (18/11/2026): CruzOuvir, RadioActivity, PodcastsActivity. -->
+<resources>
+    <string name="ouv_tocando_agora">Acum se redă</string>
+    <string name="ouv_pausado">În pauză</string>
+    <string name="ouv_prat_tocando">Se redă</string>
+    <string name="ouv_pausar">Pauză</string>
+    <string name="ouv_continuar">Reia</string>
+    <string name="ouv_favoritar">Preferat</string>
+    <string name="ouv_desfavoritar">Elimină din preferate</string>
+    <string name="ouv_favoritar_det">Preferatele se redau și cu tastele 1–9 ale telecomenzii</string>
+    <string name="ouv_tecla">Tasta %d a telecomenzii</string>
+    <string name="ouv_ao_sair">La ieșire</string>
+    <string name="ouv_ao_sair_continua">Continuă pe ecranul principal\n▶❙❙ pe telecomandă îl pune pe pauză din orice ecran</string>
+    <string name="ouv_ao_sair_para">Se oprește când ieșiți din acest ecran</string>
+    <string name="ouv_recentes">Recente</string>
+    <string name="ouv_sem_favoritas">Încă niciun preferat</string>
+    <string name="ouv_sem_favoritas_det">Țineți OK pe un post pentru a-l păstra aici</string>
+    <string name="ouv_sem_recentes">Încă nimic aici</string>
+    <string name="ouv_sem_recentes_det">Posturile pe care le redați apar aici</string>
+    <string name="ouv_paises">Țări</string>
+    <string name="ouv_n_radios">%d posturi</string>
+    <string name="ouv_ao_vivo">Live</string>
+    <string name="ouv_dica_pular">omite</string>
+    <string name="ouv_voltar">Înapoi 15 s</string>
+    <string name="ouv_voltar_det">Și ◀◀ pe telecomandă</string>
+    <string name="ouv_avancar">Înainte 30 s</string>
+    <string name="ouv_avancar_det">Și ▶▶ pe telecomandă</string>
+    <string name="ouv_velocidade_det">%s · vocea își păstrează tonul</string>
+    <string name="ouv_parar_pod_det">Locul unde v-ați oprit e salvat pentru mai târziu</string>
+    <string name="ouv_seguindo">Urmăriți</string>
+    <string name="ouv_sem_podcasts">Încă niciun podcast</string>
+    <string name="ouv_sem_podcasts_det">Adăugați unul în raftul Adaugă (lipiți adresa sau folosiți telefonul)</string>
+    <string name="ouv_n_episodios">%d episoade</string>
+    <string name="ouv_colar">Lipește adresa</string>
+    <string name="ouv_sobre">Despre</string>
+    <string name="ouv_remover_det">Episoadele și progresul ies de pe acest TV</string>
+    <string name="ouv_ver_podcast">Mergi la podcast</string>
+</resources>

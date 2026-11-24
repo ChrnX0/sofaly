@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Împrumută puterile sistemului</string>
+    <string name="emp_titulo">Împrumută shellul altor aplicații (Shizuku)</string>
+    <string name="emp_titulo_det">Aplicațiile făcute pentru Shizuku funcționează fără a-l instala. Fiecare aplicație întreabă pe TV, cu PIN-ul, prima dată.</string>
+    <string name="emp_modo_desligado">Dezactivat</string>
+    <string name="emp_modo_sob_demanda">Când o aplicație are nevoie</string>
+    <string name="emp_modo_sempre">Mereu activ</string>
+    <string name="emp_oficial">Aplicația Shizuku este instalată pe acest TV, așa că launcherul nu-i stă în cale. Dezinstalați-o pentru a-l folosi pe cel al launcherului.</string>
+    <string name="emp_plano">Parte din planurile plătite.</string>
+    <string name="emp_negar">Refuză</string>
+    <string name="emp_permitir">Permite mereu</string>
+    <string name="emp_pedido_titulo">Permiteți ca %1$s să folosească puterile de sistem ale launcherului?</string>
+    <string name="emp_pedido_texto">Aplicația va putea face ce face adb: să instaleze și să elimine aplicații, să schimbe setări de sistem și altele. Permiteți doar aplicații în care aveți încredere. Puteți revoca mai târziu în panoul web.</string>
+    <string name="emp_pin_titulo">PIN-ul panoului pentru a permite</string>
+    <string name="emp_sem_pin">Setați mai întâi PIN-ul panoului (Setări, Panou web).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Împrumută controlul de proprietar altor aplicații (Dhizuku)</string>
+    <string name="emd_titulo_det">Aplicațiile făcute pentru Dhizuku folosesc controlul de proprietar al launcherului. Fiecare aplicație întreabă pe TV, cu PIN-ul. Cu „Permite”, niciuna nu poate scoate launcherul din rolul de proprietar sau șterge TV-ul; cu „Putere totală”, poate.</string>
+    <string name="emd_ligado">Activat</string>
+    <string name="emd_sem_dono">Launcherul nu este proprietarul (Device Owner) acestui TV, deci nu are ce împrumuta.</string>
+    <string name="emd_pedido_titulo">Permiteți ca %1$s să folosească controlul de proprietar al launcherului?</string>
+    <string name="emd_pedido_texto">Cu „Permite”, aplicația poate ascunde și bloca aplicații și schimba permisiunile și regulile TV-ului, dar niciodată nu poate scoate launcherul din rolul de proprietar sau șterge TV-ul. „Putere totală” lasă aplicația să ruleze ca launcherul și să-i citească datele: doar pentru aplicații în care aveți încredere deplină. Puteți revoca în panoul web. Cu „Putere totală” aplicația poate face orice poate launcherul, chiar și să șteargă TV-ul.</string>
+    <string name="emd_total">Putere totală</string>
+    <string name="emd_pin_total">PUTERE TOTALĂ: aplicația poate face orice poate launcherul, chiar și să șteargă TV-ul. PIN-ul panoului</string>
+</resources>

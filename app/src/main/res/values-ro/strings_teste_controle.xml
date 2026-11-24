@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Testează controlerul</string>
+    <string name="teste_controle_sub">Este suficient de rapid pentru jocuri?</string>
+    <string name="teste_controle_mexa">Rotiți stickul stâng în cercuri timp de 10 secunde.</string>
+    <string name="teste_controle_bom">Excelent pentru jocuri: un semnal la fiecare %1$d ms.</string>
+    <string name="teste_controle_ok">Jucabil: un semnal la fiecare %1$d ms. Jocurile rapide pot părea puțin întârziate.</string>
+    <string name="teste_controle_ruim">Lent: un semnal la fiecare %1$d ms și %2$d pauze. Un controler cu fir sau controlerul mai aproape de TV ajută.</string>
+    <string name="teste_controle_parado">Controlerul nu s-a mișcat. Încercați din nou și continuați să rotiți stickul.</string>
+</resources>

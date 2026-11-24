@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Programul familiei</string>
+    <string name="agf_sub">La ora stabilită, TV-ul trece singur pe acel profil. Un profil de copil activează modul copii și ora de culcare.</string>
+    <string name="agf_cfg_det">Schimbări setate: %1$d. Profilul se schimbă singur la ora stabilită.</string>
+    <string name="agf_adicionar">Adaugă o schimbare</string>
+    <string name="agf_adicionar_det">Profilul cui, ce zile și la ce oră.</string>
+    <string name="agf_quem">Pe profilul cui să treacă?</string>
+    <string name="agf_dias">Ce zile?</string>
+    <string name="agf_hora">La ce oră?</string>
+    <string name="agf_todos">În fiecare zi</string>
+    <string name="agf_uteis">Luni până vineri</string>
+    <string name="agf_fds">Sâmbătă și duminică</string>
+    <string name="agf_alguns">Unele zile</string>
+    <string name="agf_apagar">Ștergeți această schimbare?</string>
+    <string name="agf_apagar_sim">Șterge</string>
+    <string name="agf_cheia">Programul e plin (12 schimbări).</string>
+    <string name="agf_sem_contas">Nu există încă profiluri pe acest TV (conturi Google).</string>
+</resources>

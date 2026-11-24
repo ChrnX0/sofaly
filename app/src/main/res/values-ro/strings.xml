@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Butoanele telecomenzii pentru launcher (butoane Netflix/YouTube reconfigurabile) și fereastra de asociere fără PC.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">conectat</string>
+    <string name="cfg_vpn_desconectada">deconectat</string>
+    <string name="cfg_titulo">Setări</string>
+    <string name="cfg_diag">Diagnosticare TV</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN și de ce s-a oprit o aplicație — totul deodată</string>
+    <string name="cfg_tema_det">Trece la următorul aspect</string>
+    <string name="cfg_nunca">Niciodată</string>
+    <string name="cfg_min">%1$d min</string>
+    <string name="cfg_nao_gravou_do">nu s-a putut salva (Device Owner inactiv?)</string>
+    <string name="cfg_visita">Mod invitat</string>
+    <string name="cfg_rotinas">Rutine</string>
+    <string name="cfg_sec_atualizacao">Actualizări</string>
+    <string name="cfg_atualizar">Caută o versiune nouă</string>
+    <string name="cfg_atualizar_det">Versiunea %1$s · %2$s · OK verifică acum</string>
+    <string name="cfg_procurando">se verifică GitHub…</string>
+    <string name="cfg_instalar">Instalează acum versiunea %1$d</string>
+    <string name="cfg_instalar_det">Launcherul se închide și revine singur în câteva secunde · OK instalează</string>
+    <string name="cfg_instalando">se descarcă și se verifică…</string>
+    <string name="cfg_sec_rede">Rețea</string>
+    <string name="cfg_dns">DNS privat</string>
+    <string name="cfg_dns_caiu">" · %1$s nu a răspuns, s-a revenit la automat"</string>
+    <string name="cfg_velocidade">Testează viteza internetului</string>
+    <string name="cfg_velocidade_det">Descarcă 25 MB și măsoară</string>
+    <string name="cfg_testando">Se testează…</string>
+    <string name="cfg_nao_mudou_do">nu s-a putut schimba (Device Owner inactiv?)</string>
+    <string name="cfg_sec_ligado">Ce este activat — %1$s</string>
+    <string name="cfg_ligado">activat</string>
+    <string name="cfg_so_pc">" · doar cu un computer (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK încearcă să activeze"</string>
+    <string name="cfg_perm_fixas">Permisiuni fixe acordate</string>
+    <string name="cfg_shell_estado">Shell propriu</string>
+    <string name="cfg_shell_pareado">asociat: launcherul se reconectează singur prin Depanarea wireless</string>
+    <string name="cfg_shell_nunca">încă neasociat: folosiți \"Asociere fără PC\" mai jos</string>
+    <string name="cfg_sec_shizuku">Shell launcher (ADB Wi-Fi)</string>
+    <string name="cfg_parear">Asociere fără PC</string>
+    <string name="cfg_parear_det">Deschide ecranul de asociere Android cu o tastatură a launcherului deasupra</string>
+    <string name="cfg_acess_off">serviciul de accesibilitate al launcherului este dezactivat</string>
+    <string name="cfg_versao">Versiunea launcherului</string>
+    <string name="cfg_desconhecida">necunoscută</string>
+    <string name="cfg_depuracao">Depanare wireless</string>
+    <string name="cfg_depuracao_on">menținută activă de launcher</string>
+    <string name="cfg_depuracao_android">cum o lasă Android</string>
+    <string name="cfg_chave">Cheia shellului propriu</string>
+    <string name="cfg_calculando">se calculează…</string>
+    <string name="cfg_erro">eroare: %1$s</string>
+    <string name="cfg_licencas">Licențe și credite</string>
+    <string name="cfg_licencas_det">Cod, fonturi, pictograme și date de la terți folosite aici</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">fără ea: nu se pot ascunde aplicații, nu există HOME sau VPN fixat, nici timp pentru screensaver</string>
+    <string name="rec_agenda">Calendar</string>
+    <string name="rec_agenda_sem">fără ea: calendarul nu afișează evenimente</string>
+    <string name="rec_local">Locație</string>
+    <string name="rec_local_sem">fără ea: vremea folosește orașul după IP, iar Wi-Fi nu arată numele rețelei</string>
+    <string name="rec_contas">Conturi</string>
+    <string name="rec_contas_sem">fără ea: punctul profilului nu arată inițiala contului</string>
+    <string name="rec_uso">Utilizarea aplicațiilor</string>
+    <string name="rec_uso_sem">fără ea: aplicațiile nu sunt sortate după utilizarea recentă</string>
+    <string name="rec_sobre">Suprapunere</string>
+    <string name="rec_sobre_sem">fără ea: notițele și asocierea fără PC nu apar peste aplicații</string>
+    <string name="rec_seguras">Setări securizate</string>
+    <string name="rec_seguras_sem">fără ea: nu se schimbă DNS-ul și nu se repornesc automat serviciul de taste și depanarea wireless (doar cu un PC sau shellul launcherului)</string>
+    <string name="rec_teclas">Serviciul de taste</string>
+    <string name="rec_teclas_sem">fără el: HOME poate deschide launcherul Google, iar tastele Netflix/YouTube nu sunt reconfigurate</string>
+    <string name="rec_tudo">totul activat</string>
+    <string name="rec_faltam">lipsesc %1$d din %2$d funcții · OK pe un element încearcă să-l activeze</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Bun venit</string>
+    <string name="bv_texto">Ecranul principal, ceasul, vremea, alarma și screensaverul funcționează deja. Activați restul aici dacă doriți (%1$s).</string>
+    <string name="bv_comecar">Start</string>
+    <string name="bv_comecar_det">Merge la ecranul principal</string>
+    <string name="bv_perm">Activați calendarul, locația și conturile</string>
+    <string name="bv_perm_det">Evenimente din calendar, vremea din orașul dvs., inițiala contului pe profil</string>
+    <string name="bv_teclas">Activați serviciul de taste</string>
+    <string name="bv_teclas_det">Accesibilitate › Butoanele telecomenzii: HOME aduce mereu înapoi aici</string>
+    <string name="bv_tudo">Vedeți tot ce puteți activa</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Fișierul de licență nu a fost găsit.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Pornește TV-ul</string>
+    <string name="rot_abrir_um">Pornește și deschide o aplicație</string>
+    <string name="rot_desligar">Oprește TV-ul</string>
+    <string name="rot_abrir">Pornește și deschide %1$s</string>
+    <string name="rot_um_app">o aplicație (alegeți)</string>
+    <string name="rot_se_ocioso">" dacă nimeni nu l-a atins de %1$s"</string>
+    <string name="rot_sempre">mereu</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">nicio rutină activă</string>
+    <string name="rot_proxima">următoarea: %1$s</string>
+    <string name="rot_nova_mais">+ Rutină nouă</string>
+    <string name="rot_nova_det">Pornire, deschiderea unei aplicații sau oprire la o oră stabilită</string>
+    <string name="rot_desligada_sufixo">" · dezactivată"</string>
+    <string name="rot_nova">Rutină nouă</string>
+    <string name="rot_editar">Editează rutina</string>
+    <string name="rot_editor_det">OK schimbă fiecare rând · ÎNAPOI iese fără a salva</string>
+    <string name="rot_hora">Ora: %1$s</string>
+    <string name="rot_dias">Zile: %1$s</string>
+    <string name="rot_acao">Acțiune: %1$s</string>
+    <string name="rot_app">Aplicație: %1$s</string>
+    <string name="rot_nenhum">niciuna</string>
+    <string name="rot_ocioso">Doar dacă nimeni nu l-a atins de: %1$s</string>
+    <string name="rot_ligada">Activat</string>
+    <string name="rot_desligada">Dezactivat</string>
+    <string name="rot_hora_det">◀ ▶ 5 minute · OK +1 oră</string>
+    <string name="rot_dias_det">OK: în fiecare zi, luni–vineri, weekend, o dată</string>
+    <string name="rot_ok_muda">OK schimbă</string>
+    <string name="rot_app_det">OK sau ▶ următorul · ◀ anteriorul</string>
+    <string name="rot_ocioso_det">Nu întrerupe pe cine se uită</string>
+    <string name="rot_ativa_det">OK activează/dezactivează această rutină</string>
+    <string name="rot_salvar">Salvează</string>
+    <string name="rot_escolha_app">Alegeți aplicația</string>
+    <string name="rot_apagar">Șterge această rutină</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">O dată</string>
+    <string name="dia_todo">În fiecare zi</string>
+    <string name="dia_seg_sex">Luni–vineri</string>
+    <string name="dia_fim">Weekend</string>
+    <string-array name="dias_curtos">
+        <item>Dum</item>
+        <item>Lun</item>
+        <item>Mar</item>
+        <item>Mie</item>
+        <item>Joi</item>
+        <item>Vin</item>
+        <item>Sâm</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE, d MMMM</string>
+    <string name="home_perfil">Profil</string>
+    <string name="home_visita_titulo">Mod invitat activat</string>
+    <string name="home_visita_msg">Profilul, calendarul și aplicațiile alese sunt ascunse. Ieșiți din modul invitat?</string>
+    <string name="home_continuar">Păstrează</string>
+    <string name="home_sair">Ieși</string>
+    <string name="comum_cancelar">Anulează</string>
+    <string name="home_mostrar">Afișează pe ecranul principal</string>
+    <string name="home_ocultar">Ascunde de pe ecranul principal</string>
+    <string name="home_sob_demanda">Îngheață când nu e folosită</string>
+    <string name="home_sob_demanda_tirar">Nu mai îngheța când nu e folosită</string>
+    <string name="sob_demanda_ligado">Înghețată. Rămâne aici: OK o dezgheață și o deschide, iar ea se îngheață din nou la 2 minute după ce ieșiți.</string>
+    <string name="sob_demanda_desligado">Dezghețată. Funcționează ca înainte.</string>
+    <string name="sob_demanda_falhou">Nu s-a putut schimba acum. Încercați din nou peste puțin timp.</string>
+    <string name="home_desinstalar">Dezinstalează</string>
+    <string name="home_app_sistema"> (aplicație de sistem)</string>
+    <string name="home_desinstalar_titulo">Dezinstalați %1$s?</string>
+    <string name="home_desinstalar_aviso">Aplicația și datele ei dispar de pe TV. Acest lucru nu poate fi anulat: pentru a o recupera, instalați-o din nou din Magazin Play.</string>
+    <string name="home_cancelar">Anulează</string>
+    <string name="home_desinstalando">Se dezinstalează %1$s…</string>
+    <string name="home_desinstalado">%1$s a fost dezinstalată.</string>
+    <string name="home_desinstalar_falhou">Nu s-a putut dezinstala %1$s: %2$s</string>
+    <string name="home_chovendo">Plouă acum</string>
+    <string name="home_chuva_agora">%1$s - Ploaie %2$d%% chiar acum</string>
+    <string name="home_chuva_em">%1$s - Ploaie %2$d%% în %3$d h</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Alarmă setată: %1$s</string>
+    <string name="al_um_app">o aplicație</string>
+    <string name="al_criar_q">Setați o alarmă pentru %1$s?</string>
+    <string name="al_pedido">Solicitat de %1$s.</string>
+    <string name="al_criar">Setează</string>
+    <string name="al_titulo">Ceas cu alarmă</string>
+    <string name="al_nenhum">Nicio alarmă activă</string>
+    <string name="al_novo_mais">+  Alarmă nouă</string>
+    <string name="al_ligado">Activată</string>
+    <string name="al_desligado">Dezactivată</string>
+    <string name="al_novo">Alarmă nouă</string>
+    <string name="al_editar">Editează alarma</string>
+    <string name="al_apagar">Șterge</string>
+    <string name="al_hoje">azi</string>
+    <string name="al_amanha">mâine</string>
+    <string name="al_dia_as">%1$s la %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Oprește</string>
+    <string name="al_soneca">Amână 10 min</string>
+    <string name="al_perdido_um">Alarma de la %1$s nu a sunat pentru că TV-ul era oprit.</string>
+    <string name="al_perdido_varios">Alarmele de la %1$s nu au sunat pentru că TV-ul era oprit.</string>
+    <string name="al_perdido_e">și</string>
+    <string name="al_volume_nao_mexe">nu schimba</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Niciun cont Google</string>
+    <string name="pp_ativo">"  ·  activ"</string>
+    <string name="pp_adicionar">Adaugă profil</string>
+    <string name="pr_bt_controle">Telecomandă</string>
+    <string name="pp_audio">Audio</string>
+    <string name="pp_carregando">Se încarcă…</string>
+    <string name="pp_conectar">Conectează</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">niciun cont Google</string>
+    <string name="cal_dica">◀ ▶ schimbă luna</string>
+    <string name="cal_30">Următoarele 30 de zile</string>
+    <string name="cal_nenhuma_conta">Niciun cont Google pe TV</string>
+    <string name="cal_nada">Nimic programat (sau calendarul încă se sincronizează)</string>
+    <string name="fmt_mes_ano">LLLL yyyy</string>
+    <string name="cal_dia_todo">Toată ziua</string>
+    <string name="cal_sem_titulo">(fără titlu)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  plouă"</string>
+    <string name="pt_lua">Luna</string>
+    <string name="pt_sol">Soarele</string>
+    <string name="pt_umidade">Umiditate</string>
+    <string name="pt_chuva">Ploaie</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Ploaie</string>
+    <string name="cl_limpo">Cer senin</string>
+    <string name="cl_poucas">Puțini nori</string>
+    <string name="cl_parcial">Parțial noros</string>
+    <string name="cl_nublado">Noros</string>
+    <string name="cl_neblina">Ceață</string>
+    <string name="cl_garoa_fraca">Burniță ușoară</string>
+    <string name="cl_garoa">Burniță</string>
+    <string name="cl_garoa_forte">Burniță deasă</string>
+    <string name="cl_garoa_cong">Burniță înghețată</string>
+    <string name="cl_chuva_fraca">Ploaie ușoară</string>
+    <string name="cl_chuva_forte">Ploaie puternică</string>
+    <string name="cl_chuva_cong">Ploaie înghețată</string>
+    <string name="cl_neve_fraca">Ninsoare ușoară</string>
+    <string name="cl_neve">Ninsoare</string>
+    <string name="cl_neve_forte">Ninsoare abundentă</string>
+    <string name="cl_graos">Grăunțe de zăpadă</string>
+    <string name="cl_panc_fracas">Averse ușoare</string>
+    <string name="cl_panc">Averse de ploaie</string>
+    <string name="cl_panc_fortes">Averse puternice</string>
+    <string name="cl_panc_neve">Averse de ninsoare</string>
+    <string name="cl_tempestade">Furtună</string>
+    <string name="cl_granizo">Furtună cu grindină</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">plină în %1$d z</string>
+    <string name="lua_nova_em">nouă în %1$d z</string>
+    <string-array name="fases_lua">
+        <item>Lună nouă</item>
+        <item>Semilună în creștere</item>
+        <item>Primul pătrar</item>
+        <item>Lună în creștere</item>
+        <item>Lună plină</item>
+        <item>Lună în descreștere</item>
+        <item>Ultimul pătrar</item>
+        <item>Semilună în descreștere</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Se încarcă prognoza…</string>
+    <string name="pv_voz_agora">"Acum sunt %1$d grade, %2$s. "</string>
+    <string name="pv_voz_hoje">Astăzi, maxima de %1$d și minima de %2$d</string>
+    <string name="pv_voz_chuva">", cu %1$d la sută șanse de ploaie. "</string>
+    <string name="pv_voz_sem_chuva">", nu se așteaptă ploaie. "</string>
+    <string name="pv_voz_amanha">Mâine, %1$s, maxima de %2$d și minima de %3$d</string>
+    <string name="pv_voz_amanha_chuva">, %1$d la sută șanse de ploaie</string>
+    <string name="pv_sem">Nu am putut obține prognoza acum. Verificați internetul și încercați din nou.</string>
+    <string name="pv_max_min">max. %1$d°   min. %2$d°   ·   resimțit %3$d°</string>
+    <string name="pv_24h">Următoarele 24 de ore</string>
+    <string name="pv_agora">Acum</string>
+    <string name="pv_chance">Șanse de ploaie</string>
+    <string name="pv_7d">Următoarele 9 zile</string>
+    <string name="pv_hoje">Azi</string>
+    <string name="pv_mais_quente">Mai cald</string>
+    <string name="pv_mais_frio">Mai rece</string>
+    <string name="pv_igual">La fel ca real</string>
+    <string name="pv_detalhes">Detalii</string>
+    <string name="pv_sensacao">Temperatură resimțită</string>
+    <string name="pv_vento">Vânt</string>
+    <string name="pv_uv">Indice UV</string>
+    <string name="pv_visib">Vizibilitate</string>
+    <string name="pv_orvalho">Punct de rouă</string>
+    <string name="pv_pressao">Presiune</string>
+    <string name="pv_chuva_hoje">Ploaie azi</string>
+    <string name="pv_ar">Calitatea aerului</string>
+    <string name="pv_sem_dados">Fără date acum</string>
+    <string name="uv_baixo">Scăzut</string>
+    <string name="uv_moderado">Moderat</string>
+    <string name="uv_alto">Ridicat</string>
+    <string name="uv_muito_alto">Foarte ridicat</string>
+    <string name="uv_extremo">Extrem</string>
+    <string name="aq_boa">Bună</string>
+    <string name="aq_moderada">Moderată</string>
+    <string name="aq_sensiveis">Nesănătoasă pentru sensibili</string>
+    <string name="aq_ruim">Nesănătoasă</string>
+    <string name="aq_muito_ruim">Foarte nesănătoasă</string>
+    <string name="aq_perigosa">Periculoasă</string>
+    <string-array name="rosa_ventos">
+        <item>N</item>
+        <item>NE</item>
+        <item>E</item>
+        <item>SE</item>
+        <item>S</item>
+        <item>SV</item>
+        <item>V</item>
+        <item>NV</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Întunecat</string>
+    <string name="tema_galeria">Galerie</string>
+    <string name="tema_meu">Fundalul meu</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Blând</string>
+    <string name="som_classico">Clasic</string>
+    <string name="som_sino">Clopoțel</string>
+    <string name="som_rampa1">Crește în 1½ min</string>
+    <string name="som_rampa2">Crește în 2 min</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mbps (descărcat %2$.0f MB în %3$.1f s)</string>
+    <string name="vel_falhou">Test eșuat (fără internet sau server indisponibil)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  curent"</string>
+    <string name="esc_botao">Butonul %1$s deschide:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">răsărit %1$s</string>
+    <string name="fd_por">apus %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: folosește   ·   țineți OK pe unul din serverele dvs.: elimină   ·   Înapoi: ieșire</string>
+    <string name="dns_auto">Automat</string>
+    <string name="dns_auto_det">Folosește DNS-ul routerului și criptează când acesta acceptă (implicit Android)</string>
+    <string name="dns_desl">Dezactivat</string>
+    <string name="dns_desl_det">DNS simplu, fără criptare</string>
+    <string name="dns_publicos">Servere publice</string>
+    <string name="dns_meus">Serverele mele</string>
+    <string name="dns_adicionar">+  Adaugă server</string>
+    <string name="dns_adicionar_det">Adresă DNS-over-TLS, de ex. dns.example.com</string>
+    <string name="dns_sem_permissao">"Nicio permisiune pentru schimbarea DNS-ului. Pe un computer: "</string>
+    <string name="dns_troque_antes">schimbați serverul înainte de a-l elimina pe acesta</string>
+    <string name="dns_remover_q">Eliminați %1$s?</string>
+    <string name="dns_remover">Elimină</string>
+    <string name="dns_nome_opc">Nume (opțional)</string>
+    <string name="dns_endereco_ex">Adresă, de ex. dns.example.com</string>
+    <string name="dns_adicionar_tit">Adaugă server DNS</string>
+    <string name="dns_salvar_usar">Salvează și folosește</string>
+    <string name="dns_invalido">Adresă nevalidă. Folosiți un nume precum dns.example.com (Android nu acceptă un număr IP).</string>
+    <string name="dns_em_uso">În uz: %1$s</string>
+    <string name="dns_testando">se testează…</string>
+    <string name="dns_falha">EȘUAT: niciun nume rezolvat. Alegeți alt server sau Automat.</string>
+    <string name="dns_res_sem_cripto">rezolvă în %1$d ms (fără criptare)</string>
+    <string name="dns_res_tls">rezolvă în %1$d ms   ·   TLS activ</string>
+    <string name="dns_res_com">" cu %1$s"</string>
+    <string name="dns_res_sem_tls">rezolvă în %1$d ms   ·   fără TLS acum</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (personal)</string>
+    <string name="dns_personalizado">Personalizat (%1$s)</string>
+    <string name="dns_rot_auto">automat</string>
+    <string name="dns_rot_desl">dezactivat</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Rezumat</string>
+    <string name="diag_frase">Într-o propoziție</string>
+    <string name="diag_wifi_desc">deconectat: TV-ul nu e în nicio rețea</string>
+    <string name="diag_lat">%1$d ms până la internet</string>
+    <string name="diag_sem_resp">niciun răspuns de la internet</string>
+    <string name="diag_wifi">%1$s · semnal %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Android a validat Wi-Fi-ul</string>
+    <string name="diag_nao_validou">Android NU a validat Wi-Fi-ul</string>
+    <string name="diag_net_ok">funcționează (test în %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">testul nu a ajuns la Google · %1$s</string>
+    <string name="diag_net_estranha">răspuns ciudat (%1$d): rețeaua poate cere autentificare · %2$s</string>
+    <string name="diag_cripto">criptare activă</string>
+    <string name="diag_sem_cripto">criptare NEACTIVĂ</string>
+    <string name="diag_resolve">rezolvă nume (%1$d ms)</string>
+    <string name="diag_nao_resolve">NU rezolvă nume</string>
+    <string name="diag_caiu">%1$s a eșuat mai devreme și am revenit la automat</string>
+    <string name="diag_nenhum_app">nicio aplicație</string>
+    <string name="diag_vpn_nada">niciun VPN fixat sau activ</string>
+    <string name="diag_vpn_desc">%1$s fixat, dar DECONECTAT (internetul funcționează și fără VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s conectat, dar Android nu a validat tunelul</string>
+    <string name="diag_vpn_ok">%1$s conectat și funcțional</string>
+    <string name="diag_r_sem_wifi">TV-ul nu are Wi-Fi</string>
+    <string name="diag_r_dns_fora">DNS-ul nu răspunde: internetul pare căzut</string>
+    <string name="diag_r_net_fora">internetul nu trece (router sau furnizor)</string>
+    <string name="diag_r_dns">DNS-ul nu rezolvă nume: aplicațiile nu își găsesc serverele</string>
+    <string name="diag_r_net">DNS-ul funcționează, dar internetul nu răspunde</string>
+    <string name="diag_r_vpn">rețea ok; doar VPN-ul e căzut (aplicațiile merg fără el)</string>
+    <string name="diag_r_atencao">rețeaua funcționează, cu puncte de atenție mai jos</string>
+    <string name="diag_r_ok">rețea ok. Dacă o aplicație s-a oprit, vedeți mai jos ce s-a întâmplat cu ea</string>
+    <string name="diag_usava">" · folosea %1$d MB"</string>
+    <string name="diag_texto">Motiv: %1$s\nProces: %2$s\nImportanță: %3$s</string>
+    <string name="diag_detalhe">\nDetaliu Android: %1$s</string>
+    <string name="diag_m_memoria">închisă din lipsă de memorie</string>
+    <string name="diag_m_crash">s-a blocat</string>
+    <string name="diag_m_nativo">s-a blocat (nativ)</string>
+    <string name="diag_m_anr">nu a mai răspuns (ANR)</string>
+    <string name="diag_m_iniciar">nu a putut porni</string>
+    <string name="diag_m_recurso">închisă pentru că folosea prea multe resurse</string>
+    <string name="diag_m_dependencia">închisă pentru că a murit o aplicație de care depinde</string>
+    <string name="diag_m_sinal">terminată de sistem (semnal)</string>
+    <string name="diag_m_permissao">repornită de o schimbare de permisiune</string>
+    <string name="diag_i_tela">era pe ecran</string>
+    <string name="diag_i_visivel">vizibilă</string>
+    <string name="diag_i_servico">rula în fundal</string>
+    <string name="diag_i_cache">în fundal (în cache)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Diagnosticare</string>
+    <string name="diag_refazer">Verifică din nou</string>
+    <string name="diag_refazer_det">Rulează din nou toate verificările</string>
+    <string name="diag_verificando">se verifică…</string>
+    <string name="diag_apps">Aplicații (ultimele 7 zile)</string>
+    <string name="diag_lendo">Se citește istoricul aplicațiilor</string>
+    <string name="diag_sem_perm">Nicio permisiune pentru a citi blocările altor aplicații</string>
+    <string name="diag_sem_perm_det">Launcherul își acordă singur READ_LOGS și DUMP prin propriul shell; așteptați câteva minute sau reporniți TV-ul</string>
+    <string name="diag_nada">nimic înregistrat</string>
+    <string name="diag_erros">Erori ale launcherului (înregistrate de el)</string>
+    <string name="diag_sem_erros">Nicio eroare înregistrată</string>
+    <string name="diag_sem_erros_det">Launcherul își păstrează aici ultimele %1$d blocări</string>
+    <string name="diag_erro">Eroare launcher</string>
+    <string name="diag_apagar">Șterge erorile înregistrate</string>
+    <string name="diag_apagar_det">Golește lista de mai sus (nu atinge nimic altceva)</string>
+    <string name="diag_rodape">%1$s · săgețile derulează · ÎNAPOI revine</string>
+    <string name="diag_app_ok">Nicio blocare, înghețare sau ieșire anormală în ultimele 7 zile.\n\nDacă aplicația se deschide dar nu încarcă nimic, problema este de obicei rețeaua: vedeți secțiunea Rețea de pe ecranul anterior.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">încă neverificat</string>
+    <string name="atu_android9">necesită Android 9 sau mai nou</string>
+    <string name="atu_ocupado">se verifică deja</string>
+    <string name="atu_erro">eroare: %1$s %2$s</string>
+    <string name="atu_em_dia">la zi (instalată %1$d, cea mai nouă %2$d)</string>
+    <string name="atu_sem_tag">Cel mai nou Release nu are versiune în etichetă</string>
+    <string name="atu_sem_apk">Release-ul %1$d nu are APK sau SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 nu se potrivește, nu a fost instalat</string>
+    <string name="atu_ilegivel">Release %1$d: APK ilizibil</string>
+    <string name="atu_pacote">Release %1$d: pachet diferit (%2$s)</string>
+    <string name="atu_versao">Release %1$d: versiunea APK (%2$d) nu se potrivește cu eticheta</string>
+    <string name="atu_chave">GitHub are versiunea %1$d, dar e semnată cu altă cheie pe care acest TV nu o acceptă: acest TV se actualizează de pe un PC</string>
+    <string name="atu_migracao_disponivel">versiunea %1$d: gata să mute acest TV în noua aplicație (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">se instalează noua aplicație (%1$d); apoi preia acest TV cu toate setările</string>
+    <string name="atu_disponivel">versiunea %1$d e gata de instalare (instalată %2$d)</string>
+    <string name="atu_trocou">versiunea s-a schimbat de la ultima verificare · OK verifică din nou</string>
+    <string name="atu_instalando">se instalează %1$d (instalată %2$d)</string>
+    <string name="atu_ok">actualizat</string>
+    <string name="atu_falhou">instalarea a eșuat (%1$d): %2$s</string>
+    <string name="atu_ruim">versiunea %1$d s-a blocat pe acest TV imediat după instalare: nu va fi instalată din nou</string>
+    <string name="vig_aviso_titulo">Actualizare în pauză</string>
+    <string name="vig_pausada">versiunea %1$d s-a blocat de două ori imediat după instalare · actualizarea automată așteaptă următoarea</string>
+    <string name="vig_pausada_tela">versiunea %1$d s-a blocat de două ori imediat după instalare · \"%2$s\" rămâne dezactivat până la următoarea</string>
+    <string name="vig_tela_bloqueada">Acest ecran e dezactivat până la următoarea actualizare (a blocat launcherul)</string>
+    <string name="cfg_vig_liberar">Mod sigur</string>
+    <string name="cfg_vig_liberar_det">" · OK îl reactivează"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Căutarea vocală nu s-a deschis pe acest TV</string>
+    <string name="home_alarme_hoje">azi</string>
+    <string name="home_alarme_amanha">mâine</string>
+    <string name="player_carregando">Se încarcă canalele…</string>
+    <string name="player_carregando_canal">Se încarcă canalul…</string>
+    <string name="vod_carregando">Se încarcă videoclipul…</string>
+    <string name="player_sem_canais">Nu a fost adăugată încă nicio listă de canale.</string>
+    <string name="player_tentando">Fără semnal pe canalul %1$d. Se reîncearcă…</string>
+    <string name="player_sem_sinal">Canalul %1$d nu a răspuns. Alegeți altul cu ▲ ▼ sau OK.</string>
+    <string name="player_canal_nao_existe">Nu există canalul %1$d.</string>
+    <string name="player_ao_vivo">LIVE</string>
+    <string name="player_a_seguir">urmează: %1$s</string>
+    <string name="player_teclas">▲ ▼ canal · OK lista de canale · țineți OK 2 s: favorit · ◀ canalul anterior · ▶ ▶ opțiuni · ÎNAPOI ieșire</string>
+    <string name="player_teclas_pausa">▶❙❙ sau OK reia · ▶ opțiuni (înapoi la live) · ▲ ▼ canal · ÎNAPOI ieșire</string>
+    <string name="player_cat_busca">Căutare: %1$s</string>
+    <string name="player_acao_buscar">Căutare</string>
+    <string name="player_acao_filtros">Filtre</string>
+    <string name="filmes_titulo">Filme</string>
+    <string name="filmes_carregando">Se încarcă filmele…</string>
+    <string name="filmes_vazio">Încă nu există filme</string>
+    <string name="filmes_continuar">Continuă</string>
+    <string name="filmes_ordem_titulo">Sortează după</string>
+    <string name="filmes_ordem_recentes">cele mai noi în catalog</string>
+    <string name="filmes_ordem_nome">nume</string>
+    <string name="filmes_ordem_nota">notă</string>
+    <string name="filmes_ordem_ano">an</string>
+    <string name="filmes_busca_dica">Numele filmului</string>
+    <string name="filmes_do_comeco">De la început</string>
+    <string name="filmes_assistir">▶  Vizionează</string>
+    <string name="filmes_ficha_carregando">Se încarcă detaliile…</string>
+    <string name="filmes_direcao">Regizor</string>
+    <string name="filmes_elenco">Distribuție</string>
+    <string name="filmes_interesses">De văzut</string>
+    <string name="filmes_assistidos">Văzute</string>
+    <string name="filmes_interesse_pos">★ %1$s adăugat la De văzut</string>
+    <string name="filmes_interesse_tirou">%1$s eliminat din De văzut</string>
+    <string name="filmes_interesses_cheio">Lista De văzut are deja 500 de titluri: eliminați unul mai întâi.</string>
+    <string name="filmes_interesses_vazio">Țineți OK apăsat 2 secunde pe un poster pentru a-l adăuga aici (și din nou pentru a-l elimina).</string>
+    <string name="filmes_assistido">Văzute</string>
+    <string name="filmes_selo_leg">SUB</string>
+    <string name="vod_sem_conta">Contul acestui videoclip nu mai există.</string>
+    <string name="vod_erro">Nu s-a putut reda acest videoclip. ÎNAPOI pentru a ieși.</string>
+    <string name="vod_faixa">Pistă</string>
+    <string name="vod_audio">Audio</string>
+    <string name="vod_legenda">Subtitrări</string>
+    <string name="vod_faixas">Audio și subtitrări</string>
+    <string name="vod_teclas">OK pauză · ◀ 10 s · ▶ 30 s (țineți pentru mai rapid) · ▼ audio, subtitrări și imagine · ⏮ ⏭ capitole · ÎNAPOI ieșire</string>
+    <string name="series_titulo">Seriale</string>
+    <string name="series_carregando">Se încarcă serialele…</string>
+    <string name="series_vazio">Încă nu există seriale</string>
+    <string name="series_ordem_recentes">cu un episod nou</string>
+    <string name="series_busca_dica">Numele serialului</string>
+    <string name="series_sem_episodios">Serverul nu a trimis episoade pentru acest serial.</string>
+    <string name="series_assistir">▶  Vizionează %1$s</string>
+    <string name="series_temporada">Sezonul %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d sezon</item>
+        <item quantity="few">%d sezoane</item>
+        <item quantity="other">%d de sezoane</item>
+    </plurals>
+    <string name="player_acao_guia">Ghid TV</string>
+    <string name="player_sem_guia_curto">Fără ghid TV</string>
+    <string name="player_grade_teclas">OK vizionează · ◀ ▶ program · ▲ ▼ canal</string>
+    <string name="player_busca_dica">Numele canalului sau al programului</string>
+    <string name="player_busca_nada">Nimic găsit pentru „%1$s”.</string>
+    <string name="player_filtro_qualquer">Oricare</string>
+    <string name="player_filtro_qualidade">Calitate: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Calitatea imaginii</string>
+    <string name="player_filtro_pais">Țara: %1$s</string>
+    <string name="player_filtro_pais_titulo">Țară sau limbă</string>
+    <string name="player_filtro_limpar">Șterge filtrele</string>
+    <string name="player_filtro_nada">Această listă nu are calitate sau țară în numele canalelor.</string>
+    <string name="player_bloqueado">Canal blocat de controlul parental. Introduceți PIN-ul în Filtre pentru a-l viziona.</string>
+    <string name="player_ocultas_mostrar">Afișează categoriile ascunse și canalele blocate (PIN)</string>
+    <string name="player_ocultas_esconder">Ascunde din nou categoriile ascunse și canalele blocate</string>
+    <string name="player_pin_titulo">PIN-ul panoului</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">PIN greșit.</string>
+    <string name="player_pin_sem">Fără PIN de panou: categoriile ascunse nu sunt protejate.</string>
+    <string name="player_pin_espere">Prea multe PIN-uri greșite. Încercați din nou peste %d min.</string>
+    <string name="infantil_titulo">Categorii pentru copii</string>
+    <string name="infantil_carregando">se încarcă categoriile…</string>
+    <string name="infantil_coluna_itens">CE CONȚINE</string>
+    <string name="infantil_dica">OK marchează sau demarchează categoria pentru copii · se aplică la TV live, Filme și Seriale · ÎNAPOI iese (deja salvat)</string>
+    <string name="infantil_so_categoria">marcați întreaga categorie în coloana din stânga</string>
+    <string name="infantil_vazio">fără categorii: adăugați un cont în Setări › TV și filme și reîncărcați canalele</string>
+    <string name="infantil_limite">o categorie pentru adulți nu poate fi pentru copii</string>
+    <string name="infantil_resumo_ligado">%1$d din %2$d categorii marcate pentru copii · mod copii ACTIVAT</string>
+    <string name="infantil_resumo_desligado">%1$d din %2$d categorii marcate pentru copii · mod copii dezactivat</string>
+    <string name="cfg_infantil">Mod copii</string>
+    <string name="cfg_infantil_ligado">activat · se afișează doar cele %d categorii pentru copii; restul cer PIN-ul</string>
+    <string name="cfg_infantil_desligado">dezactivat · %d categorii marcate pentru copii</string>
+    <string name="cfg_infantil_escolher">Alegeți categoriile pentru copii</string>
+    <string name="cfg_infantil_escolher_det">Aplică la TV live, Filme și Seriale</string>
+    <string name="player_grupo_oculto">%1$s ascuns. Pentru a-l vedea: Filtre, afișează ascunsele.</string>
+    <string name="player_grupo_mostrado">%1$s este din nou vizibil.</string>
+    <string name="player_canais_de">%1$s · %2$d CANALE</string>
+    <string name="player_cat_todos">Toate</string>
+    <string name="player_cat_favoritos">Favorite</string>
+    <string name="player_cat_recentes">Recente</string>
+    <string name="player_cat_outros">Altele</string>
+    <string name="player_sem_favoritos">Încă nu există favorite. Țineți OK 2 s pe un canal pentru a-l adăuga aici.</string>
+    <string name="player_categoria_vazia">Niciun canal în această categorie.</string>
+    <string name="player_sem_guia">Fără ghid TV pentru acest canal.</string>
+    <string name="player_depois">MAI TÂRZIU</string>
+    <string name="player_lista_teclas">OK vizionează · țineți OK 2 s: favorit sau elimină · țineți OK pe o categorie: ascunde · ◀ categorii</string>
+    <string name="player_favorito_pos">★ %1$s adăugat la favorite</string>
+    <string name="player_favorito_tirou">%1$s eliminat din favorite</string>
+    <string name="player_favoritos_cheio">Există deja 500 de favorite: eliminați unul mai întâi.</string>
+    <string name="player_assistindo">se vizionează</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Canale live</string>
+    <string name="home_destaque_app">Aplicație</string>
+    <string name="app_sub_youtube">Videoclipuri și canale</string>
+    <string name="app_sub_netflix">Filme și emisiuni</string>
+    <string name="app_sub_prime">Filme, emisiuni și sport</string>
+    <string name="app_sub_max">Filme, emisiuni și sport</string>
+    <string name="app_sub_play_store">Instalați și actualizați aplicații</string>
+    <string name="app_sub_play_games">Jocuri</string>
+    <string name="app_sub_google_tv">Filme cumpărate și închiriate</string>
+    <string name="app_sub_config">Setări TV</string>
+    <string name="home_card_series">Seriale</string>
+    <string name="home_card_filmes">Filme</string>
+    <string name="home_destaque_series">Seriale din lista dvs. · continuați de unde ați rămas</string>
+    <string name="home_destaque_filmes">Filme din lista dvs. · continuați de unde ați rămas</string>
+    <string name="home_card_rede">Rețea</string>
+    <string name="home_destaque_rede">Videoclipurile, muzica și fotografiile dvs.</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d MMMM</string>
+    <string name="home_busca">Căutare</string>
+    <string name="home_falar">Vorbiți cu Gemini</string>
+    <string name="home_dest_tv">TV · canalul %1$d</string>
+    <string name="rede_titulo">Rețea</string>
+    <string name="rede_procurando">Se caută servere media în rețea…</string>
+    <string name="rede_nenhum">Niciun server media nu e pornit acum. Adăugați unul mai jos: Plex și Jellyfin folosesc contul dvs.; un folder de pe PC sau NAS folosește adresa sa.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d server</item>
+        <item quantity="few">%1$d servere</item>
+        <item quantity="other">%1$d de servere</item>
+    </plurals>
+    <string name="rede_secao_seus">Serverele dvs.</string>
+    <string name="rede_secao_achados">Găsite în rețea</string>
+    <string name="rede_secao_adicionar">Adaugă</string>
+    <string name="rede_entrar">Conectare</string>
+    <string name="rede_adicionar">Adaugă</string>
+    <string name="rede_salvar">Salvează</string>
+    <string name="rede_testar_salvar">Testează și salvează</string>
+    <string name="rede_testando">Se testează…</string>
+    <string name="rede_cancelar">Anulează</string>
+    <string name="rede_sub_dlna">DLNA · se deschide direct</string>
+    <string name="rede_sub_maquina">Folder partajat · %1$s</string>
+    <string name="rede_sub_pasta">Folder partajat · %1$s</string>
+    <string name="rede_sub_lista">Listă M3U · %1$s</string>
+    <string name="rede_sub_video">Link video · %1$s</string>
+    <string name="rede_sub_plex">Conectare cu un cod, fără parolă pe TV</string>
+    <string name="rede_sub_jellyfin">Numele de utilizator și parola serverului</string>
+    <string name="rede_sub_smb">Folder Windows, Mac sau NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS cu WebDAV</string>
+    <string name="rede_sub_link">adresă http, HLS (.m3u8) sau listă M3U</string>
+    <string name="rede_acao_smb">Folder partajat</string>
+    <string name="rede_acao_webdav">WebDAV sau Nextcloud</string>
+    <string name="rede_acao_link">Link video sau listă</string>
+    <string name="rede_acao_procurar">Caută din nou</string>
+    <string name="rede_abrindo">Se deschide…</string>
+    <string name="rede_vazia">Folder gol</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d element</item>
+        <item quantity="few">%1$d elemente</item>
+        <item quantity="other">%1$d de elemente</item>
+    </plurals>
+    <string name="rede_dica_abrir">deschide</string>
+    <string name="rede_dica_remover">elimină</string>
+    <string name="rede_dica_sair">ieșire</string>
+    <string name="rede_dica_subir">un folder mai sus</string>
+    <string name="rede_tecla_segurar">țineți OK</string>
+    <string name="rede_tecla_voltar">ÎNAPOI</string>
+    <string name="rede_erro">Serverul nu a răspuns. Încercați din nou.</string>
+    <string name="rede_erro_senha">Numele de utilizator sau parola nu au fost acceptate de server.</string>
+    <string name="rede_erro_pasta">Serverul a răspuns, dar nu are un folder cu acest nume.</string>
+    <string name="rede_erro_servidor">Serverul nu a fost găsit. Verificați adresa și că este în aceeași rețea.</string>
+    <string name="rede_erro_certificado">Certificatul de securitate al serverului nu este valid pentru această adresă.</string>
+    <string name="rede_erro_cheio">Nu s-a putut salva: TV-ul păstrează deja 20 de servere. Eliminați unul mai întâi.</string>
+    <string name="rede_endereco_erro">Adresă incompletă sau nevalidă.</string>
+    <string name="rede_salva">\"%1$s\" adăugat.</string>
+    <string name="rede_nome_opcional">Nume afișat (opțional)</string>
+    <string name="rede_senha">Parolă</string>
+    <string name="rede_remover_titulo">Eliminați \"%1$s\"?</string>
+    <string name="rede_remover_explica">Datele de autentificare dispar de pe TV. Nimic nu se schimbă pe server.</string>
+    <string name="rede_remover">Elimină</string>
+    <string name="rede_removida">\"%1$s\" eliminat.</string>
+    <string name="rede_smb_titulo">Folder partajat</string>
+    <string name="rede_smb_explica">Adresă ca în Windows: \\\\server\\folder (de ex. \\\\192.168.0.10\\Filme). Utilizator și parolă goale = invitat.</string>
+    <string name="rede_smb_endereco">\\\\server\\folder</string>
+    <string name="rede_smb_endereco_erro">Lipsește serverul sau folderul (de ex. \\\\NAS\\Filme).</string>
+    <string name="rede_smb_usuario">Nume de utilizator (opțional)</string>
+    <string name="rede_smb_senha">Parolă (opțional)</string>
+    <string name="rede_jf_explica">Adresa serverului %1$s (de ex. 192.168.0.10 sau nas:8096), nume de utilizator și parolă. Parola nu este stocată pe TV.</string>
+    <string name="rede_jf_endereco">Adresa serverului</string>
+    <string name="rede_jf_usuario">Nume de utilizator</string>
+    <string name="rede_jf_usuario_falta">Lipsește numele de utilizator.</string>
+    <string name="rede_dav_explica">Adresa folderului (Nextcloud: cloud.example.com/remote.php/dav/files/UTILIZATORUL_DVS). Fără http, TV-ul folosește https. Pe Nextcloud, preferați o parolă de aplicație.</string>
+    <string name="rede_dav_endereco">Adresă WebDAV</string>
+    <string name="rede_link_explica">Un videoclip (mp4, mkv…), un flux HLS (.m3u8) sau o listă M3U cu mai multe videoclipuri. Rămâne salvat aici.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Folosiți o adresă care începe cu http:// sau https://.</string>
+    <string name="rede_plex_titulo">Conectare la Plex</string>
+    <string name="rede_plex_explica">Pe telefon sau computer, deschideți plex.tv/link și introduceți codul de mai jos. Sau îndreptați camera telefonului spre codul QR.</string>
+    <string name="rede_plex_pedindo">Se cere un cod de la Plex…</string>
+    <string name="rede_plex_esperando">Se așteaptă confirmarea dvs. pe Plex…</string>
+    <string name="rede_plex_buscando">Cont conectat. Se caută serverele dvs.…</string>
+    <string name="rede_plex_venceu">Codul a expirat. Obțineți unul nou.</string>
+    <string name="rede_plex_outro">Obține un cod nou</string>
+    <string name="rede_plex_sem_servidor">Acest cont Plex nu are niciun server.</string>
+    <string name="rede_plex_inacessivel">Am găsit serverul în cont, dar nu a răspuns de aici. Verificați că e pornit și în aceeași rețea.</string>
+    <string name="rede_plex_varios">%1$d servere Plex adăugate.</string>
+    <string name="pg_amanha">Mâine</string>
+    <string name="pg_recado">Mesaj</string>
+    <string name="pg_app_despertador">Alarmă</string>
+    <string name="pg_bom_dia">Bună dimineața</string>
+    <string name="pg_boa_tarde">Bună ziua</string>
+    <string name="pg_boa_noite">Bună seara</string>
+    <string name="pg_agora">acum</string>
+    <string name="pg_ontem">ieri</string>
+    <string name="pg_mais_notif">+%1$d notificări</string>
+    <string name="pg_dia_todo">azi</string>
+    <string name="pg_hoje_as">azi la %1$s</string>
+    <string name="pg_amanha_as">mâine la %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Acum</string>
+    <string name="pw_proximas_horas">Următoarele ore</string>
+    <string name="pw_hoje">Azi</string>
+    <string name="pw_chuva_pct">%1$d%% șanse de ploaie</string>
+    <string name="pw_umidade_pct">%1$d%% umiditate</string>
+    <string name="pw_ate_umas">%1$s până pe la %2$s</string>
+    <string name="pw_chuva_pelas">%1$s, ploaie pe la %2$s</string>
+    <string name="pw_chuva_segue">%1$s în următoarele ore</string>
+    <string name="pw_amanha_frase">Mâine %1$d°, %2$s</string>
+    <string name="pw_nasce">răsărit %1$s</string>
+    <string name="pw_poe">apus %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Notificări</string>
+    <string name="pr_sem_notificacoes">Nicio notificare</string>
+    <string name="pr_notificacoes_desligadas">Se activează accesul la notificări…</string>
+    <string name="pr_perfis">Profiluri</string>
+    <string name="pr_protetor">Screensaver</string>
+    <string name="pr_timer">Temporizator</string>
+    <string name="pr_timer_as">Până la %1$s</string>
+    <string name="pr_audio_arc">Receiver (HDMI ARC)</string>
+    <string name="pr_dispensar">Închide</string>
+    <string name="pr_ontem">ieri</string>
+    <string name="pr_agora">acum</string>
+    <string name="pr_configuracoes">Setările launcherului</string>
+    <string name="pr_tocar_pausar">Redare sau pauză</string>
+    <string name="pr_proxima">Următorul</string>
+    <string name="pr_tocando">se redă</string>
+    <string name="pr_pausado">în pauză</string>
+    <string name="pr_dormir">Somn</string>
+    <string name="pr_despertador">Alarmă</string>
+    <string name="pr_visita">Invitați</string>
+    <string name="pr_casa">Acasă</string>
+    <string name="pr_config_tv">Setări TV</string>
+    <string name="pr_sinal_bom">semnal bun</string>
+    <string name="pr_sinal_medio">semnal mediu</string>
+    <string name="pr_sinal_fraco">semnal slab</string>
+    <string name="pr_bt_conectados">%1$d conectate</string>
+    <string name="pr_hoje">Azi</string>
+    <string name="pr_amanha">Mâine</string>
+    <string name="pr_ligado">Activat</string>
+    <string name="pr_limpar_tudo">Șterge tot</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Catch-up: programe trecute</string>
+    <string name="tvv_titulo">Catch-up · %1$s</string>
+    <string name="tvv_do_inicio">Acum · de la început: %1$s</string>
+    <string name="tvv_carregando">Se aduc programele trecute…</string>
+    <string name="tvv_sem_resposta">Serverul nu a răspuns. Încercați din nou peste puțin timp.</string>
+    <string name="tvv_vazio">Acest canal nu are încă programe salvate.</string>
+    <string name="tvv_voltou">Înapoi la live</string>
+    <string name="tvv_selo">CATCH-UP</string>
+    <string name="tvv_teclas">◀ ▶ 30 s · OK opțiuni · ÎNAPOI live</string>
+    <string name="tvv_pausar">Pauză</string>
+    <string name="tvv_continuar">Reia</string>
+    <string name="tvv_ao_vivo">Înapoi la live</string>
+    <string name="tvv_hoje">Azi</string>
+    <string name="tvv_ontem">Ieri</string>
+    <string name="imagem_titulo">Raport de aspect</string>
+    <string name="imagem_ajustar">Potrivește pe ecran</string>
+    <string name="imagem_esticar">Întinde</string>
+    <string name="imagem_zoom">Zoom (taie marginile)</string>
+    <string name="velocidade_titulo">Viteză</string>
+    <string name="trailer">Trailer</string>
+    <string name="trailer_sem_app">Nicio aplicație găsită pentru a deschide trailerul.</string>
+    <string name="series_visto_ate_aqui">Marchează ca văzut până la %1$s</string>
+    <string name="series_nao_visto">Marchează ca nevăzut</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Filme și seriale</string>
+    <string name="idioma_titulo">Audio preferat</string>
+    <string name="idioma_det">Original cu subtitrări în limba TV-ului sau dublat în ea. Fiecare film și serial reține schimbarea făcută în player (▼)</string>
+    <string name="idioma_original">Original cu subtitrări</string>
+    <string name="idioma_dublado">Dublat</string>
+    <string name="idioma_legendado">Subtitrat</string>
+    <string name="idioma_dublado_curto">Dublat</string>
+    <string name="idioma_versao_legendada">Versiune subtitrată</string>
+    <string name="idioma_versao_dublada">Versiune dublată</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Caută subtitrări online</string>
+    <string name="legenda_procurando">Se caută subtitrări…</string>
+    <string name="legenda_baixando">Se descarcă subtitrările…</string>
+    <string name="legenda_acertada">Subtitrări sincronizate cu vorbirea · %1$s</string>
+    <string name="legenda_pronta">Subtitrările sunt gata</string>
+    <string name="legenda_nenhuma">Nicio subtitrare în limba TV-ului pentru acest videoclip</string>
+    <string name="legenda_erro">Nu s-au putut căuta subtitrări</string>
+    <string name="legenda_invalida">Fișierul descărcat nu este o subtitrare</string>
+    <string name="legenda_sem_conta">Adăugați cheia OpenSubtitles în Setări › TV și filme › Filme și seriale</string>
+    <string name="legenda_escolher">Subtitrări pentru \"%1$s\"</string>
+    <string name="legenda_surdos">pentru persoane cu deficiențe de auz</string>
+    <string name="legenda_bate">făcută pentru acest fișier</string>
+    <string name="lista_dica_escolher">alegeți</string>
+    <string name="legenda_atraso_titulo">Întârzierea subtitrării (+ = textul apare mai târziu)</string>
+    <string name="legenda_atraso_zero">Fără întârziere</string>
+    <string name="legenda_conta_titulo">Subtitrări online</string>
+    <string name="legenda_conta_det">OpenSubtitles, cu cheia dvs. API (gratuită la opensubtitles.com/consumers). Fără cont: 5 subtitrări pe zi</string>
+    <string name="legenda_conta_sim">configurat</string>
+    <string name="legenda_conta_nao">neconfigurat</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">mai rămâne %1$s</string>
+    <string name="tempo_falta_um">mai rămân %1$s</string>
+    <string name="serie_ep_longo">Sezonul %1$d, episodul %2$d</string>
+    <string name="ficha_continuar_de">de la %1$s</string>
+    <string name="tempo_termina_as">se termină la %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s episoade</string>
+    <string name="tempo_x_de_y">%1$d din %2$d</string>
+    <string name="tempo_visto">văzut</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Profil Google</string>
+    <string name="fp_linha">Obține fotografia contului</string>
+    <string name="fp_linha_det">Afișează fotografia contului Google pe butonul de profil</string>
+    <string name="fp_titulo">Fotografia contului</string>
+    <string name="fp_fechar">Închide</string>
+    <string name="fp_pedindo">Se cere un cod de la Google…</string>
+    <string name="fp_passos">1. Pe telefon, deschideți %1$s (sau îndreptați camera spre codul din dreapta).\n2. Conectați-vă cu un cont Google care este pe acest TV și introduceți:\n\n%2$s\n\nAcest ecran continuă singur. Această conectare este folosită doar pentru a aduce fotografia.</string>
+    <string name="fp_ok">Gata: fotografia lui %1$s este acum pe butonul de profil.</string>
+    <string name="fp_sem_foto">Conectat ca %1$s, dar fotografia nu a putut fi salvată. Încercați din nou sau trimiteți o fotografie din panoul web (fila Fotografii screensaver).</string>
+    <string name="fp_falha">Nu a funcționat: %1$s</string>
+    <string name="fp_sem_google">Conectarea Google nu este încă configurată pe acest TV.\n\nDouă moduri de a pune o fotografie pe butonul de profil:\n• Panou web > fila Fotografii screensaver > Fotografie de profil: alegeți orice imagine de pe telefon.\n• Configurați conectarea Google (panou web > fila Claude) și reveniți aici pentru a aduce fotografia contului.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Capitolul %1$d</string>
+    <string name="vod_capitulos_titulo">Capitole</string>
+    <string name="vod_capitulos_opcao">Capitole (%1$d)</string>
+    <string name="vod_segunda_opcao">A doua subtitrare (sus)</string>
+    <string name="vod_segunda_titulo">A doua subtitrare</string>
+    <string name="vod_segunda_desligada">Dezactivată</string>
+    <string name="vod_dialogo_opcao">Dialog mai puternic</string>
+    <string name="vod_dialogo_ligado">Dialog mai puternic activat</string>
+    <string name="vod_dialogo_desligado">Dialog mai puternic dezactivat</string>
+    <string name="vod_atraso_audio_titulo">Întârziere audio (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Niciuna</string>
+    <string name="vod_atraso_audio_mais">Sunetul vine cu %1$d ms întârziere</string>
+    <string name="vod_atraso_audio_menos">Sunetul vine cu %1$d ms mai devreme</string>
+    <string name="vod_info_opcao">Informații tehnice</string>
+    <string name="info_video">Video</string>
+    <string name="info_audio">Audio</string>
+    <string name="info_perdidos">Cadre pierdute</string>
+    <string name="info_taxa">Bitrate</string>
+    <string name="info_buffer">Buffer</string>
+    <string name="info_atraso">Întârziere audio</string>
+    <string name="info_dialogo">Dialog mai puternic activat</string>
+    <string name="info_chip">Cipul TV-ului</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">stereo</string>
+    <string name="lista_dica_voltar">înapoi</string>
+    <string name="pm_ligado">Activat</string>
+    <string name="pm_desligado">Dezactivat</string>
+    <string name="pm_imagem_som">Imagine și sunet</string>
+    <string name="pm_mais">Mai multe opțiuni</string>
+    <string name="pm_versao_legendada">Vizionează subtitrat</string>
+    <string name="pm_versao_dublada">Vizionează dublat</string>
+    <string name="pm_versao_info">Continuă din acest punct</string>
+    <string name="pm_leg_ajustes">Setări subtitrare</string>
+    <string name="pm_leg_tamanho">Mărime</string>
+    <string name="pm_leg_estilo">Stil</string>
+    <string name="pm_leg_posicao">Poziție</string>
+    <string name="pm_leg_atraso">Întârziere</string>
+    <string name="pm_leg_auto">Descarcă una când lipsește</string>
+    <string name="pm_leg_traduzir">Tradu pe TV când lipsește</string>
+    <string name="pm_velocidade">Viteză</string>
+    <string name="pm_proporcao">Mărimea imaginii</string>
+    <string name="pm_atraso_audio">Întârziere audio</string>
+    <string name="pm_quadros">Potrivește rata de cadre a filmului</string>
+    <string name="pm_qualidade">Calitate</string>
+    <string name="pv_sem_titulo">Nicio prognoză acum</string>
+    <string name="bu_voz_grupo">Vorbiți</string>
+    <string name="bu_falar">Spuneți ce căutați</string>
+    <string name="bu_falar_det">Mai rapid decât să tastați cu telecomanda</string>
+    <string name="bu_recentes">Căutări recente</string>
+    <string name="bu_recente_det">Caută din nou</string>
+    <string name="aviso_alarme_tocou_titulo">Alarma a sunat pe TV</string>
+    <string name="aviso_alarme_tocou_texto">A început să sune la %1$s.</string>
+    <string name="home_instalar_externo">Instalează pe stocarea externă</string>
+    <string name="home_instalar_dispositivo">Instalează pe acest dispozitiv</string>
+    <string name="home_instalando_lugar">Se mută %1$s… se închide până la final.</string>
+    <string name="home_instalado_externo">%1$s este acum pe stocarea externă.</string>
+    <string name="home_instalado_dispositivo">%1$s este din nou pe acest dispozitiv.</string>
+    <string name="home_instalar_lugar_falhou">Nu s-a putut muta %1$s: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">shellul propriu al TV-ului nu este activ</string>
+    <string name="home_instalar_lugar_sem_pendrive">niciun stick USB configurat ca stocare TV</string>
+    <string name="st_titulo">Stick USB și stocare</string>
+    <string name="st_explica">Alegeți cum folosește TV-ul un stick USB. Spațiu puțin? Poate deveni stocare TV pentru aplicațiile mari.</string>
+    <string name="st_linha_det">Folosește un stick USB ca stocare TV</string>
+    <string name="st_sem_shell">Necesită shellul propriu al TV-ului (Setări › Sistem › Avansat). OK pentru a reîncerca.</string>
+    <string name="st_sem_pen">Niciun stick USB conectat. Introduceți unul și apăsați OK.</string>
+    <string name="st_tv_livre">Stocare TV: %1$s libere din %2$s</string>
+    <string name="st_pen">Stick USB · %1$s · %2$s</string>
+    <string name="st_modo_comum">Stick USB obișnuit</string>
+    <string name="st_modo_misto">Mixt</string>
+    <string name="st_modo_tv">Stocare TV</string>
+    <string name="st_modo_desconhecido">Neformatat</string>
+    <string name="st_recomendado">Recomandat: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">acest stick e lent, aplicațiile ar sacada</string>
+    <string name="st_motivo_pequeno">sub 8 GB, prea mic pentru a ajuta</string>
+    <string name="st_motivo_folgada">TV-ul mai are spațiu, nu e nevoie să ștergeți stickul</string>
+    <string name="st_motivo_grande">jumătate pentru aplicații, jumătate pentru înregistrări și fișiere</string>
+    <string name="st_motivo_apertada">TV-ul este aproape plin</string>
+    <string name="st_medido">scrie cu %1$s MB/s</string>
+    <string name="st_medir_dica">OK îi măsoară viteza</string>
+    <string name="st_usar_comum">Folosește ca stick USB obișnuit</string>
+    <string name="st_usar_misto">Folosește mixt: %1$d%% obișnuit  ◀ ▶</string>
+    <string name="st_usar_tv">Folosește ca stocare TV</string>
+    <string name="st_apps">Aplicații pe stickul USB</string>
+    <string name="st_apps_det">Alegeți aplicațiile de mutat (cele mai mari primele)</string>
+    <string name="st_apps_nenhum">Nicio aplicație nu poate fi mutată.</string>
+    <string name="st_apps_rodape">OK mută aplicația; ✓ = deja pe stickul USB</string>
+    <string name="st_compartilhado">Fotografii și fișiere: %1$s</string>
+    <string name="st_na_tv">pe TV</string>
+    <string name="st_no_pen">pe stickul USB</string>
+    <string name="st_compartilhado_aviso">Totul se copiază, iar aplicațiile se închid între timp. Reporniți TV-ul după aceea.</string>
+    <string name="st_mover">Mută</string>
+    <string name="st_movendo">Se mută… poate dura câteva minute.</string>
+    <string name="st_aviso_titulo">Ștergeți stickul USB?</string>
+    <string name="st_aviso">Tot ce conține va fi șters pentru a deveni \"%1$s\". Ca stocare TV funcționează doar pe acest TV, iar aplicațiile de pe el dispar cât timp e scos.</string>
+    <string name="st_apagar">Șterge și formatează</string>
+    <string name="st_formatando">Se formatează… poate dura câteva minute.</string>
+    <string name="st_pronto">Gata.</string>
+    <string name="st_falhou">Nu a funcționat: %1$s</string>
+    <string name="st_depois">Acum alegeți ce aplicații merg pe stickul USB.</string>
+    <string name="st_pin">PIN-ul panoului pentru a schimba stickul USB</string>
+    <string name="st_copiar_titulo">Copiați mai întâi ce conține? (%1$s)</string>
+    <string name="st_copiar_para">Copiază pe %1$s</string>
+    <string name="st_copiar_pc">Copiază folosind PC-ul (cum)</string>
+    <string name="st_copiar_pc_texto">Pe PC, deschideți Acest PC > TV-ul > stickul USB și copiați fișierele pe computer. Apoi reveniți aici și formatați.</string>
+    <string name="st_nao_copiar">Nu e nevoie, șterge-l</string>
+    <string name="st_copiando_inicio">Se copiază stickul USB… TV-ul continuă să funcționeze între timp.</string>
+    <string name="st_copiando">Copiat %1$s din %2$s</string>
+    <string name="st_voltar_comum">Înapoi la stick USB obișnuit (aplicațiile revin pe TV)</string>
+    <string name="st_trazendo">Se aduce %1$s înapoi pe TV…</string>
+    <string name="st_sumiram">Stickul USB e scos: %1$s sunt ascunse până revine.</string>
+    <string name="st_sugestao">Stocarea TV e aproape plină. Mutați %1$s (%2$s) pe stickul USB: țineți OK pe aplicație.</string>
+    <string name="st_medindo">Se măsoară viteza stickului pentru a recomanda cea mai bună utilizare…</string>
+    <string name="st_lento_titulo">Stick prea lent</string>
+    <string name="st_lento_bloqueado">Acest stick scrie cu %1$s MB/s. Pentru a deveni stocare TV are nevoie de cel puțin %2$d MB/s: sub aceasta aplicațiile îngheață, iar TV-ul s-ar putea să nu pornească. Folosiți-l ca stick obișnuit.</string>
+    <string name="st_aviso_boot">Lăsați-l conectat definitiv: dacă se defectează sau e scos, TV-ul s-ar putea să nu pornească până nu îl scoateți.</string>
+    <string name="home_grande_titulo">Mutați %1$s?</string>
+    <string name="home_grande_aviso">%1$s ocupă %2$s. Pe un stick lent mutarea poate dura peste 10 minute și a blocat un TV la jumătate. Continuați doar când nu se uită nimeni.</string>
+    <string name="home_liberar_arquivos">Permite deschiderea stickurilor USB și a fișierelor</string>
+    <string name="home_arquivos_liberado">%1$s poate acum deschide stickuri USB și toate fișierele</string>
+    <string name="home_arquivos_falhou">Nu s-a putut permite %1$s: %2$s</string>
+    <string name="aviso_continuar_titulo">Nimic de continuat</string>
+    <string name="aviso_continuar_texto">Invitația de a continua de pe celălalt TV a expirat.</string>
+    <string name="aviso_simples_titulo">Ecranul simplu este dezactivat</string>
+    <string name="aviso_simples_texto">TV-ul a revenit la ecranul principal complet.</string>
+    <string name="aviso_sync_titulo">Niciun cont conectat</string>
+    <string name="aviso_sync_texto">Nu există niciun cont %1$s pe acest TV. Conectați-l în Setări › TV și filme.</string>
+    <string name="dns_nota_familia">familie, blochează site-urile pentru adulți</string>
+    <string name="dns_nota_malware">blochează malware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">TV-ul nu are Wi-Fi%1$s. Verificați că routerul e pornit sau dacă s-a schimbat numele sau parola rețelei.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">routerul a pierdut legătura cu modemul furnizorului</string>
+    <string name="ief_roteador_ve_fora" formatted="true">și routerul vede internetul căzut</string>
+    <string name="ief_ha" formatted="true"> (acum %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi-ul e în regulă, dar internetul furnizorului a căzut%1$s; %2$s%3$s. Nu e TV-ul: așteptați furnizorul sau reporniți modemul.</string>
+    <string name="ief_vpn_travada" formatted="true">Routerul are internet, dar TV-ul nu trece%1$s: probabil VPN-ul s-a blocat. De obicei ajută oprirea și pornirea VPN-ului.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Routerul are internet, dar TV-ul nu ajunge la el%1$s: problema e între TV și router%2$s De obicei ajută reconectarea TV-ului la Wi-Fi.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (semnalul Wi-Fi e slab, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">TV-ul e pe Wi-Fi, dar nici routerul, nici internetul nu răspund%1$s: routerul s-ar putea să fie blocat. De obicei ajută oprirea și pornirea routerului.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi-ul e în regulă, dar internetul nu trece%1$s; probabil e furnizorul sau routerul%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (și VPN-ul activ poate fi cauza).</string>
+    <string name="ief_dns" formatted="true">Internetul funcționează, dar DNS-ul%1$s nu răspunde%2$s: aplicațiile nu își găsesc serverele. Trecerea DNS-ului pe Automat rezolvă problema.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internetul și DNS-ul răspund, dar pagina de test Google %1$s: ceva pe drum (VPN, blocare DNS sau o rețea care cere autentificare) o blochează.</string>
+    <string name="ief_nao_abriu" formatted="true">nu s-a deschis</string>
+    <string name="ief_codigo_diferente" formatted="true">a răspuns diferit (cod %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internetul e în regulă; doar VPN-ul e oprit (aplicațiile merg fără el).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internetul funcționează, dar încet: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">semnalul Wi-Fi e slab (%1$d dBm); ajută apropierea routerului sau un cablu</string>
+    <string name="ief_lenta_tcp" formatted="true">internetul răspunde în %1$d ms%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, iar routerul vede același lucru: e furnizorul</string>
+    <string name="ief_lenta_http" formatted="true">pagina de test s-a deschis în %1$.1f s</string>
+    <string name="ief_queda_recente" formatted="true">Internetul e în regulă acum; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Totul e bine: Wi-Fi-ul, internetul și DNS-ul răspund.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Nicio cădere în ultimele 24 h.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Nicio cădere înregistrată (TV-ul a măsurat doar o parte din ultimele 24 h).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Routerul raportează o problemă de internet, dar TV-ul navighează normal.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS-ul a eșuat</string>
+    <string name="ief_caiu_internet" formatted="true">internetul a căzut</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (apoi TV-ul a oprit măsurarea; nu se știe când a revenit)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d căderi în 24 h</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s și a revenit %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d căderi în 24 h, %2$s fără internet în total</string>
+    <string name="ief_quando_hoje" formatted="true">la %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">ieri la %1$s</string>
+    <string name="ief_quando_data" formatted="true">pe %1$s la %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">de la %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">de ieri de la %1$s</string>
+    <string name="ief_desde_data" formatted="true">de pe %1$s de la %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">sub 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d h</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d h %2$d min</string>
+    <string name="ief_data_dm" formatted="true">dd.MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: deconectat</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">rețea: conectată</string>
+    <string name="ief_s_internet" formatted="true">internet fără DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS fără cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">eșuat</string>
+    <string name="ief_s_pagina" formatted="true">pagina de test: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok în %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">cod %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: activ</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: inactiv</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: vede internetul căzut</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: vede internetul ok%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: fără opinie</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: nu a răspuns</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: neverificat</string>
+    <string name="ief_s_historico" formatted="true">istoric: %1$d măsurători în 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google nu a răspuns acum; încercați din nou</string>
+    <string name="lg_negado">conectarea a fost refuzată pe Google</string>
+    <string name="lg_google_respondeu">Google a răspuns: %1$s</string>
+    <string name="lg_venceu">codul a expirat; începeți din nou</string>
+    <string name="lg_outro_login">a început o altă conectare; începeți din nou</string>
+    <string name="lg_email">Google nu a confirmat e-mailul</string>
+    <string name="lg_conta_fora">contul %1$s nu este în niciun profil pe acest TV</string>
+    <string name="lg_sem_drive">permisiunea Google Drive nu a fost bifată</string>
+    <string name="lg_sem_chave">Google nu a trimis cheia de acces; încercați din nou</string>
+    <string name="lg_nao_guardei">nu s-a putut salva contul pe acest TV</string>
+    <string name="lg_nao_configurado">Conectarea Google nu este configurată</string>
+    <string name="lg_ritmo">prea multe conectări la rând; așteptați un minut</string>
+    <string name="lg_recusou">Google a refuzat (%1$s): verificați client id și secret</string>
+    <string name="lg_erro_google">eroare în comunicarea cu Google</string>
+</resources>

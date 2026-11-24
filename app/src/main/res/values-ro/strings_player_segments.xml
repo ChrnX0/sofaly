@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
+<resources>
+    <string name="seg_pular_resumo">Sari peste rezumat · OK</string>
+    <string name="seg_proximo">Episodul următor · OK</string>
+    <string name="seg_proximo_em">Episodul următor în %1$d · OK</string>
+    <string name="seg_termina">se termină la %1$s</string>
+    <string name="seg_repetir">Ce au spus?</string>
+    <string name="seg_repetir_info">Înapoi 10 s cu subtitrări</string>
+    <string name="seg_sem_legenda">Acest videoclip nu are subtitrări</string>
+</resources>

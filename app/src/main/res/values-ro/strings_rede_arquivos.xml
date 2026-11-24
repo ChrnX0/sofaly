@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Conectat la TV</string>
+    <string name="rede_sub_usb">Stick USB · videoclipuri, muzică și fotografii</string>
+    <string name="rede_acao_arquivos">FTP, SFTP sau NFS</string>
+    <string name="rede_sub_arquivos">NAS, router cu disc, computer Linux sau Mac</string>
+    <string name="rede_arq_explica">Începeți adresa cu protocolul: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. SFTP și FTPS sunt criptate; FTP simplu trimite parola necriptată, așa că folosiți-l doar acasă. NFS nu are parolă: NAS-ul trebuie să permită IP-ul TV-ului și conexiuni de pe porturi neprivilegiate.</string>
+    <string name="rede_arq_endereco">Adresă (sftp://, ftp://, ftps:// sau nfs://)</string>
+    <string name="rede_arq_usuario">Nume de utilizator (NFS: numărul utilizatorului, opțional)</string>
+    <string name="rede_arq_endereco_erro">Începeți cu sftp://, ftp://, ftps:// sau nfs://, urmat de server și folder. Numele de utilizator și parola merg în câmpurile lor.</string>
+    <string name="rede_erro_nfs_porta">Serverul NFS a refuzat TV-ul. Pe NAS, permiteți conexiuni de pe porturi neprivilegiate (Linux: opțiunea \"insecure\" în /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">Serverul NFS nu a permis acest TV. Pe NAS, adăugați IP-ul TV-ului (sau rețeaua casei) la regula NFS a acestui folder.</string>
+    <string name="rede_erro_chave_mudou">Cheia acestui server s-a schimbat de când a fost adăugat. Dacă ați reinstalat serverul, eliminați-l aici și adăugați-l din nou; dacă nu, cineva s-ar putea da drept el.</string>
+    <string name="rede_erro_usb_acesso">TV-ul nu i-a dat launcherului acces la stickul USB. Încercați din nou peste un moment.</string>
+</resources>

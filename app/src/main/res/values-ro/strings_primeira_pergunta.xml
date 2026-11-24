@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Un singur răspuns configurează meniul și ecranul. Puteți schimba mai târziu în Setări › Sistem.</string>
+    <string name="pp_casa">Pentru toată casa</string>
+    <string name="pp_vo_det">Carduri mari cu nume citite cu voce tare și text mai mare, iar dvs. ajutați de pe telefon, de departe.</string>
+</resources>

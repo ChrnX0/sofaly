@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Rezumat ascuns până îl vizionați</string>
+    <string name="cf_spoiler">Ascunde rezumatele episoadelor nevăzute</string>
+    <string name="cf_spoiler_det">Un rezumat apare doar după ce începeți episodul</string>
+    <string name="cf_segundo">A doua limbă</string>
+    <string name="cf_segundo_det">Folosită când un videoclip nu are audio sau subtitrări în limba TV-ului</string>
+    <string name="cf_nenhum">Niciuna</string>
+    <string name="cf_proximo">Numărătoare până la episodul următor</string>
+    <string name="cf_proximo_det">Cât să aștepte până pornește singur episodul următor</string>
+    <string name="cf_proximo_nao">Nu porni singur</string>
+    <string name="cf_segundos">%1$d s</string>
+    <string name="cf_consent_titulo">Trimiteți date către %1$s?</string>
+    <string name="cf_consent_texto">Activarea trimite către %1$s prin internet: titlurile pe care le marcați și vizionați pe acest TV și unde v-ați oprit. Sunt păstrate în contul dvs. %1$s, conform regulilor de confidențialitate %1$s. Puteți dezactiva oricând.</string>
+    <string name="cf_consent_sim">Sunt de acord</string>
+</resources>

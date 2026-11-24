@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Următorul meci al echipei dvs. pe elementul TV al ecranului principal</string>
+    <string name="extras_CARTAO_COTACAO">Cursul valutar al zilei lângă vreme (dolar, euro, bitcoin; întreabă serviciul gratuit Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Numărătoare inversă în partea de sus a ecranului principal în ultimele 7 zile (datele dvs. sau următoarea sărbătoare)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Mementouri pentru casă în partea de sus a ecranului principal în ziua lor (de ex. ziua reciclării), cu un anunț la ora setată</string>
+    <string name="extras_CARTAO_SERVICO">Avertizează în partea de sus a ecranului principal când un serviciu adăugat de dvs. nu mai răspunde</string>
+    <string name="extras_CARTAO_LUA">Faza lunii în prognoza meteo</string>
+    <string name="hc_feriado_hoje">Sărbătoare azi</string>
+    <string name="hc_hoje">Azi: %1$s</string>
+    <string name="hc_lembrete_rotulo">Memento pentru casă</string>
+    <string name="hc_servico_fora">%1$s este căzut</string>
+    <string name="hc_servico_rotulo">Serviciile dvs.</string>
+    <string name="hc_cotacao_rotulo">Curs valutar</string>
+    <string name="hc_cotacao_fonte">Cursurile zilei, sursa: Frankfurter (bănci centrale)</string>
+    <string name="hc_mil">mii</string>
+    <string name="hc_milhao">mil.</string>
+    <string name="hc_seu_time">Echipa dvs.: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Sărbătoare în %1$d zi</item>
+        <item quantity="few">Sărbătoare în %1$d zile</item>
+        <item quantity="other">Sărbătoare în %1$d de zile</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">%1$d zi până la %2$s</item>
+        <item quantity="few">%1$d zile până la %2$s</item>
+        <item quantity="other">%1$d de zile până la %2$s</item>
+    </plurals>
+</resources>

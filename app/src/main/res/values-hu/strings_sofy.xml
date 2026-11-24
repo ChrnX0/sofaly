@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Csak %1$s MB van hátra. A mentés sikertelen lehet.</string>
     <string name="observer_freeze_undone_title">Feloldottam egy fagyasztást</string>
     <string name="observer_freeze_undone_text">%1$s le volt fagyasztva, és %2$s leállt, ezért feloldottam.</string>
+    <string name="observer_wifi_restarted_title">Újraindítottam a Wi-Fit</string>
+    <string name="observer_wifi_restarted_text">A TV %1$s percig Wi-Fi nélkül volt. Ki- és bekapcsoltam, és visszajött.</string>
+    <string name="observer_tv_restarted_title">Újraindítottam a TV-t</string>
+    <string name="observer_tv_restarted_text">A Wi-Fi %1$s percig nem volt elérhető, és a ki-bekapcsolás nem volt elég, ezért újraindítottam a TV-t.</string>
 </resources>

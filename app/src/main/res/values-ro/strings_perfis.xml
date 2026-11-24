@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Profil: %1$s</string>
+    <string name="perfil_aviso_texto">Favoritele, Continuă vizionarea și ordinea aplicațiilor acestui profil</string>
+    <string name="perfil_aviso_crianca">Profil de copil: modul copii și ora de culcare activate</string>
+    <string name="perfil_crianca">Profil de copil</string>
+    <string name="perfil_crianca_linha">Profil de copil · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Dezactivat</string>
+    <string name="perfil_crianca_sem_pin">Setați mai întâi PIN-ul panoului web: este PIN-ul părinților care protejează profilul de copil</string>
+    <string name="perfil_pin_sair">PIN-ul părinților pentru a ieși din profilul de copil</string>
+    <string name="perfil_pin_marcar">PIN-ul părinților pentru a schimba profilul de copil</string>
+</resources>

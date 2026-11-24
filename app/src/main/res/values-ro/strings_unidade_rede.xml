@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Unitate de rețea</string>
+    <string name="ur_titulo">Afișează TV-ul ca unitate de rețea</string>
+    <string name="ur_det">Dezactivat. TV-ul apare singur în Acest PC pe Windows, ca un telefon, și ca folder de rețea pe Mac, Linux și telefoane.</string>
+    <string name="ur_painel">Activați mai întâi panoul web de mai sus (folosește același PIN și adresa https).</string>
+    <string name="ur_https">Se așteaptă adresa https a panoului (certificatul se creează la aproximativ 1 minut după activarea panoului).</string>
+    <string name="ur_abra">Activat. Pe Windows, TV-ul apare în Acest PC (TV-ul întreabă pe ecran prima dată pentru fiecare computer). Mac, Linux și telefon: %1$s · parola: PIN-ul panoului.</string>
+    <string name="mtp_pergunta_titulo">Un computer cere fișierele TV-ului</string>
+    <string name="mtp_pergunta">„%1$s” vrea să vadă și să copieze fișierele din stocarea TV-ului prin rețeaua casei. Permiteți acest computer?</string>
+    <string name="mtp_pcs">Computere permise</string>
+    <string name="mtp_pcs_nenhum">Încă niciunul. TV-ul întreabă pe ecran când un computer cere fișierele.</string>
+    <string name="mtp_pcs_lista">%1$s · OK le uită pe toate (fiecare va întreba din nou)</string>
+    <string name="mtp_pcs_esquecidos">Computere uitate</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Deschide panoul TV-ului</string>
+</resources>

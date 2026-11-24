@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">Pe canapea</string>
+    <string name="jogos_controle_pronto">pregătit</string>
+    <string name="jogos_controle_carregar">încărcați curând</string>
+    <string name="jogos_parear_um">Asociază un controler</string>
+    <string name="turma_titulo">Gașca dvs.</string>
+    <string name="turma_online">%1$d online</string>
+    <string name="turma_mais_online">+ %1$d online</string>
+    <string name="turma_na_voz">În voce</string>
+    <string name="turma_ausente">plecat</string>
+    <string name="turma_ocupado">ocupat</string>
+    <string name="turma_status_online">online</string>
+    <string name="turma_ninguem">Nimeni online acum</string>
+    <string name="turma_procurando">Se caută gașca…</string>
+    <string name="turma_sem_rede">Nicio conexiune la Discord acum.</string>
+    <string name="turma_mostrar_titulo">Arată gașca de pe Discord</string>
+    <string name="turma_mostrar_texto">Vedeți pe TV cine e online, cine joacă și cine e în voce.</string>
+    <string name="turma_desligado_titulo">Widgetul serverului este dezactivat</string>
+    <string name="turma_desligado_texto">În Discord: Server Settings, Widget, activați Enable Server Widget.</string>
+    <string name="turma_qr_dica">Îndreptați telefonul aici pentru a intra în chatul vocal. Vorbitul se face pe telefon.</string>
+    <string name="turma_jogando">%1$s joacă %2$s</string>
+    <string name="turma_dois">%1$s și %2$s</string>
+    <string name="turma_e_mais">%1$s și încă %2$d</string>
+    <string name="turma_chamar">Cheamă gașca</string>
+    <string name="turma_chamar_pergunta">Trimiteți pe canalul Discord?</string>
+    <string name="turma_chamado_jogo">🎮 Cine vine la o partidă de %1$s? Sunt la TV.</string>
+    <string name="turma_chamado">🎮 Cine vine la un joc? Sunt la TV.</string>
+    <string name="turma_mandar">Trimite</string>
+    <string name="turma_enviado">Gașca a fost chemată pe Discord.</string>
+    <string name="turma_espere">Așteptați un minut înainte de a chema din nou.</string>
+    <string name="turma_falhou">Discord nu a primit. Verificați internetul sau webhookul.</string>
+    <string name="turma_config_titulo">Gașca dvs. de pe Discord</string>
+    <string name="turma_config_texto">1. În Discord: Server Settings, Widget, activați Enable Server Widget.\n2. Pe aceeași pagină, copiați Server ID și tastați-l aici.\n\nPentru butonul Cheamă gașca, lipiți un webhook de canal în panoul web al TV-ului.</string>
+    <string name="turma_config_dica">Server ID (doar cifre)</string>
+    <string name="turma_config_guardar">Salvează</string>
+    <string name="turma_config_tirar">Elimină gașca</string>
+    <string name="turma_id_invalido">Acesta nu este un ID de server Discord (17 până la 20 de cifre).</string>
+    <string name="cruz_sofa_sub">Controlere și gașca de pe Discord</string>
+    <string name="cruz_sofa_voz">%1$d în voce · %2$s</string>
+</resources>

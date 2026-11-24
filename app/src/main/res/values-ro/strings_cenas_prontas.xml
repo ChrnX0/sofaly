@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Scene gata făcute</string>
+    <string name="cpr_dormir">Somn</string>
+    <string name="cpr_dormir_det">Filtru de noapte, volum mai mic, TV-ul se oprește în 30 min</string>
+    <string name="cpr_novela">Telenovelă</string>
+    <string name="cpr_novela_det">Canalul dvs., culori normale</string>
+    <string name="cpr_jogo">Meci</string>
+    <string name="cpr_jogo_det">Canalul dvs. de sport, mai tare</string>
+    <string name="cpr_canal">Ce canal pentru „%1$s”?</string>
+    <string name="cpr_canal_dica">Numele sau numărul canalului</string>
+</resources>
