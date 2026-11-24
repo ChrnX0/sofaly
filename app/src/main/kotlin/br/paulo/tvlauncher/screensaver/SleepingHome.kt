@@ -155,6 +155,8 @@ class SleepingHome(private val ctx: Context) {
     private val fio = View(ctx).apply { setBackgroundColor(DesignTokens.ORANGE); alpha = 0.7f; pivotX = 0f; scaleX = 0f }
     private val janela = FrameLayout(ctx).apply { clipChildren = true; tag = TAG_JANELA }
     private var sofy: SofyDrawable? = null
+    /** O movimento do céu da noite na faixa (parado junto com a Sofy). */
+    private var ceuMov: NightSkyMotion? = null
 
     private class Linha(val nome: String, val view: View)
     private var linhas: List<Linha> = emptyList()
@@ -306,7 +308,7 @@ class SleepingHome(private val ctx: Context) {
         val eDia = Astronomia.eDia(agoraMs, lat, lon, f?.eDia ?: true)
 
         // ---- topo direito: ícone do céu, temperatura, máxima/mínima; e a dica do guarda-chuva embaixo da data
-        topoDireita.removeAllViews(); sofy?.stop(); sofy = null
+        topoDireita.removeAllViews(); sofy?.stop(); sofy = null; ceuMov?.stop(); ceuMov = null
         val entrada = if (f != null && tempAgora != null) f.entrada(tempAgora, chovendo) else null
         val fr = entrada?.let { DicasClima.frase(it) }
         // Embaixo da data, a dica que mais pesa no dia (Paulo: "tipo se vai chover?"): a do guarda-chuva, em azul de chuva.
@@ -331,7 +333,17 @@ class SleepingHome(private val ctx: Context) {
             if (br.paulo.tvlauncher.weather.NightSky.noDescanso(e, agoraMs)) {
                 val (titulo, nota) = br.paulo.tvlauncher.weather.NightSkyTv.celula(ctx, e)
                 ceuAgora = titulo
-                l += Linha(titulo, linhaBase().apply { addView(celula(ctx.getString(R.string.ns_titulo), titulo, nota), LinearLayout.LayoutParams(0, -2, 1f)) })
+                l += Linha(titulo, linhaBase().apply {
+                    // O ícone do evento à esquerda, no lugar da Sofy das outras linhas (arte de 24/11/2026).
+                    // O que vai acontecer, em movimento (estudo de 24/11/2026); sem animações no sistema, o ícone parado.
+                    val mov = if (semMovimento()) null else NightSkyMotion(e.kind, Estilo.TEXTO, Estilo.FUNDO, e.pass?.alturaMax ?: 60)
+                    addView(ImageView(ctx).apply {
+                        setImageDrawable(mov ?: br.paulo.tvlauncher.home.NightSkyGlyph(e.kind, Estilo.TEXTO)); alpha = 0.85f
+                        importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+                    }, LinearLayout.LayoutParams(dp(if (mov != null) 96 else 40), dp(if (mov != null) 48 else 40)).apply { marginEnd = dp(16) })
+                    ceuMov?.stop(); ceuMov = mov?.also { it.start() }
+                    addView(celula(ctx.getString(R.string.ns_titulo), titulo, nota), LinearLayout.LayoutParams(0, -2, 1f))
+                })
                 ui.postDelayed(viradaDoCeu, (e.end - agoraMs).coerceAtLeast(1_000L))
             } else if (e.end > agoraMs) {
                 ui.postDelayed(viradaDoCeu, (e.start - br.paulo.tvlauncher.weather.NightSky.DESCANSO_ANTES_MS - agoraMs).coerceAtLeast(1_000L))
@@ -565,7 +577,7 @@ class SleepingHome(private val ctx: Context) {
     fun soltar() {
         solto = true
         ui.removeCallbacksAndMessages(null)
-        progresso?.cancel(); sofy?.stop()
+        progresso?.cancel(); sofy?.stop(); ceuMov?.stop()
     }
 
     // ------------------------------------------------------------------ utilidades

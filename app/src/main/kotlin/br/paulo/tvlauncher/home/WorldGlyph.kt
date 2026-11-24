@@ -16,29 +16,62 @@ import android.graphics.drawable.Drawable
  * Como: cada ícone é uma lista de formas no padrão SVG (o mesmo texto do estudo) que [SvgPath] converte em [Path] uma
  * vez; o desenho só escala a grade de 32 para o tamanho da view.
  */
-class WorldGlyph(cat: CruzLogica.Categoria, private val cor: Int, private val traco: Float = 2.1f) : Drawable() {
+class WorldGlyph(cat: CruzLogica.Categoria, cor: Int, traco: Float = 2.1f) : StrokeGlyph(formasDe(cat), cor, traco) {
+    companion object {
+        fun formasDe(cat: CruzLogica.Categoria): List<StrokeGlyph.Forma> = when (cat) {
+            CruzLogica.Categoria.ASSISTIR -> listOf(
+                StrokeGlyph.Forma.Ret(4f, 6f, 24f, 16.5f, 4f), StrokeGlyph.Forma.Linha("M12 26.5h8"), StrokeGlyph.Forma.Linha("M14 11.2l5.6 3.05L14 17.3z"))
+            CruzLogica.Categoria.OUVIR -> listOf(
+                StrokeGlyph.Forma.Linha("M6 19.5v-3a10 10 0 0 1 20 0v3"),
+                StrokeGlyph.Forma.Ret(4.5f, 18.5f, 5.5f, 8.5f, 2.75f), StrokeGlyph.Forma.Ret(22f, 18.5f, 5.5f, 8.5f, 2.75f))
+            CruzLogica.Categoria.JOGAR -> listOf(
+                StrokeGlyph.Forma.Linha("M10.5 10h11a6.5 6.5 0 0 1 6.5 6.5v2.6a4.4 4.4 0 0 1-8 2.5l-1.3-1.6h-5.4L12 21.6a4.4 4.4 0 0 1-8-2.5v-2.6A6.5 6.5 0 0 1 10.5 10z"),
+                StrokeGlyph.Forma.Linha("M10.5 13.6v5M8 16.1h5"), StrokeGlyph.Forma.Circ(20.6f, 14.6f, 0.9f, true), StrokeGlyph.Forma.Circ(23.4f, 17.4f, 0.9f, true))
+            CruzLogica.Categoria.APLICATIVOS -> listOf(
+                StrokeGlyph.Forma.Ret(5f, 5f, 9f, 9f, 2.6f), StrokeGlyph.Forma.Ret(18f, 5f, 9f, 9f, 2.6f), StrokeGlyph.Forma.Ret(5f, 18f, 9f, 9f, 2.6f), StrokeGlyph.Forma.Circ(22.5f, 22.5f, 4.6f))
+            CruzLogica.Categoria.FERRAMENTAS -> listOf(
+                StrokeGlyph.Forma.Linha("M5 10.5h4.5M15.5 10.5H27M5 21.5h13M24 21.5h3"), StrokeGlyph.Forma.Circ(12.5f, 10.5f, 3f), StrokeGlyph.Forma.Circ(21f, 21.5f, 3f))
+            // Continuar deixou de ser mundo (21/11/2026); se voltar, um relógio de volta.
+            CruzLogica.Categoria.CONTINUAR -> listOf(StrokeGlyph.Forma.Circ(16f, 16f, 11f), StrokeGlyph.Forma.Linha("M16 10v6l4 2.5"))
+        }
+    }
+}
 
-    private sealed class Forma {
+/**
+ * Ícones do céu da noite (Paulo, 24/11/2026: "pode manter, iremos adicionar mais ícones de estilos diferentes depois"):
+ * o mesmo traço dos mundos, desenhados no estudo https://claude.ai/artifact/NSxNSFygoiPJAuB4yLfnv9 . Usados na Ilha
+ * e na linha do céu no descanso de tela.
+ */
+class NightSkyGlyph(kind: br.paulo.tvlauncher.weather.NightSky.Kind, cor: Int, traco: Float = 2.1f) : StrokeGlyph(formasDe(kind), cor, traco) {
+    companion object {
+        fun formasDe(k: br.paulo.tvlauncher.weather.NightSky.Kind): List<StrokeGlyph.Forma> = when (k) {
+            br.paulo.tvlauncher.weather.NightSky.Kind.ISS -> listOf(
+                StrokeGlyph.Forma.Ret(13f, 13f, 6f, 6f, 1.6f), StrokeGlyph.Forma.Linha("M11 16h2M19 16h2"),
+                StrokeGlyph.Forma.Ret(3.5f, 11f, 7.5f, 10f, 1.4f), StrokeGlyph.Forma.Ret(21f, 11f, 7.5f, 10f, 1.4f), StrokeGlyph.Forma.Linha("M7.25 11v10M24.75 11v10M16 13v-4M14 9h4"))
+            br.paulo.tvlauncher.weather.NightSky.Kind.METEORS -> listOf(
+                StrokeGlyph.Forma.Linha("M5 5l11 11M14 4l8 8M4 15l6 6"),
+                StrokeGlyph.Forma.Circ(18.2f, 18.2f, 2.6f, true), StrokeGlyph.Forma.Circ(23.5f, 13.5f, 1.7f, true), StrokeGlyph.Forma.Circ(11.6f, 22.6f, 1.5f, true))
+            br.paulo.tvlauncher.weather.NightSky.Kind.SUPERMOON -> listOf(
+                StrokeGlyph.Forma.Circ(16f, 16f, 10f), StrokeGlyph.Forma.Circ(12.4f, 13f, 2f), StrokeGlyph.Forma.Circ(19.2f, 18.6f, 2.8f), StrokeGlyph.Forma.Circ(17.5f, 10.6f, 1.1f))
+            // O sol (círculo da esquerda) aparece só onde a lua (direita) não cobre.
+            br.paulo.tvlauncher.weather.NightSky.Kind.ECLIPSE_SUN -> listOf(StrokeGlyph.Forma.Menos(StrokeGlyph.Forma.Circ(14f, 17f, 9.5f), StrokeGlyph.Forma.Circ(19f, 14f, 8f)), StrokeGlyph.Forma.Circ(19f, 14f, 8f))
+        }
+    }
+}
+
+/**
+ * Ícone de traço numa grade de 32 (base de [WorldGlyph] e [NightSkyGlyph]).
+ * Como: cada ícone é uma lista de formas no padrão SVG que [SvgPath] converte em [Path] uma vez; o desenho só escala a
+ * grade de 32 para o tamanho da view.
+ */
+open class StrokeGlyph(formas: List<Forma>, private val cor: Int, private val traco: Float = 2.1f) : Drawable() {
+
+    sealed class Forma {
         class Linha(val d: String) : Forma()
         class Ret(val x: Float, val y: Float, val w: Float, val h: Float, val r: Float) : Forma()
         class Circ(val cx: Float, val cy: Float, val r: Float, val cheio: Boolean = false) : Forma()
-    }
-
-    private val formas: List<Forma> = when (cat) {
-        CruzLogica.Categoria.ASSISTIR -> listOf(
-            Forma.Ret(4f, 6f, 24f, 16.5f, 4f), Forma.Linha("M12 26.5h8"), Forma.Linha("M14 11.2l5.6 3.05L14 17.3z"))
-        CruzLogica.Categoria.OUVIR -> listOf(
-            Forma.Linha("M6 19.5v-3a10 10 0 0 1 20 0v3"),
-            Forma.Ret(4.5f, 18.5f, 5.5f, 8.5f, 2.75f), Forma.Ret(22f, 18.5f, 5.5f, 8.5f, 2.75f))
-        CruzLogica.Categoria.JOGAR -> listOf(
-            Forma.Linha("M10.5 10h11a6.5 6.5 0 0 1 6.5 6.5v2.6a4.4 4.4 0 0 1-8 2.5l-1.3-1.6h-5.4L12 21.6a4.4 4.4 0 0 1-8-2.5v-2.6A6.5 6.5 0 0 1 10.5 10z"),
-            Forma.Linha("M10.5 13.6v5M8 16.1h5"), Forma.Circ(20.6f, 14.6f, 0.9f, true), Forma.Circ(23.4f, 17.4f, 0.9f, true))
-        CruzLogica.Categoria.APLICATIVOS -> listOf(
-            Forma.Ret(5f, 5f, 9f, 9f, 2.6f), Forma.Ret(18f, 5f, 9f, 9f, 2.6f), Forma.Ret(5f, 18f, 9f, 9f, 2.6f), Forma.Circ(22.5f, 22.5f, 4.6f))
-        CruzLogica.Categoria.FERRAMENTAS -> listOf(
-            Forma.Linha("M5 10.5h4.5M15.5 10.5H27M5 21.5h13M24 21.5h3"), Forma.Circ(12.5f, 10.5f, 3f), Forma.Circ(21f, 21.5f, 3f))
-        // Continuar deixou de ser mundo (21/11/2026); se voltar, um relógio de volta.
-        CruzLogica.Categoria.CONTINUAR -> listOf(Forma.Circ(16f, 16f, 11f), Forma.Linha("M16 10v6l4 2.5"))
+        /** [a] sem a parte que [b] cobre (só contorno). */
+        class Menos(val a: Circ, val b: Circ) : Forma()
     }
 
     // Os caminhos na grade de 32 (convertidos uma vez); os círculos cheios vão à parte.
@@ -50,6 +83,10 @@ class WorldGlyph(cat: CruzLogica.Categoria, private val cor: Int, private val tr
             is Forma.Linha -> contorno.addPath(SvgPath.parse(f.d))
             is Forma.Ret -> contorno.addRoundRect(RectF(f.x, f.y, f.x + f.w, f.y + f.h), f.r, f.r, Path.Direction.CW)
             is Forma.Circ -> (if (f.cheio) cheio else contorno).addCircle(f.cx, f.cy, f.r, Path.Direction.CW)
+            is Forma.Menos -> contorno.addPath(Path().apply {
+                addCircle(f.a.cx, f.a.cy, f.a.r, Path.Direction.CW)
+                op(Path().apply { addCircle(f.b.cx, f.b.cy, f.b.r, Path.Direction.CW) }, Path.Op.DIFFERENCE)
+            })
         }
     }
 
