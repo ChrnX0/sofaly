@@ -169,7 +169,7 @@ object PluginWidgetsTv {
             val info = runCatching { AppWidgetManager.getInstance(app).getAppWidgetInfo(e.id) }.getOrNull()
             val titulo = info?.let { nome(app, it) } ?: e.pacote
             val acao = app.packageManager.getLeanbackLaunchIntentForPackage(e.pacote)?.toUri(android.content.Intent.URI_INTENT_SCHEME)
-            PluginCartao.Cartao(e.pacote, titulo.take(30), "", "", 0xFF2A2A2A.toInt(), acao, PluginCartao.Mundo.APPS, endereco) to foto
+            PluginCartao.Cartao(e.pacote, titulo.take(30), "", "", br.paulo.tvlauncher.Estilo.CARTAO, acao, PluginCartao.Mundo.APPS, endereco) to foto
         }
     }
 
