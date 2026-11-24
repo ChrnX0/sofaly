@@ -49,6 +49,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private val desc2 = 0xBDFFF3E6.toInt()   // creme 74%
 
     private val trilho = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
+    private var trilhoDe: List<CruzLogica.Categoria> = emptyList()
+    private companion object { const val TRILHO_ICONE = 16f; const val TRILHO_VAO = 6f; const val TRILHO_OUTROS = 0.75f }
     private val linha = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; clipChildren = false; clipToPadding = false }
     private val icone = ImageView(ctx)
     private val nome = texto(StripHome.FONTE_NOME, forte, DesignTokens.CREAM)
@@ -85,7 +87,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     init {
         clipChildren = false; clipToPadding = false
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-        addView(trilho, LayoutParams(dpi(4f), LayoutParams.WRAP_CONTENT))
+        addView(trilho, LayoutParams(dpi(TRILHO_ICONE), LayoutParams.WRAP_CONTENT))
         linha.addView(icone, LinearLayout.LayoutParams(dpi(StripHome.ICONE), dpi(StripHome.ICONE)))
         linha.addView(nome, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dpi(12f) })
         linha.addView(barrinha, LinearLayout.LayoutParams(dpi(1.5f).coerceAtLeast(2), dpi(20f)).apply { marginStart = dpi(14f); marginEnd = dpi(14f) })
@@ -125,27 +127,27 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val c = cats.getOrNull(cat) ?: return
         val anima = animar && !semAnimacao()
         val o = opcoes
-        // trilho: um ponto por mundo, o atual comprido
-        if (trilho.childCount != cats.size) {
+        // trilho: o ícone de cada mundo, pequeno, o atual aceso (24/11/2026, navegação do Projectivy: a pessoa vê de relance
+        // onde está e o que vem em cima/embaixo; os pontinhos não diziam qual mundo era qual)
+        if (trilho.childCount != cats.size || trilhoDe != cats.map { it.cat }) {
             trilho.removeAllViews()
-            repeat(cats.size) {
-                trilho.addView(View(context).apply { background = GradientDrawable().apply { cornerRadius = dp(2f); setColor(DesignTokens.CREAM) } },
-                    LinearLayout.LayoutParams(dpi(4f), dpi(4f)).apply { topMargin = if (it > 0) dpi(4f) else 0 })
-            }
+            trilhoDe = cats.map { it.cat }
+            for ((i, k) in cats.withIndex()) trilho.addView(ImageView(context).apply { setImageDrawable(WorldGlyph(k.cat, DesignTokens.CREAM, 2.4f)) },
+                LinearLayout.LayoutParams(dpi(TRILHO_ICONE), dpi(TRILHO_ICONE)).apply { topMargin = if (i > 0) dpi(TRILHO_VAO) else 0 })
         }
         for (i in 0 until trilho.childCount) trilho.getChildAt(i).let { v ->
-            val lp = v.layoutParams as LinearLayout.LayoutParams
-            val h = dpi(if (i == cat) 10f else 4f)
-            if (lp.height != h) { lp.height = h; v.layoutParams = lp }
-            v.alpha = if (i == cat) 1f else 0.3f
+            val atual = i == cat
+            val e = if (atual) 1f else TRILHO_OUTROS
+            if (anima) v.animate().scaleX(e).scaleY(e).alpha(if (atual) 1f else 0.38f).setDuration(StripHome.MS).setInterpolator(curva).start()
+            else { v.scaleX = e; v.scaleY = e; v.alpha = if (atual) 1f else 0.38f }
         }
         // Cards grandes (ou com placa) não encostam no pé da tela nem na linha do mundo: sobem o que precisar.
         val folgaPlaca = if (o.glass) StripHome.PLACA else 0f
         val centro = minOf(altura() - StripHome.CARDS_DO_FUNDO, altura() - 16f - folgaPlaca - o.cardH / 2f)
         val topoLinha = minOf(altura() - StripHome.LINHA_DO_FUNDO, centro - o.cardH / 2f - folgaPlaca - StripHome.SUBIR_FOCO - 14f - StripHome.LINHA_A)
-        // o trilho fica centrado na altura da linha do mundo (10 dp o atual, 4 dp os outros, 4 dp entre eles)
-        val trilhoA = 10f + (cats.size - 1) * 8f
-        trilho.translationX = dp(StripHome.TRILHO_X); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
+        // o trilho fica centrado na altura da linha do mundo
+        val trilhoA = cats.size * TRILHO_ICONE + (cats.size - 1) * TRILHO_VAO
+        trilho.translationX = dp(StripHome.TRILHO_X + 2f - TRILHO_ICONE / 2f); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
         trilho.visibility = if (cats.size > 1) View.VISIBLE else View.INVISIBLE
         linha.translationX = dp(StripHome.MARGEM)
 
