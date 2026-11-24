@@ -7,11 +7,11 @@
     <string name="cl_hora">%1$d:00</string>
     <string name="cl_f_parar">Pada deszcz. Powinien ustać około %1$s.</string>
     <string name="cl_f_segue">Pada deszcz i będzie padać przez najbliższe godziny.</string>
-    <string name="cl_f_chuva">Możliwy deszcz około %1$s (%2$d%%).</string>
+    <string name="cl_f_chuva">Możliwy deszcz około %1$s (%2$s).</string>
     <string name="cl_f_calor">Upalny dzień: do %1$d° około %2$s. Pij wodę.</string>
     <string name="cl_f_frio">Nadchodzi zimno: do %1$d°. Ubierz się ciepło.</string>
     <string name="cl_f_sol">Mocne słońce od %1$s do %2$s. Użyj kremu z filtrem.</string>
-    <string name="cl_f_amanha">Dziś bez deszczu. Jutro prawdopodobny deszcz (%1$d%%).</string>
+    <string name="cl_f_amanha">Dziś bez deszczu. Jutro prawdopodobny deszcz (%1$s).</string>
     <string name="cl_f_calmo">Dziś bez deszczu. Maksymalnie %1$d°.</string>
     <string name="cl_d_guarda">Parasol</string>
     <string name="cl_d_varal">Pranie na dworze</string>

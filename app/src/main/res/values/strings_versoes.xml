@@ -16,6 +16,7 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
+        <item>Rain chance with finer numbers: each weather model now counts by how much rain it expects and by how often it was right, and in Settings › Appearance you choose numbers, words (Low, Medium, High) or both</item>
         <item>Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF\'s AI model); in a 60-day test in 30 cities it was right more often than any of them alone</item>
         <item>Web panel with the Sofaly look: each area has its color on the icon, the Home page shows Sofy\'s notes, what is on the TV now and the worlds as doors, and nothing went missing</item>
         <item>Panel: a star on any block or switch adds it to “Your shortcuts” on the Home page, “Works with” links related blocks, and a change offers Undo</item>
@@ -71,6 +72,7 @@
         <item>Alarm clock: the sound always starts low and rises slowly, over at least a minute and a half, even with “Ring: direct”, so it never starts at full volume</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
+        <item>chance_palavras</item>
         <item>chuva_consenso</item>
         <item>painel_sofaly</item>
         <item>painel_atalhos</item>
@@ -114,6 +116,7 @@
         <item>ilha_central</item>
     </string-array>
     <string-array name="roteiro_titulos">
+        <item>Rain chance as words</item>
         <item>Rain by consensus</item>
         <item>Panel with Sofaly look</item>
         <item>Panel shortcuts</item>
@@ -157,6 +160,7 @@
         <item>Hold ▲</item>
     </string-array>
     <string-array name="roteiro_perguntas">
+        <item>In Settings › Appearance, change “Rain chance” to “Both”: do the Forecast hours and days show “Medium 45%” and similar, without cut-off text?</item>
         <item>Open the Forecast (Weather): do the days show a chance of rain and, at the bottom, the credit “Forecast: ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON”?</item>
         <item>Open the panel on the computer: does the Home page show Sofy\'s band, “Now on the TV” and the colored doors, and is every old block still in the sidebar?</item>
         <item>In the panel, tap the star on a block: does it show up in “Your shortcuts” on the Home page, and does turning a switch offer Undo?</item>

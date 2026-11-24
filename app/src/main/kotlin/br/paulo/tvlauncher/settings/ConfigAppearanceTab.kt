@@ -20,6 +20,7 @@ import br.paulo.tvlauncher.home.PacoteIcones
 import br.paulo.tvlauncher.home.PacoteIconesRegras
 import br.paulo.tvlauncher.home.SonsCruz
 import br.paulo.tvlauncher.player.rotuloTamanho
+import br.paulo.tvlauncher.weather.RainChance
 import br.paulo.tvlauncher.weather.AvisoChuva
 import br.paulo.tvlauncher.weather.AvisoTemperatura
 import br.paulo.tvlauncher.weather.LocalClima
@@ -224,5 +225,12 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
         linhaTemp.ligado(AvisoTemperatura.ligado(this))
     }
     c.addView(linhaTemp, lp())
+    // Como a chance de chuva aparece: número, palavra ou os dois (RainChance, 24/11/2026). OK anda em roda.
+    lateinit var linhaChance: LinhaCfg
+    linhaChance = linha(getString(R.string.rc_titulo), RainChance.nomeModo(this, RainChance.modo(this)), seta = true) {
+        RainChance.definir(this, RainChance.proximo(RainChance.modo(this)))
+        linhaChance.detalhe(RainChance.nomeModo(this, RainChance.modo(this)))
+    }
+    c.addView(linhaChance, lp())
     extrasDaAba(c, ExtrasAbas.Aba.APARENCIA)
 }

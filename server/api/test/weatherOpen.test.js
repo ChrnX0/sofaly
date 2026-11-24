@@ -1,7 +1,7 @@
 // Roda com: cd server/api && node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { vote, median, dayCode, combine, upstreamUrls, handleWeatherOpen, MODELS, CREDIT } from '../src/weatherOpen.js';
+import { vote, softVote, DAY_WEIGHTS, median, dayCode, combine, upstreamUrls, handleWeatherOpen, MODELS, CREDIT } from '../src/weatherOpen.js';
 
 class FakeCache {
   constructor() { this.m = new Map(); }
@@ -33,6 +33,19 @@ test('voto: fração dos modelos com dado que passam do limite', () => {
   assert.equal(vote([null, undefined], 1), null);
 });
 
+test('voto suave: seco = 0, todos com muita chuva = 100, número fino no meio', () => {
+  const W = [0.25, 0.25, 0.25, 0.25];
+  assert.equal(softVote([[0], [0], [0], [0]], W, 1, 0.8), 0);
+  assert.equal(softVote([[9], [9], [9], [9]], W, 1, 0.8), 100);
+  const meio = softVote([[1.2], [0], [0.5], [3]], W, 1, 0.8);
+  assert.ok(meio > 0 && meio < 100 && meio % 25 !== 0, String(meio));
+  assert.equal(softVote([[null], [undefined], [], null], W, 1, 0.8), null);
+  // modelo sem dado sai e os pesos dos outros se redistribuem
+  assert.equal(softVote([[9], [null], [9], [9]], W, 1, 0.8), 100);
+  // peso 0 não conta
+  assert.equal(softVote([[9], [0], [0], [0]], DAY_WEIGHTS, 1, 0.8), 0);
+});
+
 test('mediana', () => {
   assert.equal(median([3, 1, 2]), 2);
   assert.equal(median([0.2, 3, 2, 1]), 1.5);
@@ -49,9 +62,9 @@ test('ícone do dia acompanha a maioria', () => {
 
 test('junta ECMWF com a chance dos 4 modelos no formato da TV', () => {
   const o = combine(base, multi);
-  assert.deepEqual(o.hourly.precipitation_probability, [75, 0]);
+  assert.deepEqual(o.hourly.precipitation_probability, [36, 36]);   // voto suave pesado, janela de 3 h
   assert.deepEqual(o.hourly.uv_index, [0, 2.5]);
-  assert.deepEqual(o.daily.precipitation_probability_max, [75, 33]);
+  assert.deepEqual(o.daily.precipitation_probability_max, [79, 0]);   // 2º dia: só o ECMWF IFS (peso 0 no dia) viu chuva
   assert.deepEqual(o.daily.weather_code, [80, 3]);
   assert.deepEqual(o.daily.precipitation_sum, [1.5, 0]);
   assert.equal(o.current.interval, undefined);
@@ -97,7 +110,7 @@ test('busca uma vez por lugar e guarda', async () => {
   const env = { OPEN_MODELS_URL: 'https://x/v1/forecast' };
   const r1 = await handleWeatherOpen(new URL('https://a/v1/weather/open?lat=-23.61&lon=-46.63'), env, { fetchFn, cache });
   assert.equal(r1.status, 200);
-  assert.equal((await r1.json()).daily.precipitation_probability_max[0], 75);
+  assert.equal((await r1.json()).daily.precipitation_probability_max[0], 79);
   const r2 = await handleWeatherOpen(new URL('https://a/v1/weather/open?lat=-23.58&lon=-46.61'), env, { fetchFn, cache });
   assert.equal(r2.status, 200);
   assert.equal(n, 2);   // 2 pedidos na 1ª vez, nenhum na 2ª (mesma célula da grade)

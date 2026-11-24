@@ -111,6 +111,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 [Releases](../../releases).
 
 <!-- auto:changes -->
+- Rain chance with finer numbers: each weather model now counts by how much rain it expects and by how often it was right, and in Settings › Appearance you choose numbers, words (Low, Medium, High) or both
 - Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF's AI model); in a 60-day test in 30 cities it was right more often than any of them alone
 - Web panel with the Sofaly look: each area has its color on the icon, the Home page shows Sofy's notes, what is on the TV now and the worlds as doors, and nothing went missing
 - Panel: a star on any block or switch adds it to “Your shortcuts” on the Home page, “Works with” links related blocks, and a change offers Undo
