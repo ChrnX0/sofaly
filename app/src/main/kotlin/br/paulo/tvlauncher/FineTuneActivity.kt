@@ -45,7 +45,8 @@ class FineTuneActivity : Activity() {
             orientation = LinearLayout.VERTICAL
             setPaddingRelative(dp(28), dp(32), dp(28), dp(24))
             background = android.graphics.drawable.GradientDrawable().apply {
-                setColor(0xEB121528.toInt())   // vidro bem escuro: o texto fica legível sobre qualquer fundo da HOME
+                // Opaco (teste 100%, 24/11/2026): com 0xEB o texto da HOME vazava por trás da dica e das linhas na Sala.
+                setColor(0xFF121528.toInt())
                 val r = dp(Estilo.RAIO + 8).toFloat()
                 cornerRadii = floatArrayOf(r, r, 0f, 0f, 0f, 0f, r, r)   // canto arredondado só do lado da HOME
                 setStroke(dp(1), Estilo.VIDRO_BORDA)
@@ -152,9 +153,11 @@ class FineTuneActivity : Activity() {
         Ajuste(R.string.cs_brilho, { nomeBrilho(CardStyle.glow(this)) }) { passo ->
             nomeBrilho(CardStyle.next(this, CardStyle.KEY_GLOW, CardStyle.glow(this), passo))
         },
+    ) + (if (!br.paulo.tvlauncher.home.BottomBar.on(this)) listOf(
+        // Tamanho da cruz só vale no jeito cruz (MainActivity ignora com a barra embaixo): na barra a linha não aparece.
         Ajuste(R.string.cs_tamanho, { nomeTamanho(CardStyle.size(this)) }) { passo ->
             nomeTamanho(CardStyle.next(this, CardStyle.KEY_SIZE, CardStyle.size(this), passo))
-        },
+        }) else emptyList()) + listOf(
         // Fundo (BackgroundStyle, item 2): cor por cima / sólida, cor, desfoque, transição e "novo fundo agora".
         Ajuste(R.string.bg_tintura, { nomeTintura(BackgroundStyle.tint(this)) }) { passo ->
             nomeTintura(BackgroundStyle.Tint.entries[BackgroundStyle.next(this, BackgroundStyle.KEY_TINT, BackgroundStyle.tint(this), BackgroundStyle.Tint.entries.size, passo)])

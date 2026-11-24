@@ -756,7 +756,7 @@
     <string name="tempo_faltam">faltam %1$s</string>
     <string name="tempo_falta_um">falta %1$s</string>
     <string name="serie_ep_longo">Temporada %1$d, episódio %2$d</string>
-    <string name="ficha_continuar_de">de %1$s</string>
+    <string name="ficha_continuar_de">a partir de %1$s</string>
     <string name="tempo_termina_as">termina às %1$s</string>
     <string name="tempo_episodios_vistos">%1$s episódios</string>
     <string name="tempo_x_de_y">%1$d de %2$d</string>

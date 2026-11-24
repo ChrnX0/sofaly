@@ -319,7 +319,9 @@ class ColunaCategorias(
             visibility = View.GONE
         }
         linha.addView(etiqueta, LinearLayout.LayoutParams(-2, -2).apply { marginEnd = dp(10) })
-        val nome = TextView(act).apply { textSize = Estilo.Leitura.CATEGORIA * escala; typeface = fonteMedia; maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+        // Corte no MEIO (teste 100%, 24/11/2026): "Animes/Donghuas - Dublado" e "- Legendado" viravam o mesmo
+        // "Animes/Donghuas -…"; agora "Animes/Don…Dublado" e "Animes/Don…Legendado" se distinguem.
+        val nome = TextView(act).apply { textSize = Estilo.Leitura.CATEGORIA * escala; typeface = fonteMedia; isSingleLine = true; ellipsize = TextUtils.TruncateAt.MIDDLE }
         linha.addView(nome, LinearLayout.LayoutParams(0, -2, 1f))
         // "+12": títulos novos desde a última visita, numa pílula verde (esboço direita-filmes.png).
         val novos = TextView(act).apply {

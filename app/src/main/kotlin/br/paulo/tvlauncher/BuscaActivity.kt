@@ -273,15 +273,19 @@ class BuscaActivity : Activity() {
         val grupos = ArrayList<Grupo>()
         // Elevação 3.11: o que a frase pede vem primeiro ("desligar em 30", "wifi visita", "letra maior"). Só com o OK.
         fazer(d, termo)?.let { grupos += Grupo(getString(R.string.elv_bf_fazer), listOf(it)) }
-        val canais = BuscaUnica.filtrarIndice(d.iCanais, termo, tolerante = true).first
+        // Letra errada só vale quando nada bate certo em canal, guia, filme, série ou app (BuscaUnica.algumBateCerto).
+        val tol = !BuscaUnica.algumBateCerto(termo, d.iCanais.asSequence().map { it.norm } + d.titulos.keys.asSequence() +
+            d.iFilmes.asSequence().map { it.norm } + d.iSeries.asSequence().map { it.norm } + d.iApps.asSequence().map { it.norm } +
+            d.iBiblioteca.asSequence().map { it.norm })
+        val canais = BuscaUnica.filtrarIndice(d.iCanais, termo, tolerante = tol).first
         if (canais.isNotEmpty()) grupos += Grupo(getString(R.string.bu_canais), canais.map { c -> Item(c.nome, getString(R.string.bu_canal_n, c.numero)) { tocar(c.id, c.nome) } })
-        val progs = programas(d, termo)
+        val progs = programas(d, termo, tol)
         if (progs.isNotEmpty()) grupos += Grupo(getString(R.string.bu_no_guia), progs)
         // Elevação 7.1: biblioteca única. Lista, pastas, servidores, nuvens e addons juntos: cada título uma vez, com as
         // fontes embaixo (a melhor primeiro, com ▶) e o OK abrindo a melhor. Só junta o que bateu com o termo (rápido).
-        val (filmes, total) = BuscaUnica.filtrarIndice(d.iFilmes, termo, max = 40, tolerante = true)
-        val (series, totalSeries) = BuscaUnica.filtrarIndice(d.iSeries, termo, max = 40, tolerante = true)
-        val daCasa = BuscaUnica.filtrarIndice(d.iBiblioteca, termo, max = 60, tolerante = true).first
+        val (filmes, total) = BuscaUnica.filtrarIndice(d.iFilmes, termo, max = 40, tolerante = tol)
+        val (series, totalSeries) = BuscaUnica.filtrarIndice(d.iSeries, termo, max = 40, tolerante = tol)
+        val daCasa = BuscaUnica.filtrarIndice(d.iBiblioteca, termo, max = 60, tolerante = tol).first
         val unicos = BibliotecaUnica.juntar(filmes.map { f ->
             BibliotecaUnica.Fonte(BibliotecaUnica.Origem.LISTA, f.grupo, f.nome, f.ano, false, f.tmdb,
                 qualidade = BibliotecaUnica.qualidadeDoNome(f.nome + " " + f.grupo), versao = Idioma.versao(f.nome, f.grupo), abrir = f.nome)
@@ -299,14 +303,14 @@ class BuscaActivity : Activity() {
             grupos += Grupo(getString(R.string.home_card_series), uSeries.map { itemUnico(it) } +
                 if (totalSeries > 0) listOf(Item(getString(R.string.bu_ver_series, totalSeries), getString(R.string.bu_ver_series_det)) { catalogo(SeriesActivity::class.java, termo) }) else emptyList())
         }
-        val apps = BuscaUnica.filtrarIndice(d.iApps, termo, tolerante = true).first
+        val apps = BuscaUnica.filtrarIndice(d.iApps, termo, tolerante = tol).first
         if (apps.isNotEmpty()) grupos += Grupo("Apps", apps.map { (pacote, nome) -> Item(nome, "App") { abrirApp(pacote) } })
         // Elevação 3.11: rádios favoritas, ajuda e (com Jellyfin/Plex) os arquivos da rede.
-        val radios = BuscaUnica.filtrar(d.radios, termo, max = 4, tolerante = true) { it.nome }
+        val radios = BuscaUnica.filtrar(d.radios, termo, max = 4, tolerante = tol) { it.nome }
         if (radios.isNotEmpty()) grupos += Grupo(getString(R.string.elv_bf_radios), radios.map { r ->
             Item(r.nome, getString(R.string.elv_bf_radio_fav)) { abrirRadio(r.nome) }
         })
-        val ajuda = BuscaUnica.filtrar(d.ajuda, termo, max = 3, tolerante = true) { it.second }
+        val ajuda = BuscaUnica.filtrar(d.ajuda, termo, max = 3, tolerante = tol) { it.second }
         if (ajuda.isNotEmpty()) grupos += Grupo(getString(R.string.elv_bf_ajuda), ajuda.map { (i, nome) ->
             Item(nome, getString(R.string.elv_bf_ajuda_det)) {
                 try { startActivity(Intent(this, AjudaActivity::class.java).putExtra(AjudaActivity.EXTRA_TOPICO, i)) } catch (_: Exception) {}
@@ -336,10 +340,10 @@ class BuscaActivity : Activity() {
      * Acha os títulos no índice já normalizado e só então pede ao banco os programas desses títulos. O mesmo programa em
      * vários canais vira uma linha ("+7 canais").
      */
-    private fun programas(d: Dados, termo: String): List<Item> {
+    private fun programas(d: Dados, termo: String, tol: Boolean = true): List<Item> {
         val agora = System.currentTimeMillis()
         val p = BuscaUnica.palavras(termo)
-        val quero = d.titulos.entries.mapNotNull { (n, t) -> BuscaUnica.pontosNorm(n, p, tolerante = true)?.let { pts -> Triple(t, pts, n.length) } }
+        val quero = d.titulos.entries.mapNotNull { (n, t) -> BuscaUnica.pontosNorm(n, p, tolerante = tol)?.let { pts -> Triple(t, pts, n.length) } }
             .sortedWith(compareBy({ it.second }, { it.third })).take(100).flatMap { it.first }
         if (quero.isEmpty()) return emptyList()
         val porGuia = d.canais.filter { it.guiaId.isNotEmpty() }.groupBy { it.guiaId }
@@ -348,7 +352,7 @@ class BuscaActivity : Activity() {
             if (prog.fim <= agora || achados.size >= 400) return@programasDoGuia
             porGuia[prog.guiaId]?.minByOrNull { it.numero }?.let { c -> achados += Lembretes.Candidato(c.id, c.nome, c.numero, prog) }
         }
-        val melhores = BuscaUnica.filtrar(BuscaUnica.agrupar(achados), termo, max = BuscaUnica.MAX_POR_GRUPO, tolerante = true) { it.first.programa.titulo }
+        val melhores = BuscaUnica.filtrar(BuscaUnica.agrupar(achados), termo, max = BuscaUnica.MAX_POR_GRUPO, tolerante = tol) { it.first.programa.titulo }
         return melhores.sortedBy { it.first.programa.inicio }.map { (c, outros) ->
             itemPrograma(c, agora, if (outros > 0) "+" + resources.getQuantityString(R.plurals.bu_canais_n, outros, outros) else null)
         }

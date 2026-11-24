@@ -904,7 +904,7 @@ class PlayerActivity : Activity() {
         // Pausado, a linha dizia "OK lista de canais", mas o OK continua (visto na Sala, 17/11/2026).
         // No passado (TV de volta) as teclas já vão na linha de baixo (tvv_teclas): a linha fixa some.
         infoTeclas.visibility = if (arquivo != null) View.GONE else View.VISIBLE
-        infoTeclas.setText(if (pausa.pausado) R.string.player_teclas_pausa else R.string.player_teclas)
+        infoTeclas.text = br.paulo.tvlauncher.player.PlayerBar.juntarTeclas(getString(if (pausa.pausado) R.string.player_teclas_pausa else R.string.player_teclas))
         if (previa == null) arquivo?.let { a -> infoDoArquivo(c, a, hora); return }
         vivo.text = "● " + getString(R.string.player_ao_vivo)
         vivo.setTextColor(Estilo.ERRO)
