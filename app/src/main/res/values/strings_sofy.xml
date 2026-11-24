@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s went 3 weeks unopened. Now it only starts when you open it.</string>
     <string name="observer_version_slower_title">The new version opens slower</string>
     <string name="observer_version_slower_text">The home screen now takes %1$s s to open (it was %2$s s). It\'s noted for the next version to fix.</string>
+    <string name="observer_app_crashy_title">%1$s keeps crashing</string>
+    <string name="observer_app_crashy_text">%1$s crashed %2$s times this week.</string>
+    <string name="observer_app_crashy_update_title">%1$s keeps crashing</string>
+    <string name="observer_app_crashy_update_text">%1$s crashed %2$s times this week, since its new version.</string>
+    <string name="sofy_hand_ready">Ready to open</string>
+    <string name="sofy_hand_on_demand">Starts when you open it</string>
 </resources>

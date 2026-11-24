@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s er ikke åbnet i 3 uger. Nu starter den kun, når du åbner den.</string>
     <string name="observer_version_slower_title">Den nye version er langsommere</string>
     <string name="observer_version_slower_text">Startskærmen åbner nu på %1$s s (før %2$s s). Det er noteret til næste version.</string>
+    <string name="observer_app_crashy_title">%1$s går ned</string>
+    <string name="observer_app_crashy_text">%1$s gik ned %2$s gange i denne uge.</string>
+    <string name="observer_app_crashy_update_title">%1$s går ned</string>
+    <string name="observer_app_crashy_update_text">%1$s gik ned %2$s gange i denne uge, siden den nye version.</string>
+    <string name="sofy_hand_ready">Klar til at åbne</string>
+    <string name="sofy_hand_on_demand">Starter, når du åbner den</string>
 </resources>

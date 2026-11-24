@@ -156,4 +156,42 @@ class AppProfileTest {
         assertEquals(7L, r.ver); assertEquals(1000, r.startsBefore); assertEquals(640.0, r.memFrontMb, 0.5)
         assertEquals(1, r.memSamples); assertEquals(T, r.compiledAt); assertEquals(42L, r.prewarmDay)
     }
+
+    // ---- travadas e internet parado (ideias 12 e 13)
+    @Test fun dropboxLinesBecomeCrashesPerApp() {
+        val out = """
+            2026-11-24 10:00:00 data_app_crash (text, 1234 bytes)
+            Process: com.amazon.avod
+            2026-11-24 11:00:00 data_app_anr (text, 99 bytes)
+            Process: com.netflix.ninja:remote
+            2026-11-24 12:00:00 data_app_crash (text, 10 bytes)
+            2026-11-24 12:00:01 SYSTEM_TOMBSTONE (compressed text, 1 bytes)
+            Process: ignorado
+        """.trimIndent()
+        val r = AppProfile.parseDropbox(out.lineSequence()) { d -> if (d.startsWith("2026-11-24 1")) d.substring(11, 13).toLong() else null }
+        assertEquals(listOf(Triple("com.amazon.avod", 10L, false), Triple("com.netflix.ninja", 11L, true)), r)
+    }
+
+    @Test fun threeCrashesAWeekBecomeATipAndKnowTheUpdate() {
+        var c = AppProfile.noteVersion(AppProfile.noteVersion(AppProfile.Card("prime", T), 1, T), 2, T + DAY)
+        assertEquals(T + DAY, c.verAt)
+        for (k in 1..3) c = AppProfile.noteCrash(c, T + DAY + k * H)
+        c = AppProfile.noteCrash(c, T + DAY + H)   // a mesma travada lida de novo não conta duas vezes
+        assertEquals(3, AppProfile.crashesWeek(c, T + 2 * DAY))
+        assertTrue(AppProfile.crashesSinceUpdate(c, T + 2 * DAY))
+        val tip = AppProfile.advise(listOf(c), T + 2 * DAY, emptySet()) { false }.first { it.advice == Advice.CRASHY }
+        assertTrue(tip.why.contains("desde a versão nova"))
+        assertEquals(0, AppProfile.crashesWeek(c, T + 10 * DAY))
+        assertTrue(!AppProfile.crashesSinceUpdate(AppProfile.noteCrash(c, T), T + 2 * DAY))   // uma antes da versão nova
+    }
+
+    @Test fun backgroundDataNeedsDaysAndVolume() {
+        var c = AppProfile.Card("tv", T)
+        c = AppProfile.noteBackground(c, 500.0); c = AppProfile.noteBackground(c, 500.0)
+        assertTrue(AppProfile.advise(listOf(c), T, emptySet()) { false }.none { it.advice == Advice.BACKGROUND_DATA })
+        c = AppProfile.noteBackground(c, 500.0)
+        assertTrue(AppProfile.advise(listOf(c), T, emptySet()) { false }.any { it.advice == Advice.BACKGROUND_DATA })
+        val back = AppProfile.fromJson(AppProfile.toJson(mapOf("" to AppProfile.State(mapOf("tv" to AppProfile.noteCrash(c, T)))))).getValue("").cards.getValue("tv")
+        assertEquals(3, back.bgDays); assertEquals(500.0, back.bgMbDay, 0.1); assertEquals(listOf(T), back.crashes)
+    }
 }

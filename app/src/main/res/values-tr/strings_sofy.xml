@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s 3 haftadır açılmadı. Artık yalnızca siz açınca çalışıyor.</string>
     <string name="observer_version_slower_title">Yeni sürüm daha yavaş</string>
     <string name="observer_version_slower_text">Ana ekran artık %1$s sn\'de açılıyor (önce %2$s sn). Bir sonraki sürüm için not edildi.</string>
+    <string name="observer_app_crashy_title">%1$s takılıyor</string>
+    <string name="observer_app_crashy_text">%1$s bu hafta %2$s kez takıldı.</string>
+    <string name="observer_app_crashy_update_title">%1$s takılıyor</string>
+    <string name="observer_app_crashy_update_text">%1$s bu hafta %2$s kez takıldı, yeni sürümünden beri.</string>
+    <string name="sofy_hand_ready">Açılmaya hazır</string>
+    <string name="sofy_hand_on_demand">Siz açınca çalışır</string>
 </resources>

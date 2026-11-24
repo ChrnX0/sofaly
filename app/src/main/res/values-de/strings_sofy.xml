@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s wurde 3 Wochen nicht geöffnet. Sie startet jetzt nur, wenn Sie sie öffnen.</string>
     <string name="observer_version_slower_title">Die neue Version ist langsamer</string>
     <string name="observer_version_slower_text">Der Startbildschirm braucht jetzt %1$s s (vorher %2$s s). Ist für die nächste Version notiert.</string>
+    <string name="observer_app_crashy_title">%1$s stürzt ab</string>
+    <string name="observer_app_crashy_text">%1$s ist diese Woche %2$s-mal abgestürzt.</string>
+    <string name="observer_app_crashy_update_title">%1$s stürzt ab</string>
+    <string name="observer_app_crashy_update_text">%1$s ist diese Woche %2$s-mal abgestürzt, seit der neuen Version.</string>
+    <string name="sofy_hand_ready">Bereit zum Öffnen</string>
+    <string name="sofy_hand_on_demand">Startet erst beim Öffnen</string>
 </resources>

@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s tidak dibuka 3 minggu. Sekarang hanya berjalan saat Anda membukanya.</string>
     <string name="observer_version_slower_title">Versi baru lebih lambat</string>
     <string name="observer_version_slower_text">Layar utama kini terbuka dalam %1$s dtk (sebelumnya %2$s dtk). Sudah dicatat untuk versi berikutnya.</string>
+    <string name="observer_app_crashy_title">%1$s sering macet</string>
+    <string name="observer_app_crashy_text">%1$s macet %2$s kali minggu ini.</string>
+    <string name="observer_app_crashy_update_title">%1$s sering macet</string>
+    <string name="observer_app_crashy_update_text">%1$s macet %2$s kali minggu ini, sejak versi barunya.</string>
+    <string name="sofy_hand_ready">Siap dibuka</string>
+    <string name="sofy_hand_on_demand">Berjalan saat Anda membukanya</string>
 </resources>

@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">لم يُفتح %1$s منذ 3 أسابيع. الآن لا يعمل إلا عندما تفتحه.</string>
     <string name="observer_version_slower_title">الإصدار الجديد أبطأ</string>
     <string name="observer_version_slower_text">تفتح الشاشة الرئيسية الآن في %1$s ث (كانت %2$s ث). سُجّل ذلك ليُصلَح في الإصدار القادم.</string>
+    <string name="observer_app_crashy_title">‏%1$s يتعطل</string>
+    <string name="observer_app_crashy_text">تعطّل %1$s %2$s مرات هذا الأسبوع.</string>
+    <string name="observer_app_crashy_update_title">‏%1$s يتعطل</string>
+    <string name="observer_app_crashy_update_text">تعطّل %1$s %2$s مرات هذا الأسبوع، منذ إصداره الجديد.</string>
+    <string name="sofy_hand_ready">جاهز للفتح</string>
+    <string name="sofy_hand_on_demand">يعمل عندما تفتحه</string>
 </resources>

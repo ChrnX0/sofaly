@@ -57,6 +57,13 @@ object AppProfile {
         val compiledAt: Long = 0L,
         /** Dia (época / 1 dia) em que ela já soltou memória antes da hora firme deste app (ideia 8). */
         val prewarmDay: Long = 0L,
+        /** Quando o app travou ou parou de responder (o Android guarda no "dropbox"), os [MAX_CRASHES] mais novos (ideia 12). */
+        val crashes: List<Long> = emptyList(),
+        /** Quando a Sofy viu a versão do app mudar (0 = não viu): "travou desde a versão nova". */
+        val verAt: Long = 0L,
+        /** Internet gasta com o app em segundo plano, MB por dia (média que esquece devagar), e quantos dias medidos (ideia 13). */
+        val bgMbDay: Double = 0.0,
+        val bgDays: Int = 0,
     ) {
         val totalOpens: Double get() = opens.sum()
     }
@@ -124,10 +131,10 @@ object AppProfile {
     const val SLOWER_MIN_MS = 500
 
     /** A versão lida agora. Mudou: guarda a mediana de antes e recomeça a medir (a comparação diz se a versão nova piorou). */
-    fun noteVersion(c: Card, ver: Long): Card = when {
+    fun noteVersion(c: Card, ver: Long, now: Long = 0L): Card = when {
         ver <= 0L || ver == c.ver -> c
         c.ver == 0L -> c.copy(ver = ver)
-        else -> c.copy(ver = ver, startsBefore = if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES) median(c.startsMs) else c.startsBefore, startsMs = emptyList())
+        else -> c.copy(ver = ver, verAt = now, startsBefore = if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES) median(c.startsMs) else c.startsBefore, startsMs = emptyList())
     }
 
     fun noteMemory(c: Card, mb: Long): Card = c.copy(
@@ -173,7 +180,54 @@ object AppProfile {
         return on >= PREHOME_AT * avg && on <= 2 * avg
     }
 
-    enum class Advice { PREWARM, RECOMPILE, ON_DEMAND, SLOWER_AFTER_UPDATE }
+    // ---------------------------------------------------------------- travadas e internet parado (ideias 12 e 13)
+
+    const val MAX_CRASHES = 10
+    const val CRASHY_COUNT = 3
+    const val CRASHY_WINDOW_MS = 7 * 86_400_000L
+    const val BG_ALPHA = 0.3
+    const val BG_MIN_DAYS = 3
+    const val BG_HEAVY_MB = 300.0
+
+    fun noteCrash(c: Card, at: Long): Card = if (at in c.crashes) c else c.copy(crashes = (c.crashes + at).sorted().takeLast(MAX_CRASHES))
+
+    /** Travadas nos últimos 7 dias. */
+    fun crashesWeek(c: Card, now: Long): Int = c.crashes.count { now - it in 0..CRASHY_WINDOW_MS }
+
+    /** Todas as travadas da semana vieram depois da versão nova? */
+    fun crashesSinceUpdate(c: Card, now: Long): Boolean =
+        c.verAt > 0 && c.crashes.filter { now - it in 0..CRASHY_WINDOW_MS }.let { it.isNotEmpty() && it.all { t -> t >= c.verAt } }
+
+    fun noteBackground(c: Card, mb: Double): Card = c.copy(
+        bgMbDay = if (c.bgDays == 0) mb else c.bgMbDay * (1 - BG_ALPHA) + mb * BG_ALPHA, bgDays = c.bgDays + 1)
+
+    /**
+     * O "dropbox" do Android (`dumpsys dropbox --print data_app_crash data_app_anr`, filtrado para as linhas de data e de
+     * "Process:"): cada entrada começa com "aaaa-mm-dd hh:mm:ss data_app_crash (text, N bytes)" e logo depois vem
+     * "Process: pacote". [toMillis] converte a data (fuso da TV). Devolve (pacote, quando, é ANR?).
+     */
+    fun parseDropbox(lines: Sequence<String>, toMillis: (String) -> Long?): List<Triple<String, Long, Boolean>> {
+        val out = ArrayList<Triple<String, Long, Boolean>>()
+        var at: Long? = null; var anr = false
+        for (raw in lines) {
+            val l = raw.trim()
+            // Toda linha que começa com data abre uma entrada nova; só as de travada/ANR valem (as outras zeram).
+            if (DROPBOX_DATE.containsMatchIn(l)) {
+                val m = DROPBOX_HEAD.find(l)
+                at = m?.let { toMillis(it.groupValues[1]) }; anr = m?.groupValues?.get(2) == "data_app_anr"; continue
+            }
+            if (l.startsWith("Process:") && at != null) {
+                val pkg = l.removePrefix("Process:").trim().substringBefore(':').substringBefore(' ')
+                if (pkg.isNotEmpty()) out += Triple(pkg, at!!, anr)
+                at = null
+            }
+        }
+        return out
+    }
+    private val DROPBOX_DATE = Regex("^\\d{4}-\\d{2}-\\d{2} ")
+    private val DROPBOX_HEAD = Regex("^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}) (data_app_crash|data_app_anr)\\b")
+
+    enum class Advice { PREWARM, RECOMPILE, ON_DEMAND, SLOWER_AFTER_UPDATE, CRASHY, BACKGROUND_DATA }
     data class Tip(val pkg: String, val advice: Advice, val hour: Int?, val why: String)
 
     fun median(v: List<Int>): Int = v.sorted().let { if (it.isEmpty()) 0 else it[it.size / 2] }
@@ -195,6 +249,11 @@ object AppProfile {
                 out += Tip(c.pkg, Advice.RECOMPILE, null, "demora ${median(c.startsMs)} ms para abrir (mediana de ${c.startsMs.size})")
             if (c.pkg !in onDemand && now - c.firstSeen >= UNUSED_MS && now - c.lastOpen >= UNUSED_MS && freezable(c.pkg))
                 out += Tip(c.pkg, Advice.ON_DEMAND, null, "sem abrir há ${(now - c.lastOpen) / 86_400_000L} dias")
+            val cw = crashesWeek(c, now)
+            if (cw >= CRASHY_COUNT)
+                out += Tip(c.pkg, Advice.CRASHY, null, "travou $cw vezes em 7 dias" + if (crashesSinceUpdate(c, now)) ", desde a versão nova dele" else "")
+            if (c.bgDays >= BG_MIN_DAYS && c.bgMbDay >= BG_HEAVY_MB)
+                out += Tip(c.pkg, Advice.BACKGROUND_DATA, null, "gasta ${Math.round(c.bgMbDay)} MB por dia de internet parado (média de ${c.bgDays} dias)")
             val delta = startChange(c)
             if (delta != null && c.compiledAt == 0L && median(c.startsMs) > SLOWER_FACTOR * c.startsBefore && delta >= SLOWER_MIN_MS)
                 out += Tip(c.pkg, Advice.SLOWER_AFTER_UPDATE, null, "abre em ${median(c.startsMs)} ms desde a versão nova (antes ${c.startsBefore} ms)")
@@ -227,7 +286,8 @@ object AppProfile {
             for (c in s.cards.values) cards.put(JSONObject().put("p", c.pkg).put("f", c.firstSeen).put("l", c.lastOpen)
                 .put("o", JSONArray(c.opens.map { Math.round(it * 100) / 100.0 })).put("t", Math.round(c.frontMs)).put("d", c.decayedAt)
                 .put("s", JSONArray(c.startsMs)).put("v", c.ver).put("sb", c.startsBefore).put("m", Math.round(c.memFrontMb))
-                .put("mn", c.memSamples).put("ca", c.compiledAt).put("pw", c.prewarmDay))
+                .put("mn", c.memSamples).put("ca", c.compiledAt).put("pw", c.prewarmDay).put("cr", JSONArray(c.crashes)).put("va", c.verAt)
+                .put("bg", Math.round(c.bgMbDay * 10) / 10.0).put("bd", c.bgDays))
             o.put(profile, JSONObject().put("cards", cards))
         }
         return o
@@ -246,7 +306,9 @@ object AppProfile {
                 val st = j.optJSONArray("s")
                 val starts = if (st == null) emptyList() else (0 until st.length()).map { st.getInt(it) }
                 val c = Card(j.getString("p"), j.getLong("f"), j.optLong("l"), opens, j.optDouble("t", 0.0), j.optLong("d", j.getLong("f")), starts,
-                    j.optLong("v"), j.optInt("sb"), j.optDouble("m", 0.0), j.optInt("mn"), j.optLong("ca"), j.optLong("pw"))
+                    j.optLong("v"), j.optInt("sb"), j.optDouble("m", 0.0), j.optInt("mn"), j.optLong("ca"), j.optLong("pw"),
+                    j.optJSONArray("cr")?.let { a -> (0 until a.length()).map { a.getLong(it) } } ?: emptyList(), j.optLong("va"),
+                    j.optDouble("bg", 0.0).takeIf { !it.isNaN() } ?: 0.0, j.optInt("bd"))
                 cards[c.pkg] = c
             }
             out[profile] = State(cards)

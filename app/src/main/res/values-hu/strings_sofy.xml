@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s 3 hete nem nyílt meg. Most csak akkor indul, ha megnyitja.</string>
     <string name="observer_version_slower_title">Az új verzió lassabb</string>
     <string name="observer_version_slower_text">A kezdőképernyő most %1$s mp alatt nyílik meg (korábban %2$s mp). Feljegyeztem a következő verzióhoz.</string>
+    <string name="observer_app_crashy_title">%1$s lefagy</string>
+    <string name="observer_app_crashy_text">%1$s ezen a héten %2$s-szor fagyott le.</string>
+    <string name="observer_app_crashy_update_title">%1$s lefagy</string>
+    <string name="observer_app_crashy_update_text">%1$s ezen a héten %2$s-szor fagyott le, az új verzió óta.</string>
+    <string name="sofy_hand_ready">Megnyitásra kész</string>
+    <string name="sofy_hand_on_demand">Akkor indul, amikor megnyitja</string>
 </resources>

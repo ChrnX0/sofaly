@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s llevaba 3 semanas sin abrirse. Ahora solo arranca cuando la abres.</string>
     <string name="observer_version_slower_title">La versión nueva es más lenta</string>
     <string name="observer_version_slower_text">La pantalla de inicio tarda %1$s s en abrir (antes %2$s s). Quedó anotado para que la próxima versión lo corrija.</string>
+    <string name="observer_app_crashy_title">%1$s se está colgando</string>
+    <string name="observer_app_crashy_text">%1$s se colgó %2$s veces esta semana.</string>
+    <string name="observer_app_crashy_update_title">%1$s se está colgando</string>
+    <string name="observer_app_crashy_update_text">%1$s se colgó %2$s veces esta semana, desde su versión nueva.</string>
+    <string name="sofy_hand_ready">Lista para abrir</string>
+    <string name="sofy_hand_on_demand">Arranca cuando la abres</string>
 </resources>

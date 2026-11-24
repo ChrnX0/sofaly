@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s 3 हफ़्ते से नहीं खुला। अब यह तभी चलेगा जब आप खोलेंगे।</string>
     <string name="observer_version_slower_title">नया संस्करण धीमा है</string>
     <string name="observer_version_slower_text">होम स्क्रीन अब %1$s सेकंड में खुलती है (पहले %2$s सेकंड)। अगले संस्करण में ठीक करने के लिए नोट किया गया।</string>
+    <string name="observer_app_crashy_title">%1$s अटक रहा है</string>
+    <string name="observer_app_crashy_text">%1$s इस हफ़्ते %2$s बार अटका।</string>
+    <string name="observer_app_crashy_update_title">%1$s अटक रहा है</string>
+    <string name="observer_app_crashy_update_text">%1$s इस हफ़्ते %2$s बार अटका, नए संस्करण के बाद से।</string>
+    <string name="sofy_hand_ready">खुलने को तैयार</string>
+    <string name="sofy_hand_on_demand">खोलने पर ही चलेगा</string>
 </resources>

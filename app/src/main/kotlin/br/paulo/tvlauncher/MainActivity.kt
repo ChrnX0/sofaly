@@ -1548,9 +1548,16 @@ class MainActivity : Activity() {
     internal fun subApp(pacote: String, nome: String): String {
         // Ideia 13 (14/11/2026): entre a frase à mão e a categoria, a ficha do painel (FrasesApps decide).
         val c = categoria(pacote)
-        return FrasesApps.escolher(pacote, nome, DESCRICAO_APPS[pacote]?.let { getString(it) }, fichasHome,
+        val frase = FrasesApps.escolher(pacote, nome, DESCRICAO_APPS[pacote]?.let { getString(it) }, fichasHome,
             resources.configuration.locales[0].language == "pt",
             if (c >= 0) ApplicationInfo.getCategoryTitle(this, c)?.toString() else null) ?: getString(R.string.home_destaque_app)
+        // A mão da Sofy no cartão (ideia 15): pronto para abrir (ela preparou a memória) ou ligando só quando abrir.
+        val mao = when (br.paulo.tvlauncher.observer.AppProfileTv.hand[pacote]) {
+            br.paulo.tvlauncher.observer.AppProfileTv.Hand.READY -> getString(R.string.sofy_hand_ready)
+            br.paulo.tvlauncher.observer.AppProfileTv.Hand.ON_DEMAND -> getString(R.string.sofy_hand_on_demand)
+            null -> null
+        }
+        return if (mao == null) frase else "$frase · $mao"
     }
 
     /** Lê o banner (ou a cor do ícone) de um app. Roda em qualquer thread; o resultado vai para [capas]. */

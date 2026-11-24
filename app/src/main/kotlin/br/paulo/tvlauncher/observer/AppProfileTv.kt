@@ -63,6 +63,9 @@ object AppProfileTv {
         runCatching { prewarm(app, s, now) }.onFailure { Log.w(TAG, "abrir quente: $it") }?.getOrNull()?.let { s = it }
         runCatching { scoreOutcomes(app, dev, s, now) }.onFailure { Log.w(TAG, "placar: $it") }
         runCatching { preHome(app, dev, s, now) }.onFailure { Log.w(TAG, "pré-HOME: $it") }
+        runCatching { withCrashes(app, dev, s, now) }.onFailure { Log.w(TAG, "travadas: $it") }.getOrNull()?.let { s = it }
+        runCatching { withBackground(app, dev, s, now) }.onFailure { Log.w(TAG, "internet parado: $it") }.getOrNull()?.let { s = it }
+        runCatching { updateHand(app, dev, now) }
         all[profile] = s
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
         dev.edit().putLong("apps_events_at", now).apply()
@@ -80,7 +83,7 @@ object AppProfileTv {
         val cards = HashMap(s.cards)
         for ((pkg, c) in s.cards) {
             val ver = runCatching { androidx.core.content.pm.PackageInfoCompat.getLongVersionCode(pm.getPackageInfo(pkg, 0)) }.getOrDefault(0L)
-            val n = AppProfile.noteVersion(c, ver)
+            val n = AppProfile.noteVersion(c, ver, System.currentTimeMillis())
             if (c.ver != 0L && n.ver != c.ver) SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "app_updated")
             cards[pkg] = n
         }
@@ -159,6 +162,101 @@ object AppProfileTv {
         dev.edit().remove("prehome_at").apply()
         if (System.currentTimeMillis() - at > 3 * 3_600_000L) return
         SofyLearnTv.record(app, SofyScore.Action.PREHOME, if (cold) SofyScore.Outcome.MISS else SofyScore.Outcome.HIT)
+    }
+
+    // ---------------------------------------------------------------- travadas por app (ideia 12)
+
+    private const val CRASHES_GAP_MS = 6 * 3_600_000L
+    private const val CRASHY_TELL_AGAIN_MS = 7 * 86_400_000L
+
+    /**
+     * De 6 em 6 h, lê pelo shell as travadas e "não responde" que o Android guarda ("dropbox") e liga cada uma à ficha do
+     * app. App que travou [AppProfile.CRASHY_COUNT] vezes na semana: a Sofy conta na Ilha (1 vez por semana por app),
+     * dizendo se foi desde a versão nova dele. Sem shell, nada.
+     */
+    private fun withCrashes(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long): AppProfile.State? {
+        if (now - dev.getLong("apps_crashes_at", 0L) < CRASHES_GAP_MS) return null
+        if (!runCatching { SaudeAcesso.shellEsperado(ctx) }.getOrDefault(false)) return null
+        dev.edit().putLong("apps_crashes_at", now).apply()
+        val out = runCatching {
+            GuardiaoShizuku.comando(ctx, "dumpsys dropbox --print data_app_crash data_app_anr | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2} |^Process:'", 20_000)
+        }.getOrNull() ?: return null
+        val fmt = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.US)
+        val found = AppProfile.parseDropbox(out.lineSequence()) { d -> runCatching { fmt.parse(d)?.time }.getOrNull() }
+        if (found.isEmpty()) return null
+        val cards = HashMap(s.cards)
+        for ((pkg, at, _) in found) cards[pkg]?.let { cards[pkg] = AppProfile.noteCrash(it, at) }
+        val told = JSONObject(dev.getString("crashy_told", null) ?: "{}")
+        for (c in cards.values) {
+            val n = AppProfile.crashesWeek(c, now)
+            if (n < AppProfile.CRASHY_COUNT || now - told.optLong(c.pkg) < CRASHY_TELL_AGAIN_MS) continue
+            told.put(c.pkg, now)
+            val nome = runCatching { ctx.packageManager.getApplicationLabel(ctx.packageManager.getApplicationInfo(c.pkg, 0)).toString() }.getOrDefault(c.pkg)
+            val kind = if (AppProfile.crashesSinceUpdate(c, now)) ObserverCore.Kind.APP_CRASHY_UPDATE else ObserverCore.Kind.APP_CRASHY
+            ObserverTv.enqueueNote(ctx, ObserverCore.sofyNote(kind, now, ObserverCore.Step.SUGGESTS, listOf(nome, n.toString())))
+            SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "app_crashy", ok = false)
+            ObserverTv.logShadow(ctx, "app_crashy", "${c.pkg} travou $n vezes em 7 dias${if (kind == ObserverCore.Kind.APP_CRASHY_UPDATE) ", desde a versão nova" else ""}")
+        }
+        dev.edit().putString("crashy_told", told.toString()).apply()
+        return s.copy(cards = cards)
+    }
+
+    // ---------------------------------------------------------------- internet parado (ideia 13)
+
+    /**
+     * Uma vez por dia: quanto cada app gastou de internet nas últimas 24 h em SEGUNDO PLANO (NetworkStatsManager, estado
+     * "default" = fora da frente). Vai para a ficha (média que esquece devagar); a dica aparece com 3 dias acima de 300 MB.
+     * "bg_state_split" anota se o Android desta TV separa frente e fundo (algumas versões só dão o total).
+     */
+    private fun withBackground(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long): AppProfile.State? {
+        if (now - dev.getLong("apps_bg_at", 0L) < TIPS_GAP_MS) return null
+        dev.edit().putLong("apps_bg_at", now).apply()
+        val nsm = ctx.getSystemService(android.app.usage.NetworkStatsManager::class.java) ?: return null
+        val bytes = HashMap<Int, Long>()
+        var split = false
+        for (tipo in intArrayOf(android.net.ConnectivityManager.TYPE_WIFI, android.net.ConnectivityManager.TYPE_ETHERNET)) {
+            val st = runCatching { nsm.querySummary(tipo, null, now - 86_400_000L, now) }.getOrNull() ?: continue
+            val b = android.app.usage.NetworkStats.Bucket()
+            st.use { while (it.hasNextBucket()) {
+                it.getNextBucket(b)
+                if (b.state == android.app.usage.NetworkStats.Bucket.STATE_FOREGROUND) split = true
+                if (b.state == android.app.usage.NetworkStats.Bucket.STATE_DEFAULT) bytes[b.uid] = (bytes[b.uid] ?: 0L) + b.rxBytes + b.txBytes
+            } }
+        }
+        dev.edit().putBoolean("bg_state_split", split).apply()
+        if (!split) return null   // sem separar frente e fundo, "parado" seria o total: não anota
+        val pm = ctx.packageManager
+        val cards = HashMap(s.cards)
+        for ((uid, b) in bytes) {
+            val pkgs = pm.getPackagesForUid(uid) ?: continue
+            if (pkgs.size != 1) continue   // uid compartilhado: não dá para dizer de quem é
+            cards[pkgs[0]]?.let { cards[pkgs[0]] = AppProfile.noteBackground(it, b / 1_048_576.0) }
+        }
+        // Apps com ficha sem nenhum byte em fundo também contam (0 MB naquele dia).
+        for ((pkg, c) in HashMap(cards)) {
+            val uid = runCatching { pm.getPackageUid(pkg, 0) }.getOrNull() ?: continue
+            if (uid !in bytes) cards[pkg] = AppProfile.noteBackground(c, 0.0)
+        }
+        return s.copy(cards = cards)
+    }
+
+    // ---------------------------------------------------------------- a mão dela nos cartões (ideia 15)
+
+    enum class Hand { READY, ON_DEMAND }
+
+    /** Lido pela HOME a cada foco (barato: só um mapa em memória). Pacote → a marca da Sofy. */
+    @Volatile var hand: Map<String, Hand> = emptyMap()
+        private set
+
+    private fun updateHand(ctx: Context, dev: android.content.SharedPreferences, now: Long) {
+        val m = HashMap<String, Hand>()
+        runCatching { OnDemandTv.entries(ctx).forEach { m[it.pkg] = Hand.ON_DEMAND } }
+        // Preparado pelo "abrir quente" e ainda dentro da hora firme (o prazo do placar).
+        for (e in dev.getString("score_pending_prewarm", "").orEmpty().split(';').filter { it.isNotBlank() }) {
+            val p = e.split('|')
+            if ((p.getOrNull(2)?.toLongOrNull() ?: 0L) > now) m.putIfAbsent(p[0], Hand.READY)
+        }
+        hand = m
     }
 
     @Volatile private var lastRecipe = 0L

@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">Η %1$s δεν άνοιξε 3 εβδομάδες. Τώρα ξεκινά μόνο όταν την ανοίγετε.</string>
     <string name="observer_version_slower_title">Η νέα έκδοση είναι πιο αργή</string>
     <string name="observer_version_slower_text">Η αρχική οθόνη ανοίγει τώρα σε %1$s s (πριν %2$s s). Σημειώθηκε για την επόμενη έκδοση.</string>
+    <string name="observer_app_crashy_title">Η %1$s κολλάει</string>
+    <string name="observer_app_crashy_text">Η %1$s κόλλησε %2$s φορές αυτή την εβδομάδα.</string>
+    <string name="observer_app_crashy_update_title">Η %1$s κολλάει</string>
+    <string name="observer_app_crashy_update_text">Η %1$s κόλλησε %2$s φορές αυτή την εβδομάδα, από τη νέα της έκδοση.</string>
+    <string name="sofy_hand_ready">Έτοιμη να ανοίξει</string>
+    <string name="sofy_hand_on_demand">Ξεκινά όταν την ανοίγετε</string>
 </resources>

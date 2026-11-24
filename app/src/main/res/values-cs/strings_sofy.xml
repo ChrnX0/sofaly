@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s se 3 týdny neotevřela. Teď se spustí, jen když ji otevřete.</string>
     <string name="observer_version_slower_title">Nová verze je pomalejší</string>
     <string name="observer_version_slower_text">Úvodní obrazovka se teď otevírá %1$s s (dřív %2$s s). Je to poznamenané pro další verzi.</string>
+    <string name="observer_app_crashy_title">%1$s padá</string>
+    <string name="observer_app_crashy_text">%1$s tento týden spadla %2$s×.</string>
+    <string name="observer_app_crashy_update_title">%1$s padá</string>
+    <string name="observer_app_crashy_update_text">%1$s tento týden spadla %2$s×, od nové verze.</string>
+    <string name="sofy_hand_ready">Připravená k otevření</string>
+    <string name="sofy_hand_on_demand">Spustí se, až ji otevřete</string>
 </resources>

@@ -28,4 +28,10 @@
     <string name="observer_app_on_demand_text">%1$s nu a fost deschisă de 3 săptămâni. Acum pornește doar când o deschizi.</string>
     <string name="observer_version_slower_title">Versiunea nouă e mai lentă</string>
     <string name="observer_version_slower_text">Ecranul de start se deschide acum în %1$s s (înainte %2$s s). E notat pentru versiunea următoare.</string>
+    <string name="observer_app_crashy_title">%1$s se blochează</string>
+    <string name="observer_app_crashy_text">%1$s s-a blocat de %2$s ori săptămâna asta.</string>
+    <string name="observer_app_crashy_update_title">%1$s se blochează</string>
+    <string name="observer_app_crashy_update_text">%1$s s-a blocat de %2$s ori săptămâna asta, de la versiunea nouă.</string>
+    <string name="sofy_hand_ready">Gata de deschis</string>
+    <string name="sofy_hand_on_demand">Pornește când o deschizi</string>
 </resources>

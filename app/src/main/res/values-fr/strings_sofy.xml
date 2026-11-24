@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s n\'a pas été ouverte depuis 3 semaines. Elle démarre seulement quand vous l\'ouvrez.</string>
     <string name="observer_version_slower_title">La nouvelle version est plus lente</string>
     <string name="observer_version_slower_text">L\'écran d\'accueil met %1$s s à s\'ouvrir (avant %2$s s). C\'est noté pour la prochaine version.</string>
+    <string name="observer_app_crashy_title">%1$s plante souvent</string>
+    <string name="observer_app_crashy_text">%1$s a planté %2$s fois cette semaine.</string>
+    <string name="observer_app_crashy_update_title">%1$s plante souvent</string>
+    <string name="observer_app_crashy_update_text">%1$s a planté %2$s fois cette semaine, depuis sa nouvelle version.</string>
+    <string name="sofy_hand_ready">Prête à ouvrir</string>
+    <string name="sofy_hand_on_demand">Démarre quand vous l\'ouvrez</string>
 </resources>

@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s не открывали 3 недели. Теперь оно запускается, только когда вы его открываете.</string>
     <string name="observer_version_slower_title">Новая версия работает медленнее</string>
     <string name="observer_version_slower_text">Главный экран теперь открывается за %1$s с (было %2$s с). Это отмечено для следующей версии.</string>
+    <string name="observer_app_crashy_title">%1$s зависает</string>
+    <string name="observer_app_crashy_text">%1$s зависало %2$s раз(а) на этой неделе.</string>
+    <string name="observer_app_crashy_update_title">%1$s зависает</string>
+    <string name="observer_app_crashy_update_text">%1$s зависало %2$s раз(а) на этой неделе, с новой версии.</string>
+    <string name="sofy_hand_ready">Готово к запуску</string>
+    <string name="sofy_hand_on_demand">Запустится, когда вы откроете</string>
 </resources>

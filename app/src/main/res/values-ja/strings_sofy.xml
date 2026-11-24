@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s は3週間開かれていません。開いたときだけ起動します。</string>
     <string name="observer_version_slower_title">新しいバージョンは遅くなりました</string>
     <string name="observer_version_slower_text">ホーム画面が開くのに %1$s 秒かかります（以前は %2$s 秒）。次のバージョンで直すよう記録しました。</string>
+    <string name="observer_app_crashy_title">%1$s が落ちています</string>
+    <string name="observer_app_crashy_text">%1$s は今週 %2$s 回落ちました。</string>
+    <string name="observer_app_crashy_update_title">%1$s が落ちています</string>
+    <string name="observer_app_crashy_update_text">%1$s は新しいバージョンになってから今週 %2$s 回落ちました。</string>
+    <string name="sofy_hand_ready">すぐ開けます</string>
+    <string name="sofy_hand_on_demand">開いたときに起動</string>
 </resources>

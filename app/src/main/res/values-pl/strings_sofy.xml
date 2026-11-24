@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s nie była otwierana od 3 tygodni. Teraz uruchamia się dopiero, gdy ją otworzysz.</string>
     <string name="observer_version_slower_title">Nowa wersja jest wolniejsza</string>
     <string name="observer_version_slower_text">Ekran główny otwiera się teraz w %1$s s (wcześniej %2$s s). Zapisane do poprawy w następnej wersji.</string>
+    <string name="observer_app_crashy_title">%1$s się zawiesza</string>
+    <string name="observer_app_crashy_text">%1$s zawiesiła się %2$s razy w tym tygodniu.</string>
+    <string name="observer_app_crashy_update_title">%1$s się zawiesza</string>
+    <string name="observer_app_crashy_update_text">%1$s zawiesiła się %2$s razy w tym tygodniu, od nowej wersji.</string>
+    <string name="sofy_hand_ready">Gotowa do otwarcia</string>
+    <string name="sofy_hand_on_demand">Uruchamia się, gdy ją otworzysz</string>
 </resources>

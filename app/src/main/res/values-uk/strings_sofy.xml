@@ -28,4 +28,10 @@
     <string name="observer_app_on_demand_text">%1$s не відкривали 3 тижні. Тепер він запускається, лише коли ви його відкриваєте.</string>
     <string name="observer_version_slower_title">Нова версія працює повільніше</string>
     <string name="observer_version_slower_text">Головний екран тепер відкривається за %1$s с (було %2$s с). Це занотовано для наступної версії.</string>
+    <string name="observer_app_crashy_title">%1$s зависає</string>
+    <string name="observer_app_crashy_text">%1$s зависав %2$s раз(и) цього тижня.</string>
+    <string name="observer_app_crashy_update_title">%1$s зависає</string>
+    <string name="observer_app_crashy_update_text">%1$s зависав %2$s раз(и) цього тижня, з нової версії.</string>
+    <string name="sofy_hand_ready">Готовий до запуску</string>
+    <string name="sofy_hand_on_demand">Запуститься, коли ви відкриєте</string>
 </resources>

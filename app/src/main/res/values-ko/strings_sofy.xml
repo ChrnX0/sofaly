@@ -27,4 +27,10 @@
     <string name="observer_app_on_demand_text">%1$s 앱을 3주 동안 열지 않았어요. 이제 열 때만 켜져요.</string>
     <string name="observer_version_slower_title">새 버전이 더 느려졌어요</string>
     <string name="observer_version_slower_text">홈 화면이 열리는 데 %1$s초 걸려요(이전 %2$s초). 다음 버전에서 고치도록 기록했어요.</string>
+    <string name="observer_app_crashy_title">%1$s 앱이 자꾸 멈춰요</string>
+    <string name="observer_app_crashy_text">%1$s 앱이 이번 주에 %2$s번 멈췄어요.</string>
+    <string name="observer_app_crashy_update_title">%1$s 앱이 자꾸 멈춰요</string>
+    <string name="observer_app_crashy_update_text">%1$s 앱이 새 버전 이후 이번 주에 %2$s번 멈췄어요.</string>
+    <string name="sofy_hand_ready">바로 열 수 있어요</string>
+    <string name="sofy_hand_on_demand">열 때만 켜져요</string>
 </resources>
