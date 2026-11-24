@@ -1,7 +1,7 @@
 """Coleta para a frente (24/11/2026): a previsão de hoje de cada fonte para os próximos 4 dias, em 30 aeroportos.
 Depois, analise_coleta.py confere com o METAR (o que a estação viu). Não faz parte do build.
 Fontes: MET Norway, WeatherAPI, OpenWeather e Visual Crossing (essas três só se a chave existir no ambiente),
-Open-Meteo (best_match = o que o plano pago entrega) e os 4 modelos abertos (para o "consenso" grátis).
+Open-Meteo (best_match = o que o plano pago entrega), os 4 modelos abertos e a rota da Sofaly (o que a TV mostra).
 Saída: acrescenta linhas em ferramentas/clima/coleta.csv."""
 import csv, json, os, sys, time, urllib.parse, urllib.request
 from collections import defaultdict
@@ -65,6 +65,14 @@ def linhas_met(lat, lon, off):
             break
     return {d: (round(mm[d], 2), None, max(temps[d]), min(temps[d])) for d in temps}
 
+def linhas_sofaly(lat, lon):
+    """O que a TV mostra hoje: consenso calibrado dos 4 modelos abertos em api.sofaly.tv (desde #446, 24/11 15:45Z)."""
+    j = get("https://api.sofaly.tv/v1/weather/open?" + urllib.parse.urlencode(dict(lat=lat, lon=lon)))
+    if not j or "daily" not in j: return {}
+    d = j["daily"]
+    return {dia: (d["precipitation_sum"][i], d["precipitation_probability_max"][i], d["temperature_2m_max"][i], d["temperature_2m_min"][i])
+            for i, dia in enumerate(d["time"])}
+
 def linhas_weatherapi(lat, lon):
     k = os.environ.get("WEATHERAPI_CHAVE")
     if not k: return {}
@@ -100,6 +108,7 @@ def main():
         if off is None: continue
         hoje = (agora + timedelta(seconds=off)).date()
         fontes["met_norway"] = linhas_met(lat, lon, off)
+        fontes["sofaly"] = linhas_sofaly(lat, lon)
         fontes["weatherapi"] = linhas_weatherapi(lat, lon)
         fontes["openweather"] = linhas_owm(lat, lon, off)
         fontes["visualcrossing"] = linhas_vc(lat, lon)
