@@ -268,6 +268,8 @@ internal fun MainActivity.atualizarIlha() {
         lembreteCasa = txtLembreteCasa.se(pilulaLembreteCasa),
         contagem = txtContagem.se(pilulaContagem),
         ceu = ilhaCeu?.first,
+        // O clima renova a cada 15 min; um aviso de mais de 90 min (TV sem rede) já não vale.
+        sol = ilhaUv?.takeIf { agora - it.second < 90 * 60_000L }?.let { getString(R.string.ilha_uv, it.first) },
     ))
     pintarTrilho(BarraIlha.trilho(ilhaIndicadores))
     if (fila != ilhaFila && BarraIlha.mesmaEstrutura(ilhaFila, fila)) {
@@ -343,6 +345,7 @@ internal fun MainActivity.aplicarIlha() {
             BarraIlha.Tipo.SERVICO_FORA -> IconeApp(IconeApp.Tipo.SEM_REDE, Estilo.ATENCAO)
             BarraIlha.Tipo.LEMBRETE_CASA -> IconeLinha(IconeLinha.Tipo.RECADO)
             BarraIlha.Tipo.CONTAGEM -> IconeLinha(IconeLinha.Tipo.CALENDARIO)
+            BarraIlha.Tipo.SOL -> IconeLinha(IconeLinha.Tipo.SOL)
             // Ícones provisórios: a arte do céu da noite é da thread Design.
             BarraIlha.Tipo.CEU -> when (ilhaCeu?.second) {
                 br.paulo.tvlauncher.weather.NightSky.Kind.ISS -> IconeLinha(IconeLinha.Tipo.SATELITE)

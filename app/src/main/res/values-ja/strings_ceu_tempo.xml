@@ -31,4 +31,5 @@
         <item>ふたご座流星群</item>
     </string-array>
     <string name="ns_titulo">夜空</string>
+    <string name="ilha_uv">いまUV %1$d:外出するなら日焼け止めを</string>
 </resources>

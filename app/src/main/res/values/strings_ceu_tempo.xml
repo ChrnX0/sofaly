@@ -31,4 +31,6 @@
         <item>Geminids</item>
     </string-array>
     <string name="ns_titulo">Night sky</string>
+    <!-- Ilha: sol forte (SunAlert, UV ≥ 8). -->
+    <string name="ilha_uv">UV %1$d now: sunscreen if you go out</string>
 </resources>

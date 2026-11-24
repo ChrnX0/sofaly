@@ -31,4 +31,5 @@
         <item>Géminides</item>
     </string-array>
     <string name="ns_titulo">Ciel de nuit</string>
+    <string name="ilha_uv">UV %1$d en ce moment : crème solaire si vous sortez</string>
 </resources>

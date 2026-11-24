@@ -31,4 +31,5 @@
         <item>Геминиды</item>
     </string-array>
     <string name="ns_titulo">Ночное небо</string>
+    <string name="ilha_uv">УФ %1$d сейчас: солнцезащитный крем, если выходите</string>
 </resources>

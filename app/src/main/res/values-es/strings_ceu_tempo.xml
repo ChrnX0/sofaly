@@ -31,4 +31,5 @@
         <item>Gemínidas</item>
     </string-array>
     <string name="ns_titulo">Cielo nocturno</string>
+    <string name="ilha_uv">UV %1$d ahora: protector solar si vas a salir</string>
 </resources>

@@ -12,7 +12,6 @@ object Config {
     //     repositório é público (05/11/2026): vêm do pessoal.properties da raiz do repo (fora do git), pela classe
     //     BuildConfig que o Gradle gera. Sem o arquivo: sem cidade, coordenadas 0/0, Celsius, estação automática.
     //     Para mudar: edite o pessoal.properties (modelo em pessoal.properties.exemplo) e recompile.
-    val CIDADE: String = BuildConfig.CIDADE
     val LATITUDE: Double = BuildConfig.LATITUDE
     val LONGITUDE: Double = BuildConfig.LONGITUDE
     val USAR_FAHRENHEIT: Boolean = BuildConfig.USAR_FAHRENHEIT
