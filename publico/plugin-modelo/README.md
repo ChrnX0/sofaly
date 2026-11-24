@@ -27,7 +27,22 @@ the home screen. The card appears at the end of the **Watch** row.
 3. Be fast and local: the launcher reads the card every time the person returns home, with a 2-second limit, away from
    the screen thread. Fetch from the internet in the background and keep the result (WorkManager, a cache file).
 
+Optional (v2): `world` (`watch`, `listen`, `play` or `apps`: the row the card joins; default `watch`) and `image`
+(a `content://` URI from a provider in your own package; shown up to 256 px).
+
 The launcher draws the card in its own style, with large letters. It never sends anything to your app.
+
+## Other kinds of plugin
+
+- **Quick panel button:** a provider with `<action android:name="tv.sofaly.plugin.TILE"/>`. `query()` on
+  `content://<authority>/tile` returns one row with `title` (14 chars), `detail` (16), `state` (`on`/`off`) and `icon`
+  (a name from the list on the page below). On OK the launcher calls `call(uri, "click", null, null)` and reads the row
+  again. Scenes and routines can press it too.
+- **Wallpaper:** existing wallpaper-provider plugins for Android TV launchers work unchanged.
+- **Icon pack:** any pack with an `appfilter.xml`.
+
+A plugin that fails 5 times in a row within 6 hours, or keeps taking more than 2.5 seconds, is turned off by itself;
+the person sees why in Plugins.
 Full page: https://chrnx0.github.io/sofaly/plugins.html
 
 ---

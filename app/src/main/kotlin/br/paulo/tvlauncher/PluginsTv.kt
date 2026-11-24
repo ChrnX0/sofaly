@@ -116,7 +116,8 @@ object PluginsTv {
     /** (respondeu, cartão): respondeu = o provider atendeu (mesmo sem linha); false = erro ou provider sumido. */
     private fun ler(ctx: Context, p: Instalado): Pair<Boolean, PluginCartao.Cartao?> = runCatching {
         val uri = Uri.parse("content://${p.autoridade}/${PluginCartao.CAMINHO}")
-        val cursor = ctx.contentResolver.query(uri, PluginCartao.COLUNAS, null, null, null) ?: return false to null
+        // Sem projeção (todas as colunas): um plugin v1 feito com SQLite recusaria as colunas novas da v2 (world, image).
+        val cursor = ctx.contentResolver.query(uri, null, null, null, null) ?: return false to null
         cursor.use { c ->
             if (!c.moveToFirst()) return true to null
             val linha = PluginCartao.COLUNAS.associateWith { col ->

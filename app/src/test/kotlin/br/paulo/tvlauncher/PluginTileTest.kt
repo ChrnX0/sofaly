@@ -7,7 +7,7 @@ import org.junit.Test
 
 class PluginTileTest {
     @Test fun linhaCompleta() {
-        val b = T.limpar("app.vpn", mapOf("title" to "VPN de casa", "detail" to "Conectada", "state" to "ON", "icon" to "chave"))
+        val b = T.limpar("app.vpn", mapOf("title" to "VPN de casa", "detail" to "Conectada", "state" to "ON", "icon" to "key"))
         assertEquals(T.Botao("app.vpn", "VPN de casa", "Conectada", T.Estado.LIGADO, "chave"), b)
     }
 
@@ -22,5 +22,8 @@ class PluginTileTest {
 
     @Test fun iconeDeForaViraPadrao() {
         assertEquals(T.ICONE_PADRAO, T.limpar("a", mapOf("title" to "X", "icon" to "https://evil/x.png"))!!.icone)
+        // O nome interno não vale: o contrato público é em inglês.
+        assertEquals(T.ICONE_PADRAO, T.limpar("a", mapOf("title" to "X", "icon" to "lampada"))!!.icone)
+        assertEquals("lampada", T.limpar("a", mapOf("title" to "X", "icon" to "LIGHT"))!!.icone)
     }
 }

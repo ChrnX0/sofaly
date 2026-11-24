@@ -21,9 +21,14 @@ object PluginTile {
     const val METODO_CLIQUE = "click"
     const val MAX = 2
     val COLUNAS = arrayOf("title", "detail", "state", "icon")
-    /** Ícones que o plugin pode pedir (os do painel rápido e da Casa). Outro nome = [ICONE_PADRAO]. */
-    val ICONES = setOf("lampada", "tomada", "ventilador", "cortina", "cena", "rotina", "chave", "ar", "termometro",
-        "camera", "porta", "casa", "dns", "audio", "timer", "filtro", "wifi", "bluetooth", "protetor", "dormir")
+    /**
+     * Ícones que o plugin pode pedir: nome público (em inglês, é contrato) -> o nosso desenho do painel rápido e da Casa.
+     * Outro nome = [ICONE_PADRAO].
+     */
+    val ICONES = mapOf("light" to "lampada", "plug" to "tomada", "fan" to "ventilador", "curtain" to "cortina",
+        "scene" to "cena", "routine" to "rotina", "key" to "chave", "ac" to "ar", "thermometer" to "termometro",
+        "camera" to "camera", "door" to "porta", "home" to "casa", "dns" to "dns", "audio" to "audio", "timer" to "timer",
+        "filter" to "filtro", "wifi" to "wifi", "bluetooth" to "bluetooth", "screensaver" to "protetor", "sleep" to "dormir")
     const val ICONE_PADRAO = "launcher"
 
     enum class Estado { LIGADO, DESLIGADO, NENHUM }
@@ -38,7 +43,7 @@ object PluginTile {
         val titulo = texto(linha["title"], 14)
         if (titulo.isEmpty()) return null
         val estado = when (linha["state"]?.trim()?.lowercase()) { "on" -> Estado.LIGADO; "off" -> Estado.DESLIGADO; else -> Estado.NENHUM }
-        val icone = linha["icon"]?.trim()?.lowercase()?.takeIf { it in ICONES } ?: ICONE_PADRAO
+        val icone = linha["icon"]?.trim()?.lowercase()?.let { ICONES[it] } ?: ICONE_PADRAO
         return Botao(pacote, titulo, texto(linha["detail"], 16), estado, icone)
     }
 }

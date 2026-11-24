@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Plugin kit · Sofaly</title>
-<meta name="description" content="How to put a card from your Android TV app on the Sofaly home screen.">
+<meta name="description" content="How to extend Sofaly from your own Android TV app: home screen cards, quick panel buttons, wallpapers and icon packs.">
 <link rel="stylesheet" href="estilo.css">
 <style>
-/* Kit do desenvolvedor de plugins (degrau 3, P6). Contrato em PluginCartao.kt; a HOME desenha o cartão. */
+/* Kit do desenvolvedor de plugins (degrau 3, P6; 24/11/2026: 4 tipos). Contratos em PluginCartao.kt, PluginTile.kt,
+   WallpaperPluginContract.kt e PacoteIcones.kt; o launcher desenha tudo no estilo dele. */
 pre{background:rgba(127,127,127,.1);border-radius:.6rem;padding:.9rem 1rem;overflow-x:auto;font-size:.9rem}
 code{font-size:.9em}
 table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:.35rem .5rem;border-bottom:1px solid rgba(127,127,127,.3);vertical-align:top}
@@ -12,15 +13,26 @@ table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:.35rem .
 <body><main>
 <nav><a href="./">Home</a><a href="compatibility.html">Compatibility</a><a href="plugins.html" aria-current="page">Plugins</a>
 <a href="privacy.html">Privacy</a></nav>
-<h1>Put your app's card on the home screen</h1>
-<p>A plugin is your own Android TV app. It sends one short card (a title, a big value, a line of detail, a color) and
-the launcher draws it at the end of the <b>Watch</b> row, in its own style and with large letters. You never draw on
-the home screen, and the launcher never sends you anything about the person's apps, accounts or channels.</p>
-
+<h1>Extend Sofaly from your own app</h1>
+<p>A plugin is your own Android TV app. There are four kinds, and one app can be several of them:</p>
+<table>
+<tr><th>Kind</th><th>What it does</th><th>How</th></tr>
+<tr><td><b>Card</b></td><td>A short card (title, big value, a line of detail, a color, optionally a picture) in the row of
+the world you choose: Watch, Listen, Play or Apps.</td><td>Provider with <code>tv.sofaly.plugin.CARTAO</code>, below.</td></tr>
+<tr><td><b>Quick panel button</b></td><td>A button in the quick panel (hold Back) that runs an action of your app: a lamp,
+a VPN, a scene. It can also be a step of a scene or a routine.</td><td>Provider with <code>tv.sofaly.plugin.TILE</code>, below.</td></tr>
+<tr><td><b>Wallpaper</b></td><td>The home screen background, changing with the time and with what has focus.</td>
+<td>Existing wallpaper-provider plugins for Android TV launchers work as they are.</td></tr>
+<tr><td><b>Icon pack</b></td><td>Replaces app icons and banners.</td><td>Any pack with an <code>appfilter.xml</code>.</td></tr>
+</table>
+<p>You never draw on the home screen, and the launcher never sends you anything about the person's apps, accounts or
+channels (a wallpaper only hears the title and type of what has focus).</p>
+<p>The <a href="https://github.com/ChrnX0/sofaly/tree/main/plugin-modelo">plugin template</a>
 has two ready apps you can build and install today: a countdown to a date the person picks on the TV, and today's moon
 phase. No internet, no account. MIT No Attribution: copy it, rename the package, publish.</p>
 
-<h2>1. Declare a provider</h2>
+<h2>Card</h2>
+<h3>1. Declare a provider</h3>
 <pre>&lt;provider
     android:name=".CardProvider"
     android:authorities="com.example.score.card"
@@ -30,7 +42,7 @@ phase. No internet, no account. MIT No Attribution: copy it, rename the package,
     &lt;/intent-filter&gt;
 &lt;/provider&gt;</pre>
 
-<h2>2. Answer <code>content://&lt;authority&gt;/cartao</code> with one row</h2>
+<h3>2. Answer <code>content://&lt;authority&gt;/cartao</code> with one row</h3>
 <table>
 <tr><th>Column</th><th>Limit</th><th>Meaning</th></tr>
 <tr><td><code>titulo</code></td><td>30 chars</td><td>Card title, e.g. "Match score".</td></tr>
@@ -39,6 +51,9 @@ phase. No internet, no account. MIT No Attribution: copy it, rename the package,
 <tr><td><code>cor</code></td><td><code>#RRGGBB</code></td><td>Background color. Transparency is ignored.</td></tr>
 <tr><td><code>acao</code></td><td>500 chars, optional</td><td>An <code>intent:</code> URI opened on OK. It must stay inside your own package: no
 <code>component=</code>, no selector, no other <code>package=</code>. Without it, OK opens your app.</td></tr>
+<tr><td><code>world</code></td><td>optional</td><td><code>watch</code> (default), <code>listen</code>, <code>play</code> or <code>apps</code>: the row the card joins.</td></tr>
+<tr><td><code>image</code></td><td>500 chars, optional</td><td>A <code>content://</code> URI of a provider in your own package. Shown
+up to 256 px, read with the same 2-second limit. Anything else is ignored and the color is used.</td></tr>
 </table>
 <pre>class CardProvider : ContentProvider() {
     override fun onCreate() = true
@@ -50,11 +65,31 @@ phase. No internet, no account. MIT No Attribution: copy it, rename the package,
 }</pre>
 <p>Control characters and extra spaces are removed, and longer text is cut. A row with neither a title nor a value is ignored.</p>
 
-<h2>3. What the person sees</h2>
+<h2>Quick panel button</h2>
+<pre>&lt;provider android:name=".TileProvider" android:authorities="com.example.lamp.tile" android:exported="true"&gt;
+    &lt;intent-filter&gt;&lt;action android:name="tv.sofaly.plugin.TILE" /&gt;&lt;/intent-filter&gt;
+&lt;/provider&gt;</pre>
+<p><code>query()</code> on <code>content://&lt;authority&gt;/tile</code> returns one row; on OK the launcher calls
+<code>call(uri, "click", null, null)</code>, you do your action, and the row is read again to repaint the button.</p>
+<table>
+<tr><th>Column</th><th>Limit</th><th>Meaning</th></tr>
+<tr><td><code>title</code></td><td>14 chars</td><td>Button label. A row without it is ignored.</td></tr>
+<tr><td><code>detail</code></td><td>16 chars, optional</td><td>Second line, e.g. "Connected".</td></tr>
+<tr><td><code>state</code></td><td>optional</td><td><code>on</code>, <code>off</code> or nothing (a button without a state).</td></tr>
+<tr><td><code>icon</code></td><td>optional</td><td>One of: light, plug, fan, curtain, scene, routine, key, ac, thermometer, camera, door, home,
+dns, audio, timer, filter, wifi, bluetooth, screensaver, sleep. The launcher draws it; any other value gets its default icon.</td></tr>
+</table>
+<p>At most 2 buttons are shown. A scene (in the TV web panel) or a routine can press your button too, with the step
+"Button from another app".</p>
+
+<h2>What the person sees</h2>
 <ul>
 <li>Nothing appears until the person turns your plugin on in <b>Settings › Appearance › Plugins</b>, which asks for the parental PIN.</li>
 <li>The OK is tied to your signing certificate. An update signed with another key is turned off until the person allows it again.</li>
-<li>At most 3 plugins are shown. Each read has a 2-second limit, done away from the screen thread: a slow plugin is skipped, never waited for.</li>
+<li>At most 3 cards and 2 buttons are shown. Each read has a 2-second limit, done away from the screen thread: a slow plugin is skipped, never waited for.</li>
+<li>A plugin that fails 5 times in a row within 6 hours, or keeps taking more than 2.5 seconds, is turned off by itself.
+The person sees why in Plugins and can turn it on again.</li>
+<li>Cards, buttons, wallpapers and icon packs from other developers are part of the Pro plan. Turning one off is always free.</li>
 <li>The card is read again every time the person returns to the home screen. Keep <code>query</code> fast and local (cache your data).</li>
 </ul>
 <p>Questions or a plugin to show? Open an issue on the project page.</p>

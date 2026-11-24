@@ -22,7 +22,7 @@ object PluginCartao {
     const val ACAO = "tv.sofaly.plugin.CARTAO"
     const val CAMINHO = "cartao"
     const val MAX_PLUGINS = 3
-    val COLUNAS = arrayOf("titulo", "valor", "detalhe", "cor", "acao", "mundo", "imagem")
+    val COLUNAS = arrayOf("titulo", "valor", "detalhe", "cor", "acao", "world", "image")  // v2 (24/11/2026): colunas novas em inglês
 
     /** O mundo da HOME onde o cartão entra (v2). */
     enum class Mundo(val id: String) { WATCH("watch"), LISTEN("listen"), PLAY("play"), APPS("apps") }
@@ -55,7 +55,7 @@ object PluginCartao {
         val valor = texto(linha["valor"], 12)
         if (titulo.isEmpty() && valor.isEmpty()) return null
         val acao = linha["acao"]?.trim()?.takeIf { acaoValida(pacote, it) }
-        return Cartao(pacote, titulo, valor, texto(linha["detalhe"], 80), cor(linha["cor"]), acao, mundo(linha["mundo"]), imagem(linha["imagem"]))
+        return Cartao(pacote, titulo, valor, texto(linha["detalhe"], 80), cor(linha["cor"]), acao, mundo(linha["world"]), imagem(linha["image"]))
     }
 
     fun acaoValida(pacote: String, uri: String): Boolean {
