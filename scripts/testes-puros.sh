@@ -79,6 +79,7 @@ declare -A FONTES=(
   [SofyMotionTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [SofyStringsTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [OnDemandTest]="OnDemand"
+  [GoogleHomeTrimTest]="GoogleHomeTrim"
   [StorageModeRulesTest]="StorageModeRules"
 )
 
