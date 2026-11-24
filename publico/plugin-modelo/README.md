@@ -40,6 +40,9 @@ The launcher draws the card in its own style, with large letters. It never sends
   again. Scenes and routines can press it too.
 - **Wallpaper:** existing wallpaper-provider plugins for Android TV launchers work unchanged.
 - **Icon pack:** any pack with an `appfilter.xml`.
+- **Widget:** a normal Android `AppWidgetProvider` (see `ContagemWidget` in `contagem`). Sofaly shows a picture of the
+  widget as a card in Apps, and OK opens your app; other launchers show the widget itself. Keep it readable at
+  180x110 dp.
 
 A plugin that fails 5 times in a row within 6 hours, or keeps taking more than 2.5 seconds, is turned off by itself;
 the person sees why in Plugins.

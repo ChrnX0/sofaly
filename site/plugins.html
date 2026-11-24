@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Plugin kit · Sofaly</title>
-<meta name="description" content="How to extend Sofaly from your own Android TV app: home screen cards, quick panel buttons, wallpapers and icon packs.">
+<meta name="description" content="How to extend Sofaly from your own Android TV app: home screen cards, quick panel buttons, wallpapers, icon packs and widgets.">
 <link rel="stylesheet" href="estilo.css">
 <style>
 /* Kit do desenvolvedor de plugins (degrau 3, P6; 24/11/2026: 4 tipos). Contratos em PluginCartao.kt, PluginTile.kt,
@@ -24,6 +24,7 @@ a VPN, a scene. It can also be a step of a scene or a routine.</td><td>Provider 
 <tr><td><b>Wallpaper</b></td><td>The home screen background, changing with the time and with what has focus.</td>
 <td>Existing wallpaper-provider plugins for Android TV launchers work as they are.</td></tr>
 <tr><td><b>Icon pack</b></td><td>Replaces app icons and banners.</td><td>Any pack with an <code>appfilter.xml</code>.</td></tr>
+<tr><td><b>Widget</b></td><td>A picture of the widget becomes a card in Apps (up to 2); OK opens your app.</td><td>A normal Android <code>AppWidgetProvider</code>.</td></tr>
 </table>
 <p>You never draw on the home screen, and the launcher never sends you anything about the person's apps, accounts or
 channels (a wallpaper only hears the title and type of what has focus).</p>
@@ -89,7 +90,7 @@ dns, audio, timer, filter, wifi, bluetooth, screensaver, sleep. The launcher dra
 <li>At most 3 cards and 2 buttons are shown. Each read has a 2-second limit, done away from the screen thread: a slow plugin is skipped, never waited for.</li>
 <li>A plugin that fails 5 times in a row within 6 hours, or keeps taking more than 2.5 seconds, is turned off by itself.
 The person sees why in Plugins and can turn it on again.</li>
-<li>Cards, buttons, wallpapers and icon packs from other developers are part of the Pro plan. Turning one off is always free.</li>
+<li>Cards, buttons, widgets, wallpapers and icon packs from other developers are part of the Pro plan. Turning one off is always free.</li>
 <li>The card is read again every time the person returns to the home screen. Keep <code>query</code> fast and local (cache your data).</li>
 </ul>
 <h2>Get listed</h2>
