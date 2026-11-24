@@ -75,6 +75,13 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         if (w > 0 && h > 0 && (w != ow || h != oh)) post { ultimo?.invoke() }
     }
 
+    /** O ícone vivo só anda com a HOME na tela (um app na frente ou a cruz no lugar da barra: para). */
+    @Suppress("SENSELESS_COMPARISON", "UNNECESSARY_SAFE_CALL")
+    private fun moverIcone() { if (icone == null) return; (icone.drawable as? WorldMotion)?.let { if (isShown && windowVisibility == View.VISIBLE) it.start() else it.stop() } }
+    override fun onWindowVisibilityChanged(v: Int) { super.onWindowVisibilityChanged(v); moverIcone() }
+    override fun onVisibilityAggregated(v: Boolean) { super.onVisibilityAggregated(v); moverIcone() }
+    override fun onDetachedFromWindow() { (icone.drawable as? WorldMotion)?.stop(); super.onDetachedFromWindow() }
+
     init {
         clipChildren = false; clipToPadding = false
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
@@ -146,7 +153,10 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val mundoNovo = cat != mundoDesenhado || ids != idsDesenhados
         val trocouMundo = cat != mundoDesenhado
         if (trocouMundo) {
-            icone.setImageDrawable(WorldGlyph(c.cat, DesignTokens.CREAM))
+            // Ícone vivo (24/11/2026): desenha o traço e respira; sem movimento permitido, o parado.
+            (icone.drawable as? WorldMotion)?.stop()
+            icone.setImageDrawable(if (WorldMotion.permitido(context)) WorldMotion(c.cat, DesignTokens.CREAM).also { if (isShown) it.start() }
+                else WorldGlyph(c.cat, DesignTokens.CREAM))
             nome.text = c.nome
         }
         escreverDesc(c)

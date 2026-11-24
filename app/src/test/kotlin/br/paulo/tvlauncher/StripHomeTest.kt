@@ -70,4 +70,15 @@ class StripHomeTest {
         assertEquals(B.Choice.THEME, B.resolve(3, true))
         assertEquals("novo fundo agora gira só entre as fotos", B.Choice.VALE, B.nextPhoto(B.Choice.NOITE))
     }
+
+    @Test fun iconeVivoDoMundo() {
+        val M = br.paulo.tvlauncher.home.WorldMotion.Motion
+        assertEquals(0f, M.drawOn(0f), 1e-4f)
+        assertEquals("traço inteiro ao fim do desenho", 1f, M.drawOn(M.DRAW_MS), 1e-4f)
+        assertEquals("o gesto não começa durante o desenho", 0f, M.calm(M.DRAW_MS / 2), 1e-4f)
+        assertEquals(1f, M.calm(M.DRAW_MS + M.CALM_MS + 1f), 1e-4f)
+        assertEquals("ciclo contínuo: volta ao mesmo ponto", M.breath(1234f), M.breath(1234f + M.CYCLE_MS), 1e-3f)
+        assertEquals("respiração suave, nunca passa de 1", true, (0..12000 step 37).all { kotlin.math.abs(M.breath(it.toFloat())) <= 1f })
+        assertEquals(0f, M.wave(0f), 1e-4f)
+    }
 }
