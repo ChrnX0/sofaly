@@ -208,14 +208,27 @@ object StripHome {
      * 18 sp, caixa alta grita e ocupa ~30% mais largura. Texto normal passa igual.
      */
     fun semGritar(s: String): String {
-        val letras = s.filter { it.isLetter() }
-        if (letras.length < 8 || letras.count { it.isUpperCase() } < letras.length * 0.8) return s
-        val ws = s.lowercase().split(" ")
-        // Palavra pequena fica minúscula só no meio da frase; depois de "-", "·", ":" ou "?" ela abre frase nova.
-        return ws.mapIndexed { i, w ->
-            val abre = i == 0 || ws[i - 1].lastOrNull()?.let { !it.isLetterOrDigit() } ?: true
-            if (!abre && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() }
-        }.joinToString(" ")
+        // Por trechos (24/11/2026, visto na Sala: "ORAÇÃO DO DIA NADA FALTANDO... | Pastora Ana" passava gritando porque o
+        // fim normal baixava a conta): cada sequência de palavras em CAIXA ALTA com 8+ letras vira título; o resto fica.
+        val ws = s.split(" ")
+        fun alta(w: String) = w.any { it.isLetter() } && w.none { it.isLowerCase() }
+        fun neutra(w: String) = w.none { it.isLetter() }
+        val saida = ws.toMutableList()
+        var i = 0
+        while (i < ws.size) {
+            if (!alta(ws[i])) { i++; continue }
+            var j = i
+            while (j < ws.size && (alta(ws[j]) || neutra(ws[j]))) j++
+            val letras = (i until j).sumOf { k -> ws[k].count { it.isLetter() } }
+            if (letras >= 8 && (i until j).count { alta(ws[it]) } >= 2) for (k in i until j) {
+                val w = ws[k].lowercase()
+                // Palavra pequena fica minúscula só no meio da frase; depois de "-", "·", ":" ou "?" ela abre frase nova.
+                val abre = k == i || ws[k - 1].lastOrNull()?.let { !it.isLetterOrDigit() } ?: true
+                saida[k] = if (!abre && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() }
+            }
+            i = j
+        }
+        return saida.joinToString(" ")
     }
 
     /** Palavras pequenas que ficam minúsculas no meio do título (pt, es, en, fr, it). */

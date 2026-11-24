@@ -60,6 +60,8 @@ class StripHomeTest {
         assertEquals("palavras pequenas no meio ficam minúsculas", "Dr. Alex Alves e Thiago Lima de Novo", StripHome.semGritar("DR. ALEX ALVES E THIAGO LIMA DE NOVO"))
         assertEquals("depois de separador abre frase", "Rádio - O Fim da Noite", StripHome.semGritar("RÁDIO - O FIM DA NOITE"))
         assertEquals("normal passa igual", "Jornal Nacional · TV Globo", StripHome.semGritar("Jornal Nacional · TV Globo"))
+        assertEquals("só o trecho que grita", "Oração do Dia Nada Faltando | Pastora Ana", StripHome.semGritar("ORAÇÃO DO DIA NADA FALTANDO | Pastora Ana"))
+        assertEquals("sigla curta fica", "Jogo da NBA ao vivo", StripHome.semGritar("Jogo da NBA ao vivo"))
         assertEquals(listOf("No ar" to true, " Jornal" to false), StripHome.partes("**No ar** Jornal"))
     }
 

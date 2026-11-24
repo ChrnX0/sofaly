@@ -396,7 +396,9 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
                 duasLinhas -> 0.36f
                 else -> 0.48f
             }
-            val ic = ImageView(context).apply { setImageDrawable(item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
+            // A capa de um card de conteúdo é UM Drawable: em duas ImageViews, os limites da menor ganhavam e a capa saía
+            // num cantinho (Sala, 24/11/2026). Ela fica só no banner.
+            val ic = ImageView(context).apply { setImageDrawable(if (conteudo) null else item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
             if (rotulo != null) proprio.addView(rotulo, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
             raiz.addView(proprio, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
