@@ -197,6 +197,12 @@ object ComandosExtras {
                 ?: "barra=${LayoutHome.barraCruz(ctx)}; opções: ${LayoutHome.BarraCruz.entries.joinToString { it.name.lowercase() }}"
         }
         "movimento" -> MovimentoAdaptativo.comando(ctx, i.getStringExtra("nivel"))
+        // Jeito dos cards da barra única (24/11/2026): wide, classic, square, logo, grid, round, only (aperte HOME).
+        "cards" -> (i.getStringExtra("nome") ?: "").let { n ->
+            val F = br.paulo.tvlauncher.home.StripHome.Format.entries
+            F.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_FORMAT, it.ordinal); "cards=${it.name} (aperte HOME)" }
+                ?: "cards=${br.paulo.tvlauncher.home.StripHome.options(ctx).format}; opções: ${F.joinToString { it.name.lowercase() }}"
+        }
         // Casa (Home Assistant): sem endereço mostra o atual; com endereço troca só ele (o token fica).
         "casa_procurar" -> CasaHA.procurarNaRede(ctx)   // procura o Home Assistant na rede (HomeAssistantFinder), ~6 s
         "casa_endereco" -> i.getStringExtra("endereco").let { e ->
