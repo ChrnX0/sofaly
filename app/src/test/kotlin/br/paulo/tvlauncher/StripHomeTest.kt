@@ -4,6 +4,7 @@ import br.paulo.tvlauncher.home.CruzLogica
 import br.paulo.tvlauncher.home.CruzLogica.Categoria
 import br.paulo.tvlauncher.home.CruzLogica.Tecla
 import br.paulo.tvlauncher.home.StripHome
+import br.paulo.tvlauncher.home.StripBackground.Choice
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -67,10 +68,10 @@ class StripHomeTest {
 
     @Test fun fundoDaBarra() {
         val B = br.paulo.tvlauncher.home.StripBackground
-        assertEquals("nunca escolhido: Vale (Paulo, 24/11/2026)", B.Choice.VALE, B.resolve(-1))
-        assertEquals(B.Choice.NOITE, B.resolve(2))
-        assertEquals(B.Choice.THEME, B.resolve(3))
-        assertEquals("novo fundo agora gira só entre as fotos", B.Choice.VALE, B.nextPhoto(B.Choice.NOITE))
+        assertEquals("nunca escolhido: Vale (Paulo, 24/11/2026)", Choice.VALE, B.resolve(-1))
+        assertEquals(Choice.NOITE, B.resolve(2))
+        assertEquals(Choice.THEME, B.resolve(3))
+        assertEquals("novo fundo agora gira só entre as fotos", Choice.VALE, B.nextPhoto(Choice.NOITE))
     }
 
     @Test fun iconeVivoDoMundo() {
