@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Je gegevens blijven bij jou</string>
+    <string name="nsc_det">Geen account bij ons, geen advertenties</string>
+    <string name="nsc_texto">Geen account bij ons, geen advertenties, geen gebruiksregistratie.\n\nJe instellingen, foto\'s, berichtjes en back-ups blijven op deze tv, of in een eigen account als je er een verbindt.\n\nDe tv praat alleen met de diensten die je aanzet, zoals het weer of filmposters. Sommige gaan via onze server (api.sofaly.tv), zoals het zoeken naar podcasts; die krijgt alleen het verzoek, nooit een account van jou. Het privacybeleid op de site noemt ze allemaal.</string>
+</resources>

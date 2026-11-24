@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Zacht uitzetten (de slaaptimer dimt het scherm en verlaagt het volume)</string>
+    <string name="extras_MURAL">Gezinsbord in het snelpaneel</string>
+    <string name="extras_PRESENCA">Uitzetten als iedereen het huis verlaat (UniFi-router)</string>
+    <string name="extras_HOJE_NA_TV">\"Vandaag op tv\" in het zoekscherm</string>
+    <string name="extras_RETROSPECTIVA">Weekoverzicht (zondagavond)</string>
+    <string name="extras_MODO_SIMPLES">Eenvoudig scherm (grote kaarten, uitgesproken namen)</string>
+</resources>

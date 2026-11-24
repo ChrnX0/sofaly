@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Wijziging (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Ongedaan gemaakt: %1$s</string>
+    <string name="desf_ocultou">%1$s verborgen</string>
+    <string name="desf_mostrou">%1$s weer getoond</string>
+    <string name="desf_cat_ajuste">Instelling</string>
+    <string name="desf_cat_organizacao">Indeling</string>
+    <string name="desf_cat_automacao">Automatisering</string>
+    <string name="desf_cat_limpeza">Opruimen</string>
+    <string name="desf_nada">Niets om ongedaan te maken (het was al ongedaan gemaakt).</string>
+    <string name="desf_feito">Ongedaan gemaakt. Alles is weer zoals het was.</string>
+    <string name="desf_parcial">Deels ongedaan gemaakt: %1$d item(s) waren opnieuw gewijzigd en bleven zoals ze zijn.</string>
+    <string name="desf_barra">Gewijzigd: %1$s</string>
+    <string name="desf_botao">Ongedaan maken</string>
+    <string name="desf_tela">Recente wijzigingen</string>
+    <string name="desf_tela_det">Wat er de laatste 7 dagen is gewijzigd. OK op een wijziging zet het terug zoals het was.</string>
+    <string name="desf_tela_vazia">Geen wijzigingen in de laatste 7 dagen.</string>
+    <string name="desf_ja_desfeita">ongedaan gemaakt</string>
+    <string name="desf_rot_config">Instellingen</string>
+    <string name="desf_rot_automacoes">Automatiseringen</string>
+    <string name="desf_rot_rotinas">Routines</string>
+    <string name="desf_rot_apps">App-lijst</string>
+    <string name="desf_rot_organizar">Apps op het startscherm</string>
+</resources>

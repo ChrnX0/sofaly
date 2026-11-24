@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">De volgende wedstrijd van je team op het tv-item van het startscherm</string>
+    <string name="extras_CARTAO_COTACAO">Wisselkoersen van de dag naast het weer (dollar, euro, bitcoin; vraagt het de gratis dienst Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Aftellen bovenaan het startscherm in de laatste 7 dagen (je datums, of de volgende feestdag)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Huisherinneringen bovenaan het startscherm op hun dag (bijv. de dag van het oud papier), met een bericht op het ingestelde tijdstip</string>
+    <string name="extras_CARTAO_SERVICO">Waarschuwen bovenaan het startscherm als een dienst die je toevoegde niet meer antwoordt</string>
+    <string name="extras_CARTAO_LUA">Maanfase in de weersverwachting</string>
+    <string name="hc_feriado_hoje">Vandaag een feestdag</string>
+    <string name="hc_hoje">Vandaag: %1$s</string>
+    <string name="hc_lembrete_rotulo">Huisherinnering</string>
+    <string name="hc_servico_fora">%1$s ligt plat</string>
+    <string name="hc_servico_rotulo">Je diensten</string>
+    <string name="hc_cotacao_rotulo">Wisselkoersen</string>
+    <string name="hc_cotacao_fonte">Koersen van de dag, bron: Frankfurter (centrale banken)</string>
+    <string name="hc_mil">k</string>
+    <string name="hc_milhao">M</string>
+    <string name="hc_seu_time">Je team: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Feestdag over %1$d dag</item>
+        <item quantity="other">Feestdag over %1$d dagen</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">Nog %1$d dag tot %2$s</item>
+        <item quantity="other">Nog %1$d dagen tot %2$s</item>
+    </plurals>
+</resources>

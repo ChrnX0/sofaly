@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Aangesloten op de tv</string>
+    <string name="rede_sub_usb">Usb-stick · video\'s, muziek en foto\'s</string>
+    <string name="rede_acao_arquivos">FTP, SFTP of NFS</string>
+    <string name="rede_sub_arquivos">NAS, router met een schijf, Linux- of Mac-computer</string>
+    <string name="rede_arq_explica">Begin het adres met het protocol: sftp://nas/Films · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. SFTP en FTPS zijn versleuteld; gewone FTP stuurt het wachtwoord onversleuteld, dus gebruik het alleen thuis. NFS heeft geen wachtwoord: de NAS moet het IP van de tv en verbindingen vanaf niet-geprivilegieerde poorten toestaan.</string>
+    <string name="rede_arq_endereco">Adres (sftp://, ftp://, ftps:// of nfs://)</string>
+    <string name="rede_arq_usuario">Gebruikersnaam (NFS: gebruikersnummer, optioneel)</string>
+    <string name="rede_arq_endereco_erro">Begin met sftp://, ftp://, ftps:// of nfs://, gevolgd door de server en de map. Gebruikersnaam en wachtwoord gaan in hun eigen velden.</string>
+    <string name="rede_erro_nfs_porta">De NFS-server weigerde de tv. Sta op de NAS verbindingen vanaf niet-geprivilegieerde poorten toe (Linux: de optie \"insecure\" in /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">De NFS-server liet deze tv niet toe. Voeg op de NAS het IP van de tv (of je thuisnetwerk) toe aan de NFS-regel van deze map.</string>
+    <string name="rede_erro_chave_mudou">De sleutel van deze server is veranderd sinds hij werd toegevoegd. Als je de server opnieuw hebt geïnstalleerd, verwijder hem hier en voeg hem opnieuw toe; zo niet, dan doet iemand zich misschien voor als de server.</string>
+    <string name="rede_erro_usb_acesso">De tv gaf de launcher geen toegang tot de usb-stick. Probeer het zo meteen opnieuw.</string>
+</resources>

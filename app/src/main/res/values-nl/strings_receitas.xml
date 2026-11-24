@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Voor wie is deze tv?</string>
+    <string name="rec_subtitulo">Eén OK stelt de tv in. Je kunt het altijd ongedaan maken.</string>
+    <string name="rec_vo">Tv van oma</string>
+    <string name="rec_vo_det">Grote kaarten met namen die hardop worden voorgelezen, grotere tekst en een knop Hulp vragen.</string>
+    <string name="rec_criancas">Kinder-tv</string>
+    <string name="rec_criancas_det">Alleen kinderinhoud, bedtijd en de categorie Spelen.</string>
+    <string name="rec_gamer">Gamer-tv</string>
+    <string name="rec_gamer_det">Categorie Spelen, gamemodus (geen schermbeveiliging of meldingen tijdens een game) en de gamepad opent Games.</string>
+    <string name="rec_aluguel">Verhuur-tv</string>
+    <string name="rec_aluguel_det">Gastmodus: welkomstscherm, niets persoonlijks op het startscherm en opschonen bij vertrek.</string>
+    <string name="rec_desfazer">Ongedaan maken</string>
+    <string name="rec_desfazer_det">Alles terugzetten zoals het was voor %1$s.</string>
+    <string name="rec_ja_esta">Deze tv is al zo ingesteld.</string>
+    <string name="rec_aviso_prende">Eenvoudig scherm sluit alleen met de pincode. Zorg dat iemand in huis die kent.</string>
+    <string name="rec_aviso_sem_pin">Er is nog geen pincode, dus iedereen kan dit uitzetten. Maak er een in het telefoonpaneel.</string>
+    <string name="rec_aviso_plano">Vereist een betaald abonnement, dus het blijft uit: %1$s.</string>
+    <string name="rec_voltar">Terug</string>
+    <string name="rec_aplicar">Toepassen</string>
+    <string name="rec_pin">Pincode om te wijzigen hoe de tv is ingesteld</string>
+    <string name="rec_pronto">Klaar</string>
+    <string name="rec_aplicada">Je tv is klaar</string>
+    <string name="rec_aplicada_det">Iets gewijzigd dat je niet wilde? Ongedaan maken zet alles terug zoals het was.</string>
+    <string name="rec_desfeita">Alles is weer zoals het was.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">aan</string>
+    <string name="rec_desligado">uit</string>
+    <string name="rec_aj_hospede">Gastmodus</string>
+    <string name="rec_aj_visita">Bezoekmodus</string>
+    <string name="rec_aj_simples">Eenvoudig scherm</string>
+    <string name="rec_aj_infantil">Kindermodus</string>
+    <string name="rec_aj_dormir">Bedtijd</string>
+    <string name="rec_aj_texto">Tekstgrootte</string>
+    <string name="rec_aj_ler_foco">Voorlezen wat geselecteerd is</string>
+    <string name="rec_aj_som">Klikgeluid bij elke toets</string>
+    <string name="rec_aj_jogos">Categorie Spelen</string>
+    <string name="rec_aj_modo_jogo">Gamemodus</string>
+    <string name="rec_aj_controle">Gamepad opent Games</string>
+</resources>

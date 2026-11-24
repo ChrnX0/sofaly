@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Films filteren</string>
+    <string name="filmes_filtro_genero">Genre: %1$s</string>
+    <string name="filmes_filtro_epoca">Periode: %1$s</string>
+    <string name="filmes_filtro_nota">Minimale beoordeling: %1$s</string>
+    <string name="filmes_filtro_lista">Lijst: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Alleen niet gezien: %1$s</string>
+    <string name="filmes_filtro_limpar">Filter wissen</string>
+    <string name="filmes_filtro_qualquer">Alle</string>
+    <string name="filmes_filtro_sim">Ja</string>
+    <string name="filmes_filtro_nao">Nee</string>
+    <string name="filmes_filtro_decada">Jaren %1$d</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">niet gezien</string>
+    <string name="filmes_filtro_sem_genero">Geen enkele categorie van deze lijst noemt een genre</string>
+    <string name="filmes_filtro_vazio">Geen film past bij dit filter in deze categorie</string>
+    <string name="filmes_sorteio_vazio">Geen film om hier uit te kiezen</string>
+    <string name="filmes_colecao">Collectie van deze film</string>
+    <string name="filmes_colecao_cat">Collectie: %1$s</string>
+    <string name="genero_acao">Actie</string>
+    <string name="genero_aventura">Avontuur</string>
+    <string name="genero_comedia">Komedie</string>
+    <string name="genero_drama">Drama</string>
+    <string name="genero_terror">Horror</string>
+    <string name="genero_suspense">Thriller</string>
+    <string name="genero_romance">Romantiek</string>
+    <string name="genero_ficcao">Sciencefiction</string>
+    <string name="genero_fantasia">Fantasy</string>
+    <string name="genero_animacao">Animatie</string>
+    <string name="genero_infantil">Kinderen en gezin</string>
+    <string name="genero_documentario">Documentaire</string>
+    <string name="genero_crime">Misdaad</string>
+    <string name="genero_guerra">Oorlog</string>
+    <string name="genero_faroeste">Western</string>
+    <string name="genero_musical">Musical</string>
+</resources>

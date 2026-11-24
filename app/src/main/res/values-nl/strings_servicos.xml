@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Diensten voor films en series</string>
+    <string name="sv_subtitulo">Optionele accounts. Er wordt niets buiten de tv verstuurd tot je inlogt.</string>
+    <string name="sv_linha">Diensten voor films en series</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB en OpenSubtitles</string>
+    <string name="sv_trakt_det">Houdt wat je keek en je kijklijst gelijk met je telefoon</string>
+    <string name="sv_simkl_det">Zoals Trakt, ook geweldig voor anime. Gebruik er één of beide</string>
+    <string name="sv_mdblist_det">Optioneel: je lijsten, zoals Top 250, worden categorieën in Films en Series</string>
+    <string name="sv_tmdb_det">Verhaal, cast en datum van de volgende aflevering, in de taal van de tv</string>
+    <string name="sv_os_det">Online ondertiteling. Zonder account: 5 per dag. Met een gratis account: 20</string>
+    <string name="sv_desligado">Inloggen</string>
+    <string name="sv_entrando">inloggen…</string>
+    <string name="sv_conectado">verbonden</string>
+    <string name="sv_ativo">aan</string>
+    <string name="sv_sem_chave">Deze build heeft de sleutels van deze diensten nog niet. Ze verschijnen na de volgende update.</string>
+    <string name="sv_pedindo">%1$s om een code vragen…</string>
+    <string name="sv_passos">1. Open op je telefoon %1$s (of richt de camera op de code rechts).\n2. Log in bij %2$s en typ de code:</string>
+    <string name="sv_espera">Dit scherm gaat vanzelf verder. TERUG annuleert.</string>
+    <string name="sv_ok">Klaar: %1$s is verbonden%2$s.</string>
+    <string name="sv_ok_como"> als %1$s</string>
+    <string name="sv_falhou">Het lukte niet: %1$s</string>
+    <string name="sv_motivo_venceu">de code is verlopen. Probeer het opnieuw.</string>
+    <string name="sv_motivo_recusado">de toegang werd op de telefoon geweigerd.</string>
+    <string name="sv_motivo_usado">deze code is al gebruikt. Probeer het opnieuw.</string>
+    <string name="sv_motivo_erro">de dienst antwoordde niet. Probeer het zo meteen opnieuw.</string>
+    <string name="sv_sair_pergunta">Uitloggen bij %1$s? De tv vergeet het account en praat niet meer met %1$s. Je gegevens daar blijven daar.</string>
+    <string name="sv_sair">Uitloggen</string>
+    <string name="sv_fechar">Sluiten</string>
+    <string name="sv_mdblist_titulo">MDBList-sleutel</string>
+    <string name="sv_mdblist_texto">Optioneel: beoordelingen werken al zonder. Om je eigen MDBList-account te gebruiken (je lijsten, je quotum), log in op mdblist.com, open Preferences, kopieer de API-sleutel en typ hem hier (makkelijker vanuit het webpaneel, tabblad Instellingen, door te plakken).</string>
+    <string name="sv_mdblist_dica">API-sleutel</string>
+    <string name="sv_os_titulo">OpenSubtitles-account</string>
+    <string name="sv_os_texto">Optioneel: met een gratis account op opensubtitles.com gaat de limiet van 5 naar 20 ondertitels per dag.</string>
+    <string name="sv_os_usuario">Gebruikersnaam</string>
+    <string name="sv_os_senha">Wachtwoord</string>
+    <string name="sv_gravar">Opslaan</string>
+    <string name="sv_cancelar">Annuleren</string>
+    <string name="sv_limite_dia">De daglimiet voor ondertiteling is bereikt. Die wordt over 24 u vernieuwd (met een OpenSubtitles-account zijn het er 20 per dag).</string>
+    <string name="sv_tmdb_atribuicao">Dit product gebruikt de TMDB API maar wordt niet onderschreven of gecertificeerd door TMDB.</string>
+    <string name="ext_saga">%1$s · %2$d van %3$d in je lijst</string>
+    <string name="ext_nao_e_este">Niet deze film</string>
+    <string name="ext_proximo">Nieuwe aflevering %1$s (S%2$dA%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Nieuwe afl. %1$s</string>
+    <string name="ext_hoje">vandaag</string>
+    <string name="ext_amanha">morgen</string>
+    <string name="sv_mdblist_passos">Optioneel: je MDBList-lijsten (zoals Top 250) worden categorieën in Films en Series.\n1. Richt de camera van de telefoon op de code links en log in (of maak een gratis account). Tik onderaan de pagina op API Access, maak de sleutel aan als die er nog niet is, en kopieer hem.\n2. Richt op de code rechts: het webpaneel opent op Instellingen. Plak de sleutel onder MDBList en tik op Sleutel opslaan.\n3. De tv controleert hem meteen en dit scherm gaat vanzelf verder.</string>
+    <string name="sv_mdblist_qr1">Sleutelpagina van MDBList</string>
+    <string name="sv_mdblist_qr2">Webpaneel (%1$s)</string>
+    <string name="sv_mdblist_digitar">Typ de sleutel hier</string>
+    <string name="sv_f_chave_invalida">ongeldige sleutel (alleen letters en cijfers)</string>
+    <string name="sv_f_chave_recusada">%1$s accepteerde deze sleutel niet</string>
+    <string name="sv_f_respondeu">%1$s antwoordde met fout %2$d. Probeer het zo meteen opnieuw.</string>
+    <string name="sv_f_falta">voer de gebruikersnaam en het wachtwoord in</string>
+    <string name="sv_f_longo">gebruikersnaam of wachtwoord te lang</string>
+    <string name="sv_f_senha">verkeerde gebruikersnaam of wachtwoord</string>
+    <string name="sv_f_gravar">kon het niet op de tv opslaan. Probeer het opnieuw.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Simkl-beoordeling</string>
+    <string name="sv_simkl_convite_det">Je account verbinden</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Ingelogd als %1$s. Wat de tv gelijk houdt met je telefoon.</string>
+    <string name="sync_sub_mdblist">Ingelogd als %1$s. Je MDBList-lijsten kunnen in de catalogus verschijnen.</string>
+    <string name="sync_ultima">Laatste synchronisatie: %1$s</string>
+    <string name="sync_nunca">Nog niet gesynchroniseerd</string>
+    <string name="sync_interesses">Interesses ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Interesses ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Wat je hier markeert, verschijnt daar, en omgekeerd</string>
+    <string name="sync_assistidos">Gezien ← Geschiedenis</string>
+    <string name="sync_assistidos_det">Haalt binnen wat je al op de telefoon of elders keek</string>
+    <string name="sync_continuar">Verder ⇄ Waar je stopte</string>
+    <string name="sync_continuar_det">Stop op de telefoon, ga verder op de tv op dezelfde plek</string>
+    <string name="sync_contar">%1$s vertellen wat ik hier kijk</string>
+    <string name="sync_contar_det">Stuurt “nu aan het kijken” en “gezien” tijdens het afspelen. Nooit in gastmodus of op een kinderprofiel.</string>
+    <string name="sync_listas">Lijsten in de catalogus</string>
+    <string name="sync_listas_nenhuma">Geen gekozen</string>
+    <string name="sync_listas_n">%1$d gekozen: %2$s</string>
+    <string name="sync_listas_sub">Ze verschijnen in LIJSTEN, onder Alle, met alleen de titels die je lijst heeft. Tot %1$d.</string>
+    <string name="sync_listas_carregando">Je lijsten laden…</string>
+    <string name="sync_listas_vazio">Geen lijsten gevonden. Maak of like een lijst op Trakt of MDBList en kom hier terug.</string>
+    <string name="sync_listas_cheio">Tot %1$d lijsten</string>
+    <string name="sync_lista_itens">%1$d titels</string>
+    <string name="sync_agora">Nu synchroniseren</string>
+    <string name="sync_agora_det">Het gebeurt ook vanzelf als je Films of Series opent</string>
+    <string name="sync_rodando">Synchroniseren…</string>
+    <string name="sync_feito">Gesynchroniseerd</string>
+    <string name="sync_sair">Uitloggen bij %1$s</string>
+    <string name="sync_bloqueado">Gepauzeerd: gastmodus of een kinderprofiel staat aan.</string>
+    <string name="sync_outro_perfil">Gepauzeerd: de synchronisatie hoort bij een ander profiel.</string>
+    <string name="sync_trakt_cheia">Je Trakt-lijst is vol (gratis accounts houden er 100). De launcher gaat alleen op de tv verder.</string>
+    <string name="sync_ligado">Aan</string>
+    <string name="sync_desligado">Uit</string>
+    <string name="sync_fonte_trakt">Gegevens van Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Gegevens van Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d van %2$d in je lijst</string>
+    <string name="sync_continuando">Verder gaan waar je stopte op het andere apparaat</string>
+</resources>

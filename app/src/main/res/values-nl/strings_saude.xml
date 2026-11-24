@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saude_titulo">Toegang op afstand gestopt</string>
+    <string name="saude_texto_shell">De toegang van de tv tot zichzelf viel %1$d min geleden weg (paneel, Claude en automatische reparaties stoppen). Druk op Opnieuw koppelen of ga naar Instellingen › Systeem › Geavanceerd › Koppelen zonder pc.</string>
+    <string name="saude_texto_tunel">Claude via internet is offline. Druk op Verbinden om te zien wat er ontbreekt, of ga naar Instellingen › Huis en netwerk › Toegang op afstand.</string>
+    <string name="saude_parear">Opnieuw koppelen</string>
+    <string name="saude_conectar">Verbinden</string>
+    <string name="saude_depois">Niet nu</string>
+    <string name="saude_acao_shell">Opnieuw koppelen: Instellingen › Systeem › Geavanceerd › Koppelen zonder pc</string>
+    <string name="saude_acao_tunel">Opnieuw verbinden: Instellingen › Huis en netwerk › Toegang op afstand › Verbinden</string>
+    <string name="mnt_titulo">Nachtelijk onderhoud</string>
+    <string name="mnt_consertei">Gerepareerd:</string>
+    <string name="mnt_falhou">Kon niet repareren:</string>
+    <string name="mnt_acesso">toegang op afstand</string>
+    <string name="mnt_permissoes">rechten</string>
+    <string name="mnt_agendamentos">wekkers en routines</string>
+    <string name="mnt_espaco">vrije ruimte</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Gezinsrooster</string>
+    <string name="agf_sub">Op het ingestelde tijdstip wisselt de tv vanzelf naar dat profiel. Een kinderprofiel zet de kindermodus en bedtijd aan.</string>
+    <string name="agf_cfg_det">Ingestelde wissels: %1$d. Het profiel wisselt vanzelf op het ingestelde tijdstip.</string>
+    <string name="agf_adicionar">Een wissel toevoegen</string>
+    <string name="agf_adicionar_det">Wiens profiel, welke dagen en hoe laat.</string>
+    <string name="agf_quem">Naar wiens profiel wisselen?</string>
+    <string name="agf_dias">Welke dagen?</string>
+    <string name="agf_hora">Hoe laat?</string>
+    <string name="agf_todos">Elke dag</string>
+    <string name="agf_uteis">Maandag t/m vrijdag</string>
+    <string name="agf_fds">Zaterdag en zondag</string>
+    <string name="agf_alguns">Sommige dagen</string>
+    <string name="agf_apagar">Deze wissel verwijderen?</string>
+    <string name="agf_apagar_sim">Verwijderen</string>
+    <string name="agf_cheia">Het rooster is vol (12 wissels).</string>
+    <string name="agf_sem_contas">Er zijn nog geen profielen op deze tv (Google-accounts).</string>
+</resources>

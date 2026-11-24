@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Meer opties</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Foto\'s voor de schermbeveiliging vanaf je telefoon</string>
+    <string name="qrd_fotos_det">Toont een code: de telefoon opent het paneel direct op de fotopagina</string>
+    <string name="qrd_mural">Gezinsbord vanaf je telefoon</string>
+    <string name="qrd_mural_det">Boodschappenlijst en vastgeprikte notities</string>
+    <string name="qrd_cenas">Scènes vanaf je telefoon</string>
+    <string name="qrd_cenas_det">Scènes maken en testen in het webpaneel</string>
+    <string name="qrd_casa">Home Assistant vanaf je telefoon</string>
+    <string name="qrd_casa_det">Adres en token van je Home Assistant, in het webpaneel</string>
+    <string name="qrd_time">Mijn team en herinneringen vanaf je telefoon</string>
+    <string name="qrd_time_det">Woorden die programma\'s uit de gids in herinneringen veranderen</string>
+    <string name="qrd_roteador">Router vanaf je telefoon</string>
+    <string name="qrd_roteador_det">Adres en API-sleutel van de UniFi-router, in het webpaneel</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Tegels van het snelpaneel</string>
+    <string name="pb_subtitulo">OK toont of verbergt · ◀ ▶ wijzigen de volgorde</string>
+    <string name="pb_cfg_det">Kies welke tegels het snelpaneel (TERUG ingedrukt houden) toont, en in welke volgorde</string>
+    <string name="pb_mostrado">getoond</string>
+    <string name="pb_escondido">verborgen</string>
+    <string name="pb_padrao">Terug naar de standaardtegels</string>
+    <string name="pb_wifi">Wifi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Nachtfilter</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Startscherm</string>
+    <string name="cfg2_aba_inicio_det">Thema, verborgen apps, snelpaneel en weer</string>
+    <string name="cfg2_aba_familia">Gezin</string>
+    <string name="cfg2_aba_familia_det">Ouderlijk toezicht, kinderpincode, bedtijd en gasten</string>
+    <string name="cfg2_aba_casa">Huis en automatiseringen</string>
+    <string name="cfg2_aba_casa_det">Automatiseringen, slim huis en wat je vanaf de telefoon instelt</string>
+    <string name="cfg2_aba_sistema_det">Diagnose, updates, back-up en info</string>
+    <string name="cfg2_aba_avancado">Geavanceerd</string>
+    <string name="cfg2_aba_avancado_det">Netwerk, gereedschap, fabrieksapps, rechten en shell. Zelden nodig.</string>
+    <string name="cfg2_sec_visitas">Gasten</string>
+    <string name="cfg2_sec_celular">Vanaf je telefoon</string>
+    <string name="cfg2_sec_ferramentas">Gereedschap</string>
+    <string name="cfg2_sec_ocultos_sistema">Systeemapps verborgen door de launcher</string>
+    <string name="cfg2_apps_visita_det">Kies welke apps verdwijnen zolang de gastmodus aan staat</string>
+    <string name="cfg2_apps_visita_sub">OK wisselt · deze verdwijnen zolang de gastmodus aan staat</string>
+    <string name="cfg2_some_visita">verborgen voor gasten</string>
+    <string name="cfg2_fica_visita">blijft</string>
+    <string name="cfg2_casa_det">Lampen, stekkers en scènes uit Google Home of Home Assistant</string>
+    <string name="oc_titulo">Verborgen apps</string>
+    <string name="oc_subtitulo">OK toont of verbergt een app op het startscherm · verborgen apps staan eerst</string>
+    <string name="oc_nenhum">Geen verborgen apps · OK om te kiezen</string>
+    <string name="oc_quantos">Verborgen: %1$d · OK om ze weer te tonen</string>
+    <string name="oc_oculto">verborgen</string>
+    <string name="oc_aparece">op het startscherm</string>
+    <string name="oc_aviso_titulo">App verborgen</string>
+    <string name="oc_aviso">Om hem weer te tonen: Instellingen › Startscherm › Verborgen apps</string>
+    <string name="extras_LER_FOCO">Voorlezen wat de focus heeft, op elk launcherscherm</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">De tv vanzelf uitzetten?</string>
+    <string name="sug_desligar">De tv stond deze week %1$d nachten na middernacht aan. Uitzetten na 2 uur zonder dat iemand de afstandsbediening gebruikt? (Hij waarschuwt 60 seconden ervoor.)</string>
+    <string name="sug_filtro_titulo">Het nachtfilter aanzetten?</string>
+    <string name="sug_filtro">De tv werd deze week %1$d avonden na 22:00 gebruikt. Het nachtfilter maakt het scherm \'s avonds warmer en donkerder, prettiger voor de ogen.</string>
+    <string name="sug_ligar">Aanzetten</string>
+    <string name="sug_agora_nao">Niet nu</string>
+    <string name="sug_nunca">Niet meer voorstellen</string>
+    <string name="sug_feito_titulo">Klaar</string>
+    <string name="sug_feito">Later wijzigen: Instellingen › Scherm en stroom</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Tekstgrootte</string>
+    <string name="tt_det">Op elk launcherscherm. Films, series en live tv waren al groter en groeien mee</string>
+    <string name="tt_normal">Normaal</string>
+    <string name="tt_grande">Groot</string>
+    <string name="tt_maior">Groter</string>
+    <string name="pi_titulo">Pictogrammenpakket</string>
+    <string name="pi_det">Vervang app-pictogrammen door een ingebouwde stijl (Symbool, Duotoon) of een geïnstalleerd pictogrammenpakket. OK kiest het volgende.</string>
+    <string name="pi_det_vazio">Geen pictogrammenpakket geïnstalleerd. Haal er een uit de Play Store en het verschijnt hier.</string>
+    <string name="pi_nenhum">Geen</string>
+    <string name="fm_titulo">Mijn achtergrond</string>
+    <string name="fm_det">Je foto, gif of video achter het startscherm. Zet het bestand in de map Fundo, Pictures, DCIM, Movies of Download.</string>
+    <string name="fm_vazio">Geen foto of video gevonden. Kopieer er een naar de map Fundo (netwerkstation of usb) en kom terug.</string>
+    <string name="fm_nenhum">Geen (terug naar Donker)</string>
+    <string name="fm_brilho">Helderheid van de achtergrond</string>
+    <string name="fm_contraste">Contrast van de achtergrond</string>
+    <string name="fm_ajuste_det">Geldt voor Mijn achtergrond. OK wijzigt de stap.</string>
+    <string name="vp_titulo">Kom je van Projectivy?</string>
+    <string name="vp_texto">In vier stappen haal je je instellingen in ongeveer een minuut over. Elke stap kan later in Instellingen.</string>
+    <string name="vp_cfg_det">Verborgen apps, pictogrammenpakket en achtergrond overnemen van Projectivy.</string>
+    <string name="vp_1">1. Verborgen apps</string>
+    <string name="vp_1_det">Markeer de apps die je had verborgen. Om de volgorde te wijzigen, houd OK ingedrukt op een app op het startscherm.</string>
+    <string name="vp_2">2. Pictogrammenpakket</string>
+    <string name="vp_2_det">Dezelfde pictogrammenpakketten die Projectivy gebruikt, werken hier.</string>
+    <string name="vp_3">3. Achtergrond</string>
+    <string name="vp_3_det">Je foto, gif of video. Kopieer die eerst naar de map Fundo.</string>
+    <string name="vp_4">4. De Home-knop van Projectivy uitzetten</string>
+    <string name="vp_4_det">Zet Projectivy uit in Toegankelijkheid. Twee apps die Home opvangen, laten de verkeerde opengaan.</string>
+    <string name="vp_pronto">Klaar</string>
+    <string name="vp_pronto_det">Naar het startscherm.</string>
+    <string name="vq_titulo">Stijl delen</string>
+    <string name="vq_det">Een QR-code tonen met de stijl van deze tv: thema, tekstgrootte, pictogrammen.</string>
+    <string name="vq_texto">Scan hem met je telefoon om hem te bewaren of naar iemand met Sofaly te sturen.</string>
+    <string name="vq_fechar">Sluiten</string>
+    <string name="pl_titulo">Abonnementen</string>
+    <string name="pl_texto">Alles is gratis zolang de verkoop niet open is. Later koop je Pro en Ultra op je telefoon.</string>
+    <string name="pl_basico">Basis</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Startscherm, schermbeveiliging\n• Wekker, eenvoudig scherm\n• Speler en radio\n• 1 IPTV-lijst\n• 2 thema\'s</string>
+    <string name="pl_pro_itens">• Alles uit Basis\n• Veel IPTV-lijsten, opnemen\n• Volledig webpaneel\n• Claude, routines, Home Assistant\n• Alle thema\'s, back-up in de cloud</string>
+    <string name="pl_ultra_itens">• Alles uit Pro\n• Beter weer (3 modellen)\n• Rijke filmpagina\'s\n• Automatische ondertiteling\n• Tot 3 tv\'s</string>
+    <string name="pl_qr">Scan met je telefoon om prijzen te zien en te kopen.</string>
+    <string name="pl_assinar">Abonneren</string>
+    <string name="pl_assinar_preco">Abonneren · %1$s</string>
+    <string name="pl_seu_plano">Je abonnement</string>
+    <string name="pl_loja_indisponivel">Google Play kon de aankoop niet openen. Controleer het internet en probeer het opnieuw.</string>
+    <string name="atu_pela_play">Updates komen via Google Play.</string>
+</resources>

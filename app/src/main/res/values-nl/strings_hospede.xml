@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Gastmodus</string>
+    <string name="hos_det">Voor verhuur: logins van gasten worden bij vertrek gewist. Uitzetten vraagt om de pincode.</string>
+    <string name="hos_pin_sair">Pincode om de gastmodus te verlaten</string>
+    <string name="hos_pin_config">Pincode om de instellingen te openen</string>
+    <string name="hos_saida">Vertrek van de gast</string>
+    <string name="hos_saida_det">Op dit tijdstip worden de streaming-apps opgeschoond. OK wijzigt de dag.</string>
+    <string name="hos_saida_nenhuma">Niet ingesteld</string>
+    <string name="hos_saida_hoje">Vandaag om %1$s</string>
+    <string name="hos_saida_amanha">Morgen om %1$s</string>
+    <string name="hos_saida_dia">%1$s om %2$s</string>
+    <string name="hos_hora">Vertrektijd</string>
+    <string name="hos_hora_det">OK wijzigt het uur (8:00 tot 14:00).</string>
+    <string name="hos_regras">Huisregels</string>
+    <string name="hos_regras_vazio">Nog geen. Ze verschijnen op het welkomstscherm.</string>
+    <string name="hos_regras_dica">Bijv.: Stilte na 22:00. Vertrek om 11:00.</string>
+    <string name="hos_apps">Apps om op te schonen bij vertrek</string>
+    <string name="hos_apps_det">Logins en geschiedenis van de gemarkeerde apps worden gewist. Streaming-apps zijn al gemarkeerd.</string>
+    <string name="hos_apps_sub">OK markeert of demarkeert. Systeemapps kunnen niet worden opgeschoond.</string>
+    <string name="hos_encerrar">Het verblijf nu beëindigen</string>
+    <string name="hos_encerrar_det">Schoont de apps nu op en maakt het welkom klaar voor de volgende gast.</string>
+    <string name="hos_encerrar_pergunta">Logins en geschiedenis van de gast-apps nu wissen? Dit kan niet ongedaan worden gemaakt.</string>
+    <string name="hos_encerrar_sim">Wissen</string>
+    <string name="hos_limpando">Opschonen…</string>
+    <string name="hos_limpou">Apps opgeschoond: %1$d.</string>
+    <string name="hos_limpou_falhas">Apps opgeschoond: %1$d. Mislukt: %2$s</string>
+    <string name="hos_ultima">Laatste opschoning: %1$s</string>
+    <string name="hos_bv_titulo">Welkom!</string>
+    <string name="hos_bv_regras">Huisregels</string>
+    <string name="hos_bv_privacidade">Log zonder zorgen in op je apps: bij vertrek worden de logins en geschiedenis van de streaming-apps automatisch gewist.</string>
+    <string name="hos_bv_ok">Beginnen</string>
+    <string name="hos_bv_wifi">Wifi</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Van een andere tv halen</string>
+    <string name="mtv_qr_desc">QR-code om instellingen van een andere tv te halen</string>
+    <string name="mtv_instrucoes">Open op de OUDE tv het paneel (telefoon of computer), ga naar Systeem › Back-up › \"Naar een nieuwe tv verhuizen\" en scan deze QR of typ de code hieronder.\nAlles gaat versleuteld, alleen naar deze tv. De code is %1$s geldig.</string>
+    <string name="mtv_recebendo">Ontvangen… zet de tv niet uit.</string>
+    <string name="mtv_pronto">Alles kwam van %1$s. De tv herstart nu; daarna komen je apps één voor één terug.</string>
+    <string name="mtv_erro">Het lukte niet: %1$s\nEr is niets veranderd op deze tv. Druk op \"%2$s\" om het opnieuw te proberen.</string>
+    <string name="mtv_venceu">De code is verlopen (hij is 10 min geldig).\nDruk op \"%1$s\" om een nieuwe te tonen.</string>
+    <string name="mtv_cfg_det">Instellingen, pincode, zenders en apps van de oude tv in 2 minuten, met een QR</string>
+    <string name="mtv_fila_titulo">Je apps komen terug</string>
+    <string name="mtv_fila_texto">App %1$d van %2$d. Open hem in de Play Store en druk op Installeren; als je terugkomt, verschijnt de volgende.</string>
+    <string name="mtv_fila_abrir">Openen in de Play Store</string>
+    <string name="mtv_fila_pular">Overslaan</string>
+    <string name="mtv_fila_depois">Later</string>
+    <string name="mtv_fila_fim">Alle apps van de andere tv zijn hier.</string>
+    <string name="mtv_fila_cfg_det">Nog %1$d apps van de andere tv te installeren</string>
+    <string name="mtv_diario">Gehaald van %1$s: instellingen hersteld, %2$d apps te installeren</string>
+    <string name="mtv_diario_enviado">Naar een nieuwe tv gestuurd: instellingen en %1$d apps</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Hoog contrast</string>
+    <string name="elv_ac_det">Helderdere tekst en duidelijkere randen op elk scherm (minstens 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Audiodescriptie</string>
+    <string name="elv_ad_det">Kies het audiospoor dat de scène beschrijft als dat er is</string>
+    <string name="elv_sdh_titulo">Ondertiteling voor doven en slechthorenden</string>
+    <string name="elv_sdh_det">Altijd ondertiteling met geluiden ([deur slaat dicht]) tonen in de taal van de tv, ook als het nagesynchroniseerd is</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Poster en samenvatting voor de video\'s</string>
+    <string name="elv_cat_explica">Alleen de titel gaat naar TMDB, nooit de map of de server</string>
+    <string name="elv_cat_ligado">Aan</string>
+    <string name="elv_cat_desligado">Uit</string>
+    <string name="elv_cat_ep">%1$s · S%2$d A%3$d</string>
+    <string name="pod_temp_ep">S%1$d A%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Aflevering %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Seizoen %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Seizoenen: %d</string>
+    <string name="elv_cat_procurando">De poster zoeken…</string>
+    <string name="elv_cat_nada">Niets gevonden op TMDB. Houd OK ingedrukt om de juiste naam te typen.</string>
+    <string name="elv_cat_corrigir_titulo">Corrigeren: %s</string>
+    <string name="elv_cat_corrigir_explica">Verkeerde poster of samenvatting? Vraag het volgende resultaat, of typ de juiste naam en het jaar. Een lege naam gaat terug naar automatisch.</string>
+    <string name="elv_cat_nao_e">Niet deze</string>
+    <string name="elv_cat_escrever">De naam typen</string>
+    <string name="elv_cat_campo">Naam en jaar, bijv. Dune 2021</string>
+    <string name="elv_cat_salvar">Opslaan</string>
+    <string name="elv_cat_dica">corrigeren</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Lijst</string>
+    <string name="elv_bib_pasta">Map</string>
+    <string name="elv_bib_servidor">Server</string>
+    <string name="elv_bib_nuvem">Cloud</string>
+    <string name="elv_bib_addon">Add-on</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Uren</string>
+    <string name="sh_dias">Dagen</string>
+    <string name="sh_dicas">Tips</string>
+    <string name="sh_ar">Lucht</string>
+    <string name="sh_orvalho">dauwpunt %1$d°</string>
+    <string name="sh_nuvens">Wolken</string>
+    <string name="sh_nascer">Zonsopkomst</string>
+    <string name="sh_por">Zonsondergang</string>
+    <string name="sh_duracao">Daglengte</string>
+    <string name="sh_horas_min">%1$du%2$02d</string>
+    <string name="sh_dourada">Gouden uur</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s verlicht</string>
+    <string name="sh_cheia">Volle maan</string>
+    <string name="sh_nova">Nieuwe maan</string>
+    <string name="sh_em_dias">over %1$d d</string>
+    <string name="sh_rodar">De strook onderaan laten rouleren</string>
+    <string name="sh_rodar_det">Op de schermbeveiliging verandert de strook onderaan vanzelf. ↑ en ↓ veranderen hem meteen.</string>
+    <string name="sh_rodar_desl">Uit</string>
+    <string name="sh_rodar_s">Elke %1$d s</string>
+    <string name="sh_rodar_min">Elke minuut</string>
+    <string name="sh_vidro">Glas achter de strook onderaan</string>
+    <string name="sh_vidro_det">Een glazen paneel achter de strook. Uit: alleen een dunne lijn.</string>
+    <string name="sh_fundo">Achtergrond van de schermbeveiliging</string>
+    <string name="sh_fundo_det">Wat er achter de klok op de schermbeveiliging staat: een ander thema, een foto, een video of meerdere die voorbijkomen.</string>
+    <string name="sh_fundo_home">Hetzelfde als het startscherm</string>
+    <string name="sh_fundo_fotos">Foto\'s en video\'s die voorbijkomen</string>
+    <string name="sh_fundo_arquivo">Eén bestand alleen voor de schermbeveiliging</string>
+</resources>

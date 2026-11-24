@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Ondertiteling met zwarte achtergrond</string>
+    <string name="acess_legenda_amarela">Gele ondertiteling</string>
+    <string name="acess_volume">Gelijk volume tussen zenders</string>
+    <string name="acess_voz">Duidelijkere stemmen</string>
+    <string name="acess_volume_ligado">Gelijk volume aan: stille zenders en films worden luider</string>
+    <string name="acess_volume_desligado">Gelijk volume uit</string>
+    <string name="acess_voz_ligado">Duidelijkere stemmen aan</string>
+    <string name="acess_voz_desligado">Duidelijkere stemmen uit</string>
+    <string name="acess_config_titulo">Geluid en ondertiteling</string>
+    <string name="acess_config_texto">Voor wie minder goed ziet of hoort. Ook in het ▼-menu van de speler.</string>
+</resources>

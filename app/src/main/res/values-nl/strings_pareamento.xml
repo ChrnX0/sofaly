@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">kon Ontwikkelaarsopties niet openen (%1$s)</string>
+    <string name="pn_porta_achada">koppelpoort %1$d gevonden</string>
+    <string name="pn_mdns_falhou">zoeken op het netwerk mislukt (%1$s)</string>
+    <string name="pn_pareando">koppelen…</string>
+    <string name="pn_confirme">code gelezen. Druk om te koppelen op OK op de afstandsbediening bij “%1$s”</string>
+    <string name="pn_so_controle">alleen een toets op de afstandsbediening bevestigt het koppelen</string>
+</resources>

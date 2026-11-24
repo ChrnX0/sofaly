@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d game</item>
+        <item quantity="other">%d games</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d controller verbonden</item>
+        <item quantity="other">%d controllers verbonden</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Categorie Spelen op het startscherm (uit: games blijven in Apps)</string>
+    <string name="extras_MODO_JOGO">Gamemodus: terwijl een game open is, wachten de schermbeveiliging, het nachtfilter en berichten</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Een gamecontroller aanzetten opent het scherm Games</string>
+
+    <string name="jogos_titulo">Games</string>
+    <string name="jogos_medindo">Het netwerk controleren…</string>
+    <string name="jogos_sem_controle">Geen gamecontroller verbonden</string>
+    <string name="jogos_rede_boa">Netwerk: goed voor cloudgaming</string>
+    <string name="jogos_rede_ok">Netwerk: prima voor cloudgaming</string>
+    <string name="jogos_rede_fraca">Netwerk: zwak voor cloudgaming</string>
+    <string name="jogos_rede_sem">Geen internet</string>
+    <string name="jogos_testar_rede">Het netwerk testen</string>
+    <string name="jogos_jogar_pc">Spelen op de pc</string>
+    <string name="jogos_parear">Een controller koppelen</string>
+    <string name="jogos_parear_falhou">Deze tv opende de Bluetooth-instellingen niet. Open Instellingen, Afstandsbedieningen en accessoires.</string>
+    <string name="jogos_baixar">Games halen</string>
+    <string name="jogos_escolher">Apps kiezen</string>
+    <string name="jogos_escolher_sub">Welke apps in Spelen staan. OK wisselt tussen Spelen en Apps.</string>
+    <string name="jogos_no_card">in Spelen</string>
+    <string name="jogos_na_linha">in Apps</string>
+    <string name="jogos_grupo_nuvem">In de cloud</string>
+    <string name="jogos_grupo_pc">Vanaf pc en console</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Games op de tv</string>
+    <string name="jogos_para_comecar">Om te beginnen</string>
+    <string name="jogos_aviso_fraca_titulo">Zwak netwerk voor cloudgaming</string>
+    <string name="jogos_aviso_fraca">De game kan haperen of vertragen. Een netwerkkabel, of de tv dichter bij de router, helpt.</string>
+    <string name="jogos_jogar_assim">Toch spelen</string>
+    <string name="jogos_nao_abriu">Deze app ging niet open.</string>
+    <string name="jogos_tirar">Uit Spelen halen</string>
+    <string name="jogos_automatico">Terug naar automatisch</string>
+    <string name="jogos_loja_tudo">De voorgestelde apps staan al op deze tv.</string>
+    <string name="jogos_loja_explica">Opent de pagina van de app in de Play Store. Als de Play Store zegt dat hij niet op deze tv werkt, is dat de grens van de app.</string>
+    <string name="jogos_sem_loja">De Play Store ging niet open.</string>
+    <string name="jogos_pc_sem_mac">Om de pc te wekken, sla je het MAC-adres op in het webpaneel: Extra\'s, De computer wekken. De pc moet ook Wake-on-LAN aan hebben en meestal een netwerkkabel.</string>
+    <string name="jogos_pc_sem_app">Om op de pc te spelen, installeer je Moonlight of Steam Link op de tv.</string>
+    <string name="jogos_pc_qual_app">Welke app speelt op de pc?</string>
+    <string name="jogos_pc_acordando">De pc wekken… %1$d s</string>
+    <string name="jogos_pc_nao_respondeu">De pc antwoordde niet. De app wordt toch geopend.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Meer games</string>
+    <string name="jogos_mais_opcoes">Meer</string>
+    <string name="jogos_ligar_pc_jogar">De pc aanzetten en spelen</string>
+    <string name="jogos_desc_pc">Speel de games van de computer of console thuis hier op de tv.</string>
+    <string name="jogos_chip_medindo">Het netwerk controleren…</string>
+    <string name="jogos_chip_boa">Goed netwerk</string>
+    <string name="jogos_chip_ok">Netwerk ok</string>
+    <string name="jogos_chip_fraca">Zwak netwerk</string>
+    <string name="jogos_chip_sem">Geen internet</string>
+    <string name="jogos_tecla_jogar">spelen</string>
+    <string name="jogos_tecla_segurar">OK ingedrukt houden</string>
+    <string name="jogos_tecla_opcoes">groep wijzigen</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Hoe deze tv wordt gebruikt</string>
+    <string name="uso_det">Essentieel verbergt Huis en automatiseringen, Toegang op afstand en Geavanceerd. Er wordt niets uitgezet.</string>
+    <string name="uso_simples">Essentieel</string>
+    <string name="uso_completo">Compleet</string>
+    <string name="uso_cuida">Voor iemand voor wie ik zorg</string>
+    <string name="uso_pergunta">Hoe wordt deze tv gebruikt?</string>
+    <string name="uso_pergunta_det">Je kunt dit later wijzigen in Instellingen › Systeem.</string>
+    <string name="uso_simples_det">Alleen het essentiële: apps, klok en weer. Minder opties in Instellingen.</string>
+    <string name="uso_completo_det">Alles: bediening vanaf de telefoon, apparaten in huis, netwerkstation en geavanceerde opties.</string>
+    <string name="uso_cuida_det">De tv van ouders of grootouders: makkelijk voor hen, en jij helpt vanaf je telefoon, van ver weg.</string>
+    <string name="uso_cuidar_longe">Op afstand zorgen</string>
+    <string name="uso_cuidar_longe_det">Uit tot de bewoner op de tv akkoord gaat.</string>
+    <string name="uso_cartoes">Grote kaarten op het startscherm</string>
+    <string name="uso_cartoes_det">Een paar grote apps, namen die hardop worden voorgelezen en een knop \"Hulp vragen\". Uitzetten vraagt om de pincode.</string>
+    <string name="uso_trocar_det">Nu: %1$s. OK om opnieuw te kiezen.</string>
+</resources>

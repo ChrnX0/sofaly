@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
+<resources>
+    <string name="seg_pular_resumo">Terugblik overslaan · OK</string>
+    <string name="seg_proximo">Volgende aflevering · OK</string>
+    <string name="seg_proximo_em">Volgende aflevering over %1$d · OK</string>
+    <string name="seg_termina">eindigt om %1$s</string>
+    <string name="seg_repetir">Wat zeiden ze?</string>
+    <string name="seg_repetir_info">10 s terug met ondertiteling</string>
+    <string name="seg_sem_legenda">Deze video heeft geen ondertiteling</string>
+</resources>

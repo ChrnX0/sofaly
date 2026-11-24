@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Als de tv aangaat</string>
+    <string name="su_det">Opent dit meteen, zonder het startscherm</string>
+    <string name="su_home">Startscherm</string>
+    <string name="su_last">Laatste app</string>
+    <string name="su_quem">Voor wie?</string>
+    <string name="su_todos">De hele tv</string>
+    <string name="su_so">Alleen %1$s</string>
+    <string name="su_segue_tv">De keuze van de tv volgen</string>
+    <string name="su_acordar">Ook bij het ontwaken</string>
+    <string name="su_acordar_det">Niet alleen na een herstart: ook als de tv uit stand-by komt. Nooit over een Cast of de wekker heen</string>
+    <string name="su_esperar">Wachten na een herstart</string>
+    <string name="su_esperar_det">Geeft de tv tijd om te verbinden voordat de app opent</string>
+    <string name="su_horario">Andere app per tijdstip</string>
+    <string name="su_horario_det">Een automatisering met de trigger “De tv ging aan” en “Alleen als”</string>
+    
+</resources>

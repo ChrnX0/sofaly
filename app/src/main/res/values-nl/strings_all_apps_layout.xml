@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Scherm Alle apps</string>
+    <string name="aa_layout_shelves">Planken</string>
+    <string name="aa_layout_folders">Mappen en kanalen</string>
+    <string name="aa_layout_library">Bibliotheek</string>
+    <string name="aa_favoritos">Favorieten</string>
+    <string name="aa_pastas">Mappen</string>
+    <string name="aa_nova_pasta">Nieuwe map</string>
+    <string name="aa_por_na_pasta">Toevoegen aan map…</string>
+    <string name="aa_tirar_da_pasta">Verwijderen uit deze map</string>
+    <string name="aa_renomear_pasta">Map hernoemen</string>
+    <string name="aa_apagar_pasta">Map verwijderen</string>
+    <string name="aa_fixar_cruz">Tonen op het startscherm</string>
+    <string name="aa_soltar_cruz">Verwijderen van het startscherm</string>
+    <string name="aa_ordenar">Alle apps sorteren</string>
+    <string name="aa_f_tudo">Alle</string>
+    <string name="aa_f_uso">Meest gebruikt</string>
+    <string name="aa_f_novos">Nieuw</string>
+    <string name="aa_canais">Nu op %1$s</string>
+    <string name="aa_hint_folder">OK opent · OK ingedrukt houden voor opties</string>
+</resources>

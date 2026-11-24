@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Plug-ins</string>
+    <string name="plg_nenhum">Geen kaart-plug-in geïnstalleerd. Kaart-plug-ins zijn apps van andere ontwikkelaars die hier een kaart tonen, zoals een wedstrijdstand of een prijs.</string>
+    <string name="plg_ligado">Aan</string>
+    <string name="plg_desligado">Uit</string>
+    <string name="plg_limite">Maximaal %1$d plug-ins tegelijk. Zet er eerst een uit.</string>
+    <string name="plg_seguranca">Als een plug-in wordt bijgewerkt met een andere handtekening, wordt hij uitgezet tot je hem weer toestaat.</string>
+</resources>

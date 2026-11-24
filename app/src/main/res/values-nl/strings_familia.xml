@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Kinderpincode</string>
+    <string name="fam_pin_det">Een tweede pincode om zenders, verborgen categorieën en bedtijd te ontgrendelen waar de kinderen bij zijn. De pincode van het paneel werkt nog overal.</string>
+    <string name="fam_pin_ok">Kinderpincode opgeslagen</string>
+    <string name="fam_pin_igual">De kinderpincode moet anders zijn dan de pincode van het paneel</string>
+    <string name="fam_trocar">Kinderpincode wijzigen</string>
+    <string name="fam_apagar">Kinderpincode verwijderen</string>
+    <string name="fam_apagado">Kinderpincode verwijderd: nu ontgrendelt alleen de pincode van het paneel</string>
+    <string name="extras_TEMPO_TELA">Dagelijkse schermtijd (als die op is, openen alleen toegestane apps)</string>
+    <string name="tela_titulo">Schermtijd</string>
+    <string name="tela_acabou">De schermtijd van vandaag is op. Tot morgen!</string>
+    <string name="tela_5min">Nog 5 minuten schermtijd vandaag</string>
+    <string name="tela_pin">Pincode om de schermtijd te wijzigen</string>
+    <string name="tela_cota_linha">Schermtijd per dag: %1$s (vandaag over: %2$s)</string>
+    <string name="tela_mais">Vandaag %1$d minuten extra geven</string>
+    <string name="tela_mais_ok">%1$d minuten extra voor vandaag</string>
+    <string name="tela_h">u</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Agenda van alle Google-accounts van de tv samen</string>
+    <string name="cal_todas_contas">Alle accounts op de tv (%1$d)</string>
+    <string name="tm_tempo_esgotado">De tijd is om</string>
+    <string name="painel_desligado_pin">Webpaneel uitgezet: te vaak een verkeerde pincode</string>
+    <string name="tm_crono">Stopwatch</string>
+    <string name="tm_crono_iniciar">Stopwatch starten</string>
+    <string name="tm_crono_parar">Stopwatch stoppen</string>
+    <string name="tm_crono_comecou">Stopwatch gestart: hij verschijnt op het startscherm</string>
+    <string name="tm_crono_marcou">Stopwatch gestopt op %1$s</string>
+    <string name="som_canal">Laatste live tv-zender</string>
+</resources>

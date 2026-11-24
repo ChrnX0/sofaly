@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Samenvatting verborgen tot je het kijkt</string>
+    <string name="cf_spoiler">Samenvattingen van niet geziene afleveringen verbergen</string>
+    <string name="cf_spoiler_det">Een samenvatting verschijnt pas nadat je de aflevering start</string>
+    <string name="cf_segundo">Tweede taal</string>
+    <string name="cf_segundo_det">Gebruikt als een video geen audio of ondertiteling in de taal van de tv heeft</string>
+    <string name="cf_nenhum">Geen</string>
+    <string name="cf_proximo">Aftellen tot volgende aflevering</string>
+    <string name="cf_proximo_det">Hoe lang wachten voordat de volgende aflevering vanzelf start</string>
+    <string name="cf_proximo_nao">Niet vanzelf starten</string>
+    <string name="cf_segundos">%1$d s</string>
+    <string name="cf_consent_titulo">Gegevens naar %1$s sturen?</string>
+    <string name="cf_consent_texto">Als je dit aanzet, worden via internet naar %1$s gestuurd: de titels die je op deze tv markeert en kijkt en waar je stopte. Ze worden bewaard in je %1$s-account volgens de privacyregels van %1$s. Je kunt het op elk moment uitzetten.</string>
+    <string name="cf_consent_sim">Ik ga akkoord</string>
+</resources>

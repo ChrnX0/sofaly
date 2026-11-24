@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Volledige opschoning</string>
+    <string name="hos_total_det">Wist bij vertrek de gegevens van elke app op de tv, niet alleen streaming. Google-diensten en Instellingen blijven.</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Cast</string>
+    <string name="elenco_titulo">Cast</string>
+    <string name="elenco_carregando">De cast laden…</string>
+    <string name="elenco_vazio">TMDB heeft geen cast voor deze titel.</string>
+    <string name="elenco_dica">Ga langs de mensen: hieronder waar ze verder nog in spelen dat in je lijst staat.</string>
+    <string name="elenco_na_lista">Ook in je lijst</string>
+    <string name="elenco_procurando">In je lijst zoeken…</string>
+    <string name="elenco_nada_na_lista">Niets anders met deze persoon in je lijst.</string>
+    <string name="elenco_filme">Film</string>
+    <string name="elenco_serie">Serie</string>
+    <string name="elenco_opcao_player">Cast (wie is deze acteur?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Eerder in %1$s</string>
+    <string name="anteriormente_assistir">%1$s kijken</string>
+    <string name="anteriormente_pular_sempre">Nooit tonen</string>
+    <string name="anteriormente_desligado">Samenvattingen uitgezet. Om ze weer aan te zetten: houd OK ingedrukt op een aflevering.</string>
+    <string name="anteriormente_ligar">Samenvattingen “Eerder in” tonen</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Maximumleeftijd in kindermodus</string>
+    <string name="idade_det">Films en series met een leeftijdsclassificatie tot deze leeftijd verschijnen vanuit elke categorie (classificatie van TMDB). Die zonder classificatie alleen in kindercategorieën.</string>
+    <string name="idade_so_categorias">Alleen kindercategorieën</string>
+    <string name="idade_livre">Alle leeftijden</string>
+    <string name="idade_anos">Tot %1$d jaar</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Ook op: %1$s (JustWatch)</string>
+    <string name="onde_fora">Niet in je lijst · op %1$s</string>
+    <string name="onde_grupo">Elders (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Ondertiteling automatisch gedownload (gemaakt voor dit bestand) · ▼ om te wijzigen</string>
+    <string name="legenda_auto_pronta_nome">Ondertiteling automatisch gedownload · ▼ om te wijzigen of de vertraging aan te passen</string>
+    <string name="legenda_trad_rotulo">Automatische vertaling</string>
+    <string name="legenda_trad_traduzindo">Geen ondertiteling in je taal: de Engelse wordt op de tv vertaald…</string>
+    <string name="legenda_trad_parcial">Ondertiteling vertaald op de tv (automatische vertaling). De rest wordt verder vertaald.</string>
+    <string name="legenda_trad_pronta">Vertaling van de ondertiteling klaar</string>
+    <string name="series_sinopse_mais">Volledige samenvatting</string>
+    <string name="series_continuar_curto">▶  %1$s verder kijken</string>
+    <string name="series_episodios">Afleveringen</string>
+    <string name="series_trocar_temporada">Seizoen wijzigen</string>
+    <string name="fechar">Sluiten</string>
+    <string name="onde_assistir_botao">Waar kijken</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Kant-en-klare scènes</string>
+    <string name="cpr_dormir">Slapen</string>
+    <string name="cpr_dormir_det">Nachtfilter, lager volume, tv gaat over 30 min uit</string>
+    <string name="cpr_novela">Soap</string>
+    <string name="cpr_novela_det">Je zender, normale kleuren</string>
+    <string name="cpr_jogo">Wedstrijd</string>
+    <string name="cpr_jogo_det">Je sportzender, luider</string>
+    <string name="cpr_canal">Welke zender voor “%1$s”?</string>
+    <string name="cpr_canal_dica">Naam of nummer van de zender</string>
+</resources>

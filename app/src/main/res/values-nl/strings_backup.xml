@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Automatische back-up</string>
+    <string name="bkn_explica">Bewaart elke nacht, als de tv niet gebruikt wordt, een volledige back-up vergrendeld met je wachtwoord. De laatste 7 worden bewaard. Schrijf het wachtwoord op: zonder kan de back-up niet worden geopend.</string>
+    <string name="bkn_ligado">aan</string>
+    <string name="bkn_desligado">uit</string>
+    <string name="bkn_sem_senha">uit · stel eerst het back-upwachtwoord in</string>
+    <string name="bkn_senha">Back-upwachtwoord</string>
+    <string name="bkn_senha_ok">ingesteld · OK wijzigt</string>
+    <string name="bkn_senha_falta">niet ingesteld · OK stelt in</string>
+    <string name="bkn_senha_nova">Back-upwachtwoord (8 of meer tekens)</string>
+    <string name="bkn_senha_repetir">Typ het wachtwoord nog eens</string>
+    <string name="bkn_senha_curta">Het wachtwoord moet 8 tot 128 tekens hebben.</string>
+    <string name="bkn_senha_diferente">De twee wachtwoorden kwamen niet overeen.</string>
+    <string name="bkn_senha_gravada">Wachtwoord opgeslagen. Bewaar het op een veilige plek.</string>
+    <string name="bkn_senha_erro">Kon het wachtwoord niet opslaan.</string>
+    <string name="bkn_horario">Tijd</string>
+    <string name="bkn_extra">Extra kopie</string>
+    <string name="bkn_destino_tv">Alleen tv</string>
+    <string name="bkn_destino_pendrive">Usb-stick</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Nu een back-up maken</string>
+    <string name="bkn_ultimo">Laatste</string>
+    <string name="bkn_nunca">nooit</string>
+    <string name="bkn_pin">Pincode om de back-up te wijzigen</string>
+</resources>

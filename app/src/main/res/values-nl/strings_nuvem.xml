@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Video\'s, muziek en foto\'s uit je cloud</string>
+    <string name="rede_nuvem_seguir">Verder</string>
+    <string name="rede_nuvem_entrar">Inloggen</string>
+    <string name="rede_nuvem_pedindo">Een code aanvragen…</string>
+    <string name="rede_nuvem_esperando">Wachten tot je bevestigt op je telefoon…</string>
+    <string name="rede_nuvem_salvando">Inloggen…</string>
+    <string name="rede_nuvem_recusado">De dienst weigerde. Controleer de app-id en probeer het opnieuw.</string>
+    <string name="rede_erro_nuvem_login">De toestemming van dit account is verlopen of ingetrokken. Verwijder het account (OK ingedrukt houden) en log opnieuw in.</string>
+    <string name="rede_od_titulo">OneDrive: je app bij Microsoft</string>
+    <string name="rede_od_explica">Eén keer, op een computer: entra.microsoft.com › App-registraties › Nieuwe registratie. Kies bij accounttypen het type dat persoonlijke Microsoft-accounts bevat. Zet daarna onder Verificatie “Openbare clientstromen toestaan” aan. Kopieer de “Toepassings-id (client)” en typ hem hier (je kunt vanaf je telefoon typen, in het paneel).</string>
+    <string name="rede_od_id">Toepassings-id (client)</string>
+    <string name="rede_od_id_erro">De id ziet eruit als 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">Open op je telefoon of computer microsoft.com/link (of richt de camera op de QR) en typ de code hieronder. De tv vraagt alleen om bestanden te lezen.</string>
+    <string name="rede_od_erro_app">Microsoft accepteerde deze app niet. Controleer de id en of “Openbare clientstromen toestaan” aan staat.</string>
+    <string name="rede_dbx_explica">Eén keer, op een computer: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. Vink in het tabblad Permissions files.metadata.read, files.content.read en account_info.read aan (en files.content.write, als je de nachtelijke back-up in Dropbox wilt) en sla op (Submit). Kopieer de “App key” en typ hem hier.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">De App key heeft alleen kleine letters en cijfers.</string>
+    <string name="rede_dbx_codigo_explica">Richt de camera van je telefoon op de QR, log in bij Dropbox en tik op Toestaan. Dropbox toont een code: typ hem hier (je kunt vanaf je telefoon typen, in het paneel).</string>
+    <string name="rede_dbx_codigo">Dropbox-code</string>
+    <string name="rede_dbx_codigo_erro">Typ de hele code die Dropbox toonde.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Eén keer, op een computer: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). Zet in het tabblad Configuration onder OAuth 2.0 Redirect URI %1$s en vink “Read all files and folders” aan (en “Write all files and folders”, als je de nachtelijke back-up in Box wilt). Sla op en kopieer dan de Client ID en het Client Secret hierheen.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID en Client Secret hebben alleen letters en cijfers. Kopieer beide uit het tabblad Configuration.</string>
+    <string name="rede_volta_sem_rede">De tv zit niet op het thuisnetwerk. Verbind hem en probeer het opnieuw.</string>
+    <string name="rede_volta_explica">Richt de camera van een telefoon die op dezelfde wifi als de tv zit op de QR, log in bij %1$s en sta toegang toe. De telefoon komt vanzelf terug naar de tv: niets te typen.</string>
+    <string name="rede_volta_porta">Poort %1$d op de tv is bezet. Sluit andere apps en probeer het opnieuw.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Eén keer, op een computer, in je Google Cloud-project (console.cloud.google.com): APIs &amp; Services › Library › zet “Google Drive API” aan. Voeg in Google Auth Platform › Data Access de scope …/auth/drive.readonly toe. Zet in Clients › Create client › Web application onder Authorized redirect URIs %1$s. Kopieer de Client ID en het Client secret hierheen.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Kopieer beide van de clientpagina: de id eindigt op .apps.googleusercontent.com en het secret begint meestal met GOCSPX-.</string>
+    <string name="rede_gd_aviso">Als Google zegt dat de app niet geverifieerd is, tik op Geavanceerd › Ga naar (het is je eigen app).</string>
+</resources>

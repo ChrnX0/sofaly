@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Gereedschap</string>
+    <string name="cont_mais_opcoes">Meer opties</string>
+    <string name="tl_proximo">Volgende: %1$s</string>
+    <string name="tl_clima_sub">Verwachting voor de komende dagen</string>
+    <string name="tl_casa_sub">Lampen, camera\'s en deurbel</string>
+    <string name="tl_painel_sub">Bluetooth, geluid, wifi en timer</string>
+    <string name="tl_config_sub">Alles over de launcher</string>
+    <string name="ac_cartoes">App-kaarten</string>
+    <string name="ac_coluna">In de kolom</string>
+    <string name="ac_vitrine">Etalage</string>
+    <string name="ac_ver_tudo">Zien wat er in de app zit</string>
+    <string name="ac_ritmo">Ruimte op het startscherm</string>
+    <string name="rt_antes">Zoals voorheen</string>
+    <string name="rt_a">A · Strakker</string>
+    <string name="rt_b">B · Kaders</string>
+    <string name="rt_c">C · Luchtig</string>
+    <string name="ft_foco">Focus</string>
+    <string name="ft_foco_fio">Lijn</string>
+    <string name="ft_foco_veu">Sluier</string>
+    <string name="ft_foco_quadro">Kader</string>
+</resources>
