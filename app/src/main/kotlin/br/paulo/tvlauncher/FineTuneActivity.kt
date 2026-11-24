@@ -270,6 +270,7 @@ class FineTuneActivity : Activity() {
         br.paulo.tvlauncher.settings.FocusStyle.LINE -> R.string.ft_foco_fio
         br.paulo.tvlauncher.settings.FocusStyle.VEIL -> R.string.ft_foco_veu
         br.paulo.tvlauncher.settings.FocusStyle.BOX -> R.string.ft_foco_quadro
+        br.paulo.tvlauncher.settings.FocusStyle.RING -> R.string.ft_foco_anel
     })
     private fun nomeCartoes(k: br.paulo.tvlauncher.home.AppChannels.Mode) = getString(when (k) {
         br.paulo.tvlauncher.home.AppChannels.Mode.OFF -> R.string.cs_sem

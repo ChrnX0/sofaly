@@ -182,6 +182,9 @@ object Estilo {
     /** Véu do foco [FocusStyle.VEIL]: branco a 10% com fio branco a 38%. */
     const val VEU_TINTA = 0x1AFFFFFF
     const val VEU_BORDA = 0x61FFFFFF
+    /** Anel do foco [FocusStyle.RING]: a espessura do anel da barra (StripHome.ANEL) e um véu laranja a 12%. */
+    const val ANEL_DP = 3
+    const val ANEL_TINTA = 0x1FFF6A2B
     /** Fio que separa as opções de uma lista (régua: separar por fio, não por caixa): branco a 12%. */
     const val FIO = 0x1FFFFFFF
 
@@ -234,6 +237,8 @@ object Estilo {
         br.paulo.tvlauncher.settings.FocusStyle.VEIL -> fundo(ctx, VEU_TINTA, raioDp, VEU_BORDA)
         br.paulo.tvlauncher.settings.FocusStyle.LINE ->
             if (base == null) traco(ctx) else android.graphics.drawable.LayerDrawable(arrayOf(base, traco(ctx)))
+        // Anel laranja de 3 dp, como o da barra da HOME, sobre um véu laranja bem leve (o texto continua claro).
+        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, ANEL_TINTA, raioDp, ACENTO, ANEL_DP)
     }
 
     /** O foco escurece o texto? Só no Quadro (texto escuro sobre branco); no Fio e no Véu o texto acende para o creme pleno. */
@@ -310,6 +315,7 @@ object Estilo {
                 br.paulo.tvlauncher.settings.FocusStyle.BOX -> fundo(ctx, 0, RAIO + 3, FOCO, 3)
                 br.paulo.tvlauncher.settings.FocusStyle.VEIL -> fundo(ctx, VEU_TINTA, RAIO + 1, VEU_BORDA)
                 br.paulo.tvlauncher.settings.FocusStyle.LINE -> traco(ctx)
+                br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, 0, RAIO + ANEL_DP, ACENTO, ANEL_DP)
             }
             view.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
                 .translationZ(if (foco && jeito == br.paulo.tvlauncher.settings.FocusStyle.BOX) dp(ctx, 8).toFloat() else 0f)
@@ -592,7 +598,9 @@ object Estilo {
      */
     fun fundoTela(ctx: Context): Drawable =
         // Alto contraste (crítica de design 19/11/2026): fundo chapado preto, sem brilho nem degradê atrás do texto.
-        if (altoContraste) android.graphics.drawable.ColorDrawable(0xFF000000.toInt()) else FundoGrafite(World.of(ctx))
+        // Com a barra única, a foto da barra borrada (GlassBackground, coerência das telas 24/11/2026); senão o grafite.
+        if (altoContraste) android.graphics.drawable.ColorDrawable(0xFF000000.toInt())
+        else br.paulo.tvlauncher.home.GlassBackground.of(ctx) ?: FundoGrafite(World.of(ctx))
 
     /**
      * Tela cuja raiz já pinta o grafite na tela toda: a cor de fundo da janela (tema) por baixo é uma camada de tela
@@ -603,7 +611,7 @@ object Estilo {
         val conteudo = a.findViewById<android.view.ViewGroup>(android.R.id.content) ?: return
         val raiz = conteudo.getChildAt(0) ?: return
         val lp = raiz.layoutParams ?: return
-        if (raiz.background !is FundoGrafite || lp.width != android.view.ViewGroup.LayoutParams.MATCH_PARENT ||
+        if ((raiz.background !is FundoGrafite && raiz.background !is br.paulo.tvlauncher.home.GlassDrawable) || lp.width != android.view.ViewGroup.LayoutParams.MATCH_PARENT ||
             lp.height != android.view.ViewGroup.LayoutParams.MATCH_PARENT) return
         a.window.setBackgroundDrawable(null)
     }

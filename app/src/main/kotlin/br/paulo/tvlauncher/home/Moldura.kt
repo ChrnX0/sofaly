@@ -53,10 +53,45 @@ object Moldura {
         if (a.javaClass.simpleName !in TELAS || a.isFinishing) return
         val conteudo = a.findViewById<ViewGroup>(android.R.id.content) as? FrameLayout ?: return
         if (conteudo.childCount == 0 || conteudo.findViewWithTag<android.view.View>(MARCA) != null) return
+        if (BottomBar.strip(a)) {
+            // Barra única: a pílula da hora no alto, no centro, como na barra (coerência das telas, 24/11/2026).
+            conteudo.addView(pilula(a), FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Estilo.dp(a, PILULA_ALTURA),
+                Gravity.TOP or Gravity.CENTER_HORIZONTAL).apply { topMargin = Estilo.dp(a, TOPO) })
+            return
+        }
         conteudo.addView(relogio(a), FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Estilo.dp(a, ALTURA),
             Gravity.TOP or Gravity.END).apply {
             topMargin = Estilo.dp(a, TOPO)
             marginEnd = Estilo.dp(a, Estilo.MARGEM_LATERAL)
+        })
+    }
+
+    private const val PILULA_ALTURA = 40
+    private const val PILULA_HORA_SP = 20f
+
+    /**
+     * A pílula da hora da barra única (HomeIsland.montarIlha): ponto calmo + hora em negrito sobre a placa escura. Sem data:
+     * na barra também não tem. Só desenho: sem foco, sem clique.
+     */
+    fun pilula(a: Activity) = LinearLayout(a).apply {
+        tag = MARCA
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        isFocusable = false
+        importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        background = android.graphics.drawable.GradientDrawable().apply {
+            cornerRadius = Estilo.dp(a, PILULA_ALTURA / 2).toFloat(); setColor(0xBF0A0C14.toInt())
+        }
+        setPadding(Estilo.dp(a, 16), 0, Estilo.dp(a, 18), 0)
+        addView(android.view.View(a).apply {
+            background = android.graphics.drawable.GradientDrawable().apply { shape = android.graphics.drawable.GradientDrawable.OVAL; setColor(br.paulo.tvlauncher.MainActivity.ILHA_PONTO_CALMO) }
+        }, LinearLayout.LayoutParams(Estilo.dp(a, 6), Estilo.dp(a, 6)).apply { marginEnd = Estilo.dp(a, 12) })
+        addView(RelogioTela(a, data = false).apply {
+            format12Hour = "HH:mm"; format24Hour = "HH:mm"
+            textSize = PILULA_HORA_SP
+            setTextColor(android.graphics.Color.WHITE)
+            typeface = Estilo.fonte(700)
+            includeFontPadding = false
         })
     }
 
