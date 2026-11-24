@@ -4,7 +4,9 @@ import br.paulo.tvlauncher.home.CruzLogica
 import br.paulo.tvlauncher.home.CruzLogica.Categoria
 import br.paulo.tvlauncher.home.CruzLogica.Tecla
 import br.paulo.tvlauncher.home.StripHome
+import br.paulo.tvlauncher.home.StripBackground.Choice
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -59,6 +61,73 @@ class StripHomeTest {
         assertEquals("palavras pequenas no meio ficam minúsculas", "Dr. Alex Alves e Thiago Lima de Novo", StripHome.semGritar("DR. ALEX ALVES E THIAGO LIMA DE NOVO"))
         assertEquals("depois de separador abre frase", "Rádio - O Fim da Noite", StripHome.semGritar("RÁDIO - O FIM DA NOITE"))
         assertEquals("normal passa igual", "Jornal Nacional · TV Globo", StripHome.semGritar("Jornal Nacional · TV Globo"))
+        assertEquals("só o trecho que grita", "Oração do Dia Nada Faltando | Pastora Ana", StripHome.semGritar("ORAÇÃO DO DIA NADA FALTANDO | Pastora Ana"))
+        assertEquals("sigla curta fica", "Jogo da NBA ao vivo", StripHome.semGritar("Jogo da NBA ao vivo"))
         assertEquals(listOf("No ar" to true, " Jornal" to false), StripHome.partes("**No ar** Jornal"))
+    }
+
+    @Test fun fundoDaBarra() {
+        val B = br.paulo.tvlauncher.home.StripBackground
+        assertEquals("nunca escolhido: Vale (Paulo, 24/11/2026)", Choice.VALE, B.resolve(-1))
+        assertEquals(Choice.NOITE, B.resolve(2))
+        assertEquals(Choice.THEME, B.resolve(3))
+        assertEquals("novo fundo agora gira só entre as fotos", Choice.VALE, B.nextPhoto(Choice.NOITE))
+    }
+
+    @Test fun iconeVivoDoMundo() {
+        val M = br.paulo.tvlauncher.home.WorldMotion.Motion
+        assertEquals(0f, M.drawOn(0f), 1e-4f)
+        assertEquals("traço inteiro ao fim do desenho", 1f, M.drawOn(M.DRAW_MS), 1e-4f)
+        assertEquals("o gesto não começa durante o desenho", 0f, M.calm(M.DRAW_MS / 2), 1e-4f)
+        assertEquals(1f, M.calm(M.DRAW_MS + M.CALM_MS + 1f), 1e-4f)
+        assertEquals("ciclo contínuo: volta ao mesmo ponto", M.breath(1234f), M.breath(1234f + M.CYCLE_MS), 1e-3f)
+        assertEquals("respiração suave, nunca passa de 1", true, (0..12000 step 37).all { kotlin.math.abs(M.breath(it.toFloat())) <= 1f })
+        assertEquals(0f, M.wave(0f), 1e-4f)
+    }
+
+    @Test fun descricaoDoCardEmFoco() {
+        fun i(id: String, nome: String = id, sub: String = "", s: CruzLogica.Situacao? = null) = StripHome.Itens(id, nome, sub, s)
+        assertEquals("**No ar** Jornal Hoje · faltam 25 min", StripHome.doCard(i("tv", "TV", "Canais", CruzLogica.Situacao("No ar", "Jornal Hoje · faltam 25 min", "tv"))))
+        assertEquals("**Netflix** Filmes e séries", StripHome.doCard(i("app:n", "Netflix", "Filmes e séries")))
+        assertEquals("linhas viram ·", "**Clima** 34° · Previsão", StripHome.doCard(i("t:clima", "Clima", "34°\nPrevisão")))
+        assertEquals("sem linha de baixo: só o nome", "**Rádio**", StripHome.doCard(i("radio", "Rádio")))
+        assertEquals("não repete o nome", "**Casa**", StripHome.doCard(i("casa", "Casa", "casa")))
+    }
+
+    /** Grade de 2 linhas: 5 itens = colunas [0,1] [2,3] [4]. */
+    @Test fun gradeDeDuasLinhas() {
+        fun g(t: Tecla, sel: Int, cat: Int = 1) = StripHome.passo(t, cat, sel, 5, grade = true)
+        assertEquals("▶ pula a coluna", 2, g(Tecla.DIREITA, 0).paraSel)
+        assertEquals("▶ da linha de baixo vai à última coluna (só a de cima)", 4, g(Tecla.DIREITA, 3).paraSel)
+        assertNull("▶ na última coluna para", g(Tecla.DIREITA, 4).paraSel)
+        assertNull("... sem trocar de mundo", g(Tecla.DIREITA, 4).tecla)
+        assertEquals("◀ volta a coluna", 1, g(Tecla.ESQUERDA, 3).paraSel)
+        assertNull("◀ na 1ª coluna para", g(Tecla.ESQUERDA, 1).paraSel)
+        assertEquals("▼ na linha de cima desce", 3, g(Tecla.BAIXO, 2).paraSel)
+        assertEquals("▼ na linha de baixo troca o mundo", StripHome.Passo(Tecla.DIREITA), g(Tecla.BAIXO, 3))
+        assertEquals("▼ sem ninguém embaixo troca o mundo", StripHome.Passo(Tecla.DIREITA), g(Tecla.BAIXO, 4))
+        assertEquals("▲ na linha de baixo sobe", 0, g(Tecla.CIMA, 1).paraSel)
+        assertEquals("▲ na linha de cima troca o mundo", StripHome.Passo(Tecla.ESQUERDA), g(Tecla.CIMA, 2))
+        assertTrue("▲ na linha de cima do 1º mundo sobe para a Ilha", g(Tecla.CIMA, 0, cat = 0).subirTopo)
+        assertEquals(3, StripHome.colunas(5, true)); assertEquals(5, StripHome.colunas(5, false))
+        assertEquals(1, StripHome.linhaDaGrade(3, true)); assertEquals(1, StripHome.coluna(3, true))
+    }
+
+    @Test fun jeitoDosCardsPorMundo() {
+        val geral = StripHome.DEFAULT
+        assertEquals("sem o dele, segue o geral", geral, StripHome.doMundo(geral, null))
+        assertEquals(StripHome.Format.ROUND, StripHome.doMundo(geral, StripHome.Format.ROUND.ordinal).format)
+        assertEquals("número estranho = o geral", geral, StripHome.doMundo(geral, 99))
+        assertEquals("ordem guardada não muda", listOf(0, 1, 2), listOf(StripHome.Format.WIDE, StripHome.Format.CLASSIC, StripHome.Format.SQUARE).map { it.ordinal })
+        val r = geral.copy(format = StripHome.Format.ROUND)
+        assertEquals("redondo é círculo", r.cardH / 2f, r.raio)
+        assertEquals(r.cardH + StripHome.NOME_EMBAIXO, r.blocoH)
+        val gr = geral.copy(format = StripHome.Format.GRID)
+        assertEquals(2 * gr.cardH + StripHome.VAO_GRADE, gr.blocoH)
+        assertTrue(StripHome.Format.ONLY.banner && StripHome.Format.GRID.banner && StripHome.Format.LOGO.banner && !StripHome.Format.ROUND.banner)
+        assertFalse(StripHome.Format.GRID.nomeNoFoco || StripHome.Format.ROUND.nomeNoFoco)
+        val o = br.paulo.tvlauncher.home.WorldOptions.Options(cards = 5)
+        assertEquals(o, br.paulo.tvlauncher.home.WorldOptions.Rules.read(br.paulo.tvlauncher.home.WorldOptions.Rules.write(o)))
+        assertNull(br.paulo.tvlauncher.home.WorldOptions.Rules.read("{\"sort\":\"az\"}").cards)
     }
 }

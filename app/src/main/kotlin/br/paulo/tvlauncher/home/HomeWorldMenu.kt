@@ -47,6 +47,26 @@ internal fun MainActivity.opcoesDeOrdem(pacote: String): List<MainActivity.Opcao
     )
 }
 
+/** Os nomes dos jeitos de card ([StripHome.Format], na mesma ordem): Ajuste fino e o menu de cada mundo. */
+internal fun nomesDosFormatos(ctx: android.content.Context): List<String> = listOf("16:9", "4:3",
+    ctx.getString(R.string.st_quadrado), ctx.getString(R.string.st_logo_solto), ctx.getString(R.string.st_grade2),
+    ctx.getString(R.string.st_redondo), ctx.getString(R.string.st_so_escolhido))
+
+/**
+ * Jeito dos cards só deste mundo (24/11/2026, Paulo: "Jeito dos cards" por mundo, como o Projectivy deixa cada fileira com
+ * o seu): a 1ª linha volta a seguir o Ajuste fino; as outras fixam um jeito aqui.
+ */
+private fun MainActivity.escolherCards(cat: CruzLogica.Categoria) {
+    val o = WorldOptions.of(this, cat)
+    val nomes = nomesDosFormatos(this)
+    val geral = nomes.getOrElse(StripHome.options(this).format.ordinal) { nomes[0] }
+    val rotulos = listOf<CharSequence>(getString(R.string.wo_cards_geral, geral)) + nomes
+    val marcada = o.cards?.takeIf { it in nomes.indices }?.let { it + 1 } ?: 0
+    menuAberto = Estilo.lista(this, getString(R.string.wo_cards), rotulos, marcadas = listOf(marcada)) { i ->
+        WorldOptions.save(this, cat, o.copy(cards = if (i == 0) null else i - 1)); atualizarAposMudanca(null)
+    }
+}
+
 internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     if (TravaHome.precisaPin(this)) { TravaHome.comPin(this) { menuDoMundo(cat, nome) }; return }
     val o = WorldOptions.of(this, cat)
@@ -61,6 +81,7 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     opcoes += MainActivity.Opcao(getString(R.string.wo_icone_mundo)) {
         trocarIconeSofaly(WorldLabel.tipo(cat), nome, null, null)
     }
+    if (BottomBar.strip(this)) opcoes += MainActivity.Opcao(getString(R.string.wo_cards)) { escolherCards(cat) }
     // Só o ícone na linha (Paulo, 22/11/2026): o nome some da cruz e fica na pílula do topo quando a categoria tem o foco.
     opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {
         WorldOptions.save(this, cat, o.copy(iconOnly = !o.iconOnly)); atualizarAposMudanca(null)

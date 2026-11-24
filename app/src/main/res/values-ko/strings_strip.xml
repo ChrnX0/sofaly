@@ -29,4 +29,15 @@
     <string name="st_nome">선택한 카드에 이름</string>
     <string name="st_sem">끔</string>
     <string name="st_com">켬</string>
+    <string name="st_fundo">배경</string>
+    <string name="st_fundo_vale">계곡</string>
+    <string name="st_fundo_serra">산맥</string>
+    <string name="st_fundo_noite">밤</string>
+    <string name="st_fundo_tema">테마에서</string>
+    <string name="st_logo_solto">로고만</string>
+    <string name="st_grade2">2줄 그리드</string>
+    <string name="st_redondo">원형</string>
+    <string name="st_so_escolhido">선택한 것만</string>
+    <string name="wo_cards">이 월드의 카드 모양</string>
+    <string name="wo_cards_geral">세부 조정과 같게 (%1$s)</string>
 </resources>
