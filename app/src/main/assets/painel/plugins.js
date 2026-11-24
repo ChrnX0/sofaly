@@ -45,7 +45,6 @@ function desenharPlugins() {
   const r = ultimoPlugins;
   if (!r) return;
   const t = r.textos || {};
-  $('tituloPlugins').textContent = t.titulo || '';
   $('detPlugins').textContent = t.det || '';
   const caixa = $('listaPlugins');
   caixa.replaceChildren();

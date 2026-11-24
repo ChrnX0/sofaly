@@ -1,5 +1,6 @@
 // Painel em pl (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"Wtyczki",
 "Lembretes da grade":"Przypomnienia z przewodnika TV",
 "Gravação terminou ou parou":"Nagrywanie zakończone lub przerwane",
 "Despertador que não tocou":"Budzik, który nie zadzwonił",

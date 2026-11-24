@@ -1,5 +1,6 @@
 // Painel em en (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"Plugins",
 "Lembretes da grade":"TV guide reminders",
 "Gravação terminou ou parou":"Recording finished or stopped",
 "Despertador que não tocou":"Alarm that didn't ring",
