@@ -109,6 +109,7 @@ object ObserverTv {
         ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putLong("alive_at", agora).apply()
         runCatching { OnDemandTv.tick(ctx) }   // sob demanda: congela de novo o que ficou aberto (cinto do onWindow)
         runCatching { GoogleHomeTrimTv.tick(ctx) }   // launcher do Google parado em segundo plano: devolve a memória
+        Fundo.rodar("app-profile") { runCatching { AppProfileTv.tick(ctx) }.onFailure { Log.w(TAG, "ficha dos apps: $it") } }
         if (trialsPending) Fundo.rodar("observer-trials") { runCatching { checkTrials(ctx) }.onFailure { Log.w(TAG, "provas: $it") } }
         // O último put passa pelo publish para acordar o juiz uma vez só por amostra.
         publish(ObserverCore.Signal.INTERNET, if (internet) 1 else 0)
@@ -230,6 +231,13 @@ object ObserverTv {
     }
 
     private val LEARNING_KEYS = listOf("habit", "pico")
+
+    /** Uma linha de SOMBRA no registro (o que a Sofy faria, sem fazer): ex. "app_tip" da ficha viva dos apps. */
+    @Synchronized fun logShadow(ctx: Context, event: String, why: String) {
+        val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val agora = System.currentTimeMillis()
+        p.edit().putString("log", ObserverCore.appendLog(p.getString("log", null), ObserverCore.logEntry(agora, event, null, null, why, emptyMap()), agora)).apply()
+    }
 
     // ---------------------------------------------------------------- hábito e sonda noturna (fase 2b)
 
@@ -464,6 +472,7 @@ object ObserverTv {
             .put("checks", runCatching { org.json.JSONObject().apply { checks(ctx).forEach { (c, v) -> put(c.name, v) } } }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("on_demand", runCatching { org.json.JSONArray(OnDemand.toJson(OnDemandTv.entries(ctx))) }.getOrNull() ?: org.json.JSONArray())
             .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("log_total", log.length()).put("log", logNovo)
     }
 
