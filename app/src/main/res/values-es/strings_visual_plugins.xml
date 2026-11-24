@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Símbolos limpios sobre un solo color</string>
     <string name="wp_d_arcticons">15.000 iconos de línea fina (para móvil, funcionan aquí)</string>
     <string name="ext_off_health">Desactivado: dejó de responder. Actívalo de nuevo si quieres.</string>
+    <string name="ext_secao_botoes">Botones del panel rápido</string>
+    <string name="ext_nenhum_botao">Aún no hay botones de otras apps. Algunas apps añaden un botón de encender y apagar al panel rápido (mantén ATRÁS).</string>
 </resources>

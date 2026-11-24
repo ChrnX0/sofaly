@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Чистые символы на одном цвете</string>
     <string name="wp_d_arcticons">15 000 тонких линейных значков (для телефона, работают и тут)</string>
     <string name="ext_off_health">Отключено: перестало отвечать. Включите снова, если хотите.</string>
+    <string name="ext_secao_botoes">Кнопки быстрой панели</string>
+    <string name="ext_nenhum_botao">Кнопок других приложений пока нет. Некоторые приложения добавляют кнопку вкл./выкл. в быструю панель (удерживайте НАЗАД).</string>
 </resources>

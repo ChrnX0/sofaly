@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Strakke symbolen op één achtergrondkleur</string>
     <string name="wp_d_arcticons">15.000 dunne lijnpictogrammen (gemaakt voor telefoons, werkt hier)</string>
     <string name="ext_off_health">Uitgezet: het reageerde niet meer. Zet het weer aan als je wilt.</string>
+    <string name="ext_secao_botoes">Knoppen in het snelpaneel</string>
+    <string name="ext_nenhum_botao">Nog geen knoppen van andere apps. Sommige apps zetten een aan/uit-knop in het snelpaneel (houd TERUG ingedrukt).</string>
 </resources>

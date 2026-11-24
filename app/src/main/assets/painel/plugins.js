@@ -77,6 +77,15 @@ function desenharPlugins() {
       () => mudarPlugin(c.nome, t.det, rotulo, 'cartao', { pacote: c.pacote, ligado: novo })));
   }
 
+  secao(t.botoes);
+  if (!(r.botoes || []).length) vazio(t.nenhumBotao);
+  for (const b of r.botoes || []) {
+    const novo = !b.ligado;
+    const rotulo = novo ? t.ligado : t.desligado;
+    caixa.append(linhaPlugin(b.nome, b.saude ? t.saude : (b.ligado ? t.ligado : t.desligado), rotulo,
+      () => mudarPlugin(b.nome, t.det, rotulo, 'botao', { pacote: b.pacote, ligado: novo })));
+  }
+
   secao(t.descobrir);
   for (const v of r.vitrine) {
     const det = `${v.tipo} · ${v.descricao}`;

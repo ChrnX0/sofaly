@@ -111,6 +111,7 @@
         <package android:name="com.spocky.projengmenu" />
         <!-- Plugins de cartão (PluginCartao) e o plugin Extras: no build da Play não há QUERY_ALL_PACKAGES. -->
         <intent><action android:name="tv.sofaly.plugin.CARTAO" /></intent>
+        <intent><action android:name="tv.sofaly.plugin.TILE" /></intent>
         <!-- Plugins de fundo compatíveis (WallpaperPluginContract): serviços com esta ação. -->
         <intent><action android:name="tv.projectivy.plugin.WALLPAPER_PROVIDER" /></intent>
         <package android:name="tv.sofaly.extras" />

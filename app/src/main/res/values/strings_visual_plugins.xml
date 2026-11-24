@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Clean symbols on one background color</string>
     <string name="wp_d_arcticons">15,000 thin line icons (made for phones, works here)</string>
     <string name="ext_off_health">Turned off: it stopped responding. Turn it on again if you want.</string>
+    <string name="ext_secao_botoes">Quick panel buttons</string>
+    <string name="ext_nenhum_botao">No buttons from other apps yet. Some apps add an on/off button to the quick panel (hold BACK).</string>
 </resources>

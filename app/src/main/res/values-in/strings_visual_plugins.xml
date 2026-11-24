@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Simbol bersih di atas satu warna</string>
     <string name="wp_d_arcticons">15.000 ikon garis tipis (untuk ponsel, bisa di sini)</string>
     <string name="ext_off_health">Dimatikan: berhenti merespons. Nyalakan lagi jika mau.</string>
+    <string name="ext_secao_botoes">Tombol panel cepat</string>
+    <string name="ext_nenhum_botao">Belum ada tombol dari aplikasi lain. Beberapa aplikasi menambahkan tombol nyala/mati ke panel cepat (tahan KEMBALI).</string>
 </resources>

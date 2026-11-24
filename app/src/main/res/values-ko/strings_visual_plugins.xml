@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">한 가지 색 위의 깔끔한 기호</string>
     <string name="wp_d_arcticons">가는 선 아이콘 15,000개 (휴대폰용, 여기서도 작동)</string>
     <string name="ext_off_health">꺼짐: 응답하지 않았습니다. 원하면 다시 켜세요.</string>
+    <string name="ext_secao_botoes">빠른 패널 버튼</string>
+    <string name="ext_nenhum_botao">아직 다른 앱의 버튼이 없습니다. 일부 앱은 빠른 패널에 켜기/끄기 버튼을 추가합니다(뒤로를 길게 누르기).</string>
 </resources>

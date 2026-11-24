@@ -12,6 +12,7 @@ import br.paulo.tvlauncher.panel.QrCodigo
 import br.paulo.tvlauncher.player.LojaCurada
 import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.PluginCatalog
+import br.paulo.tvlauncher.screensaver.PluginTile
 import br.paulo.tvlauncher.screensaver.WallpaperPlugins
 import br.paulo.tvlauncher.screensaver.ExtensionHealth
 import br.paulo.tvlauncher.settings.Planos
@@ -35,10 +36,10 @@ object PluginsTv {
 
     data class Instalado(val pacote: String, val autoridade: String, val nome: String)
 
-    /** Plugins instalados (qualquer app com um provider que responde a [PluginCartao.ACAO]). */
-    fun instalados(ctx: Context): List<Instalado> {
+    /** Plugins instalados (qualquer app com um provider que responde a [acao]; padrão: cartão). */
+    fun instalados(ctx: Context, acao: String = PluginCartao.ACAO): List<Instalado> {
         val pm = ctx.packageManager
-        return runCatching { pm.queryIntentContentProviders(Intent(PluginCartao.ACAO), 0) }.getOrDefault(emptyList())
+        return runCatching { pm.queryIntentContentProviders(Intent(acao), 0) }.getOrDefault(emptyList())
             .mapNotNull { r ->
                 val p = r.providerInfo ?: return@mapNotNull null
                 if (!p.exported || p.packageName == ctx.packageName) return@mapNotNull null
@@ -112,6 +113,68 @@ object PluginsTv {
         ?: return
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         runCatching { ctx.startActivity(i) }
+    }
+}
+
+/**
+ * Botões de outros apps no painel rápido ([PluginTile], 24/11/2026). Mesmas regras dos cartões: OK do dono com PIN
+ * preso ao certificado, no máximo [PluginTile.MAX], prazo de 2 s por leitura/clique fora da thread da tela, guarda de
+ * saúde. O OK fica em prefs próprias: ligar o cartão de um app não liga o botão dele, e vice-versa.
+ */
+object PluginTilesTv {
+    private const val PREFS = "plugin_tiles"
+    private const val PRAZO_MS = 2_000L
+    private val leitor = Executors.newCachedThreadPool { r -> Thread(r, "PluginTile").apply { isDaemon = true } }
+
+    fun instalados(ctx: Context) = PluginsTv.instalados(ctx, PluginTile.ACAO)
+
+    private fun permitidos(ctx: Context): Map<String, String> =
+        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).all.mapNotNull { (k, v) -> (v as? String)?.let { k to it } }.toMap()
+
+    fun permitido(ctx: Context, pacote: String): Boolean = PluginCartao.permitido(permitidos(ctx), pacote, PluginsTv.certificado(ctx, pacote))
+
+    fun definir(ctx: Context, pacote: String, ligado: Boolean): Boolean {
+        val prefs = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        if (!ligado) { prefs.edit().remove(pacote).apply(); return true }
+        val cert = PluginsTv.certificado(ctx, pacote) ?: return false
+        if (permitidos(ctx).count { it.key != pacote } >= PluginTile.MAX) return false
+        prefs.edit().putString(pacote, cert).apply()
+        ExtensionHealth.perdoar(ctx, pacote)
+        return true
+    }
+
+    private fun comPrazo(ctx: Context, pacote: String, tarefa: () -> Pair<Boolean, PluginTile.Botao?>): PluginTile.Botao? {
+        val inicio = android.os.SystemClock.elapsedRealtime()
+        val f = leitor.submit<Pair<Boolean, PluginTile.Botao?>> { tarefa() }
+        val r = runCatching { f.get(PRAZO_MS, TimeUnit.MILLISECONDS) }.getOrElse { f.cancel(true); false to null }
+        if (ExtensionHealth.registrar(ctx, pacote, r.first, android.os.SystemClock.elapsedRealtime() - inicio)) definir(ctx, pacote, false)
+        return r.second
+    }
+
+    private fun ler(ctx: Context, p: PluginsTv.Instalado): Pair<Boolean, PluginTile.Botao?> = runCatching {
+        val cursor = ctx.contentResolver.query(Uri.parse("content://${p.autoridade}/${PluginTile.CAMINHO}"), PluginTile.COLUNAS, null, null, null)
+            ?: return false to null
+        cursor.use { c ->
+            if (!c.moveToFirst()) return true to null
+            true to PluginTile.limpar(p.pacote, PluginTile.COLUNAS.associateWith { col ->
+                val i = c.getColumnIndex(col); if (i < 0) null else runCatching { c.getString(i) }.getOrNull()
+            })
+        }
+    }.getOrDefault(false to null)
+
+    /** Os botões ligados (no máximo [PluginTile.MAX]), com a autoridade para o clique. FORA da thread da tela. */
+    fun botoes(ctx: Context): List<Pair<PluginsTv.Instalado, PluginTile.Botao>> {
+        val ok = permitidos(ctx)
+        if (ok.isEmpty() || !Planos.permite(ctx, Planos.Recurso.PLUGINS)) return emptyList()
+        return instalados(ctx).filter { PluginCartao.permitido(ok, it.pacote, PluginsTv.certificado(ctx, it.pacote)) }
+            .take(PluginTile.MAX).mapNotNull { p -> comPrazo(ctx, p.pacote) { ler(ctx, p) }?.let { p to it } }
+    }
+
+    /** OK no botão: o app faz a ação dele; devolve a linha nova (ou null se ele não respondeu). FORA da thread da tela. */
+    fun clicar(ctx: Context, p: PluginsTv.Instalado): PluginTile.Botao? = comPrazo(ctx, p.pacote) {
+        val uri = Uri.parse("content://${p.autoridade}/${PluginTile.CAMINHO}")
+        val feito = runCatching { ctx.contentResolver.call(uri, PluginTile.METODO_CLIQUE, null, null); true }.getOrDefault(false)
+        if (!feito) false to null else ler(ctx, p)
     }
 }
 
@@ -191,6 +254,26 @@ class PluginsActivity : Activity() {
                     if (novo && !PlanosTv.pedir(this@PluginsActivity, Planos.Recurso.PLUGINS)) return@setOnClickListener   // ligar: Pro
                     if (!PluginsTv.definir(this@PluginsActivity, p.pacote, novo))
                         android.widget.Toast.makeText(this@PluginsActivity, getString(R.string.plg_limite, PluginCartao.MAX_PLUGINS), android.widget.Toast.LENGTH_LONG).show()
+                    pintar()
+                }
+            }, Estilo.lpLinha(this))
+        }
+
+        // ---- Botões do painel rápido (PluginTile, 24/11/2026)
+        val botoes = PluginTilesTv.instalados(this)
+        coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_botoes)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+        if (botoes.isEmpty()) coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.ext_nenhum_botao)))
+        for (p in botoes) {
+            val valor = Estilo.valor(this, "", seta = false)
+            fun pintar() { valor.text = getString(if (PluginTilesTv.permitido(this, p.pacote)) R.string.plg_ligado else R.string.plg_desligado) }
+            pintar()
+            val sub = if (ExtensionHealth.desligadoEm(this, p.pacote) > 0 && !PluginTilesTv.permitido(this, p.pacote)) getString(R.string.ext_off_health) else p.pacote
+            coluna.addView(Estilo.linhaOpcao(this, p.nome, sub, valor).apply {
+                setOnClickListener {
+                    val novo = !PluginTilesTv.permitido(this@PluginsActivity, p.pacote)
+                    if (novo && !PlanosTv.pedir(this@PluginsActivity, Planos.Recurso.PLUGINS)) return@setOnClickListener
+                    if (!PluginTilesTv.definir(this@PluginsActivity, p.pacote, novo))
+                        android.widget.Toast.makeText(this@PluginsActivity, getString(R.string.plg_limite, PluginTile.MAX), android.widget.Toast.LENGTH_LONG).show()
                     pintar()
                 }
             }, Estilo.lpLinha(this))

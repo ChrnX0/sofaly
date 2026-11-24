@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Klare Symbole auf einer Farbe</string>
     <string name="wp_d_arcticons">15.000 Icons mit feiner Linie (fürs Handy, gehen auch hier)</string>
     <string name="ext_off_health">Ausgeschaltet: Es hat nicht mehr reagiert. Schalten Sie es bei Bedarf wieder ein.</string>
+    <string name="ext_secao_botoes">Schnellmenü-Tasten</string>
+    <string name="ext_nenhum_botao">Noch keine Tasten anderer Apps. Manche Apps fügen dem Schnellmenü eine Ein/Aus-Taste hinzu (ZURÜCK gedrückt halten).</string>
 </resources>

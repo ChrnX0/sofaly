@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Rene symboler på én baggrundsfarve</string>
     <string name="wp_d_arcticons">15.000 tynde stregikoner (lavet til telefoner, virker her)</string>
     <string name="ext_off_health">Slået fra: den holdt op med at svare. Slå den til igen, hvis du vil.</string>
+    <string name="ext_secao_botoes">Knapper i hurtigpanelet</string>
+    <string name="ext_nenhum_botao">Ingen knapper fra andre apps endnu. Nogle apps tilføjer en tænd/sluk-knap til hurtigpanelet (hold TILBAGE nede).</string>
 </resources>

@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Rene symboler på én bakgrunnsfarge</string>
     <string name="wp_d_arcticons">15 000 tynne strekikoner (laget for telefoner, virker her)</string>
     <string name="ext_off_health">Slått av: den sluttet å svare. Slå den på igjen hvis du vil.</string>
+    <string name="ext_secao_botoes">Knapper i hurtigpanelet</string>
+    <string name="ext_nenhum_botao">Ingen knapper fra andre apper ennå. Noen apper legger til en av/på-knapp i hurtigpanelet (hold inne TILBAKE).</string>
 </resources>

@@ -44,4 +44,6 @@
     <string name="wp_d_minimalist">Símbolos limpos sobre uma cor só</string>
     <string name="wp_d_arcticons">15 mil ícones de traço fino (feitos para telemóvel, funcionam aqui)</string>
     <string name="ext_off_health">Desligado: deixou de responder. Ligue de novo se quiser.</string>
+    <string name="ext_secao_botoes">Botões do painel rápido</string>
+    <string name="ext_nenhum_botao">Ainda não há botões de outras aplicações. Algumas aplicações põem um botão de ligar e desligar no painel rápido (mantenha VOLTAR premido).</string>
 </resources>
