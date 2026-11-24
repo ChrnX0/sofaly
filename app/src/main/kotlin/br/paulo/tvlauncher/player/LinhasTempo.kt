@@ -17,7 +17,6 @@ import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.home.IconeLinha
 import br.paulo.tvlauncher.screensaver.FonteTempo
-import br.paulo.tvlauncher.screensaver.Protetor
 import br.paulo.tvlauncher.screensaver.SeriesTempo
 import br.paulo.tvlauncher.screensaver.TempoAgora
 import br.paulo.tvlauncher.screensaver.WidgetsTempo
@@ -109,13 +108,13 @@ class LinhasTempo(private val ctx: Context, private val m400: Typeface, private 
     private var semIcones = false
 
     /**
-     * Variação do desenho (17/11/2026, [Protetor.LINHAS]): "icones" (o de antes), "vidro" (as duas linhas dentro de um
+     * Variação do desenho (17/11/2026): "icones" (o de antes), "vidro" (as duas linhas dentro de um
      * vidro escuro arredondado, para fundos claros) ou "texto" (sem os ícones, mais limpo).
      */
     fun estilo(e: String) {
-        semIcones = e == Protetor.LINHAS_TEXTO
+        semIcones = e == "texto"
         if (semIcones) { iconeFrase.visibility = GONE; iconeCurio.visibility = GONE }
-        if (e == Protetor.LINHAS_VIDRO) {
+        if (e == "vidro") {
             background = android.graphics.drawable.GradientDrawable().apply { setColor(0x66000000); cornerRadius = dp(16).toFloat() }
             setPaddingRelative(dp(16), dp(12), dp(18), dp(12))
         }

@@ -447,14 +447,6 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** HOME: Assistir; HOME de novo: a TV. */
     fun home() { if (barra) teclaBarra(CruzLogica.Tecla.HOME) else aplicar(CruzLogica.Tecla.HOME) }
 
-    /** Volta à abertura (Assistir › 1º item); as outras categorias ficam onde estão. */
-    fun voltarAoInicio() {
-        val a = mapa.indice(CruzLogica.Categoria.ASSISTIR).takeIf { it >= 0 } ?: return
-        estado = CruzLogica.Estado(a, estado.sel.toMutableList().also { it[a] = 0 })
-        naApps = false
-        posicionar(animar = false); avisarMudanca()
-    }
-
     fun itemAtual(): Item? = cats.getOrNull(estado.cat)?.itens?.getOrNull(estado.sel.getOrElse(estado.cat) { 0 })
     fun categoriaAtual(): Categoria? = cats.getOrNull(estado.cat)
     /** Os mundos montados agora, na ordem da linha (testes de tela). */

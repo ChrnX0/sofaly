@@ -281,19 +281,6 @@ class FundoGaleria(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Uni
     /** Chamado (na thread da tela) quando a pintura do dia entra: o protetor gera dela o vidro desfocado ([Vidro]). */
     var aoTrocarImagem: ((android.graphics.Bitmap) -> Unit)? = null
 
-    /**
-     * Pixels da pintura -> coordenadas deste quadro (o recorte "centralizar e preencher" do ImageView). Nulo sem pintura.
-     * Começa pela escala de densidade do BitmapDrawable: o tamanho "intrínseco" dele nem sempre é o tamanho em pixels.
-     */
-    fun matrizImagem(): android.graphics.Matrix? {
-        val dr = imagem.drawable as? android.graphics.drawable.BitmapDrawable ?: return null
-        val b = dr.bitmap ?: return null
-        return android.graphics.Matrix().apply {
-            setScale(dr.intrinsicWidth / b.width.toFloat(), dr.intrinsicHeight / b.height.toFloat())
-            postConcat(imagem.imageMatrix)
-        }
-    }
-
     /** Título e "artista, ano" da obra do dia, para quem mostra a etiqueta do seu jeito (o protetor). */
     fun legenda(agoraMs: Long): Pair<String, String> {
         val o = obras[br.paulo.tvlauncher.settings.BackgroundStyle.indiceObra(Calendar.getInstance().apply { timeInMillis = agoraMs }.get(Calendar.DAY_OF_YEAR), br.paulo.tvlauncher.settings.BackgroundStyle.gallerySkip(context), obras.size)]

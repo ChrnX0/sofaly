@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher
 
-import br.paulo.tvlauncher.screensaver.Protetor
 import br.paulo.tvlauncher.screensaver.WidgetsTempo
 import java.util.TimeZone
 import org.junit.Assert.assertEquals
@@ -77,20 +76,7 @@ class WidgetsTempoTest {
         assertNull(WidgetsTempo.posicaoNaCurva(m, null))
     }
 
-    @Test fun estiloDoWidget() {
-        assertEquals(Protetor.WIDGET_FAIXA, Protetor.normalizarWidget(null))
-        assertEquals(Protetor.WIDGET_FAIXA, Protetor.normalizarWidget("horas"))     // escolha antiga (12/11)
-        assertEquals(Protetor.WIDGET_FAIXA, Protetor.normalizarWidget("resumo"))
-        assertEquals(Protetor.WIDGET_SOLTO, Protetor.normalizarWidget("solto"))
-        assertEquals(Protetor.WIDGET_CARTOES, Protetor.proximoWidget(Protetor.WIDGET_FAIXA))
-        assertEquals(Protetor.WIDGET_SOLTO, Protetor.proximoWidget(Protetor.WIDGET_CARTOES))
-        // 17/11/2026: depois do "solto" vêm "linha" e "grande" (variações do Paulo); do último volta à faixa.
-        assertEquals(Protetor.WIDGET_LINHA, Protetor.proximoWidget(Protetor.WIDGET_SOLTO))
-        assertEquals(Protetor.WIDGET_GRANDE, Protetor.proximoWidget(Protetor.WIDGET_LINHA))
-        assertEquals(Protetor.WIDGET_FAIXA, Protetor.proximoWidget(Protetor.WIDGET_GRANDE))
-    }
-
-    @Test fun rotuloDoSolNaoCobreBarra() {
+        @Test fun rotuloDoSolNaoCobreBarra() {
         // Caso da foto (15/11): pôr do sol logo depois da barra de 320; o texto não cabe de nenhum lado do risco
         // sem cobrir a barra de 320 ou a de 420, então vai para o meio do vão entre elas.
         val barras = listOf(20f, 120f, 220f, 320f, 420f)
