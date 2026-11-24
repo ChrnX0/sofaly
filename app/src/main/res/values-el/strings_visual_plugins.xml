@@ -47,4 +47,8 @@
     <string name="ext_widget_nenhum">Καμία εφαρμογή αυτής της τηλεόρασης δεν έχει ακόμη γραφικό στοιχείο.</string>
     <string name="ext_widget_sem_permissao">Η τηλεόραση δεν επέτρεψε στη Sofaly να προσθέσει γραφικά στοιχεία.</string>
     <string name="ext_widget_falhou">Δεν ήταν δυνατή η προσθήκη αυτού του στοιχείου.</string>
+    <string name="ext_off_health">Απενεργοποιήθηκε: σταμάτησε να αποκρίνεται. Ενεργοποιήστε το ξανά αν θέλετε.</string>
+    <string name="ext_secao_botoes">Κουμπιά γρήγορου πίνακα</string>
+    <string name="ext_nenhum_botao">Δεν υπάρχουν ακόμη κουμπιά από άλλες εφαρμογές. Κάποιες εφαρμογές προσθέτουν κουμπί ενεργοποίησης στον γρήγορο πίνακα (κρατήστε ΠΙΣΩ).</string>
+    <string name="ext_off_blocked">Απενεργοποιήθηκε από το Sofaly: αυτό το πρόσθετο έχει γνωστό πρόβλημα.</string>
 </resources>

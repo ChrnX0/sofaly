@@ -44,4 +44,12 @@
     <string name="wp_d_minimalist">Чисті символи на одному кольорі тла</string>
     <string name="wp_d_arcticons">15 000 тонких лінійних іконок (створені для телефонів, працюють і тут)</string>
 
+    <string name="ext_off_health">Вимкнено: перестав відповідати. Увімкніть знову, якщо хочете.</string>
+    <string name="ext_secao_botoes">Кнопки швидкої панелі</string>
+    <string name="ext_nenhum_botao">Поки немає кнопок з інших застосунків. Деякі застосунки додають кнопку ввімк./вимк. на швидку панель (утримуйте НАЗАД).</string>
+    <string name="ext_off_blocked">Вимкнено Sofaly: цей плагін має відому проблему.</string>
+    <string name="ext_secao_widgets">Віджети з інших застосунків</string>
+    <string name="ext_widget_nenhum">Поки жоден застосунок на цьому телевізорі не має віджета.</string>
+    <string name="ext_widget_sem_permissao">Телевізор не дозволив Sofaly додавати віджети.</string>
+    <string name="ext_widget_falhou">Не вдалося додати цей віджет.</string>
 </resources>
