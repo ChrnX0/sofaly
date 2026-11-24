@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Sat i tv\'et</string>
+    <string name="rede_sub_usb">USB-drev · videoer, musik og fotos</string>
+    <string name="rede_acao_arquivos">FTP, SFTP eller NFS</string>
+    <string name="rede_sub_arquivos">NAS, router med et drev, Linux- eller Mac-computer</string>
+    <string name="rede_arq_explica">Start adressen med protokollen: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. SFTP og FTPS er krypterede; almindelig FTP sender adgangskoden ukrypteret, så brug den kun derhjemme. NFS har ingen adgangskode: NAS\'en skal tillade tv\'ets IP og forbindelser fra ikke-privilegerede porte.</string>
+    <string name="rede_arq_endereco">Adresse (sftp://, ftp://, ftps:// eller nfs://)</string>
+    <string name="rede_arq_usuario">Brugernavn (NFS: brugernummer, valgfrit)</string>
+    <string name="rede_arq_endereco_erro">Start med sftp://, ftp://, ftps:// eller nfs://, efterfulgt af serveren og mappen. Brugernavn og adgangskode går i deres egne felter.</string>
+    <string name="rede_erro_nfs_porta">NFS-serveren afviste tv\'et. På NAS\'en, tillad forbindelser fra ikke-privilegerede porte (Linux: indstillingen \"insecure\" i /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">NFS-serveren tillod ikke dette tv. På NAS\'en, tilføj tv\'ets IP (eller dit hjemmenetværk) til denne mappes NFS-regel.</string>
+    <string name="rede_erro_chave_mudou">Denne servers nøgle er ændret, siden den blev tilføjet. Hvis du har geninstalleret serveren, fjern den her, og tilføj den igen; hvis ikke, udgiver nogen sig måske for at være den.</string>
+    <string name="rede_erro_usb_acesso">Tv\'et gav ikke launcheren adgang til USB-drevet. Prøv igen om et øjeblik.</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Hent fra et andet tv</string>
+    <string name="mtv_qr_desc">QR-kode til at hente indstillinger fra et andet tv</string>
+    <string name="mtv_instrucoes">På det GAMLE tv, åbn panelet (telefon eller computer), gå til System › Sikkerhedskopi › \"Flyt til et nyt tv\", og scan denne QR-kode, eller skriv koden nedenfor.\nAlt går krypteret, kun til dette tv. Koden varer %1$s.</string>
+    <string name="mtv_recebendo">Modtager… sluk ikke tv\'et.</string>
+    <string name="mtv_pronto">Alt kom fra %1$s. Tv\'et genstarter nu; derefter kommer dine apps tilbage én efter én.</string>
+    <string name="mtv_erro">Det virkede ikke: %1$s\nIntet blev ændret på dette tv. Tryk på \"%2$s\" for at prøve igen.</string>
+    <string name="mtv_venceu">Koden er udløbet (den varer 10 min).\nTryk på \"%1$s\" for at vise en ny.</string>
+    <string name="mtv_cfg_det">Det gamle tv\'s indstillinger, PIN-kode, kanaler og apps på 2 minutter, med en QR-kode</string>
+    <string name="mtv_fila_titulo">Dine apps kommer tilbage</string>
+    <string name="mtv_fila_texto">App %1$d af %2$d. Åbn den i Play Butik, og tryk på Installer; når du kommer tilbage, vises den næste.</string>
+    <string name="mtv_fila_abrir">Åbn i Play Butik</string>
+    <string name="mtv_fila_pular">Spring over</string>
+    <string name="mtv_fila_depois">Senere</string>
+    <string name="mtv_fila_fim">Alle apps fra det andet tv er her.</string>
+    <string name="mtv_fila_cfg_det">%1$d apps fra det andet tv mangler at blive installeret</string>
+    <string name="mtv_diario">Hentet fra %1$s: indstillinger gendannet, %2$d apps at installere</string>
+    <string name="mtv_diario_enviado">Sendt til et nyt tv: indstillinger og %1$d apps</string>
+</resources>

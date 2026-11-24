@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Færdige scener</string>
+    <string name="cpr_dormir">Slumre</string>
+    <string name="cpr_dormir_det">Natfilter, lavere lydstyrke, tv\'et slukker om 30 min</string>
+    <string name="cpr_novela">Sæbeopera</string>
+    <string name="cpr_novela_det">Din kanal, normale farver</string>
+    <string name="cpr_jogo">Kamp</string>
+    <string name="cpr_jogo_det">Din sportskanal, højere</string>
+    <string name="cpr_canal">Hvilken kanal til „%1$s“?</string>
+    <string name="cpr_canal_dica">Kanalnavn eller -nummer</string>
+</resources>

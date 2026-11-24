@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">kunne ikke åbne Udviklerindstillinger (%1$s)</string>
+    <string name="pn_porta_achada">parringsport %1$d fundet</string>
+    <string name="pn_mdns_falhou">netværkssøgning mislykkedes (%1$s)</string>
+    <string name="pn_pareando">parrer…</string>
+    <string name="pn_confirme">kode læst. For at parre, tryk på OK på fjernbetjeningen på “%1$s”</string>
+    <string name="pn_so_controle">kun en tast på fjernbetjeningen bekræfter parringen</string>
+</resources>

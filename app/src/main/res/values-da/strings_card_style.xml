@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Finjustering</string>
+    <string name="ft_dica">OK eller ▶ ◀ ændrer · TILBAGE lukker</string>
+    <string name="ft_abrir">Juster, mens du ser startskærmen</string>
+    <string name="ft_abrir_det">Skrifttype, ur, fremhævningsfarve, hjørner, glød og størrelse, live</string>
+    <string name="cs_destaque">Fremhævningsfarve</string>
+    <string name="cs_cantos">Hjørner</string>
+    <string name="cs_brilho">Fokusglød</string>
+    <string name="cs_tamanho">Korsets størrelse</string>
+    <string name="cs_ceu">Himmel</string>
+    <string name="cs_lilas">Lilla</string>
+    <string name="cs_retos">Firkantet</string>
+    <string name="cs_redondos">Rund</string>
+    <string name="cs_sem">Fra</string>
+    <string name="cs_suave">Blød</string>
+    <string name="cs_forte">Stærk</string>
+    <string name="cs_menor">Mindre</string>
+    <string name="cs_maior">Større</string>
+    <string name="bg_tintura">Farve over baggrunden</string>
+    <string name="bg_cor">Baggrundsfarve</string>
+    <string name="bg_desfoque">Baggrundssløring</string>
+    <string name="bg_transicao">Billedovergang</string>
+    <string name="bg_novo">Ny baggrund nu</string>
+    <string name="bg_solida">Ensfarvet</string>
+    <string name="bg_destaque">Fremhævning</string>
+    <string name="bg_noite">Nat</string>
+    <string name="bg_mata">Skov</string>
+    <string name="bg_brasa">Glød</string>
+    <string name="bg_grafite">Grafit</string>
+    <string name="bg_corte">Klip</string>
+    <string name="bg_lenta">Langsom</string>
+    <string name="bg_trocado">Ændret</string>
+    <string name="bg_nao_troca">Denne baggrund ændrer sig ikke</string>
+    <string name="bg_camera">Hjemmets kamera som baggrund</string>
+    <string name="bg_campainha">Dørklokkens kamera som baggrund</string>
+    <string name="bg_nenhuma">Ingen</string>
+    <string name="bg_ligado">Til</string>
+</resources>

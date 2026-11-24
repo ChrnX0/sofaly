@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">LISTER</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Filter</string>
+    <string name="coluna_esportes">Sport</string>
+    <string name="coluna_guia">Oversigt</string>
+    <string name="coluna_filtro_titulo">Filter</string>
+    <string name="coluna_filtro_ordem">Sortering: %1$s</string>
+    <string name="coluna_filtro_combinado">Genre, periode, bedømmelse, ikke sete…</string>
+    <string name="coluna_filtro_combinado_ativo">Filter: %1$s</string>
+    <string name="coluna_filtro_limpar">Ryd filter</string>
+    <string name="coluna_filtro_sortear">Overrask mig</string>
+    <string name="coluna_filtro_ocultas_mostrar">Vis skjulte kategorier (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Skjul skjulte kategorier igen</string>
+    <string name="coluna_menu_assistido">Marker som set</string>
+    <string name="coluna_menu_nao_assistido">Marker som ikke set</string>
+    <string name="coluna_menu_tirar_continuar">Fjern fra Fortsæt med at se</string>
+    <string name="coluna_menu_por_interesse">Tilføj til Se senere</string>
+    <string name="coluna_menu_tirar_interesse">Fjern fra Se senere</string>
+    <string name="coluna_marcado_assistido">%1$s markeret som set</string>
+    <string name="coluna_marcado_nao_assistido">%1$s markeret som ikke set</string>
+    <string name="coluna_tirado_continuar">%1$s fjernet fra Fortsæt med at se</string>
+    <string name="coluna_menu_tirar_home">Fjern fra startskærmen</string>
+    <string name="coluna_tirado_home">%1$s fjernet fra startskærmen</string>
+    <string name="coluna_etiqueta_concluida">Afsluttet</string>
+    <string name="coluna_etiqueta_nova_temporada">Ny sæson</string>
+    <string name="coluna_etiqueta_novos">Nye afsnit</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d nyt afsnit</item>
+        <item quantity="other">%d nye afsnit</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Gå til bogstav</string>
+    <string name="coluna_letra">Gå til et bogstav</string>
+    <string name="coluna_ao_vivo">LIVE</string>
+    <string name="coluna_ao_vivo_primeiro">Live først</string>
+    <string name="coluna_tv_titulo">Tv</string>
+    <string name="coluna_gravacoes">Optagelser</string>
+</resources>

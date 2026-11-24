@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Skærmen Alle apps</string>
+    <string name="aa_layout_shelves">Hylder</string>
+    <string name="aa_layout_folders">Mapper og kanaler</string>
+    <string name="aa_layout_library">Bibliotek</string>
+    <string name="aa_favoritos">Favoritter</string>
+    <string name="aa_pastas">Mapper</string>
+    <string name="aa_nova_pasta">Ny mappe</string>
+    <string name="aa_por_na_pasta">Tilføj til mappe…</string>
+    <string name="aa_tirar_da_pasta">Fjern fra denne mappe</string>
+    <string name="aa_renomear_pasta">Omdøb mappe</string>
+    <string name="aa_apagar_pasta">Slet mappe</string>
+    <string name="aa_fixar_cruz">Vis på startskærmen</string>
+    <string name="aa_soltar_cruz">Fjern fra startskærmen</string>
+    <string name="aa_ordenar">Sorter alle apps</string>
+    <string name="aa_f_tudo">Alle</string>
+    <string name="aa_f_uso">Mest brugte</string>
+    <string name="aa_f_novos">Nye</string>
+    <string name="aa_canais">Nu på %1$s</string>
+    <string name="aa_hint_folder">OK åbner · hold OK for muligheder</string>
+</resources>

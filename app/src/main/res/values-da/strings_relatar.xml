@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Rapporter et problem</string>
+    <string name="rel_linha_det">En QR-kode åbner formularen på din telefon, med de tekniske detaljer allerede udfyldt</string>
+    <string name="rel_texto">Ret telefonens kamera mod koden. Skriv, hvad der skete, og send. Dit navn, din konto, dit netværk og din by medtages ikke.</string>
+    <string name="rel_vai_junto">Hvad der sendes med</string>
+    <string name="rel_l_oque">Hvad der skete</string>
+    <string name="rel_l_versao">Version</string>
+    <string name="rel_l_uso">Tilstand</string>
+    <string name="rel_l_quedas">Nedbrud / frysninger (7 dage)</string>
+    <string name="rel_l_erro">Seneste fejl</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Automatisk sikkerhedskopiering</string>
+    <string name="bkn_explica">Hver nat, mens tv\'et ikke bruges, gemmes en fuld sikkerhedskopi låst med din adgangskode. De seneste 7 beholdes. Skriv adgangskoden ned: uden den kan sikkerhedskopien ikke åbnes.</string>
+    <string name="bkn_ligado">til</string>
+    <string name="bkn_desligado">fra</string>
+    <string name="bkn_sem_senha">fra · angiv først adgangskoden til sikkerhedskopien</string>
+    <string name="bkn_senha">Adgangskode til sikkerhedskopi</string>
+    <string name="bkn_senha_ok">angivet · OK ændrer</string>
+    <string name="bkn_senha_falta">ikke angivet · OK angiver</string>
+    <string name="bkn_senha_nova">Adgangskode til sikkerhedskopi (8 tegn eller flere)</string>
+    <string name="bkn_senha_repetir">Skriv adgangskoden igen</string>
+    <string name="bkn_senha_curta">Adgangskoden skal have 8 til 128 tegn.</string>
+    <string name="bkn_senha_diferente">De to adgangskoder stemte ikke overens.</string>
+    <string name="bkn_senha_gravada">Adgangskoden er gemt. Opbevar den et sikkert sted.</string>
+    <string name="bkn_senha_erro">Kunne ikke gemme adgangskoden.</string>
+    <string name="bkn_horario">Tidspunkt</string>
+    <string name="bkn_extra">Ekstra kopi</string>
+    <string name="bkn_destino_tv">Kun tv\'et</string>
+    <string name="bkn_destino_pendrive">USB-drev</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Sikkerhedskopier nu</string>
+    <string name="bkn_ultimo">Seneste</string>
+    <string name="bkn_nunca">aldrig</string>
+    <string name="bkn_pin">PIN-kode for at ændre sikkerhedskopieringen</string>
+</resources>

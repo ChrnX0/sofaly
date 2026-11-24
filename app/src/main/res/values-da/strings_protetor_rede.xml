@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screensaver remote keys (idea 28) -->
+    <string name="pt_dica_dispensar">OK afviser · ◀ ▶ flytter</string>
+    <string name="pt_dica_pausar">OK sætter på pause eller genoptager · ◀ ▶ flytter</string>
+    <string name="pt_dica_andar">◀ ▶ flytter · andre taster lukker</string>
+    <!-- Screensaver photos from a network folder (idea 27) -->
+    <string name="rede_fotos_usar">Brug disse fotos på pauseskærmen</string>
+    <string name="rede_fotos_parar">Stop med at bruge disse fotos på pauseskærmen</string>
+    <plurals name="rede_fotos_sub">
+        <item quantity="one">%1$d foto · kopieret til tv\'et, virker med computeren slukket</item>
+        <item quantity="other">%1$d fotos · kopieret til tv\'et, virker med computeren slukket</item>
+    </plurals>
+    <string name="rede_fotos_usando">Kopierer fotoene. De vises næste gang pauseskærmen starter.</string>
+    <string name="rede_fotos_paradas">Pauseskærmen bruger ikke længere denne mappe.</string>
+    <!-- "Network" as a catalog (idea 29) -->
+    <string name="rede_continuar">Fortsæt med at se</string>
+    <string name="rede_recentes">Senest tilføjet</string>
+    <string name="rede_buscar">Søg</string>
+    <string name="rede_buscar_explica">Film, serier, afsnit og musik på denne server.</string>
+    <string name="rede_buscar_campo">Navn</string>
+    <string name="rede_buscar_curto">Skriv mindst 2 bogstaver.</string>
+    <string name="rede_proximo_em">Næste: %1$s om %2$d s · OK starter nu · enhver anden tast annullerer</string>
+    <string name="rede_ainda_assistindo">Ser du stadig? OK starter %1$s</string>
+</resources>

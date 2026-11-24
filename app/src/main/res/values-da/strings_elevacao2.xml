@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Høj kontrast</string>
+    <string name="elv_ac_det">Lysere tekst og tydeligere kanter på alle skærme (mindst 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Synstolkning</string>
+    <string name="elv_ad_det">Vælg det lydspor, der beskriver scenen, når der er et</string>
+    <string name="elv_sdh_titulo">Undertekster for døve</string>
+    <string name="elv_sdh_det">Vis altid undertekster med lyde ([dør smækker]) på tv\'ets sprog, også når det er eftersynkroniseret</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Plakat og handling til videoerne</string>
+    <string name="elv_cat_explica">Kun titlen sendes til TMDB, aldrig mappen eller serveren</string>
+    <string name="elv_cat_ligado">Til</string>
+    <string name="elv_cat_desligado">Fra</string>
+    <string name="elv_cat_ep">%1$s · S%2$d A%3$d</string>
+    <string name="pod_temp_ep">S%1$d A%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Afsnit %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Sæson %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Sæsoner: %d</string>
+    <string name="elv_cat_procurando">Leder efter plakaten…</string>
+    <string name="elv_cat_nada">Intet fundet på TMDB. Hold OK for at skrive det rigtige navn.</string>
+    <string name="elv_cat_corrigir_titulo">Ret: %s</string>
+    <string name="elv_cat_corrigir_explica">Forkert plakat eller handling? Bed om det næste resultat, eller skriv det rigtige navn og år. Et tomt navn går tilbage til automatisk.</string>
+    <string name="elv_cat_nao_e">Ikke denne</string>
+    <string name="elv_cat_escrever">Skriv navnet</string>
+    <string name="elv_cat_campo">Navn og år, f.eks. Dune 2021</string>
+    <string name="elv_cat_salvar">Gem</string>
+    <string name="elv_cat_dica">ret</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Liste</string>
+    <string name="elv_bib_pasta">Mappe</string>
+    <string name="elv_bib_servidor">Server</string>
+    <string name="elv_bib_nuvem">Sky</string>
+    <string name="elv_bib_addon">Tilføjelse</string>
+</resources>

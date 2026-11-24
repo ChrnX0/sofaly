@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Når tv\'et tændes</string>
+    <string name="su_det">Åbner dette med det samme og springer startskærmen over</string>
+    <string name="su_home">Startskærm</string>
+    <string name="su_last">Seneste app</string>
+    <string name="su_quem">For hvem?</string>
+    <string name="su_todos">Hele tv\'et</string>
+    <string name="su_so">Kun %1$s</string>
+    <string name="su_segue_tv">Følg tv\'ets valg</string>
+    <string name="su_acordar">Også når det vågner</string>
+    <string name="su_acordar_det">Ikke kun efter en genstart: også når tv\'et vågner fra standby. Aldrig oven på en Cast eller alarmen</string>
+    <string name="su_esperar">Vent efter en genstart</string>
+    <string name="su_esperar_det">Giver tv\'et tid til at forbinde, før appen åbnes</string>
+    <string name="su_horario">Anden app efter tidspunkt på dagen</string>
+    <string name="su_horario_det">En automatisering med udløseren “Tv tændt” og “Kun hvis”</string>
+    
+</resources>

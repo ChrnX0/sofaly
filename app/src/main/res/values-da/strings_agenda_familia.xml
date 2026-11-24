@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Familieskema</string>
+    <string name="agf_sub">På det fastsatte tidspunkt skifter tv\'et selv til den profil. En børneprofil slår børnetilstand og sengetid til.</string>
+    <string name="agf_cfg_det">Skift opsat: %1$d. Profilen skifter af sig selv på det fastsatte tidspunkt.</string>
+    <string name="agf_adicionar">Tilføj et skift</string>
+    <string name="agf_adicionar_det">Hvis profil, hvilke dage og hvilket tidspunkt.</string>
+    <string name="agf_quem">Skift til hvis profil?</string>
+    <string name="agf_dias">Hvilke dage?</string>
+    <string name="agf_hora">Hvilket tidspunkt?</string>
+    <string name="agf_todos">Hver dag</string>
+    <string name="agf_uteis">Mandag til fredag</string>
+    <string name="agf_fds">Lørdag og søndag</string>
+    <string name="agf_alguns">Nogle dage</string>
+    <string name="agf_apagar">Slette dette skift?</string>
+    <string name="agf_apagar_sim">Slet</string>
+    <string name="agf_cheia">Skemaet er fuldt (12 skift).</string>
+    <string name="agf_sem_contas">Der er ingen profiler på dette tv endnu (Google-konti).</string>
+</resources>

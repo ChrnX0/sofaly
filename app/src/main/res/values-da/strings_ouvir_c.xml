@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado: Ouvir proposta C (21/11/2026). -->
+<resources>
+    <string name="som_titulo">Lyd</string>
+    <string name="som_titulo_pod">Lyd · %1$s</string>
+    <string name="som_voz_clara">Klar stemme</string>
+    <string name="som_so_este">Kun for denne podcast</string>
+    <string name="som_abertura">Spring introen over</string>
+    <string name="som_fim">Spring slutningen over</string>
+    <string name="som_segundos">%1$d s</string>
+    <string name="som_rodape_proprio">Disse indstillinger gemmes kun for %1$s.</string>
+    <string name="som_rodape_geral">Hastighed, stilhed og klar stemme gælder for alle podcasts. Slå \"Kun for denne podcast\" til for at have andre til %1$s.</string>
+    <string name="som_det">Hastighed, klar stemme, sleep-timer</string>
+    <string name="som_det_radio">Klar stemme og sleep-timer</string>
+    <string name="cap_titulo">Kapitler</string>
+    <string name="cap_de">Kapitel %1$d af %2$d</string>
+    <string name="cap_barra_dica">◀ ▶ flytter 10 s · OK: kapitler</string>
+    <string name="tx_titulo">Taletekst</string>
+    <string name="tx_carregando">indlæser</string>
+    <string name="tx_nao_tem">ikke i dette afsnit</string>
+    <string name="tx_nao_tem_det">Denne podcast udgiver ikke teksten til det, der siges i dette afsnit.</string>
+    <string name="tx_pe_busca">Fandt %1$d af %2$d · ◀ ▶ forrige / næste · ▼ ny søgning · OK: luk</string>
+    <string name="tx_buscar">Søg i det, der blev sagt</string>
+    <string name="tx_nada">Ingen sagde det i dette afsnit.</string>
+    <string name="ra_ja_tocou">Allerede afspillet</string>
+    <string name="ra_parecidas">Lignende stationer</string>
+    <string name="som_radio">Seneste radiostation, jeg lyttede til</string>
+    <string name="som_podcast">Nyeste podcastafsnit</string>
+    <string name="jor_titulo">Mine nyheder</string>
+    <string name="jor_ouvir">Afspil mine nyheder</string>
+    <string name="jor_min">%d min i træk</string>
+    <string name="tx_pe">◀ ▶ forrige / næste sætning · ▲ resumé · ▼ søg · OK: luk</string>
+    <string name="tx_gerando">genererer</string>
+    <string name="tx_gerando_det">Genererer teksten… den første del tager cirka et minut.</string>
+    <string name="tx_gerar">OK genererer den (gratis)</string>
+    <string name="tx_cota">tilbage i morgen</string>
+    <string name="tx_cota_det">Dagens gratis tekstkvote er brugt op. Den kommer tilbage i morgen.</string>
+    <string name="tx_pulei">Reklame sprunget over</string>
+    <string name="tx_pulei_det">%d s · ◀ går tilbage til den</string>
+    <string name="tx_resumo">Sofys resumé</string>
+    <string name="tx_resumo_de">Resumé · %s</string>
+    <string name="tx_resumindo">Læser det, der blev sagt… et øjeblik.</string>
+    <string name="tx_resumo_falhou">Resuméet kom ikke denne gang. Prøv igen om lidt.</string>
+    <string name="ra_globo">Udforsk jordkloden</string>
+    <string name="ra_globo_det">Drej verden, og land på en radiostation hvor som helst fra</string>
+    <string name="ra_globo_dica">◀ ▶ ▲ ▼ drej · OK: afspil · Tilbage: luk</string>
+    <string name="ra_globo_mar">Åbent hav… drej lidt mere</string>
+    <string name="ra_voltar">Tilbage 30 s</string>
+    <string name="ra_voltar_det">Gik du glip af noget? Hør det igen (⏪ på fjernbetjeningen)</string>
+    <string name="ra_ao_vivo">Tilbage til live</string>
+    <string name="ra_atras">%s efter live</string>
+</resources>

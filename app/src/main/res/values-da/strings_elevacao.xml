@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Sådan har dette tv det</string>
+    <string name="elv_placar_det">Syv løfter, hver med et tal målt på dette tv</string>
+    <string name="elv_placar_sub">Målt på dette tv. Intet her forlader huset.</string>
+    <string name="elv_pilar_liga">Tænder og er klar</string>
+    <string name="elv_pilar_ao_vivo">Live-tv, der ikke svigter</string>
+    <string name="elv_pilar_player">Stuens bedste afspiller</string>
+    <string name="elv_pilar_casa">Tv\'et, der passer på hjemmet</string>
+    <string name="elv_pilar_controle">Styring hvor som helst fra</string>
+    <string name="elv_pilar_todos">Alle kan bruge det</string>
+    <string name="elv_pilar_instala">Opsætter sig selv og reparerer sig selv</string>
+    <string name="elv_prom_liga">Startskærmen klar på under 1 sekund</string>
+    <string name="elv_prom_ao_vivo">Kanalskift tager under 1,5 sekunder, fra tasten til billedet</string>
+    <string name="elv_prom_player">Afspiller enhver fil; rigtige undertekster uden besvær</string>
+    <string name="elv_prom_casa">Alarmen ringer til tiden, hver gang</string>
+    <string name="elv_prom_controle">Panelet, telefonen og AI kan alt, hvad fjernbetjeningen kan</string>
+    <string name="elv_prom_todos">Ældre, børn, gæster, nedsat syn eller hørelse; 14 sprog</string>
+    <string name="elv_prom_instala">Fra første start til første kanal på 5 minutter</string>
+    <string name="elv_nao_medido">Ikke målt endnu</string>
+    <string name="elv_alvo">mål %1$s</string>
+    <string name="elv_n_de_n">til tiden %1$d af %2$d</string>
+    <string name="elv_dentro">inden for målet</string>
+    <string name="elv_fora">uden for målet</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d nedbrud eller frysning på %2$d dage</item>
+        <item quantity="other">%1$d nedbrud eller frysninger på %2$d dage</item>
+    </plurals>
+    <string name="elv_lp_titulo">Mål før og efter</string>
+    <string name="elv_lp_det_antes">Mål ledig hukommelse og hvor hurtigt dine 3 mest brugte apps åbner, før du rydder op. De åbner i nogle sekunder.</string>
+    <string name="elv_lp_det_depois">Før er gemt. Skjul apps ovenfor, og tryk derefter på OK for at måle efter.</string>
+    <string name="elv_lp_medindo">Måler… apps kan åbne i nogle sekunder</string>
+    <string name="elv_lp_mais_livre">%1$d MB mere ledigt</string>
+    <string name="elv_lp_menos_livre">%1$d MB mindre ledigt</string>
+    <string name="elv_lp_mais_rapido">%1$s åbner %2$s hurtigere</string>
+    <string name="elv_lp_mais_lento">%1$s åbner %2$s langsommere</string>
+    <string name="elv_lp_igual">Ingen forskel stor nok til at måle</string>
+    <string name="elv_agora">lige nu</string>
+    <string name="elv_sem_quedas">Ingen nedbrud eller frysninger på %1$d dage</string>
+    <string name="elv_reserva">%1$s faldt ud. Afspiller %2$s i stedet.</string>
+    <string name="elv_zap_solte">Slip for at se</string>
+    <string name="elv_leg_padrao">standard</string>
+    <string name="elv_leg_contraste">høj kontrast</string>
+    <string name="elv_leg_amarela">gul</string>
+    <string name="elv_leg_embaixo">nederst</string>
+    <string name="elv_leg_em_cima">øverst</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Gør det</string>
+    <string name="elv_bf_ok_faz">OK gør det nu</string>
+    <string name="elv_bf_wifi">Vis gæste-wifi</string>
+    <string name="elv_bf_wifi_configurar">Ikke opsat endnu: OK åbner Indstillinger (Besøg)</string>
+    <string name="elv_bf_letra_maior">Større tekst (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Mindre tekst (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Den har allerede denne størrelse</string>
+    <string name="elv_bf_radios">Radiostationer</string>
+    <string name="elv_bf_radio_fav">Favoritstation</string>
+    <string name="elv_bf_ajuda">Hjælp</string>
+    <string name="elv_bf_ajuda_det">Emne i vejledningen</string>
+    <string name="elv_bf_procurar">Søg videre</string>
+    <string name="elv_bf_procurar_radio">Radiostationer, der hedder „%1$s“</string>
+    <string name="elv_bf_procurar_radio_det">Stationer fra hele verden</string>
+    <string name="elv_bf_procurar_rede">„%1$s“ i dine netværksfiler</string>
+    <string name="elv_bf_procurar_rede_det">På din Jellyfin, Emby eller Plex</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Søg i indstillinger</string>
+    <string name="elv_aj_explica">Skriv et ord: navnet på indstillingen eller et andet ord for den (\"skrift\" finder tekststørrelsen)</string>
+    <string name="elv_aj_dica">For eksempel: skrift, wifi, pauseskærm</string>
+    <string name="elv_aj_recentes">Ændret for nylig</string>
+    <string name="elv_aj_recentes_vazio">De indstillinger, du ændrer, vises her, den seneste først</string>
+    <string name="elv_aj_nada">Intet fundet for „%1$s“</string>
+    <string name="elv_aj_nada_det">Prøv et andet ord, eller kig i fanerne til venstre</string>
+    <string name="elv_aj_sinonimos">skrift,skrifttype,bogstav,tekst,størrelse,større,mindre,font;wifi,wi-fi,netværk,internet,forbindelse;pauseskærm,hvile,inaktiv,dvale;adgangskode,pin,kode;lyd,lydstyrke,audio;tid,ur,klokke,time;vejr,vejrudsigt,temperatur;sprog,idiom;børn,barn,forældrekontrol,forældre;gæst,besøgende,besøg;opdatering,version,ny;sikkerhedskopi,backup,kopi,gendan;telefon,mobil,mobiltelefon;lys,lampe,hjem,hus;slumre,sluk,timer,energi,strøm;kanal,tv,live;film,serie,program;undertekst,undertekster,tekstning;alarm,vækning,vækkeur;foto,billede,baggrund,tapet</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Kræver opmærksomhed</string>
+    <string name="elv_f_canal_caiu_frase">Denne kanal kommer ikke ind lige nu</string>
+    <string name="elv_f_canal_caiu_causa">Kanalens udbyder holdt op med at sende den. Den kommer som regel tilbage af sig selv.</string>
+    <string name="elv_f_canal_caiu_botao">Se en anden kanal</string>
+    <string name="elv_f_lista_venceu_frase">Din kanalliste er udløbet</string>
+    <string name="elv_f_lista_venceu_causa">Kontoen hos den, der sælger listen, er løbet ud eller blev afvist.</string>
+    <string name="elv_f_lista_venceu_botao">Åbn kontoen</string>
+    <string name="elv_f_relogio_errado_frase">Tv\'ets ur går forkert</string>
+    <string name="elv_f_relogio_errado_causa">Med forkert tid fejler oversigten og sikre websteder.</string>
+    <string name="elv_f_relogio_errado_botao">Indstil uret</string>
+    <string name="elv_f_disco_cheio_frase">Tv\'et er ved at løbe tør for plads</string>
+    <string name="elv_f_disco_cheio_causa">Uden plads kan oversigten, optagelser og opdateringer ikke gemmes.</string>
+    <string name="elv_f_disco_cheio_botao">Frigør plads</string>
+    <string name="elv_f_shell_parado_frase">Tv\'ets ekstra kræfter holdt op</string>
+    <string name="elv_f_shell_parado_causa">Trådløs fejlfinding blev slået fra, eller parringen gik tabt.</string>
+    <string name="elv_f_shell_parado_botao">Slå dem til igen</string>
+    <string name="elv_f_tunel_sem_login_frase">Adgangen udefra venter på et login</string>
+    <string name="elv_f_tunel_sem_login_causa">Tailscale-login er udløbet.</string>
+    <string name="elv_f_tunel_sem_login_botao">Log ind igen</string>
+    <string name="elv_f_backup_falhou_frase">Nattens sikkerhedskopiering har ikke kørt i 2 dage</string>
+    <string name="elv_f_backup_falhou_causa">Destinationen kunne ikke nås, eller adgangskoden er ændret.</string>
+    <string name="elv_f_backup_falhou_botao">Sikkerhedskopier nu</string>
+    <string name="elv_f_religando">Slår dem til igen: det tager op til et minut</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Forstyr ikke: under en film, sent om aftenen eller med gæster venter beskeder og kommer tilbage i en opsummering (alarm og dørklokke vises altid)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Mens du så: %1$d besked</item><item quantity="other">Mens du så: %1$d beskeder</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">I løbet af natten: %1$d besked</item><item quantity="other">I løbet af natten: %1$d beskeder</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Under besøget: %1$d besked</item><item quantity="other">Under besøget: %1$d beskeder</item></plurals>
+    <string name="elv_np_mais">+%1$d mere</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Når en film slutter</string>
+    <string name="elv_ev_programa_comecou">Når et program, du markerede i oversigten, starter</string>
+    <string name="elv_ev_nascer_do_sol">Ved solopgang</string>
+    <string name="elv_ev_por_do_sol">Ved solnedgang</string>
+    <string name="elv_ev_campainha">Når dørklokken ringer</string>
+    <string name="elv_ev_alguem_chegou">Når nogen kommer hjem</string>
+    <string name="elv_ev_internet_caiu">Når internettet går ned</string>
+    <string name="elv_ev_internet_voltou">Når internettet kommer tilbage</string>
+    <string name="elv_ev_recado_chegou">Når der kommer en besked</string>
+    <string name="elv_ev_aniversario">På nogens fødselsdag (kl. 9)</string>
+    <string name="elv_ev_compromisso">Når en aftale i kalenderen starter</string>
+    <string name="elv_ss_sempre">Altid</string>
+    <string name="elv_ss_so_se">Kun hvis %1$s</string>
+    <string name="elv_ss_e">" og "</string>
+    <string name="elv_ss_em_casa">nogen er hjemme</string>
+    <string name="elv_ss_noite">efter solnedgang</string>
+    <string name="elv_ss_dia_util">det er en hverdag</string>
+    <string name="elv_ss_perfil">profilen er %1$s</string>
+    <string name="elv_ss_det">◀ ▶ ændrer betingelsen</string>
+    <string name="extras_ABERTURA_PRONTA">Spring intro over (IntroDB): på afsnit spørger tv\'et fællesskabstjenesten IntroDB, hvor introen er (det sender hvilket afsnit, aldrig din konto); fra, kun introer du har markeret</string>
+</resources>

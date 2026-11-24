@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Skrifttype</string>
+    <string name="fc_det">Bogstaverne på alle skærme. Google-skrifttyper downloades første gang</string>
+    <string name="fc_baixando">downloader…</string>
+    <string name="fc_falhou">Kunne ikke downloade den. Tjek internettet</string>
+    <string name="ck_formato">Tidsformat</string>
+    <string name="ck_formato_det">I den øverste bjælke, Øen og det store ur</string>
+    <string name="ck_auto">Automatisk</string>
+    <string name="ck_24">24 t (15:40)</string>
+    <string name="ck_12">12 t (3:40)</string>
+    <string name="ck_12ampm">12 t med AM/PM</string>
+    <string name="ck_seg">Med sekunder</string>
+    <string name="ck_cor">Tidens farve</string>
+    <string name="ck_cor_det">I den øverste bjælke, Øen og det store ur</string>
+    <string name="ck_padrao">Standard</string>
+    <string name="ck_laranja">Orange</string>
+    <string name="ck_creme">Creme</string>
+    <string name="ck_ambar">Rav</string>
+    <string name="ck_verde">Blågrøn</string>
+</resources>

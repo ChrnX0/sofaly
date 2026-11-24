@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Timer</string>
+    <string name="sh_dias">Dage</string>
+    <string name="sh_dicas">Tips</string>
+    <string name="sh_ar">Luft</string>
+    <string name="sh_orvalho">dugpunkt %1$d°</string>
+    <string name="sh_nuvens">Skyer</string>
+    <string name="sh_nascer">Solopgang</string>
+    <string name="sh_por">Solnedgang</string>
+    <string name="sh_duracao">Dagens længde</string>
+    <string name="sh_horas_min">%1$dt%2$02d</string>
+    <string name="sh_dourada">Gyldne time</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s oplyst</string>
+    <string name="sh_cheia">Fuldmåne</string>
+    <string name="sh_nova">Nymåne</string>
+    <string name="sh_em_dias">om %1$d d</string>
+    <string name="sh_rodar">Skift den nederste stribe</string>
+    <string name="sh_rodar_det">På pauseskærmen skifter den nederste stribe af sig selv. ↑ og ↓ skifter den med det samme.</string>
+    <string name="sh_rodar_desl">Fra</string>
+    <string name="sh_rodar_s">Hvert %1$d. sekund</string>
+    <string name="sh_rodar_min">Hvert minut</string>
+    <string name="sh_vidro">Glas bag den nederste stribe</string>
+    <string name="sh_vidro_det">Et glaspanel bag striben. Fra: kun en tynd linje.</string>
+    <string name="sh_fundo">Pauseskærmens baggrund</string>
+    <string name="sh_fundo_det">Hvad der er bag uret på pauseskærmen: et andet tema, et foto, en video eller flere, der skifter.</string>
+    <string name="sh_fundo_home">Samme som startskærmen</string>
+    <string name="sh_fundo_fotos">Fotos og videoer, der skifter</string>
+    <string name="sh_fundo_arquivo">Én fil kun til pauseskærmen</string>
+</resources>

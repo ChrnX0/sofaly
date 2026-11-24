@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor: variações de cada elemento (17/11/2026). -->
+<resources>
+    <string name="pv2_est_avisos">Beskedernes stil</string>
+    <string name="pv2_est_avisos_det">hvordan beskeder og påmindelser vises · OK ændrer</string>
+    <string name="pv2_av_cartoes">Glaskort</string>
+    <string name="pv2_av_lista">Liste uden boks</string>
+    <string name="pv2_av_um">Én ad gangen</string>
+    <string name="pv2_est_textos">Stil for hilsen og dato</string>
+    <string name="pv2_est_textos_det">OK ændrer</string>
+    <string name="pv2_tx_moderno">Moderne</string>
+    <string name="pv2_tx_serifa">Serif</string>
+    <string name="pv2_tx_maiusculas">Spærrede versaler</string>
+    <string name="pv2_est_linhas">Vejrlinjens stil</string>
+    <string name="pv2_est_linhas_det">vejrsætningen og den sjove fakta · OK ændrer</string>
+    <string name="pv2_ln_icones">Med ikoner</string>
+    <string name="pv2_ln_vidro">På mørkt glas</string>
+    <string name="pv2_ln_texto">Kun tekst</string>
+    <string name="pv2_est_credito">Fotokreditens stil</string>
+    <string name="pv2_est_credito_det">OK ændrer</string>
+    <string name="pv2_cr_etiqueta">Etiket</string>
+    <string name="pv2_cr_discreto">Diskret</string>
+    <string name="cl_widget_linha">Én linje</string>
+    <string name="cl_widget_grande">Stor</string>
+    <string name="pv2_widget_det">fem stilarter · OK ændrer</string>
+</resources>

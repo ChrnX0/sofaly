@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Film- og serietjenester</string>
+    <string name="sv_subtitulo">Valgfrie konti. Intet sendes uden for tv\'et, før du logger ind.</string>
+    <string name="sv_linha">Film- og serietjenester</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB og OpenSubtitles</string>
+    <string name="sv_trakt_det">Holder det, du har set, og din watchlist synkroniseret med din telefon</string>
+    <string name="sv_simkl_det">Ligesom Trakt, også god til anime. Brug én eller begge</string>
+    <string name="sv_mdblist_det">Valgfrit: dine lister, som Top 250, bliver kategorier i Film og Serier</string>
+    <string name="sv_tmdb_det">Handling, medvirkende og dato for næste afsnit, på tv\'ets sprog</string>
+    <string name="sv_os_det">Undertekster online. Uden konto: 5 om dagen. Med en gratis konto: 20</string>
+    <string name="sv_desligado">Log ind</string>
+    <string name="sv_entrando">logger ind…</string>
+    <string name="sv_conectado">forbundet</string>
+    <string name="sv_ativo">til</string>
+    <string name="sv_sem_chave">Denne version har ikke nøglerne til disse tjenester endnu. De dukker op efter den næste opdatering.</string>
+    <string name="sv_pedindo">Beder %1$s om en kode…</string>
+    <string name="sv_passos">1. På din telefon, åbn %1$s (eller ret kameraet mod koden til højre).\n2. Log ind på %2$s, og skriv koden:</string>
+    <string name="sv_espera">Denne skærm fortsætter af sig selv. TILBAGE annullerer.</string>
+    <string name="sv_ok">Færdig: %1$s er forbundet%2$s.</string>
+    <string name="sv_ok_como"> som %1$s</string>
+    <string name="sv_falhou">Det virkede ikke: %1$s</string>
+    <string name="sv_motivo_venceu">koden er udløbet. Prøv igen.</string>
+    <string name="sv_motivo_recusado">adgang blev afvist på telefonen.</string>
+    <string name="sv_motivo_usado">denne kode er allerede brugt. Prøv igen.</string>
+    <string name="sv_motivo_erro">tjenesten svarede ikke. Prøv igen om et øjeblik.</string>
+    <string name="sv_sair_pergunta">Log ud af %1$s? Tv\'et glemmer kontoen og holder op med at tale med %1$s. Dine data der bliver der.</string>
+    <string name="sv_sair">Log ud</string>
+    <string name="sv_fechar">Luk</string>
+    <string name="sv_mdblist_titulo">MDBList-nøgle</string>
+    <string name="sv_mdblist_texto">Valgfrit: bedømmelser virker allerede uden den. For at bruge din egen MDBList-konto (dine lister, din kvote), log ind på mdblist.com, åbn Preferences, kopier API-nøglen, og skriv den her (lettere fra webpanelet, fanen Indstillinger, ved at indsætte den).</string>
+    <string name="sv_mdblist_dica">API-nøgle</string>
+    <string name="sv_os_titulo">OpenSubtitles-konto</string>
+    <string name="sv_os_texto">Valgfrit: med en gratis konto på opensubtitles.com går grænsen fra 5 til 20 undertekster om dagen.</string>
+    <string name="sv_os_usuario">Brugernavn</string>
+    <string name="sv_os_senha">Adgangskode</string>
+    <string name="sv_gravar">Gem</string>
+    <string name="sv_cancelar">Annuller</string>
+    <string name="sv_limite_dia">Dagens grænse for undertekster er nået. Den fornys om 24 t (med en OpenSubtitles-konto er den 20 om dagen).</string>
+    <string name="sv_tmdb_atribuicao">Dette produkt bruger TMDB API, men er ikke godkendt eller certificeret af TMDB.</string>
+    <string name="ext_saga">%1$s · %2$d af %3$d på din liste</string>
+    <string name="ext_nao_e_este">Ikke denne film</string>
+    <string name="ext_proximo">Nyt afsnit %1$s (S%2$dA%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Nyt afs. %1$s</string>
+    <string name="ext_hoje">i dag</string>
+    <string name="ext_amanha">i morgen</string>
+    <string name="sv_mdblist_passos">Valgfrit: dine MDBList-lister (som Top 250) bliver kategorier i Film og Serier.\n1. Ret telefonens kamera mod koden til venstre, og log ind (eller opret en gratis konto). Nederst på siden, tryk på API Access, generer nøglen, hvis der ikke er en endnu, og kopier den.\n2. Ret mod koden til højre: webpanelet åbner på Indstillinger. Indsæt nøglen under MDBList, og tryk på Gem nøgle.\n3. Tv\'et tjekker den med det samme, og denne skærm fortsætter af sig selv.</string>
+    <string name="sv_mdblist_qr1">MDBList-nøgleside</string>
+    <string name="sv_mdblist_qr2">Webpanel (%1$s)</string>
+    <string name="sv_mdblist_digitar">Skriv nøglen her</string>
+    <string name="sv_f_chave_invalida">ugyldig nøgle (kun bogstaver og tal)</string>
+    <string name="sv_f_chave_recusada">%1$s accepterede ikke denne nøgle</string>
+    <string name="sv_f_respondeu">%1$s svarede med fejl %2$d. Prøv igen om et øjeblik.</string>
+    <string name="sv_f_falta">angiv brugernavn og adgangskode</string>
+    <string name="sv_f_longo">brugernavn eller adgangskode for lang</string>
+    <string name="sv_f_senha">forkert brugernavn eller adgangskode</string>
+    <string name="sv_f_gravar">kunne ikke gemme det på tv\'et. Prøv igen.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Simkl-bedømmelse</string>
+    <string name="sv_simkl_convite_det">Forbind din konto</string>
+</resources>

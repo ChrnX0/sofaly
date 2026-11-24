@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Enkel bjælke</string>
+    <string name="strip_desc_watch">Film, serier og tv</string>
+    <string name="strip_desc_listen">Musik, radio og podcasts</string>
+    <string name="strip_desc_play">Spil og cloud-gaming</string>
+    <string name="strip_desc_apps">Alt installeret</string>
+    <string name="strip_desc_tools">Alarm, vejr og indstillinger</string>
+    <string name="strip_apps_count">%1$d apps</string>
+    <string name="st_desc">Verdensbeskrivelse</string>
+    <string name="st_desc_fixa">Fast sætning</string>
+    <string name="st_desc_viva">Hvad der kører nu</string>
+    <string name="st_formato">Kortform</string>
+    <string name="st_quadrado">Kvadratisk</string>
+    <string name="st_tamanho">Kortstørrelse</string>
+    <string name="st_pequeno">Lille</string>
+    <string name="st_medio">Mellem</string>
+    <string name="st_grande">Stor</string>
+    <string name="st_espaco">Afstand mellem kort</string>
+    <string name="st_justo">Tæt</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Bred</string>
+    <string name="st_cantos">Korthjørner</string>
+    <string name="st_retos">Skarpe</string>
+    <string name="st_suaves">Bløde</string>
+    <string name="st_redondos">Runde</string>
+    <string name="st_placa">Glasplade bagved</string>
+    <string name="st_nome">Navn på kortet i fokus</string>
+    <string name="st_sem">Fra</string>
+    <string name="st_com">Til</string>
+</resources>

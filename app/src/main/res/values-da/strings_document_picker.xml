@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seletor de pastas e arquivos (DocumentPickerActivity, 21/11/2026). -->
+<resources>
+    <string name="dp_titulo_pasta">Vælg en mappe</string>
+    <string name="dp_titulo_arquivo">Vælg en fil</string>
+    <string name="dp_titulo_salvar">Vælg, hvor der skal gemmes</string>
+    <string name="dp_para">Til %1$s</string>
+    <string name="dp_usar_pasta">Brug denne mappe</string>
+    <string name="dp_salvar_aqui">Gem her</string>
+    <string name="dp_memoria">Tv-lager</string>
+    <string name="dp_rede">Netværksmappe</string>
+    <string name="dp_livre">%1$s ledigt</string>
+    <string name="dp_vazia">Intet at vælge her</string>
+    <string name="dp_abrindo">Åbner…</string>
+    <string name="dp_erro">Kunne ikke åbne dette sted. Tjek, at det er forbundet, og prøv igen.</string>
+    <string name="dp_arquivos">Filer i denne mappe: %1$d</string>
+    <string name="dp_dicas">OK: åbn · TILBAGE: gå tilbage</string>
+    <string name="dp_diario">%1$s modtog %2$s fra vælgeren</string>
+    <string name="dp_sem_nome">uden titel</string>
+</resources>

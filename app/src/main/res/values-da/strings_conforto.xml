@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Resumé skjult, indtil du ser det</string>
+    <string name="cf_spoiler">Skjul resuméer af afsnit, du ikke har set</string>
+    <string name="cf_spoiler_det">Et resumé vises først, når du har startet afsnittet</string>
+    <string name="cf_segundo">Andet sprog</string>
+    <string name="cf_segundo_det">Bruges, når en video ikke har lyd eller undertekster på tv\'ets sprog</string>
+    <string name="cf_nenhum">Ingen</string>
+    <string name="cf_proximo">Nedtælling til næste afsnit</string>
+    <string name="cf_proximo_det">Hvor længe der ventes, før næste afsnit starter af sig selv</string>
+    <string name="cf_proximo_nao">Start ikke af sig selv</string>
+    <string name="cf_segundos">%1$d s</string>
+    <string name="cf_consent_titulo">Sende data til %1$s?</string>
+    <string name="cf_consent_texto">Når dette slås til, sendes følgende til %1$s via internettet: de titler, du markerer og ser på dette tv, og hvor du stoppede. De gemmes på din %1$s-konto efter %1$s\' privatlivsregler. Du kan slå det fra når som helst.</string>
+    <string name="cf_consent_sim">Jeg accepterer</string>
+</resources>

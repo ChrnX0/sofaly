@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Logget ind som %1$s. Hvad tv\'et holder i takt med din telefon.</string>
+    <string name="sync_sub_mdblist">Logget ind som %1$s. Dine MDBList-lister kan vises i kataloget.</string>
+    <string name="sync_ultima">Seneste synkronisering: %1$s</string>
+    <string name="sync_nunca">Ikke synkroniseret endnu</string>
+    <string name="sync_interesses">Interesser ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Interesser ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Det, du markerer her, vises der, og omvendt</string>
+    <string name="sync_assistidos">Set ← Historik</string>
+    <string name="sync_assistidos_det">Henter det, du allerede har set på telefonen eller andre steder</string>
+    <string name="sync_continuar">Fortsæt ⇄ Hvor du stoppede</string>
+    <string name="sync_continuar_det">Stop på telefonen, fortsæt på tv\'et samme sted</string>
+    <string name="sync_contar">Fortæl %1$s, hvad jeg ser her</string>
+    <string name="sync_contar_det">Sender „ser nu“ og „set“, mens det spiller. Aldrig i gæstetilstand eller på en børneprofil.</string>
+    <string name="sync_listas">Lister i kataloget</string>
+    <string name="sync_listas_nenhuma">Ingen valgt</string>
+    <string name="sync_listas_n">%1$d valgt: %2$s</string>
+    <string name="sync_listas_sub">De vises i LISTER, under Alle, med kun de titler, din liste har. Op til %1$d.</string>
+    <string name="sync_listas_carregando">Indlæser dine lister…</string>
+    <string name="sync_listas_vazio">Ingen lister fundet. Opret eller synes godt om en liste på Trakt eller MDBList, og kom tilbage hertil.</string>
+    <string name="sync_listas_cheio">Op til %1$d lister</string>
+    <string name="sync_lista_itens">%1$d titler</string>
+    <string name="sync_agora">Synkroniser nu</string>
+    <string name="sync_agora_det">Det sker også af sig selv, når du åbner Film eller Serier</string>
+    <string name="sync_rodando">Synkroniserer…</string>
+    <string name="sync_feito">Synkroniseret</string>
+    <string name="sync_sair">Log ud af %1$s</string>
+    <string name="sync_bloqueado">På pause: gæstetilstand eller en børneprofil er slået til.</string>
+    <string name="sync_outro_perfil">På pause: synkroniseringen hører til en anden profil.</string>
+    <string name="sync_trakt_cheia">Din Trakt-liste er fuld (gratis konti rummer 100). Launcheren fortsætter kun på tv\'et.</string>
+    <string name="sync_ligado">Til</string>
+    <string name="sync_desligado">Fra</string>
+    <string name="sync_fonte_trakt">Data fra Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Data fra Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d af %2$d på din liste</string>
+    <string name="sync_continuando">Fortsætter, hvor du stoppede på den anden enhed</string>
+</resources>
