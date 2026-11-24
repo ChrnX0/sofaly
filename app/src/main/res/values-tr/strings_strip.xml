@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Tek çubuk</string>
+    <string name="strip_desc_watch">Filmler, diziler ve TV</string>
+    <string name="strip_desc_listen">Müzik, radyo ve podcast</string>
+    <string name="strip_desc_play">Oyunlar ve bulut oyunları</string>
+    <string name="strip_desc_apps">Yüklü her şey</string>
+    <string name="strip_desc_tools">Alarm, hava durumu ve ayarlar</string>
+    <string name="strip_apps_count">%1$d uygulama</string>
+    <string name="st_desc">Dünya açıklaması</string>
+    <string name="st_desc_fixa">Sabit cümle</string>
+    <string name="st_desc_viva">Şu an ne var</string>
+    <string name="st_formato">Kart biçimi</string>
+    <string name="st_quadrado">Kare</string>
+    <string name="st_tamanho">Kart boyutu</string>
+    <string name="st_pequeno">Küçük</string>
+    <string name="st_medio">Orta</string>
+    <string name="st_grande">Büyük</string>
+    <string name="st_espaco">Kartlar arası boşluk</string>
+    <string name="st_justo">Dar</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Geniş</string>
+    <string name="st_cantos">Kart köşeleri</string>
+    <string name="st_retos">Düz</string>
+    <string name="st_suaves">Yumuşak</string>
+    <string name="st_redondos">Yuvarlak</string>
+    <string name="st_placa">Arkada cam plaka</string>
+    <string name="st_nome">Seçili kartta ad</string>
+    <string name="st_sem">Kapalı</string>
+    <string name="st_com">Açık</string>
+</resources>

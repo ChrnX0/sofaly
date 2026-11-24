@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Barra única</string>
+    <string name="strip_desc_watch">Películas, series y TV</string>
+    <string name="strip_desc_listen">Música, radio y pódcasts</string>
+    <string name="strip_desc_play">Juegos y juegos en la nube</string>
+    <string name="strip_desc_apps">Todo lo instalado</string>
+    <string name="strip_desc_tools">Alarma, clima y ajustes</string>
+    <string name="strip_apps_count">%1$d apps</string>
+    <string name="st_desc">Descripción del mundo</string>
+    <string name="st_desc_fixa">Frase fija</string>
+    <string name="st_desc_viva">Lo que hay ahora</string>
+    <string name="st_formato">Formato de tarjetas</string>
+    <string name="st_quadrado">Cuadrado</string>
+    <string name="st_tamanho">Tamaño de tarjetas</string>
+    <string name="st_pequeno">Pequeño</string>
+    <string name="st_medio">Mediano</string>
+    <string name="st_grande">Grande</string>
+    <string name="st_espaco">Espacio entre tarjetas</string>
+    <string name="st_justo">Justo</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Amplio</string>
+    <string name="st_cantos">Esquinas de tarjetas</string>
+    <string name="st_retos">Rectas</string>
+    <string name="st_suaves">Suaves</string>
+    <string name="st_redondos">Redondas</string>
+    <string name="st_placa">Placa de vidrio detrás</string>
+    <string name="st_nome">Nombre en la tarjeta enfocada</string>
+    <string name="st_sem">No</string>
+    <string name="st_com">Sí</string>
+</resources>

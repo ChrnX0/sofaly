@@ -199,12 +199,31 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Na barra: a linha de apps está aberta (o foco está num app) ou fechada (o foco está na categoria). */
     private var naApps = false
 
+    /**
+     * "Barra única" ([StripHome], 24/11/2026): mundo acima (▲ ▼) e uma linha de cards embaixo (◀ ▶). O desenho é do
+     * [StripLayer]; o estado e as teclas continuam aqui. Quem usa define antes de montar.
+     */
+    var faixa = false
+        set(v) { if (field == v) return; field = v; aplicarModo(); posicionar(animar = false) }
+    /** Opções dos cards e da descrição da barra única (Ajuste fino). */
+    var opcoesFaixa: StripHome.Options
+        get() = strip.opcoes
+        set(v) { strip.opcoes = v; if (faixa) posicionar(animar = false) }
+    /** Banner de TV de um item da barra única (só apps); quem usa responde na thread principal. */
+    var bannerDe: ((Item, (Drawable?) -> Unit) -> Unit)?
+        get() = strip.bannerDe
+        set(v) { strip.bannerDe = v }
+    /** De onde o mundo veio no último passo (-1 de cima, +1 de baixo): a linha do mundo entra por esse lado. */
+    private var direcaoFaixa = 0
+
     private var cats: List<Categoria> = emptyList()
     private var mapa = CruzLogica.Mapa(emptyList(), emptyList())
     private var estado = CruzLogica.Estado(0, emptyList())
     private var assinatura: List<String>? = null
 
     private val viewsCat = ArrayList<View>()
+    /** A camada da barra única ([faixa]); some nos outros jeitos. */
+    private val strip: StripLayer
     private val veu: View
     private val placa: View
     private val realce: View
@@ -367,16 +386,25 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         addView(nomeApp, LayoutParams(dpi(BARRA_PASSO_APPS.toInt() + 40), LayoutParams.WRAP_CONTENT))
+        strip = StripLayer(ctx).apply { visibility = View.GONE }
+        addView(strip, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
         setOnFocusChangeListener { _, tem -> posicionar(animar = false); anunciar(); atualizarDetalhe(); if (tem) dicaDepois() else esconderDica() }
     }
 
     /** Mostra as peças de um jeito e esconde as do outro (cruz: véu, nome do mundo, seta; barra: placa, realce, títulos). */
     private fun aplicarModo() {
-        veu.visibility = if (barra) View.GONE else View.VISIBLE
-        for (v in listOf(placa, realce, tituloApps, nomeApp)) v.visibility = if (barra) View.VISIBLE else View.GONE
-        cabecalho.alpha = if (barra) 0f else 1f
-        if (barra) esconderDica()
+        veu.visibility = if (barra || faixa) View.GONE else View.VISIBLE
+        for (v in listOf(placa, realce, tituloApps, nomeApp)) v.visibility = if (barra && !faixa) View.VISIBLE else View.GONE
+        cabecalho.alpha = if (barra || faixa) 0f else 1f
+        if (barra || faixa) esconderDica()
         for (l in viewsItem) for (iv in l) textosDe(iv)?.alpha = if (barra) 0f else 1f
+        // Barra única: as peças da cruz ficam fora (não desenham); só a camada dela aparece.
+        val cruzVis = if (faixa) View.GONE else View.VISIBLE
+        for (v in viewsCat) v.visibility = cruzVis
+        for (l in viewsItem) for (iv in l) iv.raiz.visibility = cruzVis
+        if (::cabecalho.isInitialized) cabecalho.visibility = if (faixa) View.GONE else View.VISIBLE
+        strip.visibility = if (faixa) View.VISIBLE else View.GONE
+        if (faixa) { detalhe.animate().cancel(); detalhe.alpha = 0f }
     }
 
     private fun textosDe(iv: ItemView): View? = iv.nome.parent?.parent as? View
@@ -393,6 +421,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             val antes = itemAtual()
             cats = novas
             for ((j, c) in novas.withIndex()) for ((i, it) in c.itens.withIndex()) preencher(viewsItem[j][i], it)
+            if (faixa) strip.atualizarTexto(cats, estado.cat)
             // O item em foco mudou de texto ou ícone (canal novo, episódio novo): a arte e o TalkBack acompanham.
             val agora = itemAtual()
             if (agora != null && (antes?.nome != agora.nome || antes.sub != agora.sub || antes.icone !== agora.icone || antes.situacao != agora.situacao)) avisarMudanca()
@@ -414,6 +443,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             viewsCat += criarCategoria(c).also { addView(it, LayoutParams(dpi(150), LayoutParams.WRAP_CONTENT)) }
             viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))); if (barra) textosDe(it)?.alpha = 0f } }
         }
+        if (faixa) aplicarModo()
         posicionar(animar = false)
         avisarMudanca()
     }
@@ -445,7 +475,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     fun marcarAberto(itemId: String) { ultimoAberto = "|$itemId" }
 
     /** HOME: Assistir; HOME de novo: a TV. */
-    fun home() { if (barra) teclaBarra(CruzLogica.Tecla.HOME) else aplicar(CruzLogica.Tecla.HOME) }
+    fun home() { if (barra && !faixa) teclaBarra(CruzLogica.Tecla.HOME) else aplicar(CruzLogica.Tecla.HOME) }
 
     fun itemAtual(): Item? = cats.getOrNull(estado.cat)?.itens?.getOrNull(estado.sel.getOrElse(estado.cat) { 0 })
     fun categoriaAtual(): Categoria? = cats.getOrNull(estado.cat)
@@ -471,6 +501,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             }
             else -> return super.onKeyDown(keyCode, event)
         }
+        if (faixa) return teclaFaixa(t)
         if (barra) return teclaBarra(t)
         if (t == CruzLogica.Tecla.CIMA && CruzLogica.passo(mapa, estado, t) is CruzLogica.Resultado.SubirTopo) {
             aoSubirTopo?.invoke(repeticao)
@@ -482,7 +513,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     override fun onKeyLongPress(keyCode: Int, event: KeyEvent): Boolean {
         if (keyCode != KeyEvent.KEYCODE_DPAD_CENTER && keyCode != KeyEvent.KEYCODE_ENTER && keyCode != KeyEvent.KEYCODE_NUMPAD_ENTER) return false
-        if (barra && !naApps) return false   // na linha das categorias o OK só abre a linha de apps
+        if (barra && !faixa && !naApps) return false   // na linha das categorias o OK só abre a linha de apps
         val op = itemAtual()?.opcoes ?: return false   // sem opções: o soltar abre normalmente
         op()
         return true
@@ -491,7 +522,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
         val ok = keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER
         if (!ok) return super.onKeyUp(keyCode, event)
-        if (event.isTracking && !event.isCanceled) { if (barra) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK) }
+        if (event.isTracking && !event.isCanceled) { if (barra && !faixa) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK) }
         return true
     }
 
@@ -513,6 +544,21 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         return true
     }
 
+    /**
+     * Uma tecla na barra única: [StripHome.passo] traduz (◀ ▶ = ▲ ▼ da coluna; ▲ ▼ = ◀ ▶ das categorias). Devolve false
+     * só no ▲ do 1º mundo, que sai para a barra de cima (o Android procura o foco acima).
+     */
+    private fun teclaFaixa(t: CruzLogica.Tecla): Boolean {
+        val p = StripHome.passo(t, estado.cat, estado.sel.getOrElse(estado.cat) { 0 })
+        if (p.subirTopo) { aoSubirTopo?.invoke(repeticao); return false }
+        val tecla = p.tecla
+        if (tecla == null) { if (repeticao == 0) aoSom?.invoke(SonsCruz.Som.BORDA, categoriaAtual()?.cat); return true }
+        direcaoFaixa = when (tecla) { CruzLogica.Tecla.ESQUERDA -> -1; CruzLogica.Tecla.DIREITA -> 1; else -> 0 }
+        aplicar(tecla)
+        direcaoFaixa = 0
+        return true
+    }
+
     private fun aplicar(t: CruzLogica.Tecla) {
         val r = CruzLogica.passo(mapa, estado, t)
         if (r is CruzLogica.Resultado.Abrir) {
@@ -531,6 +577,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             return
         }
         val trocouCategoria = r.estado.cat != estado.cat
+        if (faixa && t == CruzLogica.Tecla.HOME && trocouCategoria) direcaoFaixa = if (r.estado.cat < estado.cat) -1 else 1
         if (soar) aoSom?.invoke(if (trocouCategoria) SonsCruz.Som.GRUPO else SonsCruz.Som.ANDAR, cats.getOrNull(r.estado.cat)?.cat)
         estado = r.estado
         amortecer = if (trocouCategoria) MOLA_AMORTECE_CATEGORIA else MOLA_AMORTECE
@@ -548,6 +595,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** O ícone do item escolhido "aperta" e volta: o toque foi entendido, no mesmo quadro. */
     private fun apertar() {
+        if (faixa) { strip.apertar(estado.sel.getOrElse(estado.cat) { 0 }); return }
         val iv = viewAtual() ?: return
         if (semAnimacao()) return
         iv.icone.animate().cancel()
@@ -563,6 +611,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      * destaque por [NAO_ABRIU_MS], e o leitor de tela fala. Depois volta ao texto de antes.
      */
     fun naoAbriu() {
+        if (faixa) { context.getString(R.string.cruz_nao_abriu).let { strip.aviso(it, NAO_ABRIU_MS); announceForAccessibility(it) }; return }
         val iv = viewAtual() ?: return
         val aviso = context.getString(R.string.cruz_nao_abriu)
         iv.sub.text = aviso
@@ -585,7 +634,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private val mostrarDica = Runnable {
         val n = categoriaAtual()?.itens?.size ?: 0
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
-        val tem = !barra && sel + ALFA_COLUNA.keys.max() < n - 1 && (hasFocus() || isFocused)
+        val tem = !barra && !faixa && sel + ALFA_COLUNA.keys.max() < n - 1 && (hasFocus() || isFocused)
         maisAbaixo.animate().cancel()
         if (tem) maisAbaixo.animate().alpha(0.8f).setDuration(if (semAnimacao()) 0L else 300L).start() else maisAbaixo.alpha = 0f
     }
@@ -636,7 +685,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     // ---- detalhes no canto de baixo
 
     private val mostrarDetalhe = Runnable {
-        if (barra && !naApps) { detalhe.animate().cancel(); detalhe.alpha = 0f; detalhe.text = ""; return@Runnable }
+        if (faixa || (barra && !naApps)) { detalhe.animate().cancel(); detalhe.alpha = 0f; detalhe.text = ""; return@Runnable }
         val i = itemAtual()
         val iv = viewAtual()
         val linhas = if (i == null || iv == null || !(hasFocus() || isFocused)) emptyList() else {
@@ -816,6 +865,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        if (faixa) {
+            strip.mostrar(cats, estado.cat, estado.sel.getOrElse(estado.cat) { 0 }, hasFocus() || isFocused, animar, direcaoFaixa)
+            return
+        }
         if (barra) { posicionarBarra(animar); return }
         posicionarRotulo(animar)
         val f = estado.cat
@@ -971,6 +1024,11 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             else { v.animate().cancel(); v.alpha = alvo }
         }
     }
+
+    /** Para o teste de tela da barra única: a linha do mundo, a descrição e os cards visíveis. */
+    internal fun linhaDoMundo(): View = strip.linhaDoMundo()
+    internal fun descricaoDoMundo(): TextView = strip.descricao()
+    internal fun cardsDaFaixa(): List<View> = strip.cardsVisiveis()
 
     /** Para o teste de tela: a linha de apps da barra está aberta. */
     internal fun appsAbertos(): Boolean = barra && naApps
@@ -1155,5 +1213,5 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         info.isClickable = true
     }
 
-    override fun performClick(): Boolean { super.performClick(); if (barra) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK); return true }
+    override fun performClick(): Boolean { super.performClick(); if (barra && !faixa) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK); return true }
 }

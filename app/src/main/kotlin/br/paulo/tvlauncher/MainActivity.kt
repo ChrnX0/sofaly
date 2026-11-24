@@ -78,6 +78,7 @@ import br.paulo.tvlauncher.home.vitrineDoItem
 import br.paulo.tvlauncher.home.atualizarCruz
 import br.paulo.tvlauncher.home.atualizarIlha
 import br.paulo.tvlauncher.home.bannerTodos
+import br.paulo.tvlauncher.home.pacoteDoItem
 import br.paulo.tvlauncher.home.botaoDoEvento
 import br.paulo.tvlauncher.home.crescerIlhaTexto
 import br.paulo.tvlauncher.home.criarFundo
@@ -418,7 +419,8 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
         "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
-        "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.on(this)}"   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.mode(this)}|" +
+        br.paulo.tvlauncher.home.StripHome.options(this).signature()   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
 
     override fun onResume() {
         super.onResume()
@@ -1968,6 +1970,10 @@ class MainActivity : Activity() {
         c.id = View.generateViewId()
         c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)
         c.barra = br.paulo.tvlauncher.home.BottomBar.on(this)   // 23/11/2026: 2º jeito, categorias paradas embaixo
+        // 24/11/2026: a barra única (mundo ▲ ▼, cards ◀ ▶), o jeito de fábrica; cards com a arte de TV de cada app.
+        c.faixa = br.paulo.tvlauncher.home.BottomBar.strip(this)
+        c.opcoesFaixa = br.paulo.tvlauncher.home.StripHome.options(this)
+        c.bannerDe = { item, pronto -> bannerDaFaixa(item, pronto) }
         c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
         // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
         if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)
@@ -1986,7 +1992,7 @@ class MainActivity : Activity() {
         c.aoPasso = { t -> deslizarArte(t) }
         // Ajuste fino (CardStyle): brilho atrás do escolhido e tamanho da cruz, com o centro no cruzamento (não sai do lugar).
         c.brilho = br.paulo.tvlauncher.settings.CardStyle.glow(this).alpha
-        br.paulo.tvlauncher.settings.CardStyle.size(this).scale.takeIf { it != 1f && !c.barra }?.let { k ->
+        br.paulo.tvlauncher.settings.CardStyle.size(this).scale.takeIf { it != 1f && !c.barra && !c.faixa }?.let { k ->
             val d = resources.displayMetrics.density
             c.pivotX = HomeCruz.COLUNA * d; c.pivotY = HomeCruz.LINHA * d; c.scaleX = k; c.scaleY = k
         }
@@ -2475,6 +2481,17 @@ class MainActivity : Activity() {
     internal class DadosTodos(val sistema: Set<String>, val congelados: List<Item>)
     @Volatile internal var dadosTodos: DadosTodos? = null
     internal val bannersTodos = java.util.concurrent.ConcurrentHashMap<String, Drawable>()
+
+    /** Banner de TV de um item da barra única (mesmo cache de "Todos os apps"); null para os atalhos nossos. */
+    private fun bannerDaFaixa(item: br.paulo.tvlauncher.home.HomeCruz.Item, pronto: (Drawable?) -> Unit) {
+        val p = pacoteDoItem(item.id) ?: return pronto(null)
+        bannersTodos[p]?.let { pronto(it); return }
+        Fundo.rodar("FaixaBanner") {
+            val d = runCatching { bannerTodos(p) }.getOrNull()
+            if (d != null) bannersTodos[p] = d
+            ui.post { if (!isDestroyed) pronto(d) }
+        }
+    }
 
 
 

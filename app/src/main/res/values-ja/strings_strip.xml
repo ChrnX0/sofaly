@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">シングルバー</string>
+    <string name="strip_desc_watch">映画、シリーズ、テレビ</string>
+    <string name="strip_desc_listen">音楽、ラジオ、ポッドキャスト</string>
+    <string name="strip_desc_play">ゲームとクラウドゲーム</string>
+    <string name="strip_desc_apps">インストール済みのすべて</string>
+    <string name="strip_desc_tools">アラーム、天気、設定</string>
+    <string name="strip_apps_count">%1$d 個のアプリ</string>
+    <string name="st_desc">ワールドの説明</string>
+    <string name="st_desc_fixa">固定の文</string>
+    <string name="st_desc_viva">いま見られるもの</string>
+    <string name="st_formato">カードの形</string>
+    <string name="st_quadrado">正方形</string>
+    <string name="st_tamanho">カードの大きさ</string>
+    <string name="st_pequeno">小</string>
+    <string name="st_medio">中</string>
+    <string name="st_grande">大</string>
+    <string name="st_espaco">カードの間隔</string>
+    <string name="st_justo">狭い</string>
+    <string name="st_normal">標準</string>
+    <string name="st_largo">広い</string>
+    <string name="st_cantos">カードの角</string>
+    <string name="st_retos">角ばった</string>
+    <string name="st_suaves">やわらか</string>
+    <string name="st_redondos">丸い</string>
+    <string name="st_placa">背面のガラス板</string>
+    <string name="st_nome">選択中のカードに名前</string>
+    <string name="st_sem">オフ</string>
+    <string name="st_com">オン</string>
+</resources>

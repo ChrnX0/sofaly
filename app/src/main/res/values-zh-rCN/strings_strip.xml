@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">单栏</string>
+    <string name="strip_desc_watch">电影、剧集和电视</string>
+    <string name="strip_desc_listen">音乐、电台和播客</string>
+    <string name="strip_desc_play">游戏和云游戏</string>
+    <string name="strip_desc_apps">所有已安装的应用</string>
+    <string name="strip_desc_tools">闹钟、天气和设置</string>
+    <string name="strip_apps_count">%1$d 个应用</string>
+    <string name="st_desc">世界说明</string>
+    <string name="st_desc_fixa">固定文字</string>
+    <string name="st_desc_viva">正在播放</string>
+    <string name="st_formato">卡片形状</string>
+    <string name="st_quadrado">方形</string>
+    <string name="st_tamanho">卡片大小</string>
+    <string name="st_pequeno">小</string>
+    <string name="st_medio">中</string>
+    <string name="st_grande">大</string>
+    <string name="st_espaco">卡片间距</string>
+    <string name="st_justo">紧凑</string>
+    <string name="st_normal">标准</string>
+    <string name="st_largo">宽松</string>
+    <string name="st_cantos">卡片圆角</string>
+    <string name="st_retos">直角</string>
+    <string name="st_suaves">柔和</string>
+    <string name="st_redondos">圆润</string>
+    <string name="st_placa">背后玻璃板</string>
+    <string name="st_nome">焦点卡片显示名称</string>
+    <string name="st_sem">关</string>
+    <string name="st_com">开</string>
+</resources>

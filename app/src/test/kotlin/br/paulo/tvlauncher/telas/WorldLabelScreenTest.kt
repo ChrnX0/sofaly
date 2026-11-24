@@ -57,6 +57,7 @@ class WorldLabelScreenTest {
         saida.mkdirs()
         val app = RuntimeEnvironment.getApplication()
         SplashOverlay.setEnabled(app, false)
+        br.paulo.tvlauncher.home.BottomBar.setMode(app, br.paulo.tvlauncher.home.BottomBar.Mode.CROSS)   // estas fotos são da cruz; a barra única tem a dela (StripScreenTest)
         LayoutHome.definirBarraCruz(app, LayoutHome.BarraCruz.ILHA)
         LayoutHome.definirIconesCruz(app, IconeCruz.Estilo.OBJETO)   // o conjunto da Sala
         Extras.definirNumero(app, WorldLabel.KEY, lugar.ordinal)

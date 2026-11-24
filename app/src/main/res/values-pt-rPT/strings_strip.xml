@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Barra única</string>
+    <string name="strip_desc_watch">Filmes, séries e TV</string>
+    <string name="strip_desc_listen">Música, rádio e podcasts</string>
+    <string name="strip_desc_play">Jogos e jogos na nuvem</string>
+    <string name="strip_desc_apps">Tudo o que está instalado</string>
+    <string name="strip_desc_tools">Despertador, tempo e definições</string>
+    <string name="strip_apps_count">%1$d apps</string>
+    <string name="st_desc">Descrição do mundo</string>
+    <string name="st_desc_fixa">Frase fixa</string>
+    <string name="st_desc_viva">O que está a dar</string>
+    <string name="st_formato">Formato dos cartões</string>
+    <string name="st_quadrado">Quadrado</string>
+    <string name="st_tamanho">Tamanho dos cartões</string>
+    <string name="st_pequeno">Pequeno</string>
+    <string name="st_medio">Médio</string>
+    <string name="st_grande">Grande</string>
+    <string name="st_espaco">Espaço entre cartões</string>
+    <string name="st_justo">Justo</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Largo</string>
+    <string name="st_cantos">Cantos dos cartões</string>
+    <string name="st_retos">Retos</string>
+    <string name="st_suaves">Suaves</string>
+    <string name="st_redondos">Redondos</string>
+    <string name="st_placa">Placa de vidro atrás</string>
+    <string name="st_nome">Nome no cartão em foco</string>
+    <string name="st_sem">Não</string>
+    <string name="st_com">Sim</string>
+</resources>

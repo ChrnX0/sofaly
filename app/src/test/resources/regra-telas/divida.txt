@@ -183,6 +183,8 @@ SinalWifi.kt cor 1
 SleepingHome.kt letra 2
 SofalyLogo.kt cor 2
 SofyDrawable.kt letra 2
+# StripLayer: medidas da barra única aprovadas pelo Paulo (24/11/2026: nome 24, descrição 18, rótulo do card 11, nome no foco 15), num só ponto (texto())
+StripLayer.kt letra 1
 SomNoFone.kt letra 4
 SplashOverlay.kt letra 1
 TeclasActivity.kt dicas 1

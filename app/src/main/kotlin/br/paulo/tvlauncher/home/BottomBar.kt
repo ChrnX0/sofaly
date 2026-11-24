@@ -11,12 +11,22 @@ import br.paulo.tvlauncher.settings.Extras
  * para a categoria. A linha de apps só aparece com o ▲ (escolha dele: "apenas ao apertar a tecla cima").
  * Como: a [HomeCruz] usa o mesmo estado da cruz ([CruzLogica.Estado]) e só traduz as teclas aqui ([passo]); assim
  * "lembrar o último app", HOME, abrir e as opções do OK segurado continuam iguais nos dois jeitos.
- * Liga no Ajuste fino; fica numa pref do Extras ([KEY]: 0 cruz, 1 barra).
+ * Liga no Ajuste fino; fica numa pref do Extras ([KEY]: 0 cruz, 1 barra, 2 barra única).
+ * 24/11/2026 (Paulo): a "barra única" ([StripHome]) virou o jeito de fábrica; cruz e barra embaixo continuam opções.
  */
 object BottomBar {
     const val KEY = "home_bottom_bar"
-    fun on(ctx: Context): Boolean = Extras.numero(ctx, KEY, 0) == 1
-    fun set(ctx: Context, on: Boolean) = Extras.definirNumero(ctx, KEY, if (on) 1 else 0)
+    /** Os jeitos da tela inicial, na ordem gravada na pref. */
+    enum class Mode { CROSS, BAR, STRIP }
+    val DEFAULT = Mode.STRIP
+    fun mode(ctx: Context): Mode = Mode.entries.getOrNull(Extras.numero(ctx, KEY, DEFAULT.ordinal)) ?: DEFAULT
+    fun setMode(ctx: Context, m: Mode) = Extras.definirNumero(ctx, KEY, m.ordinal)
+    /** O próximo jeito (Ajuste fino: ◀ ▶ giram). */
+    fun next(ctx: Context, passo: Int): Mode = Mode.entries[Math.floorMod(mode(ctx).ordinal + passo, Mode.entries.size)].also { setMode(ctx, it) }
+    /** Liga a barra embaixo (true) ou volta à cruz (false); os testes de tela usam. */
+    fun set(ctx: Context, on: Boolean) = setMode(ctx, if (on) Mode.BAR else Mode.CROSS)
+    fun on(ctx: Context): Boolean = mode(ctx) == Mode.BAR
+    fun strip(ctx: Context): Boolean = mode(ctx) == Mode.STRIP
 
     /** A cor da categoria (a mesma das prateleiras de "Todos os apps"); Ferramentas fica com o âmbar. */
     fun cor(c: CruzLogica.Categoria?): Int = when (c) {
