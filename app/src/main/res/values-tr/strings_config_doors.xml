@@ -5,7 +5,7 @@
     <string name="cfg3_mais_ajustes">Diğer ayarlar</string>
     <string name="cfg3_mais_ajustes_det">Kısa tutmak için gizli: %1$d</string>
     <string name="cfg3_modo">Mod: %1$s</string>
-    <string name="cfg3_porta_0_det">Haç, simgeler ve arka plan</string>
+    <string name="cfg3_porta_0_det">Kategoriler, simgeler ve arka plan</string>
     <string name="cfg3_porta_1_det">TV hesapları, ses, altyazı</string>
     <string name="cfg3_porta_2_det">Çocuklar, PIN ve misafirler</string>
     <string name="cfg3_porta_3_det">Ekran koruyucu, uyku, alarm</string>

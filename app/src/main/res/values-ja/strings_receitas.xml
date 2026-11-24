@@ -6,9 +6,9 @@
     <string name="rec_vo">おばあちゃんのテレビ</string>
     <string name="rec_vo_det">名前を読み上げる大きなカード、大きな文字、「助けを呼ぶ」ボタン。</string>
     <string name="rec_criancas">子どものテレビ</string>
-    <string name="rec_criancas_det">子ども向けの内容だけ、おやすみ時間、ゲームのカード。</string>
+    <string name="rec_criancas_det">子ども向けの内容だけ、おやすみ時間、「遊ぶ」カテゴリ。</string>
     <string name="rec_gamer">ゲーマーのテレビ</string>
-    <string name="rec_gamer_det">ゲームのカード、ゲームモード（プレイ中はスクリーンセーバーも通知も出ない）、ゲームパッドでゲームが開く。</string>
+    <string name="rec_gamer_det">「遊ぶ」カテゴリ、ゲームモード（プレイ中はスクリーンセーバーも通知も出ない）、ゲームパッドでゲームが開く。</string>
     <string name="rec_aluguel">貸し部屋のテレビ</string>
     <string name="rec_aluguel_det">ゲストモード：ようこそ画面、ホーム画面に個人的なものなし、チェックアウト時に消去。</string>
     <string name="rec_desfazer">元に戻す</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">文字の大きさ</string>
     <string name="rec_aj_ler_foco">選択中の項目を読み上げる</string>
     <string name="rec_aj_som">キーごとにクリック音</string>
-    <string name="rec_aj_jogos">ゲームのカード</string>
+    <string name="rec_aj_jogos">「遊ぶ」カテゴリ</string>
     <string name="rec_aj_modo_jogo">ゲームモード</string>
     <string name="rec_aj_controle">ゲームパッドでゲームを開く</string>
 </resources>

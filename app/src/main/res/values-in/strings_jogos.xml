@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (in) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Kartu Game di layar utama (aplikasi game keluar dari baris aplikasi)</string>
+    <string name="extras_CARD_JOGOS">Kategori Main di layar utama (jika mati, game tetap di Aplikasi)</string>
     <string name="extras_MODO_JOGO">Mode game: selama game terbuka, screensaver, filter malam, dan pemberitahuan menunggu</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Menyalakan pengontrol game membuka layar Game</string>
     <string name="jogos_titulo">Game</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">TV ini tidak membuka setelan Bluetooth. Buka Setelan, Remote dan aksesori.</string>
     <string name="jogos_baixar">Dapatkan game</string>
     <string name="jogos_escolher">Pilih aplikasi</string>
-    <string name="jogos_escolher_sub">Aplikasi mana yang ada di kartu Game. OK memindahkan antara kartu dan baris aplikasi.</string>
-    <string name="jogos_no_card">di kartu Game</string>
-    <string name="jogos_na_linha">di baris aplikasi</string>
+    <string name="jogos_escolher_sub">Aplikasi mana yang ada di Main. OK memindahkan antara Main dan Aplikasi.</string>
+    <string name="jogos_no_card">di Main</string>
+    <string name="jogos_na_linha">di Aplikasi</string>
     <string name="jogos_grupo_nuvem">Di cloud</string>
     <string name="jogos_grupo_pc">Dari PC dan konsol</string>
     <string name="jogos_grupo_retro">Retro</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">Game bisa tersendat atau lambat. Kabel jaringan, atau TV lebih dekat ke router, membantu.</string>
     <string name="jogos_jogar_assim">Tetap main</string>
     <string name="jogos_nao_abriu">Aplikasi ini tidak terbuka.</string>
-    <string name="jogos_tirar">Keluarkan dari kartu Game</string>
+    <string name="jogos_tirar">Keluarkan dari Main</string>
     <string name="jogos_automatico">Kembali ke otomatis</string>
     <string name="jogos_loja_tudo">Aplikasi yang disarankan sudah ada di TV ini.</string>
     <string name="jogos_loja_explica">Membuka halaman aplikasi di Play Store. Jika Play Store bilang aplikasi tidak berjalan di TV ini, itu batasan aplikasinya.</string>

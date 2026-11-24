@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (ko) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">홈 화면의 게임 카드(게임 앱이 앱 줄에서 빠짐)</string>
+    <string name="extras_CARD_JOGOS">홈 화면의 플레이 카테고리(끄면 게임이 앱에 남음)</string>
     <string name="extras_MODO_JOGO">게임 모드: 게임이 열려 있는 동안 화면 보호기, 야간 필터, 알림이 대기</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">게임 컨트롤러를 켜면 게임 화면 열기</string>
     <string name="jogos_titulo">게임</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">이 TV에서 블루투스 설정이 열리지 않았습니다. 설정, 리모컨 및 액세서리를 여세요.</string>
     <string name="jogos_baixar">게임 받기</string>
     <string name="jogos_escolher">앱 선택</string>
-    <string name="jogos_escolher_sub">게임 카드에 넣을 앱. OK로 카드와 앱 줄 사이를 전환합니다.</string>
-    <string name="jogos_no_card">게임 카드에</string>
-    <string name="jogos_na_linha">앱 줄에</string>
+    <string name="jogos_escolher_sub">플레이에 넣을 앱. OK로 플레이와 앱 사이를 전환합니다.</string>
+    <string name="jogos_no_card">플레이에</string>
+    <string name="jogos_na_linha">앱에</string>
     <string name="jogos_grupo_nuvem">클라우드</string>
     <string name="jogos_grupo_pc">PC 및 콘솔</string>
     <string name="jogos_grupo_retro">레트로</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">게임이 끊기거나 지연될 수 있습니다. 네트워크 케이블을 쓰거나 TV를 라우터 가까이 두면 도움이 됩니다.</string>
     <string name="jogos_jogar_assim">그래도 플레이</string>
     <string name="jogos_nao_abriu">이 앱이 열리지 않았습니다.</string>
-    <string name="jogos_tirar">게임 카드에서 빼기</string>
+    <string name="jogos_tirar">플레이에서 빼기</string>
     <string name="jogos_automatico">자동으로 되돌리기</string>
     <string name="jogos_loja_tudo">추천 앱이 이미 이 TV에 있습니다.</string>
     <string name="jogos_loja_explica">Play 스토어에서 앱 페이지를 엽니다. Play 스토어에서 이 TV에서 실행되지 않는다고 하면 앱의 제한입니다.</string>

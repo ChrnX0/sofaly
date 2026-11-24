@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (hi) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">होम स्क्रीन पर गेम कार्ड (गेम ऐप ऐप पंक्ति छोड़ते हैं)</string>
+    <string name="extras_CARD_JOGOS">होम स्क्रीन पर खेलें श्रेणी (बंद होने पर गेम ऐप्स में रहते हैं)</string>
     <string name="extras_MODO_JOGO">गेम मोड: गेम खुला रहने तक स्क्रीन सेवर, नाइट फ़िल्टर और सूचनाएँ इंतज़ार करते हैं</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">गेम कंट्रोलर चालू करने पर गेम स्क्रीन खुलती है</string>
     <string name="jogos_titulo">गेम</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">इस TV ने Bluetooth सेटिंग्स नहीं खोलीं। सेटिंग्स, रिमोट और एक्सेसरी खोलें।</string>
     <string name="jogos_baixar">गेम पाएँ</string>
     <string name="jogos_escolher">ऐप चुनें</string>
-    <string name="jogos_escolher_sub">कौन से ऐप गेम कार्ड में रहें। OK कार्ड और ऐप पंक्ति के बीच बदलता है।</string>
-    <string name="jogos_no_card">गेम कार्ड में</string>
-    <string name="jogos_na_linha">ऐप पंक्ति में</string>
+    <string name="jogos_escolher_sub">कौन से ऐप खेलें में रहें। OK खेलें और ऐप्स के बीच बदलता है।</string>
+    <string name="jogos_no_card">खेलें में</string>
+    <string name="jogos_na_linha">ऐप्स में</string>
     <string name="jogos_grupo_nuvem">क्लाउड में</string>
     <string name="jogos_grupo_pc">PC और कंसोल से</string>
     <string name="jogos_grupo_retro">रेट्रो</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">गेम अटक या धीमा हो सकता है। नेटवर्क केबल, या TV को राउटर के पास रखना मदद करता है।</string>
     <string name="jogos_jogar_assim">फिर भी खेलें</string>
     <string name="jogos_nao_abriu">यह ऐप नहीं खुला।</string>
-    <string name="jogos_tirar">गेम कार्ड से निकालें</string>
+    <string name="jogos_tirar">खेलें से निकालें</string>
     <string name="jogos_automatico">अपने-आप पर वापस</string>
     <string name="jogos_loja_tudo">सुझाए ऐप पहले से इस TV पर हैं।</string>
     <string name="jogos_loja_explica">Play Store में ऐप का पेज खोलता है। अगर Play Store कहे कि यह इस TV पर नहीं चलता, तो यह ऐप की सीमा है।</string>

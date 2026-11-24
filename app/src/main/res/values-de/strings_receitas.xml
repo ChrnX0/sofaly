@@ -6,9 +6,9 @@
     <string name="rec_vo">Omas Fernseher</string>
     <string name="rec_vo_det">Große Karten mit vorgelesenen Namen, größere Schrift und eine Hilfe-Taste.</string>
     <string name="rec_criancas">Kinderfernseher</string>
-    <string name="rec_criancas_det">Nur Kinderinhalte, Schlafenszeit und die Karte Spiele.</string>
+    <string name="rec_criancas_det">Nur Kinderinhalte, Schlafenszeit und die Kategorie Spielen.</string>
     <string name="rec_gamer">Gamer-Fernseher</string>
-    <string name="rec_gamer_det">Karte Spiele, Spielmodus (kein Bildschirmschoner und keine Hinweise beim Spielen) und der Controller öffnet Spiele.</string>
+    <string name="rec_gamer_det">Kategorie Spielen, Spielmodus (kein Bildschirmschoner und keine Hinweise beim Spielen) und der Controller öffnet Spiele.</string>
     <string name="rec_aluguel">Ferienwohnungs-Fernseher</string>
     <string name="rec_aluguel_det">Gastmodus: Begrüßung, nichts Persönliches auf dem Startbildschirm und Aufräumen beim Check-out.</string>
     <string name="rec_desfazer">Rückgängig</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Textgröße</string>
     <string name="rec_aj_ler_foco">Ausgewähltes vorlesen</string>
     <string name="rec_aj_som">Klickton bei jeder Taste</string>
-    <string name="rec_aj_jogos">Karte Spiele</string>
+    <string name="rec_aj_jogos">Kategorie Spielen</string>
     <string name="rec_aj_modo_jogo">Spielmodus</string>
     <string name="rec_aj_controle">Controller öffnet Spiele</string>
 </resources>

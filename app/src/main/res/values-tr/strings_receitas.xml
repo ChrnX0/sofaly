@@ -6,9 +6,9 @@
     <string name="rec_vo">Büyükanne TV\'si</string>
     <string name="rec_vo_det">Adı sesli okunan büyük kartlar, daha büyük yazı ve Yardım iste düğmesi.</string>
     <string name="rec_criancas">Çocukların TV\'si</string>
-    <string name="rec_criancas_det">Yalnızca çocuk içeriği, uyku saati ve Oyunlar kartı.</string>
+    <string name="rec_criancas_det">Yalnızca çocuk içeriği, uyku saati ve Oyna kategorisi.</string>
     <string name="rec_gamer">Oyuncu TV\'si</string>
-    <string name="rec_gamer_det">Oyunlar kartı, oyun modu (oyun sırasında ekran koruyucu ve uyarı yok) ve oyun kumandası Oyunlar\'ı açar.</string>
+    <string name="rec_gamer_det">Oyna kategorisi, oyun modu (oyun sırasında ekran koruyucu ve uyarı yok) ve oyun kumandası Oyunlar\'ı açar.</string>
     <string name="rec_aluguel">Kiralık ev TV\'si</string>
     <string name="rec_aluguel_det">Misafir modu: karşılama, ana ekranda kişisel bir şey yok ve çıkışta temizlik.</string>
     <string name="rec_desfazer">Geri al</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Yazı boyutu</string>
     <string name="rec_aj_ler_foco">Seçili olanı sesli oku</string>
     <string name="rec_aj_som">Her tuşta tık sesi</string>
-    <string name="rec_aj_jogos">Oyunlar kartı</string>
+    <string name="rec_aj_jogos">Oyna kategorisi</string>
     <string name="rec_aj_modo_jogo">Oyun modu</string>
     <string name="rec_aj_controle">Oyun kumandası Oyunlar\'ı açar</string>
 </resources>

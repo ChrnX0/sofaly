@@ -6,9 +6,9 @@
     <string name="rec_vo">दादी का टीवी</string>
     <string name="rec_vo_det">बड़े कार्ड जिनका नाम बोला जाता है, बड़े अक्षर और मदद माँगें बटन।</string>
     <string name="rec_criancas">बच्चों का टीवी</string>
-    <string name="rec_criancas_det">सिर्फ़ बच्चों की सामग्री, सोने का समय और गेम्स कार्ड।</string>
+    <string name="rec_criancas_det">सिर्फ़ बच्चों की सामग्री, सोने का समय और खेलें श्रेणी।</string>
     <string name="rec_gamer">गेमर का टीवी</string>
-    <string name="rec_gamer_det">गेम्स कार्ड, गेम मोड (खेलते समय स्क्रीनसेवर और सूचनाएँ नहीं) और गेमपैड से गेम्स खुलते हैं।</string>
+    <string name="rec_gamer_det">खेलें श्रेणी, गेम मोड (खेलते समय स्क्रीनसेवर और सूचनाएँ नहीं) और गेमपैड से गेम्स खुलते हैं।</string>
     <string name="rec_aluguel">किराये वाला टीवी</string>
     <string name="rec_aluguel_det">मेहमान मोड: स्वागत, होम स्क्रीन पर कुछ भी निजी नहीं और चेक-आउट पर सफ़ाई।</string>
     <string name="rec_desfazer">वापस करें</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">अक्षरों का आकार</string>
     <string name="rec_aj_ler_foco">चुनी हुई चीज़ बोलकर पढ़ें</string>
     <string name="rec_aj_som">हर बटन पर क्लिक की आवाज़</string>
-    <string name="rec_aj_jogos">गेम्स कार्ड</string>
+    <string name="rec_aj_jogos">खेलें श्रेणी</string>
     <string name="rec_aj_modo_jogo">गेम मोड</string>
     <string name="rec_aj_controle">गेमपैड से गेम्स खुलें</string>
 </resources>

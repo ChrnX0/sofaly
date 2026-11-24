@@ -18,7 +18,7 @@ object ExtrasAbas {
         // Aparência: o que muda o que se vê e ouve nas telas do launcher.
         "COR_DO_FUNDO" to Aba.APARENCIA, "MODO_SIMPLES" to Aba.APARENCIA, "SOM_NAVEGACAO" to Aba.APARENCIA, "LER_FOCO" to Aba.APARENCIA,
         "TOCANDO_AGORA" to Aba.APARENCIA, "AGENDA_TODAS" to Aba.APARENCIA, "HOJE_NA_TV" to Aba.APARENCIA,
-        "CARD_JOGOS" to Aba.APARENCIA, "CARD_OUVIR" to Aba.APARENCIA, "CONTROLE_ABRE_JOGOS" to Aba.APARENCIA,
+        "CARD_JOGOS" to Aba.APARENCIA, "CONTROLE_ABRE_JOGOS" to Aba.APARENCIA,
         // Cartões próprios da tela inicial (HomeCards, 18/11/2026)
         "CARTAO_PLACAR" to Aba.APARENCIA, "CARTAO_COTACAO" to Aba.APARENCIA, "CARTAO_CONTAGEM" to Aba.APARENCIA,
         "CARTAO_LEMBRETE_CASA" to Aba.APARENCIA, "CARTAO_SERVICO" to Aba.APARENCIA, "CARTAO_LUA" to Aba.APARENCIA,

@@ -9,7 +9,7 @@
         <item quantity="one">%d controller connected</item>
         <item quantity="other">%d controllers connected</item>
     </plurals>
-    <string name="extras_CARD_JOGOS">Games card on the home screen (game apps leave the apps row)</string>
+    <string name="extras_CARD_JOGOS">Play category on the home screen (off, games stay in Apps)</string>
     <string name="extras_MODO_JOGO">Game mode: while a game is open, the screensaver, night filter and notices wait</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Turning on a game controller opens the Games screen</string>
 
@@ -26,9 +26,9 @@
     <string name="jogos_parear_falhou">This TV did not open the Bluetooth settings. Open Settings, Remotes and accessories.</string>
     <string name="jogos_baixar">Get games</string>
     <string name="jogos_escolher">Choose apps</string>
-    <string name="jogos_escolher_sub">Which apps live in the Games card. OK switches between the card and the apps row.</string>
-    <string name="jogos_no_card">in the Games card</string>
-    <string name="jogos_na_linha">in the apps row</string>
+    <string name="jogos_escolher_sub">Which apps live in Play. OK switches between Play and Apps.</string>
+    <string name="jogos_no_card">in Play</string>
+    <string name="jogos_na_linha">in Apps</string>
     <string name="jogos_grupo_nuvem">In the cloud</string>
     <string name="jogos_grupo_pc">From the PC and console</string>
     <string name="jogos_grupo_retro">Retro</string>
@@ -38,7 +38,7 @@
     <string name="jogos_aviso_fraca">The game may stutter or lag. A network cable, or the TV closer to the router, helps.</string>
     <string name="jogos_jogar_assim">Play anyway</string>
     <string name="jogos_nao_abriu">This app did not open.</string>
-    <string name="jogos_tirar">Take it out of the Games card</string>
+    <string name="jogos_tirar">Take it out of Play</string>
     <string name="jogos_automatico">Back to automatic</string>
     <string name="jogos_loja_tudo">The suggested apps are already on this TV.</string>
     <string name="jogos_loja_explica">Opens the app page in the Play Store. If the Play Store says it does not run on this TV, it is the app\'s limit.</string>

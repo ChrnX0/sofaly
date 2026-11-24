@@ -6,9 +6,9 @@
     <string name="rec_vo">할머니 TV</string>
     <string name="rec_vo_det">이름을 읽어 주는 큰 카드, 더 큰 글자, 도움 요청 버튼.</string>
     <string name="rec_criancas">아이들 TV</string>
-    <string name="rec_criancas_det">어린이 콘텐츠만, 잘 시간, 게임 카드.</string>
+    <string name="rec_criancas_det">어린이 콘텐츠만, 잘 시간, 플레이 카테고리.</string>
     <string name="rec_gamer">게이머 TV</string>
-    <string name="rec_gamer_det">게임 카드, 게임 모드(게임 중 화면 보호기와 알림 없음), 게임패드를 켜면 게임이 열려요.</string>
+    <string name="rec_gamer_det">플레이 카테고리, 게임 모드(게임 중 화면 보호기와 알림 없음), 게임패드를 켜면 게임이 열려요.</string>
     <string name="rec_aluguel">숙소용 TV</string>
     <string name="rec_aluguel_det">게스트 모드: 환영 화면, 홈 화면에 개인 정보 없음, 체크아웃 때 정리.</string>
     <string name="rec_desfazer">되돌리기</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">글자 크기</string>
     <string name="rec_aj_ler_foco">선택한 항목 읽어 주기</string>
     <string name="rec_aj_som">키를 누를 때마다 딸깍 소리</string>
-    <string name="rec_aj_jogos">게임 카드</string>
+    <string name="rec_aj_jogos">플레이 카테고리</string>
     <string name="rec_aj_modo_jogo">게임 모드</string>
     <string name="rec_aj_controle">게임패드로 게임 열기</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (de) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Karte Spiele auf dem Startbildschirm (Spiele-Apps verlassen die App-Zeile)</string>
+    <string name="extras_CARD_JOGOS">Kategorie Spielen auf dem Startbildschirm (aus: Spiele bleiben bei Apps)</string>
     <string name="extras_MODO_JOGO">Spielmodus: solange ein Spiel offen ist, warten Bildschirmschoner, Nachtfilter und Hinweise</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Einschalten eines Controllers öffnet den Bildschirm Spiele</string>
     <string name="jogos_titulo">Spiele</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">Dieser Fernseher hat die Bluetooth-Einstellungen nicht geöffnet. Öffne Einstellungen, Fernbedienungen und Zubehör.</string>
     <string name="jogos_baixar">Spiele holen</string>
     <string name="jogos_escolher">Apps auswählen</string>
-    <string name="jogos_escolher_sub">Welche Apps in der Karte Spiele leben. OK wechselt zwischen Karte und App-Zeile.</string>
-    <string name="jogos_no_card">in der Karte Spiele</string>
-    <string name="jogos_na_linha">in der App-Zeile</string>
+    <string name="jogos_escolher_sub">Welche Apps in Spielen leben. OK wechselt zwischen Spielen und Apps.</string>
+    <string name="jogos_no_card">in Spielen</string>
+    <string name="jogos_na_linha">in Apps</string>
     <string name="jogos_grupo_nuvem">In der Cloud</string>
     <string name="jogos_grupo_pc">Vom PC und der Konsole</string>
     <string name="jogos_grupo_retro">Retro</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">Das Spiel kann ruckeln oder verzögern. Ein Netzwerkkabel oder ein Fernseher näher am Router hilft.</string>
     <string name="jogos_jogar_assim">Trotzdem spielen</string>
     <string name="jogos_nao_abriu">Diese App hat sich nicht geöffnet.</string>
-    <string name="jogos_tirar">Aus der Karte Spiele nehmen</string>
+    <string name="jogos_tirar">Aus Spielen nehmen</string>
     <string name="jogos_automatico">Zurück zu automatisch</string>
     <string name="jogos_loja_tudo">Die vorgeschlagenen Apps sind schon auf diesem Fernseher.</string>
     <string name="jogos_loja_explica">Öffnet die Seite der App im Play Store. Sagt der Play Store, dass sie auf diesem Fernseher nicht läuft, ist das eine Grenze der App.</string>

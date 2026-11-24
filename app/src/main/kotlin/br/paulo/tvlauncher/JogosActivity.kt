@@ -250,7 +250,8 @@ class JogosActivity : Activity() {
                     retroUltima[j.caminho]?.let { quando -> val agora = System.currentTimeMillis()
                         // Menos de 1 min dava "Há 0 minuto" (teste 100%, 23/11/2026)
                         if (agora - quando < DateUtils.MINUTE_IN_MILLIS) getString(R.string.pv_agora)
-                        else DateUtils.getRelativeTimeSpanString(quando, agora, DateUtils.MINUTE_IN_MILLIS).toString() },
+                        // abreviado como na tela inicial ("há 14 h", não "Há 14 horas"; teste 100%, 24/11/2026)
+                        else DateUtils.getRelativeTimeSpanString(quando, agora, DateUtils.MINUTE_IN_MILLIS, DateUtils.FORMAT_ABBREV_RELATIVE).toString() },
                     getString(R.string.retro_portugues).takeIf { j.portugues },
                 ).joinToString(" · ")
                 CruzOuvir.Item("retro:" + j.caminho, j.nome, sub, cor = cor, monograma = CapaOuvir.iniciais(j.nome),

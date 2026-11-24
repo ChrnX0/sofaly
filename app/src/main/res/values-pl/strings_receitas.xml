@@ -6,9 +6,9 @@
     <string name="rec_vo">Telewizor babci</string>
     <string name="rec_vo_det">Duże karty z czytanymi nazwami, większy tekst i przycisk Poproś o pomoc.</string>
     <string name="rec_criancas">Telewizor dzieci</string>
-    <string name="rec_criancas_det">Tylko treści dla dzieci, pora snu i karta Gry.</string>
+    <string name="rec_criancas_det">Tylko treści dla dzieci, pora snu i kategoria Graj.</string>
     <string name="rec_gamer">Telewizor gracza</string>
-    <string name="rec_gamer_det">Karta Gry, tryb gry (bez wygaszacza i powiadomień w trakcie gry), a pad otwiera Gry.</string>
+    <string name="rec_gamer_det">Kategoria Graj, tryb gry (bez wygaszacza i powiadomień w trakcie gry), a pad otwiera Gry.</string>
     <string name="rec_aluguel">Telewizor na wynajem</string>
     <string name="rec_aluguel_det">Tryb gościa: powitanie, nic osobistego na ekranie głównym i czyszczenie przy wymeldowaniu.</string>
     <string name="rec_desfazer">Cofnij</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Rozmiar tekstu</string>
     <string name="rec_aj_ler_foco">Czytaj na głos zaznaczony element</string>
     <string name="rec_aj_som">Dźwięk kliknięcia przy każdym klawiszu</string>
-    <string name="rec_aj_jogos">Karta Gry</string>
+    <string name="rec_aj_jogos">Kategoria Graj</string>
     <string name="rec_aj_modo_jogo">Tryb gry</string>
     <string name="rec_aj_controle">Pad otwiera Gry</string>
 </resources>

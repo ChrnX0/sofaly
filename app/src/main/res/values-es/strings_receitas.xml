@@ -6,9 +6,9 @@
     <string name="rec_vo">TV de la abuela</string>
     <string name="rec_vo_det">Tarjetas grandes con el nombre en voz alta, letra más grande y el botón Pedir ayuda.</string>
     <string name="rec_criancas">TV de los niños</string>
-    <string name="rec_criancas_det">Solo contenido infantil, hora de dormir y la tarjeta Juegos.</string>
+    <string name="rec_criancas_det">Solo contenido infantil, hora de dormir y la categoría Jugar.</string>
     <string name="rec_gamer">TV del gamer</string>
-    <string name="rec_gamer_det">Tarjeta Juegos, modo juego (sin protector ni avisos durante el juego) y el mando abre Juegos.</string>
+    <string name="rec_gamer_det">Categoría Jugar, modo juego (sin protector ni avisos durante el juego) y el mando abre Juegos.</string>
     <string name="rec_aluguel">TV de alquiler</string>
     <string name="rec_aluguel_det">Modo huésped: bienvenida, nada personal en la pantalla de inicio y limpieza al salir.</string>
     <string name="rec_desfazer">Deshacer</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Tamaño del texto</string>
     <string name="rec_aj_ler_foco">Leer en voz alta lo seleccionado</string>
     <string name="rec_aj_som">Sonido de clic en cada tecla</string>
-    <string name="rec_aj_jogos">Tarjeta Juegos</string>
+    <string name="rec_aj_jogos">Categoría Jugar</string>
     <string name="rec_aj_modo_jogo">Modo juego</string>
     <string name="rec_aj_controle">El mando abre Juegos</string>
 </resources>

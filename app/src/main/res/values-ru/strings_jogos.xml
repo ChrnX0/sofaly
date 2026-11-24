@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (ru) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Карточка «Игры» на главном экране (игры уходят из ряда приложений)</string>
+    <string name="extras_CARD_JOGOS">Категория «Играть» на главном экране (выключена — игры остаются в «Приложениях»)</string>
     <string name="extras_MODO_JOGO">Игровой режим: пока открыта игра, заставка, ночной фильтр и оповещения ждут</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Включение геймпада открывает экран «Игры»</string>
     <string name="jogos_titulo">Игры</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">Этот ТВ не открыл настройки Bluetooth. Откройте Настройки, Пульты и аксессуары.</string>
     <string name="jogos_baixar">Скачать игры</string>
     <string name="jogos_escolher">Выбрать приложения</string>
-    <string name="jogos_escolher_sub">Какие приложения живут в карточке «Игры». OK переключает между карточкой и рядом приложений.</string>
-    <string name="jogos_no_card">в карточке «Игры»</string>
-    <string name="jogos_na_linha">в ряду приложений</string>
+    <string name="jogos_escolher_sub">Какие приложения живут в «Играть». OK переключает между «Играть» и «Приложениями».</string>
+    <string name="jogos_no_card">в «Играть»</string>
+    <string name="jogos_na_linha">в «Приложениях»</string>
     <string name="jogos_grupo_nuvem">В облаке</string>
     <string name="jogos_grupo_pc">С ПК и консоли</string>
     <string name="jogos_grupo_retro">Ретро</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">Игра может тормозить или отставать. Поможет сетевой кабель или ТВ ближе к роутеру.</string>
     <string name="jogos_jogar_assim">Всё равно играть</string>
     <string name="jogos_nao_abriu">Это приложение не открылось.</string>
-    <string name="jogos_tirar">Убрать из карточки «Игры»</string>
+    <string name="jogos_tirar">Убрать из «Играть»</string>
     <string name="jogos_automatico">Вернуть автоматически</string>
     <string name="jogos_loja_tudo">Предложенные приложения уже есть на этом ТВ.</string>
     <string name="jogos_loja_explica">Открывает страницу приложения в Play Маркете. Если Play Маркет пишет, что оно не работает на этом ТВ, это ограничение приложения.</string>

@@ -6,9 +6,9 @@
     <string name="rec_vo">奶奶的电视</string>
     <string name="rec_vo_det">大卡片并朗读名称，字更大，还有“求助”按钮。</string>
     <string name="rec_criancas">孩子的电视</string>
-    <string name="rec_criancas_det">只有儿童内容、睡觉时间和“游戏”卡片。</string>
+    <string name="rec_criancas_det">只有儿童内容、睡觉时间和“游戏”类别。</string>
     <string name="rec_gamer">玩家的电视</string>
-    <string name="rec_gamer_det">“游戏”卡片、游戏模式（玩游戏时没有屏保和提醒），手柄一连就打开游戏。</string>
+    <string name="rec_gamer_det">“游戏”类别、游戏模式（玩游戏时没有屏保和提醒），手柄一连就打开游戏。</string>
     <string name="rec_aluguel">出租房的电视</string>
     <string name="rec_aluguel_det">访客模式：欢迎页，主屏不显示个人内容，退房时清理。</string>
     <string name="rec_desfazer">撤销</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">文字大小</string>
     <string name="rec_aj_ler_foco">朗读选中的内容</string>
     <string name="rec_aj_som">每次按键有点击声</string>
-    <string name="rec_aj_jogos">“游戏”卡片</string>
+    <string name="rec_aj_jogos">“游戏”类别</string>
     <string name="rec_aj_modo_jogo">游戏模式</string>
     <string name="rec_aj_controle">手柄打开“游戏”</string>
 </resources>

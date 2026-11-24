@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (tr) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Ana ekranda Oyunlar kartı (oyun uygulamaları uygulamalar satırından çıkar)</string>
+    <string name="extras_CARD_JOGOS">Ana ekranda Oyna kategorisi (kapalıyken oyunlar Uygulamalar içinde kalır)</string>
     <string name="extras_MODO_JOGO">Oyun modu: bir oyun açıkken ekran koruyucu, gece filtresi ve uyarılar bekler</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Bir oyun kumandasını açmak Oyunlar ekranını açar</string>
     <string name="jogos_titulo">Oyunlar</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">Bu TV Bluetooth ayarlarını açmadı. Ayarlar, Kumandalar ve aksesuarlar’ı açın.</string>
     <string name="jogos_baixar">Oyun edin</string>
     <string name="jogos_escolher">Uygulama seç</string>
-    <string name="jogos_escolher_sub">Oyunlar kartında hangi uygulamalar bulunur. OK kart ile uygulamalar satırı arasında geçiş yapar.</string>
-    <string name="jogos_no_card">Oyunlar kartında</string>
-    <string name="jogos_na_linha">uygulamalar satırında</string>
+    <string name="jogos_escolher_sub">Oyna’da hangi uygulamalar bulunur. OK, Oyna ile Uygulamalar arasında geçiş yapar.</string>
+    <string name="jogos_no_card">Oyna’da</string>
+    <string name="jogos_na_linha">Uygulamalar’da</string>
     <string name="jogos_grupo_nuvem">Bulutta</string>
     <string name="jogos_grupo_pc">PC ve konsoldan</string>
     <string name="jogos_grupo_retro">Retro</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">Oyun takılabilir veya gecikebilir. Ağ kablosu veya TV’nin yönlendiriciye daha yakın olması yardımcı olur.</string>
     <string name="jogos_jogar_assim">Yine de oyna</string>
     <string name="jogos_nao_abriu">Bu uygulama açılmadı.</string>
-    <string name="jogos_tirar">Oyunlar kartından çıkar</string>
+    <string name="jogos_tirar">Oyna’dan çıkar</string>
     <string name="jogos_automatico">Otomatiğe dön</string>
     <string name="jogos_loja_tudo">Önerilen uygulamalar zaten bu TV’de.</string>
     <string name="jogos_loja_explica">Uygulamanın Play Store sayfasını açar. Play Store bu TV’de çalışmadığını söylerse bu, uygulamanın sınırıdır.</string>

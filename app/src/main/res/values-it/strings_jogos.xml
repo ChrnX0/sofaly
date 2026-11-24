@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (it) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Scheda Giochi nella schermata Home (le app di gioco lasciano la riga delle app)</string>
+    <string name="extras_CARD_JOGOS">Categoria Gioca nella schermata Home (disattivata, i giochi restano in App)</string>
     <string name="extras_MODO_JOGO">Modalità gioco: mentre un gioco è aperto, salvaschermo, filtro notturno e avvisi aspettano</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Accendere un controller apre la schermata Giochi</string>
     <string name="jogos_titulo">Giochi</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">Questa TV non ha aperto le impostazioni Bluetooth. Apri Impostazioni, Telecomandi e accessori.</string>
     <string name="jogos_baixar">Scarica giochi</string>
     <string name="jogos_escolher">Scegli app</string>
-    <string name="jogos_escolher_sub">Quali app stanno nella scheda Giochi. OK sposta tra la scheda e la riga delle app.</string>
-    <string name="jogos_no_card">nella scheda Giochi</string>
-    <string name="jogos_na_linha">nella riga delle app</string>
+    <string name="jogos_escolher_sub">Quali app stanno in Gioca. OK sposta tra Gioca e App.</string>
+    <string name="jogos_no_card">in Gioca</string>
+    <string name="jogos_na_linha">in App</string>
     <string name="jogos_grupo_nuvem">Nel cloud</string>
     <string name="jogos_grupo_pc">Dal PC e dalla console</string>
     <string name="jogos_grupo_retro">Retro</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">Il gioco può scattare o andare in ritardo. Un cavo di rete, o la TV più vicina al router, aiuta.</string>
     <string name="jogos_jogar_assim">Gioca comunque</string>
     <string name="jogos_nao_abriu">Questa app non si è aperta.</string>
-    <string name="jogos_tirar">Togli dalla scheda Giochi</string>
+    <string name="jogos_tirar">Togli da Gioca</string>
     <string name="jogos_automatico">Torna all’automatico</string>
     <string name="jogos_loja_tudo">Le app suggerite sono già su questa TV.</string>
     <string name="jogos_loja_explica">Apre la pagina dell’app nel Play Store. Se il Play Store dice che non funziona su questa TV, è un limite dell’app.</string>

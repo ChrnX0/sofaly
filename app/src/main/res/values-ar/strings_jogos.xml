@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (ar) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">بطاقة الألعاب في الشاشة الرئيسية (تطبيقات الألعاب تخرج من صف التطبيقات)</string>
+    <string name="extras_CARD_JOGOS">فئة لعب في الشاشة الرئيسية (عند الإيقاف تبقى الألعاب في التطبيقات)</string>
     <string name="extras_MODO_JOGO">وضع الألعاب: أثناء فتح لعبة، تنتظر شاشة التوقف والفلتر الليلي والتنبيهات</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">تشغيل وحدة تحكم ألعاب يفتح شاشة الألعاب</string>
     <string name="jogos_titulo">ألعاب</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">لم يفتح هذا التلفزيون إعدادات Bluetooth. افتح الإعدادات، أجهزة التحكم والملحقات.</string>
     <string name="jogos_baixar">الحصول على ألعاب</string>
     <string name="jogos_escolher">اختيار التطبيقات</string>
-    <string name="jogos_escolher_sub">أي التطبيقات تعيش في بطاقة الألعاب. OK ينقل بين البطاقة وصف التطبيقات.</string>
-    <string name="jogos_no_card">في بطاقة الألعاب</string>
-    <string name="jogos_na_linha">في صف التطبيقات</string>
+    <string name="jogos_escolher_sub">أي التطبيقات تعيش في لعب. OK ينقل بين لعب والتطبيقات.</string>
+    <string name="jogos_no_card">في لعب</string>
+    <string name="jogos_na_linha">في التطبيقات</string>
     <string name="jogos_grupo_nuvem">في السحابة</string>
     <string name="jogos_grupo_pc">من الكمبيوتر والجهاز المنزلي</string>
     <string name="jogos_grupo_retro">ألعاب قديمة</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">قد تتقطع اللعبة أو تتأخر. كابل شبكة، أو تقريب التلفزيون من الراوتر، يساعد.</string>
     <string name="jogos_jogar_assim">العب على أي حال</string>
     <string name="jogos_nao_abriu">لم يُفتح هذا التطبيق.</string>
-    <string name="jogos_tirar">إخراجها من بطاقة الألعاب</string>
+    <string name="jogos_tirar">إخراجها من لعب</string>
     <string name="jogos_automatico">العودة إلى التلقائي</string>
     <string name="jogos_loja_tudo">التطبيقات المقترحة موجودة بالفعل على هذا التلفزيون.</string>
     <string name="jogos_loja_explica">يفتح صفحة التطبيق في Play Store. إذا قال Play Store إنه لا يعمل على هذا التلفزيون، فهذا حد التطبيق.</string>
