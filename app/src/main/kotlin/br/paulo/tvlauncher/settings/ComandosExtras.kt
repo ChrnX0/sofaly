@@ -289,6 +289,13 @@ object ComandosExtras {
         // Troca de pacote (19/11/2026, PackageMigration.kt). "migration" = estado. "migration_start" (no antigo) e
         // "migration_rollback" (no novo) rodam em fundo: o resultado aparece no "migration" uns segundos depois.
         // "migration_remove_legacy" (no novo) DESINSTALA o antigo: irreversível, some o caminho de volta.
+        // Como a TV estava antes da Sofaly (22/11/2026, FactoryBaseline): "baseline" = foto e o que voltaria;
+        // "baseline_restore" e "baseline_undo" rodam em fundo (resultado no Diário e no "baseline" depois).
+        // "debloat_catalog" = as sugestões da limpeza para qualquer TV (DebloatCatalog) e o estado de cada uma.
+        "baseline" -> br.paulo.tvlauncher.privilege.FactoryBaseline.relatorio(ctx)
+        "baseline_restore" -> { val app = ctx.applicationContext; Fundo.rodar("baseline-adb") { br.paulo.tvlauncher.privilege.FactoryBaseline.restaurar(app, "adb") }; "started (see: baseline)" }
+        "baseline_undo" -> { val app = ctx.applicationContext; Fundo.rodar("baseline-adb") { br.paulo.tvlauncher.privilege.FactoryBaseline.desfazerRestauracao(app, "adb") }; "started (see: baseline)" }
+        "debloat_catalog" -> br.paulo.tvlauncher.privilege.Debloat.relatorio(ctx)
         "migration" -> PackageMigration.status(ctx)
         "migration_start" -> { val app = ctx.applicationContext; Fundo.rodar("migracao") { PackageMigration.note(app, PackageMigration.start(app, manual = true)) }; "started (see: migration)" }
         "migration_rollback" -> { val app = ctx.applicationContext; Fundo.rodar("migracao-volta") { PackageMigration.note(app, PackageMigration.rollback(app)) }; "started (see: migration)" }

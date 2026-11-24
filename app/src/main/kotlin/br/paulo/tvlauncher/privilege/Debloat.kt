@@ -80,7 +80,8 @@ object Debloat {
     /** Oculta (true) ou mostra de volta (false). Recusa o que não está liberado. Devolve se mudou. */
     fun definir(ctx: Context, pacote: String, ocultar: Boolean): Boolean {
         val item = todos(ctx).firstOrNull { it.pacote == pacote }
-        if (ocultar && (item == null || !permitido(item))) return false
+        // Fora da lista testada, só o que o catálogo mundial sugere para ESTA TV (DebloatCatalog, com a proteção dele).
+        if (ocultar && (if (item != null) !permitido(item) else !DebloatCatalog.permite(ctx, pacote))) return false
         // O retorno do setApplicationHidden não é confiável no Android 14 (visto na Sala: reexibir um app que não estava
         // oculto devolve true, e o Play Games "ocultava" sem ocultar). Vale o estado lido depois.
         PrivilegioDO.ocultar(ctx, pacote, ocultar)
@@ -98,5 +99,7 @@ object Debloat {
     /** Para o adb: cada candidato instalado, com testado/oculto. */
     fun relatorio(ctx: Context): String = todos(ctx).filter { instalado(ctx, it.pacote) }.joinToString("\n") {
         "${it.pacote} testado=${it.testadoEm ?: "não"} oculto=${PrivilegioDO.estaOculto(ctx, it.pacote)} nunca=${it.pacote in NUNCA}"
-    }.ifEmpty { "nenhum candidato instalado" }
+    }.ifEmpty { "nenhum candidato instalado" } + "\n" + DebloatCatalog.sugestoes(ctx).joinToString("\n") {
+        "sugestao ${it.pkg} listas=${it.entry.lists} marca=${it.sameBrand} oculto=${PrivilegioDO.estaOculto(ctx, it.pkg)}"
+    }
 }

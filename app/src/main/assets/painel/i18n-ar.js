@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"مدة بقائها على الشاشة",
 "Quedas":"الانقطاعات",
 "Quem depende dele (pela TV)":"من يعتمد عليه (حسب التلفزيون)",
-"Quem mais ocupa memória":"ما يستهلك أكثر ذاكرة",
+"Quem está pesando a TV":"ما الذي يُثقل التلفزيون",
 "Recado":"رسالة",
 "Recado com foto":"رسالة مع صورة",
 "Recado na TV":"رسالة على التلفزيون",

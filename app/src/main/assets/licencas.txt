@@ -5,6 +5,12 @@ O texto completo de cada licença está no endereço indicado.
 
 — Bibliotecas —
 
+cleanyourtv, de Gathin, e tellyscope-devices, dos contribuidores do Tellyscope (só os dados: as listas de limpeza
+por modelo de TV, resumidas em assets/debloat/catalog.json; nenhum código do Tellyscope)
+  https://github.com/Gathin23/cleanyourtv
+  https://github.com/man15h/tellyscope-devices
+  Licença MIT. Copyright (c) 2026 Gathin; Copyright (c) 2026 Tellyscope contributors.
+
 python-holidays, do projeto Vacanza (só os dados: a tabela de feriados nacionais em assets/feriados)
   https://github.com/vacanza/holidays
   Licença MIT.
