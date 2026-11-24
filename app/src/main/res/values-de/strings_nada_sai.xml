@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
 <resources>
-    <string name="nsc_titulo">Nichts verlässt dein Zuhause</string>
-    <string name="nsc_det">Kein Konto bei uns, kein Server von uns, keine Werbung</string>
-    <string name="nsc_texto">Kein Konto bei uns, kein Server von uns, keine Werbung, kein Nutzungs-Tracking.\n\nEinstellungen, Fotos, Notizen und Backups bleiben auf diesem Fernseher oder in einem eigenen Konto, wenn du eines verbindest.\n\nDer Fernseher spricht nur mit Diensten, die du einschaltest, etwa Wetter oder Filmcover. Die Datenschutzerklärung auf der Website nennt jeden einzelnen.</string>
+    <string name="nsc_titulo">Deine Daten bleiben bei dir</string>
+    <string name="nsc_det">Kein Konto bei uns, keine Werbung</string>
+    <string name="nsc_texto">Kein Konto bei uns, keine Werbung, kein Nutzungs-Tracking.\n\nEinstellungen, Fotos, Notizen und Backups bleiben auf diesem Fernseher oder in einem eigenen Konto, wenn du eines verbindest.\n\nDer Fernseher spricht nur mit Diensten, die du einschaltest, etwa Wetter oder Filmcover. Manche laufen über unseren Server (api.sofaly.tv), etwa die Podcast-Suche; Notizen zwischen deinen Geräten sind Ende-zu-Ende verschlüsselt, er kann sie nicht lesen. Die Datenschutzerklärung auf der Website nennt jeden einzelnen.</string>
 </resources>

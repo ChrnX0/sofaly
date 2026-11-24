@@ -675,9 +675,12 @@ object Estilo {
     fun linhaTexto(ctx: Context, conteudo: CharSequence = ""): TextView = texto(ctx, Papel.CORPO, conteudo).apply {
         isFocusable = true; isClickable = true
         setPaddingRelative(dp(ctx, 20), dp(ctx, 14), dp(ctx, 20), dp(ctx, 14))
-        background = superficie(ctx, false)
+        // Régua 22/11/2026, como a linha das Configurações: sem caixa, um fio embaixo; o foco segue Ajuste fino > Foco
+        // (teste 100%, 23/11/2026: Extras e as telas desta linha ainda tinham a caixa antiga).
+        background = fioBaixo(ctx)
         setOnFocusChangeListener { v, foco ->
             focarLinha(v, foco)
+            v.background = if (foco) fundoFocado(v.context, RAIO, fioBaixo(v.context)) else fioBaixo(v.context)
             v.animate().scaleX(if (foco) ESCALA_LINHA else 1f).scaleY(if (foco) ESCALA_LINHA else 1f).setDuration(FOCO_MS).start()
         }
     }

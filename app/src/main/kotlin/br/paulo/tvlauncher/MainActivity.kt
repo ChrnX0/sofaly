@@ -2586,8 +2586,11 @@ class MainActivity : Activity() {
                     atualizarFundo()
                     iconeClima = r.icone
                     ceuCoberto = r.codigo > 2 || r.chovendo
+                    // Item Clima da cruz copia a temperatura na montagem: refaz quando ela muda (teste 100%, 23/11/2026: 28° × 33°).
+                    val mudou = txtTemp.text.toString() != "${r.temp}°"
                     txtTemp.text = "${r.temp}°"
                     ultimaTemp = r.temp
+                    if (mudou) atualizarCruz()
                     // Guarda o que o topo mostra: a previsão aberta por voz ("Boletim do Tempo") e o protetor de tela
                     // (ProtetorTela.kt, sem rede própria) não passam por aqui e leem isto.
                     getSharedPreferences(Prefs.CLIMA, MODE_PRIVATE).edit()

@@ -949,7 +949,8 @@ class ConfigLauncherActivity : Activity() {
         if (comSecao) secao(c, getString(R.string.cfg_extras_secao))
         for (k in chaves) {
             lateinit var l: LinhaCfg
-            l = linha(ExtrasTv.rotulo(this, k), "", chave = Extras.ligado(this, k)) {
+            val (tituloK, detalheK) = ExtrasTv.partes(ExtrasTv.rotulo(this, k))
+            l = linha(tituloK, detalheK, chave = Extras.ligado(this, k)) {
                 val mudar = { ExtrasTv.alternar(this, k); l.ligado(Extras.ligado(this, k)) }
                 val titulo = getString(if (k == Extras.Chave.HORA_DORMIR) R.string.dormir_pin else R.string.player_pin_titulo)
                 when {
@@ -1278,7 +1279,8 @@ class ConfigLauncherActivity : Activity() {
      * Fica clara e cresce um pouco com o foco, como as linhas do popup e da tela de DNS.
      */
     internal inner class LinhaCfg(ctx: Context, focavel: Boolean) : LinearLayout(ctx) {
-        private val tTitulo = Estilo.texto(ctx, Estilo.Papel.CORPO).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+        // 2 linhas: título longo ("Travar Forçar parada…") cortava no meio (teste 100%, 23/11/2026)
+        private val tTitulo = Estilo.texto(ctx, Estilo.Papel.CORPO).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END }
         private val tDetalhe = Estilo.texto(ctx, Estilo.Papel.LEGENDA).apply {
             maxLines = 3; ellipsize = TextUtils.TruncateAt.END; setPaddingRelative(0, dp(4), 0, 0)
         }

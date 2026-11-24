@@ -49,6 +49,20 @@ object DebloatCatalog {
 
     // ------------------------------------------------------------------------------------------- regras puras
 
+    private val PREFIXOS = setOf("com", "android", "google", "apps", "app", "tv", "atv", "org", "net", "br", "de", "us")
+
+    /**
+     * Nome para ler quando o app sumido não tem rótulo (teste 100%, 23/11/2026: "com.android.ondevicepersonalization.services"
+     * aparecia cru). Tira os pedaços genéricos do começo, separa camelCase e "_", e põe maiúscula:
+     * "com.android.ondevicepersonalization.services" -> "Ondevicepersonalization services".
+     */
+    fun readableName(pkg: String): String {
+        val partes = pkg.split('.').filter { it.isNotBlank() }
+        val uteis = partes.dropWhile { it.lowercase() in PREFIXOS }.ifEmpty { partes.takeLast(1) }
+        return uteis.joinToString(" ") { p -> p.replace(Regex("([a-z])([A-Z])"), "$1 $2").replace('_', ' ') }
+            .lowercase().trim().replaceFirstChar { it.uppercase() }
+    }
+
     /** Lê o catálogo; entrada malformada é pulada (dado de fora). JSON inválido = catálogo vazio. */
     fun parse(json: String): Catalog = runCatching {
         val root = JSONObject(json)

@@ -26,4 +26,20 @@ object ExtrasTv {
         val id = ctx.resources.getIdentifier("extras_${c.name}", "string", ctx.packageName)
         return if (id != 0) ctx.getString(id) else c.name
     }
+
+    /**
+     * O rótulo longo em título + explicação, como as outras linhas das Configurações (teste 100%, 23/11/2026: "Pular
+     * abertura (IntroDB): nos episódios…" cortava com "…" numa linha só). Corta no primeiro ": "; sem ele, num "(…)" no
+     * fim. Curto, fica inteiro no título.
+     */
+    fun partes(rotulo: String): Pair<String, String> {
+        val t = rotulo.trim()
+        val doisPontos = t.indexOf(": ")
+        if (doisPontos in 3..60) return t.substring(0, doisPontos).trim() to maiuscula(t.substring(doisPontos + 2))
+        val abre = t.indexOf(" (")
+        if (t.length > 32 && abre in 3..60 && t.endsWith(")")) return t.substring(0, abre).trim() to maiuscula(t.substring(abre + 2, t.length - 1))
+        return t to ""
+    }
+
+    private fun maiuscula(s: String) = s.trim().replaceFirstChar { it.uppercase() }
 }

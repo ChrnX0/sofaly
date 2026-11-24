@@ -153,6 +153,14 @@ class JogosActivity : Activity() {
             val u = Uso.ultimoUso(ctx)
             val porPacote = lista.associateBy { it.pacote }
             val ordenada = Jogos.ordenarPorUso(lista.map { it.pacote }, u).mapNotNull { porPacote[it] }
+            // Mostra a lista já (com as iniciais) e depois os ícones e a semana: tudo junto deixava "Carregando…" ~10 s
+            // na Sala (teste 100%, 23/11/2026).
+            if (!carregou) runOnUiThread {
+                if (isDestroyed || carregou) return@runOnUiThread
+                uso = u; jogos = ordenada; carregou = true
+                if (escolhido == null) escolhido = ordenada.firstOrNull()
+                montar()
+            }
             val tempos = Uso.tempoNaFrente(ctx).filterKeys { it in porPacote }
             val sem = Semana(tempos.values.sum(), tempos.maxByOrNull { it.value }?.key?.let { porPacote[it]?.nome })
             // Ícones só dos que ainda não foram lidos nesta tela (voltar de um jogo não relê nada).
@@ -239,7 +247,10 @@ class JogosActivity : Activity() {
             val cor = CORES_CONSOLE[console.ordinal % CORES_CONSOLE.size]
             val itens = ordem.map { j ->
                 val sub = listOfNotNull(
-                    retroUltima[j.caminho]?.let { DateUtils.getRelativeTimeSpanString(it, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS).toString() },
+                    retroUltima[j.caminho]?.let { quando -> val agora = System.currentTimeMillis()
+                        // Menos de 1 min dava "Há 0 minuto" (teste 100%, 23/11/2026)
+                        if (agora - quando < DateUtils.MINUTE_IN_MILLIS) getString(R.string.pv_agora)
+                        else DateUtils.getRelativeTimeSpanString(quando, agora, DateUtils.MINUTE_IN_MILLIS).toString() },
                     getString(R.string.retro_portugues).takeIf { j.portugues },
                 ).joinToString(" · ")
                 CruzOuvir.Item("retro:" + j.caminho, j.nome, sub, cor = cor, monograma = CapaOuvir.iniciais(j.nome),
