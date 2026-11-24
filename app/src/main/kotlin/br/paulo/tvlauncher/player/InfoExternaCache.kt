@@ -550,9 +550,4 @@ object InfoExternaCache {
         }
     }
 
-    /** Os títulos da grade que têm id TMDB (da lista ou já achado) para o lote: chave -> id. */
-    fun idsConhecidos(ctx: Context, itens: List<Pair<String, Int?>>): List<Pair<String, Int>> = synchronized(trava) {
-        val m = mapa(ctx)
-        itens.mapNotNull { (k, t) -> (t ?: m[k]?.tmdb)?.let { k to it } }
-    }
 }

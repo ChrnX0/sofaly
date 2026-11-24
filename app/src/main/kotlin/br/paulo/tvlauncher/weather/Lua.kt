@@ -85,7 +85,4 @@ object Lua {
         return maxOf(1, (dia(evento) - dia(agoraMs)).toInt())
     }
 
-    /** Versão curta, para caber no meio do topo: "🌖  Minguante gibosa  ·  70%" (sem o "nova em 10 d"). */
-    fun resumoCurto(agoraMs: Long, latitude: Double): String =
-        resumo(agoraMs, latitude).substringBeforeLast("  ·  ")
 }

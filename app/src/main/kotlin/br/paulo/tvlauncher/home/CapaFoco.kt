@@ -211,8 +211,5 @@ class CapaFoco(ctx: Context) : View(ctx) {
             return intArrayOf(base, escura)
         }
 
-        /** Intent para abrir um app pela HOME (o mesmo caminho do card). */
-        fun abrirIntent(pm: PackageManager, pacote: String): Intent? =
-            pm.getLeanbackLaunchIntentForPackage(pacote) ?: pm.getLaunchIntentForPackage(pacote)
     }
 }

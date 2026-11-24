@@ -377,6 +377,4 @@ object GuardiaoShizuku {
         }
     }
 
-    /** true se a Depuração sem fio está ligada (só para diagnóstico na tela de Configurações). */
-    fun depuracaoLigada(ctx: Context) = Settings.Global.getInt(ctx.contentResolver, "adb_wifi_enabled", 0) == 1
 }
