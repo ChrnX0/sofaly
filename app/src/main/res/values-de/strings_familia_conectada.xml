@@ -4,7 +4,7 @@
     <string name="famc_titulo">Familien-Link</string>
     <string name="famc_det">Kinder und Enkel schicken Fotos und Nachrichten per Link an diesen Fernseher, ohne Konto</string>
     <string name="famc_ligado">An: OK zeigt den QR-Code zum erneuten Teilen</string>
-    <string name="famc_texto">Scanne den Code mit dem Handy und schick den Link an die Familie (WhatsApp, E-Mail). Wer den Link hat, schickt Fotos und Nachrichten: Sie erscheinen auf dem Bildschirm und im Bildschirmschoner. Nichts läuft über unsere Server.</string>
+    <string name="famc_texto">Scanne den Code mit dem Handy und schick den Link an die Familie (WhatsApp, E-Mail). Wer den Link hat, schickt Fotos und Nachrichten: Sie erscheinen sofort auf dem Bildschirm, Nachrichten bleiben auf der Pinnwand im Schnellmenü und Fotos kommen zu den Fotos des Bildschirmschoners. Nichts läuft über unsere Server.</string>
     <string name="famc_sem_tunel">Dafür braucht es den Zugriff von außen (Tailscale), der auf diesem Fernseher noch nicht eingerichtet ist. Richte ihn unter Einstellungen › Zuhause und Netzwerk › Fernzugriff ein und komm zurück.</string>
     <string name="famc_trocar">Neuer Link</string>
     <string name="famc_trocar_det">Der alte Link funktioniert sofort nicht mehr</string>

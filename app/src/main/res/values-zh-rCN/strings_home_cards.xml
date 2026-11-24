@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">最后 7 天在主屏幕顶部显示倒计时（你的日期或下一个节假日）</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">当天在主屏幕顶部显示家务提醒（例如可回收垃圾日），并在设定时间提示</string>
     <string name="extras_CARTAO_SERVICO">你添加的服务停止响应时在主屏幕顶部提醒</string>
-    <string name="extras_CARTAO_LUA">在预报、屏幕保护程序和夜间天气图标中显示月相</string>
+    <string name="extras_CARTAO_LUA">在天气预报中显示月相</string>
     <string name="hc_feriado_hoje">今天是节假日</string>
     <string name="hc_hoje">今天：%1$s</string>
     <string name="hc_lembrete_rotulo">家务提醒</string>

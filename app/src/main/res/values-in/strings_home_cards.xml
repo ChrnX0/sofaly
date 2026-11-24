@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">Hitung mundur di atas layar utama pada 7 hari terakhir (tanggal Anda atau hari libur berikutnya)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">Pengingat rumah di atas layar utama pada harinya (mis. hari daur ulang), dengan pemberitahuan pada jam yang ditetapkan</string>
     <string name="extras_CARTAO_SERVICO">Beri tahu di atas layar utama saat layanan yang ditambahkan berhenti merespons</string>
-    <string name="extras_CARTAO_LUA">Fase bulan di prakiraan, screensaver, dan ikon cuaca saat malam</string>
+    <string name="extras_CARTAO_LUA">Fase bulan di prakiraan cuaca</string>
     <string name="hc_feriado_hoje">Hari libur hari ini</string>
     <string name="hc_hoje">Hari ini: %1$s</string>
     <string name="hc_lembrete_rotulo">Pengingat rumah</string>

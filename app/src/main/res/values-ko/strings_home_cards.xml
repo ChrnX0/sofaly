@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">마지막 7일 동안 홈 화면 위에 카운트다운 (내 날짜 또는 다음 공휴일)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">해당 요일에 홈 화면 위에 집 알림 (예: 분리수거 날), 정한 시간에 알림</string>
     <string name="extras_CARTAO_SERVICO">추가한 서비스가 응답하지 않으면 홈 화면 위에 알림</string>
-    <string name="extras_CARTAO_LUA">예보, 화면 보호기, 밤 날씨 아이콘에 달의 위상 표시</string>
+    <string name="extras_CARTAO_LUA">일기예보에 달의 위상 표시</string>
     <string name="hc_feriado_hoje">오늘은 공휴일</string>
     <string name="hc_hoje">오늘: %1$s</string>
     <string name="hc_lembrete_rotulo">집 알림</string>

@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">Contagem regressiva no alto da tela inicial nos últimos 7 dias (suas datas ou o próximo feriado)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">Lembretes da casa no alto da tela inicial no dia (ex.: dia do lixo reciclável), com aviso na hora marcada</string>
     <string name="extras_CARTAO_SERVICO">Avisar no alto da tela inicial quando um serviço cadastrado parar de responder</string>
-    <string name="extras_CARTAO_LUA">Fase da lua na previsão, no protetor de tela e no ícone do clima à noite</string>
+    <string name="extras_CARTAO_LUA">Fase da lua na previsão do tempo</string>
     <string name="hc_feriado_hoje">Feriado hoje</string>
     <string name="hc_hoje">Hoje: %1$s</string>
     <string name="hc_lembrete_rotulo">Lembrete da casa</string>

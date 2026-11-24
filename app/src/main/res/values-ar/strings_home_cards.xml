@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">عدّ تنازلي أعلى الشاشة الرئيسية في آخر 7 أيام (تواريخك أو العطلة القادمة)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">تذكيرات المنزل أعلى الشاشة الرئيسية في يومها (مثل يوم إعادة التدوير)، مع تنبيه في الوقت المحدد</string>
     <string name="extras_CARTAO_SERVICO">التنبيه أعلى الشاشة الرئيسية عندما تتوقف خدمة أضفتها عن الاستجابة</string>
-    <string name="extras_CARTAO_LUA">طور القمر في التوقعات وشاشة التوقف وأيقونة الطقس ليلًا</string>
+    <string name="extras_CARTAO_LUA">طور القمر في توقعات الطقس</string>
     <string name="hc_feriado_hoje">عطلة اليوم</string>
     <string name="hc_hoje">اليوم: %1$s</string>
     <string name="hc_lembrete_rotulo">تذكير المنزل</string>

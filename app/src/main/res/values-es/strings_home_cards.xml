@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">Cuenta regresiva arriba en la pantalla de inicio en los últimos 7 días (tus fechas o el próximo feriado)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">Recordatorios de la casa arriba en la pantalla de inicio el día que tocan (p. ej. día del reciclaje), con aviso a la hora</string>
     <string name="extras_CARTAO_SERVICO">Avisar arriba en la pantalla de inicio cuando un servicio añadido deje de responder</string>
-    <string name="extras_CARTAO_LUA">Fase lunar en el pronóstico, el salvapantallas y el icono del tiempo de noche</string>
+    <string name="extras_CARTAO_LUA">Fase lunar en el pronóstico del tiempo</string>
     <string name="hc_feriado_hoje">Feriado hoy</string>
     <string name="hc_hoje">Hoy: %1$s</string>
     <string name="hc_lembrete_rotulo">Recordatorio de la casa</string>
