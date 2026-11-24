@@ -603,6 +603,13 @@ object Estilo {
         else br.paulo.tvlauncher.home.GlassBackground.of(ctx) ?: FundoGrafite(World.of(ctx))
 
     /**
+     * Fundo das telas de ENTRADA (Configurações, Rádio, Podcasts, Jogos): no jeito Barra (ScreenStyle.STRIP) é a foto
+     * nítida da HOME escurecendo embaixo, atrás da fileira; nos outros jeitos, o mesmo de [fundoTela].
+     */
+    fun fundoEntrada(ctx: Context): Drawable =
+        (if (br.paulo.tvlauncher.home.ScreenStyle.barra(ctx)) br.paulo.tvlauncher.home.GlassBackground.strip(ctx) else null) ?: fundoTela(ctx)
+
+    /**
      * Tela cuja raiz já pinta o grafite na tela toda: a cor de fundo da janela (tema) por baixo é uma camada de tela
      * cheia a mais em cada quadro, que ninguém vê (13/11/2026, medido na Sala com "mostrar sobreposição"). Tira essa cor.
      * Chamado para toda tela pelo LauncherApp (onActivityStarted); só age quando a raiz é o grafite e ocupa a janela.

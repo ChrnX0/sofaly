@@ -12,7 +12,6 @@ import br.paulo.tvlauncher.ConfigLauncherActivity.Companion.BUSCA
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.family.UsoTv
-import br.paulo.tvlauncher.home.GlassBackground
 import br.paulo.tvlauncher.home.GlassDrawable
 import br.paulo.tvlauncher.home.IconeCruz
 import br.paulo.tvlauncher.home.ScreenStyle
@@ -81,7 +80,7 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
 
     val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
     if (ScreenStyle.barra(this)) {
-        (grade.parent as? View)?.let { it.background = GlassBackground.strip(this) ?: it.background }
+        (grade.parent as? View)?.background = Estilo.fundoEntrada(this)
         portasEmBarra(portas, foco)
         mostrarDicaDasPortas()
         return

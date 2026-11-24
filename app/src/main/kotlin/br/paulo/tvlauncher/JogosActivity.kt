@@ -114,7 +114,7 @@ class JogosActivity : Activity() {
         }
         dicasDa(true)
         setContentView(FrameLayout(this).apply {
-            background = Estilo.fundoTela(this@JogosActivity)
+            background = Estilo.fundoEntrada(this@JogosActivity)
             addView(cruz, FrameLayout.LayoutParams(-1, -1))
         })
         getSystemService(InputManager::class.java)?.registerInputDeviceListener(ouvinteControles, ui)

@@ -40,14 +40,21 @@ class ScreenStyleScreenTest {
         "busca" to br.paulo.tvlauncher.BuscaActivity::class.java,
     )
 
+    /** As telas de entrada que viram fileira na Barra (Rádio, Podcasts e Jogos usam a CruzOuvir). */
+    private val entradas: List<Pair<String, Class<out Activity>>> = listOf(
+        "radio" to br.paulo.tvlauncher.RadioActivity::class.java,
+        "podcasts" to br.paulo.tvlauncher.PodcastsActivity::class.java,
+        "jogos" to br.paulo.tvlauncher.JogosActivity::class.java,
+    )
+
     @Test fun gaveta() = conferir(ScreenStyle.DRAWER)
 
     @Test fun vidro() = conferir(ScreenStyle.GLASS)
 
     /** Barra: as Configurações viram a fileira de cards; as outras telas caem no Vidro. */
-    @Test fun barra() = conferir(ScreenStyle.STRIP)
+    @Test fun barra() = conferir(ScreenStyle.STRIP, telas + entradas)
 
-    private fun conferir(jeito: ScreenStyle) {
+    private fun conferir(jeito: ScreenStyle, lista: List<Pair<String, Class<out Activity>>> = telas) {
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
         saida.mkdirs()
         val app = RuntimeEnvironment.getApplication()
@@ -56,7 +63,7 @@ class ScreenStyleScreenTest {
         ScreenStyle.set(app, jeito)
         System.setProperty("https.proxyHost", "127.0.0.1"); System.setProperty("https.proxyPort", "9")
         val problemas = mutableListOf<String>()
-        for ((nome, cls) in telas) {
+        for ((nome, cls) in lista) {
             val ctl = Robolectric.buildActivity(cls).setup()
             val a = ctl.get()
             repeat(4) { Thread.sleep(50); ShadowLooper.idleMainLooper(200, TimeUnit.MILLISECONDS) }
