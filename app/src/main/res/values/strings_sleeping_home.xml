@@ -25,7 +25,7 @@
     <string name="sh_vidro">Glass behind the bottom strip</string>
     <string name="sh_vidro_det">A glass panel behind the strip. Off: just a thin line.</string>
     <string name="sh_fundo">Background while resting</string>
-    <string name="sh_fundo_det">Behind the clock while resting: same as the home, another theme, one photo or video, or several going by.</string>
+    <string name="sh_fundo_det">What stays behind the clock while resting: another theme, a photo, a video or several going by.</string>
     <string name="sh_fundo_home">Same as the home</string>
     <string name="sh_fundo_fotos">Photos and videos going by</string>
     <string name="sh_fundo_arquivo">One file just for resting</string>
