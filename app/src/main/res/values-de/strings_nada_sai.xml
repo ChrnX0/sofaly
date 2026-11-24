@@ -3,5 +3,5 @@
 <resources>
     <string name="nsc_titulo">Deine Daten bleiben bei dir</string>
     <string name="nsc_det">Kein Konto bei uns, keine Werbung</string>
-    <string name="nsc_texto">Kein Konto bei uns, keine Werbung, kein Nutzungs-Tracking.\n\nEinstellungen, Fotos, Notizen und Backups bleiben auf diesem Fernseher oder in einem eigenen Konto, wenn du eines verbindest.\n\nDer Fernseher spricht nur mit Diensten, die du einschaltest, etwa Wetter oder Filmcover. Manche laufen über unseren Server (api.sofaly.tv), etwa die Podcast-Suche; Notizen zwischen deinen Geräten sind Ende-zu-Ende verschlüsselt, er kann sie nicht lesen. Die Datenschutzerklärung auf der Website nennt jeden einzelnen.</string>
+    <string name="nsc_texto">Kein Konto bei uns, keine Werbung, kein Nutzungs-Tracking.\n\nEinstellungen, Fotos, Notizen und Backups bleiben auf diesem Fernseher oder in einem eigenen Konto, wenn du eines verbindest.\n\nDer Fernseher spricht nur mit Diensten, die du einschaltest, etwa Wetter oder Filmcover. Manche laufen über unseren Server (api.sofaly.tv), etwa die Podcast-Suche; er bekommt nur die Anfrage, nie ein Konto von dir. Die Datenschutzerklärung auf der Website nennt jeden einzelnen.</string>
 </resources>

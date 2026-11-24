@@ -3,5 +3,5 @@
 <resources>
     <string name="nsc_titulo">I tuoi dati restano con te</string>
     <string name="nsc_det">Nessun account da noi, nessuna pubblicità</string>
-    <string name="nsc_texto">Nessun account da noi, nessuna pubblicità, nessun tracciamento dell’uso.\n\nImpostazioni, foto, messaggi e backup restano su questa TV, o in un tuo account se lo colleghi.\n\nLa TV parla solo con i servizi che attivi, come il meteo o le copertine dei film. Alcuni passano dal nostro server (api.sofaly.tv), come la ricerca dei podcast; i messaggi tra i tuoi dispositivi sono cifrati end-to-end e il server non può leggerli. L’informativa sulla privacy del sito li elenca tutti.</string>
+    <string name="nsc_texto">Nessun account da noi, nessuna pubblicità, nessun tracciamento dell’uso.\n\nImpostazioni, foto, messaggi e backup restano su questa TV, o in un tuo account se lo colleghi.\n\nLa TV parla solo con i servizi che attivi, come il meteo o le copertine dei film. Alcuni passano dal nostro server (api.sofaly.tv), come la ricerca dei podcast; il server riceve solo la richiesta, mai un tuo account. L’informativa sulla privacy del sito li elenca tutti.</string>
 </resources>

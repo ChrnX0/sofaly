@@ -41,7 +41,7 @@ aprender nada novo.
 • Cuidar de longe (opcional): quem mora na casa aceita na TV, e pode pedir ajuda segurando um botão ou avisar que
   está tudo bem. Nada sai sem a pessoa apertar.
 • Painel no celular, na rede de casa, para arrumar a TV sem controle remoto.
-• Sem anúncios. Nada é enviado para nós: não temos servidor.
+• Sem anúncios, sem conta nossa e sem rastrear o que você assiste. Configurações e fotos ficam na TV.
 
 Planos: Básico grátis. Pro e Ultra por assinatura na Google Play, com recursos a mais.
 
@@ -59,7 +59,7 @@ learn anything new.
 • Care from afar (optional): the person at home agrees on the TV, then can ask for help by holding a button or let
   family know they're fine. Nothing is sent unless they press it.
 • Phone panel on your home network, to set up the TV without the remote.
-• No ads. Nothing is sent to us: we have no server.
+• No ads, no account with us, and no tracking of what you watch. Settings and photos stay on the TV.
 
 Plans: Basic is free. Pro and Ultra are subscriptions through Google Play.
 

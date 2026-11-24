@@ -3,8 +3,14 @@
 > Base: `site/privacy.html` (One TV Launcher, 14/11/2026), ajustada ao app da Play. Publicar no site (inglês e português)
 > ANTES de enviar à Play e colar o link no Console. Partes marcadas ⚠ dependem de decisão.
 
-**Em resumo.** A Sofaly não tem servidor próprio. Nós não recebemos, guardamos nem vendemos dados seus. Não há anúncios,
-análise de uso nem telemetria. O que o app guarda fica na sua TV ou em contas suas que você escolher conectar.
+**Em resumo.** A Sofaly não pede conta, não mostra anúncios e não rastreia o que você assiste. Não há análise de uso nem
+telemetria, e não vendemos dados. Temos um servidor pequeno (api.sofaly.tv) que só repassa alguns pedidos (abaixo). O que o app guarda fica na sua TV ou em contas suas que você escolher conectar.
+
+**O nosso servidor (api.sofaly.tv).** Serve para usar fornecedores cuja chave não pode ficar dentro do app. Recebe o
+pedido e o IP da TV, sem conta nem nome, e não guarda quem pediu: busca de podcasts (o termo buscado, repassado ao Podcast
+Index), texto e resumo de podcasts públicos (o áudio do podcast, para a Cloudflare Workers AI, que não guarda o pedido) e,
+no plano Pro, a previsão do tempo (a localização arredondada a ~11 km, repassada à WeatherAPI.com). Também publica a lista
+de add-ons recomendados e o add-on de filmes de domínio público.
 
 **Na TV.** Configurações, ordem dos apps, despertadores, lembretes, rotinas, PINs (hash com sal), contas de mídia que você
 adiciona e backups locais. Apagar os dados do app ou desinstalar remove tudo.
