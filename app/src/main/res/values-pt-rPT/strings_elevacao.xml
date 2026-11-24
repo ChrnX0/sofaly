@@ -56,7 +56,7 @@
     <string name="elv_bf_procurar">Procurar mais longe</string>
     <string name="elv_bf_procurar_radio">Rádios com o nome “%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Rádios do mundo inteiro</string>
-    <string name="elv_bf_procurar_rede">“%1$s” nos arquivos da rede</string>
+    <string name="elv_bf_procurar_rede">“%1$s” nos ficheiros da rede</string>
     <string name="elv_bf_procurar_rede_det">No seu Jellyfin, Emby ou Plex</string>
     <string name="elv_aj_buscar">Pesquisar nas definições</string>
     <string name="elv_aj_explica">Escreva uma palavra: o nome da opção ou outra palavra para ela (\"fonte\" encontra o tamanho do texto)</string>

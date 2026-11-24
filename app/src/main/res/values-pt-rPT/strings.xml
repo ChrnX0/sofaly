@@ -376,7 +376,7 @@
     <string name="player_carregando">A carregar os canais…</string>
     <string name="player_carregando_canal">A carregar o canal…</string>
     <string name="vod_carregando">A carregar o vídeo…</string>
-    <string name="player_sem_canais">Nenhuma lista de canais cadastrada ainda.</string>
+    <string name="player_sem_canais">Ainda não há nenhuma lista de canais registada.</string>
     <string name="player_tentando">Sem sinal no canal %1$d. A tentar de novo…</string>
     <string name="player_sem_sinal">O canal %1$d não respondeu. Escolha outro com ▲ ▼ ou OK.</string>
     <string name="player_canal_nao_existe">Não há canal %1$d.</string>
@@ -783,7 +783,7 @@ AS\\Filmes).</string>
     <string name="pv_sem_titulo">Sem previsão agora</string>
     <string name="bu_voz_grupo">Falar</string>
     <string name="bu_falar">Fale o que você procura</string>
-    <string name="bu_falar_det">Mais rápido que digitar com o controle</string>
+    <string name="bu_falar_det">Mais rápido do que escrever com o comando</string>
     <string name="bu_recentes">Buscas recentes</string>
     <string name="bu_recente_det">Buscar de novo</string>
     <string name="aviso_alarme_tocou_titulo">O despertador tocou na TV</string>
