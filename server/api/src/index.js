@@ -17,10 +17,12 @@
 //   POST   /v1/transcribe      pública: texto da fala de um pedaço de podcast (Workers AI, src/transcribe.js)
 //   POST   /v1/summary         pública: resumo do episódio + trechos de propaganda (Workers AI)
 //   GET    /v1/weather             pública: previsão do plano Pro (WeatherAPI), ?lat=&lon= (src/weather.js)
+//   GET    /v1/weather/open        pública: previsão do Básico, consenso de 4 modelos abertos, ?lat=&lon= (src/weatherOpen.js)
 import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { handlePodcasts } from './podcasts.js';
 import { handleWeather } from './weather.js';
+import { handleWeatherOpen } from './weatherOpen.js';
 import { handleTranscribe } from './transcribe.js';
 import { BASE_PATH as PD_BASE, handlePublicDomain } from './publicdomain.js';
 export { Mailbox } from './mailbox.js';
@@ -53,6 +55,9 @@ export default {
     const ia = path.match(/^\/v1\/(transcribe|summary)$/);
     if (ia && req.method === 'POST') return handleTranscribe(ia[1], req, url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
 
+    if (path === '/v1/weather/open' && req.method === 'GET') {
+      return handleWeatherOpen(url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
+    }
     if (path === '/v1/weather' && req.method === 'GET') {
       return handleWeather(url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
     }
