@@ -62,6 +62,10 @@ class CruzTelaTest {
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
     @Test fun vintage2() = conferir(IconeCruz.Estilo.VINTAGE2, "vintage2")
 
+    /** Azulejo (23/11/2026, padrão): o desenho da Linha em tinta escura dentro do quadrado na cor do tipo. */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun azulejo() = conferir(IconeCruz.Estilo.AZULEJO, "azulejo")
+
     /**
      * Uma linha embaixo do nome e o resto no canto de baixo à direita (Paulo, 18/11/2026 12:15 local). A situação do
      * item ([HomeCruz.Item.situacao], o programa no ar) abre os detalhes e não aparece de novo embaixo.

@@ -87,7 +87,7 @@ class BuscaActivity : Activity() {
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.bu_buscar))
+        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.bu_buscar), dicas = false)
         campo = EditText(this).apply {
             hint = getString(R.string.bu_dica)
             setSingleLine()

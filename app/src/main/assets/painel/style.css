@@ -1324,3 +1324,26 @@ label[data-atalho] > .estrela { margin: -8px -8px -8px auto; }
 .grade-fino { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 16px; margin-top: 12px; }
 .linha-fino { display: flex; flex-direction: column; gap: 6px; }
 .linha-fino select { width: 100%; }
+
+/* ---------------------------------------------------------------- Azulejos (23/11/2026, caminho B do visual, Paulo)
+   Porquê: na TV as categorias e as abas das Configurações viraram azulejos (quadrado arredondado na cor da área, desenho
+   escuro por dentro); o painel tinha só o ícone colorido solto. Para quê: a mesma peça na TV, no painel e no celular, para
+   reconhecer a área pela cor sem ler. Como: o fundo do .ic recebe a cor do mundo (as cores claras da TV também no tema
+   claro, para o desenho escuro ler igual) e o desenho fica na tinta da noite; técnico fica no cinza quente. */
+:root { --azulejo-neutro: #d9cfc2; --azulejo-tinta: var(--t-night-deep); }
+.linha-hub .ic { border-radius: 13px; background: var(--azulejo-neutro); color: var(--azulejo-tinta); }
+.linha-hub[data-aba="tvfilmes"] .ic { background: var(--t-world-watch); color: var(--azulejo-tinta); }
+.linha-hub:is([data-aba="apps"], [data-aba="loja"], [data-aba="telainicial"]) .ic { background: var(--t-world-apps); color: var(--azulejo-tinta); }
+.linha-hub:is([data-aba="arquivos"], [data-aba="remoto"], [data-aba="casa"]) .ic { background: var(--t-world-network); color: var(--azulejo-tinta); }
+.linha-hub:is([data-aba="familia"], [data-aba="energia"]) .ic { background: var(--t-area-home); color: var(--azulejo-tinta); }
+@media (min-width: 900px) {
+  .aba .ic { width: 30px; height: 30px; border-radius: 9px; background: var(--azulejo-neutro) !important; color: var(--azulejo-tinta) !important; }
+  .aba .ic svg.i { width: 18px; height: 18px; }
+  .aba.sub .ic { width: 26px; height: 26px; border-radius: 8px; }
+  .aba.sub .ic svg.i { width: 16px; height: 16px; }
+  .aba:is([data-aba="inicio"], [data-aba="natv"], [data-aba="tvfilmes"]) .ic { background: var(--t-world-watch) !important; }
+  .aba:is([data-aba="controle"], [data-aba="sofy"]) .ic { background: var(--t-world-continue) !important; }
+  .aba:is([data-aba="apps"], [data-aba="loja"], [data-aba="telainicial"]) .ic { background: var(--t-world-apps) !important; }
+  .aba:is([data-aba="arquivos"], [data-aba="remoto"], [data-aba="casa"]) .ic { background: var(--t-world-network) !important; }
+  .aba:is([data-aba="familia"], [data-aba="energia"]) .ic { background: var(--t-area-home) !important; }
+}

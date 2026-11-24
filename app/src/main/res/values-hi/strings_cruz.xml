@@ -52,6 +52,7 @@
     <string name="cruz_desliga_as">%1$s बजे बंद होगा</string>
     <string name="cruz_dormir_cancelar">रद्द करने के लिए OK</string>
     <string name="cruz_linha">बुनियादी</string>
+    <string name="cruz_azulejo">टाइलें</string>
     <string name="cruz_mover">यहाँ ले जाएँ…</string>
     <string name="cruz_mover_titulo">%1$s को यहाँ ले जाएँ</string>
     <string name="cruz_central">गेम हब</string>

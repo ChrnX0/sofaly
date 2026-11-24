@@ -31,7 +31,7 @@ class IconSetsTest {
     }
 
     @Test fun aOrdemDosEstilosNaoMuda() {
-        assertEquals(listOf("OBJETO", "SIMBOLO", "DUOTOM", "LINHA", "VINTAGE", "JOIA", "FOTO", "VINTAGE2"), IconeCruz.Estilo.entries.map { it.name })
-        assertTrue(IconeCruz.Estilo.entries.filter { it.animado }.map { it.name } == listOf("LINHA", "VINTAGE", "JOIA", "FOTO", "VINTAGE2"))
+        assertEquals(listOf("OBJETO", "SIMBOLO", "DUOTOM", "LINHA", "VINTAGE", "JOIA", "FOTO", "VINTAGE2", "AZULEJO"), IconeCruz.Estilo.entries.map { it.name })
+        assertTrue(IconeCruz.Estilo.entries.filter { it.animado }.map { it.name } == listOf("LINHA", "VINTAGE", "JOIA", "FOTO", "VINTAGE2", "AZULEJO"))
     }
 }

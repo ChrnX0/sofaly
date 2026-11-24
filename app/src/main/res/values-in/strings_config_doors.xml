@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Rumah dan jaringan</string>
+    <string name="cfg3_mais_ajustes">Setelan lainnya</string>
+    <string name="cfg3_mais_ajustes_det">Disembunyikan agar ringkas: %1$d</string>
+    <string name="cfg3_modo">Mode: %1$s</string>
+    <string name="cfg3_porta_0_det">Salib, ikon, dan latar</string>
+    <string name="cfg3_porta_1_det">Akun TV, bahasa, teks</string>
+    <string name="cfg3_porta_2_det">Anak, PIN, dan tamu</string>
+    <string name="cfg3_porta_3_det">Screensaver, tidur, alarm</string>
+    <string name="cfg3_porta_4_det">Rumah, ponsel, dan panel</string>
+    <string name="cfg3_porta_5_det">Pembaruan, cadangan, bantuan</string>
+</resources>
