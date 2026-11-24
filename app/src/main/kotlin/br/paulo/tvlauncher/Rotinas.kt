@@ -118,6 +118,8 @@ object Rotinas {
     // launcher, prefere NÃO desligar a desligar no meio do filme de alguém.
     @Volatile private var ultimaTecla = 0L
     fun tecla() { ultimaTecla = SystemClock.elapsedRealtime() }
+    /** Hora da última tecla (0 = nenhuma vista neste processo). HomeAoAcordar usa. */
+    fun teclaEm(): Long = ultimaTecla
     fun minutosSemTecla(): Long {
         if (ultimaTecla == 0L) ultimaTecla = SystemClock.elapsedRealtime()
         return (SystemClock.elapsedRealtime() - ultimaTecla) / 60_000

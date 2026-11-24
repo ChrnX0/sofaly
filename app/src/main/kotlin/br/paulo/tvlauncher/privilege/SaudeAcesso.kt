@@ -67,6 +67,9 @@ object SaudeAcesso {
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
+    /** Quando a tela acendeu (elapsedRealtime); Long.MAX_VALUE = apagada. HomeAoAcordar usa. */
+    fun acordouEm(): Long = acordouEm
+
     /** Liga o vigia. Uma vez por processo; chamado pelo serviço de acessibilidade (que segura o processo vivo). */
     fun vigiar(ctx: Context) {
         if (vigiando) return

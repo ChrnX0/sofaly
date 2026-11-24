@@ -126,6 +126,11 @@ object Home {
      */
     fun janelaApareceu(ctx: Context, pacote: CharSequence?, classe: CharSequence?) {
         if (pacote?.toString() != LAUNCHERX) return
+        if (HomeAoAcordar.desviar(classe?.toString(), SystemClock.elapsedRealtime(), br.paulo.tvlauncher.privilege.SaudeAcesso.acordouEm(),
+                br.paulo.tvlauncher.Rotinas.teclaEm())) {
+            Log.i(TAG, "seletor de conta do Google logo ao acordar, sem tecla: trazendo a nossa HOME (#5)")
+            irParaHome(ctx.applicationContext); return
+        }
         if (classe?.toString()?.startsWith("$LAUNCHERX.dashboard.") == true) { trocarPainel(ctx); return }
         if (classe?.toString() != HOME_DELE) return
         desviar(ctx.applicationContext)
