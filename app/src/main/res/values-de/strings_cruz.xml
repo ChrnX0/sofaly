@@ -15,7 +15,7 @@
     <string name="continue_podcast">Podcast</string>
     <string name="cruz_jogo">Spiel</string>
     <string name="cruz_icones">Symbole des Startbildschirms</string>
-    <string name="cruz_icones_det">Zeichnung für Ansehen, Hören und Spielen</string>
+    <string name="cruz_icones_det">Zeichenstil der Symbole von Kategorien und Einträgen</string>
     <string name="cruz_objeto">Objekt</string>
     <string name="cruz_simbolo">Symbol</string>
     <string name="cruz_duotom">Zweifarbig</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">Große Uhr</string>
     <string name="cruz_barra_capsulas">Kapseln</string>
     <string name="cruz_arte">Bild des gewählten Eintrags</string>
-    <string name="cruz_arte_det">Hinter dem Kreuz, rechts</string>
+    <string name="cruz_arte_det">Hinter den Einträgen, rechts</string>
     <string name="cruz_ligada">An</string>
     <string name="cruz_desligada">Aus</string>
     <string name="cruz_sons">Töne beim Navigieren</string>

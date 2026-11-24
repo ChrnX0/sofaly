@@ -15,7 +15,7 @@
     <string name="continue_podcast">Podcast</string>
     <string name="cruz_jogo">Juego</string>
     <string name="cruz_icones">Iconos de la pantalla de inicio</string>
-    <string name="cruz_icones_det">Dibujo de Ver, Escuchar y Jugar</string>
+    <string name="cruz_icones_det">Dibujo de los iconos de las categorías y los elementos</string>
     <string name="cruz_objeto">Objeto</string>
     <string name="cruz_simbolo">Símbolo</string>
     <string name="cruz_duotom">Bitono</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">Reloj grande</string>
     <string name="cruz_barra_capsulas">Cápsulas</string>
     <string name="cruz_arte">Arte del elemento enfocado</string>
-    <string name="cruz_arte_det">Detrás de la cruz, a la derecha</string>
+    <string name="cruz_arte_det">Detrás de los elementos, a la derecha</string>
     <string name="cruz_ligada">Activada</string>
     <string name="cruz_desligada">Desactivada</string>
     <string name="cruz_sons">Sonidos al navegar</string>

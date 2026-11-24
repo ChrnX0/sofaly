@@ -15,7 +15,7 @@
     <string name="continue_podcast">Podcast</string>
     <string name="cruz_jogo">Game</string>
     <string name="cruz_icones">Home screen icons</string>
-    <string name="cruz_icones_det">Drawing used for Watch, Listen and Play</string>
+    <string name="cruz_icones_det">Drawing style of the category and item icons</string>
     <string name="cruz_objeto">Object</string>
     <string name="cruz_simbolo">Symbol</string>
     <string name="cruz_duotom">Duotone</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">Big clock</string>
     <string name="cruz_barra_capsulas">Capsules</string>
     <string name="cruz_arte">Art of the item in focus</string>
-    <string name="cruz_arte_det">Behind the cross, on the right</string>
+    <string name="cruz_arte_det">Behind the items, on the right</string>
     <string name="cruz_ligada">On</string>
     <string name="cruz_desligada">Off</string>
     <string name="cruz_sons">Sounds when moving</string>

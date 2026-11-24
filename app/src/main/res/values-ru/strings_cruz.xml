@@ -15,7 +15,7 @@
     <string name="continue_podcast">Подкаст</string>
     <string name="cruz_jogo">Игра</string>
     <string name="cruz_icones">Значки главного экрана</string>
-    <string name="cruz_icones_det">Рисунок для «Смотреть», «Слушать» и «Играть»</string>
+    <string name="cruz_icones_det">Стиль значков категорий и пунктов</string>
     <string name="cruz_objeto">Предмет</string>
     <string name="cruz_simbolo">Символ</string>
     <string name="cruz_duotom">Двухцветный</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">Большие часы</string>
     <string name="cruz_barra_capsulas">Капсулы</string>
     <string name="cruz_arte">Картинка выбранного пункта</string>
-    <string name="cruz_arte_det">За крестом, справа</string>
+    <string name="cruz_arte_det">За пунктами, справа</string>
     <string name="cruz_ligada">Вкл.</string>
     <string name="cruz_desligada">Выкл.</string>
     <string name="cruz_sons">Звуки при навигации</string>
