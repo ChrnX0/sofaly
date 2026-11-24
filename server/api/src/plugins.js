@@ -4,6 +4,9 @@
 // conhece (mesmo id), a TV usa os dados dela própria: daqui não se muda pacote nem repositório, e nada daqui faz a TV
 // instalar APK. Entrada nova: precisa de `play` (pacote na Play), `name` sem nome de concorrente e `description` curta
 // (até 120 letras) em inglês e, se houver, nas outras línguas (a TV usa a dela, senão a inglesa).
+// Pedidos de desenvolvedores chegam pelo formulário "Submit a plugin" do repo público e passam pela revisão automática
+// (publico/.github/scripts/plugin-review.mjs): com o rótulo plugin-ok, a linha pronta está no comentário do robô; é
+// só colar aqui. plugin-doubt = uma pessoa olha antes.
 // Para mudar: editar aqui, `node --test`, `npm run deploy` (ver server/README.md).
 export const PLUGINS = Object.freeze([
   { id: 'aerialviews' },
