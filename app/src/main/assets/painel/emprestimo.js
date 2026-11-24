@@ -5,9 +5,9 @@
 
 const MODOS_EMPRESTIMO = { DESLIGADO: 'desligado', SOB_DEMANDA: 'quando um app precisar', SEMPRE: 'sempre ligado' };
 const PARADO_EMPRESTIMO = {
-  DESLIGADO: 'Desligado nas Configurações da TV (Configurações do launcher, Emprestar poderes do sistema).',
+  DESLIGADO: 'Desligado na TV: Configurações › Sistema › Avançado › Emprestar poderes do sistema.',
   PLANO: 'Faz parte dos planos pagos.',
-  SHIZUKU_OFICIAL: 'O app Shizuku está instalado nesta TV: o launcher não entra no caminho dele.',
+  SHIZUKU_OFICIAL: 'O app Shizuku está instalado nesta TV, então o launcher não entra no caminho dele. Desinstale-o para usar o do launcher.',
 };
 
 document.addEventListener('aba', (ev) => { if (ev.detail === 'extras') carregarEmprestimo(); });
@@ -54,7 +54,7 @@ async function carregarEmprestimo() {
 
 // Cartão "Controle de dono emprestado" (Dhizuku; rotas em PainelShizuku.kt, PainelDono). Autorizar app novo só na TV.
 const PARADO_DONO = {
-  DESLIGADO: 'Desligado nas Configurações da TV.',
+  DESLIGADO: 'Desligado na TV: Configurações › Sistema › Avançado › Emprestar poderes do sistema.',
   PLANO: 'Faz parte dos planos pagos.',
   SEM_DONO: 'O launcher não é o dono desta TV: não há o que emprestar.',
 };
