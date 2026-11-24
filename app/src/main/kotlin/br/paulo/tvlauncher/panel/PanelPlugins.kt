@@ -95,10 +95,10 @@ object PanelPlugins {
                 }
             })
             .put("vitrine", JSONArray().apply {
-                PluginCatalog.LISTA.forEach { e ->
+                PluginsTv.vitrine(app).forEach { e ->
                     val pac = e.pacote ?: e.lojaId?.let { LojaCurada.pacoteGuardado(app, it) }
                     val instalado = pac != null && (pac in ja || instaladoNoSistema(app, pac))
-                    put(JSONObject().put("id", e.id).put("nome", e.nome).put("descricao", app.getString(e.descricao))
+                    put(JSONObject().put("id", e.id).put("nome", e.nome).put("descricao", PluginsTv.descricao(app, e))
                         .put("tipo", app.getString(if (e.tipo == PluginCatalog.Tipo.FUNDO) R.string.wp_tipo_fundo else R.string.wp_tipo_icones))
                         .put("instalado", instalado).put("pagina", PluginCatalog.pagina(e) ?: JSONObject.NULL)
                         .put("acao", PluginCatalog.acao(e, BuildConfig.PLAY, temPlay).name))
@@ -107,7 +107,10 @@ object PanelPlugins {
     }
 
     fun rotear(app: Context, metodo: String, rota: String, corpo: JSONObject?, elevada: Boolean, ip: String): Pair<Int, JSONObject>? {
-        if (metodo == "GET" && rota == "") return ok(estado(app))
+        if (metodo == "GET" && rota == "") {
+            br.paulo.tvlauncher.Fundo.rodar("plugin-catalog") { PluginsTv.atualizarVitrine(app) }
+            return ok(estado(app))
+        }
         if (metodo != "POST" || rota !in setOf("/fundo", "/icones", "/cartao", "/botao", "/instalar")) return null
         if (!elevada) return pin()
         val c = corpo ?: JSONObject()
@@ -151,7 +154,7 @@ object PanelPlugins {
                 PainelArmazem.registrar(app, ip, "botão de plugin trocado", "ok")
             }
             "/instalar" -> {
-                val e = PluginCatalog.LISTA.firstOrNull { it.id == c.optString("id") } ?: return erro(404, "fora da vitrine", "INVALIDO")
+                val e = PluginsTv.vitrine(app).firstOrNull { it.id == c.optString("id") } ?: return erro(404, "fora da vitrine", "INVALIDO")
                 val temPlay = instaladoNoSistema(app, "com.android.vending")
                 val id = e.lojaId
                 if (PluginCatalog.acao(e, BuildConfig.PLAY, temPlay) != PluginCatalog.Acao.INSTALAR || id == null)

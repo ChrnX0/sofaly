@@ -34,6 +34,28 @@ object PluginsTv {
     private const val PREFS = "plugins"
     private const val PRAZO_MS = 2_000L
 
+    // ---- Vitrine (24/11/2026): a lista do servidor, guardada; sem ela, a embutida (PluginCatalog.parse explica as regras).
+    private const val VITRINE = "plugin_catalog"
+
+    /** A vitrine atual. Não acessa a rede. */
+    fun vitrine(ctx: Context): List<PluginCatalog.Entrada> =
+        PluginCatalog.parse(ctx.getSharedPreferences(VITRINE, Context.MODE_PRIVATE).getString("json", null), idioma())
+            ?: PluginCatalog.LISTA
+
+    private fun idioma() = PluginCatalog.idioma(java.util.Locale.getDefault().language)
+
+    /** Texto da linha da vitrine: o do app (traduzido) ou o que veio do servidor. */
+    fun descricao(ctx: Context, e: PluginCatalog.Entrada): String = if (e.descricao != 0) ctx.getString(e.descricao) else e.texto.orEmpty()
+
+    /** Pergunta ao servidor no máximo 1 vez por dia (fora da thread da tela). Falhou: fica a lista que já havia. */
+    fun atualizarVitrine(ctx: Context) {
+        val p = ctx.getSharedPreferences(VITRINE, Context.MODE_PRIVATE)
+        if (System.currentTimeMillis() - p.getLong("quando", 0) < PluginCatalog.REFRESH_MS) return
+        p.edit().putLong("quando", System.currentTimeMillis()).apply()
+        val texto = br.paulo.tvlauncher.player.AddonsTv.baixar(PluginCatalog.URL) ?: return
+        if (PluginCatalog.parse(texto, idioma()) != null) p.edit().putString("json", texto).apply()
+    }
+
     data class Instalado(val pacote: String, val autoridade: String, val nome: String)
 
     /** Plugins instalados (qualquer app com um provider que responde a [acao]; padrão: cartão). */
@@ -216,6 +238,8 @@ class PluginsActivity : Activity() {
         super.onCreate(savedInstanceState)
         if (VigiaAtualizacao.fechada(this)) return
         montar()
+        // A vitrine do servidor (1 vez por dia): vale na próxima vez que a tela abrir.
+        runCatching { trabalho.execute { PluginsTv.atualizarVitrine(applicationContext) } }
     }
 
     override fun onDestroy() { super.onDestroy(); aberto?.dismiss(); trabalho.shutdown() }
@@ -306,12 +330,13 @@ class PluginsActivity : Activity() {
         // ---- Conseguir plugins (vitrine)
         coluna.addView(Estilo.secao(this, getString(R.string.wp_secao_descobrir)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
         val instalados = (fundos.map { it.pacote } + pacotes.map { it.first }).toSet()
-        for (e in PluginCatalog.LISTA) {
+        val vitrine = PluginsTv.vitrine(this)
+        for (e in vitrine) {
             val pac = e.pacote ?: e.lojaId?.let { LojaCurada.pacoteGuardado(this, it) }
             val ja = pac != null && (pac in instalados || instaladoNoSistema(pac))
             val tipo = getString(if (e.tipo == PluginCatalog.Tipo.FUNDO) R.string.wp_tipo_fundo else R.string.wp_tipo_icones)
             val valor = Estilo.valor(this, if (ja) getString(R.string.wp_instalado) else "", seta = !ja)
-            coluna.addView(Estilo.linhaOpcao(this, e.nome, "$tipo · ${getString(e.descricao)}", valor).apply {
+            coluna.addView(Estilo.linhaOpcao(this, e.nome, listOf(tipo, PluginsTv.descricao(this, e)).filter { it.isNotEmpty() }.joinToString(" · "), valor).apply {
                 setOnClickListener { if (ja) montar() else oferecer(e) }
             }, Estilo.lpLinha(this))
         }
@@ -374,7 +399,7 @@ class PluginsActivity : Activity() {
             PluginCatalog.Acao.SO_QR -> {}
         }
         val tela = Estilo.dialogo(this, getString(if (e.tipo == PluginCatalog.Tipo.FUNDO) R.string.wp_tipo_fundo else R.string.wp_tipo_icones),
-            e.nome, getString(e.descricao) + "\n\n" + getString(R.string.wp_qr), botoes)
+            e.nome, listOf(PluginsTv.descricao(this, e), getString(R.string.wp_qr)).filter { it.isNotEmpty() }.joinToString("\n\n"), botoes)
         PluginCatalog.pagina(e)?.let { link ->
             val lado = Estilo.dp(this, 220)
             val qr = android.widget.ImageView(this).apply { setImageBitmap(runCatching { QrCodigo.bitmap(link, lado) }.getOrNull()) }
