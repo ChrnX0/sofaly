@@ -941,4 +941,19 @@ AS\\Movies）。</string>
     <string name="ief_s_roteador_mudo" formatted="true">ルーター：応答なし</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">ルーター：未確認</string>
     <string name="ief_s_historico" formatted="true">履歴：24 時間で %1$d 回測定</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google から今は応答がありません。もう一度お試しください</string>
+    <string name="lg_negado">Google でログインが拒否されました</string>
+    <string name="lg_google_respondeu">Google の応答：%1$s</string>
+    <string name="lg_venceu">コードの期限が切れました。最初からやり直してください</string>
+    <string name="lg_outro_login">別のログインが始まりました。最初からやり直してください</string>
+    <string name="lg_email">Google がメールアドレスを確認しませんでした</string>
+    <string name="lg_conta_fora">アカウント %1$s はこのテレビのどのプロフィールにもありません</string>
+    <string name="lg_sem_drive">Google ドライブの許可にチェックが入っていません</string>
+    <string name="lg_sem_chave">Google からアクセスキーが届きませんでした。もう一度お試しください</string>
+    <string name="lg_nao_guardei">このテレビにアカウントを保存できませんでした</string>
+    <string name="lg_nao_configurado">Google ログインが設定されていません</string>
+    <string name="lg_ritmo">ログインが続きすぎました。1 分待ってください</string>
+    <string name="lg_recusou">Google が拒否しました（%1$s）：クライアント ID とシークレットを確認してください</string>
+    <string name="lg_erro_google">Google との通信エラー</string>
 </resources>

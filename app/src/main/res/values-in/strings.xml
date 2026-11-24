@@ -941,4 +941,19 @@ AS\\Film).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: tidak menjawab</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: tidak diperiksa</string>
     <string name="ief_s_historico" formatted="true">riwayat: %1$d pengukuran dalam 24 jam</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google tidak menjawab sekarang; coba lagi</string>
+    <string name="lg_negado">login ditolak di Google</string>
+    <string name="lg_google_respondeu">Google menjawab: %1$s</string>
+    <string name="lg_venceu">kode kedaluwarsa; mulai lagi</string>
+    <string name="lg_outro_login">login lain dimulai; mulai lagi</string>
+    <string name="lg_email">Google tidak mengonfirmasi email</string>
+    <string name="lg_conta_fora">akun %1$s tidak ada di profil mana pun di TV ini</string>
+    <string name="lg_sem_drive">izin Google Drive tidak dicentang</string>
+    <string name="lg_sem_chave">Google tidak mengirim kunci akses; coba lagi</string>
+    <string name="lg_nao_guardei">tidak bisa menyimpan akun di TV ini</string>
+    <string name="lg_nao_configurado">login Google belum diatur</string>
+    <string name="lg_ritmo">terlalu banyak login berturut-turut; tunggu satu menit</string>
+    <string name="lg_recusou">Google menolak (%1$s): periksa id dan rahasia klien</string>
+    <string name="lg_erro_google">galat saat menghubungi Google</string>
 </resources>

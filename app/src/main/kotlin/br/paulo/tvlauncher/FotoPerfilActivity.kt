@@ -69,7 +69,7 @@ class FotoPerfilActivity : Activity() {
             ui.post {
                 if (isDestroyed) { r.getOrNull()?.let { cancelar(it) }; return@post }
                 val s = r.getOrNull()
-                if (s == null) { terminou = true; texto.text = getString(R.string.fp_falha, r.exceptionOrNull()?.message ?: "?"); return@post }
+                if (s == null) { terminou = true; texto.text = getString(R.string.fp_falha, r.exceptionOrNull()?.message?.let { LoginGoogle.textoNaTv(this, it) } ?: "?"); return@post }
                 sessao = s
                 qr.setImageBitmap(runCatching { QrCodigo.bitmap(s.urlVerificacao, dp(280)) }.getOrNull())
                 qr.visibility = View.VISIBLE
@@ -83,7 +83,7 @@ class FotoPerfilActivity : Activity() {
         when (s.estado) {
             LoginGoogle.Estado.ESPERANDO -> texto.text = getString(if (drive) R.string.drv_passos else R.string.fp_passos, s.urlVerificacao, s.codigoUsuario)
             LoginGoogle.Estado.OK -> if (drive) fim(getString(R.string.drv_ok, s.email ?: "")) else fim(getString(if (s.fotoGravada) R.string.fp_ok else R.string.fp_sem_foto, s.email ?: ""))
-            else -> fim(getString(R.string.fp_falha, s.mensagem))
+            else -> fim(getString(R.string.fp_falha, LoginGoogle.textoNaTv(this, s.mensagem)))
         }
     }
 

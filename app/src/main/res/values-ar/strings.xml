@@ -956,4 +956,19 @@ AS\\Movies).</string>
     <string name="ief_s_roteador_mudo" formatted="true">الراوتر: لم يستجب</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">الراوتر: لم يُسأل</string>
     <string name="ief_s_historico" formatted="true">السجل: %1$d قياسات في 24 ساعة</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">لم يستجب Google الآن؛ حاول مرة أخرى</string>
+    <string name="lg_negado">رُفض تسجيل الدخول في Google</string>
+    <string name="lg_google_respondeu">ردّ Google: %1$s</string>
+    <string name="lg_venceu">انتهت صلاحية الرمز؛ ابدأ من جديد</string>
+    <string name="lg_outro_login">بدأ تسجيل دخول آخر؛ ابدأ من جديد</string>
+    <string name="lg_email">لم يؤكد Google البريد الإلكتروني</string>
+    <string name="lg_conta_fora">الحساب %1$s غير موجود في أي ملف شخصي على هذا التلفاز</string>
+    <string name="lg_sem_drive">لم يتم تحديد إذن Google Drive</string>
+    <string name="lg_sem_chave">لم يرسل Google مفتاح الوصول؛ حاول مرة أخرى</string>
+    <string name="lg_nao_guardei">تعذّر حفظ الحساب على هذا التلفاز</string>
+    <string name="lg_nao_configurado">تسجيل الدخول بـGoogle غير مُعدّ</string>
+    <string name="lg_ritmo">محاولات تسجيل دخول كثيرة متتالية؛ انتظر دقيقة</string>
+    <string name="lg_recusou">رفض Google (%1$s): تحقق من معرّف العميل وسرّه</string>
+    <string name="lg_erro_google">خطأ في الاتصال بـGoogle</string>
 </resources>

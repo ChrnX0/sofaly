@@ -272,4 +272,31 @@ object LoginGoogle {
             return JSONObject(c.inputStream.bufferedReader().use { it.readText().take(64_000) })
         } finally { c.disconnect() }
     }
+
+    /** Mensagens em português (vão também para o navegador via McpTextos) -> string do idioma da TV. */
+    private val NA_TV = mapOf(
+        "o Google não respondeu agora; tente de novo" to R.string.lg_sem_resposta,
+        "o login foi negado no Google" to R.string.lg_negado,
+        "o código venceu; comece de novo" to R.string.lg_venceu,
+        "outro login começou; comece de novo" to R.string.lg_outro_login,
+        "o Google não confirmou o e-mail" to R.string.lg_email,
+        "a permissão do Google Drive não foi marcada" to R.string.lg_sem_drive,
+        "o Google não mandou a chave de acesso; tente de novo" to R.string.lg_sem_chave,
+        "não consegui guardar a conta nesta TV" to R.string.lg_nao_guardei,
+        "login Google não configurado" to R.string.lg_nao_configurado,
+        "muitos logins seguidos; espere um minuto" to R.string.lg_ritmo,
+        "erro ao falar com o Google" to R.string.lg_erro_google,
+    )
+    private val CONTA_FORA = Regex("^a conta (.+) não está em nenhum perfil desta TV$")
+    private val RESPONDEU = Regex("^Google respondeu: (.+)$")
+    private val RECUSOU = Regex("""^o Google recusou \((\d+)\): confira o id e o segredo do cliente$""")
+
+    /** O motivo da falha no idioma da TV (tela da foto do perfil e do Drive). Mensagem desconhecida: como veio. */
+    fun textoNaTv(ctx: Context, m: String): String {
+        NA_TV[m]?.let { return ctx.getString(it) }
+        CONTA_FORA.matchEntire(m)?.let { return ctx.getString(R.string.lg_conta_fora, it.groupValues[1]) }
+        RESPONDEU.matchEntire(m)?.let { return ctx.getString(R.string.lg_google_respondeu, it.groupValues[1]) }
+        RECUSOU.matchEntire(m)?.let { return ctx.getString(R.string.lg_recusou, it.groupValues[1]) }
+        return m
+    }
 }

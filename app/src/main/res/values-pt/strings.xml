@@ -972,4 +972,19 @@
     <string name="ief_s_roteador_mudo" formatted="true">roteador: não respondeu</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">roteador: não consultado</string>
     <string name="ief_s_historico" formatted="true">histórico: %1$d medições em 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">o Google não respondeu agora; tente de novo</string>
+    <string name="lg_negado">o login foi negado no Google</string>
+    <string name="lg_google_respondeu">Google respondeu: %1$s</string>
+    <string name="lg_venceu">o código venceu; comece de novo</string>
+    <string name="lg_outro_login">outro login começou; comece de novo</string>
+    <string name="lg_email">o Google não confirmou o e-mail</string>
+    <string name="lg_conta_fora">a conta %1$s não está em nenhum perfil desta TV</string>
+    <string name="lg_sem_drive">a permissão do Google Drive não foi marcada</string>
+    <string name="lg_sem_chave">o Google não mandou a chave de acesso; tente de novo</string>
+    <string name="lg_nao_guardei">não consegui guardar a conta nesta TV</string>
+    <string name="lg_nao_configurado">login Google não configurado</string>
+    <string name="lg_ritmo">muitos logins seguidos; espere um minuto</string>
+    <string name="lg_recusou">o Google recusou (%1$s): confira o id e o segredo do cliente</string>
+    <string name="lg_erro_google">erro ao falar com o Google</string>
 </resources>

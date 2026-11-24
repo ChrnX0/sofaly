@@ -944,4 +944,19 @@ AS\\Filmler).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: yanıt vermedi</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: sorgulanmadı</string>
     <string name="ief_s_historico" formatted="true">geçmiş: 24 saatte %1$d ölçüm</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google şu an yanıt vermedi; tekrar deneyin</string>
+    <string name="lg_negado">giriş Google’da reddedildi</string>
+    <string name="lg_google_respondeu">Google yanıtı: %1$s</string>
+    <string name="lg_venceu">kodun süresi doldu; baştan başlayın</string>
+    <string name="lg_outro_login">başka bir giriş başladı; baştan başlayın</string>
+    <string name="lg_email">Google e-postayı doğrulamadı</string>
+    <string name="lg_conta_fora">%1$s hesabı bu televizyonun hiçbir profilinde yok</string>
+    <string name="lg_sem_drive">Google Drive izni işaretlenmedi</string>
+    <string name="lg_sem_chave">Google erişim anahtarını göndermedi; tekrar deneyin</string>
+    <string name="lg_nao_guardei">hesap bu televizyona kaydedilemedi</string>
+    <string name="lg_nao_configurado">Google girişi ayarlanmamış</string>
+    <string name="lg_ritmo">arka arkaya çok fazla giriş; bir dakika bekleyin</string>
+    <string name="lg_recusou">Google reddetti (%1$s): istemci kimliğini ve sırrını kontrol edin</string>
+    <string name="lg_erro_google">Google ile iletişim hatası</string>
 </resources>

@@ -967,4 +967,19 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: didn’t answer</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: not checked</string>
     <string name="ief_s_historico" formatted="true">history: %1$d measurements in 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google did not answer right now; try again</string>
+    <string name="lg_negado">the sign-in was denied on Google</string>
+    <string name="lg_google_respondeu">Google answered: %1$s</string>
+    <string name="lg_venceu">the code expired; start again</string>
+    <string name="lg_outro_login">another sign-in started; start again</string>
+    <string name="lg_email">Google did not confirm the e-mail</string>
+    <string name="lg_conta_fora">the account %1$s is not in any profile on this TV</string>
+    <string name="lg_sem_drive">the Google Drive permission was not ticked</string>
+    <string name="lg_sem_chave">Google did not send the access key; try again</string>
+    <string name="lg_nao_guardei">could not save the account on this TV</string>
+    <string name="lg_nao_configurado">Google sign-in is not set up</string>
+    <string name="lg_ritmo">too many sign-ins in a row; wait a minute</string>
+    <string name="lg_recusou">Google refused (%1$s): check the client id and secret</string>
+    <string name="lg_erro_google">error talking to Google</string>
 </resources>

@@ -941,4 +941,19 @@ AS\\Movies）。</string>
     <string name="ief_s_roteador_mudo" formatted="true">路由器：无响应</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">路由器：未查询</string>
     <string name="ief_s_historico" formatted="true">记录：24 小时内测量 %1$d 次</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google 暂时没有响应；请重试</string>
+    <string name="lg_negado">登录在 Google 被拒绝</string>
+    <string name="lg_google_respondeu">Google 返回：%1$s</string>
+    <string name="lg_venceu">代码已过期；请重新开始</string>
+    <string name="lg_outro_login">另一个登录已开始；请重新开始</string>
+    <string name="lg_email">Google 没有确认电子邮件</string>
+    <string name="lg_conta_fora">账号 %1$s 不在这台电视的任何个人资料中</string>
+    <string name="lg_sem_drive">没有勾选 Google 云端硬盘权限</string>
+    <string name="lg_sem_chave">Google 没有发送访问密钥；请重试</string>
+    <string name="lg_nao_guardei">无法在这台电视上保存账号</string>
+    <string name="lg_nao_configurado">Google 登录尚未设置</string>
+    <string name="lg_ritmo">连续登录次数过多；请等一分钟</string>
+    <string name="lg_recusou">Google 拒绝了（%1$s）：请检查客户端 ID 和密钥</string>
+    <string name="lg_erro_google">与 Google 通信出错</string>
 </resources>

@@ -947,4 +947,19 @@ AS\\Peliculas).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: no respondió</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: no consultado</string>
     <string name="ief_s_historico" formatted="true">historial: %1$d mediciones en 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google no respondió ahora; inténtalo de nuevo</string>
+    <string name="lg_negado">el inicio de sesión fue rechazado en Google</string>
+    <string name="lg_google_respondeu">Google respondió: %1$s</string>
+    <string name="lg_venceu">el código venció; empieza de nuevo</string>
+    <string name="lg_outro_login">empezó otro inicio de sesión; empieza de nuevo</string>
+    <string name="lg_email">Google no confirmó el correo</string>
+    <string name="lg_conta_fora">la cuenta %1$s no está en ningún perfil de esta TV</string>
+    <string name="lg_sem_drive">no se marcó el permiso de Google Drive</string>
+    <string name="lg_sem_chave">Google no envió la clave de acceso; inténtalo de nuevo</string>
+    <string name="lg_nao_guardei">no pude guardar la cuenta en esta TV</string>
+    <string name="lg_nao_configurado">el inicio de sesión de Google no está configurado</string>
+    <string name="lg_ritmo">demasiados inicios de sesión seguidos; espera un minuto</string>
+    <string name="lg_recusou">Google rechazó (%1$s): revisa el id y el secreto del cliente</string>
+    <string name="lg_erro_google">error al hablar con Google</string>
 </resources>

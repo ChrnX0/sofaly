@@ -944,4 +944,19 @@ AS\\Filme).</string>
     <string name="ief_s_roteador_mudo" formatted="true">Router: keine Antwort</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">Router: nicht abgefragt</string>
     <string name="ief_s_historico" formatted="true">Verlauf: %1$d Messungen in 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google hat gerade nicht geantwortet; bitte erneut versuchen</string>
+    <string name="lg_negado">die Anmeldung wurde bei Google abgelehnt</string>
+    <string name="lg_google_respondeu">Google antwortete: %1$s</string>
+    <string name="lg_venceu">der Code ist abgelaufen; neu beginnen</string>
+    <string name="lg_outro_login">eine andere Anmeldung hat begonnen; neu beginnen</string>
+    <string name="lg_email">Google hat die E-Mail nicht bestätigt</string>
+    <string name="lg_conta_fora">das Konto %1$s ist in keinem Profil dieses Fernsehers</string>
+    <string name="lg_sem_drive">die Google-Drive-Berechtigung wurde nicht angehakt</string>
+    <string name="lg_sem_chave">Google hat den Zugangsschlüssel nicht gesendet; bitte erneut versuchen</string>
+    <string name="lg_nao_guardei">das Konto konnte auf diesem Fernseher nicht gespeichert werden</string>
+    <string name="lg_nao_configurado">die Google-Anmeldung ist nicht eingerichtet</string>
+    <string name="lg_ritmo">zu viele Anmeldungen hintereinander; eine Minute warten</string>
+    <string name="lg_recusou">Google hat abgelehnt (%1$s): Client-ID und Secret prüfen</string>
+    <string name="lg_erro_google">Fehler bei der Verbindung mit Google</string>
 </resources>

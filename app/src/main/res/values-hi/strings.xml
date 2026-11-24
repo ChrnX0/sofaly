@@ -944,4 +944,19 @@ AS\\Movies)।</string>
     <string name="ief_s_roteador_mudo" formatted="true">राउटर: जवाब नहीं</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">राउटर: नहीं पूछा</string>
     <string name="ief_s_historico" formatted="true">इतिहास: 24 घंटे में %1$d माप</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google ने अभी जवाब नहीं दिया; फिर कोशिश करें</string>
+    <string name="lg_negado">Google पर लॉगिन अस्वीकार हुआ</string>
+    <string name="lg_google_respondeu">Google का जवाब: %1$s</string>
+    <string name="lg_venceu">कोड की अवधि खत्म; फिर से शुरू करें</string>
+    <string name="lg_outro_login">दूसरा लॉगिन शुरू हुआ; फिर से शुरू करें</string>
+    <string name="lg_email">Google ने ई-मेल की पुष्टि नहीं की</string>
+    <string name="lg_conta_fora">खाता %1$s इस टीवी की किसी प्रोफ़ाइल में नहीं है</string>
+    <string name="lg_sem_drive">Google Drive की अनुमति नहीं चुनी गई</string>
+    <string name="lg_sem_chave">Google ने एक्सेस कुंजी नहीं भेजी; फिर कोशिश करें</string>
+    <string name="lg_nao_guardei">इस टीवी पर खाता सहेजा नहीं जा सका</string>
+    <string name="lg_nao_configurado">Google लॉगिन सेट नहीं है</string>
+    <string name="lg_ritmo">लगातार बहुत ज़्यादा लॉगिन; एक मिनट रुकें</string>
+    <string name="lg_recusou">Google ने मना किया (%1$s): क्लाइंट id और सीक्रेट जाँचें</string>
+    <string name="lg_erro_google">Google से बात करने में त्रुटि</string>
 </resources>

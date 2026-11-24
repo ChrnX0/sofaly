@@ -947,4 +947,19 @@ AS\\Film).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: nessuna risposta</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: non consultato</string>
     <string name="ief_s_historico" formatted="true">cronologia: %1$d misure in 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google non ha risposto ora; riprova</string>
+    <string name="lg_negado">l’accesso è stato negato su Google</string>
+    <string name="lg_google_respondeu">Google ha risposto: %1$s</string>
+    <string name="lg_venceu">il codice è scaduto; ricomincia</string>
+    <string name="lg_outro_login">è iniziato un altro accesso; ricomincia</string>
+    <string name="lg_email">Google non ha confermato l’e-mail</string>
+    <string name="lg_conta_fora">l’account %1$s non è in nessun profilo di questa TV</string>
+    <string name="lg_sem_drive">il permesso di Google Drive non è stato spuntato</string>
+    <string name="lg_sem_chave">Google non ha inviato la chiave di accesso; riprova</string>
+    <string name="lg_nao_guardei">impossibile salvare l’account su questa TV</string>
+    <string name="lg_nao_configurado">l’accesso Google non è configurato</string>
+    <string name="lg_ritmo">troppi accessi di fila; aspetta un minuto</string>
+    <string name="lg_recusou">Google ha rifiutato (%1$s): controlla id e segreto del client</string>
+    <string name="lg_erro_google">errore nel parlare con Google</string>
 </resources>
