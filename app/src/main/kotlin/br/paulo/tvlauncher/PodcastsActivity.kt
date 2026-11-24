@@ -320,7 +320,7 @@ class PodcastsActivity : Activity() {
         val jornal = MeuJornal.montar(feeds, posicoes, System.currentTimeMillis(), protegido)
         if (jornal.isNotEmpty()) {
             val min = jornal.sumOf { it.second.duracaoS } / 60
-            l += CruzOuvir.Prateleira("jornal", getString(R.string.jor_titulo), IconeOuvir.Tipo.EM_ALTA,
+            l += CruzOuvir.Prateleira("jornal", getString(R.string.jor_titulo), IconeOuvir.Tipo.PODCAST,   // não o de Sugestões (mesmo ícone para duas coisas, Sala 24/11/2026)
                 listOf(CruzOuvir.Item("jor:tudo", getString(R.string.jor_ouvir),
                     CruzLogica.linhas(jornal.joinToString(" · ") { nomeDe(it.first) },
                         if (min > 0) getString(R.string.jor_min, min) else null),
@@ -664,10 +664,9 @@ class PodcastsActivity : Activity() {
     }
 
     /** "58 min", "1 h 02". */
-    private fun duracaoCurta(ms: Long): String {
-        val min = ((ms + 59_999) / 60_000).coerceAtLeast(1)
-        return if (min >= 60) getString(R.string.pod_horas, min / 60, String.format(Locale.ROOT, "%02d", min % 60)) else getString(R.string.pod_minutos, min)
-    }
+    // O formato único do app (BarraTempo.duracao), sem quebrar no meio: "faltam 2 h 57" saía sem "min" e com o "57"
+    // sozinho na linha de baixo, e a HOME dizia "faltam 2 h 57 min" do mesmo episódio (Sala, 24/11/2026).
+    private fun duracaoCurta(ms: Long): String = BarraTempo.duracao(ms).replace(' ', '\u00A0')
 
     private fun duracaoEp(ep: PodcastFeed.Episodio): String? = if (ep.duracaoS > 0) duracaoCurta(ep.duracaoS * 1000L) else null
 
