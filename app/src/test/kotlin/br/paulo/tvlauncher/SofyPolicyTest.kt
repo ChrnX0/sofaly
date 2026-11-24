@@ -107,4 +107,33 @@ class SofyPolicyTest {
         assertEquals(6, SofyPolicy.secondsOnScreen("Wi-Fi de volta"))
         assertEquals(7, SofyPolicy.secondsOnScreen("um dois três quatro cinco seis sete oito nove dez onze"))
     }
+
+    // ---------------------------------------------------------------- Ilha (24/11/2026)
+
+    private fun n(id: String, step: Step, at: Long = T, type: String = id, seen: Boolean = false) =
+        ObserverCore.Note(id, at, Kind.NO_INTERNET, Severity.WARNING, step, State.DONE, "t", "x", emptyList(), null, type, T + H, seen)
+
+    @Test fun islandShowsTheHomeNoteOldestFirst() {
+        val l = listOf(n("b", Step.SUGGESTS, T - 1), n("a", Step.SUGGESTS, T - 2), n("q", Step.QUESTION, T - 3))
+        assertEquals("a", SofyPolicy.islandNote(l, now(), emptySet())?.id)
+        // Pergunta não vai para a Ilha (ainda não dá para responder lá); visto e vencido também não.
+        assertEquals(null, SofyPolicy.islandNote(listOf(n("q", Step.QUESTION), n("s", Step.SUGGESTS, seen = true)), now(), emptySet()))
+    }
+
+    @Test fun islandKeepsWhatIsAlreadyThereWhenTheBudgetFills() {
+        val cheio = now(shown = listOf(T - 60_000L))
+        assertEquals(null, SofyPolicy.islandNote(listOf(n("a", Step.SUGGESTS)), cheio, emptySet()))
+        assertEquals("a", SofyPolicy.islandNote(listOf(n("a", Step.SUGGESTS)), cheio, setOf("a"))?.id)
+    }
+
+    @Test fun morningSummaryOnlyInTheMorningWithWhatHappenedAtNight() {
+        val madrugada = T - 5 * H
+        val noite = mapOf(madrugada to 3 * 60, T - H to 11 * 60)
+        val minuto: (Long) -> Int = { noite[it] ?: NOON }
+        val l = listOf(n("noite", Step.ACTED_FELT, madrugada), n("dia", Step.SUGGESTS, T - H), n("desfez", Step.ACTED_REVERSIBLE, T - H),
+            n("so_viu", Step.OBSERVED, madrugada))
+        assertEquals(listOf("noite", "desfez"), SofyPolicy.morningNotes(l, now(minute = 8 * 60), minuto).map { it.id })
+        assertEquals(emptyList<String>(), SofyPolicy.morningNotes(l, now(minute = 14 * 60), minuto).map { it.id })
+        assertEquals(emptyList<String>(), SofyPolicy.morningNotes(l, now(minute = 8 * 60, muted = mapOf("noite" to T + H, "desfez" to T + H)), minuto).map { it.id })
+    }
 }

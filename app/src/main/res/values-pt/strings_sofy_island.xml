@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sofy na Ilha (24/11/2026): resumo da manhã. %1$s = os recados da noite. -->
+    <string name="sofy_while_away">Enquanto você dormia: %1$s</string>
+</resources>

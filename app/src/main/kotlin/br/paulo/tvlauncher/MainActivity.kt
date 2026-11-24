@@ -1288,7 +1288,7 @@ class MainActivity : Activity() {
             }
         }
     }
-    private val filaApps = java.util.concurrent.Executors.newSingleThreadExecutor { r -> Thread(r, "Apps") }
+    internal val filaApps = java.util.concurrent.Executors.newSingleThreadExecutor { r -> Thread(r, "Apps") }
     /** pacote -> último uso (ms), lido por preencherApps na filaApps. Só lido/escrito na thread da tela. */
     internal var ultimoUso: Map<String, Long> = emptyMap()
 
@@ -2174,6 +2174,9 @@ class MainActivity : Activity() {
     /** UV muito alto agora (SunAlert) e quando o clima o mediu; a Ilha ignora depois de 90 min. */
     @Volatile internal var ilhaUv: Pair<Int, Long>? = null
     @Volatile internal var ilhaCeu: Pair<String, br.paulo.tvlauncher.weather.NightSky.Kind>? = null
+    /** Recado da Sofy na Ilha e o resumo da manhã dela (lidos fora da tela em [lerFontesIlha]). */
+    @Volatile internal var ilhaSofy: br.paulo.tvlauncher.observer.SofyTv.IslandLine? = null
+    @Volatile internal var ilhaSofyManha: br.paulo.tvlauncher.observer.SofyTv.IslandLine? = null
     @Volatile internal var ilhaIndicadores: Set<BarraIlha.Indicador> = emptySet()
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null
     /** Ilha que cresce: a faixa de baixo com o evento que chegou e "▲ para abrir"; some em [BarraIlha.CRESCER_MS]. */
@@ -2207,7 +2210,13 @@ class MainActivity : Activity() {
     internal val tarefaIlhaAcordou = Runnable {
         if (cruz?.hasFocus() != true) return@Runnable
         recolherBarra(true)
-        BarraIlha.resumoChegada(ilhaFila)?.let { crescerIlhaTexto(it, ilhaFila.any { e -> e.atencao }) }   // resumo de chegada
+        // Manhã: o resumo da Sofy ("enquanto você dormia") vem antes do resumo de chegada; mostrado = visto.
+        val manha = ilhaSofyManha
+        if (manha != null) {
+            ilhaSofyManha = null
+            crescerIlhaTexto(manha.text, false)
+            Fundo.rodar("sofy-manha") { runCatching { br.paulo.tvlauncher.observer.SofyTv.shown(this@MainActivity, manha) } }
+        } else BarraIlha.resumoChegada(ilhaFila)?.let { crescerIlhaTexto(it, ilhaFila.any { e -> e.atencao }) }   // resumo de chegada
     }
 
 
