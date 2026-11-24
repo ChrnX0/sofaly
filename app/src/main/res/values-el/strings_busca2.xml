@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search that continues in other apps (idea 14, 14/11/2026): BuscaActivity + BuscaOutrosApps. -->
+<resources>
+    <string name="bu_outros_apps">Σε άλλες εφαρμογές</string>
+    <string name="bu_outro_googletv">Αναζήτηση «%1$s» στο Google TV</string>
+    <string name="bu_outro_youtube">Αναζήτηση «%1$s» στο YouTube</string>
+    <string name="bu_outro_netflix">Αναζήτηση «%1$s» στο Netflix</string>
+    <string name="bu_outro_prime">Αναζήτηση «%1$s» στο Prime Video</string>
+    <string name="bu_outro_det">Ανοίγει την αναζήτηση της ίδιας της εφαρμογής</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Telas Rádio e Podcasts redesenhadas em cruz (18/11/2026): CruzOuvir, RadioActivity, PodcastsActivity. -->
+<resources>
+    <string name="ouv_tocando_agora">Παίζει τώρα</string>
+    <string name="ouv_pausado">Σε παύση</string>
+    <string name="ouv_prat_tocando">Αναπαραγωγή</string>
+    <string name="ouv_pausar">Παύση</string>
+    <string name="ouv_continuar">Συνέχεια</string>
+    <string name="ouv_favoritar">Αγαπημένο</string>
+    <string name="ouv_desfavoritar">Αφαίρεση από αγαπημένα</string>
+    <string name="ouv_favoritar_det">Τα αγαπημένα παίζουν και με τα πλήκτρα 1 έως 9 του τηλεχειριστηρίου</string>
+    <string name="ouv_tecla">Πλήκτρο %d στο τηλεχειριστήριο</string>
+    <string name="ouv_ao_sair">Κατά την έξοδο</string>
+    <string name="ouv_ao_sair_continua">Συνεχίζει να παίζει στην αρχική οθόνη\nΤο ▶❙❙ στο τηλεχειριστήριο κάνει παύση από οποιαδήποτε οθόνη</string>
+    <string name="ouv_ao_sair_para">Σταματά όταν φεύγετε από αυτή την οθόνη</string>
+    <string name="ouv_recentes">Πρόσφατα</string>
+    <string name="ouv_sem_favoritas">Κανένα αγαπημένο ακόμα</string>
+    <string name="ouv_sem_favoritas_det">Κρατήστε OK σε έναν σταθμό για να τον κρατήσετε εδώ</string>
+    <string name="ouv_sem_recentes">Τίποτα εδώ ακόμα</string>
+    <string name="ouv_sem_recentes_det">Οι σταθμοί που παίζετε εμφανίζονται εδώ</string>
+    <string name="ouv_paises">Χώρες</string>
+    <string name="ouv_n_radios">%d σταθμοί</string>
+    <string name="ouv_ao_vivo">Ζωντανά</string>
+    <string name="ouv_dica_pular">παράλειψη</string>
+    <string name="ouv_voltar">Πίσω 15 δ.</string>
+    <string name="ouv_voltar_det">Επίσης ◀◀ στο τηλεχειριστήριο</string>
+    <string name="ouv_avancar">Μπροστά 30 δ.</string>
+    <string name="ouv_avancar_det">Επίσης ▶▶ στο τηλεχειριστήριο</string>
+    <string name="ouv_velocidade_det">%s · η φωνή κρατά τον τόνο της</string>
+    <string name="ouv_parar_pod_det">Το σημείο όπου σταματήσατε αποθηκεύεται για αργότερα</string>
+    <string name="ouv_seguindo">Ακολουθείτε</string>
+    <string name="ouv_sem_podcasts">Κανένα podcast ακόμα</string>
+    <string name="ouv_sem_podcasts_det">Προσθέστε ένα στο ράφι Προσθήκη (επικολλήστε τη διεύθυνση ή χρησιμοποιήστε το κινητό)</string>
+    <string name="ouv_n_episodios">%d επεισόδια</string>
+    <string name="ouv_colar">Επικόλληση διεύθυνσης</string>
+    <string name="ouv_sobre">Σχετικά</string>
+    <string name="ouv_remover_det">Τα επεισόδια και η πρόοδος φεύγουν από αυτή την τηλεόραση</string>
+    <string name="ouv_ver_podcast">Μετάβαση στο podcast</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Ρύθμιση με το κινητό</string>
+    <string name="pc_linha_det">Προτείνεται. Στρέψτε την κάμερα του κινητού σε έναν κωδικό: PIN, γλώσσα, ζωντανή TV, πόλη και υπηρεσίες ταινιών, σε 5 βήματα.</string>
+    <string name="pc_instrucoes">Στρέψτε την κάμερα του κινητού στον κωδικό δίπλα. Το κινητό ανοίγει μια ρύθμιση 5 βημάτων.\n\nΤο κινητό πρέπει να είναι στο Wi-Fi του σπιτιού. Κρατήστε αυτή την οθόνη ανοιχτή ως να δημιουργήσετε το PIN στο κινητό (απομένουν %1$s).</string>
+    <string name="pc_entrou">Συνεχίστε στο κινητό.</string>
+    <string name="pc_venceu">Ο κωδικός έληξε.\nΠατήστε \"%1$s\" για να εμφανιστεί νέος.</string>
+    <string name="pc_sem_rede">Η τηλεόραση δεν είναι σε δίκτυο.\nΣυνδέστε τη στο Wi-Fi του σπιτιού και δοκιμάστε ξανά.</string>
+</resources>

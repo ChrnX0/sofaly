@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Υψηλή αντίθεση</string>
+    <string name="elv_ac_det">Πιο φωτεινό κείμενο και πιο καθαρά περιγράμματα σε κάθε οθόνη (τουλάχιστον 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Ακουστική περιγραφή</string>
+    <string name="elv_ad_det">Επιλογή του κομματιού ήχου που περιγράφει τη σκηνή όποτε υπάρχει</string>
+    <string name="elv_sdh_titulo">Υπότιτλοι για κωφούς</string>
+    <string name="elv_sdh_det">Πάντα εμφάνιση υποτίτλων με ήχους ([κλείνει η πόρτα]) στη γλώσσα της τηλεόρασης, ακόμα και σε μεταγλώττιση</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Αφίσα και περίληψη για τα βίντεο</string>
+    <string name="elv_cat_explica">Μόνο ο τίτλος πηγαίνει στο TMDB, ποτέ ο φάκελος ή ο διακομιστής</string>
+    <string name="elv_cat_ligado">Ενεργό</string>
+    <string name="elv_cat_desligado">Ανενεργό</string>
+    <string name="elv_cat_ep">%1$s · Σ%2$d Ε%3$d</string>
+    <string name="pod_temp_ep">Σ%1$d Ε%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Επεισόδιο %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Σεζόν %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Σεζόν: %d</string>
+    <string name="elv_cat_procurando">Αναζήτηση αφίσας…</string>
+    <string name="elv_cat_nada">Δεν βρέθηκε τίποτα στο TMDB. Κρατήστε OK για να πληκτρολογήσετε το σωστό όνομα.</string>
+    <string name="elv_cat_corrigir_titulo">Διόρθωση: %s</string>
+    <string name="elv_cat_corrigir_explica">Λάθος αφίσα ή περίληψη; Ζητήστε το επόμενο αποτέλεσμα, ή πληκτρολογήστε το σωστό όνομα και έτος. Κενό όνομα επιστρέφει στο αυτόματο.</string>
+    <string name="elv_cat_nao_e">Όχι αυτό</string>
+    <string name="elv_cat_escrever">Πληκτρολογήστε το όνομα</string>
+    <string name="elv_cat_campo">Όνομα και έτος, π.χ. Dune 2021</string>
+    <string name="elv_cat_salvar">Αποθήκευση</string>
+    <string name="elv_cat_dica">διόρθωση</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Λίστα</string>
+    <string name="elv_bib_pasta">Φάκελος</string>
+    <string name="elv_bib_servidor">Διακομιστής</string>
+    <string name="elv_bib_nuvem">Cloud</string>
+    <string name="elv_bib_addon">Πρόσθετο</string>
+</resources>

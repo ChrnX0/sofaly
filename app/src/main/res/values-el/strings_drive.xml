@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Λογαριασμός Google Drive</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Λογαριασμός Google Drive</string>
+    <string name="drv_nao_conectada">μη συνδεδεμένο</string>
+    <string name="drv_passos">1. Στο κινητό, ανοίξτε το %1$s (ή στρέψτε την κάμερα στον κωδικό δεξιά).\n2. Συνδεθείτε με έναν λογαριασμό Google που υπάρχει σε αυτή την τηλεόραση και πληκτρολογήστε:\n\n%2$s\n\n3. Επιτρέψτε την πρόσβαση στο Google Drive. Η τηλεόραση βλέπει μόνο τα αρχεία που δημιουργεί η ίδια (ο φάκελος OneTV-backup), ποτέ το υπόλοιπο Drive σας.\n\nΑυτή η οθόνη συνεχίζει μόνη της.</string>
+    <string name="drv_ok">Έγινε: το %1$s συνδέθηκε. Επιλέξτε \"Google Drive\" στη γραμμή Επιπλέον αντίγραφο ώστε το νυχτερινό αντίγραφο να πηγαίνει και εκεί.</string>
+    <string name="drv_sem_google">Η σύνδεση Google δεν έχει ρυθμιστεί ακόμα σε αυτή την τηλεόραση.\n\nΡυθμίστε τη στον πίνακα web > καρτέλα Claude (δικό σας OAuth client, τύπου \"TVs and Limited Input devices\"), ενεργοποιήστε το Google Drive API στο ίδιο έργο Google Cloud και επιστρέψτε εδώ.</string>
+    <string name="drv_desconectar_pergunta">Αποσύνδεση του %1$s; Τα αντίγραφα που είναι ήδη στο Google Drive μένουν εκεί· η τηλεόραση σταματά να στέλνει νέα.</string>
+    <string name="drv_desconectar">Αποσύνδεση</string>
+    <string name="drv_restaurar">Επαναφορά από Google Drive</string>
+    <string name="drv_precisa_conta">Συνδέστε πρώτα τον λογαριασμό Google Drive (γραμμή παραπάνω).</string>
+    <string name="drv_falhou">Δεν πέτυχε: %1$s</string>
+    <string name="drv_nenhuma">Δεν υπάρχουν ακόμα αντίγραφα στον φάκελο OneTV-backup του Google Drive.</string>
+    <string name="drv_escolha">Ποιο αντίγραφο;</string>
+    <string name="drv_senha">Κωδικός του αντιγράφου</string>
+    <string name="drv_senha_errada">Λάθος κωδικός αντιγράφου (ή το αρχείο άλλαξε). Δεν επαναφέρθηκε τίποτα.</string>
+    <string name="drv_restaurado">Επαναφέρθηκε. Ο launcher επανεκκινεί σε λίγο.</string>
+</resources>

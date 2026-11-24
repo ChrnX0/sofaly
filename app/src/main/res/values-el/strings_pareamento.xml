@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">δεν ήταν δυνατό το άνοιγμα των Επιλογών για προγραμματιστές (%1$s)</string>
+    <string name="pn_porta_achada">βρέθηκε θύρα σύζευξης %1$d</string>
+    <string name="pn_mdns_falhou">η αναζήτηση στο δίκτυο απέτυχε (%1$s)</string>
+    <string name="pn_pareando">σύζευξη…</string>
+    <string name="pn_confirme">ο κωδικός διαβάστηκε. Για σύζευξη, πατήστε OK στο τηλεχειριστήριο στο «%1$s»</string>
+    <string name="pn_so_controle">μόνο ένα πλήκτρο του τηλεχειριστηρίου επιβεβαιώνει τη σύζευξη</string>
+</resources>

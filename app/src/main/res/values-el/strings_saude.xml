@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saude_titulo">Η απομακρυσμένη πρόσβαση σταμάτησε</string>
+    <string name="saude_texto_shell">Η πρόσβαση της τηλεόρασης στον εαυτό της έπεσε πριν από %1$d λεπ. (ο πίνακας, το Claude και οι αυτόματες διορθώσεις σταματούν). Πατήστε Νέα σύζευξη ή πηγαίνετε στις Ρυθμίσεις › Σύστημα › Για προχωρημένους › Σύζευξη χωρίς υπολογιστή.</string>
+    <string name="saude_texto_tunel">Το Claude μέσω internet είναι εκτός σύνδεσης. Πατήστε Σύνδεση για να δείτε τι λείπει, ή πηγαίνετε στις Ρυθμίσεις › Σπίτι και δίκτυο › Απομακρυσμένη πρόσβαση.</string>
+    <string name="saude_parear">Νέα σύζευξη</string>
+    <string name="saude_conectar">Σύνδεση</string>
+    <string name="saude_depois">Όχι τώρα</string>
+    <string name="saude_acao_shell">Νέα σύζευξη: Ρυθμίσεις › Σύστημα › Για προχωρημένους › Σύζευξη χωρίς υπολογιστή</string>
+    <string name="saude_acao_tunel">Νέα σύνδεση: Ρυθμίσεις › Σπίτι και δίκτυο › Απομακρυσμένη πρόσβαση › Σύνδεση</string>
+    <string name="mnt_titulo">Νυχτερινή συντήρηση</string>
+    <string name="mnt_consertei">Διορθώθηκαν:</string>
+    <string name="mnt_falhou">Δεν διορθώθηκαν:</string>
+    <string name="mnt_acesso">απομακρυσμένη πρόσβαση</string>
+    <string name="mnt_permissoes">άδειες</string>
+    <string name="mnt_agendamentos">ξυπνητήρια και ρουτίνες</string>
+    <string name="mnt_espaco">ελεύθερος χώρος</string>
+</resources>

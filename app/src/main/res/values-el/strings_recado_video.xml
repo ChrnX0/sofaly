@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recado em vídeo (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="vid_de">Βίντεο από %1$s</string>
+    <string name="vid_mural">έστειλε ένα βίντεο</string>
+    <string name="vid_onde">Για προβολή: Ρυθμίσεις › Οικογένεια › Οικογενειακά βίντεο.</string>
+    <string name="vid_depois">Αργότερα</string>
+    <string name="vid_assistir">Προβολή</string>
+    <string name="vid_ok_para_assistir">Πατήστε OK για προβολή.</string>
+    <string name="vid_lista">Οικογενειακά βίντεο</string>
+    <string name="vid_lista_det">Στάλθηκαν μέσω του οικογενειακού συνδέσμου. Το καθένα μένει 30 ημέρες. Κρατήστε OK για διαγραφή.</string>
+    <string name="vid_nenhum">Κανένα βίντεο ακόμα.</string>
+    <string name="vid_apagar">Διαγραφή βίντεο</string>
+    <string name="vid_aceitar">Αποδοχή βίντεο</string>
+    <string name="vid_aceitar_det">Η οικογένεια μπορεί να στέλνει βίντεο ως 30 δευτερολέπτων. Δεν παίζουν ποτέ μόνα τους.</string>
+    <string name="vid_quantos">Βίντεο: %1$d</string>
+</resources>

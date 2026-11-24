@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Όταν ανοίγει η τηλεόραση</string>
+    <string name="su_det">Ανοίγει αμέσως αυτό, παρακάμπτοντας την αρχική οθόνη</string>
+    <string name="su_home">Αρχική οθόνη</string>
+    <string name="su_last">Τελευταία εφαρμογή</string>
+    <string name="su_quem">Για ποιον;</string>
+    <string name="su_todos">Όλη η τηλεόραση</string>
+    <string name="su_so">Μόνο %1$s</string>
+    <string name="su_segue_tv">Ακολουθεί την επιλογή της τηλεόρασης</string>
+    <string name="su_acordar">Και όταν ξυπνά</string>
+    <string name="su_acordar_det">Όχι μόνο μετά από επανεκκίνηση: και όταν η τηλεόραση ξυπνά από αναμονή. Ποτέ πάνω από Cast ή το ξυπνητήρι</string>
+    <string name="su_esperar">Αναμονή μετά από επανεκκίνηση</string>
+    <string name="su_esperar_det">Δίνει χρόνο στην τηλεόραση να συνδεθεί πριν ανοίξει την εφαρμογή</string>
+    <string name="su_horario">Διαφορετική εφαρμογή ανά ώρα της ημέρας</string>
+    <string name="su_horario_det">Ένας αυτοματισμός με την ενεργοποίηση «Η τηλεόραση άνοιξε» και «Μόνο αν»</string>
+    
+</resources>

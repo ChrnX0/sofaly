@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Ταινίες &amp; TV</string>
+    <string name="aa_shelf_video">Βίντεο</string>
+    <string name="aa_shelf_sports">Αθλητικά</string>
+    <string name="aa_shelf_kids">Παιδικά</string>
+    <string name="aa_shelf_music_audio">Μουσική &amp; ήχος</string>
+    <string name="aa_shelf_news">Ειδήσεις</string>
+    <string name="aa_shelf_games">Παιχνίδια</string>
+    <string name="aa_shelf_education">Εκπαίδευση</string>
+    <string name="aa_shelf_health_fitness">Υγεία &amp; γυμναστική</string>
+    <string name="aa_shelf_lifestyle">Τρόπος ζωής</string>
+    <string name="aa_shelf_tools">Εργαλεία</string>
+    <string name="aa_shelf_system">Σύστημα</string>
+    <string name="aa_shelf_other">Άλλα</string>
+    <string name="aa_frozen">Παγωμένες</string>
+    <string name="aa_hidden">Κρυφές</string>
+    <string name="aa_badge_frozen">παγωμένη</string>
+    <string name="aa_badge_hidden">κρυφή</string>
+    <string name="aa_lock">Κρυφές (%1$d)</string>
+    <string name="aa_count_hidden">κρυφές: %1$d</string>
+    <string name="aa_count_frozen">παγωμένες: %1$d</string>
+    <string name="aa_pin_title">PIN για να δείτε τις κρυφές εφαρμογές</string>
+    <string name="aa_used_today">Άνοιξε σήμερα</string>
+    <string name="aa_used_days">Άνοιξε τελευταία πριν από %1$d ημέρες</string>
+    <string name="aa_used_never">Δεν έχει ανοίξει ακόμα από εδώ</string>
+    <string name="aa_size">Χρησιμοποιεί %1$s</string>
+    <string name="aa_risk_safe">Ασφαλές να αλλάξει, λέει το φύλλο της</string>
+    <string name="aa_risk_care">Αλλάξτε με προσοχή, λέει το φύλλο της</string>
+    <string name="aa_risk_essential">Απαραίτητη για την τηλεόραση: μην την παγώσετε</string>
+    <string name="aa_tip_idle">Δεν άνοιξε εδώ και %1$d ημέρες. Το πάγωμα ελευθερώνει μνήμη και αναιρείται.</string>
+    <string name="aa_hint_app">OK ανοίγει · κράτημα OK για μετακίνηση, απόκρυψη, πάγωμα ή απεγκατάσταση</string>
+    <string name="aa_hint_frozen">OK ξεπαγώνει και ανοίγει</string>
+    <string name="aa_hint_lock">OK ζητά το PIN και δείχνει εδώ τις κρυφές εφαρμογές</string>
+    <string name="aa_open">Άνοιγμα</string>
+    <string name="aa_freeze">Πάγωμα</string>
+    <string name="aa_freezing">Πάγωμα του %1$s…</string>
+    <string name="aa_frozen_done">Το %1$s πάγωσε. Σε 10 λεπτά η τηλεόραση ελέγχει ότι όλα λειτουργούν ακόμα και το αναιρεί αν κάτι σταμάτησε.</string>
+    <string name="aa_freeze_failed">Δεν ήταν δυνατό το πάγωμα του %1$s: %2$s</string>
+    <string name="aa_unfreeze_open">Ξεπάγωμα και άνοιγμα</string>
+    <string name="aa_unfreeze_refreeze">Άνοιγμα και νέο πάγωμα όταν επιστρέψω</string>
+    <string name="aa_unfreezing">Ξεπάγωμα του %1$s…</string>
+    <string name="aa_unfreeze_failed">Δεν ήταν δυνατό το ξεπάγωμα του %1$s: %2$s</string>
+    <string name="aa_move_auto">Αυτόματα</string>
+</resources>

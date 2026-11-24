@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Αναφορά προβλήματος</string>
+    <string name="rel_linha_det">Ένας κωδικός QR ανοίγει τη φόρμα στο κινητό, με τα τεχνικά στοιχεία ήδη συμπληρωμένα</string>
+    <string name="rel_texto">Στρέψτε την κάμερα του κινητού στον κωδικό. Γράψτε τι συνέβη και στείλτε. Το όνομα, ο λογαριασμός, το δίκτυο και η πόλη σας δεν περιλαμβάνονται.</string>
+    <string name="rel_vai_junto">Τι στέλνεται μαζί</string>
+    <string name="rel_l_oque">Τι συνέβη</string>
+    <string name="rel_l_versao">Έκδοση</string>
+    <string name="rel_l_uso">Τρόπος</string>
+    <string name="rel_l_quedas">Καταρρεύσεις / παγώματα (7 ημέρες)</string>
+    <string name="rel_l_erro">Τελευταίο σφάλμα</string>
+</resources>

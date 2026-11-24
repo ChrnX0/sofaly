@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Ώρες</string>
+    <string name="sh_dias">Ημέρες</string>
+    <string name="sh_dicas">Συμβουλές</string>
+    <string name="sh_ar">Αέρας</string>
+    <string name="sh_orvalho">σημείο δρόσου %1$d°</string>
+    <string name="sh_nuvens">Νέφωση</string>
+    <string name="sh_nascer">Ανατολή</string>
+    <string name="sh_por">Δύση</string>
+    <string name="sh_duracao">Διάρκεια ημέρας</string>
+    <string name="sh_horas_min">%1$d ώ. %2$02d λεπ.</string>
+    <string name="sh_dourada">Χρυσή ώρα</string>
+    <string name="sh_fase">Φάση</string>
+    <string name="sh_iluminada">%1$s φωτισμένη</string>
+    <string name="sh_cheia">Πανσέληνος</string>
+    <string name="sh_nova">Νέα σελήνη</string>
+    <string name="sh_em_dias">σε %1$d ημ.</string>
+    <string name="sh_rodar">Εναλλαγή κάτω λωρίδας</string>
+    <string name="sh_rodar_det">Στην προφύλαξη οθόνης, η κάτω λωρίδα αλλάζει μόνη της. Τα ↑ και ↓ την αλλάζουν αμέσως.</string>
+    <string name="sh_rodar_desl">Ανενεργό</string>
+    <string name="sh_rodar_s">Κάθε %1$d δ.</string>
+    <string name="sh_rodar_min">Κάθε 1 λεπ.</string>
+    <string name="sh_vidro">Γυαλί πίσω από την κάτω λωρίδα</string>
+    <string name="sh_vidro_det">Ένα γυάλινο πλαίσιο πίσω από τη λωρίδα. Ανενεργό: μόνο μια λεπτή γραμμή.</string>
+    <string name="sh_fundo">Φόντο προφύλαξης</string>
+    <string name="sh_fundo_det">Τι μένει πίσω από το ρολόι στην προφύλαξη οθόνης: άλλο θέμα, μια φωτογραφία, ένα βίντεο ή πολλά που εναλλάσσονται.</string>
+    <string name="sh_fundo_home">Ίδιο με την αρχική οθόνη</string>
+    <string name="sh_fundo_fotos">Φωτογραφίες και βίντεο που εναλλάσσονται</string>
+    <string name="sh_fundo_arquivo">Ένα αρχείο μόνο για την προφύλαξη</string>
+</resources>

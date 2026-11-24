@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Μία απάντηση ρυθμίζει το μενού και την οθόνη. Μπορείτε να το αλλάξετε αργότερα στις Ρυθμίσεις › Σύστημα.</string>
+    <string name="pp_casa">Για όλο το σπίτι</string>
+    <string name="pp_vo_det">Μεγάλες κάρτες με ονόματα που διαβάζονται φωναχτά και μεγαλύτερο κείμενο, και εσείς βοηθάτε από το κινητό, από μακριά.</string>
+</resources>

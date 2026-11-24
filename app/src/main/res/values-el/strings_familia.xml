@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">PIN παιδιών</string>
+    <string name="fam_pin_det">Ένα δεύτερο PIN για ξεκλείδωμα καναλιών, κρυφών κατηγοριών και ώρας ύπνου μπροστά στα παιδιά. Το PIN του πίνακα λειτουργεί ακόμα παντού.</string>
+    <string name="fam_pin_ok">Το PIN παιδιών αποθηκεύτηκε</string>
+    <string name="fam_pin_igual">Το PIN παιδιών πρέπει να διαφέρει από το PIN του πίνακα</string>
+    <string name="fam_trocar">Αλλαγή PIN παιδιών</string>
+    <string name="fam_apagar">Αφαίρεση PIN παιδιών</string>
+    <string name="fam_apagado">Το PIN παιδιών αφαιρέθηκε: τώρα ξεκλειδώνει μόνο το PIN του πίνακα</string>
+    <string name="extras_TEMPO_TELA">Ημερήσιος χρόνος οθόνης (όταν τελειώσει, ανοίγουν μόνο επιτρεπόμενες εφαρμογές)</string>
+    <string name="tela_titulo">Χρόνος οθόνης</string>
+    <string name="tela_acabou">Ο σημερινός χρόνος οθόνης τελείωσε. Τα λέμε αύριο!</string>
+    <string name="tela_5min">Απομένουν 5 λεπτά χρόνου οθόνης σήμερα</string>
+    <string name="tela_pin">PIN για αλλαγή χρόνου οθόνης</string>
+    <string name="tela_cota_linha">Χρόνος οθόνης την ημέρα: %1$s (απομένει σήμερα: %2$s)</string>
+    <string name="tela_mais">Δώστε %1$d επιπλέον λεπτά σήμερα</string>
+    <string name="tela_mais_ok">%1$d επιπλέον λεπτά για σήμερα</string>
+    <string name="tela_h">ώ.</string>
+    <string name="tela_min">λεπ.</string>
+    <string name="extras_AGENDA_TODAS">Ημερολόγιο όλων των λογαριασμών Google της τηλεόρασης μαζί</string>
+    <string name="cal_todas_contas">Όλοι οι λογαριασμοί της τηλεόρασης (%1$d)</string>
+    <string name="tm_tempo_esgotado">Ο χρόνος τελείωσε</string>
+    <string name="painel_desligado_pin">Ο πίνακας web απενεργοποιήθηκε: λάθος PIN πάρα πολλές φορές</string>
+    <string name="tm_crono">Χρονόμετρο μέτρησης</string>
+    <string name="tm_crono_iniciar">Έναρξη χρονομέτρησης</string>
+    <string name="tm_crono_parar">Διακοπή χρονομέτρησης</string>
+    <string name="tm_crono_comecou">Η χρονομέτρηση ξεκίνησε: εμφανίζεται στην αρχική οθόνη</string>
+    <string name="tm_crono_marcou">Η χρονομέτρηση σταμάτησε στο %1$s</string>
+    <string name="som_canal">Τελευταίο κανάλι ζωντανής TV</string>
+</resources>

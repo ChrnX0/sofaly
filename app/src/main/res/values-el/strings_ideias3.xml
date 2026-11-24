@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Ήπιο κλείσιμο (ο χρονοδιακόπτης ύπνου χαμηλώνει την οθόνη και την ένταση)</string>
+    <string name="extras_MURAL">Οικογενειακός πίνακας στον γρήγορο πίνακα</string>
+    <string name="extras_PRESENCA">Κλείσιμο όταν όλοι φύγουν από το σπίτι (router UniFi)</string>
+    <string name="extras_HOJE_NA_TV">\"Σήμερα στην TV\" στην οθόνη Αναζήτησης</string>
+    <string name="extras_RETROSPECTIVA">Εβδομαδιαία ανασκόπηση (Κυριακή βράδυ)</string>
+    <string name="extras_MODO_SIMPLES">Εύκολη οθόνη (μεγάλες κάρτες, ονόματα με φωνή)</string>
+</resources>

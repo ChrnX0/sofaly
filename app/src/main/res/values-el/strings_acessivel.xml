@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Υπότιτλοι με μαύρο φόντο</string>
+    <string name="acess_legenda_amarela">Κίτρινοι υπότιτλοι</string>
+    <string name="acess_volume">Ομοιόμορφη ένταση ανάμεσα στα κανάλια</string>
+    <string name="acess_voz">Πιο καθαρές φωνές</string>
+    <string name="acess_volume_ligado">Ομοιόμορφη ένταση ενεργή: τα ήσυχα κανάλια και οι ταινίες ακούγονται πιο δυνατά</string>
+    <string name="acess_volume_desligado">Ομοιόμορφη ένταση ανενεργή</string>
+    <string name="acess_voz_ligado">Πιο καθαρές φωνές ενεργές</string>
+    <string name="acess_voz_desligado">Πιο καθαρές φωνές ανενεργές</string>
+    <string name="acess_config_titulo">Ήχος και υπότιτλοι</string>
+    <string name="acess_config_texto">Για όποιον βλέπει ή ακούει λιγότερο καλά. Επίσης στο μενού ▼ του προγράμματος αναπαραγωγής.</string>
+</resources>
