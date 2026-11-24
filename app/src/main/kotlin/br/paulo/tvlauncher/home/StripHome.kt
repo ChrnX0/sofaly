@@ -139,7 +139,12 @@ object StripHome {
     fun semGritar(s: String): String {
         val letras = s.filter { it.isLetter() }
         if (letras.length < 8 || letras.count { it.isUpperCase() } < letras.length * 0.8) return s
-        return s.lowercase().split(" ").mapIndexed { i, w -> if (i > 0 && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() } }.joinToString(" ")
+        val ws = s.lowercase().split(" ")
+        // Palavra pequena fica minúscula só no meio da frase; depois de "-", "·", ":" ou "?" ela abre frase nova.
+        return ws.mapIndexed { i, w ->
+            val abre = i == 0 || ws[i - 1].lastOrNull()?.let { !it.isLetterOrDigit() } ?: true
+            if (!abre && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() }
+        }.joinToString(" ")
     }
 
     /** Palavras pequenas que ficam minúsculas no meio do título (pt, es, en, fr, it). */

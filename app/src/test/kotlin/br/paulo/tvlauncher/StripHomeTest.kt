@@ -57,6 +57,7 @@ class StripHomeTest {
         assertEquals("**Parou em** 1981 - O Mundo Está Sendo Reprogramado? Dr. Alex", StripHome.viva(Categoria.OUVIR,
             listOf(i("podcasts", s = CruzLogica.Situacao("Parou em", "1981 - O MUNDO ESTÁ SENDO REPROGRAMADO? DR. ALEX", "podcasts")))) { "$it apps" })
         assertEquals("palavras pequenas no meio ficam minúsculas", "Dr. Alex Alves e Thiago Lima de Novo", StripHome.semGritar("DR. ALEX ALVES E THIAGO LIMA DE NOVO"))
+        assertEquals("depois de separador abre frase", "Rádio - O Fim da Noite", StripHome.semGritar("RÁDIO - O FIM DA NOITE"))
         assertEquals("normal passa igual", "Jornal Nacional · TV Globo", StripHome.semGritar("Jornal Nacional · TV Globo"))
         assertEquals(listOf("No ar" to true, " Jornal" to false), StripHome.partes("**No ar** Jornal"))
     }
