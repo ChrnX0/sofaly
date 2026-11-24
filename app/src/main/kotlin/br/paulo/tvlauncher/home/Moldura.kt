@@ -82,7 +82,7 @@ object Moldura {
         background = android.graphics.drawable.GradientDrawable().apply {
             cornerRadius = Estilo.dp(a, PILULA_ALTURA / 2).toFloat(); setColor(0xBF0A0C14.toInt())
         }
-        setPadding(Estilo.dp(a, 16), 0, Estilo.dp(a, 18), 0)
+        setPaddingRelative(Estilo.dp(a, 16), 0, Estilo.dp(a, 18), 0)
         addView(android.view.View(a).apply {
             background = android.graphics.drawable.GradientDrawable().apply { shape = android.graphics.drawable.GradientDrawable.OVAL; setColor(br.paulo.tvlauncher.MainActivity.ILHA_PONTO_CALMO) }
         }, LinearLayout.LayoutParams(Estilo.dp(a, 6), Estilo.dp(a, 6)).apply { marginEnd = Estilo.dp(a, 12) })
