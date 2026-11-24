@@ -157,7 +157,7 @@ object PluginWidgetsTv {
     fun lpCamada(ctx: Context) = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT).apply {
         val d = ctx.resources.displayMetrics.density
         topMargin = (TOPO_DP * d).toInt(); bottomMargin = (BAIXO_DP * d).toInt()
-        leftMargin = (LADO_DP * d).toInt(); rightMargin = (LADO_DP * d).toInt()
+        marginStart = (LADO_DP * d).toInt(); marginEnd = (LADO_DP * d).toInt()
     }
 
     /**
@@ -179,6 +179,8 @@ object PluginWidgetsTv {
         init {
             descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
             isFocusable = false
+            // A grade é absoluta (x da esquerda), como o anel desenhado: em árabe a camada não espelha os lugares.
+            layoutDirection = View.LAYOUT_DIRECTION_LTR
             clipChildren = true
         }
 
@@ -234,7 +236,7 @@ object PluginWidgetsTv {
                 val nl = (p.w * celL).toInt(); val na = (p.h * celA).toInt()
                 val mudou = lp.width != nl || lp.height != na
                 lp.width = nl; lp.height = na
-                lp.leftMargin = (p.x * celL).toInt(); lp.topMargin = (p.y * celA).toInt()
+                lp.marginStart = (p.x * celL).toInt(); lp.topMargin = (p.y * celA).toInt()
                 v.layoutParams = lp
                 if (mudou) avisarTamanho(context, e.id, nl, na)
             }

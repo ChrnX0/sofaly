@@ -52,12 +52,12 @@ class WidgetLayoutActivity : Activity() {
             addView(estado)
         }
         raiz.addView(cima, FrameLayout.LayoutParams(-1, -2, Gravity.TOP).apply {
-            leftMargin = Estilo.dp(this@WidgetLayoutActivity, PluginWidgetsTv.LADO_DP); topMargin = Estilo.dp(this@WidgetLayoutActivity, 20)
+            marginStart = Estilo.dp(this@WidgetLayoutActivity, PluginWidgetsTv.LADO_DP); topMargin = Estilo.dp(this@WidgetLayoutActivity, 20)
         })
         val dicas = Estilo.barraDicas(this,
             "◀ ▶ ▲ ▼" to getString(R.string.wdg_d_setas), "OK" to getString(R.string.wdg_d_opcoes), getString(R.string.wdg_d_voltar) to getString(R.string.wdg_d_sair))
         raiz.addView(dicas, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply {
-            leftMargin = Estilo.dp(this@WidgetLayoutActivity, PluginWidgetsTv.LADO_DP); bottomMargin = Estilo.dp(this@WidgetLayoutActivity, 40)
+            marginStart = Estilo.dp(this@WidgetLayoutActivity, PluginWidgetsTv.LADO_DP); bottomMargin = Estilo.dp(this@WidgetLayoutActivity, 40)
         })
         setContentView(raiz)
         ler()
