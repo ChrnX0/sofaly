@@ -651,7 +651,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             val p = CruzLogica.partes(i.sub, CruzLogica.tirarDoItem(i.situacao))
             val cortada = p.principal.isNotEmpty() && android.text.StaticLayout.Builder
                 .obtain(p.principal, 0, p.principal.length, iv.sub.paint, dpi(TEXTO_MAX)).setIncludePad(false).build().lineCount > ITEM_LINHAS
-            CruzLogica.detalhes(p, principalCortada = cortada)
+            // Barra embaixo: a linha de baixo do item não aparece; sem isto o título ("Faces da Verdade") sumia da tela (Sala 24/11/2026).
+            CruzLogica.detalhes(p, principalCortada = cortada || barra)
         }
         val s = i?.situacao?.takeIf { it.texto.isNotBlank() && iv != null && (hasFocus() || isFocused) }
         // Nome que não coube ("What universal fre…", visto na Sala 18/11/2026 no Continuar): vai inteiro no topo do canto.
