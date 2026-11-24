@@ -11,7 +11,7 @@ import br.paulo.tvlauncher.DocumentPickerActivity
 import br.paulo.tvlauncher.MainActivity
 import br.paulo.tvlauncher.ProtetorTela
 import br.paulo.tvlauncher.alarm.AutoDesligar
-import kotlin.concurrent.thread
+import br.paulo.tvlauncher.Fundo
 
 /**
  * O núcleo de privilégio por Device Owner (DPM), no MESMO processo do launcher — sem app intermediário.
@@ -33,7 +33,7 @@ object PrivilegioDO {
 
     /** Chamado no onCreate (fora da thread da tela). Fixa o nosso protetor e aplica as otimizações. Idempotente e barato. */
     fun aplicar(ctx: Context) {
-        thread(name = "PrivilegioDO") {
+        Fundo.rodar("PrivilegioDO") {
             if (Config.FIXAR_PROTETOR) fixarProtetor(ctx)
             semDormirPeloSistema(ctx)
             if (somosDonos(ctx)) {

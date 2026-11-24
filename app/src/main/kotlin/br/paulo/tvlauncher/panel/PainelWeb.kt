@@ -1584,7 +1584,7 @@ object PainelWeb {
         PainelArmazem.registrar(app, ip, "compartilhado: ${d.tipo.name.lowercase()}", "")
         return when (d.tipo) {
             Compartilhar.Tipo.RECADO -> {
-                val r = AvisoTv.mostrar(app, "Recado", d.valor, 60, som = true, guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO)
+                val r = AvisoTv.mostrar(app, app.getString(br.paulo.tvlauncher.R.string.pg_recado), d.valor, 60, som = true, guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO)
                 Gatilhos.disparar(app, Gatilhos.Evento.RECADO_CHEGOU)   // elevação 10.6
                 if (r == AvisoTv.Resultado.MOSTRADO || r == AvisoTv.Resultado.GUARDADO) json(200, JSONObject().put("ok", true).put("feito", "recado"))
                 else erro(409, "a acessibilidade do launcher está desligada na TV: sem ela o recado não aparece")
@@ -1600,7 +1600,7 @@ object PainelWeb {
         val texto = Recado.limpar(o.optString("texto"))
             ?: return erro(400, "escreva o recado (até ${Recado.MAX_CARACTERES} caracteres)")
         val segundos = Recado.duracao(if (o.has("segundos")) o.optInt("segundos") else null)
-        val r = AvisoTv.mostrar(app, "Recado", texto, segundos, som = o.optBoolean("som", true), guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO)
+        val r = AvisoTv.mostrar(app, app.getString(br.paulo.tvlauncher.R.string.pg_recado), texto, segundos, som = o.optBoolean("som", true), guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO)
         Gatilhos.disparar(app, Gatilhos.Evento.RECADO_CHEGOU)   // elevação 10.6
         // O texto não vai para o registro, só o tamanho (mesma regra do "digitar"): o registro é para ver o que mexeu na TV.
         PainelArmazem.registrar(app, ip, "recado de ${texto.length} caractere(s)", r.name.lowercase())

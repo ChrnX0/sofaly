@@ -311,7 +311,7 @@ object McpPoder {
 
     private fun aviso(app: Context, a: JSONObject): String {
         val texto = Recado.limpar(a.optString("texto")) ?: throw McpProtocolo.ErroFerramenta("texto vazio ou com mais de ${Recado.MAX_CARACTERES} caracteres")
-        val titulo = Recado.limpar(a.optString("titulo"))?.take(40) ?: "Recado"
+        val titulo = Recado.limpar(a.optString("titulo"))?.take(40) ?: app.getString(br.paulo.tvlauncher.R.string.pg_recado)
         exigir(app, Confirmacoes.Acao.MCP_ACOES, txt(R.string.cf_aviso, texto.take(60)))
         val r = AvisoTv.mostrar(app, titulo, texto, a.optInt("segundos", 30).coerceIn(5, 300), a.optBoolean("som"), guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO)
         registrar(app, "aviso (MCP)", texto)
