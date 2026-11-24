@@ -14,4 +14,5 @@
     <string name="vid_aceitar">Accetta video</string>
     <string name="vid_aceitar_det">La famiglia può mandare video fino a 30 secondi. Non partono mai da soli.</string>
     <string name="vid_quantos">Video: %1$d</string>
+    <string name="vid_novo">Nuovo</string>
 </resources>

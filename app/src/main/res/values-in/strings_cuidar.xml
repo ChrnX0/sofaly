@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Aktifkan (tanya orang yang tinggal di sini)</string>
     <string name="cuidar_desligar">Matikan sekarang</string>
     <string name="cuidar_estado_ligado">Aktif. %1$s menerima pemberitahuan sejak %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Aktif. %1$s menerima pemberitahuan.</string>
     <string name="cuidar_estado_mudou">Setelan berubah: TV harus bertanya lagi.</string>
     <string name="cuidar_estado_desligado">Mati. Tidak ada yang keluar dari TV ini.</string>
     <string name="cuidar_falta_aviso">Pilih setidaknya satu pemberitahuan di bawah.</string>

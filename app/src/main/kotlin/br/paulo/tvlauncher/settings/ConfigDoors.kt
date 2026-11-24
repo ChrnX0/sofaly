@@ -161,15 +161,20 @@ internal fun ConfigLauncherActivity.mostrarDicaDasPortas() {
         getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair)))
 }
 
-/** Menu da esquerda com a porta aberta: só as abas dela (ou só "Buscar", na busca). */
+/** Fileira de abas com a porta aberta: só as abas dela (ou só "Buscar", na busca); some quando a porta tem uma aba. */
 internal fun ConfigLauncherActivity.menuDaPorta() {
     val uso = UsoTv.atual(this)
     val naBusca = abaMontada == BUSCA
     val porta = PortasConfig.PORTAS[PortasConfig.daAba(abaAtual)]
     itemBusca?.visibility = if (naBusca) View.VISIBLE else View.GONE
+    var vistas = 0
     itensMenu.forEachIndexed { i, t ->
-        t.visibility = if (!naBusca && i in porta && (UsoTv.mostraAba(uso, i) || i == abaAtual)) View.VISIBLE else View.GONE
+        val ver = !naBusca && i in porta && (UsoTv.mostraAba(uso, i) || i == abaAtual)
+        t.visibility = if (ver) View.VISIBLE else View.GONE
+        if (ver) vistas++
     }
+    // Uma aba só: sem fileira de abas (o título da aba já diz onde se está). Na busca, a fileira mostra "Buscar".
+    (menu.parent as? View)?.visibility = if (naBusca || vistas > 1) View.VISIBLE else View.GONE
 }
 
 /**

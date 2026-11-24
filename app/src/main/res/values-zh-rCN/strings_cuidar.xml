@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">开启（询问住在这里的人）</string>
     <string name="cuidar_desligar">立即关闭</string>
     <string name="cuidar_estado_ligado">已开启。%1$s 自 %2$s 起接收提醒。</string>
+    <string name="cuidar_estado_ligado_sem_data">已开启。%1$s 正在接收提醒。</string>
     <string name="cuidar_estado_mudou">设置已更改：电视需要重新询问。</string>
     <string name="cuidar_estado_desligado">已关闭。不会有任何内容离开这台电视。</string>
     <string name="cuidar_falta_aviso">请在下方至少选择一项提醒。</string>

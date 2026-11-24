@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Turn on (ask whoever lives here)</string>
     <string name="cuidar_desligar">Turn off now</string>
     <string name="cuidar_estado_ligado">On. %1$s receives the notices since %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">On. %1$s receives the notices.</string>
     <string name="cuidar_estado_mudou">Settings changed: the TV has to ask again.</string>
     <string name="cuidar_estado_desligado">Off. Nothing leaves this TV.</string>
     <string name="cuidar_falta_aviso">Choose at least one notice below.</string>

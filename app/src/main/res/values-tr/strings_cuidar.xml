@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Aç (burada yaşayana sor)</string>
     <string name="cuidar_desligar">Şimdi kapat</string>
     <string name="cuidar_estado_ligado">Açık. %1$s, %2$s tarihinden beri bildirimleri alıyor.</string>
+    <string name="cuidar_estado_ligado_sem_data">Açık. %1$s bildirimleri alıyor.</string>
     <string name="cuidar_estado_mudou">Ayarlar değişti: TV’nin yeniden sorması gerekiyor.</string>
     <string name="cuidar_estado_desligado">Kapalı. Bu TV’den hiçbir şey çıkmaz.</string>
     <string name="cuidar_falta_aviso">Aşağıdan en az bir bildirim seçin.</string>

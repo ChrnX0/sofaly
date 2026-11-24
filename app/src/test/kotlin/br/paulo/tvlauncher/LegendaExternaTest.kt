@@ -120,6 +120,14 @@ class LegendaExternaTest {
         assertNull(LegendaExterna.redirecionamentoSeguro(null))
     }
 
+    @Test fun versaoCurtaSemGrupoNemCodec() {
+        assertEquals("1080p · WEBRip", LegendaExterna.versaoCurta("Dune.2021.1080p.WEBRip.DD5.1.x264-SHITBOX"))
+        assertEquals("1080p · WEB-DL", LegendaExterna.versaoCurta("Dune 2021 1080p HMAX WEB-DL DDP5 1 Atmos x264-EVO"))
+        assertEquals("4K · Blu-ray", LegendaExterna.versaoCurta("Film.2019.4K.BluRay.x265-GRP"))
+        assertEquals("720p", LegendaExterna.versaoCurta("Show_S01E03__720p"))
+        assertEquals("Show S01E03", LegendaExterna.versaoCurta("Show.S01E03-GRUPO"))
+    }
+
     @Test fun nomeLegivelNaTv() {
         assertEquals("Dune 2021 1080p WEBRip DD5.1 x264-SHITBOX", LegendaExterna.nomeLegivel("Dune.2021.1080p.WEBRip.DD5.1.x264-SHITBOX"))
         assertEquals("Dune 2021 1080p HMAX WEB-DL DDP5.1 Atmos x264-EVO", LegendaExterna.nomeLegivel("Dune 2021 1080p HMAX WEB-DL DDP5 1 Atmos x264-EVO"))

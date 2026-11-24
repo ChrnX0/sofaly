@@ -218,7 +218,7 @@ class AllAppsScreen(ctx: Context, private val host: Host, val mode: AllAppsLayou
         painelNome.text = info.title
         painelLinhas.removeAllViews()
         for (l in info.lines) painelLinhas.addView(TextView(context).apply {
-            text = l; setTextColor(Estilo.TEXTO_2); typeface = medio; sp(this, 17f); maxLines = 4; ellipsize = TextUtils.TruncateAt.END
+            text = l; setTextColor(Estilo.TEXTO_2); typeface = medio; sp(this, 18f); maxLines = 4; ellipsize = TextUtils.TruncateAt.END
         }, LinearLayout.LayoutParams(MATCH, WRAP).apply { topMargin = dp(4) })
         painelDica.text = info.tip ?: ""; painelDica.visibility = if (info.tip == null) GONE else VISIBLE
         painelAjuda.text = info.hint

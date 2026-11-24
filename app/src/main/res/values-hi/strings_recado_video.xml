@@ -14,4 +14,5 @@
     <string name="vid_aceitar">वीडियो लें</string>
     <string name="vid_aceitar_det">परिवार 30 सेकंड तक के वीडियो भेज सकता है। वे अपने आप कभी नहीं चलते।</string>
     <string name="vid_quantos">वीडियो: %1$d</string>
+    <string name="vid_novo">नया</string>
 </resources>

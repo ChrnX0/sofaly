@@ -14,4 +14,5 @@
     <string name="vid_aceitar">동영상 받기</string>
     <string name="vid_aceitar_det">가족이 30초까지 동영상을 보낼 수 있어요. 저절로 재생되지 않아요.</string>
     <string name="vid_quantos">동영상: %1$d</string>
+    <string name="vid_novo">새 영상</string>
 </resources>

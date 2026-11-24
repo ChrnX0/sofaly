@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Włącz (zapytaj osobę, która tu mieszka)</string>
     <string name="cuidar_desligar">Wyłącz teraz</string>
     <string name="cuidar_estado_ligado">Włączone. %1$s otrzymuje powiadomienia od %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Włączone. %1$s otrzymuje powiadomienia.</string>
     <string name="cuidar_estado_mudou">Ustawienia się zmieniły: telewizor musi zapytać ponownie.</string>
     <string name="cuidar_estado_desligado">Wyłączone. Nic nie wychodzi z tego telewizora.</string>
     <string name="cuidar_falta_aviso">Wybierz poniżej co najmniej jedno powiadomienie.</string>

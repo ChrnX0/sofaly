@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Attiva (chiedi a chi abita qui)</string>
     <string name="cuidar_desligar">Disattiva ora</string>
     <string name="cuidar_estado_ligado">Attivo. %1$s riceve gli avvisi da %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Attivo. %1$s riceve gli avvisi.</string>
     <string name="cuidar_estado_mudou">Impostazioni cambiate: la TV deve chiedere di nuovo.</string>
     <string name="cuidar_estado_desligado">Disattivato. Niente esce da questa TV.</string>
     <string name="cuidar_falta_aviso">Scegli almeno un avviso qui sotto.</string>

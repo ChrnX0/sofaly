@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Einschalten (die Person fragen, die hier wohnt)</string>
     <string name="cuidar_desligar">Jetzt ausschalten</string>
     <string name="cuidar_estado_ligado">An. %1$s erhält die Hinweise seit %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">An. %1$s erhält die Hinweise.</string>
     <string name="cuidar_estado_mudou">Einstellungen geändert: Der Fernseher muss erneut fragen.</string>
     <string name="cuidar_estado_desligado">Aus. Nichts verlässt diesen Fernseher.</string>
     <string name="cuidar_falta_aviso">Wähle unten mindestens einen Hinweis.</string>

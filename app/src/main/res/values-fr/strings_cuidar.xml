@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Activer (demander à la personne qui vit ici)</string>
     <string name="cuidar_desligar">Désactiver maintenant</string>
     <string name="cuidar_estado_ligado">Activé. %1$s reçoit les alertes depuis %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Activé. %1$s reçoit les alertes.</string>
     <string name="cuidar_estado_mudou">Les réglages ont changé : la TV doit redemander.</string>
     <string name="cuidar_estado_desligado">Désactivé. Rien ne sort de cette TV.</string>
     <string name="cuidar_falta_aviso">Choisissez au moins une alerte ci-dessous.</string>
