@@ -157,7 +157,7 @@ class ConfigLauncherActivity : Activity() {
     internal var itemBusca: TextView? = null
     internal var campoBusca: android.widget.EditText? = null
     internal val prefsBusca by lazy { getSharedPreferences("config_busca", MODE_PRIVATE) }
-    private lateinit var menu: LinearLayout
+    internal lateinit var menu: LinearLayout
     /** Menu + conteúdo (a porta aberta) e a grade das seis portas (ConfigDoors.kt): um dos dois aparece. */
     internal lateinit var colunas: LinearLayout
     internal lateinit var grade: LinearLayout
@@ -266,18 +266,17 @@ class ConfigLauncherActivity : Activity() {
         }
         raiz.addView(Estilo.tituloTela(this, getString(R.string.cfg_titulo)))
 
-        colunas = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
-        menu = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false; setPaddingRelative(0, dp(4), 0, dp(4)) }
-        menu.addView(itemDaBusca(), LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(10) })
-        abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(4) }) }
+        // Dentro da porta (24/11/2026, Paulo: "navegação preguiçosa"; caminho D, Linktree/Bevel no Mobbin): as abas da porta
+        // viram pílulas numa fileira no alto e o conteúdo ganha a largura toda. Porta de uma aba só não mostra a fileira
+        // (antes era uma coluna de 270 dp com um item). ◀ ▶ andam entre as pílulas; ▼ entra nas opções; ▲ no topo volta.
+        colunas = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false }
+        menu = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false
+            gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(dp(4), dp(6), dp(16), dp(6)) }
+        menu.addView(itemDaBusca(), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(10) })
+        abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(10) }) }
+        colunas.addView(android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
+            addView(menu) }, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2) })
         mostrarAbasDoUso()
-        colunas.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(menu)
-            // Igual ao conteúdo: corta embaixo (a última aba não passa por cima da barra de dicas; achado do teste de tela,
-            // ideia 96) e deixa 16 dp dos lados para a pílula com foco crescer.
-            addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) } },
-            LinearLayout.LayoutParams(dp(270), MATCH))
-        // Sem linha separando menu e conteúdo (nenhuma outra tela tem): o espaço já separa as duas colunas.
-        colunas.addView(View(this), LinearLayout.LayoutParams(dp(Estilo.E3 + 8), MATCH))
         conteudo = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             clipChildren = false; clipToPadding = false
@@ -289,7 +288,7 @@ class ConfigLauncherActivity : Activity() {
             // dos lados para a linha com foco crescer sem ser cortada. A raiz não corta mais na margem (ver acima).
             addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) }
         }
-        colunas.addView(rolagem, LinearLayout.LayoutParams(0, MATCH, 1f))
+        colunas.addView(rolagem, LinearLayout.LayoutParams(MATCH, 0, 1f))
         raiz.addView(colunas, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(18) })
         // As seis portas (23/11/2026, ConfigDoors.kt): no mesmo lugar do menu + conteúdo, uma tela de cada vez.
         grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false; visibility = View.GONE
@@ -327,7 +326,7 @@ class ConfigLauncherActivity : Activity() {
         Estilo.aplicar(this, Estilo.Papel.CORPO)
         setPaddingRelative(dp(20), dp(11), dp(20), dp(11))
         // 2 linhas (23/11/2026): com o azulejo antes do nome, "Home and automations" não cabia numa linha em inglês.
-        maxLines = 2; ellipsize = TextUtils.TruncateAt.END
+        maxLines = 1; ellipsize = TextUtils.TruncateAt.END
         isFocusable = true; isClickable = true
         // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
         // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
@@ -442,8 +441,8 @@ class ConfigLauncherActivity : Activity() {
 
     internal fun mostrarDica(noMenu: Boolean) {
         dica.removeAllViews()
-        dica.addView(if (noMenu) Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_aba), "▶ OK" to getString(R.string.cl_dica_entrar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair))
-            else Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_escolher), "OK" to getString(R.string.cl_dica_mudar), "◀ " + getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_voltar)))
+        dica.addView(if (noMenu) Estilo.barraDicas(this, "◀▶" to getString(R.string.cl_dica_aba), "▼ OK" to getString(R.string.cl_dica_entrar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair))
+            else Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_escolher), "OK" to getString(R.string.cl_dica_mudar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair)))
     }
 
     /** ◀ numa pílula do índice/"Conversa com" que tem outra pílula daquele lado: anda entre elas (não volta ao menu). */
@@ -455,7 +454,10 @@ class ConfigLauncherActivity : Activity() {
 
     private var engoliuVoltar = false   // o VOLTAR que só levou o foco ao menu não pode fechar a tela ao soltar
 
-    /** ◀ nas opções volta ao menu; ▶ no menu entra nas opções; ▲▼ não escapam de um lado para o outro. */
+    /** A fileira de abas está à vista (porta com mais de uma aba, ou a busca)? */
+    internal fun menuVisivel(): Boolean = (menu.parent as View).visibility == View.VISIBLE
+
+    /** Abas no alto: ◀ ▶ andam entre elas, ▼ entra nas opções, ▲ na primeira opção volta a elas, VOLTAR sobe um nível. */
     override fun dispatchKeyEvent(e: KeyEvent): Boolean {
         if (!::conteudo.isInitialized) return super.dispatchKeyEvent(e)   // modo hóspede: ainda esperando o PIN
         if (e.keyCode == KeyEvent.KEYCODE_BACK && e.action == KeyEvent.ACTION_UP && engoliuVoltar) { engoliuVoltar = false; return true }
@@ -464,23 +466,27 @@ class ConfigLauncherActivity : Activity() {
             val noConteudo = foco != null && foco.dentroDe(conteudo)
             val noMenu = foco != null && foco.dentroDe(menu)
             when (Rtl.tecla(e.keyCode, window.decorView)) {   // 16.8: no árabe o menu fica à direita
-                KeyEvent.KEYCODE_DPAD_LEFT -> if (noConteudo && foco !is android.widget.EditText && !irmaNaLinha(foco!!, e.keyCode)) { voltarAoMenu(); return true }
-                KeyEvent.KEYCODE_BACK -> if (noConteudo) { engoliuVoltar = true; voltarAoMenu(); return true }
-                    else if (noMenu) { engoliuVoltar = true; mostrarPortas(); return true }   // do menu, volta às seis portas
-                KeyEvent.KEYCODE_DPAD_RIGHT -> if (noMenu) {
+                // VOLTAR nas opções sobe para as abas; sem fileira de abas (porta de uma aba), ou já nela, volta às portas.
+                KeyEvent.KEYCODE_BACK -> if (noConteudo && menuVisivel()) { engoliuVoltar = true; voltarAoMenu(); return true }
+                    else if (noConteudo || noMenu) { engoliuVoltar = true; mostrarPortas(); return true }
+                // ▼ nas abas entra nas opções (na busca, vai para a caixa).
+                KeyEvent.KEYCODE_DPAD_DOWN -> if (noMenu) {
                     if (foco === itemBusca) { if (abaMontada != BUSCA) mostrarBusca(); campoBusca?.requestFocus() } else entrarNoConteudo()
                     return true
-                }
-                KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_DPAD_DOWN -> if (foco != null && (noConteudo || noMenu)) {
+                } else if (foco is android.widget.EditText && noConteudo) {
                     // ▼ na caixa da busca vai para o primeiro resultado (23/11/2026, Sala: o foco ficava preso na caixa).
-                    if (foco is android.widget.EditText && e.keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
-                        focaveis(conteudo).firstOrNull { it !is android.widget.EditText }?.let { it.requestFocus(); return true }
-                    }
+                    focaveis(conteudo).firstOrNull { it !is android.widget.EditText }?.let { it.requestFocus(); return true }
+                }
+                KeyEvent.KEYCODE_DPAD_UP -> if (noMenu) return true
+            }
+            when (e.keyCode) {
+                KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_DPAD_DOWN -> if (foco != null && noConteudo) {
                     val dir = if (e.keyCode == KeyEvent.KEYCODE_DPAD_UP) View.FOCUS_UP else View.FOCUS_DOWN
                     val prox = foco.focusSearch(dir)
-                    if (prox == null || !prox.dentroDe(if (noConteudo) conteudo else menu)) {
-                        // Sem mais opção para aquele lado: no conteúdo, rola para mostrar o texto que sobra (ex.: "Como funciona").
-                        if (noConteudo) rolagem.smoothScrollBy(0, if (dir == View.FOCUS_UP) -dp(240) else dp(240))
+                    if (prox == null || !prox.dentroDe(conteudo)) {
+                        // ▲ na primeira opção sobe para as abas (se houver); senão rola para mostrar o texto que sobra.
+                        if (dir == View.FOCUS_UP && menuVisivel() && rolagem.scrollY == 0) { voltarAoMenu(); return true }
+                        rolagem.smoothScrollBy(0, if (dir == View.FOCUS_UP) -dp(240) else dp(240))
                         return true
                     }
                 }
