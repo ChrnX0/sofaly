@@ -117,8 +117,6 @@ internal fun MainActivity.vitrineDoItem(item: HomeCruz.Item) {
 
 /** Id do item "Continuar" no topo de cada mundo: este prefixo + o id do que ele retoma (não repete o id da coluna). */
 internal const val PREFIXO_CONTINUAR = "cont:"
-/** Item de widget de outro app (PluginWidgetsTv): a foto ocupa o card inteiro na barra (StripLayer). */
-internal const val PREFIXO_WIDGET = "widget:"
 
 /**
  * O "Continuar" de um mundo (Paulo, 21/11/2026: "cada categoria recebe um continuar como primeiro item"): a última coisa
@@ -449,8 +447,7 @@ internal fun MainActivity.atualizarCruz() {
  */
 internal fun MainActivity.itensDePlugin(m: PluginCartao.Mundo): List<HomeCruz.Item> =
     cartoesPlugin.withIndex().filter { it.value.mundo == m }.map { (i, p) ->
-        // Widget (foto em vez de ícone): id próprio para a barra mostrar a foto no card inteiro (StripLayer).
-        val id = (if (br.paulo.tvlauncher.screensaver.PluginWidget.ehWidget(p.imagem)) PREFIXO_WIDGET else "plugin:") + "${p.pacote}:$i"
+        val id = "plugin:${p.pacote}:$i"
         HomeCruz.Item(id, p.titulo.ifEmpty { p.valor },
             if (p.titulo.isEmpty()) p.detalhe else listOf(p.valor, p.detalhe).filter { it.isNotEmpty() }.joinToString(" · "),
             p.imagem?.let { imagensPlugin[p.pacote + "|" + it] } ?: icCruz(id, IconeCruz.Tipo.PLUGIN), { PluginsTv.abrir(this, p) })

@@ -371,8 +371,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         for (item in c.itens) {
             val raiz = FrameLayout(context)
             val app = ehApp(item.id)
-            // Widget de outro app (PluginWidgetsTv): a foto dele também ocupa o card inteiro, como uma capa.
-            val conteudo = item.id.startsWith("card:") || item.id.startsWith(PREFIXO_WIDGET)
+            val conteudo = item.id.startsWith("card:")
             val fundo = GradientDrawable().apply {
                 cornerRadius = dp(o.raio)
                 setColor(when {

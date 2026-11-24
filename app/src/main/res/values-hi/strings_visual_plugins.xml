@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">अभी अन्य ऐप्स के बटन नहीं हैं। कुछ ऐप्स क्विक पैनल में चालू/बंद बटन जोड़ते हैं (वापस दबाए रखें)।</string>
     <string name="ext_off_blocked">Sofaly ने बंद किया: इस प्लगइन में एक ज्ञात समस्या है।</string>
     <string name="ext_secao_widgets">दूसरे ऐप्स के विजेट</string>
-    <string name="ext_widget_onde">होम स्क्रीन पर, ऐप्स में</string>
-    <string name="ext_widget_tirar">हटाएँ</string>
-    <string name="ext_widget_por">विजेट जोड़ें</string>
-    <string name="ext_widget_por_det">विजेट की तस्वीर ऐप्स में एक कार्ड बन जाती है। OK उसका ऐप खोलता है।</string>
     <string name="ext_widget_nenhum">इस टीवी के किसी ऐप में अभी विजेट नहीं है।</string>
     <string name="ext_widget_sem_permissao">टीवी ने Sofaly को विजेट जोड़ने नहीं दिया।</string>
     <string name="ext_widget_falhou">यह विजेट नहीं जोड़ा जा सका।</string>

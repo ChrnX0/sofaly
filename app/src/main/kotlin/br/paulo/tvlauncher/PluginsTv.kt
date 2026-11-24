@@ -352,24 +352,14 @@ class PluginsActivity : Activity() {
             }, Estilo.lpLinha(this))
         }
 
-        // ---- Widgets de outros apps (PluginWidgetsTv, 24/11/2026): a foto do widget vira um cartão do mundo Apps.
+        // ---- Widgets de outros apps (PluginWidgetsTv, 24/11/2026): vivos na HOME; o modo de edição põe, move e tira.
         if (PluginWidgetsTv.existe(this)) {
             coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_widgets)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
-            val ligados = PluginWidgetsTv.escolhidos(this)
-            val awm = android.appwidget.AppWidgetManager.getInstance(this)
-            for (w in ligados) {
-                val info = runCatching { awm.getAppWidgetInfo(w.id) }.getOrNull()
-                val nome = info?.let { PluginWidgetsTv.nome(this, it) } ?: w.pacote
-                val sub = PluginsTv.motivoDesligado(this, w.pacote) ?: getString(R.string.ext_widget_onde)
-                coluna.addView(Estilo.linhaOpcao(this, nome, sub, Estilo.valor(this, getString(R.string.ext_widget_tirar), seta = false)).apply {
-                    setOnClickListener { PluginWidgetsTv.remover(this@PluginsActivity, w.id); montar() }
-                }, Estilo.lpLinha(this))
-            }
-            if (ligados.size < PluginWidget.MAX) {
-                coluna.addView(Estilo.linhaOpcao(this, getString(R.string.ext_widget_por), getString(R.string.ext_widget_por_det), Estilo.valor(this, "")).apply {
-                    setOnClickListener { escolherWidget() }
-                }, Estilo.lpLinha(this))
-            }
+            val n = PluginWidgetsTv.escolhidos(this).size
+            coluna.addView(Estilo.linhaOpcao(this, getString(R.string.wl_titulo), getString(R.string.wl_det),
+                Estilo.valor(this, "$n / ${PluginWidget.MAX}")).apply {
+                setOnClickListener { if (pro()) startActivity(Intent(this@PluginsActivity, WidgetLayoutActivity::class.java)) }
+            }, Estilo.lpLinha(this))
         }
 
         // ---- Conseguir plugins (vitrine)
@@ -396,59 +386,6 @@ class PluginsActivity : Activity() {
         runCatching { packageManager.getApplicationInfo(p, PackageManager.MATCH_DISABLED_COMPONENTS); true }.getOrDefault(false)
 
     /** Fundo instalado: usar como fundo, ajustes do próprio plugin, parar de usar. */
-    /** Lista dos widgets instalados; o escolhido é ligado fora da tela (pode chamar o shell) e entra na HOME. */
-    private fun escolherWidget() {
-        if (!pro()) return
-        val lista = PluginWidgetsTv.disponiveis(this)
-        if (lista.isEmpty()) {
-            android.widget.Toast.makeText(this, getString(R.string.ext_widget_nenhum), android.widget.Toast.LENGTH_LONG).show(); return
-        }
-        aberto = Estilo.lista(this, getString(R.string.ext_widget_por), lista.map { PluginWidgetsTv.nome(this, it) }) { i ->
-            val info = lista[i]
-            runCatching {
-                trabalho.execute {
-                    val (r, id) = PluginWidgetsTv.adicionar(applicationContext, info)
-                    runOnUiThread {
-                        if (isDestroyed) return@runOnUiThread
-                        when {
-                            r == PluginWidgetsTv.Resultado.OK && PluginWidgetsTv.precisaAjuste(info) -> {
-                                widgetAjuste = id to info.provider.flattenToString()
-                                if (!PluginWidgetsTv.abrirAjuste(this, id, PEDIDO_AJUSTE)) { widgetAjuste = null; PluginWidgetsTv.desfazer(this, id); avisoWidget(PluginWidgetsTv.Resultado.FALHOU) }
-                            }
-                            r == PluginWidgetsTv.Resultado.OK -> montar()
-                            else -> avisoWidget(r)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private var widgetAjuste: Pair<Int, String>? = null
-
-    /** Volta da tela de ajuste do widget: OK liga; voltar sem OK devolve o id ao sistema. */
-    @Deprecated("Activity.onActivityResult")
-    override fun onActivityResult(pedido: Int, resultado: Int, dados: Intent?) {
-        @Suppress("DEPRECATION") super.onActivityResult(pedido, resultado, dados)
-        if (pedido != PEDIDO_AJUSTE) return
-        val (id, prov) = widgetAjuste ?: return
-        widgetAjuste = null
-        if (resultado == RESULT_OK) PluginWidgetsTv.confirmar(this, id, prov) else PluginWidgetsTv.desfazer(this, id)
-        montar()
-    }
-
-    private fun avisoWidget(r: PluginWidgetsTv.Resultado) {
-        val t = when (r) {
-            PluginWidgetsTv.Resultado.LIMITE -> getString(R.string.plg_limite, PluginWidget.MAX)
-            PluginWidgetsTv.Resultado.SEM_PERMISSAO -> getString(R.string.ext_widget_sem_permissao)
-            PluginWidgetsTv.Resultado.BLOQUEADO -> getString(R.string.ext_off_blocked)
-            else -> getString(R.string.ext_widget_falhou)
-        }
-        android.widget.Toast.makeText(this, t, android.widget.Toast.LENGTH_LONG).show()
-    }
-
-    private companion object { const val PEDIDO_AJUSTE = 0x57 }
-
     private fun menuFundo(f: WallpaperPlugins.Provider, emUso: Boolean) {
         val opcoes = mutableListOf<Pair<String, () -> Unit>>()
         if (!emUso) opcoes += getString(R.string.wp_usar) to {

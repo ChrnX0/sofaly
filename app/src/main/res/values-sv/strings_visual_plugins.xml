@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">Inga knappar från andra appar än. Vissa appar lägger till en på/av-knapp i snabbpanelen (håll in BAKÅT).</string>
     <string name="ext_off_blocked">Avstängt av Sofaly: det här tillägget har ett känt problem.</string>
     <string name="ext_secao_widgets">Widgetar från andra appar</string>
-    <string name="ext_widget_onde">På startskärmen, under Appar</string>
-    <string name="ext_widget_tirar">Ta bort</string>
-    <string name="ext_widget_por">Lägg till en widget</string>
-    <string name="ext_widget_por_det">En bild av widgeten blir ett kort i Appar. OK öppnar dess app.</string>
     <string name="ext_widget_nenhum">Ingen app på den här tv:n har en widget än.</string>
     <string name="ext_widget_sem_permissao">Tv:n lät inte Sofaly lägga till widgetar.</string>
     <string name="ext_widget_falhou">Det gick inte att lägga till widgeten.</string>

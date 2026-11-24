@@ -44,10 +44,6 @@
     <string name="wp_d_minimalist">Tiszta szimbólumok egyszínű háttéren</string>
     <string name="wp_d_arcticons">15 000 finom vonalas ikon (telefonra készült, itt is működik)</string>
     <string name="ext_secao_widgets">Más alkalmazások widgetjei</string>
-    <string name="ext_widget_onde">A kezdőképernyőn, az Alkalmazásokban</string>
-    <string name="ext_widget_tirar">Eltávolítás</string>
-    <string name="ext_widget_por">Widget hozzáadása</string>
-    <string name="ext_widget_por_det">A widget képe kártya lesz az Alkalmazásokban. Az OK megnyitja az alkalmazását.</string>
     <string name="ext_widget_nenhum">Ezen a tévén még egyik alkalmazásnak sincs widgetje.</string>
     <string name="ext_widget_sem_permissao">A tévé nem engedte, hogy a Sofaly widgetet adjon hozzá.</string>
     <string name="ext_widget_falhou">Ezt a widgetet nem sikerült hozzáadni.</string>

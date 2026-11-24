@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Ana ekran widget\'larını düzenle</string>
+    <string name="wl_det">Diğer uygulamaların canlı widget\'ları ana ekranda. Oklar taşır, OK seçenekleri gösterir.</string>
+    <string name="wl_vazio">Ana ekranda henüz widget yok. OK bir tane ekler.</string>
+    <string name="wl_estado_mover">Taşınıyor: %1$s</string>
+    <string name="wl_estado_tamanho">Boyut: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Taşı</string>
+    <string name="wl_tamanho">Boyutu değiştir</string>
+    <string name="wl_ajustes">Widget ayarları</string>
+    <string name="wl_proximo">Sonraki widget</string>
+    <string name="wl_por">Widget ekle</string>
+    <string name="wl_tirar">Bu widget\'ı kaldır</string>
+    <string name="wl_abrir">Uygulamayı aç</string>
+    <string name="wl_cheio">Bu widget için yer kalmadı.</string>
+    <string name="wl_d_setas">taşı / boyut</string>
+    <string name="wl_d_opcoes">seçenekler</string>
+    <string name="wl_d_voltar">GERİ</string>
+    <string name="wl_d_sair">kaydet ve çık</string>
+</resources>

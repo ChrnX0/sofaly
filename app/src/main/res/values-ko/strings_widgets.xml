@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">홈 위젯 편집</string>
+    <string name="wl_det">홈 화면에 다른 앱의 실시간 위젯. 화살표로 이동, OK로 옵션 표시.</string>
+    <string name="wl_vazio">홈 화면에 아직 위젯이 없습니다. OK로 추가합니다.</string>
+    <string name="wl_estado_mover">이동 중: %1$s</string>
+    <string name="wl_estado_tamanho">크기: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">이동</string>
+    <string name="wl_tamanho">크기 변경</string>
+    <string name="wl_ajustes">위젯 설정</string>
+    <string name="wl_proximo">다음 위젯</string>
+    <string name="wl_por">위젯 추가</string>
+    <string name="wl_tirar">이 위젯 제거</string>
+    <string name="wl_abrir">앱 열기</string>
+    <string name="wl_cheio">이 위젯을 둘 공간이 없습니다.</string>
+    <string name="wl_d_setas">이동 / 크기</string>
+    <string name="wl_d_opcoes">옵션</string>
+    <string name="wl_d_voltar">뒤로</string>
+    <string name="wl_d_sair">저장 후 나가기</string>
+</resources>

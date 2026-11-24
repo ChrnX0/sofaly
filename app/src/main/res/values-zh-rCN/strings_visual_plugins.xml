@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">还没有其他应用的按钮。有些应用会在快捷面板中添加开关按钮（长按返回）。</string>
     <string name="ext_off_blocked">已被 Sofaly 关闭：此插件存在已知问题。</string>
     <string name="ext_secao_widgets">其他应用的小部件</string>
-    <string name="ext_widget_onde">在主屏幕的“应用”中</string>
-    <string name="ext_widget_tirar">移除</string>
-    <string name="ext_widget_por">添加小部件</string>
-    <string name="ext_widget_por_det">小部件的画面会成为“应用”中的一张卡片。按 OK 打开它的应用。</string>
     <string name="ext_widget_nenhum">这台电视上还没有带小部件的应用。</string>
     <string name="ext_widget_sem_permissao">电视不允许 Sofaly 添加小部件。</string>
     <string name="ext_widget_falhou">无法添加这个小部件。</string>

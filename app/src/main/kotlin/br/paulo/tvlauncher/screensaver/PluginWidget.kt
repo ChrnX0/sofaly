@@ -4,30 +4,35 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /**
- * Widgets de outros apps na HOME (24/11/2026, Paulo: "não dá para fazer? já instalei launcher com widgets"). A regra,
- * sem Android (PluginWidgetTest); o lado Android é `home/PluginWidgetsTv.kt`.
+ * Widgets de outros apps na HOME (24/11/2026, Paulo: "widget é widget. É para ser posicionado na home livremente dentro
+ * das devidas proporções"). A regra, sem Android (PluginWidgetTest); o lado Android é `home/PluginWidgetsTv.kt`.
  *
  * O Google TV TEM o serviço de widgets (feature android.software.app_widgets, verificado na Sala), mas não tem a tela
  * de consentimento (ACTION_APPWIDGET_BIND). O launcher ganha a permissão de ligar widgets pelo shell próprio
  * (`appwidget grantbind`, o mesmo que o adb faz), uma vez.
  *
- * Como mora na HOME: a HOME não desenha a view viva do widget no meio da cruz (o widget seria um pedaço de tela que o
- * nosso estilo não controla). Ela tira uma FOTO do widget (a view desenhada fora da tela) e a usa como imagem de um
- * cartão de plugin no mundo Apps; OK abre o app dono do widget. Mesmas regras dos cartões: Pro, no máximo [MAX],
- * guarda de saúde, lista `blocked` do servidor.
+ * Como mora na HOME: o widget VIVO (a view dele, atualizando sozinha) numa camada na área livre da tela inicial, entre a
+ * ilha de cima e a barra de baixo. A área é uma grade de [COLS] x [LINHAS] células; cada widget ocupa um retângulo de
+ * células, sem sobrepor outro, do tamanho mínimo ao máximo que o próprio widget declara. A pessoa move e muda o tamanho
+ * pelo controle (WidgetLayoutActivity). Mesmas regras dos plugins: Pro, no máximo [MAX], guarda de saúde, lista
+ * `blocked` do servidor.
  */
 object PluginWidget {
-    const val MAX = 2
+    const val MAX = 3
     /** Id do nosso AppWidgetHost (qualquer número fixo do app; trocar perde os widgets já ligados). */
     const val HOST_ID = 0x50FA
-    private const val PREFIXO = "widget:"
-    /** A foto vale por até 5 min sem aviso de mudança (widgets de lista mudam sem chamar updateAppWidget). */
-    const val FOTO_MS = 5 * 60_000L
+    /** A grade da área livre da HOME. */
+    const val COLS = 12
+    const val LINHAS = 6
 
-    /** Um widget ligado: [id] do AppWidgetManager, [provedor] = componente "pacote/classe". */
-    data class Escolhido(val id: Int, val provedor: String) {
+    /** Um widget ligado: [id] do AppWidgetManager, [provedor] = componente "pacote/classe", e o lugar na grade. */
+    data class Escolhido(val id: Int, val provedor: String, val x: Int = 0, val y: Int = 0, val w: Int = 0, val h: Int = 0) {
         val pacote: String get() = provedor.substringBefore('/')
+        val colocado: Boolean get() = w > 0 && h > 0
     }
+
+    /** O que o widget aceita, em células: mínimo e máximo de largura e altura. */
+    data class Limites(val minW: Int, val minH: Int, val maxW: Int, val maxH: Int)
 
     private val COMPONENTE = Regex("^[a-zA-Z][a-zA-Z0-9_]*(\\.[a-zA-Z0-9_]+)+/[a-zA-Z0-9_.$]+$")
 
@@ -39,31 +44,75 @@ object PluginWidget {
             val o = a.optJSONObject(i) ?: return@mapNotNull null
             val id = o.optInt("id", -1)
             val p = o.optString("provider")
-            if (id < 0 || !componenteValido(p)) null else Escolhido(id, p)
+            if (id < 0 || !componenteValido(p)) return@mapNotNull null
+            val e = Escolhido(id, p, o.optInt("x"), o.optInt("y"), o.optInt("w"), o.optInt("h"))
+            // Lugar fora da grade (grade mudou, arquivo velho): fica sem lugar e ganha um na próxima montagem.
+            if (e.colocado && dentro(e.x, e.y, e.w, e.h)) e else e.copy(x = 0, y = 0, w = 0, h = 0)
         }.distinctBy { it.id }.take(MAX)
     }.getOrDefault(emptyList())
 
-    fun gravar(l: List<Escolhido>): String =
-        JSONArray().apply { l.forEach { put(JSONObject().put("id", it.id).put("provider", it.provedor)) } }.toString()
+    fun gravar(l: List<Escolhido>): String = JSONArray().apply {
+        l.forEach { put(JSONObject().put("id", it.id).put("provider", it.provedor).put("x", it.x).put("y", it.y).put("w", it.w).put("h", it.h)) }
+    }.toString()
 
     /** Cabe mais um? No máximo [MAX], e o mesmo widget (provedor) uma vez só. */
     fun cabe(l: List<Escolhido>, provedor: String): Boolean = l.size < MAX && l.none { it.provedor == provedor }
 
     /**
-     * Endereço da foto no cartão: muda quando o widget avisa mudança ([versao]) ou a cada [FOTO_MS], para a HOME só
-     * redesenhar quando a foto pode ter mudado (ela compara a lista de cartões).
+     * Limites em células a partir do que o widget declara (px) e do tamanho de uma célula (px). Sem máximo declarado
+     * (0), vale a grade toda. O mínimo nunca passa da grade.
      */
-    fun imagem(id: Int, versao: Int, agora: Long): String = "$PREFIXO$id:$versao:${agora / FOTO_MS}"
+    fun limites(minL: Int, minA: Int, maxL: Int, maxA: Int, celL: Float, celA: Float): Limites {
+        fun cel(px: Int, c: Float) = if (c <= 0f) 1 else kotlin.math.ceil(px / c.toDouble()).toInt().coerceAtLeast(1)
+        val mw = cel(minL, celL).coerceAtMost(COLS)
+        val mh = cel(minA, celA).coerceAtMost(LINHAS)
+        val xw = if (maxL > 0) cel(maxL, celL).coerceIn(mw, COLS) else COLS
+        val xh = if (maxA > 0) cel(maxA, celA).coerceIn(mh, LINHAS) else LINHAS
+        return Limites(mw, mh, xw, xh)
+    }
 
-    fun ehWidget(u: String?): Boolean = u?.startsWith(PREFIXO) == true
+    private fun dentro(x: Int, y: Int, w: Int, h: Int) = x >= 0 && y >= 0 && w > 0 && h > 0 && x + w <= COLS && y + h <= LINHAS
 
-    /** O id do widget num endereço de [imagem]; null se não for de widget. */
-    fun idDaImagem(u: String?): Int? = u?.takeIf { ehWidget(it) }?.removePrefix(PREFIXO)?.substringBefore(':')?.toIntOrNull()
+    private fun cruza(a: Escolhido, x: Int, y: Int, w: Int, h: Int) =
+        a.colocado && x < a.x + a.w && a.x < x + w && y < a.y + a.h && a.y < y + h
 
-    /** Tamanho da foto (px): o mínimo do widget, preso entre 2 e 4,5 colunas de 80 dp e 1 e 3 linhas de 100 dp. */
-    fun tamanho(minL: Int, minA: Int, densidade: Float): Pair<Int, Int> {
-        val l = minL.coerceIn((160 * densidade).toInt(), (360 * densidade).toInt())
-        val a = minA.coerceIn((100 * densidade).toInt(), (300 * densidade).toInt())
-        return l to a
+    /** O retângulo cabe na grade sem cruzar outro widget já colocado (o próprio [id] não conta). */
+    fun livre(l: List<Escolhido>, id: Int, x: Int, y: Int, w: Int, h: Int): Boolean =
+        dentro(x, y, w, h) && l.none { it.id != id && cruza(it, x, y, w, h) }
+
+    /**
+     * Um lugar para um widget novo de [w] x [h] células: o primeiro livre de cima para baixo, da DIREITA para a
+     * esquerda (o canto de cima à direita é o lugar dos widgets nas TVs; a esquerda fica com o nome do mundo e o fundo).
+     * Sem lugar do tamanho pedido, tenta menores até o mínimo; null = a grade está cheia.
+     */
+    fun lugar(l: List<Escolhido>, w: Int, h: Int, lim: Limites): Triple<Int, Int, Pair<Int, Int>>? {
+        var ww = w.coerceIn(lim.minW, lim.maxW); var hh = h.coerceIn(lim.minH, lim.maxH)
+        while (true) {
+            for (y in 0..LINHAS - hh) for (x in COLS - ww downTo 0) if (livre(l, -1, x, y, ww, hh)) return Triple(x, y, ww to hh)
+            if (ww > lim.minW) ww-- else if (hh > lim.minH) hh-- else return null
+        }
+    }
+
+    /** Move uma célula; contra a borda ou outro widget, fica onde está. */
+    fun mover(l: List<Escolhido>, id: Int, dx: Int, dy: Int): List<Escolhido> = l.map { e ->
+        if (e.id != id || !e.colocado) e
+        else if (livre(l, id, e.x + dx, e.y + dy, e.w, e.h)) e.copy(x = e.x + dx, y = e.y + dy) else e
+    }
+
+    /**
+     * Muda o tamanho uma célula (canto de cima à esquerda parado), dentro dos [lim] do widget. Encostado na borda da
+     * direita/de baixo, cresce para o outro lado (o widget anda uma célula) em vez de travar.
+     */
+    fun redimensionar(l: List<Escolhido>, id: Int, dw: Int, dh: Int, lim: Limites): List<Escolhido> = l.map { e ->
+        if (e.id != id || !e.colocado) return@map e
+        val w = (e.w + dw).coerceIn(lim.minW, lim.maxW)
+        val h = (e.h + dh).coerceIn(lim.minH, lim.maxH)
+        when {
+            w == e.w && h == e.h -> e
+            livre(l, id, e.x, e.y, w, h) -> e.copy(w = w, h = h)
+            livre(l, id, e.x - (w - e.w).coerceAtLeast(0), e.y - (h - e.h).coerceAtLeast(0), w, h) ->
+                e.copy(x = e.x - (w - e.w).coerceAtLeast(0), y = e.y - (h - e.h).coerceAtLeast(0), w = w, h = h)
+            else -> e
+        }
     }
 }

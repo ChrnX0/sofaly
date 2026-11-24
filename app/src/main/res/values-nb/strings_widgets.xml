@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Rediger moduler på startskjermen</string>
+    <string name="wl_det">Levende moduler fra andre apper på startskjermen. Pilene flytter, OK viser valg.</string>
+    <string name="wl_vazio">Ingen modul på startskjermen ennå. OK legger til en.</string>
+    <string name="wl_estado_mover">Flytter: %1$s</string>
+    <string name="wl_estado_tamanho">Størrelse: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Flytt</string>
+    <string name="wl_tamanho">Endre størrelse</string>
+    <string name="wl_ajustes">Modulinnstillinger</string>
+    <string name="wl_proximo">Neste modul</string>
+    <string name="wl_por">Legg til modul</string>
+    <string name="wl_tirar">Fjern denne modulen</string>
+    <string name="wl_abrir">Åpne appen</string>
+    <string name="wl_cheio">Ikke mer plass til denne modulen.</string>
+    <string name="wl_d_setas">flytt / størrelse</string>
+    <string name="wl_d_opcoes">valg</string>
+    <string name="wl_d_voltar">TILBAKE</string>
+    <string name="wl_d_sair">lagre og lukk</string>
+</resources>

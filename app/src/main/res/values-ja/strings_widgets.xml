@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">ホームのウィジェットを編集</string>
+    <string name="wl_det">ホーム画面に他のアプリのウィジェットをそのまま表示。矢印で移動、OKでオプション。</string>
+    <string name="wl_vazio">ホームにウィジェットはまだありません。OKで追加します。</string>
+    <string name="wl_estado_mover">移動中: %1$s</string>
+    <string name="wl_estado_tamanho">サイズ: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">移動</string>
+    <string name="wl_tamanho">サイズを変更</string>
+    <string name="wl_ajustes">ウィジェットの設定</string>
+    <string name="wl_proximo">次のウィジェット</string>
+    <string name="wl_por">ウィジェットを追加</string>
+    <string name="wl_tirar">このウィジェットを削除</string>
+    <string name="wl_abrir">アプリを開く</string>
+    <string name="wl_cheio">このウィジェットを置く場所がありません。</string>
+    <string name="wl_d_setas">移動 / サイズ</string>
+    <string name="wl_d_opcoes">オプション</string>
+    <string name="wl_d_voltar">戻る</string>
+    <string name="wl_d_sair">保存して終了</string>
+</resources>

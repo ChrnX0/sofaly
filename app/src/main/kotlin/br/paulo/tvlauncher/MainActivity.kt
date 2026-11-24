@@ -40,7 +40,6 @@ import br.paulo.tvlauncher.family.Uso
 import br.paulo.tvlauncher.games.Jogos
 import br.paulo.tvlauncher.games.JogosTv
 import br.paulo.tvlauncher.games.TurmaDiscordTv
-import br.paulo.tvlauncher.home.PluginWidgetsTv
 import br.paulo.tvlauncher.home.AllAppsScreen
 import br.paulo.tvlauncher.home.AppShelf
 import br.paulo.tvlauncher.home.AppStorage
@@ -426,7 +425,8 @@ class MainActivity : Activity() {
     override fun onResume() {
         super.onResume()
         homeNaFrente = true
-        PluginWidgetsTv.ouvir(this)   // widgets de outros apps: avisos de mudança só com a HOME na frente
+        // Widgets: o host guarda UMA view por widget (a última criada); a tela de edição cria outras, então recria aqui.
+        br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this); camadaWidgets?.recriar()
         recongelarPendentes()   // "congelar de novo ao voltar" (Todos os apps, 20/11/2026)
         // Pen drive com apps foi tirado (AppStorage): diz quais sumiram até ele voltar.
         AppStorage.ausentes(this).takeIf { it.isNotEmpty() }?.let { f ->
@@ -528,7 +528,7 @@ class MainActivity : Activity() {
     override fun onPause() {
         super.onPause()
         homeNaFrente = false
-        PluginWidgetsTv.parar()
+        br.paulo.tvlauncher.home.PluginWidgetsTv.parar()
         SonsCruz.naFrente = false
         ui.removeCallbacks(tarefaIlhaTique); ui.removeCallbacks(tarefaIlhaGira)
         CasaHA.aoTocarCampainha = null
@@ -1594,13 +1594,10 @@ class MainActivity : Activity() {
             ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) }
             // Plugins (degrau 3, PluginsTv): desenha já com os cartões da última leitura e só redesenha se mudaram. Sem
             // plugin permitido, cartoes() volta na hora; com plugin, cada um tem 2 s de prazo (aqui, fora da tela).
-            // Widgets de outros apps (PluginWidgetsTv): entram como cartões do mundo Apps, com a foto do widget por imagem.
-            val widgets = PluginWidgetsTv.cartoes(this)
-            val fotos = widgets.associate { (c, d) -> c.pacote + "|" + c.imagem to d }
-            val novos = PluginsTv.cartoes(this) + widgets.map { it.first }
+            val novos = PluginsTv.cartoes(this)
             if (novos != cartoesPlugin) {
                 // Imagens dos cartões v2: lidas aqui, fora da tela, antes de trocar a lista (a HOME só desenha o que já tem).
-                imagensPlugin = novos.mapNotNull { c -> c.imagem?.let { u -> (fotos[c.pacote + "|" + u] ?: imagensPlugin[c.pacote + "|" + u] ?: PluginsTv.imagem(this, c))?.let { c.pacote + "|" + u to it } } }.toMap()
+                imagensPlugin = novos.mapNotNull { c -> c.imagem?.let { u -> (imagensPlugin[c.pacote + "|" + u] ?: PluginsTv.imagem(this, c))?.let { c.pacote + "|" + u to it } } }.toMap()
                 cartoesPlugin = novos; ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) }
             }
             carregarArte(IconeApp.Tipo.FILMES, filme)
@@ -1696,6 +1693,8 @@ class MainActivity : Activity() {
     }
 
     /** Cartões dos plugins permitidos (PluginsTv), da última leitura na filaApps. */
+    /** A camada dos widgets de outros apps na HOME (PluginWidgetsTv.Camada). */
+    internal var camadaWidgets: br.paulo.tvlauncher.home.PluginWidgetsTv.Camada? = null
     @Volatile internal var cartoesPlugin: List<PluginCartao.Cartao> = emptyList()
     /** Imagens dos cartões de plugin (v2), por "pacote|uri". Trocadas junto com [cartoesPlugin]. */
     @Volatile internal var imagensPlugin: Map<String, Drawable> = emptyMap()
@@ -1984,6 +1983,8 @@ class MainActivity : Activity() {
                 .putLong(ULTIMO_ABERTO_EM, System.currentTimeMillis()).apply()
         }
         raiz.addView(c, 0, FrameLayout.LayoutParams(MATCH, MATCH))   // atrás da barra de cima (o véu não a escurece)
+        // Widgets de outros apps (24/11/2026): vivos, na área livre entre a ilha e o nome do mundo; não pegam o foco.
+        camadaWidgets = br.paulo.tvlauncher.home.PluginWidgetsTv.Camada(this).also { raiz.addView(it, 1, br.paulo.tvlauncher.home.PluginWidgetsTv.lpCamada(this)) }
         cruz = c
         c.id = View.generateViewId()
         c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)

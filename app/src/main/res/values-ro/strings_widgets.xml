@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Editează widgeturile de pe ecranul principal</string>
+    <string name="wl_det">Widgeturi live ale altor aplicații pe ecranul principal. Săgețile le mută, OK arată opțiunile.</string>
+    <string name="wl_vazio">Încă nu e niciun widget pe ecranul principal. OK adaugă unul.</string>
+    <string name="wl_estado_mover">Mutare: %1$s</string>
+    <string name="wl_estado_tamanho">Dimensiune: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Mută</string>
+    <string name="wl_tamanho">Schimbă dimensiunea</string>
+    <string name="wl_ajustes">Setările widgetului</string>
+    <string name="wl_proximo">Widgetul următor</string>
+    <string name="wl_por">Adaugă un widget</string>
+    <string name="wl_tirar">Elimină acest widget</string>
+    <string name="wl_abrir">Deschide aplicația</string>
+    <string name="wl_cheio">Nu mai e loc pentru acest widget.</string>
+    <string name="wl_d_setas">mută / dimensiune</string>
+    <string name="wl_d_opcoes">opțiuni</string>
+    <string name="wl_d_voltar">ÎNAPOI</string>
+    <string name="wl_d_sair">salvează și ieși</string>
+</resources>

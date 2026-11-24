@@ -7,44 +7,34 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProviderInfo
 import android.content.Context
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
+import android.graphics.Paint
+import android.graphics.RectF
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.os.SystemClock
 import android.view.View
-import android.widget.RemoteViews
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import br.paulo.tvlauncher.DesignTokens
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
 import br.paulo.tvlauncher.screensaver.ExtensionHealth
-import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.PluginWidget
 import br.paulo.tvlauncher.settings.Planos
-import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
 
 /**
- * Widgets de outros apps como cartões da HOME (24/11/2026). Regra pura e o porquê em [PluginWidget].
+ * Widgets de outros apps na tela inicial (24/11/2026). Regra pura e o porquê em [PluginWidget].
  *
  * - Ligar: [adicionar] (fora da thread da tela: pode chamar o shell). Sem a tela de consentimento do Android, o
  *   launcher se dá a permissão de ligar widgets com `appwidget grantbind` pelo shell próprio, uma vez; sem shell, só
- *   com o adb (o mesmo comando). Widget que pede tela de ajuste abre a dele antes ([precisaAjuste]).
- * - Mostrar: a HOME pede [cartoes] fora da tela; a FOTO é tirada na thread da tela (views só lá), com prazo.
- * - Atualizar: o host escuta só com a HOME na frente ([ouvir]/[parar]); cada aviso do widget muda a versão da foto.
+ *   com o adb (o mesmo comando). Widget com tela de ajustes abre a dele ([abrirAjuste]).
+ * - Mostrar: [Camada], o widget VIVO na área livre da HOME, em grade. A mesma camada, com [Camada.editando], é o modo
+ *   de edição (WidgetLayoutActivity).
+ * - Atualizar: o host escuta só com a HOME (ou a edição) na frente ([ouvir]/[parar]).
  */
 object PluginWidgetsTv {
     private const val PREFS = "plugin_widgets"
-    private const val PRAZO_MS = 2_000L
-    private val ui = Handler(Looper.getMainLooper())
-    private var host: Host? = null
-    private val vistas = HashMap<Int, AppWidgetHostView>()          // só na thread da tela
-    private val versoes = ConcurrentHashMap<Int, Int>()
-    private val fotos = ConcurrentHashMap<String, Drawable>()       // por endereço de PluginWidget.imagem
+    private var host: AppWidgetHost? = null
 
-    enum class Resultado { OK, LIMITE, SEM_PERMISSAO, BLOQUEADO, FALHOU }
+    enum class Resultado { OK, LIMITE, SEM_PERMISSAO, BLOQUEADO, CHEIO, FALHOU }
 
     /** O aparelho tem widgets (o Google TV tem; outra TV pode não ter): sem isso a seção nem aparece. */
     fun existe(ctx: Context): Boolean = ctx.packageManager.hasSystemFeature(PackageManager.FEATURE_APP_WIDGETS)
@@ -52,8 +42,13 @@ object PluginWidgetsTv {
     fun escolhidos(ctx: Context): List<PluginWidget.Escolhido> =
         PluginWidget.ler(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("list", null))
 
-    private fun salvar(ctx: Context, l: List<PluginWidget.Escolhido>) =
+    fun salvar(ctx: Context, l: List<PluginWidget.Escolhido>) =
         ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putString("list", PluginWidget.gravar(l)).apply()
+
+    /** Os widgets que a HOME mostra agora: Pro, fora da lista de bloqueio. */
+    fun visiveis(ctx: Context): List<PluginWidget.Escolhido> =
+        if (!Planos.permite(ctx, Planos.Recurso.PLUGINS)) emptyList()
+        else escolhidos(ctx).filterNot { ExtensionHealth.bloqueado(ctx, it.pacote) }
 
     /** Widgets de outros apps instalados (o nosso fica de fora). */
     fun disponiveis(ctx: Context): List<AppWidgetProviderInfo> = runCatching {
@@ -62,6 +57,8 @@ object PluginWidgetsTv {
             .sortedBy { nome(ctx, it).lowercase() }
     }.getOrDefault(emptyList())
 
+    fun info(ctx: Context, id: Int): AppWidgetProviderInfo? = runCatching { AppWidgetManager.getInstance(ctx).getAppWidgetInfo(id) }.getOrNull()
+
     fun nome(ctx: Context, info: AppWidgetProviderInfo): String {
         val pm = ctx.packageManager
         val app = runCatching { pm.getApplicationLabel(pm.getApplicationInfo(info.provider.packageName, 0)).toString() }.getOrDefault(info.provider.packageName)
@@ -69,20 +66,22 @@ object PluginWidgetsTv {
         return if (w == null) app else "$app · $w"
     }
 
-    private fun host(ctx: Context): Host = host ?: Host(ctx.applicationContext).also { host = it }
+    private fun host(ctx: Context): AppWidgetHost = host ?: AppWidgetHost(ctx.applicationContext, PluginWidget.HOST_ID).also { host = it }
 
-    /** Widget com tela de ajuste própria: abrir a tela dele antes de mostrar. */
-    fun precisaAjuste(info: AppWidgetProviderInfo): Boolean = info.configure != null
+    /** Widget com tela de ajustes própria (a de quando entra e a de "Ajustes do widget"). */
+    fun temAjuste(info: AppWidgetProviderInfo?): Boolean = info?.configure != null
 
     /**
-     * Liga um widget. Fora da thread da tela (pode chamar o shell). Devolve o resultado e, com OK, o id. O id ainda
-     * não é salvo se [precisaAjuste]: quem chama abre a tela de ajuste e depois chama [confirmar] ou [desfazer].
+     * Liga um widget e já dá um lugar a ele na grade. Fora da thread da tela (pode chamar o shell). Com OK devolve o
+     * id; quem chama abre a tela de ajustes se [temAjuste] e, se a pessoa desistir dela, chama [remover].
      */
-    fun adicionar(ctx: Context, info: AppWidgetProviderInfo): Pair<Resultado, Int> {
+    fun adicionar(ctx: Context, info: AppWidgetProviderInfo, celL: Float, celA: Float): Pair<Resultado, Int> {
         val l = escolhidos(ctx)
         val prov = info.provider.flattenToString()
         if (!PluginWidget.cabe(l, prov) || !PluginWidget.componenteValido(prov)) return Resultado.LIMITE to -1
         if (ExtensionHealth.bloqueado(ctx, info.provider.packageName)) return Resultado.BLOQUEADO to -1
+        val lim = limites(info, celL, celA)
+        val lugar = PluginWidget.lugar(l, lim.minW.coerceAtLeast(3), lim.minH.coerceAtLeast(2), lim) ?: return Resultado.CHEIO to -1
         val awm = AppWidgetManager.getInstance(ctx)
         val h = host(ctx)
         val id = runCatching { h.allocateAppWidgetId() }.getOrElse { return Resultado.FALHOU to -1 }
@@ -95,39 +94,34 @@ object PluginWidgetsTv {
             ok = ligar()
         }
         if (!ok) { runCatching { h.deleteAppWidgetId(id) }; return Resultado.SEM_PERMISSAO to -1 }
-        // O tamanho em que a HOME vai fotografar: o widget se desenha para ele.
-        val d = ctx.resources.displayMetrics.density
-        val (l2, a2) = PluginWidget.tamanho(info.minWidth, info.minHeight, d)
-        runCatching {
-            awm.updateAppWidgetOptions(id, Bundle().apply {
-                putInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, (l2 / d).toInt()); putInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH, (l2 / d).toInt())
-                putInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, (a2 / d).toInt()); putInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, (a2 / d).toInt())
-            })
-        }
-        if (!precisaAjuste(info)) confirmar(ctx, id, prov)
+        val (x, y, t) = lugar
+        salvar(ctx, l + PluginWidget.Escolhido(id, prov, x, y, t.first, t.second))
         ExtensionHealth.perdoar(ctx, info.provider.packageName)
         return Resultado.OK to id
     }
 
-    /** Abre a tela de ajuste do widget (resultado no onActivityResult de [act] com [pedido]). false = não abriu. */
-    fun abrirAjuste(act: Activity, id: Int, pedido: Int): Boolean =
-        runCatching { host(act).startAppWidgetConfigureActivityForResult(act, id, 0, pedido, null); true }.getOrDefault(false)
-
-    fun confirmar(ctx: Context, id: Int, provedor: String) {
-        val l = escolhidos(ctx)
-        if (l.any { it.id == id }) return
-        salvar(ctx, l + PluginWidget.Escolhido(id, provedor))
+    fun limites(info: AppWidgetProviderInfo, celL: Float, celA: Float): PluginWidget.Limites {
+        val maxL = if (android.os.Build.VERSION.SDK_INT >= 31) info.maxResizeWidth else 0
+        val maxA = if (android.os.Build.VERSION.SDK_INT >= 31) info.maxResizeHeight else 0
+        // Redimensionável: o mínimo é o minResize (menor que o min); senão, o min.
+        val minL = if (info.resizeMode and AppWidgetProviderInfo.RESIZE_HORIZONTAL != 0 && info.minResizeWidth > 0) info.minResizeWidth else info.minWidth
+        val minA = if (info.resizeMode and AppWidgetProviderInfo.RESIZE_VERTICAL != 0 && info.minResizeHeight > 0) info.minResizeHeight else info.minHeight
+        val l = PluginWidget.limites(minL, minA, maxL, maxA, celL, celA)
+        // Sem redimensionar naquele sentido: o tamanho fica preso ao mínimo.
+        return l.copy(
+            maxW = if (info.resizeMode and AppWidgetProviderInfo.RESIZE_HORIZONTAL == 0) l.minW else l.maxW,
+            maxH = if (info.resizeMode and AppWidgetProviderInfo.RESIZE_VERTICAL == 0) l.minH else l.maxH,
+        )
     }
 
-    fun desfazer(ctx: Context, id: Int) { runCatching { host(ctx).deleteAppWidgetId(id) } }
+    /** Abre a tela de ajustes do widget (resultado no onActivityResult de [act] com [pedido]). false = não abriu. */
+    fun abrirAjuste(act: Activity, id: Int, pedido: Int): Boolean =
+        runCatching { host(act).startAppWidgetConfigureActivityForResult(act, id, 0, pedido, null); true }.getOrDefault(false)
 
     /** Tira o widget da HOME e devolve o id ao sistema. */
     fun remover(ctx: Context, id: Int) {
         salvar(ctx, escolhidos(ctx).filterNot { it.id == id })
-        desfazer(ctx, id)
-        versoes.remove(id)
-        fotos.keys.removeAll { PluginWidget.idDaImagem(it) == id }
-        ui.post { vistas.remove(id) }
+        runCatching { host(ctx).deleteAppWidgetId(id) }
     }
 
     /** Desliga todos os widgets de um pacote (lista `blocked` do servidor, guarda de saúde). */
@@ -135,7 +129,7 @@ object PluginWidgetsTv {
         for (e in escolhidos(ctx).filter { it.pacote == pacote }) remover(ctx, e.id)
     }
 
-    /** HOME na frente: o host recebe os avisos dos widgets. Só com widget ligado (custo zero sem). */
+    /** HOME (ou a edição) na frente: o host recebe os avisos dos widgets. Só com widget ligado (custo zero sem). */
     fun ouvir(ctx: Context) {
         if (escolhidos(ctx).isEmpty()) return
         runCatching { host(ctx).startListening() }
@@ -143,57 +137,117 @@ object PluginWidgetsTv {
 
     fun parar() { runCatching { host?.stopListening() } }
 
-    /**
-     * Os cartões dos widgets ligados, com a foto de cada um. Chamar FORA da thread da tela (espera a foto lá, com
-     * prazo). Sem Pro ou sem widget: lista vazia na hora.
-     */
-    fun cartoes(ctx: Context): List<Pair<PluginCartao.Cartao, Drawable>> {
-        if (!Planos.permite(ctx, Planos.Recurso.PLUGINS)) return emptyList()
-        val lista = escolhidos(ctx).filterNot { ExtensionHealth.bloqueado(ctx, it.pacote) }
-        if (lista.isEmpty() || Looper.myLooper() == Looper.getMainLooper()) return emptyList()
-        val app = ctx.applicationContext
-        val agora = System.currentTimeMillis()
-        return lista.mapNotNull { e ->
-            val endereco = PluginWidget.imagem(e.id, versoes[e.id] ?: 0, agora)
-            val inicio = SystemClock.elapsedRealtime()
-            val foto = fotos[endereco] ?: run {
-                val fim = CountDownLatch(1)
-                var r: Bitmap? = null
-                ui.post { r = runCatching { fotografar(app, e.id) }.getOrNull(); fim.countDown() }
-                fim.await(PRAZO_MS, TimeUnit.MILLISECONDS)
-                r?.let { b -> BitmapDrawable(app.resources, b).also { d -> fotos.keys.removeAll { PluginWidget.idDaImagem(it) == e.id }; fotos[endereco] = d } }
-            }
-            // Guarda de saúde: sem foto (widget sumiu, quebrou ou demorou) conta falha; seguidas, o widget sai da HOME.
-            if (ExtensionHealth.registrar(app, e.pacote, foto != null, SystemClock.elapsedRealtime() - inicio)) removerPacote(app, e.pacote)
-            foto ?: return@mapNotNull null
-            val info = runCatching { AppWidgetManager.getInstance(app).getAppWidgetInfo(e.id) }.getOrNull()
-            val titulo = info?.let { nome(app, it) } ?: e.pacote
-            // Ação null: PluginsTv.abrir usa a tela de abertura do app (com o componente). Um "intent:" sem componente não
-            // resolve (Sala, 24/11: a categoria LEANBACK_LAUNCHER não tem DEFAULT).
-            PluginCartao.Cartao(e.pacote, titulo.take(30), "", "", br.paulo.tvlauncher.Estilo.CARTAO, null, PluginCartao.Mundo.APPS, endereco) to foto
+    /** Avisa o widget do tamanho em que ele está (dp), para ele se desenhar para esse tamanho. */
+    private fun avisarTamanho(ctx: Context, id: Int, lPx: Int, aPx: Int) {
+        val d = ctx.resources.displayMetrics.density
+        val l = (lPx / d).toInt(); val a = (aPx / d).toInt()
+        runCatching {
+            AppWidgetManager.getInstance(ctx).updateAppWidgetOptions(id, Bundle().apply {
+                putInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, l); putInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH, l)
+                putInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, a); putInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, a)
+            })
         }
     }
 
-    /** Desenha o widget fora da tela num bitmap. Só na thread da tela. null = widget não existe mais. */
-    private fun fotografar(ctx: Context, id: Int): Bitmap? {
-        val awm = AppWidgetManager.getInstance(ctx)
-        val info = awm.getAppWidgetInfo(id) ?: return null
-        val v = vistas.getOrPut(id) { host(ctx).createView(ctx, id, info) }
-        val (l, a) = PluginWidget.tamanho(info.minWidth, info.minHeight, ctx.resources.displayMetrics.density)
-        v.measure(View.MeasureSpec.makeMeasureSpec(l, View.MeasureSpec.EXACTLY), View.MeasureSpec.makeMeasureSpec(a, View.MeasureSpec.EXACTLY))
-        v.layout(0, 0, l, a)
-        val b = Bitmap.createBitmap(l, a, Bitmap.Config.ARGB_8888)
-        v.draw(Canvas(b))
-        return b
+    /** Onde a camada mora na HOME (dp): entre a ilha de cima e o nome do mundo + barra de baixo. */
+    const val TOPO_DP = 90
+    const val BAIXO_DP = 142
+    const val LADO_DP = 48
+
+    fun lpCamada(ctx: Context) = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT).apply {
+        val d = ctx.resources.displayMetrics.density
+        topMargin = (TOPO_DP * d).toInt(); bottomMargin = (BAIXO_DP * d).toInt()
+        leftMargin = (LADO_DP * d).toInt(); rightMargin = (LADO_DP * d).toInt()
     }
 
-    /** Host que conta os avisos de cada widget: versão nova = foto nova na próxima volta à HOME. */
-    private class Host(ctx: Context) : AppWidgetHost(ctx, PluginWidget.HOST_ID) {
-        override fun onCreateView(context: Context, id: Int, info: AppWidgetProviderInfo?): AppWidgetHostView = Vista(context, id)
-        override fun onProviderChanged(id: Int, info: AppWidgetProviderInfo?) { super.onProviderChanged(id, info); versoes.merge(id, 1, Int::plus) }
-    }
+    /**
+     * A área dos widgets: grade de [PluginWidget.COLS] x [PluginWidget.LINHAS]. Na HOME só mostra (sem foco: a barra
+     * continua dona do controle). Com [editando], desenha a grade e um anel laranja no [escolhido] (como o foco "Anel").
+     */
+    class Camada(ctx: Context) : FrameLayout(ctx) {
+        var editando = false
+            set(v) { field = v; setWillNotDraw(!v); invalidate() }
+        var escolhido = -1
+            set(v) { field = v; invalidate() }
+        var lista: List<PluginWidget.Escolhido> = emptyList()
+            private set
+        private val vistas = HashMap<Int, AppWidgetHostView>()
+        private val d = ctx.resources.displayMetrics.density
+        private val ponto = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x40FFFFFF }
+        private val anel = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE; strokeWidth = 3 * d; color = DesignTokens.ORANGE }
 
-    private class Vista(ctx: Context, private val wid: Int) : AppWidgetHostView(ctx) {
-        override fun updateAppWidget(remoteViews: RemoteViews?) { super.updateAppWidget(remoteViews); versoes.merge(wid, 1, Int::plus) }
+        init {
+            descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+            isFocusable = false
+            clipChildren = true
+        }
+
+        val celL get() = width / PluginWidget.COLS.toFloat()
+        val celA get() = height / PluginWidget.LINHAS.toFloat()
+
+        /** Lê os widgets e (re)cria as views. Na thread da tela. Widget que sumiu (app desinstalado) sai da lista. */
+        fun atualizar(l: List<PluginWidget.Escolhido> = visiveis(context)) {
+            val ctx = context
+            val validos = l.filter { e ->
+                val ok = info(ctx, e.id) != null
+                if (!ok) { ExtensionHealth.registrar(ctx, e.pacote, false, 0); remover(ctx, e.id) }
+                ok
+            }
+            for (id in vistas.keys.toList()) if (validos.none { it.id == id }) removeView(vistas.remove(id))
+            for (e in validos) if (e.id !in vistas) {
+                val i = info(ctx, e.id) ?: continue
+                val v = runCatching { host(ctx).createView(ctx, e.id, i) }.getOrNull() ?: continue
+                v.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+                vistas[e.id] = v
+                addView(v)
+            }
+            lista = validos
+            visibility = if (validos.isEmpty() && !editando) View.GONE else View.VISIBLE
+            posicionar()
+        }
+
+        /**
+         * Recria todas as views. O host guarda UMA view por widget (a última criada): depois do modo de edição, que cria
+         * as dele, a HOME recria as suas para voltar a receber as atualizações.
+         */
+        fun recriar() { removeAllViews(); vistas.clear(); atualizar() }
+
+        /** Troca a lista (modo de edição) sem recriar as views. */
+        fun mostrar(l: List<PluginWidget.Escolhido>) { lista = l; posicionar() }
+
+        private fun posicionar() {
+            if (width == 0) { post { if (width > 0) posicionar() }; return }
+            for (e in lista) {
+                val v = vistas[e.id] ?: continue
+                // Widget sem lugar (arquivo velho): ganha um agora.
+                val p = if (e.colocado) e else info(context, e.id)?.let { i ->
+                    PluginWidget.lugar(lista.filter { it.colocado }, 4, 2, limites(i, celL, celA))
+                        ?.let { (x, y, t) -> e.copy(x = x, y = y, w = t.first, h = t.second) }
+                } ?: continue
+                if (p !== e) { lista = lista.map { if (it.id == e.id) p else it }; salvar(context, lista) }
+                val lp = (v.layoutParams as? LayoutParams) ?: LayoutParams(0, 0)
+                val nl = (p.w * celL).toInt(); val na = (p.h * celA).toInt()
+                val mudou = lp.width != nl || lp.height != na
+                lp.width = nl; lp.height = na
+                lp.leftMargin = (p.x * celL).toInt(); lp.topMargin = (p.y * celA).toInt()
+                v.layoutParams = lp
+                if (mudou) avisarTamanho(context, e.id, nl, na)
+            }
+            invalidate()
+        }
+
+        override fun onSizeChanged(w: Int, h: Int, ow: Int, oh: Int) { super.onSizeChanged(w, h, ow, oh); post { posicionar() } }
+
+        override fun dispatchDraw(c: Canvas) {
+            if (editando) {
+                // A grade: um ponto em cada canto de célula (como a grade de edição dos launchers de celular, Mobbin).
+                for (i in 0..PluginWidget.COLS) for (j in 0..PluginWidget.LINHAS) c.drawCircle(i * celL, j * celA, 2 * d, ponto)
+            }
+            super.dispatchDraw(c)
+            if (editando) lista.firstOrNull { it.id == escolhido && it.colocado }?.let { e ->
+                val r = RectF(e.x * celL, e.y * celA, (e.x + e.w) * celL, (e.y + e.h) * celA).apply { inset(2 * d, 2 * d) }
+                c.drawRoundRect(r, 14 * d, 14 * d, anel)
+            }
+        }
     }
 }

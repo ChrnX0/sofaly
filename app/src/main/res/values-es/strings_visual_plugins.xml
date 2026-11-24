@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">Aún no hay botones de otras apps. Algunas apps añaden un botón de encender y apagar al panel rápido (mantén ATRÁS).</string>
     <string name="ext_off_blocked">Desactivado por Sofaly: este complemento tiene un problema conocido.</string>
     <string name="ext_secao_widgets">Widgets de otras apps</string>
-    <string name="ext_widget_onde">En la pantalla de inicio, en Apps</string>
-    <string name="ext_widget_tirar">Quitar</string>
-    <string name="ext_widget_por">Añadir un widget</string>
-    <string name="ext_widget_por_det">Una imagen del widget se convierte en una tarjeta en Apps. OK abre su app.</string>
     <string name="ext_widget_nenhum">Ninguna app de esta TV tiene widget todavía.</string>
     <string name="ext_widget_sem_permissao">La TV no dejó que Sofaly añadiera widgets.</string>
     <string name="ext_widget_falhou">No se pudo añadir este widget.</string>

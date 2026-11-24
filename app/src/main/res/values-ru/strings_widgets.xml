@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Изменить виджеты главного экрана</string>
+    <string name="wl_det">Живые виджеты других приложений на главном экране. Стрелки перемещают, OK показывает параметры.</string>
+    <string name="wl_vazio">На главном экране пока нет виджетов. OK добавит.</string>
+    <string name="wl_estado_mover">Перемещение: %1$s</string>
+    <string name="wl_estado_tamanho">Размер: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Переместить</string>
+    <string name="wl_tamanho">Изменить размер</string>
+    <string name="wl_ajustes">Настройки виджета</string>
+    <string name="wl_proximo">Следующий виджет</string>
+    <string name="wl_por">Добавить виджет</string>
+    <string name="wl_tirar">Убрать этот виджет</string>
+    <string name="wl_abrir">Открыть приложение</string>
+    <string name="wl_cheio">Для этого виджета не осталось места.</string>
+    <string name="wl_d_setas">переместить / размер</string>
+    <string name="wl_d_opcoes">параметры</string>
+    <string name="wl_d_voltar">НАЗАД</string>
+    <string name="wl_d_sair">сохранить и выйти</string>
+</resources>

@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">Brak jeszcze przycisków innych aplikacji. Niektóre aplikacje dodają przycisk wł./wył. do szybkiego panelu (przytrzymaj WSTECZ).</string>
     <string name="ext_off_blocked">Wyłączone przez Sofaly: ta wtyczka ma znany problem.</string>
     <string name="ext_secao_widgets">Widżety innych aplikacji</string>
-    <string name="ext_widget_onde">Na ekranie głównym, w Aplikacjach</string>
-    <string name="ext_widget_tirar">Usuń</string>
-    <string name="ext_widget_por">Dodaj widżet</string>
-    <string name="ext_widget_por_det">Obraz widżetu staje się kartą w Aplikacjach. OK otwiera jego aplikację.</string>
     <string name="ext_widget_nenhum">Żadna aplikacja na tym telewizorze nie ma jeszcze widżetu.</string>
     <string name="ext_widget_sem_permissao">Telewizor nie pozwolił Sofaly dodać widżetów.</string>
     <string name="ext_widget_falhou">Nie udało się dodać tego widżetu.</string>

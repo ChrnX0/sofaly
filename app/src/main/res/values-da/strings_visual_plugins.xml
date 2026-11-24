@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">Ingen knapper fra andre apps endnu. Nogle apps tilføjer en tænd/sluk-knap til hurtigpanelet (hold TILBAGE nede).</string>
     <string name="ext_off_blocked">Slået fra af Sofaly: dette plugin har et kendt problem.</string>
     <string name="ext_secao_widgets">Widgets fra andre apps</string>
-    <string name="ext_widget_onde">På startskærmen, under Apps</string>
-    <string name="ext_widget_tirar">Fjern</string>
-    <string name="ext_widget_por">Tilføj en widget</string>
-    <string name="ext_widget_por_det">Et billede af widgetten bliver et kort i Apps. OK åbner dens app.</string>
     <string name="ext_widget_nenhum">Ingen app på dette tv har en widget endnu.</string>
     <string name="ext_widget_sem_permissao">Tv\'et lod ikke Sofaly tilføje widgets.</string>
     <string name="ext_widget_falhou">Widgetten kunne ikke tilføjes.</string>

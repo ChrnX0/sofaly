@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Editar widgets da tela inicial</string>
+    <string name="wl_det">Widgets vivos de outros apps na tela inicial. As setas movem, OK mostra as opções.</string>
+    <string name="wl_vazio">Nenhum widget na tela inicial ainda. OK põe um.</string>
+    <string name="wl_estado_mover">Movendo: %1$s</string>
+    <string name="wl_estado_tamanho">Tamanho: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Mover</string>
+    <string name="wl_tamanho">Mudar o tamanho</string>
+    <string name="wl_ajustes">Ajustes do widget</string>
+    <string name="wl_proximo">Próximo widget</string>
+    <string name="wl_por">Pôr um widget</string>
+    <string name="wl_tirar">Tirar este widget</string>
+    <string name="wl_abrir">Abrir o app</string>
+    <string name="wl_cheio">Não sobrou lugar na tela inicial para este widget.</string>
+    <string name="wl_d_setas">mover / tamanho</string>
+    <string name="wl_d_opcoes">opções</string>
+    <string name="wl_d_voltar">VOLTAR</string>
+    <string name="wl_d_sair">salvar e sair</string>
+</resources>

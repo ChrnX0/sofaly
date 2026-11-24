@@ -48,10 +48,6 @@
     <string name="ext_nenhum_botao">Ancora nessun pulsante di altre app. Alcune app aggiungono un pulsante acceso/spento al pannello rapido (tieni premuto INDIETRO).</string>
     <string name="ext_off_blocked">Disattivato da Sofaly: questo plugin ha un problema noto.</string>
     <string name="ext_secao_widgets">Widget di altre app</string>
-    <string name="ext_widget_onde">Nella schermata iniziale, in App</string>
-    <string name="ext_widget_tirar">Rimuovi</string>
-    <string name="ext_widget_por">Aggiungi un widget</string>
-    <string name="ext_widget_por_det">Un\'immagine del widget diventa una scheda in App. OK apre la sua app.</string>
     <string name="ext_widget_nenhum">Nessuna app di questa TV ha ancora un widget.</string>
     <string name="ext_widget_sem_permissao">La TV non ha permesso a Sofaly di aggiungere widget.</string>
     <string name="ext_widget_falhou">Impossibile aggiungere questo widget.</string>

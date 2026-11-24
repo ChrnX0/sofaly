@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Επεξεργασία γραφικών στοιχείων</string>
+    <string name="wl_det">Ζωντανά γραφικά στοιχεία άλλων εφαρμογών στην αρχική οθόνη. Τα βέλη μετακινούν, το OK δείχνει επιλογές.</string>
+    <string name="wl_vazio">Δεν υπάρχει ακόμα γραφικό στοιχείο. Το OK προσθέτει ένα.</string>
+    <string name="wl_estado_mover">Μετακίνηση: %1$s</string>
+    <string name="wl_estado_tamanho">Μέγεθος: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Μετακίνηση</string>
+    <string name="wl_tamanho">Αλλαγή μεγέθους</string>
+    <string name="wl_ajustes">Ρυθμίσεις στοιχείου</string>
+    <string name="wl_proximo">Επόμενο στοιχείο</string>
+    <string name="wl_por">Προσθήκη στοιχείου</string>
+    <string name="wl_tirar">Αφαίρεση στοιχείου</string>
+    <string name="wl_abrir">Άνοιγμα εφαρμογής</string>
+    <string name="wl_cheio">Δεν υπάρχει χώρος για αυτό το στοιχείο.</string>
+    <string name="wl_d_setas">μετακίνηση / μέγεθος</string>
+    <string name="wl_d_opcoes">επιλογές</string>
+    <string name="wl_d_voltar">ΠΙΣΩ</string>
+    <string name="wl_d_sair">αποθήκευση και έξοδος</string>
+</resources>

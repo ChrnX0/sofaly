@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wl_titulo">Edit widget layar utama</string>
+    <string name="wl_det">Widget langsung dari aplikasi lain di layar utama. Panah memindahkan, OK menampilkan opsi.</string>
+    <string name="wl_vazio">Belum ada widget di layar utama. OK menambahkan satu.</string>
+    <string name="wl_estado_mover">Memindahkan: %1$s</string>
+    <string name="wl_estado_tamanho">Ukuran: %1$s · %2$d × %3$d</string>
+    <string name="wl_mover">Pindahkan</string>
+    <string name="wl_tamanho">Ubah ukuran</string>
+    <string name="wl_ajustes">Setelan widget</string>
+    <string name="wl_proximo">Widget berikutnya</string>
+    <string name="wl_por">Tambah widget</string>
+    <string name="wl_tirar">Hapus widget ini</string>
+    <string name="wl_abrir">Buka aplikasi</string>
+    <string name="wl_cheio">Tidak ada ruang lagi untuk widget ini.</string>
+    <string name="wl_d_setas">pindah / ukuran</string>
+    <string name="wl_d_opcoes">opsi</string>
+    <string name="wl_d_voltar">KEMBALI</string>
+    <string name="wl_d_sair">simpan dan keluar</string>
+</resources>
