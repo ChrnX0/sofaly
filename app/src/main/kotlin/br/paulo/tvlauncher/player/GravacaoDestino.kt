@@ -1,8 +1,8 @@
 package br.paulo.tvlauncher.player
 
+import br.paulo.tvlauncher.backup.folder
 import android.content.Context
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
 import android.os.storage.StorageManager
 import br.paulo.tvlauncher.Estilo
@@ -60,12 +60,11 @@ object GravacaoDestino {
      * com 2 discos), fica com a de mais espaço livre; parte com menos de [MINIMO_LIVRE] não conta.
      */
     fun pendrive(ctx: Context): Pair<String, File>? {
-        if (Build.VERSION.SDK_INT < 30) return null
         val sm = ctx.getSystemService(StorageManager::class.java) ?: return null
-        val v = sm.storageVolumes.filter { it.isRemovable && it.state == Environment.MEDIA_MOUNTED && it.directory != null }
-            .map { it to runCatching { it.directory!!.usableSpace }.getOrDefault(0L) }
+        val v = sm.storageVolumes.filter { it.isRemovable && it.state == Environment.MEDIA_MOUNTED && it.folder != null }
+            .map { it to runCatching { it.folder!!.usableSpace }.getOrDefault(0L) }
             .filter { it.second >= MINIMO_LIVRE }.maxByOrNull { it.second }?.first ?: return null
-        return v.getDescription(ctx) to v.directory!!
+        return v.getDescription(ctx) to v.folder!!
     }
 
     /**
@@ -73,7 +72,7 @@ object GravacaoDestino {
      * formato que a TV não lê (NTFS e afins aparecem "unmountable") ou cheio/minúsculo.
      */
     fun problemaPendrive(ctx: Context): String? {
-        if (Build.VERSION.SDK_INT < 30 || pendrive(ctx) != null) return null
+        if (pendrive(ctx) != null) return null
         val vols = ctx.getSystemService(StorageManager::class.java)?.storageVolumes?.filter { it.isRemovable } ?: return null
         val ilegivel = vols.firstOrNull { it.state == Environment.MEDIA_UNMOUNTABLE || it.state == Environment.MEDIA_NOFS }
         if (ilegivel != null) return ctx.getString(R.string.grv_pendrive_formato, ilegivel.getDescription(ctx))
@@ -115,11 +114,12 @@ object GravacaoDestino {
      * espaço e cada pasta do "Na rede" em que dá para gravar (Pastas.GRAVAVEIS). Lê as contas do disco: fora da tela.
      */
     fun opcoes(ctx: Context): List<Opcao> {
-        val usb = if (Build.VERSION.SDK_INT < 30) emptyList() else runCatching {
+        // folder (StorageVolumeCompat): no Android 10 o pendrive também aparece (antes a lista vinha vazia).
+        val usb = runCatching {
             ctx.getSystemService(StorageManager::class.java)?.storageVolumes.orEmpty()
-                .filter { it.isRemovable && it.state == Environment.MEDIA_MOUNTED && it.directory != null }
-                .filter { runCatching { it.directory!!.usableSpace }.getOrDefault(0L) >= MINIMO_LIVRE }
-                .map { Opcao(USB + it.directory!!.absolutePath, it.getDescription(ctx)) }
+                .filter { it.isRemovable && it.state == Environment.MEDIA_MOUNTED && it.folder != null }
+                .filter { runCatching { it.folder!!.usableSpace }.getOrDefault(0L) >= MINIMO_LIVRE }
+                .map { Opcao(USB + it.folder!!.absolutePath, it.getDescription(ctx)) }
         }.getOrDefault(emptyList())
         val rede = MidiaArmazem.contas(ctx).filter { Pastas.gravavel(it) }.map { Opcao(CONTA + it.id, it.nome) }
         val tv = listOfNotNull(interna()?.let { Opcao(INTERNA, ctx.getString(R.string.grv_memoria_tv)) })
@@ -143,8 +143,8 @@ object GravacaoDestino {
     private fun abrirEscolhido(ctx: Context, id: String): Destino? = when {
         id.startsWith(USB) -> {
             val raiz = File(id.removePrefix(USB))
-            val vol = if (Build.VERSION.SDK_INT < 30) null else ctx.getSystemService(StorageManager::class.java)?.storageVolumes
-                ?.firstOrNull { it.state == Environment.MEDIA_MOUNTED && it.directory?.absolutePath == raiz.absolutePath }
+            val vol = ctx.getSystemService(StorageManager::class.java)?.storageVolumes
+                ?.firstOrNull { it.state == Environment.MEDIA_MOUNTED && it.folder?.absolutePath == raiz.absolutePath }
             if (vol != null && PainelArquivos.garantirAcesso(ctx.applicationContext)) Local(vol.getDescription(ctx), File(raiz, GravacaoRegras.PASTA), id) else null
         }
         id == INTERNA -> interna()?.takeIf { PainelArquivos.garantirAcesso(ctx.applicationContext) }

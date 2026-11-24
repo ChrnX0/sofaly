@@ -64,9 +64,8 @@ object BackupCompleto {
         "addons",   // addons no protocolo do Stremio (16/11/2026): a lista instalada e o aceite dos termos
         "backup_recuperacao",   // elevação 19.6: só a parte PÚBLICA da chave de recuperação (a TV restaurada segue trancando com ela)
         "catalogo_pasta")   // elevação 8.2: o "pôster e sinopse" das pastas ligado e os nomes corrigidos à mão
-    // Trakt/Simkl (14/11/2026): o que sincronizar, de qual perfil, e as listas escolhidas
     /**
-     * Preferências que NÃO vão, de propósito (o teste BackupCompletoTest confere que nenhuma outra ficou esquecida):
+     * Preferências que NÃO vão, de propósito (o AuditoriaTempoTest confere que nenhuma outra ficou esquecida):
      * "confirmacoes" (restaurar um backup não pode liberar nada sem o PIN, ver ConfirmacoesTv), "painel_log" (registro),
      * "atualizador", "aviso_tv" e "loja_curada" (estado passageiro ou cache baixado de novo).
      */
@@ -74,7 +73,6 @@ object BackupCompleto {
           // plugins: o OK vale para o certificado desta TV
         "wallpaper_plugins",   // plugins de fundo (18/11/2026): o OK também é por certificado desta TV
         "icon_pack_frozen",   // pacotes que NÓS congelamos nesta TV (na outra o pacote nem está congelado)
-        "seletor_docs",   // seletor de pastas (#380): últimas pastas abertas NESTA TV (pendrive e rede de outra casa não existem lá)
           // degrau 3: o link da família não viaja no backup (restaurar = link novo)
         "emprestimo_shell", "emprestimo_dono",   // empréstimos: restaurar não pode ligar poder emprestado sem o PIN (e o uid de cada app muda entre aparelhos)
         "fichas",   // 19/11/2026: só a marca "buscas antigas já liberadas" do cache de fichas desta TV
@@ -219,8 +217,11 @@ object BackupCompleto {
         val comuns = JSONObject(); val extras = JSONObject()
         for (nome in prefs.keys()) when (nome) {
             in BackupConfig.ARQUIVOS -> comuns.put(nome, prefs.getJSONObject(nome))
-            in PREFS_EXTRAS -> extras.put(nome, conferirTipos(nome, prefs.optJSONObject(nome)))
-            else -> throw IllegalArgumentException("preferência desconhecida no backup: $nome")
+            in PREFS_EXTRAS -> extras.put(nome, conferirTipos(nome, prefs.optJSONObject(nome), app.getSharedPreferences(nome, Context.MODE_PRIVATE).all))
+            // Preferência que esta versão não conhece mais (saiu da lista, ou virou "fora de propósito"): fica de fora.
+            // Antes ela recusava o backup INTEIRO, e um backup feito numa versão antiga deixava de restaurar só porque
+            // uma versão nova aposentou uma preferência. Ignorar é seguro: nada desconhecido é gravado.
+            else -> Log.w(TAG, "preferência que esta versão não usa ficou de fora: $nome")
         }
         BackupConfig.validar(app, JSONObject().put("versao", 2).put("pacote", app.packageName).put("arquivos", comuns))
         val segredos = o.optJSONObject("segredos") ?: JSONObject()
@@ -345,9 +346,10 @@ object BackupCompleto {
     }
 
     /** Só confere que cada item tem um tipo conhecido e um valor daquele tipo (mesmo formato do BackupConfig). */
-    private fun conferirTipos(nome: String, p: JSONObject?): JSONObject {
+    internal fun conferirTipos(nome: String, p: JSONObject?, atuais: Map<String, *> = emptyMap<String, Any>(),
+                               avisar: (String) -> Unit = { Log.w(TAG, it) }): JSONObject {
         p ?: throw IllegalArgumentException("\"$nome\" não é um objeto")
-        for (chave in p.keys()) {
+        for (chave in p.keys().asSequence().toList()) {
             if (chave in CHAVES_DO_KEYSTORE) throw IllegalArgumentException("$nome/$chave não pode vir no backup")
             val item = p.optJSONObject(chave) ?: throw IllegalArgumentException("$nome/$chave não é um objeto")
             try {
@@ -362,6 +364,10 @@ object BackupCompleto {
             // quebraria a conferência; nos dois casos o PIN do painel deixaria de funcionar até ser refeito na TV.
             if (nome == "painel_seguro" && (chave == "pin_iteracoes" || chave == "fam_iteracoes") && item.optInt("v") !in PinSeguro.ITERACOES_ACEITAS)
                 throw IllegalArgumentException("$nome/$chave fora da faixa")
+            // A chave existe nesta TV com OUTRO tipo (uma versão nova mudou Int para Long, por exemplo): gravar o tipo do
+            // backup derrubaria quem lê a chave (ClassCastException) a cada abertura. Fica de fora; vale o valor padrão.
+            val atual = BackupConfig.tipoDe(atuais[chave])
+            if (atual != null && atual != item.optString("t")) { avisar("$nome/$chave mudou de tipo: ficou de fora"); p.remove(chave) }
         }
         return p
     }

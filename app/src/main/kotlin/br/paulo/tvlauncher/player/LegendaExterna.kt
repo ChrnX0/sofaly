@@ -208,7 +208,7 @@ object LegendaExterna {
                 val (h, mi, s, f) = m.destructured
                 val frac = f.padEnd(3, '0').take(3).toLong()
                 val total = (h.toLong() * 3_600_000 + mi.toLong() * 60_000 + s.toLong() * 1000 + frac + ms).coerceAtLeast(0)
-                "%02d:%02d:%02d,%03d".format(total / 3_600_000, total / 60_000 % 60, total / 1000 % 60, total % 1000)
+                "%02d:%02d:%02d,%03d".format(java.util.Locale.ROOT, total / 3_600_000, total / 60_000 % 60, total / 1000 % 60, total % 1000)
             }
         }
     }

@@ -44,7 +44,7 @@ object GravacaoRegras {
     /** "2026-11-14 2030 Globo - Jornal Nacional.ts"; a partir da parte 2: "... (parte 2).ts". */
     fun nomeArquivo(inicioMs: Long, canal: String, programa: String?, parte: Int, fuso: TimeZone = TimeZone.getDefault()): String {
         val c = Calendar.getInstance(fuso).apply { timeInMillis = inicioMs }
-        val data = "%04d-%02d-%02d %02d%02d".format(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH),
+        val data = "%04d-%02d-%02d %02d%02d".format(java.util.Locale.ROOT, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH),
             c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE))
         val titulo = if (programa.isNullOrBlank()) limpar(canal) else limpar(canal, 30) + " - " + limpar(programa, 60)
         return "$data $titulo" + (if (parte > 1) " (parte $parte)" else "") + EXTENSAO

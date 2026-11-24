@@ -63,7 +63,7 @@ object Automacoes {
     /** As regras em JSON (MCP, painel): {"quando": {...}, "faz": "...", "ativa": true}. Pura. */
     fun json(regras: List<Regra>): JSONArray = JSONArray().apply {
         for (r in regras) put(JSONObject().put("faz", r.faz).put("ativa", r.ativa).put("quando", when (val q = r.quando) {
-            is Quando.Horario -> JSONObject().put("tipo", "horario").put("hora", "%02d:%02d".format(q.hora, q.minuto)).put("dias", q.dias)
+            is Quando.Horario -> JSONObject().put("tipo", "horario").put("hora", "%02d:%02d".format(java.util.Locale.ROOT, q.hora, q.minuto)).put("dias", q.dias)
             is Quando.Botao -> JSONObject().put("tipo", "botao").put("tecla", q.tecla).put("gesto", q.gesto.chave)
             is Quando.Evento -> JSONObject().put("tipo", "evento").put("evento", q.evento.chave)
             is Quando.Link -> JSONObject().put("tipo", "link")

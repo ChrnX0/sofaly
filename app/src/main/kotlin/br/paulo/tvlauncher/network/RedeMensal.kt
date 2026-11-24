@@ -59,7 +59,7 @@ object RedeMensal {
 
     /** Junta os dias por mês ("aaaa-mm"), do mais novo para o mais antigo, no máximo [quantos] meses. */
     fun meses(dias: List<Dia>, quantos: Int = 12): List<Mes> =
-        dias.groupBy { "%04d-%02d".format(it.data.year, it.data.monthValue) }.toSortedMap(reverseOrder()).entries.take(quantos)
+        dias.groupBy { "%04d-%02d".format(java.util.Locale.ROOT, it.data.year, it.data.monthValue) }.toSortedMap(reverseOrder()).entries.take(quantos)
             .map { (m, l) -> Mes(m, l.size, l.sumOf { it.quedas }, l.sumOf { it.quedasDns }, l.sumOf { it.foraMs }, l.sumOf { it.coberturaMs }) }
 
     /** Só os dias que ainda cabem na janela de [GUARDAR_DIAS] (para reescrever o arquivo). */
