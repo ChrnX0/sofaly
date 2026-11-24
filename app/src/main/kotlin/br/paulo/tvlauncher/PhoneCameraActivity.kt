@@ -29,8 +29,16 @@ class PhoneCameraActivity : Activity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         imagem = ImageView(this).apply { setBackgroundColor(Color.BLACK); scaleType = ImageView.ScaleType.FIT_CENTER }
         setContentView(imagem)
-        PhoneCameraTv.listen { ui.post { mostrar() } }
+        PhoneCameraTv.listen(ouvinte)
         ui.postDelayed(vigia, 4_000)
+    }
+
+    private val ouvinte: () -> Unit = { ui.post { mostrar() } }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        PhoneCameraTv.dismissed = true
+        @Suppress("DEPRECATION") super.onBackPressed()
     }
 
     private fun mostrar() {
@@ -40,7 +48,7 @@ class PhoneCameraActivity : Activity() {
 
     override fun onDestroy() {
         ui.removeCallbacksAndMessages(null)
-        PhoneCameraTv.listen(null)
+        PhoneCameraTv.unlisten(ouvinte)
         super.onDestroy()
     }
 }

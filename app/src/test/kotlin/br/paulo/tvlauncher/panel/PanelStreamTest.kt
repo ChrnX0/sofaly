@@ -26,6 +26,7 @@ class PanelStreamTest {
         assertNull(PanelStream.handshake(null, key, "https://tv.lan:8444", "tv.lan:8444", "mic"))
         assertNull(PanelStream.handshake("websocket", "curta", "https://tv.lan:8444", "tv.lan:8444", "mic"))
         assertNull(PanelStream.handshake("websocket", key, "https://tv.lan:8444", "tv.lan:8444", "tela"))
+        assertEquals(PanelStream.Kind.CLOCK, PanelStream.handshake("websocket", key, "https://tv.lan:8444", "tv.lan:8444", "clock")!!.kind)
     }
 
     private fun quadro(op: Int, dados: ByteArray, mascara: Boolean = true, fin: Boolean = true): ByteArray {

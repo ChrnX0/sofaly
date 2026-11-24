@@ -21,7 +21,12 @@ object PhoneCameraTv {
         private set
     @Volatile private var listener: (() -> Unit)? = null
     @Volatile private var desde = 0L
-    fun listen(l: (() -> Unit)?) { listener = l }
+    fun listen(l: () -> Unit) { listener = l }
+    /** Só tira o ouvinte se ainda for [l]: a tela velha fechando não apaga o da tela nova (reconexão rápida). */
+    fun unlisten(l: () -> Unit) { if (listener === l) listener = null }
+
+    /** A pessoa fechou a tela com VOLTAR: as fotos que ainda chegam são ignoradas sem decodificar até a próxima conexão. */
+    @Volatile var dismissed = false
 
     @Volatile private var ativa = false
 
@@ -29,6 +34,7 @@ object PhoneCameraTv {
     @Synchronized fun start(ctx: Context): Boolean {
         if (ativa) return false
         ativa = true
+        dismissed = false
         latest = null; lastAt = System.currentTimeMillis(); desde = lastAt
         ctx.startActivity(Intent(ctx, PhoneCameraActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP))
         CompanionTv.sofy(ctx, "phone_camera", true, "start")
@@ -36,6 +42,7 @@ object PhoneCameraTv {
     }
 
     fun frame(ctx: Context, jpeg: ByteArray) {
+        if (dismissed) return
         // Lê só o tamanho primeiro: um JPEG pequeno que diz ter 20000 px estouraria a memória da TV ao decodificar.
         val tam = BitmapFactory.Options().apply { inJustDecodeBounds = true }
         BitmapFactory.decodeByteArray(jpeg, 0, jpeg.size, tam)

@@ -43,7 +43,8 @@ object FindRemote {
 
     /** Faz tremer, por ~8 s em pulsos, cada controle com motor. Devolve os nomes que tremeram. */
     fun ring(ctx: Context): List<String> {
-        val padrao = VibrationEffect.createWaveform(LongArray(16) { if (it % 2 == 0) 250L else 250L }, -1)
+        // createWaveform alterna desligado/ligado começando por desligado: 32 trechos de 250 ms = 8 s, metade tremendo.
+        val padrao = VibrationEffect.createWaveform(LongArray(32) { 250L }, -1)
         val tremeu = InputDevice.getDeviceIds().toList().mapNotNull { InputDevice.getDevice(it) }.filter { !it.isVirtual && vibra(it) }
             .mapNotNull { d ->
                 runCatching {

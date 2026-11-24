@@ -165,9 +165,10 @@ object PainelWeb {
      * Até 6 threads atendendo e até 24 conexões esperando; além disso a conexão é recusada. 6 (10/11/2026; antes 4):
      * os eventos ao vivo ([MAX_EVENTOS] janelas) e o vídeo da tela seguram uma thread cada enquanto estão abertos, e
      * um envio e um download grandes juntos ainda têm de deixar a página responder. Thread parada custa ~1 MB.
+     * 8 (24/11/2026): o microfone e a câmera do celular (PanelStream) seguram mais uma thread cada.
      */
     private val pool by lazy {
-        ThreadPoolExecutor(6, 6, 30, TimeUnit.SECONDS, ArrayBlockingQueue(24)) { r ->
+        ThreadPoolExecutor(8, 8, 30, TimeUnit.SECONDS, ArrayBlockingQueue(24)) { r ->
             Thread({ Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND); r.run() }, "Painel-atende")
         }.apply { allowCoreThreadTimeOut(true) }
     }

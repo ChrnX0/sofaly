@@ -113,7 +113,7 @@ object AudioSyncTv {
     /** O atraso medido para [route] nesta TV (ms), ou null se nunca medido. */
     fun forRoute(ctx: Context, route: String = route(ctx)): Int? {
         val o = audio(ctx).optJSONObject(route) ?: return null
-        return o.optInt("delay", -1).takeIf { it in 0..1000 && o.optString("verdict") == "GOOD" }
+        return o.optInt("delay", -1).takeIf { it.toDouble() in AudioSyncMath.RANGE_MS && o.optString("verdict") == "GOOD" }
     }
 
     /** O atraso que o Som no fone usa agora: o medido nesta saída, ou o chute padrão. */
@@ -131,7 +131,7 @@ object AudioSyncTv {
             atual.put(route, JSONObject().put("delay", r.delayMs).put("spread", r.spreadMs).put("verdict", r.verdict.name)
                 .put("detail", r.detail).put("at", System.currentTimeMillis()))
         CompanionTv.prefs(ctx).edit().putString(key, atual.toString()).apply()
-        CompanionTv.sofy(ctx, "audio_delay_ms", r.verdict == AudioSyncMath.Verdict.GOOD, "$route ${r.delayMs} ${r.detail}".take(120))
+        CompanionTv.sofy(ctx, "audio_delay_ms", r.verdict == AudioSyncMath.Verdict.GOOD, "${CompanionRules.routeType(route)} ${r.delayMs} ${r.detail}".take(120))
     }
 
     // ------------------------------------------------------------------ a Sofy percebe a troca de saída
@@ -153,7 +153,7 @@ object AudioSyncTv {
                 lastRoute = r
                 val medido = forRoute(app, r)
                 CompanionTv.sofy(app, "audio_route", medido != null,
-                    if (medido != null) "$r delay=$medido applied" else "$r not_measured default=${SomNoFoneRegras.ATRASO_PADRAO_MS}")
+                    if (medido != null) "${CompanionRules.routeType(r)} delay=$medido applied" else "${CompanionRules.routeType(r)} not_measured default=${SomNoFoneRegras.ATRASO_PADRAO_MS}")
             } }
         }, Handler(Looper.getMainLooper()))
     }

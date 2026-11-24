@@ -110,12 +110,13 @@ async function ouvir() {
     if (info && typeof info.tv === "boolean") $("tv").checked = info.tv;
     // 24/11/2026: com o atraso MEDIDO pelo microfone (AudioSyncTv), o ajuste de ouvido vira diferença sobre a medida
     // ("fone_atraso_base" = o número da TV quando a pessoa mexeu). Mediu de novo ou trocou de saída: o ajuste acompanha.
-    if (info && info.atraso) {
+    if (info && typeof info.atraso === 'number') {   // 0 ms é medida válida
       let salvo = null, base = null;
       try { salvo = localStorage.getItem("fone_atraso"); base = localStorage.getItem("fone_atraso_base"); } catch (e) {}
       if (salvo === null) atraso = info.atraso;
       else if (info.medido) atraso = info.atraso + (parseInt(salvo, 10) - (base === null ? 250 : parseInt(base, 10)));
-      atraso = Math.max(-200, Math.min(800, atraso || info.atraso));
+      if (isNaN(atraso)) atraso = info.atraso;   // ajuste de 0 ms é válido: só NaN volta ao número da TV
+      atraso = Math.max(-200, Math.min(800, atraso));
       baseTv = info.atraso;
       mostrarAtraso();
     }

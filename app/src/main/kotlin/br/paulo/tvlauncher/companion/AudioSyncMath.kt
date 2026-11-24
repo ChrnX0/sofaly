@@ -19,8 +19,11 @@ object AudioSyncMath {
     const val BEEP_HZ = 2_000.0
     /** Medidas espalhadas por mais que isto não valem (relógio ou detecção ruins). */
     const val MAX_SPREAD_MS = 35.0
-    /** Atraso que faz sentido: entre 0 e 1 s (Bluetooth chega a ~300 ms; mais que 1 s é bipe errado). */
-    val RANGE_MS = 0.0..1_000.0
+    /**
+     * Atraso que faz sentido: até 650 ms (Bluetooth chega a ~300-400 ms). Precisa ficar ABAIXO de [GAP_MS]: um atraso
+     * maior que o intervalo casaria com o bipe seguinte e viraria um número pequeno e firme (GOOD errado).
+     */
+    val RANGE_MS = 0.0..650.0
 
     /** Uma ida e volta para acertar o relógio: [sentMs] e [gotMs] no relógio do celular, [tvMs] o que a TV respondeu. */
     data class Ping(val sentMs: Double, val tvMs: Double, val gotMs: Double) {
@@ -54,6 +57,8 @@ object AudioSyncMath {
         val m = median(atrasos)
         // Bipe casado com o anterior (atraso > intervalo) seria detecção errada: fica só o grupo perto da mediana.
         val perto = atrasos.filter { kotlin.math.abs(it - m) <= MAX_SPREAD_MS * 2 }
+        // Mediana par entre dois grupos distantes (bipes + ruído) pode não deixar ninguém perto: incerto, não erro.
+        if (perto.size < 3) return Result(Verdict.UNSURE, 0, 0, perto.size, "heard=${atrasos.size} close=${perto.size}")
         val med = median(perto)
         val spread = (perto.max() - perto.min())
         val detail = "n=${perto.size} spread=${spread.toInt()} clock=${clockErrMs.toInt()}"

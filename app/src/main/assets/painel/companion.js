@@ -316,7 +316,10 @@
   const espera = (ms) => new Promise((ok) => setTimeout(ok, ms));
   let medindo = false;
 
+  // Pings pelo WebSocket (PanelStream, k=clock): a conexão já está aberta, então ida e volta têm o mesmo caminho. Pelo
+  // HTTP cada pedido abre TLS de novo e a ida fica mais longa que a volta (o acerto sairia torto). Sem WebSocket, HTTP.
   async function acertarRelogio() {
+    try { return await relogioWs(); } catch (e) { /* cai para o HTTP */ }
     const pings = [];
     for (let i = 0; i < 12; i++) {
       const s = performance.now();
@@ -326,6 +329,26 @@
       await espera(40);
     }
     return pings;
+  }
+
+  function relogioWs() {
+    return new Promise((ok, erro) => {
+      const ws = new WebSocket(`wss://${location.host}/api/companion/stream?k=clock`);
+      const pings = [];
+      let s = 0, prazo = 0;
+      const fim = (e) => { clearTimeout(prazo); try { ws.close(); } catch (x) {} e ? erro(e) : ok(pings); };
+      const mandar = () => { s = performance.now(); ws.send('p'); clearTimeout(prazo); prazo = setTimeout(() => fim(new Error('sem resposta')), 2000); };
+      ws.onopen = mandar;
+      ws.onerror = () => fim(new Error('ws'));
+      ws.onclose = () => { if (pings.length < 12) fim(new Error('fechou')); };
+      ws.onmessage = (ev) => {
+        const g = performance.now();
+        const t = parseFloat(ev.data);
+        if (!isFinite(t)) return fim(new Error('resposta'));
+        pings.push({ s, t, g });
+        if (pings.length >= 12) fim(); else setTimeout(mandar, 40);
+      };
+    });
   }
 
   function rotuloSaida(rota) {
@@ -384,8 +407,9 @@
       const latOut = ((ac.outputLatency || 0) + (ac.baseLatency || 0)) * 1000;
       const paraRelogio = (quadro) => {
         const ctxT = quadro / ac.sampleRate;
-        const base = ts && ts.performanceTime ? ts.performanceTime + (ctxT - ts.contextTime) * 1000 : performance.now() - (ac.currentTime - ctxT) * 1000;
-        return base - latOut - latIn;
+        // Com getOutputTimestamp a base é a hora em que o som SAI (desconta a demora de saída); sem ele, já é a de processamento.
+        if (ts && ts.performanceTime) return ts.performanceTime + (ctxT - ts.contextTime) * 1000 - latOut - latIn;
+        return performance.now() - (ac.currentTime - ctxT) * 1000 - latIn;
       };
 
       // Bipe = energia passa de 8x o ruído da sala (mediana do primeiro meio segundo), depois de 400 ms de calma.
@@ -493,34 +517,46 @@
 
   // ----- microfone
   let mic = null;   // { ws, ac, fluxo, ganho }
+  // [mic] nasce já com o fluxo do microfone e ganha AudioContext e WebSocket aos poucos: se algo falha no meio, pararMic()
+  // fecha o que chegou a abrir (o microfone do celular não fica aceso à toa). [ligandoMic] evita dois toques seguidos.
+  let ligandoMic = false;
   async function ligarMic() {
     const status = $('statusCelularMic'), botao = $('btnMicTv');
     if (mic) { pararMic(); return; }
+    if (ligandoMic) return;
+    ligandoMic = true;
     try {
       precisaHttps();
       const fluxo = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } })
         .catch(() => { throw new Error('Não consegui abrir o microfone. Confira se o navegador tem permissão para usá-lo.'); });
-      const ac = new AudioContext({ sampleRate: 16000, latencyHint: 'interactive' });
+      mic = { fluxo };
+      // Taxa do próprio aparelho (o Firefox recusa misturar taxas); o worklet converte para os 16 kHz que a TV espera.
+      const ac = new AudioContext({ latencyHint: 'interactive' });
+      mic.ac = ac;
       await ac.audioWorklet.addModule('companion-worklet.js');
       const ws = await abrirWs('mic');
+      mic.ws = ws;
+      ws.onclose = () => { if (mic && mic.ws === ws) { pararMic(); mostrar(status, 'A TV encerrou o microfone.'); } };
       const ganho = ac.createGain(); ganho.gain.value = parseFloat($('micGanho').value) || 1;
+      mic.ganho = ganho;
       const no = new AudioWorkletNode(ac, 'mic-pcm');
       no.port.onmessage = (ev) => { if (ws.readyState === 1 && ws.bufferedAmount < 16000) ws.send(ev.data); };
       ac.createMediaStreamSource(fluxo).connect(ganho).connect(no);
       await ac.resume();
-      mic = { ws, ac, fluxo, ganho };
-      ws.onclose = () => { if (mic && mic.ws === ws) { pararMic(); mostrar(status, 'A TV encerrou o microfone.'); } };
+      if (!mic || mic.ws !== ws || ws.readyState !== 1) return;   // a TV fechou enquanto ligava: onclose já avisou
       botao.textContent = 'Desligar';
       mostrar(status, 'Microfone ligado: sua voz está saindo na TV.');
-    } catch (e) { mostrar(status, e.message); pararMic(); }
+    } catch (e) { pararMic(); mostrar(status, e.message); }
+    finally { ligandoMic = false; }
   }
   function pararMic() {
-    if (mic) {
-      try { mic.ws.close(); } catch (e) {}
-      mic.fluxo.getTracks().forEach((t) => t.stop());
-      mic.ac.close().catch(() => {});
-    }
+    const m = mic;
     mic = null;
+    if (m) {
+      if (m.ws) try { m.ws.close(); } catch (e) {}
+      m.fluxo.getTracks().forEach((t) => t.stop());
+      if (m.ac) m.ac.close().catch(() => {});
+    }
     $('btnMicTv').textContent = 'Falar na TV';
   }
   $('micGanho')?.addEventListener('input', () => { if (mic) mic.ganho.gain.value = parseFloat($('micGanho').value) || 1; });
@@ -529,19 +565,24 @@
   // ----- câmera
   let cam = null;   // { ws, fluxo, relogio }
   let frente = false;
+  let ligandoCam = false;
   async function ligarCam() {
     const status = $('statusCelularCam');
     if (cam) { pararCam(); return; }
+    if (ligandoCam) return;
+    ligandoCam = true;
     try {
       precisaHttps();
       const fluxo = await navigator.mediaDevices.getUserMedia({ video: { facingMode: frente ? 'user' : 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false })
         .catch(() => { throw new Error('Não consegui abrir a câmera. Confira se o navegador tem permissão para usá-la.'); });
+      cam = { fluxo, relogio: 0 };   // já guarda o fluxo: se o resto falhar, pararCam() apaga a câmera
       const video = $('camPrevia');
       video.srcObject = fluxo; video.hidden = false;
       await video.play().catch(() => {});
       const ws = await abrirWs('cam');
+      cam.ws = ws;
+      ws.onclose = () => { if (cam && cam.ws === ws) { pararCam(); mostrar(status, 'A TV fechou a câmera.'); } };
       const tela = document.createElement('canvas');
-      cam = { ws, fluxo, relogio: 0 };
       // ~8 fotos por segundo, 960 px de largura, JPEG 0,6: cabe no Wi-Fi da casa e na CPU da TV. Fila cheia = pula a foto.
       const enviar = () => {
         if (!cam || cam.ws !== ws) return;
@@ -554,19 +595,20 @@
         cam.relogio = setTimeout(enviar, 125);
       };
       enviar();
-      ws.onclose = () => { if (cam && cam.ws === ws) { pararCam(); mostrar(status, 'A TV fechou a câmera.'); } };
       $('btnCamTv').textContent = 'Desligar';
       $('btnCamVirar').hidden = false;
       mostrar(status, 'Ao vivo na TV.');
-    } catch (e) { mostrar(status, e.message); pararCam(); }
+    } catch (e) { pararCam(); mostrar(status, e.message); }
+    finally { ligandoCam = false; }
   }
   function pararCam() {
-    if (cam) {
-      clearTimeout(cam.relogio);
-      try { cam.ws.close(); } catch (e) {}
-      cam.fluxo.getTracks().forEach((t) => t.stop());
-    }
+    const c = cam;
     cam = null;
+    if (c) {
+      clearTimeout(c.relogio);
+      if (c.ws) try { c.ws.close(); } catch (e) {}
+      c.fluxo.getTracks().forEach((t) => t.stop());
+    }
     const video = $('camPrevia'); video.srcObject = null; video.hidden = true;
     $('btnCamTv').textContent = 'Mostrar na TV';
     $('btnCamVirar').hidden = true;

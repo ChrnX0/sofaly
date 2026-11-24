@@ -97,9 +97,11 @@ object CompanionTv {
     fun sofy(ctx: Context, kind: String, ok: Boolean, detail: String) {
         runCatching {
             val bus = Class.forName("br.paulo.tvlauncher.observer.SofyBusTv")
+            // Fonte (combinado com a thread da Sofy, 24/11/2026): medida = MEASURE; o aparelho agindo = DEVICE.
+            val fonte = if (kind in CompanionRules.DEVICE_KINDS) "DEVICE" else "MEASURE"
             val source = Class.forName("br.paulo.tvlauncher.observer.SofyBus\$Source").enumConstants!!
-                .first { (it as Enum<*>).name == "MEASURE" }
-            val emit = bus.methods.first { it.name == "emit" && it.parameterCount >= 5 }
+                .first { (it as Enum<*>).name == fonte }
+            val emit = bus.methods.first { it.name == "emit" && it.parameterCount == 6 }
             val inst = bus.getField("INSTANCE").get(null)
             val args = arrayOfNulls<Any>(emit.parameterCount)
             args[0] = ctx; args[1] = source; args[2] = kind; args[3] = ok; args[4] = detail
@@ -108,11 +110,22 @@ object CompanionTv {
         }.onFailure { Log.i(TAG, "sofy $kind ok=$ok $detail") }
     }
 
-    internal fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+    /**
+     * MODE_MULTI_PROCESS: o painel grava no processo principal e o Som no fone lê no processo :player; sem isso, um
+     * player já aberto continuaria com o atraso velho (achado do revisor, 24/11/2026). Mesmo padrão do EfeitosSom.
+     */
+    @Suppress("DEPRECATION")
+    internal fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_MULTI_PROCESS)
 }
 
 /** Regras puras do [CompanionTv] (CompanionRulesTest). */
 object CompanionRules {
+    /** Eventos do aparelho agindo (fonte DEVICE no barramento); o resto é medida (MEASURE). */
+    val DEVICE_KINDS = setOf("audio_route", "remote_find", "keyboard_prompt", "phone_mic", "phone_camera")
+
+    /** A saída de som para a Sofy: só o tipo ("bt", "hdmi"...). O nome do fone ("Fone do Fulano") pode ser pessoal. */
+    fun routeType(route: String): String = route.substringBefore('-')
+
     /** Chave da TV pelo EDID: só letras, números e "-"; nada de nome livre na chave (o nome vai à parte). */
     fun displayKey(pnp: String?, productId: String?, year: Int, name: String?): String {
         val partes = listOf(pnp, productId, year.takeIf { it > 0 }?.toString())

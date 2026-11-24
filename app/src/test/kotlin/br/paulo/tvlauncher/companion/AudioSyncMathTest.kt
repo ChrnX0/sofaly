@@ -7,6 +7,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /** Acertar o som pelo microfone do celular (24/11/2026). */
@@ -53,4 +54,14 @@ class AudioSyncMathTest {
         assertNull(PanelCompanionRules.times(JSONArray(listOf(1.0, -2.0))))
         assertEquals(2, PanelCompanionRules.times(JSONArray(listOf(1.0, 2.0)))!!.size)
     }
+
+    /** Revisor 24/11: mediana par entre bipes e ruído não deixava ninguém perto e estourava (IndexOutOfBounds). */
+    @Test fun bipesMaisRuidoNaoEstoura() {
+        val escritos = listOf(0.0, 700.0, 1400.0, 2100.0, 2800.0, 3500.0)
+        val r = AudioSyncMath.delay(escritos, listOf(120.0, 821.0, 1522.0, 2500.0, 3300.0, 4100.0), 0.0, 5.0)
+        assertEquals(Verdict.UNSURE, r.verdict)
+    }
+
+    /** O teto do atraso fica abaixo do intervalo entre bipes (senão um atraso maior casaria com o bipe seguinte). */
+    @Test fun tetoAbaixoDoIntervalo() = assertTrue(AudioSyncMath.RANGE_MS.endInclusive < AudioSyncMath.GAP_MS)
 }

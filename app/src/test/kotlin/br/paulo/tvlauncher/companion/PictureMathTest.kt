@@ -95,4 +95,11 @@ class PictureMathTest {
         assertTrue(d.length <= 120 && '\t' !in d && '\n' !in d)
         assertEquals("picture_color_gain", CompanionRules.pictureKind("color"))
     }
+
+    /** O nome do fone Bluetooth fica fora do que vai à Sofy; ações do aparelho vão como DEVICE. */
+    @Test fun eventoParaASofySemNomeDeAparelho() {
+        assertEquals("bt", CompanionRules.routeType("bt-FonedaAna"))
+        assertEquals("hdmi", CompanionRules.routeType("hdmi"))
+        assertTrue("remote_find" in CompanionRules.DEVICE_KINDS && "audio_delay_ms" !in CompanionRules.DEVICE_KINDS)
+    }
 }

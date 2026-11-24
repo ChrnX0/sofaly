@@ -3,6 +3,7 @@ package br.paulo.tvlauncher.panel
 import android.content.Context
 import br.paulo.tvlauncher.companion.PhoneMicTv
 import br.paulo.tvlauncher.companion.PhoneCameraTv
+import br.paulo.tvlauncher.companion.AudioSyncTv
 import java.io.DataInputStream
 import java.io.IOException
 import java.io.InputStream
@@ -26,7 +27,8 @@ object PanelStream {
     /** Sem dado do celular por este tempo = o celular sumiu (tela apagou, saiu do Wi-Fi): a TV encerra. */
     const val IDLE_MS = 6_000
 
-    enum class Kind { MIC, CAM }
+    /** MIC = voz, CAM = fotos, CLOCK = pings de relógio para acertar o som (sem abrir nada na TV). */
+    enum class Kind { MIC, CAM, CLOCK }
     data class Pedido(val accept: String, val kind: Kind)
 
     /** Confere o pedido de WebSocket: upgrade, chave, mesma origem e o tipo (k=mic|cam). null = recusa. */
@@ -35,7 +37,7 @@ object PanelStream {
         if (key == null || !Regex("^[A-Za-z0-9+/]{22}==$").matches(key)) return null
         // Mesma origem: uma página de outro site não abre o microfone da TV com o cookie da pessoa (CSWSH).
         if (origin == null || host == null || origin != "https://$host") return null
-        val kind = when (k) { "mic" -> Kind.MIC; "cam" -> Kind.CAM; else -> return null }
+        val kind = when (k) { "mic" -> Kind.MIC; "cam" -> Kind.CAM; "clock" -> Kind.CLOCK; else -> return null }
         return Pedido(WsFrames.accept(key), kind)
     }
 
@@ -44,9 +46,11 @@ object PanelStream {
             "Sec-WebSocket-Accept: ${p.accept}\r\n\r\n").toByteArray(Charsets.ISO_8859_1))
         saida.flush()
         val dentro = DataInputStream(entrada)
+        if (p.kind == Kind.CLOCK) { relogio(dentro, saida); return }
         val destino: (ByteArray) -> Unit = when (p.kind) {
             Kind.MIC -> { b -> PhoneMicTv.chunk(app, b) }
             Kind.CAM -> { b -> PhoneCameraTv.frame(app, b) }
+            Kind.CLOCK -> { _ -> }   // não chega aqui (saiu acima)
         }
         val limite = if (p.kind == Kind.CAM) 512 * 1024 else 64 * 1024
         // Um celular por vez: se outro já está com o microfone (ou a câmera), esta conexão fecha sem desligar o dele.
@@ -67,6 +71,26 @@ object PanelStream {
         } finally {
             if (p.kind == Kind.MIC) PhoneMicTv.stop(app) else PhoneCameraTv.stop(app)
         }
+    }
+
+    /**
+     * Pings de relógio: cada quadro do celular volta como texto com a hora da TV ([AudioSyncTv.nowMs]). Pela mesma conexão
+     * a ida e a volta passam pelo mesmo caminho, que é o que [br.paulo.tvlauncher.companion.AudioSyncMath.clockOffset]
+     * supõe. No máximo 40 pings por conexão.
+     */
+    private fun relogio(dentro: DataInputStream, saida: OutputStream) {
+        try {
+            repeat(40) {
+                val f = WsFrames.read(dentro, 64) ?: return
+                when (f.opcode) {
+                    WsFrames.TEXT, WsFrames.BINARY -> {
+                        WsFrames.write(saida, WsFrames.TEXT, AudioSyncTv.nowMs().toString().toByteArray(Charsets.US_ASCII)); saida.flush()
+                    }
+                    WsFrames.PING -> { WsFrames.write(saida, WsFrames.PONG, f.payload); saida.flush() }
+                    WsFrames.CLOSE -> { WsFrames.write(saida, WsFrames.CLOSE, ByteArray(0)); saida.flush(); return }
+                }
+            }
+        } catch (_: IOException) {}
     }
 }
 

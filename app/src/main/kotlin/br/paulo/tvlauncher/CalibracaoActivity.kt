@@ -56,7 +56,8 @@ class CalibracaoActivity : Activity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        if (intent.getBooleanExtra(EXTRA_PHONE, false)) entrarModoCelular()
+        // Modo seguro (onCreate saiu antes de criar a tela): nada a mostrar, e ler [tela] derrubaria o app.
+        if (::tela.isInitialized && intent.getBooleanExtra(EXTRA_PHONE, false)) entrarModoCelular()
     }
 
     private fun entrarModoCelular() {
@@ -73,11 +74,12 @@ class CalibracaoActivity : Activity() {
 
     override fun onDestroy() {
         ui.removeCallbacksAndMessages(null)
-        if (tela.celular != null) CompanionTv.listen(null)
+        if (::tela.isInitialized && tela.celular != null) CompanionTv.listen(null)
         super.onDestroy()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean = when {
+        !::tela.isInitialized -> super.onKeyDown(keyCode, event)
         // Medindo pelo celular: qualquer tecla que não seja VOLTAR é ignorada (o desenho é do celular).
         tela.celular != null && keyCode != KeyEvent.KEYCODE_BACK -> true
         tela.celular != null -> { CompanionTv.stopPattern(); finish(); true }
