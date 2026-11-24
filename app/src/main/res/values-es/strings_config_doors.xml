@@ -6,7 +6,7 @@
     <string name="cfg3_mais_ajustes_det">Ocultos para que sea más corto: %1$d</string>
     <string name="cfg3_modo">Modo: %1$s</string>
     <string name="cfg3_porta_0_det">Cruz, iconos y fondo</string>
-    <string name="cfg3_porta_1_det">Cuentas de TV, idioma, letra</string>
+    <string name="cfg3_porta_1_det">Cuentas de TV, audio y subtítulos</string>
     <string name="cfg3_porta_2_det">Niños, PIN e invitados</string>
     <string name="cfg3_porta_3_det">Protector, sueño, despertar</string>
     <string name="cfg3_porta_4_det">Casa, móvil y panel</string>

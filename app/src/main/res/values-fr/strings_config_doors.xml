@@ -6,7 +6,7 @@
     <string name="cfg3_mais_ajustes_det">Masqués pour faire court : %1$d</string>
     <string name="cfg3_modo">Mode : %1$s</string>
     <string name="cfg3_porta_0_det">Croix, icônes et fond</string>
-    <string name="cfg3_porta_1_det">Comptes TV, langue, texte</string>
+    <string name="cfg3_porta_1_det">Comptes TV, audio, sous-titres</string>
     <string name="cfg3_porta_2_det">Enfants, PIN et invités</string>
     <string name="cfg3_porta_3_det">Écran de veille, veille, réveil</string>
     <string name="cfg3_porta_4_det">Maison, mobile et panneau</string>

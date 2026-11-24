@@ -2,7 +2,7 @@
 <!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
 <resources>
     <string name="uso_titulo">طريقة استخدام هذا التلفاز</string>
-    <string name="uso_det">الأساسي يُخفي التبويبات التقنية (المنزل، عن بُعد، متقدم). لا يُطفأ شيء.</string>
+    <string name="uso_det">الأساسي يُخفي التبويبات التقنية (المنزل والأتمتة، الوصول عن بُعد، متقدم). لا يُطفأ شيء.</string>
     <string name="uso_simples">أساسي</string>
     <string name="uso_completo">كامل</string>
     <string name="uso_cuida">لشخص أعتني به</string>

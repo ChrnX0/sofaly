@@ -6,7 +6,7 @@
     <string name="cfg3_mais_ajustes_det">Disembunyikan agar ringkas: %1$d</string>
     <string name="cfg3_modo">Mode: %1$s</string>
     <string name="cfg3_porta_0_det">Salib, ikon, dan latar</string>
-    <string name="cfg3_porta_1_det">Akun TV, bahasa, teks</string>
+    <string name="cfg3_porta_1_det">Akun TV, audio, subtitel</string>
     <string name="cfg3_porta_2_det">Anak, PIN, dan tamu</string>
     <string name="cfg3_porta_3_det">Screensaver, tidur, alarm</string>
     <string name="cfg3_porta_4_det">Rumah, ponsel, dan panel</string>

@@ -2,7 +2,7 @@
 <!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
 <resources>
     <string name="uso_titulo">Jak używany jest ten telewizor</string>
-    <string name="uso_det">Podstawowy ukrywa karty techniczne (Dom, Zdalnie, Zaawansowane). Nic nie jest wyłączane.</string>
+    <string name="uso_det">Podstawowy ukrywa karty techniczne (Dom i automatyzacje, Dostęp zdalny, Zaawansowane). Nic nie jest wyłączane.</string>
     <string name="uso_simples">Podstawowy</string>
     <string name="uso_completo">Pełny</string>
     <string name="uso_cuida">Dla osoby, którą się opiekuję</string>
