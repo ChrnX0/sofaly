@@ -232,7 +232,7 @@ object PlayerArmazem {
             ?: return CapaHome("", emptyList())
         val cs = o.optJSONArray("cenas")
         val f = o.optJSONObject("ficha")?.let {
-            FichaHome(it.optString("titulo"), it.optString("ep"), it.optDouble("nota").takeIf { n -> !n.isNaN() }?.toFloat(),
+            FichaHome(it.optString("titulo"), it.optString("ep"), Vod.notaDaLista(it.optDouble("nota").takeIf { n -> !n.isNaN() }),   // 10 redondo guardado antes de 24/11 não aparece
                 it.optInt("ano").takeIf { a -> a > 0 }, it.optString("genero"), it.optInt("dur").takeIf { d -> d > 0 },
                 it.optString("sinopse"), it.optString("chave"))
         }?.takeIf { it.titulo.isNotEmpty() }

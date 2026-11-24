@@ -37,7 +37,10 @@ object PlayerBar {
      * 24/11/2026) "VOLTAR sair" se partia e "sair" ficava sozinho na 2ª linha.
      */
     fun juntarTeclas(teclas: CharSequence): String =
-        teclas.toString().split(" · ").joinToString(" · ") { it.trim().replace(' ', '\u00A0') }
+        teclas.toString().split(" · ").joinToString("\u00A0· ") { it.trim().replace(' ', '\u00A0') }   // o "·" fica com o de antes
+
+    /** Em coluna estreita (lista de canais): um comando por linha, sem "·" solto no começo ou no fim da linha. */
+    fun teclasEmLinhas(teclas: CharSequence): String = teclas.toString().split(" · ").joinToString("\n") { it.trim() }
 
     fun montar(ctx: Context, teclas: CharSequence): Partes {
         fun dp(v: Int) = (v * ctx.resources.displayMetrics.density + 0.5f).toInt()
