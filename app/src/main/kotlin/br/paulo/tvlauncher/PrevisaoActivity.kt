@@ -334,6 +334,15 @@ class PrevisaoActivity : Activity() {
         dias.contentDescription = getString(R.string.pv_7d) + ". " + descricao
         dias.addView(linhaDias, LinearLayout.LayoutParams(-1, -2))   // sem folga extra: a linha da chance cabia cortada (21/11)
         p2.addView(dias, lpCartao())
+        // Crédito da fonte: plano Free da WeatherAPI (Pro, 19/11/2026) e CC BY 4.0 do ECMWF (Básico, 24/11/2026). Fica na
+        // linha do título dos dias, ao lado das chances de chuva que ele credita: no fim da tela 3 ele caía abaixo da borda
+        // e não aparecia (Sala, 24/11/2026).
+        val credito = when (d.fonte) {
+            WeatherApiSource.FONTE -> R.string.pv_powered_weatherapi
+            OpenModelsSource.FONTE -> R.string.pv_powered_open_models
+            else -> 0
+        }
+        if (credito != 0) comCredito(dias, getString(credito))
 
         // ================================================================ tela 3: detalhes, ar, sol e lua
         val p3 = pagina(84)
@@ -417,16 +426,6 @@ class PrevisaoActivity : Activity() {
         if (Extras.ligado(this, Extras.Chave.CARTAO_LUA))   // chave CARTAO_LUA (HomeCards, 18/11/2026)
             trio.addView(lua, LinearLayout.LayoutParams(0, -1, 1.15f).apply { marginStart = dp(Grade.VAO / 2) })
         p3.addView(trio, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) })
-        // Crédito exigido pelo plano Free da WeatherAPI (Pro, 19/11/2026).
-        // Crédito dos modelos abertos (Básico, 24/11/2026): CC BY 4.0 do ECMWF.
-        val credito = when (d.fonte) {
-            WeatherApiSource.FONTE -> R.string.pv_powered_weatherapi
-            OpenModelsSource.FONTE -> R.string.pv_powered_open_models
-            else -> 0
-        }
-        if (credito != 0)
-            p3.addView(texto(Estilo.Papel.LEGENDA.sp, textoSuave).apply { text = getString(credito) },
-                LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(10) })
 
         if (voz != null) {
             val previsao = boletim(d, tempAgora, maxHoje, minHoje, chovendo)
@@ -488,6 +487,18 @@ class PrevisaoActivity : Activity() {
     // ---------------------------------------------------------------- cartões e foco
 
     private fun lpCartao() = LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) }
+
+    /** Troca o título do [cartao] por uma linha: título à esquerda, [credito] miúdo e suave à direita. */
+    private fun comCredito(cartao: LinearLayout, credito: String) {
+        val titulo = cartao.getChildAt(0)
+        cartao.removeViewAt(0)
+        cartao.addView(LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+            addView(titulo, LinearLayout.LayoutParams(0, -2, 1f))
+            addView(texto(Estilo.Papel.LEGENDA.sp, textoSuave).apply { text = credito; maxLines = 1; gravity = Gravity.END },
+                LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(16) })
+        }, 0, LinearLayout.LayoutParams(-1, -2))
+    }
 
     /** Um cartão com título. [focavel]: o cartão inteiro é um ponto de parada (a faixa de horas tem os próprios itens). */
     private fun cartao(titulo: String, focavel: Boolean = true) = LinearLayout(this).apply {

@@ -31,5 +31,5 @@
         <item>Geminid</item>
     </string-array>
     <string name="ns_titulo">Langit malam</string>
-    <string name="ilha_uv">UV %1$d sekarang: pakai tabir surya kalau keluar</string>
+    <string name="ilha_uv">UV %1$d: pakai tabir surya</string>
 </resources>
