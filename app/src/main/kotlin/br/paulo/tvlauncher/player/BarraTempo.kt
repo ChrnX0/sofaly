@@ -41,15 +41,18 @@ object BarraTempo {
         // 24/11/2026 (teste de telas em árabe): "h"/"min" e algarismos latinos no meio do árabe embaralhavam a linha
         // ("h 4 min 1 متبقٍ"). Agora as unidades e os algarismos são os da língua da TV.
         val (h, m, junto) = UNIDADES[local.language] ?: Triple("h", "min", false)
-        val num = java.text.NumberFormat.getIntegerInstance(local)
+        // Um NumberFormat por língua, guardado: roda a cada linha da lista de canais no Chromecast (revisor, 24/11/2026).
+        val num = synchronized(NUMEROS) { NUMEROS.getOrPut(local) { java.text.NumberFormat.getIntegerInstance(local) } }
         fun parte(n: Long, u: String) = if (junto) num.format(n) + u else num.format(n) + "\u00A0" + u
         val sep = if (junto) "" else " "
         return when {
             min < 60 -> parte(min, m)
             min % 60 == 0L -> parte(min / 60, h)
             else -> parte(min / 60, h) + sep + parte(min % 60, m)
-        }.let { if (local.language in setOf("pt", "en")) it.replace('\u00A0', ' ') else it }
+        }.let { if (local.language == "pt" || local.language == "en") it.replace('\u00A0', ' ') else it }
     }
+
+    private val NUMEROS = HashMap<java.util.Locale, java.text.NumberFormat>()
 
     /** Hora e minuto abreviados por língua (o padrão é "h"/"min"); `true` = sem espaço entre número e unidade. */
     private val UNIDADES = mapOf(

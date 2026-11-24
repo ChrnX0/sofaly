@@ -275,8 +275,10 @@ class TelasTest {
 
         val escala = RuntimeEnvironment.getApplication().resources.displayMetrics.scaledDensity
         val textos = mutableListOf<Pair<TextView, Rect>>()
+        val sumidos = mutableListOf<TextView>()
         fun andar(v: View) {
             if (v.visibility != View.VISIBLE || v.alpha == 0f) return
+            if (v is TextView && MedirTela.espremido(v)) sumidos += v
             if (v is TextView && v.text.isNotBlank() && v.width > 0 && v.height > 0) {
                 val r = areaDoTexto(v)
                 if (r != null) textos += v to r
@@ -288,7 +290,8 @@ class TelasTest {
         val cortes = textos.filter { (t, _) -> t.layout?.let { l -> (0 until l.lineCount).any { l.getEllipsisCount(it) > 0 } } == true }
             .map { rotulo(it.first) }.toSet() +
             // Corte na vertical (24/11/2026): letras que saem da caixa que corta. As reticências não pegavam isso.
-            textos.mapNotNull { (t, _) -> MedirTela.cortadoNaVertical(t)?.let { "vertical: ${rotulo(t)} ($it)" } }
+            textos.mapNotNull { (t, _) -> MedirTela.cortadoNaVertical(t)?.let { "vertical: ${rotulo(t)} ($it)" } } +
+            sumidos.map { "espremido: ${rotulo(it)} (${it.width}x${it.height})" }
         val sobrepostos = mutableSetOf<String>()
         for (i in textos.indices) for (j in i + 1 until textos.size) {
             val (t1, r1) = textos[i]; val (t2, r2) = textos[j]

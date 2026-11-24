@@ -187,6 +187,8 @@ class SleepingHome(private val ctx: Context) {
             addView(TextClock(ctx).apply {
                 format12Hour = "h:mm"; format24Hour = "HH:mm"
                 tamanho(this, 76f); setTextColor(Estilo.TEXTO); typeface = fina; includeFontPadding = false; sombra(this)
+                // Hora nunca quebra (24/11/2026: em árabe "١٢:٠٠" saía em duas linhas numa caixa de uma, e a 2ª sumia).
+                isSingleLine = true
             })
             addView(TextClock(ctx).apply {
                 format12Hour = ctx.getString(R.string.fmt_data_longa); format24Hour = ctx.getString(R.string.fmt_data_longa)
