@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Dine spil</string>
+    <string name="retro_vazio">Ingen spil fundet på USB-drevet. Læg dine egne spil i en mappe opkaldt efter konsollen (f.eks. SNES).</string>
+    <string name="retro_portugues">på portugisisk</string>
+    <string name="retro_abrindo">Åbner i RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch åbnede ikke dette spil. Åbn RetroArch én gang, og download kernen %1$s.</string>
+    <string name="retro_sem_retroarch">Installer RetroArch (gratis i Play Butik) for at spille disse spil.</string>
+    <string name="retro_aviso_legal">Sofaly indeholder ikke spil. Brug dem, du ejer.</string>
+    <string name="retro_procurando">Leder efter spil på USB-drevet…</string>
+</resources>

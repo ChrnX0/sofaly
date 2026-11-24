@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Ændring (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Fortrudt: %1$s</string>
+    <string name="desf_ocultou">Skjulte %1$s</string>
+    <string name="desf_mostrou">Viste %1$s igen</string>
+    <string name="desf_cat_ajuste">Indstilling</string>
+    <string name="desf_cat_organizacao">Organisering</string>
+    <string name="desf_cat_automacao">Automatisering</string>
+    <string name="desf_cat_limpeza">Oprydning</string>
+    <string name="desf_nada">Intet at fortryde (det var allerede fortrudt).</string>
+    <string name="desf_feito">Fortrudt. Alt er tilbage, som det var.</string>
+    <string name="desf_parcial">Delvist fortrudt: %1$d element(er) var ændret igen og blev, som de er.</string>
+    <string name="desf_barra">Ændret: %1$s</string>
+    <string name="desf_botao">Fortryd</string>
+    <string name="desf_tela">Seneste ændringer</string>
+    <string name="desf_tela_det">Hvad der er ændret de seneste 7 dage. OK på en sætter den tilbage, som den var.</string>
+    <string name="desf_tela_vazia">Ingen ændringer de seneste 7 dage.</string>
+    <string name="desf_ja_desfeita">fortrudt</string>
+    <string name="desf_rot_config">Indstillinger</string>
+    <string name="desf_rot_automacoes">Automatiseringer</string>
+    <string name="desf_rot_rotinas">Rutiner</string>
+    <string name="desf_rot_apps">Appliste</string>
+    <string name="desf_rot_organizar">Startskærmens apps</string>
+</resources>

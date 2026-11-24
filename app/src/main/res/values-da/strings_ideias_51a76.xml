@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">gendannelsestjek bestået</string>
+    <string name="l51_ensaio_falhou">den gemte kopi ville ikke kunne gendannes (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Gæste-wifi</string>
+    <string name="l51_wifi_nao">ikke angivet: skriv det én gang, så scanner besøgende en QR-kode</string>
+    <string name="l51_wifi_dica">Brug routerens gæstenetværk: alle i rummet kan læse adgangskoden på skærmen.</string>
+    <string name="l51_wifi_rede">Netværksnavn</string>
+    <string name="l51_wifi_senha">Adgangskode</string>
+    <string name="l51_wifi_invalido">Navn op til 32 tegn; adgangskode tom (åbent netværk) eller 8 til 63 tegn.</string>
+    <string name="l51_wifi_qr_titulo">Vis QR-koden til gæste-wifi</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Hvad der bruges</string>
+    <string name="l51_uso_det">Skærme og indstillinger efter brug, kun talt på dette tv (intet forlader det)</string>
+    <string name="l51_uso_vazio">Intet talt endnu. Kom tilbage om et par dage.</string>
+    <string name="l51_uso_tela">skærm</string>
+    <string name="l51_uso_opcao">indstilling</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d gang</item>
+        <item quantity="other">%d gange</item>
+    </plurals>
+    <string name="l51_uso_hoje">senest i dag</string>
+    <string name="l51_uso_ontem">senest i går</string>
+    <string name="l51_uso_dias">senest for %d dage siden</string>
+    <string name="l51_tela_Main">Startskærm</string>
+    <string name="l51_tela_Dream">Pauseskærm</string>
+    <string name="l51_tela_Filmes">Film</string>
+    <string name="l51_tela_Series">Serier</string>
+    <string name="l51_tela_Jogos">Spil</string>
+    <string name="l51_tela_Player">Live-tv og videoer</string>
+    <string name="l51_tela_PainelRapido">Hurtigpanel</string>
+    <string name="l51_tela_Vod">Playlistekatalog</string>
+    <string name="l51_tela_Previsao">Vejrudsigt</string>
+    <string name="l51_tela_Elenco">Medvirkende</string>
+    <string name="l51_tela_ConfigLauncher">Indstillinger</string>
+    <string name="l51_tela_MidiaRede">Netværk</string>
+    <string name="l51_tela_Calendario">Kalender</string>
+    <string name="l51_tela_Gravacoes">Optagelser</string>
+    <string name="l51_tela_Busca">Søg</string>
+    <string name="l51_tela_Casa">Mit hjem</string>
+    <string name="l51_tela_AlarmeTocando">Alarm ringer</string>
+    <string name="l51_tela_Radio">Radio</string>
+    <string name="l51_tela_Diagnostico">Diagnose</string>
+    <string name="l51_uso_zerar">Nulstil</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Skriv på tv\'et</string>
+    <string name="l51_digitar_texto">Et tekstfelt er åbent i %1$s. Tryk for at skrive herfra.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">rum %1$s</string>
+    <string name="casa_movimento">Bevægelse</string>
+    <string name="casa_sem_movimento">Ingen bevægelse</string>
+    <string name="casa_molhado">Vådt</string>
+    <string name="casa_seco">Tørt</string>
+    <string name="casa_fumaca">Røg!</string>
+    <string name="casa_sem_fumaca">Ingen røg</string>
+    <string name="casa_dica_temp">temperatur</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Åbner kameraet…</string>
+    <string name="casa_camera_ver">Vis på tv\'et</string>
+</resources>

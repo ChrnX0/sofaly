@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Emner</string>
+    <string name="pod_ass_seus">Du følger: %d</string>
+    <string name="pod_ass_em_alta">Populært inden for dette emne</string>
+    <string name="pod_parecidos">Lignende: %s</string>
+    <string name="pod_ass_noticias">Nyheder</string>
+    <string name="pod_ass_humor">Komedie</string>
+    <string name="pod_ass_ciencia">Videnskab</string>
+    <string name="pod_ass_tecnologia">Teknologi</string>
+    <string name="pod_ass_historia">Historie</string>
+    <string name="pod_ass_negocios">Erhverv</string>
+    <string name="pod_ass_saude">Sundhed</string>
+    <string name="pod_ass_esportes">Sport</string>
+    <string name="pod_ass_cultura">Kultur</string>
+    <string name="pod_ass_crimes">True crime</string>
+    <string name="pod_ass_tv_filmes">Tv og film</string>
+    <string name="pod_ass_musica">Musik</string>
+    <string name="pod_ass_educacao">Uddannelse</string>
+    <string name="pod_ass_infantil">Børn og familie</string>
+    <string name="pod_ass_fe">Tro</string>
+    <string name="pod_ass_lazer">Fritid</string>
+</resources>

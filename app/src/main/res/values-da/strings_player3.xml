@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Marker introens start her (%1$s)</string>
+    <string name="abertura_marcar_fim">Marker introens slutning her (%1$s)</string>
+    <string name="abertura_apagar">Slet intromarkering</string>
+    <string name="abertura_inicio_marcado">Introens start markeret ved %1$s. Marker nu slutningen i menuen ▼</string>
+    <string name="abertura_salva">Intro gemt: %1$s til %2$s. De næste afsnit tilbyder at springe den over</string>
+    <string name="abertura_falta_inicio">Marker først introens start</string>
+    <string name="abertura_invalida">Det ligner ikke en intro: den skal vare 10 s til 5 min og starte inden for de første 15 min</string>
+    <string name="abertura_apagada">Intromarkering slettet</string>
+    <string name="abertura_pular">Spring intro over · OK</string>
+</resources>

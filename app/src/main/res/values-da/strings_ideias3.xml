@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Blid slukning (sleep-timeren dæmper skærmen og sænker lydstyrken)</string>
+    <string name="extras_MURAL">Familietavle i hurtigpanelet</string>
+    <string name="extras_PRESENCA">Sluk, når alle forlader hjemmet (UniFi-router)</string>
+    <string name="extras_HOJE_NA_TV">\"I dag i tv\" på søgeskærmen</string>
+    <string name="extras_RETROSPECTIVA">Ugeopsummering (søndag aften)</string>
+    <string name="extras_MODO_SIMPLES">Nem skærm (store kort, navne læst højt)</string>
+</resources>

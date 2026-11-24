@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Google Drev-konto</string>
+    <string name="drv_destino">Google Drev</string>
+    <string name="drv_conta">Google Drev-konto</string>
+    <string name="drv_nao_conectada">ikke forbundet</string>
+    <string name="drv_passos">1. Åbn %1$s på din telefon (eller ret kameraet mod koden til højre).\n2. Log ind med en Google-konto, der er på dette tv, og skriv:\n\n%2$s\n\n3. Tillad adgang til Google Drev. Tv\'et ser kun de filer, det selv opretter (mappen OneTV-backup), aldrig resten af dit Drev.\n\nDenne skærm fortsætter af sig selv.</string>
+    <string name="drv_ok">Færdig: %1$s er forbundet. Vælg \"Google Drev\" på linjen Ekstra kopi, så den natlige sikkerhedskopi også går dertil.</string>
+    <string name="drv_sem_google">Google-login er ikke opsat på dette tv endnu.\n\nOpsæt det i webpanelet > fanen Claude (din egen OAuth-klient, typen \"TVs and Limited Input devices\"), slå Google Drive API til i samme Google Cloud-projekt, og kom tilbage hertil.</string>
+    <string name="drv_desconectar_pergunta">Afbryde %1$s? Kopierne, der allerede er i Google Drev, bliver dér; tv\'et holder op med at sende nye.</string>
+    <string name="drv_desconectar">Afbryd</string>
+    <string name="drv_restaurar">Gendan fra Google Drev</string>
+    <string name="drv_precisa_conta">Forbind først Google Drev-kontoen (linjen ovenfor).</string>
+    <string name="drv_falhou">Det virkede ikke: %1$s</string>
+    <string name="drv_nenhuma">Der er ingen kopier i mappen OneTV-backup på Google Drev endnu.</string>
+    <string name="drv_escolha">Hvilken kopi?</string>
+    <string name="drv_senha">Sikkerhedskopiens adgangskode</string>
+    <string name="drv_senha_errada">Forkert adgangskode til sikkerhedskopien (eller filen er ændret). Intet blev gendannet.</string>
+    <string name="drv_restaurado">Gendannet. Launcheren genstarter om et øjeblik.</string>
+</resources>

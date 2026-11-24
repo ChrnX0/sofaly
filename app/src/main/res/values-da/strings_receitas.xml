@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Hvem er dette tv til?</string>
+    <string name="rec_subtitulo">Ét OK opsætter tv\'et. Du kan fortryde det når som helst.</string>
+    <string name="rec_vo">Mormors tv</string>
+    <string name="rec_vo_det">Store kort med navne læst højt, større tekst og en knap til at få hjælp.</string>
+    <string name="rec_criancas">Børnenes tv</string>
+    <string name="rec_criancas_det">Kun børneindhold, sengetid og kategorien Spil.</string>
+    <string name="rec_gamer">Gamerens tv</string>
+    <string name="rec_gamer_det">Kategorien Spil, spiltilstand (ingen pauseskærm eller beskeder under et spil), og controlleren åbner Spil.</string>
+    <string name="rec_aluguel">Udlejnings-tv</string>
+    <string name="rec_aluguel_det">Gæstetilstand: velkomstskærm, intet personligt på startskærmen og oprydning ved udtjekning.</string>
+    <string name="rec_desfazer">Fortryd</string>
+    <string name="rec_desfazer_det">Sæt alt tilbage, som det var før %1$s.</string>
+    <string name="rec_ja_esta">Dette tv er allerede opsat sådan.</string>
+    <string name="rec_aviso_prende">Nem skærm lukker kun med PIN-koden. Sørg for, at nogen i huset kender den.</string>
+    <string name="rec_aviso_sem_pin">Der er ingen PIN-kode endnu, så alle kan slå dette fra. Opret en i telefonpanelet.</string>
+    <string name="rec_aviso_plano">Kræver et betalingsabonnement, så det forbliver slået fra: %1$s.</string>
+    <string name="rec_voltar">Tilbage</string>
+    <string name="rec_aplicar">Anvend</string>
+    <string name="rec_pin">PIN-kode for at ændre, hvordan tv\'et er opsat</string>
+    <string name="rec_pronto">Færdig</string>
+    <string name="rec_aplicada">Dit tv er klar</string>
+    <string name="rec_aplicada_det">Ændrede noget, du ikke ville? Fortryd sætter alt tilbage, som det var.</string>
+    <string name="rec_desfeita">Alt er tilbage, som det var.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">til</string>
+    <string name="rec_desligado">fra</string>
+    <string name="rec_aj_hospede">Gæstetilstand</string>
+    <string name="rec_aj_visita">Besøgstilstand</string>
+    <string name="rec_aj_simples">Nem skærm</string>
+    <string name="rec_aj_infantil">Børnetilstand</string>
+    <string name="rec_aj_dormir">Sengetid</string>
+    <string name="rec_aj_texto">Tekststørrelse</string>
+    <string name="rec_aj_ler_foco">Læs det valgte højt</string>
+    <string name="rec_aj_som">Kliklyd på hver tast</string>
+    <string name="rec_aj_jogos">Kategorien Spil</string>
+    <string name="rec_aj_modo_jogo">Spiltilstand</string>
+    <string name="rec_aj_controle">Controlleren åbner Spil</string>
+</resources>

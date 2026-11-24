@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d spil</item>
+        <item quantity="other">%d spil</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d controller tilsluttet</item>
+        <item quantity="other">%d controllere tilsluttet</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Kategorien Spil på startskærmen (fra: spil bliver i Apps)</string>
+    <string name="extras_MODO_JOGO">Spiltilstand: mens et spil er åbent, venter pauseskærm, natfilter og beskeder</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">At tænde en spilcontroller åbner skærmen Spil</string>
+
+    <string name="jogos_titulo">Spil</string>
+    <string name="jogos_medindo">Tjekker netværket…</string>
+    <string name="jogos_sem_controle">Ingen spilcontroller tilsluttet</string>
+    <string name="jogos_rede_boa">Netværk: godt til cloud-gaming</string>
+    <string name="jogos_rede_ok">Netværk: okay til cloud-gaming</string>
+    <string name="jogos_rede_fraca">Netværk: svagt til cloud-gaming</string>
+    <string name="jogos_rede_sem">Intet internet</string>
+    <string name="jogos_testar_rede">Test netværket</string>
+    <string name="jogos_jogar_pc">Spil på pc\'en</string>
+    <string name="jogos_parear">Par en controller</string>
+    <string name="jogos_parear_falhou">Dette tv åbnede ikke Bluetooth-indstillingerne. Åbn Indstillinger, Fjernbetjeninger og tilbehør.</string>
+    <string name="jogos_baixar">Hent spil</string>
+    <string name="jogos_escolher">Vælg apps</string>
+    <string name="jogos_escolher_sub">Hvilke apps bor i Spil. OK skifter mellem Spil og Apps.</string>
+    <string name="jogos_no_card">i Spil</string>
+    <string name="jogos_na_linha">i Apps</string>
+    <string name="jogos_grupo_nuvem">I skyen</string>
+    <string name="jogos_grupo_pc">Fra pc og konsol</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Spil på tv\'et</string>
+    <string name="jogos_para_comecar">Kom i gang</string>
+    <string name="jogos_aviso_fraca_titulo">Svagt netværk til cloud-gaming</string>
+    <string name="jogos_aviso_fraca">Spillet kan hakke eller være forsinket. Et netværkskabel, eller tv\'et tættere på routeren, hjælper.</string>
+    <string name="jogos_jogar_assim">Spil alligevel</string>
+    <string name="jogos_nao_abriu">Denne app åbnede ikke.</string>
+    <string name="jogos_tirar">Tag den ud af Spil</string>
+    <string name="jogos_automatico">Tilbage til automatisk</string>
+    <string name="jogos_loja_tudo">De foreslåede apps er allerede på dette tv.</string>
+    <string name="jogos_loja_explica">Åbner appens side i Play Butik. Hvis Play Butik siger, at den ikke kører på dette tv, er det appens begrænsning.</string>
+    <string name="jogos_sem_loja">Play Butik åbnede ikke.</string>
+    <string name="jogos_pc_sem_mac">For at vække pc\'en, gem dens MAC-adresse i webpanelet: Extras, Væk computeren. Pc\'en skal også have Wake-on-LAN slået til og som regel et netværkskabel.</string>
+    <string name="jogos_pc_sem_app">For at spille på pc\'en, installer Moonlight eller Steam Link på tv\'et.</string>
+    <string name="jogos_pc_qual_app">Hvilken app spiller på pc\'en?</string>
+    <string name="jogos_pc_acordando">Vækker pc\'en… %1$d s</string>
+    <string name="jogos_pc_nao_respondeu">Pc\'en svarede ikke. Åbner appen alligevel.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Flere spil</string>
+    <string name="jogos_mais_opcoes">Mere</string>
+    <string name="jogos_ligar_pc_jogar">Tænd pc\'en og spil</string>
+    <string name="jogos_desc_pc">Spil computerens eller konsollens spil lige her på tv\'et.</string>
+    <string name="jogos_chip_medindo">Tjekker netværket…</string>
+    <string name="jogos_chip_boa">Godt netværk</string>
+    <string name="jogos_chip_ok">Netværk ok</string>
+    <string name="jogos_chip_fraca">Svagt netværk</string>
+    <string name="jogos_chip_sem">Intet internet</string>
+    <string name="jogos_tecla_jogar">spil</string>
+    <string name="jogos_tecla_segurar">hold OK</string>
+    <string name="jogos_tecla_opcoes">skift gruppe</string>
+</resources>

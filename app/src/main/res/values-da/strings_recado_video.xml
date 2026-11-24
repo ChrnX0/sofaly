@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recado em vídeo (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="vid_de">Video fra %1$s</string>
+    <string name="vid_mural">sendte en video</string>
+    <string name="vid_onde">For at se: Indstillinger › Familie › Familievideoer.</string>
+    <string name="vid_depois">Senere</string>
+    <string name="vid_assistir">Se</string>
+    <string name="vid_ok_para_assistir">Tryk på OK for at se.</string>
+    <string name="vid_lista">Familievideoer</string>
+    <string name="vid_lista_det">Sendt via familielinket. Hver bliver i 30 dage. Hold OK for at slette.</string>
+    <string name="vid_nenhum">Ingen videoer endnu.</string>
+    <string name="vid_apagar">Slet video</string>
+    <string name="vid_aceitar">Modtag videoer</string>
+    <string name="vid_aceitar_det">Familien kan sende videoer på op til 30 sekunder. De afspilles aldrig af sig selv.</string>
+    <string name="vid_quantos">Videoer: %1$d</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Dine data bliver hos dig</string>
+    <string name="nsc_det">Ingen konto hos os, ingen reklamer</string>
+    <string name="nsc_texto">Ingen konto hos os, ingen reklamer, ingen sporing af brug.\n\nDine indstillinger, fotos, noter og sikkerhedskopier bliver på dette tv, eller på en konto af dine egne, hvis du forbinder en.\n\nTv\'et taler kun med de tjenester, du slår til, som vejret eller filmplakater. Nogle går gennem vores server (api.sofaly.tv), som podcastsøgning; den får kun forespørgslen, aldrig en af dine konti. Privatlivspolitikken på webstedet nævner hver enkelt.</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Intet internet</string>
+    <string name="observer_no_internet_text">Videoer kan stoppe, indtil det kommer tilbage.</string>
+    <string name="observer_slow_internet_title">Langsomt internet</string>
+    <string name="observer_slow_internet_text">Svar tager %1$s ms. Videoer kan sætte på pause for at indlæse.</string>
+    <string name="observer_weak_wifi_title">Svagt wifi</string>
+    <string name="observer_weak_wifi_text">Signalet er på %1$s dBm. En router tættere på tv\'et hjælper.</string>
+    <string name="observer_low_memory_title">Hukommelsen næsten fuld</string>
+    <string name="observer_low_memory_text">Kun %1$s MB ledigt. Apps kan lukke og genstarte.</string>
+    <string name="observer_memory_pressure_title">Tv\'et er overbelastet</string>
+    <string name="observer_memory_pressure_text">Android lukker apps for at gøre plads.</string>
+    <string name="observer_slow_home_title">Startskærmen er langsom</string>
+    <string name="observer_slow_home_text">%1$s%% af billederne kom for sent.</string>
+    <string name="observer_low_disk_title">Lageret næsten fuldt</string>
+    <string name="observer_low_disk_text">Kun %1$s MB tilbage. Gemning kan fejle.</string>
+    <string name="observer_freeze_undone_title">Jeg fortrød en frysning</string>
+    <string name="observer_freeze_undone_text">%1$s var frosset, og %2$s holdt op med at virke, så jeg tøede den op.</string>
+</resources>

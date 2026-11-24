@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Børne-PIN</string>
+    <string name="fam_pin_det">En anden PIN-kode til at låse kanaler, skjulte kategorier og sengetid op foran børnene. Panelets PIN-kode virker stadig overalt.</string>
+    <string name="fam_pin_ok">Børne-PIN gemt</string>
+    <string name="fam_pin_igual">Børne-PIN skal være forskellig fra panelets PIN-kode</string>
+    <string name="fam_trocar">Skift børne-PIN</string>
+    <string name="fam_apagar">Fjern børne-PIN</string>
+    <string name="fam_apagado">Børne-PIN fjernet: nu låser kun panelets PIN-kode op</string>
+    <string name="extras_TEMPO_TELA">Daglig skærmtid (når den er brugt op, åbner kun tilladte apps)</string>
+    <string name="tela_titulo">Skærmtid</string>
+    <string name="tela_acabou">Dagens skærmtid er brugt op. Vi ses i morgen!</string>
+    <string name="tela_5min">5 minutters skærmtid tilbage i dag</string>
+    <string name="tela_pin">PIN-kode for at ændre skærmtiden</string>
+    <string name="tela_cota_linha">Skærmtid pr. dag: %1$s (tilbage i dag: %2$s)</string>
+    <string name="tela_mais">Giv %1$d minutter mere i dag</string>
+    <string name="tela_mais_ok">%1$d minutter mere for i dag</string>
+    <string name="tela_h">t</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Kalender for alle tv\'ets Google-konti samlet</string>
+    <string name="cal_todas_contas">Alle konti på tv\'et (%1$d)</string>
+    <string name="tm_tempo_esgotado">Tiden er gået</string>
+    <string name="painel_desligado_pin">Webpanelet slået fra: forkert PIN-kode for mange gange</string>
+    <string name="tm_crono">Stopur</string>
+    <string name="tm_crono_iniciar">Start stopuret</string>
+    <string name="tm_crono_parar">Stop stopuret</string>
+    <string name="tm_crono_comecou">Stopuret startet: det vises på startskærmen</string>
+    <string name="tm_crono_marcou">Stopuret stoppet ved %1$s</string>
+    <string name="som_canal">Seneste live-tv-kanal</string>
+</resources>

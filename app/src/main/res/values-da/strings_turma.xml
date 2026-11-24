@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">I sofaen</string>
+    <string name="jogos_controle_pronto">klar</string>
+    <string name="jogos_controle_carregar">oplad snart</string>
+    <string name="jogos_parear_um">Par en controller</string>
+    <string name="turma_titulo">Din bande</string>
+    <string name="turma_online">%1$d online</string>
+    <string name="turma_mais_online">+ %1$d online</string>
+    <string name="turma_na_voz">I tale</string>
+    <string name="turma_ausente">væk</string>
+    <string name="turma_ocupado">optaget</string>
+    <string name="turma_status_online">online</string>
+    <string name="turma_ninguem">Ingen online lige nu</string>
+    <string name="turma_procurando">Leder efter din bande…</string>
+    <string name="turma_sem_rede">Ingen forbindelse til Discord lige nu.</string>
+    <string name="turma_mostrar_titulo">Vis din Discord-bande</string>
+    <string name="turma_mostrar_texto">Se på tv\'et, hvem der er online, spiller og er i tale.</string>
+    <string name="turma_desligado_titulo">Serverwidgetten er slået fra</string>
+    <string name="turma_desligado_texto">I Discord: Serverindstillinger, Widget, slå Aktivér serverwidget til.</string>
+    <string name="turma_qr_dica">Ret din telefon hertil for at deltage i talechatten. Snakken foregår på telefonen.</string>
+    <string name="turma_jogando">%1$s spiller %2$s</string>
+    <string name="turma_dois">%1$s og %2$s</string>
+    <string name="turma_e_mais">%1$s og %2$d mere</string>
+    <string name="turma_chamar">Kald på banden</string>
+    <string name="turma_chamar_pergunta">Sende til Discord-kanalen?</string>
+    <string name="turma_chamado_jogo">🎮 Hvem er klar til %1$s? Jeg er på tv\'et.</string>
+    <string name="turma_chamado">🎮 Hvem er klar til et spil? Jeg er på tv\'et.</string>
+    <string name="turma_mandar">Send</string>
+    <string name="turma_enviado">Din bande blev kaldt på Discord.</string>
+    <string name="turma_espere">Vent et minut, før du kalder igen.</string>
+    <string name="turma_falhou">Discord fik den ikke. Tjek internettet eller webhooken.</string>
+    <string name="turma_config_titulo">Din Discord-bande</string>
+    <string name="turma_config_texto">1. I Discord: Serverindstillinger, Widget, slå Aktivér serverwidget til.\n2. På samme side, kopier Server-id\'et, og skriv det her.\n\nFor knappen Kald på banden, indsæt en kanal-webhook i tv\'ets webpanel.</string>
+    <string name="turma_config_dica">Server-id (kun tal)</string>
+    <string name="turma_config_guardar">Gem</string>
+    <string name="turma_config_tirar">Fjern banden</string>
+    <string name="turma_id_invalido">Dette er ikke et Discord-server-id (17 til 20 cifre).</string>
+    <string name="cruz_sofa_sub">Controllere og din Discord-bande</string>
+    <string name="cruz_sofa_voz">%1$d i tale · %2$s</string>
+</resources>

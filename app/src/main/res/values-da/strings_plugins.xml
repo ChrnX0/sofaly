@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Plugins</string>
+    <string name="plg_nenhum">Intet kortplugin installeret. Kortplugins er apps fra andre udviklere, der viser et kort her, som en kampstilling eller en pris.</string>
+    <string name="plg_ligado">Til</string>
+    <string name="plg_desligado">Fra</string>
+    <string name="plg_limite">Højst %1$d plugins ad gangen. Slå først et fra.</string>
+    <string name="plg_seguranca">Hvis et plugin opdateres med en anden signatur, slås det fra, indtil du tillader det igen.</string>
+</resources>

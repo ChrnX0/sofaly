@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Gæstetilstand</string>
+    <string name="hos_det">Til udlejning: gæsternes logins slettes ved udtjekning. At slå det fra kræver PIN-koden.</string>
+    <string name="hos_pin_sair">PIN-kode for at forlade gæstetilstand</string>
+    <string name="hos_pin_config">PIN-kode for at åbne indstillingerne</string>
+    <string name="hos_saida">Gæsteudtjekning</string>
+    <string name="hos_saida_det">På dette tidspunkt ryddes streamingapps. OK ændrer dagen.</string>
+    <string name="hos_saida_nenhuma">Ikke angivet</string>
+    <string name="hos_saida_hoje">I dag kl. %1$s</string>
+    <string name="hos_saida_amanha">I morgen kl. %1$s</string>
+    <string name="hos_saida_dia">%1$s kl. %2$s</string>
+    <string name="hos_hora">Tidspunkt for udtjekning</string>
+    <string name="hos_hora_det">OK ændrer timen (8:00 til 14:00).</string>
+    <string name="hos_regras">Husregler</string>
+    <string name="hos_regras_vazio">Ingen endnu. De vises på velkomstskærmen.</string>
+    <string name="hos_regras_dica">F.eks.: Ro efter kl. 22. Udtjekning kl. 11.</string>
+    <string name="hos_apps">Apps, der skal ryddes ved udtjekning</string>
+    <string name="hos_apps_det">Logins og historik for de markerede apps slettes. Streamingapps er markeret på forhånd.</string>
+    <string name="hos_apps_sub">OK markerer eller fjerner markering. Systemapps kan ikke ryddes.</string>
+    <string name="hos_encerrar">Afslut opholdet nu</string>
+    <string name="hos_encerrar_det">Rydder apps nu og gør velkomsten klar til den næste gæst.</string>
+    <string name="hos_encerrar_pergunta">Slette logins og historik for gæsteapps nu? Det kan ikke fortrydes.</string>
+    <string name="hos_encerrar_sim">Slet</string>
+    <string name="hos_limpando">Rydder…</string>
+    <string name="hos_limpou">Ryddede apps: %1$d.</string>
+    <string name="hos_limpou_falhas">Ryddede apps: %1$d. Fejlede: %2$s</string>
+    <string name="hos_ultima">Seneste oprydning: %1$s</string>
+    <string name="hos_bv_titulo">Velkommen!</string>
+    <string name="hos_bv_regras">Husregler</string>
+    <string name="hos_bv_privacidade">Log ind på dine apps uden bekymring: ved udtjekning slettes logins og historik for streamingapps automatisk.</string>
+    <string name="hos_bv_ok">Start</string>
+    <string name="hos_bv_wifi">Wifi</string>
+</resources>

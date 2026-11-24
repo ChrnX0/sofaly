@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Internettet er tilbage</string>
+    <string name="rd_voltou_texto">Det var nede i %1$s (siden %2$s). Sandsynlig årsag: %3$s.</string>
+    <string name="rd_causa_wifi">tv\'et mistede sin wifi</string>
+    <string name="rd_causa_provedor">internetudbyder eller router</string>
+    <string name="rd_min">%1$d min</string>
+    <string name="rd_h_min">%1$d t %2$d min</string>
+    <string name="rd_disco_titulo">Tv-lageret er ved at blive fyldt</string>
+    <string name="rd_disco_texto">I dette tempo er det fyldt om cirka %1$d dage (%2$d MB ledigt). Ryd apps\' cache, eller fjern apps, du ikke bruger.</string>
+    <string name="pr_avisos_tv">Fra tv\'et</string>
+    <string name="mural_riscar">Streg %1$s ud</string>
+    <string name="ds_lento_titulo">Sofaly er blevet langsommere</string>
+    <string name="ds_lento_texto">Version %1$d: langsomme billeder tager %2$d ms, de tog %3$d ms (+%4$d%%).</string>
+</resources>

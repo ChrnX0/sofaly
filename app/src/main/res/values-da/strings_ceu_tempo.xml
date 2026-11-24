@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor que reage ao tempo, caminho 2 (17/11/2026): frase do tempo, curiosidades do céu e o tema "Céu de verdade". -->
+<resources>
+    <string name="tema_ceu">Den rigtige himmel</string>
+    <string name="cu_estacao">Rumstationen kl. %1$s</string>
+    <string name="cu_estacao_d">%1$d min · %2$s → %3$s</string>
+    <string name="cu_meteoros">Meteorsværm i nat</string>
+    <string name="cu_meteoros_d">%1$s · op til %2$d i timen</string>
+    <string name="cu_eclipse">Solformørkelse %1$s</string>
+    <string name="cu_eclipse_d">se aldrig direkte på solen</string>
+    <string name="cu_superlua">Supermåne i aften</string>
+    <string name="cu_lua_cheia_d">står op i øst ved skumring</string>
+    <string-array name="ceu_rumos">
+        <item>nord</item>
+        <item>nordøst</item>
+        <item>øst</item>
+        <item>sydøst</item>
+        <item>syd</item>
+        <item>sydvest</item>
+        <item>vest</item>
+        <item>nordvest</item>
+    </string-array>
+    <string-array name="ceu_meteoros">
+        <item>Kvadrantiderne</item>
+        <item>Lyriderne</item>
+        <item>Eta Aquariiderne</item>
+        <item>Delta Aquariiderne</item>
+        <item>Perseiderne</item>
+        <item>Orioniderne</item>
+        <item>Leoniderne</item>
+        <item>Geminiderne</item>
+    </string-array>
+    <string name="ns_titulo">Nattehimmel</string>
+    <!-- Ilha: sol forte (SunAlert, UV ≥ 8). -->
+    <string name="ilha_uv">UV %1$d: brug solcreme</string>
+</resources>
