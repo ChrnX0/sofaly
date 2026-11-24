@@ -35,7 +35,7 @@
     <string name="cfg_tenta_ligar">" · OK tenta ligar"</string>
     <string name="cfg_perm_fixas">Permissões fixas concedidas</string>
     <string name="cfg_shell_estado">Shell próprio</string>
-    <string name="cfg_shell_pareado">já pareado: o launcher se reconecta sozinho pela Depuração por Wi-Fi</string>
+    <string name="cfg_shell_pareado">já pareado: o launcher se reconecta sozinho pela Depuração sem fio</string>
     <string name="cfg_shell_nunca">ainda não pareado: use \"Parear sem PC\" abaixo</string>
     <string name="cfg_sec_shizuku">Shell do launcher (ADB Wi-Fi)</string>
     <string name="cfg_parear">Parear sem PC</string>

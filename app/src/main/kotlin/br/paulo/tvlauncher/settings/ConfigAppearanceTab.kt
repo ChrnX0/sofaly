@@ -160,7 +160,8 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     linhaOnda3(R.string.cruz_ambiente, R.string.cruz_ambiente_det, CruzOnda3.CHAVE_AMBIENTE)
     linhaOnda3(R.string.cruz_paralaxe, R.string.cruz_paralaxe_det, CruzOnda3.CHAVE_PARALAXE)
     linhaOnda3(R.string.cruz_quem, R.string.cruz_quem_det, CruzOnda3.CHAVE_QUEM)
-    linhaOnda3(R.string.cruz_dormir_atalho, R.string.cruz_dormir_atalho_det, CruzOnda3.CHAVE_DORMIR)
+    // "Dormir em 30 min à noite" saiu daqui (teste 100%, 24/11/2026): desde 21/11 o Dormir fica o dia todo em
+    // Ferramentas (itemDormir(sempre = true)) e esta chave não mudava mais nada na tela.
     // Pacote de ícones (degrau 1, 15/11/2026): desligado de fábrica; cada OK passa ao próximo instalado e volta a "Nenhum".
     val pacotes = PacoteIcones.instalados(this)
     fun rotuloPacote() = PacoteIcones.escolhido(this).let { if (it.isEmpty()) getString(R.string.pi_nenhum) else PacoteIcones.nome(this, it) }
