@@ -31,4 +31,5 @@
         <item>Geminiden</item>
     </string-array>
     <string name="ns_titulo">Nachthimmel</string>
+    <string name="ilha_uv">UV %1$d gerade: Sonnencreme, wenn Sie rausgehen</string>
 </resources>

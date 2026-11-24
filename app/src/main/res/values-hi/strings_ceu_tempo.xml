@@ -31,4 +31,5 @@
         <item>जेमिनिड्स</item>
     </string-array>
     <string name="ns_titulo">रात का आसमान</string>
+    <string name="ilha_uv">अभी UV %1$d: बाहर जाएँ तो सनस्क्रीन लगाएँ</string>
 </resources>

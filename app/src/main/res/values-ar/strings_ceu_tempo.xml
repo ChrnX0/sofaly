@@ -31,4 +31,5 @@
         <item>التوأميات</item>
     </string-array>
     <string name="ns_titulo">سماء الليل</string>
+    <string name="ilha_uv">الأشعة فوق البنفسجية %1$d الآن: ضع واقي الشمس إن خرجت</string>
 </resources>

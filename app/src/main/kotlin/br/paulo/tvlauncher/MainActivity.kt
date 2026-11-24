@@ -2165,6 +2165,8 @@ class MainActivity : Activity() {
     /** Lidos a cada minuto fora da thread da tela ([tarefaIlhaTique]): (texto, quando começa). */
     @Volatile internal var ilhaLembrete: Pair<String, Long>? = null
     @Volatile internal var ilhaAgenda: Pair<String, Long>? = null
+    /** UV muito alto agora (SunAlert) e quando o clima o mediu; a Ilha ignora depois de 90 min. */
+    @Volatile internal var ilhaUv: Pair<Int, Long>? = null
     @Volatile internal var ilhaCeu: Pair<String, br.paulo.tvlauncher.weather.NightSky.Kind>? = null
     @Volatile internal var ilhaIndicadores: Set<BarraIlha.Indicador> = emptySet()
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null
@@ -2598,6 +2600,7 @@ class MainActivity : Activity() {
                     val mudou = txtTemp.text.toString() != "${r.temp}°"
                     txtTemp.text = "${r.temp}°"
                     ultimaTemp = r.temp
+                    ilhaUv = r.uvAviso?.let { it to System.currentTimeMillis() }
                     if (mudou) atualizarCruz()
                     // Guarda o que o topo mostra: a previsão aberta por voz ("Boletim do Tempo") e o protetor de tela
                     // (ProtetorTela.kt, sem rede própria) não passam por aqui e leem isto.

@@ -31,4 +31,5 @@
         <item>쌍둥이자리 유성우</item>
     </string-array>
     <string name="ns_titulo">밤하늘</string>
+    <string name="ilha_uv">지금 자외선 %1$d: 외출하면 선크림을</string>
 </resources>

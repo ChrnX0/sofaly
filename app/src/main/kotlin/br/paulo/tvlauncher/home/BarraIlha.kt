@@ -20,7 +20,7 @@ object BarraIlha {
     @Volatile var agora: org.json.JSONArray? = null
 
     /** Em ordem de importância: o primeiro presente abre a fila. */
-    enum class Tipo { SEM_INTERNET, CAMPAINHA, SERVICO_FORA, TIMER, ALARME, LEMBRETE, TOCANDO, LEMBRETE_CASA, AGENDA, ANIVERSARIO, JOGO, VENCIMENTO, CONTAGEM, CEU }
+    enum class Tipo { SEM_INTERNET, CAMPAINHA, SERVICO_FORA, TIMER, ALARME, LEMBRETE, TOCANDO, LEMBRETE_CASA, AGENDA, ANIVERSARIO, JOGO, VENCIMENTO, CONTAGEM, CEU, SOL }
 
     data class Evento(val tipo: Tipo, val texto: String, val tocando: Boolean = false) {
         /** Pede atenção (texto em âmbar e ponto âmbar/vermelho). */
@@ -54,6 +54,8 @@ object BarraIlha {
         val contagem: String? = null,
         /** Céu da noite ([br.paulo.tvlauncher.weather.NightSky]): só nas 3 h antes de um evento de verdade, com céu limpo. */
         val ceu: String? = null,
+        /** Sol forte ([br.paulo.tvlauncher.weather.SunAlert]): UV ≥ 8 agora ou na próxima hora, de dia e com céu aberto. */
+        val sol: String? = null,
     )
 
     /** O despertador vai para a pílula nas últimas 12 h (antes disso, só na barra aberta). */
@@ -91,6 +93,7 @@ object BarraIlha {
         add(Tipo.LEMBRETE_CASA, e.lembreteCasa)
         if (dentro(e.agendaFaltaMs, AGENDA_JANELA_MS, AGENDA_ATRASO_MS)) add(Tipo.AGENDA, e.agenda)
         add(Tipo.CEU, e.ceu)
+        add(Tipo.SOL, e.sol)
         add(Tipo.ANIVERSARIO, e.aniversario)
         add(Tipo.JOGO, e.jogo)
         add(Tipo.VENCIMENTO, e.vencimento)
@@ -136,7 +139,7 @@ object BarraIlha {
     // ------------------------------------------------------------------ Ilha que cresce
 
     /** Tipos que, ao CHEGAR, fazem a Ilha crescer por [CRESCER_MS] com a dica da ação (como a Dynamic Island). */
-    private val CRESCEM = setOf(Tipo.SEM_INTERNET, Tipo.CAMPAINHA, Tipo.LEMBRETE, Tipo.AGENDA, Tipo.ALARME, Tipo.CEU)
+    private val CRESCEM = setOf(Tipo.SEM_INTERNET, Tipo.CAMPAINHA, Tipo.LEMBRETE, Tipo.AGENDA, Tipo.ALARME, Tipo.CEU, Tipo.SOL)
     const val CRESCER_MS = 5_000L
 
     /**

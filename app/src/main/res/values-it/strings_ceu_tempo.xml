@@ -31,4 +31,5 @@
         <item>Geminidi</item>
     </string-array>
     <string name="ns_titulo">Cielo notturno</string>
+    <string name="ilha_uv">UV %1$d adesso: crema solare se esci</string>
 </resources>

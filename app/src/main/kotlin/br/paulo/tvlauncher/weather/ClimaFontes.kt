@@ -20,7 +20,9 @@ object ClimaFontes {
         val amanha: List<Int>?, val codigo: Int, val chovendo: Boolean, val eDia: Boolean, val picoChuva: Int,
         val linha: String, val icone: String, val horas: String = "",
         /** Chance de chuva do resto de hoje (a maior), para "Hoje · X% de chuva" (#185). */
-        val chuvaHoje: Int = picoChuva)
+        val chuvaHoje: Int = picoChuva,
+        /** UV muito alto agora ou na próxima hora (SunAlert), arredondado; null = sem aviso. */
+        val uvAviso: Int? = null)
 
     @Volatile private var ultimaMedida: Medida? = null   // a última leitura boa do aeroporto
     @Volatile private var ultimaMedidaMs = 0L
@@ -34,7 +36,7 @@ object ClimaFontes {
         val url = "https://api.open-meteo.com/v1/forecast" +
             "?latitude=${ponto.lat}&longitude=${ponto.lon}" +
             "&current=temperature_2m,relative_humidity_2m,weather_code,precipitation,is_day" +
-            "&hourly=precipitation_probability,temperature_2m,weather_code&forecast_hours=24" +
+            "&hourly=precipitation_probability,temperature_2m,weather_code,uv_index&forecast_hours=24" +
             "&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max" +
             "&timezone=auto&forecast_days=${FaixaDias.DIAS}$unidade"
         // Fonte pelo plano e pela licença (DataSources, 19/11/2026): MET Norway no Básico, WeatherAPI no Pro, Open-Meteo paga no Ultra.
@@ -130,8 +132,17 @@ object ClimaFontes {
         // IconesClima.aparar na pilha da thread principal). Na tela, bitmap() já acha pronto no cache.
         if (IconesClima.ehIcone(icone)) IconesClima.bitmap(ctx, icone)
         return Resultado(ponto, temp, umidade, max, min, amanha, codigo, chovendoAgora, eDia, picoChuva, textoLinha, icone,
-            proximasHoras(json, atual.optString("time", ""), horasData, horasChuva), chuvaHoje = chuvaHoje)
+            proximasHoras(json, atual.optString("time", ""), horasData, horasChuva), chuvaHoje = chuvaHoje,
+            uvAviso = uvAviso(json, horaAgora, codigo, chovendoAgora, eDia))
     }
+
+    /** O UV por hora vem no mesmo pedido (Open-Meteo, MET e WeatherAPI convertidos trazem "uv_index"). */
+    private fun uvAviso(json: JSONObject, horaAgora: String, codigo: Int, chovendo: Boolean, eDia: Boolean): Int? = runCatching {
+        val h = json.getJSONObject("hourly")
+        val t = h.getJSONArray("time"); val u = h.optJSONArray("uv_index") ?: return@runCatching null
+        SunAlert.uvParaAviso((0 until t.length()).map { t.getString(it) }, (0 until u.length()).map { u.optDouble(it, Double.NaN) },
+            horaAgora, codigo, chovendo, eDia)
+    }.getOrNull()
 
     /**
      * As próximas horas (hoje quem lê é o céu da noite, [NightSky.limpo]: céu limpo na hora do evento): "hora|temp|código|chuva"
