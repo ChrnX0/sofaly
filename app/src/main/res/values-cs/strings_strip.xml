@@ -29,4 +29,8 @@
     <string name="st_nome">Název na vybrané kartě</string>
     <string name="st_sem">Vypnuto</string>
     <string name="st_com">Zapnuto</string>
+    <string name="st_telas">Styl obrazovek</string>
+    <string name="st_telas_gaveta">Zásuvka</string>
+    <string name="st_telas_vidro">Sklo</string>
+    <string name="st_telas_barra">Lišta</string>
 </resources>

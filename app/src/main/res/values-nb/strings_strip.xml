@@ -29,4 +29,8 @@
     <string name="st_nome">Navn på kortet i fokus</string>
     <string name="st_sem">Av</string>
     <string name="st_com">På</string>
+    <string name="st_telas">Skjermstil</string>
+    <string name="st_telas_gaveta">Skuff</string>
+    <string name="st_telas_vidro">Glass</string>
+    <string name="st_telas_barra">Linje</string>
 </resources>

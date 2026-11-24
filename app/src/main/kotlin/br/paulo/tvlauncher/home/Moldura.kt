@@ -53,6 +53,7 @@ object Moldura {
         if (a.javaClass.simpleName !in TELAS || a.isFinishing) return
         val conteudo = a.findViewById<ViewGroup>(android.R.id.content) as? FrameLayout ?: return
         if (conteudo.childCount == 0 || conteudo.findViewWithTag<android.view.View>(MARCA) != null) return
+        if (BottomBar.strip(a) && ScreenStyle.of(a) == ScreenStyle.DRAWER) gaveta(a, conteudo)
         if (BottomBar.strip(a)) {
             // Barra única: a pílula da hora no alto, no centro, como na barra (coerência das telas, 24/11/2026).
             conteudo.addView(pilula(a), FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Estilo.dp(a, PILULA_ALTURA),
@@ -64,6 +65,23 @@ object Moldura {
             topMargin = Estilo.dp(a, TOPO)
             marginEnd = Estilo.dp(a, Estilo.MARGEM_LATERAL)
         })
+    }
+
+    /**
+     * Jeito Gaveta (proposta B, padrão): a tela de lista desce para a parte de baixo e a foto da barra fica nítida em
+     * cima. Como: a foto vai para o fundo do "content" da janela, a raiz da tela perde o vidro e ganha margem de cima
+     * de [GlassBackground.GAVETA_TOPO] da altura. Só age quando a raiz usa o fundo do sistema (Estilo.fundoTela): uma
+     * tela com fundo próprio fica como está. Chamado de novo na retomada: não faz duas vezes.
+     */
+    private fun gaveta(a: Activity, conteudo: FrameLayout) {
+        val raiz = conteudo.getChildAt(0) ?: return
+        if (raiz.background !is GlassDrawable) return
+        val lp = raiz.layoutParams as? FrameLayout.LayoutParams ?: return
+        val foto = GlassBackground.drawer(a) ?: return
+        conteudo.background = foto
+        raiz.background = null
+        lp.topMargin = (a.resources.displayMetrics.heightPixels * GlassBackground.GAVETA_TOPO).toInt() - Estilo.dp(a, Estilo.MARGEM_VERTICAL)
+        raiz.layoutParams = lp
     }
 
     private const val PILULA_ALTURA = 40

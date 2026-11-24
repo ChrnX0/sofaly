@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">Focused only</string>
     <string name="wo_cards">Card shape in this world</string>
     <string name="wo_cards_geral">Same as Fine-tune (%1$s)</string>
+    <string name="st_telas">Other screens</string>
+    <string name="st_telas_gaveta">Drawer</string>
+    <string name="st_telas_vidro">Glass</string>
+    <string name="st_telas_barra">Bar</string>
 </resources>

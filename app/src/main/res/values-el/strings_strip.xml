@@ -29,4 +29,8 @@
     <string name="st_nome">Όνομα στην επιλεγμένη κάρτα</string>
     <string name="st_sem">Ανενεργό</string>
     <string name="st_com">Ενεργό</string>
+    <string name="st_telas">Στυλ οθονών</string>
+    <string name="st_telas_gaveta">Συρτάρι</string>
+    <string name="st_telas_vidro">Γυαλί</string>
+    <string name="st_telas_barra">Μπάρα</string>
 </resources>

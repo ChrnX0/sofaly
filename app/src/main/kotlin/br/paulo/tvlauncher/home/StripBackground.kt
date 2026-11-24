@@ -107,6 +107,27 @@ object GlassBackground {
     private const val RAIO = 3
     private const val PASSADAS = 3
     private val cache = HashMap<StripBackground.Choice, Bitmap>()
+    private val nitidas = HashMap<StripBackground.Choice, Bitmap>()
+
+    /** Onde a gaveta começa, em fração da altura da tela: a foto fica livre acima disso (Paulo escolheu, 24/11/2026). */
+    const val GAVETA_TOPO = 0.36f
+
+    /**
+     * O fundo da Gaveta (proposta B): a foto NÍTIDA (metade do tamanho, 800 x 450, em RGB 565: ~700 KB) com o véu de cima
+     * (atrás da pílula) e o véu Noite que vira painel a partir de [GAVETA_TOPO]. Null quando não há foto.
+     */
+    fun drawer(ctx: Context): android.graphics.drawable.Drawable? {
+        val escolha = StripBackground.choice(ctx)
+        val asset = escolha.asset ?: return null
+        val bmp = synchronized(nitidas) {
+            nitidas[escolha] ?: runCatching {
+                ctx.assets.open(asset).use {
+                    BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = 2; inPreferredConfig = Bitmap.Config.RGB_565 })
+                }
+            }.getOrNull()?.also { nitidas.clear(); nitidas[escolha] = it }
+        } ?: return null
+        return GlassDrawable(bmp, gaveta = true)
+    }
 
     /** O fundo de vidro, ou null quando a HOME não é a barra ou o fundo da barra não é foto (aí fica o grafite). */
     fun of(ctx: Context): android.graphics.drawable.Drawable? {
@@ -151,7 +172,7 @@ object GlassBackground {
 }
 
 /** Desenha a foto borrada em "centerCrop" com filtro e o véu Noite por cima. Opaco. */
-class GlassDrawable(private val foto: Bitmap) : android.graphics.drawable.Drawable() {
+class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = false) : android.graphics.drawable.Drawable() {
     private val pinta = Paint(Paint.FILTER_BITMAP_FLAG)
     private val veu = Paint().apply { color = (GlassBackground.VEU shl 24) or (DesignTokens.NIGHT and 0xFFFFFF) }
     private val origem = Rect()
@@ -165,8 +186,18 @@ class GlassDrawable(private val foto: Bitmap) : android.graphics.drawable.Drawab
         origem.set(x0, y0, x0 + vw, y0 + vh); destino.set(bounds)
         c.drawColor(DesignTokens.NIGHT)
         c.drawBitmap(foto, origem, destino, pinta)
-        c.drawRect(destino, veu)
+        if (!gaveta) { c.drawRect(destino, veu); return }
+        // Gaveta: véu de cima atrás da pílula (como na barra) e o painel Noite que sobe um pouco antes do conteúdo.
+        val t = bounds.top.toFloat()
+        val topo = t + h * GlassBackground.GAVETA_TOPO
+        val noite = DesignTokens.NIGHT and 0xFFFFFF
+        degrade.shader = LinearGradient(0f, t, 0f, t + h * 0.22f, (0x8C shl 24) or noite, noite, Shader.TileMode.CLAMP)
+        c.drawRect(bounds.left.toFloat(), t, bounds.right.toFloat(), t + h * 0.22f, degrade)
+        degrade.shader = LinearGradient(0f, topo - h * 0.16f, 0f, topo + h * 0.04f, noite, (0xF2 shl 24) or noite, Shader.TileMode.CLAMP)
+        c.drawRect(bounds.left.toFloat(), topo - h * 0.16f, bounds.right.toFloat(), bounds.bottom.toFloat(), degrade)
+        degrade.shader = null
     }
+    private val degrade = Paint()
     override fun setAlpha(alpha: Int) {}
     override fun setColorFilter(cf: android.graphics.ColorFilter?) {}
     @Deprecated("Deprecated in Java") override fun getOpacity() = android.graphics.PixelFormat.OPAQUE

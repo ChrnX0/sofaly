@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">仅所选项</string>
     <string name="wo_cards">此世界的卡片形状</string>
     <string name="wo_cards_geral">与微调相同（%1$s）</string>
+    <string name="st_telas">屏幕样式</string>
+    <string name="st_telas_gaveta">抽屉</string>
+    <string name="st_telas_vidro">玻璃</string>
+    <string name="st_telas_barra">横栏</string>
 </resources>
