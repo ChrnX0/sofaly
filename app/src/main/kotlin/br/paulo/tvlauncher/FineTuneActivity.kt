@@ -211,7 +211,10 @@ class FineTuneActivity : Activity() {
         val espacos = listOf(R.string.st_justo, R.string.st_normal, R.string.st_largo)
         val cantos = listOf(R.string.st_retos, R.string.st_suaves, R.string.st_redondos)
         val simNao = listOf(R.string.st_sem, R.string.st_com)
+        val B = br.paulo.tvlauncher.home.StripBackground
+        val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
         return listOf(
+            Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },
             Ajuste(R.string.st_desc, { getString(descs[o().desc.ordinal]) }) { p -> getString(descs[gira(S.KEY_DESC, o().desc.ordinal, 2, p)]) },
             Ajuste(R.string.st_formato, { formatos[o().format.ordinal] }) { p -> formatos[gira(S.KEY_FORMAT, o().format.ordinal, 3, p)] },
             Ajuste(R.string.st_tamanho, { getString(tamanhos[o().size.ordinal]) }) { p -> getString(tamanhos[gira(S.KEY_SIZE, o().size.ordinal, 3, p)]) },

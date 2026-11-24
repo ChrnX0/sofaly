@@ -29,4 +29,9 @@
     <string name="st_nome">Seçili kartta ad</string>
     <string name="st_sem">Kapalı</string>
     <string name="st_com">Açık</string>
+    <string name="st_fundo">Arka plan</string>
+    <string name="st_fundo_vale">Vadi</string>
+    <string name="st_fundo_serra">Dağlar</string>
+    <string name="st_fundo_noite">Gece</string>
+    <string name="st_fundo_tema">Temadan</string>
 </resources>

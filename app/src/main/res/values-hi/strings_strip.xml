@@ -29,4 +29,9 @@
     <string name="st_nome">चुने कार्ड पर नाम</string>
     <string name="st_sem">नहीं</string>
     <string name="st_com">हाँ</string>
+    <string name="st_fundo">पृष्ठभूमि</string>
+    <string name="st_fundo_vale">घाटी</string>
+    <string name="st_fundo_serra">पहाड़</string>
+    <string name="st_fundo_noite">रात</string>
+    <string name="st_fundo_tema">थीम से</string>
 </resources>

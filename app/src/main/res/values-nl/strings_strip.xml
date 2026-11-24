@@ -29,4 +29,9 @@
     <string name="st_nome">Naam op de kaart in focus</string>
     <string name="st_sem">Uit</string>
     <string name="st_com">Aan</string>
+    <string name="st_fundo">Achtergrond</string>
+    <string name="st_fundo_vale">Vallei</string>
+    <string name="st_fundo_serra">Bergen</string>
+    <string name="st_fundo_noite">Nacht</string>
+    <string name="st_fundo_tema">Van het thema</string>
 </resources>

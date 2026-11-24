@@ -29,4 +29,9 @@
     <string name="st_nome">Name on focused card</string>
     <string name="st_sem">Off</string>
     <string name="st_com">On</string>
+    <string name="st_fundo">Background</string>
+    <string name="st_fundo_vale">Valley</string>
+    <string name="st_fundo_serra">Mountains</string>
+    <string name="st_fundo_noite">Night</string>
+    <string name="st_fundo_tema">From the theme</string>
 </resources>

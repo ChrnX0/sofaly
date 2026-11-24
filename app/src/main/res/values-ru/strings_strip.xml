@@ -29,4 +29,9 @@
     <string name="st_nome">Название на выбранной карточке</string>
     <string name="st_sem">Нет</string>
     <string name="st_com">Да</string>
+    <string name="st_fundo">Фон</string>
+    <string name="st_fundo_vale">Долина</string>
+    <string name="st_fundo_serra">Горы</string>
+    <string name="st_fundo_noite">Ночь</string>
+    <string name="st_fundo_tema">Из темы</string>
 </resources>

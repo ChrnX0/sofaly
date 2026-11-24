@@ -29,4 +29,9 @@
     <string name="st_nome">선택한 카드에 이름</string>
     <string name="st_sem">끔</string>
     <string name="st_com">켬</string>
+    <string name="st_fundo">배경</string>
+    <string name="st_fundo_vale">계곡</string>
+    <string name="st_fundo_serra">산맥</string>
+    <string name="st_fundo_noite">밤</string>
+    <string name="st_fundo_tema">테마에서</string>
 </resources>

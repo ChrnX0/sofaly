@@ -29,4 +29,9 @@
     <string name="st_nome">Nome no card em foco</string>
     <string name="st_sem">Não</string>
     <string name="st_com">Sim</string>
+    <string name="st_fundo">Fundo</string>
+    <string name="st_fundo_vale">Vale</string>
+    <string name="st_fundo_serra">Serra</string>
+    <string name="st_fundo_noite">Noite</string>
+    <string name="st_fundo_tema">Do tema</string>
 </resources>

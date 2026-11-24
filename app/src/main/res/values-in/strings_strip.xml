@@ -29,4 +29,9 @@
     <string name="st_nome">Nama di kartu terpilih</string>
     <string name="st_sem">Tidak</string>
     <string name="st_com">Ya</string>
+    <string name="st_fundo">Latar</string>
+    <string name="st_fundo_vale">Lembah</string>
+    <string name="st_fundo_serra">Pegunungan</string>
+    <string name="st_fundo_noite">Malam</string>
+    <string name="st_fundo_tema">Dari tema</string>
 </resources>

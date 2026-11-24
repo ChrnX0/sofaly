@@ -61,4 +61,13 @@ class StripHomeTest {
         assertEquals("normal passa igual", "Jornal Nacional · TV Globo", StripHome.semGritar("Jornal Nacional · TV Globo"))
         assertEquals(listOf("No ar" to true, " Jornal" to false), StripHome.partes("**No ar** Jornal"))
     }
+
+    @Test fun fundoDaBarra() {
+        val B = br.paulo.tvlauncher.home.StripBackground
+        assertEquals("nunca escolhido, tema Escuro: Vale (Paulo, 24/11/2026)", B.Choice.VALE, B.resolve(-1, true))
+        assertEquals("nunca escolhido, tema escolhido pela pessoa: fica o do tema", B.Choice.THEME, B.resolve(-1, false))
+        assertEquals(B.Choice.NOITE, B.resolve(2, false))
+        assertEquals(B.Choice.THEME, B.resolve(3, true))
+        assertEquals("novo fundo agora gira só entre as fotos", B.Choice.VALE, B.nextPhoto(B.Choice.NOITE))
+    }
 }

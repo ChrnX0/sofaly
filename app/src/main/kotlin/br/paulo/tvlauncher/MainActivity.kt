@@ -420,7 +420,7 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
         "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
         "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.mode(this)}|" +
-        br.paulo.tvlauncher.home.StripHome.options(this).signature()   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        br.paulo.tvlauncher.home.StripHome.options(this).signature() + "|" + br.paulo.tvlauncher.home.StripBackground.choice(this)   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
 
     override fun onResume() {
         super.onResume()
@@ -935,16 +935,20 @@ class MainActivity : Activity() {
         // Sem decoração (arco do sol/lua, etiqueta da obra): o lugar dela é da cruz.
         // Fundo mais rico (BackgroundStyle, 21/11/2026): "cor sólida" troca o fundo inteiro; senão, cor por cima e desfoque.
         val camera = br.paulo.tvlauncher.settings.BackgroundStyle.camera(this).takeIf { it.isNotEmpty() && CasaHA.configurado(this) }
+        // Barra única (24/11/2026): a foto escolhida (Vale de fábrica) no lugar do fundo do tema; "do tema" = null.
+        val fotoDaBarra = br.paulo.tvlauncher.home.StripBackground.choice(this)
+            .takeIf { br.paulo.tvlauncher.home.BottomBar.strip(this) && it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME }
         val vivo = if (br.paulo.tvlauncher.settings.BackgroundStyle.tint(this) == br.paulo.tvlauncher.settings.BackgroundStyle.Tint.SOLID)
             br.paulo.tvlauncher.settings.BackgroundStyle.solido(this)
         else (if (camera != null) br.paulo.tvlauncher.home.CameraBackground(this, camera) { bloco -> rede.execute { bloco() } }
+              else if (fotoDaBarra != null) br.paulo.tvlauncher.home.PhotoBackground(this, fotoDaBarra) { bloco -> rede.execute { bloco() } }
               else criarFundo(this, tema, decoracao = false) { bloco -> rede.execute { bloco() } })
             .also { br.paulo.tvlauncher.settings.BackgroundStyle.vestir(this, it) }
         fundo = vivo
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = { (fundo as? FundoVivo)?.proximo() ?: false }
         // Sem fundo preto aqui (nem na janela, ver onCreate): o fundo vivo já cobre a tela inteira e é opaco. Cada camada
         // de tela cheia a mais é a GPU pintando 1920x1080 de novo A CADA QUADRO (medido: 3 camadas, 22 ms por quadro).
-        capa = CapaFoco(this).apply { desligada = tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || !LayoutHome.arteCruz(this@MainActivity) }   // Galeria: a obra é o fundo, sem brilho por cima
+        capa = CapaFoco(this).apply { desligada = tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || fotoDaBarra != null || !LayoutHome.arteCruz(this@MainActivity) }   // Galeria: a obra é o fundo, sem brilho por cima
         montarCruz(raiz)
         conteudo = raiz
         return FrameLayout(this).apply {

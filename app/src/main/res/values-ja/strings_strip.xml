@@ -29,4 +29,9 @@
     <string name="st_nome">選択中のカードに名前</string>
     <string name="st_sem">オフ</string>
     <string name="st_com">オン</string>
+    <string name="st_fundo">背景</string>
+    <string name="st_fundo_vale">谷</string>
+    <string name="st_fundo_serra">山並み</string>
+    <string name="st_fundo_noite">夜</string>
+    <string name="st_fundo_tema">テーマから</string>
 </resources>

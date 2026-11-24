@@ -29,4 +29,9 @@
     <string name="st_nome">الاسم على البطاقة المحددة</string>
     <string name="st_sem">لا</string>
     <string name="st_com">نعم</string>
+    <string name="st_fundo">الخلفية</string>
+    <string name="st_fundo_vale">وادٍ</string>
+    <string name="st_fundo_serra">جبال</string>
+    <string name="st_fundo_noite">ليل</string>
+    <string name="st_fundo_tema">من السمة</string>
 </resources>

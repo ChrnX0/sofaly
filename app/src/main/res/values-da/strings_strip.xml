@@ -29,4 +29,9 @@
     <string name="st_nome">Navn på kortet i fokus</string>
     <string name="st_sem">Fra</string>
     <string name="st_com">Til</string>
+    <string name="st_fundo">Baggrund</string>
+    <string name="st_fundo_vale">Dal</string>
+    <string name="st_fundo_serra">Bjerge</string>
+    <string name="st_fundo_noite">Nat</string>
+    <string name="st_fundo_tema">Fra temaet</string>
 </resources>

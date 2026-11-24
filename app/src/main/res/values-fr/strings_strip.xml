@@ -29,4 +29,9 @@
     <string name="st_nome">Nom sur la carte active</string>
     <string name="st_sem">Non</string>
     <string name="st_com">Oui</string>
+    <string name="st_fundo">Fond</string>
+    <string name="st_fundo_vale">Vallée</string>
+    <string name="st_fundo_serra">Montagnes</string>
+    <string name="st_fundo_noite">Nuit</string>
+    <string name="st_fundo_tema">Du thème</string>
 </resources>

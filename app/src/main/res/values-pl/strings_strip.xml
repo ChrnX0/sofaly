@@ -29,4 +29,9 @@
     <string name="st_nome">Nazwa na wybranej karcie</string>
     <string name="st_sem">Nie</string>
     <string name="st_com">Tak</string>
+    <string name="st_fundo">Tło</string>
+    <string name="st_fundo_vale">Dolina</string>
+    <string name="st_fundo_serra">Góry</string>
+    <string name="st_fundo_noite">Noc</string>
+    <string name="st_fundo_tema">Z motywu</string>
 </resources>

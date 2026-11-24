@@ -29,4 +29,9 @@
     <string name="st_nome">焦点卡片显示名称</string>
     <string name="st_sem">关</string>
     <string name="st_com">开</string>
+    <string name="st_fundo">背景</string>
+    <string name="st_fundo_vale">山谷</string>
+    <string name="st_fundo_serra">山脉</string>
+    <string name="st_fundo_noite">夜晚</string>
+    <string name="st_fundo_tema">跟随主题</string>
 </resources>

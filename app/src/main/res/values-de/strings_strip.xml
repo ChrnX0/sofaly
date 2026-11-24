@@ -29,4 +29,9 @@
     <string name="st_nome">Name auf fokussierter Karte</string>
     <string name="st_sem">Aus</string>
     <string name="st_com">An</string>
+    <string name="st_fundo">Hintergrund</string>
+    <string name="st_fundo_vale">Tal</string>
+    <string name="st_fundo_serra">Gebirge</string>
+    <string name="st_fundo_noite">Nacht</string>
+    <string name="st_fundo_tema">Vom Design</string>
 </resources>

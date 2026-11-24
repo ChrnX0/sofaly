@@ -29,4 +29,9 @@
     <string name="st_nome">Nome sulla scheda attiva</string>
     <string name="st_sem">No</string>
     <string name="st_com">Sì</string>
+    <string name="st_fundo">Sfondo</string>
+    <string name="st_fundo_vale">Valle</string>
+    <string name="st_fundo_serra">Montagne</string>
+    <string name="st_fundo_noite">Notte</string>
+    <string name="st_fundo_tema">Del tema</string>
 </resources>
