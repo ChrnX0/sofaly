@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">De wifi was %1$s min weg en uit- en aanzetten hielp niet, dus heb ik de tv opnieuw gestart.</string>
     <string name="observer_remote_battery_low_title">Batterij afstandsbediening bijna leeg</string>
     <string name="observer_remote_battery_low_text">De afstandsbediening staat op %1$s%%. Vervang of laad deze week.</string>
+    <string name="observer_app_on_demand_title">Ik zette een app op aanvraag</string>
+    <string name="observer_app_on_demand_text">%1$s is 3 weken niet geopend. Nu start ze pas als je haar opent.</string>
 </resources>

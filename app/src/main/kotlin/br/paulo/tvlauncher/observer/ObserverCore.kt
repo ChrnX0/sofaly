@@ -72,7 +72,7 @@ object ObserverCore {
         // 24/11/2026: o que a Sofy fez sozinha pela rede ([actedNote]): religou o Wi-Fi, ou reiniciou a TV porque não bastou.
         WIFI_RESTARTED, TV_RESTARTED,
         // 24/11/2026 (estudo "extrapolar a Sofy"): sugestões dela, que vão à Ilha ([sofyNote]).
-        REMOTE_BATTERY_LOW }
+        REMOTE_BATTERY_LOW, APP_ON_DEMAND }
 
     /** Abaixo disto o Android começa a fechar apps em segundo plano num aparelho de 2 GB (inferido; a fase 2 troca pela linha de base da casa). */
     const val LOW_MEMORY_MB = 150L
@@ -311,7 +311,7 @@ object ObserverCore {
         Kind.MEMORY_PRESSURE -> Signal.MEMORY_PRESSURE
         Kind.SLOW_HOME, Kind.UNUSUAL_FRAMES -> Signal.SLOW_FRAMES_PCT
         Kind.LOW_DISK -> Signal.DISK_FREE_MB
-        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW -> null
+        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW, Kind.APP_ON_DEMAND -> null
     }
 
     fun argsFor(kind: Kind, snapshot: Map<Signal, Reading>): List<String> {

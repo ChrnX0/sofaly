@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi hilang %1$s menit dan menyalakan ulang tidak cukup, jadi saya memulai ulang TV.</string>
     <string name="observer_remote_battery_low_title">Baterai remote hampir habis</string>
     <string name="observer_remote_battery_low_text">Remote tinggal %1$s%%. Ganti atau isi daya minggu ini.</string>
+    <string name="observer_app_on_demand_title">Saya jadikan satu aplikasi sesuai permintaan</string>
+    <string name="observer_app_on_demand_text">%1$s tidak dibuka 3 minggu. Sekarang hanya berjalan saat Anda membukanya.</string>
 </resources>

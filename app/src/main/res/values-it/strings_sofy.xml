@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Il Wi-Fi è sparito per %1$s min e riaccenderlo non è bastato, quindi ho riavviato la TV.</string>
     <string name="observer_remote_battery_low_title">Batteria del telecomando bassa</string>
     <string name="observer_remote_battery_low_text">Il telecomando è al %1$s%%. Cambiala o ricaricala questa settimana.</string>
+    <string name="observer_app_on_demand_title">Ho messo un\'app su richiesta</string>
+    <string name="observer_app_on_demand_text">%1$s non si apriva da 3 settimane. Ora parte solo quando la apri.</string>
 </resources>

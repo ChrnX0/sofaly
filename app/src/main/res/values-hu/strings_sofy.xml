@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">A Wi-Fi %1$s percig nem volt elérhető, és a ki-bekapcsolás nem volt elég, ezért újraindítottam a TV-t.</string>
     <string name="observer_remote_battery_low_title">Gyenge a távirányító eleme</string>
     <string name="observer_remote_battery_low_text">A távirányító %1$s%%-on áll. Cserélje vagy töltse a héten.</string>
+    <string name="observer_app_on_demand_title">Egy alkalmazást igény szerintire állítottam</string>
+    <string name="observer_app_on_demand_text">%1$s 3 hete nem nyílt meg. Most csak akkor indul, ha megnyitja.</string>
 </resources>

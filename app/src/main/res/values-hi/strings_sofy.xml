@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">वाई-फ़ाई %1$s मिनट गायब रहा और बंद-चालू करना काफ़ी नहीं था, इसलिए मैंने टीवी फिर से चालू किया।</string>
     <string name="observer_remote_battery_low_title">रिमोट की बैटरी कम है</string>
     <string name="observer_remote_battery_low_text">रिमोट में %1$s%% चार्ज है। इस हफ़्ते बदलें या चार्ज करें।</string>
+    <string name="observer_app_on_demand_title">एक ऐप को ज़रूरत पर चलने वाला किया</string>
+    <string name="observer_app_on_demand_text">%1$s 3 हफ़्ते से नहीं खुला। अब यह तभी चलेगा जब आप खोलेंगे।</string>
 </resources>

@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wi-Fiが%1$s分間切れ、入れ直しても戻らなかったので、テレビを再起動しました。</string>
     <string name="observer_remote_battery_low_title">リモコンの電池残量わずか</string>
     <string name="observer_remote_battery_low_text">リモコンの残量は%1$s%%です。今週中に交換か充電を。</string>
+    <string name="observer_app_on_demand_title">アプリを必要時のみ起動に</string>
+    <string name="observer_app_on_demand_text">%1$s は3週間開かれていません。開いたときだけ起動します。</string>
 </resources>

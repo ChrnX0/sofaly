@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">غاب الواي فاي %1$s دقيقة ولم تكفِ إعادة تشغيله، فأعدت تشغيل التلفاز.</string>
     <string name="observer_remote_battery_low_title">بطارية جهاز التحكم منخفضة</string>
     <string name="observer_remote_battery_low_text">شحن جهاز التحكم %1$s%%. استبدلها أو اشحنها هذا الأسبوع.</string>
+    <string name="observer_app_on_demand_title">جعلت تطبيقًا يعمل عند الطلب</string>
+    <string name="observer_app_on_demand_text">لم يُفتح %1$s منذ 3 أسابيع. الآن لا يعمل إلا عندما تفتحه.</string>
 </resources>

@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wifi var væk i %1$s min, og sluk og tænd var ikke nok, så jeg genstartede tv\'et.</string>
     <string name="observer_remote_battery_low_title">Fjernbetjeningens batteri er lavt</string>
     <string name="observer_remote_battery_low_text">Fjernbetjeningen har %1$s%%. Skift eller oplad den i denne uge.</string>
+    <string name="observer_app_on_demand_title">Jeg satte en app på efterspørgsel</string>
+    <string name="observer_app_on_demand_text">%1$s er ikke åbnet i 3 uger. Nu starter den kun, når du åbner den.</string>
 </resources>

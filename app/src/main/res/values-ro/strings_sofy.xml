@@ -24,4 +24,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi-ul a lipsit %1$s min, iar oprirea și pornirea nu au fost de ajuns, așa că am repornit TV-ul.</string>
     <string name="observer_remote_battery_low_title">Bateria telecomenzii e slabă</string>
     <string name="observer_remote_battery_low_text">Telecomanda are %1$s%%. Schimbă sau încarcă bateria săptămâna asta.</string>
+    <string name="observer_app_on_demand_title">Am pus o aplicație la cerere</string>
+    <string name="observer_app_on_demand_text">%1$s nu a fost deschisă de 3 săptămâni. Acum pornește doar când o deschizi.</string>
 </resources>

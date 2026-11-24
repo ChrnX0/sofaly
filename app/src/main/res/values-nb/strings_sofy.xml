@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wifi var borte i %1$s min, og av og på var ikke nok, så jeg startet TV-en på nytt.</string>
     <string name="observer_remote_battery_low_title">Lavt batteri i fjernkontrollen</string>
     <string name="observer_remote_battery_low_text">Fjernkontrollen har %1$s%%. Bytt eller lad den denne uken.</string>
+    <string name="observer_app_on_demand_title">Jeg satte en app på forespørsel</string>
+    <string name="observer_app_on_demand_text">%1$s er ikke åpnet på 3 uker. Nå starter den bare når du åpner den.</string>
 </resources>

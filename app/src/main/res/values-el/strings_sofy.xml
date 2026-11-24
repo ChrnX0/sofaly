@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Το Wi-Fi χάθηκε για %1$s λεπτά και το κλείσιμο-άνοιγμα δεν έφτασε, οπότε επανεκκίνησα την τηλεόραση.</string>
     <string name="observer_remote_battery_low_title">Χαμηλή μπαταρία τηλεχειριστηρίου</string>
     <string name="observer_remote_battery_low_text">Το τηλεχειριστήριο έχει %1$s%%. Αλλάξτε ή φορτίστε το αυτή την εβδομάδα.</string>
+    <string name="observer_app_on_demand_title">Έβαλα μια εφαρμογή κατ\' απαίτηση</string>
+    <string name="observer_app_on_demand_text">Η %1$s δεν άνοιξε 3 εβδομάδες. Τώρα ξεκινά μόνο όταν την ανοίγετε.</string>
 </resources>

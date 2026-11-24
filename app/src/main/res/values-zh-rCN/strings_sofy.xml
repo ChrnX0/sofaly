@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi 断开了 %1$s 分钟，重新打开也不行，所以我重启了电视。</string>
     <string name="observer_remote_battery_low_title">遥控器电量低</string>
     <string name="observer_remote_battery_low_text">遥控器电量为 %1$s%%。请在本周内更换或充电。</string>
+    <string name="observer_app_on_demand_title">已将一个应用设为按需启动</string>
+    <string name="observer_app_on_demand_text">%1$s 已 3 周未打开。现在只在你打开时才启动。</string>
 </resources>

@@ -479,6 +479,13 @@ object ObserverTv {
 
     // ---------------------------------------------------------------- recados de fora do juiz e causa da queda (ideias 25 e 26)
 
+    /** O normal desta casa para [signal] nesta hora da semana (linha de base), ou null se ainda não aprendeu. */
+    fun normalOf(ctx: Context, signal: ObserverCore.Signal): Double? {
+        val (hw, hd) = hours(System.currentTimeMillis())
+        val b = base ?: runCatching { baseline(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)) }.getOrNull()
+        return b?.expected(signal, hw, hd)?.mean
+    }
+
     /** Um recado que não veio do juiz (pilha do controle, ...): entra na fila e a Sofy decide onde contar. */
     fun enqueueNote(ctx: Context, n: ObserverCore.Note) {
         val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)

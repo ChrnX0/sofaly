@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi가 %1$s분 동안 끊겼고 껐다 켜도 안 돼서 TV를 다시 시작했습니다.</string>
     <string name="observer_remote_battery_low_title">리모컨 배터리 부족</string>
     <string name="observer_remote_battery_low_text">리모컨 배터리가 %1$s%%입니다. 이번 주에 교체하거나 충전하세요.</string>
+    <string name="observer_app_on_demand_title">앱을 필요할 때만 켜지게 했어요</string>
+    <string name="observer_app_on_demand_text">%1$s 앱을 3주 동안 열지 않았어요. 이제 열 때만 켜져요.</string>
 </resources>

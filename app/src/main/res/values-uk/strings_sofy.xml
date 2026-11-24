@@ -24,4 +24,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi не було %1$s хв, і вимкнути й увімкнути його не допомогло, тож я перезапустила телевізор.</string>
     <string name="observer_remote_battery_low_title">Батарейка пульта сідає</string>
     <string name="observer_remote_battery_low_text">У пульта %1$s%% заряду. Замініть або зарядіть цього тижня.</string>
+    <string name="observer_app_on_demand_title">Застосунок тепер на вимогу</string>
+    <string name="observer_app_on_demand_text">%1$s не відкривали 3 тижні. Тепер він запускається, лише коли ви його відкриваєте.</string>
 </resources>

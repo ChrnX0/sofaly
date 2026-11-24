@@ -96,4 +96,64 @@ class AppProfileTest {
         assertEquals(AppProfile.MAX_APPS, s.cards.size)
         assertTrue("app0" in s.cards)
     }
+
+    // ---- a ficha age (ideias 8-11, 14)
+    private fun card(vararg starts: Int) = AppProfile.Card("yt", T).let { c -> starts.fold(c) { a, ms -> AppProfile.noteStart(a, ms) } }
+
+    @Test fun newVersionKeepsTheOldMedianAndRestartsMeasuring() {
+        val c = AppProfile.noteVersion(card(900, 1000, 1100), 10)
+        assertEquals(10L, c.ver)
+        assertEquals(0, c.startsBefore)               // primeira versão vista: só anota
+        val d = AppProfile.noteVersion(c, 11)
+        assertEquals(1000, d.startsBefore)
+        assertTrue(d.startsMs.isEmpty())
+        assertEquals(d, AppProfile.noteVersion(d, 11)) // mesma versão: nada muda
+    }
+
+    @Test fun slowerAfterUpdateNeedsBothFactorAndMinimum() {
+        val base = AppProfile.noteVersion(AppProfile.noteVersion(card(1000, 1000, 1000), 1), 2)
+        val pior = listOf(1600, 1700, 1800).fold(base) { a, ms -> AppProfile.noteStart(a, ms) }
+        assertTrue(AppProfile.advise(listOf(pior), T, emptySet()) { false }.any { it.advice == Advice.SLOWER_AFTER_UPDATE })
+        val pouco = listOf(1400, 1450, 1450).fold(base) { a, ms -> AppProfile.noteStart(a, ms) }   // 1,45x: não
+        assertTrue(AppProfile.advise(listOf(pouco), T, emptySet()) { false }.none { it.advice == Advice.SLOWER_AFTER_UPDATE })
+    }
+
+    @Test fun heavyNeedsSamplesAndLowMemory() {
+        var c = AppProfile.Card("jogo", T)
+        c = AppProfile.noteMemory(c, 500); c = AppProfile.noteMemory(c, 500)
+        assertTrue(!AppProfile.heavy(c, 1000.0))       // só 2 amostras
+        c = AppProfile.noteMemory(c, 500)
+        assertTrue(AppProfile.heavy(c, 1000.0))
+        assertTrue(!AppProfile.heavy(c, null))
+        assertTrue(!AppProfile.heavy(c, 600.0))        // 500 > 0,75 x 600
+    }
+
+    @Test fun recompiledAppIsNotRecompiledForAMonthAndShowsTheGain() {
+        val lento = card(3000, 3200, 3100)
+        assertTrue(AppProfile.advise(listOf(lento), T, emptySet()) { false }.any { it.advice == Advice.RECOMPILE })
+        val feito = AppProfile.noteCompiled(lento, T)
+        assertEquals(3100, feito.startsBefore)
+        val depois = listOf(2600, 2700, 2650).fold(feito) { a, ms -> AppProfile.noteStart(a, ms) }
+        assertEquals(-450, AppProfile.startChange(depois))
+        assertTrue(AppProfile.advise(listOf(depois), T + DAY, emptySet()) { false }.none { it.advice == Advice.RECOMPILE })
+        assertTrue(AppProfile.advise(listOf(depois), T + 31 * DAY, emptySet()) { false }.any { it.advice == Advice.RECOMPILE })
+        assertTrue(AppProfile.advise(listOf(depois), T + DAY, emptySet()) { false }.none { it.advice == Advice.SLOWER_AFTER_UPDATE })
+    }
+
+    @Test fun prewarmOnlyInTheLeadWindowOncePerDay() {
+        val c = AppProfile.Card("yt", T)
+        assertTrue(AppProfile.prewarmNow(c, 20, 19 * 60 + 45, 100))
+        assertTrue(!AppProfile.prewarmNow(c, 20, 19 * 60 + 30, 100))   // 30 min antes: cedo
+        assertTrue(!AppProfile.prewarmNow(c, 20, 20 * 60, 100))        // já é a hora
+        assertTrue(AppProfile.prewarmNow(c, 0, 23 * 60 + 50, 100))     // vira a meia-noite
+        assertTrue(!AppProfile.prewarmNow(c.copy(prewarmDay = 100), 20, 19 * 60 + 45, 100))
+    }
+
+    @Test fun newFieldsSurviveJson() {
+        val c = AppProfile.noteCompiled(AppProfile.noteMemory(AppProfile.noteVersion(card(900, 1000, 1100), 7), 640), T)
+            .copy(prewarmDay = 42)
+        val r = AppProfile.fromJson(AppProfile.toJson(mapOf("" to AppProfile.State(mapOf("yt" to c))))).getValue("").cards.getValue("yt")
+        assertEquals(7L, r.ver); assertEquals(1000, r.startsBefore); assertEquals(640.0, r.memFrontMb, 0.5)
+        assertEquals(1, r.memSamples); assertEquals(T, r.compiledAt); assertEquals(42L, r.prewarmDay)
+    }
 }

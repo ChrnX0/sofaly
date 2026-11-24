@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi %1$s dk yoktu ve kapatıp açmak yetmedi, bu yüzden TV\'yi yeniden başlattım.</string>
     <string name="observer_remote_battery_low_title">Kumanda pili azaldı</string>
     <string name="observer_remote_battery_low_text">Kumanda %%%1$s şarjda. Bu hafta değiştirin ya da şarj edin.</string>
+    <string name="observer_app_on_demand_title">Bir uygulamayı isteğe bağlı yaptım</string>
+    <string name="observer_app_on_demand_text">%1$s 3 haftadır açılmadı. Artık yalnızca siz açınca çalışıyor.</string>
 </resources>

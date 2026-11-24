@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">El wifi desapareció %1$s min y reiniciarlo no bastó, así que reinicié la TV.</string>
     <string name="observer_remote_battery_low_title">Batería del control baja</string>
     <string name="observer_remote_battery_low_text">El control tiene %1$s%% de carga. Cámbiala o cárgala esta semana.</string>
+    <string name="observer_app_on_demand_title">Dejé una app bajo demanda</string>
+    <string name="observer_app_on_demand_text">%1$s llevaba 3 semanas sin abrirse. Ahora solo arranca cuando la abres.</string>
 </resources>

@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Das WLAN war %1$s Min. weg und Aus- und Einschalten reichte nicht, also habe ich den Fernseher neu gestartet.</string>
     <string name="observer_remote_battery_low_title">Fernbedienung fast leer</string>
     <string name="observer_remote_battery_low_text">Die Fernbedienung hat %1$s%%. Diese Woche wechseln oder laden.</string>
+    <string name="observer_app_on_demand_title">App läuft jetzt nur bei Bedarf</string>
+    <string name="observer_app_on_demand_text">%1$s wurde 3 Wochen nicht geöffnet. Sie startet jetzt nur, wenn Sie sie öffnen.</string>
 </resources>

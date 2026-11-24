@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">Wi-Fi nie było przez %1$s min i ponowne włączenie nie pomogło, więc uruchomiłam ponownie telewizor.</string>
     <string name="observer_remote_battery_low_title">Słaba bateria pilota</string>
     <string name="observer_remote_battery_low_text">Pilot ma %1$s%%. Wymień lub naładuj w tym tygodniu.</string>
+    <string name="observer_app_on_demand_title">Ustawiłam aplikację na żądanie</string>
+    <string name="observer_app_on_demand_text">%1$s nie była otwierana od 3 tygodni. Teraz uruchamia się dopiero, gdy ją otworzysz.</string>
 </resources>

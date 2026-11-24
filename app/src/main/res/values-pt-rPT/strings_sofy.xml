@@ -23,4 +23,6 @@
     <string name="observer_tv_restarted_text">O Wi-Fi desapareceu durante %1$s min e religar não chegou, por isso reiniciei a TV.</string>
     <string name="observer_remote_battery_low_title">Pilha do comando a acabar</string>
     <string name="observer_remote_battery_low_text">O comando está com %1$s%% de carga. Troque ou carregue esta semana.</string>
+    <string name="observer_app_on_demand_title">Deixei uma app a pedido</string>
+    <string name="observer_app_on_demand_text">%1$s ficou 3 semanas sem abrir. Agora só arranca quando a abrir.</string>
 </resources>
