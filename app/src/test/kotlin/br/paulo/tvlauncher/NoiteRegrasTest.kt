@@ -79,8 +79,9 @@ class NoiteRegrasTest {
         assertEquals("0 B", ConsumoRede.texto(0))
         assertEquals("999 B", ConsumoRede.texto(999))
         assertEquals("950 KB", ConsumoRede.texto(950_400))
-        assertEquals("12,3 MB", ConsumoRede.texto(12_340_000))
-        assertEquals("1,25 GB", ConsumoRede.texto(1_250_000_000))
+        assertEquals("12,3 MB", ConsumoRede.texto(12_340_000, java.util.Locale("pt", "BR")))
+        assertEquals("12.3 MB", ConsumoRede.texto(12_340_000, java.util.Locale.US))
+        assertEquals("1,25 GB", ConsumoRede.texto(1_250_000_000, java.util.Locale("pt", "BR")))
     }
 
     // ---------------- tocando agora

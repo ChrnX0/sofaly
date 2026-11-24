@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">بهذا المعدل تمتلئ خلال نحو %1$d يومًا (%2$d ميغابايت متاحة). امسح ذاكرة التخزين المؤقت للتطبيقات أو أزل التطبيقات التي لا تستخدمها.</string>
     <string name="pr_avisos_tv">من التلفزيون</string>
     <string name="mural_riscar">شطب %1$s</string>
+    <string name="ds_lento_titulo">أصبح Sofaly أبطأ</string>
+    <string name="ds_lento_texto">الإصدار %1$d: الإطارات البطيئة تستغرق %2$d مللي ثانية، وكانت %3$d (+%4$d%%).</string>
 </resources>

@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">चमक %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">चमक</string>
     <string name="casa_tecla_segurar_ok">OK दबाए रखें</string>
+    <string name="ca_liberado">%1$s खाली हुआ। अभी खाली: %2$s।</string>
+    <string name="ca_sem_shell">अपना शेल बंद है, इसलिए कैश साफ़ नहीं हुआ।</string>
+    <string name="ca_falhou">कैश साफ़ नहीं हो सका: %1$s</string>
+    <string name="ta_desligado">बंद है। %2$s में “%1$s” चालू करें।</string>
+    <string name="ta_nada">कुछ नहीं चल रहा।</string>
+    <string name="ta_sem_acesso">जो चल रहा है उसकी पहुँच नहीं (सूचना पहुँच बंद है)।</string>
+    <string name="cr_sistema">Android सिस्टम</string>
+    <string name="cr_nucleo">Android सिस्टम (कर्नेल)</string>
+    <string name="cr_removidos">हटाए गए ऐप</string>
+    <string name="cr_ponto">हॉटस्पॉट</string>
+    <string name="cr_servico">Android सिस्टम (सेवा %1$d)</string>
+    <string name="cr_nada">अभी कुछ नहीं मापा गया।</string>
+    <string name="cr_sem_acesso">ऐप उपयोग की पहुँच नहीं। शेल की स्व-मरम्मत इसे देती है।</string>
 </resources>

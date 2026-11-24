@@ -243,11 +243,12 @@ object ManutencaoNoturna {
         if (antes >= ESPACO_MINIMO) return ManutencaoRegras.Resultado.OK to ConsumoRede.texto(antes)
         val ultima = prefs(app).getLong("livre_pos_limpeza", 0L)
         if (!ManutencaoRegras.limparCaches(antes, ultima, ESPACO_MINIMO, ESPACO_CRITICO)) return ManutencaoRegras.Resultado.OK to ConsumoRede.texto(antes)
-        val saida = Caches.limpar(app)
+        val r = Caches.limpar(app)
+        val saida = r.texto()
         val depois = livre()
-        if (saida.startsWith("liberado")) prefs(app).edit().putLong("livre_pos_limpeza", depois).apply()
-        // Caches.limpar devolve "sem shell…" / "falhou: …" quando não limpou: só é conserto se liberou espaço de fato.
-        return if (depois < ESPACO_CRITICO || !saida.startsWith("liberado") || depois <= antes)
+        if (r.limpou) prefs(app).edit().putLong("livre_pos_limpeza", depois).apply()
+        // Só é conserto se limpou e liberou espaço de fato.
+        return if (depois < ESPACO_CRITICO || !r.limpou || depois <= antes)
             ManutencaoRegras.Resultado.FALHOU to "$saida (${ConsumoRede.texto(depois)} livres)"
         else ManutencaoRegras.Resultado.CONSERTADO to saida
     }

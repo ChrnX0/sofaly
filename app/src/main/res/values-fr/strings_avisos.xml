@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">À ce rythme, il sera plein dans environ %1$d jours (%2$d Mo libres). Videz les caches des apps ou retirez celles que vous n’utilisez pas.</string>
     <string name="pr_avisos_tv">De la TV</string>
     <string name="mural_riscar">Rayer %1$s</string>
+    <string name="ds_lento_titulo">Sofaly est devenu plus lent</string>
+    <string name="ds_lento_texto">Version %1$d : les images lentes prennent %2$d ms, contre %3$d ms avant (+%4$d %%).</string>
 </resources>

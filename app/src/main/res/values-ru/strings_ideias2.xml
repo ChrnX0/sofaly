@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Яркость %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">яркость</string>
     <string name="casa_tecla_segurar_ok">УДЕРЖИВАЙТЕ OK</string>
+    <string name="ca_liberado">Освобождено %1$s. Свободно сейчас: %2$s.</string>
+    <string name="ca_sem_shell">Встроенная оболочка выключена, поэтому кэш не очищен.</string>
+    <string name="ca_falhou">Не удалось очистить кэш: %1$s</string>
+    <string name="ta_desligado">Выключено. Включите «%1$s» в разделе «%2$s».</string>
+    <string name="ta_nada">Ничего не воспроизводится.</string>
+    <string name="ta_sem_acesso">Нет доступа к воспроизведению (доступ к уведомлениям выключен).</string>
+    <string name="cr_sistema">Система Android</string>
+    <string name="cr_nucleo">Система Android (ядро)</string>
+    <string name="cr_removidos">Удалённые приложения</string>
+    <string name="cr_ponto">Точка доступа</string>
+    <string name="cr_servico">Система Android (служба %1$d)</string>
+    <string name="cr_nada">Пока ничего не измерено.</string>
+    <string name="cr_sem_acesso">Нет доступа к использованию приложений. Самовосстановление оболочки его выдаёт.</string>
 </resources>

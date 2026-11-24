@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">按此速度，大约 %1$d 天后会用完（剩余 %2$d MB）。请清除应用缓存或删除不用的应用。</string>
     <string name="pr_avisos_tv">来自电视</string>
     <string name="mural_riscar">划掉 %1$s</string>
+    <string name="ds_lento_titulo">Sofaly 变慢了</string>
+    <string name="ds_lento_texto">版本 %1$d:慢帧需要 %2$d 毫秒,之前为 %3$d 毫秒(+%4$d%%)。</string>
 </resources>

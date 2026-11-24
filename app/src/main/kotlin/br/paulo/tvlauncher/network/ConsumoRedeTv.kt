@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.network
 
+import br.paulo.tvlauncher.R
 import android.app.usage.NetworkStats
 import android.app.usage.NetworkStatsManager
 import android.content.Context
@@ -33,19 +34,19 @@ object ConsumoRedeTv {
         val pm = ctx.packageManager
         Result.success(ConsumoRede.somar(usos, { uid ->
             when (uid) {
-                Process.SYSTEM_UID -> "Sistema Android"
-                0 -> "Sistema Android (núcleo)"   // "uid 0" cru na lista (teste 100%, 23/11/2026)
-                NetworkStats.Bucket.UID_REMOVED -> "Apps removidos"
-                NetworkStats.Bucket.UID_TETHERING -> "Ponto de acesso"
+                Process.SYSTEM_UID -> ctx.getString(R.string.cr_sistema)
+                0 -> ctx.getString(R.string.cr_nucleo)   // "uid 0" cru na lista (teste 100%, 23/11/2026)
+                NetworkStats.Bucket.UID_REMOVED -> ctx.getString(R.string.cr_removidos)
+                NetworkStats.Bucket.UID_TETHERING -> ctx.getString(R.string.cr_ponto)
                 else -> pm.getPackagesForUid(uid)?.let { pacotes ->
                     pacotes.joinToString(" + ") { p ->
                         try { pm.getApplicationLabel(pm.getApplicationInfo(p, 0)).toString() } catch (e: Exception) { p }
                     }
-                } ?: (if (uid in 1..9999) "Sistema Android (serviço $uid)" else null)   // uids do sistema sem pacote (1020 = mDNS)
+                } ?: (if (uid in 1..9999) ctx.getString(R.string.cr_servico, uid) else null)   // uids do sistema sem pacote (1020 = mDNS)
             }
         }))
     } catch (e: SecurityException) {
-        Result.failure(IllegalStateException("sem acesso ao uso de apps (a autocura do shell concede)"))
+        Result.failure(IllegalStateException(ctx.getString(R.string.cr_sem_acesso)))
     } catch (e: Exception) { Result.failure(e) }
 
     fun json(ctx: Context, dias: Int): JSONObject = medir(ctx, dias).fold(
@@ -54,6 +55,6 @@ object ConsumoRedeTv {
         { e -> JSONObject().put("erro", e.message ?: e.javaClass.simpleName) })
 
     fun texto(ctx: Context, dias: Int = 1): String = medir(ctx, dias).fold(
-        { l -> l.joinToString("\n") { "${ConsumoRede.texto(it.bytes)}  ${it.nome}" }.ifEmpty { "nada medido ainda" } },
-        { e -> "erro: ${e.message}" })
+        { l -> l.joinToString("\n") { "${ConsumoRede.texto(it.bytes)}  ${it.nome}" }.ifEmpty { ctx.getString(R.string.cr_nada) } },
+        { e -> e.message ?: e.javaClass.simpleName })
 }

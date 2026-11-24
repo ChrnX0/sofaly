@@ -256,7 +256,7 @@ object PainelExtras {
             }
             // ---- 2ª leva (10/11/2026)
             post && rota == "caches/limpar" -> {
-                val r = Caches.limpar(app)   // espera o shell (até 40 s): esta é a thread do pedido
+                val r = Caches.limpar(app).texto()   // espera o shell (até 40 s): esta é a thread do pedido
                 PainelArmazem.registrar(app, ip, "limpar caches", r)
                 ok(JSONObject().put("resultado", r))
             }

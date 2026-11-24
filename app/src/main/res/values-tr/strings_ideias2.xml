@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Parlaklık %%%1$d · ◀ ▶</string>
     <string name="casa_dica_brilho">parlaklık</string>
     <string name="casa_tecla_segurar_ok">OK’Yİ BASILI TUT</string>
+    <string name="ca_liberado">%1$s boşaltıldı. Şu an boş: %2$s.</string>
+    <string name="ca_sem_shell">Yerleşik kabuk kapalı, bu yüzden önbellek temizlenmedi.</string>
+    <string name="ca_falhou">Önbellek temizlenemedi: %1$s</string>
+    <string name="ta_desligado">Kapalı. %2$s içinde “%1$s” seçeneğini açın.</string>
+    <string name="ta_nada">Hiçbir şey çalmıyor.</string>
+    <string name="ta_sem_acesso">Çalana erişim yok (bildirim erişimi kapalı).</string>
+    <string name="cr_sistema">Android sistemi</string>
+    <string name="cr_nucleo">Android sistemi (çekirdek)</string>
+    <string name="cr_removidos">Kaldırılan uygulamalar</string>
+    <string name="cr_ponto">Erişim noktası</string>
+    <string name="cr_servico">Android sistemi (hizmet %1$d)</string>
+    <string name="cr_nada">Henüz ölçülen bir şey yok.</string>
+    <string name="cr_sem_acesso">Uygulama kullanımına erişim yok. Kabuğun kendini onarması bunu verir.</string>
 </resources>

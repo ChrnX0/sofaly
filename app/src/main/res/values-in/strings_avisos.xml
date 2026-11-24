@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">Dengan laju ini akan penuh dalam sekitar %1$d hari (%2$d MB tersisa). Hapus cache aplikasi atau copot aplikasi yang tidak dipakai.</string>
     <string name="pr_avisos_tv">Dari TV</string>
     <string name="mural_riscar">Coret %1$s</string>
+    <string name="ds_lento_titulo">Sofaly jadi lebih lambat</string>
+    <string name="ds_lento_texto">Versi %1$d: bingkai lambat kini %2$d ms, sebelumnya %3$d ms (+%4$d%%).</string>
 </resources>

@@ -88,9 +88,9 @@ class ExtrasActivity : Activity() {
         }
         secao(R.string.cfg2_sec_ferramentas)
         linha({ getString(R.string.extras_caches) + " (" + getString(R.string.extras_livre, Caches.livreTexto()) + ")" }) {
-            emSegundoPlano { Caches.limpar(it) }
+            emSegundoPlano { Caches.limpar(it).textoTv(it) }
         }
-        linha({ getString(R.string.extras_consumo) }) { emSegundoPlano(dialogo = R.string.extras_consumo) { ConsumoRedeTv.texto(it) } }
+        linha({ getString(R.string.extras_consumo) }) { emSegundoPlano(dialogo = R.string.extras_consumo) { ConsumoRedeTv.texto(it, 7) } }   // o rótulo diz "7 dias": antes media 1
         linha({ getString(R.string.extras_tocando) }) { emSegundoPlano(dialogo = R.string.extras_tocando) { TocandoAgoraTv.texto(it) } }
         linha({ getString(R.string.tec_titulo) }) { startActivity(Intent(this, TeclasActivity::class.java)) }   // ideia 6
         linha({ getString(R.string.extras_teclas) }) { startActivity(Intent(this, TesteTeclasActivity::class.java)) }

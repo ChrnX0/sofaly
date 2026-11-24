@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Luminosité %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">luminosité</string>
     <string name="casa_tecla_segurar_ok">MAINTENIR OK</string>
+    <string name="ca_liberado">%1$s libérés. Espace libre : %2$s.</string>
+    <string name="ca_sem_shell">Le shell intégré est désactivé, le cache n\'a donc pas été vidé.</string>
+    <string name="ca_falhou">Impossible de vider le cache : %1$s</string>
+    <string name="ta_desligado">Désactivé. Activez « %1$s » dans %2$s.</string>
+    <string name="ta_nada">Rien n\'est en cours de lecture.</string>
+    <string name="ta_sem_acesso">Pas d\'accès à la lecture en cours (l\'accès aux notifications est désactivé).</string>
+    <string name="cr_sistema">Système Android</string>
+    <string name="cr_nucleo">Système Android (noyau)</string>
+    <string name="cr_removidos">Applis supprimées</string>
+    <string name="cr_ponto">Point d\'accès</string>
+    <string name="cr_servico">Système Android (service %1$d)</string>
+    <string name="cr_nada">Rien de mesuré pour l\'instant.</string>
+    <string name="cr_sem_acesso">Pas d\'accès à l\'utilisation des applis. L\'autoréparation du shell l\'accorde.</string>
 </resources>

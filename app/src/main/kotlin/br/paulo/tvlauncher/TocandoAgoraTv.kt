@@ -253,8 +253,8 @@ object TocandoAgoraTv {
 
     fun texto(ctx: Context): String = json(ctx).let {
         when {
-            !it.optBoolean("ligado") -> "desligado"
-            it.optBoolean("nada") -> if (it.optBoolean("acesso")) "nada tocando" else "sem acesso às sessões de mídia"
+            !it.optBoolean("ligado") -> ctx.getString(R.string.ta_desligado, ctx.getString(R.string.extras_tocando), ctx.getString(R.string.extras_titulo))
+            it.optBoolean("nada") -> ctx.getString(if (it.optBoolean("acesso")) R.string.ta_nada else R.string.ta_sem_acesso)
             else -> "${if (it.optBoolean("tocando")) "▶" else "⏸"} ${it.optString("titulo")} — ${it.optString("artista")} (${it.optString("app")})"
         }
     }

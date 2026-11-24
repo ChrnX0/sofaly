@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">При таком темпе она заполнится примерно через %1$d дн. (свободно %2$d МБ). Очистите кеш приложений или удалите неиспользуемые приложения.</string>
     <string name="pr_avisos_tv">От ТВ</string>
     <string name="mural_riscar">Вычеркнуть %1$s</string>
+    <string name="ds_lento_titulo">Sofaly стал медленнее</string>
+    <string name="ds_lento_texto">Версия %1$d: медленные кадры занимают %2$d мс, было %3$d мс (+%4$d%%).</string>
 </resources>

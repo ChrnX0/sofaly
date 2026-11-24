@@ -149,7 +149,7 @@ object SessaoJunto {
     fun doPlayer(ctx: Context, i: Intent) {
         val app = ctx.applicationContext
         when (i.getStringExtra("op")) {
-            "consultar" -> avisarPlayer(app, atual, null)
+            "consultar" -> Fundo.rodar("junto-consultar") { avisarPlayer(app, vigente(app), null) }
             "convidar" -> Fundo.rodar("junto-convite") {
                 val erro = convidar(app, i.getStringExtra("host") ?: "", i.getStringExtra("titulo") ?: "", i.getStringExtra("chave") ?: "")
                 val nome = JuntoRegras.nomeBonito(i.getStringExtra("host") ?: "")
@@ -158,6 +158,7 @@ object SessaoJunto {
             }
             "evento" -> {
                 val s = atual ?: return
+                if (JuntoRegras.parada(s.ultimo, System.currentTimeMillis())) { Fundo.rodar("junto-parada") { vigente(app) }; return }
                 val e = JuntoRegras.eventoDeJson(i.getStringExtra("evento")?.let { JsonSeguro.objeto(it) }) ?: return
                 // Filme/arquivo: só o MESMO título. Canal: qualquer canal (a outra TV acompanha). Série: qualquer episódio
                 // da mesma série (a sessão segue para o próximo episódio).
@@ -165,12 +166,21 @@ object SessaoJunto {
                 s.chave = e.chave!!
                 Fundo.rodar("junto-evento") {
                     val r = EntreTvs.chamar(app, s.par, "/junto/${s.token}/evento", JuntoRegras.eventoParaJson(e.copy(atrasoMs = s.atraso)))
-                    if (r.codigo == 200) s.atraso = JuntoRegras.atraso(r.ms)
+                    if (r.codigo == 200) { s.atraso = JuntoRegras.atraso(r.ms); s.ultimo = System.currentTimeMillis() }
                     if (r.codigo == 404) { encerrar(app, avisarOutra = false) }
                 }
             }
             "sair" -> Fundo.rodar("junto-sair") { encerrar(app, avisarOutra = true) }
         }
+    }
+
+    /** A sessão atual, ou null se ela parou (ver [JuntoRegras.parada]): encerra avisando a outra TV e quem está aqui. */
+    fun vigente(app: Context): Sessao? {
+        val s = atual ?: return null
+        if (!JuntoRegras.parada(s.ultimo, System.currentTimeMillis())) return s
+        encerrar(app, avisarOutra = true)
+        AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_saiu, JuntoRegras.nomeBonito(s.par)))
+        return null
     }
 
     fun encerrar(app: Context, avisarOutra: Boolean) {
@@ -206,7 +216,7 @@ class JuntoReceiver : BroadcastReceiver() {
 class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Boolean, alvoMs: Long?) -> Unit,
                     private val posicao: () -> Long, private val tocandoAgora: () -> Boolean,
                     private val trocarCanal: ((nomeNormalizado: String) -> Unit)? = null) {
-    companion object { const val ECO_MS = 1_200L }
+    companion object { const val ECO_MS = 1_200L; const val PAUSADO_MS = 60_000L }
 
     @Volatile var ativa = false; private set
     @Volatile var chaveSessao: String? = null; private set
@@ -215,6 +225,7 @@ class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Bool
     private var avisadoEpisodio: String? = null
     private var seq = System.currentTimeMillis()   // cresce mesmo entre telas
     private var caladoAte = 0L
+    private var ultimoEnvio = 0L
     private val tela = android.os.Handler(android.os.Looper.getMainLooper())
 
     private val receptor = object : BroadcastReceiver() {
@@ -248,7 +259,9 @@ class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Bool
 
     private val pulso = object : Runnable {
         override fun run() {
-            if (ativa && tocandoAgora()) enviar(true, posicao(), null)
+            // Pausado também pulsa, só que a cada minuto: mantém a sessão viva numa pausa longa (jantar), senão
+            // ela passaria de [JuntoRegras.SESSAO_PARADA_MS] sem notícia e acabaria ao dar play de novo.
+            if (ativa && (tocandoAgora() || System.currentTimeMillis() - ultimoEnvio >= PAUSADO_MS)) enviar(tocandoAgora(), posicao(), null)
             tela.postDelayed(this, JuntoRegras.PULSO_MS)
         }
     }
@@ -279,6 +292,7 @@ class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Bool
     fun reagir(r: String) { if (ativa) enviar(tocandoAgora(), posicao(), r) }
 
     private fun enviar(tocando: Boolean, posMs: Long, reacao: String?) {
+        ultimoEnvio = System.currentTimeMillis()
         val e = JuntoRegras.Evento(++seq, tocando, posMs.coerceAtLeast(0), 0, chaveLocal, reacao)
         local("evento") { putExtra("evento", JuntoRegras.eventoParaJson(e).toString()) }
     }
