@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Narozeniny</string>
+    <string name="an_hoje">Dnes má narozeniny %s</string>
+    <string name="an_amanha">Zítra má narozeniny %s</string>
+    <plurals name="an_anos">
+        <item quantity="one">slaví %d</item>
+        <item quantity="few">slaví %d</item>
+        <item quantity="other">slaví %d</item>
+    </plurals>
+    <string name="tp_calor">Silné horko</string>
+    <string name="tp_calor_texto">Dnes až %d° · Pijte vodu</string>
+    <string name="tp_frio">Silný mráz</string>
+    <string name="tp_frio_texto">V noci až %d° · Teple se oblečte</string>
+    <string name="tp_cfg">Upozornění na horko a mráz</string>
+    <string name="tp_cfg_det">Karta přes jakoukoli aplikaci, když dnes teplota dosáhne %1$d° nebo v noci klesne na %2$d°</string>
+    <string name="mu_ok_lido">OK označí jako přečtené</string>
+    <string name="mu_ok_nao_lido">Přečteno · OK označí jako nepřečtené</string>
+    <string name="mu_lido_desc">Zpráva, přečtená: %s. OK označí jako nepřečtenou.</string>
+    <string name="mu_nao_lido_desc">Zpráva: %s. OK označí jako přečtenou.</string>
+    <string name="mu_apagar">Smazat zprávu: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">Váš rok u televize (v prosinci, na spořiči)</string>
+    <string name="extras_ENTRADAS_TV">Vstupy HDMI v Aplikacích (jen u televizorů se vstupy)</string>
+    <string name="ra_titulo">Váš rok u televize %d</string>
+    <string name="ra_canal">Oblíbený kanál: %1$s (%2$s)</string>
+    <string name="ra_coluna">Rádio</string>
+    <string name="ra_dica_ouvir">poslouchat</string>
+    <string name="ra_dica_favoritar">oblíbené</string>
+    <string name="ra_carregando">Načítají se stanice…</string>
+    <string name="ra_sem_catalogo">Katalog rádií neodpověděl. Vaše oblíbené stále fungují.</string>
+    <string name="ra_nada">Nebyla nalezena žádná stanice.</string>
+    <string name="ra_continuar">pokračovat</string>
+    <string name="ra_pausar">pauza</string>
+    <string name="ra_favoritas">Oblíbené</string>
+    <string name="ra_procurar">Hledat</string>
+    <string name="ra_buscar">Hledat podle názvu</string>
+    <string name="ra_buscar_det">Jakákoli stanice na světě</string>
+    <string name="ra_generos">Žánry</string>
+    <string name="ra_perto">Poblíž</string>
+    <string name="ra_mundo">Nejposlouchanější na světě</string>
+    <string name="ra_resultado">Hledat: %s</string>
+    <string name="ra_favoritada">Přidáno do oblíbených</string>
+    <string name="ra_desfavoritada">Odebráno z oblíbených</string>
+    <string name="ra_falhou">Tato stanice teď nehraje. Zkuste jinou.</string>
+</resources>

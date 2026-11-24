@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Titulky s černým pozadím</string>
+    <string name="acess_legenda_amarela">Žluté titulky</string>
+    <string name="acess_volume">Vyrovnaná hlasitost mezi kanály</string>
+    <string name="acess_voz">Zřetelnější hlasy</string>
+    <string name="acess_volume_ligado">Vyrovnaná hlasitost zapnuta: tiché kanály a filmy jsou hlasitější</string>
+    <string name="acess_volume_desligado">Vyrovnaná hlasitost vypnuta</string>
+    <string name="acess_voz_ligado">Zřetelnější hlasy zapnuty</string>
+    <string name="acess_voz_desligado">Zřetelnější hlasy vypnuty</string>
+    <string name="acess_config_titulo">Zvuk a titulky</string>
+    <string name="acess_config_texto">Pro ty, kdo hůře vidí nebo slyší. Také v nabídce ▼ přehrávače.</string>
+</resources>

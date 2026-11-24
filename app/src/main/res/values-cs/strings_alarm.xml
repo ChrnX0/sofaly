@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Vyberte čas a dny</string>
+    <string name="al_volume_rotulo">Hlasitost při zvonění</string>
+    <string name="al_volume_det">Televizor zesílí alespoň na tuto hlasitost, i když byl ztlumený</string>
+    <string name="al_volume_lg_det">Televizor LG začne potichu a zesílí na tuto hlasitost</string>
+    <string name="al_info_toca">zvoní %1$s</string>
+    <string name="al_proximo_rotulo">Další budík</string>
+    <string name="al_dica_editar">upravit</string>
+    <string name="al_dica_ligar">zap/vyp</string>
+    <string name="al_dica_sair">konec</string>
+    <string name="al_dica_mudar">změnit</string>
+    <string name="al_dica_andar">přesunout</string>
+    <string name="al_dica_salvar">uložit</string>
+    <string name="al_ligou">Budík %1$s zapnut</string>
+    <string name="al_desligou">Budík %1$s vypnut</string>
+    <string name="al_sim">Ano</string>
+    <string name="al_nao">Ne</string>
+    <string name="al_op_salvar_det">ZPĚT také uloží</string>
+    <string name="al_op_repetir">Opakovat</string>
+    <string name="al_op_repetir_det">OK vybírá dny</string>
+    <string name="al_op_som">Zvuk</string>
+    <string name="al_op_som_det">OK vybere zvuk a přehraje vám ho</string>
+    <string name="al_op_rampa">Zvonění</string>
+    <string name="al_op_rampa_det">Začít potichu je jemnější způsob probuzení</string>
+    <string name="al_op_bom_dia">Dobré ráno</string>
+    <string name="al_op_bom_dia_det">Když ho zastavíte, televizor řekne čas, počasí a dnešní kalendář</string>
+    <string name="al_op_cena">Scéna po zastavení</string>
+    <string name="al_op_cena_det">OK vybere scénu</string>
+    <string name="al_op_nome">Název</string>
+    <string name="al_op_nome_det">Zobrazí se na obrazovce, když zvoní</string>
+    <string name="al_op_nome_dica">např. Léky</string>
+    <string name="al_op_alarme">Budík</string>
+    <string name="al_op_ligado_det">OK zapne nebo vypne</string>
+    <string name="al_op_apagar">Smazat budík</string>
+    <string name="al_op_apagar_det">Před smazáním se zeptá</string>
+    <string name="al_op_sair">Odejít bez uložení</string>
+    <string name="al_op_sair_det">Vrátí změny, které jste zde provedli</string>
+    <string name="al_apagar_q">Smazat budík %1$s?</string>
+    <string name="al_salvo">Budík uložen: %1$s</string>
+    <string name="al_resumo">Zvoní %1$s</string>
+    <string name="al_resumo_desligado">Vypnuto: nezazvoní</string>
+    <string name="al_op_hora">Hodina</string>
+    <string name="al_op_minuto">Minuta</string>
+</resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Další možnosti</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Fotky spořiče z telefonu</string>
+    <string name="qrd_fotos_det">Ukáže kód: telefon otevře panel přímo na stránce fotek</string>
+    <string name="qrd_mural">Rodinná nástěnka z telefonu</string>
+    <string name="qrd_mural_det">Nákupní seznam a připnuté poznámky</string>
+    <string name="qrd_cenas">Scény z telefonu</string>
+    <string name="qrd_cenas_det">Vytvářejte a testujte scény ve webovém panelu</string>
+    <string name="qrd_casa">Home Assistant z telefonu</string>
+    <string name="qrd_casa_det">Adresa a token vašeho Home Assistantu ve webovém panelu</string>
+    <string name="qrd_time">Můj tým a připomenutí z telefonu</string>
+    <string name="qrd_time_det">Slova, která mění pořady průvodce na připomenutí</string>
+    <string name="qrd_roteador">Router z telefonu</string>
+    <string name="qrd_roteador_det">Adresa routeru UniFi a klíč API ve webovém panelu</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Dlaždice rychlého panelu</string>
+    <string name="pb_subtitulo">OK zobrazí nebo skryje · ◀ ▶ mění pořadí</string>
+    <string name="pb_cfg_det">Vyberte, které dlaždice rychlý panel (podržte ZPĚT) zobrazí a v jakém pořadí</string>
+    <string name="pb_mostrado">zobrazeno</string>
+    <string name="pb_escondido">skryto</string>
+    <string name="pb_padrao">Zpět na výchozí dlaždice</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Noční filtr</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Domovská obrazovka</string>
+    <string name="cfg2_aba_inicio_det">Motiv, skryté aplikace, rychlý panel a počasí</string>
+    <string name="cfg2_aba_familia">Rodina</string>
+    <string name="cfg2_aba_familia_det">Rodičovská kontrola, dětský PIN, večerka a hosté</string>
+    <string name="cfg2_aba_casa">Domácnost a automatizace</string>
+    <string name="cfg2_aba_casa_det">Automatizace, chytrá domácnost a co nastavíte z telefonu</string>
+    <string name="cfg2_aba_sistema_det">Diagnostika, aktualizace, záloha a informace</string>
+    <string name="cfg2_aba_avancado">Pokročilé</string>
+    <string name="cfg2_aba_avancado_det">Síť, nástroje, tovární aplikace, oprávnění a shell. Potřeba jen zřídka.</string>
+    <string name="cfg2_sec_visitas">Hosté</string>
+    <string name="cfg2_sec_celular">Z vašeho telefonu</string>
+    <string name="cfg2_sec_ferramentas">Nástroje</string>
+    <string name="cfg2_sec_ocultos_sistema">Systémové aplikace skryté launcherem</string>
+    <string name="cfg2_apps_visita_det">Vyberte, které aplikace zmizí, když je zapnutý režim pro hosty</string>
+    <string name="cfg2_apps_visita_sub">OK přepíná · tyto zmizí, když je zapnutý režim pro hosty</string>
+    <string name="cfg2_some_visita">skryto pro hosty</string>
+    <string name="cfg2_fica_visita">zůstává</string>
+    <string name="cfg2_casa_det">Světla, zásuvky a scény z Google Home nebo Home Assistantu</string>
+    <string name="oc_titulo">Skryté aplikace</string>
+    <string name="oc_subtitulo">OK zobrazí nebo skryje aplikaci na domovské obrazovce · skryté jsou první</string>
+    <string name="oc_nenhum">Žádné skryté aplikace · OK pro výběr</string>
+    <string name="oc_quantos">Skryto: %1$d · OK je znovu zobrazí</string>
+    <string name="oc_oculto">skryto</string>
+    <string name="oc_aparece">na domovské obrazovce</string>
+    <string name="oc_aviso_titulo">Aplikace skryta</string>
+    <string name="oc_aviso">Znovu zobrazit: Nastavení › Domovská obrazovka › Skryté aplikace</string>
+    <string name="extras_LER_FOCO">Číst nahlas to, co má fokus, na každé obrazovce launcheru</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Vypínat televizor samočinně?</string>
+    <string name="sug_desligar">Televizor byl tento týden zapnutý po půlnoci %1$d nocí. Vypnout ho po 2 hodinách, kdy nikdo nepoužívá ovladač? (Varuje 60 sekund předem.)</string>
+    <string name="sug_filtro_titulo">Zapnout noční filtr?</string>
+    <string name="sug_filtro">Televizor byl tento týden používán po 22. hodině %1$d nocí. Noční filtr v noci obrazovku zteplí a ztlumí, šetrněji k očím.</string>
+    <string name="sug_ligar">Zapnout</string>
+    <string name="sug_agora_nao">Teď ne</string>
+    <string name="sug_nunca">Už nenavrhovat</string>
+    <string name="sug_feito_titulo">Hotovo</string>
+    <string name="sug_feito">Pro pozdější změnu: Nastavení › Obrazovka a napájení</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Velikost textu</string>
+    <string name="tt_det">Na každé obrazovce launcheru. Filmy, seriály a živá TV už byly větší a rostou s ním</string>
+    <string name="tt_normal">Normální</string>
+    <string name="tt_grande">Velký</string>
+    <string name="tt_maior">Větší</string>
+    <string name="pi_titulo">Balíček ikon</string>
+    <string name="pi_det">Vyměňte ikony aplikací za vestavěný styl (Symbol, Dvoubarevný) nebo nainstalovaný balíček ikon. OK vybere další.</string>
+    <string name="pi_det_vazio">Není nainstalovaný žádný balíček ikon. Stáhněte nějaký z Obchodu Play a objeví se zde.</string>
+    <string name="pi_nenhum">Žádný</string>
+    <string name="fm_titulo">Moje pozadí</string>
+    <string name="fm_det">Vaše fotka, GIF nebo video za domovskou obrazovkou. Vložte soubor do složky Fundo, Pictures, DCIM, Movies nebo Download.</string>
+    <string name="fm_vazio">Nebyla nalezena žádná fotka ani video. Zkopírujte nějaké do složky Fundo (síťový disk nebo USB) a vraťte se.</string>
+    <string name="fm_nenhum">Žádné (zpět na Tmavý)</string>
+    <string name="fm_brilho">Jas pozadí</string>
+    <string name="fm_contraste">Kontrast pozadí</string>
+    <string name="fm_ajuste_det">Platí pro Moje pozadí. OK mění krok.</string>
+    <string name="vp_titulo">Přecházíte z Projectivy?</string>
+    <string name="vp_texto">Čtyři kroky převedou vaše nastavení asi za minutu. Každý lze udělat později v Nastavení.</string>
+    <string name="vp_cfg_det">Převést skryté aplikace, balíček ikon a pozadí z Projectivy.</string>
+    <string name="vp_1">1. Skryté aplikace</string>
+    <string name="vp_1_det">Označte aplikace, které jste měli skryté. Pro změnu pořadí podržte OK na aplikaci na domovské obrazovce.</string>
+    <string name="vp_2">2. Balíček ikon</string>
+    <string name="vp_2_det">Fungují zde stejné balíčky ikon, jaké používá Projectivy.</string>
+    <string name="vp_3">3. Pozadí</string>
+    <string name="vp_3_det">Vaše fotka, GIF nebo video. Nejprve ho zkopírujte do složky Fundo.</string>
+    <string name="vp_4">4. Vypněte tlačítko Home v Projectivy</string>
+    <string name="vp_4_det">V Usnadnění vypněte Projectivy. Dvě aplikace zachytávající Home způsobí, že se otevře ta špatná.</string>
+    <string name="vp_pronto">Hotovo</string>
+    <string name="vp_pronto_det">Přejít na domovskou obrazovku.</string>
+    <string name="vq_titulo">Sdílet vzhled</string>
+    <string name="vq_det">Zobrazit QR kód se vzhledem tohoto televizoru: motiv, velikost textu, ikony.</string>
+    <string name="vq_texto">Naskenujte ho telefonem, abyste si ho uložili nebo poslali někomu se Sofaly.</string>
+    <string name="vq_fechar">Zavřít</string>
+    <string name="pl_titulo">Tarify</string>
+    <string name="pl_texto">Vše je zdarma, dokud není zahájen prodej. Později se Pro a Ultra kupují v telefonu.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Domovská obrazovka, spořič\n• Budík, snadná obrazovka\n• Přehrávač a rádia\n• 1 seznam IPTV\n• 2 motivy</string>
+    <string name="pl_pro_itens">• Vše z Basic\n• Mnoho seznamů IPTV, nahrávání\n• Úplný webový panel\n• Claude, rutiny, Home Assistant\n• Všechny motivy, záloha v cloudu</string>
+    <string name="pl_ultra_itens">• Vše z Pro\n• Lepší počasí (3 modely)\n• Bohaté stránky filmů\n• Automatické titulky\n• Až 3 televizory</string>
+    <string name="pl_qr">Naskenujte telefonem pro zobrazení cen a nákup.</string>
+    <string name="pl_assinar">Předplatit</string>
+    <string name="pl_assinar_preco">Předplatit · %1$s</string>
+    <string name="pl_seu_plano">Váš tarif</string>
+    <string name="pl_loja_indisponivel">Google Play nedokázal otevřít nákup. Zkontrolujte internet a zkuste to znovu.</string>
+    <string name="atu_pela_play">Aktualizace přicházejí z Google Play.</string>
+</resources>

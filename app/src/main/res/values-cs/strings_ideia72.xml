@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Otevřít %1$s</string>
+    <string name="l72_tela_previsao">předpověď počasí</string>
+    <string name="l72_tela_agenda">kalendář</string>
+    <string name="l72_tela_despertador">budík</string>
+    <string name="l72_tela_configuracoes">Nastavení launcheru</string>
+    <string name="l72_tela_inicio">domovskou obrazovku</string>
+    <string name="l72_despertador">Vytvořit budík na %1$s (%2$s)</string>
+    <string name="l72_dias_uma">jednou</string>
+    <string name="l72_dias_todos">každý den</string>
+    <string name="l72_dias_uteis">Po až Pá</string>
+    <string name="l72_dias_fds">o víkendech</string>
+    <string name="l72_dias_nomes">Ne,Po,Út,St,Čt,Pá,So</string>
+    <string name="l72_vol_subir">Zvýšit hlasitost</string>
+    <string name="l72_vol_descer">Snížit hlasitost</string>
+    <string name="l72_vol_mudo">Ztlumit/zrušit ztlumení</string>
+    <string name="l72_vezes">(%1$dkrát)</string>
+    <string name="l72_midia_pausar">Pozastavit</string>
+    <string name="l72_midia_tocar">Pokračovat v přehrávání</string>
+    <string name="l72_midia_proxima">Další</string>
+    <string name="l72_midia_anterior">Předchozí</string>
+    <string name="l72_visita_liga">Zapnout režim pro hosty</string>
+    <string name="l72_visita_desliga">Vypnout režim pro hosty</string>
+    <string name="l72_canal_pedido">Přepnout na kanál %1$s</string>
+    <string name="l72_canal">Přepnout na kanál %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Zobrazit, co běží na %1$s</string>
+    <string name="l72_casa_ligar">Zapnout</string>
+    <string name="l72_casa_desligar">Vypnout</string>
+    <string name="l72_casa_alternar">Přepnout</string>
+    <string name="l72_casa">%1$s %2$s (domácnost)</string>
+    <string name="l72_guia_vazio">%1$s: v průvodci nic není.</string>
+    <string name="l72_guia_agora">%1$s nyní: %2$s (do %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: v průvodci teď nic není</string>
+    <string name="l72_guia_depois">Dále: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Právě hraje: %1$s, %2$s. OK pozastaví nebo pokračuje; podržte OK pro otevření aplikace</string>
+</resources>

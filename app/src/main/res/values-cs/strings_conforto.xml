@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Shrnutí skryté, dokud díl nezhlédnete</string>
+    <string name="cf_spoiler">Skrýt shrnutí nezhlédnutých dílů</string>
+    <string name="cf_spoiler_det">Shrnutí se zobrazí až po spuštění dílu</string>
+    <string name="cf_segundo">Druhý jazyk</string>
+    <string name="cf_segundo_det">Použije se, když video nemá zvuk ani titulky v jazyce televizoru</string>
+    <string name="cf_nenhum">Žádný</string>
+    <string name="cf_proximo">Odpočet dalšího dílu</string>
+    <string name="cf_proximo_det">Jak dlouho čekat, než další díl začne sám</string>
+    <string name="cf_proximo_nao">Nespouštět samo</string>
+    <string name="cf_segundos">%1$d s</string>
+    <string name="cf_consent_titulo">Odesílat data do %1$s?</string>
+    <string name="cf_consent_texto">Zapnutím odešlete do %1$s přes internet: tituly, které na tomto televizoru označíte a zhlédnete, a místo, kde jste skončili. Jsou uloženy ve vašem účtu %1$s podle pravidel ochrany soukromí %1$s. Můžete to kdykoli vypnout.</string>
+    <string name="cf_consent_sim">Souhlasím</string>
+</resources>

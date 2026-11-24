@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 50 do estudo (14/11/2026): cor e temperatura da luz na tela Casa (▲ ▼ no ajuste da luz). -->
+<resources>
+    <string name="casa_dica_brilho_cor">jas a barva</string>
+    <string name="casa_brilho_ajuste_cor">Jas %1$d%% · ◀ ▶ · barva ▲ ▼</string>
+    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_cor_quente">Teplá bílá</string>
+    <string name="casa_cor_neutra">Neutrální bílá</string>
+    <string name="casa_cor_fria">Studená bílá</string>
+    <string name="casa_cor_vermelho">Červená</string>
+    <string name="casa_cor_laranja">Oranžová</string>
+    <string name="casa_cor_amarelo">Žlutá</string>
+    <string name="casa_cor_verde">Zelená</string>
+    <string name="casa_cor_azul">Modrá</string>
+    <string name="casa_cor_roxo">Fialová</string>
+    <string name="casa_cor_rosa">Růžová</string>
+</resources>

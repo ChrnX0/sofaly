@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Dětský PIN</string>
+    <string name="fam_pin_det">Druhý PIN pro odemčení kanálů, skrytých kategorií a večerky před dětmi. PIN panelu stále funguje všude.</string>
+    <string name="fam_pin_ok">Dětský PIN uložen</string>
+    <string name="fam_pin_igual">Dětský PIN se musí lišit od PINu panelu</string>
+    <string name="fam_trocar">Změnit dětský PIN</string>
+    <string name="fam_apagar">Odebrat dětský PIN</string>
+    <string name="fam_apagado">Dětský PIN odebrán: nyní odemyká jen PIN panelu</string>
+    <string name="extras_TEMPO_TELA">Denní čas u obrazovky (když vyprší, otevírají se jen povolené aplikace)</string>
+    <string name="tela_titulo">Čas u obrazovky</string>
+    <string name="tela_acabou">Dnešní čas u obrazovky skončil. Uvidíme se zítra!</string>
+    <string name="tela_5min">Dnes zbývá 5 minut času u obrazovky</string>
+    <string name="tela_pin">PIN pro změnu času u obrazovky</string>
+    <string name="tela_cota_linha">Čas u obrazovky denně: %1$s (dnes zbývá: %2$s)</string>
+    <string name="tela_mais">Dát dnes o %1$d minut víc</string>
+    <string name="tela_mais_ok">O %1$d minut víc pro dnešek</string>
+    <string name="tela_h">h</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Kalendář všech účtů Google televizoru dohromady</string>
+    <string name="cal_todas_contas">Všechny účty na televizoru (%1$d)</string>
+    <string name="tm_tempo_esgotado">Čas vypršel</string>
+    <string name="painel_desligado_pin">Webový panel vypnut: příliš mnohokrát špatný PIN</string>
+    <string name="tm_crono">Stopky</string>
+    <string name="tm_crono_iniciar">Spustit stopky</string>
+    <string name="tm_crono_parar">Zastavit stopky</string>
+    <string name="tm_crono_comecou">Stopky spuštěny: zobrazují se na domovské obrazovce</string>
+    <string name="tm_crono_marcou">Stopky zastaveny na %1$s</string>
+    <string name="som_canal">Poslední kanál Živé TV</string>
+</resources>

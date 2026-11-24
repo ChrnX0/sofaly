@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Apelidos de voz das telas (ideia 8, AtalhosVoz): o nome que se fala no "Ok Google, abrir <nome>". Curtos e distintos. -->
+<resources>
+    <string name="lbl_voz_filmes">Filmy</string>
+    <string name="lbl_voz_series">Seriály</string>
+    <string name="lbl_voz_na_rede">Média v síti</string>
+    <string name="lbl_voz_casa">Ovládání domácnosti</string>
+    <string name="lbl_voz_busca">Hledat</string>
+    <string name="lbl_voz_mural">Nástěnka</string>
+    <string name="voz_mural_desligado">Rodinná nástěnka je vypnutá (nebo je televizor v režimu pro hosty).</string>
+</resources>

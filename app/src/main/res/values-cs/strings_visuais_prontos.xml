@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Hotové vzhledy</string>
+    <string name="vpr_det">Každé OK přepne na další vzhled: motiv, text a barvu pozadí najednou</string>
+    <string name="vpr_meu">Vlastní</string>
+    <string name="vpr_classico">Klasický</string>
+    <string name="vpr_leitura">Snadné čtení</string>
+    <string name="vpr_galeria">Galerie</string>
+    <string name="vpr_galeria_grande">Velká galerie</string>
+    <string name="vpr_cores">Barvy aplikací</string>
+</resources>

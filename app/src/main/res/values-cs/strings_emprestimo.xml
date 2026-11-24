@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Půjčit systémová oprávnění</string>
+    <string name="emp_titulo">Půjčit shell jiným aplikacím (Shizuku)</string>
+    <string name="emp_titulo_det">Aplikace vytvořené pro Shizuku fungují bez jeho instalace. Každá aplikace se poprvé zeptá na televizoru s PINem.</string>
+    <string name="emp_modo_desligado">Vypnuto</string>
+    <string name="emp_modo_sob_demanda">Když ho aplikace potřebuje</string>
+    <string name="emp_modo_sempre">Vždy zapnuto</string>
+    <string name="emp_oficial">Na tomto televizoru je nainstalovaná aplikace Shizuku, takže launcher jí nepřekáží. Odinstalujte ji, chcete-li použít ten z launcheru.</string>
+    <string name="emp_plano">Součást placených tarifů.</string>
+    <string name="emp_negar">Zamítnout</string>
+    <string name="emp_permitir">Vždy povolit</string>
+    <string name="emp_pedido_titulo">Povolit aplikaci %1$s používat systémová oprávnění launcheru?</string>
+    <string name="emp_pedido_texto">Aplikace bude moci dělat to, co adb: instalovat a odebírat aplikace, měnit systémová nastavení a další. Povolujte jen aplikace, kterým důvěřujete. Později to můžete odvolat ve webovém panelu.</string>
+    <string name="emp_pin_titulo">PIN panelu pro povolení</string>
+    <string name="emp_sem_pin">Nejprve nastavte PIN panelu (Nastavení, Webový panel).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Půjčit řízení vlastníka jiným aplikacím (Dhizuku)</string>
+    <string name="emd_titulo_det">Aplikace vytvořené pro Dhizuku používají řízení vlastníka launcheru. Každá aplikace se zeptá na televizoru s PINem. S „Povolit“ žádná nemůže odebrat launcher jako vlastníka ani vymazat televizor; s „Plnou mocí“ může.</string>
+    <string name="emd_ligado">Zapnuto</string>
+    <string name="emd_sem_dono">Launcher není vlastníkem (Device Owner) tohoto televizoru, takže není co půjčit.</string>
+    <string name="emd_pedido_titulo">Povolit aplikaci %1$s používat řízení vlastníka launcheru?</string>
+    <string name="emd_pedido_texto">S „Povolit“ může aplikace skrývat a blokovat aplikace a měnit oprávnění a pravidla televizoru, ale nikdy neodebrat launcher jako vlastníka ani vymazat televizor. „Plná moc“ nechá aplikaci běžet jako launcher a číst jeho data: jen pro aplikace, kterým plně důvěřujete. Můžete to odvolat ve webovém panelu. S „Plnou mocí“ může aplikace dělat vše, co launcher, i vymazat televizor.</string>
+    <string name="emd_total">Plná moc</string>
+    <string name="emd_pin_total">PLNÁ MOC: aplikace může dělat vše, co launcher, i vymazat televizor. PIN panelu</string>
+</resources>

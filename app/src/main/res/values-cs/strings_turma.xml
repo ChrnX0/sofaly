@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">Na gauči</string>
+    <string name="jogos_controle_pronto">připraveno</string>
+    <string name="jogos_controle_carregar">brzy nabít</string>
+    <string name="jogos_parear_um">Spárovat ovladač</string>
+    <string name="turma_titulo">Vaše parta</string>
+    <string name="turma_online">%1$d online</string>
+    <string name="turma_mais_online">+ %1$d online</string>
+    <string name="turma_na_voz">V hlasovém kanálu</string>
+    <string name="turma_ausente">pryč</string>
+    <string name="turma_ocupado">zaneprázdněn(a)</string>
+    <string name="turma_status_online">online</string>
+    <string name="turma_ninguem">Teď nikdo není online</string>
+    <string name="turma_procurando">Hledá se vaše parta…</string>
+    <string name="turma_sem_rede">Teď není spojení s Discordem.</string>
+    <string name="turma_mostrar_titulo">Ukázat partu z Discordu</string>
+    <string name="turma_mostrar_texto">Uvidíte na televizoru, kdo je online, kdo hraje a kdo je v hlasovém kanálu.</string>
+    <string name="turma_desligado_titulo">Widget serveru je vypnutý</string>
+    <string name="turma_desligado_texto">V Discordu: Nastavení serveru, Widget, zapněte Povolit widget serveru.</string>
+    <string name="turma_qr_dica">Namiřte sem telefon a připojte se k hlasovému chatu. Mluví se do telefonu.</string>
+    <string name="turma_jogando">%1$s hraje %2$s</string>
+    <string name="turma_dois">%1$s a %2$s</string>
+    <string name="turma_e_mais">%1$s a dalších %2$d</string>
+    <string name="turma_chamar">Svolat partu</string>
+    <string name="turma_chamar_pergunta">Poslat do kanálu na Discordu?</string>
+    <string name="turma_chamado_jogo">🎮 Kdo si dá %1$s? Jsem u televize.</string>
+    <string name="turma_chamado">🎮 Kdo si dá hru? Jsem u televize.</string>
+    <string name="turma_mandar">Odeslat</string>
+    <string name="turma_enviado">Parta byla svolána na Discordu.</string>
+    <string name="turma_espere">Před dalším svoláním chvíli počkejte.</string>
+    <string name="turma_falhou">Discord to nedostal. Zkontrolujte internet nebo webhook.</string>
+    <string name="turma_config_titulo">Vaše parta z Discordu</string>
+    <string name="turma_config_texto">1. V Discordu: Nastavení serveru, Widget, zapněte Povolit widget serveru.\n2. Na stejné stránce zkopírujte ID serveru a napište ho sem.\n\nPro tlačítko Svolat partu vložte webhook kanálu do webového panelu televizoru.</string>
+    <string name="turma_config_dica">ID serveru (jen číslice)</string>
+    <string name="turma_config_guardar">Uložit</string>
+    <string name="turma_config_tirar">Odebrat partu</string>
+    <string name="turma_id_invalido">Toto není ID serveru Discordu (17 až 20 číslic).</string>
+    <string name="cruz_sofa_sub">Ovladače a vaše parta z Discordu</string>
+    <string name="cruz_sofa_voz">%1$d v hlasovém kanálu · %2$s</string>
+</resources>

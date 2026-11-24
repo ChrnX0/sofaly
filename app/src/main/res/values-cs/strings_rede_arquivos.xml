@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Připojeno k televizoru</string>
+    <string name="rede_sub_usb">USB disk · videa, hudba a fotky</string>
+    <string name="rede_acao_arquivos">FTP, SFTP nebo NFS</string>
+    <string name="rede_sub_arquivos">NAS, router s diskem, počítač s Linuxem nebo Mac</string>
+    <string name="rede_arq_explica">Adresu začněte protokolem: sftp://nas/Filmy · ftp://192.168.0.10 · ftps://nas/Videa · nfs://nas/volume1/video. SFTP a FTPS jsou šifrované; obyčejné FTP posílá heslo nešifrovaně, takže ho používejte jen doma. NFS nemá heslo: NAS musí povolit IP televizoru a spojení z neprivilegovaných portů.</string>
+    <string name="rede_arq_endereco">Adresa (sftp://, ftp://, ftps:// nebo nfs://)</string>
+    <string name="rede_arq_usuario">Uživatelské jméno (NFS: číslo uživatele, nepovinné)</string>
+    <string name="rede_arq_endereco_erro">Začněte sftp://, ftp://, ftps:// nebo nfs://, pak server a složka. Uživatelské jméno a heslo patří do vlastních polí.</string>
+    <string name="rede_erro_nfs_porta">Server NFS televizor odmítl. Na NAS povolte spojení z neprivilegovaných portů (Linux: volba \"insecure\" v /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">Server NFS tento televizor nepovolil. Na NAS přidejte IP televizoru (nebo domácí síť) do pravidla NFS této složky.</string>
+    <string name="rede_erro_chave_mudou">Klíč tohoto serveru se od přidání změnil. Pokud jste server přeinstalovali, odeberte ho zde a přidejte znovu; pokud ne, někdo se za něj možná vydává.</string>
+    <string name="rede_erro_usb_acesso">Televizor nedal launcheru přístup k USB disku. Zkuste to za chvíli znovu.</string>
+</resources>

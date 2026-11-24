@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">kontrola obnovení prošla</string>
+    <string name="l51_ensaio_falhou">uložená kopie by se neobnovila (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Wi-Fi pro hosty</string>
+    <string name="l51_wifi_nao">nenastaveno: zadejte ji jednou a návštěvy naskenují QR</string>
+    <string name="l51_wifi_dica">Použijte síť pro hosty svého routeru: kdokoli v místnosti může heslo přečíst z obrazovky.</string>
+    <string name="l51_wifi_rede">Název sítě</string>
+    <string name="l51_wifi_senha">Heslo</string>
+    <string name="l51_wifi_invalido">Název do 32 znaků; heslo prázdné (otevřená síť) nebo 8 až 63 znaků.</string>
+    <string name="l51_wifi_qr_titulo">Zobrazit QR kód Wi-Fi pro hosty</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Co se používá</string>
+    <string name="l51_uso_det">Obrazovky a nastavení podle použití, počítáno jen na tomto televizoru (nic z něj neodchází)</string>
+    <string name="l51_uso_vazio">Zatím nic nezapočítáno. Vraťte se za pár dní.</string>
+    <string name="l51_uso_tela">obrazovka</string>
+    <string name="l51_uso_opcao">nastavení</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d krát</item>
+        <item quantity="few">%d krát</item>
+        <item quantity="other">%d krát</item>
+    </plurals>
+    <string name="l51_uso_hoje">naposledy dnes</string>
+    <string name="l51_uso_ontem">naposledy včera</string>
+    <string name="l51_uso_dias">naposledy před %d dny</string>
+    <string name="l51_tela_Main">Domovská obrazovka</string>
+    <string name="l51_tela_Dream">Spořič obrazovky</string>
+    <string name="l51_tela_Filmes">Filmy</string>
+    <string name="l51_tela_Series">Pořady</string>
+    <string name="l51_tela_Jogos">Hry</string>
+    <string name="l51_tela_Player">Živá TV a videa</string>
+    <string name="l51_tela_PainelRapido">Rychlý panel</string>
+    <string name="l51_tela_Vod">Katalog playlistu</string>
+    <string name="l51_tela_Previsao">Předpověď počasí</string>
+    <string name="l51_tela_Elenco">Obsazení</string>
+    <string name="l51_tela_ConfigLauncher">Nastavení</string>
+    <string name="l51_tela_MidiaRede">Síť</string>
+    <string name="l51_tela_Calendario">Kalendář</string>
+    <string name="l51_tela_Gravacoes">Nahrávky</string>
+    <string name="l51_tela_Busca">Hledat</string>
+    <string name="l51_tela_Casa">Moje domácnost</string>
+    <string name="l51_tela_AlarmeTocando">Zvonící budík</string>
+    <string name="l51_tela_Radio">Rádio</string>
+    <string name="l51_tela_Diagnostico">Diagnostika</string>
+    <string name="l51_uso_zerar">Obnovit</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Psát na televizoru</string>
+    <string name="l51_digitar_texto">V %1$s je otevřené textové pole. Klepněte pro psaní odsud.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">místnost %1$s</string>
+    <string name="casa_movimento">Pohyb</string>
+    <string name="casa_sem_movimento">Bez pohybu</string>
+    <string name="casa_molhado">Mokro</string>
+    <string name="casa_seco">Sucho</string>
+    <string name="casa_fumaca">Kouř!</string>
+    <string name="casa_sem_fumaca">Bez kouře</string>
+    <string name="casa_dica_temp">teplota</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Otevírá se kamera…</string>
+    <string name="casa_camera_ver">Zobrazit na televizoru</string>
+</resources>

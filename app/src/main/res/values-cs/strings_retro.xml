@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Vaše hry</string>
+    <string name="retro_vazio">Na USB disku nebyly nalezeny žádné hry. Dejte své hry do složky pojmenované podle konzole (např. SNES).</string>
+    <string name="retro_portugues">v portugalštině</string>
+    <string name="retro_abrindo">Otevírá se v RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch tuto hru neotevřel. Jednou otevřete RetroArch a stáhněte jádro %1$s.</string>
+    <string name="retro_sem_retroarch">Pro hraní těchto her nainstalujte RetroArch (zdarma v Obchodě Play).</string>
+    <string name="retro_aviso_legal">Sofaly neobsahuje hry. Použijte ty, které vlastníte.</string>
+    <string name="retro_procurando">Hledají se hry na USB disku…</string>
+</resources>

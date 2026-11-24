@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Síťový disk</string>
+    <string name="ur_titulo">Zobrazit televizor jako síťový disk</string>
+    <string name="ur_det">Vypnuto. Televizor se sám objeví v Tento počítač ve Windows, jako telefon, a jako síťová složka na Macu, Linuxu a telefonech.</string>
+    <string name="ur_painel">Nejprve zapněte webový panel výše (používá stejný PIN a adresu https).</string>
+    <string name="ur_https">Čeká se na adresu https panelu (certifikát vznikne asi 1 minutu po zapnutí panelu).</string>
+    <string name="ur_abra">Zapnuto. Ve Windows se televizor objeví v Tento počítač (u každého počítače se televizor poprvé zeptá na obrazovce). Mac, Linux a telefon: %1$s · heslo: PIN panelu.</string>
+    <string name="mtp_pergunta_titulo">Počítač žádá o soubory televizoru</string>
+    <string name="mtp_pergunta">„%1$s“ chce přes domácí síť vidět a kopírovat soubory v úložišti televizoru. Povolit tento počítač?</string>
+    <string name="mtp_pcs">Povolené počítače</string>
+    <string name="mtp_pcs_nenhum">Zatím žádné. Televizor se zeptá na obrazovce, když počítač požádá o soubory.</string>
+    <string name="mtp_pcs_lista">%1$s · OK zapomene všechny (každý se zeptá znovu)</string>
+    <string name="mtp_pcs_esquecidos">Počítače zapomenuty</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Otevřít panel televizoru</string>
+</resources>

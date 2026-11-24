@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Jak se tento televizor používá</string>
+    <string name="uso_det">Základní skryje Domácnost a automatizace, Vzdálený přístup a Pokročilé. Nic se nevypne.</string>
+    <string name="uso_simples">Základní</string>
+    <string name="uso_completo">Úplný</string>
+    <string name="uso_cuida">Pro někoho, o koho pečuji</string>
+    <string name="uso_pergunta">Jak se bude tento televizor používat?</string>
+    <string name="uso_pergunta_det">Později to můžete změnit v Nastavení › Systém.</string>
+    <string name="uso_simples_det">Jen to podstatné: aplikace, hodiny a počasí. Méně možností v Nastavení.</string>
+    <string name="uso_completo_det">Vše: ovládání z telefonu, domácí zařízení, síťový disk a pokročilé možnosti.</string>
+    <string name="uso_cuida_det">Televizor rodičů nebo prarodičů: snadný pro ně, a vy pomáháte z telefonu, i na dálku.</string>
+    <string name="uso_cuidar_longe">Péče na dálku</string>
+    <string name="uso_cuidar_longe_det">Vypnuto, dokud s tím člověk, který tam bydlí, nesouhlasí na televizoru.</string>
+    <string name="uso_cartoes">Velké karty na domovské obrazovce</string>
+    <string name="uso_cartoes_det">Pár velkých aplikací, jména čtená nahlas a tlačítko \"Získat pomoc\". Vypnutí vyžaduje PIN.</string>
+    <string name="uso_trocar_det">Teď: %1$s. OK pro novou volbu.</string>
+</resources>

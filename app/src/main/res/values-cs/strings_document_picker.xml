@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seletor de pastas e arquivos (DocumentPickerActivity, 21/11/2026). -->
+<resources>
+    <string name="dp_titulo_pasta">Vyberte složku</string>
+    <string name="dp_titulo_arquivo">Vyberte soubor</string>
+    <string name="dp_titulo_salvar">Vyberte, kam uložit</string>
+    <string name="dp_para">Pro %1$s</string>
+    <string name="dp_usar_pasta">Použít tuto složku</string>
+    <string name="dp_salvar_aqui">Uložit sem</string>
+    <string name="dp_memoria">Úložiště televizoru</string>
+    <string name="dp_rede">Síťová složka</string>
+    <string name="dp_livre">volno %1$s</string>
+    <string name="dp_vazia">Zde není co vybrat</string>
+    <string name="dp_abrindo">Otevírá se…</string>
+    <string name="dp_erro">Toto místo se nepodařilo otevřít. Zkontrolujte, že je připojené, a zkuste to znovu.</string>
+    <string name="dp_arquivos">Soubory v této složce: %1$d</string>
+    <string name="dp_dicas">OK: otevřít · ZPĚT: zpět</string>
+    <string name="dp_diario">%1$s dostal(a) z výběru %2$s</string>
+    <string name="dp_sem_nome">bez názvu</string>
+</resources>

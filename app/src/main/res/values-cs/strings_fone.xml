@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Zvuk do sluchátek (telefon)</string>
+    <string name="fone_titulo">Zvuk do sluchátek</string>
+    <string name="fone_texto">Naskenujte telefonem v domácí Wi-Fi a připojte sluchátka. Až %1$d telefonů. Televizor ztichne, když někdo poslouchá; zavření stránky zvuk vrátí.</string>
+    <string name="fone_ouvindo">Poslouchá: %1$d z %2$d</string>
+    <string name="fone_fechar">Zavřít</string>
+    <string name="fone_parar">Zastavit</string>
+    <string name="fone_sem_rede">Televizor není v domácí síti.</string>
+</resources>
