@@ -4,11 +4,11 @@ import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.privilege.AdbConnectionManager
 import br.paulo.tvlauncher.family.Diario
 import br.paulo.tvlauncher.family.Perfil
 import br.paulo.tvlauncher.player.OnDemandTv
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
+import br.paulo.tvlauncher.privilege.SaudeAcesso
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -16,8 +16,8 @@ import org.json.JSONObject
  * A parte do Android da ficha viva de cada app ([AppProfile]). A cada [GAP_MS] (na batida da rede do Observador):
  *  1. lê os eventos de uso do Android desde a última leitura (app foi para a frente / saiu; a permissão de uso o Device
  *     Owner já concede) e soma na ficha do PERFIL ativo (Perfil.chaveDados; "" = compartilhado ou visita);
- *  2. com o shell próprio já conectado (nunca liga o shell só para isso), lê no registro de eventos do Android quanto
- *     cada app demorou para abrir;
+ *  2. a cada 2 h, pelo shell próprio (numa TV que já o pareou), lê no registro de eventos do Android quanto cada app
+ *     demorou para abrir;
  *  3. uma vez por dia, escreve as dicas no registro do Observador ("app_tip") e no Diário. SOMBRA: ninguém age ainda.
  *
  * As fichas moram em "sofy_learning" (chave "apps"), que vai no backup: TV restaurada já conhece os hábitos da casa.
@@ -26,6 +26,7 @@ object AppProfileTv {
     private const val TAG = "TvLauncher.AppProfile"
     private const val GAP_MS = 15 * 60_000L
     private const val TIPS_GAP_MS = 86_400_000L
+    private const val STARTS_GAP_MS = 2 * 3_600_000L
     private const val FIRST_LOOK_MS = 3 * 86_400_000L   // 1ª leitura: os últimos 3 dias que o Android ainda guarda
 
     @Volatile private var lastRun = 0L
@@ -73,9 +74,16 @@ object AppProfileTv {
         out
     } catch (t: Exception) { Log.w(TAG, "eventos de uso: ${t.javaClass.simpleName}"); null }
 
-    /** Tempos de abrir desde a última leitura, só com o shell já conectado (o registro de eventos é do sistema). */
+    /**
+     * Tempos de abrir desde a última leitura (o registro de eventos é do sistema: só o shell lê). De [STARTS_GAP_MS] em
+     * [STARTS_GAP_MS] e só numa TV que já pareou o shell: o shell da Sala conecta sob demanda (o estado "desligado"
+     * entre um uso e outro é normal, verificado 24/11/2026: ESTADO = "shell ok" em 29 ms).
+     */
     private fun withStarts(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State): AppProfile.State {
-        if (runCatching { !AdbConnectionManager.obter(ctx).isConnected }.getOrDefault(true)) return s
+        val now = System.currentTimeMillis()
+        if (now - dev.getLong("apps_starts_tried", 0L) < STARTS_GAP_MS) return s
+        if (!runCatching { SaudeAcesso.shellEsperado(ctx) }.getOrDefault(false)) return s
+        dev.edit().putLong("apps_starts_tried", now).apply()
         val out = runCatching {
             GuardiaoShizuku.comando(ctx, "logcat -d -b events -v epoch -s wm_activity_launch_time am_activity_launch_time", 15_000)
         }.getOrNull() ?: return s
