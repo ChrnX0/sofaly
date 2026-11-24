@@ -152,7 +152,7 @@
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Dizi · %1$s</string>
     <string name="bc_nao_gravou">kaydedilemedi · yeniden deneyin</string>
-    <string name="bc_nenhum_canal">kanal yok: Hesap sekmesinde bir hesap ekleyin ve «Test et ve kanalları yeniden yükle»yi kullanın</string>
+    <string name="bc_nenhum_canal">kanal yok: Ayarlar › TV ve filmler içinde bir hesap ekleyin ve «Test et ve kanalları yeniden yükle»yi kullanın</string>
     <string name="bc_limite">engelleme sınırına ulaşıldı</string>
     <string name="bc_parental_on">ebeveyn denetimi AÇIK</string>
     <string name="bc_parental_off">ebeveyn denetimi kapalı (engelleme yalnızca açtıktan sonra geçerli)</string>

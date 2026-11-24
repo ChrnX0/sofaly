@@ -192,7 +192,9 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         rotulo = TextView(ctx).apply {
             // Régua de estilo (22/11/2026), igual à cruz da HOME: nome do grupo em creme 72%, leve, sem maiúsculas.
             setTextSize(TypedValue.COMPLEX_UNIT_SP, HomeCruz.FONTE_ROTULO); setTextColor(Estilo.TEXTO_2); typeface = fonteForte
-            includeFontPadding = false; maxLines = 1
+            includeFontPadding = false; maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
+            // No lugar fixo de cima o nome fica na altura do cartão da direita: não passa do começo dele.
+            maxWidth = dpi((CARTAO_X - 16f - (COLUNA - CAPA / 2f)).toInt())
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }

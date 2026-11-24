@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">ISINYA</string>
     <string name="infantil_dica">OK menandai atau menghapus tanda kategori anak · berlaku untuk TV Langsung, Film, dan Serial · BACK keluar (sudah tersimpan)</string>
     <string name="infantil_so_categoria">tandai seluruh kategori di kolom kiri</string>
-    <string name="infantil_vazio">tidak ada kategori: tambahkan akun di tab Akun dan muat ulang saluran</string>
+    <string name="infantil_vazio">tidak ada kategori: tambahkan akun di Setelan › TV dan film dan muat ulang saluran</string>
     <string name="infantil_limite">kategori dewasa tidak bisa menjadi kategori anak</string>
     <string name="infantil_resumo_ligado">%1$d dari %2$d kategori ditandai untuk anak · mode anak AKTIF</string>
     <string name="infantil_resumo_desligado">%1$d dari %2$d kategori ditandai untuk anak · mode anak nonaktif</string>
@@ -663,7 +663,7 @@ AS\\Film).</string>
     <string name="legenda_nenhuma">Tidak ada subtitle dalam bahasa TV untuk video ini</string>
     <string name="legenda_erro">Tidak bisa mencari subtitle</string>
     <string name="legenda_invalida">File yang diunduh bukan subtitle</string>
-    <string name="legenda_sem_conta">Tambahkan kunci OpenSubtitles Anda di Setelan > Akun > Film dan serial</string>
+    <string name="legenda_sem_conta">Tambahkan kunci OpenSubtitles Anda di Setelan › TV dan film › Film dan serial</string>
     <string name="legenda_escolher">Subtitle untuk \"%1$s\"</string>
     <string name="legenda_surdos">tunarungu</string>
     <string name="legenda_bate">dibuat untuk file ini</string>
@@ -796,7 +796,7 @@ AS\\Film).</string>
     <string name="st_titulo">Flashdisk dan penyimpanan</string>
     <string name="st_explica">Pilih cara TV memakai flashdisk. Ruang kurang? Bisa jadi penyimpanan TV untuk aplikasi berat.</string>
     <string name="st_linha_det">Gunakan flashdisk sebagai penyimpanan TV</string>
-    <string name="st_sem_shell">Butuh shell bawaan TV (Setelan > Lanjutan). OK untuk coba lagi.</string>
+    <string name="st_sem_shell">Butuh shell bawaan TV (Setelan › Lanjutan). OK untuk coba lagi.</string>
     <string name="st_sem_pen">Tidak ada flashdisk. Colokkan satu dan tekan OK.</string>
     <string name="st_tv_livre">Penyimpanan TV: %1$s kosong dari %2$s</string>
     <string name="st_pen">Flashdisk · %1$s · %2$s</string>

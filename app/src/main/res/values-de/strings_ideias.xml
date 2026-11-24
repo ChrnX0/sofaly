@@ -36,7 +36,7 @@
     <string name="dono_usuarios">Die zusätzlichen Benutzer des Fernsehers werden ebenfalls ENTFERNT, mit ihren Daten: %s.</string>
     <string name="dono_ok">Zum Owner machen</string>
     <string name="dono_andando">Launcher wird zum Owner … (bis zu 1 Minute)</string>
-    <string name="dono_sem_shell">Die eigene Shell hat nicht geantwortet. Koppeln unter Einstellungen &gt; Launcher-Shell.</string>
+    <string name="dono_sem_shell">Die eigene Shell hat nicht geantwortet. Koppeln unter Einstellungen › Erweitert › Launcher-Shell.</string>
     <string name="bv_dev">Entwickleroptionen einschalten</string>
     <string name="bv_dev_det">Geh unter Info nach unten zu „Android TV OS-Build“ und drücke 7-mal OK. Dann komm hierher zurück.</string>
     <string name="bv_parear">Launcher mit dem Fernseher koppeln</string>

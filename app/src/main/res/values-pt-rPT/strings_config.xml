@@ -170,11 +170,11 @@
     <string name="cl_limpeza">Limpeza de apps de fábrica</string>
     <string name="cl_nenhum_liberado">Nenhum app liberado ainda</string>
     <string name="cl_nenhum_liberado_det">Só entram apps testados um a um nesta TV (ver Debloat.kt)</string>
-    <string name="cl_ocultar_perde">ocultar perde: %1$s</string>
+    <string name="cl_ocultar_perde">esconder perde: %1$s</string>
     <string name="cl_nao_mudou">não consegui mudar (sem Device Owner e sem o shell próprio pareado?)</string>
     <string name="cl_sugestoes">Sugestões para esta TV</string>
     <string name="cl_sugestoes_aviso">Não testadas nesta TV</string>
-    <string name="cl_sugestoes_aviso_det">Vêm de listas de limpeza da comunidade para %1$d modelos de TV. Oculte uma app de cada vez e use a TV durante algum tempo; se algo deixar de funcionar, volte a ligá-la aqui.</string>
+    <string name="cl_sugestoes_aviso_det">Vêm de listas de limpeza da comunidade para %1$d modelos de TV. Esconda uma app de cada vez e use a TV durante algum tempo; se algo deixar de funcionar, volte a ligá-la aqui.</string>
     <string name="cl_sug_telemetria">Envia dados de utilização ou anúncios</string>
     <string name="cl_sug_fabrica">App pré-instalada</string>
     <string name="cl_sug_outro">App de fábrica</string>
@@ -189,9 +189,9 @@
     <string name="fb_resumo">Desde %1$s: %2$d apps ocultadas pela Sofaly. OK repõe tudo</string>
     <string name="fb_resumo_dns">Desde %1$s: %2$d apps ocultadas pela Sofaly e o DNS mudou. OK repõe tudo</string>
     <string name="fb_desfazer">Anular o restauro</string>
-    <string name="fb_desfazer_det">Oculta essas apps outra vez e repõe o DNS anterior</string>
+    <string name="fb_desfazer_det">Esconde essas apps outra vez e repõe o DNS anterior</string>
     <string name="cl_mostrar_todos">Mostrar todos de volta</string>
-    <string name="cl_mostrar_todos_det">Desfaz a limpeza (o protetor do Google continua oculto)</string>
+    <string name="cl_mostrar_todos_det">Desfaz a limpeza (o protetor do Google continua escondido)</string>
     <string name="cl_apps_de_volta">Apps de volta: %1$d</string>
     <string name="cl_sobre">Sobre</string>
     <string name="cl_novo_pin">Novo PIN (%1$d a %2$d dígitos)</string>
@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">venceu há %1$d dias</string>
     <string name="cl_ci_formato_data">dd/MM/yyyy</string>
     <string name="cl_vd_ja_dono">o launcher já é o dono do aparelho</string>
-    <string name="cl_vd_sem_shell">o shell próprio não respondeu (pareie em Definições &gt; Shell do launcher)</string>
+    <string name="cl_vd_sem_shell">o shell próprio não respondeu (pareie em Definições › Avançado › Shell do launcher)</string>
     <string name="cl_vd_usuario">o Android não deixou remover o utilizador %1$s</string>
     <string name="cl_vd_mudou">Os utilizadores da TV mudaram depois da confirmação (agora: %1$s). Nada foi removido; comece de novo.</string>
     <string name="cl_vd_google">o Android não deixou desativar o Google por um instante</string>

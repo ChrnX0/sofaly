@@ -152,7 +152,7 @@
     <string name="bc_filme">Фильм · %1$s</string>
     <string name="bc_serie">Сериал · %1$s</string>
     <string name="bc_nao_gravou">не удалось сохранить · попробуйте снова</string>
-    <string name="bc_nenhum_canal">нет каналов: добавьте аккаунт на вкладке «Аккаунт» и нажмите «Проверить и перезагрузить каналы»</string>
+    <string name="bc_nenhum_canal">нет каналов: добавьте аккаунт в Настройки › ТВ и фильмы и нажмите «Проверить и перезагрузить каналы»</string>
     <string name="bc_limite">достигнут лимит блокировок</string>
     <string name="bc_parental_on">родительский контроль ВКЛ</string>
     <string name="bc_parental_off">родительский контроль выкл (блокировка действует только после включения)</string>

@@ -152,7 +152,7 @@
     <string name="bc_filme">फ़िल्म · %1$s</string>
     <string name="bc_serie">सीरीज़ · %1$s</string>
     <string name="bc_nao_gravou">सेव नहीं हो सका · फिर कोशिश करें</string>
-    <string name="bc_nenhum_canal">कोई चैनल नहीं: खाता टैब में खाता जोड़ें और “जाँचें और चैनल फिर लोड करें” इस्तेमाल करें</string>
+    <string name="bc_nenhum_canal">कोई चैनल नहीं: सेटिंग्स › TV और फ़िल्में में खाता जोड़ें और “जाँचें और चैनल फिर लोड करें” इस्तेमाल करें</string>
     <string name="bc_limite">ब्लॉक सीमा पूरी</string>
     <string name="bc_parental_on">पैरेंटल कंट्रोल चालू</string>
     <string name="bc_parental_off">पैरेंटल कंट्रोल बंद (ब्लॉक करना इसे चालू करने के बाद ही लागू होता है)</string>

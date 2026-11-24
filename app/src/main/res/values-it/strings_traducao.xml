@@ -152,7 +152,7 @@
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serie · %1$s</string>
     <string name="bc_nao_gravou">impossibile salvare · riprova</string>
-    <string name="bc_nenhum_canal">nessun canale: aggiungi un account nella scheda Account e usa «Prova e ricarica i canali»</string>
+    <string name="bc_nenhum_canal">nessun canale: aggiungi un account in Impostazioni › TV e film e usa «Prova e ricarica i canali»</string>
     <string name="bc_limite">limite di blocchi raggiunto</string>
     <string name="bc_parental_on">controllo genitori ATTIVO</string>
     <string name="bc_parental_off">controllo genitori disattivo (il blocco vale solo dopo averlo attivato)</string>

@@ -35,7 +35,7 @@
     <string name="dono_usuarios">The extra users on the TV will also be REMOVED, with their data: %s.</string>
     <string name="dono_ok">Make owner</string>
     <string name="dono_andando">Making the launcher the owner… (up to 1 minute)</string>
-    <string name="dono_sem_shell">The own shell did not answer. Pair it in Settings > Launcher shell.</string>
+    <string name="dono_sem_shell">The own shell did not answer. Pair it in Settings › Advanced › Launcher shell.</string>
     <string name="bv_dev">Turn on developer options</string>
     <string name="bv_dev_det">In About, go down to "Android TV OS build" and press OK 7 times. Then come back here.</string>
     <string name="bv_parear">Pair the launcher with the TV</string>

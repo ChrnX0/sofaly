@@ -514,7 +514,7 @@
     <string name="infantil_coluna_itens">WHAT IS IN IT</string>
     <string name="infantil_dica">OK marks or unmarks the category as kids · applies to Live TV, Movies and Series · BACK leaves (already saved)</string>
     <string name="infantil_so_categoria">mark the whole category in the left column</string>
-    <string name="infantil_vazio">no categories: add an account in the Account tab and reload the channels</string>
+    <string name="infantil_vazio">no categories: add an account in Settings › TV and movies and reload the channels</string>
     <string name="infantil_limite">an adult category cannot be a kids category</string>
     <string name="infantil_resumo_ligado">%1$d of %2$d categories marked as kids · kids mode ON</string>
     <string name="infantil_resumo_desligado">%1$d of %2$d categories marked as kids · kids mode off</string>
@@ -739,7 +739,7 @@
     <string name="legenda_nenhuma">No subtitles in the TV’s language for this video</string>
     <string name="legenda_erro">Could not search for subtitles</string>
     <string name="legenda_invalida">The downloaded file is not a subtitle</string>
-    <string name="legenda_sem_conta">Add your OpenSubtitles key in Settings > Account > Movies and series</string>
+    <string name="legenda_sem_conta">Add your OpenSubtitles key in Settings › TV and movies › Movies and series</string>
     <string name="legenda_escolher">Subtitles for \"%1$s\"</string>
     <string name="legenda_surdos">hearing impaired</string>
     <string name="legenda_bate">made for this file</string>
@@ -837,7 +837,7 @@
     <string name="st_titulo">USB drive and storage</string>
     <string name="st_explica">Choose how the TV uses a USB drive. Low on space? It can become TV storage for heavy apps.</string>
     <string name="st_linha_det">Use a USB drive as TV storage</string>
-    <string name="st_sem_shell">Needs the TV\'s own shell (Settings > Advanced). OK to try again.</string>
+    <string name="st_sem_shell">Needs the TV\'s own shell (Settings › Advanced). OK to try again.</string>
     <string name="st_sem_pen">No USB drive connected. Plug one in and press OK.</string>
     <string name="st_tv_livre">TV storage: %1$s free of %2$s</string>
     <string name="st_pen">USB drive · %1$s · %2$s</string>

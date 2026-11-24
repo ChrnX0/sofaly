@@ -36,7 +36,7 @@
     <string name="dono_usuarios">Anche gli utenti aggiuntivi della TV verranno RIMOSSI, con i loro dati: %s.</string>
     <string name="dono_ok">Rendi proprietario</string>
     <string name="dono_andando">Il launcher sta diventando proprietario… (fino a 1 minuto)</string>
-    <string name="dono_sem_shell">La shell integrata non ha risposto. Abbinala in Impostazioni > Shell del launcher.</string>
+    <string name="dono_sem_shell">La shell integrata non ha risposto. Abbinala in Impostazioni › Avanzate › Shell del launcher.</string>
     <string name="bv_dev">Attiva le opzioni sviluppatore</string>
     <string name="bv_dev_det">In Informazioni, scendi fino a «Build del sistema operativo Android TV» e premi OK 7 volte. Poi torna qui.</string>
     <string name="bv_parear">Abbina il launcher alla TV</string>

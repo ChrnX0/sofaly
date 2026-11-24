@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">CE QU’IL Y A DEDANS</string>
     <string name="infantil_dica">OK marque ou démarque la catégorie comme enfants · vaut pour TV en direct, Films et Séries · RETOUR quitte (déjà enregistré)</string>
     <string name="infantil_so_categoria">marquez la catégorie entière dans la colonne de gauche</string>
-    <string name="infantil_vazio">aucune catégorie : ajoutez un compte dans l’onglet Compte et rechargez les chaînes</string>
+    <string name="infantil_vazio">aucune catégorie : ajoutez un compte dans Paramètres › TV et films et rechargez les chaînes</string>
     <string name="infantil_limite">une catégorie adulte ne peut pas être une catégorie enfants</string>
     <string name="infantil_resumo_ligado">%1$d catégories sur %2$d marquées enfants · mode enfants ACTIVÉ</string>
     <string name="infantil_resumo_desligado">%1$d catégories sur %2$d marquées enfants · mode enfants désactivé</string>
@@ -663,7 +663,7 @@ AS\\Films).</string>
     <string name="legenda_nenhuma">Aucun sous-titre dans la langue de la TV pour cette vidéo</string>
     <string name="legenda_erro">Impossible de chercher des sous-titres</string>
     <string name="legenda_invalida">Le fichier téléchargé n’est pas un sous-titre</string>
-    <string name="legenda_sem_conta">Ajoutez votre clé OpenSubtitles dans Paramètres > Compte > Films et séries</string>
+    <string name="legenda_sem_conta">Ajoutez votre clé OpenSubtitles dans Paramètres › TV et films › Films et séries</string>
     <string name="legenda_escolher">Sous-titres pour « %1$s »</string>
     <string name="legenda_surdos">malentendants</string>
     <string name="legenda_bate">fait pour ce fichier</string>
@@ -799,7 +799,7 @@ AS\\Films).</string>
     <string name="st_titulo">Clé USB et stockage</string>
     <string name="st_explica">Choisissez comment la TV utilise la clé USB. Plus de place ? Elle peut devenir la mémoire de la TV pour les apps lourdes.</string>
     <string name="st_linha_det">Utiliser une clé USB comme mémoire de la TV</string>
-    <string name="st_sem_shell">Nécessite le shell intégré de la TV (Paramètres > Avancé). OK pour réessayer.</string>
+    <string name="st_sem_shell">Nécessite le shell intégré de la TV (Paramètres › Avancé). OK pour réessayer.</string>
     <string name="st_sem_pen">Aucune clé USB branchée. Branchez-en une et appuyez sur OK.</string>
     <string name="st_tv_livre">Mémoire de la TV : %1$s libres sur %2$s</string>
     <string name="st_pen">Clé USB · %1$s · %2$s</string>

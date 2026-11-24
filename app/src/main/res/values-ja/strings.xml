@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">内容</string>
     <string name="infantil_dica">OK でカテゴリを子ども向けに設定/解除 · ライブ TV、映画、シリーズに適用 · 戻るで終了（保存済み）</string>
     <string name="infantil_so_categoria">左の列でカテゴリ全体を選んでください</string>
-    <string name="infantil_vazio">カテゴリがありません: 「アカウント」タブでアカウントを追加し、チャンネルを再読み込みしてください</string>
+    <string name="infantil_vazio">カテゴリがありません: 設定 › TV と映画 でアカウントを追加し、チャンネルを再読み込みしてください</string>
     <string name="infantil_limite">成人向けカテゴリは子ども向けにできません</string>
     <string name="infantil_resumo_ligado">%2$d 個中 %1$d 個のカテゴリが子ども向け · キッズモード オン</string>
     <string name="infantil_resumo_desligado">%2$d 個中 %1$d 個のカテゴリが子ども向け · キッズモード オフ</string>
@@ -663,7 +663,7 @@ AS\\Movies）。</string>
     <string name="legenda_nenhuma">この動画には TV の言語の字幕がありません</string>
     <string name="legenda_erro">字幕を検索できませんでした</string>
     <string name="legenda_invalida">ダウンロードしたファイルは字幕ではありません</string>
-    <string name="legenda_sem_conta">設定 > アカウント > 映画とシリーズ で OpenSubtitles のキーを追加してください</string>
+    <string name="legenda_sem_conta">設定 › TV と映画 › 映画とシリーズ で OpenSubtitles のキーを追加してください</string>
     <string name="legenda_escolher">「%1$s」の字幕</string>
     <string name="legenda_surdos">聴覚障がい者向け</string>
     <string name="legenda_bate">このファイル用</string>
@@ -796,7 +796,7 @@ AS\\Movies）。</string>
     <string name="st_titulo">USB メモリとストレージ</string>
     <string name="st_explica">TV で USB メモリをどう使うか選びます。容量不足なら、重いアプリ用の TV ストレージにできます。</string>
     <string name="st_linha_det">USB メモリを TV のストレージにする</string>
-    <string name="st_sem_shell">TV 内蔵のシェルが必要です（設定 > 詳細）。OK で再試行。</string>
+    <string name="st_sem_shell">TV 内蔵のシェルが必要です（設定 › 詳細）。OK で再試行。</string>
     <string name="st_sem_pen">USB メモリがありません。差し込んで OK を押してください。</string>
     <string name="st_tv_livre">TV のストレージ: %2$s 中 %1$s 空き</string>
     <string name="st_pen">USB メモリ · %1$s · %2$s</string>

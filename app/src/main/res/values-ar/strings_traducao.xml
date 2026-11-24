@@ -152,7 +152,7 @@
     <string name="bc_filme">فيلم · %1$s</string>
     <string name="bc_serie">مسلسل · %1$s</string>
     <string name="bc_nao_gravou">تعذّر الحفظ · حاول مجددًا</string>
-    <string name="bc_nenhum_canal">لا قنوات: أضف حسابًا في تبويب الحساب واستخدم \"اختبار القنوات وإعادة تحميلها\"</string>
+    <string name="bc_nenhum_canal">لا قنوات: أضف حسابًا في الإعدادات › التلفزيون والأفلام واستخدم \"اختبار القنوات وإعادة تحميلها\"</string>
     <string name="bc_limite">تم بلوغ حد الحظر</string>
     <string name="bc_parental_on">الرقابة الأبوية مفعّلة</string>
     <string name="bc_parental_off">الرقابة الأبوية متوقفة (الحظر يُطبَّق فقط بعد تفعيلها)</string>

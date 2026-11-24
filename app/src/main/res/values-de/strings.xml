@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">WAS DRIN IST</string>
     <string name="infantil_dica">OK markiert die Kategorie als Kinderkategorie oder nicht · gilt für Live-TV, Filme und Serien · ZURÜCK verlässt (schon gespeichert)</string>
     <string name="infantil_so_categoria">markiere die ganze Kategorie in der linken Spalte</string>
-    <string name="infantil_vazio">keine Kategorien: füge im Tab Konto ein Konto hinzu und lade die Sender neu</string>
+    <string name="infantil_vazio">keine Kategorien: füge unter Einstellungen › TV und Filme ein Konto hinzu und lade die Sender neu</string>
     <string name="infantil_limite">eine Erwachsenenkategorie kann keine Kinderkategorie sein</string>
     <string name="infantil_resumo_ligado">%1$d von %2$d Kategorien als Kinderkategorien markiert · Kindermodus AN</string>
     <string name="infantil_resumo_desligado">%1$d von %2$d Kategorien als Kinderkategorien markiert · Kindermodus aus</string>
@@ -663,7 +663,7 @@ AS\\Filme).</string>
     <string name="legenda_nenhuma">Keine Untertitel in der Sprache des Fernsehers für dieses Video</string>
     <string name="legenda_erro">Suche nach Untertiteln nicht möglich</string>
     <string name="legenda_invalida">Die heruntergeladene Datei ist kein Untertitel</string>
-    <string name="legenda_sem_conta">Trage deinen OpenSubtitles-Schlüssel unter Einstellungen > Konto > Filme und Serien ein</string>
+    <string name="legenda_sem_conta">Trage deinen OpenSubtitles-Schlüssel unter Einstellungen › TV und Filme › Filme und Serien ein</string>
     <string name="legenda_escolher">Untertitel für \"%1$s\"</string>
     <string name="legenda_surdos">für Hörgeschädigte</string>
     <string name="legenda_bate">passt zu dieser Datei</string>
@@ -799,7 +799,7 @@ AS\\Filme).</string>
     <string name="st_titulo">USB-Stick und Speicher</string>
     <string name="st_explica">Wähle, wie der Fernseher den USB-Stick nutzt. Zu wenig Platz? Er kann TV-Speicher für große Apps werden.</string>
     <string name="st_linha_det">USB-Stick als TV-Speicher nutzen</string>
-    <string name="st_sem_shell">Braucht die eigene Shell des Fernsehers (Einstellungen > Erweitert). OK zum Wiederholen.</string>
+    <string name="st_sem_shell">Braucht die eigene Shell des Fernsehers (Einstellungen › Erweitert). OK zum Wiederholen.</string>
     <string name="st_sem_pen">Kein USB-Stick angeschlossen. Stecke einen ein und drücke OK.</string>
     <string name="st_tv_livre">TV-Speicher: %1$s frei von %2$s</string>
     <string name="st_pen">USB-Stick · %1$s · %2$s</string>

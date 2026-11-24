@@ -49,7 +49,7 @@
     <string name="cfg_erro">erro: %1$s</string>
     <string name="cfg_licencas">Licenças e créditos</string>
     <string name="cfg_licencas_det">Código, fontes, ícones e dados de terceiros usados aqui</string>
-    <string name="rec_do_sem">sem ele: não oculta apps, não fixa a HOME nem a VPN, não muda o tempo do protetor</string>
+    <string name="rec_do_sem">sem ele: não esconde apps, não fixa a HOME nem a VPN, não muda o tempo do protetor</string>
     <string name="rec_agenda">Agenda</string>
     <string name="rec_agenda_sem">sem ela: o calendário não mostra eventos</string>
     <string name="rec_local">Localização</string>
@@ -120,7 +120,7 @@
     <string name="home_sair">Sair</string>
     <string name="comum_cancelar">Cancelar</string>
     <string name="home_mostrar">Mostrar no ecrã inicial</string>
-    <string name="home_ocultar">Ocultar do ecrã inicial</string>
+    <string name="home_ocultar">Esconder do ecrã inicial</string>
     <string name="home_sob_demanda">Congelar quando não estiver em uso</string>
     <string name="home_sob_demanda_tirar">Deixar de congelar</string>
     <string name="sob_demanda_ligado">Congelado. Continua aqui: o OK descongela e abre, e volta a congelar 2 minutos depois de sair.</string>
@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">O QUE TEM NELA</string>
     <string name="infantil_dica">OK marca ou desmarca a categoria como infantil · vale para TV em direto, Filmes e Séries · VOLTAR sai (já está guardado)</string>
     <string name="infantil_so_categoria">marque a categoria inteira na coluna da esquerda</string>
-    <string name="infantil_vazio">nenhuma categoria: registe uma conta na aba Conta e recarregue os canais</string>
+    <string name="infantil_vazio">nenhuma categoria: registe uma conta em Definições › TV e filmes e recarregue os canais</string>
     <string name="infantil_limite">categoria adulta não pode ser infantil</string>
     <string name="infantil_resumo_ligado">%1$d de %2$d categorias marcadas como infantis · modo infantil LIGADO</string>
     <string name="infantil_resumo_desligado">%1$d de %2$d categorias marcadas como infantis · modo infantil desligado</string>
@@ -663,7 +663,7 @@ AS\\Filmes).</string>
     <string name="legenda_nenhuma">Nenhuma legenda em português para este vídeo</string>
     <string name="legenda_erro">Não consegui buscar a legenda</string>
     <string name="legenda_invalida">O ficheiro transferido não é uma legenda</string>
-    <string name="legenda_sem_conta">Registe a chave do OpenSubtitles em Definições > Conta > Filmes e séries</string>
+    <string name="legenda_sem_conta">Registe a chave do OpenSubtitles em Definições › TV e filmes › Filmes e séries</string>
     <string name="legenda_escolher">Legendas para \"%1$s\"</string>
     <string name="legenda_surdos">para surdos</string>
     <string name="legenda_bate">feita para este ficheiro</string>
@@ -799,7 +799,7 @@ AS\\Filmes).</string>
     <string name="st_titulo">Pen USB e armazenamento</string>
     <string name="st_explica">Escolha como a TV usa a pen USB. Falta espaço? Ela pode passar a memória da TV para as apps pesadas.</string>
     <string name="st_linha_det">Usar uma pen USB como memória da TV</string>
-    <string name="st_sem_shell">Precisa da shell própria da TV (Definições > Avançado). OK para tentar de novo.</string>
+    <string name="st_sem_shell">Precisa da shell própria da TV (Definições › Avançado). OK para tentar de novo.</string>
     <string name="st_sem_pen">Nenhuma pen USB ligada. Ligue uma e carregue em OK.</string>
     <string name="st_tv_livre">Memória da TV: %1$s livres de %2$s</string>
     <string name="st_pen">Pen USB · %1$s · %2$s</string>

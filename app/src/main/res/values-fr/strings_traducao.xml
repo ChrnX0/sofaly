@@ -152,7 +152,7 @@
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Série · %1$s</string>
     <string name="bc_nao_gravou">enregistrement impossible · réessayez</string>
-    <string name="bc_nenhum_canal">aucune chaîne : ajoutez un compte dans l’onglet Compte et utilisez « Tester et recharger les chaînes »</string>
+    <string name="bc_nenhum_canal">aucune chaîne : ajoutez un compte dans Paramètres › TV et films et utilisez « Tester et recharger les chaînes »</string>
     <string name="bc_limite">limite de blocage atteinte</string>
     <string name="bc_parental_on">contrôle parental ACTIVÉ</string>
     <string name="bc_parental_off">contrôle parental désactivé (le blocage ne s’applique qu’une fois activé)</string>

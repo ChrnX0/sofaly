@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">ЧТО ВНУТРИ</string>
     <string name="infantil_dica">OK отмечает или снимает отметку детской категории · действует для ТВ, Фильмов и Сериалов · НАЗАД выход (уже сохранено)</string>
     <string name="infantil_so_categoria">отмечайте всю категорию в левой колонке</string>
-    <string name="infantil_vazio">нет категорий: добавьте аккаунт на вкладке «Аккаунт» и перезагрузите каналы</string>
+    <string name="infantil_vazio">нет категорий: добавьте аккаунт в Настройки › ТВ и фильмы и перезагрузите каналы</string>
     <string name="infantil_limite">взрослая категория не может быть детской</string>
     <string name="infantil_resumo_ligado">%1$d из %2$d категорий отмечены как детские · детский режим ВКЛ</string>
     <string name="infantil_resumo_desligado">%1$d из %2$d категорий отмечены как детские · детский режим выкл</string>
@@ -663,7 +663,7 @@ AS\\Фильмы).</string>
     <string name="legenda_nenhuma">Для этого видео нет субтитров на языке ТВ</string>
     <string name="legenda_erro">Не удалось найти субтитры</string>
     <string name="legenda_invalida">Загруженный файл — не субтитры</string>
-    <string name="legenda_sem_conta">Добавьте ключ OpenSubtitles в Настройки > Аккаунт > Фильмы и сериалы</string>
+    <string name="legenda_sem_conta">Добавьте ключ OpenSubtitles в Настройки › ТВ и фильмы › Фильмы и сериалы</string>
     <string name="legenda_escolher">Субтитры для «%1$s»</string>
     <string name="legenda_surdos">для слабослышащих</string>
     <string name="legenda_bate">для этого файла</string>
@@ -805,7 +805,7 @@ AS\\Фильмы).</string>
     <string name="st_titulo">Флешка и память</string>
     <string name="st_explica">Выберите, как ТВ использует флешку. Мало места? Она может стать памятью ТВ для тяжёлых приложений.</string>
     <string name="st_linha_det">Использовать флешку как память ТВ</string>
-    <string name="st_sem_shell">Нужна собственная оболочка ТВ (Настройки > Дополнительно). OK — повторить.</string>
+    <string name="st_sem_shell">Нужна собственная оболочка ТВ (Настройки › Расширенные). OK — повторить.</string>
     <string name="st_sem_pen">Флешка не подключена. Подключите её и нажмите OK.</string>
     <string name="st_tv_livre">Память ТВ: свободно %1$s из %2$s</string>
     <string name="st_pen">Флешка · %1$s · %2$s</string>

@@ -28,7 +28,7 @@
     </plurals>
     <string name="elv_lp_titulo">Medir antes e depois</string>
     <string name="elv_lp_det_antes">Mede a memória livre e quanto os 3 apps mais usados demoram para abrir, antes de limpar. Eles abrem por alguns segundos.</string>
-    <string name="elv_lp_det_depois">O antes está guardado. Oculte os apps acima e aperte OK para medir o depois.</string>
+    <string name="elv_lp_det_depois">O antes está guardado. Esconda os apps acima e aperte OK para medir o depois.</string>
     <string name="elv_lp_medindo">Medindo… os apps podem abrir por alguns segundos</string>
     <string name="elv_lp_mais_livre">%1$d MB livres a mais</string>
     <string name="elv_lp_menos_livre">%1$d MB livres a menos</string>

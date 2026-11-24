@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">vor %1$d Tagen abgelaufen</string>
     <string name="cl_ci_formato_data">d. MMM yyyy</string>
     <string name="cl_vd_ja_dono">der Launcher ist bereits Device Owner</string>
-    <string name="cl_vd_sem_shell">die eigene Shell hat nicht geantwortet (koppeln unter Einstellungen &gt; Launcher-Shell)</string>
+    <string name="cl_vd_sem_shell">die eigene Shell hat nicht geantwortet (koppeln unter Einstellungen › Erweitert › Launcher-Shell)</string>
     <string name="cl_vd_usuario">Android hat das Entfernen des Benutzers %1$s nicht erlaubt</string>
     <string name="cl_vd_mudou">Die Nutzer des Fernsehers haben sich nach der Bestätigung geändert (jetzt: %1$s). Nichts wurde entfernt; bitte neu beginnen.</string>
     <string name="cl_vd_google">Android hat nicht erlaubt, Google kurz zu pausieren</string>

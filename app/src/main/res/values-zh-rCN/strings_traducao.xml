@@ -152,7 +152,7 @@
     <string name="bc_filme">电影 · %1$s</string>
     <string name="bc_serie">剧集 · %1$s</string>
     <string name="bc_nao_gravou">无法保存 · 请重试</string>
-    <string name="bc_nenhum_canal">没有频道：请在“账号”标签页中添加账号，并使用“测试并重新加载频道”</string>
+    <string name="bc_nenhum_canal">没有频道：请在 设置 › 电视和电影 中添加账号，并使用“测试并重新加载频道”</string>
     <string name="bc_limite">已达到屏蔽上限</string>
     <string name="bc_parental_on">家长控制已开启</string>
     <string name="bc_parental_off">家长控制已关闭（开启后屏蔽才会生效）</string>

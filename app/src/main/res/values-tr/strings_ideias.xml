@@ -36,7 +36,7 @@
     <string name="dono_usuarios">TV’deki ek kullanıcılar da verileriyle birlikte KALDIRILACAK: %s.</string>
     <string name="dono_ok">Sahip yap</string>
     <string name="dono_andando">Launcher sahip yapılıyor… (1 dakikaya kadar)</string>
-    <string name="dono_sem_shell">Kendi kabuğu yanıt vermedi. Ayarlar > Launcher kabuğu’nda eşleştirin.</string>
+    <string name="dono_sem_shell">Kendi kabuğu yanıt vermedi. Ayarlar › Gelişmiş › Launcher kabuğu’nda eşleştirin.</string>
     <string name="bv_dev">Geliştirici seçeneklerini aç</string>
     <string name="bv_dev_det">Hakkında’da «Android TV OS derlemesi»ne inin ve 7 kez OK’ye basın. Sonra buraya dönün.</string>
     <string name="bv_parear">Launcher’ı TV ile eşleştir</string>
