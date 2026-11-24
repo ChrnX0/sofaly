@@ -25,8 +25,8 @@
     <string name="sh_vidro">Vidro atrás da faixa de baixo</string>
     <string name="sh_vidro_det">Uma placa de vidro atrás da faixa. Desligado: só um fio fino.</string>
     <string name="sh_fundo">Fundo do descanso</string>
-    <string name="sh_fundo_det">Atrás do relógio no descanso: igual à tela inicial, outro tema, uma foto ou vídeo, ou várias passando.</string>
-    <string name="sh_fundo_home">Igual à home</string>
+    <string name="sh_fundo_det">O que fica atrás do relógio no descanso: outro tema, uma foto, um vídeo ou várias passando.</string>
+    <string name="sh_fundo_home">Igual à tela inicial</string>
     <string name="sh_fundo_fotos">Fotos e vídeos passando</string>
     <string name="sh_fundo_arquivo">Um arquivo só do descanso</string>
 </resources>
