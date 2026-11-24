@@ -39,6 +39,9 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         set(v) { if (field != v) { field = v; mundoDesenhado = -1 } }
     /** Banner de TV de um item (só apps); responde depois, na thread principal. null = sem banner, fica o ícone. */
     var bannerDe: ((HomeCruz.Item, (Drawable?) -> Unit) -> Unit)? = null
+    /** Avisa (dp) quanto a linha do mundo ocupa do pé da tela até o topo dela; muda com o jeito dos cards (camada dos widgets). */
+    var aoMudarBase: ((Float) -> Unit)? = null
+    private var baseAvisada = -1f
 
     private val dm = resources.displayMetrics
     private fun dp(v: Float) = v * dm.density
@@ -156,6 +159,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val folgaPlaca = if (o.glass) StripHome.PLACA else 0f
         val topo = minOf(altura() - StripHome.CARDS_DO_FUNDO - o.cardH / 2f, altura() - 16f - folgaPlaca - o.blocoH)
         val topoLinha = minOf(altura() - StripHome.LINHA_DO_FUNDO, topo - folgaPlaca - StripHome.SUBIR_FOCO - 14f - StripHome.LINHA_A)
+        if (height > 0 && altura() - topoLinha != baseAvisada) { baseAvisada = altura() - topoLinha; aoMudarBase?.invoke(baseAvisada) }
         // o trilho fica centrado na altura da linha do mundo
         val trilhoA = cats.size * TRILHO_ICONE + (cats.size - 1) * TRILHO_VAO
         trilho.translationX = dp(StripHome.TRILHO_X + 2f - TRILHO_ICONE / 2f); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
