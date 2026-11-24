@@ -631,8 +631,9 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
             f.ano?.toString(),
             if (soLegendado(f)) getString(R.string.idioma_legendado) else null,
             info?.duracaoMin?.let { duracaoCurta(it) },   // igual à ficha e à HOME ("1 h 47" na grade x "1 h 47 min" na ficha, Sala 24/11)
+            // "falta X" antes do gênero (teste 100%, 24/11/2026): a linha não cabia e cortava justo o tempo ("falta 1 h 36 …").
+            pos?.takeIf { p -> Vod.deveRetomar(p) }?.let { p -> BarraTempo.faltam(this, BarraTempo.duracao(p.duracao - p.ms)).replace(' ', '\u00A0') },
             info?.genero?.ifEmpty { null } ?: PlayerLista.nomeExibido(f.grupo).ifEmpty { null },
-            pos?.takeIf { p -> Vod.deveRetomar(p) }?.let { p -> BarraTempo.faltam(this, BarraTempo.duracao(p.duracao - p.ms)) },
             extRapidas[f.chave]?.ifEmpty { null })))
         focoRapido = f; if (f.chave !in fichasRapidas) { tela.postDelayed(lerFichaRapida, 400) }   // espera o dedo parar
     }

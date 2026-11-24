@@ -535,8 +535,8 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
             s.ano?.toString(),
             if (soLegendado(s)) getString(R.string.idioma_legendado) else null,
             info?.temporadas?.size?.takeIf { it > 0 }?.let { resources.getQuantityString(R.plurals.series_temporadas, it, it) },
+            ultimos[s.chave]?.let { "T${it.temporada}E${it.numero}" },   // onde parou antes do gênero: é o que não pode ser cortado
             info?.genero?.ifEmpty { null } ?: PlayerLista.nomeExibido(s.grupo).ifEmpty { null },
-            ultimos[s.chave]?.let { "T${it.temporada}E${it.numero}" },
             extRapidas[s.chave]?.ifEmpty { null })))
         focoRapido = s; if (s.chave !in fichasRapidas) { tela.postDelayed(lerFichaRapida, 400) }
     }
