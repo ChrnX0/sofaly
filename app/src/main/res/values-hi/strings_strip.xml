@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">एक पट्टी</string>
+    <string name="strip_desc_watch">फ़िल्में, सीरीज़ और टीवी</string>
+    <string name="strip_desc_listen">संगीत, रेडियो और पॉडकास्ट</string>
+    <string name="strip_desc_play">गेम और क्लाउड गेमिंग</string>
+    <string name="strip_desc_apps">जो कुछ इंस्टॉल है</string>
+    <string name="strip_desc_tools">अलार्म, मौसम और सेटिंग</string>
+    <string name="strip_apps_count">%1$d ऐप</string>
+    <string name="st_desc">दुनिया का विवरण</string>
+    <string name="st_desc_fixa">तय वाक्य</string>
+    <string name="st_desc_viva">अभी क्या चल रहा है</string>
+    <string name="st_formato">कार्ड का आकार</string>
+    <string name="st_quadrado">वर्ग</string>
+    <string name="st_tamanho">कार्ड का साइज़</string>
+    <string name="st_pequeno">छोटा</string>
+    <string name="st_medio">मध्यम</string>
+    <string name="st_grande">बड़ा</string>
+    <string name="st_espaco">कार्ड के बीच जगह</string>
+    <string name="st_justo">कम</string>
+    <string name="st_normal">सामान्य</string>
+    <string name="st_largo">ज़्यादा</string>
+    <string name="st_cantos">कार्ड के कोने</string>
+    <string name="st_retos">सीधे</string>
+    <string name="st_suaves">नरम</string>
+    <string name="st_redondos">गोल</string>
+    <string name="st_placa">पीछे कांच की प्लेट</string>
+    <string name="st_nome">चुने कार्ड पर नाम</string>
+    <string name="st_sem">नहीं</string>
+    <string name="st_com">हाँ</string>
+</resources>

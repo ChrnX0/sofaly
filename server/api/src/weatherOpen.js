@@ -14,7 +14,7 @@
 //
 // O que sai: o formato que a TV já lê (current / hourly / daily da Open-Meteo), com temperatura, céu, vento etc. do
 // ECMWF IFS (o de menor erro na temperatura no teste: 1,2 °C na máxima) e a CHANCE DE CHUVA = fração dos modelos que
-// preveem chuva (dia: >= 1 mm, a regra testada; hora: >= 0,1 mm). O UV vem do GFS (o ECMWF aberto não tem).
+// preveem chuva (dia: >= 1 mm, a regra testada; hora: >= 0,1 mm), em voto suave (ver SOFT_DAY). O UV vem do GFS (o ECMWF aberto não tem).
 // Cache: grade de 0,1° (~11 km), 30 min na borda: o custo é por lugar, não por TV.
 
 export const MODELS = ['ecmwf_ifs', 'ecmwf_aifs025_single', 'gfs_seamless', 'icon_global'];
@@ -25,6 +25,17 @@ export const GRID = 0.1;
 export const CACHE_SEC = 30 * 60;
 export const RAIN_DAY_MM = 1.0;
 export const RAIN_HOUR_MM = 0.1;
+// Voto SUAVE e PESADO (24/11/2026, Paulo: passos de 25% pareciam "menos precisos"; "valendo mais o que mais acerta"):
+// cada modelo vota com um peso que sobe com a quantidade de chuva (curva logística centrada no limite), a hora ouve as 2
+// horas vizinhas, e o voto de cada modelo tem o peso que mais acertou no teste para trás (pesos achados no 1º mês,
+// conferidos no 2º, que não entrou na escolha). Erro (Brier) no mês de conferência: dia 0,167 (voto igual) -> 0,162;
+// hora 0,101 -> 0,086; os passos de 25% davam 0,166 / 0,132 no conjunto. Ver clima-alternativas.md, seção 11.
+// Pesos na ordem de MODELS: ecmwf_ifs, ecmwf_aifs025_single, gfs_seamless, icon_global.
+export const DAY_WEIGHTS = [0, 0.6, 0.3, 0.1];
+export const HOUR_WEIGHTS = [0.2, 0.1, 0.4, 0.3];
+export const SOFT_DAY = 0.8;    // mm: largura da curva do dia (limite 1 mm)
+export const SOFT_HOUR = 0.08;  // mm: largura da curva da hora (limite 0,1 mm)
+export const HOUR_WINDOW = 1;   // horas de cada lado
 export const CREDIT = 'ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON';
 const USER_AGENT = 'Sofaly/1 (+https://sofaly.tv)';
 
@@ -53,6 +64,26 @@ export function vote(values, limit) {
   const v = values.filter((x) => typeof x === 'number' && Number.isFinite(x));
   if (v.length === 0) return null;
   return Math.round((100 * v.filter((x) => x >= limit).length) / v.length);
+}
+
+/**
+ * Chance (0-100) pelo voto suave e pesado. [perModel][j] = valores (mm) do modelo j (1 no dia, até 3 na hora); cada modelo
+ * vale a média da curva 1/(1+e^-((mm-limite)/largura)) dos seus valores, e a chance é a média pesada por [weights],
+ * reescalada para "todos secos" = 0 (sem isso o dia seco mostraria ~22%). Modelo sem dado sai e os outros pesos se
+ * redistribuem. null se nenhum modelo tem dado.
+ */
+export function softVote(perModel, weights, limit, width) {
+  const curva = (x) => 1 / (1 + Math.exp(-(x - limit) / width));
+  let soma = 0, pesos = 0;
+  perModel.forEach((vals, j) => {
+    const v = (vals || []).filter((x) => typeof x === 'number' && Number.isFinite(x));
+    if (v.length === 0 || !(weights[j] > 0)) return;
+    soma += weights[j] * (v.reduce((a, x) => a + curva(x), 0) / v.length);
+    pesos += weights[j];
+  });
+  if (pesos === 0) return null;
+  const p0 = curva(0);
+  return Math.round(100 * Math.max(0, (soma / pesos - p0) / (1 - p0)));
 }
 
 export function median(values) {
@@ -85,7 +116,9 @@ export function combine(base, multi) {
 
   const hourlyChance = h.time.map((t) => {
     const i = mhIdx.get(t);
-    return i === undefined ? null : vote(MODELS.map((m) => col(mh, 'precipitation', m, i)), RAIN_HOUR_MM);
+    if (i === undefined) return null;
+    const ks = [i - HOUR_WINDOW, i, i + HOUR_WINDOW].filter((k) => k >= 0 && k < mh.time.length);
+    return softVote(MODELS.map((m) => ks.map((k) => col(mh, 'precipitation', m, k))), HOUR_WEIGHTS, RAIN_HOUR_MM, SOFT_HOUR);
   });
   const uv = h.time.map((t) => {
     const i = mhIdx.get(t);
@@ -94,7 +127,7 @@ export function combine(base, multi) {
   });
   const dayChance = d.time.map((t) => {
     const i = mdIdx.get(t);
-    return i === undefined ? null : vote(MODELS.map((m) => col(md, 'precipitation_sum', m, i)), RAIN_DAY_MM);
+    return i === undefined ? null : softVote(MODELS.map((m) => [col(md, 'precipitation_sum', m, i)]), DAY_WEIGHTS, RAIN_DAY_MM, SOFT_DAY);
   });
   const dayMm = d.time.map((t, j) => {
     const i = mdIdx.get(t);

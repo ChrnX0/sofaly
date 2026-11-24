@@ -111,12 +111,12 @@ class FineTuneActivity : Activity() {
                 br.paulo.tvlauncher.home.WorldOptions.update(this, c) { it.copy(iconOnly = !todasSo) }
             nomeDasCategorias()
         },
-        // Jeito da tela inicial (Paulo, 23/11/2026): a cruz (padrão) ou a barra embaixo (BottomBar).
-        Ajuste(R.string.bb_titulo, { getString(if (br.paulo.tvlauncher.home.BottomBar.on(this)) R.string.bb_barra else R.string.bb_cruz) }) { _ ->
-            val on = !br.paulo.tvlauncher.home.BottomBar.on(this)
-            br.paulo.tvlauncher.home.BottomBar.set(this, on)
-            getString(if (on) R.string.bb_barra else R.string.bb_cruz)
+        // Jeito da tela inicial (BottomBar): barra única (padrão desde 24/11/2026), cruz ou barra embaixo. A lista de
+        // ajustes muda com o jeito (as opções dos cards só valem na barra única): recria o painel.
+        Ajuste(R.string.bb_titulo, { nomeJeito(br.paulo.tvlauncher.home.BottomBar.mode(this)) }) { passo ->
+            nomeJeito(br.paulo.tvlauncher.home.BottomBar.next(this, passo)).also { window.decorView.post { recreate() } }
         },
+    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) ajustesFaixa() else emptyList()) + listOf(
         // Continuar no topo de cada categoria (Paulo, 22/11/2026): desligado de fábrica (ContinueOption).
         Ajuste(R.string.co_titulo, { getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder) }) { _ ->
             val on = !br.paulo.tvlauncher.home.ContinueOption.on(this)
@@ -153,7 +153,7 @@ class FineTuneActivity : Activity() {
         Ajuste(R.string.cs_brilho, { nomeBrilho(CardStyle.glow(this)) }) { passo ->
             nomeBrilho(CardStyle.next(this, CardStyle.KEY_GLOW, CardStyle.glow(this), passo))
         },
-    ) + (if (!br.paulo.tvlauncher.home.BottomBar.on(this)) listOf(
+    ) + (if (br.paulo.tvlauncher.home.BottomBar.mode(this) == br.paulo.tvlauncher.home.BottomBar.Mode.CROSS) listOf(
         // Tamanho da cruz só vale no jeito cruz (MainActivity ignora com a barra embaixo): na barra a linha não aparece.
         Ajuste(R.string.cs_tamanho, { nomeTamanho(CardStyle.size(this)) }) { passo ->
             nomeTamanho(CardStyle.next(this, CardStyle.KEY_SIZE, CardStyle.size(this), passo))
@@ -190,6 +190,37 @@ class FineTuneActivity : Activity() {
                 .also { br.paulo.tvlauncher.settings.FocusStyle.gravar(this, it) })
         },
     )
+
+    private fun nomeJeito(m: br.paulo.tvlauncher.home.BottomBar.Mode) = getString(when (m) {
+        br.paulo.tvlauncher.home.BottomBar.Mode.CROSS -> R.string.bb_cruz
+        br.paulo.tvlauncher.home.BottomBar.Mode.BAR -> R.string.bb_barra
+        br.paulo.tvlauncher.home.BottomBar.Mode.STRIP -> R.string.bb_faixa
+    })
+
+    /**
+     * Opções da barra única (StripHome; Paulo, 24/11/2026: "customizável pelo usuário, como no Projectivy"): descrição do
+     * mundo e o jeito dos cards. Cada ◀ ▶ grava; a HOME atrás se refaz na volta (assinatura do layout).
+     */
+    private fun ajustesFaixa(): List<Ajuste> {
+        val S = br.paulo.tvlauncher.home.StripHome
+        fun o() = S.options(this)
+        fun gira(key: String, atual: Int, total: Int, passo: Int) = S.next(this, key, atual, total, passo)
+        val descs = listOf(R.string.st_desc_fixa, R.string.st_desc_viva)
+        val formatos = listOf("16:9", "4:3", getString(R.string.st_quadrado))
+        val tamanhos = listOf(R.string.st_pequeno, R.string.st_medio, R.string.st_grande)
+        val espacos = listOf(R.string.st_justo, R.string.st_normal, R.string.st_largo)
+        val cantos = listOf(R.string.st_retos, R.string.st_suaves, R.string.st_redondos)
+        val simNao = listOf(R.string.st_sem, R.string.st_com)
+        return listOf(
+            Ajuste(R.string.st_desc, { getString(descs[o().desc.ordinal]) }) { p -> getString(descs[gira(S.KEY_DESC, o().desc.ordinal, 2, p)]) },
+            Ajuste(R.string.st_formato, { formatos[o().format.ordinal] }) { p -> formatos[gira(S.KEY_FORMAT, o().format.ordinal, 3, p)] },
+            Ajuste(R.string.st_tamanho, { getString(tamanhos[o().size.ordinal]) }) { p -> getString(tamanhos[gira(S.KEY_SIZE, o().size.ordinal, 3, p)]) },
+            Ajuste(R.string.st_espaco, { getString(espacos[o().gap.ordinal]) }) { p -> getString(espacos[gira(S.KEY_GAP, o().gap.ordinal, 3, p)]) },
+            Ajuste(R.string.st_cantos, { getString(cantos[o().corners.ordinal]) }) { p -> getString(cantos[gira(S.KEY_CORNERS, o().corners.ordinal, 3, p)]) },
+            Ajuste(R.string.st_placa, { getString(simNao[if (o().glass) 1 else 0]) }) { p -> getString(simNao[gira(S.KEY_GLASS, if (o().glass) 1 else 0, 2, p)]) },
+            Ajuste(R.string.st_nome, { getString(simNao[if (o().name) 1 else 0]) }) { p -> getString(simNao[gira(S.KEY_NAME, if (o().name) 1 else 0, 2, p)]) },
+        )
+    }
 
     private fun soIconeEmTodas() = br.paulo.tvlauncher.home.CruzLogica.Categoria.entries
         .all { br.paulo.tvlauncher.home.WorldOptions.of(this, it).iconOnly }

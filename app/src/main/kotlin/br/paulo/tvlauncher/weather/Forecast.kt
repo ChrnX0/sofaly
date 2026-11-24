@@ -147,11 +147,11 @@ internal object ForecastText {
     fun frase(ctx: Context, f: DicasClima.Frase): String = when (f.tipo) {
         DicasClima.TipoFrase.PARA_AS -> ctx.getString(R.string.cl_f_parar, hora(ctx, f.a))
         DicasClima.TipoFrase.CHUVA_SEGUE -> ctx.getString(R.string.cl_f_segue)
-        DicasClima.TipoFrase.CHUVA_AS -> ctx.getString(R.string.cl_f_chuva, hora(ctx, f.a), f.b)
+        DicasClima.TipoFrase.CHUVA_AS -> ctx.getString(R.string.cl_f_chuva, hora(ctx, f.a), RainChance.texto(ctx, f.b))
         DicasClima.TipoFrase.CALOR -> ctx.getString(R.string.cl_f_calor, f.a, hora(ctx, f.b))
         DicasClima.TipoFrase.FRIO -> ctx.getString(R.string.cl_f_frio, f.a)
         DicasClima.TipoFrase.SOL_FORTE -> ctx.getString(R.string.cl_f_sol, hora(ctx, f.a), hora(ctx, f.b))
-        DicasClima.TipoFrase.AMANHA_CHUVA -> ctx.getString(R.string.cl_f_amanha, f.a)
+        DicasClima.TipoFrase.AMANHA_CHUVA -> ctx.getString(R.string.cl_f_amanha, RainChance.texto(ctx, f.a))
         DicasClima.TipoFrase.CALMO -> ctx.getString(R.string.cl_f_calmo, f.a)
     }
 

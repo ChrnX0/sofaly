@@ -55,6 +55,7 @@ class AllAppsLayoutScreenTest {
         saida.mkdirs()
         val app = RuntimeEnvironment.getApplication()
         SplashOverlay.setEnabled(app, false)
+        br.paulo.tvlauncher.home.BottomBar.setMode(app, br.paulo.tvlauncher.home.BottomBar.Mode.CROSS)   // estas fotos são da cruz; a barra única tem a dela (StripScreenTest)
         LayoutHome.definirBarraCruz(app, LayoutHome.BarraCruz.ILHA)
         LayoutHome.definirIconesCruz(app, IconeCruz.Estilo.OBJETO)
         System.setProperty("https.proxyHost", "127.0.0.1"); System.setProperty("https.proxyPort", "9")

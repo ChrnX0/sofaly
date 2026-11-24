@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como a chance de chuva aparece (RainChance.kt, 24/11/2026). -->
+<resources>
+    <string name="rc_titulo" formatted="false">Szansa na deszcz</string>
+    <string name="rc_baixa" formatted="false">Niska</string>
+    <string name="rc_media" formatted="false">Średnia</string>
+    <string name="rc_alta" formatted="false">Wysoka</string>
+    <string name="rc_modo_numero" formatted="false">Liczba (37%)</string>
+    <string name="rc_modo_palavra" formatted="false">Słowo (Średnia)</string>
+    <string name="rc_modo_ambos" formatted="false">Oba (Średnia 37%)</string>
+</resources>

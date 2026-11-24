@@ -7,11 +7,11 @@
     <string name="cl_hora">%1$d.00</string>
     <string name="cl_f_parar">Sedang hujan. Diperkirakan berhenti sekitar %1$s.</string>
     <string name="cl_f_segue">Sedang hujan, dan diperkirakan berlanjut beberapa jam ke depan.</string>
-    <string name="cl_f_chuva">Kemungkinan hujan sekitar %1$s (%2$d%%).</string>
+    <string name="cl_f_chuva">Kemungkinan hujan sekitar %1$s (%2$s).</string>
     <string name="cl_f_calor">Hari panas: hingga %1$d° sekitar %2$s. Minum air.</string>
     <string name="cl_f_frio">Dingin datang: hingga %1$d°. Pakai baju hangat.</string>
     <string name="cl_f_sol">Matahari terik %1$s sampai %2$s. Pakai tabir surya.</string>
-    <string name="cl_f_amanha">Tidak hujan hari ini. Besok kemungkinan hujan (%1$d%%).</string>
+    <string name="cl_f_amanha">Tidak hujan hari ini. Besok kemungkinan hujan (%1$s).</string>
     <string name="cl_f_calmo">Tidak ada hujan hari ini. Tertinggi %1$d°.</string>
     <string name="cl_d_guarda">Payung</string>
     <string name="cl_d_varal">Jemuran di luar</string>

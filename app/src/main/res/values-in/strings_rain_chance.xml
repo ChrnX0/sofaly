@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como a chance de chuva aparece (RainChance.kt, 24/11/2026). -->
+<resources>
+    <string name="rc_titulo" formatted="false">Peluang hujan</string>
+    <string name="rc_baixa" formatted="false">Rendah</string>
+    <string name="rc_media" formatted="false">Sedang</string>
+    <string name="rc_alta" formatted="false">Tinggi</string>
+    <string name="rc_modo_numero" formatted="false">Angka (37%)</string>
+    <string name="rc_modo_palavra" formatted="false">Kata (Sedang)</string>
+    <string name="rc_modo_ambos" formatted="false">Keduanya (Sedang 37%)</string>
+</resources>

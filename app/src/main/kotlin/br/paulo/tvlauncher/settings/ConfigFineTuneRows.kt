@@ -26,10 +26,14 @@ internal fun ConfigLauncherActivity.linhasAjusteFino(c: LinearLayout) {
         linhaNomes.valor(nomeCats())
     }
     c.addView(linhaNomes, lp())
-    fun nomeJeito() = getString(if (br.paulo.tvlauncher.home.BottomBar.on(this)) R.string.bb_barra else R.string.bb_cruz)
+    fun nomeJeito() = getString(when (br.paulo.tvlauncher.home.BottomBar.mode(this)) {
+        br.paulo.tvlauncher.home.BottomBar.Mode.CROSS -> R.string.bb_cruz
+        br.paulo.tvlauncher.home.BottomBar.Mode.BAR -> R.string.bb_barra
+        br.paulo.tvlauncher.home.BottomBar.Mode.STRIP -> R.string.bb_faixa
+    })
     lateinit var linhaJeito: LinhaCfg
     linhaJeito = linha(getString(R.string.bb_titulo), getString(R.string.bb_det), valor = nomeJeito()) {
-        br.paulo.tvlauncher.home.BottomBar.set(this, !br.paulo.tvlauncher.home.BottomBar.on(this))
+        br.paulo.tvlauncher.home.BottomBar.next(this, 1)
         linhaJeito.valor(nomeJeito())
     }
     c.addView(linhaJeito, lp())

@@ -34,6 +34,7 @@ import br.paulo.tvlauncher.player.item
 import br.paulo.tvlauncher.settings.Extras
 import br.paulo.tvlauncher.settings.Fontes
 import br.paulo.tvlauncher.settings.Tema
+import br.paulo.tvlauncher.weather.RainChance
 import br.paulo.tvlauncher.weather.Astronomia
 import br.paulo.tvlauncher.weather.ArcoSol
 import br.paulo.tvlauncher.weather.BarraAqi
@@ -286,6 +287,9 @@ class PrevisaoActivity : Activity() {
 
         // ================================================================ tela 2: hora a hora e os próximos dias
         val p2 = pagina(84)
+        // Chance como número, palavra ou os dois (RainChance); com palavra a célula da hora alarga para caber "Média 45%".
+        val modoChance = RainChance.modo(this)
+        val larguraHora = if (modoChance == RainChance.Modo.NUMERO) 78 else if (modoChance == RainChance.Modo.PALAVRA) 90 else 108
         val horas = cartao(getString(R.string.pv_24h), focavel = false)
         val faixa = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         for (i in i0 until fim) {
@@ -297,15 +301,15 @@ class PrevisaoActivity : Activity() {
                 setPaddingRelative(dp(4), dp(6), dp(4), dp(6))
                 isFocusable = true
                 background = itemFoco(false)
-                contentDescription = "$hora, $tempH°, ${d.hChuva[i]}%"
+                contentDescription = "$hora, $tempH°, ${RainChance.texto(this@PrevisaoActivity, d.hChuva[i], modoChance)}"
                 setOnFocusChangeListener { v, f -> v.background = itemFoco(f) }
             }
             item.addView(texto(18f, textoSuave).apply { text = hora; gravity = Gravity.CENTER; maxLines = 1 })
             item.addView(IconesClima.imagem(this, if (i == i0) iconeAgora else IconesClima.chave(d.hCodigo[i], eDiaNaHora(i), false)),
                 LinearLayout.LayoutParams(dp(40), dp(40)).apply { topMargin = dp(2); bottomMargin = dp(2) })
             item.addView(texto(22f, Estilo.TEXTO, fonteMedia).apply { text = "$tempH°"; gravity = Gravity.CENTER })
-            item.addView(texto(18f, azulChuva).apply { text = "${d.hChuva[i]}%"; gravity = Gravity.CENTER })
-            faixa.addView(item, LinearLayout.LayoutParams(dp(78), ViewGroup.LayoutParams.WRAP_CONTENT))
+            item.addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.hChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1 })
+            faixa.addView(item, LinearLayout.LayoutParams(dp(larguraHora), ViewGroup.LayoutParams.WRAP_CONTENT))
         }
         horas.addView(android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; addView(faixa) })
         p2.addView(horas, LinearLayout.LayoutParams(-1, -2))
@@ -320,7 +324,7 @@ class PrevisaoActivity : Activity() {
                 else nomeDia.format(entradaData.parse(d.dData[i])!!).trimEnd('.').replaceFirstChar { it.uppercase() }
             val mx = if (i == 0) maxHoje else Math.round(d.dMax[i]).toInt()
             val mn = if (i == 0) minHoje else Math.round(d.dMin[i]).toInt()
-            descricao.append("$nome $mx° $mn° ${d.dChuva[i]}%. ")
+            descricao.append("$nome $mx° $mn° ${RainChance.texto(this, d.dChuva[i], modoChance)}. ")
             linhaDias.addView(LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_HORIZONTAL
                 addView(texto(18f, if (i == 0) Estilo.TEXTO else textoSuave, fonteMedia).apply { text = nome; maxLines = 1; gravity = Gravity.CENTER })
@@ -328,7 +332,7 @@ class PrevisaoActivity : Activity() {
                     LinearLayout.LayoutParams(dp(40), dp(40)).apply { topMargin = dp(2) })
                 addView(texto(22f, Estilo.TEXTO, fonteMedia).apply { text = "$mx°"; gravity = Gravity.CENTER })
                 addView(texto(18f, textoSuave).apply { text = "$mn°"; gravity = Gravity.CENTER })
-                addView(texto(18f, azulChuva).apply { text = "${d.dChuva[i]}%"; gravity = Gravity.CENTER })
+                addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.dChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1 })
             }, LinearLayout.LayoutParams(0, -2, 1f))
         }
         dias.contentDescription = getString(R.string.pv_7d) + ". " + descricao

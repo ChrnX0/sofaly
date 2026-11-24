@@ -64,6 +64,7 @@ class AuditoriaTelasTest {
         saida.mkdirs()
         val app = RuntimeEnvironment.getApplication()
         br.paulo.tvlauncher.home.SplashOverlay.setEnabled(app, false)
+        br.paulo.tvlauncher.home.BottomBar.setMode(app, br.paulo.tvlauncher.home.BottomBar.Mode.CROSS)   // estas fotos são da cruz; a barra única tem a dela (StripScreenTest)
         val pm = app.packageManager
         val atividades = pm.getPackageInfo(app.packageName, PackageManager.GET_ACTIVITIES).activities.orEmpty()
             .map { it.name }.sorted()

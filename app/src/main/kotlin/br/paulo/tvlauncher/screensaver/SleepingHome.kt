@@ -33,6 +33,7 @@ import br.paulo.tvlauncher.home.criarFundo
 import br.paulo.tvlauncher.observer.SofyDrawable
 import br.paulo.tvlauncher.observer.SofyPolicy
 import br.paulo.tvlauncher.settings.Tema
+import br.paulo.tvlauncher.weather.RainChance
 import br.paulo.tvlauncher.weather.ArcoSol
 import br.paulo.tvlauncher.weather.Astronomia
 import br.paulo.tvlauncher.weather.Forecast
@@ -391,7 +392,7 @@ class SleepingHome(private val ctx: Context) {
             val i = i0 + k; if (i >= f.hTempo.size) break
             val rot = if (k == 0) ctx.getString(R.string.pv_agora) else ForecastText.hora(ctx, f.hTempo[i].substring(11, 13).toInt())
             val t = if (k == 0) tempAgora else Math.round(f.hTemp[i]).toInt()
-            addView(celula(rot, "$t°", "${f.hChuva[i]}%", azulChuva, centro = true), LinearLayout.LayoutParams(0, -2, 1f))
+            addView(celula(rot, "$t°", RainChance.texto(ctx, f.hChuva[i]), azulChuva, centro = true), LinearLayout.LayoutParams(0, -2, 1f))
         }
     }
 
@@ -400,7 +401,7 @@ class SleepingHome(private val ctx: Context) {
         for (i in 0 until min(7, f.dData.size)) {
             val nome = if (i == 0) ctx.getString(R.string.pv_hoje)
                 else fmt.format(ler.parse(f.dData[i]) ?: Date()).trimEnd('.').replaceFirstChar { it.titlecase(Locale.getDefault()) }
-            addView(celula(nome, "${Math.round(f.dMax[i]).toInt()}° ${Math.round(f.dMin[i]).toInt()}°", "${f.dChuva[i]}%", azulChuva, centro = true),
+            addView(celula(nome, "${Math.round(f.dMax[i]).toInt()}° ${Math.round(f.dMin[i]).toInt()}°", RainChance.texto(ctx, f.dChuva[i]), azulChuva, centro = true),
                 LinearLayout.LayoutParams(0, -2, 1f))
         }
     }
