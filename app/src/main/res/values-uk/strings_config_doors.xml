@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Дім і мережа</string>
+    <string name="cfg3_mais_ajustes">Більше налаштувань</string>
+    <string name="cfg3_mais_ajustes_det">Приховано для стислості: %1$d</string>
+    <string name="cfg3_modo">Режим: %1$s</string>
+    <string name="cfg3_porta_0_det">Категорії, значки й фон</string>
+    <string name="cfg3_porta_1_det">Облікові записи ТБ, аудіо, субтитри</string>
+    <string name="cfg3_porta_2_det">Діти, PIN і гості</string>
+    <string name="cfg3_porta_3_det">Заставка, сон, пробудження</string>
+    <string name="cfg3_porta_4_det">Дім, телефон і панель</string>
+    <string name="cfg3_porta_5_det">Оновлення, резервна копія й довідка</string>
+</resources>

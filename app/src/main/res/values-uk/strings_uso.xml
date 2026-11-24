@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Як використовується цей телевізор</string>
+    <string name="uso_det">Основне ховає Дім і автоматизації, Віддалений доступ і Додатково. Нічого не вимикається.</string>
+    <string name="uso_simples">Основне</string>
+    <string name="uso_completo">Повне</string>
+    <string name="uso_cuida">Для того, про кого я дбаю</string>
+    <string name="uso_pergunta">Як використовуватиметься цей телевізор?</string>
+    <string name="uso_pergunta_det">Змінити це можна пізніше в Налаштування › Система.</string>
+    <string name="uso_simples_det">Лише основне: застосунки, годинник і погода. Менше параметрів у Налаштуваннях.</string>
+    <string name="uso_completo_det">Усе: керування з телефона, домашні пристрої, мережевий диск і додаткові параметри.</string>
+    <string name="uso_cuida_det">Телевізор батьків чи бабусі й дідуся: просто для них, а ви допомагаєте з телефона, здалеку.</string>
+    <string name="uso_cuidar_longe">Турбота на відстані</string>
+    <string name="uso_cuidar_longe_det">Вимкнено, доки мешканець не погодиться на телевізорі.</string>
+    <string name="uso_cartoes">Великі картки на головному екрані</string>
+    <string name="uso_cartoes_det">Кілька великих застосунків, назви вголос і кнопка \"Отримати допомогу\". Вимкнення просить PIN.</string>
+    <string name="uso_trocar_det">Зараз: %1$s. OK, щоб вибрати знову.</string>
+</resources>

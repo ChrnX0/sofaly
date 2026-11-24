@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Немає інтернету</string>
+    <string name="observer_no_internet_text">Відео можуть зупинятися, доки він не повернеться.</string>
+    <string name="observer_slow_internet_title">Повільний інтернет</string>
+    <string name="observer_slow_internet_text">Відповіді тривають %1$s мс. Відео можуть зупинятися для завантаження.</string>
+    <string name="observer_weak_wifi_title">Слабкий Wi-Fi</string>
+    <string name="observer_weak_wifi_text">Сигнал %1$s дБм. Допоможе роутер ближче до телевізора.</string>
+    <string name="observer_low_memory_title">Пам\'ять майже заповнена</string>
+    <string name="observer_low_memory_text">Вільно лише %1$s МБ. Застосунки можуть закриватися й перезапускатися.</string>
+    <string name="observer_memory_pressure_title">Телевізор перевантажений</string>
+    <string name="observer_memory_pressure_text">Android закриває застосунки, щоб звільнити місце.</string>
+    <string name="observer_slow_home_title">Головний екран повільний</string>
+    <string name="observer_slow_home_text">%1$s%% кадрів запізнилися.</string>
+    <string name="observer_low_disk_title">Сховище майже заповнене</string>
+    <string name="observer_low_disk_text">Лишилося лише %1$s МБ. Збереження може не вдатися.</string>
+    <string name="observer_freeze_undone_title">Я скасувала заморожування</string>
+    <string name="observer_freeze_undone_text">%1$s було заморожено, і %2$s перестав працювати, тож я його розморозила.</string>
+
+    <string name="observer_wifi_restarted_title">Я перезапустила Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">Телевізор був без Wi-Fi %1$s хв. Я вимкнула й увімкнула його, і він повернувся.</string>
+    <string name="observer_tv_restarted_title">Я перезапустила телевізор</string>
+    <string name="observer_tv_restarted_text">Wi-Fi не було %1$s хв, і вимкнути й увімкнути його не допомогло, тож я перезапустила телевізор.</string>
+</resources>

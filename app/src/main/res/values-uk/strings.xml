@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Клавіші пульта для лаунчера (кнопки Netflix/YouTube можна перепризначити) і вікно сполучення без ПК.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">підключено</string>
+    <string name="cfg_vpn_desconectada">відключено</string>
+    <string name="cfg_titulo">Налаштування</string>
+    <string name="cfg_diag">Діагностика телевізора</string>
+    <string name="cfg_diag_det">Інтернет, DNS, VPN і чому зупинився застосунок — усе одразу</string>
+    <string name="cfg_tema_det">Перемикає на наступний вигляд</string>
+    <string name="cfg_nunca">Ніколи</string>
+    <string name="cfg_min">%1$d хв</string>
+    <string name="cfg_nao_gravou_do">не вдалося зберегти (Device Owner неактивний?)</string>
+    <string name="cfg_visita">Гостьовий режим</string>
+    <string name="cfg_rotinas">Розклади</string>
+    <string name="cfg_sec_atualizacao">Оновлення</string>
+    <string name="cfg_atualizar">Перевірити нову версію</string>
+    <string name="cfg_atualizar_det">Версія %1$s · %2$s · OK перевіряє зараз</string>
+    <string name="cfg_procurando">перевірка GitHub…</string>
+    <string name="cfg_instalar">Установити версію %1$d зараз</string>
+    <string name="cfg_instalar_det">Лаунчер закриється й повернеться сам за кілька секунд · OK установлює</string>
+    <string name="cfg_instalando">завантаження й перевірка…</string>
+    <string name="cfg_sec_rede">Мережа</string>
+    <string name="cfg_dns">Приватний DNS</string>
+    <string name="cfg_dns_caiu">" · %1$s не відповів, повернуто на автоматичний"</string>
+    <string name="cfg_velocidade">Перевірити швидкість інтернету</string>
+    <string name="cfg_velocidade_det">Завантажує 25 МБ і вимірює</string>
+    <string name="cfg_testando">Перевірка…</string>
+    <string name="cfg_nao_mudou_do">не вдалося змінити (Device Owner неактивний?)</string>
+    <string name="cfg_sec_ligado">Що ввімкнено — %1$s</string>
+    <string name="cfg_ligado">увімк.</string>
+    <string name="cfg_so_pc">" · лише з комп\'ютера (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK намагається ввімкнути"</string>
+    <string name="cfg_perm_fixas">Надано постійні дозволи</string>
+    <string name="cfg_shell_estado">Власна оболонка</string>
+    <string name="cfg_shell_pareado">сполучено: лаунчер сам перепідключається через бездротове налагодження</string>
+    <string name="cfg_shell_nunca">ще не сполучено: скористайтеся \"Сполучення без ПК\" нижче</string>
+    <string name="cfg_sec_shizuku">Оболонка лаунчера (Wi-Fi ADB)</string>
+    <string name="cfg_parear">Сполучення без ПК</string>
+    <string name="cfg_parear_det">Відкриває екран сполучення Android з клавіатурою лаунчера поверх</string>
+    <string name="cfg_acess_off">службу доступності лаунчера вимкнено</string>
+    <string name="cfg_versao">Версія лаунчера</string>
+    <string name="cfg_desconhecida">невідомо</string>
+    <string name="cfg_depuracao">Бездротове налагодження</string>
+    <string name="cfg_depuracao_on">лаунчер тримає ввімкненим</string>
+    <string name="cfg_depuracao_android">як залишає Android</string>
+    <string name="cfg_chave">Ключ власної оболонки</string>
+    <string name="cfg_calculando">обчислення…</string>
+    <string name="cfg_erro">помилка: %1$s</string>
+    <string name="cfg_licencas">Ліцензії та подяки</string>
+    <string name="cfg_licencas_det">Сторонній код, шрифти, значки й дані, що тут використовуються</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">без цього: не можна приховувати застосунки, немає закріпленого HOME чи VPN, немає тайм-ауту заставки</string>
+    <string name="rec_agenda">Календар</string>
+    <string name="rec_agenda_sem">без цього: календар не показує подій</string>
+    <string name="rec_local">Місцезнаходження</string>
+    <string name="rec_local_sem">без цього: погода бере місто з IP, а Wi-Fi не показує назву мережі</string>
+    <string name="rec_contas">Облікові записи</string>
+    <string name="rec_contas_sem">без цього: кружечок профілю не показує ініціал облікового запису</string>
+    <string name="rec_uso">Використання застосунків</string>
+    <string name="rec_uso_sem">без цього: застосунки не сортуються за нещодавнім використанням</string>
+    <string name="rec_sobre">Накладання</string>
+    <string name="rec_sobre_sem">без цього: нотатки й сполучення без ПК не з\'являються поверх застосунків</string>
+    <string name="rec_seguras">Захищені налаштування</string>
+    <string name="rec_seguras_sem">без цього: не можна змінити DNS і немає автоперезапуску служби клавіш і бездротового налагодження (лише з ПК або оболонкою лаунчера)</string>
+    <string name="rec_teclas">Служба клавіш</string>
+    <string name="rec_teclas_sem">без цього: HOME може відкрити лаунчер Google, а клавіші Netflix/YouTube не перепризначаються</string>
+    <string name="rec_tudo">усе ввімкнено</string>
+    <string name="rec_faltam">Бракує %1$d з %2$d функцій · OK на пункті намагається ввімкнути</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Ласкаво просимо</string>
+    <string name="bv_texto">Головний екран, годинник, погода, будильник і заставка вже працюють. Решту ввімкніть тут, якщо хочете (%1$s).</string>
+    <string name="bv_comecar">Почати</string>
+    <string name="bv_comecar_det">Переходить на головний екран</string>
+    <string name="bv_perm">Увімкнути календар, місцезнаходження й облікові записи</string>
+    <string name="bv_perm_det">Події календаря, погода для вашого міста, ініціал облікового запису в профілі</string>
+    <string name="bv_teclas">Увімкнути службу клавіш</string>
+    <string name="bv_teclas_det">Спеціальні можливості › Кнопки пульта: HOME завжди повертає сюди</string>
+    <string name="bv_tudo">Переглянути все, що можна ввімкнути</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Файл ліцензії не знайдено.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Увімкнути телевізор</string>
+    <string name="rot_abrir_um">Увімкнути й відкрити застосунок</string>
+    <string name="rot_desligar">Вимкнути телевізор</string>
+    <string name="rot_abrir">Увімкнути й відкрити %1$s</string>
+    <string name="rot_um_app">застосунок (вибрати)</string>
+    <string name="rot_se_ocioso">" якщо ніхто не торкався протягом %1$s"</string>
+    <string name="rot_sempre">завжди</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">жодного розкладу не ввімкнено</string>
+    <string name="rot_proxima">наступний: %1$s</string>
+    <string name="rot_nova_mais">+ Новий розклад</string>
+    <string name="rot_nova_det">Увімкнути, відкрити застосунок або вимкнути в заданий час</string>
+    <string name="rot_desligada_sufixo">" · вимк."</string>
+    <string name="rot_nova">Новий розклад</string>
+    <string name="rot_editar">Редагувати розклад</string>
+    <string name="rot_editor_det">OK змінює кожен рядок · НАЗАД виходить без збереження</string>
+    <string name="rot_hora">Час: %1$s</string>
+    <string name="rot_dias">Дні: %1$s</string>
+    <string name="rot_acao">Дія: %1$s</string>
+    <string name="rot_app">Застосунок: %1$s</string>
+    <string name="rot_nenhum">немає</string>
+    <string name="rot_ocioso">Лише якщо ніхто не торкався протягом: %1$s</string>
+    <string name="rot_ligada">Увімк.</string>
+    <string name="rot_desligada">Вимк.</string>
+    <string name="rot_hora_det">◀ ▶ 5 хвилин · OK +1 година</string>
+    <string name="rot_dias_det">OK: щодня, пн–пт, вихідні, один раз</string>
+    <string name="rot_ok_muda">OK змінює</string>
+    <string name="rot_app_det">OK або ▶ далі · ◀ назад</string>
+    <string name="rot_ocioso_det">Не перериває того, хто дивиться</string>
+    <string name="rot_ativa_det">OK вмикає/вимикає цей розклад</string>
+    <string name="rot_salvar">Зберегти</string>
+    <string name="rot_escolha_app">Виберіть застосунок</string>
+    <string name="rot_apagar">Видалити цей розклад</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Один раз</string>
+    <string name="dia_todo">Щодня</string>
+    <string name="dia_seg_sex">Пн–Пт</string>
+    <string name="dia_fim">Вихідні</string>
+    <string-array name="dias_curtos">
+        <item>Нд</item>
+        <item>Пн</item>
+        <item>Вт</item>
+        <item>Ср</item>
+        <item>Чт</item>
+        <item>Пт</item>
+        <item>Сб</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE, d MMMM</string>
+    <string name="home_perfil">Профіль</string>
+    <string name="home_visita_titulo">Гостьовий режим увімкнено</string>
+    <string name="home_visita_msg">Профіль, календар і вибрані застосунки приховано. Вийти з гостьового режиму?</string>
+    <string name="home_continuar">Залишити</string>
+    <string name="home_sair">Вийти</string>
+    <string name="comum_cancelar">Скасувати</string>
+    <string name="home_mostrar">Показувати на головному екрані</string>
+    <string name="home_ocultar">Приховати з головного екрана</string>
+    <string name="home_sob_demanda">Заморожувати, коли не використовується</string>
+    <string name="home_sob_demanda_tirar">Не заморожувати, коли не використовується</string>
+    <string name="sob_demanda_ligado">Заморожено. Він залишається тут: OK розморожує й відкриває, а через 2 хвилини після виходу знову заморожується.</string>
+    <string name="sob_demanda_desligado">Розморожено. Працює як раніше.</string>
+    <string name="sob_demanda_falhou">Зараз не вдалося змінити. Спробуйте ще раз за мить.</string>
+    <string name="home_desinstalar">Видалити</string>
+    <string name="home_app_sistema"> (системний застосунок)</string>
+    <string name="home_desinstalar_titulo">Видалити %1$s?</string>
+    <string name="home_desinstalar_aviso">Застосунок і його дані зникнуть з телевізора. Це не можна скасувати: щоб повернути, установіть його знову з Play Маркету.</string>
+    <string name="home_cancelar">Скасувати</string>
+    <string name="home_desinstalando">Видалення %1$s…</string>
+    <string name="home_desinstalado">%1$s видалено.</string>
+    <string name="home_desinstalar_falhou">Не вдалося видалити %1$s: %2$s</string>
+    <string name="home_chovendo">Зараз дощ</string>
+    <string name="home_chuva_agora">%1$s - Дощ %2$d%% просто зараз</string>
+    <string name="home_chuva_em">%1$s - Дощ %2$d%% через %3$d год</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Будильник встановлено: %1$s</string>
+    <string name="al_um_app">застосунок</string>
+    <string name="al_criar_q">Встановити будильник на %1$s?</string>
+    <string name="al_pedido">Запит від %1$s.</string>
+    <string name="al_criar">Встановити</string>
+    <string name="al_titulo">Будильник</string>
+    <string name="al_nenhum">Жодного будильника не ввімкнено</string>
+    <string name="al_novo_mais">+  Новий будильник</string>
+    <string name="al_ligado">Увімк.</string>
+    <string name="al_desligado">Вимк.</string>
+    <string name="al_novo">Новий будильник</string>
+    <string name="al_editar">Редагувати будильник</string>
+    <string name="al_apagar">Видалити</string>
+    <string name="al_hoje">сьогодні</string>
+    <string name="al_amanha">завтра</string>
+    <string name="al_dia_as">%1$s о %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Зупинити</string>
+    <string name="al_soneca">Відкласти на 10 хв</string>
+    <string name="al_perdido_um">Будильник на %1$s не задзвонив, бо телевізор був вимкнений.</string>
+    <string name="al_perdido_varios">Будильники на %1$s не задзвонили, бо телевізор був вимкнений.</string>
+    <string name="al_perdido_e">і</string>
+    <string name="al_volume_nao_mexe">не змінювати</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Немає облікового запису Google</string>
+    <string name="pp_ativo">"  ·  активний"</string>
+    <string name="pp_adicionar">Додати профіль</string>
+    <string name="pr_bt_controle">Пульт</string>
+    <string name="pp_audio">Аудіо</string>
+    <string name="pp_carregando">Завантаження…</string>
+    <string name="pp_conectar">Підключити</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">немає облікового запису Google</string>
+    <string name="cal_dica">◀ ▶ змінити місяць</string>
+    <string name="cal_30">Наступні 30 днів</string>
+    <string name="cal_nenhuma_conta">На телевізорі немає облікового запису Google</string>
+    <string name="cal_nada">Нічого не заплановано (або календар ще синхронізується)</string>
+    <string name="fmt_mes_ano">LLLL yyyy</string>
+    <string name="cal_dia_todo">Увесь день</string>
+    <string name="cal_sem_titulo">(без назви)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  йде дощ"</string>
+    <string name="pt_lua">Місяць</string>
+    <string name="pt_sol">Сонце</string>
+    <string name="pt_umidade">Вологість</string>
+    <string name="pt_chuva">Дощ</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Дощ</string>
+    <string name="cl_limpo">Ясно</string>
+    <string name="cl_poucas">Малохмарно</string>
+    <string name="cl_parcial">Мінлива хмарність</string>
+    <string name="cl_nublado">Хмарно</string>
+    <string name="cl_neblina">Туман</string>
+    <string name="cl_garoa_fraca">Слабка мряка</string>
+    <string name="cl_garoa">Мряка</string>
+    <string name="cl_garoa_forte">Сильна мряка</string>
+    <string name="cl_garoa_cong">Мряка з ожеледдю</string>
+    <string name="cl_chuva_fraca">Слабкий дощ</string>
+    <string name="cl_chuva_forte">Сильний дощ</string>
+    <string name="cl_chuva_cong">Крижаний дощ</string>
+    <string name="cl_neve_fraca">Слабкий сніг</string>
+    <string name="cl_neve">Сніг</string>
+    <string name="cl_neve_forte">Сильний сніг</string>
+    <string name="cl_graos">Снігова крупа</string>
+    <string name="cl_panc_fracas">Слабкі зливи</string>
+    <string name="cl_panc">Зливи</string>
+    <string name="cl_panc_fortes">Сильні зливи</string>
+    <string name="cl_panc_neve">Снігопад</string>
+    <string name="cl_tempestade">Гроза</string>
+    <string name="cl_granizo">Гроза з градом</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">повний через %1$d д</string>
+    <string name="lua_nova_em">новий через %1$d д</string>
+    <string-array name="fases_lua">
+        <item>Новий місяць</item>
+        <item>Молодий місяць</item>
+        <item>Перша чверть</item>
+        <item>Прибуваючий місяць</item>
+        <item>Повний місяць</item>
+        <item>Спадний місяць</item>
+        <item>Остання чверть</item>
+        <item>Старий місяць</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Завантаження прогнозу…</string>
+    <string name="pv_voz_agora">"Зараз %1$d градусів, %2$s. "</string>
+    <string name="pv_voz_hoje">Сьогодні максимум %1$d і мінімум %2$d</string>
+    <string name="pv_voz_chuva">", імовірність дощу %1$d відсотків. "</string>
+    <string name="pv_voz_sem_chuva">", дощу не очікується. "</string>
+    <string name="pv_voz_amanha">Завтра, %1$s, максимум %2$d і мінімум %3$d</string>
+    <string name="pv_voz_amanha_chuva">, імовірність дощу %1$d відсотків</string>
+    <string name="pv_sem">Зараз не вдалося отримати прогноз. Перевірте інтернет і спробуйте ще раз.</string>
+    <string name="pv_max_min">макс. %1$d°   мін. %2$d°   ·   відчувається як %3$d°</string>
+    <string name="pv_24h">Наступні 24 години</string>
+    <string name="pv_agora">Зараз</string>
+    <string name="pv_chance">Імовірність дощу</string>
+    <string name="pv_7d">Наступні 9 днів</string>
+    <string name="pv_hoje">Сьогодні</string>
+    <string name="pv_mais_quente">Тепліше</string>
+    <string name="pv_mais_frio">Холодніше</string>
+    <string name="pv_igual">Як насправді</string>
+    <string name="pv_detalhes">Подробиці</string>
+    <string name="pv_sensacao">Відчувається як</string>
+    <string name="pv_vento">Вітер</string>
+    <string name="pv_uv">УФ-індекс</string>
+    <string name="pv_visib">Видимість</string>
+    <string name="pv_orvalho">Точка роси</string>
+    <string name="pv_pressao">Тиск</string>
+    <string name="pv_chuva_hoje">Дощ сьогодні</string>
+    <string name="pv_ar">Якість повітря</string>
+    <string name="pv_sem_dados">Зараз немає даних</string>
+    <string name="uv_baixo">Низький</string>
+    <string name="uv_moderado">Помірний</string>
+    <string name="uv_alto">Високий</string>
+    <string name="uv_muito_alto">Дуже високий</string>
+    <string name="uv_extremo">Екстремальний</string>
+    <string name="aq_boa">Добра</string>
+    <string name="aq_moderada">Помірна</string>
+    <string name="aq_sensiveis">Шкідлива для чутливих</string>
+    <string name="aq_ruim">Шкідлива</string>
+    <string name="aq_muito_ruim">Дуже шкідлива</string>
+    <string name="aq_perigosa">Небезпечна</string>
+    <string-array name="rosa_ventos">
+        <item>Пн</item>
+        <item>ПнСх</item>
+        <item>Сх</item>
+        <item>ПдСх</item>
+        <item>Пд</item>
+        <item>ПдЗх</item>
+        <item>Зх</item>
+        <item>ПнЗх</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Темна</string>
+    <string name="tema_galeria">Галерея</string>
+    <string name="tema_meu">Мій фон</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">М\'який</string>
+    <string name="som_classico">Класичний</string>
+    <string name="som_sino">Дзвоник</string>
+    <string name="som_rampa1">Наростає за 1½ хв</string>
+    <string name="som_rampa2">Наростає за 2 хв</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Інтернет: %1$.0f Мбіт/с (завантажено %2$.0f МБ за %3$.1f с)</string>
+    <string name="vel_falhou">Перевірка не вдалася (немає інтернету або сервер недоступний)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  поточний"</string>
+    <string name="esc_botao">Кнопка %1$s відкриває:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">схід %1$s</string>
+    <string name="fd_por">захід %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: використати   ·   утримуйте OK на одному з ваших серверів: видалити   ·   Назад: вихід</string>
+    <string name="dns_auto">Автоматично</string>
+    <string name="dns_auto_det">Використовує DNS роутера й шифрує, коли він це підтримує (типово для Android)</string>
+    <string name="dns_desl">Вимк.</string>
+    <string name="dns_desl_det">Звичайний DNS, без шифрування</string>
+    <string name="dns_publicos">Публічні сервери</string>
+    <string name="dns_meus">Мої сервери</string>
+    <string name="dns_adicionar">+  Додати сервер</string>
+    <string name="dns_adicionar_det">Адреса DNS-over-TLS, наприклад dns.example.com</string>
+    <string name="dns_sem_permissao">"Немає дозволу змінювати DNS. На комп\'ютері: "</string>
+    <string name="dns_troque_antes">перемкніть сервер, перш ніж видаляти цей</string>
+    <string name="dns_remover_q">Видалити %1$s?</string>
+    <string name="dns_remover">Видалити</string>
+    <string name="dns_nome_opc">Назва (необов\'язково)</string>
+    <string name="dns_endereco_ex">Адреса, напр. dns.example.com</string>
+    <string name="dns_adicionar_tit">Додати DNS-сервер</string>
+    <string name="dns_salvar_usar">Зберегти й використати</string>
+    <string name="dns_invalido">Неправильна адреса. Використовуйте назву на зразок dns.example.com (Android не приймає IP-адресу).</string>
+    <string name="dns_em_uso">Використовується: %1$s</string>
+    <string name="dns_testando">перевірка…</string>
+    <string name="dns_falha">ПОМИЛКА: жодне ім\'я не розпізнано. Виберіть інший сервер або Автоматично.</string>
+    <string name="dns_res_sem_cripto">відповідає за %1$d мс (без шифрування)</string>
+    <string name="dns_res_tls">відповідає за %1$d мс   ·   TLS активний</string>
+    <string name="dns_res_com">" з %1$s"</string>
+    <string name="dns_res_sem_tls">відповідає за %1$d мс   ·   зараз без TLS</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (особистий)</string>
+    <string name="dns_personalizado">Власний (%1$s)</string>
+    <string name="dns_rot_auto">автоматично</string>
+    <string name="dns_rot_desl">вимк.</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Підсумок</string>
+    <string name="diag_frase">Одним реченням</string>
+    <string name="diag_wifi_desc">відключено: телевізор не в жодній мережі</string>
+    <string name="diag_lat">%1$d мс до інтернету</string>
+    <string name="diag_sem_resp">інтернет не відповідає</string>
+    <string name="diag_wifi">%1$s · сигнал %2$d дБм · %3$d Мбіт/с · %4$s</string>
+    <string name="diag_validou">Android перевірив Wi-Fi</string>
+    <string name="diag_nao_validou">Android НЕ перевірив Wi-Fi</string>
+    <string name="diag_net_ok">працює (перевірка за %1$d мс) · %2$s</string>
+    <string name="diag_net_falhou">перевірка не дійшла до Google · %1$s</string>
+    <string name="diag_net_estranha">дивна відповідь (%1$d): мережа може вимагати входу · %2$s</string>
+    <string name="diag_cripto">шифрування активне</string>
+    <string name="diag_sem_cripto">шифрування НЕактивне</string>
+    <string name="diag_resolve">розпізнає імена (%1$d мс)</string>
+    <string name="diag_nao_resolve">НЕ розпізнає імена</string>
+    <string name="diag_caiu">%1$s раніше не спрацював, і я повернувся на автоматичний</string>
+    <string name="diag_nenhum_app">немає застосунку</string>
+    <string name="diag_vpn_nada">VPN не закріплено й не ввімкнено</string>
+    <string name="diag_vpn_desc">%1$s закріплено, але ВІДКЛЮЧЕНО (інтернет працює без VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s підключено, але Android не перевірив тунель</string>
+    <string name="diag_vpn_ok">%1$s підключено й працює</string>
+    <string name="diag_r_sem_wifi">у телевізора немає Wi-Fi</string>
+    <string name="diag_r_dns_fora">DNS не відповідає: схоже, інтернету немає</string>
+    <string name="diag_r_net_fora">інтернет не проходить (роутер або провайдер)</string>
+    <string name="diag_r_dns">DNS не розпізнає імена: застосунки не знаходять свої сервери</string>
+    <string name="diag_r_net">DNS працює, але інтернет не відповідає</string>
+    <string name="diag_r_vpn">мережа в порядку; не працює лише VPN (застосунки працюють без нього)</string>
+    <string name="diag_r_atencao">мережа працює, нижче є на що звернути увагу</string>
+    <string name="diag_r_ok">мережа в порядку. Якщо застосунок зупинився, нижче видно, що з ним сталося</string>
+    <string name="diag_usava">" · використовував %1$d МБ"</string>
+    <string name="diag_texto">Причина: %1$s\nПроцес: %2$s\nВажливість: %3$s</string>
+    <string name="diag_detalhe">\nПодробиці Android: %1$s</string>
+    <string name="diag_m_memoria">закрито через брак пам\'яті</string>
+    <string name="diag_m_crash">аварійно завершився</string>
+    <string name="diag_m_nativo">аварійно завершився (нативно)</string>
+    <string name="diag_m_anr">перестав відповідати (ANR)</string>
+    <string name="diag_m_iniciar">не зміг запуститися</string>
+    <string name="diag_m_recurso">закрито за надмірне використання ресурсів</string>
+    <string name="diag_m_dependencia">закрито, бо завершився застосунок, від якого він залежить</string>
+    <string name="diag_m_sinal">завершено системою (сигнал)</string>
+    <string name="diag_m_permissao">перезапущено через зміну дозволу</string>
+    <string name="diag_i_tela">був на екрані</string>
+    <string name="diag_i_visivel">видимий</string>
+    <string name="diag_i_servico">працює у фоні</string>
+    <string name="diag_i_cache">у фоні (кешований)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Діагностика</string>
+    <string name="diag_refazer">Перевірити знову</string>
+    <string name="diag_refazer_det">Знову виконує всі перевірки</string>
+    <string name="diag_verificando">перевірка…</string>
+    <string name="diag_apps">Застосунки (останні 7 днів)</string>
+    <string name="diag_lendo">Читання історії застосунків</string>
+    <string name="diag_sem_perm">Немає дозволу читати збої інших застосунків</string>
+    <string name="diag_sem_perm_det">Лаунчер сам надає собі READ_LOGS і DUMP через власну оболонку; зачекайте кілька хвилин або перезапустіть телевізор</string>
+    <string name="diag_nada">нічого не записано</string>
+    <string name="diag_erros">Помилки лаунчера (записані ним)</string>
+    <string name="diag_sem_erros">Помилок не записано</string>
+    <string name="diag_sem_erros_det">Лаунчер зберігає тут свої останні %1$d збоїв</string>
+    <string name="diag_erro">Помилка лаунчера</string>
+    <string name="diag_apagar">Видалити записані помилки</string>
+    <string name="diag_apagar_det">Очищає список вище (нічого іншого не чіпає)</string>
+    <string name="diag_rodape">%1$s · стрілки прокручують · НАЗАД повертає</string>
+    <string name="diag_app_ok">За останні 7 днів жодного збою, зависання чи аварійного виходу.\n\nЯкщо застосунок відкривається, але нічого не завантажує, проблема зазвичай у мережі: див. розділ Мережа на попередньому екрані.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">ще не перевірено</string>
+    <string name="atu_android9">потрібен Android 9 або новіший</string>
+    <string name="atu_ocupado">вже перевіряється</string>
+    <string name="atu_erro">помилка: %1$s %2$s</string>
+    <string name="atu_em_dia">актуальна (встановлено %1$d, остання %2$d)</string>
+    <string name="atu_sem_tag">Останній Release не має версії в тегу</string>
+    <string name="atu_sem_apk">Release %1$d не має APK або SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 не збігається, не встановлено</string>
+    <string name="atu_ilegivel">Release %1$d: APK не читається</string>
+    <string name="atu_pacote">Release %1$d: інший пакет (%2$s)</string>
+    <string name="atu_versao">Release %1$d: версія APK (%2$d) не збігається з тегом</string>
+    <string name="atu_chave">На GitHub є версія %1$d, але її підписано іншим ключем, який цей телевізор не приймає: цей телевізор оновлюється з ПК</string>
+    <string name="atu_migracao_disponivel">версія %1$d: готово перевести цей телевізор на новий застосунок (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">встановлюється новий застосунок (%1$d); потім він бере цей телевізор з усіма налаштуваннями</string>
+    <string name="atu_disponivel">версія %1$d готова до встановлення (встановлено %2$d)</string>
+    <string name="atu_trocou">версія змінилася після останньої перевірки · OK перевіряє знову</string>
+    <string name="atu_instalando">встановлюється %1$d (встановлено %2$d)</string>
+    <string name="atu_ok">оновлено</string>
+    <string name="atu_falhou">встановлення не вдалося (%1$d): %2$s</string>
+    <string name="atu_ruim">версія %1$d аварійно завершилася на цьому телевізорі одразу після встановлення: більше не встановлюватиметься</string>
+    <string name="vig_aviso_titulo">Оновлення призупинено</string>
+    <string name="vig_pausada">версія %1$d двічі аварійно завершилася одразу після встановлення · автооновлення чекає наступної</string>
+    <string name="vig_pausada_tela">версія %1$d двічі аварійно завершилася одразу після встановлення · \"%2$s\" вимкнено до наступної</string>
+    <string name="vig_tela_bloqueada">Цей екран вимкнено до наступного оновлення (він спричинив збій лаунчера)</string>
+    <string name="cfg_vig_liberar">Безпечний режим</string>
+    <string name="cfg_vig_liberar_det">" · OK вмикає знову"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Голосовий пошук не відкрився на цьому телевізорі</string>
+    <string name="home_alarme_hoje">сьогодні</string>
+    <string name="home_alarme_amanha">завтра</string>
+    <string name="player_carregando">Завантаження каналів…</string>
+    <string name="player_carregando_canal">Завантаження каналу…</string>
+    <string name="vod_carregando">Завантаження відео…</string>
+    <string name="player_sem_canais">Список каналів ще не додано.</string>
+    <string name="player_tentando">Немає сигналу на каналі %1$d. Повторна спроба…</string>
+    <string name="player_sem_sinal">Канал %1$d не відповів. Виберіть інший кнопками ▲ ▼ або OK.</string>
+    <string name="player_canal_nao_existe">Каналу %1$d немає.</string>
+    <string name="player_ao_vivo">НАЖИВО</string>
+    <string name="player_a_seguir">далі: %1$s</string>
+    <string name="player_teclas">▲ ▼ канал · OK список каналів · утримуйте OK 2 с: улюблений · ◀ попередній канал · ▶ ▶ параметри · НАЗАД вихід</string>
+    <string name="player_teclas_pausa">▶❙❙ або OK продовжити · ▶ параметри (назад до прямого ефіру) · ▲ ▼ канал · НАЗАД вихід</string>
+    <string name="player_cat_busca">Пошук: %1$s</string>
+    <string name="player_acao_buscar">Пошук</string>
+    <string name="player_acao_filtros">Фільтри</string>
+    <string name="filmes_titulo">Фільми</string>
+    <string name="filmes_carregando">Завантаження фільмів…</string>
+    <string name="filmes_vazio">Фільмів ще немає</string>
+    <string name="filmes_continuar">Продовжити</string>
+    <string name="filmes_ordem_titulo">Сортувати за</string>
+    <string name="filmes_ordem_recentes">найновіші в каталозі</string>
+    <string name="filmes_ordem_nome">назвою</string>
+    <string name="filmes_ordem_nota">оцінкою</string>
+    <string name="filmes_ordem_ano">роком</string>
+    <string name="filmes_busca_dica">Назва фільму</string>
+    <string name="filmes_do_comeco">З початку</string>
+    <string name="filmes_assistir">▶  Дивитися</string>
+    <string name="filmes_ficha_carregando">Завантаження подробиць…</string>
+    <string name="filmes_direcao">Режисер</string>
+    <string name="filmes_elenco">Актори</string>
+    <string name="filmes_interesses">Переглянути пізніше</string>
+    <string name="filmes_assistidos">Переглянуто</string>
+    <string name="filmes_interesse_pos">★ %1$s додано до «Переглянути пізніше»</string>
+    <string name="filmes_interesse_tirou">%1$s вилучено з «Переглянути пізніше»</string>
+    <string name="filmes_interesses_cheio">У «Переглянути пізніше» вже 500 назв: спершу вилучіть одну.</string>
+    <string name="filmes_interesses_vazio">Утримуйте OK 2 секунди на постері, щоб додати його сюди (і ще раз, щоб вилучити).</string>
+    <string name="filmes_assistido">Переглянуто</string>
+    <string name="filmes_selo_leg">СУБ</string>
+    <string name="vod_sem_conta">Обліковий запис цього відео більше не існує.</string>
+    <string name="vod_erro">Не вдалося відтворити це відео. НАЗАД, щоб вийти.</string>
+    <string name="vod_faixa">Доріжка</string>
+    <string name="vod_audio">Аудіо</string>
+    <string name="vod_legenda">Субтитри</string>
+    <string name="vod_faixas">Аудіо й субтитри</string>
+    <string name="vod_teclas">OK пауза · ◀ 10 с · ▶ 30 с (утримуйте для швидшого) · ▼ аудіо, субтитри й зображення · ⏮ ⏭ розділи · НАЗАД вихід</string>
+    <string name="series_titulo">Серіали</string>
+    <string name="series_carregando">Завантаження серіалів…</string>
+    <string name="series_vazio">Серіалів ще немає</string>
+    <string name="series_ordem_recentes">з новою серією</string>
+    <string name="series_busca_dica">Назва серіалу</string>
+    <string name="series_sem_episodios">Сервер не надіслав серій для цього серіалу.</string>
+    <string name="series_assistir">▶  Дивитися %1$s</string>
+    <string name="series_temporada">Сезон %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d сезон</item>
+        <item quantity="few">%d сезони</item>
+        <item quantity="many">%d сезонів</item>
+        <item quantity="other">%d сезонів</item>
+    </plurals>
+    <string name="player_acao_guia">Телепрограма</string>
+    <string name="player_sem_guia_curto">Немає телепрограми</string>
+    <string name="player_grade_teclas">OK дивитися · ◀ ▶ програма · ▲ ▼ канал</string>
+    <string name="player_busca_dica">Назва каналу або програми</string>
+    <string name="player_busca_nada">Нічого не знайдено за запитом «%1$s».</string>
+    <string name="player_filtro_qualquer">Будь-яка</string>
+    <string name="player_filtro_qualidade">Якість: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Якість зображення</string>
+    <string name="player_filtro_pais">Країна: %1$s</string>
+    <string name="player_filtro_pais_titulo">Країна або мова</string>
+    <string name="player_filtro_limpar">Очистити фільтри</string>
+    <string name="player_filtro_nada">У назвах каналів цього списку немає якості чи країни.</string>
+    <string name="player_bloqueado">Канал заблоковано батьківським контролем. Щоб дивитися, введіть PIN у Фільтрах.</string>
+    <string name="player_ocultas_mostrar">Показати приховані категорії й заблоковані канали (PIN)</string>
+    <string name="player_ocultas_esconder">Знову приховати приховані категорії й заблоковані канали</string>
+    <string name="player_pin_titulo">PIN панелі</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">Неправильний PIN.</string>
+    <string name="player_pin_sem">Немає PIN панелі: приховані категорії не захищено.</string>
+    <string name="player_pin_espere">Забагато неправильних PIN. Спробуйте ще раз через %d хв.</string>
+    <string name="infantil_titulo">Дитячі категорії</string>
+    <string name="infantil_carregando">завантаження категорій…</string>
+    <string name="infantil_coluna_itens">ЩО ВСЕРЕДИНІ</string>
+    <string name="infantil_dica">OK позначає категорію як дитячу або знімає позначку · діє для ТБ наживо, Фільмів і Серіалів · НАЗАД виходить (уже збережено)</string>
+    <string name="infantil_so_categoria">позначте всю категорію в лівій колонці</string>
+    <string name="infantil_vazio">немає категорій: додайте обліковий запис у Налаштування › ТБ і фільми й перезавантажте канали</string>
+    <string name="infantil_limite">категорія для дорослих не може бути дитячою</string>
+    <string name="infantil_resumo_ligado">%1$d з %2$d категорій позначено як дитячі · дитячий режим УВІМК.</string>
+    <string name="infantil_resumo_desligado">%1$d з %2$d категорій позначено як дитячі · дитячий режим вимк.</string>
+    <string name="cfg_infantil">Дитячий режим</string>
+    <string name="cfg_infantil_ligado">увімк. · показано лише %d дитячих категорій; решта вимагає PIN</string>
+    <string name="cfg_infantil_desligado">вимк. · %d категорій позначено як дитячі</string>
+    <string name="cfg_infantil_escolher">Вибрати дитячі категорії</string>
+    <string name="cfg_infantil_escolher_det">Застосувати до ТБ наживо, Фільмів і Серіалів</string>
+    <string name="player_grupo_oculto">%1$s приховано. Щоб побачити: Фільтри, показати приховані.</string>
+    <string name="player_grupo_mostrado">%1$s знову видно.</string>
+    <string name="player_canais_de">%1$s · КАНАЛІВ: %2$d</string>
+    <string name="player_cat_todos">Усі</string>
+    <string name="player_cat_favoritos">Улюблені</string>
+    <string name="player_cat_recentes">Нещодавні</string>
+    <string name="player_cat_outros">Інше</string>
+    <string name="player_sem_favoritos">Улюблених ще немає. Утримуйте OK 2 с на каналі, щоб додати його сюди.</string>
+    <string name="player_categoria_vazia">У цій категорії немає каналів.</string>
+    <string name="player_sem_guia">Немає телепрограми для цього каналу.</string>
+    <string name="player_depois">ПІЗНІШЕ</string>
+    <string name="player_lista_teclas">OK дивитися · утримуйте OK 2 с: улюблений або вилучити · утримуйте OK на категорії: приховати · ◀ категорії</string>
+    <string name="player_favorito_pos">★ %1$s додано до улюблених</string>
+    <string name="player_favorito_tirou">%1$s вилучено з улюблених</string>
+    <string name="player_favoritos_cheio">Уже є 500 улюблених: спершу вилучіть один.</string>
+    <string name="player_assistindo">дивитеся</string>
+    <string name="home_card_tv">ТБ</string>
+    <string name="home_destaque_tv_sub">Канали наживо</string>
+    <string name="home_destaque_app">Застосунок</string>
+    <string name="app_sub_youtube">Відео й канали</string>
+    <string name="app_sub_netflix">Фільми й шоу</string>
+    <string name="app_sub_prime">Фільми, шоу й спорт</string>
+    <string name="app_sub_max">Фільми, шоу й спорт</string>
+    <string name="app_sub_play_store">Установлення й оновлення застосунків</string>
+    <string name="app_sub_play_games">Ігри</string>
+    <string name="app_sub_google_tv">Куплені й орендовані фільми</string>
+    <string name="app_sub_config">Налаштування телевізора</string>
+    <string name="home_card_series">Серіали</string>
+    <string name="home_card_filmes">Фільми</string>
+    <string name="home_destaque_series">Серіали з вашого списку · продовжуйте з місця зупинки</string>
+    <string name="home_destaque_filmes">Фільми з вашого списку · продовжуйте з місця зупинки</string>
+    <string name="home_card_rede">Мережа</string>
+    <string name="home_destaque_rede">Ваші відео, музика й фото</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d MMMM</string>
+    <string name="home_busca">Пошук</string>
+    <string name="home_falar">Поговорити з Gemini</string>
+    <string name="home_dest_tv">ТБ · канал %1$d</string>
+    <string name="rede_titulo">Мережа</string>
+    <string name="rede_procurando">Пошук медіасерверів у мережі…</string>
+    <string name="rede_nenhum">Зараз жоден медіасервер не ввімкнено. Додайте один нижче: Plex і Jellyfin використовують ваш обліковий запис; папка на ПК чи NAS — свою адресу.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d сервер</item>
+        <item quantity="few">%1$d сервери</item>
+        <item quantity="many">%1$d серверів</item>
+        <item quantity="other">%1$d серверів</item>
+    </plurals>
+    <string name="rede_secao_seus">Ваші сервери</string>
+    <string name="rede_secao_achados">Знайдено в мережі</string>
+    <string name="rede_secao_adicionar">Додати</string>
+    <string name="rede_entrar">Увійти</string>
+    <string name="rede_adicionar">Додати</string>
+    <string name="rede_salvar">Зберегти</string>
+    <string name="rede_testar_salvar">Перевірити й зберегти</string>
+    <string name="rede_testando">Перевірка…</string>
+    <string name="rede_cancelar">Скасувати</string>
+    <string name="rede_sub_dlna">DLNA · відкривається напряму</string>
+    <string name="rede_sub_maquina">Спільна папка · %1$s</string>
+    <string name="rede_sub_pasta">Спільна папка · %1$s</string>
+    <string name="rede_sub_lista">Список M3U · %1$s</string>
+    <string name="rede_sub_video">Посилання на відео · %1$s</string>
+    <string name="rede_sub_plex">Вхід за кодом, без пароля на телевізорі</string>
+    <string name="rede_sub_jellyfin">Ім\'я користувача й пароль сервера</string>
+    <string name="rede_sub_smb">Папка Windows, Mac або NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS з WebDAV</string>
+    <string name="rede_sub_link">Адреса http, HLS (.m3u8) або список M3U</string>
+    <string name="rede_acao_smb">Спільна папка</string>
+    <string name="rede_acao_webdav">WebDAV або Nextcloud</string>
+    <string name="rede_acao_link">Посилання на відео або список</string>
+    <string name="rede_acao_procurar">Шукати знову</string>
+    <string name="rede_abrindo">Відкриття…</string>
+    <string name="rede_vazia">Порожня папка</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d елемент</item>
+        <item quantity="few">%1$d елементи</item>
+        <item quantity="many">%1$d елементів</item>
+        <item quantity="other">%1$d елементів</item>
+    </plurals>
+    <string name="rede_dica_abrir">відкрити</string>
+    <string name="rede_dica_remover">вилучити</string>
+    <string name="rede_dica_sair">вихід</string>
+    <string name="rede_dica_subir">на папку вище</string>
+    <string name="rede_tecla_segurar">утримуйте OK</string>
+    <string name="rede_tecla_voltar">НАЗАД</string>
+    <string name="rede_erro">Сервер не відповів. Спробуйте ще раз.</string>
+    <string name="rede_erro_senha">Сервер не прийняв ім\'я користувача або пароль.</string>
+    <string name="rede_erro_pasta">Сервер відповів, але папки з такою назвою немає.</string>
+    <string name="rede_erro_servidor">Сервер не знайдено. Перевірте адресу і що він у тій самій мережі.</string>
+    <string name="rede_erro_certificado">Сертифікат безпеки сервера недійсний для цієї адреси.</string>
+    <string name="rede_erro_cheio">Не вдалося зберегти: телевізор уже зберігає 20 серверів. Спершу вилучіть один.</string>
+    <string name="rede_endereco_erro">Неповна або неправильна адреса.</string>
+    <string name="rede_salva">\"%1$s\" додано.</string>
+    <string name="rede_nome_opcional">Відображувана назва (необов\'язково)</string>
+    <string name="rede_senha">Пароль</string>
+    <string name="rede_remover_titulo">Вилучити \"%1$s\"?</string>
+    <string name="rede_remover_explica">Його логін і пароль зникнуть з телевізора. На сервері нічого не зміниться.</string>
+    <string name="rede_remover">Вилучити</string>
+    <string name="rede_removida">\"%1$s\" вилучено.</string>
+    <string name="rede_smb_titulo">Спільна папка</string>
+    <string name="rede_smb_explica">Адреса як у Windows: \\\\server\\folder (напр. \\\\192.168.0.10\\Movies). Порожні ім\'я користувача й пароль = гість.</string>
+    <string name="rede_smb_endereco">\\\\server\\folder</string>
+    <string name="rede_smb_endereco_erro">Бракує сервера або папки (напр. \\\\NAS\\Movies).</string>
+    <string name="rede_smb_usuario">Ім\'я користувача (необов\'язково)</string>
+    <string name="rede_smb_senha">Пароль (необов\'язково)</string>
+    <string name="rede_jf_explica">Адреса сервера %1$s (напр. 192.168.0.10 або nas:8096), ім\'я користувача й пароль. Пароль не зберігається на телевізорі.</string>
+    <string name="rede_jf_endereco">Адреса сервера</string>
+    <string name="rede_jf_usuario">Ім\'я користувача</string>
+    <string name="rede_jf_usuario_falta">Бракує імені користувача.</string>
+    <string name="rede_dav_explica">Адреса папки (Nextcloud: cloud.example.com/remote.php/dav/files/YOUR_USER). Без http телевізор використовує https. У Nextcloud краще використовувати пароль застосунку.</string>
+    <string name="rede_dav_endereco">Адреса WebDAV</string>
+    <string name="rede_link_explica">Відео (mp4, mkv…), потік HLS (.m3u8) або список M3U з кількома відео. Зберігається тут.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Використовуйте адресу, що починається з http:// або https://.</string>
+    <string name="rede_plex_titulo">Увійти в Plex</string>
+    <string name="rede_plex_explica">На телефоні чи комп\'ютері відкрийте plex.tv/link і введіть код нижче. Або наведіть камеру телефона на QR-код.</string>
+    <string name="rede_plex_pedindo">Запит коду в Plex…</string>
+    <string name="rede_plex_esperando">Очікування вашого підтвердження в Plex…</string>
+    <string name="rede_plex_buscando">Обліковий запис підключено. Пошук ваших серверів…</string>
+    <string name="rede_plex_venceu">Термін дії коду минув. Отримайте новий.</string>
+    <string name="rede_plex_outro">Отримати новий код</string>
+    <string name="rede_plex_sem_servidor">У цьому обліковому записі Plex немає сервера.</string>
+    <string name="rede_plex_inacessivel">Сервер в обліковому записі знайдено, але він не відповів звідси. Перевірте, що він увімкнений і в тій самій мережі.</string>
+    <string name="rede_plex_varios">Додано серверів Plex: %1$d.</string>
+    <string name="pg_amanha">Завтра</string>
+    <string name="pg_recado">Повідомлення</string>
+    <string name="pg_app_despertador">Будильник</string>
+    <string name="pg_bom_dia">Доброго ранку</string>
+    <string name="pg_boa_tarde">Доброго дня</string>
+    <string name="pg_boa_noite">Доброго вечора</string>
+    <string name="pg_agora">зараз</string>
+    <string name="pg_ontem">учора</string>
+    <string name="pg_mais_notif">+%1$d сповіщень</string>
+    <string name="pg_dia_todo">сьогодні</string>
+    <string name="pg_hoje_as">сьогодні о %1$s</string>
+    <string name="pg_amanha_as">завтра о %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Зараз</string>
+    <string name="pw_proximas_horas">Найближчі години</string>
+    <string name="pw_hoje">Сьогодні</string>
+    <string name="pw_chuva_pct">Імовірність дощу %1$d%%</string>
+    <string name="pw_umidade_pct">Вологість %1$d%%</string>
+    <string name="pw_ate_umas">%1$s приблизно до %2$s</string>
+    <string name="pw_chuva_pelas">%1$s, дощ близько %2$s</string>
+    <string name="pw_chuva_segue">%1$s найближчими годинами</string>
+    <string name="pw_amanha_frase">Завтра %1$d°, %2$s</string>
+    <string name="pw_nasce">схід %1$s</string>
+    <string name="pw_poe">захід %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Сповіщення</string>
+    <string name="pr_sem_notificacoes">Немає сповіщень</string>
+    <string name="pr_notificacoes_desligadas">Увімкнення доступу до сповіщень…</string>
+    <string name="pr_perfis">Профілі</string>
+    <string name="pr_protetor">Заставка</string>
+    <string name="pr_timer">Таймер</string>
+    <string name="pr_timer_as">До %1$s</string>
+    <string name="pr_audio_arc">Ресивер (HDMI ARC)</string>
+    <string name="pr_dispensar">Закрити</string>
+    <string name="pr_ontem">учора</string>
+    <string name="pr_agora">зараз</string>
+    <string name="pr_configuracoes">Налаштування лаунчера</string>
+    <string name="pr_tocar_pausar">Відтворити або пауза</string>
+    <string name="pr_proxima">Далі</string>
+    <string name="pr_tocando">відтворюється</string>
+    <string name="pr_pausado">на паузі</string>
+    <string name="pr_dormir">Сон</string>
+    <string name="pr_despertador">Будильник</string>
+    <string name="pr_visita">Гості</string>
+    <string name="pr_casa">Дім</string>
+    <string name="pr_config_tv">Налаштування телевізора</string>
+    <string name="pr_sinal_bom">добрий сигнал</string>
+    <string name="pr_sinal_medio">посередній сигнал</string>
+    <string name="pr_sinal_fraco">слабкий сигнал</string>
+    <string name="pr_bt_conectados">Підключено: %1$d</string>
+    <string name="pr_hoje">Сьогодні</string>
+    <string name="pr_amanha">Завтра</string>
+    <string name="pr_ligado">Увімк.</string>
+    <string name="pr_limpar_tudo">Очистити все</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Архів: минулі програми</string>
+    <string name="tvv_titulo">Архів · %1$s</string>
+    <string name="tvv_do_inicio">Зараз · з початку: %1$s</string>
+    <string name="tvv_carregando">Отримання минулих програм…</string>
+    <string name="tvv_sem_resposta">Сервер не відповів. Спробуйте ще раз за мить.</string>
+    <string name="tvv_vazio">Для цього каналу ще немає збережених програм.</string>
+    <string name="tvv_voltou">Назад до прямого ефіру</string>
+    <string name="tvv_selo">АРХІВ</string>
+    <string name="tvv_teclas">◀ ▶ 30 с · OK параметри · НАЗАД прямий ефір</string>
+    <string name="tvv_pausar">Пауза</string>
+    <string name="tvv_continuar">Продовжити</string>
+    <string name="tvv_ao_vivo">Назад до прямого ефіру</string>
+    <string name="tvv_hoje">Сьогодні</string>
+    <string name="tvv_ontem">Учора</string>
+    <string name="imagem_titulo">Співвідношення сторін</string>
+    <string name="imagem_ajustar">Вписати в екран</string>
+    <string name="imagem_esticar">Розтягнути</string>
+    <string name="imagem_zoom">Збільшити (обрізає краї)</string>
+    <string name="velocidade_titulo">Швидкість</string>
+    <string name="trailer">Трейлер</string>
+    <string name="trailer_sem_app">Не знайдено застосунку для відкриття трейлера.</string>
+    <string name="series_visto_ate_aqui">Позначити переглянутим до %1$s</string>
+    <string name="series_nao_visto">Позначити непереглянутим</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Фільми й серіали</string>
+    <string name="idioma_titulo">Бажане аудіо</string>
+    <string name="idioma_det">Оригінал із субтитрами мовою телевізора або дубляж цією мовою. Кожен фільм і серіал пам\'ятає зміну, зроблену в плеєрі (▼)</string>
+    <string name="idioma_original">Оригінал із субтитрами</string>
+    <string name="idioma_dublado">Дубляж</string>
+    <string name="idioma_legendado">Із субтитрами</string>
+    <string name="idioma_dublado_curto">Дубляж</string>
+    <string name="idioma_versao_legendada">Версія із субтитрами</string>
+    <string name="idioma_versao_dublada">Дубльована версія</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Знайти субтитри онлайн</string>
+    <string name="legenda_procurando">Пошук субтитрів…</string>
+    <string name="legenda_baixando">Завантаження субтитрів…</string>
+    <string name="legenda_acertada">Субтитри синхронізовано з мовленням · %1$s</string>
+    <string name="legenda_pronta">Субтитри готові</string>
+    <string name="legenda_nenhuma">Немає субтитрів мовою телевізора для цього відео</string>
+    <string name="legenda_erro">Не вдалося знайти субтитри</string>
+    <string name="legenda_invalida">Завантажений файл не є субтитрами</string>
+    <string name="legenda_sem_conta">Додайте свій ключ OpenSubtitles у Налаштування › ТБ і фільми › Фільми й серіали</string>
+    <string name="legenda_escolher">Субтитри для \"%1$s\"</string>
+    <string name="legenda_surdos">для людей з порушенням слуху</string>
+    <string name="legenda_bate">зроблено для цього файлу</string>
+    <string name="lista_dica_escolher">вибрати</string>
+    <string name="legenda_atraso_titulo">Затримка субтитрів (+ = текст з\'являється пізніше)</string>
+    <string name="legenda_atraso_zero">Без затримки</string>
+    <string name="legenda_conta_titulo">Субтитри онлайн</string>
+    <string name="legenda_conta_det">OpenSubtitles з вашим ключем API (безкоштовно на opensubtitles.com/consumers). Без облікового запису: 5 субтитрів на день</string>
+    <string name="legenda_conta_sim">налаштовано</string>
+    <string name="legenda_conta_nao">не налаштовано</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">залишилося %1$s</string>
+    <string name="tempo_falta_um">залишилося %1$s</string>
+    <string name="serie_ep_longo">Сезон %1$d, серія %2$d</string>
+    <string name="ficha_continuar_de">від %1$s</string>
+    <string name="tempo_termina_as">закінчується о %1$s</string>
+    <string name="tempo_episodios_vistos">Серій: %1$s</string>
+    <string name="tempo_x_de_y">%1$d з %2$d</string>
+    <string name="tempo_visto">переглянуто</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Профіль Google</string>
+    <string name="fp_linha">Отримати фото облікового запису</string>
+    <string name="fp_linha_det">Показує фото вашого облікового запису Google на кнопці профілю</string>
+    <string name="fp_titulo">Фото облікового запису</string>
+    <string name="fp_fechar">Закрити</string>
+    <string name="fp_pedindo">Запит коду в Google…</string>
+    <string name="fp_passos">1. На телефоні відкрийте %1$s (або наведіть камеру на код праворуч).\n2. Увійдіть в обліковий запис Google, який є на цьому телевізорі, і введіть:\n\n%2$s\n\nЦей екран продовжить сам. Цей вхід використовується лише для отримання фото.</string>
+    <string name="fp_ok">Готово: фото %1$s тепер на кнопці профілю.</string>
+    <string name="fp_sem_foto">Ви ввійшли як %1$s, але фото не вдалося зберегти. Спробуйте ще раз або надішліть фото з вебпанелі (вкладка Фото для заставки).</string>
+    <string name="fp_falha">Не вдалося: %1$s</string>
+    <string name="fp_sem_google">Вхід Google на цьому телевізорі ще не налаштовано.\n\nДва способи поставити фото на кнопку профілю:\n• Вебпанель > вкладка Фото для заставки > Фото профілю: виберіть будь-яке зображення з телефона.\n• Налаштуйте вхід Google (вебпанель > вкладка Claude) і поверніться сюди, щоб отримати фото облікового запису.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Розділ %1$d</string>
+    <string name="vod_capitulos_titulo">Розділи</string>
+    <string name="vod_capitulos_opcao">Розділи (%1$d)</string>
+    <string name="vod_segunda_opcao">Другі субтитри (вгорі)</string>
+    <string name="vod_segunda_titulo">Другі субтитри</string>
+    <string name="vod_segunda_desligada">Вимк.</string>
+    <string name="vod_dialogo_opcao">Гучніші діалоги</string>
+    <string name="vod_dialogo_ligado">Гучніші діалоги ввімк.</string>
+    <string name="vod_dialogo_desligado">Гучніші діалоги вимк.</string>
+    <string name="vod_atraso_audio_titulo">Затримка аудіо (%1$s)</string>
+    <string name="vod_atraso_audio_tv">ТБ</string>
+    <string name="vod_atraso_audio_zero">Немає</string>
+    <string name="vod_atraso_audio_mais">Звук запізнюється на %1$d мс</string>
+    <string name="vod_atraso_audio_menos">Звук випереджає на %1$d мс</string>
+    <string name="vod_info_opcao">Технічна інформація</string>
+    <string name="info_video">Відео</string>
+    <string name="info_audio">Аудіо</string>
+    <string name="info_perdidos">Пропущені кадри</string>
+    <string name="info_taxa">Бітрейт</string>
+    <string name="info_buffer">Буфер</string>
+    <string name="info_atraso">Затримка аудіо</string>
+    <string name="info_dialogo">Гучніші діалоги ввімк.</string>
+    <string name="info_chip">Чип телевізора</string>
+    <string name="info_qps">кадр/с</string>
+    <string name="info_mono">моно</string>
+    <string name="info_estereo">стерео</string>
+    <string name="lista_dica_voltar">назад</string>
+    <string name="pm_ligado">Увімк.</string>
+    <string name="pm_desligado">Вимк.</string>
+    <string name="pm_imagem_som">Зображення й звук</string>
+    <string name="pm_mais">Більше параметрів</string>
+    <string name="pm_versao_legendada">Дивитися із субтитрами</string>
+    <string name="pm_versao_dublada">Дивитися з дубляжем</string>
+    <string name="pm_versao_info">Продовжує з цього місця</string>
+    <string name="pm_leg_ajustes">Параметри субтитрів</string>
+    <string name="pm_leg_tamanho">Розмір</string>
+    <string name="pm_leg_estilo">Стиль</string>
+    <string name="pm_leg_posicao">Положення</string>
+    <string name="pm_leg_atraso">Затримка</string>
+    <string name="pm_leg_auto">Завантажувати, якщо немає</string>
+    <string name="pm_leg_traduzir">Перекладати на телевізорі, якщо немає</string>
+    <string name="pm_velocidade">Швидкість</string>
+    <string name="pm_proporcao">Розмір зображення</string>
+    <string name="pm_atraso_audio">Затримка аудіо</string>
+    <string name="pm_quadros">Узгоджувати з частотою кадрів фільму</string>
+    <string name="pm_qualidade">Якість</string>
+    <string name="pv_sem_titulo">Зараз немає прогнозу</string>
+    <string name="bu_voz_grupo">Говоріть</string>
+    <string name="bu_falar">Скажіть, що шукаєте</string>
+    <string name="bu_falar_det">Швидше, ніж набирати пультом</string>
+    <string name="bu_recentes">Нещодавні пошуки</string>
+    <string name="bu_recente_det">Шукати знову</string>
+    <string name="aviso_alarme_tocou_titulo">Будильник задзвонив на телевізорі</string>
+    <string name="aviso_alarme_tocou_texto">Почав дзвонити о %1$s.</string>
+    <string name="home_instalar_externo">Установити на зовнішнє сховище</string>
+    <string name="home_instalar_dispositivo">Установити на цей пристрій</string>
+    <string name="home_instalando_lugar">Переміщення %1$s… він закритий до завершення.</string>
+    <string name="home_instalado_externo">%1$s тепер на зовнішньому сховищі.</string>
+    <string name="home_instalado_dispositivo">%1$s знову на цьому пристрої.</string>
+    <string name="home_instalar_lugar_falhou">Не вдалося перемістити %1$s: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">власна оболонка телевізора неактивна</string>
+    <string name="home_instalar_lugar_sem_pendrive">жоден USB-накопичувач не налаштовано як сховище телевізора</string>
+    <string name="st_titulo">USB-накопичувач і сховище</string>
+    <string name="st_explica">Виберіть, як телевізор використовує USB-накопичувач. Мало місця? Він може стати сховищем телевізора для важких застосунків.</string>
+    <string name="st_linha_det">Використовувати USB-накопичувач як сховище телевізора</string>
+    <string name="st_sem_shell">Потрібна власна оболонка телевізора (Налаштування › Система › Додатково). OK, щоб спробувати ще раз.</string>
+    <string name="st_sem_pen">USB-накопичувач не підключено. Підключіть його й натисніть OK.</string>
+    <string name="st_tv_livre">Сховище телевізора: вільно %1$s з %2$s</string>
+    <string name="st_pen">USB-накопичувач · %1$s · %2$s</string>
+    <string name="st_modo_comum">Звичайний USB-накопичувач</string>
+    <string name="st_modo_misto">Змішаний</string>
+    <string name="st_modo_tv">Сховище телевізора</string>
+    <string name="st_modo_desconhecido">Не відформатовано</string>
+    <string name="st_recomendado">Рекомендовано: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">цей накопичувач повільний, застосунки гальмуватимуть</string>
+    <string name="st_motivo_pequeno">менше 8 ГБ, замало, щоб допомогти</string>
+    <string name="st_motivo_folgada">на телевізорі ще є місце, не потрібно стирати накопичувач</string>
+    <string name="st_motivo_grande">половина для застосунків, половина для записів і файлів</string>
+    <string name="st_motivo_apertada">телевізор майже заповнений</string>
+    <string name="st_medido">записує зі швидкістю %1$s МБ/с</string>
+    <string name="st_medir_dica">OK вимірює його швидкість</string>
+    <string name="st_usar_comum">Використовувати як звичайний USB-накопичувач</string>
+    <string name="st_usar_misto">Використовувати змішано: %1$d%% звичайний  ◀ ▶</string>
+    <string name="st_usar_tv">Використовувати як сховище телевізора</string>
+    <string name="st_apps">Застосунки на USB-накопичувачі</string>
+    <string name="st_apps_det">Виберіть застосунки для перенесення (найбільші першими)</string>
+    <string name="st_apps_nenhum">Жоден застосунок не можна перенести.</string>
+    <string name="st_apps_rodape">OK переносить застосунок; ✓ = уже на USB-накопичувачі</string>
+    <string name="st_compartilhado">Фото й файли: %1$s</string>
+    <string name="st_na_tv">на телевізорі</string>
+    <string name="st_no_pen">на USB-накопичувачі</string>
+    <string name="st_compartilhado_aviso">Усе копіюється, а застосунки тим часом закриваються. Після цього перезапустіть телевізор.</string>
+    <string name="st_mover">Перенести</string>
+    <string name="st_movendo">Перенесення… це може тривати кілька хвилин.</string>
+    <string name="st_aviso_titulo">Стерти USB-накопичувач?</string>
+    <string name="st_aviso">Усе на ньому буде стерто, щоб зробити його \"%1$s\". Як сховище телевізора він працює лише на цьому телевізорі, а застосунки на ньому зникають, поки його відключено.</string>
+    <string name="st_apagar">Стерти й відформатувати</string>
+    <string name="st_formatando">Форматування… це може тривати кілька хвилин.</string>
+    <string name="st_pronto">Готово.</string>
+    <string name="st_falhou">Не вдалося: %1$s</string>
+    <string name="st_depois">Тепер виберіть, які застосунки йдуть на USB-накопичувач.</string>
+    <string name="st_pin">PIN панелі для зміни USB-накопичувача</string>
+    <string name="st_copiar_titulo">Спершу скопіювати те, що на ньому? (%1$s)</string>
+    <string name="st_copiar_para">Копіювати на %1$s</string>
+    <string name="st_copiar_pc">Копіювати через ПК (як)</string>
+    <string name="st_copiar_pc_texto">На ПК відкрийте Цей ПК > телевізор > USB-накопичувач і скопіюйте файли на комп\'ютер. Потім поверніться сюди й відформатуйте.</string>
+    <string name="st_nao_copiar">Не потрібно, стерти</string>
+    <string name="st_copiando_inicio">Копіювання USB-накопичувача… телевізор тим часом працює.</string>
+    <string name="st_copiando">Скопійовано %1$s з %2$s</string>
+    <string name="st_voltar_comum">Назад до звичайного USB-накопичувача (застосунки повертаються на телевізор)</string>
+    <string name="st_trazendo">Повернення %1$s на телевізор…</string>
+    <string name="st_sumiram">USB-накопичувач відключено: %1$s приховано, доки його не повернуть.</string>
+    <string name="st_sugestao">Сховище телевізора майже заповнене. Перенесіть %1$s (%2$s) на USB-накопичувач: утримуйте OK на застосунку.</string>
+    <string name="st_medindo">Вимірювання швидкості накопичувача, щоб порадити найкраще використання…</string>
+    <string name="st_lento_titulo">Накопичувач надто повільний</string>
+    <string name="st_lento_bloqueado">Цей накопичувач записує зі швидкістю %1$s МБ/с. Щоб стати сховищем телевізора, потрібно щонайменше %2$d МБ/с: нижче застосунки зависають, а телевізор може не запуститися. Використовуйте його як звичайний накопичувач.</string>
+    <string name="st_aviso_boot">Тримайте його підключеним назавжди: якщо він зламається або його вийняти, телевізор може не запуститися, доки його не відключите.</string>
+    <string name="home_grande_titulo">Перенести %1$s?</string>
+    <string name="home_grande_aviso">%1$s займає %2$s. На повільному накопичувачі перенесення може тривати понад 10 хвилин і вже якось обвалило телевізор на півдорозі. Продовжуйте, лише коли ніхто не дивиться.</string>
+    <string name="home_liberar_arquivos">Дозволити відкривати USB-накопичувачі й файли</string>
+    <string name="home_arquivos_liberado">%1$s тепер може відкривати USB-накопичувачі й усі файли</string>
+    <string name="home_arquivos_falhou">Не вдалося дозволити %1$s: %2$s</string>
+    <string name="aviso_continuar_titulo">Нічого продовжувати</string>
+    <string name="aviso_continuar_texto">Термін дії запрошення продовжити з іншого телевізора минув.</string>
+    <string name="aviso_simples_titulo">Простий екран вимкнено</string>
+    <string name="aviso_simples_texto">Телевізор повернувся до повного головного екрана.</string>
+    <string name="aviso_sync_titulo">Обліковий запис не підключено</string>
+    <string name="aviso_sync_texto">На цьому телевізорі немає облікового запису %1$s. Підключіть його в Налаштування › ТБ і фільми.</string>
+    <string name="dns_nota_familia">сімейний, блокує сайти для дорослих</string>
+    <string name="dns_nota_malware">блокує шкідливе ПЗ</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">У телевізора немає Wi-Fi%1$s. Перевірте, чи увімкнений роутер, або чи не змінилися назва мережі чи пароль.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">роутер втратив зв\'язок із модемом провайдера</string>
+    <string name="ief_roteador_ve_fora" formatted="true">роутер теж бачить, що інтернету немає</string>
+    <string name="ief_ha" formatted="true"> (%1$s тому)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi у порядку, але інтернет провайдера впав%1$s; %2$s%3$s. Справа не в телевізорі: зачекайте на провайдера або перезапустіть модем.</string>
+    <string name="ief_vpn_travada" formatted="true">У роутера є інтернет, але телевізор не може пройти%1$s: імовірно, завис VPN. Вимкнення й увімкнення VPN зазвичай допомагає.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">У роутера є інтернет, але телевізор не може до нього дістатися%1$s: проблема між телевізором і роутером%2$s Повторне підключення телевізора до Wi-Fi зазвичай допомагає.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (сигнал Wi-Fi слабкий, %1$d дБм).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">Телевізор у Wi-Fi, але не відповідають ні роутер, ні інтернет%1$s: роутер міг зависнути. Вимкнення й увімкнення роутера зазвичай допомагає.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi у порядку, але інтернет не проходить%1$s; імовірно, це провайдер або роутер%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (причиною також може бути ввімкнений VPN).</string>
+    <string name="ief_dns" formatted="true">Інтернет працює, але DNS%1$s не відповідає%2$s: застосунки не знаходять свої сервери. Перемикання DNS на Автоматично допомагає.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Інтернет і DNS відповідають, але тестова сторінка Google %1$s: щось на шляху (VPN, блокування DNS або мережа, що вимагає входу) її блокує.</string>
+    <string name="ief_nao_abriu" formatted="true">не відкрилася</string>
+    <string name="ief_codigo_diferente" formatted="true">відповіла інакше (код %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Інтернет у порядку; вимкнено лише VPN (застосунки працюють без нього).%1$s</string>
+    <string name="ief_lenta" formatted="true">Інтернет працює, але повільно: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">сигнал Wi-Fi слабкий (%1$d дБм); допоможе ближчий роутер або кабель</string>
+    <string name="ief_lenta_tcp" formatted="true">інтернет відповідає за %1$d мс%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, і роутер бачить те саме: це провайдер</string>
+    <string name="ief_lenta_http" formatted="true">тестова сторінка відкривалася %1$.1f с</string>
+    <string name="ief_queda_recente" formatted="true">Зараз інтернет у порядку; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Усе добре: Wi-Fi, інтернет і DNS відповідають.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Жодних обривів за останні 24 год.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Обривів не зафіксовано (телевізор вимірював лише частину останніх 24 год).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Роутер повідомляє про проблему з інтернетом, але телевізор працює в мережі нормально.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS не спрацював</string>
+    <string name="ief_caiu_internet" formatted="true">інтернет зник</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (потім телевізор перестав вимірювати; невідомо, коли він повернувся)</string>
+    <string name="ief_quedas_n" formatted="true">; обривів за 24 год: %1$d</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s і повернувся %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; обривів за 24 год: %1$d, загалом без інтернету %2$s</string>
+    <string name="ief_quando_hoje" formatted="true">о %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">учора о %1$s</string>
+    <string name="ief_quando_data" formatted="true">%1$s о %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">з %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">з учора %1$s</string>
+    <string name="ief_desde_data" formatted="true">з %1$s о %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">менше 1 хв</string>
+    <string name="ief_dur_min" formatted="true">%1$d хв</string>
+    <string name="ief_dur_h" formatted="true">%1$d год</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d год %2$d хв</string>
+    <string name="ief_data_dm" formatted="true">dd.MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: відключено</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d дБм</string>
+    <string name="ief_s_rede_conectada" formatted="true">мережа: підключено</string>
+    <string name="ief_s_internet" formatted="true">інтернет без DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS без кешу: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d мс</string>
+    <string name="ief_s_falhou" formatted="true">помилка</string>
+    <string name="ief_s_pagina" formatted="true">тестова сторінка: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok за %1$d мс</string>
+    <string name="ief_s_codigo" formatted="true">код %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: увімк.</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: вимк.</string>
+    <string name="ief_s_roteador_fora" formatted="true">роутер: бачить, що інтернету немає</string>
+    <string name="ief_s_roteador_ok" formatted="true">роутер: бачить, що інтернет у порядку%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">роутер: немає даних</string>
+    <string name="ief_s_roteador_mudo" formatted="true">роутер: не відповів</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">роутер: не перевірено</string>
+    <string name="ief_s_historico" formatted="true">історія: %1$d вимірювань за 24 год</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google зараз не відповів; спробуйте ще раз</string>
+    <string name="lg_negado">у вході відмовлено в Google</string>
+    <string name="lg_google_respondeu">Google відповів: %1$s</string>
+    <string name="lg_venceu">термін дії коду минув; почніть знову</string>
+    <string name="lg_outro_login">почався інший вхід; почніть знову</string>
+    <string name="lg_email">Google не підтвердив електронну пошту</string>
+    <string name="lg_conta_fora">обліковий запис %1$s не належить жодному профілю на цьому телевізорі</string>
+    <string name="lg_sem_drive">дозвіл Google Drive не позначено</string>
+    <string name="lg_sem_chave">Google не надіслав ключ доступу; спробуйте ще раз</string>
+    <string name="lg_nao_guardei">не вдалося зберегти обліковий запис на цьому телевізорі</string>
+    <string name="lg_nao_configurado">вхід Google не налаштовано</string>
+    <string name="lg_ritmo">забагато входів поспіль; зачекайте хвилину</string>
+    <string name="lg_recusou">Google відмовив (%1$s): перевірте client id і secret</string>
+    <string name="lg_erro_google">помилка зв\'язку з Google</string>
+</resources>

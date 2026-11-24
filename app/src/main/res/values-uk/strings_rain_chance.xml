@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como a chance de chuva aparece (RainChance.kt, 24/11/2026). -->
+<resources>
+    <string name="rc_titulo" formatted="false">Імовірність дощу</string>
+    <string name="rc_baixa" formatted="false">Низька</string>
+    <string name="rc_media" formatted="false">Середня</string>
+    <string name="rc_alta" formatted="false">Висока</string>
+    <string name="rc_modo_numero" formatted="false">Число (37%)</string>
+    <string name="rc_modo_palavra" formatted="false">Словами (Середня)</string>
+    <string name="rc_modo_ambos" formatted="false">Обидва (Середня 37%)</string>
+</resources>

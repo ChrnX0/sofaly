@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">СПИСКИ</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Фільтр</string>
+    <string name="coluna_esportes">Спорт</string>
+    <string name="coluna_guia">Телепрограма</string>
+    <string name="coluna_filtro_titulo">Фільтр</string>
+    <string name="coluna_filtro_ordem">Сортування: %1$s</string>
+    <string name="coluna_filtro_combinado">Жанр, епоха, оцінка, непереглянуті…</string>
+    <string name="coluna_filtro_combinado_ativo">Фільтр: %1$s</string>
+    <string name="coluna_filtro_limpar">Очистити фільтр</string>
+    <string name="coluna_filtro_sortear">Здивуй мене</string>
+    <string name="coluna_filtro_ocultas_mostrar">Показати приховані категорії (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Знову приховати приховані категорії</string>
+    <string name="coluna_menu_assistido">Позначити переглянутим</string>
+    <string name="coluna_menu_nao_assistido">Позначити непереглянутим</string>
+    <string name="coluna_menu_tirar_continuar">Вилучити з «Продовжити перегляд»</string>
+    <string name="coluna_menu_por_interesse">Додати до «Переглянути пізніше»</string>
+    <string name="coluna_menu_tirar_interesse">Вилучити з «Переглянути пізніше»</string>
+    <string name="coluna_marcado_assistido">%1$s позначено переглянутим</string>
+    <string name="coluna_marcado_nao_assistido">%1$s позначено непереглянутим</string>
+    <string name="coluna_tirado_continuar">%1$s вилучено з «Продовжити перегляд»</string>
+    <string name="coluna_menu_tirar_home">Вилучити з головного екрана</string>
+    <string name="coluna_tirado_home">%1$s вилучено з головного екрана</string>
+    <string name="coluna_etiqueta_concluida">Завершено</string>
+    <string name="coluna_etiqueta_nova_temporada">Новий сезон</string>
+    <string name="coluna_etiqueta_novos">Нові серії</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d нова серія</item>
+        <item quantity="few">%d нові серії</item>
+        <item quantity="many">%d нових серій</item>
+        <item quantity="other">%d нових серій</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Перейти до літери</string>
+    <string name="coluna_letra">Перейти до літери</string>
+    <string name="coluna_ao_vivo">НАЖИВО</string>
+    <string name="coluna_ao_vivo_primeiro">Спершу наживо</string>
+    <string name="coluna_tv_titulo">ТБ</string>
+    <string name="coluna_gravacoes">Записи</string>
+</resources>

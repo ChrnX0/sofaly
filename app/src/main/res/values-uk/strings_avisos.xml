@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Інтернет повернувся</string>
+    <string name="rd_voltou_texto">Його не було %1$s (з %2$s). Імовірна причина: %3$s.</string>
+    <string name="rd_causa_wifi">телевізор втратив Wi-Fi</string>
+    <string name="rd_causa_provedor">інтернет-провайдер або роутер</string>
+    <string name="rd_min">%1$d хв</string>
+    <string name="rd_h_min">%1$d год %2$d хв</string>
+    <string name="rd_disco_titulo">Сховище телевізора заповнюється</string>
+    <string name="rd_disco_texto">З такою швидкістю воно заповниться приблизно за %1$d дн. (вільно %2$d МБ). Очистіть кеш застосунків або видаліть ті, якими не користуєтеся.</string>
+    <string name="pr_avisos_tv">Від телевізора</string>
+    <string name="mural_riscar">Викреслити %1$s</string>
+    <string name="ds_lento_titulo">Sofaly став повільнішим</string>
+    <string name="ds_lento_texto">Версія %1$d: повільні кадри тривають %2$d мс, раніше тривали %3$d мс (+%4$d%%).</string>
+</resources>

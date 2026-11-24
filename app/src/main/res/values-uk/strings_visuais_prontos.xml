@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Готові вигляди</string>
+    <string name="vpr_det">Кожне OK перемикає на наступний вигляд: тема, текст і колір тла разом</string>
+    <string name="vpr_meu">Ваш власний</string>
+    <string name="vpr_classico">Класичний</string>
+    <string name="vpr_leitura">Легке читання</string>
+    <string name="vpr_galeria">Галерея</string>
+    <string name="vpr_galeria_grande">Велика галерея</string>
+    <string name="vpr_cores">Кольори застосунків</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Гостьовий режим</string>
+    <string name="hos_det">Для оренди: входи гостей стираються під час виселення. Вимкнення вимагає PIN.</string>
+    <string name="hos_pin_sair">PIN, щоб вийти з гостьового режиму</string>
+    <string name="hos_pin_config">PIN, щоб відкрити налаштування</string>
+    <string name="hos_saida">Виселення гостей</string>
+    <string name="hos_saida_det">У цей час застосунки стримінгу очищуються. OK змінює день.</string>
+    <string name="hos_saida_nenhuma">Не задано</string>
+    <string name="hos_saida_hoje">Сьогодні о %1$s</string>
+    <string name="hos_saida_amanha">Завтра о %1$s</string>
+    <string name="hos_saida_dia">%1$s о %2$s</string>
+    <string name="hos_hora">Час виселення</string>
+    <string name="hos_hora_det">OK змінює годину (з 8:00 до 14:00).</string>
+    <string name="hos_regras">Правила дому</string>
+    <string name="hos_regras_vazio">Поки немає. Вони з\'являються на екрані привітання.</string>
+    <string name="hos_regras_dica">Напр.: Тиша після 22:00. Виселення об 11:00.</string>
+    <string name="hos_apps">Застосунки для очищення під час виселення</string>
+    <string name="hos_apps_det">Входи й історія позначених застосунків стираються. Застосунки стримінгу позначено заздалегідь.</string>
+    <string name="hos_apps_sub">OK позначає або знімає позначку. Системні застосунки очистити не можна.</string>
+    <string name="hos_encerrar">Завершити перебування зараз</string>
+    <string name="hos_encerrar_det">Очищає застосунки зараз і готує привітання для наступного гостя.</string>
+    <string name="hos_encerrar_pergunta">Стерти зараз входи й історію гостьових застосунків? Це не можна скасувати.</string>
+    <string name="hos_encerrar_sim">Стерти</string>
+    <string name="hos_limpando">Очищення…</string>
+    <string name="hos_limpou">Очищено застосунків: %1$d.</string>
+    <string name="hos_limpou_falhas">Очищено застосунків: %1$d. Не вдалося: %2$s</string>
+    <string name="hos_ultima">Останнє очищення: %1$s</string>
+    <string name="hos_bv_titulo">Ласкаво просимо!</string>
+    <string name="hos_bv_regras">Правила дому</string>
+    <string name="hos_bv_privacidade">Входьте у свої застосунки без побоювань: під час виселення входи й історія застосунків стримінгу стираються автоматично.</string>
+    <string name="hos_bv_ok">Почати</string>
+    <string name="hos_bv_wifi">Wi-Fi</string>
+</resources>

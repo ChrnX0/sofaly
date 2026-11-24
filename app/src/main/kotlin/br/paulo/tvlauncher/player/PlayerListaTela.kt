@@ -101,7 +101,7 @@ class PlayerListaTela(
     private lateinit var detHorario: TextView
     private lateinit var detBarra: BarraTempo.Barra
     private lateinit var detDescricao: TextView
-    private lateinit var detSeguir: LinearLayout
+    private lateinit var detSeguir: RodapeFicha
 
     val aberta: Boolean get() = raiz.visibility == View.VISIBLE
 
@@ -381,7 +381,10 @@ class PlayerListaTela(
         val linha = LinearLayout(act).apply {
             orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
             setPaddingRelative(dp(10), dp(7), dp(12), dp(7))
-            layoutParams = AbsListView.LayoutParams(-1, dp((70 * escala).toInt()))   // 58 -> 70: letra maior e barra de 5 dp (13/11/2026)
+            // 58 -> 70: letra maior e barra de 5 dp (13/11/2026). 24/11/2026: altura pelo conteúdo (o tempo desceu para a
+            // linha da barra), nunca menos que os 70 de antes.
+            layoutParams = AbsListView.LayoutParams(-1, -2)
+            minimumHeight = dp((70 * escala).toInt())
         }
         val numero = TextView(act).apply { textSize = Estilo.Leitura.ITEM * escala; typeface = Fontes.nunito(600); gravity = Gravity.CENTER }
         linha.addView(numero, LinearLayout.LayoutParams(dp(50), -2))
@@ -402,14 +405,19 @@ class PlayerListaTela(
         val linhaNome = LinearLayout(act).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         linhaNome.addView(vivo, LinearLayout.LayoutParams(-2, -2).apply { marginEnd = dp(8) })
         linhaNome.addView(nome, LinearLayout.LayoutParams(0, -2, 1f))
-        val sub = TextView(act).apply { textSize = Estilo.Leitura.ITEM_DETALHE; setTextColor(suave); maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+        // 24/11/2026 (Sala): "falta 1 h 4 min" ao lado do programa deixava o título com 9 letras ("A Thou…"); na linha do
+        // nome, cortava o canal ("Band …"). O tempo vai para a linha da barra, à direita dela: nome e programa ficam
+        // com a largura toda, e o tempo fica junto do que ele mede (a barra).
         val tempo = TextView(act).apply { textSize = Estilo.Leitura.ITEM_DETALHE; setTextColor(suave); maxLines = 1 }
+        val sub = TextView(act).apply { textSize = Estilo.Leitura.ITEM_DETALHE; setTextColor(suave); maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
         val linhaSub = LinearLayout(act).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         linhaSub.addView(sub, LinearLayout.LayoutParams(0, -2, 1f))
-        linhaSub.addView(tempo, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(10) })
         val barra = BarraTempo.Barra(act)
         col.addView(linhaNome); col.addView(linhaSub)
-        col.addView(barra, LinearLayout.LayoutParams(-1, dp(BarraTempo.ESPESSURA_DP)).apply { topMargin = dp(4) })
+        val linhaBarra = LinearLayout(act).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
+        linhaBarra.addView(barra, LinearLayout.LayoutParams(0, dp(BarraTempo.ESPESSURA_DP), 1f))
+        linhaBarra.addView(tempo, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(10) })
+        col.addView(linhaBarra, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(2) })
         linha.addView(col, LinearLayout.LayoutParams(0, -2, 1f))
         val estrela = ImageView(act).apply { setImageDrawable(IconePlayer(IconePlayer.Tipo.ESTRELA, ambar)) }
         linha.addView(estrela, LinearLayout.LayoutParams(dp(18), dp(18)).apply { marginStart = dp(10) })
@@ -437,15 +445,20 @@ class PlayerListaTela(
         col.addView(detBarra, LinearLayout.LayoutParams(-1, dp(BarraTempo.ESPESSURA_DP)).apply { topMargin = dp(8) })
         detDescricao = TextView(act).apply { textSize = Estilo.Leitura.ITEM_DETALHE; setTextColor(suave); maxLines = 5; ellipsize = TextUtils.TruncateAt.END; setLineSpacing(0f, 1.15f) }
         col.addView(detDescricao, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(10) })
-        detSeguir = LinearLayout(act).apply { orientation = LinearLayout.VERTICAL }
+        // 24/11/2026 (Paulo viu na Sala): o "DEPOIS" saía cortado ao meio pela dica de 4 linhas. Os dois agora dividem o
+        // espaço num só pé (RodapeFicha): nada aparece cortado, e a dica encolhe antes de os programas sumirem.
+        detSeguir = RodapeFicha(act).apply {
+            vao(dp(12))
+            porDica(PlayerBar.teclasEmLinhas(act.getString(R.string.player_lista_teclas)).split("\n").map { linha ->
+                TextView(act).apply { text = linha; textSize = Estilo.Leitura.DICA; setTextColor(apagado); setLineSpacing(0f, 1.2f) }
+            })
+        }
         col.addView(detSeguir, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(12) })
-        col.addView(TextView(act).apply { text = PlayerBar.teclasEmLinhas(act.getString(R.string.player_lista_teclas)); textSize = Estilo.Leitura.DICA; setTextColor(apagado); setLineSpacing(0f, 1.2f) },
-            LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(12) })
         return col
     }
 
     private fun mostrarDetalhe(c: Canal?) {
-        detSeguir.removeAllViews()
+        detSeguir.trocarTopo(emptyList())
         if (c == null) {
             detLogo.setImageDrawable(null); detCanal.text = ""; detHorario.text = ""; detDescricao.text = ""
             detBarra.visibility = View.INVISIBLE
@@ -483,13 +496,15 @@ class PlayerListaTela(
         detDescricao.maxLines = if (depois.isNotEmpty()) 2 else 5
         if (depois.isNotEmpty()) {
             // Sem o recuo de 10 dp do rótulo das colunas: aqui ele alinha com a sinopse e o título (antes ficava 10 dp para dentro).
-            detSeguir.addView(rotulo().apply { text = act.getString(R.string.player_depois); setPaddingRelative(0, dp(4), 0, dp(8)) })
-            depois.forEach { p ->
-                detSeguir.addView(TextView(act).apply {
+            detSeguir.trocarTopo(listOf<View>(rotulo().apply { text = act.getString(R.string.player_depois); setPaddingRelative(0, dp(4), 0, dp(8)) }) +
+            depois.map { p ->
+                TextView(act).apply {
                     text = "${hora.format(Date(p.inicio))}   ${p.titulo}"; textSize = Estilo.Leitura.ITEM_DETALHE; setTextColor(papel)
-                    maxLines = 1; ellipsize = TextUtils.TruncateAt.END; setPaddingRelative(0, dp(3), 0, dp(3))
-                })
-            }
+                    // 24/11/2026: título longo ("Vale a Pena Ver de Novo - A Dona do Pedaço") desce para a 2ª linha em vez
+                    // de virar "…"; o pé da ficha só mostra a linha se ela couber inteira.
+                    maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setPaddingRelative(0, dp(3), 0, dp(3))
+                }
+            })
         }
     }
 
@@ -531,5 +546,62 @@ class PlayerListaTela(
         // OK pelo controle não chega aqui (PlayerActivity.dispatchKeyEvent trata curto e segurado 2 s); fica o clique
         // para quem usa outro meio (mouse, toque).
         listaCanais.setOnItemClickListener { _, _, pos, _ -> doMeio.getOrNull(pos)?.let { aoAssistir(it, chave) } }
+    }
+}
+
+/**
+ * O pé da ficha do canal (24/11/2026, Paulo viu na Sala o "DEPOIS" cortado ao meio): em cima, "DEPOIS" e os programas a
+ * seguir; embaixo, encostada no fundo, a dica de teclas (uma linha por tecla). Tudo que aparece aparece inteiro: o que
+ * não cabe some em vez de sair cortado. Quando falta espaço, a dica cede as últimas linhas (a primeira, "OK assistir",
+ * fica) até caberem 2 programas; um "DEPOIS" sem nenhum programa embaixo também some.
+ */
+class RodapeFicha(ctx: android.content.Context) : ViewGroup(ctx) {
+    private val topo = mutableListOf<View>()
+    private val dica = mutableListOf<View>()
+    private var vaoPx = 0
+
+    fun vao(px: Int) { vaoPx = px }
+    fun trocarTopo(novos: List<View>) { topo.forEach { removeView(it) }; topo.clear(); novos.forEach { topo += it; addView(it) } }
+    fun porDica(linhas: List<View>) { dica.forEach { removeView(it) }; dica.clear(); linhas.forEach { dica += it; addView(it) } }
+
+    override fun onMeasure(larguraSpec: Int, alturaSpec: Int) {
+        val l = View.MeasureSpec.getSize(larguraSpec)
+        val largura = View.MeasureSpec.makeMeasureSpec(l - paddingLeft - paddingRight, View.MeasureSpec.EXACTLY)
+        val livre = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        for (i in 0 until childCount) getChildAt(i).measure(largura, livre)
+        val h = if (View.MeasureSpec.getMode(alturaSpec) == View.MeasureSpec.UNSPECIFIED) Int.MAX_VALUE / 4
+            else View.MeasureSpec.getSize(alturaSpec) - paddingTop - paddingBottom
+        val (nTopo, nDica) = RodapeConta.escolher(topo.map { it.measuredHeight }, dica.map { it.measuredHeight }, h, vaoPx)
+        topo.forEachIndexed { i, v -> v.visibility = if (i < nTopo) View.VISIBLE else View.GONE }
+        dica.forEachIndexed { i, v -> v.visibility = if (i < nDica) View.VISIBLE else View.GONE }
+        setMeasuredDimension(l, View.MeasureSpec.getSize(alturaSpec))
+    }
+
+    override fun onLayout(mudou: Boolean, e: Int, t: Int, d: Int, b: Int) {
+        var y = paddingTop
+        for (v in topo) if (v.visibility == View.VISIBLE) { v.layout(paddingLeft, y, paddingLeft + v.measuredWidth, y + v.measuredHeight); y += v.measuredHeight }
+        var fim = (b - t) - paddingBottom
+        for (v in dica.asReversed()) if (v.visibility == View.VISIBLE) { v.layout(paddingLeft, fim - v.measuredHeight, paddingLeft + v.measuredWidth, fim); fim -= v.measuredHeight }
+    }
+}
+
+/** A conta do [RodapeFicha], pura (teste JVM). */
+object RodapeConta {
+    /**
+     * Quantos do topo (rótulo + programas) e quantas linhas da dica aparecem em `h` px, com `vao` entre os dois grupos.
+     * Pura, para o teste JVM.
+     */
+    fun escolher(topo: List<Int>, dica: List<Int>, h: Int, vao: Int): Pair<Int, Int> {
+        fun quantos(alturas: List<Int>, cabe: Int): Int { var s = 0; var n = 0; for (a in alturas) { if (s + a > cabe) break; s += a; n++ }; return n }
+        var nDica = quantos(dica, h)
+        fun topoCom(k: Int): Int {
+            val resto = h - dica.take(k).sum() - (if (k > 0) vao else 0)
+            val n = quantos(topo, resto)
+            return if (n <= 1) 0 else n   // o rótulo sozinho não serve
+        }
+        val querProgramas = minOf(2, (topo.size - 1).coerceAtLeast(0))
+        var nTopo = topoCom(nDica)
+        while (nDica > 1 && (nTopo - 1).coerceAtLeast(0) < querProgramas) { nDica--; nTopo = topoCom(nDica) }
+        return nTopo to nDica
     }
 }

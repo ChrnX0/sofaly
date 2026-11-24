@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Більше параметрів</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Фото для заставки з телефона</string>
+    <string name="qrd_fotos_det">Показує код: телефон відкриває панель одразу на сторінці фото</string>
+    <string name="qrd_mural">Сімейна дошка з телефона</string>
+    <string name="qrd_mural_det">Список покупок і закріплені нотатки</string>
+    <string name="qrd_cenas">Сцени з телефона</string>
+    <string name="qrd_cenas_det">Створюйте й перевіряйте сцени у вебпанелі</string>
+    <string name="qrd_casa">Home Assistant з телефона</string>
+    <string name="qrd_casa_det">Адреса й токен вашого Home Assistant, у вебпанелі</string>
+    <string name="qrd_time">Моя команда й нагадування з телефона</string>
+    <string name="qrd_time_det">Слова, що перетворюють передачі з телепрограми на нагадування</string>
+    <string name="qrd_roteador">Роутер з телефона</string>
+    <string name="qrd_roteador_det">Адреса й ключ API роутера UniFi, у вебпанелі</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Плитки швидкої панелі</string>
+    <string name="pb_subtitulo">OK показує або приховує · ◀ ▶ змінюють порядок</string>
+    <string name="pb_cfg_det">Виберіть, які плитки показує швидка панель (утримуйте НАЗАД) і в якому порядку</string>
+    <string name="pb_mostrado">показано</string>
+    <string name="pb_escondido">приховано</string>
+    <string name="pb_padrao">Повернути стандартні плитки</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Нічний фільтр</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Головний екран</string>
+    <string name="cfg2_aba_inicio_det">Тема, приховані застосунки, швидка панель і погода</string>
+    <string name="cfg2_aba_familia">Сім\'я</string>
+    <string name="cfg2_aba_familia_det">Батьківський контроль, дитячий PIN, час сну й гості</string>
+    <string name="cfg2_aba_casa">Дім і автоматизації</string>
+    <string name="cfg2_aba_casa_det">Автоматизації, розумний дім і те, що налаштовуєте з телефона</string>
+    <string name="cfg2_aba_sistema_det">Діагностика, оновлення, резервна копія й про програму</string>
+    <string name="cfg2_aba_avancado">Додатково</string>
+    <string name="cfg2_aba_avancado_det">Мережа, інструменти, заводські застосунки, дозволи й оболонка. Потрібно рідко.</string>
+    <string name="cfg2_sec_visitas">Гості</string>
+    <string name="cfg2_sec_celular">З телефона</string>
+    <string name="cfg2_sec_ferramentas">Інструменти</string>
+    <string name="cfg2_sec_ocultos_sistema">Системні застосунки, приховані лаунчером</string>
+    <string name="cfg2_apps_visita_det">Виберіть, які застосунки зникають, поки ввімкнено гостьовий режим</string>
+    <string name="cfg2_apps_visita_sub">OK перемикає · ці зникають, поки ввімкнено гостьовий режим</string>
+    <string name="cfg2_some_visita">приховано для гостей</string>
+    <string name="cfg2_fica_visita">лишається</string>
+    <string name="cfg2_casa_det">Світло, розетки й сцени з Google Home або Home Assistant</string>
+    <string name="oc_titulo">Приховані застосунки</string>
+    <string name="oc_subtitulo">OK показує або приховує застосунок на головному екрані · приховані йдуть першими</string>
+    <string name="oc_nenhum">Немає прихованих застосунків · OK, щоб вибрати</string>
+    <string name="oc_quantos">Приховано: %1$d · OK, щоб показати знову</string>
+    <string name="oc_oculto">приховано</string>
+    <string name="oc_aparece">на головному екрані</string>
+    <string name="oc_aviso_titulo">Застосунок приховано</string>
+    <string name="oc_aviso">Щоб показати знову: Налаштування › Головний екран › Приховані застосунки</string>
+    <string name="extras_LER_FOCO">Читати вголос те, що у фокусі, на кожному екрані лаунчера</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Вимикати телевізор самостійно?</string>
+    <string name="sug_desligar">Цього тижня телевізор був увімкнений після півночі %1$d ночей. Вимикати його через 2 години, якщо ніхто не користується пультом? (Попереджає за 60 секунд.)</string>
+    <string name="sug_filtro_titulo">Увімкнути нічний фільтр?</string>
+    <string name="sug_filtro">Цього тижня телевізором користувалися після 22:00 %1$d ночей. Нічний фільтр робить екран теплішим і тьмянішим уночі, м\'якше для очей.</string>
+    <string name="sug_ligar">Увімкнути</string>
+    <string name="sug_agora_nao">Не зараз</string>
+    <string name="sug_nunca">Більше не пропонувати</string>
+    <string name="sug_feito_titulo">Готово</string>
+    <string name="sug_feito">Щоб змінити пізніше: Налаштування › Екран і живлення</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Розмір тексту</string>
+    <string name="tt_det">На кожному екрані лаунчера. Фільми, серіали й ТБ наживо вже були більшими й зростають разом</string>
+    <string name="tt_normal">Звичайний</string>
+    <string name="tt_grande">Великий</string>
+    <string name="tt_maior">Більший</string>
+    <string name="pi_titulo">Набір значків</string>
+    <string name="pi_det">Замініть значки застосунків вбудованим стилем (Символ, Двоколірний) або встановленим набором значків. OK вибирає наступний.</string>
+    <string name="pi_det_vazio">Набір значків не встановлено. Отримайте його в Play Маркеті, і він з\'явиться тут.</string>
+    <string name="pi_nenhum">Немає</string>
+    <string name="fm_titulo">Мій фон</string>
+    <string name="fm_det">Ваше фото, GIF або відео за головним екраном. Покладіть файл у папку Fundo, Pictures, DCIM, Movies або Download.</string>
+    <string name="fm_vazio">Фото чи відео не знайдено. Скопіюйте одне в папку Fundo (мережевий диск або USB) і поверніться.</string>
+    <string name="fm_nenhum">Немає (назад до Темної)</string>
+    <string name="fm_brilho">Яскравість фону</string>
+    <string name="fm_contraste">Контраст фону</string>
+    <string name="fm_ajuste_det">Застосовується до Мого фону. OK змінює крок.</string>
+    <string name="vp_titulo">Переходите з Projectivy?</string>
+    <string name="vp_texto">Чотири кроки перенесуть ваші налаштування приблизно за хвилину. Кожен можна зробити пізніше в Налаштуваннях.</string>
+    <string name="vp_cfg_det">Перенесіть приховані застосунки, набір значків і фон з Projectivy.</string>
+    <string name="vp_1">1. Приховані застосунки</string>
+    <string name="vp_1_det">Позначте застосунки, які у вас були приховані. Щоб змінити порядок, утримуйте OK на застосунку на головному екрані.</string>
+    <string name="vp_2">2. Набір значків</string>
+    <string name="vp_2_det">Тут працюють ті самі набори значків, що й у Projectivy.</string>
+    <string name="vp_3">3. Фон</string>
+    <string name="vp_3_det">Ваше фото, GIF або відео. Спершу скопіюйте його в папку Fundo.</string>
+    <string name="vp_4">4. Вимкніть кнопку Home у Projectivy</string>
+    <string name="vp_4_det">У Спеціальних можливостях вимкніть Projectivy. Два застосунки, що перехоплюють Home, змушують відкриватися не той.</string>
+    <string name="vp_pronto">Готово</string>
+    <string name="vp_pronto_det">Перейти на головний екран.</string>
+    <string name="vq_titulo">Поділитися виглядом</string>
+    <string name="vq_det">Показати QR-код з виглядом цього телевізора: тема, розмір тексту, значки.</string>
+    <string name="vq_texto">Відскануйте його телефоном, щоб зберегти або надіслати комусь із Sofaly.</string>
+    <string name="vq_fechar">Закрити</string>
+    <string name="pl_titulo">Плани</string>
+    <string name="pl_texto">Усе безкоштовно, доки продажі не відкрито. Пізніше Pro та Ultra купуються на телефоні.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Головний екран, заставка\n• Будильник, простий екран\n• Плеєр і радіо\n• 1 список IPTV\n• 2 теми</string>
+    <string name="pl_pro_itens">• Усе з Basic\n• Багато списків IPTV, запис\n• Повна вебпанель\n• Claude, розклади, Home Assistant\n• Усі теми, копія в хмарі</string>
+    <string name="pl_ultra_itens">• Усе з Pro\n• Краща погода (3 моделі)\n• Багаті сторінки фільмів\n• Автоматичні субтитри\n• До 3 телевізорів</string>
+    <string name="pl_qr">Відскануйте телефоном, щоб побачити ціни й купити.</string>
+    <string name="pl_assinar">Підписатися</string>
+    <string name="pl_assinar_preco">Підписатися · %1$s</string>
+    <string name="pl_seu_plano">Ваш план</string>
+    <string name="pl_loja_indisponivel">Google Play не вдалося відкрити покупку. Перевірте інтернет і спробуйте ще раз.</string>
+    <string name="atu_pela_play">Оновлення надходять з Google Play.</string>
+</resources>

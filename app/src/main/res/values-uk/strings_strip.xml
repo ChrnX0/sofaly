@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Єдина панель</string>
+    <string name="strip_desc_watch">Фільми, серіали й ТБ</string>
+    <string name="strip_desc_listen">Музика, радіо й подкасти</string>
+    <string name="strip_desc_play">Ігри й хмарні ігри</string>
+    <string name="strip_desc_apps">Усе встановлене</string>
+    <string name="strip_desc_tools">Будильник, погода й налаштування</string>
+    <string name="strip_apps_count">Застосунків: %1$d</string>
+    <string name="st_desc">Опис світу</string>
+    <string name="st_desc_fixa">Фіксована фраза</string>
+    <string name="st_desc_viva">Що зараз іде</string>
+    <string name="st_formato">Форма карток</string>
+    <string name="st_quadrado">Квадратна</string>
+    <string name="st_tamanho">Розмір карток</string>
+    <string name="st_pequeno">Малий</string>
+    <string name="st_medio">Середній</string>
+    <string name="st_grande">Великий</string>
+    <string name="st_espaco">Відстань між картками</string>
+    <string name="st_justo">Щільно</string>
+    <string name="st_normal">Звичайно</string>
+    <string name="st_largo">Широко</string>
+    <string name="st_cantos">Кути карток</string>
+    <string name="st_retos">Прямі</string>
+    <string name="st_suaves">М\'які</string>
+    <string name="st_redondos">Круглі</string>
+    <string name="st_placa">Скляна пластина позаду</string>
+    <string name="st_nome">Назва на вибраній картці</string>
+    <string name="st_sem">Вимк.</string>
+    <string name="st_com">Увімк.</string>
+
+    <string name="st_fundo">Тло</string>
+    <string name="st_fundo_vale">Долина</string>
+    <string name="st_fundo_serra">Гори</string>
+    <string name="st_fundo_noite">Ніч</string>
+    <string name="st_fundo_tema">З теми</string>
+    <string name="st_logo_solto">Вільний логотип</string>
+    <string name="st_grade2">Сітка у 2 ряди</string>
+    <string name="st_redondo">Кругла</string>
+    <string name="st_so_escolhido">Лише вибрана</string>
+    <string name="wo_cards">Форма карток у цьому світі</string>
+    <string name="wo_cards_geral">Як у Точному налаштуванні (%1$s)</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Фільми з власною частотою кадрів (24 Гц)</string>
+    <string name="quadros_det">Телевізор перемикається на 24 Гц, поки йде фільм, тож зображення не смикається під час руху камери. На початку екран чорніє на 1–2 с. Не використовується для ТБ наживо.</string>
+</resources>

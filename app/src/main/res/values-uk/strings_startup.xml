@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Коли вмикається телевізор</string>
+    <string name="su_det">Одразу відкриває це, оминаючи головний екран</string>
+    <string name="su_home">Головний екран</string>
+    <string name="su_last">Останній застосунок</string>
+    <string name="su_quem">Для кого?</string>
+    <string name="su_todos">Увесь телевізор</string>
+    <string name="su_so">Лише %1$s</string>
+    <string name="su_segue_tv">Як вибрано в телевізорі</string>
+    <string name="su_acordar">Також після пробудження</string>
+    <string name="su_acordar_det">Не лише після перезапуску: також коли телевізор виходить з режиму очікування. Ніколи поверх трансляції чи будильника</string>
+    <string name="su_esperar">Чекати після перезапуску</string>
+    <string name="su_esperar_det">Дає телевізору час підключитися перед відкриттям застосунку</string>
+    <string name="su_horario">Інший застосунок залежно від часу доби</string>
+    <string name="su_horario_det">Автоматизація з тригером «Телевізор увімкнено» і «Лише якщо»</string>
+    
+</resources>

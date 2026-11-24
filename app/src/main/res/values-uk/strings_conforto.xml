@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Опис приховано, доки не переглянете</string>
+    <string name="cf_spoiler">Приховувати описи непереглянутих серій</string>
+    <string name="cf_spoiler_det">Опис з\'являється лише після початку серії</string>
+    <string name="cf_segundo">Друга мова</string>
+    <string name="cf_segundo_det">Використовується, коли у відео немає аудіо чи субтитрів мовою телевізора</string>
+    <string name="cf_nenhum">Немає</string>
+    <string name="cf_proximo">Відлік до наступної серії</string>
+    <string name="cf_proximo_det">Скільки чекати, перш ніж наступна серія почнеться сама</string>
+    <string name="cf_proximo_nao">Не починати самостійно</string>
+    <string name="cf_segundos">%1$d с</string>
+    <string name="cf_consent_titulo">Надсилати дані до %1$s?</string>
+    <string name="cf_consent_texto">Увімкнення надсилає до %1$s через інтернет: назви, які ви позначаєте й дивитеся на цьому телевізорі, і де ви зупинилися. Вони зберігаються у вашому обліковому записі %1$s за правилами конфіденційності %1$s. Ви можете вимкнути це будь-коли.</string>
+    <string name="cf_consent_sim">Погоджуюся</string>
+</resources>

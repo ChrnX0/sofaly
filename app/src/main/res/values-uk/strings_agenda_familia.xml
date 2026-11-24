@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Сімейний розклад</string>
+    <string name="agf_sub">У заданий час телевізор сам перемикається на цей профіль. Дитячий профіль вмикає дитячий режим і час сну.</string>
+    <string name="agf_cfg_det">Налаштовано перемикань: %1$d. Профіль змінюється сам у заданий час.</string>
+    <string name="agf_adicionar">Додати перемикання</string>
+    <string name="agf_adicionar_det">Чий профіль, які дні й о котрій.</string>
+    <string name="agf_quem">Перемкнути на чий профіль?</string>
+    <string name="agf_dias">Які дні?</string>
+    <string name="agf_hora">О котрій?</string>
+    <string name="agf_todos">Щодня</string>
+    <string name="agf_uteis">З понеділка по п\'ятницю</string>
+    <string name="agf_fds">Субота й неділя</string>
+    <string name="agf_alguns">Деякі дні</string>
+    <string name="agf_apagar">Видалити це перемикання?</string>
+    <string name="agf_apagar_sim">Видалити</string>
+    <string name="agf_cheia">Розклад заповнено (12 перемикань).</string>
+    <string name="agf_sem_contas">На цьому телевізорі ще немає профілів (облікових записів Google).</string>
+</resources>

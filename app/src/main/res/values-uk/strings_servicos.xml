@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Сервіси фільмів і серіалів</string>
+    <string name="sv_subtitulo">Необов\'язкові облікові записи. Нічого не надсилається з телевізора, доки ви не ввійдете.</string>
+    <string name="sv_linha">Сервіси фільмів і серіалів</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB і OpenSubtitles</string>
+    <string name="sv_trakt_det">Синхронізує переглянуте й список Переглянути пізніше з телефоном</string>
+    <string name="sv_simkl_det">Як Trakt, а ще чудовий для аніме. Використовуйте один або обидва</string>
+    <string name="sv_mdblist_det">Необов\'язково: ваші списки, як-от Top 250, стають категоріями у Фільмах і Серіалах</string>
+    <string name="sv_tmdb_det">Сюжет, актори й дата наступної серії мовою телевізора</string>
+    <string name="sv_os_det">Онлайн-субтитри. Без облікового запису: 5 на день. З безкоштовним обліковим записом: 20</string>
+    <string name="sv_desligado">Увійти</string>
+    <string name="sv_entrando">вхід…</string>
+    <string name="sv_conectado">підключено</string>
+    <string name="sv_ativo">увімк.</string>
+    <string name="sv_sem_chave">У цій збірці ще немає ключів цих сервісів. Вони з\'являться після наступного оновлення.</string>
+    <string name="sv_pedindo">Запит коду в %1$s…</string>
+    <string name="sv_passos">1. На телефоні відкрийте %1$s (або наведіть камеру на код праворуч).\n2. Увійдіть у %2$s і введіть код:</string>
+    <string name="sv_espera">Цей екран продовжить сам. НАЗАД скасовує.</string>
+    <string name="sv_ok">Готово: %1$s підключено%2$s.</string>
+    <string name="sv_ok_como"> як %1$s</string>
+    <string name="sv_falhou">Не вдалося: %1$s</string>
+    <string name="sv_motivo_venceu">термін дії коду минув. Спробуйте ще раз.</string>
+    <string name="sv_motivo_recusado">доступ відхилено на телефоні.</string>
+    <string name="sv_motivo_usado">цей код уже використано. Спробуйте ще раз.</string>
+    <string name="sv_motivo_erro">сервіс не відповів. Спробуйте ще раз за мить.</string>
+    <string name="sv_sair_pergunta">Вийти з %1$s? Телевізор забуде обліковий запис і перестане спілкуватися з %1$s. Ваші дані там лишаться там.</string>
+    <string name="sv_sair">Вийти</string>
+    <string name="sv_fechar">Закрити</string>
+    <string name="sv_mdblist_titulo">Ключ MDBList</string>
+    <string name="sv_mdblist_texto">Необов\'язково: оцінки вже працюють без нього. Щоб використовувати власний обліковий запис MDBList (ваші списки, ваша квота), увійдіть на mdblist.com, відкрийте Preferences, скопіюйте API key і введіть його тут (простіше з вебпанелі, вкладка Налаштування, вставивши його).</string>
+    <string name="sv_mdblist_dica">Ключ API</string>
+    <string name="sv_os_titulo">Обліковий запис OpenSubtitles</string>
+    <string name="sv_os_texto">Необов\'язково: з безкоштовним обліковим записом на opensubtitles.com ліміт зростає з 5 до 20 субтитрів на день.</string>
+    <string name="sv_os_usuario">Ім\'я користувача</string>
+    <string name="sv_os_senha">Пароль</string>
+    <string name="sv_gravar">Зберегти</string>
+    <string name="sv_cancelar">Скасувати</string>
+    <string name="sv_limite_dia">Денний ліміт субтитрів вичерпано. Він оновиться через 24 год (з обліковим записом OpenSubtitles — 20 на день).</string>
+    <string name="sv_tmdb_atribuicao">Цей продукт використовує TMDB API, але не схвалений і не сертифікований TMDB.</string>
+    <string name="ext_saga">%1$s · %2$d з %3$d у вашому списку</string>
+    <string name="ext_nao_e_este">Не цей фільм</string>
+    <string name="ext_proximo">Нова серія %1$s (S%2$dE%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Нова серія %1$s</string>
+    <string name="ext_hoje">сьогодні</string>
+    <string name="ext_amanha">завтра</string>
+    <string name="sv_mdblist_passos">Необов\'язково: ваші списки MDBList (як-от Top 250) стають категоріями у Фільмах і Серіалах.\n1. Наведіть камеру телефона на код ліворуч і ввійдіть (або створіть безкоштовний обліковий запис). Унизу сторінки торкніться API Access, згенеруйте ключ, якщо його ще немає, і скопіюйте його.\n2. Наведіть на код праворуч: вебпанель відкриється в Налаштуваннях. Вставте ключ у MDBList і торкніться Зберегти ключ.\n3. Телевізор одразу перевірить його, і цей екран продовжить сам.</string>
+    <string name="sv_mdblist_qr1">Сторінка ключа MDBList</string>
+    <string name="sv_mdblist_qr2">Вебпанель (%1$s)</string>
+    <string name="sv_mdblist_digitar">Введіть ключ тут</string>
+    <string name="sv_f_chave_invalida">недійсний ключ (лише літери й цифри)</string>
+    <string name="sv_f_chave_recusada">%1$s не прийняв цей ключ</string>
+    <string name="sv_f_respondeu">%1$s відповів помилкою %2$d. Спробуйте ще раз за мить.</string>
+    <string name="sv_f_falta">введіть ім\'я користувача й пароль</string>
+    <string name="sv_f_longo">ім\'я користувача або пароль задовгі</string>
+    <string name="sv_f_senha">неправильне ім\'я користувача або пароль</string>
+    <string name="sv_f_gravar">не вдалося зберегти на телевізорі. Спробуйте ще раз.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Оцінка Simkl</string>
+    <string name="sv_simkl_convite_det">Підключіть свій обліковий запис</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Фільтр фільмів</string>
+    <string name="filmes_filtro_genero">Жанр: %1$s</string>
+    <string name="filmes_filtro_epoca">Період: %1$s</string>
+    <string name="filmes_filtro_nota">Мінімальна оцінка: %1$s</string>
+    <string name="filmes_filtro_lista">Список: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Лише непереглянуті: %1$s</string>
+    <string name="filmes_filtro_limpar">Очистити фільтр</string>
+    <string name="filmes_filtro_qualquer">Будь-який</string>
+    <string name="filmes_filtro_sim">Так</string>
+    <string name="filmes_filtro_nao">Ні</string>
+    <string name="filmes_filtro_decada">%1$d-ті</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">непереглянуті</string>
+    <string name="filmes_filtro_sem_genero">Жодна категорія цього списку не називає жанр</string>
+    <string name="filmes_filtro_vazio">Жоден фільм у цій категорії не відповідає фільтру</string>
+    <string name="filmes_sorteio_vazio">Немає фільму, щоб вибрати звідси</string>
+    <string name="filmes_colecao">Колекція цього фільму</string>
+    <string name="filmes_colecao_cat">Колекція: %1$s</string>
+    <string name="genero_acao">Бойовик</string>
+    <string name="genero_aventura">Пригоди</string>
+    <string name="genero_comedia">Комедія</string>
+    <string name="genero_drama">Драма</string>
+    <string name="genero_terror">Жахи</string>
+    <string name="genero_suspense">Трилер</string>
+    <string name="genero_romance">Мелодрама</string>
+    <string name="genero_ficcao">Фантастика</string>
+    <string name="genero_fantasia">Фентезі</string>
+    <string name="genero_animacao">Анімація</string>
+    <string name="genero_infantil">Діти й сім\'я</string>
+    <string name="genero_documentario">Документальний</string>
+    <string name="genero_crime">Кримінал</string>
+    <string name="genero_guerra">Військовий</string>
+    <string name="genero_faroeste">Вестерн</string>
+    <string name="genero_musical">Мюзикл</string>
+</resources>

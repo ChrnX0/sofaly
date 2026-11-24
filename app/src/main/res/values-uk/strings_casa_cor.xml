@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 50 do estudo (14/11/2026): cor e temperatura da luz na tela Casa (▲ ▼ no ajuste da luz). -->
+<resources>
+    <string name="casa_dica_brilho_cor">яскравість і колір</string>
+    <string name="casa_brilho_ajuste_cor">Яскравість %1$d%% · ◀ ▶ · колір ▲ ▼</string>
+    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_cor_quente">Теплий білий</string>
+    <string name="casa_cor_neutra">Нейтральний білий</string>
+    <string name="casa_cor_fria">Холодний білий</string>
+    <string name="casa_cor_vermelho">Червоний</string>
+    <string name="casa_cor_laranja">Помаранчевий</string>
+    <string name="casa_cor_amarelo">Жовтий</string>
+    <string name="casa_cor_verde">Зелений</string>
+    <string name="casa_cor_azul">Синій</string>
+    <string name="casa_cor_roxo">Фіолетовий</string>
+    <string name="casa_cor_rosa">Рожевий</string>
+</resources>

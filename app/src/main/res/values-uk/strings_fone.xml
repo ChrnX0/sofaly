@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Звук у навушниках (телефон)</string>
+    <string name="fone_titulo">Звук у навушниках</string>
+    <string name="fone_texto">Відскануйте телефоном у домашньому Wi-Fi і підключіть навушники. До %1$d телефонів. Телевізор замовкає, поки хтось слухає; закриття сторінки повертає звук.</string>
+    <string name="fone_ouvindo">Слухають: %1$d з %2$d</string>
+    <string name="fone_fechar">Закрити</string>
+    <string name="fone_parar">Зупинити</string>
+    <string name="fone_sem_rede">Телевізор не в домашній мережі.</string>
+</resources>

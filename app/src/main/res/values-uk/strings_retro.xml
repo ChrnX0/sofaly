@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Ваші ігри</string>
+    <string name="retro_vazio">На USB-накопичувачі ігор не знайдено. Покладіть власні ігри в папку з назвою консолі (напр., SNES).</string>
+    <string name="retro_portugues">португальською</string>
+    <string name="retro_abrindo">Відкриття в RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch не відкрив цю гру. Відкрийте RetroArch один раз і завантажте ядро %1$s.</string>
+    <string name="retro_sem_retroarch">Установіть RetroArch (безкоштовно в Play Маркеті), щоб грати в ці ігри.</string>
+    <string name="retro_aviso_legal">Sofaly не містить ігор. Використовуйте ті, що належать вам.</string>
+    <string name="retro_procurando">Пошук ігор на USB-накопичувачі…</string>
+</resources>
