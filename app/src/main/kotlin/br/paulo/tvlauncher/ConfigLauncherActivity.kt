@@ -442,7 +442,7 @@ class ConfigLauncherActivity : Activity() {
     internal fun mostrarDica(noMenu: Boolean) {
         dica.removeAllViews()
         dica.addView(if (noMenu) Estilo.barraDicas(this, "◀▶" to getString(R.string.cl_dica_aba), "▼ OK" to getString(R.string.cl_dica_entrar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair))
-            else Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_escolher), "OK" to getString(R.string.cl_dica_mudar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair)))
+            else Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_escolher), "◀▶ OK" to getString(R.string.cl_dica_mudar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair)))
     }
 
     /** ◀ numa pílula do índice/"Conversa com" que tem outra pílula daquele lado: anda entre elas (não volta ao menu). */
@@ -1386,6 +1386,22 @@ class ConfigLauncherActivity : Activity() {
             }
             t.text = "$v  ›"
             pintarTextos()
+        }
+
+        /**
+         * ◀ ▶ mexem na própria linha (24/11/2026, caminho D; X "Display and sound" e GitHub "Code Options" no Mobbin): na
+         * chave, ▶ liga e ◀ desliga; no valor, ▶ passa para o próximo (o mesmo que OK). Seta ("›") não reage: abre tela.
+         */
+        override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+            val tecla = Rtl.tecla(keyCode, this)
+            val agir = when {
+                ligadoAgora != null && tecla == KeyEvent.KEYCODE_DPAD_RIGHT -> ligadoAgora == false
+                ligadoAgora != null && tecla == KeyEvent.KEYCODE_DPAD_LEFT -> ligadoAgora == true
+                tValor != null && tecla == KeyEvent.KEYCODE_DPAD_RIGHT -> true
+                else -> return super.onKeyDown(keyCode, event)
+            }
+            if (agir && isClickable) performClick()
+            return true   // a linha ocupa a largura toda: ◀ ▶ não saem dela
         }
 
         fun seta() {
