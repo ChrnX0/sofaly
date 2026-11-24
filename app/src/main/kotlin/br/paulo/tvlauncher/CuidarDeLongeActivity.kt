@@ -57,6 +57,8 @@ class CuidarDeLongeActivity : Activity() {
 
         // Estado e o botão principal (ligar = perguntar; desligar = retirar)
         val estado = when {
+            // Sem a hora do consentimento (config antiga), sem data: "desde 31/12/1969" era a data zero na tela (auditoria 24/11/2026)
+            consentido && c.consentidoEm <= 0L -> getString(R.string.cuidar_estado_ligado_sem_data, c.nome)
             consentido -> getString(R.string.cuidar_estado_ligado, c.nome, android.text.format.DateFormat.getDateFormat(this).format(java.util.Date(c.consentidoEm)))
             c.consentimento.isNotEmpty() -> getString(R.string.cuidar_estado_mudou)
             else -> getString(R.string.cuidar_estado_desligado)

@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Включить (спросить того, кто здесь живёт)</string>
     <string name="cuidar_desligar">Выключить сейчас</string>
     <string name="cuidar_estado_ligado">Включено. %1$s получает уведомления с %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Включено. %1$s получает уведомления.</string>
     <string name="cuidar_estado_mudou">Настройки изменились: телевизор должен спросить снова.</string>
     <string name="cuidar_estado_desligado">Выключено. Ничего не уходит с этого телевизора.</string>
     <string name="cuidar_falta_aviso">Выберите ниже хотя бы одно уведомление.</string>

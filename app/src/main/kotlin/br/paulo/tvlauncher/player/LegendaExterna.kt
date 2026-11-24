@@ -22,7 +22,6 @@ object LegendaExterna {
      * todos os idiomas. Os mesmos termos pedem: login da própria pessoa para passar de 5 por dia (ServicosContas),
      * legenda guardada só na TV de quem pediu (LegendaBaixar) e tradução só para essa pessoa (LegendaTraduzida).
      */
-    const val CREDITO = "Subtitles provided by OpenSubtitles.com"
     const val IDIOMAS = "pt-br,pt-pt"   // TV em português (o caso de sempre); os outros idiomas: idiomasBusca()
     const val MAX_SRT = 2_000_000             // legenda de 3 h tem ~150 KB; acima disso não é legenda
     const val MAX_RESULTADOS = 12
@@ -47,6 +46,26 @@ object LegendaExterna {
      */
     fun nomeLegivel(nome: String): String =
         nome.replace(Regex("[._]+"), " ").replace(Regex("(?<=[A-Za-z]\\d) (?=\\d(?!\\d))"), ".").replace(Regex("\\s+"), " ").trim()
+
+    private val RESOLUCAO = Regex("(?i)\\b(2160p|4k|1080p|720p|576p|480p)\\b")
+    private val ORIGEM = Regex("(?i)\\b(blu-?ray|bdrip|brrip|web-?dl|webrip|web|hdtv|dvdrip|hdrip|remux)\\b")
+
+    /**
+     * O que a pessoa precisa para escolher: resolução e origem ("1080p · WEB-DL"). O nome cru do lançamento trazia codec,
+     * áudio e o nome do grupo (às vezes um palavrão, visto na auditoria de 24/11/2026). Sem nenhuma das duas marcas,
+     * fica o nome legível sem o grupo do fim, cortado em 40 letras.
+     */
+    fun versaoCurta(nome: String): String {
+        val n = nomeLegivel(nome)
+        val res = RESOLUCAO.find(n)?.value?.lowercase()?.let { if (it == "4k") "4K" else it }
+        val origem = ORIGEM.find(n)?.value?.lowercase()?.let {
+            when (it.replace("-", "")) { "bluray", "bdrip", "brrip" -> "Blu-ray"; "webdl" -> "WEB-DL"; "webrip" -> "WEBRip"; "web" -> "WEB"
+                "hdtv" -> "HDTV"; "dvdrip" -> "DVD"; "hdrip" -> "HDRip"; else -> "Remux" }
+        }
+        val partes = listOfNotNull(res, origem)
+        if (partes.isNotEmpty()) return partes.joinToString(" · ")
+        return n.replace(Regex("-[A-Za-z0-9]+$"), "").trim().take(40)
+    }
 
     /** "pt-BR" -> "Português (Brasil)", no idioma da TV. Código desconhecido fica como veio, em maiúsculas. */
     fun nomeIdioma(codigo: String, tv: java.util.Locale = java.util.Locale.getDefault()): String {

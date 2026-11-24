@@ -14,4 +14,5 @@
     <string name="vid_aceitar">Aceitar vídeos</string>
     <string name="vid_aceitar_det">A família pode enviar vídeos até 30 segundos. Nunca começam sozinhos.</string>
     <string name="vid_quantos">Vídeos: %1$d</string>
+    <string name="vid_novo">Novo</string>
 </resources>

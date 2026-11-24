@@ -148,7 +148,7 @@ internal fun MainActivity.montarTodos(foco: String?) {
             AllAppsLayout.Filter.HIDDEN -> if (escondidosLiberados) escondidos.sortedBy { it.nome.lowercase() }.map { AllAppsScreen.Card(it.pacote, it.nome, AllAppsScreen.Kind.HIDDEN, it.icone) }
                 else listOf(AllAppsScreen.Card(CARTAO_TRANCA, getString(R.string.aa_lock, escondidos.size), AllAppsScreen.Kind.LOCK, null))
         }
-        tela.show(getString(R.string.cruz_apps_n, visiveis.size), listOf(AllAppsScreen.Section(null, DesignTokens.WORLD_APPS, cards)), foco)
+        tela.show(if (visiveis.isEmpty()) "" else getString(R.string.cruz_apps_n, visiveis.size), listOf(AllAppsScreen.Section(null, DesignTokens.WORLD_APPS, cards)), foco)
         return
     }
     if (modo == AllAppsLayout.Mode.FOLDERS) {
@@ -165,9 +165,9 @@ internal fun MainActivity.montarTodos(foco: String?) {
         if (escondidosLiberados) escondidos.sortedBy { it.nome.lowercase() }.map { AllAppsScreen.Card(it.pacote, it.nome, AllAppsScreen.Kind.HIDDEN, it.icone) }
         else listOf(AllAppsScreen.Card(CARTAO_TRANCA, getString(R.string.aa_lock, escondidos.size), AllAppsScreen.Kind.LOCK, null)))
     val conta = buildString {
-        append(getString(R.string.cruz_apps_n, visiveis.size))
-        if (escondidos.isNotEmpty()) append(" · ").append(getString(R.string.aa_count_hidden, escondidos.size))
-        if (dados.congelados.isNotEmpty() && !visita) append(" · ").append(getString(R.string.aa_count_frozen, dados.congelados.size))
+        if (visiveis.isNotEmpty()) append(getString(R.string.cruz_apps_n, visiveis.size))
+        if (escondidos.isNotEmpty()) append(if (isEmpty()) "" else " · ").append(getString(R.string.aa_count_hidden, escondidos.size))
+        if (dados.congelados.isNotEmpty() && !visita) append(if (isEmpty()) "" else " · ").append(getString(R.string.aa_count_frozen, dados.congelados.size))
     }
     tela.show(conta, secoes, foco)
     if (secoes.all { it.cards.isEmpty() }) bolinhaPerfil?.requestFocus()   // nada na tela: o foco não fica sem dono

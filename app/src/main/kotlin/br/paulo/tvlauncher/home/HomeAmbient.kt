@@ -161,6 +161,8 @@ internal fun MainActivity.itemDormir(sempre: Boolean = false): HomeCruz.Item? {
  */
 internal fun MainActivity.contaApps(): String {
     val (naGrade, escondidos) = contagemGrade()
+    // Lista ainda vazia (carregando): nada, em vez de "0 apps" solto no canto (auditoria 24/11/2026)
+    if (naGrade == 0 && escondidos == 0) return ""
     return if (escondidos == 0) getString(R.string.cruz_apps_n, naGrade) else getString(R.string.cruz_apps_ocultos, naGrade, escondidos)
 }
 

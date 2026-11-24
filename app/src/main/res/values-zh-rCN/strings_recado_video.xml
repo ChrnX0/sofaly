@@ -14,4 +14,5 @@
     <string name="vid_aceitar">接收视频</string>
     <string name="vid_aceitar_det">家人可以发送最长 30 秒的视频。视频绝不会自动播放。</string>
     <string name="vid_quantos">视频：%1$d</string>
+    <string name="vid_novo">新</string>
 </resources>

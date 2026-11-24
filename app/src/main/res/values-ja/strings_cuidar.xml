@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">オンにする (ここに住む人に聞く)</string>
     <string name="cuidar_desligar">今すぐオフにする</string>
     <string name="cuidar_estado_ligado">オン。%1$s が %2$s から通知を受け取っています。</string>
+    <string name="cuidar_estado_ligado_sem_data">オン。%1$s が通知を受け取っています。</string>
     <string name="cuidar_estado_mudou">設定が変わりました: TV でもう一度確認が必要です。</string>
     <string name="cuidar_estado_desligado">オフ。この TV から何も送られません。</string>
     <string name="cuidar_falta_aviso">下で通知を 1 つ以上選んでください。</string>

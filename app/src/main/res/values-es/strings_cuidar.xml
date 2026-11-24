@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Activar (preguntar a quien vive aquí)</string>
     <string name="cuidar_desligar">Desactivar ahora</string>
     <string name="cuidar_estado_ligado">Activado. %1$s recibe los avisos desde %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Activado. %1$s recibe los avisos.</string>
     <string name="cuidar_estado_mudou">Los ajustes cambiaron: la TV tiene que volver a preguntar.</string>
     <string name="cuidar_estado_desligado">Desactivado. Nada sale de esta TV.</string>
     <string name="cuidar_falta_aviso">Elige al menos un aviso abajo.</string>

@@ -37,4 +37,5 @@
     <string name="series_trocar_temporada">تغيير الموسم</string>
     <string name="fechar">إغلاق</string>
     <string name="onde_assistir_botao">أين تشاهد</string>
+    <string name="legenda_credito">الترجمات من OpenSubtitles.com</string>
 </resources>

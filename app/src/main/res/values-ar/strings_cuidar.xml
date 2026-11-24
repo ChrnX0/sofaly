@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">تفعيل (اسأل من يسكن هنا)</string>
     <string name="cuidar_desligar">إيقاف الآن</string>
     <string name="cuidar_estado_ligado">مفعّل. يتلقى %1$s التنبيهات منذ %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">مفعّل. يتلقى %1$s التنبيهات.</string>
     <string name="cuidar_estado_mudou">تغيّرت الإعدادات: يجب أن يسأل التلفاز مرة أخرى.</string>
     <string name="cuidar_estado_desligado">متوقف. لا يخرج شيء من هذا التلفاز.</string>
     <string name="cuidar_falta_aviso">اختر تنبيهًا واحدًا على الأقل أدناه.</string>

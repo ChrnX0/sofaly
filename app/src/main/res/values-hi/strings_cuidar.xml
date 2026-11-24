@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">चालू करें (यहां रहने वाले से पूछें)</string>
     <string name="cuidar_desligar">अभी बंद करें</string>
     <string name="cuidar_estado_ligado">चालू। %1$s को %2$s से सूचनाएं मिल रही हैं।</string>
+    <string name="cuidar_estado_ligado_sem_data">चालू। %1$s को सूचनाएं मिल रही हैं।</string>
     <string name="cuidar_estado_mudou">सेटिंग बदल गई: टीवी को फिर से पूछना होगा।</string>
     <string name="cuidar_estado_desligado">बंद। इस टीवी से कुछ बाहर नहीं जाता।</string>
     <string name="cuidar_falta_aviso">नीचे कम से कम एक सूचना चुनें।</string>

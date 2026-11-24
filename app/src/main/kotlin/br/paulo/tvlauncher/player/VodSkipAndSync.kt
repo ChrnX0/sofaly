@@ -190,7 +190,7 @@ internal fun VodActivity.talvezLegendaAuto(t: Tracks) {
                     r.onSuccess { (f, bate) ->
                         legendaArquivo = f; legendaTraduzida = false; atrasoLegenda = 0; atrasoManual = false; acertosAuto = 0
                         LegendaTraduzida.esquecer(this, k)
-                        avisoBreve(getString(if (bate) R.string.legenda_auto_pronta else R.string.legenda_auto_pronta_nome) + " · " + LegendaExterna.CREDITO)
+                        avisoBreve(getString(if (bate) R.string.legenda_auto_pronta else R.string.legenda_auto_pronta_nome) + " · " + getString(R.string.legenda_credito))
                         recarregarComLegenda()
                     }
                 }
@@ -214,7 +214,7 @@ internal fun VodActivity.traduzirLegenda(k: String, u: String?, b: LegendaExtern
         if (isDestroyed || chave != k || pararTraducao.get()) return@post
         if (legendaArquivo != null && !legendaTraduzida) return@post   // a pessoa já escolheu outra
         legendaArquivo = f; legendaTraduzida = true; atrasoLegenda = 0; atrasoManual = false; acertosAuto = 0
-        avisoBreve(getString(aviso) + " · " + LegendaExterna.CREDITO)   // a original veio do OpenSubtitles
+        avisoBreve(getString(aviso) + " · " + getString(R.string.legenda_credito))   // a original veio do OpenSubtitles
         recarregarComLegenda()
     }
     LegendaTraduzida.traduzir(this, k, origem, idiomaTv, pos, pararTraducao,
@@ -235,17 +235,17 @@ internal fun VodActivity.buscarLegenda() {
             r.onFailure { avisoBreve((it as? LegendaBaixar.Falha)?.message ?: getString(R.string.legenda_erro)) }
             r.onSuccess { lista ->
                 if (lista.isEmpty()) { avisoBreve(getString(R.string.legenda_nenhuma)); return@onSuccess }
-                // Nome do lançamento em cima; idioma, downloads e "feita para este arquivo" na linha de baixo (como a cruz)
+                // Versão curta ("1080p · WEB-DL") em cima, sem o nome cru do lançamento nem o grupo; idioma, downloads e "feita para este arquivo" na linha de baixo (como a cruz)
                 val mil = android.icu.text.CompactDecimalFormat.getInstance(java.util.Locale.getDefault(),
                     android.icu.text.CompactDecimalFormat.CompactStyle.SHORT)
                 val rotulos = lista.map { c ->
-                    Estilo.comInfo(LegendaExterna.nomeLegivel(c.nome), listOfNotNull(
+                    Estilo.comInfo(LegendaExterna.versaoCurta(c.nome), listOfNotNull(
                         if (c.bateHash) "✓ " + getString(R.string.legenda_bate) else null,
                         LegendaExterna.nomeIdioma(c.idioma), "↓ " + mil.format(c.baixadas.toLong()),
                         if (c.surdos) getString(R.string.legenda_surdos) else null).joinToString(" · "))
                 }
                 val nome = intent.getStringExtra(EXTRA_TITULO)?.substringBefore(" · ")?.takeIf { it.isNotBlank() } ?: b.nome
-                Estilo.lista(this, getString(R.string.legenda_escolher, nome), rotulos, rodape = LegendaExterna.CREDITO) { i -> baixarLegenda(lista[i]) }
+                Estilo.lista(this, getString(R.string.legenda_escolher, nome), rotulos, rodape = getString(R.string.legenda_credito)) { i -> baixarLegenda(lista[i]) }
             }
         }
     }
@@ -262,7 +262,7 @@ internal fun VodActivity.baixarLegenda(c: LegendaExterna.Candidata) {
             r.onFailure { avisoBreve((it as? LegendaBaixar.Falha)?.message ?: getString(R.string.legenda_erro)) }
             r.onSuccess { f ->
                 pararTraducao.set(true); LegendaTraduzida.esquecer(this, k)   // a escolhida pela pessoa vale mais que a tradução
-                legendaArquivo = f; legendaTraduzida = false; atrasoLegenda = 0; atrasoManual = false; acertosAuto = 0; avisoBreve(getString(R.string.legenda_pronta) + " · " + LegendaExterna.CREDITO); recarregarComLegenda()
+                legendaArquivo = f; legendaTraduzida = false; atrasoLegenda = 0; atrasoManual = false; acertosAuto = 0; avisoBreve(getString(R.string.legenda_pronta) + " · " + getString(R.string.legenda_credito)); recarregarComLegenda()
             }
         }
     }

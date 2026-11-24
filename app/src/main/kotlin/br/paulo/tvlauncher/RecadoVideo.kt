@@ -278,8 +278,10 @@ class RecadoVideoActivity : Activity() {
         if (l.isEmpty()) coluna.addView(Estilo.linhaTexto(this, getString(R.string.vid_nenhum)), Estilo.lpLinha(this))
         val fmt = android.text.format.DateFormat.getMediumDateFormat(this)
         for (v in l) {
-            val det = fmt.format(java.util.Date(v.quando)) + (if (v.texto.isNotEmpty()) " · ${v.texto}" else "")
-            coluna.addView(Estilo.linhaOpcao(this, (if (v.visto) "" else "● ") + getString(R.string.vid_de, v.quem), det).apply {
+            // "Novo" vai na linha de baixo: o "●" na frente do nome somava com a marca de foco (dois marcadores, auditoria 24/11/2026)
+            val det = listOfNotNull(if (v.visto) null else getString(R.string.vid_novo), fmt.format(java.util.Date(v.quando)),
+                v.texto.takeIf { it.isNotEmpty() }).joinToString(" · ")
+            coluna.addView(Estilo.linhaOpcao(this, getString(R.string.vid_de, v.quem), det).apply {
                 setOnClickListener { RecadoVideo.tocar(this@RecadoVideoActivity, v) }
                 setOnLongClickListener {
                     CaixaTv(this@RecadoVideoActivity).setTitle(getString(R.string.vid_apagar)).setMessage(getString(R.string.vid_de, v.quem))

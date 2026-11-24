@@ -8,6 +8,7 @@
     <string name="cuidar_ligar">Ligar (perguntar a quem mora aqui)</string>
     <string name="cuidar_desligar">Desligar agora</string>
     <string name="cuidar_estado_ligado">Ligado. %1$s recebe os avisos desde %2$s.</string>
+    <string name="cuidar_estado_ligado_sem_data">Ligado. %1$s recebe os avisos.</string>
     <string name="cuidar_estado_mudou">A configuração mudou: a TV precisa perguntar de novo.</string>
     <string name="cuidar_estado_desligado">Desligado. Nada sai desta TV.</string>
     <string name="cuidar_falta_aviso">Escolha pelo menos um aviso abaixo.</string>
