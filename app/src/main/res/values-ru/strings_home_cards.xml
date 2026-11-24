@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">Обратный отсчёт вверху главного экрана в последние 7 дней (ваши даты или ближайший праздник)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">Домашние напоминания вверху главного экрана в нужный день (например, вывоз вторсырья), с уведомлением в заданное время</string>
     <string name="extras_CARTAO_SERVICO">Предупреждать вверху главного экрана, когда добавленный сервис перестаёт отвечать</string>
-    <string name="extras_CARTAO_LUA">Фаза луны в прогнозе, на заставке и в значке погоды ночью</string>
+    <string name="extras_CARTAO_LUA">Фаза луны в прогнозе погоды</string>
     <string name="hc_feriado_hoje">Сегодня праздник</string>
     <string name="hc_hoje">Сегодня: %1$s</string>
     <string name="hc_lembrete_rotulo">Домашнее напоминание</string>

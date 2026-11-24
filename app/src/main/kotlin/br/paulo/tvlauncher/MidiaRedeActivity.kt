@@ -389,6 +389,9 @@ class MidiaRedeActivity : Activity() {
     private fun alternarFotos(pos: Int, f: FotosNoProtetor) {
         val usando = FotosRede.origem(this)?.let { it.conta == f.origem.conta && it.caminho == f.origem.caminho } == true
         FotosRede.escolher(this, if (usando) null else f.origem)
+        // "Usar estas fotos no protetor" (teste 100%, 24/11/2026): o protetor só mostra fotos com o Fundo do protetor em
+        // "Fotos e vídeos passando"; sem isto a escolha ficava guardada e a tela continuava igual.
+        if (!usando) br.paulo.tvlauncher.screensaver.SleepingHome.setBackground(this, br.paulo.tvlauncher.screensaver.SleepingHome.BG_PHOTOS)
         val nivel = pilha.lastOrNull() ?: return
         pilha[pilha.lastIndex] = Nivel(nivel.titulo, nivel.origem, nivel.itens.toMutableList().also { it[pos] = linhaFotos(f) }, pos, nivel.lidos)
         desenhar(getString(if (usando) R.string.rede_fotos_paradas else R.string.rede_fotos_usando))

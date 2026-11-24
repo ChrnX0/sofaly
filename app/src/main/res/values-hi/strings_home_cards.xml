@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">आख़िरी 7 दिनों में होम स्क्रीन के ऊपर उलटी गिनती (आपकी तारीखें या अगली छुट्टी)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">उसी दिन होम स्क्रीन के ऊपर घर के रिमाइंडर (जैसे रीसाइक्लिंग का दिन), तय समय पर सूचना के साथ</string>
     <string name="extras_CARTAO_SERVICO">जोड़ी गई कोई सेवा जवाब देना बंद करे तो होम स्क्रीन के ऊपर बताएँ</string>
-    <string name="extras_CARTAO_LUA">पूर्वानुमान, स्क्रीनसेवर और रात में मौसम आइकन में चंद्रमा की कला</string>
+    <string name="extras_CARTAO_LUA">मौसम पूर्वानुमान में चाँद की कला</string>
     <string name="hc_feriado_hoje">आज छुट्टी है</string>
     <string name="hc_hoje">आज: %1$s</string>
     <string name="hc_lembrete_rotulo">घर का रिमाइंडर</string>

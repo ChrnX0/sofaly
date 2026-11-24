@@ -6,7 +6,7 @@
     <string name="extras_CARTAO_CONTAGEM">Conto alla rovescia in alto nella schermata iniziale negli ultimi 7 giorni (le tue date o la prossima festività)</string>
     <string name="extras_CARTAO_LEMBRETE_CASA">Promemoria di casa in alto nella schermata iniziale nel giorno giusto (es. raccolta differenziata), con avviso all\'ora impostata</string>
     <string name="extras_CARTAO_SERVICO">Avvisa in alto nella schermata iniziale quando un servizio aggiunto smette di rispondere</string>
-    <string name="extras_CARTAO_LUA">Fase lunare nelle previsioni, nel salvaschermo e nell\'icona del meteo di notte</string>
+    <string name="extras_CARTAO_LUA">Fase lunare nelle previsioni meteo</string>
     <string name="hc_feriado_hoje">Festivo oggi</string>
     <string name="hc_hoje">Oggi: %1$s</string>
     <string name="hc_lembrete_rotulo">Promemoria di casa</string>
