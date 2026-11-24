@@ -42,6 +42,7 @@ class NightSkyTest {
         val ecl = EclipseSolar("2026-11-25T13:00:00Z", "2026-11-25T14:00:00Z", "2026-11-25T15:00:00Z", 0.5)
         val e = NightSky.hoje(agora, -23.55, -46.63, horas(agora, 0), passagem(agora + 5 * hora, 70), listOf(ecl), sp)
         assertEquals(NightSky.Kind.ECLIPSE_SUN, e?.kind)
+        assertEquals(ecl.maximoMs, e?.peak)   // a arte usa a hora do máximo
     }
 
     @Test fun meteorosFracosNaoContam() {

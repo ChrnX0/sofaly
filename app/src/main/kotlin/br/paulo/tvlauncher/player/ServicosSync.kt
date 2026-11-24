@@ -214,6 +214,7 @@ object ServicosSync {
         val ind = Indice(catalogo)
         val grupo = if (tipo == Tipo.FILME) "movies" else "shows"
         var mi = false; var mp = false
+        var foto: Map<String, String> = ativ   // o que fica guardado: as partes que falharam não avançam
         val enviar = SincronizarFilmes.podeEnviar(true, ModoVisita.ativo(ctx), bloqueado(ctx))
 
         if (o.interesses) {
@@ -237,19 +238,18 @@ object ServicosSync {
         }
         if (o.assistidos && (SincronizarFilmes.mudou(antes, ativ, "movies.watched_at", "episodes.watched_at") || o.contar)) {
             val w = chamar(ctx, s, "/sync/watched/$grupo")
-            if (w.codigo in 200..299) {
-                val vistos = SincronizarFilmes.traktLerVistos(w.corpo, tipo)
-                if (vistos != null) {
-                    if (tipo == Tipo.FILME) mp = aplicarVistosFilmes(ctx, s, ind, vistos).first || mp
-                    else guardarEpisodiosVistos(ctx, s, vistos)
-                }
-            }
+            val vistos = if (w.codigo in 200..299) SincronizarFilmes.traktLerVistos(w.corpo, tipo) else null
+            if (vistos != null) {
+                if (tipo == Tipo.FILME) mp = aplicarVistosFilmes(ctx, s, ind, vistos).first || mp
+                else guardarEpisodiosVistos(ctx, s, vistos)
+            } else foto = SincronizarFilmes.fotoSemAvancar(antes, foto, "movies.watched_at", "episodes.watched_at")
         }
         if (o.continuar && SincronizarFilmes.mudou(antes, ativ, "movies.paused_at", "episodes.paused_at")) {
             val p = chamar(ctx, s, "/sync/playback/" + if (tipo == Tipo.FILME) "movies" else "episodes")
             if (p.codigo in 200..299) mp = aplicarPausas(ctx, s, tipo, ind, SincronizarFilmes.traktLerPausas(p.corpo)) || mp
+            else foto = SincronizarFilmes.fotoSemAvancar(antes, foto, "movies.paused_at", "episodes.paused_at")
         }
-        mudarEstado(ctx) { it.put(chaveAtiv, JSONObject(ativ as Map<*, *>)) }
+        mudarEstado(ctx) { it.put(chaveAtiv, JSONObject(foto as Map<*, *>)) }
         return Mudou(mi, mp)
     }
 
@@ -373,13 +373,15 @@ object ServicosSync {
             bib = b
         }
         var pausas: String? = null
+        var foto: Map<String, String> = ativ
         if (plano.pausas) {
             val p = chamar(ctx, s, "/sync/playback")
             if (ok(p)) pausas = p.corpo
+            else foto = SincronizarFilmes.fotoSemAvancar(antes, foto, "movies.playback", "tv_shows.playback", "anime.playback")
         }
         if (plano.completo || plano.desde != null || plano.conferirTirados) gravarBibliotecaSimkl(ctx, bib)
         mudarEstado(ctx) { e ->
-            e.put("ativ_${s.id}", JSONObject(ativ as Map<*, *>)).put("rede_${s.id}", agoraMs)
+            e.put("ativ_${s.id}", JSONObject(foto as Map<*, *>)).put("rede_${s.id}", agoraMs)
             pausas?.let { e.put("pausas_${s.id}", it) }
             // Fotos por tipo do jeito antigo (antes de 18/11/2026): não servem mais.
             e.remove("ativ_${s.id}_${Tipo.FILME.name}"); e.remove("ativ_${s.id}_${Tipo.SERIE.name}")
