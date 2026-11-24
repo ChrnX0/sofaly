@@ -16,7 +16,7 @@
     <string name="elv_prom_player">どんなファイルも再生。字幕は設定なしで正しく</string>
     <string name="elv_prom_casa">目覚ましは毎回、時間どおりに鳴る</string>
     <string name="elv_prom_controle">パネル、スマホ、AIでリモコンと同じことが全部できる</string>
-    <string name="elv_prom_todos">高齢者、子ども、来客、目や耳が不自由な人。14言語</string>
+    <string name="elv_prom_todos">高齢者、子ども、来客、目や耳が不自由な人。%1$d言語</string>
     <string name="elv_prom_instala">初回起動から最初のチャンネルまで5分</string>
     <string name="elv_nao_medido">まだ測定していません</string>
     <string name="elv_alvo">目標 %1$s</string>

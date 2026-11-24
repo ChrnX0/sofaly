@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Odtwarza każdy plik; właściwe napisy bez grzebania</string>
     <string name="elv_prom_casa">Budzik dzwoni na czas, za każdym razem</string>
     <string name="elv_prom_controle">Panel, telefon i AI robią wszystko, co pilot</string>
-    <string name="elv_prom_todos">Seniorzy, dzieci, goście, osoby słabo widzące lub słyszące; 14 języków</string>
+    <string name="elv_prom_todos">Seniorzy, dzieci, goście, osoby słabo widzące lub słyszące; %1$d języków</string>
     <string name="elv_prom_instala">Od pierwszego uruchomienia do pierwszego kanału w 5 minut</string>
     <string name="elv_nao_medido">Jeszcze nie zmierzono</string>
     <string name="elv_alvo">cel %1$s</string>

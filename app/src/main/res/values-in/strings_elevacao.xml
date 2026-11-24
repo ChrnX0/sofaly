@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Memutar file apa pun; subtitle tepat tanpa diatur</string>
     <string name="elv_prom_casa">Alarm berbunyi tepat waktu, setiap kali</string>
     <string name="elv_prom_controle">Panel, ponsel, dan AI bisa melakukan semua yang bisa dilakukan remote</string>
-    <string name="elv_prom_todos">Lansia, anak, tamu, yang kurang melihat atau mendengar; 14 bahasa</string>
+    <string name="elv_prom_todos">Lansia, anak, tamu, yang kurang melihat atau mendengar; %1$d bahasa</string>
     <string name="elv_prom_instala">Dari pembukaan pertama ke saluran pertama dalam 5 menit</string>
     <string name="elv_nao_medido">Belum diukur</string>
     <string name="elv_alvo">target %1$s</string>
