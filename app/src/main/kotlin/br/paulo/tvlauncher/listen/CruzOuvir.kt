@@ -304,6 +304,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         })
         barraBloco = bloco; barraGrupo = grupo; barraNome = nome; barraSub = sub
         cabecalho.visibility = View.GONE
+        // O título da tela no lugar do título das outras telas (margem do sistema), não na coluna da cruz.
+        titulo.translationX = dp(Estilo.MARGEM_LATERAL.toFloat()); titulo.translationY = dp(Estilo.MARGEM_VERTICAL + 9f)
     }
 
     fun definirTitulo(t: String) { titulo.text = t; contentDescription = t }
