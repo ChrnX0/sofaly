@@ -43,7 +43,7 @@ object PhoneMicTv {
     fun chunk(ctx: Context, b: ByteArray) {
         val t = track ?: return
         if (b.size < 2) return
-        val fila = escritos - t.playbackHeadPosition.toLong().and(0xffffffffL)
+        val fila = escritos - t.playbackHeadPosition.toLong().and(0xFFFF_FFFFL)   // contador de 32 bits sem sinal
         if (fila * 1000 / RATE > MAX_QUEUE_MS) return   // atrasado demais: descarta este pedaço
         val n = t.write(b, 0, b.size and 1.inv(), AudioTrack.WRITE_NON_BLOCKING)
         if (n > 0) escritos += n / 2

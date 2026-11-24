@@ -5,13 +5,16 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.ImageView
 import br.paulo.tvlauncher.companion.PhoneCameraTv
 
 /**
- * A tela que mostra a câmera do celular ([PhoneCameraTv]). Tela cheia, preta, sem texto: a imagem ocupa o que couber sem
- * cortar. Fecha com VOLTAR, quando o celular para, ou 4 s sem foto nova.
+ * A tela que mostra a câmera do celular ([PhoneCameraTv]). A imagem ocupa a tela inteira sem cortar; por cima, o título e
+ * a barra de dicas do sistema (Estilo, regra das telas), que somem depois de 4 s para não tapar a imagem. Fecha com
+ * VOLTAR, quando o celular para, ou 4 s sem foto nova.
  */
 class PhoneCameraActivity : Activity() {
     private lateinit var imagem: ImageView
@@ -28,7 +31,15 @@ class PhoneCameraActivity : Activity() {
         if (VigiaAtualizacao.fechada(this)) return
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         imagem = ImageView(this).apply { setBackgroundColor(Color.BLACK); scaleType = ImageView.ScaleType.FIT_CENTER }
-        setContentView(imagem)
+        val m = Estilo.dp(this, Estilo.MARGEM_LATERAL); val v = Estilo.dp(this, Estilo.MARGEM_VERTICAL)
+        val titulo = Estilo.tituloTela(this, getString(R.string.phone_camera_title))
+        val dicas = Estilo.barraDicas(this, getString(R.string.cuidar_tecla_voltar) to getString(R.string.fp_fechar))
+        setContentView(FrameLayout(this).apply {
+            addView(imagem, FrameLayout.LayoutParams(-1, -1))
+            addView(titulo, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.START).apply { setMargins(m, v, m, 0) })
+            addView(dicas, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply { setMargins(m, 0, m, v) })
+        })
+        ui.postDelayed({ titulo.animate().alpha(0f).setDuration(400); dicas.animate().alpha(0f).setDuration(400) }, 4_000)
         PhoneCameraTv.listen(ouvinte)
         ui.postDelayed(vigia, 4_000)
     }
