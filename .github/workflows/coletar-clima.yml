@@ -1,0 +1,33 @@
+# Teste de fonte de clima (24/11/2026): uma foto por dia da previsão de cada fonte em 30 aeroportos.
+# Não faz parte do build. Roda só por push do gatilho neste branch; apagar depois da escolha.
+name: Coletar clima
+
+on:
+  push:
+    branches: [claude/project-thread-4qkng5]
+    paths: ['ferramentas/clima/gatilho.txt']
+
+permissions:
+  contents: write
+
+concurrency: coletar-clima
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Coletar
+        env:
+          WEATHERAPI_CHAVE: ${{ secrets.WEATHERAPI_CHAVE }}
+          OWM_CHAVE: ${{ secrets.OWM_CHAVE }}
+          VISUALCROSSING_CHAVE: ${{ secrets.VISUALCROSSING_CHAVE }}
+        run: python3 -I ferramentas/clima/coletar.py
+      - name: Guardar no branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ferramentas/clima/coleta.csv
+          git commit -m "Coleta de clima $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
