@@ -859,4 +859,19 @@ AS\\Movies）。</string>
     <string name="aviso_simples_texto">テレビは通常のホーム画面に戻りました。</string>
     <string name="aviso_sync_titulo">アカウントが未接続</string>
     <string name="aviso_sync_texto">このテレビに%1$sのアカウントはありません。設定 › テレビと映画で接続してください。</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">新機能</string>
+    <string name="ver_novidades_det">バージョン %2$s の変更 %1$d 件 · OK で読む</string>
+    <string name="ver_novidades_sobre">バージョン %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">テレビで確認</string>
+    <string name="ver_conferir_det">リモコンで %2$d 件中 %1$d 件を確認 · OK で開始</string>
+    <string name="ver_conferir_sub">バージョン %1$s · %2$d 項目 · 項目で OK を押して回答</string>
+    <string name="ver_conferido">%2$d 件中 %1$d 件を確認</string>
+    <string name="ver_sim">はい</string>
+    <string name="ver_nao">いいえ</string>
+    <string name="ver_respondido_sim">「はい」と回答</string>
+    <string name="ver_respondido_nao">「いいえ」と回答</string>
+    <string name="atu_migracao_disponivel">バージョン %1$d: このテレビを新しいアプリ (tv.sofaly.launcher) に移行する準備ができました</string>
+    <string name="atu_migracao_instalando">新しいアプリをインストール中 (%1$d)。その後、すべての設定とともにこのテレビを引き継ぎます</string>
 </resources>

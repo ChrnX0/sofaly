@@ -10,6 +10,7 @@
     <plurals name="rede_fotos_sub">
         <item quantity="one">%1$d foto · copiada para a TV, funciona com o computador desligado</item>
         <item quantity="other">%1$d fotos · copiadas para a TV, funciona com o computador desligado</item>
+        <item quantity="many">%1$d fotos · copiadas para a TV, funciona com o computador desligado</item>
     </plurals>
     <string name="rede_fotos_usando">Copiando as fotos. Elas aparecem na próxima vez que o protetor abrir.</string>
     <string name="rede_fotos_paradas">O protetor deixou de usar esta pasta.</string>

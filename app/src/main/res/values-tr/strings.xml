@@ -862,4 +862,19 @@ AS\\Filmler).</string>
     <string name="aviso_simples_texto">TV tam ana ekrana döndü.</string>
     <string name="aviso_sync_titulo">Bağlı hesap yok</string>
     <string name="aviso_sync_texto">Bu TV\'de %1$s hesabı yok. Ayarlar › TV ve filmler\'den bağlayın.</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">Yenilikler</string>
+    <string name="ver_novidades_det">%2$s sürümünde %1$d değişiklik · Okumak için OK</string>
+    <string name="ver_novidades_sobre">Sürüm %1$s</string>
+    <string name="ver_ok">Tamam</string>
+    <string name="ver_conferir">TV\'de kontrol et</string>
+    <string name="ver_conferir_det">Kumandayla %2$d öğeden %1$d tanesi kontrol edildi · Başlamak için OK</string>
+    <string name="ver_conferir_sub">Sürüm %1$s · %2$d öğe · Yanıtlamak için bir öğede OK</string>
+    <string name="ver_conferido">%2$d öğeden %1$d tanesi kontrol edildi</string>
+    <string name="ver_sim">Evet</string>
+    <string name="ver_nao">Hayır</string>
+    <string name="ver_respondido_sim">“evet” yanıtlandı</string>
+    <string name="ver_respondido_nao">“hayır” yanıtlandı</string>
+    <string name="atu_migracao_disponivel">sürüm %1$d: bu TV yeni uygulamaya (tv.sofaly.launcher) geçmeye hazır</string>
+    <string name="atu_migracao_instalando">yeni uygulama yükleniyor (%1$d); ardından tüm ayarlarla bu TV\'yi devralacak</string>
 </resources>

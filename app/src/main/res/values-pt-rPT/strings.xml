@@ -722,14 +722,17 @@ AS\\Filmes).</string>
     <plurals name="series_temporadas">
         <item quantity="one">%d temporada</item>
         <item quantity="other">%d temporadas</item>
+        <item quantity="many">%d temporadas</item>
     </plurals>
     <plurals name="rede_resumo">
         <item quantity="one">%1$d servidor</item>
         <item quantity="other">%1$d servidores</item>
+        <item quantity="many">%1$d servidores</item>
     </plurals>
     <plurals name="rede_itens">
         <item quantity="one">%1$d item</item>
         <item quantity="other">%1$d itens</item>
+        <item quantity="many">%1$d itens</item>
     </plurals>
     <string-array name="dias_curtos">
         <item>Dom</item>

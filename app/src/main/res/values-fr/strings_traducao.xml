@@ -259,30 +259,37 @@
     <plurals name="dur_horas">
         <item quantity="one">%d heure</item>
         <item quantity="other">%d heures</item>
+        <item quantity="many">%d heures</item>
     </plurals>
     <plurals name="dur_minutos">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
+        <item quantity="many">%d minutes</item>
     </plurals>
     <plurals name="dur_segundos">
         <item quantity="one">%d seconde</item>
         <item quantity="other">%d secondes</item>
+        <item quantity="many">%d secondes</item>
     </plurals>
     <plurals name="pv_sao_horas">
         <item quantity="one">Il est %d heure</item>
         <item quantity="other">Il est %d heures</item>
+        <item quantity="many">Il est %d heures</item>
     </plurals>
     <plurals name="ii_erros_novos">
         <item quantity="one">%d nouvelle erreur. Voir panneau web › Système.</item>
         <item quantity="other">%d nouvelles erreurs. Voir panneau web › Système.</item>
+        <item quantity="many">%d nouvelles erreurs. Voir panneau web › Système.</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="one">%d chaîne</item>
         <item quantity="other">%d chaînes</item>
+        <item quantity="many">%d chaînes</item>
     </plurals>
     <plurals name="rt_quedas">
         <item quantity="one">%d coupure</item>
         <item quantity="other">%d coupures</item>
+        <item quantity="many">%d coupures</item>
     </plurals>
     <string name="vod_vazio_texto">Les films et séries viennent de votre liste TV. Ajoutez-en une dans Paramètres, Compte.</string>
     <string name="vod_adicionar_lista">Ajouter une liste</string>

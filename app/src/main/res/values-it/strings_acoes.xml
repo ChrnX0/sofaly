@@ -68,9 +68,11 @@
     <plurals name="cenas_acoes">
         <item quantity="one">%d azione</item>
         <item quantity="other">%d azioni</item>
+        <item quantity="many">%d azioni</item>
     </plurals>
     <plurals name="aut_links">
         <item quantity="one">%d scena con link</item>
         <item quantity="other">%d scene con link</item>
+        <item quantity="many">%d scene con link</item>
     </plurals>
 </resources>

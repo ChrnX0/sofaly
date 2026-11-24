@@ -859,4 +859,19 @@ AS\\Movies）。</string>
     <string name="aviso_simples_texto">电视已回到完整主屏幕。</string>
     <string name="aviso_sync_titulo">未连接账号</string>
     <string name="aviso_sync_texto">这台电视没有 %1$s 账号。请在 设置 › 电视和电影 中连接。</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">新功能</string>
+    <string name="ver_novidades_det">版本 %2$s 有 %1$d 项更改 · 按 OK 阅读</string>
+    <string name="ver_novidades_sobre">版本 %1$s</string>
+    <string name="ver_ok">确定</string>
+    <string name="ver_conferir">在电视上检查</string>
+    <string name="ver_conferir_det">已用遥控器检查 %1$d / %2$d 项 · 按 OK 开始</string>
+    <string name="ver_conferir_sub">版本 %1$s · %2$d 项 · 在某项上按 OK 回答</string>
+    <string name="ver_conferido">已检查 %1$d / %2$d 项</string>
+    <string name="ver_sim">是</string>
+    <string name="ver_nao">否</string>
+    <string name="ver_respondido_sim">已回答“是”</string>
+    <string name="ver_respondido_nao">已回答“否”</string>
+    <string name="atu_migracao_disponivel">版本 %1$d：可以将这台电视迁移到新应用 (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">正在安装新应用 (%1$d)；之后它将带着所有设置接管这台电视</string>
 </resources>

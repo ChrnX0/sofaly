@@ -6,6 +6,7 @@
     <plurals name="an_anos">
         <item quantity="one">faz %d ano</item>
         <item quantity="other">faz %d anos</item>
+        <item quantity="many">faz %d anos</item>
     </plurals>
     <string name="tp_calor">Calor forte</string>
     <string name="tp_calor_texto">Até %d° hoje · Beba água</string>

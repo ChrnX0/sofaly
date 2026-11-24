@@ -54,9 +54,11 @@
     <plurals name="jogos_qtd">
         <item quantity="one">%d gioco</item>
         <item quantity="other">%d giochi</item>
+        <item quantity="many">%d giochi</item>
     </plurals>
     <plurals name="jogos_controles">
         <item quantity="one">%d controller connesso</item>
         <item quantity="other">%d controller connessi</item>
+        <item quantity="many">%d controller connessi</item>
     </plurals>
 </resources>

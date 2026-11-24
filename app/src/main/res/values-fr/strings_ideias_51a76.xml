@@ -55,5 +55,6 @@
     <plurals name="l51_uso_vezes">
         <item quantity="one">%d fois</item>
         <item quantity="other">%d fois</item>
+        <item quantity="many">%d fois</item>
     </plurals>
 </resources>

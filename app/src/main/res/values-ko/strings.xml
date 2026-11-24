@@ -859,4 +859,19 @@ AS\\Movies).</string>
     <string name="aviso_simples_texto">TV가 전체 홈 화면으로 돌아왔습니다.</string>
     <string name="aviso_sync_titulo">연결된 계정 없음</string>
     <string name="aviso_sync_texto">이 TV에 %1$s 계정이 없습니다. 설정 › TV 및 영화에서 연결하세요.</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">새로운 기능</string>
+    <string name="ver_novidades_det">버전 %2$s의 변경 사항 %1$d개 · 읽으려면 OK</string>
+    <string name="ver_novidades_sobre">버전 %1$s</string>
+    <string name="ver_ok">확인</string>
+    <string name="ver_conferir">TV에서 확인</string>
+    <string name="ver_conferir_det">리모컨으로 %2$d개 중 %1$d개 확인 · 시작하려면 OK</string>
+    <string name="ver_conferir_sub">버전 %1$s · 항목 %2$d개 · 답하려면 항목에서 OK</string>
+    <string name="ver_conferido">%2$d개 중 %1$d개 확인</string>
+    <string name="ver_sim">예</string>
+    <string name="ver_nao">아니요</string>
+    <string name="ver_respondido_sim">‘예’로 답함</string>
+    <string name="ver_respondido_nao">‘아니요’로 답함</string>
+    <string name="atu_migracao_disponivel">버전 %1$d: 이 TV를 새 앱(tv.sofaly.launcher)으로 옮길 준비가 되었습니다</string>
+    <string name="atu_migracao_instalando">새 앱 설치 중(%1$d). 이후 모든 설정과 함께 이 TV를 맡습니다</string>
 </resources>

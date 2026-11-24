@@ -23,7 +23,8 @@
     <string name="elv_n_de_n">in orario %1$d volte su %2$d</string>
     <string name="elv_dentro">nell\'obiettivo</string>
     <string name="elv_fora">fuori obiettivo</string>
-    <plurals name="elv_quedas"><item quantity="one">%1$d arresto o blocco in %2$d giorni</item><item quantity="other">%1$d arresti o blocchi in %2$d giorni</item></plurals>
+    <plurals name="elv_quedas"><item quantity="one">%1$d arresto o blocco in %2$d giorni</item><item quantity="other">%1$d arresti o blocchi in %2$d giorni</item>
+<item quantity="many">%1$d arresti o blocchi in %2$d giorni</item></plurals>
     <string name="elv_lp_titulo">Misura prima e dopo</string>
     <string name="elv_lp_det_antes">Misura la memoria libera e quanto ci mettono ad aprirsi le 3 app più usate, prima della pulizia. Si aprono per qualche secondo.</string>
     <string name="elv_lp_det_depois">Il prima è salvato. Nascondi le app qui sopra e premi OK per misurare il dopo.</string>
@@ -90,9 +91,12 @@
     <string name="elv_f_backup_falhou_botao">Esegui il backup ora</string>
     <string name="elv_f_religando">Riattivazione: richiede fino a un minuto</string>
     <string name="extras_NAO_PERTURBE">Non disturbare: durante un film, a notte fonda o con ospiti, gli avvisi aspettano e tornano in un riepilogo (sveglia e campanello appaiono sempre)</string>
-    <plurals name="elv_np_resumo_filme"><item quantity="one">Mentre guardavi: %1$d avviso</item><item quantity="other">Mentre guardavi: %1$d avvisi</item></plurals>
-    <plurals name="elv_np_resumo_noite"><item quantity="one">Durante la notte: %1$d avviso</item><item quantity="other">Durante la notte: %1$d avvisi</item></plurals>
-    <plurals name="elv_np_resumo_visita"><item quantity="one">Durante la visita: %1$d avviso</item><item quantity="other">Durante la visita: %1$d avvisi</item></plurals>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Mentre guardavi: %1$d avviso</item><item quantity="other">Mentre guardavi: %1$d avvisi</item>
+<item quantity="many">Mentre guardavi: %1$d avvisi</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Durante la notte: %1$d avviso</item><item quantity="other">Durante la notte: %1$d avvisi</item>
+<item quantity="many">Durante la notte: %1$d avvisi</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Durante la visita: %1$d avviso</item><item quantity="other">Durante la visita: %1$d avvisi</item>
+<item quantity="many">Durante la visita: %1$d avvisi</item></plurals>
     <string name="elv_np_mais">altri %1$d</string>
     <string name="elv_ev_filme_acabou">Quando finisce un film</string>
     <string name="elv_ev_programa_comecou">Quando inizia un programma segnato nella guida</string>

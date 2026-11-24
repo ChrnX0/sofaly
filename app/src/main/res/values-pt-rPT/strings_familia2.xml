@@ -41,5 +41,6 @@
     <plurals name="an_anos">
         <item quantity="one">faz %d ano</item>
         <item quantity="other">faz %d anos</item>
+        <item quantity="many">faz %d anos</item>
     </plurals>
 </resources>

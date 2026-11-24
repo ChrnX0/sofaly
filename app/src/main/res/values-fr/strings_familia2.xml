@@ -41,5 +41,6 @@
     <plurals name="an_anos">
         <item quantity="one">fête ses %d an</item>
         <item quantity="other">fête ses %d ans</item>
+        <item quantity="many">fête ses %d ans</item>
     </plurals>
 </resources>

@@ -22,6 +22,7 @@
     <plurals name="l51_uso_vezes">
         <item quantity="one">%d vez</item>
         <item quantity="other">%d vezes</item>
+        <item quantity="many">%d vezes</item>
     </plurals>
     <string name="l51_uso_hoje">última hoje</string>
     <string name="l51_uso_ontem">última ontem</string>

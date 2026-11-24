@@ -25,6 +25,7 @@
     <plurals name="elv_quedas">
         <item quantity="one">%1$d queda ou travada em %2$d dias</item>
         <item quantity="other">%1$d quedas ou travadas em %2$d dias</item>
+        <item quantity="many">%1$d quedas ou travadas em %2$d dias</item>
     </plurals>
     <string name="elv_lp_titulo">Medir antes e depois</string>
     <string name="elv_lp_det_antes">Mede a memória livre e quanto os 3 apps mais usados demoram para abrir, antes de limpar. Eles abrem por alguns segundos.</string>
@@ -96,9 +97,12 @@
     <string name="elv_f_religando">Religando: leva até um minuto</string>
     <!-- 11.4 não perturbe -->
     <string name="extras_NAO_PERTURBE">Não perturbe: durante filme, de madrugada ou com visita, os avisos esperam e voltam num resumo (despertador e campainha sempre aparecem)</string>
-    <plurals name="elv_np_resumo_filme"><item quantity="one">Enquanto você assistia: %1$d aviso</item><item quantity="other">Enquanto você assistia: %1$d avisos</item></plurals>
-    <plurals name="elv_np_resumo_noite"><item quantity="one">Durante a noite: %1$d aviso</item><item quantity="other">Durante a noite: %1$d avisos</item></plurals>
-    <plurals name="elv_np_resumo_visita"><item quantity="one">Durante a visita: %1$d aviso</item><item quantity="other">Durante a visita: %1$d avisos</item></plurals>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Enquanto você assistia: %1$d aviso</item><item quantity="other">Enquanto você assistia: %1$d avisos</item>
+<item quantity="many">Enquanto você assistia: %1$d avisos</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Durante a noite: %1$d aviso</item><item quantity="other">Durante a noite: %1$d avisos</item>
+<item quantity="many">Durante a noite: %1$d avisos</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Durante a visita: %1$d aviso</item><item quantity="other">Durante a visita: %1$d avisos</item>
+<item quantity="many">Durante a visita: %1$d avisos</item></plurals>
     <string name="elv_np_mais">mais %1$d</string>
     <!-- 10.5 só se / 10.6 gatilhos -->
     <string name="elv_ev_filme_acabou">Quando um filme acabar</string>

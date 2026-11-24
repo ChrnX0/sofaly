@@ -36,5 +36,6 @@
     <plurals name="coluna_etiqueta_n_novos">
         <item quantity="one">%d episódio novo</item>
         <item quantity="other">%d episódios novos</item>
+        <item quantity="many">%d episódios novos</item>
     </plurals>
 </resources>

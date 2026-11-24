@@ -33,14 +33,17 @@
     <plurals name="dur_horas">
         <item quantity="one">%d hora</item>
         <item quantity="other">%d horas</item>
+        <item quantity="many">%d horas</item>
     </plurals>
     <plurals name="dur_minutos">
         <item quantity="one">%d minuto</item>
         <item quantity="other">%d minutos</item>
+        <item quantity="many">%d minutos</item>
     </plurals>
     <plurals name="dur_segundos">
         <item quantity="one">%d segundo</item>
         <item quantity="other">%d segundos</item>
+        <item quantity="many">%d segundos</item>
     </plurals>
     <string name="dur_e">" e "</string>
     <string name="tm_aviso_em">Aviso em %1$s</string>
@@ -117,6 +120,7 @@
     <plurals name="pv_sao_horas">
         <item quantity="one">É %d hora</item>
         <item quantity="other">São %d horas</item>
+        <item quantity="many">São %d horas</item>
     </plurals>
     <string name="pv_saudacao">%1$s %2$s, %3$s.</string>
     <string name="av_enviado_as">%1$s (enviado às %2$s)</string>
@@ -144,6 +148,7 @@
     <plurals name="ii_erros_novos">
         <item quantity="one">%d erro novo. Veja em painel web › Sistema.</item>
         <item quantity="other">%d erros novos. Veja em painel web › Sistema.</item>
+        <item quantity="many">%d erros novos. Veja em painel web › Sistema.</item>
     </plurals>
     <string name="bu_buscar">Buscar</string>
     <string name="bu_dica">Canal, programa, filme, série ou app</string>
@@ -157,6 +162,7 @@
     <plurals name="bu_canais_n">
         <item quantity="one">%d canal</item>
         <item quantity="other">%d canais</item>
+        <item quantity="many">%d canais</item>
     </plurals>
     <string name="bu_agora">Agora</string>
     <string name="bu_lembrete_sim">Lembrete marcado</string>
@@ -221,6 +227,7 @@
     <plurals name="rt_quedas">
         <item quantity="one">%d queda</item>
         <item quantity="other">%d quedas</item>
+        <item quantity="many">%d quedas</item>
     </plurals>
     <string name="rt_titulo">Sua semana na TV</string>
     <string name="rt_player">TV e filmes</string>

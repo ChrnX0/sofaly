@@ -259,30 +259,37 @@
     <plurals name="dur_horas">
         <item quantity="one">%d hora</item>
         <item quantity="other">%d horas</item>
+        <item quantity="many">%d horas</item>
     </plurals>
     <plurals name="dur_minutos">
         <item quantity="one">%d minuto</item>
         <item quantity="other">%d minutos</item>
+        <item quantity="many">%d minutos</item>
     </plurals>
     <plurals name="dur_segundos">
         <item quantity="one">%d segundo</item>
         <item quantity="other">%d segundos</item>
+        <item quantity="many">%d segundos</item>
     </plurals>
     <plurals name="pv_sao_horas">
         <item quantity="one">É %d hora</item>
         <item quantity="other">São %d horas</item>
+        <item quantity="many">São %d horas</item>
     </plurals>
     <plurals name="ii_erros_novos">
         <item quantity="one">%d erro novo. Veja em painel web › Sistema.</item>
         <item quantity="other">%d erros novos. Veja em painel web › Sistema.</item>
+        <item quantity="many">%d erros novos. Veja em painel web › Sistema.</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="one">%d canal</item>
         <item quantity="other">%d canais</item>
+        <item quantity="many">%d canais</item>
     </plurals>
     <plurals name="rt_quedas">
         <item quantity="one">%d queda</item>
         <item quantity="other">%d quedas</item>
+        <item quantity="many">%d quedas</item>
     </plurals>
     <string name="vod_vazio_texto">Os filmes e as séries vêm da sua lista de TV. Adicione uma em Definições, Conta.</string>
     <string name="vod_adicionar_lista">Adicionar lista</string>

@@ -4,10 +4,12 @@
     <plurals name="jogos_qtd">
         <item quantity="one">%d jogo</item>
         <item quantity="other">%d jogos</item>
+        <item quantity="many">%d jogos</item>
     </plurals>
     <plurals name="jogos_controles">
         <item quantity="one">%d controle ligado</item>
         <item quantity="other">%d controles ligados</item>
+        <item quantity="many">%d controles ligados</item>
     </plurals>
     <string name="extras_CARD_JOGOS">Categoria Jogar na tela inicial (desligada, os jogos ficam em Aplicativos)</string>
     <string name="extras_MODO_JOGO">Modo jogo: com um jogo aberto, protetor, filtro noturno e avisos esperam</string>

@@ -20,9 +20,11 @@
     <plurals name="hc_feriado_em">
         <item quantity="one">Festivo tra %1$d giorno</item>
         <item quantity="other">Festivo tra %1$d giorni</item>
+        <item quantity="many">Festivo tra %1$d giorni</item>
     </plurals>
     <plurals name="hc_faltam">
         <item quantity="one">Manca %1$d giorno a %2$s</item>
         <item quantity="other">Mancano %1$d giorni a %2$s</item>
+        <item quantity="many">Mancano %1$d giorni a %2$s</item>
     </plurals>
 </resources>

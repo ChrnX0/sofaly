@@ -30,6 +30,7 @@
     <plurals name="coluna_etiqueta_n_novos">
         <item quantity="one">%d episódio novo</item>
         <item quantity="other">%d episódios novos</item>
+        <item quantity="many">%d episódios novos</item>
     </plurals>
     <string name="coluna_letra_titulo">Ir para a letra</string>
     <string name="coluna_letra">Ir para uma letra</string>

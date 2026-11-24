@@ -722,14 +722,17 @@ AS\\Film).</string>
     <plurals name="series_temporadas">
         <item quantity="one">%d stagione</item>
         <item quantity="other">%d stagioni</item>
+        <item quantity="many">%d stagioni</item>
     </plurals>
     <plurals name="rede_resumo">
         <item quantity="one">%1$d server</item>
         <item quantity="other">%1$d server</item>
+        <item quantity="many">%1$d server</item>
     </plurals>
     <plurals name="rede_itens">
         <item quantity="one">%1$d elemento</item>
         <item quantity="other">%1$d elementi</item>
+        <item quantity="many">%1$d elementi</item>
     </plurals>
     <string-array name="dias_curtos">
         <item>Dom</item>
@@ -862,4 +865,19 @@ AS\\Film).</string>
     <string name="aviso_simples_texto">La TV è tornata alla schermata home completa.</string>
     <string name="aviso_sync_titulo">Nessun account collegato</string>
     <string name="aviso_sync_texto">Non c\'è un account %1$s su questa TV. Collegalo in Impostazioni › TV e film.</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">Novità</string>
+    <string name="ver_novidades_det">%1$d modifiche nella versione %2$s · OK per leggere</string>
+    <string name="ver_novidades_sobre">Versione %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Verifica sulla TV</string>
+    <string name="ver_conferir_det">%1$d di %2$d verificati con il telecomando · OK per iniziare</string>
+    <string name="ver_conferir_sub">Versione %1$s · %2$d voci · OK su una voce per rispondere</string>
+    <string name="ver_conferido">%1$d di %2$d verificati</string>
+    <string name="ver_sim">Sì</string>
+    <string name="ver_nao">No</string>
+    <string name="ver_respondido_sim">risposto «sì»</string>
+    <string name="ver_respondido_nao">risposto «no»</string>
+    <string name="atu_migracao_disponivel">versione %1$d: pronta a spostare questa TV sulla nuova app (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">installazione della nuova app (%1$d); poi prende in carico questa TV con tutte le impostazioni</string>
 </resources>
