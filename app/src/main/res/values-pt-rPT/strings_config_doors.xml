@@ -5,7 +5,7 @@
     <string name="cfg3_mais_ajustes">Mais definições</string>
     <string name="cfg3_mais_ajustes_det">Ocultas para ficar mais curto: %1$d</string>
     <string name="cfg3_modo">Modo: %1$s</string>
-    <string name="cfg3_porta_0_det">Cruz, ícones e fundo</string>
+    <string name="cfg3_porta_0_det">Categorias, ícones e fundo</string>
     <string name="cfg3_porta_1_det">Contas, áudio e legendas</string>
     <string name="cfg3_porta_2_det">Crianças, PIN e visitas</string>
     <string name="cfg3_porta_3_det">Proteção, sono e despertar</string>

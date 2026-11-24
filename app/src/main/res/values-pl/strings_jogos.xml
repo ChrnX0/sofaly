@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (pl) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Karta Gry na ekranie głównym (aplikacje do gier opuszczają rząd aplikacji)</string>
+    <string name="extras_CARD_JOGOS">Kategoria Graj na ekranie głównym (wyłączona: gry zostają w Aplikacjach)</string>
     <string name="extras_MODO_JOGO">Tryb gry: gdy gra jest otwarta, wygaszacz, filtr nocny i komunikaty czekają</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Włączenie kontrolera do gier otwiera ekran Gry</string>
     <string name="jogos_titulo">Gry</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">Ten telewizor nie otworzył ustawień Bluetooth. Otwórz Ustawienia, Piloty i akcesoria.</string>
     <string name="jogos_baixar">Pobierz gry</string>
     <string name="jogos_escolher">Wybierz aplikacje</string>
-    <string name="jogos_escolher_sub">Które aplikacje są w karcie Gry. OK przełącza między kartą a rzędem aplikacji.</string>
-    <string name="jogos_no_card">w karcie Gry</string>
-    <string name="jogos_na_linha">w rzędzie aplikacji</string>
+    <string name="jogos_escolher_sub">Które aplikacje są w Graj. OK przełącza między Graj a Aplikacjami.</string>
+    <string name="jogos_no_card">w Graj</string>
+    <string name="jogos_na_linha">w Aplikacjach</string>
     <string name="jogos_grupo_nuvem">W chmurze</string>
     <string name="jogos_grupo_pc">Z komputera i konsoli</string>
     <string name="jogos_grupo_retro">Retro</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">Gra może się zacinać lub opóźniać. Pomaga kabel sieciowy lub telewizor bliżej routera.</string>
     <string name="jogos_jogar_assim">Graj mimo to</string>
     <string name="jogos_nao_abriu">Ta aplikacja się nie otworzyła.</string>
-    <string name="jogos_tirar">Wyjmij z karty Gry</string>
+    <string name="jogos_tirar">Wyjmij z Graj</string>
     <string name="jogos_automatico">Wróć do automatycznego</string>
     <string name="jogos_loja_tudo">Proponowane aplikacje są już na tym telewizorze.</string>
     <string name="jogos_loja_explica">Otwiera stronę aplikacji w Sklepie Play. Jeśli Sklep Play mówi, że nie działa na tym telewizorze, to ograniczenie aplikacji.</string>

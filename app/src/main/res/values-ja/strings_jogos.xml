@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (ja) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">ホーム画面にゲームカード（ゲームアプリはアプリの行から外れます）</string>
+    <string name="extras_CARD_JOGOS">ホーム画面の「遊ぶ」カテゴリ（オフではゲームは「アプリ」に残ります）</string>
     <string name="extras_MODO_JOGO">ゲームモード: ゲームが開いている間、スクリーンセーバー、夜間フィルター、お知らせは待機</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">ゲームコントローラーの電源を入れるとゲーム画面を開く</string>
     <string name="jogos_titulo">ゲーム</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">この TV では Bluetooth の設定が開きませんでした。設定の「リモコンとアクセサリ」を開いてください。</string>
     <string name="jogos_baixar">ゲームを入手</string>
     <string name="jogos_escolher">アプリを選ぶ</string>
-    <string name="jogos_escolher_sub">ゲームカードに入れるアプリ。OK でカードとアプリの行を切り替えます。</string>
-    <string name="jogos_no_card">ゲームカード内</string>
-    <string name="jogos_na_linha">アプリの行</string>
+    <string name="jogos_escolher_sub">「遊ぶ」に入れるアプリ。OK で「遊ぶ」と「アプリ」を切り替えます。</string>
+    <string name="jogos_no_card">「遊ぶ」内</string>
+    <string name="jogos_na_linha">「アプリ」内</string>
     <string name="jogos_grupo_nuvem">クラウド</string>
     <string name="jogos_grupo_pc">PC とゲーム機から</string>
     <string name="jogos_grupo_retro">レトロ</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">ゲームがカクついたり遅れたりする可能性があります。LAN ケーブルを使うか、TV をルーターに近づけると改善します。</string>
     <string name="jogos_jogar_assim">このままプレイ</string>
     <string name="jogos_nao_abriu">このアプリは開きませんでした。</string>
-    <string name="jogos_tirar">ゲームカードから外す</string>
+    <string name="jogos_tirar">「遊ぶ」から外す</string>
     <string name="jogos_automatico">自動に戻す</string>
     <string name="jogos_loja_tudo">おすすめのアプリはすでにこの TV にあります。</string>
     <string name="jogos_loja_explica">Play ストアでアプリのページを開きます。Play ストアでこの TV に非対応と表示される場合は、アプリ側の制限です。</string>

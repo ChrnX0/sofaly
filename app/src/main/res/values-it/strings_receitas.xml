@@ -6,9 +6,9 @@
     <string name="rec_vo">La TV della nonna</string>
     <string name="rec_vo_det">Schede grandi con il nome letto ad alta voce, testo più grande e il pulsante Chiedi aiuto.</string>
     <string name="rec_criancas">La TV dei bambini</string>
-    <string name="rec_criancas_det">Solo contenuti per bambini, ora di dormire e la scheda Giochi.</string>
+    <string name="rec_criancas_det">Solo contenuti per bambini, ora di dormire e la categoria Gioca.</string>
     <string name="rec_gamer">La TV del gamer</string>
-    <string name="rec_gamer_det">Scheda Giochi, modalità gioco (niente salvaschermo né avvisi durante il gioco) e il controller apre Giochi.</string>
+    <string name="rec_gamer_det">Categoria Gioca, modalità gioco (niente salvaschermo né avvisi durante il gioco) e il controller apre Giochi.</string>
     <string name="rec_aluguel">TV in affitto</string>
     <string name="rec_aluguel_det">Modalità ospite: benvenuto, niente di personale nella schermata iniziale e pulizia al check-out.</string>
     <string name="rec_desfazer">Annulla</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Dimensione del testo</string>
     <string name="rec_aj_ler_foco">Leggere ad alta voce l\'elemento selezionato</string>
     <string name="rec_aj_som">Suono di clic a ogni tasto</string>
-    <string name="rec_aj_jogos">Scheda Giochi</string>
+    <string name="rec_aj_jogos">Categoria Gioca</string>
     <string name="rec_aj_modo_jogo">Modalità gioco</string>
     <string name="rec_aj_controle">Il controller apre Giochi</string>
 </resources>

@@ -6,9 +6,9 @@
     <string name="rec_vo">TV da avó</string>
     <string name="rec_vo_det">Cartões grandes com o nome falado, letra maior e o botão Pedir ajuda.</string>
     <string name="rec_criancas">TV das crianças</string>
-    <string name="rec_criancas_det">Só conteúdo infantil, hora de dormir e o cartão Jogos.</string>
+    <string name="rec_criancas_det">Só conteúdo infantil, hora de dormir e a categoria Jogar.</string>
     <string name="rec_gamer">TV do jogador</string>
-    <string name="rec_gamer_det">Cartão Jogos, modo jogo (sem proteção de ecrã nem avisos durante o jogo) e o comando de jogos abre os Jogos.</string>
+    <string name="rec_gamer_det">Categoria Jogar, modo jogo (sem proteção de ecrã nem avisos durante o jogo) e o comando de jogos abre os Jogos.</string>
     <string name="rec_aluguel">TV de alojamento local</string>
     <string name="rec_aluguel_det">Modo hóspede: boas-vindas, nada pessoal no ecrã inicial e limpeza no check-out.</string>
     <string name="rec_desfazer">Desfazer</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Tamanho do texto</string>
     <string name="rec_aj_ler_foco">Ler em voz alta o que está em foco</string>
     <string name="rec_aj_som">Som de clique a cada tecla</string>
-    <string name="rec_aj_jogos">Cartão Jogos</string>
+    <string name="rec_aj_jogos">Categoria Jogar</string>
     <string name="rec_aj_modo_jogo">Modo jogo</string>
     <string name="rec_aj_controle">Comando de jogos abre os Jogos</string>
 </resources>

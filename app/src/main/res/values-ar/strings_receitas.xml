@@ -6,9 +6,9 @@
     <string name="rec_vo">تلفاز الجدة</string>
     <string name="rec_vo_det">بطاقات كبيرة تُنطق أسماؤها، وخط أكبر، وزر طلب المساعدة.</string>
     <string name="rec_criancas">تلفاز الأطفال</string>
-    <string name="rec_criancas_det">محتوى الأطفال فقط، ووقت النوم، وبطاقة الألعاب.</string>
+    <string name="rec_criancas_det">محتوى الأطفال فقط، ووقت النوم، وفئة لعب.</string>
     <string name="rec_gamer">تلفاز اللاعب</string>
-    <string name="rec_gamer_det">بطاقة الألعاب، ووضع اللعب (بلا شاشة توقف أو تنبيهات أثناء اللعب)، وذراع التحكم يفتح الألعاب.</string>
+    <string name="rec_gamer_det">فئة لعب، ووضع اللعب (بلا شاشة توقف أو تنبيهات أثناء اللعب)، وذراع التحكم يفتح الألعاب.</string>
     <string name="rec_aluguel">تلفاز للإيجار</string>
     <string name="rec_aluguel_det">وضع الضيف: ترحيب، ولا شيء شخصي في الشاشة الرئيسية، وتنظيف عند المغادرة.</string>
     <string name="rec_desfazer">تراجع</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">حجم النص</string>
     <string name="rec_aj_ler_foco">قراءة العنصر المحدد بصوت عالٍ</string>
     <string name="rec_aj_som">صوت نقرة مع كل زر</string>
-    <string name="rec_aj_jogos">بطاقة الألعاب</string>
+    <string name="rec_aj_jogos">فئة لعب</string>
     <string name="rec_aj_modo_jogo">وضع اللعب</string>
     <string name="rec_aj_controle">ذراع التحكم يفتح الألعاب</string>
 </resources>

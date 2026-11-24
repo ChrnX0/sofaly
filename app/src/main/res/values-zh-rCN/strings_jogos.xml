@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (zh-rCN) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">主屏幕上的游戏卡片（游戏应用离开应用行）</string>
+    <string name="extras_CARD_JOGOS">主屏幕上的“游戏”类别（关闭后游戏留在“应用”中）</string>
     <string name="extras_MODO_JOGO">游戏模式：游戏打开期间，屏保、夜间滤镜和提醒会等待</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">打开游戏手柄时打开游戏界面</string>
     <string name="jogos_titulo">游戏</string>
@@ -17,9 +17,9 @@
     <string name="jogos_parear_falhou">此电视没有打开蓝牙设置。请打开 设置、遥控器和配件。</string>
     <string name="jogos_baixar">获取游戏</string>
     <string name="jogos_escolher">选择应用</string>
-    <string name="jogos_escolher_sub">哪些应用放在游戏卡片中。按 OK 在卡片和应用行之间切换。</string>
-    <string name="jogos_no_card">在游戏卡片中</string>
-    <string name="jogos_na_linha">在应用行中</string>
+    <string name="jogos_escolher_sub">哪些应用放在“游戏”中。按 OK 在“游戏”和“应用”之间切换。</string>
+    <string name="jogos_no_card">在“游戏”中</string>
+    <string name="jogos_na_linha">在“应用”中</string>
     <string name="jogos_grupo_nuvem">云端</string>
     <string name="jogos_grupo_pc">来自电脑和主机</string>
     <string name="jogos_grupo_retro">复古</string>
@@ -29,7 +29,7 @@
     <string name="jogos_aviso_fraca">游戏可能卡顿或延迟。使用网线或将电视靠近路由器会有帮助。</string>
     <string name="jogos_jogar_assim">仍然开始</string>
     <string name="jogos_nao_abriu">此应用没有打开。</string>
-    <string name="jogos_tirar">从游戏卡片中移除</string>
+    <string name="jogos_tirar">从“游戏”中移除</string>
     <string name="jogos_automatico">恢复自动</string>
     <string name="jogos_loja_tudo">推荐的应用已在此电视上。</string>
     <string name="jogos_loja_explica">在 Play 商店中打开应用页面。如果 Play 商店显示它无法在此电视上运行，那是该应用的限制。</string>

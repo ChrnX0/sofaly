@@ -6,9 +6,9 @@
     <string name="rec_vo">Телевизор для бабушки</string>
     <string name="rec_vo_det">Большие карточки с озвученными названиями, крупный текст и кнопка «Позвать на помощь».</string>
     <string name="rec_criancas">Телевизор для детей</string>
-    <string name="rec_criancas_det">Только детский контент, время сна и карточка «Игры».</string>
+    <string name="rec_criancas_det">Только детский контент, время сна и категория «Играть».</string>
     <string name="rec_gamer">Телевизор для геймера</string>
-    <string name="rec_gamer_det">Карточка «Игры», игровой режим (без заставки и уведомлений во время игры), геймпад открывает «Игры».</string>
+    <string name="rec_gamer_det">Категория «Играть», игровой режим (без заставки и уведомлений во время игры), геймпад открывает «Игры».</string>
     <string name="rec_aluguel">Телевизор для аренды</string>
     <string name="rec_aluguel_det">Режим гостя: приветствие, ничего личного на главном экране и очистка при выезде.</string>
     <string name="rec_desfazer">Отменить</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Размер текста</string>
     <string name="rec_aj_ler_foco">Читать вслух выбранное</string>
     <string name="rec_aj_som">Щелчок при каждом нажатии</string>
-    <string name="rec_aj_jogos">Карточка «Игры»</string>
+    <string name="rec_aj_jogos">Категория «Играть»</string>
     <string name="rec_aj_modo_jogo">Игровой режим</string>
     <string name="rec_aj_controle">Геймпад открывает «Игры»</string>
 </resources>

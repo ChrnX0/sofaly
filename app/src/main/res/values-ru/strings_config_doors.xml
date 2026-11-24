@@ -5,7 +5,7 @@
     <string name="cfg3_mais_ajustes">Другие настройки</string>
     <string name="cfg3_mais_ajustes_det">Скрыто для краткости: %1$d</string>
     <string name="cfg3_modo">Режим: %1$s</string>
-    <string name="cfg3_porta_0_det">Крест, значки и фон</string>
+    <string name="cfg3_porta_0_det">Категории, значки и фон</string>
     <string name="cfg3_porta_1_det">ТВ-аккаунты, звук, субтитры</string>
     <string name="cfg3_porta_2_det">Дети, PIN и гости</string>
     <string name="cfg3_porta_3_det">Заставка, сон, будильник</string>

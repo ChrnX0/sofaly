@@ -17,6 +17,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.home.CrossRhythm
 import br.paulo.tvlauncher.home.HomeCruz
 import br.paulo.tvlauncher.home.MolaViews
 import br.paulo.tvlauncher.home.SonsCruz
@@ -641,7 +642,11 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         // Sem item acima do escolhido, o nome da prateleira desce para junto dele (pente fino 19/11/2026: ficava um vão
         // grande entre "RECENTES" e o 1º item). Com item acima, volta ao lugar de sempre, acima do vizinho.
         val semCima = p == null || indiceSel(p) == 0
-        mola.mover(cabecalho, dp(COLUNA - CAPA / 2f), dp(if (semCima) LINHA - CAPA / 2f - ROTULO_VAO else ROTULO_Y), 1f, 1f, animar, amortece = amortece)
+        // Ritmos novos (teste 100%, 24/11/2026): ROTULO_Y caía em cima do vizinho de cima ("Jogados por último" sobre
+        // "Play Games"). Igual à tela inicial (HomeCruz.posicionarRotulo): lugar FIXO, 12 dp acima do lugar do vizinho.
+        val yRotulo = if (CrossRhythm.atual == CrossRhythm.BEFORE) dp(if (semCima) LINHA - CAPA / 2f - ROTULO_VAO else ROTULO_Y)
+            else dp(LINHA - VAO_CIMA - CAPA * ESCALA_PEQUENO / 2f - HomeCruz.ROTULO_VAO) - (if (cabecalho.height > 0) cabecalho.height.toFloat() else dp(30f))
+        mola.mover(cabecalho, dp(COLUNA - CAPA / 2f), yRotulo, 1f, 1f, animar, amortece = amortece)
         mostrarCartao(animar)
         for ((j, v) in viewsCat.withIndex()) {
             val k = j - cat

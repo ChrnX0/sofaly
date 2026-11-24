@@ -6,9 +6,9 @@
     <string name="rec_vo">La télé de mamie</string>
     <string name="rec_vo_det">Grandes cartes avec le nom lu à voix haute, texte plus grand et un bouton Demander de l\'aide.</string>
     <string name="rec_criancas">La télé des enfants</string>
-    <string name="rec_criancas_det">Seulement du contenu pour enfants, l\'heure du coucher et la carte Jeux.</string>
+    <string name="rec_criancas_det">Seulement du contenu pour enfants, l\'heure du coucher et la catégorie Jouer.</string>
     <string name="rec_gamer">La télé du gamer</string>
-    <string name="rec_gamer_det">Carte Jeux, mode jeu (ni économiseur ni alertes pendant une partie) et la manette ouvre Jeux.</string>
+    <string name="rec_gamer_det">Catégorie Jouer, mode jeu (ni économiseur ni alertes pendant une partie) et la manette ouvre Jeux.</string>
     <string name="rec_aluguel">Télé de location</string>
     <string name="rec_aluguel_det">Mode invité : accueil, rien de personnel sur l\'écran d\'accueil et nettoyage au départ.</string>
     <string name="rec_desfazer">Annuler</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Taille du texte</string>
     <string name="rec_aj_ler_foco">Lire à voix haute l\'élément sélectionné</string>
     <string name="rec_aj_som">Son de clic à chaque touche</string>
-    <string name="rec_aj_jogos">Carte Jeux</string>
+    <string name="rec_aj_jogos">Catégorie Jouer</string>
     <string name="rec_aj_modo_jogo">Mode jeu</string>
     <string name="rec_aj_controle">La manette ouvre Jeux</string>
 </resources>

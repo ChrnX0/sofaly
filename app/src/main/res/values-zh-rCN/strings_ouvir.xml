@@ -47,7 +47,6 @@
     <string name="pod_buscar">搜索播客</string>
     <string name="pod_em_alta">你所在国家的热门</string>
     <string name="pod_atribuicao">搜索：Podcast Index</string>
-    <string name="extras_CARD_OUVIR">主屏幕上的“收听”卡片（电台和播客）</string>
     <string name="pod_sugestoes">推荐</string>
     <string name="pod_sugestao_seguir">按 OK 订阅</string>
     <string name="pod_sugeridos_seguidos">已将推荐播客添加到我的播客</string>

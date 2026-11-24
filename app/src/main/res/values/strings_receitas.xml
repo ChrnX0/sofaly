@@ -6,9 +6,9 @@
     <string name="rec_vo">Grandma\'s TV</string>
     <string name="rec_vo_det">Big cards with names read aloud, larger text and a Get help button.</string>
     <string name="rec_criancas">Kids\' TV</string>
-    <string name="rec_criancas_det">Only kids\' content, bedtime and the Games card.</string>
+    <string name="rec_criancas_det">Only kids\' content, bedtime and the Play category.</string>
     <string name="rec_gamer">Gamer\'s TV</string>
-    <string name="rec_gamer_det">Games card, game mode (no screensaver or alerts during a game) and the gamepad opens Games.</string>
+    <string name="rec_gamer_det">Play category, game mode (no screensaver or alerts during a game) and the gamepad opens Games.</string>
     <string name="rec_aluguel">Rental TV</string>
     <string name="rec_aluguel_det">Guest mode: welcome screen, nothing personal on the home screen and cleanup at check-out.</string>
     <string name="rec_desfazer">Undo</string>
@@ -35,7 +35,7 @@
     <string name="rec_aj_texto">Text size</string>
     <string name="rec_aj_ler_foco">Read aloud what is selected</string>
     <string name="rec_aj_som">Click sound on each key</string>
-    <string name="rec_aj_jogos">Games card</string>
+    <string name="rec_aj_jogos">Play category</string>
     <string name="rec_aj_modo_jogo">Game mode</string>
     <string name="rec_aj_controle">Gamepad opens Games</string>
 </resources>
