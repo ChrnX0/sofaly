@@ -21,8 +21,8 @@ import kotlin.math.sin
 class IconeLinha(private val tipo: Tipo, private val fracaoLua: Double = 0.0, private val sul: Boolean = false,
                  private val cor: Int = 0xFFFFFFFF.toInt()) : Drawable() {
     enum class Tipo { HORIZONTE, LUA, GOTA, CHUVA, CALENDARIO, DESPERTADOR, RECADO,
-        /** Protetor que reage ao tempo (17/11/2026): sol (UV), folha (ar), satélite (Estação Espacial), estrela (céu). */
-        SOL, FOLHA, SATELITE, ESTRELA,
+        /** Protetor que reage ao tempo (17/11/2026): sol (UV), folha (ar). O céu da noite usa [NightSkyGlyph] (24/11/2026). */
+        SOL, FOLHA,
         /** Trilho de estado da Ilha (19/11/2026): fone ligado, modo visita (pessoa) e gravação (ponto cheio). */
         FONE, PESSOA, GRAVAR }
 
@@ -97,20 +97,6 @@ class IconeLinha(private val tipo: Tipo, private val fracaoLua: Double = 0.0, pr
                 p.cubicTo(4f, 9f, 10f, 4f, 20f, 4f); p.cubicTo(20f, 14f, 15f, 20f, 4f, 20f)
                 c.drawPath(p, traco)
                 c.drawLine(4f, 20f, 14f, 10f, traco)
-            }
-            Tipo.SATELITE -> {
-                // Corpo no meio e dois painéis solares, como a Estação vista de longe.
-                c.drawRoundRect(RectF(9.5f, 9.5f, 14.5f, 14.5f), 1f, 1f, cheio)
-                c.drawRect(RectF(1.5f, 8f, 7.5f, 16f), traco); c.drawRect(RectF(16.5f, 8f, 22.5f, 16f), traco)
-                c.drawLine(4.5f, 8f, 4.5f, 16f, traco); c.drawLine(19.5f, 8f, 19.5f, 16f, traco)
-                c.drawLine(7.5f, 12f, 9.5f, 12f, traco); c.drawLine(14.5f, 12f, 16.5f, 12f, traco)
-            }
-            Tipo.ESTRELA -> {
-                // Estrela de quatro pontas (brilho) e uma pequena ao lado.
-                p.reset(); p.moveTo(10f, 3f)
-                p.quadTo(11f, 10f, 17f, 11f); p.quadTo(11f, 12f, 10f, 19f); p.quadTo(9f, 12f, 3f, 11f); p.quadTo(9f, 10f, 10f, 3f)
-                c.drawPath(p, traco)
-                c.drawCircle(18.5f, 18.5f, 1.3f, cheio)
             }
             Tipo.FONE -> {
                 // Arco da tiara e as duas conchas.

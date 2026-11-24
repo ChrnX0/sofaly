@@ -349,12 +349,8 @@ internal fun MainActivity.aplicarIlha() {
             BarraIlha.Tipo.CONTAGEM -> IconeLinha(IconeLinha.Tipo.CALENDARIO)
             BarraIlha.Tipo.SOL -> IconeLinha(IconeLinha.Tipo.SOL)
             // Ícones provisórios: a arte do céu da noite é da thread Design.
-            BarraIlha.Tipo.CEU -> when (ilhaCeu?.second) {
-                br.paulo.tvlauncher.weather.NightSky.Kind.ISS -> IconeLinha(IconeLinha.Tipo.SATELITE)
-                br.paulo.tvlauncher.weather.NightSky.Kind.SUPERMOON -> IconeLinha(IconeLinha.Tipo.LUA, 1.0)
-                br.paulo.tvlauncher.weather.NightSky.Kind.ECLIPSE_SUN -> IconeLinha(IconeLinha.Tipo.SOL)
-                else -> IconeLinha(IconeLinha.Tipo.ESTRELA)
-            }
+            // Céu da noite: os 4 ícones de traço do estudo (24/11/2026), mesmo branco dos outros ícones da Ilha.
+            BarraIlha.Tipo.CEU -> NightSkyGlyph(ilhaCeu?.second ?: br.paulo.tvlauncher.weather.NightSky.Kind.METEORS, android.graphics.Color.WHITE)
             else -> null
         }
         if (mudouTipo) { ilhaIcone?.setImageDrawable(ic); ilhaIcone?.visibility = if (ic != null) View.VISIBLE else View.GONE }

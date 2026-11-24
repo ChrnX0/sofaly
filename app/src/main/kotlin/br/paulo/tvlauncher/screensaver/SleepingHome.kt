@@ -331,7 +331,14 @@ class SleepingHome(private val ctx: Context) {
             if (br.paulo.tvlauncher.weather.NightSky.noDescanso(e, agoraMs)) {
                 val (titulo, nota) = br.paulo.tvlauncher.weather.NightSkyTv.celula(ctx, e)
                 ceuAgora = titulo
-                l += Linha(titulo, linhaBase().apply { addView(celula(ctx.getString(R.string.ns_titulo), titulo, nota), LinearLayout.LayoutParams(0, -2, 1f)) })
+                l += Linha(titulo, linhaBase().apply {
+                    // O ícone do evento à esquerda, no lugar da Sofy das outras linhas (arte de 24/11/2026).
+                    addView(ImageView(ctx).apply {
+                        setImageDrawable(br.paulo.tvlauncher.home.NightSkyGlyph(e.kind, Estilo.TEXTO)); alpha = 0.85f
+                        importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+                    }, LinearLayout.LayoutParams(dp(40), dp(40)).apply { marginEnd = dp(16) })
+                    addView(celula(ctx.getString(R.string.ns_titulo), titulo, nota), LinearLayout.LayoutParams(0, -2, 1f))
+                })
                 ui.postDelayed(viradaDoCeu, (e.end - agoraMs).coerceAtLeast(1_000L))
             } else if (e.end > agoraMs) {
                 ui.postDelayed(viradaDoCeu, (e.start - br.paulo.tvlauncher.weather.NightSky.DESCANSO_ANTES_MS - agoraMs).coerceAtLeast(1_000L))
