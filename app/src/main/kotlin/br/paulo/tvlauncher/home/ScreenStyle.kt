@@ -24,6 +24,9 @@ enum class ScreenStyle {
         fun deNumero(n: Int): ScreenStyle = entries.getOrNull(n) ?: DEFAULT
         fun of(ctx: Context): ScreenStyle = deNumero(Extras.numero(ctx, KEY, -1))
         fun set(ctx: Context, s: ScreenStyle) = Extras.definirNumero(ctx, KEY, s.ordinal)
+        /** O jeito Barra vale agora? Só com a HOME na barra única e fora do alto contraste (que pede fundo chapado). */
+        fun barra(ctx: Context): Boolean =
+            BottomBar.strip(ctx) && of(ctx) == STRIP && !br.paulo.tvlauncher.Estilo.altoContraste
         fun next(ctx: Context, passo: Int): ScreenStyle =
             entries[Math.floorMod(of(ctx).ordinal + passo, entries.size)].also { set(ctx, it) }
     }

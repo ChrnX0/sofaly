@@ -116,17 +116,25 @@ object GlassBackground {
      * O fundo da Gaveta (proposta B): a foto NÍTIDA (metade do tamanho, 800 x 450, em RGB 565: ~700 KB) com o véu de cima
      * (atrás da pílula) e o véu Noite que vira painel a partir de [GAVETA_TOPO]. Null quando não há foto.
      */
-    fun drawer(ctx: Context): android.graphics.drawable.Drawable? {
+    fun drawer(ctx: Context): android.graphics.drawable.Drawable? = nitida(ctx)?.let { GlassDrawable(it, gaveta = true) }
+
+    /**
+     * O fundo do jeito Barra (proposta C) nas telas de entrada: a mesma foto nítida da Gaveta, livre na metade de cima e
+     * escurecendo para o Noite embaixo, atrás da fileira de cards (como a HOME). Null quando não há foto.
+     */
+    fun strip(ctx: Context): android.graphics.drawable.Drawable? = nitida(ctx)?.let { GlassDrawable(it, barra = true) }
+
+    /** A foto da barra em metade do tamanho (800 x 450, RGB 565: ~700 KB), guardada só a da escolha atual. */
+    private fun nitida(ctx: Context): Bitmap? {
         val escolha = StripBackground.choice(ctx)
         val asset = escolha.asset ?: return null
-        val bmp = synchronized(nitidas) {
+        return synchronized(nitidas) {
             nitidas[escolha] ?: runCatching {
                 ctx.assets.open(asset).use {
                     BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = 2; inPreferredConfig = Bitmap.Config.RGB_565 })
                 }
             }.getOrNull()?.also { nitidas.clear(); nitidas[escolha] = it }
-        } ?: return null
-        return GlassDrawable(bmp, gaveta = true)
+        }
     }
 
     /** O fundo de vidro, ou null quando a HOME não é a barra ou o fundo da barra não é foto (aí fica o grafite). */
@@ -172,7 +180,7 @@ object GlassBackground {
 }
 
 /** Desenha a foto borrada em "centerCrop" com filtro e o véu Noite por cima. Opaco. */
-class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = false) : android.graphics.drawable.Drawable() {
+class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = false, val barra: Boolean = false) : android.graphics.drawable.Drawable() {
     private val pinta = Paint(Paint.FILTER_BITMAP_FLAG)
     private val veu = Paint().apply { color = (GlassBackground.VEU shl 24) or (DesignTokens.NIGHT and 0xFFFFFF) }
     private val origem = Rect()
@@ -186,6 +194,7 @@ class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = fals
         origem.set(x0, y0, x0 + vw, y0 + vh); destino.set(bounds)
         c.drawColor(DesignTokens.NIGHT)
         c.drawBitmap(foto, origem, destino, pinta)
+        if (barra) { barra(c, h); return }
         if (!gaveta) { c.drawRect(destino, veu); return }
         // Gaveta: véu de cima atrás da pílula (como na barra) e o painel Noite que sobe um pouco antes do conteúdo.
         val t = bounds.top.toFloat()
@@ -198,6 +207,22 @@ class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = fals
         degrade.shader = null
     }
     private val degrade = Paint()
+
+    /** Barra: véu de cima atrás do título e da pílula; embaixo a foto escurece até o Noite atrás dos cards. */
+    private fun barra(c: Canvas, h: Float) {
+        val t = bounds.top.toFloat(); val l = bounds.left.toFloat(); val r = bounds.right.toFloat()
+        val noite = DesignTokens.NIGHT and 0xFFFFFF
+        degrade.shader = LinearGradient(0f, t, 0f, t + h * 0.26f, (0x99 shl 24) or noite, noite, Shader.TileMode.CLAMP)
+        c.drawRect(l, t, r, t + h * 0.26f, degrade)
+        degrade.shader = LinearGradient(0f, t + h * BARRA_DEGRADE, 0f, t + h * BARRA_ESCURO, noite, (0xE6 shl 24) or noite, Shader.TileMode.CLAMP)
+        c.drawRect(l, t + h * BARRA_DEGRADE, r, bounds.bottom.toFloat(), degrade)
+        degrade.shader = null
+    }
+    private companion object {
+        /** Onde a foto começa a escurecer e onde chega ao Noite quase pleno (fração da altura), no jeito Barra. */
+        const val BARRA_DEGRADE = 0.38f
+        const val BARRA_ESCURO = 0.70f
+    }
     override fun setAlpha(alpha: Int) {}
     override fun setColorFilter(cf: android.graphics.ColorFilter?) {}
     @Deprecated("Deprecated in Java") override fun getOpacity() = android.graphics.PixelFormat.OPAQUE

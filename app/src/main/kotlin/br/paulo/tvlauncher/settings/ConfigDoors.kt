@@ -12,7 +12,10 @@ import br.paulo.tvlauncher.ConfigLauncherActivity.Companion.BUSCA
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.family.UsoTv
+import br.paulo.tvlauncher.home.GlassBackground
+import br.paulo.tvlauncher.home.GlassDrawable
 import br.paulo.tvlauncher.home.IconeCruz
+import br.paulo.tvlauncher.home.ScreenStyle
 
 private const val WRAP = ViewGroup.LayoutParams.WRAP_CONTENT
 private const val MATCH = ViewGroup.LayoutParams.MATCH_PARENT
@@ -77,6 +80,13 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
     grade.addView(topo, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2); marginStart = dp(4) })
 
     val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
+    if (ScreenStyle.barra(this)) {
+        (grade.parent as? View)?.let { it.background = GlassBackground.strip(this) ?: it.background }
+        portasEmBarra(portas, foco)
+        mostrarDicaDasPortas()
+        return
+    }
+    sairDaBarra()
     val tabela = GridLayout(this).apply { columnCount = 3; clipChildren = false; clipToPadding = false }
     var focar: View? = null
     portas.forEachIndexed { n, p ->
@@ -127,6 +137,71 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
     }
 }
 
+/**
+ * Jeito Barra (proposta C, coerência das telas 24/11/2026): as portas viram a fileira de cards da HOME, embaixo, sobre a
+ * foto nítida. Porquê: quem escolheu a Barra vê as Configurações com a mesma leitura da tela inicial. Como na HOME, o
+ * card é só o azulejo; o nome e o que tem dentro da porta em foco ficam na linha logo acima da fileira.
+ */
+private fun ConfigLauncherActivity.portasEmBarra(portas: List<Int>, foco: Int) {
+    grade.addView(View(this), LinearLayout.LayoutParams(MATCH, 0, 1f))
+    val nome = Estilo.texto(this, Estilo.Papel.TITULO).apply { maxLines = 1 }
+    val frase = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+    val linha = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
+    linha.addView(nome, LinearLayout.LayoutParams(WRAP, WRAP))
+    linha.addView(frase, LinearLayout.LayoutParams(0, WRAP, 1f).apply { marginStart = dp(Estilo.E2) })
+    grade.addView(linha, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E1); marginStart = dp(4) })
+    val fila = LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false
+        setPaddingRelative(dp(4), dp(Estilo.E1), dp(4), dp(Estilo.E1))
+    }
+    var focar: View? = null
+    for (p in portas) {
+        val card = cardDaPortaNaBarra(p) { n, f -> nome.text = n; frase.text = f }
+        fila.addView(card, LinearLayout.LayoutParams(dp(BARRA_CARD_L), dp(BARRA_CARD_A)).apply { marginEnd = dp(BARRA_VAO) })
+        if (p == foco || focar == null) focar = card
+    }
+    grade.addView(android.widget.HorizontalScrollView(this).apply {
+        isHorizontalScrollBarEnabled = false; clipChildren = false; clipToPadding = false; addView(fila)
+    }, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2) })
+    focar?.post { focar?.requestFocus() }
+}
+
+/** Um card da Barra: o azulejo da área no meio de um vidro 16:9. O foco é o do sistema (Anel por padrão). */
+private fun ConfigLauncherActivity.cardDaPortaNaBarra(p: Int, emFoco: (String, String) -> Unit): View {
+    val primeira = abas[PortasConfig.PORTAS[p].first()]
+    val nome = if (p == PORTA_CASA_REDE) getString(R.string.cfg3_porta_casa_rede) else primeira.titulo
+    val frase = getString(FRASES[p])
+    return android.widget.FrameLayout(this).apply {
+        isFocusable = true; isClickable = true
+        contentDescription = nome
+        background = Estilo.vidro(context, BARRA_RAIO)
+        addView(View(context).apply {
+            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
+                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
+            }
+        }, android.widget.FrameLayout.LayoutParams(dp(BARRA_AZULEJO), dp(BARRA_AZULEJO), Gravity.CENTER))
+        setOnFocusChangeListener { v, f ->
+            v.foreground = if (f) Estilo.fundoFocado(context, BARRA_RAIO) else null
+            v.animate().scaleX(if (f) Estilo.ESCALA_CARD else 1f).scaleY(if (f) Estilo.ESCALA_CARD else 1f).setDuration(Estilo.FOCO_MS).start()
+            if (f) emFoco(nome, frase)
+        }
+        setOnClickListener { abrirPorta(p) }
+    }
+}
+
+/** Saindo da Barra (porta aberta, busca): a raiz volta ao fundo das listas. Só mexe se o fundo for o da Barra. */
+private fun ConfigLauncherActivity.sairDaBarra() {
+    val raiz = grade.parent as? View ?: return
+    if ((raiz.background as? GlassDrawable)?.barra == true) raiz.background = Estilo.fundoTela(this)
+}
+
+// Medidas do card da Barra (dp): seis portas cabem numa fileira de 960 dp sem rolar, como os apps na HOME.
+private const val BARRA_CARD_L = 120
+private const val BARRA_CARD_A = 68
+private const val BARRA_VAO = 18
+private const val BARRA_RAIO = 16
+private const val BARRA_AZULEJO = 40
+
 /** O que tem atrás de cada porta, em poucas palavras (as explicações das abas eram longas demais para o cartão). */
 private val FRASES = intArrayOf(R.string.cfg3_porta_0_det, R.string.cfg3_porta_1_det, R.string.cfg3_porta_2_det,
     R.string.cfg3_porta_3_det, R.string.cfg3_porta_4_det, R.string.cfg3_porta_5_det)
@@ -136,6 +211,7 @@ private const val PORTA_CASA_REDE = 4
 /** Abre a porta [p] na aba [aba] (a primeira visível dela, se não disser) e leva o foco para as opções. */
 internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
     val alvo = aba ?: PortasConfig.abasVisiveis(p, UsoTv.atual(this)).firstOrNull() ?: PortasConfig.PORTAS[p].first()
+    sairDaBarra()
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
     abaAtual = alvo
@@ -147,6 +223,7 @@ internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
 
 /** A busca aberta pela pílula das portas: o menu mostra só "Buscar" e o foco vai para a caixa. */
 private fun ConfigLauncherActivity.abrirBuscaDasPortas() {
+    sairDaBarra()
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
     mostrarBusca()

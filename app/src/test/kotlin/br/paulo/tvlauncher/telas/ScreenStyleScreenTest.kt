@@ -23,7 +23,7 @@ import java.io.File
 import java.util.concurrent.TimeUnit
 
 /**
- * Jeito das telas com a barra única (24/11/2026): Gaveta (padrão) e Vidro. Abre algumas telas de lista nos dois jeitos,
+ * Jeito das telas com a barra única (24/11/2026): Gaveta (padrão), Vidro e Barra. Abre algumas telas de lista nos dois jeitos,
  * tira as fotos app/build/telas/jeito-<jeito>-<tela>.png e confere que o item com foco fica inteiro dentro da tela.
  */
 @RunWith(RobolectricTestRunner::class)
@@ -43,6 +43,9 @@ class ScreenStyleScreenTest {
     @Test fun gaveta() = conferir(ScreenStyle.DRAWER)
 
     @Test fun vidro() = conferir(ScreenStyle.GLASS)
+
+    /** Barra: as Configurações viram a fileira de cards; as outras telas caem no Vidro. */
+    @Test fun barra() = conferir(ScreenStyle.STRIP)
 
     private fun conferir(jeito: ScreenStyle) {
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
