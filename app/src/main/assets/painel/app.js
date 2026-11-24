@@ -594,7 +594,7 @@ async function alternarOculto(a, botao) {
       const f = await chamar('GET', '/api/apps/' + encodeURIComponent(a.pacote) + '/ficha').catch(() => null);
       const emUso = await tvEmUso();
       const ok = await confirmar('Esconder ' + a.nome + '?',
-        `Risco: ${a.risco}. ${f ? f.efeito : ''}` + (emUso ? ` A TV está em uso agora (${emUso}).` : ''), 'Esconder mesmo assim', fazer, a.risco === 'essencial');
+        `Risco ao esconder: ${a.risco}. ${f ? f.efeito : ''}` + (emUso ? ` A TV está em uso agora (${emUso}).` : ''), 'Esconder mesmo assim', fazer, a.risco === 'essencial');
       if (!ok) { botao.disabled = false; return; }
       a.oculto = true;
       desenharApps();
@@ -2396,8 +2396,12 @@ function desenharFicha(f) {
   lista('Quem depende dele (pela TV)', f.usadoPor.map((u) => `${u.nome} — ${u.como}`));
   lista('Quem depende dele (pela lista)', f.dependentesConhecidos);
   const fonte = document.createElement('p'); fonte.className = 'aviso-curto';
-  fonte.textContent = `Fonte da descrição: ${f.fonte}. Papéis e dependências "pela TV" são lidos do aparelho agora.`;
-  c.appendChild(fonte);
+  // Cada pedaço no seu nó: o tradutor do painel troca nó por nó (a fonte é curta demais para trocar no meio da frase).
+  const deOnde = document.createElement('span'); deOnde.textContent = f.fonte;
+  fonte.append('Fonte da descrição: ', deOnde);
+  const lidos = document.createElement('p'); lidos.className = 'aviso-curto';
+  lidos.textContent = 'Papéis e dependências "pela TV" são lidos do aparelho agora.';
+  c.append(fonte, lidos);
   return c;
 }
 

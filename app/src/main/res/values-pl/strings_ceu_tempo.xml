@@ -31,5 +31,5 @@
         <item>Geminidy</item>
     </string-array>
     <string name="ns_titulo">Nocne niebo</string>
-    <string name="ilha_uv">UV %1$d teraz: krem z filtrem, jeśli wychodzisz</string>
+    <string name="ilha_uv">UV %1$d: użyj kremu z filtrem</string>
 </resources>
