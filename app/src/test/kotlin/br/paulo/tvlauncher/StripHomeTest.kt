@@ -124,7 +124,7 @@ class StripHomeTest {
         assertEquals(r.cardH + StripHome.NOME_EMBAIXO, r.blocoH)
         val gr = geral.copy(format = StripHome.Format.GRID)
         assertEquals(2 * gr.cardH + StripHome.VAO_GRADE, gr.blocoH)
-        assertTrue(StripHome.Format.ONLY.banner && StripHome.Format.GRID.banner && !StripHome.Format.LOGO.banner)
+        assertTrue(StripHome.Format.ONLY.banner && StripHome.Format.GRID.banner && StripHome.Format.LOGO.banner && !StripHome.Format.ROUND.banner)
         assertFalse(StripHome.Format.GRID.nomeNoFoco || StripHome.Format.ROUND.nomeNoFoco)
         val o = br.paulo.tvlauncher.home.WorldOptions.Options(cards = 5)
         assertEquals(o, br.paulo.tvlauncher.home.WorldOptions.Rules.read(br.paulo.tvlauncher.home.WorldOptions.Rules.write(o)))

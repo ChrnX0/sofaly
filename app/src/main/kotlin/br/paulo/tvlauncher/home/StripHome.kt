@@ -34,7 +34,7 @@ object StripHome {
     enum class Format(val w: Float, val h: Float) {
         WIDE(122f, 69f), CLASSIC(96f, 72f), SQUARE(76f, 76f), LOGO(96f, 64f), GRID(104f, 58f), ROUND(64f, 64f), ONLY(122f, 69f);
         /** Mostra o banner de TV do app (a arte 16:9). */
-        val banner get() = this == WIDE || this == ONLY || this == GRID
+        val banner get() = this == WIDE || this == ONLY || this == GRID || this == LOGO
         /** Duas linhas de cards. */
         val grade get() = this == GRID
         /** Nome fora do card, embaixo (sempre visível). */

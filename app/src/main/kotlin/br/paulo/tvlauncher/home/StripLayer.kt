@@ -52,6 +52,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private var trilhoDe: List<CruzLogica.Categoria> = emptyList()
     private companion object {
         const val TRILHO_ICONE = 16f; const val TRILHO_VAO = 6f; const val TRILHO_OUTROS = 0.75f
+        const val ROTULO_SP = 11f          // nome dentro do card
+        const val SO_ICONE = 1.7f          // "só o escolhido": ícone dos outros, sem placa
         const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
         const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
     }
@@ -287,6 +289,9 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         k.proprio.visibility = if (arte) View.INVISIBLE else View.VISIBLE
         k.rotulo?.visibility = if (escolhido) View.VISIBLE else View.GONE
         k.proprio.alpha = if (escolhido) 1f else 0.7f
+        // sem placa, o ícone sozinho fica do tamanho de um logo (na placa ele divide o card com o nome)
+        val ic = if (escolhido) 1f else SO_ICONE
+        k.icone.scaleX = ic; k.icone.scaleY = ic
         return if (escolhido) 1f else SO_OUTROS
     }
 
@@ -381,13 +386,18 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             val banner = ImageView(context).apply { scaleType = ImageView.ScaleType.CENTER_CROP; visibility = View.GONE }
             raiz.addView(banner, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
             val proprio = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
-            val rotulo = if (!fmt.rotuloDentro) null else texto(11f, forte, DesignTokens.CREAM).apply {
+            val rotulo = if (!fmt.rotuloDentro) null else texto(ROTULO_SP, forte, DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)   // dentro do card não leva a sombra da linha do mundo
                 includeFontPadding = false; gravity = Gravity.CENTER; text = item.nome
                 breakStrategy = android.text.Layout.BREAK_STRATEGY_BALANCED
             }
             // Nome que não cabe numa linha ("Dormir em 30 min") vai inteiro em duas, com o ícone menor: nunca "Dormir em 30 m…".
-            val duasLinhas = rotulo != null && rotulo.paint.measureText(item.nome) > dp(o.cardW - 12f)
+            // Uma palavra só que não cabe ("Configurações" na grade) não se parte ao meio: a letra diminui até caber.
+            val cabe = dp(o.cardW - 12f)
+            val largo = rotulo != null && rotulo.paint.measureText(item.nome) > cabe
+            val umaPalavra = !item.nome.trim().contains(' ')
+            if (largo && umaPalavra) rotulo?.let { it.textSize = ROTULO_SP * maxOf(0.75f, cabe / it.paint.measureText(item.nome)) }   // em sp
+            val duasLinhas = largo && !umaPalavra
             rotulo?.apply { maxLines = if (duasLinhas) 2 else 1; ellipsize = TextUtils.TruncateAt.END }
             val tamIcone = o.cardH * when {
                 fmt == StripHome.Format.LOGO -> 0.8f
@@ -435,6 +445,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             k.temBanner = true
             // "Só o escolhido": o banner só aparece no card em foco (o próximo passo arruma; aqui não mexe nos outros)
             if (formatoDesenhado == StripHome.Format.ONLY && k.fundo.alpha == 0) return@f
+            // Logo solto: o banner é o logo, inteiro e sem corte, sem placa atrás
+            if (formatoDesenhado == StripHome.Format.LOGO) k.banner.scaleType = ImageView.ScaleType.FIT_CENTER
             k.banner.visibility = View.VISIBLE
             k.proprio.visibility = View.INVISIBLE
         }
