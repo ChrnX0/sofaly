@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Sådan ved jeg det: Android viste mig det.</string>
     <string name="sofy_evidence_router">Sådan ved jeg det: routeren og Wi-Fi’en fortalte det.</string>
     <string name="sofy_evidence_test">Sådan ved jeg det: jeg testede og tjekkede.</string>
+    <string name="sofy_evidence_other_tv">Sådan ved jeg det: et andet tv i hjemmet fortalte det.</string>
 </resources>

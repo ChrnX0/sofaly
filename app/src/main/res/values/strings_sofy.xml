@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s wrong PINs in the last hour. If it wasn’t you, change the panel PIN.</string>
     <string name="observer_disk_filling_title">Storage is filling up</string>
     <string name="observer_disk_filling_text">At this pace the TV runs out of space in about %1$s days. Delete old recordings or clear app caches.</string>
+    <string name="observer_other_tv_crashy_title">Another TV warned about an app</string>
+    <string name="observer_other_tv_crashy_text">%2$s saw %1$s crash several times in this same version. If it misbehaves here too, check for an update.</string>
+    <string name="observer_other_tv_slower_title">Another TV says an app got slower</string>
+    <string name="observer_other_tv_slower_text">%2$s saw %1$s open much slower since this version. Same version here.</string>
 </resources>

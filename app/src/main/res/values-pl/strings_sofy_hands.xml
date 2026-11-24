@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Skąd wiem: pokazał mi to Android.</string>
     <string name="sofy_evidence_router">Skąd wiem: powiedziały mi to router i Wi-Fi.</string>
     <string name="sofy_evidence_test">Skąd wiem: przetestowałam i sprawdziłam.</string>
+    <string name="sofy_evidence_other_tv">Skąd wiem: powiedział mi inny telewizor w tym domu.</string>
 </resources>

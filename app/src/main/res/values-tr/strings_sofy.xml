@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">Son bir saatte %1$s yanlış PIN girildi. Sen değilsen panel PIN\'ini değiştir.</string>
     <string name="observer_disk_filling_title">Depolama doluyor</string>
     <string name="observer_disk_filling_text">Bu hızla yer yaklaşık %1$s gün içinde bitecek. Eski kayıtları veya uygulama önbelleğini sil.</string>
+    <string name="observer_other_tv_crashy_title">Başka bir TV bir uygulama için uyardı</string>
+    <string name="observer_other_tv_crashy_text">%2$s, %1$s uygulamasının tam bu sürümde birkaç kez çöktüğünü gördü. Burada da sorun çıkarırsa güncelleme ara.</string>
+    <string name="observer_other_tv_slower_title">Başka bir TV bir uygulamanın yavaşladığını söylüyor</string>
+    <string name="observer_other_tv_slower_text">%2$s, %1$s uygulamasının bu sürümden beri çok daha yavaş açıldığını gördü. Burada da aynı sürüm var.</string>
 </resources>

@@ -97,6 +97,10 @@ class JuntoRegrasTest {
         assertNull(JuntoRegras.rota("/junto/xyz/evento"))
         assertNull(JuntoRegras.rota("/junto/$t/apagar"))
         assertNull(JuntoRegras.rota("/mcp"))
+        assertEquals("" to "licoes", JuntoRegras.rota("/sofy/licoes"))
+        assertEquals(t to "conferir", JuntoRegras.rota("/sofy/$t/conferir"))
+        assertNull(JuntoRegras.rota("/sofy/$t/apagar"))
+        assertNull(JuntoRegras.rota("/sofy/x/conferir"))
     }
 
     @Test fun continuarSoEnderecoDaCasa() {

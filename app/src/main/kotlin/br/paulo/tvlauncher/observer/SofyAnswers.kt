@@ -74,7 +74,7 @@ object SofyAnswers {
 
     // ---------------------------------------------------------------- 50: como eu sei
     /** De onde vem o que o recado diz. Cada um vira "sofy_evidence_<code>". */
-    enum class Evidence(val code: String) { MEASURED("measured"), BASELINE("baseline"), BUS("bus"), SYSTEM("system"), ROUTER("router"), TEST("test") }
+    enum class Evidence(val code: String) { MEASURED("measured"), BASELINE("baseline"), BUS("bus"), SYSTEM("system"), ROUTER("router"), TEST("test"), OTHER_TV("other_tv") }
 
     fun evidence(kind: ObserverCore.Kind): Evidence = when (kind) {
         ObserverCore.Kind.NO_INTERNET, ObserverCore.Kind.SLOW_INTERNET, ObserverCore.Kind.WEAK_WIFI, ObserverCore.Kind.LOW_MEMORY,
@@ -82,6 +82,7 @@ object SofyAnswers {
         ObserverCore.Kind.UNUSUAL_LATENCY, ObserverCore.Kind.UNUSUAL_MEMORY, ObserverCore.Kind.UNUSUAL_WIFI, ObserverCore.Kind.UNUSUAL_FRAMES,
         ObserverCore.Kind.VERSION_SLOWER, ObserverCore.Kind.DISK_FILLING -> Evidence.BASELINE
         ObserverCore.Kind.FREEZE_UNDONE -> Evidence.TEST
+        ObserverCore.Kind.OTHER_TV_CRASHY, ObserverCore.Kind.OTHER_TV_SLOWER -> Evidence.OTHER_TV
         ObserverCore.Kind.WIFI_ADVICE -> Evidence.ROUTER
         ObserverCore.Kind.APP_POWERFUL, ObserverCore.Kind.SYSTEM_UPDATE_BROKE, ObserverCore.Kind.APP_ON_DEMAND -> Evidence.SYSTEM
         ObserverCore.Kind.WIFI_RESTARTED, ObserverCore.Kind.TV_RESTARTED, ObserverCore.Kind.REMOTE_BATTERY_LOW, ObserverCore.Kind.APP_CRASHY,

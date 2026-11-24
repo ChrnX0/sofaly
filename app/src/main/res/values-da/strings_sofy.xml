@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s forkerte pinkoder den seneste time. Var det ikke dig, så skift panelets pinkode.</string>
     <string name="observer_disk_filling_title">Lageret er ved at blive fyldt</string>
     <string name="observer_disk_filling_text">I dette tempo løber tv’et tør for plads om cirka %1$s dage. Slet gamle optagelser eller apps’ cache.</string>
+    <string name="observer_other_tv_crashy_title">Et andet tv advarede om en app</string>
+    <string name="observer_other_tv_crashy_text">%2$s så %1$s gå ned flere gange i præcis denne version. Driller den også her, så søg efter en opdatering.</string>
+    <string name="observer_other_tv_slower_title">Et andet tv siger, at en app er blevet langsommere</string>
+    <string name="observer_other_tv_slower_text">%2$s så %1$s åbne meget langsommere siden denne version. Samme version her.</string>
 </resources>

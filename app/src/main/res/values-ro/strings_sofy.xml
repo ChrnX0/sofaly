@@ -50,4 +50,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s PIN-uri greșite în ultima oră. Dacă nu ai fost tu, schimbă PIN-ul panoului.</string>
     <string name="observer_disk_filling_title">Spațiul de stocare se umple</string>
     <string name="observer_disk_filling_text">În ritmul ăsta spațiul se termină în aproximativ %1$s zile. Șterge înregistrări vechi sau memoria cache a aplicațiilor.</string>
+    <string name="observer_other_tv_crashy_title">Alt televizor a avertizat despre o aplicație</string>
+    <string name="observer_other_tv_crashy_text">%2$s a văzut %1$s blocându-se de mai multe ori în exact această versiune. Dacă și aici face probleme, caută o actualizare.</string>
+    <string name="observer_other_tv_slower_title">Alt televizor spune că o aplicație merge mai greu</string>
+    <string name="observer_other_tv_slower_text">%2$s a văzut %1$s deschizându-se mult mai greu de la această versiune. Aici e aceeași versiune.</string>
 </resources>

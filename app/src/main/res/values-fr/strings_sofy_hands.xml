@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Comment je le sais : Android me l’a montré.</string>
     <string name="sofy_evidence_router">Comment je le sais : le routeur et le Wi-Fi me l’ont dit.</string>
     <string name="sofy_evidence_test">Comment je le sais : j’ai testé et vérifié.</string>
+    <string name="sofy_evidence_other_tv">Comment je le sais : une autre TV de ce foyer me l’a dit.</string>
 </resources>

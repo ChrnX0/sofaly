@@ -50,4 +50,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s неправильних PIN за останню годину. Якщо це були не ви, змініть PIN панелі.</string>
     <string name="observer_disk_filling_title">Пам’ять заповнюється</string>
     <string name="observer_disk_filling_text">У такому темпі місце закінчиться приблизно за %1$s дн. Видаліть старі записи або кеш застосунків.</string>
+    <string name="observer_other_tv_crashy_title">Інший телевізор попередив про застосунок</string>
+    <string name="observer_other_tv_crashy_text">%2$s бачив, як %1$s кілька разів падав у цій самій версії. Якщо й тут збоїть, пошукайте оновлення.</string>
+    <string name="observer_other_tv_slower_title">Інший телевізор каже, що застосунок став повільнішим</string>
+    <string name="observer_other_tv_slower_text">%2$s бачив, що %1$s з цієї версії відкривається набагато повільніше. Тут та сама версія.</string>
 </resources>

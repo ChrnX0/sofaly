@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">كيف أعرف: أراني إياه Android.</string>
     <string name="sofy_evidence_router">كيف أعرف: أخبرني الراوتر والواي فاي.</string>
     <string name="sofy_evidence_test">كيف أعرف: جرّبت وتحققت.</string>
+    <string name="sofy_evidence_other_tv">كيف أعرف: أخبرني تلفاز آخر في هذا المنزل.</string>
 </resources>

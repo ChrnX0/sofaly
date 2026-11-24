@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s špatných PINů za poslední hodinu. Pokud jste to nebyli vy, změňte PIN panelu.</string>
     <string name="observer_disk_filling_title">Úložiště se plní</string>
     <string name="observer_disk_filling_text">Tímto tempem dojde místo asi za %1$s dní. Smažte staré nahrávky nebo mezipaměť aplikací.</string>
+    <string name="observer_other_tv_crashy_title">Jiná televize varovala před aplikací</string>
+    <string name="observer_other_tv_crashy_text">%2$s viděla, jak %1$s v této verzi několikrát spadla. Pokud zlobí i tady, hledejte aktualizaci.</string>
+    <string name="observer_other_tv_slower_title">Jiná televize říká, že se aplikace zpomalila</string>
+    <string name="observer_other_tv_slower_text">%2$s viděla, že se %1$s od této verze otevírá mnohem pomaleji. Tady je stejná verze.</string>
 </resources>

@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s PIN incorrectos en la última hora. Si no fuiste tú, cambia el PIN del panel.</string>
     <string name="observer_disk_filling_title">El almacenamiento se está llenando</string>
     <string name="observer_disk_filling_text">A este ritmo la TV se queda sin espacio en unos %1$s días. Borra grabaciones antiguas o la caché de las apps.</string>
+    <string name="observer_other_tv_crashy_title">Otra TV avisó de una app</string>
+    <string name="observer_other_tv_crashy_text">%2$s vio que %1$s se colgó varias veces en esta misma versión. Si aquí también falla, busca una actualización.</string>
+    <string name="observer_other_tv_slower_title">Otra TV dice que una app va más lenta</string>
+    <string name="observer_other_tv_slower_text">%2$s vio que %1$s abre mucho más lento desde esta versión. Aquí tienes la misma versión.</string>
 </resources>

@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s hibás PIN az elmúlt órában. Ha nem te voltál, változtasd meg a panel PIN-kódját.</string>
     <string name="observer_disk_filling_title">Telik a tárhely</string>
     <string name="observer_disk_filling_text">Ilyen ütemben kb. %1$s nap múlva elfogy a hely. Törölj régi felvételeket vagy az alkalmazások gyorsítótárát.</string>
+    <string name="observer_other_tv_crashy_title">Egy másik tévé figyelmeztetett egy alkalmazásra</string>
+    <string name="observer_other_tv_crashy_text">A(z) %2$s látta, hogy a(z) %1$s többször összeomlott pont ebben a verzióban. Ha itt is rakoncátlankodik, keress frissítést.</string>
+    <string name="observer_other_tv_slower_title">Egy másik tévé szerint lelassult egy alkalmazás</string>
+    <string name="observer_other_tv_slower_text">A(z) %2$s látta, hogy a(z) %1$s ettől a verziótól jóval lassabban nyílik. Itt ugyanez a verzió van.</string>
 </resources>

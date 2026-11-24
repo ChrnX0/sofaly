@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Mistä tiedän: Android näytti sen minulle.</string>
     <string name="sofy_evidence_router">Mistä tiedän: reititin ja Wi-Fi kertoivat.</string>
     <string name="sofy_evidence_test">Mistä tiedän: testasin ja tarkistin.</string>
+    <string name="sofy_evidence_other_tv">Mistä tiedän: toinen tämän kodin TV kertoi.</string>
 </resources>

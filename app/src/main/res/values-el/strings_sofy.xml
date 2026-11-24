@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s λάθος PIN την τελευταία ώρα. Αν δεν ήσουν εσύ, άλλαξε το PIN του panel.</string>
     <string name="observer_disk_filling_title">Ο χώρος αποθήκευσης γεμίζει</string>
     <string name="observer_disk_filling_text">Με αυτόν τον ρυθμό ο χώρος τελειώνει σε περίπου %1$s ημέρες. Σβήσε παλιές εγγραφές ή την προσωρινή μνήμη των εφαρμογών.</string>
+    <string name="observer_other_tv_crashy_title">Άλλη τηλεόραση προειδοποίησε για μια εφαρμογή</string>
+    <string name="observer_other_tv_crashy_text">Η %2$s είδε την %1$s να κολλάει πολλές φορές σε αυτήν ακριβώς την έκδοση. Αν κάνει το ίδιο κι εδώ, ψάξε για ενημέρωση.</string>
+    <string name="observer_other_tv_slower_title">Άλλη τηλεόραση λέει ότι μια εφαρμογή έγινε πιο αργή</string>
+    <string name="observer_other_tv_slower_text">Η %2$s είδε την %1$s να ανοίγει πολύ πιο αργά από αυτήν την έκδοση. Εδώ είναι η ίδια έκδοση.</string>
 </resources>

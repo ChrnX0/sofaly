@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s feil PIN-koder siste time. Hvis det ikke var deg, bytt PIN-koden til panelet.</string>
     <string name="observer_disk_filling_title">Lagringen blir full</string>
     <string name="observer_disk_filling_text">I dette tempoet går TV-en tom for plass om omtrent %1$s dager. Slett gamle opptak eller appenes buffer.</string>
+    <string name="observer_other_tv_crashy_title">En annen TV advarte om en app</string>
+    <string name="observer_other_tv_crashy_text">%2$s så %1$s krasje flere ganger i akkurat denne versjonen. Krøller den seg her også, se etter en oppdatering.</string>
+    <string name="observer_other_tv_slower_title">En annen TV sier at en app har blitt tregere</string>
+    <string name="observer_other_tv_slower_text">%2$s så %1$s åpne mye tregere siden denne versjonen. Samme versjon her.</string>
 </resources>

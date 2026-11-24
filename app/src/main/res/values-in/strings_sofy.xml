@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s PIN salah dalam satu jam terakhir. Jika bukan Anda, ganti PIN panel.</string>
     <string name="observer_disk_filling_title">Penyimpanan hampir penuh</string>
     <string name="observer_disk_filling_text">Dengan laju ini ruang akan habis dalam sekitar %1$s hari. Hapus rekaman lama atau cache aplikasi.</string>
+    <string name="observer_other_tv_crashy_title">TV lain memperingatkan soal aplikasi</string>
+    <string name="observer_other_tv_crashy_text">%2$s melihat %1$s macet beberapa kali di versi yang sama ini. Jika di sini juga bermasalah, cari pembaruan.</string>
+    <string name="observer_other_tv_slower_title">TV lain bilang sebuah aplikasi jadi lambat</string>
+    <string name="observer_other_tv_slower_text">%2$s melihat %1$s terbuka jauh lebih lambat sejak versi ini. Di sini versinya sama.</string>
 </resources>

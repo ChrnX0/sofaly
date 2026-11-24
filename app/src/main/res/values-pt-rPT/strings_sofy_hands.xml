@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Como sei: o Android mostrou-me.</string>
     <string name="sofy_evidence_router">Como sei: o router e o Wi-Fi contaram-me.</string>
     <string name="sofy_evidence_test">Como sei: testei e confirmei.</string>
+    <string name="sofy_evidence_other_tv">Como sei: outra TV desta casa contou-me.</string>
 </resources>

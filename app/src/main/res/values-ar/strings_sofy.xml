@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s محاولات PIN خاطئة في الساعة الأخيرة. إن لم تكن أنت فغيّر رمز PIN للوحة.</string>
     <string name="observer_disk_filling_title">التخزين يمتلئ</string>
     <string name="observer_disk_filling_text">بهذه الوتيرة ستنفد المساحة خلال نحو %1$s أيام. احذف التسجيلات القديمة أو ذاكرة التطبيقات المؤقتة.</string>
+    <string name="observer_other_tv_crashy_title">حذّر تلفاز آخر من تطبيق</string>
+    <string name="observer_other_tv_crashy_text">رأى %2$s أن %1$s تعطّل عدة مرات في هذا الإصدار نفسه. إن تعطّل هنا أيضًا فابحث عن تحديث.</string>
+    <string name="observer_other_tv_slower_title">يقول تلفاز آخر إن تطبيقًا أصبح أبطأ</string>
+    <string name="observer_other_tv_slower_text">رأى %2$s أن %1$s صار يفتح أبطأ بكثير منذ هذا الإصدار. هنا الإصدار نفسه.</string>
 </resources>

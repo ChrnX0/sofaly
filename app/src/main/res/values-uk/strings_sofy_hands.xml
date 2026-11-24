@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Звідки я знаю: це показав Android.</string>
     <string name="sofy_evidence_router">Звідки я знаю: повідомили роутер і Wi-Fi.</string>
     <string name="sofy_evidence_test">Звідки я знаю: перевірила на ділі.</string>
+    <string name="sofy_evidence_other_tv">Звідки я знаю: сказав інший телевізор у цьому домі.</string>
 </resources>

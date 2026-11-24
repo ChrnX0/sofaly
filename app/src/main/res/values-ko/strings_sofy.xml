@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">지난 1시간 동안 PIN이 %1$s번 틀렸어요. 본인이 아니라면 패널 PIN을 바꾸세요.</string>
     <string name="observer_disk_filling_title">저장 공간이 차고 있어요</string>
     <string name="observer_disk_filling_text">이 속도라면 약 %1$s일 뒤 공간이 부족해져요. 오래된 녹화나 앱 캐시를 지우세요.</string>
+    <string name="observer_other_tv_crashy_title">다른 TV가 앱에 대해 알려줬어요</string>
+    <string name="observer_other_tv_crashy_text">%2$s에서 %1$s 앱이 같은 버전에서 여러 번 멈췄어요. 여기서도 문제가 있으면 업데이트를 찾아보세요.</string>
+    <string name="observer_other_tv_slower_title">다른 TV가 앱이 느려졌다고 해요</string>
+    <string name="observer_other_tv_slower_text">%2$s에서 이 버전부터 %1$s 앱이 훨씬 느리게 열렸어요. 여기도 같은 버전이에요.</string>
 </resources>

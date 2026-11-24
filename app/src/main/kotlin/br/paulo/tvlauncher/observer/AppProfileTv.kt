@@ -253,6 +253,11 @@ object AppProfileTv {
         return freeOthers(app, pkg, runCatching { frontPackage(app) }.getOrNull(), s.cards.values)
     }
 
+    /** As fichas de todos os perfis (a mais nova de cada pacote), para as lições entre TVs (SofyShareTv). */
+    fun allCards(ctx: Context): Collection<AppProfile.Card> = synchronized(AppProfileTv) {
+        load(ctx.applicationContext).values.flatMap { it.cards.values }.groupBy { it.pkg }.values.map { l -> l.maxBy { it.ver } }
+    }
+
     /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
     fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
         synchronized(AppProfileTv) { load(ctx.applicationContext).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } } }

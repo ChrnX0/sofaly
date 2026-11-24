@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">过去一小时内 PIN 输错 %1$s 次。如果不是你，请更改面板 PIN。</string>
     <string name="observer_disk_filling_title">存储空间快满了</string>
     <string name="observer_disk_filling_text">照这个速度，大约 %1$s 天后空间会用完。请删除旧录像或清理应用缓存。</string>
+    <string name="observer_other_tv_crashy_title">另一台电视提醒了一个应用</string>
+    <string name="observer_other_tv_crashy_text">%2$s 发现 %1$s 在同一版本中多次崩溃。如果这里也出问题，请查找更新。</string>
+    <string name="observer_other_tv_slower_title">另一台电视说某个应用变慢了</string>
+    <string name="observer_other_tv_slower_text">%2$s 发现 %1$s 从这个版本起打开慢了很多。这里也是同一版本。</string>
 </resources>

@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">%1$s verkeerde pincodes in het afgelopen uur. Was jij het niet? Wijzig dan de pincode van het paneel.</string>
     <string name="observer_disk_filling_title">De opslag raakt vol</string>
     <string name="observer_disk_filling_text">In dit tempo is de opslag over ongeveer %1$s dagen vol. Verwijder oude opnames of de cache van apps.</string>
+    <string name="observer_other_tv_crashy_title">Een andere tv waarschuwt voor een app</string>
+    <string name="observer_other_tv_crashy_text">%2$s zag %1$s meerdere keren vastlopen in precies deze versie. Doet hij het hier ook slecht, zoek dan een update.</string>
+    <string name="observer_other_tv_slower_title">Een andere tv zegt dat een app trager is</string>
+    <string name="observer_other_tv_slower_text">%2$s zag %1$s sinds deze versie veel trager openen. Hier staat dezelfde versie.</string>
 </resources>

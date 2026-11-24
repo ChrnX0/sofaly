@@ -51,4 +51,5 @@
     <string name="sofy_evidence_system">Nereden biliyorum: Android gösterdi.</string>
     <string name="sofy_evidence_router">Nereden biliyorum: modem ve Wi-Fi söyledi.</string>
     <string name="sofy_evidence_test">Nereden biliyorum: denedim ve kontrol ettim.</string>
+    <string name="sofy_evidence_other_tv">Nereden biliyorum: bu evdeki başka bir TV söyledi.</string>
 </resources>

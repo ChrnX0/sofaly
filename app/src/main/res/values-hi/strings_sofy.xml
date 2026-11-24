@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">पिछले घंटे में %1$s गलत PIN डाले गए। अगर यह आप नहीं थे, तो पैनल का PIN बदलें।</string>
     <string name="observer_disk_filling_title">स्टोरेज भर रहा है</string>
     <string name="observer_disk_filling_text">इसी रफ़्तार से लगभग %1$s दिनों में जगह खत्म हो जाएगी। पुरानी रिकॉर्डिंग या ऐप का कैश मिटाएँ।</string>
+    <string name="observer_other_tv_crashy_title">दूसरे टीवी ने एक ऐप के बारे में चेताया</string>
+    <string name="observer_other_tv_crashy_text">%2$s ने इसी वर्शन में %1$s को कई बार क्रैश होते देखा। अगर यहाँ भी दिक्कत करे, तो अपडेट देखें।</string>
+    <string name="observer_other_tv_slower_title">दूसरा टीवी कहता है कि एक ऐप धीमा हो गया</string>
+    <string name="observer_other_tv_slower_text">%2$s ने देखा कि इस वर्शन से %1$s बहुत धीरे खुलता है। यहाँ भी वही वर्शन है।</string>
 </resources>

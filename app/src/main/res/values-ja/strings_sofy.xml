@@ -49,4 +49,8 @@
     <string name="observer_panel_pin_wrong_text">この1時間に間違ったPINが%1$s回入力されました。心当たりがなければパネルのPINを変えてください。</string>
     <string name="observer_disk_filling_title">ストレージが埋まりつつあります</string>
     <string name="observer_disk_filling_text">このペースだと約%1$s日で空きがなくなります。古い録画やアプリのキャッシュを消してください。</string>
+    <string name="observer_other_tv_crashy_title">別のテレビがアプリについて知らせました</string>
+    <string name="observer_other_tv_crashy_text">%2$sで、%1$sが同じバージョンで何度も落ちました。ここでも不調なら、アップデートを探してください。</string>
+    <string name="observer_other_tv_slower_title">別のテレビによるとアプリが遅くなりました</string>
+    <string name="observer_other_tv_slower_text">%2$sで、このバージョンから%1$sの起動がかなり遅くなりました。ここも同じバージョンです。</string>
 </resources>
