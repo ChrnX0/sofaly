@@ -30,6 +30,7 @@ import br.paulo.tvlauncher.player.Posicao
 import br.paulo.tvlauncher.player.Programa
 import br.paulo.tvlauncher.player.Vod
 import br.paulo.tvlauncher.player.item
+import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.WallpaperPluginView
 
 /** Movimento dos ícones da cruz (MovimentoAdaptativo). Saiu da MainActivity na refatoração de 21/11/2026. */
@@ -69,7 +70,11 @@ internal fun MainActivity.espelho(acao: () -> Unit) = object : android.text.Text
  */
 internal fun MainActivity.arteDoItem(item: HomeCruz.Item) {
     // Plugin de fundo que pediu o foco (a arte do item vem dele): nome e pacote do item, nada mais.
-    (fundo as? WallpaperPluginView)?.focar(item.nome, pacoteDoItem(item.id))
+    // Cartão de canal de outro app (TvContract): é um PROGRAMA, vai como "programa focado" (com o pôster); o resto, cartão.
+    val programa = item.id.removePrefix(PREFIXO_CONTINUAR).takeIf { it.startsWith("card:") }?.removePrefix("card:")?.toLongOrNull()
+        ?.let { n -> cartoesApps.firstOrNull { it.id == n } }
+    if (programa != null) (fundo as? WallpaperPluginView)?.focarPrograma(programa.titulo, null, programa.poster)
+    else (fundo as? WallpaperPluginView)?.focar(item.nome, pacoteDoItem(item.id))
     if (capa.desligada) return
     val id = item.id.removePrefix(PREFIXO_CONTINUAR)   // o Continuar de cada mundo mostra a arte do que ele retoma
     when {
@@ -349,9 +354,7 @@ internal fun MainActivity.atualizarCruz() {
             CruzLogica.Situacao(getString(R.string.cruz_canto_conectado), pd.joinToString(" · "), "rede", pd.map { getString(R.string.cruz_pendrive, it) }) })
     if (AddonsTv.instalados(this).isNotEmpty()) assistir += HomeCruz.Item("addons", getString(R.string.ad_titulo),
         CruzLogica.linhas(getString(R.string.ad_destaque), getString(R.string.cruz_addons_n, AddonsTv.instalados(this).size)), icCruz("addons", IconeCruz.Tipo.ADDONS), { abrirCatalogo(AddonsActivity::class.java) })
-    for ((i, p) in cartoesPlugin.withIndex()) assistir += HomeCruz.Item("plugin:${p.pacote}:$i", p.titulo.ifEmpty { p.valor },
-        if (p.titulo.isEmpty()) p.detalhe else listOf(p.valor, p.detalhe).filter { it.isNotEmpty() }.joinToString(" · "),
-        icCruz("plugin:${p.pacote}:$i", IconeCruz.Tipo.PLUGIN), { PluginsTv.abrir(this, p) })
+    assistir += itensDePlugin(PluginCartao.Mundo.WATCH)
     assistir += appsDe(CruzLogica.Categoria.ASSISTIR)   // YouTube, Netflix… (movidos ou pelo tipo do app)
     categoria(CruzLogica.Categoria.ASSISTIR, R.string.cruz_assistir, IconeCruz.Tipo.ASSISTIR, comContinuar(CruzLogica.Categoria.ASSISTIR, assistir))
 
@@ -372,7 +375,8 @@ internal fun MainActivity.atualizarCruz() {
             try { startActivity(Intent(this, PodcastsActivity::class.java)) }
             catch (e: Exception) { Log.w("TvLauncher.Cruz", "podcasts não abriram: ${e.javaClass.simpleName}"); cruz?.naoAbriu() }
         }, situacao = situacaoTocando("podcast") ?: podcastCruz?.let { p ->
-            situacaoParou(p.titulo, fracaoPodcast(p), faltaPodcast(p), CruzLogica.juntar(p.titulo, faltaPodcast(p)), "podcasts") })) + appsDe(CruzLogica.Categoria.OUVIR)
+            situacaoParou(p.titulo, fracaoPodcast(p), faltaPodcast(p), CruzLogica.juntar(p.titulo, faltaPodcast(p)), "podcasts") })) +
+        itensDePlugin(PluginCartao.Mundo.LISTEN) + appsDe(CruzLogica.Categoria.OUVIR)
     categoria(CruzLogica.Categoria.OUVIR, R.string.cruz_ouvir, IconeCruz.Tipo.OUVIR, comContinuar(CruzLogica.Categoria.OUVIR, ouvir))
 
     // Jogar (18/11/2026, pedido do dono: "Jogos" e "Sofá" abriam a mesma tela): a Central de jogos no topo (o painel com
@@ -390,6 +394,7 @@ internal fun MainActivity.atualizarCruz() {
                 CruzLogica.linhas(subApp(p, nome), quando(ultimoUso[p])?.let { getString(R.string.cruz_jogado, it) }),
                 icApp(app), { abrir(p) }, opcoes = { menuAppCruz(p) })
         }
+        jogos += itensDePlugin(PluginCartao.Mundo.PLAY)
         categoria(CruzLogica.Categoria.JOGAR, R.string.cruz_jogar, IconeCruz.Tipo.JOGAR, comContinuar(CruzLogica.Categoria.JOGAR, jogos))
     }
 
@@ -412,7 +417,8 @@ internal fun MainActivity.atualizarCruz() {
         HomeCruz.Item("pasta:${f.id}", f.name, getString(R.string.cruz_apps_n, f.apps.count { it in porPacote }),
             icCruz("pasta:${f.id}", IconeCruz.Tipo.TODOS_APPS), { abrirTodosNaPasta(f.id) }, opcoes = { menuPasta(f.id) })
     }
-    val appsComPastas = if (pastasNaCruz.isEmpty()) apps else apps.dropLast(1) + pastasNaCruz + apps.last()
+    val extrasApps = pastasNaCruz + itensDePlugin(PluginCartao.Mundo.APPS)
+    val appsComPastas = if (extrasApps.isEmpty()) apps else apps.dropLast(1) + extrasApps + apps.last()
     categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, comContinuar(CruzLogica.Categoria.APLICATIVOS, appsComPastas))
 
     // Trocar ícone item a item (21/11/2026): segurar OK num item do Sofaly que não tem menu próprio troca o desenho dele
@@ -434,3 +440,15 @@ internal fun MainActivity.atualizarCruz() {
     if (focoInicialNaTv && !todosAbertos) { focoInicialNaTv = false; c.requestFocus() }
     else if (currentFocus == null && !todosAbertos) c.requestFocus()
 }
+
+/**
+ * Cartões de plugin ([PluginCartao]) do mundo [m] (v2, 24/11/2026: o plugin escolhe o mundo; v1 = Assistir). Com
+ * imagem do próprio plugin, ela vira o ícone; sem, o ícone de plugin da Sofaly. Quem desenha é a HOME.
+ */
+internal fun MainActivity.itensDePlugin(m: PluginCartao.Mundo): List<HomeCruz.Item> =
+    cartoesPlugin.withIndex().filter { it.value.mundo == m }.map { (i, p) ->
+        val id = "plugin:${p.pacote}:$i"
+        HomeCruz.Item(id, p.titulo.ifEmpty { p.valor },
+            if (p.titulo.isEmpty()) p.detalhe else listOf(p.valor, p.detalhe).filter { it.isNotEmpty() }.joinToString(" · "),
+            p.imagem?.let { imagensPlugin[p.pacote + "|" + it] } ?: icCruz(id, IconeCruz.Tipo.PLUGIN), { PluginsTv.abrir(this, p) })
+    }

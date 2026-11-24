@@ -43,4 +43,8 @@
     <string name="wp_d_tvicons">Plus de 800 icônes faites pour la TV</string>
     <string name="wp_d_minimalist">Symboles épurés sur une seule couleur</string>
     <string name="wp_d_arcticons">15 000 icônes en trait fin (pour téléphone, marchent ici)</string>
+    <string name="ext_off_health">Désactivé : il ne répondait plus. Réactivez-le si vous voulez.</string>
+    <string name="ext_secao_botoes">Boutons du panneau rapide</string>
+    <string name="ext_nenhum_botao">Pas encore de bouton d’autres applis. Certaines applis ajoutent un bouton marche/arrêt au panneau rapide (maintenez RETOUR).</string>
+    <string name="ext_off_blocked">Désactivé par Sofaly : ce plugin a un problème connu.</string>
 </resources>

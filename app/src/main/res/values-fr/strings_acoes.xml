@@ -75,4 +75,6 @@
         <item quantity="other">%d scènes avec lien</item>
         <item quantity="many">%d scènes avec lien</item>
     </plurals>
+    <string name="acao_plugin_button">Appuyer sur « %1$s » (bouton d’une autre app)</string>
+    <string name="acao_plugin_button_off">Ce bouton n’est pas activé dans Plugins</string>
 </resources>

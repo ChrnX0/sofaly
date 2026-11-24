@@ -81,4 +81,6 @@
         <item quantity="many">%d مشهدًا برابط</item>
         <item quantity="other">%d مشهد برابط</item>
     </plurals>
+    <string name="acao_plugin_button">الضغط على “%1$s” (زر من تطبيق آخر)</string>
+    <string name="acao_plugin_button_off">هذا الزر غير مفعّل في الإضافات</string>
 </resources>

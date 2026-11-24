@@ -43,4 +43,8 @@
     <string name="wp_d_tvicons">Oltre 800 icone fatte per la TV</string>
     <string name="wp_d_minimalist">Simboli puliti su un solo colore</string>
     <string name="wp_d_arcticons">15.000 icone a tratto sottile (per telefono, vanno anche qui)</string>
+    <string name="ext_off_health">Disattivato: non rispondeva più. Riattivalo se vuoi.</string>
+    <string name="ext_secao_botoes">Pulsanti del pannello rapido</string>
+    <string name="ext_nenhum_botao">Ancora nessun pulsante di altre app. Alcune app aggiungono un pulsante acceso/spento al pannello rapido (tieni premuto INDIETRO).</string>
+    <string name="ext_off_blocked">Disattivato da Sofaly: questo plugin ha un problema noto.</string>
 </resources>

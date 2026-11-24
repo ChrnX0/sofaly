@@ -71,4 +71,6 @@
     <plurals name="aut_links">
         <item quantity="other">%d 个带链接的场景</item>
     </plurals>
+    <string name="acao_plugin_button">按下“%1$s”（其他应用的按钮）</string>
+    <string name="acao_plugin_button_off">该按钮未在插件中开启</string>
 </resources>

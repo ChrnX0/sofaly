@@ -77,4 +77,6 @@
         <item quantity="many">%d scen z linkiem</item>
         <item quantity="other">%d sceny z linkiem</item>
     </plurals>
+    <string name="acao_plugin_button">Naciśnij „%1$s” (przycisk innej aplikacji)</string>
+    <string name="acao_plugin_button_off">Ten przycisk nie jest włączony we Wtyczkach</string>
 </resources>

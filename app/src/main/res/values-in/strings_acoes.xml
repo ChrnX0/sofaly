@@ -71,4 +71,6 @@
     <plurals name="aut_links">
         <item quantity="other">%d adegan dengan tautan</item>
     </plurals>
+    <string name="acao_plugin_button">Tekan “%1$s” (tombol dari aplikasi lain)</string>
+    <string name="acao_plugin_button_off">Tombol itu belum aktif di Plugin</string>
 </resources>

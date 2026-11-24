@@ -77,4 +77,6 @@
     <string name="ev_tv_ligou">De tv ging aan</string>
     <string name="ev_todos_sairam">Iedereen is weg (aanwezigheid)</string>
     <string name="ev_chuva">Regen op komst</string>
+    <string name="acao_plugin_button">Druk op “%1$s” (knop van een andere app)</string>
+    <string name="acao_plugin_button_off">Die knop staat niet aan bij Plug-ins</string>
 </resources>

@@ -644,6 +644,7 @@ class PainelRapidoActivity : Activity() {
             }
         }
         val grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false }
+        botoesDePlugins(grade)
         for ((i, linha) in PainelBlocos.linhas(visiveis).withIndex()) {
             grade.addView(LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL
@@ -653,6 +654,43 @@ class PainelRapidoActivity : Activity() {
             }, LinearLayout.LayoutParams(-1, -2).apply { if (i > 0) topMargin = dp(Estilo.E1) })
         }
         return grade
+    }
+
+    /**
+     * Botões de outros apps (PluginTile, 24/11/2026): lidos fora da thread da tela e postos numa linha a mais no fim da
+     * grade, só se houver algum ligado. O OK pede ao app a ação dele e redesenha com a resposta (ligado/desligado).
+     */
+    private fun botoesDePlugins(grade: LinearLayout) {
+        val app = applicationContext
+        fundo.execute {
+            val lista = runCatching { PluginTilesTv.botoes(app) }.getOrDefault(emptyList())
+            if (lista.isEmpty()) return@execute
+            ui.post {
+                if (isFinishing || isDestroyed) return@post
+                val linha = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
+                for ((j, par) in lista.withIndex()) {
+                    val (instalado, b) = par
+                    lateinit var t: Tile
+                    fun aplicar(n: br.paulo.tvlauncher.screensaver.PluginTile.Botao) {
+                        t.titulo.text = n.titulo
+                        t.detalhe(n.detalhe)
+                        t.ligado = n.estado == br.paulo.tvlauncher.screensaver.PluginTile.Estado.LIGADO
+                    }
+                    t = tile(b.icone, b.titulo) {
+                        fundo.execute {
+                            val novo = runCatching { PluginTilesTv.clicar(app, instalado) }.getOrNull()
+                            ui.post { if (!isDestroyed && novo != null) aplicar(novo) }
+                        }
+                    }
+                    aplicar(b)
+                    blocosNaTela += t.casca
+                    linha.addView(t.casca, LinearLayout.LayoutParams(0, dp(TILE_DP), 1f).apply { if (j > 0) marginStart = dp(Estilo.E1) })
+                }
+                // Completa a linha com espaço vazio para o bloco ter a mesma largura dos outros (2 por linha, PainelBlocos.linhas).
+                repeat((2 - lista.size).coerceAtLeast(0)) { linha.addView(View(this), LinearLayout.LayoutParams(0, dp(TILE_DP), 1f).apply { marginStart = dp(Estilo.E1) }) }
+                grade.addView(linha, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E1) })
+            }
+        }
     }
 
     /**

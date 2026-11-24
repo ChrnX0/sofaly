@@ -43,9 +43,21 @@ class WallpaperPluginContractTest {
         assertEquals(listOf<Any?>(1, 16, 1), f.v)
     }
 
+    @Test fun eventoTocandoAgora() {
+        val f = Fila(); W.escreverEvento(W.Event(W.EV_NOW_PLAYING_CHANGED, "Clair de lune", playing = false, artist = "Debussy", album = "Suite", iconUri = null), f)
+        assertEquals(listOf<Any?>(1, 2, 0, "Clair de lune", "Debussy", "Suite", null), f.v)
+    }
+
     @Test fun tipoDesconhecidoViraTempo() {
-        val f = Fila(); W.escreverEvento(W.Event(W.EV_NOW_PLAYING_CHANGED), f)
+        val f = Fila(); W.escreverEvento(W.Event(99), f)
         assertEquals(listOf<Any?>(1, 1), f.v)
+    }
+
+    @Test fun eventoProgramaFocado() {
+        val f = Fila(); W.escreverEvento(W.Event(W.EV_PROGRAM_CARD_FOCUSED, "Episódio 3", programType = 3, iconUri = "https://x/p.jpg", iconAspectRatio = 1), f)
+        assertEquals(listOf<Any?>(1, 8, "Episódio 3", 1, 3, "https://x/p.jpg", 1), f.v)
+        val g = Fila(); W.escreverEvento(W.Event(W.EV_PROGRAM_CARD_FOCUSED, "Sem tipo"), g)
+        assertEquals(listOf<Any?>(1, 8, "Sem tipo", 0, null, 0), g.v)
     }
 
     @Test fun lerRespostaPulaNulosELimpa() {

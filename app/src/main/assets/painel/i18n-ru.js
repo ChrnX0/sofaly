@@ -1,5 +1,8 @@
 // Painel em ru (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"Плагины",
+"Botão de outro app":"Кнопка другого приложения",
+"Nenhum botão ligado":"Нет включённых кнопок",
 "Lembretes da grade":"Напоминания из телегида",
 "Gravação terminou ou parou":"Запись завершена или остановлена",
 "Despertador que não tocou":"Будильник, который не сработал",

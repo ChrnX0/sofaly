@@ -130,7 +130,10 @@ object FundoMeuDados {
     private fun p(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
     fun arquivo(ctx: Context): File? = p(ctx).getString("arquivo", null)?.let { File(it) }?.takeIf { it.isFile && it.canRead() }
-    fun definirArquivo(ctx: Context, f: File?) = p(ctx).edit().putString("arquivo", f?.path).apply()
+    fun definirArquivo(ctx: Context, f: File?) = p(ctx).edit().putString("arquivo", f?.path).remove("link").apply()
+    /** O link de onde veio o arquivo atual (fundo por link, [WallpaperLink]); null = arquivo escolhido na TV. */
+    fun link(ctx: Context): String? = p(ctx).getString("link", null)?.takeIf { arquivo(ctx) != null }
+    fun definirDoLink(ctx: Context, f: File, link: String) = p(ctx).edit().putString("arquivo", f.path).putString("link", link).apply()
     fun brilho(ctx: Context) = p(ctx).getInt("brilho", 0)
     fun contraste(ctx: Context) = p(ctx).getInt("contraste", 0)
     fun definirBrilho(ctx: Context, v: Int) = p(ctx).edit().putInt("brilho", v).apply()

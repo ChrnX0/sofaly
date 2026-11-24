@@ -57,6 +57,8 @@ object ComandosIa {
     const val MAX_TIMER_MIN = 240
     const val MAX_DESLIGAR_MIN = 480
     const val MAX_TITULO = 80
+    /** Formato de nome de pacote Android (plugin_button): letras/números/_ em 2+ partes separadas por ponto. */
+    private val PACOTE = Regex("[A-Za-z][A-Za-z0-9_]*(\\.[A-Za-z][A-Za-z0-9_]*)+")
 
     /**
      * Os tipos do catálogo, na ordem do esquema. Ideia 2 (14/11/2026): recado, timer, desligar_em, filtro_noturno,
@@ -64,7 +66,7 @@ object ComandosIa {
      */
     val TIPOS = listOf("abrir_app", "abrir_tela", "despertador", "volume", "midia", "modo_visita", "tocar_canal", "o_que_passa", "casa",
         "recado", "timer", "desligar_em", "filtro_noturno", "rodar_cena", "mural",
-        "tocar_titulo", "continuar", "proximo_episodio", "o_que_estava_vendo")
+        "tocar_titulo", "continuar", "proximo_episodio", "o_que_estava_vendo", "plugin_button")
 
     /**
      * Texto visível das ações novas (strings_acoes.xml em values e values-pt, no idioma da TV). Nos testes do computador não há
@@ -113,6 +115,12 @@ object ComandosIa {
         /** Um item no mural do protetor ([Mural]): lista de compras ou recado fixo. */
         class Mural(val lista: br.paulo.tvlauncher.family.Mural.Lista, val texto: String) :
             Acao(t(if (lista == br.paulo.tvlauncher.family.Mural.Lista.COMPRAS) R.string.acao_mural_compras else R.string.acao_mural_recado, texto))
+        /**
+         * Botão de outro app (24/11/2026, extensões): o mesmo OK do botão no painel rápido (tv.sofaly.plugin.TILE), agora
+         * também como passo de cena e de rotina. No lugar dos plugins Tasker/Locale, que o Google TV não tem. Só vale para
+         * botão que o dono já ligou em Plugins (OK com PIN, preso ao certificado): a conferência aqui só olha o formato.
+         */
+        class PluginButton(val pacote: String, nome: String) : Acao(t(R.string.acao_plugin_button, nome))
 
         // ---- ideia 60 (14/11/2026): Filmes e Séries. Saem da conferência só com o que a pessoa disse; o título de verdade
         // é escolhido depois, na TV, nas listas dela (VodTv.resolver), só entre as categorias visíveis (as mesmas travas
@@ -160,7 +168,7 @@ object ComandosIa {
         val acao = objeto()
             .put("properties", JSONObject()
                 .put("tipo", texto("o que fazer", TIPOS))
-                .put("pacote", texto("abrir_app: o pacote, copiado exatamente da lista de apps"))
+                .put("pacote", texto("abrir_app: o pacote, copiado exatamente da lista de apps; plugin_button: o pacote do botão de outro app ligado em Plugins"))
                 .put("tela", texto("abrir_tela", TELAS.keys))
                 .put("hora", inteiro("despertador: hora de 0 a 23"))
                 .put("minuto", inteiro("despertador: minuto de 0 a 59"))
@@ -301,6 +309,10 @@ object ComandosIa {
             }
             "continuar" -> Acao.Continuar()
             "o_que_estava_vendo" -> Acao.OQueEstavaVendo()
+            "plugin_button" -> {
+                val p = o.optString("pacote").trim()
+                if (p.length > 150 || !PACOTE.matches(p)) "plugin_button: pacote inválido" else Acao.PluginButton(p, apps[p] ?: p)
+            }
             else -> "tipo \"${tipo.take(30)}\" não está no catálogo"
         }
     }

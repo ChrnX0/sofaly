@@ -1,5 +1,8 @@
 // Painel em tr (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"Eklentiler",
+"Botão de outro app":"Başka uygulamanın düğmesi",
+"Nenhum botão ligado":"Açık düğme yok",
 "Lembretes da grade":"Yayın akışı hatırlatıcıları",
 "Gravação terminou ou parou":"Kayıt bitti veya durdu",
 "Despertador que não tocou":"Çalmayan alarm",

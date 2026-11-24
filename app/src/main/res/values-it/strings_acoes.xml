@@ -75,4 +75,6 @@
         <item quantity="other">%d scene con link</item>
         <item quantity="many">%d scene con link</item>
     </plurals>
+    <string name="acao_plugin_button">Premi “%1$s” (pulsante di un\'altra app)</string>
+    <string name="acao_plugin_button_off">Quel pulsante non è attivo in Plugin</string>
 </resources>

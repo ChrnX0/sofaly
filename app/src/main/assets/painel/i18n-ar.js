@@ -1,5 +1,8 @@
 // Painel em ar (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"الإضافات",
+"Botão de outro app":"زر من تطبيق آخر",
+"Nenhum botão ligado":"لا يوجد زر مفعّل",
 "Lembretes da grade":"تذكيرات دليل البرامج",
 "Gravação terminou ou parou":"انتهى التسجيل أو توقف",
 "Despertador que não tocou":"منبّه لم يرن",

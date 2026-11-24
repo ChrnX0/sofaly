@@ -81,7 +81,9 @@ object WallpaperPlugins {
 
     /** Usa [p] como fundo: guarda o OK com o certificado de agora e põe o tema. False = sem certificado legível. */
     fun usar(ctx: Context, p: Provider): Boolean {
+        if (ExtensionHealth.bloqueado(ctx, p.pacote)) return false
         val cert = PluginsTv.certificado(ctx, p.pacote) ?: return false
+        ExtensionHealth.perdoar(ctx, p.pacote)
         prefs(ctx).edit().putString("ok:${p.pacote}", cert).putString(CHOSEN, p.id).apply()
         limparCache(ctx)
         Tema.definir(ctx, Tema.PLUGIN)
@@ -121,6 +123,17 @@ object WallpaperPlugins {
      */
     fun buscar(ctx: Context, p: Provider, evento: WallpaperPluginContract.Event, prazoMs: Long): List<WallpaperPluginContract.Item>? {
         if (!permitido(ctx, p.pacote)) return null
+        val inicio = android.os.SystemClock.elapsedRealtime()
+        val r = buscarSemGuarda(ctx, p, evento, prazoMs)
+        // Guarda de saúde: falhas seguidas desligam o plugin (o tema volta ao Escuro) e o aviso fica na tela de Plugins.
+        if (ExtensionHealth.registrar(ctx, p.pacote, r != null, android.os.SystemClock.elapsedRealtime() - inicio)) {
+            Log.w(TAG, "${p.pacote}: desligado pela guarda de saúde")
+            parar(ctx, p)
+        }
+        return r
+    }
+
+    private fun buscarSemGuarda(ctx: Context, p: Provider, evento: WallpaperPluginContract.Event, prazoMs: Long): List<WallpaperPluginContract.Item>? {
         val app = ctx.applicationContext
         val ligado = CountDownLatch(1)
         var binder: IBinder? = null

@@ -15,6 +15,8 @@ object VisualCodigoTv {
         brilho = FundoMeuDados.brilho(ctx), contraste = FundoMeuDados.contraste(ctx),
         letra = FontChoice.currentId(ctx),
         fino = CHAVES.mapValues { (_, chave) -> Extras.numero(ctx, chave, padrao(chave)) },
+        // Só o fundo que veio de um link viaja (o arquivo escolhido na TV é da pessoa).
+        fundo = FundoMeuDados.link(ctx).takeIf { Tema.atual(ctx) == Tema.MEU },
     )
 
     /** Chave curta do código -> chave das preferências (VisualCodigo.FINO). */
@@ -36,7 +38,16 @@ object VisualCodigoTv {
     fun aplicar(ctx: Context, entrada: String): List<String>? {
         val v = VisualCodigo.decodificar(entrada) ?: return null
         val feito = ArrayList<String>()
-        v.tema?.let { t ->
+        // Fundo por link: baixa fora da thread e só então passa ao "Meu fundo" (o tema abaixo não troca para MEU antes).
+        v.fundo?.let { link ->
+            feito += "fundo: baixando"
+            br.paulo.tvlauncher.Fundo.rodar("wallpaper-link") {
+                val erro = br.paulo.tvlauncher.home.WallpaperLink.baixar(ctx, link)
+                if (erro == null) Tema.definir(ctx, Tema.MEU)
+                else android.util.Log.w("TvLauncher.Visual", "fundo por link: $erro")
+            }
+        }
+        v.tema?.takeUnless { it == Tema.MEU.name && v.fundo != null }?.let { t ->
             val tema = Tema.valueOf(t).let { if (it == Tema.MEU && FundoMeuDados.arquivo(ctx) == null || it == Tema.PLUGIN && WallpaperPlugins.escolhidoId(ctx) == null) Tema.ESCURO else it }
             Tema.definir(ctx, tema); feito += "tema=${tema.name}"
         }
