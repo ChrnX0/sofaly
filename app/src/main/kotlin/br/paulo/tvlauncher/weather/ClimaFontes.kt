@@ -50,7 +50,8 @@ object ClimaFontes {
         val nova = medidaAeroporto(ponto) ?: medidaAeroporto(ponto)   // uma segunda tentativa
         if (nova != null) { ultimaMedida = nova; ultimaMedidaMs = System.currentTimeMillis() }
         val medida = nova ?: ultimaMedida?.takeIf { System.currentTimeMillis() - ultimaMedidaMs < 60 * 60_000L }
-        if (openMeteo) registrarComparacao(ctx, ponto, nova)
+        // O teste de fontes (CSV a cada 30 min, 01/11) já decidiu o consenso de modelos (#434); some o arquivo que ficou.
+        if (!limpouComparacao) { limpouComparacao = true; runCatching { java.io.File(ctx.getExternalFilesDir(null), "comparacao_clima.csv").delete() } }
         // Umidade: a do aeroporto (calculada da temperatura e do ponto de orvalho medidos); sem ela, a do modelo.
         val umidade = medida?.umidade ?: atual.optInt("relative_humidity_2m", -1).takeIf { it >= 0 }
         val temp = medida?.temp ?: Math.round(atual.getDouble("temperature_2m")).toInt()
@@ -185,14 +186,8 @@ object ClimaFontes {
         return IconesClima.chave(codigo, dia, chovendo) to texto
     }
 
-    private var ultimaComparacaoMs = 0L
+    @Volatile private var limpouComparacao = false
 
-    /**
-     * TESTE DE FONTES (so grava, nao muda o que a tela mostra): a cada 30 min guarda uma linha em
-     * Android/data/br.paulo.tvlauncher/files/comparacao_clima.csv com o que o aeroporto MEDIU (temperatura e fenomeno) e o que tres
-     * modelos da Open-Meteo (ECMWF, ICON, GFS) PREVIAM para esta hora (temperatura e chance de chuva). Depois de alguns dias da para ver
-     * qual modelo chega mais perto da medida. Chamar fora da thread da tela.
-     */
     /**
      * Chance de chuva por hora (24 h) como MEDIANA de tres modelos (ECMWF, ICON, GFS). Uma chamada so a Open-Meteo,
      * com ?models=... : cada variavel volta com sufixo por modelo (precipitation_probability_ecmwf_ifs025, ...),
@@ -226,33 +221,6 @@ object ClimaFontes {
     } catch (e: Exception) {
         Log.w("TvLauncher.Local", "chuva multi-modelo falhou: ${e.javaClass.simpleName}")
         null
-    }
-
-    private fun registrarComparacao(ctx: Context, ponto: Localizacao.Ponto, medida: Medida?) {
-        val agora = System.currentTimeMillis()
-        // ultimaComparacaoMs zerava a cada abertura do app -> gravava linha repetida a cada boot. Agora o carimbo
-        // persiste em SharedPreferences, entao vale o intervalo de 30 min mesmo apos reiniciar o launcher.
-        val prefs = ctx.getSharedPreferences(Prefs.CLIMA, Context.MODE_PRIVATE)
-        if (ultimaComparacaoMs == 0L) ultimaComparacaoMs = prefs.getLong("ultima_comparacao", 0)
-        if (agora - ultimaComparacaoMs < 30 * 60_000L) return
-        try {
-            val modelos = listOf("ecmwf_ifs025", "icon_global", "gfs_seamless")
-            val url = "https://api.open-meteo.com/v1/forecast?latitude=${ponto.lat}&longitude=${ponto.lon}" +
-                "&hourly=precipitation_probability,temperature_2m&forecast_hours=1&timezone=auto&models=${modelos.joinToString(",")}"
-            val h = JSONObject(Http.getText(url) ?: return).getJSONObject("hourly")
-            val colunas = modelos.flatMap { m ->
-                listOf(h.getJSONArray("temperature_2m_$m").optString(0), h.getJSONArray("precipitation_probability_$m").optString(0))
-            }
-            val linha = (listOf(java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.US).format(java.util.Date(agora)),
-                medida?.temp?.toString() ?: "", medida?.fenomeno?.toString() ?: "") + colunas).joinToString(",")
-            val arq = java.io.File(ctx.getExternalFilesDir(null), "comparacao_clima.csv")
-            if (!arq.exists()) arq.writeText("hora,metar_temp,metar_fenomeno,ecmwf_temp,ecmwf_chuva,icon_temp,icon_chuva,gfs_temp,gfs_chuva\n")
-            arq.appendText(linha + "\n")
-            ultimaComparacaoMs = agora
-            prefs.edit().putLong("ultima_comparacao", agora).apply()
-        } catch (e: Exception) {
-            Log.w("TvLauncher.Local", "comparacao falhou: ${e.javaClass.simpleName}")
-        }
     }
 
     /**
