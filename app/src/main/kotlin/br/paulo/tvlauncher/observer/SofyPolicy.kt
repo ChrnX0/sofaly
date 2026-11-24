@@ -93,6 +93,32 @@ object SofyPolicy {
         return Decision(place, face, voiceFor(place, now), why)
     }
 
+    /**
+     * Ilha da home (24/11/2026, Sofy em todo o sistema): o recado que fica na pílula, o mais velho primeiro. Antes o
+     * [Place.HOME_CARD] não tinha lugar na tela e a maior parte das falas sumia. [onIsland] = os que já entraram na Ilha:
+     * esses continuam lá (o teto foi gasto quando entraram) até serem vistos, vencerem ou o estado acabar. Pergunta fica
+     * de fora até a Ilha saber responder.
+     */
+    fun islandNote(notes: List<ObserverCore.Note>, now: Now, onIsland: Set<String>): ObserverCore.Note? =
+        notes.filter { !it.seen && it.expiresAt > now.at && it.step != ObserverCore.Step.QUESTION }.sortedBy { it.at }
+            .firstOrNull { it.id in onIsland || decide(it, now).place == Place.HOME_CARD }
+
+    /** Janela do resumo da manhã na Ilha: das 6h ao meio-dia. */
+    const val MORNING_FROM_MIN = 6 * 60
+    const val MORNING_UNTIL_MIN = 12 * 60
+
+    /**
+     * O resumo da manhã na Ilha (o [Place.MORNING] também não tinha tela): ao acordar a TV de manhã, o que a Sofy viu ou
+     * fez de madrugada e o que fez e dá para desfazer, ainda não visto. [minuteOf] = minuto do dia de um instante (fuso
+     * da TV). Fora da janela, nada. Só observar não entra (fica no Diário), nem pergunta nem tipo calado.
+     */
+    fun morningNotes(notes: List<ObserverCore.Note>, now: Now, minuteOf: (Long) -> Int): List<ObserverCore.Note> =
+        if (now.minuteOfDay !in MORNING_FROM_MIN until MORNING_UNTIL_MIN) emptyList()
+        else notes.filter {
+            !it.seen && it.expiresAt > now.at && it.step != ObserverCore.Step.OBSERVED && it.step != ObserverCore.Step.QUESTION &&
+                !muted(it.typeKey, now.mutedUntil, now.at) && (night(minuteOf(it.at)) || it.step == ObserverCore.Step.ACTED_REVERSIBLE)
+        }.sortedBy { it.at }
+
     /** Voz só onde a fala aparece na hora, nunca de madrugada nem por cima de vídeo/música. */
     fun voiceFor(place: Place, now: Now): Voice = when {
         place != Place.OVERLAY && place != Place.HOME_CARD -> Voice.NONE
