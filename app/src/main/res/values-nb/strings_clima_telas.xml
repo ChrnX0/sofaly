@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Nå og tips</string>
+    <string name="cl_pg_horas">Neste timer og dager</string>
+    <string name="cl_pg_detalhes">Detaljer, luft, sol og måne</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Det regner nå. Det bør gi seg rundt %1$s.</string>
+    <string name="cl_f_segue">Det regner nå, og det bør fortsette de neste timene.</string>
+    <string name="cl_f_chuva">Regn sannsynlig rundt %1$s (%2$s).</string>
+    <string name="cl_f_calor">Varm dag: opptil %1$d° rundt %2$s. Drikk vann.</string>
+    <string name="cl_f_frio">Kulde i vente: ned til %1$d°. Kle deg varmt.</string>
+    <string name="cl_f_sol">Sterk sol fra %1$s til %2$s. Bruk solkrem.</string>
+    <string name="cl_f_amanha">Ikke regn i dag. Regn er sannsynlig i morgen (%1$s).</string>
+    <string name="cl_f_calmo">Ikke regn ventet i dag. Høyeste %1$d°.</string>
+    <string name="cl_d_guarda">Paraply</string>
+    <string name="cl_d_varal">Klesvask ute</string>
+    <string name="cl_d_sair">Godt tidspunkt å gå ut</string>
+    <string name="cl_v_agora">Nå</string>
+    <string name="cl_v_sim_as">Ja, kl. %1$s</string>
+    <string name="cl_v_talvez">Kanskje</string>
+    <string name="cl_v_nao">Ikke nødvendig</string>
+    <string name="cl_v_ate">Til %1$s</string>
+    <string name="cl_v_seca">Tørker i dag</string>
+    <string name="cl_v_melhor_nao">Helst ikke</string>
+    <string name="cl_v_amanha_sim">I morgen, ja</string>
+    <string name="cl_v_amanha_nao">Ikke i morgen</string>
+    <string name="cl_v_as">Kl. %1$s</string>
+    <string name="cl_v_amanha_as">I morgen %1$s</string>
+    <string name="cl_v_hoje_nao">Ikke i dag</string>
+</resources>

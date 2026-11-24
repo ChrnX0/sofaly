@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Forbindelsen falt ut. Prøver igjen (%1$d av %2$d)…</string>
+    <string name="vod_proximo_episodio">Neste episode</string>
+    <string name="vod_proximo_agora">Se nå · %1$d s</string>
+    <string name="vod_proximo_cancelar">Avbryt</string>
+    <string name="vod_proximo_continuar">Fortsett å se</string>
+    <string name="vod_ainda_assistindo">Ser du fortsatt på?</string>
+    <string name="vod_ainda_assistindo_texto">Noen episoder ble spilt av uten at noen rørte fjernkontrollen, så den neste venter på deg.</string>
+    <string name="vod_desligar_ao_fim">Slå av TV-en når dette slutter</string>
+    <string name="vod_legenda_tamanho_titulo">Undertekststørrelse</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Liten</item>
+        <item>Normal</item>
+        <item>Stor</item>
+        <item>Enorm</item>
+    </string-array>
+</resources>

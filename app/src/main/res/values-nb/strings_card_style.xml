@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Finjustering</string>
+    <string name="ft_dica">OK eller ▶ ◀ endrer · TILBAKE lukker</string>
+    <string name="ft_abrir">Juster mens du ser startskjermen</string>
+    <string name="ft_abrir_det">Skrift, klokke, uthevingsfarge, hjørner, glød og størrelse, direkte</string>
+    <string name="cs_destaque">Uthevingsfarge</string>
+    <string name="cs_cantos">Hjørner</string>
+    <string name="cs_brilho">Fokusglød</string>
+    <string name="cs_tamanho">Korsets størrelse</string>
+    <string name="cs_ceu">Himmel</string>
+    <string name="cs_lilas">Syrin</string>
+    <string name="cs_retos">Firkantet</string>
+    <string name="cs_redondos">Runde</string>
+    <string name="cs_sem">Av</string>
+    <string name="cs_suave">Myk</string>
+    <string name="cs_forte">Sterk</string>
+    <string name="cs_menor">Mindre</string>
+    <string name="cs_maior">Større</string>
+    <string name="bg_tintura">Farge over bakgrunnen</string>
+    <string name="bg_cor">Bakgrunnsfarge</string>
+    <string name="bg_desfoque">Bakgrunnsuskarphet</string>
+    <string name="bg_transicao">Bildeovergang</string>
+    <string name="bg_novo">Ny bakgrunn nå</string>
+    <string name="bg_solida">Ensfarget</string>
+    <string name="bg_destaque">Utheving</string>
+    <string name="bg_noite">Natt</string>
+    <string name="bg_mata">Skog</string>
+    <string name="bg_brasa">Glør</string>
+    <string name="bg_grafite">Grafitt</string>
+    <string name="bg_corte">Kutt</string>
+    <string name="bg_lenta">Langsom</string>
+    <string name="bg_trocado">Endret</string>
+    <string name="bg_nao_troca">Denne bakgrunnen endres ikke</string>
+    <string name="bg_camera">Hjemmekamera som bakgrunn</string>
+    <string name="bg_campainha">Dørklokkekamera som bakgrunn</string>
+    <string name="bg_nenhuma">Ingen</string>
+    <string name="bg_ligado">På</string>
+</resources>

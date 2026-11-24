@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Barne-PIN</string>
+    <string name="fam_pin_det">En andre PIN-kode for å låse opp kanaler, skjulte kategorier og leggetid foran barna. Panelets PIN-kode virker fortsatt overalt.</string>
+    <string name="fam_pin_ok">Barne-PIN lagret</string>
+    <string name="fam_pin_igual">Barne-PIN må være forskjellig fra panelets PIN-kode</string>
+    <string name="fam_trocar">Endre barne-PIN</string>
+    <string name="fam_apagar">Fjern barne-PIN</string>
+    <string name="fam_apagado">Barne-PIN fjernet: nå låser bare panelets PIN-kode opp</string>
+    <string name="extras_TEMPO_TELA">Daglig skjermtid (når den er brukt opp, åpnes bare tillatte apper)</string>
+    <string name="tela_titulo">Skjermtid</string>
+    <string name="tela_acabou">Dagens skjermtid er brukt opp. Vi ses i morgen!</string>
+    <string name="tela_5min">5 minutter skjermtid igjen i dag</string>
+    <string name="tela_pin">PIN-kode for å endre skjermtiden</string>
+    <string name="tela_cota_linha">Skjermtid per dag: %1$s (igjen i dag: %2$s)</string>
+    <string name="tela_mais">Gi %1$d minutter til i dag</string>
+    <string name="tela_mais_ok">%1$d minutter til for i dag</string>
+    <string name="tela_h">t</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Kalender for alle TV-ens Google-kontoer samlet</string>
+    <string name="cal_todas_contas">Alle kontoer på TV-en (%1$d)</string>
+    <string name="tm_tempo_esgotado">Tiden er ute</string>
+    <string name="painel_desligado_pin">Nettpanelet slått av: feil PIN-kode for mange ganger</string>
+    <string name="tm_crono">Stoppeklokke</string>
+    <string name="tm_crono_iniciar">Start stoppeklokken</string>
+    <string name="tm_crono_parar">Stopp stoppeklokken</string>
+    <string name="tm_crono_comecou">Stoppeklokken startet: den vises på startskjermen</string>
+    <string name="tm_crono_marcou">Stoppeklokken stoppet på %1$s</string>
+    <string name="som_canal">Siste direkte-TV-kanal</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screensaver remote keys (idea 28) -->
+    <string name="pt_dica_dispensar">OK avviser · ◀ ▶ flytt</string>
+    <string name="pt_dica_pausar">OK setter på pause eller fortsetter · ◀ ▶ flytt</string>
+    <string name="pt_dica_andar">◀ ▶ flytt · andre taster lukker</string>
+    <!-- Screensaver photos from a network folder (idea 27) -->
+    <string name="rede_fotos_usar">Bruk disse bildene i skjermspareren</string>
+    <string name="rede_fotos_parar">Slutt å bruke disse bildene i skjermspareren</string>
+    <plurals name="rede_fotos_sub">
+        <item quantity="one">%1$d bilde · kopiert til TV-en, virker med datamaskinen av</item>
+        <item quantity="other">%1$d bilder · kopiert til TV-en, virker med datamaskinen av</item>
+    </plurals>
+    <string name="rede_fotos_usando">Kopierer bildene. De vises neste gang skjermspareren starter.</string>
+    <string name="rede_fotos_paradas">Skjermspareren bruker ikke lenger denne mappen.</string>
+    <!-- "Network" as a catalog (idea 29) -->
+    <string name="rede_continuar">Fortsett å se</string>
+    <string name="rede_recentes">Nylig lagt til</string>
+    <string name="rede_buscar">Søk</string>
+    <string name="rede_buscar_explica">Filmer, serier, episoder og musikk på denne serveren.</string>
+    <string name="rede_buscar_campo">Navn</string>
+    <string name="rede_buscar_curto">Skriv minst 2 bokstaver.</string>
+    <string name="rede_proximo_em">Neste: %1$s om %2$d s · OK starter nå · alle andre taster avbryter</string>
+    <string name="rede_ainda_assistindo">Ser du fortsatt på? OK starter %1$s</string>
+</resources>

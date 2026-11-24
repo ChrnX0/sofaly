@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player de podcast em tela cheia (PodcastPlayerActivity, 18/11/2026). -->
+<resources>
+    <string name="pl_termina">slutter kl. %1$s</string>
+    <string name="pl_dorme_em">sover om %1$d min</string>
+    <string name="pl_a_seguir">Neste</string>
+    <string name="pl_dormir">Innsovningstidtaker</string>
+    <string name="pl_dormir_min">Om %1$d min</string>
+    <string name="pl_barra_dica">◀ ▶ flytt 10 s · hold for å gå raskere</string>
+    <string name="pl_abrir">Åpne avspilleren</string>
+    <string name="pl_abrir_det">Fullskjerm, med det som kommer etterpå</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Filmer og TV</string>
+    <string name="aa_shelf_video">Videoer</string>
+    <string name="aa_shelf_sports">Sport</string>
+    <string name="aa_shelf_kids">Barn</string>
+    <string name="aa_shelf_music_audio">Musikk og lyd</string>
+    <string name="aa_shelf_news">Nyheter</string>
+    <string name="aa_shelf_games">Spill</string>
+    <string name="aa_shelf_education">Utdanning</string>
+    <string name="aa_shelf_health_fitness">Helse og trening</string>
+    <string name="aa_shelf_lifestyle">Livsstil</string>
+    <string name="aa_shelf_tools">Verktøy</string>
+    <string name="aa_shelf_system">System</string>
+    <string name="aa_shelf_other">Annet</string>
+    <string name="aa_frozen">Frosset</string>
+    <string name="aa_hidden">Skjult</string>
+    <string name="aa_badge_frozen">frosset</string>
+    <string name="aa_badge_hidden">skjult</string>
+    <string name="aa_lock">Skjult (%1$d)</string>
+    <string name="aa_count_hidden">skjult: %1$d</string>
+    <string name="aa_count_frozen">frosset: %1$d</string>
+    <string name="aa_pin_title">PIN-kode for å se de skjulte appene</string>
+    <string name="aa_used_today">Åpnet i dag</string>
+    <string name="aa_used_days">Sist åpnet for %1$d dager siden</string>
+    <string name="aa_used_never">Ikke åpnet herfra ennå</string>
+    <string name="aa_size">Bruker %1$s</string>
+    <string name="aa_risk_safe">Trygt å endre, sier databladet</string>
+    <string name="aa_risk_care">Endre med forsiktighet, sier databladet</string>
+    <string name="aa_risk_essential">Viktig for TV-en: ikke frys</string>
+    <string name="aa_tip_idle">Ikke åpnet på %1$d dager. Å fryse frigjør minne og kan angres.</string>
+    <string name="aa_hint_app">OK åpner · hold OK for å flytte, skjule, fryse eller avinstallere</string>
+    <string name="aa_hint_frozen">OK tiner opp og åpner</string>
+    <string name="aa_hint_lock">OK ber om PIN-koden og viser de skjulte appene her</string>
+    <string name="aa_open">Åpne</string>
+    <string name="aa_freeze">Frys</string>
+    <string name="aa_freezing">Fryser %1$s…</string>
+    <string name="aa_frozen_done">%1$s frosset. Om 10 minutter sjekker TV-en at alt fortsatt virker, og angrer det hvis noe stoppet.</string>
+    <string name="aa_freeze_failed">Kunne ikke fryse %1$s: %2$s</string>
+    <string name="aa_unfreeze_open">Tin opp og åpne</string>
+    <string name="aa_unfreeze_refreeze">Åpne og frys igjen når jeg kommer tilbake</string>
+    <string name="aa_unfreezing">Tiner opp %1$s…</string>
+    <string name="aa_unfreeze_failed">Kunne ikke tine opp %1$s: %2$s</string>
+    <string name="aa_move_auto">Automatisk</string>
+</resources>

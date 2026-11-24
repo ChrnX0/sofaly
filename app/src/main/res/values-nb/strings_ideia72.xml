@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Åpne %1$s</string>
+    <string name="l72_tela_previsao">værmeldingen</string>
+    <string name="l72_tela_agenda">kalenderen</string>
+    <string name="l72_tela_despertador">vekkerklokken</string>
+    <string name="l72_tela_configuracoes">launcherens Innstillinger</string>
+    <string name="l72_tela_inicio">startskjermen</string>
+    <string name="l72_despertador">Lag en alarm kl. %1$s (%2$s)</string>
+    <string name="l72_dias_uma">én gang</string>
+    <string name="l72_dias_todos">hver dag</string>
+    <string name="l72_dias_uteis">man til fre</string>
+    <string name="l72_dias_fds">helger</string>
+    <string name="l72_dias_nomes">søn,man,tir,ons,tor,fre,lør</string>
+    <string name="l72_vol_subir">Skru opp volumet</string>
+    <string name="l72_vol_descer">Skru ned volumet</string>
+    <string name="l72_vol_mudo">Lyd av/på</string>
+    <string name="l72_vezes">(%1$d ganger)</string>
+    <string name="l72_midia_pausar">Pause</string>
+    <string name="l72_midia_tocar">Fortsett avspillingen</string>
+    <string name="l72_midia_proxima">Neste</string>
+    <string name="l72_midia_anterior">Forrige</string>
+    <string name="l72_visita_liga">Slå på gjestemodus</string>
+    <string name="l72_visita_desliga">Slå av gjestemodus</string>
+    <string name="l72_canal_pedido">Bytt til kanal %1$s</string>
+    <string name="l72_canal">Bytt til kanal %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Se hva som går på %1$s</string>
+    <string name="l72_casa_ligar">Slå på</string>
+    <string name="l72_casa_desligar">Slå av</string>
+    <string name="l72_casa_alternar">Veksle</string>
+    <string name="l72_casa">%1$s %2$s (hjem)</string>
+    <string name="l72_guia_vazio">%1$s: ingenting i guiden.</string>
+    <string name="l72_guia_agora">%1$s nå: %2$s (til %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: ingenting i guiden nå</string>
+    <string name="l72_guia_depois">Neste: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Spilles nå: %1$s, %2$s. OK setter på pause eller fortsetter; hold OK for å åpne appen</string>
+</resources>

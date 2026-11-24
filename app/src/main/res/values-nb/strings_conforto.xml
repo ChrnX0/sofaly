@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Sammendrag skjult til du ser den</string>
+    <string name="cf_spoiler">Skjul sammendrag av usette episoder</string>
+    <string name="cf_spoiler_det">Et sammendrag vises bare etter at du har startet episoden</string>
+    <string name="cf_segundo">Andre språk</string>
+    <string name="cf_segundo_det">Brukes når en video ikke har lyd eller undertekster på TV-ens språk</string>
+    <string name="cf_nenhum">Ingen</string>
+    <string name="cf_proximo">Nedtelling til neste episode</string>
+    <string name="cf_proximo_det">Hvor lenge det skal ventes før neste episode starter av seg selv</string>
+    <string name="cf_proximo_nao">Ikke start av seg selv</string>
+    <string name="cf_segundos">%1$d s</string>
+    <string name="cf_consent_titulo">Sende data til %1$s?</string>
+    <string name="cf_consent_texto">Å slå dette på sender til %1$s over internett: titlene du merker og ser på denne TV-en og hvor du stoppet. De oppbevares i %1$s-kontoen din under personvernreglene til %1$s. Du kan slå det av når som helst.</string>
+    <string name="cf_consent_sim">Jeg godtar</string>
+</resources>

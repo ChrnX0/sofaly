@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Skriv hva du vil at TV-en skal gjøre</string>
+    <string name="cc_nao_entendi">Jeg forsto ikke. Prøv noe som:</string>
+    <string name="cc_exemplo_1">sett på Globo</string>
+    <string name="cc_exemplo_2">åpne YouTube</string>
+    <string name="cc_exemplo_3">slå av om 30 minutter</string>
+    <string name="cc_abrindo">Åpner %1$s</string>
+    <string name="cc_canal">Setter på %1$s</string>
+    <string name="cc_o_que_passa">Hva som går på %1$s</string>
+    <string name="cc_timer">Påminnelse om %1$d minutter</string>
+    <string name="cc_desligar">TV-en slås av om %1$d minutter</string>
+    <string name="cc_desligar_cancelar">Innsovningstidtakeren avbrutt</string>
+    <string name="cc_volume_subir">Volum opp</string>
+    <string name="cc_volume_descer">Volum ned</string>
+    <string name="cc_mudo">Lyd av/på</string>
+    <string name="cc_pausar">Setter på pause</string>
+    <string name="cc_continuar">Spiller av</string>
+    <string name="cc_tela_previsao">værmeldingen</string>
+    <string name="cc_tela_agenda">kalenderen</string>
+    <string name="cc_tela_despertador">alarmene</string>
+    <string name="cc_tela_configuracoes">launcherens innstillinger</string>
+    <string name="cc_tela_inicio">startskjermen</string>
+    <string name="cc_confirme_na_tv">%1$s: bekreft med OK på TV-en</string>
+    <string name="cc_nao_fiz">%1$s: ikke utført (%2$s)</string>
+    <string name="cc_aviso_titulo">Telefonpanel</string>
+</resources>

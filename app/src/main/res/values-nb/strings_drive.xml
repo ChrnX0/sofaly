@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Google Disk-konto</string>
+    <string name="drv_destino">Google Disk</string>
+    <string name="drv_conta">Google Disk-konto</string>
+    <string name="drv_nao_conectada">ikke tilkoblet</string>
+    <string name="drv_passos">1. På telefonen, åpne %1$s (eller rett kameraet mot koden til høyre).\n2. Logg inn med en Google-konto som er på denne TV-en, og skriv:\n\n%2$s\n\n3. Gi tilgang til Google Disk. TV-en ser bare filene den lager selv (mappen OneTV-backup), aldri resten av Disk.\n\nDenne skjermen fortsetter av seg selv.</string>
+    <string name="drv_ok">Ferdig: %1$s er tilkoblet. Velg \"Google Disk\" i linjen Ekstra kopi, så går den nattlige sikkerhetskopien også dit.</string>
+    <string name="drv_sem_google">Google-innlogging er ikke satt opp på denne TV-en ennå.\n\nSett det opp i nettpanelet > fanen Claude (din egen OAuth-klient, typen \"TVs and Limited Input devices\"), slå på Google Drive API i det samme Google Cloud-prosjektet og kom tilbake hit.</string>
+    <string name="drv_desconectar_pergunta">Koble fra %1$s? Kopiene som allerede er i Google Disk blir der; TV-en slutter å sende nye.</string>
+    <string name="drv_desconectar">Koble fra</string>
+    <string name="drv_restaurar">Gjenopprett fra Google Disk</string>
+    <string name="drv_precisa_conta">Koble til Google Disk-kontoen først (linjen ovenfor).</string>
+    <string name="drv_falhou">Det virket ikke: %1$s</string>
+    <string name="drv_nenhuma">Det finnes ingen kopier i mappen OneTV-backup i Google Disk ennå.</string>
+    <string name="drv_escolha">Hvilken kopi?</string>
+    <string name="drv_senha">Passord for sikkerhetskopien</string>
+    <string name="drv_senha_errada">Feil passord for sikkerhetskopien (eller filen ble endret). Ingenting ble gjenopprettet.</string>
+    <string name="drv_restaurado">Gjenopprettet. Launcheren starter på nytt om et øyeblikk.</string>
+</resources>

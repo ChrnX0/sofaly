@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Full opprydding</string>
+    <string name="hos_total_det">Ved utsjekking tømmes dataene til alle apper på TV-en, ikke bare strømming. Googles tjenester og Innstillinger beholdes.</string>
+</resources>

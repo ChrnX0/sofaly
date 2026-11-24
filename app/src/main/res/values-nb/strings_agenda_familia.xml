@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Familieplan</string>
+    <string name="agf_sub">På det fastsatte tidspunktet bytter TV-en til den profilen av seg selv. En barneprofil slår på barnemodus og leggetid.</string>
+    <string name="agf_cfg_det">Bytter satt: %1$d. Profilen endres av seg selv på det fastsatte tidspunktet.</string>
+    <string name="agf_adicionar">Legg til et bytte</string>
+    <string name="agf_adicionar_det">Hvis profil, hvilke dager og hvilket tidspunkt.</string>
+    <string name="agf_quem">Bytte til hvis profil?</string>
+    <string name="agf_dias">Hvilke dager?</string>
+    <string name="agf_hora">Hvilket tidspunkt?</string>
+    <string name="agf_todos">Hver dag</string>
+    <string name="agf_uteis">Mandag til fredag</string>
+    <string name="agf_fds">Lørdag og søndag</string>
+    <string name="agf_alguns">Noen dager</string>
+    <string name="agf_apagar">Slette dette byttet?</string>
+    <string name="agf_apagar_sim">Slett</string>
+    <string name="agf_cheia">Planen er full (12 bytter).</string>
+    <string name="agf_sem_contas">Det finnes ingen profiler på denne TV-en ennå (Google-kontoer).</string>
+</resources>

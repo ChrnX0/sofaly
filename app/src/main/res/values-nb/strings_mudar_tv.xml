@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Hent fra en annen TV</string>
+    <string name="mtv_qr_desc">QR-kode for å hente innstillinger fra en annen TV</string>
+    <string name="mtv_instrucoes">På den GAMLE TV-en, åpne panelet (telefon eller datamaskin), gå til System › Sikkerhetskopi › \"Flytt til en ny TV\" og skann denne QR-koden eller skriv koden nedenfor.\nAlt går kryptert, bare til denne TV-en. Koden varer %1$s.</string>
+    <string name="mtv_recebendo">Mottar… ikke slå av TV-en.</string>
+    <string name="mtv_pronto">Alt kom fra %1$s. TV-en starter på nytt nå; deretter kommer appene dine tilbake én etter én.</string>
+    <string name="mtv_erro">Det virket ikke: %1$s\nIngenting ble endret på denne TV-en. Trykk på \"%2$s\" for å prøve igjen.</string>
+    <string name="mtv_venceu">Koden er utløpt (den varer 10 min).\nTrykk på \"%1$s\" for å vise en ny.</string>
+    <string name="mtv_cfg_det">Den gamle TV-ens innstillinger, PIN-kode, kanaler og apper på 2 minutter, med en QR-kode</string>
+    <string name="mtv_fila_titulo">Appene dine kommer tilbake</string>
+    <string name="mtv_fila_texto">App %1$d av %2$d. Åpne den i Play Butikk og trykk Installer; når du kommer tilbake, vises den neste.</string>
+    <string name="mtv_fila_abrir">Åpne i Play Butikk</string>
+    <string name="mtv_fila_pular">Hopp over</string>
+    <string name="mtv_fila_depois">Senere</string>
+    <string name="mtv_fila_fim">Alle appene fra den andre TV-en er her.</string>
+    <string name="mtv_fila_cfg_det">%1$d apper fra den andre TV-en gjenstår å installere</string>
+    <string name="mtv_diario">Hentet fra %1$s: innstillinger gjenopprettet, %2$d apper å installere</string>
+    <string name="mtv_diario_enviado">Sendt til en ny TV: innstillinger og %1$d apper</string>
+</resources>

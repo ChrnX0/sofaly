@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Merk introens start her (%1$s)</string>
+    <string name="abertura_marcar_fim">Merk introens slutt her (%1$s)</string>
+    <string name="abertura_apagar">Slett intromerkingen</string>
+    <string name="abertura_inicio_marcado">Introens start merket ved %1$s. Merk nå slutten i ▼-menyen</string>
+    <string name="abertura_salva">Intro lagret: %1$s til %2$s. De neste episodene tilbyr å hoppe over den</string>
+    <string name="abertura_falta_inicio">Merk introens start først</string>
+    <string name="abertura_invalida">Det ligner ikke en intro: den må vare 10 s til 5 min og starte innenfor de første 15 min</string>
+    <string name="abertura_apagada">Intromerkingen er slettet</string>
+    <string name="abertura_pular">Hopp over intro · OK</string>
+</resources>

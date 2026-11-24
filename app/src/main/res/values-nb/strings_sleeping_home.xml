@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Timer</string>
+    <string name="sh_dias">Dager</string>
+    <string name="sh_dicas">Tips</string>
+    <string name="sh_ar">Luft</string>
+    <string name="sh_orvalho">duggpunkt %1$d°</string>
+    <string name="sh_nuvens">Skyer</string>
+    <string name="sh_nascer">Soloppgang</string>
+    <string name="sh_por">Solnedgang</string>
+    <string name="sh_duracao">Dagens lengde</string>
+    <string name="sh_horas_min">%1$dt%2$02d</string>
+    <string name="sh_dourada">Gyllen time</string>
+    <string name="sh_fase">Fase</string>
+    <string name="sh_iluminada">%1$s opplyst</string>
+    <string name="sh_cheia">Fullmåne</string>
+    <string name="sh_nova">Nymåne</string>
+    <string name="sh_em_dias">om %1$d d</string>
+    <string name="sh_rodar">Skift den nedre stripen</string>
+    <string name="sh_rodar_det">På skjermspareren skifter den nedre stripen av seg selv. ↑ og ↓ skifter den med en gang.</string>
+    <string name="sh_rodar_desl">Av</string>
+    <string name="sh_rodar_s">Hvert %1$d. sekund</string>
+    <string name="sh_rodar_min">Hvert minutt</string>
+    <string name="sh_vidro">Glass bak den nedre stripen</string>
+    <string name="sh_vidro_det">Et glasspanel bak stripen. Av: bare en tynn linje.</string>
+    <string name="sh_fundo">Skjermsparerens bakgrunn</string>
+    <string name="sh_fundo_det">Hva som er bak klokken på skjermspareren: et annet tema, et bilde, en video eller flere som skifter.</string>
+    <string name="sh_fundo_home">Samme som startskjermen</string>
+    <string name="sh_fundo_fotos">Bilder og videoer som skifter</string>
+    <string name="sh_fundo_arquivo">Én fil bare for skjermspareren</string>
+</resources>

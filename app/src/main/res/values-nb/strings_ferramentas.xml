@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Verktøy</string>
+    <string name="cont_mais_opcoes">Flere alternativer</string>
+    <string name="tl_proximo">Neste: %1$s</string>
+    <string name="tl_clima_sub">Værmelding for de kommende dagene</string>
+    <string name="tl_casa_sub">Lys, kameraer og dørklokke</string>
+    <string name="tl_painel_sub">Bluetooth, lyd, Wi-Fi og tidtaker</string>
+    <string name="tl_config_sub">Alt om launcheren</string>
+    <string name="ac_cartoes">Appkort</string>
+    <string name="ac_coluna">I kolonnen</string>
+    <string name="ac_vitrine">Utstillingsvindu</string>
+    <string name="ac_ver_tudo">Se hva som er i appen</string>
+    <string name="ac_ritmo">Avstand på startskjermen</string>
+    <string name="rt_antes">Som før</string>
+    <string name="rt_a">A · Tettere</string>
+    <string name="rt_b">B · Rammer</string>
+    <string name="rt_c">C · Luftig</string>
+    <string name="ft_foco">Fokus</string>
+    <string name="ft_foco_fio">Linje</string>
+    <string name="ft_foco_veu">Slør</string>
+    <string name="ft_foco_quadro">Boks</string>
+</resources>
