@@ -256,6 +256,7 @@ tasks.withType<Test>().configureEach {
     if (!project.hasProperty("telas")) exclude("br/paulo/tvlauncher/telas/**")
     else filter { includeTestsMatching("br.paulo.tvlauncher.telas.*") }
     systemProperty("telas.atualizar", project.hasProperty("telasAtualizar").toString())
+    systemProperty("telas.todas", project.hasProperty("telasTodas").toString())   // as 26 línguas (24/11/2026)
     systemProperty("telas.auditoria", project.hasProperty("auditoria").toString())
 }
 

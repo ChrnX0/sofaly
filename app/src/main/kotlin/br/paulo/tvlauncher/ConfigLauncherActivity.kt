@@ -1160,7 +1160,9 @@ class ConfigLauncherActivity : Activity() {
         gravity = Gravity.CENTER_VERTICAL
         setPaddingRelative(0, dp(6), 0, dp(6))
         addView(texto(16f, textoSuave, fonteMedia).apply { text = rotulo }, LinearLayout.LayoutParams(dp(230), WRAP))
-        addView(texto(16f, cor ?: textoClaro, fonteMedia).apply { text = valor; maxLines = 3; ellipsize = TextUtils.TruncateAt.END },
+        // Sem corte (24/11/2026): com "…" depois de 3 linhas, a explicação do PIN da Família sumia pela metade em francês,
+        // húngaro, russo e ucraniano. O valor quebra quantas linhas precisar.
+        addView(texto(16f, cor ?: textoClaro, fonteMedia).apply { text = valor },
             LinearLayout.LayoutParams(0, WRAP, 1f))
     }
 

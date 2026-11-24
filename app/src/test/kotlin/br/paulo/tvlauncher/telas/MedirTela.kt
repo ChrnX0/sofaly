@@ -27,8 +27,10 @@ object MedirTela {
         File(saida, "$arquivo.png").outputStream().use { foto.compress(Bitmap.CompressFormat.PNG, 100, it) }
         val escala = RuntimeEnvironment.getApplication().resources.displayMetrics.scaledDensity
         val textos = mutableListOf<Pair<TextView, Rect>>()
+        val sumidos = mutableListOf<TextView>()
         fun andar(v: View) {
             if (v.visibility != View.VISIBLE || v.alpha == 0f) return
+            if (v is TextView && espremido(v)) sumidos += v
             if (v is TextView && v.text.isNotBlank() && v.width > 0 && v.height > 0) {
                 val r = Rect()
                 if (v.getGlobalVisibleRect(r)) textos += v to r
@@ -38,6 +40,7 @@ object MedirTela {
         andar(raiz)
         val p = mutableListOf<String>()
         fun rotulo(t: TextView) = t.text.toString().replace('\n', ' ').trim().take(40)
+        for (t in sumidos) p += "$chave: texto espremido a zero (${t.width}x${t.height}) \"${rotulo(t)}\""
         for ((t, _) in textos) {
             val sp = t.textSize / escala
             if (sp < minimoSp - 0.05f) p += "$chave: letra pequena (${sp}sp) em \"${rotulo(t)}\""
@@ -61,16 +64,8 @@ object MedirTela {
      * visível: o pai corta letras. Fora de lista que rola (a última linha aparece pela metade de propósito).
      */
     fun cortadoNaVertical(t: TextView): String? {
-        var pai = t.parent
-        while (pai is View) {
-            if (pai is android.widget.AbsListView || pai is android.widget.ScrollView || pai is android.widget.HorizontalScrollView ||
-                pai.javaClass.name.contains("RecyclerView")) return null
-            pai = pai.parent
-        }
         val l = t.layout ?: return null
         if (l.lineCount == 0 || !t.getGlobalVisibleRect(Rect())) return null
-        // As linhas, nas coordenadas da própria TextView; sobe pai a pai aplicando posição, rolagem e transformações
-        // (escala do foco, translação), e confere contra cada pai que corta os filhos (clipChildren).
         // A tinta das letras (não a caixa da linha, que em fonte grande sem "font padding" passa um pouco da área sem
         // cortar nada): da primeira à última linha, pelos limites reais dos caracteres.
         // Só letras e algarismos: símbolos de fonte reserva (↑ ↓) dão limites maiores que o desenho no Robolectric
@@ -82,17 +77,50 @@ object MedirTela {
         val ult = l.lineCount - 1
         val b0 = tinta(0); val b1 = tinta(ult)
         if (b0.isEmpty && b1.isEmpty) return null
-        val base = t.totalPaddingTop - t.scrollY
-        val r = android.graphics.RectF(0f, (base + l.getLineBaseline(0) + b0.top).toFloat(), t.width.toFloat(),
+        val base = t.extendedPaddingTop - t.scrollY
+        var r = android.graphics.RectF(0f, (base + l.getLineBaseline(0) + b0.top).toFloat(), t.width.toFloat(),
             (base + l.getLineBaseline(ult) + b1.bottom).toFloat())
+        // Limite de tinta impossível (mais de 1,5× a altura das linhas): o Robolectric mede mal algumas fontes de reserva
+        // (algarismos árabes do relógio: 55..328 numa caixa de 207 px, inteiro na foto). Aí vale a caixa das linhas.
+        val caixa = android.graphics.RectF(0f, (base + l.getLineTop(0)).toFloat(), t.width.toFloat(), (base + l.getLineBottom(ult)).toFloat())
+        if (r.height() > caixa.height() * 1.5f) r = caixa
+        // A própria TextView corta o desenho na área dela menos o padding (revisor, 24/11/2026: altura fixa com 2 linhas
+        // sumia com a 2ª sem aviso).
+        val folga = 4f
+        // Aqui vale a caixa das LINHAS (não a tinta): é ela que a TextView mede para caber; com altura fixa menor, a última
+        // linha fica fora. A tinta de fonte de reserva no Robolectric não é confiável para isso (relógio árabe).
+        if (caixa.top < t.extendedPaddingTop - folga || caixa.bottom > t.height - t.extendedPaddingBottom + folga)
+            return "a própria caixa ${t.height}px, linhas ${caixa.top.toInt()}..${caixa.bottom.toInt()}"
+        // Sobe pai a pai aplicando posição, rolagem e transformações (escala do foco, translação) e confere contra cada pai
+        // que corta os filhos (clipChildren), na borda do padding quando clipToPadding (o padrão). Para ao chegar numa
+        // lista que rola: a última linha dela aparece pela metade de propósito; o que está DENTRO da linha da lista
+        // continua conferido (revisor, 24/11/2026: antes qualquer lista acima isentava o texto inteiro).
         var v: View = t
         while (true) {
             val p = v.parent as? ViewGroup ?: return null
+            if (p is android.widget.AbsListView || p is android.widget.ScrollView || p is android.widget.HorizontalScrollView ||
+                p.javaClass.name.contains("RecyclerView")) return null
             v.matrix.mapRect(r)
             r.offset((v.left - p.scrollX).toFloat(), (v.top - p.scrollY).toFloat())
-            if (p.clipChildren && (r.top < -4f || r.bottom > p.height + 4f))
-                return "${p.javaClass.simpleName} ${p.height}px, letras ${r.top.toInt()}..${r.bottom.toInt()}"
+            if (p.clipChildren) {
+                val cima = if (p.clipToPadding) p.paddingTop.toFloat() else 0f
+                val baixo = if (p.clipToPadding) (p.height - p.paddingBottom).toFloat() else p.height.toFloat()
+                if (r.top < cima - folga || r.bottom > baixo + folga)
+                    return "${p.javaClass.simpleName} ${p.height}px, letras ${r.top.toInt()}..${r.bottom.toInt()}"
+            }
             v = p
         }
+    }
+
+    /**
+     * Texto que existe e devia aparecer, mas a caixa foi espremida a zero (altura ou largura) por um pai de tamanho fixo
+     * (revisor, 24/11/2026: some sem reticências e sem corte, e nenhuma outra checagem via).
+     */
+    fun espremido(t: TextView): Boolean {
+        if (t.text.isBlank() || (t.width > 0 && t.height > 0)) return false
+        var v: View = t
+        while (true) { if (v.visibility != View.VISIBLE || v.alpha == 0f) return false; v = v.parent as? View ?: break }
+        val p = t.parent as? View ?: return false
+        return p.width > 0 && p.height > 0
     }
 }

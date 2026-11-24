@@ -38,7 +38,10 @@ class ConhecerProActivity : Activity() {
                 setPaddingRelative(dp(16), dp(14), dp(16), dp(14))
                 background = Estilo.fundo(context, if (plano == atual) 0x33FFFFFF else 0x1AFFFFFF, Estilo.RAIO, Estilo.VIDRO_BORDA)
                 addView(Estilo.texto(context, Estilo.Papel.TITULO, getString(nome)).apply { textSize = 22f })
-                addView(Estilo.texto(context, Estilo.Papel.CORPO, getString(itens)).apply { setLineSpacing(0f, 1.3f) },
+                addView(Estilo.texto(context, Estilo.Papel.CORPO, getString(itens)).apply {
+                    // Era 1.3 para todos: em japonês e russo a lista do Pro passava do cartão (24/11/2026). A fonte das escritas
+                    // altas (japonês, chinês…) já traz o espaço entre linhas.
+                    setLineSpacing(0f, if (br.paulo.tvlauncher.home.EscritaAlta.tem(text)) 1.0f else 1.15f) },
                     LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
             }
             // Build da Play: Pro e Ultra viram botões que abrem a compra da própria Play, com o preço que ela manda.

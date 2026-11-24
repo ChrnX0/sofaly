@@ -147,7 +147,8 @@ object Moldura {
             includeFontPadding = false
         })
         // 26 dp entre a hora e a data: o mesmo vão da HOME (14 do fim da pílula da hora + 12 do começo da da data).
-        addView(LinearLayout(a).apply {
+        // Mesma data que a HOME: em escrita alta (japonês, árabe, híndi…) vira uma linha só (DataDuasLinhas, 24/11/2026).
+        addView(DataDuasLinhas(a, android.text.format.DateFormat.getBestDateTimePattern(a.resources.configuration.locales[0], "EEEMMMd")).apply {
             orientation = LinearLayout.VERTICAL
             for (fmt in listOf(R.string.fmt_data_dia, R.string.fmt_data_mes)) addView(RelogioTela(a, data = true).apply {
                 format12Hour = a.getString(fmt); format24Hour = a.getString(fmt)

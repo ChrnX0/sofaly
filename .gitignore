@@ -56,3 +56,6 @@ __pycache__/
 .claude/skills/transitions-polish/
 # Taste Skill work folders (screenshots, Chrome profiles)
 .taste-skill/
+
+# Sessões do compilador Kotlin (24/11/2026)
+.kotlin/
