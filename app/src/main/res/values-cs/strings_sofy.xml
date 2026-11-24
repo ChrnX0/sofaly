@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">Televize byla %1$s min bez Wi-Fi. Vypnula jsem ho a zapnula a vrátilo se.</string>
     <string name="observer_tv_restarted_title">Restartovala jsem televizi</string>
     <string name="observer_tv_restarted_text">Wi-Fi bylo pryč %1$s min a vypnutí a zapnutí nestačilo, tak jsem restartovala televizi.</string>
+    <string name="observer_remote_battery_low_title">Slabá baterie ovladače</string>
+    <string name="observer_remote_battery_low_text">Ovladač má %1$s%%. Vyměňte nebo nabijte ji tento týden.</string>
 </resources>

@@ -117,6 +117,10 @@ object Atualizador {
         if (BuildConfig.PLAY || !Config.ATUALIZACAO_AUTOMATICA || android.os.Build.VERSION.SDK_INT < 28) return
         if (System.currentTimeMillis() - prefs(app).getLong(ULTIMA, 0) < INTERVALO_MS) return
         if (telaAcesa(app)) return   // espera a tela apagar: instalar reinicia o launcher
+        // Uma noite só (Sofy, ideia 2): na janela de manutenção + backup, a atualização espera (reiniciaria o launcher no meio).
+        val agoraCal = java.util.Calendar.getInstance()
+        val minuto = agoraCal.get(java.util.Calendar.HOUR_OF_DAY) * 60 + agoraCal.get(java.util.Calendar.MINUTE)
+        if (runCatching { br.paulo.tvlauncher.observer.SofyNight.updateWaits(minuto, br.paulo.tvlauncher.observer.ObserverTv.quietStart(app)) }.getOrDefault(false)) return
         // Confirmações: "Bloqueado" = só confere e avisa (fica pendente para o "Instalar agora" das Configurações).
         val sozinho = ConfirmacoesTv.modo(app, Confirmacoes.Acao.ATUALIZACAO) != Confirmacoes.Modo.BLOQUEAR
         verificar(app, instalar = sozinho, soComTelaApagada = true)

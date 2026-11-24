@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">La TV est restée %1$s min sans Wi-Fi. Je l\'ai éteint puis rallumé, et il est revenu.</string>
     <string name="observer_tv_restarted_title">J\'ai redémarré la TV</string>
     <string name="observer_tv_restarted_text">Le Wi-Fi a disparu %1$s min et le relancer n\'a pas suffi, donc j\'ai redémarré la TV.</string>
+    <string name="observer_remote_battery_low_title">Pile de la télécommande faible</string>
+    <string name="observer_remote_battery_low_text">La télécommande est à %1$s%%. Changez ou rechargez-la cette semaine.</string>
 </resources>

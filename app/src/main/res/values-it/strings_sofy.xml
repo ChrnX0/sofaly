@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">La TV è rimasta %1$s min senza Wi-Fi. L\'ho spento e riacceso, ed è tornato.</string>
     <string name="observer_tv_restarted_title">Ho riavviato la TV</string>
     <string name="observer_tv_restarted_text">Il Wi-Fi è sparito per %1$s min e riaccenderlo non è bastato, quindi ho riavviato la TV.</string>
+    <string name="observer_remote_battery_low_title">Batteria del telecomando bassa</string>
+    <string name="observer_remote_battery_low_text">Il telecomando è al %1$s%%. Cambiala o ricaricala questa settimana.</string>
 </resources>

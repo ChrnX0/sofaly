@@ -72,7 +72,17 @@ object BackupNoturno {
         return true
     }
 
-    fun minutoDoDia(ctx: Context): Int = prefs(ctx).getInt("minuto_do_dia", BackupNoturnoRegras.PADRAO_MINUTO_DO_DIA)
+    /**
+     * Horário do backup. Escolhido à mão: vale o escolhido. Senão, a noite da Sofy (SofyNight, 24/11/2026): 45 min
+     * depois da hora quieta aprendida, logo após a manutenção. Sem nada aprendido a hora quieta é 4h (4h45).
+     */
+    fun minutoDoDia(ctx: Context): Int {
+        val p = prefs(ctx)
+        if (p.contains("minuto_do_dia")) return p.getInt("minuto_do_dia", BackupNoturnoRegras.PADRAO_MINUTO_DO_DIA)
+        return runCatching { br.paulo.tvlauncher.observer.SofyNight.backupMinute(br.paulo.tvlauncher.observer.ObserverTv.quietStart(ctx), null) }
+            .getOrDefault(BackupNoturnoRegras.PADRAO_MINUTO_DO_DIA)
+    }
+    fun horarioEscolhido(ctx: Context): Int? = prefs(ctx).takeIf { it.contains("minuto_do_dia") }?.getInt("minuto_do_dia", 0)
     fun definirMinutoDoDia(ctx: Context, m: Int) {
         prefs(ctx).edit().putInt("minuto_do_dia", Math.floorMod(m, 24 * 60)).apply()
         agendar(ctx)

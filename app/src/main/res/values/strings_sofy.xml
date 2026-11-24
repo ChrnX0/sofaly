@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">The TV was without Wi-Fi for %1$s min. I turned it off and on, and it came back.</string>
     <string name="observer_tv_restarted_title">I restarted the TV</string>
     <string name="observer_tv_restarted_text">The Wi-Fi was gone for %1$s min and turning it off and on was not enough, so I restarted the TV.</string>
+    <string name="observer_remote_battery_low_title">Remote battery is low</string>
+    <string name="observer_remote_battery_low_text">The remote is at %1$s%%. Change or charge it this week.</string>
 </resources>

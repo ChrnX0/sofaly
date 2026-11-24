@@ -14,6 +14,7 @@ import br.paulo.tvlauncher.player.OnDemandTv
 import br.paulo.tvlauncher.network.HistoricoRede
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
 import br.paulo.tvlauncher.privilege.PrivilegioDO
+import org.json.JSONObject
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -116,6 +117,8 @@ object ObserverTv {
         runCatching { GoogleHomeTrimTv.tick(ctx) }   // launcher do Google parado em segundo plano: devolve a memória
         Fundo.rodar("app-profile") { runCatching { AppProfileTv.tick(ctx) }.onFailure { Log.w(TAG, "ficha dos apps: $it") } }
         Fundo.rodar("sofy-self-check") { runCatching { selfCheck(ctx) }.onFailure { Log.w(TAG, "autoexame: $it") } }
+        runCatching { trackDrop(ctx, internet, dbm, agora) }
+        Fundo.rodar("controller-battery") { runCatching { ControllerBatteryTv.tick(ctx) }.onFailure { Log.w(TAG, "pilha: $it") } }
         if (trialsPending) Fundo.rodar("observer-trials") { runCatching { checkTrials(ctx) }.onFailure { Log.w(TAG, "provas: $it") } }
         // O último put passa pelo publish para acordar o juiz uma vez só por amostra.
         publish(ObserverCore.Signal.INTERNET, if (internet) 1 else 0)
@@ -474,6 +477,34 @@ object ObserverTv {
         p.edit().putString("notes", ObserverCore.markSeen(p.getString("notes", null), id, System.currentTimeMillis())).apply()
     }
 
+    // ---------------------------------------------------------------- recados de fora do juiz e causa da queda (ideias 25 e 26)
+
+    /** Um recado que não veio do juiz (pilha do controle, ...): entra na fila e a Sofy decide onde contar. */
+    fun enqueueNote(ctx: Context, n: ObserverCore.Note) {
+        val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        synchronized(this) { p.edit().putString("notes", ObserverCore.enqueue(p.getString("notes", null), n, n.at)).apply() }
+    }
+
+    @Volatile private var drop: DropCause.Episode? = null
+
+    /** Cada amostra de rede: abre/acompanha/fecha a queda; ao fechar, pergunta ao roteador (fora desta thread) e anota a causa. */
+    private fun trackDrop(ctx: Context, internet: Boolean, dbm: Int, now: Long) {
+        val (open, closed) = DropCause.step(drop, internet, dbm, now)
+        drop = open
+        if (closed == null || now - closed.start < DropCause.MIN_DROP_MS) return
+        val app = ctx.applicationContext
+        Fundo.rodar("drop-cause") {
+            val ups = runCatching { br.paulo.tvlauncher.network.UnifiCliente.tempoLigado(app) }.getOrDefault(emptyList())
+            val r = DropCause.classify(closed, now, ups, System.currentTimeMillis()) ?: return@rodar
+            val why = "${r.cause.name}: ${r.why}"
+            logShadow(app, "drop_cause", why)
+            runCatching { Diario.anotar(app, "tv", "Sofy: por que a internet caiu", r.why) }
+            SofyBusTv.emit(app, SofyBus.Source.NETWORK, "drop_" + r.cause.name.lowercase(), ok = false, detail = "${r.minutes} min")
+            app.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putString("last_drop", JSONObject()
+                .put("at", closed.start).put("minutes", r.minutes).put("cause", r.cause.name).put("why", r.why).toString()).apply()
+        }
+    }
+
     // ---------------------------------------------------------------- autoexame e contexto (ideias 38 e 6)
 
     private const val SELF_CHECK_GAP_MS = 6 * 3_600_000L
@@ -584,6 +615,10 @@ object ObserverTv {
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("controllers", runCatching { ControllerBatteryTv.json() }.getOrNull() ?: org.json.JSONArray())
+            .put("night_plan", runCatching { org.json.JSONArray(SofyNight.plan(quietStart(ctx), br.paulo.tvlauncher.BackupNoturno.horarioEscolhido(ctx)).map {
+                org.json.JSONObject().put("task", it.task.name).put("at", "%02d:%02d".format(it.minuteOfDay / 60, it.minuteOfDay % 60)).put("learned", it.learned) }) }.getOrNull() ?: org.json.JSONArray())
             .put("log_total", log.length()).put("log", logNovo)
     }
 

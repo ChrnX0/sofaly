@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">Televisio oli ilman wifiä %1$s min. Sammutin ja käynnistin sen, ja se palasi.</string>
     <string name="observer_tv_restarted_title">Käynnistin television uudelleen</string>
     <string name="observer_tv_restarted_text">Wifi oli poissa %1$s min, eikä uudelleenkäynnistys riittänyt, joten käynnistin television uudelleen.</string>
+    <string name="observer_remote_battery_low_title">Kaukosäätimen akku vähissä</string>
+    <string name="observer_remote_battery_low_text">Kaukosäätimessä on %1$s%%. Vaihda tai lataa tällä viikolla.</string>
 </resources>

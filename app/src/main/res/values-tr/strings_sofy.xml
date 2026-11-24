@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">TV %1$s dk Wi-Fi\'sız kaldı. Kapatıp açtım ve geri geldi.</string>
     <string name="observer_tv_restarted_title">TV\'yi yeniden başlattım</string>
     <string name="observer_tv_restarted_text">Wi-Fi %1$s dk yoktu ve kapatıp açmak yetmedi, bu yüzden TV\'yi yeniden başlattım.</string>
+    <string name="observer_remote_battery_low_title">Kumanda pili azaldı</string>
+    <string name="observer_remote_battery_low_text">Kumanda %%%1$s şarjda. Bu hafta değiştirin ya da şarj edin.</string>
 </resources>

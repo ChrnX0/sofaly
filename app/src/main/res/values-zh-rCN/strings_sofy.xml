@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">电视断开 Wi-Fi %1$s 分钟。我把它关掉再打开，它恢复了。</string>
     <string name="observer_tv_restarted_title">我重启了电视</string>
     <string name="observer_tv_restarted_text">Wi-Fi 断开了 %1$s 分钟，重新打开也不行，所以我重启了电视。</string>
+    <string name="observer_remote_battery_low_title">遥控器电量低</string>
+    <string name="observer_remote_battery_low_text">遥控器电量为 %1$s%%。请在本周内更换或充电。</string>
 </resources>

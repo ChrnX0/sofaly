@@ -21,7 +21,9 @@ object SofyBus {
     /** De onde veio. O nome vai no arquivo e no MCP: nunca renomear (só acrescentar). */
     enum class Source { HOUSE, ALARM, PLAYER, BACKUP, UPDATE, PLUGIN, CRASH, NETWORK, SOFY,
         /** Medidas feitas pela casa (calibração de imagem e som pelo celular, etc.): kind = o que foi medido. */
-        MEASURE }
+        MEASURE,
+        /** Aparelhos ligados à TV (controle, joystick, fone): bateria, atraso. */
+        DEVICE }
 
     data class Event(val at: Long, val source: Source, val kind: String, val ok: Boolean = true, val detail: String = "") {
         val key: String get() = "${source.name.lowercase()}.$kind"

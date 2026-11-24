@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">Телевизор был без Wi-Fi %1$s мин. Я выключила и включила его, и он вернулся.</string>
     <string name="observer_tv_restarted_title">Перезапустила телевизор</string>
     <string name="observer_tv_restarted_text">Wi-Fi пропал на %1$s мин, и перезапуск не помог, поэтому я перезапустила телевизор.</string>
+    <string name="observer_remote_battery_low_title">Батарейка пульта садится</string>
+    <string name="observer_remote_battery_low_text">У пульта %1$s%% заряда. Замените или зарядите на этой неделе.</string>
 </resources>

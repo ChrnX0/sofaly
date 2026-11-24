@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">Tv\'et var uden wifi i %1$s min. Jeg slukkede og tændte det, og det kom tilbage.</string>
     <string name="observer_tv_restarted_title">Jeg genstartede tv\'et</string>
     <string name="observer_tv_restarted_text">Wifi var væk i %1$s min, og sluk og tænd var ikke nok, så jeg genstartede tv\'et.</string>
+    <string name="observer_remote_battery_low_title">Fjernbetjeningens batteri er lavt</string>
+    <string name="observer_remote_battery_low_text">Fjernbetjeningen har %1$s%%. Skift eller oplad den i denne uge.</string>
 </resources>

@@ -70,7 +70,9 @@ object ObserverCore {
         // Fase 3: não é achado do juiz; é o recado de quando a prova desfez um congelamento que quebrou algo ([freezeUndoneNote]).
         FREEZE_UNDONE,
         // 24/11/2026: o que a Sofy fez sozinha pela rede ([actedNote]): religou o Wi-Fi, ou reiniciou a TV porque não bastou.
-        WIFI_RESTARTED, TV_RESTARTED }
+        WIFI_RESTARTED, TV_RESTARTED,
+        // 24/11/2026 (estudo "extrapolar a Sofy"): sugestões dela, que vão à Ilha ([sofyNote]).
+        REMOTE_BATTERY_LOW }
 
     /** Abaixo disto o Android começa a fechar apps em segundo plano num aparelho de 2 GB (inferido; a fase 2 troca pela linha de base da casa). */
     const val LOW_MEMORY_MB = 150L
@@ -282,6 +284,16 @@ object ObserverCore {
             base + "_title", base + "_text", listOf(minutes.toString()), null, kind.name.lowercase(), at + NOTE_TTL_MS)
     }
 
+    /**
+     * Uma fala da Sofy que não vem do juiz (24/11/2026): [step] diz onde ela aparece (SUGGESTS = Ilha da home, com o
+     * freio de sempre). Chaves observer_<kind>_title/_text em todas as línguas (SofyStringsTest).
+     */
+    fun sofyNote(kind: Kind, at: Long, step: Step, args: List<String> = emptyList(), severity: Severity = Severity.WARNING): Note {
+        val base = "observer_" + kind.name.lowercase()
+        return Note("${kind.name}-$at", at, kind, severity, step, State.DONE,
+            base + "_title", base + "_text", args, null, kind.name.lowercase(), at + NOTE_TTL_MS)
+    }
+
     /** Fase 1: o Observador só observa, então todo recado é OBSERVED + DONE, sem desfazer. */
     fun noteFor(f: Finding, at: Long, args: List<String> = emptyList()): Note {
         val base = "observer_" + f.kind.name.lowercase()
@@ -299,7 +311,7 @@ object ObserverCore {
         Kind.MEMORY_PRESSURE -> Signal.MEMORY_PRESSURE
         Kind.SLOW_HOME, Kind.UNUSUAL_FRAMES -> Signal.SLOW_FRAMES_PCT
         Kind.LOW_DISK -> Signal.DISK_FREE_MB
-        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED -> null
+        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW -> null
     }
 
     fun argsFor(kind: Kind, snapshot: Map<Signal, Reading>): List<String> {

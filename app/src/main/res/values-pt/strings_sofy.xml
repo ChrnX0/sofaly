@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">A TV ficou %1$s min sem Wi-Fi. Desliguei e liguei de novo, e ele voltou.</string>
     <string name="observer_tv_restarted_title">Reiniciei a TV</string>
     <string name="observer_tv_restarted_text">O Wi-Fi sumiu por %1$s min e religar não bastou, então reiniciei a TV.</string>
+    <string name="observer_remote_battery_low_title">Pilha do controle no fim</string>
+    <string name="observer_remote_battery_low_text">O controle está com %1$s%% de carga. Troque ou carregue nesta semana.</string>
 </resources>

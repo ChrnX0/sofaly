@@ -21,4 +21,6 @@
     <string name="observer_wifi_restarted_text">TV가 %1$s분 동안 Wi-Fi 없이 있었습니다. 껐다 켰더니 돌아왔습니다.</string>
     <string name="observer_tv_restarted_title">TV를 다시 시작했습니다</string>
     <string name="observer_tv_restarted_text">Wi-Fi가 %1$s분 동안 끊겼고 껐다 켜도 안 돼서 TV를 다시 시작했습니다.</string>
+    <string name="observer_remote_battery_low_title">리모컨 배터리 부족</string>
+    <string name="observer_remote_battery_low_text">리모컨 배터리가 %1$s%%입니다. 이번 주에 교체하거나 충전하세요.</string>
 </resources>
