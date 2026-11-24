@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Optionen für %1$s</string>
+    <string name="wo_ordenar">Sortieren</string>
+    <string name="wo_ordenar_de">%1$s sortieren</string>
+    <string name="wo_por_uso">Meistgenutzte zuerst</string>
+    <string name="wo_az">A bis Z</string>
+    <string name="wo_a_mao">Meine eigene Reihenfolge</string>
+    <string name="wo_renomear_mundo">Kategorie umbenennen</string>
+    <string name="wo_icone_mundo">Symbol der Kategorie ändern</string>
+    <string name="wo_esconder">Kategorie ausblenden</string>
+    <string name="wo_mostrar">Ausgeblendete Kategorien zeigen (%1$d)</string>
+    <string name="wo_padrao">Zurücksetzen</string>
+    <string name="wo_subir">Nach oben</string>
+    <string name="wo_descer">Nach unten</string>
+    <string name="wo_renomear_app">Umbenennen</string>
+    <string name="wo_vazio_original">Leer = ursprünglicher Name</string>
+    <string name="wo_so_icone">Nur das Symbol zeigen</string>
+    <string name="wo_com_nome">Namen zeigen</string>
+    <string name="wo_nomes_titulo">Namen der Kategorien</string>
+    <string name="wo_so_icone_curto">Nur Symbol</string>
+    <string name="wo_com_nome_curto">Mit Namen</string>
+    <string name="co_titulo">Weiterschauen</string>
+    <string name="co_mostrar">Sichtbar</string>
+    <string name="co_esconder">Ausgeblendet</string>
+    <string name="wo_nomes_det">Name unter dem Symbol jeder Kategorie oder nur das Symbol</string>
+    <string name="co_det">Was halb fertig blieb, oben in jeder Kategorie</string>
+    <string name="tec_cfg_det">Drücken, halten, doppelt und dreifach für jede Taste</string>
+    <string name="bb_titulo">Startbildschirm-Layout</string>
+    <string name="bb_cruz">Kreuz</string>
+    <string name="bb_barra">Leiste unten</string>
+    <string name="bb_det">Kategorien als Kreuz oder fest unten, mit den Apps darüber (▲)</string>
+</resources>

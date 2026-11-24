@@ -31,8 +31,12 @@ enum class CrossRhythm(
 ) {
     /** Como era até 21/11/2026. */
     BEFORE(250f, 225f, 96f, 112, 94, 84, 70, 0.6f, 71f, 94f, 89f, 97f, 670f, 104f, 526f, false, 20, 1f, 3, false),
-    /** A "Ajustada": mesma cruz, sem a faixa vazia: sobe 22 dp, o nome do mundo encosta na linha, nomes no meio. */
-    TIGHT(228f, 225f, 132f, 112, 94, 84, 70, 0.6f, 66f, 92f, 86f, 97f, 660f, 104f, 506f, true, 16, 1f, 3, false),
+    /**
+     * A "Ajustada": mesma cruz, sem a faixa vazia, nomes no meio. 23/11/2026 (Paulo, aprovado no artefato da cruz):
+     * a linha desce 36 dp (228 -> 264) e só 2 itens aparecem embaixo do escolhido (eram 3). Mesmo dia, vendo a Sala:
+     * "precisa descer um pouco" -> mais 24 dp (288); a seta ▼ fica no pé do 2º (500). O resto da coluna continua lá.
+     */
+    TIGHT(288f, 225f, 192f, 112, 94, 84, 70, 0.6f, 66f, 92f, 86f, 97f, 660f, 104f, 500f, true, 16, 1f, 2, false),
     /** B "Quadros": grade de 8 dp, cada ícone num quadro igual, mais ar entre os mundos. */
     FRAMED(240f, 224f, 136f, 104, 96, 80, 72, 0.6f, 72f, 96f, 88f, 96f, 664f, 112f, 520f, true, 24, 1f, 3, true),
     /** C "Ar": ícones menores, mundos de fora mais calmos, 2 vizinhos; a tela respira. */

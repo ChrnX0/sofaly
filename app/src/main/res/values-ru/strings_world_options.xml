@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Параметры: %1$s</string>
+    <string name="wo_ordenar">Сортировка</string>
+    <string name="wo_ordenar_de">Сортировка: %1$s</string>
+    <string name="wo_por_uso">Сначала частые</string>
+    <string name="wo_az">От А до Я</string>
+    <string name="wo_a_mao">Мой порядок</string>
+    <string name="wo_renomear_mundo">Переименовать категорию</string>
+    <string name="wo_icone_mundo">Сменить значок категории</string>
+    <string name="wo_esconder">Скрыть категорию</string>
+    <string name="wo_mostrar">Показать скрытые категории (%1$d)</string>
+    <string name="wo_padrao">Вернуть как было</string>
+    <string name="wo_subir">Выше</string>
+    <string name="wo_descer">Ниже</string>
+    <string name="wo_renomear_app">Переименовать</string>
+    <string name="wo_vazio_original">Пусто = исходное имя</string>
+    <string name="wo_so_icone">Только значок</string>
+    <string name="wo_com_nome">Показывать название</string>
+    <string name="wo_nomes_titulo">Названия категорий</string>
+    <string name="wo_so_icone_curto">Только значок</string>
+    <string name="wo_com_nome_curto">С названием</string>
+    <string name="co_titulo">Продолжить</string>
+    <string name="co_mostrar">Показано</string>
+    <string name="co_esconder">Скрыто</string>
+    <string name="wo_nomes_det">Название под значком каждой категории или только значок</string>
+    <string name="co_det">Недосмотренное — вверху каждой категории</string>
+    <string name="tec_cfg_det">Нажатие, удержание, двойное и тройное для каждой кнопки</string>
+    <string name="bb_titulo">Вид главного экрана</string>
+    <string name="bb_cruz">Крест</string>
+    <string name="bb_barra">Панель внизу</string>
+    <string name="bb_det">Категории крестом или внизу, а приложения над ними (▲)</string>
+</resources>

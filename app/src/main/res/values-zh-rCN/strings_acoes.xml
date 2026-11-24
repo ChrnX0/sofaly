@@ -43,6 +43,7 @@
     <string name="tec_toque">按下</string>
     <string name="tec_segurar">长按</string>
     <string name="tec_duplo">连按两次</string>
+    <string name="tec_triplo">按三下</string>
     <string name="tec_padrao">默认（已保存的应用；长按 3 秒 = 选择）</string>
     <string name="tec_cena">场景 %1$s</string>
     <string name="tec_salvo">已保存 %1$s</string>

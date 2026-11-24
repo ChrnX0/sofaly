@@ -68,6 +68,10 @@ import br.paulo.tvlauncher.home.SplashOverlay
 import br.paulo.tvlauncher.home.SplashRules
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.home.abrirCongelado
+import br.paulo.tvlauncher.home.abrirPasta
+import br.paulo.tvlauncher.home.novaPasta
+import br.paulo.tvlauncher.home.menuPasta
+import br.paulo.tvlauncher.home.montarTodos
 import br.paulo.tvlauncher.home.aplicarIlha
 import br.paulo.tvlauncher.home.arteDoItem
 import br.paulo.tvlauncher.home.vitrineDoItem
@@ -412,7 +416,9 @@ class MainActivity : Activity() {
         "${AltoContraste.ligado(this)}|${TamanhoTexto.atual(this)}|${PacoteIcones.versao(this)}|${LayoutHome.iconesTrocados(this)}|" +
         "${br.paulo.tvlauncher.settings.FontChoice.currentId(this)}|${br.paulo.tvlauncher.settings.ClockStyle.format(this)}|${br.paulo.tvlauncher.settings.ClockStyle.color(this)}|" +
         "${br.paulo.tvlauncher.settings.CardStyle.assinatura(this)}|${br.paulo.tvlauncher.settings.BackgroundStyle.assinatura(this)}|" +
-        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}"   // ajuste fino (21/11/2026)
+        "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
+        "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
+        "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.on(this)}"   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
 
     override fun onResume() {
         super.onResume()
@@ -1953,7 +1959,8 @@ class MainActivity : Activity() {
         raiz.addView(c, 0, FrameLayout.LayoutParams(MATCH, MATCH))   // atrás da barra de cima (o véu não a escurece)
         cruz = c
         c.id = View.generateViewId()
-        c.detalheEmCima = barraCruz == LayoutHome.BarraCruz.RELOGIO
+        c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)
+        c.barra = br.paulo.tvlauncher.home.BottomBar.on(this)   // 23/11/2026: 2º jeito, categorias paradas embaixo
         c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
         // Proposta B dos cartões dos apps: a vitrine no alto à direita, acima da linha das categorias (AppShowcase).
         if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.SHOWCASE)
@@ -1972,7 +1979,7 @@ class MainActivity : Activity() {
         c.aoPasso = { t -> deslizarArte(t) }
         // Ajuste fino (CardStyle): brilho atrás do escolhido e tamanho da cruz, com o centro no cruzamento (não sai do lugar).
         c.brilho = br.paulo.tvlauncher.settings.CardStyle.glow(this).alpha
-        br.paulo.tvlauncher.settings.CardStyle.size(this).scale.takeIf { it != 1f }?.let { k ->
+        br.paulo.tvlauncher.settings.CardStyle.size(this).scale.takeIf { it != 1f && !c.barra }?.let { k ->
             val d = resources.displayMetrics.density
             c.pivotX = HomeCruz.COLUNA * d; c.pivotY = HomeCruz.LINHA * d; c.scaleX = k; c.scaleY = k
         }
@@ -2094,7 +2101,8 @@ class MainActivity : Activity() {
         ilhaPilula?.animate()?.alpha(if (recolher) 1f else 0f)?.translationY(if (recolher) 0f else -dp(16).toFloat())?.setDuration(d)?.start()
         ilhaVeu?.animate()?.alpha(if (recolher) 0f else 1f)?.setDuration(d)?.start()
         relogioCruz?.animate()?.alpha(if (recolher) 1f else 0.35f)?.setDuration(d)?.start()
-        cruz?.animate()?.translationY(if (recolher) 0f else dp(34).toFloat())?.setDuration(d)?.start()
+        // Na barra embaixo a placa mora no pé da tela: descer 34 dp a cortaria.
+        if (cruz?.barra != true) cruz?.animate()?.translationY(if (recolher) 0f else dp(34).toFloat())?.setDuration(d)?.start()
     }
 
     /** Relógio grande da barra RELOGIO: hora, data por extenso e o tempo de agora (espelha a pílula do clima). */
@@ -2220,7 +2228,9 @@ class MainActivity : Activity() {
 
     /** Lê, na fila dos apps, o que o Continuar da cruz mostra além de TV/série/filme. */
     private fun lerContinuarCruz() {
-        cartoesApps = if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.OFF) emptyList()
+        // Os canais dos apps também alimentam o painel de "Todos os apps" na forma Pastas e canais (B, 22/11/2026).
+        cartoesApps = if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.OFF &&
+            br.paulo.tvlauncher.home.AllAppsLayout.mode(this) != br.paulo.tvlauncher.home.AllAppsLayout.Mode.FOLDERS) emptyList()
             else br.paulo.tvlauncher.home.AppChannels.ler(this)
         radioCruz = runCatching { Radios.ultima(this) }.getOrNull()
         midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis()).associateBy { it.pacote } }.getOrDefault(emptyMap())
@@ -2449,6 +2459,9 @@ class MainActivity : Activity() {
         set(v) { AppShelf.sheetCats = v }
     /** Os escondidos aparecem nesta abertura da tela (o PIN foi certo). Fechar a tela tranca de novo. */
     internal var escondidosLiberados = false
+    /** "Todos os apps": a pasta aberta (id de AppFolders; null = nenhuma) e o filtro da Biblioteca (AllAppsLayout). */
+    internal var pastaAberta: String? = null
+    internal var filtroTodos = br.paulo.tvlauncher.home.AllAppsLayout.Filter.ALL
     /** O que custa disco/IPC, lido fora da tela a cada abertura: categoria das fichas, apps de sistema e congelados. */
     internal class DadosTodos(val sistema: Set<String>, val congelados: List<Item>)
     @Volatile internal var dadosTodos: DadosTodos? = null
@@ -2467,18 +2480,32 @@ class MainActivity : Activity() {
         override fun open(card: AllAppsScreen.Card) = when (card.kind) {
             AllAppsScreen.Kind.LOCK -> liberarEscondidos()
             AllAppsScreen.Kind.FROZEN -> abrirCongelado(card)
+            AllAppsScreen.Kind.FOLDER -> abrirPasta(card.pkg)
+            AllAppsScreen.Kind.NEW_FOLDER -> novaPasta(null)
             else -> abrir(card.pkg)
         }
 
         override fun hold(card: AllAppsScreen.Card) = when (card.kind) {
             AllAppsScreen.Kind.LOCK -> liberarEscondidos()
             AllAppsScreen.Kind.FROZEN -> abrirCongelado(card)
+            AllAppsScreen.Kind.FOLDER -> menuPasta(card.pkg)
+            AllAppsScreen.Kind.NEW_FOLDER -> novaPasta(null)
             else -> menuTodos(card)
+        }
+
+        override fun filter(f: br.paulo.tvlauncher.home.AllAppsLayout.Filter) {
+            if (f == br.paulo.tvlauncher.home.AllAppsLayout.Filter.HIDDEN && !escondidosLiberados) { filtroTodos = f; liberarEscondidos(); return }
+            filtroTodos = f; pastaAberta = null; montarTodos(null)
         }
 
         override fun focused(card: AllAppsScreen.Card) {
             if (card.kind == AllAppsScreen.Kind.LOCK) {
                 telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, emptyList(), null, getString(R.string.aa_hint_lock)))
+                return
+            }
+            if (card.kind == AllAppsScreen.Kind.FOLDER || card.kind == AllAppsScreen.Kind.NEW_FOLDER) {
+                val n = br.paulo.tvlauncher.home.AppFolders.all(this@MainActivity).firstOrNull { it.id == card.pkg }?.apps?.size
+                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, listOfNotNull(n?.let { getString(R.string.cruz_apps_n, it) }), null, getString(R.string.aa_hint_folder)))
                 return
             }
             Fundo.rodar("TodosInfo") {
@@ -2515,7 +2542,11 @@ class MainActivity : Activity() {
         if (event.action == KeyEvent.ACTION_DOWN && SplashOverlay.showing(this)) SplashOverlay.dismiss(this)
         if (teclaDoAmbiente(event)) return true
         // Voltar no "Todos os apps" volta para a cruz (na cruz, Voltar não faz nada).
-        if (todosAbertos && event.keyCode == KeyEvent.KEYCODE_BACK) { if (event.action == KeyEvent.ACTION_UP) fecharTodos(); return true }
+        // Com uma pasta aberta, Voltar fecha só a pasta (as prateleiras voltam com o foco nela).
+        if (todosAbertos && event.keyCode == KeyEvent.KEYCODE_BACK) {
+            if (event.action == KeyEvent.ACTION_UP) pastaAberta?.let { id -> pastaAberta = null; montarTodos(id) } ?: fecharTodos()
+            return true
+        }
         if (todosAbertos && telaTodos?.key(event) == true) return true   // OK curto abre, OK segurado = opções
         if (centralAoSegurarCima(event)) return true
         return super.dispatchKeyEvent(event)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Экран «Все приложения»</string>
+    <string name="aa_layout_shelves">Полки</string>
+    <string name="aa_layout_folders">Папки и каналы</string>
+    <string name="aa_layout_library">Библиотека</string>
+    <string name="aa_favoritos">Избранное</string>
+    <string name="aa_pastas">Папки</string>
+    <string name="aa_nova_pasta">Новая папка</string>
+    <string name="aa_por_na_pasta">Добавить в папку…</string>
+    <string name="aa_tirar_da_pasta">Убрать из этой папки</string>
+    <string name="aa_renomear_pasta">Переименовать папку</string>
+    <string name="aa_apagar_pasta">Удалить папку</string>
+    <string name="aa_fixar_cruz">Показать на главном экране</string>
+    <string name="aa_soltar_cruz">Убрать с главного экрана</string>
+    <string name="aa_ordenar">Сортировать все приложения</string>
+    <string name="aa_f_tudo">Все</string>
+    <string name="aa_f_uso">Частые</string>
+    <string name="aa_f_novos">Новые</string>
+    <string name="aa_canais">Сейчас в %1$s</string>
+    <string name="aa_hint_folder">OK — открыть · удерживайте OK для параметров</string>
+</resources>

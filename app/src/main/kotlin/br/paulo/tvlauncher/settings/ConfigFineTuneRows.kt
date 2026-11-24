@@ -15,6 +15,31 @@ internal fun ConfigLauncherActivity.linhasAjusteFino(c: LinearLayout) {
     c.addView(linha(getString(R.string.ft_abrir), getString(R.string.ft_abrir_det), seta = true) {
         br.paulo.tvlauncher.FineTuneActivity.abrir(this)
     }, lp())
+    // Cruz (23/11/2026, Paulo: "adotar nas configs também"): nome das categorias e o Continuar, aqui e no Ajuste fino.
+    val cats = br.paulo.tvlauncher.home.CruzLogica.Categoria.entries
+    fun soIcone() = cats.all { br.paulo.tvlauncher.home.WorldOptions.of(this, it).iconOnly }
+    fun nomeCats() = getString(if (soIcone()) R.string.wo_so_icone_curto else R.string.wo_com_nome_curto)
+    lateinit var linhaNomes: LinhaCfg
+    linhaNomes = linha(getString(R.string.wo_nomes_titulo), getString(R.string.wo_nomes_det), valor = nomeCats()) {
+        val todas = soIcone()
+        for (k in cats) br.paulo.tvlauncher.home.WorldOptions.update(this, k) { it.copy(iconOnly = !todas) }
+        linhaNomes.valor(nomeCats())
+    }
+    c.addView(linhaNomes, lp())
+    fun nomeJeito() = getString(if (br.paulo.tvlauncher.home.BottomBar.on(this)) R.string.bb_barra else R.string.bb_cruz)
+    lateinit var linhaJeito: LinhaCfg
+    linhaJeito = linha(getString(R.string.bb_titulo), getString(R.string.bb_det), valor = nomeJeito()) {
+        br.paulo.tvlauncher.home.BottomBar.set(this, !br.paulo.tvlauncher.home.BottomBar.on(this))
+        linhaJeito.valor(nomeJeito())
+    }
+    c.addView(linhaJeito, lp())
+    fun nomeCont() = getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder)
+    lateinit var linhaCont: LinhaCfg
+    linhaCont = linha(getString(R.string.co_titulo), getString(R.string.co_det), valor = nomeCont()) {
+        br.paulo.tvlauncher.home.ContinueOption.set(this, !br.paulo.tvlauncher.home.ContinueOption.on(this))
+        linhaCont.valor(nomeCont())
+    }
+    c.addView(linhaCont, lp())
     lateinit var linhaFonte: LinhaCfg
     linhaFonte = linha(getString(R.string.fc_titulo), getString(R.string.fc_det), valor = FontChoice.current(this).name) {
         val fontes = FontChoice.FONTS

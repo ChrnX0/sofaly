@@ -693,6 +693,10 @@ class ConfigLauncherActivity : Activity() {
         c.addView(linha(getString(R.string.aut_titulo), getString(R.string.aut_cfg_det), seta = true) {
             startActivity(Intent(this, AutomacoesActivity::class.java))
         }, lp())
+        // Botões do controle (23/11/2026, Paulo não achava: morava só em Extras): toque, segurar, duplo e triplo.
+        c.addView(linha(getString(R.string.tec_titulo), getString(R.string.tec_cfg_det), seta = true) {
+            startActivity(Intent(this, TeclasActivity::class.java))
+        }, lp())
         if (CasaHA.configurado(this)) c.addView(linha(getString(R.string.casa_titulo), getString(R.string.cfg2_casa_det), seta = true) {
             startActivity(Intent(this, CasaActivity::class.java))
         }, lp())

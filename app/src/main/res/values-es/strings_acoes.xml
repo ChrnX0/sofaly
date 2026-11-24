@@ -43,6 +43,7 @@
     <string name="tec_toque">Pulsar</string>
     <string name="tec_segurar">Mantener</string>
     <string name="tec_duplo">Doble pulsación</string>
+    <string name="tec_triplo">Toque triple</string>
     <string name="tec_padrao">estándar (app guardada; mantener 3 s = elegir)</string>
     <string name="tec_cena">escena %1$s</string>
     <string name="tec_salvo">%1$s guardado</string>

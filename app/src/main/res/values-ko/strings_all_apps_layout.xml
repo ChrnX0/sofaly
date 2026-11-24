@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">모든 앱 화면</string>
+    <string name="aa_layout_shelves">선반</string>
+    <string name="aa_layout_folders">폴더와 채널</string>
+    <string name="aa_layout_library">라이브러리</string>
+    <string name="aa_favoritos">즐겨찾기</string>
+    <string name="aa_pastas">폴더</string>
+    <string name="aa_nova_pasta">새 폴더</string>
+    <string name="aa_por_na_pasta">폴더에 넣기…</string>
+    <string name="aa_tirar_da_pasta">이 폴더에서 빼기</string>
+    <string name="aa_renomear_pasta">폴더 이름 바꾸기</string>
+    <string name="aa_apagar_pasta">폴더 삭제</string>
+    <string name="aa_fixar_cruz">홈 화면에 표시</string>
+    <string name="aa_soltar_cruz">홈 화면에서 빼기</string>
+    <string name="aa_ordenar">모든 앱 정렬</string>
+    <string name="aa_f_tudo">전체</string>
+    <string name="aa_f_uso">자주 쓰는 앱</string>
+    <string name="aa_f_novos">새 앱</string>
+    <string name="aa_canais">지금 %1$s에서</string>
+    <string name="aa_hint_folder">OK로 열기 · 길게 눌러 옵션</string>
+</resources>

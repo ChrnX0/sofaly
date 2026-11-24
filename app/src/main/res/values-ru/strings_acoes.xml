@@ -43,6 +43,7 @@
     <string name="tec_toque">Нажатие</string>
     <string name="tec_segurar">Удержание</string>
     <string name="tec_duplo">Двойное нажатие</string>
+    <string name="tec_triplo">Тройное нажатие</string>
     <string name="tec_padrao">по умолчанию (сохранённое приложение; удержание 3 с = выбор)</string>
     <string name="tec_cena">сцена %1$s</string>
     <string name="tec_salvo">%1$s сохранено</string>

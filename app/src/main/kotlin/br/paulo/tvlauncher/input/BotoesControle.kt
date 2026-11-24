@@ -117,7 +117,8 @@ object BotoesControle {
             val ehApp = e.keyCode in RemapTeclas.APP
             // Botão de app sem "segurar" próprio: segurar 3 s abre a lista de apps, como sempre foi.
             val segurarMs = if (RemapTeclas.Gesto.SEGURAR in cfg || !ehApp) RemapTeclas.SEGURAR_MS else SEGURAR_MS
-            g = Gestos(segurarMs, RemapTeclas.DUPLO_MS, ehApp || RemapTeclas.Gesto.SEGURAR in cfg, RemapTeclas.Gesto.DUPLO in cfg)
+            g = Gestos(segurarMs, RemapTeclas.DUPLO_MS, ehApp || RemapTeclas.Gesto.SEGURAR in cfg, RemapTeclas.Gesto.DUPLO in cfg,
+                RemapTeclas.Gesto.TRIPLO in cfg)
             gestos = g; teclaGestos = e.keyCode; cfgGestos = cfg
         }
         val reconhecido = if (e.action == KeyEvent.ACTION_DOWN) g.desce(agora) else g.sobe(agora)

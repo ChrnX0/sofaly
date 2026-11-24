@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Bildschirm Alle Apps</string>
+    <string name="aa_layout_shelves">Regale</string>
+    <string name="aa_layout_folders">Ordner und Kanäle</string>
+    <string name="aa_layout_library">Bibliothek</string>
+    <string name="aa_favoritos">Favoriten</string>
+    <string name="aa_pastas">Ordner</string>
+    <string name="aa_nova_pasta">Neuer Ordner</string>
+    <string name="aa_por_na_pasta">Zu Ordner hinzufügen…</string>
+    <string name="aa_tirar_da_pasta">Aus diesem Ordner entfernen</string>
+    <string name="aa_renomear_pasta">Ordner umbenennen</string>
+    <string name="aa_apagar_pasta">Ordner löschen</string>
+    <string name="aa_fixar_cruz">Auf dem Startbildschirm zeigen</string>
+    <string name="aa_soltar_cruz">Vom Startbildschirm entfernen</string>
+    <string name="aa_ordenar">Alle Apps sortieren</string>
+    <string name="aa_f_tudo">Alle</string>
+    <string name="aa_f_uso">Meistgenutzt</string>
+    <string name="aa_f_novos">Neu</string>
+    <string name="aa_canais">Jetzt auf %1$s</string>
+    <string name="aa_hint_folder">OK öffnet · OK halten für Optionen</string>
+</resources>

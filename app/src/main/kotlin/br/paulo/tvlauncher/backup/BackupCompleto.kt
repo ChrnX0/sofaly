@@ -60,6 +60,7 @@ object BackupCompleto {
         "pacote_icones", "fundo_meu",   // degrau 1 (15/11/2026): pacote de ícones e "Meu fundo" (caminho, brilho, contraste)
         "custom_icons",   // plugins visuais (18/11/2026): ícone trocado à mão, app por app (o OK dos plugins NÃO vai: é por certificado desta TV)
         "cruz_apps",   // cruz (18/11/2026): em que categoria cada app mora ("Mover para…"), fixados no topo e aberturas
+        "world_options", "app_folders", "app_names",   // 22/11/2026: ordem/nome/escondido de cada mundo, pastas e nomes trocados dos apps
         "addons",   // addons no protocolo do Stremio (16/11/2026): a lista instalada e o aceite dos termos
         "backup_recuperacao",   // elevação 19.6: só a parte PÚBLICA da chave de recuperação (a TV restaurada segue trancando com ela)
         "catalogo_pasta")   // elevação 8.2: o "pôster e sinopse" das pastas ligado e os nomes corrigidos à mão
