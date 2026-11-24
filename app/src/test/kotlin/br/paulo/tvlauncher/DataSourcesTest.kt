@@ -19,14 +19,19 @@ class DataSourcesTest {
     }
 
     @Test fun climaPorPlano() {
-        assertEquals(Weather.MET_NORWAY, DataSources.weather(Plano.BASICO, openMeteoLicensed = true, weatherApiEnabled = true))
+        // Básico: consenso dos 4 modelos abertos (24/11/2026); servidor sem a fonte (em pausa) = MET Norway.
+        assertEquals(Weather.OPEN_MODELS, DataSources.weather(Plano.BASICO, openMeteoLicensed = true, weatherApiEnabled = true))
+        assertEquals(Weather.MET_NORWAY, DataSources.weather(Plano.BASICO, openModelsDown = true))
+        assertEquals(Weather.MET_NORWAY, DataSources.weather(Plano.BASICO, openModelsEnabled = false))
         assertEquals(Weather.WEATHERAPI, DataSources.weather(Plano.PRO, openMeteoLicensed = true, weatherApiEnabled = true))
         assertEquals(Weather.OPEN_METEO, DataSources.weather(Plano.ULTRA, openMeteoLicensed = true, weatherApiEnabled = true))
         // Ultra sem contrato da Open-Meteo: fica com a do Pro.
         assertEquals(Weather.WEATHERAPI, DataSources.weather(Plano.ULTRA, openMeteoLicensed = false, weatherApiEnabled = true))
-        // Servidor sem chave (em pausa): volta ao MET.
-        assertEquals(Weather.MET_NORWAY, DataSources.weather(Plano.ULTRA, openMeteoLicensed = false, weatherApiEnabled = true, weatherApiDown = true))
-        assertEquals(Weather.MET_NORWAY, DataSources.weather(Plano.PRO, openMeteoLicensed = false, weatherApiEnabled = false))
+        // Servidor sem chave (em pausa): volta aos modelos abertos; sem eles também, ao MET.
+        assertEquals(Weather.OPEN_MODELS, DataSources.weather(Plano.ULTRA, openMeteoLicensed = false, weatherApiEnabled = true, weatherApiDown = true))
+        assertEquals(Weather.OPEN_MODELS, DataSources.weather(Plano.PRO, openMeteoLicensed = false, weatherApiEnabled = false))
+        assertEquals(Weather.MET_NORWAY, DataSources.weather(Plano.PRO, openMeteoLicensed = false, weatherApiEnabled = true,
+            weatherApiDown = true, openModelsDown = true))
     }
 
     @Test fun fichasESimklComLicenca() {

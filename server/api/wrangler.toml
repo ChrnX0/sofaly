@@ -62,3 +62,11 @@ binding = "AI"
 name = "TRANSCRIBE_IP_LIMITER"
 namespace_id = "1005"
 simple = { limit = 12, period = 60 }
+
+# Clima do Básico (src/weatherOpen.js, 24/11/2026): chamadas ao servidor de modelos abertos (fora do cache), todas as
+# TVs juntas. 60/min ~ 2,6 milhões/mês; cada célula da grade gasta 2 pedidos a cada 30 min.
+# OPEN_MODELS_URL (var) e OPEN_MODELS_KEY (secret, só se for a customer-api paga da Open-Meteo) ligam a rota.
+[[ratelimits]]
+name = "OPEN_MODELS_LIMITER"
+namespace_id = "1006"
+simple = { limit = 60, period = 60 }
