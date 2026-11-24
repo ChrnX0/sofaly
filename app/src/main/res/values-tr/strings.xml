@@ -73,7 +73,7 @@
     <string name="bv_perm">Takvim, konum ve hesapları aç</string>
     <string name="bv_perm_det">Takvim etkinlikleri, şehrinizin hava durumu, profilde hesabın baş harfi</string>
     <string name="bv_teclas">Tuş hizmetini aç</string>
-    <string name="bv_teclas_det">Erişilebilirlik › Launcher: HOME her zaman buraya döner</string>
+    <string name="bv_teclas_det">Erişilebilirlik › Kumanda tuşları: HOME her zaman buraya döner</string>
     <string name="bv_tudo">Açabileceğiniz her şeyi görün</string>
     <string name="lic_sem_arquivo">Lisans dosyası bulunamadı.</string>
     <string name="rot_ligar">TV’yi aç</string>

@@ -73,7 +73,7 @@
     <string name="bv_perm">Включить календарь, местоположение и аккаунты</string>
     <string name="bv_perm_det">События календаря, погода в вашем городе, инициал аккаунта в профиле</string>
     <string name="bv_teclas">Включить службу кнопок</string>
-    <string name="bv_teclas_det">Спец. возможности › Лаунчер: HOME всегда возвращает сюда</string>
+    <string name="bv_teclas_det">Спец. возможности › Кнопки пульта: HOME всегда возвращает сюда</string>
     <string name="bv_tudo">Всё, что можно включить</string>
     <string name="lic_sem_arquivo">Файл лицензии не найден.</string>
     <string name="rot_ligar">Включить ТВ</string>

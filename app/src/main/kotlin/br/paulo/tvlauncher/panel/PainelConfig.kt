@@ -11,7 +11,6 @@ import br.paulo.tvlauncher.player.PlayerArmazem
 import br.paulo.tvlauncher.player.TaxaQuadros
 import br.paulo.tvlauncher.privilege.Confirmacoes
 import br.paulo.tvlauncher.privilege.PrivilegioDO
-import br.paulo.tvlauncher.screensaver.Protetor
 import br.paulo.tvlauncher.settings.AltoContraste
 import br.paulo.tvlauncher.settings.TamanhoTexto
 import br.paulo.tvlauncher.settings.Tema
@@ -50,7 +49,7 @@ object PainelConfig {
             .put("avisoTemperatura", AvisoTemperatura.ligado(app))
             .put("audio", if (IdiomaPlayer.prefs(app).padrao == Idioma.Pref.ORIGINAL) "original" else "dublado")
             .put("protetorMs", PrivilegioDO.tempoDescanso(app).toLong())
-            .put("barraProtetor", Protetor.widget(app))
+            .put("vidroDescanso", br.paulo.tvlauncher.screensaver.SleepingHome.glass(app))   // o protetor é a home que adormece (21/11/2026)
             .put("parental", par.ligado)
             .put("parentalCanais", par.canais.size + par.grupos.size)
             .put("infantil", par.infantil)
@@ -99,9 +98,11 @@ object PainelConfig {
                 if (!PrivilegioDO.definirTempoDescanso(app, ms)) return Resultado.Erro("não consegui gravar (Device Owner inativo?)")
                 registrar("protetor de tela: " + if (ms == Int.MAX_VALUE) "nunca" else "${ms / 60_000} min")
             }
-            "barraProtetor" -> {
-                if (v !in Protetor.WIDGETS) return Resultado.Erro("valor inválido")
-                Protetor.definirWidget(app, v as String); registrar("widgets do protetor: $v")
+            // Vidro atrás da faixa de baixo do descanso (a mesma chave das Configurações › Tela e energia). O antigo
+            // "barraProtetor" (widgets do protetor de antes de 21/11/2026) não mudava mais nada na tela.
+            "vidroDescanso" -> {
+                val b = v as? Boolean ?: return Resultado.Erro("valor inválido")
+                br.paulo.tvlauncher.screensaver.SleepingHome.setGlass(app, b); registrar("vidro atrás da faixa do descanso: $b")
             }
             // A TV como unidade de rede (PainelDav): mesma senha (o PIN) e mesmas pastas da aba Arquivos. Ligar abre os
             // arquivos da TV para a rede: pede o PIN de novo (15/11/2026), como o MCP; desligar não pede.

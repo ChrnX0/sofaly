@@ -73,7 +73,7 @@
     <string name="bv_perm">Activar calendario, ubicación y cuentas</string>
     <string name="bv_perm_det">Eventos del calendario, clima de tu ciudad, inicial de la cuenta en el perfil</string>
     <string name="bv_teclas">Activar el servicio de teclas</string>
-    <string name="bv_teclas_det">Accesibilidad › Launcher: hace que HOME siempre vuelva aquí</string>
+    <string name="bv_teclas_det">Accesibilidad › Botones del control: hace que HOME siempre vuelva aquí</string>
     <string name="bv_tudo">Ver todo lo que se puede activar</string>
     <string name="lic_sem_arquivo">No se encontró el archivo de licencias.</string>
     <string name="rot_ligar">Encender la TV</string>

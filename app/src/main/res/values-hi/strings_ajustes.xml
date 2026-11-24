@@ -5,7 +5,7 @@
     <string name="qrd_fotos">फ़ोन से स्क्रीन सेवर फ़ोटो</string>
     <string name="qrd_fotos_det">कोड दिखाता है: फ़ोन पैनल सीधे फ़ोटो पेज पर खोलता है</string>
     <string name="qrd_mural">फ़ोन से परिवार बोर्ड</string>
-    <string name="qrd_mural_det">स्क्रीन सेवर पर ख़रीदारी सूची, लगे नोट और जन्मदिन</string>
+    <string name="qrd_mural_det">ख़रीदारी सूची, लगे नोट और जन्मदिन</string>
     <string name="qrd_cenas">फ़ोन से सीन</string>
     <string name="qrd_cenas_det">वेब पैनल में सीन बनाएँ और जाँचें</string>
     <string name="qrd_casa">फ़ोन से Home Assistant</string>

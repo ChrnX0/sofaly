@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Telefondan ekran koruyucu fotoğrafları</string>
     <string name="qrd_fotos_det">Bir kod gösterir: telefon paneli doğrudan fotoğraflar sayfasında açar</string>
     <string name="qrd_mural">Telefondan aile panosu</string>
-    <string name="qrd_mural_det">Ekran koruyucuda alışveriş listesi, iğnelenmiş notlar ve doğum günleri</string>
+    <string name="qrd_mural_det">Alışveriş listesi, iğnelenmiş notlar ve doğum günleri</string>
     <string name="qrd_cenas">Telefondan sahneler</string>
     <string name="qrd_cenas_det">Web panelinde sahne oluşturun ve test edin</string>
     <string name="qrd_casa">Telefondan Home Assistant</string>

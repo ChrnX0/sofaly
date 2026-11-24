@@ -7,7 +7,7 @@
     <string name="qrd_fotos">Screensaver photos from your phone</string>
     <string name="qrd_fotos_det">Shows a code: the phone opens the panel straight on the photos page</string>
     <string name="qrd_mural">Family board from your phone</string>
-    <string name="qrd_mural_det">Shopping list, pinned notes and birthdays on the screensaver</string>
+    <string name="qrd_mural_det">Shopping list, pinned notes and birthdays</string>
     <string name="qrd_cenas">Scenes from your phone</string>
     <string name="qrd_cenas_det">Create and test scenes in the web panel</string>
     <string name="qrd_casa">Home Assistant from your phone</string>

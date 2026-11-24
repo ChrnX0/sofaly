@@ -5,7 +5,7 @@
     <string name="qrd_fotos">从手机设置屏保照片</string>
     <string name="qrd_fotos_det">显示代码：手机会直接打开面板的照片页面</string>
     <string name="qrd_mural">从手机设置家庭留言板</string>
-    <string name="qrd_mural_det">在屏保上显示购物清单、便签和生日</string>
+    <string name="qrd_mural_det">购物清单、便签和生日</string>
     <string name="qrd_cenas">从手机设置场景</string>
     <string name="qrd_cenas_det">在网页面板中创建和测试场景</string>
     <string name="qrd_casa">从手机设置 Home Assistant</string>

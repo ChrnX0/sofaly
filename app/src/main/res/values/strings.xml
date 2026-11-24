@@ -76,7 +76,7 @@
     <string name="bv_perm">Turn on calendar, location and accounts</string>
     <string name="bv_perm_det">Calendar events, weather for your city, account initial on the profile</string>
     <string name="bv_teclas">Turn on the key service</string>
-    <string name="bv_teclas_det">Accessibility › Launcher: makes HOME always come back here</string>
+    <string name="bv_teclas_det">Accessibility › Remote buttons: makes HOME always come back here</string>
     <string name="bv_tudo">See everything you can turn on</string>
     <!-- LicencasActivity.kt -->
     <string name="lic_sem_arquivo">License file not found.</string>
