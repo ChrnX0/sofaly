@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">تعطّل %1$s %2$s مرات هذا الأسبوع.</string>
     <string name="observer_app_crashy_update_title">‏%1$s يتعطل</string>
     <string name="observer_app_crashy_update_text">تعطّل %1$s %2$s مرات هذا الأسبوع، منذ إصداره الجديد.</string>
-    <string name="sofy_hand_ready">جاهز للفتح</string>
-    <string name="sofy_hand_on_demand">يعمل عندما تفتحه</string>
-    <string name="sofy_hand_hour">المعتاد لديك في هذه الساعة</string>
-    <string name="sofy_sug_cedo_titulo">إيقاف التشغيل أبكر؟</string>
-    <string name="sofy_sug_cedo">في %1$d ليالٍ انطفأ التلفاز وحده في وقت متأخر دون أن يشاهده أحد. إيقافه بعد %2$d دقيقة دون جهاز التحكم بدلاً من %3$d؟</string>
-    <string name="sofy_sug_alarme_titulo">تأخير المنبه؟</string>
-    <string name="sofy_sug_alarme">تم تأجيل منبه %1$s كثيراً. هل يرن بعد %2$d دقيقة، في %3$s؟</string>
-    <string name="sofy_sug_rotina_titulo">تحويله إلى روتين؟</string>
-    <string name="sofy_sug_rotina">فُتح %1$s نحو %2$s في %3$d أيام. هل يُفتح وحده في %2$s في تلك الأيام؟</string>
-    <string name="sofy_sug_teto_titulo">حد للصوت ليلاً؟</string>
-    <string name="sofy_sug_teto">في وقت متأخر من الليل يكون الصوت أعلى بكثير من النهار. ألا يتجاوز %1$d%% من 11 مساءً إلى 6 صباحاً؟</string>
-    <string name="sofy_sug_perfil_titulo">تبديل الملف الشخصي؟</string>
-    <string name="sofy_sug_perfil">التطبيقات المفتوحة الآن هي ما يشاهده %1$s عادةً. التبديل إلى ملف %1$s؟</string>
-    <string name="sofy_sug_trocar">تبديل</string>
-    <string name="sofy_sug_feito">تم. يمكنك التراجع في أي وقت من الإعدادات.</string>
 </resources>

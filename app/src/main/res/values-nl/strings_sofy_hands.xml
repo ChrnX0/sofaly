@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Klaar om te openen</string>
+    <string name="sofy_hand_on_demand">Start pas als je haar opent</string>
+    <string name="sofy_hand_hour">Je gewoonte op dit uur</string>
+    <string name="sofy_sug_cedo_titulo">Eerder uitzetten?</string>
+    <string name="sofy_sug_cedo">Op %1$d nachten ging de tv laat vanzelf uit zonder kijker. Uitzetten na %2$d min zonder afstandsbediening, in plaats van %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Wekker later laten afgaan?</string>
+    <string name="sofy_sug_alarme">De wekker van %1$s werd vaak gesnoozed. %2$d min later afgaan, om %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Een routine van maken?</string>
+    <string name="sofy_sug_rotina">%1$s werd op %3$d dagen rond %2$s geopend. Op die dagen om %2$s vanzelf openen?</string>
+    <string name="sofy_sug_teto_titulo">Volumegrens ’s nachts?</string>
+    <string name="sofy_sug_teto">Laat op de avond staat het volume veel hoger dan overdag. Van 23 tot 6 uur maximaal %1$d%%?</string>
+    <string name="sofy_sug_perfil_titulo">Profiel wisselen?</string>
+    <string name="sofy_sug_perfil">De apps die nu open zijn, kijkt %1$s meestal. Naar het profiel van %1$s?</string>
+    <string name="sofy_sug_trocar">Wisselen</string>
+    <string name="sofy_sug_feito">Klaar. Je kunt het altijd terugdraaien in Instellingen.</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Готово к запуску</string>
+    <string name="sofy_hand_on_demand">Запустится, когда вы откроете</string>
+    <string name="sofy_hand_hour">Ваше обычное в это время</string>
+    <string name="sofy_sug_cedo_titulo">Выключать раньше?</string>
+    <string name="sofy_sug_cedo">%1$d ночей телевизор сам выключался поздно, когда никто не смотрел. Выключать через %2$d мин без пульта вместо %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Будильник позже?</string>
+    <string name="sofy_sug_alarme">Будильник на %1$s часто откладывали. Звонить на %2$d мин позже, в %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Сделать это расписанием?</string>
+    <string name="sofy_sug_rotina">%1$s открывали около %2$s в течение %3$d дней. Открывать само в %2$s в эти дни?</string>
+    <string name="sofy_sug_teto_titulo">Предел громкости ночью?</string>
+    <string name="sofy_sug_teto">Поздно ночью громкость намного выше, чем днём. Не больше %1$d%% с 23 до 6?</string>
+    <string name="sofy_sug_perfil_titulo">Сменить профиль?</string>
+    <string name="sofy_sug_perfil">Открытые сейчас приложения обычно смотрит %1$s. Перейти в профиль %1$s?</string>
+    <string name="sofy_sug_trocar">Сменить</string>
+    <string name="sofy_sug_feito">Готово. Отменить можно в любой момент в Настройках.</string>
+</resources>

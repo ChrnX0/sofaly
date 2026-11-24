@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">%1$s tento týden spadla %2$s×.</string>
     <string name="observer_app_crashy_update_title">%1$s padá</string>
     <string name="observer_app_crashy_update_text">%1$s tento týden spadla %2$s×, od nové verze.</string>
-    <string name="sofy_hand_ready">Připravená k otevření</string>
-    <string name="sofy_hand_on_demand">Spustí se, až ji otevřete</string>
-    <string name="sofy_hand_hour">Vaše obvyklá volba v tuto hodinu</string>
-    <string name="sofy_sug_cedo_titulo">Vypínat dřív?</string>
-    <string name="sofy_sug_cedo">%1$d nocí se televize pozdě vypnula sama, nikdo se nedíval. Vypínat po %2$d min bez ovladače místo %3$d?</string>
-    <string name="sofy_sug_alarme_titulo">Budík později?</string>
-    <string name="sofy_sug_alarme">Budík v %1$s byl často odložen. Zvonit o %2$d min později, v %3$s?</string>
-    <string name="sofy_sug_rotina_titulo">Udělat z toho rutinu?</string>
-    <string name="sofy_sug_rotina">%1$s se otevíral kolem %2$s po %3$d dní. Otevírat ho v tyto dny sám v %2$s?</string>
-    <string name="sofy_sug_teto_titulo">Limit hlasitosti v noci?</string>
-    <string name="sofy_sug_teto">Pozdě v noci je hlasitost mnohem vyšší než přes den. Maximálně %1$d%% od 23 do 6?</string>
-    <string name="sofy_sug_perfil_titulo">Přepnout profil?</string>
-    <string name="sofy_sug_perfil">Právě otevřené aplikace obvykle sleduje %1$s. Přepnout na profil %1$s?</string>
-    <string name="sofy_sug_trocar">Přepnout</string>
-    <string name="sofy_sug_feito">Hotovo. V Nastavení to můžete kdykoli vrátit.</string>
 </resources>

@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">%1$s は今週 %2$s 回落ちました。</string>
     <string name="observer_app_crashy_update_title">%1$s が落ちています</string>
     <string name="observer_app_crashy_update_text">%1$s は新しいバージョンになってから今週 %2$s 回落ちました。</string>
-    <string name="sofy_hand_ready">すぐ開けます</string>
-    <string name="sofy_hand_on_demand">開いたときに起動</string>
-    <string name="sofy_hand_hour">この時間のいつもの</string>
-    <string name="sofy_sug_cedo_titulo">早めに電源を切りますか？</string>
-    <string name="sofy_sug_cedo">%1$d晩、深夜に誰も見ていないのにテレビが自動で切れました。リモコン操作なしで%3$d分ではなく%2$d分後に切りますか？</string>
-    <string name="sofy_sug_alarme_titulo">アラームを遅らせますか？</string>
-    <string name="sofy_sug_alarme">%1$sのアラームがよくスヌーズされています。%2$d分遅らせて%3$sに鳴らしますか？</string>
-    <string name="sofy_sug_rotina_titulo">ルーティンにしますか？</string>
-    <string name="sofy_sug_rotina">%1$sは%3$d日間、%2$sごろに開かれました。その曜日の%2$sに自動で開きますか？</string>
-    <string name="sofy_sug_teto_titulo">夜の音量上限は？</string>
-    <string name="sofy_sug_teto">深夜は日中よりかなり音量が大きくなっています。23時から6時は%1$d%%までにしますか？</string>
-    <string name="sofy_sug_perfil_titulo">プロフィールを切り替えますか？</string>
-    <string name="sofy_sug_perfil">今開いているアプリは%1$sさんがよく見るものです。%1$sさんのプロフィールに切り替えますか？</string>
-    <string name="sofy_sug_trocar">切り替える</string>
-    <string name="sofy_sug_feito">完了しました。設定からいつでも元に戻せます。</string>
 </resources>

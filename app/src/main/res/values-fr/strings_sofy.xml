@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">%1$s a planté %2$s fois cette semaine.</string>
     <string name="observer_app_crashy_update_title">%1$s plante souvent</string>
     <string name="observer_app_crashy_update_text">%1$s a planté %2$s fois cette semaine, depuis sa nouvelle version.</string>
-    <string name="sofy_hand_ready">Prête à ouvrir</string>
-    <string name="sofy_hand_on_demand">Démarre quand vous l\'ouvrez</string>
-    <string name="sofy_hand_hour">Votre habitude à cette heure</string>
-    <string name="sofy_sug_cedo_titulo">Éteindre plus tôt ?</string>
-    <string name="sofy_sug_cedo">%1$d nuits, la TV s’est éteinte seule tard sans personne devant. Éteindre après %2$d min sans télécommande, au lieu de %3$d ?</string>
-    <string name="sofy_sug_alarme_titulo">Sonner plus tard ?</string>
-    <string name="sofy_sug_alarme">L’alarme de %1$s a souvent été reportée. Sonner %2$d min plus tard, à %3$s ?</string>
-    <string name="sofy_sug_rotina_titulo">En faire une routine ?</string>
-    <string name="sofy_sug_rotina">%1$s a été ouverte vers %2$s pendant %3$d jours. L’ouvrir seule à %2$s ces jours-là ?</string>
-    <string name="sofy_sug_teto_titulo">Limite de volume la nuit ?</string>
-    <string name="sofy_sug_teto">Tard le soir, le volume monte bien plus que le jour. Ne pas dépasser %1$d%% de 23 h à 6 h ?</string>
-    <string name="sofy_sug_perfil_titulo">Changer de profil ?</string>
-    <string name="sofy_sug_perfil">Les applis ouvertes sont celles que %1$s regarde d’habitude. Passer au profil de %1$s ?</string>
-    <string name="sofy_sug_trocar">Changer</string>
-    <string name="sofy_sug_feito">C’est fait. Vous pouvez annuler à tout moment dans les Paramètres.</string>
 </resources>

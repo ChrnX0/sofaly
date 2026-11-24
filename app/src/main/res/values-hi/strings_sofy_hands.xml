@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">खुलने को तैयार</string>
+    <string name="sofy_hand_on_demand">खोलने पर ही चलेगा</string>
+    <string name="sofy_hand_hour">इस समय आपकी आदत</string>
+    <string name="sofy_sug_cedo_titulo">जल्दी बंद करें?</string>
+    <string name="sofy_sug_cedo">%1$d रातों में टीवी देर रात बिना किसी के देखे अपने आप बंद हुआ। रिमोट के बिना %3$d की जगह %2$d मिनट बाद बंद करें?</string>
+    <string name="sofy_sug_alarme_titulo">अलार्म बाद में बजाएं?</string>
+    <string name="sofy_sug_alarme">%1$s का अलार्म अक्सर टाला गया। %2$d मिनट बाद, %3$s पर बजाएं?</string>
+    <string name="sofy_sug_rotina_titulo">इसे रूटीन बनाएं?</string>
+    <string name="sofy_sug_rotina">%1$s को %3$d दिन लगभग %2$s बजे खोला गया। उन दिनों %2$s बजे अपने आप खोलें?</string>
+    <string name="sofy_sug_teto_titulo">रात में आवाज़ की सीमा?</string>
+    <string name="sofy_sug_teto">देर रात आवाज़ दिन से बहुत ज़्यादा रहती है। रात 11 से सुबह 6 तक %1$d%% से ज़्यादा नहीं?</string>
+    <string name="sofy_sug_perfil_titulo">प्रोफ़ाइल बदलें?</string>
+    <string name="sofy_sug_perfil">अभी खुले ऐप वही हैं जो %1$s आम तौर पर देखते हैं। %1$s की प्रोफ़ाइल पर जाएं?</string>
+    <string name="sofy_sug_trocar">बदलें</string>
+    <string name="sofy_sug_feito">हो गया। सेटिंग में कभी भी वापस कर सकते हैं।</string>
+</resources>

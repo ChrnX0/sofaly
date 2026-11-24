@@ -32,19 +32,4 @@
     <string name="observer_app_crashy_text">%1$s s-a blocat de %2$s ori săptămâna asta.</string>
     <string name="observer_app_crashy_update_title">%1$s se blochează</string>
     <string name="observer_app_crashy_update_text">%1$s s-a blocat de %2$s ori săptămâna asta, de la versiunea nouă.</string>
-    <string name="sofy_hand_ready">Gata de deschis</string>
-    <string name="sofy_hand_on_demand">Pornește când o deschizi</string>
-    <string name="sofy_hand_hour">Obișnuitul tău la ora asta</string>
-    <string name="sofy_sug_cedo_titulo">Oprire mai devreme?</string>
-    <string name="sofy_sug_cedo">În %1$d nopți televizorul s-a oprit singur târziu, fără nimeni la el. Oprire după %2$d min fără telecomandă, în loc de %3$d?</string>
-    <string name="sofy_sug_alarme_titulo">Alarma mai târziu?</string>
-    <string name="sofy_sug_alarme">Alarma de la %1$s a fost amânată des. Să sune cu %2$d min mai târziu, la %3$s?</string>
-    <string name="sofy_sug_rotina_titulo">Să devină rutină?</string>
-    <string name="sofy_sug_rotina">%1$s a fost deschisă în jur de %2$s în %3$d zile. S-o deschidă singur la %2$s în acele zile?</string>
-    <string name="sofy_sug_teto_titulo">Limită de volum noaptea?</string>
-    <string name="sofy_sug_teto">Noaptea târziu volumul e mult mai mare decât ziua. Cel mult %1$d%% între 23 și 6?</string>
-    <string name="sofy_sug_perfil_titulo">Schimbi profilul?</string>
-    <string name="sofy_sug_perfil">Aplicațiile deschise acum sunt cele pe care le urmărește de obicei %1$s. Treci la profilul lui %1$s?</string>
-    <string name="sofy_sug_trocar">Schimbă</string>
-    <string name="sofy_sug_feito">Gata. Poți anula oricând din Setări.</string>
 </resources>

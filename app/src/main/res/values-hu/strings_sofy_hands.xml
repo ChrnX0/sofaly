@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Megnyitásra kész</string>
+    <string name="sofy_hand_on_demand">Akkor indul, amikor megnyitja</string>
+    <string name="sofy_hand_hour">A szokásos ilyenkor</string>
+    <string name="sofy_sug_cedo_titulo">Korábban kikapcsoljon?</string>
+    <string name="sofy_sug_cedo">%1$d éjjel a tévé későn magától kikapcsolt, senki sem nézte. Kapcsoljon ki %2$d perc után távirányító nélkül %3$d helyett?</string>
+    <string name="sofy_sug_alarme_titulo">Később szóljon az ébresztő?</string>
+    <string name="sofy_sug_alarme">A %1$s ébresztőt gyakran elhalasztották. Szóljon %2$d perccel később, %3$s-kor?</string>
+    <string name="sofy_sug_rotina_titulo">Legyen belőle rutin?</string>
+    <string name="sofy_sug_rotina">A(z) %1$s alkalmazást %3$d napon %2$s körül nyitották meg. Nyíljon meg magától %2$s-kor ezeken a napokon?</string>
+    <string name="sofy_sug_teto_titulo">Éjszakai hangerőkorlát?</string>
+    <string name="sofy_sug_teto">Késő éjjel a hangerő sokkal magasabb, mint nappal. Legfeljebb %1$d%% 23 és 6 óra között?</string>
+    <string name="sofy_sug_perfil_titulo">Profilváltás?</string>
+    <string name="sofy_sug_perfil">A most megnyitott alkalmazásokat általában %1$s nézi. Váltás %1$s profiljára?</string>
+    <string name="sofy_sug_trocar">Váltás</string>
+    <string name="sofy_sug_feito">Kész. A Beállításokban bármikor visszavonhatod.</string>
+</resources>

@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">%1$s gik ned %2$s gange i denne uge.</string>
     <string name="observer_app_crashy_update_title">%1$s går ned</string>
     <string name="observer_app_crashy_update_text">%1$s gik ned %2$s gange i denne uge, siden den nye version.</string>
-    <string name="sofy_hand_ready">Klar til at åbne</string>
-    <string name="sofy_hand_on_demand">Starter, når du åbner den</string>
-    <string name="sofy_hand_hour">Din vane på dette tidspunkt</string>
-    <string name="sofy_sug_cedo_titulo">Sluk tidligere?</string>
-    <string name="sofy_sug_cedo">%1$d nætter slukkede tv’et af sig selv sent uden seere. Sluk efter %2$d min uden fjernbetjening i stedet for %3$d?</string>
-    <string name="sofy_sug_alarme_titulo">Lad alarmen ringe senere?</string>
-    <string name="sofy_sug_alarme">Alarmen kl. %1$s blev ofte udsat. Ring %2$d min senere, kl. %3$s?</string>
-    <string name="sofy_sug_rotina_titulo">Gør det til en rutine?</string>
-    <string name="sofy_sug_rotina">%1$s blev åbnet omkring %2$s på %3$d dage. Åbn den selv kl. %2$s de dage?</string>
-    <string name="sofy_sug_teto_titulo">Lydstyrkegrænse om natten?</string>
-    <string name="sofy_sug_teto">Sent om aftenen er lyden meget højere end om dagen. Højst %1$d%% fra 23 til 6?</string>
-    <string name="sofy_sug_perfil_titulo">Skift profil?</string>
-    <string name="sofy_sug_perfil">De apps, der er åbne nu, ser %1$s normalt. Skift til profilen for %1$s?</string>
-    <string name="sofy_sug_trocar">Skift</string>
-    <string name="sofy_sug_feito">Færdig. Du kan fortryde når som helst i Indstillinger.</string>
 </resources>

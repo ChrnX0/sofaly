@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Siap dibuka</string>
+    <string name="sofy_hand_on_demand">Berjalan saat Anda membukanya</string>
+    <string name="sofy_hand_hour">Kebiasaanmu di jam ini</string>
+    <string name="sofy_sug_cedo_titulo">Matikan lebih awal?</string>
+    <string name="sofy_sug_cedo">Selama %1$d malam TV mati sendiri larut malam tanpa ada yang menonton. Matikan setelah %2$d mnt tanpa remote, bukan %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Alarm lebih siang?</string>
+    <string name="sofy_sug_alarme">Alarm %1$s sering ditunda. Bunyikan %2$d mnt kemudian, pukul %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Jadikan rutinitas?</string>
+    <string name="sofy_sug_rotina">%1$s dibuka sekitar %2$s selama %3$d hari. Buka sendiri pukul %2$s pada hari-hari itu?</string>
+    <string name="sofy_sug_teto_titulo">Batas volume malam?</string>
+    <string name="sofy_sug_teto">Larut malam volume jauh lebih tinggi daripada siang. Maksimal %1$d%% dari pukul 23 sampai 6?</string>
+    <string name="sofy_sug_perfil_titulo">Ganti profil?</string>
+    <string name="sofy_sug_perfil">Aplikasi yang terbuka sekarang biasanya ditonton %1$s. Ganti ke profil %1$s?</string>
+    <string name="sofy_sug_trocar">Ganti</string>
+    <string name="sofy_sug_feito">Selesai. Bisa dibatalkan kapan saja di Setelan.</string>
+</resources>

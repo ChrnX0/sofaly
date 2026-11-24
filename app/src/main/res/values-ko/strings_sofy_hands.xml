@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">바로 열 수 있어요</string>
+    <string name="sofy_hand_on_demand">열 때만 켜져요</string>
+    <string name="sofy_hand_hour">이 시간의 단골</string>
+    <string name="sofy_sug_cedo_titulo">더 일찍 끌까요?</string>
+    <string name="sofy_sug_cedo">%1$d일 밤 아무도 보지 않는데 TV가 늦게 저절로 꺼졌어요. 리모컨 조작이 없으면 %3$d분 대신 %2$d분 후에 끌까요?</string>
+    <string name="sofy_sug_alarme_titulo">알람을 늦출까요?</string>
+    <string name="sofy_sug_alarme">%1$s 알람을 자주 미뤘어요. %2$d분 늦게, %3$s에 울릴까요?</string>
+    <string name="sofy_sug_rotina_titulo">루틴으로 만들까요?</string>
+    <string name="sofy_sug_rotina">%1$s 앱을 %3$d일 동안 %2$s쯤 열었어요. 그 요일 %2$s에 자동으로 열까요?</string>
+    <string name="sofy_sug_teto_titulo">밤 볼륨 제한?</string>
+    <string name="sofy_sug_teto">늦은 밤 볼륨이 낮보다 훨씬 높아요. 오후 11시부터 오전 6시까지 최대 %1$d%%로 할까요?</string>
+    <string name="sofy_sug_perfil_titulo">프로필을 바꿀까요?</string>
+    <string name="sofy_sug_perfil">지금 연 앱은 %1$s 님이 주로 보는 앱이에요. %1$s 님 프로필로 바꿀까요?</string>
+    <string name="sofy_sug_trocar">바꾸기</string>
+    <string name="sofy_sug_feito">완료했어요. 설정에서 언제든 되돌릴 수 있어요.</string>
+</resources>

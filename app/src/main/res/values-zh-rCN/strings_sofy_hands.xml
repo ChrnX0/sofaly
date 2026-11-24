@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">可以打开了</string>
+    <string name="sofy_hand_on_demand">打开时才启动</string>
+    <string name="sofy_hand_hour">这个时间你常用的</string>
+    <string name="sofy_sug_cedo_titulo">提早关机？</string>
+    <string name="sofy_sug_cedo">有 %1$d 个晚上，电视在深夜无人观看时自动关机。改为无遥控操作 %2$d 分钟后关机（原为 %3$d 分钟）？</string>
+    <string name="sofy_sug_alarme_titulo">推迟闹钟？</string>
+    <string name="sofy_sug_alarme">%1$s 的闹钟经常被推迟。推迟 %2$d 分钟，改到 %3$s 响？</string>
+    <string name="sofy_sug_rotina_titulo">设为日常安排？</string>
+    <string name="sofy_sug_rotina">%1$s 在 %3$d 天里都在 %2$s 左右打开。在这些日子的 %2$s 自动打开？</string>
+    <string name="sofy_sug_teto_titulo">夜间音量上限？</string>
+    <string name="sofy_sug_teto">深夜音量比白天高很多。晚上 11 点到早上 6 点最高 %1$d%%？</string>
+    <string name="sofy_sug_perfil_titulo">切换个人资料？</string>
+    <string name="sofy_sug_perfil">现在打开的应用是 %1$s 常看的。切换到 %1$s 的个人资料？</string>
+    <string name="sofy_sug_trocar">切换</string>
+    <string name="sofy_sug_feito">已完成。随时可以在设置中撤销。</string>
+</resources>

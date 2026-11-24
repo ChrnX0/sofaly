@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">%1$s zawiesiła się %2$s razy w tym tygodniu.</string>
     <string name="observer_app_crashy_update_title">%1$s się zawiesza</string>
     <string name="observer_app_crashy_update_text">%1$s zawiesiła się %2$s razy w tym tygodniu, od nowej wersji.</string>
-    <string name="sofy_hand_ready">Gotowa do otwarcia</string>
-    <string name="sofy_hand_on_demand">Uruchamia się, gdy ją otworzysz</string>
-    <string name="sofy_hand_hour">Twój zwyczaj o tej porze</string>
-    <string name="sofy_sug_cedo_titulo">Wyłączać wcześniej?</string>
-    <string name="sofy_sug_cedo">Przez %1$d nocy telewizor wyłączył się sam późno, bez widzów. Wyłączać po %2$d min bez pilota zamiast %3$d?</string>
-    <string name="sofy_sug_alarme_titulo">Budzik później?</string>
-    <string name="sofy_sug_alarme">Budzik o %1$s był często odkładany. Dzwonić %2$d min później, o %3$s?</string>
-    <string name="sofy_sug_rotina_titulo">Zrobić z tego rutynę?</string>
-    <string name="sofy_sug_rotina">%1$s otwierano około %2$s przez %3$d dni. Otwierać samodzielnie o %2$s w te dni?</string>
-    <string name="sofy_sug_teto_titulo">Limit głośności w nocy?</string>
-    <string name="sofy_sug_teto">Późną nocą głośność jest dużo wyższa niż w dzień. Nie więcej niż %1$d%% od 23 do 6?</string>
-    <string name="sofy_sug_perfil_titulo">Zmienić profil?</string>
-    <string name="sofy_sug_perfil">Otwarte teraz aplikacje zwykle ogląda %1$s. Przełączyć na profil %1$s?</string>
-    <string name="sofy_sug_trocar">Zmień</string>
-    <string name="sofy_sug_feito">Gotowe. Możesz to cofnąć w Ustawieniach.</string>
 </resources>

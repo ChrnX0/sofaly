@@ -31,19 +31,4 @@
     <string name="observer_app_crashy_text">%1$s bu hafta %2$s kez takıldı.</string>
     <string name="observer_app_crashy_update_title">%1$s takılıyor</string>
     <string name="observer_app_crashy_update_text">%1$s bu hafta %2$s kez takıldı, yeni sürümünden beri.</string>
-    <string name="sofy_hand_ready">Açılmaya hazır</string>
-    <string name="sofy_hand_on_demand">Siz açınca çalışır</string>
-    <string name="sofy_hand_hour">Bu saatteki alışkanlığın</string>
-    <string name="sofy_sug_cedo_titulo">Daha erken kapansın mı?</string>
-    <string name="sofy_sug_cedo">%1$d gece TV geç saatte kimse izlemezken kendi kapandı. Kumandaya dokunulmadan %3$d yerine %2$d dk sonra kapansın mı?</string>
-    <string name="sofy_sug_alarme_titulo">Alarm daha geç çalsın mı?</string>
-    <string name="sofy_sug_alarme">%1$s alarmı sık sık ertelendi. %2$d dk sonra, %3$s\'de çalsın mı?</string>
-    <string name="sofy_sug_rotina_titulo">Rutin yapılsın mı?</string>
-    <string name="sofy_sug_rotina">%1$s, %3$d gün boyunca %2$s civarında açıldı. O günlerde %2$s\'de kendiliğinden açılsın mı?</string>
-    <string name="sofy_sug_teto_titulo">Gece ses sınırı?</string>
-    <string name="sofy_sug_teto">Gece geç saatte ses gündüzden çok daha yüksek oluyor. 23:00–06:00 arası en fazla %%%1$d olsun mu?</string>
-    <string name="sofy_sug_perfil_titulo">Profil değiştirilsin mi?</string>
-    <string name="sofy_sug_perfil">Şu an açık uygulamaları genelde %1$s izliyor. %1$s profiline geçilsin mi?</string>
-    <string name="sofy_sug_trocar">Değiştir</string>
-    <string name="sofy_sug_feito">Tamam. Ayarlar\'dan istediğin zaman geri alabilirsin.</string>
 </resources>
