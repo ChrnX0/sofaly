@@ -880,4 +880,71 @@ AS\\Film).</string>
     <string name="ver_respondido_nao">risposto «no»</string>
     <string name="atu_migracao_disponivel">versione %1$d: pronta a spostare questa TV sulla nuova app (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">installazione della nuova app (%1$d); poi prende in carico questa TV con tutte le impostazioni</string>
+    <string name="dns_nota_familia">famiglia, blocca siti per adulti</string>
+    <string name="dns_nota_malware">blocca malware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">La TV non ha Wi-Fi%1$s. Controlla che il router sia acceso o se sono cambiati il nome o la password della rete.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">il router ha perso il collegamento con il modem del fornitore</string>
+    <string name="ief_roteador_ve_fora" formatted="true">anche il router vede internet giù</string>
+    <string name="ief_ha" formatted="true"> (da %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">Il Wi-Fi va bene, ma internet del fornitore è caduto%1$s; %2$s%3$s. Non è la TV: aspetta il fornitore o riavvia il modem.</string>
+    <string name="ief_vpn_travada" formatted="true">Il router ha internet, ma la TV non passa%1$s: la VPN è probabilmente bloccata. Spegnere e riaccendere la VPN di solito risolve.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Il router ha internet, ma la TV non lo raggiunge%1$s: il problema è tra la TV e il router%2$s Ricollegare la TV al Wi-Fi di solito risolve.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (il segnale Wi-Fi è debole, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">La TV è sul Wi-Fi, ma né il router né internet rispondono%1$s: il router potrebbe essere bloccato. Spegnerlo e riaccenderlo di solito risolve.</string>
+    <string name="ief_sem_internet" formatted="true">Il Wi-Fi va bene, ma internet non arriva%1$s; probabilmente è il fornitore o il router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (anche la VPN accesa può essere la causa).</string>
+    <string name="ief_dns" formatted="true">Internet arriva, ma il DNS%1$s non risponde%2$s: le app non trovano i loro server. Impostare il DNS su Automatico risolve.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internet e DNS rispondono, ma la pagina di prova di Google %1$s: qualcosa lungo la strada (VPN, blocco DNS o una rete che chiede l’accesso) la blocca.</string>
+    <string name="ief_nao_abriu" formatted="true">non si è aperta</string>
+    <string name="ief_codigo_diferente" formatted="true">ha risposto diversamente (codice %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internet va bene; solo la VPN è spenta (le app funzionano senza).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internet funziona, ma lento: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">il segnale Wi-Fi è debole (%1$d dBm); avvicinare il router o usare un cavo aiuta</string>
+    <string name="ief_lenta_tcp" formatted="true">internet impiega %1$d ms a rispondere%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, e il router vede lo stesso: è il fornitore</string>
+    <string name="ief_lenta_http" formatted="true">la pagina di prova ha impiegato %1$.1f s ad aprirsi</string>
+    <string name="ief_queda_recente" formatted="true">Internet ora va bene; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Tutto ok: Wi-Fi, internet e DNS rispondono.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Nessuna interruzione nelle ultime 24 h.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Nessuna interruzione registrata (la TV ha misurato solo parte delle ultime 24 h).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Il router segnala un problema di internet, ma la TV naviga normalmente.)</string>
+    <string name="ief_caiu_dns" formatted="true">il DNS non ha funzionato</string>
+    <string name="ief_caiu_internet" formatted="true">internet è caduto</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (poi la TV ha smesso di misurare; non si sa quando è tornato)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d interruzioni in 24 h</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s ed è tornato %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d interruzioni in 24 h, %2$s senza internet in totale</string>
+    <string name="ief_quando_hoje" formatted="true">alle %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">ieri alle %1$s</string>
+    <string name="ief_quando_data" formatted="true">il %1$s alle %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">dalle %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">da ieri alle %1$s</string>
+    <string name="ief_desde_data" formatted="true">dal %1$s alle %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">meno di 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d h</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d h %2$d min</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: disconnesso</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">rete: connessa</string>
+    <string name="ief_s_internet" formatted="true">internet senza DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS senza cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">non riuscito</string>
+    <string name="ief_s_pagina" formatted="true">pagina di prova: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok in %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">codice %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: accesa</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: spenta</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: vede internet giù</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: vede internet ok%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: nessun parere</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: nessuna risposta</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: non consultato</string>
+    <string name="ief_s_historico" formatted="true">cronologia: %1$d misure in 24 h</string>
 </resources>

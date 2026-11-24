@@ -874,4 +874,71 @@ AS\\Film).</string>
     <string name="ver_respondido_nao">dijawab “tidak”</string>
     <string name="atu_migracao_disponivel">versi %1$d: siap memindahkan TV ini ke aplikasi baru (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">memasang aplikasi baru (%1$d); lalu aplikasi itu mengambil alih TV ini dengan semua pengaturan</string>
+    <string name="dns_nota_familia">keluarga, memblokir situs dewasa</string>
+    <string name="dns_nota_malware">memblokir malware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">TV tidak punya Wi-Fi%1$s. Periksa apakah router menyala atau nama dan sandi jaringan berubah.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">router kehilangan sambungan ke modem penyedia</string>
+    <string name="ief_roteador_ve_fora" formatted="true">router juga melihat internet mati</string>
+    <string name="ief_ha" formatted="true"> (sejak %1$s lalu)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi baik, tetapi internet dari penyedia mati%1$s; %2$s%3$s. Bukan TV-nya: tunggu penyedia atau nyalakan ulang modem.</string>
+    <string name="ief_vpn_travada" formatted="true">Router punya internet, tetapi TV tidak tembus%1$s: VPN mungkin macet. Mematikan dan menyalakan VPN biasanya mengatasinya.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Router punya internet, tetapi TV tidak sampai ke sana%1$s: masalahnya di antara TV dan router%2$s Menyambungkan ulang TV ke Wi-Fi biasanya mengatasinya.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (sinyal Wi-Fi lemah, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">TV ada di Wi-Fi, tetapi router dan internet tidak menjawab%1$s: router mungkin macet. Mematikan dan menyalakan router biasanya mengatasinya.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi baik, tetapi internet tidak sampai%1$s; mungkin penyedia atau router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (VPN yang menyala juga bisa jadi penyebabnya).</string>
+    <string name="ief_dns" formatted="true">Internet sampai, tetapi DNS%1$s tidak menjawab%2$s: aplikasi tidak menemukan servernya. Mengubah DNS ke Otomatis mengatasinya.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internet dan DNS menjawab, tetapi halaman uji Google %1$s: ada yang menghalangi di jalan (VPN, blokir DNS, atau jaringan yang meminta login).</string>
+    <string name="ief_nao_abriu" formatted="true">tidak terbuka</string>
+    <string name="ief_codigo_diferente" formatted="true">menjawab berbeda (kode %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internet baik; hanya VPN yang mati (aplikasi tetap jalan tanpanya).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internet jalan, tetapi lambat: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">sinyal Wi-Fi lemah (%1$d dBm); mendekatkan router atau memakai kabel membantu</string>
+    <string name="ief_lenta_tcp" formatted="true">internet butuh %1$d ms untuk menjawab%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, dan router melihat hal yang sama: masalahnya di penyedia</string>
+    <string name="ief_lenta_http" formatted="true">halaman uji butuh %1$.1f dtk untuk terbuka</string>
+    <string name="ief_queda_recente" formatted="true">Internet baik sekarang; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Semua baik: Wi-Fi, internet, dan DNS menjawab.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Tidak ada gangguan dalam 24 jam terakhir.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Tidak ada gangguan tercatat (TV hanya mengukur sebagian dari 24 jam terakhir).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Router melaporkan masalah internet, tetapi TV berjalan normal.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS gagal</string>
+    <string name="ief_caiu_internet" formatted="true">internet mati</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (lalu TV berhenti mengukur; tidak diketahui kapan kembali)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d gangguan dalam 24 jam</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s dan kembali %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d gangguan dalam 24 jam, total %2$s tanpa internet</string>
+    <string name="ief_quando_hoje" formatted="true">pukul %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">kemarin pukul %1$s</string>
+    <string name="ief_quando_data" formatted="true">pada %1$s pukul %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">sejak pukul %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">sejak kemarin pukul %1$s</string>
+    <string name="ief_desde_data" formatted="true">sejak %1$s pukul %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">kurang dari 1 mnt</string>
+    <string name="ief_dur_min" formatted="true">%1$d mnt</string>
+    <string name="ief_dur_h" formatted="true">%1$d jam</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d jam %2$d mnt</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: terputus</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">jaringan: tersambung</string>
+    <string name="ief_s_internet" formatted="true">internet tanpa DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS tanpa cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">gagal</string>
+    <string name="ief_s_pagina" formatted="true">halaman uji: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok dalam %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">kode %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: aktif</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: mati</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: melihat internet mati</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: melihat internet baik%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: tidak ada info</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: tidak menjawab</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: tidak diperiksa</string>
+    <string name="ief_s_historico" formatted="true">riwayat: %1$d pengukuran dalam 24 jam</string>
 </resources>

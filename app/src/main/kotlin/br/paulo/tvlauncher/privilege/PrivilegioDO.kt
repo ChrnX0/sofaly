@@ -180,11 +180,6 @@ object PrivilegioDO {
     }
 
     /**
-     * VPN "sempre ativa" apontando para o NOSSO pacote (o perfil IKEv2 que o [Vpn] cadastrou): o Android religa o túnel
-     * sozinho, inclusive depois de reiniciar. [ligada] = false tira. lockdown = false: se a VPN cair, a internet continua
-     * funcionando sem ela (com true, a TV ficaria sem internet até a VPN voltar — ruim numa TV que os pais usam).
-     */
-    /**
      * Fixa [pacote] como "VPN sempre ativa" (null = nenhuma). Idempotente: só grava se mudou. lockdown = false de
      * propósito: se o app da VPN cair, a TV continua com internet (sem VPN) em vez de ficar sem rede nenhuma.
      * Desde 04/11/2026 é o app AdGuard VPN (Config.VPN_FIXA); antes era a VPN própria do launcher, aposentada.

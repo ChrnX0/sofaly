@@ -110,7 +110,7 @@ class DnsActivity : Activity() {
 
         secao(getString(R.string.dns_publicos))
         for (s in Dns.PRESETS) {
-            adicionar(linha(s.nome, s.host, emUso(s.host), { escolher(Dns.Modo.HOST, s.host) }))
+            adicionar(linha(s.nome(this), s.host, emUso(s.host), { escolher(Dns.Modo.HOST, s.host) }))
         }
 
         secao(getString(R.string.dns_meus))

@@ -905,4 +905,71 @@
     <string name="aviso_simples_texto">A TV voltou para a tela inicial completa.</string>
     <string name="aviso_sync_titulo">Nenhuma conta conectada</string>
     <string name="aviso_sync_texto">Não há conta do %1$s nesta TV. Conecte em Configurações › TV e filmes.</string>
+    <string name="dns_nota_familia">família, bloqueia adultos</string>
+    <string name="dns_nota_malware">bloqueia malware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">A TV está sem Wi-Fi%1$s. Veja se o roteador está ligado ou se o nome e a senha da rede mudaram.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">o roteador perdeu a ligação com o modem do provedor</string>
+    <string name="ief_roteador_ve_fora" formatted="true">o roteador também vê a internet fora</string>
+    <string name="ief_ha" formatted="true"> (há %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">O Wi-Fi está ok, mas a internet do provedor caiu%1$s; %2$s%3$s. Não é a TV: é esperar o provedor ou reiniciar o modem.</string>
+    <string name="ief_vpn_travada" formatted="true">O roteador tem internet, mas a TV não passa%1$s: a VPN deve estar travada. Desligar e ligar a VPN costuma resolver.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">O roteador tem internet, mas a TV não chega nela%1$s: o problema está entre a TV e o roteador%2$s Reconectar a TV ao Wi-Fi costuma resolver.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (o sinal do Wi-Fi está fraco, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">A TV está no Wi-Fi, mas nem o roteador nem a internet respondem%1$s: o roteador pode ter travado. Desligar e ligar o roteador costuma resolver.</string>
+    <string name="ief_sem_internet" formatted="true">O Wi-Fi está ok, mas a internet não chega%1$s; deve ser o provedor ou o roteador%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (a VPN ligada também pode ser a culpada).</string>
+    <string name="ief_dns" formatted="true">A internet chega, mas o DNS%1$s não responde%2$s: os apps não acham os servidores. Trocar o DNS para Automático resolve.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">A internet e o DNS respondem, mas a página de teste do Google %1$s: algo no caminho (VPN, bloqueio do DNS ou rede pedindo login) está barrando.</string>
+    <string name="ief_nao_abriu" formatted="true">não abriu</string>
+    <string name="ief_codigo_diferente" formatted="true">respondeu diferente (código %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">A internet está ok; só a VPN está desligada (os apps funcionam sem ela).%1$s</string>
+    <string name="ief_lenta" formatted="true">A internet funciona, mas devagar: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">o sinal do Wi-Fi está fraco (%1$d dBm); aproximar o roteador ou usar cabo ajuda</string>
+    <string name="ief_lenta_tcp" formatted="true">a internet demora %1$d ms para responder%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, e o roteador vê o mesmo: é o provedor</string>
+    <string name="ief_lenta_http" formatted="true">a página de teste levou %1$.1f s para abrir</string>
+    <string name="ief_queda_recente" formatted="true">A internet está ok agora; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Está tudo ok: Wi-Fi, internet e DNS respondem.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Sem quedas nas últimas 24 h.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Nenhuma queda registrada (a TV mediu só parte das últimas 24 h).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (O roteador avisa problema na internet, mas a TV navega normal.)</string>
+    <string name="ief_caiu_dns" formatted="true">o DNS falhou</string>
+    <string name="ief_caiu_internet" formatted="true">a internet caiu</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (depois a TV ficou sem medir; não dá para saber quando voltou)</string>
+    <string name="ief_quedas_n" formatted="true">; foram %1$d quedas em 24 h</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s e voltou %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; foram %1$d quedas em 24 h, %2$s sem internet no total</string>
+    <string name="ief_quando_hoje" formatted="true">às %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">ontem às %1$s</string>
+    <string name="ief_quando_data" formatted="true">em %1$s às %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">desde as %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">desde ontem às %1$s</string>
+    <string name="ief_desde_data" formatted="true">desde %1$s às %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">menos de 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d h</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d h %2$d min</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: desconectado</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">rede: conectada</string>
+    <string name="ief_s_internet" formatted="true">internet sem DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS sem cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">falhou</string>
+    <string name="ief_s_pagina" formatted="true">página de teste: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok em %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">código %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: ligada</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: desligada</string>
+    <string name="ief_s_roteador_fora" formatted="true">roteador: vê a internet fora</string>
+    <string name="ief_s_roteador_ok" formatted="true">roteador: vê a internet ok%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">roteador: sem opinião</string>
+    <string name="ief_s_roteador_mudo" formatted="true">roteador: não respondeu</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">roteador: não consultado</string>
+    <string name="ief_s_historico" formatted="true">histórico: %1$d medições em 24 h</string>
 </resources>

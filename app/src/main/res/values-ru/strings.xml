@@ -883,4 +883,71 @@ AS\\Фильмы).</string>
     <string name="ver_respondido_nao">ответ «нет»</string>
     <string name="atu_migracao_disponivel">версия %1$d: можно перевести этот телевизор на новое приложение (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">устанавливается новое приложение (%1$d); затем оно возьмёт этот телевизор со всеми настройками</string>
+    <string name="dns_nota_familia">семья, блокирует сайты для взрослых</string>
+    <string name="dns_nota_malware">блокирует вредоносные сайты</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">У телевизора нет Wi-Fi%1$s. Проверьте, включён ли роутер и не поменялись ли имя или пароль сети.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">роутер потерял связь с модемом провайдера</string>
+    <string name="ief_roteador_ve_fora" formatted="true">роутер тоже видит, что интернета нет</string>
+    <string name="ief_ha" formatted="true"> (уже %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi в порядке, но интернет провайдера пропал%1$s; %2$s%3$s. Дело не в телевизоре: подождите провайдера или перезагрузите модем.</string>
+    <string name="ief_vpn_travada" formatted="true">У роутера есть интернет, но телевизор не проходит%1$s: VPN, похоже, завис. Обычно помогает выключить и включить VPN.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">У роутера есть интернет, но телевизор до него не достаёт%1$s: проблема между телевизором и роутером%2$s Обычно помогает переподключить телевизор к Wi-Fi.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (сигнал Wi-Fi слабый, %1$d дБм).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">Телевизор в Wi-Fi, но не отвечают ни роутер, ни интернет%1$s: роутер мог зависнуть. Обычно помогает выключить и включить роутер.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi в порядке, но интернет не доходит%1$s; скорее всего, это провайдер или роутер%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (причиной может быть и включённый VPN).</string>
+    <string name="ief_dns" formatted="true">Интернет доходит, но DNS%1$s не отвечает%2$s: приложения не находят свои серверы. Помогает переключить DNS на «Автоматически».</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Интернет и DNS отвечают, но тестовая страница Google %1$s: что-то по пути (VPN, блокировка DNS или сеть, требующая входа) её блокирует.</string>
+    <string name="ief_nao_abriu" formatted="true">не открылась</string>
+    <string name="ief_codigo_diferente" formatted="true">ответила иначе (код %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Интернет в порядке; выключен только VPN (приложения работают и без него).%1$s</string>
+    <string name="ief_lenta" formatted="true">Интернет работает, но медленно: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">сигнал Wi-Fi слабый (%1$d дБм); помогает поставить роутер ближе или подключить кабель</string>
+    <string name="ief_lenta_tcp" formatted="true">интернет отвечает за %1$d мс%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, и роутер видит то же самое: дело в провайдере</string>
+    <string name="ief_lenta_http" formatted="true">тестовая страница открывалась %1$.1f с</string>
+    <string name="ief_queda_recente" formatted="true">Сейчас интернет в порядке; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Всё в порядке: Wi-Fi, интернет и DNS отвечают.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Обрывов за последние 24 ч не было.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Обрывов не записано (телевизор измерял только часть последних 24 ч).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Роутер сообщает о проблеме с интернетом, но телевизор работает нормально.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS не отвечал</string>
+    <string name="ief_caiu_internet" formatted="true">интернет пропал</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (потом телевизор перестал измерять; когда он вернулся, неизвестно)</string>
+    <string name="ief_quedas_n" formatted="true">; обрывов за 24 ч: %1$d</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s и вернулся %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; обрывов за 24 ч: %1$d, всего без интернета %2$s</string>
+    <string name="ief_quando_hoje" formatted="true">в %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">вчера в %1$s</string>
+    <string name="ief_quando_data" formatted="true">%1$s в %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">с %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">со вчерашних %1$s</string>
+    <string name="ief_desde_data" formatted="true">с %1$s %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">меньше 1 мин</string>
+    <string name="ief_dur_min" formatted="true">%1$d мин</string>
+    <string name="ief_dur_h" formatted="true">%1$d ч</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d ч %2$d мин</string>
+    <string name="ief_data_dm" formatted="true">dd.MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: отключён</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d дБм</string>
+    <string name="ief_s_rede_conectada" formatted="true">сеть: подключена</string>
+    <string name="ief_s_internet" formatted="true">интернет без DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS без кэша: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d мс</string>
+    <string name="ief_s_falhou" formatted="true">ошибка</string>
+    <string name="ief_s_pagina" formatted="true">тестовая страница: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok за %1$d мс</string>
+    <string name="ief_s_codigo" formatted="true">код %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: включён</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: выключен</string>
+    <string name="ief_s_roteador_fora" formatted="true">роутер: интернета нет</string>
+    <string name="ief_s_roteador_ok" formatted="true">роутер: интернет в порядке%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">роутер: нет данных</string>
+    <string name="ief_s_roteador_mudo" formatted="true">роутер: не ответил</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">роутер: не опрошен</string>
+    <string name="ief_s_historico" formatted="true">история: %1$d измерений за 24 ч</string>
 </resources>
