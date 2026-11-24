@@ -3,6 +3,6 @@
     <!-- Crédito da WeatherAPI na Previsão (plano Pro). Texto pedido pelos termos dela: igual em todos os idiomas. -->
     <string name="pv_powered_weatherapi" translatable="false">Powered by WeatherAPI.com</string>
     <!-- Crédito dos 4 modelos abertos na Previsão (plano Básico, 24/11/2026): a licença CC BY 4.0 do ECMWF pede o
-         nome; GFS (NOAA, domínio público) e ICON (DWD) entram por transparência. Nomes próprios: iguais em todos os idiomas. -->
-    <string name="pv_powered_open_models" translatable="false">Forecast: ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON</string>
+         nome; GFS (NOAA, domínio público) e ICON (DWD) entram por transparência. Só nomes próprios (24/11: "Forecast:" aparecia em inglês na tela em português): iguais em todos os idiomas. -->
+    <string name="pv_powered_open_models" translatable="false">ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON</string>
 </resources>
