@@ -64,12 +64,12 @@ class WidgetLayoutActivity : Activity() {
         if (lista.isEmpty()) camada.post { porWidget() }
     }
 
-    override fun onStart() { super.onStart(); PluginWidgetsTv.ouvir(this) }
+    override fun onStart() { super.onStart(); PluginWidgetsTv.editou = true; PluginWidgetsTv.ouvir(this) }
     override fun onStop() { super.onStop(); PluginWidgetsTv.parar() }
     override fun onDestroy() { super.onDestroy(); aberto?.dismiss(); trabalho.shutdown() }
 
     private fun ler() {
-        PluginWidgetsTv.ouvir(this)   // o primeiro widget acabou de entrar: o host passa a escutar
+        PluginWidgetsTv.ligar(this)   // o primeiro widget acabou de entrar: o host passa a escutar
         camada.atualizar(PluginWidgetsTv.escolhidos(this))
         lista = camada.lista
         if (lista.none { it.id == escolhido }) escolhido = lista.firstOrNull()?.id ?: -1

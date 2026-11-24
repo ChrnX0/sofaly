@@ -129,13 +129,32 @@ object PluginWidgetsTv {
         for (e in escolhidos(ctx).filter { it.pacote == pacote }) remover(ctx, e.id)
     }
 
-    /** HOME (ou a edição) na frente: o host recebe os avisos dos widgets. Só com widget ligado (custo zero sem). */
-    fun ouvir(ctx: Context) {
-        if (escolhidos(ctx).isEmpty()) return
+    /**
+     * Quem está na frente e quer os widgets atualizando (HOME, edição). Contado: a edição é translúcida, então ao sair
+     * dela o onResume da HOME vem ANTES do onStop da edição; sem a conta, o parar() da edição congelava a HOME.
+     */
+    private var ouvintes = 0
+    /** A edição abriu: as views dela tomaram o lugar das da HOME no host; a HOME recria as suas ao voltar. */
+    @Volatile var editou = false
+
+    /** HOME (ou a edição) na frente: o host recebe os avisos dos widgets. Chamar uma vez por onResume/onStart. */
+    fun ouvir(ctx: Context) { ouvintes++; ligar(ctx) }
+
+    /** Liga o host se alguém está ouvindo e há widget (custo zero sem). Pode chamar à vontade (ex.: o 1º widget entrou). */
+    fun ligar(ctx: Context) {
+        if (ouvintes <= 0 || escolhidos(ctx).isEmpty()) return
         runCatching { host(ctx).startListening() }
     }
 
-    fun parar() { runCatching { host?.stopListening() } }
+    /** Par do [ouvir] (onPause/onStop). O host para só quando ninguém mais ouve. */
+    fun parar() {
+        ouvintes = (ouvintes - 1).coerceAtLeast(0)
+        if (ouvintes == 0) runCatching { host?.stopListening() }
+    }
+
+    /** O app do widget ainda está instalado (some por um tempo com pendrive desmontado ou atualização). */
+    internal fun instalado(ctx: Context, pacote: String) =
+        runCatching { ctx.packageManager.getApplicationInfo(pacote, 0); true }.getOrDefault(false)
 
     /** Avisa o widget do tamanho em que ele está (dp), para ele se desenhar para esse tamanho. */
     private fun avisarTamanho(ctx: Context, id: Int, lPx: Int, aPx: Int) {
@@ -151,12 +170,15 @@ object PluginWidgetsTv {
 
     /** Onde a camada mora na HOME (dp): entre a ilha de cima e o nome do mundo + barra de baixo. */
     const val TOPO_DP = 90
-    const val BAIXO_DP = 142
+    const val BAIXO_DP = 132   // a linha do mundo de um card só (StripHome.LINHA_DO_FUNDO + o alto dela)
+    /** A base de verdade (dp), vinda da barra única: a grade de 2 linhas sobe a linha do mundo. A edição usa a mesma. */
+    @Volatile var baixoDp = BAIXO_DP.toFloat()
+    private const val FOLGA_DP = 10
     const val LADO_DP = 48
 
     fun lpCamada(ctx: Context) = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT).apply {
         val d = ctx.resources.displayMetrics.density
-        topMargin = (TOPO_DP * d).toInt(); bottomMargin = (BAIXO_DP * d).toInt()
+        topMargin = (TOPO_DP * d).toInt(); bottomMargin = ((baixoDp + FOLGA_DP) * d).toInt()
         marginStart = (LADO_DP * d).toInt(); marginEnd = (LADO_DP * d).toInt()
     }
 
@@ -187,12 +209,15 @@ object PluginWidgetsTv {
         val celL get() = width / PluginWidget.COLS.toFloat()
         val celA get() = height / PluginWidget.LINHAS.toFloat()
 
-        /** Lê os widgets e (re)cria as views. Na thread da tela. Widget que sumiu (app desinstalado) sai da lista. */
+        /**
+         * Lê os widgets e (re)cria as views. Na thread da tela. Widget sem info: se o app foi DESINSTALADO, sai de vez; se
+         * só sumiu por um tempo (pendrive desmontado, atualização no meio), fica escondido e volta sozinho.
+         */
         fun atualizar(l: List<PluginWidget.Escolhido> = visiveis(context)) {
             val ctx = context
             val validos = l.filter { e ->
                 val ok = info(ctx, e.id) != null
-                if (!ok) { ExtensionHealth.registrar(ctx, e.pacote, false, 0); remover(ctx, e.id) }
+                if (!ok && !instalado(ctx, e.pacote)) remover(ctx, e.id)
                 ok
             }
             for (id in vistas.keys.toList()) if (validos.none { it.id == id }) removeView(vistas.remove(id))
@@ -208,7 +233,9 @@ object PluginWidgetsTv {
                 vistas[e.id] = v
                 addView(v)
             }
-            lista = validos
+            // A lista guarda também os escondidos (app fora por um tempo): quem salva a partir dela não os perde, e o
+            // lugar deles fica reservado. Só os válidos têm view.
+            lista = l.filter { e -> validos.any { it.id == e.id } || instalado(ctx, e.pacote) }
             visibility = if (validos.isEmpty() && !editando) View.GONE else View.VISIBLE
             posicionar()
         }

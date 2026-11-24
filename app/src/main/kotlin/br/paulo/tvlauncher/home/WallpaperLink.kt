@@ -18,10 +18,20 @@ object WallpaperLink {
     const val MAX_BYTES = 15L * 1024 * 1024
     private const val TEMPO_MS = 15_000
 
+    /**
+     * Extensão do arquivo pelo ÚLTIMO trecho do caminho (o domínio e o "?w=1920" não contam): jpg, png ou webp; qualquer
+     * outra coisa vira jpg (o conteúdo é conferido como foto de qualquer jeito).
+     */
+    internal fun extensao(link: String): String {
+        val trecho = link.substringBefore('#').substringBefore('?').substringAfter("://").substringAfter('/', "").substringAfterLast('/')
+        val e = trecho.substringAfterLast('.', "").lowercase().let { if (it == "jpeg") "jpg" else it }
+        return if (e in setOf("jpg", "png", "webp")) e else "jpg"
+    }
+
     /** Null = feito; senão o motivo (curto, para o painel/adb). */
     fun baixar(ctx: Context, link: String): String? {
         val pasta = File(ctx.filesDir, "wallpaper-link").apply { mkdirs() }
-        val ext = link.substringBefore('?').substringBefore('#').substringAfterLast('.').lowercase().let { if (it == "jpeg") "jpg" else it }
+        val ext = extensao(link)
         val nome = MessageDigest.getInstance("SHA-256").digest(link.toByteArray()).take(8).joinToString("") { "%02x".format(it) }
         val destino = File(pasta, "$nome.$ext"); val parcial = File(pasta, "$nome.part")
         var u = link
@@ -51,8 +61,9 @@ object WallpaperLink {
                     val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
                     BitmapFactory.decodeFile(parcial.path, o)
                     if (o.outWidth <= 0 || o.outHeight <= 0) return "o link não é uma foto"
-                    pasta.listFiles()?.forEach { if (it != parcial) it.delete() }
+                    // O fundo anterior só sai DEPOIS do novo estar guardado (o Meu fundo ainda pode usá-lo).
                     if (!parcial.renameTo(destino)) return "não consegui guardar"
+                    pasta.listFiles()?.forEach { if (it != destino) it.delete() }
                     FundoMeuDados.definirDoLink(ctx, destino, link)
                     return null
                 } finally { c.disconnect() }
