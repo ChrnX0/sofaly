@@ -114,7 +114,8 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
         }, LinearLayout.LayoutParams(lado, lado).apply { marginEnd = dp(12) })
         val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { textSize = 22f; maxLines = 2 }
         cabeca.addView(tNome, LinearLayout.LayoutParams(0, WRAP, 1f))
-        val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, frase).apply { maxLines = 2; setPaddingRelative(0, dp(8), 0, 0) }
+        // Sem limite de linhas (24/11/2026): com maxLines = 2 e sem "…", a 3ª linha sumia calada em holandês e sueco.
+        val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, frase).apply { setPaddingRelative(0, dp(8), 0, 0) }
         addView(cabeca); addView(tFrase)
         setOnFocusChangeListener { v, foco ->
             v.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO + 4, Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO + 4, Estilo.BORDA)) else normal
