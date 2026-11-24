@@ -273,6 +273,8 @@ object BackupNoturno {
         val quando = java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.US).format(java.util.Date(agora))
         prefs(app).edit().putString("ultimo_texto", "$quando · $texto").apply { if (ok) putLong("ultimo_ok_em", agora) }.apply()
         runCatching { PainelArmazem.registrar(app, "TV", "backup noturno", texto) }
+        // Só o certo/errado: o texto pode ter o nome da pasta do NAS (dado da casa).
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.BACKUP, "night_backup", ok)
         if (ok) Log.i(TAG, texto) else Log.w(TAG, texto)
         return texto
     }

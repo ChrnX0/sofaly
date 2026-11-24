@@ -103,6 +103,7 @@ object Atualizador {
 
     private fun anotar(ctx: Context, t: String) {
         Log.i(TAG, t)
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(ctx, br.paulo.tvlauncher.observer.SofyBus.Source.UPDATE, "check", detail = t)
         val hora = java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.getDefault()).format(java.util.Date())
         prefs(ctx).edit().putString(ESTADO, "$hora · $t").putLong(ESTADO_VERSAO, versaoAtual(ctx)).apply()
     }

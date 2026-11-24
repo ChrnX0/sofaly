@@ -97,21 +97,29 @@ object AppProfileTv {
         val now = System.currentTimeMillis()
         if (now - dev.getLong("apps_starts_tried", 0L) < STARTS_GAP_MS) return s
         if (!runCatching { SaudeAcesso.shellEsperado(ctx) }.getOrDefault(false)) return s
-        dev.edit().putLong("apps_starts_tried", now).apply()
+        // Tentativas e o resultado da última: a Sofy se acusa se o tempo de abrir nunca chega (SofySelfCheck, ideia 38).
+        dev.edit().putLong("apps_starts_tried", now).putInt("apps_starts_tries", dev.getInt("apps_starts_tries", 0) + 1).apply()
         val out = runCatching {
             GuardiaoShizuku.comando(ctx, "logcat -d -b events -v epoch -s wm_activity_launch_time am_activity_launch_time", 15_000)
-        }.getOrNull() ?: return s
+        }.getOrNull()
+        if (out == null) { dev.edit().putString("apps_starts_last", "o shell não respondeu").apply(); return s }
         val since = dev.getLong("apps_starts_at", 0L)
         var newest = since
         val cards = HashMap(s.cards)
+        var lidas = 0; var tempos = 0; var comFicha = 0
         for (line in out.lineSequence()) {
+            if (line.isBlank()) continue
+            lidas++
             val at = (line.trim().substringBefore(' ').toDoubleOrNull() ?: continue).times(1000).toLong()
-            if (at <= since) continue
             val (pkg, ms) = AppProfile.parseLaunchTime(line) ?: continue
-            cards[pkg]?.let { cards[pkg] = AppProfile.noteStart(it, ms) }
+            tempos++
+            if (at <= since) continue
+            cards[pkg]?.let { cards[pkg] = AppProfile.noteStart(it, ms); comFicha++ }
             if (at > newest) newest = at
         }
-        if (newest > since) dev.edit().putLong("apps_starts_at", newest).apply()
+        dev.edit().putString("apps_starts_last", "$lidas linhas, $tempos tempos, $comFicha de apps com ficha").apply {
+            if (newest > since) putLong("apps_starts_at", newest)
+        }.apply()
         return s.copy(cards = cards)
     }
 

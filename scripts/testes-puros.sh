@@ -76,6 +76,8 @@ declare -A FONTES=(
   [ObserverPackagesTest]="ObserverPackages FichasComunidade"
   [ObserverTrialTest]="ObserverTrial"
   [AppProfileTest]="AppProfile"
+  [SofyBusTest]="SofyBus"
+  [SofySelfCheckTest]="SofySelfCheck"
   [SofyPolicyTest]="SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [SofyMotionTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [SofyStringsTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
@@ -88,7 +90,8 @@ falhou=0
 cd "$RAIZ/app"   # o PainelHtmlTest lê src/main/assets com caminho relativo, como no Gradle
 for teste in "${!FONTES[@]}"; do
   saida="$CACHE/out-$teste"; rm -rf "$saida"
-  arquivos=("$T/$teste.kt"); for f in ${FONTES[$teste]}; do arquivos+=("$M/$f.kt"); done
+  # Desde a refatoração de 21/11/2026 os fontes moram em subpacotes (observer/, home/...): acha cada um pelo nome.
+  arquivos=("$T/$teste.kt"); for f in ${FONTES[$teste]}; do arquivos+=("$(find "$M" -name "$f.kt" | head -1)"); done
   "$CACHE/kotlinc/bin/kotlinc" "${arquivos[@]}" -cp "$CP" -d "$saida" -nowarn 2>&1 | grep -v JAVA_TOOL_OPTIONS || true
   if java -cp "$saida:$CP:$CACHE/kotlinc/lib/kotlin-stdlib.jar" org.junit.runner.JUnitCore "br.paulo.tvlauncher.$teste" > "$saida.log" 2>&1; then
     echo "ok     $teste: $(grep -E '^OK' "$saida.log")"

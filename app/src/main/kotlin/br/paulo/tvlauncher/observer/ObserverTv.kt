@@ -115,6 +115,7 @@ object ObserverTv {
         runCatching { OnDemandTv.tick(ctx) }   // sob demanda: congela de novo o que ficou aberto (cinto do onWindow)
         runCatching { GoogleHomeTrimTv.tick(ctx) }   // launcher do Google parado em segundo plano: devolve a memória
         Fundo.rodar("app-profile") { runCatching { AppProfileTv.tick(ctx) }.onFailure { Log.w(TAG, "ficha dos apps: $it") } }
+        Fundo.rodar("sofy-self-check") { runCatching { selfCheck(ctx) }.onFailure { Log.w(TAG, "autoexame: $it") } }
         if (trialsPending) Fundo.rodar("observer-trials") { runCatching { checkTrials(ctx) }.onFailure { Log.w(TAG, "provas: $it") } }
         // O último put passa pelo publish para acordar o juiz uma vez só por amostra.
         publish(ObserverCore.Signal.INTERNET, if (internet) 1 else 0)
@@ -150,8 +151,11 @@ object ObserverTv {
             }
             val x = ObserverCore.tellingFeatures(f, snap, base, hw, hd, use, 0.0, vezes)
             val nota = pico.score(ObserverPico.Task.WORTH_TELLING, x)
-            log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "appeared", f.kind, f.severity, f.why, snap)
-                .put("pico_tell", Math.round(nota * 100) / 100.0), agora)
+            val entry = ObserverCore.logEntry(agora, "appeared", f.kind, f.severity, f.why, snap).put("pico_tell", Math.round(nota * 100) / 100.0)
+            // HOME lenta com causa (ideia 6): o que estava acontecendo na hora, para o episódio virar conserto.
+            if (f.kind == ObserverCore.Kind.SLOW_HOME || f.kind == ObserverCore.Kind.UNUSUAL_FRAMES) runCatching { entry.put("context", slowContext(ctx, agora)) }
+            log = ObserverCore.appendLog(log, entry, agora)
+            runCatching { SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "found_${f.kind.name.lowercase()}", ok = false) }
             if (f.severity >= ObserverCore.Severity.WARNING) notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
             runCatching { Diario.anotar(ctx, "tv", "Observer: ${f.kind.name}", f.why) }
             active.add(f.kind)
@@ -159,6 +163,7 @@ object ObserverTv {
         for (k in change.cleared) {
             log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "cleared", k, null, "voltou ao normal", snap), agora)
             runCatching { Diario.anotar(ctx, "tv", "Observer: ${k.name}", "voltou ao normal") }
+            runCatching { SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "cleared_${k.name.lowercase()}") }
             active.remove(k)
         }
         if (change.cleared.isNotEmpty()) notes = ObserverCore.dropCleared(notes, change.cleared, agora)   // o recado não fica mentindo
@@ -251,12 +256,14 @@ object ObserverTv {
             p.edit().putString("log", log).putString("notes", notes).commit()   // commit: o próximo passo pode ser reiniciar
         }
         runCatching { Diario.anotar(app, "tv", "Sofy: ${kind.name}", why) }
+        SofyBusTv.emit(app, SofyBus.Source.SOFY, "acted_${kind.name.lowercase()}", detail = "$minutes min")
         Fundo.rodar { runCatching { SofyTv.present(app) } }
     }
 
     /** A manutenção da madrugada (e a sonda) não rodou nesta noite: fica no registro e no Diário, com o porquê. */
     fun nightSkipped(ctx: Context, why: String) {
         logShadow(ctx, "night_skipped", why)
+        SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "night_skipped", ok = false)
         runCatching { Diario.anotar(ctx.applicationContext, "tv", "Sofy: noite pulada", why) }
     }
 
@@ -467,6 +474,80 @@ object ObserverTv {
         p.edit().putString("notes", ObserverCore.markSeen(p.getString("notes", null), id, System.currentTimeMillis())).apply()
     }
 
+    // ---------------------------------------------------------------- autoexame e contexto (ideias 38 e 6)
+
+    private const val SELF_CHECK_GAP_MS = 6 * 3_600_000L
+    @Volatile private var lastSelfCheck = 0L
+
+    /** Quanto tempo o processo principal está de pé (o que a Sofy pode cobrar de cada peça). */
+    private fun upSince(now: Long): Long = runCatching {
+        now - (SystemClock.elapsedRealtime() - android.os.Process.getStartElapsedRealtime())
+    }.getOrDefault(now)
+
+    private fun pulse(ctx: Context, now: Long): SofySelfCheck.Pulse {
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val log = ObserverCore.readLog(p.getString("log", null), now)
+        var night = 0L
+        for (i in 0 until log.length()) {
+            val o = log.getJSONObject(i)
+            if (o.optString("event") == "night" || o.optString("event") == "night_skipped") { night = maxOf(night, o.optLong("at")) }
+        }
+        return SofySelfCheck.Pulse(
+            now = now, upSince = upSince(now),
+            interactive = ctx.getSystemService(android.os.PowerManager::class.java)?.isInteractive == true,
+            lastReadingAt = blackBox.snapshot().values.maxOfOrNull { it.at } ?: 0L,
+            appsEventsAt = p.getLong("apps_events_at", 0L),
+            startsTries = p.getInt("apps_starts_tries", 0), startsAt = p.getLong("apps_starts_at", 0L),
+            startsLastResult = p.getString("apps_starts_last", "").orEmpty(),
+            lastNightAt = night, lastEventAt = SofyBusTv.events(ctx).lastOrNull { it.source != SofyBus.Source.SOFY }?.at ?: 0L)
+    }
+
+    /**
+     * A Sofy se acusa (ideia 38): a cada [SELF_CHECK_GAP_MS], na batida da rede. Defeito NOVO (que não estava na
+     * conferência anterior) vai ao registro ("self_defect"), ao Diário e ao barramento; o que sumiu, "self_ok".
+     */
+    @Synchronized fun selfCheck(ctx: Context) {
+        val now = System.currentTimeMillis()
+        if (now - lastSelfCheck < SELF_CHECK_GAP_MS) return
+        lastSelfCheck = now
+        val app = ctx.applicationContext
+        val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val found = SofySelfCheck.check(pulse(app, now))
+        val before = p.getString("self_defects", "").orEmpty().split(',').filter { it.isNotEmpty() }.toSet()
+        val nowSet = found.map { it.defect.name }.toSet()
+        for (f in found) if (f.defect.name !in before) {
+            logShadow(app, "self_defect", "${f.defect.name}: ${f.why}")
+            runCatching { Diario.anotar(app, "tv", "Sofy: defeito meu", f.why) }
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "self_defect", ok = false, detail = f.defect.name.lowercase())
+            Log.w(TAG, "autoexame: ${f.defect} ${f.why}")
+        }
+        for (d in before - nowSet) logShadow(app, "self_ok", "$d: voltou a funcionar")
+        p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
+    }
+
+    private fun selfCheckJson(ctx: Context): org.json.JSONObject {
+        val now = System.currentTimeMillis()
+        val pu = pulse(ctx.applicationContext, now)
+        val arr = org.json.JSONArray()
+        for (f in SofySelfCheck.check(pu)) arr.put(org.json.JSONObject().put("defect", f.defect.name).put("why", f.why))
+        return org.json.JSONObject().put("defects", arr).put("up_min", (now - pu.upSince) / 60_000)
+            .put("starts_tries", pu.startsTries).put("starts_last", pu.startsLastResult)
+    }
+
+    /**
+     * O contexto de um episódio de HOME lenta (ideia 6): há quanto tempo o processo está de pé (abriu a frio?), quanto
+     * de memória o launcher usa e o que o barramento contou nos 10 minutos antes (backup? alarme? plugin?).
+     */
+    private fun slowContext(ctx: Context, now: Long): org.json.JSONObject {
+        val rt = Runtime.getRuntime()
+        val antes = SofyBus.around(SofyBusTv.events(ctx), now - 10 * 60_000L, now)
+        return org.json.JSONObject()
+            .put("process_up_min", (now - upSince(now)) / 60_000)
+            .put("heap_used_mb", (rt.totalMemory() - rt.freeMemory()) / 1_048_576)
+            .put("native_heap_mb", android.os.Debug.getNativeHeapAllocatedSize() / 1_048_576)
+            .put("recent_events", org.json.JSONArray(antes.takeLast(10).map { it.key }))
+    }
+
     // ---------------------------------------------------------------- adb e MCP
 
     /**
@@ -501,6 +582,8 @@ object ObserverTv {
             .put("on_demand", runCatching { org.json.JSONArray(OnDemand.toJson(OnDemandTv.entries(ctx))) }.getOrNull() ?: org.json.JSONArray())
             .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("log_total", log.length()).put("log", logNovo)
     }
 

@@ -118,6 +118,9 @@ object VigiaAtualizacao {
     /** O launcher caiu (chamado pelo tratador do RegistroErros, com o processo morrendo: nada de thread nova). */
     fun aoCair(ctx: Context, erro: Throwable) {
         val tela = VigiaRegras.telaDoErro(classesDaPilha(erro))
+        // Com o processo morrendo: uma linha no arquivo, sem thread nova.
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(ctx, br.paulo.tvlauncher.observer.SofyBus.Source.CRASH, "launcher_crash", ok = false,
+            detail = "${erro.javaClass.simpleName}${tela?.let { " em $it" } ?: ""}")
         val q = mexer(ctx) { val q = VigiaRegras.aoCair(it, versao(), System.currentTimeMillis(), tela); q.estado to q } ?: return
         if (q.marcouRuim) Log.e(TAG, "versão ${versao()} caiu ${VigiaRegras.QUEDAS_PARA_RUIM} vezes: marcada ruim (tela: ${tela ?: "?"})")
     }
