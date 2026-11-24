@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"开启让电视更完整的功能：HOME 键总是回到这里、隐藏应用，以及包含所有命令的面板。每个按钮都会在电视上打开对应界面；您用遥控器确认，手机会自动进入下一步。",
 "Tudo ligado. Toque em Continuar.":"全部已开启。点按继续。",
 "Teclas do controle":"遥控器按键",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"在电视上的无障碍列表中打开 One TV 并启用。",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"在电视上的无障碍列表中打开 “遥控器按键” (Sofaly) 并启用。",
 "Opções do desenvolvedor":"开发者选项",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"在电视上向下找到“Android TV OS 版本号”，按 OK 7 次。",
 "Parear com a TV":"与电视配对",

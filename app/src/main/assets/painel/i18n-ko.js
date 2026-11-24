@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"TV를 완전하게 만드는 기능을 켭니다. HOME 버튼은 항상 여기로 돌아오고, 앱 숨기기와 모든 명령이 있는 패널. 각 버튼이 TV에서 알맞은 화면을 열고, 리모컨으로 확인하면 휴대폰이 알아서 다음으로 넘어갑니다.",
 "Tudo ligado. Toque em Continuar.":"모두 켜졌습니다. 계속을 누르세요.",
 "Teclas do controle":"리모컨 버튼",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"TV의 접근성 목록에서 One TV를 열고 켜세요.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"TV의 접근성 목록에서 “리모컨 버튼”(Sofaly)을 열고 켜세요.",
 "Opções do desenvolvedor":"개발자 옵션",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"TV에서 \"Android TV OS 빌드\"까지 내려가 OK를 7번 누르세요.",
 "Parear com a TV":"TV와 페어링",

@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"वह चालू करता है जो TV को पूरा बनाता है: HOME बटन हमेशा यहीं लौटता है, ऐप छिपाना और सभी कमांड वाला पैनल। हर बटन TV पर सही स्क्रीन खोलता है; आप रिमोट से पुष्टि करते हैं और फ़ोन खुद आगे बढ़ता है।",
 "Tudo ligado. Toque em Continuar.":"सब चालू। जारी रखें दबाएँ।",
 "Teclas do controle":"रिमोट के बटन",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"TV पर, सुलभता सूची में One TV खोलें और चालू करें।",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"TV पर, सुलभता सूची में “रिमोट बटन” (Sofaly) खोलें और चालू करें।",
 "Opções do desenvolvedor":"डेवलपर विकल्प",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"TV पर, \"Android TV OS बिल्ड\" तक नीचे जाएँ और 7 बार OK दबाएँ।",
 "Parear com a TV":"TV से जोड़ें",

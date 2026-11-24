@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"Attiva ciò che rende la TV completa: il tasto HOME torna sempre qui, nascondere app e il pannello con tutti i comandi. Ogni pulsante apre la schermata giusta sulla TV; confermi con il telecomando e il telefono va avanti da solo.",
 "Tudo ligado. Toque em Continuar.":"Tutto attivo. Tocca Continua.",
 "Teclas do controle":"Tasti del telecomando",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"Sulla TV, apri One TV nell'elenco Accessibilità e attivalo.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"Sulla TV, apri “Tasti del telecomando” (Sofaly) nell'elenco Accessibilità e attivalo.",
 "Opções do desenvolvedor":"Opzioni sviluppatore",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"Sulla TV, scorri fino a «Build di Android TV OS» e premi OK 7 volte.",
 "Parear com a TV":"Associa alla TV",

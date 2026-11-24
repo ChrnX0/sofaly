@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"Schaltet ein, was den Fernseher komplett macht: Die HOME-Taste kehrt immer hierher zurück, Apps ausblenden und die Steuerung mit allen Befehlen. Jede Taste öffnet den richtigen Bildschirm am Fernseher; du bestätigst mit der Fernbedienung und das Handy geht von selbst weiter.",
 "Tudo ligado. Toque em Continuar.":"Alles an. Tippe auf Weiter.",
 "Teclas do controle":"Tasten der Fernbedienung",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"Öffne am Fernseher One TV in der Liste Bedienungshilfen und schalte es ein.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"Öffne am Fernseher “Tasten der Fernbedienung” (Sofaly) in der Liste Bedienungshilfen und schalte es ein.",
 "Opções do desenvolvedor":"Entwickleroptionen",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"Scrolle am Fernseher zu „Android TV OS-Build“ und drücke 7-mal OK.",
 "Parear com a TV":"Mit dem Fernseher koppeln",

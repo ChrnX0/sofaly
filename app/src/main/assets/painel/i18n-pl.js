@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"Włącza to, co czyni telewizor kompletnym: przycisk HOME zawsze tu wraca, ukrywanie aplikacji i panel ze wszystkimi poleceniami. Każdy przycisk otwiera właściwy ekran na telewizorze; potwierdzasz pilotem, a telefon sam przechodzi dalej.",
 "Tudo ligado. Toque em Continuar.":"Wszystko włączone. Dotknij Dalej.",
 "Teclas do controle":"Klawisze pilota",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"Na telewizorze otwórz One TV na liście Ułatwienia dostępu i włącz.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"Na telewizorze otwórz “Przyciski pilota” (Sofaly) na liście Ułatwienia dostępu i włącz.",
 "Opções do desenvolvedor":"Opcje programisty",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"Na telewizorze przewiń do „Kompilacja Android TV OS” i naciśnij OK 7 razy.",
 "Parear com a TV":"Sparuj z telewizorem",
