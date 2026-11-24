@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Mjuk avstängning (insomningstimern dämpar skärmen och sänker volymen)</string>
+    <string name="extras_MURAL">Familjetavla i snabbpanelen</string>
+    <string name="extras_PRESENCA">Stäng av när alla lämnar hemmet (UniFi-router)</string>
+    <string name="extras_HOJE_NA_TV">\"I dag på tv\" på sökskärmen</string>
+    <string name="extras_RETROSPECTIVA">Veckosammanfattning (söndag kväll)</string>
+    <string name="extras_MODO_SIMPLES">Enkel skärm (stora kort, upplästa namn)</string>
+</resources>

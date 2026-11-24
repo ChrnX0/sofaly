@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Ändring (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Ångrat: %1$s</string>
+    <string name="desf_ocultou">Dolde %1$s</string>
+    <string name="desf_mostrou">Visade %1$s igen</string>
+    <string name="desf_cat_ajuste">Inställning</string>
+    <string name="desf_cat_organizacao">Organisering</string>
+    <string name="desf_cat_automacao">Automatisering</string>
+    <string name="desf_cat_limpeza">Rensning</string>
+    <string name="desf_nada">Inget att ångra (det var redan ångrat).</string>
+    <string name="desf_feito">Ångrat. Allt är tillbaka som det var.</string>
+    <string name="desf_parcial">Delvis ångrat: %1$d objekt hade ändrats igen och förblev som de är.</string>
+    <string name="desf_barra">Ändrat: %1$s</string>
+    <string name="desf_botao">Ångra</string>
+    <string name="desf_tela">Senaste ändringar</string>
+    <string name="desf_tela_det">Vad som ändrades de senaste 7 dagarna. OK på en sätter tillbaka den som den var.</string>
+    <string name="desf_tela_vazia">Inga ändringar de senaste 7 dagarna.</string>
+    <string name="desf_ja_desfeita">ångrat</string>
+    <string name="desf_rot_config">Inställningar</string>
+    <string name="desf_rot_automacoes">Automatiseringar</string>
+    <string name="desf_rot_rotinas">Rutiner</string>
+    <string name="desf_rot_apps">Applista</string>
+    <string name="desf_rot_organizar">Startskärmens appar</string>
+</resources>

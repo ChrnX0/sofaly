@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Apelidos de voz das telas (ideia 8, AtalhosVoz): o nome que se fala no "Ok Google, abrir <nome>". Curtos e distintos. -->
+<resources>
+    <string name="lbl_voz_filmes">Filmer</string>
+    <string name="lbl_voz_series">Serier</string>
+    <string name="lbl_voz_na_rede">Nätverksmedia</string>
+    <string name="lbl_voz_casa">Hemstyrning</string>
+    <string name="lbl_voz_busca">Sök</string>
+    <string name="lbl_voz_mural">Tavla</string>
+    <string name="voz_mural_desligado">Familjetavlan är av (eller så är tv:n i gästläge).</string>
+</resources>

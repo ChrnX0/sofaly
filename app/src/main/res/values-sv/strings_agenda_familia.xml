@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Familjeschema</string>
+    <string name="agf_sub">Vid inställd tid byter tv:n själv till den profilen. En barnprofil slår på barnläge och läggdags.</string>
+    <string name="agf_cfg_det">Inställda byten: %1$d. Profilen byts av sig själv vid inställd tid.</string>
+    <string name="agf_adicionar">Lägg till ett byte</string>
+    <string name="agf_adicionar_det">Vems profil, vilka dagar och vilken tid.</string>
+    <string name="agf_quem">Byt till vems profil?</string>
+    <string name="agf_dias">Vilka dagar?</string>
+    <string name="agf_hora">Vilken tid?</string>
+    <string name="agf_todos">Varje dag</string>
+    <string name="agf_uteis">Måndag till fredag</string>
+    <string name="agf_fds">Lördag och söndag</string>
+    <string name="agf_alguns">Vissa dagar</string>
+    <string name="agf_apagar">Ta bort det här bytet?</string>
+    <string name="agf_apagar_sim">Ta bort</string>
+    <string name="agf_cheia">Schemat är fullt (12 byten).</string>
+    <string name="agf_sem_contas">Det finns inga profiler på den här tv:n än (Google-konton).</string>
+</resources>

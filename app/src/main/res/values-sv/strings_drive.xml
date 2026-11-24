@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Google Drive-konto</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Google Drive-konto</string>
+    <string name="drv_nao_conectada">inte anslutet</string>
+    <string name="drv_passos">1. Öppna %1$s på telefonen (eller rikta kameran mot koden till höger).\n2. Logga in med ett Google-konto som finns på den här tv:n och skriv:\n\n%2$s\n\n3. Tillåt åtkomst till Google Drive. Tv:n ser bara filerna den själv skapar (mappen OneTV-backup), aldrig resten av din Drive.\n\nDen här skärmen fortsätter av sig själv.</string>
+    <string name="drv_ok">Klart: %1$s är anslutet. Välj \"Google Drive\" på raden Extra kopia så går den nattliga säkerhetskopian också dit.</string>
+    <string name="drv_sem_google">Google-inloggning är inte konfigurerad på den här tv:n än.\n\nKonfigurera den i webbpanelen > fliken Claude (din egen OAuth-klient, typen \"TVs and Limited Input devices\"), slå på Google Drive API i samma Google Cloud-projekt och kom tillbaka hit.</string>
+    <string name="drv_desconectar_pergunta">Koppla från %1$s? Kopiorna som redan finns i Google Drive stannar där; tv:n slutar skicka nya.</string>
+    <string name="drv_desconectar">Koppla från</string>
+    <string name="drv_restaurar">Återställ från Google Drive</string>
+    <string name="drv_precisa_conta">Anslut Google Drive-kontot först (raden ovan).</string>
+    <string name="drv_falhou">Det fungerade inte: %1$s</string>
+    <string name="drv_nenhuma">Det finns inga kopior i mappen OneTV-backup på Google Drive än.</string>
+    <string name="drv_escolha">Vilken kopia?</string>
+    <string name="drv_senha">Säkerhetskopians lösenord</string>
+    <string name="drv_senha_errada">Fel lösenord för säkerhetskopian (eller så har filen ändrats). Inget återställdes.</string>
+    <string name="drv_restaurado">Återställt. Launchern startar om om ett ögonblick.</string>
+</resources>

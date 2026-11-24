@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Vem är den här tv:n till?</string>
+    <string name="rec_subtitulo">Ett OK konfigurerar tv:n. Du kan ångra det när som helst.</string>
+    <string name="rec_vo">Mormors tv</string>
+    <string name="rec_vo_det">Stora kort med namn som läses upp, större text och en knapp för Få hjälp.</string>
+    <string name="rec_criancas">Barnens tv</string>
+    <string name="rec_criancas_det">Bara barninnehåll, läggdags och kategorin Spela.</string>
+    <string name="rec_gamer">Spelarens tv</string>
+    <string name="rec_gamer_det">Kategorin Spela, spelläge (ingen skärmsläckare eller varningar under ett spel) och handkontrollen öppnar Spel.</string>
+    <string name="rec_aluguel">Uthyrnings-tv</string>
+    <string name="rec_aluguel_det">Gästläge: välkomstskärm, inget personligt på startskärmen och rensning vid utcheckning.</string>
+    <string name="rec_desfazer">Ångra</string>
+    <string name="rec_desfazer_det">Sätt tillbaka allt som det var före %1$s.</string>
+    <string name="rec_ja_esta">Den här tv:n är redan konfigurerad så här.</string>
+    <string name="rec_aviso_prende">Enkel skärm stängs bara med PIN-koden. Se till att någon i huset vet den.</string>
+    <string name="rec_aviso_sem_pin">Det finns ingen PIN-kod än, så vem som helst kan stänga av det här. Skapa en i telefonpanelen.</string>
+    <string name="rec_aviso_plano">Kräver ett betalabonnemang, så det förblir av: %1$s.</string>
+    <string name="rec_voltar">Tillbaka</string>
+    <string name="rec_aplicar">Verkställ</string>
+    <string name="rec_pin">PIN-kod för att ändra hur tv:n är konfigurerad</string>
+    <string name="rec_pronto">Klart</string>
+    <string name="rec_aplicada">Din tv är redo</string>
+    <string name="rec_aplicada_det">Ändrade något du inte ville? Ångra sätter tillbaka allt som det var.</string>
+    <string name="rec_desfeita">Allt är tillbaka som det var.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">på</string>
+    <string name="rec_desligado">av</string>
+    <string name="rec_aj_hospede">Gästläge</string>
+    <string name="rec_aj_visita">Besöksläge</string>
+    <string name="rec_aj_simples">Enkel skärm</string>
+    <string name="rec_aj_infantil">Barnläge</string>
+    <string name="rec_aj_dormir">Läggdags</string>
+    <string name="rec_aj_texto">Textstorlek</string>
+    <string name="rec_aj_ler_foco">Läs upp det som är valt</string>
+    <string name="rec_aj_som">Klickljud på varje knapp</string>
+    <string name="rec_aj_jogos">Kategorin Spela</string>
+    <string name="rec_aj_modo_jogo">Spelläge</string>
+    <string name="rec_aj_controle">Handkontrollen öppnar Spel</string>
+</resources>

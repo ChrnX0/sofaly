@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saude_titulo">Fjärråtkomsten stannade</string>
+    <string name="saude_texto_shell">Tv:ns åtkomst till sig själv föll bort för %1$d min sedan (panelen, Claude och automatiska lagningar stannar). Tryck på Koppla igen eller gå till Inställningar › System › Avancerat › Koppla utan dator.</string>
+    <string name="saude_texto_tunel">Claude via internet är offline. Tryck på Anslut för att se vad som saknas, eller gå till Inställningar › Hem och nätverk › Fjärråtkomst.</string>
+    <string name="saude_parear">Koppla igen</string>
+    <string name="saude_conectar">Anslut</string>
+    <string name="saude_depois">Inte nu</string>
+    <string name="saude_acao_shell">Koppla igen: Inställningar › System › Avancerat › Koppla utan dator</string>
+    <string name="saude_acao_tunel">Anslut igen: Inställningar › Hem och nätverk › Fjärråtkomst › Anslut</string>
+    <string name="mnt_titulo">Underhåll under natten</string>
+    <string name="mnt_consertei">Lagat:</string>
+    <string name="mnt_falhou">Kunde inte laga:</string>
+    <string name="mnt_acesso">fjärråtkomst</string>
+    <string name="mnt_permissoes">behörigheter</string>
+    <string name="mnt_agendamentos">larm och rutiner</string>
+    <string name="mnt_espaco">ledigt utrymme</string>
+</resources>

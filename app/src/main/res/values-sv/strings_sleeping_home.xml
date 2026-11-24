@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Timmar</string>
+    <string name="sh_dias">Dagar</string>
+    <string name="sh_dicas">Tips</string>
+    <string name="sh_ar">Luft</string>
+    <string name="sh_orvalho">daggpunkt %1$d°</string>
+    <string name="sh_nuvens">Moln</string>
+    <string name="sh_nascer">Soluppgång</string>
+    <string name="sh_por">Solnedgång</string>
+    <string name="sh_duracao">Dagens längd</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Gyllene timmen</string>
+    <string name="sh_fase">Fas</string>
+    <string name="sh_iluminada">%1$s upplyst</string>
+    <string name="sh_cheia">Fullmåne</string>
+    <string name="sh_nova">Nymåne</string>
+    <string name="sh_em_dias">om %1$d d</string>
+    <string name="sh_rodar">Rotera den nedre listen</string>
+    <string name="sh_rodar_det">På skärmsläckaren byts den nedre listen av sig själv. ↑ och ↓ byter den direkt.</string>
+    <string name="sh_rodar_desl">Av</string>
+    <string name="sh_rodar_s">Var %1$d:e s</string>
+    <string name="sh_rodar_min">Varje minut</string>
+    <string name="sh_vidro">Glas bakom den nedre listen</string>
+    <string name="sh_vidro_det">En glaspanel bakom listen. Av: bara en tunn linje.</string>
+    <string name="sh_fundo">Skärmsläckarens bakgrund</string>
+    <string name="sh_fundo_det">Vad som finns bakom klockan på skärmsläckaren: ett annat tema, ett foto, en video eller flera som växlar.</string>
+    <string name="sh_fundo_home">Samma som startskärmen</string>
+    <string name="sh_fundo_fotos">Foton och videor som växlar</string>
+    <string name="sh_fundo_arquivo">En fil bara för skärmsläckaren</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Testa handkontrollen</string>
+    <string name="teste_controle_sub">Är den snabb nog att spela med?</string>
+    <string name="teste_controle_mexa">Snurra vänster spak i cirklar i 10 sekunder.</string>
+    <string name="teste_controle_bom">Utmärkt för spel: en signal var %1$d:e ms.</string>
+    <string name="teste_controle_ok">Spelbar: en signal var %1$d:e ms. Snabba spel kan kännas lite sena.</string>
+    <string name="teste_controle_ruim">Långsam: en signal var %1$d:e ms och %2$d pauser. En trådbunden handkontroll, eller handkontrollen närmare tv:n, hjälper.</string>
+    <string name="teste_controle_parado">Handkontrollen rörde sig inte. Försök igen och fortsätt snurra spaken.</string>
+</resources>

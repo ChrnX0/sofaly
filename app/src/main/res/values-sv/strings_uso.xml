@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Hur den här tv:n används</string>
+    <string name="uso_det">Essentiell döljer Hem och automatiseringar, Fjärråtkomst och Avancerat. Inget stängs av.</string>
+    <string name="uso_simples">Essentiell</string>
+    <string name="uso_completo">Fullständig</string>
+    <string name="uso_cuida">För någon jag ser efter</string>
+    <string name="uso_pergunta">Hur ska den här tv:n användas?</string>
+    <string name="uso_pergunta_det">Du kan ändra det senare i Inställningar › System.</string>
+    <string name="uso_simples_det">Bara det viktigaste: appar, klocka och väder. Färre alternativ i Inställningar.</string>
+    <string name="uso_completo_det">Allt: fjärrstyrning från telefonen, hemenheter, nätverksenhet och avancerade alternativ.</string>
+    <string name="uso_cuida_det">Föräldrarnas eller far- och morföräldrarnas tv: enkel för dem, och du hjälper till från telefonen, på avstånd.</string>
+    <string name="uso_cuidar_longe">Se efter på distans</string>
+    <string name="uso_cuidar_longe_det">Av tills den som bor där godkänner det på tv:n.</string>
+    <string name="uso_cartoes">Stora kort på startskärmen</string>
+    <string name="uso_cartoes_det">Några stora appar, namn som läses upp och en knapp \"Få hjälp\". Att stänga av det kräver PIN-koden.</string>
+    <string name="uso_trocar_det">Nu: %1$s. OK för att välja igen.</string>
+</resources>

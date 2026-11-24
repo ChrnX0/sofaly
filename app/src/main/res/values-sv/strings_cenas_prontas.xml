@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Färdiga scener</string>
+    <string name="cpr_dormir">Sov</string>
+    <string name="cpr_dormir_det">Nattfilter, lägre volym, tv:n stängs av om 30 min</string>
+    <string name="cpr_novela">Såpopera</string>
+    <string name="cpr_novela_det">Din kanal, normala färger</string>
+    <string name="cpr_jogo">Match</string>
+    <string name="cpr_jogo_det">Din sportkanal, högre</string>
+    <string name="cpr_canal">Vilken kanal för ”%1$s”?</string>
+    <string name="cpr_canal_dica">Kanalnamn eller nummer</string>
+</resources>

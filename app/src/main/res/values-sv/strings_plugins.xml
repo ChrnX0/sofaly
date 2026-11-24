@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Plugin</string>
+    <string name="plg_nenhum">Inget kortplugin installerat. Kortplugin är appar från andra utvecklare som visar ett kort här, som ett matchresultat eller ett pris.</string>
+    <string name="plg_ligado">På</string>
+    <string name="plg_desligado">Av</string>
+    <string name="plg_limite">Högst %1$d plugin åt gången. Stäng av ett först.</string>
+    <string name="plg_seguranca">Om ett plugin uppdateras med en annan signatur stängs det av tills du tillåter det igen.</string>
+</resources>

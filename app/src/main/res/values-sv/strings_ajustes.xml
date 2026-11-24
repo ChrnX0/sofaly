@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Fler alternativ</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Skärmsläckarfoton från telefonen</string>
+    <string name="qrd_fotos_det">Visar en kod: telefonen öppnar panelen direkt på fotosidan</string>
+    <string name="qrd_mural">Familjetavla från telefonen</string>
+    <string name="qrd_mural_det">Inköpslista och fästa anteckningar</string>
+    <string name="qrd_cenas">Scener från telefonen</string>
+    <string name="qrd_cenas_det">Skapa och testa scener i webbpanelen</string>
+    <string name="qrd_casa">Home Assistant från telefonen</string>
+    <string name="qrd_casa_det">Adress och token för din Home Assistant, i webbpanelen</string>
+    <string name="qrd_time">Mitt lag och påminnelser från telefonen</string>
+    <string name="qrd_time_det">Ord som gör guideprogram till påminnelser</string>
+    <string name="qrd_roteador">Router från telefonen</string>
+    <string name="qrd_roteador_det">UniFi-routerns adress och API-nyckel, i webbpanelen</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Snabbpanelens rutor</string>
+    <string name="pb_subtitulo">OK visar eller döljer · ◀ ▶ ändrar ordningen</string>
+    <string name="pb_cfg_det">Välj vilka rutor snabbpanelen (håll TILLBAKA) visar, och i vilken ordning</string>
+    <string name="pb_mostrado">visas</string>
+    <string name="pb_escondido">dold</string>
+    <string name="pb_padrao">Tillbaka till standardrutorna</string>
+    <string name="pb_wifi">Wifi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Nattfilter</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Startskärm</string>
+    <string name="cfg2_aba_inicio_det">Tema, dolda appar, snabbpanel och väder</string>
+    <string name="cfg2_aba_familia">Familj</string>
+    <string name="cfg2_aba_familia_det">Föräldrakontroll, barn-PIN, läggdags och gäster</string>
+    <string name="cfg2_aba_casa">Hem och automatiseringar</string>
+    <string name="cfg2_aba_casa_det">Automatiseringar, smart hem och det du konfigurerar från telefonen</string>
+    <string name="cfg2_aba_sistema_det">Diagnostik, uppdateringar, säkerhetskopiering och om</string>
+    <string name="cfg2_aba_avancado">Avancerat</string>
+    <string name="cfg2_aba_avancado_det">Nätverk, verktyg, fabriksappar, behörigheter och skal. Behövs sällan.</string>
+    <string name="cfg2_sec_visitas">Gäster</string>
+    <string name="cfg2_sec_celular">Från telefonen</string>
+    <string name="cfg2_sec_ferramentas">Verktyg</string>
+    <string name="cfg2_sec_ocultos_sistema">Systemappar dolda av launchern</string>
+    <string name="cfg2_apps_visita_det">Välj vilka appar som försvinner medan gästläget är på</string>
+    <string name="cfg2_apps_visita_sub">OK växlar · de här försvinner medan gästläget är på</string>
+    <string name="cfg2_some_visita">dold för gäster</string>
+    <string name="cfg2_fica_visita">stannar</string>
+    <string name="cfg2_casa_det">Lampor, uttag och scener från Google Home eller Home Assistant</string>
+    <string name="oc_titulo">Dolda appar</string>
+    <string name="oc_subtitulo">OK visar eller döljer en app på startskärmen · dolda kommer först</string>
+    <string name="oc_nenhum">Inga dolda appar · OK för att välja</string>
+    <string name="oc_quantos">Dolda: %1$d · OK för att visa dem igen</string>
+    <string name="oc_oculto">dold</string>
+    <string name="oc_aparece">på startskärmen</string>
+    <string name="oc_aviso_titulo">Appen är dold</string>
+    <string name="oc_aviso">För att visa den igen: Inställningar › Startskärm › Dolda appar</string>
+    <string name="extras_LER_FOCO">Läs upp det som har fokus, på varje skärm i launchern</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Stänga av tv:n av sig själv?</string>
+    <string name="sug_desligar">Tv:n var på efter midnatt %1$d nätter den här veckan. Stänga av den efter 2 timmar utan att någon använder fjärrkontrollen? (Den varnar 60 sekunder innan.)</string>
+    <string name="sug_filtro_titulo">Slå på nattfiltret?</string>
+    <string name="sug_filtro">Tv:n användes efter kl. 22 %1$d nätter den här veckan. Nattfiltret gör skärmen varmare och mörkare på natten, skonsammare för ögonen.</string>
+    <string name="sug_ligar">Slå på</string>
+    <string name="sug_agora_nao">Inte nu</string>
+    <string name="sug_nunca">Föreslå inte igen</string>
+    <string name="sug_feito_titulo">Klart</string>
+    <string name="sug_feito">För att ändra senare: Inställningar › Skärm och ström</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Textstorlek</string>
+    <string name="tt_det">På varje skärm i launchern. Filmer, serier och direkt-tv var redan större och växer med</string>
+    <string name="tt_normal">Normal</string>
+    <string name="tt_grande">Stor</string>
+    <string name="tt_maior">Större</string>
+    <string name="pi_titulo">Ikonpaket</string>
+    <string name="pi_det">Byt appikoner mot en inbyggd stil (Symbol, Duoton) eller ett installerat ikonpaket. OK väljer nästa.</string>
+    <string name="pi_det_vazio">Inget ikonpaket installerat. Hämta ett från Play Butik så visas det här.</string>
+    <string name="pi_nenhum">Inget</string>
+    <string name="fm_titulo">Min bakgrund</string>
+    <string name="fm_det">Ditt foto, din GIF eller video bakom startskärmen. Lägg filen i mappen Fundo, Pictures, DCIM, Movies eller Download.</string>
+    <string name="fm_vazio">Inget foto eller video hittades. Kopiera ett till mappen Fundo (nätverksenhet eller USB) och kom tillbaka.</string>
+    <string name="fm_nenhum">Inget (tillbaka till Mörk)</string>
+    <string name="fm_brilho">Bakgrundens ljusstyrka</string>
+    <string name="fm_contraste">Bakgrundens kontrast</string>
+    <string name="fm_ajuste_det">Gäller Min bakgrund. OK ändrar steget.</string>
+    <string name="vp_titulo">Kommer du från Projectivy?</string>
+    <string name="vp_texto">Fyra steg tar över dina inställningar på ungefär en minut. Vart och ett kan göras senare i Inställningar.</string>
+    <string name="vp_cfg_det">Ta över dolda appar, ikonpaket och bakgrund från Projectivy.</string>
+    <string name="vp_1">1. Dolda appar</string>
+    <string name="vp_1_det">Markera apparna du hade dolt. För att ändra ordning, håll OK på en app på startskärmen.</string>
+    <string name="vp_2">2. Ikonpaket</string>
+    <string name="vp_2_det">Samma ikonpaket som Projectivy använder fungerar här.</string>
+    <string name="vp_3">3. Bakgrund</string>
+    <string name="vp_3_det">Ditt foto, din GIF eller video. Kopiera den till mappen Fundo först.</string>
+    <string name="vp_4">4. Stäng av Projectivys Home-knapp</string>
+    <string name="vp_4_det">I Tillgänglighet, stäng av Projectivy. Två appar som fångar Home gör att fel app öppnas.</string>
+    <string name="vp_pronto">Klart</string>
+    <string name="vp_pronto_det">Gå till startskärmen.</string>
+    <string name="vq_titulo">Dela utseende</string>
+    <string name="vq_det">Visa en QR-kod med den här tv:ns utseende: tema, textstorlek, ikoner.</string>
+    <string name="vq_texto">Skanna den med telefonen för att spara den eller skicka den till någon med Sofaly.</string>
+    <string name="vq_fechar">Stäng</string>
+    <string name="pl_titulo">Abonnemang</string>
+    <string name="pl_texto">Allt är gratis medan försäljningen inte har öppnat. Senare köps Pro och Ultra på telefonen.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Startskärm, skärmsläckare\n• Larm, enkel skärm\n• Spelare och radio\n• 1 IPTV-lista\n• 2 teman</string>
+    <string name="pl_pro_itens">• Allt i Basic\n• Många IPTV-listor, inspelning\n• Fullständig webbpanel\n• Claude, rutiner, Home Assistant\n• Alla teman, säkerhetskopia i molnet</string>
+    <string name="pl_ultra_itens">• Allt i Pro\n• Bättre väder (3 modeller)\n• Rika filmsidor\n• Automatiska undertexter\n• Upp till 3 tv-apparater</string>
+    <string name="pl_qr">Skanna med telefonen för att se priser och köpa.</string>
+    <string name="pl_assinar">Prenumerera</string>
+    <string name="pl_assinar_preco">Prenumerera · %1$s</string>
+    <string name="pl_seu_plano">Ditt abonnemang</string>
+    <string name="pl_loja_indisponivel">Google Play kunde inte öppna köpet. Kontrollera internet och försök igen.</string>
+    <string name="atu_pela_play">Uppdateringar kommer från Google Play.</string>
+</resources>

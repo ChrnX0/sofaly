@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Typsnitt</string>
+    <string name="fc_det">Bokstäverna på varje skärm. Google-typsnitt laddas ner första gången</string>
+    <string name="fc_baixando">laddar ner…</string>
+    <string name="fc_falhou">Kunde inte ladda ner det. Kontrollera internet</string>
+    <string name="ck_formato">Tidsformat</string>
+    <string name="ck_formato_det">I översta listen, Ön och den stora klockan</string>
+    <string name="ck_auto">Automatiskt</string>
+    <string name="ck_24">24 h (15:40)</string>
+    <string name="ck_12">12 h (3:40)</string>
+    <string name="ck_12ampm">12 h med AM/PM</string>
+    <string name="ck_seg">Med sekunder</string>
+    <string name="ck_cor">Tidens färg</string>
+    <string name="ck_cor_det">I översta listen, Ön och den stora klockan</string>
+    <string name="ck_padrao">Standard</string>
+    <string name="ck_laranja">Orange</string>
+    <string name="ck_creme">Gräddvit</string>
+    <string name="ck_ambar">Bärnsten</string>
+    <string name="ck_verde">Blågrön</string>
+</resources>

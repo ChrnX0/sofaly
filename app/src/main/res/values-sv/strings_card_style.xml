@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Finjustering</string>
+    <string name="ft_dica">OK eller ▶ ◀ ändrar · TILLBAKA stänger</string>
+    <string name="ft_abrir">Justera medan du ser startskärmen</string>
+    <string name="ft_abrir_det">Typsnitt, klocka, markeringsfärg, hörn, glöd och storlek, live</string>
+    <string name="cs_destaque">Markeringsfärg</string>
+    <string name="cs_cantos">Hörn</string>
+    <string name="cs_brilho">Fokusglöd</string>
+    <string name="cs_tamanho">Korsets storlek</string>
+    <string name="cs_ceu">Himmel</string>
+    <string name="cs_lilas">Lila</string>
+    <string name="cs_retos">Fyrkantig</string>
+    <string name="cs_redondos">Rund</string>
+    <string name="cs_sem">Av</string>
+    <string name="cs_suave">Mjuk</string>
+    <string name="cs_forte">Stark</string>
+    <string name="cs_menor">Mindre</string>
+    <string name="cs_maior">Större</string>
+    <string name="bg_tintura">Färg över bakgrunden</string>
+    <string name="bg_cor">Bakgrundsfärg</string>
+    <string name="bg_desfoque">Bakgrundsoskärpa</string>
+    <string name="bg_transicao">Bildövergång</string>
+    <string name="bg_novo">Ny bakgrund nu</string>
+    <string name="bg_solida">Enfärgad</string>
+    <string name="bg_destaque">Markering</string>
+    <string name="bg_noite">Natt</string>
+    <string name="bg_mata">Skog</string>
+    <string name="bg_brasa">Glöd</string>
+    <string name="bg_grafite">Grafit</string>
+    <string name="bg_corte">Klipp</string>
+    <string name="bg_lenta">Långsam</string>
+    <string name="bg_trocado">Ändrad</string>
+    <string name="bg_nao_troca">Den här bakgrunden ändras inte</string>
+    <string name="bg_camera">Hemkameran som bakgrund</string>
+    <string name="bg_campainha">Dörrklockans kamera som bakgrund</string>
+    <string name="bg_nenhuma">Ingen</string>
+    <string name="bg_ligado">På</string>
+</resources>

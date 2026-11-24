@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Skådespelare</string>
+    <string name="elenco_titulo">Skådespelare</string>
+    <string name="elenco_carregando">Laddar skådespelarna…</string>
+    <string name="elenco_vazio">TMDB har inga skådespelare för den här titeln.</string>
+    <string name="elenco_dica">Bläddra mellan personerna: nedanför, vad mer de medverkar i som finns i din lista.</string>
+    <string name="elenco_na_lista">Finns också i din lista</string>
+    <string name="elenco_procurando">Letar i din lista…</string>
+    <string name="elenco_nada_na_lista">Inget mer med den här personen i din lista.</string>
+    <string name="elenco_filme">Film</string>
+    <string name="elenco_serie">Serie</string>
+    <string name="elenco_opcao_player">Skådespelare (vem är den här skådespelaren?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Tidigare i %1$s</string>
+    <string name="anteriormente_assistir">Titta på %1$s</string>
+    <string name="anteriormente_pular_sempre">Visa aldrig</string>
+    <string name="anteriormente_desligado">Sammanfattningar avstängda. För att slå på dem igen: håll OK på ett avsnitt.</string>
+    <string name="anteriormente_ligar">Visa sammanfattningar ”Tidigare i”</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Högsta ålder i barnläge</string>
+    <string name="idade_det">Filmer och serier med åldersgräns upp till den här åldern visas från vilken kategori som helst (TMDB-klassning). Oklassade bara i barnkategorier.</string>
+    <string name="idade_so_categorias">Bara barnkategorier</string>
+    <string name="idade_livre">Alla åldrar</string>
+    <string name="idade_anos">Upp till %1$d år</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Finns också på: %1$s (JustWatch)</string>
+    <string name="onde_fora">Inte i din lista · på %1$s</string>
+    <string name="onde_grupo">På annat håll (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Undertexter nedladdade automatiskt (gjorda för den här filen) · ▼ för att byta</string>
+    <string name="legenda_auto_pronta_nome">Undertexter nedladdade automatiskt · ▼ för att byta eller justera fördröjningen</string>
+    <string name="legenda_trad_rotulo">Automatisk översättning</string>
+    <string name="legenda_trad_traduzindo">Inga undertexter på ditt språk: översätter de engelska på tv:n…</string>
+    <string name="legenda_trad_parcial">Undertexter översatta på tv:n (automatisk översättning). Resten fortsätter att översättas.</string>
+    <string name="legenda_trad_pronta">Översättningen av undertexterna är klar</string>
+    <string name="series_sinopse_mais">Hela handlingen</string>
+    <string name="series_continuar_curto">▶  Fortsätt %1$s</string>
+    <string name="series_episodios">Avsnitt</string>
+    <string name="series_trocar_temporada">Byt säsong</string>
+    <string name="fechar">Stäng</string>
+    <string name="onde_assistir_botao">Var du kan titta</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Profil: %1$s</string>
+    <string name="perfil_aviso_texto">Favoriter, Fortsätt titta och appordning för den här profilen</string>
+    <string name="perfil_aviso_crianca">Barnprofil: barnläge och läggdags påslagna</string>
+    <string name="perfil_crianca">Barnprofil</string>
+    <string name="perfil_crianca_linha">Barnprofil · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Av</string>
+    <string name="perfil_crianca_sem_pin">Ange webbpanelens PIN-kod först: det är föräldrarnas PIN-kod som skyddar barnprofilen</string>
+    <string name="perfil_pin_sair">Föräldrarnas PIN-kod för att lämna barnprofilen</string>
+    <string name="perfil_pin_marcar">Föräldrarnas PIN-kod för att ändra barnprofilen</string>
+</resources>

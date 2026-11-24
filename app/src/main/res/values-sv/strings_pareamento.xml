@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">kunde inte öppna Utvecklaralternativ (%1$s)</string>
+    <string name="pn_porta_achada">kopplingsport %1$d hittad</string>
+    <string name="pn_mdns_falhou">nätverkssökningen misslyckades (%1$s)</string>
+    <string name="pn_pareando">kopplar…</string>
+    <string name="pn_confirme">koden läst. För att koppla, tryck på OK på fjärrkontrollen på ”%1$s”</string>
+    <string name="pn_so_controle">bara en knapp på fjärrkontrollen bekräftar kopplingen</string>
+</resources>

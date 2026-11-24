@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor: variações de cada elemento (17/11/2026). -->
+<resources>
+    <string name="pv2_est_avisos">Stil för meddelanden</string>
+    <string name="pv2_est_avisos_det">hur meddelanden och påminnelser visas · OK ändrar</string>
+    <string name="pv2_av_cartoes">Glaskort</string>
+    <string name="pv2_av_lista">Lista utan ruta</string>
+    <string name="pv2_av_um">En i taget</string>
+    <string name="pv2_est_textos">Stil för hälsning och datum</string>
+    <string name="pv2_est_textos_det">OK ändrar</string>
+    <string name="pv2_tx_moderno">Modern</string>
+    <string name="pv2_tx_serifa">Serif</string>
+    <string name="pv2_tx_maiusculas">Spärrade versaler</string>
+    <string name="pv2_est_linhas">Stil för väderraden</string>
+    <string name="pv2_est_linhas_det">vädermeningen och kul fakta · OK ändrar</string>
+    <string name="pv2_ln_icones">Med ikoner</string>
+    <string name="pv2_ln_vidro">På mörkt glas</string>
+    <string name="pv2_ln_texto">Bara text</string>
+    <string name="pv2_est_credito">Stil för fotokälla</string>
+    <string name="pv2_est_credito_det">OK ändrar</string>
+    <string name="pv2_cr_etiqueta">Etikett</string>
+    <string name="pv2_cr_discreto">Diskret</string>
+    <string name="cl_widget_linha">En rad</string>
+    <string name="cl_widget_grande">Stor</string>
+    <string name="pv2_widget_det">fem stilar · OK ändrar</string>
+</resources>

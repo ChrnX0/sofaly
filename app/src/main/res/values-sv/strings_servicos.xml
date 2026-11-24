@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Tjänster för filmer och serier</string>
+    <string name="sv_subtitulo">Valfria konton. Inget skickas utanför tv:n förrän du loggar in.</string>
+    <string name="sv_linha">Tjänster för filmer och serier</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB och OpenSubtitles</string>
+    <string name="sv_trakt_det">Håller det du sett och din bevakningslista synkade med telefonen</string>
+    <string name="sv_simkl_det">Som Trakt, också bra för anime. Använd en eller båda</string>
+    <string name="sv_mdblist_det">Valfritt: dina listor, som Top 250, blir kategorier i Filmer och Serier</string>
+    <string name="sv_tmdb_det">Handling, skådespelare och datum för nästa avsnitt, på tv:ns språk</string>
+    <string name="sv_os_det">Undertexter på nätet. Utan konto: 5 om dagen. Med ett gratiskonto: 20</string>
+    <string name="sv_desligado">Logga in</string>
+    <string name="sv_entrando">loggar in…</string>
+    <string name="sv_conectado">ansluten</string>
+    <string name="sv_ativo">på</string>
+    <string name="sv_sem_chave">Den här versionen har inte nycklarna till de här tjänsterna än. De visas efter nästa uppdatering.</string>
+    <string name="sv_pedindo">Ber %1$s om en kod…</string>
+    <string name="sv_passos">1. Öppna %1$s på telefonen (eller rikta kameran mot koden till höger).\n2. Logga in på %2$s och skriv koden:</string>
+    <string name="sv_espera">Den här skärmen fortsätter av sig själv. TILLBAKA avbryter.</string>
+    <string name="sv_ok">Klart: %1$s är anslutet%2$s.</string>
+    <string name="sv_ok_como"> som %1$s</string>
+    <string name="sv_falhou">Det fungerade inte: %1$s</string>
+    <string name="sv_motivo_venceu">koden har gått ut. Försök igen.</string>
+    <string name="sv_motivo_recusado">åtkomst nekades på telefonen.</string>
+    <string name="sv_motivo_usado">den här koden har redan använts. Försök igen.</string>
+    <string name="sv_motivo_erro">tjänsten svarade inte. Försök igen om en stund.</string>
+    <string name="sv_sair_pergunta">Logga ut från %1$s? Tv:n glömmer kontot och slutar prata med %1$s. Dina data där stannar där.</string>
+    <string name="sv_sair">Logga ut</string>
+    <string name="sv_fechar">Stäng</string>
+    <string name="sv_mdblist_titulo">MDBList-nyckel</string>
+    <string name="sv_mdblist_texto">Valfritt: betygen fungerar redan utan den. För att använda ditt eget MDBList-konto (dina listor, din kvot), logga in på mdblist.com, öppna Preferences, kopiera API-nyckeln och skriv den här (enklare från webbpanelen, fliken Inställningar, genom att klistra in den).</string>
+    <string name="sv_mdblist_dica">API-nyckel</string>
+    <string name="sv_os_titulo">OpenSubtitles-konto</string>
+    <string name="sv_os_texto">Valfritt: med ett gratiskonto på opensubtitles.com går gränsen från 5 till 20 undertexter om dagen.</string>
+    <string name="sv_os_usuario">Användarnamn</string>
+    <string name="sv_os_senha">Lösenord</string>
+    <string name="sv_gravar">Spara</string>
+    <string name="sv_cancelar">Avbryt</string>
+    <string name="sv_limite_dia">Dagens gräns för undertexter är nådd. Den förnyas om 24 h (med ett OpenSubtitles-konto är den 20 om dagen).</string>
+    <string name="sv_tmdb_atribuicao">Den här produkten använder TMDB:s API men är inte godkänd eller certifierad av TMDB.</string>
+    <string name="ext_saga">%1$s · %2$d av %3$d i din lista</string>
+    <string name="ext_nao_e_este">Inte den här filmen</string>
+    <string name="ext_proximo">Nytt avsnitt %1$s (S%2$dA%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Nytt avs. %1$s</string>
+    <string name="ext_hoje">i dag</string>
+    <string name="ext_amanha">i morgon</string>
+    <string name="sv_mdblist_passos">Valfritt: dina MDBList-listor (som Top 250) blir kategorier i Filmer och Serier.\n1. Rikta telefonkameran mot koden till vänster och logga in (eller skapa ett gratiskonto). I slutet av sidan, tryck på API Access, generera nyckeln om det inte finns någon än, och kopiera den.\n2. Rikta mot koden till höger: webbpanelen öppnas på Inställningar. Klistra in nyckeln under MDBList och tryck på Spara nyckel.\n3. Tv:n kontrollerar den direkt och den här skärmen fortsätter av sig själv.</string>
+    <string name="sv_mdblist_qr1">MDBList-nyckelsida</string>
+    <string name="sv_mdblist_qr2">Webbpanel (%1$s)</string>
+    <string name="sv_mdblist_digitar">Skriv nyckeln här</string>
+    <string name="sv_f_chave_invalida">ogiltig nyckel (bara bokstäver och siffror)</string>
+    <string name="sv_f_chave_recusada">%1$s godtog inte den här nyckeln</string>
+    <string name="sv_f_respondeu">%1$s svarade med fel %2$d. Försök igen om en stund.</string>
+    <string name="sv_f_falta">ange användarnamn och lösenord</string>
+    <string name="sv_f_longo">användarnamn eller lösenord för långt</string>
+    <string name="sv_f_senha">fel användarnamn eller lösenord</string>
+    <string name="sv_f_gravar">kunde inte spara det på tv:n. Försök igen.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Simkl-betyg</string>
+    <string name="sv_simkl_convite_det">Anslut ditt konto</string>
+</resources>
