@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Locked</string>
     <string name="cl_cf_bloqueado_det">Hidden from the channel list, guide, search, ▲▼ and typed numbers, and won\'t play</string>
     <string name="cl_cf_assistir">To watch</string>
-    <string name="cl_cf_assistir_det">In the player: OK &gt; Filters &gt; \"Show hidden categories and blocked channels\" and the PIN</string>
+    <string name="cl_cf_assistir_det">In the player: OK › Filters › \"Show hidden categories and blocked channels\" and the PIN</string>
     <string name="cl_cf_tranca">Locks again</string>
     <string name="cl_cf_tranca_det">By itself when the player closes (HOME, another app or TV off)</string>
     <string name="cl_cf_pin">PIN</string>

@@ -73,7 +73,7 @@
     <string name="bv_perm">Attiva calendario, posizione e account</string>
     <string name="bv_perm_det">Eventi del calendario, meteo della tua città, iniziale dell’account nel profilo</string>
     <string name="bv_teclas">Attiva il servizio dei tasti</string>
-    <string name="bv_teclas_det">Accessibilità &gt; Launcher: fa sì che HOME torni sempre qui</string>
+    <string name="bv_teclas_det">Accessibilità › Launcher: fa sì che HOME torni sempre qui</string>
     <string name="bv_tudo">Vedi tutto ciò che puoi attivare</string>
     <string name="lic_sem_arquivo">File della licenza non trovato.</string>
     <string name="rot_ligar">Accendi la TV</string>

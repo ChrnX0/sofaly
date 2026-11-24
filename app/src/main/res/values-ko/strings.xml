@@ -73,7 +73,7 @@
     <string name="bv_perm">캘린더, 위치, 계정 켜기</string>
     <string name="bv_perm_det">캘린더 일정, 내 도시 날씨, 프로필의 계정 이니셜</string>
     <string name="bv_teclas">키 서비스 켜기</string>
-    <string name="bv_teclas_det">접근성 &gt; 런처: 홈 버튼이 항상 여기로 돌아오게 함</string>
+    <string name="bv_teclas_det">접근성 › 런처: 홈 버튼이 항상 여기로 돌아오게 함</string>
     <string name="bv_tudo">켤 수 있는 항목 모두 보기</string>
     <string name="lic_sem_arquivo">라이선스 파일을 찾을 수 없습니다.</string>
     <string name="rot_ligar">TV 켜기</string>
@@ -692,7 +692,7 @@ AS\\Movies).</string>
     <string name="fp_ok">완료: %1$s의 사진이 이제 프로필 버튼에 표시됩니다.</string>
     <string name="fp_sem_foto">%1$s(으)로 로그인했지만 사진을 저장할 수 없었습니다. 다시 시도하거나 웹 패널(화면 보호기 사진 탭)에서 사진을 보내세요.</string>
     <string name="fp_falha">실패: %1$s</string>
-    <string name="fp_sem_google">이 TV에는 아직 Google 로그인이 설정되어 있지 않습니다.\n\n프로필 버튼에 사진을 넣는 두 가지 방법:\n• 웹 패널 &gt; 화면 보호기 사진 탭 &gt; 프로필 사진: 휴대폰의 아무 사진이나 선택.\n• Google 로그인 설정(웹 패널 &gt; Claude 탭) 후 여기로 돌아와 계정 사진 가져오기.</string>
+    <string name="fp_sem_google">이 TV에는 아직 Google 로그인이 설정되어 있지 않습니다.\n\n프로필 버튼에 사진을 넣는 두 가지 방법:\n• 웹 패널 › 화면 보호기 사진 탭 › 프로필 사진: 휴대폰의 아무 사진이나 선택.\n• Google 로그인 설정(웹 패널 › Claude 탭) 후 여기로 돌아와 계정 사진 가져오기.</string>
     <string name="vod_capitulo_n">챕터 %1$d</string>
     <string name="vod_capitulos_titulo">챕터</string>
     <string name="vod_capitulos_opcao">챕터(%1$d)</string>

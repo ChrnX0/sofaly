@@ -73,7 +73,7 @@
     <string name="bv_perm">Activer l’agenda, la localisation et les comptes</string>
     <string name="bv_perm_det">Événements de l’agenda, météo de votre ville, initiale du compte sur le profil</string>
     <string name="bv_teclas">Activer le service des touches</string>
-    <string name="bv_teclas_det">Accessibilité &gt; Launcher : HOME revient toujours ici</string>
+    <string name="bv_teclas_det">Accessibilité › Launcher : HOME revient toujours ici</string>
     <string name="bv_tudo">Voir tout ce que vous pouvez activer</string>
     <string name="lic_sem_arquivo">Fichier de licence introuvable.</string>
     <string name="rot_ligar">Allumer la TV</string>

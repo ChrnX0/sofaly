@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">लॉक</string>
     <string name="cl_cf_bloqueado_det">चैनल सूची, गाइड, खोज, ▲▼ और टाइप किए नंबरों से छिपा, और नहीं चलता</string>
     <string name="cl_cf_assistir">देखने के लिए</string>
-    <string name="cl_cf_assistir_det">प्लेयर में: OK &gt; फ़िल्टर &gt; “छिपी श्रेणियाँ और ब्लॉक चैनल दिखाएँ” और PIN</string>
+    <string name="cl_cf_assistir_det">प्लेयर में: OK › फ़िल्टर › “छिपी श्रेणियाँ और ब्लॉक चैनल दिखाएँ” और PIN</string>
     <string name="cl_cf_tranca">फिर लॉक होता है</string>
     <string name="cl_cf_tranca_det">प्लेयर बंद होने पर अपने-आप (HOME, दूसरा ऐप या TV बंद)</string>
     <string name="cl_cf_pin">PIN</string>

@@ -2,7 +2,7 @@
 <!-- Tradução (pt-rPT) de values/strings_familia.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
     <string name="fam_pin">PIN das crianças</string>
-    <string name="fam_pin_det">Um segundo PIN para destravar canais, categorias ocultas e a hora de dormir na frente das crianças. O PIN do painel continua a valer em tudo.</string>
+    <string name="fam_pin_det">Um segundo PIN para destravar canais, categorias escondidas e a hora de dormir na frente das crianças. O PIN do painel continua a valer em tudo.</string>
     <string name="fam_pin_ok">PIN das crianças gravado</string>
     <string name="fam_pin_igual">O PIN das crianças precisa ser diferente do PIN do painel</string>
     <string name="fam_trocar">Trocar o PIN das crianças</string>

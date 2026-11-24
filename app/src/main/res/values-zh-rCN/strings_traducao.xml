@@ -107,7 +107,7 @@
     <string name="casa_campainha">门铃</string>
     <string name="casa_alguem_porta">有人在门口</string>
     <string name="casa_err_endereco">地址无效（例如 http://192.168.1.10:8123；在家庭网络之外请使用 https）</string>
-    <string name="casa_err_token">令牌无效：请在 Profile &gt; Security &gt; Long-lived access tokens 中创建</string>
+    <string name="casa_err_token">令牌无效：请在 Profile › Security › Long-lived access tokens 中创建</string>
     <string name="casa_err_keystore">电视的 Keystore 出错：%1$s</string>
     <string name="casa_err_sensor">传感器无效（例如 binary_sensor.doorbell）</string>
     <string name="casa_err_camera">摄像头无效（例如 camera.front_door）</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. 开启公共地址</string>
     <string name="cc_ativar_det">新账号：还需要开启 HTTPS 和 Funnel。在手机上打开旁边的代码并确认。</string>
     <string name="cc_pronto">完成：电视已上线</string>
-    <string name="cc_pronto_det">地址：%1$s\n\nClaude：Settings &gt; Connectors &gt; Add custom connector。\nChatGPT：Settings &gt; Connectors（开发者模式）。\nPerplexity：Settings &gt; Connectors &gt; Custom。\nGrok：grok.com/connectors &gt; New &gt; Custom。\nCodex、Antigravity、Claude Code、Cursor：用此地址添加 MCP 服务器。</string>
+    <string name="cc_pronto_det">地址：%1$s\n\nClaude：Settings › Connectors › Add custom connector。\nChatGPT：Settings › Connectors（开发者模式）。\nPerplexity：Settings › Connectors › Custom。\nGrok：grok.com/connectors › New › Custom。\nCodex、Antigravity、Claude Code、Cursor：用此地址添加 MCP 服务器。</string>
     <string name="cc_pede_google">连接时会要求 Google 账号（google.com/device + 代码）。</string>
     <string name="cc_pede_pin">连接时会要求输入 PIN。</string>
     <string name="cc_acoes_ok">电视上的操作需在遥控器上按 OK 确认。</string>

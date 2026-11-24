@@ -107,7 +107,7 @@
     <string name="casa_campainha">डोरबेल</string>
     <string name="casa_alguem_porta">दरवाज़े पर कोई है</string>
     <string name="casa_err_endereco">अमान्य पता (जैसे http://192.168.1.10:8123; घरेलू नेटवर्क के बाहर https इस्तेमाल करें)</string>
-    <string name="casa_err_token">अमान्य टोकन: Profile &gt; Security &gt; Long-lived access tokens में एक बनाएँ</string>
+    <string name="casa_err_token">अमान्य टोकन: Profile › Security › Long-lived access tokens में एक बनाएँ</string>
     <string name="casa_err_keystore">TV का Keystore विफल: %1$s</string>
     <string name="casa_err_sensor">अमान्य सेंसर (जैसे binary_sensor.doorbell)</string>
     <string name="casa_err_camera">अमान्य कैमरा (जैसे camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. सार्वजनिक पता चालू करें</string>
     <string name="cc_ativar_det">नया खाता: HTTPS और Funnel अभी चालू करने हैं। बगल का कोड फ़ोन पर खोलें और पुष्टि करें।</string>
     <string name="cc_pronto">हो गया: TV ऑनलाइन है</string>
-    <string name="cc_pronto_det">पता: %1$s\n\nClaude: Settings &gt; Connectors &gt; Add custom connector।\nChatGPT: Settings &gt; Connectors (डेवलपर मोड)।\nPerplexity: Settings &gt; Connectors &gt; Custom।\nGrok: grok.com/connectors &gt; New &gt; Custom।\nCodex, Antigravity, Claude Code, Cursor: इस पते से MCP सर्वर जोड़ें।</string>
+    <string name="cc_pronto_det">पता: %1$s\n\nClaude: Settings › Connectors › Add custom connector।\nChatGPT: Settings › Connectors (डेवलपर मोड)।\nPerplexity: Settings › Connectors › Custom।\nGrok: grok.com/connectors › New › Custom।\nCodex, Antigravity, Claude Code, Cursor: इस पते से MCP सर्वर जोड़ें।</string>
     <string name="cc_pede_google">जोड़ते समय यह Google खाता माँगता है (google.com/device + कोड)।</string>
     <string name="cc_pede_pin">जोड़ते समय यह PIN माँगता है।</string>
     <string name="cc_acoes_ok">TV पर काम सिर्फ़ रिमोट पर OK से।</string>

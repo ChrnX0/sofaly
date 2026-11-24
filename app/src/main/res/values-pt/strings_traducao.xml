@@ -123,7 +123,7 @@
     <string name="casa_campainha">Campainha</string>
     <string name="casa_alguem_porta">Tem alguém na porta</string>
     <string name="casa_err_endereco">endereço inválido (ex.: http://192.168.1.10:8123; fora da rede de casa use https)</string>
-    <string name="casa_err_token">token inválido: crie um em Perfil &gt; Segurança &gt; Tokens de acesso de longa duração</string>
+    <string name="casa_err_token">token inválido: crie um em Perfil › Segurança › Tokens de acesso de longa duração</string>
     <string name="casa_err_keystore">o Keystore da TV falhou: %1$s</string>
     <string name="casa_err_sensor">sensor inválido (ex.: binary_sensor.campainha)</string>
     <string name="casa_err_camera">câmera inválida (ex.: camera.porta)</string>
@@ -206,7 +206,7 @@
     <string name="cc_ativar">2. Ligue o endereço público</string>
     <string name="cc_ativar_det">Conta nova: falta ligar HTTPS e Funnel. Abra o código ao lado no celular e confirme.</string>
     <string name="cc_pronto">Pronto: a TV está no ar</string>
-    <string name="cc_pronto_det">Endereço: %1$s\n\nClaude: Configurações &gt; Conectores &gt; Adicionar conector personalizado.\nChatGPT: Configurações &gt; Conectores (modo desenvolvedor).\nPerplexity: Configurações &gt; Conectores &gt; Personalizado.\nGrok: grok.com/connectors &gt; Novo &gt; Personalizado.\nCodex, Antigravity, Claude Code, Cursor: adicione um servidor MCP com esse endereço.</string>
+    <string name="cc_pronto_det">Endereço: %1$s\n\nClaude: Configurações › Conectores › Adicionar conector personalizado.\nChatGPT: Configurações › Conectores (modo desenvolvedor).\nPerplexity: Configurações › Conectores › Personalizado.\nGrok: grok.com/connectors › Novo › Personalizado.\nCodex, Antigravity, Claude Code, Cursor: adicione um servidor MCP com esse endereço.</string>
     <string name="cc_pede_google">Ao conectar, ele pede a conta Google (google.com/device + código).</string>
     <string name="cc_pede_pin">Ao conectar, ele pede o PIN.</string>
     <string name="cc_acoes_ok">Ações na TV só com OK no controle.</string>

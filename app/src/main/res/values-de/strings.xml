@@ -73,7 +73,7 @@
     <string name="bv_perm">Kalender, Standort und Konten einschalten</string>
     <string name="bv_perm_det">Kalendertermine, Wetter für deine Stadt, Anfangsbuchstabe des Kontos im Profil</string>
     <string name="bv_teclas">Tastendienst einschalten</string>
-    <string name="bv_teclas_det">Bedienungshilfen &gt; Launcher: HOME führt immer hierher zurück</string>
+    <string name="bv_teclas_det">Bedienungshilfen › Launcher: HOME führt immer hierher zurück</string>
     <string name="bv_tudo">Alles anzeigen, was man einschalten kann</string>
     <string name="lic_sem_arquivo">Lizenzdatei nicht gefunden.</string>
     <string name="rot_ligar">Fernseher einschalten</string>

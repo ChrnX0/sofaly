@@ -107,7 +107,7 @@
     <string name="casa_campainha">Kapı zili</string>
     <string name="casa_alguem_porta">Kapıda biri var</string>
     <string name="casa_err_endereco">geçersiz adres (ör. http://192.168.1.10:8123; ev ağı dışında https kullanın)</string>
-    <string name="casa_err_token">geçersiz token: Profil &gt; Güvenlik &gt; Uzun ömürlü erişim token’ları altında oluşturun</string>
+    <string name="casa_err_token">geçersiz token: Profil › Güvenlik › Uzun ömürlü erişim token’ları altında oluşturun</string>
     <string name="casa_err_keystore">TV’nin Keystore’u başarısız oldu: %1$s</string>
     <string name="casa_err_sensor">geçersiz sensör (ör. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">geçersiz kamera (ör. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Herkese açık adresi açın</string>
     <string name="cc_ativar_det">Yeni hesap: HTTPS ve Funnel’ın hâlâ açılması gerekiyor. Yandaki kodu telefonunuzda açın ve onaylayın.</string>
     <string name="cc_pronto">Tamam: TV çevrimiçi</string>
-    <string name="cc_pronto_det">Adres: %1$s\n\nClaude: Ayarlar &gt; Bağlayıcılar &gt; Özel bağlayıcı ekle.\nChatGPT: Ayarlar &gt; Bağlayıcılar (geliştirici modu).\nPerplexity: Ayarlar &gt; Bağlayıcılar &gt; Özel.\nGrok: grok.com/connectors &gt; Yeni &gt; Özel.\nCodex, Antigravity, Claude Code, Cursor: bu adresle bir MCP sunucusu ekleyin.</string>
+    <string name="cc_pronto_det">Adres: %1$s\n\nClaude: Ayarlar › Bağlayıcılar › Özel bağlayıcı ekle.\nChatGPT: Ayarlar › Bağlayıcılar (geliştirici modu).\nPerplexity: Ayarlar › Bağlayıcılar › Özel.\nGrok: grok.com/connectors › Yeni › Özel.\nCodex, Antigravity, Claude Code, Cursor: bu adresle bir MCP sunucusu ekleyin.</string>
     <string name="cc_pede_google">Bağlanırken Google hesabını ister (google.com/device + kod).</string>
     <string name="cc_pede_pin">Bağlanırken PIN’i ister.</string>
     <string name="cc_acoes_ok">TV’deki işlemler yalnızca kumandada OK ile.</string>

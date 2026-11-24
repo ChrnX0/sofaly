@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">ロック中</string>
     <string name="cl_cf_bloqueado_det">チャンネルリスト、番組表、検索、▲▼、番号入力から隠れ、再生されません</string>
     <string name="cl_cf_assistir">見るには</string>
-    <string name="cl_cf_assistir_det">プレーヤーで: OK &gt; フィルター &gt;「非表示のカテゴリとブロックしたチャンネルを表示」と PIN</string>
+    <string name="cl_cf_assistir_det">プレーヤーで: OK › フィルター › 「非表示のカテゴリとブロックしたチャンネルを表示」と PIN</string>
     <string name="cl_cf_tranca">再ロック</string>
     <string name="cl_cf_tranca_det">プレーヤーを閉じると自動で（HOME、別のアプリ、TV の電源オフ）</string>
     <string name="cl_cf_pin">PIN</string>

@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Bloqueado</string>
     <string name="cl_cf_bloqueado_det">Oculto en la lista de canales, la guía, la búsqueda, ▲▼ y los números tecleados, y no se reproduce</string>
     <string name="cl_cf_assistir">Para verlo</string>
-    <string name="cl_cf_assistir_det">En el reproductor: OK &gt; Filtros &gt; \"Mostrar categorías ocultas y canales bloqueados\" y el PIN</string>
+    <string name="cl_cf_assistir_det">En el reproductor: OK › Filtros › \"Mostrar categorías ocultas y canales bloqueados\" y el PIN</string>
     <string name="cl_cf_tranca">Se vuelve a bloquear</string>
     <string name="cl_cf_tranca_det">Solo, cuando se cierra el reproductor (HOME, otra app o TV apagada)</string>
     <string name="cl_cf_pin">PIN</string>

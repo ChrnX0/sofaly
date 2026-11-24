@@ -12,8 +12,8 @@
     <string name="coluna_filtro_combinado_ativo">Filtro: %1$s</string>
     <string name="coluna_filtro_limpar">Limpar o filtro</string>
     <string name="coluna_filtro_sortear">Sortear um título</string>
-    <string name="coluna_filtro_ocultas_mostrar">Mostrar categorias ocultas (PIN)</string>
-    <string name="coluna_filtro_ocultas_esconder">Esconder as categorias ocultas de novo</string>
+    <string name="coluna_filtro_ocultas_mostrar">Mostrar categorias escondidas (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Esconder essas categorias de novo</string>
     <string name="coluna_menu_assistido">Marcar como assistido</string>
     <string name="coluna_menu_nao_assistido">Marcar como não assistido</string>
     <string name="coluna_menu_tirar_continuar">Tirar do Continuar</string>

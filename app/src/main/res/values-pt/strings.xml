@@ -77,7 +77,7 @@
     <string name="bv_perm">Ligar agenda, localização e contas</string>
     <string name="bv_perm_det">Eventos no calendário, clima da sua cidade, inicial da conta no perfil</string>
     <string name="bv_teclas">Ligar o serviço de teclas</string>
-    <string name="bv_teclas_det">Acessibilidade &gt; Launcher: faz o botão HOME sempre voltar para cá</string>
+    <string name="bv_teclas_det">Acessibilidade › Launcher: faz o botão HOME sempre voltar para cá</string>
     <string name="bv_tudo">Ver tudo o que dá para ligar</string>
     <!-- LicencasActivity.kt -->
     <string name="lic_sem_arquivo">Arquivo de licenças não encontrado.</string>
@@ -504,12 +504,12 @@
     <string name="player_filtro_limpar">Limpar filtros</string>
     <string name="player_filtro_nada">Esta lista não tem qualidade nem país no nome dos canais.</string>
     <string name="player_bloqueado">Canal bloqueado pelo controle parental. Digite o PIN em Filtros para assistir.</string>
-    <string name="player_ocultas_mostrar">Mostrar categorias ocultas e canais bloqueados (PIN)</string>
-    <string name="player_ocultas_esconder">Esconder de novo as categorias ocultas e os canais bloqueados</string>
+    <string name="player_ocultas_mostrar">Mostrar categorias escondidas e canais bloqueados (PIN)</string>
+    <string name="player_ocultas_esconder">Esconder de novo essas categorias e os canais bloqueados</string>
     <string name="player_pin_titulo">PIN do painel</string>
     <string name="player_pin_dica">PIN</string>
     <string name="player_pin_errado">PIN errado.</string>
-    <string name="player_pin_sem">Sem PIN no painel: as categorias ocultas ficam sem proteção.</string>
+    <string name="player_pin_sem">Sem PIN no painel: as categorias escondidas ficam sem proteção.</string>
     <string name="player_pin_espere">PIN errado demais. Tente de novo em %d min.</string>
     <string name="infantil_titulo">Categorias infantis</string>
     <string name="infantil_carregando">carregando as categorias…</string>
@@ -525,7 +525,7 @@
     <string name="cfg_infantil_desligado">Desligado · categorias marcadas como infantis: %d</string>
     <string name="cfg_infantil_escolher">Escolher categorias infantis</string>
     <string name="cfg_infantil_escolher_det">Valem para TV ao vivo, Filmes e Séries</string>
-    <string name="player_grupo_oculto">%1$s oculta. Para ver: Filtros, mostrar ocultas.</string>
+    <string name="player_grupo_oculto">%1$s escondida. Para ver: Filtros, mostrar escondidas.</string>
     <string name="player_grupo_mostrado">%1$s voltou a aparecer.</string>
     <string name="player_canais_de">%1$s · %2$d CANAIS</string>
     <string name="player_cat_todos">Todos</string>
@@ -536,7 +536,7 @@
     <string name="player_categoria_vazia">Nenhum canal nesta categoria.</string>
     <string name="player_sem_guia">Sem guia de programação para este canal.</string>
     <string name="player_depois">DEPOIS</string>
-    <string name="player_lista_teclas">OK assistir · segure OK 2 s: favoritar ou tirar · segure OK na categoria: ocultar · ◀ categorias</string>
+    <string name="player_lista_teclas">OK assistir · segure OK 2 s: favoritar ou tirar · segure OK na categoria: esconder · ◀ categorias</string>
     <string name="player_favorito_pos">★ %1$s nos favoritos</string>
     <string name="player_favorito_tirou">%1$s saiu dos favoritos</string>
     <string name="player_favoritos_cheio">Já há 500 favoritos: tire um antes.</string>

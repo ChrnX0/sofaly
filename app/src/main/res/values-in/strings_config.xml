@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Terkunci</string>
     <string name="cl_cf_bloqueado_det">Disembunyikan dari daftar saluran, panduan, pencarian, ▲▼, dan nomor yang diketik, dan tidak diputar</string>
     <string name="cl_cf_assistir">Untuk menonton</string>
-    <string name="cl_cf_assistir_det">Di pemutar: OK &gt; Filter &gt; \"Tampilkan kategori tersembunyi dan saluran diblokir\" dan PIN</string>
+    <string name="cl_cf_assistir_det">Di pemutar: OK › Filter › \"Tampilkan kategori tersembunyi dan saluran diblokir\" dan PIN</string>
     <string name="cl_cf_tranca">Terkunci lagi</string>
     <string name="cl_cf_tranca_det">Sendiri saat pemutar ditutup (HOME, aplikasi lain, atau TV mati)</string>
     <string name="cl_cf_pin">PIN</string>

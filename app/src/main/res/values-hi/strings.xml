@@ -73,7 +73,7 @@
     <string name="bv_perm">कैलेंडर, स्थान और खाते चालू करें</string>
     <string name="bv_perm_det">कैलेंडर इवेंट, आपके शहर का मौसम, प्रोफ़ाइल पर खाते का पहला अक्षर</string>
     <string name="bv_teclas">कुंजी सेवा चालू करें</string>
-    <string name="bv_teclas_det">सुलभता &gt; लॉन्चर: HOME हमेशा यहीं लौटता है</string>
+    <string name="bv_teclas_det">सुलभता › लॉन्चर: HOME हमेशा यहीं लौटता है</string>
     <string name="bv_tudo">वह सब देखें जो चालू किया जा सकता है</string>
     <string name="lic_sem_arquivo">लाइसेंस फ़ाइल नहीं मिली।</string>
     <string name="rot_ligar">TV चालू करें</string>
@@ -692,7 +692,7 @@ AS\\Movies)।</string>
     <string name="fp_ok">हो गया: %1$s की फ़ोटो अब प्रोफ़ाइल बटन पर है।</string>
     <string name="fp_sem_foto">%1$s के रूप में साइन इन हुआ, पर फ़ोटो सेव नहीं हो सकी। फिर कोशिश करें, या वेब पैनल से फ़ोटो भेजें (स्क्रीन सेवर फ़ोटो टैब)।</string>
     <string name="fp_falha">काम नहीं हुआ: %1$s</string>
-    <string name="fp_sem_google">इस TV पर अभी Google साइन-इन सेट नहीं है।\n\nप्रोफ़ाइल बटन पर फ़ोटो लगाने के दो तरीके:\n• वेब पैनल &gt; स्क्रीन सेवर फ़ोटो टैब &gt; प्रोफ़ाइल फ़ोटो: फ़ोन से कोई भी तस्वीर चुनें।\n• Google साइन-इन सेट करें (वेब पैनल &gt; Claude टैब) और खाते की फ़ोटो लाने के लिए यहाँ लौटें।</string>
+    <string name="fp_sem_google">इस TV पर अभी Google साइन-इन सेट नहीं है।\n\nप्रोफ़ाइल बटन पर फ़ोटो लगाने के दो तरीके:\n• वेब पैनल › स्क्रीन सेवर फ़ोटो टैब › प्रोफ़ाइल फ़ोटो: फ़ोन से कोई भी तस्वीर चुनें।\n• Google साइन-इन सेट करें (वेब पैनल › Claude टैब) और खाते की फ़ोटो लाने के लिए यहाँ लौटें।</string>
     <string name="vod_capitulo_n">अध्याय %1$d</string>
     <string name="vod_capitulos_titulo">अध्याय</string>
     <string name="vod_capitulos_opcao">अध्याय (%1$d)</string>

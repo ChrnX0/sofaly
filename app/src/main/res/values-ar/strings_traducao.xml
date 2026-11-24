@@ -107,7 +107,7 @@
     <string name="casa_campainha">جرس الباب</string>
     <string name="casa_alguem_porta">أحدهم عند الباب</string>
     <string name="casa_err_endereco">عنوان غير صالح (مثل http://192.168.1.10:8123؛ خارج شبكة المنزل استخدم https)</string>
-    <string name="casa_err_token">رمز غير صالح: أنشئ واحدًا في Profile &gt; Security &gt; Long-lived access tokens</string>
+    <string name="casa_err_token">رمز غير صالح: أنشئ واحدًا في Profile › Security › Long-lived access tokens</string>
     <string name="casa_err_keystore">فشل Keystore في التلفزيون: %1$s</string>
     <string name="casa_err_sensor">مستشعر غير صالح (مثل binary_sensor.doorbell)</string>
     <string name="casa_err_camera">كاميرا غير صالحة (مثل camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. فعّل العنوان العام</string>
     <string name="cc_ativar_det">حساب جديد: ما زال يجب تفعيل HTTPS وFunnel. افتح الرمز المجاور على هاتفك وأكّد.</string>
     <string name="cc_pronto">تم: التلفزيون متصل</string>
-    <string name="cc_pronto_det">العنوان: %1$s\n\nClaude: Settings &gt; Connectors &gt; Add custom connector.\nChatGPT: Settings &gt; Connectors (developer mode).\nPerplexity: Settings &gt; Connectors &gt; Custom.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex وAntigravity وClaude Code وCursor: أضف خادم MCP بهذا العنوان.</string>
+    <string name="cc_pronto_det">العنوان: %1$s\n\nClaude: Settings › Connectors › Add custom connector.\nChatGPT: Settings › Connectors (developer mode).\nPerplexity: Settings › Connectors › Custom.\nGrok: grok.com/connectors › New › Custom.\nCodex وAntigravity وClaude Code وCursor: أضف خادم MCP بهذا العنوان.</string>
     <string name="cc_pede_google">عند الاتصال، يطلب حساب Google (google.com/device + رمز).</string>
     <string name="cc_pede_pin">عند الاتصال، يطلب PIN.</string>
     <string name="cc_acoes_ok">الإجراءات على التلفزيون فقط بـOK على جهاز التحكم.</string>

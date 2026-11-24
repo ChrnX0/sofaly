@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Заблокирован</string>
     <string name="cl_cf_bloqueado_det">Скрыт из списка каналов, программы, поиска, ▲▼ и набранных номеров и не воспроизводится</string>
     <string name="cl_cf_assistir">Чтобы смотреть</string>
-    <string name="cl_cf_assistir_det">В плеере: OK &gt; Фильтры &gt; «Показать скрытые категории и заблокированные каналы» и PIN</string>
+    <string name="cl_cf_assistir_det">В плеере: OK › Фильтры › «Показать скрытые категории и заблокированные каналы» и PIN</string>
     <string name="cl_cf_tranca">Снова блокируется</string>
     <string name="cl_cf_tranca_det">Сам, когда плеер закрывается (HOME, другое приложение или выключение ТВ)</string>
     <string name="cl_cf_pin">PIN</string>

@@ -107,7 +107,7 @@
     <string name="casa_campainha">Bel pintu</string>
     <string name="casa_alguem_porta">Ada orang di pintu</string>
     <string name="casa_err_endereco">alamat tidak valid (mis. http://192.168.1.10:8123; di luar jaringan rumah gunakan https)</string>
-    <string name="casa_err_token">token tidak valid: buat di Profile &gt; Security &gt; Long-lived access tokens</string>
+    <string name="casa_err_token">token tidak valid: buat di Profile › Security › Long-lived access tokens</string>
     <string name="casa_err_keystore">Keystore TV gagal: %1$s</string>
     <string name="casa_err_sensor">sensor tidak valid (mis. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">kamera tidak valid (mis. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Aktifkan alamat publik</string>
     <string name="cc_ativar_det">Akun baru: HTTPS dan Funnel masih perlu diaktifkan. Buka kode di sebelah ini di ponsel dan konfirmasi.</string>
     <string name="cc_pronto">Selesai: TV sudah online</string>
-    <string name="cc_pronto_det">Alamat: %1$s\n\nClaude: Settings &gt; Connectors &gt; Add custom connector.\nChatGPT: Settings &gt; Connectors (developer mode).\nPerplexity: Settings &gt; Connectors &gt; Custom.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: tambahkan server MCP dengan alamat ini.</string>
+    <string name="cc_pronto_det">Alamat: %1$s\n\nClaude: Settings › Connectors › Add custom connector.\nChatGPT: Settings › Connectors (developer mode).\nPerplexity: Settings › Connectors › Custom.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: tambahkan server MCP dengan alamat ini.</string>
     <string name="cc_pede_google">Saat menghubungkan, meminta akun Google (google.com/device + kode).</string>
     <string name="cc_pede_pin">Saat menghubungkan, meminta PIN.</string>
     <string name="cc_acoes_ok">Tindakan di TV hanya dengan OK di remote.</string>

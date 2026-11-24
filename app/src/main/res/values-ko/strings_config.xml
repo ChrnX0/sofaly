@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">잠김</string>
     <string name="cl_cf_bloqueado_det">채널 목록, 편성표, 검색, ▲▼, 번호 입력에서 숨겨지고 재생되지 않음</string>
     <string name="cl_cf_assistir">보려면</string>
-    <string name="cl_cf_assistir_det">플레이어에서: OK &gt; 필터 &gt; ‘숨긴 카테고리와 차단된 채널 표시’와 PIN</string>
+    <string name="cl_cf_assistir_det">플레이어에서: OK › 필터 › ‘숨긴 카테고리와 차단된 채널 표시’와 PIN</string>
     <string name="cl_cf_tranca">다시 잠김</string>
     <string name="cl_cf_tranca_det">플레이어가 닫히면 자동으로(홈, 다른 앱 또는 TV 꺼짐)</string>
     <string name="cl_cf_pin">PIN</string>
