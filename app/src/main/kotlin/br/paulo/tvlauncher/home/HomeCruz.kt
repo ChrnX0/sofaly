@@ -245,6 +245,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         var principal: String = ""
         /** Barra de "quanto já foi visto", criada só no item que tem progresso. */
         var barra: BarraProgresso? = null
+        /** Barra embaixo: o banner de TV do app (retângulo 16:9, como no Projectivy) no lugar do ícone. */
+        var banner: Drawable? = null
+        var anelAceso: Boolean? = null
     }
 
     /** Barra fina e arredondada no pé do ícone (como nas miniaturas de vídeo): trilho claro, parte vista na cor de destaque. */
@@ -398,17 +401,41 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      * Barra embaixo: o ícone do app vira um retângulo de vidro na cor da categoria (Apple Games no Mobbin), com o
      * desenho no meio. O traço laranja de foco entra em [focoNoCartao].
      */
-    private fun cartao(iv: ItemView, cat: CruzLogica.Categoria) {
+    private fun cartao(iv: ItemView, cat: CruzLogica.Categoria, id: String) {
         val cor = BottomBar.cor(cat)
         iv.icone.layoutParams = (iv.icone.layoutParams as LinearLayout.LayoutParams).apply { width = dpi(BARRA_CARTAO_L) }
         iv.icone.background = GradientDrawable(GradientDrawable.Orientation.TL_BR, intArrayOf(Estilo.alfa(cor, 0x66), 0x14FFFFFF)).apply {
             cornerRadius = dp(18f); setStroke(dpi(1), 0x40FFFFFF)
         }
-        iv.icone.setPadding(dpi(48), dpi(22), dpi(48), dpi(22))
+        // App instalado: o banner de TV dele preenche o retângulo (Projectivy faz assim na doca de baixo); sem banner,
+        // o ícone fica no meio do vidro.
+        val banner = if (id.startsWith("app:")) bannerDe(id.removePrefix("app:")) else null
+        iv.banner = banner
+        if (banner != null) {
+            iv.icone.setImageDrawable(banner)
+            iv.icone.scaleType = ImageView.ScaleType.CENTER_CROP
+            iv.icone.setPadding(0, 0, 0, 0)
+        } else iv.icone.setPadding(dpi(48), dpi(22), dpi(48), dpi(22))
+        iv.icone.outlineProvider = android.view.ViewOutlineProvider.BACKGROUND
+        iv.icone.clipToOutline = true
     }
 
+    private fun bannerDe(pacote: String): Drawable? = runCatching {
+        val pm = context.packageManager
+        pm.getLeanbackLaunchIntentForPackage(pacote)?.let { pm.getActivityBanner(it) } ?: pm.getApplicationBanner(pacote)
+    }.getOrNull()
+
+    /** Anel de foco por cima do cartão (o banner cobre o fundo); com barra de progresso, a borda do fundo faz o papel. */
     private fun focoNoCartao(iv: ItemView, aceso: Boolean) {
-        (iv.icone.background as? GradientDrawable)?.setStroke(if (aceso) dpi(4) else dpi(1), if (aceso) Estilo.ACENTO else 0x40FFFFFF)
+        if (iv.barra != null) {
+            (iv.icone.background as? GradientDrawable)?.setStroke(if (aceso) dpi(4) else dpi(1), if (aceso) Estilo.ACENTO else 0x40FFFFFF)
+            return
+        }
+        if (iv.anelAceso == aceso) return
+        iv.anelAceso = aceso
+        iv.icone.foreground = GradientDrawable().apply {
+            cornerRadius = dp(18f); setStroke(if (aceso) dpi(4) else dpi(1), if (aceso) Estilo.ACENTO else 0x40FFFFFF)
+        }
     }
 
     /**
@@ -442,7 +469,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         viewsCat.clear(); viewsItem.clear()
         for (c in novas) {
             viewsCat += criarCategoria(c).also { addView(it, LayoutParams(dpi(150), LayoutParams.WRAP_CONTENT)) }
-            viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))); if (barra) { textosDe(it)?.alpha = 0f; cartao(it, c.cat) } } }
+            viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))); if (barra) { textosDe(it)?.alpha = 0f; cartao(it, c.cat, item.id) } } }
         }
         posicionar(animar = false)
         avisarMudanca()
@@ -831,7 +858,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     }
 
     private fun preencher(v: ItemView, item: Item) {
-        if (v.icone.drawable !== item.icone) v.icone.setImageDrawable(item.icone)
+        if (v.banner == null && v.icone.drawable !== item.icone) v.icone.setImageDrawable(item.icone)
         if (v.nome.text.toString() != item.nome) v.nome.text = item.nome
         val principal = CruzLogica.partes(item.sub, CruzLogica.tirarDoItem(item.situacao)).principal
         if (v.principal != principal || v.sub.text.toString() != principal) { v.principal = principal; v.sub.text = principal }
