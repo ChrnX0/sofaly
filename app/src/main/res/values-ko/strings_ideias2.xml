@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">밝기 %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">밝기</string>
     <string name="casa_tecla_segurar_ok">OK 길게</string>
+    <string name="ca_liberado">%1$s 확보됨. 현재 여유 공간: %2$s.</string>
+    <string name="ca_sem_shell">내장 셸이 꺼져 있어 캐시를 지우지 못했습니다.</string>
+    <string name="ca_falhou">캐시를 지울 수 없음: %1$s</string>
+    <string name="ta_desligado">꺼짐. %2$s에서 “%1$s”을(를) 켜세요.</string>
+    <string name="ta_nada">재생 중인 항목이 없습니다.</string>
+    <string name="ta_sem_acesso">재생 중인 항목에 접근할 수 없음(알림 접근이 꺼짐).</string>
+    <string name="cr_sistema">Android 시스템</string>
+    <string name="cr_nucleo">Android 시스템(커널)</string>
+    <string name="cr_removidos">삭제된 앱</string>
+    <string name="cr_ponto">핫스팟</string>
+    <string name="cr_servico">Android 시스템(서비스 %1$d)</string>
+    <string name="cr_nada">아직 측정된 항목이 없습니다.</string>
+    <string name="cr_sem_acesso">앱 사용 기록에 접근할 수 없습니다. 셸 자동 복구가 권한을 줍니다.</string>
 </resources>

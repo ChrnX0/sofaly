@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Luminosità %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">luminosità</string>
     <string name="casa_tecla_segurar_ok">TIENI PREMUTO OK</string>
+    <string name="ca_liberado">Liberati %1$s. Libero ora: %2$s.</string>
+    <string name="ca_sem_shell">La shell integrata è spenta, quindi la cache non è stata svuotata.</string>
+    <string name="ca_falhou">Impossibile svuotare la cache: %1$s</string>
+    <string name="ta_desligado">Spento. Attiva «%1$s» in %2$s.</string>
+    <string name="ta_nada">Non è in riproduzione nulla.</string>
+    <string name="ta_sem_acesso">Nessun accesso a ciò che è in riproduzione (l\'accesso alle notifiche è spento).</string>
+    <string name="cr_sistema">Sistema Android</string>
+    <string name="cr_nucleo">Sistema Android (kernel)</string>
+    <string name="cr_removidos">App rimosse</string>
+    <string name="cr_ponto">Hotspot</string>
+    <string name="cr_servico">Sistema Android (servizio %1$d)</string>
+    <string name="cr_nada">Ancora nulla di misurato.</string>
+    <string name="cr_sem_acesso">Nessun accesso all\'utilizzo delle app. L\'autoriparazione della shell lo concede.</string>
 </resources>

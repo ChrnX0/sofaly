@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">At this pace it fills up in about %1$d days (%2$d MB free). Clear app caches or remove apps you don\'t use.</string>
     <string name="pr_avisos_tv">From the TV</string>
     <string name="mural_riscar">Cross out %1$s</string>
+    <string name="ds_lento_titulo">Sofaly got slower</string>
+    <string name="ds_lento_texto">Version %1$d: slow frames take %2$d ms, they took %3$d ms (+%4$d%%).</string>
 </resources>

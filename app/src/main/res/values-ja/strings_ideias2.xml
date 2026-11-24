@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">明るさ %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">明るさ</string>
     <string name="casa_tecla_segurar_ok">OK 長押し</string>
+    <string name="ca_liberado">%1$s を解放しました。現在の空き: %2$s。</string>
+    <string name="ca_sem_shell">内蔵シェルがオフのため、キャッシュは消去されませんでした。</string>
+    <string name="ca_falhou">キャッシュを消去できませんでした: %1$s</string>
+    <string name="ta_desligado">オフです。%2$s で「%1$s」をオンにしてください。</string>
+    <string name="ta_nada">何も再生されていません。</string>
+    <string name="ta_sem_acesso">再生中の内容にアクセスできません(通知へのアクセスがオフ)。</string>
+    <string name="cr_sistema">Android システム</string>
+    <string name="cr_nucleo">Android システム(カーネル)</string>
+    <string name="cr_removidos">削除したアプリ</string>
+    <string name="cr_ponto">アクセスポイント</string>
+    <string name="cr_servico">Android システム(サービス %1$d)</string>
+    <string name="cr_nada">まだ何も計測していません。</string>
+    <string name="cr_sem_acesso">アプリの使用状況にアクセスできません。シェルの自己修復で許可されます。</string>
 </resources>

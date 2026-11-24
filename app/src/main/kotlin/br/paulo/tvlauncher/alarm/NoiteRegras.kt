@@ -107,11 +107,12 @@ object ConsumoRede {
             .filter { it.bytes > 0 }.sortedByDescending { it.bytes }.take(limite)
 
     /** 0 B, 950 KB, 12,3 MB, 1,25 GB (base 1000, como as operadoras). */
-    fun texto(bytes: Long): String = when {
+    /** Vírgula ou ponto conforme o idioma da TV ([local]); antes era sempre pt-BR ("1,2 MB" numa TV em inglês). */
+    fun texto(bytes: Long, local: java.util.Locale = java.util.Locale.getDefault()): String = when {
         bytes < 1_000 -> "$bytes B"
         bytes < 1_000_000 -> "${bytes / 1_000} KB"
-        bytes < 1_000_000_000 -> "%.1f MB".format(java.util.Locale("pt", "BR"), bytes / 1e6)
-        else -> "%.2f GB".format(java.util.Locale("pt", "BR"), bytes / 1e9)
+        bytes < 1_000_000_000 -> "%.1f MB".format(local, bytes / 1e6)
+        else -> "%.2f GB".format(local, bytes / 1e9)
     }
 }
 

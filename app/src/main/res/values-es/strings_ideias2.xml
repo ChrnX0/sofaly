@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Brillo %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">brillo</string>
     <string name="casa_tecla_segurar_ok">MANTÉN OK</string>
+    <string name="ca_liberado">Se liberaron %1$s. Libre ahora: %2$s.</string>
+    <string name="ca_sem_shell">El shell propio está apagado, así que no se limpió la caché.</string>
+    <string name="ca_falhou">No se pudo limpiar la caché: %1$s</string>
+    <string name="ta_desligado">Apagado. Activa «%1$s» en %2$s.</string>
+    <string name="ta_nada">No se está reproduciendo nada.</string>
+    <string name="ta_sem_acesso">Sin acceso a lo que se reproduce (el acceso a notificaciones está apagado).</string>
+    <string name="cr_sistema">Sistema Android</string>
+    <string name="cr_nucleo">Sistema Android (núcleo)</string>
+    <string name="cr_removidos">Apps eliminadas</string>
+    <string name="cr_ponto">Punto de acceso</string>
+    <string name="cr_servico">Sistema Android (servicio %1$d)</string>
+    <string name="cr_nada">Aún no hay nada medido.</string>
+    <string name="cr_sem_acesso">Sin acceso al uso de apps. La autorreparación del shell lo concede.</string>
 </resources>
