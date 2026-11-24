@@ -1,6 +1,8 @@
 // Painel em ja (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
 "Plugins":"プラグイン",
+"Botão de outro app":"他のアプリのボタン",
+"Nenhum botão ligado":"オンのボタンはありません",
 "Lembretes da grade":"番組表のリマインダー",
 "Gravação terminou ou parou":"録画が終了または停止",
 "Despertador que não tocou":"鳴らなかったアラーム",

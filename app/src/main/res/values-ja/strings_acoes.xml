@@ -71,4 +71,6 @@
     <plurals name="aut_links">
         <item quantity="other">リンク付きのシーン %d 個</item>
     </plurals>
+    <string name="acao_plugin_button">「%1$s」を押す（他のアプリのボタン）</string>
+    <string name="acao_plugin_button_off">このボタンはプラグインでオンになっていません</string>
 </resources>

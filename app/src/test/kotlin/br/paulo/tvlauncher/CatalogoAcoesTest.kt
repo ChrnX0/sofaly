@@ -53,6 +53,11 @@ class CatalogoAcoesTest {
         assertTrue(um("""{"tipo":"o_que_estava_vendo"}""").acoes.single() is ComandosIa.Acao.OQueEstavaVendo)
     }
 
+    @Test fun botaoDeOutroAppSoComPacoteValido() {
+        assertEquals("com.exemplo.luz", (um("""{"tipo":"plugin_button","pacote":" com.exemplo.luz "}""").acoes.single() as ComandosIa.Acao.PluginButton).pacote)
+        for (ruim in listOf("", "semponto", "com..x", "1com.x", "com.x;rm", "com.x/../y")) assertTrue(ruim, um("""{"tipo":"plugin_button","pacote":"$ruim"}""").acoes.isEmpty())
+    }
+
     @Test fun esquemaListaTodosOsTiposEContinuaFechado() {
         val tipos = ComandosIa.esquema().getJSONObject("properties").getJSONObject("acoes").getJSONObject("items")
             .getJSONObject("properties").getJSONObject("tipo").getJSONArray("enum")

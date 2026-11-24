@@ -77,4 +77,6 @@
     <string name="ev_tv_ligou">The TV turned on</string>
     <string name="ev_todos_sairam">Everyone left (presence)</string>
     <string name="ev_chuva">Rain coming</string>
+    <string name="acao_plugin_button">Press “%1$s” (button from another app)</string>
+    <string name="acao_plugin_button_off">That button is not turned on in Plugins</string>
 </resources>

@@ -77,4 +77,6 @@
     <string name="ev_tv_ligou">Tv:n slogs på</string>
     <string name="ev_todos_sairam">Alla har gått (närvaro)</string>
     <string name="ev_chuva">Regn på väg</string>
+    <string name="acao_plugin_button">Tryck på ”%1$s” (knapp från en annan app)</string>
+    <string name="acao_plugin_button_off">Den knappen är inte på under Plugins</string>
 </resources>

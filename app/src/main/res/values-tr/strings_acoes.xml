@@ -73,4 +73,6 @@
         <item quantity="one">bağlantılı %d sahne</item>
         <item quantity="other">bağlantılı %d sahne</item>
     </plurals>
+    <string name="acao_plugin_button">“%1$s” düğmesine bas (başka uygulamanın düğmesi)</string>
+    <string name="acao_plugin_button_off">Bu düğme Eklentiler\'de açık değil</string>
 </resources>

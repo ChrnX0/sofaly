@@ -1,6 +1,8 @@
 // Painel em zh (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
 "Plugins":"插件",
+"Botão de outro app":"其他应用的按钮",
+"Nenhum botão ligado":"没有已开启的按钮",
 "Lembretes da grade":"节目指南提醒",
 "Gravação terminou ou parou":"录制已完成或停止",
 "Despertador que não tocou":"没有响的闹钟",

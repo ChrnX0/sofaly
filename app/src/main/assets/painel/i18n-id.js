@@ -1,6 +1,8 @@
 // Painel em id (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
 "Plugins":"Plugin",
+"Botão de outro app":"Tombol dari aplikasi lain",
+"Nenhum botão ligado":"Tidak ada tombol yang aktif",
 "Lembretes da grade":"Pengingat panduan TV",
 "Gravação terminou ou parou":"Rekaman selesai atau berhenti",
 "Despertador que não tocou":"Alarm yang tidak berbunyi",

@@ -79,4 +79,6 @@
     <string name="ev_tv_ligou">A TV ligou</string>
     <string name="ev_todos_sairam">Todos saíram (presença)</string>
     <string name="ev_chuva">Chuva chegando</string>
+    <string name="acao_plugin_button">Apertar “%1$s” (botão de outro app)</string>
+    <string name="acao_plugin_button_off">Esse botão não está ligado em Plugins</string>
 </resources>

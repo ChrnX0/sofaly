@@ -1,6 +1,8 @@
 // Painel em ko (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
 "Plugins":"플러그인",
+"Botão de outro app":"다른 앱의 버튼",
+"Nenhum botão ligado":"켜진 버튼 없음",
 "Lembretes da grade":"TV 편성표 알림",
 "Gravação terminou ou parou":"녹화 완료 또는 중지",
 "Despertador que não tocou":"울리지 않은 알람",

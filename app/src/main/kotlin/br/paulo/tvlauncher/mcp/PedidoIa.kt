@@ -20,6 +20,7 @@ import br.paulo.tvlauncher.ConfirmarIaActivity
 import br.paulo.tvlauncher.Desligamento
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.MainActivity
+import br.paulo.tvlauncher.PluginTilesTv
 import br.paulo.tvlauncher.PrevisaoActivity
 import br.paulo.tvlauncher.ProtetorTela
 import br.paulo.tvlauncher.R
@@ -39,6 +40,7 @@ import br.paulo.tvlauncher.player.avisar
 import br.paulo.tvlauncher.player.salvar
 import br.paulo.tvlauncher.privilege.Confirmacoes
 import br.paulo.tvlauncher.settings.FiltroNoturno
+import br.paulo.tvlauncher.settings.Planos
 import br.paulo.tvlauncher.weather.AvisoRegras
 import java.security.SecureRandom
 import java.util.concurrent.Executors
@@ -310,6 +312,14 @@ object PedidoIa {
             is ComandosIa.Acao.Continuar -> return VodTv.tocar(app, a.alvo)
             is ComandosIa.Acao.ProximoEpisodio -> return VodTv.tocar(app, a.alvo)
             is ComandosIa.Acao.OQueEstavaVendo -> {}
+            // Botão de outro app: só o que o dono ligou (OK + certificado) e com o plano que permite plugins. O app de
+            // terceiro responde fora da thread da tela, com prazo e placar de saúde (PluginTilesTv.clicar).
+            is ComandosIa.Acao.PluginButton -> {
+                val p = PluginTilesTv.instalados(app).firstOrNull { it.pacote == a.pacote }
+                if (p == null || !PluginTilesTv.permitido(app, p.pacote) || !Planos.permite(app, Planos.Recurso.PLUGINS))
+                    return app.getString(R.string.acao_plugin_button_off)
+                Fundo.rodar("plugin-button") { PluginTilesTv.clicar(app, p) }
+            }
         }
         return null
     }

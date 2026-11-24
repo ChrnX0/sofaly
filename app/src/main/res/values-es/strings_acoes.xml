@@ -75,4 +75,6 @@
         <item quantity="many">%d escenas con enlace</item>
         <item quantity="other">%d escenas con enlace</item>
     </plurals>
+    <string name="acao_plugin_button">Pulsar “%1$s” (botón de otra app)</string>
+    <string name="acao_plugin_button_off">Ese botón no está activado en Complementos</string>
 </resources>

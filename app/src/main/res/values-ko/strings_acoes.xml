@@ -71,4 +71,6 @@
     <plurals name="aut_links">
         <item quantity="other">링크가 있는 장면 %d개</item>
     </plurals>
+    <string name="acao_plugin_button">“%1$s” 누르기 (다른 앱의 버튼)</string>
+    <string name="acao_plugin_button_off">이 버튼은 플러그인에서 켜져 있지 않습니다</string>
 </resources>
