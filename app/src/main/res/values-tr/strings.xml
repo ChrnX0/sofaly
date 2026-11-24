@@ -877,4 +877,86 @@ AS\\Filmler).</string>
     <string name="ver_respondido_nao">“hayır” yanıtlandı</string>
     <string name="atu_migracao_disponivel">sürüm %1$d: bu TV yeni uygulamaya (tv.sofaly.launcher) geçmeye hazır</string>
     <string name="atu_migracao_instalando">yeni uygulama yükleniyor (%1$d); ardından tüm ayarlarla bu TV\'yi devralacak</string>
+    <string name="dns_nota_familia">aile, yetişkin sitelerini engeller</string>
+    <string name="dns_nota_malware">kötü amaçlı yazılımı engeller</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">Televizyonda Wi-Fi yok%1$s. Modemin açık olduğunu ya da ağ adı veya şifresinin değişip değişmediğini kontrol edin.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">router, sağlayıcının modemiyle bağlantısını kaybetti</string>
+    <string name="ief_roteador_ve_fora" formatted="true">router da interneti kesik görüyor</string>
+    <string name="ief_ha" formatted="true"> (%1$s önce)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi sorunsuz, ama sağlayıcının interneti kesildi%1$s; %2$s%3$s. Sorun televizyonda değil: sağlayıcıyı bekleyin ya da modemi yeniden başlatın.</string>
+    <string name="ief_vpn_travada" formatted="true">Router’da internet var ama televizyon geçemiyor%1$s: VPN takılmış olabilir. VPN’i kapatıp açmak genelde çözer.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Router’da internet var ama televizyon ulaşamıyor%1$s: sorun televizyonla router arasında%2$s Televizyonu Wi-Fi’ye yeniden bağlamak genelde çözer.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi sinyali zayıf, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">Televizyon Wi-Fi’de ama ne router ne de internet yanıt veriyor%1$s: router donmuş olabilir. Router’ı kapatıp açmak genelde çözer.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi sorunsuz ama internet gelmiyor%1$s; muhtemelen sağlayıcı ya da router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (açık VPN de neden olabilir).</string>
+    <string name="ief_dns" formatted="true">İnternet geliyor ama DNS%1$s yanıt vermiyor%2$s: uygulamalar sunucularını bulamıyor. DNS’i Otomatik yapmak çözer.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">İnternet ve DNS yanıt veriyor ama Google test sayfası %1$s: yoldaki bir şey (VPN, DNS engeli ya da giriş isteyen bir ağ) engelliyor.</string>
+    <string name="ief_nao_abriu" formatted="true">açılmadı</string>
+    <string name="ief_codigo_diferente" formatted="true">farklı yanıt verdi (kod %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">İnternet sorunsuz; sadece VPN kapalı (uygulamalar onsuz çalışır).%1$s</string>
+    <string name="ief_lenta" formatted="true">İnternet çalışıyor ama yavaş: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">Wi-Fi sinyali zayıf (%1$d dBm); router’ı yaklaştırmak ya da kablo kullanmak yardımcı olur</string>
+    <string name="ief_lenta_tcp" formatted="true">internetin yanıtı %1$d ms sürüyor%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, router da aynısını görüyor: sorun sağlayıcıda</string>
+    <string name="ief_lenta_http" formatted="true">test sayfası %1$.1f sn’de açıldı</string>
+    <string name="ief_queda_recente" formatted="true">İnternet şimdi sorunsuz; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Her şey yolunda: Wi-Fi, internet ve DNS yanıt veriyor.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Son 24 saatte kesinti yok.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Kayıtlı kesinti yok (televizyon son 24 saatin yalnızca bir kısmını ölçtü).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Router internette sorun bildiriyor ama televizyon normal geziniyor.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS başarısız oldu</string>
+    <string name="ief_caiu_internet" formatted="true">internet kesildi</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (sonra televizyon ölçmeyi bıraktı; ne zaman geri geldiği bilinmiyor)</string>
+    <string name="ief_quedas_n" formatted="true">; 24 saatte %1$d kesinti</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s ve %3$s geri geldi (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; 24 saatte %1$d kesinti, toplam %2$s internetsiz</string>
+    <string name="ief_quando_hoje" formatted="true">saat %1$s’de</string>
+    <string name="ief_quando_ontem" formatted="true">dün saat %1$s’de</string>
+    <string name="ief_quando_data" formatted="true">%1$s saat %2$s’de</string>
+    <string name="ief_desde_hoje" formatted="true">saat %1$s’den beri</string>
+    <string name="ief_desde_ontem" formatted="true">dün saat %1$s’den beri</string>
+    <string name="ief_desde_data" formatted="true">%1$s saat %2$s’den beri</string>
+    <string name="ief_dur_menos_1" formatted="true">1 dk’dan az</string>
+    <string name="ief_dur_min" formatted="true">%1$d dk</string>
+    <string name="ief_dur_h" formatted="true">%1$d sa</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d sa %2$d dk</string>
+    <string name="ief_data_dm" formatted="true">dd.MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: bağlı değil</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">ağ: bağlı</string>
+    <string name="ief_s_internet" formatted="true">DNS’siz internet: %1$s</string>
+    <string name="ief_s_dns" formatted="true">önbelleksiz DNS: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">başarısız</string>
+    <string name="ief_s_pagina" formatted="true">test sayfası: %1$s</string>
+    <string name="ief_s_ok" formatted="true">tamam</string>
+    <string name="ief_s_ok_em" formatted="true">%1$d ms’de tamam</string>
+    <string name="ief_s_codigo" formatted="true">kod %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: açık</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: kapalı</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: interneti kesik görüyor</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: interneti sorunsuz görüyor%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: bilgi yok</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: yanıt vermedi</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: sorgulanmadı</string>
+    <string name="ief_s_historico" formatted="true">geçmiş: 24 saatte %1$d ölçüm</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google şu an yanıt vermedi; tekrar deneyin</string>
+    <string name="lg_negado">giriş Google’da reddedildi</string>
+    <string name="lg_google_respondeu">Google yanıtı: %1$s</string>
+    <string name="lg_venceu">kodun süresi doldu; baştan başlayın</string>
+    <string name="lg_outro_login">başka bir giriş başladı; baştan başlayın</string>
+    <string name="lg_email">Google e-postayı doğrulamadı</string>
+    <string name="lg_conta_fora">%1$s hesabı bu televizyonun hiçbir profilinde yok</string>
+    <string name="lg_sem_drive">Google Drive izni işaretlenmedi</string>
+    <string name="lg_sem_chave">Google erişim anahtarını göndermedi; tekrar deneyin</string>
+    <string name="lg_nao_guardei">hesap bu televizyona kaydedilemedi</string>
+    <string name="lg_nao_configurado">Google girişi ayarlanmamış</string>
+    <string name="lg_ritmo">arka arkaya çok fazla giriş; bir dakika bekleyin</string>
+    <string name="lg_recusou">Google reddetti (%1$s): istemci kimliğini ve sırrını kontrol edin</string>
+    <string name="lg_erro_google">Google ile iletişim hatası</string>
 </resources>

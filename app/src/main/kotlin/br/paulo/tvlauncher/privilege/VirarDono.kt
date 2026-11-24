@@ -90,16 +90,16 @@ object VirarDono {
      * A sequência inteira. BLOQUEIA (até ~1 min): nunca na thread da tela. [confirmados] = os usuários extras que a tela
      * mostrou e a pessoa aceitou apagar: se a lista mudou nesse meio-tempo (alguém criou um perfil), para sem apagar nada.
      */
-    @Synchronized fun executar(ctx: Context, confirmados: List<Int>? = null): Resultado {
+    @Synchronized fun executar(ctx: Context, confirmados: List<Int>): Resultado {
         andando = true
         try { return executarJa(ctx, confirmados) } finally { andando = false }
     }
 
-    private fun executarJa(ctx: Context, confirmados: List<Int>?): Resultado {
+    private fun executarJa(ctx: Context, confirmados: List<Int>): Resultado {
         val app = ctx.applicationContext
         if (PrivilegioDO.somosDonos(app)) return Resultado(true, app.getString(R.string.cl_vd_ja_dono))
         val extras = usuariosAgora(app) ?: return Resultado(false, app.getString(R.string.cl_vd_sem_shell))
-        if (confirmados != null && extras.toSet() != confirmados.toSet())
+        if (extras.toSet() != confirmados.toSet())   // obrigatório: nunca apagar perfil que a pessoa não viu
             return Resultado(false, app.getString(R.string.cl_vd_mudou, extras.joinToString().ifEmpty { "-" }))
 
         // 1) Usuários extras saem (a tela já mostrou quais e a pessoa confirmou).

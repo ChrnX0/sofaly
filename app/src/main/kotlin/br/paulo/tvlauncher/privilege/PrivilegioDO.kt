@@ -11,7 +11,7 @@ import br.paulo.tvlauncher.DocumentPickerActivity
 import br.paulo.tvlauncher.MainActivity
 import br.paulo.tvlauncher.ProtetorTela
 import br.paulo.tvlauncher.alarm.AutoDesligar
-import kotlin.concurrent.thread
+import br.paulo.tvlauncher.Fundo
 
 /**
  * O núcleo de privilégio por Device Owner (DPM), no MESMO processo do launcher — sem app intermediário.
@@ -33,7 +33,7 @@ object PrivilegioDO {
 
     /** Chamado no onCreate (fora da thread da tela). Fixa o nosso protetor e aplica as otimizações. Idempotente e barato. */
     fun aplicar(ctx: Context) {
-        thread(name = "PrivilegioDO") {
+        Fundo.rodar("PrivilegioDO") {
             if (Config.FIXAR_PROTETOR) fixarProtetor(ctx)
             semDormirPeloSistema(ctx)
             if (somosDonos(ctx)) {
@@ -179,11 +179,6 @@ object PrivilegioDO {
         Log.w(TAG, "definirTempoDescanso falhou: $e"); false
     }
 
-    /**
-     * VPN "sempre ativa" apontando para o NOSSO pacote (o perfil IKEv2 que o [Vpn] cadastrou): o Android religa o túnel
-     * sozinho, inclusive depois de reiniciar. [ligada] = false tira. lockdown = false: se a VPN cair, a internet continua
-     * funcionando sem ela (com true, a TV ficaria sem internet até a VPN voltar — ruim numa TV que os pais usam).
-     */
     /**
      * Fixa [pacote] como "VPN sempre ativa" (null = nenhuma). Idempotente: só grava se mudou. lockdown = false de
      * propósito: se o app da VPN cair, a TV continua com internet (sem VPN) em vez de ficar sem rede nenhuma.

@@ -141,4 +141,16 @@ class NuvemTest {
         assertFalse(Nuvem.clienteGoogleValido("123456-abc.apps.googleusercontent.com.evil"))
         assertTrue(Nuvem.segredoGoogleValido("GOCSPX-abcdEFGH1234_xyz"))
     }
+
+    @Test fun linkGuardadoVenceEPedeOutroSoEmErro4xx() {
+        assertFalse(Nuvem.linkVale(0, Nuvem.LINK_GRAPH_MS, 1000))
+        assertTrue(Nuvem.linkVale(1000, Nuvem.LINK_GRAPH_MS, 1000 + Nuvem.LINK_GRAPH_MS - 1))
+        assertFalse(Nuvem.linkVale(1000, Nuvem.LINK_GRAPH_MS, 1000 + Nuvem.LINK_GRAPH_MS))
+        assertFalse("relógio voltou", Nuvem.linkVale(5000, Nuvem.LINK_GRAPH_MS, 1000))
+        var novos = 0
+        assertEquals("novo", Nuvem.comLinkNovo({ throw java.io.IOException("HTTP 403") }) { novos++; "novo" })
+        assertEquals(1, novos)
+        val rede = runCatching { Nuvem.comLinkNovo<String>({ throw java.io.IOException("HTTP 503") }) { novos++; "x" } }
+        assertTrue(rede.isFailure); assertEquals("erro de servidor não troca o link", 1, novos)
+    }
 }

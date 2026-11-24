@@ -161,7 +161,7 @@ open class ControleShizukuReceiver : BroadcastReceiver() {
             RECADO -> if (this is ControleShizukuAdbReceiver) {
                 val t = Recado.limpar(intent.getStringExtra("texto"))
                 resultData = if (t == null) "texto vazio ou com mais de ${Recado.MAX_CARACTERES} caracteres"
-                else AvisoTv.mostrar(ctx, "Recado", t, Recado.duracao(intent.getIntExtra("segundos", 60)),
+                else AvisoTv.mostrar(ctx, ctx.getString(R.string.pg_recado), t, Recado.duracao(intent.getIntExtra("segundos", 60)),
                     intent.getBooleanExtra("som", true), guardarSeApagada = true, fica = AvisoRegras.Fica.ATENCAO).name.lowercase()
             }
             // Só pelo adb: o endereço do clima (LocalClima.kt) pelo CEP e o número. Sem --es cep, apaga o endereço.

@@ -877,4 +877,86 @@ AS\\Filme).</string>
     <string name="ver_respondido_nao">mit „Nein“ beantwortet</string>
     <string name="atu_migracao_disponivel">Version %1$d: bereit, diesen Fernseher auf die neue App umzustellen (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">neue App wird installiert (%1$d); danach übernimmt sie diesen Fernseher mit allen Einstellungen</string>
+    <string name="dns_nota_familia">Familie, sperrt Erwachsenenseiten</string>
+    <string name="dns_nota_malware">sperrt Schadsoftware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">Der Fernseher hat kein WLAN%1$s. Prüfen Sie, ob der Router an ist oder ob sich Netzwerkname oder Passwort geändert haben.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">der Router hat die Verbindung zum Modem des Anbieters verloren</string>
+    <string name="ief_roteador_ve_fora" formatted="true">auch der Router sieht das Internet als ausgefallen</string>
+    <string name="ief_ha" formatted="true"> (seit %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">Das WLAN ist in Ordnung, aber das Internet des Anbieters ist ausgefallen%1$s; %2$s%3$s. Es liegt nicht am Fernseher: auf den Anbieter warten oder das Modem neu starten.</string>
+    <string name="ief_vpn_travada" formatted="true">Der Router hat Internet, aber der Fernseher kommt nicht durch%1$s: das VPN hängt vermutlich. VPN aus- und wieder einschalten hilft meistens.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Der Router hat Internet, aber der Fernseher erreicht es nicht%1$s: das Problem liegt zwischen Fernseher und Router%2$s Den Fernseher neu mit dem WLAN verbinden hilft meistens.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (das WLAN-Signal ist schwach, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">Der Fernseher ist im WLAN, aber weder Router noch Internet antworten%1$s: der Router hängt vielleicht. Router aus- und wieder einschalten hilft meistens.</string>
+    <string name="ief_sem_internet" formatted="true">Das WLAN ist in Ordnung, aber das Internet kommt nicht an%1$s; vermutlich liegt es am Anbieter oder am Router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (auch das eingeschaltete VPN kann schuld sein).</string>
+    <string name="ief_dns" formatted="true">Das Internet kommt an, aber der DNS%1$s antwortet nicht%2$s: Apps finden ihre Server nicht. DNS auf Automatisch stellen behebt es.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internet und DNS antworten, aber die Testseite von Google %1$s: etwas auf dem Weg (VPN, DNS-Sperre oder ein Netz, das eine Anmeldung verlangt) blockiert.</string>
+    <string name="ief_nao_abriu" formatted="true">öffnete sich nicht</string>
+    <string name="ief_codigo_diferente" formatted="true">antwortete anders (Code %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Das Internet ist in Ordnung; nur das VPN ist aus (Apps funktionieren ohne).%1$s</string>
+    <string name="ief_lenta" formatted="true">Das Internet funktioniert, aber langsam: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">das WLAN-Signal ist schwach (%1$d dBm); den Router näher stellen oder ein Kabel nutzen hilft</string>
+    <string name="ief_lenta_tcp" formatted="true">das Internet braucht %1$d ms zum Antworten%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, und der Router sieht dasselbe: es liegt am Anbieter</string>
+    <string name="ief_lenta_http" formatted="true">die Testseite brauchte %1$.1f s zum Öffnen</string>
+    <string name="ief_queda_recente" formatted="true">Das Internet ist jetzt in Ordnung; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Alles in Ordnung: WLAN, Internet und DNS antworten.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Keine Ausfälle in den letzten 24 h.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Keine Ausfälle erfasst (der Fernseher hat nur einen Teil der letzten 24 h gemessen).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Der Router meldet ein Internetproblem, aber der Fernseher surft normal.)</string>
+    <string name="ief_caiu_dns" formatted="true">der DNS ist ausgefallen</string>
+    <string name="ief_caiu_internet" formatted="true">das Internet ist ausgefallen</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (danach hat der Fernseher nicht mehr gemessen; wann es zurückkam, ist unbekannt)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d Ausfälle in 24 h</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s und kam %3$s zurück (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d Ausfälle in 24 h, insgesamt %2$s ohne Internet</string>
+    <string name="ief_quando_hoje" formatted="true">um %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">gestern um %1$s</string>
+    <string name="ief_quando_data" formatted="true">am %1$s um %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">seit %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">seit gestern %1$s</string>
+    <string name="ief_desde_data" formatted="true">seit %1$s um %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">weniger als 1 Min.</string>
+    <string name="ief_dur_min" formatted="true">%1$d Min.</string>
+    <string name="ief_dur_h" formatted="true">%1$d Std.</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d Std. %2$d Min.</string>
+    <string name="ief_data_dm" formatted="true">dd.MM.</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">WLAN: getrennt</string>
+    <string name="ief_s_wifi_dbm" formatted="true">WLAN: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">Netzwerk: verbunden</string>
+    <string name="ief_s_internet" formatted="true">Internet ohne DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS ohne Cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">fehlgeschlagen</string>
+    <string name="ief_s_pagina" formatted="true">Testseite: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok in %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">Code %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: an</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: aus</string>
+    <string name="ief_s_roteador_fora" formatted="true">Router: sieht Internet ausgefallen</string>
+    <string name="ief_s_roteador_ok" formatted="true">Router: sieht Internet ok%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">Router: keine Angabe</string>
+    <string name="ief_s_roteador_mudo" formatted="true">Router: keine Antwort</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">Router: nicht abgefragt</string>
+    <string name="ief_s_historico" formatted="true">Verlauf: %1$d Messungen in 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google hat gerade nicht geantwortet; bitte erneut versuchen</string>
+    <string name="lg_negado">die Anmeldung wurde bei Google abgelehnt</string>
+    <string name="lg_google_respondeu">Google antwortete: %1$s</string>
+    <string name="lg_venceu">der Code ist abgelaufen; neu beginnen</string>
+    <string name="lg_outro_login">eine andere Anmeldung hat begonnen; neu beginnen</string>
+    <string name="lg_email">Google hat die E-Mail nicht bestätigt</string>
+    <string name="lg_conta_fora">das Konto %1$s ist in keinem Profil dieses Fernsehers</string>
+    <string name="lg_sem_drive">die Google-Drive-Berechtigung wurde nicht angehakt</string>
+    <string name="lg_sem_chave">Google hat den Zugangsschlüssel nicht gesendet; bitte erneut versuchen</string>
+    <string name="lg_nao_guardei">das Konto konnte auf diesem Fernseher nicht gespeichert werden</string>
+    <string name="lg_nao_configurado">die Google-Anmeldung ist nicht eingerichtet</string>
+    <string name="lg_ritmo">zu viele Anmeldungen hintereinander; eine Minute warten</string>
+    <string name="lg_recusou">Google hat abgelehnt (%1$s): Client-ID und Secret prüfen</string>
+    <string name="lg_erro_google">Fehler bei der Verbindung mit Google</string>
 </resources>

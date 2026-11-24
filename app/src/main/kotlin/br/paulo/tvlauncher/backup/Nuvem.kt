@@ -306,6 +306,22 @@ object Nuvem {
         } finally { c.disconnect() }
     }
 
+    /** Quanto tempo um link de download guardado é reusado: bem antes de vencer (Graph ~1 h, Dropbox 4 h). */
+    const val LINK_GRAPH_MS = 40 * 60_000L
+    const val LINK_DROPBOX_MS = 3 * 3_600_000L
+
+    fun linkVale(pegouEm: Long, validadeMs: Long, agora: Long = System.currentTimeMillis()) =
+        pegouEm > 0 && agora - pegouEm in 0 until validadeMs
+
+    /**
+     * Abre pelo link guardado; se o servidor recusar (link vencido ou revogado: HTTP 4xx), pede um link novo UMA vez.
+     * Sem isso, pausar um filme da nuvem por horas e voltar dava erro até reabrir o arquivo.
+     */
+    fun <T> comLinkNovo(guardado: () -> T, novo: () -> T): T =
+        try { guardado() } catch (e: IOException) {
+            if (e.message?.startsWith("HTTP 4") == true) novo() else throw e
+        }
+
     // ---------------------------------------------------------------- tokens de acesso (memória do processo)
 
     private val cache = HashMap<String, Pair<String, Long>>()
@@ -344,6 +360,7 @@ object Nuvem {
 /** OneDrive como pasta (Microsoft Graph). */
 class PastaOneDrive(private val c: ContaMidia) : PastaArquivos {
     private var ultimo: Triple<String, Long, String>? = null   // caminho, tamanho, link de download
+    private var quando = 0L   // o link do Graph vale ~1 h: depois de pausa longa, pega outro
 
     override fun listar(caminho: String): List<PastaArquivos.Item> {
         val itens = ArrayList<PastaArquivos.Item>()
@@ -356,22 +373,25 @@ class PastaOneDrive(private val c: ContaMidia) : PastaArquivos {
         return itens
     }
 
-    private fun item(caminho: String): Triple<String, Long, String> {
-        ultimo?.let { if (it.first == caminho) return it }
+    private fun item(caminho: String, novo: Boolean = false): Triple<String, Long, String> {
+        if (!novo) ultimo?.let { if (it.first == caminho && Nuvem.linkVale(quando, Nuvem.LINK_GRAPH_MS)) return it }
         val o = JSONObject(Nuvem.conferir(Nuvem.get(Nuvem.graphItem(caminho), Nuvem.acesso(c))))
         val link = o.optString("@microsoft.graph.downloadUrl")
         if (link.isEmpty()) throw IOException("BAD_NETWORK_NAME")
+        quando = System.currentTimeMillis()
         return Triple(caminho, o.optLong("size"), link).also { ultimo = it }
     }
 
     override fun tamanho(caminho: String) = item(caminho).second
-    override fun ler(caminho: String, posicao: Long): InputStream = Nuvem.abrirLink(item(caminho).third, posicao)
+    override fun ler(caminho: String, posicao: Long): InputStream =
+        Nuvem.comLinkNovo({ Nuvem.abrirLink(item(caminho).third, posicao) }) { Nuvem.abrirLink(item(caminho, novo = true).third, posicao) }
     override fun close() {}
 }
 
 /** Dropbox como pasta (API v2). */
 class PastaDropbox(private val c: ContaMidia) : PastaArquivos {
     private var ultimo: Triple<String, Long, String>? = null
+    private var quando = 0L   // o link temporário vale 4 h
 
     override fun listar(caminho: String): List<PastaArquivos.Item> {
         val itens = ArrayList<PastaArquivos.Item>()
@@ -388,17 +408,19 @@ class PastaDropbox(private val c: ContaMidia) : PastaArquivos {
     }
 
     /** Um pedido só dá o tamanho e um link de 4 horas que aceita Range (o player pula no vídeo sem baixar tudo). */
-    private fun item(caminho: String): Triple<String, Long, String> {
-        ultimo?.let { if (it.first == caminho) return it }
+    private fun item(caminho: String, novo: Boolean = false): Triple<String, Long, String> {
+        if (!novo) ultimo?.let { if (it.first == caminho && Nuvem.linkVale(quando, Nuvem.LINK_DROPBOX_MS)) return it }
         val o = JSONObject(Nuvem.conferir(Nuvem.postarJson("${Nuvem.DBX_API}/2/files/get_temporary_link", Nuvem.acesso(c),
             JSONObject().put("path", Nuvem.caminhoDropbox(caminho)).toString())))
         val link = o.optString("link")
         if (link.isEmpty()) throw IOException("BAD_NETWORK_NAME")
+        quando = System.currentTimeMillis()
         return Triple(caminho, o.optJSONObject("metadata")?.optLong("size") ?: 0L, link).also { ultimo = it }
     }
 
     override fun tamanho(caminho: String) = item(caminho).second
-    override fun ler(caminho: String, posicao: Long): InputStream = Nuvem.abrirLink(item(caminho).third, posicao)
+    override fun ler(caminho: String, posicao: Long): InputStream =
+        Nuvem.comLinkNovo({ Nuvem.abrirLink(item(caminho).third, posicao) }) { Nuvem.abrirLink(item(caminho, novo = true).third, posicao) }
     override fun close() {}
 }
 
@@ -454,9 +476,9 @@ class PastaBox(private val c: ContaMidia) : PastaPorId("0") {
 
     override fun abrir(idArquivo: String, posicao: Long): InputStream {
         val agora = System.currentTimeMillis()
-        val link = ultimo?.takeIf { it.first == idArquivo && agora - it.third < 10 * 60_000 }?.second
-            ?: Nuvem.linkBox(idArquivo, Nuvem.acesso(c)).also { ultimo = Triple(idArquivo, it, agora) }
-        return Nuvem.abrirLink(link, posicao)
+        fun novo() = Nuvem.linkBox(idArquivo, Nuvem.acesso(c)).also { ultimo = Triple(idArquivo, it, System.currentTimeMillis()) }
+        val link = ultimo?.takeIf { it.first == idArquivo && agora - it.third < 10 * 60_000 }?.second ?: novo()
+        return Nuvem.comLinkNovo({ Nuvem.abrirLink(link, posicao) }) { Nuvem.abrirLink(novo(), posicao) }
     }
 }
 

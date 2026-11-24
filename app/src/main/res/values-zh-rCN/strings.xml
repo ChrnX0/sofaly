@@ -874,4 +874,86 @@ AS\\Movies）。</string>
     <string name="ver_respondido_nao">已回答“否”</string>
     <string name="atu_migracao_disponivel">版本 %1$d：可以将这台电视迁移到新应用 (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">正在安装新应用 (%1$d)；之后它将带着所有设置接管这台电视</string>
+    <string name="dns_nota_familia">家庭，拦截成人网站</string>
+    <string name="dns_nota_malware">拦截恶意软件</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">电视没有连接 Wi-Fi%1$s。请检查路由器是否开着，或网络名称和密码是否改了。</string>
+    <string name="ief_roteador_sem_modem" formatted="true">路由器与运营商的光猫断开了连接</string>
+    <string name="ief_roteador_ve_fora" formatted="true">路由器也显示网络已断</string>
+    <string name="ief_ha" formatted="true">（已 %1$s）</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi 正常，但运营商的网络断了%1$s；%2$s%3$s。不是电视的问题：请等待运营商恢复或重启光猫。</string>
+    <string name="ief_vpn_travada" formatted="true">路由器有网络，但电视过不去%1$s：VPN 可能卡住了。关掉再打开 VPN 通常就能解决。</string>
+    <string name="ief_entre_tv_roteador" formatted="true">路由器有网络，但电视连不到%1$s：问题在电视和路由器之间%2$s 让电视重新连接 Wi-Fi 通常就能解决。</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">（Wi-Fi 信号弱，%1$d dBm）。</string>
+    <string name="ief_ponto" formatted="true">。</string>
+    <string name="ief_roteador_travado" formatted="true">电视在 Wi-Fi 上，但路由器和网络都没有响应%1$s：路由器可能死机了。关掉再打开路由器通常就能解决。</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi 正常，但网络进不来%1$s；可能是运营商或路由器的问题%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true">（开着的 VPN 也可能是原因）。</string>
+    <string name="ief_dns" formatted="true">网络能通，但 DNS%1$s 没有响应%2$s：应用找不到服务器。把 DNS 改为自动即可解决。</string>
+    <string name="ief_entre_parenteses" formatted="true">（%1$s）</string>
+    <string name="ief_bloqueio" formatted="true">网络和 DNS 都有响应，但 Google 测试页%1$s：路上有东西（VPN、DNS 拦截或要求登录的网络）在拦截。</string>
+    <string name="ief_nao_abriu" formatted="true">打不开</string>
+    <string name="ief_codigo_diferente" formatted="true">返回了不同的结果（代码 %1$d）</string>
+    <string name="ief_vpn_desligada" formatted="true">网络正常；只是 VPN 关了（应用不需要它也能用）。%1$s</string>
+    <string name="ief_lenta" formatted="true">网络能用，但很慢：%1$s。%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">Wi-Fi 信号弱（%1$d dBm）；把路由器挪近或用网线会好些</string>
+    <string name="ief_lenta_tcp" formatted="true">网络响应需要 %1$d 毫秒%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">，路由器也一样：是运营商的问题</string>
+    <string name="ief_lenta_http" formatted="true">测试页用了 %1$.1f 秒才打开</string>
+    <string name="ief_queda_recente" formatted="true">网络现在正常；%1$s。</string>
+    <string name="ief_tudo_ok" formatted="true">一切正常：Wi-Fi、网络和 DNS 都有响应。%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true">过去 24 小时没有断网。</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">没有记录到断网（电视只测量了过去 24 小时中的一部分）。</string>
+    <string name="ief_roteador_avisa" formatted="true">（路由器报告网络有问题，但电视上网正常。）</string>
+    <string name="ief_caiu_dns" formatted="true">DNS 出错</string>
+    <string name="ief_caiu_internet" formatted="true">网络断了</string>
+    <string name="ief_queda_sem_medir" formatted="true">%2$s%1$s（之后电视停止测量；不知道何时恢复）</string>
+    <string name="ief_quedas_n" formatted="true">；24 小时内断网 %1$d 次</string>
+    <string name="ief_queda_voltou" formatted="true">%2$s%1$s，%3$s恢复（%4$s）</string>
+    <string name="ief_quedas_total" formatted="true">；24 小时内断网 %1$d 次，共 %2$s 没有网络</string>
+    <string name="ief_quando_hoje" formatted="true">%1$s</string>
+    <string name="ief_quando_ontem" formatted="true">昨天 %1$s</string>
+    <string name="ief_quando_data" formatted="true">%1$s %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">自 %1$s 起</string>
+    <string name="ief_desde_ontem" formatted="true">自昨天 %1$s 起</string>
+    <string name="ief_desde_data" formatted="true">自 %1$s %2$s 起</string>
+    <string name="ief_dur_menos_1" formatted="true">不到 1 分钟</string>
+    <string name="ief_dur_min" formatted="true">%1$d 分钟</string>
+    <string name="ief_dur_h" formatted="true">%1$d 小时</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d 小时 %2$d 分钟</string>
+    <string name="ief_data_dm" formatted="true">M/d</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi：未连接</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi：%1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">网络：已连接</string>
+    <string name="ief_s_internet" formatted="true">不经 DNS 的网络：%1$s</string>
+    <string name="ief_s_dns" formatted="true">无缓存 DNS：%1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d 毫秒</string>
+    <string name="ief_s_falhou" formatted="true">失败</string>
+    <string name="ief_s_pagina" formatted="true">测试页：%1$s</string>
+    <string name="ief_s_ok" formatted="true">正常</string>
+    <string name="ief_s_ok_em" formatted="true">正常（%1$d 毫秒）</string>
+    <string name="ief_s_codigo" formatted="true">代码 %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN：开</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN：关</string>
+    <string name="ief_s_roteador_fora" formatted="true">路由器：网络已断</string>
+    <string name="ief_s_roteador_ok" formatted="true">路由器：网络正常%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">路由器：无信息</string>
+    <string name="ief_s_roteador_mudo" formatted="true">路由器：无响应</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">路由器：未查询</string>
+    <string name="ief_s_historico" formatted="true">记录：24 小时内测量 %1$d 次</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google 暂时没有响应；请重试</string>
+    <string name="lg_negado">登录在 Google 被拒绝</string>
+    <string name="lg_google_respondeu">Google 返回：%1$s</string>
+    <string name="lg_venceu">代码已过期；请重新开始</string>
+    <string name="lg_outro_login">另一个登录已开始；请重新开始</string>
+    <string name="lg_email">Google 没有确认电子邮件</string>
+    <string name="lg_conta_fora">账号 %1$s 不在这台电视的任何个人资料中</string>
+    <string name="lg_sem_drive">没有勾选 Google 云端硬盘权限</string>
+    <string name="lg_sem_chave">Google 没有发送访问密钥；请重试</string>
+    <string name="lg_nao_guardei">无法在这台电视上保存账号</string>
+    <string name="lg_nao_configurado">Google 登录尚未设置</string>
+    <string name="lg_ritmo">连续登录次数过多；请等一分钟</string>
+    <string name="lg_recusou">Google 拒绝了（%1$s）：请检查客户端 ID 和密钥</string>
+    <string name="lg_erro_google">与 Google 通信出错</string>
 </resources>

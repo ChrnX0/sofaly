@@ -1,6 +1,7 @@
 package br.paulo.tvlauncher.network
 
 import android.content.Context
+import br.paulo.tvlauncher.R
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.SystemClock
@@ -66,11 +67,82 @@ object DiagnosticoInternet {
         } finally { exec.shutdownNow() }
     }
 
-    /** Mede e explica. */
-    fun explicar(ctx: Context): InternetEmUmaFrase.Resultado = InternetEmUmaFrase.explicar(medir(ctx))
+    /** Os textos da frase no idioma da TV (strings ief_*, mesmas chaves de InternetEmUmaFrase.PT_TEXTOS). */
+    private val TEXTOS = mapOf(
+        "sem_wifi" to R.string.ief_sem_wifi,
+        "roteador_sem_modem" to R.string.ief_roteador_sem_modem,
+        "roteador_ve_fora" to R.string.ief_roteador_ve_fora,
+        "ha" to R.string.ief_ha,
+        "provedor_caiu" to R.string.ief_provedor_caiu,
+        "vpn_travada" to R.string.ief_vpn_travada,
+        "entre_tv_roteador" to R.string.ief_entre_tv_roteador,
+        "sinal_fraco_entre" to R.string.ief_sinal_fraco_entre,
+        "ponto" to R.string.ief_ponto,
+        "roteador_travado" to R.string.ief_roteador_travado,
+        "sem_internet" to R.string.ief_sem_internet,
+        "vpn_culpada" to R.string.ief_vpn_culpada,
+        "dns" to R.string.ief_dns,
+        "entre_parenteses" to R.string.ief_entre_parenteses,
+        "bloqueio" to R.string.ief_bloqueio,
+        "nao_abriu" to R.string.ief_nao_abriu,
+        "codigo_diferente" to R.string.ief_codigo_diferente,
+        "vpn_desligada" to R.string.ief_vpn_desligada,
+        "lenta" to R.string.ief_lenta,
+        "lenta_sinal" to R.string.ief_lenta_sinal,
+        "lenta_tcp" to R.string.ief_lenta_tcp,
+        "lenta_roteador_igual" to R.string.ief_lenta_roteador_igual,
+        "lenta_http" to R.string.ief_lenta_http,
+        "queda_recente" to R.string.ief_queda_recente,
+        "tudo_ok" to R.string.ief_tudo_ok,
+        "sem_quedas_24h" to R.string.ief_sem_quedas_24h,
+        "sem_quedas_parcial" to R.string.ief_sem_quedas_parcial,
+        "roteador_avisa" to R.string.ief_roteador_avisa,
+        "caiu_dns" to R.string.ief_caiu_dns,
+        "caiu_internet" to R.string.ief_caiu_internet,
+        "queda_sem_medir" to R.string.ief_queda_sem_medir,
+        "quedas_n" to R.string.ief_quedas_n,
+        "queda_voltou" to R.string.ief_queda_voltou,
+        "quedas_total" to R.string.ief_quedas_total,
+        "quando_hoje" to R.string.ief_quando_hoje,
+        "quando_ontem" to R.string.ief_quando_ontem,
+        "quando_data" to R.string.ief_quando_data,
+        "desde_hoje" to R.string.ief_desde_hoje,
+        "desde_ontem" to R.string.ief_desde_ontem,
+        "desde_data" to R.string.ief_desde_data,
+        "dur_menos_1" to R.string.ief_dur_menos_1,
+        "dur_min" to R.string.ief_dur_min,
+        "dur_h" to R.string.ief_dur_h,
+        "dur_h_min" to R.string.ief_dur_h_min,
+        "data_dm" to R.string.ief_data_dm,
+        "s_wifi_desconectado" to R.string.ief_s_wifi_desconectado,
+        "s_wifi_dbm" to R.string.ief_s_wifi_dbm,
+        "s_rede_conectada" to R.string.ief_s_rede_conectada,
+        "s_internet" to R.string.ief_s_internet,
+        "s_dns" to R.string.ief_s_dns,
+        "s_ms" to R.string.ief_s_ms,
+        "s_falhou" to R.string.ief_s_falhou,
+        "s_pagina" to R.string.ief_s_pagina,
+        "s_ok" to R.string.ief_s_ok,
+        "s_ok_em" to R.string.ief_s_ok_em,
+        "s_codigo" to R.string.ief_s_codigo,
+        "s_vpn_ligada" to R.string.ief_s_vpn_ligada,
+        "s_vpn_desligada" to R.string.ief_s_vpn_desligada,
+        "s_roteador_fora" to R.string.ief_s_roteador_fora,
+        "s_roteador_ok" to R.string.ief_s_roteador_ok,
+        "s_roteador_sem_opiniao" to R.string.ief_s_roteador_sem_opiniao,
+        "s_roteador_mudo" to R.string.ief_s_roteador_mudo,
+        "s_roteador_nao_consultado" to R.string.ief_s_roteador_nao_consultado,
+        "s_historico" to R.string.ief_s_historico,
+    )
 
-    /** Para a ferramenta MCP diagnostico_rede: {frase, causa, nivel, sinais}. */
-    fun json(ctx: Context): JSONObject = explicar(ctx).json()
+    fun textos(ctx: Context) = InternetEmUmaFrase.Textos { chave, a -> ctx.getString(TEXTOS.getValue(chave), *a) }
+
+    /** Mede e explica, no idioma da TV (tela Diagnóstico). */
+    fun explicar(ctx: Context): InternetEmUmaFrase.Resultado =
+        InternetEmUmaFrase.explicar(medir(ctx), tx = textos(ctx.applicationContext))
+
+    /** Para a ferramenta MCP diagnostico_rede: {frase, causa, nivel, sinais}, em português (o que a IA lê). */
+    fun json(ctx: Context): JSONObject = InternetEmUmaFrase.explicar(medir(ctx)).json()
 
     /** Conexão até 1.1.1.1:443: prova que a internet chega SEM depender de DNS. ms ou null. */
     fun tcpMs(): Int? {   // público: o teste de rede do card Jogos (JogosTv) também usa
