@@ -99,7 +99,18 @@ object FontChoice {
         c.connectTimeout = 15_000; c.readTimeout = 30_000
         try {
             if (c.responseCode != 200) return false
-            val bytes = c.inputStream.use { it.readNBytes(MAX_BYTES + 1) }
+            // Lê no máximo MAX_BYTES + 1 (para saber que passou do limite). Não readNBytes: ele só existe do Android 13
+            // em diante e no 10-12 derrubava a troca de fonte com NoSuchMethodError (lint, 24/11/2026).
+            val bytes = c.inputStream.use { ent ->
+                val saida = java.io.ByteArrayOutputStream()
+                val buf = ByteArray(16 * 1024)
+                while (saida.size() <= MAX_BYTES) {
+                    val n = ent.read(buf, 0, minOf(buf.size, MAX_BYTES + 1 - saida.size()))
+                    if (n < 0) break
+                    saida.write(buf, 0, n)
+                }
+                saida.toByteArray()
+            }
             if (bytes.size > MAX_BYTES || !looksLikeFont(bytes)) return false
             val destino = file(ctx, f)
             val tmp = File(destino.path + ".tmp")

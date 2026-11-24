@@ -1,12 +1,12 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.backup.folder
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
-import android.os.Build
 import android.os.Environment
 import android.os.PowerManager
 import android.os.storage.StorageManager
@@ -300,9 +300,9 @@ object BackupNoturno {
     }
 
     fun pastaPendrive(app: Context): File? {
-        if (Build.VERSION.SDK_INT < 30) return null   // StorageVolume.directory é do Android 11; a TV é Android 14
         val sm = app.getSystemService(StorageManager::class.java) ?: return null
-        return sm.storageVolumes.firstOrNull { it.isRemovable && it.state == Environment.MEDIA_MOUNTED }?.directory
+        // folder (StorageVolumeCompat): também no Android 10, onde directory não existe.
+        return sm.storageVolumes.firstOrNull { it.isRemovable && it.state == Environment.MEDIA_MOUNTED }?.folder
     }
 
     /** NAS: grava em <pasta da conta>/OneTV-backup com nome temporário, renomeia e apaga as cópias além das 7. */

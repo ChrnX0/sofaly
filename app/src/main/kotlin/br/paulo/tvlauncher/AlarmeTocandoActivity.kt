@@ -333,7 +333,14 @@ class AlarmeTocandoActivity : Activity() {
         volume = null
     }
 
+    /**
+     * Já houve decisão (Parar, Soneca, ninguém apareceu): a tela fecha sem pendência. Sem ela, quem fecha a tela por
+     * outro caminho ainda resolve o toque em [onUserLeaveHint] / [onDestroy].
+     */
+    private var decidido = false
+
     private fun parar(falar: Boolean = true) {
+        decidido = true
         if (timer) { finish(); return }
         val alarme = Despertador.listar(this).firstOrNull { it.id == id }
         val bomDia = alarme?.bomDia == true && falar
@@ -351,6 +358,7 @@ class AlarmeTocandoActivity : Activity() {
     }
 
     private fun soneca() {
+        decidido = true
         Despertador.soneca(this, id)
         finish()
     }
@@ -363,6 +371,19 @@ class AlarmeTocandoActivity : Activity() {
         return super.onKeyDown(keyCode, event)
     }
 
+    /**
+     * HOME (ou outra tela que a pessoa abriu) com o alarme tocando: antes a tela ia para trás e o som seguia tocando
+     * escondido por até 10 min, sem botão para parar. Agora sair = Soneca (o mesmo do Voltar e do botão de energia nos
+     * despertadores de celular); no timer, sair = Parar (ele só tem Parar). Só a escolha da pessoa chama isto: a TV
+     * acendendo pelo CEC ou a tela sendo recriada não.
+     */
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+        if (decidido || isFinishing || !tocando) return
+        Log.i("TvLauncher.Alarme", "a pessoa saiu da tela do alarme: ${if (timer) "parar" else "soneca"}")
+        if (timer) parar() else soneca()
+    }
+
     override fun onNewIntent(novo: Intent) {
         super.onNewIntent(novo)
         val novoTimer = novo.getBooleanExtra(EXTRA_TIMER, false)
@@ -373,6 +394,9 @@ class AlarmeTocandoActivity : Activity() {
     }
 
     override fun onDestroy() {
+        // Fechou sem decisão (o sistema encerrou a tela depois de ela começar a tocar): o toque conta como tocado, senão
+        // um alarme de uma vez só ficava ligado e tocava de novo amanhã, e o próximo não era agendado.
+        if (isFinishing && tocando && !decidido && !timer) runCatching { Despertador.tocou(applicationContext, id) }
         tocando = false
         ui.removeCallbacks(ligarTv)
         pararSom()

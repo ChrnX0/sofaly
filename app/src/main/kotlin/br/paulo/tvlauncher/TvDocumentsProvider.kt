@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.backup.folder
 import android.content.Context
 import br.paulo.tvlauncher.panel.PastaGravavel
 import br.paulo.tvlauncher.panel.Pastas
@@ -78,8 +79,10 @@ class TvDocumentsProvider : DocumentsProvider() {
         /** (uuid, nome, pasta) de cada volume removível montado (os mesmos que a gravação usa). */
         private fun volumesUsb(ctx: Context): List<Triple<String, String, File>> =
             ctx.getSystemService(StorageManager::class.java)?.storageVolumes.orEmpty()
-                .filter { it.isRemovable && it.state == Environment.MEDIA_MOUNTED && it.directory != null && it.uuid != null }
-                .map { Triple(it.uuid!!, it.getDescription(ctx), it.directory!!) }
+                // folder (StorageVolumeCompat), não directory: directory só existe do Android 11 em diante e no 10 o
+                // seletor de pastas caía com NoSuchMethodError (lint, revisão de lógica de 24/11/2026).
+                .filter { it.isRemovable && it.state == Environment.MEDIA_MOUNTED && it.folder != null && it.uuid != null }
+                .map { Triple(it.uuid!!, it.getDescription(ctx), it.folder!!) }
 
         private fun contasRede(ctx: Context): List<ContaMidia> = MidiaArmazem.contas(ctx).filter { it.tipo in TIPOS_REDE }
 

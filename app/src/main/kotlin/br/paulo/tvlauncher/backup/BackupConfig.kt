@@ -100,7 +100,7 @@ object BackupConfig {
     }
 
     /** Tipo de um valor já gravado, no mesmo código do JSON ("b", "i"...). */
-    private fun tipoDe(valor: Any?): String? = when (valor) {
+    internal fun tipoDe(valor: Any?): String? = when (valor) {
         is Boolean -> "b"; is Int -> "i"; is Long -> "l"; is Float -> "f"; is String -> "s"; is Set<*> -> "ss"
         else -> null
     }

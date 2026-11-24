@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.backup.folder
 import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
@@ -978,11 +979,10 @@ class MidiaRedeActivity : Activity() {
 
     /** Volumes removíveis montados agora (pendrive, disco no hub USB). Android 11+: a TV é 14. */
     private fun volumesUsb(): List<Volume> {
-        if (android.os.Build.VERSION.SDK_INT < 30) return emptyList()
         val sm = getSystemService(android.os.storage.StorageManager::class.java) ?: return emptyList()
         return runCatching {
             sm.storageVolumes.filter { it.isRemovable && it.state == android.os.Environment.MEDIA_MOUNTED }
-                .mapNotNull { v -> v.directory?.let { Volume(v.getDescription(this).ifBlank { it.name }, it) } }
+                .mapNotNull { v -> v.folder?.let { Volume(v.getDescription(this).ifBlank { it.name }, it) } }
         }.getOrDefault(emptyList())
     }
 

@@ -272,7 +272,7 @@ object McpPoder2 {
 
     // ---------------------------------------------------------------- rotinas
 
-    private fun rotinaJson(app: Context, r: Rotinas.Rotina) = JSONObject().put("id", r.id).put("hora", "%02d:%02d".format(r.hora, r.minuto))
+    private fun rotinaJson(app: Context, r: Rotinas.Rotina) = JSONObject().put("id", r.id).put("hora", "%02d:%02d".format(java.util.Locale.ROOT, r.hora, r.minuto))
         .put("dias", Despertador.diasTexto(app, r.dias)).put("tipo", r.acao.name.lowercase()).put("pacote", r.pacote)
         .put("ocioso_min", r.ocioso).put("cena", r.cena).put("ligada", r.ativa).put("descricao", Rotinas.descricao(app, r))
 

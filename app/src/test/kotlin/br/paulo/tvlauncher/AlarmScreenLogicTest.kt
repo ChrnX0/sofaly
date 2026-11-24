@@ -59,3 +59,27 @@ class AlarmScreenLogicTest {
         org.junit.Assert.assertEquals(4, passos)
     }
 }
+
+/**
+ * Revisão de lógica (24/11/2026): sair da tela do alarme pelo HOME deixava o som tocando escondido por até 10 min.
+ * Sair = Soneca (timer: Parar), e uma tela fechada sem decisão ainda resolve o toque (alarme de uma vez só desliga).
+ */
+class AlarmeTocandoSaidaTest {
+    private val fonte = CodeSource.file("AlarmeTocandoActivity.kt").readText()
+
+    @Test fun sairPeloHomeVaiParaASoneca() {
+        val corpo = fonte.substringAfter("override fun onUserLeaveHint()").substringBefore("override fun onNewIntent")
+        assertTrue(corpo.contains("if (timer) parar() else soneca()"))
+        assertTrue(corpo.contains("decidido"))
+    }
+
+    @Test fun fecharSemDecisaoResolveOToque() {
+        val corpo = fonte.substringAfter("override fun onDestroy()").substringBefore("super.onDestroy()")
+        assertTrue(corpo.contains("Despertador.tocou"))
+    }
+
+    @Test fun pararESonecaMarcamADecisao() {
+        assertTrue(fonte.substringAfter("private fun parar(").substringBefore("Despertador.tocou").contains("decidido = true"))
+        assertTrue(fonte.substringAfter("private fun soneca()").substringBefore("finish()").contains("decidido = true"))
+    }
+}
