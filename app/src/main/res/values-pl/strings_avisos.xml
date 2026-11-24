@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">W tym tempie zapełni się za około %1$d dni (wolne %2$d MB). Wyczyść pamięć podręczną aplikacji lub usuń nieużywane aplikacje.</string>
     <string name="pr_avisos_tv">Z telewizora</string>
     <string name="mural_riscar">Skreśl %1$s</string>
+    <string name="ds_lento_titulo">Sofaly zwolnił</string>
+    <string name="ds_lento_texto">Wersja %1$d: wolne klatki trwają %2$d ms, wcześniej %3$d ms (+%4$d%%).</string>
 </resources>

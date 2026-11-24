@@ -10,6 +10,7 @@ import android.view.Window
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.CompatibilidadeTv
+import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.home.MovimentoAdaptativo
 import org.json.JSONObject
@@ -119,8 +120,8 @@ object DesempenhoTv {
         val c = comparacao(ctx) ?: return
         if (!c.piorou) return
         p.edit().putBoolean("alertou", true).apply()
-        Avisos.enviar(ctx, Avisos.Tipo.DESEMPENHO, "Launcher mais lento",
-            "Versão ${p.getLong("versao_atual", 0)}: quadro lento ${c.p90Agora} ms, era ${c.p90Antes} ms (+${c.porcento}%).")
+        Avisos.enviar(ctx, Avisos.Tipo.DESEMPENHO, ctx.getString(R.string.ds_lento_titulo),
+            ctx.getString(R.string.ds_lento_texto, p.getLong("versao_atual", 0), c.p90Agora, c.p90Antes, c.porcento))
     }
 
     private fun medidas(ctx: Context): Pair<Desempenho.Medida, Desempenho.Medida> {

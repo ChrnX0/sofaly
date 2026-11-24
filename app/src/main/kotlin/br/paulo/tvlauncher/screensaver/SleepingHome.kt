@@ -219,7 +219,8 @@ class SleepingHome(private val ctx: Context) {
             val f = Forecast.recenteOuBusca(ctx)
             val agenda = lerAgenda()
             val rs = lerResumos()
-            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; preencher(f) } }
+            val c = lerCeu()
+            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; ceu = c; preencher(f) } }
         }
         ui.postDelayed(escurecer, ESCURECER_MS)
         ui.postDelayed(deslocar, DESLOCAR_MS)
@@ -230,6 +231,17 @@ class SleepingHome(private val ctx: Context) {
     // ------------------------------------------------------------------ dados
 
     private var agenda: List<Triple<String, String, String>> = emptyList()   // ícone, título, quando
+
+    /**
+     * Céu da noite (24/11/2026, Paulo: "útil e BONITO"): só quando há evento de verdade daqui, com céu limpo
+     * ([br.paulo.tvlauncher.weather.NightSky]). Entra meia hora antes como a PRIMEIRA linha da faixa (a faixa pula
+     * para ela) e sai no fim; fora disso não ocupa lugar. Fora da thread da tela (a órbita da Estação pode baixar).
+     */
+    private var ceu: br.paulo.tvlauncher.weather.NightSky.Event? = null
+    private var ultimaPrevisao: ForecastData? = null
+    private fun lerCeu() = runCatching { br.paulo.tvlauncher.weather.NightSkyTv.hoje(ctx) }.getOrNull()
+    /** Repinta a faixa na hora exata em que o céu entra ou sai (o [atualizar] só passa a cada 15 min). */
+    private val viradaDoCeu = Runnable { if (!solto) preencher(ultimaPrevisao) }
 
     /**
      * Retrospectiva da semana e "Sua TV no ano" (24/11/2026, teste 100%): eram cartões do protetor antigo e ficaram sem
@@ -280,6 +292,7 @@ class SleepingHome(private val ctx: Context) {
     }
 
     private fun preencher(f: ForecastData?) {
+        ultimaPrevisao = f
         val topo = Forecast.topo(ctx)
         f?.let { x -> topo.codigo?.let { x.codigo = it }; topo.umidade?.let { x.umidade = it } }
         val clima = ctx.getSharedPreferences(Prefs.CLIMA, Context.MODE_PRIVATE)
@@ -311,6 +324,18 @@ class SleepingHome(private val ctx: Context) {
 
         // ---- as linhas da faixa (só as que têm dado)
         val l = mutableListOf<Linha>()
+        ui.removeCallbacks(viradaDoCeu)
+        var ceuAgora: String? = null
+        ceu?.let { e ->
+            if (br.paulo.tvlauncher.weather.NightSky.noDescanso(e, agoraMs)) {
+                val (titulo, nota) = br.paulo.tvlauncher.weather.NightSkyTv.celula(ctx, e)
+                ceuAgora = titulo
+                l += Linha(titulo, linhaBase().apply { addView(celula(ctx.getString(R.string.ns_titulo), titulo, nota), LinearLayout.LayoutParams(0, -2, 1f)) })
+                ui.postDelayed(viradaDoCeu, (e.end - agoraMs).coerceAtLeast(1_000L))
+            } else if (e.end > agoraMs) {
+                ui.postDelayed(viradaDoCeu, (e.start - br.paulo.tvlauncher.weather.NightSky.DESCANSO_ANTES_MS - agoraMs).coerceAtLeast(1_000L))
+            }
+        }
         if (fr != null) l += Linha("resumo", linhaResumo(ForecastText.frase(ctx, fr), when {
             chovendo || fr.tipo == DicasClima.TipoFrase.CHUVA_AS -> SofyPolicy.Expression.WORRIED
             fr.tipo == DicasClima.TipoFrase.CALOR || fr.tipo == DicasClima.TipoFrase.FRIO -> SofyPolicy.Expression.SURPRISED
@@ -330,7 +355,8 @@ class SleepingHome(private val ctx: Context) {
         for ((titulo, a, b) in resumos) l += Linha(titulo, linhaBase().apply { addView(celula(titulo, a, b.ifEmpty { null }), LinearLayout.LayoutParams(0, -2, 1f)) })
         val nomeAntes = linhas.getOrNull(atual)?.nome
         linhas = l
-        atual = l.indexOfFirst { it.nome == nomeAntes }.takeIf { it >= 0 } ?: 0
+        // O céu acabou de entrar: a faixa vai para ele (é o que vale olhar agora); depois segue a roda normal.
+        atual = if (ceuAgora != null && nomeAntes != ceuAgora) 0 else l.indexOfFirst { it.nome == nomeAntes }.takeIf { it >= 0 } ?: 0
         janela.removeAllViews()
         l.forEachIndexed { i, x -> janela.addView(x.view, FrameLayout.LayoutParams(-1, -1)); x.view.visibility = if (i == atual) View.VISIBLE else View.INVISIBLE }
         reiniciarRoda()
@@ -528,7 +554,8 @@ class SleepingHome(private val ctx: Context) {
                 val f = try { Forecast.load(ctx) } catch (_: Exception) { null } ?: Forecast.recente()
                 val ag = lerAgenda()
                 val rs = lerResumos()
-                ui.post { if (!solto) { agenda = ag; resumos = rs; preencher(f) } }
+                val c = lerCeu()
+                ui.post { if (!solto) { agenda = ag; resumos = rs; ceu = c; preencher(f) } }
             }
             ui.postDelayed(this, ATUALIZAR_MS)
         }

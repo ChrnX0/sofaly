@@ -48,7 +48,6 @@ object AtrasoRadio {
     /** Onde a fita guarda os bytes: posição física [i] dentro de 0 until capacidade. */
     interface Armazem {
         val capacidade: Long
-        val noPendrive: Boolean get() = false
         fun escrever(i: Long, b: ByteArray, off: Int, n: Int)
         fun ler(i: Long, dest: ByteArray, off: Int, n: Int)
         fun fechar() {}
@@ -67,7 +66,6 @@ object AtrasoRadio {
      */
     class Arquivo(private val f: File, override val capacidade: Long) : Armazem {
         private val raf = RandomAccessFile(f, "rw").also { it.setLength(0) }
-        override val noPendrive = true
         override fun escrever(i: Long, b: ByteArray, off: Int, n: Int) { raf.seek(i); raf.write(b, off, n) }
         override fun ler(i: Long, dest: ByteArray, off: Int, n: Int) { raf.seek(i); raf.readFully(dest, off, n) }
         override fun fechar() { runCatching { raf.close() }; f.delete() }
@@ -174,7 +172,6 @@ object AtrasoRadio {
     class Icy(private val metaint: Int, private val aoTitulo: (String) -> Unit) {
         private var faltaDados = metaint
         private var faltaMeta = 0
-        private var lendoTamanho = false
         private val meta = ByteArrayOutputStream()
 
         fun filtrar(b: ByteArray, n: Int, audio: (ByteArray, Int, Int) -> Unit) {

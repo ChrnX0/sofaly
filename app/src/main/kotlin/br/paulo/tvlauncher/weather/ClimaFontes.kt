@@ -7,7 +7,6 @@ import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.alarm.FaixaDias
-import br.paulo.tvlauncher.screensaver.SeriesTempo
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -20,10 +19,10 @@ object ClimaFontes {
     class Resultado(val ponto: Localizacao.Ponto, val temp: Int, val umidade: Int?, val max: Int, val min: Int,
         val amanha: List<Int>?, val codigo: Int, val chovendo: Boolean, val eDia: Boolean, val picoChuva: Int,
         val linha: String, val icone: String, val horas: String = "",
-        /** Protetor que reage ao tempo (17/11/2026): UV hora a hora, chuva de 15 em 15 min e ar ([SeriesTempo]); vazio/nulo = a fonte não tem. */
-        val uv: String = "", val chuva15: String = "", val aqi: Int? = null,
         /** Chance de chuva do resto de hoje (a maior), para "Hoje · X% de chuva" (#185). */
-        val chuvaHoje: Int = picoChuva)
+        val chuvaHoje: Int = picoChuva,
+        /** UV muito alto agora ou na próxima hora (SunAlert), arredondado; null = sem aviso. */
+        val uvAviso: Int? = null)
 
     @Volatile private var ultimaMedida: Medida? = null   // a última leitura boa do aeroporto
     @Volatile private var ultimaMedidaMs = 0L
@@ -38,7 +37,6 @@ object ClimaFontes {
             "?latitude=${ponto.lat}&longitude=${ponto.lon}" +
             "&current=temperature_2m,relative_humidity_2m,weather_code,precipitation,is_day" +
             "&hourly=precipitation_probability,temperature_2m,weather_code,uv_index&forecast_hours=24" +
-            "&minutely_15=precipitation&forecast_minutely_15=12" +   // chuva nas próximas 3 h, para "chega em uns 25 min"
             "&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max" +
             "&timezone=auto&forecast_days=${FaixaDias.DIAS}$unidade"
         // Fonte pelo plano e pela licença (DataSources, 19/11/2026): MET Norway no Básico, WeatherAPI no Pro, Open-Meteo paga no Ultra.
@@ -54,7 +52,8 @@ object ClimaFontes {
         val nova = medidaAeroporto(ponto) ?: medidaAeroporto(ponto)   // uma segunda tentativa
         if (nova != null) { ultimaMedida = nova; ultimaMedidaMs = System.currentTimeMillis() }
         val medida = nova ?: ultimaMedida?.takeIf { System.currentTimeMillis() - ultimaMedidaMs < 60 * 60_000L }
-        if (openMeteo) registrarComparacao(ctx, ponto, nova)
+        // O teste de fontes (CSV a cada 30 min, 01/11) já decidiu o consenso de modelos (#434); some o arquivo que ficou.
+        if (!limpouComparacao) { limpouComparacao = true; runCatching { java.io.File(ctx.getExternalFilesDir(null), "comparacao_clima.csv").delete() } }
         // Umidade: a do aeroporto (calculada da temperatura e do ponto de orvalho medidos); sem ela, a do modelo.
         val umidade = medida?.umidade ?: atual.optInt("relative_humidity_2m", -1).takeIf { it >= 0 }
         val temp = medida?.temp ?: Math.round(atual.getDouble("temperature_2m")).toInt()
@@ -133,28 +132,26 @@ object ClimaFontes {
         // IconesClima.aparar na pilha da thread principal). Na tela, bitmap() já acha pronto no cache.
         if (IconesClima.ehIcone(icone)) IconesClima.bitmap(ctx, icone)
         return Resultado(ponto, temp, umidade, max, min, amanha, codigo, chovendoAgora, eDia, picoChuva, textoLinha, icone,
-            proximasHoras(json, atual.optString("time", ""), horasData, horasChuva),
-            uv = serie(json.optJSONObject("hourly"), "uv_index", fuso = fusoDe(json)),
-            chuva15 = serie(json.optJSONObject("minutely_15"), "precipitation", -15 * 60_000L, fusoDe(json)),
-            aqi = if (openMeteo) qualidadeDoAr(ponto) else json.optJSONObject("air_quality")?.optInt("us_aqi", -1)?.takeIf { it >= 0 }, chuvaHoje = chuvaHoje)
+            proximasHoras(json, atual.optString("time", ""), horasData, horasChuva), chuvaHoje = chuvaHoje,
+            uvAviso = uvAviso(json, horaAgora, codigo, chovendoAgora, eDia))
     }
 
-    /**
-     * Uma série da resposta ("time" + [campo]) no formato de [SeriesTempo]. Vazio se a fonte não mandou. [desloca]: a chuva
-     * de 15 min da Open-Meteo é a soma dos 15 min ANTERIORES ao horário (li em open-meteo.com/en/docs); -15 min faz o
-     * instante virar o começo do bloco, como [FraseTempo] espera. (Fora dos EUA e da Europa central o dado de 15 min é a
-     * hora a hora interpolada pela própria Open-Meteo: a frase de minutos fica menos precisa ali.)
-     */
-    private fun serie(bloco: JSONObject?, campo: String, desloca: Long = 0L, fuso: java.util.TimeZone = java.util.TimeZone.getDefault()): String = try {
-        val t = bloco?.optJSONArray("time"); val v = bloco?.optJSONArray(campo)
-        if (t == null || v == null) "" else SeriesTempo.escrever((0 until minOf(t.length(), v.length())).mapNotNull { i ->
-            if (v.isNull(i)) null else SeriesTempo.msLocal(t.getString(i), fuso)?.let { (it + desloca) to v.getDouble(i) }
-        })
-    } catch (e: Exception) { "" }
+    /** O UV por hora vem no mesmo pedido (Open-Meteo, MET e WeatherAPI convertidos trazem "uv_index"). */
+    private fun uvAviso(json: JSONObject, horaAgora: String, codigo: Int, chovendo: Boolean, eDia: Boolean): Int? = runCatching {
+        val h = json.getJSONObject("hourly")
+        val t = h.getJSONArray("time"); val u = h.optJSONArray("uv_index") ?: return@runCatching null
+        SunAlert.uvParaAviso((0 until t.length()).map { t.getString(it) }, (0 until u.length()).map { u.optDouble(it, Double.NaN) },
+            horaAgora, codigo, chovendo, eDia)
+    }.getOrNull()
 
     /**
-     * Com timezone=auto as horas vêm no fuso do LUGAR; lidas no fuso da TV (configurada à mão, local tirado do IP) a
-     * "chuva em 25 min" e o UV andavam horas. Sem o campo (ou desconhecido): o da TV.
+     * As próximas horas (hoje quem lê é o céu da noite, [NightSky.limpo]: céu limpo na hora do evento): "hora|temp|código|chuva"
+     * separadas por ";", a partir da hora cheia de agora, ex. "2026-11-12T19:00|22|3|40". Temperatura e céu do modelo
+     * (mesmo pedido à Open-Meteo, sem chamada nova); chance de chuva da mediana dos 3 modelos quando houver, como a HOME.
+     */
+    /**
+     * Com timezone=auto as horas vêm no fuso do LUGAR; lidas no fuso da TV (configurada à mão, local tirado do IP)
+     * andavam horas. Sem o campo (ou desconhecido): o da TV.
      */
     internal fun fusoDe(json: JSONObject): java.util.TimeZone {
         val id = json.optString("timezone")
@@ -163,29 +160,16 @@ object ClimaFontes {
         return if (z.id == "GMT" && id != "GMT") java.util.TimeZone.getDefault() else z
     }
 
-    @Volatile private var arGuardado: Pair<Long, Int?>? = null
-
-    /**
-     * Qualidade do ar (índice americano) da Open-Meteo, a mesma da tela de Previsão; uma vez por hora no máximo (o dado
-     * muda devagar). Só no build que usa a Open-Meteo: a fonte do produto ainda não tem ar (o cartão some).
-     */
-    private fun qualidadeDoAr(ponto: Localizacao.Ponto): Int? {
-        val agora = System.currentTimeMillis()
-        arGuardado?.let { (em, v) -> if (agora - em < 60 * 60_000L) return v }
-        val v = try {
-            JSONObject(Http.getText("https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${ponto.lat}&longitude=${ponto.lon}&current=us_aqi")
-                ?: return arGuardado?.second).optJSONObject("current")?.optInt("us_aqi", -1)?.takeIf { it >= 0 }
-        } catch (e: Exception) { return arGuardado?.second }
-        arGuardado = agora to v
-        return v
+    /** "2026-11-12T18:00" do fuso [de] para o mesmo instante no fuso da TV (quem lê, WidgetsTempo.lerHoras, usa o da TV). */
+    internal fun paraFusoDaTv(t: String, de: java.util.TimeZone, tv: java.util.TimeZone = java.util.TimeZone.getDefault()): String {
+        if (de.id == tv.id) return t
+        val f = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm", java.util.Locale.US)
+        val ms = runCatching { f.apply { timeZone = de }.parse(t)?.time }.getOrNull() ?: return t
+        return f.apply { timeZone = tv }.format(java.util.Date(ms))
     }
 
-    /**
-     * As próximas 18 horas para a barra do protetor (8 marcas de 2 em 2) (12/11/2026, dono escolheu "próximas horas"): "hora|temp|código|chuva"
-     * separadas por ";", a partir da hora cheia de agora, ex. "2026-11-12T19:00|22|3|40". Temperatura e céu do modelo
-     * (mesmo pedido à Open-Meteo, sem chamada nova); chance de chuva da mediana dos 3 modelos quando houver, como a HOME.
-     */
     private fun proximasHoras(json: JSONObject, agora: String, horasData: List<String>, horasChuva: List<Int>): String = try {
+        val fuso = fusoDe(json)
         val h = json.getJSONObject("hourly")
         val tempos = h.getJSONArray("time"); val temps = h.getJSONArray("temperature_2m"); val cods = h.getJSONArray("weather_code")
         val chuvaPorHora = horasData.zip(horasChuva).toMap()
@@ -194,7 +178,7 @@ object ClimaFontes {
             .filter { it.value.take(13) >= horaAgora }.take(18)
             .joinToString(";") { (i, t) ->
                 val chuva = chuvaPorHora[t] ?: h.optJSONArray("precipitation_probability")?.optInt(i, -1) ?: -1
-                "$t|${Math.round(temps.getDouble(i))}|${cods.optInt(i, 0)}|$chuva"
+                "${paraFusoDaTv(t, fuso)}|${Math.round(temps.getDouble(i))}|${cods.optInt(i, 0)}|$chuva"
             }
     } catch (e: Exception) { "" }
 
@@ -213,14 +197,8 @@ object ClimaFontes {
         return IconesClima.chave(codigo, dia, chovendo) to texto
     }
 
-    private var ultimaComparacaoMs = 0L
+    @Volatile private var limpouComparacao = false
 
-    /**
-     * TESTE DE FONTES (so grava, nao muda o que a tela mostra): a cada 30 min guarda uma linha em
-     * Android/data/br.paulo.tvlauncher/files/comparacao_clima.csv com o que o aeroporto MEDIU (temperatura e fenomeno) e o que tres
-     * modelos da Open-Meteo (ECMWF, ICON, GFS) PREVIAM para esta hora (temperatura e chance de chuva). Depois de alguns dias da para ver
-     * qual modelo chega mais perto da medida. Chamar fora da thread da tela.
-     */
     /**
      * Chance de chuva por hora (24 h) como MEDIANA de tres modelos (ECMWF, ICON, GFS). Uma chamada so a Open-Meteo,
      * com ?models=... : cada variavel volta com sufixo por modelo (precipitation_probability_ecmwf_ifs025, ...),
@@ -254,33 +232,6 @@ object ClimaFontes {
     } catch (e: Exception) {
         Log.w("TvLauncher.Local", "chuva multi-modelo falhou: ${e.javaClass.simpleName}")
         null
-    }
-
-    private fun registrarComparacao(ctx: Context, ponto: Localizacao.Ponto, medida: Medida?) {
-        val agora = System.currentTimeMillis()
-        // ultimaComparacaoMs zerava a cada abertura do app -> gravava linha repetida a cada boot. Agora o carimbo
-        // persiste em SharedPreferences, entao vale o intervalo de 30 min mesmo apos reiniciar o launcher.
-        val prefs = ctx.getSharedPreferences(Prefs.CLIMA, Context.MODE_PRIVATE)
-        if (ultimaComparacaoMs == 0L) ultimaComparacaoMs = prefs.getLong("ultima_comparacao", 0)
-        if (agora - ultimaComparacaoMs < 30 * 60_000L) return
-        try {
-            val modelos = listOf("ecmwf_ifs025", "icon_global", "gfs_seamless")
-            val url = "https://api.open-meteo.com/v1/forecast?latitude=${ponto.lat}&longitude=${ponto.lon}" +
-                "&hourly=precipitation_probability,temperature_2m&forecast_hours=1&timezone=auto&models=${modelos.joinToString(",")}"
-            val h = JSONObject(Http.getText(url) ?: return).getJSONObject("hourly")
-            val colunas = modelos.flatMap { m ->
-                listOf(h.getJSONArray("temperature_2m_$m").optString(0), h.getJSONArray("precipitation_probability_$m").optString(0))
-            }
-            val linha = (listOf(java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", java.util.Locale.US).format(java.util.Date(agora)),
-                medida?.temp?.toString() ?: "", medida?.fenomeno?.toString() ?: "") + colunas).joinToString(",")
-            val arq = java.io.File(ctx.getExternalFilesDir(null), "comparacao_clima.csv")
-            if (!arq.exists()) arq.writeText("hora,metar_temp,metar_fenomeno,ecmwf_temp,ecmwf_chuva,icon_temp,icon_chuva,gfs_temp,gfs_chuva\n")
-            arq.appendText(linha + "\n")
-            ultimaComparacaoMs = agora
-            prefs.edit().putLong("ultima_comparacao", agora).apply()
-        } catch (e: Exception) {
-            Log.w("TvLauncher.Local", "comparacao falhou: ${e.javaClass.simpleName}")
-        }
     }
 
     /**

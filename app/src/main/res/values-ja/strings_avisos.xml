@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">このペースだと約 %1$d 日でいっぱいになります（空き %2$d MB）。アプリのキャッシュを消去するか、使っていないアプリを削除してください。</string>
     <string name="pr_avisos_tv">TV から</string>
     <string name="mural_riscar">%1$s に線を引く</string>
+    <string name="ds_lento_titulo">Sofaly が遅くなった</string>
+    <string name="ds_lento_texto">バージョン %1$d: 遅いフレームが %2$d ms(以前は %3$d ms、+%4$d%%)。</string>
 </resources>

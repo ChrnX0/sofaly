@@ -877,4 +877,86 @@ AS\\Movies)।</string>
     <string name="ver_respondido_nao">जवाब “नहीं”</string>
     <string name="atu_migracao_disponivel">संस्करण %1$d: इस टीवी को नए ऐप (tv.sofaly.launcher) पर ले जाने के लिए तैयार</string>
     <string name="atu_migracao_instalando">नया ऐप इंस्टॉल हो रहा है (%1$d); फिर यह सभी सेटिंग्स के साथ इस टीवी को संभालेगा</string>
+    <string name="dns_nota_familia">परिवार, वयस्क साइटें रोकता है</string>
+    <string name="dns_nota_malware">मैलवेयर रोकता है</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">टीवी पर Wi-Fi नहीं है%1$s। देखें कि राउटर चालू है या नेटवर्क का नाम या पासवर्ड बदला तो नहीं।</string>
+    <string name="ief_roteador_sem_modem" formatted="true">राउटर का प्रदाता के मॉडेम से संपर्क टूट गया</string>
+    <string name="ief_roteador_ve_fora" formatted="true">राउटर को भी इंटरनेट बंद दिख रहा है</string>
+    <string name="ief_ha" formatted="true"> (%1$s से)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi ठीक है, पर प्रदाता का इंटरनेट बंद हो गया%1$s; %2$s%3$s। टीवी की गलती नहीं: प्रदाता का इंतज़ार करें या मॉडेम दोबारा चालू करें।</string>
+    <string name="ief_vpn_travada" formatted="true">राउटर पर इंटरनेट है, पर टीवी तक नहीं पहुँच रहा%1$s: शायद VPN अटका है। VPN बंद करके चालू करने से आमतौर पर ठीक हो जाता है।</string>
+    <string name="ief_entre_tv_roteador" formatted="true">राउटर पर इंटरनेट है, पर टीवी उस तक नहीं पहुँच रहा%1$s: समस्या टीवी और राउटर के बीच है%2$s टीवी को Wi-Fi से दोबारा जोड़ने पर आमतौर पर ठीक हो जाता है।</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi सिग्नल कमज़ोर है, %1$d dBm)।</string>
+    <string name="ief_ponto" formatted="true">।</string>
+    <string name="ief_roteador_travado" formatted="true">टीवी Wi-Fi पर है, पर न राउटर जवाब दे रहा है न इंटरनेट%1$s: राउटर अटक गया हो सकता है। उसे बंद करके चालू करने से आमतौर पर ठीक हो जाता है।</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi ठीक है, पर इंटरनेट नहीं पहुँच रहा%1$s; शायद प्रदाता या राउटर की वजह से%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (चालू VPN भी वजह हो सकता है)।</string>
+    <string name="ief_dns" formatted="true">इंटरनेट पहुँच रहा है, पर DNS%1$s जवाब नहीं दे रहा%2$s: ऐप्स अपने सर्वर नहीं ढूँढ पा रहे। DNS को स्वचालित करने से ठीक हो जाता है।</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">इंटरनेट और DNS जवाब दे रहे हैं, पर Google का टेस्ट पेज %1$s: रास्ते में कुछ (VPN, DNS ब्लॉक या लॉगिन माँगने वाला नेटवर्क) रोक रहा है।</string>
+    <string name="ief_nao_abriu" formatted="true">नहीं खुला</string>
+    <string name="ief_codigo_diferente" formatted="true">अलग जवाब आया (कोड %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">इंटरनेट ठीक है; सिर्फ़ VPN बंद है (ऐप्स उसके बिना चलते हैं)।%1$s</string>
+    <string name="ief_lenta" formatted="true">इंटरनेट चल रहा है, पर धीमा: %1$s।%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">Wi-Fi सिग्नल कमज़ोर है (%1$d dBm); राउटर पास लाने या केबल लगाने से मदद मिलती है</string>
+    <string name="ief_lenta_tcp" formatted="true">इंटरनेट को जवाब देने में %1$d ms लगते हैं%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, और राउटर को भी यही दिख रहा है: समस्या प्रदाता की है</string>
+    <string name="ief_lenta_http" formatted="true">टेस्ट पेज खुलने में %1$.1f सेकंड लगे</string>
+    <string name="ief_queda_recente" formatted="true">इंटरनेट अभी ठीक है; %1$s।</string>
+    <string name="ief_tudo_ok" formatted="true">सब ठीक है: Wi-Fi, इंटरनेट और DNS जवाब दे रहे हैं।%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> पिछले 24 घंटे में कोई रुकावट नहीं।</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> कोई रुकावट दर्ज नहीं (टीवी ने पिछले 24 घंटे का सिर्फ़ कुछ हिस्सा मापा)।</string>
+    <string name="ief_roteador_avisa" formatted="true"> (राउटर इंटरनेट में समस्या बता रहा है, पर टीवी सामान्य रूप से चल रहा है।)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS विफल रहा</string>
+    <string name="ief_caiu_internet" formatted="true">इंटरनेट बंद हुआ</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (फिर टीवी ने मापना बंद कर दिया; पता नहीं कब लौटा)</string>
+    <string name="ief_quedas_n" formatted="true">; 24 घंटे में %1$d रुकावटें</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s और %3$s लौटा (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; 24 घंटे में %1$d रुकावटें, कुल %2$s बिना इंटरनेट</string>
+    <string name="ief_quando_hoje" formatted="true">%1$s बजे</string>
+    <string name="ief_quando_ontem" formatted="true">कल %1$s बजे</string>
+    <string name="ief_quando_data" formatted="true">%1$s को %2$s बजे</string>
+    <string name="ief_desde_hoje" formatted="true">%1$s बजे से</string>
+    <string name="ief_desde_ontem" formatted="true">कल %1$s बजे से</string>
+    <string name="ief_desde_data" formatted="true">%1$s को %2$s बजे से</string>
+    <string name="ief_dur_menos_1" formatted="true">1 मिनट से कम</string>
+    <string name="ief_dur_min" formatted="true">%1$d मिनट</string>
+    <string name="ief_dur_h" formatted="true">%1$d घंटे</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d घंटे %2$d मिनट</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: डिस्कनेक्ट</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">नेटवर्क: जुड़ा</string>
+    <string name="ief_s_internet" formatted="true">DNS के बिना इंटरनेट: %1$s</string>
+    <string name="ief_s_dns" formatted="true">कैश के बिना DNS: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">विफल</string>
+    <string name="ief_s_pagina" formatted="true">टेस्ट पेज: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ठीक</string>
+    <string name="ief_s_ok_em" formatted="true">%1$d ms में ठीक</string>
+    <string name="ief_s_codigo" formatted="true">कोड %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: चालू</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: बंद</string>
+    <string name="ief_s_roteador_fora" formatted="true">राउटर: इंटरनेट बंद दिख रहा</string>
+    <string name="ief_s_roteador_ok" formatted="true">राउटर: इंटरनेट ठीक दिख रहा%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">राउटर: कोई जानकारी नहीं</string>
+    <string name="ief_s_roteador_mudo" formatted="true">राउटर: जवाब नहीं</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">राउटर: नहीं पूछा</string>
+    <string name="ief_s_historico" formatted="true">इतिहास: 24 घंटे में %1$d माप</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google ने अभी जवाब नहीं दिया; फिर कोशिश करें</string>
+    <string name="lg_negado">Google पर लॉगिन अस्वीकार हुआ</string>
+    <string name="lg_google_respondeu">Google का जवाब: %1$s</string>
+    <string name="lg_venceu">कोड की अवधि खत्म; फिर से शुरू करें</string>
+    <string name="lg_outro_login">दूसरा लॉगिन शुरू हुआ; फिर से शुरू करें</string>
+    <string name="lg_email">Google ने ई-मेल की पुष्टि नहीं की</string>
+    <string name="lg_conta_fora">खाता %1$s इस टीवी की किसी प्रोफ़ाइल में नहीं है</string>
+    <string name="lg_sem_drive">Google Drive की अनुमति नहीं चुनी गई</string>
+    <string name="lg_sem_chave">Google ने एक्सेस कुंजी नहीं भेजी; फिर कोशिश करें</string>
+    <string name="lg_nao_guardei">इस टीवी पर खाता सहेजा नहीं जा सका</string>
+    <string name="lg_nao_configurado">Google लॉगिन सेट नहीं है</string>
+    <string name="lg_ritmo">लगातार बहुत ज़्यादा लॉगिन; एक मिनट रुकें</string>
+    <string name="lg_recusou">Google ने मना किया (%1$s): क्लाइंट id और सीक्रेट जाँचें</string>
+    <string name="lg_erro_google">Google से बात करने में त्रुटि</string>
 </resources>

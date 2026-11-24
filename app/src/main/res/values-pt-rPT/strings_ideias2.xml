@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Brilho %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">brilho</string>
     <string name="casa_tecla_segurar_ok">SEGURE OK</string>
+    <string name="ca_liberado">Libertou %1$s. Livre agora: %2$s.</string>
+    <string name="ca_sem_shell">O shell próprio está desligado, por isso a cache não foi limpa.</string>
+    <string name="ca_falhou">Não foi possível limpar a cache: %1$s</string>
+    <string name="ta_desligado">Desligado. Ligue “%1$s” em %2$s.</string>
+    <string name="ta_nada">Nada está a tocar.</string>
+    <string name="ta_sem_acesso">Sem acesso ao que está a tocar (o acesso às notificações está desligado).</string>
+    <string name="cr_sistema">Sistema Android</string>
+    <string name="cr_nucleo">Sistema Android (núcleo)</string>
+    <string name="cr_removidos">Apps removidas</string>
+    <string name="cr_ponto">Ponto de acesso</string>
+    <string name="cr_servico">Sistema Android (serviço %1$d)</string>
+    <string name="cr_nada">Nada medido ainda.</string>
+    <string name="cr_sem_acesso">Sem acesso à utilização das apps. A autorreparação do shell concede-o.</string>
 </resources>

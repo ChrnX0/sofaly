@@ -147,13 +147,6 @@ object Estilo {
         const val COLUNA_CATEGORIAS = 230   // largura (dp) da coluna esquerda do player (14/11/2026; era 210)
         const val GRADE_COLUNAS = 5     // pôsteres por linha em Filmes e Séries; eram 6 (pôster ~20% maior)
         const val POSTER_ALTURA = 180   // dp; era 150 (mantém a proporção 2:3 com 5 colunas)
-        /**
-         * Nome EM CIMA do pôster (13/11/2026): na fileira cortada embaixo da tela o nome continua aparecendo. Altura fixa
-         * de 2 linhas, texto alinhado embaixo (encostado no pôster dele), para os pôsteres ficarem alinhados.
-         */
-        const val NOME_CARD_ALTURA = 54 // dp: 2 linhas de [CARD] (18 sp, régua 22/11) + 6 de folga até o pôster
-        const val SUB_CARD_ALTURA = 18  // dp: a linha "T2E5" da Série, embaixo do nome
-        const val GRADE_VAO = 20        // dp entre fileiras (era 14): separa o nome do pôster de cima
         const val FOCADO = 18f          // régua 22/11: mín. 18 (era 16); linha do item em foco acima da grade; era 14
         const val PROGRAMA = 22f        // título do programa no detalhe do canal; era 19
     }

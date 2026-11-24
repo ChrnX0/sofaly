@@ -894,8 +894,6 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
         /** A cor clara do traço (Símbolo/Duotom), também nos ícones de app do pacote embutido. */
         const val COR_TRACO = 0xFFFFF3E6.toInt()
         private const val COR_CLARA = 0xFFFFF3E6.toInt()
-        /** Linha: o item escolhido acende na cor da marca (vermelho-laranja; nada rosado). */
-        val COR_ACESA: Int get() = br.paulo.tvlauncher.Estilo.ACENTO   // segue o alto contraste (estudo global 20/11)
         /** Azulejo: raio do quadrado (no quadro de 24), tamanho do símbolo dentro dele e a tinta do símbolo. */
         const val RAIO_AZULEJO = 6.8f
         const val ESCALA_SIMBOLO_AZULEJO = 0.62f

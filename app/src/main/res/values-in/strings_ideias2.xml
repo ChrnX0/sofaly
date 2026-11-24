@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Kecerahan %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">kecerahan</string>
     <string name="casa_tecla_segurar_ok">TAHAN OK</string>
+    <string name="ca_liberado">%1$s dibebaskan. Kosong sekarang: %2$s.</string>
+    <string name="ca_sem_shell">Shell bawaan mati, jadi cache tidak dibersihkan.</string>
+    <string name="ca_falhou">Tidak dapat membersihkan cache: %1$s</string>
+    <string name="ta_desligado">Mati. Nyalakan “%1$s” di %2$s.</string>
+    <string name="ta_nada">Tidak ada yang diputar.</string>
+    <string name="ta_sem_acesso">Tidak ada akses ke yang sedang diputar (akses notifikasi mati).</string>
+    <string name="cr_sistema">Sistem Android</string>
+    <string name="cr_nucleo">Sistem Android (kernel)</string>
+    <string name="cr_removidos">Aplikasi yang dihapus</string>
+    <string name="cr_ponto">Hotspot</string>
+    <string name="cr_servico">Sistem Android (layanan %1$d)</string>
+    <string name="cr_nada">Belum ada yang diukur.</string>
+    <string name="cr_sem_acesso">Tidak ada akses ke penggunaan aplikasi. Perbaikan mandiri shell memberikannya.</string>
 </resources>

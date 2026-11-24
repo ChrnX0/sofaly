@@ -206,9 +206,6 @@ object Timer {
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
     )
 
-    /** "4:05" (até 1 h) ou "1:04:05". */
-    fun restanteTexto(ms: Long): String = TimerRegras.relogio(ms)
-
     /** "10 minutos", "1 hora e 30 minutos", "45 segundos": para a confirmação na tela. */
     fun duracaoTexto(segundos: Int): String = duracaoFalada(segundos)   // no idioma da TV (Textos.kt)
 }

@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">A este ritmo se llena en unos %1$d días (%2$d MB libres). Borra la caché de las apps o quita las que no usas.</string>
     <string name="pr_avisos_tv">De la TV</string>
     <string name="mural_riscar">Tachar %1$s</string>
+    <string name="ds_lento_titulo">Sofaly se volvió más lento</string>
+    <string name="ds_lento_texto">Versión %1$d: los cuadros lentos tardan %2$d ms, tardaban %3$d ms (+%4$d%%).</string>
 </resources>

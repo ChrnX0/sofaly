@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">이 속도라면 약 %1$d일 후 가득 찹니다(여유 공간 %2$d MB). 앱 캐시를 지우거나 사용하지 않는 앱을 제거하세요.</string>
     <string name="pr_avisos_tv">TV에서</string>
     <string name="mural_riscar">%1$s 지우기</string>
+    <string name="ds_lento_titulo">Sofaly가 느려짐</string>
+    <string name="ds_lento_texto">버전 %1$d: 느린 프레임 %2$d ms, 이전 %3$d ms (+%4$d%%).</string>
 </resources>

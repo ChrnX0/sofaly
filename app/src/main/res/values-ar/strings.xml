@@ -889,4 +889,86 @@ AS\\Movies).</string>
     <string name="ver_respondido_nao">الإجابة «لا»</string>
     <string name="atu_migracao_disponivel">الإصدار %1$d: جاهز لنقل هذا التلفاز إلى التطبيق الجديد (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">جارٍ تثبيت التطبيق الجديد (%1$d)؛ ثم يتولى هذا التلفاز بكل الإعدادات</string>
+    <string name="dns_nota_familia">العائلة، يحظر مواقع البالغين</string>
+    <string name="dns_nota_malware">يحظر البرامج الضارة</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">التلفاز غير متصل بشبكة Wi-Fi%1$s. تأكد من أن الراوتر يعمل أو أن اسم الشبكة أو كلمة مرورها لم يتغيرا.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">فقد الراوتر الاتصال بمودم مزوّد الخدمة</string>
+    <string name="ief_roteador_ve_fora" formatted="true">والراوتر أيضًا يرى الإنترنت منقطعًا</string>
+    <string name="ief_ha" formatted="true"> (منذ %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">شبكة Wi-Fi سليمة، لكن إنترنت مزوّد الخدمة انقطع%1$s؛ %2$s%3$s. المشكلة ليست في التلفاز: انتظر مزوّد الخدمة أو أعد تشغيل المودم.</string>
+    <string name="ief_vpn_travada" formatted="true">الراوتر متصل بالإنترنت، لكن التلفاز لا يصل إليه%1$s: يبدو أن الـVPN عالق. إيقاف الـVPN وتشغيله يحل المشكلة عادةً.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">الراوتر متصل بالإنترنت، لكن التلفاز لا يصل إليه%1$s: المشكلة بين التلفاز والراوتر%2$s إعادة توصيل التلفاز بشبكة Wi-Fi تحل المشكلة عادةً.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (إشارة Wi-Fi ضعيفة، %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">التلفاز على شبكة Wi-Fi، لكن لا الراوتر ولا الإنترنت يستجيبان%1$s: ربما تجمّد الراوتر. إيقافه وتشغيله يحل المشكلة عادةً.</string>
+    <string name="ief_sem_internet" formatted="true">شبكة Wi-Fi سليمة، لكن الإنترنت لا يصل%1$s؛ غالبًا السبب مزوّد الخدمة أو الراوتر%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (وقد يكون الـVPN المشغّل هو السبب أيضًا).</string>
+    <string name="ief_dns" formatted="true">الإنترنت يصل، لكن خادم DNS%1$s لا يستجيب%2$s: التطبيقات لا تجد خوادمها. تحويل DNS إلى تلقائي يحل المشكلة.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">الإنترنت وDNS يستجيبان، لكن صفحة اختبار Google %1$s: شيء ما في الطريق (VPN أو حظر DNS أو شبكة تطلب تسجيل الدخول) يحجبها.</string>
+    <string name="ief_nao_abriu" formatted="true">لم تفتح</string>
+    <string name="ief_codigo_diferente" formatted="true">ردّت بشكل مختلف (الرمز %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">الإنترنت سليم؛ الـVPN فقط متوقف (التطبيقات تعمل بدونه).%1$s</string>
+    <string name="ief_lenta" formatted="true">الإنترنت يعمل لكن ببطء: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">إشارة Wi-Fi ضعيفة (%1$d dBm)؛ تقريب الراوتر أو استخدام كابل يساعد</string>
+    <string name="ief_lenta_tcp" formatted="true">الإنترنت يستغرق %1$d ms للرد%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">، والراوتر يرى الشيء نفسه: المشكلة من مزوّد الخدمة</string>
+    <string name="ief_lenta_http" formatted="true">استغرقت صفحة الاختبار %1$.1f ث لتفتح</string>
+    <string name="ief_queda_recente" formatted="true">الإنترنت سليم الآن؛ %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">كل شيء على ما يرام: Wi-Fi والإنترنت وDNS تستجيب.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> لا انقطاعات في آخر 24 ساعة.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> لم يُسجَّل أي انقطاع (قاس التلفاز جزءًا فقط من آخر 24 ساعة).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (الراوتر يبلّغ عن مشكلة في الإنترنت، لكن التلفاز يتصفح بشكل طبيعي.)</string>
+    <string name="ief_caiu_dns" formatted="true">فشل DNS</string>
+    <string name="ief_caiu_internet" formatted="true">انقطع الإنترنت</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (ثم توقف التلفاز عن القياس؛ لا يمكن معرفة متى عاد)</string>
+    <string name="ief_quedas_n" formatted="true">؛ %1$d انقطاعات في 24 ساعة</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s وعاد %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">؛ %1$d انقطاعات في 24 ساعة، %2$s دون إنترنت إجمالًا</string>
+    <string name="ief_quando_hoje" formatted="true">الساعة %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">أمس الساعة %1$s</string>
+    <string name="ief_quando_data" formatted="true">في %1$s الساعة %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">منذ الساعة %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">منذ أمس الساعة %1$s</string>
+    <string name="ief_desde_data" formatted="true">منذ %1$s الساعة %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">أقل من دقيقة</string>
+    <string name="ief_dur_min" formatted="true">%1$d د</string>
+    <string name="ief_dur_h" formatted="true">%1$d س</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d س %2$d د</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: غير متصل</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">الشبكة: متصلة</string>
+    <string name="ief_s_internet" formatted="true">الإنترنت دون DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS دون ذاكرة مؤقتة: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">فشل</string>
+    <string name="ief_s_pagina" formatted="true">صفحة الاختبار: %1$s</string>
+    <string name="ief_s_ok" formatted="true">سليم</string>
+    <string name="ief_s_ok_em" formatted="true">سليم خلال %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">الرمز %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: يعمل</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: متوقف</string>
+    <string name="ief_s_roteador_fora" formatted="true">الراوتر: يرى الإنترنت منقطعًا</string>
+    <string name="ief_s_roteador_ok" formatted="true">الراوتر: يرى الإنترنت سليمًا%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">الراوتر: لا رأي</string>
+    <string name="ief_s_roteador_mudo" formatted="true">الراوتر: لم يستجب</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">الراوتر: لم يُسأل</string>
+    <string name="ief_s_historico" formatted="true">السجل: %1$d قياسات في 24 ساعة</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">لم يستجب Google الآن؛ حاول مرة أخرى</string>
+    <string name="lg_negado">رُفض تسجيل الدخول في Google</string>
+    <string name="lg_google_respondeu">ردّ Google: %1$s</string>
+    <string name="lg_venceu">انتهت صلاحية الرمز؛ ابدأ من جديد</string>
+    <string name="lg_outro_login">بدأ تسجيل دخول آخر؛ ابدأ من جديد</string>
+    <string name="lg_email">لم يؤكد Google البريد الإلكتروني</string>
+    <string name="lg_conta_fora">الحساب %1$s غير موجود في أي ملف شخصي على هذا التلفاز</string>
+    <string name="lg_sem_drive">لم يتم تحديد إذن Google Drive</string>
+    <string name="lg_sem_chave">لم يرسل Google مفتاح الوصول؛ حاول مرة أخرى</string>
+    <string name="lg_nao_guardei">تعذّر حفظ الحساب على هذا التلفاز</string>
+    <string name="lg_nao_configurado">تسجيل الدخول بـGoogle غير مُعدّ</string>
+    <string name="lg_ritmo">محاولات تسجيل دخول كثيرة متتالية؛ انتظر دقيقة</string>
+    <string name="lg_recusou">رفض Google (%1$s): تحقق من معرّف العميل وسرّه</string>
+    <string name="lg_erro_google">خطأ في الاتصال بـGoogle</string>
 </resources>

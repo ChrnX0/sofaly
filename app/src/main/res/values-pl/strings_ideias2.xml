@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Jasność %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">jasność</string>
     <string name="casa_tecla_segurar_ok">PRZYTRZYMAJ OK</string>
+    <string name="ca_liberado">Zwolniono %1$s. Wolne teraz: %2$s.</string>
+    <string name="ca_sem_shell">Wbudowana powłoka jest wyłączona, więc pamięć podręczna nie została wyczyszczona.</string>
+    <string name="ca_falhou">Nie udało się wyczyścić pamięci podręcznej: %1$s</string>
+    <string name="ta_desligado">Wyłączone. Włącz „%1$s” w sekcji %2$s.</string>
+    <string name="ta_nada">Nic nie jest odtwarzane.</string>
+    <string name="ta_sem_acesso">Brak dostępu do odtwarzania (dostęp do powiadomień jest wyłączony).</string>
+    <string name="cr_sistema">System Android</string>
+    <string name="cr_nucleo">System Android (jądro)</string>
+    <string name="cr_removidos">Usunięte aplikacje</string>
+    <string name="cr_ponto">Hotspot</string>
+    <string name="cr_servico">System Android (usługa %1$d)</string>
+    <string name="cr_nada">Jeszcze nic nie zmierzono.</string>
+    <string name="cr_sem_acesso">Brak dostępu do użycia aplikacji. Samonaprawa powłoki go nadaje.</string>
 </resources>

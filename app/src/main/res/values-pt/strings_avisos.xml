@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">Nesse ritmo enche em uns %1$d dias (%2$d MB livres). Limpe o cache dos apps ou tire os que não usa.</string>
     <string name="pr_avisos_tv">Avisos da TV</string>
     <string name="mural_riscar">Riscar %1$s</string>
+    <string name="ds_lento_titulo">O Sofaly ficou mais lento</string>
+    <string name="ds_lento_texto">Versão %1$d: quadro lento leva %2$d ms, levava %3$d ms (+%4$d%%).</string>
 </resources>

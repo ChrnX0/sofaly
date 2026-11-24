@@ -464,9 +464,6 @@ class OuvirServico : Service() {
     /** Dá para voltar agora (gravando, e já há algo gravado)? */
     val podeVoltar: Boolean get() = radio != null && gravador?.let { !it.falhou && it.anel.escrito > 0 } == true
 
-    /** Fita no pendrive (até 1 h) ou na RAM (~4 min). */
-    val fitaNoPendrive: Boolean get() = gravador?.anel?.armazem?.noPendrive == true
-
     private fun taxaRadio(): Long = AtrasoRadio.taxa(radio?.bitrate ?: 0, gravador?.medidoBps ?: 0)
 
     /** O byte da fita que está SAINDO no som agora (o player lê adiantado; a posição dele diz o que já tocou). */

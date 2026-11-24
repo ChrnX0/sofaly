@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">Bu hızla yaklaşık %1$d gün içinde dolacak (%2$d MB boş). Uygulama önbelleklerini temizleyin veya kullanmadığınız uygulamaları kaldırın.</string>
     <string name="pr_avisos_tv">TV’den</string>
     <string name="mural_riscar">%1$s üstünü çiz</string>
+    <string name="ds_lento_titulo">Sofaly yavaşladı</string>
+    <string name="ds_lento_texto">Sürüm %1$d: yavaş kareler %2$d ms sürüyor, önce %3$d ms idi (+%%%4$d).</string>
 </resources>

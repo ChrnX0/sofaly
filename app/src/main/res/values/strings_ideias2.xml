@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Brightness %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">brightness</string>
     <string name="casa_tecla_segurar_ok">HOLD OK</string>
+    <string name="ca_liberado">Freed %1$s. Free now: %2$s.</string>
+    <string name="ca_sem_shell">The built-in shell is off, so the cache could not be cleared.</string>
+    <string name="ca_falhou">Could not clear the cache: %1$s</string>
+    <string name="ta_desligado">Off. Turn on “%1$s” in %2$s.</string>
+    <string name="ta_nada">Nothing is playing.</string>
+    <string name="ta_sem_acesso">No access to what is playing (notification access is off).</string>
+    <string name="cr_sistema">Android system</string>
+    <string name="cr_nucleo">Android system (kernel)</string>
+    <string name="cr_removidos">Removed apps</string>
+    <string name="cr_ponto">Hotspot</string>
+    <string name="cr_servico">Android system (service %1$d)</string>
+    <string name="cr_nada">Nothing measured yet.</string>
+    <string name="cr_sem_acesso">No access to app usage. The shell\'s self-repair grants it.</string>
 </resources>

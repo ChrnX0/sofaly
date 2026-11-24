@@ -874,4 +874,86 @@ AS\\Movies）。</string>
     <string name="ver_respondido_nao">「いいえ」と回答</string>
     <string name="atu_migracao_disponivel">バージョン %1$d: このテレビを新しいアプリ (tv.sofaly.launcher) に移行する準備ができました</string>
     <string name="atu_migracao_instalando">新しいアプリをインストール中 (%1$d)。その後、すべての設定とともにこのテレビを引き継ぎます</string>
+    <string name="dns_nota_familia">ファミリー、成人向けサイトをブロック</string>
+    <string name="dns_nota_malware">マルウェアをブロック</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">テレビが Wi-Fi につながっていません%1$s。ルーターの電源が入っているか、ネットワーク名やパスワードが変わっていないか確認してください。</string>
+    <string name="ief_roteador_sem_modem" formatted="true">ルーターがプロバイダーのモデムとの接続を失いました</string>
+    <string name="ief_roteador_ve_fora" formatted="true">ルーターもインターネットが切れていると見ています</string>
+    <string name="ief_ha" formatted="true">（%1$s前から）</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi は正常ですが、プロバイダーのインターネットが切れました%1$s。%2$s%3$s。テレビの問題ではありません。プロバイダーの復旧を待つか、モデムを再起動してください。</string>
+    <string name="ief_vpn_travada" formatted="true">ルーターはインターネットにつながっていますが、テレビは通れません%1$s。VPN が止まっているようです。VPN をオフにしてオンにすると、たいてい直ります。</string>
+    <string name="ief_entre_tv_roteador" formatted="true">ルーターはインターネットにつながっていますが、テレビが届きません%1$s。問題はテレビとルーターの間です%2$s テレビを Wi-Fi につなぎ直すと、たいてい直ります。</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">（Wi-Fi の電波が弱い、%1$d dBm）。</string>
+    <string name="ief_ponto" formatted="true">。</string>
+    <string name="ief_roteador_travado" formatted="true">テレビは Wi-Fi にいますが、ルーターもインターネットも応答しません%1$s。ルーターが固まっているかもしれません。ルーターの電源を入れ直すと、たいてい直ります。</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi は正常ですが、インターネットが届きません%1$s。プロバイダーかルーターが原因と思われます%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true">（オンになっている VPN が原因の可能性もあります）。</string>
+    <string name="ief_dns" formatted="true">インターネットは届いていますが、DNS%1$s が応答しません%2$s。アプリがサーバーを見つけられません。DNS を自動にすると直ります。</string>
+    <string name="ief_entre_parenteses" formatted="true">（%1$s）</string>
+    <string name="ief_bloqueio" formatted="true">インターネットと DNS は応答していますが、Google のテストページが%1$s。途中の何か（VPN、DNS ブロック、ログインを求めるネットワーク）が妨げています。</string>
+    <string name="ief_nao_abriu" formatted="true">開きませんでした</string>
+    <string name="ief_codigo_diferente" formatted="true">異なる応答を返しました（コード %1$d）</string>
+    <string name="ief_vpn_desligada" formatted="true">インターネットは正常です。VPN だけがオフです（アプリは VPN なしでも動きます）。%1$s</string>
+    <string name="ief_lenta" formatted="true">インターネットは使えますが遅いです：%1$s。%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">Wi-Fi の電波が弱い（%1$d dBm）。ルーターを近づけるかケーブルを使うと改善します</string>
+    <string name="ief_lenta_tcp" formatted="true">インターネットの応答に %1$d ms かかります%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">。ルーターも同じなので、プロバイダーが原因です</string>
+    <string name="ief_lenta_http" formatted="true">テストページが開くまで %1$.1f 秒かかりました</string>
+    <string name="ief_queda_recente" formatted="true">インターネットは今は正常です。%1$s。</string>
+    <string name="ief_tudo_ok" formatted="true">すべて正常です：Wi-Fi、インターネット、DNS が応答しています。%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true">過去 24 時間に切断はありません。</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">記録された切断はありません（テレビは過去 24 時間の一部しか測定していません）。</string>
+    <string name="ief_roteador_avisa" formatted="true">（ルーターはインターネットの問題を報告していますが、テレビは普通に使えています。）</string>
+    <string name="ief_caiu_dns" formatted="true">DNS が失敗しました</string>
+    <string name="ief_caiu_internet" formatted="true">インターネットが切れました</string>
+    <string name="ief_queda_sem_medir" formatted="true">%2$sに%1$s（その後テレビが測定をやめたため、いつ戻ったかは不明です）</string>
+    <string name="ief_quedas_n" formatted="true">。24 時間で %1$d 回切断</string>
+    <string name="ief_queda_voltou" formatted="true">%2$sに%1$s、%3$sに戻りました（%4$s）</string>
+    <string name="ief_quedas_total" formatted="true">。24 時間で %1$d 回切断、合計 %2$s 不通</string>
+    <string name="ief_quando_hoje" formatted="true">%1$s</string>
+    <string name="ief_quando_ontem" formatted="true">昨日 %1$s</string>
+    <string name="ief_quando_data" formatted="true">%1$s %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">%1$s から</string>
+    <string name="ief_desde_ontem" formatted="true">昨日 %1$s から</string>
+    <string name="ief_desde_data" formatted="true">%1$s %2$s から</string>
+    <string name="ief_dur_menos_1" formatted="true">1 分未満</string>
+    <string name="ief_dur_min" formatted="true">%1$d 分</string>
+    <string name="ief_dur_h" formatted="true">%1$d 時間</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d 時間 %2$d 分</string>
+    <string name="ief_data_dm" formatted="true">M/d</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi：未接続</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi：%1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">ネットワーク：接続中</string>
+    <string name="ief_s_internet" formatted="true">DNS なしのインターネット：%1$s</string>
+    <string name="ief_s_dns" formatted="true">キャッシュなしの DNS：%1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">失敗</string>
+    <string name="ief_s_pagina" formatted="true">テストページ：%1$s</string>
+    <string name="ief_s_ok" formatted="true">OK</string>
+    <string name="ief_s_ok_em" formatted="true">OK（%1$d ms）</string>
+    <string name="ief_s_codigo" formatted="true">コード %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN：オン</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN：オフ</string>
+    <string name="ief_s_roteador_fora" formatted="true">ルーター：インターネット切断</string>
+    <string name="ief_s_roteador_ok" formatted="true">ルーター：インターネット正常%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">ルーター：情報なし</string>
+    <string name="ief_s_roteador_mudo" formatted="true">ルーター：応答なし</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">ルーター：未確認</string>
+    <string name="ief_s_historico" formatted="true">履歴：24 時間で %1$d 回測定</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google から今は応答がありません。もう一度お試しください</string>
+    <string name="lg_negado">Google でログインが拒否されました</string>
+    <string name="lg_google_respondeu">Google の応答：%1$s</string>
+    <string name="lg_venceu">コードの期限が切れました。最初からやり直してください</string>
+    <string name="lg_outro_login">別のログインが始まりました。最初からやり直してください</string>
+    <string name="lg_email">Google がメールアドレスを確認しませんでした</string>
+    <string name="lg_conta_fora">アカウント %1$s はこのテレビのどのプロフィールにもありません</string>
+    <string name="lg_sem_drive">Google ドライブの許可にチェックが入っていません</string>
+    <string name="lg_sem_chave">Google からアクセスキーが届きませんでした。もう一度お試しください</string>
+    <string name="lg_nao_guardei">このテレビにアカウントを保存できませんでした</string>
+    <string name="lg_nao_configurado">Google ログインが設定されていません</string>
+    <string name="lg_ritmo">ログインが続きすぎました。1 分待ってください</string>
+    <string name="lg_recusou">Google が拒否しました（%1$s）：クライアント ID とシークレットを確認してください</string>
+    <string name="lg_erro_google">Google との通信エラー</string>
 </resources>

@@ -23,6 +23,16 @@ import org.junit.Test
 class SincronizarFilmesTest {
     private fun filme(tmdb: Int, nome: String = "", ano: Int? = null) = Item(Tipo.FILME, Ids(tmdb = tmdb), nome, ano)
 
+    @Test fun parteQueFalhouNaoAvancaAFoto() {
+        val antes = mapOf("movies.watched_at" to "1", "movies.paused_at" to "1")
+        val agora = mapOf("movies.watched_at" to "2", "movies.paused_at" to "2", "lists.updated_at" to "2")
+        val f = SincronizarFilmes.fotoSemAvancar(antes, agora, "movies.paused_at", "episodes.paused_at")
+        assertEquals("2", f["movies.watched_at"]); assertEquals("1", f["movies.paused_at"]); assertEquals("2", f["lists.updated_at"])
+        assertTrue(SincronizarFilmes.mudou(f, agora, "movies.paused_at"))   // a próxima busca tenta de novo
+        val semFoto = SincronizarFilmes.fotoSemAvancar(null, agora, "movies.paused_at")
+        assertFalse("movies.paused_at" in semFoto)
+    }
+
     @Test fun watchlistDoTrakt() {
         val itens = SincronizarFilmes.traktLerItens("""[
             {"rank":1,"id":101,"listed_at":"2014-09-01T09:10:11.000Z","type":"movie","movie":{"title":"TRON: Legacy","year":2010,"ids":{"trakt":1,"slug":"tron-legacy-2010","imdb":"tt1104001","tmdb":20526}}},

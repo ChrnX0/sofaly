@@ -44,6 +44,7 @@ import br.paulo.tvlauncher.weather.IconesClima
 import br.paulo.tvlauncher.weather.Localizacao
 import br.paulo.tvlauncher.weather.Lua
 import br.paulo.tvlauncher.weather.WeatherApiSource
+import br.paulo.tvlauncher.weather.OpenModelsSource
 import java.text.SimpleDateFormat
 import java.util.Locale
 import kotlin.math.PI
@@ -417,8 +418,14 @@ class PrevisaoActivity : Activity() {
             trio.addView(lua, LinearLayout.LayoutParams(0, -1, 1.15f).apply { marginStart = dp(Grade.VAO / 2) })
         p3.addView(trio, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) })
         // Crédito exigido pelo plano Free da WeatherAPI (Pro, 19/11/2026).
-        if (d.fonte == WeatherApiSource.FONTE)
-            p3.addView(texto(Estilo.Papel.LEGENDA.sp, textoSuave).apply { text = getString(R.string.pv_powered_weatherapi) },
+        // Crédito dos modelos abertos (Básico, 24/11/2026): CC BY 4.0 do ECMWF.
+        val credito = when (d.fonte) {
+            WeatherApiSource.FONTE -> R.string.pv_powered_weatherapi
+            OpenModelsSource.FONTE -> R.string.pv_powered_open_models
+            else -> 0
+        }
+        if (credito != 0)
+            p3.addView(texto(Estilo.Papel.LEGENDA.sp, textoSuave).apply { text = getString(credito) },
                 LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(10) })
 
         if (voz != null) {

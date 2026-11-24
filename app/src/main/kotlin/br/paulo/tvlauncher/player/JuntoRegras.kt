@@ -167,6 +167,11 @@ object JuntoRegras {
 
     fun novoEvento(ultimoSeq: Long, recebido: Long) = recebido > ultimoSeq
 
+    /** Sessão sem notícia da outra TV (nem evento recebido nem resposta ao nosso) há [SESSAO_PARADA_MS]: acabou.
+     *  Porquê: a outra TV pode ter sido desligada da tomada sem mandar "sair"; sem isto a sessão ficava para sempre,
+     *  o player mandava pulso a cada 5 s para ninguém e um título aberto horas depois entrava numa sessão morta. */
+    fun parada(ultimo: Long, agora: Long) = agora - ultimo > SESSAO_PARADA_MS
+
     // ---------------------------------------------------------------- convite
 
     data class Convite(val token: String, val de: String, val titulo: String, val chave: String, val quando: Long)

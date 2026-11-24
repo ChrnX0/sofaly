@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">亮度 %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">亮度</string>
     <string name="casa_tecla_segurar_ok">长按 OK</string>
+    <string name="ca_liberado">已释放 %1$s。当前可用:%2$s。</string>
+    <string name="ca_sem_shell">内置 shell 已关闭,因此未清除缓存。</string>
+    <string name="ca_falhou">无法清除缓存:%1$s</string>
+    <string name="ta_desligado">已关闭。请在%2$s中打开“%1$s”。</string>
+    <string name="ta_nada">没有正在播放的内容。</string>
+    <string name="ta_sem_acesso">无法获取正在播放的内容(通知访问权限已关闭)。</string>
+    <string name="cr_sistema">Android 系统</string>
+    <string name="cr_nucleo">Android 系统(内核)</string>
+    <string name="cr_removidos">已删除的应用</string>
+    <string name="cr_ponto">热点</string>
+    <string name="cr_servico">Android 系统(服务 %1$d)</string>
+    <string name="cr_nada">尚未测量任何内容。</string>
+    <string name="cr_sem_acesso">无法获取应用使用情况。shell 自动修复会授予该权限。</string>
 </resources>

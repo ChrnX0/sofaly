@@ -1,12 +1,10 @@
 package br.paulo.tvlauncher
 
-import br.paulo.tvlauncher.screensaver.SeriesTempo
 import br.paulo.tvlauncher.weather.MapaMundo
 import br.paulo.tvlauncher.weather.NuvensSatelite
 import br.paulo.tvlauncher.weather.VistaMapa
 import java.io.DataInputStream
 import java.io.File
-import java.util.TimeZone
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
@@ -51,12 +49,5 @@ class CeuDeVerdadeTest {
             (0 until l.pontos.size / 2).any { i -> kotlin.math.abs(l.pontos[2 * i] / 100.0 + 46.33) < 0.4 && kotlin.math.abs(l.pontos[2 * i + 1] / 100.0 + 23.96) < 0.4 }
         }
         assertTrue(perto)
-    }
-
-    @Test fun seriesIdaEVolta() {
-        val pares = listOf(1000L to 3.456, 2000L to 0.0)
-        assertEquals(listOf(1000L to 3.46, 2000L to 0.0), SeriesTempo.ler(SeriesTempo.escrever(pares)))
-        assertTrue(SeriesTempo.ler(null).isEmpty()); assertEquals(1, SeriesTempo.ler("x;1|2;3|").size)
-        assertEquals(1794949200000L, SeriesTempo.msLocal("2026-11-17T18:00", TimeZone.getTimeZone("GMT-3")))
     }
 }

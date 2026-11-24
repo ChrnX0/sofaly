@@ -169,7 +169,7 @@ class TelasTest {
             // menor) e às vezes não. Sem rede (proxy que recusa) e sem a resposta guardada na memória, a tela é sempre a mesma: a medida não depende da sorte.
             val semRede = nome in TELAS_SEM_REDE || cls == MainActivity::class.java
             val proxyAntes = listOf("https.proxyHost", "https.proxyPort", "http.proxyHost", "http.proxyPort").associateWith { System.getProperty(it) }
-            if (semRede) { br.paulo.tvlauncher.weather.ClimaMet.esquecerCache(); br.paulo.tvlauncher.weather.WeatherApiSource.esquecerCache()
+            if (semRede) { br.paulo.tvlauncher.weather.ClimaMet.esquecerCache(); br.paulo.tvlauncher.weather.WeatherApiSource.esquecerCache(); br.paulo.tvlauncher.weather.OpenModelsSource.esquecerCache()
                 System.setProperty("https.proxyHost", "127.0.0.1"); System.setProperty("https.proxyPort", "9")
                 System.setProperty("http.proxyHost", "127.0.0.1"); System.setProperty("http.proxyPort", "9") }
             val m = try { medir(cls, "$idioma-$nome", ABA_DA_TELA[nome]) } catch (e: Throwable) {

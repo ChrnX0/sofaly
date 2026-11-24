@@ -12,7 +12,6 @@ object Config {
     //     repositório é público (05/11/2026): vêm do pessoal.properties da raiz do repo (fora do git), pela classe
     //     BuildConfig que o Gradle gera. Sem o arquivo: sem cidade, coordenadas 0/0, Celsius, estação automática.
     //     Para mudar: edite o pessoal.properties (modelo em pessoal.properties.exemplo) e recompile.
-    val CIDADE: String = BuildConfig.CIDADE
     val LATITUDE: Double = BuildConfig.LATITUDE
     val LONGITUDE: Double = BuildConfig.LONGITUDE
     val USAR_FAHRENHEIT: Boolean = BuildConfig.USAR_FAHRENHEIT
@@ -134,7 +133,6 @@ object Config {
 
     // --- De quanto em quanto tempo cada informação do topo/rodapé é atualizada.
     const val CLIMA_A_CADA_MIN = 5L   // as fontes mudam a cada 15 min (modelo) e ~60 min (aeroporto, ou antes se o tempo virar); 5 min pega a mudança cedo
-    const val REDE_A_CADA_SEG = 30L
     const val ECLIPSE_A_CADA_SEG = 60L   // so importa durante um eclipse solar: a lua anda no icone a cada tanto
 
     // --- Eclipses solares visíveis da SUA cidade. O ícone do clima só vira "sol coberto pela lua" dentro destes

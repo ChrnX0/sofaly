@@ -2171,6 +2171,9 @@ class MainActivity : Activity() {
     /** Lidos a cada minuto fora da thread da tela ([tarefaIlhaTique]): (texto, quando começa). */
     @Volatile internal var ilhaLembrete: Pair<String, Long>? = null
     @Volatile internal var ilhaAgenda: Pair<String, Long>? = null
+    /** UV muito alto agora (SunAlert) e quando o clima o mediu; a Ilha ignora depois de 90 min. */
+    @Volatile internal var ilhaUv: Pair<Int, Long>? = null
+    @Volatile internal var ilhaCeu: Pair<String, br.paulo.tvlauncher.weather.NightSky.Kind>? = null
     @Volatile internal var ilhaIndicadores: Set<BarraIlha.Indicador> = emptySet()
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null
     /** Ilha que cresce: a faixa de baixo com o evento que chegou e "▲ para abrir"; some em [BarraIlha.CRESCER_MS]. */
@@ -2614,6 +2617,7 @@ class MainActivity : Activity() {
                     val mudou = txtTemp.text.toString() != "${r.temp}°"
                     txtTemp.text = "${r.temp}°"
                     ultimaTemp = r.temp
+                    ilhaUv = r.uvAviso?.let { it to System.currentTimeMillis() }
                     if (mudou) atualizarCruz()
                     // Guarda o que o topo mostra: a previsão aberta por voz ("Boletim do Tempo") e o protetor de tela
                     // (ProtetorTela.kt, sem rede própria) não passam por aqui e leem isto.
@@ -2626,9 +2630,7 @@ class MainActivity : Activity() {
                             putInt("amanha_max", aMax).putInt("amanha_min", aMin).putInt("amanha_codigo", aCod).putInt("amanha_chuva", aChuva) } }
                         .putFloat("lat", r.ponto.lat.toFloat()).putFloat("lon", r.ponto.lon.toFloat())
                         .putInt("max", r.max).putInt("min", r.min).putString("linha", r.linha)
-                        .putString("horas", r.horas)   // próximas horas: a barra do protetor
-                        // Protetor que reage ao tempo (FonteTempoGuardado): UV, chuva de 15 em 15 min e ar.
-                        .putString("uv", r.uv).putString("chuva15", r.chuva15).putInt("aqi", r.aqi ?: -1)
+                        .putString("horas", r.horas)   // próximas horas: o céu da noite confere se estará limpo
                         .putString("idioma", idiomaAtual())   // a linha é texto pronto nesse idioma
                         .putLong("em", System.currentTimeMillis()).apply()
                     txtMax.text = "↑ ${r.max}°"

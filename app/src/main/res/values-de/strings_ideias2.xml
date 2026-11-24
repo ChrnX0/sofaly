@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">Helligkeit %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">Helligkeit</string>
     <string name="casa_tecla_segurar_ok">OK HALTEN</string>
+    <string name="ca_liberado">%1$s freigegeben. Jetzt frei: %2$s.</string>
+    <string name="ca_sem_shell">Die eigene Shell ist aus, daher wurde der Cache nicht geleert.</string>
+    <string name="ca_falhou">Cache konnte nicht geleert werden: %1$s</string>
+    <string name="ta_desligado">Aus. Schalte „%1$s“ in %2$s ein.</string>
+    <string name="ta_nada">Gerade läuft nichts.</string>
+    <string name="ta_sem_acesso">Kein Zugriff auf die Wiedergabe (Benachrichtigungszugriff ist aus).</string>
+    <string name="cr_sistema">Android-System</string>
+    <string name="cr_nucleo">Android-System (Kernel)</string>
+    <string name="cr_removidos">Entfernte Apps</string>
+    <string name="cr_ponto">Hotspot</string>
+    <string name="cr_servico">Android-System (Dienst %1$d)</string>
+    <string name="cr_nada">Noch nichts gemessen.</string>
+    <string name="cr_sem_acesso">Kein Zugriff auf die App-Nutzung. Die Selbstreparatur der Shell erteilt ihn.</string>
 </resources>

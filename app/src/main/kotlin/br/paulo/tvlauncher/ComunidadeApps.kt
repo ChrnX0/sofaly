@@ -37,17 +37,22 @@ object ComunidadeApps {
         if (j == null) emptyList() else FichasComunidade.validarLimpeza(j, Debloat.NUNCA, Debloat.LISTA.map { it.pacote }.toSet())
     }.also { limpezaCache = it }
 
+    @Volatile private var tentouEm = 0L
+
     /** Busca se já passou uma semana. Não espera: roda numa thread. */
     fun talvezAtualizar(ctx: Context) {
         val app = ctx.applicationContext
         val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         val agora = System.currentTimeMillis()
         if (!FichasComunidade.deveBuscar(p.getLong("ultima", 0L), agora)) return
-        p.edit().putLong("ultima", agora).apply()
+        // Sem rede, tenta de novo em 1 h (não na semana seguinte): a semana só conta depois de um download que deu certo.
+        if (agora - tentouEm < 3_600_000L) return
+        tentouEm = agora
         Fundo.rodar("comunidade") {
             pasta(app).mkdirs()
-            baixar("fichas-apps.json")?.takeIf { FichasComunidade.validarFichas(it) != null }?.let { gravar(app, "fichas-apps.json", it) }
-            baixar("limpeza.json")?.takeIf { runCatching { org.json.JSONArray(it) }.isSuccess }?.let { gravar(app, "limpeza.json", it); limpezaCache = null }
+            val fichas = baixar("fichas-apps.json")?.takeIf { FichasComunidade.validarFichas(it) != null }?.also { gravar(app, "fichas-apps.json", it) }
+            val limpa = baixar("limpeza.json")?.takeIf { runCatching { org.json.JSONArray(it) }.isSuccess }?.also { gravar(app, "limpeza.json", it); limpezaCache = null }
+            if (fichas != null || limpa != null) p.edit().putLong("ultima", agora).apply()
         }
     }
 

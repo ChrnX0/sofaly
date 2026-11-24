@@ -16,7 +16,7 @@ import java.net.UnknownHostException
  * O Android só aceita NOME (dns.exemplo.com), nunca número de IP.
  *
  * Gravar essas configurações exige a permissão WRITE_SECURE_SETTINGS, que um app comum não pode pedir pela tela.
- * Ela é dada uma única vez pelo computador:  adb shell pm grant br.paulo.tvlauncher android.permission.WRITE_SECURE_SETTINGS
+ * Ela é dada uma única vez pelo computador:  adb shell pm grant tv.sofaly.launcher android.permission.WRITE_SECURE_SETTINGS
  * (continua valendo depois de reinstalar o app).
  */
 object Dns {
@@ -25,7 +25,10 @@ object Dns {
     private const val PREFS = "dns"
     private const val CHAVE_SALVOS = "salvos"
 
-    class Servidor(val nome: String, val host: String)
+    /** [nota] = texto traduzido que vai entre parênteses depois do nome (0 = nenhum): os presets seguem o idioma da TV. */
+    class Servidor(val nome: String, val host: String, val nota: Int = 0) {
+        fun nome(ctx: Context): String = if (nota == 0) nome else "$nome (${ctx.getString(nota)})"
+    }
 
     enum class Modo { AUTOMATICO, DESLIGADO, HOST }
 
@@ -35,11 +38,11 @@ object Dns {
     /** Servidores públicos conhecidos. Os nomes foram conferidos no DNS, mas o TLS de cada um não foi testado aqui. */
     val PRESETS = listOf(
         Servidor("AdGuard", "dns.adguard-dns.com"),
-        Servidor("AdGuard Família (bloqueia adultos)", "family.adguard-dns.com"),
+        Servidor("AdGuard", "family.adguard-dns.com", R.string.dns_nota_familia),
         Servidor("Cloudflare", "one.one.one.one"),
-        Servidor("Cloudflare (bloqueia malware)", "security.cloudflare-dns.com"),
+        Servidor("Cloudflare", "security.cloudflare-dns.com", R.string.dns_nota_malware),
         Servidor("Google", "dns.google"),
-        Servidor("Quad9 (bloqueia malware)", "dns.quad9.net"),
+        Servidor("Quad9", "dns.quad9.net", R.string.dns_nota_malware),
     )
 
     // ---------------------------------------------------------------- ler e gravar no sistema
@@ -126,7 +129,7 @@ object Dns {
     }
 
     fun nomeDe(ctx: Context, host: String): String? =
-        (PRESETS + salvos(ctx)).firstOrNull { it.host.equals(host, ignoreCase = true) }?.nome
+        (PRESETS + salvos(ctx)).firstOrNull { it.host.equals(host, ignoreCase = true) }?.nome(ctx)
 
     /** Texto curto para o rodapé da tela inicial. */
     fun rotulo(ctx: Context): String {

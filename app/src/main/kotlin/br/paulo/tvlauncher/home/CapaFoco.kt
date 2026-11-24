@@ -93,7 +93,6 @@ class CapaFoco(ctx: Context) : View(ctx) {
     fun mostrar(imagem: Bitmap?, cores: IntArray?, movimento: Boolean = false, arte: Boolean = false) {
         if (desligada) return
         movimentar(movimento && imagem != null)
-        if (imagem != null || cores != null) ultima = imagem to cores   // o protetor reaproveita (mesmo processo)
         val modoArte = arte && imagem != null
         if (imagem === this.imagem && cores.contentEquals(this.cores) && modoArte == this.arte && alpha > 0f) return
         this.arte = modoArte
@@ -155,13 +154,6 @@ class CapaFoco(ctx: Context) : View(ctx) {
         /** Escala durante o zoom: a base (2 na HOME) vezes o fator do zoom (1 a 1,1). Pura, testada em CapaFocoTest. */
         fun escalaZoom(base: Float, fator: Float) = base * fator
 
-        /**
-         * A última capa mostrada na HOME. O protetor de tela (tema Escuro) desenha o mesmo fundo da HOME: o grafite e este
-         * mesmo brilho, do último card em foco. Roda no mesmo processo, então basta a referência. null = nada ainda
-         * (protetor logo depois de ligar a TV): aí vale o coral da TV ao vivo, o card que abre em foco.
-         */
-        @Volatile var ultima: Pair<Bitmap?, IntArray?>? = null
-        val CORES_TV = intArrayOf(0xFFFF7A6E.toInt(), 0xFFC0392B.toInt())
 
         /** O banner de TV do app (o da atividade leanback, senão o do app). null se o app não tiver. */
         fun banner(pm: PackageManager, pacote: String): Drawable? = try {
@@ -211,8 +203,5 @@ class CapaFoco(ctx: Context) : View(ctx) {
             return intArrayOf(base, escura)
         }
 
-        /** Intent para abrir um app pela HOME (o mesmo caminho do card). */
-        fun abrirIntent(pm: PackageManager, pacote: String): Intent? =
-            pm.getLeanbackLaunchIntentForPackage(pacote) ?: pm.getLaunchIntentForPackage(pacote)
     }
 }

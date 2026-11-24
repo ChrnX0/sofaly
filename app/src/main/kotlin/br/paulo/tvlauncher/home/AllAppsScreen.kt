@@ -226,8 +226,6 @@ class AllAppsScreen(ctx: Context, private val host: Host, val mode: AllAppsLayou
         rodape.text = listOfNotNull(info.title, info.lines.firstOrNull(), info.tip).joinToString("  ·  ")
     }
 
-    fun hasCard(pkg: String) = views.keys.any { it.startsWith("$pkg|") }
-
     /** Tecla com a tela aberta: OK curto abre, OK segurado (meio segundo) abre as opções. O resto segue o foco normal. */
     private var okDesde = 0L
     private var segurou = false

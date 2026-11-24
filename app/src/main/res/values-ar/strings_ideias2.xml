@@ -50,4 +50,17 @@
     <string name="casa_brilho_ajuste">السطوع %1$d%% · ◀ ▶</string>
     <string name="casa_dica_brilho">السطوع</string>
     <string name="casa_tecla_segurar_ok">اضغط مطولًا على OK</string>
+    <string name="ca_liberado">تم تحرير %1$s. المساحة الحرة الآن: %2$s.</string>
+    <string name="ca_sem_shell">الصدفة المدمجة متوقفة، لذلك لم يتم مسح ذاكرة التخزين المؤقت.</string>
+    <string name="ca_falhou">تعذّر مسح ذاكرة التخزين المؤقت: %1$s</string>
+    <string name="ta_desligado">متوقف. شغّل \"%1$s\" في %2$s.</string>
+    <string name="ta_nada">لا شيء قيد التشغيل.</string>
+    <string name="ta_sem_acesso">لا وصول إلى ما يُشغَّل (الوصول إلى الإشعارات متوقف).</string>
+    <string name="cr_sistema">نظام Android</string>
+    <string name="cr_nucleo">نظام Android (النواة)</string>
+    <string name="cr_removidos">تطبيقات محذوفة</string>
+    <string name="cr_ponto">نقطة اتصال</string>
+    <string name="cr_servico">نظام Android (الخدمة %1$d)</string>
+    <string name="cr_nada">لم يُقَس شيء بعد.</string>
+    <string name="cr_sem_acesso">لا وصول إلى استخدام التطبيقات. الإصلاح الذاتي للصدفة يمنحه.</string>
 </resources>

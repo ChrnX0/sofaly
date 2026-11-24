@@ -11,4 +11,6 @@
     <string name="rd_disco_texto">इसी रफ़्तार से यह लगभग %1$d दिनों में भर जाएगा (%2$d MB ख़ाली)। ऐप कैश साफ़ करें या जो ऐप इस्तेमाल नहीं करते उन्हें हटाएँ।</string>
     <string name="pr_avisos_tv">TV से</string>
     <string name="mural_riscar">%1$s काटें</string>
+    <string name="ds_lento_titulo">Sofaly धीमा हो गया</string>
+    <string name="ds_lento_texto">वर्शन %1$d: धीमे फ़्रेम अब %2$d ms लेते हैं, पहले %3$d ms (+%4$d%%).</string>
 </resources>
