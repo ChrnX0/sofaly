@@ -49,7 +49,13 @@ object AppProfileTv {
         val events = readEvents(app, from, now) ?: return
         val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
         val all = load(app)
-        var s = AppProfile.learn(all[profile] ?: AppProfile.State(emptyMap()), events, { ObserverTv.hours(it).second }, now, ignore(app))
+        // Só app com ícone (o que a pessoa abre): a busca por voz, a tela de permissões etc. não são "apps da casa"
+        // (vistos na Sala 24/11/2026). Eles entram como "ignorar": tiram o app anterior da frente, sem ganhar ficha.
+        val launchable = launchable(app)
+        val skip = ignore(app) + events.map { it.pkg }.filter { launchable != null && it !in launchable }
+        val before = all[profile] ?: AppProfile.State(emptyMap())
+        val clean = if (launchable == null) before else before.copy(cards = before.cards.filterKeys { it in launchable })
+        var s = AppProfile.learn(clean, events, { ObserverTv.hours(it).second }, now, skip)
         s = withStarts(app, dev, s)
         all[profile] = s
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
@@ -59,6 +65,14 @@ object AppProfileTv {
             shadowTips(app, profile, s, now)
         }
     }
+
+    /** Pacotes com ícone na TV (Leanback ou launcher comum); null se o Android não respondeu (aí não filtra). */
+    private fun launchable(ctx: Context): Set<String>? = runCatching {
+        val pm = ctx.packageManager
+        fun of(cat: String) = pm.queryIntentActivities(android.content.Intent(android.content.Intent.ACTION_MAIN).addCategory(cat), 0)
+            .map { it.activityInfo.packageName }
+        (of(android.content.Intent.CATEGORY_LEANBACK_LAUNCHER) + of(android.content.Intent.CATEGORY_LAUNCHER)).toSet()
+    }.getOrNull()?.takeIf { it.isNotEmpty() }
 
     private fun readEvents(ctx: Context, from: Long, to: Long): List<AppProfile.Event>? = try {
         val ev = ctx.getSystemService(UsageStatsManager::class.java).queryEvents(from, to)
