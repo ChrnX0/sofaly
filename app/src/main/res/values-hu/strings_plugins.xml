@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Pluginek</string>
+    <string name="plg_nenhum">Nincs telepített kártyaplugin. A kártyapluginek más fejlesztők alkalmazásai, amelyek itt egy kártyát mutatnak, például egy meccs állását vagy egy árat.</string>
+    <string name="plg_ligado">Be</string>
+    <string name="plg_desligado">Ki</string>
+    <string name="plg_limite">Egyszerre legfeljebb %1$d plugin. Előbb kapcsoljon ki egyet.</string>
+    <string name="plg_seguranca">Ha egy plugin más aláírással frissül, kikapcsolódik, amíg újra nem engedélyezi.</string>
+</resources>

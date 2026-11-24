@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Összes alkalmazás képernyő</string>
+    <string name="aa_layout_shelves">Polcok</string>
+    <string name="aa_layout_folders">Mappák és csatornák</string>
+    <string name="aa_layout_library">Könyvtár</string>
+    <string name="aa_favoritos">Kedvencek</string>
+    <string name="aa_pastas">Mappák</string>
+    <string name="aa_nova_pasta">Új mappa</string>
+    <string name="aa_por_na_pasta">Hozzáadás mappához…</string>
+    <string name="aa_tirar_da_pasta">Eltávolítás ebből a mappából</string>
+    <string name="aa_renomear_pasta">Mappa átnevezése</string>
+    <string name="aa_apagar_pasta">Mappa törlése</string>
+    <string name="aa_fixar_cruz">Megjelenítés a kezdőképernyőn</string>
+    <string name="aa_soltar_cruz">Eltávolítás a kezdőképernyőről</string>
+    <string name="aa_ordenar">Összes alkalmazás rendezése</string>
+    <string name="aa_f_tudo">Mind</string>
+    <string name="aa_f_uso">Legtöbbet használt</string>
+    <string name="aa_f_novos">Új</string>
+    <string name="aa_canais">Most ezen: %1$s</string>
+    <string name="aa_hint_folder">Az OK megnyit · OK nyomva: beállítások</string>
+</resources>

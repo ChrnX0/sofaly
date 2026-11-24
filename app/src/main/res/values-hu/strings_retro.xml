@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Az Ön játékai</string>
+    <string name="retro_vazio">Nem található játék az USB-meghajtón. Tegye a saját játékait egy konzolról elnevezett mappába (pl. SNES).</string>
+    <string name="retro_portugues">portugálul</string>
+    <string name="retro_abrindo">Megnyitás a RetroArchban…</string>
+    <string name="retro_nao_abriu">A RetroArch nem nyitotta meg ezt a játékot. Nyissa meg egyszer a RetroArchot, és töltse le a(z) %1$s magot.</string>
+    <string name="retro_sem_retroarch">Telepítse a RetroArchot (ingyenes a Play Áruházban), hogy ezekkel a játékokkal játszhasson.</string>
+    <string name="retro_aviso_legal">A Sofaly nem tartalmaz játékokat. Azokat használja, amelyek az Öné.</string>
+    <string name="retro_procurando">Játékok keresése az USB-meghajtón…</string>
+</resources>

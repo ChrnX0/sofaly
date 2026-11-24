@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Most és tippek</string>
+    <string name="cl_pg_horas">Következő órák és napok</string>
+    <string name="cl_pg_detalhes">Részletek, levegő, Nap és Hold</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Most esik. Körülbelül %1$s-kor áll el.</string>
+    <string name="cl_f_segue">Most esik, és a következő órákban is folytatódik.</string>
+    <string name="cl_f_chuva">Eső valószínű %1$s körül (%2$s).</string>
+    <string name="cl_f_calor">Forró nap: akár %1$d° %2$s körül. Igyon vizet.</string>
+    <string name="cl_f_frio">Hideg jön: akár %1$d°-ig. Öltözzön melegen.</string>
+    <string name="cl_f_sol">Erős napsütés %1$s és %2$s között. Használjon naptejet.</string>
+    <string name="cl_f_amanha">Ma nem lesz eső. Holnap valószínű az eső (%1$s).</string>
+    <string name="cl_f_calmo">Ma nem várható eső. Legmagasabb: %1$d°.</string>
+    <string name="cl_d_guarda">Esernyő</string>
+    <string name="cl_d_varal">Ruhaszárítás kint</string>
+    <string name="cl_d_sair">Jó idő a kimozduláshoz</string>
+    <string name="cl_v_agora">Most</string>
+    <string name="cl_v_sim_as">Igen, %1$s-kor</string>
+    <string name="cl_v_talvez">Talán</string>
+    <string name="cl_v_nao">Nem kell</string>
+    <string name="cl_v_ate">Eddig: %1$s</string>
+    <string name="cl_v_seca">Ma megszárad</string>
+    <string name="cl_v_melhor_nao">Inkább ne</string>
+    <string name="cl_v_amanha_sim">Holnap igen</string>
+    <string name="cl_v_amanha_nao">Holnap nem</string>
+    <string name="cl_v_as">%1$s-kor</string>
+    <string name="cl_v_amanha_as">Holnap %1$s</string>
+    <string name="cl_v_hoje_nao">Ma nem</string>
+</resources>

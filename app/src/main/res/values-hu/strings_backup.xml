@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Automatikus biztonsági mentés</string>
+    <string name="bkn_explica">Minden éjjel, amíg a TV tétlen, teljes mentést készít a jelszavával zárva. Az utolsó 7 megmarad. Írja le a jelszót: nélküle a mentés nem nyitható meg.</string>
+    <string name="bkn_ligado">be</string>
+    <string name="bkn_desligado">ki</string>
+    <string name="bkn_sem_senha">ki · előbb állítsa be a mentés jelszavát</string>
+    <string name="bkn_senha">Mentés jelszava</string>
+    <string name="bkn_senha_ok">beállítva · az OK módosítja</string>
+    <string name="bkn_senha_falta">nincs beállítva · az OK beállítja</string>
+    <string name="bkn_senha_nova">Mentés jelszava (legalább 8 karakter)</string>
+    <string name="bkn_senha_repetir">Írja be újra a jelszót</string>
+    <string name="bkn_senha_curta">A jelszó 8–128 karakter hosszú legyen.</string>
+    <string name="bkn_senha_diferente">A két jelszó nem egyezik.</string>
+    <string name="bkn_senha_gravada">Jelszó mentve. Tartsa biztonságos helyen.</string>
+    <string name="bkn_senha_erro">Nem sikerült menteni a jelszót.</string>
+    <string name="bkn_horario">Időpont</string>
+    <string name="bkn_extra">Extra másolat</string>
+    <string name="bkn_destino_tv">Csak a TV</string>
+    <string name="bkn_destino_pendrive">USB-meghajtó</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Mentés most</string>
+    <string name="bkn_ultimo">Utolsó</string>
+    <string name="bkn_nunca">soha</string>
+    <string name="bkn_pin">PIN a mentés módosításához</string>
+</resources>

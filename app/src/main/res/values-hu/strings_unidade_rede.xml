@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Hálózati meghajtó</string>
+    <string name="ur_titulo">A TV megjelenítése hálózati meghajtóként</string>
+    <string name="ur_det">Ki. A TV magától megjelenik a Windows Ez a gép részében, mint egy telefon, és hálózati mappaként Macen, Linuxon és telefonokon.</string>
+    <string name="ur_painel">Előbb kapcsolja be fent a webpanelt (ugyanazt a PIN-t és https-címet használja).</string>
+    <string name="ur_https">Várakozás a panel https-címére (a tanúsítvány a panel bekapcsolása után kb. 1 perccel készül el).</string>
+    <string name="ur_abra">Be. Windowson a TV megjelenik az Ez a gép részben (a TV első alkalommal minden számítógépnél a képernyőn kérdez). Mac, Linux és telefon: %1$s · jelszó: a panel PIN-je.</string>
+    <string name="mtp_pergunta_titulo">Egy számítógép kéri a TV fájljait</string>
+    <string name="mtp_pergunta">„%1$s” szeretné megtekinteni és másolni a TV tárhelyén lévő fájlokat az otthoni hálózaton át. Engedélyezi ezt a számítógépet?</string>
+    <string name="mtp_pcs">Engedélyezett számítógépek</string>
+    <string name="mtp_pcs_nenhum">Még egy sincs. A TV a képernyőn kérdez, amikor egy számítógép kéri a fájlokat.</string>
+    <string name="mtp_pcs_lista">%1$s · az OK mindet elfelejti (mindegyik újra kérdez)</string>
+    <string name="mtp_pcs_esquecidos">A számítógépek elfelejtve</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">A TV paneljének megnyitása</string>
+</resources>

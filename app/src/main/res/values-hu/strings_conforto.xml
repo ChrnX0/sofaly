@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">A tartalom rejtve, amíg meg nem nézi</string>
+    <string name="cf_spoiler">A meg nem nézett epizódok tartalmának elrejtése</string>
+    <string name="cf_spoiler_det">A tartalom csak az epizód elindítása után jelenik meg</string>
+    <string name="cf_segundo">Második nyelv</string>
+    <string name="cf_segundo_det">Akkor használja, ha egy videóban nincs hang vagy felirat a TV nyelvén</string>
+    <string name="cf_nenhum">Nincs</string>
+    <string name="cf_proximo">Visszaszámlálás a következő epizódig</string>
+    <string name="cf_proximo_det">Mennyit várjon, mielőtt a következő epizód magától elindul</string>
+    <string name="cf_proximo_nao">Ne induljon magától</string>
+    <string name="cf_segundos">%1$d mp</string>
+    <string name="cf_consent_titulo">Adatokat küld ide: %1$s?</string>
+    <string name="cf_consent_texto">A bekapcsolással az interneten át ide küld: %1$s: a TV-n megjelölt és megnézett címeket, és hogy hol hagyta abba. Ezeket a(z) %1$s-fiókja őrzi a(z) %1$s adatvédelmi szabályai szerint. Bármikor kikapcsolhatja.</string>
+    <string name="cf_consent_sim">Elfogadom</string>
+</resources>

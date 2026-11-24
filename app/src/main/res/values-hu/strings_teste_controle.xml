@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Kontroller tesztelése</string>
+    <string name="teste_controle_sub">Elég gyors a játékhoz?</string>
+    <string name="teste_controle_mexa">Forgassa körbe a bal kart 10 másodpercig.</string>
+    <string name="teste_controle_bom">Kiváló játékhoz: %1$d ms-onként egy jel.</string>
+    <string name="teste_controle_ok">Játszható: %1$d ms-onként egy jel. A gyors játékok kissé késhetnek.</string>
+    <string name="teste_controle_ruim">Lassú: %1$d ms-onként egy jel és %2$d kihagyás. Segít egy vezetékes kontroller, vagy ha a kontroller közelebb van a TV-hez.</string>
+    <string name="teste_controle_parado">A kontroller nem mozdult. Próbálja újra, és forgassa tovább a kart.</string>
+</resources>

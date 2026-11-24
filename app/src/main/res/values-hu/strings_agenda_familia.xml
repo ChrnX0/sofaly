@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Családi beosztás</string>
+    <string name="agf_sub">A beállított időpontban a TV magától átvált arra a profilra. Gyerekprofil esetén bekapcsol a gyerekmód és a lefekvési idő.</string>
+    <string name="agf_cfg_det">Beállított váltások: %1$d. A profil a beállított időpontban magától vált.</string>
+    <string name="agf_adicionar">Váltás hozzáadása</string>
+    <string name="agf_adicionar_det">Kinek a profilja, mely napokon és hánykor.</string>
+    <string name="agf_quem">Kinek a profiljára váltson?</string>
+    <string name="agf_dias">Mely napokon?</string>
+    <string name="agf_hora">Hánykor?</string>
+    <string name="agf_todos">Minden nap</string>
+    <string name="agf_uteis">Hétfőtől péntekig</string>
+    <string name="agf_fds">Szombat és vasárnap</string>
+    <string name="agf_alguns">Néhány nap</string>
+    <string name="agf_apagar">Törli ezt a váltást?</string>
+    <string name="agf_apagar_sim">Törlés</string>
+    <string name="agf_cheia">A beosztás megtelt (12 váltás).</string>
+    <string name="agf_sem_contas">Ezen a TV-n még nincsenek profilok (Google-fiókok).</string>
+</resources>

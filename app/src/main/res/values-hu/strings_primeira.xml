@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Beállítás a telefonnal</string>
+    <string name="pc_linha_det">Ajánlott. Irányítsa a telefon kameráját egy kódra: PIN, nyelv, élő TV, város és filmszolgáltatások, 5 lépésben.</string>
+    <string name="pc_instrucoes">Irányítsa a telefon kameráját a mellette lévő kódra. A telefon 5 lépéses beállítást nyit meg.\n\nA telefonnak az otthoni Wi-Fi-n kell lennie. Tartsa nyitva ezt a képernyőt, amíg a telefonon létrehozza a PIN-t (hátra van: %1$s).</string>
+    <string name="pc_entrou">Folytassa a telefonon.</string>
+    <string name="pc_venceu">A kód lejárt.\nNyomja meg a \"%1$s\" gombot egy új megjelenítéséhez.</string>
+    <string name="pc_sem_rede">A TV nincs hálózaton.\nCsatlakoztassa az otthoni Wi-Fi-hez, és próbálja újra.</string>
+</resources>

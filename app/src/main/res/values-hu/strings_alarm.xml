@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Válassza ki az időpontot és a napokat</string>
+    <string name="al_volume_rotulo">Hangerő csörgéskor</string>
+    <string name="al_volume_det">A TV legalább erre a hangerőre hangosít, akkor is, ha le volt némítva</string>
+    <string name="al_volume_lg_det">Az LG TV halkan kezd, és erre a hangerőre emelkedik</string>
+    <string name="al_info_toca">csörög: %1$s</string>
+    <string name="al_proximo_rotulo">Következő ébresztő</string>
+    <string name="al_dica_editar">szerkesztés</string>
+    <string name="al_dica_ligar">be/ki</string>
+    <string name="al_dica_sair">kilépés</string>
+    <string name="al_dica_mudar">módosítás</string>
+    <string name="al_dica_andar">mozgatás</string>
+    <string name="al_dica_salvar">mentés</string>
+    <string name="al_ligou">%1$s ébresztő be</string>
+    <string name="al_desligou">%1$s ébresztő ki</string>
+    <string name="al_sim">Igen</string>
+    <string name="al_nao">Nem</string>
+    <string name="al_op_salvar_det">A VISSZA is ment</string>
+    <string name="al_op_repetir">Ismétlés</string>
+    <string name="al_op_repetir_det">Az OK kiválasztja a napokat</string>
+    <string name="al_op_som">Hang</string>
+    <string name="al_op_som_det">Az OK kiválaszt egy hangot és lejátssza</string>
+    <string name="al_op_rampa">Csörgés</string>
+    <string name="al_op_rampa_det">Halkan kezdeni kíméletesebb ébredés</string>
+    <string name="al_op_bom_dia">Jó reggelt</string>
+    <string name="al_op_bom_dia_det">Amikor leállítja, a TV elmondja az időt, az időjárást és a mai naptárat</string>
+    <string name="al_op_cena">Jelenet leállításkor</string>
+    <string name="al_op_cena_det">Az OK kiválasztja a jelenetet</string>
+    <string name="al_op_nome">Név</string>
+    <string name="al_op_nome_det">Csörgéskor megjelenik a képernyőn</string>
+    <string name="al_op_nome_dica">pl. Gyógyszer</string>
+    <string name="al_op_alarme">Ébresztő</string>
+    <string name="al_op_ligado_det">Az OK be- vagy kikapcsolja</string>
+    <string name="al_op_apagar">Ébresztő törlése</string>
+    <string name="al_op_apagar_det">Törlés előtt kérdez</string>
+    <string name="al_op_sair">Kilépés mentés nélkül</string>
+    <string name="al_op_sair_det">Visszavonja az itt végzett módosításokat</string>
+    <string name="al_apagar_q">Törli a(z) %1$s ébresztőt?</string>
+    <string name="al_salvo">Ébresztő mentve: %1$s</string>
+    <string name="al_resumo">Csörög: %1$s</string>
+    <string name="al_resumo_desligado">Ki: nem fog csörögni</string>
+    <string name="al_op_hora">Óra</string>
+    <string name="al_op_minuto">Perc</string>
+</resources>

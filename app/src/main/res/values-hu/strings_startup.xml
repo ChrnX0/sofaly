@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Amikor a TV bekapcsol</string>
+    <string name="su_det">Azonnal ezt nyitja meg, a kezdőképernyőt kihagyva</string>
+    <string name="su_home">Kezdőképernyő</string>
+    <string name="su_last">Utolsó alkalmazás</string>
+    <string name="su_quem">Kinek?</string>
+    <string name="su_todos">Az egész TV</string>
+    <string name="su_so">Csak %1$s</string>
+    <string name="su_segue_tv">A TV választását követi</string>
+    <string name="su_acordar">És ébredéskor is</string>
+    <string name="su_acordar_det">Nem csak újraindítás után: akkor is, amikor a TV készenlétből ébred. Soha nem Cast vagy az ébresztő fölött</string>
+    <string name="su_esperar">Várakozás újraindítás után</string>
+    <string name="su_esperar_det">Időt ad a TV-nek a csatlakozásra, mielőtt megnyitja az alkalmazást</string>
+    <string name="su_horario">Más alkalmazás a nap különböző időszakaiban</string>
+    <string name="su_horario_det">Automatizálás „A TV bekapcsolt” eseménnyel és „Csak ha” feltétellel</string>
+    
+</resources>

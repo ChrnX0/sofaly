@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado: Ouvir proposta C (21/11/2026). -->
+<resources>
+    <string name="som_titulo">Hang</string>
+    <string name="som_titulo_pod">Hang · %1$s</string>
+    <string name="som_voz_clara">Tiszta hang</string>
+    <string name="som_so_este">Csak ehhez a podcasthoz</string>
+    <string name="som_abertura">A bevezető átugrása</string>
+    <string name="som_fim">A befejezés átugrása</string>
+    <string name="som_segundos">%1$d mp</string>
+    <string name="som_rodape_proprio">Ezek a beállítások csak ehhez maradnak meg: %1$s.</string>
+    <string name="som_rodape_geral">A sebesség, a csendek és a tiszta hang minden podcastra érvényes. Kapcsolja be a \"Csak ehhez a podcasthoz\" lehetőséget, hogy %1$s saját beállításokat kapjon.</string>
+    <string name="som_det">Sebesség, tiszta hang, elalváskapcsoló</string>
+    <string name="som_det_radio">Tiszta hang és elalváskapcsoló</string>
+    <string name="cap_titulo">Fejezetek</string>
+    <string name="cap_de">%2$d fejezetből a(z) %1$d.</string>
+    <string name="cap_barra_dica">◀ ▶ 10 mp léptetés · OK: fejezetek</string>
+    <string name="tx_titulo">A beszéd szövege</string>
+    <string name="tx_carregando">betöltés</string>
+    <string name="tx_nao_tem">nincs ebben az epizódban</string>
+    <string name="tx_nao_tem_det">Ez a podcast nem teszi közzé az epizódban elhangzottak szövegét.</string>
+    <string name="tx_pe_busca">Találat: %2$d-ból %1$d · ◀ ▶ előző / következő · ▼ új keresés · OK: bezárás</string>
+    <string name="tx_buscar">Keresés az elhangzottakban</string>
+    <string name="tx_nada">Ezt senki sem mondta ebben az epizódban.</string>
+    <string name="ra_ja_tocou">Már lejátszva</string>
+    <string name="ra_parecidas">Hasonló állomások</string>
+    <string name="som_radio">Az utolsó rádióállomás, amit hallgattam</string>
+    <string name="som_podcast">A legújabb podcastepizód</string>
+    <string name="jor_titulo">Híreim</string>
+    <string name="jor_ouvir">Híreim lejátszása</string>
+    <string name="jor_min">%d perc egyhuzamban</string>
+    <string name="tx_pe">◀ ▶ előző / következő mondat · ▲ összefoglaló · ▼ keresés · OK: bezárás</string>
+    <string name="tx_gerando">generálás</string>
+    <string name="tx_gerando_det">A szöveg generálása… az első rész körülbelül egy percig tart.</string>
+    <string name="tx_gerar">Az OK generálja (ingyenes)</string>
+    <string name="tx_cota">holnap újra</string>
+    <string name="tx_cota_det">A mai ingyenes szövegkeret elfogyott. Holnap visszajön.</string>
+    <string name="tx_pulei">Reklám átugorva</string>
+    <string name="tx_pulei_det">%d mp · a ◀ visszamegy rá</string>
+    <string name="tx_resumo">Sofy összefoglalója</string>
+    <string name="tx_resumo_de">Összefoglaló · %s</string>
+    <string name="tx_resumindo">Az elhangzottak olvasása… egy pillanat.</string>
+    <string name="tx_resumo_falhou">Az összefoglaló most nem jött meg. Próbálja újra kicsit később.</string>
+    <string name="ra_globo">A földgömb felfedezése</string>
+    <string name="ra_globo_det">Pörgesse meg a világot, és érkezzen egy rádióállomásra bárhonnan</string>
+    <string name="ra_globo_dica">◀ ▶ ▲ ▼ pörgetés · OK: lejátszás · Vissza: bezárás</string>
+    <string name="ra_globo_mar">Nyílt tenger… pörgessen még egy kicsit</string>
+    <string name="ra_voltar">Vissza 30 mp</string>
+    <string name="ra_voltar_det">Lemaradt valamiről? Hallgassa meg újra (⏪ a távirányítón)</string>
+    <string name="ra_ao_vivo">Vissza élőbe</string>
+    <string name="ra_atras">%s lemaradás az élőhöz képest</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Betűtípus</string>
+    <string name="fc_det">A betűk minden képernyőn. A Google-betűtípusok első alkalommal letöltődnek</string>
+    <string name="fc_baixando">letöltés…</string>
+    <string name="fc_falhou">Nem sikerült letölteni. Ellenőrizze az internetet</string>
+    <string name="ck_formato">Időformátum</string>
+    <string name="ck_formato_det">A felső sávban, a Szigeten és a nagy órán</string>
+    <string name="ck_auto">Automatikus</string>
+    <string name="ck_24">24 órás (15:40)</string>
+    <string name="ck_12">12 órás (3:40)</string>
+    <string name="ck_12ampm">12 órás AM/PM-mel</string>
+    <string name="ck_seg">Másodpercekkel</string>
+    <string name="ck_cor">Az idő színe</string>
+    <string name="ck_cor_det">A felső sávban, a Szigeten és a nagy órán</string>
+    <string name="ck_padrao">Alapértelmezett</string>
+    <string name="ck_laranja">Narancs</string>
+    <string name="ck_creme">Krém</string>
+    <string name="ck_ambar">Borostyán</string>
+    <string name="ck_verde">Kékeszöld</string>
+</resources>

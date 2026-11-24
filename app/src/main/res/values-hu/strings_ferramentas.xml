@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Eszközök</string>
+    <string name="cont_mais_opcoes">További beállítások</string>
+    <string name="tl_proximo">Következő: %1$s</string>
+    <string name="tl_clima_sub">Előrejelzés a következő napokra</string>
+    <string name="tl_casa_sub">Lámpák, kamerák és kapucsengő</string>
+    <string name="tl_painel_sub">Bluetooth, hang, Wi-Fi és időzítő</string>
+    <string name="tl_config_sub">Minden a launcherről</string>
+    <string name="ac_cartoes">Alkalmazáskártyák</string>
+    <string name="ac_coluna">Az oszlopban</string>
+    <string name="ac_vitrine">Kirakat</string>
+    <string name="ac_ver_tudo">Nézze meg, mi van az alkalmazásban</string>
+    <string name="ac_ritmo">A kezdőképernyő térközei</string>
+    <string name="rt_antes">Mint korábban</string>
+    <string name="rt_a">A · Szorosabb</string>
+    <string name="rt_b">B · Keretek</string>
+    <string name="rt_c">C · Levegős</string>
+    <string name="ft_foco">Fókusz</string>
+    <string name="ft_foco_fio">Vonal</string>
+    <string name="ft_foco_veu">Fátyol</string>
+    <string name="ft_foco_quadro">Doboz</string>
+</resources>

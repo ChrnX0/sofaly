@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Kész jelenetek</string>
+    <string name="cpr_dormir">Alvás</string>
+    <string name="cpr_dormir_det">Éjszakai szűrő, halkabb hang, a TV 30 perc múlva kikapcsol</string>
+    <string name="cpr_novela">Szappanopera</string>
+    <string name="cpr_novela_det">Az Ön csatornája, normál színek</string>
+    <string name="cpr_jogo">Meccs</string>
+    <string name="cpr_jogo_det">Az Ön sportcsatornája, hangosabban</string>
+    <string name="cpr_canal">Melyik csatorna legyen ehhez: „%1$s”?</string>
+    <string name="cpr_canal_dica">Csatorna neve vagy száma</string>
+</resources>

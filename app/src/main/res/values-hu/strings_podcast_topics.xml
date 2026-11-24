@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Témák</string>
+    <string name="pod_ass_seus">Követett: %d</string>
+    <string name="pod_ass_em_alta">Felkapott ebben a témában</string>
+    <string name="pod_parecidos">Hasonló: %s</string>
+    <string name="pod_ass_noticias">Hírek</string>
+    <string name="pod_ass_humor">Vígjáték</string>
+    <string name="pod_ass_ciencia">Tudomány</string>
+    <string name="pod_ass_tecnologia">Technológia</string>
+    <string name="pod_ass_historia">Történelem</string>
+    <string name="pod_ass_negocios">Üzlet</string>
+    <string name="pod_ass_saude">Egészség</string>
+    <string name="pod_ass_esportes">Sport</string>
+    <string name="pod_ass_cultura">Kultúra</string>
+    <string name="pod_ass_crimes">Valós bűnügyek</string>
+    <string name="pod_ass_tv_filmes">TV és film</string>
+    <string name="pod_ass_musica">Zene</string>
+    <string name="pod_ass_educacao">Oktatás</string>
+    <string name="pod_ass_infantil">Gyerekek és család</string>
+    <string name="pod_ass_fe">Hit</string>
+    <string name="pod_ass_lazer">Szabadidő</string>
+</resources>

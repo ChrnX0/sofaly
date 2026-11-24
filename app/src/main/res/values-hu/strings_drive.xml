@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Google Drive-fiók</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Google Drive-fiók</string>
+    <string name="drv_nao_conectada">nincs csatlakoztatva</string>
+    <string name="drv_passos">1. A telefonján nyissa meg ezt: %1$s (vagy irányítsa a kamerát a jobb oldali kódra).\n2. Jelentkezzen be egy ezen a TV-n lévő Google-fiókkal, és írja be:\n\n%2$s\n\n3. Engedélyezze a Google Drive-hozzáférést. A TV csak az általa létrehozott fájlokat látja (a OneTV-backup mappát), a Drive többi részét soha.\n\nEz a képernyő magától folytatódik.</string>
+    <string name="drv_ok">Kész: %1$s csatlakoztatva. Válassza a \"Google Drive\" lehetőséget az Extra másolat sorban, hogy az éjszakai mentés oda is menjen.</string>
+    <string name="drv_sem_google">A Google-bejelentkezés még nincs beállítva ezen a TV-n.\n\nÁllítsa be a webpanel > Claude lapon (saját OAuth-kliens, \"TVs and Limited Input devices\" típus), kapcsolja be a Google Drive API-t ugyanabban a Google Cloud-projektben, és jöjjön vissza ide.</string>
+    <string name="drv_desconectar_pergunta">Leválasztja: %1$s? A Google Drive-on lévő másolatok ott maradnak; a TV nem küld újakat.</string>
+    <string name="drv_desconectar">Leválasztás</string>
+    <string name="drv_restaurar">Visszaállítás a Google Drive-ról</string>
+    <string name="drv_precisa_conta">Előbb csatlakoztassa a Google Drive-fiókot (fenti sor).</string>
+    <string name="drv_falhou">Nem sikerült: %1$s</string>
+    <string name="drv_nenhuma">A Google Drive OneTV-backup mappájában még nincsenek másolatok.</string>
+    <string name="drv_escolha">Melyik másolat?</string>
+    <string name="drv_senha">A mentés jelszava</string>
+    <string name="drv_senha_errada">Hibás mentési jelszó (vagy a fájl módosult). Semmi sem lett visszaállítva.</string>
+    <string name="drv_restaurado">Visszaállítva. A launcher egy pillanat múlva újraindul.</string>
+</resources>

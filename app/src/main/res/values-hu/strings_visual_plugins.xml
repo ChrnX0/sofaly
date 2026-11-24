@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Háttér pluginből</string>
+    <string name="wp_cfg_det">Hátterek, ikoncsomagok és kártyák más alkalmazásokból. Mindegyikhez kell az Ön OK-ja.</string>
+    <string name="wp_det">Más fejlesztők alkalmazásai, amelyek hátteret, ikonokat vagy kártyákat adnak a kezdőképernyőhöz. Csak azokat kapcsolja be, amelyekben megbízik.</string>
+    <string name="wp_secao_fundos">Hátterek</string>
+    <string name="wp_secao_icones">Ikoncsomagok</string>
+    <string name="wp_secao_cartoes">Kártyák</string>
+    <string name="wp_secao_descobrir">Pluginek keresése</string>
+    <string name="wp_tipo_fundo">Háttér</string>
+    <string name="wp_tipo_icones">Ikonok</string>
+    <string name="wp_em_uso">Használatban</string>
+    <string name="wp_usar">Használat háttérként</string>
+    <string name="wp_configurar">Plugin beállításai</string>
+    <string name="wp_parar">Használat leállítása</string>
+    <string name="wp_sem_cert">Nem sikerült beolvasni ennek a pluginnek az aláírását.</string>
+    <string name="wp_nenhum_fundo">Még nincs háttérplugin. Lent láthatja, hol talál egyet.</string>
+    <string name="wp_nenhum_icone">Még nincs ikoncsomag. Lent láthatja, hol talál egyet.</string>
+    <string name="wp_icones_det">Fagyasztva marad: a launcher másolatot őriz a használt ikonokról.</string>
+    <string name="wp_usar_icones">Használat</string>
+    <string name="wp_instalado">Telepítve</string>
+    <string name="wp_instalar">Telepítés</string>
+    <string name="wp_instalando">Telepítés…</string>
+    <string name="wp_instalou">%1$s telepítve.</string>
+    <string name="wp_nao_instalou">Nem sikerült telepíteni: %1$s</string>
+    <string name="wp_abrir_play">Megnyitás a Play Áruházban</string>
+    <string name="wp_qr">Irányítsa a telefon kameráját a kódra az oldal megnyitásához.</string>
+    <string name="wp_trocar_icone">Ikon cseréje</string>
+    <string name="wp_icone_titulo">Ikon ehhez: %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d ikon</string>
+    <string name="wp_icone_original">Eredeti ikon</string>
+    <string name="wp_icone_sugerido">Javasolt</string>
+    <string name="wp_icone_voltar">Az ikoncsomagot követi</string>
+    <string name="wp_icone_sem_pacote">Nincs telepített ikoncsomag. Keressen egyet a Beállítások › Kezdőképernyő › Pluginek menüben.</string>
+    <string name="wp_d_aerial">Lassú légi felvételek városokról és a természetről</string>
+    <string name="wp_d_overflight">Az Apple TV légi felvételei, vagy bármilyen választott videólista</string>
+    <string name="wp_d_daily">Új napi fotó, minden nap</string>
+    <string name="wp_d_weather">A mai időjárás háttérként</string>
+    <string name="wp_d_movieart">Film- és sorozatképek a TMDB-ből</string>
+    <string name="wp_d_sofadrop">Képek a felkapott listákból, a Trakttól vagy a Simkltől</string>
+    <string name="wp_d_immich">Fotók a saját Immich-szerveréről</string>
+    <string name="wp_d_tvicons">Több mint 800 TV-re készült ikon</string>
+    <string name="wp_d_minimalist">Tiszta szimbólumok egyszínű háttéren</string>
+    <string name="wp_d_arcticons">15 000 finom vonalas ikon (telefonra készült, itt is működik)</string>
+</resources>

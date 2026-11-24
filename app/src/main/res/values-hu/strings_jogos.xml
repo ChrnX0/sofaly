@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d játék</item>
+        <item quantity="other">%d játék</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d kontroller csatlakoztatva</item>
+        <item quantity="other">%d kontroller csatlakoztatva</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Játszani kategória a kezdőképernyőn (kikapcsolva a játékok az Alkalmazásokban maradnak)</string>
+    <string name="extras_MODO_JOGO">Játékmód: amíg egy játék nyitva van, a képernyővédő, az éjszakai szűrő és az értesítések várnak</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Egy kontroller bekapcsolása megnyitja a Játékok képernyőt</string>
+
+    <string name="jogos_titulo">Játékok</string>
+    <string name="jogos_medindo">A hálózat ellenőrzése…</string>
+    <string name="jogos_sem_controle">Nincs csatlakoztatott kontroller</string>
+    <string name="jogos_rede_boa">Hálózat: jó a felhőalapú játékhoz</string>
+    <string name="jogos_rede_ok">Hálózat: megfelel a felhőalapú játékhoz</string>
+    <string name="jogos_rede_fraca">Hálózat: gyenge a felhőalapú játékhoz</string>
+    <string name="jogos_rede_sem">Nincs internet</string>
+    <string name="jogos_testar_rede">Hálózat tesztelése</string>
+    <string name="jogos_jogar_pc">Játék a számítógépen</string>
+    <string name="jogos_parear">Kontroller párosítása</string>
+    <string name="jogos_parear_falhou">Ez a TV nem nyitotta meg a Bluetooth-beállításokat. Nyissa meg a Beállítások, Távirányítók és tartozékok menüt.</string>
+    <string name="jogos_baixar">Játékok beszerzése</string>
+    <string name="jogos_escolher">Alkalmazások kiválasztása</string>
+    <string name="jogos_escolher_sub">Mely alkalmazások éljenek a Játszaniban. Az OK vált a Játszani és az Alkalmazások között.</string>
+    <string name="jogos_no_card">a Játszaniban</string>
+    <string name="jogos_na_linha">az Alkalmazásokban</string>
+    <string name="jogos_grupo_nuvem">A felhőben</string>
+    <string name="jogos_grupo_pc">Számítógépről és konzolról</string>
+    <string name="jogos_grupo_retro">Retró</string>
+    <string name="jogos_grupo_tv">Játékok a TV-n</string>
+    <string name="jogos_para_comecar">Kezdéshez</string>
+    <string name="jogos_aviso_fraca_titulo">Gyenge hálózat a felhőalapú játékhoz</string>
+    <string name="jogos_aviso_fraca">A játék akadozhat vagy késhet. Segít egy hálózati kábel, vagy ha a TV közelebb van a routerhez.</string>
+    <string name="jogos_jogar_assim">Játék mégis</string>
+    <string name="jogos_nao_abriu">Ez az alkalmazás nem nyílt meg.</string>
+    <string name="jogos_tirar">Kivétel a Játszaniból</string>
+    <string name="jogos_automatico">Vissza automatikusra</string>
+    <string name="jogos_loja_tudo">A javasolt alkalmazások már megvannak ezen a TV-n.</string>
+    <string name="jogos_loja_explica">Megnyitja az alkalmazás oldalát a Play Áruházban. Ha a Play Áruház szerint nem fut ezen a TV-n, az az alkalmazás korlátja.</string>
+    <string name="jogos_sem_loja">A Play Áruház nem nyílt meg.</string>
+    <string name="jogos_pc_sem_mac">A számítógép felébresztéséhez mentse el a MAC-címét a webpanelen: Extrák, Számítógép felébresztése. A számítógépen a Wake-on-LAN-t is be kell kapcsolni, és általában hálózati kábel is kell.</string>
+    <string name="jogos_pc_sem_app">A számítógépen való játékhoz telepítse a Moonlightot vagy a Steam Linket a TV-re.</string>
+    <string name="jogos_pc_qual_app">Melyik alkalmazás játszik a számítógépen?</string>
+    <string name="jogos_pc_acordando">A számítógép ébresztése… %1$d mp</string>
+    <string name="jogos_pc_nao_respondeu">A számítógép nem válaszolt. Az alkalmazás megnyitása mégis.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">További játékok</string>
+    <string name="jogos_mais_opcoes">Továbbiak</string>
+    <string name="jogos_ligar_pc_jogar">A számítógép bekapcsolása és játék</string>
+    <string name="jogos_desc_pc">Játsszon az otthoni számítógép vagy konzol játékaival itt a TV-n.</string>
+    <string name="jogos_chip_medindo">A hálózat ellenőrzése…</string>
+    <string name="jogos_chip_boa">Jó hálózat</string>
+    <string name="jogos_chip_ok">A hálózat rendben</string>
+    <string name="jogos_chip_fraca">Gyenge hálózat</string>
+    <string name="jogos_chip_sem">Nincs internet</string>
+    <string name="jogos_tecla_jogar">játék</string>
+    <string name="jogos_tecla_segurar">OK nyomva</string>
+    <string name="jogos_tecla_opcoes">csoport váltása</string>
+</resources>

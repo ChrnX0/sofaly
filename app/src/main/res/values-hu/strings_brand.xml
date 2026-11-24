@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofaly logo (18/11/2026): splash when the TV turns on, top of Settings, About Sofaly and the screensaver corner. -->
+<resources>
+    <string name="brand_slogan">A TV-je, újra egyszerűen.</string>
+    <string name="brand_about">A Sofalyról</string>
+    <string name="brand_about_det">Verzió, újdonságok és licencek</string>
+    <string name="brand_splash">Logó a TV bekapcsolásakor</string>
+    <string name="brand_splash_det">A Sofaly logója egy másodpercre, amikor a TV felébred</string>
+    <string name="brand_version">Verzió: %1$s</string>
+</resources>

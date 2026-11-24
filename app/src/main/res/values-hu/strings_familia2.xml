@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Születésnap</string>
+    <string name="an_hoje">Ma van %s születésnapja</string>
+    <string name="an_amanha">Holnap van %s születésnapja</string>
+    <plurals name="an_anos">
+        <item quantity="one">%d éves lesz</item>
+        <item quantity="other">%d éves lesz</item>
+    </plurals>
+    <string name="tp_calor">Nagy hőség</string>
+    <string name="tp_calor_texto">Ma akár %d° · Igyon vizet</string>
+    <string name="tp_frio">Nagy hideg</string>
+    <string name="tp_frio_texto">Ma éjjel akár %d°-ig · Öltözzön melegen</string>
+    <string name="tp_cfg">Hőség- és hidegriasztás</string>
+    <string name="tp_cfg_det">Kártya bármely alkalmazás fölött, ha ma eléri a %1$d°-ot, vagy éjjel %2$d°-ra hűl</string>
+    <string name="mu_ok_lido">Az OK olvasottnak jelöli</string>
+    <string name="mu_ok_nao_lido">Olvasott · az OK olvasatlannak jelöli</string>
+    <string name="mu_lido_desc">Üzenet, olvasott: %s. Az OK olvasatlannak jelöli.</string>
+    <string name="mu_nao_lido_desc">Üzenet: %s. Az OK olvasottnak jelöli.</string>
+    <string name="mu_apagar">Üzenet törlése: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">A TV-je ebben az évben (decemberben, a képernyővédőn)</string>
+    <string name="extras_ENTRADAS_TV">HDMI-bemenetek az Alkalmazásokban (csak bemenettel rendelkező TV-ken)</string>
+    <string name="ra_titulo">A TV-je %d-ban/ben</string>
+    <string name="ra_canal">Kedvenc csatorna: %1$s (%2$s)</string>
+    <string name="ra_coluna">Rádió</string>
+    <string name="ra_dica_ouvir">hallgatás</string>
+    <string name="ra_dica_favoritar">kedvenc</string>
+    <string name="ra_carregando">Állomások betöltése…</string>
+    <string name="ra_sem_catalogo">A rádiókatalógus nem válaszolt. A kedvencei továbbra is működnek.</string>
+    <string name="ra_nada">Nem található állomás.</string>
+    <string name="ra_continuar">folytatás</string>
+    <string name="ra_pausar">szünet</string>
+    <string name="ra_favoritas">Kedvencek</string>
+    <string name="ra_procurar">Keresés</string>
+    <string name="ra_buscar">Keresés név szerint</string>
+    <string name="ra_buscar_det">Bármely állomás a világon</string>
+    <string name="ra_generos">Műfajok</string>
+    <string name="ra_perto">A közelben</string>
+    <string name="ra_mundo">A legtöbbet hallgatott a világon</string>
+    <string name="ra_resultado">Keresés: %s</string>
+    <string name="ra_favoritada">Hozzáadva a kedvencekhez</string>
+    <string name="ra_desfavoritada">Eltávolítva a kedvencek közül</string>
+    <string name="ra_falhou">Ez az állomás most nem szól. Próbáljon másikat.</string>
+</resources>
