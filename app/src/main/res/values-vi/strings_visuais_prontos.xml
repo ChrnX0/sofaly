@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Giao diện có sẵn</string>
+    <string name="vpr_det">Mỗi lần OK chuyển sang giao diện tiếp theo: chủ đề, chữ và màu nền cùng lúc</string>
+    <string name="vpr_meu">Của riêng bạn</string>
+    <string name="vpr_classico">Cổ điển</string>
+    <string name="vpr_leitura">Dễ đọc</string>
+    <string name="vpr_galeria">Thư viện ảnh</string>
+    <string name="vpr_galeria_grande">Thư viện ảnh lớn</string>
+    <string name="vpr_cores">Màu ứng dụng</string>
+</resources>

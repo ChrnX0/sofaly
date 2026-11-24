@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">Trên sofa</string>
+    <string name="jogos_controle_pronto">sẵn sàng</string>
+    <string name="jogos_controle_carregar">sắp cần sạc</string>
+    <string name="jogos_parear_um">Ghép nối tay cầm</string>
+    <string name="turma_titulo">Nhóm bạn của bạn</string>
+    <string name="turma_online">%1$d trực tuyến</string>
+    <string name="turma_mais_online">+ %1$d trực tuyến</string>
+    <string name="turma_na_voz">Đang trò chuyện</string>
+    <string name="turma_ausente">vắng mặt</string>
+    <string name="turma_ocupado">bận</string>
+    <string name="turma_status_online">trực tuyến</string>
+    <string name="turma_ninguem">Hiện không ai trực tuyến</string>
+    <string name="turma_procurando">Đang tìm nhóm bạn…</string>
+    <string name="turma_sem_rede">Hiện không kết nối được Discord.</string>
+    <string name="turma_mostrar_titulo">Hiện nhóm bạn Discord</string>
+    <string name="turma_mostrar_texto">Xem trên TV ai đang trực tuyến, đang chơi và đang trò chuyện.</string>
+    <string name="turma_desligado_titulo">Widget máy chủ đang tắt</string>
+    <string name="turma_desligado_texto">Trong Discord: Server Settings, Widget, bật Enable Server Widget.</string>
+    <string name="turma_qr_dica">Hướng điện thoại vào đây để tham gia trò chuyện thoại. Cuộc nói chuyện diễn ra trên điện thoại.</string>
+    <string name="turma_jogando">%1$s đang chơi %2$s</string>
+    <string name="turma_dois">%1$s và %2$s</string>
+    <string name="turma_e_mais">%1$s và %2$d người khác</string>
+    <string name="turma_chamar">Gọi nhóm bạn</string>
+    <string name="turma_chamar_pergunta">Gửi đến kênh Discord?</string>
+    <string name="turma_chamado_jogo">🎮 Ai chơi %1$s không? Mình đang ở TV.</string>
+    <string name="turma_chamado">🎮 Ai chơi một ván không? Mình đang ở TV.</string>
+    <string name="turma_mandar">Gửi</string>
+    <string name="turma_enviado">Đã gọi nhóm bạn trên Discord.</string>
+    <string name="turma_espere">Hãy đợi một phút trước khi gọi lại.</string>
+    <string name="turma_falhou">Discord không nhận được. Hãy kiểm tra internet hoặc webhook.</string>
+    <string name="turma_config_titulo">Nhóm bạn Discord của bạn</string>
+    <string name="turma_config_texto">1. Trong Discord: Server Settings, Widget, bật Enable Server Widget.\n2. Trên cùng trang, sao chép Server ID và nhập vào đây.\n\nĐể dùng nút Gọi nhóm bạn, dán webhook của một kênh vào bảng điều khiển web của TV.</string>
+    <string name="turma_config_dica">Server ID (chỉ số)</string>
+    <string name="turma_config_guardar">Lưu</string>
+    <string name="turma_config_tirar">Xóa nhóm bạn</string>
+    <string name="turma_id_invalido">Đây không phải Server ID của Discord (17 đến 20 chữ số).</string>
+    <string name="cruz_sofa_sub">Tay cầm và nhóm bạn Discord</string>
+    <string name="cruz_sofa_voz">%1$d đang trò chuyện · %2$s</string>
+</resources>

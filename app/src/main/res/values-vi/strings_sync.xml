@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Đã đăng nhập với tên %1$s. Những gì TV đồng bộ với điện thoại của bạn.</string>
+    <string name="sync_sub_mdblist">Đã đăng nhập với tên %1$s. Danh sách MDBList của bạn có thể hiện trong danh mục.</string>
+    <string name="sync_ultima">Lần đồng bộ cuối: %1$s</string>
+    <string name="sync_nunca">Chưa đồng bộ</string>
+    <string name="sync_interesses">Quan tâm ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Quan tâm ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Những gì bạn đánh dấu ở đây sẽ hiện ở đó, và ngược lại</string>
+    <string name="sync_assistidos">Đã xem ← Lịch sử</string>
+    <string name="sync_assistidos_det">Đưa vào những gì bạn đã xem trên điện thoại hoặc nơi khác</string>
+    <string name="sync_continuar">Xem tiếp ⇄ Chỗ đã dừng</string>
+    <string name="sync_continuar_det">Dừng trên điện thoại, xem tiếp trên TV ở đúng chỗ đó</string>
+    <string name="sync_contar">Cho %1$s biết tôi xem gì ở đây</string>
+    <string name="sync_contar_det">Gửi “đang xem” và “đã xem” trong lúc phát. Không bao giờ ở chế độ Khách hoặc hồ sơ trẻ em.</string>
+    <string name="sync_listas">Danh sách trong danh mục</string>
+    <string name="sync_listas_nenhuma">Chưa chọn</string>
+    <string name="sync_listas_n">Đã chọn %1$d: %2$s</string>
+    <string name="sync_listas_sub">Chúng hiện trong DANH SÁCH, dưới Tất cả, chỉ với các tựa có trong danh sách của bạn. Tối đa %1$d.</string>
+    <string name="sync_listas_carregando">Đang tải danh sách của bạn…</string>
+    <string name="sync_listas_vazio">Không tìm thấy danh sách. Hãy tạo hoặc thích một danh sách trên Trakt hoặc MDBList rồi quay lại đây.</string>
+    <string name="sync_listas_cheio">Tối đa %1$d danh sách</string>
+    <string name="sync_lista_itens">%1$d tựa</string>
+    <string name="sync_agora">Đồng bộ ngay</string>
+    <string name="sync_agora_det">Cũng tự đồng bộ khi bạn mở Phim hoặc Phim bộ</string>
+    <string name="sync_rodando">Đang đồng bộ…</string>
+    <string name="sync_feito">Đã đồng bộ</string>
+    <string name="sync_sair">Đăng xuất khỏi %1$s</string>
+    <string name="sync_bloqueado">Tạm dừng: đang bật chế độ Khách hoặc hồ sơ trẻ em.</string>
+    <string name="sync_outro_perfil">Tạm dừng: việc đồng bộ thuộc về hồ sơ khác.</string>
+    <string name="sync_trakt_cheia">Danh sách Trakt của bạn đã đầy (tài khoản miễn phí chứa 100). Launcher chỉ tiếp tục trên TV.</string>
+    <string name="sync_ligado">Bật</string>
+    <string name="sync_desligado">Tắt</string>
+    <string name="sync_fonte_trakt">Dữ liệu từ Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Dữ liệu từ Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d trên %2$d trong danh sách của bạn</string>
+    <string name="sync_continuando">Xem tiếp từ chỗ bạn dừng trên thiết bị kia</string>
+</resources>

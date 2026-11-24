@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">Độ ổn định của launcher (7 ngày)</string>
+    <string name="vit_ok">Không có lỗi hay treo. Số ngày sử dụng: %1$d.</string>
+    <string name="vit_problemas">Lỗi: %1$d. Treo: %2$d. Hiện trên màn hình: %3$d. Ngày có sự cố: %4$d trên %5$d.</string>
+</resources>

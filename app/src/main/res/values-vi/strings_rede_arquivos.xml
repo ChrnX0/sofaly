@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Cắm vào TV</string>
+    <string name="rede_sub_usb">Ổ USB · video, nhạc và ảnh</string>
+    <string name="rede_acao_arquivos">FTP, SFTP hoặc NFS</string>
+    <string name="rede_sub_arquivos">NAS, router có ổ đĩa, máy tính Linux hoặc Mac</string>
+    <string name="rede_arq_explica">Bắt đầu địa chỉ bằng giao thức: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. SFTP và FTPS được mã hóa; FTP thường gửi mật khẩu không mã hóa, nên chỉ dùng trong nhà. NFS không có mật khẩu: NAS phải cho phép IP của TV và kết nối từ cổng không đặc quyền.</string>
+    <string name="rede_arq_endereco">Địa chỉ (sftp://, ftp://, ftps:// hoặc nfs://)</string>
+    <string name="rede_arq_usuario">Tên người dùng (NFS: số người dùng, không bắt buộc)</string>
+    <string name="rede_arq_endereco_erro">Bắt đầu bằng sftp://, ftp://, ftps:// hoặc nfs://, tiếp theo là máy chủ và thư mục. Tên người dùng và mật khẩu nhập vào ô riêng.</string>
+    <string name="rede_erro_nfs_porta">Máy chủ NFS từ chối TV. Trên NAS, hãy cho phép kết nối từ cổng không đặc quyền (Linux: tùy chọn \"insecure\" trong /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">Máy chủ NFS không cho phép TV này. Trên NAS, hãy thêm IP của TV (hoặc mạng gia đình) vào quy tắc NFS của thư mục này.</string>
+    <string name="rede_erro_chave_mudou">Khóa của máy chủ này đã thay đổi kể từ khi được thêm. Nếu bạn đã cài lại máy chủ, hãy xóa nó ở đây và thêm lại; nếu không, có thể ai đó đang giả mạo nó.</string>
+    <string name="rede_erro_usb_acesso">TV không cho launcher truy cập ổ USB. Hãy thử lại sau giây lát.</string>
+</resources>

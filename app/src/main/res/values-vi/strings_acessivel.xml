@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Phụ đề nền đen</string>
+    <string name="acess_legenda_amarela">Phụ đề màu vàng</string>
+    <string name="acess_volume">Âm lượng đều giữa các kênh</string>
+    <string name="acess_voz">Giọng nói rõ hơn</string>
+    <string name="acess_volume_ligado">Đã bật âm lượng đều: kênh và phim nhỏ tiếng sẽ to hơn</string>
+    <string name="acess_volume_desligado">Đã tắt âm lượng đều</string>
+    <string name="acess_voz_ligado">Đã bật giọng nói rõ hơn</string>
+    <string name="acess_voz_desligado">Đã tắt giọng nói rõ hơn</string>
+    <string name="acess_config_titulo">Âm thanh và phụ đề</string>
+    <string name="acess_config_texto">Dành cho người nhìn hoặc nghe kém. Cũng có trong menu ▼ của trình phát.</string>
+</resources>

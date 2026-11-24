@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">ปุ่มรีโมตของ Launcher (ปุ่ม Netflix/YouTube ที่ตั้งใหม่ได้) และหน้าต่างจับคู่โดยไม่ต้องใช้คอมพิวเตอร์</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">เชื่อมต่อแล้ว</string>
+    <string name="cfg_vpn_desconectada">ไม่ได้เชื่อมต่อ</string>
+    <string name="cfg_titulo">การตั้งค่า</string>
+    <string name="cfg_diag">ตรวจสอบทีวี</string>
+    <string name="cfg_diag_det">อินเทอร์เน็ต, DNS, VPN และสาเหตุที่แอปหยุดทำงาน — ในครั้งเดียว</string>
+    <string name="cfg_tema_det">เปลี่ยนเป็นรูปแบบถัดไป</string>
+    <string name="cfg_nunca">ไม่เลย</string>
+    <string name="cfg_min">%1$d นาที</string>
+    <string name="cfg_nao_gravou_do">บันทึกไม่ได้ (Device Owner ไม่ทำงาน?)</string>
+    <string name="cfg_visita">โหมดผู้เยี่ยมชม</string>
+    <string name="cfg_rotinas">กิจวัตร</string>
+    <string name="cfg_sec_atualizacao">อัปเดต</string>
+    <string name="cfg_atualizar">ตรวจหาเวอร์ชันใหม่</string>
+    <string name="cfg_atualizar_det">เวอร์ชัน %1$s · %2$s · OK เพื่อตรวจตอนนี้</string>
+    <string name="cfg_procurando">กำลังตรวจสอบ GitHub…</string>
+    <string name="cfg_instalar">ติดตั้งเวอร์ชัน %1$d ตอนนี้</string>
+    <string name="cfg_instalar_det">Launcher จะปิดและกลับมาเองในไม่กี่วินาที · OK เพื่อติดตั้ง</string>
+    <string name="cfg_instalando">กำลังดาวน์โหลดและตรวจสอบ…</string>
+    <string name="cfg_sec_rede">เครือข่าย</string>
+    <string name="cfg_dns">DNS ส่วนตัว</string>
+    <string name="cfg_dns_caiu">" · %1$s ไม่ตอบสนอง จึงกลับไปใช้อัตโนมัติ"</string>
+    <string name="cfg_velocidade">ทดสอบความเร็วอินเทอร์เน็ต</string>
+    <string name="cfg_velocidade_det">ดาวน์โหลด 25 MB แล้ววัดผล</string>
+    <string name="cfg_testando">กำลังทดสอบ…</string>
+    <string name="cfg_nao_mudou_do">เปลี่ยนไม่ได้ (Device Owner ไม่ทำงาน?)</string>
+    <string name="cfg_sec_ligado">สิ่งที่เปิดอยู่ — %1$s</string>
+    <string name="cfg_ligado">เปิด</string>
+    <string name="cfg_so_pc">" · ต้องใช้คอมพิวเตอร์เท่านั้น (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK เพื่อลองเปิด"</string>
+    <string name="cfg_perm_fixas">ให้สิทธิ์ถาวรแล้ว</string>
+    <string name="cfg_shell_estado">เชลล์ของตัวเอง</string>
+    <string name="cfg_shell_pareado">จับคู่แล้ว: Launcher จะเชื่อมต่อใหม่เองผ่านการแก้ไขข้อบกพร่องแบบไร้สาย</string>
+    <string name="cfg_shell_nunca">ยังไม่ได้จับคู่: ใช้ \"จับคู่โดยไม่ใช้คอมพิวเตอร์\" ด้านล่าง</string>
+    <string name="cfg_sec_shizuku">เชลล์ของ Launcher (Wi-Fi ADB)</string>
+    <string name="cfg_parear">จับคู่โดยไม่ใช้คอมพิวเตอร์</string>
+    <string name="cfg_parear_det">เปิดหน้าจับคู่ของ Android พร้อมแป้นตัวเลขของ Launcher ด้านบน</string>
+    <string name="cfg_acess_off">บริการการช่วยเหลือพิเศษของ Launcher ปิดอยู่</string>
+    <string name="cfg_versao">เวอร์ชัน Launcher</string>
+    <string name="cfg_desconhecida">ไม่ทราบ</string>
+    <string name="cfg_depuracao">การแก้ไขข้อบกพร่องแบบไร้สาย</string>
+    <string name="cfg_depuracao_on">Launcher เปิดค้างไว้</string>
+    <string name="cfg_depuracao_android">ตามที่ Android ตั้งไว้</string>
+    <string name="cfg_chave">คีย์เชลล์ของตัวเอง</string>
+    <string name="cfg_calculando">กำลังคำนวณ…</string>
+    <string name="cfg_erro">ข้อผิดพลาด: %1$s</string>
+    <string name="cfg_licencas">สัญญาอนุญาตและเครดิต</string>
+    <string name="cfg_licencas_det">โค้ด แบบอักษร ไอคอน และข้อมูลจากภายนอกที่ใช้ในแอปนี้</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">ถ้าไม่มี: ซ่อนแอปไม่ได้ ตรึง HOME หรือ VPN ไม่ได้ ตั้งเวลาโปรแกรมรักษาหน้าจอไม่ได้</string>
+    <string name="rec_agenda">ปฏิทิน</string>
+    <string name="rec_agenda_sem">ถ้าไม่มี: ปฏิทินจะไม่แสดงกิจกรรม</string>
+    <string name="rec_local">ตำแหน่ง</string>
+    <string name="rec_local_sem">ถ้าไม่มี: สภาพอากาศใช้เมืองจาก IP และ Wi-Fi ไม่แสดงชื่อเครือข่าย</string>
+    <string name="rec_contas">บัญชี</string>
+    <string name="rec_contas_sem">ถ้าไม่มี: จุดโปรไฟล์จะไม่แสดงอักษรย่อของบัญชี</string>
+    <string name="rec_uso">การใช้งานแอป</string>
+    <string name="rec_uso_sem">ถ้าไม่มี: แอปจะไม่เรียงตามการใช้ล่าสุด</string>
+    <string name="rec_sobre">แสดงทับแอปอื่น</string>
+    <string name="rec_sobre_sem">ถ้าไม่มี: โน้ตและการจับคู่โดยไม่ใช้คอมพิวเตอร์จะไม่แสดงทับแอป</string>
+    <string name="rec_seguras">การตั้งค่าที่ปลอดภัย</string>
+    <string name="rec_seguras_sem">ถ้าไม่มี: เปลี่ยน DNS ไม่ได้ และไม่รีสตาร์ทบริการปุ่มและการแก้ไขข้อบกพร่องแบบไร้สายอัตโนมัติ (ทำได้เฉพาะกับคอมพิวเตอร์หรือเชลล์ของ Launcher)</string>
+    <string name="rec_teclas">บริการปุ่ม</string>
+    <string name="rec_teclas_sem">ถ้าไม่มี: HOME อาจเปิด Launcher ของ Google และปุ่ม Netflix/YouTube จะไม่ถูกตั้งใหม่</string>
+    <string name="rec_tudo">เปิดครบทุกอย่าง</string>
+    <string name="rec_faltam">ขาด %1$d จาก %2$d ฟีเจอร์ · OK ที่รายการเพื่อลองเปิด</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">ยินดีต้อนรับ</string>
+    <string name="bv_texto">หน้าจอหลัก นาฬิกา สภาพอากาศ นาฬิกาปลุก และโปรแกรมรักษาหน้าจอใช้งานได้แล้ว เปิดส่วนที่เหลือได้ที่นี่ถ้าต้องการ (%1$s)</string>
+    <string name="bv_comecar">เริ่ม</string>
+    <string name="bv_comecar_det">ไปที่หน้าจอหลัก</string>
+    <string name="bv_perm">เปิดปฏิทิน ตำแหน่ง และบัญชี</string>
+    <string name="bv_perm_det">กิจกรรมในปฏิทิน สภาพอากาศของเมืองคุณ อักษรย่อบัญชีบนโปรไฟล์</string>
+    <string name="bv_teclas">เปิดบริการปุ่ม</string>
+    <string name="bv_teclas_det">การช่วยเหลือพิเศษ › ปุ่มรีโมต: ทำให้ HOME กลับมาที่นี่เสมอ</string>
+    <string name="bv_tudo">ดูทุกอย่างที่เปิดได้</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">ไม่พบไฟล์สัญญาอนุญาต</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">เปิดทีวี</string>
+    <string name="rot_abrir_um">เปิดทีวีและเปิดแอป</string>
+    <string name="rot_desligar">ปิดทีวี</string>
+    <string name="rot_abrir">เปิดทีวีและเปิด %1$s</string>
+    <string name="rot_um_app">แอป (เลือก)</string>
+    <string name="rot_se_ocioso">" ถ้าไม่มีใครแตะเป็นเวลา %1$s"</string>
+    <string name="rot_sempre">ทุกครั้ง</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">ไม่มีกิจวัตรที่เปิดอยู่</string>
+    <string name="rot_proxima">ถัดไป: %1$s</string>
+    <string name="rot_nova_mais">+ กิจวัตรใหม่</string>
+    <string name="rot_nova_det">เปิดทีวี เปิดแอป หรือปิดทีวีตามเวลาที่ตั้งไว้</string>
+    <string name="rot_desligada_sufixo">" · ปิด"</string>
+    <string name="rot_nova">กิจวัตรใหม่</string>
+    <string name="rot_editar">แก้ไขกิจวัตร</string>
+    <string name="rot_editor_det">OK เปลี่ยนแต่ละบรรทัด · BACK ออกโดยไม่บันทึก</string>
+    <string name="rot_hora">เวลา: %1$s</string>
+    <string name="rot_dias">วัน: %1$s</string>
+    <string name="rot_acao">การทำงาน: %1$s</string>
+    <string name="rot_app">แอป: %1$s</string>
+    <string name="rot_nenhum">ไม่มี</string>
+    <string name="rot_ocioso">เฉพาะเมื่อไม่มีใครแตะเป็นเวลา: %1$s</string>
+    <string name="rot_ligada">เปิด</string>
+    <string name="rot_desligada">ปิด</string>
+    <string name="rot_hora_det">◀ ▶ 5 นาที · OK +1 ชั่วโมง</string>
+    <string name="rot_dias_det">OK: ทุกวัน, จันทร์ถึงศุกร์, สุดสัปดาห์, ครั้งเดียว</string>
+    <string name="rot_ok_muda">OK เพื่อเปลี่ยน</string>
+    <string name="rot_app_det">OK หรือ ▶ ถัดไป · ◀ ก่อนหน้า</string>
+    <string name="rot_ocioso_det">ไม่รบกวนคนที่กำลังดูอยู่</string>
+    <string name="rot_ativa_det">OK เพื่อเปิด/ปิดกิจวัตรนี้</string>
+    <string name="rot_salvar">บันทึก</string>
+    <string name="rot_escolha_app">เลือกแอป</string>
+    <string name="rot_apagar">ลบกิจวัตรนี้</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">ครั้งเดียว</string>
+    <string name="dia_todo">ทุกวัน</string>
+    <string name="dia_seg_sex">จันทร์ถึงศุกร์</string>
+    <string name="dia_fim">สุดสัปดาห์</string>
+    <string-array name="dias_curtos">
+        <item>อา.</item>
+        <item>จ.</item>
+        <item>อ.</item>
+        <item>พ.</item>
+        <item>พฤ.</item>
+        <item>ศ.</item>
+        <item>ส.</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE d MMMM</string>
+    <string name="home_perfil">โปรไฟล์</string>
+    <string name="home_visita_titulo">โหมดผู้เยี่ยมชมเปิดอยู่</string>
+    <string name="home_visita_msg">โปรไฟล์ ปฏิทิน และแอปที่เลือกถูกซ่อนอยู่ ออกจากโหมดผู้เยี่ยมชมไหม</string>
+    <string name="home_continuar">คงไว้</string>
+    <string name="home_sair">ออก</string>
+    <string name="comum_cancelar">ยกเลิก</string>
+    <string name="home_mostrar">แสดงบนหน้าจอหลัก</string>
+    <string name="home_ocultar">ซ่อนจากหน้าจอหลัก</string>
+    <string name="home_sob_demanda">ตรึงแอปเมื่อไม่ใช้งาน</string>
+    <string name="home_sob_demanda_tirar">เลิกตรึงแอปเมื่อไม่ใช้งาน</string>
+    <string name="sob_demanda_ligado">ตรึงแอปแล้ว แอปยังอยู่ที่นี่: OK เพื่อปลดและเปิด และจะถูกตรึงอีกครั้ง 2 นาทีหลังจากคุณออก</string>
+    <string name="sob_demanda_desligado">ปลดการตรึงแล้ว ใช้งานได้เหมือนเดิม</string>
+    <string name="sob_demanda_falhou">เปลี่ยนไม่ได้ในตอนนี้ โปรดลองอีกครั้งในอีกสักครู่</string>
+    <string name="home_desinstalar">ถอนการติดตั้ง</string>
+    <string name="home_app_sistema"> (แอประบบ)</string>
+    <string name="home_desinstalar_titulo">ถอนการติดตั้ง %1$s ไหม</string>
+    <string name="home_desinstalar_aviso">แอปและข้อมูลของแอปจะถูกลบออกจากทีวี ย้อนกลับไม่ได้: หากต้องการคืน ให้ติดตั้งใหม่จาก Play Store</string>
+    <string name="home_cancelar">ยกเลิก</string>
+    <string name="home_desinstalando">กำลังถอนการติดตั้ง %1$s…</string>
+    <string name="home_desinstalado">ถอนการติดตั้ง %1$s แล้ว</string>
+    <string name="home_desinstalar_falhou">ถอนการติดตั้ง %1$s ไม่ได้: %2$s</string>
+    <string name="home_chovendo">ฝนกำลังตก</string>
+    <string name="home_chuva_agora">%1$s - ฝน %2$d%% ตอนนี้</string>
+    <string name="home_chuva_em">%1$s - ฝน %2$d%% ในอีก %3$d ชม.</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">ตั้งนาฬิกาปลุกแล้ว: %1$s</string>
+    <string name="al_um_app">แอป</string>
+    <string name="al_criar_q">ตั้งนาฬิกาปลุกเวลา %1$s ไหม</string>
+    <string name="al_pedido">ขอโดย %1$s</string>
+    <string name="al_criar">ตั้ง</string>
+    <string name="al_titulo">นาฬิกาปลุก</string>
+    <string name="al_nenhum">ไม่มีนาฬิกาปลุกที่เปิดอยู่</string>
+    <string name="al_novo_mais">+  นาฬิกาปลุกใหม่</string>
+    <string name="al_ligado">เปิด</string>
+    <string name="al_desligado">ปิด</string>
+    <string name="al_novo">นาฬิกาปลุกใหม่</string>
+    <string name="al_editar">แก้ไขนาฬิกาปลุก</string>
+    <string name="al_apagar">ลบ</string>
+    <string name="al_hoje">วันนี้</string>
+    <string name="al_amanha">พรุ่งนี้</string>
+    <string name="al_dia_as">%1$s เวลา %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">หยุด</string>
+    <string name="al_soneca">เลื่อนปลุก 10 นาที</string>
+    <string name="al_perdido_um">นาฬิกาปลุก %1$s ไม่ดังเพราะทีวีปิดอยู่</string>
+    <string name="al_perdido_varios">นาฬิกาปลุก %1$s ไม่ดังเพราะทีวีปิดอยู่</string>
+    <string name="al_perdido_e">และ</string>
+    <string name="al_volume_nao_mexe">ไม่เปลี่ยน</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">ไม่มีบัญชี Google</string>
+    <string name="pp_ativo">"  ·  ใช้งานอยู่"</string>
+    <string name="pp_adicionar">เพิ่มโปรไฟล์</string>
+    <string name="pr_bt_controle">รีโมต</string>
+    <string name="pp_audio">เสียง</string>
+    <string name="pp_carregando">กำลังโหลด…</string>
+    <string name="pp_conectar">เชื่อมต่อ</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">ไม่มีบัญชี Google</string>
+    <string name="cal_dica">◀ ▶ เปลี่ยนเดือน</string>
+    <string name="cal_30">30 วันข้างหน้า</string>
+    <string name="cal_nenhuma_conta">ไม่มีบัญชี Google บนทีวี</string>
+    <string name="cal_nada">ไม่มีนัดหมาย (หรือปฏิทินยังซิงค์อยู่)</string>
+    <string name="fmt_mes_ano">MMMM yyyy</string>
+    <string name="cal_dia_todo">ทั้งวัน</string>
+    <string name="cal_sem_titulo">(ไม่มีชื่อ)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  ฝนตก"</string>
+    <string name="pt_lua">ดวงจันทร์</string>
+    <string name="pt_sol">ดวงอาทิตย์</string>
+    <string name="pt_umidade">ความชื้น</string>
+    <string name="pt_chuva">ฝน</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">ฝน</string>
+    <string name="cl_limpo">ท้องฟ้าแจ่มใส</string>
+    <string name="cl_poucas">มีเมฆเล็กน้อย</string>
+    <string name="cl_parcial">มีเมฆบางส่วน</string>
+    <string name="cl_nublado">มีเมฆมาก</string>
+    <string name="cl_neblina">หมอก</string>
+    <string name="cl_garoa_fraca">ฝนปรอยเล็กน้อย</string>
+    <string name="cl_garoa">ฝนปรอย</string>
+    <string name="cl_garoa_forte">ฝนปรอยหนัก</string>
+    <string name="cl_garoa_cong">ฝนปรอยเยือกแข็ง</string>
+    <string name="cl_chuva_fraca">ฝนตกเล็กน้อย</string>
+    <string name="cl_chuva_forte">ฝนตกหนัก</string>
+    <string name="cl_chuva_cong">ฝนเยือกแข็ง</string>
+    <string name="cl_neve_fraca">หิมะตกเล็กน้อย</string>
+    <string name="cl_neve">หิมะ</string>
+    <string name="cl_neve_forte">หิมะตกหนัก</string>
+    <string name="cl_graos">เกล็ดหิมะ</string>
+    <string name="cl_panc_fracas">ฝนไล่ช้างเล็กน้อย</string>
+    <string name="cl_panc">ฝนไล่ช้าง</string>
+    <string name="cl_panc_fortes">ฝนไล่ช้างหนัก</string>
+    <string name="cl_panc_neve">หิมะตกเป็นช่วง</string>
+    <string name="cl_tempestade">พายุฝนฟ้าคะนอง</string>
+    <string name="cl_granizo">พายุฝนฟ้าคะนองและลูกเห็บ</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">เต็มดวงในอีก %1$d วัน</string>
+    <string name="lua_nova_em">เดือนดับในอีก %1$d วัน</string>
+    <string-array name="fases_lua">
+        <item>เดือนดับ</item>
+        <item>ข้างขึ้นเสี้ยว</item>
+        <item>ขึ้นครึ่งดวง</item>
+        <item>ข้างขึ้นค่อนดวง</item>
+        <item>พระจันทร์เต็มดวง</item>
+        <item>ข้างแรมค่อนดวง</item>
+        <item>แรมครึ่งดวง</item>
+        <item>ข้างแรมเสี้ยว</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">กำลังโหลดพยากรณ์อากาศ…</string>
+    <string name="pv_voz_agora">"ตอนนี้ %1$d องศา %2$s "</string>
+    <string name="pv_voz_hoje">วันนี้ สูงสุด %1$d ต่ำสุด %2$d</string>
+    <string name="pv_voz_chuva">", มีโอกาสฝนตก %1$d เปอร์เซ็นต์ "</string>
+    <string name="pv_voz_sem_chuva">", ไม่คาดว่าจะมีฝน "</string>
+    <string name="pv_voz_amanha">พรุ่งนี้ %1$s สูงสุด %2$d ต่ำสุด %3$d</string>
+    <string name="pv_voz_amanha_chuva">, มีโอกาสฝนตก %1$d เปอร์เซ็นต์</string>
+    <string name="pv_sem">ดึงพยากรณ์อากาศไม่ได้ในตอนนี้ ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง</string>
+    <string name="pv_max_min">สูงสุด %1$d°   ต่ำสุด %2$d°   ·   รู้สึกเหมือน %3$d°</string>
+    <string name="pv_24h">24 ชั่วโมงข้างหน้า</string>
+    <string name="pv_agora">ตอนนี้</string>
+    <string name="pv_chance">โอกาสฝนตก</string>
+    <string name="pv_7d">9 วันข้างหน้า</string>
+    <string name="pv_hoje">วันนี้</string>
+    <string name="pv_mais_quente">อุ่นขึ้น</string>
+    <string name="pv_mais_frio">เย็นลง</string>
+    <string name="pv_igual">เท่ากับอุณหภูมิจริง</string>
+    <string name="pv_detalhes">รายละเอียด</string>
+    <string name="pv_sensacao">รู้สึกเหมือน</string>
+    <string name="pv_vento">ลม</string>
+    <string name="pv_uv">ดัชนี UV</string>
+    <string name="pv_visib">ทัศนวิสัย</string>
+    <string name="pv_orvalho">จุดน้ำค้าง</string>
+    <string name="pv_pressao">ความกดอากาศ</string>
+    <string name="pv_chuva_hoje">ฝนวันนี้</string>
+    <string name="pv_ar">คุณภาพอากาศ</string>
+    <string name="pv_sem_dados">ไม่มีข้อมูลในตอนนี้</string>
+    <string name="uv_baixo">ต่ำ</string>
+    <string name="uv_moderado">ปานกลาง</string>
+    <string name="uv_alto">สูง</string>
+    <string name="uv_muito_alto">สูงมาก</string>
+    <string name="uv_extremo">รุนแรง</string>
+    <string name="aq_boa">ดี</string>
+    <string name="aq_moderada">ปานกลาง</string>
+    <string name="aq_sensiveis">มีผลต่อกลุ่มเสี่ยง</string>
+    <string name="aq_ruim">มีผลต่อสุขภาพ</string>
+    <string name="aq_muito_ruim">มีผลต่อสุขภาพมาก</string>
+    <string name="aq_perigosa">อันตราย</string>
+    <string-array name="rosa_ventos">
+        <item>เหนือ</item>
+        <item>ตอ.น.</item>
+        <item>ตะวันออก</item>
+        <item>ตอ.ต.</item>
+        <item>ใต้</item>
+        <item>ตต.ต.</item>
+        <item>ตะวันตก</item>
+        <item>ตต.น.</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">มืด</string>
+    <string name="tema_galeria">แกลเลอรี</string>
+    <string name="tema_meu">พื้นหลังของฉัน</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">นุ่มนวล</string>
+    <string name="som_classico">คลาสสิก</string>
+    <string name="som_sino">กระดิ่ง</string>
+    <string name="som_rampa1">ดังขึ้นทีละน้อยใน 1½ นาที</string>
+    <string name="som_rampa2">ดังขึ้นทีละน้อยใน 2 นาที</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">อินเทอร์เน็ต: %1$.0f Mbps (ดาวน์โหลด %2$.0f MB ใน %3$.1f วินาที)</string>
+    <string name="vel_falhou">ทดสอบไม่สำเร็จ (ไม่มีอินเทอร์เน็ตหรือเซิร์ฟเวอร์ล่ม)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  ปัจจุบัน"</string>
+    <string name="esc_botao">ปุ่ม %1$s เปิด:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">พระอาทิตย์ขึ้น %1$s</string>
+    <string name="fd_por">พระอาทิตย์ตก %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: ใช้   ·   กด OK ค้างที่เซิร์ฟเวอร์ของคุณ: ลบ   ·   กลับ: ออก</string>
+    <string name="dns_auto">อัตโนมัติ</string>
+    <string name="dns_auto_det">ใช้ DNS ของเราเตอร์และเข้ารหัสเมื่อรองรับ (ค่าเริ่มต้นของ Android)</string>
+    <string name="dns_desl">ปิด</string>
+    <string name="dns_desl_det">DNS ธรรมดา ไม่เข้ารหัส</string>
+    <string name="dns_publicos">เซิร์ฟเวอร์สาธารณะ</string>
+    <string name="dns_meus">เซิร์ฟเวอร์ของฉัน</string>
+    <string name="dns_adicionar">+  เพิ่มเซิร์ฟเวอร์</string>
+    <string name="dns_adicionar_det">ที่อยู่ DNS-over-TLS เช่น dns.example.com</string>
+    <string name="dns_sem_permissao">"ไม่มีสิทธิ์เปลี่ยน DNS ในคอมพิวเตอร์: "</string>
+    <string name="dns_troque_antes">เปลี่ยนเซิร์ฟเวอร์ก่อนลบเซิร์ฟเวอร์นี้</string>
+    <string name="dns_remover_q">ลบ %1$s ไหม</string>
+    <string name="dns_remover">ลบ</string>
+    <string name="dns_nome_opc">ชื่อ (ไม่บังคับ)</string>
+    <string name="dns_endereco_ex">ที่อยู่ เช่น dns.example.com</string>
+    <string name="dns_adicionar_tit">เพิ่มเซิร์ฟเวอร์ DNS</string>
+    <string name="dns_salvar_usar">บันทึกและใช้</string>
+    <string name="dns_invalido">ที่อยู่ไม่ถูกต้อง ใช้ชื่ออย่าง dns.example.com (Android ไม่รับหมายเลข IP)</string>
+    <string name="dns_em_uso">ใช้งานอยู่: %1$s</string>
+    <string name="dns_testando">กำลังทดสอบ…</string>
+    <string name="dns_falha">ล้มเหลว: แปลงชื่อไม่ได้เลย เลือกเซิร์ฟเวอร์อื่นหรืออัตโนมัติ</string>
+    <string name="dns_res_sem_cripto">แปลงชื่อใน %1$d ms (ไม่เข้ารหัส)</string>
+    <string name="dns_res_tls">แปลงชื่อใน %1$d ms   ·   TLS ทำงาน</string>
+    <string name="dns_res_com">" ด้วย %1$s"</string>
+    <string name="dns_res_sem_tls">แปลงชื่อใน %1$d ms   ·   ไม่มี TLS ในตอนนี้</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (ส่วนตัว)</string>
+    <string name="dns_personalizado">กำหนดเอง (%1$s)</string>
+    <string name="dns_rot_auto">อัตโนมัติ</string>
+    <string name="dns_rot_desl">ปิด</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">สรุป</string>
+    <string name="diag_frase">ในประโยคเดียว</string>
+    <string name="diag_wifi_desc">ไม่ได้เชื่อมต่อ: ทีวีไม่ได้อยู่ในเครือข่ายใด</string>
+    <string name="diag_lat">%1$d ms ถึงอินเทอร์เน็ต</string>
+    <string name="diag_sem_resp">อินเทอร์เน็ตไม่ตอบสนอง</string>
+    <string name="diag_wifi">%1$s · สัญญาณ %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Android ยืนยัน Wi-Fi แล้ว</string>
+    <string name="diag_nao_validou">Android ยังไม่ยืนยัน Wi-Fi</string>
+    <string name="diag_net_ok">ใช้งานได้ (ทดสอบใน %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">การทดสอบไปไม่ถึง Google · %1$s</string>
+    <string name="diag_net_estranha">การตอบกลับผิดปกติ (%1$d): เครือข่ายอาจต้องให้เข้าสู่ระบบ · %2$s</string>
+    <string name="diag_cripto">การเข้ารหัสทำงาน</string>
+    <string name="diag_sem_cripto">การเข้ารหัสไม่ทำงาน</string>
+    <string name="diag_resolve">แปลงชื่อได้ (%1$d ms)</string>
+    <string name="diag_nao_resolve">แปลงชื่อไม่ได้</string>
+    <string name="diag_caiu">%1$s ล้มเหลวก่อนหน้านี้ จึงกลับไปใช้อัตโนมัติ</string>
+    <string name="diag_nenhum_app">ไม่มีแอป</string>
+    <string name="diag_vpn_nada">ไม่มี VPN ที่ตรึงไว้หรือเปิดอยู่</string>
+    <string name="diag_vpn_desc">ตรึง %1$s ไว้ แต่ไม่ได้เชื่อมต่อ (อินเทอร์เน็ตยังใช้ได้โดยไม่มี VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s เชื่อมต่อแล้ว แต่ Android ยังไม่ยืนยันอุโมงค์</string>
+    <string name="diag_vpn_ok">%1$s เชื่อมต่อและใช้งานได้</string>
+    <string name="diag_r_sem_wifi">ทีวีไม่มี Wi-Fi</string>
+    <string name="diag_r_dns_fora">DNS ไม่ตอบสนอง: อินเทอร์เน็ตดูเหมือนจะล่ม</string>
+    <string name="diag_r_net_fora">อินเทอร์เน็ตส่งผ่านไม่ได้ (เราเตอร์หรือผู้ให้บริการ)</string>
+    <string name="diag_r_dns">DNS แปลงชื่อไม่ได้: แอปหาเซิร์ฟเวอร์ของตัวเองไม่เจอ</string>
+    <string name="diag_r_net">DNS ใช้งานได้ แต่อินเทอร์เน็ตไม่ตอบสนอง</string>
+    <string name="diag_r_vpn">เครือข่ายปกติ มีแค่ VPN ที่ล่ม (แอปใช้งานได้โดยไม่มี VPN)</string>
+    <string name="diag_r_atencao">เครือข่ายใช้งานได้ มีจุดที่ควรสังเกตด้านล่าง</string>
+    <string name="diag_r_ok">เครือข่ายปกติ ถ้าแอปหยุดทำงาน ดูว่าเกิดอะไรขึ้นด้านล่าง</string>
+    <string name="diag_usava">" · ใช้อยู่ %1$d MB"</string>
+    <string name="diag_texto">สาเหตุ: %1$s\nโปรเซส: %2$s\nความสำคัญ: %3$s</string>
+    <string name="diag_detalhe">\nรายละเอียดจาก Android: %1$s</string>
+    <string name="diag_m_memoria">ปิดเพราะหน่วยความจำไม่พอ</string>
+    <string name="diag_m_crash">ขัดข้อง</string>
+    <string name="diag_m_nativo">ขัดข้อง (native)</string>
+    <string name="diag_m_anr">ไม่ตอบสนอง (ANR)</string>
+    <string name="diag_m_iniciar">เริ่มทำงานไม่ได้</string>
+    <string name="diag_m_recurso">ปิดเพราะใช้ทรัพยากรมากเกินไป</string>
+    <string name="diag_m_dependencia">ปิดเพราะแอปที่ต้องพึ่งพาหยุดทำงาน</string>
+    <string name="diag_m_sinal">ระบบสั่งให้หยุด (signal)</string>
+    <string name="diag_m_permissao">รีสตาร์ทเพราะมีการเปลี่ยนสิทธิ์</string>
+    <string name="diag_i_tela">อยู่บนหน้าจอ</string>
+    <string name="diag_i_visivel">มองเห็นได้</string>
+    <string name="diag_i_servico">ทำงานในพื้นหลัง</string>
+    <string name="diag_i_cache">อยู่ในพื้นหลัง (แคช)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">การวินิจฉัย</string>
+    <string name="diag_refazer">ตรวจสอบอีกครั้ง</string>
+    <string name="diag_refazer_det">เรียกใช้การตรวจสอบทั้งหมดอีกครั้ง</string>
+    <string name="diag_verificando">กำลังตรวจสอบ…</string>
+    <string name="diag_apps">แอป (7 วันที่ผ่านมา)</string>
+    <string name="diag_lendo">กำลังอ่านประวัติแอป</string>
+    <string name="diag_sem_perm">ไม่มีสิทธิ์อ่านการขัดข้องของแอปอื่น</string>
+    <string name="diag_sem_perm_det">Launcher ให้สิทธิ์ READ_LOGS และ DUMP แก่ตัวเองผ่านเชลล์ของตัวเอง โปรดรอสักครู่หรือรีสตาร์ททีวี</string>
+    <string name="diag_nada">ไม่มีการบันทึก</string>
+    <string name="diag_erros">ข้อผิดพลาดของ Launcher (ที่ Launcher บันทึกไว้)</string>
+    <string name="diag_sem_erros">ไม่มีข้อผิดพลาดที่บันทึกไว้</string>
+    <string name="diag_sem_erros_det">Launcher เก็บการขัดข้อง %1$d ครั้งล่าสุดไว้ที่นี่</string>
+    <string name="diag_erro">ข้อผิดพลาดของ Launcher</string>
+    <string name="diag_apagar">ลบข้อผิดพลาดที่บันทึกไว้</string>
+    <string name="diag_apagar_det">ล้างรายการด้านบน (ไม่แตะส่วนอื่น)</string>
+    <string name="diag_rodape">%1$s · ลูกศรเพื่อเลื่อน · BACK เพื่อกลับ</string>
+    <string name="diag_app_ok">ไม่มีการขัดข้อง ค้าง หรือปิดผิดปกติใน 7 วันที่ผ่านมา\n\nถ้าแอปเปิดได้แต่ไม่โหลดอะไร ปัญหามักอยู่ที่เครือข่าย: ดูส่วนเครือข่ายในหน้าก่อนหน้า</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">ยังไม่ได้ตรวจสอบ</string>
+    <string name="atu_android9">ต้องใช้ Android 9 ขึ้นไป</string>
+    <string name="atu_ocupado">กำลังตรวจสอบอยู่แล้ว</string>
+    <string name="atu_erro">ข้อผิดพลาด: %1$s %2$s</string>
+    <string name="atu_em_dia">เป็นเวอร์ชันล่าสุด (ติดตั้ง %1$d, ล่าสุด %2$d)</string>
+    <string name="atu_sem_tag">Release ล่าสุดไม่มีเวอร์ชันในแท็ก</string>
+    <string name="atu_sem_apk">Release %1$d ไม่มี APK หรือ SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 ไม่ตรงกัน ไม่ได้ติดตั้ง</string>
+    <string name="atu_ilegivel">Release %1$d: อ่าน APK ไม่ได้</string>
+    <string name="atu_pacote">Release %1$d: แพ็กเกจไม่ตรงกัน (%2$s)</string>
+    <string name="atu_versao">Release %1$d: เวอร์ชัน APK (%2$d) ไม่ตรงกับแท็ก</string>
+    <string name="atu_chave">GitHub มีเวอร์ชัน %1$d แต่เซ็นด้วยคีย์อื่นที่ทีวีนี้ไม่ยอมรับ: ต้องอัปเดตทีวีนี้จากคอมพิวเตอร์</string>
+    <string name="atu_migracao_disponivel">เวอร์ชัน %1$d: พร้อมย้ายทีวีนี้ไปยังแอปใหม่ (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">กำลังติดตั้งแอปใหม่ (%1$d) จากนั้นแอปใหม่จะดูแลทีวีนี้พร้อมการตั้งค่าทั้งหมด</string>
+    <string name="atu_disponivel">เวอร์ชัน %1$d พร้อมติดตั้ง (ติดตั้งอยู่ %2$d)</string>
+    <string name="atu_trocou">เวอร์ชันเปลี่ยนไปตั้งแต่ตรวจครั้งล่าสุด · OK เพื่อตรวจอีกครั้ง</string>
+    <string name="atu_instalando">กำลังติดตั้ง %1$d (ติดตั้งอยู่ %2$d)</string>
+    <string name="atu_ok">อัปเดตแล้ว</string>
+    <string name="atu_falhou">ติดตั้งไม่สำเร็จ (%1$d): %2$s</string>
+    <string name="atu_ruim">เวอร์ชัน %1$d ขัดข้องบนทีวีนี้ทันทีหลังติดตั้ง: จะไม่ติดตั้งอีก</string>
+    <string name="vig_aviso_titulo">หยุดอัปเดตชั่วคราว</string>
+    <string name="vig_pausada">เวอร์ชัน %1$d ขัดข้องสองครั้งทันทีหลังติดตั้ง · การอัปเดตอัตโนมัติจะรอเวอร์ชันถัดไป</string>
+    <string name="vig_pausada_tela">เวอร์ชัน %1$d ขัดข้องสองครั้งทันทีหลังติดตั้ง · \"%2$s\" จะปิดไว้จนถึงเวอร์ชันถัดไป</string>
+    <string name="vig_tela_bloqueada">หน้าจอนี้ปิดไว้จนถึงการอัปเดตครั้งถัดไป (ทำให้ Launcher ขัดข้อง)</string>
+    <string name="cfg_vig_liberar">เซฟโหมด</string>
+    <string name="cfg_vig_liberar_det">" · OK เพื่อเปิดอีกครั้ง"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">การค้นหาด้วยเสียงไม่เปิดบนทีวีนี้</string>
+    <string name="home_alarme_hoje">วันนี้</string>
+    <string name="home_alarme_amanha">พรุ่งนี้</string>
+    <string name="player_carregando">กำลังโหลดช่อง…</string>
+    <string name="player_carregando_canal">กำลังโหลดช่อง…</string>
+    <string name="vod_carregando">กำลังโหลดวิดีโอ…</string>
+    <string name="player_sem_canais">ยังไม่ได้เพิ่มรายการช่อง</string>
+    <string name="player_tentando">ไม่มีสัญญาณที่ช่อง %1$d กำลังลองอีกครั้ง…</string>
+    <string name="player_sem_sinal">ช่อง %1$d ไม่ตอบสนอง เลือกช่องอื่นด้วย ▲ ▼ หรือ OK</string>
+    <string name="player_canal_nao_existe">ไม่มีช่อง %1$d</string>
+    <string name="player_ao_vivo">สด</string>
+    <string name="player_a_seguir">ถัดไป: %1$s</string>
+    <string name="player_teclas">▲ ▼ ช่อง · OK รายการช่อง · กด OK ค้าง 2 วินาที: รายการโปรด · ◀ ช่องก่อนหน้า · ▶ ▶ ตัวเลือก · BACK ออก</string>
+    <string name="player_teclas_pausa">▶❙❙ หรือ OK เล่นต่อ · ▶ ตัวเลือก (กลับไปที่สด) · ▲ ▼ ช่อง · BACK ออก</string>
+    <string name="player_cat_busca">ค้นหา: %1$s</string>
+    <string name="player_acao_buscar">ค้นหา</string>
+    <string name="player_acao_filtros">ตัวกรอง</string>
+    <string name="filmes_titulo">ภาพยนตร์</string>
+    <string name="filmes_carregando">กำลังโหลดภาพยนตร์…</string>
+    <string name="filmes_vazio">ยังไม่มีภาพยนตร์</string>
+    <string name="filmes_continuar">ดูต่อ</string>
+    <string name="filmes_ordem_titulo">เรียงตาม</string>
+    <string name="filmes_ordem_recentes">ใหม่ล่าสุดในแคตตาล็อก</string>
+    <string name="filmes_ordem_nome">ชื่อ</string>
+    <string name="filmes_ordem_nota">คะแนน</string>
+    <string name="filmes_ordem_ano">ปี</string>
+    <string name="filmes_busca_dica">ชื่อภาพยนตร์</string>
+    <string name="filmes_do_comeco">ตั้งแต่ต้น</string>
+    <string name="filmes_assistir">▶  ดู</string>
+    <string name="filmes_ficha_carregando">กำลังโหลดรายละเอียด…</string>
+    <string name="filmes_direcao">ผู้กำกับ</string>
+    <string name="filmes_elenco">นักแสดง</string>
+    <string name="filmes_interesses">รายการที่จะดู</string>
+    <string name="filmes_assistidos">ดูแล้ว</string>
+    <string name="filmes_interesse_pos">★ เพิ่ม %1$s ลงในรายการที่จะดูแล้ว</string>
+    <string name="filmes_interesse_tirou">นำ %1$s ออกจากรายการที่จะดูแล้ว</string>
+    <string name="filmes_interesses_cheio">รายการที่จะดูมีครบ 500 เรื่องแล้ว: นำออกหนึ่งเรื่องก่อน</string>
+    <string name="filmes_interesses_vazio">กด OK ค้าง 2 วินาทีที่โปสเตอร์เพื่อเพิ่มที่นี่ (กดอีกครั้งเพื่อนำออก)</string>
+    <string name="filmes_assistido">ดูแล้ว</string>
+    <string name="filmes_selo_leg">ซับ</string>
+    <string name="vod_sem_conta">บัญชีของวิดีโอนี้ไม่มีอยู่แล้ว</string>
+    <string name="vod_erro">เล่นวิดีโอนี้ไม่ได้ กด BACK เพื่อออก</string>
+    <string name="vod_faixa">แทร็ก</string>
+    <string name="vod_audio">เสียง</string>
+    <string name="vod_legenda">คำบรรยาย</string>
+    <string name="vod_faixas">เสียงและคำบรรยาย</string>
+    <string name="vod_teclas">OK หยุดชั่วคราว · ◀ 10 วินาที · ▶ 30 วินาที (กดค้างเพื่อเร็วขึ้น) · ▼ เสียง คำบรรยาย และภาพ · ⏮ ⏭ ตอนย่อย · BACK ออก</string>
+    <string name="series_titulo">ซีรีส์</string>
+    <string name="series_carregando">กำลังโหลดซีรีส์…</string>
+    <string name="series_vazio">ยังไม่มีซีรีส์</string>
+    <string name="series_ordem_recentes">มีตอนใหม่</string>
+    <string name="series_busca_dica">ชื่อซีรีส์</string>
+    <string name="series_sem_episodios">เซิร์ฟเวอร์ไม่ได้ส่งตอนของซีรีส์นี้มา</string>
+    <string name="series_assistir">▶  ดู %1$s</string>
+    <string name="series_temporada">ซีซัน %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d ซีซัน</item>
+        <item quantity="other">%d ซีซัน</item>
+    </plurals>
+    <string name="player_acao_guia">ผังรายการ</string>
+    <string name="player_sem_guia_curto">ไม่มีผังรายการ</string>
+    <string name="player_grade_teclas">OK ดู · ◀ ▶ รายการ · ▲ ▼ ช่อง</string>
+    <string name="player_busca_dica">ชื่อช่องหรือรายการ</string>
+    <string name="player_busca_nada">ไม่พบผลลัพธ์สำหรับ “%1$s”</string>
+    <string name="player_filtro_qualquer">ทั้งหมด</string>
+    <string name="player_filtro_qualidade">คุณภาพ: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">คุณภาพของภาพ</string>
+    <string name="player_filtro_pais">ประเทศ: %1$s</string>
+    <string name="player_filtro_pais_titulo">ประเทศหรือภาษา</string>
+    <string name="player_filtro_limpar">ล้างตัวกรอง</string>
+    <string name="player_filtro_nada">รายการนี้ไม่มีคุณภาพหรือประเทศในชื่อช่อง</string>
+    <string name="player_bloqueado">ช่องถูกบล็อกโดยการควบคุมโดยผู้ปกครอง ใส่ PIN ในตัวกรองเพื่อดู</string>
+    <string name="player_ocultas_mostrar">แสดงหมวดหมู่ที่ซ่อนและช่องที่ถูกบล็อก (PIN)</string>
+    <string name="player_ocultas_esconder">ซ่อนหมวดหมู่ที่ซ่อนและช่องที่ถูกบล็อกอีกครั้ง</string>
+    <string name="player_pin_titulo">PIN ของแผงควบคุม</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">PIN ไม่ถูกต้อง</string>
+    <string name="player_pin_sem">ไม่มี PIN ของแผงควบคุม: หมวดหมู่ที่ซ่อนไม่ได้รับการป้องกัน</string>
+    <string name="player_pin_espere">ใส่ PIN ผิดหลายครั้งเกินไป ลองอีกครั้งในอีก %d นาที</string>
+    <string name="infantil_titulo">หมวดหมู่สำหรับเด็ก</string>
+    <string name="infantil_carregando">กำลังโหลดหมวดหมู่…</string>
+    <string name="infantil_coluna_itens">มีอะไรอยู่ข้างใน</string>
+    <string name="infantil_dica">OK เพื่อทำเครื่องหมายหรือยกเลิกหมวดหมู่สำหรับเด็ก · ใช้กับทีวีสด ภาพยนตร์ และซีรีส์ · BACK ออก (บันทึกแล้ว)</string>
+    <string name="infantil_so_categoria">ทำเครื่องหมายทั้งหมวดหมู่ในคอลัมน์ซ้าย</string>
+    <string name="infantil_vazio">ไม่มีหมวดหมู่: เพิ่มบัญชีใน การตั้งค่า › ทีวีและภาพยนตร์ แล้วโหลดช่องใหม่</string>
+    <string name="infantil_limite">หมวดหมู่ผู้ใหญ่ไม่สามารถเป็นหมวดหมู่สำหรับเด็ก</string>
+    <string name="infantil_resumo_ligado">ทำเครื่องหมาย %1$d จาก %2$d หมวดหมู่เป็นสำหรับเด็ก · โหมดเด็กเปิด</string>
+    <string name="infantil_resumo_desligado">ทำเครื่องหมาย %1$d จาก %2$d หมวดหมู่เป็นสำหรับเด็ก · โหมดเด็กปิด</string>
+    <string name="cfg_infantil">โหมดเด็ก</string>
+    <string name="cfg_infantil_ligado">เปิด · แสดงเฉพาะ %d หมวดหมู่สำหรับเด็ก ส่วนที่เหลือต้องใช้ PIN</string>
+    <string name="cfg_infantil_desligado">ปิด · %d หมวดหมู่ทำเครื่องหมายเป็นสำหรับเด็ก</string>
+    <string name="cfg_infantil_escolher">เลือกหมวดหมู่สำหรับเด็ก</string>
+    <string name="cfg_infantil_escolher_det">ใช้กับทีวีสด ภาพยนตร์ และซีรีส์</string>
+    <string name="player_grupo_oculto">ซ่อน %1$s แล้ว หากต้องการดู: ตัวกรอง, แสดงที่ซ่อน</string>
+    <string name="player_grupo_mostrado">%1$s แสดงอีกครั้งแล้ว</string>
+    <string name="player_canais_de">%1$s · %2$d ช่อง</string>
+    <string name="player_cat_todos">ทั้งหมด</string>
+    <string name="player_cat_favoritos">รายการโปรด</string>
+    <string name="player_cat_recentes">ล่าสุด</string>
+    <string name="player_cat_outros">อื่นๆ</string>
+    <string name="player_sem_favoritos">ยังไม่มีรายการโปรด กด OK ค้าง 2 วินาทีที่ช่องเพื่อเพิ่มที่นี่</string>
+    <string name="player_categoria_vazia">ไม่มีช่องในหมวดหมู่นี้</string>
+    <string name="player_sem_guia">ไม่มีผังรายการของช่องนี้</string>
+    <string name="player_depois">ถัดไป</string>
+    <string name="player_lista_teclas">OK ดู · กด OK ค้าง 2 วินาที: รายการโปรดหรือนำออก · กด OK ค้างที่หมวดหมู่: ซ่อน · ◀ หมวดหมู่</string>
+    <string name="player_favorito_pos">★ เพิ่ม %1$s ลงในรายการโปรดแล้ว</string>
+    <string name="player_favorito_tirou">นำ %1$s ออกจากรายการโปรดแล้ว</string>
+    <string name="player_favoritos_cheio">มีรายการโปรดครบ 500 รายการแล้ว: นำออกหนึ่งรายการก่อน</string>
+    <string name="player_assistindo">กำลังดู</string>
+    <string name="home_card_tv">ทีวี</string>
+    <string name="home_destaque_tv_sub">ช่องสด</string>
+    <string name="home_destaque_app">แอป</string>
+    <string name="app_sub_youtube">วิดีโอและช่อง</string>
+    <string name="app_sub_netflix">ภาพยนตร์และรายการ</string>
+    <string name="app_sub_prime">ภาพยนตร์ รายการ และกีฬา</string>
+    <string name="app_sub_max">ภาพยนตร์ รายการ และกีฬา</string>
+    <string name="app_sub_play_store">ติดตั้งและอัปเดตแอป</string>
+    <string name="app_sub_play_games">เกม</string>
+    <string name="app_sub_google_tv">ภาพยนตร์ที่ซื้อและเช่า</string>
+    <string name="app_sub_config">การตั้งค่าทีวี</string>
+    <string name="home_card_series">ซีรีส์</string>
+    <string name="home_card_filmes">ภาพยนตร์</string>
+    <string name="home_destaque_series">รายการจากลิสต์ของคุณ · ดูต่อจากที่ค้างไว้</string>
+    <string name="home_destaque_filmes">ภาพยนตร์จากลิสต์ของคุณ · ดูต่อจากที่ค้างไว้</string>
+    <string name="home_card_rede">เครือข่าย</string>
+    <string name="home_destaque_rede">วิดีโอ เพลง และรูปภาพของคุณ</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d MMMM</string>
+    <string name="home_busca">ค้นหา</string>
+    <string name="home_falar">คุยกับ Gemini</string>
+    <string name="home_dest_tv">ทีวี · ช่อง %1$d</string>
+    <string name="rede_titulo">เครือข่าย</string>
+    <string name="rede_procurando">กำลังค้นหาเซิร์ฟเวอร์สื่อในเครือข่าย…</string>
+    <string name="rede_nenhum">ตอนนี้ไม่มีเซิร์ฟเวอร์สื่อเปิดอยู่ เพิ่มด้านล่าง: Plex และ Jellyfin ใช้บัญชีของคุณ ส่วนโฟลเดอร์ในคอมพิวเตอร์หรือ NAS ใช้ที่อยู่ของเครื่อง</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d เซิร์ฟเวอร์</item>
+        <item quantity="other">%1$d เซิร์ฟเวอร์</item>
+    </plurals>
+    <string name="rede_secao_seus">เซิร์ฟเวอร์ของคุณ</string>
+    <string name="rede_secao_achados">พบในเครือข่าย</string>
+    <string name="rede_secao_adicionar">เพิ่ม</string>
+    <string name="rede_entrar">ลงชื่อเข้าใช้</string>
+    <string name="rede_adicionar">เพิ่ม</string>
+    <string name="rede_salvar">บันทึก</string>
+    <string name="rede_testar_salvar">ทดสอบและบันทึก</string>
+    <string name="rede_testando">กำลังทดสอบ…</string>
+    <string name="rede_cancelar">ยกเลิก</string>
+    <string name="rede_sub_dlna">DLNA · เปิดได้ทันที</string>
+    <string name="rede_sub_maquina">โฟลเดอร์ที่แชร์ · %1$s</string>
+    <string name="rede_sub_pasta">โฟลเดอร์ที่แชร์ · %1$s</string>
+    <string name="rede_sub_lista">รายการ M3U · %1$s</string>
+    <string name="rede_sub_video">ลิงก์วิดีโอ · %1$s</string>
+    <string name="rede_sub_plex">ลงชื่อเข้าใช้ด้วยรหัส ไม่ต้องใส่รหัสผ่านบนทีวี</string>
+    <string name="rede_sub_jellyfin">ชื่อผู้ใช้และรหัสผ่านของเซิร์ฟเวอร์</string>
+    <string name="rede_sub_smb">โฟลเดอร์ Windows, Mac หรือ NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS ที่มี WebDAV</string>
+    <string name="rede_sub_link">ที่อยู่ http, HLS (.m3u8) หรือรายการ M3U</string>
+    <string name="rede_acao_smb">โฟลเดอร์ที่แชร์</string>
+    <string name="rede_acao_webdav">WebDAV หรือ Nextcloud</string>
+    <string name="rede_acao_link">ลิงก์วิดีโอหรือรายการ</string>
+    <string name="rede_acao_procurar">ค้นหาอีกครั้ง</string>
+    <string name="rede_abrindo">กำลังเปิด…</string>
+    <string name="rede_vazia">โฟลเดอร์ว่าง</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d รายการ</item>
+        <item quantity="other">%1$d รายการ</item>
+    </plurals>
+    <string name="rede_dica_abrir">เปิด</string>
+    <string name="rede_dica_remover">นำออก</string>
+    <string name="rede_dica_sair">ออก</string>
+    <string name="rede_dica_subir">ขึ้นไปหนึ่งโฟลเดอร์</string>
+    <string name="rede_tecla_segurar">กด OK ค้าง</string>
+    <string name="rede_tecla_voltar">BACK</string>
+    <string name="rede_erro">เซิร์ฟเวอร์ไม่ตอบสนอง โปรดลองอีกครั้ง</string>
+    <string name="rede_erro_senha">เซิร์ฟเวอร์ไม่ยอมรับชื่อผู้ใช้หรือรหัสผ่าน</string>
+    <string name="rede_erro_pasta">เซิร์ฟเวอร์ตอบกลับ แต่ไม่มีโฟลเดอร์ชื่อนี้</string>
+    <string name="rede_erro_servidor">ไม่พบเซิร์ฟเวอร์ ตรวจสอบที่อยู่และดูว่าอยู่ในเครือข่ายเดียวกัน</string>
+    <string name="rede_erro_certificado">ใบรับรองความปลอดภัยของเซิร์ฟเวอร์ไม่ถูกต้องสำหรับที่อยู่นี้</string>
+    <string name="rede_erro_cheio">บันทึกไม่ได้: ทีวีเก็บเซิร์ฟเวอร์ไว้ครบ 20 แล้ว นำออกหนึ่งเซิร์ฟเวอร์ก่อน</string>
+    <string name="rede_endereco_erro">ที่อยู่ไม่ครบหรือไม่ถูกต้อง</string>
+    <string name="rede_salva">เพิ่ม \"%1$s\" แล้ว</string>
+    <string name="rede_nome_opcional">ชื่อที่แสดง (ไม่บังคับ)</string>
+    <string name="rede_senha">รหัสผ่าน</string>
+    <string name="rede_remover_titulo">นำ \"%1$s\" ออกไหม</string>
+    <string name="rede_remover_explica">ข้อมูลเข้าสู่ระบบและรหัสผ่านจะถูกลบจากทีวี ไม่มีอะไรเปลี่ยนที่เซิร์ฟเวอร์</string>
+    <string name="rede_remover">นำออก</string>
+    <string name="rede_removida">นำ \"%1$s\" ออกแล้ว</string>
+    <string name="rede_smb_titulo">โฟลเดอร์ที่แชร์</string>
+    <string name="rede_smb_explica">ที่อยู่แบบใน Windows: \\\\server\\folder (เช่น \\\\192.168.0.10\\Movies) ไม่ใส่ชื่อผู้ใช้และรหัสผ่าน = ผู้เยี่ยมชม</string>
+    <string name="rede_smb_endereco">\\\\server\\folder</string>
+    <string name="rede_smb_endereco_erro">ไม่มีเซิร์ฟเวอร์หรือโฟลเดอร์ (เช่น \\\\NAS\\Movies)</string>
+    <string name="rede_smb_usuario">ชื่อผู้ใช้ (ไม่บังคับ)</string>
+    <string name="rede_smb_senha">รหัสผ่าน (ไม่บังคับ)</string>
+    <string name="rede_jf_explica">ที่อยู่เซิร์ฟเวอร์ %1$s (เช่น 192.168.0.10 หรือ nas:8096) ชื่อผู้ใช้ และรหัสผ่าน รหัสผ่านไม่ถูกเก็บไว้บนทีวี</string>
+    <string name="rede_jf_endereco">ที่อยู่เซิร์ฟเวอร์</string>
+    <string name="rede_jf_usuario">ชื่อผู้ใช้</string>
+    <string name="rede_jf_usuario_falta">ไม่มีชื่อผู้ใช้</string>
+    <string name="rede_dav_explica">ที่อยู่โฟลเดอร์ (Nextcloud: cloud.example.com/remote.php/dav/files/YOUR_USER) ถ้าไม่มี http ทีวีจะใช้ https สำหรับ Nextcloud ควรใช้รหัสผ่านแอป</string>
+    <string name="rede_dav_endereco">ที่อยู่ WebDAV</string>
+    <string name="rede_link_explica">วิดีโอ (mp4, mkv…) สตรีม HLS (.m3u8) หรือรายการ M3U ที่มีหลายวิดีโอ จะถูกบันทึกไว้ที่นี่</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">ใช้ที่อยู่ที่ขึ้นต้นด้วย http:// หรือ https://</string>
+    <string name="rede_plex_titulo">ลงชื่อเข้าใช้ Plex</string>
+    <string name="rede_plex_explica">บนโทรศัพท์หรือคอมพิวเตอร์ เปิด plex.tv/link แล้วพิมพ์รหัสด้านล่าง หรือส่องกล้องโทรศัพท์ไปที่คิวอาร์โค้ด</string>
+    <string name="rede_plex_pedindo">กำลังขอรหัสจาก Plex…</string>
+    <string name="rede_plex_esperando">กำลังรอให้คุณยืนยันใน Plex…</string>
+    <string name="rede_plex_buscando">เชื่อมต่อบัญชีแล้ว กำลังค้นหาเซิร์ฟเวอร์ของคุณ…</string>
+    <string name="rede_plex_venceu">รหัสหมดอายุ ขอรหัสใหม่</string>
+    <string name="rede_plex_outro">ขอรหัสใหม่</string>
+    <string name="rede_plex_sem_servidor">บัญชี Plex นี้ไม่มีเซิร์ฟเวอร์</string>
+    <string name="rede_plex_inacessivel">พบเซิร์ฟเวอร์ในบัญชี แต่ไม่ตอบสนองจากที่นี่ ตรวจสอบว่าเปิดอยู่และอยู่ในเครือข่ายเดียวกัน</string>
+    <string name="rede_plex_varios">เพิ่มเซิร์ฟเวอร์ Plex %1$d เครื่องแล้ว</string>
+    <string name="pg_amanha">พรุ่งนี้</string>
+    <string name="pg_recado">ข้อความ</string>
+    <string name="pg_app_despertador">นาฬิกาปลุก</string>
+    <string name="pg_bom_dia">สวัสดีตอนเช้า</string>
+    <string name="pg_boa_tarde">สวัสดีตอนบ่าย</string>
+    <string name="pg_boa_noite">สวัสดีตอนเย็น</string>
+    <string name="pg_agora">ตอนนี้</string>
+    <string name="pg_ontem">เมื่อวาน</string>
+    <string name="pg_mais_notif">+%1$d การแจ้งเตือน</string>
+    <string name="pg_dia_todo">วันนี้</string>
+    <string name="pg_hoje_as">วันนี้ เวลา %1$s</string>
+    <string name="pg_amanha_as">พรุ่งนี้ เวลา %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">ตอนนี้</string>
+    <string name="pw_proximas_horas">ชั่วโมงถัดไป</string>
+    <string name="pw_hoje">วันนี้</string>
+    <string name="pw_chuva_pct">โอกาสฝนตก %1$d%%</string>
+    <string name="pw_umidade_pct">ความชื้น %1$d%%</string>
+    <string name="pw_ate_umas">%1$s จนถึงประมาณ %2$s</string>
+    <string name="pw_chuva_pelas">%1$s ฝนตกราว %2$s</string>
+    <string name="pw_chuva_segue">%1$s ในชั่วโมงถัดไป</string>
+    <string name="pw_amanha_frase">พรุ่งนี้ %1$d° %2$s</string>
+    <string name="pw_nasce">พระอาทิตย์ขึ้น %1$s</string>
+    <string name="pw_poe">พระอาทิตย์ตก %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">การแจ้งเตือน</string>
+    <string name="pr_sem_notificacoes">ไม่มีการแจ้งเตือน</string>
+    <string name="pr_notificacoes_desligadas">กำลังเปิดสิทธิ์เข้าถึงการแจ้งเตือน…</string>
+    <string name="pr_perfis">โปรไฟล์</string>
+    <string name="pr_protetor">โปรแกรมรักษาหน้าจอ</string>
+    <string name="pr_timer">ตัวจับเวลา</string>
+    <string name="pr_timer_as">จนถึง %1$s</string>
+    <string name="pr_audio_arc">เครื่องรับสัญญาณ (HDMI ARC)</string>
+    <string name="pr_dispensar">ปิด</string>
+    <string name="pr_ontem">เมื่อวาน</string>
+    <string name="pr_agora">ตอนนี้</string>
+    <string name="pr_configuracoes">การตั้งค่า Launcher</string>
+    <string name="pr_tocar_pausar">เล่นหรือหยุดชั่วคราว</string>
+    <string name="pr_proxima">ถัดไป</string>
+    <string name="pr_tocando">กำลังเล่น</string>
+    <string name="pr_pausado">หยุดชั่วคราว</string>
+    <string name="pr_dormir">ตั้งเวลาปิด</string>
+    <string name="pr_despertador">นาฬิกาปลุก</string>
+    <string name="pr_visita">ผู้เยี่ยมชม</string>
+    <string name="pr_casa">หน้าแรก</string>
+    <string name="pr_config_tv">การตั้งค่าทีวี</string>
+    <string name="pr_sinal_bom">สัญญาณดี</string>
+    <string name="pr_sinal_medio">สัญญาณปานกลาง</string>
+    <string name="pr_sinal_fraco">สัญญาณอ่อน</string>
+    <string name="pr_bt_conectados">เชื่อมต่อ %1$d เครื่อง</string>
+    <string name="pr_hoje">วันนี้</string>
+    <string name="pr_amanha">พรุ่งนี้</string>
+    <string name="pr_ligado">เปิด</string>
+    <string name="pr_limpar_tudo">ล้างทั้งหมด</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">ดูย้อนหลัง: รายการที่ผ่านมา</string>
+    <string name="tvv_titulo">ดูย้อนหลัง · %1$s</string>
+    <string name="tvv_do_inicio">ตอนนี้ · เริ่มใหม่: %1$s</string>
+    <string name="tvv_carregando">กำลังดึงรายการที่ผ่านมา…</string>
+    <string name="tvv_sem_resposta">เซิร์ฟเวอร์ไม่ตอบสนอง โปรดลองอีกครั้งในอีกสักครู่</string>
+    <string name="tvv_vazio">ช่องนี้ยังไม่มีรายการที่บันทึกไว้</string>
+    <string name="tvv_voltou">กลับไปที่สด</string>
+    <string name="tvv_selo">ดูย้อนหลัง</string>
+    <string name="tvv_teclas">◀ ▶ 30 วินาที · OK ตัวเลือก · BACK สด</string>
+    <string name="tvv_pausar">หยุดชั่วคราว</string>
+    <string name="tvv_continuar">เล่นต่อ</string>
+    <string name="tvv_ao_vivo">กลับไปที่สด</string>
+    <string name="tvv_hoje">วันนี้</string>
+    <string name="tvv_ontem">เมื่อวาน</string>
+    <string name="imagem_titulo">อัตราส่วนภาพ</string>
+    <string name="imagem_ajustar">พอดีกับหน้าจอ</string>
+    <string name="imagem_esticar">ยืดภาพ</string>
+    <string name="imagem_zoom">ซูม (ตัดขอบภาพ)</string>
+    <string name="velocidade_titulo">ความเร็ว</string>
+    <string name="trailer">ตัวอย่าง</string>
+    <string name="trailer_sem_app">ไม่พบแอปที่จะเปิดตัวอย่าง</string>
+    <string name="series_visto_ate_aqui">ทำเครื่องหมายว่าดูแล้วถึง %1$s</string>
+    <string name="series_nao_visto">ทำเครื่องหมายว่ายังไม่ได้ดู</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">ภาพยนตร์และซีรีส์</string>
+    <string name="idioma_titulo">เสียงที่ต้องการ</string>
+    <string name="idioma_det">เสียงต้นฉบับพร้อมคำบรรยายในภาษาของทีวี หรือพากย์เป็นภาษานั้น ภาพยนตร์และซีรีส์แต่ละเรื่องจะจำการเปลี่ยนที่ทำในเครื่องเล่น (▼)</string>
+    <string name="idioma_original">ต้นฉบับพร้อมคำบรรยาย</string>
+    <string name="idioma_dublado">พากย์</string>
+    <string name="idioma_legendado">ซับไตเติล</string>
+    <string name="idioma_dublado_curto">พากย์</string>
+    <string name="idioma_versao_legendada">เวอร์ชันซับไตเติล</string>
+    <string name="idioma_versao_dublada">เวอร์ชันพากย์</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">ค้นหาคำบรรยายออนไลน์</string>
+    <string name="legenda_procurando">กำลังค้นหาคำบรรยาย…</string>
+    <string name="legenda_baixando">กำลังดาวน์โหลดคำบรรยาย…</string>
+    <string name="legenda_acertada">คำบรรยายตรงกับเสียงพูดแล้ว · %1$s</string>
+    <string name="legenda_pronta">คำบรรยายพร้อมแล้ว</string>
+    <string name="legenda_nenhuma">ไม่มีคำบรรยายในภาษาของทีวีสำหรับวิดีโอนี้</string>
+    <string name="legenda_erro">ค้นหาคำบรรยายไม่ได้</string>
+    <string name="legenda_invalida">ไฟล์ที่ดาวน์โหลดไม่ใช่คำบรรยาย</string>
+    <string name="legenda_sem_conta">เพิ่มคีย์ OpenSubtitles ของคุณใน การตั้งค่า › ทีวีและภาพยนตร์ › ภาพยนตร์และซีรีส์</string>
+    <string name="legenda_escolher">คำบรรยายสำหรับ \"%1$s\"</string>
+    <string name="legenda_surdos">สำหรับผู้บกพร่องทางการได้ยิน</string>
+    <string name="legenda_bate">ทำมาสำหรับไฟล์นี้</string>
+    <string name="lista_dica_escolher">เลือก</string>
+    <string name="legenda_atraso_titulo">หน่วงเวลาคำบรรยาย (+ = ข้อความแสดงช้าลง)</string>
+    <string name="legenda_atraso_zero">ไม่หน่วงเวลา</string>
+    <string name="legenda_conta_titulo">คำบรรยายออนไลน์</string>
+    <string name="legenda_conta_det">OpenSubtitles ด้วยคีย์ API ของคุณ (ฟรีที่ opensubtitles.com/consumers) ถ้าไม่มีบัญชี: วันละ 5 คำบรรยาย</string>
+    <string name="legenda_conta_sim">ตั้งค่าแล้ว</string>
+    <string name="legenda_conta_nao">ยังไม่ได้ตั้งค่า</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">เหลือ %1$s</string>
+    <string name="tempo_falta_um">เหลือ %1$s</string>
+    <string name="serie_ep_longo">ซีซัน %1$d ตอนที่ %2$d</string>
+    <string name="ficha_continuar_de">จาก %1$s</string>
+    <string name="tempo_termina_as">จบเวลา %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s ตอน</string>
+    <string name="tempo_x_de_y">%1$d จาก %2$d</string>
+    <string name="tempo_visto">ดูแล้ว</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">โปรไฟล์ Google</string>
+    <string name="fp_linha">ดึงรูปบัญชี</string>
+    <string name="fp_linha_det">แสดงรูปบัญชี Google ของคุณบนปุ่มโปรไฟล์</string>
+    <string name="fp_titulo">รูปบัญชี</string>
+    <string name="fp_fechar">ปิด</string>
+    <string name="fp_pedindo">กำลังขอรหัสจาก Google…</string>
+    <string name="fp_passos">1. บนโทรศัพท์ เปิด %1$s (หรือส่องกล้องไปที่รหัสทางขวา)\n2. ลงชื่อเข้าใช้ด้วยบัญชี Google ที่อยู่ในทีวีนี้แล้วพิมพ์:\n\n%2$s\n\nหน้าจอนี้จะดำเนินการต่อเอง การลงชื่อเข้าใช้นี้ใช้เพื่อดึงรูปเท่านั้น</string>
+    <string name="fp_ok">เรียบร้อย: รูปของ %1$s อยู่บนปุ่มโปรไฟล์แล้ว</string>
+    <string name="fp_sem_foto">ลงชื่อเข้าใช้เป็น %1$s แล้ว แต่บันทึกรูปไม่ได้ ลองอีกครั้ง หรือส่งรูปจากแผงควบคุมเว็บ (แท็บรูปโปรแกรมรักษาหน้าจอ)</string>
+    <string name="fp_falha">ไม่สำเร็จ: %1$s</string>
+    <string name="fp_sem_google">ยังไม่ได้ตั้งค่าการลงชื่อเข้าใช้ Google บนทีวีนี้\n\nมีสองวิธีในการใส่รูปบนปุ่มโปรไฟล์:\n• แผงควบคุมเว็บ > แท็บรูปโปรแกรมรักษาหน้าจอ > รูปโปรไฟล์: เลือกรูปใดก็ได้จากโทรศัพท์\n• ตั้งค่าการลงชื่อเข้าใช้ Google (แผงควบคุมเว็บ > แท็บ Claude) แล้วกลับมาที่นี่เพื่อดึงรูปของบัญชี</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">ตอนย่อย %1$d</string>
+    <string name="vod_capitulos_titulo">ตอนย่อย</string>
+    <string name="vod_capitulos_opcao">ตอนย่อย (%1$d)</string>
+    <string name="vod_segunda_opcao">คำบรรยายที่สอง (ด้านบน)</string>
+    <string name="vod_segunda_titulo">คำบรรยายที่สอง</string>
+    <string name="vod_segunda_desligada">ปิด</string>
+    <string name="vod_dialogo_opcao">เสียงพูดดังขึ้น</string>
+    <string name="vod_dialogo_ligado">เสียงพูดดังขึ้น เปิด</string>
+    <string name="vod_dialogo_desligado">เสียงพูดดังขึ้น ปิด</string>
+    <string name="vod_atraso_audio_titulo">หน่วงเวลาเสียง (%1$s)</string>
+    <string name="vod_atraso_audio_tv">ทีวี</string>
+    <string name="vod_atraso_audio_zero">ไม่มี</string>
+    <string name="vod_atraso_audio_mais">เสียงมาช้า %1$d ms</string>
+    <string name="vod_atraso_audio_menos">เสียงมาเร็ว %1$d ms</string>
+    <string name="vod_info_opcao">ข้อมูลทางเทคนิค</string>
+    <string name="info_video">วิดีโอ</string>
+    <string name="info_audio">เสียง</string>
+    <string name="info_perdidos">เฟรมที่หลุด</string>
+    <string name="info_taxa">บิตเรต</string>
+    <string name="info_buffer">บัฟเฟอร์</string>
+    <string name="info_atraso">หน่วงเวลาเสียง</string>
+    <string name="info_dialogo">เสียงพูดดังขึ้น เปิด</string>
+    <string name="info_chip">ชิปของทีวี</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">โมโน</string>
+    <string name="info_estereo">สเตอริโอ</string>
+    <string name="lista_dica_voltar">กลับ</string>
+    <string name="pm_ligado">เปิด</string>
+    <string name="pm_desligado">ปิด</string>
+    <string name="pm_imagem_som">ภาพและเสียง</string>
+    <string name="pm_mais">ตัวเลือกเพิ่มเติม</string>
+    <string name="pm_versao_legendada">ดูแบบซับไตเติล</string>
+    <string name="pm_versao_dublada">ดูแบบพากย์</string>
+    <string name="pm_versao_info">ดูต่อจากจุดนี้</string>
+    <string name="pm_leg_ajustes">การตั้งค่าคำบรรยาย</string>
+    <string name="pm_leg_tamanho">ขนาด</string>
+    <string name="pm_leg_estilo">รูปแบบ</string>
+    <string name="pm_leg_posicao">ตำแหน่ง</string>
+    <string name="pm_leg_atraso">หน่วงเวลา</string>
+    <string name="pm_leg_auto">ดาวน์โหลดเมื่อไม่มี</string>
+    <string name="pm_leg_traduzir">แปลบนทีวีเมื่อไม่มี</string>
+    <string name="pm_velocidade">ความเร็ว</string>
+    <string name="pm_proporcao">ขนาดภาพ</string>
+    <string name="pm_atraso_audio">หน่วงเวลาเสียง</string>
+    <string name="pm_quadros">ปรับให้ตรงกับเฟรมเรตของภาพยนตร์</string>
+    <string name="pm_qualidade">คุณภาพ</string>
+    <string name="pv_sem_titulo">ไม่มีพยากรณ์อากาศในตอนนี้</string>
+    <string name="bu_voz_grupo">พูด</string>
+    <string name="bu_falar">พูดสิ่งที่คุณกำลังค้นหา</string>
+    <string name="bu_falar_det">เร็วกว่าพิมพ์ด้วยรีโมต</string>
+    <string name="bu_recentes">การค้นหาล่าสุด</string>
+    <string name="bu_recente_det">ค้นหาอีกครั้ง</string>
+    <string name="aviso_alarme_tocou_titulo">นาฬิกาปลุกดังบนทีวี</string>
+    <string name="aviso_alarme_tocou_texto">เริ่มดังเมื่อเวลา %1$s</string>
+    <string name="home_instalar_externo">ติดตั้งในที่เก็บข้อมูลภายนอก</string>
+    <string name="home_instalar_dispositivo">ติดตั้งในอุปกรณ์นี้</string>
+    <string name="home_instalando_lugar">กำลังย้าย %1$s… แอปจะปิดจนกว่าจะเสร็จ</string>
+    <string name="home_instalado_externo">%1$s อยู่ในที่เก็บข้อมูลภายนอกแล้ว</string>
+    <string name="home_instalado_dispositivo">%1$s กลับมาอยู่ในอุปกรณ์นี้แล้ว</string>
+    <string name="home_instalar_lugar_falhou">ย้าย %1$s ไม่ได้: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">เชลล์ของทีวีเองไม่ทำงาน</string>
+    <string name="home_instalar_lugar_sem_pendrive">ไม่มีไดรฟ์ USB ที่ตั้งเป็นที่เก็บข้อมูลของทีวี</string>
+    <string name="st_titulo">ไดรฟ์ USB และที่เก็บข้อมูล</string>
+    <string name="st_explica">เลือกวิธีที่ทีวีใช้ไดรฟ์ USB พื้นที่เหลือน้อยไหม ไดรฟ์สามารถเป็นที่เก็บข้อมูลของทีวีสำหรับแอปขนาดใหญ่ได้</string>
+    <string name="st_linha_det">ใช้ไดรฟ์ USB เป็นที่เก็บข้อมูลของทีวี</string>
+    <string name="st_sem_shell">ต้องใช้เชลล์ของทีวีเอง (การตั้งค่า › ระบบ › ขั้นสูง) OK เพื่อลองอีกครั้ง</string>
+    <string name="st_sem_pen">ไม่ได้เชื่อมต่อไดรฟ์ USB เสียบไดรฟ์แล้วกด OK</string>
+    <string name="st_tv_livre">ที่เก็บข้อมูลทีวี: ว่าง %1$s จาก %2$s</string>
+    <string name="st_pen">ไดรฟ์ USB · %1$s · %2$s</string>
+    <string name="st_modo_comum">ไดรฟ์ USB ทั่วไป</string>
+    <string name="st_modo_misto">แบบผสม</string>
+    <string name="st_modo_tv">ที่เก็บข้อมูลทีวี</string>
+    <string name="st_modo_desconhecido">ยังไม่ได้ฟอร์แมต</string>
+    <string name="st_recomendado">แนะนำ: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">ไดรฟ์นี้ช้า แอปจะกระตุก</string>
+    <string name="st_motivo_pequeno">ต่ำกว่า 8 GB เล็กเกินไปที่จะช่วยได้</string>
+    <string name="st_motivo_folgada">ทีวียังมีพื้นที่ ไม่ต้องลบไดรฟ์</string>
+    <string name="st_motivo_grande">ครึ่งหนึ่งสำหรับแอป อีกครึ่งสำหรับการบันทึกและไฟล์</string>
+    <string name="st_motivo_apertada">ทีวีเกือบเต็มแล้ว</string>
+    <string name="st_medido">เขียนที่ %1$s MB/s</string>
+    <string name="st_medir_dica">OK เพื่อวัดความเร็ว</string>
+    <string name="st_usar_comum">ใช้เป็นไดรฟ์ USB ทั่วไป</string>
+    <string name="st_usar_misto">ใช้แบบผสม: ทั่วไป %1$d%%  ◀ ▶</string>
+    <string name="st_usar_tv">ใช้เป็นที่เก็บข้อมูลทีวี</string>
+    <string name="st_apps">แอปในไดรฟ์ USB</string>
+    <string name="st_apps_det">เลือกแอปที่จะย้าย (ใหญ่สุดก่อน)</string>
+    <string name="st_apps_nenhum">ไม่มีแอปที่ย้ายได้</string>
+    <string name="st_apps_rodape">OK เพื่อย้ายแอป · ✓ = อยู่ในไดรฟ์ USB แล้ว</string>
+    <string name="st_compartilhado">รูปภาพและไฟล์: %1$s</string>
+    <string name="st_na_tv">ในทีวี</string>
+    <string name="st_no_pen">ในไดรฟ์ USB</string>
+    <string name="st_compartilhado_aviso">ทุกอย่างจะถูกคัดลอก และแอปจะปิดระหว่างนั้น รีสตาร์ททีวีหลังจากเสร็จ</string>
+    <string name="st_mover">ย้าย</string>
+    <string name="st_movendo">กำลังย้าย… อาจใช้เวลาหลายนาที</string>
+    <string name="st_aviso_titulo">ลบไดรฟ์ USB ไหม</string>
+    <string name="st_aviso">ทุกอย่างในไดรฟ์จะถูกลบเพื่อทำเป็น \"%1$s\" เมื่อเป็นที่เก็บข้อมูลทีวี ไดรฟ์จะใช้ได้กับทีวีนี้เท่านั้น และแอปในไดรฟ์จะหายไประหว่างที่ถอดออก</string>
+    <string name="st_apagar">ลบและฟอร์แมต</string>
+    <string name="st_formatando">กำลังฟอร์แมต… อาจใช้เวลาสักครู่</string>
+    <string name="st_pronto">เรียบร้อย</string>
+    <string name="st_falhou">ไม่สำเร็จ: %1$s</string>
+    <string name="st_depois">ตอนนี้เลือกแอปที่จะย้ายไปไดรฟ์ USB</string>
+    <string name="st_pin">PIN ของแผงควบคุมเพื่อเปลี่ยนไดรฟ์ USB</string>
+    <string name="st_copiar_titulo">คัดลอกสิ่งที่อยู่ในไดรฟ์ก่อนไหม (%1$s)</string>
+    <string name="st_copiar_para">คัดลอกไปที่ %1$s</string>
+    <string name="st_copiar_pc">คัดลอกโดยใช้คอมพิวเตอร์ (วิธีการ)</string>
+    <string name="st_copiar_pc_texto">บนคอมพิวเตอร์ เปิด This PC > ทีวี > ไดรฟ์ USB แล้วคัดลอกไฟล์ไปยังคอมพิวเตอร์ จากนั้นกลับมาที่นี่แล้วฟอร์แมต</string>
+    <string name="st_nao_copiar">ไม่ต้อง ลบเลย</string>
+    <string name="st_copiando_inicio">กำลังคัดลอกไดรฟ์ USB… ทีวียังใช้งานได้ระหว่างนั้น</string>
+    <string name="st_copiando">คัดลอกแล้ว %1$s จาก %2$s</string>
+    <string name="st_voltar_comum">กลับไปเป็นไดรฟ์ USB ทั่วไป (แอปกลับมาที่ทีวี)</string>
+    <string name="st_trazendo">กำลังนำ %1$s กลับมาที่ทีวี…</string>
+    <string name="st_sumiram">ไดรฟ์ USB ถูกถอดออก: %1$s ถูกซ่อนจนกว่าจะเสียบกลับ</string>
+    <string name="st_sugestao">ที่เก็บข้อมูลทีวีเกือบเต็ม ย้าย %1$s (%2$s) ไปที่ไดรฟ์ USB: กด OK ค้างที่แอป</string>
+    <string name="st_medindo">กำลังวัดความเร็วของไดรฟ์เพื่อแนะนำวิธีใช้ที่ดีที่สุด…</string>
+    <string name="st_lento_titulo">ไดรฟ์ช้าเกินไป</string>
+    <string name="st_lento_bloqueado">ไดรฟ์นี้เขียนที่ %1$s MB/s หากจะเป็นที่เก็บข้อมูลทีวีต้องได้อย่างน้อย %2$d MB/s ถ้าต่ำกว่านั้นแอปจะค้างและทีวีอาจเปิดไม่ขึ้น ใช้เป็นไดรฟ์ทั่วไปแทน</string>
+    <string name="st_aviso_boot">เสียบไว้ตลอด: ถ้าไดรฟ์เสียหรือถูกถอดออก ทีวีอาจเปิดไม่ขึ้นจนกว่าคุณจะถอดไดรฟ์</string>
+    <string name="home_grande_titulo">ย้าย %1$s ไหม</string>
+    <string name="home_grande_aviso">%1$s ใช้พื้นที่ %2$s ในไดรฟ์ที่ช้า การย้ายอาจใช้เวลามากกว่า 10 นาที และเคยทำให้ทีวีขัดข้องกลางคัน ทำต่อเฉพาะเมื่อไม่มีใครกำลังดู</string>
+    <string name="home_liberar_arquivos">อนุญาตให้เปิดไดรฟ์ USB และไฟล์</string>
+    <string name="home_arquivos_liberado">ตอนนี้ %1$s เปิดไดรฟ์ USB และไฟล์ทั้งหมดได้แล้ว</string>
+    <string name="home_arquivos_falhou">อนุญาต %1$s ไม่ได้: %2$s</string>
+    <string name="aviso_continuar_titulo">ไม่มีอะไรให้ดูต่อ</string>
+    <string name="aviso_continuar_texto">คำเชิญให้ดูต่อจากทีวีอีกเครื่องหมดอายุแล้ว</string>
+    <string name="aviso_simples_titulo">หน้าจอแบบง่ายปิดอยู่</string>
+    <string name="aviso_simples_texto">ทีวีกลับไปใช้หน้าจอหลักแบบเต็มแล้ว</string>
+    <string name="aviso_sync_titulo">ไม่มีบัญชีที่เชื่อมต่อ</string>
+    <string name="aviso_sync_texto">ไม่มีบัญชี %1$s บนทีวีนี้ เชื่อมต่อได้ที่ การตั้งค่า › ทีวีและภาพยนตร์</string>
+    <string name="dns_nota_familia">ครอบครัว บล็อกเว็บไซต์ผู้ใหญ่</string>
+    <string name="dns_nota_malware">บล็อกมัลแวร์</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">ทีวีไม่มี Wi-Fi%1$s ตรวจสอบว่าเราเตอร์เปิดอยู่ หรือชื่อเครือข่ายหรือรหัสผ่านเปลี่ยนไปหรือไม่</string>
+    <string name="ief_roteador_sem_modem" formatted="true">เราเตอร์ขาดการเชื่อมต่อกับโมเด็มของผู้ให้บริการ</string>
+    <string name="ief_roteador_ve_fora" formatted="true">เราเตอร์ก็เห็นว่าอินเทอร์เน็ตล่มเช่นกัน</string>
+    <string name="ief_ha" formatted="true"> (เมื่อ %1$s ที่แล้ว)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi ปกติ แต่อินเทอร์เน็ตของผู้ให้บริการล่ม%1$s; %2$s%3$s ไม่ใช่ปัญหาของทีวี: รอผู้ให้บริการหรือรีสตาร์ทโมเด็ม</string>
+    <string name="ief_vpn_travada" formatted="true">เราเตอร์มีอินเทอร์เน็ต แต่ทีวีส่งผ่านไม่ได้%1$s: VPN อาจค้างอยู่ ปิดแล้วเปิด VPN ใหม่มักแก้ได้</string>
+    <string name="ief_entre_tv_roteador" formatted="true">เราเตอร์มีอินเทอร์เน็ต แต่ทีวีเข้าถึงไม่ได้%1$s: ปัญหาอยู่ระหว่างทีวีกับเราเตอร์%2$s เชื่อมต่อทีวีกับ Wi-Fi ใหม่มักแก้ได้</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (สัญญาณ Wi-Fi อ่อน %1$d dBm)</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">ทีวีเชื่อมต่อ Wi-Fi แล้ว แต่ทั้งเราเตอร์และอินเทอร์เน็ตไม่ตอบสนอง%1$s: เราเตอร์อาจค้าง ปิดแล้วเปิดเราเตอร์ใหม่มักแก้ได้</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi ปกติ แต่อินเทอร์เน็ตส่งผ่านไม่ได้%1$s อาจเป็นที่ผู้ให้บริการหรือเราเตอร์%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (การเปิด VPN ไว้อาจเป็นสาเหตุด้วย)</string>
+    <string name="ief_dns" formatted="true">อินเทอร์เน็ตใช้ได้ แต่ DNS%1$s ไม่ตอบสนอง%2$s: แอปหาเซิร์ฟเวอร์ของตัวเองไม่เจอ เปลี่ยน DNS เป็นอัตโนมัติจะแก้ได้</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">อินเทอร์เน็ตและ DNS ตอบสนอง แต่หน้าทดสอบของ Google %1$s: มีบางอย่างระหว่างทาง (VPN, การบล็อก DNS หรือเครือข่ายที่ต้องเข้าสู่ระบบ) กำลังบล็อกอยู่</string>
+    <string name="ief_nao_abriu" formatted="true">เปิดไม่ขึ้น</string>
+    <string name="ief_codigo_diferente" formatted="true">ตอบกลับต่างไป (รหัส %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">อินเทอร์เน็ตปกติ มีแค่ VPN ที่ปิดอยู่ (แอปใช้งานได้โดยไม่มี VPN)%1$s</string>
+    <string name="ief_lenta" formatted="true">อินเทอร์เน็ตใช้ได้ แต่ช้า: %1$s%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">สัญญาณ Wi-Fi อ่อน (%1$d dBm) ย้ายเราเตอร์ให้ใกล้ขึ้นหรือใช้สายจะช่วยได้</string>
+    <string name="ief_lenta_tcp" formatted="true">อินเทอร์เน็ตใช้เวลา %1$d ms ในการตอบสนอง%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true"> และเราเตอร์ก็เห็นเหมือนกัน: เป็นที่ผู้ให้บริการ</string>
+    <string name="ief_lenta_http" formatted="true">หน้าทดสอบใช้เวลา %1$.1f วินาทีในการเปิด</string>
+    <string name="ief_queda_recente" formatted="true">ตอนนี้อินเทอร์เน็ตปกติแล้ว %1$s</string>
+    <string name="ief_tudo_ok" formatted="true">ทุกอย่างปกติ: Wi-Fi อินเทอร์เน็ต และ DNS ตอบสนอง%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> ไม่มีการหลุดใน 24 ชม. ที่ผ่านมา</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> ไม่มีการหลุดที่บันทึกไว้ (ทีวีวัดได้เพียงบางส่วนของ 24 ชม. ที่ผ่านมา)</string>
+    <string name="ief_roteador_avisa" formatted="true"> (เราเตอร์รายงานปัญหาอินเทอร์เน็ต แต่ทีวีใช้งานได้ปกติ)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS ล้มเหลว</string>
+    <string name="ief_caiu_internet" formatted="true">อินเทอร์เน็ตล่ม</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (จากนั้นทีวีหยุดวัดผล จึงไม่ทราบว่ากลับมาเมื่อไร)</string>
+    <string name="ief_quedas_n" formatted="true">; หลุด %1$d ครั้งใน 24 ชม.</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s และกลับมา %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; หลุด %1$d ครั้งใน 24 ชม. ไม่มีอินเทอร์เน็ตรวม %2$s</string>
+    <string name="ief_quando_hoje" formatted="true">เวลา %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">เมื่อวาน เวลา %1$s</string>
+    <string name="ief_quando_data" formatted="true">วันที่ %1$s เวลา %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">ตั้งแต่ %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">ตั้งแต่เมื่อวาน เวลา %1$s</string>
+    <string name="ief_desde_data" formatted="true">ตั้งแต่ %1$s เวลา %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">ไม่ถึง 1 นาที</string>
+    <string name="ief_dur_min" formatted="true">%1$d นาที</string>
+    <string name="ief_dur_h" formatted="true">%1$d ชม.</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d ชม. %2$d นาที</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: ไม่ได้เชื่อมต่อ</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">เครือข่าย: เชื่อมต่อแล้ว</string>
+    <string name="ief_s_internet" formatted="true">อินเทอร์เน็ตโดยไม่ใช้ DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS ไม่ใช้แคช: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">ล้มเหลว</string>
+    <string name="ief_s_pagina" formatted="true">หน้าทดสอบ: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ปกติ</string>
+    <string name="ief_s_ok_em" formatted="true">ปกติใน %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">รหัส %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: เปิด</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: ปิด</string>
+    <string name="ief_s_roteador_fora" formatted="true">เราเตอร์: เห็นว่าอินเทอร์เน็ตล่ม</string>
+    <string name="ief_s_roteador_ok" formatted="true">เราเตอร์: เห็นว่าอินเทอร์เน็ตปกติ%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">เราเตอร์: ไม่มีข้อมูล</string>
+    <string name="ief_s_roteador_mudo" formatted="true">เราเตอร์: ไม่ตอบสนอง</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">เราเตอร์: ไม่ได้ตรวจสอบ</string>
+    <string name="ief_s_historico" formatted="true">ประวัติ: วัด %1$d ครั้งใน 24 ชม.</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google ไม่ตอบสนองในตอนนี้ โปรดลองอีกครั้ง</string>
+    <string name="lg_negado">Google ปฏิเสธการลงชื่อเข้าใช้</string>
+    <string name="lg_google_respondeu">Google ตอบกลับ: %1$s</string>
+    <string name="lg_venceu">รหัสหมดอายุ เริ่มใหม่อีกครั้ง</string>
+    <string name="lg_outro_login">มีการลงชื่อเข้าใช้อื่นเริ่มขึ้น เริ่มใหม่อีกครั้ง</string>
+    <string name="lg_email">Google ไม่ได้ยืนยันอีเมล</string>
+    <string name="lg_conta_fora">บัญชี %1$s ไม่ได้อยู่ในโปรไฟล์ใดบนทีวีนี้</string>
+    <string name="lg_sem_drive">ไม่ได้เลือกสิทธิ์ Google Drive</string>
+    <string name="lg_sem_chave">Google ไม่ได้ส่งคีย์การเข้าถึง โปรดลองอีกครั้ง</string>
+    <string name="lg_nao_guardei">บันทึกบัญชีบนทีวีนี้ไม่ได้</string>
+    <string name="lg_nao_configurado">ยังไม่ได้ตั้งค่าการลงชื่อเข้าใช้ Google</string>
+    <string name="lg_ritmo">ลงชื่อเข้าใช้ติดกันหลายครั้งเกินไป รอสักหนึ่งนาที</string>
+    <string name="lg_recusou">Google ปฏิเสธ (%1$s): ตรวจสอบ client id และ secret</string>
+    <string name="lg_erro_google">เกิดข้อผิดพลาดในการติดต่อ Google</string>
+</resources>

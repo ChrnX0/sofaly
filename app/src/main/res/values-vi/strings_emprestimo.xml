@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Cho mượn quyền hệ thống</string>
+    <string name="emp_titulo">Cho ứng dụng khác mượn shell (Shizuku)</string>
+    <string name="emp_titulo_det">Các ứng dụng làm cho Shizuku hoạt động mà không cần cài nó. Mỗi ứng dụng sẽ hỏi trên TV, kèm PIN, ở lần đầu.</string>
+    <string name="emp_modo_desligado">Tắt</string>
+    <string name="emp_modo_sob_demanda">Khi ứng dụng cần</string>
+    <string name="emp_modo_sempre">Luôn bật</string>
+    <string name="emp_oficial">Ứng dụng Shizuku đã được cài trên TV này, nên launcher không can thiệp. Gỡ nó để dùng của launcher.</string>
+    <string name="emp_plano">Thuộc các gói trả phí.</string>
+    <string name="emp_negar">Từ chối</string>
+    <string name="emp_permitir">Luôn cho phép</string>
+    <string name="emp_pedido_titulo">Cho phép %1$s dùng quyền hệ thống của launcher?</string>
+    <string name="emp_pedido_texto">Ứng dụng sẽ làm được những gì adb làm: cài và gỡ ứng dụng, đổi cài đặt hệ thống và hơn thế. Chỉ cho phép ứng dụng bạn tin tưởng. Bạn có thể thu hồi sau trong bảng điều khiển web.</string>
+    <string name="emp_pin_titulo">PIN bảng điều khiển để cho phép</string>
+    <string name="emp_sem_pin">Hãy đặt PIN bảng điều khiển trước (Cài đặt, Bảng điều khiển web).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Cho ứng dụng khác mượn quyền chủ sở hữu (Dhizuku)</string>
+    <string name="emd_titulo_det">Các ứng dụng làm cho Dhizuku dùng quyền chủ sở hữu của launcher. Mỗi ứng dụng sẽ hỏi trên TV, kèm PIN. Với “Cho phép”, không ứng dụng nào gỡ được launcher khỏi vai trò chủ sở hữu hay xóa sạch TV; với “Toàn quyền” thì có thể.</string>
+    <string name="emd_ligado">Bật</string>
+    <string name="emd_sem_dono">Launcher không phải chủ sở hữu (Device Owner) của TV này, nên không có gì để cho mượn.</string>
+    <string name="emd_pedido_titulo">Cho phép %1$s dùng quyền chủ sở hữu của launcher?</string>
+    <string name="emd_pedido_texto">Với “Cho phép”, ứng dụng có thể ẩn và chặn ứng dụng, đổi quyền và quy tắc của TV, nhưng không bao giờ gỡ launcher khỏi vai trò chủ sở hữu hay xóa sạch TV. “Toàn quyền” cho ứng dụng chạy như launcher và đọc dữ liệu của nó: chỉ dành cho ứng dụng bạn hoàn toàn tin tưởng. Bạn có thể thu hồi trong bảng điều khiển web. Với “Toàn quyền”, ứng dụng làm được mọi điều launcher làm được, kể cả xóa sạch TV.</string>
+    <string name="emd_total">Toàn quyền</string>
+    <string name="emd_pin_total">TOÀN QUYỀN: ứng dụng làm được mọi điều launcher làm được, kể cả xóa sạch TV. PIN bảng điều khiển</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Lịch gia đình</string>
+    <string name="agf_sub">Đến giờ đã đặt, TV tự chuyển sang hồ sơ đó. Hồ sơ trẻ em sẽ bật chế độ trẻ em và giờ đi ngủ.</string>
+    <string name="agf_cfg_det">Số lần chuyển đã đặt: %1$d. Hồ sơ tự đổi vào giờ đã đặt.</string>
+    <string name="agf_adicionar">Thêm lần chuyển</string>
+    <string name="agf_adicionar_det">Hồ sơ của ai, ngày nào và mấy giờ.</string>
+    <string name="agf_quem">Chuyển sang hồ sơ của ai?</string>
+    <string name="agf_dias">Ngày nào?</string>
+    <string name="agf_hora">Mấy giờ?</string>
+    <string name="agf_todos">Mỗi ngày</string>
+    <string name="agf_uteis">Thứ Hai đến Thứ Sáu</string>
+    <string name="agf_fds">Thứ Bảy và Chủ Nhật</string>
+    <string name="agf_alguns">Một số ngày</string>
+    <string name="agf_apagar">Xóa lần chuyển này?</string>
+    <string name="agf_apagar_sim">Xóa</string>
+    <string name="agf_cheia">Lịch đã đầy (12 lần chuyển).</string>
+    <string name="agf_sem_contas">Chưa có hồ sơ nào trên TV này (tài khoản Google).</string>
+</resources>

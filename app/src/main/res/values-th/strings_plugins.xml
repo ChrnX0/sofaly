@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">ปลั๊กอิน</string>
+    <string name="plg_nenhum">ไม่มีปลั๊กอินการ์ดที่ติดตั้งไว้ ปลั๊กอินการ์ดคือแอปจากนักพัฒนาอื่นที่แสดงการ์ดที่นี่ เช่น ผลการแข่งขันหรือราคา</string>
+    <string name="plg_ligado">เปิด</string>
+    <string name="plg_desligado">ปิด</string>
+    <string name="plg_limite">ใช้ปลั๊กอินได้สูงสุด %1$d รายการพร้อมกัน ปิดหนึ่งรายการก่อน</string>
+    <string name="plg_seguranca">ถ้าปลั๊กอินถูกอัปเดตด้วยลายเซ็นที่ต่างไป จะถูกปิดจนกว่าคุณจะอนุญาตอีกครั้ง</string>
+</resources>

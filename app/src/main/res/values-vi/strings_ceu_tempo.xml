@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor que reage ao tempo, caminho 2 (17/11/2026): frase do tempo, curiosidades do céu e o tema "Céu de verdade". -->
+<resources>
+    <string name="tema_ceu">Bầu trời thật</string>
+    <string name="cu_estacao">Trạm Vũ trụ lúc %1$s</string>
+    <string name="cu_estacao_d">%1$d phút · %2$s → %3$s</string>
+    <string name="cu_meteoros">Mưa sao băng tối nay</string>
+    <string name="cu_meteoros_d">%1$s · tối đa %2$d mỗi giờ</string>
+    <string name="cu_eclipse">Nhật thực %1$s</string>
+    <string name="cu_eclipse_d">không bao giờ nhìn thẳng vào mặt trời</string>
+    <string name="cu_superlua">Siêu trăng tối nay</string>
+    <string name="cu_lua_cheia_d">mọc ở phía đông lúc chạng vạng</string>
+    <string-array name="ceu_rumos">
+        <item>bắc</item>
+        <item>đông bắc</item>
+        <item>đông</item>
+        <item>đông nam</item>
+        <item>nam</item>
+        <item>tây nam</item>
+        <item>tây</item>
+        <item>tây bắc</item>
+    </string-array>
+    <string-array name="ceu_meteoros">
+        <item>Quadrantids</item>
+        <item>Lyrids</item>
+        <item>Eta Aquariids</item>
+        <item>Delta Aquariids</item>
+        <item>Perseids</item>
+        <item>Orionids</item>
+        <item>Leonids</item>
+        <item>Geminids</item>
+    </string-array>
+    <string name="ns_titulo">Bầu trời đêm</string>
+    <!-- Ilha: sol forte (SunAlert, UV ≥ 8). -->
+    <string name="ilha_uv">UV %1$d: hãy dùng kem chống nắng</string>
+</resources>

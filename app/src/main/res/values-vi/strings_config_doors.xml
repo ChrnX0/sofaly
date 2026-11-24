@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Nhà và mạng</string>
+    <string name="cfg3_mais_ajustes">Thêm cài đặt</string>
+    <string name="cfg3_mais_ajustes_det">Ẩn bớt cho gọn: %1$d</string>
+    <string name="cfg3_modo">Chế độ: %1$s</string>
+    <string name="cfg3_porta_0_det">Danh mục, biểu tượng và hình nền</string>
+    <string name="cfg3_porta_1_det">Tài khoản TV, âm thanh, phụ đề</string>
+    <string name="cfg3_porta_2_det">Trẻ em, PIN và khách</string>
+    <string name="cfg3_porta_3_det">Trình bảo vệ màn hình, ngủ, thức dậy</string>
+    <string name="cfg3_porta_4_det">Nhà, điện thoại và bảng điều khiển</string>
+    <string name="cfg3_porta_5_det">Cập nhật, sao lưu và trợ giúp</string>
+</resources>

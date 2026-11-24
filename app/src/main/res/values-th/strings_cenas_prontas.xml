@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">ฉากสำเร็จรูป</string>
+    <string name="cpr_dormir">นอนหลับ</string>
+    <string name="cpr_dormir_det">ฟิลเตอร์กลางคืน ลดเสียง ทีวีปิดในอีก 30 นาที</string>
+    <string name="cpr_novela">ละคร</string>
+    <string name="cpr_novela_det">ช่องของคุณ สีปกติ</string>
+    <string name="cpr_jogo">การแข่งขัน</string>
+    <string name="cpr_jogo_det">ช่องกีฬาของคุณ เสียงดังขึ้น</string>
+    <string name="cpr_canal">ช่องไหนสำหรับ “%1$s”</string>
+    <string name="cpr_canal_dica">ชื่อหรือหมายเลขช่อง</string>
+</resources>

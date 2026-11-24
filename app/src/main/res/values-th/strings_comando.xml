@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">พิมพ์สิ่งที่คุณต้องการให้ทีวีทำ</string>
+    <string name="cc_nao_entendi">ไม่เข้าใจ ลองพิมพ์ประมาณนี้:</string>
+    <string name="cc_exemplo_1">เปิดช่อง Globo</string>
+    <string name="cc_exemplo_2">เปิด YouTube</string>
+    <string name="cc_exemplo_3">ปิดในอีก 30 นาที</string>
+    <string name="cc_abrindo">กำลังเปิด %1$s</string>
+    <string name="cc_canal">กำลังเปิดช่อง %1$s</string>
+    <string name="cc_o_que_passa">รายการบน %1$s</string>
+    <string name="cc_timer">เตือนในอีก %1$d นาที</string>
+    <string name="cc_desligar">ทีวีจะปิดในอีก %1$d นาที</string>
+    <string name="cc_desligar_cancelar">ยกเลิกตั้งเวลาปิดแล้ว</string>
+    <string name="cc_volume_subir">เพิ่มเสียง</string>
+    <string name="cc_volume_descer">ลดเสียง</string>
+    <string name="cc_mudo">เปิด/ปิดเสียง</string>
+    <string name="cc_pausar">กำลังหยุดชั่วคราว</string>
+    <string name="cc_continuar">กำลังเล่น</string>
+    <string name="cc_tela_previsao">พยากรณ์อากาศ</string>
+    <string name="cc_tela_agenda">ปฏิทิน</string>
+    <string name="cc_tela_despertador">นาฬิกาปลุก</string>
+    <string name="cc_tela_configuracoes">การตั้งค่า Launcher</string>
+    <string name="cc_tela_inicio">หน้าจอหลัก</string>
+    <string name="cc_confirme_na_tv">%1$s: ยืนยันด้วย OK บนทีวี</string>
+    <string name="cc_nao_fiz">%1$s: ไม่ได้ทำ (%2$s)</string>
+    <string name="cc_aviso_titulo">แผงควบคุมบนโทรศัพท์</string>
+</resources>

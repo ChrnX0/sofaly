@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">วันเกิด</string>
+    <string name="an_hoje">วันนี้เป็นวันเกิดของ %s</string>
+    <string name="an_amanha">พรุ่งนี้เป็นวันเกิดของ %s</string>
+    <plurals name="an_anos">
+        <item quantity="one">อายุครบ %d ปี</item>
+        <item quantity="other">อายุครบ %d ปี</item>
+    </plurals>
+    <string name="tp_calor">อากาศร้อนจัด</string>
+    <string name="tp_calor_texto">สูงสุด %d° วันนี้ · ดื่มน้ำมากๆ</string>
+    <string name="tp_frio">อากาศหนาวจัด</string>
+    <string name="tp_frio_texto">ต่ำสุด %d° คืนนี้ · แต่งตัวให้อบอุ่น</string>
+    <string name="tp_cfg">การแจ้งเตือนอากาศร้อนและหนาว</string>
+    <string name="tp_cfg_det">การ์ดแสดงทับแอปใดก็ได้เมื่อวันนี้ถึง %1$d° หรือคืนนี้ลดลงถึง %2$d°</string>
+    <string name="mu_ok_lido">OK เพื่อทำเครื่องหมายว่าอ่านแล้ว</string>
+    <string name="mu_ok_nao_lido">อ่านแล้ว · OK เพื่อทำเครื่องหมายว่ายังไม่อ่าน</string>
+    <string name="mu_lido_desc">ข้อความ อ่านแล้ว: %s OK เพื่อทำเครื่องหมายว่ายังไม่อ่าน</string>
+    <string name="mu_nao_lido_desc">ข้อความ: %s OK เพื่อทำเครื่องหมายว่าอ่านแล้ว</string>
+    <string name="mu_apagar">ลบข้อความ: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">ทีวีของคุณในปีนี้ (ในเดือนธันวาคม บนโปรแกรมรักษาหน้าจอ)</string>
+    <string name="extras_ENTRADAS_TV">อินพุต HDMI ในแอป (เฉพาะทีวีที่มีอินพุต)</string>
+    <string name="ra_titulo">ทีวีของคุณในปี %d</string>
+    <string name="ra_canal">ช่องโปรด: %1$s (%2$s)</string>
+    <string name="ra_coluna">วิทยุ</string>
+    <string name="ra_dica_ouvir">ฟัง</string>
+    <string name="ra_dica_favoritar">รายการโปรด</string>
+    <string name="ra_carregando">กำลังโหลดสถานี…</string>
+    <string name="ra_sem_catalogo">แคตตาล็อกวิทยุไม่ตอบสนอง รายการโปรดของคุณยังใช้ได้</string>
+    <string name="ra_nada">ไม่พบสถานี</string>
+    <string name="ra_continuar">ดำเนินการต่อ</string>
+    <string name="ra_pausar">หยุดชั่วคราว</string>
+    <string name="ra_favoritas">รายการโปรด</string>
+    <string name="ra_procurar">ค้นหา</string>
+    <string name="ra_buscar">ค้นหาตามชื่อ</string>
+    <string name="ra_buscar_det">สถานีใดก็ได้ในโลก</string>
+    <string name="ra_generos">แนวเพลง</string>
+    <string name="ra_perto">ใกล้เคียง</string>
+    <string name="ra_mundo">ฟังมากที่สุดในโลก</string>
+    <string name="ra_resultado">ค้นหา: %s</string>
+    <string name="ra_favoritada">เพิ่มในรายการโปรดแล้ว</string>
+    <string name="ra_desfavoritada">นำออกจากรายการโปรดแล้ว</string>
+    <string name="ra_falhou">สถานีนี้ไม่ได้ออกอากาศตอนนี้ ลองสถานีอื่น</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search that continues in other apps (idea 14, 14/11/2026): BuscaActivity + BuscaOutrosApps. -->
+<resources>
+    <string name="bu_outros_apps">Trong ứng dụng khác</string>
+    <string name="bu_outro_googletv">Tìm “%1$s” trên Google TV</string>
+    <string name="bu_outro_youtube">Tìm “%1$s” trên YouTube</string>
+    <string name="bu_outro_netflix">Tìm “%1$s” trên Netflix</string>
+    <string name="bu_outro_prime">Tìm “%1$s” trên Prime Video</string>
+    <string name="bu_outro_det">Mở tìm kiếm riêng của ứng dụng</string>
+</resources>

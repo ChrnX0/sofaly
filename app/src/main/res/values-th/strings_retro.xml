@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">เกมของคุณ</string>
+    <string name="retro_vazio">ไม่พบเกมในไดรฟ์ USB ใส่เกมของคุณเองในโฟลเดอร์ที่ตั้งชื่อตามคอนโซล (เช่น SNES)</string>
+    <string name="retro_portugues">ภาษาโปรตุเกส</string>
+    <string name="retro_abrindo">กำลังเปิดใน RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch เปิดเกมนี้ไม่ได้ เปิด RetroArch หนึ่งครั้งแล้วดาวน์โหลดคอร์ %1$s</string>
+    <string name="retro_sem_retroarch">ติดตั้ง RetroArch (ฟรีใน Play Store) เพื่อเล่นเกมเหล่านี้</string>
+    <string name="retro_aviso_legal">Sofaly ไม่มีเกมมาให้ ใช้เกมที่คุณเป็นเจ้าของ</string>
+    <string name="retro_procurando">กำลังค้นหาเกมในไดรฟ์ USB…</string>
+</resources>

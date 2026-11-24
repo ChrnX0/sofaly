@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">บริการภาพยนตร์และซีรีส์</string>
+    <string name="sv_subtitulo">บัญชีที่ไม่บังคับ ไม่มีอะไรส่งออกนอกทีวีจนกว่าคุณจะลงชื่อเข้าใช้</string>
+    <string name="sv_linha">บริการภาพยนตร์และซีรีส์</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB และ OpenSubtitles</string>
+    <string name="sv_trakt_det">ซิงค์สิ่งที่คุณดูและรายการที่จะดูกับโทรศัพท์ของคุณ</string>
+    <string name="sv_simkl_det">คล้าย Trakt และดีมากสำหรับอนิเมะ ใช้อย่างใดอย่างหนึ่งหรือทั้งสอง</string>
+    <string name="sv_mdblist_det">ไม่บังคับ: ลิสต์ของคุณ เช่น Top 250 จะกลายเป็นหมวดหมู่ในภาพยนตร์และซีรีส์</string>
+    <string name="sv_tmdb_det">เรื่องย่อ นักแสดง และวันที่ของตอนถัดไป ในภาษาของทีวี</string>
+    <string name="sv_os_det">คำบรรยายออนไลน์ ไม่มีบัญชี: วันละ 5 มีบัญชีฟรี: 20</string>
+    <string name="sv_desligado">ลงชื่อเข้าใช้</string>
+    <string name="sv_entrando">กำลังลงชื่อเข้าใช้…</string>
+    <string name="sv_conectado">เชื่อมต่อแล้ว</string>
+    <string name="sv_ativo">เปิด</string>
+    <string name="sv_sem_chave">รุ่นนี้ยังไม่มีคีย์ของบริการเหล่านี้ จะแสดงหลังการอัปเดตครั้งถัดไป</string>
+    <string name="sv_pedindo">กำลังขอรหัสจาก %1$s…</string>
+    <string name="sv_passos">1. บนโทรศัพท์ เปิด %1$s (หรือส่องกล้องไปที่รหัสทางขวา)\n2. ลงชื่อเข้าใช้ %2$s แล้วพิมพ์รหัส:</string>
+    <string name="sv_espera">หน้าจอนี้จะดำเนินการต่อเอง BACK เพื่อยกเลิก</string>
+    <string name="sv_ok">เรียบร้อย: เชื่อมต่อ %1$s แล้ว%2$s</string>
+    <string name="sv_ok_como"> ในชื่อ %1$s</string>
+    <string name="sv_falhou">ไม่สำเร็จ: %1$s</string>
+    <string name="sv_motivo_venceu">รหัสหมดอายุแล้ว ลองอีกครั้ง</string>
+    <string name="sv_motivo_recusado">การเข้าถึงถูกปฏิเสธบนโทรศัพท์</string>
+    <string name="sv_motivo_usado">รหัสนี้ถูกใช้ไปแล้ว ลองอีกครั้ง</string>
+    <string name="sv_motivo_erro">บริการไม่ตอบสนอง ลองอีกครั้งในอีกสักครู่</string>
+    <string name="sv_sair_pergunta">ออกจากระบบ %1$s ไหม ทีวีจะลืมบัญชีและหยุดติดต่อ %1$s ข้อมูลของคุณที่นั่นจะยังอยู่</string>
+    <string name="sv_sair">ออกจากระบบ</string>
+    <string name="sv_fechar">ปิด</string>
+    <string name="sv_mdblist_titulo">คีย์ MDBList</string>
+    <string name="sv_mdblist_texto">ไม่บังคับ: คะแนนใช้ได้อยู่แล้วโดยไม่ต้องมีคีย์ หากต้องการใช้บัญชี MDBList ของคุณเอง (ลิสต์ของคุณ โควตาของคุณ) ให้ลงชื่อเข้าใช้ที่ mdblist.com เปิด Preferences คัดลอก API key แล้วพิมพ์ที่นี่ (ง่ายกว่าจากแผงควบคุมเว็บ แท็บการตั้งค่า โดยวางคีย์)</string>
+    <string name="sv_mdblist_dica">คีย์ API</string>
+    <string name="sv_os_titulo">บัญชี OpenSubtitles</string>
+    <string name="sv_os_texto">ไม่บังคับ: เมื่อมีบัญชีฟรีที่ opensubtitles.com ขีดจำกัดจะเพิ่มจาก 5 เป็น 20 คำบรรยายต่อวัน</string>
+    <string name="sv_os_usuario">ชื่อผู้ใช้</string>
+    <string name="sv_os_senha">รหัสผ่าน</string>
+    <string name="sv_gravar">บันทึก</string>
+    <string name="sv_cancelar">ยกเลิก</string>
+    <string name="sv_limite_dia">ใช้คำบรรยายครบขีดจำกัดรายวันแล้ว จะต่ออายุใน 24 ชม. (เมื่อมีบัญชี OpenSubtitles ได้วันละ 20)</string>
+    <string name="sv_tmdb_atribuicao">ผลิตภัณฑ์นี้ใช้ TMDB API แต่ไม่ได้รับการสนับสนุนหรือรับรองจาก TMDB</string>
+    <string name="ext_saga">%1$s · %2$d จาก %3$d อยู่ในรายการของคุณ</string>
+    <string name="ext_nao_e_este">ไม่ใช่ภาพยนตร์เรื่องนี้</string>
+    <string name="ext_proximo">ตอนใหม่ %1$s (S%2$dE%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">ตอนใหม่ %1$s</string>
+    <string name="ext_hoje">วันนี้</string>
+    <string name="ext_amanha">พรุ่งนี้</string>
+    <string name="sv_mdblist_passos">ไม่บังคับ: ลิสต์ MDBList ของคุณ (เช่น Top 250) จะกลายเป็นหมวดหมู่ในภาพยนตร์และซีรีส์\n1. ส่องกล้องโทรศัพท์ไปที่รหัสทางซ้ายแล้วลงชื่อเข้าใช้ (หรือสร้างบัญชีฟรี) ที่ท้ายหน้า แตะ API Access สร้างคีย์ถ้ายังไม่มี แล้วคัดลอก\n2. ส่องไปที่รหัสทางขวา: แผงควบคุมเว็บจะเปิดที่การตั้งค่า วางคีย์ใต้ MDBList แล้วแตะ บันทึกคีย์\n3. ทีวีจะตรวจสอบทันทีและหน้าจอนี้จะดำเนินการต่อเอง</string>
+    <string name="sv_mdblist_qr1">หน้าคีย์ MDBList</string>
+    <string name="sv_mdblist_qr2">แผงควบคุมเว็บ (%1$s)</string>
+    <string name="sv_mdblist_digitar">พิมพ์คีย์ที่นี่</string>
+    <string name="sv_f_chave_invalida">คีย์ไม่ถูกต้อง (ตัวอักษรและตัวเลขเท่านั้น)</string>
+    <string name="sv_f_chave_recusada">%1$s ไม่ยอมรับคีย์นี้</string>
+    <string name="sv_f_respondeu">%1$s ตอบกลับด้วยข้อผิดพลาด %2$d ลองอีกครั้งในอีกสักครู่</string>
+    <string name="sv_f_falta">ใส่ชื่อผู้ใช้และรหัสผ่าน</string>
+    <string name="sv_f_longo">ชื่อผู้ใช้หรือรหัสผ่านยาวเกินไป</string>
+    <string name="sv_f_senha">ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</string>
+    <string name="sv_f_gravar">บันทึกบนทีวีไม่ได้ ลองอีกครั้ง</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">คะแนน Simkl</string>
+    <string name="sv_simkl_convite_det">เชื่อมต่อบัญชีของคุณ</string>
+</resources>

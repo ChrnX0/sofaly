@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor: variações de cada elemento (17/11/2026). -->
+<resources>
+    <string name="pv2_est_avisos">รูปแบบประกาศ</string>
+    <string name="pv2_est_avisos_det">วิธีแสดงข้อความและการเตือน · OK เพื่อเปลี่ยน</string>
+    <string name="pv2_av_cartoes">การ์ดกระจก</string>
+    <string name="pv2_av_lista">รายการไม่มีกรอบ</string>
+    <string name="pv2_av_um">ทีละรายการ</string>
+    <string name="pv2_est_textos">รูปแบบคำทักทายและวันที่</string>
+    <string name="pv2_est_textos_det">OK เพื่อเปลี่ยน</string>
+    <string name="pv2_tx_moderno">ทันสมัย</string>
+    <string name="pv2_tx_serifa">มีเชิง</string>
+    <string name="pv2_tx_maiusculas">ตัวพิมพ์ใหญ่เว้นระยะ</string>
+    <string name="pv2_est_linhas">รูปแบบบรรทัดสภาพอากาศ</string>
+    <string name="pv2_est_linhas_det">ประโยคสภาพอากาศและเกร็ดน่ารู้ · OK เพื่อเปลี่ยน</string>
+    <string name="pv2_ln_icones">พร้อมไอคอน</string>
+    <string name="pv2_ln_vidro">บนกระจกสีเข้ม</string>
+    <string name="pv2_ln_texto">ข้อความเท่านั้น</string>
+    <string name="pv2_est_credito">รูปแบบเครดิตภาพ</string>
+    <string name="pv2_est_credito_det">OK เพื่อเปลี่ยน</string>
+    <string name="pv2_cr_etiqueta">ป้าย</string>
+    <string name="pv2_cr_discreto">เรียบง่าย</string>
+    <string name="cl_widget_linha">บรรทัดเดียว</string>
+    <string name="cl_widget_grande">ใหญ่</string>
+    <string name="pv2_widget_det">ห้ารูปแบบ · OK เพื่อเปลี่ยน</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Kiểm tra tay cầm</string>
+    <string name="teste_controle_sub">Có đủ nhanh để chơi không?</string>
+    <string name="teste_controle_mexa">Xoay cần trái thành vòng tròn trong 10 giây.</string>
+    <string name="teste_controle_bom">Rất tốt để chơi: tín hiệu mỗi %1$d ms.</string>
+    <string name="teste_controle_ok">Chơi được: tín hiệu mỗi %1$d ms. Trò chơi nhanh có thể hơi trễ.</string>
+    <string name="teste_controle_ruim">Chậm: tín hiệu mỗi %1$d ms và %2$d lần ngắt. Tay cầm có dây, hoặc tay cầm gần TV hơn sẽ tốt hơn.</string>
+    <string name="teste_controle_parado">Tay cầm không chuyển động. Hãy thử lại và tiếp tục xoay cần.</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Phim ở đúng tốc độ khung hình (24 Hz)</string>
+    <string name="quadros_det">TV chuyển sang 24 Hz khi phát phim, để hình không bị giật khi máy quay di chuyển. Màn hình đen 1 đến 2 giây lúc bắt đầu. Không dùng cho TV trực tiếp.</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Trò chơi của bạn</string>
+    <string name="retro_vazio">Không tìm thấy trò chơi trên ổ USB. Hãy đặt trò chơi của bạn vào thư mục mang tên máy chơi game (ví dụ SNES).</string>
+    <string name="retro_portugues">bằng tiếng Bồ Đào Nha</string>
+    <string name="retro_abrindo">Đang mở trong RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch không mở được trò chơi này. Hãy mở RetroArch một lần và tải core %1$s.</string>
+    <string name="retro_sem_retroarch">Cài RetroArch (miễn phí trên Play Store) để chơi các trò chơi này.</string>
+    <string name="retro_aviso_legal">Sofaly không kèm trò chơi. Hãy dùng trò chơi bạn sở hữu.</string>
+    <string name="retro_procurando">Đang tìm trò chơi trên ổ USB…</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">ความเสถียรของ Launcher (7 วัน)</string>
+    <string name="vit_ok">ไม่มีการขัดข้องหรือค้าง วันที่ใช้งาน: %1$d</string>
+    <string name="vit_problemas">ขัดข้อง: %1$d ค้าง: %2$d เห็นบนหน้าจอ: %3$d วันที่มีปัญหา: %4$d จาก %5$d</string>
+</resources>

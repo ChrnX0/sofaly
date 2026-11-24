@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seletor de pastas e arquivos (DocumentPickerActivity, 21/11/2026). -->
+<resources>
+    <string name="dp_titulo_pasta">Chọn thư mục</string>
+    <string name="dp_titulo_arquivo">Chọn tệp</string>
+    <string name="dp_titulo_salvar">Chọn nơi lưu</string>
+    <string name="dp_para">Cho %1$s</string>
+    <string name="dp_usar_pasta">Dùng thư mục này</string>
+    <string name="dp_salvar_aqui">Lưu ở đây</string>
+    <string name="dp_memoria">Bộ nhớ TV</string>
+    <string name="dp_rede">Thư mục mạng</string>
+    <string name="dp_livre">Còn trống %1$s</string>
+    <string name="dp_vazia">Không có gì để chọn ở đây</string>
+    <string name="dp_abrindo">Đang mở…</string>
+    <string name="dp_erro">Không mở được nơi này. Hãy kiểm tra kết nối và thử lại.</string>
+    <string name="dp_arquivos">Tệp trong thư mục này: %1$d</string>
+    <string name="dp_dicas">OK: mở · BACK: quay lại</string>
+    <string name="dp_diario">%1$s đã nhận %2$s từ trình chọn</string>
+    <string name="dp_sem_nome">không có tên</string>
+</resources>

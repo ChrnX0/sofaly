@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Tài khoản Google Drive</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Tài khoản Google Drive</string>
+    <string name="drv_nao_conectada">chưa kết nối</string>
+    <string name="drv_passos">1. Trên điện thoại, mở %1$s (hoặc hướng camera vào mã bên phải).\n2. Đăng nhập bằng tài khoản Google có trên TV này và nhập:\n\n%2$s\n\n3. Cho phép truy cập Google Drive. TV chỉ thấy các tệp nó tự tạo (thư mục OneTV-backup), không bao giờ thấy phần còn lại của Drive.\n\nMàn hình này sẽ tự tiếp tục.</string>
+    <string name="drv_ok">Xong: %1$s đã kết nối. Chọn \"Google Drive\" ở dòng Bản sao thêm để bản sao lưu hằng đêm cũng được gửi đến đó.</string>
+    <string name="drv_sem_google">Đăng nhập Google chưa được thiết lập trên TV này.\n\nHãy thiết lập trong bảng điều khiển web > thẻ Claude (OAuth client của riêng bạn, loại \"TVs and Limited Input devices\"), bật Google Drive API trong cùng dự án Google Cloud rồi quay lại đây.</string>
+    <string name="drv_desconectar_pergunta">Ngắt kết nối %1$s? Các bản sao đã có trong Google Drive vẫn ở đó; TV ngừng gửi bản mới.</string>
+    <string name="drv_desconectar">Ngắt kết nối</string>
+    <string name="drv_restaurar">Khôi phục từ Google Drive</string>
+    <string name="drv_precisa_conta">Hãy kết nối tài khoản Google Drive trước (dòng bên trên).</string>
+    <string name="drv_falhou">Không thành công: %1$s</string>
+    <string name="drv_nenhuma">Chưa có bản sao nào trong thư mục OneTV-backup của Google Drive.</string>
+    <string name="drv_escolha">Bản sao nào?</string>
+    <string name="drv_senha">Mật khẩu của bản sao lưu</string>
+    <string name="drv_senha_errada">Sai mật khẩu sao lưu (hoặc tệp đã bị thay đổi). Không có gì được khôi phục.</string>
+    <string name="drv_restaurado">Đã khôi phục. Launcher sẽ khởi động lại trong giây lát.</string>
+</resources>
