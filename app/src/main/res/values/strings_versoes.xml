@@ -16,6 +16,9 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
+        <item>New default home screen, the single bar: ▲ and ▼ switch the world (Watch, Listen, Play…), ◀ and ▶ move through its apps and content in large cards, and the Ilha stays at the top</item>
+        <item>The Ilha warns when the sun is strong (UV 8 or more): “wear sunscreen”</item>
+        <item>Panel in other languages with no bits left in Portuguese: Wi-Fi tips, the page for the 140 known apps, the certificate step by step, the network drive page and the “The TV did not respond” screen</item>
         <item>Rain chance with finer numbers: each weather model now counts by how much rain it expects and by how often it was right, and in Settings › Appearance you choose numbers, words (Low, Medium, High) or both</item>
         <item>Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF\'s AI model); in a 60-day test in 30 cities it was right more often than any of them alone</item>
         <item>Web panel with the Sofaly look: each area has its color on the icon, the Home page shows Sofy\'s notes, what is on the TV now and the worlds as doors, and nothing went missing</item>
@@ -72,6 +75,9 @@
         <item>Alarm clock: the sound always starts low and rises slowly, over at least a minute and a half, even with “Ring: direct”, so it never starts at full volume</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
+        <item>barra_unica</item>
+        <item>aviso_uv</item>
+        <item>painel_traduzido</item>
         <item>chance_palavras</item>
         <item>chuva_consenso</item>
         <item>painel_sofaly</item>
@@ -116,6 +122,9 @@
         <item>ilha_central</item>
     </string-array>
     <string-array name="roteiro_titulos">
+        <item>Single bar</item>
+        <item>UV warning</item>
+        <item>Translated panel</item>
         <item>Rain chance as words</item>
         <item>Rain by consensus</item>
         <item>Panel with Sofaly look</item>
@@ -160,6 +169,9 @@
         <item>Hold ▲</item>
     </string-array>
     <string-array name="roteiro_perguntas">
+        <item>Press HOME: is the home screen the bar at the bottom, with ▲ and ▼ switching the world and ◀ and ▶ moving through the cards, with nothing cut at the edge of the TV?</item>
+        <item>On a strong-sun day (UV 8 or more), did the Ilha show the whole “wear sunscreen” without cutting it?</item>
+        <item>Open the panel on a phone set to another language and tap an app in Apps: is its page (what it is, risk of hiding it) fully translated?</item>
         <item>In Settings › Appearance, change “Rain chance” to “Both”: do the Forecast hours and days show “Medium 45%” and similar, without cut-off text?</item>
         <item>Open the Forecast (Weather): do the days show a chance of rain and, at the bottom, the credit “Forecast: ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON”?</item>
         <item>Open the panel on the computer: does the Home page show Sofy\'s band, “Now on the TV” and the colored doors, and is every old block still in the sidebar?</item>

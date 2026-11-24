@@ -6,6 +6,9 @@ and in the [README](https://github.com/ChrnX0/sofaly#readme).
 ### What changed
 
 <!-- auto:changes -->
+- New default home screen, the single bar: ▲ and ▼ switch the world (Watch, Listen, Play…), ◀ and ▶ move through its apps and content in large cards, and the Ilha stays at the top
+- The Ilha warns when the sun is strong (UV 8 or more): “wear sunscreen”
+- Panel in other languages with no bits left in Portuguese: Wi-Fi tips, the page for the 140 known apps, the certificate step by step, the network drive page and the “The TV did not respond” screen
 - Rain chance with finer numbers: each weather model now counts by how much rain it expects and by how often it was right, and in Settings › Appearance you choose numbers, words (Low, Medium, High) or both
 - Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF's AI model); in a 60-day test in 30 cities it was right more often than any of them alone
 - Web panel with the Sofaly look: each area has its color on the icon, the Home page shows Sofy's notes, what is on the TV now and the worlds as doors, and nothing went missing
