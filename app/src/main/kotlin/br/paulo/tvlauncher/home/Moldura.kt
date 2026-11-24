@@ -80,9 +80,27 @@ object Moldura {
         val foto = GlassBackground.drawer(a) ?: return
         conteudo.background = foto
         raiz.background = null
-        lp.topMargin = (a.resources.displayMetrics.heightPixels * GlassBackground.GAVETA_TOPO).toInt() - Estilo.dp(a, Estilo.MARGEM_VERTICAL)
+        lp.topMargin = topoDaGaveta(a, raiz)
         raiz.layoutParams = lp
     }
+
+    /**
+     * Quanto a gaveta desce: o ideal é [GlassBackground.GAVETA_TOPO] da altura, mas a tela precisa caber inteira (na Sala
+     * a fileira de baixo das Configurações saía cortada, 24/11/2026). Mede a altura que a tela pede e sobe a gaveta o
+     * quanto faltar, até [GAVETA_MINIMO]; listas longas rolam dentro dela.
+     */
+    private fun topoDaGaveta(a: Activity, raiz: android.view.View): Int {
+        val alto = a.resources.displayMetrics.heightPixels
+        val largo = a.resources.displayMetrics.widthPixels
+        val ideal = (alto * GlassBackground.GAVETA_TOPO).toInt() - Estilo.dp(a, Estilo.MARGEM_VERTICAL)
+        val minimo = (alto * GAVETA_MINIMO).toInt() - Estilo.dp(a, Estilo.MARGEM_VERTICAL)
+        raiz.measure(android.view.View.MeasureSpec.makeMeasureSpec(largo, android.view.View.MeasureSpec.EXACTLY),
+            android.view.View.MeasureSpec.makeMeasureSpec(0, android.view.View.MeasureSpec.UNSPECIFIED))
+        return (alto - raiz.measuredHeight).coerceIn(minimo.coerceAtLeast(0), ideal.coerceAtLeast(0))
+    }
+
+    /** O mais alto que a gaveta sobe (fração da altura): acima disso a foto quase some e a Gaveta vira o Vidro. */
+    private const val GAVETA_MINIMO = 0.2f
 
     private const val PILULA_ALTURA = 40
     private const val PILULA_HORA_SP = 20f
