@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Valmiit tilanteet</string>
+    <string name="cpr_dormir">Uni</string>
+    <string name="cpr_dormir_det">Yösuodatin, hiljaisempi ääni, TV sammuu 30 min kuluttua</string>
+    <string name="cpr_novela">Saippuasarja</string>
+    <string name="cpr_novela_det">Kanavasi, normaalit värit</string>
+    <string name="cpr_jogo">Peli</string>
+    <string name="cpr_jogo_det">Urheilukanavasi, kovempaa</string>
+    <string name="cpr_canal">Mikä kanava tilanteelle ”%1$s”?</string>
+    <string name="cpr_canal_dica">Kanavan nimi tai numero</string>
+</resources>

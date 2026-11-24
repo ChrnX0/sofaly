@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Família conectada (degrau 3, FamiliaConectada.kt): fotos e recados dos parentes por um link. -->
+<resources>
+    <string name="famc_titulo">Perhelinkki</string>
+    <string name="famc_det">Lapset ja lapsenlapset lähettävät kuvia ja viestejä tähän TV:hen linkillä, tiliä ei tarvita</string>
+    <string name="famc_ligado">Päällä: OK näyttää QR-koodin uudelleen jakamista varten</string>
+    <string name="famc_texto">Skannaa koodi puhelimellasi ja lähetä linkki perheelle (WhatsApp, sähköposti). Kuka tahansa, jolla on linkki, voi lähettää kuvia ja viestejä: ne näkyvät näytöllä heti, viestit jäävät pikapaneelin taululle ja kuvat liittyvät näytönsäästäjän kuviin. Mikään ei kulje palvelimiemme kautta.</string>
+    <string name="famc_sem_tunel">Tämä käyttää pääsyä kodin ulkopuolelta (Tailscale), jota ei ole vielä määritetty tässä TV:ssä. Määritä se kohdassa Asetukset › Koti ja verkko › Etäkäyttö ja palaa sitten tänne.</string>
+    <string name="famc_trocar">Uusi linkki</string>
+    <string name="famc_trocar_det">Vanha linkki lakkaa toimimasta heti</string>
+    <string name="famc_desligar">Kytke pois</string>
+    <string name="famc_alguem">Perhe</string>
+    <string name="famc_de">Lähettäjä: %1$s</string>
+</resources>

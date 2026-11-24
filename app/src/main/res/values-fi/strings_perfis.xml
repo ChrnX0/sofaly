@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Profiili: %1$s</string>
+    <string name="perfil_aviso_texto">Tämän profiilin Suosikit, Jatka katsomista ja sovellusten järjestys</string>
+    <string name="perfil_aviso_crianca">Lapsen profiili: lapsitila ja nukkumaanmenoaika päällä</string>
+    <string name="perfil_crianca">Lapsen profiili</string>
+    <string name="perfil_crianca_linha">Lapsen profiili · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Pois</string>
+    <string name="perfil_crianca_sem_pin">Aseta ensin verkkopaneelin PIN: se on vanhempien PIN, joka suojaa lapsen profiilia</string>
+    <string name="perfil_pin_sair">Vanhempien PIN lapsen profiilista poistumiseen</string>
+    <string name="perfil_pin_marcar">Vanhempien PIN lapsen profiilin muuttamiseen</string>
+</resources>

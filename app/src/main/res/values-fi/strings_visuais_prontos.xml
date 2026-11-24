@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Valmiit ulkoasut</string>
+    <string name="vpr_det">Jokainen OK vaihtaa seuraavaan ulkoasuun: teema, teksti ja taustaväri yhdessä</string>
+    <string name="vpr_meu">Oma</string>
+    <string name="vpr_classico">Klassinen</string>
+    <string name="vpr_leitura">Helppolukuinen</string>
+    <string name="vpr_galeria">Galleria</string>
+    <string name="vpr_galeria_grande">Iso galleria</string>
+    <string name="vpr_cores">Sovellusten värit</string>
+</resources>

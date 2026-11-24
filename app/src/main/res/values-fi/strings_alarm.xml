@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Valitse aika ja päivät</string>
+    <string name="al_volume_rotulo">Äänenvoimakkuus soidessa</string>
+    <string name="al_volume_det">TV nostaa äänenvoimakkuuden vähintään tähän, vaikka se olisi mykistetty</string>
+    <string name="al_volume_lg_det">LG-TV aloittaa hiljaa ja nousee tähän äänenvoimakkuuteen</string>
+    <string name="al_info_toca">soi %1$s</string>
+    <string name="al_proximo_rotulo">Seuraava herätys</string>
+    <string name="al_dica_editar">muokkaa</string>
+    <string name="al_dica_ligar">päälle/pois</string>
+    <string name="al_dica_sair">poistu</string>
+    <string name="al_dica_mudar">muuta</string>
+    <string name="al_dica_andar">siirrä</string>
+    <string name="al_dica_salvar">tallenna</string>
+    <string name="al_ligou">Herätys %1$s päällä</string>
+    <string name="al_desligou">Herätys %1$s pois</string>
+    <string name="al_sim">Kyllä</string>
+    <string name="al_nao">Ei</string>
+    <string name="al_op_salvar_det">TAKAISIN myös tallentaa</string>
+    <string name="al_op_repetir">Toista</string>
+    <string name="al_op_repetir_det">OK valitsee päivät</string>
+    <string name="al_op_som">Ääni</string>
+    <string name="al_op_som_det">OK valitsee äänen ja soittaa sen sinulle</string>
+    <string name="al_op_rampa">Soitto</string>
+    <string name="al_op_rampa_det">Hiljaa aloittaminen on lempeämpi tapa herätä</string>
+    <string name="al_op_bom_dia">Hyvää huomenta</string>
+    <string name="al_op_bom_dia_det">Kun lopetat sen, TV kertoo kellonajan, sään ja päivän kalenterin</string>
+    <string name="al_op_cena">Tilanne lopetettaessa</string>
+    <string name="al_op_cena_det">OK valitsee tilanteen</string>
+    <string name="al_op_nome">Nimi</string>
+    <string name="al_op_nome_det">Näkyy näytöllä, kun se soi</string>
+    <string name="al_op_nome_dica">esim. Lääke</string>
+    <string name="al_op_alarme">Herätys</string>
+    <string name="al_op_ligado_det">OK kytkee päälle tai pois</string>
+    <string name="al_op_apagar">Poista herätys</string>
+    <string name="al_op_apagar_det">Kysyy ennen poistamista</string>
+    <string name="al_op_sair">Poistu tallentamatta</string>
+    <string name="al_op_sair_det">Kumoaa täällä tekemäsi muutokset</string>
+    <string name="al_apagar_q">Poistetaanko herätys %1$s?</string>
+    <string name="al_salvo">Herätys tallennettu: %1$s</string>
+    <string name="al_resumo">Soi %1$s</string>
+    <string name="al_resumo_desligado">Pois: se ei soi</string>
+    <string name="al_op_hora">Tunti</string>
+    <string name="al_op_minuto">Minuutti</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Suodata elokuvia</string>
+    <string name="filmes_filtro_genero">Laji: %1$s</string>
+    <string name="filmes_filtro_epoca">Aikakausi: %1$s</string>
+    <string name="filmes_filtro_nota">Vähimmäisarvosana: %1$s</string>
+    <string name="filmes_filtro_lista">Lista: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Vain katsomattomat: %1$s</string>
+    <string name="filmes_filtro_limpar">Tyhjennä suodatin</string>
+    <string name="filmes_filtro_qualquer">Mikä tahansa</string>
+    <string name="filmes_filtro_sim">Kyllä</string>
+    <string name="filmes_filtro_nao">Ei</string>
+    <string name="filmes_filtro_decada">%1$d-luku</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">katsomattomat</string>
+    <string name="filmes_filtro_sem_genero">Mikään tämän listan luokka ei nimeä lajia</string>
+    <string name="filmes_filtro_vazio">Mikään elokuva ei vastaa tätä suodatinta tässä luokassa</string>
+    <string name="filmes_sorteio_vazio">Täältä ei ole elokuvaa valittavaksi</string>
+    <string name="filmes_colecao">Tämän elokuvan kokoelma</string>
+    <string name="filmes_colecao_cat">Kokoelma: %1$s</string>
+    <string name="genero_acao">Toiminta</string>
+    <string name="genero_aventura">Seikkailu</string>
+    <string name="genero_comedia">Komedia</string>
+    <string name="genero_drama">Draama</string>
+    <string name="genero_terror">Kauhu</string>
+    <string name="genero_suspense">Trilleri</string>
+    <string name="genero_romance">Romantiikka</string>
+    <string name="genero_ficcao">Scifi</string>
+    <string name="genero_fantasia">Fantasia</string>
+    <string name="genero_animacao">Animaatio</string>
+    <string name="genero_infantil">Lapset ja perhe</string>
+    <string name="genero_documentario">Dokumentti</string>
+    <string name="genero_crime">Rikos</string>
+    <string name="genero_guerra">Sota</string>
+    <string name="genero_faroeste">Western</string>
+    <string name="genero_musical">Musikaali</string>
+</resources>

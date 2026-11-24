@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Hienosäätö</string>
+    <string name="ft_dica">OK tai ▶ ◀ muuttaa · TAKAISIN sulkee</string>
+    <string name="ft_abrir">Säädä aloitusnäyttöä katsellen</string>
+    <string name="ft_abrir_det">Fontti, kello, korostusväri, kulmat, hehku ja koko, suorana</string>
+    <string name="cs_destaque">Korostusväri</string>
+    <string name="cs_cantos">Kulmat</string>
+    <string name="cs_brilho">Kohdistuksen hehku</string>
+    <string name="cs_tamanho">Ristin koko</string>
+    <string name="cs_ceu">Taivas</string>
+    <string name="cs_lilas">Liila</string>
+    <string name="cs_retos">Kulmikas</string>
+    <string name="cs_redondos">Pyöreä</string>
+    <string name="cs_sem">Pois</string>
+    <string name="cs_suave">Pehmeä</string>
+    <string name="cs_forte">Vahva</string>
+    <string name="cs_menor">Pienempi</string>
+    <string name="cs_maior">Suurempi</string>
+    <string name="bg_tintura">Väri taustan päällä</string>
+    <string name="bg_cor">Taustaväri</string>
+    <string name="bg_desfoque">Taustan sumennus</string>
+    <string name="bg_transicao">Kuvan siirtymä</string>
+    <string name="bg_novo">Uusi tausta nyt</string>
+    <string name="bg_solida">Tasainen</string>
+    <string name="bg_destaque">Korostus</string>
+    <string name="bg_noite">Yö</string>
+    <string name="bg_mata">Metsä</string>
+    <string name="bg_brasa">Hiillos</string>
+    <string name="bg_grafite">Grafiitti</string>
+    <string name="bg_corte">Leikkaus</string>
+    <string name="bg_lenta">Hidas</string>
+    <string name="bg_trocado">Vaihdettu</string>
+    <string name="bg_nao_troca">Tämä tausta ei vaihdu</string>
+    <string name="bg_camera">Kodin kamera taustana</string>
+    <string name="bg_campainha">Ovikellon kamera taustana</string>
+    <string name="bg_nenhuma">Ei mitään</string>
+    <string name="bg_ligado">Päällä</string>
+</resources>

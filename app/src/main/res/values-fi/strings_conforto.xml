@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Yhteenveto piilossa, kunnes katsot sen</string>
+    <string name="cf_spoiler">Piilota katsomattomien jaksojen yhteenvedot</string>
+    <string name="cf_spoiler_det">Yhteenveto näkyy vasta, kun aloitat jakson</string>
+    <string name="cf_segundo">Toinen kieli</string>
+    <string name="cf_segundo_det">Käytetään, kun videossa ei ole ääntä tai tekstitystä TV:n kielellä</string>
+    <string name="cf_nenhum">Ei mitään</string>
+    <string name="cf_proximo">Seuraavan jakson lähtölaskenta</string>
+    <string name="cf_proximo_det">Kuinka kauan odotetaan ennen kuin seuraava jakso alkaa itsestään</string>
+    <string name="cf_proximo_nao">Älä aloita itsestään</string>
+    <string name="cf_segundos">%1$d s</string>
+    <string name="cf_consent_titulo">Lähetetäänkö tietoja palveluun %1$s?</string>
+    <string name="cf_consent_texto">Tämän kytkeminen päälle lähettää palveluun %1$s internetin kautta: tässä TV:ssä merkitsemäsi ja katsomasi nimikkeet ja kohdan, johon jäit. Ne säilytetään %1$s-tililläsi palvelun %1$s tietosuojasääntöjen mukaisesti. Voit kytkeä sen pois milloin tahansa.</string>
+    <string name="cf_consent_sim">Hyväksyn</string>
+</resources>

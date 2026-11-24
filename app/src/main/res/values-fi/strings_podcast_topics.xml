@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Aiheet</string>
+    <string name="pod_ass_seus">Seuraat: %d</string>
+    <string name="pod_ass_em_alta">Trendaa tässä aiheessa</string>
+    <string name="pod_parecidos">Samankaltaisia: %s</string>
+    <string name="pod_ass_noticias">Uutiset</string>
+    <string name="pod_ass_humor">Komedia</string>
+    <string name="pod_ass_ciencia">Tiede</string>
+    <string name="pod_ass_tecnologia">Teknologia</string>
+    <string name="pod_ass_historia">Historia</string>
+    <string name="pod_ass_negocios">Liiketoiminta</string>
+    <string name="pod_ass_saude">Terveys</string>
+    <string name="pod_ass_esportes">Urheilu</string>
+    <string name="pod_ass_cultura">Kulttuuri</string>
+    <string name="pod_ass_crimes">Tosirikos</string>
+    <string name="pod_ass_tv_filmes">TV ja elokuvat</string>
+    <string name="pod_ass_musica">Musiikki</string>
+    <string name="pod_ass_educacao">Opetus</string>
+    <string name="pod_ass_infantil">Lapset ja perhe</string>
+    <string name="pod_ass_fe">Usko</string>
+    <string name="pod_ass_lazer">Vapaa-aika</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Ääni kuulokkeisiin (puhelin)</string>
+    <string name="fone_titulo">Ääni kuulokkeisiin</string>
+    <string name="fone_texto">Skannaa kodin Wi-Fissä olevalla puhelimella ja kytke kuulokkeet. Enintään %1$d puhelinta. TV hiljenee, kun joku kuuntelee; sivun sulkeminen palauttaa äänen.</string>
+    <string name="fone_ouvindo">Kuuntelee: %1$d / %2$d</string>
+    <string name="fone_fechar">Sulje</string>
+    <string name="fone_parar">Lopeta</string>
+    <string name="fone_sem_rede">TV ei ole kotiverkossa.</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d peli</item>
+        <item quantity="other">%d peliä</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d ohjain yhdistetty</item>
+        <item quantity="other">%d ohjainta yhdistetty</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Pelaa-luokka aloitusnäytössä (pois päältä pelit jäävät Sovelluksiin)</string>
+    <string name="extras_MODO_JOGO">Pelitila: kun peli on auki, näytönsäästäjä, yösuodatin ja ilmoitukset odottavat</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Peliohjaimen kytkeminen päälle avaa Pelit-näytön</string>
+
+    <string name="jogos_titulo">Pelit</string>
+    <string name="jogos_medindo">Tarkistetaan verkkoa…</string>
+    <string name="jogos_sem_controle">Peliohjainta ei ole yhdistetty</string>
+    <string name="jogos_rede_boa">Verkko: hyvä pilvipelaamiseen</string>
+    <string name="jogos_rede_ok">Verkko: riittävä pilvipelaamiseen</string>
+    <string name="jogos_rede_fraca">Verkko: heikko pilvipelaamiseen</string>
+    <string name="jogos_rede_sem">Ei internetiä</string>
+    <string name="jogos_testar_rede">Testaa verkko</string>
+    <string name="jogos_jogar_pc">Pelaa PC:llä</string>
+    <string name="jogos_parear">Parita ohjain</string>
+    <string name="jogos_parear_falhou">Tämä TV ei avannut Bluetooth-asetuksia. Avaa Asetukset, Kaukosäätimet ja lisävarusteet.</string>
+    <string name="jogos_baixar">Hanki pelejä</string>
+    <string name="jogos_escolher">Valitse sovellukset</string>
+    <string name="jogos_escolher_sub">Mitkä sovellukset asuvat Pelaa-luokassa. OK vaihtaa Pelaa- ja Sovellukset-luokan välillä.</string>
+    <string name="jogos_no_card">Pelaa-luokassa</string>
+    <string name="jogos_na_linha">Sovelluksissa</string>
+    <string name="jogos_grupo_nuvem">Pilvessä</string>
+    <string name="jogos_grupo_pc">PC:ltä ja konsolilta</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Pelit TV:ssä</string>
+    <string name="jogos_para_comecar">Aloittamiseen</string>
+    <string name="jogos_aviso_fraca_titulo">Heikko verkko pilvipelaamiseen</string>
+    <string name="jogos_aviso_fraca">Peli voi nykiä tai viivästellä. Verkkokaapeli tai TV lähempänä reititintä auttaa.</string>
+    <string name="jogos_jogar_assim">Pelaa silti</string>
+    <string name="jogos_nao_abriu">Tämä sovellus ei avautunut.</string>
+    <string name="jogos_tirar">Poista Pelaa-luokasta</string>
+    <string name="jogos_automatico">Takaisin automaattiseen</string>
+    <string name="jogos_loja_tudo">Ehdotetut sovellukset ovat jo tässä TV:ssä.</string>
+    <string name="jogos_loja_explica">Avaa sovelluksen sivun Play Kaupassa. Jos Play Kauppa sanoo, ettei se toimi tässä TV:ssä, se on sovelluksen rajoitus.</string>
+    <string name="jogos_sem_loja">Play Kauppa ei avautunut.</string>
+    <string name="jogos_pc_sem_mac">Herättääksesi PC:n tallenna sen MAC-osoite verkkopaneelissa: Extras, Herätä tietokone. PC:ssä on myös oltava Wake-on-LAN päällä ja yleensä verkkokaapeli.</string>
+    <string name="jogos_pc_sem_app">Pelataksesi PC:llä asenna Moonlight tai Steam Link TV:hen.</string>
+    <string name="jogos_pc_qual_app">Millä sovelluksella pelataan PC:llä?</string>
+    <string name="jogos_pc_acordando">Herätetään PC:tä… %1$d s</string>
+    <string name="jogos_pc_nao_respondeu">PC ei vastannut. Avataan sovellus silti.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Lisää pelejä</string>
+    <string name="jogos_mais_opcoes">Lisää</string>
+    <string name="jogos_ligar_pc_jogar">Käynnistä PC ja pelaa</string>
+    <string name="jogos_desc_pc">Pelaa kodin tietokoneen tai konsolin pelejä täällä TV:ssä.</string>
+    <string name="jogos_chip_medindo">Tarkistetaan verkkoa…</string>
+    <string name="jogos_chip_boa">Hyvä verkko</string>
+    <string name="jogos_chip_ok">Verkko ok</string>
+    <string name="jogos_chip_fraca">Heikko verkko</string>
+    <string name="jogos_chip_sem">Ei internetiä</string>
+    <string name="jogos_tecla_jogar">pelaa</string>
+    <string name="jogos_tecla_segurar">pidä OK</string>
+    <string name="jogos_tecla_opcoes">vaihda ryhmää</string>
+</resources>

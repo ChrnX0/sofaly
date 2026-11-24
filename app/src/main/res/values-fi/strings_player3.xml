@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Merkitse alkutunnuksen alku tähän (%1$s)</string>
+    <string name="abertura_marcar_fim">Merkitse alkutunnuksen loppu tähän (%1$s)</string>
+    <string name="abertura_apagar">Poista alkutunnuksen merkintä</string>
+    <string name="abertura_inicio_marcado">Alkutunnuksen alku merkitty kohtaan %1$s. Merkitse nyt loppu ▼-valikossa</string>
+    <string name="abertura_salva">Alkutunnus tallennettu: %1$s–%2$s. Seuraavat jaksot tarjoavat sen ohittamista</string>
+    <string name="abertura_falta_inicio">Merkitse ensin alkutunnuksen alku</string>
+    <string name="abertura_invalida">Se ei näytä alkutunnukselta: sen on kestettävä 10 s – 5 min ja alettava ensimmäisten 15 minuutin aikana</string>
+    <string name="abertura_apagada">Alkutunnuksen merkintä poistettu</string>
+    <string name="abertura_pular">Ohita alkutunnus · OK</string>
+</resources>

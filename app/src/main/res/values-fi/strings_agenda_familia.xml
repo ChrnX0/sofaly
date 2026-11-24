@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Perheen aikataulu</string>
+    <string name="agf_sub">Asetettuun aikaan TV vaihtaa itsestään kyseiseen profiiliin. Lapsen profiili kytkee lapsitilan ja nukkumaanmenoajan päälle.</string>
+    <string name="agf_cfg_det">Asetettuja vaihtoja: %1$d. Profiili vaihtuu itsestään asetettuun aikaan.</string>
+    <string name="agf_adicionar">Lisää vaihto</string>
+    <string name="agf_adicionar_det">Kenen profiili, mitkä päivät ja mihin aikaan.</string>
+    <string name="agf_quem">Kenen profiiliin vaihdetaan?</string>
+    <string name="agf_dias">Mitkä päivät?</string>
+    <string name="agf_hora">Mihin aikaan?</string>
+    <string name="agf_todos">Joka päivä</string>
+    <string name="agf_uteis">Maanantaista perjantaihin</string>
+    <string name="agf_fds">Lauantai ja sunnuntai</string>
+    <string name="agf_alguns">Jotkin päivät</string>
+    <string name="agf_apagar">Poistetaanko tämä vaihto?</string>
+    <string name="agf_apagar_sim">Poista</string>
+    <string name="agf_cheia">Aikataulu on täynnä (12 vaihtoa).</string>
+    <string name="agf_sem_contas">Tässä TV:ssä ei ole vielä profiileja (Google-tilejä).</string>
+</resources>

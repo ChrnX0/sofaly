@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Kaikki sovellukset -näyttö</string>
+    <string name="aa_layout_shelves">Hyllyt</string>
+    <string name="aa_layout_folders">Kansiot ja kanavat</string>
+    <string name="aa_layout_library">Kirjasto</string>
+    <string name="aa_favoritos">Suosikit</string>
+    <string name="aa_pastas">Kansiot</string>
+    <string name="aa_nova_pasta">Uusi kansio</string>
+    <string name="aa_por_na_pasta">Lisää kansioon…</string>
+    <string name="aa_tirar_da_pasta">Poista tästä kansiosta</string>
+    <string name="aa_renomear_pasta">Nimeä kansio uudelleen</string>
+    <string name="aa_apagar_pasta">Poista kansio</string>
+    <string name="aa_fixar_cruz">Näytä aloitusnäytössä</string>
+    <string name="aa_soltar_cruz">Poista aloitusnäytöstä</string>
+    <string name="aa_ordenar">Lajittele kaikki sovellukset</string>
+    <string name="aa_f_tudo">Kaikki</string>
+    <string name="aa_f_uso">Eniten käytetyt</string>
+    <string name="aa_f_novos">Uudet</string>
+    <string name="aa_canais">Nyt kanavalla %1$s</string>
+    <string name="aa_hint_folder">OK avaa · pidä OK valintoja varten</string>
+</resources>

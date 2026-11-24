@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Syntymäpäivä</string>
+    <string name="an_hoje">Tänään on henkilön %s syntymäpäivä</string>
+    <string name="an_amanha">Huomenna on henkilön %s syntymäpäivä</string>
+    <plurals name="an_anos">
+        <item quantity="one">täyttää %d</item>
+        <item quantity="other">täyttää %d</item>
+    </plurals>
+    <string name="tp_calor">Kova helle</string>
+    <string name="tp_calor_texto">Jopa %d° tänään · Juo vettä</string>
+    <string name="tp_frio">Kova pakkanen</string>
+    <string name="tp_frio_texto">Jopa %d° tänä yönä · Pukeudu lämpimästi</string>
+    <string name="tp_cfg">Helle- ja pakkasvaroitus</string>
+    <string name="tp_cfg_det">Kortti minkä tahansa sovelluksen päällä, kun tänään saavutetaan %1$d° tai yöllä laskee %2$d°:seen</string>
+    <string name="mu_ok_lido">OK merkitsee luetuksi</string>
+    <string name="mu_ok_nao_lido">Luettu · OK merkitsee lukemattomaksi</string>
+    <string name="mu_lido_desc">Viesti, luettu: %s. OK merkitsee lukemattomaksi.</string>
+    <string name="mu_nao_lido_desc">Viesti: %s. OK merkitsee luetuksi.</string>
+    <string name="mu_apagar">Poista viesti: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">TV-vuotesi (joulukuussa, näytönsäästäjässä)</string>
+    <string name="extras_ENTRADAS_TV">HDMI-tulot Sovelluksissa (vain TV:issä, joissa on tuloja)</string>
+    <string name="ra_titulo">TV-vuotesi %d</string>
+    <string name="ra_canal">Lempikanava: %1$s (%2$s)</string>
+    <string name="ra_coluna">Radio</string>
+    <string name="ra_dica_ouvir">kuuntele</string>
+    <string name="ra_dica_favoritar">suosikki</string>
+    <string name="ra_carregando">Ladataan asemia…</string>
+    <string name="ra_sem_catalogo">Radioluettelo ei vastannut. Suosikkisi toimivat edelleen.</string>
+    <string name="ra_nada">Asemaa ei löytynyt.</string>
+    <string name="ra_continuar">jatka</string>
+    <string name="ra_pausar">tauko</string>
+    <string name="ra_favoritas">Suosikit</string>
+    <string name="ra_procurar">Etsi</string>
+    <string name="ra_buscar">Hae nimellä</string>
+    <string name="ra_buscar_det">Mikä tahansa asema maailmassa</string>
+    <string name="ra_generos">Lajit</string>
+    <string name="ra_perto">Lähellä</string>
+    <string name="ra_mundo">Kuunnelluimmat maailmassa</string>
+    <string name="ra_resultado">Haku: %s</string>
+    <string name="ra_favoritada">Lisätty suosikkeihin</string>
+    <string name="ra_desfavoritada">Poistettu suosikeista</string>
+    <string name="ra_falhou">Tämä asema ei soi nyt. Kokeile toista.</string>
+</resources>

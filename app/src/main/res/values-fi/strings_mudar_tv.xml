@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Tuo toiselta TV:ltä</string>
+    <string name="mtv_qr_desc">QR-koodi asetusten tuomiseen toiselta TV:ltä</string>
+    <string name="mtv_instrucoes">Avaa VANHALLA TV:llä paneeli (puhelin tai tietokone), siirry kohtaan Järjestelmä › Varmuuskopio › \"Siirrä uuteen TV:hen\" ja skannaa tämä QR-koodi tai kirjoita alla oleva koodi.\nKaikki kulkee salattuna, vain tähän TV:hen. Koodi on voimassa %1$s.</string>
+    <string name="mtv_recebendo">Vastaanotetaan… älä sammuta TV:tä.</string>
+    <string name="mtv_pronto">Kaikki tuli laitteelta %1$s. TV käynnistyy nyt uudelleen; sitten sovelluksesi palaavat yksi kerrallaan.</string>
+    <string name="mtv_erro">Se ei onnistunut: %1$s\nTässä TV:ssä mikään ei muuttunut. Paina \"%2$s\" yrittääksesi uudelleen.</string>
+    <string name="mtv_venceu">Koodi vanheni (se on voimassa 10 min).\nPaina \"%1$s\" näyttääksesi uuden.</string>
+    <string name="mtv_cfg_det">Vanhan TV:n asetukset, PIN, kanavat ja sovellukset 2 minuutissa, QR-koodilla</string>
+    <string name="mtv_fila_titulo">Sovelluksesi palaavat</string>
+    <string name="mtv_fila_texto">Sovellus %1$d / %2$d. Avaa se Play Kaupassa ja paina Asenna; kun palaat, seuraava näkyy.</string>
+    <string name="mtv_fila_abrir">Avaa Play Kaupassa</string>
+    <string name="mtv_fila_pular">Ohita</string>
+    <string name="mtv_fila_depois">Myöhemmin</string>
+    <string name="mtv_fila_fim">Kaikki toisen TV:n sovellukset ovat täällä.</string>
+    <string name="mtv_fila_cfg_det">%1$d sovellusta toiselta TV:ltä vielä asentamatta</string>
+    <string name="mtv_diario">Tuotu laitteelta %1$s: asetukset palautettu, %2$d sovellusta asennettavana</string>
+    <string name="mtv_diario_enviado">Lähetetty uuteen TV:hen: asetukset ja %1$d sovellusta</string>
+</resources>

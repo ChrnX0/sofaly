@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Miten tämä TV voi</string>
+    <string name="elv_placar_det">Seitsemän lupausta, kullakin tässä TV:ssä mitattu luku</string>
+    <string name="elv_placar_sub">Mitattu tässä TV:ssä. Mitään tästä ei lähde kotoa.</string>
+    <string name="elv_pilar_liga">Käynnistyy ja on valmis</string>
+    <string name="elv_pilar_ao_vivo">Suora TV, joka ei petä</string>
+    <string name="elv_pilar_player">Olohuoneen paras soitin</string>
+    <string name="elv_pilar_casa">TV, joka pitää huolta kodista</string>
+    <string name="elv_pilar_controle">Ohjaus mistä tahansa</string>
+    <string name="elv_pilar_todos">Kuka tahansa voi käyttää sitä</string>
+    <string name="elv_pilar_instala">Määrittää itsensä ja korjaa itsensä</string>
+    <string name="elv_prom_liga">Aloitusnäyttö valmis alle 1 sekunnissa</string>
+    <string name="elv_prom_ao_vivo">Kanavan vaihto kestää alle 1,5 sekuntia painikkeesta kuvaan</string>
+    <string name="elv_prom_player">Toistaa minkä tahansa tiedoston; oikea tekstitys ilman säätämistä</string>
+    <string name="elv_prom_casa">Herätys soi ajallaan, joka kerta</string>
+    <string name="elv_prom_controle">Paneeli, puhelin ja tekoäly tekevät kaiken, minkä kaukosäädin tekee</string>
+    <string name="elv_prom_todos">Vanhukset, lapset, vieraat, heikko näkö tai kuulo; 14 kieltä</string>
+    <string name="elv_prom_instala">Ensimmäisestä käynnistyksestä ensimmäiseen kanavaan 5 minuutissa</string>
+    <string name="elv_nao_medido">Ei vielä mitattu</string>
+    <string name="elv_alvo">tavoite %1$s</string>
+    <string name="elv_n_de_n">ajallaan %1$d / %2$d</string>
+    <string name="elv_dentro">tavoitteessa</string>
+    <string name="elv_fora">tavoitteen ulkopuolella</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d kaatuminen tai jumiutuminen %2$d päivässä</item>
+        <item quantity="other">%1$d kaatumista tai jumiutumista %2$d päivässä</item>
+    </plurals>
+    <string name="elv_lp_titulo">Mittaa ennen ja jälkeen</string>
+    <string name="elv_lp_det_antes">Mittaa vapaa muisti ja kuinka nopeasti 3 eniten käyttämääsi sovellusta avautuvat, ennen siivousta. Ne avautuvat muutamaksi sekunniksi.</string>
+    <string name="elv_lp_det_depois">Ennen-mittaus tallennettu. Piilota yllä olevat sovellukset ja paina sitten OK mitataksesi jälkeen.</string>
+    <string name="elv_lp_medindo">Mitataan… sovellukset voivat avautua muutamaksi sekunniksi</string>
+    <string name="elv_lp_mais_livre">%1$d Mt enemmän vapaana</string>
+    <string name="elv_lp_menos_livre">%1$d Mt vähemmän vapaana</string>
+    <string name="elv_lp_mais_rapido">%1$s avautuu %2$s nopeammin</string>
+    <string name="elv_lp_mais_lento">%1$s avautuu %2$s hitaammin</string>
+    <string name="elv_lp_igual">Ei tarpeeksi suurta eroa mitattavaksi</string>
+    <string name="elv_agora">juuri nyt</string>
+    <string name="elv_sem_quedas">Ei kaatumisia tai jumiutumisia %1$d päivässä</string>
+    <string name="elv_reserva">%1$s katkesi. Toistetaan sen sijaan %2$s.</string>
+    <string name="elv_zap_solte">Vapauta katsoaksesi</string>
+    <string name="elv_leg_padrao">vakio</string>
+    <string name="elv_leg_contraste">suuri kontrasti</string>
+    <string name="elv_leg_amarela">keltainen</string>
+    <string name="elv_leg_embaixo">alhaalla</string>
+    <string name="elv_leg_em_cima">ylhäällä</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Tee se</string>
+    <string name="elv_bf_ok_faz">OK tekee sen nyt</string>
+    <string name="elv_bf_wifi">Näytä vieraiden Wi-Fi</string>
+    <string name="elv_bf_wifi_configurar">Ei vielä määritetty: OK avaa Asetukset (Vierailut)</string>
+    <string name="elv_bf_letra_maior">Isompi teksti (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Pienempi teksti (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Se on jo tämän kokoinen</string>
+    <string name="elv_bf_radios">Radioasemat</string>
+    <string name="elv_bf_radio_fav">Lempiasema</string>
+    <string name="elv_bf_ajuda">Ohje</string>
+    <string name="elv_bf_ajuda_det">Käyttöoppaan aihe</string>
+    <string name="elv_bf_procurar">Etsi laajemmin</string>
+    <string name="elv_bf_procurar_radio">Radioasemat nimeltä ”%1$s”</string>
+    <string name="elv_bf_procurar_radio_det">Asemia ympäri maailmaa</string>
+    <string name="elv_bf_procurar_rede">”%1$s” verkkotiedostoissasi</string>
+    <string name="elv_bf_procurar_rede_det">Jellyfinissäsi, Embyssäsi tai Plexissäsi</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Hae asetuksista</string>
+    <string name="elv_aj_explica">Kirjoita sana: valinnan nimi tai toinen sana sille (\"fontti\" löytää tekstin koon)</string>
+    <string name="elv_aj_dica">Esimerkiksi: fontti, Wi-Fi, näytönsäästäjä</string>
+    <string name="elv_aj_recentes">Muutettu äskettäin</string>
+    <string name="elv_aj_recentes_vazio">Muuttamasi valinnat näkyvät tässä, uusin ensin</string>
+    <string name="elv_aj_nada">Hakusanalla ”%1$s” ei löytynyt mitään</string>
+    <string name="elv_aj_nada_det">Kokeile toista sanaa tai katso vasemmalla olevia välilehtiä</string>
+    <string name="elv_aj_sinonimos">fontti,kirjain,teksti,koko,isompi,pienempi;wifi,wi-fi,verkko,internet,yhteys;näytönsäästäjä,säästäjä,toimeton,lepo;salasana,pin,koodi;ääni,äänenvoimakkuus,audio;aika,kello,tunti;sää,ennuste,lämpötila;kieli;lapset,lapsi,lapsilukko,vanhemmat;vieras,vierailija,vierailu;päivitys,versio,uusi;varmuuskopio,kopio,palauta;puhelin,matkapuhelin,kännykkä;valo,lamppu,koti,talo;uni,sammuta,ajastin,energia,virta;kanava,tv,suora;elokuva,filmi,sarja,ohjelma;tekstitys,tekstit;herätys,herätä,herätyskello;kuva,valokuva,tausta,taustakuva</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Vaatii huomiota</string>
+    <string name="elv_f_canal_caiu_frase">Tämä kanava ei tule juuri nyt</string>
+    <string name="elv_f_canal_caiu_causa">Kanavan palveluntarjoaja lopetti sen lähettämisen. Se palaa yleensä itsestään.</string>
+    <string name="elv_f_canal_caiu_botao">Katso toista kanavaa</string>
+    <string name="elv_f_lista_venceu_frase">Kanavalistasi on vanhentunut</string>
+    <string name="elv_f_lista_venceu_causa">Tili listan myyjän kanssa päättyi tai hylättiin.</string>
+    <string name="elv_f_lista_venceu_botao">Avaa tili</string>
+    <string name="elv_f_relogio_errado_frase">TV:n kello on väärässä</string>
+    <string name="elv_f_relogio_errado_causa">Väärällä ajalla opas ja suojatut sivustot eivät toimi.</string>
+    <string name="elv_f_relogio_errado_botao">Aseta kello</string>
+    <string name="elv_f_disco_cheio_frase">TV:n tila on loppumassa</string>
+    <string name="elv_f_disco_cheio_causa">Ilman tilaa opasta, tallenteita ja päivityksiä ei voi tallentaa.</string>
+    <string name="elv_f_disco_cheio_botao">Vapauta tilaa</string>
+    <string name="elv_f_shell_parado_frase">TV:n lisävaltuudet lakkasivat</string>
+    <string name="elv_f_shell_parado_causa">Langaton virheenkorjaus kytkettiin pois tai paritus katosi.</string>
+    <string name="elv_f_shell_parado_botao">Kytke ne takaisin päälle</string>
+    <string name="elv_f_tunel_sem_login_frase">Käyttö kodin ulkopuolelta odottaa kirjautumista</string>
+    <string name="elv_f_tunel_sem_login_causa">Tailscale-kirjautuminen vanheni.</string>
+    <string name="elv_f_tunel_sem_login_botao">Kirjaudu uudelleen</string>
+    <string name="elv_f_backup_falhou_frase">Öinen varmuuskopio ei ole toiminut 2 päivään</string>
+    <string name="elv_f_backup_falhou_causa">Kohde ei ollut tavoitettavissa tai salasana muuttui.</string>
+    <string name="elv_f_backup_falhou_botao">Varmuuskopioi nyt</string>
+    <string name="elv_f_religando">Kytketään ne takaisin päälle: se kestää enintään minuutin</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Älä häiritse: elokuvan aikana, myöhään illalla tai vieraiden kanssa ilmoitukset odottavat ja palaavat yhteenvetona (herätys ja ovikello näkyvät aina)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Katsoessasi: %1$d ilmoitus</item><item quantity="other">Katsoessasi: %1$d ilmoitusta</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Yön aikana: %1$d ilmoitus</item><item quantity="other">Yön aikana: %1$d ilmoitusta</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Vierailun aikana: %1$d ilmoitus</item><item quantity="other">Vierailun aikana: %1$d ilmoitusta</item></plurals>
+    <string name="elv_np_mais">+%1$d lisää</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Kun elokuva päättyy</string>
+    <string name="elv_ev_programa_comecou">Kun oppaassa merkitsemäsi ohjelma alkaa</string>
+    <string name="elv_ev_nascer_do_sol">Auringonnousussa</string>
+    <string name="elv_ev_por_do_sol">Auringonlaskussa</string>
+    <string name="elv_ev_campainha">Kun ovikello soi</string>
+    <string name="elv_ev_alguem_chegou">Kun joku tulee kotiin</string>
+    <string name="elv_ev_internet_caiu">Kun internet katkeaa</string>
+    <string name="elv_ev_internet_voltou">Kun internet palaa</string>
+    <string name="elv_ev_recado_chegou">Kun viesti saapuu</string>
+    <string name="elv_ev_aniversario">Jonkun syntymäpäivänä (klo 9)</string>
+    <string name="elv_ev_compromisso">Kun kalenterin tapahtuma alkaa</string>
+    <string name="elv_ss_sempre">Aina</string>
+    <string name="elv_ss_so_se">Vain jos %1$s</string>
+    <string name="elv_ss_e">" ja "</string>
+    <string name="elv_ss_em_casa">joku on kotona</string>
+    <string name="elv_ss_noite">auringonlaskun jälkeen</string>
+    <string name="elv_ss_dia_util">on arkipäivä</string>
+    <string name="elv_ss_perfil">profiili on %1$s</string>
+    <string name="elv_ss_det">◀ ▶ vaihtavat ehtoa</string>
+    <string name="extras_ABERTURA_PRONTA">Ohita alkutunnus (IntroDB): jaksoissa TV kysyy yhteisön IntroDB-palvelulta, missä alkutunnus on (se lähettää vain, mikä jakso on kyseessä, ei koskaan tiliäsi); pois päältä vain itse merkitsemäsi alkutunnukset</string>
+</resources>

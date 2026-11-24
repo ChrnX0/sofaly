@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Internet on palannut</string>
+    <string name="rd_voltou_texto">Se oli poikki %1$s (alkaen %2$s). Todennäköinen syy: %3$s.</string>
+    <string name="rd_causa_wifi">TV menetti Wi-Fi-yhteytensä</string>
+    <string name="rd_causa_provedor">internetpalveluntarjoaja tai reititin</string>
+    <string name="rd_min">%1$d min</string>
+    <string name="rd_h_min">%1$d t %2$d min</string>
+    <string name="rd_disco_titulo">TV:n tallennustila täyttyy</string>
+    <string name="rd_disco_texto">Tällä tahdilla se täyttyy noin %1$d päivässä (%2$d Mt vapaana). Tyhjennä sovellusten välimuistit tai poista sovelluksia, joita et käytä.</string>
+    <string name="pr_avisos_tv">TV:stä</string>
+    <string name="mural_riscar">Yliviivaa %1$s</string>
+    <string name="ds_lento_titulo">Sofaly hidastui</string>
+    <string name="ds_lento_texto">Versio %1$d: hitaat kuvat vievät %2$d ms, ne veivät %3$d ms (+%4$d%%).</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Google Drive -tili</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Google Drive -tili</string>
+    <string name="drv_nao_conectada">ei yhdistetty</string>
+    <string name="drv_passos">1. Avaa puhelimellasi %1$s (tai osoita kameralla oikealla olevaa koodia).\n2. Kirjaudu Google-tilillä, joka on tässä TV:ssä, ja kirjoita:\n\n%2$s\n\n3. Salli Google Driven käyttö. TV näkee vain itse luomansa tiedostot (OneTV-backup-kansio), ei koskaan muuta Driveasi.\n\nTämä näyttö jatkaa itsestään.</string>
+    <string name="drv_ok">Valmis: %1$s on yhdistetty. Valitse \"Google Drive\" Lisäkopio-rivillä, jotta öinen varmuuskopio menee myös sinne.</string>
+    <string name="drv_sem_google">Google-kirjautumista ei ole vielä määritetty tässä TV:ssä.\n\nMääritä se verkkopaneelissa > Claude-välilehti (oma OAuth-asiakkaasi, tyyppi \"TVs and Limited Input devices\"), kytke Google Drive API päälle samassa Google Cloud -projektissa ja palaa tänne.</string>
+    <string name="drv_desconectar_pergunta">Katkaistaanko %1$s? Google Drivessa jo olevat kopiot jäävät sinne; TV lakkaa lähettämästä uusia.</string>
+    <string name="drv_desconectar">Katkaise yhteys</string>
+    <string name="drv_restaurar">Palauta Google Drivesta</string>
+    <string name="drv_precisa_conta">Yhdistä ensin Google Drive -tili (rivi yllä).</string>
+    <string name="drv_falhou">Se ei onnistunut: %1$s</string>
+    <string name="drv_nenhuma">Google Driven OneTV-backup-kansiossa ei ole vielä kopioita.</string>
+    <string name="drv_escolha">Mikä kopio?</string>
+    <string name="drv_senha">Varmuuskopion salasana</string>
+    <string name="drv_senha_errada">Väärä varmuuskopion salasana (tai tiedostoa on muutettu). Mitään ei palautettu.</string>
+    <string name="drv_restaurado">Palautettu. Launcher käynnistyy uudelleen hetken kuluttua.</string>
+</resources>

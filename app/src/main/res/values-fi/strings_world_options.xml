@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Valinnat kohteelle %1$s</string>
+    <string name="wo_ordenar">Lajittele</string>
+    <string name="wo_ordenar_de">Lajittele %1$s</string>
+    <string name="wo_por_uso">Eniten käytetyt ensin</string>
+    <string name="wo_az">A–Ö</string>
+    <string name="wo_a_mao">Oma järjestykseni</string>
+    <string name="wo_renomear_mundo">Nimeä tämä luokka uudelleen</string>
+    <string name="wo_icone_mundo">Vaihda tämän luokan kuvake</string>
+    <string name="wo_esconder">Piilota tämä luokka</string>
+    <string name="wo_mostrar">Näytä piilotetut luokat (%1$d)</string>
+    <string name="wo_padrao">Takaisin entiseen</string>
+    <string name="wo_subir">Siirrä ylös</string>
+    <string name="wo_descer">Siirrä alas</string>
+    <string name="wo_renomear_app">Nimeä uudelleen</string>
+    <string name="wo_vazio_original">Tyhjä = alkuperäinen nimi</string>
+    <string name="wo_so_icone">Näytä vain kuvake</string>
+    <string name="wo_com_nome">Näytä nimi</string>
+    <string name="wo_nomes_titulo">Kuvakkeiden nimet</string>
+    <string name="wo_so_icone_curto">Vain kuvake</string>
+    <string name="wo_com_nome_curto">Nimen kanssa</string>
+    <string name="co_titulo">Jatka</string>
+    <string name="co_mostrar">Näkyvissä</string>
+    <string name="co_esconder">Piilossa</string>
+    <string name="wo_nomes_det">Nimi kunkin luokan kuvakkeen alla tai vain kuvake</string>
+    <string name="co_det">Kesken jäänyt, kunkin luokan yläosassa</string>
+    <string name="tec_cfg_det">Painallus, pitäminen, kaksois- ja kolmoispainallus kullekin painikkeelle</string>
+    <string name="bb_titulo">Aloitusnäytön asettelu</string>
+    <string name="bb_cruz">Risti</string>
+    <string name="bb_barra">Alapalkki</string>
+    <string name="bb_det">Luokat ristissä tai kiinteästi alhaalla sovellukset yllä (▲)</string>
+</resources>

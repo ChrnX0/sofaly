@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Avaa %1$s</string>
+    <string name="l72_tela_previsao">sääennuste</string>
+    <string name="l72_tela_agenda">kalenteri</string>
+    <string name="l72_tela_despertador">herätyskello</string>
+    <string name="l72_tela_configuracoes">launcherin asetukset</string>
+    <string name="l72_tela_inicio">aloitusnäyttö</string>
+    <string name="l72_despertador">Luo herätys klo %1$s (%2$s)</string>
+    <string name="l72_dias_uma">kerran</string>
+    <string name="l72_dias_todos">joka päivä</string>
+    <string name="l72_dias_uteis">ma–pe</string>
+    <string name="l72_dias_fds">viikonloppuisin</string>
+    <string name="l72_dias_nomes">su,ma,ti,ke,to,pe,la</string>
+    <string name="l72_vol_subir">Nosta äänenvoimakkuutta</string>
+    <string name="l72_vol_descer">Laske äänenvoimakkuutta</string>
+    <string name="l72_vol_mudo">Mykistä/poista mykistys</string>
+    <string name="l72_vezes">(%1$d kertaa)</string>
+    <string name="l72_midia_pausar">Tauko</string>
+    <string name="l72_midia_tocar">Jatka toistoa</string>
+    <string name="l72_midia_proxima">Seuraava</string>
+    <string name="l72_midia_anterior">Edellinen</string>
+    <string name="l72_visita_liga">Kytke vierastila päälle</string>
+    <string name="l72_visita_desliga">Kytke vierastila pois</string>
+    <string name="l72_canal_pedido">Vaihda kanavalle %1$s</string>
+    <string name="l72_canal">Vaihda kanavalle %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Katso, mitä kanavalla %1$s on</string>
+    <string name="l72_casa_ligar">Kytke päälle</string>
+    <string name="l72_casa_desligar">Kytke pois</string>
+    <string name="l72_casa_alternar">Vaihda tila</string>
+    <string name="l72_casa">%1$s %2$s (koti)</string>
+    <string name="l72_guia_vazio">%1$s: ei mitään oppaassa.</string>
+    <string name="l72_guia_agora">%1$s nyt: %2$s (klo %3$s asti)</string>
+    <string name="l72_guia_nada_agora">%1$s: ei mitään oppaassa nyt</string>
+    <string name="l72_guia_depois">Seuraavaksi: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Nyt toistetaan: %1$s, %2$s. OK tauottaa tai jatkaa; pidä OK avataksesi sovelluksen</string>
+</resources>

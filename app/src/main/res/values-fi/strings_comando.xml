@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Kirjoita, mitä haluat TV:n tekevän</string>
+    <string name="cc_nao_entendi">En ymmärtänyt. Kokeile jotain tällaista:</string>
+    <string name="cc_exemplo_1">laita Globo</string>
+    <string name="cc_exemplo_2">avaa YouTube</string>
+    <string name="cc_exemplo_3">sammuta 30 minuutin päästä</string>
+    <string name="cc_abrindo">Avataan %1$s</string>
+    <string name="cc_canal">Laitetaan %1$s</string>
+    <string name="cc_o_que_passa">Mitä kanavalla %1$s on</string>
+    <string name="cc_timer">Muistutus %1$d minuutin päästä</string>
+    <string name="cc_desligar">TV sammuu %1$d minuutin päästä</string>
+    <string name="cc_desligar_cancelar">Uniajastin peruttu</string>
+    <string name="cc_volume_subir">Äänenvoimakkuus ylös</string>
+    <string name="cc_volume_descer">Äänenvoimakkuus alas</string>
+    <string name="cc_mudo">Mykistys päälle/pois</string>
+    <string name="cc_pausar">Tauotetaan</string>
+    <string name="cc_continuar">Toistetaan</string>
+    <string name="cc_tela_previsao">ennuste</string>
+    <string name="cc_tela_agenda">kalenteri</string>
+    <string name="cc_tela_despertador">herätykset</string>
+    <string name="cc_tela_configuracoes">launcherin asetukset</string>
+    <string name="cc_tela_inicio">aloitusnäyttö</string>
+    <string name="cc_confirme_na_tv">%1$s: vahvista OK:lla TV:ssä</string>
+    <string name="cc_nao_fiz">%1$s: ei tehty (%2$s)</string>
+    <string name="cc_aviso_titulo">Puhelinpaneeli</string>
+</resources>
