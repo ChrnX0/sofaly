@@ -12,7 +12,7 @@
     <string name="grv_selo">MEREKAM sampai %1$s</string>
     <string name="grv_sem_canal">Saluran tidak ada di daftar tersimpan. Buka TV langsung sekali lalu coba lagi.</string>
     <string name="grv_sem_destino">Tidak ada tempat merekam: colokkan flashdisk ke hub, atau pilih folder jaringan di TV › Rekaman.</string>
-    <string name="grv_pendrive_formato">Flashdisk “%1$s” memakai format yang tidak bisa dibaca TV (NTFS). Gunakan drive exFAT atau FAT32, atau format drive ini di Setelan › Sistem › Penyimpanan (ini menghapus isinya).</string>
+    <string name="grv_pendrive_formato">Flashdisk “%1$s” memakai format yang tidak bisa dibaca TV (NTFS). Gunakan drive exFAT atau FAT32, atau format drive ini di Setelan TV › Sistem › Penyimpanan (ini menghapus isinya).</string>
     <string name="grv_pendrive_cheio">Flashdisk “%1$s” penuh atau terlalu kecil untuk merekam (perlu 512 MB kosong). Gunakan drive lain atau kosongkan ruang.</string>
     <string name="grv_sem_destino_ainda">colokkan flashdisk sebelum dimulai</string>
     <string name="grv_nao_gravou">Tidak merekam %1$s</string>

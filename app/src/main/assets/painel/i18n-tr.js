@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"TV’nin hızlı panelinde (GERİ’yi basılı tutun), \"Hızlı panelde aile panosu\" anahtarı açıkken: alışveriş listesi ve en fazla 3 sabit not. Orada bir notu okundu olarak işaretleyip silebilirsiniz.",
 "Aniversários":"Doğum günleri",
 "Rádios":"Radyo",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"TV'de: Dinle › Radyo (dünyanın her yerinden istasyonlar, radio-browser.info'dan). Buraya herhangi bir istasyonun adresini yapıştırabilirsiniz (.mp3, .aac, .m3u8, .pls veya .m3u); TV'de favori olur.",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"TV'de: Dinle › Radyo (dünyanın her yerinden istasyonlar, radio-browser.info'dan). Buraya herhangi bir istasyonun adresini yapıştırabilirsiniz (.mp3, .aac, .m3u8, .pls veya .m3u); TV'de favori olur.",
 "Nome da rádio":"İstasyon adı",
 "Pôr na TV":"TV'ye gönder",
 "Nenhuma rádio favorita.":"Favori istasyon yok.",

@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"في اللوحة السريعة للتلفزيون (اضغط مطولًا على رجوع)، مع تشغيل مفتاح \"لوحة العائلة في اللوحة السريعة\": قائمة التسوق وحتى 3 ملاحظات مثبتة. هناك يمكنك وضع علامة مقروء على الملاحظة وحذفها.",
 "Aniversários":"أعياد الميلاد",
 "Rádios":"الراديو",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"على التلفزيون: استماع › الراديو (محطات من كل العالم، من radio-browser.info). هنا يمكنك لصق عنوان أي محطة (.mp3 أو .aac أو .m3u8 أو .pls أو .m3u)؛ وتصبح مفضّلة على التلفزيون.",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"على التلفزيون: استماع › الراديو (محطات من كل العالم، من radio-browser.info). هنا يمكنك لصق عنوان أي محطة (.mp3 أو .aac أو .m3u8 أو .pls أو .m3u)؛ وتصبح مفضّلة على التلفزيون.",
 "Nome da rádio":"اسم المحطة",
 "Pôr na TV":"إرسال إلى التلفزيون",
 "Nenhuma rádio favorita.":"لا توجد محطات مفضّلة.",

@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"テレビのクイックパネル（戻るを長押し）で、「クイックパネルに家族ボード」スイッチがオンのとき：買い物リストと最大 3 件の固定メモ。そこでメモを既読にしたり削除したりできます。",
 "Aniversários":"誕生日",
 "Rádios":"ラジオ",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"テレビでは:聴く › ラジオ(radio-browser.info の世界中の局)。ここに任意の局のアドレス(.mp3、.aac、.m3u8、.pls、.m3u)を貼り付けると、テレビのお気に入りになります。",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"テレビでは:聴く › ラジオ(radio-browser.info の世界中の局)。ここに任意の局のアドレス(.mp3、.aac、.m3u8、.pls、.m3u)を貼り付けると、テレビのお気に入りになります。",
 "Nome da rádio":"局名",
 "Pôr na TV":"テレビに送信",
 "Nenhuma rádio favorita.":"お気に入りの局はありません。",

@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"Di panel cepat TV (tahan KEMBALI), dengan sakelar \"Papan keluarga di panel cepat\" menyala: daftar belanja dan hingga 3 catatan tersemat. Di sana Anda bisa menandai catatan sebagai dibaca dan menghapusnya.",
 "Aniversários":"Ulang tahun",
 "Rádios":"Radio",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"Di TV: Dengarkan › Radio (stasiun dari seluruh dunia, dari radio-browser.info). Di sini Anda bisa menempelkan alamat stasiun apa pun (.mp3, .aac, .m3u8, .pls, atau .m3u); stasiun itu menjadi favorit di TV.",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"Di TV: Dengarkan › Radio (stasiun dari seluruh dunia, dari radio-browser.info). Di sini Anda bisa menempelkan alamat stasiun apa pun (.mp3, .aac, .m3u8, .pls, atau .m3u); stasiun itu menjadi favorit di TV.",
 "Nome da rádio":"Nama stasiun",
 "Pôr na TV":"Kirim ke TV",
 "Nenhuma rádio favorita.":"Tidak ada stasiun favorit.",

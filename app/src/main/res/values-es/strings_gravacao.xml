@@ -12,7 +12,7 @@
     <string name="grv_selo">GRABANDO hasta las %1$s</string>
     <string name="grv_sem_canal">El canal no está en la lista guardada. Abre la TV en vivo una vez e inténtalo de nuevo.</string>
     <string name="grv_sem_destino">No hay dónde grabar: conecta una memoria USB al hub o elige una carpeta de red en TV › Grabaciones.</string>
-    <string name="grv_pendrive_formato">La memoria USB “%1$s” usa un formato que la TV no lee (NTFS). Usa una memoria exFAT o FAT32, o formatea esta en Ajustes › Sistema › Almacenamiento (esto borra lo que tiene).</string>
+    <string name="grv_pendrive_formato">La memoria USB “%1$s” usa un formato que la TV no lee (NTFS). Usa una memoria exFAT o FAT32, o formatea esta en Ajustes de la TV › Sistema › Almacenamiento (esto borra lo que tiene).</string>
     <string name="grv_pendrive_cheio">La memoria USB “%1$s” está llena o es demasiado pequeña para grabar (necesita 512 MB libres). Usa otra memoria o libera espacio.</string>
     <string name="grv_sem_destino_ainda">conecta una memoria USB antes de que empiece</string>
     <string name="grv_nao_gravou">No se grabó %1$s</string>

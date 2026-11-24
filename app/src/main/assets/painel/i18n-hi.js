@@ -372,7 +372,7 @@ traduzirPainelCom({T:{
 "No painel rápido da TV (segure VOLTAR), com a chave \"Mural da família no painel rápido\" ligada: lista de compras e até 3 recados fixos. Lá dá para marcar um recado como lido e apagar.":"TV के क्विक पैनल में (BACK दबाए रखें), \"क्विक पैनल में परिवार बोर्ड\" स्विच चालू होने पर: ख़रीदारी सूची और 3 तक लगे नोट। वहाँ नोट को पढ़ा हुआ चिह्नित कर सकते हैं और हटा सकते हैं।",
 "Aniversários":"जन्मदिन",
 "Rádios":"रेडियो",
-"Na TV: Ouvir › Rádios (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"TV पर: सुनें › रेडियो (दुनिया भर के स्टेशन, radio-browser.info से)। यहाँ किसी भी स्टेशन का पता (.mp3, .aac, .m3u8, .pls या .m3u) पेस्ट कर सकते हैं; वह TV पर पसंदीदा बन जाता है।",
+"Na TV: Ouvir › Rádio (rádios do mundo todo, do radio-browser.info). Aqui dá para colar o endereço de qualquer rádio (.mp3, .aac, .m3u8, .pls ou .m3u); ela vira favorita na TV.":"TV पर: सुनें › रेडियो (दुनिया भर के स्टेशन, radio-browser.info से)। यहाँ किसी भी स्टेशन का पता (.mp3, .aac, .m3u8, .pls या .m3u) पेस्ट कर सकते हैं; वह TV पर पसंदीदा बन जाता है।",
 "Nome da rádio":"स्टेशन का नाम",
 "Pôr na TV":"TV पर भेजें",
 "Nenhuma rádio favorita.":"कोई पसंदीदा स्टेशन नहीं।",

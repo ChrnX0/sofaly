@@ -12,7 +12,7 @@
     <string name="grv_selo">NAGRYWANIE do %1$s</string>
     <string name="grv_sem_canal">Kanału nie ma na zapisanej liście. Otwórz raz telewizję na żywo i spróbuj ponownie.</string>
     <string name="grv_sem_destino">Brak miejsca do nagrywania: podłącz pendrive do huba lub wybierz folder sieciowy w TV › Nagrania.</string>
-    <string name="grv_pendrive_formato">Pendrive „%1$s” używa formatu, którego telewizor nie odczyta (NTFS). Użyj dysku exFAT lub FAT32 albo sformatuj ten w Ustawienia › System › Pamięć (to usunie jego zawartość).</string>
+    <string name="grv_pendrive_formato">Pendrive „%1$s” używa formatu, którego telewizor nie odczyta (NTFS). Użyj dysku exFAT lub FAT32 albo sformatuj ten w Ustawienia telewizora › System › Pamięć (to usunie jego zawartość).</string>
     <string name="grv_pendrive_cheio">Pendrive „%1$s” jest pełny lub za mały do nagrywania (potrzeba 512 MB wolnego miejsca). Użyj innego lub zwolnij miejsce.</string>
     <string name="grv_sem_destino_ainda">podłącz pendrive przed startem</string>
     <string name="grv_nao_gravou">Nie nagrano %1$s</string>

@@ -12,7 +12,7 @@
     <string name="grv_selo">يُسجَّل حتى %1$s</string>
     <string name="grv_sem_canal">القناة ليست في القائمة المحفوظة. افتح التلفزيون المباشر مرة وحاول مجددًا.</string>
     <string name="grv_sem_destino">لا مكان للتسجيل: صِل ذاكرة USB بالموزّع، أو اختر مجلد شبكة في التلفزيون › التسجيلات.</string>
-    <string name="grv_pendrive_formato">ذاكرة USB “%1$s” تستخدم تنسيقًا لا يقرؤه التلفزيون (NTFS). استخدم ذاكرة exFAT أو FAT32، أو هيّئ هذه في الإعدادات › النظام › التخزين (يمحو ما عليها).</string>
+    <string name="grv_pendrive_formato">ذاكرة USB “%1$s” تستخدم تنسيقًا لا يقرؤه التلفزيون (NTFS). استخدم ذاكرة exFAT أو FAT32، أو هيّئ هذه في إعدادات التلفزيون › النظام › التخزين (يمحو ما عليها).</string>
     <string name="grv_pendrive_cheio">ذاكرة USB “%1$s” ممتلئة أو أصغر من أن تسجّل (تحتاج 512 ميغابايت متاحة). استخدم ذاكرة أخرى أو أفرغ مساحة.</string>
     <string name="grv_sem_destino_ainda">صِل ذاكرة USB قبل أن يبدأ</string>
     <string name="grv_nao_gravou">لم يُسجَّل %1$s</string>
