@@ -23,6 +23,8 @@ CP="$CACHE/junit-4.13.2.jar:$CACHE/hamcrest-core-1.3.jar:$CACHE/json-20240303.ja
 
 # teste -> arquivos de produção que ele usa (acrescente aqui quando um teste novo for puro)
 declare -A FONTES=(
+  [RetroLibraryTest]="RetroLibrary"
+  [ControleLatenciaTest]="ControleLatencia"
   [FimDoVideoTest]="FimDoVideo"
   [DocumentIdsTest]="DocumentIds"
   [DicasClimaTest]="DicasClima"
@@ -77,6 +79,7 @@ declare -A FONTES=(
   [SofyMotionTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [SofyStringsTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [OnDemandTest]="OnDemand"
+  [GoogleHomeTrimTest]="GoogleHomeTrim"
   [StorageModeRulesTest]="StorageModeRules"
 )
 

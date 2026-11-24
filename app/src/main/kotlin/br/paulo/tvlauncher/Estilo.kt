@@ -630,7 +630,7 @@ object Estilo {
      * Molde de tela de lista (um só para o app inteiro): fundo da HOME, margem da HOME, título no tamanho de título e a
      * coluna onde a tela põe as linhas. Devolve (raiz para o setContentView, coluna).
      */
-    fun telaLista(ctx: Context, titulo: String, subtitulo: String? = null): Pair<View, LinearLayout> {
+    fun telaLista(ctx: Context, titulo: String, subtitulo: String? = null, dicas: Boolean = true): Pair<View, LinearLayout> {
         // Título e subtítulo fixos; só as linhas rolam (12/11/2026, moldura da HOME): rolando tudo, as linhas passavam por
         // baixo da hora da moldura (Moldura.kt), que fica parada no alto à direita.
         val raiz = LinearLayout(ctx).apply {
@@ -660,6 +660,11 @@ object Estilo {
             setPaddingRelative(dp(ctx, E2), 0, dp(ctx, E2), 0)
             addView(coluna)
         }, LinearLayout.LayoutParams(-1, 0, 1f).apply { marginStart = -dp(ctx, E2); marginEnd = -dp(ctx, E2) })
+        // Regra das telas (23/11/2026): toda lista termina com a mesma barra de dicas do controle, parada embaixo.
+        // Quem tem teclas próprias (teclado, teste de teclas, a home simples) passa dicas = false e põe a sua.
+        if (dicas) raiz.addView(barraDicas(ctx, "▲▼" to ctx.getString(R.string.cl_dica_escolher),
+            "OK" to ctx.getString(R.string.cl_dica_mudar), ctx.getString(R.string.cl_tecla_voltar) to ctx.getString(R.string.cl_dica_sair)),
+            LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(ctx, E1); bottomMargin = dp(ctx, MARGEM_VERTICAL) })
         return raiz to coluna
     }
 
@@ -668,7 +673,6 @@ object Estilo {
      * leve aumento. Para telas que só têm uma frase por linha (Extras, Casa, Calibração...).
      */
     fun linhaTexto(ctx: Context, conteudo: CharSequence = ""): TextView = texto(ctx, Papel.CORPO, conteudo).apply {
-        textSize = 17f
         isFocusable = true; isClickable = true
         setPaddingRelative(dp(ctx, 20), dp(ctx, 14), dp(ctx, 20), dp(ctx, 14))
         background = superficie(ctx, false)

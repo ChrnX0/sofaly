@@ -52,6 +52,7 @@
     <string name="cruz_desliga_as">%1$s’te kapanır</string>
     <string name="cruz_dormir_cancelar">İptal için OK</string>
     <string name="cruz_linha">Temel</string>
+    <string name="cruz_azulejo">Karolar</string>
     <string name="cruz_mover">Taşı…</string>
     <string name="cruz_mover_titulo">%1$s uygulamasını taşı</string>
     <string name="cruz_central">Oyun merkezi</string>

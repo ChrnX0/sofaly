@@ -43,6 +43,7 @@
     <string name="tec_toque">Tekan</string>
     <string name="tec_segurar">Tahan</string>
     <string name="tec_duplo">Tekan dua kali</string>
+    <string name="tec_triplo">Tekan tiga kali</string>
     <string name="tec_padrao">bawaan (aplikasi tersimpan; tahan 3 dtk = pilih)</string>
     <string name="tec_cena">adegan %1$s</string>
     <string name="tec_salvo">%1$s disimpan</string>

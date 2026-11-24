@@ -108,6 +108,7 @@ object ObserverTv {
         // A última batida antes de cair: o "boot" seguinte diz quanto tempo a TV ficou fora ([checkBoot]).
         ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putLong("alive_at", agora).apply()
         runCatching { OnDemandTv.tick(ctx) }   // sob demanda: congela de novo o que ficou aberto (cinto do onWindow)
+        runCatching { GoogleHomeTrimTv.tick(ctx) }   // launcher do Google parado em segundo plano: devolve a memória
         if (trialsPending) Fundo.rodar("observer-trials") { runCatching { checkTrials(ctx) }.onFailure { Log.w(TAG, "provas: $it") } }
         // O último put passa pelo publish para acordar o juiz uma vez só por amostra.
         publish(ObserverCore.Signal.INTERNET, if (internet) 1 else 0)
@@ -436,6 +437,7 @@ object ObserverTv {
             .put("trials", runCatching { org.json.JSONArray(ObserverTrial.toJson(ObserverTrial.fromJson(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("trials", null)))) }.getOrNull() ?: org.json.JSONArray())
             .put("checks", runCatching { org.json.JSONObject().apply { checks(ctx).forEach { (c, v) -> put(c.name, v) } } }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("on_demand", runCatching { org.json.JSONArray(OnDemand.toJson(OnDemandTv.entries(ctx))) }.getOrNull() ?: org.json.JSONArray())
+            .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("log_total", log.length()).put("log", logNovo)
     }
 
@@ -466,6 +468,7 @@ object ObserverTv {
         appendLine("provas: " + if (provas.isEmpty()) "nenhuma" else provas.joinToString("; ") { "${it.pkg} há ${(agora - it.at) / 60_000} min" })
         appendLine("conferências: " + runCatching { checks(ctx).entries.joinToString(" ") { "${it.key.name}=${it.value}" } }.getOrDefault("?"))
         appendLine(runCatching { OnDemandTv.report(ctx) }.getOrDefault("sob demanda: ?"))
+        appendLine(runCatching { GoogleHomeTrimTv.report(ctx) }.getOrDefault("launcher do Google: ?"))
         val n = notes(ctx)
         appendLine("recados na fila: ${n.size}" + n.joinToString("") { "\n  ${it.kind} ${it.severity}${if (it.seen) " (visto)" else ""}" })
         val log = ObserverCore.readLog(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("log", null), agora)

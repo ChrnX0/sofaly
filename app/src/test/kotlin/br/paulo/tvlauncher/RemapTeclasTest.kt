@@ -67,4 +67,30 @@ class RemapTeclasTest {
         assertEquals(Gesto.TOQUE, g.interromper())
         assertNull(g.interromper())
     }
+
+    // Toque triplo (Paulo, 22/11/2026): 3 apertos = TRIPLO já no 3º DESCE; 2 e o tempo acabou = DUPLO; 1 = TOQUE.
+    @Test fun triploDuploEToque() {
+        val g = Gestos(700, 350, temSegurar = false, temDuplo = true, temTriplo = true)
+        g.desce(0); assertNull(g.sobe(80))
+        assertNull(g.desce(200)); assertNull(g.sobe(260))
+        assertEquals(Gesto.TRIPLO, g.desce(400))
+        assertNull(g.sobe(460))
+        g.desce(1000); g.sobe(1080); g.desce(1200); g.sobe(1260)
+        assertEquals(Gesto.DUPLO, g.venceu(1610))
+        g.desce(2000); g.sobe(2080)
+        assertEquals(Gesto.TOQUE, g.venceu(2430))
+    }
+
+    @Test fun soTriploSemDuplo() {
+        val g = Gestos(700, 350, temSegurar = false, temDuplo = false, temTriplo = true)
+        g.desce(0); g.sobe(80); g.desce(200); g.sobe(260)
+        assertEquals(Gesto.TOQUE, g.venceu(610))   // 2 toques sem duplo configurado: vale o toque
+        g.desce(1000); g.sobe(1080); g.desce(1200); g.sobe(1260)
+        assertEquals(Gesto.TRIPLO, g.desce(1400))
+    }
+
+    @Test fun triploSalvaNoJson() {
+        val m = mapOf(KeyEvent.KEYCODE_1 to mapOf(Gesto.TRIPLO to "cena:ok"))
+        assertEquals(m, RemapTeclas.lerJson(RemapTeclas.paraJson(m)))
+    }
 }

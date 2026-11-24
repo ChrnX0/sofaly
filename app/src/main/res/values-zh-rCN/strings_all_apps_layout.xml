@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">所有应用界面</string>
+    <string name="aa_layout_shelves">书架</string>
+    <string name="aa_layout_folders">文件夹和频道</string>
+    <string name="aa_layout_library">库</string>
+    <string name="aa_favoritos">收藏</string>
+    <string name="aa_pastas">文件夹</string>
+    <string name="aa_nova_pasta">新建文件夹</string>
+    <string name="aa_por_na_pasta">添加到文件夹…</string>
+    <string name="aa_tirar_da_pasta">从此文件夹移除</string>
+    <string name="aa_renomear_pasta">重命名文件夹</string>
+    <string name="aa_apagar_pasta">删除文件夹</string>
+    <string name="aa_fixar_cruz">在主屏幕显示</string>
+    <string name="aa_soltar_cruz">从主屏幕移除</string>
+    <string name="aa_ordenar">排序所有应用</string>
+    <string name="aa_f_tudo">全部</string>
+    <string name="aa_f_uso">最常用</string>
+    <string name="aa_f_novos">新安装</string>
+    <string name="aa_canais">正在 %1$s 播放</string>
+    <string name="aa_hint_folder">OK 打开 · 长按 OK 查看选项</string>
+</resources>

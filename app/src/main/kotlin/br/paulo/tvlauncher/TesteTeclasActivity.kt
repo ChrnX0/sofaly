@@ -26,7 +26,7 @@ class TesteTeclasActivity : Activity() {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return   // modo seguro: tela que derrubou esta versão (VigiaAtualizacao)
         // Molde único de tela (Estilo.telaLista): fundo, título e margens iguais às outras telas.
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.teclas_titulo))
+        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.teclas_titulo), dicas = false)
         situacao = Estilo.texto(this, Estilo.Papel.CORPO, getString(R.string.teclas_instrucao))
         // Lista em fonte de largura fixa: os códigos das teclas ficam alinhados em coluna.
         lista = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { typeface = Typeface.MONOSPACE; setPaddingRelative(0, Estilo.dp(context, Estilo.E2), 0, 0) }

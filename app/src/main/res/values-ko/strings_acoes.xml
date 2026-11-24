@@ -43,6 +43,7 @@
     <string name="tec_toque">누르기</string>
     <string name="tec_segurar">길게 누르기</string>
     <string name="tec_duplo">두 번 누르기</string>
+    <string name="tec_triplo">세 번 누르기</string>
     <string name="tec_padrao">기본값(저장된 앱, 3초 길게 = 선택)</string>
     <string name="tec_cena">장면 %1$s</string>
     <string name="tec_salvo">%1$s 저장됨</string>

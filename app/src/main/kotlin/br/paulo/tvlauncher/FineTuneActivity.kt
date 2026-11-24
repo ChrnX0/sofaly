@@ -102,6 +102,32 @@ class FineTuneActivity : Activity() {
             nomeLugarMundo(m[Math.floorMod(br.paulo.tvlauncher.home.WorldLabel.place(this).ordinal + passo, m.size)]
                 .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.WorldLabel.KEY, it.ordinal) })
         },
+        // Nome das categorias na cruz (Paulo, 22/11/2026): com nome ou só o ícone, em todas de uma vez. Cada categoria
+        // também troca sozinha no menu dela (segurar OK); aqui mostra "Só o ícone" só quando todas estão assim.
+        Ajuste(R.string.wo_nomes_titulo, { nomeDasCategorias() }) { _ ->
+            val todasSo = soIconeEmTodas()
+            for (c in br.paulo.tvlauncher.home.CruzLogica.Categoria.entries)
+                br.paulo.tvlauncher.home.WorldOptions.update(this, c) { it.copy(iconOnly = !todasSo) }
+            nomeDasCategorias()
+        },
+        // Jeito da tela inicial (Paulo, 23/11/2026): a cruz (padrão) ou a barra embaixo (BottomBar).
+        Ajuste(R.string.bb_titulo, { getString(if (br.paulo.tvlauncher.home.BottomBar.on(this)) R.string.bb_barra else R.string.bb_cruz) }) { _ ->
+            val on = !br.paulo.tvlauncher.home.BottomBar.on(this)
+            br.paulo.tvlauncher.home.BottomBar.set(this, on)
+            getString(if (on) R.string.bb_barra else R.string.bb_cruz)
+        },
+        // Continuar no topo de cada categoria (Paulo, 22/11/2026): desligado de fábrica (ContinueOption).
+        Ajuste(R.string.co_titulo, { getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder) }) { _ ->
+            val on = !br.paulo.tvlauncher.home.ContinueOption.on(this)
+            br.paulo.tvlauncher.home.ContinueOption.set(this, on)
+            getString(if (on) R.string.co_mostrar else R.string.co_esconder)
+        },
+        // Forma de "Todos os apps" (22/11/2026, Paulo: as 3; padrão Prateleiras, "mais familiar").
+        Ajuste(R.string.aa_layout_titulo, { nomeFormaTodos(br.paulo.tvlauncher.home.AllAppsLayout.mode(this)) }) { passo ->
+            val m = br.paulo.tvlauncher.home.AllAppsLayout.Mode.entries
+            nomeFormaTodos(m[Math.floorMod(br.paulo.tvlauncher.home.AllAppsLayout.mode(this).ordinal + passo, m.size)]
+                .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.AllAppsLayout.KEY, it.ordinal) })
+        },
         // Cartões dos apps (itens 3+4, 21/11/2026): as duas propostas para o Paulo comparar vendo a tela.
         Ajuste(R.string.ac_cartoes, { nomeCartoes(br.paulo.tvlauncher.home.AppChannels.mode(this)) }) { passo ->
             val m = br.paulo.tvlauncher.home.AppChannels.Mode.entries
@@ -162,6 +188,10 @@ class FineTuneActivity : Activity() {
         },
     )
 
+    private fun soIconeEmTodas() = br.paulo.tvlauncher.home.CruzLogica.Categoria.entries
+        .all { br.paulo.tvlauncher.home.WorldOptions.of(this, it).iconOnly }
+    private fun nomeDasCategorias() = getString(if (soIconeEmTodas()) R.string.wo_so_icone_curto else R.string.wo_com_nome_curto)
+
     /** Nome da câmera escolhida (o id do HA, sem o "camera."), ou "Nenhuma". */
     private val nomeCamera: String get() = BackgroundStyle.camera(this).removePrefix("camera.").ifEmpty { getString(R.string.bg_nenhuma) }
 
@@ -213,6 +243,12 @@ class FineTuneActivity : Activity() {
     private fun nomeLugarMundo(k: br.paulo.tvlauncher.home.WorldLabel.Place) = getString(when (k) {
         br.paulo.tvlauncher.home.WorldLabel.Place.COLUMN -> R.string.ac_coluna
         br.paulo.tvlauncher.home.WorldLabel.Place.PILL -> R.string.wl_pilula
+    })
+
+    private fun nomeFormaTodos(k: br.paulo.tvlauncher.home.AllAppsLayout.Mode) = getString(when (k) {
+        br.paulo.tvlauncher.home.AllAppsLayout.Mode.SHELVES -> R.string.aa_layout_shelves
+        br.paulo.tvlauncher.home.AllAppsLayout.Mode.FOLDERS -> R.string.aa_layout_folders
+        br.paulo.tvlauncher.home.AllAppsLayout.Mode.LIBRARY -> R.string.aa_layout_library
     })
 
     private fun nomeTransicao(k: BackgroundStyle.Fade) = getString(when (k) {

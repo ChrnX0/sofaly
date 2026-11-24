@@ -141,6 +141,8 @@ object PrivilegioDO {
      * sem desinstalar. Reversível a qualquer momento com [ocultar] (…, false). Devolve true se o estado mudou.
      */
     fun ocultar(ctx: Context, pacote: String, oculto: Boolean): Boolean = try {
+        // Antes da 1ª mudança, a foto de como a TV estava (FactoryBaseline, "Como estava antes da Sofaly").
+        if (oculto) runCatching { FactoryBaseline.garantirFoto(ctx) }
         // Sem Device Owner (12/11/2026): congela pelo shell próprio (pm disable-user, ver Congelar.kt). BLOQUEIA até ~20 s.
         if (!somosDonos(ctx)) Congelar.definir(ctx, pacote, oculto)
         else {

@@ -27,7 +27,9 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
         // Ferramentas (21/11/2026, Paulo: o mundo que entra no lugar do Continuar). No FIM do enum (o painel guarda pelo nome).
         FERRAMENTAS, DESPERTADOR, CASA, CLIMA, AJUSTE, CONFIG,
         // Painel rápido (22/11/2026, Paulo: usava a mesma engrenagem das Configurações): dois interruptores.
-        PAINEL }
+        PAINEL,
+        // Ajuda (23/11/2026): o azulejo da aba Ajuda nas Configurações (círculo com ponto de interrogação).
+        AJUDA }
     /**
      * [DUOTOM] (17/11/2026, 3º estilo embutido): o traço do Símbolo em branco quente sobre um halo suave na cor do grupo.
      * [LINHA] (18/11/2026, PADRÃO): o dono achou os desenhos "infantis". Traço fino de uma cor só (creme), desenho adulto
@@ -35,11 +37,16 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
      * gravado nas Extras (0, 1, 2) continua apontando para o mesmo estilo. Na tela se chama "Essencial" (21/11/2026).
      * [VINTAGE], [JOIA], [FOTO] e [VINTAGE2] (21/11/2026, escolhidos pelo Paulo na amostra): arte pronta em WebP
      * ([pasta] em assets/icon-sets, ver [IconSetArt]), cada uma com a parte que se mexe. Também no FIM do enum.
+     * [AZULEJO] (23/11/2026, PADRÃO; Paulo escolheu o caminho B "Azulejos" das 5 propostas com referências do Mobbin:
+     * Tide Guide, Halide, Aave). Porquê: o traço fino sozinho some no fundo e cada tela tinha um jeito. Para quê: a
+     * categoria se reconhece pela cor do azulejo, de longe e sem ler; a mesma peça se repete nas Configurações, no
+     * painel e no celular. Como: o desenho da Linha, em tinta escura, dentro de um quadrado arredondado na cor dele
+     * ([corLinha]), com a mesma animação. No FIM do enum (o número gravado nas Extras não muda de sentido).
      */
     enum class Estilo(val pasta: String? = null) {
-        OBJETO, SIMBOLO, DUOTOM, LINHA, VINTAGE("vintage"), JOIA("jewel"), FOTO("photoreal"), VINTAGE2("vintage2");
+        OBJETO, SIMBOLO, DUOTOM, LINHA, VINTAGE("vintage"), JOIA("jewel"), FOTO("photoreal"), VINTAGE2("vintage2"), AZULEJO;
         /** Tem animação própria (a Linha desenhada em código; os de arte pela camada que se mexe). */
-        val animado: Boolean get() = this == LINHA || pasta != null
+        val animado: Boolean get() = this == LINHA || this == AZULEJO || pasta != null
     }
 
     /** Linha: true = item escolhido com a cruz em foco (o ImageView avisa pelo estado "activated"). */
@@ -98,7 +105,13 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
         if (b.isEmpty) return
         c.save()
         c.translate(b.left.toFloat(), b.top.toFloat())
-        if (estilo == Estilo.LINHA) {
+        if (estilo == Estilo.AZULEJO) {
+            val esc = minOf(b.width(), b.height()) / 24f
+            c.translate((b.width() - 24f * esc) / 2f, (b.height() - 24f * esc) / 2f)
+            c.scale(esc, esc)
+            azulejo(c)
+            if (faseFixa == null) agendar()
+        } else if (estilo == Estilo.LINHA) {
             val esc = minOf(b.width(), b.height()) / 24f
             c.translate((b.width() - 24f * esc) / 2f, (b.height() - 24f * esc) / 2f)
             c.scale(esc, esc)
@@ -138,6 +151,32 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             } else corTraco = corDoGrupo()
             simbolo(c)
         }
+        c.restore()
+    }
+
+    // ------------------------------------------------------------------ azulejo (23/11/2026)
+
+    /** Multiplica o traço da Linha: o Azulejo desenha o símbolo menor, então o traço engrossa para ler igual. */
+    private var escalaTraco = 1f
+
+    /** Cor do azulejo quando o lugar pede outra que não a do tipo (a aba das Configurações usa a cor da área dela). */
+    var corAzulejo: Int? = null
+
+    /**
+     * O quadrado arredondado na cor do tipo (raio de 28%, o "squircle" das referências) e, dentro, o desenho da Linha
+     * em tinta noturna, a 62% do quadro. A animação é a mesma da Linha, na mesma tinta.
+     */
+    private fun azulejo(c: Canvas) {
+        cheio.shader = null; cheio.color = corAzulejo ?: corLinha(tipo); cheio.alpha = 255
+        r.set(0f, 0f, 24f, 24f); c.drawRoundRect(r, RAIO_AZULEJO, RAIO_AZULEJO, cheio)
+        c.save()
+        c.scale(ESCALA_SIMBOLO_AZULEJO, ESCALA_SIMBOLO_AZULEJO, 12f, 12f)
+        corTraco = TINTA_AZULEJO
+        escalaTraco = 1f / ESCALA_SIMBOLO_AZULEJO * 0.95f
+        fase = faseAgora()
+        linhaFina(c)
+        if (fase >= 0f) linhaViva(c, fase)
+        escalaTraco = 1f
         c.restore()
     }
 
@@ -212,7 +251,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.CASA -> casa(c)
             Tipo.CLIMA -> solNuvem(c)
             Tipo.AJUSTE -> controles(c)
-            Tipo.CONFIG -> engrenagem(c)
+            Tipo.CONFIG, Tipo.AJUDA -> engrenagem(c)
             Tipo.PAINEL -> interruptores(c)
         }
         cheio.shader = null; cheio.alpha = 255
@@ -491,7 +530,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 c.drawPath(p, traco)
                 c.drawLine(17f, 6f, 21f, 6f, traco); c.drawLine(21f, 6f, 17f, 10f, traco); c.drawLine(17f, 10f, 21f, 10f, traco)
             }
-            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL -> ferramenta(c, 1.5f)
+            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL, Tipo.AJUDA -> ferramenta(c, 1.5f)
         }
     }
 
@@ -537,6 +576,12 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 r.set(3.5f, 4.5f, 20.5f, 11.5f); c.drawRoundRect(r, 3.5f, 3.5f, traco); c.drawCircle(17f, 8f, 1.9f, traco)
                 r.set(3.5f, 12.5f, 20.5f, 19.5f); c.drawRoundRect(r, 3.5f, 3.5f, traco); c.drawCircle(7f, 16f, 1.9f, traco)
             }
+            Tipo.AJUDA -> {   // círculo com o ponto de interrogação
+                c.drawCircle(12f, 12f, 8.5f, traco)
+                p.reset(); p.moveTo(9.4f, 9.6f); p.quadTo(9.6f, 6.8f, 12.2f, 6.8f); p.quadTo(14.8f, 6.9f, 14.8f, 9.4f)
+                p.quadTo(14.7f, 11f, 12.9f, 11.9f); p.quadTo(12f, 12.4f, 12f, 13.8f); c.drawPath(p, traco)
+                c.drawCircle(12f, 16.9f, 0.6f, cheio)
+            }
             Tipo.CONFIG -> {
                 c.drawCircle(12f, 12f, 3f, traco); c.drawCircle(12f, 12f, 6.6f, traco)
                 for (a in 0 until 8) {
@@ -552,7 +597,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
     // ------------------------------------------------------------------ linha (24 x 24, traço fino de uma cor)
 
     private fun linhaFina(c: Canvas) {
-        traco.shader = null; traco.color = corTraco; traco.strokeWidth = TRACO_FINO; traco.pathEffect = null; traco.alpha = 255
+        traco.shader = null; traco.color = corTraco; traco.strokeWidth = TRACO_FINO * escalaTraco; traco.pathEffect = null; traco.alpha = 255
         cheio.shader = null; cheio.color = corTraco; cheio.alpha = 255
         fun ret(x0: Float, y0: Float, x1: Float, y1: Float, raio: Float) { r.set(x0, y0, x1, y1); c.drawRoundRect(r, raio, raio, traco) }
         fun tri(x: Float, y: Float, alt: Float) {   // "play" vazado
@@ -652,7 +697,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 c.drawPath(p, traco)
                 c.drawLine(18.5f, 5f, 18.5f, 9f, traco); c.drawLine(16.5f, 7f, 20.5f, 7f, traco)
             }
-            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL -> ferramenta(c, TRACO_FINO)
+            Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL, Tipo.AJUDA -> ferramenta(c, TRACO_FINO * escalaTraco)
         }
     }
 
@@ -780,7 +825,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.CLIMA -> {   // os raios do sol brilham
                 alfa(sino); c.drawCircle(9f, 9f, 5.4f, traco)
             }
-            Tipo.FERRAMENTAS, Tipo.CASA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL -> {   // a luz da janela / o ponto acende de leve
+            Tipo.FERRAMENTAS, Tipo.CASA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL, Tipo.AJUDA -> {   // a luz da janela / o ponto acende de leve
                 cheio.alpha = (sino * 0.6f * 255).toInt(); c.drawCircle(12f, 12f, 1.4f, cheio)
             }
         }
@@ -840,16 +885,21 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             Tipo.AJUSTE -> 0xFFF59E5B.toInt()         // laranja claro
             Tipo.CONFIG -> 0xFFD9CFC2.toInt()         // cinza quente
             Tipo.PAINEL -> 0xFF8FD3C4.toInt()         // verde-água (interruptor ligado)
+            Tipo.AJUDA -> 0xFFD9CFC2.toInt()          // cinza quente (técnico, como as Configurações)
         }
 
         /** Tipos ainda sem arte pronta nos conjuntos (Vintage, Joia...): desenham o traço da Linha (IconSetsTest). */
-        val SEM_ARTE = setOf(Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL)
+        val SEM_ARTE = setOf(Tipo.FERRAMENTAS, Tipo.DESPERTADOR, Tipo.CASA, Tipo.CLIMA, Tipo.AJUSTE, Tipo.CONFIG, Tipo.PAINEL, Tipo.AJUDA)
 
         /** A cor clara do traço (Símbolo/Duotom), também nos ícones de app do pacote embutido. */
         const val COR_TRACO = 0xFFFFF3E6.toInt()
         private const val COR_CLARA = 0xFFFFF3E6.toInt()
         /** Linha: o item escolhido acende na cor da marca (vermelho-laranja; nada rosado). */
         val COR_ACESA: Int get() = br.paulo.tvlauncher.Estilo.ACENTO   // segue o alto contraste (estudo global 20/11)
+        /** Azulejo: raio do quadrado (no quadro de 24), tamanho do símbolo dentro dele e a tinta do símbolo. */
+        const val RAIO_AZULEJO = 6.8f
+        const val ESCALA_SIMBOLO_AZULEJO = 0.62f
+        val TINTA_AZULEJO: Int get() = DesignTokens.NIGHT_DEEP
         /** Linha: traço de 1,25 no quadro de 24 (o Símbolo usa 1,5). */
         const val TRACO_FINO = 1.25f
         /** A TV-sofá desenhada menor que o quadro: a barra do programa embaixo do ícone não pode encostar (Paulo, 18/11/2026). */

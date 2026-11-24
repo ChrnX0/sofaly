@@ -181,9 +181,18 @@ internal fun MainActivity.atualizarCruz() {
         ?.let { CruzLogica.Situacao(getString(R.string.cruz_canto_tocando), it.second, tipo, listOf(getString(R.string.cruz_tocando, it.second))) }
     fun fracaoPodcast(p: Podcasts.Posicao): Float? = if (p.durMs > 0) (p.ms.toFloat() / p.durMs).coerceIn(0f, 1f) else null
     val cats = ArrayList<HomeCruz.Categoria>()
+    // Opções de cada mundo (WorldOptions, 22/11/2026): nome trocado e mundo escondido; a ordem entra em appsDe/jogos/apps.
     fun categoria(k: CruzLogica.Categoria, nome: Int, tipo: IconeCruz.Tipo, itens: List<HomeCruz.Item>) {
-        if (itens.isNotEmpty()) cats += HomeCruz.Categoria(k, getString(nome), icCruz("cat:" + k.id, tipo), itens)
+        val o = WorldOptions.of(this, k)
+        if (itens.isNotEmpty() && WorldOptions.Rules.visible(k, o))
+            cats += HomeCruz.Categoria(k, o.name ?: getString(nome), icCruz("cat:" + k.id, tipo), itens, soIcone = o.iconOnly)
     }
+    // Arruma os ids de um mundo pela ordem que a pessoa escolheu (uso = como sempre; A–Z; à mão).
+    fun arrumar(k: CruzLogica.Categoria, ids: List<String>, nomes: Map<String, String>, fixos: Collection<String>): List<String> {
+        val o = WorldOptions.of(this, k)
+        return WorldOptions.Rules.arrange(ids, o.sort, nomes, o.manual, fixos)
+    }
+    fun nomeApp(id: String, original: String) = AppNames.name(this, id, original)
 
     // Os apps visíveis (appsVisiveis), cada um na categoria dele (CategoriaApps: escolha manual "Mover para…" > tipo
     // que o app declara > Aplicativos). Os jogos moram em Jogar (jogosNaCruz).
@@ -194,8 +203,10 @@ internal fun MainActivity.atualizarCruz() {
     val frequencia = frequenciaApps()
     val fixados = fixadosCruz()
     fun appsDe(k: CruzLogica.Categoria): List<HomeCruz.Item> =
-        CruzLogica.ordenarApps(porDestino[k].orEmpty(), ultimoUso, frequencia, fixados).map { id -> porPacote.getValue(id).let { app ->
-            HomeCruz.Item("app:$id", app.nome, linhasApp(id, app.nome), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) })
+        arrumar(k, CruzLogica.ordenarApps(porDestino[k].orEmpty(), ultimoUso, frequencia, fixados),
+            porDestino[k].orEmpty().associateWith { nomeApp(it, porPacote.getValue(it).nome) }, fixados).map { id -> porPacote.getValue(id).let { app ->
+            val nome = nomeApp(id, app.nome)
+            HomeCruz.Item("app:$id", nome, linhasApp(id, nome), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) })
         } }
 
     // Continuar (18/11/2026, pedido do dono): o canal de TV primeiro (a TV da casa); depois, do mais recente para o mais
@@ -276,8 +287,13 @@ internal fun MainActivity.atualizarCruz() {
                 PosterDrawable(this, cd.poster, porPacote[cd.pacote]?.let { icApp(it) }),
                 { if (!AppChannels.abrir(this, cd)) cruz?.naoAbriu() }, opcoes = { menuAppCruz(cd.pacote) })
         }
+    // Continuar é opção (Paulo, 22/11/2026: os apps já guardam onde pararam, o item repetia a função). Desligado de
+    // fábrica; ligado, só retoma o que guarda a posição: TV, séries, filmes, rádio e podcast nossos e os apps que avisam
+    // pela sessão de mídia onde pararam (c:midia). Jogo e app só "aberto por último" ficam de fora.
+    val mostrarContinuar = ContinueOption.on(this)
     fun comContinuar(k: CruzLogica.Categoria, itens: List<HomeCruz.Item>): List<HomeCruz.Item> =
-        (itens + cartoesColuna(k)).let { l -> itemContinuar(k, doMundo[k].orEmpty())?.let { listOf(it) + l } ?: l }
+        (itens + cartoesColuna(k)).let { l -> if (!mostrarContinuar) l else
+            itemContinuar(k, doMundo[k].orEmpty().filter { ContinueOption.keeps(it.second.id) })?.let { listOf(it) + l } ?: l }
 
     // Ferramentas (21/11/2026, Paulo: entra no lugar do Continuar, "vamos ver o q colocar aqui"): o que a casa usa
     // para cuidar da TV e do dia. Começa com o que já existe; a lista é dele para mudar.
@@ -363,24 +379,38 @@ internal fun MainActivity.atualizarCruz() {
         jogos += HomeCruz.Item("central", getString(R.string.cruz_central), linhasCentral(), icCruz("central", IconeCruz.Tipo.CENTRAL),
             { abrirCatalogo(JogosActivity::class.java) })
         val doJogo = jogosNaCruz().associateBy { it.pacote }
-        for (p in CruzLogica.ordenarApps(doJogo.keys.sorted(), ultimoUso, emptyMap(), fixadosCruz())) doJogo.getValue(p).let { app ->
-            jogos += HomeCruz.Item("app:$p", app.nome,
-                CruzLogica.linhas(subApp(p, app.nome), quando(ultimoUso[p])?.let { getString(R.string.cruz_jogado, it) }),
+        val fixosJogo = fixadosCruz()
+        for (p in arrumar(CruzLogica.Categoria.JOGAR, CruzLogica.ordenarApps(doJogo.keys.sorted(), ultimoUso, emptyMap(), fixosJogo),
+                doJogo.mapValues { nomeApp(it.key, it.value.nome) }, fixosJogo)) doJogo.getValue(p).let { app ->
+            val nome = nomeApp(p, app.nome)
+            jogos += HomeCruz.Item("app:$p", nome,
+                CruzLogica.linhas(subApp(p, nome), quando(ultimoUso[p])?.let { getString(R.string.cruz_jogado, it) }),
                 icApp(app), { abrir(p) }, opcoes = { menuAppCruz(p) })
         }
         categoria(CruzLogica.Categoria.JOGAR, R.string.cruz_jogar, IconeCruz.Tipo.JOGAR, comContinuar(CruzLogica.Categoria.JOGAR, jogos))
     }
 
     // Aplicativos: os 8 mais usados dos que moram aqui (nem movidos nem automáticos de Assistir/Ouvir) e "Todos os apps".
-    val apps = CruzLogica.appsDaColuna(porDestino[CruzLogica.Categoria.APLICATIVOS].orEmpty(), ultimoUso, frequencia, fixados).map { id ->
+    // A coluna mostra os APPS_NA_COLUNA primeiros já na ordem escolhida para o mundo (A–Z corta pelo alfabeto, não pelo uso).
+    val idsApps = porDestino[CruzLogica.Categoria.APLICATIVOS].orEmpty()
+    val apps = (arrumar(CruzLogica.Categoria.APLICATIVOS, CruzLogica.ordenarApps(idsApps, ultimoUso, frequencia, fixados),
+            idsApps.associateWith { nomeApp(it, porPacote.getValue(it).nome) }, fixados)
+            .take(CruzLogica.APPS_NA_COLUNA) + CruzLogica.ID_TODOS_APPS).map { id ->
         if (id == CruzLogica.ID_TODOS_APPS) HomeCruz.Item(id, getString(R.string.cruz_todos_apps),
             CruzLogica.linhas(getString(R.string.cruz_todos_apps_sub), contaApps()),
             icCruz(id, IconeCruz.Tipo.TODOS_APPS), { abrirTodos() })
         else porPacote.getValue(id).let { app ->
-            HomeCruz.Item("app:$id", app.nome, linhasApp(id, app.nome), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) })
+            val nome = nomeApp(id, app.nome)
+            HomeCruz.Item("app:$id", nome, linhasApp(id, nome), icApp(app), { abrir(id) }, opcoes = { menuAppCruz(id) })
         }
     }
-    categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, comContinuar(CruzLogica.Categoria.APLICATIVOS, apps))
+    // Pastas mostradas na tela inicial (AppFolders, 22/11/2026): entram antes de "Todos os apps" e abrem a tela já nelas.
+    val pastasNaCruz = AppFolders.Rules.pinned(AppFolders.all(this), CruzLogica.Categoria.APLICATIVOS.id).map { f ->
+        HomeCruz.Item("pasta:${f.id}", f.name, getString(R.string.cruz_apps_n, f.apps.count { it in porPacote }),
+            icCruz("pasta:${f.id}", IconeCruz.Tipo.TODOS_APPS), { abrirTodosNaPasta(f.id) }, opcoes = { menuPasta(f.id) })
+    }
+    val appsComPastas = if (pastasNaCruz.isEmpty()) apps else apps.dropLast(1) + pastasNaCruz + apps.last()
+    categoria(CruzLogica.Categoria.APLICATIVOS, R.string.cruz_aplicativos, IconeCruz.Tipo.APLICATIVOS, comContinuar(CruzLogica.Categoria.APLICATIVOS, appsComPastas))
 
     // Trocar ícone item a item (21/11/2026): segurar OK num item do Sofaly que não tem menu próprio troca o desenho dele
     // ou o da categoria (MainActivity.trocarIconeSofaly). Itens de app e de mídia continuam com o menu deles.
@@ -388,8 +418,14 @@ internal fun MainActivity.atualizarCruz() {
         val tipoCat = (cat.icone as? IconeCruz)?.tipo
         HomeCruz.Categoria(cat.cat, cat.nome, cat.icone, cat.itens.map { item ->
             val ic = item.icone as? IconeCruz
-            if (item.opcoes != null || ic == null) item else item.comOpcoes { trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) }
-        })
+            if (item.opcoes != null || ic == null) item else item.comOpcoes {
+                // Itens do Sofaly: trocar o desenho e as opções do mundo (HomeWorldMenu, 22/11/2026).
+                val l = listOf<CharSequence>(getString(R.string.wp_trocar_icone), getString(R.string.wo_opcoes, cat.nome))
+                menuAberto = Estilo.lista(this, item.nome, l) { i ->
+                    if (i == 0) trocarIconeSofaly(ic.tipo, item.nome, tipoCat, cat.nome) else menuDoMundo(cat.cat, cat.nome)
+                }
+            }
+        }, soIcone = cat.soIcone)
     })
     c.itemAtual()?.let { vitrineDoItem(it) }   // os cartões chegam depois do 1º desenho: a vitrine se acerta
     if (focoInicialNaTv && !todosAbertos) { focoInicialNaTv = false; c.requestFocus() }

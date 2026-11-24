@@ -43,6 +43,7 @@
     <string name="tec_toque">Drücken</string>
     <string name="tec_segurar">Halten</string>
     <string name="tec_duplo">Doppelt drücken</string>
+    <string name="tec_triplo">Dreifach drücken</string>
     <string name="tec_padrao">Standard (gespeicherte App; 3 s halten = auswählen)</string>
     <string name="tec_cena">Szene %1$s</string>
     <string name="tec_salvo">%1$s gespeichert</string>

@@ -52,6 +52,7 @@
     <string name="cruz_desliga_as">%1$s にオフ</string>
     <string name="cruz_dormir_cancelar">OKで取り消し</string>
     <string name="cruz_linha">エッセンシャル</string>
+    <string name="cruz_azulejo">タイル</string>
     <string name="cruz_mover">移動先…</string>
     <string name="cruz_mover_titulo">%1$s の移動先</string>
     <string name="cruz_central">ゲームハブ</string>

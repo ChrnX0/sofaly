@@ -45,7 +45,9 @@ internal fun MainActivity.abrirTodos() {
     todosAbertos = true
     escondidosLiberados = false
     c.visibility = View.GONE
-    val tela = telaTodos ?: AllAppsScreen(this, hostTodos).also { t ->
+    pastaAberta = null
+    filtroTodos = AllAppsLayout.Filter.ALL
+    val tela = telaTodos ?: AllAppsScreen(this, hostTodos, AllAppsLayout.mode(this)).also { t ->
         telaTodos = t
         (raizCruz ?: c.parent as? FrameLayout)?.addView(t, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
     }
@@ -105,12 +107,58 @@ internal fun MainActivity.montarTodos(foco: String?) {
     val escondidos = if (visita) emptyList() else apps.filter { it.pacote in ocultos }
     val freq = frequenciaApps()
     val porPacote = (apps + dados.congelados).associateBy { it.pacote }
-    val entradas = visiveis.map { AppShelf.Entry(it.pacote, it.nome, prateleira(it.pacote, dados), freq[it.pacote] ?: 0.0) }
+    val entradas = visiveis.map { AppShelf.Entry(it.pacote, AppNames.name(this, it.pacote, it.nome), prateleira(it.pacote, dados), freq[it.pacote] ?: 0.0) }
     val (fileiras, unica) = AppShelf.rows(entradas)
     val secoes = ArrayList<AllAppsScreen.Section>()
-    fun card(p: String, k: AllAppsScreen.Kind) = porPacote[p]?.let { AllAppsScreen.Card(p, it.nome, k, it.icone) }
+    fun card(p: String, k: AllAppsScreen.Kind) = porPacote[p]?.let { AllAppsScreen.Card(p, AppNames.name(this, p, it.nome), k, it.icone) }
+    // Ordem dentro de cada prateleira: por uso (como a AppShelf entrega) ou de A a Z (menu "Ordenar todos os apps").
+    val nomes = entradas.associate { it.pkg to it.name }
+    val ordem = AllAppsLayout.sort(this)
+    fun arrumar(l: List<String>) = WorldOptions.Rules.arrange(l, ordem, nomes)
+    val modo = telaTodos?.mode ?: AllAppsLayout.Mode.SHELVES
+    val pastas = AppFolders.Rules.prune(AppFolders.all(this), porPacote.keys)
+    val presentes = visiveis.map { it.pacote }.toSet()
+    fun pastaCards() = pastas.map { AllAppsScreen.Card(it.id, it.name, AllAppsScreen.Kind.FOLDER, null) } +
+        AllAppsScreen.Card("+", getString(R.string.aa_nova_pasta), AllAppsScreen.Kind.NEW_FOLDER, null)
+    val favoritos = fixadosCruz().filter { it in presentes }
+    // Uma pasta aberta (B ou C): só os apps dela, na ordem em que foram postos.
+    pastaAberta?.let { id -> pastas.firstOrNull { it.id == id } }?.let { pasta ->
+        tela.show(pasta.name, listOf(AllAppsScreen.Section(null, DesignTokens.WORLD_APPS,
+            pasta.apps.filter { it in presentes }.mapNotNull { card(it, AllAppsScreen.Kind.APP) })), foco)
+        return
+    }
+    if (modo == AllAppsLayout.Mode.LIBRARY) {
+        // Biblioteca (C): o trilho escolhe o que a grade mostra; Congelados e Escondidos são filtros, não prateleiras.
+        val filtros = AllAppsLayout.Filter.entries.filter { f -> when (f) {
+            AllAppsLayout.Filter.FROZEN -> dados.congelados.isNotEmpty() && !visita
+            AllAppsLayout.Filter.HIDDEN -> escondidos.isNotEmpty()
+            else -> true
+        } }
+        if (filtroTodos !in filtros) filtroTodos = AllAppsLayout.Filter.ALL
+        tela.showRail(filtros.map { it to nomeFiltro(it) }, filtroTodos)
+        val agora = System.currentTimeMillis()
+        val cards = when (filtroTodos) {
+            AllAppsLayout.Filter.ALL -> arrumar(entradas.sortedByDescending { it.use }.map { it.pkg }).mapNotNull { card(it, AllAppsScreen.Kind.APP) }
+            AllAppsLayout.Filter.FAVORITES -> favoritos.mapNotNull { card(it, AllAppsScreen.Kind.APP) }
+            AllAppsLayout.Filter.FOLDERS -> pastaCards()
+            AllAppsLayout.Filter.MOST_USED -> entradas.filter { it.use > 0 }.sortedByDescending { it.use }.take(24).mapNotNull { card(it.pkg, AllAppsScreen.Kind.APP) }
+            AllAppsLayout.Filter.NEW -> AllAppsLayout.newest(presentes.associateWith { p ->
+                runCatching { packageManager.getPackageInfo(p, 0).firstInstallTime }.getOrDefault(0L) }, agora).mapNotNull { card(it, AllAppsScreen.Kind.APP) }
+            AllAppsLayout.Filter.FROZEN -> dados.congelados.map { AllAppsScreen.Card(it.pacote, it.nome, AllAppsScreen.Kind.FROZEN, it.icone) }
+            AllAppsLayout.Filter.HIDDEN -> if (escondidosLiberados) escondidos.sortedBy { it.nome.lowercase() }.map { AllAppsScreen.Card(it.pacote, it.nome, AllAppsScreen.Kind.HIDDEN, it.icone) }
+                else listOf(AllAppsScreen.Card(CARTAO_TRANCA, getString(R.string.aa_lock, escondidos.size), AllAppsScreen.Kind.LOCK, null))
+        }
+        tela.show(getString(R.string.cruz_apps_n, visiveis.size), listOf(AllAppsScreen.Section(null, DesignTokens.WORLD_APPS, cards)), foco)
+        return
+    }
+    if (modo == AllAppsLayout.Mode.FOLDERS) {
+        // Pastas e canais (B): Favoritos (os fixados no topo da cruz) e as pastas antes das prateleiras.
+        if (favoritos.isNotEmpty()) secoes += AllAppsScreen.Section(getString(R.string.aa_favoritos), DesignTokens.FOCUS,
+            favoritos.mapNotNull { card(it, AllAppsScreen.Kind.APP) })
+        secoes += AllAppsScreen.Section(getString(R.string.aa_pastas), DesignTokens.WORLD_APPS, pastaCards())
+    }
     for (f in fileiras) secoes += AllAppsScreen.Section(if (unica) null else nomePrateleira(f.shelf), corPrateleira(f.shelf),
-        f.pkgs.mapNotNull { card(it, AllAppsScreen.Kind.APP) })
+        arrumar(f.pkgs).mapNotNull { card(it, AllAppsScreen.Kind.APP) })
     if (dados.congelados.isNotEmpty() && !visita) secoes += AllAppsScreen.Section(getString(R.string.aa_frozen), COR_CONGELADOS,
         dados.congelados.map { AllAppsScreen.Card(it.pacote, it.nome, AllAppsScreen.Kind.FROZEN, it.icone) })
     if (escondidos.isNotEmpty()) secoes += AllAppsScreen.Section(getString(R.string.aa_hidden), COR_ESCONDIDOS,
@@ -196,6 +244,14 @@ internal fun MainActivity.infoTodos(card: AllAppsScreen.Card): AllAppsScreen.Inf
     val parado = if (ultimo > 0) dias else ((agora - instalado) / 86_400_000L).toInt()
     val dica = if (card.kind == AllAppsScreen.Kind.APP && risco == "seguro" && podeCongelar() &&
         agora - instalado > DIAS_PARADO * 86_400_000L && parado >= DIAS_PARADO) getString(R.string.aa_tip_idle, parado) else null
+    // Pastas e canais (B): o que o app tem agora (os canais de prévia que ele publica: YouTube, Prime, Max...).
+    if (telaTodos?.mode == AllAppsLayout.Mode.FOLDERS) {
+        val canais = AppChannels.doApp(cartoesApps, p).take(3)
+        if (canais.isNotEmpty()) {
+            linhas += getString(R.string.aa_canais, card.name)
+            canais.mapNotNull { cd -> listOf(cd.titulo, cd.canal).firstOrNull { it.isNotBlank() } }.forEach { linhas += "· $it" }
+        }
+    }
     val ajuda = getString(if (card.kind == AllAppsScreen.Kind.FROZEN) R.string.aa_hint_frozen else R.string.aa_hint_app)
     return AllAppsScreen.Info(card.name, linhas, dica, ajuda)
 }
@@ -225,9 +281,19 @@ internal fun MainActivity.menuTodos(card: AllAppsScreen.Card) {
     else Opcao(getString(R.string.home_ocultar)) { Organizacao.ocultar(this, p); atualizarAposMudanca(null); montarTodos(null); avisarOculto() }
     if (podeCongelar() && !EntradasTv.eh(p)) opcoes += Opcao(getString(R.string.aa_freeze)) { congelarTodos(p) }
     opcoes += Opcao(getString(R.string.wp_trocar_icone)) { trocarIconeCruz(p) }
+    opcoes += Opcao(getString(R.string.wo_renomear_app)) {
+        pedirNome(getString(R.string.wo_renomear_app), AppNames.custom(this, p) ?: nomeDe(p), AppNames.MAX) { novo ->
+            AppNames.set(this, p, novo); atualizarAposMudanca(null); montarTodos(p)
+        }
+    }
+    if (card.kind == AllAppsScreen.Kind.APP) opcoes += Opcao(getString(R.string.aa_por_na_pasta)) { porNaPasta(p) }
+    pastaAberta?.let { id -> opcoes += Opcao(getString(R.string.aa_tirar_da_pasta)) {
+        AppFolders.change(this) { AppFolders.Rules.toggle(it, id, p) }; montarTodos(null)
+    } }
+    opcoes += Opcao(getString(R.string.aa_ordenar)) { ordenarTodos() }
     val desinstala = PainelApps.podeDesinstalar(this, p)
     if (desinstala) opcoes += Opcao(getString(R.string.home_desinstalar)) { comPinDoDono(getString(R.string.home_desinstalar)) { confirmarDesinstalar(p) } }
-    val titulo = nomeDe(p) + if (PainelApps.eSistema(this, p)) getString(R.string.home_app_sistema) else ""
+    val titulo = AppNames.name(this, p, nomeDe(p)) + if (PainelApps.eSistema(this, p)) getString(R.string.home_app_sistema) else ""
     menuAberto = Estilo.lista(this, titulo, opcoes.map { it.rotulo }, separarUltimo = desinstala) { i -> opcoes[i].acao() }
 }
 
@@ -336,8 +402,14 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
             if (!AppChannels.abrir(this, cartoes[i])) cruz?.naoAbriu()
         }
     })
+    opcoes += opcoesDeOrdem(pacote)   // Subir/Descer quando o mundo está "Do meu jeito" (WorldOptions)
     opcoes += Opcao(getString(R.string.cruz_mover)) { moverAppCruz(pacote) }
     opcoes += Opcao(getString(R.string.wp_trocar_icone)) { trocarIconeCruz(pacote) }
+    opcoes += Opcao(getString(R.string.wo_renomear_app)) {
+        pedirNome(getString(R.string.wo_renomear_app), AppNames.custom(this, pacote) ?: nomeDe(pacote), AppNames.MAX) { novo ->
+            AppNames.set(this, pacote, novo); atualizarAposMudanca("app:$pacote")
+        }
+    }
     opcoes += Opcao(getString(R.string.home_ocultar)) { Organizacao.ocultar(this, pacote); atualizarAposMudanca(null); avisarOculto() }
     // Congelar sob demanda (OnDemandTv): só existia no menu da HOME antiga; na cruz ficava sem caminho (21/11/2026).
     when {
@@ -353,8 +425,9 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
         opcoes += Opcao(getString(R.string.home_liberar_arquivos)) { liberarArquivos(pacote) }
     AppStorage.atualizarEmFundo(this)
     val desinstala = PainelApps.podeDesinstalar(this, pacote)
+    if (!todosAbertos) opcaoDoMundo()?.let { opcoes += it }   // "Opções de <mundo>" (HomeWorldMenu)
     if (desinstala) opcoes += Opcao(getString(R.string.home_desinstalar)) { confirmarDesinstalar(pacote) }
-    val titulo = nomeDe(pacote) + if (PainelApps.eSistema(this, pacote)) getString(R.string.home_app_sistema) else ""
+    val titulo = AppNames.name(this, pacote, nomeDe(pacote)) + if (PainelApps.eSistema(this, pacote)) getString(R.string.home_app_sistema) else ""
     menuAberto = Estilo.lista(this, titulo, opcoes.map { it.rotulo }, separarUltimo = desinstala) { i -> opcoes[i].acao() }
 }
 
@@ -417,3 +490,69 @@ internal fun MainActivity.frequenciaApps(): Map<String, Double> {
 internal fun MainActivity.fixadosCruz(): List<String> = prefsApps().getString("fixados", null)?.split(',')?.filter { it.isNotBlank() } ?: emptyList()
 
 internal fun MainActivity.guardarFixadosCruz(l: List<String>) { prefsApps().edit().putString("fixados", l.joinToString(",")).apply() }
+
+// ---------------------------------------------------------------- pastas e ordem (22/11/2026, AppFolders/AllAppsLayout)
+
+internal fun MainActivity.nomeFiltro(f: AllAppsLayout.Filter): String = getString(when (f) {
+    AllAppsLayout.Filter.ALL -> R.string.aa_f_tudo
+    AllAppsLayout.Filter.FAVORITES -> R.string.aa_favoritos
+    AllAppsLayout.Filter.FOLDERS -> R.string.aa_pastas
+    AllAppsLayout.Filter.MOST_USED -> R.string.aa_f_uso
+    AllAppsLayout.Filter.NEW -> R.string.aa_f_novos
+    AllAppsLayout.Filter.FROZEN -> R.string.aa_frozen
+    AllAppsLayout.Filter.HIDDEN -> R.string.aa_hidden
+})
+
+internal fun MainActivity.abrirPasta(id: String) { pastaAberta = id; montarTodos(null) }
+
+/** Pergunta o nome e cria a pasta; com [app], o app já entra nela. */
+internal fun MainActivity.novaPasta(app: String?) {
+    pedirNome(getString(R.string.aa_nova_pasta), "", AppFolders.Rules.MAX_NAME) { nome ->
+        AppFolders.change(this) { AppFolders.Rules.create(it, nome, listOfNotNull(app)) }
+        montarTodos(app)
+    }
+}
+
+/** "Pôr na pasta…": cada pasta com a marca de quem já tem o app (OK põe ou tira) e "Nova pasta" no fim. */
+internal fun MainActivity.porNaPasta(p: String) {
+    val pastas = AppFolders.all(this)
+    val nomes = pastas.map { it.name as CharSequence } + getString(R.string.aa_nova_pasta)
+    val marcadas = pastas.withIndex().filter { p in it.value.apps }.map { it.index }
+    menuAberto = Estilo.lista(this, getString(R.string.aa_por_na_pasta), nomes, marcadas = marcadas) { i ->
+        if (i == pastas.size) novaPasta(p)
+        else { AppFolders.change(this) { AppFolders.Rules.toggle(it, pastas[i].id, p) }; montarTodos(p); atualizarAposMudanca(null) }
+    }
+}
+
+/** OK segurado numa pasta: renomear, mostrar na tela inicial (mundo Aplicativos) e apagar (os apps continuam instalados). */
+internal fun MainActivity.menuPasta(id: String) {
+    if (TravaHome.precisaPin(this)) { TravaHome.comPin(this) { menuPasta(id) }; return }
+    val pasta = AppFolders.all(this).firstOrNull { it.id == id } ?: return
+    val naCruz = pasta.pinnedTo != null
+    val opcoes = listOf(
+        Opcao(getString(R.string.aa_renomear_pasta)) {
+            pedirNome(getString(R.string.aa_renomear_pasta), pasta.name, AppFolders.Rules.MAX_NAME) { nome ->
+                AppFolders.change(this) { AppFolders.Rules.rename(it, id, nome) }; atualizarAposMudanca(null); montarTodos(id)
+            }
+        },
+        Opcao(getString(if (naCruz) R.string.aa_soltar_cruz else R.string.aa_fixar_cruz)) {
+            AppFolders.change(this) { AppFolders.Rules.pin(it, id, if (naCruz) null else CruzLogica.Categoria.APLICATIVOS.id) }
+            atualizarAposMudanca(null); montarTodos(id)
+        },
+        Opcao(getString(R.string.aa_apagar_pasta)) {
+            AppFolders.change(this) { AppFolders.Rules.delete(it, id) }; atualizarAposMudanca(null); montarTodos(null)
+        },
+    )
+    menuAberto = Estilo.lista(this, pasta.name, opcoes.map { it.rotulo }, separarUltimo = true) { i -> opcoes[i].acao() }
+}
+
+/** "Ordenar todos os apps": dentro de cada prateleira, por uso (como era) ou de A a Z. */
+internal fun MainActivity.ordenarTodos() {
+    val modos = listOf(WorldOptions.Sort.USAGE, WorldOptions.Sort.AZ)
+    val atual = modos.indexOf(AllAppsLayout.sort(this))
+    menuAberto = Estilo.lista(this, getString(R.string.aa_ordenar), listOf(getString(R.string.wo_por_uso), getString(R.string.wo_az)),
+        marcadas = listOf(atual)) { i -> AllAppsLayout.setSort(this, modos[i]); montarTodos(null) }
+}
+
+/** Abre "Todos os apps" já dentro de uma pasta (item da pasta na cruz). */
+internal fun MainActivity.abrirTodosNaPasta(id: String) { abrirTodos(); pastaAberta = id; montarTodos(null) }

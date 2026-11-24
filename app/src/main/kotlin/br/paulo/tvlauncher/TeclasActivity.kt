@@ -151,6 +151,7 @@ class TeclasActivity : Activity() {
         RemapTeclas.Gesto.TOQUE -> R.string.tec_toque
         RemapTeclas.Gesto.SEGURAR -> R.string.tec_segurar
         RemapTeclas.Gesto.DUPLO -> R.string.tec_duplo
+        RemapTeclas.Gesto.TRIPLO -> R.string.tec_triplo
     })
 
     /** Como mostrar um atalho. Vazio num botão de app = o de sempre (app salvo / lista); nas outras = nada. */

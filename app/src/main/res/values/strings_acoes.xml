@@ -50,6 +50,7 @@
     <string name="tec_toque">Press</string>
     <string name="tec_segurar">Hold</string>
     <string name="tec_duplo">Double press</string>
+    <string name="tec_triplo">Triple press</string>
     <string name="tec_padrao">default (saved app; hold 3 s = choose)</string>
     <string name="tec_cena">scene %1$s</string>
     <string name="tec_salvo">%1$s saved</string>

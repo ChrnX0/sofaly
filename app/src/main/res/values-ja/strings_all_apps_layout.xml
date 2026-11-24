@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">すべてのアプリ画面</string>
+    <string name="aa_layout_shelves">棚</string>
+    <string name="aa_layout_folders">フォルダとチャンネル</string>
+    <string name="aa_layout_library">ライブラリ</string>
+    <string name="aa_favoritos">お気に入り</string>
+    <string name="aa_pastas">フォルダ</string>
+    <string name="aa_nova_pasta">新しいフォルダ</string>
+    <string name="aa_por_na_pasta">フォルダに追加…</string>
+    <string name="aa_tirar_da_pasta">このフォルダから外す</string>
+    <string name="aa_renomear_pasta">フォルダ名を変更</string>
+    <string name="aa_apagar_pasta">フォルダを削除</string>
+    <string name="aa_fixar_cruz">ホーム画面に表示</string>
+    <string name="aa_soltar_cruz">ホーム画面から外す</string>
+    <string name="aa_ordenar">すべてのアプリを並べ替え</string>
+    <string name="aa_f_tudo">すべて</string>
+    <string name="aa_f_uso">よく使う</string>
+    <string name="aa_f_novos">新着</string>
+    <string name="aa_canais">%1$sで配信中</string>
+    <string name="aa_hint_folder">OKで開く・長押しでオプション</string>
+</resources>

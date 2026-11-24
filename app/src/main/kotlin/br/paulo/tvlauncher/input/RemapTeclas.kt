@@ -24,7 +24,7 @@ object RemapTeclas {
     const val SEGURAR_MS = 700L   // o mesmo do HOME segurado (Home.SEGURAR_HOME_MS)
     const val DUPLO_MS = 350L     // espera pelo segundo toque; só existe nas teclas com toque duplo configurado
 
-    enum class Gesto(val chave: String) { TOQUE("toque"), SEGURAR("segurar"), DUPLO("duplo") }
+    enum class Gesto(val chave: String) { TOQUE("toque"), SEGURAR("segurar"), DUPLO("duplo"), TRIPLO("triplo") }
 
     val APP = listOf(KeyEvent.KEYCODE_BUTTON_4, KeyEvent.KEYCODE_BUTTON_3)
     val CORES = listOf(KeyEvent.KEYCODE_PROG_RED, KeyEvent.KEYCODE_PROG_GREEN, KeyEvent.KEYCODE_PROG_YELLOW, KeyEvent.KEYCODE_PROG_BLUE)
@@ -88,25 +88,41 @@ object RemapTeclas {
 /**
  * Máquina dos gestos de UMA tecla (pura, GestosTest). O chamador entrega DESCE (só o primeiro, sem as repetições),
  * SOBE e PRAZO (quando o relógio agendado por [prazo] vence) e recebe o gesto reconhecido, se houver.
- *  - sem segurar e sem duplo: o toque sai no SOBE, sem atraso nenhum;
- *  - com segurar: segurou [segurarMs] = SEGURAR (o SOBE seguinte é ignorado);
- *  - com duplo: o toque espera [duploMs] por um segundo DESCE; veio = DUPLO, não veio = TOQUE.
+ *  - sem segurar, duplo nem triplo: o toque sai no SOBE, sem atraso nenhum;
+ *  - com segurar: segurou [segurarMs] no 1º aperto = SEGURAR (o SOBE seguinte é ignorado);
+ *  - com duplo/triplo: depois de cada toque espera [duploMs] pelo próximo DESCE. O último toque possível (2º sem
+ *    triplo, 3º com triplo) sai já no DESCE, sem esperar. Se o tempo acaba antes: 1 toque = TOQUE, 2 = DUPLO (ou
+ *    TOQUE se só o triplo estiver configurado). Triplo pedido pelo Paulo em 22/11/2026.
  */
-class Gestos(private val segurarMs: Long, private val duploMs: Long, private val temSegurar: Boolean, private val temDuplo: Boolean) {
-    private enum class Estado { LIVRE, APERTADA, ESPERA_DUPLO, CONSUMIDA }
+class Gestos(private val segurarMs: Long, private val duploMs: Long, private val temSegurar: Boolean, private val temDuplo: Boolean,
+             private val temTriplo: Boolean = false) {
+    private enum class Estado { LIVRE, APERTADA, ESPERA, CONSUMIDA }
     private var estado = Estado.LIVRE
+    /** Toques completos (desce + sobe) da sequência em andamento. */
+    private var toques = 0
+    private val maximo = if (temTriplo) 3 else if (temDuplo) 2 else 1
     /** Quando o PRAZO deve chegar (relógio do chamador); null = nada agendado. */
     var prazo: Long? = null
         private set
 
+    private fun gestoDe(n: Int): RemapTeclas.Gesto = when {
+        n >= 3 -> RemapTeclas.Gesto.TRIPLO
+        n == 2 && temDuplo -> RemapTeclas.Gesto.DUPLO
+        else -> RemapTeclas.Gesto.TOQUE
+    }
+
     fun desce(agora: Long): RemapTeclas.Gesto? = when (estado) {
-        Estado.ESPERA_DUPLO -> { estado = Estado.CONSUMIDA; prazo = null; RemapTeclas.Gesto.DUPLO }
-        else -> { estado = Estado.APERTADA; prazo = if (temSegurar) agora + segurarMs else null; null }
+        Estado.ESPERA -> if (toques + 1 >= maximo) { estado = Estado.CONSUMIDA; prazo = null; gestoDe(toques + 1) }
+            else { estado = Estado.APERTADA; prazo = null; null }   // 2º aperto com triplo: segurar não vale aqui
+        else -> { estado = Estado.APERTADA; toques = 0; prazo = if (temSegurar) agora + segurarMs else null; null }
     }
 
     fun sobe(agora: Long): RemapTeclas.Gesto? = when (estado) {
-        Estado.APERTADA -> if (temDuplo) { estado = Estado.ESPERA_DUPLO; prazo = agora + duploMs; null }
-            else { estado = Estado.LIVRE; prazo = null; RemapTeclas.Gesto.TOQUE }
+        Estado.APERTADA -> {
+            toques++
+            if (toques < maximo) { estado = Estado.ESPERA; prazo = agora + duploMs; null }
+            else { estado = Estado.LIVRE; prazo = null; gestoDe(toques) }
+        }
         else -> { if (estado == Estado.CONSUMIDA) estado = Estado.LIVRE; null }
     }
 
@@ -117,7 +133,7 @@ class Gestos(private val segurarMs: Long, private val duploMs: Long, private val
         prazo = null
         return when (estado) {
             Estado.APERTADA -> { estado = Estado.CONSUMIDA; RemapTeclas.Gesto.SEGURAR }
-            Estado.ESPERA_DUPLO -> { estado = Estado.LIVRE; RemapTeclas.Gesto.TOQUE }
+            Estado.ESPERA -> { estado = Estado.LIVRE; gestoDe(toques) }
             else -> null
         }
     }
@@ -125,9 +141,9 @@ class Gestos(private val segurarMs: Long, private val duploMs: Long, private val
     /** Nada em andamento (pode trocar a configuração da tecla). */
     val livre: Boolean get() = estado == Estado.LIVRE
 
-    /** Outra tecla interrompeu: um toque pendente (esperando o duplo) sai agora; o resto é esquecido. */
+    /** Outra tecla interrompeu: os toques pendentes (esperando o próximo) saem agora; o resto é esquecido. */
     fun interromper(): RemapTeclas.Gesto? {
-        val r = if (estado == Estado.ESPERA_DUPLO) RemapTeclas.Gesto.TOQUE else null
+        val r = if (estado == Estado.ESPERA) gestoDe(toques) else null
         estado = Estado.LIVRE; prazo = null
         return r
     }

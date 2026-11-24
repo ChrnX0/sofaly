@@ -810,7 +810,7 @@ traduzirPainelCom({T:{
 "Quanto tempo fica na tela":"Ekranda ne kadar kalır",
 "Quedas":"Kesintiler",
 "Quem depende dele (pela TV)":"Ona kim bağlı (TV'ye göre)",
-"Quem mais ocupa memória":"En çok bellek kullanan",
+"Quem está pesando a TV":"TV’yi ne yavaşlatıyor",
 "Recado":"Mesaj",
 "Recado com foto":"Fotoğraflı mesaj",
 "Recado na TV":"TV'de mesaj",

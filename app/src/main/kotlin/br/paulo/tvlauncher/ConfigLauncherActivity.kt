@@ -53,6 +53,7 @@ import br.paulo.tvlauncher.screensaver.SleepingHome
 import br.paulo.tvlauncher.settings.AjudaQr
 import br.paulo.tvlauncher.settings.BuscaAjustes
 import br.paulo.tvlauncher.settings.Extras
+import br.paulo.tvlauncher.home.IconeCruz
 import br.paulo.tvlauncher.settings.ExtrasAbas
 import br.paulo.tvlauncher.settings.ExtrasTv
 import br.paulo.tvlauncher.settings.Fontes
@@ -69,6 +70,10 @@ import br.paulo.tvlauncher.settings.lembrarRecente
 import br.paulo.tvlauncher.settings.mostrarBusca
 import br.paulo.tvlauncher.settings.pedirPinParental
 import br.paulo.tvlauncher.settings.voltarAoMenu
+import br.paulo.tvlauncher.settings.menuDaPorta
+import br.paulo.tvlauncher.settings.mostrarPortas
+import br.paulo.tvlauncher.settings.naGrade
+import br.paulo.tvlauncher.settings.recolherNoSimples
 import br.paulo.tvlauncher.weather.LocalClima
 import java.util.concurrent.Executors
 
@@ -92,7 +97,9 @@ private const val MATCH = ViewGroup.LayoutParams.MATCH_PARENT
  */
 class ConfigLauncherActivity : Activity() {
     companion object {
-        const val EXTRA_ABA = "aba"   // índice da aba para abrir (ex.: o atalho "Conta" de outra tela)
+        const val EXTRA_ABA = "aba"
+        /** Azulejo das abas técnicas (Sistema, Ajuda, Avançado): cinza quente, sem cor de área. */
+        const val AZULEJO_NEUTRO = 0xFFD9CFC2.toInt()   // índice da aba para abrir (ex.: o atalho "Conta" de outra tela)
         /** Índices das abas que outras telas abrem direto (a ordem mudou em 14/11/2026: use estes, não números). */
         const val ABA_CONTA = 1
         const val ABA_REMOTO = 5
@@ -100,6 +107,7 @@ class ConfigLauncherActivity : Activity() {
         internal const val PIN_VALE_MS = 2 * 60_000L   // depois de acertar o PIN aqui, 2 min sem pedir de novo
         private const val ESTADO_LIBERADO = "hospede_liberado"
         private const val ESTADO_LINHA = "linha_foco"
+        private const val ESTADO_GRADE = "na_grade"
         internal const val TAG = "TvLauncher.Config"
         /** [abaMontada] quando o conteúdo mostra a busca nos ajustes (12.2), não uma aba. */
         internal const val BUSCA = -2
@@ -118,28 +126,30 @@ class ConfigLauncherActivity : Activity() {
 
     /** Uma aba do menu: título, explicação curta (aparece no alto do conteúdo) e quem monta o conteúdo. */
     /** [area] = cor da área (estudo do painel 20/11/2026, regra "cor quer dizer área"): a mesma do ícone da página no
-     *  painel web, num ponto antes do nome. null = neutra de propósito (Sistema, Ajuda, Avançado: técnico). */
-    internal class Aba(val titulo: String, val explica: String, val area: Int?, val montar: (LinearLayout) -> Unit)
+     *  painel web, num ponto antes do nome. null = neutra de propósito (Sistema, Ajuda, Avançado: técnico).
+     *  [icone] (23/11/2026, caminho B "Azulejos"): o desenho do azulejo da aba, na cor da área (neutra = cinza quente). */
+    internal class Aba(val titulo: String, val explica: String, val area: Int?, val icone: IconeCruz.Tipo, val montar: (LinearLayout) -> Unit)
 
     internal val abas: List<Aba> by lazy {
         // 14/11/2026 (pedido do dono: "complexo demais"): abas por assunto, na ordem do uso do dia a dia; o técnico
         // (rede, permissões, shell, limpeza de fábrica, confirmações) foi para "Avançado", a última. Antes: 8 abas
         // por origem do código (Conta, Controle parental, Aparência, Tela e energia, Visitas, Rede, Remoto, Sistema).
         listOf(
-            Aba(getString(R.string.cfg2_aba_inicio), getString(R.string.cfg2_aba_inicio_det), DesignTokens.WORLD_APPS, this::abaAparencia),
-            Aba(getString(R.string.cl_aba_conta), getString(R.string.cl_aba_conta_det), DesignTokens.WORLD_WATCH, this::abaConta),   // ABA_CONTA
-            Aba(getString(R.string.cfg2_aba_familia), getString(R.string.cfg2_aba_familia_det), DesignTokens.AREA_HOME, this::abaFamilia),
-            Aba(getString(R.string.cl_aba_energia), getString(R.string.cl_aba_energia_det), DesignTokens.AREA_HOME, this::abaEnergia),
-            Aba(getString(R.string.cfg2_aba_casa), getString(R.string.cfg2_aba_casa_det), DesignTokens.WORLD_NETWORK, this::abaCasa),
-            Aba(getString(R.string.cl_aba_remoto), getString(R.string.cl_aba_remoto_det), DesignTokens.WORLD_NETWORK, this::abaRemoto),
-            Aba(getString(R.string.cl_aba_sistema), getString(R.string.cfg2_aba_sistema_det), null, this::abaSistema),
+            Aba(getString(R.string.cfg2_aba_inicio), getString(R.string.cfg2_aba_inicio_det), DesignTokens.WORLD_APPS, IconeCruz.Tipo.APLICATIVOS, this::abaAparencia),
+            Aba(getString(R.string.cl_aba_conta), getString(R.string.cl_aba_conta_det), DesignTokens.WORLD_WATCH, IconeCruz.Tipo.TV, this::abaConta),   // ABA_CONTA
+            Aba(getString(R.string.cfg2_aba_familia), getString(R.string.cfg2_aba_familia_det), DesignTokens.AREA_HOME, IconeCruz.Tipo.SOFA, this::abaFamilia),
+            Aba(getString(R.string.cl_aba_energia), getString(R.string.cl_aba_energia_det), DesignTokens.AREA_HOME, IconeCruz.Tipo.DORMIR, this::abaEnergia),
+            Aba(getString(R.string.cfg2_aba_casa), getString(R.string.cfg2_aba_casa_det), DesignTokens.WORLD_NETWORK, IconeCruz.Tipo.CASA, this::abaCasa),
+            Aba(getString(R.string.cl_aba_remoto), getString(R.string.cl_aba_remoto_det), DesignTokens.WORLD_NETWORK, IconeCruz.Tipo.REDE, this::abaRemoto),
+            Aba(getString(R.string.cl_aba_sistema), getString(R.string.cfg2_aba_sistema_det), null, IconeCruz.Tipo.CONFIG, this::abaSistema),
             // Ajuda (14/11/2026, pedido do dono): o manual de tudo o que o launcher faz, antes do Avançado.
-            Aba(getString(R.string.aj_aba), getString(R.string.aj_aba_det), null, this::abaAjuda),
-            Aba(getString(R.string.cfg2_aba_avancado), getString(R.string.cfg2_aba_avancado_det), null, this::abaAvancado),   // ABA_AVANCADO
+            Aba(getString(R.string.aj_aba), getString(R.string.aj_aba_det), null, IconeCruz.Tipo.AJUDA, this::abaAjuda),
+            Aba(getString(R.string.cfg2_aba_avancado), getString(R.string.cfg2_aba_avancado_det), null, IconeCruz.Tipo.AJUSTE, this::abaAvancado),   // ABA_AVANCADO
         )
     }
 
     internal var abaAtual = 0
+    private var naGradeAoAbrir = false
     internal var abaMontada = -1   // qual aba está desenhada no conteúdo agora
     // Elevação 12.2: busca nos ajustes. [indexando] = a aba sendo montada só para o índice (-1 = montagem de verdade).
     internal var indexando = -1
@@ -148,9 +158,14 @@ class ConfigLauncherActivity : Activity() {
     internal var campoBusca: android.widget.EditText? = null
     internal val prefsBusca by lazy { getSharedPreferences("config_busca", MODE_PRIVATE) }
     private lateinit var menu: LinearLayout
+    /** Menu + conteúdo (a porta aberta) e a grade das seis portas (ConfigDoors.kt): um dos dois aparece. */
+    internal lateinit var colunas: LinearLayout
+    internal lateinit var grade: LinearLayout
+    /** Abas em que a pessoa abriu "Mais ajustes" (modo Simples) ou chegou pela busca: mostram tudo até fechar a tela. */
+    internal val abasAbertas = HashSet<Int>()
     internal lateinit var conteudo: LinearLayout
     internal lateinit var rolagem: ScrollView
-    private lateinit var dica: FrameLayout
+    internal lateinit var dica: FrameLayout
     internal val itensMenu = ArrayList<TextView>()
     internal var reconstruirAoVoltar = false   // voltou de outra tela (Android, canais bloqueados): redesenha a aba
     internal var pinValidoAte = 0L
@@ -165,6 +180,7 @@ class ConfigLauncherActivity : Activity() {
         VigiaDesfazer.ligar(this, getString(R.string.desf_rot_config), mostrarBarra = false) { if (::conteudo.isInitialized) recarregarAba() }
         abaAtual = (savedInstanceState?.getInt(EXTRA_ABA) ?: intent.getIntExtra(EXTRA_ABA, 0)).coerceIn(0, abas.size - 1)
         linhaSalva = savedInstanceState?.getInt(ESTADO_LINHA, -1) ?: -1
+        naGradeAoAbrir = savedInstanceState?.getBoolean(ESTADO_GRADE) ?: !intent.hasExtra(EXTRA_ABA)
         // Modo hóspede (degrau 2): as Configurações só abrem com o PIN (o hóspede não desliga a limpeza nem mexe na TV).
         // "liberado" vem do estado salvo só quando a tela foi recriada com o PIN já certo (controle/teclado ligado, giro);
         // antes valia "savedInstanceState == null", e qualquer recriação abria sem PIN (achado de 17/11/2026).
@@ -189,6 +205,9 @@ class ConfigLauncherActivity : Activity() {
     private fun abrirTela() {
         setContentView(montarTela())
         mostrarAba(abaAtual)
+        // Sem aba pedida (abriu pelo painel rápido ou pela cruz): começa nas seis portas. Com aba (atalho de outra tela, ou a
+        // tela recriada dentro de uma porta): abre direto na porta dela.
+        if (naGradeAoAbrir) { mostrarAbasDoUso(); mostrarPortas(); return }
         // Mesmo padrão de [recarregarAba]: quem mudou uma opção que refaz a tela continua na MESMA linha (pela posição),
         // não volta para a aba (visto na Sala 20/11/2026 ao ligar o alto contraste).
         val linha = linhaSalva.also { linhaSalva = -1 }
@@ -205,6 +224,7 @@ class ConfigLauncherActivity : Activity() {
             estado.putInt(ESTADO_LINHA, focaveis(conteudo).indexOfFirst { it === f || ehAncestral(it, f) })
         }
         estado.putBoolean(ESTADO_LIBERADO, liberadoHospede)
+        if (::grade.isInitialized) estado.putBoolean(ESTADO_GRADE, naGrade)
     }
 
     override fun onDestroy() {
@@ -246,7 +266,7 @@ class ConfigLauncherActivity : Activity() {
         }
         raiz.addView(Estilo.tituloTela(this, getString(R.string.cfg_titulo)))
 
-        val colunas = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
+        colunas = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
         menu = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false; setPaddingRelative(0, dp(4), 0, dp(4)) }
         menu.addView(itemDaBusca(), LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(10) })
         abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(4) }) }
@@ -271,6 +291,10 @@ class ConfigLauncherActivity : Activity() {
         }
         colunas.addView(rolagem, LinearLayout.LayoutParams(0, MATCH, 1f))
         raiz.addView(colunas, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(18) })
+        // As seis portas (23/11/2026, ConfigDoors.kt): no mesmo lugar do menu + conteúdo, uma tela de cada vez.
+        grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false; visibility = View.GONE
+            setPaddingRelative(dp(8), dp(4), dp(8), 0) }
+        raiz.addView(grade, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(18) })
 
         // Dica fixa das teclas (mesmo jeito das dicas do player: 11sp, cor apagada). Muda com o lado em foco.
         // Barra de dicas do controle (componente padrão do sistema de design). Muda com o lado em foco.
@@ -288,8 +312,8 @@ class ConfigLauncherActivity : Activity() {
 
     /** Uso "Simples"/"Para quem cuida" (UsoTv, degrau 2): as abas técnicas somem do menu (a aberta agora fica). */
     internal fun mostrarAbasDoUso() {
-        val uso = UsoTv.atual(this)
-        itensMenu.forEachIndexed { i, t -> t.visibility = if (UsoTv.mostraAba(uso, i) || i == abaAtual) View.VISIBLE else View.GONE }
+        // 23/11/2026: dentro de uma porta, o menu mostra só as abas dela (ConfigDoors.kt), já filtradas pelo uso.
+        menuDaPorta()
     }
 
     internal fun nomeUso(u: UsoTv) = getString(when (u) {
@@ -302,16 +326,17 @@ class ConfigLauncherActivity : Activity() {
         text = aba.titulo
         Estilo.aplicar(this, Estilo.Papel.CORPO)
         setPaddingRelative(dp(20), dp(11), dp(20), dp(11))
-        maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+        // 2 linhas (23/11/2026): com o azulejo antes do nome, "Home and automations" não cabia numa linha em inglês.
+        maxLines = 2; ellipsize = TextUtils.TruncateAt.END
         isFocusable = true; isClickable = true
-        // Ponto da cor da área (o mesmo do ícone no painel web). Aba neutra leva um ponto transparente do mesmo
-        // tamanho, para todos os nomes começarem na mesma coluna.
-        val ponto = dp(10)
-        setCompoundDrawablesRelative(GradientDrawable().apply {
-            shape = GradientDrawable.OVAL; setColor(aba.area ?: android.graphics.Color.TRANSPARENT); setSize(ponto, ponto)
-            setBounds(0, 0, ponto, ponto)
+        // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
+        // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
+        val lado = dp(28)
+        setCompoundDrawablesRelative(IconeCruz(aba.icone, IconeCruz.Estilo.AZULEJO).apply {
+            corAzulejo = aba.area ?: AZULEJO_NEUTRO
+            setBounds(0, 0, lado, lado)
         }, null, null, null)
-        compoundDrawablePadding = dp(12)
+        compoundDrawablePadding = dp(10)
         pintarItemMenu(this, foco = false, escolhido = i == abaAtual)
         setOnFocusChangeListener { v, temFoco ->
             if (temFoco && abaAtual != i) {
@@ -352,8 +377,9 @@ class ConfigLauncherActivity : Activity() {
         conteudo.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, aba.explica).apply { setPaddingRelative(dp(8), dp(6), 0, dp(12)) })
         secoesDaAba.clear()
         aba.montar(conteudo)
-        montarConversas(i)
-        montarIndice()
+        // Modo Simples (23/11/2026): até 8 linhas e "Mais ajustes"; sem índice nem "Conversa com", que são para quem explora.
+        if (UsoTv.atual(this) == UsoTv.SIMPLES) recolherNoSimples(i, 2)
+        else { montarConversas(i); montarIndice() }
         // Ajuda por QR (degrau 2): no fim de cada aba, o assunto do manual dela, com o QR para ler no celular.
         AjudaQr.topicoDaAba(i)?.let { id ->
             val n = Manual.TOPICOS.indexOf(id)
@@ -440,11 +466,16 @@ class ConfigLauncherActivity : Activity() {
             when (Rtl.tecla(e.keyCode, window.decorView)) {   // 16.8: no árabe o menu fica à direita
                 KeyEvent.KEYCODE_DPAD_LEFT -> if (noConteudo && foco !is android.widget.EditText && !irmaNaLinha(foco!!, e.keyCode)) { voltarAoMenu(); return true }
                 KeyEvent.KEYCODE_BACK -> if (noConteudo) { engoliuVoltar = true; voltarAoMenu(); return true }
+                    else if (noMenu) { engoliuVoltar = true; mostrarPortas(); return true }   // do menu, volta às seis portas
                 KeyEvent.KEYCODE_DPAD_RIGHT -> if (noMenu) {
                     if (foco === itemBusca) { if (abaMontada != BUSCA) mostrarBusca(); campoBusca?.requestFocus() } else entrarNoConteudo()
                     return true
                 }
                 KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_DPAD_DOWN -> if (foco != null && (noConteudo || noMenu)) {
+                    // ▼ na caixa da busca vai para o primeiro resultado (23/11/2026, Sala: o foco ficava preso na caixa).
+                    if (foco is android.widget.EditText && e.keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
+                        focaveis(conteudo).firstOrNull { it !is android.widget.EditText }?.let { it.requestFocus(); return true }
+                    }
                     val dir = if (e.keyCode == KeyEvent.KEYCODE_DPAD_UP) View.FOCUS_UP else View.FOCUS_DOWN
                     val prox = foco.focusSearch(dir)
                     if (prox == null || !prox.dentroDe(if (noConteudo) conteudo else menu)) {
@@ -692,6 +723,10 @@ class ConfigLauncherActivity : Activity() {
         // Automações (14/11/2026, ideia 1): o editor único de horários (as antigas Rotinas), botões, eventos e links.
         c.addView(linha(getString(R.string.aut_titulo), getString(R.string.aut_cfg_det), seta = true) {
             startActivity(Intent(this, AutomacoesActivity::class.java))
+        }, lp())
+        // Botões do controle (23/11/2026, Paulo não achava: morava só em Extras): toque, segurar, duplo e triplo.
+        c.addView(linha(getString(R.string.tec_titulo), getString(R.string.tec_cfg_det), seta = true) {
+            startActivity(Intent(this, TeclasActivity::class.java))
         }, lp())
         if (CasaHA.configurado(this)) c.addView(linha(getString(R.string.casa_titulo), getString(R.string.cfg2_casa_det), seta = true) {
             startActivity(Intent(this, CasaActivity::class.java))
@@ -1210,6 +1245,7 @@ class ConfigLauncherActivity : Activity() {
 
     /** Abre a aba [aba] (se for outra) e leva ao grupo [titulo]; sem o grupo (escondido nesta versão), fica no alto da aba. */
     private fun irParaSecao(aba: Int, titulo: String) {
+        abasAbertas += aba   // levado a um grupo: mostra a aba inteira (o grupo pode estar depois do "Mais ajustes")
         if (aba != abaMontada) {
             abaAtual = aba
             mostrarAba(aba)

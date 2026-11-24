@@ -60,6 +60,7 @@ object BackupCompleto {
         "pacote_icones", "fundo_meu",   // degrau 1 (15/11/2026): pacote de ícones e "Meu fundo" (caminho, brilho, contraste)
         "custom_icons",   // plugins visuais (18/11/2026): ícone trocado à mão, app por app (o OK dos plugins NÃO vai: é por certificado desta TV)
         "cruz_apps",   // cruz (18/11/2026): em que categoria cada app mora ("Mover para…"), fixados no topo e aberturas
+        "world_options", "app_folders", "app_names",   // 22/11/2026: ordem/nome/escondido de cada mundo, pastas e nomes trocados dos apps
         "addons",   // addons no protocolo do Stremio (16/11/2026): a lista instalada e o aceite dos termos
         "backup_recuperacao",   // elevação 19.6: só a parte PÚBLICA da chave de recuperação (a TV restaurada segue trancando com ela)
         "catalogo_pasta")   // elevação 8.2: o "pôster e sinopse" das pastas ligado e os nomes corrigidos à mão
@@ -81,6 +82,8 @@ object BackupCompleto {
         "abertura_pronta",   // rodada 15: só cache das marcações do IntroDB (refaz sozinho)
         "painel_papeis",   // elevação 18.1: convites (família/convidado) não viajam: restaurar não pode reabrir acesso revogado
         "mudar_tv",   // elevação 19.7: a fila dos apps que faltam é desta TV, depois de receber de outra
+        "seletor_docs",   // seletor de pastas (#380): a última pasta de cada app é um caminho DESTA TV (pen drive, armazenamento)
+        "factory_baseline",   // 22/11/2026: a foto de como ESTA TV estava antes da Sofaly (FactoryBaseline)
         "desfazer",   // elevação 2.11: os passos de desfazer são desta TV e destes dias
         "nao_perturbe", "config_busca",   // elevação 11.4/12.2: fila de avisos guardados e "mexidos há pouco" são passageiros
         "mtp_permitidos", "painel_log", "atualizador", "aviso_tv", "loja_curada",
@@ -90,6 +93,7 @@ object BackupCompleto {
         "qualidade_tv",   // TV ao vivo: banda, travadas e resolução real medidas NESTA rede e neste aparelho (QualidadeTv)
         "observer",   // Observador (20/11/2026): leituras, registro e recados DESTA TV; de outro aparelho não dizem nada
         "app_storage",   // pen drive (20/11/2026): volume adotado, apps movidos e velocidade medida são DESTE pen drive nesta TV
+        "google_home_trim",   // launcher do Google parado (GoogleHomeTrimTv): contagem e horários desta TV
         "on_demand",   // congelar sob demanda (OnDemandTv): o congelamento é desta TV; na outra o app nem está congelado
         "aot",   // versão já compilada (CompilarAot): é do APK instalado, não da configuração
         "cobranca",   // plano comprado (CobrancaPlay): vem sempre da Play, nunca de um backup (restaurar não pode virar Ultra)

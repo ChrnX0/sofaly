@@ -43,6 +43,7 @@
     <string name="tec_toque">Toque</string>
     <string name="tec_segurar">Segurar</string>
     <string name="tec_duplo">Toque duplo</string>
+    <string name="tec_triplo">Toque triplo</string>
     <string name="tec_padrao">padrão (app guardado; segurar 3 s = escolher)</string>
     <string name="tec_cena">cena %1$s</string>
     <string name="tec_salvo">%1$s guardado</string>

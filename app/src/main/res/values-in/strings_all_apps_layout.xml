@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Layar Semua aplikasi</string>
+    <string name="aa_layout_shelves">Rak</string>
+    <string name="aa_layout_folders">Folder dan saluran</string>
+    <string name="aa_layout_library">Perpustakaan</string>
+    <string name="aa_favoritos">Favorit</string>
+    <string name="aa_pastas">Folder</string>
+    <string name="aa_nova_pasta">Folder baru</string>
+    <string name="aa_por_na_pasta">Masukkan ke folder…</string>
+    <string name="aa_tirar_da_pasta">Keluarkan dari folder ini</string>
+    <string name="aa_renomear_pasta">Ganti nama folder</string>
+    <string name="aa_apagar_pasta">Hapus folder</string>
+    <string name="aa_fixar_cruz">Tampilkan di layar utama</string>
+    <string name="aa_soltar_cruz">Hapus dari layar utama</string>
+    <string name="aa_ordenar">Urutkan semua aplikasi</string>
+    <string name="aa_f_tudo">Semua</string>
+    <string name="aa_f_uso">Paling sering</string>
+    <string name="aa_f_novos">Baru</string>
+    <string name="aa_canais">Sekarang di %1$s</string>
+    <string name="aa_hint_folder">OK membuka · tahan OK untuk opsi</string>
+</resources>

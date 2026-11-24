@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Home and network</string>
+    <string name="cfg3_mais_ajustes">More settings</string>
+    <string name="cfg3_mais_ajustes_det">Hidden to keep it short: %1$d</string>
+    <string name="cfg3_modo">Mode: %1$s</string>
+    <string name="cfg3_porta_0_det">Cross, icons and background</string>
+    <string name="cfg3_porta_1_det">TV accounts, language, text</string>
+    <string name="cfg3_porta_2_det">Kids, PIN and guests</string>
+    <string name="cfg3_porta_3_det">Screensaver, sleep, wake-up</string>
+    <string name="cfg3_porta_4_det">Home, phone and panel</string>
+    <string name="cfg3_porta_5_det">Updates, backup and help</string>
+</resources>

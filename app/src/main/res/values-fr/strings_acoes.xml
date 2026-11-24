@@ -43,6 +43,7 @@
     <string name="tec_toque">Appui</string>
     <string name="tec_segurar">Appui long</string>
     <string name="tec_duplo">Double appui</string>
+    <string name="tec_triplo">Triple appui</string>
     <string name="tec_padrao">par défaut (app enregistrée ; maintenir 3 s = choisir)</string>
     <string name="tec_cena">scène %1$s</string>
     <string name="tec_salvo">%1$s enregistré</string>

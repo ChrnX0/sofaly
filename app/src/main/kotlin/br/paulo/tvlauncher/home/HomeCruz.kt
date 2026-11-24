@@ -48,7 +48,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         /** O mesmo item com outro menu do OK segurado (o "Trocar ícone" dos itens do Sofaly, HomeMotion). */
         fun comOpcoes(o: () -> Unit) = Item(id, nome, sub, icone, abrir, o, aoEscolher, progresso, situacao)
     }
-    class Categoria(val cat: CruzLogica.Categoria, val nome: String, val icone: Drawable, val itens: List<Item>)
+    class Categoria(val cat: CruzLogica.Categoria, val nome: String, val icone: Drawable, val itens: List<Item>,
+                    /** Só o ícone na linha (opção da categoria); o nome some mas guarda o lugar, nada se mexe. */
+                    val soIcone: Boolean = false)
 
     companion object {
         // ---- posições (dp) e tamanhos: o lugar único para refinar
@@ -70,6 +72,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val DETALHE_L = 330         // largura do bloco de detalhes
         const val DETALHE_MARGEM = 48     // da borda direita
         const val DETALHE_BAIXO = 44      // da borda de baixo
+        // 23/11/2026 (Paulo, foto da Sala): com a cruz mais baixa os detalhes saíram do canto de baixo e foram para o
+        // canto de cima à direita, abaixo da pílula da hora (que vai até ~72 dp), onde a tela está vazia.
+        const val DETALHE_TOPO = 96
         const val DETALHE_LINHAS = 5
         const val DETALHE_ESPERA_MS = 300L
         // A informação de baixo é UMA, mas pode quebrar em 2 linhas na palavra (cortar "Vídeos, músicas e fotos da rede
@@ -93,6 +98,17 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val TEXTO_MAX: Int get() = CruzLogica.larguraTexto(COLUNA, ICONE_L, CrossRhythm.atual.vaoTexto, PONTO + 10,
             CAT_DIREITA, CAT_L, FOLGA_CAT, TEXTO_TETO)
         const val TELA_L = 960f
+        const val TELA_A = 540f
+        // ---- "Barra embaixo" (BottomBar, 23/11/2026; visual com referências do Mobbin: Quizlet/Tubi na categoria escolhida,
+        // Hulu na barra de largura toda, Apple Music no título da linha com "›").
+        const val BARRA_MARGEM = 48f     // das bordas da tela até a placa da barra
+        const val BARRA_BAIXO = 28f      // da borda de baixo até a placa
+        const val BARRA_PLACA_A = 132f   // altura da placa das categorias
+        const val BARRA_APPS_VAO = 44f   // da placa até o pé da linha de apps (cabe o nome do app escolhido)
+        const val BARRA_PASSO_APPS = 150f // entre os centros dos apps na linha
+        const val BARRA_ESCALA_APP = 0.8f // app fora da escolha na linha
+        const val BARRA_ALFA_APP = 0.7f
+        const val BARRA_ALFA_CAT = 0.8f   // categoria não escolhida
         // ---- fontes (sp): tabela do estudo 32 / 20 / 16 / 18
         const val FONTE_ESCOLHIDO = 32f // nome do item escolhido (fora da escolha fica 0,6 x = ~19)
         const val FONTE_ROTULO = 22f    // nome da categoria em foco (estudo da HOME, 18/11/2026: 20 -> 22)
@@ -152,13 +168,13 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** OK num item (antes de [Item.abrir]): quem usa grava o "lembrado" da categoria. */
     var aoAbrir: ((CruzLogica.Categoria, String) -> Unit)? = null
     /** Barra "Relógio" ocupa o canto de baixo com a hora grande: os detalhes vão para o canto de cima, à direita. */
-    var detalheEmCima = false
+    var detalheEmCima = true
         set(v) {
             if (field == v) return
             field = v
             (detalhe.layoutParams as LayoutParams).apply {
                 gravity = (if (v) Gravity.TOP else Gravity.BOTTOM) or Gravity.END
-                topMargin = if (v) dpi(DETALHE_BAIXO) else 0
+                topMargin = if (v) dpi(DETALHE_TOPO) else 0
                 bottomMargin = if (v) 0 else dpi(DETALHE_BAIXO)
             }
             detalhe.gravity = (if (v) Gravity.TOP else Gravity.BOTTOM) or Gravity.END
@@ -174,12 +190,27 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** O último item aberto ("categoria|item"); quem usa grava e devolve aqui na 1ª montagem (HOME refeita). */
     var ultimoAberto: String? = null
 
+    /**
+     * "Barra embaixo" ([BottomBar]): as categorias paradas na linha de baixo e a linha de apps só com ▲. Quem usa define
+     * antes de montar; trocar depois refaz o lugar de tudo (a MainActivity refaz a HOME quando o ajuste muda).
+     */
+    var barra = false
+        set(v) { if (field == v) return; field = v; naApps = false; aplicarModo(); posicionar(animar = false) }
+    /** Na barra: a linha de apps está aberta (o foco está num app) ou fechada (o foco está na categoria). */
+    private var naApps = false
+
     private var cats: List<Categoria> = emptyList()
     private var mapa = CruzLogica.Mapa(emptyList(), emptyList())
     private var estado = CruzLogica.Estado(0, emptyList())
     private var assinatura: List<String>? = null
 
     private val viewsCat = ArrayList<View>()
+    private val veu: View
+    private val placa: View
+    private val realce: View
+    /** Barra embaixo: "Ouvir ›" acima da linha de apps e o nome do app escolhido embaixo dele. */
+    private val tituloApps: TextView
+    private val nomeApp: TextView
     private val viewsItem = ArrayList<List<ItemView>>()
     private val rotulo: TextView
     /** "3 de 9" ao lado do nome da categoria: quanto falta na coluna (estudo da HOME, onda 2). */
@@ -245,9 +276,20 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
         // Véu escuro atrás da coluna (contraste com qualquer tema ou foto): da esquerda até depois do texto, some antes
         // das categorias da direita. Uma camada só, parada.
-        addView(View(ctx).apply {
+        veu = View(ctx).apply {
             background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC121528.toInt(), 0x99121528.toInt(), 0x00121528))
-        }, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
+        }
+        addView(veu, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
+        // Barra embaixo: a placa (vidro escuro de cantos redondos, largura toda) e o realce da categoria escolhida.
+        // Ficam atrás das categorias (que entram depois, em [definir]); somem na cruz.
+        placa = View(ctx).apply {
+            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30A0D18.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
+            visibility = View.GONE
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        }
+        addView(placa, LayoutParams(dpi((TELA_L - 2 * BARRA_MARGEM).toInt()), dpi(BARRA_PLACA_A.toInt())))
+        realce = View(ctx).apply { visibility = View.GONE; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+        addView(realce, LayoutParams(dpi(150), dpi((BARRA_PLACA_A - 16f).toInt())))
         rotulo = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_ROTULO)
             // Régua de estilo (22/11/2026): o nome do mundo em creme 72%, leve e sem espaçamento; o laranja ficou só
@@ -289,7 +331,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             setTextColor(COR_SUB)
             typeface = fonte
             // à direita, colado no canto (a cruz é sempre da esquerda para a direita: END = direita)
-            gravity = Gravity.END or Gravity.BOTTOM
+            gravity = Gravity.END or Gravity.TOP
             maxLines = DETALHE_LINHAS
             ellipsize = TextUtils.TruncateAt.END
             includeFontPadding = false
@@ -298,18 +340,54 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             alpha = 0f
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO   // o TalkBack já ouve tudo no item
         }
-        addView(detalhe, LayoutParams(dpi(DETALHE_L), LayoutParams.WRAP_CONTENT, Gravity.BOTTOM or Gravity.END).apply {
-            marginEnd = dpi(DETALHE_MARGEM); bottomMargin = dpi(DETALHE_BAIXO)
+        addView(detalhe, LayoutParams(dpi(DETALHE_L), LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END).apply {
+            marginEnd = dpi(DETALHE_MARGEM); topMargin = dpi(DETALHE_TOPO)
         })
+        tituloApps = TextView(ctx).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_ROTULO)
+            setTextColor(Estilo.TEXTO)
+            typeface = fonteForte
+            maxLines = 1
+            includeFontPadding = false
+            setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            alpha = 0f; visibility = View.GONE
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        }
+        addView(tituloApps, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        nomeApp = TextView(ctx).apply {
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_CATEGORIA)
+            setTextColor(Estilo.TEXTO)
+            typeface = fonte
+            maxLines = 1
+            ellipsize = TextUtils.TruncateAt.END
+            gravity = Gravity.CENTER_HORIZONTAL
+            includeFontPadding = false
+            setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            alpha = 0f; visibility = View.GONE
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        }
+        addView(nomeApp, LayoutParams(dpi(BARRA_PASSO_APPS.toInt() + 40), LayoutParams.WRAP_CONTENT))
         setOnFocusChangeListener { _, tem -> posicionar(animar = false); anunciar(); atualizarDetalhe(); if (tem) dicaDepois() else esconderDica() }
     }
+
+    /** Mostra as peças de um jeito e esconde as do outro (cruz: véu, nome do mundo, seta; barra: placa, realce, títulos). */
+    private fun aplicarModo() {
+        veu.visibility = if (barra) View.GONE else View.VISIBLE
+        for (v in listOf(placa, realce, tituloApps, nomeApp)) v.visibility = if (barra) View.VISIBLE else View.GONE
+        cabecalho.alpha = if (barra) 0f else 1f
+        if (barra) esconderDica()
+        for (l in viewsItem) for (iv in l) textosDe(iv)?.alpha = if (barra) 0f else 1f
+    }
+
+    private fun textosDe(iv: ItemView): View? = iv.nome.parent?.parent as? View
 
     /**
      * Troca o conteúdo. Mesmos ids (só textos/ícones novos): atualiza no lugar. Ids diferentes: refaz as views uma vez e
      * mantém o lugar ([CruzLogica.reajustar]).
      */
     fun definir(novas: List<Categoria>) {
-        val sig = novas.flatMap { c -> listOf("#" + c.cat.id) + c.itens.map { it.id } }
+        // nome e "só o ícone" entram na assinatura: renomear ou esconder o nome refaz a linha das categorias (23/11/2026)
+        val sig = novas.flatMap { c -> listOf("#" + c.cat.id + "|" + c.nome + "|" + c.soIcone) + c.itens.map { it.id } }
         val novoMapa = CruzLogica.Mapa(novas.map { it.cat }, novas.map { c -> c.itens.map { it.id } })
         if (sig == assinatura) {
             val antes = itemAtual()
@@ -334,7 +412,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         viewsCat.clear(); viewsItem.clear()
         for (c in novas) {
             viewsCat += criarCategoria(c).also { addView(it, LayoutParams(dpi(150), LayoutParams.WRAP_CONTENT)) }
-            viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))) } }
+            viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))); if (barra) textosDe(it)?.alpha = 0f } }
         }
         posicionar(animar = false)
         avisarMudanca()
@@ -351,8 +429,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // se refaz pelo último uso). Fica pendente e [atualizar] foca nele assim que ele aparecer.
         val e = CruzLogica.focar(mapa, estado, u.substringAfter('|'), cat) ?: run { voltarPendente = true; return }
         voltarPendente = false
-        if (e == estado) return
+        // Na barra, voltando de um app a linha de apps fica aberta no app que estava aberto (dá para ver onde se está).
+        if (e == estado && (!barra || naApps)) return
         estado = e
+        if (barra) naApps = true
         posicionar(animar = false); avisarMudanca()
     }
 
@@ -365,17 +445,20 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     fun marcarAberto(itemId: String) { ultimoAberto = "|$itemId" }
 
     /** HOME: Assistir; HOME de novo: a TV. */
-    fun home() = aplicar(CruzLogica.Tecla.HOME)
+    fun home() { if (barra) teclaBarra(CruzLogica.Tecla.HOME) else aplicar(CruzLogica.Tecla.HOME) }
 
     /** Volta à abertura (Assistir › 1º item); as outras categorias ficam onde estão. */
     fun voltarAoInicio() {
         val a = mapa.indice(CruzLogica.Categoria.ASSISTIR).takeIf { it >= 0 } ?: return
         estado = CruzLogica.Estado(a, estado.sel.toMutableList().also { it[a] = 0 })
+        naApps = false
         posicionar(animar = false); avisarMudanca()
     }
 
     fun itemAtual(): Item? = cats.getOrNull(estado.cat)?.itens?.getOrNull(estado.sel.getOrElse(estado.cat) { 0 })
     fun categoriaAtual(): Categoria? = cats.getOrNull(estado.cat)
+    /** Os mundos montados agora, na ordem da linha (testes de tela). */
+    fun categorias(): List<Categoria> = cats
 
     // ------------------------------------------------------------------ teclas
 
@@ -396,6 +479,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             }
             else -> return super.onKeyDown(keyCode, event)
         }
+        if (barra) return teclaBarra(t)
         if (t == CruzLogica.Tecla.CIMA && CruzLogica.passo(mapa, estado, t) is CruzLogica.Resultado.SubirTopo) {
             aoSubirTopo?.invoke(repeticao)
             return false   // o Android procura o foco acima (a barra de cima)
@@ -406,6 +490,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     override fun onKeyLongPress(keyCode: Int, event: KeyEvent): Boolean {
         if (keyCode != KeyEvent.KEYCODE_DPAD_CENTER && keyCode != KeyEvent.KEYCODE_ENTER && keyCode != KeyEvent.KEYCODE_NUMPAD_ENTER) return false
+        if (barra && !naApps) return false   // na linha das categorias o OK só abre a linha de apps
         val op = itemAtual()?.opcoes ?: return false   // sem opções: o soltar abre normalmente
         op()
         return true
@@ -414,7 +499,25 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
         val ok = keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER
         if (!ok) return super.onKeyUp(keyCode, event)
-        if (event.isTracking && !event.isCanceled) aplicar(CruzLogica.Tecla.OK)
+        if (event.isTracking && !event.isCanceled) { if (barra) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK) }
+        return true
+    }
+
+    /**
+     * Uma tecla na barra embaixo: [BottomBar.passo] traduz para a tecla da cruz (◀ ▶ nos apps = ▲ ▼ da coluna), abre
+     * ou fecha a linha de apps. Devolve false só no ▲ que sai para a barra de cima (o Android procura o foco acima).
+     */
+    private fun teclaBarra(t: CruzLogica.Tecla): Boolean {
+        val p = BottomBar.passo(t, naApps, estado.sel.getOrElse(estado.cat) { 0 })
+        if (p.subirTopo) { aoSubirTopo?.invoke(repeticao); return false }
+        val mudouLinha = p.naApps != naApps
+        naApps = p.naApps
+        if (p.tecla != null) aplicar(p.tecla)
+        if (mudouLinha) {
+            if (repeticao == 0) aoSom?.invoke(SonsCruz.Som.ANDAR, categoriaAtual()?.cat)
+            rigidez = MOLA_W; amortecer = MOLA_AMORTECE; semOnda = false
+            posicionar(animar = true); anunciar(); atualizarDetalhe()
+        } else if (p.tecla == null && repeticao == 0) aoSom?.invoke(SonsCruz.Som.BORDA, categoriaAtual()?.cat)
         return true
     }
 
@@ -490,7 +593,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private val mostrarDica = Runnable {
         val n = categoriaAtual()?.itens?.size ?: 0
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
-        val tem = sel + ALFA_COLUNA.keys.max() < n - 1 && (hasFocus() || isFocused)
+        val tem = !barra && sel + ALFA_COLUNA.keys.max() < n - 1 && (hasFocus() || isFocused)
         maisAbaixo.animate().cancel()
         if (tem) maisAbaixo.animate().alpha(0.8f).setDuration(if (semAnimacao()) 0L else 300L).start() else maisAbaixo.alpha = 0f
     }
@@ -541,6 +644,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     // ---- detalhes no canto de baixo
 
     private val mostrarDetalhe = Runnable {
+        if (barra && !naApps) { detalhe.animate().cancel(); detalhe.alpha = 0f; detalhe.text = ""; return@Runnable }
         val i = itemAtual()
         val iv = viewAtual()
         val linhas = if (i == null || iv == null || !(hasFocus() || isFocused)) emptyList() else {
@@ -606,7 +710,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             includeFontPadding = false
             gravity = Gravity.CENTER_HORIZONTAL
             setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+            if (c.soIcone) visibility = View.INVISIBLE
         }, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(6) })
+        if (c.soIcone) contentDescription = c.nome   // leitor de tela continua dizendo o nome
         // a altura vem do conteúdo; o centro do ícone é que fica na linha
         pivotX = dp(75f); pivotY = dp(CAT_A / 2f)
     }
@@ -717,6 +823,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        if (barra) { posicionarBarra(animar); return }
         posicionarRotulo(animar)
         val f = estado.cat
         val focada = hasFocus() || isFocused
@@ -775,10 +882,105 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
                 if (iv.icone.isActivated != aceso) iv.icone.isActivated = aceso
                 (iv.icone.drawable as? IconeCruz)?.animar(aceso && descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS, if (animar) ICONE_ESPERA_MS else 0L)
                 iv.sub.alpha = if (rel == 0) 1f else 0f
+                textosDe(iv)?.let { if (it.alpha != 1f) it.alpha = 1f }
                 nomeNoMeio(iv, rel != 0, animar)
             }
         }
     }
+
+    /** Altura da tela em dp (a TV é 960 x 540; antes de medir, vale isso). */
+    private fun telaA() = if (height > 0) height / dm.density else TELA_A
+
+    /**
+     * A barra embaixo ([BottomBar]): as categorias espalhadas por igual na placa de baixo (largura toda) e, com a linha
+     * aberta, os apps da categoria numa linha acima dela, o escolhido inteiro e os outros em 80%. Mesmas molas da cruz.
+     */
+    private fun posicionarBarra(animar: Boolean) {
+        val f = estado.cat
+        val focada = hasFocus() || isFocused
+        val semMovimento = semAnimacao()
+        semMov = semMovimento
+        val nivelAgora = if (semMovimento) MovimentoAdaptativo.Nivel.PARADO else nivel
+        val descEsc = MovimentoAdaptativo.descansoEscolhido(nivelAgora)
+        val n = viewsCat.size.coerceAtLeast(1)
+        val largura = TELA_L - 2 * BARRA_MARGEM
+        val slot = largura / n
+        val yPlaca = telaA() - BARRA_BAIXO - BARRA_PLACA_A
+        placa.translationX = dp(BARRA_MARGEM); placa.translationY = dp(yPlaca)
+        val catTopo = yPlaca + (BARRA_PLACA_A - (CAT_A + 30f)) / 2f
+        fun centro(j: Int) = BARRA_MARGEM + slot * (j + 0.5f)
+        for ((j, v) in viewsCat.withIndex()) {
+            val sel = j == f
+            mover(v, dp(centro(j) - 75f), dp(catTopo), if (sel) 1f else BARRA_ALFA_CAT, 1f, animar)
+            // Escolhida: nome na cor da categoria sobre o fundo leve dela (Quizlet/Tubi no Mobbin); as outras em creme.
+            val cor = if (sel) BottomBar.cor(cats.getOrNull(j)?.cat) else COR_CATEGORIA
+            ((v as? ViewGroup)?.getChildAt(1) as? TextView)?.let { if (it.currentTextColor != cor) it.setTextColor(cor) }
+            // O ícone fica com as cores dele (conjuntos Vintage, Joia e Fotorrealista são coloridos); só o nome muda de cor.
+            ((v as? ViewGroup)?.getChildAt(0) as? ImageView)?.let { iv ->
+                (iv.drawable as? IconeCruz)?.animar(sel && focada && !naApps && descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS)
+            }
+        }
+        // O realce da escolhida: fundo leve na cor dela; o anel laranja só com o foco na barra (linha de apps fechada).
+        val rl = minOf(slot - 12f, 176f)
+        (realce.layoutParams as LayoutParams).let { if (it.width != dpi(rl.toInt())) { it.width = dpi(rl.toInt()); realce.layoutParams = it } }
+        val corCat = BottomBar.cor(cats.getOrNull(f)?.cat)
+        val anel = focada && !naApps && (hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto)
+        realce.background = GradientDrawable().apply {
+            cornerRadius = dp(20f)
+            setColor(Estilo.alfa(corCat, 0x29))
+            if (anel) setStroke(dpi(3), Estilo.ACENTO)
+        }
+        mover(realce, dp(centro(f) - rl / 2f), dp(yPlaca + 8f), 1f, 1f, animar)
+        // A linha de apps: o pé do ícone escolhido fica BARRA_APPS_VAO acima da placa.
+        val topoApps = yPlaca - BARRA_APPS_VAO - ICONE_A
+        val cabem = (largura / BARRA_PASSO_APPS).toInt().coerceAtLeast(1)
+        for ((j, lista) in viewsItem.withIndex()) {
+            val sel = estado.sel.getOrElse(j) { 0 }
+            val aberta = naApps && j == f
+            val ini = BottomBar.primeiro(sel, lista.size, cabem)
+            for ((i, iv) in lista.withIndex()) {
+                iv.traco.alpha = 0f
+                iv.sub.alpha = 0f
+                haloDe(iv.icone)?.alpha = 0
+                textosDe(iv)?.let { if (it.alpha != 0f) it.alpha = 0f }
+                if (!aberta) {
+                    // linha fechada: os apps se recolhem na categoria deles e somem
+                    mover(iv.raiz, dp(centro(j) - ICONE_L * BARRA_ESCALA_APP / 2f), dp(catTopo), 0f, BARRA_ESCALA_APP, animar)
+                    if (iv.icone.isActivated) iv.icone.isActivated = false
+                    (iv.icone.drawable as? IconeCruz)?.animar(false)
+                    continue
+                }
+                val escolhido = i == sel
+                val visivel = i - ini in 0 until cabem
+                val esc = if (escolhido) 1f else BARRA_ESCALA_APP
+                val cx = BARRA_MARGEM + BARRA_PASSO_APPS * (i - ini + 0.5f)
+                // pivô do item = (0, meio do ícone): x é a borda esquerda do ícone já na escala
+                val alfa = if (!visivel) 0f else if (escolhido) (if (focada) 1f else ALFA_ESCOLHIDO_FORA) else BARRA_ALFA_APP
+                mover(iv.raiz, dp(cx - ICONE_L * esc / 2f), dp(topoApps), alfa, esc, animar, onda(kotlin.math.abs(i - sel)))
+                val aceso = escolhido && focada
+                if (iv.icone.isActivated != aceso) iv.icone.isActivated = aceso
+                (iv.icone.drawable as? IconeCruz)?.animar(aceso && descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS, if (animar) ICONE_ESPERA_MS else 0L)
+                if (escolhido) {
+                    nomeApp.text = cats.getOrNull(j)?.itens?.getOrNull(i)?.nome.orEmpty()
+                    nomeApp.translationX = dp(cx) - (nomeApp.layoutParams.width / 2f)
+                    nomeApp.translationY = dp(topoApps + ICONE_A + 8f)
+                }
+            }
+        }
+        // "Ouvir ›" acima da linha (Apple Music no Mobbin) e o nome do escolhido embaixo dele: só com a linha aberta.
+        tituloApps.text = cats.getOrNull(f)?.nome?.let { "$it  ›" }.orEmpty()
+        tituloApps.translationX = dp(BARRA_MARGEM + 8f)
+        tituloApps.translationY = dp(topoApps - 44f)
+        val alvo = if (naApps) 1f else 0f
+        for (v in listOf(tituloApps, nomeApp)) {
+            if (v.alpha == alvo) continue
+            if (animar && !semMovimento) v.animate().alpha(alvo).setDuration(if (naApps) 220L else 120L).start()
+            else { v.animate().cancel(); v.alpha = alvo }
+        }
+    }
+
+    /** Para o teste de tela: a linha de apps da barra está aberta. */
+    internal fun appsAbertos(): Boolean = barra && naApps
 
     /** Para o teste de tela: o nome do mundo em foco ("ASSISTIR  1 de 4"). */
     internal fun rotuloAtual(): View = cabecalho
@@ -957,5 +1159,5 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         info.isClickable = true
     }
 
-    override fun performClick(): Boolean { super.performClick(); aplicar(CruzLogica.Tecla.OK); return true }
+    override fun performClick(): Boolean { super.performClick(); if (barra) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK); return true }
 }

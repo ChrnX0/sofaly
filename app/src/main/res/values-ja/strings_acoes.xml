@@ -43,6 +43,7 @@
     <string name="tec_toque">押す</string>
     <string name="tec_segurar">長押し</string>
     <string name="tec_duplo">2 回押す</string>
+    <string name="tec_triplo">3回押し</string>
     <string name="tec_padrao">標準（保存したアプリ、3 秒長押し = 選択）</string>
     <string name="tec_cena">シーン %1$s</string>
     <string name="tec_salvo">%1$s を保存しました</string>

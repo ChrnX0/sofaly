@@ -37,7 +37,7 @@ class GravacoesActivity : Activity() {
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
-        val (raiz, col) = Estilo.telaLista(this, getString(R.string.grv_tela), " ")
+        val (raiz, col) = Estilo.telaLista(this, getString(R.string.grv_tela), " ", dicas = false)
         coluna = col
         subtitulo = (raiz as LinearLayout).getChildAt(1) as TextView
         raiz.addView(Estilo.barraDicas(this, getString(R.string.grv_dica_ok) to getString(R.string.grv_dica_assistir),

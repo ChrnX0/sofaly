@@ -43,6 +43,7 @@
     <string name="tec_toque">Bas</string>
     <string name="tec_segurar">Basılı tut</string>
     <string name="tec_duplo">Çift bas</string>
+    <string name="tec_triplo">Üç kez basma</string>
     <string name="tec_padrao">varsayılan (kayıtlı uygulama; 3 sn basılı = seç)</string>
     <string name="tec_cena">sahne %1$s</string>
     <string name="tec_salvo">%1$s kaydedildi</string>
