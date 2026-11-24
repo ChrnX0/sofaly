@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Teljes tisztítás</string>
+    <string name="hos_total_det">Távozáskor a TV összes alkalmazásának adatait törli, nem csak a streamingét. A Google-szolgáltatások és a Beállítások megmaradnak.</string>
+</resources>

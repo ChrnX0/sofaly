@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Az internet visszajött</string>
+    <string name="rd_voltou_texto">%1$s ideig nem működött (%2$s óta). Valószínű ok: %3$s.</string>
+    <string name="rd_causa_wifi">a TV elvesztette a Wi-Fi-t</string>
+    <string name="rd_causa_provedor">internetszolgáltató vagy router</string>
+    <string name="rd_min">%1$d perc</string>
+    <string name="rd_h_min">%1$d óra %2$d perc</string>
+    <string name="rd_disco_titulo">A TV tárhelye telik</string>
+    <string name="rd_disco_texto">Ilyen ütemben kb. %1$d nap alatt megtelik (%2$d MB szabad). Ürítse az alkalmazások gyorsítótárát, vagy távolítsa el a nem használt alkalmazásokat.</string>
+    <string name="pr_avisos_tv">A TV-ről</string>
+    <string name="mural_riscar">%1$s kihúzása</string>
+    <string name="ds_lento_titulo">A Sofaly lelassult</string>
+    <string name="ds_lento_texto">%1$d verzió: a lassú képkockák %2$d ms-ig tartanak, korábban %3$d ms-ig (+%4$d%%).</string>
+</resources>

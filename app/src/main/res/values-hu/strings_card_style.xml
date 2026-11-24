@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Finomhangolás</string>
+    <string name="ft_dica">OK vagy ▶ ◀ módosít · a VISSZA bezár</string>
+    <string name="ft_abrir">Állítsa be, miközben látja a kezdőképernyőt</string>
+    <string name="ft_abrir_det">Betűtípus, óra, kiemelőszín, sarkok, ragyogás és méret, élőben</string>
+    <string name="cs_destaque">Kiemelőszín</string>
+    <string name="cs_cantos">Sarkok</string>
+    <string name="cs_brilho">Fókusz ragyogása</string>
+    <string name="cs_tamanho">A kereszt mérete</string>
+    <string name="cs_ceu">Égkék</string>
+    <string name="cs_lilas">Orgona</string>
+    <string name="cs_retos">Szögletes</string>
+    <string name="cs_redondos">Kerek</string>
+    <string name="cs_sem">Ki</string>
+    <string name="cs_suave">Lágy</string>
+    <string name="cs_forte">Erős</string>
+    <string name="cs_menor">Kisebb</string>
+    <string name="cs_maior">Nagyobb</string>
+    <string name="bg_tintura">Szín a háttér fölött</string>
+    <string name="bg_cor">Háttérszín</string>
+    <string name="bg_desfoque">Háttér elmosása</string>
+    <string name="bg_transicao">Képváltás</string>
+    <string name="bg_novo">Új háttér most</string>
+    <string name="bg_solida">Egyszínű</string>
+    <string name="bg_destaque">Kiemelés</string>
+    <string name="bg_noite">Éjszaka</string>
+    <string name="bg_mata">Erdő</string>
+    <string name="bg_brasa">Parázs</string>
+    <string name="bg_grafite">Grafit</string>
+    <string name="bg_corte">Vágás</string>
+    <string name="bg_lenta">Lassú</string>
+    <string name="bg_trocado">Megváltozott</string>
+    <string name="bg_nao_troca">Ez a háttér nem változik</string>
+    <string name="bg_camera">Otthoni kamera háttérként</string>
+    <string name="bg_campainha">Kapucsengő kamerája háttérként</string>
+    <string name="bg_nenhuma">Nincs</string>
+    <string name="bg_ligado">Be</string>
+</resources>

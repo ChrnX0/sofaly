@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Kinek szól ez a TV?</string>
+    <string name="rec_subtitulo">Egy OK beállítja a TV-t. Bármikor visszavonhatja.</string>
+    <string name="rec_vo">A nagymama TV-je</string>
+    <string name="rec_vo_det">Nagy kártyák felolvasott nevekkel, nagyobb szöveg és Segítség gomb.</string>
+    <string name="rec_criancas">A gyerekek TV-je</string>
+    <string name="rec_criancas_det">Csak gyerektartalom, lefekvési idő és a Játszani kategória.</string>
+    <string name="rec_gamer">A játékos TV-je</string>
+    <string name="rec_gamer_det">Játszani kategória, játékmód (játék közben nincs képernyővédő és értesítés), és a kontroller megnyitja a Játékokat.</string>
+    <string name="rec_aluguel">Kiadott TV</string>
+    <string name="rec_aluguel_det">Vendég mód: üdvözlőképernyő, semmi személyes a kezdőképernyőn, és tisztítás távozáskor.</string>
+    <string name="rec_desfazer">Visszavonás</string>
+    <string name="rec_desfazer_det">Mindent visszaállít arra, ami ez előtt volt: %1$s.</string>
+    <string name="rec_ja_esta">Ez a TV már így van beállítva.</string>
+    <string name="rec_aviso_prende">Az egyszerű képernyő csak a PIN-nel zárható be. Győződjön meg róla, hogy valaki a házban ismeri.</string>
+    <string name="rec_aviso_sem_pin">Még nincs PIN, így bárki kikapcsolhatja. Hozzon létre egyet a telefonos panelen.</string>
+    <string name="rec_aviso_plano">Fizetős csomag kell hozzá, így kikapcsolva marad: %1$s.</string>
+    <string name="rec_voltar">Vissza</string>
+    <string name="rec_aplicar">Alkalmazás</string>
+    <string name="rec_pin">PIN a TV beállításának módosításához</string>
+    <string name="rec_pronto">Kész</string>
+    <string name="rec_aplicada">A TV-je készen áll</string>
+    <string name="rec_aplicada_det">Megváltozott valami, amit nem akart? A Visszavonás mindent visszaállít, ahogy volt.</string>
+    <string name="rec_desfeita">Minden újra olyan, mint volt.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">be</string>
+    <string name="rec_desligado">ki</string>
+    <string name="rec_aj_hospede">Vendég mód</string>
+    <string name="rec_aj_visita">Látogatás mód</string>
+    <string name="rec_aj_simples">Egyszerű képernyő</string>
+    <string name="rec_aj_infantil">Gyerekmód</string>
+    <string name="rec_aj_dormir">Lefekvési idő</string>
+    <string name="rec_aj_texto">Szövegméret</string>
+    <string name="rec_aj_ler_foco">A kijelölt elem felolvasása</string>
+    <string name="rec_aj_som">Kattanás minden gombnál</string>
+    <string name="rec_aj_jogos">Játszani kategória</string>
+    <string name="rec_aj_modo_jogo">Játékmód</string>
+    <string name="rec_aj_controle">A kontroller megnyitja a Játékokat</string>
+</resources>

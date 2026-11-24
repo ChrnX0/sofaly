@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Telas Rádio e Podcasts redesenhadas em cruz (18/11/2026): CruzOuvir, RadioActivity, PodcastsActivity. -->
+<resources>
+    <string name="ouv_tocando_agora">Most szól</string>
+    <string name="ouv_pausado">Szüneteltetve</string>
+    <string name="ouv_prat_tocando">Lejátszás</string>
+    <string name="ouv_pausar">Szünet</string>
+    <string name="ouv_continuar">Folytatás</string>
+    <string name="ouv_favoritar">Kedvenc</string>
+    <string name="ouv_desfavoritar">Kedvenc megszüntetése</string>
+    <string name="ouv_favoritar_det">A kedvencek a távirányító 1–9 gombjaival is szólnak</string>
+    <string name="ouv_tecla">A távirányító %d gombja</string>
+    <string name="ouv_ao_sair">Kilépéskor</string>
+    <string name="ouv_ao_sair_continua">A kezdőképernyőn tovább szól\nA távirányító ▶❙❙ gombja bármely képernyőről szünetelteti</string>
+    <string name="ouv_ao_sair_para">Leáll, amikor kilép erről a képernyőről</string>
+    <string name="ouv_recentes">Legutóbbiak</string>
+    <string name="ouv_sem_favoritas">Még nincsenek kedvencek</string>
+    <string name="ouv_sem_favoritas_det">Tartsa nyomva az OK-t egy állomáson, hogy itt maradjon</string>
+    <string name="ouv_sem_recentes">Itt még nincs semmi</string>
+    <string name="ouv_sem_recentes_det">A lejátszott állomások itt jelennek meg</string>
+    <string name="ouv_paises">Országok</string>
+    <string name="ouv_n_radios">%d állomás</string>
+    <string name="ouv_ao_vivo">Élő</string>
+    <string name="ouv_dica_pular">átugrás</string>
+    <string name="ouv_voltar">Vissza 15 mp</string>
+    <string name="ouv_voltar_det">A távirányító ◀◀ gombjával is</string>
+    <string name="ouv_avancar">Előre 30 mp</string>
+    <string name="ouv_avancar_det">A távirányító ▶▶ gombjával is</string>
+    <string name="ouv_velocidade_det">%s · a hang megtartja a hangmagasságát</string>
+    <string name="ouv_parar_pod_det">Ahol abbahagyta, az mentve van későbbre</string>
+    <string name="ouv_seguindo">Követve</string>
+    <string name="ouv_sem_podcasts">Még nincsenek podcastok</string>
+    <string name="ouv_sem_podcasts_det">Adjon hozzá egyet a Hozzáadás polcon (illessze be a címet, vagy használja a telefonját)</string>
+    <string name="ouv_n_episodios">%d epizód</string>
+    <string name="ouv_colar">Cím beillesztése</string>
+    <string name="ouv_sobre">Névjegy</string>
+    <string name="ouv_remover_det">Az epizódok és a haladás elhagyják ezt a TV-t</string>
+    <string name="ouv_ver_podcast">Ugrás a podcasthoz</string>
+</resources>

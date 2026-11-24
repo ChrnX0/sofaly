@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Beállítások ehhez: %1$s</string>
+    <string name="wo_ordenar">Rendezés</string>
+    <string name="wo_ordenar_de">%1$s rendezése</string>
+    <string name="wo_por_uso">A legtöbbet használtak elöl</string>
+    <string name="wo_az">A–Z</string>
+    <string name="wo_a_mao">Saját sorrend</string>
+    <string name="wo_renomear_mundo">A kategória átnevezése</string>
+    <string name="wo_icone_mundo">A kategória ikonjának cseréje</string>
+    <string name="wo_esconder">A kategória elrejtése</string>
+    <string name="wo_mostrar">Rejtett kategóriák megjelenítése (%1$d)</string>
+    <string name="wo_padrao">Vissza az eredetihez</string>
+    <string name="wo_subir">Mozgatás fel</string>
+    <string name="wo_descer">Mozgatás le</string>
+    <string name="wo_renomear_app">Átnevezés</string>
+    <string name="wo_vazio_original">Üres = eredeti név</string>
+    <string name="wo_so_icone">Csak az ikon megjelenítése</string>
+    <string name="wo_com_nome">A név megjelenítése</string>
+    <string name="wo_nomes_titulo">Ikonfeliratok</string>
+    <string name="wo_so_icone_curto">Csak ikon</string>
+    <string name="wo_com_nome_curto">Névvel</string>
+    <string name="co_titulo">Folytatás</string>
+    <string name="co_mostrar">Látható</string>
+    <string name="co_esconder">Rejtett</string>
+    <string name="wo_nomes_det">Név minden kategória ikonja alatt, vagy csak az ikon</string>
+    <string name="co_det">Amit félbehagyott, minden kategória tetején</string>
+    <string name="tec_cfg_det">Megnyomás, nyomva tartás, dupla és tripla megnyomás minden gombon</string>
+    <string name="bb_titulo">Kezdőképernyő elrendezése</string>
+    <string name="bb_cruz">Kereszt</string>
+    <string name="bb_barra">Alsó sáv</string>
+    <string name="bb_det">Kategóriák keresztben, vagy rögzítve alul, felettük az alkalmazásokkal (▲)</string>
+</resources>

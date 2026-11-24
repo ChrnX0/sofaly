@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Egységes sáv</string>
+    <string name="strip_desc_watch">Filmek, sorozatok és TV</string>
+    <string name="strip_desc_listen">Zene, rádió és podcastok</string>
+    <string name="strip_desc_play">Játékok és felhőalapú játék</string>
+    <string name="strip_desc_apps">Minden telepített</string>
+    <string name="strip_desc_tools">Ébresztő, időjárás és beállítások</string>
+    <string name="strip_apps_count">%1$d alkalmazás</string>
+    <string name="st_desc">A világ leírása</string>
+    <string name="st_desc_fixa">Rögzített mondat</string>
+    <string name="st_desc_viva">Mi szól most</string>
+    <string name="st_formato">Kártyák alakja</string>
+    <string name="st_quadrado">Négyzet</string>
+    <string name="st_tamanho">Kártyák mérete</string>
+    <string name="st_pequeno">Kicsi</string>
+    <string name="st_medio">Közepes</string>
+    <string name="st_grande">Nagy</string>
+    <string name="st_espaco">Távolság a kártyák között</string>
+    <string name="st_justo">Szoros</string>
+    <string name="st_normal">Normál</string>
+    <string name="st_largo">Tágas</string>
+    <string name="st_cantos">Kártyák sarkai</string>
+    <string name="st_retos">Szögletes</string>
+    <string name="st_suaves">Lágy</string>
+    <string name="st_redondos">Kerek</string>
+    <string name="st_placa">Üveglap mögöttük</string>
+    <string name="st_nome">Név a kijelölt kártyán</string>
+    <string name="st_sem">Ki</string>
+    <string name="st_com">Be</string>
+</resources>

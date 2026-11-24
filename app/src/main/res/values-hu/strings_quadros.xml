@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Filmek a saját képkockasebességükön (24 Hz)</string>
+    <string name="quadros_det">A TV 24 Hz-re vált, amíg a film szól, hogy a kép ne remegjen a kameramozgásoknál. Az elején a képernyő 1–2 mp-re elsötétül. Élő TV-nél nem használja.</string>
+</resources>

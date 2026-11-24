@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Filmek szűrése</string>
+    <string name="filmes_filtro_genero">Műfaj: %1$s</string>
+    <string name="filmes_filtro_epoca">Időszak: %1$s</string>
+    <string name="filmes_filtro_nota">Minimális értékelés: %1$s</string>
+    <string name="filmes_filtro_lista">Lista: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Csak nem látott: %1$s</string>
+    <string name="filmes_filtro_limpar">Szűrő törlése</string>
+    <string name="filmes_filtro_qualquer">Bármelyik</string>
+    <string name="filmes_filtro_sim">Igen</string>
+    <string name="filmes_filtro_nao">Nem</string>
+    <string name="filmes_filtro_decada">Évtized: %1$d</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">nem látott</string>
+    <string name="filmes_filtro_sem_genero">Ennek a listának egyik kategóriája sem nevez meg műfajt</string>
+    <string name="filmes_filtro_vazio">Ebben a kategóriában egy film sem felel meg ennek a szűrőnek</string>
+    <string name="filmes_sorteio_vazio">Innen nincs film, amiből választani lehetne</string>
+    <string name="filmes_colecao">A film gyűjteménye</string>
+    <string name="filmes_colecao_cat">Gyűjtemény: %1$s</string>
+    <string name="genero_acao">Akció</string>
+    <string name="genero_aventura">Kaland</string>
+    <string name="genero_comedia">Vígjáték</string>
+    <string name="genero_drama">Dráma</string>
+    <string name="genero_terror">Horror</string>
+    <string name="genero_suspense">Thriller</string>
+    <string name="genero_romance">Romantikus</string>
+    <string name="genero_ficcao">Sci-fi</string>
+    <string name="genero_fantasia">Fantasy</string>
+    <string name="genero_animacao">Animáció</string>
+    <string name="genero_infantil">Gyerek és család</string>
+    <string name="genero_documentario">Dokumentumfilm</string>
+    <string name="genero_crime">Krimi</string>
+    <string name="genero_guerra">Háborús</string>
+    <string name="genero_faroeste">Western</string>
+    <string name="genero_musical">Musical</string>
+</resources>

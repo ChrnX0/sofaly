@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Nincs internet</string>
+    <string name="observer_no_internet_text">A videók leállhatnak, amíg vissza nem jön.</string>
+    <string name="observer_slow_internet_title">Lassú internet</string>
+    <string name="observer_slow_internet_text">A válaszok %1$s ms-ig tartanak. A videók töltés miatt megállhatnak.</string>
+    <string name="observer_weak_wifi_title">Gyenge Wi-Fi</string>
+    <string name="observer_weak_wifi_text">A jel %1$s dBm. Segít egy routert közelebb vinni a TV-hez.</string>
+    <string name="observer_low_memory_title">A memória majdnem megtelt</string>
+    <string name="observer_low_memory_text">Csak %1$s MB szabad. Az alkalmazások bezárulhatnak és újraindulhatnak.</string>
+    <string name="observer_memory_pressure_title">A TV túlterhelt</string>
+    <string name="observer_memory_pressure_text">Az Android alkalmazásokat zár be, hogy helyet csináljon.</string>
+    <string name="observer_slow_home_title">A kezdőképernyő lassú</string>
+    <string name="observer_slow_home_text">A képkockák %1$s%%-a késett.</string>
+    <string name="observer_low_disk_title">A tárhely majdnem megtelt</string>
+    <string name="observer_low_disk_text">Csak %1$s MB van hátra. A mentés sikertelen lehet.</string>
+    <string name="observer_freeze_undone_title">Feloldottam egy fagyasztást</string>
+    <string name="observer_freeze_undone_text">%1$s le volt fagyasztva, és %2$s leállt, ezért feloldottam.</string>
+</resources>

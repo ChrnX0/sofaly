@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Írja be, mit csináljon a TV</string>
+    <string name="cc_nao_entendi">Nem értettem. Próbáljon valami ilyesmit:</string>
+    <string name="cc_exemplo_1">tedd a Globót</string>
+    <string name="cc_exemplo_2">nyisd meg a YouTube-ot</string>
+    <string name="cc_exemplo_3">kapcsolj ki 30 perc múlva</string>
+    <string name="cc_abrindo">%1$s megnyitása</string>
+    <string name="cc_canal">%1$s bekapcsolása</string>
+    <string name="cc_o_que_passa">Mi megy ezen: %1$s</string>
+    <string name="cc_timer">Emlékeztető %1$d perc múlva</string>
+    <string name="cc_desligar">A TV %1$d perc múlva kikapcsol</string>
+    <string name="cc_desligar_cancelar">Elalváskapcsoló törölve</string>
+    <string name="cc_volume_subir">Hangerő fel</string>
+    <string name="cc_volume_descer">Hangerő le</string>
+    <string name="cc_mudo">Némítás be/ki</string>
+    <string name="cc_pausar">Szüneteltetés</string>
+    <string name="cc_continuar">Lejátszás</string>
+    <string name="cc_tela_previsao">az előrejelzés</string>
+    <string name="cc_tela_agenda">a naptár</string>
+    <string name="cc_tela_despertador">az ébresztők</string>
+    <string name="cc_tela_configuracoes">a launcher beállításai</string>
+    <string name="cc_tela_inicio">a kezdőképernyő</string>
+    <string name="cc_confirme_na_tv">%1$s: erősítse meg OK-val a TV-n</string>
+    <string name="cc_nao_fiz">%1$s: nem történt meg (%2$s)</string>
+    <string name="cc_aviso_titulo">Telefonos panel</string>
+</resources>

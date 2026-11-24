@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Filmek és TV</string>
+    <string name="aa_shelf_video">Videók</string>
+    <string name="aa_shelf_sports">Sport</string>
+    <string name="aa_shelf_kids">Gyerekek</string>
+    <string name="aa_shelf_music_audio">Zene és hang</string>
+    <string name="aa_shelf_news">Hírek</string>
+    <string name="aa_shelf_games">Játékok</string>
+    <string name="aa_shelf_education">Oktatás</string>
+    <string name="aa_shelf_health_fitness">Egészség és fitnesz</string>
+    <string name="aa_shelf_lifestyle">Életmód</string>
+    <string name="aa_shelf_tools">Eszközök</string>
+    <string name="aa_shelf_system">Rendszer</string>
+    <string name="aa_shelf_other">Egyéb</string>
+    <string name="aa_frozen">Fagyasztva</string>
+    <string name="aa_hidden">Rejtett</string>
+    <string name="aa_badge_frozen">fagyasztva</string>
+    <string name="aa_badge_hidden">rejtett</string>
+    <string name="aa_lock">Rejtett (%1$d)</string>
+    <string name="aa_count_hidden">rejtett: %1$d</string>
+    <string name="aa_count_frozen">fagyasztva: %1$d</string>
+    <string name="aa_pin_title">PIN a rejtett alkalmazások megtekintéséhez</string>
+    <string name="aa_used_today">Ma megnyitva</string>
+    <string name="aa_used_days">Utoljára %1$d napja megnyitva</string>
+    <string name="aa_used_never">Innen még nem volt megnyitva</string>
+    <string name="aa_size">Használja: %1$s</string>
+    <string name="aa_risk_safe">Biztonságosan módosítható, a leírása szerint</string>
+    <string name="aa_risk_care">Óvatosan módosítandó, a leírása szerint</string>
+    <string name="aa_risk_essential">A TV-hez nélkülözhetetlen: ne fagyassza le</string>
+    <string name="aa_tip_idle">%1$d napja nem volt megnyitva. A fagyasztás memóriát szabadít fel, és visszavonható.</string>
+    <string name="aa_hint_app">Az OK megnyit · OK nyomva: áthelyezés, elrejtés, fagyasztás vagy eltávolítás</string>
+    <string name="aa_hint_frozen">Az OK feloldja és megnyitja</string>
+    <string name="aa_hint_lock">Az OK PIN-t kér, és itt megmutatja a rejtett alkalmazásokat</string>
+    <string name="aa_open">Megnyitás</string>
+    <string name="aa_freeze">Fagyasztás</string>
+    <string name="aa_freezing">%1$s fagyasztása…</string>
+    <string name="aa_frozen_done">%1$s lefagyasztva. 10 perc múlva a TV ellenőrzi, hogy minden működik-e még, és visszavonja, ha valami leállt.</string>
+    <string name="aa_freeze_failed">Nem sikerült lefagyasztani: %1$s: %2$s</string>
+    <string name="aa_unfreeze_open">Feloldás és megnyitás</string>
+    <string name="aa_unfreeze_refreeze">Megnyitás és újrafagyasztás, amikor visszajövök</string>
+    <string name="aa_unfreezing">%1$s feloldása…</string>
+    <string name="aa_unfreeze_failed">Nem sikerült feloldani: %1$s: %2$s</string>
+    <string name="aa_move_auto">Automatikus</string>
+</resources>

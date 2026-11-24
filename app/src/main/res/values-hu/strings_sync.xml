@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Bejelentkezve mint %1$s. Amit a TV szinkronban tart a telefonjával.</string>
+    <string name="sync_sub_mdblist">Bejelentkezve mint %1$s. Az MDBList-listái megjelenhetnek a katalógusban.</string>
+    <string name="sync_ultima">Utolsó szinkronizálás: %1$s</string>
+    <string name="sync_nunca">Még nem volt szinkronizálva</string>
+    <string name="sync_interesses">Érdekesek ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Érdekesek ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Amit itt megjelöl, ott is megjelenik, és fordítva</string>
+    <string name="sync_assistidos">Megnézettek ← Előzmények</string>
+    <string name="sync_assistidos_det">Behozza, amit már megnézett a telefonon vagy máshol</string>
+    <string name="sync_continuar">Folytatás ⇄ Ahol abbahagyta</string>
+    <string name="sync_continuar_det">Állítsa meg a telefonon, és folytassa a TV-n ugyanott</string>
+    <string name="sync_contar">Tudassa ezzel: %1$s, mit nézek itt</string>
+    <string name="sync_contar_det">Lejátszás közben elküldi a „most nézem” és a „megnézve” jelzést. Vendég módban vagy gyerekprofilon soha.</string>
+    <string name="sync_listas">Listák a katalógusban</string>
+    <string name="sync_listas_nenhuma">Nincs kiválasztva</string>
+    <string name="sync_listas_n">%1$d kiválasztva: %2$s</string>
+    <string name="sync_listas_sub">A LISTÁK között, a Mindben jelennek meg, csak azokkal a címekkel, amelyek a listájában vannak. Legfeljebb %1$d.</string>
+    <string name="sync_listas_carregando">A listái betöltése…</string>
+    <string name="sync_listas_vazio">Nem találhatók listák. Hozzon létre vagy kedveljen egy listát a Trakton vagy az MDBListen, és jöjjön vissza ide.</string>
+    <string name="sync_listas_cheio">Legfeljebb %1$d lista</string>
+    <string name="sync_lista_itens">%1$d cím</string>
+    <string name="sync_agora">Szinkronizálás most</string>
+    <string name="sync_agora_det">Magától is megtörténik, amikor megnyitja a Filmeket vagy a Sorozatokat</string>
+    <string name="sync_rodando">Szinkronizálás…</string>
+    <string name="sync_feito">Szinkronizálva</string>
+    <string name="sync_sair">Kijelentkezés innen: %1$s</string>
+    <string name="sync_bloqueado">Szüneteltetve: a vendég mód vagy egy gyerekprofil aktív.</string>
+    <string name="sync_outro_perfil">Szüneteltetve: a szinkronizálás egy másik profilhoz tartozik.</string>
+    <string name="sync_trakt_cheia">A Trakt-listája megtelt (az ingyenes fiókokba 100 fér). A launcher csak a TV-n folytatja.</string>
+    <string name="sync_ligado">Be</string>
+    <string name="sync_desligado">Ki</string>
+    <string name="sync_fonte_trakt">Adatok a Trakttól (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Adatok a Simkltől (simkl.com)</string>
+    <string name="sync_n_de">%2$d-ból %1$d a listájában</string>
+    <string name="sync_continuando">Folytatás ott, ahol a másik eszközön abbahagyta</string>
+</resources>

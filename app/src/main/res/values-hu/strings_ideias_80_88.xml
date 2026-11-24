@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 88: HOME without internet -->
+    <string name="si_sem_internet">Nincs internet</string>
+    <string name="si_funcionam">Még működik: %1$s</string>
+    <string name="si_pendrive">USB-meghajtó</string>
+    <!-- Idea 80: "Are you still watching?" -->
+    <string name="ad_pergunta">Még nézi?</string>
+</resources>

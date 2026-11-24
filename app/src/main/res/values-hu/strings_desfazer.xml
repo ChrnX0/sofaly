@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Módosítás (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Visszavonva: %1$s</string>
+    <string name="desf_ocultou">Elrejtve: %1$s</string>
+    <string name="desf_mostrou">Újra látható: %1$s</string>
+    <string name="desf_cat_ajuste">Beállítás</string>
+    <string name="desf_cat_organizacao">Rendezés</string>
+    <string name="desf_cat_automacao">Automatizálás</string>
+    <string name="desf_cat_limpeza">Takarítás</string>
+    <string name="desf_nada">Nincs mit visszavonni (már vissza lett vonva).</string>
+    <string name="desf_feito">Visszavonva. Minden olyan, mint korábban.</string>
+    <string name="desf_parcial">Részben visszavonva: %1$d elem időközben újra megváltozott, és úgy maradt.</string>
+    <string name="desf_barra">Módosítva: %1$s</string>
+    <string name="desf_botao">Visszavonás</string>
+    <string name="desf_tela">Legutóbbi módosítások</string>
+    <string name="desf_tela_det">Mi változott az elmúlt 7 napban. Az OK egyiken visszaállítja, ahogy volt.</string>
+    <string name="desf_tela_vazia">Az elmúlt 7 napban nem volt módosítás.</string>
+    <string name="desf_ja_desfeita">visszavonva</string>
+    <string name="desf_rot_config">Beállítások</string>
+    <string name="desf_rot_automacoes">Automatizálások</string>
+    <string name="desf_rot_rotinas">Rutinok</string>
+    <string name="desf_rot_apps">Alkalmazáslista</string>
+    <string name="desf_rot_organizar">Kezdőképernyő alkalmazásai</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recado em vídeo (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="vid_de">Videó tőle: %1$s</string>
+    <string name="vid_mural">videót küldött</string>
+    <string name="vid_onde">Megtekintés: Beállítások › Család › Családi videók.</string>
+    <string name="vid_depois">Később</string>
+    <string name="vid_assistir">Megtekintés</string>
+    <string name="vid_ok_para_assistir">Nyomja meg az OK-t a megtekintéshez.</string>
+    <string name="vid_lista">Családi videók</string>
+    <string name="vid_lista_det">A családi linken keresztül küldve. Mindegyik 30 napig marad. OK nyomva a törléshez.</string>
+    <string name="vid_nenhum">Még nincs videó.</string>
+    <string name="vid_apagar">Videó törlése</string>
+    <string name="vid_aceitar">Videók fogadása</string>
+    <string name="vid_aceitar_det">A család legfeljebb 30 másodperces videókat küldhet. Soha nem indulnak el maguktól.</string>
+    <string name="vid_quantos">Videók: %1$d</string>
+</resources>

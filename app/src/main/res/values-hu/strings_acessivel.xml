@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Feliratok fekete háttérrel</string>
+    <string name="acess_legenda_amarela">Sárga feliratok</string>
+    <string name="acess_volume">Egyenletes hangerő a csatornák között</string>
+    <string name="acess_voz">Tisztább hangok</string>
+    <string name="acess_volume_ligado">Egyenletes hangerő be: a halk csatornák és filmek hangosabbak lesznek</string>
+    <string name="acess_volume_desligado">Egyenletes hangerő ki</string>
+    <string name="acess_voz_ligado">Tisztább hangok be</string>
+    <string name="acess_voz_desligado">Tisztább hangok ki</string>
+    <string name="acess_config_titulo">Hang és feliratok</string>
+    <string name="acess_config_texto">Annak, aki rosszabbul lát vagy hall. A lejátszó ▼ menüjében is.</string>
+</resources>

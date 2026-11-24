@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Csökkentett mód</string>
+    <string name="seg_texto">A kezdőképernyő %1$d alkalommal egymás után leállt. Ez egy egyszerű változata, hogy tovább használhassa a TV-t.</string>
+    <string name="seg_procurar">Javított verzió keresése</string>
+    <string name="seg_procurar_det">Ha van, most letöltődik és települ.</string>
+    <string name="seg_procurando">Új verzió keresése…</string>
+    <string name="seg_normal">A normál kezdőképernyő kipróbálása</string>
+    <string name="seg_normal_det">Ha még 3-szor leáll, ez a képernyő visszajön.</string>
+    <string name="seg_config_tv">TV-beállítások</string>
+    <string name="seg_erro">Nézze meg, mi ment rosszul</string>
+    <string name="seg_erro_det">Diagnosztika, a mentett hibákkal.</string>
+    <string name="seg_apps">Alkalmazások</string>
+</resources>

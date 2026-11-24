@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Órák</string>
+    <string name="sh_dias">Napok</string>
+    <string name="sh_dicas">Tippek</string>
+    <string name="sh_ar">Levegő</string>
+    <string name="sh_orvalho">harmatpont %1$d°</string>
+    <string name="sh_nuvens">Felhőzet</string>
+    <string name="sh_nascer">Napkelte</string>
+    <string name="sh_por">Napnyugta</string>
+    <string name="sh_duracao">A nap hossza</string>
+    <string name="sh_horas_min">%1$d ó %2$02d p</string>
+    <string name="sh_dourada">Arany óra</string>
+    <string name="sh_fase">Fázis</string>
+    <string name="sh_iluminada">%1$s megvilágítva</string>
+    <string name="sh_cheia">Telihold</string>
+    <string name="sh_nova">Újhold</string>
+    <string name="sh_em_dias">%1$d nap múlva</string>
+    <string name="sh_rodar">Az alsó sáv váltakozása</string>
+    <string name="sh_rodar_det">A képernyővédőn az alsó sáv magától változik. A ↑ és a ↓ azonnal váltja.</string>
+    <string name="sh_rodar_desl">Ki</string>
+    <string name="sh_rodar_s">%1$d mp-enként</string>
+    <string name="sh_rodar_min">Percenként</string>
+    <string name="sh_vidro">Üveg az alsó sáv mögött</string>
+    <string name="sh_vidro_det">Üvegpanel a sáv mögött. Kikapcsolva: csak egy vékony vonal.</string>
+    <string name="sh_fundo">Képernyővédő háttere</string>
+    <string name="sh_fundo_det">Mi marad az óra mögött a képernyővédőn: másik téma, egy fotó, egy videó vagy több, váltakozva.</string>
+    <string name="sh_fundo_home">Ugyanaz, mint a kezdőképernyőn</string>
+    <string name="sh_fundo_fotos">Váltakozó fotók és videók</string>
+    <string name="sh_fundo_arquivo">Egy fájl csak a képernyővédőhöz</string>
+</resources>

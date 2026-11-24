@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">A kapcsolat megszakadt. Újrapróbálás (%2$d-ból %1$d)…</string>
+    <string name="vod_proximo_episodio">Következő epizód</string>
+    <string name="vod_proximo_agora">Nézés most · %1$d mp</string>
+    <string name="vod_proximo_cancelar">Mégse</string>
+    <string name="vod_proximo_continuar">Nézés tovább</string>
+    <string name="vod_ainda_assistindo">Még nézi?</string>
+    <string name="vod_ainda_assistindo_texto">Néhány epizód lement anélkül, hogy bárki hozzányúlt volna a távirányítóhoz, így a következő Önre vár.</string>
+    <string name="vod_desligar_ao_fim">A TV kikapcsolása, ha ez véget ér</string>
+    <string name="vod_legenda_tamanho_titulo">Feliratméret</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Kicsi</item>
+        <item>Normál</item>
+        <item>Nagy</item>
+        <item>Hatalmas</item>
+    </string-array>
+</resources>

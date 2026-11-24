@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Szereplők</string>
+    <string name="elenco_titulo">Szereplők</string>
+    <string name="elenco_carregando">A szereplők betöltése…</string>
+    <string name="elenco_vazio">A TMDB-ben nincsenek szereplők ehhez a címhez.</string>
+    <string name="elenco_dica">Lépkedjen a személyek között: lent az, hogy még miben szerepelnek a listájáról.</string>
+    <string name="elenco_na_lista">A listáján is</string>
+    <string name="elenco_procurando">Keresés a listájában…</string>
+    <string name="elenco_nada_na_lista">Ezzel a személlyel nincs más a listájában.</string>
+    <string name="elenco_filme">Film</string>
+    <string name="elenco_serie">Sorozat</string>
+    <string name="elenco_opcao_player">Szereplők (ki ez a színész?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Az előző részek tartalmából: %1$s</string>
+    <string name="anteriormente_assistir">%1$s megnézése</string>
+    <string name="anteriormente_pular_sempre">Soha ne mutassa</string>
+    <string name="anteriormente_desligado">Összefoglalók kikapcsolva. Újbóli bekapcsolás: OK nyomva egy epizódon.</string>
+    <string name="anteriormente_ligar">„Az előző részek tartalmából” összefoglalók megjelenítése</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Maximális életkor gyerekmódban</string>
+    <string name="idade_det">Az eddig az életkorig besorolt filmek és sorozatok bármely kategóriából megjelennek (TMDB-besorolás). A besorolás nélküliek csak a gyerekkategóriákban.</string>
+    <string name="idade_so_categorias">Csak gyerekkategóriák</string>
+    <string name="idade_livre">Minden korosztály</string>
+    <string name="idade_anos">%1$d éves korig</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Itt is: %1$s (JustWatch)</string>
+    <string name="onde_fora">Nincs a listájában · itt: %1$s</string>
+    <string name="onde_grupo">Máshol (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Automatikusan letöltött felirat (ehhez a fájlhoz készült) · ▼ a módosításhoz</string>
+    <string name="legenda_auto_pronta_nome">Automatikusan letöltött felirat · ▼ a módosításhoz vagy a késleltetés beállításához</string>
+    <string name="legenda_trad_rotulo">Automatikus fordítás</string>
+    <string name="legenda_trad_traduzindo">Nincs felirat az Ön nyelvén: az angol fordítása a TV-n…</string>
+    <string name="legenda_trad_parcial">Feliratok lefordítva a TV-n (automatikus fordítás). A többi fordítása folytatódik.</string>
+    <string name="legenda_trad_pronta">A feliratfordítás befejeződött</string>
+    <string name="series_sinopse_mais">Teljes tartalom</string>
+    <string name="series_continuar_curto">▶  %1$s folytatása</string>
+    <string name="series_episodios">Epizódok</string>
+    <string name="series_trocar_temporada">Évad váltása</string>
+    <string name="fechar">Bezárás</string>
+    <string name="onde_assistir_botao">Hol nézhető</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Kíméletes kikapcsolás (az elalváskapcsoló elsötétíti a képernyőt és lehalkítja a hangot)</string>
+    <string name="extras_MURAL">Családi tábla a gyorspanelen</string>
+    <string name="extras_PRESENCA">Kikapcsolás, ha mindenki elmegy otthonról (UniFi router)</string>
+    <string name="extras_HOJE_NA_TV">\"Ma a TV-ben\" a Keresés képernyőn</string>
+    <string name="extras_RETROSPECTIVA">Heti összefoglaló (vasárnap este)</string>
+    <string name="extras_MODO_SIMPLES">Egyszerű képernyő (nagy kártyák, felolvasott nevek)</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">A launcher stabilitása (7 nap)</string>
+    <string name="vit_ok">Nincs összeomlás vagy lefagyás. Használati napok: %1$d.</string>
+    <string name="vit_problemas">Összeomlások: %1$d. Lefagyások: %2$d. Látható a képernyőn: %3$d. Problémás napok: %5$d-ból %4$d.</string>
+</resources>

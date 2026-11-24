@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Hogy van ez a TV</string>
+    <string name="elv_placar_det">Hét ígéret, mindegyikhez ezen a TV-n mért szám</string>
+    <string name="elv_placar_sub">Ezen a TV-n mérve. Semmi sem hagyja el innen a házat.</string>
+    <string name="elv_pilar_liga">Bekapcsol és készen áll</string>
+    <string name="elv_pilar_ao_vivo">Élő TV, ami nem hibázik</string>
+    <string name="elv_pilar_player">A nappali legjobb lejátszója</string>
+    <string name="elv_pilar_casa">A TV, ami vigyáz az otthonra</string>
+    <string name="elv_pilar_controle">Vezérlés bárhonnan</string>
+    <string name="elv_pilar_todos">Bárki használhatja</string>
+    <string name="elv_pilar_instala">Beállítja és megjavítja magát</string>
+    <string name="elv_prom_liga">Kezdőképernyő 1 másodpercen belül készen</string>
+    <string name="elv_prom_ao_vivo">A csatornaváltás 1,5 másodpercnél rövidebb, a gombtól a képig</string>
+    <string name="elv_prom_player">Bármilyen fájlt lejátszik; helyes feliratok bajlódás nélkül</string>
+    <string name="elv_prom_casa">Az ébresztő időben szól, minden alkalommal</string>
+    <string name="elv_prom_controle">A panel, a telefon és az MI mindent megtesz, amit a távirányító</string>
+    <string name="elv_prom_todos">Idősek, gyerekek, vendégek, gyengén látók vagy hallók; 14 nyelv</string>
+    <string name="elv_prom_instala">Az első indítástól az első csatornáig 5 perc alatt</string>
+    <string name="elv_nao_medido">Még nincs mérve</string>
+    <string name="elv_alvo">cél: %1$s</string>
+    <string name="elv_n_de_n">időben: %2$d-ból %1$d</string>
+    <string name="elv_dentro">célon belül</string>
+    <string name="elv_fora">célon kívül</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d összeomlás vagy lefagyás %2$d nap alatt</item>
+        <item quantity="other">%1$d összeomlás vagy lefagyás %2$d nap alatt</item>
+    </plurals>
+    <string name="elv_lp_titulo">Mérés előtte és utána</string>
+    <string name="elv_lp_det_antes">Mérje meg a szabad memóriát, és hogy milyen gyorsan nyílik meg a 3 legtöbbet használt alkalmazása, a takarítás előtt. Néhány másodpercre megnyílnak.</string>
+    <string name="elv_lp_det_depois">Az előtte mért érték mentve. Rejtse el a fenti alkalmazásokat, majd nyomja meg az OK-t az utána méréshez.</string>
+    <string name="elv_lp_medindo">Mérés… az alkalmazások néhány másodpercre megnyílhatnak</string>
+    <string name="elv_lp_mais_livre">%1$d MB-tal több szabad</string>
+    <string name="elv_lp_menos_livre">%1$d MB-tal kevesebb szabad</string>
+    <string name="elv_lp_mais_rapido">%1$s %2$s-mal gyorsabban nyílik meg</string>
+    <string name="elv_lp_mais_lento">%1$s %2$s-mal lassabban nyílik meg</string>
+    <string name="elv_lp_igual">Nincs mérhetően nagy különbség</string>
+    <string name="elv_agora">az imént</string>
+    <string name="elv_sem_quedas">Nem volt összeomlás vagy lefagyás %1$d nap alatt</string>
+    <string name="elv_reserva">%1$s kiesett. Helyette ez megy: %2$s.</string>
+    <string name="elv_zap_solte">Engedje el a megtekintéshez</string>
+    <string name="elv_leg_padrao">normál</string>
+    <string name="elv_leg_contraste">nagy kontraszt</string>
+    <string name="elv_leg_amarela">sárga</string>
+    <string name="elv_leg_embaixo">lent</string>
+    <string name="elv_leg_em_cima">fent</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Csináld</string>
+    <string name="elv_bf_ok_faz">Az OK most megcsinálja</string>
+    <string name="elv_bf_wifi">Vendég Wi-Fi megjelenítése</string>
+    <string name="elv_bf_wifi_configurar">Még nincs beállítva: az OK megnyitja a Beállításokat (Látogatások)</string>
+    <string name="elv_bf_letra_maior">Nagyobb szöveg (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Kisebb szöveg (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Már ekkora</string>
+    <string name="elv_bf_radios">Rádióállomások</string>
+    <string name="elv_bf_radio_fav">Kedvenc állomás</string>
+    <string name="elv_bf_ajuda">Súgó</string>
+    <string name="elv_bf_ajuda_det">A kézikönyv témája</string>
+    <string name="elv_bf_procurar">Keresés tovább</string>
+    <string name="elv_bf_procurar_radio">„%1$s” nevű rádióállomások</string>
+    <string name="elv_bf_procurar_radio_det">Állomások a világ minden tájáról</string>
+    <string name="elv_bf_procurar_rede">„%1$s” a hálózati fájljaiban</string>
+    <string name="elv_bf_procurar_rede_det">A Jellyfinjén, Embyjén vagy Plexén</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Beállítások keresése</string>
+    <string name="elv_aj_explica">Írjon be egy szót: a beállítás nevét vagy egy másik szót rá (a \"betű\" megtalálja a szövegméretet)</string>
+    <string name="elv_aj_dica">Például: betű, Wi-Fi, képernyővédő</string>
+    <string name="elv_aj_recentes">Nemrég módosítva</string>
+    <string name="elv_aj_recentes_vazio">A módosított beállítások itt jelennek meg, a legutóbbi elöl</string>
+    <string name="elv_aj_nada">Nincs találat erre: „%1$s”</string>
+    <string name="elv_aj_nada_det">Próbáljon másik szót, vagy nézze meg a bal oldali lapokat</string>
+    <string name="elv_aj_sinonimos">betű,betűtípus,szöveg,méret,nagyobb,kisebb;wifi,wi-fi,hálózat,internet,kapcsolat;képernyővédő,kímélő,tétlen,pihenés;jelszó,pin,kód;hang,hangerő,audió;idő,óra,időpont;időjárás,előrejelzés,hőmérséklet;nyelv,idióma;gyerek,gyerekek,szülői;vendég,látogató,látogatás;frissítés,verzió,új;mentés,másolat,visszaállítás;telefon,mobil,okostelefon;lámpa,fény,otthon,ház;alvás,kikapcsolás,időzítő,energia,áram;csatorna,tv,élő;film,mozi,sorozat,műsor;felirat,feliratok,szöveg;ébresztő,ébresztés,ébresztőóra;fotó,kép,háttér,tapéta</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Figyelmet igényel</string>
+    <string name="elv_f_canal_caiu_frase">Ez a csatorna most nem jön be</string>
+    <string name="elv_f_canal_caiu_causa">A csatorna szolgáltatója abbahagyta a küldését. Általában magától visszajön.</string>
+    <string name="elv_f_canal_caiu_botao">Másik csatorna nézése</string>
+    <string name="elv_f_lista_venceu_frase">A csatornalistája lejárt</string>
+    <string name="elv_f_lista_venceu_causa">A listát áruló féllel kötött fiók lejárt vagy elutasították.</string>
+    <string name="elv_f_lista_venceu_botao">A fiók megnyitása</string>
+    <string name="elv_f_relogio_errado_frase">A TV órája rosszul jár</string>
+    <string name="elv_f_relogio_errado_causa">Rossz idővel a műsorújság és a biztonságos oldalak hibáznak.</string>
+    <string name="elv_f_relogio_errado_botao">Az óra beállítása</string>
+    <string name="elv_f_disco_cheio_frase">Fogy a hely a TV-n</string>
+    <string name="elv_f_disco_cheio_causa">Hely nélkül a műsorújság, a felvételek és a frissítések nem menthetők.</string>
+    <string name="elv_f_disco_cheio_botao">Hely felszabadítása</string>
+    <string name="elv_f_shell_parado_frase">A TV extra képességei leálltak</string>
+    <string name="elv_f_shell_parado_causa">A vezeték nélküli hibakeresést kikapcsolták, vagy elveszett a párosítás.</string>
+    <string name="elv_f_shell_parado_botao">Visszakapcsolás</string>
+    <string name="elv_f_tunel_sem_login_frase">Az otthonon kívüli hozzáférés bejelentkezésre vár</string>
+    <string name="elv_f_tunel_sem_login_causa">A Tailscale-bejelentkezés lejárt.</string>
+    <string name="elv_f_tunel_sem_login_botao">Újbóli bejelentkezés</string>
+    <string name="elv_f_backup_falhou_frase">Az éjszakai mentés 2 napja nem futott</string>
+    <string name="elv_f_backup_falhou_causa">A cél nem volt elérhető, vagy megváltozott a jelszó.</string>
+    <string name="elv_f_backup_falhou_botao">Mentés most</string>
+    <string name="elv_f_religando">Visszakapcsolás: legfeljebb egy percig tart</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Ne zavarjanak: film közben, késő éjjel vagy vendégek alatt az értesítések várnak, és egy összefoglalóban jönnek vissza (az ébresztő és a kapucsengő mindig megjelenik)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Amíg nézett: %1$d értesítés</item><item quantity="other">Amíg nézett: %1$d értesítés</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Az éjszaka folyamán: %1$d értesítés</item><item quantity="other">Az éjszaka folyamán: %1$d értesítés</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">A látogatás alatt: %1$d értesítés</item><item quantity="other">A látogatás alatt: %1$d értesítés</item></plurals>
+    <string name="elv_np_mais">+%1$d további</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Amikor véget ér egy film</string>
+    <string name="elv_ev_programa_comecou">Amikor elkezdődik egy műsorújságban megjelölt műsor</string>
+    <string name="elv_ev_nascer_do_sol">Napkeltekor</string>
+    <string name="elv_ev_por_do_sol">Napnyugtakor</string>
+    <string name="elv_ev_campainha">Amikor megszólal a kapucsengő</string>
+    <string name="elv_ev_alguem_chegou">Amikor valaki hazaér</string>
+    <string name="elv_ev_internet_caiu">Amikor leáll az internet</string>
+    <string name="elv_ev_internet_voltou">Amikor visszajön az internet</string>
+    <string name="elv_ev_recado_chegou">Amikor üzenet érkezik</string>
+    <string name="elv_ev_aniversario">Valakinek a születésnapján (reggel 9-kor)</string>
+    <string name="elv_ev_compromisso">Amikor elkezdődik egy naptári esemény</string>
+    <string name="elv_ss_sempre">Mindig</string>
+    <string name="elv_ss_so_se">Csak ha %1$s</string>
+    <string name="elv_ss_e">" és "</string>
+    <string name="elv_ss_em_casa">valaki otthon van</string>
+    <string name="elv_ss_noite">napnyugta után</string>
+    <string name="elv_ss_dia_util">hétköznap van</string>
+    <string name="elv_ss_perfil">a profil: %1$s</string>
+    <string name="elv_ss_det">◀ ▶ a feltétel módosítása</string>
+    <string name="extras_ABERTURA_PRONTA">Főcím átugrása (IntroDB): epizódoknál a TV megkérdezi a közösségi IntroDB szolgáltatást, hol van a főcím (azt küldi el, melyik epizód, a fiókját soha); kikapcsolva csak az Ön által megjelölt főcímek</string>
+</resources>

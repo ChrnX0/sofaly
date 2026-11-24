@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Rendszerképességek kölcsönadása</string>
+    <string name="emp_titulo">A shell kölcsönadása más alkalmazásoknak (Shizuku)</string>
+    <string name="emp_titulo_det">A Shizukuhoz készült alkalmazások annak telepítése nélkül működnek. Minden alkalmazás első alkalommal a TV-n kérdez, PIN-nel.</string>
+    <string name="emp_modo_desligado">Ki</string>
+    <string name="emp_modo_sob_demanda">Amikor egy alkalmazásnak kell</string>
+    <string name="emp_modo_sempre">Mindig be</string>
+    <string name="emp_oficial">A Shizuku alkalmazás telepítve van ezen a TV-n, így a launcher nem áll az útjába. Távolítsa el, hogy a launcherét használja.</string>
+    <string name="emp_plano">A fizetős csomagok része.</string>
+    <string name="emp_negar">Megtagadás</string>
+    <string name="emp_permitir">Mindig engedélyez</string>
+    <string name="emp_pedido_titulo">Engedi, hogy %1$s használja a launcher rendszerképességeit?</string>
+    <string name="emp_pedido_texto">Az alkalmazás azt teheti, amit az adb: alkalmazásokat telepíthet és távolíthat el, rendszerbeállításokat módosíthat és még többet. Csak megbízható alkalmazásoknak engedélyezze. Később a webpanelen visszavonhatja.</string>
+    <string name="emp_pin_titulo">Panel-PIN az engedélyezéshez</string>
+    <string name="emp_sem_pin">Előbb állítsa be a panel PIN-jét (Beállítások, Webpanel).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Tulajdonosi irányítás kölcsönadása más alkalmazásoknak (Dhizuku)</string>
+    <string name="emd_titulo_det">A Dhizukuhoz készült alkalmazások a launcher tulajdonosi irányítását használják. Minden alkalmazás a TV-n kérdez, PIN-nel. Az „Engedélyezés” mellett egyik sem távolíthatja el a launchert tulajdonosként, és nem törölheti a TV-t; a „Teljes hatalom” mellett igen.</string>
+    <string name="emd_ligado">Be</string>
+    <string name="emd_sem_dono">A launcher nem tulajdonosa (Device Owner) ennek a TV-nek, így nincs mit kölcsönadni.</string>
+    <string name="emd_pedido_titulo">Engedi, hogy %1$s használja a launcher tulajdonosi irányítását?</string>
+    <string name="emd_pedido_texto">Az „Engedélyezés” mellett az alkalmazás elrejthet és letilthat alkalmazásokat, és módosíthatja a TV engedélyeit és szabályait, de soha nem távolíthatja el a launchert tulajdonosként, és nem törölheti a TV-t. A „Teljes hatalom” lehetővé teszi, hogy az alkalmazás a launcherként fusson és olvassa az adatait: csak teljesen megbízható alkalmazásoknak. A webpanelen visszavonhatja. „Teljes hatalom” mellett az alkalmazás bármit megtehet, amit a launcher, akár a TV-t is törölheti.</string>
+    <string name="emd_total">Teljes hatalom</string>
+    <string name="emd_pin_total">TELJES HATALOM: az alkalmazás bármit megtehet, amit a launcher, akár a TV-t is törölheti. Panel-PIN</string>
+</resources>
