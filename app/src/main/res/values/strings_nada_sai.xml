@@ -3,5 +3,5 @@
 <resources>
     <string name="nsc_titulo">Your data stays with you</string>
     <string name="nsc_det">No account with us, no ads</string>
-    <string name="nsc_texto">No account with us, no ads, no usage tracking.\n\nYour settings, photos, notes and backups stay on this TV, or in an account of your own if you connect one.\n\nThe TV only talks to the services you turn on, such as the weather or movie posters. Some go through our server (api.sofaly.tv), such as podcast search; notes between your own devices travel end-to-end encrypted, so it cannot read them. The privacy policy on the site lists each one.</string>
+    <string name="nsc_texto">No account with us, no ads, no usage tracking.\n\nYour settings, photos, notes and backups stay on this TV, or in an account of your own if you connect one.\n\nThe TV only talks to the services you turn on, such as the weather or movie posters. Some go through our server (api.sofaly.tv), such as podcast search; it only gets the request, never an account of yours. The privacy policy on the site lists each one.</string>
 </resources>

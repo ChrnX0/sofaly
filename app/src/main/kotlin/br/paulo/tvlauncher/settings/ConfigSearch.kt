@@ -71,7 +71,12 @@ internal fun ConfigLauncherActivity.mostrarBusca() {
         }
         val achados = BuscaAjustes.procurar(indiceDosAjustes(), termo, BuscaAjustes.grupos(getString(R.string.elv_aj_sinonimos)))
         if (achados.isEmpty()) { resultados.addView(info(getString(R.string.elv_aj_nada, termo), getString(R.string.elv_aj_nada_det)), lp()); return }
-        achados.forEach { e -> resultados.addView(linha(e.titulo, "${abas[e.aba].titulo} · ${e.detalhe}", seta = true) { irPara(e.aba, e.titulo) }, lp()) }
+        achados.forEach { e ->
+            resultados.addView(linha(e.titulo, "${abas[e.aba].titulo} · ${e.detalhe}", seta = true) {
+                if (e.extras) startActivity(android.content.Intent(this, br.paulo.tvlauncher.ExtrasActivity::class.java).putExtra(br.paulo.tvlauncher.ExtrasActivity.EXTRA_FOCO, e.titulo))
+                else irPara(e.aba, e.titulo)
+            }, lp())
+        }
     }
     val adiada = Runnable { if (abaMontada == BUSCA) desenhar() }
     campo.addTextChangedListener(object : android.text.TextWatcher {

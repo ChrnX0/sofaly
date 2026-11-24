@@ -1,6 +1,10 @@
 # Formulário "Segurança dos dados" (rascunho para o Paulo conferir antes de enviar)
 
-Base: o app **não tem servidor**. O que vai para fora vai direto da TV ao serviço que a pessoa escolheu.
+Base (revisto 24/11/2026): o app **não tem conta nossa, anúncio nem telemetria**. Quase tudo vai direto da TV ao serviço
+que a pessoa escolheu. O nosso servidor (api.sofaly.tv, Cloudflare Worker) só repassa pedidos a fornecedores cuja chave
+não pode ir no APK: busca de podcasts (termo buscado → Podcast Index), texto e resumo de podcasts (áudio de podcast
+público → Workers AI, sem retenção) e clima do Pro (coordenada arredondada a ~11 km → WeatherAPI). Nada disso fica
+guardado com a pessoa identificada; o cache da borda guarda a resposta por lugar/termo, não por TV.
 Pela regra da Play, dado que sai do aparelho para terceiro conta como "compartilhado" mesmo sem nós vermos; dado que só
 passa pelo aparelho não conta como "coletado". Marquei de forma conservadora.
 
@@ -14,6 +18,8 @@ passa pelo aparelho não conta como "coletado". Marquei de forma conservadora.
 | Informações pessoais: nome, e-mail | Coletados, opcional, funcionalidade do app (login Google) | ficam na TV |
 | Fotos e vídeos | Não | a foto da tela do pedido de ajuda vai ao celular da família pelo painel da própria casa, não a terceiros |
 | Atividade no app / histórico | Não | sem análise de uso; o "Uso da TV" fica na TV |
+| Atividade no app: pesquisas no app (busca de podcasts) | **Coletado, processado de forma efêmera**, não compartilhado (Podcast Index age como prestador) | o termo vai ao api.sofaly.tv e dele ao Podcast Index; não é guardado |
+| Localização aproximada (clima do Pro) | **Coletado, efêmero**, funcionalidade do app | coordenada arredondada a 0,1° (~11 km) vai ao api.sofaly.tv → WeatherAPI; cache de 30 min por lugar |
 | Identificadores do aparelho | Não | |
 | Diagnóstico / falhas | Não | o registro de erros fica na TV; "Relatar problema" só se a pessoa enviar |
 | Mensagens (push à família) | Compartilhado, opcional | texto curto do aviso vai pelo serviço de push do navegador do celular |

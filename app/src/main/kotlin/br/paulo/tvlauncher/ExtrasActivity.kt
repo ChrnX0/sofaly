@@ -30,6 +30,15 @@ import br.paulo.tvlauncher.settings.FiltroNoturno
  * Abre pelo adb (`--es o extras`, ver [ComandosExtras]) e, depois da costura final, por uma entrada nas Configurações.
  */
 class ExtrasActivity : Activity() {
+    companion object {
+        /** Título da linha que recebe o foco ao abrir (vem da busca dos ajustes). */
+        const val EXTRA_FOCO = "foco"
+        /** Linhas do Extras que a busca dos ajustes acha (ConfigSystemTab as põe no índice; #38 do teste 100%). */
+        val LINHAS_DA_BUSCA = listOf(R.string.pb_filtro, R.string.dormir_titulo, R.string.dormir_teto, R.string.tela_titulo,
+            R.string.extras_caches, R.string.extras_consumo, R.string.extras_tocando, R.string.tec_titulo, R.string.extras_teclas,
+            R.string.extras_calibracao, R.string.casa_titulo, R.string.extras_acordar_pc, R.string.extras_diario_ver,
+            R.string.extras_diario_apagar)
+    }
     private lateinit var coluna: LinearLayout
 
     override fun onCreate(b: Bundle?) {
@@ -98,7 +107,17 @@ class ExtrasActivity : Activity() {
             aviso(getString(R.string.extras_diario_apagado))
         }
         linha({ if (ExtrasDO.atualizacaoPendente(this) != null) getString(R.string.extras_ota_pendente) else getString(R.string.extras_ota_nenhuma) }) {}
-        linhas.firstOrNull()?.first?.requestFocus()
+        // Vindo da busca: foco (e rolagem) na linha procurada; seção (ex.: "Hora de dormir") = a 1ª linha depois dela.
+        val foco = intent?.getStringExtra(EXTRA_FOCO)
+        val alvo = foco?.let { f -> linhas.firstOrNull { it.second().startsWith(f) }?.first ?: secaoAlvo(f) }
+        (alvo ?: linhas.firstOrNull()?.first)?.requestFocus()
+    }
+
+    /** A primeira linha logo abaixo da seção de título [titulo] (ou null). */
+    private fun secaoAlvo(titulo: String): TextView? {
+        val i = (0 until coluna.childCount).firstOrNull { (coluna.getChildAt(it) as? TextView)?.text?.toString()?.equals(titulo, true) == true } ?: return null
+        return (i + 1 until coluna.childCount).asSequence().map { coluna.getChildAt(it) }.filterIsInstance<TextView>()
+            .firstOrNull { v -> linhas.any { it.first === v } }
     }
 
 

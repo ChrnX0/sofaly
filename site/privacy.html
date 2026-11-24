@@ -1,13 +1,22 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy Policy · One TV Launcher</title><link rel="stylesheet" href="estilo.css"></head>
+<title>Privacy Policy · Sofaly</title><link rel="stylesheet" href="estilo.css"></head>
 <body><main>
 <nav><a href="./">Home</a><a href="privacy.html">Privacy / Privacidade</a><a href="terms.html">Terms / Termos</a></nav>
 <h1>Privacy Policy</h1>
-<p class="data">Last updated: November 14, 2026 · <a href="#pt">Leia em português</a></p>
+<p class="data">Last updated: November 24, 2026 · <a href="#pt">Leia em português</a></p>
 
 <h2>The short version</h2>
-<p>One TV Launcher has no server of its own. The developers do not receive, store or sell any of your data, and the app has no ads, analytics or telemetry. Everything the app keeps stays on your TV, or in accounts that belong to you (such as your own Google Drive) when you choose to connect them.</p>
+<p>Sofaly asks for no account, shows no ads and does not track what you watch. There are no analytics or telemetry, and your data is never sold. A small service of ours, api.sofaly.tv, only relays a few requests to providers whose keys cannot ship inside the app (see below). Everything the app keeps stays on your TV, or in accounts that belong to you (such as your own Google Drive) when you choose to connect them.</p>
+
+<h2>Sofaly's own service (api.sofaly.tv)</h2>
+<p>It exists so the app can use providers whose keys are not allowed inside an app. It receives the request and your TV's IP address, never an account or a name, and does not keep who asked:</p>
+<ul>
+<li>Podcast search and “trending”: the words you search, passed on to the Podcast Index.</li>
+<li>Podcast transcripts and summaries: audio of public podcasts, processed by Cloudflare Workers AI, which does not keep the request.</li>
+<li>Pro plan weather: your location rounded to about 11 km, passed on to WeatherAPI.com. Answers are cached by place, not by TV, for up to 30 minutes.</li>
+<li>The list of recommended add-ons and Sofaly's public-domain movies add-on (links to the Internet Archive).</li>
+</ul>
 
 <h2>Data kept on your TV</h2>
 <p>Your settings, app order, alarms, reminders, routines, PINs (stored as salted hashes), media accounts you add (IPTV, Plex, Jellyfin, Home Assistant and similar) and local backups are stored on the TV. You can remove them by clearing the app's data or uninstalling it.</p>
@@ -21,7 +30,7 @@
 <li><b>How to stop:</b> disconnect the account in the app's settings, or remove access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Backup files already in your Drive stay there until you delete them.</li>
 </ul>
 <p><b>Google Drive as a video source (optional):</b> if you add Google Drive under “On the network”, the app asks for <code>https://www.googleapis.com/auth/drive.readonly</code>, which lets it list and read (never change or delete) the files in your Drive, only so the TV can show your folders and play the videos, music and photos you pick. Files are streamed straight from Google to the TV and are not copied anywhere else; the sign-in token stays encrypted on the TV. Remove the account in the app, or the access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>, to stop.</p>
-<p>One TV Launcher's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Google user data is not used for advertising, is not sold, is not shared with third parties and is not used to train AI models.</p>
+<p>Sofaly's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Google user data is not used for advertising, is not sold, is not shared with third parties and is not used to train AI models.</p>
 
 <h2>Online services the app contacts</h2>
 <p>To work, the app talks directly to some public services. They receive the requests your TV makes (including its IP address) under their own privacy policies:</p>
@@ -50,10 +59,19 @@
 <hr>
 <div lang="pt-BR" id="pt">
 <h1>Política de Privacidade</h1>
-<p class="data">Atualizada em 14 de novembro de 2026</p>
+<p class="data">Atualizada em 24 de novembro de 2026</p>
 
 <h2>Em resumo</h2>
-<p>O One TV Launcher não tem servidor próprio. Os desenvolvedores não recebem, guardam nem vendem nenhum dado seu, e o app não tem anúncios, análise de uso nem telemetria. Tudo o que o app guarda fica na sua TV, ou em contas que são suas (como o seu próprio Google Drive) quando você escolhe conectá-las.</p>
+<p>A Sofaly não pede conta, não mostra anúncios e não rastreia o que você assiste. Não há análise de uso nem telemetria, e seus dados nunca são vendidos. Um serviço pequeno nosso, o api.sofaly.tv, só repassa alguns pedidos a fornecedores cuja chave não pode ir dentro do app (veja abaixo). Tudo o que o app guarda fica na sua TV, ou em contas que são suas (como o seu próprio Google Drive) quando você escolhe conectá-las.</p>
+
+<h2>O serviço da Sofaly (api.sofaly.tv)</h2>
+<p>Ele existe para o app usar fornecedores cuja chave não pode ficar dentro de um app. Recebe o pedido e o endereço IP da TV, nunca uma conta ou um nome, e não guarda quem pediu:</p>
+<ul>
+<li>Busca de podcasts e “em alta”: as palavras buscadas, repassadas ao Podcast Index.</li>
+<li>Texto e resumo de podcasts: o áudio de podcasts públicos, processado pela Cloudflare Workers AI, que não guarda o pedido.</li>
+<li>Clima do plano Pro: a sua localização arredondada a cerca de 11 km, repassada à WeatherAPI.com. A resposta fica guardada por lugar, não por TV, por até 30 minutos.</li>
+<li>A lista de add-ons recomendados e o add-on de filmes de domínio público da Sofaly (links para o Internet Archive).</li>
+</ul>
 
 <h2>Dados guardados na TV</h2>
 <p>Suas configurações, ordem dos apps, despertadores, lembretes, rotinas, PINs (guardados como hash com sal), contas de mídia que você adiciona (IPTV, Plex, Jellyfin, Home Assistant e similares) e backups locais ficam na TV. Você os apaga limpando os dados do app ou desinstalando-o.</p>
@@ -67,7 +85,7 @@
 <li><b>Como parar:</b> desconecte a conta nas configurações do app ou remova o acesso em <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Os backups que já estão no Drive ficam lá até você apagá-los.</li>
 </ul>
 <p><b>Google Drive como fonte de vídeos (opcional):</b> se você adicionar o Google Drive em “Na rede”, o app pede <code>https://www.googleapis.com/auth/drive.readonly</code>, que deixa listar e ler (nunca alterar nem apagar) os arquivos do seu Drive, só para a TV mostrar as suas pastas e tocar os vídeos, músicas e fotos que você escolher. Os arquivos vêm direto do Google para a TV e não são copiados para nenhum outro lugar; o token de acesso fica cifrado na TV. Para parar, remova a conta no app ou o acesso em <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</p>
-<p>O uso e a transferência, pelo One TV Launcher, de informações recebidas das APIs do Google seguem a <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Dados do Usuário dos Serviços de API do Google</a>, incluindo os requisitos de Uso Limitado. Dados de usuário do Google não são usados para publicidade, não são vendidos, não são compartilhados com terceiros e não são usados para treinar modelos de IA.</p>
+<p>O uso e a transferência, pela Sofaly, de informações recebidas das APIs do Google seguem a <a href="https://developers.google.com/terms/api-services-user-data-policy">Política de Dados do Usuário dos Serviços de API do Google</a>, incluindo os requisitos de Uso Limitado. Dados de usuário do Google não são usados para publicidade, não são vendidos, não são compartilhados com terceiros e não são usados para treinar modelos de IA.</p>
 
 <h2>Serviços on-line que o app acessa</h2>
 <p>Para funcionar, o app fala diretamente com alguns serviços públicos. Eles recebem as requisições da sua TV (incluindo o endereço IP), sob as próprias políticas de privacidade:</p>

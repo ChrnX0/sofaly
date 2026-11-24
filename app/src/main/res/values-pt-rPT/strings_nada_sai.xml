@@ -3,5 +3,5 @@
 <resources>
     <string name="nsc_titulo">Os seus dados ficam consigo</string>
     <string name="nsc_det">Sem conta nossa, sem publicidade</string>
-    <string name="nsc_texto">Sem conta nossa, sem publicidade, sem registar a utilização.\n\nAs suas definições, fotos, recados e cópias de segurança ficam nesta TV, ou numa conta sua, se a ligar.\n\nA TV só fala com os serviços que ativar, como o tempo ou as capas dos filmes. Alguns passam pelo nosso servidor (api.sofaly.tv), como a pesquisa de podcasts; recados entre os seus aparelhos vão cifrados de ponta a ponta, e ele não os consegue ler. A política de privacidade no site lista cada um.</string>
+    <string name="nsc_texto">Sem conta nossa, sem publicidade, sem registar a utilização.\n\nAs suas definições, fotos, recados e cópias de segurança ficam nesta TV, ou numa conta sua, se a ligar.\n\nA TV só fala com os serviços que ativar, como o tempo ou as capas dos filmes. Alguns passam pelo nosso servidor (api.sofaly.tv), como a pesquisa de podcasts; ele recebe só o pedido, nunca uma conta sua. A política de privacidade no site lista cada um.</string>
 </resources>

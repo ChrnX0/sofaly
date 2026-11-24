@@ -7,7 +7,8 @@ Texto em inglês (o revisor lê em inglês); colar no campo "Notas para o reviso
 
 Sofaly is a home screen (launcher) for Google TV / Android TV, built for older and non-technical people: big letters,
 fewer buttons, and a family member can help from afar. Everything below is **off by default** and turned on by the
-person at the TV, with an on-screen explanation. No data is sent to us: we have no server.
+person at the TV, with an on-screen explanation. Sofaly has no user accounts, ads, analytics or telemetry. Our small API (api.sofaly.tv) only relays podcast search,
+podcast transcripts and Pro weather to their providers (keys stay server-side); it receives the request, never an account.
 
 **1. Accessibility service (`AccessibilityService`, declared with `isAccessibilityTool=false`)**
 - Why: Google TV's own launcher has a higher HOME priority than any third-party launcher, so the HOME button would

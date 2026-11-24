@@ -204,6 +204,12 @@ internal fun ConfigLauncherActivity.abaAvancado(c: LinearLayout) {
     c.addView(linha(getString(R.string.extras_titulo), getString(R.string.extras_cfg_det), seta = true) {
         startActivity(Intent(this, ExtrasActivity::class.java))
     }, lp())
+    // #38 do teste 100% (24/11/2026): as linhas do Extras moram em outra tela e não entravam na busca dos ajustes
+    // ("internet por app" não achava nada). Entram no índice marcadas como do Extras; o resultado abre o Extras nelas.
+    if (indexando >= 0) {
+        val onde = getString(R.string.extras_titulo)
+        ExtrasActivity.LINHAS_DA_BUSCA.forEach { indiceMontando += BuscaAjustes.Entrada(indexando, getString(it), onde, extras = true) }
+    }
     extrasDaAba(c, ExtrasAbas.Aba.SISTEMA, comSecao = false)
 
     confirmacoes(c)
