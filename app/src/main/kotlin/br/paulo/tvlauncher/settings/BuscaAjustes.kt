@@ -20,7 +20,8 @@ object BuscaAjustes {
     const val MAX_RECENTES = 8
     const val MAX_RESULTADOS = 12
 
-    data class Entrada(val aba: Int, val titulo: String, val detalhe: String)
+    /** [extras]: linha da tela Extras (ExtrasActivity, outra tela): o resultado abre o Extras com o foco nela. */
+    data class Entrada(val aba: Int, val titulo: String, val detalhe: String, val extras: Boolean = false)
     data class Recente(val aba: Int, val titulo: String, val em: Long)
 
     /** "letra,fonte,texto;wifi,rede,internet" -> grupos normalizados. */
