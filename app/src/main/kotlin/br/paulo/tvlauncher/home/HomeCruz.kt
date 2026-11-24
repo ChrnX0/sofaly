@@ -102,22 +102,24 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // ---- "Barra embaixo" (BottomBar, 23/11/2026; visual com referências do Mobbin: Quizlet/Tubi na categoria escolhida,
         // Hulu na barra de largura toda, Apple Music no título da linha com "›").
         const val BARRA_MARGEM = 48f     // das bordas da tela até a placa da barra
-        const val BARRA_BAIXO = 28f      // da borda de baixo até a placa
+        const val BARRA_BAIXO = 30f      // da borda de baixo até a placa (= ScreenGrid.MARGIN_Y)
         // 24/11/2026 (Paulo na Sala: "ficou horrivelmente gigante"): placa 132 -> 96 dp, ícone da categoria 84 -> 48 dp
         // (como as barras de baixo do Tubi e do Quizlet no Mobbin), apps 112 -> 80 dp o escolhido e 62 dp os outros.
         // 24/11/2026 v4 (Paulo mandou docas "harmoniosas" do Projectivy + "abusa do Mobbin"): placa vira CÁPSULA de vidro
         // com a escolhida numa pílula clara por dentro (barras flutuantes do Breathwrk, TIDE, CLEAR e Apple Games no Mobbin)
         // e os apps ficam numa bandeja de vidro própria, logo acima, em banners 16:9 (doca do Projectivy).
-        const val BARRA_PLACA_A = 76f    // altura da cápsula das categorias
-        const val BARRA_CAT_ICONE = 34   // ícone da categoria na cápsula (a cruz usa CAT_L x CAT_A)
-        const val BARRA_APPS_VAO = 14f   // da cápsula até a bandeja dos apps
-        const val BARRA_BANDEJA_PAD = 14f // respiro da bandeja em volta do app escolhido
+        // 24/11/2026 grade 12 x 8 ([br.paulo.tvlauncher.ScreenGrid]): cápsula = linha H inteira (60 dp); bandeja = linhas F e
+        // G menos 8 dp de vão até a cápsula; título "Assistir › App" na linha E; cada app ocupa 2 colunas (124 dp).
+        const val BARRA_PLACA_A = 60f    // altura da cápsula das categorias (1 linha da grade)
+        const val BARRA_CAT_ICONE = 28   // ícone da categoria na cápsula (a cruz usa CAT_L x CAT_A)
+        const val BARRA_APPS_VAO = 8f    // da bandeja até a cápsula
+        const val BARRA_BANDEJA_A = 112f // 2 linhas da grade menos o vão
         // Apps em retângulos de vidro (Paulo, 24/11/2026: "faça retângulos e usa glassmorfismo"; Mobbin: cartões de
         // categoria do Apple Games, barra de vidro do Ladder e do WHOOP, cartões de borda clara do How We Feel).
         const val BARRA_CARTAO_L = 200   // largura do cartão (altura = ICONE_A, 112): 16:9, o formato do banner de TV
-        const val BARRA_PASSO_APPS = 150f // entre os centros dos apps na linha
-        const val BARRA_ESCALA_SEL = 0.72f // app escolhido: 144 x 81 dp
-        const val BARRA_ESCALA_APP = 0.6f  // app fora da escolha: 120 x 67 dp
+        const val BARRA_PASSO_APPS = 148f // 2 colunas + 2 vãos da grade: um app a cada 2 colunas
+        const val BARRA_ESCALA_SEL = 0.68f // app escolhido: 136 x 76 dp (cresce 6 dp para cada lado do seu par de colunas)
+        const val BARRA_ESCALA_APP = 0.62f // app: 124 x 69 dp = exatamente 2 colunas
         const val BARRA_ALFA_APP = 0.75f
         const val BARRA_ALFA_CAT = 0.6f   // categoria não escolhida (a escolhida fica inteira, em branco)
         // ---- fontes (sp): tabela do estudo 32 / 20 / 16 / 18
@@ -311,7 +313,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         addView(bandeja, LayoutParams(dpi((TELA_L - 2 * BARRA_MARGEM).toInt()),
-            dpi((ICONE_A * BARRA_ESCALA_SEL + 2 * BARRA_BANDEJA_PAD).toInt())))
+            dpi(BARRA_BANDEJA_A.toInt())))
         realce = View(ctx).apply { visibility = View.GONE; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
         addView(realce, LayoutParams(dpi(150), dpi((BARRA_PLACA_A - 12f).toInt())))
         rotulo = TextView(ctx).apply {
@@ -971,7 +973,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val slot = largura / n
         val yPlaca = telaA() - BARRA_BAIXO - BARRA_PLACA_A
         placa.translationX = dp(BARRA_MARGEM); placa.translationY = dp(yPlaca)
-        val catTopo = yPlaca + (BARRA_PLACA_A - (BARRA_CAT_ICONE + 30f)) / 2f
+        val catTopo = yPlaca + (BARRA_PLACA_A - (BARRA_CAT_ICONE + 24f)) / 2f
         fun centro(j: Int) = BARRA_MARGEM + slot * (j + 0.5f)
         for ((j, v) in viewsCat.withIndex()) {
             val sel = j == f
@@ -987,7 +989,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // A escolhida: pílula clara dentro da cápsula (Breathwrk, TIDE e CLEAR no Mobbin); o anel laranja só com o foco
         // na cápsula (linha de apps fechada), a regra de foco do sistema.
         val rl = minOf(slot - 12f, 168f)
-        val ra = BARRA_PLACA_A - 12f
+        val ra = BARRA_PLACA_A - 8f
         (realce.layoutParams as LayoutParams).let {
             if (it.width != dpi(rl.toInt()) || it.height != dpi(ra.toInt())) { it.width = dpi(rl.toInt()); it.height = dpi(ra.toInt()); realce.layoutParams = it }
         }
@@ -996,15 +998,15 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             cornerRadius = dp(ra / 2f)
             if (anel) setStroke(dpi(3), Estilo.ACENTO) else setStroke(dpi(1), 0x26FFFFFF)
         }
-        mover(realce, dp(centro(f) - rl / 2f), dp(yPlaca + 6f), 1f, 1f, animar)
+        mover(realce, dp(centro(f) - rl / 2f), dp(yPlaca + 4f), 1f, 1f, animar)
         // A linha de apps: o pé do ícone escolhido fica BARRA_APPS_VAO acima da placa; todos com o centro na mesma altura.
         // O pivô do item é (0, meio do ícone), então a translação é o centro menos meio ícone (em tamanho cheio).
-        val meioSel = ICONE_A * BARRA_ESCALA_SEL / 2f
-        val centroApps = yPlaca - BARRA_APPS_VAO - BARRA_BANDEJA_PAD - meioSel
+        val topoBandeja = yPlaca - BARRA_APPS_VAO - BARRA_BANDEJA_A
+        val centroApps = topoBandeja + BARRA_BANDEJA_A / 2f
         bandeja.translationX = dp(BARRA_MARGEM)
-        bandeja.translationY = dp(centroApps - meioSel - BARRA_BANDEJA_PAD)
+        bandeja.translationY = dp(topoBandeja)
         val topoApps = centroApps - ICONE_A / 2f
-        val cabem = ((largura - 32f) / BARRA_PASSO_APPS).toInt().coerceAtLeast(1)
+        val cabem = br.paulo.tvlauncher.ScreenGrid.COLS / 2   // 6 apps, cada um num par de colunas
         for ((j, lista) in viewsItem.withIndex()) {
             val sel = estado.sel.getOrElse(j) { 0 }
             val aberta = naApps && j == f
@@ -1023,7 +1025,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
                 val escolhido = i == sel
                 val visivel = i - ini in 0 until cabem
                 val esc = if (escolhido) BARRA_ESCALA_SEL else BARRA_ESCALA_APP
-                val cx = BARRA_MARGEM + 16f + BARRA_PASSO_APPS * (i - ini + 0.5f)
+                val cx = br.paulo.tvlauncher.ScreenGrid.colX(2 * (i - ini) + 1) + br.paulo.tvlauncher.ScreenGrid.span(2) / 2f
                 // pivô do item = (0, meio do ícone): x é a borda esquerda do ícone já na escala
                 val alfa = if (!visivel) 0f else if (escolhido) (if (focada) 1f else ALFA_ESCOLHIDO_FORA) else BARRA_ALFA_APP
                 mover(iv.raiz, dp(cx - BARRA_CARTAO_L * esc / 2f), dp(topoApps), alfa, esc, animar, onda(kotlin.math.abs(i - sel)))
@@ -1038,8 +1040,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // porque o banner já traz o nome do app e um nome embaixo de cada cartão engordava a doca.
         val nomeSel = if (naApps) nomeEscolhido else ""
         tituloApps.text = cats.getOrNull(f)?.nome?.let { if (nomeSel.isNotEmpty()) "$it  ›  $nomeSel" else "$it  ›" }.orEmpty()
-        tituloApps.translationX = dp(BARRA_MARGEM + 12f)
-        tituloApps.translationY = dp(centroApps - meioSel - BARRA_BANDEJA_PAD - 38f)
+        // linha E da grade, encostado na coluna 1, pé do texto a 8 dp da bandeja
+        tituloApps.translationX = dp(br.paulo.tvlauncher.ScreenGrid.colX(1))
+        tituloApps.translationY = dp(topoBandeja) - (if (tituloApps.height > 0) tituloApps.height.toFloat() else dp(28f)) - dp(8f)
         val alvo = if (naApps) 1f else 0f
         for (v in listOf(tituloApps, bandeja)) {
             if (v.alpha == alvo) continue
