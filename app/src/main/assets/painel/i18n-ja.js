@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"テレビを完全にする機能をオンにします。HOMEボタンが常にここに戻る、アプリを隠す、すべての操作ができるパネル。各ボタンでテレビに正しい画面が開き、リモコンで確定すると電話が自動で次へ進みます。",
 "Tudo ligado. Toque em Continuar.":"すべてオン。「続ける」をタップ。",
 "Teclas do controle":"リモコンのボタン",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"テレビのユーザー補助一覧でOne TVを開き、オンにします。",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"テレビのユーザー補助一覧で“リモコンのボタン” (Sofaly)を開き、オンにします。",
 "Opções do desenvolvedor":"開発者向けオプション",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"テレビで「Android TV OS ビルド」まで下がり、OKを7回押します。",
 "Parear com a TV":"テレビとペア設定",

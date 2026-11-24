@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"Turns on what makes the TV complete: the HOME button always comes back here, hiding apps and the panel with every command. Each button opens the right screen on the TV; you confirm with the remote and the phone moves on by itself.",
 "Tudo ligado. Toque em Continuar.":"All on. Tap Continue.",
 "Teclas do controle":"Remote keys",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"On the TV, open One TV in the Accessibility list and turn it on.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"On the TV, open “Remote buttons” (Sofaly) in the Accessibility list and turn it on.",
 "Opções do desenvolvedor":"Developer options",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"On the TV, scroll down to \"Android TV OS build\" and press OK 7 times.",
 "Parear com a TV":"Pair with the TV",

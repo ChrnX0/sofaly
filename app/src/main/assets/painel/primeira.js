@@ -66,7 +66,7 @@ async function pularTvSeNaoExiste() {
 
 // ---- Modo completo: o que cada passo pede na TV (o texto acompanha a tela que abre lá).
 const PODERES = [
-  { id: 'teclas', nome: 'Teclas do controle', faz: 'Na TV, abra o One TV na lista da Acessibilidade e ligue.' },
+  { id: 'teclas', nome: 'Teclas do controle', faz: 'Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.' },
   { id: 'dev', nome: 'Opções do desenvolvedor', faz: 'Na TV, desça até "Build do Android TV" e aperte OK 7 vezes.' },
   { id: 'parear', nome: 'Parear com a TV', faz: 'Na TV, ligue "Depuração sem fio" e entre em "Parear dispositivo com código". A TV lê o código sozinha.' },
   { id: 'dono', nome: 'Dono do aparelho (opcional)', faz: 'Na TV, escolha "Tornar o launcher dono do aparelho" e confirme. A conta Google fica.' },

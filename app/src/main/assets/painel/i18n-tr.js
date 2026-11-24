@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"TV'yi eksiksiz yapan özellikleri açar: HOME tuşu hep buraya döner, uygulama gizleme ve tüm komutlarıyla panel. Her düğme TV'de doğru ekranı açar; kumandayla onaylarsınız ve telefon kendiliğinden ilerler.",
 "Tudo ligado. Toque em Continuar.":"Hepsi açık. Devam'a dokunun.",
 "Teclas do controle":"Kumanda tuşları",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"TV'de Erişilebilirlik listesinde One TV'yi açın ve etkinleştirin.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"TV'de Erişilebilirlik listesinde “Kumanda tuşları” (Sofaly) öğesini açın ve etkinleştirin.",
 "Opções do desenvolvedor":"Geliştirici seçenekleri",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"TV'de \"Android TV OS derlemesi\"ne kadar inin ve 7 kez OK'e basın.",
 "Parear com a TV":"TV ile eşleştir",

@@ -1165,7 +1165,7 @@ traduzirPainelCom({T:{
 "Liga o que deixa a TV completa: o botão HOME sempre volta para cá, esconder apps e o painel com todos os comandos. Cada botão abre a tela certa na TV; você confirma com o controle e o celular segue sozinho.":"Menyalakan yang membuat TV lengkap: tombol HOME selalu kembali ke sini, menyembunyikan aplikasi, dan panel dengan semua perintah. Tiap tombol membuka layar yang tepat di TV; Anda mengonfirmasi dengan remote dan ponsel lanjut sendiri.",
 "Tudo ligado. Toque em Continuar.":"Semua aktif. Ketuk Lanjut.",
 "Teclas do controle":"Tombol remote",
-"Na TV, abra o One TV na lista da Acessibilidade e ligue.":"Di TV, buka One TV di daftar Aksesibilitas dan aktifkan.",
+"Na TV, abra “Teclas do controle” (Sofaly) na lista da Acessibilidade e ligue.":"Di TV, buka “Tombol remote” (Sofaly) di daftar Aksesibilitas dan aktifkan.",
 "Opções do desenvolvedor":"Opsi developer",
 "Na TV, desça até \"Build do Android TV\" e aperte OK 7 vezes.":"Di TV, turun ke \"Build Android TV OS\" dan tekan OK 7 kali.",
 "Parear com a TV":"Pasangkan dengan TV",
