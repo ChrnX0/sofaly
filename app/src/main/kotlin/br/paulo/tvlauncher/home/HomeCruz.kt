@@ -1150,7 +1150,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun anunciar() {
         val c = categoriaAtual() ?: return
         val i = itemAtual() ?: return
-        contentDescription = listOf(c.nome, i.nome, i.situacao?.let { it.rotulo + " " + it.texto }.orEmpty(), i.sub, posicao.text.toString()).filter { it.isNotEmpty() }.joinToString(", ")
+        // As linhas do item sem o que a situação já diz, como na tela (o leitor falava "falta 1 h 36 min" duas vezes;
+        // teste 100%, 24/11/2026).
+        val linhas = CruzLogica.partes(i.sub, CruzLogica.tirarDoItem(i.situacao)).let { listOf(it.principal) + it.detalhes }.filter { it.isNotEmpty() }.joinToString("\n")
+        contentDescription = listOf(c.nome, i.nome, i.situacao?.let { it.rotulo + " " + it.texto }.orEmpty(), linhas, posicao.text.toString()).filter { it.isNotEmpty() }.joinToString(", ")
         if (isFocused) sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
     }
 

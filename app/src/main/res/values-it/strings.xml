@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">COSA CONTIENE</string>
     <string name="infantil_dica">OK segna o toglie la categoria per bambini · vale per TV in diretta, Film e Serie · INDIETRO esce (già salvato)</string>
     <string name="infantil_so_categoria">segna l’intera categoria nella colonna di sinistra</string>
-    <string name="infantil_vazio">nessuna categoria: aggiungi un account nella scheda Account e ricarica i canali</string>
+    <string name="infantil_vazio">nessuna categoria: aggiungi un account in Impostazioni › TV e film e ricarica i canali</string>
     <string name="infantil_limite">una categoria per adulti non può essere per bambini</string>
     <string name="infantil_resumo_ligado">%1$d di %2$d categorie per bambini · modalità bambini ATTIVA</string>
     <string name="infantil_resumo_desligado">%1$d di %2$d categorie per bambini · modalità bambini disattiva</string>
@@ -663,7 +663,7 @@ AS\\Film).</string>
     <string name="legenda_nenhuma">Nessun sottotitolo nella lingua della TV per questo video</string>
     <string name="legenda_erro">Impossibile cercare i sottotitoli</string>
     <string name="legenda_invalida">Il file scaricato non è un sottotitolo</string>
-    <string name="legenda_sem_conta">Aggiungi la tua chiave OpenSubtitles in Impostazioni > Account > Film e serie</string>
+    <string name="legenda_sem_conta">Aggiungi la tua chiave OpenSubtitles in Impostazioni › TV e film › Film e serie</string>
     <string name="legenda_escolher">Sottotitoli per «%1$s»</string>
     <string name="legenda_surdos">per non udenti</string>
     <string name="legenda_bate">fatto per questo file</string>
@@ -799,7 +799,7 @@ AS\\Film).</string>
     <string name="st_titulo">Chiavetta USB e memoria</string>
     <string name="st_explica">Scegli come la TV usa la chiavetta. Poco spazio? Può diventare memoria della TV per le app pesanti.</string>
     <string name="st_linha_det">Usare una chiavetta USB come memoria della TV</string>
-    <string name="st_sem_shell">Serve la shell interna della TV (Impostazioni > Avanzate). OK per riprovare.</string>
+    <string name="st_sem_shell">Serve la shell interna della TV (Impostazioni › Avanzate). OK per riprovare.</string>
     <string name="st_sem_pen">Nessuna chiavetta collegata. Collegane una e premi OK.</string>
     <string name="st_tv_livre">Memoria della TV: %1$s liberi su %2$s</string>
     <string name="st_pen">Chiavetta USB · %1$s · %2$s</string>

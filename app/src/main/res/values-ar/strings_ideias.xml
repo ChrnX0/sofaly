@@ -36,7 +36,7 @@
     <string name="dono_usuarios">سيُزال أيضًا المستخدمون الإضافيون على التلفزيون، مع بياناتهم: %s.</string>
     <string name="dono_ok">اجعله مالكًا</string>
     <string name="dono_andando">جارٍ جعل المشغّل مالكًا… (حتى دقيقة)</string>
-    <string name="dono_sem_shell">الصدفة الخاصة لم تستجب. أقرنها في الإعدادات > صدفة المشغّل.</string>
+    <string name="dono_sem_shell">الصدفة الخاصة لم تستجب. أقرنها في الإعدادات › متقدم › صدفة المشغّل.</string>
     <string name="bv_dev">تفعيل خيارات المطوّر</string>
     <string name="bv_dev_det">في حول، انزل إلى "Android TV OS build" واضغط OK سبع مرات. ثم عد إلى هنا.</string>
     <string name="bv_parear">إقران المشغّل بالتلفزيون</string>

@@ -26,7 +26,7 @@
     <plurals name="elv_quedas"><item quantity="one">%1$d queda ou travada em %2$d dias</item><item quantity="other">%1$d quedas ou travadas em %2$d dias</item></plurals>
     <string name="elv_lp_titulo">Medir antes e depois</string>
     <string name="elv_lp_det_antes">Mede a memória livre e quanto as 3 apps mais usadas demoram a abrir, antes de limpar. Abrem durante alguns segundos.</string>
-    <string name="elv_lp_det_depois">O antes está guardado. Oculte as apps acima e prima OK para medir o depois.</string>
+    <string name="elv_lp_det_depois">O antes está guardado. Esconda as apps acima e prima OK para medir o depois.</string>
     <string name="elv_lp_medindo">A medir… as apps podem abrir durante alguns segundos</string>
     <string name="elv_lp_mais_livre">%1$d MB livres a mais</string>
     <string name="elv_lp_menos_livre">%1$d MB livres a menos</string>

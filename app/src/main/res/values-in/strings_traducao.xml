@@ -152,7 +152,7 @@
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serial · %1$s</string>
     <string name="bc_nao_gravou">tidak bisa menyimpan · coba lagi</string>
-    <string name="bc_nenhum_canal">tidak ada saluran: tambahkan akun di tab Akun dan gunakan \"Uji dan muat ulang saluran\"</string>
+    <string name="bc_nenhum_canal">tidak ada saluran: tambahkan akun di Setelan › TV dan film dan gunakan \"Uji dan muat ulang saluran\"</string>
     <string name="bc_limite">batas blokir tercapai</string>
     <string name="bc_parental_on">kontrol orang tua AKTIF</string>
     <string name="bc_parental_off">kontrol orang tua nonaktif (pemblokiran baru berlaku setelah Anda mengaktifkannya)</string>

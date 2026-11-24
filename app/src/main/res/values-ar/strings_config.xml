@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">انتهى منذ %1$d يومًا</string>
     <string name="cl_ci_formato_data">d MMM yyyy</string>
     <string name="cl_vd_ja_dono">المشغّل هو مالك الجهاز بالفعل</string>
-    <string name="cl_vd_sem_shell">الصدفة المدمجة لم تستجب (أقرنها في الإعدادات &gt; صدفة المشغّل)</string>
+    <string name="cl_vd_sem_shell">الصدفة المدمجة لم تستجب (أقرنها في الإعدادات › متقدم › صدفة المشغّل)</string>
     <string name="cl_vd_usuario">لم يسمح Android بإزالة المستخدم %1$s</string>
     <string name="cl_vd_mudou">تغيّر مستخدمو التلفزيون بعد التأكيد (الآن: %1$s). لم تتم إزالة أي شيء؛ ابدأ من جديد.</string>
     <string name="cl_vd_google">لم يسمح Android بإيقاف Google مؤقتًا للحظة</string>

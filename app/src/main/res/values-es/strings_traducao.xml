@@ -152,7 +152,7 @@
     <string name="bc_filme">Película · %1$s</string>
     <string name="bc_serie">Serie · %1$s</string>
     <string name="bc_nao_gravou">no se pudo guardar · inténtalo de nuevo</string>
-    <string name="bc_nenhum_canal">sin canales: agrega una cuenta en la pestaña Cuenta y usa \"Probar y recargar canales\"</string>
+    <string name="bc_nenhum_canal">sin canales: agrega una cuenta en Ajustes › TV y películas y usa \"Probar y recargar canales\"</string>
     <string name="bc_limite">se alcanzó el límite de bloqueos</string>
     <string name="bc_parental_on">control parental ACTIVADO</string>
     <string name="bc_parental_off">control parental desactivado (el bloqueo solo vale después de activarlo)</string>

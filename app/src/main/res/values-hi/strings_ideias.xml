@@ -36,7 +36,7 @@
     <string name="dono_usuarios">TV के अतिरिक्त उपयोगकर्ता भी उनके डेटा के साथ हटा दिए जाएँगे: %s।</string>
     <string name="dono_ok">ओनर बनाएँ</string>
     <string name="dono_andando">लॉन्चर को ओनर बनाया जा रहा है… (1 मिनट तक)</string>
-    <string name="dono_sem_shell">अपने शेल ने जवाब नहीं दिया। सेटिंग्स &gt; लॉन्चर शेल में पेयर करें।</string>
+    <string name="dono_sem_shell">अपने शेल ने जवाब नहीं दिया। सेटिंग्स › उन्नत › लॉन्चर शेल में पेयर करें।</string>
     <string name="bv_dev">डेवलपर विकल्प चालू करें</string>
     <string name="bv_dev_det">जानकारी में “Android TV OS बिल्ड” तक नीचे जाएँ और OK 7 बार दबाएँ। फिर यहाँ लौटें।</string>
     <string name="bv_parear">लॉन्चर को TV से पेयर करें</string>

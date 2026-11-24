@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">इसमें क्या है</string>
     <string name="infantil_dica">OK से श्रेणी को बच्चों की चिह्नित/अचिह्नित करें · लाइव TV, फ़िल्मों और सीरीज़ पर लागू · BACK बाहर (सेव हो चुका)</string>
     <string name="infantil_so_categoria">बाएँ कॉलम में पूरी श्रेणी चिह्नित करें</string>
-    <string name="infantil_vazio">कोई श्रेणी नहीं: खाता टैब में खाता जोड़ें और चैनल फिर लोड करें</string>
+    <string name="infantil_vazio">कोई श्रेणी नहीं: सेटिंग्स › TV और फ़िल्में में खाता जोड़ें और चैनल फिर लोड करें</string>
     <string name="infantil_limite">वयस्क श्रेणी बच्चों की श्रेणी नहीं हो सकती</string>
     <string name="infantil_resumo_ligado">%2$d में से %1$d श्रेणियाँ बच्चों की चिह्नित · बच्चों का मोड चालू</string>
     <string name="infantil_resumo_desligado">%2$d में से %1$d श्रेणियाँ बच्चों की चिह्नित · बच्चों का मोड बंद</string>
@@ -663,7 +663,7 @@ AS\\Movies)।</string>
     <string name="legenda_nenhuma">इस वीडियो के लिए TV की भाषा में सबटाइटल नहीं</string>
     <string name="legenda_erro">सबटाइटल खोजे नहीं जा सके</string>
     <string name="legenda_invalida">डाउनलोड की गई फ़ाइल सबटाइटल नहीं है</string>
-    <string name="legenda_sem_conta">सेटिंग्स &gt; खाता &gt; फ़िल्में और सीरीज़ में अपनी OpenSubtitles कुंजी जोड़ें</string>
+    <string name="legenda_sem_conta">सेटिंग्स › TV और फ़िल्में › फ़िल्में और सीरीज़ में अपनी OpenSubtitles कुंजी जोड़ें</string>
     <string name="legenda_escolher">“%1$s” के सबटाइटल</string>
     <string name="legenda_surdos">श्रवण-बाधितों के लिए</string>
     <string name="legenda_bate">इसी फ़ाइल के लिए</string>
@@ -799,7 +799,7 @@ AS\\Movies)।</string>
     <string name="st_titulo">USB ड्राइव और स्टोरेज</string>
     <string name="st_explica">चुनें कि टीवी USB ड्राइव का कैसे उपयोग करे। जगह कम है? यह भारी ऐप्स के लिए टीवी स्टोरेज बन सकती है।</string>
     <string name="st_linha_det">USB ड्राइव को टीवी स्टोरेज बनाएं</string>
-    <string name="st_sem_shell">टीवी का अपना शेल चाहिए (सेटिंग्स > उन्नत)। फिर से कोशिश के लिए OK।</string>
+    <string name="st_sem_shell">टीवी का अपना शेल चाहिए (सेटिंग्स › उन्नत)। फिर से कोशिश के लिए OK।</string>
     <string name="st_sem_pen">कोई USB ड्राइव नहीं लगी। एक लगाएं और OK दबाएं।</string>
     <string name="st_tv_livre">टीवी स्टोरेज: %2$s में से %1$s खाली</string>
     <string name="st_pen">USB ड्राइव · %1$s · %2$s</string>

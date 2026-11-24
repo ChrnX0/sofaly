@@ -346,6 +346,9 @@ class ColunaCategorias(
         }
         p.etiqueta.visibility = if (l.etiqueta.isEmpty()) View.GONE else View.VISIBLE
         p.etiqueta.text = l.etiqueta
+        // Com etiqueta (lista do MDBList, Trakt...) o nome é uma frase: corte no FIM ("100% on Rot…"), não no meio
+        // ("100%….com", teste 100% 24/11/2026). O corte no meio fica para as categorias da lista ("… - Dublado").
+        p.nome.ellipsize = if (l.etiqueta.isEmpty()) TextUtils.TruncateAt.MIDDLE else TextUtils.TruncateAt.END
         p.novos.visibility = if (l.novos > 0) View.VISIBLE else View.GONE
         if (l.novos > 0) p.novos.text = act.getString(R.string.coluna_novos, milhar(l.novos))
         p.numero.text = when { l.detalhe.isNotEmpty() -> l.detalhe; l.quantos < 0 -> ""; else -> milhar(l.quantos) }

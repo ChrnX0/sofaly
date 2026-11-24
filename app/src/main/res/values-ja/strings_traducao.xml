@@ -152,7 +152,7 @@
     <string name="bc_filme">映画 · %1$s</string>
     <string name="bc_serie">シリーズ · %1$s</string>
     <string name="bc_nao_gravou">保存できませんでした · もう一度お試しください</string>
-    <string name="bc_nenhum_canal">チャンネルがありません: 「アカウント」タブでアカウントを追加し、「テストしてチャンネルを再読み込み」を使ってください</string>
+    <string name="bc_nenhum_canal">チャンネルがありません: 設定 › TV と映画 でアカウントを追加し、「テストしてチャンネルを再読み込み」を使ってください</string>
     <string name="bc_limite">ブロックの上限に達しました</string>
     <string name="bc_parental_on">ペアレンタルコントロール オン</string>
     <string name="bc_parental_off">ペアレンタルコントロール オフ（ブロックはオンにしてから有効になります）</string>

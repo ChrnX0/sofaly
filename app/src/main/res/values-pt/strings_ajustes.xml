@@ -29,7 +29,7 @@
     <string name="pb_dns">DNS</string>
     <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
     <string name="cfg2_aba_inicio">Tela inicial</string>
-    <string name="cfg2_aba_inicio_det">Tema, apps ocultos, painel rápido e clima</string>
+    <string name="cfg2_aba_inicio_det">Tema, apps escondidos, painel rápido e clima</string>
     <string name="cfg2_aba_familia">Família</string>
     <string name="cfg2_aba_familia_det">Controle parental, PIN das crianças, hora de dormir e visitas</string>
     <string name="cfg2_aba_casa">Casa e automações</string>
@@ -46,14 +46,14 @@
     <string name="cfg2_some_visita">some na visita</string>
     <string name="cfg2_fica_visita">fica</string>
     <string name="cfg2_casa_det">Luzes, tomadas e cenas do Google Home ou do Home Assistant</string>
-    <string name="oc_titulo">Apps ocultos</string>
-    <string name="oc_subtitulo">OK mostra ou esconde o app na tela inicial · os ocultos vêm primeiro</string>
-    <string name="oc_nenhum">Nenhum app oculto · OK para escolher</string>
-    <string name="oc_quantos">Ocultos: %1$d · OK para mostrar de volta</string>
-    <string name="oc_oculto">oculto</string>
+    <string name="oc_titulo">Apps escondidos</string>
+    <string name="oc_subtitulo">OK mostra ou esconde o app na tela inicial · os escondidos vêm primeiro</string>
+    <string name="oc_nenhum">Nenhum app escondido · OK para escolher</string>
+    <string name="oc_quantos">Escondidos: %1$d · OK para mostrar de volta</string>
+    <string name="oc_oculto">escondido</string>
     <string name="oc_aparece">na tela inicial</string>
-    <string name="oc_aviso_titulo">App oculto</string>
-    <string name="oc_aviso">Para mostrar de volta: Configurações › Tela inicial › Apps ocultos</string>
+    <string name="oc_aviso_titulo">App escondido</string>
+    <string name="oc_aviso">Para mostrar de volta: Configurações › Tela inicial › Apps escondidos</string>
     <string name="extras_LER_FOCO">Ler em voz alta o que está em foco, em todas as telas do launcher</string>
     <!-- Ideia 44: sugestões -->
     <string name="sug_desligar_titulo">Desligar a TV sozinha?</string>
@@ -84,8 +84,8 @@
     <string name="fm_ajuste_det">Vale para o Meu fundo. OK muda o degrau.</string>
     <string name="vp_titulo">Vindo do Projectivy?</string>
     <string name="vp_texto">Quatro passos trazem o seu jeito em cerca de um minuto. Cada um pode ser feito depois nas Configurações.</string>
-    <string name="vp_cfg_det">Traga apps ocultos, pacote de ícones e fundo do Projectivy.</string>
-    <string name="vp_1">1. Apps ocultos</string>
+    <string name="vp_cfg_det">Traga apps escondidos, pacote de ícones e fundo do Projectivy.</string>
+    <string name="vp_1">1. Apps escondidos</string>
     <string name="vp_1_det">Marque os apps que você tinha escondido. Para mudar a ordem, segure OK num app na tela inicial.</string>
     <string name="vp_2">2. Pacote de ícones</string>
     <string name="vp_2_det">Os mesmos pacotes de ícones do Projectivy funcionam aqui.</string>

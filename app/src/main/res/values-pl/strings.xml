@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">CO ZAWIERA</string>
     <string name="infantil_dica">OK oznacza lub odznacza kategorię jako dziecięcą · dotyczy Telewizji na żywo, Filmów i Seriali · WSTECZ wychodzi (już zapisane)</string>
     <string name="infantil_so_categoria">oznacz całą kategorię w lewej kolumnie</string>
-    <string name="infantil_vazio">brak kategorii: dodaj konto w zakładce Konto i wczytaj kanały ponownie</string>
+    <string name="infantil_vazio">brak kategorii: dodaj konto w Ustawienia › TV i filmy i wczytaj kanały ponownie</string>
     <string name="infantil_limite">kategoria dla dorosłych nie może być dziecięca</string>
     <string name="infantil_resumo_ligado">%1$d z %2$d kategorii oznaczonych jako dziecięce · tryb dziecięcy WŁ.</string>
     <string name="infantil_resumo_desligado">%1$d z %2$d kategorii oznaczonych jako dziecięce · tryb dziecięcy wył.</string>
@@ -663,7 +663,7 @@ AS\\Filmy).</string>
     <string name="legenda_nenhuma">Brak napisów w języku telewizora dla tego wideo</string>
     <string name="legenda_erro">Nie udało się wyszukać napisów</string>
     <string name="legenda_invalida">Pobrany plik nie jest napisami</string>
-    <string name="legenda_sem_conta">Dodaj klucz OpenSubtitles w Ustawienia > Konto > Filmy i seriale</string>
+    <string name="legenda_sem_conta">Dodaj klucz OpenSubtitles w Ustawienia › TV i filmy › Filmy i seriale</string>
     <string name="legenda_escolher">Napisy do „%1$s”</string>
     <string name="legenda_surdos">dla niesłyszących</string>
     <string name="legenda_bate">do tego pliku</string>
@@ -805,7 +805,7 @@ AS\\Filmy).</string>
     <string name="st_titulo">Pendrive i pamięć</string>
     <string name="st_explica">Wybierz, jak telewizor używa pendrive\'a. Brak miejsca? Może stać się pamięcią telewizora na duże aplikacje.</string>
     <string name="st_linha_det">Użyj pendrive\'a jako pamięci telewizora</string>
-    <string name="st_sem_shell">Wymaga własnej powłoki telewizora (Ustawienia > Zaawansowane). OK, aby spróbować ponownie.</string>
+    <string name="st_sem_shell">Wymaga własnej powłoki telewizora (Ustawienia › Zaawansowane). OK, aby spróbować ponownie.</string>
     <string name="st_sem_pen">Brak pendrive\'a. Podłącz go i naciśnij OK.</string>
     <string name="st_tv_livre">Pamięć telewizora: %1$s wolne z %2$s</string>
     <string name="st_pen">Pendrive · %1$s · %2$s</string>

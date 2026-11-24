@@ -9,8 +9,8 @@
     <string name="wo_a_mao">À minha maneira</string>
     <string name="wo_renomear_mundo">Mudar o nome da categoria</string>
     <string name="wo_icone_mundo">Mudar o ícone da categoria</string>
-    <string name="wo_esconder">Ocultar a categoria</string>
-    <string name="wo_mostrar">Mostrar categorias ocultas (%1$d)</string>
+    <string name="wo_esconder">Esconder a categoria</string>
+    <string name="wo_mostrar">Mostrar categorias escondidas (%1$d)</string>
     <string name="wo_padrao">Repor o padrão</string>
     <string name="wo_subir">Subir</string>
     <string name="wo_descer">Descer</string>
@@ -23,7 +23,7 @@
     <string name="wo_com_nome_curto">Com nome</string>
     <string name="co_titulo">Continuar</string>
     <string name="co_mostrar">Visível</string>
-    <string name="co_esconder">Oculto</string>
+    <string name="co_esconder">Escondido</string>
     <string name="wo_nomes_det">O nome por baixo do ícone de cada categoria, ou só o ícone</string>
     <string name="co_det">O que ficou a meio, no topo de cada categoria</string>
     <string name="tec_cfg_det">Toque, manter premido, duplo e triplo em cada botão</string>

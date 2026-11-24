@@ -36,7 +36,7 @@
     <string name="dono_usuarios">TV의 추가 사용자도 데이터와 함께 삭제됩니다: %s.</string>
     <string name="dono_ok">소유자로 설정</string>
     <string name="dono_andando">런처를 소유자로 설정하는 중…(최대 1분)</string>
-    <string name="dono_sem_shell">자체 셸이 응답하지 않았습니다. 설정 &gt; 런처 셸에서 페어링하세요.</string>
+    <string name="dono_sem_shell">자체 셸이 응답하지 않았습니다. 설정 › 고급 › 런처 셸에서 페어링하세요.</string>
     <string name="bv_dev">개발자 옵션 켜기</string>
     <string name="bv_dev_det">정보에서 ‘Android TV OS 빌드’로 내려가 OK를 7번 누르세요. 그런 다음 여기로 돌아오세요.</string>
     <string name="bv_parear">런처와 TV 페어링</string>

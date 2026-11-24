@@ -152,7 +152,7 @@
     <string name="bc_filme">영화 · %1$s</string>
     <string name="bc_serie">시리즈 · %1$s</string>
     <string name="bc_nao_gravou">저장할 수 없음 · 다시 시도하세요</string>
-    <string name="bc_nenhum_canal">채널 없음: 계정 탭에서 계정을 추가하고 ‘테스트 및 채널 다시 불러오기’를 사용하세요</string>
+    <string name="bc_nenhum_canal">채널 없음: 설정 › TV 및 영화에서 계정을 추가하고 ‘테스트 및 채널 다시 불러오기’를 사용하세요</string>
     <string name="bc_limite">차단 한도에 도달함</string>
     <string name="bc_parental_on">자녀 보호 켜짐</string>
     <string name="bc_parental_off">자녀 보호 꺼짐(켜야 차단이 적용됨)</string>

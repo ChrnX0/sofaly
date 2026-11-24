@@ -176,7 +176,7 @@
     <string name="bc_filme">Filme · %1$s</string>
     <string name="bc_serie">Série · %1$s</string>
     <string name="bc_nao_gravou">não consegui gravar · tente de novo</string>
-    <string name="bc_nenhum_canal">nenhum canal: cadastre uma conta na aba Conta e use \"Testar e recarregar canais\"</string>
+    <string name="bc_nenhum_canal">nenhum canal: cadastre uma conta em Configurações › TV e filmes e use \"Testar e recarregar canais\"</string>
     <string name="bc_limite">limite de bloqueios atingido</string>
     <string name="bc_parental_on">controle parental LIGADO</string>
     <string name="bc_parental_off">controle parental desligado (o bloqueio só vale depois de ligar)</string>

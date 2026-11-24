@@ -7,7 +7,7 @@
     <string name="cruz_jogar">Jogar</string>
     <string name="cruz_aplicativos">Aplicações</string>
     <string name="cruz_todos_apps">Todas as apps</string>
-    <string name="cruz_todos_apps_sub">Ver, mover e ocultar as apps</string>
+    <string name="cruz_todos_apps_sub">Ver, mover e esconder as apps</string>
     <string name="cruz_radio">Rádio</string>
     <string name="cruz_radio_sub">Rádios do mundo inteiro</string>
     <string name="cruz_filme">Filme</string>
@@ -66,7 +66,7 @@
     <string name="jogos_min">%1$d min</string>
     <string name="jogos_h_min">%1$d h %2$d min</string>
     <string name="cruz_apps_icone">Ícones dos apps</string>
-    <string name="cruz_apps_icone_det">Como os apps aparecem na tela inicial</string>
+    <string name="cruz_apps_icone_det">Como os apps aparecem no ecrã inicial</string>
     <string name="cruz_app_banner">Banner de TV</string>
     <string name="cruz_app_redondo">Redondo</string>
     <string name="cruz_app_solto">Só o símbolo</string>

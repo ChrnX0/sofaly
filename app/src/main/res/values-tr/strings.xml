@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">İÇİNDEKİLER</string>
     <string name="infantil_dica">OK kategoriyi çocuk için işaretler veya kaldırır · Canlı TV, Filmler ve Diziler için geçerli · GERİ çıkar (zaten kaydedildi)</string>
     <string name="infantil_so_categoria">sol sütunda tüm kategoriyi işaretleyin</string>
-    <string name="infantil_vazio">kategori yok: Hesap sekmesinde hesap ekleyin ve kanalları yeniden yükleyin</string>
+    <string name="infantil_vazio">kategori yok: Ayarlar › TV ve filmler içinde hesap ekleyin ve kanalları yeniden yükleyin</string>
     <string name="infantil_limite">yetişkin kategorisi çocuk kategorisi olamaz</string>
     <string name="infantil_resumo_ligado">%2$d kategoriden %1$d tanesi çocuk için işaretli · çocuk modu AÇIK</string>
     <string name="infantil_resumo_desligado">%2$d kategoriden %1$d tanesi çocuk için işaretli · çocuk modu kapalı</string>
@@ -663,7 +663,7 @@ AS\\Filmler).</string>
     <string name="legenda_nenhuma">Bu video için TV dilinde altyazı yok</string>
     <string name="legenda_erro">Altyazı aranamadı</string>
     <string name="legenda_invalida">İndirilen dosya bir altyazı değil</string>
-    <string name="legenda_sem_conta">OpenSubtitles anahtarınızı Ayarlar > Hesap > Filmler ve diziler’e ekleyin</string>
+    <string name="legenda_sem_conta">OpenSubtitles anahtarınızı Ayarlar › TV ve filmler › Filmler ve diziler’e ekleyin</string>
     <string name="legenda_escolher">«%1$s» için altyazı</string>
     <string name="legenda_surdos">işitme engelli</string>
     <string name="legenda_bate">bu dosya için</string>
@@ -799,7 +799,7 @@ AS\\Filmler).</string>
     <string name="st_titulo">USB bellek ve depolama</string>
     <string name="st_explica">TV\'nin USB belleği nasıl kullanacağını seçin. Yer mi az? Ağır uygulamalar için TV belleği olabilir.</string>
     <string name="st_linha_det">USB belleği TV depolaması olarak kullan</string>
-    <string name="st_sem_shell">TV\'nin kendi kabuğu gerekli (Ayarlar > Gelişmiş). Tekrar denemek için OK.</string>
+    <string name="st_sem_shell">TV\'nin kendi kabuğu gerekli (Ayarlar › Gelişmiş). Tekrar denemek için OK.</string>
     <string name="st_sem_pen">USB bellek takılı değil. Birini takıp OK\'a basın.</string>
     <string name="st_tv_livre">TV belleği: %2$s içinde %1$s boş</string>
     <string name="st_pen">USB bellek · %1$s · %2$s</string>

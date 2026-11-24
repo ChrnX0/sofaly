@@ -152,7 +152,7 @@
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serial · %1$s</string>
     <string name="bc_nao_gravou">nie udało się zapisać · spróbuj ponownie</string>
-    <string name="bc_nenhum_canal">brak kanałów: dodaj konto w zakładce Konto i naciśnij „Testuj i wczytaj kanały ponownie”</string>
+    <string name="bc_nenhum_canal">brak kanałów: dodaj konto w Ustawienia › TV i filmy i naciśnij „Testuj i wczytaj kanały ponownie”</string>
     <string name="bc_limite">osiągnięto limit blokad</string>
     <string name="bc_parental_on">kontrola rodzicielska WŁ.</string>
     <string name="bc_parental_off">kontrola rodzicielska wył. (blokada działa dopiero po włączeniu)</string>

@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">ما تحتويه</string>
     <string name="infantil_dica">OK يحدد الفئة للأطفال أو يلغي تحديدها · تُطبَّق على التلفزيون المباشر والأفلام والمسلسلات · BACK يخرج (محفوظ بالفعل)</string>
     <string name="infantil_so_categoria">حدّد الفئة بالكامل في العمود الأيسر</string>
-    <string name="infantil_vazio">لا فئات: أضف حسابًا في تبويب الحساب وأعد تحميل القنوات</string>
+    <string name="infantil_vazio">لا فئات: أضف حسابًا في الإعدادات › التلفزيون والأفلام وأعد تحميل القنوات</string>
     <string name="infantil_limite">لا يمكن أن تكون فئة البالغين فئة للأطفال</string>
     <string name="infantil_resumo_ligado">%1$d من %2$d فئات محددة للأطفال · وضع الأطفال مفعّل</string>
     <string name="infantil_resumo_desligado">%1$d من %2$d فئات محددة للأطفال · وضع الأطفال متوقف</string>
@@ -663,7 +663,7 @@ AS\\Movies).</string>
     <string name="legenda_nenhuma">لا توجد ترجمة بلغة التلفزيون لهذا الفيديو</string>
     <string name="legenda_erro">تعذّر البحث عن ترجمة</string>
     <string name="legenda_invalida">الملف الذي نُزّل ليس ترجمة</string>
-    <string name="legenda_sem_conta">أضف مفتاح OpenSubtitles في الإعدادات > الحساب > أفلام ومسلسلات</string>
+    <string name="legenda_sem_conta">أضف مفتاح OpenSubtitles في الإعدادات › التلفزيون والأفلام › أفلام ومسلسلات</string>
     <string name="legenda_escolher">ترجمة لـ\"%1$s\"</string>
     <string name="legenda_surdos">لضعاف السمع</string>
     <string name="legenda_bate">مصممة لهذا الملف</string>
@@ -811,7 +811,7 @@ AS\\Movies).</string>
     <string name="st_titulo">ذاكرة USB والتخزين</string>
     <string name="st_explica">اختر كيف يستخدم التلفزيون ذاكرة USB. المساحة قليلة؟ يمكن أن تصبح تخزينًا للتلفزيون للتطبيقات الكبيرة.</string>
     <string name="st_linha_det">استخدام ذاكرة USB كتخزين للتلفزيون</string>
-    <string name="st_sem_shell">يحتاج إلى الصدفة الخاصة بالتلفزيون (الإعدادات > متقدم). OK للمحاولة مجددًا.</string>
+    <string name="st_sem_shell">يحتاج إلى الصدفة الخاصة بالتلفزيون (الإعدادات › متقدم). OK للمحاولة مجددًا.</string>
     <string name="st_sem_pen">لا توجد ذاكرة USB. وصّل واحدة واضغط OK.</string>
     <string name="st_tv_livre">تخزين التلفزيون: %1$s متاحة من %2$s</string>
     <string name="st_pen">ذاكرة USB · %1$s · %2$s</string>

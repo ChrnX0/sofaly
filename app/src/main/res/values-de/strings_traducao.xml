@@ -152,7 +152,7 @@
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serie · %1$s</string>
     <string name="bc_nao_gravou">konnte nicht speichern · versuch es erneut</string>
-    <string name="bc_nenhum_canal">keine Sender: füge im Tab Konto ein Konto hinzu und nutze „Sender testen und neu laden“</string>
+    <string name="bc_nenhum_canal">keine Sender: füge unter Einstellungen › TV und Filme ein Konto hinzu und nutze „Sender testen und neu laden“</string>
     <string name="bc_limite">Sperrlimit erreicht</string>
     <string name="bc_parental_on">Kindersicherung AN</string>
     <string name="bc_parental_off">Kindersicherung aus (die Sperre wirkt erst, wenn du sie einschaltest)</string>

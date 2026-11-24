@@ -3,7 +3,7 @@
 <resources>
     <string name="desf_diario">Mudança (%1$s): %2$s</string>
     <string name="desf_diario_desfeito">Desfeito: %1$s</string>
-    <string name="desf_ocultou">Ocultou %1$s</string>
+    <string name="desf_ocultou">Escondeu %1$s</string>
     <string name="desf_mostrou">Mostrou %1$s de volta</string>
     <string name="desf_cat_ajuste">Ajuste</string>
     <string name="desf_cat_organizacao">Organização</string>

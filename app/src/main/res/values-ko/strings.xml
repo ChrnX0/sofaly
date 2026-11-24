@@ -450,7 +450,7 @@
     <string name="infantil_coluna_itens">포함된 항목</string>
     <string name="infantil_dica">OK로 카테고리를 어린이용으로 표시하거나 해제 · 실시간 TV, 영화, 시리즈에 적용 · 뒤로 나가기(이미 저장됨)</string>
     <string name="infantil_so_categoria">왼쪽 열에서 카테고리 전체를 표시하세요</string>
-    <string name="infantil_vazio">카테고리 없음: 계정 탭에서 계정을 추가하고 채널을 다시 불러오세요</string>
+    <string name="infantil_vazio">카테고리 없음: 설정 › TV 및 영화에서 계정을 추가하고 채널을 다시 불러오세요</string>
     <string name="infantil_limite">성인 카테고리는 어린이 카테고리가 될 수 없습니다</string>
     <string name="infantil_resumo_ligado">카테고리 %2$d개 중 %1$d개가 어린이용으로 표시됨 · 어린이 모드 켜짐</string>
     <string name="infantil_resumo_desligado">카테고리 %2$d개 중 %1$d개가 어린이용으로 표시됨 · 어린이 모드 꺼짐</string>
@@ -663,7 +663,7 @@ AS\\Movies).</string>
     <string name="legenda_nenhuma">이 동영상에는 TV 언어 자막이 없습니다</string>
     <string name="legenda_erro">자막을 검색할 수 없습니다</string>
     <string name="legenda_invalida">다운로드한 파일은 자막이 아닙니다</string>
-    <string name="legenda_sem_conta">설정 &gt; 계정 &gt; 영화 및 시리즈에서 OpenSubtitles 키를 추가하세요</string>
+    <string name="legenda_sem_conta">설정 › TV 및 영화 › 영화 및 시리즈에서 OpenSubtitles 키를 추가하세요</string>
     <string name="legenda_escolher">‘%1$s’ 자막</string>
     <string name="legenda_surdos">청각 장애인용</string>
     <string name="legenda_bate">이 파일용</string>
@@ -796,7 +796,7 @@ AS\\Movies).</string>
     <string name="st_titulo">USB 드라이브와 저장공간</string>
     <string name="st_explica">TV가 USB 드라이브를 어떻게 쓸지 고르세요. 공간이 부족하면 무거운 앱용 TV 저장공간으로 쓸 수 있습니다.</string>
     <string name="st_linha_det">USB 드라이브를 TV 저장공간으로 사용</string>
-    <string name="st_sem_shell">TV 자체 셸이 필요합니다(설정 > 고급). 다시 시도하려면 OK.</string>
+    <string name="st_sem_shell">TV 자체 셸이 필요합니다(설정 › 고급). 다시 시도하려면 OK.</string>
     <string name="st_sem_pen">USB 드라이브가 없습니다. 꽂고 OK를 누르세요.</string>
     <string name="st_tv_livre">TV 저장공간: %2$s 중 %1$s 남음</string>
     <string name="st_pen">USB 드라이브 · %1$s · %2$s</string>
