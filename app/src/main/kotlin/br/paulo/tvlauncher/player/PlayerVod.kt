@@ -135,6 +135,13 @@ object Vod {
     fun <T> ordenarPorNome(itens: List<T>, nome: (T) -> String): List<T> =
         itens.map { chaveNome(nome(it)) to it }.sortedBy { it.first }.map { it.second }
 
+    /**
+     * Nota que veio da lista (Xtream "rating"): só entre 0 e 10, e o 10 redondo não conta. Na Sala (teste 100%,
+     * 24/11/2026) "Noturno" vinha com 10,0 da lista e a ficha, pelo Trakt/TMDB, dizia 7,6: média 10 é série nova com
+     * meia dúzia de votos ou valor de enfeite da lista. Sem nota fica melhor que nota errada (a ficha traz a de fora).
+     */
+    fun notaDaLista(v: Double?): Float? = v?.toFloat()?.takeIf { it > 0f && it < 9.95f }
+
     private fun numero(o: JSONObject, chave: String): Double? = when (val v = o.opt(chave)) {
         is Number -> v.toDouble()
         is String -> v.trim().replace(',', '.').toDoubleOrNull()
@@ -160,7 +167,7 @@ object Vod {
                 id = id, fonteId = fonteId, nome = nome,
                 grupo = grupos[o.opt("category_id")?.toString()].orEmpty(),
                 capa = if (M3u.urlAceita(capa)) capa else "",
-                nota = numero(o, "rating")?.toFloat()?.takeIf { it > 0f && it <= 10f },
+                nota = notaDaLista(numero(o, "rating")),
                 ano = anoDoNome(nome) ?: numero(o, "year")?.toInt()?.takeIf { it in 1900..2100 },
                 extensao = extensaoSegura(o.optString("container_extension")),
                 adicionado = numero(o, "added")?.toLong() ?: 0,

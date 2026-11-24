@@ -439,7 +439,7 @@ class PlayerListaTela(
         col.addView(detDescricao, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(10) })
         detSeguir = LinearLayout(act).apply { orientation = LinearLayout.VERTICAL }
         col.addView(detSeguir, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(12) })
-        col.addView(TextView(act).apply { text = act.getString(R.string.player_lista_teclas); textSize = Estilo.Leitura.DICA; setTextColor(apagado); setLineSpacing(0f, 1.2f) },
+        col.addView(TextView(act).apply { text = PlayerBar.juntarTeclas(act.getString(R.string.player_lista_teclas)); textSize = Estilo.Leitura.DICA; setTextColor(apagado); setLineSpacing(0f, 1.2f) },
             LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(12) })
         return col
     }
@@ -468,8 +468,9 @@ class PlayerListaTela(
             // de "faltam 9 min" na lista (Sala, 16/11/2026). A unidade fica na frase traduzida.
             // 18/11/2026: o tempo no formato único do app (BarraTempo.duracao): "64 min" ao lado de "1 h 04" confundia.
             detHorario.text = hora.format(Date(atual.inicio)) + " – " + hora.format(Date(atual.fim)) + " · " +
-                act.getString(R.string.tempo_faltam, BarraTempo.duracao(atual.fim - agora)) +
-                (atual.categoria.takeIf { it.isNotEmpty() }?.let { "  ·  $it" } ?: "")
+                // 24/11/2026 (teste 100%): "falta 1 h 37 min" como a lista ao lado (era "faltam" sempre), inteiro numa linha.
+                BarraTempo.faltam(act, BarraTempo.duracao(atual.fim - agora)).replace(' ', '\u00A0') +
+                (atual.categoria.takeIf { it.isNotEmpty() }?.let { " · $it" } ?: "")
             detBarra.visibility = View.VISIBLE
             detBarra.fracao = guia.progresso(atual, agora)
             detDescricao.text = atual.descricao

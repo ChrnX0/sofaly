@@ -32,6 +32,13 @@ object PlayerBar {
         val teclas: TextView,
     )
 
+    /**
+     * Linha de teclas que quebra só entre um comando e outro (no "·"), nunca dentro de um: na Sala (teste 100%,
+     * 24/11/2026) "VOLTAR sair" se partia e "sair" ficava sozinho na 2ª linha.
+     */
+    fun juntarTeclas(teclas: CharSequence): String =
+        teclas.toString().split(" · ").joinToString(" · ") { it.trim().replace(' ', '\u00A0') }
+
     fun montar(ctx: Context, teclas: CharSequence): Partes {
         fun dp(v: Int) = (v * ctx.resources.displayMetrics.density + 0.5f).toInt()
         val raiz = LinearLayout(ctx).apply {
@@ -57,7 +64,7 @@ object PlayerBar {
             secondaryProgressTintList = ColorStateList.valueOf(0x66FFFFFF)   // o que já carregou (filmes e séries)
         }
         raiz.addView(progresso, LinearLayout.LayoutParams(-1, dp(BarraTempo.ESPESSURA_DP)).apply { topMargin = dp(12) })
-        val linhaTeclas = TextView(ctx).apply { text = teclas; textSize = Estilo.Leitura.DICA; setTextColor(Estilo.TEXTO_3) }
+        val linhaTeclas = TextView(ctx).apply { text = juntarTeclas(teclas); textSize = Estilo.Leitura.DICA; setTextColor(Estilo.TEXTO_3) }
         raiz.addView(linhaTeclas, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(10) })
         return Partes(raiz, linha, titulo, detalhe, estado, progresso, linhaTeclas)
     }

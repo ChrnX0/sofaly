@@ -126,7 +126,7 @@ object Series {
             val ano = Vod.anoDoNome(nome) ?: texto(o, "releaseDate").ifEmpty { texto(o, "release_date") }.take(4).toIntOrNull()?.takeIf { it in 1900..2100 }
             saida += Serie(id, fonteId, nome, grupos[o.opt("category_id")?.toString()].orEmpty(),
                 if (M3u.urlAceita(capa)) capa else "",
-                numero(o, "rating")?.toFloat()?.takeIf { it > 0f && it <= 10f }, ano,
+                Vod.notaDaLista(numero(o, "rating")), ano,
                 numero(o, "last_modified")?.toLong() ?: 0, InfoExterna.tmdbDoXtream(o))
         }
         return saida

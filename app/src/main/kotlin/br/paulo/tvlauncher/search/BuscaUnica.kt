@@ -56,6 +56,16 @@ object BuscaUnica {
         }
     }
 
+    /**
+     * Algum nome normalizado de [nomes] bate CERTO (sem a tolerância de uma letra) com [termo]? A busca só aceita letra
+     * errada quando nada bate certo em lugar nenhum (teste 100%, 24/11/2026: "duna" enchia Canais com "Pato Donald",
+     * "Show da Luna" e "Dinamo" antes do filme Duna, que batia certo). Para no 1º achado.
+     */
+    fun algumBateCerto(termo: String, nomes: Sequence<String>): Boolean {
+        val p = palavras(termo)
+        return p.isNotEmpty() && nomes.any { pontosNorm(it, p) != null }
+    }
+
     /** Os que batem, do melhor para o pior (empate: nome mais curto primeiro), até [max]. */
     fun <T> filtrar(itens: Iterable<T>, termo: String, max: Int = MAX_POR_GRUPO, tolerante: Boolean = false, nome: (T) -> String): List<T> {
         val p = palavras(termo)
