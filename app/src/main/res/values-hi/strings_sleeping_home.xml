@@ -18,15 +18,15 @@
     <string name="sh_nova">अमावस्या</string>
     <string name="sh_em_dias">%1$d दिन में</string>
     <string name="sh_rodar">नीचे की पट्टी घुमाएँ</string>
-    <string name="sh_rodar_det">आराम में नीचे की पट्टी अपने आप बदलती है। ↑ और ↓ तुरंत बदलते हैं।</string>
+    <string name="sh_rodar_det">स्क्रीन सेवर पर नीचे की पट्टी अपने आप बदलती है। ↑ और ↓ तुरंत बदलते हैं।</string>
     <string name="sh_rodar_desl">बंद</string>
     <string name="sh_rodar_s">हर %1$d से</string>
     <string name="sh_rodar_min">हर 1 मिनट</string>
     <string name="sh_vidro">नीचे की पट्टी के पीछे काँच</string>
     <string name="sh_vidro_det">पट्टी के पीछे काँच का पैनल। बंद: सिर्फ़ पतली रेखा।</string>
-    <string name="sh_fundo">आराम की पृष्ठभूमि</string>
-    <string name="sh_fundo_det">टीवी के आराम करते समय घड़ी के पीछे क्या दिखे: होम जैसा, दूसरी थीम, सिर्फ़ यहाँ एक तस्वीर या वीडियो, या बदलती तस्वीरें और वीडियो।</string>
+    <string name="sh_fundo">स्क्रीन सेवर की पृष्ठभूमि</string>
+    <string name="sh_fundo_det">स्क्रीन सेवर पर घड़ी के पीछे क्या दिखे: होम जैसा, दूसरी थीम, सिर्फ़ यहाँ एक तस्वीर या वीडियो, या बदलती तस्वीरें और वीडियो।</string>
     <string name="sh_fundo_home">होम जैसा</string>
     <string name="sh_fundo_fotos">बदलती तस्वीरें और वीडियो</string>
-    <string name="sh_fundo_arquivo">सिर्फ़ आराम के लिए एक फ़ाइल</string>
+    <string name="sh_fundo_arquivo">सिर्फ़ स्क्रीन सेवर के लिए एक फ़ाइल</string>
 </resources>

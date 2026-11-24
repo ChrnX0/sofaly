@@ -18,15 +18,15 @@
     <string name="sh_nova">Bulan baru</string>
     <string name="sh_em_dias">dalam %1$d h</string>
     <string name="sh_rodar">Putar strip bawah</string>
-    <string name="sh_rodar_det">Saat istirahat, strip bawah berganti sendiri. ↑ dan ↓ menggantinya langsung.</string>
+    <string name="sh_rodar_det">Di screensaver, strip bawah berganti sendiri. ↑ dan ↓ menggantinya langsung.</string>
     <string name="sh_rodar_desl">Mati</string>
     <string name="sh_rodar_s">Setiap %1$d dtk</string>
     <string name="sh_rodar_min">Setiap 1 mnt</string>
     <string name="sh_vidro">Kaca di belakang strip bawah</string>
     <string name="sh_vidro_det">Panel kaca di belakang strip. Mati: hanya garis tipis.</string>
-    <string name="sh_fundo">Latar saat istirahat</string>
-    <string name="sh_fundo_det">Yang tampil di balik jam saat TV istirahat: sama seperti beranda, tema lain, satu foto atau video khusus di sini, atau foto dan video bergantian.</string>
+    <string name="sh_fundo">Latar screensaver</string>
+    <string name="sh_fundo_det">Yang tampil di balik jam di screensaver: sama seperti beranda, tema lain, satu foto atau video khusus di sini, atau foto dan video bergantian.</string>
     <string name="sh_fundo_home">Sama seperti beranda</string>
     <string name="sh_fundo_fotos">Foto dan video bergantian</string>
-    <string name="sh_fundo_arquivo">Satu file khusus istirahat</string>
+    <string name="sh_fundo_arquivo">Satu file khusus screensaver</string>
 </resources>

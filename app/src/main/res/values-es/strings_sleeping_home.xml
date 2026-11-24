@@ -18,15 +18,15 @@
     <string name="sh_nova">Luna nueva</string>
     <string name="sh_em_dias">en %1$d d</string>
     <string name="sh_rodar">Rotar la franja inferior</string>
-    <string name="sh_rodar_det">En reposo, la franja inferior cambia sola. ↑ y ↓ la cambian al instante.</string>
+    <string name="sh_rodar_det">En el protector, la franja inferior cambia sola. ↑ y ↓ la cambian al instante.</string>
     <string name="sh_rodar_desl">Desactivado</string>
     <string name="sh_rodar_s">Cada %1$d s</string>
     <string name="sh_rodar_min">Cada 1 min</string>
     <string name="sh_vidro">Vidrio detrás de la franja inferior</string>
     <string name="sh_vidro_det">Un panel de vidrio detrás de la franja. Desactivado: solo una línea fina.</string>
-    <string name="sh_fundo">Fondo del reposo</string>
-    <string name="sh_fundo_det">Lo que aparece detrás del reloj cuando la TV descansa: lo mismo del inicio, otro tema, una foto o video solo de aquí, o fotos y videos pasando.</string>
+    <string name="sh_fundo">Fondo del protector</string>
+    <string name="sh_fundo_det">Lo que aparece detrás del reloj en el protector: lo mismo del inicio, otro tema, una foto o video solo de aquí, o fotos y videos pasando.</string>
     <string name="sh_fundo_home">Igual que el inicio</string>
     <string name="sh_fundo_fotos">Fotos y videos pasando</string>
-    <string name="sh_fundo_arquivo">Un archivo solo para el reposo</string>
+    <string name="sh_fundo_arquivo">Un archivo solo para el protector</string>
 </resources>

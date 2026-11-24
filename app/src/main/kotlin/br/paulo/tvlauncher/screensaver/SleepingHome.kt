@@ -218,7 +218,8 @@ class SleepingHome(private val ctx: Context) {
         Fundo.rodar("descanso-previsao") {
             val f = Forecast.recenteOuBusca(ctx)
             val agenda = lerAgenda()
-            ui.post { if (!solto) { this.agenda = agenda; preencher(f) } }
+            val rs = lerResumos()
+            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; preencher(f) } }
         }
         ui.postDelayed(escurecer, ESCURECER_MS)
         ui.postDelayed(deslocar, DESLOCAR_MS)
@@ -229,6 +230,16 @@ class SleepingHome(private val ctx: Context) {
     // ------------------------------------------------------------------ dados
 
     private var agenda: List<Triple<String, String, String>> = emptyList()   // ícone, título, quando
+
+    /**
+     * Retrospectiva da semana e "Sua TV no ano" (24/11/2026, teste 100%): eram cartões do protetor antigo e ficaram sem
+     * tela quando ele virou a home que adormece; as chaves continuavam prometendo "no protetor". Agora são linhas da
+     * faixa, como as outras (título, linha 1, linha 2). Fora da thread da tela: o resumo do ano consulta o uso.
+     */
+    private var resumos: List<Triple<String, String, String>> = emptyList()
+    private fun lerResumos(): List<Triple<String, String, String>> = listOfNotNull(
+        runCatching { br.paulo.tvlauncher.Retrospectiva.cartao(ctx) }.getOrNull(),
+        runCatching { br.paulo.tvlauncher.family.RetrospectivaAno.cartao(ctx) }.getOrNull())
 
     private fun lerAgenda(): List<Triple<String, String, String>> {
         val agora = System.currentTimeMillis()
@@ -316,6 +327,7 @@ class SleepingHome(private val ctx: Context) {
         linhaSol(agoraMs, lat, lon)?.let { l += Linha(ctx.getString(R.string.pt_sol), it) }
         l += Linha(ctx.getString(R.string.pt_lua), linhaLua(agoraMs, lat))
         if (agenda.isNotEmpty()) l += Linha(ctx.getString(R.string.lbl_agenda), linhaItens(agenda))
+        for ((titulo, a, b) in resumos) l += Linha(titulo, linhaBase().apply { addView(celula(titulo, a, b.ifEmpty { null }), LinearLayout.LayoutParams(0, -2, 1f)) })
         val nomeAntes = linhas.getOrNull(atual)?.nome
         linhas = l
         atual = l.indexOfFirst { it.nome == nomeAntes }.takeIf { it >= 0 } ?: 0
@@ -515,7 +527,8 @@ class SleepingHome(private val ctx: Context) {
             Fundo.rodar("descanso-previsao") {
                 val f = try { Forecast.load(ctx) } catch (_: Exception) { null } ?: Forecast.recente()
                 val ag = lerAgenda()
-                ui.post { if (!solto) { agenda = ag; preencher(f) } }
+                val rs = lerResumos()
+                ui.post { if (!solto) { agenda = ag; resumos = rs; preencher(f) } }
             }
             ui.postDelayed(this, ATUALIZAR_MS)
         }

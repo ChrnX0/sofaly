@@ -459,7 +459,7 @@ traduzirPainelCom({T:{
 "Com a chave ligada: no horário abaixo, só abrem os apps da lista (os do sistema sempre abrem) e o volume não passa do teto. Salvar pede o PIN.":"스위치가 켜져 있으면: 아래 시간에는 목록의 앱만 열리고(시스템 앱은 항상) 볼륨은 한도를 넘지 않습니다. 저장하려면 PIN이 필요합니다.",
 "Com isto, o login do Claude (e dos outros apps) deixa de aceitar o PIN: só passa uma conta Google que esteja em algum perfil desta TV. Crie no Google Cloud um cliente OAuth do tipo \"TVs e dispositivos de entrada limitada\" e cole o id e o segredo aqui. Deixe o id vazio e salve para voltar ao PIN.":"이렇게 하면 Claude(및 다른 앱)의 로그인이 더 이상 PIN을 받지 않습니다. 이 TV의 프로필에 있는 Google 계정만 들어올 수 있습니다. Google Cloud에서 \"TV 및 입력이 제한된 기기\" 유형의 OAuth 클라이언트를 만들고 id와 시크릿을 여기에 붙여 넣으세요. PIN으로 돌아가려면 id를 비우고 저장하세요.",
 "Com o certificado que a TV fez instalado no aparelho, o painel abre com cadeado e vira app no celular e no PC.":"TV 인증서를 기기에 설치하면 패널이 자물쇠와 함께 열리고 휴대폰과 PC에서 앱이 됩니다.",
-"Com o Fundo do descanso em “Fotos e vídeos passando” (na TV: Configurações › Tela e energia), o protetor mostra estas fotos por trás do relógio. Ficam só na TV, numa pasta do launcher. JPG, PNG ou WebP, até 15 MB cada.":"휴식 화면 배경을 \"사진과 동영상 차례로\"(으)로 하면(TV: 설정 › 화면 및 전원) 화면 보호기가 시계 뒤에 이 사진들을 보여 줍니다. 사진은 TV의 런처 폴더에만 저장됩니다. JPG, PNG, WebP, 한 장당 최대 15MB.",
+"Com o Fundo do protetor em “Fotos e vídeos passando” (na TV: Configurações › Tela e energia), o protetor mostra estas fotos por trás do relógio. Ficam só na TV, numa pasta do launcher. JPG, PNG ou WebP, até 15 MB cada.":"화면 보호기 배경을 \"사진과 동영상 차례로\"(으)로 하면(TV: 설정 › 화면 및 전원) 화면 보호기가 시계 뒤에 이 사진들을 보여 줍니다. 사진은 TV의 런처 폴더에만 저장됩니다. JPG, PNG, WebP, 한 장당 최대 15MB.",
 "Como a TV está":"TV 상태",
 "Compras":"장보기",
 "Conectar":"연결",

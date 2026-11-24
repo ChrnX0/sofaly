@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Foto del salvaschermo dal telefono</string>
     <string name="qrd_fotos_det">Mostra un codice: il telefono apre il pannello direttamente sulla pagina delle foto</string>
     <string name="qrd_mural">Bacheca di famiglia dal telefono</string>
-    <string name="qrd_mural_det">Lista della spesa, note appese e compleanni</string>
+    <string name="qrd_mural_det">Lista della spesa e note appese</string>
     <string name="qrd_cenas">Scene dal telefono</string>
     <string name="qrd_cenas_det">Crea e prova le scene nel pannello web</string>
     <string name="qrd_casa">Home Assistant dal telefono</string>

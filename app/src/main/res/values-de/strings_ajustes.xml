@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Fotos für den Bildschirmschoner vom Handy</string>
     <string name="qrd_fotos_det">Zeigt einen Code: das Handy öffnet das Panel direkt auf der Fotoseite</string>
     <string name="qrd_mural">Familienpinnwand vom Handy</string>
-    <string name="qrd_mural_det">Einkaufsliste, angeheftete Notizen und Geburtstage</string>
+    <string name="qrd_mural_det">Einkaufsliste und angeheftete Notizen</string>
     <string name="qrd_cenas">Szenen vom Handy</string>
     <string name="qrd_cenas_det">Szenen im Web-Panel erstellen und testen</string>
     <string name="qrd_casa">Home Assistant vom Handy</string>

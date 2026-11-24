@@ -5,7 +5,7 @@
     <string name="qrd_fotos">صور شاشة التوقف من هاتفك</string>
     <string name="qrd_fotos_det">يعرض رمزًا: يفتح الهاتف اللوحة مباشرة على صفحة الصور</string>
     <string name="qrd_mural">لوحة العائلة من هاتفك</string>
-    <string name="qrd_mural_det">قائمة التسوق والملاحظات المثبتة وأعياد الميلاد</string>
+    <string name="qrd_mural_det">قائمة التسوق والملاحظات المثبتة</string>
     <string name="qrd_cenas">المشاهد من هاتفك</string>
     <string name="qrd_cenas_det">أنشئ المشاهد واختبرها في لوحة الويب</string>
     <string name="qrd_casa">Home Assistant من هاتفك</string>

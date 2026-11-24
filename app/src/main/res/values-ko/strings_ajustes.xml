@@ -5,7 +5,7 @@
     <string name="qrd_fotos">휴대폰에서 화면 보호기 사진</string>
     <string name="qrd_fotos_det">코드 표시: 휴대폰에서 패널의 사진 페이지가 바로 열림</string>
     <string name="qrd_mural">휴대폰에서 가족 게시판</string>
-    <string name="qrd_mural_det">장보기 목록, 고정 메모, 생일</string>
+    <string name="qrd_mural_det">장보기 목록과 고정 메모</string>
     <string name="qrd_cenas">휴대폰에서 장면</string>
     <string name="qrd_cenas_det">웹 패널에서 장면 만들기 및 테스트</string>
     <string name="qrd_casa">휴대폰에서 Home Assistant</string>

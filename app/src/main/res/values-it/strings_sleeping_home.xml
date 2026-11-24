@@ -18,15 +18,15 @@
     <string name="sh_nova">Luna nuova</string>
     <string name="sh_em_dias">tra %1$d g</string>
     <string name="sh_rodar">Ruota la fascia in basso</string>
-    <string name="sh_rodar_det">A riposo, la fascia in basso cambia da sola. ↑ e ↓ la cambiano subito.</string>
+    <string name="sh_rodar_det">Nel salvaschermo, la fascia in basso cambia da sola. ↑ e ↓ la cambiano subito.</string>
     <string name="sh_rodar_desl">Disattivato</string>
     <string name="sh_rodar_s">Ogni %1$d s</string>
     <string name="sh_rodar_min">Ogni minuto</string>
     <string name="sh_vidro">Vetro dietro la fascia in basso</string>
     <string name="sh_vidro_det">Un pannello di vetro dietro la fascia. Disattivato: solo una linea sottile.</string>
-    <string name="sh_fundo">Sfondo del riposo</string>
-    <string name="sh_fundo_det">Cosa appare dietro l\'orologio quando la TV riposa: come la home, un altro tema, una foto o un video solo qui, o foto e video che scorrono.</string>
+    <string name="sh_fundo">Sfondo del salvaschermo</string>
+    <string name="sh_fundo_det">Cosa appare dietro l\'orologio nel salvaschermo: come la home, un altro tema, una foto o un video solo qui, o foto e video che scorrono.</string>
     <string name="sh_fundo_home">Uguale alla home</string>
     <string name="sh_fundo_fotos">Foto e video che scorrono</string>
-    <string name="sh_fundo_arquivo">Un file solo per il riposo</string>
+    <string name="sh_fundo_arquivo">Un file solo per il salvaschermo</string>
 </resources>
