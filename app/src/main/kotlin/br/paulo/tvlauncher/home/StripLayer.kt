@@ -50,7 +50,11 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
 
     private val trilho = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
     private var trilhoDe: List<CruzLogica.Categoria> = emptyList()
-    private companion object { const val TRILHO_ICONE = 16f; const val TRILHO_VAO = 6f; const val TRILHO_OUTROS = 0.75f }
+    private companion object {
+        const val TRILHO_ICONE = 16f; const val TRILHO_VAO = 6f; const val TRILHO_OUTROS = 0.75f
+        const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
+        const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
+    }
     private val linha = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; clipChildren = false; clipToPadding = false }
     private val icone = ImageView(ctx)
     private val nome = texto(StripHome.FONTE_NOME, forte, DesignTokens.CREAM)
@@ -60,12 +64,16 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private val anel = View(ctx)
 
     private class Card(val item: HomeCruz.Item, val raiz: FrameLayout, val banner: ImageView, val proprio: LinearLayout,
-                       val icone: ImageView, val nomeFoco: TextView) {
+                       val icone: ImageView, val nomeFoco: TextView, val rotulo: TextView?, val fora: TextView?,
+                       val fundo: GradientDrawable, val conteudo: Boolean) {
         var pediu = false
         var temBanner = false
     }
     private val cards = ArrayList<Card>()
     private var mundoDesenhado = -1
+    /** As opções com que os cards do mundo atual foram feitos (o jeito do mundo pode ser outro que o geral). */
+    private var opcoesDesenhadas: StripHome.Options? = null
+    private var formatoDesenhado: StripHome.Format = StripHome.DEFAULT.format
     private var idsDesenhados: List<String> = emptyList()
     private var avisoAte = 0L
     private var linhaAnimando = false
@@ -126,7 +134,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         selDesc = sel; focadaDesc = focada
         val c = cats.getOrNull(cat) ?: return
         val anima = animar && !semAnimacao()
-        val o = opcoes
+        val o = opcoesDe(c.cat)
         // trilho: o ícone de cada mundo, pequeno, o atual aceso (24/11/2026, navegação do Projectivy: a pessoa vê de relance
         // onde está e o que vem em cima/embaixo; os pontinhos não diziam qual mundo era qual)
         if (trilho.childCount != cats.size || trilhoDe != cats.map { it.cat }) {
@@ -141,10 +149,11 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             if (anima) v.animate().scaleX(e).scaleY(e).alpha(if (atual) 1f else 0.38f).setDuration(StripHome.MS).setInterpolator(curva).start()
             else { v.scaleX = e; v.scaleY = e; v.alpha = if (atual) 1f else 0.38f }
         }
-        // Cards grandes (ou com placa) não encostam no pé da tela nem na linha do mundo: sobem o que precisar.
+        // Cards grandes (ou com placa, ou a grade de 2 linhas) não encostam no pé da tela nem na linha do mundo: sobem o que
+        // precisar. [topo] = alto do bloco de cards (o card em foco sobe mais 4 dp).
         val folgaPlaca = if (o.glass) StripHome.PLACA else 0f
-        val centro = minOf(altura() - StripHome.CARDS_DO_FUNDO, altura() - 16f - folgaPlaca - o.cardH / 2f)
-        val topoLinha = minOf(altura() - StripHome.LINHA_DO_FUNDO, centro - o.cardH / 2f - folgaPlaca - StripHome.SUBIR_FOCO - 14f - StripHome.LINHA_A)
+        val topo = minOf(altura() - StripHome.CARDS_DO_FUNDO - o.cardH / 2f, altura() - 16f - folgaPlaca - o.blocoH)
+        val topoLinha = minOf(altura() - StripHome.LINHA_DO_FUNDO, topo - folgaPlaca - StripHome.SUBIR_FOCO - 14f - StripHome.LINHA_A)
         // o trilho fica centrado na altura da linha do mundo
         val trilhoA = cats.size * TRILHO_ICONE + (cats.size - 1) * TRILHO_VAO
         trilho.translationX = dp(StripHome.TRILHO_X + 2f - TRILHO_ICONE / 2f); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
@@ -172,62 +181,80 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         } else if (!linhaAnimando) { linha.alpha = 1f; linha.translationY = dp(topoLinha) }
 
         // cards
-        if (mundoNovo) refazerCards(c)
-        mundoDesenhado = cat; idsDesenhados = ids
+        val fmt = o.format
+        val grade = fmt.grade
+        if (mundoNovo || o != opcoesDesenhadas) { refazerCards(c, o); opcoesDesenhadas = o }
+        mundoDesenhado = cat; idsDesenhados = ids; formatoDesenhado = fmt
         val s = sel.coerceIn(0, (cards.size - 1).coerceAtLeast(0))
-        val larguras = cards.mapIndexed { i, k -> larguraCard(k, i == s && o.name) }
+        val sCol = StripHome.coluna(s, grade)
+        val nCols = StripHome.colunas(cards.size, grade)
+        // largura de cada COLUNA (na fileira comum, coluna = card)
+        val larguras = (0 until nCols).map { col -> if (grade) o.cardW else larguraCard(cards[col], col == s && o.name && fmt.nomeNoFoco, o) }
         val vao = o.gap.dp
-        val (ini, vis) = StripHome.janela(s, larguras, vao, largura() - 2 * StripHome.MARGEM)
-        // x de cada card: o 1º visível começa na margem; os de antes ficam à esquerda, fora (a linha desliza)
-        val xs = FloatArray(cards.size)
+        val (ini, vis) = StripHome.janela(sCol, larguras, vao, largura() - 2 * StripHome.MARGEM)
+        // x de cada coluna: a 1ª visível começa na margem; as de antes ficam à esquerda, fora (a linha desliza)
+        val xs = FloatArray(nCols)
         var x = StripHome.MARGEM
-        for (i in ini until cards.size) { xs[i] = x; x += larguras[i] + vao }
+        for (i in ini until nCols) { xs[i] = x; x += larguras[i] + vao }
         x = StripHome.MARGEM
         for (i in ini - 1 downTo 0) { x -= larguras[i] + vao; xs[i] = x }
+        fun yDe(i: Int) = topo + StripHome.linhaDaGrade(i, grade) * (o.cardH + StripHome.VAO_GRADE)
         val semMenu = hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto
         for ((i, k) in cards.withIndex()) {
+            val col = StripHome.coluna(i, grade)
             val escolhido = i == s
-            val visivel = i - ini in 0 until vis
-            val w = larguras[i]
+            val visivel = col - ini in 0 until vis
+            val w = larguras[col]
             val lp = k.raiz.layoutParams
             if (lp.width != dpi(w)) { lp.width = dpi(w); k.raiz.layoutParams = lp }
-            k.nomeFoco.visibility = if (escolhido && o.name) View.VISIBLE else View.GONE
+            k.nomeFoco.visibility = if (escolhido && o.name && fmt.nomeNoFoco) View.VISIBLE else View.GONE
+            val escala = if (fmt == StripHome.Format.ONLY) soEscolhido(k, escolhido) else 1f
             val sobe = if (escolhido && focada) StripHome.SUBIR_FOCO else 0f
-            val ty = dp(centro - o.cardH / 2f - sobe)
+            val ty = dp(yDe(i) - sobe)
             val alfa = if (visivel) 1f else 0f
             k.raiz.elevation = dp(if (escolhido && focada) 10f else 4f)
+            // nome embaixo do redondo: acompanha o card; o do escolhido fica creme cheio
+            val fx = dp(xs[col] - NOME_FORA_SOBRA / 2f); val fy = dp(yDe(i) + o.cardH + 6f)
+            k.fora?.setTextColor(if (escolhido && focada) DesignTokens.CREAM else desc2)
             if (anima && !mundoNovo) {
                 k.raiz.animate().cancel()
-                k.raiz.animate().translationX(dp(xs[i])).translationY(ty).alpha(alfa).setDuration(StripHome.MS).setInterpolator(curva).start()
+                k.raiz.animate().translationX(dp(xs[col])).translationY(ty).alpha(alfa).scaleX(escala).scaleY(escala).setDuration(StripHome.MS).setInterpolator(curva).start()
+                k.fora?.animate()?.translationX(fx)?.translationY(fy)?.alpha(alfa)?.setDuration(StripHome.MS)?.setInterpolator(curva)?.start()
             } else if (!(anima && mundoNovo)) {
                 k.raiz.animate().cancel()
-                k.raiz.translationX = dp(xs[i]); k.raiz.translationY = ty; k.raiz.alpha = alfa
+                k.raiz.translationX = dp(xs[col]); k.raiz.translationY = ty; k.raiz.alpha = alfa; k.raiz.scaleX = escala; k.raiz.scaleY = escala
+                k.fora?.apply { animate().cancel(); translationX = fx; translationY = fy; alpha = alfa }
             } else {
-                // mundo novo: os cards entram de baixo, um depois do outro (40 ms)
+                // mundo novo: os cards entram de baixo, coluna depois de coluna (40 ms)
                 k.raiz.animate().cancel()
-                k.raiz.translationX = dp(xs[i]); k.raiz.translationY = ty + dp(10f); k.raiz.alpha = 0f
-                if (visivel) k.raiz.animate().translationY(ty).alpha(1f).setStartDelay(StripHome.ESCALONA_MS * (i - ini))
-                    .setDuration(StripHome.MS).setInterpolator(curva).withEndAction { k.raiz.animate().setStartDelay(0) }.start()
-                else k.raiz.translationY = ty
+                k.raiz.translationX = dp(xs[col]); k.raiz.translationY = ty + dp(10f); k.raiz.alpha = 0f; k.raiz.scaleX = escala; k.raiz.scaleY = escala
+                k.fora?.apply { animate().cancel(); translationX = fx; translationY = fy + dp(10f); alpha = 0f }
+                val atraso = StripHome.ESCALONA_MS * (col - ini)
+                if (visivel) {
+                    k.raiz.animate().translationY(ty).alpha(1f).setStartDelay(atraso)
+                        .setDuration(StripHome.MS).setInterpolator(curva).withEndAction { k.raiz.animate().setStartDelay(0) }.start()
+                    k.fora?.let { f -> f.animate().translationY(fy).alpha(1f).setStartDelay(atraso).setDuration(StripHome.MS).setInterpolator(curva)
+                        .withEndAction { f.animate().setStartDelay(0) }.start() }
+                } else k.raiz.translationY = ty
             }
-            if (i - ini in -1..vis) pedirBanner(k)
+            if (col - ini in -1..vis) pedirBanner(k, o)
         }
         // anel laranja no escolhido (só com o foco na linha e nenhuma janela por cima)
-        cards.getOrNull(s)?.let { k ->
+        cards.getOrNull(s)?.let { _ ->
             val a = StripHome.ANEL
-            val r = o.corners.dp + a
+            val r = o.raio + a
             (anel.background as? GradientDrawable ?: GradientDrawable().also { anel.background = it }).apply {
                 cornerRadius = dp(r); setColor(0); setStroke(dpi(a), Estilo.ACENTO)
             }
             val lp = anel.layoutParams
-            val aw = dpi(larguras[s] + 2 * a); val ah = dpi(o.cardH + 2 * a)
+            val aw = dpi(larguras[sCol] + 2 * a); val ah = dpi(o.cardH + 2 * a)
             if (lp.width != aw || lp.height != ah) { lp.width = aw; lp.height = ah; anel.layoutParams = lp }
-            val ax = dp(xs[s] - a); val ay = dp(centro - o.cardH / 2f - StripHome.SUBIR_FOCO - a)
+            val ax = dp(xs[sCol] - a); val ay = dp(yDe(s) - StripHome.SUBIR_FOCO - a)
             val ligado = if (focada && semMenu) 1f else 0f
             anel.animate().cancel()
             if (anima && !mundoNovo) anel.animate().translationX(ax).translationY(ay).alpha(ligado).setDuration(StripHome.MS).setInterpolator(curva).start()
             else { anel.translationX = ax; anel.translationY = ay; anel.alpha = if (anima && mundoNovo) 0f else ligado
-                if (anima && mundoNovo && ligado > 0f) anel.animate().alpha(1f).setStartDelay(StripHome.ESCALONA_MS * (s - ini)).setDuration(StripHome.MS)
+                if (anima && mundoNovo && ligado > 0f) anel.animate().alpha(1f).setStartDelay(StripHome.ESCALONA_MS * (sCol - ini)).setDuration(StripHome.MS)
                     .withEndAction { anel.animate().setStartDelay(0) }.start() }
         }
         // placa de vidro atrás dos visíveis
@@ -236,12 +263,31 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             var total = 0f
             for (i in ini until ini + vis) total += larguras[i] + (if (i > ini) vao else 0f)
             val lp = placa.layoutParams
-            val pw = dpi(total + 2 * p); val ph = dpi(o.cardH + 2 * p)
+            val pw = dpi(total + 2 * p); val ph = dpi(o.blocoH + 2 * p)
             if (lp.width != pw || lp.height != ph) { lp.width = pw; lp.height = ph; placa.layoutParams = lp }
             (placa.background as GradientDrawable).cornerRadius = dp(o.corners.dp + p)
-            placa.translationX = dp(StripHome.MARGEM - p); placa.translationY = dp(centro - o.cardH / 2f - p)
+            placa.translationX = dp(StripHome.MARGEM - p); placa.translationY = dp(topo - p)
             placa.visibility = View.VISIBLE
         } else placa.visibility = View.GONE
+    }
+
+    /** O jeito de cards do mundo [cat] (o dele, se tiver; senão o do Ajuste fino). A [HomeCruz] usa para as teclas da grade. */
+    fun formato(cat: CruzLogica.Categoria): StripHome.Format = opcoesDe(cat).format
+
+    private fun opcoesDe(cat: CruzLogica.Categoria) = StripHome.doMundo(opcoes, WorldOptions.of(context, cat).cards)
+
+    /**
+     * "Só o escolhido" (Projectivy, layout minimalista): o card em foco tem a placa e a arte; os outros ficam só o ícone,
+     * menor e mais apagado, sem placa. Troca na hora o que aparece e devolve a escala (quem chama anima).
+     */
+    private fun soEscolhido(k: Card, escolhido: Boolean): Float {
+        val arte = escolhido && (k.temBanner || k.conteudo)
+        k.fundo.alpha = if (escolhido) 255 else 0
+        k.banner.visibility = if (arte) View.VISIBLE else View.GONE
+        k.proprio.visibility = if (arte) View.INVISIBLE else View.VISIBLE
+        k.rotulo?.visibility = if (escolhido) View.VISIBLE else View.GONE
+        k.proprio.alpha = if (escolhido) 1f else 0.7f
+        return if (escolhido) 1f else SO_OUTROS
     }
 
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
@@ -306,31 +352,36 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
 
     // ------------------------------------------------------------------ cards
 
-    private fun larguraCard(k: Card, comNome: Boolean): Float {
-        val o = opcoes
+    private fun larguraCard(k: Card, comNome: Boolean, o: StripHome.Options): Float {
         if (!comNome) return o.cardW
         val folga = if (o.format == StripHome.Format.WIDE) 16f else 12f
         return o.cardW + k.nomeFoco.paint.measureText(k.item.nome) / dm.density + folga
     }
 
-    private fun refazerCards(c: HomeCruz.Categoria) {
-        for (k in cards) { k.raiz.animate().cancel(); removeView(k.raiz) }
+    private fun refazerCards(c: HomeCruz.Categoria, o: StripHome.Options) {
+        for (k in cards) { k.raiz.animate().cancel(); removeView(k.raiz); k.fora?.let { it.animate().cancel(); removeView(it) } }
         cards.clear()
-        val o = opcoes
+        val fmt = o.format
         val corMundo = BottomBar.cor(c.cat)
         for (item in c.itens) {
             val raiz = FrameLayout(context)
             val app = ehApp(item.id)
-            raiz.background = GradientDrawable().apply {
-                cornerRadius = dp(o.corners.dp)
-                setColor(if (app) fundoDoIcone(item.icone) else mistura(corMundo, DesignTokens.NIGHT, 0.78f))
+            val conteudo = item.id.startsWith("card:")
+            val fundo = GradientDrawable().apply {
+                cornerRadius = dp(o.raio)
+                setColor(when {
+                    conteudo -> DesignTokens.NIGHT
+                    fmt == StripHome.Format.LOGO -> 0   // logo solto: sem placa
+                    app -> fundoDoIcone(item.icone)
+                    else -> mistura(corMundo, DesignTokens.NIGHT, 0.78f)
+                })
             }
+            raiz.background = fundo
             raiz.clipToOutline = true
             val banner = ImageView(context).apply { scaleType = ImageView.ScaleType.CENTER_CROP; visibility = View.GONE }
             raiz.addView(banner, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
-            val quad = o.format != StripHome.Format.WIDE
             val proprio = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
-            val rotulo = if (quad) null else texto(11f, forte, DesignTokens.CREAM).apply {
+            val rotulo = if (!fmt.rotuloDentro) null else texto(11f, forte, DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)   // dentro do card não leva a sombra da linha do mundo
                 includeFontPadding = false; gravity = Gravity.CENTER; text = item.nome
                 breakStrategy = android.text.Layout.BREAK_STRATEGY_BALANCED
@@ -338,17 +389,22 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             // Nome que não cabe numa linha ("Dormir em 30 min") vai inteiro em duas, com o ícone menor: nunca "Dormir em 30 m…".
             val duasLinhas = rotulo != null && rotulo.paint.measureText(item.nome) > dp(o.cardW - 12f)
             rotulo?.apply { maxLines = if (duasLinhas) 2 else 1; ellipsize = TextUtils.TruncateAt.END }
-            val tamIcone = if (quad) o.cardH * 0.56f else if (duasLinhas) o.cardH * 0.36f else o.cardH * 0.48f
+            val tamIcone = o.cardH * when {
+                fmt == StripHome.Format.LOGO -> 0.8f
+                fmt == StripHome.Format.ROUND -> 0.6f
+                rotulo == null -> 0.56f
+                duasLinhas -> 0.36f
+                else -> 0.48f
+            }
             val ic = ImageView(context).apply { setImageDrawable(item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
             if (rotulo != null) proprio.addView(rotulo, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
             raiz.addView(proprio, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
             // Card de conteúdo (capa de filme/episódio de dentro do app, AppChannels): a capa ocupa o card inteiro.
-            if (item.id.startsWith("card:")) {
-                banner.scaleType = ImageView.ScaleType.FIT_XY
+            if (conteudo) {
+                banner.scaleType = if (fmt == StripHome.Format.ROUND || o.cardW < o.cardH * 1.5f) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_XY
                 banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE
                 proprio.visibility = View.INVISIBLE
-                (raiz.background as GradientDrawable).setColor(DesignTokens.NIGHT)
             }
             val nomeFoco = texto(15f, forte, DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)
@@ -357,20 +413,28 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             }
             raiz.addView(nomeFoco, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT).apply { marginStart = dpi(o.cardW) })
             addView(raiz, indexOfChild(anel), LayoutParams(dpi(o.cardW), dpi(o.cardH)))
-            cards += Card(item, raiz, banner, proprio, ic, nomeFoco)
+            // Redondo: o nome fica embaixo do círculo, sempre à vista (como os apps de um celular).
+            val fora = if (!fmt.nomeEmbaixo) null else texto(12f, media, desc2).apply {
+                gravity = Gravity.CENTER_HORIZONTAL; text = item.nome; ellipsize = TextUtils.TruncateAt.END
+                alpha = 0f
+            }
+            fora?.let { addView(it, indexOfChild(anel), LayoutParams(dpi(o.cardW + NOME_FORA_SOBRA), LayoutParams.WRAP_CONTENT)) }
+            cards += Card(item, raiz, banner, proprio, ic, nomeFoco, rotulo, fora, fundo, conteudo)
         }
     }
 
-    private fun pedirBanner(k: Card) {
-        if (k.pediu || opcoes.format != StripHome.Format.WIDE || !ehApp(k.item.id)) return
+    private fun pedirBanner(k: Card, o: StripHome.Options) {
+        if (k.pediu || !o.format.banner || !ehApp(k.item.id)) return
         k.pediu = true
         val f = bannerDe ?: return
         f(k.item) { d ->
             if (d == null || !cards.contains(k)) return@f
             k.banner.setImageDrawable(d)
+            k.temBanner = true
+            // "Só o escolhido": o banner só aparece no card em foco (o próximo passo arruma; aqui não mexe nos outros)
+            if (formatoDesenhado == StripHome.Format.ONLY && k.fundo.alpha == 0) return@f
             k.banner.visibility = View.VISIBLE
             k.proprio.visibility = View.INVISIBLE
-            k.temBanner = true
         }
     }
 

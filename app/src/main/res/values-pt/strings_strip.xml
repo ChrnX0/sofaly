@@ -34,4 +34,10 @@
     <string name="st_fundo_serra">Serra</string>
     <string name="st_fundo_noite">Noite</string>
     <string name="st_fundo_tema">Do tema</string>
+    <string name="st_logo_solto">Logo solto</string>
+    <string name="st_grade2">Grade de 2 linhas</string>
+    <string name="st_redondo">Redondo</string>
+    <string name="st_so_escolhido">Só o escolhido</string>
+    <string name="wo_cards">Formato dos cards neste mundo</string>
+    <string name="wo_cards_geral">Igual ao Ajuste fino (%1$s)</string>
 </resources>

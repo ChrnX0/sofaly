@@ -34,4 +34,10 @@
     <string name="st_fundo_serra">पहाड़</string>
     <string name="st_fundo_noite">रात</string>
     <string name="st_fundo_tema">थीम से</string>
+    <string name="st_logo_solto">खुला लोगो</string>
+    <string name="st_grade2">2 पंक्तियों का ग्रिड</string>
+    <string name="st_redondo">गोल</string>
+    <string name="st_so_escolhido">सिर्फ़ चुना हुआ</string>
+    <string name="wo_cards">इस दुनिया में कार्ड का आकार</string>
+    <string name="wo_cards_geral">बारीक समायोजन जैसा (%1$s)</string>
 </resources>

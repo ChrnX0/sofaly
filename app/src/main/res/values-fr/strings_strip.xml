@@ -34,4 +34,10 @@
     <string name="st_fundo_serra">Montagnes</string>
     <string name="st_fundo_noite">Nuit</string>
     <string name="st_fundo_tema">Du thème</string>
+    <string name="st_logo_solto">Logo seul</string>
+    <string name="st_grade2">Grille de 2 lignes</string>
+    <string name="st_redondo">Rond</string>
+    <string name="st_so_escolhido">Seulement la sélection</string>
+    <string name="wo_cards">Forme des cartes dans ce monde</string>
+    <string name="wo_cards_geral">Comme Réglage fin (%1$s)</string>
 </resources>

@@ -34,4 +34,10 @@
     <string name="st_fundo_serra">山脉</string>
     <string name="st_fundo_noite">夜晚</string>
     <string name="st_fundo_tema">跟随主题</string>
+    <string name="st_logo_solto">独立徽标</string>
+    <string name="st_grade2">两行网格</string>
+    <string name="st_redondo">圆形</string>
+    <string name="st_so_escolhido">仅所选项</string>
+    <string name="wo_cards">此世界的卡片形状</string>
+    <string name="wo_cards_geral">与微调相同（%1$s）</string>
 </resources>

@@ -549,14 +549,28 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      * só no ▲ do 1º mundo, que sai para a barra de cima (o Android procura o foco acima).
      */
     private fun teclaFaixa(t: CruzLogica.Tecla): Boolean {
-        val p = StripHome.passo(t, estado.cat, estado.sel.getOrElse(estado.cat) { 0 })
+        val sel = estado.sel.getOrElse(estado.cat) { 0 }
+        val n = categoriaAtual()?.itens?.size ?: 0
+        val p = StripHome.passo(t, estado.cat, sel, n, categoriaAtual()?.let { strip.formato(it.cat).grade } ?: false)
         if (p.subirTopo) { aoSubirTopo?.invoke(repeticao); return false }
+        p.paraSel?.let { irParaFaixa(it); return true }
         val tecla = p.tecla
         if (tecla == null) { if (repeticao == 0) aoSom?.invoke(SonsCruz.Som.BORDA, categoriaAtual()?.cat); return true }
         direcaoFaixa = when (tecla) { CruzLogica.Tecla.ESQUERDA -> -1; CruzLogica.Tecla.DIREITA -> 1; else -> 0 }
         aplicar(tecla)
         direcaoFaixa = 0
         return true
+    }
+
+    /** Grade de 2 linhas: pula direto para o card [alvo] do mesmo mundo (o mesmo som e aviso de um passo comum). */
+    private fun irParaFaixa(alvo: Int) {
+        val c = estado.cat
+        if (alvo == estado.sel.getOrElse(c) { 0 }) return
+        val rapida = repeticao >= REPETICAO_RAPIDA
+        if (!rapida || repeticao % SOM_A_CADA == 0) aoSom?.invoke(SonsCruz.Som.ANDAR, categoriaAtual()?.cat)
+        estado = estado.copy(sel = estado.sel.toMutableList().also { while (it.size <= c) it += 0; it[c] = alvo })
+        posicionar(animar = true)
+        avisarMudanca()
     }
 
     private fun aplicar(t: CruzLogica.Tecla) {

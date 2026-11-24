@@ -206,7 +206,7 @@ class FineTuneActivity : Activity() {
         fun o() = S.options(this)
         fun gira(key: String, atual: Int, total: Int, passo: Int) = S.next(this, key, atual, total, passo)
         val descs = listOf(R.string.st_desc_fixa, R.string.st_desc_viva)
-        val formatos = listOf("16:9", "4:3", getString(R.string.st_quadrado))
+        val formatos = br.paulo.tvlauncher.home.nomesDosFormatos(this)
         val tamanhos = listOf(R.string.st_pequeno, R.string.st_medio, R.string.st_grande)
         val espacos = listOf(R.string.st_justo, R.string.st_normal, R.string.st_largo)
         val cantos = listOf(R.string.st_retos, R.string.st_suaves, R.string.st_redondos)
@@ -216,7 +216,7 @@ class FineTuneActivity : Activity() {
         return listOf(
             Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },
             Ajuste(R.string.st_desc, { getString(descs[o().desc.ordinal]) }) { p -> getString(descs[gira(S.KEY_DESC, o().desc.ordinal, 2, p)]) },
-            Ajuste(R.string.st_formato, { formatos[o().format.ordinal] }) { p -> formatos[gira(S.KEY_FORMAT, o().format.ordinal, 3, p)] },
+            Ajuste(R.string.st_formato, { formatos[o().format.ordinal] }) { p -> formatos[gira(S.KEY_FORMAT, o().format.ordinal, formatos.size, p)] },
             Ajuste(R.string.st_tamanho, { getString(tamanhos[o().size.ordinal]) }) { p -> getString(tamanhos[gira(S.KEY_SIZE, o().size.ordinal, 3, p)]) },
             Ajuste(R.string.st_espaco, { getString(espacos[o().gap.ordinal]) }) { p -> getString(espacos[gira(S.KEY_GAP, o().gap.ordinal, 3, p)]) },
             Ajuste(R.string.st_cantos, { getString(cantos[o().corners.ordinal]) }) { p -> getString(cantos[gira(S.KEY_CORNERS, o().corners.ordinal, 3, p)]) },
