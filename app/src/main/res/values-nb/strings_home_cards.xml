@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Lagets neste kamp på TV-elementet på startskjermen</string>
+    <string name="extras_CARTAO_COTACAO">Dagens valutakurser ved siden av været (dollar, euro, bitcoin; spør den gratis tjenesten Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Nedtelling øverst på startskjermen de siste 7 dagene (datoene dine, eller neste helligdag)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Husets påminnelser øverst på startskjermen på sin dag (f.eks. gjenvinningsdag), med en melding på det fastsatte tidspunktet</string>
+    <string name="extras_CARTAO_SERVICO">Varsle øverst på startskjermen når en tjeneste du har lagt til slutter å svare</string>
+    <string name="extras_CARTAO_LUA">Månefase i værmeldingen</string>
+    <string name="hc_feriado_hoje">Helligdag i dag</string>
+    <string name="hc_hoje">I dag: %1$s</string>
+    <string name="hc_lembrete_rotulo">Husets påminnelse</string>
+    <string name="hc_servico_fora">%1$s er nede</string>
+    <string name="hc_servico_rotulo">Tjenestene dine</string>
+    <string name="hc_cotacao_rotulo">Valutakurser</string>
+    <string name="hc_cotacao_fonte">Dagens kurser, kilde: Frankfurter (sentralbanker)</string>
+    <string name="hc_mil">k</string>
+    <string name="hc_milhao">M</string>
+    <string name="hc_seu_time">Laget ditt: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Helligdag om %1$d dag</item>
+        <item quantity="other">Helligdag om %1$d dager</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">%1$d dag til %2$s</item>
+        <item quantity="other">%1$d dager til %2$s</item>
+    </plurals>
+</resources>

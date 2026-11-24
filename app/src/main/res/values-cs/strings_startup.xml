@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Když se televizor zapne</string>
+    <string name="su_det">Hned otevře tohle a přeskočí domovskou obrazovku</string>
+    <string name="su_home">Domovská obrazovka</string>
+    <string name="su_last">Poslední aplikace</string>
+    <string name="su_quem">Pro koho?</string>
+    <string name="su_todos">Celý televizor</string>
+    <string name="su_so">Jen %1$s</string>
+    <string name="su_segue_tv">Řídit se volbou televizoru</string>
+    <string name="su_acordar">Také při probuzení</string>
+    <string name="su_acordar_det">Nejen po restartu: také když se televizor probudí z pohotovosti. Nikdy přes Cast nebo budík</string>
+    <string name="su_esperar">Počkat po restartu</string>
+    <string name="su_esperar_det">Dá televizoru čas se připojit, než otevře aplikaci</string>
+    <string name="su_horario">Jiná aplikace podle denní doby</string>
+    <string name="su_horario_det">Automatizace se spouštěčem „Televizor zapnut“ a „Jen když“</string>
+    
+</resources>

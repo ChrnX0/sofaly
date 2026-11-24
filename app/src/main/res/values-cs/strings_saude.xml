@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saude_titulo">Vzdálený přístup se zastavil</string>
+    <string name="saude_texto_shell">Přístup televizoru k sobě samému spadl před %1$d min (panel, Claude a automatické opravy se zastaví). Stiskněte Znovu spárovat nebo přejděte do Nastavení › Systém › Pokročilé › Párovat bez PC.</string>
+    <string name="saude_texto_tunel">Claude přes internet je offline. Stiskněte Připojit a uvidíte, co chybí, nebo přejděte do Nastavení › Domácnost a síť › Vzdálený přístup.</string>
+    <string name="saude_parear">Znovu spárovat</string>
+    <string name="saude_conectar">Připojit</string>
+    <string name="saude_depois">Teď ne</string>
+    <string name="saude_acao_shell">Znovu spárovat: Nastavení › Systém › Pokročilé › Párovat bez PC</string>
+    <string name="saude_acao_tunel">Znovu připojit: Nastavení › Domácnost a síť › Vzdálený přístup › Připojit</string>
+    <string name="mnt_titulo">Noční údržba</string>
+    <string name="mnt_consertei">Opraveno:</string>
+    <string name="mnt_falhou">Nepodařilo se opravit:</string>
+    <string name="mnt_acesso">vzdálený přístup</string>
+    <string name="mnt_permissoes">oprávnění</string>
+    <string name="mnt_agendamentos">budíky a rutiny</string>
+    <string name="mnt_espaco">volné místo</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">Kehittäjäasetuksia ei voitu avata (%1$s)</string>
+    <string name="pn_porta_achada">paritusportti %1$d löytyi</string>
+    <string name="pn_mdns_falhou">verkkohaku epäonnistui (%1$s)</string>
+    <string name="pn_pareando">paritetaan…</string>
+    <string name="pn_confirme">koodi luettu. Paritaksesi paina kaukosäätimen OK kohdassa ”%1$s”</string>
+    <string name="pn_so_controle">vain kaukosäätimen näppäin vahvistaa parituksen</string>
+</resources>

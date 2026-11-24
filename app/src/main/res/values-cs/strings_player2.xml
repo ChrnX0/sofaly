@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Spojení přerušeno. Zkouší se znovu (%1$d z %2$d)…</string>
+    <string name="vod_proximo_episodio">Další díl</string>
+    <string name="vod_proximo_agora">Sledovat hned · %1$d s</string>
+    <string name="vod_proximo_cancelar">Zrušit</string>
+    <string name="vod_proximo_continuar">Sledovat dál</string>
+    <string name="vod_ainda_assistindo">Stále se díváte?</string>
+    <string name="vod_ainda_assistindo_texto">Několik dílů se přehrálo, aniž by se někdo dotkl ovladače, takže další na vás počká.</string>
+    <string name="vod_desligar_ao_fim">Vypnout televizor, až tohle skončí</string>
+    <string name="vod_legenda_tamanho_titulo">Velikost titulků</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Malé</item>
+        <item>Normální</item>
+        <item>Velké</item>
+        <item>Obrovské</item>
+    </string-array>
+</resources>

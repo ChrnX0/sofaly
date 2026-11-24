@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Miten tätä TV:tä käytetään</string>
+    <string name="uso_det">Olennainen piilottaa Kodin ja automaatiot, Etäkäytön ja Lisäasetukset. Mitään ei kytketä pois.</string>
+    <string name="uso_simples">Olennainen</string>
+    <string name="uso_completo">Täydellinen</string>
+    <string name="uso_cuida">Henkilölle, josta huolehdin</string>
+    <string name="uso_pergunta">Miten tätä TV:tä käytetään?</string>
+    <string name="uso_pergunta_det">Voit muuttaa tätä myöhemmin kohdassa Asetukset › Järjestelmä.</string>
+    <string name="uso_simples_det">Vain olennainen: sovellukset, kello ja sää. Vähemmän valintoja Asetuksissa.</string>
+    <string name="uso_completo_det">Kaikki: kaukosäädin puhelimesta, kodin laitteet, verkkoasema ja lisävalinnat.</string>
+    <string name="uso_cuida_det">Vanhempien tai isovanhempien TV: helppo heille, ja sinä autat puhelimestasi, kaukaa.</string>
+    <string name="uso_cuidar_longe">Huolehdi etäältä</string>
+    <string name="uso_cuidar_longe_det">Pois, kunnes siellä asuva henkilö hyväksyy sen TV:ssä.</string>
+    <string name="uso_cartoes">Isot kortit aloitusnäytössä</string>
+    <string name="uso_cartoes_det">Muutama iso sovellus, nimet luettuna ääneen ja \"Pyydä apua\" -painike. Pois kytkeminen kysyy PIN-koodia.</string>
+    <string name="uso_trocar_det">Nyt: %1$s. OK valitsee uudelleen.</string>
+</resources>

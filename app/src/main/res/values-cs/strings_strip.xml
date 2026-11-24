@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Jedna lišta</string>
+    <string name="strip_desc_watch">Filmy, seriály a TV</string>
+    <string name="strip_desc_listen">Hudba, rádio a podcasty</string>
+    <string name="strip_desc_play">Hry a cloudové hraní</string>
+    <string name="strip_desc_apps">Vše nainstalované</string>
+    <string name="strip_desc_tools">Budík, počasí a nastavení</string>
+    <string name="strip_apps_count">%1$d aplikací</string>
+    <string name="st_desc">Popis světa</string>
+    <string name="st_desc_fixa">Pevná věta</string>
+    <string name="st_desc_viva">Co právě běží</string>
+    <string name="st_formato">Tvar karet</string>
+    <string name="st_quadrado">Čtverec</string>
+    <string name="st_tamanho">Velikost karet</string>
+    <string name="st_pequeno">Malé</string>
+    <string name="st_medio">Střední</string>
+    <string name="st_grande">Velké</string>
+    <string name="st_espaco">Mezera mezi kartami</string>
+    <string name="st_justo">Těsná</string>
+    <string name="st_normal">Normální</string>
+    <string name="st_largo">Široká</string>
+    <string name="st_cantos">Rohy karet</string>
+    <string name="st_retos">Hranaté</string>
+    <string name="st_suaves">Jemné</string>
+    <string name="st_redondos">Kulaté</string>
+    <string name="st_placa">Skleněná deska za nimi</string>
+    <string name="st_nome">Název na vybrané kartě</string>
+    <string name="st_sem">Vypnuto</string>
+    <string name="st_com">Zapnuto</string>
+</resources>

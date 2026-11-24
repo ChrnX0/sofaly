@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Laajennukset</string>
+    <string name="plg_nenhum">Korttilaajennusta ei ole asennettu. Korttilaajennukset ovat muiden kehittäjien sovelluksia, jotka näyttävät tässä kortin, kuten ottelun tuloksen tai hinnan.</string>
+    <string name="plg_ligado">Päällä</string>
+    <string name="plg_desligado">Pois</string>
+    <string name="plg_limite">Enintään %1$d laajennusta kerrallaan. Kytke ensin yksi pois.</string>
+    <string name="plg_seguranca">Jos laajennus päivitetään eri allekirjoituksella, se kytketään pois, kunnes sallit sen uudelleen.</string>
+</resources>

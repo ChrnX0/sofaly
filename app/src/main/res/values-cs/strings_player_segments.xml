@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
+<resources>
+    <string name="seg_pular_resumo">Přeskočit shrnutí · OK</string>
+    <string name="seg_proximo">Další díl · OK</string>
+    <string name="seg_proximo_em">Další díl za %1$d · OK</string>
+    <string name="seg_termina">končí v %1$s</string>
+    <string name="seg_repetir">Co říkali?</string>
+    <string name="seg_repetir_info">Zpět o 10 s s titulky</string>
+    <string name="seg_sem_legenda">Toto video nemá titulky</string>
+</resources>

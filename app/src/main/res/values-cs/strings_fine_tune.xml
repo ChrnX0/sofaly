@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Písmo</string>
+    <string name="fc_det">Písmo na každé obrazovce. Písma Google se stáhnou poprvé</string>
+    <string name="fc_baixando">stahuje se…</string>
+    <string name="fc_falhou">Nepodařilo se stáhnout. Zkontrolujte internet</string>
+    <string name="ck_formato">Formát času</string>
+    <string name="ck_formato_det">V horní liště, Ostrově a velkých hodinách</string>
+    <string name="ck_auto">Automaticky</string>
+    <string name="ck_24">24 h (15:40)</string>
+    <string name="ck_12">12 h (3:40)</string>
+    <string name="ck_12ampm">12 h s AM/PM</string>
+    <string name="ck_seg">Se sekundami</string>
+    <string name="ck_cor">Barva času</string>
+    <string name="ck_cor_det">V horní liště, Ostrově a velkých hodinách</string>
+    <string name="ck_padrao">Výchozí</string>
+    <string name="ck_laranja">Oranžová</string>
+    <string name="ck_creme">Krémová</string>
+    <string name="ck_ambar">Jantarová</string>
+    <string name="ck_verde">Modrozelená</string>
+</resources>

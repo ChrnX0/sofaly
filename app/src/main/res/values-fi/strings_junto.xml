@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sessão junto e Continuar em outra TV (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="junto_titulo">Katsokaa yhdessä</string>
+    <string name="junto_menu">Katso yhdessä toisen TV:n kanssa</string>
+    <string name="junto_escolher">Mikä TV kutsutaan?</string>
+    <string name="junto_sem_tvs">Tällä Tailscale-tilillä ei ole muita TV:itä verkossa. Kytke \"Perheen TV:t\" päälle myös toisessa TV:ssä.</string>
+    <string name="junto_sem_titulo">Tätä videota ei voi jakaa: toinen TV ei löytänyt samaa nimikettä.</string>
+    <string name="junto_convidou">Kutsu lähetetty kohteeseen %1$s. Kun siellä aloitetaan sama nimike, molemmat TV:t etenevät yhdessä.</string>
+    <string name="junto_falhou">Kohteeseen %1$s ei saatu yhteyttä. Onko se päällä ja \"Perheen TV:t\" kytkettynä?</string>
+    <string name="junto_convite_titulo">%1$s kutsuu sinut katsomaan yhdessä</string>
+    <string name="junto_convite_texto">%1$s\n\nAvaa sama nimike täällä, niin molemmat TV:t tauottavat ja etenevät yhdessä.</string>
+    <string name="junto_convite_canal">%1$s\n\nSuora TV: molemmat TV:t pysyvät samalla kanavalla. Kumpi tahansa vaihtaa, toinen seuraa.</string>
+    <string name="junto_entrar">Liity</string>
+    <string name="junto_agora_nao">Ei nyt</string>
+    <string name="junto_entrou">%1$s liittyi. Tauko ja toisto ovat nyt yhteisiä.</string>
+    <string name="junto_saiu">%1$s lähti. Tämä TV jatkaa yksin.</string>
+    <string name="junto_com">Yhdessä kohteen %1$s kanssa</string>
+    <string name="junto_sair">Lopeta yhdessä katsominen</string>
+    <string name="junto_sem_canal">Tämä kanava ei ole tämän TV:n listalla.</string>
+    <string name="junto_tvs">Perheen TV:t</string>
+    <string name="junto_tvs_det">Samalla Tailscale-tilillä olevat TV:t voivat katsoa yhdessä ja siirtää videon eteenpäin. Vain komennot kulkevat, ei koskaan video. Sukulaisen TV toisella tilillä ei voi vielä liittyä.</string>
+    <string name="junto_outro_episodio">%1$s on jo kohdassa K%2$d J%3$d. Kun tämä TV pääsee sinne, olette taas yhdessä.</string>
+    <string name="cont_titulo">Jatka toisella TV:llä</string>
+    <string name="cont_menu">Lähetä toiselle TV:lle</string>
+    <string name="cont_escolher">Mille TV:lle lähetetään?</string>
+    <string name="cont_enviado">Lähetetty. %1$s kysyy, jatketaanko tästä.</string>
+    <string name="cont_falhou">Lähettäminen kohteeseen %1$s epäonnistui. Onko se päällä ja \"Perheen TV:t\" kytkettynä?</string>
+    <string name="cont_pergunta">Jatketaanko siitä, mihin jäit?</string>
+    <string name="cont_texto">%1$s\npysähtyi kohtaan %2$s laitteessa %3$s.</string>
+    <string name="cont_texto_canal">%1$s\noli päällä laitteessa %3$s. Avataanko sama kanava täällä?</string>
+    <string name="cont_continuar">Jatka</string>
+    <string name="cont_buscar">Etsi sitä täältä</string>
+</resources>

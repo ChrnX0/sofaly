@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sessão junto e Continuar em outra TV (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="junto_titulo">Sledovat společně</string>
+    <string name="junto_menu">Sledovat společně s jiným televizorem</string>
+    <string name="junto_escolher">Který televizor pozvat?</string>
+    <string name="junto_sem_tvs">Na tomto účtu Tailscale není online žádný jiný televizor. Zapněte \"Rodinné televizory\" i na druhém televizoru.</string>
+    <string name="junto_sem_titulo">Toto video nelze sdílet: druhý televizor nenašel stejný titul.</string>
+    <string name="junto_convidou">Pozvánka odeslána na %1$s. Až tam spustí stejný titul, oba televizory se budou pohybovat společně.</string>
+    <string name="junto_falhou">Nepodařilo se spojit s %1$s. Je zapnutý a má zapnuté \"Rodinné televizory\"?</string>
+    <string name="junto_convite_titulo">%1$s vás zve ke společnému sledování</string>
+    <string name="junto_convite_texto">%1$s\n\nOtevřete zde stejný titul a oba televizory se budou společně pozastavovat a posouvat.</string>
+    <string name="junto_convite_canal">%1$s\n\nŽivá TV: oba televizory zůstanou na stejném kanálu. Kdokoli ho změní, druhý následuje.</string>
+    <string name="junto_entrar">Připojit se</string>
+    <string name="junto_agora_nao">Teď ne</string>
+    <string name="junto_entrou">%1$s se připojil(a). Pauza a přehrávání jsou teď sdílené.</string>
+    <string name="junto_saiu">%1$s odešel(a). Tento televizor pokračuje sám.</string>
+    <string name="junto_com">Společně s %1$s</string>
+    <string name="junto_sair">Ukončit společné sledování</string>
+    <string name="junto_sem_canal">Tento kanál není v seznamu tohoto televizoru.</string>
+    <string name="junto_tvs">Rodinné televizory</string>
+    <string name="junto_tvs_det">Televizory na stejném účtu Tailscale mohou sledovat společně a předávat si video. Putují jen příkazy, nikdy video. Televizor příbuzného na jiném účtu se zatím připojit nemůže.</string>
+    <string name="junto_outro_episodio">%1$s je už na Ř%2$d D%3$d. Až se tam tento televizor dostane, budete zase spolu.</string>
+    <string name="cont_titulo">Pokračovat na jiném televizoru</string>
+    <string name="cont_menu">Poslat na jiný televizor</string>
+    <string name="cont_escolher">Poslat na který televizor?</string>
+    <string name="cont_enviado">Odesláno. %1$s se zeptá, zda pokračovat odsud.</string>
+    <string name="cont_falhou">Nepodařilo se poslat na %1$s. Je zapnutý a má zapnuté \"Rodinné televizory\"?</string>
+    <string name="cont_pergunta">Pokračovat, kde jste skončili?</string>
+    <string name="cont_texto">%1$s\nzastaveno na %2$s na %3$s.</string>
+    <string name="cont_texto_canal">%1$s\nběželo na %3$s. Otevřít zde stejný kanál?</string>
+    <string name="cont_continuar">Pokračovat</string>
+    <string name="cont_buscar">Hledat zde</string>
+</resources>

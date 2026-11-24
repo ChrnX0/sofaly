@@ -20,7 +20,7 @@ object BarraIlha {
     @Volatile var agora: org.json.JSONArray? = null
 
     /** Em ordem de importância: o primeiro presente abre a fila. */
-    enum class Tipo { SEM_INTERNET, CAMPAINHA, SERVICO_FORA, TIMER, ALARME, LEMBRETE, TOCANDO, LEMBRETE_CASA, AGENDA, ANIVERSARIO, JOGO, VENCIMENTO, CONTAGEM, CEU, SOL }
+    enum class Tipo { SEM_INTERNET, CAMPAINHA, SERVICO_FORA, TIMER, ALARME, LEMBRETE, TOCANDO, SOFY, LEMBRETE_CASA, AGENDA, ANIVERSARIO, JOGO, VENCIMENTO, CONTAGEM, CEU, SOL }
 
     data class Evento(val tipo: Tipo, val texto: String, val tocando: Boolean = false) {
         /** Pede atenção (texto em âmbar e ponto âmbar/vermelho). */
@@ -56,6 +56,8 @@ object BarraIlha {
         val ceu: String? = null,
         /** Sol forte ([br.paulo.tvlauncher.weather.SunAlert]): UV ≥ 8 agora ou na próxima hora, de dia e com céu aberto. */
         val sol: String? = null,
+        /** Recado da Sofy para a home ([br.paulo.tvlauncher.observer.SofyTv.islandLine], 24/11/2026). */
+        val sofy: String? = null,
     )
 
     /** O despertador vai para a pílula nas últimas 12 h (antes disso, só na barra aberta). */
@@ -90,6 +92,7 @@ object BarraIlha {
         if (dentro(e.alarmeFaltaMs, ALARME_JANELA_MS)) add(Tipo.ALARME, e.alarme)
         if (dentro(e.lembreteFaltaMs, LEMBRETE_JANELA_MS, LEMBRETE_ATRASO_MS)) add(Tipo.LEMBRETE, e.lembrete)
         add(Tipo.TOCANDO, e.tocandoTitulo, e.tocando)
+        add(Tipo.SOFY, e.sofy)
         add(Tipo.LEMBRETE_CASA, e.lembreteCasa)
         if (dentro(e.agendaFaltaMs, AGENDA_JANELA_MS, AGENDA_ATRASO_MS)) add(Tipo.AGENDA, e.agenda)
         add(Tipo.CEU, e.ceu)
@@ -139,7 +142,7 @@ object BarraIlha {
     // ------------------------------------------------------------------ Ilha que cresce
 
     /** Tipos que, ao CHEGAR, fazem a Ilha crescer por [CRESCER_MS] com a dica da ação (como a Dynamic Island). */
-    private val CRESCEM = setOf(Tipo.SEM_INTERNET, Tipo.CAMPAINHA, Tipo.LEMBRETE, Tipo.AGENDA, Tipo.ALARME, Tipo.CEU, Tipo.SOL)
+    private val CRESCEM = setOf(Tipo.SEM_INTERNET, Tipo.CAMPAINHA, Tipo.LEMBRETE, Tipo.AGENDA, Tipo.ALARME, Tipo.CEU, Tipo.SOL, Tipo.SOFY)
     const val CRESCER_MS = 5_000L
 
     /**

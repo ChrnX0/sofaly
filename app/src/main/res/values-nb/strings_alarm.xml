@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Velg tidspunkt og dager</string>
+    <string name="al_volume_rotulo">Volum når den ringer</string>
+    <string name="al_volume_det">TV-en skrur opp til minst dette volumet, selv om den var dempet</string>
+    <string name="al_volume_lg_det">LG-TV-en starter lavt og stiger til dette volumet</string>
+    <string name="al_info_toca">ringer %1$s</string>
+    <string name="al_proximo_rotulo">Neste alarm</string>
+    <string name="al_dica_editar">rediger</string>
+    <string name="al_dica_ligar">på/av</string>
+    <string name="al_dica_sair">avslutt</string>
+    <string name="al_dica_mudar">endre</string>
+    <string name="al_dica_andar">flytt</string>
+    <string name="al_dica_salvar">lagre</string>
+    <string name="al_ligou">Alarm %1$s på</string>
+    <string name="al_desligou">Alarm %1$s av</string>
+    <string name="al_sim">Ja</string>
+    <string name="al_nao">Nei</string>
+    <string name="al_op_salvar_det">TILBAKE lagrer også</string>
+    <string name="al_op_repetir">Gjenta</string>
+    <string name="al_op_repetir_det">OK velger dagene</string>
+    <string name="al_op_som">Lyd</string>
+    <string name="al_op_som_det">OK velger en lyd og spiller den av for deg</string>
+    <string name="al_op_rampa">Ringing</string>
+    <string name="al_op_rampa_det">Å starte lavt er en skånsommere måte å våkne på</string>
+    <string name="al_op_bom_dia">God morgen</string>
+    <string name="al_op_bom_dia_det">Når du stopper den, sier TV-en klokkeslettet, været og dagens kalender</string>
+    <string name="al_op_cena">Scene ved stopp</string>
+    <string name="al_op_cena_det">OK velger scenen</string>
+    <string name="al_op_nome">Navn</string>
+    <string name="al_op_nome_det">Vises på skjermen når den ringer</string>
+    <string name="al_op_nome_dica">f.eks. Medisin</string>
+    <string name="al_op_alarme">Alarm</string>
+    <string name="al_op_ligado_det">OK slår den på eller av</string>
+    <string name="al_op_apagar">Slett alarm</string>
+    <string name="al_op_apagar_det">Spør før sletting</string>
+    <string name="al_op_sair">Gå ut uten å lagre</string>
+    <string name="al_op_sair_det">Angrer det du endret her</string>
+    <string name="al_apagar_q">Slette alarmen %1$s?</string>
+    <string name="al_salvo">Alarm lagret: %1$s</string>
+    <string name="al_resumo">Ringer %1$s</string>
+    <string name="al_resumo_desligado">Av: den ringer ikke</string>
+    <string name="al_op_hora">Time</string>
+    <string name="al_op_minuto">Minutt</string>
+</resources>

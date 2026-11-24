@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Launcherin kaukosäätimen näppäimet (uudelleen määritettävät Netflix-/YouTube-painikkeet) ja ilman PC:tä tehtävän parituksen ikkuna.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">yhdistetty</string>
+    <string name="cfg_vpn_desconectada">ei yhteyttä</string>
+    <string name="cfg_titulo">Asetukset</string>
+    <string name="cfg_diag">Diagnosoi TV</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN ja miksi sovellus pysähtyi – kaikki kerralla</string>
+    <string name="cfg_tema_det">Vaihtaa seuraavaan ulkoasuun</string>
+    <string name="cfg_nunca">Ei koskaan</string>
+    <string name="cfg_min">%1$d min</string>
+    <string name="cfg_nao_gravou_do">ei voitu tallentaa (Device Owner ei aktiivinen?)</string>
+    <string name="cfg_visita">Vierastila</string>
+    <string name="cfg_rotinas">Rutiinit</string>
+    <string name="cfg_sec_atualizacao">Päivitykset</string>
+    <string name="cfg_atualizar">Tarkista uusi versio</string>
+    <string name="cfg_atualizar_det">Versio %1$s · %2$s · OK tarkistaa nyt</string>
+    <string name="cfg_procurando">tarkistetaan GitHubia…</string>
+    <string name="cfg_instalar">Asenna versio %1$d nyt</string>
+    <string name="cfg_instalar_det">Launcher sulkeutuu ja palaa itsestään muutamassa sekunnissa · OK asentaa</string>
+    <string name="cfg_instalando">ladataan ja tarkistetaan…</string>
+    <string name="cfg_sec_rede">Verkko</string>
+    <string name="cfg_dns">Yksityinen DNS</string>
+    <string name="cfg_dns_caiu">" · %1$s ei vastannut, palattiin automaattiseen"</string>
+    <string name="cfg_velocidade">Testaa internetin nopeus</string>
+    <string name="cfg_velocidade_det">Lataa 25 Mt ja mittaa</string>
+    <string name="cfg_testando">Testataan…</string>
+    <string name="cfg_nao_mudou_do">ei voitu muuttaa (Device Owner ei aktiivinen?)</string>
+    <string name="cfg_sec_ligado">Mitä on päällä – %1$s</string>
+    <string name="cfg_ligado">päällä</string>
+    <string name="cfg_so_pc">" · vain tietokoneella (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK yrittää kytkeä päälle"</string>
+    <string name="cfg_perm_fixas">Kiinteät käyttöoikeudet myönnetty</string>
+    <string name="cfg_shell_estado">Oma komentotulkki</string>
+    <string name="cfg_shell_pareado">paritettu: launcher yhdistää itse uudelleen langattoman virheenkorjauksen kautta</string>
+    <string name="cfg_shell_nunca">ei vielä paritettu: käytä alta ”Parita ilman PC:tä”</string>
+    <string name="cfg_sec_shizuku">Launcherin komentotulkki (Wi-Fi ADB)</string>
+    <string name="cfg_parear">Parita ilman PC:tä</string>
+    <string name="cfg_parear_det">Avaa Androidin paritusnäytön ja sen päälle launcherin näppäimistön</string>
+    <string name="cfg_acess_off">launcherin esteettömyyspalvelu on pois päältä</string>
+    <string name="cfg_versao">Launcherin versio</string>
+    <string name="cfg_desconhecida">tuntematon</string>
+    <string name="cfg_depuracao">Langaton virheenkorjaus</string>
+    <string name="cfg_depuracao_on">launcher pitää sen päällä</string>
+    <string name="cfg_depuracao_android">kuten Android sen jättää</string>
+    <string name="cfg_chave">Oman komentotulkin avain</string>
+    <string name="cfg_calculando">lasketaan…</string>
+    <string name="cfg_erro">virhe: %1$s</string>
+    <string name="cfg_licencas">Lisenssit ja tekijät</string>
+    <string name="cfg_licencas_det">Tässä käytetty kolmansien osapuolten koodi, fontit, kuvakkeet ja tiedot</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">ilman sitä: ei sovellusten piilottamista, ei kiinnitettyä HOME-näkymää tai VPN:ää, ei näytönsäästäjän aikakatkaisua</string>
+    <string name="rec_agenda">Kalenteri</string>
+    <string name="rec_agenda_sem">ilman sitä: kalenteri ei näytä tapahtumia</string>
+    <string name="rec_local">Sijainti</string>
+    <string name="rec_local_sem">ilman sitä: sää käyttää IP-osoitteen kaupunkia eikä Wi-Fi näytä verkon nimeä</string>
+    <string name="rec_contas">Tilit</string>
+    <string name="rec_contas_sem">ilman sitä: profiilipiste ei näytä tilin alkukirjainta</string>
+    <string name="rec_uso">Sovellusten käyttö</string>
+    <string name="rec_uso_sem">ilman sitä: sovelluksia ei järjestetä viimeaikaisen käytön mukaan</string>
+    <string name="rec_sobre">Päällekkäisnäyttö</string>
+    <string name="rec_sobre_sem">ilman sitä: muistiinpanot ja paritus ilman PC:tä eivät näy sovellusten päällä</string>
+    <string name="rec_seguras">Suojatut asetukset</string>
+    <string name="rec_seguras_sem">ilman sitä: ei DNS-muutosta eikä näppäinpalvelun ja langattoman virheenkorjauksen automaattista uudelleenkäynnistystä (vain PC:llä tai launcherin komentotulkilla)</string>
+    <string name="rec_teclas">Näppäinpalvelu</string>
+    <string name="rec_teclas_sem">ilman sitä: HOME voi avata Googlen launcherin eikä Netflix-/YouTube-näppäimiä määritetä uudelleen</string>
+    <string name="rec_tudo">kaikki päällä</string>
+    <string name="rec_faltam">%1$d / %2$d ominaisuutta puuttuu · OK kohteessa yrittää kytkeä sen päälle</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Tervetuloa</string>
+    <string name="bv_texto">Aloitusnäyttö, kello, sää, herätys ja näytönsäästäjä toimivat jo. Kytke loput päälle täällä, jos haluat (%1$s).</string>
+    <string name="bv_comecar">Aloita</string>
+    <string name="bv_comecar_det">Siirtyy aloitusnäyttöön</string>
+    <string name="bv_perm">Kytke päälle kalenteri, sijainti ja tilit</string>
+    <string name="bv_perm_det">Kalenterin tapahtumat, kaupunkisi sää, tilin alkukirjain profiilissa</string>
+    <string name="bv_teclas">Kytke näppäinpalvelu päälle</string>
+    <string name="bv_teclas_det">Esteettömyys › Kaukosäätimen painikkeet: HOME palaa aina tänne</string>
+    <string name="bv_tudo">Katso kaikki, minkä voit kytkeä päälle</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Lisenssitiedostoa ei löytynyt.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Käynnistä TV</string>
+    <string name="rot_abrir_um">Käynnistä ja avaa sovellus</string>
+    <string name="rot_desligar">Sammuta TV</string>
+    <string name="rot_abrir">Käynnistä ja avaa %1$s</string>
+    <string name="rot_um_app">sovellus (valitse)</string>
+    <string name="rot_se_ocioso">" jos kukaan ei koskenut siihen %1$s"</string>
+    <string name="rot_sempre">aina</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">ei rutiineja päällä</string>
+    <string name="rot_proxima">seuraava: %1$s</string>
+    <string name="rot_nova_mais">+ Uusi rutiini</string>
+    <string name="rot_nova_det">Käynnistä, avaa sovellus tai sammuta tiettyyn aikaan</string>
+    <string name="rot_desligada_sufixo">" · pois"</string>
+    <string name="rot_nova">Uusi rutiini</string>
+    <string name="rot_editar">Muokkaa rutiinia</string>
+    <string name="rot_editor_det">OK muuttaa kutakin riviä · TAKAISIN poistuu tallentamatta</string>
+    <string name="rot_hora">Aika: %1$s</string>
+    <string name="rot_dias">Päivät: %1$s</string>
+    <string name="rot_acao">Toiminto: %1$s</string>
+    <string name="rot_app">Sovellus: %1$s</string>
+    <string name="rot_nenhum">ei mitään</string>
+    <string name="rot_ocioso">Vain jos kukaan ei koskenut siihen: %1$s</string>
+    <string name="rot_ligada">Päällä</string>
+    <string name="rot_desligada">Pois</string>
+    <string name="rot_hora_det">◀ ▶ 5 minuuttia · OK +1 tunti</string>
+    <string name="rot_dias_det">OK: joka päivä, ma–pe, viikonloppu, kerran</string>
+    <string name="rot_ok_muda">OK muuttaa</string>
+    <string name="rot_app_det">OK tai ▶ seuraava · ◀ edellinen</string>
+    <string name="rot_ocioso_det">Ei keskeytä katselijaa</string>
+    <string name="rot_ativa_det">OK kytkee tämän rutiinin päälle/pois</string>
+    <string name="rot_salvar">Tallenna</string>
+    <string name="rot_escolha_app">Valitse sovellus</string>
+    <string name="rot_apagar">Poista tämä rutiini</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Kerran</string>
+    <string name="dia_todo">Joka päivä</string>
+    <string name="dia_seg_sex">Ma–pe</string>
+    <string name="dia_fim">Viikonloppu</string>
+    <string-array name="dias_curtos">
+        <item>su</item>
+        <item>ma</item>
+        <item>ti</item>
+        <item>ke</item>
+        <item>to</item>
+        <item>pe</item>
+        <item>la</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE d. MMMM</string>
+    <string name="home_perfil">Profiili</string>
+    <string name="home_visita_titulo">Vierastila päällä</string>
+    <string name="home_visita_msg">Profiili, kalenteri ja valitut sovellukset on piilotettu. Poistutaanko vierastilasta?</string>
+    <string name="home_continuar">Pidä</string>
+    <string name="home_sair">Poistu</string>
+    <string name="comum_cancelar">Peruuta</string>
+    <string name="home_mostrar">Näytä aloitusnäytössä</string>
+    <string name="home_ocultar">Piilota aloitusnäytöstä</string>
+    <string name="home_sob_demanda">Jäädytä, kun ei käytössä</string>
+    <string name="home_sob_demanda_tirar">Lopeta jäädyttäminen, kun ei käytössä</string>
+    <string name="sob_demanda_ligado">Jäädytetty. Se pysyy täällä: OK sulattaa ja avaa sen, ja se jäätyy uudelleen 2 minuuttia poistumisesi jälkeen.</string>
+    <string name="sob_demanda_desligado">Sulatettu. Se toimii kuten ennenkin.</string>
+    <string name="sob_demanda_falhou">Muutos ei onnistunut nyt. Yritä hetken kuluttua uudelleen.</string>
+    <string name="home_desinstalar">Poista asennus</string>
+    <string name="home_app_sistema"> (järjestelmäsovellus)</string>
+    <string name="home_desinstalar_titulo">Poistetaanko %1$s?</string>
+    <string name="home_desinstalar_aviso">Sovellus ja sen tiedot poistuvat TV:stä. Tätä ei voi kumota: saadaksesi sen takaisin asenna se uudelleen Play Kaupasta.</string>
+    <string name="home_cancelar">Peruuta</string>
+    <string name="home_desinstalando">Poistetaan %1$s…</string>
+    <string name="home_desinstalado">%1$s poistettiin.</string>
+    <string name="home_desinstalar_falhou">%1$s:n poistaminen epäonnistui: %2$s</string>
+    <string name="home_chovendo">Sataa nyt</string>
+    <string name="home_chuva_agora">%1$s - Sade %2$d%% juuri nyt</string>
+    <string name="home_chuva_em">%1$s - Sade %2$d%% %3$d t päästä</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Herätys asetettu: %1$s</string>
+    <string name="al_um_app">sovellus</string>
+    <string name="al_criar_q">Asetetaanko herätys klo %1$s?</string>
+    <string name="al_pedido">Pyytäjä: %1$s.</string>
+    <string name="al_criar">Aseta</string>
+    <string name="al_titulo">Herätyskello</string>
+    <string name="al_nenhum">Ei herätyksiä päällä</string>
+    <string name="al_novo_mais">+  Uusi herätys</string>
+    <string name="al_ligado">Päällä</string>
+    <string name="al_desligado">Pois</string>
+    <string name="al_novo">Uusi herätys</string>
+    <string name="al_editar">Muokkaa herätystä</string>
+    <string name="al_apagar">Poista</string>
+    <string name="al_hoje">tänään</string>
+    <string name="al_amanha">huomenna</string>
+    <string name="al_dia_as">%1$s klo %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Lopeta</string>
+    <string name="al_soneca">Torkku 10 min</string>
+    <string name="al_perdido_um">Herätys %1$s ei soinut, koska TV oli sammuksissa.</string>
+    <string name="al_perdido_varios">Herätykset %1$s eivät soineet, koska TV oli sammuksissa.</string>
+    <string name="al_perdido_e">ja</string>
+    <string name="al_volume_nao_mexe">älä muuta</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Ei Google-tiliä</string>
+    <string name="pp_ativo">"  ·  aktiivinen"</string>
+    <string name="pp_adicionar">Lisää profiili</string>
+    <string name="pr_bt_controle">Kaukosäädin</string>
+    <string name="pp_audio">Ääni</string>
+    <string name="pp_carregando">Ladataan…</string>
+    <string name="pp_conectar">Yhdistä</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">ei Google-tiliä</string>
+    <string name="cal_dica">◀ ▶ vaihda kuukautta</string>
+    <string name="cal_30">Seuraavat 30 päivää</string>
+    <string name="cal_nenhuma_conta">TV:ssä ei ole Google-tiliä</string>
+    <string name="cal_nada">Ei mitään suunniteltua (tai kalenteri synkronoidaan vielä)</string>
+    <string name="fmt_mes_ano">LLLL yyyy</string>
+    <string name="cal_dia_todo">Koko päivän</string>
+    <string name="cal_sem_titulo">(ei otsikkoa)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  sataa"</string>
+    <string name="pt_lua">Kuu</string>
+    <string name="pt_sol">Aurinko</string>
+    <string name="pt_umidade">Kosteus</string>
+    <string name="pt_chuva">Sade</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Sade</string>
+    <string name="cl_limpo">Selkeää</string>
+    <string name="cl_poucas">Muutamia pilviä</string>
+    <string name="cl_parcial">Puolipilvistä</string>
+    <string name="cl_nublado">Pilvistä</string>
+    <string name="cl_neblina">Sumua</string>
+    <string name="cl_garoa_fraca">Heikkoa tihkua</string>
+    <string name="cl_garoa">Tihkua</string>
+    <string name="cl_garoa_forte">Voimakasta tihkua</string>
+    <string name="cl_garoa_cong">Jäätävää tihkua</string>
+    <string name="cl_chuva_fraca">Heikkoa sadetta</string>
+    <string name="cl_chuva_forte">Voimakasta sadetta</string>
+    <string name="cl_chuva_cong">Jäätävää sadetta</string>
+    <string name="cl_neve_fraca">Heikkoa lumisadetta</string>
+    <string name="cl_neve">Lumisadetta</string>
+    <string name="cl_neve_forte">Voimakasta lumisadetta</string>
+    <string name="cl_graos">Lumijyväsiä</string>
+    <string name="cl_panc_fracas">Heikkoja sadekuuroja</string>
+    <string name="cl_panc">Sadekuuroja</string>
+    <string name="cl_panc_fortes">Voimakkaita sadekuuroja</string>
+    <string name="cl_panc_neve">Lumikuuroja</string>
+    <string name="cl_tempestade">Ukkosta</string>
+    <string name="cl_granizo">Ukkosta ja raekuuroja</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">täysikuu %1$d pv päästä</string>
+    <string name="lua_nova_em">uusikuu %1$d pv päästä</string>
+    <string-array name="fases_lua">
+        <item>Uusikuu</item>
+        <item>Kasvava sirppi</item>
+        <item>Ensimmäinen neljännes</item>
+        <item>Kasvava kuu</item>
+        <item>Täysikuu</item>
+        <item>Vähenevä kuu</item>
+        <item>Viimeinen neljännes</item>
+        <item>Vähenevä sirppi</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Ladataan sääennustetta…</string>
+    <string name="pv_voz_agora">"Nyt on %1$d astetta, %2$s. "</string>
+    <string name="pv_voz_hoje">Tänään ylin %1$d ja alin %2$d</string>
+    <string name="pv_voz_chuva">", sateen todennäköisyys %1$d prosenttia. "</string>
+    <string name="pv_voz_sem_chuva">", sadetta ei odoteta. "</string>
+    <string name="pv_voz_amanha">Huomenna, %1$s, ylin %2$d ja alin %3$d</string>
+    <string name="pv_voz_amanha_chuva">, sateen todennäköisyys %1$d prosenttia</string>
+    <string name="pv_sem">Sääennustetta ei saatu juuri nyt. Tarkista internet ja yritä uudelleen.</string>
+    <string name="pv_max_min">ylin %1$d°   alin %2$d°   ·   tuntuu kuin %3$d°</string>
+    <string name="pv_24h">Seuraavat 24 tuntia</string>
+    <string name="pv_agora">Nyt</string>
+    <string name="pv_chance">Sateen todennäköisyys</string>
+    <string name="pv_7d">Seuraavat 9 päivää</string>
+    <string name="pv_hoje">Tänään</string>
+    <string name="pv_mais_quente">Lämpimämpi</string>
+    <string name="pv_mais_frio">Kylmempi</string>
+    <string name="pv_igual">Sama kuin todellinen</string>
+    <string name="pv_detalhes">Tiedot</string>
+    <string name="pv_sensacao">Tuntuu kuin</string>
+    <string name="pv_vento">Tuuli</string>
+    <string name="pv_uv">UV-indeksi</string>
+    <string name="pv_visib">Näkyvyys</string>
+    <string name="pv_orvalho">Kastepiste</string>
+    <string name="pv_pressao">Ilmanpaine</string>
+    <string name="pv_chuva_hoje">Sade tänään</string>
+    <string name="pv_ar">Ilmanlaatu</string>
+    <string name="pv_sem_dados">Ei tietoja nyt</string>
+    <string name="uv_baixo">Matala</string>
+    <string name="uv_moderado">Kohtalainen</string>
+    <string name="uv_alto">Korkea</string>
+    <string name="uv_muito_alto">Erittäin korkea</string>
+    <string name="uv_extremo">Äärimmäinen</string>
+    <string name="aq_boa">Hyvä</string>
+    <string name="aq_moderada">Kohtalainen</string>
+    <string name="aq_sensiveis">Epäterveellinen herkille</string>
+    <string name="aq_ruim">Epäterveellinen</string>
+    <string name="aq_muito_ruim">Erittäin epäterveellinen</string>
+    <string name="aq_perigosa">Vaarallinen</string>
+    <string-array name="rosa_ventos">
+        <item>P</item>
+        <item>KO</item>
+        <item>I</item>
+        <item>KA</item>
+        <item>E</item>
+        <item>LO</item>
+        <item>L</item>
+        <item>LU</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Tumma</string>
+    <string name="tema_galeria">Galleria</string>
+    <string name="tema_meu">Oma taustani</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Pehmeä</string>
+    <string name="som_classico">Klassinen</string>
+    <string name="som_sino">Kello</string>
+    <string name="som_rampa1">Voimistuu 1½ minuutissa</string>
+    <string name="som_rampa2">Voimistuu 2 minuutissa</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mbps (ladattiin %2$.0f Mt %3$.1f sekunnissa)</string>
+    <string name="vel_falhou">Testi epäonnistui (ei internetiä tai palvelin alhaalla)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  nykyinen"</string>
+    <string name="esc_botao">Painike %1$s avaa:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">auringonnousu %1$s</string>
+    <string name="fd_por">auringonlasku %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: käytä   ·   pidä OK pohjassa omassa palvelimessa: poista   ·   Takaisin: poistu</string>
+    <string name="dns_auto">Automaattinen</string>
+    <string name="dns_auto_det">Käyttää reitittimen DNS:ää ja salaa, kun se hyväksyy (Androidin oletus)</string>
+    <string name="dns_desl">Pois</string>
+    <string name="dns_desl_det">Tavallinen DNS, ei salausta</string>
+    <string name="dns_publicos">Julkiset palvelimet</string>
+    <string name="dns_meus">Omat palvelimeni</string>
+    <string name="dns_adicionar">+  Lisää palvelin</string>
+    <string name="dns_adicionar_det">DNS-over-TLS-osoite, kuten dns.example.com</string>
+    <string name="dns_sem_permissao">"Ei oikeutta muuttaa DNS:ää. Tietokoneella: "</string>
+    <string name="dns_troque_antes">vaihda palvelinta ennen tämän poistamista</string>
+    <string name="dns_remover_q">Poistetaanko %1$s?</string>
+    <string name="dns_remover">Poista</string>
+    <string name="dns_nome_opc">Nimi (valinnainen)</string>
+    <string name="dns_endereco_ex">Osoite, esim. dns.example.com</string>
+    <string name="dns_adicionar_tit">Lisää DNS-palvelin</string>
+    <string name="dns_salvar_usar">Tallenna ja käytä</string>
+    <string name="dns_invalido">Virheellinen osoite. Käytä nimeä kuten dns.example.com (Android ei hyväksy IP-numeroa).</string>
+    <string name="dns_em_uso">Käytössä: %1$s</string>
+    <string name="dns_testando">testataan…</string>
+    <string name="dns_falha">EPÄONNISTUI: yhtään nimeä ei selvitetty. Valitse toinen palvelin tai Automaattinen.</string>
+    <string name="dns_res_sem_cripto">selvittää %1$d ms:ssa (ei salausta)</string>
+    <string name="dns_res_tls">selvittää %1$d ms:ssa   ·   TLS aktiivinen</string>
+    <string name="dns_res_com">" palvelimella %1$s"</string>
+    <string name="dns_res_sem_tls">selvittää %1$d ms:ssa   ·   ei TLS:ää juuri nyt</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (henkilökohtainen)</string>
+    <string name="dns_personalizado">Mukautettu (%1$s)</string>
+    <string name="dns_rot_auto">automaattinen</string>
+    <string name="dns_rot_desl">pois</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Yhteenveto</string>
+    <string name="diag_frase">Yhdellä lauseella</string>
+    <string name="diag_wifi_desc">ei yhteyttä: TV ei ole missään verkossa</string>
+    <string name="diag_lat">%1$d ms internetiin</string>
+    <string name="diag_sem_resp">internet ei vastaa</string>
+    <string name="diag_wifi">%1$s · signaali %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Android vahvisti Wi-Fin</string>
+    <string name="diag_nao_validou">Android EI vahvistanut Wi-Fiä</string>
+    <string name="diag_net_ok">toimii (testi %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">testi ei tavoittanut Googlea · %1$s</string>
+    <string name="diag_net_estranha">outo vastaus (%1$d): verkko saattaa vaatia kirjautumisen · %2$s</string>
+    <string name="diag_cripto">salaus aktiivinen</string>
+    <string name="diag_sem_cripto">salaus EI aktiivinen</string>
+    <string name="diag_resolve">selvittää nimiä (%1$d ms)</string>
+    <string name="diag_nao_resolve">EI selvitä nimiä</string>
+    <string name="diag_caiu">%1$s epäonnistui aiemmin ja palasin automaattiseen</string>
+    <string name="diag_nenhum_app">ei sovellusta</string>
+    <string name="diag_vpn_nada">ei VPN:ää kiinnitettynä tai päällä</string>
+    <string name="diag_vpn_desc">%1$s kiinnitetty, mutta EI YHTEYTTÄ (internet toimii edelleen ilman VPN:ää)</string>
+    <string name="diag_vpn_nao_validada">%1$s yhdistetty, mutta Android ei vahvistanut tunnelia</string>
+    <string name="diag_vpn_ok">%1$s yhdistetty ja toimii</string>
+    <string name="diag_r_sem_wifi">TV:llä ei ole Wi-Fiä</string>
+    <string name="diag_r_dns_fora">DNS ei vastaa: internet näyttää olevan alhaalla</string>
+    <string name="diag_r_net_fora">internet ei mene läpi (reititin tai palveluntarjoaja)</string>
+    <string name="diag_r_dns">DNS ei selvitä nimiä: sovellukset eivät löydä palvelimiaan</string>
+    <string name="diag_r_net">DNS toimii, mutta internet ei vastaa</string>
+    <string name="diag_r_vpn">verkko kunnossa; vain VPN on alhaalla (sovellukset toimivat ilman sitä)</string>
+    <string name="diag_r_atencao">verkko toimii, huomioitavaa alla</string>
+    <string name="diag_r_ok">verkko kunnossa. Jos sovellus pysähtyi, katso alta, mitä sille tapahtui</string>
+    <string name="diag_usava">" · käytti %1$d Mt"</string>
+    <string name="diag_texto">Syy: %1$s\nProsessi: %2$s\nTärkeys: %3$s</string>
+    <string name="diag_detalhe">\nAndroidin lisätieto: %1$s</string>
+    <string name="diag_m_memoria">suljettu muistin puutteen vuoksi</string>
+    <string name="diag_m_crash">kaatui</string>
+    <string name="diag_m_nativo">kaatui (natiivi)</string>
+    <string name="diag_m_anr">lakkasi vastaamasta (ANR)</string>
+    <string name="diag_m_iniciar">ei voinut käynnistyä</string>
+    <string name="diag_m_recurso">suljettu liiallisen resurssien käytön vuoksi</string>
+    <string name="diag_m_dependencia">suljettu, koska sovellus, josta se riippuu, kuoli</string>
+    <string name="diag_m_sinal">järjestelmä lopetti (signaali)</string>
+    <string name="diag_m_permissao">käynnistetty uudelleen käyttöoikeuden muutoksen vuoksi</string>
+    <string name="diag_i_tela">oli näytöllä</string>
+    <string name="diag_i_visivel">näkyvissä</string>
+    <string name="diag_i_servico">käynnissä taustalla</string>
+    <string name="diag_i_cache">taustalla (välimuistissa)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Diagnostiikka</string>
+    <string name="diag_refazer">Tarkista uudelleen</string>
+    <string name="diag_refazer_det">Suorittaa kaikki tarkistukset uudelleen</string>
+    <string name="diag_verificando">tarkistetaan…</string>
+    <string name="diag_apps">Sovellukset (viimeiset 7 päivää)</string>
+    <string name="diag_lendo">Luetaan sovellushistoriaa</string>
+    <string name="diag_sem_perm">Ei oikeutta lukea muiden sovellusten kaatumisia</string>
+    <string name="diag_sem_perm_det">Launcher myöntää itselleen READ_LOGS- ja DUMP-oikeudet omalla komentotulkillaan; odota muutama minuutti tai käynnistä TV uudelleen</string>
+    <string name="diag_nada">ei mitään tallennettu</string>
+    <string name="diag_erros">Launcherin virheet (sen tallentamat)</string>
+    <string name="diag_sem_erros">Ei tallennettuja virheitä</string>
+    <string name="diag_sem_erros_det">Launcher säilyttää täällä viimeiset %1$d kaatumistaan</string>
+    <string name="diag_erro">Launcherin virhe</string>
+    <string name="diag_apagar">Poista tallennetut virheet</string>
+    <string name="diag_apagar_det">Tyhjentää yllä olevan luettelon (ei koske muuhun)</string>
+    <string name="diag_rodape">%1$s · nuolet vierittävät · TAKAISIN palaa</string>
+    <string name="diag_app_ok">Ei kaatumisia, jumiutumisia tai epänormaaleja lopetuksia viimeisten 7 päivän aikana.\n\nJos sovellus avautuu mutta ei lataa mitään, ongelma on yleensä verkossa: katso edellisen näytön Verkko-osio.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">ei vielä tarkistettu</string>
+    <string name="atu_android9">vaatii Android 9:n tai uudemman</string>
+    <string name="atu_ocupado">tarkistetaan jo</string>
+    <string name="atu_erro">virhe: %1$s %2$s</string>
+    <string name="atu_em_dia">ajan tasalla (asennettu %1$d, uusin %2$d)</string>
+    <string name="atu_sem_tag">Uusimman Releasen tagissa ei ole versiota</string>
+    <string name="atu_sem_apk">Releasessa %1$d ei ole APK:ta tai SHA-256:ta</string>
+    <string name="atu_sha">Release %1$d: SHA-256 ei täsmää, ei asennettu</string>
+    <string name="atu_ilegivel">Release %1$d: lukukelvoton APK</string>
+    <string name="atu_pacote">Release %1$d: eri paketti (%2$s)</string>
+    <string name="atu_versao">Release %1$d: APK:n versio (%2$d) ei vastaa tagia</string>
+    <string name="atu_chave">GitHubissa on versio %1$d, mutta se on allekirjoitettu toisella avaimella, jota tämä TV ei hyväksy: tämä TV päivitetään PC:ltä</string>
+    <string name="atu_migracao_disponivel">versio %1$d: valmis siirtämään tämän TV:n uuteen sovellukseen (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">asennetaan uusi sovellus (%1$d); se ottaa sitten tämän TV:n hallintaansa kaikkine asetuksineen</string>
+    <string name="atu_disponivel">versio %1$d valmis asennettavaksi (asennettu %2$d)</string>
+    <string name="atu_trocou">versio muuttui viime tarkistuksen jälkeen · OK tarkistaa uudelleen</string>
+    <string name="atu_instalando">asennetaan %1$d (asennettu %2$d)</string>
+    <string name="atu_ok">päivitetty</string>
+    <string name="atu_falhou">asennus epäonnistui (%1$d): %2$s</string>
+    <string name="atu_ruim">versio %1$d kaatui tällä TV:llä heti asennuksen jälkeen: sitä ei asenneta uudelleen</string>
+    <string name="vig_aviso_titulo">Päivitys keskeytetty</string>
+    <string name="vig_pausada">versio %1$d kaatui kahdesti heti asennuksen jälkeen · automaattinen päivitys odottaa seuraavaa</string>
+    <string name="vig_pausada_tela">versio %1$d kaatui kahdesti heti asennuksen jälkeen · ”%2$s” pysyy pois päältä seuraavaan asti</string>
+    <string name="vig_tela_bloqueada">Tämä näyttö on pois päältä seuraavaan päivitykseen asti (se kaatoi launcherin)</string>
+    <string name="cfg_vig_liberar">Vikasietotila</string>
+    <string name="cfg_vig_liberar_det">" · OK kytkee sen takaisin päälle"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Puhehaku ei avautunut tällä TV:llä</string>
+    <string name="home_alarme_hoje">tänään</string>
+    <string name="home_alarme_amanha">huomenna</string>
+    <string name="player_carregando">Ladataan kanavia…</string>
+    <string name="player_carregando_canal">Ladataan kanavaa…</string>
+    <string name="vod_carregando">Ladataan videota…</string>
+    <string name="player_sem_canais">Kanavaluetteloa ei ole vielä lisätty.</string>
+    <string name="player_tentando">Ei signaalia kanavalla %1$d. Yritetään uudelleen…</string>
+    <string name="player_sem_sinal">Kanava %1$d ei vastannut. Valitse toinen ▲ ▼ tai OK.</string>
+    <string name="player_canal_nao_existe">Kanavaa %1$d ei ole.</string>
+    <string name="player_ao_vivo">SUORA</string>
+    <string name="player_a_seguir">seuraava: %1$s</string>
+    <string name="player_teclas">▲ ▼ kanava · OK kanavaluettelo · pidä OK 2 s: suosikki · ◀ edellinen kanava · ▶ ▶ valinnat · TAKAISIN poistu</string>
+    <string name="player_teclas_pausa">▶❙❙ tai OK jatka · ▶ valinnat (takaisin suoraan) · ▲ ▼ kanava · TAKAISIN poistu</string>
+    <string name="player_cat_busca">Haku: %1$s</string>
+    <string name="player_acao_buscar">Haku</string>
+    <string name="player_acao_filtros">Suodattimet</string>
+    <string name="filmes_titulo">Elokuvat</string>
+    <string name="filmes_carregando">Ladataan elokuvia…</string>
+    <string name="filmes_vazio">Ei vielä elokuvia</string>
+    <string name="filmes_continuar">Jatka</string>
+    <string name="filmes_ordem_titulo">Järjestä</string>
+    <string name="filmes_ordem_recentes">uusimmat luettelossa</string>
+    <string name="filmes_ordem_nome">nimi</string>
+    <string name="filmes_ordem_nota">arvio</string>
+    <string name="filmes_ordem_ano">vuosi</string>
+    <string name="filmes_busca_dica">Elokuvan nimi</string>
+    <string name="filmes_do_comeco">Alusta</string>
+    <string name="filmes_assistir">▶  Katso</string>
+    <string name="filmes_ficha_carregando">Ladataan tietoja…</string>
+    <string name="filmes_direcao">Ohjaaja</string>
+    <string name="filmes_elenco">Näyttelijät</string>
+    <string name="filmes_interesses">Katselulista</string>
+    <string name="filmes_assistidos">Katsottu</string>
+    <string name="filmes_interesse_pos">★ %1$s lisätty katselulistalle</string>
+    <string name="filmes_interesse_tirou">%1$s poistettu katselulistalta</string>
+    <string name="filmes_interesses_cheio">Katselulistalla on jo 500 nimikettä: poista yksi ensin.</string>
+    <string name="filmes_interesses_vazio">Pidä OK pohjassa 2 sekuntia julisteessa lisätäksesi sen tänne (ja uudelleen poistaaksesi).</string>
+    <string name="filmes_assistido">Katsottu</string>
+    <string name="filmes_selo_leg">TEKST.</string>
+    <string name="vod_sem_conta">Tämän videon tiliä ei ole enää olemassa.</string>
+    <string name="vod_erro">Tätä videota ei voitu toistaa. TAKAISIN poistuu.</string>
+    <string name="vod_faixa">Raita</string>
+    <string name="vod_audio">Ääni</string>
+    <string name="vod_legenda">Tekstitys</string>
+    <string name="vod_faixas">Ääni ja tekstitys</string>
+    <string name="vod_teclas">OK tauko · ◀ 10 s · ▶ 30 s (pidä pohjassa nopeammin) · ▼ ääni, tekstitys ja kuva · ⏮ ⏭ kappaleet · TAKAISIN poistu</string>
+    <string name="series_titulo">Sarjat</string>
+    <string name="series_carregando">Ladataan sarjoja…</string>
+    <string name="series_vazio">Ei vielä sarjoja</string>
+    <string name="series_ordem_recentes">uusi jakso</string>
+    <string name="series_busca_dica">Sarjan nimi</string>
+    <string name="series_sem_episodios">Palvelin ei lähettänyt jaksoja tälle sarjalle.</string>
+    <string name="series_assistir">▶  Katso %1$s</string>
+    <string name="series_temporada">Kausi %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d kausi</item>
+        <item quantity="other">%d kautta</item>
+    </plurals>
+    <string name="player_acao_guia">Ohjelmaopas</string>
+    <string name="player_sem_guia_curto">Ei ohjelmaopasta</string>
+    <string name="player_grade_teclas">OK katso · ◀ ▶ ohjelma · ▲ ▼ kanava</string>
+    <string name="player_busca_dica">Kanavan tai ohjelman nimi</string>
+    <string name="player_busca_nada">Haulla ”%1$s” ei löytynyt mitään.</string>
+    <string name="player_filtro_qualquer">Mikä tahansa</string>
+    <string name="player_filtro_qualidade">Laatu: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Kuvanlaatu</string>
+    <string name="player_filtro_pais">Maa: %1$s</string>
+    <string name="player_filtro_pais_titulo">Maa tai kieli</string>
+    <string name="player_filtro_limpar">Tyhjennä suodattimet</string>
+    <string name="player_filtro_nada">Tämän luettelon kanavanimissä ei ole laatua tai maata.</string>
+    <string name="player_bloqueado">Kanava estetty lapsilukolla. Syötä PIN-koodi Suodattimissa katsoaksesi.</string>
+    <string name="player_ocultas_mostrar">Näytä piilotetut luokat ja estetyt kanavat (PIN)</string>
+    <string name="player_ocultas_esconder">Piilota piilotetut luokat ja estetyt kanavat uudelleen</string>
+    <string name="player_pin_titulo">Paneelin PIN-koodi</string>
+    <string name="player_pin_dica">PIN-koodi</string>
+    <string name="player_pin_errado">Väärä PIN-koodi.</string>
+    <string name="player_pin_sem">Paneelilla ei ole PIN-koodia: piilotetut luokat eivät ole suojattuja.</string>
+    <string name="player_pin_espere">Liian monta väärää PIN-koodia. Yritä uudelleen %d min kuluttua.</string>
+    <string name="infantil_titulo">Lasten luokat</string>
+    <string name="infantil_carregando">ladataan luokkia…</string>
+    <string name="infantil_coluna_itens">MITÄ SIINÄ ON</string>
+    <string name="infantil_dica">OK merkitsee luokan lasten luokaksi tai poistaa merkinnän · koskee suoraa TV:tä, Elokuvia ja Sarjoja · TAKAISIN poistuu (jo tallennettu)</string>
+    <string name="infantil_so_categoria">merkitse koko luokka vasemmassa sarakkeessa</string>
+    <string name="infantil_vazio">ei luokkia: lisää tili kohdassa Asetukset › TV ja elokuvat ja lataa kanavat uudelleen</string>
+    <string name="infantil_limite">aikuisten luokka ei voi olla lasten luokka</string>
+    <string name="infantil_resumo_ligado">%1$d / %2$d luokkaa merkitty lasten luokiksi · lapsitila PÄÄLLÄ</string>
+    <string name="infantil_resumo_desligado">%1$d / %2$d luokkaa merkitty lasten luokiksi · lapsitila pois</string>
+    <string name="cfg_infantil">Lapsitila</string>
+    <string name="cfg_infantil_ligado">päällä · vain %d lasten luokkaa näkyy; muut kysyvät PIN-koodia</string>
+    <string name="cfg_infantil_desligado">pois · %d luokkaa merkitty lasten luokiksi</string>
+    <string name="cfg_infantil_escolher">Valitse lasten luokat</string>
+    <string name="cfg_infantil_escolher_det">Käytä suorassa TV:ssä, Elokuvissa ja Sarjoissa</string>
+    <string name="player_grupo_oculto">%1$s piilotettu. Nähdäksesi sen: Suodattimet, näytä piilotetut.</string>
+    <string name="player_grupo_mostrado">%1$s on taas näkyvissä.</string>
+    <string name="player_canais_de">%1$s · %2$d KANAVAA</string>
+    <string name="player_cat_todos">Kaikki</string>
+    <string name="player_cat_favoritos">Suosikit</string>
+    <string name="player_cat_recentes">Viimeisimmät</string>
+    <string name="player_cat_outros">Muut</string>
+    <string name="player_sem_favoritos">Ei vielä suosikkeja. Pidä OK pohjassa 2 s kanavalla lisätäksesi sen tänne.</string>
+    <string name="player_categoria_vazia">Tässä luokassa ei ole kanavia.</string>
+    <string name="player_sem_guia">Tälle kanavalle ei ole ohjelmaopasta.</string>
+    <string name="player_depois">MYÖHEMMIN</string>
+    <string name="player_lista_teclas">OK katso · pidä OK 2 s: suosikki tai poista · pidä OK luokassa: piilota · ◀ luokat</string>
+    <string name="player_favorito_pos">★ %1$s lisätty suosikkeihin</string>
+    <string name="player_favorito_tirou">%1$s poistettu suosikeista</string>
+    <string name="player_favoritos_cheio">Suosikkeja on jo 500: poista yksi ensin.</string>
+    <string name="player_assistindo">katsotaan</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Suorat kanavat</string>
+    <string name="home_destaque_app">Sovellus</string>
+    <string name="app_sub_youtube">Videot ja kanavat</string>
+    <string name="app_sub_netflix">Elokuvat ja sarjat</string>
+    <string name="app_sub_prime">Elokuvat, sarjat ja urheilu</string>
+    <string name="app_sub_max">Elokuvat, sarjat ja urheilu</string>
+    <string name="app_sub_play_store">Asenna ja päivitä sovelluksia</string>
+    <string name="app_sub_play_games">Pelit</string>
+    <string name="app_sub_google_tv">Ostetut ja vuokratut elokuvat</string>
+    <string name="app_sub_config">TV:n asetukset</string>
+    <string name="home_card_series">Sarjat</string>
+    <string name="home_card_filmes">Elokuvat</string>
+    <string name="home_destaque_series">Sarjat listaltasi · jatka siitä, mihin jäit</string>
+    <string name="home_destaque_filmes">Elokuvat listaltasi · jatka siitä, mihin jäit</string>
+    <string name="home_card_rede">Verkko</string>
+    <string name="home_destaque_rede">Videosi, musiikkisi ja kuvasi</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d. MMMM</string>
+    <string name="home_busca">Haku</string>
+    <string name="home_falar">Puhu Geminille</string>
+    <string name="home_dest_tv">TV · kanava %1$d</string>
+    <string name="rede_titulo">Verkko</string>
+    <string name="rede_procurando">Etsitään mediapalvelimia verkosta…</string>
+    <string name="rede_nenhum">Yksikään mediapalvelin ei ole päällä juuri nyt. Lisää alla: Plex ja Jellyfin käyttävät tiliäsi; PC- tai NAS-kansio käyttää osoitettaan.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d palvelin</item>
+        <item quantity="other">%1$d palvelinta</item>
+    </plurals>
+    <string name="rede_secao_seus">Palvelimesi</string>
+    <string name="rede_secao_achados">Löydetty verkosta</string>
+    <string name="rede_secao_adicionar">Lisää</string>
+    <string name="rede_entrar">Kirjaudu</string>
+    <string name="rede_adicionar">Lisää</string>
+    <string name="rede_salvar">Tallenna</string>
+    <string name="rede_testar_salvar">Testaa ja tallenna</string>
+    <string name="rede_testando">Testataan…</string>
+    <string name="rede_cancelar">Peruuta</string>
+    <string name="rede_sub_dlna">DLNA · avautuu suoraan</string>
+    <string name="rede_sub_maquina">Jaettu kansio · %1$s</string>
+    <string name="rede_sub_pasta">Jaettu kansio · %1$s</string>
+    <string name="rede_sub_lista">M3U-luettelo · %1$s</string>
+    <string name="rede_sub_video">Videolinkki · %1$s</string>
+    <string name="rede_sub_plex">Kirjaudu koodilla, ei salasanaa TV:ssä</string>
+    <string name="rede_sub_jellyfin">Palvelimen käyttäjätunnus ja salasana</string>
+    <string name="rede_sub_smb">Windows-, Mac- tai NAS-kansio</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS ja WebDAV</string>
+    <string name="rede_sub_link">http-osoite, HLS (.m3u8) tai M3U-luettelo</string>
+    <string name="rede_acao_smb">Jaettu kansio</string>
+    <string name="rede_acao_webdav">WebDAV tai Nextcloud</string>
+    <string name="rede_acao_link">Videolinkki tai luettelo</string>
+    <string name="rede_acao_procurar">Etsi uudelleen</string>
+    <string name="rede_abrindo">Avataan…</string>
+    <string name="rede_vazia">Tyhjä kansio</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d kohde</item>
+        <item quantity="other">%1$d kohdetta</item>
+    </plurals>
+    <string name="rede_dica_abrir">avaa</string>
+    <string name="rede_dica_remover">poista</string>
+    <string name="rede_dica_sair">poistu</string>
+    <string name="rede_dica_subir">yksi kansio ylös</string>
+    <string name="rede_tecla_segurar">pidä OK</string>
+    <string name="rede_tecla_voltar">TAKAISIN</string>
+    <string name="rede_erro">Palvelin ei vastannut. Yritä uudelleen.</string>
+    <string name="rede_erro_senha">Palvelin ei hyväksynyt käyttäjätunnusta tai salasanaa.</string>
+    <string name="rede_erro_pasta">Palvelin vastasi, mutta sillä ei ole sen nimistä kansiota.</string>
+    <string name="rede_erro_servidor">Palvelinta ei löytynyt. Tarkista osoite ja että se on samassa verkossa.</string>
+    <string name="rede_erro_certificado">Palvelimen suojausvarmenne ei kelpaa tälle osoitteelle.</string>
+    <string name="rede_erro_cheio">Tallennus ei onnistunut: TV:ssä on jo 20 palvelinta. Poista yksi ensin.</string>
+    <string name="rede_endereco_erro">Puutteellinen tai virheellinen osoite.</string>
+    <string name="rede_salva">”%1$s” lisätty.</string>
+    <string name="rede_nome_opcional">Näyttönimi (valinnainen)</string>
+    <string name="rede_senha">Salasana</string>
+    <string name="rede_remover_titulo">Poistetaanko ”%1$s”?</string>
+    <string name="rede_remover_explica">Sen kirjautuminen ja salasana poistuvat TV:stä. Palvelimella mikään ei muutu.</string>
+    <string name="rede_remover">Poista</string>
+    <string name="rede_removida">”%1$s” poistettu.</string>
+    <string name="rede_smb_titulo">Jaettu kansio</string>
+    <string name="rede_smb_explica">Osoite kuten Windowsissa: \\\\palvelin\\kansio (esim. \\\\192.168.0.10\\Elokuvat). Tyhjä käyttäjätunnus ja salasana = vieras.</string>
+    <string name="rede_smb_endereco">\\\\palvelin\\kansio</string>
+    <string name="rede_smb_endereco_erro">Palvelin tai kansio puuttuu (esim. \\\\NAS\\Elokuvat).</string>
+    <string name="rede_smb_usuario">Käyttäjätunnus (valinnainen)</string>
+    <string name="rede_smb_senha">Salasana (valinnainen)</string>
+    <string name="rede_jf_explica">%1$s-palvelimen osoite (esim. 192.168.0.10 tai nas:8096), käyttäjätunnus ja salasana. Salasanaa ei tallenneta TV:hen.</string>
+    <string name="rede_jf_endereco">Palvelimen osoite</string>
+    <string name="rede_jf_usuario">Käyttäjätunnus</string>
+    <string name="rede_jf_usuario_falta">Käyttäjätunnus puuttuu.</string>
+    <string name="rede_dav_explica">Kansion osoite (Nextcloud: cloud.example.com/remote.php/dav/files/KÄYTTÄJÄSI). Ilman http:tä TV käyttää https:ää. Nextcloudissa suosi sovellussalasanaa.</string>
+    <string name="rede_dav_endereco">WebDAV-osoite</string>
+    <string name="rede_link_explica">Video (mp4, mkv…), HLS-virta (.m3u8) tai M3U-luettelo, jossa on useita videoita. Se pysyy tallennettuna tänne.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Käytä osoitetta, joka alkaa http:// tai https://.</string>
+    <string name="rede_plex_titulo">Kirjaudu Plexiin</string>
+    <string name="rede_plex_explica">Avaa puhelimella tai tietokoneella plex.tv/link ja kirjoita alla oleva koodi. Tai osoita puhelimen kameralla QR-koodia.</string>
+    <string name="rede_plex_pedindo">Pyydetään Plexiltä koodia…</string>
+    <string name="rede_plex_esperando">Odotetaan, että vahvistat Plexissä…</string>
+    <string name="rede_plex_buscando">Tili yhdistetty. Etsitään palvelimiasi…</string>
+    <string name="rede_plex_venceu">Koodi vanheni. Hae uusi.</string>
+    <string name="rede_plex_outro">Hae uusi koodi</string>
+    <string name="rede_plex_sem_servidor">Tällä Plex-tilillä ei ole palvelinta.</string>
+    <string name="rede_plex_inacessivel">Palvelin löytyi tililtä, mutta se ei vastannut täältä. Tarkista, että se on päällä ja samassa verkossa.</string>
+    <string name="rede_plex_varios">%1$d Plex-palvelinta lisätty.</string>
+    <string name="pg_amanha">Huomenna</string>
+    <string name="pg_recado">Viesti</string>
+    <string name="pg_app_despertador">Herätys</string>
+    <string name="pg_bom_dia">Hyvää huomenta</string>
+    <string name="pg_boa_tarde">Hyvää iltapäivää</string>
+    <string name="pg_boa_noite">Hyvää iltaa</string>
+    <string name="pg_agora">nyt</string>
+    <string name="pg_ontem">eilen</string>
+    <string name="pg_mais_notif">+%1$d ilmoitusta</string>
+    <string name="pg_dia_todo">tänään</string>
+    <string name="pg_hoje_as">tänään klo %1$s</string>
+    <string name="pg_amanha_as">huomenna klo %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Nyt</string>
+    <string name="pw_proximas_horas">Seuraavat tunnit</string>
+    <string name="pw_hoje">Tänään</string>
+    <string name="pw_chuva_pct">Sateen todennäköisyys %1$d%%</string>
+    <string name="pw_umidade_pct">Kosteus %1$d%%</string>
+    <string name="pw_ate_umas">%1$s noin klo %2$s asti</string>
+    <string name="pw_chuva_pelas">%1$s, sadetta noin klo %2$s</string>
+    <string name="pw_chuva_segue">%1$s seuraavat tunnit</string>
+    <string name="pw_amanha_frase">Huomenna %1$d°, %2$s</string>
+    <string name="pw_nasce">auringonnousu %1$s</string>
+    <string name="pw_poe">auringonlasku %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Ilmoitukset</string>
+    <string name="pr_sem_notificacoes">Ei ilmoituksia</string>
+    <string name="pr_notificacoes_desligadas">Kytketään ilmoitusten käyttöoikeus päälle…</string>
+    <string name="pr_perfis">Profiilit</string>
+    <string name="pr_protetor">Näytönsäästäjä</string>
+    <string name="pr_timer">Ajastin</string>
+    <string name="pr_timer_as">Klo %1$s asti</string>
+    <string name="pr_audio_arc">Vahvistin (HDMI ARC)</string>
+    <string name="pr_dispensar">Hylkää</string>
+    <string name="pr_ontem">eilen</string>
+    <string name="pr_agora">nyt</string>
+    <string name="pr_configuracoes">Launcherin asetukset</string>
+    <string name="pr_tocar_pausar">Toista tai tauko</string>
+    <string name="pr_proxima">Seuraava</string>
+    <string name="pr_tocando">toistetaan</string>
+    <string name="pr_pausado">tauolla</string>
+    <string name="pr_dormir">Lepotila</string>
+    <string name="pr_despertador">Herätys</string>
+    <string name="pr_visita">Vieraat</string>
+    <string name="pr_casa">Koti</string>
+    <string name="pr_config_tv">TV:n asetukset</string>
+    <string name="pr_sinal_bom">hyvä signaali</string>
+    <string name="pr_sinal_medio">kohtalainen signaali</string>
+    <string name="pr_sinal_fraco">heikko signaali</string>
+    <string name="pr_bt_conectados">%1$d yhdistetty</string>
+    <string name="pr_hoje">Tänään</string>
+    <string name="pr_amanha">Huomenna</string>
+    <string name="pr_ligado">Päällä</string>
+    <string name="pr_limpar_tudo">Tyhjennä kaikki</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Catch-up: menneet ohjelmat</string>
+    <string name="tvv_titulo">Catch-up · %1$s</string>
+    <string name="tvv_do_inicio">Nyt · alusta: %1$s</string>
+    <string name="tvv_carregando">Haetaan menneitä ohjelmia…</string>
+    <string name="tvv_sem_resposta">Palvelin ei vastannut. Yritä hetken kuluttua uudelleen.</string>
+    <string name="tvv_vazio">Tällä kanavalla ei ole vielä tallennettuja ohjelmia.</string>
+    <string name="tvv_voltou">Takaisin suoraan</string>
+    <string name="tvv_selo">CATCH-UP</string>
+    <string name="tvv_teclas">◀ ▶ 30 s · OK valinnat · TAKAISIN suora</string>
+    <string name="tvv_pausar">Tauko</string>
+    <string name="tvv_continuar">Jatka</string>
+    <string name="tvv_ao_vivo">Takaisin suoraan</string>
+    <string name="tvv_hoje">Tänään</string>
+    <string name="tvv_ontem">Eilen</string>
+    <string name="imagem_titulo">Kuvasuhde</string>
+    <string name="imagem_ajustar">Sovita näyttöön</string>
+    <string name="imagem_esticar">Venytä</string>
+    <string name="imagem_zoom">Zoomaa (rajaa reunat)</string>
+    <string name="velocidade_titulo">Nopeus</string>
+    <string name="trailer">Traileri</string>
+    <string name="trailer_sem_app">Traileria avaavaa sovellusta ei löytynyt.</string>
+    <string name="series_visto_ate_aqui">Merkitse katsotuksi kohtaan %1$s asti</string>
+    <string name="series_nao_visto">Merkitse katsomattomaksi</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Elokuvat ja sarjat</string>
+    <string name="idioma_titulo">Ensisijainen ääni</string>
+    <string name="idioma_det">Alkuperäinen ääni TV:n kielisellä tekstityksellä tai sille dubattuna. Jokainen elokuva ja sarja muistaa soittimessa tehdyn muutoksen (▼)</string>
+    <string name="idioma_original">Alkuperäinen tekstityksellä</string>
+    <string name="idioma_dublado">Dubattu</string>
+    <string name="idioma_legendado">Tekstitetty</string>
+    <string name="idioma_dublado_curto">Dubattu</string>
+    <string name="idioma_versao_legendada">Tekstitetty versio</string>
+    <string name="idioma_versao_dublada">Dubattu versio</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Etsi tekstitys verkosta</string>
+    <string name="legenda_procurando">Etsitään tekstityksiä…</string>
+    <string name="legenda_baixando">Ladataan tekstitystä…</string>
+    <string name="legenda_acertada">Tekstitys sovitettu puheeseen · %1$s</string>
+    <string name="legenda_pronta">Tekstitys valmis</string>
+    <string name="legenda_nenhuma">Tälle videolle ei ole tekstitystä TV:n kielellä</string>
+    <string name="legenda_erro">Tekstitysten haku epäonnistui</string>
+    <string name="legenda_invalida">Ladattu tiedosto ei ole tekstitys</string>
+    <string name="legenda_sem_conta">Lisää OpenSubtitles-avaimesi kohdassa Asetukset › TV ja elokuvat › Elokuvat ja sarjat</string>
+    <string name="legenda_escolher">Tekstitys: ”%1$s”</string>
+    <string name="legenda_surdos">kuulovammaisille</string>
+    <string name="legenda_bate">tehty tälle tiedostolle</string>
+    <string name="lista_dica_escolher">valitse</string>
+    <string name="legenda_atraso_titulo">Tekstityksen viive (+ = teksti näkyy myöhemmin)</string>
+    <string name="legenda_atraso_zero">Ei viivettä</string>
+    <string name="legenda_conta_titulo">Tekstitys verkosta</string>
+    <string name="legenda_conta_det">OpenSubtitles API-avaimellasi (ilmainen osoitteessa opensubtitles.com/consumers). Ilman tiliä: 5 tekstitystä päivässä</string>
+    <string name="legenda_conta_sim">määritetty</string>
+    <string name="legenda_conta_nao">ei määritetty</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">%1$s jäljellä</string>
+    <string name="tempo_falta_um">%1$s jäljellä</string>
+    <string name="serie_ep_longo">Kausi %1$d, jakso %2$d</string>
+    <string name="ficha_continuar_de">alkaen %1$s</string>
+    <string name="tempo_termina_as">päättyy klo %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s jaksoa</string>
+    <string name="tempo_x_de_y">%1$d / %2$d</string>
+    <string name="tempo_visto">katsottu</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Google-profiili</string>
+    <string name="fp_linha">Hae tilin kuva</string>
+    <string name="fp_linha_det">Näyttää Google-tilisi kuvan profiilipainikkeessa</string>
+    <string name="fp_titulo">Tilin kuva</string>
+    <string name="fp_fechar">Sulje</string>
+    <string name="fp_pedindo">Pyydetään Googlelta koodia…</string>
+    <string name="fp_passos">1. Avaa puhelimella %1$s (tai osoita kameralla oikealla olevaa koodia).\n2. Kirjaudu Google-tilillä, joka on tässä TV:ssä, ja kirjoita:\n\n%2$s\n\nTämä näyttö jatkaa itsestään. Kirjautumista käytetään vain kuvan hakemiseen.</string>
+    <string name="fp_ok">Valmis: tilin %1$s kuva on nyt profiilipainikkeessa.</string>
+    <string name="fp_sem_foto">Kirjauduttu tilillä %1$s, mutta kuvaa ei voitu tallentaa. Yritä uudelleen tai lähetä kuva verkkopaneelista (välilehti Näytönsäästäjän kuvat).</string>
+    <string name="fp_falha">Se ei onnistunut: %1$s</string>
+    <string name="fp_sem_google">Google-kirjautumista ei ole vielä määritetty tähän TV:hen.\n\nKaksi tapaa laittaa kuva profiilipainikkeeseen:\n• Verkkopaneeli > välilehti Näytönsäästäjän kuvat > Profiilikuva: valitse mikä tahansa kuva puhelimestasi.\n• Määritä Google-kirjautuminen (verkkopaneeli > välilehti Claude) ja palaa tänne hakemaan tilin kuva.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Kappale %1$d</string>
+    <string name="vod_capitulos_titulo">Kappaleet</string>
+    <string name="vod_capitulos_opcao">Kappaleet (%1$d)</string>
+    <string name="vod_segunda_opcao">Toinen tekstitys (ylhäällä)</string>
+    <string name="vod_segunda_titulo">Toinen tekstitys</string>
+    <string name="vod_segunda_desligada">Pois</string>
+    <string name="vod_dialogo_opcao">Voimakkaampi dialogi</string>
+    <string name="vod_dialogo_ligado">Voimakkaampi dialogi päällä</string>
+    <string name="vod_dialogo_desligado">Voimakkaampi dialogi pois</string>
+    <string name="vod_atraso_audio_titulo">Äänen viive (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Ei mitään</string>
+    <string name="vod_atraso_audio_mais">Ääni tulee %1$d ms myöhässä</string>
+    <string name="vod_atraso_audio_menos">Ääni tulee %1$d ms etuajassa</string>
+    <string name="vod_info_opcao">Tekniset tiedot</string>
+    <string name="info_video">Video</string>
+    <string name="info_audio">Ääni</string>
+    <string name="info_perdidos">Pudonneet kuvat</string>
+    <string name="info_taxa">Bittinopeus</string>
+    <string name="info_buffer">Puskuri</string>
+    <string name="info_atraso">Äänen viive</string>
+    <string name="info_dialogo">Voimakkaampi dialogi päällä</string>
+    <string name="info_chip">TV:n piiri</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">stereo</string>
+    <string name="lista_dica_voltar">takaisin</string>
+    <string name="pm_ligado">Päällä</string>
+    <string name="pm_desligado">Pois</string>
+    <string name="pm_imagem_som">Kuva ja ääni</string>
+    <string name="pm_mais">Lisää valintoja</string>
+    <string name="pm_versao_legendada">Katso tekstitettynä</string>
+    <string name="pm_versao_dublada">Katso dubattuna</string>
+    <string name="pm_versao_info">Jatkuu tästä kohdasta</string>
+    <string name="pm_leg_ajustes">Tekstityksen asetukset</string>
+    <string name="pm_leg_tamanho">Koko</string>
+    <string name="pm_leg_estilo">Tyyli</string>
+    <string name="pm_leg_posicao">Sijainti</string>
+    <string name="pm_leg_atraso">Viive</string>
+    <string name="pm_leg_auto">Lataa, kun puuttuu</string>
+    <string name="pm_leg_traduzir">Käännä TV:ssä, kun puuttuu</string>
+    <string name="pm_velocidade">Nopeus</string>
+    <string name="pm_proporcao">Kuvan koko</string>
+    <string name="pm_atraso_audio">Äänen viive</string>
+    <string name="pm_quadros">Sovita elokuvan kuvataajuuteen</string>
+    <string name="pm_qualidade">Laatu</string>
+    <string name="pv_sem_titulo">Ei sääennustetta juuri nyt</string>
+    <string name="bu_voz_grupo">Puhu</string>
+    <string name="bu_falar">Sano, mitä etsit</string>
+    <string name="bu_falar_det">Nopeampaa kuin kirjoittaminen kaukosäätimellä</string>
+    <string name="bu_recentes">Viimeisimmät haut</string>
+    <string name="bu_recente_det">Etsi uudelleen</string>
+    <string name="aviso_alarme_tocou_titulo">Herätys soi TV:ssä</string>
+    <string name="aviso_alarme_tocou_texto">Se alkoi soida klo %1$s.</string>
+    <string name="home_instalar_externo">Asenna ulkoiseen tallennustilaan</string>
+    <string name="home_instalar_dispositivo">Asenna tähän laitteeseen</string>
+    <string name="home_instalando_lugar">Siirretään %1$s… se sulkeutuu, kunnes valmis.</string>
+    <string name="home_instalado_externo">%1$s on nyt ulkoisessa tallennustilassa.</string>
+    <string name="home_instalado_dispositivo">%1$s on taas tässä laitteessa.</string>
+    <string name="home_instalar_lugar_falhou">%1$s:n siirto epäonnistui: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">TV:n oma komentotulkki ei ole aktiivinen</string>
+    <string name="home_instalar_lugar_sem_pendrive">yhtään USB-asemaa ei ole määritetty TV:n tallennustilaksi</string>
+    <string name="st_titulo">USB-asema ja tallennustila</string>
+    <string name="st_explica">Valitse, miten TV käyttää USB-asemaa. Tila vähissä? Siitä voi tulla TV:n tallennustilaa raskaille sovelluksille.</string>
+    <string name="st_linha_det">Käytä USB-asemaa TV:n tallennustilana</string>
+    <string name="st_sem_shell">Vaatii TV:n oman komentotulkin (Asetukset › Järjestelmä › Lisäasetukset). OK yrittää uudelleen.</string>
+    <string name="st_sem_pen">USB-asemaa ei ole liitetty. Liitä yksi ja paina OK.</string>
+    <string name="st_tv_livre">TV:n tallennustila: %1$s vapaana / %2$s</string>
+    <string name="st_pen">USB-asema · %1$s · %2$s</string>
+    <string name="st_modo_comum">Tavallinen USB-asema</string>
+    <string name="st_modo_misto">Yhdistelmä</string>
+    <string name="st_modo_tv">TV:n tallennustila</string>
+    <string name="st_modo_desconhecido">Ei alustettu</string>
+    <string name="st_recomendado">Suositus: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">tämä asema on hidas, sovellukset nykisivät</string>
+    <string name="st_motivo_pequeno">alle 8 Gt, liian pieni auttamaan</string>
+    <string name="st_motivo_folgada">TV:ssä on vielä tilaa, asemaa ei tarvitse tyhjentää</string>
+    <string name="st_motivo_grande">puolet sovelluksille, puolet tallenteille ja tiedostoille</string>
+    <string name="st_motivo_apertada">TV on melkein täynnä</string>
+    <string name="st_medido">kirjoittaa %1$s Mt/s</string>
+    <string name="st_medir_dica">OK mittaa nopeuden</string>
+    <string name="st_usar_comum">Käytä tavallisena USB-asemana</string>
+    <string name="st_usar_misto">Käytä yhdistelmänä: %1$d%% tavallinen  ◀ ▶</string>
+    <string name="st_usar_tv">Käytä TV:n tallennustilana</string>
+    <string name="st_apps">Sovellukset USB-asemalla</string>
+    <string name="st_apps_det">Valitse siirrettävät sovellukset (suurimmat ensin)</string>
+    <string name="st_apps_nenhum">Mitään sovellusta ei voi siirtää.</string>
+    <string name="st_apps_rodape">OK siirtää sovelluksen; ✓ = jo USB-asemalla</string>
+    <string name="st_compartilhado">Kuvat ja tiedostot: %1$s</string>
+    <string name="st_na_tv">TV:ssä</string>
+    <string name="st_no_pen">USB-asemalla</string>
+    <string name="st_compartilhado_aviso">Kaikki kopioidaan ja sovellukset sulkeutuvat sillä välin. Käynnistä TV uudelleen sen jälkeen.</string>
+    <string name="st_mover">Siirrä</string>
+    <string name="st_movendo">Siirretään… tämä voi kestää useita minuutteja.</string>
+    <string name="st_aviso_titulo">Tyhjennetäänkö USB-asema?</string>
+    <string name="st_aviso">Kaikki sillä oleva poistetaan, jotta siitä tulee ”%1$s”. TV:n tallennustilana se toimii vain tässä TV:ssä, ja sillä olevat sovellukset katoavat, kun se on irrotettuna.</string>
+    <string name="st_apagar">Tyhjennä ja alusta</string>
+    <string name="st_formatando">Alustetaan… tämä voi kestää muutaman minuutin.</string>
+    <string name="st_pronto">Valmis.</string>
+    <string name="st_falhou">Se ei onnistunut: %1$s</string>
+    <string name="st_depois">Valitse nyt, mitkä sovellukset siirtyvät USB-asemalle.</string>
+    <string name="st_pin">Paneelin PIN-koodi USB-aseman muuttamiseen</string>
+    <string name="st_copiar_titulo">Kopioidaanko sen sisältö ensin? (%1$s)</string>
+    <string name="st_copiar_para">Kopioi kohteeseen %1$s</string>
+    <string name="st_copiar_pc">Kopioi PC:llä (miten)</string>
+    <string name="st_copiar_pc_texto">Avaa PC:llä Tämä tietokone > TV > USB-asema ja kopioi tiedostot tietokoneelle. Palaa sitten tänne ja alusta.</string>
+    <string name="st_nao_copiar">Ei tarvitse, tyhjennä se</string>
+    <string name="st_copiando_inicio">Kopioidaan USB-asemaa… TV toimii sillä välin.</string>
+    <string name="st_copiando">Kopioitu %1$s / %2$s</string>
+    <string name="st_voltar_comum">Takaisin tavalliseksi USB-asemaksi (sovellukset palaavat TV:hen)</string>
+    <string name="st_trazendo">Tuodaan %1$s takaisin TV:hen…</string>
+    <string name="st_sumiram">USB-asema on irrotettu: %1$s ovat piilossa, kunnes se palaa.</string>
+    <string name="st_sugestao">TV:n tallennustila on melkein täynnä. Siirrä %1$s (%2$s) USB-asemalle: pidä OK pohjassa sovelluksessa.</string>
+    <string name="st_medindo">Mitataan aseman nopeutta parhaan käytön suosittelemiseksi…</string>
+    <string name="st_lento_titulo">Asema liian hidas</string>
+    <string name="st_lento_bloqueado">Tämä asema kirjoittaa %1$s Mt/s. Tullakseen TV:n tallennustilaksi se tarvitsee vähintään %2$d Mt/s: sitä hitaammalla sovellukset jumiutuvat eikä TV ehkä käynnisty. Käytä sitä tavallisena asemana.</string>
+    <string name="st_aviso_boot">Pidä se liitettynä pysyvästi: jos se vikaantuu tai irrotetaan, TV ei ehkä käynnisty ennen kuin irrotat sen.</string>
+    <string name="home_grande_titulo">Siirretäänkö %1$s?</string>
+    <string name="home_grande_aviso">%1$s vie %2$s. Hitaalla asemalla siirto voi kestää yli 10 minuuttia ja on kaatanut TV:n kesken. Jatka vain, kun kukaan ei katso.</string>
+    <string name="home_liberar_arquivos">Anna sen avata USB-asemia ja tiedostoja</string>
+    <string name="home_arquivos_liberado">%1$s voi nyt avata USB-asemia ja kaikkia tiedostoja</string>
+    <string name="home_arquivos_falhou">%1$s:n salliminen epäonnistui: %2$s</string>
+    <string name="aviso_continuar_titulo">Ei mitään jatkettavaa</string>
+    <string name="aviso_continuar_texto">Kutsu jatkaa toiselta TV:ltä on vanhentunut.</string>
+    <string name="aviso_simples_titulo">Helppo näyttö on pois päältä</string>
+    <string name="aviso_simples_texto">TV on palannut täyteen aloitusnäyttöön.</string>
+    <string name="aviso_sync_titulo">Ei yhdistettyä tiliä</string>
+    <string name="aviso_sync_texto">Tässä TV:ssä ei ole %1$s-tiliä. Yhdistä se kohdassa Asetukset › TV ja elokuvat.</string>
+    <string name="dns_nota_familia">perhe, estää aikuisille tarkoitetut sivustot</string>
+    <string name="dns_nota_malware">estää haittaohjelmat</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">TV:llä ei ole Wi-Fiä%1$s. Tarkista, että reititin on päällä, tai onko verkon nimi tai salasana muuttunut.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">reititin menetti yhteyden palveluntarjoajan modeemiin</string>
+    <string name="ief_roteador_ve_fora" formatted="true">myös reititin näkee internetin olevan alhaalla</string>
+    <string name="ief_ha" formatted="true"> (%1$s sitten)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi on kunnossa, mutta palveluntarjoajan internet katkesi%1$s; %2$s%3$s. Vika ei ole TV:ssä: odota palveluntarjoajaa tai käynnistä modeemi uudelleen.</string>
+    <string name="ief_vpn_travada" formatted="true">Reitittimellä on internet, mutta TV ei pääse läpi%1$s: VPN on luultavasti jumissa. VPN:n sammuttaminen ja käynnistäminen yleensä korjaa sen.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Reitittimellä on internet, mutta TV ei tavoita sitä%1$s: ongelma on TV:n ja reitittimen välillä%2$s TV:n yhdistäminen Wi-Fiin uudelleen yleensä korjaa sen.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi-signaali on heikko, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">TV on Wi-Fissä, mutta reititin tai internet ei vastaa%1$s: reititin saattaa olla jumissa. Reitittimen sammuttaminen ja käynnistäminen yleensä korjaa sen.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi on kunnossa, mutta internet ei mene läpi%1$s; luultavasti syy on palveluntarjoajassa tai reitittimessä%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (myös päällä oleva VPN voi olla syy).</string>
+    <string name="ief_dns" formatted="true">Internet toimii, mutta DNS%1$s ei vastaa%2$s: sovellukset eivät löydä palvelimiaan. DNS:n vaihtaminen Automaattiseksi korjaa sen.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internet ja DNS vastaavat, mutta Googlen testisivu %1$s: jokin matkalla (VPN, DNS-esto tai kirjautumista vaativa verkko) estää sen.</string>
+    <string name="ief_nao_abriu" formatted="true">ei avautunut</string>
+    <string name="ief_codigo_diferente" formatted="true">vastasi eri tavalla (koodi %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internet on kunnossa; vain VPN on pois päältä (sovellukset toimivat ilman sitä).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internet toimii, mutta hitaasti: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">Wi-Fi-signaali on heikko (%1$d dBm); reitittimen siirtäminen lähemmäs tai kaapelin käyttö auttaa</string>
+    <string name="ief_lenta_tcp" formatted="true">internetin vastaaminen kestää %1$d ms%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, ja reititin näkee saman: syy on palveluntarjoajassa</string>
+    <string name="ief_lenta_http" formatted="true">testisivun avaaminen kesti %1$.1f s</string>
+    <string name="ief_queda_recente" formatted="true">Internet on nyt kunnossa; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Kaikki hyvin: Wi-Fi, internet ja DNS vastaavat.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Ei katkoksia viimeisten 24 tunnin aikana.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Ei tallennettuja katkoksia (TV mittasi vain osan viimeisistä 24 tunnista).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Reititin ilmoittaa internetongelmasta, mutta TV selaa normaalisti.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS epäonnistui</string>
+    <string name="ief_caiu_internet" formatted="true">internet katkesi</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (sitten TV lopetti mittaamisen; ei voi tietää, milloin se palasi)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d katkosta 24 tunnissa</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s ja palasi %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d katkosta 24 tunnissa, yhteensä %2$s ilman internetiä</string>
+    <string name="ief_quando_hoje" formatted="true">klo %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">eilen klo %1$s</string>
+    <string name="ief_quando_data" formatted="true">%1$s klo %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">klo %1$s alkaen</string>
+    <string name="ief_desde_ontem" formatted="true">eilen klo %1$s alkaen</string>
+    <string name="ief_desde_data" formatted="true">%1$s klo %2$s alkaen</string>
+    <string name="ief_dur_menos_1" formatted="true">alle 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d t</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d t %2$d min</string>
+    <string name="ief_data_dm" formatted="true">d.M.</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: ei yhteyttä</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">verkko: yhdistetty</string>
+    <string name="ief_s_internet" formatted="true">internet ilman DNS:ää: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS ilman välimuistia: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">epäonnistui</string>
+    <string name="ief_s_pagina" formatted="true">testisivu: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok %1$d ms:ssa</string>
+    <string name="ief_s_codigo" formatted="true">koodi %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: päällä</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: pois</string>
+    <string name="ief_s_roteador_fora" formatted="true">reititin: näkee internetin alhaalla</string>
+    <string name="ief_s_roteador_ok" formatted="true">reititin: näkee internetin kunnossa%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">reititin: ei mielipidettä</string>
+    <string name="ief_s_roteador_mudo" formatted="true">reititin: ei vastannut</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">reititin: ei tarkistettu</string>
+    <string name="ief_s_historico" formatted="true">historia: %1$d mittausta 24 tunnissa</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google ei vastannut juuri nyt; yritä uudelleen</string>
+    <string name="lg_negado">kirjautuminen hylättiin Googlessa</string>
+    <string name="lg_google_respondeu">Google vastasi: %1$s</string>
+    <string name="lg_venceu">koodi vanheni; aloita alusta</string>
+    <string name="lg_outro_login">toinen kirjautuminen alkoi; aloita alusta</string>
+    <string name="lg_email">Google ei vahvistanut sähköpostia</string>
+    <string name="lg_conta_fora">tili %1$s ei ole missään tämän TV:n profiilissa</string>
+    <string name="lg_sem_drive">Google Driven käyttöoikeutta ei valittu</string>
+    <string name="lg_sem_chave">Google ei lähettänyt käyttöavainta; yritä uudelleen</string>
+    <string name="lg_nao_guardei">tilin tallentaminen tähän TV:hen epäonnistui</string>
+    <string name="lg_nao_configurado">Google-kirjautumista ei ole määritetty</string>
+    <string name="lg_ritmo">liian monta kirjautumista peräkkäin; odota minuutti</string>
+    <string name="lg_recusou">Google kieltäytyi (%1$s): tarkista asiakastunnus ja salaisuus</string>
+    <string name="lg_erro_google">virhe yhteydessä Googleen</string>
+</resources>

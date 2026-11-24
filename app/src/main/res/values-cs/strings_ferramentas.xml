@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Nástroje</string>
+    <string name="cont_mais_opcoes">Další možnosti</string>
+    <string name="tl_proximo">Dále: %1$s</string>
+    <string name="tl_clima_sub">Předpověď na další dny</string>
+    <string name="tl_casa_sub">Světla, kamery a zvonek</string>
+    <string name="tl_painel_sub">Bluetooth, zvuk, Wi-Fi a časovač</string>
+    <string name="tl_config_sub">Vše o launcheru</string>
+    <string name="ac_cartoes">Karty aplikací</string>
+    <string name="ac_coluna">Ve sloupci</string>
+    <string name="ac_vitrine">Výloha</string>
+    <string name="ac_ver_tudo">Podívejte se, co je v aplikaci</string>
+    <string name="ac_ritmo">Rozestupy domovské obrazovky</string>
+    <string name="rt_antes">Jako dřív</string>
+    <string name="rt_a">A · Těsnější</string>
+    <string name="rt_b">B · Rámečky</string>
+    <string name="rt_c">C · Vzdušné</string>
+    <string name="ft_foco">Fokus</string>
+    <string name="ft_foco_fio">Linka</string>
+    <string name="ft_foco_veu">Závoj</string>
+    <string name="ft_foco_quadro">Rámeček</string>
+</resources>

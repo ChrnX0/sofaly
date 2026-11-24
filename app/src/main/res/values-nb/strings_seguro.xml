@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Sikker modus</string>
+    <string name="seg_texto">Startskjermen stoppet %1$d ganger på rad. Dette er en enkel versjon av den, så du kan fortsette å bruke TV-en.</string>
+    <string name="seg_procurar">Se etter en rettet versjon</string>
+    <string name="seg_procurar_det">Hvis det finnes en, lastes den ned og installeres nå.</string>
+    <string name="seg_procurando">Ser etter en ny versjon…</string>
+    <string name="seg_normal">Prøv den vanlige startskjermen</string>
+    <string name="seg_normal_det">Hvis den stopper 3 ganger til, kommer denne skjermen tilbake.</string>
+    <string name="seg_config_tv">TV-innstillinger</string>
+    <string name="seg_erro">Se hva som gikk galt</string>
+    <string name="seg_erro_det">Diagnostikk, med de lagrede feilene.</string>
+    <string name="seg_apps">Apper</string>
+</resources>

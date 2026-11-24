@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Elokuvat omalla kuvataajuudellaan (24 Hz)</string>
+    <string name="quadros_det">TV vaihtaa 24 Hz:iin elokuvan toistuessa, jotta kuva ei nyi kameran liikkeissä. Näyttö pimenee 1–2 s:ksi alussa. Ei käytetä suorassa TV:ssä.</string>
+</resources>

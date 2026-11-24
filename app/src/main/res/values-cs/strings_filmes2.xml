@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Filtrovat filmy</string>
+    <string name="filmes_filtro_genero">Žánr: %1$s</string>
+    <string name="filmes_filtro_epoca">Období: %1$s</string>
+    <string name="filmes_filtro_nota">Minimální hodnocení: %1$s</string>
+    <string name="filmes_filtro_lista">Seznam: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Jen nezhlédnuté: %1$s</string>
+    <string name="filmes_filtro_limpar">Vymazat filtr</string>
+    <string name="filmes_filtro_qualquer">Libovolné</string>
+    <string name="filmes_filtro_sim">Ano</string>
+    <string name="filmes_filtro_nao">Ne</string>
+    <string name="filmes_filtro_decada">%1$d. léta</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">nezhlédnuté</string>
+    <string name="filmes_filtro_sem_genero">Žádná kategorie tohoto seznamu neuvádí žánr</string>
+    <string name="filmes_filtro_vazio">V této kategorii tomuto filtru neodpovídá žádný film</string>
+    <string name="filmes_sorteio_vazio">Odsud není z čeho vybrat film</string>
+    <string name="filmes_colecao">Kolekce tohoto filmu</string>
+    <string name="filmes_colecao_cat">Kolekce: %1$s</string>
+    <string name="genero_acao">Akční</string>
+    <string name="genero_aventura">Dobrodružný</string>
+    <string name="genero_comedia">Komedie</string>
+    <string name="genero_drama">Drama</string>
+    <string name="genero_terror">Horor</string>
+    <string name="genero_suspense">Thriller</string>
+    <string name="genero_romance">Romantický</string>
+    <string name="genero_ficcao">Sci-fi</string>
+    <string name="genero_fantasia">Fantasy</string>
+    <string name="genero_animacao">Animovaný</string>
+    <string name="genero_infantil">Děti a rodina</string>
+    <string name="genero_documentario">Dokument</string>
+    <string name="genero_crime">Krimi</string>
+    <string name="genero_guerra">Válečný</string>
+    <string name="genero_faroeste">Western</string>
+    <string name="genero_musical">Muzikál</string>
+</resources>

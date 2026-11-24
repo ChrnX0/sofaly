@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Actions catalog (ComandosIa): what the TV shows before/after running an action from a scene, Claude or voice. -->
+<resources>
+    <string name="acao_recado">Näytä viesti ”%1$s”</string>
+    <string name="acao_timer">%1$d minuutin ajastin</string>
+    <string name="acao_timer_nome">%1$d minuutin ajastin (”%2$s”)</string>
+    <string name="acao_desligar_em">Sammuta TV %1$d min kuluttua</string>
+    <string name="acao_desligar_cancelar">Peruuta uniajastin</string>
+    <string name="acao_filtro_ligar">Kytke yösuodatin päälle</string>
+    <string name="acao_filtro_desligar">Kytke yösuodatin pois</string>
+    <string name="acao_filtro_sem_servico">yösuodatin tarvitsee esteettömyyspalvelun</string>
+    <string name="acao_rodar_cena">Suorita tilanne ”%1$s”</string>
+    <string name="acao_cena_nao_existe">tilannetta ”%1$s” ei ole</string>
+    <string name="acao_cena_em_cena">tilanne ei voi suorittaa toista tilannetta</string>
+    <string name="acao_mural_compras">Lisää ”%1$s” ostoslistalle</string>
+    <string name="acao_mural_recado">Kiinnitä ”%1$s” perheen taululle</string>
+    <string name="acao_tocar_titulo">Etsi ja toista ”%1$s”</string>
+    <string name="acao_tocar">Toista %1$s</string>
+    <string name="acao_continuar">Jatka sitä, mikä soi</string>
+    <string name="acao_proximo">Toista seuraava jakso</string>
+    <string name="acao_proximo_de">Sarjan %1$s seuraava jakso</string>
+    <string name="acao_o_que_via">Katso, mikä soi</string>
+    <string name="acao_vendo">Viimeksi katsottu: %1$s</string>
+    <string name="acao_vendo_nada">Elokuvista ja Sarjoista ei ole vielä katsottu mitään.</string>
+    <!-- Rotina e despertador que rodam cena (ideia 5) -->
+    <string name="rot_cena_uma">Suorita tilanne</string>
+    <string name="rot_cena">Suorita tilanne: %1$s</string>
+    <string name="rot_cena_linha">Tilanne: %1$s</string>
+    <string name="rot_cena_sem">Luo ensin tilanne (verkkopaneeli › Koti ja automaatiot › Tilanteet)</string>
+    <!-- Tela Cenas (ideia 4) -->
+    <string name="lbl_cenas">Tilanteet</string>
+    <string name="pr_cenas">Tilanteet</string>
+    <string name="cenas_titulo">Tilanteet</string>
+    <string name="cenas_det">OK suorittaa tilanteen. Luo ja muokkaa niitä verkkopaneelissa › Koti ja automaatiot › Tilanteet.</string>
+    <string name="cenas_vazio">Ei vielä tilanteita. Luo yksi verkkopaneelissa › Koti ja automaatiot › Tilanteet.</string>
+    <plurals name="cenas_acoes">
+        <item quantity="one">%d toiminto</item>
+        <item quantity="other">%d toimintoa</item>
+    </plurals>
+    <!-- Botões do controle (ideia 6) -->
+    <string name="tec_titulo">Kaukosäätimen painikkeet</string>
+    <string name="tec_det">Netflix ja YouTube toimivat jokaisessa näytössä; värinäppäimet ja numerot vain aloitusnäytössä.</string>
+    <string name="tec_nova">+ Määritä painike</string>
+    <string name="tec_nova_det">Paina sitten kaukosäätimen painiketta</string>
+    <string name="tec_aperte">Paina painiketta</string>
+    <string name="tec_aperte_det">Netflix, YouTube, värinäppäin tai numero. TAKAISIN peruuttaa.</string>
+    <string name="tec_nao_pode">Painiketta %1$s ei voi muuttaa (sitä tarvitaan TV:n käyttöön). Kokeile toista painiketta.</string>
+    <string name="tec_so_home">Toimii vain aloitusnäytössä (sovelluksissa ja soittimessa se säilyttää oman tehtävänsä).</string>
+    <string name="tec_toda_tela">Toimii jokaisessa näytössä.</string>
+    <string name="tec_toque">Paina</string>
+    <string name="tec_segurar">Pidä</string>
+    <string name="tec_duplo">Kaksoispainallus</string>
+    <string name="tec_triplo">Kolmoispainallus</string>
+    <string name="tec_padrao">oletus (tallennettu sovellus; pidä 3 s = valitse)</string>
+    <string name="tec_cena">tilanne %1$s</string>
+    <string name="tec_salvo">%1$s tallennettu</string>
+    <string name="tec_apagar">Tyhjennä tämä painike</string>
+    <string name="tec_vermelha">Punainen</string>
+    <string name="tec_verde">Vihreä</string>
+    <string name="tec_amarela">Keltainen</string>
+    <string name="tec_azul">Sininen</string>
+    <!-- Automações (ideia 1) -->
+    <string name="aut_titulo">Automaatiot</string>
+    <string name="aut_det">Kaikki, mitä TV tekee itsestään: tiettyyn aikaan, painikkeesta, kun jotain tapahtuu ja linkin kautta.</string>
+    <string name="aut_cfg_det">Ajat, kaukosäätimen painikkeet, tapahtumat ja tilannelinkit</string>
+    <string name="aut_horario">Kun on aika</string>
+    <string name="aut_botao">Kun painiketta painetaan</string>
+    <string name="aut_evento">Kun jotain tapahtuu</string>
+    <string name="aut_link">Linkin kautta</string>
+    <string name="aut_link_det">Luo ja muokkaa verkkopaneelissa › Koti ja automaatiot › Tilanteet</string>
+    <plurals name="aut_links">
+        <item quantity="one">%d tilanne linkillä</item>
+        <item quantity="other">%d tilannetta linkillä</item>
+    </plurals>
+    <string name="ev_midia_tocou">Elokuva tai video alkoi</string>
+    <string name="ev_midia_pausou">Elokuva tai video tauotettiin tai päättyi</string>
+    <string name="ev_tv_ligou">TV käynnistyi</string>
+    <string name="ev_todos_sairam">Kaikki lähtivät (läsnäolo)</string>
+    <string name="ev_chuva">Sadetta tulossa</string>
+</resources>

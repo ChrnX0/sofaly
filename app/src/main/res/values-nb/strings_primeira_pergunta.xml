@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Ett svar setter opp menyen og skjermen. Du kan endre det senere i Innstillinger › System.</string>
+    <string name="pp_casa">For hele huset</string>
+    <string name="pp_vo_det">Store kort med navn lest høyt og større tekst, og du hjelper fra telefonen, langt unna.</string>
+</resources>

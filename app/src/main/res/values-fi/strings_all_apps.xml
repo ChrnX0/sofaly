@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Elokuvat ja TV</string>
+    <string name="aa_shelf_video">Videot</string>
+    <string name="aa_shelf_sports">Urheilu</string>
+    <string name="aa_shelf_kids">Lapset</string>
+    <string name="aa_shelf_music_audio">Musiikki ja ääni</string>
+    <string name="aa_shelf_news">Uutiset</string>
+    <string name="aa_shelf_games">Pelit</string>
+    <string name="aa_shelf_education">Opetus</string>
+    <string name="aa_shelf_health_fitness">Terveys ja kunto</string>
+    <string name="aa_shelf_lifestyle">Elämäntyyli</string>
+    <string name="aa_shelf_tools">Työkalut</string>
+    <string name="aa_shelf_system">Järjestelmä</string>
+    <string name="aa_shelf_other">Muut</string>
+    <string name="aa_frozen">Jäädytetyt</string>
+    <string name="aa_hidden">Piilotetut</string>
+    <string name="aa_badge_frozen">jäädytetty</string>
+    <string name="aa_badge_hidden">piilossa</string>
+    <string name="aa_lock">Piilotetut (%1$d)</string>
+    <string name="aa_count_hidden">piilossa: %1$d</string>
+    <string name="aa_count_frozen">jäädytetty: %1$d</string>
+    <string name="aa_pin_title">PIN piilotettujen sovellusten näkemiseen</string>
+    <string name="aa_used_today">Avattu tänään</string>
+    <string name="aa_used_days">Viimeksi avattu %1$d päivää sitten</string>
+    <string name="aa_used_never">Ei vielä avattu täältä</string>
+    <string name="aa_size">Käyttää %1$s</string>
+    <string name="aa_risk_safe">Turvallista muuttaa, sanoo sen tietokortti</string>
+    <string name="aa_risk_care">Muuta varoen, sanoo sen tietokortti</string>
+    <string name="aa_risk_essential">Välttämätön TV:lle: älä jäädytä</string>
+    <string name="aa_tip_idle">Ei avattu %1$d päivään. Jäädyttäminen vapauttaa muistia ja on peruttavissa.</string>
+    <string name="aa_hint_app">OK avaa · pidä OK siirtääksesi, piilottaaksesi, jäädyttääksesi tai poistaaksesi</string>
+    <string name="aa_hint_frozen">OK sulattaa ja avaa</string>
+    <string name="aa_hint_lock">OK kysyy PIN-koodia ja näyttää piilotetut sovellukset täällä</string>
+    <string name="aa_open">Avaa</string>
+    <string name="aa_freeze">Jäädytä</string>
+    <string name="aa_freezing">Jäädytetään %1$s…</string>
+    <string name="aa_frozen_done">%1$s jäädytetty. 10 minuutin kuluttua TV tarkistaa, että kaikki toimii yhä, ja kumoaa sen, jos jokin lakkasi toimimasta.</string>
+    <string name="aa_freeze_failed">%1$s:n jäädyttäminen epäonnistui: %2$s</string>
+    <string name="aa_unfreeze_open">Sulata ja avaa</string>
+    <string name="aa_unfreeze_refreeze">Avaa ja jäädytä uudelleen, kun palaan</string>
+    <string name="aa_unfreezing">Sulatetaan %1$s…</string>
+    <string name="aa_unfreeze_failed">%1$s:n sulattaminen epäonnistui: %2$s</string>
+    <string name="aa_move_auto">Automaattinen</string>
+</resources>

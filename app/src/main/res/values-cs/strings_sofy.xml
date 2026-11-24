@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Žádný internet</string>
+    <string name="observer_no_internet_text">Videa se mohou zastavit, dokud se nevrátí.</string>
+    <string name="observer_slow_internet_title">Pomalý internet</string>
+    <string name="observer_slow_internet_text">Odpovědi trvají %1$s ms. Videa se mohou zastavovat kvůli načítání.</string>
+    <string name="observer_weak_wifi_title">Slabá Wi‑Fi</string>
+    <string name="observer_weak_wifi_text">Signál je %1$s dBm. Pomůže router blíž k televizoru.</string>
+    <string name="observer_low_memory_title">Paměť je téměř plná</string>
+    <string name="observer_low_memory_text">Volných jen %1$s MB. Aplikace se mohou zavírat a restartovat.</string>
+    <string name="observer_memory_pressure_title">Televizor je přetížený</string>
+    <string name="observer_memory_pressure_text">Android zavírá aplikace, aby uvolnil místo.</string>
+    <string name="observer_slow_home_title">Domovská obrazovka je pomalá</string>
+    <string name="observer_slow_home_text">%1$s%% snímků se zpozdilo.</string>
+    <string name="observer_low_disk_title">Úložiště je téměř plné</string>
+    <string name="observer_low_disk_text">Zbývá jen %1$s MB. Ukládání může selhat.</string>
+    <string name="observer_freeze_undone_title">Zrušil jsem zmrazení</string>
+    <string name="observer_freeze_undone_text">%1$s byla zmrazena a %2$s přestala fungovat, tak jsem ji rozmrazil.</string>
+</resources>

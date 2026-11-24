@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Tekstitys mustalla taustalla</string>
+    <string name="acess_legenda_amarela">Keltainen tekstitys</string>
+    <string name="acess_volume">Tasainen äänenvoimakkuus kanavien välillä</string>
+    <string name="acess_voz">Selkeämmät äänet</string>
+    <string name="acess_volume_ligado">Tasainen äänenvoimakkuus päällä: hiljaiset kanavat ja elokuvat kuuluvat kovempaa</string>
+    <string name="acess_volume_desligado">Tasainen äänenvoimakkuus pois</string>
+    <string name="acess_voz_ligado">Selkeämmät äänet päällä</string>
+    <string name="acess_voz_desligado">Selkeämmät äänet pois</string>
+    <string name="acess_config_titulo">Ääni ja tekstitys</string>
+    <string name="acess_config_texto">Niille, jotka näkevät tai kuulevat heikommin. Myös soittimen ▼-valikossa.</string>
+</resources>

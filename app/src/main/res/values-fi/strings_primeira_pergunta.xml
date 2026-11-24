@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Yksi vastaus määrittää valikon ja näytön. Voit muuttaa sitä myöhemmin kohdassa Asetukset › Järjestelmä.</string>
+    <string name="pp_casa">Koko perheelle</string>
+    <string name="pp_vo_det">Isot kortit, nimet luettuna ääneen ja suurempi teksti, ja sinä autat puhelimestasi, kaukaa.</string>
+</resources>

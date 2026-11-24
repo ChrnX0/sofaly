@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Tlačítka ovladače launcheru (přemapovatelná tlačítka Netflix/YouTube) a okno párování bez PC.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">připojeno</string>
+    <string name="cfg_vpn_desconectada">odpojeno</string>
+    <string name="cfg_titulo">Nastavení</string>
+    <string name="cfg_diag">Diagnostika televizoru</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN a proč se aplikace zastavila — vše najednou</string>
+    <string name="cfg_tema_det">Přepne na další vzhled</string>
+    <string name="cfg_nunca">Nikdy</string>
+    <string name="cfg_min">%1$d min</string>
+    <string name="cfg_nao_gravou_do">nepodařilo se uložit (Device Owner neaktivní?)</string>
+    <string name="cfg_visita">Režim pro hosty</string>
+    <string name="cfg_rotinas">Rutiny</string>
+    <string name="cfg_sec_atualizacao">Aktualizace</string>
+    <string name="cfg_atualizar">Zkontrolovat novou verzi</string>
+    <string name="cfg_atualizar_det">Verze %1$s · %2$s · OK zkontroluje nyní</string>
+    <string name="cfg_procurando">kontroluje se GitHub…</string>
+    <string name="cfg_instalar">Nainstalovat verzi %1$d nyní</string>
+    <string name="cfg_instalar_det">Launcher se zavře a za pár sekund se sám vrátí · OK nainstaluje</string>
+    <string name="cfg_instalando">stahování a kontrola…</string>
+    <string name="cfg_sec_rede">Síť</string>
+    <string name="cfg_dns">Soukromé DNS</string>
+    <string name="cfg_dns_caiu">" · %1$s neodpovědělo, přepnuto zpět na automatické"</string>
+    <string name="cfg_velocidade">Test rychlosti internetu</string>
+    <string name="cfg_velocidade_det">Stáhne 25 MB a změří</string>
+    <string name="cfg_testando">Testuje se…</string>
+    <string name="cfg_nao_mudou_do">nepodařilo se změnit (Device Owner neaktivní?)</string>
+    <string name="cfg_sec_ligado">Co běží — %1$s</string>
+    <string name="cfg_ligado">zapnuto</string>
+    <string name="cfg_so_pc">" · jen s počítačem (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK se pokusí zapnout"</string>
+    <string name="cfg_perm_fixas">Pevná oprávnění udělena</string>
+    <string name="cfg_shell_estado">Vlastní shell</string>
+    <string name="cfg_shell_pareado">spárováno: launcher se sám znovu připojuje přes Bezdrátové ladění</string>
+    <string name="cfg_shell_nunca">zatím nespárováno: použijte níže \"Párovat bez PC\"</string>
+    <string name="cfg_sec_shizuku">Shell launcheru (Wi-Fi ADB)</string>
+    <string name="cfg_parear">Párovat bez PC</string>
+    <string name="cfg_parear_det">Otevře párovací obrazovku Androidu s klávesnicí launcheru navrchu</string>
+    <string name="cfg_acess_off">služba usnadnění launcheru je vypnutá</string>
+    <string name="cfg_versao">Verze launcheru</string>
+    <string name="cfg_desconhecida">neznámá</string>
+    <string name="cfg_depuracao">Bezdrátové ladění</string>
+    <string name="cfg_depuracao_on">launcher ho drží zapnuté</string>
+    <string name="cfg_depuracao_android">jak ho Android nechá</string>
+    <string name="cfg_chave">Klíč vlastního shellu</string>
+    <string name="cfg_calculando">počítá se…</string>
+    <string name="cfg_erro">chyba: %1$s</string>
+    <string name="cfg_licencas">Licence a poděkování</string>
+    <string name="cfg_licencas_det">Kód, písma, ikony a data třetích stran zde použité</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">bez toho: žádné skrývání aplikací, žádný připnutý HOME ani VPN, žádný časový limit spořiče obrazovky</string>
+    <string name="rec_agenda">Kalendář</string>
+    <string name="rec_agenda_sem">bez toho: kalendář nezobrazuje žádné události</string>
+    <string name="rec_local">Poloha</string>
+    <string name="rec_local_sem">bez toho: počasí použije město z IP a Wi-Fi nezobrazí název sítě</string>
+    <string name="rec_contas">Účty</string>
+    <string name="rec_contas_sem">bez toho: tečka profilu nezobrazí iniciálu účtu</string>
+    <string name="rec_uso">Využití aplikací</string>
+    <string name="rec_uso_sem">bez toho: aplikace nejsou řazeny podle nedávného použití</string>
+    <string name="rec_sobre">Překrytí</string>
+    <string name="rec_sobre_sem">bez toho: poznámky a párování bez PC se nezobrazí přes aplikace</string>
+    <string name="rec_seguras">Zabezpečená nastavení</string>
+    <string name="rec_seguras_sem">bez toho: žádná změna DNS a žádný automatický restart služby tlačítek a bezdrátového ladění (jen s PC nebo shellem launcheru)</string>
+    <string name="rec_teclas">Služba tlačítek</string>
+    <string name="rec_teclas_sem">bez toho: HOME může otevřít launcher Google a tlačítka Netflix/YouTube nejsou přemapována</string>
+    <string name="rec_tudo">vše zapnuto</string>
+    <string name="rec_faltam">chybí %1$d z %2$d funkcí · OK na položce se ji pokusí zapnout</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Vítejte</string>
+    <string name="bv_texto">Domovská obrazovka, hodiny, počasí, budík a spořič obrazovky už fungují. Zbytek zapněte zde, pokud chcete (%1$s).</string>
+    <string name="bv_comecar">Začít</string>
+    <string name="bv_comecar_det">Přejde na domovskou obrazovku</string>
+    <string name="bv_perm">Zapnout kalendář, polohu a účty</string>
+    <string name="bv_perm_det">Události kalendáře, počasí pro vaše město, iniciála účtu na profilu</string>
+    <string name="bv_teclas">Zapnout službu tlačítek</string>
+    <string name="bv_teclas_det">Usnadnění › Tlačítka ovladače: HOME se vždy vrátí sem</string>
+    <string name="bv_tudo">Zobrazit vše, co lze zapnout</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Soubor licence nebyl nalezen.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Zapnout televizor</string>
+    <string name="rot_abrir_um">Zapnout a otevřít aplikaci</string>
+    <string name="rot_desligar">Vypnout televizor</string>
+    <string name="rot_abrir">Zapnout a otevřít %1$s</string>
+    <string name="rot_um_app">aplikace (vyberte)</string>
+    <string name="rot_se_ocioso">" pokud se ho nikdo nedotkl po dobu %1$s"</string>
+    <string name="rot_sempre">vždy</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">žádná rutina není zapnutá</string>
+    <string name="rot_proxima">další: %1$s</string>
+    <string name="rot_nova_mais">+ Nová rutina</string>
+    <string name="rot_nova_det">Zapnout, otevřít aplikaci nebo vypnout v nastavený čas</string>
+    <string name="rot_desligada_sufixo">" · vypnuto"</string>
+    <string name="rot_nova">Nová rutina</string>
+    <string name="rot_editar">Upravit rutinu</string>
+    <string name="rot_editor_det">OK mění každý řádek · ZPĚT odejde bez uložení</string>
+    <string name="rot_hora">Čas: %1$s</string>
+    <string name="rot_dias">Dny: %1$s</string>
+    <string name="rot_acao">Akce: %1$s</string>
+    <string name="rot_app">Aplikace: %1$s</string>
+    <string name="rot_nenhum">žádná</string>
+    <string name="rot_ocioso">Jen pokud se ho nikdo nedotkl po dobu: %1$s</string>
+    <string name="rot_ligada">Zapnuto</string>
+    <string name="rot_desligada">Vypnuto</string>
+    <string name="rot_hora_det">◀ ▶ 5 minut · OK +1 hodina</string>
+    <string name="rot_dias_det">OK: každý den, Po až Pá, víkend, jednou</string>
+    <string name="rot_ok_muda">OK mění</string>
+    <string name="rot_app_det">OK nebo ▶ další · ◀ předchozí</string>
+    <string name="rot_ocioso_det">Nepřeruší někoho, kdo se dívá</string>
+    <string name="rot_ativa_det">OK zapne/vypne tuto rutinu</string>
+    <string name="rot_salvar">Uložit</string>
+    <string name="rot_escolha_app">Vyberte aplikaci</string>
+    <string name="rot_apagar">Smazat tuto rutinu</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Jednou</string>
+    <string name="dia_todo">Každý den</string>
+    <string name="dia_seg_sex">Po až Pá</string>
+    <string name="dia_fim">Víkend</string>
+    <string-array name="dias_curtos">
+        <item>Ne</item>
+        <item>Po</item>
+        <item>Út</item>
+        <item>St</item>
+        <item>Čt</item>
+        <item>Pá</item>
+        <item>So</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE d. MMMM</string>
+    <string name="home_perfil">Profil</string>
+    <string name="home_visita_titulo">Režim pro hosty zapnut</string>
+    <string name="home_visita_msg">Profil, kalendář a vybrané aplikace jsou skryté. Opustit režim pro hosty?</string>
+    <string name="home_continuar">Ponechat</string>
+    <string name="home_sair">Opustit</string>
+    <string name="comum_cancelar">Zrušit</string>
+    <string name="home_mostrar">Zobrazit na domovské obrazovce</string>
+    <string name="home_ocultar">Skrýt z domovské obrazovky</string>
+    <string name="home_sob_demanda">Zmrazit, když se nepoužívá</string>
+    <string name="home_sob_demanda_tirar">Přestat zmrazovat, když se nepoužívá</string>
+    <string name="sob_demanda_ligado">Zmrazeno. Zůstává zde: OK ji rozmrazí a otevře a 2 minuty po odchodu se znovu zmrazí.</string>
+    <string name="sob_demanda_desligado">Rozmrazeno. Funguje jako dřív.</string>
+    <string name="sob_demanda_falhou">Teď se to nepodařilo změnit. Zkuste to za chvíli znovu.</string>
+    <string name="home_desinstalar">Odinstalovat</string>
+    <string name="home_app_sistema"> (systémová aplikace)</string>
+    <string name="home_desinstalar_titulo">Odinstalovat %1$s?</string>
+    <string name="home_desinstalar_aviso">Aplikace a její data z televizoru zmizí. Nelze to vrátit: pro obnovení ji znovu nainstalujte z Obchodu Play.</string>
+    <string name="home_cancelar">Zrušit</string>
+    <string name="home_desinstalando">Odinstalovává se %1$s…</string>
+    <string name="home_desinstalado">%1$s byla odinstalována.</string>
+    <string name="home_desinstalar_falhou">Aplikaci %1$s se nepodařilo odinstalovat: %2$s</string>
+    <string name="home_chovendo">Právě prší</string>
+    <string name="home_chuva_agora">%1$s - Déšť %2$d%% právě teď</string>
+    <string name="home_chuva_em">%1$s - Déšť %2$d%% za %3$d h</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Budík nastaven: %1$s</string>
+    <string name="al_um_app">aplikace</string>
+    <string name="al_criar_q">Nastavit budík na %1$s?</string>
+    <string name="al_pedido">Požadováno od: %1$s.</string>
+    <string name="al_criar">Nastavit</string>
+    <string name="al_titulo">Budík</string>
+    <string name="al_nenhum">Žádný budík není zapnutý</string>
+    <string name="al_novo_mais">+  Nový budík</string>
+    <string name="al_ligado">Zapnuto</string>
+    <string name="al_desligado">Vypnuto</string>
+    <string name="al_novo">Nový budík</string>
+    <string name="al_editar">Upravit budík</string>
+    <string name="al_apagar">Smazat</string>
+    <string name="al_hoje">dnes</string>
+    <string name="al_amanha">zítra</string>
+    <string name="al_dia_as">%1$s v %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Zastavit</string>
+    <string name="al_soneca">Odložit o 10 min</string>
+    <string name="al_perdido_um">Budík %1$s nezazvonil, protože byl televizor vypnutý.</string>
+    <string name="al_perdido_varios">Budíky %1$s nezazvonily, protože byl televizor vypnutý.</string>
+    <string name="al_perdido_e">a</string>
+    <string name="al_volume_nao_mexe">neměnit</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Žádný účet Google</string>
+    <string name="pp_ativo">"  ·  aktivní"</string>
+    <string name="pp_adicionar">Přidat profil</string>
+    <string name="pr_bt_controle">Ovladač</string>
+    <string name="pp_audio">Zvuk</string>
+    <string name="pp_carregando">Načítání…</string>
+    <string name="pp_conectar">Připojit</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">žádný účet Google</string>
+    <string name="cal_dica">◀ ▶ změní měsíc</string>
+    <string name="cal_30">Příštích 30 dní</string>
+    <string name="cal_nenhuma_conta">Na televizoru není žádný účet Google</string>
+    <string name="cal_nada">Nic naplánováno (nebo se kalendář ještě synchronizuje)</string>
+    <string name="fmt_mes_ano">LLLL yyyy</string>
+    <string name="cal_dia_todo">Celý den</string>
+    <string name="cal_sem_titulo">(bez názvu)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  prší"</string>
+    <string name="pt_lua">Měsíc</string>
+    <string name="pt_sol">Slunce</string>
+    <string name="pt_umidade">Vlhkost</string>
+    <string name="pt_chuva">Déšť</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Déšť</string>
+    <string name="cl_limpo">Jasno</string>
+    <string name="cl_poucas">Skoro jasno</string>
+    <string name="cl_parcial">Polojasno</string>
+    <string name="cl_nublado">Oblačno</string>
+    <string name="cl_neblina">Mlha</string>
+    <string name="cl_garoa_fraca">Slabé mrholení</string>
+    <string name="cl_garoa">Mrholení</string>
+    <string name="cl_garoa_forte">Silné mrholení</string>
+    <string name="cl_garoa_cong">Mrznoucí mrholení</string>
+    <string name="cl_chuva_fraca">Slabý déšť</string>
+    <string name="cl_chuva_forte">Silný déšť</string>
+    <string name="cl_chuva_cong">Mrznoucí déšť</string>
+    <string name="cl_neve_fraca">Slabé sněžení</string>
+    <string name="cl_neve">Sněžení</string>
+    <string name="cl_neve_forte">Silné sněžení</string>
+    <string name="cl_graos">Sněhová zrna</string>
+    <string name="cl_panc_fracas">Slabé přeháňky</string>
+    <string name="cl_panc">Dešťové přeháňky</string>
+    <string name="cl_panc_fortes">Silné přeháňky</string>
+    <string name="cl_panc_neve">Sněhové přeháňky</string>
+    <string name="cl_tempestade">Bouřka</string>
+    <string name="cl_granizo">Bouřka s kroupami</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">úplněk za %1$d d</string>
+    <string name="lua_nova_em">nov za %1$d d</string>
+    <string-array name="fases_lua">
+        <item>Nov</item>
+        <item>Dorůstající srpek</item>
+        <item>První čtvrť</item>
+        <item>Dorůstající měsíc</item>
+        <item>Úplněk</item>
+        <item>Ubývající měsíc</item>
+        <item>Poslední čtvrť</item>
+        <item>Ubývající srpek</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Načítá se předpověď…</string>
+    <string name="pv_voz_agora">"Nyní je %1$d stupňů, %2$s. "</string>
+    <string name="pv_voz_hoje">Dnes maximum %1$d a minimum %2$d</string>
+    <string name="pv_voz_chuva">", s %1$d procentní pravděpodobností deště. "</string>
+    <string name="pv_voz_sem_chuva">", déšť se neočekává. "</string>
+    <string name="pv_voz_amanha">Zítra, %1$s, maximum %2$d a minimum %3$d</string>
+    <string name="pv_voz_amanha_chuva">, %1$d procentní pravděpodobnost deště</string>
+    <string name="pv_sem">Předpověď se teď nepodařilo získat. Zkontrolujte internet a zkuste to znovu.</string>
+    <string name="pv_max_min">max %1$d°   min %2$d°   ·   pocitově %3$d°</string>
+    <string name="pv_24h">Příštích 24 hodin</string>
+    <string name="pv_agora">Nyní</string>
+    <string name="pv_chance">Pravděpodobnost deště</string>
+    <string name="pv_7d">Příštích 9 dní</string>
+    <string name="pv_hoje">Dnes</string>
+    <string name="pv_mais_quente">Tepleji</string>
+    <string name="pv_mais_frio">Chladněji</string>
+    <string name="pv_igual">Stejně jako skutečná</string>
+    <string name="pv_detalhes">Podrobnosti</string>
+    <string name="pv_sensacao">Pocitová teplota</string>
+    <string name="pv_vento">Vítr</string>
+    <string name="pv_uv">UV index</string>
+    <string name="pv_visib">Viditelnost</string>
+    <string name="pv_orvalho">Rosný bod</string>
+    <string name="pv_pressao">Tlak</string>
+    <string name="pv_chuva_hoje">Déšť dnes</string>
+    <string name="pv_ar">Kvalita ovzduší</string>
+    <string name="pv_sem_dados">Teď žádná data</string>
+    <string name="uv_baixo">Nízký</string>
+    <string name="uv_moderado">Střední</string>
+    <string name="uv_alto">Vysoký</string>
+    <string name="uv_muito_alto">Velmi vysoký</string>
+    <string name="uv_extremo">Extrémní</string>
+    <string name="aq_boa">Dobrá</string>
+    <string name="aq_moderada">Přijatelná</string>
+    <string name="aq_sensiveis">Nezdravá pro citlivé</string>
+    <string name="aq_ruim">Nezdravá</string>
+    <string name="aq_muito_ruim">Velmi nezdravá</string>
+    <string name="aq_perigosa">Nebezpečná</string>
+    <string-array name="rosa_ventos">
+        <item>S</item>
+        <item>SV</item>
+        <item>V</item>
+        <item>JV</item>
+        <item>J</item>
+        <item>JZ</item>
+        <item>Z</item>
+        <item>SZ</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Tmavý</string>
+    <string name="tema_galeria">Galerie</string>
+    <string name="tema_meu">Moje pozadí</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Jemný</string>
+    <string name="som_classico">Klasický</string>
+    <string name="som_sino">Zvonek</string>
+    <string name="som_rampa1">Zesiluje 1½ min</string>
+    <string name="som_rampa2">Zesiluje 2 min</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mb/s (staženo %2$.0f MB za %3$.1f s)</string>
+    <string name="vel_falhou">Test selhal (žádný internet nebo nefunkční server)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  aktuální"</string>
+    <string name="esc_botao">Tlačítko %1$s otevře:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">východ slunce %1$s</string>
+    <string name="fd_por">západ slunce %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: použít   ·   podržet OK na jednom z vašich serverů: odebrat   ·   Zpět: konec</string>
+    <string name="dns_auto">Automaticky</string>
+    <string name="dns_auto_det">Použije DNS routeru a šifruje, když to přijme (výchozí v Androidu)</string>
+    <string name="dns_desl">Vypnuto</string>
+    <string name="dns_desl_det">Prosté DNS, bez šifrování</string>
+    <string name="dns_publicos">Veřejné servery</string>
+    <string name="dns_meus">Moje servery</string>
+    <string name="dns_adicionar">+  Přidat server</string>
+    <string name="dns_adicionar_det">Adresa DNS-over-TLS, například dns.example.com</string>
+    <string name="dns_sem_permissao">"Bez oprávnění ke změně DNS. Na počítači: "</string>
+    <string name="dns_troque_antes">před odebráním tohoto serveru přepněte na jiný</string>
+    <string name="dns_remover_q">Odebrat %1$s?</string>
+    <string name="dns_remover">Odebrat</string>
+    <string name="dns_nome_opc">Název (volitelný)</string>
+    <string name="dns_endereco_ex">Adresa, např. dns.example.com</string>
+    <string name="dns_adicionar_tit">Přidat DNS server</string>
+    <string name="dns_salvar_usar">Uložit a použít</string>
+    <string name="dns_invalido">Neplatná adresa. Použijte název jako dns.example.com (Android nepřijímá IP adresu).</string>
+    <string name="dns_em_uso">Používá se: %1$s</string>
+    <string name="dns_testando">testuje se…</string>
+    <string name="dns_falha">SELHALO: žádný název nebyl přeložen. Vyberte jiný server nebo Automaticky.</string>
+    <string name="dns_res_sem_cripto">překládá za %1$d ms (bez šifrování)</string>
+    <string name="dns_res_tls">překládá za %1$d ms   ·   TLS aktivní</string>
+    <string name="dns_res_com">" s %1$s"</string>
+    <string name="dns_res_sem_tls">překládá za %1$d ms   ·   teď bez TLS</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (osobní)</string>
+    <string name="dns_personalizado">Vlastní (%1$s)</string>
+    <string name="dns_rot_auto">automaticky</string>
+    <string name="dns_rot_desl">vypnuto</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Shrnutí</string>
+    <string name="diag_frase">V jedné větě</string>
+    <string name="diag_wifi_desc">odpojeno: televizor není v žádné síti</string>
+    <string name="diag_lat">%1$d ms k internetu</string>
+    <string name="diag_sem_resp">internet neodpovídá</string>
+    <string name="diag_wifi">%1$s · signál %2$d dBm · %3$d Mb/s · %4$s</string>
+    <string name="diag_validou">Android ověřil Wi-Fi</string>
+    <string name="diag_nao_validou">Android NEověřil Wi-Fi</string>
+    <string name="diag_net_ok">funguje (test za %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">test se nedostal ke Googlu · %1$s</string>
+    <string name="diag_net_estranha">zvláštní odpověď (%1$d): síť možná vyžaduje přihlášení · %2$s</string>
+    <string name="diag_cripto">šifrování aktivní</string>
+    <string name="diag_sem_cripto">šifrování NENÍ aktivní</string>
+    <string name="diag_resolve">překládá názvy (%1$d ms)</string>
+    <string name="diag_nao_resolve">NEpřekládá názvy</string>
+    <string name="diag_caiu">%1$s předtím selhalo a přepnul jsem zpět na automatické</string>
+    <string name="diag_nenhum_app">žádná aplikace</string>
+    <string name="diag_vpn_nada">žádná VPN není připnutá ani zapnutá</string>
+    <string name="diag_vpn_desc">%1$s připnuta, ale ODPOJENA (internet funguje i bez VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s připojena, ale Android tunel neověřil</string>
+    <string name="diag_vpn_ok">%1$s připojena a funguje</string>
+    <string name="diag_r_sem_wifi">televizor nemá Wi-Fi</string>
+    <string name="diag_r_dns_fora">DNS neodpovídá: zdá se, že internet nefunguje</string>
+    <string name="diag_r_net_fora">internet neprochází (router nebo poskytovatel)</string>
+    <string name="diag_r_dns">DNS nepřekládá názvy: aplikace nenajdou své servery</string>
+    <string name="diag_r_net">DNS funguje, ale internet neodpovídá</string>
+    <string name="diag_r_vpn">síť v pořádku; jen VPN nefunguje (aplikace fungují i bez ní)</string>
+    <string name="diag_r_atencao">síť funguje, s body k pozornosti níže</string>
+    <string name="diag_r_ok">síť v pořádku. Pokud se aplikace zastavila, podívejte se níže, co se jí stalo</string>
+    <string name="diag_usava">" · používala %1$d MB"</string>
+    <string name="diag_texto">Důvod: %1$s\nProces: %2$s\nDůležitost: %3$s</string>
+    <string name="diag_detalhe">\nDetail Androidu: %1$s</string>
+    <string name="diag_m_memoria">zavřena kvůli nedostatku paměti</string>
+    <string name="diag_m_crash">spadla</string>
+    <string name="diag_m_nativo">spadla (nativně)</string>
+    <string name="diag_m_anr">přestala odpovídat (ANR)</string>
+    <string name="diag_m_iniciar">nepodařilo se spustit</string>
+    <string name="diag_m_recurso">zavřena kvůli nadměrnému využití prostředků</string>
+    <string name="diag_m_dependencia">zavřena, protože skončila aplikace, na které závisí</string>
+    <string name="diag_m_sinal">ukončena systémem (signál)</string>
+    <string name="diag_m_permissao">restartována změnou oprávnění</string>
+    <string name="diag_i_tela">byla na obrazovce</string>
+    <string name="diag_i_visivel">viditelná</string>
+    <string name="diag_i_servico">běží na pozadí</string>
+    <string name="diag_i_cache">na pozadí (v mezipaměti)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Diagnostika</string>
+    <string name="diag_refazer">Zkontrolovat znovu</string>
+    <string name="diag_refazer_det">Spustí všechny kontroly znovu</string>
+    <string name="diag_verificando">kontroluje se…</string>
+    <string name="diag_apps">Aplikace (posledních 7 dní)</string>
+    <string name="diag_lendo">Čte se historie aplikací</string>
+    <string name="diag_sem_perm">Bez oprávnění číst pády jiných aplikací</string>
+    <string name="diag_sem_perm_det">Launcher si uděluje READ_LOGS a DUMP vlastním shellem; počkejte pár minut nebo restartujte televizor</string>
+    <string name="diag_nada">nic nezaznamenáno</string>
+    <string name="diag_erros">Chyby launcheru (zaznamenané jím)</string>
+    <string name="diag_sem_erros">Žádné zaznamenané chyby</string>
+    <string name="diag_sem_erros_det">Launcher zde uchovává svých posledních %1$d pádů</string>
+    <string name="diag_erro">Chyba launcheru</string>
+    <string name="diag_apagar">Smazat zaznamenané chyby</string>
+    <string name="diag_apagar_det">Vymaže seznam výše (ničeho jiného se nedotkne)</string>
+    <string name="diag_rodape">%1$s · šipky posouvají · ZPĚT se vrátí</string>
+    <string name="diag_app_ok">Žádný pád, zamrznutí ani neobvyklé ukončení za posledních 7 dní.\n\nPokud se aplikace otevře, ale nic nenačte, problém je obvykle v síti: viz sekce Síť na předchozí obrazovce.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">zatím nezkontrolováno</string>
+    <string name="atu_android9">vyžaduje Android 9 nebo novější</string>
+    <string name="atu_ocupado">už se kontroluje</string>
+    <string name="atu_erro">chyba: %1$s %2$s</string>
+    <string name="atu_em_dia">aktuální (nainstalováno %1$d, nejnovější %2$d)</string>
+    <string name="atu_sem_tag">Nejnovější Release nemá ve značce verzi</string>
+    <string name="atu_sem_apk">Release %1$d nemá APK ani SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 nesouhlasí, nenainstalováno</string>
+    <string name="atu_ilegivel">Release %1$d: nečitelné APK</string>
+    <string name="atu_pacote">Release %1$d: jiný balíček (%2$s)</string>
+    <string name="atu_versao">Release %1$d: verze APK (%2$d) neodpovídá značce</string>
+    <string name="atu_chave">GitHub má verzi %1$d, ale je podepsána jiným klíčem, který tento televizor nepřijímá: tento televizor se aktualizuje z PC</string>
+    <string name="atu_migracao_disponivel">verze %1$d: připraveno přesunout tento televizor do nové aplikace (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">instaluje se nová aplikace (%1$d); pak převezme tento televizor se všemi nastaveními</string>
+    <string name="atu_disponivel">verze %1$d připravena k instalaci (nainstalováno %2$d)</string>
+    <string name="atu_trocou">verze se od poslední kontroly změnila · OK zkontroluje znovu</string>
+    <string name="atu_instalando">instaluje se %1$d (nainstalováno %2$d)</string>
+    <string name="atu_ok">aktualizováno</string>
+    <string name="atu_falhou">instalace selhala (%1$d): %2$s</string>
+    <string name="atu_ruim">verze %1$d na tomto televizoru spadla hned po instalaci: znovu se nenainstaluje</string>
+    <string name="vig_aviso_titulo">Aktualizace pozastavena</string>
+    <string name="vig_pausada">verze %1$d dvakrát spadla hned po instalaci · automatická aktualizace čeká na další</string>
+    <string name="vig_pausada_tela">verze %1$d dvakrát spadla hned po instalaci · \"%2$s\" zůstane vypnuto do další</string>
+    <string name="vig_tela_bloqueada">Tato obrazovka je vypnutá do další aktualizace (shodila launcher)</string>
+    <string name="cfg_vig_liberar">Nouzový režim</string>
+    <string name="cfg_vig_liberar_det">" · OK ji znovu zapne"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Hlasové vyhledávání se na tomto televizoru neotevřelo</string>
+    <string name="home_alarme_hoje">dnes</string>
+    <string name="home_alarme_amanha">zítra</string>
+    <string name="player_carregando">Načítají se kanály…</string>
+    <string name="player_carregando_canal">Načítá se kanál…</string>
+    <string name="vod_carregando">Načítá se video…</string>
+    <string name="player_sem_canais">Zatím nebyl přidán žádný seznam kanálů.</string>
+    <string name="player_tentando">Na kanálu %1$d není signál. Zkouší se znovu…</string>
+    <string name="player_sem_sinal">Kanál %1$d neodpověděl. Vyberte jiný pomocí ▲ ▼ nebo OK.</string>
+    <string name="player_canal_nao_existe">Kanál %1$d neexistuje.</string>
+    <string name="player_ao_vivo">ŽIVĚ</string>
+    <string name="player_a_seguir">další: %1$s</string>
+    <string name="player_teclas">▲ ▼ kanál · OK seznam kanálů · podržet OK 2 s: oblíbený · ◀ předchozí kanál · ▶ ▶ možnosti · ZPĚT konec</string>
+    <string name="player_teclas_pausa">▶❙❙ nebo OK pokračovat · ▶ možnosti (zpět na živé) · ▲ ▼ kanál · ZPĚT konec</string>
+    <string name="player_cat_busca">Hledat: %1$s</string>
+    <string name="player_acao_buscar">Hledat</string>
+    <string name="player_acao_filtros">Filtry</string>
+    <string name="filmes_titulo">Filmy</string>
+    <string name="filmes_carregando">Načítají se filmy…</string>
+    <string name="filmes_vazio">Zatím žádné filmy</string>
+    <string name="filmes_continuar">Pokračovat</string>
+    <string name="filmes_ordem_titulo">Řadit podle</string>
+    <string name="filmes_ordem_recentes">nejnovější v katalogu</string>
+    <string name="filmes_ordem_nome">název</string>
+    <string name="filmes_ordem_nota">hodnocení</string>
+    <string name="filmes_ordem_ano">rok</string>
+    <string name="filmes_busca_dica">Název filmu</string>
+    <string name="filmes_do_comeco">Od začátku</string>
+    <string name="filmes_assistir">▶  Přehrát</string>
+    <string name="filmes_ficha_carregando">Načítají se podrobnosti…</string>
+    <string name="filmes_direcao">Režie</string>
+    <string name="filmes_elenco">Obsazení</string>
+    <string name="filmes_interesses">Seznam ke zhlédnutí</string>
+    <string name="filmes_assistidos">Zhlédnuto</string>
+    <string name="filmes_interesse_pos">★ %1$s přidáno do seznamu ke zhlédnutí</string>
+    <string name="filmes_interesse_tirou">%1$s odebráno ze seznamu ke zhlédnutí</string>
+    <string name="filmes_interesses_cheio">Seznam ke zhlédnutí už má 500 titulů: nejprve jeden odeberte.</string>
+    <string name="filmes_interesses_vazio">Podržte OK 2 sekundy na plakátu, abyste ho sem přidali (a znovu pro odebrání).</string>
+    <string name="filmes_assistido">Zhlédnuto</string>
+    <string name="filmes_selo_leg">TIT</string>
+    <string name="vod_sem_conta">Účet tohoto videa už neexistuje.</string>
+    <string name="vod_erro">Toto video se nepodařilo přehrát. ZPĚT pro odchod.</string>
+    <string name="vod_faixa">Stopa</string>
+    <string name="vod_audio">Zvuk</string>
+    <string name="vod_legenda">Titulky</string>
+    <string name="vod_faixas">Zvuk a titulky</string>
+    <string name="vod_teclas">OK pauza · ◀ 10 s · ▶ 30 s (podržte pro zrychlení) · ▼ zvuk, titulky a obraz · ⏮ ⏭ kapitoly · ZPĚT konec</string>
+    <string name="series_titulo">Seriály</string>
+    <string name="series_carregando">Načítají se seriály…</string>
+    <string name="series_vazio">Zatím žádné seriály</string>
+    <string name="series_ordem_recentes">s novým dílem</string>
+    <string name="series_busca_dica">Název seriálu</string>
+    <string name="series_sem_episodios">Server neposlal žádné díly tohoto seriálu.</string>
+    <string name="series_assistir">▶  Přehrát %1$s</string>
+    <string name="series_temporada">Řada %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d řada</item>
+        <item quantity="few">%d řady</item>
+        <item quantity="other">%d řad</item>
+    </plurals>
+    <string name="player_acao_guia">Programový průvodce</string>
+    <string name="player_sem_guia_curto">Žádný programový průvodce</string>
+    <string name="player_grade_teclas">OK přehrát · ◀ ▶ pořad · ▲ ▼ kanál</string>
+    <string name="player_busca_dica">Název kanálu nebo pořadu</string>
+    <string name="player_busca_nada">Pro „%1$s“ nebylo nic nalezeno.</string>
+    <string name="player_filtro_qualquer">Libovolná</string>
+    <string name="player_filtro_qualidade">Kvalita: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Kvalita obrazu</string>
+    <string name="player_filtro_pais">Země: %1$s</string>
+    <string name="player_filtro_pais_titulo">Země nebo jazyk</string>
+    <string name="player_filtro_limpar">Vymazat filtry</string>
+    <string name="player_filtro_nada">Tento seznam nemá v názvech kanálů kvalitu ani zemi.</string>
+    <string name="player_bloqueado">Kanál blokován rodičovskou kontrolou. Pro sledování zadejte PIN ve Filtrech.</string>
+    <string name="player_ocultas_mostrar">Zobrazit skryté kategorie a blokované kanály (PIN)</string>
+    <string name="player_ocultas_esconder">Znovu skrýt skryté kategorie a blokované kanály</string>
+    <string name="player_pin_titulo">PIN panelu</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">Nesprávný PIN.</string>
+    <string name="player_pin_sem">Žádný PIN panelu: skryté kategorie nejsou chráněny.</string>
+    <string name="player_pin_espere">Příliš mnoho nesprávných PINů. Zkuste to znovu za %d min.</string>
+    <string name="infantil_titulo">Dětské kategorie</string>
+    <string name="infantil_carregando">načítají se kategorie…</string>
+    <string name="infantil_coluna_itens">CO OBSAHUJE</string>
+    <string name="infantil_dica">OK označí nebo zruší označení kategorie jako dětské · platí pro Živou TV, Filmy a Seriály · ZPĚT odejde (už uloženo)</string>
+    <string name="infantil_so_categoria">označte celou kategorii v levém sloupci</string>
+    <string name="infantil_vazio">žádné kategorie: přidejte účet v Nastavení › TV a filmy a znovu načtěte kanály</string>
+    <string name="infantil_limite">kategorie pro dospělé nemůže být dětská</string>
+    <string name="infantil_resumo_ligado">%1$d z %2$d kategorií označeno jako dětské · dětský režim ZAPNUT</string>
+    <string name="infantil_resumo_desligado">%1$d z %2$d kategorií označeno jako dětské · dětský režim vypnut</string>
+    <string name="cfg_infantil">Dětský režim</string>
+    <string name="cfg_infantil_ligado">zapnuto · zobrazuje se jen %d dětských kategorií; zbytek vyžaduje PIN</string>
+    <string name="cfg_infantil_desligado">vypnuto · %d kategorií označeno jako dětské</string>
+    <string name="cfg_infantil_escolher">Vybrat dětské kategorie</string>
+    <string name="cfg_infantil_escolher_det">Platí pro Živou TV, Filmy a Seriály</string>
+    <string name="player_grupo_oculto">%1$s skryto. Pro zobrazení: Filtry, zobrazit skryté.</string>
+    <string name="player_grupo_mostrado">%1$s je znovu viditelné.</string>
+    <string name="player_canais_de">%1$s · %2$d KANÁLŮ</string>
+    <string name="player_cat_todos">Vše</string>
+    <string name="player_cat_favoritos">Oblíbené</string>
+    <string name="player_cat_recentes">Nedávné</string>
+    <string name="player_cat_outros">Ostatní</string>
+    <string name="player_sem_favoritos">Zatím žádné oblíbené. Podržte OK 2 s na kanálu, abyste ho sem přidali.</string>
+    <string name="player_categoria_vazia">V této kategorii nejsou žádné kanály.</string>
+    <string name="player_sem_guia">Pro tento kanál není programový průvodce.</string>
+    <string name="player_depois">POZDĚJI</string>
+    <string name="player_lista_teclas">OK přehrát · podržet OK 2 s: oblíbený nebo odebrat · podržet OK na kategorii: skrýt · ◀ kategorie</string>
+    <string name="player_favorito_pos">★ %1$s přidán do oblíbených</string>
+    <string name="player_favorito_tirou">%1$s odebrán z oblíbených</string>
+    <string name="player_favoritos_cheio">Oblíbených je už 500: nejprve jeden odeberte.</string>
+    <string name="player_assistindo">sleduje se</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Živé kanály</string>
+    <string name="home_destaque_app">Aplikace</string>
+    <string name="app_sub_youtube">Videa a kanály</string>
+    <string name="app_sub_netflix">Filmy a pořady</string>
+    <string name="app_sub_prime">Filmy, pořady a sport</string>
+    <string name="app_sub_max">Filmy, pořady a sport</string>
+    <string name="app_sub_play_store">Instalace a aktualizace aplikací</string>
+    <string name="app_sub_play_games">Hry</string>
+    <string name="app_sub_google_tv">Zakoupené a vypůjčené filmy</string>
+    <string name="app_sub_config">Nastavení televizoru</string>
+    <string name="home_card_series">Seriály</string>
+    <string name="home_card_filmes">Filmy</string>
+    <string name="home_destaque_series">Pořady z vašeho seznamu · pokračujte, kde jste skončili</string>
+    <string name="home_destaque_filmes">Filmy z vašeho seznamu · pokračujte, kde jste skončili</string>
+    <string name="home_card_rede">Síť</string>
+    <string name="home_destaque_rede">Vaše videa, hudba a fotky</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d. MMMM</string>
+    <string name="home_busca">Hledat</string>
+    <string name="home_falar">Mluvit s Gemini</string>
+    <string name="home_dest_tv">TV · kanál %1$d</string>
+    <string name="rede_titulo">Síť</string>
+    <string name="rede_procurando">Hledají se mediální servery v síti…</string>
+    <string name="rede_nenhum">Teď není zapnutý žádný mediální server. Přidejte jeden níže: Plex a Jellyfin používají váš účet; složka v PC nebo NAS používá svou adresu.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d server</item>
+        <item quantity="few">%1$d servery</item>
+        <item quantity="other">%1$d serverů</item>
+    </plurals>
+    <string name="rede_secao_seus">Vaše servery</string>
+    <string name="rede_secao_achados">Nalezeno v síti</string>
+    <string name="rede_secao_adicionar">Přidat</string>
+    <string name="rede_entrar">Přihlásit se</string>
+    <string name="rede_adicionar">Přidat</string>
+    <string name="rede_salvar">Uložit</string>
+    <string name="rede_testar_salvar">Otestovat a uložit</string>
+    <string name="rede_testando">Testuje se…</string>
+    <string name="rede_cancelar">Zrušit</string>
+    <string name="rede_sub_dlna">DLNA · otevře se přímo</string>
+    <string name="rede_sub_maquina">Sdílená složka · %1$s</string>
+    <string name="rede_sub_pasta">Sdílená složka · %1$s</string>
+    <string name="rede_sub_lista">Seznam M3U · %1$s</string>
+    <string name="rede_sub_video">Odkaz na video · %1$s</string>
+    <string name="rede_sub_plex">Přihlášení kódem, bez hesla na televizoru</string>
+    <string name="rede_sub_jellyfin">Uživatelské jméno a heslo serveru</string>
+    <string name="rede_sub_smb">Složka ve Windows, Macu nebo NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS s WebDAV</string>
+    <string name="rede_sub_link">Adresa http, HLS (.m3u8) nebo seznam M3U</string>
+    <string name="rede_acao_smb">Sdílená složka</string>
+    <string name="rede_acao_webdav">WebDAV nebo Nextcloud</string>
+    <string name="rede_acao_link">Odkaz na video nebo seznam</string>
+    <string name="rede_acao_procurar">Hledat znovu</string>
+    <string name="rede_abrindo">Otevírá se…</string>
+    <string name="rede_vazia">Prázdná složka</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d položka</item>
+        <item quantity="few">%1$d položky</item>
+        <item quantity="other">%1$d položek</item>
+    </plurals>
+    <string name="rede_dica_abrir">otevřít</string>
+    <string name="rede_dica_remover">odebrat</string>
+    <string name="rede_dica_sair">konec</string>
+    <string name="rede_dica_subir">o složku výš</string>
+    <string name="rede_tecla_segurar">podržet OK</string>
+    <string name="rede_tecla_voltar">ZPĚT</string>
+    <string name="rede_erro">Server neodpověděl. Zkuste to znovu.</string>
+    <string name="rede_erro_senha">Server nepřijal uživatelské jméno nebo heslo.</string>
+    <string name="rede_erro_pasta">Server odpověděl, ale nemá složku s tímto názvem.</string>
+    <string name="rede_erro_servidor">Server nebyl nalezen. Zkontrolujte adresu a že je ve stejné síti.</string>
+    <string name="rede_erro_certificado">Bezpečnostní certifikát serveru není platný pro tuto adresu.</string>
+    <string name="rede_erro_cheio">Nepodařilo se uložit: televizor už uchovává 20 serverů. Nejprve jeden odeberte.</string>
+    <string name="rede_endereco_erro">Neúplná nebo neplatná adresa.</string>
+    <string name="rede_salva">\"%1$s\" přidáno.</string>
+    <string name="rede_nome_opcional">Zobrazovaný název (volitelný)</string>
+    <string name="rede_senha">Heslo</string>
+    <string name="rede_remover_titulo">Odebrat \"%1$s\"?</string>
+    <string name="rede_remover_explica">Jeho přihlašovací jméno a heslo z televizoru zmizí. Na serveru se nic nezmění.</string>
+    <string name="rede_remover">Odebrat</string>
+    <string name="rede_removida">\"%1$s\" odebráno.</string>
+    <string name="rede_smb_titulo">Sdílená složka</string>
+    <string name="rede_smb_explica">Adresa jako ve Windows: \\\\server\\složka (např. \\\\192.168.0.10\\Filmy). Prázdné uživatelské jméno a heslo = host.</string>
+    <string name="rede_smb_endereco">\\\\server\\složka</string>
+    <string name="rede_smb_endereco_erro">Chybí server nebo složka (např. \\\\NAS\\Filmy).</string>
+    <string name="rede_smb_usuario">Uživatelské jméno (volitelné)</string>
+    <string name="rede_smb_senha">Heslo (volitelné)</string>
+    <string name="rede_jf_explica">Adresa serveru %1$s (např. 192.168.0.10 nebo nas:8096), uživatelské jméno a heslo. Heslo se v televizoru neukládá.</string>
+    <string name="rede_jf_endereco">Adresa serveru</string>
+    <string name="rede_jf_usuario">Uživatelské jméno</string>
+    <string name="rede_jf_usuario_falta">Chybí uživatelské jméno.</string>
+    <string name="rede_dav_explica">Adresa složky (Nextcloud: cloud.example.com/remote.php/dav/files/VÁŠ_UŽIVATEL). Bez http televizor použije https. U Nextcloudu raději použijte heslo aplikace.</string>
+    <string name="rede_dav_endereco">Adresa WebDAV</string>
+    <string name="rede_link_explica">Video (mp4, mkv…), stream HLS (.m3u8) nebo seznam M3U s několika videi. Zůstane tu uložené.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Použijte adresu začínající http:// nebo https://.</string>
+    <string name="rede_plex_titulo">Přihlásit se k Plexu</string>
+    <string name="rede_plex_explica">Na telefonu nebo počítači otevřete plex.tv/link a zadejte kód níže. Nebo namiřte fotoaparát telefonu na QR kód.</string>
+    <string name="rede_plex_pedindo">Žádá se Plex o kód…</string>
+    <string name="rede_plex_esperando">Čeká se na vaše potvrzení v Plexu…</string>
+    <string name="rede_plex_buscando">Účet připojen. Hledají se vaše servery…</string>
+    <string name="rede_plex_venceu">Platnost kódu vypršela. Získejte nový.</string>
+    <string name="rede_plex_outro">Získat nový kód</string>
+    <string name="rede_plex_sem_servidor">Tento účet Plex nemá žádný server.</string>
+    <string name="rede_plex_inacessivel">Server v účtu byl nalezen, ale odsud neodpověděl. Zkontrolujte, že je zapnutý a ve stejné síti.</string>
+    <string name="rede_plex_varios">Přidáno serverů Plex: %1$d.</string>
+    <string name="pg_amanha">Zítra</string>
+    <string name="pg_recado">Zpráva</string>
+    <string name="pg_app_despertador">Budík</string>
+    <string name="pg_bom_dia">Dobré ráno</string>
+    <string name="pg_boa_tarde">Dobré odpoledne</string>
+    <string name="pg_boa_noite">Dobrý večer</string>
+    <string name="pg_agora">teď</string>
+    <string name="pg_ontem">včera</string>
+    <string name="pg_mais_notif">+%1$d oznámení</string>
+    <string name="pg_dia_todo">dnes</string>
+    <string name="pg_hoje_as">dnes v %1$s</string>
+    <string name="pg_amanha_as">zítra v %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Nyní</string>
+    <string name="pw_proximas_horas">Další hodiny</string>
+    <string name="pw_hoje">Dnes</string>
+    <string name="pw_chuva_pct">%1$d%% pravděpodobnost deště</string>
+    <string name="pw_umidade_pct">%1$d%% vlhkost</string>
+    <string name="pw_ate_umas">%1$s přibližně do %2$s</string>
+    <string name="pw_chuva_pelas">%1$s, déšť kolem %2$s</string>
+    <string name="pw_chuva_segue">%1$s na další hodiny</string>
+    <string name="pw_amanha_frase">Zítra %1$d°, %2$s</string>
+    <string name="pw_nasce">východ slunce %1$s</string>
+    <string name="pw_poe">západ slunce %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Oznámení</string>
+    <string name="pr_sem_notificacoes">Žádná oznámení</string>
+    <string name="pr_notificacoes_desligadas">Zapíná se přístup k oznámením…</string>
+    <string name="pr_perfis">Profily</string>
+    <string name="pr_protetor">Spořič obrazovky</string>
+    <string name="pr_timer">Časovač</string>
+    <string name="pr_timer_as">Do %1$s</string>
+    <string name="pr_audio_arc">Přijímač (HDMI ARC)</string>
+    <string name="pr_dispensar">Zavřít</string>
+    <string name="pr_ontem">včera</string>
+    <string name="pr_agora">teď</string>
+    <string name="pr_configuracoes">Nastavení launcheru</string>
+    <string name="pr_tocar_pausar">Přehrát nebo pozastavit</string>
+    <string name="pr_proxima">Další</string>
+    <string name="pr_tocando">přehrává se</string>
+    <string name="pr_pausado">pozastaveno</string>
+    <string name="pr_dormir">Spánek</string>
+    <string name="pr_despertador">Budík</string>
+    <string name="pr_visita">Hosté</string>
+    <string name="pr_casa">Domácnost</string>
+    <string name="pr_config_tv">Nastavení televizoru</string>
+    <string name="pr_sinal_bom">dobrý signál</string>
+    <string name="pr_sinal_medio">průměrný signál</string>
+    <string name="pr_sinal_fraco">slabý signál</string>
+    <string name="pr_bt_conectados">připojeno: %1$d</string>
+    <string name="pr_hoje">Dnes</string>
+    <string name="pr_amanha">Zítra</string>
+    <string name="pr_ligado">Zapnuto</string>
+    <string name="pr_limpar_tudo">Vymazat vše</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Zpětné sledování: minulé pořady</string>
+    <string name="tvv_titulo">Zpětné sledování · %1$s</string>
+    <string name="tvv_do_inicio">Nyní · od začátku: %1$s</string>
+    <string name="tvv_carregando">Načítají se minulé pořady…</string>
+    <string name="tvv_sem_resposta">Server neodpověděl. Zkuste to za chvíli znovu.</string>
+    <string name="tvv_vazio">Tento kanál zatím nemá uložené pořady.</string>
+    <string name="tvv_voltou">Zpět na živé</string>
+    <string name="tvv_selo">ZPĚTNĚ</string>
+    <string name="tvv_teclas">◀ ▶ 30 s · OK možnosti · ZPĚT živě</string>
+    <string name="tvv_pausar">Pozastavit</string>
+    <string name="tvv_continuar">Pokračovat</string>
+    <string name="tvv_ao_vivo">Zpět na živé</string>
+    <string name="tvv_hoje">Dnes</string>
+    <string name="tvv_ontem">Včera</string>
+    <string name="imagem_titulo">Poměr stran</string>
+    <string name="imagem_ajustar">Přizpůsobit obrazovce</string>
+    <string name="imagem_esticar">Roztáhnout</string>
+    <string name="imagem_zoom">Přiblížit (ořízne okraje)</string>
+    <string name="velocidade_titulo">Rychlost</string>
+    <string name="trailer">Upoutávka</string>
+    <string name="trailer_sem_app">Nebyla nalezena aplikace pro otevření upoutávky.</string>
+    <string name="series_visto_ate_aqui">Označit jako zhlédnuté až po %1$s</string>
+    <string name="series_nao_visto">Označit jako nezhlédnuté</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Filmy a seriály</string>
+    <string name="idioma_titulo">Preferovaný zvuk</string>
+    <string name="idioma_det">Originál s titulky v jazyce televizoru, nebo dabing do něj. Každý film a seriál si pamatuje změnu provedenou v přehrávači (▼)</string>
+    <string name="idioma_original">Originál s titulky</string>
+    <string name="idioma_dublado">Dabing</string>
+    <string name="idioma_legendado">S titulky</string>
+    <string name="idioma_dublado_curto">Dabované</string>
+    <string name="idioma_versao_legendada">Verze s titulky</string>
+    <string name="idioma_versao_dublada">Dabovaná verze</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Najít titulky online</string>
+    <string name="legenda_procurando">Hledají se titulky…</string>
+    <string name="legenda_baixando">Stahují se titulky…</string>
+    <string name="legenda_acertada">Titulky sladěné s řečí · %1$s</string>
+    <string name="legenda_pronta">Titulky připraveny</string>
+    <string name="legenda_nenhuma">Pro toto video nejsou titulky v jazyce televizoru</string>
+    <string name="legenda_erro">Titulky se nepodařilo vyhledat</string>
+    <string name="legenda_invalida">Stažený soubor nejsou titulky</string>
+    <string name="legenda_sem_conta">Přidejte svůj klíč OpenSubtitles v Nastavení › TV a filmy › Filmy a seriály</string>
+    <string name="legenda_escolher">Titulky pro \"%1$s\"</string>
+    <string name="legenda_surdos">pro neslyšící</string>
+    <string name="legenda_bate">vytvořeno pro tento soubor</string>
+    <string name="lista_dica_escolher">vybrat</string>
+    <string name="legenda_atraso_titulo">Zpoždění titulků (+ = text se zobrazí později)</string>
+    <string name="legenda_atraso_zero">Bez zpoždění</string>
+    <string name="legenda_conta_titulo">Online titulky</string>
+    <string name="legenda_conta_det">OpenSubtitles, s vaším klíčem API (zdarma na opensubtitles.com/consumers). Bez účtu: 5 titulků denně</string>
+    <string name="legenda_conta_sim">nastaveno</string>
+    <string name="legenda_conta_nao">nenastaveno</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">zbývá %1$s</string>
+    <string name="tempo_falta_um">zbývá %1$s</string>
+    <string name="serie_ep_longo">Řada %1$d, díl %2$d</string>
+    <string name="ficha_continuar_de">od %1$s</string>
+    <string name="tempo_termina_as">končí v %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s dílů</string>
+    <string name="tempo_x_de_y">%1$d z %2$d</string>
+    <string name="tempo_visto">zhlédnuto</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Profil Google</string>
+    <string name="fp_linha">Získat fotku účtu</string>
+    <string name="fp_linha_det">Zobrazí fotku vašeho účtu Google na tlačítku profilu</string>
+    <string name="fp_titulo">Fotka účtu</string>
+    <string name="fp_fechar">Zavřít</string>
+    <string name="fp_pedindo">Žádá se Google o kód…</string>
+    <string name="fp_passos">1. Na telefonu otevřete %1$s (nebo namiřte fotoaparát na kód vpravo).\n2. Přihlaste se účtem Google, který je na tomto televizoru, a zadejte:\n\n%2$s\n\nTato obrazovka pokračuje sama. Toto přihlášení slouží jen k získání fotky.</string>
+    <string name="fp_ok">Hotovo: fotka účtu %1$s je teď na tlačítku profilu.</string>
+    <string name="fp_sem_foto">Přihlášeno jako %1$s, ale fotku se nepodařilo uložit. Zkuste to znovu, nebo pošlete fotku z webového panelu (karta Fotky spořiče).</string>
+    <string name="fp_falha">Nepovedlo se: %1$s</string>
+    <string name="fp_sem_google">Přihlášení Google na tomto televizoru zatím není nastavené.\n\nDva způsoby, jak dát fotku na tlačítko profilu:\n• Webový panel > karta Fotky spořiče > Profilová fotka: vyberte libovolný obrázek z telefonu.\n• Nastavte přihlášení Google (webový panel > karta Claude) a vraťte se sem pro získání fotky účtu.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Kapitola %1$d</string>
+    <string name="vod_capitulos_titulo">Kapitoly</string>
+    <string name="vod_capitulos_opcao">Kapitoly (%1$d)</string>
+    <string name="vod_segunda_opcao">Druhé titulky (nahoře)</string>
+    <string name="vod_segunda_titulo">Druhé titulky</string>
+    <string name="vod_segunda_desligada">Vypnuto</string>
+    <string name="vod_dialogo_opcao">Hlasitější dialogy</string>
+    <string name="vod_dialogo_ligado">Hlasitější dialogy zapnuty</string>
+    <string name="vod_dialogo_desligado">Hlasitější dialogy vypnuty</string>
+    <string name="vod_atraso_audio_titulo">Zpoždění zvuku (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Žádné</string>
+    <string name="vod_atraso_audio_mais">Zvuk přichází o %1$d ms později</string>
+    <string name="vod_atraso_audio_menos">Zvuk přichází o %1$d ms dříve</string>
+    <string name="vod_info_opcao">Technické informace</string>
+    <string name="info_video">Video</string>
+    <string name="info_audio">Zvuk</string>
+    <string name="info_perdidos">Vynechané snímky</string>
+    <string name="info_taxa">Datový tok</string>
+    <string name="info_buffer">Vyrovnávací paměť</string>
+    <string name="info_atraso">Zpoždění zvuku</string>
+    <string name="info_dialogo">Hlasitější dialogy zapnuty</string>
+    <string name="info_chip">Čip televizoru</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">stereo</string>
+    <string name="lista_dica_voltar">zpět</string>
+    <string name="pm_ligado">Zapnuto</string>
+    <string name="pm_desligado">Vypnuto</string>
+    <string name="pm_imagem_som">Obraz a zvuk</string>
+    <string name="pm_mais">Další možnosti</string>
+    <string name="pm_versao_legendada">Sledovat s titulky</string>
+    <string name="pm_versao_dublada">Sledovat s dabingem</string>
+    <string name="pm_versao_info">Pokračuje od tohoto místa</string>
+    <string name="pm_leg_ajustes">Nastavení titulků</string>
+    <string name="pm_leg_tamanho">Velikost</string>
+    <string name="pm_leg_estilo">Styl</string>
+    <string name="pm_leg_posicao">Pozice</string>
+    <string name="pm_leg_atraso">Zpoždění</string>
+    <string name="pm_leg_auto">Stáhnout, když chybí</string>
+    <string name="pm_leg_traduzir">Přeložit v televizoru, když chybí</string>
+    <string name="pm_velocidade">Rychlost</string>
+    <string name="pm_proporcao">Velikost obrazu</string>
+    <string name="pm_atraso_audio">Zpoždění zvuku</string>
+    <string name="pm_quadros">Přizpůsobit snímkové frekvenci filmu</string>
+    <string name="pm_qualidade">Kvalita</string>
+    <string name="pv_sem_titulo">Teď žádná předpověď</string>
+    <string name="bu_voz_grupo">Mluvit</string>
+    <string name="bu_falar">Řekněte, co hledáte</string>
+    <string name="bu_falar_det">Rychlejší než psaní ovladačem</string>
+    <string name="bu_recentes">Nedávná hledání</string>
+    <string name="bu_recente_det">Hledat znovu</string>
+    <string name="aviso_alarme_tocou_titulo">Budík zazvonil na televizoru</string>
+    <string name="aviso_alarme_tocou_texto">Začal zvonit v %1$s.</string>
+    <string name="home_instalar_externo">Nainstalovat na externí úložiště</string>
+    <string name="home_instalar_dispositivo">Nainstalovat do tohoto zařízení</string>
+    <string name="home_instalando_lugar">Přesouvá se %1$s… do dokončení bude zavřená.</string>
+    <string name="home_instalado_externo">%1$s je nyní na externím úložišti.</string>
+    <string name="home_instalado_dispositivo">%1$s je zpět v tomto zařízení.</string>
+    <string name="home_instalar_lugar_falhou">%1$s se nepodařilo přesunout: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">vlastní shell televizoru není aktivní</string>
+    <string name="home_instalar_lugar_sem_pendrive">žádný USB disk není nastaven jako úložiště televizoru</string>
+    <string name="st_titulo">USB disk a úložiště</string>
+    <string name="st_explica">Vyberte, jak televizor používá USB disk. Málo místa? Může se stát úložištěm televizoru pro náročné aplikace.</string>
+    <string name="st_linha_det">Použít USB disk jako úložiště televizoru</string>
+    <string name="st_sem_shell">Vyžaduje vlastní shell televizoru (Nastavení › Systém › Pokročilé). OK zkusí znovu.</string>
+    <string name="st_sem_pen">Není připojen žádný USB disk. Připojte ho a stiskněte OK.</string>
+    <string name="st_tv_livre">Úložiště televizoru: volno %1$s z %2$s</string>
+    <string name="st_pen">USB disk · %1$s · %2$s</string>
+    <string name="st_modo_comum">Běžný USB disk</string>
+    <string name="st_modo_misto">Smíšený</string>
+    <string name="st_modo_tv">Úložiště televizoru</string>
+    <string name="st_modo_desconhecido">Nenaformátováno</string>
+    <string name="st_recomendado">Doporučeno: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">tento disk je pomalý, aplikace by se zasekávaly</string>
+    <string name="st_motivo_pequeno">méně než 8 GB, příliš malý, aby pomohl</string>
+    <string name="st_motivo_folgada">televizor má ještě místo, disk není třeba mazat</string>
+    <string name="st_motivo_grande">polovina pro aplikace, polovina pro nahrávky a soubory</string>
+    <string name="st_motivo_apertada">televizor je téměř plný</string>
+    <string name="st_medido">zapisuje %1$s MB/s</string>
+    <string name="st_medir_dica">OK změří jeho rychlost</string>
+    <string name="st_usar_comum">Použít jako běžný USB disk</string>
+    <string name="st_usar_misto">Použít jako smíšený: %1$d%% běžný  ◀ ▶</string>
+    <string name="st_usar_tv">Použít jako úložiště televizoru</string>
+    <string name="st_apps">Aplikace na USB disku</string>
+    <string name="st_apps_det">Vyberte aplikace k přesunu (největší první)</string>
+    <string name="st_apps_nenhum">Žádnou aplikaci nelze přesunout.</string>
+    <string name="st_apps_rodape">OK přesune aplikaci; ✓ = už na USB disku</string>
+    <string name="st_compartilhado">Fotky a soubory: %1$s</string>
+    <string name="st_na_tv">v televizoru</string>
+    <string name="st_no_pen">na USB disku</string>
+    <string name="st_compartilhado_aviso">Vše se zkopíruje a aplikace se mezitím zavřou. Poté televizor restartujte.</string>
+    <string name="st_mover">Přesunout</string>
+    <string name="st_movendo">Přesouvá se… může to trvat několik minut.</string>
+    <string name="st_aviso_titulo">Vymazat USB disk?</string>
+    <string name="st_aviso">Vše na něm bude vymazáno, aby se stal „%1$s“. Jako úložiště televizoru funguje jen v tomto televizoru a aplikace na něm zmizí, když je odpojený.</string>
+    <string name="st_apagar">Vymazat a naformátovat</string>
+    <string name="st_formatando">Formátuje se… může to trvat několik minut.</string>
+    <string name="st_pronto">Hotovo.</string>
+    <string name="st_falhou">Nepovedlo se: %1$s</string>
+    <string name="st_depois">Nyní vyberte, které aplikace půjdou na USB disk.</string>
+    <string name="st_pin">PIN panelu pro změnu USB disku</string>
+    <string name="st_copiar_titulo">Nejprve zkopírovat jeho obsah? (%1$s)</string>
+    <string name="st_copiar_para">Zkopírovat do %1$s</string>
+    <string name="st_copiar_pc">Zkopírovat pomocí PC (jak)</string>
+    <string name="st_copiar_pc_texto">Na PC otevřete Tento počítač > televizor > USB disk a zkopírujte soubory do počítače. Pak se sem vraťte a naformátujte.</string>
+    <string name="st_nao_copiar">Není třeba, vymazat</string>
+    <string name="st_copiando_inicio">Kopíruje se USB disk… televizor mezitím funguje dál.</string>
+    <string name="st_copiando">Zkopírováno %1$s z %2$s</string>
+    <string name="st_voltar_comum">Zpět na běžný USB disk (aplikace se vrátí do televizoru)</string>
+    <string name="st_trazendo">Vrací se %1$s do televizoru…</string>
+    <string name="st_sumiram">USB disk je odpojený: %1$s jsou skryté, dokud se nevrátí.</string>
+    <string name="st_sugestao">Úložiště televizoru je téměř plné. Přesuňte %1$s (%2$s) na USB disk: podržte OK na aplikaci.</string>
+    <string name="st_medindo">Měří se rychlost disku, aby se doporučilo nejlepší použití…</string>
+    <string name="st_lento_titulo">Disk je příliš pomalý</string>
+    <string name="st_lento_bloqueado">Tento disk zapisuje %1$s MB/s. Aby se stal úložištěm televizoru, potřebuje alespoň %2$d MB/s: pod tím aplikace zamrzají a televizor se nemusí spustit. Použijte ho jako běžný disk.</string>
+    <string name="st_aviso_boot">Nechte ho připojený natrvalo: pokud selže nebo bude odebrán, televizor se nemusí spustit, dokud ho neodpojíte.</string>
+    <string name="home_grande_titulo">Přesunout %1$s?</string>
+    <string name="home_grande_aviso">%1$s zabírá %2$s. Na pomalém disku může přesun trvat déle než 10 minut a už jednou shodil televizor uprostřed. Pokračujte, jen když se nikdo nedívá.</string>
+    <string name="home_liberar_arquivos">Povolit otevírat USB disky a soubory</string>
+    <string name="home_arquivos_liberado">%1$s teď může otevírat USB disky a všechny soubory</string>
+    <string name="home_arquivos_falhou">%1$s se nepodařilo povolit: %2$s</string>
+    <string name="aviso_continuar_titulo">Není v čem pokračovat</string>
+    <string name="aviso_continuar_texto">Pozvánka k pokračování z jiného televizoru vypršela.</string>
+    <string name="aviso_simples_titulo">Snadná obrazovka je vypnutá</string>
+    <string name="aviso_simples_texto">Televizor se vrátil na plnou domovskou obrazovku.</string>
+    <string name="aviso_sync_titulo">Žádný připojený účet</string>
+    <string name="aviso_sync_texto">Na tomto televizoru není účet %1$s. Připojte ho v Nastavení › TV a filmy.</string>
+    <string name="dns_nota_familia">rodina, blokuje weby pro dospělé</string>
+    <string name="dns_nota_malware">blokuje malware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">Televizor nemá Wi-Fi%1$s. Zkontrolujte, že je router zapnutý, nebo zda se nezměnil název či heslo sítě.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">router ztratil spojení s modemem poskytovatele</string>
+    <string name="ief_roteador_ve_fora" formatted="true">router také vidí internet jako nefunkční</string>
+    <string name="ief_ha" formatted="true"> (před %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi je v pořádku, ale internet poskytovatele vypadl%1$s; %2$s%3$s. Není to televizorem: počkejte na poskytovatele nebo restartujte modem.</string>
+    <string name="ief_vpn_travada" formatted="true">Router má internet, ale televizor se nedostane ven%1$s: VPN se pravděpodobně zasekla. Vypnutí a zapnutí VPN to obvykle vyřeší.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Router má internet, ale televizor se k němu nedostane%1$s: problém je mezi televizorem a routerem%2$s Opětovné připojení televizoru k Wi-Fi to obvykle vyřeší.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (signál Wi-Fi je slabý, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">Televizor je na Wi-Fi, ale neodpovídá router ani internet%1$s: router možná zamrzl. Vypnutí a zapnutí routeru to obvykle vyřeší.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi je v pořádku, ale internet neprochází%1$s; pravděpodobně jde o poskytovatele nebo router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (příčinou může být i zapnutá VPN).</string>
+    <string name="ief_dns" formatted="true">Internet funguje, ale DNS%1$s neodpovídá%2$s: aplikace nenajdou své servery. Přepnutí DNS na Automaticky to vyřeší.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internet a DNS odpovídají, ale testovací stránka Googlu %1$s: něco po cestě (VPN, blokování DNS nebo síť vyžadující přihlášení) ji blokuje.</string>
+    <string name="ief_nao_abriu" formatted="true">se neotevřela</string>
+    <string name="ief_codigo_diferente" formatted="true">odpověděla jinak (kód %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internet je v pořádku; jen VPN je vypnutá (aplikace fungují i bez ní).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internet funguje, ale pomalu: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">signál Wi-Fi je slabý (%1$d dBm); pomůže přiblížit router nebo použít kabel</string>
+    <string name="ief_lenta_tcp" formatted="true">internet odpovídá za %1$d ms%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, a router vidí totéž: jde o poskytovatele</string>
+    <string name="ief_lenta_http" formatted="true">otevření testovací stránky trvalo %1$.1f s</string>
+    <string name="ief_queda_recente" formatted="true">Internet je teď v pořádku; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Vše v pořádku: Wi-Fi, internet i DNS odpovídají.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Žádné výpadky za posledních 24 h.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Žádné zaznamenané výpadky (televizor měřil jen část posledních 24 h).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Router hlásí problém s internetem, ale televizor normálně prohlíží.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS selhalo</string>
+    <string name="ief_caiu_internet" formatted="true">internet vypadl</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (pak televizor přestal měřit; nelze zjistit, kdy se vrátil)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d výpadků za 24 h</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s a vrátil se %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d výpadků za 24 h, celkem %2$s bez internetu</string>
+    <string name="ief_quando_hoje" formatted="true">v %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">včera v %1$s</string>
+    <string name="ief_quando_data" formatted="true">%1$s v %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">od %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">od včerejška %1$s</string>
+    <string name="ief_desde_data" formatted="true">od %1$s %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">méně než 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d h</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d h %2$d min</string>
+    <string name="ief_data_dm" formatted="true">d. M.</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: odpojeno</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">síť: připojeno</string>
+    <string name="ief_s_internet" formatted="true">internet bez DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS bez mezipaměti: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">selhalo</string>
+    <string name="ief_s_pagina" formatted="true">testovací stránka: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok za %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">kód %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: zapnuto</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: vypnuto</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: vidí internet nefunkční</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: vidí internet v pořádku%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: bez názoru</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: neodpověděl</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: nezkontrolováno</string>
+    <string name="ief_s_historico" formatted="true">historie: %1$d měření za 24 h</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google teď neodpověděl; zkuste to znovu</string>
+    <string name="lg_negado">přihlášení bylo v Googlu zamítnuto</string>
+    <string name="lg_google_respondeu">Google odpověděl: %1$s</string>
+    <string name="lg_venceu">platnost kódu vypršela; začněte znovu</string>
+    <string name="lg_outro_login">začalo jiné přihlášení; začněte znovu</string>
+    <string name="lg_email">Google nepotvrdil e-mail</string>
+    <string name="lg_conta_fora">účet %1$s není v žádném profilu tohoto televizoru</string>
+    <string name="lg_sem_drive">oprávnění Google Drive nebylo zaškrtnuto</string>
+    <string name="lg_sem_chave">Google neposlal přístupový klíč; zkuste to znovu</string>
+    <string name="lg_nao_guardei">účet se nepodařilo uložit v tomto televizoru</string>
+    <string name="lg_nao_configurado">přihlášení Google není nastavené</string>
+    <string name="lg_ritmo">příliš mnoho přihlášení za sebou; počkejte minutu</string>
+    <string name="lg_recusou">Google odmítl (%1$s): zkontrolujte ID klienta a tajný klíč</string>
+    <string name="lg_erro_google">chyba při komunikaci s Googlem</string>
+</resources>

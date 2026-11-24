@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Suuri kontrasti</string>
+    <string name="elv_ac_det">Kirkkaampi teksti ja selkeämmät reunat jokaisessa näytössä (vähintään 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Kuvailutulkkaus</string>
+    <string name="elv_ad_det">Valitse kohtauksen kuvaileva ääniraita aina, kun sellainen on</string>
+    <string name="elv_sdh_titulo">Tekstitys kuuroille</string>
+    <string name="elv_sdh_det">Näytä aina tekstitys äänineen ([ovi paukahtaa]) TV:n kielellä, myös dubattuna</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Juliste ja juoni videoille</string>
+    <string name="elv_cat_explica">Vain nimi menee TMDB:hen, ei koskaan kansio tai palvelin</string>
+    <string name="elv_cat_ligado">Päällä</string>
+    <string name="elv_cat_desligado">Pois</string>
+    <string name="elv_cat_ep">%1$s · K%2$d J%3$d</string>
+    <string name="pod_temp_ep">K%1$d J%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Jakso %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Kausi %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Kausia: %d</string>
+    <string name="elv_cat_procurando">Etsitään julistetta…</string>
+    <string name="elv_cat_nada">TMDB:stä ei löytynyt mitään. Pidä OK pohjassa kirjoittaaksesi oikean nimen.</string>
+    <string name="elv_cat_corrigir_titulo">Korjaa: %s</string>
+    <string name="elv_cat_corrigir_explica">Väärä juliste tai juoni? Pyydä seuraava tulos tai kirjoita oikea nimi ja vuosi. Tyhjä nimi palaa automaattiseen.</string>
+    <string name="elv_cat_nao_e">Ei tämä</string>
+    <string name="elv_cat_escrever">Kirjoita nimi</string>
+    <string name="elv_cat_campo">Nimi ja vuosi, esim. Dune 2021</string>
+    <string name="elv_cat_salvar">Tallenna</string>
+    <string name="elv_cat_dica">korjaa</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Lista</string>
+    <string name="elv_bib_pasta">Kansio</string>
+    <string name="elv_bib_servidor">Palvelin</string>
+    <string name="elv_bib_nuvem">Pilvi</string>
+    <string name="elv_bib_addon">Lisäosa</string>
+</resources>

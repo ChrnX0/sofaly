@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Koti ja verkko</string>
+    <string name="cfg3_mais_ajustes">Lisää asetuksia</string>
+    <string name="cfg3_mais_ajustes_det">Piilotettu lyhyyden vuoksi: %1$d</string>
+    <string name="cfg3_modo">Tila: %1$s</string>
+    <string name="cfg3_porta_0_det">Luokat, kuvakkeet ja tausta</string>
+    <string name="cfg3_porta_1_det">TV-tilit, ääni, tekstitys</string>
+    <string name="cfg3_porta_2_det">Lapset, PIN ja vieraat</string>
+    <string name="cfg3_porta_3_det">Näytönsäästäjä, uni, herätys</string>
+    <string name="cfg3_porta_4_det">Koti, puhelin ja paneeli</string>
+    <string name="cfg3_porta_5_det">Päivitykset, varmuuskopio ja ohje</string>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Internett er tilbake</string>
+    <string name="rd_voltou_texto">Det var nede i %1$s (siden %2$s). Sannsynlig årsak: %3$s.</string>
+    <string name="rd_causa_wifi">TV-en mistet Wi-Fi-en</string>
+    <string name="rd_causa_provedor">internettleverandør eller ruter</string>
+    <string name="rd_min">%1$d min</string>
+    <string name="rd_h_min">%1$d t %2$d min</string>
+    <string name="rd_disco_titulo">TV-lagringen fylles opp</string>
+    <string name="rd_disco_texto">I dette tempoet blir den full om omtrent %1$d dager (%2$d MB ledig). Tøm apphurtigbuffere eller fjern apper du ikke bruker.</string>
+    <string name="pr_avisos_tv">Fra TV-en</string>
+    <string name="mural_riscar">Kryss av %1$s</string>
+    <string name="ds_lento_titulo">Sofaly har blitt tregere</string>
+    <string name="ds_lento_texto">Versjon %1$d: trege bilder tar %2$d ms, de tok %3$d ms (+%4$d%%).</string>
+</resources>

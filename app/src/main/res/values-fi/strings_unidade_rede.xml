@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Verkkoasema</string>
+    <string name="ur_titulo">Näytä TV verkkoasemana</string>
+    <string name="ur_det">Pois. TV näkyy itsestään Windowsin kohdassa Tämä tietokone, kuten puhelin, ja verkkokansiona Macissa, Linuxissa ja puhelimissa.</string>
+    <string name="ur_painel">Kytke ensin yllä oleva verkkopaneeli päälle (se käyttää samaa PIN-koodia ja https-osoitetta).</string>
+    <string name="ur_https">Odotetaan paneelin https-osoitetta (varmenne luodaan noin minuutti paneelin päälle kytkemisen jälkeen).</string>
+    <string name="ur_abra">Päällä. Windowsissa TV näkyy kohdassa Tämä tietokone (TV kysyy näytöllä ensimmäisellä kerralla kunkin tietokoneen kohdalla). Mac, Linux ja puhelin: %1$s · salasana: paneelin PIN.</string>
+    <string name="mtp_pergunta_titulo">Tietokone pyytää TV:n tiedostoja</string>
+    <string name="mtp_pergunta">”%1$s” haluaa nähdä ja kopioida TV:n tallennustilan tiedostoja kotiverkon kautta. Sallitaanko tämä tietokone?</string>
+    <string name="mtp_pcs">Sallitut tietokoneet</string>
+    <string name="mtp_pcs_nenhum">Ei vielä yhtään. TV kysyy näytöllä, kun tietokone pyytää tiedostoja.</string>
+    <string name="mtp_pcs_lista">%1$s · OK unohtaa kaikki (kukin kysyy uudelleen)</string>
+    <string name="mtp_pcs_esquecidos">Tietokoneet unohdettu</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Avaa TV-paneeli</string>
+</resources>

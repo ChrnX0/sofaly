@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">SEZNAMY</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Filtr</string>
+    <string name="coluna_esportes">Sport</string>
+    <string name="coluna_guia">Průvodce</string>
+    <string name="coluna_filtro_titulo">Filtr</string>
+    <string name="coluna_filtro_ordem">Řazení: %1$s</string>
+    <string name="coluna_filtro_combinado">Žánr, období, hodnocení, nezhlédnuté…</string>
+    <string name="coluna_filtro_combinado_ativo">Filtr: %1$s</string>
+    <string name="coluna_filtro_limpar">Vymazat filtr</string>
+    <string name="coluna_filtro_sortear">Překvap mě</string>
+    <string name="coluna_filtro_ocultas_mostrar">Zobrazit skryté kategorie (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Znovu skrýt skryté kategorie</string>
+    <string name="coluna_menu_assistido">Označit jako zhlédnuté</string>
+    <string name="coluna_menu_nao_assistido">Označit jako nezhlédnuté</string>
+    <string name="coluna_menu_tirar_continuar">Odebrat z Pokračovat ve sledování</string>
+    <string name="coluna_menu_por_interesse">Přidat do seznamu ke zhlédnutí</string>
+    <string name="coluna_menu_tirar_interesse">Odebrat ze seznamu ke zhlédnutí</string>
+    <string name="coluna_marcado_assistido">%1$s označeno jako zhlédnuté</string>
+    <string name="coluna_marcado_nao_assistido">%1$s označeno jako nezhlédnuté</string>
+    <string name="coluna_tirado_continuar">%1$s odebráno z Pokračovat ve sledování</string>
+    <string name="coluna_menu_tirar_home">Odebrat z domovské obrazovky</string>
+    <string name="coluna_tirado_home">%1$s odebráno z domovské obrazovky</string>
+    <string name="coluna_etiqueta_concluida">Ukončeno</string>
+    <string name="coluna_etiqueta_nova_temporada">Nová řada</string>
+    <string name="coluna_etiqueta_novos">Nové díly</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d nový díl</item>
+        <item quantity="few">%d nové díly</item>
+        <item quantity="other">%d nových dílů</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Přejít na písmeno</string>
+    <string name="coluna_letra">Přejít na písmeno</string>
+    <string name="coluna_ao_vivo">ŽIVĚ</string>
+    <string name="coluna_ao_vivo_primeiro">Nejprve živé</string>
+    <string name="coluna_tv_titulo">TV</string>
+    <string name="coluna_gravacoes">Nahrávky</string>
+</resources>

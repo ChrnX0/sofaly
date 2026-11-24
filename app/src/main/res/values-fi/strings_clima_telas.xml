@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Nyt ja vinkit</string>
+    <string name="cl_pg_horas">Seuraavat tunnit ja päivät</string>
+    <string name="cl_pg_detalhes">Tiedot, ilma, aurinko ja kuu</string>
+    <string name="cl_hora">%1$d.00</string>
+    <string name="cl_f_parar">Sataa nyt. Sen pitäisi lakata noin klo %1$s.</string>
+    <string name="cl_f_segue">Sataa nyt, ja sen pitäisi jatkua seuraavat tunnit.</string>
+    <string name="cl_f_chuva">Sade todennäköinen noin klo %1$s (%2$s).</string>
+    <string name="cl_f_calor">Kuuma päivä: jopa %1$d° noin klo %2$s. Juo vettä.</string>
+    <string name="cl_f_frio">Kylmää tulossa: jopa %1$d°. Pukeudu lämpimästi.</string>
+    <string name="cl_f_sol">Voimakas aurinko klo %1$s–%2$s. Käytä aurinkovoidetta.</string>
+    <string name="cl_f_amanha">Ei sadetta tänään. Sade on todennäköinen huomenna (%1$s).</string>
+    <string name="cl_f_calmo">Sadetta ei odoteta tänään. Ylin %1$d°.</string>
+    <string name="cl_d_guarda">Sateenvarjo</string>
+    <string name="cl_d_varal">Pyykit ulos</string>
+    <string name="cl_d_sair">Hyvä aika lähteä ulos</string>
+    <string name="cl_v_agora">Nyt</string>
+    <string name="cl_v_sim_as">Kyllä, klo %1$s</string>
+    <string name="cl_v_talvez">Ehkä</string>
+    <string name="cl_v_nao">Ei tarvita</string>
+    <string name="cl_v_ate">Klo %1$s asti</string>
+    <string name="cl_v_seca">Kuivuu tänään</string>
+    <string name="cl_v_melhor_nao">Mieluummin ei</string>
+    <string name="cl_v_amanha_sim">Huomenna kyllä</string>
+    <string name="cl_v_amanha_nao">Ei huomenna</string>
+    <string name="cl_v_as">Klo %1$s</string>
+    <string name="cl_v_amanha_as">Huomenna %1$s</string>
+    <string name="cl_v_hoje_nao">Ei tänään</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Muutos (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Kumottu: %1$s</string>
+    <string name="desf_ocultou">Piilotettiin %1$s</string>
+    <string name="desf_mostrou">Näytettiin %1$s taas</string>
+    <string name="desf_cat_ajuste">Asetus</string>
+    <string name="desf_cat_organizacao">Järjestys</string>
+    <string name="desf_cat_automacao">Automaatio</string>
+    <string name="desf_cat_limpeza">Siivous</string>
+    <string name="desf_nada">Ei mitään kumottavaa (se oli jo kumottu).</string>
+    <string name="desf_feito">Kumottu. Kaikki on taas niin kuin oli.</string>
+    <string name="desf_parcial">Osittain kumottu: %1$d kohdetta oli muuttunut uudelleen ja jäi ennalleen.</string>
+    <string name="desf_barra">Muutettu: %1$s</string>
+    <string name="desf_botao">Kumoa</string>
+    <string name="desf_tela">Viimeisimmät muutokset</string>
+    <string name="desf_tela_det">Mitä muutettiin viimeisten 7 päivän aikana. OK kohteessa palauttaa sen ennalleen.</string>
+    <string name="desf_tela_vazia">Ei muutoksia viimeisten 7 päivän aikana.</string>
+    <string name="desf_ja_desfeita">kumottu</string>
+    <string name="desf_rot_config">Asetukset</string>
+    <string name="desf_rot_automacoes">Automaatiot</string>
+    <string name="desf_rot_rotinas">Rutiinit</string>
+    <string name="desf_rot_apps">Sovelluslista</string>
+    <string name="desf_rot_organizar">Aloitusnäytön sovellukset</string>
+</resources>

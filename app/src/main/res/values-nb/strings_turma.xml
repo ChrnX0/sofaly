@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">I sofaen</string>
+    <string name="jogos_controle_pronto">klar</string>
+    <string name="jogos_controle_carregar">lad snart</string>
+    <string name="jogos_parear_um">Par en kontroller</string>
+    <string name="turma_titulo">Gjengen din</string>
+    <string name="turma_online">%1$d på nett</string>
+    <string name="turma_mais_online">+ %1$d på nett</string>
+    <string name="turma_na_voz">I tale</string>
+    <string name="turma_ausente">borte</string>
+    <string name="turma_ocupado">opptatt</string>
+    <string name="turma_status_online">på nett</string>
+    <string name="turma_ninguem">Ingen på nett akkurat nå</string>
+    <string name="turma_procurando">Ser etter gjengen din…</string>
+    <string name="turma_sem_rede">Ingen forbindelse til Discord akkurat nå.</string>
+    <string name="turma_mostrar_titulo">Vis Discord-gjengen din</string>
+    <string name="turma_mostrar_texto">Se på TV-en hvem som er på nett, spiller og er i tale.</string>
+    <string name="turma_desligado_titulo">Serverwidgeten er av</string>
+    <string name="turma_desligado_texto">I Discord: Serverinnstillinger, Widget, slå på Aktiver serverwidget.</string>
+    <string name="turma_qr_dica">Rett telefonen hit for å bli med i talechatten. Pratingen skjer på telefonen.</string>
+    <string name="turma_jogando">%1$s spiller %2$s</string>
+    <string name="turma_dois">%1$s og %2$s</string>
+    <string name="turma_e_mais">%1$s og %2$d til</string>
+    <string name="turma_chamar">Kall på gjengen</string>
+    <string name="turma_chamar_pergunta">Sende til Discord-kanalen?</string>
+    <string name="turma_chamado_jogo">🎮 Hvem er klar for %1$s? Jeg er på TV-en.</string>
+    <string name="turma_chamado">🎮 Hvem er klar for et spill? Jeg er på TV-en.</string>
+    <string name="turma_mandar">Send</string>
+    <string name="turma_enviado">Gjengen din ble kalt på Discord.</string>
+    <string name="turma_espere">Vent ett minutt før du kaller igjen.</string>
+    <string name="turma_falhou">Discord fikk den ikke. Sjekk internettet eller webhooken.</string>
+    <string name="turma_config_titulo">Discord-gjengen din</string>
+    <string name="turma_config_texto">1. I Discord: Serverinnstillinger, Widget, slå på Aktiver serverwidget.\n2. På samme side, kopier Server-ID-en og skriv den inn her.\n\nFor knappen Kall på gjengen, lim inn en kanal-webhook i TV-ens nettpanel.</string>
+    <string name="turma_config_dica">Server-ID (bare tall)</string>
+    <string name="turma_config_guardar">Lagre</string>
+    <string name="turma_config_tirar">Fjern gjengen</string>
+    <string name="turma_id_invalido">Dette er ikke en Discord-server-ID (17 til 20 sifre).</string>
+    <string name="cruz_sofa_sub">Kontrollere og Discord-gjengen din</string>
+    <string name="cruz_sofa_voz">%1$d i tale · %2$s</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Lasten PIN</string>
+    <string name="fam_pin_det">Toinen PIN kanavien, piilotettujen luokkien ja nukkumaanmenoajan avaamiseen lasten edessä. Paneelin PIN toimii edelleen kaikkialla.</string>
+    <string name="fam_pin_ok">Lasten PIN tallennettu</string>
+    <string name="fam_pin_igual">Lasten PIN-koodin on oltava eri kuin paneelin PIN</string>
+    <string name="fam_trocar">Vaihda lasten PIN</string>
+    <string name="fam_apagar">Poista lasten PIN</string>
+    <string name="fam_apagado">Lasten PIN poistettu: nyt vain paneelin PIN avaa lukituksen</string>
+    <string name="extras_TEMPO_TELA">Päivittäinen ruutuaika (kun se loppuu, vain sallitut sovellukset avautuvat)</string>
+    <string name="tela_titulo">Ruutuaika</string>
+    <string name="tela_acabou">Tämän päivän ruutuaika on lopussa. Nähdään huomenna!</string>
+    <string name="tela_5min">Ruutuaikaa jäljellä tänään 5 minuuttia</string>
+    <string name="tela_pin">PIN ruutuajan muuttamiseen</string>
+    <string name="tela_cota_linha">Ruutuaika päivässä: %1$s (jäljellä tänään: %2$s)</string>
+    <string name="tela_mais">Anna %1$d minuuttia lisää tänään</string>
+    <string name="tela_mais_ok">%1$d minuuttia lisää tälle päivälle</string>
+    <string name="tela_h">t</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Kaikkien TV:n Google-tilien kalenteri yhdessä</string>
+    <string name="cal_todas_contas">Kaikki TV:n tilit (%1$d)</string>
+    <string name="tm_tempo_esgotado">Aika on lopussa</string>
+    <string name="painel_desligado_pin">Verkkopaneeli kytketty pois: väärä PIN liian monta kertaa</string>
+    <string name="tm_crono">Sekuntikello</string>
+    <string name="tm_crono_iniciar">Käynnistä sekuntikello</string>
+    <string name="tm_crono_parar">Pysäytä sekuntikello</string>
+    <string name="tm_crono_comecou">Sekuntikello käynnistetty: se näkyy aloitusnäytössä</string>
+    <string name="tm_crono_marcou">Sekuntikello pysäytetty kohtaan %1$s</string>
+    <string name="som_canal">Viimeinen suoran TV:n kanava</string>
+</resources>

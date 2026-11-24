@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Stopp</string>
+    <string name="ra_parar_det">Radioen fortsetter å spille på startskjermen og i skjermspareren til du stopper den</string>
+    <string name="ra_parar_det_antigo">Å forlate denne skjermen stopper den også</string>
+    <string name="ouv_canal">Radio spiller</string>
+    <string name="ouv_abrir">Åpne radioskjermen</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podkaster</string>
+    <string name="pod_dica_mais">mer</string>
+    <string name="pod_de">%1$s av %2$s</string>
+    <string name="pod_velocidade">Hastighet</string>
+    <string name="pod_silencio">Hopp over stillhet</string>
+    <string name="pod_silencio_det">Kutter pausene i talen</string>
+    <string name="pod_ligado">på</string>
+    <string name="pod_desligado">av</string>
+    <string name="pod_continuar">Fortsett</string>
+    <string name="pod_novos">Nye episoder</string>
+    <string name="pod_video">video</string>
+    <string name="pod_meus">Mine podkaster</string>
+    <string name="pod_ultimo">siste: %s</string>
+    <string name="pod_adicionar">Legg til</string>
+    <string name="pod_colar">Lim inn en podkastadresse</string>
+    <string name="pod_colar_det">Lenken til RSS-feeden (podkastnettsteder viser den som RSS)</string>
+    <string name="pod_pelo_celular">Fra telefonen</string>
+    <string name="pod_pelo_celular_det">Åpne TV-panelet på telefonen › Podkaster: lim inn en lenke eller importer listen fra podkastappen din (OPML)</string>
+    <string name="pod_sem_episodios">Ingen episoder å vise.</string>
+    <string name="pod_ouvido">hørt</string>
+    <string name="pod_do_comeco">Spill av fra begynnelsen</string>
+    <string name="pod_marcar_nao">Merk som ikke hørt</string>
+    <string name="pod_marcar_ouvido">Merk som hørt</string>
+    <string name="pod_abrir">Åpne</string>
+    <string name="pod_remover">Avslutt abonnement</string>
+    <string name="pod_removido">Abonnement avsluttet</string>
+    <string name="pod_adicionando">Legger til podkasten…</string>
+    <string name="pod_adicionado">Podkast lagt til</string>
+    <string name="pod_nao_deu">Kunne ikke legge den til: %s</string>
+    <string name="pod_horas">%1$d t %2$s</string>
+    <string name="pod_minutos">%d min</string>
+    <string name="pod_hoje">i dag</string>
+    <string name="pod_ontem">i går</string>
+    <string name="pod_falhou">Denne episoden spilles ikke nå. Prøv igjen senere.</string>
+    <string name="pod_abrir_tela">Åpne podkastskjermen</string>
+    <string name="ra_podcasts_det">Programmer, nyheter og samtaler du følger</string>
+    <string name="pod_procurar">Finn</string>
+    <string name="pod_buscar">Søk etter podkaster</string>
+    <string name="pod_em_alta">Populære i landet ditt</string>
+    <string name="pod_atribuicao">Søk: Podcast Index</string>
+    <string name="pod_sugestoes">Forslag</string>
+    <string name="pod_sugestao_seguir">OK for å følge</string>
+    <string name="pod_sugeridos_seguidos">Foreslåtte podkaster lagt til i Mine podkaster</string>
+</resources>

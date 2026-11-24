@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">palautustarkistus läpäisty</string>
+    <string name="l51_ensaio_falhou">tallennettu kopio ei palautuisi (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Vieraiden Wi-Fi</string>
+    <string name="l51_wifi_nao">ei asetettu: kirjoita se kerran ja vierailijat skannaavat QR-koodin</string>
+    <string name="l51_wifi_dica">Käytä reitittimesi vierasverkkoa: kuka tahansa huoneessa voi lukea salasanan näytöltä.</string>
+    <string name="l51_wifi_rede">Verkon nimi</string>
+    <string name="l51_wifi_senha">Salasana</string>
+    <string name="l51_wifi_invalido">Nimi enintään 32 merkkiä; salasana tyhjä (avoin verkko) tai 8–63 merkkiä.</string>
+    <string name="l51_wifi_qr_titulo">Näytä vieraiden Wi-Fin QR-koodi</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Mitä käytetään</string>
+    <string name="l51_uso_det">Näytöt ja asetukset käytön mukaan, laskettu vain tässä TV:ssä (mitään ei lähde siitä)</string>
+    <string name="l51_uso_vazio">Mitään ei ole vielä laskettu. Palaa muutaman päivän kuluttua.</string>
+    <string name="l51_uso_tela">näyttö</string>
+    <string name="l51_uso_opcao">asetus</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d kerta</item>
+        <item quantity="other">%d kertaa</item>
+    </plurals>
+    <string name="l51_uso_hoje">viimeksi tänään</string>
+    <string name="l51_uso_ontem">viimeksi eilen</string>
+    <string name="l51_uso_dias">viimeksi %d päivää sitten</string>
+    <string name="l51_tela_Main">Aloitusnäyttö</string>
+    <string name="l51_tela_Dream">Näytönsäästäjä</string>
+    <string name="l51_tela_Filmes">Elokuvat</string>
+    <string name="l51_tela_Series">Sarjat</string>
+    <string name="l51_tela_Jogos">Pelit</string>
+    <string name="l51_tela_Player">Suora TV ja videot</string>
+    <string name="l51_tela_PainelRapido">Pikapaneeli</string>
+    <string name="l51_tela_Vod">Soittolistaluettelo</string>
+    <string name="l51_tela_Previsao">Sääennuste</string>
+    <string name="l51_tela_Elenco">Näyttelijät</string>
+    <string name="l51_tela_ConfigLauncher">Asetukset</string>
+    <string name="l51_tela_MidiaRede">Verkko</string>
+    <string name="l51_tela_Calendario">Kalenteri</string>
+    <string name="l51_tela_Gravacoes">Tallenteet</string>
+    <string name="l51_tela_Busca">Haku</string>
+    <string name="l51_tela_Casa">Kotini</string>
+    <string name="l51_tela_AlarmeTocando">Herätys soi</string>
+    <string name="l51_tela_Radio">Radio</string>
+    <string name="l51_tela_Diagnostico">Diagnostiikka</string>
+    <string name="l51_uso_zerar">Nollaa</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Kirjoita TV:hen</string>
+    <string name="l51_digitar_texto">Tekstikenttä on auki sovelluksessa %1$s. Napauta kirjoittaaksesi täältä.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">huone %1$s</string>
+    <string name="casa_movimento">Liikettä</string>
+    <string name="casa_sem_movimento">Ei liikettä</string>
+    <string name="casa_molhado">Märkä</string>
+    <string name="casa_seco">Kuiva</string>
+    <string name="casa_fumaca">Savua!</string>
+    <string name="casa_sem_fumaca">Ei savua</string>
+    <string name="casa_dica_temp">lämpötila</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Avataan kameraa…</string>
+    <string name="casa_camera_ver">Näytä TV:ssä</string>
+</resources>

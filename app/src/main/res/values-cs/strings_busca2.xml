@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search that continues in other apps (idea 14, 14/11/2026): BuscaActivity + BuscaOutrosApps. -->
+<resources>
+    <string name="bu_outros_apps">V jiných aplikacích</string>
+    <string name="bu_outro_googletv">Hledat „%1$s“ v Google TV</string>
+    <string name="bu_outro_youtube">Hledat „%1$s“ na YouTube</string>
+    <string name="bu_outro_netflix">Hledat „%1$s“ na Netflixu</string>
+    <string name="bu_outro_prime">Hledat „%1$s“ v Prime Video</string>
+    <string name="bu_outro_det">Otevře vlastní vyhledávání aplikace</string>
+</resources>

@@ -42,6 +42,44 @@ object SofyTv {
         }
     }
 
+    /** Uma linha da Sofy na Ilha da home: o título do recado, a cara dele e o id (para marcar visto). */
+    data class IslandLine(val text: String, val expression: SofyPolicy.Expression, val ids: List<String>)
+
+    /**
+     * O recado da Sofy para a pílula da Ilha agora ([SofyPolicy.islandNote]), ou null. Fora da thread da tela (lê prefs).
+     * A primeira vez que um recado entra na Ilha conta no teto de falas; depois ele só continua lá.
+     */
+    @Synchronized fun islandLine(ctx: Context): IslandLine? {
+        val app = ctx.applicationContext
+        val now = now(app)
+        val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val on = p.getString("island", "").orEmpty().split(',').filter { it.isNotEmpty() }
+        val notes = runCatching { ObserverTv.notes(app) }.getOrDefault(emptyList())
+        val n = SofyPolicy.islandNote(notes, now, on.toSet()) ?: return null
+        val title = texto(app, n.titleKey, n.args) ?: return null
+        if (n.id !in on) {
+            registrarFala(app, now.at)
+            p.edit().putString("island", (on + n.id).takeLast(20).joinToString(",")).apply()
+            runCatching { Diario.anotar(app, "tv", "Sofy na Ilha", title) }
+        }
+        return IslandLine(title, SofyPolicy.decide(n, now).expression, listOf(n.id))
+    }
+
+    /** O resumo da manhã para a Ilha ([SofyPolicy.morningNotes]): "Enquanto você dormia: …", ou null. */
+    fun morningLine(ctx: Context): IslandLine? {
+        val app = ctx.applicationContext
+        val now = now(app)
+        val notes = runCatching { ObserverTv.notes(app) }.getOrDefault(emptyList())
+        val l = SofyPolicy.morningNotes(notes, now) { at -> Calendar.getInstance().apply { timeInMillis = at }.let { it.get(Calendar.HOUR_OF_DAY) * 60 + it.get(Calendar.MINUTE) } }
+        val titles = l.mapNotNull { n -> texto(app, n.titleKey, n.args)?.let { n.id to it } }
+        if (titles.isEmpty()) return null
+        return IslandLine(app.getString(br.paulo.tvlauncher.R.string.sofy_while_away, titles.joinToString("  ·  ") { it.second }),
+            SofyPolicy.Expression.HAPPY, titles.map { it.first })
+    }
+
+    /** A Ilha mostrou o resumo da manhã: os recados dele não voltam. */
+    fun shown(ctx: Context, line: IslandLine) = line.ids.forEach { ObserverTv.markSeen(ctx.applicationContext, it) }
+
     /** A pessoa fechou ([dismissed]) ou usou a fala de um tipo: 2 recusas seguidas calam o tipo por 7 dias. */
     @Synchronized fun answered(ctx: Context, typeKey: String, dismissed: Boolean) {
         val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)

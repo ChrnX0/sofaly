@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Vysoký kontrast</string>
+    <string name="elv_ac_det">Jasnější text a zřetelnější okraje na každé obrazovce (alespoň 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Audiopopis</string>
+    <string name="elv_ad_det">Vybrat zvukovou stopu, která popisuje scénu, kdykoli je k dispozici</string>
+    <string name="elv_sdh_titulo">Titulky pro neslyšící</string>
+    <string name="elv_sdh_det">Vždy zobrazit titulky se zvuky ([bouchnou dveře]) v jazyce televizoru, i při dabingu</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Plakát a obsah pro videa</string>
+    <string name="elv_cat_explica">Do TMDB jde jen název, nikdy složka ani server</string>
+    <string name="elv_cat_ligado">Zapnuto</string>
+    <string name="elv_cat_desligado">Vypnuto</string>
+    <string name="elv_cat_ep">%1$s · Ř%2$d D%3$d</string>
+    <string name="pod_temp_ep">Ř%1$d D%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Díl %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Řada %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Řady: %d</string>
+    <string name="elv_cat_procurando">Hledá se plakát…</string>
+    <string name="elv_cat_nada">V TMDB nic nenalezeno. Podržte OK a napište správný název.</string>
+    <string name="elv_cat_corrigir_titulo">Opravit: %s</string>
+    <string name="elv_cat_corrigir_explica">Špatný plakát nebo obsah? Požádejte o další výsledek, nebo napište správný název a rok. Prázdný název se vrátí k automatice.</string>
+    <string name="elv_cat_nao_e">Tohle ne</string>
+    <string name="elv_cat_escrever">Napsat název</string>
+    <string name="elv_cat_campo">Název a rok, např. Duna 2021</string>
+    <string name="elv_cat_salvar">Uložit</string>
+    <string name="elv_cat_dica">opravit</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Seznam</string>
+    <string name="elv_bib_pasta">Složka</string>
+    <string name="elv_bib_servidor">Server</string>
+    <string name="elv_bib_nuvem">Cloud</string>
+    <string name="elv_bib_addon">Doplněk</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Short pause on live TV (idea 18): only in the player's memory, gone when the channel changes. -->
+<resources>
+    <string name="pausa_pausar">Tauota suora TV</string>
+    <string name="pausa_continuar">Jatka</string>
+    <string name="pausa_ao_vivo">Takaisin suoraan</string>
+    <string name="pausa_selo">⏸ TAUOLLA · OK jatkaa</string>
+    <string name="pausa_atrasado_min">%1$d MIN JÄLJESSÄ · ▶ suora</string>
+    <string name="pausa_atrasado_seg">%1$d S JÄLJESSÄ · ▶ suora</string>
+    <string name="pausa_voltou">Tauko pidempi kuin muisti riittää: takaisin suoraan</string>
+</resources>

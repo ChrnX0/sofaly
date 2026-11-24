@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Telas Rádio e Podcasts redesenhadas em cruz (18/11/2026): CruzOuvir, RadioActivity, PodcastsActivity. -->
+<resources>
+    <string name="ouv_tocando_agora">Právě hraje</string>
+    <string name="ouv_pausado">Pozastaveno</string>
+    <string name="ouv_prat_tocando">Přehrává se</string>
+    <string name="ouv_pausar">Pozastavit</string>
+    <string name="ouv_continuar">Pokračovat</string>
+    <string name="ouv_favoritar">Oblíbit</string>
+    <string name="ouv_desfavoritar">Odebrat z oblíbených</string>
+    <string name="ouv_favoritar_det">Oblíbené se také přehrají tlačítky 1 až 9 na ovladači</string>
+    <string name="ouv_tecla">Tlačítko %d na ovladači</string>
+    <string name="ouv_ao_sair">Při odchodu</string>
+    <string name="ouv_ao_sair_continua">Hraje dál na domovské obrazovce\n▶❙❙ na ovladači ho pozastaví z jakékoli obrazovky</string>
+    <string name="ouv_ao_sair_para">Zastaví se, když opustíte tuto obrazovku</string>
+    <string name="ouv_recentes">Nedávné</string>
+    <string name="ouv_sem_favoritas">Zatím žádné oblíbené</string>
+    <string name="ouv_sem_favoritas_det">Podržte OK na stanici, abyste si ji zde ponechali</string>
+    <string name="ouv_sem_recentes">Zatím tu nic není</string>
+    <string name="ouv_sem_recentes_det">Zde se zobrazí stanice, které přehrajete</string>
+    <string name="ouv_paises">Země</string>
+    <string name="ouv_n_radios">%d stanic</string>
+    <string name="ouv_ao_vivo">Živě</string>
+    <string name="ouv_dica_pular">přeskočit</string>
+    <string name="ouv_voltar">Zpět o 15 s</string>
+    <string name="ouv_voltar_det">Také ◀◀ na ovladači</string>
+    <string name="ouv_avancar">Vpřed o 30 s</string>
+    <string name="ouv_avancar_det">Také ▶▶ na ovladači</string>
+    <string name="ouv_velocidade_det">%s · hlas si zachová výšku</string>
+    <string name="ouv_parar_pod_det">Místo, kde jste skončili, se uloží na později</string>
+    <string name="ouv_seguindo">Sledované</string>
+    <string name="ouv_sem_podcasts">Zatím žádné podcasty</string>
+    <string name="ouv_sem_podcasts_det">Přidejte jeden v polici Přidat (vložte adresu nebo použijte telefon)</string>
+    <string name="ouv_n_episodios">%d dílů</string>
+    <string name="ouv_colar">Vložit adresu</string>
+    <string name="ouv_sobre">O podcastu</string>
+    <string name="ouv_remover_det">Díly a postup opouštějí tento televizor</string>
+    <string name="ouv_ver_podcast">Přejít na podcast</string>
+</resources>

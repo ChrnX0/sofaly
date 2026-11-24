@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">LISTAT</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Suodata</string>
+    <string name="coluna_esportes">Urheilu</string>
+    <string name="coluna_guia">Opas</string>
+    <string name="coluna_filtro_titulo">Suodata</string>
+    <string name="coluna_filtro_ordem">Lajittelu: %1$s</string>
+    <string name="coluna_filtro_combinado">Laji, aikakausi, arvosana, katsomattomat…</string>
+    <string name="coluna_filtro_combinado_ativo">Suodatin: %1$s</string>
+    <string name="coluna_filtro_limpar">Tyhjennä suodatin</string>
+    <string name="coluna_filtro_sortear">Yllätä minut</string>
+    <string name="coluna_filtro_ocultas_mostrar">Näytä piilotetut luokat (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Piilota piilotetut luokat taas</string>
+    <string name="coluna_menu_assistido">Merkitse katsotuksi</string>
+    <string name="coluna_menu_nao_assistido">Merkitse katsomattomaksi</string>
+    <string name="coluna_menu_tirar_continuar">Poista Jatka katsomista -listalta</string>
+    <string name="coluna_menu_por_interesse">Lisää katselulistalle</string>
+    <string name="coluna_menu_tirar_interesse">Poista katselulistalta</string>
+    <string name="coluna_marcado_assistido">%1$s merkitty katsotuksi</string>
+    <string name="coluna_marcado_nao_assistido">%1$s merkitty katsomattomaksi</string>
+    <string name="coluna_tirado_continuar">%1$s poistettu Jatka katsomista -listalta</string>
+    <string name="coluna_menu_tirar_home">Poista aloitusnäytöstä</string>
+    <string name="coluna_tirado_home">%1$s poistettu aloitusnäytöstä</string>
+    <string name="coluna_etiqueta_concluida">Päättynyt</string>
+    <string name="coluna_etiqueta_nova_temporada">Uusi kausi</string>
+    <string name="coluna_etiqueta_novos">Uusia jaksoja</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d uusi jakso</item>
+        <item quantity="other">%d uutta jaksoa</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Siirry kirjaimeen</string>
+    <string name="coluna_letra">Siirry kirjaimeen</string>
+    <string name="coluna_ao_vivo">SUORA</string>
+    <string name="coluna_ao_vivo_primeiro">Suorat ensin</string>
+    <string name="coluna_tv_titulo">TV</string>
+    <string name="coluna_gravacoes">Tallenteet</string>
+</resources>

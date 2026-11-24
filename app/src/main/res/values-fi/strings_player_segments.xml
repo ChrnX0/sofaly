@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
+<resources>
+    <string name="seg_pular_resumo">Ohita kertaus · OK</string>
+    <string name="seg_proximo">Seuraava jakso · OK</string>
+    <string name="seg_proximo_em">Seuraava jakso %1$d s:n päästä · OK</string>
+    <string name="seg_termina">päättyy klo %1$s</string>
+    <string name="seg_repetir">Mitä he sanoivat?</string>
+    <string name="seg_repetir_info">Takaisin 10 s tekstityksellä</string>
+    <string name="seg_sem_legenda">Tässä videossa ei ole tekstitystä</string>
+</resources>

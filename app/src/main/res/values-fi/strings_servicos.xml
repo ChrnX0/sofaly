@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Elokuva- ja sarjapalvelut</string>
+    <string name="sv_subtitulo">Valinnaisia tilejä. Mitään ei lähetetä TV:n ulkopuolelle ennen kuin kirjaudut.</string>
+    <string name="sv_linha">Elokuva- ja sarjapalvelut</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB ja OpenSubtitles</string>
+    <string name="sv_trakt_det">Pitää katsomasi ja katselulistasi synkronoituna puhelimesi kanssa</string>
+    <string name="sv_simkl_det">Kuten Trakt, myös erinomainen animelle. Käytä toista tai molempia</string>
+    <string name="sv_mdblist_det">Valinnainen: listoistasi, kuten Top 250, tulee luokkia Elokuviin ja Sarjoihin</string>
+    <string name="sv_tmdb_det">Juoni, näyttelijät ja seuraavan jakson päivä TV:n kielellä</string>
+    <string name="sv_os_det">Verkkotekstitykset. Ilman tiliä: 5 päivässä. Ilmaisella tilillä: 20</string>
+    <string name="sv_desligado">Kirjaudu</string>
+    <string name="sv_entrando">kirjaudutaan…</string>
+    <string name="sv_conectado">yhdistetty</string>
+    <string name="sv_ativo">päällä</string>
+    <string name="sv_sem_chave">Tässä versiossa ei vielä ole näiden palvelujen avaimia. Ne tulevat näkyviin seuraavan päivityksen jälkeen.</string>
+    <string name="sv_pedindo">Pyydetään koodia palvelulta %1$s…</string>
+    <string name="sv_passos">1. Avaa puhelimellasi %1$s (tai osoita kameralla oikealla olevaa koodia).\n2. Kirjaudu palveluun %2$s ja kirjoita koodi:</string>
+    <string name="sv_espera">Tämä näyttö jatkaa itsestään. TAKAISIN peruuttaa.</string>
+    <string name="sv_ok">Valmis: %1$s on yhdistetty%2$s.</string>
+    <string name="sv_ok_como"> käyttäjänä %1$s</string>
+    <string name="sv_falhou">Se ei onnistunut: %1$s</string>
+    <string name="sv_motivo_venceu">koodi vanheni. Yritä uudelleen.</string>
+    <string name="sv_motivo_recusado">käyttö evättiin puhelimessa.</string>
+    <string name="sv_motivo_usado">tämä koodi on jo käytetty. Yritä uudelleen.</string>
+    <string name="sv_motivo_erro">palvelu ei vastannut. Yritä hetken kuluttua uudelleen.</string>
+    <string name="sv_sair_pergunta">Kirjaudutaanko ulos palvelusta %1$s? TV unohtaa tilin ja lakkaa puhumasta palvelulle %1$s. Tietosi siellä jäävät sinne.</string>
+    <string name="sv_sair">Kirjaudu ulos</string>
+    <string name="sv_fechar">Sulje</string>
+    <string name="sv_mdblist_titulo">MDBList-avain</string>
+    <string name="sv_mdblist_texto">Valinnainen: arvosanat toimivat jo ilman sitä. Käyttääksesi omaa MDBList-tiliäsi (listasi, kiintiösi) kirjaudu osoitteessa mdblist.com, avaa Preferences, kopioi API-avain ja kirjoita se tähän (helpompaa verkkopaneelista, Asetukset-välilehti, liittämällä).</string>
+    <string name="sv_mdblist_dica">API-avain</string>
+    <string name="sv_os_titulo">OpenSubtitles-tili</string>
+    <string name="sv_os_texto">Valinnainen: ilmaisella tilillä osoitteessa opensubtitles.com raja nousee 5:stä 20 tekstitykseen päivässä.</string>
+    <string name="sv_os_usuario">Käyttäjänimi</string>
+    <string name="sv_os_senha">Salasana</string>
+    <string name="sv_gravar">Tallenna</string>
+    <string name="sv_cancelar">Peruuta</string>
+    <string name="sv_limite_dia">Päivittäinen tekstitysraja on täynnä. Se uusiutuu 24 tunnissa (OpenSubtitles-tilillä 20 päivässä).</string>
+    <string name="sv_tmdb_atribuicao">Tämä tuote käyttää TMDB:n API:a, mutta TMDB ei ole hyväksynyt tai sertifioinut sitä.</string>
+    <string name="ext_saga">%1$s · %2$d / %3$d listallasi</string>
+    <string name="ext_nao_e_este">Ei tämä elokuva</string>
+    <string name="ext_proximo">Uusi jakso %1$s (K%2$dJ%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Uusi jakso %1$s</string>
+    <string name="ext_hoje">tänään</string>
+    <string name="ext_amanha">huomenna</string>
+    <string name="sv_mdblist_passos">Valinnainen: MDBList-listoistasi (kuten Top 250) tulee luokkia Elokuviin ja Sarjoihin.\n1. Osoita puhelimen kameralla vasemmalla olevaa koodia ja kirjaudu (tai luo ilmainen tili). Napauta sivun lopussa API Access, luo avain, jos sellaista ei vielä ole, ja kopioi se.\n2. Osoita oikealla olevaa koodia: verkkopaneeli avautuu Asetuksiin. Liitä avain MDBListin kohdalle ja napauta Tallenna avain.\n3. TV tarkistaa sen heti ja tämä näyttö jatkaa itsestään.</string>
+    <string name="sv_mdblist_qr1">MDBList-avaimen sivu</string>
+    <string name="sv_mdblist_qr2">Verkkopaneeli (%1$s)</string>
+    <string name="sv_mdblist_digitar">Kirjoita avain tähän</string>
+    <string name="sv_f_chave_invalida">virheellinen avain (vain kirjaimia ja numeroita)</string>
+    <string name="sv_f_chave_recusada">%1$s ei hyväksynyt tätä avainta</string>
+    <string name="sv_f_respondeu">%1$s vastasi virheellä %2$d. Yritä hetken kuluttua uudelleen.</string>
+    <string name="sv_f_falta">anna käyttäjänimi ja salasana</string>
+    <string name="sv_f_longo">käyttäjänimi tai salasana liian pitkä</string>
+    <string name="sv_f_senha">väärä käyttäjänimi tai salasana</string>
+    <string name="sv_f_gravar">sen tallentaminen TV:hen epäonnistui. Yritä uudelleen.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Simkl-arvosana</string>
+    <string name="sv_simkl_convite_det">Yhdistä tilisi</string>
+</resources>

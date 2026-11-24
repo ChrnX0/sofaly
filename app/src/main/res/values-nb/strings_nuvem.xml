@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Videoer, musikk og bilder fra skyen din</string>
+    <string name="rede_nuvem_seguir">Fortsett</string>
+    <string name="rede_nuvem_entrar">Logg inn</string>
+    <string name="rede_nuvem_pedindo">Ber om en kode…</string>
+    <string name="rede_nuvem_esperando">Venter på at du bekrefter på telefonen…</string>
+    <string name="rede_nuvem_salvando">Logger inn…</string>
+    <string name="rede_nuvem_recusado">Tjenesten avviste. Sjekk app-ID-en og prøv igjen.</string>
+    <string name="rede_erro_nuvem_login">Denne kontoens tillatelse er utløpt eller fjernet. Fjern kontoen (hold OK) og logg inn igjen.</string>
+    <string name="rede_od_titulo">OneDrive: appen din hos Microsoft</string>
+    <string name="rede_od_explica">Én gang, på en datamaskin: entra.microsoft.com › App registrations › New registration. Ved kontotyper, velg den som omfatter personlige Microsoft-kontoer. Deretter, under Authentication, slå på “Allow public client flows”. Kopier “Application (client) ID” og skriv den inn her (du kan skrive fra telefonen, i panelet).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">ID-en ser slik ut: 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">På telefonen eller datamaskinen, åpne microsoft.com/link (eller rett kameraet mot QR-koden) og skriv inn koden nedenfor. TV-en ber bare om å lese filer.</string>
+    <string name="rede_od_erro_app">Microsoft godtok ikke denne appen. Sjekk ID-en og at “Allow public client flows” er slått på.</string>
+    <string name="rede_dbx_explica">Én gang, på en datamaskin: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. I fanen Permissions, kryss av for files.metadata.read, files.content.read og account_info.read (og files.content.write, hvis du vil ha den nattlige sikkerhetskopien i Dropbox) og lagre (Submit). Kopier “App key” og skriv den inn her.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">App key har bare små bokstaver og tall.</string>
+    <string name="rede_dbx_codigo_explica">Rett telefonkameraet mot QR-koden, logg inn på Dropbox og trykk Allow. Dropbox viser en kode: skriv den inn her (du kan skrive fra telefonen, i panelet).</string>
+    <string name="rede_dbx_codigo">Dropbox-kode</string>
+    <string name="rede_dbx_codigo_erro">Skriv hele koden Dropbox viste.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Én gang, på en datamaskin: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). I fanen Configuration, under OAuth 2.0 Redirect URI, legg inn %1$s kryss av for “Read all files and folders” (og “Write all files and folders”, hvis du vil ha den nattlige sikkerhetskopien i Box). Lagre, og kopier deretter Client ID og Client Secret hit.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID og Client Secret har bare bokstaver og tall. Kopier begge fra fanen Configuration.</string>
+    <string name="rede_volta_sem_rede">TV-en er ikke på hjemmenettverket. Koble den til og prøv igjen.</string>
+    <string name="rede_volta_explica">Rett kameraet på en telefon som er på samme Wi-Fi som TV-en mot QR-koden, logg inn på %1$s og gi tilgang. Telefonen går tilbake til TV-en av seg selv: ingenting å skrive.</string>
+    <string name="rede_volta_porta">Port %1$d på TV-en er opptatt. Lukk andre apper og prøv igjen.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Én gang, på en datamaskin, i Google Cloud-prosjektet ditt (console.cloud.google.com): APIs &amp; Services › Library › slå på “Google Drive API”. I Google Auth Platform › Data Access, legg til scopet …/auth/drive.readonly. I Clients › Create client › Web application, under Authorized redirect URIs, legg inn %1$s. Kopier Client ID og Client secret hit.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Kopier begge fra klientsiden: ID-en slutter på .apps.googleusercontent.com og hemmeligheten begynner som regel med GOCSPX-.</string>
+    <string name="rede_gd_aviso">Hvis Google sier at appen ikke er verifisert, trykk Avansert › Gå til (det er din egen app).</string>
+</resources>

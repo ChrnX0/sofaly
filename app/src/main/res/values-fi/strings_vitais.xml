@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">Launcherin vakaus (7 päivää)</string>
+    <string name="vit_ok">Ei kaatumisia tai jumiutumisia. Käyttöpäiviä: %1$d.</string>
+    <string name="vit_problemas">Kaatumisia: %1$d. Jumiutumisia: %2$d. Nähty näytöllä: %3$d. Päiviä ongelmien kanssa: %4$d / %5$d.</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Jemné vypnutí (časovač vypnutí ztlumí obrazovku a sníží hlasitost)</string>
+    <string name="extras_MURAL">Rodinná nástěnka v rychlém panelu</string>
+    <string name="extras_PRESENCA">Vypnout, když všichni odejdou z domu (router UniFi)</string>
+    <string name="extras_HOJE_NA_TV">\"Dnes v TV\" na obrazovce Hledat</string>
+    <string name="extras_RETROSPECTIVA">Týdenní souhrn (v neděli večer)</string>
+    <string name="extras_MODO_SIMPLES">Snadná obrazovka (velké karty, čtené názvy)</string>
+</resources>

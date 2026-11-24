@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Jak se tomuto televizoru daří</string>
+    <string name="elv_placar_det">Sedm slibů, každý s číslem změřeným na tomto televizoru</string>
+    <string name="elv_placar_sub">Změřeno na tomto televizoru. Nic z toho neopustí domov.</string>
+    <string name="elv_pilar_liga">Zapne se a je připraven</string>
+    <string name="elv_pilar_ao_vivo">Živá TV, která nezklame</string>
+    <string name="elv_pilar_player">Nejlepší přehrávač v obýváku</string>
+    <string name="elv_pilar_casa">Televizor, který pečuje o domov</string>
+    <string name="elv_pilar_controle">Ovládání odkudkoli</string>
+    <string name="elv_pilar_todos">Může ho používat kdokoli</string>
+    <string name="elv_pilar_instala">Sám se nastaví a sám se opraví</string>
+    <string name="elv_prom_liga">Domovská obrazovka připravena za méně než 1 sekundu</string>
+    <string name="elv_prom_ao_vivo">Přepnutí kanálu trvá méně než 1,5 sekundy od tlačítka k obrazu</string>
+    <string name="elv_prom_player">Přehraje jakýkoli soubor; správné titulky bez piplání</string>
+    <string name="elv_prom_casa">Budík zazvoní včas, pokaždé</string>
+    <string name="elv_prom_controle">Panel, telefon a AI zvládnou vše, co ovladač</string>
+    <string name="elv_prom_todos">Senioři, děti, hosté, horší zrak nebo sluch; 14 jazyků</string>
+    <string name="elv_prom_instala">Od prvního spuštění k prvnímu kanálu za 5 minut</string>
+    <string name="elv_nao_medido">Zatím neměřeno</string>
+    <string name="elv_alvo">cíl %1$s</string>
+    <string name="elv_n_de_n">včas %1$d z %2$d</string>
+    <string name="elv_dentro">v cíli</string>
+    <string name="elv_fora">mimo cíl</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d pád nebo zamrznutí za %2$d dní</item>
+        <item quantity="few">%1$d pády nebo zamrznutí za %2$d dní</item>
+        <item quantity="other">%1$d pádů nebo zamrznutí za %2$d dní</item>
+    </plurals>
+    <string name="elv_lp_titulo">Změřit před a po</string>
+    <string name="elv_lp_det_antes">Změří volnou paměť a jak rychle se otevírají vaše 3 nejpoužívanější aplikace, před úklidem. Na pár sekund se otevřou.</string>
+    <string name="elv_lp_det_depois">Měření „před“ uloženo. Skryjte aplikace výše a pak stiskněte OK pro měření „po“.</string>
+    <string name="elv_lp_medindo">Měří se… aplikace se mohou na pár sekund otevřít</string>
+    <string name="elv_lp_mais_livre">o %1$d MB více volného místa</string>
+    <string name="elv_lp_menos_livre">o %1$d MB méně volného místa</string>
+    <string name="elv_lp_mais_rapido">%1$s se otevírá o %2$s rychleji</string>
+    <string name="elv_lp_mais_lento">%1$s se otevírá o %2$s pomaleji</string>
+    <string name="elv_lp_igual">Žádný dost velký rozdíl k měření</string>
+    <string name="elv_agora">právě teď</string>
+    <string name="elv_sem_quedas">Žádné pády ani zamrznutí za %1$d dní</string>
+    <string name="elv_reserva">%1$s vypadl. Místo toho se přehrává %2$s.</string>
+    <string name="elv_zap_solte">Uvolněte pro sledování</string>
+    <string name="elv_leg_padrao">standardní</string>
+    <string name="elv_leg_contraste">vysoký kontrast</string>
+    <string name="elv_leg_amarela">žluté</string>
+    <string name="elv_leg_embaixo">dole</string>
+    <string name="elv_leg_em_cima">nahoře</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Udělat</string>
+    <string name="elv_bf_ok_faz">OK to udělá hned</string>
+    <string name="elv_bf_wifi">Zobrazit Wi-Fi pro hosty</string>
+    <string name="elv_bf_wifi_configurar">Zatím nenastaveno: OK otevře Nastavení (Návštěvy)</string>
+    <string name="elv_bf_letra_maior">Větší text (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Menší text (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Už má tuto velikost</string>
+    <string name="elv_bf_radios">Rozhlasové stanice</string>
+    <string name="elv_bf_radio_fav">Oblíbená stanice</string>
+    <string name="elv_bf_ajuda">Nápověda</string>
+    <string name="elv_bf_ajuda_det">Téma příručky</string>
+    <string name="elv_bf_procurar">Hledat dál</string>
+    <string name="elv_bf_procurar_radio">Rozhlasové stanice s názvem „%1$s“</string>
+    <string name="elv_bf_procurar_radio_det">Stanice z celého světa</string>
+    <string name="elv_bf_procurar_rede">„%1$s“ ve vašich síťových souborech</string>
+    <string name="elv_bf_procurar_rede_det">Na vašem Jellyfin, Emby nebo Plex</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Hledat v nastavení</string>
+    <string name="elv_aj_explica">Napište slovo: název možnosti nebo jiné slovo pro ni (\"písmo\" najde velikost textu)</string>
+    <string name="elv_aj_dica">Například: písmo, Wi-Fi, spořič</string>
+    <string name="elv_aj_recentes">Nedávno změněno</string>
+    <string name="elv_aj_recentes_vazio">Zde se zobrazí možnosti, které změníte, nejnovější první</string>
+    <string name="elv_aj_nada">Pro „%1$s“ nebylo nic nalezeno</string>
+    <string name="elv_aj_nada_det">Zkuste jiné slovo nebo se podívejte do karet vlevo</string>
+    <string name="elv_aj_sinonimos">písmo,písmeno,text,velikost,větší,menší;wifi,wi-fi,síť,internet,připojení;spořič,spořič obrazovky,nečinnost,odpočinek;heslo,pin,kód;zvuk,hlasitost,audio;čas,hodiny,hodina;počasí,předpověď,teplota;jazyk,řeč;děti,dítě,rodičovská,rodiče;host,návštěvník,návštěva;aktualizace,verze,nové;záloha,kopie,obnovit;telefon,mobil,mobilní;světlo,lampa,domácnost,dům;spánek,vypnout,časovač,energie,napájení;kanál,tv,živě;film,seriál,pořad;titulky,popisky;budík,buzení,vstávání;fotka,obrázek,obraz,pozadí,tapeta</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Vyžaduje pozornost</string>
+    <string name="elv_f_canal_caiu_frase">Tento kanál teď nejde</string>
+    <string name="elv_f_canal_caiu_causa">Poskytovatel kanálu ho přestal vysílat. Obvykle se vrátí sám.</string>
+    <string name="elv_f_canal_caiu_botao">Sledovat jiný kanál</string>
+    <string name="elv_f_lista_venceu_frase">Váš seznam kanálů vypršel</string>
+    <string name="elv_f_lista_venceu_causa">Účet u prodejce seznamu skončil nebo byl odmítnut.</string>
+    <string name="elv_f_lista_venceu_botao">Otevřít účet</string>
+    <string name="elv_f_relogio_errado_frase">Hodiny televizoru jdou špatně</string>
+    <string name="elv_f_relogio_errado_causa">Se špatným časem nefunguje průvodce ani zabezpečené weby.</string>
+    <string name="elv_f_relogio_errado_botao">Nastavit hodiny</string>
+    <string name="elv_f_disco_cheio_frase">Televizoru dochází místo</string>
+    <string name="elv_f_disco_cheio_causa">Bez místa nelze ukládat průvodce, nahrávky ani aktualizace.</string>
+    <string name="elv_f_disco_cheio_botao">Uvolnit místo</string>
+    <string name="elv_f_shell_parado_frase">Rozšířená oprávnění televizoru přestala fungovat</string>
+    <string name="elv_f_shell_parado_causa">Bezdrátové ladění bylo vypnuto nebo se párování ztratilo.</string>
+    <string name="elv_f_shell_parado_botao">Znovu je zapnout</string>
+    <string name="elv_f_tunel_sem_login_frase">Přístup z domova čeká na přihlášení</string>
+    <string name="elv_f_tunel_sem_login_causa">Přihlášení k Tailscale vypršelo.</string>
+    <string name="elv_f_tunel_sem_login_botao">Přihlásit se znovu</string>
+    <string name="elv_f_backup_falhou_frase">Noční záloha neproběhla 2 dny</string>
+    <string name="elv_f_backup_falhou_causa">Cíl nebyl dostupný nebo se změnilo heslo.</string>
+    <string name="elv_f_backup_falhou_botao">Zálohovat nyní</string>
+    <string name="elv_f_religando">Znovu se zapínají: trvá to až minutu</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Nerušit: během filmu, pozdě v noci nebo s hosty oznámení čekají a vrátí se v souhrnu (budík a zvonek se zobrazí vždy)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Zatímco jste se dívali: %1$d oznámení</item><item quantity="few">Zatímco jste se dívali: %1$d oznámení</item>
+        <item quantity="other">Zatímco jste se dívali: %1$d oznámení</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Během noci: %1$d oznámení</item><item quantity="few">Během noci: %1$d oznámení</item>
+        <item quantity="other">Během noci: %1$d oznámení</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Během návštěvy: %1$d oznámení</item><item quantity="few">Během návštěvy: %1$d oznámení</item>
+        <item quantity="other">Během návštěvy: %1$d oznámení</item></plurals>
+    <string name="elv_np_mais">+%1$d další</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Když film skončí</string>
+    <string name="elv_ev_programa_comecou">Když začne pořad, který jste si označili v průvodci</string>
+    <string name="elv_ev_nascer_do_sol">Při východu slunce</string>
+    <string name="elv_ev_por_do_sol">Při západu slunce</string>
+    <string name="elv_ev_campainha">Když zazvoní zvonek</string>
+    <string name="elv_ev_alguem_chegou">Když někdo přijde domů</string>
+    <string name="elv_ev_internet_caiu">Když vypadne internet</string>
+    <string name="elv_ev_internet_voltou">Když se internet vrátí</string>
+    <string name="elv_ev_recado_chegou">Když přijde zpráva</string>
+    <string name="elv_ev_aniversario">V něčí narozeniny (9:00)</string>
+    <string name="elv_ev_compromisso">Když začne událost v kalendáři</string>
+    <string name="elv_ss_sempre">Vždy</string>
+    <string name="elv_ss_so_se">Jen pokud %1$s</string>
+    <string name="elv_ss_e">" a "</string>
+    <string name="elv_ss_em_casa">je někdo doma</string>
+    <string name="elv_ss_noite">po západu slunce</string>
+    <string name="elv_ss_dia_util">je všední den</string>
+    <string name="elv_ss_perfil">profil je %1$s</string>
+    <string name="elv_ss_det">◀ ▶ mění podmínku</string>
+    <string name="extras_ABERTURA_PRONTA">Přeskočit znělku (IntroDB): u dílů se televizor zeptá komunitní služby IntroDB, kde je úvodní znělka (posílá jen, který díl, nikdy váš účet); vypnuto, jen znělky, které jste označili</string>
+</resources>

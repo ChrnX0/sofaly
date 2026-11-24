@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Undertekster med svart bakgrunn</string>
+    <string name="acess_legenda_amarela">Gule undertekster</string>
+    <string name="acess_volume">Jevnt volum mellom kanaler</string>
+    <string name="acess_voz">Tydeligere stemmer</string>
+    <string name="acess_volume_ligado">Jevnt volum på: stille kanaler og filmer blir høyere</string>
+    <string name="acess_volume_desligado">Jevnt volum av</string>
+    <string name="acess_voz_ligado">Tydeligere stemmer på</string>
+    <string name="acess_voz_desligado">Tydeligere stemmer av</string>
+    <string name="acess_config_titulo">Lyd og undertekster</string>
+    <string name="acess_config_texto">For den som ser eller hører dårligere. Også i ▼-menyen i avspilleren.</string>
+</resources>

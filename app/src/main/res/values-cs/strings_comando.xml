@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Napište, co má televizor udělat</string>
+    <string name="cc_nao_entendi">Nerozuměl jsem. Zkuste něco jako:</string>
+    <string name="cc_exemplo_1">pusť Globo</string>
+    <string name="cc_exemplo_2">otevři YouTube</string>
+    <string name="cc_exemplo_3">vypni za 30 minut</string>
+    <string name="cc_abrindo">Otevírá se %1$s</string>
+    <string name="cc_canal">Pouští se %1$s</string>
+    <string name="cc_o_que_passa">Co běží na %1$s</string>
+    <string name="cc_timer">Připomenutí za %1$d minut</string>
+    <string name="cc_desligar">Televizor se vypne za %1$d minut</string>
+    <string name="cc_desligar_cancelar">Časovač vypnutí zrušen</string>
+    <string name="cc_volume_subir">Hlasitost nahoru</string>
+    <string name="cc_volume_descer">Hlasitost dolů</string>
+    <string name="cc_mudo">Ztlumit zap/vyp</string>
+    <string name="cc_pausar">Pozastavuje se</string>
+    <string name="cc_continuar">Přehrává se</string>
+    <string name="cc_tela_previsao">předpověď</string>
+    <string name="cc_tela_agenda">kalendář</string>
+    <string name="cc_tela_despertador">budíky</string>
+    <string name="cc_tela_configuracoes">nastavení launcheru</string>
+    <string name="cc_tela_inicio">domovskou obrazovku</string>
+    <string name="cc_confirme_na_tv">%1$s: potvrďte OK na televizoru</string>
+    <string name="cc_nao_fiz">%1$s: neprovedeno (%2$s)</string>
+    <string name="cc_aviso_titulo">Telefonní panel</string>
+</resources>

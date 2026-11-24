@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Účet Google Drive</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Účet Google Drive</string>
+    <string name="drv_nao_conectada">nepřipojeno</string>
+    <string name="drv_passos">1. Na telefonu otevřete %1$s (nebo namiřte fotoaparát na kód vpravo).\n2. Přihlaste se účtem Google, který je na tomto televizoru, a zadejte:\n\n%2$s\n\n3. Povolte přístup ke Google Drive. Televizor vidí jen soubory, které sám vytvoří (složku OneTV-backup), nikdy zbytek vašeho Disku.\n\nTato obrazovka pokračuje sama.</string>
+    <string name="drv_ok">Hotovo: %1$s je připojen. V řádku Další kopie zvolte \"Google Drive\", aby noční záloha šla i tam.</string>
+    <string name="drv_sem_google">Přihlášení Google na tomto televizoru zatím není nastavené.\n\nNastavte ho ve webovém panelu > karta Claude (váš vlastní klient OAuth, typ \"TVs and Limited Input devices\"), zapněte Google Drive API ve stejném projektu Google Cloud a vraťte se sem.</string>
+    <string name="drv_desconectar_pergunta">Odpojit %1$s? Kopie, které už jsou v Google Drive, tam zůstanou; televizor přestane posílat nové.</string>
+    <string name="drv_desconectar">Odpojit</string>
+    <string name="drv_restaurar">Obnovit z Google Drive</string>
+    <string name="drv_precisa_conta">Nejprve připojte účet Google Drive (řádek výše).</string>
+    <string name="drv_falhou">Nepovedlo se: %1$s</string>
+    <string name="drv_nenhuma">Ve složce OneTV-backup na Google Drive zatím nejsou žádné kopie.</string>
+    <string name="drv_escolha">Která kopie?</string>
+    <string name="drv_senha">Heslo zálohy</string>
+    <string name="drv_senha_errada">Nesprávné heslo zálohy (nebo byl soubor změněn). Nic nebylo obnoveno.</string>
+    <string name="drv_restaurado">Obnoveno. Launcher se za chvíli restartuje.</string>
+</resources>
