@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Οθόνη όλων των εφαρμογών</string>
+    <string name="aa_layout_shelves">Ράφια</string>
+    <string name="aa_layout_folders">Φάκελοι και κανάλια</string>
+    <string name="aa_layout_library">Βιβλιοθήκη</string>
+    <string name="aa_favoritos">Αγαπημένα</string>
+    <string name="aa_pastas">Φάκελοι</string>
+    <string name="aa_nova_pasta">Νέος φάκελος</string>
+    <string name="aa_por_na_pasta">Προσθήκη σε φάκελο…</string>
+    <string name="aa_tirar_da_pasta">Αφαίρεση από αυτόν τον φάκελο</string>
+    <string name="aa_renomear_pasta">Μετονομασία φακέλου</string>
+    <string name="aa_apagar_pasta">Διαγραφή φακέλου</string>
+    <string name="aa_fixar_cruz">Εμφάνιση στην αρχική οθόνη</string>
+    <string name="aa_soltar_cruz">Αφαίρεση από την αρχική οθόνη</string>
+    <string name="aa_ordenar">Ταξινόμηση όλων των εφαρμογών</string>
+    <string name="aa_f_tudo">Όλες</string>
+    <string name="aa_f_uso">Οι πιο χρησιμοποιούμενες</string>
+    <string name="aa_f_novos">Νέες</string>
+    <string name="aa_canais">Τώρα στο %1$s</string>
+    <string name="aa_hint_folder">OK ανοίγει · κράτημα OK για επιλογές</string>
+</resources>

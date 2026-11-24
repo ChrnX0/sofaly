@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Ενιαία μπάρα</string>
+    <string name="strip_desc_watch">Ταινίες, σειρές και TV</string>
+    <string name="strip_desc_listen">Μουσική, ραδιόφωνο και podcast</string>
+    <string name="strip_desc_play">Παιχνίδια και cloud gaming</string>
+    <string name="strip_desc_apps">Όλα τα εγκατεστημένα</string>
+    <string name="strip_desc_tools">Ξυπνητήρι, καιρός και ρυθμίσεις</string>
+    <string name="strip_apps_count">%1$d εφαρμογές</string>
+    <string name="st_desc">Περιγραφή κόσμου</string>
+    <string name="st_desc_fixa">Σταθερή φράση</string>
+    <string name="st_desc_viva">Τι παίζει τώρα</string>
+    <string name="st_formato">Σχήμα καρτών</string>
+    <string name="st_quadrado">Τετράγωνο</string>
+    <string name="st_tamanho">Μέγεθος καρτών</string>
+    <string name="st_pequeno">Μικρό</string>
+    <string name="st_medio">Μεσαίο</string>
+    <string name="st_grande">Μεγάλο</string>
+    <string name="st_espaco">Απόσταση ανάμεσα στις κάρτες</string>
+    <string name="st_justo">Σφιχτή</string>
+    <string name="st_normal">Κανονική</string>
+    <string name="st_largo">Φαρδιά</string>
+    <string name="st_cantos">Γωνίες καρτών</string>
+    <string name="st_retos">Τετράγωνες</string>
+    <string name="st_suaves">Απαλές</string>
+    <string name="st_redondos">Στρογγυλές</string>
+    <string name="st_placa">Γυάλινη πλάκα από πίσω</string>
+    <string name="st_nome">Όνομα στην επιλεγμένη κάρτα</string>
+    <string name="st_sem">Ανενεργό</string>
+    <string name="st_com">Ενεργό</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Short pause on live TV (idea 18): only in the player's memory, gone when the channel changes. -->
+<resources>
+    <string name="pausa_pausar">Παύση ζωντανής TV</string>
+    <string name="pausa_continuar">Συνέχεια</string>
+    <string name="pausa_ao_vivo">Πίσω στο ζωντανό</string>
+    <string name="pausa_selo">⏸ ΣΕ ΠΑΥΣΗ · OK συνεχίζει</string>
+    <string name="pausa_atrasado_min">%1$d ΛΕΠ. ΠΙΣΩ · ▶ ζωντανά</string>
+    <string name="pausa_atrasado_seg">%1$d Δ. ΠΙΣΩ · ▶ ζωντανά</string>
+    <string name="pausa_voltou">Σε παύση περισσότερο απ’ όσο χωρά η μνήμη: πίσω στο ζωντανό</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Γενέθλια</string>
+    <string name="an_hoje">Σήμερα έχει γενέθλια ο/η %s</string>
+    <string name="an_amanha">Αύριο έχει γενέθλια ο/η %s</string>
+    <plurals name="an_anos">
+        <item quantity="one">κλείνει τα %d</item>
+        <item quantity="other">κλείνει τα %d</item>
+    </plurals>
+    <string name="tp_calor">Έντονη ζέστη</string>
+    <string name="tp_calor_texto">Ως %d° σήμερα · Πιείτε νερό</string>
+    <string name="tp_frio">Έντονο κρύο</string>
+    <string name="tp_frio_texto">Ως %d° απόψε · Ντυθείτε ζεστά</string>
+    <string name="tp_cfg">Ειδοποίηση ζέστης και κρύου</string>
+    <string name="tp_cfg_det">Μια κάρτα πάνω από κάθε εφαρμογή όταν σήμερα φτάνει τους %1$d° ή απόψε πέφτει στους %2$d°</string>
+    <string name="mu_ok_lido">Το OK σημειώνει ως αναγνωσμένο</string>
+    <string name="mu_ok_nao_lido">Αναγνωσμένο · το OK σημειώνει ως μη αναγνωσμένο</string>
+    <string name="mu_lido_desc">Μήνυμα, αναγνωσμένο: %s. Το OK σημειώνει ως μη αναγνωσμένο.</string>
+    <string name="mu_nao_lido_desc">Μήνυμα: %s. Το OK σημειώνει ως αναγνωσμένο.</string>
+    <string name="mu_apagar">Διαγραφή μηνύματος: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">Η τηλεόρασή σας φέτος (τον Δεκέμβριο, στην προφύλαξη οθόνης)</string>
+    <string name="extras_ENTRADAS_TV">Είσοδοι HDMI στις Εφαρμογές (μόνο σε τηλεοράσεις με εισόδους)</string>
+    <string name="ra_titulo">Η τηλεόρασή σας το %d</string>
+    <string name="ra_canal">Αγαπημένο κανάλι: %1$s (%2$s)</string>
+    <string name="ra_coluna">Ραδιόφωνο</string>
+    <string name="ra_dica_ouvir">ακρόαση</string>
+    <string name="ra_dica_favoritar">αγαπημένο</string>
+    <string name="ra_carregando">Φόρτωση σταθμών…</string>
+    <string name="ra_sem_catalogo">Ο κατάλογος ραδιοφώνου δεν απάντησε. Τα αγαπημένα σας λειτουργούν ακόμα.</string>
+    <string name="ra_nada">Δεν βρέθηκε σταθμός.</string>
+    <string name="ra_continuar">συνέχεια</string>
+    <string name="ra_pausar">παύση</string>
+    <string name="ra_favoritas">Αγαπημένα</string>
+    <string name="ra_procurar">Εύρεση</string>
+    <string name="ra_buscar">Αναζήτηση με όνομα</string>
+    <string name="ra_buscar_det">Οποιοσδήποτε σταθμός στον κόσμο</string>
+    <string name="ra_generos">Είδη</string>
+    <string name="ra_perto">Κοντινοί</string>
+    <string name="ra_mundo">Οι πιο ακουσμένοι στον κόσμο</string>
+    <string name="ra_resultado">Αναζήτηση: %s</string>
+    <string name="ra_favoritada">Προστέθηκε στα αγαπημένα</string>
+    <string name="ra_desfavoritada">Αφαιρέθηκε από τα αγαπημένα</string>
+    <string name="ra_falhou">Αυτός ο σταθμός δεν παίζει τώρα. Δοκιμάστε άλλον.</string>
+</resources>

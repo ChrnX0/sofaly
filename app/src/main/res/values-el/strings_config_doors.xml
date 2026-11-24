@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Σπίτι και δίκτυο</string>
+    <string name="cfg3_mais_ajustes">Περισσότερες ρυθμίσεις</string>
+    <string name="cfg3_mais_ajustes_det">Κρυφές για συντομία: %1$d</string>
+    <string name="cfg3_modo">Τρόπος: %1$s</string>
+    <string name="cfg3_porta_0_det">Κατηγορίες, εικονίδια και φόντο</string>
+    <string name="cfg3_porta_1_det">Λογαριασμοί TV, ήχος, υπότιτλοι</string>
+    <string name="cfg3_porta_2_det">Παιδιά, PIN και επισκέπτες</string>
+    <string name="cfg3_porta_3_det">Προφύλαξη οθόνης, ύπνος, αφύπνιση</string>
+    <string name="cfg3_porta_4_det">Σπίτι, κινητό και πίνακας</string>
+    <string name="cfg3_porta_5_det">Ενημερώσεις, αντίγραφα ασφαλείας και βοήθεια</string>
+</resources>

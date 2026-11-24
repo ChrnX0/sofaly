@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Ο επόμενος αγώνας της ομάδας σας στο στοιχείο TV της αρχικής οθόνης</string>
+    <string name="extras_CARTAO_COTACAO">Συναλλαγματικές ισοτιμίες της ημέρας δίπλα στον καιρό (δολάριο, ευρώ, bitcoin· ρωτά τη δωρεάν υπηρεσία Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Αντίστροφη μέτρηση στην κορυφή της αρχικής οθόνης τις τελευταίες 7 ημέρες (οι ημερομηνίες σας, ή η επόμενη αργία)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Υπενθυμίσεις σπιτιού στην κορυφή της αρχικής οθόνης τη μέρα τους (π.χ. ημέρα ανακύκλωσης), με ειδοποίηση στην ορισμένη ώρα</string>
+    <string name="extras_CARTAO_SERVICO">Προειδοποίηση στην κορυφή της αρχικής οθόνης όταν μια υπηρεσία που προσθέσατε σταματά να απαντά</string>
+    <string name="extras_CARTAO_LUA">Φάση σελήνης στην πρόγνωση καιρού</string>
+    <string name="hc_feriado_hoje">Αργία σήμερα</string>
+    <string name="hc_hoje">Σήμερα: %1$s</string>
+    <string name="hc_lembrete_rotulo">Υπενθύμιση σπιτιού</string>
+    <string name="hc_servico_fora">Το %1$s είναι εκτός λειτουργίας</string>
+    <string name="hc_servico_rotulo">Οι υπηρεσίες σας</string>
+    <string name="hc_cotacao_rotulo">Συναλλαγματικές ισοτιμίες</string>
+    <string name="hc_cotacao_fonte">Ισοτιμίες της ημέρας, πηγή: Frankfurter (κεντρικές τράπεζες)</string>
+    <string name="hc_mil">χιλ.</string>
+    <string name="hc_milhao">εκ.</string>
+    <string name="hc_seu_time">Η ομάδα σας: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Αργία σε %1$d ημέρα</item>
+        <item quantity="other">Αργία σε %1$d ημέρες</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">%1$d ημέρα ως %2$s</item>
+        <item quantity="other">%1$d ημέρες ως %2$s</item>
+    </plurals>
+</resources>

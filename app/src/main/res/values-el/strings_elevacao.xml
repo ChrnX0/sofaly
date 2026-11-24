@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Πώς πάει αυτή η τηλεόραση</string>
+    <string name="elv_placar_det">Επτά υποσχέσεις, η καθεμία με έναν αριθμό μετρημένο σε αυτή την τηλεόραση</string>
+    <string name="elv_placar_sub">Μετρημένο σε αυτή την τηλεόραση. Τίποτα από εδώ δεν φεύγει από το σπίτι.</string>
+    <string name="elv_pilar_liga">Ανοίγει και είναι έτοιμη</string>
+    <string name="elv_pilar_ao_vivo">Ζωντανή TV που δεν αποτυγχάνει</string>
+    <string name="elv_pilar_player">Το καλύτερο πρόγραμμα αναπαραγωγής για το σαλόνι</string>
+    <string name="elv_pilar_casa">Η τηλεόραση που φροντίζει το σπίτι</string>
+    <string name="elv_pilar_controle">Έλεγχος από οπουδήποτε</string>
+    <string name="elv_pilar_todos">Τη χρησιμοποιεί ο καθένας</string>
+    <string name="elv_pilar_instala">Ρυθμίζεται και διορθώνεται μόνη της</string>
+    <string name="elv_prom_liga">Αρχική οθόνη έτοιμη σε λιγότερο από 1 δευτερόλεπτο</string>
+    <string name="elv_prom_ao_vivo">Η αλλαγή καναλιού παίρνει λιγότερο από 1,5 δευτερόλεπτο, από το κουμπί ως την εικόνα</string>
+    <string name="elv_prom_player">Παίζει κάθε αρχείο· σωστοί υπότιτλοι χωρίς μπέρδεμα</string>
+    <string name="elv_prom_casa">Το ξυπνητήρι χτυπά στην ώρα του, κάθε φορά</string>
+    <string name="elv_prom_controle">Πίνακας, κινητό και AI κάνουν όλα όσα κάνει το τηλεχειριστήριο</string>
+    <string name="elv_prom_todos">Ηλικιωμένοι, παιδιά, επισκέπτες, χαμηλή όραση ή ακοή· 14 γλώσσες</string>
+    <string name="elv_prom_instala">Από την πρώτη εκκίνηση ως το πρώτο κανάλι σε 5 λεπτά</string>
+    <string name="elv_nao_medido">Δεν μετρήθηκε ακόμα</string>
+    <string name="elv_alvo">στόχος %1$s</string>
+    <string name="elv_n_de_n">στην ώρα %1$d από %2$d</string>
+    <string name="elv_dentro">εντός στόχου</string>
+    <string name="elv_fora">εκτός στόχου</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d κατάρρευση ή πάγωμα σε %2$d ημέρες</item>
+        <item quantity="other">%1$d καταρρεύσεις ή παγώματα σε %2$d ημέρες</item>
+    </plurals>
+    <string name="elv_lp_titulo">Μέτρηση πριν και μετά</string>
+    <string name="elv_lp_det_antes">Μετρήστε την ελεύθερη μνήμη και πόσο γρήγορα ανοίγουν οι 3 πιο χρησιμοποιούμενες εφαρμογές σας, πριν τον καθαρισμό. Ανοίγουν για λίγα δευτερόλεπτα.</string>
+    <string name="elv_lp_det_depois">Το «πριν» αποθηκεύτηκε. Κρύψτε τις εφαρμογές παραπάνω, μετά πατήστε OK για μέτρηση «μετά».</string>
+    <string name="elv_lp_medindo">Μέτρηση… οι εφαρμογές μπορεί να ανοίξουν για λίγα δευτερόλεπτα</string>
+    <string name="elv_lp_mais_livre">%1$d MB περισσότερα ελεύθερα</string>
+    <string name="elv_lp_menos_livre">%1$d MB λιγότερα ελεύθερα</string>
+    <string name="elv_lp_mais_rapido">Το %1$s ανοίγει %2$s πιο γρήγορα</string>
+    <string name="elv_lp_mais_lento">Το %1$s ανοίγει %2$s πιο αργά</string>
+    <string name="elv_lp_igual">Καμία διαφορά αρκετά μεγάλη για μέτρηση</string>
+    <string name="elv_agora">μόλις τώρα</string>
+    <string name="elv_sem_quedas">Καμία κατάρρευση ή πάγωμα σε %1$d ημέρες</string>
+    <string name="elv_reserva">Το %1$s έπεσε. Παίζει το %2$s αντί γι’ αυτό.</string>
+    <string name="elv_zap_solte">Αφήστε για προβολή</string>
+    <string name="elv_leg_padrao">τυπικό</string>
+    <string name="elv_leg_contraste">υψηλή αντίθεση</string>
+    <string name="elv_leg_amarela">κίτρινο</string>
+    <string name="elv_leg_embaixo">κάτω</string>
+    <string name="elv_leg_em_cima">πάνω</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Κάν’ το</string>
+    <string name="elv_bf_ok_faz">Το OK το κάνει τώρα</string>
+    <string name="elv_bf_wifi">Εμφάνιση του Wi-Fi επισκεπτών</string>
+    <string name="elv_bf_wifi_configurar">Δεν έχει ρυθμιστεί ακόμα: το OK ανοίγει τις Ρυθμίσεις (Επισκέψεις)</string>
+    <string name="elv_bf_letra_maior">Μεγαλύτερο κείμενο (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Μικρότερο κείμενο (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Είναι ήδη σε αυτό το μέγεθος</string>
+    <string name="elv_bf_radios">Ραδιοφωνικοί σταθμοί</string>
+    <string name="elv_bf_radio_fav">Αγαπημένος σταθμός</string>
+    <string name="elv_bf_ajuda">Βοήθεια</string>
+    <string name="elv_bf_ajuda_det">Θέμα του εγχειριδίου</string>
+    <string name="elv_bf_procurar">Αναζήτηση παραπέρα</string>
+    <string name="elv_bf_procurar_radio">Ραδιοφωνικοί σταθμοί με όνομα «%1$s»</string>
+    <string name="elv_bf_procurar_radio_det">Σταθμοί από όλο τον κόσμο</string>
+    <string name="elv_bf_procurar_rede">«%1$s» στα αρχεία του δικτύου σας</string>
+    <string name="elv_bf_procurar_rede_det">Στο Jellyfin, Emby ή Plex σας</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Αναζήτηση ρυθμίσεων</string>
+    <string name="elv_aj_explica">Πληκτρολογήστε μια λέξη: το όνομα της επιλογής ή άλλη λέξη γι’ αυτήν (\"γραμματοσειρά\" βρίσκει το μέγεθος κειμένου)</string>
+    <string name="elv_aj_dica">Για παράδειγμα: γραμματοσειρά, Wi-Fi, προφύλαξη οθόνης</string>
+    <string name="elv_aj_recentes">Άλλαξαν πρόσφατα</string>
+    <string name="elv_aj_recentes_vazio">Οι επιλογές που αλλάζετε εμφανίζονται εδώ, οι πιο πρόσφατες πρώτες</string>
+    <string name="elv_aj_nada">Δεν βρέθηκε τίποτα για «%1$s»</string>
+    <string name="elv_aj_nada_det">Δοκιμάστε άλλη λέξη, ή κοιτάξτε στις καρτέλες αριστερά</string>
+    <string name="elv_aj_sinonimos">γραμματοσειρά,γράμμα,κείμενο,μέγεθος,μεγαλύτερο,μικρότερο,font;wifi,wi-fi,δίκτυο,internet,ίντερνετ,σύνδεση;προφύλαξη οθόνης,προφύλαξη,αδράνεια,ξεκούραση,screensaver;κωδικός,pin,συνθηματικό;ήχος,ένταση,audio;ώρα,ρολόι,χρόνος;καιρός,πρόγνωση,θερμοκρασία;γλώσσα,ιδίωμα;παιδιά,παιδί,παιδικό,γονικός;επισκέπτης,επίσκεψη,φιλοξενία;ενημέρωση,έκδοση,νέο;αντίγραφο,αντίγραφο ασφαλείας,επαναφορά,backup;κινητό,τηλέφωνο,smartphone;φως,λάμπα,σπίτι,οικία;ύπνος,κλείσιμο,χρονοδιακόπτης,ενέργεια,ρεύμα;κανάλι,tv,τηλεόραση,ζωντανά;ταινία,φιλμ,σειρά,εκπομπή;υπότιτλος,υπότιτλοι,λεζάντες;ξυπνητήρι,αφύπνιση,ξύπνημα;φωτογραφία,εικόνα,φόντο,ταπετσαρία</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Χρειάζεται προσοχή</string>
+    <string name="elv_f_canal_caiu_frase">Αυτό το κανάλι δεν έρχεται αυτή τη στιγμή</string>
+    <string name="elv_f_canal_caiu_causa">Ο πάροχος του καναλιού σταμάτησε να το στέλνει. Συνήθως επανέρχεται μόνο του.</string>
+    <string name="elv_f_canal_caiu_botao">Δείτε άλλο κανάλι</string>
+    <string name="elv_f_lista_venceu_frase">Η λίστα καναλιών σας έληξε</string>
+    <string name="elv_f_lista_venceu_causa">Ο λογαριασμός με αυτόν που πουλά τη λίστα έληξε ή απορρίφθηκε.</string>
+    <string name="elv_f_lista_venceu_botao">Άνοιγμα του λογαριασμού</string>
+    <string name="elv_f_relogio_errado_frase">Το ρολόι της τηλεόρασης είναι λάθος</string>
+    <string name="elv_f_relogio_errado_causa">Με λάθος ώρα, ο οδηγός και οι ασφαλείς ιστότοποι αποτυγχάνουν.</string>
+    <string name="elv_f_relogio_errado_botao">Ρύθμιση ρολογιού</string>
+    <string name="elv_f_disco_cheio_frase">Η τηλεόραση μένει χωρίς χώρο</string>
+    <string name="elv_f_disco_cheio_causa">Χωρίς χώρο, ο οδηγός, οι εγγραφές και οι ενημερώσεις δεν αποθηκεύονται.</string>
+    <string name="elv_f_disco_cheio_botao">Ελευθέρωση χώρου</string>
+    <string name="elv_f_shell_parado_frase">Οι επιπλέον δυνατότητες της τηλεόρασης σταμάτησαν</string>
+    <string name="elv_f_shell_parado_causa">Ο ασύρματος εντοπισμός σφαλμάτων απενεργοποιήθηκε ή χάθηκε η σύζευξη.</string>
+    <string name="elv_f_shell_parado_botao">Ενεργοποίηση ξανά</string>
+    <string name="elv_f_tunel_sem_login_frase">Η πρόσβαση εκτός σπιτιού περιμένει σύνδεση</string>
+    <string name="elv_f_tunel_sem_login_causa">Η σύνδεση στο Tailscale έληξε.</string>
+    <string name="elv_f_tunel_sem_login_botao">Νέα σύνδεση</string>
+    <string name="elv_f_backup_falhou_frase">Το νυχτερινό αντίγραφο δεν έχει τρέξει για 2 ημέρες</string>
+    <string name="elv_f_backup_falhou_causa">Ο προορισμός δεν ήταν προσβάσιμος ή ο κωδικός άλλαξε.</string>
+    <string name="elv_f_backup_falhou_botao">Αντίγραφο τώρα</string>
+    <string name="elv_f_religando">Ενεργοποίηση ξανά: παίρνει ως ένα λεπτό</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Μην ενοχλείτε: κατά τη διάρκεια ταινίας, αργά τη νύχτα ή με επισκέπτες, οι ειδοποιήσεις περιμένουν και επιστρέφουν σε σύνοψη (ξυπνητήρι και κουδούνι εμφανίζονται πάντα)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Όσο βλέπατε: %1$d ειδοποίηση</item><item quantity="other">Όσο βλέπατε: %1$d ειδοποιήσεις</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Κατά τη νύχτα: %1$d ειδοποίηση</item><item quantity="other">Κατά τη νύχτα: %1$d ειδοποιήσεις</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Κατά την επίσκεψη: %1$d ειδοποίηση</item><item quantity="other">Κατά την επίσκεψη: %1$d ειδοποιήσεις</item></plurals>
+    <string name="elv_np_mais">+%1$d ακόμα</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Όταν τελειώνει μια ταινία</string>
+    <string name="elv_ev_programa_comecou">Όταν ξεκινά ένα πρόγραμμα που σημειώσατε στον οδηγό</string>
+    <string name="elv_ev_nascer_do_sol">Στην ανατολή του ηλίου</string>
+    <string name="elv_ev_por_do_sol">Στη δύση του ηλίου</string>
+    <string name="elv_ev_campainha">Όταν χτυπά το κουδούνι</string>
+    <string name="elv_ev_alguem_chegou">Όταν κάποιος γυρίζει σπίτι</string>
+    <string name="elv_ev_internet_caiu">Όταν πέφτει το internet</string>
+    <string name="elv_ev_internet_voltou">Όταν επανέρχεται το internet</string>
+    <string name="elv_ev_recado_chegou">Όταν έρχεται μήνυμα</string>
+    <string name="elv_ev_aniversario">Στα γενέθλια κάποιου (9 π.μ.)</string>
+    <string name="elv_ev_compromisso">Όταν ξεκινά ένα ραντεβού στο ημερολόγιο</string>
+    <string name="elv_ss_sempre">Πάντα</string>
+    <string name="elv_ss_so_se">Μόνο αν %1$s</string>
+    <string name="elv_ss_e">" και "</string>
+    <string name="elv_ss_em_casa">κάποιος είναι σπίτι</string>
+    <string name="elv_ss_noite">μετά τη δύση του ηλίου</string>
+    <string name="elv_ss_dia_util">είναι καθημερινή</string>
+    <string name="elv_ss_perfil">το προφίλ είναι %1$s</string>
+    <string name="elv_ss_det">◀ ▶ αλλαγή συνθήκης</string>
+    <string name="extras_ABERTURA_PRONTA">Παράλειψη εισαγωγής (IntroDB): στα επεισόδια, η τηλεόραση ρωτά την κοινοτική υπηρεσία IntroDB πού είναι η εισαγωγή (στέλνει ποιο επεισόδιο, ποτέ τον λογαριασμό σας)· ανενεργό, μόνο εισαγωγές που σημειώσατε εσείς</string>
+</resources>

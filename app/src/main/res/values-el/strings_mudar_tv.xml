@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Μεταφορά από άλλη τηλεόραση</string>
+    <string name="mtv_qr_desc">Κωδικός QR για μεταφορά ρυθμίσεων από άλλη τηλεόραση</string>
+    <string name="mtv_instrucoes">Στην ΠΑΛΙΑ τηλεόραση, ανοίξτε τον πίνακα (κινητό ή υπολογιστή), πηγαίνετε Σύστημα › Αντίγραφο ασφαλείας › \"Μεταφορά σε νέα τηλεόραση\" και σαρώστε αυτό το QR ή πληκτρολογήστε τον κωδικό παρακάτω.\nΌλα πηγαίνουν κρυπτογραφημένα, μόνο σε αυτή την τηλεόραση. Ο κωδικός ισχύει %1$s.</string>
+    <string name="mtv_recebendo">Λήψη… μην κλείσετε την τηλεόραση.</string>
+    <string name="mtv_pronto">Όλα ήρθαν από το %1$s. Η τηλεόραση επανεκκινεί τώρα· μετά οι εφαρμογές σας επιστρέφουν μία μία.</string>
+    <string name="mtv_erro">Δεν πέτυχε: %1$s\nΤίποτα δεν άλλαξε σε αυτή την τηλεόραση. Πατήστε \"%2$s\" για νέα προσπάθεια.</string>
+    <string name="mtv_venceu">Ο κωδικός έληξε (ισχύει 10 λεπ.).\nΠατήστε \"%1$s\" για να εμφανιστεί νέος.</string>
+    <string name="mtv_cfg_det">Ρυθμίσεις, PIN, κανάλια και εφαρμογές της παλιάς τηλεόρασης σε 2 λεπτά, με QR</string>
+    <string name="mtv_fila_titulo">Οι εφαρμογές σας επιστρέφουν</string>
+    <string name="mtv_fila_texto">Εφαρμογή %1$d από %2$d. Ανοίξτε τη στο Play Store και πατήστε Εγκατάσταση· όταν επιστρέψετε, εμφανίζεται η επόμενη.</string>
+    <string name="mtv_fila_abrir">Άνοιγμα στο Play Store</string>
+    <string name="mtv_fila_pular">Παράλειψη</string>
+    <string name="mtv_fila_depois">Αργότερα</string>
+    <string name="mtv_fila_fim">Όλες οι εφαρμογές από την άλλη τηλεόραση είναι εδώ.</string>
+    <string name="mtv_fila_cfg_det">%1$d εφαρμογές από την άλλη τηλεόραση μένουν για εγκατάσταση</string>
+    <string name="mtv_diario">Μεταφέρθηκαν από το %1$s: ρυθμίσεις επαναφέρθηκαν, %2$d εφαρμογές για εγκατάσταση</string>
+    <string name="mtv_diario_enviado">Στάλθηκαν σε νέα τηλεόραση: ρυθμίσεις και %1$d εφαρμογές</string>
+</resources>

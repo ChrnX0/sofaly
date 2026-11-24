@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Το internet επανήλθε</string>
+    <string name="rd_voltou_texto">Ήταν πεσμένο για %1$s (από τις %2$s). Πιθανή αιτία: %3$s.</string>
+    <string name="rd_causa_wifi">η τηλεόραση έχασε το Wi-Fi</string>
+    <string name="rd_causa_provedor">πάροχος internet ή router</string>
+    <string name="rd_min">%1$d λεπ.</string>
+    <string name="rd_h_min">%1$d ώ. %2$d λεπ.</string>
+    <string name="rd_disco_titulo">Η αποθήκευση της τηλεόρασης γεμίζει</string>
+    <string name="rd_disco_texto">Με αυτόν τον ρυθμό γεμίζει σε περίπου %1$d ημέρες (%2$d MB ελεύθερα). Καθαρίστε τις cache εφαρμογών ή αφαιρέστε εφαρμογές που δεν χρησιμοποιείτε.</string>
+    <string name="pr_avisos_tv">Από την τηλεόραση</string>
+    <string name="mural_riscar">Διαγραφή του %1$s</string>
+    <string name="ds_lento_titulo">Το Sofaly έγινε πιο αργό</string>
+    <string name="ds_lento_texto">Έκδοση %1$d: τα αργά καρέ παίρνουν %2$d ms, έπαιρναν %3$d ms (+%4$d%%).</string>
+</resources>

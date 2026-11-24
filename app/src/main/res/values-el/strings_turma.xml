@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">Στον καναπέ</string>
+    <string name="jogos_controle_pronto">έτοιμο</string>
+    <string name="jogos_controle_carregar">φόρτιση σύντομα</string>
+    <string name="jogos_parear_um">Σύζευξη χειριστηρίου</string>
+    <string name="turma_titulo">Η παρέα σας</string>
+    <string name="turma_online">%1$d online</string>
+    <string name="turma_mais_online">+ %1$d online</string>
+    <string name="turma_na_voz">Σε φωνή</string>
+    <string name="turma_ausente">εκτός</string>
+    <string name="turma_ocupado">απασχολημένος/η</string>
+    <string name="turma_status_online">online</string>
+    <string name="turma_ninguem">Κανείς online αυτή τη στιγμή</string>
+    <string name="turma_procurando">Αναζήτηση της παρέας σας…</string>
+    <string name="turma_sem_rede">Δεν υπάρχει σύνδεση με το Discord τώρα.</string>
+    <string name="turma_mostrar_titulo">Εμφάνιση της παρέας σας στο Discord</string>
+    <string name="turma_mostrar_texto">Δείτε στην τηλεόραση ποιος είναι online, ποιος παίζει και ποιος είναι σε φωνή.</string>
+    <string name="turma_desligado_titulo">Το widget του διακομιστή είναι ανενεργό</string>
+    <string name="turma_desligado_texto">Στο Discord: Ρυθμίσεις διακομιστή, Widget, ενεργοποιήστε το Ενεργοποίηση widget διακομιστή.</string>
+    <string name="turma_qr_dica">Στρέψτε εδώ το κινητό για να μπείτε στη φωνητική συνομιλία. Η κουβέντα γίνεται στο κινητό.</string>
+    <string name="turma_jogando">Ο/Η %1$s παίζει %2$s</string>
+    <string name="turma_dois">%1$s και %2$s</string>
+    <string name="turma_e_mais">%1$s και %2$d ακόμα</string>
+    <string name="turma_chamar">Κάλεσμα της παρέας</string>
+    <string name="turma_chamar_pergunta">Αποστολή στο κανάλι Discord;</string>
+    <string name="turma_chamado_jogo">🎮 Ποιος είναι για %1$s; Είμαι στην τηλεόραση.</string>
+    <string name="turma_chamado">🎮 Ποιος είναι για παιχνίδι; Είμαι στην τηλεόραση.</string>
+    <string name="turma_mandar">Αποστολή</string>
+    <string name="turma_enviado">Η παρέα σας καλέστηκε στο Discord.</string>
+    <string name="turma_espere">Περιμένετε ένα λεπτό πριν καλέσετε ξανά.</string>
+    <string name="turma_falhou">Το Discord δεν το έλαβε. Ελέγξτε το internet ή το webhook.</string>
+    <string name="turma_config_titulo">Η παρέα σας στο Discord</string>
+    <string name="turma_config_texto">1. Στο Discord: Ρυθμίσεις διακομιστή, Widget, ενεργοποιήστε το Ενεργοποίηση widget διακομιστή.\n2. Στην ίδια σελίδα, αντιγράψτε το ID διακομιστή και πληκτρολογήστε το εδώ.\n\nΓια το κουμπί Κάλεσμα της παρέας, επικολλήστε ένα webhook καναλιού στον πίνακα web της τηλεόρασης.</string>
+    <string name="turma_config_dica">ID διακομιστή (μόνο αριθμοί)</string>
+    <string name="turma_config_guardar">Αποθήκευση</string>
+    <string name="turma_config_tirar">Αφαίρεση της παρέας</string>
+    <string name="turma_id_invalido">Αυτό δεν είναι ID διακομιστή Discord (17 έως 20 ψηφία).</string>
+    <string name="cruz_sofa_sub">Χειριστήρια και η παρέα σας στο Discord</string>
+    <string name="cruz_sofa_voz">%1$d σε φωνή · %2$s</string>
+</resources>

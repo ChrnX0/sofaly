@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Τώρα και συμβουλές</string>
+    <string name="cl_pg_horas">Επόμενες ώρες και ημέρες</string>
+    <string name="cl_pg_detalhes">Λεπτομέρειες, αέρας, ήλιος και σελήνη</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Βρέχει τώρα. Θα σταματήσει γύρω στις %1$s.</string>
+    <string name="cl_f_segue">Βρέχει τώρα, και θα συνεχίσει τις επόμενες ώρες.</string>
+    <string name="cl_f_chuva">Πιθανή βροχή γύρω στις %1$s (%2$s).</string>
+    <string name="cl_f_calor">Ζεστή μέρα: ως %1$d° γύρω στις %2$s. Πιείτε νερό.</string>
+    <string name="cl_f_frio">Έρχεται κρύο: ως %1$d°. Ντυθείτε ζεστά.</string>
+    <string name="cl_f_sol">Δυνατός ήλιος από %1$s ως %2$s. Βάλτε αντηλιακό.</string>
+    <string name="cl_f_amanha">Χωρίς βροχή σήμερα. Πιθανή βροχή αύριο (%1$s).</string>
+    <string name="cl_f_calmo">Δεν αναμένεται βροχή σήμερα. Μέγιστη %1$d°.</string>
+    <string name="cl_d_guarda">Ομπρέλα</string>
+    <string name="cl_d_varal">Άπλωμα ρούχων έξω</string>
+    <string name="cl_d_sair">Καλή ώρα για έξοδο</string>
+    <string name="cl_v_agora">Τώρα</string>
+    <string name="cl_v_sim_as">Ναι, στις %1$s</string>
+    <string name="cl_v_talvez">Ίσως</string>
+    <string name="cl_v_nao">Δεν χρειάζεται</string>
+    <string name="cl_v_ate">Ως τις %1$s</string>
+    <string name="cl_v_seca">Στεγνώνουν σήμερα</string>
+    <string name="cl_v_melhor_nao">Καλύτερα όχι</string>
+    <string name="cl_v_amanha_sim">Αύριο, ναι</string>
+    <string name="cl_v_amanha_nao">Όχι αύριο</string>
+    <string name="cl_v_as">Στις %1$s</string>
+    <string name="cl_v_amanha_as">Αύριο %1$s</string>
+    <string name="cl_v_hoje_nao">Όχι σήμερα</string>
+</resources>

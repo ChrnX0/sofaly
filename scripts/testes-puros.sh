@@ -75,6 +75,7 @@ declare -A FONTES=(
   [ObserverMorningTest]="ObserverMorning ObserverCore ObserverBaseline"
   [ObserverPackagesTest]="ObserverPackages FichasComunidade"
   [ObserverTrialTest]="ObserverTrial"
+  [AppProfileTest]="AppProfile"
   [SofyPolicyTest]="SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [SofyMotionTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"
   [SofyStringsTest]="SofyMotion SofyPolicy ObserverCore ObserverBaseline NaoPerturbe"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Ασφαλής λειτουργία</string>
+    <string name="seg_texto">Η αρχική οθόνη σταμάτησε %1$d φορές στη σειρά. Αυτή είναι μια απλή εκδοχή της, ώστε να συνεχίσετε να χρησιμοποιείτε την τηλεόραση.</string>
+    <string name="seg_procurar">Αναζήτηση διορθωμένης έκδοσης</string>
+    <string name="seg_procurar_det">Αν υπάρχει, κατεβαίνει και εγκαθίσταται τώρα.</string>
+    <string name="seg_procurando">Αναζήτηση νέας έκδοσης…</string>
+    <string name="seg_normal">Δοκιμή της κανονικής αρχικής οθόνης</string>
+    <string name="seg_normal_det">Αν σταματήσει 3 φορές ακόμα, αυτή η οθόνη επιστρέφει.</string>
+    <string name="seg_config_tv">Ρυθμίσεις TV</string>
+    <string name="seg_erro">Δείτε τι πήγε στραβά</string>
+    <string name="seg_erro_det">Διαγνωστικά, με τα αποθηκευμένα σφάλματα.</string>
+    <string name="seg_apps">Εφαρμογές</string>
+</resources>
