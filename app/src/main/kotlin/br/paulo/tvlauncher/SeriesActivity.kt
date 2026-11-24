@@ -552,6 +552,10 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, String>) = size > 40
     }
     /** A média das notas de fora (a estrela), quando há; sem ela, a estrela é a da lista de canais. */
+    /** A nota que a ficha mostra (fora > cache da grade > servidor): a HOME leva a MESMA ("Parou em ★ 10,0" x ficha ★ 7,6, Sala 24/11/2026). */
+    private fun notaMostrada(s: Serie): Float? =
+        externo?.takeIf { it.first === s }?.second?.let { InfoExterna.notasDe(it).media } ?: notaRapida[s.chave] ?: s.nota
+
     private val notaRapida = object : LinkedHashMap<String, Float>(64, 0.75f, true) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, Float>) = size > 40
     }
@@ -1090,7 +1094,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         val capa = s.capa
         val cenas = fichaAberta?.cenas.orEmpty()
         // A ficha curta vai junto, para o destaque da HOME: série, "T1 E4" e a sinopse do episódio (12/11/2026).
-        val fichaHome = PlayerArmazem.FichaHome(Vod.nomeLimpo(s.nome), episodio = "T${ep.temporada} E${ep.numero}", nota = s.nota,
+        val fichaHome = PlayerArmazem.FichaHome(Vod.nomeLimpo(s.nome), episodio = "T${ep.temporada} E${ep.numero}", nota = notaMostrada(s),
             ano = s.ano, genero = fichaAberta?.genero.orEmpty(), duracaoMin = ep.duracaoMin,
             sinopse = ep.sinopse.ifEmpty { fichaAberta?.sinopse.orEmpty() }, chave = ep.chave(s.fonteId))
         Fundo.rodar {

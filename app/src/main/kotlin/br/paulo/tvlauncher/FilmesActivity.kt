@@ -646,6 +646,10 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, String>) = size > 60
     }
     /** A média das notas de fora (a estrela), quando há; sem ela, a estrela é a da lista de canais. */
+    /** A nota que a ficha mostra (fora > cache da grade > servidor): a HOME leva a MESMA ("Parou em ★ 10,0" x ficha ★ 7,6, Sala 24/11/2026). */
+    private fun notaMostrada(f: Filme): Float? =
+        externo?.takeIf { it.first === f }?.second?.let { InfoExterna.notasDe(it).media } ?: notaRapida[f.chave] ?: f.nota
+
     private val notaRapida = object : LinkedHashMap<String, Float>(64, 0.75f, true) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, Float>) = size > 60
     }
@@ -1064,7 +1068,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         val info = fichaInfo?.takeIf { ficha === f }   // o "Assistir" mora na ficha: quase sempre já carregou
         val cenas = info?.cenas.orEmpty()
         // A ficha curta vai junto, para o destaque da HOME (nota, gênero, ano, duração, sinopse; 12/11/2026).
-        val fichaHome = PlayerArmazem.FichaHome(Vod.nomeLimpo(f.nome), nota = f.nota, ano = f.ano, genero = info?.genero.orEmpty(),
+        val fichaHome = PlayerArmazem.FichaHome(Vod.nomeLimpo(f.nome), nota = notaMostrada(f), ano = f.ano, genero = info?.genero.orEmpty(),
             duracaoMin = info?.duracaoMin, sinopse = info?.sinopse.orEmpty(), chave = f.chave)
         if (paraHome) Fundo.rodar { PlayerArmazem.definirCapaHome(this, serie = false, poster = capa, cenas = cenas, ficha = fichaHome) }
         VodActivity.abrir(this, VodActivity.TIPO_FILME, f.fonteId, f.id, f.extensao, Vod.nomeLimpo(f.nome), doComeco,

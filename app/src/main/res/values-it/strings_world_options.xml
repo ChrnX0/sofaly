@@ -18,7 +18,7 @@
     <string name="wo_vazio_original">Vuoto = nome originale</string>
     <string name="wo_so_icone">Mostra solo l\'icona</string>
     <string name="wo_com_nome">Mostra il nome</string>
-    <string name="wo_nomes_titulo">Nome delle categorie</string>
+    <string name="wo_nomes_titulo">Etichette delle icone</string>
     <string name="wo_so_icone_curto">Solo icona</string>
     <string name="wo_com_nome_curto">Con nome</string>
     <string name="co_titulo">Continua</string>
