@@ -13,6 +13,9 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
+        <item>Tela inicial nova de fábrica, a barra única: ▲ e ▼ trocam o mundo (Assistir, Ouvir, Jogar…), ◀ e ▶ andam pelos apps e conteúdos dele em cartões grandes, e a Ilha continua no alto</item>
+        <item>A Ilha avisa quando o sol está forte (UV 8 ou mais): “use protetor solar”</item>
+        <item>Painel em outras línguas sem pedaços em português: as dicas do Wi-Fi, a ficha dos 140 apps conhecidos, o passo a passo do certificado, a página da unidade de rede e a tela “A TV não respondeu”</item>
         <item>Chance de chuva mais fina: cada modelo do tempo agora vale pela quantidade de chuva que prevê e pelo quanto acertou, e em Configurações › Aparência você escolhe número, palavra (Baixa, Média, Alta) ou os dois</item>
         <item>Clima mais certo: a chance de chuva agora é o voto de 4 modelos do tempo (ECMWF, GFS, ICON e o modelo de IA do ECMWF); num teste de 60 dias em 30 cidades ela acertou mais do que qualquer um sozinho</item>
         <item>Painel web com a cara da Sofaly: cada área tem a sua cor no ícone, a Início mostra os recados da Sofy, o que está na TV agora e os mundos como portas, e nada sumiu</item>
@@ -69,6 +72,9 @@
         <item>Despertador: o som sempre começa baixo e sobe devagar, por pelo menos 1 minuto e meio, mesmo com “Toque: direto”, para nunca começar no volume cheio</item>
     </string-array>
     <string-array name="roteiro_titulos">
+        <item>Barra única</item>
+        <item>Aviso de UV</item>
+        <item>Painel traduzido</item>
         <item>Chance em palavras</item>
         <item>Chuva por consenso</item>
         <item>Painel com a Sofaly</item>
@@ -113,6 +119,9 @@
         <item>Segurar ▲</item>
     </string-array>
     <string-array name="roteiro_perguntas">
+        <item>Aperte HOME: a tela inicial é a barra embaixo; ▲ e ▼ trocam o mundo e ◀ e ▶ andam pelos cartões, sem nada cortado na borda da TV?</item>
+        <item>Num dia de sol forte (UV 8 ou mais), a Ilha mostrou “use protetor solar” inteiro, sem cortar?</item>
+        <item>Abra o painel num celular em inglês e toque num app em Apps: a ficha (o que é, risco ao esconder) aparece toda em inglês?</item>
         <item>Em Configurações › Aparência, mude “Chance de chuva” para “Os dois”: as horas e os dias da Previsão mostram “Média 45%” e parecidos, sem texto cortado?</item>
         <item>Abra a Previsão (Clima): a chance de chuva dos dias aparece e, embaixo, o crédito “Forecast: ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON”?</item>
         <item>Abra o painel no computador: a Início mostra a faixa da Sofy, “Agora na TV” e as portas coloridas, e todo bloco antigo continua na barra lateral?</item>
