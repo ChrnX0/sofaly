@@ -131,7 +131,10 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             if (lp.height != h) { lp.height = h; v.layoutParams = lp }
             v.alpha = if (i == cat) 1f else 0.3f
         }
-        val topoLinha = altura() - StripHome.LINHA_DO_FUNDO
+        // Cards grandes (ou com placa) não encostam no pé da tela nem na linha do mundo: sobem o que precisar.
+        val folgaPlaca = if (o.glass) StripHome.PLACA else 0f
+        val centro = minOf(altura() - StripHome.CARDS_DO_FUNDO, altura() - 16f - folgaPlaca - o.cardH / 2f)
+        val topoLinha = minOf(altura() - StripHome.LINHA_DO_FUNDO, centro - o.cardH / 2f - folgaPlaca - StripHome.SUBIR_FOCO - 14f - StripHome.LINHA_A)
         // o trilho fica centrado na altura da linha do mundo (10 dp o atual, 4 dp os outros, 4 dp entre eles)
         val trilhoA = 10f + (cats.size - 1) * 8f
         trilho.translationX = dp(StripHome.TRILHO_X); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
@@ -162,7 +165,6 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val larguras = cards.mapIndexed { i, k -> larguraCard(k, i == s && o.name) }
         val vao = o.gap.dp
         val (ini, vis) = StripHome.janela(s, larguras, vao, largura() - 2 * StripHome.MARGEM)
-        val centro = altura() - StripHome.CARDS_DO_FUNDO
         // x de cada card: o 1º visível começa na margem; os de antes ficam à esquerda, fora (a linha desliza)
         val xs = FloatArray(cards.size)
         var x = StripHome.MARGEM
