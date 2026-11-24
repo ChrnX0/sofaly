@@ -34,13 +34,14 @@ object ConsumoRedeTv {
         Result.success(ConsumoRede.somar(usos, { uid ->
             when (uid) {
                 Process.SYSTEM_UID -> "Sistema Android"
+                0 -> "Sistema Android (núcleo)"   // "uid 0" cru na lista (teste 100%, 23/11/2026)
                 NetworkStats.Bucket.UID_REMOVED -> "Apps removidos"
                 NetworkStats.Bucket.UID_TETHERING -> "Ponto de acesso"
                 else -> pm.getPackagesForUid(uid)?.let { pacotes ->
                     pacotes.joinToString(" + ") { p ->
                         try { pm.getApplicationLabel(pm.getApplicationInfo(p, 0)).toString() } catch (e: Exception) { p }
                     }
-                }
+                } ?: (if (uid in 1..9999) "Sistema Android (serviço $uid)" else null)   // uids do sistema sem pacote (1020 = mDNS)
             }
         }))
     } catch (e: SecurityException) {

@@ -65,7 +65,13 @@ class CaixaTv(private val ctx: Context, @Suppress("UNUSED_PARAMETER") tema: Int 
         titulo?.let { cartao.addView(Estilo.texto(ctx, Estilo.Papel.TITULO, it).apply { textSize = 22f }) }
         mensagem?.takeIf { it.isNotEmpty() }?.let {
             // Texto longo (diário, resultado de teste) rola dentro do cartão em vez de empurrar os botões para fora.
-            cartao.addView(ScrollView(ctx).apply {
+            // Com teto de altura: sem ele a lista longa (Internet por app) espremia a fileira de botões e o "OK" sumia
+            // (teste 100%, Sala, 23/11/2026).
+            val teto = (ctx.resources.displayMetrics.heightPixels * 0.55f).toInt()
+            cartao.addView(object : ScrollView(ctx) {
+                override fun onMeasure(w: Int, h: Int) =
+                    super.onMeasure(w, MeasureSpec.makeMeasureSpec(teto, MeasureSpec.AT_MOST))
+            }.apply {
                 isVerticalScrollBarEnabled = false
                 addView(Estilo.texto(ctx, Estilo.Papel.LEGENDA, it).apply { textSize = 16f; setLineSpacing(0f, 1.25f) })
             }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E1 + 4) })
