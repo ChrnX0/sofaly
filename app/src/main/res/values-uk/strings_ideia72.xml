@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Відкрити %1$s</string>
+    <string name="l72_tela_previsao">прогноз погоди</string>
+    <string name="l72_tela_agenda">календар</string>
+    <string name="l72_tela_despertador">будильник</string>
+    <string name="l72_tela_configuracoes">Налаштування лаунчера</string>
+    <string name="l72_tela_inicio">головний екран</string>
+    <string name="l72_despertador">Створити будильник на %1$s (%2$s)</string>
+    <string name="l72_dias_uma">один раз</string>
+    <string name="l72_dias_todos">щодня</string>
+    <string name="l72_dias_uteis">Пн–Пт</string>
+    <string name="l72_dias_fds">вихідні</string>
+    <string name="l72_dias_nomes">Нд,Пн,Вт,Ср,Чт,Пт,Сб</string>
+    <string name="l72_vol_subir">Збільшити гучність</string>
+    <string name="l72_vol_descer">Зменшити гучність</string>
+    <string name="l72_vol_mudo">Вимкнути/увімкнути звук</string>
+    <string name="l72_vezes">(%1$d разів)</string>
+    <string name="l72_midia_pausar">Пауза</string>
+    <string name="l72_midia_tocar">Продовжити відтворення</string>
+    <string name="l72_midia_proxima">Далі</string>
+    <string name="l72_midia_anterior">Назад</string>
+    <string name="l72_visita_liga">Увімкнути гостьовий режим</string>
+    <string name="l72_visita_desliga">Вимкнути гостьовий режим</string>
+    <string name="l72_canal_pedido">Перемкнути на канал %1$s</string>
+    <string name="l72_canal">Перемкнути на канал %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Подивитися, що на %1$s</string>
+    <string name="l72_casa_ligar">Увімкнути</string>
+    <string name="l72_casa_desligar">Вимкнути</string>
+    <string name="l72_casa_alternar">Перемкнути</string>
+    <string name="l72_casa">%1$s %2$s (дім)</string>
+    <string name="l72_guia_vazio">%1$s: нічого в телепрограмі.</string>
+    <string name="l72_guia_agora">%1$s зараз: %2$s (до %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: зараз нічого в телепрограмі</string>
+    <string name="l72_guia_depois">Далі: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Зараз відтворюється: %1$s, %2$s. OK ставить на паузу або продовжує; утримуйте OK, щоб відкрити застосунок</string>
+</resources>

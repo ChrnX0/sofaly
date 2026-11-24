@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Плагіни</string>
+    <string name="plg_nenhum">Плагін-картку не встановлено. Плагіни-картки — це застосунки інших розробників, що показують тут картку, як-от рахунок матчу чи ціну.</string>
+    <string name="plg_ligado">Увімк.</string>
+    <string name="plg_desligado">Вимк.</string>
+    <string name="plg_limite">Не більше %1$d плагінів одночасно. Спершу вимкніть один.</string>
+    <string name="plg_seguranca">Якщо плагін оновлено з іншим підписом, його вимикається, доки ви знову не дозволите.</string>
+</resources>

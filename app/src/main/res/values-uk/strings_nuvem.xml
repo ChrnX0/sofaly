@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Відео, музика й фото з вашої хмари</string>
+    <string name="rede_nuvem_seguir">Продовжити</string>
+    <string name="rede_nuvem_entrar">Увійти</string>
+    <string name="rede_nuvem_pedindo">Запит коду…</string>
+    <string name="rede_nuvem_esperando">Очікування вашого підтвердження на телефоні…</string>
+    <string name="rede_nuvem_salvando">Вхід…</string>
+    <string name="rede_nuvem_recusado">Сервіс відмовив. Перевірте id застосунку й спробуйте ще раз.</string>
+    <string name="rede_erro_nuvem_login">Дозвіл цього облікового запису закінчився або його вилучено. Вилучіть обліковий запис (утримуйте OK) і ввійдіть знову.</string>
+    <string name="rede_od_titulo">OneDrive: ваш застосунок у Microsoft</string>
+    <string name="rede_od_explica">Один раз, на комп\'ютері: entra.microsoft.com › App registrations › New registration. У типах облікових записів виберіть той, що включає особисті облікові записи Microsoft. Потім у Authentication увімкніть «Allow public client flows». Скопіюйте «Application (client) ID» і введіть його тут (можна вводити з телефона, у панелі).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">ID має вигляд 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">На телефоні чи комп\'ютері відкрийте microsoft.com/link (або наведіть камеру на QR) і введіть код нижче. Телевізор просить лише читання файлів.</string>
+    <string name="rede_od_erro_app">Microsoft не прийняв цей застосунок. Перевірте ID і що «Allow public client flows» увімкнено.</string>
+    <string name="rede_dbx_explica">Один раз, на комп\'ютері: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. На вкладці Permissions позначте files.metadata.read, files.content.read і account_info.read (і files.content.write, якщо хочете нічну копію в Dropbox) і збережіть (Submit). Скопіюйте «App key» і введіть його тут.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">App key містить лише малі літери й цифри.</string>
+    <string name="rede_dbx_codigo_explica">Наведіть камеру телефона на QR, увійдіть у Dropbox і торкніться Allow. Dropbox покаже код: введіть його тут (можна вводити з телефона, у панелі).</string>
+    <string name="rede_dbx_codigo">Код Dropbox</string>
+    <string name="rede_dbx_codigo_erro">Введіть увесь код, який показав Dropbox.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Один раз, на комп\'ютері: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). На вкладці Configuration у OAuth 2.0 Redirect URI вкажіть %1$s, позначте «Read all files and folders» (і «Write all files and folders», якщо хочете нічну копію в Box). Збережіть, потім скопіюйте сюди Client ID і Client Secret.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID і Client Secret містять лише літери й цифри. Скопіюйте обидва з вкладки Configuration.</string>
+    <string name="rede_volta_sem_rede">Телевізор не в домашній мережі. Підключіть його й спробуйте ще раз.</string>
+    <string name="rede_volta_explica">Наведіть на QR камеру телефона, що в тому самому Wi‑Fi, що й телевізор, увійдіть у %1$s і дозвольте доступ. Телефон сам повернеться до телевізора: нічого вводити не треба.</string>
+    <string name="rede_volta_porta">Порт %1$d на телевізорі зайнятий. Закрийте інші застосунки й спробуйте ще раз.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Один раз, на комп\'ютері, у вашому проєкті Google Cloud (console.cloud.google.com): APIs &amp; Services › Library › увімкніть «Google Drive API». У Google Auth Platform › Data Access додайте область …/auth/drive.readonly. У Clients › Create client › Web application в Authorized redirect URIs вкажіть %1$s. Скопіюйте сюди Client ID і Client secret.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Скопіюйте обидва зі сторінки клієнта: ID закінчується на .apps.googleusercontent.com, а секрет зазвичай починається з GOCSPX-.</string>
+    <string name="rede_gd_aviso">Якщо Google каже, що застосунок не перевірено, торкніться Advanced › Go to (це ваш власний застосунок).</string>
+</resources>

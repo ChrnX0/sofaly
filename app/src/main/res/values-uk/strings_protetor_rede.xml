@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screensaver remote keys (idea 28) -->
+    <string name="pt_dica_dispensar">OK закриває · ◀ ▶ гортати</string>
+    <string name="pt_dica_pausar">OK ставить на паузу чи продовжує · ◀ ▶ гортати</string>
+    <string name="pt_dica_andar">◀ ▶ гортати · інші клавіші закривають</string>
+    <!-- Screensaver photos from a network folder (idea 27) -->
+    <string name="rede_fotos_usar">Використовувати ці фото в заставці</string>
+    <string name="rede_fotos_parar">Більше не використовувати ці фото в заставці</string>
+    <plurals name="rede_fotos_sub">
+        <item quantity="one">%1$d фото · скопійовано на телевізор, працює з вимкненим комп\'ютером</item>
+        <item quantity="few">%1$d фото · скопійовано на телевізор, працює з вимкненим комп\'ютером</item>
+        <item quantity="many">%1$d фото · скопійовано на телевізор, працює з вимкненим комп\'ютером</item>
+        <item quantity="other">%1$d фото · скопійовано на телевізор, працює з вимкненим комп\'ютером</item>
+    </plurals>
+    <string name="rede_fotos_usando">Копіювання фото. Вони з\'являться наступного разу, коли запуститься заставка.</string>
+    <string name="rede_fotos_paradas">Заставка більше не використовує цю папку.</string>
+    <!-- "Network" as a catalog (idea 29) -->
+    <string name="rede_continuar">Продовжити перегляд</string>
+    <string name="rede_recentes">Нещодавно додане</string>
+    <string name="rede_buscar">Пошук</string>
+    <string name="rede_buscar_explica">Фільми, серіали, серії й музика на цьому сервері.</string>
+    <string name="rede_buscar_campo">Назва</string>
+    <string name="rede_buscar_curto">Введіть щонайменше 2 літери.</string>
+    <string name="rede_proximo_em">Далі: %1$s через %2$d с · OK запускає зараз · будь-яка інша клавіша скасовує</string>
+    <string name="rede_ainda_assistindo">Ви ще дивитеся? OK запускає %1$s</string>
+</resources>

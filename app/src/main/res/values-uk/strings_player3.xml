@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Позначити тут початок заставки (%1$s)</string>
+    <string name="abertura_marcar_fim">Позначити тут кінець заставки (%1$s)</string>
+    <string name="abertura_apagar">Видалити позначку заставки</string>
+    <string name="abertura_inicio_marcado">Початок заставки позначено на %1$s. Тепер позначте кінець у меню ▼</string>
+    <string name="abertura_salva">Заставку збережено: з %1$s до %2$s. Наступні серії пропонуватимуть її пропустити</string>
+    <string name="abertura_falta_inicio">Спершу позначте початок заставки</string>
+    <string name="abertura_invalida">Це не схоже на заставку: вона має тривати від 10 с до 5 хв і починатися в перші 15 хв</string>
+    <string name="abertura_apagada">Позначку заставки видалено</string>
+    <string name="abertura_pular">Пропустити заставку · OK</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Наступний матч вашої команди на елементі ТБ головного екрана</string>
+    <string name="extras_CARTAO_COTACAO">Курси валют дня поруч із погодою (долар, євро, біткоїн; запитує безкоштовний сервіс Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Зворотний відлік угорі головного екрана в останні 7 днів (ваші дати або найближче свято)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Домашні нагадування вгорі головного екрана в їхній день (напр. день сортування сміття), зі сповіщенням у заданий час</string>
+    <string name="extras_CARTAO_SERVICO">Попереджати вгорі головного екрана, коли доданий вами сервіс перестає відповідати</string>
+    <string name="extras_CARTAO_LUA">Фаза місяця в прогнозі погоди</string>
+    <string name="hc_feriado_hoje">Сьогодні свято</string>
+    <string name="hc_hoje">Сьогодні: %1$s</string>
+    <string name="hc_lembrete_rotulo">Домашнє нагадування</string>
+    <string name="hc_servico_fora">%1$s не працює</string>
+    <string name="hc_servico_rotulo">Ваші сервіси</string>
+    <string name="hc_cotacao_rotulo">Курси валют</string>
+    <string name="hc_cotacao_fonte">Курси дня, джерело: Frankfurter (центральні банки)</string>
+    <string name="hc_mil">тис.</string>
+    <string name="hc_milhao">млн</string>
+    <string name="hc_seu_time">Ваша команда: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Свято через %1$d день</item>
+        <item quantity="few">Свято через %1$d дні</item>
+        <item quantity="many">Свято через %1$d днів</item>
+        <item quantity="other">Свято через %1$d днів</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">%1$d день до %2$s</item>
+        <item quantity="few">%1$d дні до %2$s</item>
+        <item quantity="many">%1$d днів до %2$s</item>
+        <item quantity="other">%1$d днів до %2$s</item>
+    </plurals>
+</resources>

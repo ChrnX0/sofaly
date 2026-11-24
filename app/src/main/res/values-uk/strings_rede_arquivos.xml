@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Підключено до телевізора</string>
+    <string name="rede_sub_usb">USB-накопичувач · відео, музика й фото</string>
+    <string name="rede_acao_arquivos">FTP, SFTP або NFS</string>
+    <string name="rede_sub_arquivos">NAS, роутер з накопичувачем, комп\'ютер з Linux або Mac</string>
+    <string name="rede_arq_explica">Почніть адресу з протоколу: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. SFTP і FTPS зашифровані; звичайний FTP надсилає пароль незашифрованим, тож використовуйте його лише вдома. NFS не має пароля: NAS має дозволити IP телевізора й з\'єднання з непривілейованих портів.</string>
+    <string name="rede_arq_endereco">Адреса (sftp://, ftp://, ftps:// або nfs://)</string>
+    <string name="rede_arq_usuario">Ім\'я користувача (NFS: номер користувача, необов\'язково)</string>
+    <string name="rede_arq_endereco_erro">Почніть з sftp://, ftp://, ftps:// або nfs://, далі сервер і папка. Ім\'я користувача й пароль — у своїх полях.</string>
+    <string name="rede_erro_nfs_porta">Сервер NFS відхилив телевізор. На NAS дозвольте з\'єднання з непривілейованих портів (Linux: параметр \"insecure\" в /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">Сервер NFS не дозволив цей телевізор. На NAS додайте IP телевізора (або вашу домашню мережу) до правила NFS цієї папки.</string>
+    <string name="rede_erro_chave_mudou">Ключ цього сервера змінився відтоді, як його додали. Якщо ви перевстановили сервер, вилучіть його тут і додайте знову; якщо ні, хтось може видавати себе за нього.</string>
+    <string name="rede_erro_usb_acesso">Телевізор не надав лаунчеру доступу до USB-накопичувача. Спробуйте ще раз за мить.</string>
+</resources>

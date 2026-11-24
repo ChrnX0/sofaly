@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Інструменти</string>
+    <string name="cont_mais_opcoes">Більше параметрів</string>
+    <string name="tl_proximo">Далі: %1$s</string>
+    <string name="tl_clima_sub">Прогноз на найближчі дні</string>
+    <string name="tl_casa_sub">Світло, камери й дверний дзвінок</string>
+    <string name="tl_painel_sub">Bluetooth, звук, Wi-Fi і таймер</string>
+    <string name="tl_config_sub">Усе про лаунчер</string>
+    <string name="ac_cartoes">Картки застосунків</string>
+    <string name="ac_coluna">У колонці</string>
+    <string name="ac_vitrine">Вітрина</string>
+    <string name="ac_ver_tudo">Подивіться, що в застосунку</string>
+    <string name="ac_ritmo">Відступи головного екрана</string>
+    <string name="rt_antes">Як раніше</string>
+    <string name="rt_a">A · Щільніше</string>
+    <string name="rt_b">B · Рамки</string>
+    <string name="rt_c">C · Просторіше</string>
+    <string name="ft_foco">Фокус</string>
+    <string name="ft_foco_fio">Лінія</string>
+    <string name="ft_foco_veu">Вуаль</string>
+    <string name="ft_foco_quadro">Рамка</string>
+</resources>

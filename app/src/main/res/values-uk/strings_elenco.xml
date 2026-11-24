@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Актори</string>
+    <string name="elenco_titulo">Актори</string>
+    <string name="elenco_carregando">Завантаження акторів…</string>
+    <string name="elenco_vazio">TMDB не має акторів для цієї назви.</string>
+    <string name="elenco_dica">Переходьте між людьми: нижче — у чому ще вони знімалися з вашого списку.</string>
+    <string name="elenco_na_lista">Також у вашому списку</string>
+    <string name="elenco_procurando">Пошук у вашому списку…</string>
+    <string name="elenco_nada_na_lista">Більше нічого з цією людиною у вашому списку.</string>
+    <string name="elenco_filme">Фільм</string>
+    <string name="elenco_serie">Серіал</string>
+    <string name="elenco_opcao_player">Актори (хто цей актор?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Раніше в %1$s</string>
+    <string name="anteriormente_assistir">Дивитися %1$s</string>
+    <string name="anteriormente_pular_sempre">Ніколи не показувати</string>
+    <string name="anteriormente_desligado">Перекази вимкнено. Щоб увімкнути знову: утримуйте OK на серії.</string>
+    <string name="anteriormente_ligar">Показувати перекази «Раніше в»</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Максимальний вік у дитячому режимі</string>
+    <string name="idade_det">Фільми й серіали з рейтингом до цього віку з\'являються з будь-якої категорії (рейтинг TMDB). Без рейтингу — лише в дитячих категоріях.</string>
+    <string name="idade_so_categorias">Лише дитячі категорії</string>
+    <string name="idade_livre">Будь-який вік</string>
+    <string name="idade_anos">До %1$d років</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Також на: %1$s (JustWatch)</string>
+    <string name="onde_fora">Немає у вашому списку · на %1$s</string>
+    <string name="onde_grupo">Деінде (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Субтитри завантажено автоматично (зроблено для цього файлу) · ▼, щоб змінити</string>
+    <string name="legenda_auto_pronta_nome">Субтитри завантажено автоматично · ▼, щоб змінити або налаштувати затримку</string>
+    <string name="legenda_trad_rotulo">Автоматичний переклад</string>
+    <string name="legenda_trad_traduzindo">Немає субтитрів вашою мовою: перекладаються англійські на телевізорі…</string>
+    <string name="legenda_trad_parcial">Субтитри перекладено на телевізорі (автоматичний переклад). Решта продовжує перекладатися.</string>
+    <string name="legenda_trad_pronta">Переклад субтитрів завершено</string>
+    <string name="series_sinopse_mais">Повний опис</string>
+    <string name="series_continuar_curto">▶  Продовжити %1$s</string>
+    <string name="series_episodios">Серії</string>
+    <string name="series_trocar_temporada">Змінити сезон</string>
+    <string name="fechar">Закрити</string>
+    <string name="onde_assistir_botao">Де дивитися</string>
+</resources>

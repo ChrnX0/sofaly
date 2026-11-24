@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Теми</string>
+    <string name="pod_ass_seus">Підписки: %d</string>
+    <string name="pod_ass_em_alta">У тренді за цією темою</string>
+    <string name="pod_parecidos">Схоже: %s</string>
+    <string name="pod_ass_noticias">Новини</string>
+    <string name="pod_ass_humor">Комедія</string>
+    <string name="pod_ass_ciencia">Наука</string>
+    <string name="pod_ass_tecnologia">Технології</string>
+    <string name="pod_ass_historia">Історія</string>
+    <string name="pod_ass_negocios">Бізнес</string>
+    <string name="pod_ass_saude">Здоров\'я</string>
+    <string name="pod_ass_esportes">Спорт</string>
+    <string name="pod_ass_cultura">Культура</string>
+    <string name="pod_ass_crimes">Справжні злочини</string>
+    <string name="pod_ass_tv_filmes">ТБ і кіно</string>
+    <string name="pod_ass_musica">Музика</string>
+    <string name="pod_ass_educacao">Освіта</string>
+    <string name="pod_ass_infantil">Діти й родина</string>
+    <string name="pod_ass_fe">Віра</string>
+    <string name="pod_ass_lazer">Дозвілля</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Висока контрастність</string>
+    <string name="elv_ac_det">Яскравіший текст і чіткіші межі на кожному екрані (щонайменше 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Аудіоопис</string>
+    <string name="elv_ad_det">Вибирати аудіодоріжку з описом сцени, коли вона є</string>
+    <string name="elv_sdh_titulo">Субтитри для людей з порушенням слуху</string>
+    <string name="elv_sdh_det">Завжди показувати субтитри зі звуками ([грюкають двері]) мовою телевізора, навіть з дубляжем</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Постер і опис для відео</string>
+    <string name="elv_cat_explica">До TMDB надходить лише назва, ніколи папка чи сервер</string>
+    <string name="elv_cat_ligado">Увімк.</string>
+    <string name="elv_cat_desligado">Вимк.</string>
+    <string name="elv_cat_ep">%1$s · S%2$d E%3$d</string>
+    <string name="pod_temp_ep">S%1$d E%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Серія %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Сезон %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Сезонів: %d</string>
+    <string name="elv_cat_procurando">Пошук постера…</string>
+    <string name="elv_cat_nada">На TMDB нічого не знайдено. Утримуйте OK, щоб ввести правильну назву.</string>
+    <string name="elv_cat_corrigir_titulo">Виправити: %s</string>
+    <string name="elv_cat_corrigir_explica">Неправильний постер чи опис? Запросіть наступний результат або введіть правильну назву й рік. Порожня назва повертає автоматичний режим.</string>
+    <string name="elv_cat_nao_e">Не цей</string>
+    <string name="elv_cat_escrever">Введіть назву</string>
+    <string name="elv_cat_campo">Назва й рік, напр. Dune 2021</string>
+    <string name="elv_cat_salvar">Зберегти</string>
+    <string name="elv_cat_dica">виправити</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Список</string>
+    <string name="elv_bib_pasta">Папка</string>
+    <string name="elv_bib_servidor">Сервер</string>
+    <string name="elv_bib_nuvem">Хмара</string>
+    <string name="elv_bib_addon">Додаток</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Для кого цей телевізор?</string>
+    <string name="rec_subtitulo">Одне OK налаштовує телевізор. Скасувати можна будь-коли.</string>
+    <string name="rec_vo">Телевізор для бабусі</string>
+    <string name="rec_vo_det">Великі картки з назвами вголос, більший текст і кнопка Отримати допомогу.</string>
+    <string name="rec_criancas">Дитячий телевізор</string>
+    <string name="rec_criancas_det">Лише дитячий вміст, час сну й категорія Грати.</string>
+    <string name="rec_gamer">Телевізор для геймера</string>
+    <string name="rec_gamer_det">Категорія Грати, ігровий режим (без заставки й сповіщень під час гри), а контролер відкриває Ігри.</string>
+    <string name="rec_aluguel">Телевізор для оренди</string>
+    <string name="rec_aluguel_det">Гостьовий режим: екран привітання, нічого особистого на головному екрані й очищення при виїзді.</string>
+    <string name="rec_desfazer">Скасувати</string>
+    <string name="rec_desfazer_det">Повернути все, як було до %1$s.</string>
+    <string name="rec_ja_esta">Цей телевізор уже так налаштовано.</string>
+    <string name="rec_aviso_prende">Простий екран закривається лише з PIN. Переконайтеся, що хтось удома його знає.</string>
+    <string name="rec_aviso_sem_pin">PIN ще немає, тож будь-хто може це вимкнути. Створіть його в панелі на телефоні.</string>
+    <string name="rec_aviso_plano">Потрібен платний план, тому лишається вимкненим: %1$s.</string>
+    <string name="rec_voltar">Назад</string>
+    <string name="rec_aplicar">Застосувати</string>
+    <string name="rec_pin">PIN, щоб змінити налаштування телевізора</string>
+    <string name="rec_pronto">Готово</string>
+    <string name="rec_aplicada">Ваш телевізор готовий</string>
+    <string name="rec_aplicada_det">Змінилося щось небажане? Скасувати повертає все, як було.</string>
+    <string name="rec_desfeita">Усе повернуто, як було.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">увімк.</string>
+    <string name="rec_desligado">вимк.</string>
+    <string name="rec_aj_hospede">Гостьовий режим</string>
+    <string name="rec_aj_visita">Режим відвідувача</string>
+    <string name="rec_aj_simples">Простий екран</string>
+    <string name="rec_aj_infantil">Дитячий режим</string>
+    <string name="rec_aj_dormir">Час сну</string>
+    <string name="rec_aj_texto">Розмір тексту</string>
+    <string name="rec_aj_ler_foco">Читати вголос вибране</string>
+    <string name="rec_aj_som">Звук клацання на кожну клавішу</string>
+    <string name="rec_aj_jogos">Категорія Грати</string>
+    <string name="rec_aj_modo_jogo">Ігровий режим</string>
+    <string name="rec_aj_controle">Контролер відкриває Ігри</string>
+</resources>

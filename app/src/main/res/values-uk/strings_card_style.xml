@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Точне налаштування</string>
+    <string name="ft_dica">OK або ▶ ◀ змінюють · НАЗАД закриває</string>
+    <string name="ft_abrir">Налаштовуйте, бачачи головний екран</string>
+    <string name="ft_abrir_det">Шрифт, годинник, колір виділення, кути, світіння й розмір, наживо</string>
+    <string name="cs_destaque">Колір виділення</string>
+    <string name="cs_cantos">Кути</string>
+    <string name="cs_brilho">Світіння фокуса</string>
+    <string name="cs_tamanho">Розмір хреста</string>
+    <string name="cs_ceu">Небо</string>
+    <string name="cs_lilas">Бузковий</string>
+    <string name="cs_retos">Прямі</string>
+    <string name="cs_redondos">Округлі</string>
+    <string name="cs_sem">Вимк.</string>
+    <string name="cs_suave">М\'яке</string>
+    <string name="cs_forte">Сильне</string>
+    <string name="cs_menor">Менший</string>
+    <string name="cs_maior">Більший</string>
+    <string name="bg_tintura">Колір поверх фону</string>
+    <string name="bg_cor">Колір фону</string>
+    <string name="bg_desfoque">Розмиття фону</string>
+    <string name="bg_transicao">Перехід зображень</string>
+    <string name="bg_novo">Новий фон зараз</string>
+    <string name="bg_solida">Суцільний</string>
+    <string name="bg_destaque">Виділення</string>
+    <string name="bg_noite">Ніч</string>
+    <string name="bg_mata">Ліс</string>
+    <string name="bg_brasa">Жар</string>
+    <string name="bg_grafite">Графіт</string>
+    <string name="bg_corte">Різкий</string>
+    <string name="bg_lenta">Повільний</string>
+    <string name="bg_trocado">Змінено</string>
+    <string name="bg_nao_troca">Цей фон не змінюється</string>
+    <string name="bg_camera">Домашня камера як фон</string>
+    <string name="bg_campainha">Камера дверного дзвінка як фон</string>
+    <string name="bg_nenhuma">Немає</string>
+    <string name="bg_ligado">Увімк.</string>
+</resources>

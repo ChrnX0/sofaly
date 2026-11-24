@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Шрифт</string>
+    <string name="fc_det">Літери на кожному екрані. Шрифти Google завантажуються першого разу</string>
+    <string name="fc_baixando">завантаження…</string>
+    <string name="fc_falhou">Не вдалося завантажити. Перевірте інтернет</string>
+    <string name="ck_formato">Формат часу</string>
+    <string name="ck_formato_det">У верхній панелі, на Острові й великому годиннику</string>
+    <string name="ck_auto">Автоматично</string>
+    <string name="ck_24">24 год (15:40)</string>
+    <string name="ck_12">12 год (3:40)</string>
+    <string name="ck_12ampm">12 год з AM/PM</string>
+    <string name="ck_seg">Із секундами</string>
+    <string name="ck_cor">Колір часу</string>
+    <string name="ck_cor_det">У верхній панелі, на Острові й великому годиннику</string>
+    <string name="ck_padrao">Типово</string>
+    <string name="ck_laranja">Помаранчевий</string>
+    <string name="ck_creme">Кремовий</string>
+    <string name="ck_ambar">Бурштиновий</string>
+    <string name="ck_verde">Бірюзовий</string>
+</resources>

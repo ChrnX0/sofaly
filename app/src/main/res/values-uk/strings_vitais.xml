@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">Стабільність лаунчера (7 днів)</string>
+    <string name="vit_ok">Без збоїв і зависань. Днів використання: %1$d.</string>
+    <string name="vit_problemas">Збої: %1$d. Зависання: %2$d. Помічено на екрані: %3$d. Днів із проблемою: %4$d з %5$d.</string>
+</resources>

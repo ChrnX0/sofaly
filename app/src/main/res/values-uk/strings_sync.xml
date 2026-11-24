@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Ви ввійшли як %1$s. Що телевізор синхронізує з вашим телефоном.</string>
+    <string name="sync_sub_mdblist">Ви ввійшли як %1$s. Ваші списки MDBList можуть з\'явитися в каталозі.</string>
+    <string name="sync_ultima">Остання синхронізація: %1$s</string>
+    <string name="sync_nunca">Ще не синхронізовано</string>
+    <string name="sync_interesses">Інтереси ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Інтереси ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Що ви позначите тут, з\'явиться там, і навпаки</string>
+    <string name="sync_assistidos">Переглянуте ← Історія</string>
+    <string name="sync_assistidos_det">Додає те, що ви вже переглянули на телефоні чи деінде</string>
+    <string name="sync_continuar">Продовжити ⇄ Місце зупинки</string>
+    <string name="sync_continuar_det">Зупиніть на телефоні, продовжте на телевізорі з того самого місця</string>
+    <string name="sync_contar">Повідомляти %1$s, що я дивлюся тут</string>
+    <string name="sync_contar_det">Надсилає «дивлюся зараз» і «переглянуто» під час відтворення. Ніколи в гостьовому режимі чи на дитячому профілі.</string>
+    <string name="sync_listas">Списки в каталозі</string>
+    <string name="sync_listas_nenhuma">Нічого не вибрано</string>
+    <string name="sync_listas_n">Вибрано %1$d: %2$s</string>
+    <string name="sync_listas_sub">Вони з\'являються в СПИСКАХ, у розділі Усе, лише з назвами з вашого списку. До %1$d.</string>
+    <string name="sync_listas_carregando">Завантаження ваших списків…</string>
+    <string name="sync_listas_vazio">Списків не знайдено. Створіть або вподобайте список на Trakt чи MDBList і поверніться сюди.</string>
+    <string name="sync_listas_cheio">До %1$d списків</string>
+    <string name="sync_lista_itens">Назв: %1$d</string>
+    <string name="sync_agora">Синхронізувати зараз</string>
+    <string name="sync_agora_det">Це також відбувається само, коли ви відкриваєте Фільми чи Серіали</string>
+    <string name="sync_rodando">Синхронізація…</string>
+    <string name="sync_feito">Синхронізовано</string>
+    <string name="sync_sair">Вийти з %1$s</string>
+    <string name="sync_bloqueado">Призупинено: увімкнено гостьовий режим або дитячий профіль.</string>
+    <string name="sync_outro_perfil">Призупинено: синхронізація належить іншому профілю.</string>
+    <string name="sync_trakt_cheia">Ваш список Trakt заповнено (безкоштовні облікові записи вміщують 100). Лаунчер продовжує лише на телевізорі.</string>
+    <string name="sync_ligado">Увімк.</string>
+    <string name="sync_desligado">Вимк.</string>
+    <string name="sync_fonte_trakt">Дані від Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Дані від Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d з %2$d у вашому списку</string>
+    <string name="sync_continuando">Продовження з місця зупинки на іншому пристрої</string>
+</resources>

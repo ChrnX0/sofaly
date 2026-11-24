@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Як справи в цього телевізора</string>
+    <string name="elv_placar_det">Сім обіцянок, кожна з числом, виміряним на цьому телевізорі</string>
+    <string name="elv_placar_sub">Виміряно на цьому телевізорі. Ніщо звідси не залишає дім.</string>
+    <string name="elv_pilar_liga">Вмикається й готовий</string>
+    <string name="elv_pilar_ao_vivo">ТБ наживо, що не підводить</string>
+    <string name="elv_pilar_player">Найкращий плеєр у вітальні</string>
+    <string name="elv_pilar_casa">Телевізор, що дбає про дім</string>
+    <string name="elv_pilar_controle">Керування звідусіль</string>
+    <string name="elv_pilar_todos">Будь-хто може користуватися</string>
+    <string name="elv_pilar_instala">Сам налаштовується й сам лагодиться</string>
+    <string name="elv_prom_liga">Головний екран готовий менш ніж за 1 секунду</string>
+    <string name="elv_prom_ao_vivo">Зміна каналу займає менше 1,5 секунди, від клавіші до зображення</string>
+    <string name="elv_prom_player">Відтворює будь-який файл; правильні субтитри без мороки</string>
+    <string name="elv_prom_casa">Будильник дзвонить вчасно, щоразу</string>
+    <string name="elv_prom_controle">Панель, телефон і ШІ роблять усе, що й пульт</string>
+    <string name="elv_prom_todos">Літні люди, діти, гості, слабкий зір чи слух; 14 мов</string>
+    <string name="elv_prom_instala">Від першого запуску до першого каналу за 5 хвилин</string>
+    <string name="elv_nao_medido">Ще не виміряно</string>
+    <string name="elv_alvo">ціль %1$s</string>
+    <string name="elv_n_de_n">вчасно %1$d з %2$d</string>
+    <string name="elv_dentro">у межах цілі</string>
+    <string name="elv_fora">поза ціллю</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d збій або зависання за %2$d дн.</item>
+        <item quantity="few">%1$d збої або зависання за %2$d дн.</item>
+        <item quantity="many">%1$d збоїв або зависань за %2$d дн.</item>
+        <item quantity="other">%1$d збоїв або зависань за %2$d дн.</item>
+    </plurals>
+    <string name="elv_lp_titulo">Виміряти до і після</string>
+    <string name="elv_lp_det_antes">Вимірює вільну пам\'ять і швидкість відкриття 3 найуживаніших застосунків перед очищенням. Вони відкриваються на кілька секунд.</string>
+    <string name="elv_lp_det_depois">«До» збережено. Приховайте застосунки вище, потім натисніть OK, щоб виміряти «після».</string>
+    <string name="elv_lp_medindo">Вимірювання… застосунки можуть відкриватися на кілька секунд</string>
+    <string name="elv_lp_mais_livre">Вільно на %1$d МБ більше</string>
+    <string name="elv_lp_menos_livre">Вільно на %1$d МБ менше</string>
+    <string name="elv_lp_mais_rapido">%1$s відкривається на %2$s швидше</string>
+    <string name="elv_lp_mais_lento">%1$s відкривається на %2$s повільніше</string>
+    <string name="elv_lp_igual">Різниця замала, щоб її виміряти</string>
+    <string name="elv_agora">щойно</string>
+    <string name="elv_sem_quedas">Жодних збоїв чи зависань за %1$d дн.</string>
+    <string name="elv_reserva">%1$s зник. Натомість відтворюється %2$s.</string>
+    <string name="elv_zap_solte">Відпустіть, щоб дивитися</string>
+    <string name="elv_leg_padrao">стандарт</string>
+    <string name="elv_leg_contraste">висока контрастність</string>
+    <string name="elv_leg_amarela">жовтий</string>
+    <string name="elv_leg_embaixo">унизу</string>
+    <string name="elv_leg_em_cima">угорі</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Виконати</string>
+    <string name="elv_bf_ok_faz">OK виконує зараз</string>
+    <string name="elv_bf_wifi">Показати Wi-Fi для гостей</string>
+    <string name="elv_bf_wifi_configurar">Ще не налаштовано: OK відкриває Налаштування (Візити)</string>
+    <string name="elv_bf_letra_maior">Більший текст (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Менший текст (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Він уже такого розміру</string>
+    <string name="elv_bf_radios">Радіостанції</string>
+    <string name="elv_bf_radio_fav">Улюблена станція</string>
+    <string name="elv_bf_ajuda">Довідка</string>
+    <string name="elv_bf_ajuda_det">Тема посібника</string>
+    <string name="elv_bf_procurar">Шукати далі</string>
+    <string name="elv_bf_procurar_radio">Радіостанції з назвою «%1$s»</string>
+    <string name="elv_bf_procurar_radio_det">Станції з усього світу</string>
+    <string name="elv_bf_procurar_rede">«%1$s» у ваших мережевих файлах</string>
+    <string name="elv_bf_procurar_rede_det">На вашому Jellyfin, Emby або Plex</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Пошук у налаштуваннях</string>
+    <string name="elv_aj_explica">Введіть слово: назву параметра або інше слово для нього (\"шрифт\" знаходить розмір тексту)</string>
+    <string name="elv_aj_dica">Наприклад: шрифт, Wi-Fi, заставка</string>
+    <string name="elv_aj_recentes">Нещодавно змінені</string>
+    <string name="elv_aj_recentes_vazio">Параметри, які ви змінюєте, з\'являються тут, найновіші першими</string>
+    <string name="elv_aj_nada">Нічого не знайдено за запитом «%1$s»</string>
+    <string name="elv_aj_nada_det">Спробуйте інше слово або пошукайте у вкладках ліворуч</string>
+    <string name="elv_aj_sinonimos">шрифт,літера,букви,текст,розмір,більший,менший;wifi,wi-fi,вайфай,мережа,інтернет,з\'єднання;заставка,скринсейвер,простій,спокій;пароль,pin,пін,код;звук,гучність,аудіо;час,годинник,година;погода,прогноз,температура;мова,мови;діти,дитина,дитячий,батьківський;гість,гості,візит;оновлення,версія,нове;копія,резервна,відновлення;телефон,мобільний,смартфон;світло,лампа,дім,будинок;сон,вимкнути,таймер,енергія,живлення;канал,тб,наживо;фільм,кіно,серіал,шоу;субтитри,титри,підписи;будильник,пробудження,сигнал;фото,зображення,картинка,фон,шпалери</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Потребує уваги</string>
+    <string name="elv_f_canal_caiu_frase">Цей канал зараз не приймається</string>
+    <string name="elv_f_canal_caiu_causa">Постачальник каналу перестав його передавати. Зазвичай він повертається сам.</string>
+    <string name="elv_f_canal_caiu_botao">Дивитися інший канал</string>
+    <string name="elv_f_lista_venceu_frase">Термін дії вашого списку каналів минув</string>
+    <string name="elv_f_lista_venceu_causa">Обліковий запис у продавця списку закінчився або його відхилено.</string>
+    <string name="elv_f_lista_venceu_botao">Відкрити обліковий запис</string>
+    <string name="elv_f_relogio_errado_frase">Годинник телевізора неправильний</string>
+    <string name="elv_f_relogio_errado_causa">З неправильним часом телепрограма й захищені сайти не працюють.</string>
+    <string name="elv_f_relogio_errado_botao">Налаштувати годинник</string>
+    <string name="elv_f_disco_cheio_frase">На телевізорі закінчується місце</string>
+    <string name="elv_f_disco_cheio_causa">Без місця не можна зберегти телепрограму, записи й оновлення.</string>
+    <string name="elv_f_disco_cheio_botao">Звільнити місце</string>
+    <string name="elv_f_shell_parado_frase">Додаткові можливості телевізора зупинилися</string>
+    <string name="elv_f_shell_parado_causa">Бездротове налагодження вимкнено або сполучення втрачено.</string>
+    <string name="elv_f_shell_parado_botao">Увімкнути їх знову</string>
+    <string name="elv_f_tunel_sem_login_frase">Доступ ззовні дому чекає на вхід</string>
+    <string name="elv_f_tunel_sem_login_causa">Термін дії входу Tailscale минув.</string>
+    <string name="elv_f_tunel_sem_login_botao">Увійти знову</string>
+    <string name="elv_f_backup_falhou_frase">Нічна копія не виконувалася 2 дні</string>
+    <string name="elv_f_backup_falhou_causa">Місце призначення було недоступне або пароль змінився.</string>
+    <string name="elv_f_backup_falhou_botao">Створити копію зараз</string>
+    <string name="elv_f_religando">Повторне ввімкнення: займає до хвилини</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Не турбувати: під час фільму, пізно вночі або з гостями сповіщення чекають і повертаються підсумком (будильник і дзвінок у двері показуються завжди)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Поки ви дивилися: %1$d сповіщення</item><item quantity="few">Поки ви дивилися: %1$d сповіщення</item>
+        <item quantity="many">Поки ви дивилися: %1$d сповіщень</item>
+        <item quantity="other">Поки ви дивилися: %1$d сповіщень</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">За ніч: %1$d сповіщення</item><item quantity="few">За ніч: %1$d сповіщення</item>
+        <item quantity="many">За ніч: %1$d сповіщень</item>
+        <item quantity="other">За ніч: %1$d сповіщень</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Під час візиту: %1$d сповіщення</item><item quantity="few">Під час візиту: %1$d сповіщення</item>
+        <item quantity="many">Під час візиту: %1$d сповіщень</item>
+        <item quantity="other">Під час візиту: %1$d сповіщень</item></plurals>
+    <string name="elv_np_mais">+ще %1$d</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Коли фільм закінчується</string>
+    <string name="elv_ev_programa_comecou">Коли починається програма, позначена в телепрограмі</string>
+    <string name="elv_ev_nascer_do_sol">На світанку</string>
+    <string name="elv_ev_por_do_sol">На заході сонця</string>
+    <string name="elv_ev_campainha">Коли дзвонять у двері</string>
+    <string name="elv_ev_alguem_chegou">Коли хтось приходить додому</string>
+    <string name="elv_ev_internet_caiu">Коли зникає інтернет</string>
+    <string name="elv_ev_internet_voltou">Коли інтернет повертається</string>
+    <string name="elv_ev_recado_chegou">Коли надходить повідомлення</string>
+    <string name="elv_ev_aniversario">У чийсь день народження (о 9:00)</string>
+    <string name="elv_ev_compromisso">Коли починається подія в календарі</string>
+    <string name="elv_ss_sempre">Завжди</string>
+    <string name="elv_ss_so_se">Лише якщо %1$s</string>
+    <string name="elv_ss_e">" і "</string>
+    <string name="elv_ss_em_casa">хтось удома</string>
+    <string name="elv_ss_noite">після заходу сонця</string>
+    <string name="elv_ss_dia_util">будній день</string>
+    <string name="elv_ss_perfil">профіль — %1$s</string>
+    <string name="elv_ss_det">◀ ▶ змінюють умову</string>
+    <string name="extras_ABERTURA_PRONTA">Пропуск заставки (IntroDB): для серій телевізор запитує спільнотний сервіс IntroDB, де заставка (надсилає, яка серія, ніколи ваш обліковий запис); вимкнено — лише заставки, позначені вами</string>
+</resources>

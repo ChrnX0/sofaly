@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Повідомити про проблему</string>
+    <string name="rel_linha_det">QR-код відкриває форму на телефоні, з уже заповненими технічними даними</string>
+    <string name="rel_texto">Наведіть камеру телефона на код. Напишіть, що сталося, і надішліть. Ваше ім\'я, обліковий запис, мережа й місто не додаються.</string>
+    <string name="rel_vai_junto">Що додається</string>
+    <string name="rel_l_oque">Що сталося</string>
+    <string name="rel_l_versao">Версія</string>
+    <string name="rel_l_uso">Режим</string>
+    <string name="rel_l_quedas">Збої / зависання (7 днів)</string>
+    <string name="rel_l_erro">Остання помилка</string>
+</resources>
