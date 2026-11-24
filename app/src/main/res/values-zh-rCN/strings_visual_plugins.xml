@@ -46,4 +46,5 @@
     <string name="ext_off_health">已关闭：它停止了响应。如有需要可重新打开。</string>
     <string name="ext_secao_botoes">快捷面板按钮</string>
     <string name="ext_nenhum_botao">还没有其他应用的按钮。有些应用会在快捷面板中添加开关按钮（长按返回）。</string>
+    <string name="ext_off_blocked">已被 Sofaly 关闭：此插件存在已知问题。</string>
 </resources>

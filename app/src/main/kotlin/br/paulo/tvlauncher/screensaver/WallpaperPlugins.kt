@@ -81,6 +81,7 @@ object WallpaperPlugins {
 
     /** Usa [p] como fundo: guarda o OK com o certificado de agora e põe o tema. False = sem certificado legível. */
     fun usar(ctx: Context, p: Provider): Boolean {
+        if (ExtensionHealth.bloqueado(ctx, p.pacote)) return false
         val cert = PluginsTv.certificado(ctx, p.pacote) ?: return false
         ExtensionHealth.perdoar(ctx, p.pacote)
         prefs(ctx).edit().putString("ok:${p.pacote}", cert).putString(CHOSEN, p.id).apply()

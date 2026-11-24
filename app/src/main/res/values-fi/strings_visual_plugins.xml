@@ -46,4 +46,5 @@
     <string name="ext_off_health">Poistettu käytöstä: se lakkasi vastaamasta. Ota se uudelleen käyttöön, jos haluat.</string>
     <string name="ext_secao_botoes">Pikapaneelin painikkeet</string>
     <string name="ext_nenhum_botao">Muiden sovellusten painikkeita ei vielä ole. Jotkin sovellukset lisäävät pikapaneeliin päälle/pois-painikkeen (pidä TAKAISIN painettuna).</string>
+    <string name="ext_off_blocked">Sofaly poisti käytöstä: tässä laajennuksessa on tunnettu ongelma.</string>
 </resources>

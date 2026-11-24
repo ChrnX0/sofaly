@@ -56,7 +56,7 @@ function desenharPlugins() {
   for (const f of r.fundos) {
     caixa.append(f.emUso
       ? linhaPlugin(f.nome, t.emUso, t.parar, () => mudarPlugin(f.nome, t.parar, t.parar, 'fundo', { id: '' }))
-      : linhaPlugin(f.nome, f.saude ? t.saude : '', t.usarFundo, () => mudarPlugin(f.nome, t.det, t.usarFundo, 'fundo', { id: f.id })));
+      : linhaPlugin(f.nome, f.saude || '', t.usarFundo, () => mudarPlugin(f.nome, t.det, t.usarFundo, 'fundo', { id: f.id })));
   }
 
   secao(t.icones);
@@ -72,7 +72,7 @@ function desenharPlugins() {
   for (const c of r.cartoes) {
     const novo = !c.ligado;
     const rotulo = novo ? t.ligado : t.desligado;
-    caixa.append(linhaPlugin(c.nome, c.saude ? t.saude : (c.ligado ? t.ligado : t.desligado), rotulo,
+    caixa.append(linhaPlugin(c.nome, c.saude || (c.ligado ? t.ligado : t.desligado), rotulo,
       () => mudarPlugin(c.nome, t.det, rotulo, 'cartao', { pacote: c.pacote, ligado: novo })));
   }
 
@@ -81,7 +81,7 @@ function desenharPlugins() {
   for (const b of r.botoes || []) {
     const novo = !b.ligado;
     const rotulo = novo ? t.ligado : t.desligado;
-    caixa.append(linhaPlugin(b.nome, b.saude ? t.saude : (b.ligado ? t.ligado : t.desligado), rotulo,
+    caixa.append(linhaPlugin(b.nome, b.saude || (b.ligado ? t.ligado : t.desligado), rotulo,
       () => mudarPlugin(b.nome, t.det, rotulo, 'botao', { pacote: b.pacote, ligado: novo })));
   }
 

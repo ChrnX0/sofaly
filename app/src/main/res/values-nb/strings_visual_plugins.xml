@@ -46,4 +46,5 @@
     <string name="ext_off_health">Slått av: den sluttet å svare. Slå den på igjen hvis du vil.</string>
     <string name="ext_secao_botoes">Knapper i hurtigpanelet</string>
     <string name="ext_nenhum_botao">Ingen knapper fra andre apper ennå. Noen apper legger til en av/på-knapp i hurtigpanelet (hold inne TILBAKE).</string>
+    <string name="ext_off_blocked">Slått av av Sofaly: denne utvidelsen har et kjent problem.</string>
 </resources>

@@ -77,4 +77,11 @@ class PluginCatalogTest {
         assertNull(PluginCatalog.parse("""{"plugins":[]}""", "en"))
         assertEquals("id", PluginCatalog.idioma("in"))
     }
+
+    @Test fun bloqueioSoComPacoteValido() {
+        assertEquals(setOf("com.ruim.plugin"), PluginCatalog.bloqueados("""{"blocked":[{"package":"com.ruim.plugin"},{"package":"x;rm"},{}]}"""))
+        assertEquals(emptySet<String>(), PluginCatalog.bloqueados("""{"plugins":[],"blocked":[]}"""))
+        assertNull(PluginCatalog.bloqueados("""{"plugins":[]}"""))   // sem a lista: não mexe no que já havia
+        assertNull(PluginCatalog.bloqueados("lixo"))
+    }
 }

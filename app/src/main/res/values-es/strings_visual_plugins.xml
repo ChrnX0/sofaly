@@ -46,4 +46,5 @@
     <string name="ext_off_health">Desactivado: dejó de responder. Actívalo de nuevo si quieres.</string>
     <string name="ext_secao_botoes">Botones del panel rápido</string>
     <string name="ext_nenhum_botao">Aún no hay botones de otras apps. Algunas apps añaden un botón de encender y apagar al panel rápido (mantén ATRÁS).</string>
+    <string name="ext_off_blocked">Desactivado por Sofaly: este complemento tiene un problema conocido.</string>
 </resources>

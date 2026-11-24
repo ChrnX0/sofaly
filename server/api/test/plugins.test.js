@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { PLUGINS, pluginsBody } from '../src/plugins.js';
+import { PLUGINS, BLOCKED, pluginsBody } from '../src/plugins.js';
 
 const kt = readFileSync(new URL('../../../app/src/main/kotlin/br/paulo/tvlauncher/screensaver/PluginCatalog.kt', import.meta.url), 'utf8');
 const noApp = [...kt.matchAll(/Entrada\("([a-z0-9-]+)", Tipo\./g)].map((m) => m[1]);
@@ -32,4 +32,11 @@ test('entrada nova (fora do app) só com Play, nome limpo e descrição em ingl�
 test('hoje a vitrine do servidor é a mesma do app (mesma ordem)', () => {
   assert.ok(noApp.length > 0);
   assert.deepEqual(PLUGINS.map((p) => p.id), noApp);
+});
+
+test('bloqueio: só pacotes no formato Android, sem repetir, e a lista vai na resposta', () => {
+  const pacote = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)+$/;
+  const vistos = new Set();
+  for (const b of BLOCKED) { assert.match(b.package, pacote); assert.ok(!vistos.has(b.package)); vistos.add(b.package); assert.ok(b.reason, b.package); }
+  assert.deepEqual(pluginsBody().blocked, BLOCKED);
 });

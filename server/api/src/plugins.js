@@ -18,7 +18,12 @@ export const PLUGINS = Object.freeze([
   { id: 'arcticons' },
 ]);
 
+// Pacotes que a TV deve DESLIGAR (proposta C, 24/11/2026): um plugin que passou a travar, a mostrar propaganda por cima
+// ou a fazer o que não disse. Só desliga, nunca liga; a pessoa vê "Desligado pela Sofaly" e não consegue ligar de novo
+// enquanto o pacote estiver aqui. Tirar daqui libera (a pessoa liga de novo se quiser).
+export const BLOCKED = Object.freeze([]);
+
 /** Corpo da resposta. `version` muda quando a lista muda (a TV só guarda; serve para conferir de fora). */
 export function pluginsBody() {
-  return { version: 1, plugins: PLUGINS };
+  return { version: 1, plugins: PLUGINS, blocked: BLOCKED };
 }

@@ -67,6 +67,16 @@ object PluginCatalog {
         out.takeIf { it.isNotEmpty() }
     }.getOrNull()
 
+    /**
+     * Pacotes que a Sofaly mandou desligar (`"blocked":[{"package":..}]`, proposta C: um plugin que passou a fazer mal).
+     * Só serve para DESLIGAR. Resposta sem a lista = null (não mexe no que já havia); lista vazia = ninguém bloqueado.
+     */
+    fun bloqueados(text: String?): Set<String>? = runCatching {
+        val a = JSONObject(text ?: return null).optJSONArray("blocked") ?: return null
+        (0 until a.length()).mapNotNull { a.optJSONObject(it)?.optString("package")?.trim()?.takeIf { p -> PACOTE.matches(p) && p.length <= 150 } }
+            .take(200).toSet()
+    }.getOrNull()
+
     /** Idioma que o servidor usa para a descrição: o da TV, com o código antigo do Java para indonésio corrigido. */
     fun idioma(lingua: String): String = when (lingua) { "in" -> "id"; "nb", "no" -> "nb"; else -> lingua }
 

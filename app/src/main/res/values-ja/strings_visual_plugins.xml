@@ -46,4 +46,5 @@
     <string name="ext_off_health">オフにしました: 応答しなくなりました。必要ならもう一度オンにしてください。</string>
     <string name="ext_secao_botoes">クイックパネルのボタン</string>
     <string name="ext_nenhum_botao">他のアプリのボタンはまだありません。クイックパネルにオン/オフのボタンを追加するアプリがあります（戻るを長押し）。</string>
+    <string name="ext_off_blocked">Sofalyがオフにしました：このプラグインには既知の問題があります。</string>
 </resources>

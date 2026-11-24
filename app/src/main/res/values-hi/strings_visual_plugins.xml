@@ -46,4 +46,5 @@
     <string name="ext_off_health">बंद किया गया: इसने जवाब देना बंद कर दिया। चाहें तो फिर से चालू करें।</string>
     <string name="ext_secao_botoes">क्विक पैनल के बटन</string>
     <string name="ext_nenhum_botao">अभी अन्य ऐप्स के बटन नहीं हैं। कुछ ऐप्स क्विक पैनल में चालू/बंद बटन जोड़ते हैं (वापस दबाए रखें)।</string>
+    <string name="ext_off_blocked">Sofaly ने बंद किया: इस प्लगइन में एक ज्ञात समस्या है।</string>
 </resources>

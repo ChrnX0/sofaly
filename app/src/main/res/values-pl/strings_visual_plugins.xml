@@ -46,4 +46,5 @@
     <string name="ext_off_health">Wyłączono: przestał odpowiadać. Włącz go ponownie, jeśli chcesz.</string>
     <string name="ext_secao_botoes">Przyciski szybkiego panelu</string>
     <string name="ext_nenhum_botao">Brak jeszcze przycisków innych aplikacji. Niektóre aplikacje dodają przycisk wł./wył. do szybkiego panelu (przytrzymaj WSTECZ).</string>
+    <string name="ext_off_blocked">Wyłączone przez Sofaly: ta wtyczka ma znany problem.</string>
 </resources>

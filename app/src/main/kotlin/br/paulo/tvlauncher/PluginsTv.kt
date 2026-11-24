@@ -54,6 +54,25 @@ object PluginsTv {
         p.edit().putLong("quando", System.currentTimeMillis()).apply()
         val texto = br.paulo.tvlauncher.player.AddonsTv.baixar(PluginCatalog.URL) ?: return
         if (PluginCatalog.parse(texto, idioma()) != null) p.edit().putString("json", texto).apply()
+        PluginCatalog.bloqueados(texto)?.let { aplicarBloqueio(ctx, it) }
+    }
+
+    /** Desliga em todo lugar os pacotes que acabaram de entrar na lista de bloqueio (cartão, botão, fundo, ícones). */
+    fun aplicarBloqueio(ctx: Context, lista: Set<String>) {
+        for (pac in ExtensionHealth.definirBloqueados(ctx, lista)) {
+            definir(ctx, pac, false)
+            PluginTilesTv.definir(ctx, pac, false)
+            WallpaperPlugins.escolhido(ctx)?.takeIf { it.pacote == pac }?.let { WallpaperPlugins.parar(ctx, it) }
+            if (PacoteIcones.escolhido(ctx) == pac) PacoteIcones.escolher(ctx, "")
+            runCatching { br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "sofy", "plugin desligado pela Sofaly (problema conhecido)", "ok") }
+        }
+    }
+
+    /** Subtítulo de um plugin desligado pela Sofaly ou pela guarda de saúde; null = nenhum dos dois. */
+    fun motivoDesligado(ctx: Context, pacote: String): String? = when {
+        ExtensionHealth.bloqueado(ctx, pacote) -> ctx.getString(R.string.ext_off_blocked)
+        ExtensionHealth.desligadoEm(ctx, pacote) > 0 -> ctx.getString(R.string.ext_off_health)
+        else -> null
     }
 
     data class Instalado(val pacote: String, val autoridade: String, val nome: String)
@@ -89,6 +108,7 @@ object PluginsTv {
     fun definir(ctx: Context, pacote: String, ligado: Boolean): Boolean {
         val prefs = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         if (!ligado) { prefs.edit().remove(pacote).apply(); return true }
+        if (ExtensionHealth.bloqueado(ctx, pacote)) return false
         val cert = certificado(ctx, pacote) ?: return false
         if (permitidos(ctx).count { it.key != pacote } >= PluginCartao.MAX_PLUGINS) return false
         prefs.edit().putString(pacote, cert).apply()
@@ -183,6 +203,7 @@ object PluginTilesTv {
     fun definir(ctx: Context, pacote: String, ligado: Boolean): Boolean {
         val prefs = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
         if (!ligado) { prefs.edit().remove(pacote).apply(); return true }
+        if (ExtensionHealth.bloqueado(ctx, pacote)) return false
         val cert = PluginsTv.certificado(ctx, pacote) ?: return false
         if (permitidos(ctx).count { it.key != pacote } >= PluginTile.MAX) return false
         prefs.edit().putString(pacote, cert).apply()
@@ -268,7 +289,7 @@ class PluginsActivity : Activity() {
             val emUso = f.id == escolhido && Tema.atual(this) == Tema.PLUGIN && WallpaperPlugins.permitido(this, f.pacote)
             val valor = Estilo.valor(this, if (emUso) getString(R.string.wp_em_uso) else "", seta = !emUso)
             // Desligado pela guarda de saúde (ExtensionHealth): o motivo no lugar do tipo, até o dono ligar de novo.
-            val sub = if (!emUso && ExtensionHealth.desligadoEm(this, f.pacote) > 0) getString(R.string.ext_off_health) else getString(R.string.wp_tipo_fundo)
+            val sub = (if (!emUso) PluginsTv.motivoDesligado(this, f.pacote) else null) ?: getString(R.string.wp_tipo_fundo)
             coluna.addView(Estilo.linhaOpcao(this, f.nome, sub, valor).apply {
                 setOnClickListener { menuFundo(f, emUso) }
             }, Estilo.lpLinha(this))
@@ -296,7 +317,7 @@ class PluginsActivity : Activity() {
             val valor = Estilo.valor(this, "", seta = false)
             fun pintar() { valor.text = getString(if (PluginsTv.permitido(this, p.pacote)) R.string.plg_ligado else R.string.plg_desligado) }
             pintar()
-            val sub = if (ExtensionHealth.desligadoEm(this, p.pacote) > 0 && !PluginsTv.permitido(this, p.pacote)) getString(R.string.ext_off_health) else p.pacote
+            val sub = (if (!PluginsTv.permitido(this, p.pacote)) PluginsTv.motivoDesligado(this, p.pacote) else null) ?: p.pacote
             coluna.addView(Estilo.linhaOpcao(this, p.nome, sub, valor).apply {
                 setOnClickListener {
                     val novo = !PluginsTv.permitido(this@PluginsActivity, p.pacote)
@@ -316,7 +337,7 @@ class PluginsActivity : Activity() {
             val valor = Estilo.valor(this, "", seta = false)
             fun pintar() { valor.text = getString(if (PluginTilesTv.permitido(this, p.pacote)) R.string.plg_ligado else R.string.plg_desligado) }
             pintar()
-            val sub = if (ExtensionHealth.desligadoEm(this, p.pacote) > 0 && !PluginTilesTv.permitido(this, p.pacote)) getString(R.string.ext_off_health) else p.pacote
+            val sub = (if (!PluginTilesTv.permitido(this, p.pacote)) PluginsTv.motivoDesligado(this, p.pacote) else null) ?: p.pacote
             coluna.addView(Estilo.linhaOpcao(this, p.nome, sub, valor).apply {
                 setOnClickListener {
                     val novo = !PluginTilesTv.permitido(this@PluginsActivity, p.pacote)

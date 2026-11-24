@@ -39,6 +39,19 @@ object ExtensionHealth {
     /** Quando a guarda desligou [pacote] (0 = não desligou ou o dono já ligou de novo). */
     fun desligadoEm(ctx: Context, pacote: String): Long = prefs(ctx).getLong("off:$pacote", 0L)
 
+    // ---- Bloqueio pela Sofaly (24/11/2026, proposta C): a vitrine do servidor pode listar pacotes com problema conhecido
+    // (`blocked`). Só DESLIGA: o servidor nunca liga nada. Enquanto o pacote estiver na lista, ligar é recusado.
+
+    fun bloqueado(ctx: Context, pacote: String): Boolean = pacote in (prefs(ctx).getStringSet("blocked", null) ?: emptySet())
+
+    /** Guarda a lista nova; devolve os pacotes que ENTRARAM nela agora (quem chamou os desliga). */
+    @Synchronized
+    fun definirBloqueados(ctx: Context, pacotes: Set<String>): Set<String> {
+        val antes = prefs(ctx).getStringSet("blocked", null) ?: emptySet()
+        prefs(ctx).edit().putStringSet("blocked", HashSet(pacotes)).apply()
+        return pacotes - antes
+    }
+
     /** O dono ligou de novo: zera placar e aviso. */
     fun perdoar(ctx: Context, pacote: String) {
         prefs(ctx).edit().remove("n:$pacote").remove("d:$pacote").remove("off:$pacote").apply()
@@ -56,6 +69,8 @@ object ExtensionHealth {
         val cai = desligar(novo)
         if (cai) e.putLong("off:$pacote", agora).putInt("n:$pacote", 0)
         e.apply()
+        // A Sofy fica sabendo (Diário da TV, ferramenta diario_tv do MCP): só o evento, nunca o nome do app de terceiro.
+        if (cai) runCatching { br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "sofy", "plugin desligado: parou de responder", "ok") }
         return cai
     }
 }

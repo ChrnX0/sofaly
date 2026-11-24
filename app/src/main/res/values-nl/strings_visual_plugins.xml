@@ -46,4 +46,5 @@
     <string name="ext_off_health">Uitgezet: het reageerde niet meer. Zet het weer aan als je wilt.</string>
     <string name="ext_secao_botoes">Knoppen in het snelpaneel</string>
     <string name="ext_nenhum_botao">Nog geen knoppen van andere apps. Sommige apps zetten een aan/uit-knop in het snelpaneel (houd TERUG ingedrukt).</string>
+    <string name="ext_off_blocked">Uitgezet door Sofaly: deze plug-in heeft een bekend probleem.</string>
 </resources>
