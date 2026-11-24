@@ -529,10 +529,10 @@ function linhaApp(a) {
   pacote.textContent = a.pacote + (a.versao ? ' · ' + a.versao : '') + (usoHoje[a.pacote] ? ` · hoje: ${usoHoje[a.pacote]} min` : '');
   const selos = document.createElement('div');
   selos.className = 'selos';
-  if (a.oculto) selos.appendChild(selo('oculto', 'oculto'));
+  if (a.oculto) selos.appendChild(selo('escondido', 'oculto'));
   if (a.desativado) selos.appendChild(selo('desativado'));
   if (a.sistema) selos.appendChild(selo('sistema'));
-  if (a.ocultoPeloLauncher) selos.appendChild(selo('o launcher oculta sozinho'));
+  if (a.ocultoPeloLauncher) selos.appendChild(selo('o launcher esconde sozinho'));
   if (a.risco) selos.appendChild(selo(a.risco, 'risco-' + a.risco.replace(/\s+/g, '-')));
   info.append(nome, pacote, selos);
   linha.appendChild(info);
@@ -553,7 +553,7 @@ function linhaApp(a) {
     if (a.podeOcultar) {
       const b = document.createElement('button');
       b.className = 'botao-secundario';
-      b.textContent = a.oculto ? 'Mostrar' : 'Ocultar';
+      b.textContent = a.oculto ? 'Mostrar' : 'Esconder';
       b.addEventListener('click', () => alternarOculto(a, b));
       acoes.appendChild(b);
     }
@@ -593,8 +593,8 @@ async function alternarOculto(a, botao) {
     if (!a.oculto && a.risco && a.risco !== 'seguro') {
       const f = await chamar('GET', '/api/apps/' + encodeURIComponent(a.pacote) + '/ficha').catch(() => null);
       const emUso = await tvEmUso();
-      const ok = await confirmar('Ocultar ' + a.nome + '?',
-        `Risco: ${a.risco}. ${f ? f.efeito : ''}` + (emUso ? ` A TV está em uso agora (${emUso}).` : ''), 'Ocultar mesmo assim', fazer, a.risco === 'essencial');
+      const ok = await confirmar('Esconder ' + a.nome + '?',
+        `Risco: ${a.risco}. ${f ? f.efeito : ''}` + (emUso ? ` A TV está em uso agora (${emUso}).` : ''), 'Esconder mesmo assim', fazer, a.risco === 'essencial');
       if (!ok) { botao.disabled = false; return; }
       a.oculto = true;
       desenharApps();
@@ -603,15 +603,15 @@ async function alternarOculto(a, botao) {
     // Ocultar fecha o app na hora. Com a TV em uso, pergunta antes (a família pode estar vendo justamente ele).
     const emUso = a.oculto ? '' : await tvEmUso();
     if (emUso) {
-      const ok = await confirmar('Ocultar ' + a.nome + '?',
-        `A TV está em uso agora (${emUso}). Ocultar fecha o app na hora, se for ele que está na tela.`, 'Ocultar', fazer, false);
+      const ok = await confirmar('Esconder ' + a.nome + '?',
+        `A TV está em uso agora (${emUso}). Esconder fecha o app na hora, se for ele que está na tela.`, 'Esconder', fazer, false);
       if (!ok) { botao.disabled = false; return; }
     } else {
       try { await fazer(); }
       catch (e) {
         if (!(e instanceof PrecisaPin)) throw e;
         // Mostrar de novo um app oculto pede o PIN (o servidor exige): o modal pede e tenta outra vez.
-        const ok = await confirmar('Mostrar ' + a.nome + '?', 'Para mostrar de novo um app que estava oculto, digite o PIN.', 'Mostrar', fazer, false);
+        const ok = await confirmar('Mostrar ' + a.nome + '?', 'Para mostrar de novo um app que estava escondido, digite o PIN.', 'Mostrar', fazer, false);
         if (!ok) { botao.disabled = false; return; }
       }
     }
@@ -667,7 +667,7 @@ async function fazerLote(acao) {
   // Por que um app marcado fica de fora desta ação (null = entra). Dito no modal, para ninguém achar que sumiu.
   const motivoFora = (a) => {
     if (a.protegido || a.risco === 'essencial') return 'o sistema depende dele';
-    if (acao === 'ocultar') return a.oculto ? 'já está oculto' : (!a.podeOcultar ? 'não dá para ocultar' : null);
+    if (acao === 'ocultar') return a.oculto ? 'já está escondido' : (!a.podeOcultar ? 'não dá para esconder' : null);
     if (acao === 'mostrar') return a.oculto ? null : 'já aparece';
     if (acao === 'desinstalar') return a.podeDesinstalar ? null : 'veio com a TV (não se desinstala)';
     return null;
@@ -678,7 +678,7 @@ async function fazerLote(acao) {
   if (!alvo.length) { aviso('Nenhum dos marcados entra nesta ação: ' + fora.join('; ') + '.', 'erro'); return; }
   const nomes = alvo.map((a) => a.nome).join(', ');
   const emUso = acao === 'mostrar' ? '' : await tvEmUso();
-  const rotulo = { ocultar: 'Ocultar', mostrar: 'Mostrar', parar: 'Parar', desinstalar: 'Desinstalar' }[acao];
+  const rotulo = { ocultar: 'Esconder', mostrar: 'Mostrar', parar: 'Parar', desinstalar: 'Desinstalar' }[acao];
   const riscos = alvo.filter((a) => a.risco && a.risco !== 'seguro').map((a) => a.nome);
   const texto = `${rotulo} ${alvo.length} app(s): ${nomes}.` +
     (acao === 'desinstalar' ? ' Remove os apps e os dados deles. Não tem volta.' : '') +
@@ -2378,7 +2378,7 @@ function desenharFicha(f) {
   if (f.sistema) topo.appendChild(selo('sistema'));
   const d = document.createElement('p'); d.textContent = f.descricao;
   const q = document.createElement('p'); q.className = 'aviso';
-  q.textContent = 'Se ocultar ou desinstalar: ' + f.efeito;
+  q.textContent = 'Se esconder ou desinstalar: ' + f.efeito;
   c.append(topo, d, q);
   const lista = (titulo, itens) => {
     if (!itens.length) return;
