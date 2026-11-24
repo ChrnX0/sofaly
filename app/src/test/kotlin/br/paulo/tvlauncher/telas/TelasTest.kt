@@ -211,6 +211,9 @@ class TelasTest {
         val a = Robolectric.buildActivity(cls, intent).setup().get()
         // A HOME lê apps e player fora da tela e desenha depois: espera essas voltas (a cruz só aparece com elas).
         if (cls == MainActivity::class.java) repeat(10) { Thread.sleep(100); org.robolectric.shadows.ShadowLooper.idleMainLooper(200, java.util.concurrent.TimeUnit.MILLISECONDS) }
+        // Filmes/Séries dão o foco depois de ler o catálogo fora da tela ("Carregando" até lá): sem esperar, a medida às
+        // vezes pega a tela antes do foco (falhou 1 em 3 em 24/11/2026). Espera até 2 s pelo foco, em qualquer tela.
+        for (volta in 0 until 20) { if (a.window.decorView.findFocus() != null) break; Thread.sleep(100); org.robolectric.shadows.ShadowLooper.idleMainLooper(100, java.util.concurrent.TimeUnit.MILLISECONDS) }
         val raiz: View = a.window.decorView
         val foto = Bitmap.createBitmap(raiz.width, raiz.height, Bitmap.Config.ARGB_8888)
         raiz.draw(Canvas(foto))
