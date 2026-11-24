@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Quedan solo %1$s MB. Guardar puede fallar.</string>
     <string name="observer_freeze_undone_title">Deshice una congelación</string>
     <string name="observer_freeze_undone_text">%1$s estaba congelada y %2$s dejó de funcionar, así que la descongelé.</string>
+    <string name="observer_wifi_restarted_title">Reinicié el wifi</string>
+    <string name="observer_wifi_restarted_text">La TV estuvo %1$s min sin wifi. Lo apagué y encendí, y volvió.</string>
+    <string name="observer_tv_restarted_title">Reinicié la TV</string>
+    <string name="observer_tv_restarted_text">El wifi desapareció %1$s min y reiniciarlo no bastó, así que reinicié la TV.</string>
 </resources>

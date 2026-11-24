@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Kun %1$s MB tilbage. Gemning kan fejle.</string>
     <string name="observer_freeze_undone_title">Jeg fortrød en frysning</string>
     <string name="observer_freeze_undone_text">%1$s var frosset, og %2$s holdt op med at virke, så jeg tøede den op.</string>
+    <string name="observer_wifi_restarted_title">Jeg genstartede wifi</string>
+    <string name="observer_wifi_restarted_text">Tv\'et var uden wifi i %1$s min. Jeg slukkede og tændte det, og det kom tilbage.</string>
+    <string name="observer_tv_restarted_title">Jeg genstartede tv\'et</string>
+    <string name="observer_tv_restarted_text">Wifi var væk i %1$s min, og sluk og tænd var ikke nok, så jeg genstartede tv\'et.</string>
 </resources>

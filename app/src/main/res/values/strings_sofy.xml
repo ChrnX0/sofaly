@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Only %1$s MB left. Saving may fail.</string>
     <string name="observer_freeze_undone_title">I undid a freeze</string>
     <string name="observer_freeze_undone_text">%1$s was frozen and %2$s stopped working, so I unfroze it.</string>
+    <string name="observer_wifi_restarted_title">I restarted the Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">The TV was without Wi-Fi for %1$s min. I turned it off and on, and it came back.</string>
+    <string name="observer_tv_restarted_title">I restarted the TV</string>
+    <string name="observer_tv_restarted_text">The Wi-Fi was gone for %1$s min and turning it off and on was not enough, so I restarted the TV.</string>
 </resources>

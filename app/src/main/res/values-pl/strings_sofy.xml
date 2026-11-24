@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Zostało tylko %1$s MB. Zapis może się nie udać.</string>
     <string name="observer_freeze_undone_title">Cofnęłam zamrożenie</string>
     <string name="observer_freeze_undone_text">%1$s była zamrożona i %2$s przestało działać, więc ją odmroziłam.</string>
+    <string name="observer_wifi_restarted_title">Uruchomiłam ponownie Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">Telewizor był bez Wi-Fi przez %1$s min. Wyłączyłam je i włączyłam, i wróciło.</string>
+    <string name="observer_tv_restarted_title">Uruchomiłam ponownie telewizor</string>
+    <string name="observer_tv_restarted_text">Wi-Fi nie było przez %1$s min i ponowne włączenie nie pomogło, więc uruchomiłam ponownie telewizor.</string>
 </resources>

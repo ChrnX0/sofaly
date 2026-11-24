@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Bare %1$s MB igjen. Lagring kan mislykkes.</string>
     <string name="observer_freeze_undone_title">Jeg angret en frysing</string>
     <string name="observer_freeze_undone_text">%1$s var frosset og %2$s sluttet å virke, så jeg tinte den opp.</string>
+    <string name="observer_wifi_restarted_title">Jeg startet wifi på nytt</string>
+    <string name="observer_wifi_restarted_text">TV-en var uten wifi i %1$s min. Jeg slo det av og på, og det kom tilbake.</string>
+    <string name="observer_tv_restarted_title">Jeg startet TV-en på nytt</string>
+    <string name="observer_tv_restarted_text">Wifi var borte i %1$s min, og av og på var ikke nok, så jeg startet TV-en på nytt.</string>
 </resources>

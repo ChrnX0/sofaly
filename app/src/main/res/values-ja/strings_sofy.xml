@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">残り %1$s MB です。保存に失敗することがあります。</string>
     <string name="observer_freeze_undone_title">停止を元に戻しました</string>
     <string name="observer_freeze_undone_text">%1$s を停止したら %2$s が動かなくなったので、元に戻しました。</string>
+    <string name="observer_wifi_restarted_title">Wi-Fiを入れ直しました</string>
+    <string name="observer_wifi_restarted_text">テレビが%1$s分間Wi-Fiなしでした。オフにしてオンにしたら戻りました。</string>
+    <string name="observer_tv_restarted_title">テレビを再起動しました</string>
+    <string name="observer_tv_restarted_text">Wi-Fiが%1$s分間切れ、入れ直しても戻らなかったので、テレビを再起動しました。</string>
 </resources>

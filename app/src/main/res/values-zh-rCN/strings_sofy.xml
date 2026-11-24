@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">只剩 %1$s MB。保存可能会失败。</string>
     <string name="observer_freeze_undone_title">我撤销了一次冻结</string>
     <string name="observer_freeze_undone_text">%1$s 被冻结后 %2$s 无法使用，所以我把它解冻了。</string>
+    <string name="observer_wifi_restarted_title">我重启了 Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">电视断开 Wi-Fi %1$s 分钟。我把它关掉再打开，它恢复了。</string>
+    <string name="observer_tv_restarted_title">我重启了电视</string>
+    <string name="observer_tv_restarted_text">Wi-Fi 断开了 %1$s 分钟，重新打开也不行，所以我重启了电视。</string>
 </resources>

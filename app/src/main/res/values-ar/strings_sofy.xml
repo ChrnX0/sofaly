@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">تبقّى %1$s ميغابايت فقط. قد يفشل الحفظ.</string>
     <string name="observer_freeze_undone_title">ألغيت تجميدًا</string>
     <string name="observer_freeze_undone_text">كان %1$s مجمّدًا وتوقف %2$s عن العمل، فألغيت التجميد.</string>
+    <string name="observer_wifi_restarted_title">أعدت تشغيل الواي فاي</string>
+    <string name="observer_wifi_restarted_text">بقي التلفاز %1$s دقيقة بلا واي فاي. أطفأته وشغّلته فعاد.</string>
+    <string name="observer_tv_restarted_title">أعدت تشغيل التلفاز</string>
+    <string name="observer_tv_restarted_text">غاب الواي فاي %1$s دقيقة ولم تكفِ إعادة تشغيله، فأعدت تشغيل التلفاز.</string>
 </resources>

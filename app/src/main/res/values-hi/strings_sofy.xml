@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">सिर्फ़ %1$s MB बचा है। सेव करना विफल हो सकता है।</string>
     <string name="observer_freeze_undone_title">मैंने फ़्रीज़ हटा दिया</string>
     <string name="observer_freeze_undone_text">%1$s फ़्रीज़ था और %2$s काम करना बंद कर गया, इसलिए मैंने उसे अनफ़्रीज़ कर दिया।</string>
+    <string name="observer_wifi_restarted_title">मैंने वाई-फ़ाई फिर से चालू किया</string>
+    <string name="observer_wifi_restarted_text">टीवी %1$s मिनट वाई-फ़ाई के बिना रहा। मैंने उसे बंद करके चालू किया और वह लौट आया।</string>
+    <string name="observer_tv_restarted_title">मैंने टीवी फिर से चालू किया</string>
+    <string name="observer_tv_restarted_text">वाई-फ़ाई %1$s मिनट गायब रहा और बंद-चालू करना काफ़ी नहीं था, इसलिए मैंने टीवी फिर से चालू किया।</string>
 </resources>

@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Hanya tersisa %1$s MB. Penyimpanan bisa gagal.</string>
     <string name="observer_freeze_undone_title">Saya membatalkan pembekuan</string>
     <string name="observer_freeze_undone_text">%1$s dibekukan dan %2$s berhenti bekerja, jadi saya mencairkannya.</string>
+    <string name="observer_wifi_restarted_title">Saya menyalakan ulang Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">TV tanpa Wi-Fi selama %1$s menit. Saya mematikan dan menyalakannya, dan Wi-Fi kembali.</string>
+    <string name="observer_tv_restarted_title">Saya memulai ulang TV</string>
+    <string name="observer_tv_restarted_text">Wi-Fi hilang %1$s menit dan menyalakan ulang tidak cukup, jadi saya memulai ulang TV.</string>
 </resources>
