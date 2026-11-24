@@ -114,6 +114,7 @@ internal fun PainelWeb.conferirPin(req: Requisicao, ip: String, acao: String): R
         if (espera > 0) return erro(429, "muitas tentativas erradas; espere ${(espera + 999) / 1000} s") { put("esperarSeg", (espera + 999) / 1000) }
         if (PainelArmazem.conferirPin(app, pin)) { ctl.registrarSucesso(); return null }
         PainelArmazem.registrar(app, ip, acao, "PIN errado")
+        runCatching { br.paulo.tvlauncher.observer.SofyGuardTv.pinWrong(app) }   // Sofy, ideia 47
         return when (val r = ctl.registrarFalha()) {
             is ControleTentativas.Resultado.Errou -> erro(401, "PIN errado") { put("restantes", r.restantes) }
             is ControleTentativas.Resultado.Bloqueou -> erro(429, "PIN errado; bloqueado por ${r.ms / 60_000} min") { put("esperarSeg", r.ms / 1000) }
@@ -146,6 +147,7 @@ internal fun PainelWeb.conferirSenhaDav(cabecalho: String?, ip: String): PainelD
         }
         senhasDav.lembrarErrado(chave)
         PainelArmazem.registrar(app, ip, "unidade de rede", "PIN errado")
+        runCatching { br.paulo.tvlauncher.observer.SofyGuardTv.pinWrong(app) }   // Sofy, ideia 47
         return when (val r = ctl.registrarFalha()) {
             is ControleTentativas.Resultado.Errou -> PainelDav.Recusa(401, "PIN errado")
             is ControleTentativas.Resultado.Bloqueou -> PainelDav.Recusa(429, "PIN errado; bloqueado por ${r.ms / 60_000} min",

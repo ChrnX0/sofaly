@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">In %1$s mattine questa settimana la TV non ha risposto alla sveglia. Verifica che HDMI-CEC (SimpLink su LG) sia attivo nelle impostazioni della TV.</string>
     <string name="observer_home_hub_failing_title">Home Assistant non risponde</string>
     <string name="observer_home_hub_failing_text">%1$s comandi a Home Assistant sono falliti nell’ultimo giorno. Verifica che sia acceso e raggiungibile.</string>
+    <string name="observer_key_stuck_title">Un tasto del telecomando è bloccato</string>
+    <string name="observer_key_stuck_text">Il tasto %1$s è rimasto premuto per oltre 7 secondi. Forse il telecomando è sotto un cuscino.</string>
+    <string name="observer_app_powerful_title">Nuova app con molto potere</string>
+    <string name="observer_app_powerful_text">%1$s è stata appena installata e chiede %2$s permessi importanti. Se non l’hai installata tu, rimuovila da Impostazioni > App.</string>
+    <string name="observer_system_update_broke_title">Un aggiornamento Google ha rotto qualcosa</string>
+    <string name="observer_system_update_broke_text">%1$s funzioni hanno smesso di andare subito dopo un aggiornamento Google (ricerca vocale, store, Cast…). I dettagli sono nel diario della TV.</string>
+    <string name="observer_panel_pin_wrong_title">PIN errato nel pannello web</string>
+    <string name="observer_panel_pin_wrong_text">%1$s PIN errati nell’ultima ora. Se non sei stato tu, cambia il PIN del pannello.</string>
+    <string name="observer_disk_filling_title">La memoria si sta riempiendo</string>
+    <string name="observer_disk_filling_text">Di questo passo la TV resta senza spazio in circa %1$s giorni. Elimina vecchie registrazioni o la cache delle app.</string>
 </resources>

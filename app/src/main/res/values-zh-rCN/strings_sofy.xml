@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">本周有 %1$s 个早上电视没有响应闹钟。请在电视设置中确认 HDMI-CEC（LG 为 SimpLink）已开启。</string>
     <string name="observer_home_hub_failing_title">Home Assistant 出现故障</string>
     <string name="observer_home_hub_failing_text">过去一天发给 Home Assistant 的 %1$s 条指令失败。请确认它已开启且可以连接。</string>
+    <string name="observer_key_stuck_title">遥控器按键卡住了</string>
+    <string name="observer_key_stuck_text">%1$s 键被按住超过 7 秒。遥控器可能压在靠垫下面。</string>
+    <string name="observer_app_powerful_title">权限很大的新应用</string>
+    <string name="observer_app_powerful_text">%1$s 刚刚安装，申请了 %2$s 项敏感权限。如果不是你安装的，请在 设置 > 应用 中移除。</string>
+    <string name="observer_system_update_broke_title">Google 更新弄坏了某些功能</string>
+    <string name="observer_system_update_broke_text">Google 更新后有 %1$s 项功能立即停止工作（语音搜索、商店、Cast…）。详情见电视日记。</string>
+    <string name="observer_panel_pin_wrong_title">网页面板 PIN 输错</string>
+    <string name="observer_panel_pin_wrong_text">过去一小时内 PIN 输错 %1$s 次。如果不是你，请更改面板 PIN。</string>
+    <string name="observer_disk_filling_title">存储空间快满了</string>
+    <string name="observer_disk_filling_text">照这个速度，大约 %1$s 天后空间会用完。请删除旧录像或清理应用缓存。</string>
 </resources>

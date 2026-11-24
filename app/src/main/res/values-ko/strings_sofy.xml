@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">이번 주 %1$s번의 아침에 TV가 알람에 반응하지 않았어요. TV 설정에서 HDMI-CEC(LG는 SimpLink)가 켜져 있는지 확인하세요.</string>
     <string name="observer_home_hub_failing_title">Home Assistant가 실패하고 있어요</string>
     <string name="observer_home_hub_failing_text">지난 하루 동안 Home Assistant 명령 %1$s개가 실패했어요. 켜져 있고 연결되는지 확인하세요.</string>
+    <string name="observer_key_stuck_title">리모컨 버튼이 눌린 채로 있어요</string>
+    <string name="observer_key_stuck_text">%1$s 버튼이 7초 넘게 눌려 있었어요. 리모컨이 쿠션 밑에 있을 수 있어요.</string>
+    <string name="observer_app_powerful_title">권한이 많은 새 앱</string>
+    <string name="observer_app_powerful_text">%1$s 앱이 방금 설치되었고 강한 권한 %2$s개를 요청해요. 직접 설치한 게 아니라면 설정 > 앱에서 삭제하세요.</string>
+    <string name="observer_system_update_broke_title">Google 업데이트로 문제가 생겼어요</string>
+    <string name="observer_system_update_broke_text">Google 업데이트 직후 %1$s개 기능이 멈췄어요(음성 검색, 스토어, Cast 등). 자세한 내용은 TV 일지에 있어요.</string>
+    <string name="observer_panel_pin_wrong_title">웹 패널에서 PIN 오류</string>
+    <string name="observer_panel_pin_wrong_text">지난 1시간 동안 PIN이 %1$s번 틀렸어요. 본인이 아니라면 패널 PIN을 바꾸세요.</string>
+    <string name="observer_disk_filling_title">저장 공간이 차고 있어요</string>
+    <string name="observer_disk_filling_text">이 속도라면 약 %1$s일 뒤 공간이 부족해져요. 오래된 녹화나 앱 캐시를 지우세요.</string>
 </resources>

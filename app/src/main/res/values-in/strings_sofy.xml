@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">Pada %1$s pagi minggu ini TV tidak merespons alarm. Pastikan HDMI-CEC (SimpLink di LG) aktif di setelan TV.</string>
     <string name="observer_home_hub_failing_title">Home Assistant gagal</string>
     <string name="observer_home_hub_failing_text">%1$s perintah ke Home Assistant gagal dalam sehari terakhir. Pastikan menyala dan bisa dijangkau.</string>
+    <string name="observer_key_stuck_title">Tombol remote macet</string>
+    <string name="observer_key_stuck_text">Tombol %1$s ditekan lebih dari 7 detik. Mungkin remote tertindih bantal.</string>
+    <string name="observer_app_powerful_title">Aplikasi baru dengan banyak kuasa</string>
+    <string name="observer_app_powerful_text">%1$s baru saja dipasang dan meminta %2$s izin kuat. Jika bukan Anda yang memasang, hapus di Setelan > Aplikasi.</string>
+    <string name="observer_system_update_broke_title">Pembaruan Google merusak sesuatu</string>
+    <string name="observer_system_update_broke_text">%1$s hal berhenti bekerja tepat setelah pembaruan Google (penelusuran suara, toko, Cast…). Detailnya ada di buku harian TV.</string>
+    <string name="observer_panel_pin_wrong_title">PIN salah di panel web</string>
+    <string name="observer_panel_pin_wrong_text">%1$s PIN salah dalam satu jam terakhir. Jika bukan Anda, ganti PIN panel.</string>
+    <string name="observer_disk_filling_title">Penyimpanan hampir penuh</string>
+    <string name="observer_disk_filling_text">Dengan laju ini ruang akan habis dalam sekitar %1$s hari. Hapus rekaman lama atau cache aplikasi.</string>
 </resources>

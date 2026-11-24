@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">%1$s aamuna tällä viikolla TV ei vastannut herätykseen. Tarkista, että HDMI-CEC (LG:ssä SimpLink) on päällä TV:n asetuksissa.</string>
     <string name="observer_home_hub_failing_title">Home Assistant ei toimi</string>
     <string name="observer_home_hub_failing_text">%1$s komentoa Home Assistantille epäonnistui viime vuorokautena. Tarkista, että se on päällä ja tavoitettavissa.</string>
+    <string name="observer_key_stuck_title">Kaukosäätimen näppäin on jumissa</string>
+    <string name="observer_key_stuck_text">Näppäintä %1$s painettiin yli 7 sekuntia. Kaukosäädin voi olla tyynyn alla.</string>
+    <string name="observer_app_powerful_title">Uusi sovellus, jolla on paljon valtaa</string>
+    <string name="observer_app_powerful_text">%1$s asennettiin juuri ja se pyytää %2$s vahvaa lupaa. Jos et asentanut sitä, poista se kohdassa Asetukset > Sovellukset.</string>
+    <string name="observer_system_update_broke_title">Googlen päivitys rikkoi jotain</string>
+    <string name="observer_system_update_broke_text">%1$s asiaa lakkasi toimimasta heti Googlen päivityksen jälkeen (puhehaku, kauppa, Cast…). Tiedot ovat TV:n päiväkirjassa.</string>
+    <string name="observer_panel_pin_wrong_title">Väärä PIN verkkopaneelissa</string>
+    <string name="observer_panel_pin_wrong_text">%1$s väärää PIN-koodia viimeisen tunnin aikana. Jos se et ollut sinä, vaihda paneelin PIN.</string>
+    <string name="observer_disk_filling_title">Tallennustila täyttyy</string>
+    <string name="observer_disk_filling_text">Tällä tahdilla tila loppuu noin %1$s päivässä. Poista vanhoja tallenteita tai sovellusten välimuistia.</string>
 </resources>

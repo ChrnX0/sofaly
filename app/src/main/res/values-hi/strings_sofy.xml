@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">इस हफ़्ते %1$s सुबह टीवी ने अलार्म का जवाब नहीं दिया। टीवी की सेटिंग में HDMI-CEC (LG में SimpLink) चालू है, जाँचें।</string>
     <string name="observer_home_hub_failing_title">Home Assistant विफल हो रहा है</string>
     <string name="observer_home_hub_failing_text">पिछले दिन Home Assistant को भेजे %1$s आदेश विफल रहे। जाँचें कि वह चालू है और पहुँच में है।</string>
+    <string name="observer_key_stuck_title">रिमोट का एक बटन अटक गया है</string>
+    <string name="observer_key_stuck_text">%1$s बटन 7 सेकंड से ज़्यादा दबा रहा। रिमोट शायद किसी तकिये के नीचे है।</string>
+    <string name="observer_app_powerful_title">बहुत ताक़त वाला नया ऐप</string>
+    <string name="observer_app_powerful_text">%1$s अभी इंस्टॉल हुआ है और %2$s मज़बूत अनुमतियाँ माँगता है। अगर आपने इंस्टॉल नहीं किया, तो सेटिंग > ऐप में हटा दें।</string>
+    <string name="observer_system_update_broke_title">Google अपडेट ने कुछ बिगाड़ दिया</string>
+    <string name="observer_system_update_broke_text">Google अपडेट के ठीक बाद %1$s चीज़ें काम करना बंद कर गईं (वॉइस सर्च, स्टोर, Cast…)। विवरण टीवी की डायरी में है।</string>
+    <string name="observer_panel_pin_wrong_title">वेब पैनल में गलत PIN</string>
+    <string name="observer_panel_pin_wrong_text">पिछले घंटे में %1$s गलत PIN डाले गए। अगर यह आप नहीं थे, तो पैनल का PIN बदलें।</string>
+    <string name="observer_disk_filling_title">स्टोरेज भर रहा है</string>
+    <string name="observer_disk_filling_text">इसी रफ़्तार से लगभग %1$s दिनों में जगह खत्म हो जाएगी। पुरानी रिकॉर्डिंग या ऐप का कैश मिटाएँ।</string>
 </resources>

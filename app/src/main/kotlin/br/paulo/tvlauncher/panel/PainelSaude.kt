@@ -110,6 +110,13 @@ object PainelSaude {
         val avisado = runCatching { LocalDate.parse(p.getString("avisado", "")) }.getOrNull()
         if (avisado != null && avisado > hoje.minusDays(7)) return
         p.edit().putString("avisado", hoje.toString()).apply()
+        // Disco previsto (Sofy, ideia 45): a Ilha e o barramento também ficam sabendo, não só o celular.
+        runCatching {
+            br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.SOFY, "disk_filling", ok = false, detail = "$dias dias")
+            br.paulo.tvlauncher.observer.ObserverTv.enqueueNote(app, br.paulo.tvlauncher.observer.ObserverCore.sofyNote(
+                br.paulo.tvlauncher.observer.ObserverCore.Kind.DISK_FILLING, System.currentTimeMillis(),
+                br.paulo.tvlauncher.observer.ObserverCore.Step.SUGGESTS, listOf(dias.toString())))
+        }
         Avisos.enviar(app, Avisos.Tipo.ARMAZENAMENTO, app.getString(R.string.rd_disco_titulo),
             app.getString(R.string.rd_disco_texto, dias, s.availableBytes / (1L shl 20)))
     }

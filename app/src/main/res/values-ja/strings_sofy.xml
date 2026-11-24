@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">今週%1$s回の朝、テレビがアラームに反応しませんでした。テレビの設定でHDMI-CEC（LGはSimpLink）がオンか確認してください。</string>
     <string name="observer_home_hub_failing_title">Home Assistantが失敗しています</string>
     <string name="observer_home_hub_failing_text">この1日でHome Assistantへの命令が%1$s回失敗しました。電源が入っていて接続できるか確認してください。</string>
+    <string name="observer_key_stuck_title">リモコンのボタンが押されたままです</string>
+    <string name="observer_key_stuck_text">%1$s ボタンが7秒以上押されたままでした。リモコンがクッションの下にあるかもしれません。</string>
+    <string name="observer_app_powerful_title">強い権限をもつ新しいアプリ</string>
+    <string name="observer_app_powerful_text">%1$s がインストールされ、強い権限を%2$s個求めています。心当たりがなければ、設定 > アプリから削除してください。</string>
+    <string name="observer_system_update_broke_title">Googleのアップデートで不具合が出ました</string>
+    <string name="observer_system_update_broke_text">Googleのアップデート直後に%1$s個の機能が動かなくなりました（音声検索、ストア、Castなど）。詳しくはテレビの日記にあります。</string>
+    <string name="observer_panel_pin_wrong_title">Webパネルで間違ったPIN</string>
+    <string name="observer_panel_pin_wrong_text">この1時間に間違ったPINが%1$s回入力されました。心当たりがなければパネルのPINを変えてください。</string>
+    <string name="observer_disk_filling_title">ストレージが埋まりつつあります</string>
+    <string name="observer_disk_filling_text">このペースだと約%1$s日で空きがなくなります。古い録画やアプリのキャッシュを消してください。</string>
 </resources>

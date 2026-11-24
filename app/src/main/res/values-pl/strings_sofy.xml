@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">Przez %1$s poranków w tym tygodniu telewizor nie odpowiedział na budzik. Sprawdź, czy HDMI-CEC (SimpLink w LG) jest włączone w ustawieniach telewizora.</string>
     <string name="observer_home_hub_failing_title">Home Assistant zawodzi</string>
     <string name="observer_home_hub_failing_text">%1$s poleceń do Home Assistant nie powiodło się w ostatniej dobie. Sprawdź, czy jest włączony i dostępny.</string>
+    <string name="observer_key_stuck_title">Przycisk pilota się zaciął</string>
+    <string name="observer_key_stuck_text">Przycisk %1$s był wciśnięty dłużej niż 7 sekund. Pilot może leżeć pod poduszką.</string>
+    <string name="observer_app_powerful_title">Nowa aplikacja z dużą władzą</string>
+    <string name="observer_app_powerful_text">%1$s właśnie zainstalowano i prosi o %2$s silnych uprawnień. Jeśli to nie Ty, usuń ją w Ustawienia > Aplikacje.</string>
+    <string name="observer_system_update_broke_title">Aktualizacja Google coś zepsuła</string>
+    <string name="observer_system_update_broke_text">%1$s rzeczy przestało działać zaraz po aktualizacji Google (wyszukiwanie głosowe, sklep, Cast…). Szczegóły są w dzienniku telewizora.</string>
+    <string name="observer_panel_pin_wrong_title">Błędny PIN w panelu www</string>
+    <string name="observer_panel_pin_wrong_text">%1$s błędnych PIN-ów w ostatniej godzinie. Jeśli to nie Ty, zmień PIN panelu.</string>
+    <string name="observer_disk_filling_title">Pamięć się zapełnia</string>
+    <string name="observer_disk_filling_text">W tym tempie miejsca zabraknie za około %1$s dni. Usuń stare nagrania lub pamięć podręczną aplikacji.</string>
 </resources>

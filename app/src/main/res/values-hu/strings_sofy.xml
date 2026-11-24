@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">Ezen a héten %1$s reggel nem reagált a tévé az ébresztőre. Ellenőrizd, hogy a HDMI-CEC (LG-n SimpLink) be van-e kapcsolva a tévé beállításaiban.</string>
     <string name="observer_home_hub_failing_title">A Home Assistant hibázik</string>
     <string name="observer_home_hub_failing_text">%1$s parancs a Home Assistant felé sikertelen volt az elmúlt napban. Ellenőrizd, hogy be van-e kapcsolva és elérhető-e.</string>
+    <string name="observer_key_stuck_title">Beragadt egy gomb a távirányítón</string>
+    <string name="observer_key_stuck_text">A(z) %1$s gombot több mint 7 másodpercig nyomták. Lehet, hogy a távirányító egy párna alatt van.</string>
+    <string name="observer_app_powerful_title">Új alkalmazás sok jogosultsággal</string>
+    <string name="observer_app_powerful_text">A(z) %1$s most települt, és %2$s erős engedélyt kér. Ha nem te telepítetted, töröld a Beállítások > Alkalmazások menüben.</string>
+    <string name="observer_system_update_broke_title">Egy Google-frissítés elrontott valamit</string>
+    <string name="observer_system_update_broke_text">%1$s dolog leállt közvetlenül egy Google-frissítés után (hangalapú keresés, áruház, Cast…). A részletek a tévé naplójában vannak.</string>
+    <string name="observer_panel_pin_wrong_title">Hibás PIN a webpanelen</string>
+    <string name="observer_panel_pin_wrong_text">%1$s hibás PIN az elmúlt órában. Ha nem te voltál, változtasd meg a panel PIN-kódját.</string>
+    <string name="observer_disk_filling_title">Telik a tárhely</string>
+    <string name="observer_disk_filling_text">Ilyen ütemben kb. %1$s nap múlva elfogy a hely. Törölj régi felvételeket vagy az alkalmazások gyorsítótárát.</string>
 </resources>

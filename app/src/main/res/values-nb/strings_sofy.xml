@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">%1$s morgener denne uken svarte ikke TV-en på alarmen. Sjekk at HDMI-CEC (SimpLink på LG) er på i TV-innstillingene.</string>
     <string name="observer_home_hub_failing_title">Home Assistant feiler</string>
     <string name="observer_home_hub_failing_text">%1$s kommandoer til Home Assistant feilet siste døgn. Sjekk at den er på og kan nås.</string>
+    <string name="observer_key_stuck_title">En knapp på fjernkontrollen sitter fast</string>
+    <string name="observer_key_stuck_text">Knappen %1$s ble holdt inne i over 7 sekunder. Fjernkontrollen ligger kanskje under en pute.</string>
+    <string name="observer_app_powerful_title">Ny app med mye makt</string>
+    <string name="observer_app_powerful_text">%1$s ble nettopp installert og ber om %2$s sterke tillatelser. Hvis det ikke var deg, fjern den under Innstillinger > Apper.</string>
+    <string name="observer_system_update_broke_title">En Google-oppdatering ødela noe</string>
+    <string name="observer_system_update_broke_text">%1$s ting sluttet å virke rett etter en Google-oppdatering (talesøk, butikk, Cast…). Detaljene står i TV-dagboken.</string>
+    <string name="observer_panel_pin_wrong_title">Feil PIN i webpanelet</string>
+    <string name="observer_panel_pin_wrong_text">%1$s feil PIN-koder siste time. Hvis det ikke var deg, bytt PIN-koden til panelet.</string>
+    <string name="observer_disk_filling_title">Lagringen blir full</string>
+    <string name="observer_disk_filling_text">I dette tempoet går TV-en tom for plass om omtrent %1$s dager. Slett gamle opptak eller appenes buffer.</string>
 </resources>

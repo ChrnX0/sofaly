@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">Bu hafta %1$s sabah TV alarma yanıt vermedi. TV ayarlarında HDMI-CEC\'in (LG\'de SimpLink) açık olduğunu kontrol et.</string>
     <string name="observer_home_hub_failing_title">Home Assistant hata veriyor</string>
     <string name="observer_home_hub_failing_text">Son bir günde Home Assistant\'a giden %1$s komut başarısız oldu. Açık ve erişilebilir olduğunu kontrol et.</string>
+    <string name="observer_key_stuck_title">Kumandada bir tuş takıldı</string>
+    <string name="observer_key_stuck_text">%1$s tuşu 7 saniyeden uzun basılı kaldı. Kumanda bir yastığın altında olabilir.</string>
+    <string name="observer_app_powerful_title">Çok yetkili yeni uygulama</string>
+    <string name="observer_app_powerful_text">%1$s az önce yüklendi ve %2$s güçlü izin istiyor. Sen yüklemediysen Ayarlar > Uygulamalar\'dan kaldır.</string>
+    <string name="observer_system_update_broke_title">Bir Google güncellemesi bir şeyi bozdu</string>
+    <string name="observer_system_update_broke_text">Bir Google güncellemesinden hemen sonra %1$s şey çalışmayı bıraktı (sesli arama, mağaza, Cast…). Ayrıntılar TV günlüğünde.</string>
+    <string name="observer_panel_pin_wrong_title">Web panelinde yanlış PIN</string>
+    <string name="observer_panel_pin_wrong_text">Son bir saatte %1$s yanlış PIN girildi. Sen değilsen panel PIN\'ini değiştir.</string>
+    <string name="observer_disk_filling_title">Depolama doluyor</string>
+    <string name="observer_disk_filling_text">Bu hızla yer yaklaşık %1$s gün içinde bitecek. Eski kayıtları veya uygulama önbelleğini sil.</string>
 </resources>

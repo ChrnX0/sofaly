@@ -617,6 +617,7 @@ object ObserverTv {
         p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
         runCatching { versionGuard(app, p, now) }.onFailure { Log.w(TAG, "guarda da versão: $it") }
         runCatching { SofyHouseTv.daily(app, now) }.onFailure { Log.w(TAG, "casa: $it") }   // ideias 27, 29 e 31
+        runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
     }
 
     /**
@@ -725,6 +726,7 @@ object ObserverTv {
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("habits", runCatching { SofyHabitsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("today", runCatching { SofyAnswersTv.todayJson(ctx) }.getOrNull() ?: org.json.JSONArray())
             .put("version_guard", runCatching { JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("version_guard", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)

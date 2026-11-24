@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.AudioManager
 import android.util.Log
 import br.paulo.tvlauncher.AvisoTv
+import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.family.Diario
 import java.util.Calendar
 import org.json.JSONObject
@@ -143,6 +144,14 @@ object SofyTv {
             val args = if (a == null) emptyList() else List(a.length()) { a.optString(it) }
             texto(c, n.optString("titleKey"), args)?.let { n.put("title", it) }
             texto(c, n.optString("textKey"), args)?.let { n.put("text", it) }
+            SofyAnswersTv.evidence(c, n.optString("kind"))?.let { n.put("evidence", it) }   // ideia 50: como ela sabe
+        }
+        // Ideia 49: o que ela fez hoje, na mesma língua.
+        report.optJSONArray("today")?.let { a ->
+            val items = List(a.length()) { a.optJSONObject(it) }.mapNotNull { o ->
+                SofyAnswers.Today.entries.firstOrNull { it.code == o?.optString("code") }?.let { it to o!!.optInt("count") } }
+            report.put("today_title", c.getString(R.string.sofy_today_title))
+            report.put("today_lines", org.json.JSONArray(SofyAnswersTv.todayLines(c, items)))
         }
     }
 

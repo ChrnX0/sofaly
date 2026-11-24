@@ -40,4 +40,14 @@
     <string name="observer_tv_wake_failing_text">În %1$s dimineți săptămâna asta televizorul nu a răspuns la alarmă. Verifică dacă HDMI-CEC (SimpLink la LG) e pornit în setările televizorului.</string>
     <string name="observer_home_hub_failing_title">Home Assistant dă erori</string>
     <string name="observer_home_hub_failing_text">%1$s comenzi către Home Assistant au eșuat în ultima zi. Verifică dacă e pornit și accesibil.</string>
+    <string name="observer_key_stuck_title">O tastă a telecomenzii s-a blocat</string>
+    <string name="observer_key_stuck_text">Tasta %1$s a fost apăsată peste 7 secunde. Poate telecomanda e sub o pernă.</string>
+    <string name="observer_app_powerful_title">Aplicație nouă cu multă putere</string>
+    <string name="observer_app_powerful_text">%1$s tocmai a fost instalată și cere %2$s permisiuni puternice. Dacă nu ai instalat-o tu, elimin-o din Setări > Aplicații.</string>
+    <string name="observer_system_update_broke_title">O actualizare Google a stricat ceva</string>
+    <string name="observer_system_update_broke_text">%1$s lucruri au încetat să meargă imediat după o actualizare Google (căutare vocală, magazin, Cast…). Detaliile sunt în jurnalul televizorului.</string>
+    <string name="observer_panel_pin_wrong_title">PIN greșit în panoul web</string>
+    <string name="observer_panel_pin_wrong_text">%1$s PIN-uri greșite în ultima oră. Dacă nu ai fost tu, schimbă PIN-ul panoului.</string>
+    <string name="observer_disk_filling_title">Spațiul de stocare se umple</string>
+    <string name="observer_disk_filling_text">În ritmul ăsta spațiul se termină în aproximativ %1$s zile. Șterge înregistrări vechi sau memoria cache a aplicațiilor.</string>
 </resources>

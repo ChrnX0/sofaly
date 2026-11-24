@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">Op %1$s ochtenden deze week reageerde de tv niet op de wekker. Controleer of HDMI-CEC (SimpLink bij LG) aanstaat in de tv-instellingen.</string>
     <string name="observer_home_hub_failing_title">Home Assistant faalt</string>
     <string name="observer_home_hub_failing_text">%1$s opdrachten aan Home Assistant mislukten het afgelopen etmaal. Controleer of hij aanstaat en bereikbaar is.</string>
+    <string name="observer_key_stuck_title">Een toets van de afstandsbediening hangt</string>
+    <string name="observer_key_stuck_text">De toets %1$s werd langer dan 7 seconden ingedrukt. Misschien ligt de afstandsbediening onder een kussen.</string>
+    <string name="observer_app_powerful_title">Nieuwe app met veel macht</string>
+    <string name="observer_app_powerful_text">%1$s is net geïnstalleerd en vraagt %2$s sterke rechten. Heb jij hem niet geïnstalleerd? Verwijder hem via Instellingen > Apps.</string>
+    <string name="observer_system_update_broke_title">Een Google-update heeft iets kapotgemaakt</string>
+    <string name="observer_system_update_broke_text">%1$s dingen werken niet meer sinds een Google-update (spraakzoeken, store, Cast…). De details staan in het tv-dagboek.</string>
+    <string name="observer_panel_pin_wrong_title">Verkeerde pincode in het webpaneel</string>
+    <string name="observer_panel_pin_wrong_text">%1$s verkeerde pincodes in het afgelopen uur. Was jij het niet? Wijzig dan de pincode van het paneel.</string>
+    <string name="observer_disk_filling_title">De opslag raakt vol</string>
+    <string name="observer_disk_filling_text">In dit tempo is de opslag over ongeveer %1$s dagen vol. Verwijder oude opnames of de cache van apps.</string>
 </resources>

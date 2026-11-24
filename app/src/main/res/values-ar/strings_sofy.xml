@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">في %1$s صباحات هذا الأسبوع لم يستجب التلفاز للمنبه. تأكد من تفعيل HDMI-CEC (SimpLink في LG) في إعدادات التلفاز.</string>
     <string name="observer_home_hub_failing_title">Home Assistant يتعطل</string>
     <string name="observer_home_hub_failing_text">فشلت %1$s أوامر إلى Home Assistant خلال اليوم الأخير. تأكد أنه يعمل ويمكن الوصول إليه.</string>
+    <string name="observer_key_stuck_title">زر في جهاز التحكم عالق</string>
+    <string name="observer_key_stuck_text">ظل الزر %1$s مضغوطًا أكثر من 7 ثوانٍ. ربما جهاز التحكم تحت وسادة.</string>
+    <string name="observer_app_powerful_title">تطبيق جديد بصلاحيات كثيرة</string>
+    <string name="observer_app_powerful_text">ثُبّت %1$s للتو ويطلب %2$s أذونات قوية. إن لم تثبّته أنت فأزِله من الإعدادات > التطبيقات.</string>
+    <string name="observer_system_update_broke_title">تحديث من Google أفسد شيئًا</string>
+    <string name="observer_system_update_broke_text">توقفت %1$s ميزات عن العمل بعد تحديث من Google مباشرة (البحث الصوتي، المتجر، Cast…). التفاصيل في مذكرات التلفاز.</string>
+    <string name="observer_panel_pin_wrong_title">رمز PIN خاطئ في لوحة الويب</string>
+    <string name="observer_panel_pin_wrong_text">%1$s محاولات PIN خاطئة في الساعة الأخيرة. إن لم تكن أنت فغيّر رمز PIN للوحة.</string>
+    <string name="observer_disk_filling_title">التخزين يمتلئ</string>
+    <string name="observer_disk_filling_text">بهذه الوتيرة ستنفد المساحة خلال نحو %1$s أيام. احذف التسجيلات القديمة أو ذاكرة التطبيقات المؤقتة.</string>
 </resources>

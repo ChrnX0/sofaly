@@ -40,4 +40,14 @@
     <string name="observer_tv_wake_failing_text">%1$s ранків цього тижня телевізор не відповів на будильник. Перевірте, що HDMI-CEC (SimpLink у LG) увімкнено в налаштуваннях телевізора.</string>
     <string name="observer_home_hub_failing_title">Home Assistant не відповідає</string>
     <string name="observer_home_hub_failing_text">%1$s команд для Home Assistant не спрацювали за останню добу. Перевірте, що він увімкнений і доступний.</string>
+    <string name="observer_key_stuck_title">Кнопка пульта залипла</string>
+    <string name="observer_key_stuck_text">Кнопку %1$s тримали понад 7 секунд. Можливо, пульт лежить під подушкою.</string>
+    <string name="observer_app_powerful_title">Новий застосунок з великими правами</string>
+    <string name="observer_app_powerful_text">%1$s щойно встановлено, і він просить %2$s серйозних дозволів. Якщо це були не ви, видаліть його в Налаштування > Застосунки.</string>
+    <string name="observer_system_update_broke_title">Оновлення Google щось зламало</string>
+    <string name="observer_system_update_broke_text">%1$s функцій перестали працювати одразу після оновлення Google (голосовий пошук, магазин, Cast…). Подробиці в щоденнику телевізора.</string>
+    <string name="observer_panel_pin_wrong_title">Неправильний PIN у веб-панелі</string>
+    <string name="observer_panel_pin_wrong_text">%1$s неправильних PIN за останню годину. Якщо це були не ви, змініть PIN панелі.</string>
+    <string name="observer_disk_filling_title">Пам’ять заповнюється</string>
+    <string name="observer_disk_filling_text">У такому темпі місце закінчиться приблизно за %1$s дн. Видаліть старі записи або кеш застосунків.</string>
 </resources>

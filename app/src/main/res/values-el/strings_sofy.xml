@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">Σε %1$s πρωινά αυτή την εβδομάδα η τηλεόραση δεν απάντησε στο ξυπνητήρι. Έλεγξε ότι το HDMI-CEC (SimpLink στην LG) είναι ενεργό στις ρυθμίσεις της.</string>
     <string name="observer_home_hub_failing_title">Το Home Assistant αποτυγχάνει</string>
     <string name="observer_home_hub_failing_text">%1$s εντολές προς το Home Assistant απέτυχαν την τελευταία μέρα. Έλεγξε ότι είναι αναμμένο και προσβάσιμο.</string>
+    <string name="observer_key_stuck_title">Ένα κουμπί του τηλεχειριστηρίου κόλλησε</string>
+    <string name="observer_key_stuck_text">Το κουμπί %1$s έμεινε πατημένο πάνω από 7 δευτερόλεπτα. Ίσως το τηλεχειριστήριο είναι κάτω από ένα μαξιλάρι.</string>
+    <string name="observer_app_powerful_title">Νέα εφαρμογή με πολλή δύναμη</string>
+    <string name="observer_app_powerful_text">Η %1$s μόλις εγκαταστάθηκε και ζητά %2$s ισχυρές άδειες. Αν δεν την εγκατέστησες εσύ, αφαίρεσέ την από Ρυθμίσεις > Εφαρμογές.</string>
+    <string name="observer_system_update_broke_title">Μια ενημέρωση της Google χάλασε κάτι</string>
+    <string name="observer_system_update_broke_text">%1$s λειτουργίες σταμάτησαν αμέσως μετά από ενημέρωση της Google (φωνητική αναζήτηση, κατάστημα, Cast…). Λεπτομέρειες στο ημερολόγιο της τηλεόρασης.</string>
+    <string name="observer_panel_pin_wrong_title">Λάθος PIN στο web panel</string>
+    <string name="observer_panel_pin_wrong_text">%1$s λάθος PIN την τελευταία ώρα. Αν δεν ήσουν εσύ, άλλαξε το PIN του panel.</string>
+    <string name="observer_disk_filling_title">Ο χώρος αποθήκευσης γεμίζει</string>
+    <string name="observer_disk_filling_text">Με αυτόν τον ρυθμό ο χώρος τελειώνει σε περίπου %1$s ημέρες. Σβήσε παλιές εγγραφές ή την προσωρινή μνήμη των εφαρμογών.</string>
 </resources>

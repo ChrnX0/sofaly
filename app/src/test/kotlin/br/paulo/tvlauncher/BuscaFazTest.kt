@@ -69,4 +69,17 @@ class BuscaFazTest {
         assertNull(BuscaUnica.pontosNorm("sbt", BuscaUnica.palavras("sic"), tolerante = true))     // palavra curta tem de vir certa
         assertEquals(4, BuscaUnica.pontosNorm("globoplay", BuscaUnica.palavras("glbo"), tolerante = true))   // começo com uma letra trocada
     }
+
+    // Sofy, ideias 44 e 49: o problema em palavras vira checagem; "o que você fez hoje".
+    @Test fun problemaEmPalavras() {
+        fun l(f: String) = BuscaFaz.entender(f, apps)?.local
+        assertEquals(BuscaFaz.Local.PROBLEMA_INTERNET, l("a internet está lenta"))
+        assertEquals(BuscaFaz.Local.PROBLEMA_INTERNET, l("sem internet"))
+        assertEquals(BuscaFaz.Local.PROBLEMA_SOM, l("TV sem som"))
+        assertEquals(BuscaFaz.Local.PROBLEMA_SOM, l("não sai som"))
+        assertEquals(BuscaFaz.Local.PROBLEMA_LENTA, l("a tv está travando"))
+        assertEquals(BuscaFaz.Local.PROBLEMA_CONTROLE, l("controle não responde"))
+        assertEquals(BuscaFaz.Local.SOFY_HOJE, l("o que você fez hoje?"))
+        assertEquals(BuscaFaz.Local.WIFI_VISITA, l("wifi das visitas"))   // o de antes continua
+    }
 }

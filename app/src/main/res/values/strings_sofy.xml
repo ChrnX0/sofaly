@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">On %1$s mornings this week the TV didn’t answer the alarm. Check that HDMI-CEC (SimpLink on LG) is on in the TV settings.</string>
     <string name="observer_home_hub_failing_title">Home Assistant is failing</string>
     <string name="observer_home_hub_failing_text">%1$s commands to Home Assistant failed in the last day. Check that it is on and reachable.</string>
+    <string name="observer_key_stuck_title">A remote key is stuck</string>
+    <string name="observer_key_stuck_text">The %1$s key was held for over 7 seconds. The remote may be pressed under a cushion.</string>
+    <string name="observer_app_powerful_title">New app with a lot of power</string>
+    <string name="observer_app_powerful_text">%1$s was just installed and asks for %2$s strong permissions. If you didn’t install it, remove it in Settings > Apps.</string>
+    <string name="observer_system_update_broke_title">A Google update broke something</string>
+    <string name="observer_system_update_broke_text">%1$s things stopped working right after a Google update (voice search, store, Cast…). Details are in the TV diary.</string>
+    <string name="observer_panel_pin_wrong_title">Wrong PIN on the web panel</string>
+    <string name="observer_panel_pin_wrong_text">%1$s wrong PINs in the last hour. If it wasn’t you, change the panel PIN.</string>
+    <string name="observer_disk_filling_title">Storage is filling up</string>
+    <string name="observer_disk_filling_text">At this pace the TV runs out of space in about %1$s days. Delete old recordings or clear app caches.</string>
 </resources>

@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">%1$s rána tento týden televize na budík nereagovala. Zkontrolujte, že je v nastavení televize zapnuté HDMI-CEC (u LG SimpLink).</string>
     <string name="observer_home_hub_failing_title">Home Assistant selhává</string>
     <string name="observer_home_hub_failing_text">%1$s příkazů pro Home Assistant za poslední den selhalo. Zkontrolujte, že běží a je dostupný.</string>
+    <string name="observer_key_stuck_title">Tlačítko ovladače se zaseklo</string>
+    <string name="observer_key_stuck_text">Tlačítko %1$s bylo stisknuté déle než 7 sekund. Ovladač možná leží pod polštářem.</string>
+    <string name="observer_app_powerful_title">Nová aplikace s velkou mocí</string>
+    <string name="observer_app_powerful_text">%1$s byla právě nainstalována a žádá %2$s silných oprávnění. Pokud jste ji neinstalovali vy, odeberte ji v Nastavení > Aplikace.</string>
+    <string name="observer_system_update_broke_title">Aktualizace Googlu něco rozbila</string>
+    <string name="observer_system_update_broke_text">%1$s věcí přestalo fungovat hned po aktualizaci Googlu (hlasové hledání, obchod, Cast…). Podrobnosti jsou v deníku televize.</string>
+    <string name="observer_panel_pin_wrong_title">Špatný PIN ve webovém panelu</string>
+    <string name="observer_panel_pin_wrong_text">%1$s špatných PINů za poslední hodinu. Pokud jste to nebyli vy, změňte PIN panelu.</string>
+    <string name="observer_disk_filling_title">Úložiště se plní</string>
+    <string name="observer_disk_filling_text">Tímto tempem dojde místo asi za %1$s dní. Smažte staré nahrávky nebo mezipaměť aplikací.</string>
 </resources>

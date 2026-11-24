@@ -39,4 +39,14 @@
     <string name="observer_tv_wake_failing_text">%1$s утра на этой неделе телевизор не ответил на будильник. Проверьте, что HDMI-CEC (SimpLink у LG) включён в настройках телевизора.</string>
     <string name="observer_home_hub_failing_title">Home Assistant не отвечает</string>
     <string name="observer_home_hub_failing_text">%1$s команд для Home Assistant не сработали за последние сутки. Проверьте, что он включён и доступен.</string>
+    <string name="observer_key_stuck_title">Кнопка пульта залипла</string>
+    <string name="observer_key_stuck_text">Кнопку %1$s держали дольше 7 секунд. Возможно, пульт лежит под подушкой.</string>
+    <string name="observer_app_powerful_title">Новое приложение с большими правами</string>
+    <string name="observer_app_powerful_text">%1$s только что установлено и просит %2$s серьёзных разрешений. Если это были не вы, удалите его в Настройки > Приложения.</string>
+    <string name="observer_system_update_broke_title">Обновление Google что-то сломало</string>
+    <string name="observer_system_update_broke_text">%1$s функций перестали работать сразу после обновления Google (голосовой поиск, магазин, Cast…). Подробности в дневнике телевизора.</string>
+    <string name="observer_panel_pin_wrong_title">Неверный PIN в веб-панели</string>
+    <string name="observer_panel_pin_wrong_text">%1$s неверных PIN за последний час. Если это были не вы, смените PIN панели.</string>
+    <string name="observer_disk_filling_title">Память заполняется</string>
+    <string name="observer_disk_filling_text">В таком темпе место закончится примерно через %1$s дн. Удалите старые записи или кэш приложений.</string>
 </resources>
