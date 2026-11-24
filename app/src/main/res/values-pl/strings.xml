@@ -73,7 +73,7 @@
     <string name="bv_perm">Włącz kalendarz, lokalizację i konta</string>
     <string name="bv_perm_det">Wydarzenia z kalendarza, pogoda dla Twojego miasta, inicjał konta na profilu</string>
     <string name="bv_teclas">Włącz usługę przycisków</string>
-    <string name="bv_teclas_det">Ułatwienia dostępu › Launcher: HOME zawsze wraca tutaj</string>
+    <string name="bv_teclas_det">Ułatwienia dostępu › Przyciski pilota: HOME zawsze wraca tutaj</string>
     <string name="bv_tudo">Zobacz wszystko, co możesz włączyć</string>
     <string name="lic_sem_arquivo">Nie znaleziono pliku licencji.</string>
     <string name="rot_ligar">Włącz telewizor</string>

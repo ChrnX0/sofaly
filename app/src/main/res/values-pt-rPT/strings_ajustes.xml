@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Fotos do protetor pelo telemóvel</string>
     <string name="qrd_fotos_det">Mostra um código: o telemóvel abre o painel já na página das fotos</string>
     <string name="qrd_mural">Mural da família pelo telemóvel</string>
-    <string name="qrd_mural_det">Lista de compras, recados fixos e aniversários no protetor</string>
+    <string name="qrd_mural_det">Lista de compras, recados fixos e aniversários</string>
     <string name="qrd_cenas">Cenas pelo telemóvel</string>
     <string name="qrd_cenas_det">Criar e testar cenas no painel web</string>
     <string name="qrd_casa">Home Assistant pelo telemóvel</string>

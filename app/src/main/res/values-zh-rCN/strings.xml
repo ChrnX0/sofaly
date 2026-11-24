@@ -73,7 +73,7 @@
     <string name="bv_perm">开启日历、位置和账号</string>
     <string name="bv_perm_det">日历日程、你所在城市的天气、个人资料上的账号首字母</string>
     <string name="bv_teclas">开启按键服务</string>
-    <string name="bv_teclas_det">无障碍 › 启动器：让主屏幕键始终回到这里</string>
+    <string name="bv_teclas_det">无障碍 › 遥控器按键：让主屏幕键始终回到这里</string>
     <string name="bv_tudo">查看所有可开启的功能</string>
     <string name="lic_sem_arquivo">找不到许可文件。</string>
     <string name="rot_ligar">打开电视</string>

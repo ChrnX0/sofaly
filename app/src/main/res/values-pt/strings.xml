@@ -77,7 +77,7 @@
     <string name="bv_perm">Ligar agenda, localização e contas</string>
     <string name="bv_perm_det">Eventos no calendário, clima da sua cidade, inicial da conta no perfil</string>
     <string name="bv_teclas">Ligar o serviço de teclas</string>
-    <string name="bv_teclas_det">Acessibilidade › Launcher: faz o botão HOME sempre voltar para cá</string>
+    <string name="bv_teclas_det">Acessibilidade › Teclas do controle: faz o botão HOME sempre voltar para cá</string>
     <string name="bv_tudo">Ver tudo o que dá para ligar</string>
     <!-- LicencasActivity.kt -->
     <string name="lic_sem_arquivo">Arquivo de licenças não encontrado.</string>

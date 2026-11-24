@@ -73,7 +73,7 @@
     <string name="bv_perm">تفعيل التقويم والموقع والحسابات</string>
     <string name="bv_perm_det">أحداث التقويم، طقس مدينتك، الحرف الأول من الحساب في الملف الشخصي</string>
     <string name="bv_teclas">تفعيل خدمة الأزرار</string>
-    <string name="bv_teclas_det">إمكانية الوصول › المشغّل: يجعل HOME يعود إلى هنا دائمًا</string>
+    <string name="bv_teclas_det">إمكانية الوصول › أزرار جهاز التحكم: يجعل HOME يعود إلى هنا دائمًا</string>
     <string name="bv_tudo">عرض كل ما يمكن تفعيله</string>
     <string name="lic_sem_arquivo">لم يُعثر على ملف التراخيص.</string>
     <string name="rot_ligar">تشغيل التلفزيون</string>

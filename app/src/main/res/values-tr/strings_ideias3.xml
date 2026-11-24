@@ -2,7 +2,7 @@
 <!-- Tradução (tr) de values/strings_ideias3.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
     <string name="extras_SONO_SUAVE">Yumuşak kapanma (uyku zamanlayıcısı ekranı karartır ve sesi kısar)</string>
-    <string name="extras_MURAL">Ekran koruyucuda aile panosu</string>
+    <string name="extras_MURAL">Hızlı panelde aile panosu</string>
     <string name="extras_PRESENCA">Herkes evden çıkınca kapat (UniFi yönlendirici)</string>
     <string name="extras_HOJE_NA_TV">Arama ekranında «Bugün TV’de»</string>
     <string name="extras_RETROSPECTIVA">Haftalık özet (pazar akşamı)</string>

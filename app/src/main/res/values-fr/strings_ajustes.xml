@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Photos de l’économiseur depuis le téléphone</string>
     <string name="qrd_fotos_det">Affiche un code : le téléphone ouvre le panneau directement sur la page des photos</string>
     <string name="qrd_mural">Tableau familial depuis le téléphone</string>
-    <string name="qrd_mural_det">Liste de courses, notes épinglées et anniversaires sur l’économiseur</string>
+    <string name="qrd_mural_det">Liste de courses, notes épinglées et anniversaires</string>
     <string name="qrd_cenas">Scènes depuis le téléphone</string>
     <string name="qrd_cenas_det">Créer et tester des scènes dans le panneau web</string>
     <string name="qrd_casa">Home Assistant depuis le téléphone</string>

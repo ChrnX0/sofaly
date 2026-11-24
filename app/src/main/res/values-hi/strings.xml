@@ -73,7 +73,7 @@
     <string name="bv_perm">कैलेंडर, स्थान और खाते चालू करें</string>
     <string name="bv_perm_det">कैलेंडर इवेंट, आपके शहर का मौसम, प्रोफ़ाइल पर खाते का पहला अक्षर</string>
     <string name="bv_teclas">कुंजी सेवा चालू करें</string>
-    <string name="bv_teclas_det">सुलभता › लॉन्चर: HOME हमेशा यहीं लौटता है</string>
+    <string name="bv_teclas_det">सुलभता › रिमोट बटन: HOME हमेशा यहीं लौटता है</string>
     <string name="bv_tudo">वह सब देखें जो चालू किया जा सकता है</string>
     <string name="lic_sem_arquivo">लाइसेंस फ़ाइल नहीं मिली।</string>
     <string name="rot_ligar">TV चालू करें</string>

@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Zdjęcia wygaszacza z telefonu</string>
     <string name="qrd_fotos_det">Pokazuje kod: telefon otwiera panel od razu na stronie zdjęć</string>
     <string name="qrd_mural">Tablica rodzinna z telefonu</string>
-    <string name="qrd_mural_det">Lista zakupów, przypięte notatki i urodziny na wygaszaczu</string>
+    <string name="qrd_mural_det">Lista zakupów, przypięte notatki i urodziny</string>
     <string name="qrd_cenas">Sceny z telefonu</string>
     <string name="qrd_cenas_det">Twórz i testuj sceny w panelu WWW</string>
     <string name="qrd_casa">Home Assistant z telefonu</string>

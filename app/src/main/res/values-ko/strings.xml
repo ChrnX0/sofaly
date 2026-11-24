@@ -73,7 +73,7 @@
     <string name="bv_perm">캘린더, 위치, 계정 켜기</string>
     <string name="bv_perm_det">캘린더 일정, 내 도시 날씨, 프로필의 계정 이니셜</string>
     <string name="bv_teclas">키 서비스 켜기</string>
-    <string name="bv_teclas_det">접근성 › 런처: 홈 버튼이 항상 여기로 돌아오게 함</string>
+    <string name="bv_teclas_det">접근성 › 리모컨 버튼: 홈 버튼이 항상 여기로 돌아오게 함</string>
     <string name="bv_tudo">켤 수 있는 항목 모두 보기</string>
     <string name="lic_sem_arquivo">라이선스 파일을 찾을 수 없습니다.</string>
     <string name="rot_ligar">TV 켜기</string>

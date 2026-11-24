@@ -73,7 +73,7 @@
     <string name="bv_perm">Aktifkan kalender, lokasi, dan akun</string>
     <string name="bv_perm_det">Acara kalender, cuaca kota Anda, inisial akun di profil</string>
     <string name="bv_teclas">Aktifkan layanan tombol</string>
-    <string name="bv_teclas_det">Aksesibilitas › Launcher: HOME selalu kembali ke sini</string>
+    <string name="bv_teclas_det">Aksesibilitas › Tombol remote: HOME selalu kembali ke sini</string>
     <string name="bv_tudo">Lihat semua yang bisa diaktifkan</string>
     <string name="lic_sem_arquivo">File lisensi tidak ditemukan.</string>
     <string name="rot_ligar">Nyalakan TV</string>

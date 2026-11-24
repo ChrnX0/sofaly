@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Foto screensaver dari ponsel</string>
     <string name="qrd_fotos_det">Menampilkan kode: ponsel membuka panel langsung di halaman foto</string>
     <string name="qrd_mural">Papan keluarga dari ponsel</string>
-    <string name="qrd_mural_det">Daftar belanja, catatan tersemat, dan ulang tahun di screensaver</string>
+    <string name="qrd_mural_det">Daftar belanja, catatan tersemat, dan ulang tahun</string>
     <string name="qrd_cenas">Adegan dari ponsel</string>
     <string name="qrd_cenas_det">Buat dan uji adegan di panel web</string>
     <string name="qrd_casa">Home Assistant dari ponsel</string>
