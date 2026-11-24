@@ -2,9 +2,9 @@
 // 1) App instalável: o navegador pede um service worker para oferecer "Instalar app".
 // 2) Tela "A TV não respondeu" (offline.html) quando o app abre e a TV está fora do ar, no lugar do erro do navegador.
 // 3) Avisos da TV no celular (Web Push, 12/11/2026): só recebe o push e mostra a notificação.
-// Nada do painel fica guardado além da tela de fora do ar: dados e páginas sempre vêm da TV (Cache-Control no-store).
-const CACHE = 'sofaly-fora-do-ar-4';   // 4: ícones novos (logo Sofaly, 19/11/2026)
-const FORA_DO_AR = ['/offline.html', '/style.css', '/icone-192.png', '/manrope-400.woff2', '/manrope-600.woff2', '/nunito.woff2'];
+// Nada do painel fica guardado além da tela de fora do ar (e a tradução dela): dados e páginas sempre vêm da TV (Cache-Control no-store).
+const CACHE = 'sofaly-fora-do-ar-5';   // 4: ícones novos (logo Sofaly, 19/11/2026); 5: i18n.js (fora do ar na língua do aparelho)
+const FORA_DO_AR = ['/offline.html', '/i18n.js', '/style.css', '/icone-192.png', '/manrope-400.woff2', '/manrope-600.woff2', '/nunito.woff2'];
 
 self.addEventListener('install', (ev) => {
   ev.waitUntil(caches.open(CACHE).then((c) => c.addAll(FORA_DO_AR)).then(() => self.skipWaiting()));
@@ -28,6 +28,15 @@ self.addEventListener('fetch', (ev) => {
   const url = new URL(req.url);
   if (url.origin === location.origin && FORA_DO_AR.includes(url.pathname)) {
     ev.respondWith(fetch(req).catch(() => caches.match(url.pathname)));
+    return;
+  }
+  // A língua do aparelho (i18n-<l>.js, 24/11/2026): guardada quando vem da TV, para a tela de fora do ar sair traduzida.
+  // Só a língua que este aparelho usa (um arquivo); as outras 13 nunca são baixadas.
+  if (url.origin === location.origin && /^\/i18n-[a-z]{2}\.js$/.test(url.pathname)) {
+    ev.respondWith(fetch(req).then((r) => {
+      if (r.ok) { const c = r.clone(); caches.open(CACHE).then((k) => k.put(url.pathname, c)); }
+      return r;
+    }).catch(() => caches.match(url.pathname)));
   }
 });
 

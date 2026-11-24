@@ -17,7 +17,7 @@
 <main class="pagina-cert">
   <h1>Abrir o painel com cadeado</h1>
   <p class="aviso">Com cadeado (https) o painel vira app no celular e no PC, e a conversa com a TV vai cifrada. A TV fez
-    um certificado só dela; cada aparelho instala esse arquivo <b>uma vez</b>. Depois disso o painel abre com cadeado
+    um certificado só dela; cada aparelho instala esse arquivo uma vez. Depois disso o painel abre com cadeado
     sozinho, mesmo se você digitar o endereço sem cadeado.</p>
 
   <div class="cartao estado-cadeado" id="estadoCadeado" hidden>
@@ -39,7 +39,7 @@
     <p class="aviso">Válido até {{VALIDO_ATE}}. Impressão digital (confere com a do painel em outro aparelho):</p>
     <p class="impressao">{{IMPRESSAO}}</p>
 <!--se:vencendo-->
-    <p class="alerta">Faltam {{DIAS}} dias para vencer. Gere um novo no painel (Extras, cartão "Instalar como app") e instale de novo.</p>
+    <p class="alerta">Faltam {{DIAS}} dias para vencer. Gere um novo no painel (Acesso remoto, cartão "Instalar como app (https)") e instale de novo.</p>
 <!--fim:vencendo-->
   </div>
 
@@ -50,50 +50,42 @@
     <details class="so {{PRIMEIRO_ANDROID}}" {{ABERTO_ANDROID}}>
       <summary>Android (celular ou tablet)</summary>
       <ol>
-        <li>Abra as <b>Configurações</b> do celular e, na busca do topo, digite <b>certificado</b>.</li>
-        <li>Toque em <b>Instalar certificado</b> (ou <b>Instalar um certificado</b>) e escolha <b>Certificado de CA</b>.
-          Aparece um aviso: toque em <b>Instalar mesmo assim</b>.</li>
-        <li>Escolha <b>one-tv-painel.crt</b> na pasta <b>Downloads</b>. O Android pede o PIN, padrão ou digital da tela
-          de bloqueio (se o celular não tiver, ele pede para criar um).</li>
-        <li>Volte para esta página no <b>Chrome</b>.</li>
+        <li>Abra as Configurações do celular e, na busca do topo, digite "certificado".</li>
+        <li>Toque em "Instalar certificado" (ou "Instalar um certificado") e escolha "Certificado de CA". Aparece um aviso: toque em "Instalar mesmo assim".</li>
+        <li>Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).</li>
+        <li>Volte para esta página no Chrome.</li>
       </ol>
     </details>
     <details class="so {{PRIMEIRO_IOS}}" {{ABERTO_IOS}}>
       <summary>iPhone ou iPad</summary>
       <ol>
-        <li>Abra esta página no <b>Safari</b>, toque em <b>Baixar certificado</b> e em <b>Permitir</b>.</li>
-        <li>Abra <b>Ajustes</b>. Logo no topo aparece <b>Perfil Baixado</b>: toque nele, em <b>Instalar</b> (três vezes) e
-          digite o código do iPhone.</li>
-        <li>Ainda em Ajustes: <b>Geral › Sobre › Ajustes de Confiança de Certificados</b> e ligue a chave do certificado
-          da TV. Sem este passo o cadeado não funciona.</li>
+        <li>Abra esta página no Safari, toque em "Baixar certificado" e em "Permitir".</li>
+        <li>Abra Ajustes. Logo no topo aparece "Perfil Baixado": toque nele, em "Instalar" (três vezes) e digite o código do iPhone.</li>
+        <li>Ainda em Ajustes: Geral › Sobre › Ajustes de Confiança de Certificados, e ligue a chave do certificado da TV. Sem este passo o cadeado não funciona.</li>
         <li>Volte para esta página no Safari.</li>
       </ol>
     </details>
     <details class="so {{PRIMEIRO_WINDOWS}}" {{ABERTO_WINDOWS}}>
       <summary>Windows (Chrome ou Edge)</summary>
       <ol>
-        <li>Abra o arquivo baixado (dois cliques) e clique em <b>Instalar Certificado…</b></li>
-        <li>Deixe <b>Usuário Atual</b> e clique em <b>Avançar</b>. Escolha <b>Colocar todos os certificados no
-          repositório a seguir</b>, clique em <b>Procurar</b> e escolha <b>Autoridades de Certificação Raiz
-          Confiáveis</b>.</li>
-        <li>Clique em <b>Avançar</b>, <b>Concluir</b> e <b>Sim</b> no aviso de segurança.</li>
-        <li>Feche <b>todas</b> as janelas do navegador e abra esta página de novo.</li>
+        <li>Abra o arquivo baixado (dois cliques) e clique em "Instalar Certificado…".</li>
+        <li>Deixe "Usuário Atual" e clique em "Avançar". Escolha "Colocar todos os certificados no repositório a seguir", clique em "Procurar" e escolha "Autoridades de Certificação Raiz Confiáveis".</li>
+        <li>Clique em "Avançar", "Concluir" e "Sim" no aviso de segurança.</li>
+        <li>Feche todas as janelas do navegador e abra esta página de novo.</li>
       </ol>
     </details>
     <details class="so {{PRIMEIRO_MAC}}" {{ABERTO_MAC}}>
       <summary>Mac</summary>
       <ol>
-        <li>Abra o arquivo baixado: ele vai para o app <b>Acesso às Chaves</b> (pode pedir a senha do Mac).</li>
-        <li>Dê dois cliques no certificado da TV, abra <b>Confiança</b> e, em <b>Ao usar este certificado</b>, escolha
-          <b>Sempre Confiar</b>. Feche a janela e digite a senha do Mac.</li>
+        <li>Abra o arquivo baixado: ele vai para o app Acesso às Chaves (pode pedir a senha do Mac).</li>
+        <li>Dê dois cliques no certificado da TV, abra "Confiança" e, em "Ao usar este certificado", escolha "Sempre Confiar". Feche a janela e digite a senha do Mac.</li>
         <li>Volte para esta página (no Safari ou no Chrome).</li>
       </ol>
     </details>
     <details class="so">
       <summary>Firefox (em qualquer computador)</summary>
       <ol>
-        <li>Se o Firefox continuar sem cadeado depois do passo do sistema: <b>Configurações › Privacidade e Segurança ›
-          Ver certificados › Autoridades › Importar</b>, escolha o arquivo e marque <b>Confiar para identificar sites</b>.</li>
+        <li>Se o Firefox continuar sem cadeado depois do passo do sistema: Configurações › Privacidade e Segurança › Ver certificados › Autoridades › Importar, escolha o arquivo e marque "Confiar para identificar sites".</li>
       </ol>
     </details>
     </div>
@@ -103,10 +95,11 @@
     <h2>3. Abra com cadeado e instale o app</h2>
     <p><a class="botao-primario" href="{{ENDERECO}}">{{ENDERECO}}</a></p>
 <!--se:comip-->
-    <p class="aviso">Se o nome <b>{{NOME}}</b> não abrir, o roteador não conhece esse nome: use <a href="{{ENDERECO_IP}}">{{ENDERECO_IP}}</a>.</p>
+    <p class="aviso">Se o nome {{NOME}} não abrir, o roteador não conhece esse nome. Use este endereço:</p>
+    <p><a href="{{ENDERECO_IP}}">{{ENDERECO_IP}}</a></p>
 <!--fim:comip-->
-    <p class="aviso">Entre com o PIN. No Chrome do celular: menu <b>⋮</b> e <b>Instalar app</b>. No PC: ícone de instalar na
-      barra de endereço. No iPhone: <b>Compartilhar</b> e <b>Adicionar à Tela de Início</b>.</p>
+    <p class="aviso">Entre com o PIN. No Chrome do celular: menu ⋮ e "Instalar app". No PC: ícone de instalar na
+      barra de endereço. No iPhone: "Compartilhar" e "Adicionar à Tela de Início".</p>
   </div>
 <!--fim:pronto-->
 
@@ -119,6 +112,7 @@
   </div>
   <p><a href="/">Voltar ao painel</a></p>
 </main>
+<script src="/i18n.js"></script>
 <script src="/cadeado.js"></script>
 </body>
 </html>
