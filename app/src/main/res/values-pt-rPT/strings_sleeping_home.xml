@@ -25,7 +25,7 @@
     <string name="sh_vidro">Vidro atrás da faixa de baixo</string>
     <string name="sh_vidro_det">Uma placa de vidro atrás da faixa. Desligado: só uma linha fina.</string>
     <string name="sh_fundo">Fundo do descanso</string>
-    <string name="sh_fundo_det">O que aparece atrás do relógio quando a TV descansa: o mesmo do ecrã inicial, outro tema, uma foto ou vídeo só daqui, ou fotos e vídeos a passar.</string>
+    <string name="sh_fundo_det">Atrás do relógio no descanso: igual ao ecrã inicial, outro tema, uma foto ou vídeo, ou várias a passar.</string>
     <string name="sh_fundo_home">Igual ao ecrã inicial</string>
     <string name="sh_fundo_fotos">Fotos e vídeos a passar</string>
     <string name="sh_fundo_arquivo">Um ficheiro só do descanso</string>

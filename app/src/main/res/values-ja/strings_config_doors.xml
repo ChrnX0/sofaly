@@ -6,7 +6,7 @@
     <string name="cfg3_mais_ajustes_det">短くするため非表示: %1$d</string>
     <string name="cfg3_modo">モード: %1$s</string>
     <string name="cfg3_porta_0_det">クロス、アイコン、背景</string>
-    <string name="cfg3_porta_1_det">TVアカウント、言語、文字</string>
+    <string name="cfg3_porta_1_det">TVアカウント、音声、字幕</string>
     <string name="cfg3_porta_2_det">子ども、PIN、ゲスト</string>
     <string name="cfg3_porta_3_det">スクリーンセーバー、スリープ、目覚まし</string>
     <string name="cfg3_porta_4_det">ホーム、スマホ、パネル</string>

@@ -2,7 +2,7 @@
 <!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
 <resources>
     <string name="uso_titulo">Как используется этот телевизор</string>
-    <string name="uso_det">«Основное» скрывает технические вкладки (Дом, Удалённо, Дополнительно). Ничего не отключается.</string>
+    <string name="uso_det">«Основное» скрывает технические вкладки (Дом и автоматизация, Удалённый доступ, Расширенные). Ничего не отключается.</string>
     <string name="uso_simples">Основное</string>
     <string name="uso_completo">Полный</string>
     <string name="uso_cuida">Для близкого, о котором я забочусь</string>

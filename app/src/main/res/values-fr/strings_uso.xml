@@ -2,7 +2,7 @@
 <!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
 <resources>
     <string name="uso_titulo">Utilisation de cette TV</string>
-    <string name="uso_det">Essentiel masque les onglets techniques (Maison, À distance, Avancé). Rien n’est désactivé.</string>
+    <string name="uso_det">Essentiel masque les onglets techniques (Maison et automatisations, Accès à distance, Avancé). Rien n’est désactivé.</string>
     <string name="uso_simples">Essentiel</string>
     <string name="uso_completo">Complet</string>
     <string name="uso_cuida">Pour un proche dont je m\'occupe</string>
