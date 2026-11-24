@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">चैनल %1$d मौजूद नहीं है।</string>
     <string name="player_ao_vivo">लाइव</string>
     <string name="player_a_seguir">अगला: %1$s</string>
-    <string name="player_teclas">▲ ▼ चैनल · OK चैनल सूची · OK 2 s दबाए रखें: पसंदीदा · ◀ पिछला चैनल · ▶▶ विकल्प · BACK बाहर</string>
+    <string name="player_teclas">▲ ▼ चैनल · OK चैनल सूची · OK 2 s दबाए रखें: पसंदीदा · ◀ पिछला चैनल · ▶ ▶ विकल्प · BACK बाहर</string>
     <string name="player_teclas_pausa">▶❙❙ या OK जारी रखें · ▶ विकल्प (लाइव पर लौटें) · ▲ ▼ चैनल · BACK बाहर</string>
     <string name="player_cat_busca">खोज: %1$s</string>
     <string name="player_acao_buscar">खोजें</string>

@@ -70,6 +70,13 @@ object Estilo {
      */
     private val focoBranco: Boolean get() = br.paulo.tvlauncher.settings.FocusStyle.atual == br.paulo.tvlauncher.settings.FocusStyle.BOX
     val TEXTO_NO_FOCO: Int get() = if (focoBranco) DesignTokens.NIGHT else TEXTO
+    /**
+     * Texto em cima de um fundo SEMPRE branco ([FOCO]: pílula do alarme, anéis do painel rápido, ações da ficha), em
+     * qualquer estilo de foco. O [TEXTO_NO_FOCO] é creme no Fio e no Véu: em cima do branco o botão ficava vazio
+     * (teste 100%, Sala, 23/11/2026: "Parar" do timer e ações da ficha invisíveis).
+     */
+    const val TEXTO_SOBRE_FOCO = DesignTokens.NIGHT
+    const val TEXTO_SOBRE_FOCO_2 = 0xA6121528.toInt()
     val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6121528.toInt()
 
     /** O ÚNICO acento: "ligado", valor escolhido, progresso. Foco NÃO usa acento: foco é branco. */

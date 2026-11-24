@@ -1176,7 +1176,8 @@ button.botao-secundario[aria-pressed="true"] { box-shadow: inset 0 -3px 0 var(--
   color: var(--texto); font: inherit; font-size: 15px; font-weight: 700; white-space: nowrap; cursor: pointer;
   transition: background-color var(--t-ms-quick), color var(--t-ms-quick); }
 .chip-indice.atual { background: var(--foco); color: var(--foco-texto); }
-@media (min-width: 900px) { .indice-chips { display: none; } }   /* no computador o índice mora na coluna */
+@media (min-width: 900px) { .indice-chips { display: none; } }
+@media (max-width: 600px) { .indice-chips { margin-left: -12px; margin-right: -12px; padding: 0 12px 4px; scroll-padding: 0 12px; } }   /* a página tem 12 px aqui: -16 passava 4 px da tela */   /* no computador o índice mora na coluna */
 :is(.indice-item, .chip-indice):focus-visible { outline: 3px solid var(--acento); outline-offset: -3px; }
 .cartao > h2[tabindex="-1"]:focus { outline: none; }
 @media (prefers-reduced-motion: reduce) { .indice-item, .chip-indice { transition: none; } }
@@ -1292,11 +1293,13 @@ label[data-atalho] > .estrela { margin: -8px -8px -8px auto; }
 .cabeca-sofy { display: flex; align-items: center; gap: 16px; }
 .cabeca-sofy .titulo-pagina { margin: 0; }
 .lista-recados { display: flex; flex-direction: column; }
-.recado { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 4px 16px; padding: 16px 0;
-  border-top: 1px solid var(--borda); }
-.recado:first-child { border-top: none; padding-top: 0; }
-.recado .quando { font-variant-numeric: tabular-nums; color: var(--texto-fraco); font-size: 15px; padding-top: 2px; }
-.recado strong { font-size: 17px; font-weight: 800; }
+/* Só os recados da Sofy (.lista-recados): sem o escopo, esta grade de 3 colunas virava também os formulários .recado
+   (Previsão do tempo, Recado na TV…) e no celular os campos passavam da tela (teste 100%, 23/11/2026). */
+.lista-recados .recado { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 4px 16px; padding: 16px 0;
+  border-top: 1px solid var(--borda); max-width: none; }
+.lista-recados .recado:first-child { border-top: none; padding-top: 0; }
+.lista-recados .recado .quando { font-variant-numeric: tabular-nums; color: var(--texto-fraco); font-size: 15px; padding-top: 2px; }
+.lista-recados .recado strong { font-size: 17px; font-weight: 800; }
 .recado-texto p { margin: 4px 0 0; }
 .recado .link { align-self: center; }
 .recado.sev-warning .quando, .recado.sev-critical .quando { color: var(--atencao); font-weight: 800; }

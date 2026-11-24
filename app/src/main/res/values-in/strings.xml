@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">Tidak ada saluran %1$d.</string>
     <string name="player_ao_vivo">LANGSUNG</string>
     <string name="player_a_seguir">berikutnya: %1$s</string>
-    <string name="player_teclas">▲ ▼ saluran · OK daftar saluran · tahan OK 2 dtk: favorit · ◀ saluran sebelumnya · ▶▶ opsi · BACK keluar</string>
+    <string name="player_teclas">▲ ▼ saluran · OK daftar saluran · tahan OK 2 dtk: favorit · ◀ saluran sebelumnya · ▶ ▶ opsi · BACK keluar</string>
     <string name="player_teclas_pausa">▶❙❙ atau OK lanjutkan · ▶ opsi (kembali ke siaran langsung) · ▲ ▼ saluran · BACK keluar</string>
     <string name="player_cat_busca">Cari: %1$s</string>
     <string name="player_acao_buscar">Cari</string>

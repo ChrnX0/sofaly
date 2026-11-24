@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">Канала %1$d нет.</string>
     <string name="player_ao_vivo">ЭФИР</string>
     <string name="player_a_seguir">далее: %1$s</string>
-    <string name="player_teclas">▲ ▼ канал · OK список каналов · удерживайте OK 2 с: избранное · ◀ предыдущий канал · ▶▶ параметры · НАЗАД выход</string>
+    <string name="player_teclas">▲ ▼ канал · OK список каналов · удерживайте OK 2 с: избранное · ◀ предыдущий канал · ▶ ▶ параметры · НАЗАД выход</string>
     <string name="player_teclas_pausa">▶❙❙ или OK продолжить · ▶ параметры (вернуться в эфир) · ▲ ▼ канал · НАЗАД выход</string>
     <string name="player_cat_busca">Поиск: %1$s</string>
     <string name="player_acao_buscar">Поиск</string>

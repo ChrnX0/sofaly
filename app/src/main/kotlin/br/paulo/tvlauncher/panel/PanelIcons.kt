@@ -22,7 +22,10 @@ object PanelIcons {
         return JSONObject()
             .put("set", LayoutHome.iconesCruz(app).name)
             .put("styles", JSONArray().apply {
-                for (e in IconeCruz.Estilo.entries) put(JSONObject().put("id", e.name).put("name", app.getString(LayoutHome.nomeIcones(e))).put("image", e.pasta != null))
+                for (e in IconeCruz.Estilo.entries) put(JSONObject().put("id", e.name).put("name", app.getString(LayoutHome.nomeIcones(e))).put("image", e.pasta != null)
+                    // Os tipos que têm arte neste conjunto: sem isso o painel pedia a prévia de Ferramentas, Casa, Clima… e
+                    // levava 8 erros 404 por abertura (teste 100%, painel no Dell, 23/11/2026).
+                    .put("art", JSONArray(comArte(app, e.pasta))))
             })
             .put("types", JSONArray().apply {
                 for (t in IconeCruz.Tipo.entries) put(JSONObject().put("id", t.name).put("style", trocados[t]?.name ?: ""))
@@ -41,6 +44,11 @@ object PanelIcons {
             LayoutHome.trocarIcone(app, t, e)
         }
         return state(app)
+    }
+
+    private fun comArte(app: Context, pasta: String?): List<String> {
+        val arquivos = pasta?.let { runCatching { app.assets.list("icon-sets/$it")?.toSet() }.getOrNull() }.orEmpty()
+        return IconeCruz.Tipo.entries.filter { "${IconSetArt.arquivo(it)}.webp" in arquivos }.map { it.name }
     }
 
     /** Os bytes da prévia (só nomes do enum entram no caminho: nada de "../"). */

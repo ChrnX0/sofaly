@@ -41,7 +41,6 @@ import br.paulo.tvlauncher.weather.ForecastText
 import br.paulo.tvlauncher.weather.IconesClima
 import br.paulo.tvlauncher.weather.Lua
 import java.text.SimpleDateFormat
-import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import kotlin.math.max
@@ -247,11 +246,21 @@ class SleepingHome(private val ctx: Context) {
         return saida.take(3)
     }
 
+    /**
+     * Quantos dias de calendário de [agora] até [ms] (0 = hoje, 1 = amanhã), no fuso da TV. Antes punha as duas horas ao
+     * meio-dia mas deixava os minutos: às 17:23, um compromisso de amanhã às 14:00 dava 23 h 37 min = "hoje" (teste 100%,
+     * Sala, 23/11/2026: "Oftalmo · Hoje, 14:00" no descanso, sendo amanhã).
+     */
+    internal fun diasAte(agora: Long, ms: Long, fuso: java.util.TimeZone = java.util.TimeZone.getDefault()): Int {
+        val z = fuso.toZoneId()
+        val a = java.time.Instant.ofEpochMilli(agora).atZone(z).toLocalDate()
+        val b = java.time.Instant.ofEpochMilli(ms).atZone(z).toLocalDate()
+        return java.time.temporal.ChronoUnit.DAYS.between(a, b).toInt()
+    }
+
     /** "hoje, 21:00" / "amanhã, 9:00" / "segunda, 21:00". */
     private fun quando(ms: Long, diaInteiro: Boolean): String {
-        val hoje = Calendar.getInstance(); val c = Calendar.getInstance().apply { timeInMillis = ms }
-        val dias = ((c.apply { set(Calendar.HOUR_OF_DAY, 12) }.timeInMillis - hoje.apply { set(Calendar.HOUR_OF_DAY, 12) }.timeInMillis) / 86_400_000L).toInt()
-        val dia = when (dias) {
+        val dia = when (diasAte(System.currentTimeMillis(), ms)) {
             0 -> ctx.getString(R.string.pv_hoje)
             1 -> ctx.getString(R.string.pr_amanha)
             else -> SimpleDateFormat("EEEE", Locale.getDefault()).format(Date(ms))
@@ -360,7 +369,10 @@ class SleepingHome(private val ctx: Context) {
 
     private fun item(icone: String?, titulo: String, nota: String) = LinearLayout(ctx).apply {
         orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
-        if (icone != null) addView(IconesClima.imagem(ctx, IconesClima.PREFIXO + "3d/" + icone), LinearLayout.LayoutParams(dp(30), dp(30)).apply { marginEnd = dp(12) }); getChildAt(0).alpha = 0.9f
+        // O alpha é do ícone e só existe com ícone: a linha da agenda (linhaItens) passa null, e o getChildAt(0) fora do
+        // if dava NPE que derrubava o launcher inteiro ao abrir o descanso (6 vezes na Sala entre 22 e 23/11/2026).
+        if (icone != null) addView(IconesClima.imagem(ctx, IconesClima.PREFIXO + "3d/" + icone).apply { alpha = 0.9f },
+            LinearLayout.LayoutParams(dp(30), dp(30)).apply { marginEnd = dp(12) })
         addView(LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             addView(texto(21f, Estilo.TEXTO, Estilo.fonte(500)).apply { text = titulo; maxLines = 1; ellipsize = TextUtils.TruncateAt.END })
@@ -376,7 +388,8 @@ class SleepingHome(private val ctx: Context) {
         ).forEach { (ic, rot, dica) -> addView(item(ic, ctx.getString(rot), ForecastText.dica(ctx, dica)), LinearLayout.LayoutParams(0, -2, 1f)) }
     }
 
-    private fun linhaItens(itens: List<Triple<String, String, String>>): View = linhaBase().apply {
+    @androidx.annotation.VisibleForTesting
+    internal fun linhaItens(itens: List<Triple<String, String, String>>): View = linhaBase().apply {
         // Sem ícone: os ícones 3D são do tempo (não há calendário nem relógio); o título e o "quando" bastam.
         itens.forEach { (_, t, q) -> addView(item(null, t, q), LinearLayout.LayoutParams(0, -2, 1f)) }
         repeat(3 - itens.size) { addView(View(ctx), LinearLayout.LayoutParams(0, 1, 1f)) }

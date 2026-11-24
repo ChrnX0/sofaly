@@ -442,7 +442,7 @@
     <string name="player_canal_nao_existe">There is no channel %1$d.</string>
     <string name="player_ao_vivo">LIVE</string>
     <string name="player_a_seguir">next: %1$s</string>
-    <string name="player_teclas">▲ ▼ channel · OK channel list · hold OK 2 s: favorite · ◀ previous channel · ▶▶ options · BACK exit</string>
+    <string name="player_teclas">▲ ▼ channel · OK channel list · hold OK 2 s: favorite · ◀ previous channel · ▶ ▶ options · BACK exit</string>
     <string name="player_teclas_pausa">▶❙❙ or OK resume · ▶ options (back to live) · ▲ ▼ channel · BACK exit</string>
     <string name="player_cat_busca">Search: %1$s</string>
     <string name="player_acao_buscar">Search</string>

@@ -141,7 +141,7 @@ internal fun MainActivity.itemContinuar(k: CruzLogica.Categoria, lista: List<Pai
  */
 /** O programa no ar e quanto falta ("SP1 · faltam 58 min"); [comPrograma] = false só o quanto falta. */
 internal fun MainActivity.linhaAgoraTv(agora: Programa?, ms: Long, comPrograma: Boolean): String {
-    val falta = agora?.let { ((it.fim - ms) / 60_000).toInt() }?.takeIf { it > 0 }?.let { BarraTempo.faltam(this, duracaoTexto(it)) }
+    val falta = agora?.takeIf { it.fim > ms }?.let { BarraTempo.faltam(this, BarraTempo.duracao(it.fim - ms)) }
     return listOfNotNull(agora?.titulo?.trim()?.takeIf { comPrograma && it.isNotEmpty() }, falta).joinToString(" · ")
 }
 
@@ -161,7 +161,7 @@ internal fun MainActivity.atualizarCruz() {
     val agora = System.currentTimeMillis()
     val programa = ultimoTv?.programas?.firstOrNull { it.inicio <= agora && agora < it.fim && it.titulo.isNotBlank() }
     fun faltaFilme(f: PlayerArmazem.FichaHome): String? = posicoesHome[f.chave]?.takeIf { it.duracao > 0 && Vod.deveRetomar(it) }
-        ?.let { ((it.duracao - it.ms) / 60_000).toInt() }?.takeIf { it > 0 }?.let { BarraTempo.faltam(this, duracaoTexto(it)) }
+        ?.let { BarraTempo.faltam(this, BarraTempo.duracao(it.duracao - it.ms)) }   // arredonda como a ficha (teste 100%, 23/11/2026: 1 h 35 × 1 h 36)
     // Quanto já foi visto (barra no pé do ícone em Continuar): filme/série pela posição salva; TV, o programa no ar.
     fun visto(f: PlayerArmazem.FichaHome, serie: Boolean): Float? = posicoesHome[f.chave]
         ?.takeIf { it.duracao > 0 && (serie || Vod.deveRetomar(it)) }?.let { (it.ms.toFloat() / it.duracao).coerceIn(0f, 1f) }

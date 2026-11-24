@@ -444,8 +444,8 @@
     <string name="player_canal_nao_existe">Não há canal %1$d.</string>
     <string name="player_ao_vivo">AO VIVO</string>
     <string name="player_a_seguir">a seguir: %1$s</string>
-    <string name="player_teclas">▲ ▼ canal · OK lista de canais · segure OK 2 s: favoritar · ◀ canal anterior · ▶▶ opções · VOLTAR sair</string>
-    <string name="player_teclas_pausa">▶❙❙ ou OK continua · ▶ opções (voltar ao ao vivo) · ▲ ▼ canal · VOLTAR sair</string>
+    <string name="player_teclas">▲ ▼ canal · OK lista de canais · segure OK 2 s: favoritar · ◀ canal anterior · ▶ ▶ opções · VOLTAR sair</string>
+    <string name="player_teclas_pausa">▶❙❙ ou OK continua · ▶ opções (voltar à transmissão) · ▲ ▼ canal · VOLTAR sair</string>
     <string name="player_cat_busca">Busca: %1$s</string>
     <string name="player_acao_buscar">Buscar</string>
     <string name="player_acao_filtros">Filtros</string>
@@ -705,12 +705,12 @@
     <string name="tvv_carregando">Buscando os programas que já passaram…</string>
     <string name="tvv_sem_resposta">O servidor não respondeu. Tente de novo em instantes.</string>
     <string name="tvv_vazio">Este canal ainda não tem programas guardados.</string>
-    <string name="tvv_voltou">De volta ao ao vivo</string>
+    <string name="tvv_voltou">De volta à transmissão ao vivo</string>
     <string name="tvv_selo">TV DE VOLTA</string>
     <string name="tvv_teclas">◀ ▶ 30 s · OK opções · VOLTAR ao vivo</string>
     <string name="tvv_pausar">Pausar</string>
     <string name="tvv_continuar">Continuar</string>
-    <string name="tvv_ao_vivo">Voltar ao ao vivo</string>
+    <string name="tvv_ao_vivo">Voltar à transmissão</string>
     <string name="tvv_hoje">Hoje</string>
     <string name="tvv_ontem">Ontem</string>
     <string name="imagem_titulo">Proporção da imagem</string>

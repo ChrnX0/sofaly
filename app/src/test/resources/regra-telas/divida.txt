@@ -92,7 +92,7 @@ GloboRadios.kt cor 4
 GuardarDadosActivity.kt dicas 1
 GuardarDadosActivity.kt titulo 1
 HomeCruz.kt cor 2
-HomeCruz.kt letra 6
+HomeCruz.kt letra 8
 HomeIsland.kt cor 3
 HomeIsland.kt letra 1
 HomeMotion.kt cor 4
@@ -110,7 +110,7 @@ IconeOuvir.kt letra 1
 IconesApp.kt cor 1
 IconesCruz.kt cor 138
 IconesLinha.kt cor 1
-JogosActivity.kt cor 11
+JogosActivity.kt cor 19
 JogosActivity.kt dicas 1
 JogosActivity.kt letra 3
 JogosActivity.kt titulo 1

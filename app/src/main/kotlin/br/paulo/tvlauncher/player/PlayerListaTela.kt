@@ -477,7 +477,9 @@ class PlayerListaTela(
         val depois = prox.filter { it !== atual }.take(3)
         // Pente fino 19/11/2026 (Sala): sinopse de 5 linhas + a dica comiam o espaço e o "DEPOIS" ficava sem nenhum
         // programa embaixo. Com programas a seguir, a sinopse cede: 3 linhas.
-        detDescricao.maxLines = if (depois.isNotEmpty()) 3 else 5
+        // Teste 100% (Sala, 23/11/2026): com horário em 2 linhas e a dica em 4, 3 linhas de sinopse ainda deixavam o "DEPOIS"
+        // só com meia linha cortada. Com programas a seguir, a sinopse fica em 2.
+        detDescricao.maxLines = if (depois.isNotEmpty()) 2 else 5
         if (depois.isNotEmpty()) {
             // Sem o recuo de 10 dp do rótulo das colunas: aqui ele alinha com a sinopse e o título (antes ficava 10 dp para dentro).
             detSeguir.addView(rotulo().apply { text = act.getString(R.string.player_depois); setPaddingRelative(0, dp(4), 0, dp(8)) })

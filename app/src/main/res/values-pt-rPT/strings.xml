@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">Não há canal %1$d.</string>
     <string name="player_ao_vivo">EM DIRETO</string>
     <string name="player_a_seguir">a seguir: %1$s</string>
-    <string name="player_teclas">▲ ▼ canal · OK lista de canais · segure OK 2 s: favoritar · ◀ canal anterior · ▶▶ opções · VOLTAR sair</string>
+    <string name="player_teclas">▲ ▼ canal · OK lista de canais · segure OK 2 s: favoritar · ◀ canal anterior · ▶ ▶ opções · VOLTAR sair</string>
     <string name="player_teclas_pausa">▶❙❙ ou OK continua · ▶ opções (voltar ao direto) · ▲ ▼ canal · VOLTAR sair</string>
     <string name="player_cat_busca">Pesquisa: %1$s</string>
     <string name="player_acao_buscar">Pesquisar</string>

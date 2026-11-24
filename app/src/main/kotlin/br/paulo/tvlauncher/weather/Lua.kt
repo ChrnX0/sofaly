@@ -63,7 +63,11 @@ object Lua {
         val metade = CICLO_DIAS / 2
         val diasParaCheia = if (idade < metade) metade - idade else CICLO_DIAS - idade + metade
         val diasParaNova = CICLO_DIAS - idade
-        val proxima = if (diasParaCheia <= diasParaNova) {
+        // Já com o nome "Lua cheia" (ou "Lua nova"), "cheia em 1 d" ao lado se contradizia (teste 100%, Sala, 23/11/2026):
+        // nessa fase o resumo fala do OUTRO evento.
+        val fase = indiceDaFase(idade)
+        val falarDaCheia = when (fase) { 4 -> false; 0 -> true; else -> diasParaCheia <= diasParaNova }
+        val proxima = if (falarDaCheia) {
             txt(R.string.lua_cheia_em, diasNoCalendario(agoraMs, diasParaCheia))
         } else {
             txt(R.string.lua_nova_em, diasNoCalendario(agoraMs, diasParaNova))

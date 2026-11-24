@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">Es gibt keinen Sender %1$d.</string>
     <string name="player_ao_vivo">LIVE</string>
     <string name="player_a_seguir">danach: %1$s</string>
-    <string name="player_teclas">▲ ▼ Sender · OK Senderliste · OK 2 s halten: Favorit · ◀ vorheriger Sender · ▶▶ Optionen · ZURÜCK beenden</string>
+    <string name="player_teclas">▲ ▼ Sender · OK Senderliste · OK 2 s halten: Favorit · ◀ vorheriger Sender · ▶ ▶ Optionen · ZURÜCK beenden</string>
     <string name="player_teclas_pausa">▶❙❙ oder OK weiter · ▶ Optionen (zurück zu live) · ▲ ▼ Sender · ZURÜCK beenden</string>
     <string name="player_cat_busca">Suche: %1$s</string>
     <string name="player_acao_buscar">Suchen</string>

@@ -842,7 +842,7 @@ function desenharIcones(r) {
     const vale = estilos.get(t.style || r.set);
     const item = document.createElement('div'); item.className = 'icone-item' + (t.style ? ' trocado' : '');
     const previa = document.createElement('div'); previa.className = 'previa';
-    if (vale && vale.image) {
+    if (vale && vale.image && (!vale.art || vale.art.includes(t.id))) {
       const img = document.createElement('img'); img.alt = ''; img.loading = 'lazy';
       img.src = `/api/extras/icons/image?style=${encodeURIComponent(vale.id)}&type=${encodeURIComponent(t.id)}`;
       previa.append(img);

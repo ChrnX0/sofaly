@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">没有频道 %1$d。</string>
     <string name="player_ao_vivo">直播</string>
     <string name="player_a_seguir">接下来：%1$s</string>
-    <string name="player_teclas">▲ ▼ 频道 · OK 频道列表 · 长按 OK 2 秒：收藏 · ◀ 上一个频道 · ▶▶ 选项 · 返回 退出</string>
+    <string name="player_teclas">▲ ▼ 频道 · OK 频道列表 · 长按 OK 2 秒：收藏 · ◀ 上一个频道 · ▶ ▶ 选项 · 返回 退出</string>
     <string name="player_teclas_pausa">▶❙❙ 或 OK 继续 · ▶ 选项（回到直播） · ▲ ▼ 频道 · 返回 退出</string>
     <string name="player_cat_busca">搜索：%1$s</string>
     <string name="player_acao_buscar">搜索</string>

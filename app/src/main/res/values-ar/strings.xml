@@ -382,7 +382,7 @@
     <string name="player_canal_nao_existe">لا توجد قناة %1$d.</string>
     <string name="player_ao_vivo">مباشر</string>
     <string name="player_a_seguir">التالي: %1$s</string>
-    <string name="player_teclas">▲ ▼ القناة · OK قائمة القنوات · اضغط OK ثانيتين: مفضلة · ◀ القناة السابقة · ▶▶ خيارات · BACK خروج</string>
+    <string name="player_teclas">▲ ▼ القناة · OK قائمة القنوات · اضغط OK ثانيتين: مفضلة · ◀ القناة السابقة · ▶ ▶ خيارات · BACK خروج</string>
     <string name="player_teclas_pausa">▶❙❙ أو OK متابعة · ▶ خيارات (العودة للبث المباشر) · ▲ ▼ القناة · BACK خروج</string>
     <string name="player_cat_busca">بحث: %1$s</string>
     <string name="player_acao_buscar">بحث</string>

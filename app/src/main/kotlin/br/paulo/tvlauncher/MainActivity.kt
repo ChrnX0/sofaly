@@ -2292,10 +2292,10 @@ class MainActivity : Activity() {
 
     /** Quanto falta do episódio parado no meio. */
     internal fun faltaSerie(f: PlayerArmazem.FichaHome): String? = posicoesHome[f.chave]?.takeIf { it.duracao > 0 && it.ms > 0 && it.ms < it.duracao }
-        ?.let { ((it.duracao - it.ms) / 60_000).toInt() }?.takeIf { it > 0 }?.let { BarraTempo.faltam(this, duracaoTexto(it)) }
+        ?.let { BarraTempo.faltam(this, BarraTempo.duracao(it.duracao - it.ms)) }   // arredonda como a ficha (teste 100%, 23/11/2026: 1 h 35 × 1 h 36)
 
     internal fun faltaMidia(r: MidiaRecente.Registro): String? = r.takeIf { it.durMs > 0 && it.posMs in 1 until it.durMs }
-        ?.let { ((it.durMs - it.posMs) / 60_000).toInt() }?.takeIf { it > 0 }?.let { BarraTempo.faltam(this, duracaoTexto(it)) }
+        ?.takeIf { it.durMs > it.posMs }?.let { BarraTempo.faltam(this, BarraTempo.duracao(it.durMs - it.posMs)) }
 
     /** Um app na cruz: a frase dele, o que você viu/ouviu por último nele (sessão de mídia) e quando abriu. */
     internal fun linhasApp(pacote: String, nome: String): String = CruzLogica.linhas(subApp(pacote, nome),
@@ -2316,8 +2316,7 @@ class MainActivity : Activity() {
     }.getOrDefault(emptyList()).take(2)
 
     internal fun faltaPodcast(p: Podcasts.Posicao): String =
-        if (p.durMs > p.ms) ((p.durMs - p.ms) / 60_000).toInt().takeIf { it > 0 }?.let { BarraTempo.faltam(this, duracaoTexto(it)) } ?: ""
-        else ""
+        if (p.durMs > p.ms) BarraTempo.faltam(this, BarraTempo.duracao(p.durMs - p.ms)) else ""
 
     internal fun tocarRadioCruz(r: Radios.Radio) {
         if (semInternetCruz) { cruz?.naoAbriu(); return }
