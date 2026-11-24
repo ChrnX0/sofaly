@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Профіль: %1$s</string>
+    <string name="perfil_aviso_texto">Улюблені, Продовжити перегляд і порядок застосунків цього профілю</string>
+    <string name="perfil_aviso_crianca">Дитячий профіль: дитячий режим і час сну ввімкнено</string>
+    <string name="perfil_crianca">Дитячий профіль</string>
+    <string name="perfil_crianca_linha">Дитячий профіль · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Вимк.</string>
+    <string name="perfil_crianca_sem_pin">Спершу задайте PIN вебпанелі: це PIN батьків, що захищає дитячий профіль</string>
+    <string name="perfil_pin_sair">PIN батьків, щоб вийти з дитячого профілю</string>
+    <string name="perfil_pin_marcar">PIN батьків, щоб змінити дитячий профіль</string>
+</resources>

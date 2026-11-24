@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Тло з плагіна</string>
+    <string name="wp_cfg_det">Тла, пакети іконок і картки з інших застосунків. Кожен потребує вашого OK.</string>
+    <string name="wp_det">Застосунки інших розробників, що додають тла, іконки чи картки на головний екран. Вмикайте лише ті, яким довіряєте.</string>
+    <string name="wp_secao_fundos">Тла</string>
+    <string name="wp_secao_icones">Пакети іконок</string>
+    <string name="wp_secao_cartoes">Картки</string>
+    <string name="wp_secao_descobrir">Отримати плагіни</string>
+    <string name="wp_tipo_fundo">Тло</string>
+    <string name="wp_tipo_icones">Іконки</string>
+    <string name="wp_em_uso">Використовується</string>
+    <string name="wp_usar">Використати як тло</string>
+    <string name="wp_configurar">Налаштування плагіна</string>
+    <string name="wp_parar">Припинити використання</string>
+    <string name="wp_sem_cert">Не вдалося прочитати підпис цього плагіна.</string>
+    <string name="wp_nenhum_fundo">Плагіна тла ще немає. Нижче — де його взяти.</string>
+    <string name="wp_nenhum_icone">Пакета іконок ще немає. Нижче — де його взяти.</string>
+    <string name="wp_icones_det">Зберігається замороженим: лаунчер тримає копію іконок, які використовує.</string>
+    <string name="wp_usar_icones">Використати</string>
+    <string name="wp_instalado">Установлено</string>
+    <string name="wp_instalar">Установити</string>
+    <string name="wp_instalando">Установлення…</string>
+    <string name="wp_instalou">%1$s установлено.</string>
+    <string name="wp_nao_instalou">Не вдалося встановити: %1$s</string>
+    <string name="wp_abrir_play">Відкрити в Play Маркеті</string>
+    <string name="wp_qr">Наведіть камеру телефона на код, щоб відкрити сторінку.</string>
+    <string name="wp_trocar_icone">Змінити іконку</string>
+    <string name="wp_icone_titulo">Іконка для %1$s</string>
+    <string name="wp_icone_sub">%1$s · іконок: %2$d</string>
+    <string name="wp_icone_original">Оригінальна іконка</string>
+    <string name="wp_icone_sugerido">Запропоновані</string>
+    <string name="wp_icone_voltar">Як у пакеті іконок</string>
+    <string name="wp_icone_sem_pacote">Пакет іконок не встановлено. Отримайте його в Налаштування › Головний екран › Плагіни.</string>
+    <string name="wp_d_aerial">Повільні аерознімки міст і природи</string>
+    <string name="wp_d_overflight">Аерознімки Apple TV або будь-який список відео на ваш вибір</string>
+    <string name="wp_d_daily">Нове фото дня, щодня</string>
+    <string name="wp_d_weather">Сьогоднішня погода як тло</string>
+    <string name="wp_d_movieart">Постери фільмів і серіалів з TMDB</string>
+    <string name="wp_d_sofadrop">Постери з трендових списків, Trakt чи Simkl</string>
+    <string name="wp_d_immich">Фото з вашого власного сервера Immich</string>
+    <string name="wp_d_tvicons">800+ іконок, створених для ТБ</string>
+    <string name="wp_d_minimalist">Чисті символи на одному кольорі тла</string>
+    <string name="wp_d_arcticons">15 000 тонких лінійних іконок (створені для телефонів, працюють і тут)</string>
+
+</resources>

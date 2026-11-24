@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">З\'єднання обірвалося. Повторна спроба (%1$d з %2$d)…</string>
+    <string name="vod_proximo_episodio">Наступна серія</string>
+    <string name="vod_proximo_agora">Дивитися зараз · %1$d с</string>
+    <string name="vod_proximo_cancelar">Скасувати</string>
+    <string name="vod_proximo_continuar">Продовжити перегляд</string>
+    <string name="vod_ainda_assistindo">Ви ще дивитеся?</string>
+    <string name="vod_ainda_assistindo_texto">Кілька серій пройшли без того, щоб хтось торкався пульта, тож наступна чекає на вас.</string>
+    <string name="vod_desligar_ao_fim">Вимкнути телевізор, коли закінчиться</string>
+    <string name="vod_legenda_tamanho_titulo">Розмір субтитрів</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Малий</item>
+        <item>Звичайний</item>
+        <item>Великий</item>
+        <item>Величезний</item>
+    </string-array>
+</resources>

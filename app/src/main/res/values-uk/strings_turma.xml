@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">На дивані</string>
+    <string name="jogos_controle_pronto">готовий</string>
+    <string name="jogos_controle_carregar">скоро зарядити</string>
+    <string name="jogos_parear_um">Сполучити контролер</string>
+    <string name="turma_titulo">Ваша команда</string>
+    <string name="turma_online">Онлайн: %1$d</string>
+    <string name="turma_mais_online">+ онлайн: %1$d</string>
+    <string name="turma_na_voz">У голосовому</string>
+    <string name="turma_ausente">відійшов</string>
+    <string name="turma_ocupado">зайнятий</string>
+    <string name="turma_status_online">онлайн</string>
+    <string name="turma_ninguem">Зараз ніхто не онлайн</string>
+    <string name="turma_procurando">Пошук вашої команди…</string>
+    <string name="turma_sem_rede">Зараз немає з\'єднання з Discord.</string>
+    <string name="turma_mostrar_titulo">Показати вашу команду з Discord</string>
+    <string name="turma_mostrar_texto">Бачте на телевізорі, хто онлайн, грає й у голосовому.</string>
+    <string name="turma_desligado_titulo">Віджет сервера вимкнено</string>
+    <string name="turma_desligado_texto">У Discord: Server Settings, Widget, увімкніть Enable Server Widget.</string>
+    <string name="turma_qr_dica">Наведіть сюди телефон, щоб приєднатися до голосового чату. Розмова йде на телефоні.</string>
+    <string name="turma_jogando">%1$s грає в %2$s</string>
+    <string name="turma_dois">%1$s і %2$s</string>
+    <string name="turma_e_mais">%1$s і ще %2$d</string>
+    <string name="turma_chamar">Покликати команду</string>
+    <string name="turma_chamar_pergunta">Надіслати в канал Discord?</string>
+    <string name="turma_chamado_jogo">🎮 Хто в %1$s? Я на телевізорі.</string>
+    <string name="turma_chamado">🎮 Хто зіграє? Я на телевізорі.</string>
+    <string name="turma_mandar">Надіслати</string>
+    <string name="turma_enviado">Вашу команду покликано в Discord.</string>
+    <string name="turma_espere">Зачекайте хвилину, перш ніж кликати знову.</string>
+    <string name="turma_falhou">Discord не отримав. Перевірте інтернет або вебхук.</string>
+    <string name="turma_config_titulo">Ваша команда з Discord</string>
+    <string name="turma_config_texto">1. У Discord: Server Settings, Widget, увімкніть Enable Server Widget.\n2. На тій самій сторінці скопіюйте Server ID і введіть його тут.\n\nДля кнопки Покликати команду вставте вебхук каналу у вебпанелі телевізора.</string>
+    <string name="turma_config_dica">ID сервера (лише цифри)</string>
+    <string name="turma_config_guardar">Зберегти</string>
+    <string name="turma_config_tirar">Вилучити команду</string>
+    <string name="turma_id_invalido">Це не ID сервера Discord (від 17 до 20 цифр).</string>
+    <string name="cruz_sofa_sub">Контролери й ваша команда з Discord</string>
+    <string name="cruz_sofa_voz">У голосовому: %1$d · %2$s</string>
+</resources>

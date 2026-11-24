@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Short pause on live TV (idea 18): only in the player's memory, gone when the channel changes. -->
+<resources>
+    <string name="pausa_pausar">Пауза ТБ наживо</string>
+    <string name="pausa_continuar">Продовжити</string>
+    <string name="pausa_ao_vivo">Назад до прямого ефіру</string>
+    <string name="pausa_selo">⏸ ПАУЗА · OK продовжує</string>
+    <string name="pausa_atrasado_min">%1$d ХВ ПОЗАДУ · ▶ наживо</string>
+    <string name="pausa_atrasado_seg">%1$d С ПОЗАДУ · ▶ наживо</string>
+    <string name="pausa_voltou">Пауза довша, ніж може втримати пам\'ять: назад до прямого ефіру</string>
+</resources>

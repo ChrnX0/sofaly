@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Зараз і поради</string>
+    <string name="cl_pg_horas">Найближчі години й дні</string>
+    <string name="cl_pg_detalhes">Подробиці, повітря, сонце й місяць</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Зараз дощ. Має припинитися близько %1$s.</string>
+    <string name="cl_f_segue">Зараз дощ, і він має тривати найближчі години.</string>
+    <string name="cl_f_chuva">Імовірний дощ близько %1$s (%2$s).</string>
+    <string name="cl_f_calor">Спекотний день: до %1$d° близько %2$s. Пийте воду.</string>
+    <string name="cl_f_frio">Похолодання: до %1$d°. Одягайтеся тепло.</string>
+    <string name="cl_f_sol">Сильне сонце з %1$s до %2$s. Користуйтеся сонцезахисним кремом.</string>
+    <string name="cl_f_amanha">Сьогодні без дощу. Завтра ймовірний дощ (%1$s).</string>
+    <string name="cl_f_calmo">Сьогодні дощу не очікується. Максимум %1$d°.</string>
+    <string name="cl_d_guarda">Парасолька</string>
+    <string name="cl_d_varal">Білизна надворі</string>
+    <string name="cl_d_sair">Гарний час вийти</string>
+    <string name="cl_v_agora">Зараз</string>
+    <string name="cl_v_sim_as">Так, о %1$s</string>
+    <string name="cl_v_talvez">Можливо</string>
+    <string name="cl_v_nao">Не потрібно</string>
+    <string name="cl_v_ate">До %1$s</string>
+    <string name="cl_v_seca">Висохне сьогодні</string>
+    <string name="cl_v_melhor_nao">Краще ні</string>
+    <string name="cl_v_amanha_sim">Завтра так</string>
+    <string name="cl_v_amanha_nao">Завтра ні</string>
+    <string name="cl_v_as">О %1$s</string>
+    <string name="cl_v_amanha_as">Завтра %1$s</string>
+    <string name="cl_v_hoje_nao">Не сьогодні</string>
+</resources>

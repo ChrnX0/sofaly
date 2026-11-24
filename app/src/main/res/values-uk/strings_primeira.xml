@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Налаштувати з телефона</string>
+    <string name="pc_linha_det">Рекомендовано. Наведіть камеру телефона на код: PIN, мова, ТБ наживо, місто й сервіси фільмів за 5 кроків.</string>
+    <string name="pc_instrucoes">Наведіть камеру телефона на код поруч. Телефон відкриє налаштування з 5 кроків.\n\nТелефон має бути в домашньому Wi-Fi. Тримайте цей екран відкритим, доки не створите PIN на телефоні (лишилося %1$s).</string>
+    <string name="pc_entrou">Продовжуйте на телефоні.</string>
+    <string name="pc_venceu">Термін дії коду минув.\nНатисніть \"%1$s\", щоб показати новий.</string>
+    <string name="pc_sem_rede">Телевізор не в мережі.\nПідключіть його до домашнього Wi-Fi і спробуйте ще раз.</string>
+</resources>

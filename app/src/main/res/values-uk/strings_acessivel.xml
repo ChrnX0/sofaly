@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">Субтитри на чорному тлі</string>
+    <string name="acess_legenda_amarela">Жовті субтитри</string>
+    <string name="acess_volume">Рівна гучність між каналами</string>
+    <string name="acess_voz">Чіткіші голоси</string>
+    <string name="acess_volume_ligado">Рівну гучність увімкнено: тихі канали й фільми стають гучнішими</string>
+    <string name="acess_volume_desligado">Рівну гучність вимкнено</string>
+    <string name="acess_voz_ligado">Чіткіші голоси ввімк.</string>
+    <string name="acess_voz_desligado">Чіткіші голоси вимк.</string>
+    <string name="acess_config_titulo">Звук і субтитри</string>
+    <string name="acess_config_texto">Для тих, хто гірше бачить або чує. Також у меню ▼ плеєра.</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Дитячий PIN</string>
+    <string name="fam_pin_det">Другий PIN, щоб розблоковувати канали, приховані категорії й час сну при дітях. PIN панелі й далі працює скрізь.</string>
+    <string name="fam_pin_ok">Дитячий PIN збережено</string>
+    <string name="fam_pin_igual">Дитячий PIN має відрізнятися від PIN панелі</string>
+    <string name="fam_trocar">Змінити дитячий PIN</string>
+    <string name="fam_apagar">Вилучити дитячий PIN</string>
+    <string name="fam_apagado">Дитячий PIN вилучено: тепер розблоковує лише PIN панелі</string>
+    <string name="extras_TEMPO_TELA">Щоденний екранний час (коли закінчиться, відкриваються лише дозволені застосунки)</string>
+    <string name="tela_titulo">Екранний час</string>
+    <string name="tela_acabou">Сьогоднішній екранний час закінчився. До завтра!</string>
+    <string name="tela_5min">Сьогодні залишилося 5 хвилин екранного часу</string>
+    <string name="tela_pin">PIN для зміни екранного часу</string>
+    <string name="tela_cota_linha">Екранний час на день: %1$s (залишилося сьогодні: %2$s)</string>
+    <string name="tela_mais">Дати ще %1$d хв сьогодні</string>
+    <string name="tela_mais_ok">Ще %1$d хв на сьогодні</string>
+    <string name="tela_h">год</string>
+    <string name="tela_min">хв</string>
+    <string name="extras_AGENDA_TODAS">Календар усіх облікових записів Google телевізора разом</string>
+    <string name="cal_todas_contas">Усі облікові записи на телевізорі (%1$d)</string>
+    <string name="tm_tempo_esgotado">Час вийшов</string>
+    <string name="painel_desligado_pin">Вебпанель вимкнено: забагато неправильних PIN</string>
+    <string name="tm_crono">Секундомір</string>
+    <string name="tm_crono_iniciar">Запустити секундомір</string>
+    <string name="tm_crono_parar">Зупинити секундомір</string>
+    <string name="tm_crono_comecou">Секундомір запущено: він показується на головному екрані</string>
+    <string name="tm_crono_marcou">Секундомір зупинено на %1$s</string>
+    <string name="som_canal">Останній канал ТБ наживо</string>
+</resources>

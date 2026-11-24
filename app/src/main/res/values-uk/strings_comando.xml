@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Введіть, що має зробити телевізор</string>
+    <string name="cc_nao_entendi">Я не зрозумів. Спробуйте щось на кшталт:</string>
+    <string name="cc_exemplo_1">увімкни Globo</string>
+    <string name="cc_exemplo_2">відкрий YouTube</string>
+    <string name="cc_exemplo_3">вимкни через 30 хвилин</string>
+    <string name="cc_abrindo">Відкривається %1$s</string>
+    <string name="cc_canal">Вмикається %1$s</string>
+    <string name="cc_o_que_passa">Що на %1$s</string>
+    <string name="cc_timer">Нагадування через %1$d хв</string>
+    <string name="cc_desligar">Телевізор вимкнеться через %1$d хв</string>
+    <string name="cc_desligar_cancelar">Таймер сну скасовано</string>
+    <string name="cc_volume_subir">Гучніше</string>
+    <string name="cc_volume_descer">Тихіше</string>
+    <string name="cc_mudo">Вимкнути/увімкнути звук</string>
+    <string name="cc_pausar">Пауза</string>
+    <string name="cc_continuar">Відтворення</string>
+    <string name="cc_tela_previsao">прогноз</string>
+    <string name="cc_tela_agenda">календар</string>
+    <string name="cc_tela_despertador">будильники</string>
+    <string name="cc_tela_configuracoes">налаштування лаунчера</string>
+    <string name="cc_tela_inicio">головний екран</string>
+    <string name="cc_confirme_na_tv">%1$s: підтвердьте кнопкою OK на телевізорі</string>
+    <string name="cc_nao_fiz">%1$s: не виконано (%2$s)</string>
+    <string name="cc_aviso_titulo">Панель на телефоні</string>
+</resources>
