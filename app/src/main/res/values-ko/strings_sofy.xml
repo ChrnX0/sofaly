@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s 앱이 이번 주에 %2$s번 멈췄어요.</string>
     <string name="observer_app_crashy_update_title">%1$s 앱이 자꾸 멈춰요</string>
     <string name="observer_app_crashy_update_text">%1$s 앱이 새 버전 이후 이번 주에 %2$s번 멈췄어요.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi가 더 좋아질 수 있어요</string>
+    <string name="observer_wifi_advice_text">이번 주 인터넷이 %1$s번 끊겼어요. 공유기에서 바꿀 점을 TV 일지(웹 패널)에 적어 두었어요.</string>
+    <string name="observer_game_lag_title">클라우드 게임에는 인터넷이 느려요</string>
+    <string name="observer_game_lag_text">지금 지연이 %1$s ms로 이 집 평소보다 훨씬 높아요. 클라우드 게임이 끊길 수 있어요.</string>
+    <string name="observer_tv_wake_failing_title">알람으로 TV가 켜지지 않았어요</string>
+    <string name="observer_tv_wake_failing_text">이번 주 %1$s번의 아침에 TV가 알람에 반응하지 않았어요. TV 설정에서 HDMI-CEC(LG는 SimpLink)가 켜져 있는지 확인하세요.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant가 실패하고 있어요</string>
+    <string name="observer_home_hub_failing_text">지난 하루 동안 Home Assistant 명령 %1$s개가 실패했어요. 켜져 있고 연결되는지 확인하세요.</string>
 </resources>

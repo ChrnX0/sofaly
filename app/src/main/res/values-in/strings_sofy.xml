@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s macet %2$s kali minggu ini.</string>
     <string name="observer_app_crashy_update_title">%1$s sering macet</string>
     <string name="observer_app_crashy_update_text">%1$s macet %2$s kali minggu ini, sejak versi barunya.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi bisa lebih baik</string>
+    <string name="observer_wifi_advice_text">Internet putus %1$s kali minggu ini. Saya mencatat apa yang perlu diubah di router di buku harian TV (panel web).</string>
+    <string name="observer_game_lag_title">Internet lambat untuk game cloud</string>
+    <string name="observer_game_lag_text">Internet sekarang %1$s ms, jauh di atas normal rumah ini. Game cloud bisa tersendat.</string>
+    <string name="observer_tv_wake_failing_title">TV tidak menyala dengan alarm</string>
+    <string name="observer_tv_wake_failing_text">Pada %1$s pagi minggu ini TV tidak merespons alarm. Pastikan HDMI-CEC (SimpLink di LG) aktif di setelan TV.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant gagal</string>
+    <string name="observer_home_hub_failing_text">%1$s perintah ke Home Assistant gagal dalam sehari terakhir. Pastikan menyala dan bisa dijangkau.</string>
 </resources>

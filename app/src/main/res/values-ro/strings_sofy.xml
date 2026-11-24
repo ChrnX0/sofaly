@@ -32,4 +32,12 @@
     <string name="observer_app_crashy_text">%1$s s-a blocat de %2$s ori săptămâna asta.</string>
     <string name="observer_app_crashy_update_title">%1$s se blochează</string>
     <string name="observer_app_crashy_update_text">%1$s s-a blocat de %2$s ori săptămâna asta, de la versiunea nouă.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi-ul poate merge mai bine</string>
+    <string name="observer_wifi_advice_text">Internetul a căzut de %1$s ori săptămâna asta. Am notat ce să schimbi la router în jurnalul televizorului (panoul web).</string>
+    <string name="observer_game_lag_title">Internet lent pentru jocuri în cloud</string>
+    <string name="observer_game_lag_text">Internetul are acum %1$s ms, mult peste normalul casei. Jocurile în cloud pot întârzia.</string>
+    <string name="observer_tv_wake_failing_title">Televizorul nu a pornit cu alarma</string>
+    <string name="observer_tv_wake_failing_text">În %1$s dimineți săptămâna asta televizorul nu a răspuns la alarmă. Verifică dacă HDMI-CEC (SimpLink la LG) e pornit în setările televizorului.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant dă erori</string>
+    <string name="observer_home_hub_failing_text">%1$s comenzi către Home Assistant au eșuat în ultima zi. Verifică dacă e pornit și accesibil.</string>
 </resources>

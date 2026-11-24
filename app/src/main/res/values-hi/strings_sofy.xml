@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s इस हफ़्ते %2$s बार अटका।</string>
     <string name="observer_app_crashy_update_title">%1$s अटक रहा है</string>
     <string name="observer_app_crashy_update_text">%1$s इस हफ़्ते %2$s बार अटका, नए संस्करण के बाद से।</string>
+    <string name="observer_wifi_advice_title">वाई-फ़ाई बेहतर हो सकता है</string>
+    <string name="observer_wifi_advice_text">इस हफ़्ते इंटरनेट %1$s बार गया। राउटर में क्या बदलना है, मैंने टीवी की डायरी (वेब पैनल) में लिख दिया है।</string>
+    <string name="observer_game_lag_title">क्लाउड गेम के लिए इंटरनेट धीमा</string>
+    <string name="observer_game_lag_text">इंटरनेट अभी %1$s ms पर है, इस घर के सामान्य से काफ़ी ऊपर। क्लाउड गेम अटक सकते हैं।</string>
+    <string name="observer_tv_wake_failing_title">अलार्म के साथ टीवी चालू नहीं हुआ</string>
+    <string name="observer_tv_wake_failing_text">इस हफ़्ते %1$s सुबह टीवी ने अलार्म का जवाब नहीं दिया। टीवी की सेटिंग में HDMI-CEC (LG में SimpLink) चालू है, जाँचें।</string>
+    <string name="observer_home_hub_failing_title">Home Assistant विफल हो रहा है</string>
+    <string name="observer_home_hub_failing_text">पिछले दिन Home Assistant को भेजे %1$s आदेश विफल रहे। जाँचें कि वह चालू है और पहुँच में है।</string>
 </resources>

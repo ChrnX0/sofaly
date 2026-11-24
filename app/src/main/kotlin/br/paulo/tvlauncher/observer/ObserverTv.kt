@@ -148,6 +148,7 @@ object ObserverTv {
         val notesAntes = notes
         runCatching { notes = picoFollow(ctx, p, pico, agora, change.cleared, findings, snap, notes) }.onFailure { Log.w(TAG, "pico: $it") }
         if (notes != notesAntes) p.edit().putString("notes", notes).apply()
+        runCatching { SofyHouseTv.onJudge(ctx, snap, agora) }.onFailure { Log.w(TAG, "casa: $it") }   // ideia 28: jogo na nuvem
         if (change.appeared.isEmpty() && change.cleared.isEmpty()) return
         var log = p.getString("log", null)
         val picoDecide = SofyLearnTv.picoReady(ctx)
@@ -615,6 +616,7 @@ object ObserverTv {
         for (d in before - nowSet) logShadow(app, "self_ok", "$d: voltou a funcionar")
         p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
         runCatching { versionGuard(app, p, now) }.onFailure { Log.w(TAG, "guarda da versão: $it") }
+        runCatching { SofyHouseTv.daily(app, now) }.onFailure { Log.w(TAG, "casa: $it") }   // ideias 27, 29 e 31
     }
 
     /**

@@ -683,6 +683,10 @@ class JogosActivity : Activity() {
                 ControleLatencia.Veredito.PARADO -> getString(R.string.teste_controle_parado)
             }
             AvisoTv.rapido(this, getString(R.string.teste_controle), texto, segundos = 12)
+            // Controle com atraso (Sofy, ideia 32): o resultado vai ao barramento e ao relato da casa (MCP).
+            if (r.veredito != ControleLatencia.Veredito.PARADO) br.paulo.tvlauncher.observer.SofyBusTv.emit(this,
+                br.paulo.tvlauncher.observer.SofyBus.Source.DEVICE, "controller_lag", ok = r.veredito != ControleLatencia.Veredito.LENTO,
+                detail = "${r.veredito.name.lowercase()} ${r.media} ms, ${r.pausas} pausas")
         }, 10_000)
     }
 

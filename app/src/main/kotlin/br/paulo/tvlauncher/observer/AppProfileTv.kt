@@ -245,6 +245,14 @@ object AppProfileTv {
     /** READY = abrir quente; ON_DEMAND = sob demanda; HOUR = o app de costume desta hora (ideia 19; a ordem não muda). */
     enum class Hand { READY, ON_DEMAND, HOUR }
 
+    /** Solta a memória dos apps parados para [pkg] abrir leve (chegou em casa, ideia 33). Devolve quantos soltou. Fora da tela. */
+    fun prepareFor(ctx: Context, pkg: String): Int {
+        val app = ctx.applicationContext
+        val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
+        val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return 0
+        return freeOthers(app, pkg, runCatching { frontPackage(app) }.getOrNull(), s.cards.values)
+    }
+
     /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
     fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
         synchronized(AppProfileTv) { load(ctx.applicationContext).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } } }

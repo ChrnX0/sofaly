@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s は今週 %2$s 回落ちました。</string>
     <string name="observer_app_crashy_update_title">%1$s が落ちています</string>
     <string name="observer_app_crashy_update_text">%1$s は新しいバージョンになってから今週 %2$s 回落ちました。</string>
+    <string name="observer_wifi_advice_title">Wi-Fiは改善できます</string>
+    <string name="observer_wifi_advice_text">今週インターネットが%1$s回切れました。ルーターで変える点をテレビの日記（Webパネル）に書きました。</string>
+    <string name="observer_game_lag_title">クラウドゲームには回線が遅いです</string>
+    <string name="observer_game_lag_text">今の遅延は%1$s msで、この家のふだんよりかなり高いです。クラウドゲームが遅れるかもしれません。</string>
+    <string name="observer_tv_wake_failing_title">アラームでテレビがつきませんでした</string>
+    <string name="observer_tv_wake_failing_text">今週%1$s回の朝、テレビがアラームに反応しませんでした。テレビの設定でHDMI-CEC（LGはSimpLink）がオンか確認してください。</string>
+    <string name="observer_home_hub_failing_title">Home Assistantが失敗しています</string>
+    <string name="observer_home_hub_failing_text">この1日でHome Assistantへの命令が%1$s回失敗しました。電源が入っていて接続できるか確認してください。</string>
 </resources>

@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s gik ned %2$s gange i denne uge.</string>
     <string name="observer_app_crashy_update_title">%1$s går ned</string>
     <string name="observer_app_crashy_update_text">%1$s gik ned %2$s gange i denne uge, siden den nye version.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi’en kan blive bedre</string>
+    <string name="observer_wifi_advice_text">Internettet faldt ud %1$s gange i denne uge. Jeg har skrevet, hvad der skal ændres på routeren, i tv’ets dagbog (webpanel).</string>
+    <string name="observer_game_lag_title">Langsomt internet til cloud-spil</string>
+    <string name="observer_game_lag_text">Internettet er på %1$s ms nu, langt over det normale i dette hjem. Cloud-spil kan halte.</string>
+    <string name="observer_tv_wake_failing_title">Tv’et tændte ikke med alarmen</string>
+    <string name="observer_tv_wake_failing_text">%1$s morgener i denne uge svarede tv’et ikke på alarmen. Tjek at HDMI-CEC (SimpLink på LG) er slået til i tv’ets indstillinger.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant fejler</string>
+    <string name="observer_home_hub_failing_text">%1$s kommandoer til Home Assistant fejlede det seneste døgn. Tjek at den er tændt og kan nås.</string>
 </resources>

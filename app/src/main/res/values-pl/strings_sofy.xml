@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s zawiesiła się %2$s razy w tym tygodniu.</string>
     <string name="observer_app_crashy_update_title">%1$s się zawiesza</string>
     <string name="observer_app_crashy_update_text">%1$s zawiesiła się %2$s razy w tym tygodniu, od nowej wersji.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi może działać lepiej</string>
+    <string name="observer_wifi_advice_text">Internet padł w tym tygodniu %1$s razy. W dzienniku telewizora (panel www) zapisałam, co zmienić w routerze.</string>
+    <string name="observer_game_lag_title">Wolny internet do gier w chmurze</string>
+    <string name="observer_game_lag_text">Internet ma teraz %1$s ms, dużo powyżej normy tego domu. Gry w chmurze mogą się opóźniać.</string>
+    <string name="observer_tv_wake_failing_title">Telewizor nie włączył się z budzikiem</string>
+    <string name="observer_tv_wake_failing_text">Przez %1$s poranków w tym tygodniu telewizor nie odpowiedział na budzik. Sprawdź, czy HDMI-CEC (SimpLink w LG) jest włączone w ustawieniach telewizora.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant zawodzi</string>
+    <string name="observer_home_hub_failing_text">%1$s poleceń do Home Assistant nie powiodło się w ostatniej dobie. Sprawdź, czy jest włączony i dostępny.</string>
 </resources>

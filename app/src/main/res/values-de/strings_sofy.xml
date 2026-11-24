@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s ist diese Woche %2$s-mal abgestürzt.</string>
     <string name="observer_app_crashy_update_title">%1$s stürzt ab</string>
     <string name="observer_app_crashy_update_text">%1$s ist diese Woche %2$s-mal abgestürzt, seit der neuen Version.</string>
+    <string name="observer_wifi_advice_title">Das WLAN geht besser</string>
+    <string name="observer_wifi_advice_text">Das Internet ist diese Woche %1$s-mal ausgefallen. Was am Router zu ändern ist, steht im TV-Tagebuch (Web-Panel).</string>
+    <string name="observer_game_lag_title">Langsames Internet für Cloud-Gaming</string>
+    <string name="observer_game_lag_text">Das Internet liegt gerade bei %1$s ms, weit über dem Normalwert dieses Haushalts. Cloud-Spiele können verzögern.</string>
+    <string name="observer_tv_wake_failing_title">Der Fernseher ging mit dem Wecker nicht an</string>
+    <string name="observer_tv_wake_failing_text">An %1$s Morgen dieser Woche reagierte der Fernseher nicht auf den Wecker. Prüfe, ob HDMI-CEC (SimpLink bei LG) in den TV-Einstellungen an ist.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant fällt aus</string>
+    <string name="observer_home_hub_failing_text">%1$s Befehle an Home Assistant sind seit gestern fehlgeschlagen. Prüfe, ob es läuft und erreichbar ist.</string>
 </resources>

@@ -72,7 +72,9 @@ object ObserverCore {
         // 24/11/2026: o que a Sofy fez sozinha pela rede ([actedNote]): religou o Wi-Fi, ou reiniciou a TV porque não bastou.
         WIFI_RESTARTED, TV_RESTARTED,
         // 24/11/2026 (estudo "extrapolar a Sofy"): sugestões dela, que vão à Ilha ([sofyNote]).
-        REMOTE_BATTERY_LOW, APP_ON_DEMAND, VERSION_SLOWER, APP_CRASHY, APP_CRASHY_UPDATE }
+        REMOTE_BATTERY_LOW, APP_ON_DEMAND, VERSION_SLOWER, APP_CRASHY, APP_CRASHY_UPDATE,
+        // A casa em volta da TV (SofyHouse, ideias 27 a 31).
+        WIFI_ADVICE, GAME_LAG, TV_WAKE_FAILING, HOME_HUB_FAILING }
 
     /** Abaixo disto o Android começa a fechar apps em segundo plano num aparelho de 2 GB (inferido; a fase 2 troca pela linha de base da casa). */
     const val LOW_MEMORY_MB = 150L
@@ -311,7 +313,8 @@ object ObserverCore {
         Kind.MEMORY_PRESSURE -> Signal.MEMORY_PRESSURE
         Kind.SLOW_HOME, Kind.UNUSUAL_FRAMES -> Signal.SLOW_FRAMES_PCT
         Kind.LOW_DISK -> Signal.DISK_FREE_MB
-        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW, Kind.APP_ON_DEMAND, Kind.VERSION_SLOWER, Kind.APP_CRASHY, Kind.APP_CRASHY_UPDATE -> null
+        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW, Kind.APP_ON_DEMAND, Kind.VERSION_SLOWER, Kind.APP_CRASHY, Kind.APP_CRASHY_UPDATE,
+        Kind.WIFI_ADVICE, Kind.GAME_LAG, Kind.TV_WAKE_FAILING, Kind.HOME_HUB_FAILING -> null
     }
 
     fun argsFor(kind: Kind, snapshot: Map<Signal, Reading>): List<String> {

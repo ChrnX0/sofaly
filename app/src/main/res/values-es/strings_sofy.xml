@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s se colgó %2$s veces esta semana.</string>
     <string name="observer_app_crashy_update_title">%1$s se está colgando</string>
     <string name="observer_app_crashy_update_text">%1$s se colgó %2$s veces esta semana, desde su versión nueva.</string>
+    <string name="observer_wifi_advice_title">El Wi-Fi puede mejorar</string>
+    <string name="observer_wifi_advice_text">Internet se cayó %1$s veces esta semana. Anoté qué cambiar en el router en el diario de la TV (panel web).</string>
+    <string name="observer_game_lag_title">Internet lenta para juegos en la nube</string>
+    <string name="observer_game_lag_text">Internet está a %1$s ms ahora, muy por encima de lo normal en esta casa. Los juegos en la nube pueden ir con retraso.</string>
+    <string name="observer_tv_wake_failing_title">La TV no se encendió con la alarma</string>
+    <string name="observer_tv_wake_failing_text">En %1$s mañanas de esta semana la TV no respondió a la alarma. Revisa que HDMI-CEC (SimpLink en LG) esté activado en los ajustes de la TV.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant está fallando</string>
+    <string name="observer_home_hub_failing_text">%1$s órdenes a Home Assistant fallaron en el último día. Revisa que esté encendido y en la red.</string>
 </resources>

@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s tento týden spadla %2$s×.</string>
     <string name="observer_app_crashy_update_title">%1$s padá</string>
     <string name="observer_app_crashy_update_text">%1$s tento týden spadla %2$s×, od nové verze.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi může být lepší</string>
+    <string name="observer_wifi_advice_text">Internet tento týden vypadl %1$s krát. Do deníku televize (webový panel) jsem zapsala, co změnit na routeru.</string>
+    <string name="observer_game_lag_title">Pomalý internet pro cloudové hraní</string>
+    <string name="observer_game_lag_text">Internet má teď %1$s ms, mnohem víc než je v této domácnosti normální. Cloudové hry se mohou zpožďovat.</string>
+    <string name="observer_tv_wake_failing_title">Televize se s budíkem nezapnula</string>
+    <string name="observer_tv_wake_failing_text">%1$s rána tento týden televize na budík nereagovala. Zkontrolujte, že je v nastavení televize zapnuté HDMI-CEC (u LG SimpLink).</string>
+    <string name="observer_home_hub_failing_title">Home Assistant selhává</string>
+    <string name="observer_home_hub_failing_text">%1$s příkazů pro Home Assistant za poslední den selhalo. Zkontrolujte, že běží a je dostupný.</string>
 </resources>

@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s liep deze week %2$s keer vast.</string>
     <string name="observer_app_crashy_update_title">%1$s loopt vast</string>
     <string name="observer_app_crashy_update_text">%1$s liep deze week %2$s keer vast, sinds de nieuwe versie.</string>
+    <string name="observer_wifi_advice_title">De wifi kan beter</string>
+    <string name="observer_wifi_advice_text">Het internet viel deze week %1$s keer weg. Wat je aan de router kunt veranderen staat in het tv-dagboek (webpaneel).</string>
+    <string name="observer_game_lag_title">Traag internet voor cloudgaming</string>
+    <string name="observer_game_lag_text">Het internet zit nu op %1$s ms, ver boven normaal voor dit huis. Cloudgames kunnen haperen.</string>
+    <string name="observer_tv_wake_failing_title">De tv ging niet aan met de wekker</string>
+    <string name="observer_tv_wake_failing_text">Op %1$s ochtenden deze week reageerde de tv niet op de wekker. Controleer of HDMI-CEC (SimpLink bij LG) aanstaat in de tv-instellingen.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant faalt</string>
+    <string name="observer_home_hub_failing_text">%1$s opdrachten aan Home Assistant mislukten het afgelopen etmaal. Controleer of hij aanstaat en bereikbaar is.</string>
 </resources>

@@ -32,4 +32,12 @@
     <string name="observer_app_crashy_text">%1$s зависав %2$s раз(и) цього тижня.</string>
     <string name="observer_app_crashy_update_title">%1$s зависає</string>
     <string name="observer_app_crashy_update_text">%1$s зависав %2$s раз(и) цього тижня, з нової версії.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi може працювати краще</string>
+    <string name="observer_wifi_advice_text">Інтернет зникав %1$s разів за тиждень. Що змінити в роутері, я записала в щоденник телевізора (веб-панель).</string>
+    <string name="observer_game_lag_title">Повільний інтернет для хмарних ігор</string>
+    <string name="observer_game_lag_text">Зараз затримка %1$s мс, набагато вища за звичайну для цього дому. Хмарні ігри можуть гальмувати.</string>
+    <string name="observer_tv_wake_failing_title">Телевізор не ввімкнувся з будильником</string>
+    <string name="observer_tv_wake_failing_text">%1$s ранків цього тижня телевізор не відповів на будильник. Перевірте, що HDMI-CEC (SimpLink у LG) увімкнено в налаштуваннях телевізора.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant не відповідає</string>
+    <string name="observer_home_hub_failing_text">%1$s команд для Home Assistant не спрацювали за останню добу. Перевірте, що він увімкнений і доступний.</string>
 </resources>

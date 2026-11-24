@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">تعطّل %1$s %2$s مرات هذا الأسبوع.</string>
     <string name="observer_app_crashy_update_title">‏%1$s يتعطل</string>
     <string name="observer_app_crashy_update_text">تعطّل %1$s %2$s مرات هذا الأسبوع، منذ إصداره الجديد.</string>
+    <string name="observer_wifi_advice_title">يمكن أن يكون الواي فاي أفضل</string>
+    <string name="observer_wifi_advice_text">انقطع الإنترنت %1$s مرات هذا الأسبوع. كتبتُ ما يجب تغييره في الراوتر في مذكرات التلفاز (لوحة الويب).</string>
+    <string name="observer_game_lag_title">إنترنت بطيء لألعاب السحابة</string>
+    <string name="observer_game_lag_text">الإنترنت الآن عند %1$s مللي ثانية، أعلى بكثير من المعتاد في هذا المنزل. قد تتأخر ألعاب السحابة.</string>
+    <string name="observer_tv_wake_failing_title">لم يعمل التلفاز مع المنبه</string>
+    <string name="observer_tv_wake_failing_text">في %1$s صباحات هذا الأسبوع لم يستجب التلفاز للمنبه. تأكد من تفعيل HDMI-CEC (SimpLink في LG) في إعدادات التلفاز.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant يتعطل</string>
+    <string name="observer_home_hub_failing_text">فشلت %1$s أوامر إلى Home Assistant خلال اليوم الأخير. تأكد أنه يعمل ويمكن الوصول إليه.</string>
 </resources>

@@ -151,7 +151,10 @@ object Presenca {
         if (junto != null) {
             val estava = if (p.contains("em_casa")) p.getBoolean("em_casa", false) else null
             p.edit().putBoolean("em_casa", junto).putLong("em_casa_em", System.currentTimeMillis()).apply()
-            if (estava == false && junto) Gatilhos.disparar(app, Gatilhos.Evento.ALGUEM_CHEGOU)
+            if (estava == false && junto) {
+                Gatilhos.disparar(app, Gatilhos.Evento.ALGUEM_CHEGOU)
+                runCatching { br.paulo.tvlauncher.observer.SofyHouseTv.arrived(app) }   // Sofy, ideia 33: deixa o de costume pronto
+            }
         }
         val d = decidirJunto(junto, antes, System.currentTimeMillis(), Rotinas.minutosSemTecla(), acesa)
         p.edit().putLong("ausente_desde", d.ausenteDesde ?: 0L).apply()

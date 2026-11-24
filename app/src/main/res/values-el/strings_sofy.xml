@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">Η %1$s κόλλησε %2$s φορές αυτή την εβδομάδα.</string>
     <string name="observer_app_crashy_update_title">Η %1$s κολλάει</string>
     <string name="observer_app_crashy_update_text">Η %1$s κόλλησε %2$s φορές αυτή την εβδομάδα, από τη νέα της έκδοση.</string>
+    <string name="observer_wifi_advice_title">Το Wi-Fi μπορεί καλύτερα</string>
+    <string name="observer_wifi_advice_text">Το ίντερνετ έπεσε %1$s φορές αυτή την εβδομάδα. Έγραψα τι να αλλάξεις στο ρούτερ στο ημερολόγιο της τηλεόρασης (web panel).</string>
+    <string name="observer_game_lag_title">Αργό ίντερνετ για παιχνίδια cloud</string>
+    <string name="observer_game_lag_text">Το ίντερνετ είναι στα %1$s ms τώρα, πολύ πάνω από το κανονικό αυτού του σπιτιού. Τα παιχνίδια cloud μπορεί να καθυστερούν.</string>
+    <string name="observer_tv_wake_failing_title">Η τηλεόραση δεν άνοιξε με το ξυπνητήρι</string>
+    <string name="observer_tv_wake_failing_text">Σε %1$s πρωινά αυτή την εβδομάδα η τηλεόραση δεν απάντησε στο ξυπνητήρι. Έλεγξε ότι το HDMI-CEC (SimpLink στην LG) είναι ενεργό στις ρυθμίσεις της.</string>
+    <string name="observer_home_hub_failing_title">Το Home Assistant αποτυγχάνει</string>
+    <string name="observer_home_hub_failing_text">%1$s εντολές προς το Home Assistant απέτυχαν την τελευταία μέρα. Έλεγξε ότι είναι αναμμένο και προσβάσιμο.</string>
 </resources>

@@ -225,6 +225,14 @@ object ComandosExtras {
         "observer" -> ObserverTv.report(ctx)
         // Desfazer dos limites que a Sofy ajusta sozinha (ideia 35, 24/11/2026): voltam todos ao de fábrica.
         "sofy_limits_reset" -> br.paulo.tvlauncher.observer.SofyLearnTv.resetLimits(ctx)
+        // Energia na Retrospectiva (Sofy, ideia 30): watts da TV + Chromecast e a tarifa em centavos por kWh (0 = apaga).
+        "energy" -> {
+            val w = i.getIntExtra("watts", -1); val c = i.getIntExtra("centavos", -1)
+            if (w in 0..2000) Extras.definirNumero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_WATTS, w)
+            if (c in 0..100_000) Extras.definirNumero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_CENTS_KWH, c)
+            "watts=${Extras.numero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_WATTS, 0)} " +
+                "centavos/kWh=${Extras.numero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_CENTS_KWH, 0)}"
+        }
         // Congelar sob demanda (OnDemandTv) e a prova do Observador: estado; marcar/desmarcar um app; congelar com prova (teste da fase 3).
         "ondemand" -> OnDemandTv.report(ctx)
         "ondemand_mark" -> i.getStringExtra("pacote")?.let { OnDemandTv.mark(ctx, it) ?: "ok: $it sob demanda" } ?: "falta --es pacote"

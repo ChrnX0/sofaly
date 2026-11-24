@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s 本周崩溃了 %2$s 次。</string>
     <string name="observer_app_crashy_update_title">%1$s 经常崩溃</string>
     <string name="observer_app_crashy_update_text">%1$s 自新版本起本周崩溃了 %2$s 次。</string>
+    <string name="observer_wifi_advice_title">Wi-Fi 还能更好</string>
+    <string name="observer_wifi_advice_text">本周网络断了 %1$s 次。我已在电视日记（网页面板）里写下路由器该改什么。</string>
+    <string name="observer_game_lag_title">网络太慢，不适合云游戏</string>
+    <string name="observer_game_lag_text">当前延迟 %1$s 毫秒，远高于这个家里的正常水平。云游戏可能会卡顿。</string>
+    <string name="observer_tv_wake_failing_title">闹钟没能打开电视</string>
+    <string name="observer_tv_wake_failing_text">本周有 %1$s 个早上电视没有响应闹钟。请在电视设置中确认 HDMI-CEC（LG 为 SimpLink）已开启。</string>
+    <string name="observer_home_hub_failing_title">Home Assistant 出现故障</string>
+    <string name="observer_home_hub_failing_text">过去一天发给 Home Assistant 的 %1$s 条指令失败。请确认它已开启且可以连接。</string>
 </resources>

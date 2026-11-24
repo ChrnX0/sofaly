@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s krasjet %2$s ganger denne uken.</string>
     <string name="observer_app_crashy_update_title">%1$s krasjer</string>
     <string name="observer_app_crashy_update_text">%1$s krasjet %2$s ganger denne uken, siden den nye versjonen.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi-en kan bli bedre</string>
+    <string name="observer_wifi_advice_text">Internett falt ut %1$s ganger denne uken. Jeg skrev hva som bør endres på ruteren i TV-dagboken (webpanelet).</string>
+    <string name="observer_game_lag_title">Tregt internett for skyspill</string>
+    <string name="observer_game_lag_text">Internett ligger på %1$s ms nå, langt over det normale i dette hjemmet. Skyspill kan henge.</string>
+    <string name="observer_tv_wake_failing_title">TV-en slo seg ikke på med alarmen</string>
+    <string name="observer_tv_wake_failing_text">%1$s morgener denne uken svarte ikke TV-en på alarmen. Sjekk at HDMI-CEC (SimpLink på LG) er på i TV-innstillingene.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant feiler</string>
+    <string name="observer_home_hub_failing_text">%1$s kommandoer til Home Assistant feilet siste døgn. Sjekk at den er på og kan nås.</string>
 </resources>

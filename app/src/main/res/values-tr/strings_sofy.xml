@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s bu hafta %2$s kez takıldı.</string>
     <string name="observer_app_crashy_update_title">%1$s takılıyor</string>
     <string name="observer_app_crashy_update_text">%1$s bu hafta %2$s kez takıldı, yeni sürümünden beri.</string>
+    <string name="observer_wifi_advice_title">Wi-Fi daha iyi olabilir</string>
+    <string name="observer_wifi_advice_text">İnternet bu hafta %1$s kez koptu. Modemde neyin değişmesi gerektiğini TV günlüğüne (web paneli) yazdım.</string>
+    <string name="observer_game_lag_title">Bulut oyun için yavaş internet</string>
+    <string name="observer_game_lag_text">İnternet şu an %1$s ms, bu evin normalinin çok üstünde. Bulut oyunlar gecikebilir.</string>
+    <string name="observer_tv_wake_failing_title">TV alarmla açılmadı</string>
+    <string name="observer_tv_wake_failing_text">Bu hafta %1$s sabah TV alarma yanıt vermedi. TV ayarlarında HDMI-CEC\'in (LG\'de SimpLink) açık olduğunu kontrol et.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant hata veriyor</string>
+    <string name="observer_home_hub_failing_text">Son bir günde Home Assistant\'a giden %1$s komut başarısız oldu. Açık ve erişilebilir olduğunu kontrol et.</string>
 </resources>

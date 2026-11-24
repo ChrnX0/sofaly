@@ -31,4 +31,12 @@
     <string name="observer_app_crashy_text">%1$s crashed %2$s times this week.</string>
     <string name="observer_app_crashy_update_title">%1$s keeps crashing</string>
     <string name="observer_app_crashy_update_text">%1$s crashed %2$s times this week, since its new version.</string>
+    <string name="observer_wifi_advice_title">The Wi-Fi can do better</string>
+    <string name="observer_wifi_advice_text">The internet dropped %1$s times this week. I wrote what to change on the router in the TV diary (web panel).</string>
+    <string name="observer_game_lag_title">Slow internet for cloud games</string>
+    <string name="observer_game_lag_text">The internet is at %1$s ms now, well above normal for this home. Cloud games may lag.</string>
+    <string name="observer_tv_wake_failing_title">The TV didn’t turn on with the alarm</string>
+    <string name="observer_tv_wake_failing_text">On %1$s mornings this week the TV didn’t answer the alarm. Check that HDMI-CEC (SimpLink on LG) is on in the TV settings.</string>
+    <string name="observer_home_hub_failing_title">Home Assistant is failing</string>
+    <string name="observer_home_hub_failing_text">%1$s commands to Home Assistant failed in the last day. Check that it is on and reachable.</string>
 </resources>
