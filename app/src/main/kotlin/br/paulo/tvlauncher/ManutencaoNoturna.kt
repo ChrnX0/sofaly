@@ -112,11 +112,19 @@ object ManutencaoNoturna {
                     }
                     ManutencaoRegras.Decisao.ADIAR -> {
                         agendar(app, System.currentTimeMillis() + 60 * 60_000L)
+                        runCatching { ObserverTv.nightSkipped(app, "TV em uso às ${c.get(Calendar.HOUR_OF_DAY)}h: tento de novo em 1 h") }
                         // TV acesa e em uso às 4h (ideia 3, 12/11/2026): pode ser alguém que dormiu com ela ligada.
                         Avisos.enviar(app, Avisos.Tipo.TV_MADRUGADA, txt(R.string.mn_madrugada),
                             txt(R.string.mn_madrugada_det, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE)))
                     }
-                    ManutencaoRegras.Decisao.DESISTIR -> { prefs(app).edit().remove("adiado_para").apply(); agendar(app) }
+                    ManutencaoRegras.Decisao.DESISTIR -> {
+                        prefs(app).edit().remove("adiado_para").apply(); agendar(app)
+                        // Antes a noite sumia calada (22/11/2026 ficou sem sonda e ninguém soube por quê).
+                        val h = c.get(Calendar.HOUR_OF_DAY)
+                        val ini = prefs(app).getInt("inicio_agendado", inicio(app))
+                        runCatching { ObserverTv.nightSkipped(app, if (h in (ini - 1)..(ini + 1)) "TV ainda em uso às ${h}h: noite pulada"
+                            else "o alarme tocou às ${h}h, fora da janela das ${ini}h: noite pulada") }
+                    }
                 }
             } catch (e: Exception) {
                 Log.w(TAG, "manutenção falhou", e); agendar(app)

@@ -68,7 +68,9 @@ object ObserverCore {
         // Fase 2: dentro dos limites fixos, mas fora do normal DESTA casa nesta hora (ObserverBaseline). Só INFO: registro e diário.
         UNUSUAL_LATENCY, UNUSUAL_MEMORY, UNUSUAL_WIFI, UNUSUAL_FRAMES,
         // Fase 3: não é achado do juiz; é o recado de quando a prova desfez um congelamento que quebrou algo ([freezeUndoneNote]).
-        FREEZE_UNDONE }
+        FREEZE_UNDONE,
+        // 24/11/2026: o que a Sofy fez sozinha pela rede ([actedNote]): religou o Wi-Fi, ou reiniciou a TV porque não bastou.
+        WIFI_RESTARTED, TV_RESTARTED }
 
     /** Abaixo disto o Android começa a fechar apps em segundo plano num aparelho de 2 GB (inferido; a fase 2 troca pela linha de base da casa). */
     const val LOW_MEMORY_MB = 150L
@@ -270,6 +272,16 @@ object ObserverCore {
             base + "_title", base + "_text", listOf(appLabel, brokeText), null, "freeze_undone", at + NOTE_TTL_MS)
     }
 
+    /**
+     * O que a Sofy fez sozinha e a pessoa sentiu (24/11/2026): [Kind.WIFI_RESTARTED] ou [Kind.TV_RESTARTED], com quantos
+     * minutos a TV ficou sem Wi-Fi em [minutes]. ACTED_FELT: de dia aparece na hora; de madrugada vai ao resumo da manhã.
+     */
+    fun actedNote(kind: Kind, at: Long, minutes: Long): Note {
+        val base = "observer_" + kind.name.lowercase()
+        return Note("${kind.name}-$at", at, kind, Severity.WARNING, Step.ACTED_FELT, State.DONE,
+            base + "_title", base + "_text", listOf(minutes.toString()), null, kind.name.lowercase(), at + NOTE_TTL_MS)
+    }
+
     /** Fase 1: o Observador só observa, então todo recado é OBSERVED + DONE, sem desfazer. */
     fun noteFor(f: Finding, at: Long, args: List<String> = emptyList()): Note {
         val base = "observer_" + f.kind.name.lowercase()
@@ -287,7 +299,7 @@ object ObserverCore {
         Kind.MEMORY_PRESSURE -> Signal.MEMORY_PRESSURE
         Kind.SLOW_HOME, Kind.UNUSUAL_FRAMES -> Signal.SLOW_FRAMES_PCT
         Kind.LOW_DISK -> Signal.DISK_FREE_MB
-        Kind.FREEZE_UNDONE -> null
+        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED -> null
     }
 
     fun argsFor(kind: Kind, snapshot: Map<Signal, Reading>): List<String> {

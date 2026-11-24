@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Yalnızca %1$s MB kaldı. Kaydetme başarısız olabilir.</string>
     <string name="observer_freeze_undone_title">Bir dondurmayı geri aldım</string>
     <string name="observer_freeze_undone_text">%1$s donmuştu ve %2$s çalışmayı bıraktı, bu yüzden çözdüm.</string>
+    <string name="observer_wifi_restarted_title">Wi-Fi\'ı yeniden başlattım</string>
+    <string name="observer_wifi_restarted_text">TV %1$s dk Wi-Fi\'sız kaldı. Kapatıp açtım ve geri geldi.</string>
+    <string name="observer_tv_restarted_title">TV\'yi yeniden başlattım</string>
+    <string name="observer_tv_restarted_text">Wi-Fi %1$s dk yoktu ve kapatıp açmak yetmedi, bu yüzden TV\'yi yeniden başlattım.</string>
 </resources>

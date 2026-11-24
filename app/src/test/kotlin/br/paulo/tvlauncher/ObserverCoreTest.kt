@@ -189,4 +189,12 @@ class ObserverCoreTest {
         // Sem sinal próprio (congelamento desfeito): fecha já.
         assertEquals(listOf(Kind.FREEZE_UNDONE), ObserverCore.confirmedCleared(listOf(Kind.FREEZE_UNDONE), emptyMap(), agora))
     }
+
+    @Test fun wifiRepairBecomesANoteTheSofyTells() {
+        val n = ObserverCore.actedNote(ObserverCore.Kind.WIFI_RESTARTED, 1_000L, 12)
+        assertEquals(ObserverCore.Step.ACTED_FELT, n.step)
+        assertEquals("observer_wifi_restarted_title", n.titleKey)
+        assertEquals(listOf("12"), n.args)
+        assertEquals(null, ObserverCore.signalOf(ObserverCore.Kind.TV_RESTARTED))
+    }
 }

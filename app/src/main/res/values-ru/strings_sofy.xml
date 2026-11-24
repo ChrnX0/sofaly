@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Осталось %1$s МБ. Сохранение может не пройти.</string>
     <string name="observer_freeze_undone_title">Отменила заморозку</string>
     <string name="observer_freeze_undone_text">%1$s было заморожено, и перестало работать: %2$s. Я его разморозила.</string>
+    <string name="observer_wifi_restarted_title">Перезапустила Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">Телевизор был без Wi-Fi %1$s мин. Я выключила и включила его, и он вернулся.</string>
+    <string name="observer_tv_restarted_title">Перезапустила телевизор</string>
+    <string name="observer_tv_restarted_text">Wi-Fi пропал на %1$s мин, и перезапуск не помог, поэтому я перезапустила телевизор.</string>
 </resources>

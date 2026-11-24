@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Zbývá jen %1$s MB. Ukládání může selhat.</string>
     <string name="observer_freeze_undone_title">Zrušil jsem zmrazení</string>
     <string name="observer_freeze_undone_text">%1$s byla zmrazena a %2$s přestala fungovat, tak jsem ji rozmrazil.</string>
+    <string name="observer_wifi_restarted_title">Restartovala jsem Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">Televize byla %1$s min bez Wi-Fi. Vypnula jsem ho a zapnula a vrátilo se.</string>
+    <string name="observer_tv_restarted_title">Restartovala jsem televizi</string>
+    <string name="observer_tv_restarted_text">Wi-Fi bylo pryč %1$s min a vypnutí a zapnutí nestačilo, tak jsem restartovala televizi.</string>
 </resources>

@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Nur noch %1$s MB. Speichern kann fehlschlagen.</string>
     <string name="observer_freeze_undone_title">Einfrieren rückgängig gemacht</string>
     <string name="observer_freeze_undone_text">%1$s war eingefroren und %2$s ging nicht mehr, deshalb habe ich es aufgetaut.</string>
+    <string name="observer_wifi_restarted_title">WLAN neu gestartet</string>
+    <string name="observer_wifi_restarted_text">Der Fernseher war %1$s Min. ohne WLAN. Ich habe es aus- und eingeschaltet, und es kam zurück.</string>
+    <string name="observer_tv_restarted_title">Fernseher neu gestartet</string>
+    <string name="observer_tv_restarted_text">Das WLAN war %1$s Min. weg und Aus- und Einschalten reichte nicht, also habe ich den Fernseher neu gestartet.</string>
 </resources>

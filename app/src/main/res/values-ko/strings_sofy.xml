@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">%1$s MB만 남았어요. 저장이 실패할 수 있어요.</string>
     <string name="observer_freeze_undone_title">정지를 되돌렸습니다</string>
     <string name="observer_freeze_undone_text">%1$s을(를) 정지했더니 %2$s이(가) 작동하지 않아 다시 켰습니다.</string>
+    <string name="observer_wifi_restarted_title">Wi-Fi를 다시 켰습니다</string>
+    <string name="observer_wifi_restarted_text">TV가 %1$s분 동안 Wi-Fi 없이 있었습니다. 껐다 켰더니 돌아왔습니다.</string>
+    <string name="observer_tv_restarted_title">TV를 다시 시작했습니다</string>
+    <string name="observer_tv_restarted_text">Wi-Fi가 %1$s분 동안 끊겼고 껐다 켜도 안 돼서 TV를 다시 시작했습니다.</string>
 </resources>

@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Vain %1$s Mt jäljellä. Tallentaminen voi epäonnistua.</string>
     <string name="observer_freeze_undone_title">Kumosin jäädytyksen</string>
     <string name="observer_freeze_undone_text">%1$s oli jäädytetty ja %2$s lakkasi toimimasta, joten sulatin sen.</string>
+    <string name="observer_wifi_restarted_title">Käynnistin wifin uudelleen</string>
+    <string name="observer_wifi_restarted_text">Televisio oli ilman wifiä %1$s min. Sammutin ja käynnistin sen, ja se palasi.</string>
+    <string name="observer_tv_restarted_title">Käynnistin television uudelleen</string>
+    <string name="observer_tv_restarted_text">Wifi oli poissa %1$s min, eikä uudelleenkäynnistys riittänyt, joten käynnistin television uudelleen.</string>
 </resources>

@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Nog maar %1$s MB over. Opslaan kan mislukken.</string>
     <string name="observer_freeze_undone_title">Ik heb een bevriezing ongedaan gemaakt</string>
     <string name="observer_freeze_undone_text">%1$s was bevroren en %2$s werkte niet meer, dus ik heb het ontdooid.</string>
+    <string name="observer_wifi_restarted_title">Wifi opnieuw gestart</string>
+    <string name="observer_wifi_restarted_text">De tv had %1$s min geen wifi. Ik heb het uit- en aangezet en het kwam terug.</string>
+    <string name="observer_tv_restarted_title">Tv opnieuw gestart</string>
+    <string name="observer_tv_restarted_text">De wifi was %1$s min weg en uit- en aanzetten hielp niet, dus heb ik de tv opnieuw gestart.</string>
 </resources>

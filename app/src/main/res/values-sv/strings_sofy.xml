@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Bara %1$s MB kvar. Att spara kan misslyckas.</string>
     <string name="observer_freeze_undone_title">Jag ångrade en frysning</string>
     <string name="observer_freeze_undone_text">%1$s var fryst och %2$s slutade fungera, så jag tinade den.</string>
+    <string name="observer_wifi_restarted_title">Jag startade om wifi</string>
+    <string name="observer_wifi_restarted_text">Tv:n var utan wifi i %1$s min. Jag stängde av och slog på det, och det kom tillbaka.</string>
+    <string name="observer_tv_restarted_title">Jag startade om tv:n</string>
+    <string name="observer_tv_restarted_text">Wifi var borta i %1$s min och att slå av och på räckte inte, så jag startade om tv:n.</string>
 </resources>

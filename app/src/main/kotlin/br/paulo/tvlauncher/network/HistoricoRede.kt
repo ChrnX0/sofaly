@@ -11,6 +11,7 @@ import android.util.Log
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.alarm.AutoDesligar
+import br.paulo.tvlauncher.observer.ObserverCore
 import br.paulo.tvlauncher.observer.ObserverTv
 import br.paulo.tvlauncher.panel.PainelControle
 import br.paulo.tvlauncher.panel.PainelSaude
@@ -207,7 +208,13 @@ object HistoricoRede {
         val noCabo = cm.activeNetwork?.let { cm.getNetworkCapabilities(it) }?.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) == true
         val agora = System.currentTimeMillis()
         if (a.dbm != 0 || noCabo || !wm.isWifiEnabled) {
-            if (religadas > 0) evento(app, "Wi-Fi voltou depois de $religadas religada(s) pelo launcher")
+            if (religadas > 0) {
+                evento(app, "Wi-Fi voltou depois de $religadas religada(s) pelo launcher")
+                // A Sofy conta o que fez (24/11/2026): só agora, quando deu certo, e com quanto tempo a TV ficou sem Wi-Fi.
+                val fora = semWifiDesde?.let { (agora - it) / 60_000 } ?: 0L
+                runCatching { ObserverTv.acted(app, ObserverCore.Kind.WIFI_RESTARTED, fora,
+                    "sem Wi-Fi por $fora min; desliguei e religuei o Wi-Fi $religadas vez(es) e ele voltou") }
+            }
             // Com rede o relógio é o do NTP: um "último reinício" no futuro (gravado com o relógio errado) travaria o
             // reparo para sempre; traz para agora (a trava de 6 h continua valendo a partir daqui).
             val pr = app.getSharedPreferences(PREFS_REPARO, Context.MODE_PRIVATE)
@@ -234,7 +241,7 @@ object HistoricoRede {
                 evento(app, "sem Wi-Fi há $minFora min: o launcher desligou e religou o Wi-Fi")
             }
             ReparoWifi.Acao.REINICIAR -> {
-                p.edit().putLong("reinicio", agora).commit()   // antes de reiniciar: nunca em ciclo
+                p.edit().putLong("reinicio", agora).putLong("reinicio_min", minFora).commit()   // antes de reiniciar: nunca em ciclo
                 gravar(app, ResumoRede.linhaEvento(agora, "sem Wi-Fi há $minFora min e religar não bastou: o launcher reiniciou a TV"))
                 Log.w(TAG, "sem Wi-Fi há $minFora min: reiniciando a TV")
                 PainelControle.reiniciarTv(app)?.let { evento(app, "reiniciar a TV falhou: $it") }

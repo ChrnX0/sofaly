@@ -76,6 +76,11 @@ object ObserverTv {
             p.edit().putString("log", log).putInt("boot_count", count).apply()
         }
         runCatching { Diario.anotar(ctx, "tv", "Observer: boot", why) }
+        // Quem reiniciou foi o reparo do Wi-Fi: a Sofy conta (de madrugada, no resumo da manhã).
+        if (reparo > 0 && bootAt - reparo in 0..ObserverCore.WIFI_REPAIR_WINDOW_MS) {
+            val fora = ctx.getSharedPreferences(HistoricoRede.PREFS_REPARO, Context.MODE_PRIVATE).getLong("reinicio_min", 0L)
+            runCatching { acted(ctx, ObserverCore.Kind.TV_RESTARTED, fora, why) }
+        }
         Log.i(TAG, why)
     }
 
@@ -231,6 +236,29 @@ object ObserverTv {
     }
 
     private val LEARNING_KEYS = listOf("habit", "pico")
+
+    /**
+     * A Sofy agiu sozinha fora do juiz (o reparo do Wi-Fi do HistoricoRede): vai ao registro como "acted", ao Diário e à
+     * fila de recados, e a Sofy decide onde contar ([SofyTv.present]: na hora, na Ilha ou no resumo da manhã).
+     */
+    fun acted(ctx: Context, kind: ObserverCore.Kind, minutes: Long, why: String) {
+        val app = ctx.applicationContext
+        val agora = System.currentTimeMillis()
+        synchronized(this) {
+            val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            val log = ObserverCore.appendLog(p.getString("log", null), ObserverCore.logEntry(agora, "acted", kind, ObserverCore.Severity.WARNING, why, blackBox.snapshot()), agora)
+            val notes = ObserverCore.enqueue(p.getString("notes", null), ObserverCore.actedNote(kind, agora, minutes), agora)
+            p.edit().putString("log", log).putString("notes", notes).commit()   // commit: o próximo passo pode ser reiniciar
+        }
+        runCatching { Diario.anotar(app, "tv", "Sofy: ${kind.name}", why) }
+        Fundo.rodar { runCatching { SofyTv.present(app) } }
+    }
+
+    /** A manutenção da madrugada (e a sonda) não rodou nesta noite: fica no registro e no Diário, com o porquê. */
+    fun nightSkipped(ctx: Context, why: String) {
+        logShadow(ctx, "night_skipped", why)
+        runCatching { Diario.anotar(ctx.applicationContext, "tv", "Sofy: noite pulada", why) }
+    }
 
     /** Uma linha de SOMBRA no registro (o que a Sofy faria, sem fazer): ex. "app_tip" da ficha viva dos apps. */
     @Synchronized fun logShadow(ctx: Context, event: String, why: String) {

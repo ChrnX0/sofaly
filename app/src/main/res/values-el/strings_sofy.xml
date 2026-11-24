@@ -17,4 +17,8 @@
     <string name="observer_low_disk_text">Απομένουν μόνο %1$s MB. Η αποθήκευση μπορεί να αποτύχει.</string>
     <string name="observer_freeze_undone_title">Αναίρεσα ένα πάγωμα</string>
     <string name="observer_freeze_undone_text">Το %1$s ήταν παγωμένο και το %2$s σταμάτησε να λειτουργεί, οπότε το ξεπάγωσα.</string>
+    <string name="observer_wifi_restarted_title">Επανεκκίνησα το Wi-Fi</string>
+    <string name="observer_wifi_restarted_text">Η τηλεόραση έμεινε %1$s λεπτά χωρίς Wi-Fi. Το έκλεισα και το άνοιξα, και επέστρεψε.</string>
+    <string name="observer_tv_restarted_title">Επανεκκίνησα την τηλεόραση</string>
+    <string name="observer_tv_restarted_text">Το Wi-Fi χάθηκε για %1$s λεπτά και το κλείσιμο-άνοιγμα δεν έφτασε, οπότε επανεκκίνησα την τηλεόραση.</string>
 </resources>
