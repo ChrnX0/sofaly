@@ -18,7 +18,7 @@
     <string name="wo_vazio_original">Пусто = исходное имя</string>
     <string name="wo_so_icone">Только значок</string>
     <string name="wo_com_nome">Показывать название</string>
-    <string name="wo_nomes_titulo">Названия категорий</string>
+    <string name="wo_nomes_titulo">Подписи значков</string>
     <string name="wo_so_icone_curto">Только значок</string>
     <string name="wo_com_nome_curto">С названием</string>
     <string name="co_titulo">Продолжить</string>

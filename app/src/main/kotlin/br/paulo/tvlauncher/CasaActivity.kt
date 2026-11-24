@@ -204,6 +204,9 @@ class CasaActivity : Activity() {
         resumo.text = when {
             entidades.isEmpty() -> getString(R.string.casa_vazio)
             aparelhos.isEmpty() -> getString(R.string.casa_resumo_so_cenas, entidades.size)
+            // Todos sem resposta: "0 de 2 ligados" com os dois "Indisponível" embaixo se contradizia (5ª rodada, 24/11/2026).
+            aparelhos.all { estadoDe(it) == "unavailable" || estadoDe(it) == "unknown" } ->
+                "Home Assistant · " + getString(R.string.casa_indisponivel)
             else -> getString(R.string.casa_resumo, ligados, aparelhos.size)
         }
     }

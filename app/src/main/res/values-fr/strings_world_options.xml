@@ -18,7 +18,7 @@
     <string name="wo_vazio_original">Vide = nom d\'origine</string>
     <string name="wo_so_icone">Afficher seulement l\'icône</string>
     <string name="wo_com_nome">Afficher le nom</string>
-    <string name="wo_nomes_titulo">Nom des catégories</string>
+    <string name="wo_nomes_titulo">Légende des icônes</string>
     <string name="wo_so_icone_curto">Icône seule</string>
     <string name="wo_com_nome_curto">Avec le nom</string>
     <string name="co_titulo">Reprendre</string>

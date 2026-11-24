@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Onde mora o nome do mundo da cruz (WorldLabel, 22/11/2026). -->
 <resources>
-    <string name="wl_titulo">카테고리 이름</string>
+    <string name="wl_titulo">선택한 카테고리</string>
     <string name="wl_pilula">시계 옆</string>
 </resources>

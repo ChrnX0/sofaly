@@ -80,4 +80,23 @@ class DicasClimaTest {
         val h = horas(10, chance = { (it * 7) % 100 })
         assertEquals(DicasClima.frase(e(h)), DicasClima.frase(e(h)))
     }
+
+    /** Teste 100%, 5ª rodada (Sala, 24/11/2026 0h37): chuva de 72% às 13h; a HOME dizia "Chuva em 13 h" e o Clima "não precisa". */
+    @Test fun madrugadaOlhaODiaClaroDeHojeInteiro() {
+        val h = horas(0, chance = { if (it == 13) 72 else 5 })
+        assertEquals(Dica(Resposta.SIM_AS, 13), DicasClima.guardaChuva(e(h)))
+        assertEquals(Frase(TipoFrase.CHUVA_AS, 13, 72), DicasClima.frase(e(h)))
+        assertEquals(Dica(Resposta.ATE, 13), DicasClima.varal(e(h, amanha = 90)))   // hoje, não amanhã
+    }
+
+    @Test fun madrugadaSemChuvaSecaHoje() =
+        assertEquals(Dica(Resposta.SECA_HOJE), DicasClima.varal(e(horas(2), amanha = 90)))
+
+    @Test fun depoisDoPorDoSolVaralAindaFalaDeAmanha() =
+        assertEquals(Dica(Resposta.AMANHA_NAO), DicasClima.varal(e(horas(21), amanha = 90)))
+
+    @Test fun pilulaSemACondicaoDoCeu() {
+        assertEquals("Chuva 72% em 13 h", br.paulo.tvlauncher.weather.ClimaFontes.semCeu(" - Chuva 72% em 13 h"))
+        assertEquals("Regen 72% in 13 h", br.paulo.tvlauncher.weather.ClimaFontes.semCeu(" – Regen 72% in 13 h"))
+    }
 }

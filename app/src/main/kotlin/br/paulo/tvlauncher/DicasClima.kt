@@ -36,8 +36,26 @@ internal object DicasClima {
     /** [hora] vale para SIM_AS, ATE, AS e AMANHA_AS. */
     data class Dica(val resposta: Resposta, val hora: Int = -1)
 
-    /** As 12 horas à frente (a "janela" das decisões de hoje). */
-    private fun proximas(e: Entrada, n: Int = 12) = e.horas.take(n)
+    /**
+     * A "janela" das decisões de hoje: as 12 horas à frente. De madrugada (noite agora e o próximo sol ainda é HOJE) vai
+     * até o fim desse dia claro: às 0h37 as 12 h acabavam às 12h37 e uma chuva de 72% às 13h dava "Guarda-chuva: não
+     * precisa" com a HOME dizendo "Chuva 72% em 13 h" (teste 100%, 5ª rodada, 24/11/2026).
+     */
+    internal fun proximas(e: Entrada, n: Int = 12): List<Hora> {
+        val sol = proximoSolDeHoje(e) ?: return e.horas.take(n)
+        return e.horas.take(maxOf(n, sol.last + 1))
+    }
+
+    /** Índices do próximo dia claro, se agora é noite e ele cai HOJE (madrugada); senão null. */
+    private fun proximoSolDeHoje(e: Entrada): IntRange? {
+        val agora = e.horas.firstOrNull() ?: return null
+        if (agora.dia) return null
+        val ini = e.horas.indexOfFirst { it.dia }
+        if (ini < 0 || !e.horas[ini].hoje) return null
+        var fim = ini
+        while (fim + 1 < e.horas.size && e.horas[fim + 1].dia) fim++
+        return ini..fim
+    }
 
     /** O que mais importa hoje, por ordem: chuva agora, chuva chegando, calor, frio, sol forte, chuva amanhã, dia calmo. */
     fun frase(e: Entrada): Frase {
@@ -78,7 +96,19 @@ internal object DicasClima {
     fun varal(e: Entrada): Dica {
         val agora = e.horas.firstOrNull() ?: return Dica(Resposta.HOJE_NAO)
         if (e.chovendo) return Dica(Resposta.MELHOR_NAO)
-        if (!agora.dia) return if ((e.chanceAmanha ?: 100) < VARAL) Dica(Resposta.AMANHA_SIM) else Dica(Resposta.AMANHA_NAO)
+        if (!agora.dia) {
+            // Madrugada: o próximo sol é HOJE, então a resposta é sobre ele (antes dizia "Amanhã, não" às 0h37 olhando o
+            // dia seguinte inteiro). Depois do pôr do sol, sobre amanhã, como antes.
+            proximoSolDeHoje(e)?.let { r ->
+                val chuva = e.horas.subList(r.first, r.last + 1).indexOfFirst { it.chance >= VARAL }
+                return when {
+                    chuva < 0 -> Dica(Resposta.SECA_HOJE)
+                    chuva < 2 -> Dica(Resposta.MELHOR_NAO)
+                    else -> Dica(Resposta.ATE, e.horas[r.first + chuva].hora)
+                }
+            }
+            return if ((e.chanceAmanha ?: 100) < VARAL) Dica(Resposta.AMANHA_SIM) else Dica(Resposta.AMANHA_NAO)
+        }
         val sol = e.horas.takeWhile { it.dia }
         val chuva = sol.indexOfFirst { it.chance >= VARAL }
         return when {

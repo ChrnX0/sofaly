@@ -119,8 +119,11 @@ object ClimaFontes {
             .maxOfOrNull { horasChuva[it] } ?: picoChuva
         val textoLinha = when {
             chovendoAgora -> ctx.getString(R.string.home_chovendo)
-            primeira == 0 -> ctx.getString(R.string.home_chuva_agora, descricao, picoChuva)
-            primeira > 0 -> ctx.getString(R.string.home_chuva_em, descricao, picoChuva, primeira)
+            // Sem a condição do céu quando há chuva a dizer (teste 100%, 5ª rodada, 24/11/2026): "Poucas nuvens - Chuva 72%
+            // em 13 h" não cabia na pílula e saía "Poucas nuvens - Chuva", que parece contradição. O ícone já mostra o céu;
+            // o texto fica só com a chuva. Os 16 formatos começam por "%1$s - ": vazio e o traço aparado.
+            primeira == 0 -> semCeu(ctx.getString(R.string.home_chuva_agora, "", picoChuva))
+            primeira > 0 -> semCeu(ctx.getString(R.string.home_chuva_em, "", picoChuva, primeira))
             else -> descricao
         }
         // De noite, ceu limpo/poucas nuvens/parcial mostram a lua na fase de hoje no lugar do sol
@@ -334,4 +337,7 @@ object ClimaFontes {
             null   // formato mudou, sem internet etc.: fica o modelo
         }
     }
+
+    /** " - Chuva 72% em 13 h" -> "Chuva 72% em 13 h" (o formato com a condição do céu vazia). */
+    internal fun semCeu(t: String) = t.trimStart(' ', '-', '–', '—')
 }

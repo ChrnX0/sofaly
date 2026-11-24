@@ -630,7 +630,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         painel.mostrarFoco(Estilo.infoFoco(Idioma.tituloCurto(Vod.nomeTela(Idioma.semMarca(f.nome), f.ano)), notaRapida[f.chave] ?: f.nota, listOfNotNull(
             f.ano?.toString(),
             if (soLegendado(f)) getString(R.string.idioma_legendado) else null,
-            info?.duracaoMin?.let { if (it >= 60) "${it / 60} h ${"%02d".format(it % 60)}" else "$it min" },
+            info?.duracaoMin?.let { duracaoCurta(it) },   // igual à ficha e à HOME ("1 h 47" na grade x "1 h 47 min" na ficha, Sala 24/11)
             info?.genero?.ifEmpty { null } ?: PlayerLista.nomeExibido(f.grupo).ifEmpty { null },
             pos?.takeIf { p -> Vod.deveRetomar(p) }?.let { p -> BarraTempo.faltam(this, BarraTempo.duracao(p.duracao - p.ms)) },
             extRapidas[f.chave]?.ifEmpty { null })))
@@ -646,6 +646,13 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, String>) = size > 60
     }
     /** A média das notas de fora (a estrela), quando há; sem ela, a estrela é a da lista de canais. */
+    /** A nota que a ficha mostra (fora > cache da grade > servidor): a HOME leva a MESMA ("Parou em ★ 10,0" x ficha ★ 7,6, Sala 24/11/2026). */
+    private fun notaMostrada(f: Filme): Float? =
+        externo?.takeIf { it.first === f }?.second?.let { InfoExterna.notasDe(it).media } ?: notaRapida[f.chave] ?: f.nota
+
+    private fun duracaoCurta(min: Int): String { val h = min / 60; val r = min % 60
+        return when { h == 0 -> "$r min"; r == 0 -> "$h h"; else -> "$h h $r min" } }
+
     private val notaRapida = object : LinkedHashMap<String, Float>(64, 0.75f, true) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, Float>) = size > 60
     }
@@ -824,7 +831,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         texto.addView(TextView(this).apply { text = Vod.nomeTela(f.nome, f.ano); textSize = Estilo.Leitura.TITULO; typeface = fonteMedia; setTextColor(papel); maxLines = 3; ellipsize = TextUtils.TruncateAt.END })
         val dados = listOfNotNull(
             (f.ano?.toString() ?: info?.lancamento?.take(4)?.takeIf { it.isNotEmpty() }),
-            info?.duracaoMin?.let { if (it >= 60) "${it / 60} h ${it % 60} min" else "$it min" },
+            info?.duracaoMin?.let { duracaoCurta(it) },
             // Mesma nota da faixa da grade (notaRapida, do cache do Trakt/Simkl) quando a ficha de fora não veio agora:
             // antes a grade dizia ★ 8,1 e a ficha do mesmo filme ★ 7,8 (Sala, 21/11/2026).
             (ext?.let { InfoExterna.notasDe(it).media } ?: notaRapida[f.chave] ?: f.nota)?.let { "★ %.1f".format(Locale.getDefault(), it) },
@@ -1064,7 +1071,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         val info = fichaInfo?.takeIf { ficha === f }   // o "Assistir" mora na ficha: quase sempre já carregou
         val cenas = info?.cenas.orEmpty()
         // A ficha curta vai junto, para o destaque da HOME (nota, gênero, ano, duração, sinopse; 12/11/2026).
-        val fichaHome = PlayerArmazem.FichaHome(Vod.nomeLimpo(f.nome), nota = f.nota, ano = f.ano, genero = info?.genero.orEmpty(),
+        val fichaHome = PlayerArmazem.FichaHome(Vod.nomeLimpo(f.nome), nota = notaMostrada(f), ano = f.ano, genero = info?.genero.orEmpty(),
             duracaoMin = info?.duracaoMin, sinopse = info?.sinopse.orEmpty(), chave = f.chave)
         if (paraHome) Fundo.rodar { PlayerArmazem.definirCapaHome(this, serie = false, poster = capa, cenas = cenas, ficha = fichaHome) }
         VodActivity.abrir(this, VodActivity.TIPO_FILME, f.fonteId, f.id, f.extensao, Vod.nomeLimpo(f.nome), doComeco,

@@ -405,7 +405,7 @@ class MainActivity : Activity() {
     override fun onConfigurationChanged(novo: android.content.res.Configuration) {
         super.onConfigurationChanged(novo)
         // Idioma trocado com a HOME na frente: remonta já, sem esperar a próxima volta.
-        if (idiomaMontado.isNotEmpty() && idiomaAtual() != idiomaMontado) recreate()
+        if (idiomaMontado.isNotEmpty() && idiomaAtual() != idiomaMontado) recriar()
     }
 
     /** Quando a HOME saiu da frente (para a volta decidir onde pôr o foco). */
@@ -459,11 +459,11 @@ class MainActivity : Activity() {
         }
         // O tema agora só troca na tela separada de Configurações do launcher (ConfigLauncherActivity), que não
         // tem como chamar recreate() nesta Activity diretamente — então aqui a gente mesmo percebe a troca ao voltar.
-        if (Tema.atual(this) != tema) { recreate(); return }
+        if (Tema.atual(this) != tema) { recriar(); return }
         // Trocou o idioma (do sistema ou só do launcher): textos já montados (data, destaque) ficavam no antigo.
-        if (idiomaAtual() != idiomaMontado) { recreate(); return }
-        if ((tema == Tema.MEU || tema == Tema.PLUGIN) && FundoMeuDados.assinatura(this) + "|" + WallpaperPlugins.escolhidoId(this) != assinaturaFundo) { recreate(); return }   // outro arquivo/brilho/plugin
-        if (assinaturaDoLayout() != assinaturaLayout) { recreate(); return }   // cartões, cruz, alto contraste (16.3) ou letra mudaram
+        if (idiomaAtual() != idiomaMontado) { recriar(); return }
+        if ((tema == Tema.MEU || tema == Tema.PLUGIN) && FundoMeuDados.assinatura(this) + "|" + WallpaperPlugins.escolhidoId(this) != assinaturaFundo) { recriar(); return }   // outro arquivo/brilho/plugin
+        if (assinaturaDoLayout() != assinaturaLayout) { recriar(); return }   // cartões, cruz, alto contraste (16.3) ou letra mudaram
         // Modo simples (12/11/2026, ideia 10; desligado por padrão): a HOME vira a tela de cards grandes.
         if (ModoSimples.ligado(this)) {
             try { startActivity(Intent(this, ModoSimplesActivity::class.java)); return } catch (_: Exception) {}
@@ -559,7 +559,14 @@ class MainActivity : Activity() {
      * Prévia ao vivo (21/11/2026): com o painel do Ajuste fino aberto por cima, a HOME continua visível atrás; cada troca
      * de letra/hora/cor/cantos/brilho/tamanho refaz a HOME na hora (um quadro de espera junta trocas seguidas).
      */
-    private val refazerAjuste = Runnable { if (!isDestroyed && assinaturaDoLayout() != assinaturaLayout) recreate() }
+    /**
+     * recreate() uma vez só: duas seguidas (prévia do Ajuste fino + volta à HOME) enfileiram dois relaunch locais e o
+     * segundo derruba o app em removeViewImmediate (IllegalArgumentException "not attached", Sala v471041, 23/11/2026).
+     */
+    private var recriando = false
+    private fun recriar() { if (recriando || isFinishing || isDestroyed) return; recriando = true; recreate() }
+
+    private val refazerAjuste = Runnable { if (!isDestroyed && assinaturaDoLayout() != assinaturaLayout) recriar() }
     private val ouvinteAjuste = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
         window?.decorView?.let { it.removeCallbacks(refazerAjuste); it.postDelayed(refazerAjuste, 120) }
     }
@@ -579,7 +586,7 @@ class MainActivity : Activity() {
         pai.removeViewAt(i)
         pai.addView(novo, i, FrameLayout.LayoutParams(MATCH, MATCH))
         fundo = novo
-        ui.postDelayed({ if (!isDestroyed) recreate() }, CAMPAINHA_FUNDO_MS)
+        ui.postDelayed({ if (!isDestroyed) recriar() }, CAMPAINHA_FUNDO_MS)
     }
 
     override fun onDestroy() {
@@ -587,7 +594,7 @@ class MainActivity : Activity() {
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = null
         vigiaTela?.let { runCatching { unregisterReceiver(it) } }; vigiaTela = null
         rede.shutdownNow()
-        // Cada recreate() (troca de tema) cria uma Activity nova com a sua própria fila: sem isto a thread "Apps"
+        // Cada recriar() (troca de tema) cria uma Activity nova com a sua própria fila: sem isto a thread "Apps"
         // da Activity velha ficava viva para sempre. shutdown (não Now): deixa terminar uma carga em curso.
         filaApps.shutdown()
         super.onDestroy()
@@ -1857,7 +1864,7 @@ class MainActivity : Activity() {
                 val novo = if (i == 0) null else estilos[i - 1]
                 if (novo == atual) return@lista
                 LayoutHome.trocarIcone(this, t, novo)
-                recreate()
+                recriar()
             }
         }
         if (tipoCat == null || nomeCat == null || tipoCat == tipo) { escolherDesenho(tipo, nome); return }
@@ -2389,7 +2396,7 @@ class MainActivity : Activity() {
         val nomes = pacotes.map { it.second } + getString(R.string.wp_icone_voltar)
         menuAberto = Estilo.lista(this, getString(R.string.wp_icone_titulo, nomeDe(pacote)), nomes) { i ->
             if (i < pacotes.size) abrir(pacotes[i].first)
-            else { CustomIcons.definir(this, pacote, null); recreate() }   // volta a seguir o pacote de todos (ou o do app)
+            else { CustomIcons.definir(this, pacote, null); recriar() }   // volta a seguir o pacote de todos (ou o do app)
         }
     }
 
@@ -2578,7 +2585,7 @@ class MainActivity : Activity() {
             try {
                 val r = ClimaFontes.buscar(this) ?: return@execute   // a conta toda mora em ClimaFontes.kt
                 ui.post {
-                    if (isDestroyed) return@post   // busca que terminou depois de um recreate(): a Activity nova busca a sua
+                    if (isDestroyed) return@post   // busca que terminou depois de um recriar(): a Activity nova busca a sua
                     pontoAtual = r.ponto
                     ultimoCodigo = r.codigo
                     ultimoChovendo = r.chovendo
