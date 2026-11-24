@@ -75,7 +75,13 @@ object DesempenhoTv {
             julgar(ms)
             synchronized(trava) {
                 parcial.quadro(ms)
-                if (abriu != 0L) { abriuEm = 0L; parcial.abertura((SystemClock.uptimeMillis() - abriu).toInt()) }
+                if (abriu != 0L) {
+                    abriuEm = 0L
+                    val abertura = (SystemClock.uptimeMillis() - abriu).toInt()
+                    parcial.abertura(abertura)
+                    // Experimento noturno da Sofy (ideia 36): cada abertura da HOME mede a noite que passou.
+                    Fundo.rodar("sofy-experiment") { runCatching { SofyLearnTv.homeOpened(app, abertura) } }
+                }
             }
         }
         try { a.window.addOnFrameMetricsAvailableListener(o, Handler(fio.looper)); ouvinte = o } catch (_: Exception) {}

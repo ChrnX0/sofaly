@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 object ObserverTv {
     private const val TAG = "TvLauncher.Observer"
-    private const val PREFS = "observer"
+    internal const val PREFS = "observer"
     private const val MIN_JUDGE_GAP_MS = 10_000L
 
     val blackBox = ObserverCore.BlackBox()
@@ -142,10 +142,16 @@ object ObserverTv {
         learn(p, base, snap, hw, hd, agora)
         val raw = ObserverCore.diff(active.toList(), findings)
         val change = raw.copy(cleared = ObserverCore.confirmedCleared(raw.cleared, snap, agora))
+        val pico = pico(ctx)
+        // Placar do pico (ideias 34 e 37): o achado durou ou era barulho? Roda a cada batida, mesmo sem mudança.
+        var notes = p.getString("notes", null)
+        val notesAntes = notes
+        runCatching { notes = picoFollow(ctx, p, pico, agora, change.cleared, findings, snap, notes) }.onFailure { Log.w(TAG, "pico: $it") }
+        if (notes != notesAntes) p.edit().putString("notes", notes).apply()
         if (change.appeared.isEmpty() && change.cleared.isEmpty()) return
         var log = p.getString("log", null)
-        var notes = p.getString("notes", null)
-        val pico = pico(ctx)
+        val picoDecide = SofyLearnTv.picoReady(ctx)
+        val pending = picoPending(p)
         val use = habit(ctx).hour(hd)?.use ?: 0.0
         for (f in change.appeared) {
             // Pico em sombra (fase 2): a nota de "vale avisar?" vai ao registro; quem decide ainda é a regra (severidade ≥ WARNING).
@@ -159,7 +165,12 @@ object ObserverTv {
             if (f.kind == ObserverCore.Kind.SLOW_HOME || f.kind == ObserverCore.Kind.UNUSUAL_FRAMES) runCatching { entry.put("context", slowContext(ctx, agora)) }
             log = ObserverCore.appendLog(log, entry, agora)
             runCatching { SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "found_${f.kind.name.lowercase()}", ok = false) }
-            if (f.severity >= ObserverCore.Severity.WARNING) notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
+            // Ideia 37: com o critério escrito cumprido, o pico decide os avisos pequenos (WARNING): nota baixa = espera
+            // [SofyScore.TELL_REAL_MS] para ver se dura; durou, o recado sai mesmo assim (picoFollow). Grave nunca espera.
+            val segura = picoDecide && f.severity == ObserverCore.Severity.WARNING && nota < 0.5
+            if (segura) entry.put("pico_held", true)
+            if (f.severity >= ObserverCore.Severity.WARNING && !segura) notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
+            pending.put(f.kind.name, JSONObject().put("at", agora).put("s", nota).put("held", segura).put("x", org.json.JSONArray(x.toList())))
             runCatching { Diario.anotar(ctx, "tv", "Observer: ${f.kind.name}", f.why) }
             active.add(f.kind)
         }
@@ -170,7 +181,8 @@ object ObserverTv {
             active.remove(k)
         }
         if (change.cleared.isNotEmpty()) notes = ObserverCore.dropCleared(notes, change.cleared, agora)   // o recado não fica mentindo
-        p.edit().putString("log", log).putString("notes", notes).putString("active", active.joinToString(",") { it.name }).apply()
+        p.edit().putString("log", log).putString("notes", notes).putString("active", active.joinToString(",") { it.name })
+            .putString("pico_pending", pending.toString()).apply()
         Log.i(TAG, "apareceu=${change.appeared.map { it.kind }} sumiu=${change.cleared}")
         // A Sofy (rosto e voz) olha a fila: só o que a regra dela manda mostrar agora aparece (SofyTv/SofyPolicy).
         if (change.appeared.isNotEmpty()) Fundo.rodar { runCatching { SofyTv.present(ctx) } }   // fora do lock do Observador
@@ -218,6 +230,44 @@ object ObserverTv {
 
     private fun pico(ctx: Context): ObserverPico = pico ?: ObserverPico.fromJson(
         learning(ctx).getString("pico", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() }).also { pico = it }
+
+    /** Achados à espera do desfecho: tipo → quando apareceu, a nota do pico, as medidas e se o recado foi segurado. */
+    private fun picoPending(p: android.content.SharedPreferences): JSONObject =
+        p.getString("pico_pending", null)?.let { runCatching { JSONObject(it) }.getOrNull() } ?: JSONObject()
+
+    /**
+     * O desfecho de cada achado (ideia 34): durou [SofyScore.TELL_REAL_MS] = valia avisar; sumiu em menos de
+     * [SofyScore.TELL_NOISE_MS] = barulho. O pico aprende com isso (até aqui ele dava nota e nunca aprendia), o placar anota
+     * se ele acertou, e o recado segurado pelo pico (ideia 37) sai agora se o achado durou. Devolve os recados.
+     */
+    private fun picoFollow(ctx: Context, p: android.content.SharedPreferences, pico: ObserverPico, agora: Long, cleared: List<ObserverCore.Kind>,
+                           findings: List<ObserverCore.Finding>, snap: Map<ObserverCore.Signal, ObserverCore.Reading>, notesIn: String?): String? {
+        val pend = picoPending(p)
+        if (pend.length() == 0) return notesIn
+        var notes = notesIn
+        var aprendeu = false
+        for (k in pend.keys().asSequence().toList()) {
+            val e = pend.optJSONObject(k)
+            val kind = ObserverCore.Kind.entries.firstOrNull { it.name == k }
+            val xa = e?.optJSONArray("x")
+            if (e == null || kind == null || xa == null) { pend.remove(k); continue }
+            val open = kind in active
+            if (!open && kind !in cleared) { pend.remove(k); continue }   // sumiu sem passar pelo "voltou ao normal" (processo reiniciou)
+            val label = SofyScore.tellLabel(agora - e.optLong("at"), open) ?: continue
+            val x = DoubleArray(xa.length()) { xa.optDouble(it) }
+            val s = e.optDouble("s", 0.5)
+            runCatching { pico.learn(ObserverPico.Task.WORTH_TELLING, x, label); aprendeu = true }
+            SofyLearnTv.record(ctx, SofyScore.Action.TELL, if (label) SofyScore.Outcome.HIT else SofyScore.Outcome.MISS, (s >= 0.5) == label, kind.name)
+            if (label && e.optBoolean("held")) findings.firstOrNull { it.kind == kind }?.let { f ->
+                notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
+                logShadow(ctx, "pico_released", "${kind.name} durou ${(agora - e.optLong("at")) / 60_000} min: o recado segurado saiu")
+            }
+            pend.remove(k)
+        }
+        p.edit().putString("pico_pending", pend.toString()).apply()
+        if (aprendeu) learning(ctx).edit().putString("pico", pico.toJson().toString()).apply()
+        return notes
+    }
 
     // ---------------------------------------------------------------- o que a Sofy aprende da casa (24/11/2026)
 
@@ -422,6 +472,7 @@ object ObserverTv {
             when (val v = ObserverTrial.decide(t, agora, agoraChecks)) {
                 ObserverTrial.Verdict.Wait -> restantes += t
                 ObserverTrial.Verdict.Keep -> {
+                    runCatching { SofyLearnTv.record(ctx, SofyScore.Action.FREEZE_TRIAL, SofyScore.Outcome.HIT) }
                     log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "trial_kept", null, null, t.pkg, blackBox.snapshot()), agora)
                     runCatching { Diario.anotar(ctx, "tv", "Observer: ${t.pkg}", "congelado e conferido") }
                 }
@@ -431,6 +482,7 @@ object ObserverTv {
                     val voltou = pkgOk(ctx, t.pkg) == true
                     // O Android recusou (shell fora do ar, DPM disse não): a prova fica para tentar na próxima batida (Codex, #335).
                     if (!voltou) { restantes += t; Log.w(TAG, "prova: ${t.pkg} quebrou ${v.broke}; descongelar falhou, tenta de novo"); continue }
+                    runCatching { SofyLearnTv.record(ctx, SofyScore.Action.FREEZE_TRIAL, SofyScore.Outcome.UNDONE) }
                     log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "trial_undone", null, null, t.pkg, blackBox.snapshot())
                         .put("broke", org.json.JSONArray(v.broke.map { it.name })).put("restored", voltou), agora)
                     runCatching { Diario.anotar(ctx, "tv", "Observer: ${t.pkg}", "congelamento desfeito: parou ${v.broke.joinToString { it.name }}") }
@@ -621,6 +673,7 @@ object ObserverTv {
             .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("controllers", runCatching { ControllerBatteryTv.json() }.getOrNull() ?: org.json.JSONArray())

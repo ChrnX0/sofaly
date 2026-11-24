@@ -223,6 +223,8 @@ object ComandosExtras {
         "modo_seguro_sair" -> { ModoSeguro.sair(ctx); "modo de segurança desligado" }
         "leveza" -> LevezaTv.json(ctx).toString()   // degrau 2: memória e tempo da HOME (volte à HOME umas vezes antes)
         "observer" -> ObserverTv.report(ctx)
+        // Desfazer dos limites que a Sofy ajusta sozinha (ideia 35, 24/11/2026): voltam todos ao de fábrica.
+        "sofy_limits_reset" -> br.paulo.tvlauncher.observer.SofyLearnTv.resetLimits(ctx)
         // Congelar sob demanda (OnDemandTv) e a prova do Observador: estado; marcar/desmarcar um app; congelar com prova (teste da fase 3).
         "ondemand" -> OnDemandTv.report(ctx)
         "ondemand_mark" -> i.getStringExtra("pacote")?.let { OnDemandTv.mark(ctx, it) ?: "ok: $it sob demanda" } ?: "falta --es pacote"

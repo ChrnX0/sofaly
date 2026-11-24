@@ -160,17 +160,18 @@ object AppProfile {
 
     /**
      * As dicas de cada ficha. [onDemand] = já congelados sob demanda; [freezable] = a ficha do pacote diz que é seguro
-     * congelar (OnDemand só aceita esses).
+     * congelar (OnDemand só aceita esses). [slowMs] e [prewarmShare]: os limites de agora (a Sofy ajusta, [SofyLimits]).
      */
-    fun advise(cards: Collection<Card>, now: Long, onDemand: Set<String>, freezable: (String) -> Boolean): List<Tip> {
+    fun advise(cards: Collection<Card>, now: Long, onDemand: Set<String>, freezable: (String) -> Boolean,
+               slowMs: Int = RECOMPILE_SLOW_MS, prewarmShare: Double = PREWARM_SHARE): List<Tip> {
         val out = ArrayList<Tip>()
         for (c0 in cards) {
             val c = decay(c0, now)
             val total = c.totalOpens
             val h = c.opens.indices.maxByOrNull { c.opens[it] }
-            if (h != null && c.opens[h] >= PREWARM_MIN_OPENS && c.opens[h] >= PREWARM_SHARE * total)
+            if (h != null && c.opens[h] >= PREWARM_MIN_OPENS && c.opens[h] >= prewarmShare * total)
                 out += Tip(c.pkg, Advice.PREWARM, h, "abre mais às ${h}h (${"%.1f".format(c.opens[h])} de ${"%.1f".format(total)} aberturas)")
-            if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES && median(c.startsMs) > RECOMPILE_SLOW_MS && now - c.compiledAt >= RECOMPILE_AGAIN_MS)
+            if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES && median(c.startsMs) > slowMs && now - c.compiledAt >= RECOMPILE_AGAIN_MS)
                 out += Tip(c.pkg, Advice.RECOMPILE, null, "demora ${median(c.startsMs)} ms para abrir (mediana de ${c.startsMs.size})")
             if (c.pkg !in onDemand && now - c.firstSeen >= UNUSED_MS && now - c.lastOpen >= UNUSED_MS && freezable(c.pkg))
                 out += Tip(c.pkg, Advice.ON_DEMAND, null, "sem abrir há ${(now - c.lastOpen) / 86_400_000L} dias")
