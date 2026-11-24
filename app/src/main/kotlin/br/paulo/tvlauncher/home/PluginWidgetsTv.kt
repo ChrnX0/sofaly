@@ -198,6 +198,11 @@ object PluginWidgetsTv {
                 val i = info(ctx, e.id) ?: continue
                 val v = runCatching { host(ctx).createView(ctx, e.id, i) }.getOrNull() ?: continue
                 v.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
+                // Cantos arredondados como nos launchers desde o Android 12 (o widget quadrado parecia colado na tela).
+                v.outlineProvider = object : android.view.ViewOutlineProvider() {
+                    override fun getOutline(view: View, o: android.graphics.Outline) { o.setRoundRect(0, 0, view.width, view.height, 16 * d) }
+                }
+                v.clipToOutline = true
                 vistas[e.id] = v
                 addView(v)
             }
