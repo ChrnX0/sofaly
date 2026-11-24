@@ -122,7 +122,8 @@ object ManutencaoNoturna {
                         // Antes a noite sumia calada (22/11/2026 ficou sem sonda e ninguém soube por quê).
                         val h = c.get(Calendar.HOUR_OF_DAY)
                         val ini = prefs(app).getInt("inicio_agendado", inicio(app))
-                        runCatching { ObserverTv.nightSkipped(app, if (h in (ini - 1)..(ini + 1)) "TV ainda em uso às ${h}h: noite pulada"
+                        // Distância em horas dando a volta na meia-noite (início 0h e alarme 23h = 1 h, não 23).
+                        runCatching { ObserverTv.nightSkipped(app, if (Math.floorMod(h - ini + 12, 24) - 12 in -1..1) "TV ainda em uso às ${h}h: noite pulada"
                             else "o alarme tocou às ${h}h, fora da janela das ${ini}h: noite pulada") }
                     }
                 }
