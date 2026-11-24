@@ -16,7 +16,7 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
-        <item>Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF's AI model); in a 60-day test in 30 cities it was right more often than any of them alone</item>
+        <item>Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF\'s AI model); in a 60-day test in 30 cities it was right more often than any of them alone</item>
         <item>Web panel with the Sofaly look: each area has its color on the icon, the Home page shows Sofy\'s notes, what is on the TV now and the worlds as doors, and nothing went missing</item>
         <item>Panel: a star on any block or switch adds it to “Your shortcuts” on the Home page, “Works with” links related blocks, and a change offers Undo</item>
         <item>Panel: new Sofy tab (today\'s notes, why she did it, Undo for frozen apps) and Apps with Frozen and Hidden shelves (Hidden asks for the PIN)</item>
@@ -71,6 +71,7 @@
         <item>Alarm clock: the sound always starts low and rises slowly, over at least a minute and a half, even with “Ring: direct”, so it never starts at full volume</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
+        <item>chuva_consenso</item>
         <item>painel_sofaly</item>
         <item>painel_atalhos</item>
         <item>painel_aba_sofy</item>

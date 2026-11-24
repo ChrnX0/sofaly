@@ -142,8 +142,10 @@ object InfoExternaCache {
         if (doXtream != null && doXtream != g.tmdb) g = mudar(app, chave) { it.copy(tmdb = doXtream, detalhe = null, detalheEm = 0, traktNota = null, traktEm = 0, simkl = null, simklNota = null, simklEm = 0) }
         if (g.tmdb == null && k.tmdb.isNotBlank() && agora - g.buscaEm > BUSCA_DE_NOVO_MS) {
             val limpo = LegendaExterna.nomeDeBusca(Vod.nomeLimpo(nome)).ifBlank { Vod.nomeLimpo(nome) }
+            var respondeu = false   // o TMDB respondeu de verdade (2xx): só aí "não achei" vale por 7 dias
             val achado = runCatching {
                 val r = ServicosContas.pedir(InfoExterna.urlBusca(k.tmdb, limpo, ano, serie, idioma), InfoExterna.tmdbCabecalhos(k.tmdb, agente()))
+                respondeu = r.codigo in 200..299
                 if (r.codigo in 200..299) InfoExterna.escolher(InfoExterna.lerBusca(r.corpo, serie), Vod.nomeLimpo(nome), ano, g.recusados)
                     ?: if (ano != null) {   // sem casar com o ano: tenta sem ele (ano errado na lista é comum)
                         val r2 = ServicosContas.pedir(InfoExterna.urlBusca(k.tmdb, limpo, null, serie, idioma), InfoExterna.tmdbCabecalhos(k.tmdb, agente()))
@@ -151,7 +153,8 @@ object InfoExternaCache {
                     } else null
                 else null
             }.onFailure { Log.w(TAG, "busca: ${it.javaClass.simpleName}") }.getOrNull()
-            g = mudar(app, chave) { it.copy(tmdb = achado?.id, buscaEm = if (achado == null) agora else 0) }
+            // Sem rede ou recusa (429/5xx) não marca a busca: antes um título aberto com a TV offline ficava 7 dias sem ficha.
+            g = mudar(app, chave) { it.copy(tmdb = achado?.id, buscaEm = if (achado == null && respondeu) agora else 0) }
         }
         val id = g.tmdb ?: return g
         // 2. Ficha do TMDB.
@@ -190,10 +193,12 @@ object InfoExternaCache {
         if (g.tmdb == null && g.buscaEm > 0) esquecerBuscasAntigas(app)?.let { g = it[chave] ?: g }
         if (g.tmdb == null && agora - g.buscaEm > BUSCA_DE_NOVO_MS) {
             val recusados = g.recusados
+            var semResposta = false   // alguma busca não chegou ao Trakt (rede, 429, 5xx): "não achei" não vale por 7 dias
             fun procurar(b: TraktDetails.Busca, anoBusca: Int?): Int? {
                 val titulo = b.alvo
                 val limpo = LegendaExterna.nomeDeBusca(b.consulta).ifBlank { b.consulta }
-                val achados = trakt(TraktDetails.urlBusca(limpo, anoBusca, serie))?.let { TraktDetails.lerBusca(it, serie) }.orEmpty()
+                val achados = trakt(TraktDetails.urlBusca(limpo, anoBusca, serie)).also { if (it == null) semResposta = true }
+                    ?.let { TraktDetails.lerBusca(it, serie) }.orEmpty()
                     .filter { it.tmdb !in recusados }
                 Log.i(TAG, "busca Trakt '$limpo' ano=${anoBusca ?: "-"}: ${achados.size} (${achados.take(3).joinToString { "${it.titulo} ${it.ano ?: ""}".trim() }})")
                 if (b.direto) InfoExterna.escolher(TraktDetails.candidatos(achados), titulo, anoBusca, recusados)?.id?.let { return it }
@@ -210,7 +215,7 @@ object InfoExternaCache {
             val achado = TraktDetails.nomesDeBusca(Vod.nomeLimpo(nome)).firstNotNullOfOrNull { b ->
                 procurar(b, ano) ?: if (ano != null) procurar(b, null) else null
             }
-            g = mudar(app, chave) { it.copy(tmdb = achado, buscaEm = if (achado == null) agora else 0) }
+            g = mudar(app, chave) { it.copy(tmdb = achado, buscaEm = if (achado == null && !semResposta) agora else 0) }
         }
         val id = g.tmdb ?: run { Log.i(TAG, "ficha Trakt: $chave sem id do TMDB (busca de novo em ${((g.buscaEm + BUSCA_DE_NOVO_MS - agora) / 3_600_000).coerceAtLeast(0)} h)"); return g }
         // Ficha que veio do TMDB (só ele traz pôster) numa TV que agora usa o Trakt: troca já, sem esperar vencer, para

@@ -230,9 +230,11 @@ object LegendaBaixar {
      * download do limite diário. Bloqueia (rede).
      */
     fun automatica(ctx: Context, chaveVideo: String, url: String?, b: LegendaExterna.Busca): Result<Pair<File, Boolean>> = runCatching {
-        ctx.getSharedPreferences(Prefs.PLAYER, Context.MODE_PRIVATE).edit().putLong("legauto2:$chaveVideo", System.currentTimeMillis()).apply()
         val hash = url?.let { runCatching { hashDoVideo(it) }.getOrNull() }
         val lista = buscar(ctx, b.copy(hash = hash)).getOrThrow()
+        // A marca dos 7 dias só depois que o OpenSubtitles respondeu: sem internet ou sem conta a tentativa não gastou
+        // nada, e antes a TV que abria um filme offline ficava uma semana sem legenda automática para ele.
+        ctx.getSharedPreferences(Prefs.PLAYER, Context.MODE_PRIVATE).edit().putLong("legauto2:$chaveVideo", System.currentTimeMillis()).apply()
         val c = LegendaExterna.escolherAuto(lista) ?: throw Falha(ctx.getString(R.string.legenda_nenhuma))
         baixar(ctx, chaveVideo, c).getOrThrow() to c.bateHash
     }
