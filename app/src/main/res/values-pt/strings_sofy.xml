@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">O controle está com %1$s%% de carga. Troque ou carregue nesta semana.</string>
     <string name="observer_app_on_demand_title">Deixei um app sob demanda</string>
     <string name="observer_app_on_demand_text">%1$s ficou 3 semanas sem abrir. Agora só liga quando você abrir.</string>
+    <string name="observer_version_slower_title">A versão nova ficou mais lenta</string>
+    <string name="observer_version_slower_text">A tela inicial agora leva %1$s s para abrir (antes %2$s s). Ficou anotado para a próxima versão corrigir.</string>
 </resources>

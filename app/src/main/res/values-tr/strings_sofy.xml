@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Kumanda %%%1$s şarjda. Bu hafta değiştirin ya da şarj edin.</string>
     <string name="observer_app_on_demand_title">Bir uygulamayı isteğe bağlı yaptım</string>
     <string name="observer_app_on_demand_text">%1$s 3 haftadır açılmadı. Artık yalnızca siz açınca çalışıyor.</string>
+    <string name="observer_version_slower_title">Yeni sürüm daha yavaş</string>
+    <string name="observer_version_slower_text">Ana ekran artık %1$s sn\'de açılıyor (önce %2$s sn). Bir sonraki sürüm için not edildi.</string>
 </resources>

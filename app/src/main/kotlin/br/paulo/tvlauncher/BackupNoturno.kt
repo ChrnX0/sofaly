@@ -181,7 +181,9 @@ object BackupNoturno {
                 prefs(app).edit().remove("adiado_para").remove("adiado_tentativa")
                     .putLong("ultimo_alarme_em", System.currentTimeMillis()).apply()
                 if (!ligado(app)) return@execute
-                if (!tvOciosa(app)) {
+                // Juiz de conflitos (Sofy, ideia 4): o despertador tocando ou perto conta como "TV em uso" (espera 30 min).
+                val juiz = runCatching { br.paulo.tvlauncher.observer.SofyJudgeTv.mayRun(app, br.paulo.tvlauncher.observer.SofyJudge.Task.BACKUP).go }.getOrDefault(true)
+                if (!tvOciosa(app) || !juiz) {
                     val de = BackupNoturnoRegras.proximaTentativa(System.currentTimeMillis(), tentativa)
                     if (de != null) {
                         prefs(app).edit().putLong("adiado_para", de).putInt("adiado_tentativa", tentativa + 1).commit()

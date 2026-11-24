@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Το τηλεχειριστήριο έχει %1$s%%. Αλλάξτε ή φορτίστε το αυτή την εβδομάδα.</string>
     <string name="observer_app_on_demand_title">Έβαλα μια εφαρμογή κατ\' απαίτηση</string>
     <string name="observer_app_on_demand_text">Η %1$s δεν άνοιξε 3 εβδομάδες. Τώρα ξεκινά μόνο όταν την ανοίγετε.</string>
+    <string name="observer_version_slower_title">Η νέα έκδοση είναι πιο αργή</string>
+    <string name="observer_version_slower_text">Η αρχική οθόνη ανοίγει τώρα σε %1$s s (πριν %2$s s). Σημειώθηκε για την επόμενη έκδοση.</string>
 </resources>

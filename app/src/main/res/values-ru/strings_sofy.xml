@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">У пульта %1$s%% заряда. Замените или зарядите на этой неделе.</string>
     <string name="observer_app_on_demand_title">Приложение теперь по запросу</string>
     <string name="observer_app_on_demand_text">%1$s не открывали 3 недели. Теперь оно запускается, только когда вы его открываете.</string>
+    <string name="observer_version_slower_title">Новая версия работает медленнее</string>
+    <string name="observer_version_slower_text">Главный экран теперь открывается за %1$s с (было %2$s с). Это отмечено для следующей версии.</string>
 </resources>

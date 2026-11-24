@@ -16,6 +16,8 @@ package br.paulo.tvlauncher.observer
  *  - ON_DEMAND: a pessoa tirou do sob demanda em 14 dias = UNDONE; continuou = HIT.
  *  - FREEZE_TRIAL: a prova desfez o congelamento = UNDONE; manteve = HIT.
  *  - EXPERIMENT: o experimento da noite decidiu manter = HIT; descartar = MISS.
+ *  - PREHOME: depois do pré-HOME, a volta seguinte foi quente (o processo vivo) = HIT; fria = MISS.
+ *  - SUGGESTION: a pessoa ligou o que a sugestão propôs = HIT; "agora não" = MISS; "não sugerir mais" = UNDONE.
  * Pura: SofyScoreTest. Fica em "sofy_learning" (viaja no backup): é o que ela aprendeu da casa.
  */
 object SofyScore {
@@ -29,7 +31,7 @@ object SofyScore {
     const val PICO_WINDOW_MS = 14 * 86_400_000L
 
     /** Nome vai para o arquivo: nunca renomear (só acrescentar). */
-    enum class Action { TELL, RECOMPILE, PREWARM, ON_DEMAND, FREEZE_TRIAL, EXPERIMENT }
+    enum class Action { TELL, RECOMPILE, PREWARM, ON_DEMAND, FREEZE_TRIAL, EXPERIMENT, SUGGESTION, PREHOME }
     enum class Outcome { HIT, MISS, UNDONE }
 
     data class Record(val at: Long, val action: Action, val outcome: Outcome, val picoAgreed: Boolean? = null, val detail: String = "")

@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">De afstandsbediening staat op %1$s%%. Vervang of laad deze week.</string>
     <string name="observer_app_on_demand_title">Ik zette een app op aanvraag</string>
     <string name="observer_app_on_demand_text">%1$s is 3 weken niet geopend. Nu start ze pas als je haar opent.</string>
+    <string name="observer_version_slower_title">De nieuwe versie is trager</string>
+    <string name="observer_version_slower_text">Het startscherm opent nu in %1$s s (eerst %2$s s). Het is genoteerd voor de volgende versie.</string>
 </resources>

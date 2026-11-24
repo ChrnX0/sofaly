@@ -121,6 +121,8 @@ object Atualizador {
         val agoraCal = java.util.Calendar.getInstance()
         val minuto = agoraCal.get(java.util.Calendar.HOUR_OF_DAY) * 60 + agoraCal.get(java.util.Calendar.MINUTE)
         if (runCatching { br.paulo.tvlauncher.observer.SofyNight.updateWaits(minuto, br.paulo.tvlauncher.observer.ObserverTv.quietStart(app)) }.getOrDefault(false)) return
+        // Juiz de conflitos (Sofy, ideia 4): despertador perto ou tocando, jogo na nuvem, som tocando = espera a próxima conferida.
+        if (!br.paulo.tvlauncher.observer.SofyJudgeTv.mayRun(app, br.paulo.tvlauncher.observer.SofyJudge.Task.UPDATE).go) return
         // Confirmações: "Bloqueado" = só confere e avisa (fica pendente para o "Instalar agora" das Configurações).
         val sozinho = ConfirmacoesTv.modo(app, Confirmacoes.Acao.ATUALIZACAO) != Confirmacoes.Modo.BLOQUEAR
         verificar(app, instalar = sozinho, soComTelaApagada = true)

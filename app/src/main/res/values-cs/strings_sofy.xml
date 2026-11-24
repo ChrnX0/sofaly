@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Ovladač má %1$s%%. Vyměňte nebo nabijte ji tento týden.</string>
     <string name="observer_app_on_demand_title">Aplikaci jsem dala na vyžádání</string>
     <string name="observer_app_on_demand_text">%1$s se 3 týdny neotevřela. Teď se spustí, jen když ji otevřete.</string>
+    <string name="observer_version_slower_title">Nová verze je pomalejší</string>
+    <string name="observer_version_slower_text">Úvodní obrazovka se teď otevírá %1$s s (dřív %2$s s). Je to poznamenané pro další verzi.</string>
 </resources>

@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Remote tinggal %1$s%%. Ganti atau isi daya minggu ini.</string>
     <string name="observer_app_on_demand_title">Saya jadikan satu aplikasi sesuai permintaan</string>
     <string name="observer_app_on_demand_text">%1$s tidak dibuka 3 minggu. Sekarang hanya berjalan saat Anda membukanya.</string>
+    <string name="observer_version_slower_title">Versi baru lebih lambat</string>
+    <string name="observer_version_slower_text">Layar utama kini terbuka dalam %1$s dtk (sebelumnya %2$s dtk). Sudah dicatat untuk versi berikutnya.</string>
 </resources>

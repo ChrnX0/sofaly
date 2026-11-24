@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Kaukosäätimessä on %1$s%%. Vaihda tai lataa tällä viikolla.</string>
     <string name="observer_app_on_demand_title">Laitoin sovelluksen tarvittaessa</string>
     <string name="observer_app_on_demand_text">%1$s oli avaamatta 3 viikkoa. Nyt se käynnistyy vain, kun avaat sen.</string>
+    <string name="observer_version_slower_title">Uusi versio on hitaampi</string>
+    <string name="observer_version_slower_text">Aloitusnäyttö aukeaa nyt %1$s s:ssa (ennen %2$s s). Se on kirjattu seuraavaa versiota varten.</string>
 </resources>

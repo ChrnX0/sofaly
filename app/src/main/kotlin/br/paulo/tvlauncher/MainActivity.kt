@@ -1285,6 +1285,8 @@ class MainActivity : Activity() {
                 // Placar (elevação 2.1, pilar 1): volta à HOME até os apps desenhados; e, na 1ª vez do processo, desde
                 // o processo nascer (a TV ligou ou o launcher reiniciou).
                 MedidasTv.anotar(this, Placar.Chave.HOME, t1 - t0 + desenhou)
+                val fria = !homeFriaMedida
+                Fundo.rodar("prehome") { runCatching { br.paulo.tvlauncher.observer.AppProfileTv.homeShown(this, fria) } }
                 if (!homeFriaMedida) {
                     homeFriaMedida = true
                     MedidasTv.anotar(this, Placar.Chave.HOME_FRIA, android.os.SystemClock.uptimeMillis() - android.os.Process.getStartUptimeMillis())

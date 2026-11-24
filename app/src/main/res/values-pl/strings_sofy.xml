@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Pilot ma %1$s%%. Wymień lub naładuj w tym tygodniu.</string>
     <string name="observer_app_on_demand_title">Ustawiłam aplikację na żądanie</string>
     <string name="observer_app_on_demand_text">%1$s nie była otwierana od 3 tygodni. Teraz uruchamia się dopiero, gdy ją otworzysz.</string>
+    <string name="observer_version_slower_title">Nowa wersja jest wolniejsza</string>
+    <string name="observer_version_slower_text">Ekran główny otwiera się teraz w %1$s s (wcześniej %2$s s). Zapisane do poprawy w następnej wersji.</string>
 </resources>

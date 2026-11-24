@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">A távirányító %1$s%%-on áll. Cserélje vagy töltse a héten.</string>
     <string name="observer_app_on_demand_title">Egy alkalmazást igény szerintire állítottam</string>
     <string name="observer_app_on_demand_text">%1$s 3 hete nem nyílt meg. Most csak akkor indul, ha megnyitja.</string>
+    <string name="observer_version_slower_title">Az új verzió lassabb</string>
+    <string name="observer_version_slower_text">A kezdőképernyő most %1$s mp alatt nyílik meg (korábban %2$s mp). Feljegyeztem a következő verzióhoz.</string>
 </resources>

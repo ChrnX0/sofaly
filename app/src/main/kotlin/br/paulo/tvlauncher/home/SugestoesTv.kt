@@ -1,5 +1,8 @@
 package br.paulo.tvlauncher.home
 
+import br.paulo.tvlauncher.observer.SofyLearnTv
+import br.paulo.tvlauncher.observer.SofyScore
+import br.paulo.tvlauncher.observer.SofyTv
 import android.app.Activity
 import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
@@ -48,9 +51,12 @@ object SugestoesTv {
                 agora = agora,
             )
             val tipo = Sugestoes.escolher(s) ?: return@rodar
+            // Uma voz só (Sofy, ideia 3): a sugestão passa pelo mesmo freio das falas da Sofy; sem licença, tenta outro dia.
+            if (!SofyTv.mayAsk(app, chave(tipo))) { p.edit().putLong(CONFERIDO, agora - DIA_MS / 2).apply(); return@rodar }
             a.runOnUiThread {
                 if (a.isFinishing || a.isDestroyed || !a.hasWindowFocus()) return@runOnUiThread
                 p.edit().putLong(ULTIMA, System.currentTimeMillis()).apply()
+                SofyTv.asked(app, chave(tipo))
                 perguntar(a, tipo, s)
             }
         }
@@ -68,15 +74,27 @@ object SugestoesTv {
         saida
     } catch (_: Exception) { emptyList() }
 
+    private fun chave(tipo: Sugestoes.Tipo) = "suggestion.${tipo.name}"
+
+    /** A resposta conta para a Sofy: recusa seguida cala o tipo (SofyPolicy) e o placar anota o acerto (ideia 34). */
+    private fun respondeu(a: Activity, tipo: Sugestoes.Tipo, o: SofyScore.Outcome) {
+        val app = a.applicationContext
+        Fundo.rodar("sugestao-resposta") {
+            runCatching { SofyTv.answered(app, chave(tipo), o != SofyScore.Outcome.HIT) }
+            runCatching { SofyLearnTv.record(app, SofyScore.Action.SUGGESTION, o, detail = tipo.name) }
+        }
+    }
+
     private fun perguntar(a: Activity, tipo: Sugestoes.Tipo, s: Sugestoes.Sinais) {
         val (titulo, texto) = when (tipo) {
             Sugestoes.Tipo.DESLIGAR_SOZINHA -> a.getString(R.string.sug_desligar_titulo) to a.getString(R.string.sug_desligar, s.noitesMadrugada)
             Sugestoes.Tipo.FILTRO_NOTURNO -> a.getString(R.string.sug_filtro_titulo) to a.getString(R.string.sug_filtro, s.noitesTarde)
         }
         CaixaTv(a).setTitle(titulo).setMessage(texto)
-            .setPositiveButton(a.getString(R.string.sug_ligar)) { _, _ -> aplicar(a, tipo) }
-            .setNegativeButton(a.getString(R.string.sug_agora_nao), null)
+            .setPositiveButton(a.getString(R.string.sug_ligar)) { _, _ -> aplicar(a, tipo); respondeu(a, tipo, SofyScore.Outcome.HIT) }
+            .setNegativeButton(a.getString(R.string.sug_agora_nao)) { _, _ -> respondeu(a, tipo, SofyScore.Outcome.MISS) }
             .setNeutralButton(a.getString(R.string.sug_nunca)) { _, _ ->
+                respondeu(a, tipo, SofyScore.Outcome.UNDONE)
                 val p = prefs(a)
                 p.edit().putStringSet(DISPENSADAS, HashSet(p.getStringSet(DISPENSADAS, emptySet()) ?: emptySet()) + tipo.name).apply()
             }

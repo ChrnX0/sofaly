@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">شحن جهاز التحكم %1$s%%. استبدلها أو اشحنها هذا الأسبوع.</string>
     <string name="observer_app_on_demand_title">جعلت تطبيقًا يعمل عند الطلب</string>
     <string name="observer_app_on_demand_text">لم يُفتح %1$s منذ 3 أسابيع. الآن لا يعمل إلا عندما تفتحه.</string>
+    <string name="observer_version_slower_title">الإصدار الجديد أبطأ</string>
+    <string name="observer_version_slower_text">تفتح الشاشة الرئيسية الآن في %1$s ث (كانت %2$s ث). سُجّل ذلك ليُصلَح في الإصدار القادم.</string>
 </resources>

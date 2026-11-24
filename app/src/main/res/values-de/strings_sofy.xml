@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Die Fernbedienung hat %1$s%%. Diese Woche wechseln oder laden.</string>
     <string name="observer_app_on_demand_title">App läuft jetzt nur bei Bedarf</string>
     <string name="observer_app_on_demand_text">%1$s wurde 3 Wochen nicht geöffnet. Sie startet jetzt nur, wenn Sie sie öffnen.</string>
+    <string name="observer_version_slower_title">Die neue Version ist langsamer</string>
+    <string name="observer_version_slower_text">Der Startbildschirm braucht jetzt %1$s s (vorher %2$s s). Ist für die nächste Version notiert.</string>
 </resources>

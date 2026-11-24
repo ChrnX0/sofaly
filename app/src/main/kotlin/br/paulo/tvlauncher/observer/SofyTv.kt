@@ -80,6 +80,24 @@ object SofyTv {
     /** A Ilha mostrou o resumo da manhã: os recados dele não voltam. */
     fun shown(ctx: Context, line: IslandLine) = line.ids.forEach { ObserverTv.markSeen(ctx.applicationContext, it) }
 
+    /**
+     * Uma voz só (24/11/2026, ideia 3): quem pergunta alguma coisa à pessoa fora da Sofy (Sugestões, e o que vier) pede
+     * licença aqui e passa pelo MESMO freio dela: 1 fala por hora e 3 por dia, nada de madrugada, nada por cima de vídeo
+     * ou música, e o tipo recusado 2 vezes seguidas fica calado 7 dias. [typeKey] = "origem.tipo" (ex. "suggestion.FILTRO_NOTURNO").
+     */
+    fun mayAsk(ctx: Context, typeKey: String): Boolean {
+        val now = now(ctx.applicationContext)
+        return !SofyPolicy.night(now.minuteOfDay) && !now.mediaPlaying && SofyPolicy.withinBudget(now.shownAt, now.at) &&
+            !SofyPolicy.muted(typeKey, now.mutedUntil, now.at)
+    }
+
+    /** A pergunta apareceu: conta no teto de falas da Sofy e vai ao barramento. */
+    fun asked(ctx: Context, typeKey: String) {
+        val app = ctx.applicationContext
+        registrarFala(app, System.currentTimeMillis())
+        SofyBusTv.emit(app, SofyBus.Source.SOFY, "asked", detail = typeKey)
+    }
+
     /** A pessoa fechou ([dismissed]) ou usou a fala de um tipo: 2 recusas seguidas calam o tipo por 7 dias. */
     @Synchronized fun answered(ctx: Context, typeKey: String, dismissed: Boolean) {
         val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)

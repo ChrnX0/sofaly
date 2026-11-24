@@ -136,6 +136,13 @@ object DesempenhoTv {
         return ler("anterior") to ler("atual")
     }
 
+    /** As aberturas da HOME (ms) por versão: a anterior e a atual (guarda de cada versão da Sofy, ideia 5). */
+    fun aberturasPorVersao(ctx: Context): List<Pair<Long, List<Int>>> {
+        val p = prefs(ctx)
+        val (a, b) = medidas(ctx)
+        return listOf(p.getLong("versao_anterior", 0L) to a.aberturas.toList(), p.getLong("versao_atual", 0L) to b.aberturas.toList())
+    }
+
     /** Mediana do tempo de abertura da HOME na versão atual (relatório de compatibilidade). Null sem medida. */
     fun aberturaMediana(ctx: Context): Int? = Desempenho.mediana(medidas(ctx).second.aberturas)
 

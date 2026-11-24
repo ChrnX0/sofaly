@@ -62,6 +62,7 @@ object AppProfileTv {
         s = withVersionsAndMemory(app, s)
         runCatching { prewarm(app, s, now) }.onFailure { Log.w(TAG, "abrir quente: $it") }?.getOrNull()?.let { s = it }
         runCatching { scoreOutcomes(app, dev, s, now) }.onFailure { Log.w(TAG, "placar: $it") }
+        runCatching { preHome(app, dev, s, now) }.onFailure { Log.w(TAG, "pré-HOME: $it") }
         all[profile] = s
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
         dev.edit().putLong("apps_events_at", now).apply()
@@ -123,6 +124,41 @@ object AppProfileTv {
         addPending(ctx, "prewarm", "${tip.pkg}|$now|$prazo")
         ObserverTv.logShadow(ctx, "acted_prewarm", "hora firme às ${tip.hour}h: soltei a memória de $n apps parados")
         return s.copy(cards = s.cards + (tip.pkg to s.cards.getValue(tip.pkg).copy(prewarmDay = dia)))
+    }
+
+    /** O app na frente na última leitura da ficha (até 15 min de atraso), ou null. Para o juiz de conflitos. */
+    fun frontPackage(ctx: Context): String? {
+        val app = ctx.applicationContext
+        val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
+        return synchronized(AppProfileTv) { load(app)[profile]?.front }
+    }
+
+    /**
+     * Pré-HOME (ideia 7): a HOME "fria" (6,1 s na Sala) é a volta depois de o Android matar o processo do launcher para dar
+     * memória ao app pesado. Perto da hora em que a pessoa costuma voltar ([AppProfile.returnSoon]), a Sofy solta a
+     * memória dos apps PARADOS (nunca o da frente, nada com som tocando), uma vez por sessão, para o launcher continuar
+     * vivo e a volta ser quente. O placar ([homeShown]) diz se a volta seguinte foi quente.
+     */
+    private fun preHome(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long) {
+        val f = s.front ?: return
+        if (!AppProfile.returnSoon(s, now)) return
+        val sessao = "$f|${s.frontSince}"
+        if (dev.getString("prehome_session", null) == sessao) return
+        dev.edit().putString("prehome_session", sessao).putLong("prehome_at", now).apply()
+        val n = freeOthers(ctx, f, f, s.cards.values)
+        SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "prehome", detail = "$n apps")
+        ObserverTv.logShadow(ctx, "acted_prehome", "a volta à HOME está perto: soltei a memória de $n apps parados")
+    }
+
+    /** A HOME apareceu ([cold] = o processo tinha morrido). Depois de um pré-HOME (até 3 h), conta no placar. */
+    fun homeShown(ctx: Context, cold: Boolean) {
+        val app = ctx.applicationContext
+        val dev = app.getSharedPreferences(ObserverTv.PREFS, Context.MODE_PRIVATE)
+        val at = dev.getLong("prehome_at", 0L)
+        if (at == 0L) return
+        dev.edit().remove("prehome_at").apply()
+        if (System.currentTimeMillis() - at > 3 * 3_600_000L) return
+        SofyLearnTv.record(app, SofyScore.Action.PREHOME, if (cold) SofyScore.Outcome.MISS else SofyScore.Outcome.HIT)
     }
 
     @Volatile private var lastRecipe = 0L
@@ -306,8 +342,8 @@ object AppProfileTv {
 
     private fun tips(ctx: Context, s: AppProfile.State, now: Long): List<AppProfile.Tip> {
         val onDemand = runCatching { OnDemandTv.entries(ctx).map { it.pkg }.toSet() }.getOrDefault(emptySet())
-        return AppProfile.advise(s.cards.values, now, onDemand, { pkg -> runCatching { OnDemandTv.eligible(ctx, pkg) }.getOrDefault(false) },
-            SofyLearnTv.limit(ctx, SofyLimits.RECOMPILE_SLOW_MS).toInt(), SofyLearnTv.limit(ctx, SofyLimits.PREWARM_SHARE))
+        return AppProfile.advise(s.cards.values, now, onDemand, SofyLearnTv.limit(ctx, SofyLimits.RECOMPILE_SLOW_MS).toInt(),
+            SofyLearnTv.limit(ctx, SofyLimits.PREWARM_SHARE)) { pkg -> runCatching { OnDemandTv.eligible(ctx, pkg) }.getOrDefault(false) }
     }
 
     private fun shadowTips(ctx: Context, profile: String, s: AppProfile.State, now: Long) {

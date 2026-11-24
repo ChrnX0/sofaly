@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">Fjernbetjeningen har %1$s%%. Skift eller oplad den i denne uge.</string>
     <string name="observer_app_on_demand_title">Jeg satte en app på efterspørgsel</string>
     <string name="observer_app_on_demand_text">%1$s er ikke åbnet i 3 uger. Nu starter den kun, når du åbner den.</string>
+    <string name="observer_version_slower_title">Den nye version er langsommere</string>
+    <string name="observer_version_slower_text">Startskærmen åbner nu på %1$s s (før %2$s s). Det er noteret til næste version.</string>
 </resources>

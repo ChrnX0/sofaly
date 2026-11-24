@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">リモコンの残量は%1$s%%です。今週中に交換か充電を。</string>
     <string name="observer_app_on_demand_title">アプリを必要時のみ起動に</string>
     <string name="observer_app_on_demand_text">%1$s は3週間開かれていません。開いたときだけ起動します。</string>
+    <string name="observer_version_slower_title">新しいバージョンは遅くなりました</string>
+    <string name="observer_version_slower_text">ホーム画面が開くのに %1$s 秒かかります（以前は %2$s 秒）。次のバージョンで直すよう記録しました。</string>
 </resources>

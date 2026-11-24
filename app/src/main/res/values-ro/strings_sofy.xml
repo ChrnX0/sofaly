@@ -26,4 +26,6 @@
     <string name="observer_remote_battery_low_text">Telecomanda are %1$s%%. Schimbă sau încarcă bateria săptămâna asta.</string>
     <string name="observer_app_on_demand_title">Am pus o aplicație la cerere</string>
     <string name="observer_app_on_demand_text">%1$s nu a fost deschisă de 3 săptămâni. Acum pornește doar când o deschizi.</string>
+    <string name="observer_version_slower_title">Versiunea nouă e mai lentă</string>
+    <string name="observer_version_slower_text">Ecranul de start se deschide acum în %1$s s (înainte %2$s s). E notat pentru versiunea următoare.</string>
 </resources>

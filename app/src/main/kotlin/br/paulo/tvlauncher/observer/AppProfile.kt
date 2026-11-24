@@ -153,6 +153,26 @@ object AppProfile {
         return falta in 1..leadMin && c.prewarmDay != day
     }
 
+    // ---------------------------------------------------------------- pré-HOME (ideia 7)
+
+    /** Sessões curtas não pesam: pré-HOME só para app que fica pelo menos isto na frente, em média. */
+    const val PREHOME_MIN_SESSION_MS = 10 * 60_000L
+    const val PREHOME_MIN_OPENS = 3.0
+    /** Começa a preparar a volta quando a sessão chega a esta fração da média. */
+    const val PREHOME_AT = 0.8
+
+    /** Quanto tempo uma sessão de [c] costuma durar (tempo na frente / aberturas, as duas com meia-vida); null sem base. */
+    fun avgSessionMs(c: Card): Long? = if (c.totalOpens < PREHOME_MIN_OPENS) null else (c.frontMs / c.totalOpens).toLong()
+
+    /** A pessoa deve voltar à HOME logo? (o app da frente já passou de [PREHOME_AT] da sessão de costume) */
+    fun returnSoon(s: State, now: Long): Boolean {
+        val f = s.front ?: return false
+        val avg = s.cards[f]?.let { avgSessionMs(it) } ?: return false
+        if (avg < PREHOME_MIN_SESSION_MS || s.frontSince <= 0) return false
+        val on = now - s.frontSince
+        return on >= PREHOME_AT * avg && on <= 2 * avg
+    }
+
     enum class Advice { PREWARM, RECOMPILE, ON_DEMAND, SLOWER_AFTER_UPDATE }
     data class Tip(val pkg: String, val advice: Advice, val hour: Int?, val why: String)
 
@@ -162,8 +182,8 @@ object AppProfile {
      * As dicas de cada ficha. [onDemand] = já congelados sob demanda; [freezable] = a ficha do pacote diz que é seguro
      * congelar (OnDemand só aceita esses). [slowMs] e [prewarmShare]: os limites de agora (a Sofy ajusta, [SofyLimits]).
      */
-    fun advise(cards: Collection<Card>, now: Long, onDemand: Set<String>, freezable: (String) -> Boolean,
-               slowMs: Int = RECOMPILE_SLOW_MS, prewarmShare: Double = PREWARM_SHARE): List<Tip> {
+    fun advise(cards: Collection<Card>, now: Long, onDemand: Set<String>, slowMs: Int = RECOMPILE_SLOW_MS,
+               prewarmShare: Double = PREWARM_SHARE, freezable: (String) -> Boolean): List<Tip> {
         val out = ArrayList<Tip>()
         for (c0 in cards) {
             val c = decay(c0, now)

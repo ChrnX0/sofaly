@@ -613,6 +613,53 @@ object ObserverTv {
         }
         for (d in before - nowSet) logShadow(app, "self_ok", "$d: voltou a funcionar")
         p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
+        runCatching { versionGuard(app, p, now) }.onFailure { Log.w(TAG, "guarda da versão: $it") }
+    }
+
+    /**
+     * Guarda de cada versão (ideia 5, [SofyVersionGuard]): na troca de versão congela os números da anterior (quedas no
+     * barramento, que guarda 7 dias); depois compara. Cada piora é contada uma vez por versão; a Ilha só ouve da HOME lenta.
+     */
+    private fun versionGuard(app: Context, p: android.content.SharedPreferences, now: Long) {
+        val v = br.paulo.tvlauncher.BuildConfig.VERSION_CODE.toLong()
+        val g = p.getString("version_guard", null)?.let { runCatching { JSONObject(it) }.getOrNull() } ?: JSONObject()
+        val ev = SofyBusTv.events(app)
+        fun stats(ver: Long, since: Long, to: Long, open: Pair<Int?, Int>): SofyVersionGuard.Stats {
+            val from = maxOf(since, to - SofyBus.KEEP_MS)
+            val (c, d) = SofyVersionGuard.count(ev, from, to)
+            return SofyVersionGuard.Stats(ver, (to - from) / 3_600_000.0, c, d, open.first, open.second)
+        }
+        val curV = g.optLong("v")
+        if (curV != v) {
+            if (curV != 0L) {
+                val s = stats(curV, g.optLong("since"), now, null to 0)
+                g.put("prev", JSONObject().put("v", s.version).put("hours", s.hours).put("crashes", s.crashes).put("drops", s.drops))
+            }
+            g.put("v", v).put("since", now).remove("told")
+            p.edit().putString("version_guard", g.toString()).apply()
+            return
+        }
+        val pv = g.optJSONObject("prev") ?: return
+        val home = runCatching { DesempenhoTv.aberturasPorVersao(app) }.getOrNull()
+        fun openOf(ver: Long): Pair<Int?, Int> = home?.firstOrNull { it.first == ver }?.second?.let { Desempenho.mediana(it) to it.size } ?: (null to 0)
+        val prev = SofyVersionGuard.Stats(pv.optLong("v"), pv.optDouble("hours", 0.0), pv.optInt("crashes"), pv.optInt("drops"), openOf(pv.optLong("v")).first, openOf(pv.optLong("v")).second)
+        val cur = stats(v, g.optLong("since"), now, openOf(v))
+        val told = g.optString("told").split(',').filter { it.isNotEmpty() }.toMutableSet()
+        for (w in SofyVersionGuard.compare(prev, cur)) {
+            if (!told.add(w.what.name)) continue
+            logShadow(app, "version_worse", w.why)
+            runCatching { Diario.anotar(app, "tv", "Sofy: a versão nova piorou", w.why) }
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "version_worse", ok = false, detail = w.what.name.lowercase())
+            if (w.what == SofyVersionGuard.What.HOME_SLOWER) {
+                fun s(ms: Int?) = String.format(java.util.Locale.getDefault(), "%.1f", (ms ?: 0) / 1000.0)
+                enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.VERSION_SLOWER, now, ObserverCore.Step.SUGGESTS, listOf(s(cur.homeOpenMs), s(prev.homeOpenMs))))
+            }
+        }
+        g.put("told", told.joinToString(","))
+        g.put("last", JSONObject().put("prev_v", prev.version).put("prev_open_ms", prev.homeOpenMs ?: JSONObject.NULL).put("cur_open_ms", cur.homeOpenMs ?: JSONObject.NULL)
+            .put("prev_crashes_day", if (prev.hours > 0) prev.crashes / (prev.hours / 24) else JSONObject.NULL)
+            .put("cur_crashes_day", if (cur.hours > 0) cur.crashes / (cur.hours / 24) else JSONObject.NULL).put("cur_hours", cur.hours))
+        p.edit().putString("version_guard", g.toString()).apply()
     }
 
     private fun selfCheckJson(ctx: Context): org.json.JSONObject {
@@ -674,6 +721,7 @@ object ObserverTv {
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("version_guard", runCatching { JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("version_guard", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("controllers", runCatching { ControllerBatteryTv.json() }.getOrNull() ?: org.json.JSONArray())

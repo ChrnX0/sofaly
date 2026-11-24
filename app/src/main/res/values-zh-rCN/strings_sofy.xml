@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">遥控器电量为 %1$s%%。请在本周内更换或充电。</string>
     <string name="observer_app_on_demand_title">已将一个应用设为按需启动</string>
     <string name="observer_app_on_demand_text">%1$s 已 3 周未打开。现在只在你打开时才启动。</string>
+    <string name="observer_version_slower_title">新版本变慢了</string>
+    <string name="observer_version_slower_text">主屏幕现在需要 %1$s 秒打开（之前 %2$s 秒）。已记录，下个版本修正。</string>
 </resources>

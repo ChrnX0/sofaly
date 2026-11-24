@@ -25,4 +25,6 @@
     <string name="observer_remote_battery_low_text">The remote is at %1$s%%. Change or charge it this week.</string>
     <string name="observer_app_on_demand_title">I put an app on demand</string>
     <string name="observer_app_on_demand_text">%1$s went 3 weeks unopened. Now it only starts when you open it.</string>
+    <string name="observer_version_slower_title">The new version opens slower</string>
+    <string name="observer_version_slower_text">The home screen now takes %1$s s to open (it was %2$s s). It\'s noted for the next version to fix.</string>
 </resources>
