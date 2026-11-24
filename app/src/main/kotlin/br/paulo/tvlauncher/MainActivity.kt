@@ -2487,6 +2487,21 @@ class MainActivity : Activity() {
     /** Banner de TV de um item da barra única (mesmo cache de "Todos os apps"); null para os atalhos nossos. */
     private fun bannerDaFaixa(item: br.paulo.tvlauncher.home.HomeCruz.Item, pronto: (Drawable?) -> Unit) {
         val p = pacoteDoItem(item.id) ?: return pronto(null)
+        // 24/11/2026 (extensões, proposta B): ícone trocado à mão ou de um pacote de ícones vence o banner do app, como
+        // no resto da HOME. Ícone largo (pacotes feitos para TV, 16:9) vira o banner do card; quadrado fica no card com
+        // a placa de cor (null = o card mostra o ícone do item, que já vem do pacote).
+        val trocado = CustomIcons.escolha(this, p) != null ||
+            (PacoteIcones.escolhido(this).let { it.isNotEmpty() && !it.startsWith(PacoteIcones.EMBUTIDO) } && Planos.permite(this, Planos.Recurso.PLUGINS))
+        if (trocado) {
+            Fundo.rodar("FaixaBannerPacote") {
+                val d = runCatching { CustomIcons.icone(this, p, null) ?: PacoteIcones.icone(this, p, null) }.getOrNull()
+                val largo = d != null && d.intrinsicHeight > 0 && d.intrinsicWidth >= d.intrinsicHeight * 3 / 2
+                if (d != null) { ui.post { if (!isDestroyed) pronto(if (largo) d else null) }; return@rodar }
+                val b = runCatching { bannerTodos(p) }.getOrNull()
+                ui.post { if (!isDestroyed) pronto(b) }
+            }
+            return
+        }
         bannersTodos[p]?.let { pronto(it); return }
         Fundo.rodar("FaixaBanner") {
             val d = runCatching { bannerTodos(p) }.getOrNull()
