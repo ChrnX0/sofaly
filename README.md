@@ -169,7 +169,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 ## Every feature
 
 <!-- auto:features -->
-**121 features in 12 areas**, the same list as [sofaly.tv](https://sofaly.tv/#mundos). Open an area to see each one and where to find it on the TV.
+**119 features in 12 areas**, the same list as [sofaly.tv](https://sofaly.tv/#mundos). Open an area to see each one and where to find it on the TV.
 
 <details>
 <summary><b>The cross</b> · A tidy screen anyone understands, arranged the way you like. (19)</summary>
@@ -268,7 +268,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 </details>
 
 <details>
-<summary><b>Weather and screensaver</b> · The right weather and a screensaver worth leaving on. (15)</summary>
+<summary><b>Weather and screensaver</b> · The right weather and a screensaver worth leaving on. (13)</summary>
 
 - **Today's weather, measured.** The temperature comes from the nearest airport's report, and the day/night icon follows sunrise and sunset where the TV is. <sub>At the top of the home screen.</sub>
 - **Rain from three models.** The chance of rain is the median of three weather models (ECMWF, ICON and GFS), which misses less than any one of them. <sub>Shows up in the forecast by itself.</sub>
@@ -282,8 +282,6 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - **Weekly recap.** On Sunday night, a card with screen time per app, internet used and network drops. <sub>Screen and power › More options.</sub>
 - **Strong heat or cold alert.** The same alert as rain, over any screen, when strong heat or cold is coming.
 - **The night sky.** Space Station, meteor showers, supermoons and eclipses. It only tells you when you can see them from home, with clear skies. <sub>Screensaver.</sub>
-- **Earth seen from space.** Photos taken by astronauts and a real Sky theme, with a map of your area.
-- **Fun facts and the time in words.** One fun fact at a time on the screensaver and the clock written out: “nine fifty-one”. <sub>Screensaver.</sub>
 - **Your TV's year.** In December, a look back at the year: what was watched, heard and played most on your TV. It stays on the TV. <sub>Shows up in December.</sub>
 
 </details>
