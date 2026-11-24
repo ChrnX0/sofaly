@@ -2,7 +2,7 @@
 <!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
 <resources>
     <string name="plg_titulo">Plugins</string>
-    <string name="plg_nenhum">No plugin installed. Plugins are apps from other developers that show a card here, like a match score or a price.</string>
+    <string name="plg_nenhum">No card plugin installed. Card plugins are apps from other developers that show a card here, like a match score or a price.</string>
     <string name="plg_ligado">On</string>
     <string name="plg_desligado">Off</string>
     <string name="plg_limite">At most %1$d plugins at a time. Turn one off first.</string>

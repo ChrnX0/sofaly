@@ -9,7 +9,7 @@
         <item quantity="one">%d controle ligado</item>
         <item quantity="other">%d controles ligados</item>
     </plurals>
-    <string name="extras_CARD_JOGOS">Card Jogos na tela inicial (os apps de jogo saem da linha de apps)</string>
+    <string name="extras_CARD_JOGOS">Cartão Jogos na tela inicial (os apps de jogo saem da linha de apps)</string>
     <string name="extras_MODO_JOGO">Modo jogo: com um jogo aberto, protetor, filtro noturno e avisos esperam</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Ligar um controle de videogame abre a tela Jogos</string>
 

@@ -14,4 +14,8 @@ class ExtrasPartesTest {
     @Test fun curtoFicaInteiro() = assertEquals("Modo leve" to "", ExtrasTv.partes("Modo leve"))
 
     @Test fun semCorte() = assertEquals("Pedir o PIN para mudar a HOME" to "", ExtrasTv.partes("Pedir o PIN para mudar a HOME"))
+
+    @Test fun doisPontosDentroDosParenteses() = assertEquals(
+        "Lembretes da casa no alto da tela inicial no dia" to "Ex.: dia do lixo reciclável, com aviso na hora marcada",
+        ExtrasTv.partes("Lembretes da casa no alto da tela inicial no dia (ex.: dia do lixo reciclável), com aviso na hora marcada"))
 }
