@@ -300,8 +300,23 @@ internal fun MainActivity.atualizarIlha() {
 }
 
 /** Ilha que cresce (como a Dynamic Island): por 5 s, embaixo da pílula, o que chegou e "▲ para abrir". */
-internal fun MainActivity.crescerIlha(e: BarraIlha.Evento) =
-    crescerIlhaTexto(if (botaoDoEvento(e) != null) "${e.texto}  ·  ${getString(R.string.ilha_dica_abrir)}" else e.texto, e.atencao)
+internal fun MainActivity.crescerIlha(e: BarraIlha.Evento) {
+    val abre = botaoDoEvento(e) != null
+    // Sem nada para abrir e com o texto inteiro já na pílula, a 2ª pílula só repetia a 1ª (foto da Sala 24/11/2026:
+    // "Oftalmo Yoshi · 14:00" duas vezes). Ela fica para o texto cortado (…) e para o "▲ para abrir".
+    if (!abre && !ilhaCortada(e.texto)) return
+    crescerIlhaTexto(if (abre) "${e.texto}  ·  ${getString(R.string.ilha_dica_abrir)}" else e.texto, e.atencao)
+}
+
+/**
+ * [texto] vai sair cortado (reticências) na pílula? Mede com a letra da pílula contra a largura máxima dela; chamado
+ * antes de a pílula trocar de texto, por isso não dá para olhar o layout. Sem a pílula, conta como cortado.
+ */
+private fun MainActivity.ilhaCortada(texto: String): Boolean {
+    val t = ilhaTexto ?: return true
+    val max = t.maxWidth.takeIf { it in 1 until Int.MAX_VALUE } ?: return true
+    return t.paint.measureText(texto) > max - t.totalPaddingLeft - t.totalPaddingRight
+}
 
 internal fun MainActivity.crescerIlhaTexto(texto: String, atencao: Boolean) {
     val d = ilhaDica ?: return
