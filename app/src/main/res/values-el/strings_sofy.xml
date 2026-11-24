@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">Η %1$s κόλλησε %2$s φορές αυτή την εβδομάδα, από τη νέα της έκδοση.</string>
     <string name="sofy_hand_ready">Έτοιμη να ανοίξει</string>
     <string name="sofy_hand_on_demand">Ξεκινά όταν την ανοίγετε</string>
+    <string name="sofy_hand_hour">Το συνηθισμένο σου αυτή την ώρα</string>
+    <string name="sofy_sug_cedo_titulo">Να σβήνει νωρίτερα;</string>
+    <string name="sofy_sug_cedo">Για %1$d νύχτες η τηλεόραση έσβησε μόνη της αργά, χωρίς θεατή. Να σβήνει μετά από %2$d λεπτά χωρίς τηλεχειριστήριο αντί για %3$d;</string>
+    <string name="sofy_sug_alarme_titulo">Ξυπνητήρι αργότερα;</string>
+    <string name="sofy_sug_alarme">Το ξυπνητήρι των %1$s αναβλήθηκε συχνά. Να χτυπά %2$d λεπτά αργότερα, στις %3$s;</string>
+    <string name="sofy_sug_rotina_titulo">Να γίνει ρουτίνα;</string>
+    <string name="sofy_sug_rotina">Το %1$s άνοιξε γύρω στις %2$s για %3$d ημέρες. Να ανοίγει μόνο του στις %2$s αυτές τις μέρες;</string>
+    <string name="sofy_sug_teto_titulo">Όριο έντασης τη νύχτα;</string>
+    <string name="sofy_sug_teto">Αργά τη νύχτα η ένταση είναι πολύ υψηλότερη από τη μέρα. Έως %1$d%% από τις 23 ως τις 6;</string>
+    <string name="sofy_sug_perfil_titulo">Αλλαγή προφίλ;</string>
+    <string name="sofy_sug_perfil">Τις εφαρμογές που άνοιξαν τώρα τις βλέπει συνήθως ο/η %1$s. Αλλαγή στο προφίλ του/της %1$s;</string>
+    <string name="sofy_sug_trocar">Αλλαγή</string>
+    <string name="sofy_sug_feito">Έγινε. Μπορείς να το αναιρέσεις όποτε θες στις Ρυθμίσεις.</string>
 </resources>

@@ -242,7 +242,12 @@ object AppProfileTv {
 
     // ---------------------------------------------------------------- a mão dela nos cartões (ideia 15)
 
-    enum class Hand { READY, ON_DEMAND }
+    /** READY = abrir quente; ON_DEMAND = sob demanda; HOUR = o app de costume desta hora (ideia 19; a ordem não muda). */
+    enum class Hand { READY, ON_DEMAND, HOUR }
+
+    /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
+    fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
+        synchronized(AppProfileTv) { load(ctx.applicationContext).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } } }
 
     /** Lido pela HOME a cada foco (barato: só um mapa em memória). Pacote → a marca da Sofy. */
     @Volatile var hand: Map<String, Hand> = emptyMap()
@@ -256,6 +261,7 @@ object AppProfileTv {
             val p = e.split('|')
             if ((p.getOrNull(2)?.toLongOrNull() ?: 0L) > now) m.putIfAbsent(p[0], Hand.READY)
         }
+        runCatching { SofyHabitsTv.usualNow(ctx, now) }.getOrNull()?.let { m.putIfAbsent(it, Hand.HOUR) }
         hand = m
     }
 

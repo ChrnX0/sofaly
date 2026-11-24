@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">%1$s se colgó %2$s veces esta semana, desde su versión nueva.</string>
     <string name="sofy_hand_ready">Lista para abrir</string>
     <string name="sofy_hand_on_demand">Arranca cuando la abres</string>
+    <string name="sofy_hand_hour">Lo habitual a esta hora</string>
+    <string name="sofy_sug_cedo_titulo">¿Apagar antes?</string>
+    <string name="sofy_sug_cedo">En %1$d noches la TV se apagó sola de madrugada sin nadie mirando. ¿Apagar tras %2$d min sin el mando, en vez de %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">¿Sonar la alarma más tarde?</string>
+    <string name="sofy_sug_alarme">La alarma de las %1$s se pospuso muchas veces. ¿Sonar %2$d min después, a las %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">¿Convertir en rutina?</string>
+    <string name="sofy_sug_rotina">%1$s se abrió hacia las %2$s en %3$d días. ¿Abrirla sola a las %2$s esos días?</string>
+    <string name="sofy_sug_teto_titulo">¿Límite de volumen de noche?</string>
+    <string name="sofy_sug_teto">De madrugada el volumen sube mucho más que de día. ¿No pasar del %1$d%% de 23:00 a 6:00?</string>
+    <string name="sofy_sug_perfil_titulo">¿Cambiar de perfil?</string>
+    <string name="sofy_sug_perfil">Las apps abiertas ahora son las que suele ver %1$s. ¿Cambiar al perfil de %1$s?</string>
+    <string name="sofy_sug_trocar">Cambiar</string>
+    <string name="sofy_sug_feito">Hecho. Puedes deshacerlo cuando quieras en Ajustes.</string>
 </resources>

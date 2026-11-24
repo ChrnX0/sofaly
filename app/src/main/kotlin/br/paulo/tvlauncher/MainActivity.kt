@@ -1555,6 +1555,7 @@ class MainActivity : Activity() {
         val mao = when (br.paulo.tvlauncher.observer.AppProfileTv.hand[pacote]) {
             br.paulo.tvlauncher.observer.AppProfileTv.Hand.READY -> getString(R.string.sofy_hand_ready)
             br.paulo.tvlauncher.observer.AppProfileTv.Hand.ON_DEMAND -> getString(R.string.sofy_hand_on_demand)
+            br.paulo.tvlauncher.observer.AppProfileTv.Hand.HOUR -> getString(R.string.sofy_hand_hour)
             null -> null
         }
         return if (mao == null) frase else "$frase · $mao"
@@ -2281,17 +2282,18 @@ class MainActivity : Activity() {
             !br.paulo.tvlauncher.home.BottomBar.strip(this)) emptyList()
             else br.paulo.tvlauncher.home.AppChannels.ler(this)
         radioCruz = runCatching { Radios.ultima(this) }.getOrNull()
-        midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis()).associateBy { it.pacote } }.getOrDefault(emptyMap())
+        val perfilDados = runCatching { br.paulo.tvlauncher.family.Perfil.chaveDados(this) }.getOrDefault("")
+        midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis(), perfilDados).associateBy { it.pacote } }.getOrDefault(emptyMap())
         assinadosCruz = runCatching { Podcasts.assinaturas(this).size }.getOrDefault(0)
         podcastCruz = runCatching {
             Podcasts.continuar(Podcasts.posicoes(this), Podcasts.assinaturas(this).map { it.url }.toSet(), max = 1).firstOrNull()
         }.getOrNull()
         val pm = packageManager
         midiaCruz = runCatching {
-            MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis())
+            MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis(), perfilDados)
                 .filter { r -> pm.getLeanbackLaunchIntentForPackage(r.pacote) != null || pm.getLaunchIntentForPackage(r.pacote) != null }
                 .take(MIDIA_NO_CONTINUAR)
-                .map { r -> MidiaCruz(r, MidiaRecente.capa(this, r.pacote)?.let { capaArredondada(it) }) }
+                .map { r -> MidiaCruz(r, MidiaRecente.capa(this, r.pacote, r.perfil)?.let { capaArredondada(it) }) }
         }.getOrDefault(emptyList())
     }
 

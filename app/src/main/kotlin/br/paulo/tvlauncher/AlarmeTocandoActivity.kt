@@ -107,7 +107,7 @@ class AlarmeTocandoActivity : Activity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         id = intent.getIntExtra(Despertador.EXTRA_ID, 0)
         timer = intent.getBooleanExtra(EXTRA_TIMER, false)
-        if (savedInstanceState == null) br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, if (timer) "timer_rang" else "rang")
+        if (savedInstanceState == null) br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, if (timer) "timer_rang" else "rang", detail = if (timer) "" else id.toString())
         // Ideia 15 (estudo global 20/11): avisa no celular de quem cuida, se o aviso estiver ligado no painel (desligado de fábrica).
         if (!timer && savedInstanceState == null) Avisos.enviar(applicationContext, Avisos.Tipo.ALARME_TOCOU,
             getString(R.string.aviso_alarme_tocou_titulo), getString(R.string.aviso_alarme_tocou_texto,
@@ -361,7 +361,7 @@ class AlarmeTocandoActivity : Activity() {
 
     private fun soneca() {
         decidido = true
-        br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, "snoozed")
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, "snoozed", detail = id.toString())
         Despertador.soneca(this, id)
         finish()
     }

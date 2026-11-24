@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">%1$s si è bloccata %2$s volte questa settimana, dalla nuova versione.</string>
     <string name="sofy_hand_ready">Pronta da aprire</string>
     <string name="sofy_hand_on_demand">Parte quando la apri</string>
+    <string name="sofy_hand_hour">Il solito a quest’ora</string>
+    <string name="sofy_sug_cedo_titulo">Spegnere prima?</string>
+    <string name="sofy_sug_cedo">Per %1$d notti la TV si è spenta da sola a tarda notte senza nessuno. Spegnere dopo %2$d min senza telecomando, invece di %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Sveglia più tardi?</string>
+    <string name="sofy_sug_alarme">La sveglia delle %1$s è stata spesso posticipata. Suonare %2$d min dopo, alle %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Farne una routine?</string>
+    <string name="sofy_sug_rotina">%1$s è stata aperta verso le %2$s per %3$d giorni. Aprirla da sola alle %2$s in quei giorni?</string>
+    <string name="sofy_sug_teto_titulo">Limite di volume di notte?</string>
+    <string name="sofy_sug_teto">A tarda notte il volume sale molto più che di giorno. Non superare il %1$d%% dalle 23 alle 6?</string>
+    <string name="sofy_sug_perfil_titulo">Cambiare profilo?</string>
+    <string name="sofy_sug_perfil">Le app aperte ora sono quelle che guarda di solito %1$s. Passare al profilo di %1$s?</string>
+    <string name="sofy_sug_trocar">Cambia</string>
+    <string name="sofy_sug_feito">Fatto. Puoi annullare quando vuoi nelle Impostazioni.</string>
 </resources>

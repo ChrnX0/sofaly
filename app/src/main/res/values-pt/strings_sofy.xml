@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">%1$s travou %2$s vezes esta semana, desde a versão nova dele.</string>
     <string name="sofy_hand_ready">Pronto para abrir</string>
     <string name="sofy_hand_on_demand">Liga quando você abrir</string>
+    <string name="sofy_hand_hour">Seu de costume nesta hora</string>
+    <string name="sofy_sug_cedo_titulo">Desligar mais cedo?</string>
+    <string name="sofy_sug_cedo">Em %1$d noites a TV se desligou sozinha de madrugada, sem ninguém vendo. Desligar depois de %2$d min sem o controle, em vez de %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Tocar o despertador mais tarde?</string>
+    <string name="sofy_sug_alarme">O despertador das %1$s foi adiado várias vezes. Tocar %2$d min depois, às %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Virar rotina?</string>
+    <string name="sofy_sug_rotina">%1$s foi aberto por volta das %2$s em %3$d dias. Abrir sozinho às %2$s nesses dias?</string>
+    <string name="sofy_sug_teto_titulo">Limite de volume à noite?</string>
+    <string name="sofy_sug_teto">De madrugada o volume fica bem mais alto que de dia. Não passar de %1$d%% das 23h às 6h?</string>
+    <string name="sofy_sug_perfil_titulo">Trocar de perfil?</string>
+    <string name="sofy_sug_perfil">Os apps abertos agora são os que %1$s costuma ver. Trocar para o perfil de %1$s?</string>
+    <string name="sofy_sug_trocar">Trocar</string>
+    <string name="sofy_sug_feito">Feito. Dá para desfazer quando quiser nas Configurações.</string>
 </resources>

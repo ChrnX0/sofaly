@@ -344,6 +344,7 @@ object ObserverTv {
         val inUse = ctx.getSystemService(android.os.PowerManager::class.java)?.isInteractive == true && Rotinas.minutosSemTecla() < 60
         val h = habit(ctx)
         h.learn(hours(agora).second, inUse)
+        runCatching { SofyHabitsTv.sampleVolume(ctx, inUse, hours(agora).second) }   // ideia 16: o volume de cada hora, por pessoa
         if (agora - lastHabitSave > BASE_SAVE_GAP_MS) {
             lastHabitSave = agora
             learning(ctx).edit().putString("habit", h.toJson().toString()).apply()
@@ -721,6 +722,7 @@ object ObserverTv {
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("habits", runCatching { SofyHabitsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("version_guard", runCatching { JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("version_guard", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)

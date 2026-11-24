@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">%1$s krasjet %2$s ganger denne uken, siden den nye versjonen.</string>
     <string name="sofy_hand_ready">Klar til å åpne</string>
     <string name="sofy_hand_on_demand">Starter når du åpner den</string>
+    <string name="sofy_hand_hour">Det vanlige ditt på denne tiden</string>
+    <string name="sofy_sug_cedo_titulo">Slå av tidligere?</string>
+    <string name="sofy_sug_cedo">%1$d netter slo TV-en seg av selv sent uten seere. Slå av etter %2$d min uten fjernkontroll i stedet for %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">La alarmen ringe senere?</string>
+    <string name="sofy_sug_alarme">Alarmen kl. %1$s ble ofte utsatt. Ring %2$d min senere, kl. %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Gjøre det til en rutine?</string>
+    <string name="sofy_sug_rotina">%1$s ble åpnet rundt %2$s på %3$d dager. Åpne den selv kl. %2$s de dagene?</string>
+    <string name="sofy_sug_teto_titulo">Volumgrense om natten?</string>
+    <string name="sofy_sug_teto">Sent på kvelden er volumet mye høyere enn om dagen. Maks %1$d%% fra 23 til 6?</string>
+    <string name="sofy_sug_perfil_titulo">Bytte profil?</string>
+    <string name="sofy_sug_perfil">Appene som er åpne nå, ser %1$s vanligvis på. Bytte til profilen til %1$s?</string>
+    <string name="sofy_sug_trocar">Bytt</string>
+    <string name="sofy_sug_feito">Ferdig. Du kan angre når som helst i Innstillinger.</string>
 </resources>

@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">%1$s kaatui %2$s kertaa tällä viikolla, uuden version jälkeen.</string>
     <string name="sofy_hand_ready">Valmis avattavaksi</string>
     <string name="sofy_hand_on_demand">Käynnistyy, kun avaat sen</string>
+    <string name="sofy_hand_hour">Tavallinen valintasi tähän aikaan</string>
+    <string name="sofy_sug_cedo_titulo">Sammuta aiemmin?</string>
+    <string name="sofy_sug_cedo">%1$d yönä TV sammui itsestään myöhään ilman katsojaa. Sammuta %2$d min jälkeen ilman kaukosäädintä, ei %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Herätys myöhemmin?</string>
+    <string name="sofy_sug_alarme">Herätystä klo %1$s torkutettiin usein. Soita %2$d min myöhemmin, klo %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Tehdäänkö rutiini?</string>
+    <string name="sofy_sug_rotina">%1$s avattiin noin klo %2$s %3$d päivänä. Avataanko se itsestään klo %2$s noina päivinä?</string>
+    <string name="sofy_sug_teto_titulo">Äänenvoimakkuuden raja yöllä?</string>
+    <string name="sofy_sug_teto">Myöhään illalla äänenvoimakkuus on paljon suurempi kuin päivällä. Enintään %1$d%% klo 23–6?</string>
+    <string name="sofy_sug_perfil_titulo">Vaihda profiilia?</string>
+    <string name="sofy_sug_perfil">Nyt avatut sovellukset ovat niitä, joita %1$s yleensä katsoo. Vaihda profiiliin %1$s?</string>
+    <string name="sofy_sug_trocar">Vaihda</string>
+    <string name="sofy_sug_feito">Valmis. Voit perua sen milloin vain asetuksista.</string>
 </resources>

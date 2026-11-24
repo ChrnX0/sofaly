@@ -49,4 +49,28 @@ class MidiaRecenteTest {
         assertEquals(l, MidiaRecente.deJson(MidiaRecente.paraJson(l)))
         assertTrue(MidiaRecente.deJson("lixo").isEmpty())
     }
+
+    // Sofy, ideia 23: cada perfil vê o seu Continuar; o sem dono ("") vale para todos; o do perfil ganha.
+    @Test fun continuarDeQuem() {
+        val agora = 100L * 24 * 3600 * 1000
+        fun p(pac: String, q: Long, quem: String, t: String = "T") = Registro(pac, t, "", 0, 0, agora - q, quem)
+        var l = emptyList<Registro>()
+        l = MidiaRecente.juntar(l, p("netflix", 50, "ana", "Série da Ana"))
+        l = MidiaRecente.juntar(l, p("netflix", 40, "bia", "Série da Bia"))
+        l = MidiaRecente.juntar(l, p("youtube", 30, ""))
+        assertEquals(3, l.size)   // o mesmo app em dois perfis não se apaga
+        assertEquals(listOf("youtube", "netflix"), MidiaRecente.validos(l, agora, "ana").map { it.pacote })
+        assertEquals("Série da Ana", MidiaRecente.validos(l, agora, "ana").first { it.pacote == "netflix" }.titulo)
+        assertEquals("Série da Bia", MidiaRecente.validos(l, agora, "bia").first { it.pacote == "netflix" }.titulo)
+        // Sem perfil (TV de uma pessoa só): um por app, o mais novo.
+        assertEquals(listOf("youtube", "netflix"), MidiaRecente.validos(l, agora).map { it.pacote })
+        assertEquals("Série da Bia", MidiaRecente.validos(l, agora).first { it.pacote == "netflix" }.titulo)
+        // O perfil viaja no JSON; o antigo (sem "k") lê como "".
+        assertEquals(l, MidiaRecente.deJson(MidiaRecente.paraJson(l)))
+        assertEquals("", MidiaRecente.deJson("""[{"p":"a","t":"x","q":1}]""").single().perfil)
+        // MAX por perfil.
+        var m = emptyList<Registro>()
+        for (i in 1..8) { m = MidiaRecente.juntar(m, p("a$i", 100L - i, "ana")); m = MidiaRecente.juntar(m, p("b$i", 100L - i, "bia")) }
+        assertEquals(MidiaRecente.MAX * 2, m.size)
+    }
 }

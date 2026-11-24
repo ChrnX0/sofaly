@@ -33,4 +33,17 @@
     <string name="observer_app_crashy_update_text">%1$s kraschade %2$s gånger den här veckan, sedan den nya versionen.</string>
     <string name="sofy_hand_ready">Redo att öppnas</string>
     <string name="sofy_hand_on_demand">Startar när du öppnar den</string>
+    <string name="sofy_hand_hour">Din vana den här tiden</string>
+    <string name="sofy_sug_cedo_titulo">Stäng av tidigare?</string>
+    <string name="sofy_sug_cedo">%1$d nätter stängdes tv:n av av sig själv sent utan tittare. Stäng av efter %2$d min utan fjärrkontroll i stället för %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Låt larmet ringa senare?</string>
+    <string name="sofy_sug_alarme">Larmet kl. %1$s snoozades ofta. Ring %2$d min senare, kl. %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Gör det till en rutin?</string>
+    <string name="sofy_sug_rotina">%1$s öppnades runt %2$s under %3$d dagar. Öppna den själv kl. %2$s de dagarna?</string>
+    <string name="sofy_sug_teto_titulo">Volymgräns på natten?</string>
+    <string name="sofy_sug_teto">Sent på kvällen är volymen mycket högre än på dagen. Högst %1$d%% från 23 till 6?</string>
+    <string name="sofy_sug_perfil_titulo">Byta profil?</string>
+    <string name="sofy_sug_perfil">Apparna som är öppna nu brukar %1$s titta på. Byt till profilen för %1$s?</string>
+    <string name="sofy_sug_trocar">Byt</string>
+    <string name="sofy_sug_feito">Klart. Du kan ångra när som helst i Inställningar.</string>
 </resources>

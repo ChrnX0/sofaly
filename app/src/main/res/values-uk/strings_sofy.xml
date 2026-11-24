@@ -34,4 +34,17 @@
     <string name="observer_app_crashy_update_text">%1$s зависав %2$s раз(и) цього тижня, з нової версії.</string>
     <string name="sofy_hand_ready">Готовий до запуску</string>
     <string name="sofy_hand_on_demand">Запуститься, коли ви відкриєте</string>
+    <string name="sofy_hand_hour">Ваше звичне о цій порі</string>
+    <string name="sofy_sug_cedo_titulo">Вимикати раніше?</string>
+    <string name="sofy_sug_cedo">%1$d ночей телевізор сам вимикався пізно, коли ніхто не дивився. Вимикати через %2$d хв без пульта замість %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Будильник пізніше?</string>
+    <string name="sofy_sug_alarme">Будильник на %1$s часто відкладали. Дзвонити на %2$d хв пізніше, о %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Зробити це розкладом?</string>
+    <string name="sofy_sug_rotina">%1$s відкривали близько %2$s протягом %3$d днів. Відкривати саму о %2$s у ці дні?</string>
+    <string name="sofy_sug_teto_titulo">Межа гучності вночі?</string>
+    <string name="sofy_sug_teto">Пізно вночі гучність набагато вища, ніж удень. Не більше %1$d%% з 23 до 6?</string>
+    <string name="sofy_sug_perfil_titulo">Змінити профіль?</string>
+    <string name="sofy_sug_perfil">Відкриті зараз застосунки зазвичай дивиться %1$s. Перейти в профіль %1$s?</string>
+    <string name="sofy_sug_trocar">Змінити</string>
+    <string name="sofy_sug_feito">Готово. Скасувати можна будь-коли в Налаштуваннях.</string>
 </resources>
