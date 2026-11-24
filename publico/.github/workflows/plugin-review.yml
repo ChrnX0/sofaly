@@ -1,0 +1,39 @@
+# Revisão automática dos pedidos de plugin (proposta C, 24/11/2026). Roda em issue com o rótulo "plugin" (formulário
+# plugin_submission.yml): confere as regras e a Play Store, responde na issue e põe um rótulo. "plugin-ok" = pronto para
+# entrar na vitrine (a linha já vem montada); "plugin-doubt" = uma pessoa olha; "plugin-rejected" = fora das regras.
+# Só lê o texto da issue como DADO (nada dele vira comando de shell).
+name: Revisar plugin
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  contents: read
+  issues: write
+jobs:
+  revisar:
+    if: contains(github.event.issue.labels.*.name, 'plugin')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Conferir
+        env:
+          CORPO: ${{ github.event.issue.body }}
+        run: printf '%s' "$CORPO" | node .github/scripts/plugin-review.mjs > review.json
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const r = JSON.parse(require('fs').readFileSync('review.json', 'utf8'));
+            const rotulo = { ok: 'plugin-ok', doubt: 'plugin-doubt', reject: 'plugin-rejected' }[r.resultado];
+            const texto = r.resultado === 'ok'
+              ? 'Automatic review: **passed**. It will be added to the showcase in the next list update.\n\n```json\n' + JSON.stringify(r.entrada) + '\n```'
+              : r.resultado === 'doubt'
+                ? 'Automatic review: **needs a person** (' + r.motivos.join('; ') + ').'
+                : 'Automatic review: **not accepted**:\n' + r.motivos.map((m) => '- ' + m).join('\n') + '\n\nEdit the issue to try again.';
+            const n = context.issue.number;
+            await github.rest.issues.createComment({ ...context.repo, issue_number: n, body: texto });
+            for (const l of ['plugin-ok', 'plugin-doubt', 'plugin-rejected']) {
+              if (l !== rotulo) await github.rest.issues.removeLabel({ ...context.repo, issue_number: n, name: l }).catch(() => {});
+            }
+            await github.rest.issues.addLabels({ ...context.repo, issue_number: n, labels: [rotulo] });

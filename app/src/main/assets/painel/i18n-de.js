@@ -1,5 +1,8 @@
 // Painel em de (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"Plugins",
+"Botão de outro app":"Taste einer anderen App",
+"Nenhum botão ligado":"Keine Taste eingeschaltet",
 "Lembretes da grade":"Erinnerungen aus dem TV-Guide",
 "Gravação terminou ou parou":"Aufnahme beendet oder gestoppt",
 "Despertador que não tocou":"Wecker, der nicht geklingelt hat",

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d гра</item>
+        <item quantity="few">%d гри</item>
+        <item quantity="many">%d ігор</item>
+        <item quantity="other">%d ігор</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d контролер підключено</item>
+        <item quantity="few">%d контролери підключено</item>
+        <item quantity="many">%d контролерів підключено</item>
+        <item quantity="other">%d контролерів підключено</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Категорія Грати на головному екрані (вимкнено — ігри лишаються в Застосунках)</string>
+    <string name="extras_MODO_JOGO">Ігровий режим: поки відкрита гра, заставка, нічний фільтр і сповіщення чекають</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Увімкнення ігрового контролера відкриває екран Ігри</string>
+
+    <string name="jogos_titulo">Ігри</string>
+    <string name="jogos_medindo">Перевірка мережі…</string>
+    <string name="jogos_sem_controle">Ігровий контролер не підключено</string>
+    <string name="jogos_rede_boa">Мережа: добра для хмарних ігор</string>
+    <string name="jogos_rede_ok">Мережа: прийнятна для хмарних ігор</string>
+    <string name="jogos_rede_fraca">Мережа: слабка для хмарних ігор</string>
+    <string name="jogos_rede_sem">Немає інтернету</string>
+    <string name="jogos_testar_rede">Перевірити мережу</string>
+    <string name="jogos_jogar_pc">Грати на ПК</string>
+    <string name="jogos_parear">Сполучити контролер</string>
+    <string name="jogos_parear_falhou">Цей телевізор не відкрив налаштування Bluetooth. Відкрийте Налаштування, Пульти й аксесуари.</string>
+    <string name="jogos_baixar">Отримати ігри</string>
+    <string name="jogos_escolher">Вибрати застосунки</string>
+    <string name="jogos_escolher_sub">Які застосунки живуть у Грати. OK перемикає між Грати й Застосунками.</string>
+    <string name="jogos_no_card">у Грати</string>
+    <string name="jogos_na_linha">у Застосунках</string>
+    <string name="jogos_grupo_nuvem">У хмарі</string>
+    <string name="jogos_grupo_pc">З ПК і консолі</string>
+    <string name="jogos_grupo_retro">Ретро</string>
+    <string name="jogos_grupo_tv">Ігри на телевізорі</string>
+    <string name="jogos_para_comecar">Для початку</string>
+    <string name="jogos_aviso_fraca_titulo">Слабка мережа для хмарних ігор</string>
+    <string name="jogos_aviso_fraca">Гра може гальмувати чи запізнюватися. Допоможе мережевий кабель або телевізор ближче до роутера.</string>
+    <string name="jogos_jogar_assim">Грати все одно</string>
+    <string name="jogos_nao_abriu">Цей застосунок не відкрився.</string>
+    <string name="jogos_tirar">Вийняти з Грати</string>
+    <string name="jogos_automatico">Назад до автоматичного</string>
+    <string name="jogos_loja_tudo">Запропоновані застосунки вже є на цьому телевізорі.</string>
+    <string name="jogos_loja_explica">Відкриває сторінку застосунку в Play Маркеті. Якщо Play Маркет каже, що він не працює на цьому телевізорі, це обмеження застосунку.</string>
+    <string name="jogos_sem_loja">Play Маркет не відкрився.</string>
+    <string name="jogos_pc_sem_mac">Щоб розбудити ПК, збережіть його MAC-адресу у вебпанелі: Extras, Розбудити комп\'ютер. ПК також потрібен увімкнений Wake-on-LAN і, зазвичай, мережевий кабель.</string>
+    <string name="jogos_pc_sem_app">Щоб грати на ПК, установіть на телевізор Moonlight або Steam Link.</string>
+    <string name="jogos_pc_qual_app">Який застосунок грає на ПК?</string>
+    <string name="jogos_pc_acordando">Пробудження ПК… %1$d с</string>
+    <string name="jogos_pc_nao_respondeu">ПК не відповів. Застосунок відкривається все одно.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Більше ігор</string>
+    <string name="jogos_mais_opcoes">Більше</string>
+    <string name="jogos_ligar_pc_jogar">Увімкнути ПК і грати</string>
+    <string name="jogos_desc_pc">Грайте прямо тут на телевізорі в ігри з комп\'ютера чи консолі вдома.</string>
+    <string name="jogos_chip_medindo">Перевірка мережі…</string>
+    <string name="jogos_chip_boa">Добра мережа</string>
+    <string name="jogos_chip_ok">Мережа в порядку</string>
+    <string name="jogos_chip_fraca">Слабка мережа</string>
+    <string name="jogos_chip_sem">Немає інтернету</string>
+    <string name="jogos_tecla_jogar">грати</string>
+    <string name="jogos_tecla_segurar">утримуйте OK</string>
+    <string name="jogos_tecla_opcoes">змінити групу</string>
+</resources>

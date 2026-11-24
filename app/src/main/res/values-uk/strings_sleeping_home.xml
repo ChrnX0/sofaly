@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Години</string>
+    <string name="sh_dias">Дні</string>
+    <string name="sh_dicas">Поради</string>
+    <string name="sh_ar">Повітря</string>
+    <string name="sh_orvalho">точка роси %1$d°</string>
+    <string name="sh_nuvens">Хмари</string>
+    <string name="sh_nascer">Схід сонця</string>
+    <string name="sh_por">Захід сонця</string>
+    <string name="sh_duracao">Тривалість дня</string>
+    <string name="sh_horas_min">%1$d год %2$02d</string>
+    <string name="sh_dourada">Золота година</string>
+    <string name="sh_fase">Фаза</string>
+    <string name="sh_iluminada">освітлено %1$s</string>
+    <string name="sh_cheia">Повня</string>
+    <string name="sh_nova">Молодик</string>
+    <string name="sh_em_dias">через %1$d дн.</string>
+    <string name="sh_rodar">Змінювати нижню смугу</string>
+    <string name="sh_rodar_det">На заставці нижня смуга змінюється сама. ↑ і ↓ змінюють її одразу.</string>
+    <string name="sh_rodar_desl">Вимк.</string>
+    <string name="sh_rodar_s">Кожні %1$d с</string>
+    <string name="sh_rodar_min">Щохвилини</string>
+    <string name="sh_vidro">Скло за нижньою смугою</string>
+    <string name="sh_vidro_det">Скляна панель за смугою. Вимк.: лише тонка лінія.</string>
+    <string name="sh_fundo">Тло заставки</string>
+    <string name="sh_fundo_det">Що лишається за годинником на заставці: інша тема, фото, відео або кілька по черзі.</string>
+    <string name="sh_fundo_home">Як на головному екрані</string>
+    <string name="sh_fundo_fotos">Фото й відео по черзі</string>
+    <string name="sh_fundo_arquivo">Один файл лише для заставки</string>
+</resources>

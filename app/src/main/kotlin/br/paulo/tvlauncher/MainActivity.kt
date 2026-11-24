@@ -1415,6 +1415,8 @@ class MainActivity : Activity() {
 
     private fun mostrarTocando(p: TocandoAgoraTv.Pilula?, icone: android.graphics.drawable.Drawable?) {
         ui.removeCallbacks(tarefaTocando)
+        // Plugin de fundo que pediu "tocando agora" (24/11/2026): título e artista, nada mais (nem o pacote).
+        (fundo as? br.paulo.tvlauncher.screensaver.WallpaperPluginView)?.tocando(p?.tocando == true, p?.titulo, p?.subtitulo)
         val ouvindo = p?.takeIf { it.nosso && it.tocando }?.let { it.tipoNosso.ifEmpty { "radio" } to it.titulo }
         if (ouvindo != ouvindoCruz) { ouvindoCruz = ouvindo; atualizarCruz() }
         if (p == null) {
@@ -1590,7 +1592,11 @@ class MainActivity : Activity() {
             // Plugins (degrau 3, PluginsTv): desenha já com os cartões da última leitura e só redesenha se mudaram. Sem
             // plugin permitido, cartoes() volta na hora; com plugin, cada um tem 2 s de prazo (aqui, fora da tela).
             val novos = PluginsTv.cartoes(this)
-            if (novos != cartoesPlugin) { cartoesPlugin = novos; ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) } }
+            if (novos != cartoesPlugin) {
+                // Imagens dos cartões v2: lidas aqui, fora da tela, antes de trocar a lista (a HOME só desenha o que já tem).
+                imagensPlugin = novos.mapNotNull { c -> c.imagem?.let { u -> (imagensPlugin[c.pacote + "|" + u] ?: PluginsTv.imagem(this, c))?.let { c.pacote + "|" + u to it } } }.toMap()
+                cartoesPlugin = novos; ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) }
+            }
             carregarArte(IconeApp.Tipo.FILMES, filme)
             carregarArte(IconeApp.Tipo.SERIES, serie)
         }
@@ -1685,6 +1691,8 @@ class MainActivity : Activity() {
 
     /** Cartões dos plugins permitidos (PluginsTv), da última leitura na filaApps. */
     @Volatile internal var cartoesPlugin: List<PluginCartao.Cartao> = emptyList()
+    /** Imagens dos cartões de plugin (v2), por "pacote|uri". Trocadas junto com [cartoesPlugin]. */
+    @Volatile internal var imagensPlugin: Map<String, Drawable> = emptyMap()
 
     /** Quantos apps de jogo a TV tem (lido em preencherApps, fora da tela). */
     @Volatile private var jogosNaTv = 0
@@ -2500,6 +2508,21 @@ class MainActivity : Activity() {
     /** Banner de TV de um item da barra única (mesmo cache de "Todos os apps"); null para os atalhos nossos. */
     private fun bannerDaFaixa(item: br.paulo.tvlauncher.home.HomeCruz.Item, pronto: (Drawable?) -> Unit) {
         val p = pacoteDoItem(item.id) ?: return pronto(null)
+        // 24/11/2026 (extensões, proposta B): ícone trocado à mão ou de um pacote de ícones vence o banner do app, como
+        // no resto da HOME. Ícone largo (pacotes feitos para TV, 16:9) vira o banner do card; quadrado fica no card com
+        // a placa de cor (null = o card mostra o ícone do item, que já vem do pacote).
+        val trocado = CustomIcons.escolha(this, p) != null ||
+            (PacoteIcones.escolhido(this).let { it.isNotEmpty() && !it.startsWith(PacoteIcones.EMBUTIDO) } && Planos.permite(this, Planos.Recurso.PLUGINS))
+        if (trocado) {
+            Fundo.rodar("FaixaBannerPacote") {
+                val d = runCatching { CustomIcons.icone(this, p, null) ?: PacoteIcones.icone(this, p, null) }.getOrNull()
+                val largo = d != null && d.intrinsicHeight > 0 && d.intrinsicWidth >= d.intrinsicHeight * 3 / 2
+                if (d != null) { ui.post { if (!isDestroyed) pronto(if (largo) d else null) }; return@rodar }
+                val b = runCatching { bannerTodos(p) }.getOrNull()
+                ui.post { if (!isDestroyed) pronto(b) }
+            }
+            return
+        }
         bannersTodos[p]?.let { pronto(it); return }
         Fundo.rodar("FaixaBanner") {
             val d = runCatching { bannerTodos(p) }.getOrNull()

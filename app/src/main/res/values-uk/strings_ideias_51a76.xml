@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">перевірку відновлення пройдено</string>
+    <string name="l51_ensaio_falhou">збережена копія не відновилася б (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Wi-Fi для гостей</string>
+    <string name="l51_wifi_nao">не задано: введіть один раз, і відвідувачі скануватимуть QR</string>
+    <string name="l51_wifi_dica">Використовуйте гостьову мережу роутера: будь-хто в кімнаті може прочитати пароль на екрані.</string>
+    <string name="l51_wifi_rede">Назва мережі</string>
+    <string name="l51_wifi_senha">Пароль</string>
+    <string name="l51_wifi_invalido">Назва до 32 символів; пароль порожній (відкрита мережа) або від 8 до 63 символів.</string>
+    <string name="l51_wifi_qr_titulo">Показати QR Wi-Fi для гостей</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Що використовується</string>
+    <string name="l51_uso_det">Екрани й налаштування за використанням, підраховані лише на цьому телевізорі (нічого не виходить назовні)</string>
+    <string name="l51_uso_vazio">Ще нічого не підраховано. Поверніться за кілька днів.</string>
+    <string name="l51_uso_tela">екран</string>
+    <string name="l51_uso_opcao">налаштування</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d раз</item>
+        <item quantity="few">%d рази</item>
+        <item quantity="many">%d разів</item>
+        <item quantity="other">%d разів</item>
+    </plurals>
+    <string name="l51_uso_hoje">востаннє сьогодні</string>
+    <string name="l51_uso_ontem">востаннє вчора</string>
+    <string name="l51_uso_dias">востаннє %d дн. тому</string>
+    <string name="l51_tela_Main">Головний екран</string>
+    <string name="l51_tela_Dream">Заставка</string>
+    <string name="l51_tela_Filmes">Фільми</string>
+    <string name="l51_tela_Series">Серіали</string>
+    <string name="l51_tela_Jogos">Ігри</string>
+    <string name="l51_tela_Player">ТБ наживо й відео</string>
+    <string name="l51_tela_PainelRapido">Швидка панель</string>
+    <string name="l51_tela_Vod">Каталог списку</string>
+    <string name="l51_tela_Previsao">Прогноз погоди</string>
+    <string name="l51_tela_Elenco">Актори</string>
+    <string name="l51_tela_ConfigLauncher">Налаштування</string>
+    <string name="l51_tela_MidiaRede">Мережа</string>
+    <string name="l51_tela_Calendario">Календар</string>
+    <string name="l51_tela_Gravacoes">Записи</string>
+    <string name="l51_tela_Busca">Пошук</string>
+    <string name="l51_tela_Casa">Мій дім</string>
+    <string name="l51_tela_AlarmeTocando">Будильник дзвонить</string>
+    <string name="l51_tela_Radio">Радіо</string>
+    <string name="l51_tela_Diagnostico">Діагностика</string>
+    <string name="l51_uso_zerar">Скидання</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Введення на телевізорі</string>
+    <string name="l51_digitar_texto">У %1$s відкрито текстове поле. Торкніться, щоб вводити звідси.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">кімната %1$s</string>
+    <string name="casa_movimento">Рух</string>
+    <string name="casa_sem_movimento">Немає руху</string>
+    <string name="casa_molhado">Мокро</string>
+    <string name="casa_seco">Сухо</string>
+    <string name="casa_fumaca">Дим!</string>
+    <string name="casa_sem_fumaca">Немає диму</string>
+    <string name="casa_dica_temp">температура</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Відкриття камери…</string>
+    <string name="casa_camera_ver">Показати на телевізорі</string>
+</resources>

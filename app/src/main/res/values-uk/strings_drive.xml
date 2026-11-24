@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Обліковий запис Google Drive</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Обліковий запис Google Drive</string>
+    <string name="drv_nao_conectada">не підключено</string>
+    <string name="drv_passos">1. На телефоні відкрийте %1$s (або наведіть камеру на код праворуч).\n2. Увійдіть в обліковий запис Google, який є на цьому телевізорі, і введіть:\n\n%2$s\n\n3. Дозвольте доступ до Google Drive. Телевізор бачить лише файли, які створює сам (папка OneTV-backup), ніколи решту вашого Drive.\n\nЦей екран продовжить сам.</string>
+    <string name="drv_ok">Готово: %1$s підключено. Виберіть \"Google Drive\" у рядку Додаткова копія, щоб нічна копія теж ішла туди.</string>
+    <string name="drv_sem_google">Вхід Google на цьому телевізорі ще не налаштовано.\n\nНалаштуйте його у вебпанелі > вкладка Claude (власний клієнт OAuth типу \"TVs and Limited Input devices\"), увімкніть Google Drive API в тому самому проєкті Google Cloud і поверніться сюди.</string>
+    <string name="drv_desconectar_pergunta">Відключити %1$s? Копії, що вже є в Google Drive, лишаться там; телевізор перестане надсилати нові.</string>
+    <string name="drv_desconectar">Відключити</string>
+    <string name="drv_restaurar">Відновити з Google Drive</string>
+    <string name="drv_precisa_conta">Спершу підключіть обліковий запис Google Drive (рядок вище).</string>
+    <string name="drv_falhou">Не вдалося: %1$s</string>
+    <string name="drv_nenhuma">У папці OneTV-backup на Google Drive ще немає копій.</string>
+    <string name="drv_escolha">Яка копія?</string>
+    <string name="drv_senha">Пароль копії</string>
+    <string name="drv_senha_errada">Неправильний пароль копії (або файл змінено). Нічого не відновлено.</string>
+    <string name="drv_restaurado">Відновлено. Лаунчер зараз перезапуститься.</string>
+</resources>

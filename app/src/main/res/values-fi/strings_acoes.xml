@@ -77,4 +77,6 @@
     <string name="ev_tv_ligou">TV käynnistyi</string>
     <string name="ev_todos_sairam">Kaikki lähtivät (läsnäolo)</string>
     <string name="ev_chuva">Sadetta tulossa</string>
+    <string name="acao_plugin_button">Paina ”%1$s” (toisen sovelluksen painike)</string>
+    <string name="acao_plugin_button_off">Painike ei ole päällä Laajennuksissa</string>
 </resources>

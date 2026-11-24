@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">М\'яке вимкнення (таймер сну приглушує екран і знижує гучність)</string>
+    <string name="extras_MURAL">Сімейна дошка в швидкій панелі</string>
+    <string name="extras_PRESENCA">Вимикати, коли всі йдуть з дому (роутер UniFi)</string>
+    <string name="extras_HOJE_NA_TV">\"Сьогодні на ТБ\" на екрані Пошук</string>
+    <string name="extras_RETROSPECTIVA">Тижневий підсумок (неділя ввечері)</string>
+    <string name="extras_MODO_SIMPLES">Простий екран (великі картки, назви вголос)</string>
+</resources>

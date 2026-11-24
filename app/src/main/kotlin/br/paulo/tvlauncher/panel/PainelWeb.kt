@@ -822,6 +822,11 @@ object PainelWeb {
                 if (req.metodo == "POST") corpoJson(req) else null, sessoes.elevada(token), ip)
                 ?.let { return json(it.first, it.second) }
         }
+        if (req.caminho == "/api/plugins" || req.caminho.startsWith("/api/plugins/")) {   // 24/11/2026: PanelPlugins.kt
+            PanelPlugins.rotear(app, req.metodo, req.caminho.removePrefix("/api/plugins"),
+                if (req.metodo == "POST") corpoJson(req) else null, sessoes.elevada(token), ip)
+                ?.let { return json(it.first, it.second) }
+        }
         if (req.caminho == "/api/storage" || req.caminho.startsWith("/api/storage/")) {   // 20/11/2026: PainelStorage.kt
             PainelStorage.rotear(app, req.metodo, req.caminho.removePrefix("/api/storage"),
                 if (req.metodo == "POST") corpoJson(req) else null, sessoes.elevada(token), ip)
@@ -1196,6 +1201,7 @@ object PainelWeb {
         "/chave.js" to ("chave.js" to "text/javascript; charset=utf-8"),   // ideia 99: entrar com a digital
         "/emprestimo.js" to ("emprestimo.js" to "text/javascript; charset=utf-8"),   // shell emprestado (Shizuku)
         "/addons.js" to ("addons.js" to "text/javascript; charset=utf-8"),   // addons no formato do Stremio (16/11/2026)
+        "/plugins.js" to ("plugins.js" to "text/javascript; charset=utf-8"),   // plugins de terceiros (24/11/2026)
         "/storage.js" to ("storage.js" to "text/javascript; charset=utf-8"),   // pen drive e armazenamento (20/11/2026)
         "/jsqr.js" to ("jsqr.js" to "text/javascript; charset=utf-8"),   // leitor de QR (jsQR 1.4.0, Apache 2.0) para o celular sem BarcodeDetector
         "/primeira.js" to ("primeira.js" to "text/javascript; charset=utf-8"),   // ideia 97: assistente da 1ª configuração

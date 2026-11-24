@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Позичити системні повноваження</string>
+    <string name="emp_titulo">Позичити оболонку іншим застосункам (Shizuku)</string>
+    <string name="emp_titulo_det">Застосунки для Shizuku працюють без його встановлення. Кожен застосунок питає на телевізорі, з PIN, першого разу.</string>
+    <string name="emp_modo_desligado">Вимк.</string>
+    <string name="emp_modo_sob_demanda">Коли застосунку потрібно</string>
+    <string name="emp_modo_sempre">Завжди ввімк.</string>
+    <string name="emp_oficial">На цьому телевізорі встановлено застосунок Shizuku, тож лаунчер не заважає йому. Видаліть його, щоб використовувати лаунчерний.</string>
+    <string name="emp_plano">Частина платних планів.</string>
+    <string name="emp_negar">Відхилити</string>
+    <string name="emp_permitir">Завжди дозволяти</string>
+    <string name="emp_pedido_titulo">Дозволити %1$s використовувати системні повноваження лаунчера?</string>
+    <string name="emp_pedido_texto">Застосунок зможе робити те, що робить adb: встановлювати й видаляти застосунки, змінювати системні налаштування тощо. Дозволяйте лише застосункам, яким довіряєте. Відкликати можна пізніше у вебпанелі.</string>
+    <string name="emp_pin_titulo">PIN панелі, щоб дозволити</string>
+    <string name="emp_sem_pin">Спершу задайте PIN панелі (Налаштування, Вебпанель).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Позичити керування власника іншим застосункам (Dhizuku)</string>
+    <string name="emd_titulo_det">Застосунки для Dhizuku використовують керування власника лаунчера. Кожен застосунок питає на телевізорі, з PIN. З «Дозволити» жоден не може зняти лаунчер з ролі власника чи стерти телевізор; з «Повна сила» — може.</string>
+    <string name="emd_ligado">Увімк.</string>
+    <string name="emd_sem_dono">Лаунчер не є власником (Device Owner) цього телевізора, тож позичати нічого.</string>
+    <string name="emd_pedido_titulo">Дозволити %1$s використовувати керування власника лаунчера?</string>
+    <string name="emd_pedido_texto">З «Дозволити» застосунок може приховувати й блокувати застосунки та змінювати дозволи й правила телевізора, але ніколи не може зняти лаунчер з ролі власника чи стерти телевізор. «Повна сила» дозволяє застосунку працювати як лаунчер і читати його дані: лише для застосунків, яким ви повністю довіряєте. Відкликати можна у вебпанелі. З «Повна сила» застосунок може все, що може лаунчер, навіть стерти телевізор.</string>
+    <string name="emd_total">Повна сила</string>
+    <string name="emd_pin_total">ПОВНА СИЛА: застосунок може все, що може лаунчер, навіть стерти телевізор. PIN панелі</string>
+</resources>

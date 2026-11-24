@@ -43,4 +43,8 @@
     <string name="wp_d_tvicons">800+ ikoner gjorda för tv</string>
     <string name="wp_d_minimalist">Rena symboler på en bakgrundsfärg</string>
     <string name="wp_d_arcticons">15 000 tunna linjeikoner (gjorda för telefoner, fungerar här)</string>
+    <string name="ext_off_health">Avstängd: den slutade svara. Slå på den igen om du vill.</string>
+    <string name="ext_secao_botoes">Knappar i snabbpanelen</string>
+    <string name="ext_nenhum_botao">Inga knappar från andra appar än. Vissa appar lägger till en på/av-knapp i snabbpanelen (håll in BAKÅT).</string>
+    <string name="ext_off_blocked">Avstängt av Sofaly: det här tillägget har ett känt problem.</string>
 </resources>

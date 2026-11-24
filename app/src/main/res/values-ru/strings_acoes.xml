@@ -77,4 +77,6 @@
         <item quantity="many">%d сцен со ссылкой</item>
         <item quantity="other">%d сцены со ссылкой</item>
     </plurals>
+    <string name="acao_plugin_button">Нажать «%1$s» (кнопка другого приложения)</string>
+    <string name="acao_plugin_button_off">Эта кнопка не включена в разделе «Плагины»</string>
 </resources>

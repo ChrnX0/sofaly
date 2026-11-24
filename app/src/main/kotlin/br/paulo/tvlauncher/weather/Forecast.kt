@@ -46,6 +46,23 @@ internal class ForecastData(
     /** Nuvens de agora em % (só a Open-Meteo manda; -1 = sem dado). */
     val nuvens: Int = -1,
 ) {
+    /**
+     * Ponto de orvalho de agora tirado da MESMA medida que a umidade do topo (24/11/2026: a tela dizia umidade 41% a
+     * 34° e orvalho 22°, que juntos dariam ~70%; a umidade vinha do aeroporto e o orvalho do modelo). Null = usa o do modelo.
+     */
+    var orvalhoAgora: Double? = null
+
+    /** Orvalho para mostrar agora: o da medida do topo, se houver; senão o do modelo na hora de agora. */
+    fun orvalho(): Double = orvalhoAgora ?: hOrvalho.getOrElse(i0) { temp }
+
+    /** Põe a umidade (e o céu) do topo e acerta o orvalho para concordar com ela. [tempTopo] na unidade do Config. */
+    fun usarTopo(tempTopo: Int?, umidadeTopo: Int?, codigoTopo: Int?, fahrenheit: Boolean = Config.USAR_FAHRENHEIT) {
+        codigoTopo?.let { codigo = it }
+        if (umidadeTopo == null) return
+        umidade = umidadeTopo
+        orvalhoAgora = Orvalho.de(tempTopo?.toDouble() ?: temp, umidadeTopo, fahrenheit)
+    }
+
     /** Índice da hora de agora nas listas hora a hora. */
     val i0: Int get() = max(0, hTempo.indexOfFirst { it >= agoraTexto.substring(0, 13) + ":00" })
 
@@ -210,7 +227,7 @@ internal class ArcoSol(ctx: Context, val fracao: Float) : View(ctx) {
     override fun onDraw(c: Canvas) = Rtl.espelhar(this, c) { desenhar(c) }   // 16.8: o tempo anda para a esquerda no árabe
     private fun desenhar(c: Canvas) {
         val d = resources.displayMetrics.density
-        val raioX = width / 2f - 12 * d; val raioY = height - 10 * d; val cx = width / 2f; val cy = height - 4 * d
+        val raioX = width / 2f - 12 * d; val cy = height - 4 * d; val raioY = cy - 12 * d; val cx = width / 2f   // 12: o halo (11) do sol no alto cabe inteiro
         p.style = Paint.Style.STROKE; p.strokeWidth = 2 * d; p.color = 0x55FFFFFF
         p.pathEffect = android.graphics.DashPathEffect(floatArrayOf(5 * d, 5 * d), 0f)
         c.drawArc(RectF(cx - raioX, cy - raioY, cx + raioX, cy + raioY), 180f, 180f, false, p); p.pathEffect = null
@@ -220,5 +237,16 @@ internal class ArcoSol(ctx: Context, val fracao: Float) : View(ctx) {
         p.style = Paint.Style.FILL
         p.color = 0x55FFD36B; c.drawCircle(x, y, 11 * d, p)
         p.color = 0xFFFFD36B.toInt(); c.drawCircle(x, y, 6.5f * d, p)
+    }
+}
+
+/** Ponto de orvalho pela fórmula de Magnus (constantes de Sonntag, erro < 0,4 °C entre -45 e 60 °C). */
+internal object Orvalho {
+    fun de(temp: Double, umidade: Int, fahrenheit: Boolean = false): Double {
+        val c = if (fahrenheit) (temp - 32) * 5 / 9 else temp
+        val rh = umidade.coerceIn(1, 100) / 100.0
+        val g = kotlin.math.ln(rh) + 17.62 * c / (243.12 + c)
+        val d = 243.12 * g / (17.62 - g)
+        return if (fahrenheit) d * 9 / 5 + 32 else d
     }
 }

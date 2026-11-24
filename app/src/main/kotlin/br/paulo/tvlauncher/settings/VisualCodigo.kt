@@ -16,6 +16,9 @@ import java.util.Base64
  * valor fora da faixa vira null (não aplica), para um código feito à mão não estragar a TV. Puro (VisualCodigoTest).
  * 17/11/2026 (revisão, T4): o prefixo passou de "onetv-visual:1:" para "sofaly-visual:1:"; o antigo continua aceito na
  * leitura, para não quebrar QR já gerado. Também 17/11 (1b): [PRONTOS], a galeria de visuais prontos (TV e site).
+ * 24/11/2026 (extensões, proposta B): "Meu fundo" por link ("u"): um endereço https de uma FOTO (jpg, png ou webp) que a
+ * outra TV baixa e põe como fundo. É só dado (imagem), nunca código: cabe nas regras da Play. O arquivo da pessoa
+ * continua fora; só viaja o link de uma foto que já está pública na internet.
  */
 object VisualCodigo {
     const val PREFIXO = "sofaly-visual:1:"
@@ -35,7 +38,21 @@ object VisualCodigo {
         val letra: String? = null,
         /** Ajuste fino (CardStyle, ClockStyle, BackgroundStyle): chave curta -> posição na lista. Ver [FINO]. */
         val fino: Map<String, Int>? = null,
+        /** "Meu fundo" por link: https de uma foto ([fundoLink] confere). 24/11/2026. */
+        val fundo: String? = null,
     )
+
+    const val MAX_LINK = 300
+
+    /** Link de foto aceito: https, curto, sem espaço, terminando (antes de ? ou #) em .jpg, .jpeg, .png ou .webp. */
+    fun fundoLink(t: String?): String? {
+        val u = t?.trim() ?: return null
+        if (!u.startsWith("https://") || u.length > MAX_LINK || u.any { it.isWhitespace() || it.isISOControl() }) return null
+        val host = u.removePrefix("https://").substringBefore('/').substringBefore('?')
+        if (host.isEmpty() || '@' in host || !host.contains('.')) return null
+        val caminho = u.removePrefix("https://").substringAfter('/', "").substringBefore('?').substringBefore('#').lowercase()
+        return u.takeIf { listOf(".jpg", ".jpeg", ".png", ".webp").any { caminho.endsWith(it) } }
+    }
 
     /**
      * As chaves do ajuste fino no código e quantas opções cada uma tem (valor fora vira "não aplica"). Curtas para caber no
@@ -50,6 +67,7 @@ object VisualCodigo {
         v.brilho?.let { j.put("b", it) }; v.contraste?.let { j.put("k", it) }
         v.letra?.let { j.put("f", it) }
         v.fino?.takeIf { it.isNotEmpty() }?.let { m -> j.put("a", JSONObject().apply { m.forEach { (k, n) -> put(k, n) } }) }
+        fundoLink(v.fundo)?.let { j.put("u", it) }
         return PREFIXO + Base64.getUrlEncoder().withoutPadding().encodeToString(j.toString().toByteArray(Charsets.UTF_8))
     }
 
@@ -75,6 +93,7 @@ object VisualCodigo {
                 FINO.mapNotNull { (k, n) -> if (a.has(k)) a.optInt(k, -1).takeIf { it in 0 until n }?.let { k to it } else null }.toMap()
                     .takeIf { it.isNotEmpty() }
             },
+            fundo = fundoLink(j.optString("u", "")),
         )
     }
 

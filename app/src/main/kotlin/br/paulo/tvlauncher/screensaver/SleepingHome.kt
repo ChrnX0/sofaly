@@ -297,7 +297,7 @@ class SleepingHome(private val ctx: Context) {
     private fun preencher(f: ForecastData?) {
         ultimaPrevisao = f
         val topo = Forecast.topo(ctx)
-        f?.let { x -> topo.codigo?.let { x.codigo = it }; topo.umidade?.let { x.umidade = it } }
+        f?.usarTopo(topo.temp, topo.umidade, topo.codigo)
         val clima = ctx.getSharedPreferences(Prefs.CLIMA, Context.MODE_PRIVATE)
         val lat = f?.ponto?.lat ?: clima.getFloat("lat", br.paulo.tvlauncher.Config.LATITUDE.toFloat()).toDouble()
         val lon = f?.ponto?.lon ?: clima.getFloat("lon", br.paulo.tvlauncher.Config.LONGITUDE.toFloat()).toDouble()
@@ -455,7 +455,7 @@ class SleepingHome(private val ctx: Context) {
         addView(celula(ctx.getString(R.string.pv_chuva_hoje), "${f.dChuva[0]}%", "${"%.1f".format(Locale.getDefault(), f.dChuvaMm)} mm", azulChuva), lp())
         addView(celula(ctx.getString(R.string.pv_sensacao), "$sens°", sensTexto), lp())
         addView(celula(ctx.getString(R.string.pt_umidade), "${f.umidade}%",
-            ctx.getString(R.string.sh_orvalho, Math.round(f.hOrvalho.getOrElse(i0) { f.temp }).toInt())), lp())
+            ctx.getString(R.string.sh_orvalho, Math.round(f.orvalho()).toInt())), lp())
         addView(celula(ctx.getString(R.string.pv_vento), "${Math.round(f.vento).toInt()} km/h", ForecastText.rosa(ctx, f.ventoDir)), lp())
         addView(celula(ctx.getString(R.string.pv_uv), "${Math.round(uv).toInt()}", ForecastText.uv(ctx, uv),
             if (ForecastText.uvAlto(uv)) DesignTokens.ORANGE else suave), lp())

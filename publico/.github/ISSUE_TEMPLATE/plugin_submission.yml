@@ -1,0 +1,48 @@
+name: Submit a plugin
+description: Ask for your plugin to be listed in Sofaly's plugin showcase (Play Store apps only)
+title: "Plugin: "
+labels: [plugin]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read the [plugin kit](https://chrnx0.github.io/sofaly/plugins.html) first. A bot checks this form in a minute
+        and answers here; a person only looks when the bot is not sure. Nothing here is sent to any TV until it is listed.
+  - type: input
+    id: package
+    attributes:
+      label: Play Store package
+      description: The id in your Play Store link (play.google.com/store/apps/details?id=THIS)
+      placeholder: com.example.myplugin
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Kind
+      options: [wallpaper, icons]
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name shown on the TV
+      description: Up to 40 letters, no other launcher's name
+    validations:
+      required: true
+  - type: input
+    id: description
+    attributes:
+      label: One line in English
+      description: Up to 120 letters, what the person gets
+    validations:
+      required: true
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Rules
+      options:
+        - label: It shows no ads over the launcher and does not open by itself
+          required: true
+        - label: It collects no personal data beyond what its Play Store listing declares
+          required: true

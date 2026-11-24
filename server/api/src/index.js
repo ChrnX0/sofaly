@@ -11,6 +11,7 @@
 //   GET    /v1/dns/txt/<id>        pública: as máquinas de DNS leem o desafio daqui
 //   GET    /v1/health              pública
 //   GET    /v1/addons/recommended  pública: lista curada de add-ons (src/addons.js)
+//   GET    /v1/plugins/recommended pública: vitrine de plugins (src/plugins.js)
 //   GET    /v1/addons/public-domain/...  pública: nosso add-on de filmes de domínio público (src/publicdomain.js)
 //   GET    /v1/podcasts/search     pública: busca no Podcast Index (src/podcasts.js), ?q=&lang=&max=
 //   GET    /v1/podcasts/trending   pública: em alta no idioma, ?lang=&max=
@@ -20,6 +21,7 @@
 //   GET    /v1/weather/open        pública: previsão do Básico, consenso de 4 modelos abertos, ?lat=&lon= (src/weatherOpen.js)
 import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
 import { recommendedBody } from './addons.js';
+import { pluginsBody } from './plugins.js';
 import { handlePodcasts } from './podcasts.js';
 import { handleWeather } from './weather.js';
 import { handleWeatherOpen } from './weatherOpen.js';
@@ -43,6 +45,12 @@ export default {
     if (path === '/v1/addons/recommended' && req.method === 'GET') {
       // Igual para todos e muda raramente: a borda da Cloudflare pode guardar 1 h.
       return new Response(JSON.stringify(recommendedBody()), {
+        headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' },
+      });
+    }
+
+    if (path === '/v1/plugins/recommended' && req.method === 'GET') {
+      return new Response(JSON.stringify(pluginsBody()), {
         headers: { 'content-type': 'application/json', 'cache-control': 'public, max-age=3600' },
       });
     }

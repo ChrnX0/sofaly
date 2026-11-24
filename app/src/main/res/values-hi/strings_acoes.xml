@@ -73,4 +73,6 @@
         <item quantity="one">लिंक वाला %d सीन</item>
         <item quantity="other">लिंक वाले %d सीन</item>
     </plurals>
+    <string name="acao_plugin_button">“%1$s” दबाएँ (दूसरे ऐप का बटन)</string>
+    <string name="acao_plugin_button_off">यह बटन प्लगइन में चालू नहीं है</string>
 </resources>

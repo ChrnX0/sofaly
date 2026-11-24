@@ -244,6 +244,8 @@ const TIPOS_CENA = [
     { k: 'segundos', op: [['60', '1 min na tela'], ['30', '30 s na tela'], ['300', '5 min na tela']], numero: true }] },
   { tipo: 'timer', nome: 'Timer', campos: [{ k: 'minutos', num: [1, 240], padrao: 10, sufixo: 'min' }] },
   { tipo: 'desligar_em', nome: 'Desligar a TV em', campos: [{ k: 'minutos', num: [0, 480], padrao: 30, sufixo: 'min (0 cancela)' }] },
+  // Botão de outro app (24/11/2026, extensões): só os botões que o dono já ligou em Plugins (tv.sofaly.plugin.TILE).
+  { tipo: 'plugin_button', nome: 'Botão de outro app', campos: [{ k: 'pacote', plugin: true }] },
   { tipo: 'filtro_noturno', nome: 'Filtro noturno', campos: [{ k: 'ligado', op: SIM_NAO, bool: true }] },
   { tipo: 'mural', nome: 'Mural da família', campos: [{ k: 'lista', op: [['compras', 'Lista de compras'], ['recados', 'Recado fixo']] },
     { k: 'texto', txt: true, max: 60, dica: 'Item (ex.: leite)' }] },
@@ -258,6 +260,7 @@ const TIPO_POR_NOME = Object.fromEntries(TIPOS_CENA.map((t) => [t.tipo, t]));
 let acoesCena = [];   // [{tipo, ...campos}] no formato do catálogo
 let appsCena = null;  // [[pacote, nome]]
 let casaCena = null;  // [[id, nome]]
+let botoesCena = null; // [[pacote, nome]] dos botões de outros apps já ligados
 
 async function listaApps() {
   if (!appsCena) {
@@ -265,6 +268,13 @@ async function listaApps() {
     appsCena = r.apps.map((a) => [a.pacote, a.nome]).sort((a, b) => a[1].localeCompare(b[1], 'pt-BR'));
   }
   return appsCena;
+}
+async function listaBotoes() {
+  if (!botoesCena) {
+    const r = await chamar('GET', '/api/plugins');
+    botoesCena = (r.botoes || []).filter((b) => b.ligado).map((b) => [b.pacote, b.nome]);
+  }
+  return botoesCena;
 }
 async function listaCasa() {
   if (!casaCena) {
@@ -319,11 +329,11 @@ function camposDe(a, i) {
       x.setAttribute('aria-label', c.dica);
       x.addEventListener('input', () => { if (x.value.trim() || !c.opcional) a[c.k] = x.value; else delete a[c.k]; atualizarCena(); });
       caixa.append(x);
-    } else if (c.app || c.casa) {
-      const s = menu(c.app ? 'App' : 'Aparelho', [[a[c.k] || '', 'Carregando…']], a[c.k] || '', (v) => { a[c.k] = v; atualizarCena(); });
+    } else if (c.app || c.casa || c.plugin) {
+      const s = menu(c.app ? 'App' : c.plugin ? 'Botão de outro app' : 'Aparelho', [[a[c.k] || '', 'Carregando…']], a[c.k] || '', (v) => { a[c.k] = v; atualizarCena(); });
       caixa.append(s);
-      (c.app ? listaApps() : listaCasa()).then((l) => {
-        if (!l.length) { s.options[0].textContent = c.casa ? 'Casa não configurada' : 'Nenhum app'; return; }
+      (c.app ? listaApps() : c.plugin ? listaBotoes() : listaCasa()).then((l) => {
+        if (!l.length) { s.options[0].textContent = c.casa ? 'Casa não configurada' : c.plugin ? 'Nenhum botão ligado' : 'Nenhum app'; return; }
         s.replaceChildren(...l.map(([v, t]) => { const o = document.createElement('option'); o.value = v; o.textContent = t; return o; }));
         if (!a[c.k] || !l.some(([v]) => v === a[c.k])) a[c.k] = l[0][0];
         s.value = a[c.k]; atualizarCena();
@@ -364,6 +374,7 @@ function resumoAcao(a) {
     if (c.dias) return (c.op.find(([v]) => v === (a.dias || []).join(',')) || ['', ''])[1];
     if (c.app) return (appsCena || []).find(([v]) => v === a[c.k])?.[1] || a[c.k];
     if (c.casa) return (casaCena || []).find(([v]) => v === a[c.k])?.[1] || a[c.k];
+    if (c.plugin) return (botoesCena || []).find(([v]) => v === a[c.k])?.[1] || a[c.k];
     if (c.op) return (c.op.find(([v]) => v === String(a[c.k])) || ['', a[c.k]])[1];
     if (c.num) return a[c.k] + ' ' + c.sufixo.split(' ')[0];
     return a[c.k] ? `"${a[c.k]}"` : '';

@@ -185,6 +185,7 @@ class McpFerramentas(ctx: Context) : McpProtocolo.Ferramentas, McpProtocolo.ComC
                 "Pede ações à TV: abrir app, abrir tela, criar despertador, volume, mídia, modo visita, recado na tela, timer, " +
                     "desligar em X min, filtro noturno, rodar cena, item no mural, e Filmes e Séries (tocar_titulo, continuar, " +
                     "proximo_episodio, o_que_estava_vendo; títulos de categoria oculta ou bloqueada não aparecem). " +
+                    "plugin_button (campo pacote): aperta o botão de outro app que o dono ligou em Plugins. " +
                     "Conforme as Confirmações da TV, executa na hora, espera OK no controle (até 3 min; sem resposta, fica nas notificações da TV) ou é recusado; " +
                     "use ver_pedido para saber o resultado. " +
                     "Máximo ${ComandosIa.MAX_ACOES} ações. " +

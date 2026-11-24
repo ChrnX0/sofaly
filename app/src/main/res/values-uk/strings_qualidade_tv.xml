@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV ao vivo: canais novos, qualidade automática e motivo do "sem sinal" (18/11/2026). -->
+<resources>
+    <string name="coluna_novos_canais">Нове</string>
+    <string name="qual_menu">Якість: %1$s</string>
+    <string name="qual_auto">Автоматично</string>
+    <string name="qual_auto_curto">авто</string>
+    <string name="qual_titulo">Якість зображення</string>
+    <string name="qual_padrao">Стандартна</string>
+    <string name="player_conta_vencida">Термін дії вашого списку закінчився %1$s. Поновіть його в продавця.</string>
+    <string name="player_conta_recusada">Сервер списку відхилив обліковий запис. Зверніться до продавця.</string>
+    <string name="player_telas_cheias">Список уже відкрито на %1$d з %2$d екранів. Закрийте його на іншому пристрої.</string>
+</resources>

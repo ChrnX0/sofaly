@@ -1,5 +1,8 @@
 // Painel em hi (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"Plugins":"प्लगइन",
+"Botão de outro app":"दूसरे ऐप का बटन",
+"Nenhum botão ligado":"कोई बटन चालू नहीं",
 "Lembretes da grade":"टीवी गाइड रिमाइंडर",
 "Gravação terminou ou parou":"रिकॉर्डिंग पूरी हुई या रुक गई",
 "Despertador que não tocou":"अलार्म जो नहीं बजा",

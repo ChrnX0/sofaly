@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">не вдалося відкрити Параметри розробника (%1$s)</string>
+    <string name="pn_porta_achada">знайдено порт сполучення %1$d</string>
+    <string name="pn_mdns_falhou">пошук у мережі не вдався (%1$s)</string>
+    <string name="pn_pareando">сполучення…</string>
+    <string name="pn_confirme">код зчитано. Щоб сполучити, натисніть OK на пульті на «%1$s»</string>
+    <string name="pn_so_controle">лише клавіша пульта підтверджує сполучення</string>
+</resources>

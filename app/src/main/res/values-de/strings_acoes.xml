@@ -73,4 +73,6 @@
         <item quantity="one">%d Szene mit Link</item>
         <item quantity="other">%d Szenen mit Link</item>
     </plurals>
+    <string name="acao_plugin_button">„%1$s“ drücken (Taste einer anderen App)</string>
+    <string name="acao_plugin_button_off">Diese Taste ist unter Plugins nicht eingeschaltet</string>
 </resources>

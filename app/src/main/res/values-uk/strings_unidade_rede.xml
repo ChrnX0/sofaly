@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Мережевий диск</string>
+    <string name="ur_titulo">Показувати телевізор як мережевий диск</string>
+    <string name="ur_det">Вимк. Телевізор сам з\'являється в «Цей ПК» у Windows, як телефон, і як мережева папка на Mac, Linux і телефонах.</string>
+    <string name="ur_painel">Спершу ввімкніть вебпанель вище (вона використовує той самий PIN і адресу https).</string>
+    <string name="ur_https">Очікування адреси https панелі (сертифікат створюється приблизно через 1 хвилину після ввімкнення панелі).</string>
+    <string name="ur_abra">Увімк. У Windows телевізор з\'являється в «Цей ПК» (уперше для кожного комп\'ютера телевізор питає на екрані). Mac, Linux і телефон: %1$s · пароль: PIN панелі.</string>
+    <string name="mtp_pergunta_titulo">Комп\'ютер запитує файли телевізора</string>
+    <string name="mtp_pergunta">«%1$s» хоче бачити й копіювати файли зі сховища телевізора через домашню мережу. Дозволити цей комп\'ютер?</string>
+    <string name="mtp_pcs">Дозволені комп\'ютери</string>
+    <string name="mtp_pcs_nenhum">Поки жодного. Телевізор питає на екрані, коли комп\'ютер запитує файли.</string>
+    <string name="mtp_pcs_lista">%1$s · OK забуває всі (кожен запитає знову)</string>
+    <string name="mtp_pcs_esquecidos">Комп\'ютери забуто</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Відкрити панель телевізора</string>
+</resources>

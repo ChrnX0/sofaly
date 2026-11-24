@@ -82,9 +82,15 @@ object WallpaperPluginContract {
         val title: String? = null, val source: String? = null, val author: String? = null, val actionUri: String? = null,
     )
 
-    /** O evento que o launcher manda. [title]/[packageName] só no foco de cartão; [idle] só no ocioso. */
+    /**
+     * O evento que o launcher manda. [title]/[packageName] no foco de cartão; [idle] no ocioso; [playing], [artist],
+     * [album] e [iconUri] no "tocando agora" (24/11/2026); [title], [programType], [iconUri] e [iconAspectRatio] no foco
+     * de um programa (cartão de canal de outro app). [programType] segue TvContract.PreviewPrograms.TYPE_* (null = não sei).
+     */
     data class Event(val type: Int, val title: String? = null, val packageName: String? = null,
-                     val lightColor: Int = 0, val darkColor: Int = 0, val idle: Boolean = false)
+                     val lightColor: Int = 0, val darkColor: Int = 0, val idle: Boolean = false,
+                     val playing: Boolean = true, val artist: String? = null, val album: String? = null,
+                     val iconUri: String? = null, val programType: Int? = null, val iconAspectRatio: Int = 0)
 
     /** O mínimo de um Parcel que precisamos (o de verdade, ou um falso nos testes). */
     interface Saida { fun int(v: Int); fun string(v: String?) }
@@ -100,6 +106,15 @@ object WallpaperPluginContract {
         when (e.type) {
             EV_CARD_FOCUSED -> { p.int(e.type); p.int(e.lightColor); p.int(e.darkColor); p.string(e.title); p.string(e.packageName) }
             EV_LAUNCHER_IDLE_MODE_CHANGED -> { p.int(e.type); p.int(if (e.idle) 1 else 0) }
+            // NowPlayingChanged(eventType, isPlaying, title, artist, album, iconUri): Boolean vai como int.
+            EV_NOW_PLAYING_CHANGED -> { p.int(e.type); p.int(if (e.playing) 1 else 0); p.string(e.title); p.string(e.artist); p.string(e.album); p.string(e.iconUri) }
+            // ProgramCardFocused(eventType, title, type: Int?, iconUri, iconAspectRatio): o @Parcelize escreve um Int?
+            // como marcador 0 (nulo) ou 1 seguido do valor.
+            EV_PROGRAM_CARD_FOCUSED -> {
+                p.int(e.type); p.string(e.title)
+                if (e.programType == null) p.int(0) else { p.int(1); p.int(e.programType) }
+                p.string(e.iconUri); p.int(e.iconAspectRatio)
+            }
             else -> p.int(EV_TIME_ELAPSED)
         }
     }

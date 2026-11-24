@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Перевірити контролер</string>
+    <string name="teste_controle_sub">Чи достатньо він швидкий для гри?</string>
+    <string name="teste_controle_mexa">Покрутіть лівий стік колами 10 секунд.</string>
+    <string name="teste_controle_bom">Чудово для ігор: сигнал кожні %1$d мс.</string>
+    <string name="teste_controle_ok">Можна грати: сигнал кожні %1$d мс. Швидкі ігри можуть трохи запізнюватися.</string>
+    <string name="teste_controle_ruim">Повільно: сигнал кожні %1$d мс і пауз: %2$d. Допоможе дротовий контролер або контролер ближче до телевізора.</string>
+    <string name="teste_controle_parado">Контролер не рухався. Спробуйте ще раз і продовжуйте крутити стік.</string>
+</resources>

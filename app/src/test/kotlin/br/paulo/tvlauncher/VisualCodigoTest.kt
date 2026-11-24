@@ -78,4 +78,17 @@ class VisualCodigoTest {
         org.junit.Assert.assertNull(r.letra)
         org.junit.Assert.assertEquals(mapOf("gl" to 2), r.fino)
     }
+
+    // ---- "Meu fundo" por link (24/11/2026)
+    @Test fun fundoPorLinkSoFotoHttps() {
+        val ok = "https://upload.example.org/fotos/praia.JPG?w=1920"
+        val v = VisualCodigo.decodificar(VisualCodigo.codificar(VisualCodigo.Visual(tema = "MEU", fundo = ok)))!!
+        assertEquals(ok, v.fundo); assertEquals("MEU", v.tema)
+        for (ruim in listOf("http://a.b/x.jpg", "https://a.b/x.apk", "https://a.b/x.jpg x", "https://user@a.b/x.png",
+            "https://localhost/x.png", "https://a.b/" + "x".repeat(400) + ".png", "javascript:alert(1)//.png", "https://a.b/x.svg"))
+            assertNull(ruim, VisualCodigo.fundoLink(ruim))
+        assertEquals("https://a.b/c.webp#x", VisualCodigo.fundoLink(" https://a.b/c.webp#x "))
+        // Código sem "u" continua igual ao de antes (QR já gerado não muda).
+        assertNull(VisualCodigo.decodificar(VisualCodigo.codificar(VisualCodigo.Visual(tema = "ESCURO")))!!.fundo)
+    }
 }

@@ -43,4 +43,8 @@
     <string name="wp_d_tvicons">TV için yapılmış 800+ simge</string>
     <string name="wp_d_minimalist">Tek renk üzerinde sade semboller</string>
     <string name="wp_d_arcticons">15.000 ince çizgi simge (telefon için, burada da çalışır)</string>
+    <string name="ext_off_health">Kapatıldı: yanıt vermeyi bıraktı. İstersen yeniden aç.</string>
+    <string name="ext_secao_botoes">Hızlı panel düğmeleri</string>
+    <string name="ext_nenhum_botao">Henüz başka uygulamaların düğmesi yok. Bazı uygulamalar hızlı panele aç/kapat düğmesi ekler (GERİ\'yi basılı tut).</string>
+    <string name="ext_off_blocked">Sofaly tarafından kapatıldı: bu eklentinin bilinen bir sorunu var.</string>
 </resources>

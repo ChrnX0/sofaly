@@ -8,6 +8,10 @@ package br.paulo.tvlauncher.screensaver
  * O launcher pergunta `content://<autoridade>/cartao` e recebe UMA linha com as colunas:
  *     titulo (até 30), valor (até 12, o número grande: "2 x 1", "R$ 5,42", "18°"), detalhe (até 80), cor ("#RRGGBB"),
  *     acao (opcional: Intent em URI, que só pode abrir o PRÓPRIO plugin).
+ * Versão 2 (24/11/2026, no lugar dos widgets, que o Google TV não tem), colunas opcionais:
+ *     mundo ("watch" | "listen" | "play" | "apps": em qual mundo da HOME o cartão mora; outro valor ou vazio = watch),
+ *     imagem (content:// de um provider do PRÓPRIO plugin, PNG/JPG; a HOME reduz e usa como ícone do cartão).
+ * Plugin da versão 1 continua igual: as colunas novas só faltam.
  * O plugin manda DADOS; quem desenha é a HOME, no nosso estilo e com letra grande: plugin nenhum desenha por cima da
  * tela, nem deixa a HOME ilegível. Nada sai do launcher para o plugin (ele não lê apps, contas, IPTV nem o painel).
  *
@@ -18,9 +22,21 @@ object PluginCartao {
     const val ACAO = "tv.sofaly.plugin.CARTAO"
     const val CAMINHO = "cartao"
     const val MAX_PLUGINS = 3
-    val COLUNAS = arrayOf("titulo", "valor", "detalhe", "cor", "acao")
+    val COLUNAS = arrayOf("titulo", "valor", "detalhe", "cor", "acao", "world", "image")  // v2 (24/11/2026): colunas novas em inglês
 
-    data class Cartao(val pacote: String, val titulo: String, val valor: String, val detalhe: String, val cor: Int, val acao: String?)
+    /** O mundo da HOME onde o cartão entra (v2). */
+    enum class Mundo(val id: String) { WATCH("watch"), LISTEN("listen"), PLAY("play"), APPS("apps") }
+
+    data class Cartao(val pacote: String, val titulo: String, val valor: String, val detalhe: String, val cor: Int, val acao: String?,
+                      val mundo: Mundo = Mundo.WATCH, val imagem: String? = null)
+
+    fun mundo(t: String?): Mundo = Mundo.entries.firstOrNull { it.id == t?.trim()?.lowercase() } ?: Mundo.WATCH
+
+    /** Endereço da imagem (v2): só content://, curto, sem espaço. Se a autoridade é do próprio plugin, quem confere é o lado Android. */
+    fun imagem(t: String?): String? = t?.trim()?.takeIf { it.startsWith("content://") && it.length <= 500 && it.none { c -> c.isWhitespace() || c.isISOControl() } }
+
+    /** A autoridade de um content:// ("content://a.b/x" -> "a.b"). */
+    fun autoridade(uri: String): String = uri.removePrefix("content://").substringBefore('/').substringBefore('?')
 
     private fun texto(t: String?, max: Int) = (t ?: "").map { if (it.isISOControl()) ' ' else it }.joinToString("").replace(Regex("\\s+"), " ").trim().take(max)
 
@@ -39,7 +55,7 @@ object PluginCartao {
         val valor = texto(linha["valor"], 12)
         if (titulo.isEmpty() && valor.isEmpty()) return null
         val acao = linha["acao"]?.trim()?.takeIf { acaoValida(pacote, it) }
-        return Cartao(pacote, titulo, valor, texto(linha["detalhe"], 80), cor(linha["cor"]), acao)
+        return Cartao(pacote, titulo, valor, texto(linha["detalhe"], 80), cor(linha["cor"]), acao, mundo(linha["world"]), imagem(linha["image"]))
     }
 
     fun acaoValida(pacote: String, uri: String): Boolean {

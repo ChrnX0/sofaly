@@ -75,4 +75,6 @@
         <item quantity="many">%d cenas com link</item>
         <item quantity="other">%d cenas com link</item>
     </plurals>
+    <string name="acao_plugin_button">Carregar em “%1$s” (botão de outra app)</string>
+    <string name="acao_plugin_button_off">Esse botão não está ativado em Plugins</string>
 </resources>

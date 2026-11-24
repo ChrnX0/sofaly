@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Одна відповідь налаштовує меню й екран. Змінити можна пізніше в Налаштування › Система.</string>
+    <string name="pp_casa">Для всього дому</string>
+    <string name="pp_vo_det">Великі картки з назвами вголос і більший текст, а ви допомагаєте з телефона, здалеку.</string>
+</resources>
