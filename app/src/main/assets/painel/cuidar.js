@@ -78,10 +78,11 @@
       const linha = document.createElement('div'); linha.className = 'linha-registro';
       const h = hhmm(l.hora * 60 + l.minuto);
       const situacao = hoje.get(l.id + '@' + h);
-      let txt = h + '  ' + l.texto;
-      if (situacao) txt += situacao.confirmado ? '  · feito às ' + new Date(situacao.confirmado).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        : situacao.avisado ? '  · não confirmado (avisado)' : '  · esperando o Feito';
-      linha.appendChild(Object.assign(document.createElement('span'), { textContent: txt }));
+      linha.appendChild(Object.assign(document.createElement('span'), { textContent: h + '  ' + l.texto }));
+      // A situação em um nó só dela: o texto do lembrete é da família (não se traduz) e a situação é do painel (i18n).
+      if (situacao) linha.appendChild(Object.assign(document.createElement('span'), { textContent: situacao.confirmado
+        ? ' · feito às ' + new Date(situacao.confirmado).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        : situacao.avisado ? ' · não confirmado (avisado)' : ' · esperando o Feito' }));
       const b = document.createElement('button'); b.type = 'button'; b.className = 'botao-secundario botao-pequeno'; b.textContent = 'Apagar';
       b.addEventListener('click', async () => {
         try { const r = await comPin('Apagar lembrete', () => cuidar('POST', '/lembrete', { acao: 'remover', id: l.id })); if (r) desenhar(r); }
