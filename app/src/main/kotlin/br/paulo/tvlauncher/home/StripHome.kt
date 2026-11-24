@@ -118,7 +118,7 @@ object StripHome {
     fun viva(cat: CruzLogica.Categoria, itens: List<Itens>, appsTexto: (Int) -> String): String? {
         fun primeira(s: String) = s.lineSequence().map { it.trim() }.firstOrNull { it.isNotEmpty() }
         itens.firstOrNull { it.situacao != null && it.situacao.texto.isNotBlank() }?.situacao?.let { s ->
-            return "**${s.rotulo}** ${s.texto}".trim()
+            return "**${s.rotulo}** ${semGritar(s.texto)}".trim()
         }
         return when (cat) {
             CruzLogica.Categoria.FERRAMENTAS -> listOfNotNull(
@@ -126,10 +126,20 @@ object StripHome {
                 itens.firstOrNull { it.id == "t:clima" }?.let { primeira(it.sub) },
             ).filter { it.isNotEmpty() }.takeIf { it.isNotEmpty() }?.joinToString(" · ")
             CruzLogica.Categoria.APLICATIVOS -> itens.count { it.id.startsWith("app:") }.takeIf { it > 0 }?.let(appsTexto)
-            CruzLogica.Categoria.JOGAR -> itens.firstOrNull { it.id.startsWith("c:jogo:") || it.id.startsWith("app:") }
-                ?.let { i -> listOfNotNull("**${i.nome}**", primeira(i.sub)?.takeIf { it != i.nome }).joinToString(" · ") }
+            // Jogar: sem jogo em andamento fica a frase fixa (24/11/2026: "RetroArch · Emulador..." com o foco na Central
+            // parecia falar do card escolhido).
             else -> null
         }
+    }
+
+    /**
+     * Título que chega TODO EM MAIÚSCULAS (muito podcast é assim) vira Cada Palavra Com Maiúscula: na linha do mundo, em
+     * 18 sp, caixa alta grita e ocupa ~30% mais largura. Texto normal passa igual.
+     */
+    fun semGritar(s: String): String {
+        val letras = s.filter { it.isLetter() }
+        if (letras.length < 8 || letras.count { it.isUpperCase() } < letras.length * 0.8) return s
+        return s.lowercase().split(" ").joinToString(" ") { w -> w.replaceFirstChar { it.titlecase() } }
     }
 
     /** Partes de um texto com ** ** (negrito) para quem desenha: (texto, negrito?). */

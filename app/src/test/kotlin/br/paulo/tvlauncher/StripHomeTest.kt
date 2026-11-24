@@ -53,6 +53,10 @@ class StripHomeTest {
         assertEquals("Próximo às 6:30 · 24°", StripHome.viva(Categoria.FERRAMENTAS,
             listOf(i("t:despertador", sub = "Próximo às 6:30"), i("t:clima", sub = "24°\nPrevisão"))) { "$it apps" })
         assertEquals("3 apps", StripHome.viva(Categoria.APLICATIVOS, listOf(i("app:a"), i("app:b"), i("app:c"), i("c:x"))) { "$it apps" })
+        assertNull("Jogar sem jogo em andamento: frase fixa", StripHome.viva(Categoria.JOGAR, listOf(i("app:retro", "RetroArch", "Emulador"))) { "$it apps" })
+        assertEquals("**Parou em** 1981 - O Mundo Está Sendo Reprogramado? Dr. Alex", StripHome.viva(Categoria.OUVIR,
+            listOf(i("podcasts", s = CruzLogica.Situacao("Parou em", "1981 - O MUNDO ESTÁ SENDO REPROGRAMADO? DR. ALEX", "podcasts")))) { "$it apps" })
+        assertEquals("normal passa igual", "Jornal Nacional · TV Globo", StripHome.semGritar("Jornal Nacional · TV Globo"))
         assertEquals(listOf("No ar" to true, " Jornal" to false), StripHome.partes("**No ar** Jornal"))
     }
 }
