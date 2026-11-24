@@ -62,9 +62,9 @@ async function cadastrarDigital() {
     const d = await pegarDesafio();
     const cred = await navigator.credentials.create({ publicKey: {
       challenge: b64url.de(d.desafio),
-      rp: { id: d.rpId, name: 'One TV' },
+      rp: { id: d.rpId, name: 'Sofaly' },
       // Um "usuário" só (o painel desta TV): o id não diz nada de ninguém.
-      user: { id: new TextEncoder().encode('painel'), name: 'Painel One TV', displayName: 'Painel One TV' },
+      user: { id: new TextEncoder().encode('painel'), name: 'Painel Sofaly', displayName: 'Painel Sofaly' },
       pubKeyCredParams: [{ type: 'public-key', alg: -7 }],
       authenticatorSelection: { residentKey: 'required', userVerification: 'required' },
       attestation: 'none', timeout: 60000 } });
