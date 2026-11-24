@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Jalankan adegan</string>
     <string name="rot_cena">Jalankan adegan: %1$s</string>
     <string name="rot_cena_linha">Adegan: %1$s</string>
-    <string name="rot_cena_sem">Buat adegan dulu (panel web › Ekstra › Adegan)</string>
+    <string name="rot_cena_sem">Buat adegan dulu (panel web › Rumah dan otomatisasi › Adegan)</string>
     <string name="lbl_cenas">Adegan</string>
     <string name="pr_cenas">Adegan</string>
     <string name="cenas_titulo">Adegan</string>
-    <string name="cenas_det">OK menjalankan adegan. Buat dan edit di panel web › Ekstra › Adegan.</string>
-    <string name="cenas_vazio">Belum ada adegan. Buat di panel web › Ekstra › Adegan.</string>
+    <string name="cenas_det">OK menjalankan adegan. Buat dan edit di panel web › Rumah dan otomatisasi › Adegan.</string>
+    <string name="cenas_vazio">Belum ada adegan. Buat di panel web › Rumah dan otomatisasi › Adegan.</string>
     <string name="tec_titulo">Tombol remote</string>
     <string name="tec_det">Netflix dan YouTube berfungsi di layar mana pun; tombol berwarna dan angka hanya di layar utama.</string>
     <string name="tec_nova">+ Atur tombol</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">Saat tombol ditekan</string>
     <string name="aut_evento">Saat sesuatu terjadi</string>
     <string name="aut_link">Lewat tautan</string>
-    <string name="aut_link_det">Buat dan edit di panel web › Ekstra › Adegan</string>
+    <string name="aut_link_det">Buat dan edit di panel web › Rumah dan otomatisasi › Adegan</string>
     <string name="ev_midia_tocou">Film atau video dimulai</string>
     <string name="ev_midia_pausou">Film atau video dijeda atau selesai</string>
     <string name="ev_tv_ligou">TV dinyalakan</string>

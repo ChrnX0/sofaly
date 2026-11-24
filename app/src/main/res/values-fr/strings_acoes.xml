@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Lancer une scène</string>
     <string name="rot_cena">Lancer la scène : %1$s</string>
     <string name="rot_cena_linha">Scène : %1$s</string>
-    <string name="rot_cena_sem">Créez d’abord une scène (panneau web › Extras › Scènes)</string>
+    <string name="rot_cena_sem">Créez d’abord une scène (panneau web › Maison et automatisations › Scènes)</string>
     <string name="lbl_cenas">Scènes</string>
     <string name="pr_cenas">Scènes</string>
     <string name="cenas_titulo">Scènes</string>
-    <string name="cenas_det">OK lance la scène. Créez-les et modifiez-les dans le panneau web › Extras › Scènes.</string>
-    <string name="cenas_vazio">Pas encore de scènes. Créez-en une dans le panneau web › Extras › Scènes.</string>
+    <string name="cenas_det">OK lance la scène. Créez-les et modifiez-les dans le panneau web › Maison et automatisations › Scènes.</string>
+    <string name="cenas_vazio">Pas encore de scènes. Créez-en une dans le panneau web › Maison et automatisations › Scènes.</string>
     <string name="tec_titulo">Boutons de la télécommande</string>
     <string name="tec_det">Netflix et YouTube fonctionnent sur tous les écrans ; touches de couleur et chiffres uniquement sur l’accueil.</string>
     <string name="tec_nova">+ Configurer un bouton</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">Quand on appuie sur un bouton</string>
     <string name="aut_evento">Quand quelque chose arrive</string>
     <string name="aut_link">Par lien</string>
-    <string name="aut_link_det">Créer et modifier dans le panneau web › Extras › Scènes</string>
+    <string name="aut_link_det">Créer et modifier dans le panneau web › Maison et automatisations › Scènes</string>
     <string name="ev_midia_tocou">Un film ou une vidéo a commencé</string>
     <string name="ev_midia_pausou">Un film ou une vidéo est en pause ou terminé</string>
     <string name="ev_tv_ligou">La TV s’est allumée</string>

@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Uruchom scenę</string>
     <string name="rot_cena">Uruchom scenę: %1$s</string>
     <string name="rot_cena_linha">Scena: %1$s</string>
-    <string name="rot_cena_sem">Najpierw utwórz scenę (panel WWW › Dodatki › Sceny)</string>
+    <string name="rot_cena_sem">Najpierw utwórz scenę (panel WWW › Dom i automatyzacje › Sceny)</string>
     <string name="lbl_cenas">Sceny</string>
     <string name="pr_cenas">Sceny</string>
     <string name="cenas_titulo">Sceny</string>
-    <string name="cenas_det">OK uruchamia scenę. Twórz i edytuj je w panelu WWW › Dodatki › Sceny.</string>
-    <string name="cenas_vazio">Brak scen. Utwórz scenę w panelu WWW › Dodatki › Sceny.</string>
+    <string name="cenas_det">OK uruchamia scenę. Twórz i edytuj je w panelu WWW › Dom i automatyzacje › Sceny.</string>
+    <string name="cenas_vazio">Brak scen. Utwórz scenę w panelu WWW › Dom i automatyzacje › Sceny.</string>
     <string name="tec_titulo">Przyciski pilota</string>
     <string name="tec_det">Netflix i YouTube działają na każdym ekranie; kolorowe przyciski i cyfry tylko na ekranie głównym.</string>
     <string name="tec_nova">+ Skonfiguruj przycisk</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">Po naciśnięciu przycisku</string>
     <string name="aut_evento">Gdy coś się dzieje</string>
     <string name="aut_link">Przez link</string>
-    <string name="aut_link_det">Twórz i edytuj w panelu WWW › Dodatki › Sceny</string>
+    <string name="aut_link_det">Twórz i edytuj w panelu WWW › Dom i automatyzacje › Sceny</string>
     <string name="ev_midia_tocou">Film lub wideo się zaczęło</string>
     <string name="ev_midia_pausou">Film lub wideo wstrzymano lub zakończono</string>
     <string name="ev_tv_ligou">Telewizor się włączył</string>

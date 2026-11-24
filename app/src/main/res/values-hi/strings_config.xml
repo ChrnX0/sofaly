@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">%1$d दिन पहले समाप्त हुआ</string>
     <string name="cl_ci_formato_data">d MMM yyyy</string>
     <string name="cl_vd_ja_dono">लॉन्चर पहले से डिवाइस ओनर है</string>
-    <string name="cl_vd_sem_shell">बिल्ट-इन शेल ने जवाब नहीं दिया (सेटिंग्स › उन्नत › लॉन्चर शेल में पेयर करें)</string>
+    <string name="cl_vd_sem_shell">बिल्ट-इन शेल ने जवाब नहीं दिया (सेटिंग्स › सिस्टम › उन्नत › लॉन्चर शेल में पेयर करें)</string>
     <string name="cl_vd_usuario">Android ने उपयोगकर्ता %1$s को हटाने नहीं दिया</string>
     <string name="cl_vd_mudou">पुष्टि के बाद टीवी के उपयोगकर्ता बदल गए (अब: %1$s)। कुछ भी नहीं हटाया गया; फिर से शुरू करें।</string>
     <string name="cl_vd_google">Android ने Google को थोड़ी देर रोकने नहीं दिया</string>

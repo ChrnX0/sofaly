@@ -839,7 +839,7 @@
     <string name="st_titulo">Pendrive e armazenamento</string>
     <string name="st_explica">Escolha como a TV usa o pendrive. Falta espaço? Ele pode virar memória da TV para os apps pesados.</string>
     <string name="st_linha_det">Usar um pendrive como memória da TV</string>
-    <string name="st_sem_shell">Precisa do shell próprio da TV (Configurações › Avançado). OK para tentar de novo.</string>
+    <string name="st_sem_shell">Precisa do shell próprio da TV (Configurações › Sistema › Avançado). OK para tentar de novo.</string>
     <string name="st_sem_pen">Nenhum pendrive ligado. Ligue um e aperte OK.</string>
     <string name="st_tv_livre">Memória da TV: %1$s livres de %2$s</string>
     <string name="st_pen">Pendrive · %1$s · %2$s</string>

@@ -26,13 +26,13 @@
     <string name="rot_cena_uma">Run a scene</string>
     <string name="rot_cena">Run scene: %1$s</string>
     <string name="rot_cena_linha">Scene: %1$s</string>
-    <string name="rot_cena_sem">Create a scene first (web panel › Extras › Scenes)</string>
+    <string name="rot_cena_sem">Create a scene first (web panel › Home and automations › Scenes)</string>
     <!-- Tela Cenas (ideia 4) -->
     <string name="lbl_cenas">Scenes</string>
     <string name="pr_cenas">Scenes</string>
     <string name="cenas_titulo">Scenes</string>
-    <string name="cenas_det">OK runs the scene. Create and edit them in the web panel › Extras › Scenes.</string>
-    <string name="cenas_vazio">No scenes yet. Create one in the web panel › Extras › Scenes.</string>
+    <string name="cenas_det">OK runs the scene. Create and edit them in the web panel › Home and automations › Scenes.</string>
+    <string name="cenas_vazio">No scenes yet. Create one in the web panel › Home and automations › Scenes.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d action</item>
         <item quantity="other">%d actions</item>
@@ -67,7 +67,7 @@
     <string name="aut_botao">When a button is pressed</string>
     <string name="aut_evento">When something happens</string>
     <string name="aut_link">By link</string>
-    <string name="aut_link_det">Create and edit in the web panel › Extras › Scenes</string>
+    <string name="aut_link_det">Create and edit in the web panel › Home and automations › Scenes</string>
     <plurals name="aut_links">
         <item quantity="one">%d scene with a link</item>
         <item quantity="other">%d scenes with a link</item>

@@ -165,18 +165,18 @@
     <string name="qr_gerar_outro">新代码</string>
     <string name="tentar_de_novo">重试</string>
     <string name="qr_fechar">关闭</string>
-    <string name="qr_painel_fora">面板未运行。\n请在 启动器设置 &gt; 远程访问 &gt; 面板 中开启（需要 PIN）。</string>
+    <string name="qr_painel_fora">面板未运行。\n请在 设置 › 家居和网络 › 远程访问 › 浏览器面板 中开启（需要 PIN）。</string>
     <string name="qr_pronto">完成</string>
     <string name="qr_entrou">手机已登录面板。</string>
     <string name="qr_venceu">代码已过期（有效期 2 分钟）。\n按“%1$s”显示新代码。</string>
     <string name="qr_instrucoes">用手机摄像头扫描旁边的代码。手机会打开面板并登录，无需 PIN。\n\n手机必须连接家庭 Wi-Fi。代码只能使用一次，剩余 %1$s。\n安装、卸载和恢复备份仍需要 PIN。</string>
     <string name="cc_dica_conta">在手机上点按“使用 Google 账号登录”，并使用 %1$s（此电视的账号）。</string>
     <string name="cc_pin">首先，设置 PIN</string>
-    <string name="cc_pin_det">在浏览器中的 启动器设置 &gt; 面板 中设置 PIN。\n当 Claude 请求登录电视时，你需要输入它。</string>
+    <string name="cc_pin_det">请在 设置 › 家居和网络 › 远程访问 › 浏览器面板 中设置 PIN。\n当 Claude 请求登录电视时，你需要输入它。</string>
     <string name="cc_sem_tunel">此版本不含隧道</string>
     <string name="cc_sem_tunel_det">此启动器构建时未包含 Tailscale。请安装完整版本。</string>
     <string name="cc_desligado">关</string>
-    <string name="cc_desligado_det">请在 启动器设置 &gt; 通过互联网使用 Claude 中开启。</string>
+    <string name="cc_desligado_det">请在 设置 › 家居和网络 › 远程访问 › 通过互联网使用 Claude 中开启。</string>
     <string name="cc_login">1. 登录 Tailscale</string>
     <string name="cc_login_det">用手机摄像头扫描旁边的代码并登录（免费）。%1$s\n\nTailscale 会为这台电视在互联网上创建一个专用的安全地址。</string>
     <string name="cc_ativar">2. 开启公共地址</string>
@@ -269,7 +269,7 @@
         <item quantity="other">现在是 %d 点</item>
     </plurals>
     <plurals name="ii_erros_novos">
-        <item quantity="other">%d 个新错误。请查看 面板 &gt; 健康。</item>
+        <item quantity="other">%d 个新错误。请查看 网页面板 › 系统。</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="other">%d 个频道</item>

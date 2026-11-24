@@ -36,7 +36,7 @@
     <string name="dono_usuarios">TV の追加ユーザーもデータごと削除されます: %s。</string>
     <string name="dono_ok">オーナーにする</string>
     <string name="dono_andando">ランチャーをオーナーにしています…（最大 1 分）</string>
-    <string name="dono_sem_shell">専用シェルが応答しませんでした。設定 › 詳細 › ランチャーのシェル でペアリングしてください。</string>
+    <string name="dono_sem_shell">専用シェルが応答しませんでした。設定 › システム › 詳細 › ランチャーのシェル でペアリングしてください。</string>
     <string name="bv_dev">開発者向けオプションをオン</string>
     <string name="bv_dev_det">「デバイス情報」で「Android TV OS ビルド」まで下がり、OK を 7 回押します。その後ここに戻ってください。</string>
     <string name="bv_parear">ランチャーを TV とペアリング</string>

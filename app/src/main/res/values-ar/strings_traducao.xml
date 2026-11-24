@@ -165,18 +165,18 @@
     <string name="qr_gerar_outro">رمز جديد</string>
     <string name="tentar_de_novo">إعادة المحاولة</string>
     <string name="qr_fechar">إغلاق</string>
-    <string name="qr_painel_fora">اللوحة لا تعمل.\nفعّلها في إعدادات المشغّل &gt; الوصول عن بُعد &gt; اللوحة (تحتاج PIN).</string>
+    <string name="qr_painel_fora">اللوحة لا تعمل.\nفعّلها في الإعدادات › المنزل والشبكة › الوصول عن بُعد › لوحة المتصفح (تحتاج PIN).</string>
     <string name="qr_pronto">تم</string>
     <string name="qr_entrou">سجّل الهاتف الدخول إلى اللوحة.</string>
     <string name="qr_venceu">انتهت صلاحية الرمز (يدوم دقيقتين).\nاضغط \"%1$s\" لعرض رمز جديد.</string>
     <string name="qr_instrucoes">وجّه كاميرا الهاتف إلى الرمز المجاور. يفتح الهاتف اللوحة ويسجّل الدخول، دون PIN.\n\nيجب أن يكون الهاتف على Wi-Fi المنزل. يعمل الرمز مرة واحدة فقط، لمدة %1$s أخرى.\nالتثبيت وإلغاء التثبيت واستعادة نسخة احتياطية ما زالت تطلب PIN.</string>
     <string name="cc_dica_conta">على الهاتف، انقر \"تسجيل الدخول باستخدام Google\" واستخدم %1$s (حساب هذا التلفزيون).</string>
     <string name="cc_pin">أولًا، PIN</string>
-    <string name="cc_pin_det">عيّن PIN في إعدادات المشغّل &gt; اللوحة في المتصفح.\nإنه ما تكتبه عندما يطلب Claude تسجيل الدخول إلى التلفزيون.</string>
+    <string name="cc_pin_det">عيّن PIN في الإعدادات › المنزل والشبكة › الوصول عن بُعد › لوحة المتصفح.\nإنه ما تكتبه عندما يطلب Claude تسجيل الدخول إلى التلفزيون.</string>
     <string name="cc_sem_tunel">هذا الإصدار جاء بلا نفق</string>
     <string name="cc_sem_tunel_det">بُني المشغّل بدون Tailscale. ثبّت الإصدار الكامل.</string>
     <string name="cc_desligado">متوقف</string>
-    <string name="cc_desligado_det">فعّله في إعدادات المشغّل &gt; Claude عبر الإنترنت.</string>
+    <string name="cc_desligado_det">فعّله في الإعدادات › المنزل والشبكة › الوصول عن بُعد › Claude عبر الإنترنت.</string>
     <string name="cc_login">1. سجّل الدخول إلى Tailscale</string>
     <string name="cc_login_det">وجّه كاميرا الهاتف إلى الرمز المجاور وسجّل الدخول (مجاني).%1$s\n\nينشئ Tailscale عنوانًا آمنًا على الإنترنت لهذا التلفزيون فقط.</string>
     <string name="cc_ativar">2. فعّل العنوان العام</string>
@@ -289,12 +289,12 @@
         <item quantity="other">الساعة %d</item>
     </plurals>
     <plurals name="ii_erros_novos">
-        <item quantity="zero">%d خطأ جديد. انظر اللوحة &gt; الصحة.</item>
-        <item quantity="one">خطأ جديد واحد. انظر اللوحة &gt; الصحة.</item>
-        <item quantity="two">خطآن جديدان. انظر اللوحة &gt; الصحة.</item>
-        <item quantity="few">%d أخطاء جديدة. انظر اللوحة &gt; الصحة.</item>
-        <item quantity="many">%d خطأً جديدًا. انظر اللوحة &gt; الصحة.</item>
-        <item quantity="other">%d خطأ جديد. انظر اللوحة &gt; الصحة.</item>
+        <item quantity="zero">%d خطأ جديد. انظر لوحة الويب › النظام.</item>
+        <item quantity="one">خطأ جديد واحد. انظر لوحة الويب › النظام.</item>
+        <item quantity="two">خطآن جديدان. انظر لوحة الويب › النظام.</item>
+        <item quantity="few">%d أخطاء جديدة. انظر لوحة الويب › النظام.</item>
+        <item quantity="many">%d خطأً جديدًا. انظر لوحة الويب › النظام.</item>
+        <item quantity="other">%d خطأ جديد. انظر لوحة الويب › النظام.</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="zero">%d قناة</item>

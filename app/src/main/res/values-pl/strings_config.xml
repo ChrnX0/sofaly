@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">wygasło dni temu: %1$d</string>
     <string name="cl_ci_formato_data">d MMM yyyy</string>
     <string name="cl_vd_ja_dono">launcher jest już właścicielem urządzenia</string>
-    <string name="cl_vd_sem_shell">wbudowana powłoka nie odpowiedziała (sparuj ją w Ustawienia › Zaawansowane › Powłoka launchera)</string>
+    <string name="cl_vd_sem_shell">wbudowana powłoka nie odpowiedziała (sparuj ją w Ustawienia › System › Zaawansowane › Powłoka launchera)</string>
     <string name="cl_vd_usuario">Android nie pozwolił usunąć użytkownika %1$s</string>
     <string name="cl_vd_mudou">Użytkownicy telewizora zmienili się po potwierdzeniu (teraz: %1$s). Nic nie usunięto; zacznij od nowa.</string>
     <string name="cl_vd_google">Android nie pozwolił na chwilę wstrzymać Google</string>

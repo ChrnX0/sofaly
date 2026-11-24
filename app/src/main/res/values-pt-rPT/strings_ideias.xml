@@ -36,7 +36,7 @@
     <string name="dono_usuarios">Também serão REMOVIDOS os utilizadores extras da TV, com os dados deles: %s.</string>
     <string name="dono_ok">Tornar dono</string>
     <string name="dono_andando">A tornar o launcher dono… (até 1 minuto)</string>
-    <string name="dono_sem_shell">O shell próprio não respondeu. Pareie em Definições › Avançado › Shell do launcher.</string>
+    <string name="dono_sem_shell">O shell próprio não respondeu. Pareie em Definições › Sistema › Avançado › Shell do launcher.</string>
     <string name="bv_dev">Ativar as opções do desenvolvedor</string>
     <string name="bv_dev_det">Em Sobre, desça até "Build do Android TV" (ou "Build do SO") e prima OK 7 vezes. Depois volte aqui.</string>
     <string name="bv_parear">Parear o launcher com a TV</string>

@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Запустить сцену</string>
     <string name="rot_cena">Запустить сцену: %1$s</string>
     <string name="rot_cena_linha">Сцена: %1$s</string>
-    <string name="rot_cena_sem">Сначала создайте сцену (веб-панель › Дополнительно › Сцены)</string>
+    <string name="rot_cena_sem">Сначала создайте сцену (веб-панель › Дом и автоматизация › Сцены)</string>
     <string name="lbl_cenas">Сцены</string>
     <string name="pr_cenas">Сцены</string>
     <string name="cenas_titulo">Сцены</string>
-    <string name="cenas_det">OK запускает сцену. Создавайте и меняйте их в веб-панели › Дополнительно › Сцены.</string>
-    <string name="cenas_vazio">Сцен пока нет. Создайте сцену в веб-панели › Дополнительно › Сцены.</string>
+    <string name="cenas_det">OK запускает сцену. Создавайте и меняйте их в веб-панели › Дом и автоматизация › Сцены.</string>
+    <string name="cenas_vazio">Сцен пока нет. Создайте сцену в веб-панели › Дом и автоматизация › Сцены.</string>
     <string name="tec_titulo">Кнопки пульта</string>
     <string name="tec_det">Netflix и YouTube работают на любом экране; цветные кнопки и цифры — только на главном.</string>
     <string name="tec_nova">+ Настроить кнопку</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">По нажатию кнопки</string>
     <string name="aut_evento">По событию</string>
     <string name="aut_link">По ссылке</string>
-    <string name="aut_link_det">Создавайте и меняйте в веб-панели › Дополнительно › Сцены</string>
+    <string name="aut_link_det">Создавайте и меняйте в веб-панели › Дом и автоматизация › Сцены</string>
     <string name="ev_midia_tocou">Фильм или видео запущено</string>
     <string name="ev_midia_pausou">Фильм или видео на паузе или закончилось</string>
     <string name="ev_tv_ligou">ТВ включился</string>

@@ -805,7 +805,7 @@ AS\\Filmy).</string>
     <string name="st_titulo">Pendrive i pamięć</string>
     <string name="st_explica">Wybierz, jak telewizor używa pendrive\'a. Brak miejsca? Może stać się pamięcią telewizora na duże aplikacje.</string>
     <string name="st_linha_det">Użyj pendrive\'a jako pamięci telewizora</string>
-    <string name="st_sem_shell">Wymaga własnej powłoki telewizora (Ustawienia › Zaawansowane). OK, aby spróbować ponownie.</string>
+    <string name="st_sem_shell">Wymaga własnej powłoki telewizora (Ustawienia › System › Zaawansowane). OK, aby spróbować ponownie.</string>
     <string name="st_sem_pen">Brak pendrive\'a. Podłącz go i naciśnij OK.</string>
     <string name="st_tv_livre">Pamięć telewizora: %1$s wolne z %2$s</string>
     <string name="st_pen">Pendrive · %1$s · %2$s</string>

@@ -36,7 +36,7 @@
     <string name="dono_usuarios">电视上的其他用户及其数据也将被删除：%s。</string>
     <string name="dono_ok">设为所有者</string>
     <string name="dono_andando">正在将启动器设为所有者…（最多 1 分钟）</string>
-    <string name="dono_sem_shell">自有 Shell 无响应。请在 设置 › 高级 › 启动器 Shell 中配对。</string>
+    <string name="dono_sem_shell">自有 Shell 无响应。请在 设置 › 系统 › 高级 › 启动器 Shell 中配对。</string>
     <string name="bv_dev">开启开发者选项</string>
     <string name="bv_dev_det">在“关于”中向下找到“Android TV OS 版本”，按 OK 7 次。然后回到这里。</string>
     <string name="bv_parear">将启动器与电视配对</string>

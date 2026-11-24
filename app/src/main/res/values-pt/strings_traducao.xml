@@ -142,8 +142,8 @@
     <string name="ii_versao">Versão %1$s instalada na TV.</string>
     <string name="ii_erro">Erro no launcher</string>
     <plurals name="ii_erros_novos">
-        <item quantity="one">%d erro novo. Veja em Painel &gt; Saúde.</item>
-        <item quantity="other">%d erros novos. Veja em Painel &gt; Saúde.</item>
+        <item quantity="one">%d erro novo. Veja em painel web › Sistema.</item>
+        <item quantity="other">%d erros novos. Veja em painel web › Sistema.</item>
     </plurals>
     <string name="bu_buscar">Buscar</string>
     <string name="bu_dica">Canal, programa, filme, série ou app</string>
@@ -189,18 +189,18 @@
     <string name="qr_gerar_outro">Gerar outro</string>
     <string name="tentar_de_novo">Tentar de novo</string>
     <string name="qr_fechar">Fechar</string>
-    <string name="qr_painel_fora">O painel não está no ar.\nLigue em Configurações do launcher &gt; Acesso remoto &gt; Painel (precisa de um PIN).</string>
+    <string name="qr_painel_fora">O painel não está no ar.\nLigue em Configurações › Casa e rede › Acesso remoto › Painel no navegador (precisa de um PIN).</string>
     <string name="qr_pronto">Pronto</string>
     <string name="qr_entrou">O celular entrou no painel.</string>
     <string name="qr_venceu">O código venceu (vale 2 min).\nToque em \"%1$s\" para mostrar um novo.</string>
     <string name="qr_instrucoes">Aponte a câmera do celular para o código ao lado. O celular abre o painel e já entra, sem digitar o PIN.\n\nO celular precisa estar no Wi-Fi da casa. O código vale uma vez só, por mais %1$s.\nInstalar, desinstalar e restaurar backup continuam pedindo o PIN.</string>
     <string name="cc_dica_conta">No celular, toque em \"Sign in with Google\" e use %1$s (a conta desta TV).</string>
     <string name="cc_pin">Primeiro, um PIN</string>
-    <string name="cc_pin_det">Defina o PIN em Configurações do launcher &gt; Painel no navegador.\nÉ ele que você digita quando o Claude pedir para entrar na TV.</string>
+    <string name="cc_pin_det">Defina o PIN em Configurações › Casa e rede › Acesso remoto › Painel no navegador.\nÉ ele que você digita quando o Claude pedir para entrar na TV.</string>
     <string name="cc_sem_tunel">Esta versão veio sem o túnel</string>
     <string name="cc_sem_tunel_det">O launcher foi compilado sem o Tailscale. Instale a versão completa.</string>
     <string name="cc_desligado">Desligado</string>
-    <string name="cc_desligado_det">Ligue em Configurações do launcher &gt; Claude pela internet.</string>
+    <string name="cc_desligado_det">Ligue em Configurações › Casa e rede › Acesso remoto › Claude pela internet.</string>
     <string name="cc_login">1. Entre no Tailscale</string>
     <string name="cc_login_det">Aponte a câmera do celular para o código ao lado e entre (é grátis).%1$s\n\nO Tailscale cria um endereço seguro só para esta TV na internet.</string>
     <string name="cc_ativar">2. Ligue o endereço público</string>

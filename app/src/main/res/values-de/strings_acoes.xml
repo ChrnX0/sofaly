@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Eine Szene ausführen</string>
     <string name="rot_cena">Szene ausführen: %1$s</string>
     <string name="rot_cena_linha">Szene: %1$s</string>
-    <string name="rot_cena_sem">Erstelle zuerst eine Szene (Web-Panel › Extras › Szenen)</string>
+    <string name="rot_cena_sem">Erstelle zuerst eine Szene (Web-Panel › Zuhause und Automationen › Szenen)</string>
     <string name="lbl_cenas">Szenen</string>
     <string name="pr_cenas">Szenen</string>
     <string name="cenas_titulo">Szenen</string>
-    <string name="cenas_det">OK führt die Szene aus. Erstellen und bearbeiten im Web-Panel › Extras › Szenen.</string>
-    <string name="cenas_vazio">Noch keine Szenen. Erstelle eine im Web-Panel › Extras › Szenen.</string>
+    <string name="cenas_det">OK führt die Szene aus. Erstellen und bearbeiten im Web-Panel › Zuhause und Automationen › Szenen.</string>
+    <string name="cenas_vazio">Noch keine Szenen. Erstelle eine im Web-Panel › Zuhause und Automationen › Szenen.</string>
     <string name="tec_titulo">Tasten der Fernbedienung</string>
     <string name="tec_det">Netflix und YouTube funktionieren auf jedem Bildschirm; Farbtasten und Zahlen nur auf dem Startbildschirm.</string>
     <string name="tec_nova">+ Eine Taste einrichten</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">Wenn eine Taste gedrückt wird</string>
     <string name="aut_evento">Wenn etwas passiert</string>
     <string name="aut_link">Per Link</string>
-    <string name="aut_link_det">Erstellen und bearbeiten im Web-Panel › Extras › Szenen</string>
+    <string name="aut_link_det">Erstellen und bearbeiten im Web-Panel › Zuhause und Automationen › Szenen</string>
     <string name="ev_midia_tocou">Film oder Video gestartet</string>
     <string name="ev_midia_pausou">Film oder Video pausiert oder beendet</string>
     <string name="ev_tv_ligou">Der Fernseher wurde eingeschaltet</string>

@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Rodar uma cena</string>
     <string name="rot_cena">Rodar a cena: %1$s</string>
     <string name="rot_cena_linha">Cena: %1$s</string>
-    <string name="rot_cena_sem">Crie uma cena antes (painel web › Extras › Cenas)</string>
+    <string name="rot_cena_sem">Crie uma cena antes (painel web › Casa e automações › Cenas)</string>
     <string name="lbl_cenas">Cenas</string>
     <string name="pr_cenas">Cenas</string>
     <string name="cenas_titulo">Cenas</string>
-    <string name="cenas_det">OK roda a cena. Crie e edite no painel web › Extras › Cenas.</string>
-    <string name="cenas_vazio">Nenhuma cena ainda. Crie uma no painel web › Extras › Cenas.</string>
+    <string name="cenas_det">OK roda a cena. Crie e edite no painel web › Casa e automações › Cenas.</string>
+    <string name="cenas_vazio">Nenhuma cena ainda. Crie uma no painel web › Casa e automações › Cenas.</string>
     <string name="tec_titulo">Botões do comando</string>
     <string name="tec_det">Netflix e YouTube valem em qualquer ecrã; teclas coloridas e números, só na HOME.</string>
     <string name="tec_nova">+ Configurar um botão</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">Quando premir um botão</string>
     <string name="aut_evento">Quando algo acontecer</string>
     <string name="aut_link">Por link</string>
-    <string name="aut_link_det">Criar e editar no painel web › Extras › Cenas</string>
+    <string name="aut_link_det">Criar e editar no painel web › Casa e automações › Cenas</string>
     <string name="ev_midia_tocou">Filme ou vídeo começou</string>
     <string name="ev_midia_pausou">Filme ou vídeo pausou ou acabou</string>
     <string name="ev_tv_ligou">A TV ligou</string>

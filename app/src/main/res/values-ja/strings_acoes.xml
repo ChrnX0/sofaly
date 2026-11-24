@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">シーンを実行</string>
     <string name="rot_cena">シーンを実行: %1$s</string>
     <string name="rot_cena_linha">シーン: %1$s</string>
-    <string name="rot_cena_sem">先にシーンを作成してください（ウェブパネル › 追加機能 › シーン）</string>
+    <string name="rot_cena_sem">先にシーンを作成してください（ウェブパネル › ホームと自動化 › シーン）</string>
     <string name="lbl_cenas">シーン</string>
     <string name="pr_cenas">シーン</string>
     <string name="cenas_titulo">シーン</string>
-    <string name="cenas_det">OK でシーンを実行。作成と編集はウェブパネル › 追加機能 › シーンで行います。</string>
-    <string name="cenas_vazio">シーンはまだありません。ウェブパネル › 追加機能 › シーンで作成してください。</string>
+    <string name="cenas_det">OK でシーンを実行。作成と編集はウェブパネル › ホームと自動化 › シーンで行います。</string>
+    <string name="cenas_vazio">シーンはまだありません。ウェブパネル › ホームと自動化 › シーンで作成してください。</string>
     <string name="tec_titulo">リモコンのボタン</string>
     <string name="tec_det">Netflix と YouTube はどの画面でも使えます。カラーキーと数字はホーム画面でのみ有効です。</string>
     <string name="tec_nova">+ ボタンを設定</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">ボタンが押されたら</string>
     <string name="aut_evento">何かが起きたら</string>
     <string name="aut_link">リンクで</string>
-    <string name="aut_link_det">ウェブパネル › 追加機能 › シーンで作成と編集</string>
+    <string name="aut_link_det">ウェブパネル › ホームと自動化 › シーンで作成と編集</string>
     <string name="ev_midia_tocou">映画や動画が始まった</string>
     <string name="ev_midia_pausou">映画や動画が一時停止または終了した</string>
     <string name="ev_tv_ligou">TV の電源が入った</string>

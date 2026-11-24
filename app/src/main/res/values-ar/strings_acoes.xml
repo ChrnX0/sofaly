@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">تشغيل مشهد</string>
     <string name="rot_cena">تشغيل المشهد: %1$s</string>
     <string name="rot_cena_linha">المشهد: %1$s</string>
-    <string name="rot_cena_sem">أنشئ مشهدًا أولًا (لوحة الويب › إضافات › المشاهد)</string>
+    <string name="rot_cena_sem">أنشئ مشهدًا أولًا (لوحة الويب › المنزل والأتمتة › المشاهد)</string>
     <string name="lbl_cenas">المشاهد</string>
     <string name="pr_cenas">المشاهد</string>
     <string name="cenas_titulo">المشاهد</string>
-    <string name="cenas_det">OK يشغّل المشهد. أنشئها وعدّلها في لوحة الويب › إضافات › المشاهد.</string>
-    <string name="cenas_vazio">لا مشاهد بعد. أنشئ واحدًا في لوحة الويب › إضافات › المشاهد.</string>
+    <string name="cenas_det">OK يشغّل المشهد. أنشئها وعدّلها في لوحة الويب › المنزل والأتمتة › المشاهد.</string>
+    <string name="cenas_vazio">لا مشاهد بعد. أنشئ واحدًا في لوحة الويب › المنزل والأتمتة › المشاهد.</string>
     <string name="tec_titulo">أزرار جهاز التحكم</string>
     <string name="tec_det">Netflix وYouTube يعملان في أي شاشة؛ الأزرار الملونة والأرقام فقط في الشاشة الرئيسية.</string>
     <string name="tec_nova">+ إعداد زر</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">عند ضغط زر</string>
     <string name="aut_evento">عند حدوث شيء</string>
     <string name="aut_link">برابط</string>
-    <string name="aut_link_det">أنشئ وعدّل في لوحة الويب › إضافات › المشاهد</string>
+    <string name="aut_link_det">أنشئ وعدّل في لوحة الويب › المنزل والأتمتة › المشاهد</string>
     <string name="ev_midia_tocou">بدأ فيلم أو فيديو</string>
     <string name="ev_midia_pausou">توقف فيلم أو فيديو مؤقتًا أو انتهى</string>
     <string name="ev_tv_ligou">تم تشغيل التلفزيون</string>

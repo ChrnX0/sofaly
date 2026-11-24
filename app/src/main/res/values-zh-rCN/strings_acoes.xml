@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">运行场景</string>
     <string name="rot_cena">运行场景：%1$s</string>
     <string name="rot_cena_linha">场景：%1$s</string>
-    <string name="rot_cena_sem">请先创建场景（网页面板 › 附加功能 › 场景）</string>
+    <string name="rot_cena_sem">请先创建场景（网页面板 › 家居和自动化 › 场景）</string>
     <string name="lbl_cenas">场景</string>
     <string name="pr_cenas">场景</string>
     <string name="cenas_titulo">场景</string>
-    <string name="cenas_det">按 OK 运行场景。在网页面板 › 附加功能 › 场景中创建和编辑。</string>
-    <string name="cenas_vazio">还没有场景。请在网页面板 › 附加功能 › 场景中创建。</string>
+    <string name="cenas_det">按 OK 运行场景。在网页面板 › 家居和自动化 › 场景中创建和编辑。</string>
+    <string name="cenas_vazio">还没有场景。请在网页面板 › 家居和自动化 › 场景中创建。</string>
     <string name="tec_titulo">遥控器按钮</string>
     <string name="tec_det">Netflix 和 YouTube 在任何界面都有效；彩色键和数字键仅在主屏幕有效。</string>
     <string name="tec_nova">+ 设置按钮</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">按下按钮时</string>
     <string name="aut_evento">发生某事时</string>
     <string name="aut_link">通过链接</string>
-    <string name="aut_link_det">在网页面板 › 附加功能 › 场景中创建和编辑</string>
+    <string name="aut_link_det">在网页面板 › 家居和自动化 › 场景中创建和编辑</string>
     <string name="ev_midia_tocou">电影或视频开始播放</string>
     <string name="ev_midia_pausou">电影或视频暂停或结束</string>
     <string name="ev_tv_ligou">电视已开机</string>

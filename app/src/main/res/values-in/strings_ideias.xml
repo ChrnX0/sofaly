@@ -36,7 +36,7 @@
     <string name="dono_usuarios">Pengguna tambahan di TV juga akan DIHAPUS, beserta datanya: %s.</string>
     <string name="dono_ok">Jadikan owner</string>
     <string name="dono_andando">Menjadikan launcher owner… (hingga 1 menit)</string>
-    <string name="dono_sem_shell">Shell sendiri tidak menjawab. Pasangkan di Setelan › Lanjutan › Shell launcher.</string>
+    <string name="dono_sem_shell">Shell sendiri tidak menjawab. Pasangkan di Setelan › Sistem › Lanjutan › Shell launcher.</string>
     <string name="bv_dev">Aktifkan opsi developer</string>
     <string name="bv_dev_det">Di Tentang, turun ke "Android TV OS build" dan tekan OK 7 kali. Lalu kembali ke sini.</string>
     <string name="bv_parear">Pasangkan launcher dengan TV</string>

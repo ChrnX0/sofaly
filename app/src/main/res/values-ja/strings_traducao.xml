@@ -165,18 +165,18 @@
     <string name="qr_gerar_outro">新しいコード</string>
     <string name="tentar_de_novo">再試行</string>
     <string name="qr_fechar">閉じる</string>
-    <string name="qr_painel_fora">パネルが動いていません。\nランチャーの設定 &gt; リモートアクセス &gt; パネル でオンにしてください（PIN が必要）。</string>
+    <string name="qr_painel_fora">パネルが動いていません。\n設定 › ホームとネットワーク › リモートアクセス › ブラウザのパネル でオンにしてください（PIN が必要）。</string>
     <string name="qr_pronto">完了</string>
     <string name="qr_entrou">スマートフォンがパネルにログインしました。</string>
     <string name="qr_venceu">コードの有効期限が切れました（有効期間 2 分）。\n新しいコードを表示するには「%1$s」を押してください。</string>
     <string name="qr_instrucoes">スマートフォンのカメラを横のコードに向けてください。スマートフォンでパネルが開き、PIN なしでログインします。\n\nスマートフォンはホームの Wi-Fi に接続している必要があります。コードは 1 回限り、あと %1$s 有効です。\nインストール、アンインストール、バックアップの復元では引き続き PIN が必要です。</string>
     <string name="cc_dica_conta">スマートフォンで「Google でログイン」をタップし、%1$s（この TV のアカウント）を使ってください。</string>
     <string name="cc_pin">まず PIN</string>
-    <string name="cc_pin_det">ブラウザのランチャーの設定 &gt; パネル で PIN を設定してください。\nClaude が TV へのログインを求めたときに入力するものです。</string>
+    <string name="cc_pin_det">設定 › ホームとネットワーク › リモートアクセス › ブラウザのパネル で PIN を設定してください。\nClaude が TV へのログインを求めたときに入力するものです。</string>
     <string name="cc_sem_tunel">このバージョンにはトンネルがありません</string>
     <string name="cc_sem_tunel_det">このランチャーは Tailscale なしでビルドされています。完全版をインストールしてください。</string>
     <string name="cc_desligado">オフ</string>
-    <string name="cc_desligado_det">ランチャーの設定 &gt; インターネット経由の Claude でオンにしてください。</string>
+    <string name="cc_desligado_det">設定 › ホームとネットワーク › リモートアクセス › インターネット経由の Claude でオンにしてください。</string>
     <string name="cc_login">1. Tailscale にログイン</string>
     <string name="cc_login_det">スマートフォンのカメラを横のコードに向けてログインしてください（無料）。%1$s\n\nTailscale はこの TV 専用の安全なアドレスをインターネット上に作成します。</string>
     <string name="cc_ativar">2. 公開アドレスをオン</string>
@@ -269,7 +269,7 @@
         <item quantity="other">%d 時です</item>
     </plurals>
     <plurals name="ii_erros_novos">
-        <item quantity="other">新しいエラーが %d 件あります。パネル &gt; 状態 を確認してください。</item>
+        <item quantity="other">新しいエラーが %d 件あります。ウェブパネル › システム を確認してください。</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="other">%d チャンネル</item>

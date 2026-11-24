@@ -36,7 +36,7 @@
     <string name="dono_usuarios">Dodatkowi użytkownicy telewizora również zostaną USUNIĘCI wraz z danymi: %s.</string>
     <string name="dono_ok">Uczyń właścicielem</string>
     <string name="dono_andando">Launcher staje się właścicielem… (do 1 minuty)</string>
-    <string name="dono_sem_shell">Własna powłoka nie odpowiedziała. Sparuj ją w Ustawienia › Zaawansowane › Powłoka launchera.</string>
+    <string name="dono_sem_shell">Własna powłoka nie odpowiedziała. Sparuj ją w Ustawienia › System › Zaawansowane › Powłoka launchera.</string>
     <string name="bv_dev">Włącz opcje programisty</string>
     <string name="bv_dev_det">W Informacjach zejdź do „Kompilacja Android TV OS” i naciśnij OK 7 razy. Potem wróć tutaj.</string>
     <string name="bv_parear">Sparuj launcher z telewizorem</string>

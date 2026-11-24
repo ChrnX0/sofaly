@@ -1252,7 +1252,7 @@ function desenharConfig(r) {
   $('cfgIdadeInfantil').value = String(r.idadeInfantil ?? -1);
   $('cfgVisita').checked = r.visita;
   $('cfgUnidadeRede').checked = r.unidadeRede;
-  $('cfgUnidadeRedeEndereco').textContent = r.unidadeRede ? (r.unidadeRedeEndereco || 'ligue o https (aba Extras › Certificado)') : 'desligada';
+  $('cfgUnidadeRedeEndereco').textContent = r.unidadeRede ? (r.unidadeRedeEndereco || 'ligue o https (Acesso remoto › Instalar como app)') : 'desligada';
   $('cfgMtpPermitidos').textContent = (r.mtpPermitidos || []).length ? r.mtpPermitidos.join(', ') : 'nenhum ainda';
   $('btnMtpEsquecer').hidden = !(r.mtpPermitidos || []).length;
   $('cfgPinFamiliaEstado').textContent = r.pinFamilia ? 'definido' : 'não definido';

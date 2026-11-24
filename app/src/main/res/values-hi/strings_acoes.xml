@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">एक सीन चलाएँ</string>
     <string name="rot_cena">सीन चलाएँ: %1$s</string>
     <string name="rot_cena_linha">सीन: %1$s</string>
-    <string name="rot_cena_sem">पहले एक सीन बनाएँ (वेब पैनल › एक्स्ट्रा › सीन)</string>
+    <string name="rot_cena_sem">पहले एक सीन बनाएँ (वेब पैनल › घर और ऑटोमेशन › सीन)</string>
     <string name="lbl_cenas">सीन</string>
     <string name="pr_cenas">सीन</string>
     <string name="cenas_titulo">सीन</string>
-    <string name="cenas_det">OK से सीन चलता है। इन्हें वेब पैनल › एक्स्ट्रा › सीन में बनाएँ और बदलें।</string>
-    <string name="cenas_vazio">अभी कोई सीन नहीं। वेब पैनल › एक्स्ट्रा › सीन में एक बनाएँ।</string>
+    <string name="cenas_det">OK से सीन चलता है। इन्हें वेब पैनल › घर और ऑटोमेशन › सीन में बनाएँ और बदलें।</string>
+    <string name="cenas_vazio">अभी कोई सीन नहीं। वेब पैनल › घर और ऑटोमेशन › सीन में एक बनाएँ।</string>
     <string name="tec_titulo">रिमोट बटन</string>
     <string name="tec_det">Netflix और YouTube हर स्क्रीन पर काम करते हैं; रंगीन कुंजियाँ और नंबर सिर्फ़ होम स्क्रीन पर।</string>
     <string name="tec_nova">+ एक बटन सेट करें</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">जब कोई बटन दबाया जाए</string>
     <string name="aut_evento">जब कुछ हो</string>
     <string name="aut_link">लिंक से</string>
-    <string name="aut_link_det">वेब पैनल › एक्स्ट्रा › सीन में बनाएँ और बदलें</string>
+    <string name="aut_link_det">वेब पैनल › घर और ऑटोमेशन › सीन में बनाएँ और बदलें</string>
     <string name="ev_midia_tocou">फ़िल्म या वीडियो शुरू हुआ</string>
     <string name="ev_midia_pausou">फ़िल्म या वीडियो रुका या ख़त्म हुआ</string>
     <string name="ev_tv_ligou">TV चालू हुआ</string>

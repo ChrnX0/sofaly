@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Remote access. -->
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
 <resources>
     <string name="ur_secao">Network drive</string>
     <string name="ur_titulo">Show the TV as a network drive</string>

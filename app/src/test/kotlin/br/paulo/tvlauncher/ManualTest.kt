@@ -46,11 +46,15 @@ class ManualTest {
         }
     }
 
-    /** As abas citadas ("Configurações › X") existem no menu das Configurações, no mesmo idioma. */
+    /**
+     * O que vem depois de "Configurações › " é uma das seis PORTAS (ConfigDoors, 23/11/2026), no mesmo idioma. As abas de
+     * dentro de uma porta (Casa e automações, Acesso remoto, Avançado, Ajuda) só valem com a porta antes: quem abre as
+     * Configurações não vê "Avançado" na primeira tela.
+     */
     @Test fun abasCitadasExistem() {
         fun abas(pasta: String): Set<String> {
-            val nomes = listOf("cfg2_aba_inicio", "cl_aba_conta", "cfg2_aba_familia", "cl_aba_energia", "cfg2_aba_casa",
-                "cl_aba_remoto", "cl_aba_sistema", "aj_aba", "cfg2_aba_avancado")
+            val nomes = listOf("cfg2_aba_inicio", "cl_aba_conta", "cfg2_aba_familia", "cl_aba_energia", "cfg3_porta_casa_rede",
+                "cl_aba_sistema")
             val dir = arquivo("res/$pasta/strings.xml").absoluteFile.parentFile!!
             val todas = dir.listFiles { a -> a.name.endsWith(".xml") }!!.joinToString("\n") { it.readText() }
             return nomes.map { n -> Regex("""<string name="$n">([^<]+)</string>""").find(todas)!!.groupValues[1] }.toSet()
@@ -60,7 +64,7 @@ class ManualTest {
             // Depois de "Configurações › " vem o nome de uma aba (e então " ›", pontuação ou o resto da frase).
             for ((nome, v) in strings(pasta)) for (m in Regex("""$raiz › """).findAll(v)) {
                 val resto = v.substring(m.range.last + 1)
-                assertTrue("$pasta/$nome cita uma aba que não existe: “${resto.take(30)}”",
+                assertTrue("$pasta/$nome cita uma porta que não existe: “${resto.take(30)}”",
                     validas.any { aba -> resto.startsWith(aba) && (resto.length == aba.length || !resto[aba.length].isLetter()) })
             }
         }

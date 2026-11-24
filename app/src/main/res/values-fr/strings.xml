@@ -799,7 +799,7 @@ AS\\Films).</string>
     <string name="st_titulo">Clé USB et stockage</string>
     <string name="st_explica">Choisissez comment la TV utilise la clé USB. Plus de place ? Elle peut devenir la mémoire de la TV pour les apps lourdes.</string>
     <string name="st_linha_det">Utiliser une clé USB comme mémoire de la TV</string>
-    <string name="st_sem_shell">Nécessite le shell intégré de la TV (Paramètres › Avancé). OK pour réessayer.</string>
+    <string name="st_sem_shell">Nécessite le shell intégré de la TV (Paramètres › Système › Avancé). OK pour réessayer.</string>
     <string name="st_sem_pen">Aucune clé USB branchée. Branchez-en une et appuyez sur OK.</string>
     <string name="st_tv_livre">Mémoire de la TV : %1$s libres sur %2$s</string>
     <string name="st_pen">Clé USB · %1$s · %2$s</string>

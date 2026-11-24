@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">%1$d 天前已到期</string>
     <string name="cl_ci_formato_data">yyyy年M月d日</string>
     <string name="cl_vd_ja_dono">启动器已经是设备所有者</string>
-    <string name="cl_vd_sem_shell">内置 Shell 无响应（请在 设置 › 高级 › 启动器 Shell 中配对）</string>
+    <string name="cl_vd_sem_shell">内置 Shell 无响应（请在 设置 › 系统 › 高级 › 启动器 Shell 中配对）</string>
     <string name="cl_vd_usuario">Android 不允许删除用户 %1$s</string>
     <string name="cl_vd_mudou">确认之后电视的用户发生了变化(现在:%1$s)。没有删除任何内容,请重新开始。</string>
     <string name="cl_vd_google">Android 不允许暂时停用 Google</string>

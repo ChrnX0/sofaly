@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">berakhir %1$d hari lalu</string>
     <string name="cl_ci_formato_data">d MMM yyyy</string>
     <string name="cl_vd_ja_dono">launcher sudah menjadi device owner</string>
-    <string name="cl_vd_sem_shell">shell bawaan tidak menjawab (pasangkan di Setelan › Lanjutan › Shell launcher)</string>
+    <string name="cl_vd_sem_shell">shell bawaan tidak menjawab (pasangkan di Setelan › Sistem › Lanjutan › Shell launcher)</string>
     <string name="cl_vd_usuario">Android tidak mengizinkan menghapus pengguna %1$s</string>
     <string name="cl_vd_mudou">Pengguna TV berubah setelah konfirmasi (sekarang: %1$s). Tidak ada yang dihapus; mulai lagi.</string>
     <string name="cl_vd_google">Android tidak mengizinkan menjeda Google sebentar</string>
