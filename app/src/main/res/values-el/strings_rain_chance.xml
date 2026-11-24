@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como a chance de chuva aparece (RainChance.kt, 24/11/2026). -->
+<resources>
+    <string name="rc_titulo" formatted="false">Πιθανότητα βροχής</string>
+    <string name="rc_baixa" formatted="false">Χαμηλή</string>
+    <string name="rc_media" formatted="false">Μέτρια</string>
+    <string name="rc_alta" formatted="false">Υψηλή</string>
+    <string name="rc_modo_numero" formatted="false">Αριθμός (37%)</string>
+    <string name="rc_modo_palavra" formatted="false">Λέξεις (Μέτρια)</string>
+    <string name="rc_modo_ambos" formatted="false">Και τα δύο (Μέτρια 37%)</string>
+</resources>

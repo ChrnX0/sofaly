@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">ΛΙΣΤΕΣ</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Φίλτρο</string>
+    <string name="coluna_esportes">Αθλητικά</string>
+    <string name="coluna_guia">Οδηγός</string>
+    <string name="coluna_filtro_titulo">Φίλτρο</string>
+    <string name="coluna_filtro_ordem">Ταξινόμηση: %1$s</string>
+    <string name="coluna_filtro_combinado">Είδος, εποχή, βαθμολογία, μη προβεβλημένα…</string>
+    <string name="coluna_filtro_combinado_ativo">Φίλτρο: %1$s</string>
+    <string name="coluna_filtro_limpar">Καθαρισμός φίλτρου</string>
+    <string name="coluna_filtro_sortear">Εκπλήξτε με</string>
+    <string name="coluna_filtro_ocultas_mostrar">Εμφάνιση κρυφών κατηγοριών (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Απόκρυψη ξανά κρυφών κατηγοριών</string>
+    <string name="coluna_menu_assistido">Σήμανση ως προβεβλημένο</string>
+    <string name="coluna_menu_nao_assistido">Σήμανση ως μη προβεβλημένο</string>
+    <string name="coluna_menu_tirar_continuar">Αφαίρεση από τη Συνέχεια προβολής</string>
+    <string name="coluna_menu_por_interesse">Προσθήκη στη Λίστα παρακολούθησης</string>
+    <string name="coluna_menu_tirar_interesse">Αφαίρεση από τη Λίστα παρακολούθησης</string>
+    <string name="coluna_marcado_assistido">Το %1$s σημειώθηκε ως προβεβλημένο</string>
+    <string name="coluna_marcado_nao_assistido">Το %1$s σημειώθηκε ως μη προβεβλημένο</string>
+    <string name="coluna_tirado_continuar">Το %1$s αφαιρέθηκε από τη Συνέχεια προβολής</string>
+    <string name="coluna_menu_tirar_home">Αφαίρεση από την αρχική οθόνη</string>
+    <string name="coluna_tirado_home">Το %1$s αφαιρέθηκε από την αρχική οθόνη</string>
+    <string name="coluna_etiqueta_concluida">Ολοκληρώθηκε</string>
+    <string name="coluna_etiqueta_nova_temporada">Νέα σεζόν</string>
+    <string name="coluna_etiqueta_novos">Νέα επεισόδια</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d νέο επεισόδιο</item>
+        <item quantity="other">%d νέα επεισόδια</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Μετάβαση σε γράμμα</string>
+    <string name="coluna_letra">Μετάβαση σε ένα γράμμα</string>
+    <string name="coluna_ao_vivo">ΖΩΝΤΑΝΑ</string>
+    <string name="coluna_ao_vivo_primeiro">Πρώτα τα ζωντανά</string>
+    <string name="coluna_tv_titulo">TV</string>
+    <string name="coluna_gravacoes">Εγγραφές</string>
+</resources>

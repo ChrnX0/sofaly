@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Αυτόματο αντίγραφο ασφαλείας</string>
+    <string name="bkn_explica">Κάθε νύχτα, όσο η τηλεόραση είναι αδρανής, αποθηκεύει πλήρες αντίγραφο κλειδωμένο με τον κωδικό σας. Κρατιούνται τα τελευταία 7. Σημειώστε τον κωδικό: χωρίς αυτόν το αντίγραφο δεν ανοίγει.</string>
+    <string name="bkn_ligado">ενεργό</string>
+    <string name="bkn_desligado">ανενεργό</string>
+    <string name="bkn_sem_senha">ανενεργό · ορίστε πρώτα τον κωδικό του αντιγράφου</string>
+    <string name="bkn_senha">Κωδικός αντιγράφου</string>
+    <string name="bkn_senha_ok">ορίστηκε · OK αλλάζει</string>
+    <string name="bkn_senha_falta">δεν ορίστηκε · OK ορίζει</string>
+    <string name="bkn_senha_nova">Κωδικός αντιγράφου (8 ή περισσότεροι χαρακτήρες)</string>
+    <string name="bkn_senha_repetir">Πληκτρολογήστε ξανά τον κωδικό</string>
+    <string name="bkn_senha_curta">Ο κωδικός χρειάζεται 8 έως 128 χαρακτήρες.</string>
+    <string name="bkn_senha_diferente">Οι δύο κωδικοί δεν ταιριάζουν.</string>
+    <string name="bkn_senha_gravada">Ο κωδικός αποθηκεύτηκε. Κρατήστε τον κάπου ασφαλές.</string>
+    <string name="bkn_senha_erro">Δεν ήταν δυνατή η αποθήκευση του κωδικού.</string>
+    <string name="bkn_horario">Ώρα</string>
+    <string name="bkn_extra">Επιπλέον αντίγραφο</string>
+    <string name="bkn_destino_tv">Μόνο τηλεόραση</string>
+    <string name="bkn_destino_pendrive">USB στικ</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Αντίγραφο τώρα</string>
+    <string name="bkn_ultimo">Τελευταίο</string>
+    <string name="bkn_nunca">ποτέ</string>
+    <string name="bkn_pin">PIN για αλλαγή του αντιγράφου</string>
+</resources>

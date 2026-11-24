@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Επιλέξτε ώρα και μέρες</string>
+    <string name="al_volume_rotulo">Ένταση όταν χτυπά</string>
+    <string name="al_volume_det">Η τηλεόραση ανεβαίνει τουλάχιστον σε αυτή την ένταση, ακόμα κι αν ήταν σε σίγαση</string>
+    <string name="al_volume_lg_det">Η τηλεόραση LG ξεκινά χαμηλά και ανεβαίνει ως αυτή την ένταση</string>
+    <string name="al_info_toca">χτυπά %1$s</string>
+    <string name="al_proximo_rotulo">Επόμενο ξυπνητήρι</string>
+    <string name="al_dica_editar">επεξεργασία</string>
+    <string name="al_dica_ligar">ενεργό/ανενεργό</string>
+    <string name="al_dica_sair">έξοδος</string>
+    <string name="al_dica_mudar">αλλαγή</string>
+    <string name="al_dica_andar">μετακίνηση</string>
+    <string name="al_dica_salvar">αποθήκευση</string>
+    <string name="al_ligou">Ξυπνητήρι %1$s ενεργό</string>
+    <string name="al_desligou">Ξυπνητήρι %1$s ανενεργό</string>
+    <string name="al_sim">Ναι</string>
+    <string name="al_nao">Όχι</string>
+    <string name="al_op_salvar_det">Το ΠΙΣΩ επίσης αποθηκεύει</string>
+    <string name="al_op_repetir">Επανάληψη</string>
+    <string name="al_op_repetir_det">Το OK επιλέγει τις μέρες</string>
+    <string name="al_op_som">Ήχος</string>
+    <string name="al_op_som_det">Το OK επιλέγει ήχο και τον παίζει για εσάς</string>
+    <string name="al_op_rampa">Κουδούνισμα</string>
+    <string name="al_op_rampa_det">Το χαμηλό ξεκίνημα είναι πιο ήπιος τρόπος να ξυπνήσετε</string>
+    <string name="al_op_bom_dia">Καλημέρα</string>
+    <string name="al_op_bom_dia_det">Όταν το σταματάτε, η τηλεόραση λέει την ώρα, τον καιρό και το σημερινό ημερολόγιο</string>
+    <string name="al_op_cena">Σκηνή κατά τη διακοπή</string>
+    <string name="al_op_cena_det">Το OK επιλέγει τη σκηνή</string>
+    <string name="al_op_nome">Όνομα</string>
+    <string name="al_op_nome_det">Εμφανίζεται στην οθόνη όταν χτυπά</string>
+    <string name="al_op_nome_dica">π.χ. Φάρμακο</string>
+    <string name="al_op_alarme">Ξυπνητήρι</string>
+    <string name="al_op_ligado_det">Το OK το ενεργοποιεί ή απενεργοποιεί</string>
+    <string name="al_op_apagar">Διαγραφή ξυπνητηριού</string>
+    <string name="al_op_apagar_det">Ρωτά πριν τη διαγραφή</string>
+    <string name="al_op_sair">Έξοδος χωρίς αποθήκευση</string>
+    <string name="al_op_sair_det">Αναιρεί ό,τι αλλάξατε εδώ</string>
+    <string name="al_apagar_q">Διαγραφή του ξυπνητηριού %1$s;</string>
+    <string name="al_salvo">Ξυπνητήρι αποθηκεύτηκε: %1$s</string>
+    <string name="al_resumo">Χτυπά %1$s</string>
+    <string name="al_resumo_desligado">Ανενεργό: δεν θα χτυπήσει</string>
+    <string name="al_op_hora">Ώρα</string>
+    <string name="al_op_minuto">Λεπτό</string>
+</resources>

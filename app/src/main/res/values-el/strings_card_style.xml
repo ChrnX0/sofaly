@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Λεπτή ρύθμιση</string>
+    <string name="ft_dica">OK ή ▶ ◀ αλλάζει · ΠΙΣΩ κλείνει</string>
+    <string name="ft_abrir">Ρύθμιση βλέποντας την αρχική οθόνη</string>
+    <string name="ft_abrir_det">Γραμματοσειρά, ρολόι, χρώμα έμφασης, γωνίες, λάμψη και μέγεθος, ζωντανά</string>
+    <string name="cs_destaque">Χρώμα έμφασης</string>
+    <string name="cs_cantos">Γωνίες</string>
+    <string name="cs_brilho">Λάμψη εστίασης</string>
+    <string name="cs_tamanho">Μέγεθος σταυρού</string>
+    <string name="cs_ceu">Ουρανός</string>
+    <string name="cs_lilas">Λιλά</string>
+    <string name="cs_retos">Τετράγωνες</string>
+    <string name="cs_redondos">Στρογγυλές</string>
+    <string name="cs_sem">Ανενεργό</string>
+    <string name="cs_suave">Απαλή</string>
+    <string name="cs_forte">Έντονη</string>
+    <string name="cs_menor">Μικρότερο</string>
+    <string name="cs_maior">Μεγαλύτερο</string>
+    <string name="bg_tintura">Χρώμα πάνω από το φόντο</string>
+    <string name="bg_cor">Χρώμα φόντου</string>
+    <string name="bg_desfoque">Θόλωμα φόντου</string>
+    <string name="bg_transicao">Μετάβαση εικόνας</string>
+    <string name="bg_novo">Νέο φόντο τώρα</string>
+    <string name="bg_solida">Μονόχρωμο</string>
+    <string name="bg_destaque">Έμφαση</string>
+    <string name="bg_noite">Νύχτα</string>
+    <string name="bg_mata">Δάσος</string>
+    <string name="bg_brasa">Χόβολη</string>
+    <string name="bg_grafite">Γραφίτης</string>
+    <string name="bg_corte">Κόψιμο</string>
+    <string name="bg_lenta">Αργή</string>
+    <string name="bg_trocado">Άλλαξε</string>
+    <string name="bg_nao_troca">Αυτό το φόντο δεν αλλάζει</string>
+    <string name="bg_camera">Κάμερα σπιτιού ως φόντο</string>
+    <string name="bg_campainha">Κάμερα κουδουνιού ως φόντο</string>
+    <string name="bg_nenhuma">Καμία</string>
+    <string name="bg_ligado">Ενεργό</string>
+</resources>

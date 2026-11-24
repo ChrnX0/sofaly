@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Protetor que reage ao tempo, caminho 2 (17/11/2026): frase do tempo, curiosidades do céu e o tema "Céu de verdade". -->
+<resources>
+    <string name="tema_ceu">Πραγματικός ουρανός</string>
+    <string name="cu_estacao">Διαστημικός Σταθμός στις %1$s</string>
+    <string name="cu_estacao_d">%1$d λεπ. · %2$s → %3$s</string>
+    <string name="cu_meteoros">Βροχή μετεωριτών απόψε</string>
+    <string name="cu_meteoros_d">%1$s · ως %2$d την ώρα</string>
+    <string name="cu_eclipse">Έκλειψη ηλίου %1$s</string>
+    <string name="cu_eclipse_d">ποτέ μην κοιτάτε κατευθείαν τον ήλιο</string>
+    <string name="cu_superlua">Υπερσελήνη απόψε</string>
+    <string name="cu_lua_cheia_d">ανατέλλει στα ανατολικά το σούρουπο</string>
+    <string-array name="ceu_rumos">
+        <item>βόρεια</item>
+        <item>βορειοανατολικά</item>
+        <item>ανατολικά</item>
+        <item>νοτιοανατολικά</item>
+        <item>νότια</item>
+        <item>νοτιοδυτικά</item>
+        <item>δυτικά</item>
+        <item>βορειοδυτικά</item>
+    </string-array>
+    <string-array name="ceu_meteoros">
+        <item>Τεταρτημορίδες</item>
+        <item>Λυρίδες</item>
+        <item>Ήτα Υδροχοΐδες</item>
+        <item>Δέλτα Υδροχοΐδες</item>
+        <item>Περσείδες</item>
+        <item>Ωριωνίδες</item>
+        <item>Λεοντίδες</item>
+        <item>Διδυμίδες</item>
+    </string-array>
+    <string name="ns_titulo">Νυχτερινός ουρανός</string>
+    <!-- Ilha: sol forte (SunAlert, UV ≥ 8). -->
+    <string name="ilha_uv">UV %1$d: βάλτε αντηλιακό</string>
+</resources>

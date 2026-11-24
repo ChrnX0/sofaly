@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Σύνοψη κρυφή ως να το δείτε</string>
+    <string name="cf_spoiler">Απόκρυψη συνόψεων μη προβεβλημένων επεισοδίων</string>
+    <string name="cf_spoiler_det">Η σύνοψη εμφανίζεται μόνο αφού ξεκινήσετε το επεισόδιο</string>
+    <string name="cf_segundo">Δεύτερη γλώσσα</string>
+    <string name="cf_segundo_det">Χρησιμοποιείται όταν ένα βίντεο δεν έχει ήχο ή υπότιτλους στη γλώσσα της τηλεόρασης</string>
+    <string name="cf_nenhum">Καμία</string>
+    <string name="cf_proximo">Αντίστροφη μέτρηση επόμενου επεισοδίου</string>
+    <string name="cf_proximo_det">Πόση αναμονή πριν το επόμενο επεισόδιο ξεκινήσει μόνο του</string>
+    <string name="cf_proximo_nao">Να μην ξεκινά μόνο του</string>
+    <string name="cf_segundos">%1$d δ.</string>
+    <string name="cf_consent_titulo">Αποστολή δεδομένων στο %1$s;</string>
+    <string name="cf_consent_texto">Η ενεργοποίηση στέλνει στο %1$s μέσω internet: τους τίτλους που σημειώνετε και βλέπετε σε αυτή την τηλεόραση και πού σταματήσατε. Κρατιούνται στον λογαριασμό σας %1$s σύμφωνα με τους κανόνες απορρήτου του %1$s. Μπορείτε να το απενεργοποιήσετε οποτεδήποτε.</string>
+    <string name="cf_consent_sim">Συμφωνώ</string>
+</resources>

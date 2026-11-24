@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Εργαλεία</string>
+    <string name="cont_mais_opcoes">Περισσότερες επιλογές</string>
+    <string name="tl_proximo">Επόμενο: %1$s</string>
+    <string name="tl_clima_sub">Πρόγνωση για τις επόμενες ημέρες</string>
+    <string name="tl_casa_sub">Φώτα, κάμερες και κουδούνι</string>
+    <string name="tl_painel_sub">Bluetooth, ήχος, Wi-Fi και χρονόμετρο</string>
+    <string name="tl_config_sub">Όλα για τον launcher</string>
+    <string name="ac_cartoes">Κάρτες εφαρμογών</string>
+    <string name="ac_coluna">Στη στήλη</string>
+    <string name="ac_vitrine">Βιτρίνα</string>
+    <string name="ac_ver_tudo">Δείτε τι έχει η εφαρμογή</string>
+    <string name="ac_ritmo">Αποστάσεις αρχικής οθόνης</string>
+    <string name="rt_antes">Όπως πριν</string>
+    <string name="rt_a">A · Πιο σφιχτά</string>
+    <string name="rt_b">B · Πλαίσια</string>
+    <string name="rt_c">C · Ευρύχωρα</string>
+    <string name="ft_foco">Εστίαση</string>
+    <string name="ft_foco_fio">Γραμμή</string>
+    <string name="ft_foco_veu">Πέπλο</string>
+    <string name="ft_foco_quadro">Πλαίσιο</string>
+</resources>

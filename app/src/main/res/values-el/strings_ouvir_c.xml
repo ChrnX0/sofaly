@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado: Ouvir proposta C (21/11/2026). -->
+<resources>
+    <string name="som_titulo">Ήχος</string>
+    <string name="som_titulo_pod">Ήχος · %1$s</string>
+    <string name="som_voz_clara">Καθαρή φωνή</string>
+    <string name="som_so_este">Μόνο για αυτό το podcast</string>
+    <string name="som_abertura">Παράλειψη εισαγωγής</string>
+    <string name="som_fim">Παράλειψη τέλους</string>
+    <string name="som_segundos">%1$d δ.</string>
+    <string name="som_rodape_proprio">Αυτές οι ρυθμίσεις κρατιούνται μόνο για το %1$s.</string>
+    <string name="som_rodape_geral">Η ταχύτητα, οι σιωπές και η καθαρή φωνή ισχύουν για κάθε podcast. Ενεργοποιήστε το \"Μόνο για αυτό το podcast\" για να κρατήσετε διαφορετικές για το %1$s.</string>
+    <string name="som_det">Ταχύτητα, καθαρή φωνή, χρονοδιακόπτης ύπνου</string>
+    <string name="som_det_radio">Καθαρή φωνή και χρονοδιακόπτης ύπνου</string>
+    <string name="cap_titulo">Κεφάλαια</string>
+    <string name="cap_de">Κεφάλαιο %1$d από %2$d</string>
+    <string name="cap_barra_dica">◀ ▶ μετακίνηση 10 δ. · OK: κεφάλαια</string>
+    <string name="tx_titulo">Κείμενο ομιλίας</string>
+    <string name="tx_carregando">φόρτωση</string>
+    <string name="tx_nao_tem">όχι σε αυτό το επεισόδιο</string>
+    <string name="tx_nao_tem_det">Αυτό το podcast δεν δημοσιεύει το κείμενο όσων λέγονται σε αυτό το επεισόδιο.</string>
+    <string name="tx_pe_busca">Βρέθηκε %1$d από %2$d · ◀ ▶ προηγούμενο / επόμενο · ▼ νέα αναζήτηση · OK: κλείσιμο</string>
+    <string name="tx_buscar">Αναζήτηση σε όσα ειπώθηκαν</string>
+    <string name="tx_nada">Κανείς δεν το είπε σε αυτό το επεισόδιο.</string>
+    <string name="ra_ja_tocou">Ήδη παιγμένο</string>
+    <string name="ra_parecidas">Παρόμοιοι σταθμοί</string>
+    <string name="som_radio">Ο τελευταίος σταθμός που άκουσα</string>
+    <string name="som_podcast">Νεότερο επεισόδιο podcast</string>
+    <string name="jor_titulo">Οι ειδήσεις μου</string>
+    <string name="jor_ouvir">Αναπαραγωγή των ειδήσεών μου</string>
+    <string name="jor_min">%d λεπ. συνεχόμενα</string>
+    <string name="tx_pe">◀ ▶ προηγούμενη / επόμενη πρόταση · ▲ σύνοψη · ▼ αναζήτηση · OK: κλείσιμο</string>
+    <string name="tx_gerando">δημιουργείται</string>
+    <string name="tx_gerando_det">Δημιουργία του κειμένου… το πρώτο μέρος παίρνει περίπου ένα λεπτό.</string>
+    <string name="tx_gerar">Το OK το δημιουργεί (δωρεάν)</string>
+    <string name="tx_cota">επιστρέφει αύριο</string>
+    <string name="tx_cota_det">Το σημερινό δωρεάν όριο κειμένου εξαντλήθηκε. Επιστρέφει αύριο.</string>
+    <string name="tx_pulei">Η διαφήμιση παραλείφθηκε</string>
+    <string name="tx_pulei_det">%d δ. · ◀ επιστρέφει σε αυτήν</string>
+    <string name="tx_resumo">Η σύνοψη της Sofy</string>
+    <string name="tx_resumo_de">Σύνοψη · %s</string>
+    <string name="tx_resumindo">Διαβάζονται όσα ειπώθηκαν… μια στιγμή.</string>
+    <string name="tx_resumo_falhou">Η σύνοψη δεν ήρθε αυτή τη φορά. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="ra_globo">Εξερευνήστε την υδρόγειο</string>
+    <string name="ra_globo_det">Γυρίστε τον κόσμο και προσγειωθείτε σε έναν ραδιοφωνικό σταθμό από οπουδήποτε</string>
+    <string name="ra_globo_dica">◀ ▶ ▲ ▼ περιστροφή · OK: αναπαραγωγή · Πίσω: κλείσιμο</string>
+    <string name="ra_globo_mar">Ανοιχτή θάλασσα… γυρίστε λίγο ακόμα</string>
+    <string name="ra_voltar">Πίσω 30 δ.</string>
+    <string name="ra_voltar_det">Σας ξέφυγε κάτι; Ακούστε το ξανά (⏪ στο τηλεχειριστήριο)</string>
+    <string name="ra_ao_vivo">Πίσω στο ζωντανό</string>
+    <string name="ra_atras">%s πίσω από το ζωντανό</string>
+</resources>

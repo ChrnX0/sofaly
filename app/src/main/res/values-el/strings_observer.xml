@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Observador (20/11/2026): nomes das conferências da prova de congelamento (ObserverTrial.Check), usados no recado FREEZE_UNDONE. -->
+<resources>
+    <string name="observer_check_voice">φωνητική αναζήτηση</string>
+    <string name="observer_check_play_store">το Play Store</string>
+    <string name="observer_check_settings">Ρυθμίσεις</string>
+    <string name="observer_check_cast">Μετάδοση (Cast)</string>
+    <string name="observer_check_internet">το internet</string>
+</resources>

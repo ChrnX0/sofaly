@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d παιχνίδι</item>
+        <item quantity="other">%d παιχνίδια</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d χειριστήριο συνδεδεμένο</item>
+        <item quantity="other">%d χειριστήρια συνδεδεμένα</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Κατηγορία Παίζω στην αρχική οθόνη (ανενεργή: τα παιχνίδια μένουν στις Εφαρμογές)</string>
+    <string name="extras_MODO_JOGO">Λειτουργία παιχνιδιού: όσο είναι ανοιχτό ένα παιχνίδι, η προφύλαξη οθόνης, το νυχτερινό φίλτρο και οι ειδοποιήσεις περιμένουν</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Το άναμμα ενός χειριστηρίου ανοίγει την οθόνη Παιχνίδια</string>
+
+    <string name="jogos_titulo">Παιχνίδια</string>
+    <string name="jogos_medindo">Έλεγχος δικτύου…</string>
+    <string name="jogos_sem_controle">Κανένα χειριστήριο συνδεδεμένο</string>
+    <string name="jogos_rede_boa">Δίκτυο: καλό για cloud gaming</string>
+    <string name="jogos_rede_ok">Δίκτυο: επαρκές για cloud gaming</string>
+    <string name="jogos_rede_fraca">Δίκτυο: αδύναμο για cloud gaming</string>
+    <string name="jogos_rede_sem">Χωρίς internet</string>
+    <string name="jogos_testar_rede">Δοκιμή δικτύου</string>
+    <string name="jogos_jogar_pc">Παιχνίδι στο PC</string>
+    <string name="jogos_parear">Σύζευξη χειριστηρίου</string>
+    <string name="jogos_parear_falhou">Αυτή η τηλεόραση δεν άνοιξε τις ρυθμίσεις Bluetooth. Ανοίξτε Ρυθμίσεις, Τηλεχειριστήρια και αξεσουάρ.</string>
+    <string name="jogos_baixar">Βρείτε παιχνίδια</string>
+    <string name="jogos_escolher">Επιλογή εφαρμογών</string>
+    <string name="jogos_escolher_sub">Ποιες εφαρμογές ζουν στο Παίζω. Το OK εναλλάσσει ανάμεσα σε Παίζω και Εφαρμογές.</string>
+    <string name="jogos_no_card">στο Παίζω</string>
+    <string name="jogos_na_linha">στις Εφαρμογές</string>
+    <string name="jogos_grupo_nuvem">Στο cloud</string>
+    <string name="jogos_grupo_pc">Από PC και κονσόλα</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Παιχνίδια στην τηλεόραση</string>
+    <string name="jogos_para_comecar">Για αρχή</string>
+    <string name="jogos_aviso_fraca_titulo">Αδύναμο δίκτυο για cloud gaming</string>
+    <string name="jogos_aviso_fraca">Το παιχνίδι μπορεί να κολλάει ή να καθυστερεί. Βοηθά ένα καλώδιο δικτύου ή η τηλεόραση πιο κοντά στον router.</string>
+    <string name="jogos_jogar_assim">Παιχνίδι παρ’ όλα αυτά</string>
+    <string name="jogos_nao_abriu">Αυτή η εφαρμογή δεν άνοιξε.</string>
+    <string name="jogos_tirar">Αφαίρεση από το Παίζω</string>
+    <string name="jogos_automatico">Πίσω στο αυτόματο</string>
+    <string name="jogos_loja_tudo">Οι προτεινόμενες εφαρμογές είναι ήδη σε αυτή την τηλεόραση.</string>
+    <string name="jogos_loja_explica">Ανοίγει τη σελίδα της εφαρμογής στο Play Store. Αν το Play Store λέει ότι δεν τρέχει σε αυτή την τηλεόραση, είναι όριο της εφαρμογής.</string>
+    <string name="jogos_sem_loja">Το Play Store δεν άνοιξε.</string>
+    <string name="jogos_pc_sem_mac">Για να ξυπνήσει το PC, αποθηκεύστε τη διεύθυνση MAC του στον πίνακα web: Extras, Ξύπνημα υπολογιστή. Το PC χρειάζεται επίσης ενεργό Wake-on-LAN και, συνήθως, καλώδιο δικτύου.</string>
+    <string name="jogos_pc_sem_app">Για παιχνίδι στο PC, εγκαταστήστε Moonlight ή Steam Link στην τηλεόραση.</string>
+    <string name="jogos_pc_qual_app">Ποια εφαρμογή παίζει στο PC;</string>
+    <string name="jogos_pc_acordando">Ξύπνημα του PC… %1$d δ.</string>
+    <string name="jogos_pc_nao_respondeu">Το PC δεν απάντησε. Η εφαρμογή ανοίγει παρ’ όλα αυτά.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Περισσότερα παιχνίδια</string>
+    <string name="jogos_mais_opcoes">Περισσότερα</string>
+    <string name="jogos_ligar_pc_jogar">Άνοιγμα PC και παιχνίδι</string>
+    <string name="jogos_desc_pc">Παίξτε τα παιχνίδια από τον υπολογιστή ή την κονσόλα του σπιτιού εδώ στην τηλεόραση.</string>
+    <string name="jogos_chip_medindo">Έλεγχος δικτύου…</string>
+    <string name="jogos_chip_boa">Καλό δίκτυο</string>
+    <string name="jogos_chip_ok">Δίκτυο εντάξει</string>
+    <string name="jogos_chip_fraca">Αδύναμο δίκτυο</string>
+    <string name="jogos_chip_sem">Χωρίς internet</string>
+    <string name="jogos_tecla_jogar">παιχνίδι</string>
+    <string name="jogos_tecla_segurar">κρατήστε OK</string>
+    <string name="jogos_tecla_opcoes">αλλαγή ομάδας</string>
+</resources>

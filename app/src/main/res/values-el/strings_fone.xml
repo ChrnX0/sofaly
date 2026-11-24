@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Ήχος στα ακουστικά (κινητό)</string>
+    <string name="fone_titulo">Ήχος στα ακουστικά</string>
+    <string name="fone_texto">Σαρώστε με ένα κινητό στο Wi-Fi του σπιτιού και συνδέστε ακουστικά. Ως %1$d κινητά. Η τηλεόραση σωπαίνει όσο κάποιος ακούει· το κλείσιμο της σελίδας φέρνει πίσω τον ήχο.</string>
+    <string name="fone_ouvindo">Ακούνε: %1$d από %2$d</string>
+    <string name="fone_fechar">Κλείσιμο</string>
+    <string name="fone_parar">Διακοπή</string>
+    <string name="fone_sem_rede">Η τηλεόραση δεν είναι στο οικιακό δίκτυο.</string>
+</resources>

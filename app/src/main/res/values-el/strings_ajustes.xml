@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Περισσότερες επιλογές</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Φωτογραφίες προφύλαξης από το κινητό</string>
+    <string name="qrd_fotos_det">Δείχνει κωδικό: το κινητό ανοίγει τον πίνακα κατευθείαν στη σελίδα φωτογραφιών</string>
+    <string name="qrd_mural">Οικογενειακός πίνακας από το κινητό</string>
+    <string name="qrd_mural_det">Λίστα αγορών και καρφιτσωμένες σημειώσεις</string>
+    <string name="qrd_cenas">Σκηνές από το κινητό</string>
+    <string name="qrd_cenas_det">Δημιουργία και δοκιμή σκηνών στον πίνακα web</string>
+    <string name="qrd_casa">Home Assistant από το κινητό</string>
+    <string name="qrd_casa_det">Διεύθυνση και token του Home Assistant σας, στον πίνακα web</string>
+    <string name="qrd_time">Η ομάδα μου και υπενθυμίσεις από το κινητό</string>
+    <string name="qrd_time_det">Λέξεις που κάνουν προγράμματα του οδηγού υπενθυμίσεις</string>
+    <string name="qrd_roteador">Router από το κινητό</string>
+    <string name="qrd_roteador_det">Διεύθυνση και κλειδί API του router UniFi, στον πίνακα web</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Πλακίδια γρήγορου πίνακα</string>
+    <string name="pb_subtitulo">OK εμφανίζει ή κρύβει · ◀ ▶ αλλαγή σειράς</string>
+    <string name="pb_cfg_det">Επιλέξτε ποια πλακίδια δείχνει ο γρήγορος πίνακας (κράτημα ΠΙΣΩ) και με ποια σειρά</string>
+    <string name="pb_mostrado">εμφανίζεται</string>
+    <string name="pb_escondido">κρυφό</string>
+    <string name="pb_padrao">Επιστροφή στα τυπικά πλακίδια</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Νυχτερινό φίλτρο</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Αρχική οθόνη</string>
+    <string name="cfg2_aba_inicio_det">Θέμα, κρυφές εφαρμογές, γρήγορος πίνακας και καιρός</string>
+    <string name="cfg2_aba_familia">Οικογένεια</string>
+    <string name="cfg2_aba_familia_det">Γονικός έλεγχος, PIN παιδιών, ώρα ύπνου και επισκέπτες</string>
+    <string name="cfg2_aba_casa">Σπίτι και αυτοματισμοί</string>
+    <string name="cfg2_aba_casa_det">Αυτοματισμοί, έξυπνο σπίτι και ό,τι ρυθμίζετε από το κινητό</string>
+    <string name="cfg2_aba_sistema_det">Διάγνωση, ενημερώσεις, αντίγραφα ασφαλείας και πληροφορίες</string>
+    <string name="cfg2_aba_avancado">Για προχωρημένους</string>
+    <string name="cfg2_aba_avancado_det">Δίκτυο, εργαλεία, εργοστασιακές εφαρμογές, άδειες και shell. Σπάνια χρειάζεται.</string>
+    <string name="cfg2_sec_visitas">Επισκέπτες</string>
+    <string name="cfg2_sec_celular">Από το κινητό</string>
+    <string name="cfg2_sec_ferramentas">Εργαλεία</string>
+    <string name="cfg2_sec_ocultos_sistema">Εφαρμογές συστήματος κρυμμένες από τον launcher</string>
+    <string name="cfg2_apps_visita_det">Επιλέξτε ποιες εφαρμογές εξαφανίζονται όσο είναι ενεργή η λειτουργία επισκέπτη</string>
+    <string name="cfg2_apps_visita_sub">OK εναλλάσσει · αυτές εξαφανίζονται όσο είναι ενεργή η λειτουργία επισκέπτη</string>
+    <string name="cfg2_some_visita">κρυφή για επισκέπτες</string>
+    <string name="cfg2_fica_visita">μένει</string>
+    <string name="cfg2_casa_det">Φώτα, πρίζες και σκηνές από Google Home ή Home Assistant</string>
+    <string name="oc_titulo">Κρυφές εφαρμογές</string>
+    <string name="oc_subtitulo">OK εμφανίζει ή κρύβει μια εφαρμογή στην αρχική οθόνη · οι κρυφές πρώτες</string>
+    <string name="oc_nenhum">Καμία κρυφή εφαρμογή · OK για επιλογή</string>
+    <string name="oc_quantos">Κρυφές: %1$d · OK για να εμφανιστούν ξανά</string>
+    <string name="oc_oculto">κρυφή</string>
+    <string name="oc_aparece">στην αρχική οθόνη</string>
+    <string name="oc_aviso_titulo">Η εφαρμογή κρύφτηκε</string>
+    <string name="oc_aviso">Για να εμφανιστεί ξανά: Ρυθμίσεις › Αρχική οθόνη › Κρυφές εφαρμογές</string>
+    <string name="extras_LER_FOCO">Ανάγνωση φωναχτά του επιλεγμένου, σε κάθε οθόνη του launcher</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Να κλείνει μόνη της η τηλεόραση;</string>
+    <string name="sug_desligar">Η τηλεόραση ήταν ανοιχτή μετά τα μεσάνυχτα %1$d νύχτες αυτή την εβδομάδα. Να κλείνει μετά από 2 ώρες χωρίς χρήση του τηλεχειριστηρίου; (Προειδοποιεί 60 δευτερόλεπτα πριν.)</string>
+    <string name="sug_filtro_titulo">Ενεργοποίηση νυχτερινού φίλτρου;</string>
+    <string name="sug_filtro">Η τηλεόραση χρησιμοποιήθηκε μετά τις 10 μ.μ. %1$d νύχτες αυτή την εβδομάδα. Το νυχτερινό φίλτρο ζεσταίνει και χαμηλώνει την οθόνη τη νύχτα, πιο ξεκούραστα για τα μάτια.</string>
+    <string name="sug_ligar">Ενεργοποίηση</string>
+    <string name="sug_agora_nao">Όχι τώρα</string>
+    <string name="sug_nunca">Να μην προταθεί ξανά</string>
+    <string name="sug_feito_titulo">Έγινε</string>
+    <string name="sug_feito">Για αλλαγή αργότερα: Ρυθμίσεις › Οθόνη και ενέργεια</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Μέγεθος κειμένου</string>
+    <string name="tt_det">Σε κάθε οθόνη του launcher. Ταινίες, σειρές και ζωντανή TV ήταν ήδη μεγαλύτερα και μεγαλώνουν μαζί</string>
+    <string name="tt_normal">Κανονικό</string>
+    <string name="tt_grande">Μεγάλο</string>
+    <string name="tt_maior">Μεγαλύτερο</string>
+    <string name="pi_titulo">Πακέτο εικονιδίων</string>
+    <string name="pi_det">Αλλαγή εικονιδίων εφαρμογών σε ενσωματωμένο στυλ (Symbol, Duotone) ή σε εγκατεστημένο πακέτο εικονιδίων. Το OK επιλέγει το επόμενο.</string>
+    <string name="pi_det_vazio">Κανένα πακέτο εικονιδίων εγκατεστημένο. Πάρτε ένα από το Play Store και θα εμφανιστεί εδώ.</string>
+    <string name="pi_nenhum">Κανένα</string>
+    <string name="fm_titulo">Το φόντο μου</string>
+    <string name="fm_det">Φωτογραφία, GIF ή βίντεο σας πίσω από την αρχική οθόνη. Βάλτε το αρχείο στον φάκελο Fundo, Pictures, DCIM, Movies ή Download.</string>
+    <string name="fm_vazio">Δεν βρέθηκε φωτογραφία ή βίντεο. Αντιγράψτε ένα στον φάκελο Fundo (μονάδα δικτύου ή USB) και επιστρέψτε.</string>
+    <string name="fm_nenhum">Κανένα (πίσω στο Σκοτεινό)</string>
+    <string name="fm_brilho">Φωτεινότητα φόντου</string>
+    <string name="fm_contraste">Αντίθεση φόντου</string>
+    <string name="fm_ajuste_det">Ισχύει για Το φόντο μου. Το OK αλλάζει το βήμα.</string>
+    <string name="vp_titulo">Έρχεστε από το Projectivy;</string>
+    <string name="vp_texto">Τέσσερα βήματα φέρνουν τη διαμόρφωσή σας σε περίπου ένα λεπτό. Καθένα μπορεί να γίνει αργότερα στις Ρυθμίσεις.</string>
+    <string name="vp_cfg_det">Μεταφορά κρυφών εφαρμογών, πακέτου εικονιδίων και φόντου από το Projectivy.</string>
+    <string name="vp_1">1. Κρυφές εφαρμογές</string>
+    <string name="vp_1_det">Σημειώστε τις εφαρμογές που είχατε κρυφές. Για αλλαγή σειράς, κρατήστε OK σε μια εφαρμογή στην αρχική οθόνη.</string>
+    <string name="vp_2">2. Πακέτο εικονιδίων</string>
+    <string name="vp_2_det">Τα ίδια πακέτα εικονιδίων που χρησιμοποιεί το Projectivy λειτουργούν εδώ.</string>
+    <string name="vp_3">3. Φόντο</string>
+    <string name="vp_3_det">Φωτογραφία, GIF ή βίντεο σας. Αντιγράψτε το πρώτα στον φάκελο Fundo.</string>
+    <string name="vp_4">4. Απενεργοποίηση του κουμπιού Αρχικής του Projectivy</string>
+    <string name="vp_4_det">Στην Προσβασιμότητα, απενεργοποιήστε το Projectivy. Δύο εφαρμογές που πιάνουν την Αρχική κάνουν να ανοίγει η λάθος.</string>
+    <string name="vp_pronto">Έγινε</string>
+    <string name="vp_pronto_det">Μετάβαση στην αρχική οθόνη.</string>
+    <string name="vq_titulo">Κοινοποίηση εμφάνισης</string>
+    <string name="vq_det">Δείχνει κωδικό QR με την εμφάνιση αυτής της τηλεόρασης: θέμα, μέγεθος κειμένου, εικονίδια.</string>
+    <string name="vq_texto">Σαρώστε τον με το κινητό για να τον κρατήσετε ή να τον στείλετε σε κάποιον με Sofaly.</string>
+    <string name="vq_fechar">Κλείσιμο</string>
+    <string name="pl_titulo">Πακέτα</string>
+    <string name="pl_texto">Όλα είναι δωρεάν όσο οι πωλήσεις δεν έχουν ανοίξει. Αργότερα, τα Pro και Ultra αγοράζονται στο κινητό.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Αρχική οθόνη, προφύλαξη οθόνης\n• Ξυπνητήρι, εύκολη οθόνη\n• Πρόγραμμα αναπαραγωγής και ραδιόφωνα\n• 1 λίστα IPTV\n• 2 θέματα</string>
+    <string name="pl_pro_itens">• Όλα του Basic\n• Πολλές λίστες IPTV, εγγραφή\n• Πλήρης πίνακας web\n• Claude, ρουτίνες, Home Assistant\n• Όλα τα θέματα, αντίγραφο στο cloud</string>
+    <string name="pl_ultra_itens">• Όλα του Pro\n• Καλύτερος καιρός (3 μοντέλα)\n• Πλούσιες σελίδες ταινιών\n• Αυτόματοι υπότιτλοι\n• Ως 3 τηλεοράσεις</string>
+    <string name="pl_qr">Σαρώστε με το κινητό για τιμές και αγορά.</string>
+    <string name="pl_assinar">Συνδρομή</string>
+    <string name="pl_assinar_preco">Συνδρομή · %1$s</string>
+    <string name="pl_seu_plano">Το πακέτο σας</string>
+    <string name="pl_loja_indisponivel">Το Google Play δεν μπόρεσε να ανοίξει την αγορά. Ελέγξτε το internet και δοκιμάστε ξανά.</string>
+    <string name="atu_pela_play">Οι ενημερώσεις έρχονται από το Google Play.</string>
+</resources>

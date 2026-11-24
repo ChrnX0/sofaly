@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Έτοιμες σκηνές</string>
+    <string name="cpr_dormir">Ύπνος</string>
+    <string name="cpr_dormir_det">Νυχτερινό φίλτρο, χαμηλότερη ένταση, η τηλεόραση κλείνει σε 30 λεπ.</string>
+    <string name="cpr_novela">Σαπουνόπερα</string>
+    <string name="cpr_novela_det">Το κανάλι σας, κανονικά χρώματα</string>
+    <string name="cpr_jogo">Αγώνας</string>
+    <string name="cpr_jogo_det">Το αθλητικό σας κανάλι, πιο δυνατά</string>
+    <string name="cpr_canal">Ποιο κανάλι για «%1$s»;</string>
+    <string name="cpr_canal_dica">Όνομα ή αριθμός καναλιού</string>
+</resources>

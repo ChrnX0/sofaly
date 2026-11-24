@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Δοκιμή χειριστηρίου</string>
+    <string name="teste_controle_sub">Είναι αρκετά γρήγορο για παιχνίδι;</string>
+    <string name="teste_controle_mexa">Γυρίστε τον αριστερό μοχλό σε κύκλους για 10 δευτερόλεπτα.</string>
+    <string name="teste_controle_bom">Εξαιρετικό για παιχνίδια: ένα σήμα κάθε %1$d ms.</string>
+    <string name="teste_controle_ok">Παίζεται: ένα σήμα κάθε %1$d ms. Τα γρήγορα παιχνίδια μπορεί να φαίνονται λίγο καθυστερημένα.</string>
+    <string name="teste_controle_ruim">Αργό: ένα σήμα κάθε %1$d ms και %2$d παύσεις. Βοηθά ένα ενσύρματο χειριστήριο, ή το χειριστήριο πιο κοντά στην τηλεόραση.</string>
+    <string name="teste_controle_parado">Το χειριστήριο δεν κινήθηκε. Δοκιμάστε ξανά και συνεχίστε να γυρίζετε τον μοχλό.</string>
+</resources>

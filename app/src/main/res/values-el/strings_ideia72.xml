@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Άνοιγμα του %1$s</string>
+    <string name="l72_tela_previsao">την πρόγνωση καιρού</string>
+    <string name="l72_tela_agenda">το ημερολόγιο</string>
+    <string name="l72_tela_despertador">το ξυπνητήρι</string>
+    <string name="l72_tela_configuracoes">τις Ρυθμίσεις του launcher</string>
+    <string name="l72_tela_inicio">την αρχική οθόνη</string>
+    <string name="l72_despertador">Δημιουργία ξυπνητηριού στις %1$s (%2$s)</string>
+    <string name="l72_dias_uma">μία φορά</string>
+    <string name="l72_dias_todos">κάθε μέρα</string>
+    <string name="l72_dias_uteis">Δευ έως Παρ</string>
+    <string name="l72_dias_fds">Σαββατοκύριακα</string>
+    <string name="l72_dias_nomes">Κυρ,Δευ,Τρί,Τετ,Πέμ,Παρ,Σάβ</string>
+    <string name="l72_vol_subir">Δυνάμωμα έντασης</string>
+    <string name="l72_vol_descer">Χαμήλωμα έντασης</string>
+    <string name="l72_vol_mudo">Σίγαση/κατάργηση σίγασης</string>
+    <string name="l72_vezes">(%1$d φορές)</string>
+    <string name="l72_midia_pausar">Παύση</string>
+    <string name="l72_midia_tocar">Συνέχεια αναπαραγωγής</string>
+    <string name="l72_midia_proxima">Επόμενο</string>
+    <string name="l72_midia_anterior">Προηγούμενο</string>
+    <string name="l72_visita_liga">Ενεργοποίηση λειτουργίας επισκέπτη</string>
+    <string name="l72_visita_desliga">Απενεργοποίηση λειτουργίας επισκέπτη</string>
+    <string name="l72_canal_pedido">Αλλαγή στο κανάλι %1$s</string>
+    <string name="l72_canal">Αλλαγή στο κανάλι %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Δείτε τι παίζει στο %1$s</string>
+    <string name="l72_casa_ligar">Ενεργοποίηση</string>
+    <string name="l72_casa_desligar">Απενεργοποίηση</string>
+    <string name="l72_casa_alternar">Εναλλαγή</string>
+    <string name="l72_casa">%1$s %2$s (σπίτι)</string>
+    <string name="l72_guia_vazio">%1$s: τίποτα στον οδηγό.</string>
+    <string name="l72_guia_agora">%1$s τώρα: %2$s (ως τις %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: τίποτα στον οδηγό τώρα</string>
+    <string name="l72_guia_depois">Επόμενο: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Παίζει τώρα: %1$s, %2$s. Το OK κάνει παύση ή συνέχεια· κρατήστε OK για άνοιγμα της εφαρμογής</string>
+</resources>

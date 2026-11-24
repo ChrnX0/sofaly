@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Προφίλ: %1$s</string>
+    <string name="perfil_aviso_texto">Αγαπημένα, Συνέχεια προβολής και σειρά εφαρμογών αυτού του προφίλ</string>
+    <string name="perfil_aviso_crianca">Παιδικό προφίλ: παιδική λειτουργία και ώρα ύπνου ενεργές</string>
+    <string name="perfil_crianca">Παιδικό προφίλ</string>
+    <string name="perfil_crianca_linha">Παιδικό προφίλ · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Ανενεργό</string>
+    <string name="perfil_crianca_sem_pin">Ορίστε πρώτα το PIN του πίνακα web: είναι το PIN των γονιών που προστατεύει το παιδικό προφίλ</string>
+    <string name="perfil_pin_sair">PIN γονιών για έξοδο από το παιδικό προφίλ</string>
+    <string name="perfil_pin_marcar">PIN γονιών για αλλαγή του παιδικού προφίλ</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Θέματα</string>
+    <string name="pod_ass_seus">Ακολουθείτε: %d</string>
+    <string name="pod_ass_em_alta">Τάσεις σε αυτό το θέμα</string>
+    <string name="pod_parecidos">Παρόμοια: %s</string>
+    <string name="pod_ass_noticias">Ειδήσεις</string>
+    <string name="pod_ass_humor">Κωμωδία</string>
+    <string name="pod_ass_ciencia">Επιστήμη</string>
+    <string name="pod_ass_tecnologia">Τεχνολογία</string>
+    <string name="pod_ass_historia">Ιστορία</string>
+    <string name="pod_ass_negocios">Επιχειρήσεις</string>
+    <string name="pod_ass_saude">Υγεία</string>
+    <string name="pod_ass_esportes">Αθλητικά</string>
+    <string name="pod_ass_cultura">Πολιτισμός</string>
+    <string name="pod_ass_crimes">Αληθινά εγκλήματα</string>
+    <string name="pod_ass_tv_filmes">TV και κινηματογράφος</string>
+    <string name="pod_ass_musica">Μουσική</string>
+    <string name="pod_ass_educacao">Εκπαίδευση</string>
+    <string name="pod_ass_infantil">Παιδιά και οικογένεια</string>
+    <string name="pod_ass_fe">Πίστη</string>
+    <string name="pod_ass_lazer">Ελεύθερος χρόνος</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Αλλαγή (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Αναιρέθηκε: %1$s</string>
+    <string name="desf_ocultou">Κρύφτηκε το %1$s</string>
+    <string name="desf_mostrou">Εμφανίστηκε ξανά το %1$s</string>
+    <string name="desf_cat_ajuste">Ρύθμιση</string>
+    <string name="desf_cat_organizacao">Οργάνωση</string>
+    <string name="desf_cat_automacao">Αυτοματισμός</string>
+    <string name="desf_cat_limpeza">Καθαρισμός</string>
+    <string name="desf_nada">Τίποτα για αναίρεση (είχε ήδη αναιρεθεί).</string>
+    <string name="desf_feito">Αναιρέθηκε. Όλα είναι όπως πριν.</string>
+    <string name="desf_parcial">Μερική αναίρεση: %1$d στοιχείο(-α) είχαν αλλάξει ξανά και έμειναν ως έχουν.</string>
+    <string name="desf_barra">Άλλαξε: %1$s</string>
+    <string name="desf_botao">Αναίρεση</string>
+    <string name="desf_tela">Πρόσφατες αλλαγές</string>
+    <string name="desf_tela_det">Τι άλλαξε τις τελευταίες 7 ημέρες. OK σε μία την επαναφέρει όπως ήταν.</string>
+    <string name="desf_tela_vazia">Καμία αλλαγή τις τελευταίες 7 ημέρες.</string>
+    <string name="desf_ja_desfeita">αναιρέθηκε</string>
+    <string name="desf_rot_config">Ρυθμίσεις</string>
+    <string name="desf_rot_automacoes">Αυτοματισμοί</string>
+    <string name="desf_rot_rotinas">Ρουτίνες</string>
+    <string name="desf_rot_apps">Λίστα εφαρμογών</string>
+    <string name="desf_rot_organizar">Εφαρμογές αρχικής οθόνης</string>
+</resources>

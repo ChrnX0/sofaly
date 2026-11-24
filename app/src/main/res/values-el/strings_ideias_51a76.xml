@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">ο έλεγχος επαναφοράς πέρασε</string>
+    <string name="l51_ensaio_falhou">το αποθηκευμένο αντίγραφο δεν θα επανερχόταν (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Wi-Fi επισκεπτών</string>
+    <string name="l51_wifi_nao">δεν ορίστηκε: πληκτρολογήστε το μία φορά και οι επισκέπτες σαρώνουν QR</string>
+    <string name="l51_wifi_dica">Χρησιμοποιήστε το δίκτυο επισκεπτών του router σας: όποιος είναι στο δωμάτιο μπορεί να διαβάσει τον κωδικό στην οθόνη.</string>
+    <string name="l51_wifi_rede">Όνομα δικτύου</string>
+    <string name="l51_wifi_senha">Κωδικός</string>
+    <string name="l51_wifi_invalido">Όνομα ως 32 χαρακτήρες· κωδικός κενός (ανοιχτό δίκτυο) ή 8 έως 63 χαρακτήρες.</string>
+    <string name="l51_wifi_qr_titulo">Εμφάνιση QR του Wi-Fi επισκεπτών</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Τι χρησιμοποιείται</string>
+    <string name="l51_uso_det">Οθόνες και ρυθμίσεις κατά χρήση, μετρημένες μόνο σε αυτή την τηλεόραση (τίποτα δεν φεύγει)</string>
+    <string name="l51_uso_vazio">Τίποτα μετρημένο ακόμα. Επιστρέψτε σε λίγες ημέρες.</string>
+    <string name="l51_uso_tela">οθόνη</string>
+    <string name="l51_uso_opcao">ρύθμιση</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d φορά</item>
+        <item quantity="other">%d φορές</item>
+    </plurals>
+    <string name="l51_uso_hoje">τελευταία σήμερα</string>
+    <string name="l51_uso_ontem">τελευταία χθες</string>
+    <string name="l51_uso_dias">τελευταία πριν από %d ημέρες</string>
+    <string name="l51_tela_Main">Αρχική οθόνη</string>
+    <string name="l51_tela_Dream">Προφύλαξη οθόνης</string>
+    <string name="l51_tela_Filmes">Ταινίες</string>
+    <string name="l51_tela_Series">Σειρές</string>
+    <string name="l51_tela_Jogos">Παιχνίδια</string>
+    <string name="l51_tela_Player">Ζωντανή TV και βίντεο</string>
+    <string name="l51_tela_PainelRapido">Γρήγορος πίνακας</string>
+    <string name="l51_tela_Vod">Κατάλογος λίστας</string>
+    <string name="l51_tela_Previsao">Πρόγνωση καιρού</string>
+    <string name="l51_tela_Elenco">Ηθοποιοί</string>
+    <string name="l51_tela_ConfigLauncher">Ρυθμίσεις</string>
+    <string name="l51_tela_MidiaRede">Δίκτυο</string>
+    <string name="l51_tela_Calendario">Ημερολόγιο</string>
+    <string name="l51_tela_Gravacoes">Εγγραφές</string>
+    <string name="l51_tela_Busca">Αναζήτηση</string>
+    <string name="l51_tela_Casa">Το σπίτι μου</string>
+    <string name="l51_tela_AlarmeTocando">Ξυπνητήρι που χτυπά</string>
+    <string name="l51_tela_Radio">Ραδιόφωνο</string>
+    <string name="l51_tela_Diagnostico">Διαγνωστικά</string>
+    <string name="l51_uso_zerar">Επαναφορά</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Πληκτρολόγηση στην τηλεόραση</string>
+    <string name="l51_digitar_texto">Ένα πεδίο κειμένου είναι ανοιχτό στο %1$s. Πατήστε για να γράψετε από εδώ.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">δωμάτιο %1$s</string>
+    <string name="casa_movimento">Κίνηση</string>
+    <string name="casa_sem_movimento">Καμία κίνηση</string>
+    <string name="casa_molhado">Υγρό</string>
+    <string name="casa_seco">Στεγνό</string>
+    <string name="casa_fumaca">Καπνός!</string>
+    <string name="casa_sem_fumaca">Χωρίς καπνό</string>
+    <string name="casa_dica_temp">θερμοκρασία</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Άνοιγμα της κάμερας…</string>
+    <string name="casa_camera_ver">Εμφάνιση στην τηλεόραση</string>
+</resources>

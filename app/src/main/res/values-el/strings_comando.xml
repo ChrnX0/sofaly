@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Γράψτε τι θέλετε να κάνει η τηλεόραση</string>
+    <string name="cc_nao_entendi">Δεν κατάλαβα. Δοκιμάστε κάτι σαν:</string>
+    <string name="cc_exemplo_1">βάλε Globo</string>
+    <string name="cc_exemplo_2">άνοιξε YouTube</string>
+    <string name="cc_exemplo_3">κλείσιμο σε 30 λεπτά</string>
+    <string name="cc_abrindo">Άνοιγμα του %1$s</string>
+    <string name="cc_canal">Βάζω το %1$s</string>
+    <string name="cc_o_que_passa">Τι παίζει στο %1$s</string>
+    <string name="cc_timer">Υπενθύμιση σε %1$d λεπτά</string>
+    <string name="cc_desligar">Η τηλεόραση κλείνει σε %1$d λεπτά</string>
+    <string name="cc_desligar_cancelar">Ο χρονοδιακόπτης ύπνου ακυρώθηκε</string>
+    <string name="cc_volume_subir">Ένταση πάνω</string>
+    <string name="cc_volume_descer">Ένταση κάτω</string>
+    <string name="cc_mudo">Σίγαση ναι/όχι</string>
+    <string name="cc_pausar">Παύση</string>
+    <string name="cc_continuar">Αναπαραγωγή</string>
+    <string name="cc_tela_previsao">την πρόγνωση</string>
+    <string name="cc_tela_agenda">το ημερολόγιο</string>
+    <string name="cc_tela_despertador">τα ξυπνητήρια</string>
+    <string name="cc_tela_configuracoes">τις ρυθμίσεις του launcher</string>
+    <string name="cc_tela_inicio">την αρχική οθόνη</string>
+    <string name="cc_confirme_na_tv">%1$s: επιβεβαιώστε με OK στην τηλεόραση</string>
+    <string name="cc_nao_fiz">%1$s: δεν έγινε (%2$s)</string>
+    <string name="cc_aviso_titulo">Πίνακας κινητού</string>
+</resources>

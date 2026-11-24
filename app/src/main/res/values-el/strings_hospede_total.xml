@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Πλήρης καθαρισμός</string>
+    <string name="hos_total_det">Στην αναχώρηση, καθαρίζει τα δεδομένα κάθε εφαρμογής της τηλεόρασης, όχι μόνο του streaming. Οι υπηρεσίες Google και οι Ρυθμίσεις διατηρούνται.</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sessão junto e Continuar em outra TV (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="junto_titulo">Παρακολούθηση μαζί</string>
+    <string name="junto_menu">Παρακολούθηση μαζί με άλλη τηλεόραση</string>
+    <string name="junto_escolher">Ποια τηλεόραση να προσκληθεί;</string>
+    <string name="junto_sem_tvs">Καμία άλλη τηλεόραση online σε αυτόν τον λογαριασμό Tailscale. Ενεργοποιήστε τις \"Τηλεοράσεις οικογένειας\" και στην άλλη τηλεόραση.</string>
+    <string name="junto_sem_titulo">Αυτό το βίντεο δεν μπορεί να μοιραστεί: η άλλη τηλεόραση δεν βρήκε τον ίδιο τίτλο.</string>
+    <string name="junto_convidou">Η πρόσκληση στάλθηκε στο %1$s. Όταν ξεκινήσουν τον ίδιο τίτλο, οι δύο τηλεοράσεις κινούνται μαζί.</string>
+    <string name="junto_falhou">Δεν ήταν δυνατή η επικοινωνία με το %1$s. Είναι ανοιχτή, με ενεργές τις \"Τηλεοράσεις οικογένειας\";</string>
+    <string name="junto_convite_titulo">Ο/Η %1$s σας προσκαλεί να δείτε μαζί</string>
+    <string name="junto_convite_texto">%1$s\n\nΑνοίξτε εδώ τον ίδιο τίτλο και οι δύο τηλεοράσεις θα κάνουν παύση και θα κινούνται μαζί.</string>
+    <string name="junto_convite_canal">%1$s\n\nΖωντανή TV: οι δύο τηλεοράσεις μένουν στο ίδιο κανάλι. Όποιος το αλλάξει, η άλλη ακολουθεί.</string>
+    <string name="junto_entrar">Συμμετοχή</string>
+    <string name="junto_agora_nao">Όχι τώρα</string>
+    <string name="junto_entrou">Ο/Η %1$s συμμετέχει. Η παύση και η αναπαραγωγή είναι τώρα κοινές.</string>
+    <string name="junto_saiu">Ο/Η %1$s αποχώρησε. Αυτή η τηλεόραση συνεχίζει μόνη της.</string>
+    <string name="junto_com">Μαζί με %1$s</string>
+    <string name="junto_sair">Έξοδος από την κοινή παρακολούθηση</string>
+    <string name="junto_sem_canal">Αυτό το κανάλι δεν είναι στη λίστα αυτής της τηλεόρασης.</string>
+    <string name="junto_tvs">Τηλεοράσεις οικογένειας</string>
+    <string name="junto_tvs_det">Τηλεοράσεις στον ίδιο λογαριασμό Tailscale μπορούν να βλέπουν μαζί και να περνούν ένα βίντεο η μία στην άλλη. Ταξιδεύουν μόνο εντολές, ποτέ το βίντεο. Η τηλεόραση ενός συγγενή σε άλλο λογαριασμό δεν μπορεί ακόμα να συμμετάσχει.</string>
+    <string name="junto_outro_episodio">Το %1$s είναι ήδη στο Σ%2$d Ε%3$d. Όταν αυτή η τηλεόραση φτάσει εκεί, θα είστε ξανά μαζί.</string>
+    <string name="cont_titulo">Συνέχεια σε άλλη τηλεόραση</string>
+    <string name="cont_menu">Αποστολή σε άλλη τηλεόραση</string>
+    <string name="cont_escolher">Αποστολή σε ποια τηλεόραση;</string>
+    <string name="cont_enviado">Στάλθηκε. Το %1$s θα ρωτήσει αν θα συνεχίσει από εδώ.</string>
+    <string name="cont_falhou">Δεν ήταν δυνατή η αποστολή στο %1$s. Είναι ανοιχτή, με ενεργές τις \"Τηλεοράσεις οικογένειας\";</string>
+    <string name="cont_pergunta">Συνέχεια από εκεί που σταματήσατε;</string>
+    <string name="cont_texto">%1$s\nσταμάτησε στο %2$s στο %3$s.</string>
+    <string name="cont_texto_canal">%1$s\nέπαιζε στο %3$s. Άνοιγμα του ίδιου καναλιού εδώ;</string>
+    <string name="cont_continuar">Συνέχεια</string>
+    <string name="cont_buscar">Αναζήτηση εδώ</string>
+</resources>

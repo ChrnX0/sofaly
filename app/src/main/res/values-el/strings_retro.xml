@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Τα παιχνίδια σας</string>
+    <string name="retro_vazio">Δεν βρέθηκαν παιχνίδια στο USB στικ. Βάλτε τα δικά σας παιχνίδια σε φάκελο με το όνομα της κονσόλας (π.χ. SNES).</string>
+    <string name="retro_portugues">στα πορτογαλικά</string>
+    <string name="retro_abrindo">Άνοιγμα στο RetroArch…</string>
+    <string name="retro_nao_abriu">Το RetroArch δεν άνοιξε αυτό το παιχνίδι. Ανοίξτε το RetroArch μία φορά και κατεβάστε τον πυρήνα %1$s.</string>
+    <string name="retro_sem_retroarch">Εγκαταστήστε το RetroArch (δωρεάν στο Play Store) για να παίξετε αυτά τα παιχνίδια.</string>
+    <string name="retro_aviso_legal">Το Sofaly δεν περιλαμβάνει παιχνίδια. Χρησιμοποιήστε όσα σας ανήκουν.</string>
+    <string name="retro_procurando">Αναζήτηση παιχνιδιών στο USB στικ…</string>
+</resources>

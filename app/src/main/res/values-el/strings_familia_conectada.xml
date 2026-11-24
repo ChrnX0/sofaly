@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Família conectada (degrau 3, FamiliaConectada.kt): fotos e recados dos parentes por um link. -->
+<resources>
+    <string name="famc_titulo">Οικογενειακός σύνδεσμος</string>
+    <string name="famc_det">Παιδιά και εγγόνια στέλνουν φωτογραφίες και σημειώσεις σε αυτή την τηλεόραση με έναν σύνδεσμο, χωρίς λογαριασμό</string>
+    <string name="famc_ligado">Ενεργό: το OK δείχνει ξανά τον κωδικό QR για κοινοποίηση</string>
+    <string name="famc_texto">Σαρώστε τον κωδικό με το κινητό και στείλτε τον σύνδεσμο στην οικογένεια (WhatsApp, email). Όποιος έχει τον σύνδεσμο μπορεί να στέλνει φωτογραφίες και σημειώσεις: εμφανίζονται αμέσως στην οθόνη, οι σημειώσεις μένουν στον πίνακα του γρήγορου πίνακα και οι φωτογραφίες μπαίνουν στις φωτογραφίες προφύλαξης. Τίποτα δεν περνά από τους διακομιστές μας.</string>
+    <string name="famc_sem_tunel">Αυτό χρησιμοποιεί πρόσβαση εκτός σπιτιού (Tailscale), που δεν έχει ρυθμιστεί ακόμα σε αυτή την τηλεόραση. Ρυθμίστε την στις Ρυθμίσεις › Σπίτι και δίκτυο › Απομακρυσμένη πρόσβαση και επιστρέψτε εδώ.</string>
+    <string name="famc_trocar">Νέος σύνδεσμος</string>
+    <string name="famc_trocar_det">Ο παλιός σύνδεσμος σταματά να λειτουργεί αμέσως</string>
+    <string name="famc_desligar">Απενεργοποίηση</string>
+    <string name="famc_alguem">Οικογένεια</string>
+    <string name="famc_de">Από %1$s</string>
+</resources>

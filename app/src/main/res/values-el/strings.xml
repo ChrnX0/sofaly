@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Κουμπιά τηλεχειριστηρίου του launcher (κουμπιά Netflix/YouTube με νέα αντιστοίχιση) και το παράθυρο σύζευξης χωρίς υπολογιστή.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">συνδεδεμένο</string>
+    <string name="cfg_vpn_desconectada">αποσυνδεδεμένο</string>
+    <string name="cfg_titulo">Ρυθμίσεις</string>
+    <string name="cfg_diag">Διάγνωση τηλεόρασης</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN και γιατί σταμάτησε μια εφαρμογή — όλα μαζί</string>
+    <string name="cfg_tema_det">Αλλάζει στην επόμενη εμφάνιση</string>
+    <string name="cfg_nunca">Ποτέ</string>
+    <string name="cfg_min">%1$d λεπ.</string>
+    <string name="cfg_nao_gravou_do">δεν αποθηκεύτηκε (ο Device Owner ανενεργός;)</string>
+    <string name="cfg_visita">Λειτουργία επισκέπτη</string>
+    <string name="cfg_rotinas">Ρουτίνες</string>
+    <string name="cfg_sec_atualizacao">Ενημερώσεις</string>
+    <string name="cfg_atualizar">Έλεγχος για νέα έκδοση</string>
+    <string name="cfg_atualizar_det">Έκδοση %1$s · %2$s · OK ελέγχει τώρα</string>
+    <string name="cfg_procurando">έλεγχος στο GitHub…</string>
+    <string name="cfg_instalar">Εγκατάσταση της έκδοσης %1$d τώρα</string>
+    <string name="cfg_instalar_det">Ο launcher κλείνει και επιστρέφει μόνος του σε λίγα δευτερόλεπτα · OK εγκαθιστά</string>
+    <string name="cfg_instalando">λήψη και έλεγχος…</string>
+    <string name="cfg_sec_rede">Δίκτυο</string>
+    <string name="cfg_dns">Ιδιωτικό DNS</string>
+    <string name="cfg_dns_caiu">" · ο %1$s δεν απάντησε, επιστροφή στο αυτόματο"</string>
+    <string name="cfg_velocidade">Δοκιμή ταχύτητας internet</string>
+    <string name="cfg_velocidade_det">Κατεβάζει 25 MB και μετράει</string>
+    <string name="cfg_testando">Δοκιμή…</string>
+    <string name="cfg_nao_mudou_do">δεν άλλαξε (ο Device Owner ανενεργός;)</string>
+    <string name="cfg_sec_ligado">Τι είναι ενεργό — %1$s</string>
+    <string name="cfg_ligado">ενεργό</string>
+    <string name="cfg_so_pc">" · μόνο με υπολογιστή (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK προσπαθεί να το ενεργοποιήσει"</string>
+    <string name="cfg_perm_fixas">Μόνιμες άδειες δόθηκαν</string>
+    <string name="cfg_shell_estado">Δικό του shell</string>
+    <string name="cfg_shell_pareado">σε σύζευξη: ο launcher επανασυνδέεται μόνος του μέσω Ασύρματου εντοπισμού σφαλμάτων</string>
+    <string name="cfg_shell_nunca">χωρίς σύζευξη ακόμα: χρησιμοποιήστε \"Σύζευξη χωρίς υπολογιστή\" παρακάτω</string>
+    <string name="cfg_sec_shizuku">Shell του launcher (Wi-Fi ADB)</string>
+    <string name="cfg_parear">Σύζευξη χωρίς υπολογιστή</string>
+    <string name="cfg_parear_det">Ανοίγει την οθόνη σύζευξης του Android με ένα πληκτρολόγιο του launcher από πάνω</string>
+    <string name="cfg_acess_off">η υπηρεσία προσβασιμότητας του launcher είναι ανενεργή</string>
+    <string name="cfg_versao">Έκδοση launcher</string>
+    <string name="cfg_desconhecida">άγνωστη</string>
+    <string name="cfg_depuracao">Ασύρματος εντοπισμός σφαλμάτων</string>
+    <string name="cfg_depuracao_on">διατηρείται ενεργός από τον launcher</string>
+    <string name="cfg_depuracao_android">όπως τον αφήνει το Android</string>
+    <string name="cfg_chave">Κλειδί του δικού του shell</string>
+    <string name="cfg_calculando">υπολογισμός…</string>
+    <string name="cfg_erro">σφάλμα: %1$s</string>
+    <string name="cfg_licencas">Άδειες χρήσης και αναφορές</string>
+    <string name="cfg_licencas_det">Κώδικας, γραμματοσειρές, εικονίδια και δεδομένα τρίτων που χρησιμοποιούνται εδώ</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">χωρίς αυτό: δεν κρύβονται εφαρμογές, δεν κλειδώνεται η ΑΡΧΙΚΗ ή το VPN, δεν ρυθμίζεται η προφύλαξη οθόνης</string>
+    <string name="rec_agenda">Ημερολόγιο</string>
+    <string name="rec_agenda_sem">χωρίς αυτό: το ημερολόγιο δεν δείχνει συμβάντα</string>
+    <string name="rec_local">Τοποθεσία</string>
+    <string name="rec_local_sem">χωρίς αυτό: ο καιρός χρησιμοποιεί την πόλη από την IP και το Wi-Fi δεν δείχνει το όνομα του δικτύου</string>
+    <string name="rec_contas">Λογαριασμοί</string>
+    <string name="rec_contas_sem">χωρίς αυτό: η κουκκίδα προφίλ δεν δείχνει το αρχικό του λογαριασμού</string>
+    <string name="rec_uso">Χρήση εφαρμογών</string>
+    <string name="rec_uso_sem">χωρίς αυτό: οι εφαρμογές δεν ταξινομούνται κατά πρόσφατη χρήση</string>
+    <string name="rec_sobre">Επικάλυψη</string>
+    <string name="rec_sobre_sem">χωρίς αυτό: οι σημειώσεις και η σύζευξη χωρίς υπολογιστή δεν εμφανίζονται πάνω από εφαρμογές</string>
+    <string name="rec_seguras">Ασφαλείς ρυθμίσεις</string>
+    <string name="rec_seguras_sem">χωρίς αυτό: καμία αλλαγή DNS και καμία αυτόματη επανεκκίνηση της υπηρεσίας κουμπιών και του ασύρματου εντοπισμού σφαλμάτων (μόνο με υπολογιστή ή το shell του launcher)</string>
+    <string name="rec_teclas">Υπηρεσία κουμπιών</string>
+    <string name="rec_teclas_sem">χωρίς αυτό: η ΑΡΧΙΚΗ μπορεί να ανοίξει τον launcher της Google και τα κουμπιά Netflix/YouTube δεν αντιστοιχίζονται ξανά</string>
+    <string name="rec_tudo">όλα ενεργά</string>
+    <string name="rec_faltam">λείπουν %1$d από %2$d λειτουργίες · OK σε ένα στοιχείο προσπαθεί να το ενεργοποιήσει</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Καλώς ήρθατε</string>
+    <string name="bv_texto">Η αρχική οθόνη, το ρολόι, ο καιρός, το ξυπνητήρι και η προφύλαξη οθόνης ήδη λειτουργούν. Ενεργοποιήστε τα υπόλοιπα εδώ αν θέλετε (%1$s).</string>
+    <string name="bv_comecar">Έναρξη</string>
+    <string name="bv_comecar_det">Πηγαίνει στην αρχική οθόνη</string>
+    <string name="bv_perm">Ενεργοποίηση ημερολογίου, τοποθεσίας και λογαριασμών</string>
+    <string name="bv_perm_det">Συμβάντα ημερολογίου, καιρός για την πόλη σας, αρχικό λογαριασμού στο προφίλ</string>
+    <string name="bv_teclas">Ενεργοποίηση υπηρεσίας κουμπιών</string>
+    <string name="bv_teclas_det">Προσβασιμότητα › Κουμπιά τηλεχειριστηρίου: η ΑΡΧΙΚΗ επιστρέφει πάντα εδώ</string>
+    <string name="bv_tudo">Δείτε όλα όσα μπορείτε να ενεργοποιήσετε</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Το αρχείο άδειας δεν βρέθηκε.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Άνοιγμα τηλεόρασης</string>
+    <string name="rot_abrir_um">Άνοιγμα και εκκίνηση εφαρμογής</string>
+    <string name="rot_desligar">Κλείσιμο τηλεόρασης</string>
+    <string name="rot_abrir">Άνοιγμα και εκκίνηση του %1$s</string>
+    <string name="rot_um_app">μια εφαρμογή (επιλέξτε)</string>
+    <string name="rot_se_ocioso">" αν κανείς δεν την άγγιξε για %1$s"</string>
+    <string name="rot_sempre">πάντα</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">καμία ρουτίνα ενεργή</string>
+    <string name="rot_proxima">επόμενη: %1$s</string>
+    <string name="rot_nova_mais">+ Νέα ρουτίνα</string>
+    <string name="rot_nova_det">Άνοιγμα, εκκίνηση εφαρμογής ή κλείσιμο σε καθορισμένη ώρα</string>
+    <string name="rot_desligada_sufixo">" · ανενεργή"</string>
+    <string name="rot_nova">Νέα ρουτίνα</string>
+    <string name="rot_editar">Επεξεργασία ρουτίνας</string>
+    <string name="rot_editor_det">OK αλλάζει κάθε γραμμή · ΠΙΣΩ φεύγει χωρίς αποθήκευση</string>
+    <string name="rot_hora">Ώρα: %1$s</string>
+    <string name="rot_dias">Ημέρες: %1$s</string>
+    <string name="rot_acao">Ενέργεια: %1$s</string>
+    <string name="rot_app">Εφαρμογή: %1$s</string>
+    <string name="rot_nenhum">καμία</string>
+    <string name="rot_ocioso">Μόνο αν κανείς δεν την άγγιξε για: %1$s</string>
+    <string name="rot_ligada">Ενεργή</string>
+    <string name="rot_desligada">Ανενεργή</string>
+    <string name="rot_hora_det">◀ ▶ 5 λεπτά · OK +1 ώρα</string>
+    <string name="rot_dias_det">OK: κάθε μέρα, Δευ έως Παρ, Σαββατοκύριακο, μία φορά</string>
+    <string name="rot_ok_muda">OK αλλάζει</string>
+    <string name="rot_app_det">OK ή ▶ επόμενο · ◀ προηγούμενο</string>
+    <string name="rot_ocioso_det">Δεν διακόπτει κάποιον που βλέπει</string>
+    <string name="rot_ativa_det">OK ενεργοποιεί/απενεργοποιεί αυτή τη ρουτίνα</string>
+    <string name="rot_salvar">Αποθήκευση</string>
+    <string name="rot_escolha_app">Επιλέξτε την εφαρμογή</string>
+    <string name="rot_apagar">Διαγραφή αυτής της ρουτίνας</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Μία φορά</string>
+    <string name="dia_todo">Κάθε μέρα</string>
+    <string name="dia_seg_sex">Δευ έως Παρ</string>
+    <string name="dia_fim">Σαββατοκύριακο</string>
+    <string-array name="dias_curtos">
+        <item>Κυρ</item>
+        <item>Δευ</item>
+        <item>Τρί</item>
+        <item>Τετ</item>
+        <item>Πέμ</item>
+        <item>Παρ</item>
+        <item>Σάβ</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE, d MMMM</string>
+    <string name="home_perfil">Προφίλ</string>
+    <string name="home_visita_titulo">Λειτουργία επισκέπτη ενεργή</string>
+    <string name="home_visita_msg">Το προφίλ, το ημερολόγιο και οι επιλεγμένες εφαρμογές είναι κρυφά. Έξοδος από τη λειτουργία επισκέπτη;</string>
+    <string name="home_continuar">Διατήρηση</string>
+    <string name="home_sair">Έξοδος</string>
+    <string name="comum_cancelar">Άκυρο</string>
+    <string name="home_mostrar">Εμφάνιση στην αρχική οθόνη</string>
+    <string name="home_ocultar">Απόκρυψη από την αρχική οθόνη</string>
+    <string name="home_sob_demanda">Πάγωμα όταν δεν χρησιμοποιείται</string>
+    <string name="home_sob_demanda_tirar">Τέλος παγώματος όταν δεν χρησιμοποιείται</string>
+    <string name="sob_demanda_ligado">Παγωμένη. Μένει εδώ: το OK την ξεπαγώνει και την ανοίγει, και παγώνει ξανά 2 λεπτά αφού φύγετε.</string>
+    <string name="sob_demanda_desligado">Ξεπαγωμένη. Λειτουργεί όπως πριν.</string>
+    <string name="sob_demanda_falhou">Δεν ήταν δυνατή η αλλαγή τώρα. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="home_desinstalar">Απεγκατάσταση</string>
+    <string name="home_app_sistema"> (εφαρμογή συστήματος)</string>
+    <string name="home_desinstalar_titulo">Απεγκατάσταση του %1$s;</string>
+    <string name="home_desinstalar_aviso">Η εφαρμογή και τα δεδομένα της φεύγουν από την τηλεόραση. Δεν αναιρείται: για να την επαναφέρετε, εγκαταστήστε την ξανά από το Play Store.</string>
+    <string name="home_cancelar">Άκυρο</string>
+    <string name="home_desinstalando">Απεγκατάσταση του %1$s…</string>
+    <string name="home_desinstalado">Το %1$s απεγκαταστάθηκε.</string>
+    <string name="home_desinstalar_falhou">Δεν ήταν δυνατή η απεγκατάσταση του %1$s: %2$s</string>
+    <string name="home_chovendo">Βρέχει τώρα</string>
+    <string name="home_chuva_agora">%1$s - Βροχή %2$d%% αυτή τη στιγμή</string>
+    <string name="home_chuva_em">%1$s - Βροχή %2$d%% σε %3$d ώ.</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Ξυπνητήρι ορίστηκε: %1$s</string>
+    <string name="al_um_app">μια εφαρμογή</string>
+    <string name="al_criar_q">Ορισμός ξυπνητηριού για %1$s;</string>
+    <string name="al_pedido">Ζητήθηκε από %1$s.</string>
+    <string name="al_criar">Ορισμός</string>
+    <string name="al_titulo">Ξυπνητήρι</string>
+    <string name="al_nenhum">Κανένα ξυπνητήρι ενεργό</string>
+    <string name="al_novo_mais">+  Νέο ξυπνητήρι</string>
+    <string name="al_ligado">Ενεργό</string>
+    <string name="al_desligado">Ανενεργό</string>
+    <string name="al_novo">Νέο ξυπνητήρι</string>
+    <string name="al_editar">Επεξεργασία ξυπνητηριού</string>
+    <string name="al_apagar">Διαγραφή</string>
+    <string name="al_hoje">σήμερα</string>
+    <string name="al_amanha">αύριο</string>
+    <string name="al_dia_as">%1$s στις %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Διακοπή</string>
+    <string name="al_soneca">Αναβολή 10 λεπ.</string>
+    <string name="al_perdido_um">Το ξυπνητήρι των %1$s δεν χτύπησε επειδή η τηλεόραση ήταν κλειστή.</string>
+    <string name="al_perdido_varios">Τα ξυπνητήρια των %1$s δεν χτύπησαν επειδή η τηλεόραση ήταν κλειστή.</string>
+    <string name="al_perdido_e">και</string>
+    <string name="al_volume_nao_mexe">χωρίς αλλαγή</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Χωρίς λογαριασμό Google</string>
+    <string name="pp_ativo">"  ·  ενεργό"</string>
+    <string name="pp_adicionar">Προσθήκη προφίλ</string>
+    <string name="pr_bt_controle">Τηλεχειριστήριο</string>
+    <string name="pp_audio">Ήχος</string>
+    <string name="pp_carregando">Φόρτωση…</string>
+    <string name="pp_conectar">Σύνδεση</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">χωρίς λογαριασμό Google</string>
+    <string name="cal_dica">◀ ▶ αλλαγή μήνα</string>
+    <string name="cal_30">Επόμενες 30 ημέρες</string>
+    <string name="cal_nenhuma_conta">Κανένας λογαριασμός Google στην τηλεόραση</string>
+    <string name="cal_nada">Τίποτα προγραμματισμένο (ή το ημερολόγιο ακόμα συγχρονίζεται)</string>
+    <string name="fmt_mes_ano">LLLL yyyy</string>
+    <string name="cal_dia_todo">Ολοήμερο</string>
+    <string name="cal_sem_titulo">(χωρίς τίτλο)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  βρέχει"</string>
+    <string name="pt_lua">Σελήνη</string>
+    <string name="pt_sol">Ήλιος</string>
+    <string name="pt_umidade">Υγρασία</string>
+    <string name="pt_chuva">Βροχή</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Βροχή</string>
+    <string name="cl_limpo">Καθαρός ουρανός</string>
+    <string name="cl_poucas">Λίγα σύννεφα</string>
+    <string name="cl_parcial">Μερικώς νεφελώδης</string>
+    <string name="cl_nublado">Νεφελώδης</string>
+    <string name="cl_neblina">Ομίχλη</string>
+    <string name="cl_garoa_fraca">Ελαφρύ ψιχάλισμα</string>
+    <string name="cl_garoa">Ψιχάλισμα</string>
+    <string name="cl_garoa_forte">Έντονο ψιχάλισμα</string>
+    <string name="cl_garoa_cong">Παγωμένο ψιχάλισμα</string>
+    <string name="cl_chuva_fraca">Ελαφριά βροχή</string>
+    <string name="cl_chuva_forte">Δυνατή βροχή</string>
+    <string name="cl_chuva_cong">Παγωμένη βροχή</string>
+    <string name="cl_neve_fraca">Ελαφριά χιονόπτωση</string>
+    <string name="cl_neve">Χιόνι</string>
+    <string name="cl_neve_forte">Πυκνή χιονόπτωση</string>
+    <string name="cl_graos">Χιονόκοκκοι</string>
+    <string name="cl_panc_fracas">Ελαφριές μπόρες</string>
+    <string name="cl_panc">Μπόρες βροχής</string>
+    <string name="cl_panc_fortes">Δυνατές μπόρες</string>
+    <string name="cl_panc_neve">Μπόρες χιονιού</string>
+    <string name="cl_tempestade">Καταιγίδα</string>
+    <string name="cl_granizo">Καταιγίδα με χαλάζι</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">πανσέληνος σε %1$d ημ.</string>
+    <string name="lua_nova_em">νέα σελήνη σε %1$d ημ.</string>
+    <string-array name="fases_lua">
+        <item>Νέα σελήνη</item>
+        <item>Αύξων μηνίσκος</item>
+        <item>Πρώτο τέταρτο</item>
+        <item>Αύξουσα αμφίκυρτη</item>
+        <item>Πανσέληνος</item>
+        <item>Φθίνουσα αμφίκυρτη</item>
+        <item>Τελευταίο τέταρτο</item>
+        <item>Φθίνων μηνίσκος</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Φόρτωση πρόγνωσης…</string>
+    <string name="pv_voz_agora">"Τώρα είναι %1$d βαθμοί, %2$s. "</string>
+    <string name="pv_voz_hoje">Σήμερα, μέγιστη %1$d και ελάχιστη %2$d</string>
+    <string name="pv_voz_chuva">", με %1$d τοις εκατό πιθανότητα βροχής. "</string>
+    <string name="pv_voz_sem_chuva">", δεν αναμένεται βροχή. "</string>
+    <string name="pv_voz_amanha">Αύριο, %1$s, μέγιστη %2$d και ελάχιστη %3$d</string>
+    <string name="pv_voz_amanha_chuva">, %1$d τοις εκατό πιθανότητα βροχής</string>
+    <string name="pv_sem">Δεν ήταν δυνατή η λήψη της πρόγνωσης τώρα. Ελέγξτε το internet και δοκιμάστε ξανά.</string>
+    <string name="pv_max_min">μέγ. %1$d°   ελάχ. %2$d°   ·   αίσθηση %3$d°</string>
+    <string name="pv_24h">Επόμενες 24 ώρες</string>
+    <string name="pv_agora">Τώρα</string>
+    <string name="pv_chance">Πιθανότητα βροχής</string>
+    <string name="pv_7d">Επόμενες 9 ημέρες</string>
+    <string name="pv_hoje">Σήμερα</string>
+    <string name="pv_mais_quente">Πιο ζεστά</string>
+    <string name="pv_mais_frio">Πιο κρύα</string>
+    <string name="pv_igual">Ίδια με την πραγματική</string>
+    <string name="pv_detalhes">Λεπτομέρειες</string>
+    <string name="pv_sensacao">Αίσθηση</string>
+    <string name="pv_vento">Άνεμος</string>
+    <string name="pv_uv">Δείκτης UV</string>
+    <string name="pv_visib">Ορατότητα</string>
+    <string name="pv_orvalho">Σημείο δρόσου</string>
+    <string name="pv_pressao">Πίεση</string>
+    <string name="pv_chuva_hoje">Βροχή σήμερα</string>
+    <string name="pv_ar">Ποιότητα αέρα</string>
+    <string name="pv_sem_dados">Χωρίς δεδομένα τώρα</string>
+    <string name="uv_baixo">Χαμηλός</string>
+    <string name="uv_moderado">Μέτριος</string>
+    <string name="uv_alto">Υψηλός</string>
+    <string name="uv_muito_alto">Πολύ υψηλός</string>
+    <string name="uv_extremo">Ακραίος</string>
+    <string name="aq_boa">Καλή</string>
+    <string name="aq_moderada">Μέτρια</string>
+    <string name="aq_sensiveis">Ανθυγιεινή για ευαίσθητους</string>
+    <string name="aq_ruim">Ανθυγιεινή</string>
+    <string name="aq_muito_ruim">Πολύ ανθυγιεινή</string>
+    <string name="aq_perigosa">Επικίνδυνη</string>
+    <string-array name="rosa_ventos">
+        <item>Β</item>
+        <item>ΒΑ</item>
+        <item>Α</item>
+        <item>ΝΑ</item>
+        <item>Ν</item>
+        <item>ΝΔ</item>
+        <item>Δ</item>
+        <item>ΒΔ</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Σκοτεινό</string>
+    <string name="tema_galeria">Γκαλερί</string>
+    <string name="tema_meu">Το φόντο μου</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Απαλό</string>
+    <string name="som_classico">Κλασικό</string>
+    <string name="som_sino">Καμπάνα</string>
+    <string name="som_rampa1">Δυναμώνει σε 1½ λεπ.</string>
+    <string name="som_rampa2">Δυναμώνει σε 2 λεπ.</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mbps (λήφθηκαν %2$.0f MB σε %3$.1f δ.)</string>
+    <string name="vel_falhou">Η δοκιμή απέτυχε (χωρίς internet ή ο διακομιστής εκτός λειτουργίας)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  τρέχον"</string>
+    <string name="esc_botao">Το κουμπί %1$s ανοίγει:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">ανατολή %1$s</string>
+    <string name="fd_por">δύση %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: χρήση   ·   κρατήστε OK σε έναν δικό σας διακομιστή: αφαίρεση   ·   Πίσω: έξοδος</string>
+    <string name="dns_auto">Αυτόματο</string>
+    <string name="dns_auto_det">Χρησιμοποιεί το DNS του router και κρυπτογραφεί όταν το δέχεται (προεπιλογή Android)</string>
+    <string name="dns_desl">Ανενεργό</string>
+    <string name="dns_desl_det">Απλό DNS, χωρίς κρυπτογράφηση</string>
+    <string name="dns_publicos">Δημόσιοι διακομιστές</string>
+    <string name="dns_meus">Οι διακομιστές μου</string>
+    <string name="dns_adicionar">+  Προσθήκη διακομιστή</string>
+    <string name="dns_adicionar_det">Διεύθυνση DNS-over-TLS, όπως dns.example.com</string>
+    <string name="dns_sem_permissao">"Χωρίς άδεια αλλαγής DNS. Σε υπολογιστή: "</string>
+    <string name="dns_troque_antes">αλλάξτε διακομιστή πριν αφαιρέσετε αυτόν</string>
+    <string name="dns_remover_q">Αφαίρεση του %1$s;</string>
+    <string name="dns_remover">Αφαίρεση</string>
+    <string name="dns_nome_opc">Όνομα (προαιρετικό)</string>
+    <string name="dns_endereco_ex">Διεύθυνση, π.χ. dns.example.com</string>
+    <string name="dns_adicionar_tit">Προσθήκη διακομιστή DNS</string>
+    <string name="dns_salvar_usar">Αποθήκευση και χρήση</string>
+    <string name="dns_invalido">Μη έγκυρη διεύθυνση. Χρησιμοποιήστε όνομα όπως dns.example.com (το Android δεν δέχεται αριθμό IP).</string>
+    <string name="dns_em_uso">Σε χρήση: %1$s</string>
+    <string name="dns_testando">δοκιμή…</string>
+    <string name="dns_falha">ΑΠΟΤΥΧΙΑ: δεν επιλύθηκε κανένα όνομα. Επιλέξτε άλλο διακομιστή ή Αυτόματο.</string>
+    <string name="dns_res_sem_cripto">επίλυση σε %1$d ms (χωρίς κρυπτογράφηση)</string>
+    <string name="dns_res_tls">επίλυση σε %1$d ms   ·   TLS ενεργό</string>
+    <string name="dns_res_com">" με %1$s"</string>
+    <string name="dns_res_sem_tls">επίλυση σε %1$d ms   ·   χωρίς TLS αυτή τη στιγμή</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (προσωπικό)</string>
+    <string name="dns_personalizado">Προσαρμοσμένο (%1$s)</string>
+    <string name="dns_rot_auto">αυτόματο</string>
+    <string name="dns_rot_desl">ανενεργό</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Σύνοψη</string>
+    <string name="diag_frase">Με μία πρόταση</string>
+    <string name="diag_wifi_desc">αποσυνδεδεμένη: η τηλεόραση δεν είναι σε κανένα δίκτυο</string>
+    <string name="diag_lat">%1$d ms ως το internet</string>
+    <string name="diag_sem_resp">καμία απάντηση από το internet</string>
+    <string name="diag_wifi">%1$s · σήμα %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Το Android επικύρωσε το Wi-Fi</string>
+    <string name="diag_nao_validou">Το Android ΔΕΝ επικύρωσε το Wi-Fi</string>
+    <string name="diag_net_ok">λειτουργεί (δοκιμή σε %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">η δοκιμή δεν έφτασε στη Google · %1$s</string>
+    <string name="diag_net_estranha">παράξενη απάντηση (%1$d): το δίκτυο ίσως θέλει σύνδεση · %2$s</string>
+    <string name="diag_cripto">κρυπτογράφηση ενεργή</string>
+    <string name="diag_sem_cripto">κρυπτογράφηση ΑΝΕΝΕΡΓΗ</string>
+    <string name="diag_resolve">επιλύει ονόματα (%1$d ms)</string>
+    <string name="diag_nao_resolve">ΔΕΝ επιλύει ονόματα</string>
+    <string name="diag_caiu">ο %1$s απέτυχε νωρίτερα και επέστρεψα στο αυτόματο</string>
+    <string name="diag_nenhum_app">καμία εφαρμογή</string>
+    <string name="diag_vpn_nada">κανένα VPN κλειδωμένο ή ενεργό</string>
+    <string name="diag_vpn_desc">%1$s κλειδωμένο, αλλά ΑΠΟΣΥΝΔΕΔΕΜΕΝΟ (το internet λειτουργεί χωρίς VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s συνδεδεμένο, αλλά το Android δεν επικύρωσε τη σήραγγα</string>
+    <string name="diag_vpn_ok">%1$s συνδεδεμένο και λειτουργεί</string>
+    <string name="diag_r_sem_wifi">η τηλεόραση δεν έχει Wi-Fi</string>
+    <string name="diag_r_dns_fora">το DNS δεν απαντά: το internet φαίνεται εκτός λειτουργίας</string>
+    <string name="diag_r_net_fora">το internet δεν περνά (router ή πάροχος)</string>
+    <string name="diag_r_dns">το DNS δεν επιλύει ονόματα: οι εφαρμογές δεν βρίσκουν τους διακομιστές τους</string>
+    <string name="diag_r_net">το DNS λειτουργεί, αλλά το internet δεν απαντά</string>
+    <string name="diag_r_vpn">δίκτυο εντάξει· μόνο το VPN είναι εκτός (οι εφαρμογές λειτουργούν χωρίς αυτό)</string>
+    <string name="diag_r_atencao">το δίκτυο λειτουργεί, με σημεία προσοχής παρακάτω</string>
+    <string name="diag_r_ok">δίκτυο εντάξει. Αν σταμάτησε μια εφαρμογή, δείτε παρακάτω τι της συνέβη</string>
+    <string name="diag_usava">" · χρησιμοποιούσε %1$d MB"</string>
+    <string name="diag_texto">Αιτία: %1$s\nΔιεργασία: %2$s\nΣημασία: %3$s</string>
+    <string name="diag_detalhe">\nΛεπτομέρεια Android: %1$s</string>
+    <string name="diag_m_memoria">έκλεισε λόγω έλλειψης μνήμης</string>
+    <string name="diag_m_crash">κατέρρευσε</string>
+    <string name="diag_m_nativo">κατέρρευσε (native)</string>
+    <string name="diag_m_anr">σταμάτησε να αποκρίνεται (ANR)</string>
+    <string name="diag_m_iniciar">δεν μπόρεσε να ξεκινήσει</string>
+    <string name="diag_m_recurso">έκλεισε επειδή χρησιμοποιούσε πολλούς πόρους</string>
+    <string name="diag_m_dependencia">έκλεισε επειδή τερμάτισε μια εφαρμογή από την οποία εξαρτάται</string>
+    <string name="diag_m_sinal">τερματίστηκε από το σύστημα (σήμα)</string>
+    <string name="diag_m_permissao">επανεκκινήθηκε από αλλαγή άδειας</string>
+    <string name="diag_i_tela">ήταν στην οθόνη</string>
+    <string name="diag_i_visivel">ορατή</string>
+    <string name="diag_i_servico">εκτελείται στο παρασκήνιο</string>
+    <string name="diag_i_cache">στο παρασκήνιο (cache)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Διαγνωστικά</string>
+    <string name="diag_refazer">Νέος έλεγχος</string>
+    <string name="diag_refazer_det">Εκτελεί ξανά όλους τους ελέγχους</string>
+    <string name="diag_verificando">έλεγχος…</string>
+    <string name="diag_apps">Εφαρμογές (τελευταίες 7 ημέρες)</string>
+    <string name="diag_lendo">Ανάγνωση ιστορικού εφαρμογών</string>
+    <string name="diag_sem_perm">Χωρίς άδεια ανάγνωσης των καταρρεύσεων άλλων εφαρμογών</string>
+    <string name="diag_sem_perm_det">Ο launcher δίνει στον εαυτό του READ_LOGS και DUMP μέσω του δικού του shell· περιμένετε λίγα λεπτά ή επανεκκινήστε την τηλεόραση</string>
+    <string name="diag_nada">τίποτα καταγεγραμμένο</string>
+    <string name="diag_erros">Σφάλματα launcher (καταγεγραμμένα από αυτόν)</string>
+    <string name="diag_sem_erros">Κανένα καταγεγραμμένο σφάλμα</string>
+    <string name="diag_sem_erros_det">Ο launcher κρατά εδώ τις τελευταίες %1$d καταρρεύσεις του</string>
+    <string name="diag_erro">Σφάλμα launcher</string>
+    <string name="diag_apagar">Διαγραφή καταγεγραμμένων σφαλμάτων</string>
+    <string name="diag_apagar_det">Καθαρίζει την παραπάνω λίστα (δεν αγγίζει τίποτα άλλο)</string>
+    <string name="diag_rodape">%1$s · τα βέλη κυλούν · ΠΙΣΩ επιστρέφει</string>
+    <string name="diag_app_ok">Καμία κατάρρευση, πάγωμα ή μη κανονική έξοδος τις τελευταίες 7 ημέρες.\n\nΑν η εφαρμογή ανοίγει αλλά δεν φορτώνει τίποτα, το πρόβλημα συνήθως είναι το δίκτυο: δείτε την ενότητα Δίκτυο στην προηγούμενη οθόνη.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">δεν ελέγχθηκε ακόμα</string>
+    <string name="atu_android9">χρειάζεται Android 9 ή νεότερο</string>
+    <string name="atu_ocupado">ήδη σε έλεγχο</string>
+    <string name="atu_erro">σφάλμα: %1$s %2$s</string>
+    <string name="atu_em_dia">ενημερωμένο (εγκατεστημένη %1$d, τελευταία %2$d)</string>
+    <string name="atu_sem_tag">Το τελευταίο Release δεν έχει έκδοση στην ετικέτα του</string>
+    <string name="atu_sem_apk">Το Release %1$d δεν έχει APK ή SHA-256</string>
+    <string name="atu_sha">Release %1$d: το SHA-256 δεν ταιριάζει, δεν εγκαταστάθηκε</string>
+    <string name="atu_ilegivel">Release %1$d: μη αναγνώσιμο APK</string>
+    <string name="atu_pacote">Release %1$d: διαφορετικό πακέτο (%2$s)</string>
+    <string name="atu_versao">Release %1$d: η έκδοση του APK (%2$d) δεν ταιριάζει με την ετικέτα</string>
+    <string name="atu_chave">Το GitHub έχει την έκδοση %1$d, αλλά είναι υπογεγραμμένη με άλλο κλειδί που αυτή η τηλεόραση δεν δέχεται: αυτή η τηλεόραση ενημερώνεται από υπολογιστή</string>
+    <string name="atu_migracao_disponivel">έκδοση %1$d: έτοιμη να μεταφέρει αυτή την τηλεόραση στη νέα εφαρμογή (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">εγκατάσταση της νέας εφαρμογής (%1$d)· μετά αναλαμβάνει αυτή την τηλεόραση με όλες τις ρυθμίσεις</string>
+    <string name="atu_disponivel">η έκδοση %1$d είναι έτοιμη για εγκατάσταση (εγκατεστημένη %2$d)</string>
+    <string name="atu_trocou">η έκδοση άλλαξε από τον τελευταίο έλεγχο · OK ελέγχει ξανά</string>
+    <string name="atu_instalando">εγκατάσταση %1$d (εγκατεστημένη %2$d)</string>
+    <string name="atu_ok">ενημερώθηκε</string>
+    <string name="atu_falhou">η εγκατάσταση απέτυχε (%1$d): %2$s</string>
+    <string name="atu_ruim">η έκδοση %1$d κατέρρευσε σε αυτή την τηλεόραση αμέσως μετά την εγκατάσταση: δεν θα εγκατασταθεί ξανά</string>
+    <string name="vig_aviso_titulo">Η ενημέρωση σε παύση</string>
+    <string name="vig_pausada">η έκδοση %1$d κατέρρευσε δύο φορές αμέσως μετά την εγκατάσταση · η αυτόματη ενημέρωση περιμένει την επόμενη</string>
+    <string name="vig_pausada_tela">η έκδοση %1$d κατέρρευσε δύο φορές αμέσως μετά την εγκατάσταση · το \"%2$s\" μένει ανενεργό ως την επόμενη</string>
+    <string name="vig_tela_bloqueada">Αυτή η οθόνη είναι ανενεργή ως την επόμενη ενημέρωση (έριξε τον launcher)</string>
+    <string name="cfg_vig_liberar">Ασφαλής λειτουργία</string>
+    <string name="cfg_vig_liberar_det">" · OK το ενεργοποιεί ξανά"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Η φωνητική αναζήτηση δεν άνοιξε σε αυτή την τηλεόραση</string>
+    <string name="home_alarme_hoje">σήμερα</string>
+    <string name="home_alarme_amanha">αύριο</string>
+    <string name="player_carregando">Φόρτωση καναλιών…</string>
+    <string name="player_carregando_canal">Φόρτωση καναλιού…</string>
+    <string name="vod_carregando">Φόρτωση βίντεο…</string>
+    <string name="player_sem_canais">Δεν έχει προστεθεί ακόμα λίστα καναλιών.</string>
+    <string name="player_tentando">Χωρίς σήμα στο κανάλι %1$d. Νέα προσπάθεια…</string>
+    <string name="player_sem_sinal">Το κανάλι %1$d δεν απάντησε. Επιλέξτε άλλο με ▲ ▼ ή OK.</string>
+    <string name="player_canal_nao_existe">Δεν υπάρχει κανάλι %1$d.</string>
+    <string name="player_ao_vivo">ΖΩΝΤΑΝΑ</string>
+    <string name="player_a_seguir">επόμενο: %1$s</string>
+    <string name="player_teclas">▲ ▼ κανάλι · OK λίστα καναλιών · κρατήστε OK 2 δ.: αγαπημένο · ◀ προηγούμενο κανάλι · ▶ ▶ επιλογές · ΠΙΣΩ έξοδος</string>
+    <string name="player_teclas_pausa">▶❙❙ ή OK συνέχεια · ▶ επιλογές (πίσω στο ζωντανό) · ▲ ▼ κανάλι · ΠΙΣΩ έξοδος</string>
+    <string name="player_cat_busca">Αναζήτηση: %1$s</string>
+    <string name="player_acao_buscar">Αναζήτηση</string>
+    <string name="player_acao_filtros">Φίλτρα</string>
+    <string name="filmes_titulo">Ταινίες</string>
+    <string name="filmes_carregando">Φόρτωση ταινιών…</string>
+    <string name="filmes_vazio">Καμία ταινία ακόμα</string>
+    <string name="filmes_continuar">Συνέχεια</string>
+    <string name="filmes_ordem_titulo">Ταξινόμηση κατά</string>
+    <string name="filmes_ordem_recentes">νεότερες στον κατάλογο</string>
+    <string name="filmes_ordem_nome">όνομα</string>
+    <string name="filmes_ordem_nota">βαθμολογία</string>
+    <string name="filmes_ordem_ano">έτος</string>
+    <string name="filmes_busca_dica">Όνομα ταινίας</string>
+    <string name="filmes_do_comeco">Από την αρχή</string>
+    <string name="filmes_assistir">▶  Προβολή</string>
+    <string name="filmes_ficha_carregando">Φόρτωση λεπτομερειών…</string>
+    <string name="filmes_direcao">Σκηνοθεσία</string>
+    <string name="filmes_elenco">Ηθοποιοί</string>
+    <string name="filmes_interesses">Λίστα παρακολούθησης</string>
+    <string name="filmes_assistidos">Έχω δει</string>
+    <string name="filmes_interesse_pos">★ Το %1$s προστέθηκε στη λίστα παρακολούθησης</string>
+    <string name="filmes_interesse_tirou">Το %1$s αφαιρέθηκε από τη λίστα παρακολούθησης</string>
+    <string name="filmes_interesses_cheio">Η λίστα παρακολούθησης έχει ήδη 500 τίτλους: αφαιρέστε πρώτα έναν.</string>
+    <string name="filmes_interesses_vazio">Κρατήστε OK για 2 δευτερόλεπτα σε μια αφίσα για να την προσθέσετε εδώ (και ξανά για αφαίρεση).</string>
+    <string name="filmes_assistido">Το έχω δει</string>
+    <string name="filmes_selo_leg">ΥΠΟΤ</string>
+    <string name="vod_sem_conta">Ο λογαριασμός αυτού του βίντεο δεν υπάρχει πια.</string>
+    <string name="vod_erro">Δεν ήταν δυνατή η αναπαραγωγή αυτού του βίντεο. ΠΙΣΩ για έξοδο.</string>
+    <string name="vod_faixa">Κομμάτι</string>
+    <string name="vod_audio">Ήχος</string>
+    <string name="vod_legenda">Υπότιτλοι</string>
+    <string name="vod_faixas">Ήχος και υπότιτλοι</string>
+    <string name="vod_teclas">OK παύση · ◀ 10 δ. · ▶ 30 δ. (κρατήστε για πιο γρήγορα) · ▼ ήχος, υπότιτλοι και εικόνα · ⏮ ⏭ κεφάλαια · ΠΙΣΩ έξοδος</string>
+    <string name="series_titulo">Σειρές</string>
+    <string name="series_carregando">Φόρτωση σειρών…</string>
+    <string name="series_vazio">Καμία σειρά ακόμα</string>
+    <string name="series_ordem_recentes">με νέο επεισόδιο</string>
+    <string name="series_busca_dica">Όνομα σειράς</string>
+    <string name="series_sem_episodios">Ο διακομιστής δεν έστειλε επεισόδια για αυτή τη σειρά.</string>
+    <string name="series_assistir">▶  Προβολή %1$s</string>
+    <string name="series_temporada">Σεζόν %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d σεζόν</item>
+        <item quantity="other">%d σεζόν</item>
+    </plurals>
+    <string name="player_acao_guia">Οδηγός προγράμματος</string>
+    <string name="player_sem_guia_curto">Χωρίς οδηγό προγράμματος</string>
+    <string name="player_grade_teclas">OK προβολή · ◀ ▶ πρόγραμμα · ▲ ▼ κανάλι</string>
+    <string name="player_busca_dica">Όνομα καναλιού ή προγράμματος</string>
+    <string name="player_busca_nada">Δεν βρέθηκε τίποτα για «%1$s».</string>
+    <string name="player_filtro_qualquer">Οποιαδήποτε</string>
+    <string name="player_filtro_qualidade">Ποιότητα: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Ποιότητα εικόνας</string>
+    <string name="player_filtro_pais">Χώρα: %1$s</string>
+    <string name="player_filtro_pais_titulo">Χώρα ή γλώσσα</string>
+    <string name="player_filtro_limpar">Καθαρισμός φίλτρων</string>
+    <string name="player_filtro_nada">Αυτή η λίστα δεν έχει ποιότητα ή χώρα στα ονόματα των καναλιών.</string>
+    <string name="player_bloqueado">Το κανάλι είναι αποκλεισμένο από τον γονικό έλεγχο. Εισαγάγετε το PIN στα Φίλτρα για προβολή.</string>
+    <string name="player_ocultas_mostrar">Εμφάνιση κρυφών κατηγοριών και αποκλεισμένων καναλιών (PIN)</string>
+    <string name="player_ocultas_esconder">Απόκρυψη ξανά κρυφών κατηγοριών και αποκλεισμένων καναλιών</string>
+    <string name="player_pin_titulo">PIN του πίνακα</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">Λάθος PIN.</string>
+    <string name="player_pin_sem">Χωρίς PIN πίνακα: οι κρυφές κατηγορίες δεν προστατεύονται.</string>
+    <string name="player_pin_espere">Πάρα πολλά λάθος PIN. Δοκιμάστε ξανά σε %d λεπ.</string>
+    <string name="infantil_titulo">Παιδικές κατηγορίες</string>
+    <string name="infantil_carregando">φόρτωση κατηγοριών…</string>
+    <string name="infantil_coluna_itens">ΤΙ ΠΕΡΙΕΧΕΙ</string>
+    <string name="infantil_dica">OK σημειώνει ή αφαιρεί την κατηγορία ως παιδική · ισχύει για Ζωντανή TV, Ταινίες και Σειρές · ΠΙΣΩ φεύγει (ήδη αποθηκευμένο)</string>
+    <string name="infantil_so_categoria">σημειώστε όλη την κατηγορία στην αριστερή στήλη</string>
+    <string name="infantil_vazio">χωρίς κατηγορίες: προσθέστε λογαριασμό στις Ρυθμίσεις › TV και ταινίες και φορτώστε ξανά τα κανάλια</string>
+    <string name="infantil_limite">μια κατηγορία ενηλίκων δεν μπορεί να είναι παιδική</string>
+    <string name="infantil_resumo_ligado">%1$d από %2$d κατηγορίες σημειωμένες ως παιδικές · παιδική λειτουργία ΕΝΕΡΓΗ</string>
+    <string name="infantil_resumo_desligado">%1$d από %2$d κατηγορίες σημειωμένες ως παιδικές · παιδική λειτουργία ανενεργή</string>
+    <string name="cfg_infantil">Παιδική λειτουργία</string>
+    <string name="cfg_infantil_ligado">ενεργή · εμφανίζονται μόνο οι %d παιδικές κατηγορίες· οι υπόλοιπες ζητούν PIN</string>
+    <string name="cfg_infantil_desligado">ανενεργή · %d κατηγορίες σημειωμένες ως παιδικές</string>
+    <string name="cfg_infantil_escolher">Επιλογή παιδικών κατηγοριών</string>
+    <string name="cfg_infantil_escolher_det">Εφαρμογή σε Ζωντανή TV, Ταινίες και Σειρές</string>
+    <string name="player_grupo_oculto">Το %1$s κρύφτηκε. Για να το δείτε: Φίλτρα, εμφάνιση κρυφών.</string>
+    <string name="player_grupo_mostrado">Το %1$s είναι ξανά ορατό.</string>
+    <string name="player_canais_de">%1$s · %2$d ΚΑΝΑΛΙΑ</string>
+    <string name="player_cat_todos">Όλα</string>
+    <string name="player_cat_favoritos">Αγαπημένα</string>
+    <string name="player_cat_recentes">Πρόσφατα</string>
+    <string name="player_cat_outros">Άλλα</string>
+    <string name="player_sem_favoritos">Κανένα αγαπημένο ακόμα. Κρατήστε OK για 2 δ. σε ένα κανάλι για να το προσθέσετε εδώ.</string>
+    <string name="player_categoria_vazia">Κανένα κανάλι σε αυτή την κατηγορία.</string>
+    <string name="player_sem_guia">Χωρίς οδηγό προγράμματος για αυτό το κανάλι.</string>
+    <string name="player_depois">ΑΡΓΟΤΕΡΑ</string>
+    <string name="player_lista_teclas">OK προβολή · κρατήστε OK 2 δ.: αγαπημένο ή αφαίρεση · κρατήστε OK σε κατηγορία: απόκρυψη · ◀ κατηγορίες</string>
+    <string name="player_favorito_pos">★ Το %1$s προστέθηκε στα αγαπημένα</string>
+    <string name="player_favorito_tirou">Το %1$s αφαιρέθηκε από τα αγαπημένα</string>
+    <string name="player_favoritos_cheio">Υπάρχουν ήδη 500 αγαπημένα: αφαιρέστε πρώτα ένα.</string>
+    <string name="player_assistindo">σε προβολή</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Ζωντανά κανάλια</string>
+    <string name="home_destaque_app">Εφαρμογή</string>
+    <string name="app_sub_youtube">Βίντεο και κανάλια</string>
+    <string name="app_sub_netflix">Ταινίες και σειρές</string>
+    <string name="app_sub_prime">Ταινίες, σειρές και αθλητικά</string>
+    <string name="app_sub_max">Ταινίες, σειρές και αθλητικά</string>
+    <string name="app_sub_play_store">Εγκατάσταση και ενημέρωση εφαρμογών</string>
+    <string name="app_sub_play_games">Παιχνίδια</string>
+    <string name="app_sub_google_tv">Αγορασμένες και ενοικιασμένες ταινίες</string>
+    <string name="app_sub_config">Ρυθμίσεις TV</string>
+    <string name="home_card_series">Σειρές</string>
+    <string name="home_card_filmes">Ταινίες</string>
+    <string name="home_destaque_series">Σειρές από τη λίστα σας · συνεχίστε από εκεί που σταματήσατε</string>
+    <string name="home_destaque_filmes">Ταινίες από τη λίστα σας · συνεχίστε από εκεί που σταματήσατε</string>
+    <string name="home_card_rede">Δίκτυο</string>
+    <string name="home_destaque_rede">Τα βίντεο, η μουσική και οι φωτογραφίες σας</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d MMMM</string>
+    <string name="home_busca">Αναζήτηση</string>
+    <string name="home_falar">Μιλήστε στο Gemini</string>
+    <string name="home_dest_tv">TV · κανάλι %1$d</string>
+    <string name="rede_titulo">Δίκτυο</string>
+    <string name="rede_procurando">Αναζήτηση διακομιστών πολυμέσων στο δίκτυο…</string>
+    <string name="rede_nenhum">Κανένας διακομιστής πολυμέσων δεν είναι ενεργός τώρα. Προσθέστε έναν παρακάτω: τα Plex και Jellyfin χρησιμοποιούν τον λογαριασμό σας· ένας φάκελος PC ή NAS χρησιμοποιεί τη διεύθυνσή του.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d διακομιστής</item>
+        <item quantity="other">%1$d διακομιστές</item>
+    </plurals>
+    <string name="rede_secao_seus">Οι διακομιστές σας</string>
+    <string name="rede_secao_achados">Βρέθηκαν στο δίκτυο</string>
+    <string name="rede_secao_adicionar">Προσθήκη</string>
+    <string name="rede_entrar">Σύνδεση</string>
+    <string name="rede_adicionar">Προσθήκη</string>
+    <string name="rede_salvar">Αποθήκευση</string>
+    <string name="rede_testar_salvar">Δοκιμή και αποθήκευση</string>
+    <string name="rede_testando">Δοκιμή…</string>
+    <string name="rede_cancelar">Άκυρο</string>
+    <string name="rede_sub_dlna">DLNA · ανοίγει απευθείας</string>
+    <string name="rede_sub_maquina">Κοινόχρηστος φάκελος · %1$s</string>
+    <string name="rede_sub_pasta">Κοινόχρηστος φάκελος · %1$s</string>
+    <string name="rede_sub_lista">Λίστα M3U · %1$s</string>
+    <string name="rede_sub_video">Σύνδεσμος βίντεο · %1$s</string>
+    <string name="rede_sub_plex">Σύνδεση με κωδικό, χωρίς συνθηματικό στην τηλεόραση</string>
+    <string name="rede_sub_jellyfin">Όνομα χρήστη και κωδικός του διακομιστή</string>
+    <string name="rede_sub_smb">Φάκελος Windows, Mac ή NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS με WebDAV</string>
+    <string name="rede_sub_link">διεύθυνση http, HLS (.m3u8) ή λίστα M3U</string>
+    <string name="rede_acao_smb">Κοινόχρηστος φάκελος</string>
+    <string name="rede_acao_webdav">WebDAV ή Nextcloud</string>
+    <string name="rede_acao_link">Σύνδεσμος ή λίστα βίντεο</string>
+    <string name="rede_acao_procurar">Νέα αναζήτηση</string>
+    <string name="rede_abrindo">Άνοιγμα…</string>
+    <string name="rede_vazia">Κενός φάκελος</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d στοιχείο</item>
+        <item quantity="other">%1$d στοιχεία</item>
+    </plurals>
+    <string name="rede_dica_abrir">άνοιγμα</string>
+    <string name="rede_dica_remover">αφαίρεση</string>
+    <string name="rede_dica_sair">έξοδος</string>
+    <string name="rede_dica_subir">έναν φάκελο πάνω</string>
+    <string name="rede_tecla_segurar">κρατήστε OK</string>
+    <string name="rede_tecla_voltar">ΠΙΣΩ</string>
+    <string name="rede_erro">Ο διακομιστής δεν απάντησε. Δοκιμάστε ξανά.</string>
+    <string name="rede_erro_senha">Ο διακομιστής δεν δέχτηκε το όνομα χρήστη ή τον κωδικό.</string>
+    <string name="rede_erro_pasta">Ο διακομιστής απάντησε, αλλά δεν έχει φάκελο με αυτό το όνομα.</string>
+    <string name="rede_erro_servidor">Ο διακομιστής δεν βρέθηκε. Ελέγξτε τη διεύθυνση και ότι είναι στο ίδιο δίκτυο.</string>
+    <string name="rede_erro_certificado">Το πιστοποιητικό ασφαλείας του διακομιστή δεν ισχύει για αυτή τη διεύθυνση.</string>
+    <string name="rede_erro_cheio">Δεν αποθηκεύτηκε: η τηλεόραση κρατά ήδη 20 διακομιστές. Αφαιρέστε πρώτα έναν.</string>
+    <string name="rede_endereco_erro">Ελλιπής ή μη έγκυρη διεύθυνση.</string>
+    <string name="rede_salva">Το \"%1$s\" προστέθηκε.</string>
+    <string name="rede_nome_opcional">Εμφανιζόμενο όνομα (προαιρετικό)</string>
+    <string name="rede_senha">Κωδικός</string>
+    <string name="rede_remover_titulo">Αφαίρεση του \"%1$s\";</string>
+    <string name="rede_remover_explica">Τα στοιχεία σύνδεσης και ο κωδικός του φεύγουν από την τηλεόραση. Τίποτα δεν αλλάζει στον διακομιστή.</string>
+    <string name="rede_remover">Αφαίρεση</string>
+    <string name="rede_removida">Το \"%1$s\" αφαιρέθηκε.</string>
+    <string name="rede_smb_titulo">Κοινόχρηστος φάκελος</string>
+    <string name="rede_smb_explica">Διεύθυνση όπως στα Windows: \\\\server\\folder (π.χ. \\\\192.168.0.10\\Movies). Κενό όνομα χρήστη και κωδικός = επισκέπτης.</string>
+    <string name="rede_smb_endereco">\\\\server\\folder</string>
+    <string name="rede_smb_endereco_erro">Λείπει ο διακομιστής ή ο φάκελος (π.χ. \\\\NAS\\Movies).</string>
+    <string name="rede_smb_usuario">Όνομα χρήστη (προαιρετικό)</string>
+    <string name="rede_smb_senha">Κωδικός (προαιρετικό)</string>
+    <string name="rede_jf_explica">Διεύθυνση διακομιστή %1$s (π.χ. 192.168.0.10 ή nas:8096), όνομα χρήστη και κωδικός. Ο κωδικός δεν αποθηκεύεται στην τηλεόραση.</string>
+    <string name="rede_jf_endereco">Διεύθυνση διακομιστή</string>
+    <string name="rede_jf_usuario">Όνομα χρήστη</string>
+    <string name="rede_jf_usuario_falta">Λείπει το όνομα χρήστη.</string>
+    <string name="rede_dav_explica">Διεύθυνση φακέλου (Nextcloud: cloud.example.com/remote.php/dav/files/YOUR_USER). Χωρίς http, η τηλεόραση χρησιμοποιεί https. Στο Nextcloud προτιμήστε κωδικό εφαρμογής.</string>
+    <string name="rede_dav_endereco">Διεύθυνση WebDAV</string>
+    <string name="rede_link_explica">Ένα βίντεο (mp4, mkv…), μια ροή HLS (.m3u8) ή μια λίστα M3U με πολλά βίντεο. Μένει αποθηκευμένο εδώ.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Χρησιμοποιήστε διεύθυνση που αρχίζει με http:// ή https://.</string>
+    <string name="rede_plex_titulo">Σύνδεση στο Plex</string>
+    <string name="rede_plex_explica">Στο κινητό ή τον υπολογιστή, ανοίξτε το plex.tv/link και πληκτρολογήστε τον κωδικό παρακάτω. Ή στρέψτε την κάμερα του κινητού στον κωδικό QR.</string>
+    <string name="rede_plex_pedindo">Ζητείται κωδικός από το Plex…</string>
+    <string name="rede_plex_esperando">Αναμονή για επιβεβαίωση στο Plex…</string>
+    <string name="rede_plex_buscando">Ο λογαριασμός συνδέθηκε. Αναζήτηση των διακομιστών σας…</string>
+    <string name="rede_plex_venceu">Ο κωδικός έληξε. Πάρτε νέο.</string>
+    <string name="rede_plex_outro">Νέος κωδικός</string>
+    <string name="rede_plex_sem_servidor">Αυτός ο λογαριασμός Plex δεν έχει διακομιστή.</string>
+    <string name="rede_plex_inacessivel">Ο διακομιστής βρέθηκε στον λογαριασμό, αλλά δεν απάντησε από εδώ. Ελέγξτε ότι είναι ανοιχτός και στο ίδιο δίκτυο.</string>
+    <string name="rede_plex_varios">Προστέθηκαν %1$d διακομιστές Plex.</string>
+    <string name="pg_amanha">Αύριο</string>
+    <string name="pg_recado">Μήνυμα</string>
+    <string name="pg_app_despertador">Ξυπνητήρι</string>
+    <string name="pg_bom_dia">Καλημέρα</string>
+    <string name="pg_boa_tarde">Καλό απόγευμα</string>
+    <string name="pg_boa_noite">Καλησπέρα</string>
+    <string name="pg_agora">τώρα</string>
+    <string name="pg_ontem">χθες</string>
+    <string name="pg_mais_notif">+%1$d ειδοποιήσεις</string>
+    <string name="pg_dia_todo">σήμερα</string>
+    <string name="pg_hoje_as">σήμερα στις %1$s</string>
+    <string name="pg_amanha_as">αύριο στις %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Τώρα</string>
+    <string name="pw_proximas_horas">Επόμενες ώρες</string>
+    <string name="pw_hoje">Σήμερα</string>
+    <string name="pw_chuva_pct">%1$d%% πιθανότητα βροχής</string>
+    <string name="pw_umidade_pct">%1$d%% υγρασία</string>
+    <string name="pw_ate_umas">%1$s ως τις %2$s περίπου</string>
+    <string name="pw_chuva_pelas">%1$s, βροχή γύρω στις %2$s</string>
+    <string name="pw_chuva_segue">%1$s τις επόμενες ώρες</string>
+    <string name="pw_amanha_frase">Αύριο %1$d°, %2$s</string>
+    <string name="pw_nasce">ανατολή %1$s</string>
+    <string name="pw_poe">δύση %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Ειδοποιήσεις</string>
+    <string name="pr_sem_notificacoes">Καμία ειδοποίηση</string>
+    <string name="pr_notificacoes_desligadas">Ενεργοποίηση πρόσβασης σε ειδοποιήσεις…</string>
+    <string name="pr_perfis">Προφίλ</string>
+    <string name="pr_protetor">Προφύλαξη οθόνης</string>
+    <string name="pr_timer">Χρονόμετρο</string>
+    <string name="pr_timer_as">Ως τις %1$s</string>
+    <string name="pr_audio_arc">Ενισχυτής (HDMI ARC)</string>
+    <string name="pr_dispensar">Απόρριψη</string>
+    <string name="pr_ontem">χθες</string>
+    <string name="pr_agora">τώρα</string>
+    <string name="pr_configuracoes">Ρυθμίσεις launcher</string>
+    <string name="pr_tocar_pausar">Αναπαραγωγή ή παύση</string>
+    <string name="pr_proxima">Επόμενο</string>
+    <string name="pr_tocando">αναπαράγεται</string>
+    <string name="pr_pausado">σε παύση</string>
+    <string name="pr_dormir">Ύπνος</string>
+    <string name="pr_despertador">Ξυπνητήρι</string>
+    <string name="pr_visita">Επισκέπτες</string>
+    <string name="pr_casa">Σπίτι</string>
+    <string name="pr_config_tv">Ρυθμίσεις TV</string>
+    <string name="pr_sinal_bom">καλό σήμα</string>
+    <string name="pr_sinal_medio">μέτριο σήμα</string>
+    <string name="pr_sinal_fraco">αδύναμο σήμα</string>
+    <string name="pr_bt_conectados">%1$d συνδεδεμένα</string>
+    <string name="pr_hoje">Σήμερα</string>
+    <string name="pr_amanha">Αύριο</string>
+    <string name="pr_ligado">Ενεργό</string>
+    <string name="pr_limpar_tudo">Καθαρισμός όλων</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Catch-up: προηγούμενα προγράμματα</string>
+    <string name="tvv_titulo">Catch-up · %1$s</string>
+    <string name="tvv_do_inicio">Τώρα · από την αρχή: %1$s</string>
+    <string name="tvv_carregando">Λήψη προηγούμενων προγραμμάτων…</string>
+    <string name="tvv_sem_resposta">Ο διακομιστής δεν απάντησε. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="tvv_vazio">Αυτό το κανάλι δεν έχει ακόμα αποθηκευμένα προγράμματα.</string>
+    <string name="tvv_voltou">Πίσω στο ζωντανό</string>
+    <string name="tvv_selo">CATCH-UP</string>
+    <string name="tvv_teclas">◀ ▶ 30 δ. · OK επιλογές · ΠΙΣΩ ζωντανά</string>
+    <string name="tvv_pausar">Παύση</string>
+    <string name="tvv_continuar">Συνέχεια</string>
+    <string name="tvv_ao_vivo">Πίσω στο ζωντανό</string>
+    <string name="tvv_hoje">Σήμερα</string>
+    <string name="tvv_ontem">Χθες</string>
+    <string name="imagem_titulo">Αναλογία εικόνας</string>
+    <string name="imagem_ajustar">Προσαρμογή στην οθόνη</string>
+    <string name="imagem_esticar">Τέντωμα</string>
+    <string name="imagem_zoom">Ζουμ (κόβει τις άκρες)</string>
+    <string name="velocidade_titulo">Ταχύτητα</string>
+    <string name="trailer">Τρέιλερ</string>
+    <string name="trailer_sem_app">Δεν βρέθηκε εφαρμογή για το τρέιλερ.</string>
+    <string name="series_visto_ate_aqui">Σήμανση ως προβεβλημένο ως το %1$s</string>
+    <string name="series_nao_visto">Σήμανση ως μη προβεβλημένο</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Ταινίες και σειρές</string>
+    <string name="idioma_titulo">Προτιμώμενος ήχος</string>
+    <string name="idioma_det">Πρωτότυπο με υπότιτλους στη γλώσσα της τηλεόρασης, ή μεταγλωττισμένο σε αυτήν. Κάθε ταινία και σειρά θυμάται την αλλαγή που έγινε στο πρόγραμμα αναπαραγωγής (▼)</string>
+    <string name="idioma_original">Πρωτότυπο με υπότιτλους</string>
+    <string name="idioma_dublado">Μεταγλωττισμένο</string>
+    <string name="idioma_legendado">Με υπότιτλους</string>
+    <string name="idioma_dublado_curto">Μεταγλωττισμένο</string>
+    <string name="idioma_versao_legendada">Έκδοση με υπότιτλους</string>
+    <string name="idioma_versao_dublada">Μεταγλωττισμένη έκδοση</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Εύρεση υποτίτλων online</string>
+    <string name="legenda_procurando">Αναζήτηση υποτίτλων…</string>
+    <string name="legenda_baixando">Λήψη υποτίτλων…</string>
+    <string name="legenda_acertada">Υπότιτλοι συγχρονισμένοι με την ομιλία · %1$s</string>
+    <string name="legenda_pronta">Οι υπότιτλοι είναι έτοιμοι</string>
+    <string name="legenda_nenhuma">Δεν υπάρχουν υπότιτλοι στη γλώσσα της τηλεόρασης για αυτό το βίντεο</string>
+    <string name="legenda_erro">Δεν ήταν δυνατή η αναζήτηση υποτίτλων</string>
+    <string name="legenda_invalida">Το αρχείο που κατέβηκε δεν είναι υπότιτλος</string>
+    <string name="legenda_sem_conta">Προσθέστε το κλειδί OpenSubtitles στις Ρυθμίσεις › TV και ταινίες › Ταινίες και σειρές</string>
+    <string name="legenda_escolher">Υπότιτλοι για \"%1$s\"</string>
+    <string name="legenda_surdos">για άτομα με προβλήματα ακοής</string>
+    <string name="legenda_bate">φτιαγμένοι για αυτό το αρχείο</string>
+    <string name="lista_dica_escolher">επιλογή</string>
+    <string name="legenda_atraso_titulo">Καθυστέρηση υποτίτλων (+ = το κείμενο εμφανίζεται αργότερα)</string>
+    <string name="legenda_atraso_zero">Χωρίς καθυστέρηση</string>
+    <string name="legenda_conta_titulo">Υπότιτλοι online</string>
+    <string name="legenda_conta_det">OpenSubtitles, με το κλειδί API σας (δωρεάν στο opensubtitles.com/consumers). Χωρίς λογαριασμό: 5 υπότιτλοι την ημέρα</string>
+    <string name="legenda_conta_sim">ρυθμισμένο</string>
+    <string name="legenda_conta_nao">μη ρυθμισμένο</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">απομένουν %1$s</string>
+    <string name="tempo_falta_um">απομένουν %1$s</string>
+    <string name="serie_ep_longo">Σεζόν %1$d, επεισόδιο %2$d</string>
+    <string name="ficha_continuar_de">από %1$s</string>
+    <string name="tempo_termina_as">τελειώνει στις %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s επεισόδια</string>
+    <string name="tempo_x_de_y">%1$d από %2$d</string>
+    <string name="tempo_visto">προβεβλημένο</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Προφίλ Google</string>
+    <string name="fp_linha">Λήψη φωτογραφίας λογαριασμού</string>
+    <string name="fp_linha_det">Δείχνει τη φωτογραφία του λογαριασμού Google στο κουμπί προφίλ</string>
+    <string name="fp_titulo">Φωτογραφία λογαριασμού</string>
+    <string name="fp_fechar">Κλείσιμο</string>
+    <string name="fp_pedindo">Ζητείται κωδικός από τη Google…</string>
+    <string name="fp_passos">1. Στο κινητό, ανοίξτε το %1$s (ή στρέψτε την κάμερα στον κωδικό δεξιά).\n2. Συνδεθείτε με έναν λογαριασμό Google που υπάρχει σε αυτή την τηλεόραση και πληκτρολογήστε:\n\n%2$s\n\nΑυτή η οθόνη συνεχίζει μόνη της. Αυτή η σύνδεση χρησιμοποιείται μόνο για τη λήψη της φωτογραφίας.</string>
+    <string name="fp_ok">Έγινε: η φωτογραφία του %1$s είναι τώρα στο κουμπί προφίλ.</string>
+    <string name="fp_sem_foto">Συνδεθήκατε ως %1$s, αλλά η φωτογραφία δεν αποθηκεύτηκε. Δοκιμάστε ξανά ή στείλτε μια φωτογραφία από τον πίνακα web (καρτέλα Φωτογραφίες προφύλαξης).</string>
+    <string name="fp_falha">Δεν πέτυχε: %1$s</string>
+    <string name="fp_sem_google">Η σύνδεση Google δεν έχει ρυθμιστεί ακόμα σε αυτή την τηλεόραση.\n\nΔύο τρόποι να βάλετε φωτογραφία στο κουμπί προφίλ:\n• Πίνακας web > καρτέλα Φωτογραφίες προφύλαξης > Φωτογραφία προφίλ: επιλέξτε οποιαδήποτε εικόνα από το κινητό σας.\n• Ρυθμίστε τη σύνδεση Google (πίνακας web > καρτέλα Claude) και επιστρέψτε εδώ για να πάρετε τη φωτογραφία του λογαριασμού.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Κεφάλαιο %1$d</string>
+    <string name="vod_capitulos_titulo">Κεφάλαια</string>
+    <string name="vod_capitulos_opcao">Κεφάλαια (%1$d)</string>
+    <string name="vod_segunda_opcao">Δεύτεροι υπότιτλοι (πάνω)</string>
+    <string name="vod_segunda_titulo">Δεύτεροι υπότιτλοι</string>
+    <string name="vod_segunda_desligada">Ανενεργό</string>
+    <string name="vod_dialogo_opcao">Πιο δυνατοί διάλογοι</string>
+    <string name="vod_dialogo_ligado">Πιο δυνατοί διάλογοι ενεργοί</string>
+    <string name="vod_dialogo_desligado">Πιο δυνατοί διάλογοι ανενεργοί</string>
+    <string name="vod_atraso_audio_titulo">Καθυστέρηση ήχου (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Καμία</string>
+    <string name="vod_atraso_audio_mais">Ο ήχος φτάνει %1$d ms αργότερα</string>
+    <string name="vod_atraso_audio_menos">Ο ήχος φτάνει %1$d ms νωρίτερα</string>
+    <string name="vod_info_opcao">Τεχνικές πληροφορίες</string>
+    <string name="info_video">Βίντεο</string>
+    <string name="info_audio">Ήχος</string>
+    <string name="info_perdidos">Χαμένα καρέ</string>
+    <string name="info_taxa">Ρυθμός bit</string>
+    <string name="info_buffer">Buffer</string>
+    <string name="info_atraso">Καθυστέρηση ήχου</string>
+    <string name="info_dialogo">Πιο δυνατοί διάλογοι ενεργοί</string>
+    <string name="info_chip">Τσιπ TV</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">μονοφωνικό</string>
+    <string name="info_estereo">στερεοφωνικό</string>
+    <string name="lista_dica_voltar">πίσω</string>
+    <string name="pm_ligado">Ενεργό</string>
+    <string name="pm_desligado">Ανενεργό</string>
+    <string name="pm_imagem_som">Εικόνα και ήχος</string>
+    <string name="pm_mais">Περισσότερες επιλογές</string>
+    <string name="pm_versao_legendada">Προβολή με υπότιτλους</string>
+    <string name="pm_versao_dublada">Προβολή μεταγλωττισμένο</string>
+    <string name="pm_versao_info">Συνεχίζει από αυτό το σημείο</string>
+    <string name="pm_leg_ajustes">Ρυθμίσεις υποτίτλων</string>
+    <string name="pm_leg_tamanho">Μέγεθος</string>
+    <string name="pm_leg_estilo">Στυλ</string>
+    <string name="pm_leg_posicao">Θέση</string>
+    <string name="pm_leg_atraso">Καθυστέρηση</string>
+    <string name="pm_leg_auto">Λήψη ενός όταν λείπει</string>
+    <string name="pm_leg_traduzir">Μετάφραση στην τηλεόραση όταν λείπει</string>
+    <string name="pm_velocidade">Ταχύτητα</string>
+    <string name="pm_proporcao">Μέγεθος εικόνας</string>
+    <string name="pm_atraso_audio">Καθυστέρηση ήχου</string>
+    <string name="pm_quadros">Ταίριασμα με τον ρυθμό καρέ της ταινίας</string>
+    <string name="pm_qualidade">Ποιότητα</string>
+    <string name="pv_sem_titulo">Καμία πρόγνωση τώρα</string>
+    <string name="bu_voz_grupo">Μιλήστε</string>
+    <string name="bu_falar">Πείτε τι ψάχνετε</string>
+    <string name="bu_falar_det">Πιο γρήγορα από την πληκτρολόγηση με το τηλεχειριστήριο</string>
+    <string name="bu_recentes">Πρόσφατες αναζητήσεις</string>
+    <string name="bu_recente_det">Νέα αναζήτηση</string>
+    <string name="aviso_alarme_tocou_titulo">Το ξυπνητήρι χτύπησε στην τηλεόραση</string>
+    <string name="aviso_alarme_tocou_texto">Άρχισε να χτυπά στις %1$s.</string>
+    <string name="home_instalar_externo">Εγκατάσταση σε εξωτερικό χώρο αποθήκευσης</string>
+    <string name="home_instalar_dispositivo">Εγκατάσταση σε αυτή τη συσκευή</string>
+    <string name="home_instalando_lugar">Μετακίνηση του %1$s… κλείνει ως το τέλος.</string>
+    <string name="home_instalado_externo">Το %1$s είναι τώρα στον εξωτερικό χώρο αποθήκευσης.</string>
+    <string name="home_instalado_dispositivo">Το %1$s επέστρεψε σε αυτή τη συσκευή.</string>
+    <string name="home_instalar_lugar_falhou">Δεν ήταν δυνατή η μετακίνηση του %1$s: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">το δικό shell της τηλεόρασης δεν είναι ενεργό</string>
+    <string name="home_instalar_lugar_sem_pendrive">κανένα USB στικ ρυθμισμένο ως χώρος αποθήκευσης TV</string>
+    <string name="st_titulo">USB στικ και αποθήκευση</string>
+    <string name="st_explica">Επιλέξτε πώς χρησιμοποιεί η τηλεόραση ένα USB στικ. Λίγος χώρος; Μπορεί να γίνει χώρος αποθήκευσης TV για βαριές εφαρμογές.</string>
+    <string name="st_linha_det">Χρήση USB στικ ως χώρου αποθήκευσης TV</string>
+    <string name="st_sem_shell">Χρειάζεται το δικό shell της τηλεόρασης (Ρυθμίσεις › Σύστημα › Για προχωρημένους). OK για νέα προσπάθεια.</string>
+    <string name="st_sem_pen">Κανένα USB στικ συνδεδεμένο. Συνδέστε ένα και πατήστε OK.</string>
+    <string name="st_tv_livre">Αποθήκευση TV: %1$s ελεύθερα από %2$s</string>
+    <string name="st_pen">USB στικ · %1$s · %2$s</string>
+    <string name="st_modo_comum">Κανονικό USB στικ</string>
+    <string name="st_modo_misto">Μικτό</string>
+    <string name="st_modo_tv">Αποθήκευση TV</string>
+    <string name="st_modo_desconhecido">Μη διαμορφωμένο</string>
+    <string name="st_recomendado">Προτείνεται: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">αυτό το στικ είναι αργό, οι εφαρμογές θα κολλούσαν</string>
+    <string name="st_motivo_pequeno">κάτω από 8 GB, πολύ μικρό για να βοηθήσει</string>
+    <string name="st_motivo_folgada">η τηλεόραση έχει ακόμα χώρο, δεν χρειάζεται να σβηστεί το στικ</string>
+    <string name="st_motivo_grande">μισό για εφαρμογές, μισό για εγγραφές και αρχεία</string>
+    <string name="st_motivo_apertada">η τηλεόραση είναι σχεδόν γεμάτη</string>
+    <string name="st_medido">γράφει με %1$s MB/s</string>
+    <string name="st_medir_dica">OK μετρά την ταχύτητά του</string>
+    <string name="st_usar_comum">Χρήση ως κανονικό USB στικ</string>
+    <string name="st_usar_misto">Χρήση ως μικτό: %1$d%% κανονικό  ◀ ▶</string>
+    <string name="st_usar_tv">Χρήση ως αποθήκευση TV</string>
+    <string name="st_apps">Εφαρμογές στο USB στικ</string>
+    <string name="st_apps_det">Επιλέξτε εφαρμογές για μετακίνηση (οι μεγαλύτερες πρώτα)</string>
+    <string name="st_apps_nenhum">Καμία εφαρμογή δεν μπορεί να μετακινηθεί.</string>
+    <string name="st_apps_rodape">OK μετακινεί την εφαρμογή· ✓ = ήδη στο USB στικ</string>
+    <string name="st_compartilhado">Φωτογραφίες και αρχεία: %1$s</string>
+    <string name="st_na_tv">στην τηλεόραση</string>
+    <string name="st_no_pen">στο USB στικ</string>
+    <string name="st_compartilhado_aviso">Όλα αντιγράφονται και οι εφαρμογές κλείνουν στο μεταξύ. Επανεκκινήστε την τηλεόραση μετά.</string>
+    <string name="st_mover">Μετακίνηση</string>
+    <string name="st_movendo">Μετακίνηση… μπορεί να πάρει αρκετά λεπτά.</string>
+    <string name="st_aviso_titulo">Διαγραφή του USB στικ;</string>
+    <string name="st_aviso">Όλα όσα έχει θα διαγραφούν για να γίνει \"%1$s\". Ως αποθήκευση TV λειτουργεί μόνο σε αυτή την τηλεόραση, και οι εφαρμογές πάνω του εξαφανίζονται όσο είναι αποσυνδεδεμένο.</string>
+    <string name="st_apagar">Διαγραφή και διαμόρφωση</string>
+    <string name="st_formatando">Διαμόρφωση… μπορεί να πάρει λίγα λεπτά.</string>
+    <string name="st_pronto">Έγινε.</string>
+    <string name="st_falhou">Δεν πέτυχε: %1$s</string>
+    <string name="st_depois">Τώρα επιλέξτε ποιες εφαρμογές πάνε στο USB στικ.</string>
+    <string name="st_pin">PIN του πίνακα για αλλαγή του USB στικ</string>
+    <string name="st_copiar_titulo">Αντιγραφή του περιεχομένου πρώτα; (%1$s)</string>
+    <string name="st_copiar_para">Αντιγραφή σε %1$s</string>
+    <string name="st_copiar_pc">Αντιγραφή μέσω υπολογιστή (πώς)</string>
+    <string name="st_copiar_pc_texto">Στον υπολογιστή, ανοίξτε Αυτός ο υπολογιστής > την τηλεόραση > USB στικ και αντιγράψτε τα αρχεία στον υπολογιστή. Μετά επιστρέψτε εδώ και διαμορφώστε.</string>
+    <string name="st_nao_copiar">Δεν χρειάζεται, διαγραφή</string>
+    <string name="st_copiando_inicio">Αντιγραφή του USB στικ… η τηλεόραση συνεχίζει να λειτουργεί στο μεταξύ.</string>
+    <string name="st_copiando">Αντιγράφηκαν %1$s από %2$s</string>
+    <string name="st_voltar_comum">Επιστροφή σε κανονικό USB στικ (οι εφαρμογές επιστρέφουν στην τηλεόραση)</string>
+    <string name="st_trazendo">Επιστροφή του %1$s στην τηλεόραση…</string>
+    <string name="st_sumiram">Το USB στικ αφαιρέθηκε: τα %1$s είναι κρυφά ως να επιστρέψει.</string>
+    <string name="st_sugestao">Η αποθήκευση TV είναι σχεδόν γεμάτη. Μετακινήστε το %1$s (%2$s) στο USB στικ: κρατήστε OK στην εφαρμογή.</string>
+    <string name="st_medindo">Μέτρηση της ταχύτητας του στικ για την καλύτερη πρόταση χρήσης…</string>
+    <string name="st_lento_titulo">Το στικ είναι πολύ αργό</string>
+    <string name="st_lento_bloqueado">Αυτό το στικ γράφει με %1$s MB/s. Για να γίνει αποθήκευση TV χρειάζεται τουλάχιστον %2$d MB/s: κάτω από αυτό οι εφαρμογές παγώνουν και η τηλεόραση ίσως δεν ξεκινά. Χρησιμοποιήστε το ως κανονικό στικ.</string>
+    <string name="st_aviso_boot">Αφήστε το συνδεδεμένο μόνιμα: αν χαλάσει ή αφαιρεθεί, η τηλεόραση ίσως δεν ξεκινά μέχρι να το αποσυνδέσετε.</string>
+    <string name="home_grande_titulo">Μετακίνηση του %1$s;</string>
+    <string name="home_grande_aviso">Το %1$s πιάνει %2$s. Σε αργό στικ η μετακίνηση μπορεί να πάρει πάνω από 10 λεπτά και έχει ρίξει μια τηλεόραση στη μέση. Συνεχίστε μόνο όσο δεν βλέπει κανείς.</string>
+    <string name="home_liberar_arquivos">Να ανοίγει USB στικ και αρχεία</string>
+    <string name="home_arquivos_liberado">Το %1$s μπορεί τώρα να ανοίγει USB στικ και όλα τα αρχεία</string>
+    <string name="home_arquivos_falhou">Δεν ήταν δυνατό να επιτραπεί στο %1$s: %2$s</string>
+    <string name="aviso_continuar_titulo">Τίποτα για συνέχιση</string>
+    <string name="aviso_continuar_texto">Η πρόσκληση για συνέχιση από την άλλη τηλεόραση έληξε.</string>
+    <string name="aviso_simples_titulo">Η Εύκολη οθόνη είναι ανενεργή</string>
+    <string name="aviso_simples_texto">Η τηλεόραση επέστρεψε στην πλήρη αρχική οθόνη.</string>
+    <string name="aviso_sync_titulo">Κανένας λογαριασμός συνδεδεμένος</string>
+    <string name="aviso_sync_texto">Δεν υπάρχει λογαριασμός %1$s σε αυτή την τηλεόραση. Συνδέστε τον στις Ρυθμίσεις › TV και ταινίες.</string>
+    <string name="dns_nota_familia">οικογένεια, αποκλείει ιστότοπους ενηλίκων</string>
+    <string name="dns_nota_malware">αποκλείει κακόβουλο λογισμικό</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">Η τηλεόραση δεν έχει Wi-Fi%1$s. Ελέγξτε ότι ο router είναι ανοιχτός, ή αν άλλαξε το όνομα ή ο κωδικός του δικτύου.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">ο router έχασε τη σύνδεση με το μόντεμ του παρόχου</string>
+    <string name="ief_roteador_ve_fora" formatted="true">και ο router βλέπει το internet πεσμένο</string>
+    <string name="ief_ha" formatted="true"> (πριν από %1$s)</string>
+    <string name="ief_provedor_caiu" formatted="true">Το Wi-Fi είναι εντάξει, αλλά το internet του παρόχου έπεσε%1$s· %2$s%3$s. Δεν φταίει η τηλεόραση: περιμένετε τον πάροχο ή επανεκκινήστε το μόντεμ.</string>
+    <string name="ief_vpn_travada" formatted="true">Ο router έχει internet, αλλά η τηλεόραση δεν περνά%1$s: το VPN μάλλον κόλλησε. Συνήθως διορθώνεται απενεργοποιώντας και ενεργοποιώντας το VPN.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Ο router έχει internet, αλλά η τηλεόραση δεν το φτάνει%1$s: το πρόβλημα είναι ανάμεσα στην τηλεόραση και τον router%2$s Η επανασύνδεση της τηλεόρασης στο Wi-Fi συνήθως το διορθώνει.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (το σήμα Wi-Fi είναι αδύναμο, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">Η τηλεόραση είναι στο Wi-Fi, αλλά ούτε ο router ούτε το internet απαντούν%1$s: ο router ίσως κόλλησε. Συνήθως διορθώνεται κλείνοντας και ανοίγοντας τον router.</string>
+    <string name="ief_sem_internet" formatted="true">Το Wi-Fi είναι εντάξει, αλλά το internet δεν περνά%1$s· μάλλον φταίει ο πάροχος ή ο router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (μπορεί να φταίει και το ενεργό VPN).</string>
+    <string name="ief_dns" formatted="true">Το internet λειτουργεί, αλλά το DNS%1$s δεν απαντά%2$s: οι εφαρμογές δεν βρίσκουν τους διακομιστές τους. Η αλλαγή του DNS σε Αυτόματο το διορθώνει.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Το internet και το DNS απαντούν, αλλά η δοκιμαστική σελίδα της Google %1$s: κάτι στη διαδρομή (VPN, αποκλεισμός DNS ή δίκτυο που ζητά σύνδεση) τη μπλοκάρει.</string>
+    <string name="ief_nao_abriu" formatted="true">δεν άνοιξε</string>
+    <string name="ief_codigo_diferente" formatted="true">απάντησε διαφορετικά (κωδικός %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Το internet είναι εντάξει· μόνο το VPN είναι ανενεργό (οι εφαρμογές λειτουργούν χωρίς αυτό).%1$s</string>
+    <string name="ief_lenta" formatted="true">Το internet λειτουργεί, αλλά αργά: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">το σήμα Wi-Fi είναι αδύναμο (%1$d dBm)· βοηθά ο router πιο κοντά ή ένα καλώδιο</string>
+    <string name="ief_lenta_tcp" formatted="true">το internet χρειάζεται %1$d ms για να απαντήσει%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, και ο router βλέπει το ίδιο: φταίει ο πάροχος</string>
+    <string name="ief_lenta_http" formatted="true">η δοκιμαστική σελίδα χρειάστηκε %1$.1f δ. για να ανοίξει</string>
+    <string name="ief_queda_recente" formatted="true">Το internet είναι εντάξει τώρα· %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Όλα καλά: Wi-Fi, internet και DNS απαντούν.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Καμία διακοπή τις τελευταίες 24 ώ.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Καμία καταγεγραμμένη διακοπή (η τηλεόραση μέτρησε μόνο μέρος των τελευταίων 24 ώ.).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Ο router αναφέρει πρόβλημα internet, αλλά η τηλεόραση περιηγείται κανονικά.)</string>
+    <string name="ief_caiu_dns" formatted="true">το DNS απέτυχε</string>
+    <string name="ief_caiu_internet" formatted="true">το internet έπεσε</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (μετά η τηλεόραση σταμάτησε να μετρά· δεν μπορούμε να ξέρουμε πότε επανήλθε)</string>
+    <string name="ief_quedas_n" formatted="true">· %1$d διακοπές σε 24 ώ.</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s και επανήλθε %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">· %1$d διακοπές σε 24 ώ., %2$s χωρίς internet συνολικά</string>
+    <string name="ief_quando_hoje" formatted="true">στις %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">χθες στις %1$s</string>
+    <string name="ief_quando_data" formatted="true">στις %1$s, ώρα %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">από τις %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">από χθες στις %1$s</string>
+    <string name="ief_desde_data" formatted="true">από %1$s στις %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">λιγότερο από 1 λεπ.</string>
+    <string name="ief_dur_min" formatted="true">%1$d λεπ.</string>
+    <string name="ief_dur_h" formatted="true">%1$d ώ.</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d ώ. %2$d λεπ.</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: αποσυνδεδεμένο</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">δίκτυο: συνδεδεμένο</string>
+    <string name="ief_s_internet" formatted="true">internet χωρίς DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS χωρίς cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">απέτυχε</string>
+    <string name="ief_s_pagina" formatted="true">δοκιμαστική σελίδα: %1$s</string>
+    <string name="ief_s_ok" formatted="true">εντάξει</string>
+    <string name="ief_s_ok_em" formatted="true">εντάξει σε %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">κωδικός %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: ενεργό</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: ανενεργό</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: βλέπει το internet πεσμένο</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: βλέπει το internet εντάξει%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: καμία γνώμη</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: δεν απάντησε</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: δεν ελέγχθηκε</string>
+    <string name="ief_s_historico" formatted="true">ιστορικό: %1$d μετρήσεις σε 24 ώ.</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Η Google δεν απάντησε τώρα· δοκιμάστε ξανά</string>
+    <string name="lg_negado">η σύνδεση απορρίφθηκε στη Google</string>
+    <string name="lg_google_respondeu">Η Google απάντησε: %1$s</string>
+    <string name="lg_venceu">ο κωδικός έληξε· ξεκινήστε ξανά</string>
+    <string name="lg_outro_login">ξεκίνησε άλλη σύνδεση· ξεκινήστε ξανά</string>
+    <string name="lg_email">Η Google δεν επιβεβαίωσε το e-mail</string>
+    <string name="lg_conta_fora">ο λογαριασμός %1$s δεν είναι σε κανένα προφίλ αυτής της τηλεόρασης</string>
+    <string name="lg_sem_drive">η άδεια Google Drive δεν επιλέχθηκε</string>
+    <string name="lg_sem_chave">Η Google δεν έστειλε το κλειδί πρόσβασης· δοκιμάστε ξανά</string>
+    <string name="lg_nao_guardei">ο λογαριασμός δεν αποθηκεύτηκε σε αυτή την τηλεόραση</string>
+    <string name="lg_nao_configurado">Η σύνδεση Google δεν έχει ρυθμιστεί</string>
+    <string name="lg_ritmo">πάρα πολλές συνδέσεις στη σειρά· περιμένετε ένα λεπτό</string>
+    <string name="lg_recusou">Η Google αρνήθηκε (%1$s): ελέγξτε το client id και το secret</string>
+    <string name="lg_erro_google">σφάλμα επικοινωνίας με τη Google</string>
+</resources>
