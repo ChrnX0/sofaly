@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Témata</string>
+    <string name="pod_ass_seus">Sledujete: %d</string>
+    <string name="pod_ass_em_alta">Trendy v tomto tématu</string>
+    <string name="pod_parecidos">Podobné: %s</string>
+    <string name="pod_ass_noticias">Zprávy</string>
+    <string name="pod_ass_humor">Komedie</string>
+    <string name="pod_ass_ciencia">Věda</string>
+    <string name="pod_ass_tecnologia">Technologie</string>
+    <string name="pod_ass_historia">Historie</string>
+    <string name="pod_ass_negocios">Byznys</string>
+    <string name="pod_ass_saude">Zdraví</string>
+    <string name="pod_ass_esportes">Sport</string>
+    <string name="pod_ass_cultura">Kultura</string>
+    <string name="pod_ass_crimes">Skutečné zločiny</string>
+    <string name="pod_ass_tv_filmes">TV a film</string>
+    <string name="pod_ass_musica">Hudba</string>
+    <string name="pod_ass_educacao">Vzdělávání</string>
+    <string name="pod_ass_infantil">Děti a rodina</string>
+    <string name="pod_ass_fe">Víra</string>
+    <string name="pod_ass_lazer">Volný čas</string>
+</resources>

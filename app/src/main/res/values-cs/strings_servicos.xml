@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Filmové a seriálové služby</string>
+    <string name="sv_subtitulo">Nepovinné účty. Dokud se nepřihlásíte, nic neopustí televizor.</string>
+    <string name="sv_linha">Filmové a seriálové služby</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB a OpenSubtitles</string>
+    <string name="sv_trakt_det">Udržuje zhlédnuté a seznam ke zhlédnutí v souladu s telefonem</string>
+    <string name="sv_simkl_det">Jako Trakt, navíc skvělé pro anime. Použijte jedno nebo obojí</string>
+    <string name="sv_mdblist_det">Nepovinné: vaše seznamy, například Top 250, se stanou kategoriemi ve Filmech a Seriálech</string>
+    <string name="sv_tmdb_det">Děj, obsazení a datum dalšího dílu v jazyce televizoru</string>
+    <string name="sv_os_det">Online titulky. Bez účtu: 5 denně. S bezplatným účtem: 20</string>
+    <string name="sv_desligado">Přihlásit se</string>
+    <string name="sv_entrando">přihlašuje se…</string>
+    <string name="sv_conectado">připojeno</string>
+    <string name="sv_ativo">zapnuto</string>
+    <string name="sv_sem_chave">Tato verze zatím nemá klíče k těmto službám. Objeví se po příští aktualizaci.</string>
+    <string name="sv_pedindo">Žádá se %1$s o kód…</string>
+    <string name="sv_passos">1. V telefonu otevřete %1$s (nebo namiřte fotoaparát na kód vpravo).\n2. Přihlaste se k %2$s a zadejte kód:</string>
+    <string name="sv_espera">Tato obrazovka pokračuje sama. ZPĚT ruší.</string>
+    <string name="sv_ok">Hotovo: %1$s je připojen%2$s.</string>
+    <string name="sv_ok_como"> jako %1$s</string>
+    <string name="sv_falhou">Nepovedlo se: %1$s</string>
+    <string name="sv_motivo_venceu">kód vypršel. Zkuste to znovu.</string>
+    <string name="sv_motivo_recusado">přístup byl v telefonu zamítnut.</string>
+    <string name="sv_motivo_usado">tento kód už byl použit. Zkuste to znovu.</string>
+    <string name="sv_motivo_erro">služba neodpověděla. Zkuste to za chvíli znovu.</string>
+    <string name="sv_sair_pergunta">Odhlásit se z %1$s? Televizor účet zapomene a přestane s %1$s komunikovat. Vaše data tam zůstanou.</string>
+    <string name="sv_sair">Odhlásit se</string>
+    <string name="sv_fechar">Zavřít</string>
+    <string name="sv_mdblist_titulo">Klíč MDBList</string>
+    <string name="sv_mdblist_texto">Nepovinné: hodnocení fungují i bez něj. Chcete-li použít vlastní účet MDBList (vaše seznamy, vaše kvóta), přihlaste se na mdblist.com, otevřete Preferences, zkopírujte API key a napište ho sem (snazší z webového panelu, karta Nastavení, vložením).</string>
+    <string name="sv_mdblist_dica">API klíč</string>
+    <string name="sv_os_titulo">Účet OpenSubtitles</string>
+    <string name="sv_os_texto">Nepovinné: s bezplatným účtem na opensubtitles.com se limit zvýší z 5 na 20 titulků denně.</string>
+    <string name="sv_os_usuario">Uživatelské jméno</string>
+    <string name="sv_os_senha">Heslo</string>
+    <string name="sv_gravar">Uložit</string>
+    <string name="sv_cancelar">Zrušit</string>
+    <string name="sv_limite_dia">Denní limit titulků je vyčerpán. Obnoví se za 24 h (s účtem OpenSubtitles je to 20 denně).</string>
+    <string name="sv_tmdb_atribuicao">Tento produkt používá API TMDB, ale TMDB ho neschvaluje ani necertifikuje.</string>
+    <string name="ext_saga">%1$s · %2$d z %3$d ve vašem seznamu</string>
+    <string name="ext_nao_e_este">Tento film ne</string>
+    <string name="ext_proximo">Nový díl %1$s (Ř%2$dD%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Nový díl %1$s</string>
+    <string name="ext_hoje">dnes</string>
+    <string name="ext_amanha">zítra</string>
+    <string name="sv_mdblist_passos">Nepovinné: vaše seznamy MDBList (například Top 250) se stanou kategoriemi ve Filmech a Seriálech.\n1. Namiřte fotoaparát telefonu na kód vlevo a přihlaste se (nebo si vytvořte bezplatný účet). Na konci stránky klepněte na API Access, vygenerujte klíč, pokud ještě není, a zkopírujte ho.\n2. Namiřte na kód vpravo: webový panel se otevře na Nastavení. Vložte klíč do MDBList a klepněte na Uložit klíč.\n3. Televizor ho hned ověří a tato obrazovka pokračuje sama.</string>
+    <string name="sv_mdblist_qr1">Stránka s klíčem MDBList</string>
+    <string name="sv_mdblist_qr2">Webový panel (%1$s)</string>
+    <string name="sv_mdblist_digitar">Napište klíč sem</string>
+    <string name="sv_f_chave_invalida">neplatný klíč (jen písmena a číslice)</string>
+    <string name="sv_f_chave_recusada">%1$s tento klíč nepřijal</string>
+    <string name="sv_f_respondeu">%1$s odpověděl chybou %2$d. Zkuste to za chvíli znovu.</string>
+    <string name="sv_f_falta">zadejte uživatelské jméno a heslo</string>
+    <string name="sv_f_longo">uživatelské jméno nebo heslo je příliš dlouhé</string>
+    <string name="sv_f_senha">špatné uživatelské jméno nebo heslo</string>
+    <string name="sv_f_gravar">na televizoru se to nepodařilo uložit. Zkuste to znovu.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Hodnocení Simkl</string>
+    <string name="sv_simkl_convite_det">Připojit účet</string>
+</resources>

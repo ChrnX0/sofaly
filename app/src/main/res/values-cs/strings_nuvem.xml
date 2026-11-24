@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Videa, hudba a fotky z vašeho cloudu</string>
+    <string name="rede_nuvem_seguir">Pokračovat</string>
+    <string name="rede_nuvem_entrar">Přihlásit se</string>
+    <string name="rede_nuvem_pedindo">Žádá se o kód…</string>
+    <string name="rede_nuvem_esperando">Čeká se na vaše potvrzení v telefonu…</string>
+    <string name="rede_nuvem_salvando">Přihlašuje se…</string>
+    <string name="rede_nuvem_recusado">Služba odmítla. Zkontrolujte ID aplikace a zkuste to znovu.</string>
+    <string name="rede_erro_nuvem_login">Oprávnění tohoto účtu vypršelo nebo bylo odebráno. Odeberte účet (podržte OK) a přihlaste se znovu.</string>
+    <string name="rede_od_titulo">OneDrive: vaše aplikace u Microsoftu</string>
+    <string name="rede_od_explica">Jednou, na počítači: entra.microsoft.com › App registrations › New registration. U typů účtů vyberte ten, který zahrnuje osobní účty Microsoft. Pak v Authentication zapněte „Allow public client flows“. Zkopírujte „Application (client) ID“ a napište ho sem (můžete psát z telefonu, v panelu).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">ID vypadá jako 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">Na telefonu nebo počítači otevřete microsoft.com/link (nebo namiřte fotoaparát na QR) a zadejte kód níže. Televizor žádá jen o čtení souborů.</string>
+    <string name="rede_od_erro_app">Microsoft tuto aplikaci nepřijal. Zkontrolujte ID a že je zapnuto „Allow public client flows“.</string>
+    <string name="rede_dbx_explica">Jednou, na počítači: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. Na kartě Permissions zaškrtněte files.metadata.read, files.content.read a account_info.read (a files.content.write, chcete-li noční zálohu v Dropboxu) a uložte (Submit). Zkopírujte „App key“ a napište ho sem.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">App key obsahuje jen malá písmena a číslice.</string>
+    <string name="rede_dbx_codigo_explica">Namiřte fotoaparát telefonu na QR, přihlaste se do Dropboxu a klepněte na Allow. Dropbox ukáže kód: napište ho sem (můžete psát z telefonu, v panelu).</string>
+    <string name="rede_dbx_codigo">Kód Dropboxu</string>
+    <string name="rede_dbx_codigo_erro">Napište celý kód, který Dropbox ukázal.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Jednou, na počítači: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). Na kartě Configuration v OAuth 2.0 Redirect URI zadejte %1$s a zaškrtněte „Read all files and folders“ (a „Write all files and folders“, chcete-li noční zálohu v Boxu). Uložte a pak sem zkopírujte Client ID a Client Secret.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID a Client Secret obsahují jen písmena a číslice. Zkopírujte obojí z karty Configuration.</string>
+    <string name="rede_volta_sem_rede">Televizor není v domácí síti. Připojte ho a zkuste to znovu.</string>
+    <string name="rede_volta_explica">Namiřte na QR fotoaparát telefonu, který je ve stejné Wi‑Fi jako televizor, přihlaste se k %1$s a povolte přístup. Telefon se k televizoru vrátí sám: nic se nepíše.</string>
+    <string name="rede_volta_porta">Port %1$d na televizoru je obsazený. Zavřete ostatní aplikace a zkuste to znovu.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Jednou, na počítači, ve vašem projektu Google Cloud (console.cloud.google.com): APIs &amp; Services › Library › zapněte „Google Drive API“. V Google Auth Platform › Data Access přidejte rozsah …/auth/drive.readonly. V Clients › Create client › Web application zadejte do Authorized redirect URIs %1$s. Zkopírujte sem Client ID a Client secret.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Zkopírujte obojí ze stránky klienta: ID končí na .apps.googleusercontent.com a tajný klíč obvykle začíná GOCSPX-.</string>
+    <string name="rede_gd_aviso">Pokud Google říká, že aplikace není ověřená, klepněte na Rozšířené › Přejít na (je to vaše vlastní aplikace).</string>
+</resources>

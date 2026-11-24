@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Filmy v jejich vlastní snímkové frekvenci (24 Hz)</string>
+    <string name="quadros_det">Během filmu televizor přepne na 24 Hz, aby se obraz při pohybu kamery necukal. Na začátku obrazovka na 1 až 2 s zčerná. Nepoužívá se pro živou TV.</string>
+</resources>

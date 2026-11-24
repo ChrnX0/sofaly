@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Možnosti pro %1$s</string>
+    <string name="wo_ordenar">Řadit</string>
+    <string name="wo_ordenar_de">Řadit %1$s</string>
+    <string name="wo_por_uso">Nejpoužívanější nahoře</string>
+    <string name="wo_az">A až Z</string>
+    <string name="wo_a_mao">Vlastní pořadí</string>
+    <string name="wo_renomear_mundo">Přejmenovat tuto kategorii</string>
+    <string name="wo_icone_mundo">Změnit ikonu této kategorie</string>
+    <string name="wo_esconder">Skrýt tuto kategorii</string>
+    <string name="wo_mostrar">Zobrazit skryté kategorie (%1$d)</string>
+    <string name="wo_padrao">Vrátit, jak to bylo</string>
+    <string name="wo_subir">Posunout nahoru</string>
+    <string name="wo_descer">Posunout dolů</string>
+    <string name="wo_renomear_app">Přejmenovat</string>
+    <string name="wo_vazio_original">Prázdné = původní název</string>
+    <string name="wo_so_icone">Zobrazit jen ikonu</string>
+    <string name="wo_com_nome">Zobrazit název</string>
+    <string name="wo_nomes_titulo">Popisky ikon</string>
+    <string name="wo_so_icone_curto">Jen ikona</string>
+    <string name="wo_com_nome_curto">S názvem</string>
+    <string name="co_titulo">Pokračovat</string>
+    <string name="co_mostrar">Zobrazeno</string>
+    <string name="co_esconder">Skryto</string>
+    <string name="wo_nomes_det">Název pod ikonou každé kategorie, nebo jen ikona</string>
+    <string name="co_det">Co jste nechali v půlce, nahoře v každé kategorii</string>
+    <string name="tec_cfg_det">Stisk, podržení, dvojitý a trojitý stisk u každého tlačítka</string>
+    <string name="bb_titulo">Rozvržení domovské obrazovky</string>
+    <string name="bb_cruz">Kříž</string>
+    <string name="bb_barra">Spodní lišta</string>
+    <string name="bb_det">Kategorie v kříži, nebo pevně dole s aplikacemi nad nimi (▲)</string>
+</resources>

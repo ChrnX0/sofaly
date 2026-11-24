@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Otestovat ovladač</string>
+    <string name="teste_controle_sub">Je dost rychlý na hraní?</string>
+    <string name="teste_controle_mexa">Točte levou páčkou dokola 10 sekund.</string>
+    <string name="teste_controle_bom">Skvělé pro hry: signál každých %1$d ms.</string>
+    <string name="teste_controle_ok">Hratelné: signál každých %1$d ms. Rychlé hry se mohou zdát trochu opožděné.</string>
+    <string name="teste_controle_ruim">Pomalé: signál každých %1$d ms a %2$d pauz. Pomůže kabelový ovladač nebo ovladač blíž k televizoru.</string>
+    <string name="teste_controle_parado">Ovladač se nepohnul. Zkuste to znovu a točte páčkou dál.</string>
+</resources>

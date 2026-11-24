@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Nyní a tipy</string>
+    <string name="cl_pg_horas">Další hodiny a dny</string>
+    <string name="cl_pg_detalhes">Podrobnosti, ovzduší, slunce a měsíc</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Právě prší. Mělo by přestat kolem %1$s.</string>
+    <string name="cl_f_segue">Právě prší a mělo by pršet i v příštích hodinách.</string>
+    <string name="cl_f_chuva">Déšť pravděpodobně kolem %1$s (%2$s).</string>
+    <string name="cl_f_calor">Horký den: až %1$d° kolem %2$s. Pijte vodu.</string>
+    <string name="cl_f_frio">Blíží se chlad: až %1$d°. Teple se oblečte.</string>
+    <string name="cl_f_sol">Silné slunce od %1$s do %2$s. Použijte opalovací krém.</string>
+    <string name="cl_f_amanha">Dnes bez deště. Zítra je déšť pravděpodobný (%1$s).</string>
+    <string name="cl_f_calmo">Dnes se déšť neočekává. Maximum %1$d°.</string>
+    <string name="cl_d_guarda">Deštník</string>
+    <string name="cl_d_varal">Prádlo venku</string>
+    <string name="cl_d_sair">Dobrý čas vyrazit ven</string>
+    <string name="cl_v_agora">Nyní</string>
+    <string name="cl_v_sim_as">Ano, v %1$s</string>
+    <string name="cl_v_talvez">Možná</string>
+    <string name="cl_v_nao">Není třeba</string>
+    <string name="cl_v_ate">Do %1$s</string>
+    <string name="cl_v_seca">Uschne dnes</string>
+    <string name="cl_v_melhor_nao">Raději ne</string>
+    <string name="cl_v_amanha_sim">Zítra ano</string>
+    <string name="cl_v_amanha_nao">Zítra ne</string>
+    <string name="cl_v_as">V %1$s</string>
+    <string name="cl_v_amanha_as">Zítra %1$s</string>
+    <string name="cl_v_hoje_nao">Dnes ne</string>
+</resources>

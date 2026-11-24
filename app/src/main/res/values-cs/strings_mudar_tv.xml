@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Přenést z jiného televizoru</string>
+    <string name="mtv_qr_desc">QR kód pro přenos nastavení z jiného televizoru</string>
+    <string name="mtv_instrucoes">Na STARÉM televizoru otevřete panel (telefon nebo počítač), přejděte na Systém › Záloha › \"Přesunout na nový televizor\" a naskenujte tento QR nebo zadejte kód níže.\nVše jde šifrovaně, jen do tohoto televizoru. Kód platí %1$s.</string>
+    <string name="mtv_recebendo">Přijímá se… nevypínejte televizor.</string>
+    <string name="mtv_pronto">Vše přišlo z %1$s. Televizor se teď restartuje; pak se vaše aplikace vrátí jedna po druhé.</string>
+    <string name="mtv_erro">Nepovedlo se: %1$s\nNa tomto televizoru se nic nezměnilo. Stiskněte \"%2$s\" pro nový pokus.</string>
+    <string name="mtv_venceu">Kód vypršel (platí 10 min).\nStiskněte \"%1$s\" pro zobrazení nového.</string>
+    <string name="mtv_cfg_det">Nastavení, PIN, kanály a aplikace starého televizoru za 2 minuty, s QR</string>
+    <string name="mtv_fila_titulo">Vaše aplikace se vracejí</string>
+    <string name="mtv_fila_texto">Aplikace %1$d z %2$d. Otevřete ji v Obchodě Play a stiskněte Instalovat; až se vrátíte, objeví se další.</string>
+    <string name="mtv_fila_abrir">Otevřít v Obchodě Play</string>
+    <string name="mtv_fila_pular">Přeskočit</string>
+    <string name="mtv_fila_depois">Později</string>
+    <string name="mtv_fila_fim">Všechny aplikace z druhého televizoru jsou zde.</string>
+    <string name="mtv_fila_cfg_det">Zbývá nainstalovat %1$d aplikací z druhého televizoru</string>
+    <string name="mtv_diario">Přeneseno z %1$s: nastavení obnoveno, %2$d aplikací k instalaci</string>
+    <string name="mtv_diario_enviado">Odesláno na nový televizor: nastavení a %1$d aplikací</string>
+</resources>

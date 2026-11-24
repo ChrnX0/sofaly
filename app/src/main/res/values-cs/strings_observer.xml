@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Observador (20/11/2026): nomes das conferências da prova de congelamento (ObserverTrial.Check), usados no recado FREEZE_UNDONE. -->
+<resources>
+    <string name="observer_check_voice">hlasové vyhledávání</string>
+    <string name="observer_check_play_store">Obchod Play</string>
+    <string name="observer_check_settings">Nastavení</string>
+    <string name="observer_check_cast">Odeslat do zařízení (Cast)</string>
+    <string name="observer_check_internet">internet</string>
+</resources>

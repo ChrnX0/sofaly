@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Hodiny</string>
+    <string name="sh_dias">Dny</string>
+    <string name="sh_dicas">Tipy</string>
+    <string name="sh_ar">Vzduch</string>
+    <string name="sh_orvalho">rosný bod %1$d°</string>
+    <string name="sh_nuvens">Oblačnost</string>
+    <string name="sh_nascer">Východ slunce</string>
+    <string name="sh_por">Západ slunce</string>
+    <string name="sh_duracao">Délka dne</string>
+    <string name="sh_horas_min">%1$d h %2$02d min</string>
+    <string name="sh_dourada">Zlatá hodinka</string>
+    <string name="sh_fase">Fáze</string>
+    <string name="sh_iluminada">osvětleno %1$s</string>
+    <string name="sh_cheia">Úplněk</string>
+    <string name="sh_nova">Nov</string>
+    <string name="sh_em_dias">za %1$d d</string>
+    <string name="sh_rodar">Střídat spodní pruh</string>
+    <string name="sh_rodar_det">Ve spořiči se spodní pruh mění sám. ↑ a ↓ ho změní hned.</string>
+    <string name="sh_rodar_desl">Vypnuto</string>
+    <string name="sh_rodar_s">Každých %1$d s</string>
+    <string name="sh_rodar_min">Každou minutu</string>
+    <string name="sh_vidro">Sklo za spodním pruhem</string>
+    <string name="sh_vidro_det">Skleněný panel za pruhem. Vypnuto: jen tenká čára.</string>
+    <string name="sh_fundo">Pozadí spořiče</string>
+    <string name="sh_fundo_det">Co zůstane za hodinami ve spořiči: jiný motiv, fotka, video nebo několik střídavě.</string>
+    <string name="sh_fundo_home">Stejné jako na domovské obrazovce</string>
+    <string name="sh_fundo_fotos">Střídající se fotky a videa</string>
+    <string name="sh_fundo_arquivo">Jeden soubor jen pro spořič</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Změna (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Vráceno: %1$s</string>
+    <string name="desf_ocultou">Skryto %1$s</string>
+    <string name="desf_mostrou">Znovu zobrazeno %1$s</string>
+    <string name="desf_cat_ajuste">Nastavení</string>
+    <string name="desf_cat_organizacao">Uspořádání</string>
+    <string name="desf_cat_automacao">Automatizace</string>
+    <string name="desf_cat_limpeza">Úklid</string>
+    <string name="desf_nada">Nic k vrácení (už bylo vráceno).</string>
+    <string name="desf_feito">Vráceno. Vše je zpět, jak bylo.</string>
+    <string name="desf_parcial">Částečně vráceno: %1$d položek se mezitím znovu změnilo a zůstaly, jak jsou.</string>
+    <string name="desf_barra">Změněno: %1$s</string>
+    <string name="desf_botao">Vrátit</string>
+    <string name="desf_tela">Nedávné změny</string>
+    <string name="desf_tela_det">Co se změnilo za posledních 7 dní. OK na položce ji vrátí do původního stavu.</string>
+    <string name="desf_tela_vazia">Žádné změny za posledních 7 dní.</string>
+    <string name="desf_ja_desfeita">vráceno</string>
+    <string name="desf_rot_config">Nastavení</string>
+    <string name="desf_rot_automacoes">Automatizace</string>
+    <string name="desf_rot_rotinas">Rutiny</string>
+    <string name="desf_rot_apps">Seznam aplikací</string>
+    <string name="desf_rot_organizar">Aplikace domovské obrazovky</string>
+</resources>

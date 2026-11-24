@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Rodinný rozvrh</string>
+    <string name="agf_sub">V nastavený čas se televizor sám přepne na daný profil. Dětský profil zapne dětský režim a večerku.</string>
+    <string name="agf_cfg_det">Nastavená přepnutí: %1$d. Profil se mění sám v nastavený čas.</string>
+    <string name="agf_adicionar">Přidat přepnutí</string>
+    <string name="agf_adicionar_det">Čí profil, které dny a v kolik.</string>
+    <string name="agf_quem">Přepnout na čí profil?</string>
+    <string name="agf_dias">Které dny?</string>
+    <string name="agf_hora">V kolik?</string>
+    <string name="agf_todos">Každý den</string>
+    <string name="agf_uteis">Pondělí až pátek</string>
+    <string name="agf_fds">Sobota a neděle</string>
+    <string name="agf_alguns">Některé dny</string>
+    <string name="agf_apagar">Smazat toto přepnutí?</string>
+    <string name="agf_apagar_sim">Smazat</string>
+    <string name="agf_cheia">Rozvrh je plný (12 přepnutí).</string>
+    <string name="agf_sem_contas">Na tomto televizoru zatím nejsou žádné profily (účty Google).</string>
+</resources>

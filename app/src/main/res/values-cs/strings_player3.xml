@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Označit začátek znělky zde (%1$s)</string>
+    <string name="abertura_marcar_fim">Označit konec znělky zde (%1$s)</string>
+    <string name="abertura_apagar">Smazat označení znělky</string>
+    <string name="abertura_inicio_marcado">Začátek znělky označen v %1$s. Nyní označte konec v nabídce ▼</string>
+    <string name="abertura_salva">Znělka uložena: %1$s až %2$s. Další díly nabídnou její přeskočení</string>
+    <string name="abertura_falta_inicio">Nejprve označte začátek znělky</string>
+    <string name="abertura_invalida">To nevypadá jako znělka: musí trvat 10 s až 5 min a začínat v prvních 15 min</string>
+    <string name="abertura_apagada">Označení znělky smazáno</string>
+    <string name="abertura_pular">Přeskočit znělku · OK</string>
+</resources>

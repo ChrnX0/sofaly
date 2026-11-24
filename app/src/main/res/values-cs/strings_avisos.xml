@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Internet je zpět</string>
+    <string name="rd_voltou_texto">Nefungoval %1$s (od %2$s). Pravděpodobná příčina: %3$s.</string>
+    <string name="rd_causa_wifi">televizor ztratil Wi-Fi</string>
+    <string name="rd_causa_provedor">poskytovatel internetu nebo router</string>
+    <string name="rd_min">%1$d min</string>
+    <string name="rd_h_min">%1$d h %2$d min</string>
+    <string name="rd_disco_titulo">Úložiště televizoru se zaplňuje</string>
+    <string name="rd_disco_texto">Tímto tempem se zaplní asi za %1$d dní (volno %2$d MB). Vymažte mezipaměti aplikací nebo odeberte aplikace, které nepoužíváte.</string>
+    <string name="pr_avisos_tv">Z televizoru</string>
+    <string name="mural_riscar">Škrtnout %1$s</string>
+    <string name="ds_lento_titulo">Sofaly se zpomalil</string>
+    <string name="ds_lento_texto">Verze %1$d: pomalé snímky trvají %2$d ms, dříve %3$d ms (+%4$d%%).</string>
+</resources>

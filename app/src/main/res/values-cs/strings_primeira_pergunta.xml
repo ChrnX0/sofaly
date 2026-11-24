@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Jedna odpověď nastaví nabídku i obrazovku. Později to můžete změnit v Nastavení › Systém.</string>
+    <string name="pp_casa">Pro celou domácnost</string>
+    <string name="pp_vo_det">Velké karty se jmény čtenými nahlas a větší text; pomáháte z telefonu, i na dálku.</string>
+</resources>
