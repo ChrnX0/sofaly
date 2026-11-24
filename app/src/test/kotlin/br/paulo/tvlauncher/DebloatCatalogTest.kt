@@ -61,4 +61,10 @@ class DebloatCatalogTest {
         assertTrue(c.entries.keys.none { it in Debloat.NUNCA })
         assertTrue(c.entries.keys.none { DebloatCatalog.protegidoPorNome(it) })
     }
+
+    @Test fun nomeLegivelSemRotulo() {
+        assertEquals("Ondevicepersonalization services", DebloatCatalog.readableName("com.android.ondevicepersonalization.services"))
+        assertEquals("Tvrecommendations", DebloatCatalog.readableName("com.google.android.tvrecommendations"))
+        assertEquals("Lge smart home hub", DebloatCatalog.readableName("com.lge.smartHome_hub"))
+    }
 }

@@ -275,7 +275,7 @@ internal fun ConfigLauncherActivity.abaAvancado(c: LinearLayout) {
         val ingles = resources.configuration.locales[0].language == "en"
         sugeridas.forEach { sug ->
             val nome = runCatching { packageManager.getApplicationLabel(packageManager.getApplicationInfo(sug.pkg, android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES)).toString() }
-                .getOrNull()?.takeIf { it.isNotBlank() && it != sug.pkg } ?: sug.pkg
+                .getOrNull()?.takeIf { it.isNotBlank() && it != sug.pkg } ?: DebloatCatalog.readableName(sug.pkg)
             val tipo = getString(when (sug.entry.kind) {
                 DebloatCatalog.Kind.TELEMETRY -> R.string.cl_sug_telemetria
                 DebloatCatalog.Kind.PRELOADED -> R.string.cl_sug_fabrica

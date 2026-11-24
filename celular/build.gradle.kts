@@ -4,7 +4,7 @@
 //  2. pareia lendo o QR da TV uma vez e FIXA o certificado https dela (impressão SHA-256 que vem no QR): sem instalar
 //     certificado no celular, e nunca aceita outro depois (mais rígido que confiar numa CA; ver Pareamento.kt);
 //  3. botões de volume do celular = volume da TV; 4. "Compartilhar" do Android manda para a TV; 5. várias TVs.
-// applicationId próprio: NUNCA o do launcher (br.paulo.tvlauncher), que é o Device Owner das TVs.
+// applicationId próprio: NUNCA o do launcher (tv.sofaly.launcher), que é o Device Owner das TVs.
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -15,7 +15,9 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "br.paulo.onetv.celular"
+        // Família tv.sofaly.* (a TV é tv.sofaly.launcher). Paulo, 19/11 e 23/11/2026: pacote público sem o nome dele. O
+        // namespace (nome do código) fica, como no launcher.
+        applicationId = "tv.sofaly.phone"
         minSdk = 29          // SslCertificate.getX509Certificate (fixar o certificado da TV) é do Android 10
         targetSdk = 35
         // Mesmo relógio do launcher (app/build.gradle.kts): cresce a cada compilação.
