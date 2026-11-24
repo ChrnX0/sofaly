@@ -32,7 +32,7 @@
     <string name="cfg2_aba_casa_det">Automações, casa conectada e o que se configura pelo telemóvel</string>
     <string name="cfg2_aba_sistema_det">Diagnóstico, atualização, backup e sobre</string>
     <string name="cfg2_aba_avancado">Avançado</string>
-    <string name="cfg2_aba_avancado_det">Rede, ferramentas, apps de fábrica, permissões e shell. Raramente precisa</string>
+    <string name="cfg2_aba_avancado_det">Rede, ferramentas, apps de fábrica, permissões e shell. Raramente precisa.</string>
     <string name="cfg2_sec_visitas">Visitas</string>
     <string name="cfg2_sec_celular">Pelo telemóvel</string>
     <string name="cfg2_sec_ferramentas">Ferramentas</string>

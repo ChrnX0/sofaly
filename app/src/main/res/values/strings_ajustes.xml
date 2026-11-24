@@ -36,7 +36,7 @@
     <string name="cfg2_aba_casa_det">Automations, smart home and what you set up from the phone</string>
     <string name="cfg2_aba_sistema_det">Diagnosis, updates, backup and about</string>
     <string name="cfg2_aba_avancado">Advanced</string>
-    <string name="cfg2_aba_avancado_det">Network, tools, factory apps, permissions and shell. Rarely needed</string>
+    <string name="cfg2_aba_avancado_det">Network, tools, factory apps, permissions and shell. Rarely needed.</string>
     <string name="cfg2_sec_visitas">Guests</string>
     <string name="cfg2_sec_celular">From your phone</string>
     <string name="cfg2_sec_ferramentas">Tools</string>
