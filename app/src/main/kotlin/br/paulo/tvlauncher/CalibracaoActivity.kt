@@ -2,6 +2,7 @@ package br.paulo.tvlauncher
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -9,6 +10,8 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
+import br.paulo.tvlauncher.companion.CompanionTv
+import br.paulo.tvlauncher.companion.PictureMath
 import br.paulo.tvlauncher.settings.Fontes
 
 /**
@@ -27,6 +30,20 @@ import br.paulo.tvlauncher.settings.Fontes
  */
 class CalibracaoActivity : Activity() {
     private lateinit var tela: PadraoView
+    private val ui = android.os.Handler(android.os.Looper.getMainLooper())
+
+    // Modo celular (24/11/2026, CompanionTv): o celular manda o padrão pelo painel e fotografa. Sem título e sem
+    // controle; sai sozinho quando o celular termina ou some por [CompanionTv.PHONE_IDLE_MS].
+    private val vigia = object : Runnable {
+        override fun run() {
+            val p = CompanionTv.phonePattern
+            if (p == null || System.currentTimeMillis() - CompanionTv.phoneAt > CompanionTv.PHONE_IDLE_MS) {
+                if (tela.celular != null) { CompanionTv.stopPattern(); finish() }
+                return
+            }
+            ui.postDelayed(this, 5_000)
+        }
+    }
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
@@ -34,12 +51,43 @@ class CalibracaoActivity : Activity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         tela = PadraoView(this)
         setContentView(tela)
+        if (intent?.getBooleanExtra(EXTRA_PHONE, false) == true) entrarModoCelular()
     }
 
-    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean = when (keyCode) {
-        KeyEvent.KEYCODE_DPAD_RIGHT, KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER -> { tela.mudar(+1); true }
-        KeyEvent.KEYCODE_DPAD_LEFT -> { tela.mudar(-1); true }
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        if (intent.getBooleanExtra(EXTRA_PHONE, false)) entrarModoCelular()
+    }
+
+    private fun entrarModoCelular() {
+        CompanionTv.listen { ui.post { atualizarDoCelular() } }
+        atualizarDoCelular()
+        ui.removeCallbacks(vigia); ui.postDelayed(vigia, 5_000)
+    }
+
+    private fun atualizarDoCelular() {
+        val p = CompanionTv.phonePattern
+        if (p == null) { if (tela.celular != null) finish(); return }
+        tela.celular = p; tela.invalidate()
+    }
+
+    override fun onDestroy() {
+        ui.removeCallbacksAndMessages(null)
+        if (tela.celular != null) CompanionTv.listen(null)
+        super.onDestroy()
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean = when {
+        // Medindo pelo celular: qualquer tecla que não seja VOLTAR é ignorada (o desenho é do celular).
+        tela.celular != null && keyCode != KeyEvent.KEYCODE_BACK -> true
+        tela.celular != null -> { CompanionTv.stopPattern(); finish(); true }
+        keyCode == KeyEvent.KEYCODE_DPAD_RIGHT || keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER -> { tela.mudar(+1); true }
+        keyCode == KeyEvent.KEYCODE_DPAD_LEFT -> { tela.mudar(-1); true }
         else -> super.onKeyDown(keyCode, event)
+    }
+
+    companion object {
+        const val EXTRA_PHONE = "companion_phone"
     }
 }
 
@@ -67,11 +115,15 @@ private class PadraoView(ctx: Context) : View(ctx) {
     private val p = Paint(Paint.ANTI_ALIAS_FLAG)
     private val txt = Paint(Paint.ANTI_ALIAS_FLAG).apply { textSize = 28f * ctx.resources.displayMetrics.scaledDensity; typeface = Fontes.nunito(500) }
 
+    /** O padrão pedido pelo celular; null = os 6 padrões do controle. */
+    var celular: PictureMath.Pattern? = null
+
     fun mudar(d: Int) { atual = (atual + d + Calibracao.NOMES.size) % Calibracao.NOMES.size; invalidate() }
 
     override fun onDraw(c: Canvas) {
         val w = width.toFloat(); val h = height.toFloat()
         c.drawColor(Color.BLACK)
+        celular?.let { desenharCelular(c, it, w, h); return }
         when (atual) {
             0 -> faixas(c, Calibracao.degraus(0, 255, 16), w, h)
             1 -> faixas(c, Calibracao.degraus(0, 30, 7), w, h, rotulos = true)
@@ -111,6 +163,32 @@ private class PadraoView(ctx: Context) : View(ctx) {
         c.drawRoundRect(x - folga, y + txt.ascent() - folga, x + txt.measureText(titulo) + folga, y + txt.descent() + folga, folga, folga, p)
         txt.color = Color.WHITE
         c.drawText(titulo, x, y, txt)
+    }
+
+    /** Os padrões da medição pelo celular ([PictureMath]): sem texto, para a câmera ver só o que mede. */
+    private fun desenharCelular(c: Canvas, padrao: PictureMath.Pattern, w: Float, h: Float) {
+        p.style = Paint.Style.FILL
+        when (padrao) {
+            PictureMath.Pattern.BLACK -> c.drawColor(Color.BLACK)
+            PictureMath.Pattern.WHITE -> c.drawColor(Color.WHITE)
+            PictureMath.Pattern.GRAY -> { val g = PictureMath.GRAY_LEVEL; c.drawColor(Color.rgb(g, g, g)) }
+            PictureMath.Pattern.INSET -> {
+                c.drawColor(Color.BLACK)
+                val f = PictureMath.INSET.toFloat()
+                p.color = Color.WHITE
+                c.drawRect(w * f, h * f, w * (1 - f), h * (1 - f), p)
+            }
+            PictureMath.Pattern.NEAR_BLACK -> barras(c, PictureMath.NEAR_BLACK_STEPS, w, h)
+            PictureMath.Pattern.NEAR_WHITE -> barras(c, PictureMath.NEAR_WHITE_STEPS, w, h)
+        }
+    }
+
+    private fun barras(c: Canvas, niveis: List<Int>, w: Float, h: Float) {
+        val n = niveis.size
+        niveis.forEachIndexed { i, v ->
+            p.color = Color.rgb(v, v, v)
+            c.drawRect(w * i / n, 0f, w * (i + 1) / n, h, p)
+        }
     }
 
     private fun faixas(c: Canvas, niveis: List<Int>, w: Float, h: Float, rotulos: Boolean = false) {

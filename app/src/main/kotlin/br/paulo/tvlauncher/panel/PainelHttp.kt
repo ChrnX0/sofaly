@@ -66,6 +66,9 @@ class Requisicao(
         } catch (e: IOException) { false }
     }
 
+    /** A conexão crua, depois dos cabeçalhos: só para o WebSocket do celular (GET sem corpo, PanelStream). */
+    fun fluxoBruto(): InputStream? = if (tamanho == 0L && !chunked) entrada else null
+
     /** O corpo já lido por [lerCorpo]. */
     val corpo: ByteArray get() = lido ?: throw IllegalStateException("corpo ainda não lido")
     fun corpoTexto(): String = String(corpo, Charsets.UTF_8)

@@ -573,7 +573,9 @@ object PainelWeb {
     /** [arquivo] != null: o corpo é esse arquivo, mandado aos pedaços (download da aba Arquivos). */
     internal class Resposta(val codigo: Int, val tipo: String?, val corpo: ByteArray, val extras: Map<String, String> = emptyMap(),
                            val arquivo: File? = null, val fluxo: ((java.io.OutputStream) -> Unit)? = null,
-                           val range: String? = null)   // cabeçalho Range do pedido, para arquivo (vídeo pula para o meio)
+                           val range: String? = null,   // cabeçalho Range do pedido, para arquivo (vídeo pula para o meio)
+                           /** Fluxo que também LÊ (WebSocket do celular, PanelStream): fica parado este tempo sem dado = fim. 0 = sem prazo. */
+                           val leituraMs: Int = 0)
 
     /** Rotas que recebem o corpo como fluxo, direto para o disco (arquivo de vários GB não cabe na memória). */
     private val ROTAS_FLUXO = setOf("/api/arquivos/enviar", "/api/apps/instalar", "/api/fotos/enviar", "/api/perfil/foto")
@@ -637,7 +639,7 @@ object PainelWeb {
             val arq = resposta.arquivo
             val fluxoResp = resposta.fluxo
             if (fluxoResp != null) {
-                c.soTimeout = 0   // vídeo ao vivo: a rota escreve o cabeçalho e o corpo até acabar (PainelExtras.video)
+                c.soTimeout = resposta.leituraMs   // vídeo ao vivo: a rota escreve o cabeçalho e o corpo até acabar (PainelExtras.video)
                 EscritaVigiada(saida, c).use { fluxoResp(it) }
             } else if (arq == null) {
                 PainelHttp.escrever(saida, resposta.codigo, resposta.tipo, resposta.corpo, resposta.extras)
@@ -825,6 +827,19 @@ object PainelWeb {
         if (req.caminho == "/api/plugins" || req.caminho.startsWith("/api/plugins/")) {   // 24/11/2026: PanelPlugins.kt
             PanelPlugins.rotear(app, req.metodo, req.caminho.removePrefix("/api/plugins"),
                 if (req.metodo == "POST") corpoJson(req) else null, sessoes.elevada(token), ip)
+                ?.let { return json(it.first, it.second) }
+        }
+        // Microfone e câmera do celular (24/11/2026, PanelStream.kt): WebSocket na mesma porta https, depois da sessão.
+        if (req.caminho == PanelStream.ROTA && req.metodo == "GET") {
+            val pedido = PanelStream.handshake(req.cabecalho("upgrade"), req.cabecalho("sec-websocket-key"), req.cabecalho("origin"),
+                req.cabecalho("host"), req.consulta["k"]) ?: return erro(400, "WebSocket inválido")
+            val entrada = req.fluxoBruto() ?: return erro(400, "sem conexão")
+            return Resposta(101, null, ByteArray(0), leituraMs = PanelStream.IDLE_MS,
+                fluxo = { PanelStream.serve(app, pedido, entrada, it) })
+        }
+        if (req.caminho == "/api/companion" || req.caminho.startsWith("/api/companion/")) {   // 24/11/2026: PanelCompanion.kt
+            PanelCompanion.rotear(app, req.metodo, req.caminho.removePrefix("/api/companion"),
+                if (req.metodo == "POST") corpoJson(req) else null)
                 ?.let { return json(it.first, it.second) }
         }
         if (req.caminho == "/api/storage" || req.caminho.startsWith("/api/storage/")) {   // 20/11/2026: PainelStorage.kt
@@ -1191,6 +1206,8 @@ object PainelWeb {
         "/i18n-zh.js" to ("i18n-zh.js" to "text/javascript; charset=utf-8"),
         "/style.css" to ("style.css" to "text/css; charset=utf-8"),
         "/extras.js" to ("extras.js" to "text/javascript; charset=utf-8"),
+        "/companion.js" to ("companion.js" to "text/javascript; charset=utf-8"),   // celular como parceiro (24/11/2026)
+        "/companion-worklet.js" to ("companion-worklet.js" to "text/javascript; charset=utf-8"),   // ouvido dos bipes (AudioWorklet)
         "/ui.js" to ("ui.js" to "text/javascript; charset=utf-8"),   // casca do painel: navegação, Início, avisos
         "/busca.js" to ("busca.js" to "text/javascript; charset=utf-8"),   // busca rápida (Ctrl+K)
         "/navigation.js" to ("navigation.js" to "text/javascript; charset=utf-8"),   // índice da página e aba Tudo

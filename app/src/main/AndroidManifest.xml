@@ -994,7 +994,10 @@
         <activity android:name=".CasaActivity" android:exported="false" android:excludeFromRecents="true" />
         <activity android:name=".TesteTeclasActivity" android:exported="false" android:excludeFromRecents="true" />
         <activity android:name=".ConferirTvActivity" android:exported="false" android:excludeFromRecents="true" />
-        <activity android:name=".CalibracaoActivity" android:exported="false" android:excludeFromRecents="true"
+        <!-- A câmera do celular na TV (24/11/2026, PhoneCameraTv): aberta só pelo WebSocket do painel. -->
+        <activity android:name=".PhoneCameraActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTop"
+            android:theme="@style/One.Tela" />
+        <activity android:name=".CalibracaoActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTop"
             android:theme="@style/One.Tela" />
 
         <!-- Saúde (10/11/2026): aviso "acesso remoto parado" (SaudeAcesso.kt) e o alarme da manutenção noturna

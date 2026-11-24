@@ -52,6 +52,7 @@ object BackupCompleto {
         "busca_recentes",   // 20/11/2026: as últimas buscas da pessoa (6 no máximo) viajam junto
         "painel_atalhos",   // "Seus atalhos" do painel (PanelShortcuts, 20/11/2026): só ids de chaves e blocos, viajam junto
         "sofy",   // Sofy (20/11/2026): a chave "Sofy fala" e os tipos de fala que a pessoa calou viajam junto
+        "companion",   // celular como parceiro (24/11/2026): calibração de cada TV e atraso do som de cada saída
         "sofy_learning",   // 24/11/2026: o que a Sofy aprendeu da casa (hábito de uso por hora, pico); o do aparelho fica em "observer"
         "agenda_perfis",   // agenda da família (degrau 2, 16/11/2026): perfil troca sozinho no horário
         "gravacao",   // gravação (14/11/2026): a pasta da rede de reserva

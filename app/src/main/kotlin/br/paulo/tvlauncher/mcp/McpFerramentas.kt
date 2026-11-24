@@ -42,7 +42,7 @@ class McpFerramentas(ctx: Context) : McpProtocolo.Ferramentas, McpProtocolo.ComC
     override fun lista(): JSONArray = JSONArray().apply { todas().forEach { if (PlayPolicy.mcpToolAllowed(it.optString("name"), BuildConfig.PLAY)) put(it) } }
 
     private fun todas(): List<JSONObject> = mutableListOf<JSONObject>().apply {   // + ferramentas das ideias grandes (McpExtras.kt)
-        for (i in 0 until LISTA.length()) add(LISTA.getJSONObject(i)); addAll(McpExtras.LISTA); addAll(McpPoder.LISTA); addAll(McpPoder2.LISTA); addAll(McpIdeias.LISTA); addAll(McpDiario.LISTA)
+        for (i in 0 until LISTA.length()) add(LISTA.getJSONObject(i)); addAll(McpExtras.LISTA); addAll(McpPoder.LISTA); addAll(McpPoder2.LISTA); addAll(McpIdeias.LISTA); addAll(McpDiario.LISTA); addAll(McpCompanion.LISTA)
     }
 
     override fun conteudo(nome: String, argumentos: JSONObject): JSONArray? =
@@ -72,6 +72,7 @@ class McpFerramentas(ctx: Context) : McpProtocolo.Ferramentas, McpProtocolo.ComC
             else if (McpPoder2.conhece(nome)) McpPoder2.chamar(app, nome, argumentos)
             else if (McpIdeias.conhece(nome)) McpIdeias.chamar(app, nome, argumentos)
             else if (McpDiario.conhece(nome)) McpDiario.chamar(app, nome, argumentos)   // ideia 58
+            else if (McpCompanion.conhece(nome)) McpCompanion.chamar(app, nome, argumentos)   // celular e TV
             else throw McpProtocolo.ErroFerramenta("ferramenta desconhecida")
     }
 

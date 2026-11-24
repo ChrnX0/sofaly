@@ -74,7 +74,8 @@ let atraso = 250;
 try { const v = parseInt(localStorage.getItem("fone_atraso"), 10); if (!isNaN(v)) atraso = v; } catch (e) {}
 const faixa = $("atraso");
 function mostrarAtraso() { $("valAtraso").textContent = atraso + " ms"; faixa.value = atraso; }
-faixa.addEventListener("input", () => { atraso = parseInt(faixa.value, 10); mostrarAtraso(); try { localStorage.setItem("fone_atraso", atraso); } catch (e) {} });
+let baseTv = 250;
+faixa.addEventListener("input", () => { atraso = parseInt(faixa.value, 10); mostrarAtraso(); try { localStorage.setItem("fone_atraso", atraso); localStorage.setItem("fone_atraso_base", baseTv); } catch (e) {} });
 
 $("tv").addEventListener("change", e => { fetch(base + "/tv?tambem=" + (e.target.checked ? 1 : 0), { cache: "no-store" }).catch(() => {}); });
 
@@ -107,7 +108,17 @@ async function ouvir() {
     await ctx.resume();
     const info = await acertarRelogio();
     if (info && typeof info.tv === "boolean") $("tv").checked = info.tv;
-    if (info && info.atraso && localStorage.getItem("fone_atraso") === null) { atraso = info.atraso; mostrarAtraso(); }
+    // 24/11/2026: com o atraso MEDIDO pelo microfone (AudioSyncTv), o ajuste de ouvido vira diferença sobre a medida
+    // ("fone_atraso_base" = o número da TV quando a pessoa mexeu). Mediu de novo ou trocou de saída: o ajuste acompanha.
+    if (info && info.atraso) {
+      let salvo = null, base = null;
+      try { salvo = localStorage.getItem("fone_atraso"); base = localStorage.getItem("fone_atraso_base"); } catch (e) {}
+      if (salvo === null) atraso = info.atraso;
+      else if (info.medido) atraso = info.atraso + (parseInt(salvo, 10) - (base === null ? 250 : parseInt(base, 10)));
+      atraso = Math.max(-200, Math.min(800, atraso || info.atraso));
+      baseTv = info.atraso;
+      mostrarAtraso();
+    }
     const r = await fetch(base + "/som", { cache: "no-store" });
     if (r.status === 429) throw new Error("limite");
     if (!r.ok || !r.body) throw new Error("rede");
