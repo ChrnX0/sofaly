@@ -107,7 +107,7 @@ object TvDeVolta {
             val ini = seg(o, "start_timestamp") ?: return@mapNotNull null
             val fim = seg(o, "stop_timestamp") ?: return@mapNotNull null
             if (fim <= ini) return@mapNotNull null
-            Programa(ini * 1000, fim * 1000, base64(o.optString("title")).take(120).ifEmpty { "Sem título" },
+            Programa(ini * 1000, fim * 1000, base64(o.optString("title")).take(120).ifEmpty { txt(R.string.cal_sem_titulo) },
                 base64(o.optString("description")).take(Xmltv.MAX_DESCRICAO), o.optString("has_archive", "0").trim() == "1")
         }.distinctBy { it.inicio }.sortedBy { it.inicio }
     }

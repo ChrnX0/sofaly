@@ -352,6 +352,7 @@
     <string name="atu_ocupado">पहले से देखा जा रहा है</string>
     <string name="atu_erro">त्रुटि: %1$s %2$s</string>
     <string name="atu_em_dia">अप-टू-डेट (इंस्टॉल %1$d, नवीनतम %2$d)</string>
+    <string name="atu_sem_tag">नवीनतम रिलीज़ के टैग में संस्करण नहीं है</string>
     <string name="atu_sem_apk">रिलीज़ %1$d में APK या SHA-256 नहीं</string>
     <string name="atu_sha">रिलीज़ %1$d: SHA-256 मेल नहीं खाता, इंस्टॉल नहीं किया</string>
     <string name="atu_ilegivel">रिलीज़ %1$d: APK पढ़ा नहीं जा सकता</string>

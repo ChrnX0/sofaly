@@ -352,6 +352,7 @@
     <string name="atu_ocupado">sprawdzanie już trwa</string>
     <string name="atu_erro">błąd: %1$s %2$s</string>
     <string name="atu_em_dia">aktualna (zainstalowana %1$d, najnowsza %2$d)</string>
+    <string name="atu_sem_tag">Najnowsze wydanie nie ma wersji w tagu</string>
     <string name="atu_sem_apk">Wydanie %1$d nie ma APK ani SHA-256</string>
     <string name="atu_sha">Wydanie %1$d: SHA-256 się nie zgadza, nie zainstalowano</string>
     <string name="atu_ilegivel">Wydanie %1$d: nieczytelny APK</string>

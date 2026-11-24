@@ -352,6 +352,7 @@
     <string name="atu_ocupado">sedang memeriksa</string>
     <string name="atu_erro">galat: %1$s %2$s</string>
     <string name="atu_em_dia">terbaru (terpasang %1$d, terbaru %2$d)</string>
+    <string name="atu_sem_tag">Rilis terbaru tidak punya versi di tag-nya</string>
     <string name="atu_sem_apk">Rilis %1$d tidak punya APK atau SHA-256</string>
     <string name="atu_sha">Rilis %1$d: SHA-256 tidak cocok, tidak dipasang</string>
     <string name="atu_ilegivel">Rilis %1$d: APK tidak terbaca</string>

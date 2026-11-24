@@ -352,6 +352,7 @@
     <string name="atu_ocupado">正在检查</string>
     <string name="atu_erro">错误：%1$s %2$s</string>
     <string name="atu_em_dia">已是最新（已安装 %1$d，最新 %2$d）</string>
+    <string name="atu_sem_tag">最新发布的标签中没有版本号</string>
     <string name="atu_sem_apk">发布 %1$d 没有 APK 或 SHA-256</string>
     <string name="atu_sha">发布 %1$d：SHA-256 不匹配，未安装</string>
     <string name="atu_ilegivel">发布 %1$d：APK 无法读取</string>

@@ -352,6 +352,7 @@
     <string name="atu_ocupado">zaten denetleniyor</string>
     <string name="atu_erro">hata: %1$s %2$s</string>
     <string name="atu_em_dia">güncel (yüklü %1$d, en yeni %2$d)</string>
+    <string name="atu_sem_tag">Son sürümün etiketinde sürüm numarası yok</string>
     <string name="atu_sem_apk">%1$d sürümünde APK veya SHA-256 yok</string>
     <string name="atu_sha">%1$d sürümü: SHA-256 eşleşmiyor, yüklenmedi</string>
     <string name="atu_ilegivel">%1$d sürümü: okunamayan APK</string>

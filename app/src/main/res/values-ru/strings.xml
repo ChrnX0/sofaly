@@ -352,6 +352,7 @@
     <string name="atu_ocupado">проверка уже идёт</string>
     <string name="atu_erro">ошибка: %1$s %2$s</string>
     <string name="atu_em_dia">актуально (установлена %1$d, последняя %2$d)</string>
+    <string name="atu_sem_tag">В последнем выпуске нет версии в теге</string>
     <string name="atu_sem_apk">В выпуске %1$d нет APK или SHA-256</string>
     <string name="atu_sha">Выпуск %1$d: SHA-256 не совпадает, не установлено</string>
     <string name="atu_ilegivel">Выпуск %1$d: APK не читается</string>

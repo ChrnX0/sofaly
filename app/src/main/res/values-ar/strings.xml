@@ -352,6 +352,7 @@
     <string name="atu_ocupado">جارٍ الفحص بالفعل</string>
     <string name="atu_erro">خطأ: %1$s %2$s</string>
     <string name="atu_em_dia">محدّث (المثبّت %1$d، الأحدث %2$d)</string>
+    <string name="atu_sem_tag">آخر إصدار لا يحمل رقم إصدار في الوسم</string>
     <string name="atu_sem_apk">الإصدار %1$d بلا APK أو SHA-256</string>
     <string name="atu_sha">الإصدار %1$d: SHA-256 غير مطابق، لم يُثبّت</string>
     <string name="atu_ilegivel">الإصدار %1$d: ملف APK غير مقروء</string>

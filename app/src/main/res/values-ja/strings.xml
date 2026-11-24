@@ -352,6 +352,7 @@
     <string name="atu_ocupado">確認中です</string>
     <string name="atu_erro">エラー: %1$s %2$s</string>
     <string name="atu_em_dia">最新です（インストール済み %1$d、最新 %2$d）</string>
+    <string name="atu_sem_tag">最新リリースのタグにバージョンがありません</string>
     <string name="atu_sem_apk">リリース %1$d に APK または SHA-256 がありません</string>
     <string name="atu_sha">リリース %1$d: SHA-256 が一致しないため、インストールしませんでした</string>
     <string name="atu_ilegivel">リリース %1$d: APK を読み取れません</string>

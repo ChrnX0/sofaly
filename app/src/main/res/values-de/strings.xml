@@ -352,6 +352,7 @@
     <string name="atu_ocupado">Prüfung läuft bereits</string>
     <string name="atu_erro">Fehler: %1$s %2$s</string>
     <string name="atu_em_dia">aktuell (installiert %1$d, neueste %2$d)</string>
+    <string name="atu_sem_tag">Das neueste Release hat keine Version im Tag</string>
     <string name="atu_sem_apk">Release %1$d hat kein APK oder SHA-256</string>
     <string name="atu_sha">Release %1$d: SHA-256 stimmt nicht, nicht installiert</string>
     <string name="atu_ilegivel">Release %1$d: APK unlesbar</string>

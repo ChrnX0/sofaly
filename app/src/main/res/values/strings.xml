@@ -409,6 +409,7 @@
     <string name="atu_ocupado">already checking</string>
     <string name="atu_erro">error: %1$s %2$s</string>
     <string name="atu_em_dia">up to date (installed %1$d, latest %2$d)</string>
+    <string name="atu_sem_tag">The latest Release has no version in its tag</string>
     <string name="atu_sem_apk">Release %1$d has no APK or SHA-256</string>
     <string name="atu_sha">Release %1$d: SHA-256 does not match, not installed</string>
     <string name="atu_ilegivel">Release %1$d: unreadable APK</string>
