@@ -101,9 +101,33 @@ object PluginsTv {
                 val i = c.getColumnIndex(col)
                 if (i < 0) null else runCatching { c.getString(i) }.getOrNull()
             }
-            true to PluginCartao.limpar(p.pacote, linha)
+            // Imagem (v2) só de um provider do PRÓPRIO plugin: outra autoridade sai (o cartão fica, sem imagem).
+            val c0 = PluginCartao.limpar(p.pacote, linha)
+            val c1 = c0?.imagem?.let { u ->
+                val dono = runCatching { ctx.packageManager.resolveContentProvider(PluginCartao.autoridade(u), 0)?.packageName }.getOrNull()
+                if (dono == p.pacote) c0 else c0.copy(imagem = null)
+            } ?: c0
+            true to c1
         }
     }.getOrDefault(false to null)
+
+    /** A imagem do cartão (v2), reduzida a no máximo 256 px, com o mesmo prazo de 2 s. FORA da thread da tela. */
+    fun imagem(ctx: Context, c: PluginCartao.Cartao): android.graphics.drawable.Drawable? {
+        val u = c.imagem ?: return null
+        val f = leitor.submit<android.graphics.Bitmap?> {
+            val uri = Uri.parse(u)
+            val o = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            ctx.contentResolver.openInputStream(uri)?.use { android.graphics.BitmapFactory.decodeStream(it, null, o) }
+            if (o.outWidth <= 0 || o.outHeight <= 0 || o.outWidth > 4096 || o.outHeight > 4096) return@submit null
+            var amostra = 1
+            while (maxOf(o.outWidth, o.outHeight) / (amostra * 2) >= 256) amostra *= 2
+            ctx.contentResolver.openInputStream(uri)?.use {
+                android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = amostra })
+            }
+        }
+        val b = runCatching { f.get(PRAZO_MS, TimeUnit.MILLISECONDS) }.getOrElse { f.cancel(true); null } ?: return null
+        return android.graphics.drawable.BitmapDrawable(ctx.resources, b)
+    }
 
     /** Abre a ação do cartão, sempre presa ao pacote do plugin (sem componente nem seletor), ou o próprio app. */
     fun abrir(ctx: Context, c: PluginCartao.Cartao) {

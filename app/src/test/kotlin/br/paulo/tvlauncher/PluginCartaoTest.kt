@@ -42,4 +42,17 @@ class PluginCartaoTest {
         assertFalse(PluginCartao.permitido(ok, pkg, null))
         assertFalse(PluginCartao.permitido(emptyMap(), pkg, "ab12"))
     }
+
+    @Test fun versao2MundoEImagem() {
+        val c = PluginCartao.limpar("app.placar", mapOf("titulo" to "Jogo", "valor" to "2 x 1", "mundo" to " PLAY ", "imagem" to "content://app.placar.img/logo"))!!
+        assertEquals(PluginCartao.Mundo.PLAY, c.mundo)
+        assertEquals("content://app.placar.img/logo", c.imagem)
+        assertEquals("app.placar.img", PluginCartao.autoridade(c.imagem!!))
+    }
+
+    @Test fun versao1ContinuaEmAssistir() {
+        val c = PluginCartao.limpar("a", mapOf("titulo" to "X", "imagem" to "https://fora/x.png", "mundo" to "lua"))!!
+        assertEquals(PluginCartao.Mundo.WATCH, c.mundo)
+        org.junit.Assert.assertNull(c.imagem)
+    }
 }

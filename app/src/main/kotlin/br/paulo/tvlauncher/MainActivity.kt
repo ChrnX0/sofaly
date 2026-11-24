@@ -1588,7 +1588,11 @@ class MainActivity : Activity() {
             // Plugins (degrau 3, PluginsTv): desenha já com os cartões da última leitura e só redesenha se mudaram. Sem
             // plugin permitido, cartoes() volta na hora; com plugin, cada um tem 2 s de prazo (aqui, fora da tela).
             val novos = PluginsTv.cartoes(this)
-            if (novos != cartoesPlugin) { cartoesPlugin = novos; ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) } }
+            if (novos != cartoesPlugin) {
+                // Imagens dos cartões v2: lidas aqui, fora da tela, antes de trocar a lista (a HOME só desenha o que já tem).
+                imagensPlugin = novos.mapNotNull { c -> c.imagem?.let { u -> (imagensPlugin[c.pacote + "|" + u] ?: PluginsTv.imagem(this, c))?.let { c.pacote + "|" + u to it } } }.toMap()
+                cartoesPlugin = novos; ui.post { if (!isDestroyed) desenharContinuar(temTv, temVod, ultimo) }
+            }
             carregarArte(IconeApp.Tipo.FILMES, filme)
             carregarArte(IconeApp.Tipo.SERIES, serie)
         }
@@ -1683,6 +1687,8 @@ class MainActivity : Activity() {
 
     /** Cartões dos plugins permitidos (PluginsTv), da última leitura na filaApps. */
     @Volatile internal var cartoesPlugin: List<PluginCartao.Cartao> = emptyList()
+    /** Imagens dos cartões de plugin (v2), por "pacote|uri". Trocadas junto com [cartoesPlugin]. */
+    @Volatile internal var imagensPlugin: Map<String, Drawable> = emptyMap()
 
     /** Quantos apps de jogo a TV tem (lido em preencherApps, fora da tela). */
     @Volatile private var jogosNaTv = 0
