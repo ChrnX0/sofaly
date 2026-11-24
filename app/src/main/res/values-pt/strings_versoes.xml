@@ -13,6 +13,7 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
+        <item>Chance de chuva mais fina: cada modelo do tempo agora vale pela quantidade de chuva que prevê e pelo quanto acertou, e em Configurações › Aparência você escolhe número, palavra (Baixa, Média, Alta) ou os dois</item>
         <item>Clima mais certo: a chance de chuva agora é o voto de 4 modelos do tempo (ECMWF, GFS, ICON e o modelo de IA do ECMWF); num teste de 60 dias em 30 cidades ela acertou mais do que qualquer um sozinho</item>
         <item>Painel web com a cara da Sofaly: cada área tem a sua cor no ícone, a Início mostra os recados da Sofy, o que está na TV agora e os mundos como portas, e nada sumiu</item>
         <item>Painel: a estrela em qualquer bloco ou chave põe em “Seus atalhos” na Início, “Conversa com” liga os blocos parentes, e uma mudança oferece Desfazer</item>
@@ -68,6 +69,7 @@
         <item>Despertador: o som sempre começa baixo e sobe devagar, por pelo menos 1 minuto e meio, mesmo com “Toque: direto”, para nunca começar no volume cheio</item>
     </string-array>
     <string-array name="roteiro_titulos">
+        <item>Chance em palavras</item>
         <item>Chuva por consenso</item>
         <item>Painel com a Sofaly</item>
         <item>Atalhos do painel</item>
@@ -111,6 +113,7 @@
         <item>Segurar ▲</item>
     </string-array>
     <string-array name="roteiro_perguntas">
+        <item>Em Configurações › Aparência, mude “Chance de chuva” para “Os dois”: as horas e os dias da Previsão mostram “Média 45%” e parecidos, sem texto cortado?</item>
         <item>Abra a Previsão (Clima): a chance de chuva dos dias aparece e, embaixo, o crédito “Forecast: ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON”?</item>
         <item>Abra o painel no computador: a Início mostra a faixa da Sofy, “Agora na TV” e as portas coloridas, e todo bloco antigo continua na barra lateral?</item>
         <item>No painel, toque na estrela de um bloco: ele aparece em “Seus atalhos” na Início, e mudar uma chave oferece Desfazer?</item>

@@ -7,11 +7,11 @@
     <string name="cl_hora">%1$d Uhr</string>
     <string name="cl_f_parar">Es regnet. Gegen %1$s sollte es aufhören.</string>
     <string name="cl_f_segue">Es regnet, und das dürfte die nächsten Stunden so bleiben.</string>
-    <string name="cl_f_chuva">Regen wahrscheinlich gegen %1$s (%2$d %%).</string>
+    <string name="cl_f_chuva">Regen wahrscheinlich gegen %1$s (%2$s).</string>
     <string name="cl_f_calor">Heißer Tag: bis %1$d° gegen %2$s. Trinken Sie Wasser.</string>
     <string name="cl_f_frio">Es wird kalt: bis %1$d°. Ziehen Sie sich warm an.</string>
     <string name="cl_f_sol">Starke Sonne von %1$s bis %2$s. Sonnencreme nutzen.</string>
-    <string name="cl_f_amanha">Heute kein Regen. Morgen Regen wahrscheinlich (%1$d %%).</string>
+    <string name="cl_f_amanha">Heute kein Regen. Morgen Regen wahrscheinlich (%1$s).</string>
     <string name="cl_f_calmo">Heute kein Regen erwartet. Höchstwert %1$d°.</string>
     <string name="cl_d_guarda">Regenschirm</string>
     <string name="cl_d_varal">Wäsche draußen</string>

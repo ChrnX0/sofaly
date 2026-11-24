@@ -7,11 +7,11 @@
     <string name="cl_hora">%1$d h</string>
     <string name="cl_f_parar">Está lloviendo. Debería parar hacia las %1$s.</string>
     <string name="cl_f_segue">Está lloviendo y seguirá las próximas horas.</string>
-    <string name="cl_f_chuva">Lluvia probable hacia las %1$s (%2$d%%).</string>
+    <string name="cl_f_chuva">Lluvia probable hacia las %1$s (%2$s).</string>
     <string name="cl_f_calor">Día caluroso: hasta %1$d° hacia las %2$s. Bebe agua.</string>
     <string name="cl_f_frio">Llega el frío: hasta %1$d°. Abrígate.</string>
     <string name="cl_f_sol">Sol fuerte de %1$s a %2$s. Usa protector solar.</string>
-    <string name="cl_f_amanha">Sin lluvia hoy. Mañana es probable que llueva (%1$d%%).</string>
+    <string name="cl_f_amanha">Sin lluvia hoy. Mañana es probable que llueva (%1$s).</string>
     <string name="cl_f_calmo">Sin lluvia prevista hoy. Máxima de %1$d°.</string>
     <string name="cl_d_guarda">Paraguas</string>
     <string name="cl_d_varal">Ropa tendida</string>

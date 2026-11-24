@@ -7,11 +7,11 @@
     <string name="cl_hora">%1$d:00</string>
     <string name="cl_f_parar">Идёт дождь. Должен закончиться около %1$s.</string>
     <string name="cl_f_segue">Идёт дождь, и он продлится ещё несколько часов.</string>
-    <string name="cl_f_chuva">Вероятен дождь около %1$s (%2$d%%).</string>
+    <string name="cl_f_chuva">Вероятен дождь около %1$s (%2$s).</string>
     <string name="cl_f_calor">Жаркий день: до %1$d° около %2$s. Пейте воду.</string>
     <string name="cl_f_frio">Похолодание: до %1$d°. Одевайтесь теплее.</string>
     <string name="cl_f_sol">Сильное солнце с %1$s до %2$s. Нужен солнцезащитный крем.</string>
-    <string name="cl_f_amanha">Сегодня без дождя. Завтра вероятен дождь (%1$d%%).</string>
+    <string name="cl_f_amanha">Сегодня без дождя. Завтра вероятен дождь (%1$s).</string>
     <string name="cl_f_calmo">Сегодня без дождя. Максимум %1$d°.</string>
     <string name="cl_d_guarda">Зонт</string>
     <string name="cl_d_varal">Бельё на улице</string>
