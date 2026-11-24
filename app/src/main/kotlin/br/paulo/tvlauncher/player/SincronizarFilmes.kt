@@ -157,6 +157,17 @@ object SincronizarFilmes {
     fun mudou(antes: Map<String, String>?, agora: Map<String, String>, vararg campos: String): Boolean =
         antes == null || campos.any { antes[it] != agora[it] }
 
+    /**
+     * A foto nova sem avançar os [campos] de uma parte que falhou (5xx, sem rede, resposta ilegível): eles ficam como
+     * estavam (ou somem, sem foto antiga), e a próxima sincronização busca essa parte de novo. Antes a foto andava
+     * inteira mesmo com a busca falhando, e o visto/pausa daquela vez só chegava quando outra coisa mudasse lá fora.
+     */
+    fun fotoSemAvancar(antes: Map<String, String>?, agora: Map<String, String>, vararg campos: String): Map<String, String> {
+        val r = agora.toMutableMap()
+        for (c in campos) { val v = antes?.get(c); if (v == null) r.remove(c) else r[c] = v }
+        return r
+    }
+
     /** GET /users/me/lists: [{name, item_count, ids:{trakt, slug}}]. */
     fun traktLerListas(json: String): List<ListaFora> {
         val a = arranjo(json) ?: return emptyList()
