@@ -103,10 +103,17 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Hulu na barra de largura toda, Apple Music no título da linha com "›").
         const val BARRA_MARGEM = 48f     // das bordas da tela até a placa da barra
         const val BARRA_BAIXO = 28f      // da borda de baixo até a placa
-        const val BARRA_PLACA_A = 132f   // altura da placa das categorias
-        const val BARRA_APPS_VAO = 44f   // da placa até o pé da linha de apps (cabe o nome do app escolhido)
-        const val BARRA_PASSO_APPS = 150f // entre os centros dos apps na linha
-        const val BARRA_ESCALA_APP = 0.8f // app fora da escolha na linha
+        // 24/11/2026 (Paulo na Sala: "ficou horrivelmente gigante"): placa 132 -> 96 dp, ícone da categoria 84 -> 48 dp
+        // (como as barras de baixo do Tubi e do Quizlet no Mobbin), apps 112 -> 80 dp o escolhido e 62 dp os outros.
+        const val BARRA_PLACA_A = 96f    // altura da placa das categorias
+        const val BARRA_CAT_ICONE = 48   // ícone da categoria na placa (a cruz usa CAT_L x CAT_A)
+        const val BARRA_APPS_VAO = 40f   // da placa até o pé do app escolhido (cabe o nome dele)
+        // Apps em retângulos de vidro (Paulo, 24/11/2026: "faça retângulos e usa glassmorfismo"; Mobbin: cartões de
+        // categoria do Apple Games, barra de vidro do Ladder e do WHOOP, cartões de borda clara do How We Feel).
+        const val BARRA_CARTAO_L = 176   // largura do cartão (altura = ICONE_A, 112): ~16:10
+        const val BARRA_PASSO_APPS = 142f // entre os centros dos apps na linha
+        const val BARRA_ESCALA_SEL = 0.72f // app escolhido: 112 -> ~80 dp
+        const val BARRA_ESCALA_APP = 0.56f // app fora da escolha: ~62 dp
         const val BARRA_ALFA_APP = 0.7f
         const val BARRA_ALFA_CAT = 0.8f   // categoria não escolhida
         // ---- fontes (sp): tabela do estudo 32 / 20 / 16 / 18
@@ -283,13 +290,19 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Barra embaixo: a placa (vidro escuro de cantos redondos, largura toda) e o realce da categoria escolhida.
         // Ficam atrás das categorias (que entram depois, em [definir]); somem na cruz.
         placa = View(ctx).apply {
-            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30A0D18.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
+            // Vidro: sem desfoque por trás (o Android não desfoca o que está atrás de uma view), então um branco translúcido
+            // mais claro em cima, sobre um escuro leve, e a borda clara fina que dá a aresta do vidro.
+            background = android.graphics.drawable.LayerDrawable(arrayOf(
+                GradientDrawable().apply { cornerRadius = dp(24f); setColor(0x8C0A0D18.toInt()) },
+                GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x2EFFFFFF, 0x0DFFFFFF)).apply {
+                    cornerRadius = dp(24f); setStroke(dpi(1), 0x38FFFFFF)
+                }))
             visibility = View.GONE
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         addView(placa, LayoutParams(dpi((TELA_L - 2 * BARRA_MARGEM).toInt()), dpi(BARRA_PLACA_A.toInt())))
         realce = View(ctx).apply { visibility = View.GONE; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
-        addView(realce, LayoutParams(dpi(150), dpi((BARRA_PLACA_A - 16f).toInt())))
+        addView(realce, LayoutParams(dpi(150), dpi((BARRA_PLACA_A - 12f).toInt())))
         rotulo = TextView(ctx).apply {
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_ROTULO)
             // Régua de estilo (22/11/2026): o nome do mundo em creme 72%, leve e sem espaçamento; o laranja ficou só
@@ -382,6 +395,23 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun textosDe(iv: ItemView): View? = iv.nome.parent?.parent as? View
 
     /**
+     * Barra embaixo: o ícone do app vira um retângulo de vidro na cor da categoria (Apple Games no Mobbin), com o
+     * desenho no meio. O traço laranja de foco entra em [focoNoCartao].
+     */
+    private fun cartao(iv: ItemView, cat: CruzLogica.Categoria) {
+        val cor = BottomBar.cor(cat)
+        iv.icone.layoutParams = (iv.icone.layoutParams as LinearLayout.LayoutParams).apply { width = dpi(BARRA_CARTAO_L) }
+        iv.icone.background = GradientDrawable(GradientDrawable.Orientation.TL_BR, intArrayOf(Estilo.alfa(cor, 0x66), 0x14FFFFFF)).apply {
+            cornerRadius = dp(18f); setStroke(dpi(1), 0x40FFFFFF)
+        }
+        iv.icone.setPadding(dpi(48), dpi(22), dpi(48), dpi(22))
+    }
+
+    private fun focoNoCartao(iv: ItemView, aceso: Boolean) {
+        (iv.icone.background as? GradientDrawable)?.setStroke(if (aceso) dpi(4) else dpi(1), if (aceso) Estilo.ACENTO else 0x40FFFFFF)
+    }
+
+    /**
      * Troca o conteúdo. Mesmos ids (só textos/ícones novos): atualiza no lugar. Ids diferentes: refaz as views uma vez e
      * mantém o lugar ([CruzLogica.reajustar]).
      */
@@ -412,7 +442,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         viewsCat.clear(); viewsItem.clear()
         for (c in novas) {
             viewsCat += criarCategoria(c).also { addView(it, LayoutParams(dpi(150), LayoutParams.WRAP_CONTENT)) }
-            viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))); if (barra) textosDe(it)?.alpha = 0f } }
+            viewsItem += c.itens.map { item -> criarItem().also { preencher(it, item); addView(it.raiz, LayoutParams(dpi(LARGURA_ITEM), dpi(ICONE_A + SUB_SOBRA))); if (barra) { textosDe(it)?.alpha = 0f; cartao(it, c.cat) } } }
         }
         posicionar(animar = false)
         avisarMudanca()
@@ -700,7 +730,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         addView(ImageView(context).apply {
             setImageDrawable(c.icone)
             if (CrossRhythm.atual.quadro) { background = quadro(); setPaddingRelative(dpi(10), dpi(8), dpi(10), dpi(8)) }
-        }, LinearLayout.LayoutParams(dpi(CAT_L), dpi(CAT_A)))
+        }, if (barra) LinearLayout.LayoutParams(dpi(BARRA_CAT_ICONE), dpi(BARRA_CAT_ICONE))
+            else LinearLayout.LayoutParams(dpi(CAT_L), dpi(CAT_A)))
         addView(TextView(context).apply {
             text = c.nome
             setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_CATEGORIA)
@@ -907,7 +938,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val slot = largura / n
         val yPlaca = telaA() - BARRA_BAIXO - BARRA_PLACA_A
         placa.translationX = dp(BARRA_MARGEM); placa.translationY = dp(yPlaca)
-        val catTopo = yPlaca + (BARRA_PLACA_A - (CAT_A + 30f)) / 2f
+        val catTopo = yPlaca + (BARRA_PLACA_A - (BARRA_CAT_ICONE + 28f)) / 2f
         fun centro(j: Int) = BARRA_MARGEM + slot * (j + 0.5f)
         for ((j, v) in viewsCat.withIndex()) {
             val sel = j == f
@@ -925,14 +956,17 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         (realce.layoutParams as LayoutParams).let { if (it.width != dpi(rl.toInt())) { it.width = dpi(rl.toInt()); realce.layoutParams = it } }
         val corCat = BottomBar.cor(cats.getOrNull(f)?.cat)
         val anel = focada && !naApps && (hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto)
-        realce.background = GradientDrawable().apply {
-            cornerRadius = dp(20f)
-            setColor(Estilo.alfa(corCat, 0x29))
-            if (anel) setStroke(dpi(3), Estilo.ACENTO)
+        realce.background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(Estilo.alfa(corCat, 0x4D), 0x1AFFFFFF)).apply {
+            cornerRadius = dp(18f)
+            if (anel) setStroke(dpi(3), Estilo.ACENTO) else setStroke(dpi(1), 0x33FFFFFF)
         }
-        mover(realce, dp(centro(f) - rl / 2f), dp(yPlaca + 8f), 1f, 1f, animar)
-        // A linha de apps: o pé do ícone escolhido fica BARRA_APPS_VAO acima da placa.
-        val topoApps = yPlaca - BARRA_APPS_VAO - ICONE_A
+        mover(realce, dp(centro(f) - rl / 2f), dp(yPlaca + 6f), 1f, 1f, animar)
+        // A linha de apps: o pé do ícone escolhido fica BARRA_APPS_VAO acima da placa; todos com o centro na mesma altura.
+        // O pivô do item é (0, meio do ícone), então a translação é o centro menos meio ícone (em tamanho cheio).
+        val meioSel = ICONE_A * BARRA_ESCALA_SEL / 2f
+        val centroApps = yPlaca - BARRA_APPS_VAO - meioSel
+        val topoApps = centroApps - ICONE_A / 2f
         val cabem = (largura / BARRA_PASSO_APPS).toInt().coerceAtLeast(1)
         for ((j, lista) in viewsItem.withIndex()) {
             val sel = estado.sel.getOrElse(j) { 0 }
@@ -941,36 +975,36 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             for ((i, iv) in lista.withIndex()) {
                 iv.traco.alpha = 0f
                 iv.sub.alpha = 0f
-                haloDe(iv.icone)?.alpha = 0
                 textosDe(iv)?.let { if (it.alpha != 0f) it.alpha = 0f }
                 if (!aberta) {
                     // linha fechada: os apps se recolhem na categoria deles e somem
-                    mover(iv.raiz, dp(centro(j) - ICONE_L * BARRA_ESCALA_APP / 2f), dp(catTopo), 0f, BARRA_ESCALA_APP, animar)
+                    mover(iv.raiz, dp(centro(j) - BARRA_CARTAO_L * BARRA_ESCALA_APP / 2f), dp(catTopo), 0f, BARRA_ESCALA_APP, animar)
                     if (iv.icone.isActivated) iv.icone.isActivated = false
                     (iv.icone.drawable as? IconeCruz)?.animar(false)
                     continue
                 }
                 val escolhido = i == sel
                 val visivel = i - ini in 0 until cabem
-                val esc = if (escolhido) 1f else BARRA_ESCALA_APP
+                val esc = if (escolhido) BARRA_ESCALA_SEL else BARRA_ESCALA_APP
                 val cx = BARRA_MARGEM + BARRA_PASSO_APPS * (i - ini + 0.5f)
                 // pivô do item = (0, meio do ícone): x é a borda esquerda do ícone já na escala
                 val alfa = if (!visivel) 0f else if (escolhido) (if (focada) 1f else ALFA_ESCOLHIDO_FORA) else BARRA_ALFA_APP
-                mover(iv.raiz, dp(cx - ICONE_L * esc / 2f), dp(topoApps), alfa, esc, animar, onda(kotlin.math.abs(i - sel)))
+                mover(iv.raiz, dp(cx - BARRA_CARTAO_L * esc / 2f), dp(topoApps), alfa, esc, animar, onda(kotlin.math.abs(i - sel)))
                 val aceso = escolhido && focada
+                focoNoCartao(iv, aceso)
                 if (iv.icone.isActivated != aceso) iv.icone.isActivated = aceso
                 (iv.icone.drawable as? IconeCruz)?.animar(aceso && descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS, if (animar) ICONE_ESPERA_MS else 0L)
                 if (escolhido) {
                     nomeApp.text = cats.getOrNull(j)?.itens?.getOrNull(i)?.nome.orEmpty()
                     nomeApp.translationX = dp(cx) - (nomeApp.layoutParams.width / 2f)
-                    nomeApp.translationY = dp(topoApps + ICONE_A + 8f)
+                    nomeApp.translationY = dp(centroApps + meioSel + 6f)
                 }
             }
         }
         // "Ouvir ›" acima da linha (Apple Music no Mobbin) e o nome do escolhido embaixo dele: só com a linha aberta.
         tituloApps.text = cats.getOrNull(f)?.nome?.let { "$it  ›" }.orEmpty()
         tituloApps.translationX = dp(BARRA_MARGEM + 8f)
-        tituloApps.translationY = dp(topoApps - 44f)
+        tituloApps.translationY = dp(centroApps - meioSel - 40f)
         val alvo = if (naApps) 1f else 0f
         for (v in listOf(tituloApps, nomeApp)) {
             if (v.alpha == alvo) continue
