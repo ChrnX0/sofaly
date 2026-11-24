@@ -311,14 +311,18 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             raiz.addView(banner, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
             val quad = o.format != StripHome.Format.WIDE
             val proprio = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
-            val tamIcone = if (quad) o.cardH * 0.56f else o.cardH * 0.48f
+            val rotulo = if (quad) null else texto(11f, forte, DesignTokens.CREAM).apply {
+                setShadowLayer(0f, 0f, 0f, 0)   // dentro do card não leva a sombra da linha do mundo
+                includeFontPadding = false; gravity = Gravity.CENTER; text = item.nome
+                breakStrategy = android.text.Layout.BREAK_STRATEGY_BALANCED
+            }
+            // Nome que não cabe numa linha ("Dormir em 30 min") vai inteiro em duas, com o ícone menor: nunca "Dormir em 30 m…".
+            val duasLinhas = rotulo != null && rotulo.paint.measureText(item.nome) > dp(o.cardW - 12f)
+            rotulo?.apply { maxLines = if (duasLinhas) 2 else 1; ellipsize = TextUtils.TruncateAt.END }
+            val tamIcone = if (quad) o.cardH * 0.56f else if (duasLinhas) o.cardH * 0.36f else o.cardH * 0.48f
             val ic = ImageView(context).apply { setImageDrawable(item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
-            if (!quad) proprio.addView(texto(11f, forte, DesignTokens.CREAM).apply {
-                setShadowLayer(0f, 0f, 0f, 0)   // dentro do card não leva a sombra da linha do mundo
-                maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false; gravity = Gravity.CENTER
-                text = item.nome
-            }, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
+            if (rotulo != null) proprio.addView(rotulo, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
             raiz.addView(proprio, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
             val nomeFoco = texto(15f, forte, DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)
