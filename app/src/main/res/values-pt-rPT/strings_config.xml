@@ -25,7 +25,7 @@
     <string name="cl_nao_gravei">Não gravei: %1$s</string>
     <string name="cl_apagar">Apagar</string>
     <string name="cl_cancelar">Cancelar</string>
-    <string name="cl_nenhuma_conta">Nenhuma conta cadastrada</string>
+    <string name="cl_nenhuma_conta">Nenhuma conta registada</string>
     <string name="cl_nenhuma_conta_det">Registe abaixo a conta que o vendedor do IPTV mandou</string>
     <string name="cl_demo">Ver um vídeo de demonstração</string>
     <string name="cl_demo_det">Sintel, da Blender Foundation (licença CC BY 3.0). Precisa de internet</string>
@@ -54,7 +54,7 @@
     <string name="cl_conta_xtream">Conta Xtream</string>
     <string name="cl_lista_canais">Lista de canais</string>
     <string name="cl_cadastrar">Registar</string>
-    <string name="cl_nao_cadastrei">Não cadastrei: %1$s</string>
+    <string name="cl_nao_cadastrei">Não registei: %1$s</string>
     <string name="cl_precisa_pin">Precisa de um PIN</string>
     <string name="cl_precisa_pin_det">O controlo parental usa o mesmo PIN do painel no navegador; defina um primeiro</string>
     <string name="cl_definir_pin">Definir o PIN</string>
