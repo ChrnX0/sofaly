@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Profiel: %1$s</string>
+    <string name="perfil_aviso_texto">Favorieten, Verder kijken en app-volgorde van dit profiel</string>
+    <string name="perfil_aviso_crianca">Kinderprofiel: kindermodus en bedtijd aangezet</string>
+    <string name="perfil_crianca">Kinderprofiel</string>
+    <string name="perfil_crianca_linha">Kinderprofiel · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Uit</string>
+    <string name="perfil_crianca_sem_pin">Stel eerst de pincode van het webpaneel in: dat is de ouderpincode die het kinderprofiel beschermt</string>
+    <string name="perfil_pin_sair">Ouderpincode om het kinderprofiel te verlaten</string>
+    <string name="perfil_pin_marcar">Ouderpincode om het kinderprofiel te wijzigen</string>
+</resources>

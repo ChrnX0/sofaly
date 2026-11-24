@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Lettertype</string>
+    <string name="fc_det">De letters op elk scherm. Google-lettertypen worden de eerste keer gedownload</string>
+    <string name="fc_baixando">downloaden…</string>
+    <string name="fc_falhou">Kon het niet downloaden. Controleer het internet</string>
+    <string name="ck_formato">Tijdnotatie</string>
+    <string name="ck_formato_det">In de bovenbalk, het Eiland en de grote klok</string>
+    <string name="ck_auto">Automatisch</string>
+    <string name="ck_24">24 u (15:40)</string>
+    <string name="ck_12">12 u (3:40)</string>
+    <string name="ck_12ampm">12 u met AM/PM</string>
+    <string name="ck_seg">Met seconden</string>
+    <string name="ck_cor">Kleur van de tijd</string>
+    <string name="ck_cor_det">In de bovenbalk, het Eiland en de grote klok</string>
+    <string name="ck_padrao">Standaard</string>
+    <string name="ck_laranja">Oranje</string>
+    <string name="ck_creme">Crème</string>
+    <string name="ck_ambar">Amber</string>
+    <string name="ck_verde">Blauwgroen</string>
+</resources>

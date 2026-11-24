@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Fijnafstelling</string>
+    <string name="ft_dica">OK of ▶ ◀ wijzigt · TERUG sluit</string>
+    <string name="ft_abrir">Afstellen terwijl je het startscherm ziet</string>
+    <string name="ft_abrir_det">Lettertype, klok, accentkleur, hoeken, gloed en grootte, live</string>
+    <string name="cs_destaque">Accentkleur</string>
+    <string name="cs_cantos">Hoeken</string>
+    <string name="cs_brilho">Focusgloed</string>
+    <string name="cs_tamanho">Grootte van het kruis</string>
+    <string name="cs_ceu">Lucht</string>
+    <string name="cs_lilas">Lila</string>
+    <string name="cs_retos">Vierkant</string>
+    <string name="cs_redondos">Rond</string>
+    <string name="cs_sem">Uit</string>
+    <string name="cs_suave">Zacht</string>
+    <string name="cs_forte">Sterk</string>
+    <string name="cs_menor">Kleiner</string>
+    <string name="cs_maior">Groter</string>
+    <string name="bg_tintura">Kleur over de achtergrond</string>
+    <string name="bg_cor">Achtergrondkleur</string>
+    <string name="bg_desfoque">Vervaging van de achtergrond</string>
+    <string name="bg_transicao">Overgang van afbeeldingen</string>
+    <string name="bg_novo">Nu een nieuwe achtergrond</string>
+    <string name="bg_solida">Effen</string>
+    <string name="bg_destaque">Accent</string>
+    <string name="bg_noite">Nacht</string>
+    <string name="bg_mata">Bos</string>
+    <string name="bg_brasa">Gloed</string>
+    <string name="bg_grafite">Grafiet</string>
+    <string name="bg_corte">Snijden</string>
+    <string name="bg_lenta">Langzaam</string>
+    <string name="bg_trocado">Gewijzigd</string>
+    <string name="bg_nao_troca">Deze achtergrond verandert niet</string>
+    <string name="bg_camera">Huiscamera als achtergrond</string>
+    <string name="bg_campainha">Deurbelcamera als achtergrond</string>
+    <string name="bg_nenhuma">Geen</string>
+    <string name="bg_ligado">Aan</string>
+</resources>

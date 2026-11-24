@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">Google Drive-account</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">Google Drive-account</string>
+    <string name="drv_nao_conectada">niet verbonden</string>
+    <string name="drv_passos">1. Open op je telefoon %1$s (of richt de camera op de code rechts).\n2. Log in met een Google-account dat op deze tv staat en typ:\n\n%2$s\n\n3. Sta toegang tot Google Drive toe. De tv ziet alleen de bestanden die hij zelf maakt (de map OneTV-backup), nooit de rest van je Drive.\n\nDit scherm gaat vanzelf verder.</string>
+    <string name="drv_ok">Klaar: %1$s is verbonden. Kies \"Google Drive\" in de regel Extra kopie zodat de nachtelijke back-up daar ook naartoe gaat.</string>
+    <string name="drv_sem_google">Inloggen met Google is nog niet ingesteld op deze tv.\n\nStel het in via het webpaneel > tabblad Claude (je eigen OAuth-client, type \"Tv\'s en apparaten met beperkte invoer\"), zet de Google Drive API aan in hetzelfde Google Cloud-project en kom hier terug.</string>
+    <string name="drv_desconectar_pergunta">%1$s loskoppelen? De kopieën die al in Google Drive staan blijven daar; de tv stuurt geen nieuwe meer.</string>
+    <string name="drv_desconectar">Loskoppelen</string>
+    <string name="drv_restaurar">Herstellen vanuit Google Drive</string>
+    <string name="drv_precisa_conta">Verbind eerst het Google Drive-account (regel hierboven).</string>
+    <string name="drv_falhou">Het lukte niet: %1$s</string>
+    <string name="drv_nenhuma">Er staan nog geen kopieën in de map OneTV-backup van Google Drive.</string>
+    <string name="drv_escolha">Welke kopie?</string>
+    <string name="drv_senha">Wachtwoord van de back-up</string>
+    <string name="drv_senha_errada">Verkeerd back-upwachtwoord (of het bestand is gewijzigd). Er is niets hersteld.</string>
+    <string name="drv_restaurado">Hersteld. De launcher herstart zo meteen.</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">LIJSTEN</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Filter</string>
+    <string name="coluna_esportes">Sport</string>
+    <string name="coluna_guia">Gids</string>
+    <string name="coluna_filtro_titulo">Filter</string>
+    <string name="coluna_filtro_ordem">Sorteren: %1$s</string>
+    <string name="coluna_filtro_combinado">Genre, periode, beoordeling, niet gezien…</string>
+    <string name="coluna_filtro_combinado_ativo">Filter: %1$s</string>
+    <string name="coluna_filtro_limpar">Filter wissen</string>
+    <string name="coluna_filtro_sortear">Verras me</string>
+    <string name="coluna_filtro_ocultas_mostrar">Verborgen categorieën tonen (pincode)</string>
+    <string name="coluna_filtro_ocultas_esconder">Verborgen categorieën weer verbergen</string>
+    <string name="coluna_menu_assistido">Markeren als gezien</string>
+    <string name="coluna_menu_nao_assistido">Markeren als niet gezien</string>
+    <string name="coluna_menu_tirar_continuar">Verwijderen uit Verder kijken</string>
+    <string name="coluna_menu_por_interesse">Toevoegen aan Kijklijst</string>
+    <string name="coluna_menu_tirar_interesse">Verwijderen uit Kijklijst</string>
+    <string name="coluna_marcado_assistido">%1$s gemarkeerd als gezien</string>
+    <string name="coluna_marcado_nao_assistido">%1$s gemarkeerd als niet gezien</string>
+    <string name="coluna_tirado_continuar">%1$s verwijderd uit Verder kijken</string>
+    <string name="coluna_menu_tirar_home">Verwijderen van het startscherm</string>
+    <string name="coluna_tirado_home">%1$s verwijderd van het startscherm</string>
+    <string name="coluna_etiqueta_concluida">Afgelopen</string>
+    <string name="coluna_etiqueta_nova_temporada">Nieuw seizoen</string>
+    <string name="coluna_etiqueta_novos">Nieuwe afleveringen</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d nieuwe aflevering</item>
+        <item quantity="other">%d nieuwe afleveringen</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Naar letter</string>
+    <string name="coluna_letra">Naar een letter gaan</string>
+    <string name="coluna_ao_vivo">LIVE</string>
+    <string name="coluna_ao_vivo_primeiro">Live eerst</string>
+    <string name="coluna_tv_titulo">Tv</string>
+    <string name="coluna_gravacoes">Opnames</string>
+</resources>

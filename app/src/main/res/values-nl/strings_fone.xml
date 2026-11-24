@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Geluid op een koptelefoon (telefoon)</string>
+    <string name="fone_titulo">Geluid op een koptelefoon</string>
+    <string name="fone_texto">Scan met een telefoon op de thuiswifi en sluit een koptelefoon aan. Tot %1$d telefoons. De tv wordt stil zolang iemand luistert; de pagina sluiten brengt het geluid terug.</string>
+    <string name="fone_ouvindo">Luisteren: %1$d van %2$d</string>
+    <string name="fone_fechar">Sluiten</string>
+    <string name="fone_parar">Stoppen</string>
+    <string name="fone_sem_rede">De tv zit niet op het thuisnetwerk.</string>
+</resources>

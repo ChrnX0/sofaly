@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Stoppen</string>
+    <string name="ra_parar_det">De radio blijft spelen op het startscherm en in de schermbeveiliging tot je hem stopt</string>
+    <string name="ra_parar_det_antigo">Dit scherm verlaten stopt hem ook</string>
+    <string name="ouv_canal">Radio speelt</string>
+    <string name="ouv_abrir">Het radioscherm openen</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podcasts</string>
+    <string name="pod_dica_mais">meer</string>
+    <string name="pod_de">%1$s van %2$s</string>
+    <string name="pod_velocidade">Snelheid</string>
+    <string name="pod_silencio">Stiltes overslaan</string>
+    <string name="pod_silencio_det">Knipt de pauzes in spraak weg</string>
+    <string name="pod_ligado">aan</string>
+    <string name="pod_desligado">uit</string>
+    <string name="pod_continuar">Verder</string>
+    <string name="pod_novos">Nieuwe afleveringen</string>
+    <string name="pod_video">video</string>
+    <string name="pod_meus">Mijn podcasts</string>
+    <string name="pod_ultimo">nieuwste: %s</string>
+    <string name="pod_adicionar">Toevoegen</string>
+    <string name="pod_colar">Een podcastadres plakken</string>
+    <string name="pod_colar_det">De link van de RSS-feed (podcastsites tonen hem als RSS)</string>
+    <string name="pod_pelo_celular">Vanaf je telefoon</string>
+    <string name="pod_pelo_celular_det">Open het tv-paneel op je telefoon › Podcasts: plak een link of importeer de lijst van je podcast-app (OPML)</string>
+    <string name="pod_sem_episodios">Geen afleveringen om te tonen.</string>
+    <string name="pod_ouvido">beluisterd</string>
+    <string name="pod_do_comeco">Vanaf het begin afspelen</string>
+    <string name="pod_marcar_nao">Markeren als niet beluisterd</string>
+    <string name="pod_marcar_ouvido">Markeren als beluisterd</string>
+    <string name="pod_abrir">Openen</string>
+    <string name="pod_remover">Afmelden</string>
+    <string name="pod_removido">Afgemeld</string>
+    <string name="pod_adicionando">De podcast toevoegen…</string>
+    <string name="pod_adicionado">Podcast toegevoegd</string>
+    <string name="pod_nao_deu">Kon hem niet toevoegen: %s</string>
+    <string name="pod_horas">%1$d u %2$s</string>
+    <string name="pod_minutos">%d min</string>
+    <string name="pod_hoje">vandaag</string>
+    <string name="pod_ontem">gisteren</string>
+    <string name="pod_falhou">Deze aflevering speelt nu niet. Probeer het later opnieuw.</string>
+    <string name="pod_abrir_tela">Het podcastscherm openen</string>
+    <string name="ra_podcasts_det">Programma\'s, nieuws en gesprekken die je volgt</string>
+    <string name="pod_procurar">Zoeken</string>
+    <string name="pod_buscar">Podcasts zoeken</string>
+    <string name="pod_em_alta">Populair in je land</string>
+    <string name="pod_atribuicao">Zoeken: Podcast Index</string>
+    <string name="pod_sugestoes">Suggesties</string>
+    <string name="pod_sugestao_seguir">OK om te volgen</string>
+    <string name="pod_sugeridos_seguidos">Voorgestelde podcasts toegevoegd aan Mijn podcasts</string>
+</resources>

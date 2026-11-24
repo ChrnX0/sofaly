@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Apelidos de voz das telas (ideia 8, AtalhosVoz): o nome que se fala no "Ok Google, abrir <nome>". Curtos e distintos. -->
+<resources>
+    <string name="lbl_voz_filmes">Films</string>
+    <string name="lbl_voz_series">Series</string>
+    <string name="lbl_voz_na_rede">Netwerkmedia</string>
+    <string name="lbl_voz_casa">Huisbediening</string>
+    <string name="lbl_voz_busca">Zoeken</string>
+    <string name="lbl_voz_mural">Bord</string>
+    <string name="voz_mural_desligado">Het gezinsbord staat uit (of de tv staat in gastmodus).</string>
+</resources>

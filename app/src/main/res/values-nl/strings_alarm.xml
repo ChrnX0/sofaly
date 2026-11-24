@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Kies de tijd en de dagen</string>
+    <string name="al_volume_rotulo">Volume bij het afgaan</string>
+    <string name="al_volume_det">De tv gaat naar minstens dit volume, ook als het geluid uit stond</string>
+    <string name="al_volume_lg_det">De LG-tv begint zacht en stijgt naar dit volume</string>
+    <string name="al_info_toca">gaat af %1$s</string>
+    <string name="al_proximo_rotulo">Volgende wekker</string>
+    <string name="al_dica_editar">bewerken</string>
+    <string name="al_dica_ligar">aan/uit</string>
+    <string name="al_dica_sair">afsluiten</string>
+    <string name="al_dica_mudar">wijzigen</string>
+    <string name="al_dica_andar">verplaatsen</string>
+    <string name="al_dica_salvar">opslaan</string>
+    <string name="al_ligou">Wekker van %1$s aan</string>
+    <string name="al_desligou">Wekker van %1$s uit</string>
+    <string name="al_sim">Ja</string>
+    <string name="al_nao">Nee</string>
+    <string name="al_op_salvar_det">TERUG slaat ook op</string>
+    <string name="al_op_repetir">Herhalen</string>
+    <string name="al_op_repetir_det">OK kiest de dagen</string>
+    <string name="al_op_som">Geluid</string>
+    <string name="al_op_som_det">OK kiest een geluid en speelt het voor je af</string>
+    <string name="al_op_rampa">Afgaan</string>
+    <string name="al_op_rampa_det">Zacht beginnen is een vriendelijkere manier om wakker te worden</string>
+    <string name="al_op_bom_dia">Goedemorgen</string>
+    <string name="al_op_bom_dia_det">Als je hem stopt, zegt de tv de tijd, het weer en de agenda van vandaag</string>
+    <string name="al_op_cena">Scène bij stoppen</string>
+    <string name="al_op_cena_det">OK kiest de scène</string>
+    <string name="al_op_nome">Naam</string>
+    <string name="al_op_nome_det">Verschijnt op het scherm als hij afgaat</string>
+    <string name="al_op_nome_dica">bijv. Medicijn</string>
+    <string name="al_op_alarme">Wekker</string>
+    <string name="al_op_ligado_det">OK zet hem aan of uit</string>
+    <string name="al_op_apagar">Wekker verwijderen</string>
+    <string name="al_op_apagar_det">Vraagt het voor het verwijderen</string>
+    <string name="al_op_sair">Verlaten zonder opslaan</string>
+    <string name="al_op_sair_det">Maakt ongedaan wat je hier hebt gewijzigd</string>
+    <string name="al_apagar_q">De wekker van %1$s verwijderen?</string>
+    <string name="al_salvo">Wekker opgeslagen: %1$s</string>
+    <string name="al_resumo">Gaat af %1$s</string>
+    <string name="al_resumo_desligado">Uit: hij gaat niet af</string>
+    <string name="al_op_hora">Uur</string>
+    <string name="al_op_minuto">Minuut</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Veilige modus</string>
+    <string name="seg_texto">Het startscherm stopte %1$d keer achter elkaar. Dit is een eenvoudige versie ervan, zodat je de tv kunt blijven gebruiken.</string>
+    <string name="seg_procurar">Een gerepareerde versie zoeken</string>
+    <string name="seg_procurar_det">Als die er is, wordt hij nu gedownload en geïnstalleerd.</string>
+    <string name="seg_procurando">Een nieuwe versie zoeken…</string>
+    <string name="seg_normal">Het normale startscherm proberen</string>
+    <string name="seg_normal_det">Als het nog 3 keer stopt, komt dit scherm terug.</string>
+    <string name="seg_config_tv">Tv-instellingen</string>
+    <string name="seg_erro">Zien wat er misging</string>
+    <string name="seg_erro_det">Diagnose, met de opgeslagen fouten.</string>
+    <string name="seg_apps">Apps</string>
+</resources>

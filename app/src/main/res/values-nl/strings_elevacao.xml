@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Hoe het met deze tv gaat</string>
+    <string name="elv_placar_det">Zeven beloften, elk met een getal gemeten op deze tv</string>
+    <string name="elv_placar_sub">Gemeten op deze tv. Er verlaat niets het huis.</string>
+    <string name="elv_pilar_liga">Gaat aan en is klaar</string>
+    <string name="elv_pilar_ao_vivo">Live tv die niet faalt</string>
+    <string name="elv_pilar_player">De beste speler voor de woonkamer</string>
+    <string name="elv_pilar_casa">De tv die op het huis let</string>
+    <string name="elv_pilar_controle">Bediening vanaf overal</string>
+    <string name="elv_pilar_todos">Iedereen kan het gebruiken</string>
+    <string name="elv_pilar_instala">Stelt zichzelf in en herstelt zichzelf</string>
+    <string name="elv_prom_liga">Startscherm klaar in minder dan 1 seconde</string>
+    <string name="elv_prom_ao_vivo">Van zender wisselen duurt minder dan 1,5 seconde, van toets tot beeld</string>
+    <string name="elv_prom_player">Speelt elk bestand af; de juiste ondertiteling zonder gedoe</string>
+    <string name="elv_prom_casa">De wekker gaat op tijd af, elke keer</string>
+    <string name="elv_prom_controle">Paneel, telefoon en AI doen alles wat de afstandsbediening doet</string>
+    <string name="elv_prom_todos">Ouderen, kinderen, gasten, slechtziend of slechthorend; 14 talen</string>
+    <string name="elv_prom_instala">Van de eerste start tot de eerste zender in 5 minuten</string>
+    <string name="elv_nao_medido">Nog niet gemeten</string>
+    <string name="elv_alvo">doel %1$s</string>
+    <string name="elv_n_de_n">op tijd %1$d van %2$d</string>
+    <string name="elv_dentro">binnen het doel</string>
+    <string name="elv_fora">buiten het doel</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d crash of bevriezing in %2$d dagen</item>
+        <item quantity="other">%1$d crashes of bevriezingen in %2$d dagen</item>
+    </plurals>
+    <string name="elv_lp_titulo">Meten voor en na</string>
+    <string name="elv_lp_det_antes">Meet het vrije geheugen en hoe snel je 3 meest gebruikte apps openen, voor het opruimen. Ze openen een paar seconden.</string>
+    <string name="elv_lp_det_depois">Voor is opgeslagen. Verberg de apps hierboven en druk dan op OK om na te meten.</string>
+    <string name="elv_lp_medindo">Meten… apps kunnen een paar seconden openen</string>
+    <string name="elv_lp_mais_livre">%1$d MB meer vrij</string>
+    <string name="elv_lp_menos_livre">%1$d MB minder vrij</string>
+    <string name="elv_lp_mais_rapido">%1$s opent %2$s sneller</string>
+    <string name="elv_lp_mais_lento">%1$s opent %2$s trager</string>
+    <string name="elv_lp_igual">Geen verschil groot genoeg om te meten</string>
+    <string name="elv_agora">zojuist</string>
+    <string name="elv_sem_quedas">Geen crashes of bevriezingen in %1$d dagen</string>
+    <string name="elv_reserva">%1$s viel weg. In plaats daarvan speelt %2$s.</string>
+    <string name="elv_zap_solte">Loslaten om te kijken</string>
+    <string name="elv_leg_padrao">standaard</string>
+    <string name="elv_leg_contraste">hoog contrast</string>
+    <string name="elv_leg_amarela">geel</string>
+    <string name="elv_leg_embaixo">onder</string>
+    <string name="elv_leg_em_cima">boven</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Doen</string>
+    <string name="elv_bf_ok_faz">OK doet het nu</string>
+    <string name="elv_bf_wifi">De gastwifi tonen</string>
+    <string name="elv_bf_wifi_configurar">Nog niet ingesteld: OK opent Instellingen (Bezoek)</string>
+    <string name="elv_bf_letra_maior">Grotere tekst (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Kleinere tekst (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Het staat al op deze grootte</string>
+    <string name="elv_bf_radios">Radiozenders</string>
+    <string name="elv_bf_radio_fav">Favoriete zender</string>
+    <string name="elv_bf_ajuda">Help</string>
+    <string name="elv_bf_ajuda_det">Onderwerp uit de handleiding</string>
+    <string name="elv_bf_procurar">Verder zoeken</string>
+    <string name="elv_bf_procurar_radio">Radiozenders met de naam “%1$s”</string>
+    <string name="elv_bf_procurar_radio_det">Zenders van over de hele wereld</string>
+    <string name="elv_bf_procurar_rede">“%1$s” in je netwerkbestanden</string>
+    <string name="elv_bf_procurar_rede_det">Op je Jellyfin, Emby of Plex</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Instellingen doorzoeken</string>
+    <string name="elv_aj_explica">Typ een woord: de naam van de optie of een ander woord ervoor (\"lettertype\" vindt de tekstgrootte)</string>
+    <string name="elv_aj_dica">Bijvoorbeeld: lettertype, wifi, schermbeveiliging</string>
+    <string name="elv_aj_recentes">Recent gewijzigd</string>
+    <string name="elv_aj_recentes_vazio">De opties die je wijzigt verschijnen hier, de nieuwste eerst</string>
+    <string name="elv_aj_nada">Niets gevonden voor “%1$s”</string>
+    <string name="elv_aj_nada_det">Probeer een ander woord, of kijk in de tabbladen links</string>
+    <string name="elv_aj_sinonimos">lettertype,letter,tekst,grootte,groter,kleiner;wifi,wi-fi,netwerk,internet,verbinding;schermbeveiliging,screensaver,rust,inactief;wachtwoord,pincode,pin,code;geluid,volume,audio;tijd,klok,uur;weer,verwachting,temperatuur;taal;kinderen,kind,ouderlijk;gast,bezoeker,bezoek;update,versie,nieuw;back-up,kopie,herstellen;telefoon,mobiel,gsm;licht,lamp,huis,thuis;slaap,uitzetten,timer,energie,stroom;zender,tv,live;film,serie,series,programma;ondertitel,ondertiteling;wekker,wekken,alarm;foto,afbeelding,beeld,achtergrond,wallpaper</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Vraagt aandacht</string>
+    <string name="elv_f_canal_caiu_frase">Deze zender komt nu niet binnen</string>
+    <string name="elv_f_canal_caiu_causa">De aanbieder van de zender is gestopt met uitzenden. Meestal komt hij vanzelf terug.</string>
+    <string name="elv_f_canal_caiu_botao">Een andere zender kijken</string>
+    <string name="elv_f_lista_venceu_frase">Je zenderlijst is verlopen</string>
+    <string name="elv_f_lista_venceu_causa">Het account bij wie de lijst verkoopt, is afgelopen of geweigerd.</string>
+    <string name="elv_f_lista_venceu_botao">Het account openen</string>
+    <string name="elv_f_relogio_errado_frase">De klok van de tv staat verkeerd</string>
+    <string name="elv_f_relogio_errado_causa">Met de verkeerde tijd falen de gids en beveiligde sites.</string>
+    <string name="elv_f_relogio_errado_botao">De klok instellen</string>
+    <string name="elv_f_disco_cheio_frase">De tv raakt vol</string>
+    <string name="elv_f_disco_cheio_causa">Zonder ruimte kunnen de gids, opnames en updates niet worden opgeslagen.</string>
+    <string name="elv_f_disco_cheio_botao">Ruimte vrijmaken</string>
+    <string name="elv_f_shell_parado_frase">De extra krachten van de tv zijn gestopt</string>
+    <string name="elv_f_shell_parado_causa">Draadloze foutopsporing werd uitgezet of de koppeling ging verloren.</string>
+    <string name="elv_f_shell_parado_botao">Weer aanzetten</string>
+    <string name="elv_f_tunel_sem_login_frase">Toegang van buitenshuis wacht op een login</string>
+    <string name="elv_f_tunel_sem_login_causa">De login bij Tailscale is verlopen.</string>
+    <string name="elv_f_tunel_sem_login_botao">Opnieuw inloggen</string>
+    <string name="elv_f_backup_falhou_frase">De nachtelijke back-up heeft 2 dagen niet gedraaid</string>
+    <string name="elv_f_backup_falhou_causa">De bestemming was onbereikbaar of het wachtwoord is gewijzigd.</string>
+    <string name="elv_f_backup_falhou_botao">Nu een back-up maken</string>
+    <string name="elv_f_religando">Weer aanzetten: dit duurt tot een minuut</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Niet storen: tijdens een film, laat op de avond of met gasten wachten berichten en komen ze terug in een samenvatting (wekker en deurbel verschijnen altijd)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Terwijl je keek: %1$d bericht</item><item quantity="other">Terwijl je keek: %1$d berichten</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Tijdens de nacht: %1$d bericht</item><item quantity="other">Tijdens de nacht: %1$d berichten</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Tijdens het bezoek: %1$d bericht</item><item quantity="other">Tijdens het bezoek: %1$d berichten</item></plurals>
+    <string name="elv_np_mais">+%1$d meer</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Als een film afloopt</string>
+    <string name="elv_ev_programa_comecou">Als een programma begint dat je in de gids markeerde</string>
+    <string name="elv_ev_nascer_do_sol">Bij zonsopkomst</string>
+    <string name="elv_ev_por_do_sol">Bij zonsondergang</string>
+    <string name="elv_ev_campainha">Als de deurbel gaat</string>
+    <string name="elv_ev_alguem_chegou">Als er iemand thuiskomt</string>
+    <string name="elv_ev_internet_caiu">Als het internet wegvalt</string>
+    <string name="elv_ev_internet_voltou">Als het internet terugkomt</string>
+    <string name="elv_ev_recado_chegou">Als er een bericht binnenkomt</string>
+    <string name="elv_ev_aniversario">Op iemands verjaardag (9:00)</string>
+    <string name="elv_ev_compromisso">Als een afspraak in de agenda begint</string>
+    <string name="elv_ss_sempre">Altijd</string>
+    <string name="elv_ss_so_se">Alleen als %1$s</string>
+    <string name="elv_ss_e">" en "</string>
+    <string name="elv_ss_em_casa">er iemand thuis is</string>
+    <string name="elv_ss_noite">na zonsondergang</string>
+    <string name="elv_ss_dia_util">het een werkdag is</string>
+    <string name="elv_ss_perfil">het profiel %1$s is</string>
+    <string name="elv_ss_det">◀ ▶ de voorwaarde wijzigen</string>
+    <string name="extras_ABERTURA_PRONTA">Intro overslaan (IntroDB): bij afleveringen vraagt de tv de community-dienst IntroDB waar de opening zit (hij stuurt welke aflevering, nooit je account); uit, alleen intro\'s die je markeerde</string>
+</resources>

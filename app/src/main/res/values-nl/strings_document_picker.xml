@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seletor de pastas e arquivos (DocumentPickerActivity, 21/11/2026). -->
+<resources>
+    <string name="dp_titulo_pasta">Kies een map</string>
+    <string name="dp_titulo_arquivo">Kies een bestand</string>
+    <string name="dp_titulo_salvar">Kies waar je wilt opslaan</string>
+    <string name="dp_para">Voor %1$s</string>
+    <string name="dp_usar_pasta">Deze map gebruiken</string>
+    <string name="dp_salvar_aqui">Hier opslaan</string>
+    <string name="dp_memoria">Tv-opslag</string>
+    <string name="dp_rede">Netwerkmap</string>
+    <string name="dp_livre">%1$s vrij</string>
+    <string name="dp_vazia">Hier valt niets te kiezen</string>
+    <string name="dp_abrindo">Openen…</string>
+    <string name="dp_erro">Kon deze plek niet openen. Controleer of hij verbonden is en probeer het opnieuw.</string>
+    <string name="dp_arquivos">Bestanden in deze map: %1$d</string>
+    <string name="dp_dicas">OK: openen · TERUG: teruggaan</string>
+    <string name="dp_diario">%1$s ontving %2$s uit de kiezer</string>
+    <string name="dp_sem_nome">naamloos</string>
+</resources>

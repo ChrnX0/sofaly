@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Onderwerpen</string>
+    <string name="pod_ass_seus">Je volgt: %d</string>
+    <string name="pod_ass_em_alta">Populair in dit onderwerp</string>
+    <string name="pod_parecidos">Vergelijkbaar: %s</string>
+    <string name="pod_ass_noticias">Nieuws</string>
+    <string name="pod_ass_humor">Comedy</string>
+    <string name="pod_ass_ciencia">Wetenschap</string>
+    <string name="pod_ass_tecnologia">Technologie</string>
+    <string name="pod_ass_historia">Geschiedenis</string>
+    <string name="pod_ass_negocios">Zakelijk</string>
+    <string name="pod_ass_saude">Gezondheid</string>
+    <string name="pod_ass_esportes">Sport</string>
+    <string name="pod_ass_cultura">Cultuur</string>
+    <string name="pod_ass_crimes">True crime</string>
+    <string name="pod_ass_tv_filmes">Tv en film</string>
+    <string name="pod_ass_musica">Muziek</string>
+    <string name="pod_ass_educacao">Onderwijs</string>
+    <string name="pod_ass_infantil">Kinderen en gezin</string>
+    <string name="pod_ass_fe">Geloof</string>
+    <string name="pod_ass_lazer">Vrije tijd</string>
+</resources>

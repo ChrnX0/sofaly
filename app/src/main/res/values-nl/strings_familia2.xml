@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Verjaardag</string>
+    <string name="an_hoje">Vandaag is %s jarig</string>
+    <string name="an_amanha">Morgen is %s jarig</string>
+    <plurals name="an_anos">
+        <item quantity="one">wordt %d</item>
+        <item quantity="other">wordt %d</item>
+    </plurals>
+    <string name="tp_calor">Grote hitte</string>
+    <string name="tp_calor_texto">Tot %d° vandaag · Drink water</string>
+    <string name="tp_frio">Strenge kou</string>
+    <string name="tp_frio_texto">Tot %d° vannacht · Kleed je warm aan</string>
+    <string name="tp_cfg">Waarschuwing voor hitte en kou</string>
+    <string name="tp_cfg_det">Een kaart boven elke app als het vandaag %1$d° wordt of vannacht naar %2$d° zakt</string>
+    <string name="mu_ok_lido">OK markeert als gelezen</string>
+    <string name="mu_ok_nao_lido">Gelezen · OK markeert als ongelezen</string>
+    <string name="mu_lido_desc">Bericht, gelezen: %s. OK markeert als ongelezen.</string>
+    <string name="mu_nao_lido_desc">Bericht: %s. OK markeert als gelezen.</string>
+    <string name="mu_apagar">Bericht verwijderen: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">Je tv dit jaar (in december, op de schermbeveiliging)</string>
+    <string name="extras_ENTRADAS_TV">HDMI-ingangen in Apps (alleen op tv\'s met ingangen)</string>
+    <string name="ra_titulo">Je tv in %d</string>
+    <string name="ra_canal">Favoriete zender: %1$s (%2$s)</string>
+    <string name="ra_coluna">Radio</string>
+    <string name="ra_dica_ouvir">luisteren</string>
+    <string name="ra_dica_favoritar">favoriet</string>
+    <string name="ra_carregando">Zenders laden…</string>
+    <string name="ra_sem_catalogo">De radiocatalogus antwoordde niet. Je favorieten werken nog.</string>
+    <string name="ra_nada">Geen zender gevonden.</string>
+    <string name="ra_continuar">verder</string>
+    <string name="ra_pausar">pauze</string>
+    <string name="ra_favoritas">Favorieten</string>
+    <string name="ra_procurar">Zoeken</string>
+    <string name="ra_buscar">Zoeken op naam</string>
+    <string name="ra_buscar_det">Elke zender ter wereld</string>
+    <string name="ra_generos">Genres</string>
+    <string name="ra_perto">In de buurt</string>
+    <string name="ra_mundo">Meest beluisterd ter wereld</string>
+    <string name="ra_resultado">Zoeken: %s</string>
+    <string name="ra_favoritada">Toegevoegd aan favorieten</string>
+    <string name="ra_desfavoritada">Verwijderd uit favorieten</string>
+    <string name="ra_falhou">Deze zender speelt nu niet. Probeer een andere.</string>
+</resources>

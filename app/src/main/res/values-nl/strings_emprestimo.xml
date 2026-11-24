@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Systeemkrachten uitlenen</string>
+    <string name="emp_titulo">De shell uitlenen aan andere apps (Shizuku)</string>
+    <string name="emp_titulo_det">Apps gemaakt voor Shizuku werken zonder het te installeren. Elke app vraagt het de eerste keer op de tv, met de pincode.</string>
+    <string name="emp_modo_desligado">Uit</string>
+    <string name="emp_modo_sob_demanda">Als een app het nodig heeft</string>
+    <string name="emp_modo_sempre">Altijd aan</string>
+    <string name="emp_oficial">De Shizuku-app is op deze tv geïnstalleerd, dus de launcher gaat hem uit de weg. Verwijder hem om die van de launcher te gebruiken.</string>
+    <string name="emp_plano">Onderdeel van de betaalde abonnementen.</string>
+    <string name="emp_negar">Weigeren</string>
+    <string name="emp_permitir">Altijd toestaan</string>
+    <string name="emp_pedido_titulo">%1$s toestaan de systeemkrachten van de launcher te gebruiken?</string>
+    <string name="emp_pedido_texto">De app kan dan doen wat adb doet: apps installeren en verwijderen, systeeminstellingen wijzigen en meer. Sta het alleen toe aan apps die je vertrouwt. Je kunt het later intrekken in het webpaneel.</string>
+    <string name="emp_pin_titulo">Pincode van het paneel om toe te staan</string>
+    <string name="emp_sem_pin">Stel eerst de pincode van het paneel in (Instellingen, Webpaneel).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Eigenaarsbeheer uitlenen aan andere apps (Dhizuku)</string>
+    <string name="emd_titulo_det">Apps gemaakt voor Dhizuku gebruiken het eigenaarsbeheer van de launcher. Elke app vraagt het op de tv, met de pincode. Met “Toestaan” kan geen enkele de launcher als eigenaar verwijderen of de tv wissen; met “Volledige macht” wel.</string>
+    <string name="emd_ligado">Aan</string>
+    <string name="emd_sem_dono">De launcher is niet de eigenaar (Device Owner) van deze tv, dus er valt niets uit te lenen.</string>
+    <string name="emd_pedido_titulo">%1$s toestaan het eigenaarsbeheer van de launcher te gebruiken?</string>
+    <string name="emd_pedido_texto">Met “Toestaan” kan de app apps verbergen en blokkeren en de rechten en regels van de tv wijzigen, maar nooit de launcher als eigenaar verwijderen of de tv wissen. “Volledige macht” laat de app draaien als de launcher en zijn gegevens lezen: alleen voor apps die je volledig vertrouwt. Je kunt het intrekken in het webpaneel. Met “Volledige macht” kan de app alles wat de launcher kan, zelfs de tv wissen.</string>
+    <string name="emd_total">Volledige macht</string>
+    <string name="emd_pin_total">VOLLEDIGE MACHT: de app kan alles wat de launcher kan, zelfs de tv wissen. Pincode van het paneel</string>
+</resources>

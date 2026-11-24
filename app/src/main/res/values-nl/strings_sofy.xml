@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Geen internet</string>
+    <string name="observer_no_internet_text">Video\'s kunnen stoppen tot het terug is.</string>
+    <string name="observer_slow_internet_title">Traag internet</string>
+    <string name="observer_slow_internet_text">Antwoorden duren %1$s ms. Video\'s kunnen pauzeren om te laden.</string>
+    <string name="observer_weak_wifi_title">Zwakke wifi</string>
+    <string name="observer_weak_wifi_text">Het signaal is %1$s dBm. Een router dichter bij de tv helpt.</string>
+    <string name="observer_low_memory_title">Geheugen bijna vol</string>
+    <string name="observer_low_memory_text">Nog maar %1$s MB vrij. Apps kunnen sluiten en herstarten.</string>
+    <string name="observer_memory_pressure_title">De tv is overbelast</string>
+    <string name="observer_memory_pressure_text">Android sluit apps om ruimte te maken.</string>
+    <string name="observer_slow_home_title">Startscherm is traag</string>
+    <string name="observer_slow_home_text">%1$s%% van de frames was te laat.</string>
+    <string name="observer_low_disk_title">Opslag bijna vol</string>
+    <string name="observer_low_disk_text">Nog maar %1$s MB over. Opslaan kan mislukken.</string>
+    <string name="observer_freeze_undone_title">Ik heb een bevriezing ongedaan gemaakt</string>
+    <string name="observer_freeze_undone_text">%1$s was bevroren en %2$s werkte niet meer, dus ik heb het ontdooid.</string>
+</resources>

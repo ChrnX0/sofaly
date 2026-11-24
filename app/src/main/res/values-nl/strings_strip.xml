@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Eén balk</string>
+    <string name="strip_desc_watch">Films, series en tv</string>
+    <string name="strip_desc_listen">Muziek, radio en podcasts</string>
+    <string name="strip_desc_play">Games en cloudgaming</string>
+    <string name="strip_desc_apps">Alles wat geïnstalleerd is</string>
+    <string name="strip_desc_tools">Wekker, weer en instellingen</string>
+    <string name="strip_apps_count">%1$d apps</string>
+    <string name="st_desc">Beschrijving van de wereld</string>
+    <string name="st_desc_fixa">Vaste zin</string>
+    <string name="st_desc_viva">Wat er nu op is</string>
+    <string name="st_formato">Vorm van de kaart</string>
+    <string name="st_quadrado">Vierkant</string>
+    <string name="st_tamanho">Grootte van de kaart</string>
+    <string name="st_pequeno">Klein</string>
+    <string name="st_medio">Middel</string>
+    <string name="st_grande">Groot</string>
+    <string name="st_espaco">Ruimte tussen kaarten</string>
+    <string name="st_justo">Krap</string>
+    <string name="st_normal">Normaal</string>
+    <string name="st_largo">Ruim</string>
+    <string name="st_cantos">Hoeken van de kaart</string>
+    <string name="st_retos">Vierkant</string>
+    <string name="st_suaves">Zacht</string>
+    <string name="st_redondos">Rond</string>
+    <string name="st_placa">Glazen plaat erachter</string>
+    <string name="st_nome">Naam op de kaart in focus</string>
+    <string name="st_sem">Uit</string>
+    <string name="st_com">Aan</string>
+</resources>

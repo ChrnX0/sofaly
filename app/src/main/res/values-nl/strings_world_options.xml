@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Opties voor %1$s</string>
+    <string name="wo_ordenar">Sorteren</string>
+    <string name="wo_ordenar_de">%1$s sorteren</string>
+    <string name="wo_por_uso">Meest gebruikt eerst</string>
+    <string name="wo_az">A tot Z</string>
+    <string name="wo_a_mao">Mijn eigen volgorde</string>
+    <string name="wo_renomear_mundo">Deze categorie hernoemen</string>
+    <string name="wo_icone_mundo">Het pictogram van deze categorie wijzigen</string>
+    <string name="wo_esconder">Deze categorie verbergen</string>
+    <string name="wo_mostrar">Verborgen categorieën tonen (%1$d)</string>
+    <string name="wo_padrao">Terug naar hoe het was</string>
+    <string name="wo_subir">Omhoog</string>
+    <string name="wo_descer">Omlaag</string>
+    <string name="wo_renomear_app">Hernoemen</string>
+    <string name="wo_vazio_original">Leeg = oorspronkelijke naam</string>
+    <string name="wo_so_icone">Alleen het pictogram tonen</string>
+    <string name="wo_com_nome">De naam tonen</string>
+    <string name="wo_nomes_titulo">Labels van pictogrammen</string>
+    <string name="wo_so_icone_curto">Alleen pictogram</string>
+    <string name="wo_com_nome_curto">Met naam</string>
+    <string name="co_titulo">Verder kijken</string>
+    <string name="co_mostrar">Getoond</string>
+    <string name="co_esconder">Verborgen</string>
+    <string name="wo_nomes_det">Naam onder elk categoriepictogram, of alleen het pictogram</string>
+    <string name="co_det">Wat je halverwege liet, bovenaan elke categorie</string>
+    <string name="tec_cfg_det">Drukken, ingedrukt houden, dubbel en driemaal drukken op elke knop</string>
+    <string name="bb_titulo">Indeling van het startscherm</string>
+    <string name="bb_cruz">Kruis</string>
+    <string name="bb_barra">Balk onderaan</string>
+    <string name="bb_det">Categorieën in een kruis, of vast onderaan met de apps erboven (▲)</string>
+</resources>

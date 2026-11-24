@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Achtergrond van plug-in</string>
+    <string name="wp_cfg_det">Achtergronden, pictogrammenpakketten en kaarten van andere apps. Elk heeft je OK nodig.</string>
+    <string name="wp_det">Apps van andere ontwikkelaars die achtergronden, pictogrammen of kaarten aan het startscherm toevoegen. Zet alleen de apps aan die je vertrouwt.</string>
+    <string name="wp_secao_fundos">Achtergronden</string>
+    <string name="wp_secao_icones">Pictogrammenpakketten</string>
+    <string name="wp_secao_cartoes">Kaarten</string>
+    <string name="wp_secao_descobrir">Plug-ins halen</string>
+    <string name="wp_tipo_fundo">Achtergrond</string>
+    <string name="wp_tipo_icones">Pictogrammen</string>
+    <string name="wp_em_uso">In gebruik</string>
+    <string name="wp_usar">Als achtergrond gebruiken</string>
+    <string name="wp_configurar">Instellingen van de plug-in</string>
+    <string name="wp_parar">Niet meer gebruiken</string>
+    <string name="wp_sem_cert">Kon de handtekening van deze plug-in niet lezen.</string>
+    <string name="wp_nenhum_fundo">Nog geen achtergrond-plug-in. Zie hieronder waar je er een haalt.</string>
+    <string name="wp_nenhum_icone">Nog geen pictogrammenpakket. Zie hieronder waar je er een haalt.</string>
+    <string name="wp_icones_det">Bevroren gehouden: de launcher bewaart een kopie van de pictogrammen die hij gebruikt.</string>
+    <string name="wp_usar_icones">Gebruiken</string>
+    <string name="wp_instalado">Geïnstalleerd</string>
+    <string name="wp_instalar">Installeren</string>
+    <string name="wp_instalando">Installeren…</string>
+    <string name="wp_instalou">%1$s geïnstalleerd.</string>
+    <string name="wp_nao_instalou">Kon niet installeren: %1$s</string>
+    <string name="wp_abrir_play">Openen in de Play Store</string>
+    <string name="wp_qr">Richt de camera van je telefoon op de code om de pagina te openen.</string>
+    <string name="wp_trocar_icone">Pictogram wijzigen</string>
+    <string name="wp_icone_titulo">Pictogram voor %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d pictogrammen</string>
+    <string name="wp_icone_original">Origineel pictogram</string>
+    <string name="wp_icone_sugerido">Voorgesteld</string>
+    <string name="wp_icone_voltar">Het pictogrammenpakket volgen</string>
+    <string name="wp_icone_sem_pacote">Geen pictogrammenpakket geïnstalleerd. Haal er een in Instellingen › Startscherm › Plug-ins.</string>
+    <string name="wp_d_aerial">Langzame luchtopnames van steden en natuur</string>
+    <string name="wp_d_overflight">Luchtopnames van Apple TV, of elke lijst video\'s die je kiest</string>
+    <string name="wp_d_daily">Elke dag een nieuwe foto van de dag</string>
+    <string name="wp_d_weather">Het weer van vandaag als achtergrond</string>
+    <string name="wp_d_movieart">Afbeeldingen van films en series van TMDB</string>
+    <string name="wp_d_sofadrop">Afbeeldingen uit trendlijsten, Trakt of Simkl</string>
+    <string name="wp_d_immich">Foto\'s van je eigen Immich-server</string>
+    <string name="wp_d_tvicons">800+ pictogrammen gemaakt voor tv</string>
+    <string name="wp_d_minimalist">Strakke symbolen op één achtergrondkleur</string>
+    <string name="wp_d_arcticons">15.000 dunne lijnpictogrammen (gemaakt voor telefoons, werkt hier)</string>
+</resources>

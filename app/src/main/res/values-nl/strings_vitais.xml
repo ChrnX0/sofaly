@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">Stabiliteit van de launcher (7 dagen)</string>
+    <string name="vit_ok">Geen crashes of bevriezingen. Dagen in gebruik: %1$d.</string>
+    <string name="vit_problemas">Crashes: %1$d. Bevriezingen: %2$d. Gezien op het scherm: %3$d. Dagen met een probleem: %4$d van %5$d.</string>
+</resources>

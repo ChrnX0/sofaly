@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Het internet is terug</string>
+    <string name="rd_voltou_texto">Het lag %1$s plat (sinds %2$s). Waarschijnlijke oorzaak: %3$s.</string>
+    <string name="rd_causa_wifi">de tv verloor zijn wifi</string>
+    <string name="rd_causa_provedor">internetprovider of router</string>
+    <string name="rd_min">%1$d min</string>
+    <string name="rd_h_min">%1$d u %2$d min</string>
+    <string name="rd_disco_titulo">De tv-opslag raakt vol</string>
+    <string name="rd_disco_texto">In dit tempo is hij over ongeveer %1$d dagen vol (%2$d MB vrij). Wis de cache van apps of verwijder apps die je niet gebruikt.</string>
+    <string name="pr_avisos_tv">Van de tv</string>
+    <string name="mural_riscar">%1$s doorstrepen</string>
+    <string name="ds_lento_titulo">Sofaly is trager geworden</string>
+    <string name="ds_lento_texto">Versie %1$d: trage frames duren %2$d ms, dat was %3$d ms (+%4$d%%).</string>
+</resources>

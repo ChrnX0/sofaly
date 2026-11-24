@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Netwerkstation</string>
+    <string name="ur_titulo">De tv als netwerkstation tonen</string>
+    <string name="ur_det">Uit. De tv verschijnt vanzelf in Deze pc op Windows, zoals een telefoon, en als netwerkmap op Mac, Linux en telefoons.</string>
+    <string name="ur_painel">Zet eerst het webpaneel hierboven aan (het gebruikt dezelfde pincode en het https-adres).</string>
+    <string name="ur_https">Wachten op het https-adres van het paneel (het certificaat wordt ongeveer 1 minuut na het aanzetten van het paneel gemaakt).</string>
+    <string name="ur_abra">Aan. Op Windows verschijnt de tv in Deze pc (de tv vraagt het de eerste keer voor elke computer op het scherm). Mac, Linux en telefoon: %1$s · wachtwoord: de pincode van het paneel.</string>
+    <string name="mtp_pergunta_titulo">Een computer vraagt om de bestanden van de tv</string>
+    <string name="mtp_pergunta">“%1$s” wil de bestanden in de opslag van de tv zien en kopiëren via het thuisnetwerk. Deze computer toestaan?</string>
+    <string name="mtp_pcs">Toegestane computers</string>
+    <string name="mtp_pcs_nenhum">Nog geen. De tv vraagt het op het scherm als een computer om de bestanden vraagt.</string>
+    <string name="mtp_pcs_lista">%1$s · OK vergeet ze allemaal (elke computer vraagt het opnieuw)</string>
+    <string name="mtp_pcs_esquecidos">Computers vergeten</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Het tv-paneel openen</string>
+</resources>

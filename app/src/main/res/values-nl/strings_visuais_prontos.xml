@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Kant-en-klare stijlen</string>
+    <string name="vpr_det">Elke OK wisselt naar de volgende stijl: thema, tekst en achtergrondkleur samen</string>
+    <string name="vpr_meu">Je eigen</string>
+    <string name="vpr_classico">Klassiek</string>
+    <string name="vpr_leitura">Makkelijk lezen</string>
+    <string name="vpr_galeria">Galerij</string>
+    <string name="vpr_galeria_grande">Grote galerij</string>
+    <string name="vpr_cores">App-kleuren</string>
+</resources>

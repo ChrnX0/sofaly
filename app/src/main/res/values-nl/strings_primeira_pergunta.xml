@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Eén antwoord stelt het menu en het scherm in. Je kunt het later wijzigen in Instellingen › Systeem.</string>
+    <string name="pp_casa">Voor het hele huis</string>
+    <string name="pp_vo_det">Grote kaarten met namen die hardop worden voorgelezen en grotere tekst, en jij helpt vanaf je telefoon, van ver weg.</string>
+</resources>

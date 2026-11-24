@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Launcher-afstandsbedieningstoetsen (Netflix-/YouTube-knoppen opnieuw toe te wijzen) en het koppelvenster zonder pc.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">verbonden</string>
+    <string name="cfg_vpn_desconectada">niet verbonden</string>
+    <string name="cfg_titulo">Instellingen</string>
+    <string name="cfg_diag">Tv controleren</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN en waarom een app stopte — alles tegelijk</string>
+    <string name="cfg_tema_det">Gaat naar de volgende stijl</string>
+    <string name="cfg_nunca">Nooit</string>
+    <string name="cfg_min">%1$d min</string>
+    <string name="cfg_nao_gravou_do">kon niet opslaan (Device Owner niet actief?)</string>
+    <string name="cfg_visita">Gastmodus</string>
+    <string name="cfg_rotinas">Routines</string>
+    <string name="cfg_sec_atualizacao">Updates</string>
+    <string name="cfg_atualizar">Zoeken naar een nieuwe versie</string>
+    <string name="cfg_atualizar_det">Versie %1$s · %2$s · OK controleert nu</string>
+    <string name="cfg_procurando">GitHub controleren…</string>
+    <string name="cfg_instalar">Versie %1$d nu installeren</string>
+    <string name="cfg_instalar_det">De launcher sluit en komt binnen enkele seconden vanzelf terug · OK installeert</string>
+    <string name="cfg_instalando">downloaden en controleren…</string>
+    <string name="cfg_sec_rede">Netwerk</string>
+    <string name="cfg_dns">Privé-DNS</string>
+    <string name="cfg_dns_caiu">" · %1$s antwoordde niet, teruggezet naar automatisch"</string>
+    <string name="cfg_velocidade">Internetsnelheid testen</string>
+    <string name="cfg_velocidade_det">Downloadt 25 MB en meet</string>
+    <string name="cfg_testando">Testen…</string>
+    <string name="cfg_nao_mudou_do">kon niet wijzigen (Device Owner niet actief?)</string>
+    <string name="cfg_sec_ligado">Wat er aan staat — %1$s</string>
+    <string name="cfg_ligado">aan</string>
+    <string name="cfg_so_pc">" · alleen met een computer (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK probeert aan te zetten"</string>
+    <string name="cfg_perm_fixas">Vaste rechten verleend</string>
+    <string name="cfg_shell_estado">Eigen shell</string>
+    <string name="cfg_shell_pareado">gekoppeld: de launcher maakt zelf opnieuw verbinding via draadloze foutopsporing</string>
+    <string name="cfg_shell_nunca">nog niet gekoppeld: gebruik \"Koppelen zonder pc\" hieronder</string>
+    <string name="cfg_sec_shizuku">Launcher-shell (wifi-ADB)</string>
+    <string name="cfg_parear">Koppelen zonder pc</string>
+    <string name="cfg_parear_det">Opent het Android-koppelscherm met een launcher-toetsenblok erboven</string>
+    <string name="cfg_acess_off">de toegankelijkheidsservice van de launcher staat uit</string>
+    <string name="cfg_versao">Launcherversie</string>
+    <string name="cfg_desconhecida">onbekend</string>
+    <string name="cfg_depuracao">Draadloze foutopsporing</string>
+    <string name="cfg_depuracao_on">door de launcher aan gehouden</string>
+    <string name="cfg_depuracao_android">zoals Android het laat</string>
+    <string name="cfg_chave">Sleutel van de eigen shell</string>
+    <string name="cfg_calculando">berekenen…</string>
+    <string name="cfg_erro">fout: %1$s</string>
+    <string name="cfg_licencas">Licenties en vermeldingen</string>
+    <string name="cfg_licencas_det">Code, lettertypen, pictogrammen en gegevens van derden die hier worden gebruikt</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">zonder dit: geen apps verbergen, geen vaste HOME of VPN, geen time-out voor de schermbeveiliging</string>
+    <string name="rec_agenda">Agenda</string>
+    <string name="rec_agenda_sem">zonder dit: de agenda toont geen afspraken</string>
+    <string name="rec_local">Locatie</string>
+    <string name="rec_local_sem">zonder dit: het weer gebruikt de stad van het IP-adres en wifi toont de netwerknaam niet</string>
+    <string name="rec_contas">Accounts</string>
+    <string name="rec_contas_sem">zonder dit: de profielstip toont de initiaal van het account niet</string>
+    <string name="rec_uso">App-gebruik</string>
+    <string name="rec_uso_sem">zonder dit: apps worden niet op recent gebruik gesorteerd</string>
+    <string name="rec_sobre">Overlay</string>
+    <string name="rec_sobre_sem">zonder dit: notities en koppelen zonder pc verschijnen niet boven apps</string>
+    <string name="rec_seguras">Beveiligde instellingen</string>
+    <string name="rec_seguras_sem">zonder dit: geen DNS-wijziging en geen automatische herstart van de toetsenservice en draadloze foutopsporing (alleen met een pc of de launcher-shell)</string>
+    <string name="rec_teclas">Toetsenservice</string>
+    <string name="rec_teclas_sem">zonder dit: HOME kan de Google-launcher openen en de Netflix-/YouTube-toetsen worden niet omgezet</string>
+    <string name="rec_tudo">alles aan</string>
+    <string name="rec_faltam">%1$d van %2$d functies ontbreken · OK op een item probeert het aan te zetten</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Welkom</string>
+    <string name="bv_texto">Het startscherm, de klok, het weer, de wekker en de schermbeveiliging werken al. Zet hier de rest aan als je wilt (%1$s).</string>
+    <string name="bv_comecar">Beginnen</string>
+    <string name="bv_comecar_det">Gaat naar het startscherm</string>
+    <string name="bv_perm">Agenda, locatie en accounts aanzetten</string>
+    <string name="bv_perm_det">Afspraken in de agenda, het weer voor je stad, de initiaal van het account op het profiel</string>
+    <string name="bv_teclas">De toetsenservice aanzetten</string>
+    <string name="bv_teclas_det">Toegankelijkheid › Afstandsbedieningsknoppen: zorgt dat HOME altijd hier terugkomt</string>
+    <string name="bv_tudo">Alles bekijken wat je kunt aanzetten</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Licentiebestand niet gevonden.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Tv aanzetten</string>
+    <string name="rot_abrir_um">Aanzetten en een app openen</string>
+    <string name="rot_desligar">Tv uitzetten</string>
+    <string name="rot_abrir">Aanzetten en %1$s openen</string>
+    <string name="rot_um_app">een app (kiezen)</string>
+    <string name="rot_se_ocioso">" als niemand hem %1$s heeft aangeraakt"</string>
+    <string name="rot_sempre">altijd</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">geen routine aan</string>
+    <string name="rot_proxima">volgende: %1$s</string>
+    <string name="rot_nova_mais">+ Nieuwe routine</string>
+    <string name="rot_nova_det">Op een vast tijdstip aanzetten, een app openen of uitzetten</string>
+    <string name="rot_desligada_sufixo">" · uit"</string>
+    <string name="rot_nova">Nieuwe routine</string>
+    <string name="rot_editar">Routine bewerken</string>
+    <string name="rot_editor_det">OK wijzigt elke regel · TERUG gaat weg zonder opslaan</string>
+    <string name="rot_hora">Tijd: %1$s</string>
+    <string name="rot_dias">Dagen: %1$s</string>
+    <string name="rot_acao">Actie: %1$s</string>
+    <string name="rot_app">App: %1$s</string>
+    <string name="rot_nenhum">geen</string>
+    <string name="rot_ocioso">Alleen als niemand hem heeft aangeraakt gedurende: %1$s</string>
+    <string name="rot_ligada">Aan</string>
+    <string name="rot_desligada">Uit</string>
+    <string name="rot_hora_det">◀ ▶ 5 minuten · OK +1 uur</string>
+    <string name="rot_dias_det">OK: elke dag, ma t/m vr, weekend, één keer</string>
+    <string name="rot_ok_muda">OK wijzigt</string>
+    <string name="rot_app_det">OK of ▶ volgende · ◀ vorige</string>
+    <string name="rot_ocioso_det">Onderbreekt niemand die kijkt</string>
+    <string name="rot_ativa_det">OK zet deze routine aan/uit</string>
+    <string name="rot_salvar">Opslaan</string>
+    <string name="rot_escolha_app">Kies de app</string>
+    <string name="rot_apagar">Deze routine verwijderen</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Eén keer</string>
+    <string name="dia_todo">Elke dag</string>
+    <string name="dia_seg_sex">Ma t/m vr</string>
+    <string name="dia_fim">Weekend</string>
+    <string-array name="dias_curtos">
+        <item>zo</item>
+        <item>ma</item>
+        <item>di</item>
+        <item>wo</item>
+        <item>do</item>
+        <item>vr</item>
+        <item>za</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE d MMMM</string>
+    <string name="home_perfil">Profiel</string>
+    <string name="home_visita_titulo">Gastmodus aan</string>
+    <string name="home_visita_msg">Het profiel, de agenda en gekozen apps zijn verborgen. Gastmodus verlaten?</string>
+    <string name="home_continuar">Behouden</string>
+    <string name="home_sair">Verlaten</string>
+    <string name="comum_cancelar">Annuleren</string>
+    <string name="home_mostrar">Tonen op het startscherm</string>
+    <string name="home_ocultar">Verbergen van het startscherm</string>
+    <string name="home_sob_demanda">Bevriezen als het niet gebruikt wordt</string>
+    <string name="home_sob_demanda_tirar">Niet meer bevriezen als het niet gebruikt wordt</string>
+    <string name="sob_demanda_ligado">Bevroren. Hij blijft hier staan: OK ontdooit en opent hem, en 2 minuten nadat je weggaat bevriest hij weer.</string>
+    <string name="sob_demanda_desligado">Ontdooid. Hij werkt zoals voorheen.</string>
+    <string name="sob_demanda_falhou">Kon het nu niet wijzigen. Probeer het zo meteen opnieuw.</string>
+    <string name="home_desinstalar">Verwijderen</string>
+    <string name="home_app_sistema"> (systeemapp)</string>
+    <string name="home_desinstalar_titulo">%1$s verwijderen?</string>
+    <string name="home_desinstalar_aviso">De app en zijn gegevens verdwijnen van de tv. Dit kan niet ongedaan worden gemaakt: om hem terug te krijgen, installeer je hem opnieuw via de Play Store.</string>
+    <string name="home_cancelar">Annuleren</string>
+    <string name="home_desinstalando">%1$s verwijderen…</string>
+    <string name="home_desinstalado">%1$s is verwijderd.</string>
+    <string name="home_desinstalar_falhou">Kon %1$s niet verwijderen: %2$s</string>
+    <string name="home_chovendo">Het regent nu</string>
+    <string name="home_chuva_agora">%1$s - Regen %2$d%% op dit moment</string>
+    <string name="home_chuva_em">%1$s - Regen %2$d%% over %3$d u</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Wekker gezet: %1$s</string>
+    <string name="al_um_app">een app</string>
+    <string name="al_criar_q">Een wekker zetten voor %1$s?</string>
+    <string name="al_pedido">Gevraagd door %1$s.</string>
+    <string name="al_criar">Zetten</string>
+    <string name="al_titulo">Wekker</string>
+    <string name="al_nenhum">Geen wekker aan</string>
+    <string name="al_novo_mais">+  Nieuwe wekker</string>
+    <string name="al_ligado">Aan</string>
+    <string name="al_desligado">Uit</string>
+    <string name="al_novo">Nieuwe wekker</string>
+    <string name="al_editar">Wekker bewerken</string>
+    <string name="al_apagar">Verwijderen</string>
+    <string name="al_hoje">vandaag</string>
+    <string name="al_amanha">morgen</string>
+    <string name="al_dia_as">%1$s om %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Stoppen</string>
+    <string name="al_soneca">Sluimer 10 min</string>
+    <string name="al_perdido_um">De wekker van %1$s ging niet af omdat de tv uit stond.</string>
+    <string name="al_perdido_varios">De wekkers van %1$s gingen niet af omdat de tv uit stond.</string>
+    <string name="al_perdido_e">en</string>
+    <string name="al_volume_nao_mexe">niet wijzigen</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Geen Google-account</string>
+    <string name="pp_ativo">"  ·  actief"</string>
+    <string name="pp_adicionar">Profiel toevoegen</string>
+    <string name="pr_bt_controle">Afstandsbediening</string>
+    <string name="pp_audio">Audio</string>
+    <string name="pp_carregando">Laden…</string>
+    <string name="pp_conectar">Verbinden</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">geen Google-account</string>
+    <string name="cal_dica">◀ ▶ maand wijzigen</string>
+    <string name="cal_30">Komende 30 dagen</string>
+    <string name="cal_nenhuma_conta">Geen Google-account op de tv</string>
+    <string name="cal_nada">Niets gepland (of de agenda wordt nog gesynchroniseerd)</string>
+    <string name="fmt_mes_ano">MMMM yyyy</string>
+    <string name="cal_dia_todo">Hele dag</string>
+    <string name="cal_sem_titulo">(geen titel)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  regen"</string>
+    <string name="pt_lua">Maan</string>
+    <string name="pt_sol">Zon</string>
+    <string name="pt_umidade">Luchtvochtigheid</string>
+    <string name="pt_chuva">Regen</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Regen</string>
+    <string name="cl_limpo">Heldere lucht</string>
+    <string name="cl_poucas">Enkele wolken</string>
+    <string name="cl_parcial">Halfbewolkt</string>
+    <string name="cl_nublado">Bewolkt</string>
+    <string name="cl_neblina">Mist</string>
+    <string name="cl_garoa_fraca">Lichte motregen</string>
+    <string name="cl_garoa">Motregen</string>
+    <string name="cl_garoa_forte">Zware motregen</string>
+    <string name="cl_garoa_cong">IJzel (motregen)</string>
+    <string name="cl_chuva_fraca">Lichte regen</string>
+    <string name="cl_chuva_forte">Zware regen</string>
+    <string name="cl_chuva_cong">IJzel</string>
+    <string name="cl_neve_fraca">Lichte sneeuw</string>
+    <string name="cl_neve">Sneeuw</string>
+    <string name="cl_neve_forte">Zware sneeuw</string>
+    <string name="cl_graos">Motsneeuw</string>
+    <string name="cl_panc_fracas">Lichte buien</string>
+    <string name="cl_panc">Regenbuien</string>
+    <string name="cl_panc_fortes">Zware buien</string>
+    <string name="cl_panc_neve">Sneeuwbuien</string>
+    <string name="cl_tempestade">Onweer</string>
+    <string name="cl_granizo">Onweer met hagel</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">vol over %1$d d</string>
+    <string name="lua_nova_em">nieuw over %1$d d</string>
+    <string-array name="fases_lua">
+        <item>Nieuwe maan</item>
+        <item>Wassende sikkel</item>
+        <item>Eerste kwartier</item>
+        <item>Wassende maan</item>
+        <item>Volle maan</item>
+        <item>Afnemende maan</item>
+        <item>Laatste kwartier</item>
+        <item>Afnemende sikkel</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Weersverwachting laden…</string>
+    <string name="pv_voz_agora">"Het is nu %1$d graden, %2$s. "</string>
+    <string name="pv_voz_hoje">Vandaag een maximum van %1$d en een minimum van %2$d</string>
+    <string name="pv_voz_chuva">", met %1$d procent kans op regen. "</string>
+    <string name="pv_voz_sem_chuva">", geen regen verwacht. "</string>
+    <string name="pv_voz_amanha">Morgen, %1$s, een maximum van %2$d en een minimum van %3$d</string>
+    <string name="pv_voz_amanha_chuva">, %1$d procent kans op regen</string>
+    <string name="pv_sem">Kon de weersverwachting nu niet ophalen. Controleer het internet en probeer het opnieuw.</string>
+    <string name="pv_max_min">max %1$d°   min %2$d°   ·   voelt als %3$d°</string>
+    <string name="pv_24h">Komende 24 uur</string>
+    <string name="pv_agora">Nu</string>
+    <string name="pv_chance">Kans op regen</string>
+    <string name="pv_7d">Komende 9 dagen</string>
+    <string name="pv_hoje">Vandaag</string>
+    <string name="pv_mais_quente">Warmer</string>
+    <string name="pv_mais_frio">Kouder</string>
+    <string name="pv_igual">Gelijk aan werkelijk</string>
+    <string name="pv_detalhes">Details</string>
+    <string name="pv_sensacao">Voelt als</string>
+    <string name="pv_vento">Wind</string>
+    <string name="pv_uv">UV-index</string>
+    <string name="pv_visib">Zicht</string>
+    <string name="pv_orvalho">Dauwpunt</string>
+    <string name="pv_pressao">Luchtdruk</string>
+    <string name="pv_chuva_hoje">Regen vandaag</string>
+    <string name="pv_ar">Luchtkwaliteit</string>
+    <string name="pv_sem_dados">Nu geen gegevens</string>
+    <string name="uv_baixo">Laag</string>
+    <string name="uv_moderado">Matig</string>
+    <string name="uv_alto">Hoog</string>
+    <string name="uv_muito_alto">Zeer hoog</string>
+    <string name="uv_extremo">Extreem</string>
+    <string name="aq_boa">Goed</string>
+    <string name="aq_moderada">Matig</string>
+    <string name="aq_sensiveis">Ongezond voor gevoelige groepen</string>
+    <string name="aq_ruim">Ongezond</string>
+    <string name="aq_muito_ruim">Zeer ongezond</string>
+    <string name="aq_perigosa">Gevaarlijk</string>
+    <string-array name="rosa_ventos">
+        <item>N</item>
+        <item>NO</item>
+        <item>O</item>
+        <item>ZO</item>
+        <item>Z</item>
+        <item>ZW</item>
+        <item>W</item>
+        <item>NW</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Donker</string>
+    <string name="tema_galeria">Galerij</string>
+    <string name="tema_meu">Mijn achtergrond</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Zacht</string>
+    <string name="som_classico">Klassiek</string>
+    <string name="som_sino">Bel</string>
+    <string name="som_rampa1">Wordt luider in 1½ min</string>
+    <string name="som_rampa2">Wordt luider in 2 min</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mbps (%2$.0f MB gedownload in %3$.1f s)</string>
+    <string name="vel_falhou">Test mislukt (geen internet of server onbereikbaar)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  huidig"</string>
+    <string name="esc_botao">Knop %1$s opent:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">zonsopkomst %1$s</string>
+    <string name="fd_por">zonsondergang %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: gebruiken   ·   OK ingedrukt houden op een van je servers: verwijderen   ·   Terug: afsluiten</string>
+    <string name="dns_auto">Automatisch</string>
+    <string name="dns_auto_det">Gebruikt de DNS van de router en versleutelt als die dat accepteert (Android-standaard)</string>
+    <string name="dns_desl">Uit</string>
+    <string name="dns_desl_det">Gewone DNS, zonder versleuteling</string>
+    <string name="dns_publicos">Openbare servers</string>
+    <string name="dns_meus">Mijn servers</string>
+    <string name="dns_adicionar">+  Server toevoegen</string>
+    <string name="dns_adicionar_det">DNS-over-TLS-adres, zoals dns.example.com</string>
+    <string name="dns_sem_permissao">"Geen toestemming om de DNS te wijzigen. Op een computer: "</string>
+    <string name="dns_troque_antes">kies eerst een andere server voordat je deze verwijdert</string>
+    <string name="dns_remover_q">%1$s verwijderen?</string>
+    <string name="dns_remover">Verwijderen</string>
+    <string name="dns_nome_opc">Naam (optioneel)</string>
+    <string name="dns_endereco_ex">Adres, bijv. dns.example.com</string>
+    <string name="dns_adicionar_tit">DNS-server toevoegen</string>
+    <string name="dns_salvar_usar">Opslaan en gebruiken</string>
+    <string name="dns_invalido">Ongeldig adres. Gebruik een naam zoals dns.example.com (Android accepteert geen IP-nummer).</string>
+    <string name="dns_em_uso">In gebruik: %1$s</string>
+    <string name="dns_testando">testen…</string>
+    <string name="dns_falha">MISLUKT: geen naam opgezocht. Kies een andere server of Automatisch.</string>
+    <string name="dns_res_sem_cripto">zoekt op in %1$d ms (zonder versleuteling)</string>
+    <string name="dns_res_tls">zoekt op in %1$d ms   ·   TLS actief</string>
+    <string name="dns_res_com">" met %1$s"</string>
+    <string name="dns_res_sem_tls">zoekt op in %1$d ms   ·   nu geen TLS</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (persoonlijk)</string>
+    <string name="dns_personalizado">Aangepast (%1$s)</string>
+    <string name="dns_rot_auto">automatisch</string>
+    <string name="dns_rot_desl">uit</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Samenvatting</string>
+    <string name="diag_frase">In één zin</string>
+    <string name="diag_wifi_desc">niet verbonden: de tv zit op geen enkel netwerk</string>
+    <string name="diag_lat">%1$d ms naar het internet</string>
+    <string name="diag_sem_resp">geen antwoord van het internet</string>
+    <string name="diag_wifi">%1$s · signaal %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Android heeft de wifi gevalideerd</string>
+    <string name="diag_nao_validou">Android heeft de wifi NIET gevalideerd</string>
+    <string name="diag_net_ok">werkt (test in %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">de test bereikte Google niet · %1$s</string>
+    <string name="diag_net_estranha">vreemd antwoord (%1$d): het netwerk wil misschien een login · %2$s</string>
+    <string name="diag_cripto">versleuteling actief</string>
+    <string name="diag_sem_cripto">versleuteling NIET actief</string>
+    <string name="diag_resolve">zoekt namen op (%1$d ms)</string>
+    <string name="diag_nao_resolve">zoekt GEEN namen op</string>
+    <string name="diag_caiu">%1$s faalde eerder en ik ben teruggegaan naar automatisch</string>
+    <string name="diag_nenhum_app">geen app</string>
+    <string name="diag_vpn_nada">geen VPN vastgezet of aan</string>
+    <string name="diag_vpn_desc">%1$s vastgezet, maar NIET VERBONDEN (internet blijft werken zonder VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s verbonden, maar Android heeft de tunnel niet gevalideerd</string>
+    <string name="diag_vpn_ok">%1$s verbonden en werkt</string>
+    <string name="diag_r_sem_wifi">de tv heeft geen wifi</string>
+    <string name="diag_r_dns_fora">de DNS antwoordt niet: het internet lijkt plat te liggen</string>
+    <string name="diag_r_net_fora">het internet komt niet door (router of provider)</string>
+    <string name="diag_r_dns">de DNS zoekt geen namen op: apps vinden hun servers niet</string>
+    <string name="diag_r_net">de DNS werkt, maar het internet antwoordt niet</string>
+    <string name="diag_r_vpn">netwerk ok; alleen de VPN ligt plat (apps werken zonder)</string>
+    <string name="diag_r_atencao">netwerk werkt, met aandachtspunten hieronder</string>
+    <string name="diag_r_ok">netwerk ok. Als een app stopte, zie hieronder wat er gebeurde</string>
+    <string name="diag_usava">" · gebruikte %1$d MB"</string>
+    <string name="diag_texto">Reden: %1$s\nProces: %2$s\nBelang: %3$s</string>
+    <string name="diag_detalhe">\nAndroid-detail: %1$s</string>
+    <string name="diag_m_memoria">gesloten wegens geheugentekort</string>
+    <string name="diag_m_crash">gecrasht</string>
+    <string name="diag_m_nativo">gecrasht (native)</string>
+    <string name="diag_m_anr">reageerde niet meer (ANR)</string>
+    <string name="diag_m_iniciar">kon niet starten</string>
+    <string name="diag_m_recurso">gesloten omdat het te veel middelen gebruikte</string>
+    <string name="diag_m_dependencia">gesloten omdat een app waarvan het afhangt stopte</string>
+    <string name="diag_m_sinal">beëindigd door het systeem (signaal)</string>
+    <string name="diag_m_permissao">herstart door een wijziging van rechten</string>
+    <string name="diag_i_tela">stond op het scherm</string>
+    <string name="diag_i_visivel">zichtbaar</string>
+    <string name="diag_i_servico">draait op de achtergrond</string>
+    <string name="diag_i_cache">op de achtergrond (cache)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Diagnose</string>
+    <string name="diag_refazer">Opnieuw controleren</string>
+    <string name="diag_refazer_det">Voert alle controles opnieuw uit</string>
+    <string name="diag_verificando">controleren…</string>
+    <string name="diag_apps">Apps (laatste 7 dagen)</string>
+    <string name="diag_lendo">De app-geschiedenis lezen</string>
+    <string name="diag_sem_perm">Geen toestemming om crashes van andere apps te lezen</string>
+    <string name="diag_sem_perm_det">De launcher geeft zichzelf READ_LOGS en DUMP via zijn eigen shell; wacht een paar minuten of herstart de tv</string>
+    <string name="diag_nada">niets geregistreerd</string>
+    <string name="diag_erros">Launcherfouten (door hem geregistreerd)</string>
+    <string name="diag_sem_erros">Geen fouten geregistreerd</string>
+    <string name="diag_sem_erros_det">De launcher bewaart hier zijn laatste %1$d crashes</string>
+    <string name="diag_erro">Launcherfout</string>
+    <string name="diag_apagar">Geregistreerde fouten wissen</string>
+    <string name="diag_apagar_det">Wist de lijst hierboven (verder niets)</string>
+    <string name="diag_rodape">%1$s · pijlen scrollen · TERUG gaat terug</string>
+    <string name="diag_app_ok">Geen crash, bevriezing of abnormale afsluiting in de laatste 7 dagen.\n\nAls de app opent maar niets laadt, ligt het probleem meestal aan het netwerk: zie het onderdeel Netwerk op het vorige scherm.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">nog niet gecontroleerd</string>
+    <string name="atu_android9">vereist Android 9 of nieuwer</string>
+    <string name="atu_ocupado">al bezig met controleren</string>
+    <string name="atu_erro">fout: %1$s %2$s</string>
+    <string name="atu_em_dia">bijgewerkt (geïnstalleerd %1$d, nieuwste %2$d)</string>
+    <string name="atu_sem_tag">De laatste Release heeft geen versie in de tag</string>
+    <string name="atu_sem_apk">Release %1$d heeft geen APK of SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 klopt niet, niet geïnstalleerd</string>
+    <string name="atu_ilegivel">Release %1$d: onleesbare APK</string>
+    <string name="atu_pacote">Release %1$d: ander pakket (%2$s)</string>
+    <string name="atu_versao">Release %1$d: APK-versie (%2$d) komt niet overeen met de tag</string>
+    <string name="atu_chave">GitHub heeft versie %1$d, maar die is ondertekend met een andere sleutel die deze tv niet accepteert: deze tv wordt via een pc bijgewerkt</string>
+    <string name="atu_migracao_disponivel">versie %1$d: klaar om deze tv naar de nieuwe app te verhuizen (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">de nieuwe app (%1$d) wordt geïnstalleerd; daarna neemt hij deze tv over met alle instellingen</string>
+    <string name="atu_disponivel">versie %1$d klaar om te installeren (geïnstalleerd %2$d)</string>
+    <string name="atu_trocou">de versie is veranderd sinds de laatste controle · OK controleert opnieuw</string>
+    <string name="atu_instalando">%1$d installeren (geïnstalleerd %2$d)</string>
+    <string name="atu_ok">bijgewerkt</string>
+    <string name="atu_falhou">installatie mislukt (%1$d): %2$s</string>
+    <string name="atu_ruim">versie %1$d crashte op deze tv direct na de installatie: wordt niet opnieuw geïnstalleerd</string>
+    <string name="vig_aviso_titulo">Update gepauzeerd</string>
+    <string name="vig_pausada">versie %1$d crashte twee keer direct na de installatie · de automatische update wacht op de volgende</string>
+    <string name="vig_pausada_tela">versie %1$d crashte twee keer direct na de installatie · \"%2$s\" blijft uit tot de volgende</string>
+    <string name="vig_tela_bloqueada">Dit scherm staat uit tot de volgende update (het liet de launcher crashen)</string>
+    <string name="cfg_vig_liberar">Veilige modus</string>
+    <string name="cfg_vig_liberar_det">" · OK zet het weer aan"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Gesproken zoeken ging niet open op deze tv</string>
+    <string name="home_alarme_hoje">vandaag</string>
+    <string name="home_alarme_amanha">morgen</string>
+    <string name="player_carregando">Zenders laden…</string>
+    <string name="player_carregando_canal">Zender laden…</string>
+    <string name="vod_carregando">Video laden…</string>
+    <string name="player_sem_canais">Nog geen zenderlijst toegevoegd.</string>
+    <string name="player_tentando">Geen signaal op zender %1$d. Opnieuw proberen…</string>
+    <string name="player_sem_sinal">Zender %1$d reageerde niet. Kies een andere met ▲ ▼ of OK.</string>
+    <string name="player_canal_nao_existe">Er is geen zender %1$d.</string>
+    <string name="player_ao_vivo">LIVE</string>
+    <string name="player_a_seguir">hierna: %1$s</string>
+    <string name="player_teclas">▲ ▼ zender · OK zenderlijst · OK 2 s ingedrukt: favoriet · ◀ vorige zender · ▶ ▶ opties · TERUG afsluiten</string>
+    <string name="player_teclas_pausa">▶❙❙ of OK hervatten · ▶ opties (terug naar live) · ▲ ▼ zender · TERUG afsluiten</string>
+    <string name="player_cat_busca">Zoeken: %1$s</string>
+    <string name="player_acao_buscar">Zoeken</string>
+    <string name="player_acao_filtros">Filters</string>
+    <string name="filmes_titulo">Films</string>
+    <string name="filmes_carregando">Films laden…</string>
+    <string name="filmes_vazio">Nog geen films</string>
+    <string name="filmes_continuar">Verder kijken</string>
+    <string name="filmes_ordem_titulo">Sorteren op</string>
+    <string name="filmes_ordem_recentes">nieuwste in de catalogus</string>
+    <string name="filmes_ordem_nome">naam</string>
+    <string name="filmes_ordem_nota">beoordeling</string>
+    <string name="filmes_ordem_ano">jaar</string>
+    <string name="filmes_busca_dica">Filmnaam</string>
+    <string name="filmes_do_comeco">Vanaf het begin</string>
+    <string name="filmes_assistir">▶  Kijken</string>
+    <string name="filmes_ficha_carregando">Details laden…</string>
+    <string name="filmes_direcao">Regisseur</string>
+    <string name="filmes_elenco">Cast</string>
+    <string name="filmes_interesses">Kijklijst</string>
+    <string name="filmes_assistidos">Gezien</string>
+    <string name="filmes_interesse_pos">★ %1$s toegevoegd aan de kijklijst</string>
+    <string name="filmes_interesse_tirou">%1$s verwijderd uit de kijklijst</string>
+    <string name="filmes_interesses_cheio">De kijklijst heeft al 500 titels: verwijder er eerst een.</string>
+    <string name="filmes_interesses_vazio">Houd OK 2 seconden ingedrukt op een poster om hem hier toe te voegen (en nog eens om hem te verwijderen).</string>
+    <string name="filmes_assistido">Gezien</string>
+    <string name="filmes_selo_leg">ONDERT.</string>
+    <string name="vod_sem_conta">Het account van deze video bestaat niet meer.</string>
+    <string name="vod_erro">Kon deze video niet afspelen. TERUG om te verlaten.</string>
+    <string name="vod_faixa">Spoor</string>
+    <string name="vod_audio">Audio</string>
+    <string name="vod_legenda">Ondertiteling</string>
+    <string name="vod_faixas">Audio en ondertiteling</string>
+    <string name="vod_teclas">OK pauze · ◀ 10 s · ▶ 30 s (ingedrukt houden voor sneller) · ▼ audio, ondertiteling en beeld · ⏮ ⏭ hoofdstukken · TERUG afsluiten</string>
+    <string name="series_titulo">Series</string>
+    <string name="series_carregando">Series laden…</string>
+    <string name="series_vazio">Nog geen series</string>
+    <string name="series_ordem_recentes">met een nieuwe aflevering</string>
+    <string name="series_busca_dica">Serienaam</string>
+    <string name="series_sem_episodios">De server stuurde geen afleveringen voor deze serie.</string>
+    <string name="series_assistir">▶  %1$s kijken</string>
+    <string name="series_temporada">Seizoen %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d seizoen</item>
+        <item quantity="other">%d seizoenen</item>
+    </plurals>
+    <string name="player_acao_guia">Tv-gids</string>
+    <string name="player_sem_guia_curto">Geen tv-gids</string>
+    <string name="player_grade_teclas">OK kijken · ◀ ▶ programma · ▲ ▼ zender</string>
+    <string name="player_busca_dica">Naam van zender of programma</string>
+    <string name="player_busca_nada">Niets gevonden voor “%1$s”.</string>
+    <string name="player_filtro_qualquer">Alle</string>
+    <string name="player_filtro_qualidade">Kwaliteit: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Beeldkwaliteit</string>
+    <string name="player_filtro_pais">Land: %1$s</string>
+    <string name="player_filtro_pais_titulo">Land of taal</string>
+    <string name="player_filtro_limpar">Filters wissen</string>
+    <string name="player_filtro_nada">Deze lijst heeft geen kwaliteit of land in de zendernamen.</string>
+    <string name="player_bloqueado">Zender geblokkeerd door ouderlijk toezicht. Voer de pincode in bij Filters om te kijken.</string>
+    <string name="player_ocultas_mostrar">Verborgen categorieën en geblokkeerde zenders tonen (pincode)</string>
+    <string name="player_ocultas_esconder">Verborgen categorieën en geblokkeerde zenders weer verbergen</string>
+    <string name="player_pin_titulo">Pincode van het paneel</string>
+    <string name="player_pin_dica">Pincode</string>
+    <string name="player_pin_errado">Verkeerde pincode.</string>
+    <string name="player_pin_sem">Geen pincode voor het paneel: verborgen categorieën zijn niet beschermd.</string>
+    <string name="player_pin_espere">Te vaak een verkeerde pincode. Probeer het over %d min opnieuw.</string>
+    <string name="infantil_titulo">Kindercategorieën</string>
+    <string name="infantil_carregando">categorieën laden…</string>
+    <string name="infantil_coluna_itens">WAT ERIN ZIT</string>
+    <string name="infantil_dica">OK markeert of demarkeert de categorie als kinder · geldt voor Live tv, Films en Series · TERUG verlaat (al opgeslagen)</string>
+    <string name="infantil_so_categoria">markeer de hele categorie in de linkerkolom</string>
+    <string name="infantil_vazio">geen categorieën: voeg een account toe in Instellingen › Tv en films en laad de zenders opnieuw</string>
+    <string name="infantil_limite">een volwassenencategorie kan geen kindercategorie zijn</string>
+    <string name="infantil_resumo_ligado">%1$d van %2$d categorieën gemarkeerd als kinder · kindermodus AAN</string>
+    <string name="infantil_resumo_desligado">%1$d van %2$d categorieën gemarkeerd als kinder · kindermodus uit</string>
+    <string name="cfg_infantil">Kindermodus</string>
+    <string name="cfg_infantil_ligado">aan · alleen de %d kindercategorieën verschijnen; de rest vraagt om de pincode</string>
+    <string name="cfg_infantil_desligado">uit · %d categorieën gemarkeerd als kinder</string>
+    <string name="cfg_infantil_escolher">Kindercategorieën kiezen</string>
+    <string name="cfg_infantil_escolher_det">Toepassen op Live tv, Films en Series</string>
+    <string name="player_grupo_oculto">%1$s verborgen. Om het te zien: Filters, verborgen tonen.</string>
+    <string name="player_grupo_mostrado">%1$s is weer zichtbaar.</string>
+    <string name="player_canais_de">%1$s · %2$d ZENDERS</string>
+    <string name="player_cat_todos">Alle</string>
+    <string name="player_cat_favoritos">Favorieten</string>
+    <string name="player_cat_recentes">Recent</string>
+    <string name="player_cat_outros">Overig</string>
+    <string name="player_sem_favoritos">Nog geen favorieten. Houd OK 2 s ingedrukt op een zender om hem hier toe te voegen.</string>
+    <string name="player_categoria_vazia">Geen zenders in deze categorie.</string>
+    <string name="player_sem_guia">Geen tv-gids voor deze zender.</string>
+    <string name="player_depois">LATER</string>
+    <string name="player_lista_teclas">OK kijken · OK 2 s ingedrukt: favoriet of verwijderen · OK ingedrukt op een categorie: verbergen · ◀ categorieën</string>
+    <string name="player_favorito_pos">★ %1$s toegevoegd aan favorieten</string>
+    <string name="player_favorito_tirou">%1$s verwijderd uit favorieten</string>
+    <string name="player_favoritos_cheio">Er zijn al 500 favorieten: verwijder er eerst een.</string>
+    <string name="player_assistindo">kijkt</string>
+    <string name="home_card_tv">Tv</string>
+    <string name="home_destaque_tv_sub">Live zenders</string>
+    <string name="home_destaque_app">App</string>
+    <string name="app_sub_youtube">Video\'s en kanalen</string>
+    <string name="app_sub_netflix">Films en series</string>
+    <string name="app_sub_prime">Films, series en sport</string>
+    <string name="app_sub_max">Films, series en sport</string>
+    <string name="app_sub_play_store">Apps installeren en bijwerken</string>
+    <string name="app_sub_play_games">Games</string>
+    <string name="app_sub_google_tv">Gekochte en gehuurde films</string>
+    <string name="app_sub_config">Tv-instellingen</string>
+    <string name="home_card_series">Series</string>
+    <string name="home_card_filmes">Films</string>
+    <string name="home_destaque_series">Series uit je lijst · ga verder waar je was</string>
+    <string name="home_destaque_filmes">Films uit je lijst · ga verder waar je was</string>
+    <string name="home_card_rede">Netwerk</string>
+    <string name="home_destaque_rede">Je video\'s, muziek en foto\'s</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d MMMM</string>
+    <string name="home_busca">Zoeken</string>
+    <string name="home_falar">Praten met Gemini</string>
+    <string name="home_dest_tv">Tv · zender %1$d</string>
+    <string name="rede_titulo">Netwerk</string>
+    <string name="rede_procurando">Mediaservers op het netwerk zoeken…</string>
+    <string name="rede_nenhum">Er staat nu geen mediaserver aan. Voeg er hieronder een toe: Plex en Jellyfin gebruiken je account; een map op een pc of NAS gebruikt het adres.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d server</item>
+        <item quantity="other">%1$d servers</item>
+    </plurals>
+    <string name="rede_secao_seus">Je servers</string>
+    <string name="rede_secao_achados">Gevonden op het netwerk</string>
+    <string name="rede_secao_adicionar">Toevoegen</string>
+    <string name="rede_entrar">Inloggen</string>
+    <string name="rede_adicionar">Toevoegen</string>
+    <string name="rede_salvar">Opslaan</string>
+    <string name="rede_testar_salvar">Testen en opslaan</string>
+    <string name="rede_testando">Testen…</string>
+    <string name="rede_cancelar">Annuleren</string>
+    <string name="rede_sub_dlna">DLNA · opent direct</string>
+    <string name="rede_sub_maquina">Gedeelde map · %1$s</string>
+    <string name="rede_sub_pasta">Gedeelde map · %1$s</string>
+    <string name="rede_sub_lista">M3U-lijst · %1$s</string>
+    <string name="rede_sub_video">Videolink · %1$s</string>
+    <string name="rede_sub_plex">Inloggen met een code, zonder wachtwoord op de tv</string>
+    <string name="rede_sub_jellyfin">Gebruikersnaam en wachtwoord van de server</string>
+    <string name="rede_sub_smb">Map op Windows, Mac of NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS met WebDAV</string>
+    <string name="rede_sub_link">http-adres, HLS (.m3u8) of M3U-lijst</string>
+    <string name="rede_acao_smb">Gedeelde map</string>
+    <string name="rede_acao_webdav">WebDAV of Nextcloud</string>
+    <string name="rede_acao_link">Videolink of lijst</string>
+    <string name="rede_acao_procurar">Opnieuw zoeken</string>
+    <string name="rede_abrindo">Openen…</string>
+    <string name="rede_vazia">Lege map</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+    <string name="rede_dica_abrir">openen</string>
+    <string name="rede_dica_remover">verwijderen</string>
+    <string name="rede_dica_sair">afsluiten</string>
+    <string name="rede_dica_subir">één map omhoog</string>
+    <string name="rede_tecla_segurar">OK ingedrukt houden</string>
+    <string name="rede_tecla_voltar">TERUG</string>
+    <string name="rede_erro">De server reageerde niet. Probeer het opnieuw.</string>
+    <string name="rede_erro_senha">Gebruikersnaam of wachtwoord niet geaccepteerd door de server.</string>
+    <string name="rede_erro_pasta">De server antwoordde, maar heeft geen map met die naam.</string>
+    <string name="rede_erro_servidor">Server niet gevonden. Controleer het adres en of hij op hetzelfde netwerk zit.</string>
+    <string name="rede_erro_certificado">Het beveiligingscertificaat van de server is niet geldig voor dit adres.</string>
+    <string name="rede_erro_cheio">Kon niet opslaan: de tv bewaart al 20 servers. Verwijder er eerst een.</string>
+    <string name="rede_endereco_erro">Onvolledig of ongeldig adres.</string>
+    <string name="rede_salva">\"%1$s\" toegevoegd.</string>
+    <string name="rede_nome_opcional">Weergavenaam (optioneel)</string>
+    <string name="rede_senha">Wachtwoord</string>
+    <string name="rede_remover_titulo">\"%1$s\" verwijderen?</string>
+    <string name="rede_remover_explica">De login en het wachtwoord verdwijnen van de tv. Op de server verandert niets.</string>
+    <string name="rede_remover">Verwijderen</string>
+    <string name="rede_removida">\"%1$s\" verwijderd.</string>
+    <string name="rede_smb_titulo">Gedeelde map</string>
+    <string name="rede_smb_explica">Adres zoals in Windows: \\\\server\\map (bijv. \\\\192.168.0.10\\Films). Lege gebruikersnaam en wachtwoord = gast.</string>
+    <string name="rede_smb_endereco">\\\\server\\map</string>
+    <string name="rede_smb_endereco_erro">Server of map ontbreekt (bijv. \\\\NAS\\Films).</string>
+    <string name="rede_smb_usuario">Gebruikersnaam (optioneel)</string>
+    <string name="rede_smb_senha">Wachtwoord (optioneel)</string>
+    <string name="rede_jf_explica">Adres van de %1$s-server (bijv. 192.168.0.10 of nas:8096), gebruikersnaam en wachtwoord. Het wachtwoord wordt niet op de tv bewaard.</string>
+    <string name="rede_jf_endereco">Serveradres</string>
+    <string name="rede_jf_usuario">Gebruikersnaam</string>
+    <string name="rede_jf_usuario_falta">Gebruikersnaam ontbreekt.</string>
+    <string name="rede_dav_explica">Mapadres (Nextcloud: cloud.example.com/remote.php/dav/files/JOUW_GEBRUIKER). Zonder http gebruikt de tv https. Gebruik bij Nextcloud liever een app-wachtwoord.</string>
+    <string name="rede_dav_endereco">WebDAV-adres</string>
+    <string name="rede_link_explica">Een video (mp4, mkv…), een HLS-stream (.m3u8) of een M3U-lijst met meerdere video\'s. Hij blijft hier opgeslagen.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Gebruik een adres dat begint met http:// of https://.</string>
+    <string name="rede_plex_titulo">Inloggen bij Plex</string>
+    <string name="rede_plex_explica">Open op je telefoon of computer plex.tv/link en typ de code hieronder. Of richt de camera van je telefoon op de QR-code.</string>
+    <string name="rede_plex_pedindo">Plex om een code vragen…</string>
+    <string name="rede_plex_esperando">Wachten tot je bevestigt bij Plex…</string>
+    <string name="rede_plex_buscando">Account verbonden. Je servers zoeken…</string>
+    <string name="rede_plex_venceu">De code is verlopen. Vraag een nieuwe aan.</string>
+    <string name="rede_plex_outro">Nieuwe code aanvragen</string>
+    <string name="rede_plex_sem_servidor">Dit Plex-account heeft geen server.</string>
+    <string name="rede_plex_inacessivel">De server staat op het account, maar antwoordde niet vanaf hier. Controleer of hij aan staat en op hetzelfde netwerk zit.</string>
+    <string name="rede_plex_varios">%1$d Plex-servers toegevoegd.</string>
+    <string name="pg_amanha">Morgen</string>
+    <string name="pg_recado">Bericht</string>
+    <string name="pg_app_despertador">Wekker</string>
+    <string name="pg_bom_dia">Goedemorgen</string>
+    <string name="pg_boa_tarde">Goedemiddag</string>
+    <string name="pg_boa_noite">Goedenavond</string>
+    <string name="pg_agora">nu</string>
+    <string name="pg_ontem">gisteren</string>
+    <string name="pg_mais_notif">+%1$d meldingen</string>
+    <string name="pg_dia_todo">vandaag</string>
+    <string name="pg_hoje_as">vandaag om %1$s</string>
+    <string name="pg_amanha_as">morgen om %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Nu</string>
+    <string name="pw_proximas_horas">Komende uren</string>
+    <string name="pw_hoje">Vandaag</string>
+    <string name="pw_chuva_pct">%1$d%% kans op regen</string>
+    <string name="pw_umidade_pct">%1$d%% luchtvochtigheid</string>
+    <string name="pw_ate_umas">%1$s tot ongeveer %2$s</string>
+    <string name="pw_chuva_pelas">%1$s, regen rond %2$s</string>
+    <string name="pw_chuva_segue">%1$s de komende uren</string>
+    <string name="pw_amanha_frase">Morgen %1$d°, %2$s</string>
+    <string name="pw_nasce">zonsopkomst %1$s</string>
+    <string name="pw_poe">zonsondergang %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Meldingen</string>
+    <string name="pr_sem_notificacoes">Geen meldingen</string>
+    <string name="pr_notificacoes_desligadas">Toegang tot meldingen aanzetten…</string>
+    <string name="pr_perfis">Profielen</string>
+    <string name="pr_protetor">Schermbeveiliging</string>
+    <string name="pr_timer">Timer</string>
+    <string name="pr_timer_as">Tot %1$s</string>
+    <string name="pr_audio_arc">Receiver (HDMI ARC)</string>
+    <string name="pr_dispensar">Sluiten</string>
+    <string name="pr_ontem">gisteren</string>
+    <string name="pr_agora">nu</string>
+    <string name="pr_configuracoes">Launcher-instellingen</string>
+    <string name="pr_tocar_pausar">Afspelen of pauzeren</string>
+    <string name="pr_proxima">Volgende</string>
+    <string name="pr_tocando">speelt af</string>
+    <string name="pr_pausado">gepauzeerd</string>
+    <string name="pr_dormir">Slaap</string>
+    <string name="pr_despertador">Wekker</string>
+    <string name="pr_visita">Gasten</string>
+    <string name="pr_casa">Thuis</string>
+    <string name="pr_config_tv">Tv-instellingen</string>
+    <string name="pr_sinal_bom">goed signaal</string>
+    <string name="pr_sinal_medio">redelijk signaal</string>
+    <string name="pr_sinal_fraco">zwak signaal</string>
+    <string name="pr_bt_conectados">%1$d verbonden</string>
+    <string name="pr_hoje">Vandaag</string>
+    <string name="pr_amanha">Morgen</string>
+    <string name="pr_ligado">Aan</string>
+    <string name="pr_limpar_tudo">Alles wissen</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Terugkijken: eerdere programma\'s</string>
+    <string name="tvv_titulo">Terugkijken · %1$s</string>
+    <string name="tvv_do_inicio">Nu · opnieuw beginnen: %1$s</string>
+    <string name="tvv_carregando">Eerdere programma\'s ophalen…</string>
+    <string name="tvv_sem_resposta">De server antwoordde niet. Probeer het zo meteen opnieuw.</string>
+    <string name="tvv_vazio">Deze zender heeft nog geen opgeslagen programma\'s.</string>
+    <string name="tvv_voltou">Terug naar live</string>
+    <string name="tvv_selo">TERUGKIJKEN</string>
+    <string name="tvv_teclas">◀ ▶ 30 s · OK opties · TERUG live</string>
+    <string name="tvv_pausar">Pauze</string>
+    <string name="tvv_continuar">Hervatten</string>
+    <string name="tvv_ao_vivo">Terug naar live</string>
+    <string name="tvv_hoje">Vandaag</string>
+    <string name="tvv_ontem">Gisteren</string>
+    <string name="imagem_titulo">Beeldverhouding</string>
+    <string name="imagem_ajustar">Passend op scherm</string>
+    <string name="imagem_esticar">Uitrekken</string>
+    <string name="imagem_zoom">Zoomen (snijdt de randen af)</string>
+    <string name="velocidade_titulo">Snelheid</string>
+    <string name="trailer">Trailer</string>
+    <string name="trailer_sem_app">Geen app gevonden om de trailer te openen.</string>
+    <string name="series_visto_ate_aqui">Markeren als gezien tot %1$s</string>
+    <string name="series_nao_visto">Markeren als niet gezien</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Films en series</string>
+    <string name="idioma_titulo">Voorkeursaudio</string>
+    <string name="idioma_det">Origineel met ondertiteling in de taal van de tv, of daarin nagesynchroniseerd. Elke film en serie onthoudt de wijziging in de speler (▼)</string>
+    <string name="idioma_original">Origineel met ondertiteling</string>
+    <string name="idioma_dublado">Nagesynchroniseerd</string>
+    <string name="idioma_legendado">Ondertiteld</string>
+    <string name="idioma_dublado_curto">Nagesynchroniseerd</string>
+    <string name="idioma_versao_legendada">Ondertitelde versie</string>
+    <string name="idioma_versao_dublada">Nagesynchroniseerde versie</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Ondertiteling online zoeken</string>
+    <string name="legenda_procurando">Ondertiteling zoeken…</string>
+    <string name="legenda_baixando">Ondertiteling downloaden…</string>
+    <string name="legenda_acertada">Ondertiteling afgestemd op de spraak · %1$s</string>
+    <string name="legenda_pronta">Ondertiteling klaar</string>
+    <string name="legenda_nenhuma">Geen ondertiteling in de taal van de tv voor deze video</string>
+    <string name="legenda_erro">Kon niet naar ondertiteling zoeken</string>
+    <string name="legenda_invalida">Het gedownloade bestand is geen ondertiteling</string>
+    <string name="legenda_sem_conta">Voeg je OpenSubtitles-sleutel toe in Instellingen › Tv en films › Films en series</string>
+    <string name="legenda_escolher">Ondertiteling voor \"%1$s\"</string>
+    <string name="legenda_surdos">slechthorenden</string>
+    <string name="legenda_bate">gemaakt voor dit bestand</string>
+    <string name="lista_dica_escolher">kiezen</string>
+    <string name="legenda_atraso_titulo">Vertraging ondertiteling (+ = tekst verschijnt later)</string>
+    <string name="legenda_atraso_zero">Geen vertraging</string>
+    <string name="legenda_conta_titulo">Online ondertiteling</string>
+    <string name="legenda_conta_det">OpenSubtitles, met je API-sleutel (gratis op opensubtitles.com/consumers). Zonder account: 5 ondertitels per dag</string>
+    <string name="legenda_conta_sim">ingesteld</string>
+    <string name="legenda_conta_nao">niet ingesteld</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">nog %1$s</string>
+    <string name="tempo_falta_um">nog %1$s</string>
+    <string name="serie_ep_longo">Seizoen %1$d, aflevering %2$d</string>
+    <string name="ficha_continuar_de">vanaf %1$s</string>
+    <string name="tempo_termina_as">eindigt om %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s afleveringen</string>
+    <string name="tempo_x_de_y">%1$d van %2$d</string>
+    <string name="tempo_visto">gezien</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Google-profiel</string>
+    <string name="fp_linha">Accountfoto ophalen</string>
+    <string name="fp_linha_det">Toont de foto van je Google-account op de profielknop</string>
+    <string name="fp_titulo">Accountfoto</string>
+    <string name="fp_fechar">Sluiten</string>
+    <string name="fp_pedindo">Google om een code vragen…</string>
+    <string name="fp_passos">1. Open op je telefoon %1$s (of richt de camera op de code rechts).\n2. Log in met een Google-account dat op deze tv staat en typ:\n\n%2$s\n\nDit scherm gaat vanzelf verder. Deze login wordt alleen gebruikt om de foto op te halen.</string>
+    <string name="fp_ok">Klaar: de foto van %1$s staat nu op de profielknop.</string>
+    <string name="fp_sem_foto">Ingelogd als %1$s, maar de foto kon niet worden opgeslagen. Probeer het opnieuw, of stuur een foto via het webpaneel (tabblad Foto\'s schermbeveiliging).</string>
+    <string name="fp_falha">Het lukte niet: %1$s</string>
+    <string name="fp_sem_google">Inloggen met Google is nog niet ingesteld op deze tv.\n\nTwee manieren om een foto op de profielknop te zetten:\n• Webpaneel > tabblad Foto\'s schermbeveiliging > Profielfoto: kies een willekeurige foto van je telefoon.\n• Stel inloggen met Google in (webpaneel > tabblad Claude) en kom hier terug om de foto van het account op te halen.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Hoofdstuk %1$d</string>
+    <string name="vod_capitulos_titulo">Hoofdstukken</string>
+    <string name="vod_capitulos_opcao">Hoofdstukken (%1$d)</string>
+    <string name="vod_segunda_opcao">Tweede ondertitel (boven)</string>
+    <string name="vod_segunda_titulo">Tweede ondertitel</string>
+    <string name="vod_segunda_desligada">Uit</string>
+    <string name="vod_dialogo_opcao">Luidere dialogen</string>
+    <string name="vod_dialogo_ligado">Luidere dialogen aan</string>
+    <string name="vod_dialogo_desligado">Luidere dialogen uit</string>
+    <string name="vod_atraso_audio_titulo">Audiovertraging (%1$s)</string>
+    <string name="vod_atraso_audio_tv">Tv</string>
+    <string name="vod_atraso_audio_zero">Geen</string>
+    <string name="vod_atraso_audio_mais">Geluid komt %1$d ms te laat</string>
+    <string name="vod_atraso_audio_menos">Geluid komt %1$d ms te vroeg</string>
+    <string name="vod_info_opcao">Technische info</string>
+    <string name="info_video">Video</string>
+    <string name="info_audio">Audio</string>
+    <string name="info_perdidos">Overgeslagen frames</string>
+    <string name="info_taxa">Bitrate</string>
+    <string name="info_buffer">Buffer</string>
+    <string name="info_atraso">Audiovertraging</string>
+    <string name="info_dialogo">Luidere dialogen aan</string>
+    <string name="info_chip">Tv-chip</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">stereo</string>
+    <string name="lista_dica_voltar">terug</string>
+    <string name="pm_ligado">Aan</string>
+    <string name="pm_desligado">Uit</string>
+    <string name="pm_imagem_som">Beeld en geluid</string>
+    <string name="pm_mais">Meer opties</string>
+    <string name="pm_versao_legendada">Ondertiteld kijken</string>
+    <string name="pm_versao_dublada">Nagesynchroniseerd kijken</string>
+    <string name="pm_versao_info">Gaat verder vanaf dit punt</string>
+    <string name="pm_leg_ajustes">Instellingen ondertiteling</string>
+    <string name="pm_leg_tamanho">Grootte</string>
+    <string name="pm_leg_estilo">Stijl</string>
+    <string name="pm_leg_posicao">Positie</string>
+    <string name="pm_leg_atraso">Vertraging</string>
+    <string name="pm_leg_auto">Er een downloaden als die ontbreekt</string>
+    <string name="pm_leg_traduzir">Op de tv vertalen als die ontbreekt</string>
+    <string name="pm_velocidade">Snelheid</string>
+    <string name="pm_proporcao">Beeldgrootte</string>
+    <string name="pm_atraso_audio">Audiovertraging</string>
+    <string name="pm_quadros">Beeldfrequentie van de film volgen</string>
+    <string name="pm_qualidade">Kwaliteit</string>
+    <string name="pv_sem_titulo">Nu geen weersverwachting</string>
+    <string name="bu_voz_grupo">Spreken</string>
+    <string name="bu_falar">Zeg wat je zoekt</string>
+    <string name="bu_falar_det">Sneller dan typen met de afstandsbediening</string>
+    <string name="bu_recentes">Recente zoekopdrachten</string>
+    <string name="bu_recente_det">Opnieuw zoeken</string>
+    <string name="aviso_alarme_tocou_titulo">De wekker ging af op de tv</string>
+    <string name="aviso_alarme_tocou_texto">Hij begon te rinkelen om %1$s.</string>
+    <string name="home_instalar_externo">Installeren op externe opslag</string>
+    <string name="home_instalar_dispositivo">Installeren op dit apparaat</string>
+    <string name="home_instalando_lugar">%1$s verplaatsen… hij sluit tot het klaar is.</string>
+    <string name="home_instalado_externo">%1$s staat nu op de externe opslag.</string>
+    <string name="home_instalado_dispositivo">%1$s staat weer op dit apparaat.</string>
+    <string name="home_instalar_lugar_falhou">Kon %1$s niet verplaatsen: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">de eigen shell van de tv is niet actief</string>
+    <string name="home_instalar_lugar_sem_pendrive">geen usb-stick ingesteld als tv-opslag</string>
+    <string name="st_titulo">Usb-stick en opslag</string>
+    <string name="st_explica">Kies hoe de tv een usb-stick gebruikt. Weinig ruimte? Hij kan tv-opslag worden voor zware apps.</string>
+    <string name="st_linha_det">Een usb-stick als tv-opslag gebruiken</string>
+    <string name="st_sem_shell">Vereist de eigen shell van de tv (Instellingen › Systeem › Geavanceerd). OK om opnieuw te proberen.</string>
+    <string name="st_sem_pen">Geen usb-stick aangesloten. Sluit er een aan en druk op OK.</string>
+    <string name="st_tv_livre">Tv-opslag: %1$s vrij van %2$s</string>
+    <string name="st_pen">Usb-stick · %1$s · %2$s</string>
+    <string name="st_modo_comum">Gewone usb-stick</string>
+    <string name="st_modo_misto">Gemengd</string>
+    <string name="st_modo_tv">Tv-opslag</string>
+    <string name="st_modo_desconhecido">Niet geformatteerd</string>
+    <string name="st_recomendado">Aanbevolen: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">deze stick is traag, apps zouden haperen</string>
+    <string name="st_motivo_pequeno">minder dan 8 GB, te klein om te helpen</string>
+    <string name="st_motivo_folgada">de tv heeft nog ruimte, de stick hoeft niet gewist te worden</string>
+    <string name="st_motivo_grande">half voor apps, half voor opnames en bestanden</string>
+    <string name="st_motivo_apertada">de tv is bijna vol</string>
+    <string name="st_medido">schrijft met %1$s MB/s</string>
+    <string name="st_medir_dica">OK meet de snelheid</string>
+    <string name="st_usar_comum">Gebruiken als gewone usb-stick</string>
+    <string name="st_usar_misto">Gebruiken als gemengd: %1$d%% gewoon  ◀ ▶</string>
+    <string name="st_usar_tv">Gebruiken als tv-opslag</string>
+    <string name="st_apps">Apps op de usb-stick</string>
+    <string name="st_apps_det">Kies apps om te verplaatsen (grootste eerst)</string>
+    <string name="st_apps_nenhum">Geen enkele app kan worden verplaatst.</string>
+    <string name="st_apps_rodape">OK verplaatst de app; ✓ = staat al op de usb-stick</string>
+    <string name="st_compartilhado">Foto\'s en bestanden: %1$s</string>
+    <string name="st_na_tv">op de tv</string>
+    <string name="st_no_pen">op de usb-stick</string>
+    <string name="st_compartilhado_aviso">Alles wordt gekopieerd en apps sluiten intussen. Herstart de tv daarna.</string>
+    <string name="st_mover">Verplaatsen</string>
+    <string name="st_movendo">Verplaatsen… dit kan enkele minuten duren.</string>
+    <string name="st_aviso_titulo">De usb-stick wissen?</string>
+    <string name="st_aviso">Alles erop wordt gewist om er \"%1$s\" van te maken. Als tv-opslag werkt hij alleen op deze tv, en apps erop verdwijnen zolang hij is losgekoppeld.</string>
+    <string name="st_apagar">Wissen en formatteren</string>
+    <string name="st_formatando">Formatteren… dit kan enkele minuten duren.</string>
+    <string name="st_pronto">Klaar.</string>
+    <string name="st_falhou">Het lukte niet: %1$s</string>
+    <string name="st_depois">Kies nu welke apps naar de usb-stick gaan.</string>
+    <string name="st_pin">Pincode van het paneel om de usb-stick te wijzigen</string>
+    <string name="st_copiar_titulo">Eerst kopiëren wat erop staat? (%1$s)</string>
+    <string name="st_copiar_para">Kopiëren naar %1$s</string>
+    <string name="st_copiar_pc">Kopiëren met de pc (hoe)</string>
+    <string name="st_copiar_pc_texto">Open op de pc Deze pc > de tv > usb-stick en kopieer de bestanden naar de computer. Kom dan hier terug en formatteer.</string>
+    <string name="st_nao_copiar">Niet nodig, wissen</string>
+    <string name="st_copiando_inicio">De usb-stick kopiëren… de tv blijft intussen werken.</string>
+    <string name="st_copiando">%1$s van %2$s gekopieerd</string>
+    <string name="st_voltar_comum">Terug naar gewone usb-stick (apps komen terug naar de tv)</string>
+    <string name="st_trazendo">%1$s terug naar de tv halen…</string>
+    <string name="st_sumiram">De usb-stick is eruit: %1$s zijn verborgen tot hij terug is.</string>
+    <string name="st_sugestao">De tv-opslag is bijna vol. Verplaats %1$s (%2$s) naar de usb-stick: houd OK ingedrukt op de app.</string>
+    <string name="st_medindo">De snelheid van de stick meten om het beste gebruik aan te raden…</string>
+    <string name="st_lento_titulo">Stick te traag</string>
+    <string name="st_lento_bloqueado">Deze stick schrijft met %1$s MB/s. Om tv-opslag te worden is minstens %2$d MB/s nodig: daaronder bevriezen apps en start de tv misschien niet. Gebruik hem als gewone stick.</string>
+    <string name="st_aviso_boot">Laat hem voorgoed aangesloten: als hij defect raakt of eruit gaat, start de tv misschien niet tot je hem loskoppelt.</string>
+    <string name="home_grande_titulo">%1$s verplaatsen?</string>
+    <string name="home_grande_aviso">%1$s neemt %2$s in beslag. Op een trage stick kan het verplaatsen meer dan 10 minuten duren en heeft het al eens een tv halverwege laten vastlopen. Ga alleen door als niemand kijkt.</string>
+    <string name="home_liberar_arquivos">Laten openen van usb-sticks en bestanden</string>
+    <string name="home_arquivos_liberado">%1$s kan nu usb-sticks en alle bestanden openen</string>
+    <string name="home_arquivos_falhou">Kon %1$s niet toestaan: %2$s</string>
+    <string name="aviso_continuar_titulo">Niets om verder te gaan</string>
+    <string name="aviso_continuar_texto">De uitnodiging om verder te kijken vanaf de andere tv is verlopen.</string>
+    <string name="aviso_simples_titulo">Eenvoudig scherm staat uit</string>
+    <string name="aviso_simples_texto">De tv is terug op het volledige startscherm.</string>
+    <string name="aviso_sync_titulo">Geen account verbonden</string>
+    <string name="aviso_sync_texto">Er is geen %1$s-account op deze tv. Verbind het in Instellingen › Tv en films.</string>
+    <string name="dns_nota_familia">gezin, blokkeert sites voor volwassenen</string>
+    <string name="dns_nota_malware">blokkeert malware</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">De tv heeft geen wifi%1$s. Controleer of de router aan staat, of de netwerknaam of het wachtwoord is veranderd.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">de router verloor de verbinding met het modem van de provider</string>
+    <string name="ief_roteador_ve_fora" formatted="true">de router ziet het internet ook als plat</string>
+    <string name="ief_ha" formatted="true"> (%1$s geleden)</string>
+    <string name="ief_provedor_caiu" formatted="true">De wifi is in orde, maar het internet van de provider viel weg%1$s; %2$s%3$s. Het ligt niet aan de tv: wacht op de provider of herstart het modem.</string>
+    <string name="ief_vpn_travada" formatted="true">De router heeft internet, maar de tv komt er niet door%1$s: de VPN zit waarschijnlijk vast. De VPN uit- en weer aanzetten lost het meestal op.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">De router heeft internet, maar de tv bereikt hem niet%1$s: het probleem zit tussen de tv en de router%2$s De tv opnieuw met wifi verbinden lost het meestal op.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (het wifisignaal is zwak, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">De tv zit op wifi, maar router noch internet antwoordt%1$s: de router is misschien vastgelopen. De router uit- en weer aanzetten lost het meestal op.</string>
+    <string name="ief_sem_internet" formatted="true">De wifi is in orde, maar het internet komt niet door%1$s; het ligt waarschijnlijk aan de provider of de router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (de VPN die aan staat kan ook de oorzaak zijn).</string>
+    <string name="ief_dns" formatted="true">Het internet werkt, maar de DNS%1$s antwoordt niet%2$s: apps vinden hun servers niet. De DNS op Automatisch zetten lost het op.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Het internet en de DNS antwoorden, maar de testpagina van Google %1$s: iets onderweg (VPN, DNS-blokkering of een netwerk dat om een login vraagt) blokkeert het.</string>
+    <string name="ief_nao_abriu" formatted="true">ging niet open</string>
+    <string name="ief_codigo_diferente" formatted="true">antwoordde anders (code %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Het internet is in orde; alleen de VPN staat uit (apps werken zonder).%1$s</string>
+    <string name="ief_lenta" formatted="true">Het internet werkt, maar traag: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">het wifisignaal is zwak (%1$d dBm); de router dichterbij zetten of een kabel gebruiken helpt</string>
+    <string name="ief_lenta_tcp" formatted="true">het internet doet er %1$d ms over om te antwoorden%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, en de router ziet hetzelfde: het ligt aan de provider</string>
+    <string name="ief_lenta_http" formatted="true">de testpagina deed er %1$.1f s over om te openen</string>
+    <string name="ief_queda_recente" formatted="true">Het internet is nu in orde; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Alles goed: wifi, internet en DNS antwoorden.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Geen onderbrekingen in de laatste 24 u.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Geen onderbrekingen geregistreerd (de tv mat maar een deel van de laatste 24 u).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (De router meldt een internetprobleem, maar de tv surft normaal.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS faalde</string>
+    <string name="ief_caiu_internet" formatted="true">het internet viel weg</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (daarna stopte de tv met meten; het is niet te weten wanneer het terugkwam)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d onderbrekingen in 24 u</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s en kwam terug %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d onderbrekingen in 24 u, in totaal %2$s zonder internet</string>
+    <string name="ief_quando_hoje" formatted="true">om %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">gisteren om %1$s</string>
+    <string name="ief_quando_data" formatted="true">op %1$s om %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">sinds %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">sinds gisteren om %1$s</string>
+    <string name="ief_desde_data" formatted="true">sinds %1$s om %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">minder dan 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d u</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d u %2$d min</string>
+    <string name="ief_data_dm" formatted="true">dd-MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wifi: niet verbonden</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wifi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">netwerk: verbonden</string>
+    <string name="ief_s_internet" formatted="true">internet zonder DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS zonder cache: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">mislukt</string>
+    <string name="ief_s_pagina" formatted="true">testpagina: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok in %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">code %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: aan</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: uit</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: ziet het internet plat</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: ziet het internet ok%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: geen mening</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: antwoordde niet</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: niet gecontroleerd</string>
+    <string name="ief_s_historico" formatted="true">geschiedenis: %1$d metingen in 24 u</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google antwoordde nu niet; probeer het opnieuw</string>
+    <string name="lg_negado">het inloggen werd geweigerd bij Google</string>
+    <string name="lg_google_respondeu">Google antwoordde: %1$s</string>
+    <string name="lg_venceu">de code is verlopen; begin opnieuw</string>
+    <string name="lg_outro_login">er is een andere login gestart; begin opnieuw</string>
+    <string name="lg_email">Google heeft het e-mailadres niet bevestigd</string>
+    <string name="lg_conta_fora">het account %1$s staat in geen enkel profiel op deze tv</string>
+    <string name="lg_sem_drive">de Google Drive-toestemming was niet aangevinkt</string>
+    <string name="lg_sem_chave">Google stuurde de toegangssleutel niet; probeer het opnieuw</string>
+    <string name="lg_nao_guardei">kon het account niet op deze tv opslaan</string>
+    <string name="lg_nao_configurado">Inloggen met Google is niet ingesteld</string>
+    <string name="lg_ritmo">te veel logins achter elkaar; wacht een minuut</string>
+    <string name="lg_recusou">Google weigerde (%1$s): controleer de client-id en het geheim</string>
+    <string name="lg_erro_google">fout bij het praten met Google</string>
+</resources>

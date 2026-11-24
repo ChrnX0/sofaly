@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">hersteltest geslaagd</string>
+    <string name="l51_ensaio_falhou">de bewaarde kopie zou niet terug te zetten zijn (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Gastwifi</string>
+    <string name="l51_wifi_nao">niet ingesteld: typ het één keer en bezoekers scannen een QR</string>
+    <string name="l51_wifi_dica">Gebruik het gastnetwerk van je router: iedereen in de kamer kan het wachtwoord op het scherm lezen.</string>
+    <string name="l51_wifi_rede">Netwerknaam</string>
+    <string name="l51_wifi_senha">Wachtwoord</string>
+    <string name="l51_wifi_invalido">Naam tot 32 tekens; wachtwoord leeg (open netwerk) of 8 tot 63 tekens.</string>
+    <string name="l51_wifi_qr_titulo">De QR van de gastwifi tonen</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Wat er gebruikt wordt</string>
+    <string name="l51_uso_det">Schermen en instellingen per gebruik, alleen op deze tv geteld (er verlaat niets de tv)</string>
+    <string name="l51_uso_vazio">Nog niets geteld. Kom over een paar dagen terug.</string>
+    <string name="l51_uso_tela">scherm</string>
+    <string name="l51_uso_opcao">instelling</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d keer</item>
+        <item quantity="other">%d keer</item>
+    </plurals>
+    <string name="l51_uso_hoje">laatst vandaag</string>
+    <string name="l51_uso_ontem">laatst gisteren</string>
+    <string name="l51_uso_dias">laatst %d dagen geleden</string>
+    <string name="l51_tela_Main">Startscherm</string>
+    <string name="l51_tela_Dream">Schermbeveiliging</string>
+    <string name="l51_tela_Filmes">Films</string>
+    <string name="l51_tela_Series">Series</string>
+    <string name="l51_tela_Jogos">Games</string>
+    <string name="l51_tela_Player">Live tv en video\'s</string>
+    <string name="l51_tela_PainelRapido">Snelpaneel</string>
+    <string name="l51_tela_Vod">Catalogus van de afspeellijst</string>
+    <string name="l51_tela_Previsao">Weersverwachting</string>
+    <string name="l51_tela_Elenco">Cast</string>
+    <string name="l51_tela_ConfigLauncher">Instellingen</string>
+    <string name="l51_tela_MidiaRede">Netwerk</string>
+    <string name="l51_tela_Calendario">Agenda</string>
+    <string name="l51_tela_Gravacoes">Opnames</string>
+    <string name="l51_tela_Busca">Zoeken</string>
+    <string name="l51_tela_Casa">Mijn huis</string>
+    <string name="l51_tela_AlarmeTocando">Wekker gaat af</string>
+    <string name="l51_tela_Radio">Radio</string>
+    <string name="l51_tela_Diagnostico">Diagnose</string>
+    <string name="l51_uso_zerar">Herstellen</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Typen op de tv</string>
+    <string name="l51_digitar_texto">Er staat een tekstvak open in %1$s. Tik om vanaf hier te typen.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">kamer %1$s</string>
+    <string name="casa_movimento">Beweging</string>
+    <string name="casa_sem_movimento">Geen beweging</string>
+    <string name="casa_molhado">Nat</string>
+    <string name="casa_seco">Droog</string>
+    <string name="casa_fumaca">Rook!</string>
+    <string name="casa_sem_fumaca">Geen rook</string>
+    <string name="casa_dica_temp">temperatuur</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">De camera openen…</string>
+    <string name="casa_camera_ver">Tonen op de tv</string>
+</resources>

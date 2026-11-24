@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">%1$s openen</string>
+    <string name="l72_tela_previsao">de weersverwachting</string>
+    <string name="l72_tela_agenda">de agenda</string>
+    <string name="l72_tela_despertador">de wekker</string>
+    <string name="l72_tela_configuracoes">de launcher-instellingen</string>
+    <string name="l72_tela_inicio">het startscherm</string>
+    <string name="l72_despertador">Een wekker zetten om %1$s (%2$s)</string>
+    <string name="l72_dias_uma">één keer</string>
+    <string name="l72_dias_todos">elke dag</string>
+    <string name="l72_dias_uteis">ma t/m vr</string>
+    <string name="l72_dias_fds">weekends</string>
+    <string name="l72_dias_nomes">zo,ma,di,wo,do,vr,za</string>
+    <string name="l72_vol_subir">Het volume hoger zetten</string>
+    <string name="l72_vol_descer">Het volume lager zetten</string>
+    <string name="l72_vol_mudo">Geluid uit/aan</string>
+    <string name="l72_vezes">(%1$d keer)</string>
+    <string name="l72_midia_pausar">Pauzeren</string>
+    <string name="l72_midia_tocar">Verder afspelen</string>
+    <string name="l72_midia_proxima">Volgende</string>
+    <string name="l72_midia_anterior">Vorige</string>
+    <string name="l72_visita_liga">Gastmodus aanzetten</string>
+    <string name="l72_visita_desliga">Gastmodus uitzetten</string>
+    <string name="l72_canal_pedido">Naar zender %1$s gaan</string>
+    <string name="l72_canal">Naar zender %1$d (%2$s) gaan</string>
+    <string name="l72_o_que_passa">Kijken wat er op %1$s is</string>
+    <string name="l72_casa_ligar">Aanzetten</string>
+    <string name="l72_casa_desligar">Uitzetten</string>
+    <string name="l72_casa_alternar">Omschakelen</string>
+    <string name="l72_casa">%1$s %2$s (huis)</string>
+    <string name="l72_guia_vazio">%1$s: niets in de gids.</string>
+    <string name="l72_guia_agora">%1$s nu: %2$s (tot %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: nu niets in de gids</string>
+    <string name="l72_guia_depois">Hierna: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Nu bezig: %1$s, %2$s. OK pauzeert of hervat; houd OK ingedrukt om de app te openen</string>
+</resources>

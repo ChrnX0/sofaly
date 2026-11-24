@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">Op de bank</string>
+    <string name="jogos_controle_pronto">klaar</string>
+    <string name="jogos_controle_carregar">binnenkort opladen</string>
+    <string name="jogos_parear_um">Een controller koppelen</string>
+    <string name="turma_titulo">Je groep</string>
+    <string name="turma_online">%1$d online</string>
+    <string name="turma_mais_online">+ %1$d online</string>
+    <string name="turma_na_voz">In spraak</string>
+    <string name="turma_ausente">afwezig</string>
+    <string name="turma_ocupado">bezet</string>
+    <string name="turma_status_online">online</string>
+    <string name="turma_ninguem">Nu niemand online</string>
+    <string name="turma_procurando">Je groep zoeken…</string>
+    <string name="turma_sem_rede">Nu geen verbinding met Discord.</string>
+    <string name="turma_mostrar_titulo">Je Discord-groep tonen</string>
+    <string name="turma_mostrar_texto">Zie op de tv wie er online is, speelt en in spraak zit.</string>
+    <string name="turma_desligado_titulo">De serverwidget staat uit</string>
+    <string name="turma_desligado_texto">In Discord: Serverinstellingen, Widget, zet Serverwidget inschakelen aan.</string>
+    <string name="turma_qr_dica">Richt je telefoon hierop om mee te doen aan de spraakchat. Het praten gebeurt op de telefoon.</string>
+    <string name="turma_jogando">%1$s speelt %2$s</string>
+    <string name="turma_dois">%1$s en %2$s</string>
+    <string name="turma_e_mais">%1$s en nog %2$d</string>
+    <string name="turma_chamar">De groep oproepen</string>
+    <string name="turma_chamar_pergunta">Naar het Discord-kanaal sturen?</string>
+    <string name="turma_chamado_jogo">🎮 Wie doet mee met %1$s? Ik zit op de tv.</string>
+    <string name="turma_chamado">🎮 Wie doet mee met een game? Ik zit op de tv.</string>
+    <string name="turma_mandar">Sturen</string>
+    <string name="turma_enviado">Je groep is opgeroepen op Discord.</string>
+    <string name="turma_espere">Wacht een minuut voordat je opnieuw oproept.</string>
+    <string name="turma_falhou">Discord kreeg het niet. Controleer het internet of de webhook.</string>
+    <string name="turma_config_titulo">Je Discord-groep</string>
+    <string name="turma_config_texto">1. In Discord: Serverinstellingen, Widget, zet Serverwidget inschakelen aan.\n2. Kopieer op dezelfde pagina de Server-ID en typ hem hier.\n\nVoor de knop De groep oproepen plak je een kanaalwebhook in het webpaneel van de tv.</string>
+    <string name="turma_config_dica">Server-ID (alleen cijfers)</string>
+    <string name="turma_config_guardar">Opslaan</string>
+    <string name="turma_config_tirar">De groep verwijderen</string>
+    <string name="turma_id_invalido">Dit is geen Discord-server-ID (17 tot 20 cijfers).</string>
+    <string name="cruz_sofa_sub">Controllers en je Discord-groep</string>
+    <string name="cruz_sofa_voz">%1$d in spraak · %2$s</string>
+</resources>

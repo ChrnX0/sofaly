@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Typ wat je wilt dat de tv doet</string>
+    <string name="cc_nao_entendi">Dat begreep ik niet. Probeer iets als:</string>
+    <string name="cc_exemplo_1">zet Globo op</string>
+    <string name="cc_exemplo_2">open YouTube</string>
+    <string name="cc_exemplo_3">uitzetten over 30 minuten</string>
+    <string name="cc_abrindo">%1$s openen</string>
+    <string name="cc_canal">%1$s opzetten</string>
+    <string name="cc_o_que_passa">Wat er op %1$s is</string>
+    <string name="cc_timer">Herinnering over %1$d minuten</string>
+    <string name="cc_desligar">De tv gaat over %1$d minuten uit</string>
+    <string name="cc_desligar_cancelar">Slaaptimer geannuleerd</string>
+    <string name="cc_volume_subir">Volume omhoog</string>
+    <string name="cc_volume_descer">Volume omlaag</string>
+    <string name="cc_mudo">Geluid aan/uit</string>
+    <string name="cc_pausar">Pauzeren</string>
+    <string name="cc_continuar">Afspelen</string>
+    <string name="cc_tela_previsao">de weersverwachting</string>
+    <string name="cc_tela_agenda">de agenda</string>
+    <string name="cc_tela_despertador">de wekkers</string>
+    <string name="cc_tela_configuracoes">de launcher-instellingen</string>
+    <string name="cc_tela_inicio">het startscherm</string>
+    <string name="cc_confirme_na_tv">%1$s: bevestig met OK op de tv</string>
+    <string name="cc_nao_fiz">%1$s: niet gedaan (%2$s)</string>
+    <string name="cc_aviso_titulo">Telefoonpaneel</string>
+</resources>

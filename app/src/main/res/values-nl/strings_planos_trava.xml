@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Travas de plano (PlanosTv.pedir, revisão dos degraus T2, 17/11/2026). -->
+<resources>
+    <string name="plt_titulo">Onderdeel van het %1$s-abonnement</string>
+    <string name="plt_texto">Dit zit in het %1$s-abonnement. Bekijk de abonnementen op de tv en koop op je telefoon.</string>
+    <string name="plt_ver">De abonnementen bekijken</string>
+    <string name="plt_agora_nao">Niet nu</string>
+</resources>

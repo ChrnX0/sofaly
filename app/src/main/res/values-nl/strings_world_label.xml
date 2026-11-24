@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Onde mora o nome do mundo da cruz (WorldLabel, 22/11/2026). -->
+<resources>
+    <string name="wl_titulo">Huidige categorie</string>
+    <string name="wl_pilula">Naast de klok</string>
+</resources>

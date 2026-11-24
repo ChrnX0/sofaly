@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Je games</string>
+    <string name="retro_vazio">Geen games gevonden op de usb-stick. Zet je eigen games in een map met de naam van de console (bijv. SNES).</string>
+    <string name="retro_portugues">in het Portugees</string>
+    <string name="retro_abrindo">Openen in RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch opende deze game niet. Open RetroArch één keer en download de core %1$s.</string>
+    <string name="retro_sem_retroarch">Installeer RetroArch (gratis in de Play Store) om deze games te spelen.</string>
+    <string name="retro_aviso_legal">Sofaly bevat geen games. Gebruik de games die je bezit.</string>
+    <string name="retro_procurando">Games zoeken op de usb-stick…</string>
+</resources>
