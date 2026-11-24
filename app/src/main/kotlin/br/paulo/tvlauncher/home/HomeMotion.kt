@@ -69,7 +69,11 @@ internal fun MainActivity.espelho(acao: () -> Unit) = object : android.text.Text
  */
 internal fun MainActivity.arteDoItem(item: HomeCruz.Item) {
     // Plugin de fundo que pediu o foco (a arte do item vem dele): nome e pacote do item, nada mais.
-    (fundo as? WallpaperPluginView)?.focar(item.nome, pacoteDoItem(item.id))
+    // Cartão de canal de outro app (TvContract): é um PROGRAMA, vai como "programa focado" (com o pôster); o resto, cartão.
+    val programa = item.id.removePrefix(PREFIXO_CONTINUAR).takeIf { it.startsWith("card:") }?.removePrefix("card:")?.toLongOrNull()
+        ?.let { n -> cartoesApps.firstOrNull { it.id == n } }
+    if (programa != null) (fundo as? WallpaperPluginView)?.focarPrograma(programa.titulo, null, programa.poster)
+    else (fundo as? WallpaperPluginView)?.focar(item.nome, pacoteDoItem(item.id))
     if (capa.desligada) return
     val id = item.id.removePrefix(PREFIXO_CONTINUAR)   // o Continuar de cada mundo mostra a arte do que ele retoma
     when {

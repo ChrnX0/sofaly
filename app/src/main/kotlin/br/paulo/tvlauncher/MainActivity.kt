@@ -1411,6 +1411,8 @@ class MainActivity : Activity() {
 
     private fun mostrarTocando(p: TocandoAgoraTv.Pilula?, icone: android.graphics.drawable.Drawable?) {
         ui.removeCallbacks(tarefaTocando)
+        // Plugin de fundo que pediu "tocando agora" (24/11/2026): título e artista, nada mais (nem o pacote).
+        (fundo as? br.paulo.tvlauncher.screensaver.WallpaperPluginView)?.tocando(p?.tocando == true, p?.titulo, p?.subtitulo)
         val ouvindo = p?.takeIf { it.nosso && it.tocando }?.let { it.tipoNosso.ifEmpty { "radio" } to it.titulo }
         if (ouvindo != ouvindoCruz) { ouvindoCruz = ouvindo; atualizarCruz() }
         if (p == null) {

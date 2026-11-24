@@ -183,6 +183,48 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
         postDelayed(r, 700)
     }
 
+    /**
+     * Foco num programa (cartão de canal de outro app, TvContract): plugins que fazem a arte do programa focado. Mesma
+     * espera de 700 ms do [focar], e o mesmo "último pedido vence".
+     */
+    fun focarPrograma(titulo: String?, tipo: Int?, poster: String?) {
+        val p = provider ?: return
+        if (!WallpaperPluginContract.quer(p.updateMode, WallpaperPluginContract.EV_PROGRAM_CARD_FOCUSED)) return
+        val chave = "prog|$titulo|$poster"
+        if (chave == ultimoFoco) return
+        ultimoFoco = chave
+        pedidoFoco?.let { removeCallbacks(it) }
+        val r = Runnable {
+            emSegundoPlano {
+                val l = WallpaperPlugins.buscar(app, p, WallpaperPluginContract.Event(WallpaperPluginContract.EV_PROGRAM_CARD_FOCUSED,
+                    titulo?.take(80), programType = tipo, iconUri = poster?.take(2048)), WallpaperPlugins.PRAZO_FOCO_MS)
+                val primeiro = l?.firstOrNull() ?: return@emSegundoPlano
+                post { if (ultimoFoco == chave) mostrar(primeiro) }
+            }
+        }
+        pedidoFoco = r
+        postDelayed(r, 700)
+    }
+
+    private var ultimoTocando: String? = null
+
+    /**
+     * O que toca agora mudou (a pílula "Tocando agora" da HOME, qualquer app ou a nossa rádio): plugins que fazem fundo
+     * da música. Só manda quando título, artista ou tocando/pausado mudam. Nada tocando = isPlaying falso, sem textos.
+     */
+    fun tocando(tocandoAgora: Boolean, titulo: String?, artista: String?) {
+        val p = provider ?: return
+        if (!WallpaperPluginContract.quer(p.updateMode, WallpaperPluginContract.EV_NOW_PLAYING_CHANGED)) return
+        val chave = "$tocandoAgora|$titulo|$artista"
+        if (chave == ultimoTocando) return
+        ultimoTocando = chave
+        emSegundoPlano {
+            val l = WallpaperPlugins.buscar(app, p, WallpaperPluginContract.Event(WallpaperPluginContract.EV_NOW_PLAYING_CHANGED,
+                titulo?.take(120), playing = tocandoAgora, artist = artista?.take(120)), WallpaperPlugins.PRAZO_FOCO_MS)
+            l?.firstOrNull()?.let { post { mostrar(it) } }
+        }
+    }
+
     /** Modo ambiente da cruz ligou/desligou: só para plugins que pediram esse evento. */
     fun ocioso(sim: Boolean) {
         val p = provider ?: return
