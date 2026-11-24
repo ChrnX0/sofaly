@@ -35,9 +35,15 @@ object ExtrasTv {
     fun partes(rotulo: String): Pair<String, String> {
         val t = rotulo.trim()
         val doisPontos = t.indexOf(": ")
-        if (doisPontos in 3..60) return t.substring(0, doisPontos).trim() to maiuscula(t.substring(doisPontos + 2))
+        // ": " dentro de um "(…)" não corta ("…no dia (ex.: dia do lixo)…" virava título "…no dia (ex.", Sala 24/11/2026).
+        val dentroDeParenteses = doisPontos >= 0 && t.lastIndexOf('(', doisPontos) > t.lastIndexOf(')', doisPontos)
+        if (doisPontos in 3..60 && !dentroDeParenteses) return t.substring(0, doisPontos).trim() to maiuscula(t.substring(doisPontos + 2))
         val abre = t.indexOf(" (")
         if (t.length > 32 && abre in 3..60 && t.endsWith(")")) return t.substring(0, abre).trim() to maiuscula(t.substring(abre + 2, t.length - 1))
+        // "(…)" no meio: título até ele, o resto vira a explicação sem os parênteses.
+        val fecha = if (abre >= 0) t.indexOf(')', abre) else -1
+        if (t.length > 32 && abre in 3..60 && fecha > abre) return t.substring(0, abre).trim() to
+            maiuscula((t.substring(abre + 2, fecha) + t.substring(fecha + 1)).trim())
         return t to ""
     }
 

@@ -2,7 +2,7 @@
 <!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
 <resources>
     <string name="plg_titulo">Plugins</string>
-    <string name="plg_nenhum">Nenhum plugin instalado. Plugins são apps de outros programadores que mostram um cartão aqui, como o resultado de um jogo ou um preço.</string>
+    <string name="plg_nenhum">Nenhum plugin de cartão instalado. Esses plugins são apps de outros programadores que mostram um cartão aqui, como o resultado de um jogo ou um preço.</string>
     <string name="plg_ligado">Ligado</string>
     <string name="plg_desligado">Desligado</string>
     <string name="plg_limite">No máximo %1$d plugins de cada vez. Desligue um primeiro.</string>

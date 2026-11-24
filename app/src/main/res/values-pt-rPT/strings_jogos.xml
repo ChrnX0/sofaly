@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (pt-rPT) de values/strings_jogos.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="extras_CARD_JOGOS">Card Jogos no ecrã inicial (os apps de jogo saem da linha de apps)</string>
+    <string name="extras_CARD_JOGOS">Cartão Jogos no ecrã inicial (os apps de jogo saem da linha de apps)</string>
     <string name="extras_MODO_JOGO">Modo jogo: com um jogo aberto, protetor, filtro noturno e avisos esperam</string>
     <string name="extras_CONTROLE_ABRE_JOGOS">Ligar um comando de jogos abre o ecrã Jogos</string>
     <string name="jogos_titulo">Jogos</string>
