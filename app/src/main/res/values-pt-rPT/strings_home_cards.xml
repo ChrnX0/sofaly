@@ -20,9 +20,11 @@
     <plurals name="hc_feriado_em">
         <item quantity="one">Feriado daqui a %1$d dia</item>
         <item quantity="other">Feriado daqui a %1$d dias</item>
+        <item quantity="many">Feriado daqui a %1$d dias</item>
     </plurals>
     <plurals name="hc_faltam">
         <item quantity="one">Falta %1$d dia para %2$s</item>
         <item quantity="other">Faltam %1$d dias para %2$s</item>
+        <item quantity="many">Faltam %1$d dias para %2$s</item>
     </plurals>
 </resources>

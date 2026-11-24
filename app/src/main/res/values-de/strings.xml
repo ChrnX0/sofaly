@@ -862,4 +862,19 @@ AS\\Filme).</string>
     <string name="aviso_simples_texto">Der Fernseher zeigt wieder den vollen Startbildschirm.</string>
     <string name="aviso_sync_titulo">Kein Konto verbunden</string>
     <string name="aviso_sync_texto">Auf diesem Fernseher gibt es kein %1$s-Konto. Verbinde es unter Einstellungen › TV und Filme.</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">Was ist neu</string>
+    <string name="ver_novidades_det">%1$d Änderungen in Version %2$s · OK zum Lesen</string>
+    <string name="ver_novidades_sobre">Version %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Auf dem Fernseher prüfen</string>
+    <string name="ver_conferir_det">%1$d von %2$d mit der Fernbedienung geprüft · OK zum Starten</string>
+    <string name="ver_conferir_sub">Version %1$s · %2$d Punkte · OK auf einem Punkt zum Antworten</string>
+    <string name="ver_conferido">%1$d von %2$d geprüft</string>
+    <string name="ver_sim">Ja</string>
+    <string name="ver_nao">Nein</string>
+    <string name="ver_respondido_sim">mit „Ja“ beantwortet</string>
+    <string name="ver_respondido_nao">mit „Nein“ beantwortet</string>
+    <string name="atu_migracao_disponivel">Version %1$d: bereit, diesen Fernseher auf die neue App umzustellen (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">neue App wird installiert (%1$d); danach übernimmt sie diesen Fernseher mit allen Einstellungen</string>
 </resources>

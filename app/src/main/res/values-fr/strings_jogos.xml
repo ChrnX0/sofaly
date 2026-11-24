@@ -54,9 +54,11 @@
     <plurals name="jogos_qtd">
         <item quantity="one">%d jeu</item>
         <item quantity="other">%d jeux</item>
+        <item quantity="many">%d jeux</item>
     </plurals>
     <plurals name="jogos_controles">
         <item quantity="one">%d manette connectée</item>
         <item quantity="other">%d manettes connectées</item>
+        <item quantity="many">%d manettes connectées</item>
     </plurals>
 </resources>

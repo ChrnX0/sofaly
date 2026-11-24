@@ -490,6 +490,7 @@
     <plurals name="series_temporadas">
         <item quantity="one">%d temporada</item>
         <item quantity="other">%d temporadas</item>
+        <item quantity="many">%d temporadas</item>
     </plurals>
     <string name="player_acao_guia">Guia de programação</string>
     <string name="player_sem_guia_curto">Sem guia de programação</string>
@@ -569,6 +570,7 @@
     <plurals name="rede_resumo">
         <item quantity="one">%1$d servidor</item>
         <item quantity="other">%1$d servidores</item>
+        <item quantity="many">%1$d servidores</item>
     </plurals>
     <string name="rede_secao_seus">Seus servidores</string>
     <string name="rede_secao_achados">Achados na rede</string>
@@ -598,6 +600,7 @@
     <plurals name="rede_itens">
         <item quantity="one">%1$d item</item>
         <item quantity="other">%1$d itens</item>
+        <item quantity="many">%1$d itens</item>
     </plurals>
     <string name="rede_dica_abrir">abrir</string>
     <string name="rede_dica_remover">remover</string>

@@ -23,7 +23,8 @@
     <string name="elv_n_de_n">a la hora %1$d de %2$d</string>
     <string name="elv_dentro">en la meta</string>
     <string name="elv_fora">fuera de la meta</string>
-    <plurals name="elv_quedas"><item quantity="one">%1$d cierre o bloqueo en %2$d días</item><item quantity="other">%1$d cierres o bloqueos en %2$d días</item></plurals>
+    <plurals name="elv_quedas"><item quantity="one">%1$d cierre o bloqueo en %2$d días</item><item quantity="other">%1$d cierres o bloqueos en %2$d días</item>
+<item quantity="many">%1$d cierres o bloqueos en %2$d días</item></plurals>
     <string name="elv_lp_titulo">Medir antes y después</string>
     <string name="elv_lp_det_antes">Mide la memoria libre y lo rápido que abren tus 3 apps más usadas, antes de limpiar. Se abren unos segundos.</string>
     <string name="elv_lp_det_depois">El antes está guardado. Oculta las apps de arriba y pulsa OK para medir el después.</string>
@@ -90,9 +91,12 @@
     <string name="elv_f_backup_falhou_botao">Hacer copia ahora</string>
     <string name="elv_f_religando">Volviendo a activar: tarda hasta un minuto</string>
     <string name="extras_NAO_PERTURBE">No molestar: durante una película, de madrugada o con visitas, los avisos esperan y vuelven en un resumen (despertador y timbre siempre aparecen)</string>
-    <plurals name="elv_np_resumo_filme"><item quantity="one">Mientras veías: %1$d aviso</item><item quantity="other">Mientras veías: %1$d avisos</item></plurals>
-    <plurals name="elv_np_resumo_noite"><item quantity="one">Durante la noche: %1$d aviso</item><item quantity="other">Durante la noche: %1$d avisos</item></plurals>
-    <plurals name="elv_np_resumo_visita"><item quantity="one">Durante la visita: %1$d aviso</item><item quantity="other">Durante la visita: %1$d avisos</item></plurals>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Mientras veías: %1$d aviso</item><item quantity="other">Mientras veías: %1$d avisos</item>
+<item quantity="many">Mientras veías: %1$d avisos</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Durante la noche: %1$d aviso</item><item quantity="other">Durante la noche: %1$d avisos</item>
+<item quantity="many">Durante la noche: %1$d avisos</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Durante la visita: %1$d aviso</item><item quantity="other">Durante la visita: %1$d avisos</item>
+<item quantity="many">Durante la visita: %1$d avisos</item></plurals>
     <string name="elv_np_mais">%1$d más</string>
     <string name="elv_ev_filme_acabou">Cuando termine una película</string>
     <string name="elv_ev_programa_comecou">Cuando empiece un programa marcado en la guía</string>

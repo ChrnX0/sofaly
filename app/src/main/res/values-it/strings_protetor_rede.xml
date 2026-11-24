@@ -19,5 +19,6 @@
     <plurals name="rede_fotos_sub">
         <item quantity="one">%1$d foto · copiata sulla TV, funziona a computer spento</item>
         <item quantity="other">%1$d foto · copiate sulla TV, funzionano a computer spento</item>
+        <item quantity="many">%1$d foto · copiate sulla TV, funzionano a computer spento</item>
     </plurals>
 </resources>

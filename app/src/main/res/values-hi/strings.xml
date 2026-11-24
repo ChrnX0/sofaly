@@ -862,4 +862,19 @@ AS\\Movies)।</string>
     <string name="aviso_simples_texto">टीवी पूरी होम स्क्रीन पर लौट आया।</string>
     <string name="aviso_sync_titulo">कोई खाता जुड़ा नहीं</string>
     <string name="aviso_sync_texto">इस टीवी पर %1$s का कोई खाता नहीं है। सेटिंग्स › टीवी और फ़िल्में में जोड़ें।</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">नया क्या है</string>
+    <string name="ver_novidades_det">संस्करण %2$s में %1$d बदलाव · पढ़ने के लिए OK</string>
+    <string name="ver_novidades_sobre">संस्करण %1$s</string>
+    <string name="ver_ok">ठीक है</string>
+    <string name="ver_conferir">टीवी पर जाँचें</string>
+    <string name="ver_conferir_det">रिमोट से %2$d में से %1$d जाँचे गए · शुरू करने के लिए OK</string>
+    <string name="ver_conferir_sub">संस्करण %1$s · %2$d आइटम · जवाब देने के लिए किसी आइटम पर OK</string>
+    <string name="ver_conferido">%2$d में से %1$d जाँचे गए</string>
+    <string name="ver_sim">हाँ</string>
+    <string name="ver_nao">नहीं</string>
+    <string name="ver_respondido_sim">जवाब “हाँ”</string>
+    <string name="ver_respondido_nao">जवाब “नहीं”</string>
+    <string name="atu_migracao_disponivel">संस्करण %1$d: इस टीवी को नए ऐप (tv.sofaly.launcher) पर ले जाने के लिए तैयार</string>
+    <string name="atu_migracao_instalando">नया ऐप इंस्टॉल हो रहा है (%1$d); फिर यह सभी सेटिंग्स के साथ इस टीवी को संभालेगा</string>
 </resources>

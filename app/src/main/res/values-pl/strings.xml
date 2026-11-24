@@ -868,4 +868,19 @@ AS\\Filmy).</string>
     <string name="aviso_simples_texto">Telewizor wrócił do pełnego ekranu głównego.</string>
     <string name="aviso_sync_titulo">Brak połączonego konta</string>
     <string name="aviso_sync_texto">Na tym telewizorze nie ma konta %1$s. Połącz je w Ustawienia › TV i filmy.</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">Co nowego</string>
+    <string name="ver_novidades_det">%1$d zmian w wersji %2$s · OK, aby przeczytać</string>
+    <string name="ver_novidades_sobre">Wersja %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Sprawdź na telewizorze</string>
+    <string name="ver_conferir_det">Sprawdzono pilotem %1$d z %2$d · OK, aby zacząć</string>
+    <string name="ver_conferir_sub">Wersja %1$s · %2$d pozycji · OK na pozycji, aby odpowiedzieć</string>
+    <string name="ver_conferido">Sprawdzono %1$d z %2$d</string>
+    <string name="ver_sim">Tak</string>
+    <string name="ver_nao">Nie</string>
+    <string name="ver_respondido_sim">odpowiedź „tak”</string>
+    <string name="ver_respondido_nao">odpowiedź „nie”</string>
+    <string name="atu_migracao_disponivel">wersja %1$d: gotowa, by przenieść ten telewizor do nowej aplikacji (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">instalowanie nowej aplikacji (%1$d); potem przejmie ten telewizor ze wszystkimi ustawieniami</string>
 </resources>

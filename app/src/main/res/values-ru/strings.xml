@@ -868,4 +868,19 @@ AS\\Фильмы).</string>
     <string name="aviso_simples_texto">Телевизор вернулся к полному главному экрану.</string>
     <string name="aviso_sync_titulo">Нет подключённого аккаунта</string>
     <string name="aviso_sync_texto">На этом телевизоре нет аккаунта %1$s. Подключите его в Настройки › ТВ и фильмы.</string>
+    <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
+    <string name="ver_novidades">Что нового</string>
+    <string name="ver_novidades_det">Изменений в версии %2$s: %1$d · OK, чтобы прочитать</string>
+    <string name="ver_novidades_sobre">Версия %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Проверить на телевизоре</string>
+    <string name="ver_conferir_det">Проверено пультом: %1$d из %2$d · OK, чтобы начать</string>
+    <string name="ver_conferir_sub">Версия %1$s · пунктов: %2$d · OK на пункте, чтобы ответить</string>
+    <string name="ver_conferido">Проверено: %1$d из %2$d</string>
+    <string name="ver_sim">Да</string>
+    <string name="ver_nao">Нет</string>
+    <string name="ver_respondido_sim">ответ «да»</string>
+    <string name="ver_respondido_nao">ответ «нет»</string>
+    <string name="atu_migracao_disponivel">версия %1$d: можно перевести этот телевизор на новое приложение (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">устанавливается новое приложение (%1$d); затем оно возьмёт этот телевизор со всеми настройками</string>
 </resources>

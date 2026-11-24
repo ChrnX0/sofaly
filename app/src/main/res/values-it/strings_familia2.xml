@@ -41,5 +41,6 @@
     <plurals name="an_anos">
         <item quantity="one">compie %d anno</item>
         <item quantity="other">compie %d anni</item>
+        <item quantity="many">compie %d anni</item>
     </plurals>
 </resources>

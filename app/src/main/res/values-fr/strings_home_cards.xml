@@ -20,9 +20,11 @@
     <plurals name="hc_feriado_em">
         <item quantity="one">Jour férié dans %1$d jour</item>
         <item quantity="other">Jour férié dans %1$d jours</item>
+        <item quantity="many">Jour férié dans %1$d jours</item>
     </plurals>
     <plurals name="hc_faltam">
         <item quantity="one">%2$s dans %1$d jour</item>
         <item quantity="other">%2$s dans %1$d jours</item>
+        <item quantity="many">%2$s dans %1$d jours</item>
     </plurals>
 </resources>
