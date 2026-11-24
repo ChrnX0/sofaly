@@ -7,6 +7,7 @@ import br.paulo.tvlauncher.PluginsTv
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.home.PacoteIcones
 import br.paulo.tvlauncher.player.LojaCurada
+import br.paulo.tvlauncher.screensaver.ExtensionHealth
 import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.PluginCatalog
 import br.paulo.tvlauncher.screensaver.WallpaperPlugins
@@ -61,11 +62,13 @@ object PanelPlugins {
                 .put("instalando", app.getString(R.string.wp_instalando)).put("abrirPlay", app.getString(R.string.wp_abrir_play))
                 .put("seguranca", app.getString(R.string.plg_seguranca))
                 .put("limite", app.getString(R.string.plg_limite, PluginCartao.MAX_PLUGINS))
-                .put("semCert", app.getString(R.string.wp_sem_cert)))
+                .put("semCert", app.getString(R.string.wp_sem_cert))
+                .put("saude", app.getString(R.string.ext_off_health)))
             .put("fundos", JSONArray().apply {
                 fundos.forEach { f ->
                     val emUso = f.id == escolhido && Tema.atual(app) == Tema.PLUGIN && WallpaperPlugins.permitido(app, f.pacote)
-                    put(JSONObject().put("id", f.id).put("nome", PluginCatalog.nomeDoPacote(f.pacote) ?: f.nome).put("emUso", emUso))
+                    put(JSONObject().put("id", f.id).put("nome", PluginCatalog.nomeDoPacote(f.pacote) ?: f.nome).put("emUso", emUso)
+                        .put("saude", !emUso && ExtensionHealth.desligadoEm(app, f.pacote) > 0))
                 }
             })
             .put("icones", JSONArray().apply {
@@ -74,7 +77,11 @@ object PanelPlugins {
                 }
             })
             .put("cartoes", JSONArray().apply {
-                cartoes.forEach { c -> put(JSONObject().put("pacote", c.pacote).put("nome", c.nome).put("ligado", PluginsTv.permitido(app, c.pacote))) }
+                cartoes.forEach { c ->
+                    val ligado = PluginsTv.permitido(app, c.pacote)
+                    put(JSONObject().put("pacote", c.pacote).put("nome", c.nome).put("ligado", ligado)
+                        .put("saude", !ligado && ExtensionHealth.desligadoEm(app, c.pacote) > 0))
+                }
             })
             .put("vitrine", JSONArray().apply {
                 PluginCatalog.LISTA.forEach { e ->

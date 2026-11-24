@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">Más de 800 iconos hechos para TV</string>
     <string name="wp_d_minimalist">Símbolos limpios sobre un solo color</string>
     <string name="wp_d_arcticons">15.000 iconos de línea fina (para móvil, funcionan aquí)</string>
+    <string name="ext_off_health">Desactivado: dejó de responder. Actívalo de nuevo si quieres.</string>
 </resources>

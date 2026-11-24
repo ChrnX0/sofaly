@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">800+ icons made for TV</string>
     <string name="wp_d_minimalist">Clean symbols on one background color</string>
     <string name="wp_d_arcticons">15,000 thin line icons (made for phones, works here)</string>
+    <string name="ext_off_health">Turned off: it stopped responding. Turn it on again if you want.</string>
 </resources>

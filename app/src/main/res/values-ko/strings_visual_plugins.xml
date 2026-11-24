@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">TV용 아이콘 800개 이상</string>
     <string name="wp_d_minimalist">한 가지 색 위의 깔끔한 기호</string>
     <string name="wp_d_arcticons">가는 선 아이콘 15,000개 (휴대폰용, 여기서도 작동)</string>
+    <string name="ext_off_health">꺼짐: 응답하지 않았습니다. 원하면 다시 켜세요.</string>
 </resources>

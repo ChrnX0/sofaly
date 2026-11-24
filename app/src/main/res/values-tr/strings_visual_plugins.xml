@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">TV için yapılmış 800+ simge</string>
     <string name="wp_d_minimalist">Tek renk üzerinde sade semboller</string>
     <string name="wp_d_arcticons">15.000 ince çizgi simge (telefon için, burada da çalışır)</string>
+    <string name="ext_off_health">Kapatıldı: yanıt vermeyi bıraktı. İstersen yeniden aç.</string>
 </resources>

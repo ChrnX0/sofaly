@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">800+ ikoner gjorda för tv</string>
     <string name="wp_d_minimalist">Rena symboler på en bakgrundsfärg</string>
     <string name="wp_d_arcticons">15 000 tunna linjeikoner (gjorda för telefoner, fungerar här)</string>
+    <string name="ext_off_health">Avstängd: den slutade svara. Slå på den igen om du vill.</string>
 </resources>

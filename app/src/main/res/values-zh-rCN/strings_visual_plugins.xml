@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">800 多个为电视设计的图标</string>
     <string name="wp_d_minimalist">单一颜色上的简洁符号</string>
     <string name="wp_d_arcticons">15,000 个细线图标（为手机设计，这里也能用）</string>
+    <string name="ext_off_health">已关闭：它停止了响应。如有需要可重新打开。</string>
 </resources>

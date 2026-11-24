@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">Yli 800 TV:lle tehtyä kuvaketta</string>
     <string name="wp_d_minimalist">Selkeitä symboleja yhdellä taustavärillä</string>
     <string name="wp_d_arcticons">15 000 ohutta viivakuvaketta (tehty puhelimille, toimii täällä)</string>
+    <string name="ext_off_health">Poistettu käytöstä: se lakkasi vastaamasta. Ota se uudelleen käyttöön, jos haluat.</string>
 </resources>

@@ -13,6 +13,7 @@ import br.paulo.tvlauncher.player.LojaCurada
 import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.PluginCatalog
 import br.paulo.tvlauncher.screensaver.WallpaperPlugins
+import br.paulo.tvlauncher.screensaver.ExtensionHealth
 import br.paulo.tvlauncher.settings.Planos
 import br.paulo.tvlauncher.settings.Tema
 import java.security.MessageDigest
@@ -68,6 +69,7 @@ object PluginsTv {
         val cert = certificado(ctx, pacote) ?: return false
         if (permitidos(ctx).count { it.key != pacote } >= PluginCartao.MAX_PLUGINS) return false
         prefs.edit().putString(pacote, cert).apply()
+        ExtensionHealth.perdoar(ctx, pacote)
         return true
     }
 
@@ -79,22 +81,28 @@ object PluginsTv {
         if (ok.isEmpty() || !Planos.permite(ctx, Planos.Recurso.PLUGINS)) return emptyList()   // plano: Pro
         return instalados(ctx).filter { PluginCartao.permitido(ok, it.pacote, certificado(ctx, it.pacote)) }
             .take(PluginCartao.MAX_PLUGINS).mapNotNull { p ->
-                val f = leitor.submit<PluginCartao.Cartao?> { ler(ctx, p) }
-                runCatching { f.get(PRAZO_MS, TimeUnit.MILLISECONDS) }.getOrElse { f.cancel(true); null }
+                val inicio = android.os.SystemClock.elapsedRealtime()
+                val f = leitor.submit<Pair<Boolean, PluginCartao.Cartao?>> { ler(ctx, p) }
+                val r = runCatching { f.get(PRAZO_MS, TimeUnit.MILLISECONDS) }.getOrElse { f.cancel(true); false to null }
+                // Guarda de saúde: sem resposta no prazo ou erro conta falha (cartão vazio é resposta válida); seguidas, desliga.
+                if (ExtensionHealth.registrar(ctx, p.pacote, r.first, android.os.SystemClock.elapsedRealtime() - inicio)) definir(ctx, p.pacote, false)
+                r.second
             }
     }
 
-    private fun ler(ctx: Context, p: Instalado): PluginCartao.Cartao? = runCatching {
+    /** (respondeu, cartão): respondeu = o provider atendeu (mesmo sem linha); false = erro ou provider sumido. */
+    private fun ler(ctx: Context, p: Instalado): Pair<Boolean, PluginCartao.Cartao?> = runCatching {
         val uri = Uri.parse("content://${p.autoridade}/${PluginCartao.CAMINHO}")
-        ctx.contentResolver.query(uri, PluginCartao.COLUNAS, null, null, null)?.use { c ->
-            if (!c.moveToFirst()) return null
+        val cursor = ctx.contentResolver.query(uri, PluginCartao.COLUNAS, null, null, null) ?: return false to null
+        cursor.use { c ->
+            if (!c.moveToFirst()) return true to null
             val linha = PluginCartao.COLUNAS.associateWith { col ->
                 val i = c.getColumnIndex(col)
                 if (i < 0) null else runCatching { c.getString(i) }.getOrNull()
             }
-            PluginCartao.limpar(p.pacote, linha)
+            true to PluginCartao.limpar(p.pacote, linha)
         }
-    }.getOrNull()
+    }.getOrDefault(false to null)
 
     /** Abre a ação do cartão, sempre presa ao pacote do plugin (sem componente nem seletor), ou o próprio app. */
     fun abrir(ctx: Context, c: PluginCartao.Cartao) {
@@ -147,7 +155,9 @@ class PluginsActivity : Activity() {
         for (f in fundos) {
             val emUso = f.id == escolhido && Tema.atual(this) == Tema.PLUGIN && WallpaperPlugins.permitido(this, f.pacote)
             val valor = Estilo.valor(this, if (emUso) getString(R.string.wp_em_uso) else "", seta = !emUso)
-            coluna.addView(Estilo.linhaOpcao(this, f.nome, getString(R.string.wp_tipo_fundo), valor).apply {
+            // Desligado pela guarda de saúde (ExtensionHealth): o motivo no lugar do tipo, até o dono ligar de novo.
+            val sub = if (!emUso && ExtensionHealth.desligadoEm(this, f.pacote) > 0) getString(R.string.ext_off_health) else getString(R.string.wp_tipo_fundo)
+            coluna.addView(Estilo.linhaOpcao(this, f.nome, sub, valor).apply {
                 setOnClickListener { menuFundo(f, emUso) }
             }, Estilo.lpLinha(this))
         }
@@ -174,7 +184,8 @@ class PluginsActivity : Activity() {
             val valor = Estilo.valor(this, "", seta = false)
             fun pintar() { valor.text = getString(if (PluginsTv.permitido(this, p.pacote)) R.string.plg_ligado else R.string.plg_desligado) }
             pintar()
-            coluna.addView(Estilo.linhaOpcao(this, p.nome, p.pacote, valor).apply {
+            val sub = if (ExtensionHealth.desligadoEm(this, p.pacote) > 0 && !PluginsTv.permitido(this, p.pacote)) getString(R.string.ext_off_health) else p.pacote
+            coluna.addView(Estilo.linhaOpcao(this, p.nome, sub, valor).apply {
                 setOnClickListener {
                     val novo = !PluginsTv.permitido(this@PluginsActivity, p.pacote)
                     if (novo && !PlanosTv.pedir(this@PluginsActivity, Planos.Recurso.PLUGINS)) return@setOnClickListener   // ligar: Pro

@@ -43,4 +43,5 @@
     <string name="wp_d_tvicons">Более 800 значков для ТВ</string>
     <string name="wp_d_minimalist">Чистые символы на одном цвете</string>
     <string name="wp_d_arcticons">15 000 тонких линейных значков (для телефона, работают и тут)</string>
+    <string name="ext_off_health">Отключено: перестало отвечать. Включите снова, если хотите.</string>
 </resources>
