@@ -18,15 +18,15 @@
     <string name="sh_nova">新月</string>
     <string name="sh_em_dias">%1$d 天后</string>
     <string name="sh_rodar">自动切换底部信息条</string>
-    <string name="sh_rodar_det">休息时底部信息条会自动切换。↑ 和 ↓ 立即切换。</string>
+    <string name="sh_rodar_det">屏保上的底部信息条会自动切换。↑ 和 ↓ 立即切换。</string>
     <string name="sh_rodar_desl">关闭</string>
     <string name="sh_rodar_s">每 %1$d 秒</string>
     <string name="sh_rodar_min">每 1 分钟</string>
     <string name="sh_vidro">底部信息条后加玻璃</string>
     <string name="sh_vidro_det">信息条后面的玻璃面板。关闭：只有一条细线。</string>
-    <string name="sh_fundo">休息时的背景</string>
-    <string name="sh_fundo_det">电视休息时时钟后面显示的内容：与主屏幕相同、其他主题、仅在此使用的照片或视频，或照片和视频轮播。</string>
+    <string name="sh_fundo">屏保背景</string>
+    <string name="sh_fundo_det">屏保上时钟后面显示的内容：与主屏幕相同、其他主题、仅在此使用的照片或视频，或照片和视频轮播。</string>
     <string name="sh_fundo_home">与主屏幕相同</string>
     <string name="sh_fundo_fotos">照片和视频轮播</string>
-    <string name="sh_fundo_arquivo">仅用于休息的文件</string>
+    <string name="sh_fundo_arquivo">仅用于屏保的文件</string>
 </resources>

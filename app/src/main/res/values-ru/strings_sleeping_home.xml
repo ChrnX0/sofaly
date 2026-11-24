@@ -18,15 +18,15 @@
     <string name="sh_nova">Новолуние</string>
     <string name="sh_em_dias">через %1$d д</string>
     <string name="sh_rodar">Листать нижнюю полосу</string>
-    <string name="sh_rodar_det">В режиме покоя нижняя полоса меняется сама. ↑ и ↓ меняют её сразу.</string>
+    <string name="sh_rodar_det">На заставке нижняя полоса меняется сама. ↑ и ↓ меняют её сразу.</string>
     <string name="sh_rodar_desl">Выкл.</string>
     <string name="sh_rodar_s">Каждые %1$d с</string>
     <string name="sh_rodar_min">Каждую минуту</string>
     <string name="sh_vidro">Стекло за нижней полосой</string>
     <string name="sh_vidro_det">Стеклянная панель за полосой. Выкл.: только тонкая линия.</string>
-    <string name="sh_fundo">Фон в режиме отдыха</string>
-    <string name="sh_fundo_det">Что видно за часами, пока телевизор отдыхает: как на главном экране, другая тема, фото или видео только здесь или фото и видео по очереди.</string>
+    <string name="sh_fundo">Фон заставки</string>
+    <string name="sh_fundo_det">Что видно за часами на заставке: как на главном экране, другая тема, фото или видео только здесь или фото и видео по очереди.</string>
     <string name="sh_fundo_home">Как на главном экране</string>
     <string name="sh_fundo_fotos">Фото и видео по очереди</string>
-    <string name="sh_fundo_arquivo">Файл только для отдыха</string>
+    <string name="sh_fundo_arquivo">Файл только для заставки</string>
 </resources>

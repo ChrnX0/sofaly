@@ -459,7 +459,7 @@ traduzirPainelCom({T:{
 "Com a chave ligada: no horário abaixo, só abrem os apps da lista (os do sistema sempre abrem) e o volume não passa do teto. Salvar pede o PIN.":"スイッチがオンのとき:下の時間帯はリストのアプリだけが開き(システムアプリは常に可)、音量は上限を超えません。保存にはPINが必要です。",
 "Com isto, o login do Claude (e dos outros apps) deixa de aceitar o PIN: só passa uma conta Google que esteja em algum perfil desta TV. Crie no Google Cloud um cliente OAuth do tipo \"TVs e dispositivos de entrada limitada\" e cole o id e o segredo aqui. Deixe o id vazio e salve para voltar ao PIN.":"これにより Claude(や他のアプリ)のログインはPINを受け付けなくなり、このテレビのいずれかのプロフィールにあるGoogleアカウントだけが入れます。Google Cloud で「テレビと入力が限られたデバイス」タイプのOAuthクライアントを作成し、ここに id とシークレットを貼り付けてください。PINに戻すには id を空にして保存します。",
 "Com o certificado que a TV fez instalado no aparelho, o painel abre com cadeado e vira app no celular e no PC.":"テレビの証明書をデバイスにインストールすると、パネルは鍵マーク付きで開き、スマホやPCでアプリになります。",
-"Com o Fundo do descanso em “Fotos e vídeos passando” (na TV: Configurações › Tela e energia), o protetor mostra estas fotos por trás do relógio. Ficam só na TV, numa pasta do launcher. JPG, PNG ou WebP, até 15 MB cada.":"休憩中の背景を「写真と動画のスライド」にすると（テレビの 設定 › 画面と電源）、スクリーンセーバーが時計の後ろにこれらの写真を表示します。写真はテレビのランチャーのフォルダにだけ保存されます。JPG、PNG、WebP、1 枚 15 MB まで。",
+"Com o Fundo do protetor em “Fotos e vídeos passando” (na TV: Configurações › Tela e energia), o protetor mostra estas fotos por trás do relógio. Ficam só na TV, numa pasta do launcher. JPG, PNG ou WebP, até 15 MB cada.":"スクリーンセーバーの背景を「写真と動画のスライド」にすると（テレビの 設定 › 画面と電源）、スクリーンセーバーが時計の後ろにこれらの写真を表示します。写真はテレビのランチャーのフォルダにだけ保存されます。JPG、PNG、WebP、1 枚 15 MB まで。",
 "Como a TV está":"テレビの状態",
 "Compras":"買い物",
 "Conectar":"接続",

@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Fotos del protector desde tu teléfono</string>
     <string name="qrd_fotos_det">Muestra un código: el teléfono abre el panel directo en la página de fotos</string>
     <string name="qrd_mural">Mural de la familia desde tu teléfono</string>
-    <string name="qrd_mural_det">Lista de compras, notas fijadas y cumpleaños</string>
+    <string name="qrd_mural_det">Lista de compras y notas fijadas</string>
     <string name="qrd_cenas">Escenas desde tu teléfono</string>
     <string name="qrd_cenas_det">Crea y prueba escenas en el panel web</string>
     <string name="qrd_casa">Home Assistant desde tu teléfono</string>

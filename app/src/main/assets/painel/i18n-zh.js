@@ -459,7 +459,7 @@ traduzirPainelCom({T:{
 "Com a chave ligada: no horário abaixo, só abrem os apps da lista (os do sistema sempre abrem) e o volume não passa do teto. Salvar pede o PIN.":"开关打开时:在下面的时间内只能打开列表中的应用(系统应用始终可以),音量不超过上限。保存需要 PIN。",
 "Com isto, o login do Claude (e dos outros apps) deixa de aceitar o PIN: só passa uma conta Google que esteja em algum perfil desta TV. Crie no Google Cloud um cliente OAuth do tipo \"TVs e dispositivos de entrada limitada\" e cole o id e o segredo aqui. Deixe o id vazio e salve para voltar ao PIN.":"这样 Claude(及其他应用)的登录将不再接受 PIN:只有在这台电视某个个人资料中的 Google 账户可以进入。在 Google Cloud 中创建“电视和输入受限设备”类型的 OAuth 客户端,并把 id 和密钥粘贴到这里。将 id 留空并保存即可恢复 PIN。",
 "Com o certificado que a TV fez instalado no aparelho, o painel abre com cadeado e vira app no celular e no PC.":"在设备上安装电视的证书后,面板会带锁打开,并在手机和电脑上成为应用。",
-"Com o Fundo do descanso em “Fotos e vídeos passando” (na TV: Configurações › Tela e energia), o protetor mostra estas fotos por trás do relógio. Ficam só na TV, numa pasta do launcher. JPG, PNG ou WebP, até 15 MB cada.":"将休息时的背景设为“照片和视频轮播”后（电视上：设置 › 屏幕和电源），屏保会在时钟后面显示这些照片。照片只保存在电视上的启动器文件夹中。JPG、PNG 或 WebP，每张最大 15 MB。",
+"Com o Fundo do protetor em “Fotos e vídeos passando” (na TV: Configurações › Tela e energia), o protetor mostra estas fotos por trás do relógio. Ficam só na TV, numa pasta do launcher. JPG, PNG ou WebP, até 15 MB cada.":"将屏保背景设为“照片和视频轮播”后（电视上：设置 › 屏幕和电源），屏保会在时钟后面显示这些照片。照片只保存在电视上的启动器文件夹中。JPG、PNG 或 WebP，每张最大 15 MB。",
 "Como a TV está":"电视状况",
 "Compras":"购物",
 "Conectar":"连接",

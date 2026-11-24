@@ -18,15 +18,15 @@
     <string name="sh_nova">محاق</string>
     <string name="sh_em_dias">بعد %1$d ي</string>
     <string name="sh_rodar">تدوير الشريط السفلي</string>
-    <string name="sh_rodar_det">أثناء الاستراحة يتغير الشريط السفلي وحده. ↑ و↓ يغيّرانه فورًا.</string>
+    <string name="sh_rodar_det">في شاشة التوقف يتغير الشريط السفلي وحده. ↑ و↓ يغيّرانه فورًا.</string>
     <string name="sh_rodar_desl">متوقف</string>
     <string name="sh_rodar_s">كل %1$d ث</string>
     <string name="sh_rodar_min">كل دقيقة</string>
     <string name="sh_vidro">زجاج خلف الشريط السفلي</string>
     <string name="sh_vidro_det">لوح زجاجي خلف الشريط. عند الإيقاف: خط رفيع فقط.</string>
-    <string name="sh_fundo">خلفية وضع الراحة</string>
-    <string name="sh_fundo_det">ما يظهر خلف الساعة عندما يرتاح التلفاز: مثل الشاشة الرئيسية، أو سمة أخرى، أو صورة أو فيديو هنا فقط، أو صور وفيديوهات تتوالى.</string>
+    <string name="sh_fundo">خلفية شاشة التوقف</string>
+    <string name="sh_fundo_det">ما يظهر خلف الساعة في شاشة التوقف: مثل الشاشة الرئيسية، أو سمة أخرى، أو صورة أو فيديو هنا فقط، أو صور وفيديوهات تتوالى.</string>
     <string name="sh_fundo_home">مثل الشاشة الرئيسية</string>
     <string name="sh_fundo_fotos">صور وفيديوهات تتوالى</string>
-    <string name="sh_fundo_arquivo">ملف لوضع الراحة فقط</string>
+    <string name="sh_fundo_arquivo">ملف لشاشة التوقف فقط</string>
 </resources>

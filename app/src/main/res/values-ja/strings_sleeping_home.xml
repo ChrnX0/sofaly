@@ -18,15 +18,15 @@
     <string name="sh_nova">新月</string>
     <string name="sh_em_dias">%1$d日後</string>
     <string name="sh_rodar">下の帯を自動で切り替え</string>
-    <string name="sh_rodar_det">休止中、下の帯が自動で切り替わります。↑と↓ですぐ切り替え。</string>
+    <string name="sh_rodar_det">スクリーンセーバーでは下の帯が自動で切り替わります。↑と↓ですぐ切り替え。</string>
     <string name="sh_rodar_desl">オフ</string>
     <string name="sh_rodar_s">%1$d秒ごと</string>
     <string name="sh_rodar_min">1分ごと</string>
     <string name="sh_vidro">下の帯の後ろにガラス</string>
     <string name="sh_vidro_det">帯の後ろにガラスのパネル。オフ: 細い線だけ。</string>
-    <string name="sh_fundo">休憩中の背景</string>
-    <string name="sh_fundo_det">テレビが休憩中に時計の後ろに表示するもの：ホームと同じ、別のテーマ、ここだけの写真や動画、または写真と動画のスライド。</string>
+    <string name="sh_fundo">スクリーンセーバーの背景</string>
+    <string name="sh_fundo_det">スクリーンセーバーで時計の後ろに表示するもの：ホームと同じ、別のテーマ、ここだけの写真や動画、または写真と動画のスライド。</string>
     <string name="sh_fundo_home">ホームと同じ</string>
     <string name="sh_fundo_fotos">写真と動画のスライド</string>
-    <string name="sh_fundo_arquivo">休憩中だけのファイル</string>
+    <string name="sh_fundo_arquivo">スクリーンセーバー専用のファイル</string>
 </resources>

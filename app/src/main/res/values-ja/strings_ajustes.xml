@@ -5,7 +5,7 @@
     <string name="qrd_fotos">スマートフォンからスクリーンセーバーの写真</string>
     <string name="qrd_fotos_det">コードを表示: スマートフォンでパネルの写真ページが直接開きます</string>
     <string name="qrd_mural">スマートフォンから家族ボード</string>
-    <string name="qrd_mural_det">買い物リスト、貼ったメモ、誕生日</string>
+    <string name="qrd_mural_det">買い物リストと貼ったメモ</string>
     <string name="qrd_cenas">スマートフォンからシーン</string>
     <string name="qrd_cenas_det">ウェブパネルでシーンを作成・テスト</string>
     <string name="qrd_casa">スマートフォンから Home Assistant</string>

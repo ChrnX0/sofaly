@@ -5,7 +5,7 @@
     <string name="qrd_fotos">Фото заставки с телефона</string>
     <string name="qrd_fotos_det">Показывает код: телефон открывает панель сразу на странице фото</string>
     <string name="qrd_mural">Семейная доска с телефона</string>
-    <string name="qrd_mural_det">Список покупок, заметки и дни рождения</string>
+    <string name="qrd_mural_det">Список покупок и заметки</string>
     <string name="qrd_cenas">Сцены с телефона</string>
     <string name="qrd_cenas_det">Создавайте и проверяйте сцены в веб-панели</string>
     <string name="qrd_casa">Home Assistant с телефона</string>
