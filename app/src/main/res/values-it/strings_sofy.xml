@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s ha visto %1$s bloccarsi più volte in questa stessa versione. Se anche qui dà problemi, cerca un aggiornamento.</string>
     <string name="observer_other_tv_slower_title">Un’altra TV dice che un’app è più lenta</string>
     <string name="observer_other_tv_slower_text">%2$s ha visto %1$s aprirsi molto più lentamente da questa versione. Qui c’è la stessa versione.</string>
+    <string name="observer_homes_crashy_title">Altre case segnalano un’app</string>
+    <string name="observer_homes_crashy_text">%1$s si blocca spesso in questa stessa versione in %2$s altre case. Se fallisce qui, cerca un aggiornamento.</string>
+    <string name="observer_homes_slower_title">Altre case dicono che un’app è più lenta</string>
+    <string name="observer_homes_slower_text">%1$s si apre molto più lentamente in questa versione in %2$s altre case.</string>
 </resources>

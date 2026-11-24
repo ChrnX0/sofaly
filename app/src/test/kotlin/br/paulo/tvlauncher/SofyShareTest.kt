@@ -40,4 +40,15 @@ class SofyShareTest {
         assertEquals(listOf(l[0]), SofyShare.relevant(l, instalados, emptySet()))
         assertEquals(emptyList<SofyShare.Lesson>(), SofyShare.relevant(l, instalados, setOf(SofyShare.key(l[0]))))   // já contou
     }
+
+    @Test fun fichasComunitarias() {
+        val corpo = SofyShare.communityBody(listOf(SofyShare.Lesson("com.app.x", 50, "crashy")))
+        assertEquals(1, corpo.length())   // só "lessons": nada de remetente, nonce ou hora
+        assertEquals(3, corpo.getJSONArray("lessons").getJSONObject(0).length())
+        val lista = JSONObject("""{"lessons":[{"pkg":"com.app.x","ver":50,"kind":"crashy","homes":7},
+            {"pkg":"com.app.y","ver":2,"kind":"slower","homes":3},{"pkg":"bad pkg","ver":2,"kind":"slower","homes":9},
+            {"pkg":"com.app.z","ver":2,"kind":"apagar","homes":9}]}""")
+        assertEquals(listOf(SofyShare.Lesson("com.app.x", 50, "crashy") to 7), SofyShare.fromCommunity(lista))
+        assertEquals(emptyList<Pair<SofyShare.Lesson, Int>>(), SofyShare.fromCommunity(JSONObject("{}")))
+    }
 }

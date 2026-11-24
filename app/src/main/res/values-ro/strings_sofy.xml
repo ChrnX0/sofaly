@@ -54,4 +54,8 @@
     <string name="observer_other_tv_crashy_text">%2$s a văzut %1$s blocându-se de mai multe ori în exact această versiune. Dacă și aici face probleme, caută o actualizare.</string>
     <string name="observer_other_tv_slower_title">Alt televizor spune că o aplicație merge mai greu</string>
     <string name="observer_other_tv_slower_text">%2$s a văzut %1$s deschizându-se mult mai greu de la această versiune. Aici e aceeași versiune.</string>
+    <string name="observer_homes_crashy_title">Alte case avertizează despre o aplicație</string>
+    <string name="observer_homes_crashy_text">%1$s se blochează des în exact această versiune în %2$s alte case. Dacă aici eșuează, caută o actualizare.</string>
+    <string name="observer_homes_slower_title">Alte case spun că o aplicație merge mai greu</string>
+    <string name="observer_homes_slower_text">%1$s se deschide mult mai greu în această versiune în %2$s alte case.</string>
 </resources>

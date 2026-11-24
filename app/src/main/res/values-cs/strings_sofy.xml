@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s viděla, jak %1$s v této verzi několikrát spadla. Pokud zlobí i tady, hledejte aktualizaci.</string>
     <string name="observer_other_tv_slower_title">Jiná televize říká, že se aplikace zpomalila</string>
     <string name="observer_other_tv_slower_text">%2$s viděla, že se %1$s od této verze otevírá mnohem pomaleji. Tady je stejná verze.</string>
+    <string name="observer_homes_crashy_title">Jiné domácnosti varují před aplikací</string>
+    <string name="observer_homes_crashy_text">%1$s v této verzi často padá v %2$s jiných domácnostech. Pokud tu selže, hledejte aktualizaci.</string>
+    <string name="observer_homes_slower_title">Jiné domácnosti říkají, že se aplikace zpomalila</string>
+    <string name="observer_homes_slower_text">%1$s se v této verzi otevírá mnohem pomaleji v %2$s jiných domácnostech.</string>
 </resources>

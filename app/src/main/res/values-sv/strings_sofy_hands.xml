@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Så vet jag: routern och Wi-Fi berättade.</string>
     <string name="sofy_evidence_test">Så vet jag: jag testade och kontrollerade.</string>
     <string name="sofy_evidence_other_tv">Så vet jag: en annan tv i hemmet berättade.</string>
+    <string name="sofy_evidence_community">Så vet jag: andra hem med Sofaly rapporterade det (bara app och version, aldrig vem).</string>
 </resources>

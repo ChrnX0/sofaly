@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">Η %2$s είδε την %1$s να κολλάει πολλές φορές σε αυτήν ακριβώς την έκδοση. Αν κάνει το ίδιο κι εδώ, ψάξε για ενημέρωση.</string>
     <string name="observer_other_tv_slower_title">Άλλη τηλεόραση λέει ότι μια εφαρμογή έγινε πιο αργή</string>
     <string name="observer_other_tv_slower_text">Η %2$s είδε την %1$s να ανοίγει πολύ πιο αργά από αυτήν την έκδοση. Εδώ είναι η ίδια έκδοση.</string>
+    <string name="observer_homes_crashy_title">Άλλα σπίτια προειδοποιούν για μια εφαρμογή</string>
+    <string name="observer_homes_crashy_text">Η %1$s κολλάει συχνά σε αυτήν ακριβώς την έκδοση σε %2$s άλλα σπίτια. Αν αποτύχει κι εδώ, ψάξε για ενημέρωση.</string>
+    <string name="observer_homes_slower_title">Άλλα σπίτια λένε ότι μια εφαρμογή έγινε πιο αργή</string>
+    <string name="observer_homes_slower_text">Η %1$s ανοίγει πολύ πιο αργά σε αυτήν την έκδοση σε %2$s άλλα σπίτια.</string>
 </resources>

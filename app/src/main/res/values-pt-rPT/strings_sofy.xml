@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">A %2$s viu a %1$s falhar várias vezes nesta mesma versão. Se aqui também falhar, procure uma atualização.</string>
     <string name="observer_other_tv_slower_title">Outra TV diz que uma app ficou lenta</string>
     <string name="observer_other_tv_slower_text">A %2$s viu a %1$s abrir bem mais devagar desde esta versão. Aqui é a mesma versão.</string>
+    <string name="observer_homes_crashy_title">Outras casas avisam sobre uma app</string>
+    <string name="observer_homes_crashy_text">A %1$s falha muito nesta mesma versão em %2$s outras casas. Se falhar aqui, procure uma atualização.</string>
+    <string name="observer_homes_slower_title">Outras casas dizem que uma app ficou lenta</string>
+    <string name="observer_homes_slower_text">A %1$s abre bem mais devagar nesta versão em %2$s outras casas.</string>
 </resources>

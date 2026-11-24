@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">كيف أعرف: أخبرني الراوتر والواي فاي.</string>
     <string name="sofy_evidence_test">كيف أعرف: جرّبت وتحققت.</string>
     <string name="sofy_evidence_other_tv">كيف أعرف: أخبرني تلفاز آخر في هذا المنزل.</string>
+    <string name="sofy_evidence_community">كيف أعرف: أبلغت عنه منازل أخرى تستخدم Sofaly (التطبيق والإصدار فقط، ولا أحد يُعرف).</string>
 </resources>

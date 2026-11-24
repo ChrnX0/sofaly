@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s, %1$s uygulamasının tam bu sürümde birkaç kez çöktüğünü gördü. Burada da sorun çıkarırsa güncelleme ara.</string>
     <string name="observer_other_tv_slower_title">Başka bir TV bir uygulamanın yavaşladığını söylüyor</string>
     <string name="observer_other_tv_slower_text">%2$s, %1$s uygulamasının bu sürümden beri çok daha yavaş açıldığını gördü. Burada da aynı sürüm var.</string>
+    <string name="observer_homes_crashy_title">Diğer evler bir uygulama için uyarıyor</string>
+    <string name="observer_homes_crashy_text">%1$s tam bu sürümde %2$s başka evde sık sık çöküyor. Burada da hata verirse güncelleme ara.</string>
+    <string name="observer_homes_slower_title">Diğer evler bir uygulamanın yavaşladığını söylüyor</string>
+    <string name="observer_homes_slower_text">%1$s bu sürümde %2$s başka evde çok daha yavaş açılıyor.</string>
 </resources>

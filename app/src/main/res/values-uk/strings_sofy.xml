@@ -54,4 +54,8 @@
     <string name="observer_other_tv_crashy_text">%2$s бачив, як %1$s кілька разів падав у цій самій версії. Якщо й тут збоїть, пошукайте оновлення.</string>
     <string name="observer_other_tv_slower_title">Інший телевізор каже, що застосунок став повільнішим</string>
     <string name="observer_other_tv_slower_text">%2$s бачив, що %1$s з цієї версії відкривається набагато повільніше. Тут та сама версія.</string>
+    <string name="observer_homes_crashy_title">Інші домівки попереджають про застосунок</string>
+    <string name="observer_homes_crashy_text">%1$s часто падає в цій самій версії ще в %2$s домівках. Якщо збоїть і тут, пошукайте оновлення.</string>
+    <string name="observer_homes_slower_title">Інші домівки кажуть, що застосунок став повільнішим</string>
+    <string name="observer_homes_slower_text">%1$s у цій версії відкривається набагато повільніше ще в %2$s домівках.</string>
 </resources>

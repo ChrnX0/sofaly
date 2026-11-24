@@ -19,6 +19,8 @@
 //   POST   /v1/summary         pública: resumo do episódio + trechos de propaganda (Workers AI)
 //   GET    /v1/weather             pública: previsão do plano Pro (WeatherAPI), ?lat=&lon= (src/weather.js)
 //   GET    /v1/weather/open        pública: previsão do Básico, consenso de 4 modelos abertos, ?lat=&lon= (src/weatherOpen.js)
+//   POST   /v1/community/lessons   pública: lições da Sofy de uma casa (opt-in na TV), só pacote+versão+tipo (src/community.js)
+//   GET    /v1/community/lessons   pública: as lições vistas em 5+ casas nos últimos 14 dias
 import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { pluginsBody } from './plugins.js';
@@ -26,9 +28,11 @@ import { handlePodcasts } from './podcasts.js';
 import { handleWeather } from './weather.js';
 import { handleWeatherOpen } from './weatherOpen.js';
 import { handleTranscribe } from './transcribe.js';
+import { handleCommunity } from './community.js';
 import { BASE_PATH as PD_BASE, handlePublicDomain } from './publicdomain.js';
 export { Mailbox } from './mailbox.js';
 export { Pairing } from './pairing.js';
+export { Community } from './communityStore.js';
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), {
   status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' },
@@ -62,6 +66,8 @@ export default {
 
     const ia = path.match(/^\/v1\/(transcribe|summary)$/);
     if (ia && req.method === 'POST') return handleTranscribe(ia[1], req, url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
+
+    if (path === '/v1/community/lessons') return handleCommunity(req, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
 
     if (path === '/v1/weather/open' && req.method === 'GET') {
       return handleWeatherOpen(url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });

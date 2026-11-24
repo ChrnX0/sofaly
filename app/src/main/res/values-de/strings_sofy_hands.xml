@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Woher ich das weiß: Router und WLAN haben es gemeldet.</string>
     <string name="sofy_evidence_test">Woher ich das weiß: getestet und geprüft.</string>
     <string name="sofy_evidence_other_tv">Woher ich das weiß: ein anderer Fernseher im Haus hat es mir gesagt.</string>
+    <string name="sofy_evidence_community">Woher ich das weiß: andere Haushalte mit Sofaly haben es gemeldet (nur App und Version, nie wer).</string>
 </resources>

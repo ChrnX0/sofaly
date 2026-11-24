@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">根拠：ルーターとWi-Fiが知らせました。</string>
     <string name="sofy_evidence_test">根拠：試して確かめました。</string>
     <string name="sofy_evidence_other_tv">根拠：この家の別のテレビが教えてくれました。</string>
+    <string name="sofy_evidence_community">根拠：Sofalyを使うほかの家からの報告です（アプリとバージョンだけで、誰かは分かりません）。</string>
 </resources>

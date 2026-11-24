@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Honnan tudom: a router és a Wi-Fi jelezte.</string>
     <string name="sofy_evidence_test">Honnan tudom: kipróbáltam és ellenőriztem.</string>
     <string name="sofy_evidence_other_tv">Honnan tudom: egy másik tévé szólt ebben az otthonban.</string>
+    <string name="sofy_evidence_community">Honnan tudom: más Sofalyt használó otthonok jelezték (csak az alkalmazás és a verzió, soha nem az, hogy ki).</string>
 </resources>

@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s melihat %1$s macet beberapa kali di versi yang sama ini. Jika di sini juga bermasalah, cari pembaruan.</string>
     <string name="observer_other_tv_slower_title">TV lain bilang sebuah aplikasi jadi lambat</string>
     <string name="observer_other_tv_slower_text">%2$s melihat %1$s terbuka jauh lebih lambat sejak versi ini. Di sini versinya sama.</string>
+    <string name="observer_homes_crashy_title">Rumah lain memperingatkan soal aplikasi</string>
+    <string name="observer_homes_crashy_text">%1$s sering macet di versi yang sama ini di %2$s rumah lain. Jika gagal di sini, cari pembaruan.</string>
+    <string name="observer_homes_slower_title">Rumah lain bilang sebuah aplikasi jadi lambat</string>
+    <string name="observer_homes_slower_text">%1$s terbuka jauh lebih lambat di versi ini di %2$s rumah lain.</string>
 </resources>

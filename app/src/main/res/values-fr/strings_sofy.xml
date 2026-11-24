@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s a vu %1$s planter plusieurs fois dans cette même version. Si elle pose aussi problème ici, cherchez une mise à jour.</string>
     <string name="observer_other_tv_slower_title">Une autre TV dit qu’une app a ralenti</string>
     <string name="observer_other_tv_slower_text">%2$s a vu %1$s s’ouvrir bien plus lentement depuis cette version. Même version ici.</string>
+    <string name="observer_homes_crashy_title">D’autres foyers signalent une app</string>
+    <string name="observer_homes_crashy_text">%1$s plante souvent dans cette même version dans %2$s autres foyers. Si elle échoue ici, cherchez une mise à jour.</string>
+    <string name="observer_homes_slower_title">D’autres foyers disent qu’une app a ralenti</string>
+    <string name="observer_homes_slower_text">%1$s s’ouvre bien plus lentement dans cette version dans %2$s autres foyers.</string>
 </resources>

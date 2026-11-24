@@ -78,7 +78,9 @@ object ObserverCore {
         // Guardando a casa (SofyGuard, ideias 43, 45 a 48).
         KEY_STUCK, APP_POWERFUL, SYSTEM_UPDATE_BROKE, PANEL_PIN_WRONG, DISK_FILLING,
         // Outra TV da casa contou (SofyShare, ideia 40).
-        OTHER_TV_CRASHY, OTHER_TV_SLOWER }
+        OTHER_TV_CRASHY, OTHER_TV_SLOWER,
+        // Outras casas contaram (fichas comunitárias, ideia 41).
+        HOMES_CRASHY, HOMES_SLOWER }
 
     /** Abaixo disto o Android começa a fechar apps em segundo plano num aparelho de 2 GB (inferido; a fase 2 troca pela linha de base da casa). */
     const val LOW_MEMORY_MB = 150L
@@ -320,7 +322,7 @@ object ObserverCore {
         Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW, Kind.APP_ON_DEMAND, Kind.VERSION_SLOWER, Kind.APP_CRASHY, Kind.APP_CRASHY_UPDATE,
         Kind.WIFI_ADVICE, Kind.GAME_LAG, Kind.TV_WAKE_FAILING, Kind.HOME_HUB_FAILING,
         Kind.KEY_STUCK, Kind.APP_POWERFUL, Kind.SYSTEM_UPDATE_BROKE, Kind.PANEL_PIN_WRONG, Kind.DISK_FILLING,
-        Kind.OTHER_TV_CRASHY, Kind.OTHER_TV_SLOWER -> null
+        Kind.OTHER_TV_CRASHY, Kind.OTHER_TV_SLOWER, Kind.HOMES_CRASHY, Kind.HOMES_SLOWER -> null
     }
 
     fun argsFor(kind: Kind, snapshot: Map<Signal, Reading>): List<String> {

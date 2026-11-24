@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Come lo so: me l’hanno detto il router e il Wi-Fi.</string>
     <string name="sofy_evidence_test">Come lo so: ho provato e verificato.</string>
     <string name="sofy_evidence_other_tv">Come lo so: me l’ha detto un’altra TV di questa casa.</string>
+    <string name="sofy_evidence_community">Come lo so: altre case con Sofaly l’hanno segnalato (solo app e versione, mai chi).</string>
 </resources>

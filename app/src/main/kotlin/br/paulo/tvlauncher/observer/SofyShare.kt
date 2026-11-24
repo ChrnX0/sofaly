@@ -61,4 +61,24 @@ object SofyShare {
         lessons.filter { installed[it.pkg] == it.ver && key(it) !in told }
 
     fun key(l: Lesson) = "${l.pkg}@${l.ver}:${l.kind}"
+
+    // ---------------------------------------------------------------- 41: fichas comunitárias (api.sofaly.tv)
+    /** Mínimo de casas que o servidor exige (server/api/src/community.js); abaixo disso a TV também ignora. */
+    const val COMMUNITY_MIN_HOMES = 5
+
+    /** O que a TV manda ao servidor: só as lições (sem remetente, sem nonce, sem hora). */
+    fun communityBody(lessons: List<Lesson>): JSONObject = JSONObject().put("lessons",
+        JSONArray().apply { lessons.take(MAX_LESSONS).forEach { put(JSONObject().put("pkg", it.pkg).put("ver", it.ver).put("kind", it.kind)) } })
+
+    /** A lista pública do servidor: lição → quantas casas viram. Linha estranha é ignorada; tudo estranho = vazio. */
+    fun fromCommunity(o: JSONObject?): List<Pair<Lesson, Int>> {
+        val a = o?.optJSONArray("lessons") ?: return emptyList()
+        return List(minOf(a.length(), 1000)) { a.optJSONObject(it) }.mapNotNull { x ->
+            val pkg = x?.optString("pkg")?.takeIf { it.length <= 150 && PKG.matches(it) } ?: return@mapNotNull null
+            val ver = x.optLong("ver", -1).takeIf { it > 0 } ?: return@mapNotNull null
+            val kind = x.optString("kind").takeIf { it in KINDS } ?: return@mapNotNull null
+            val homes = x.optInt("homes", 0).takeIf { it >= COMMUNITY_MIN_HOMES } ?: return@mapNotNull null
+            Lesson(pkg, ver, kind) to homes
+        }
+    }
 }

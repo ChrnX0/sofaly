@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s så %1$s gå ned flere gange i præcis denne version. Driller den også her, så søg efter en opdatering.</string>
     <string name="observer_other_tv_slower_title">Et andet tv siger, at en app er blevet langsommere</string>
     <string name="observer_other_tv_slower_text">%2$s så %1$s åbne meget langsommere siden denne version. Samme version her.</string>
+    <string name="observer_homes_crashy_title">Andre hjem advarer om en app</string>
+    <string name="observer_homes_crashy_text">%1$s går ofte ned i præcis denne version i %2$s andre hjem. Fejler den her, så søg efter en opdatering.</string>
+    <string name="observer_homes_slower_title">Andre hjem siger, at en app er blevet langsommere</string>
+    <string name="observer_homes_slower_text">%1$s åbner meget langsommere i denne version i %2$s andre hjem.</string>
 </resources>

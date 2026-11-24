@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$sで、%1$sが同じバージョンで何度も落ちました。ここでも不調なら、アップデートを探してください。</string>
     <string name="observer_other_tv_slower_title">別のテレビによるとアプリが遅くなりました</string>
     <string name="observer_other_tv_slower_text">%2$sで、このバージョンから%1$sの起動がかなり遅くなりました。ここも同じバージョンです。</string>
+    <string name="observer_homes_crashy_title">ほかの家がアプリについて知らせています</string>
+    <string name="observer_homes_crashy_text">%1$sはこの同じバージョンで、ほかの%2$s軒の家でよく落ちています。ここでも不調なら、アップデートを探してください。</string>
+    <string name="observer_homes_slower_title">ほかの家によるとアプリが遅くなりました</string>
+    <string name="observer_homes_slower_text">%1$sはこのバージョンで、ほかの%2$s軒の家で起動がかなり遅くなっています。</string>
 </resources>

@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s så %1$s krasje flere ganger i akkurat denne versjonen. Krøller den seg her også, se etter en oppdatering.</string>
     <string name="observer_other_tv_slower_title">En annen TV sier at en app har blitt tregere</string>
     <string name="observer_other_tv_slower_text">%2$s så %1$s åpne mye tregere siden denne versjonen. Samme versjon her.</string>
+    <string name="observer_homes_crashy_title">Andre hjem advarer om en app</string>
+    <string name="observer_homes_crashy_text">%1$s krasjer ofte i akkurat denne versjonen i %2$s andre hjem. Hvis den feiler her, se etter en oppdatering.</string>
+    <string name="observer_homes_slower_title">Andre hjem sier at en app har blitt tregere</string>
+    <string name="observer_homes_slower_text">%1$s åpner mye tregere i denne versjonen i %2$s andre hjem.</string>
 </resources>

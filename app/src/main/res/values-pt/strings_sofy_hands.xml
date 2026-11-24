@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Como sei: o roteador e o Wi-Fi contaram.</string>
     <string name="sofy_evidence_test">Como sei: testei e conferi.</string>
     <string name="sofy_evidence_other_tv">Como sei: outra TV desta casa me contou.</string>
+    <string name="sofy_evidence_community">Como sei: outras casas com Sofaly contaram (só o app e a versão, nunca quem).</string>
 </resources>

@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s видел, как %1$s несколько раз падало в этой же версии. Если и здесь сбоит, поищите обновление.</string>
     <string name="observer_other_tv_slower_title">Другой телевизор говорит, что приложение стало медленнее</string>
     <string name="observer_other_tv_slower_text">%2$s видел, что %1$s с этой версии открывается намного медленнее. Здесь та же версия.</string>
+    <string name="observer_homes_crashy_title">Другие дома предупреждают о приложении</string>
+    <string name="observer_homes_crashy_text">%1$s часто падает в этой же версии ещё в %2$s домах. Если сбоит и здесь, поищите обновление.</string>
+    <string name="observer_homes_slower_title">Другие дома говорят, что приложение стало медленнее</string>
+    <string name="observer_homes_slower_text">%1$s в этой версии открывается намного медленнее ещё в %2$s домах.</string>
 </resources>

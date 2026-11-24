@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s zag %1$s meerdere keren vastlopen in precies deze versie. Doet hij het hier ook slecht, zoek dan een update.</string>
     <string name="observer_other_tv_slower_title">Een andere tv zegt dat een app trager is</string>
     <string name="observer_other_tv_slower_text">%2$s zag %1$s sinds deze versie veel trager openen. Hier staat dezelfde versie.</string>
+    <string name="observer_homes_crashy_title">Andere huizen waarschuwen voor een app</string>
+    <string name="observer_homes_crashy_text">%1$s loopt in precies deze versie vaak vast in %2$s andere huizen. Faalt hij hier, zoek dan een update.</string>
+    <string name="observer_homes_slower_title">Andere huizen zeggen dat een app trager is</string>
+    <string name="observer_homes_slower_text">%1$s opent in deze versie veel trager in %2$s andere huizen.</string>
 </resources>

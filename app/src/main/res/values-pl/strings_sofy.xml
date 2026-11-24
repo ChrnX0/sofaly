@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s widział, jak %1$s kilka razy się zawiesiła w tej samej wersji. Jeśli tu też zawodzi, poszukaj aktualizacji.</string>
     <string name="observer_other_tv_slower_title">Inny telewizor mówi, że aplikacja zwolniła</string>
     <string name="observer_other_tv_slower_text">%2$s widział, że %1$s od tej wersji otwiera się dużo wolniej. Tu jest ta sama wersja.</string>
+    <string name="observer_homes_crashy_title">Inne domy ostrzegają przed aplikacją</string>
+    <string name="observer_homes_crashy_text">%1$s często się zawiesza w tej samej wersji w %2$s innych domach. Jeśli tu zawiedzie, poszukaj aktualizacji.</string>
+    <string name="observer_homes_slower_title">Inne domy mówią, że aplikacja zwolniła</string>
+    <string name="observer_homes_slower_text">%1$s w tej wersji otwiera się dużo wolniej w %2$s innych domach.</string>
 </resources>

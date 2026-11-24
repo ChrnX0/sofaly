@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Dari mana saya tahu: router dan Wi-Fi memberi tahu.</string>
     <string name="sofy_evidence_test">Dari mana saya tahu: saya uji dan periksa.</string>
     <string name="sofy_evidence_other_tv">Dari mana saya tahu: TV lain di rumah ini memberi tahu.</string>
+    <string name="sofy_evidence_community">Dari mana saya tahu: rumah lain yang memakai Sofaly melaporkannya (hanya aplikasi dan versi, tidak pernah siapa).</string>
 </resources>

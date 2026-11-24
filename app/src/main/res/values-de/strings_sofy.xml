@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s hat gesehen, wie %1$s in genau dieser Version mehrmals abgestürzt ist. Macht sie hier auch Ärger, suche nach einem Update.</string>
     <string name="observer_other_tv_slower_title">Ein anderer Fernseher sagt, eine App ist langsamer</string>
     <string name="observer_other_tv_slower_text">%2$s hat gesehen, dass %1$s seit dieser Version viel langsamer startet. Hier ist dieselbe Version.</string>
+    <string name="observer_homes_crashy_title">Andere Haushalte warnen vor einer App</string>
+    <string name="observer_homes_crashy_text">%1$s stürzt in genau dieser Version in %2$s anderen Haushalten oft ab. Wenn sie hier ausfällt, suche nach einem Update.</string>
+    <string name="observer_homes_slower_title">Andere Haushalte sagen, eine App ist langsamer</string>
+    <string name="observer_homes_slower_text">%1$s startet in dieser Version in %2$s anderen Haushalten viel langsamer.</string>
 </resources>

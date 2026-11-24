@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Наблюдатель",
 "Sofy fala em voz alta":"Софи говорит вслух",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Она читает вслух то, что показывает на телевизоре. Если включён TalkBack, читает он.",
+"Ajudar outras casas":"Помогать другим домам",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Раз в день — только название и версия приложений, которые здесь падали, без указания дома. Получение того, что видели другие дома, всегда включено.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Что телевизор отслеживает сам: память, интернет, Wi-Fi, плавность главного экрана и место. Когда что-то выходит за норму, это появляется здесь с причиной. Пока он только наблюдает и записывает.",
 "Tudo normal agora.":"Сейчас всё в норме.",
 "Nada fora do normal nos últimos 7 dias.":"За последние 7 дней ничего необычного.",

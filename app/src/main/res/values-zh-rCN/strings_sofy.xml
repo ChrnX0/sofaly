@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s 发现 %1$s 在同一版本中多次崩溃。如果这里也出问题，请查找更新。</string>
     <string name="observer_other_tv_slower_title">另一台电视说某个应用变慢了</string>
     <string name="observer_other_tv_slower_text">%2$s 发现 %1$s 从这个版本起打开慢了很多。这里也是同一版本。</string>
+    <string name="observer_homes_crashy_title">其他家庭提醒了一个应用</string>
+    <string name="observer_homes_crashy_text">%1$s 在同一版本中于另外 %2$s 个家庭频繁崩溃。如果这里也出问题，请查找更新。</string>
+    <string name="observer_homes_slower_title">其他家庭说某个应用变慢了</string>
+    <string name="observer_homes_slower_text">%1$s 在这个版本中于另外 %2$s 个家庭打开得慢了很多。</string>
 </resources>

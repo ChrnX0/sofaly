@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s såg %1$s krascha flera gånger i exakt den här versionen. Krånglar den här också, leta efter en uppdatering.</string>
     <string name="observer_other_tv_slower_title">En annan tv säger att en app blivit långsammare</string>
     <string name="observer_other_tv_slower_text">%2$s såg %1$s öppnas mycket långsammare sedan den här versionen. Samma version här.</string>
+    <string name="observer_homes_crashy_title">Andra hem varnar för en app</string>
+    <string name="observer_homes_crashy_text">%1$s kraschar ofta i exakt den här versionen i %2$s andra hem. Om den krånglar här, leta efter en uppdatering.</string>
+    <string name="observer_homes_slower_title">Andra hem säger att en app blivit långsammare</string>
+    <string name="observer_homes_slower_text">%1$s öppnas mycket långsammare i den här versionen i %2$s andra hem.</string>
 </resources>

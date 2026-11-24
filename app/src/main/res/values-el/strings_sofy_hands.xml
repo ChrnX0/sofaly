@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Πώς το ξέρω: μου το είπαν το ρούτερ και το Wi-Fi.</string>
     <string name="sofy_evidence_test">Πώς το ξέρω: το δοκίμασα και το έλεγξα.</string>
     <string name="sofy_evidence_other_tv">Πώς το ξέρω: μου το είπε άλλη τηλεόραση του σπιτιού.</string>
+    <string name="sofy_evidence_community">Πώς το ξέρω: το ανέφεραν άλλα σπίτια με Sofaly (μόνο εφαρμογή και έκδοση, ποτέ ποιος).</string>
 </resources>

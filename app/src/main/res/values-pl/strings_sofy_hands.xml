@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Skąd wiem: powiedziały mi to router i Wi-Fi.</string>
     <string name="sofy_evidence_test">Skąd wiem: przetestowałam i sprawdziłam.</string>
     <string name="sofy_evidence_other_tv">Skąd wiem: powiedział mi inny telewizor w tym domu.</string>
+    <string name="sofy_evidence_community">Skąd wiem: zgłosiły to inne domy z Sofaly (tylko aplikacja i wersja, nigdy kto).</string>
 </resources>

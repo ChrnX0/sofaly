@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">رأى %2$s أن %1$s تعطّل عدة مرات في هذا الإصدار نفسه. إن تعطّل هنا أيضًا فابحث عن تحديث.</string>
     <string name="observer_other_tv_slower_title">يقول تلفاز آخر إن تطبيقًا أصبح أبطأ</string>
     <string name="observer_other_tv_slower_text">رأى %2$s أن %1$s صار يفتح أبطأ بكثير منذ هذا الإصدار. هنا الإصدار نفسه.</string>
+    <string name="observer_homes_crashy_title">منازل أخرى تحذّر من تطبيق</string>
+    <string name="observer_homes_crashy_text">يتعطل %1$s كثيرًا في هذا الإصدار نفسه في %2$s منازل أخرى. إن تعطل هنا فابحث عن تحديث.</string>
+    <string name="observer_homes_slower_title">منازل أخرى تقول إن تطبيقًا أصبح أبطأ</string>
+    <string name="observer_homes_slower_text">يفتح %1$s أبطأ بكثير في هذا الإصدار في %2$s منازل أخرى.</string>
 </resources>

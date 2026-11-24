@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Откуда я знаю: сообщили роутер и Wi-Fi.</string>
     <string name="sofy_evidence_test">Откуда я знаю: проверила на деле.</string>
     <string name="sofy_evidence_other_tv">Откуда я знаю: сказал другой телевизор в этом доме.</string>
+    <string name="sofy_evidence_community">Откуда я знаю: сообщили другие дома с Sofaly (только приложение и версия, никогда — кто).</string>
 </resources>

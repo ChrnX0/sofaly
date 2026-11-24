@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Hoe ik het weet: de router en de wifi meldden het.</string>
     <string name="sofy_evidence_test">Hoe ik het weet: getest en gecontroleerd.</string>
     <string name="sofy_evidence_other_tv">Hoe ik het weet: een andere tv in dit huis vertelde het.</string>
+    <string name="sofy_evidence_community">Hoe ik het weet: andere huizen met Sofaly meldden het (alleen app en versie, nooit wie).</string>
 </resources>

@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s näki sovelluksen %1$s kaatuvan useasti juuri tässä versiossa. Jos se oikuttelee täälläkin, etsi päivitystä.</string>
     <string name="observer_other_tv_slower_title">Toinen TV kertoo sovelluksen hidastuneen</string>
     <string name="observer_other_tv_slower_text">%2$s näki sovelluksen %1$s avautuvan paljon hitaammin tämän version jälkeen. Täällä on sama versio.</string>
+    <string name="observer_homes_crashy_title">Muut kodit varoittavat sovelluksesta</string>
+    <string name="observer_homes_crashy_text">%1$s kaatuu usein juuri tässä versiossa %2$s muussa kodissa. Jos se pettää täällä, etsi päivitystä.</string>
+    <string name="observer_homes_slower_title">Muut kodit kertovat sovelluksen hidastuneen</string>
+    <string name="observer_homes_slower_text">%1$s avautuu tässä versiossa paljon hitaammin %2$s muussa kodissa.</string>
 </resources>

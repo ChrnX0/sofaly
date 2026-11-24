@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">How I know: the router and the Wi-Fi told me.</string>
     <string name="sofy_evidence_test">How I know: I tested and checked.</string>
     <string name="sofy_evidence_other_tv">How I know: another TV in this home told me.</string>
+    <string name="sofy_evidence_community">How I know: other homes that use Sofaly reported it (only the app and version, never who).</string>
 </resources>

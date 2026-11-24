@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">%2$s ने इसी वर्शन में %1$s को कई बार क्रैश होते देखा। अगर यहाँ भी दिक्कत करे, तो अपडेट देखें।</string>
     <string name="observer_other_tv_slower_title">दूसरा टीवी कहता है कि एक ऐप धीमा हो गया</string>
     <string name="observer_other_tv_slower_text">%2$s ने देखा कि इस वर्शन से %1$s बहुत धीरे खुलता है। यहाँ भी वही वर्शन है।</string>
+    <string name="observer_homes_crashy_title">दूसरे घर एक ऐप के बारे में चेताते हैं</string>
+    <string name="observer_homes_crashy_text">इसी वर्शन में %1$s %2$s दूसरे घरों में बार-बार क्रैश होता है। अगर यहाँ भी बिगड़े, तो अपडेट देखें।</string>
+    <string name="observer_homes_slower_title">दूसरे घर कहते हैं कि एक ऐप धीमा हो गया</string>
+    <string name="observer_homes_slower_text">इस वर्शन में %1$s %2$s दूसरे घरों में बहुत धीरे खुलता है।</string>
 </resources>

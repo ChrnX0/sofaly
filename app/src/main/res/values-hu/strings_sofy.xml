@@ -53,4 +53,8 @@
     <string name="observer_other_tv_crashy_text">A(z) %2$s látta, hogy a(z) %1$s többször összeomlott pont ebben a verzióban. Ha itt is rakoncátlankodik, keress frissítést.</string>
     <string name="observer_other_tv_slower_title">Egy másik tévé szerint lelassult egy alkalmazás</string>
     <string name="observer_other_tv_slower_text">A(z) %2$s látta, hogy a(z) %1$s ettől a verziótól jóval lassabban nyílik. Itt ugyanez a verzió van.</string>
+    <string name="observer_homes_crashy_title">Más otthonok figyelmeztetnek egy alkalmazásra</string>
+    <string name="observer_homes_crashy_text">A(z) %1$s gyakran összeomlik pont ebben a verzióban %2$s másik otthonban. Ha itt is hibázik, keress frissítést.</string>
+    <string name="observer_homes_slower_title">Más otthonok szerint lelassult egy alkalmazás</string>
+    <string name="observer_homes_slower_text">A(z) %1$s ebben a verzióban jóval lassabban nyílik %2$s másik otthonban.</string>
 </resources>

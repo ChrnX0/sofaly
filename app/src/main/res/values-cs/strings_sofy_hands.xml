@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">Jak to vím: řekl mi to router a Wi-Fi.</string>
     <string name="sofy_evidence_test">Jak to vím: vyzkoušela jsem a ověřila.</string>
     <string name="sofy_evidence_other_tv">Jak to vím: řekla mi to jiná televize v této domácnosti.</string>
+    <string name="sofy_evidence_community">Jak to vím: nahlásily to jiné domácnosti se Sofaly (jen aplikace a verze, nikdy kdo).</string>
 </resources>

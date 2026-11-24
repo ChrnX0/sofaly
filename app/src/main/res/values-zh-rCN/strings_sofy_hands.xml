@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">我怎么知道：路由器和 Wi-Fi 告诉我的。</string>
     <string name="sofy_evidence_test">我怎么知道：试过并确认了。</string>
     <string name="sofy_evidence_other_tv">我怎么知道：这个家里的另一台电视告诉我的。</string>
+    <string name="sofy_evidence_community">我怎么知道：其他使用 Sofaly 的家庭报告的（只有应用和版本，从不包含是谁）。</string>
 </resources>

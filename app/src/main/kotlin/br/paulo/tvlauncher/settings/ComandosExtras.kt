@@ -226,6 +226,11 @@ object ComandosExtras {
         // Desfazer dos limites que a Sofy ajusta sozinha (ideia 35, 24/11/2026): voltam todos ao de fábrica.
         "sofy_limits_reset" -> br.paulo.tvlauncher.observer.SofyLearnTv.resetLimits(ctx)
         // Energia na Retrospectiva (Sofy, ideia 30): watts da TV + Chromecast e a tarifa em centavos por kWh (0 = apaga).
+        // Ideia 41: "Ajudar outras casas" (fichas comunitárias): --ez on true|false; sem --ez, só o estado.
+        "community" -> {
+            if (i.hasExtra("on")) br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(ctx, i.getBooleanExtra("on", false))
+            "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)}"
+        }
         "energy" -> {
             val w = i.getIntExtra("watts", -1); val c = i.getIntExtra("centavos", -1)
             if (w in 0..2000) Extras.definirNumero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_WATTS, w)

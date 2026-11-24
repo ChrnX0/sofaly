@@ -52,4 +52,5 @@
     <string name="sofy_evidence_router">De unde știu: mi-au spus routerul și Wi-Fi-ul.</string>
     <string name="sofy_evidence_test">De unde știu: am testat și am verificat.</string>
     <string name="sofy_evidence_other_tv">De unde știu: mi-a spus alt televizor din casă.</string>
+    <string name="sofy_evidence_community">De unde știu: au raportat alte case cu Sofaly (doar aplicația și versiunea, niciodată cine).</string>
 </resources>
