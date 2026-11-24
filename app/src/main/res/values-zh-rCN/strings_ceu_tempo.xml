@@ -31,5 +31,5 @@
         <item>双子座流星雨</item>
     </string-array>
     <string name="ns_titulo">夜空</string>
-    <string name="ilha_uv">现在紫外线 %1$d:出门请涂防晒霜</string>
+    <string name="ilha_uv">紫外线 %1$d:请涂防晒霜</string>
 </resources>
