@@ -2249,8 +2249,10 @@ class MainActivity : Activity() {
     /** Lê, na fila dos apps, o que o Continuar da cruz mostra além de TV/série/filme. */
     private fun lerContinuarCruz() {
         // Os canais dos apps também alimentam o painel de "Todos os apps" na forma Pastas e canais (B, 22/11/2026).
+        // Barra única (24/11/2026, Paulo: "sim" aos cards com o conteúdo dos apps, como no Projectivy): lê sempre.
         cartoesApps = if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.OFF &&
-            br.paulo.tvlauncher.home.AllAppsLayout.mode(this) != br.paulo.tvlauncher.home.AllAppsLayout.Mode.FOLDERS) emptyList()
+            br.paulo.tvlauncher.home.AllAppsLayout.mode(this) != br.paulo.tvlauncher.home.AllAppsLayout.Mode.FOLDERS &&
+            !br.paulo.tvlauncher.home.BottomBar.strip(this)) emptyList()
             else br.paulo.tvlauncher.home.AppChannels.ler(this)
         radioCruz = runCatching { Radios.ultima(this) }.getOrNull()
         midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis()).associateBy { it.pacote } }.getOrDefault(emptyMap())

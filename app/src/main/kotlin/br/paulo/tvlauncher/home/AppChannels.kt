@@ -39,6 +39,8 @@ object AppChannels {
 
     const val MAX_NA_COLUNA = 6
     const val MAX_VITRINE = 3
+    /** Cards de conteúdo no fim de cada mundo da barra única (24/11/2026). */
+    const val MAX_NA_BARRA = 10
 
     class Card(val id: Long, val pacote: String, val canal: String, val titulo: String, val detalhe: String, val poster: String?, val intent: String?)
 

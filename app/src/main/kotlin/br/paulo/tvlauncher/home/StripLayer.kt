@@ -343,6 +343,13 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
             if (rotulo != null) proprio.addView(rotulo, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
             raiz.addView(proprio, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
+            // Card de conteúdo (capa de filme/episódio de dentro do app, AppChannels): a capa ocupa o card inteiro.
+            if (item.id.startsWith("card:")) {
+                banner.scaleType = ImageView.ScaleType.FIT_XY
+                banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE
+                proprio.visibility = View.INVISIBLE
+                (raiz.background as GradientDrawable).setColor(DesignTokens.NIGHT)
+            }
             val nomeFoco = texto(15f, forte, DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)
                 maxLines = 1; includeFontPadding = false; gravity = Gravity.CENTER_VERTICAL; text = item.nome
