@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Felsäkert läge</string>
+    <string name="seg_texto">Startskärmen stannade %1$d gånger i rad. Det här är en enkel version av den, så att du kan fortsätta använda tv:n.</string>
+    <string name="seg_procurar">Leta efter en lagad version</string>
+    <string name="seg_procurar_det">Om det finns en laddas den ner och installeras nu.</string>
+    <string name="seg_procurando">Letar efter en ny version…</string>
+    <string name="seg_normal">Prova den vanliga startskärmen</string>
+    <string name="seg_normal_det">Om den stannar 3 gånger till kommer den här skärmen tillbaka.</string>
+    <string name="seg_config_tv">Tv-inställningar</string>
+    <string name="seg_erro">Se vad som gick fel</string>
+    <string name="seg_erro_det">Diagnostik, med de sparade felen.</string>
+    <string name="seg_apps">Appar</string>
+</resources>

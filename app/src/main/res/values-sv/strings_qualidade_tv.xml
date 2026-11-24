@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV ao vivo: canais novos, qualidade automática e motivo do "sem sinal" (18/11/2026). -->
+<resources>
+    <string name="coluna_novos_canais">Ny</string>
+    <string name="qual_menu">Kvalitet: %1$s</string>
+    <string name="qual_auto">Automatiskt</string>
+    <string name="qual_auto_curto">auto</string>
+    <string name="qual_titulo">Bildkvalitet</string>
+    <string name="qual_padrao">Standard</string>
+    <string name="player_conta_vencida">Din lista gick ut den %1$s. Förnya den hos säljaren.</string>
+    <string name="player_conta_recusada">Listans server avvisade kontot. Kontrollera med säljaren.</string>
+    <string name="player_telas_cheias">Listan är redan öppen på %1$d av %2$d skärmar. Stäng den på en annan enhet.</string>
+</resources>

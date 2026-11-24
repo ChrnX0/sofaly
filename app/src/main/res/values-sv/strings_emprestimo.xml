@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Låna ut systemkrafter</string>
+    <string name="emp_titulo">Låna ut skalet till andra appar (Shizuku)</string>
+    <string name="emp_titulo_det">Appar gjorda för Shizuku fungerar utan att installera det. Varje app frågar på tv:n, med PIN-koden, första gången.</string>
+    <string name="emp_modo_desligado">Av</string>
+    <string name="emp_modo_sob_demanda">När en app behöver det</string>
+    <string name="emp_modo_sempre">Alltid på</string>
+    <string name="emp_oficial">Shizuku-appen är installerad på den här tv:n, så launchern håller sig ur vägen. Avinstallera den för att använda launcherns.</string>
+    <string name="emp_plano">Ingår i betalabonnemangen.</string>
+    <string name="emp_negar">Neka</string>
+    <string name="emp_permitir">Tillåt alltid</string>
+    <string name="emp_pedido_titulo">Tillåta %1$s att använda launcherns systemkrafter?</string>
+    <string name="emp_pedido_texto">Appen kommer att kunna göra det adb gör: installera och ta bort appar, ändra systeminställningar med mera. Tillåt bara appar du litar på. Du kan återkalla det senare i webbpanelen.</string>
+    <string name="emp_pin_titulo">Panelens PIN-kod för att tillåta</string>
+    <string name="emp_sem_pin">Ange panelens PIN-kod först (Inställningar, Webbpanel).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Låna ut ägarkontrollen till andra appar (Dhizuku)</string>
+    <string name="emd_titulo_det">Appar gjorda för Dhizuku använder launcherns ägarkontroll. Varje app frågar på tv:n, med PIN-koden. Med ”Tillåt” kan ingen ta bort launchern som ägare eller radera tv:n; med ”Full makt” kan den.</string>
+    <string name="emd_ligado">På</string>
+    <string name="emd_sem_dono">Launchern är inte ägare (Device Owner) av den här tv:n, så det finns inget att låna ut.</string>
+    <string name="emd_pedido_titulo">Tillåta %1$s att använda launcherns ägarkontroll?</string>
+    <string name="emd_pedido_texto">Med ”Tillåt” kan appen dölja och blockera appar och ändra tv:ns behörigheter och regler, men aldrig ta bort launchern som ägare eller radera tv:n. ”Full makt” låter appen köras som launchern och läsa dess data: bara för appar du litar helt på. Du kan återkalla det i webbpanelen. Med ”Full makt” kan appen göra allt launchern kan, till och med radera tv:n.</string>
+    <string name="emd_total">Full makt</string>
+    <string name="emd_pin_total">FULL MAKT: appen kan göra allt launchern kan, till och med radera tv:n. Panelens PIN-kod</string>
+</resources>

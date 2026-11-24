@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">återställningskontrollen godkänd</string>
+    <string name="l51_ensaio_falhou">den sparade kopian skulle inte gå att återställa (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Gäst-wifi</string>
+    <string name="l51_wifi_nao">inte angivet: skriv in det en gång så skannar besökare en QR-kod</string>
+    <string name="l51_wifi_dica">Använd routerns gästnätverk: vem som helst i rummet kan läsa lösenordet på skärmen.</string>
+    <string name="l51_wifi_rede">Nätverksnamn</string>
+    <string name="l51_wifi_senha">Lösenord</string>
+    <string name="l51_wifi_invalido">Namn upp till 32 tecken; lösenord tomt (öppet nätverk) eller 8 till 63 tecken.</string>
+    <string name="l51_wifi_qr_titulo">Visa QR-koden för gäst-wifi</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Vad som används</string>
+    <string name="l51_uso_det">Skärmar och inställningar efter användning, räknat bara på den här tv:n (inget lämnar den)</string>
+    <string name="l51_uso_vazio">Inget räknat än. Kom tillbaka om några dagar.</string>
+    <string name="l51_uso_tela">skärm</string>
+    <string name="l51_uso_opcao">inställning</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d gång</item>
+        <item quantity="other">%d gånger</item>
+    </plurals>
+    <string name="l51_uso_hoje">senast i dag</string>
+    <string name="l51_uso_ontem">senast i går</string>
+    <string name="l51_uso_dias">senast för %d dagar sedan</string>
+    <string name="l51_tela_Main">Startskärm</string>
+    <string name="l51_tela_Dream">Skärmsläckare</string>
+    <string name="l51_tela_Filmes">Filmer</string>
+    <string name="l51_tela_Series">Program</string>
+    <string name="l51_tela_Jogos">Spel</string>
+    <string name="l51_tela_Player">Direkt-tv och videor</string>
+    <string name="l51_tela_PainelRapido">Snabbpanel</string>
+    <string name="l51_tela_Vod">Spellistekatalog</string>
+    <string name="l51_tela_Previsao">Väderprognos</string>
+    <string name="l51_tela_Elenco">Skådespelare</string>
+    <string name="l51_tela_ConfigLauncher">Inställningar</string>
+    <string name="l51_tela_MidiaRede">Nätverk</string>
+    <string name="l51_tela_Calendario">Kalender</string>
+    <string name="l51_tela_Gravacoes">Inspelningar</string>
+    <string name="l51_tela_Busca">Sök</string>
+    <string name="l51_tela_Casa">Mitt hem</string>
+    <string name="l51_tela_AlarmeTocando">Larm ringer</string>
+    <string name="l51_tela_Radio">Radio</string>
+    <string name="l51_tela_Diagnostico">Diagnostik</string>
+    <string name="l51_uso_zerar">Återställ</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Skriv på tv:n</string>
+    <string name="l51_digitar_texto">En textruta är öppen i %1$s. Tryck för att skriva härifrån.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">rum %1$s</string>
+    <string name="casa_movimento">Rörelse</string>
+    <string name="casa_sem_movimento">Ingen rörelse</string>
+    <string name="casa_molhado">Blött</string>
+    <string name="casa_seco">Torrt</string>
+    <string name="casa_fumaca">Rök!</string>
+    <string name="casa_sem_fumaca">Ingen rök</string>
+    <string name="casa_dica_temp">temperatur</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Öppnar kameran…</string>
+    <string name="casa_camera_ver">Visa på tv:n</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">När tv:n slås på</string>
+    <string name="su_det">Öppnar det här direkt, utan att visa startskärmen</string>
+    <string name="su_home">Startskärm</string>
+    <string name="su_last">Senaste appen</string>
+    <string name="su_quem">För vem?</string>
+    <string name="su_todos">Hela tv:n</string>
+    <string name="su_so">Bara %1$s</string>
+    <string name="su_segue_tv">Följ tv:ns val</string>
+    <string name="su_acordar">Även när den vaknar</string>
+    <string name="su_acordar_det">Inte bara efter en omstart: även när tv:n vaknar från standby. Aldrig över en Cast eller larmet</string>
+    <string name="su_esperar">Vänta efter en omstart</string>
+    <string name="su_esperar_det">Ger tv:n tid att ansluta innan appen öppnas</string>
+    <string name="su_horario">Olika app beroende på tid på dygnet</string>
+    <string name="su_horario_det">En automatisering med utlösaren ”Tv:n slogs på” och ”Bara om”</string>
+    
+</resources>

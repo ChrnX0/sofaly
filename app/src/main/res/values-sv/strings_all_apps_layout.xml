@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Skärmen Alla appar</string>
+    <string name="aa_layout_shelves">Hyllor</string>
+    <string name="aa_layout_folders">Mappar och kanaler</string>
+    <string name="aa_layout_library">Bibliotek</string>
+    <string name="aa_favoritos">Favoriter</string>
+    <string name="aa_pastas">Mappar</string>
+    <string name="aa_nova_pasta">Ny mapp</string>
+    <string name="aa_por_na_pasta">Lägg till i mapp…</string>
+    <string name="aa_tirar_da_pasta">Ta bort från den här mappen</string>
+    <string name="aa_renomear_pasta">Byt namn på mappen</string>
+    <string name="aa_apagar_pasta">Ta bort mappen</string>
+    <string name="aa_fixar_cruz">Visa på startskärmen</string>
+    <string name="aa_soltar_cruz">Ta bort från startskärmen</string>
+    <string name="aa_ordenar">Sortera alla appar</string>
+    <string name="aa_f_tudo">Alla</string>
+    <string name="aa_f_uso">Mest använda</string>
+    <string name="aa_f_novos">Nya</string>
+    <string name="aa_canais">Nu på %1$s</string>
+    <string name="aa_hint_folder">OK öppnar · håll OK för alternativ</string>
+</resources>

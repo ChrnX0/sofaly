@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Nätverksenhet</string>
+    <string name="ur_titulo">Visa tv:n som nätverksenhet</string>
+    <string name="ur_det">Av. Tv:n visas av sig själv i Den här datorn på Windows, som en telefon, och som en nätverksmapp på Mac, Linux och telefoner.</string>
+    <string name="ur_painel">Slå på webbpanelen ovan först (den använder samma PIN-kod och https-adressen).</string>
+    <string name="ur_https">Väntar på panelens https-adress (certifikatet skapas ungefär 1 minut efter att panelen slagits på).</string>
+    <string name="ur_abra">På. På Windows visas tv:n i Den här datorn (tv:n frågar på skärmen första gången för varje dator). Mac, Linux och telefon: %1$s · lösenord: panelens PIN-kod.</string>
+    <string name="mtp_pergunta_titulo">En dator ber om tv:ns filer</string>
+    <string name="mtp_pergunta">”%1$s” vill se och kopiera filerna i tv:ns lagring via hemnätverket. Tillåta den här datorn?</string>
+    <string name="mtp_pcs">Tillåtna datorer</string>
+    <string name="mtp_pcs_nenhum">Inga än. Tv:n frågar på skärmen när en dator begär filerna.</string>
+    <string name="mtp_pcs_lista">%1$s · OK glömmer alla (var och en frågar igen)</string>
+    <string name="mtp_pcs_esquecidos">Datorerna glömda</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Öppna tv-panelen</string>
+</resources>

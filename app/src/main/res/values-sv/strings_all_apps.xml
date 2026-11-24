@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Filmer och tv</string>
+    <string name="aa_shelf_video">Videor</string>
+    <string name="aa_shelf_sports">Sport</string>
+    <string name="aa_shelf_kids">Barn</string>
+    <string name="aa_shelf_music_audio">Musik och ljud</string>
+    <string name="aa_shelf_news">Nyheter</string>
+    <string name="aa_shelf_games">Spel</string>
+    <string name="aa_shelf_education">Utbildning</string>
+    <string name="aa_shelf_health_fitness">Hälsa och träning</string>
+    <string name="aa_shelf_lifestyle">Livsstil</string>
+    <string name="aa_shelf_tools">Verktyg</string>
+    <string name="aa_shelf_system">System</string>
+    <string name="aa_shelf_other">Övrigt</string>
+    <string name="aa_frozen">Frysta</string>
+    <string name="aa_hidden">Dolda</string>
+    <string name="aa_badge_frozen">fryst</string>
+    <string name="aa_badge_hidden">dold</string>
+    <string name="aa_lock">Dolda (%1$d)</string>
+    <string name="aa_count_hidden">dolda: %1$d</string>
+    <string name="aa_count_frozen">frysta: %1$d</string>
+    <string name="aa_pin_title">PIN-kod för att se de dolda apparna</string>
+    <string name="aa_used_today">Öppnad i dag</string>
+    <string name="aa_used_days">Senast öppnad för %1$d dagar sedan</string>
+    <string name="aa_used_never">Inte öppnad härifrån än</string>
+    <string name="aa_size">Använder %1$s</string>
+    <string name="aa_risk_safe">Säker att ändra, enligt dess blad</string>
+    <string name="aa_risk_care">Ändra försiktigt, enligt dess blad</string>
+    <string name="aa_risk_essential">Nödvändig för tv:n: frys inte</string>
+    <string name="aa_tip_idle">Inte öppnad på %1$d dagar. Att frysa frigör minne och kan ångras.</string>
+    <string name="aa_hint_app">OK öppnar · håll OK för att flytta, dölja, frysa eller avinstallera</string>
+    <string name="aa_hint_frozen">OK tinar och öppnar</string>
+    <string name="aa_hint_lock">OK frågar efter PIN-koden och visar de dolda apparna här</string>
+    <string name="aa_open">Öppna</string>
+    <string name="aa_freeze">Frys</string>
+    <string name="aa_freezing">Fryser %1$s…</string>
+    <string name="aa_frozen_done">%1$s fryst. Om 10 minuter kontrollerar tv:n att allt fortfarande fungerar och ångrar det om något slutat fungera.</string>
+    <string name="aa_freeze_failed">Kunde inte frysa %1$s: %2$s</string>
+    <string name="aa_unfreeze_open">Tina och öppna</string>
+    <string name="aa_unfreeze_refreeze">Öppna och frys igen när jag kommer tillbaka</string>
+    <string name="aa_unfreezing">Tinar %1$s…</string>
+    <string name="aa_unfreeze_failed">Kunde inte tina %1$s: %2$s</string>
+    <string name="aa_move_auto">Automatiskt</string>
+</resources>

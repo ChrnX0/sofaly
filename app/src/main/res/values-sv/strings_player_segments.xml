@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
+<resources>
+    <string name="seg_pular_resumo">Hoppa över sammanfattning · OK</string>
+    <string name="seg_proximo">Nästa avsnitt · OK</string>
+    <string name="seg_proximo_em">Nästa avsnitt om %1$d · OK</string>
+    <string name="seg_termina">slutar %1$s</string>
+    <string name="seg_repetir">Vad sa de?</string>
+    <string name="seg_repetir_info">Tillbaka 10 s med undertexter</string>
+    <string name="seg_sem_legenda">Den här videon har inga undertexter</string>
+</resources>

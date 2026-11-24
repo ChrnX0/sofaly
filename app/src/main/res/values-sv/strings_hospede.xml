@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Gästläge</string>
+    <string name="hos_det">För uthyrning: gästernas inloggningar raderas vid utcheckning. Att stänga av det kräver PIN-koden.</string>
+    <string name="hos_pin_sair">PIN-kod för att lämna gästläget</string>
+    <string name="hos_pin_config">PIN-kod för att öppna inställningarna</string>
+    <string name="hos_saida">Gästutcheckning</string>
+    <string name="hos_saida_det">Vid den här tiden rensas streamingapparna. OK ändrar dagen.</string>
+    <string name="hos_saida_nenhuma">Inte angiven</string>
+    <string name="hos_saida_hoje">I dag kl. %1$s</string>
+    <string name="hos_saida_amanha">I morgon kl. %1$s</string>
+    <string name="hos_saida_dia">%1$s kl. %2$s</string>
+    <string name="hos_hora">Tid för utcheckning</string>
+    <string name="hos_hora_det">OK ändrar timmen (8:00 till 14:00).</string>
+    <string name="hos_regras">Husregler</string>
+    <string name="hos_regras_vazio">Inga än. De visas på välkomstskärmen.</string>
+    <string name="hos_regras_dica">T.ex.: Tyst efter kl. 22. Utcheckning kl. 11.</string>
+    <string name="hos_apps">Appar att rensa vid utcheckning</string>
+    <string name="hos_apps_det">Inloggningar och historik för de markerade apparna raderas. Streamingappar är förmarkerade.</string>
+    <string name="hos_apps_sub">OK markerar eller avmarkerar. Systemappar kan inte rensas.</string>
+    <string name="hos_encerrar">Avsluta vistelsen nu</string>
+    <string name="hos_encerrar_det">Rensar apparna nu och gör välkomsten redo för nästa gäst.</string>
+    <string name="hos_encerrar_pergunta">Radera inloggningar och historik för gästapparna nu? Det går inte att ångra.</string>
+    <string name="hos_encerrar_sim">Radera</string>
+    <string name="hos_limpando">Rensar…</string>
+    <string name="hos_limpou">Rensade appar: %1$d.</string>
+    <string name="hos_limpou_falhas">Rensade appar: %1$d. Misslyckades: %2$s</string>
+    <string name="hos_ultima">Senaste rensning: %1$s</string>
+    <string name="hos_bv_titulo">Välkommen!</string>
+    <string name="hos_bv_regras">Husregler</string>
+    <string name="hos_bv_privacidade">Logga in i dina appar utan oro: vid utcheckning raderas inloggningar och historik för streamingapparna automatiskt.</string>
+    <string name="hos_bv_ok">Börja</string>
+    <string name="hos_bv_wifi">Wifi</string>
+</resources>

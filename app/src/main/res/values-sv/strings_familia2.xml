@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Födelsedag</string>
+    <string name="an_hoje">I dag fyller %s år</string>
+    <string name="an_amanha">I morgon fyller %s år</string>
+    <plurals name="an_anos">
+        <item quantity="one">fyller %d</item>
+        <item quantity="other">fyller %d</item>
+    </plurals>
+    <string name="tp_calor">Stark värme</string>
+    <string name="tp_calor_texto">Upp till %d° i dag · Drick vatten</string>
+    <string name="tp_frio">Sträng kyla</string>
+    <string name="tp_frio_texto">Ner till %d° i natt · Klä dig varmt</string>
+    <string name="tp_cfg">Varning för värme och kyla</string>
+    <string name="tp_cfg_det">Ett kort ovanpå alla appar när det i dag blir %1$d° eller i natt sjunker till %2$d°</string>
+    <string name="mu_ok_lido">OK markerar som läst</string>
+    <string name="mu_ok_nao_lido">Läst · OK markerar som oläst</string>
+    <string name="mu_lido_desc">Meddelande, läst: %s. OK markerar som oläst.</string>
+    <string name="mu_nao_lido_desc">Meddelande: %s. OK markerar som läst.</string>
+    <string name="mu_apagar">Ta bort meddelande: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">Din tv i år (i december, på skärmsläckaren)</string>
+    <string name="extras_ENTRADAS_TV">HDMI-ingångar i Appar (bara på tv-apparater med ingångar)</string>
+    <string name="ra_titulo">Din tv %d</string>
+    <string name="ra_canal">Favoritkanal: %1$s (%2$s)</string>
+    <string name="ra_coluna">Radio</string>
+    <string name="ra_dica_ouvir">lyssna</string>
+    <string name="ra_dica_favoritar">favorit</string>
+    <string name="ra_carregando">Laddar stationer…</string>
+    <string name="ra_sem_catalogo">Radiokatalogen svarade inte. Dina favoriter fungerar fortfarande.</string>
+    <string name="ra_nada">Ingen station hittades.</string>
+    <string name="ra_continuar">fortsätt</string>
+    <string name="ra_pausar">pausa</string>
+    <string name="ra_favoritas">Favoriter</string>
+    <string name="ra_procurar">Hitta</string>
+    <string name="ra_buscar">Sök efter namn</string>
+    <string name="ra_buscar_det">Vilken station som helst i världen</string>
+    <string name="ra_generos">Genrer</string>
+    <string name="ra_perto">I närheten</string>
+    <string name="ra_mundo">Mest lyssnade i världen</string>
+    <string name="ra_resultado">Sök: %s</string>
+    <string name="ra_favoritada">Tillagd i favoriter</string>
+    <string name="ra_desfavoritada">Borttagen från favoriter</string>
+    <string name="ra_falhou">Den här stationen spelar inte nu. Prova en annan.</string>
+</resources>

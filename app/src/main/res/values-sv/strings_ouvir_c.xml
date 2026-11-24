@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado: Ouvir proposta C (21/11/2026). -->
+<resources>
+    <string name="som_titulo">Ljud</string>
+    <string name="som_titulo_pod">Ljud · %1$s</string>
+    <string name="som_voz_clara">Tydlig röst</string>
+    <string name="som_so_este">Bara för den här podden</string>
+    <string name="som_abertura">Hoppa över introt</string>
+    <string name="som_fim">Hoppa över slutet</string>
+    <string name="som_segundos">%1$d s</string>
+    <string name="som_rodape_proprio">De här inställningarna sparas bara för %1$s.</string>
+    <string name="som_rodape_geral">Hastighet, tystnad och tydlig röst gäller alla poddar. Slå på \"Bara för den här podden\" för att ha andra för %1$s.</string>
+    <string name="som_det">Hastighet, tydlig röst, insomningstimer</string>
+    <string name="som_det_radio">Tydlig röst och insomningstimer</string>
+    <string name="cap_titulo">Kapitel</string>
+    <string name="cap_de">Kapitel %1$d av %2$d</string>
+    <string name="cap_barra_dica">◀ ▶ flytta 10 s · OK: kapitel</string>
+    <string name="tx_titulo">Taltext</string>
+    <string name="tx_carregando">laddar</string>
+    <string name="tx_nao_tem">inte i det här avsnittet</string>
+    <string name="tx_nao_tem_det">Den här podden publicerar inte texten till det som sägs i det här avsnittet.</string>
+    <string name="tx_pe_busca">Hittade %1$d av %2$d · ◀ ▶ föregående / nästa · ▼ ny sökning · OK: stäng</string>
+    <string name="tx_buscar">Sök i det som sades</string>
+    <string name="tx_nada">Ingen sa det i det här avsnittet.</string>
+    <string name="ra_ja_tocou">Redan spelat</string>
+    <string name="ra_parecidas">Liknande stationer</string>
+    <string name="som_radio">Senaste radiostationen jag lyssnade på</string>
+    <string name="som_podcast">Senaste poddavsnittet</string>
+    <string name="jor_titulo">Mina nyheter</string>
+    <string name="jor_ouvir">Spela mina nyheter</string>
+    <string name="jor_min">%d min i rad</string>
+    <string name="tx_pe">◀ ▶ föregående / nästa mening · ▲ sammanfattning · ▼ sök · OK: stäng</string>
+    <string name="tx_gerando">genererar</string>
+    <string name="tx_gerando_det">Genererar texten… första delen tar ungefär en minut.</string>
+    <string name="tx_gerar">OK genererar den (gratis)</string>
+    <string name="tx_cota">tillbaka i morgon</string>
+    <string name="tx_cota_det">Dagens gratiskvot för text är slut. Den kommer tillbaka i morgon.</string>
+    <string name="tx_pulei">Reklam överhoppad</string>
+    <string name="tx_pulei_det">%d s · ◀ går tillbaka till den</string>
+    <string name="tx_resumo">Sofys sammanfattning</string>
+    <string name="tx_resumo_de">Sammanfattning · %s</string>
+    <string name="tx_resumindo">Läser det som sades… ett ögonblick.</string>
+    <string name="tx_resumo_falhou">Sammanfattningen kom inte den här gången. Försök igen om en stund.</string>
+    <string name="ra_globo">Utforska jordklotet</string>
+    <string name="ra_globo_det">Snurra världen och landa på en radiostation var som helst</string>
+    <string name="ra_globo_dica">◀ ▶ ▲ ▼ snurra · OK: spela · Tillbaka: stäng</string>
+    <string name="ra_globo_mar">Öppet hav… snurra lite till</string>
+    <string name="ra_voltar">Tillbaka 30 s</string>
+    <string name="ra_voltar_det">Missade du något? Hör det igen (⏪ på fjärrkontrollen)</string>
+    <string name="ra_ao_vivo">Tillbaka till direkt</string>
+    <string name="ra_atras">%s efter direkt</string>
+</resources>

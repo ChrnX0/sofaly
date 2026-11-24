@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d spel</item>
+        <item quantity="other">%d spel</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d handkontroll ansluten</item>
+        <item quantity="other">%d handkontroller anslutna</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Kategorin Spela på startskärmen (av: spelen stannar i Appar)</string>
+    <string name="extras_MODO_JOGO">Spelläge: medan ett spel är öppet väntar skärmsläckaren, nattfiltret och meddelandena</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Att slå på en handkontroll öppnar skärmen Spel</string>
+
+    <string name="jogos_titulo">Spel</string>
+    <string name="jogos_medindo">Kontrollerar nätverket…</string>
+    <string name="jogos_sem_controle">Ingen handkontroll ansluten</string>
+    <string name="jogos_rede_boa">Nätverk: bra för molnspel</string>
+    <string name="jogos_rede_ok">Nätverk: okej för molnspel</string>
+    <string name="jogos_rede_fraca">Nätverk: svagt för molnspel</string>
+    <string name="jogos_rede_sem">Inget internet</string>
+    <string name="jogos_testar_rede">Testa nätverket</string>
+    <string name="jogos_jogar_pc">Spela på datorn</string>
+    <string name="jogos_parear">Koppla en handkontroll</string>
+    <string name="jogos_parear_falhou">Den här tv:n öppnade inte Bluetooth-inställningarna. Öppna Inställningar, Fjärrkontroller och tillbehör.</string>
+    <string name="jogos_baixar">Skaffa spel</string>
+    <string name="jogos_escolher">Välj appar</string>
+    <string name="jogos_escolher_sub">Vilka appar som finns i Spela. OK växlar mellan Spela och Appar.</string>
+    <string name="jogos_no_card">i Spela</string>
+    <string name="jogos_na_linha">i Appar</string>
+    <string name="jogos_grupo_nuvem">I molnet</string>
+    <string name="jogos_grupo_pc">Från datorn och konsolen</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Spel på tv:n</string>
+    <string name="jogos_para_comecar">För att komma igång</string>
+    <string name="jogos_aviso_fraca_titulo">Svagt nätverk för molnspel</string>
+    <string name="jogos_aviso_fraca">Spelet kan hacka eller släpa efter. En nätverkskabel, eller tv:n närmare routern, hjälper.</string>
+    <string name="jogos_jogar_assim">Spela ändå</string>
+    <string name="jogos_nao_abriu">Den här appen öppnades inte.</string>
+    <string name="jogos_tirar">Ta bort den från Spela</string>
+    <string name="jogos_automatico">Tillbaka till automatiskt</string>
+    <string name="jogos_loja_tudo">De föreslagna apparna finns redan på den här tv:n.</string>
+    <string name="jogos_loja_explica">Öppnar appens sida i Play Butik. Om Play Butik säger att den inte fungerar på den här tv:n är det appens begränsning.</string>
+    <string name="jogos_sem_loja">Play Butik öppnades inte.</string>
+    <string name="jogos_pc_sem_mac">För att väcka datorn, spara dess MAC-adress i webbpanelen: Extras, Väck datorn. Datorn behöver också ha Wake-on-LAN påslaget och, oftast, en nätverkskabel.</string>
+    <string name="jogos_pc_sem_app">För att spela på datorn, installera Moonlight eller Steam Link på tv:n.</string>
+    <string name="jogos_pc_qual_app">Vilken app spelar på datorn?</string>
+    <string name="jogos_pc_acordando">Väcker datorn… %1$d s</string>
+    <string name="jogos_pc_nao_respondeu">Datorn svarade inte. Öppnar appen ändå.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Fler spel</string>
+    <string name="jogos_mais_opcoes">Mer</string>
+    <string name="jogos_ligar_pc_jogar">Slå på datorn och spela</string>
+    <string name="jogos_desc_pc">Spela spelen från datorn eller konsolen hemma här på tv:n.</string>
+    <string name="jogos_chip_medindo">Kontrollerar nätverket…</string>
+    <string name="jogos_chip_boa">Bra nätverk</string>
+    <string name="jogos_chip_ok">Nätverket ok</string>
+    <string name="jogos_chip_fraca">Svagt nätverk</string>
+    <string name="jogos_chip_sem">Inget internet</string>
+    <string name="jogos_tecla_jogar">spela</string>
+    <string name="jogos_tecla_segurar">håll OK</string>
+    <string name="jogos_tecla_opcoes">byt grupp</string>
+</resources>

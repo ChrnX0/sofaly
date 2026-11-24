@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Enkel list</string>
+    <string name="strip_desc_watch">Filmer, serier och tv</string>
+    <string name="strip_desc_listen">Musik, radio och poddar</string>
+    <string name="strip_desc_play">Spel och molnspel</string>
+    <string name="strip_desc_apps">Allt installerat</string>
+    <string name="strip_desc_tools">Larm, väder och inställningar</string>
+    <string name="strip_apps_count">%1$d appar</string>
+    <string name="st_desc">Världens beskrivning</string>
+    <string name="st_desc_fixa">Fast fras</string>
+    <string name="st_desc_viva">Vad som går nu</string>
+    <string name="st_formato">Kortets form</string>
+    <string name="st_quadrado">Fyrkantig</string>
+    <string name="st_tamanho">Kortets storlek</string>
+    <string name="st_pequeno">Liten</string>
+    <string name="st_medio">Medel</string>
+    <string name="st_grande">Stor</string>
+    <string name="st_espaco">Avstånd mellan kort</string>
+    <string name="st_justo">Tätt</string>
+    <string name="st_normal">Normalt</string>
+    <string name="st_largo">Brett</string>
+    <string name="st_cantos">Kortens hörn</string>
+    <string name="st_retos">Fyrkantiga</string>
+    <string name="st_suaves">Mjuka</string>
+    <string name="st_redondos">Runda</string>
+    <string name="st_placa">Glasplatta bakom</string>
+    <string name="st_nome">Namn på kortet i fokus</string>
+    <string name="st_sem">Av</string>
+    <string name="st_com">På</string>
+</resources>

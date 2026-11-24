@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Actions catalog (ComandosIa): what the TV shows before/after running an action from a scene, Claude or voice. -->
+<resources>
+    <string name="acao_recado">Visa meddelandet ”%1$s”</string>
+    <string name="acao_timer">Timer på %1$d minuter</string>
+    <string name="acao_timer_nome">Timer på %1$d minuter (”%2$s”)</string>
+    <string name="acao_desligar_em">Stäng av tv:n om %1$d min</string>
+    <string name="acao_desligar_cancelar">Avbryt insomningstimern</string>
+    <string name="acao_filtro_ligar">Slå på nattfiltret</string>
+    <string name="acao_filtro_desligar">Stäng av nattfiltret</string>
+    <string name="acao_filtro_sem_servico">nattfiltret kräver tillgänglighetstjänsten</string>
+    <string name="acao_rodar_cena">Kör scenen ”%1$s”</string>
+    <string name="acao_cena_nao_existe">scenen ”%1$s” finns inte</string>
+    <string name="acao_cena_em_cena">en scen kan inte köra en annan scen</string>
+    <string name="acao_mural_compras">Lägg till ”%1$s” på inköpslistan</string>
+    <string name="acao_mural_recado">Fäst ”%1$s” på familjetavlan</string>
+    <string name="acao_tocar_titulo">Hitta och spela upp ”%1$s”</string>
+    <string name="acao_tocar">Spela upp %1$s</string>
+    <string name="acao_continuar">Återuppta det som spelades</string>
+    <string name="acao_proximo">Spela upp nästa avsnitt</string>
+    <string name="acao_proximo_de">Nästa avsnitt av %1$s</string>
+    <string name="acao_o_que_via">Se vad som spelades</string>
+    <string name="acao_vendo">Senast sedd: %1$s</string>
+    <string name="acao_vendo_nada">Inget sett än i Filmer och Serier.</string>
+    <!-- Rotina e despertador que rodam cena (ideia 5) -->
+    <string name="rot_cena_uma">Kör en scen</string>
+    <string name="rot_cena">Kör scen: %1$s</string>
+    <string name="rot_cena_linha">Scen: %1$s</string>
+    <string name="rot_cena_sem">Skapa först en scen (webbpanelen › Hem och automatiseringar › Scener)</string>
+    <!-- Tela Cenas (ideia 4) -->
+    <string name="lbl_cenas">Scener</string>
+    <string name="pr_cenas">Scener</string>
+    <string name="cenas_titulo">Scener</string>
+    <string name="cenas_det">OK kör scenen. Skapa och redigera dem i webbpanelen › Hem och automatiseringar › Scener.</string>
+    <string name="cenas_vazio">Inga scener än. Skapa en i webbpanelen › Hem och automatiseringar › Scener.</string>
+    <plurals name="cenas_acoes">
+        <item quantity="one">%d åtgärd</item>
+        <item quantity="other">%d åtgärder</item>
+    </plurals>
+    <!-- Botões do controle (ideia 6) -->
+    <string name="tec_titulo">Fjärrkontrollknappar</string>
+    <string name="tec_det">Netflix och YouTube fungerar på alla skärmar; färgknappar och siffror bara på startskärmen.</string>
+    <string name="tec_nova">+ Konfigurera en knapp</string>
+    <string name="tec_nova_det">Tryck sedan på knappen på fjärrkontrollen</string>
+    <string name="tec_aperte">Tryck på knappen</string>
+    <string name="tec_aperte_det">Netflix, YouTube, en färgknapp eller en siffra. TILLBAKA avbryter.</string>
+    <string name="tec_nao_pode">%1$s kan inte ändras (den behövs för att använda tv:n). Prova en annan knapp.</string>
+    <string name="tec_so_home">Fungerar bara på startskärmen (i appar och spelaren behåller den sin egen funktion).</string>
+    <string name="tec_toda_tela">Fungerar på alla skärmar.</string>
+    <string name="tec_toque">Tryck</string>
+    <string name="tec_segurar">Håll</string>
+    <string name="tec_duplo">Dubbeltryck</string>
+    <string name="tec_triplo">Trippeltryck</string>
+    <string name="tec_padrao">standard (sparad app; håll 3 s = välj)</string>
+    <string name="tec_cena">scen %1$s</string>
+    <string name="tec_salvo">%1$s sparad</string>
+    <string name="tec_apagar">Rensa den här knappen</string>
+    <string name="tec_vermelha">Röd</string>
+    <string name="tec_verde">Grön</string>
+    <string name="tec_amarela">Gul</string>
+    <string name="tec_azul">Blå</string>
+    <!-- Automações (ideia 1) -->
+    <string name="aut_titulo">Automatiseringar</string>
+    <string name="aut_det">Allt tv:n gör av sig själv: vid en tid, vid en knapp, när något händer och via länk.</string>
+    <string name="aut_cfg_det">Tider, fjärrkontrollknappar, händelser och scenlänkar</string>
+    <string name="aut_horario">När det är dags</string>
+    <string name="aut_botao">När en knapp trycks</string>
+    <string name="aut_evento">När något händer</string>
+    <string name="aut_link">Via länk</string>
+    <string name="aut_link_det">Skapa och redigera i webbpanelen › Hem och automatiseringar › Scener</string>
+    <plurals name="aut_links">
+        <item quantity="one">%d scen med länk</item>
+        <item quantity="other">%d scener med länk</item>
+    </plurals>
+    <string name="ev_midia_tocou">Film eller video startade</string>
+    <string name="ev_midia_pausou">Film eller video pausades eller tog slut</string>
+    <string name="ev_tv_ligou">Tv:n slogs på</string>
+    <string name="ev_todos_sairam">Alla har gått (närvaro)</string>
+    <string name="ev_chuva">Regn på väg</string>
+</resources>

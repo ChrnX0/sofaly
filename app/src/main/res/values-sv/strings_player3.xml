@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Markera introts början här (%1$s)</string>
+    <string name="abertura_marcar_fim">Markera introts slut här (%1$s)</string>
+    <string name="abertura_apagar">Ta bort intromarkering</string>
+    <string name="abertura_inicio_marcado">Introts början markerad vid %1$s. Markera nu slutet i menyn ▼</string>
+    <string name="abertura_salva">Intro sparat: %1$s till %2$s. Nästa avsnitt erbjuder att hoppa över det</string>
+    <string name="abertura_falta_inicio">Markera introts början först</string>
+    <string name="abertura_invalida">Det ser inte ut som ett intro: det måste vara 10 s till 5 min och börja inom de första 15 min</string>
+    <string name="abertura_apagada">Intromarkering borttagen</string>
+    <string name="abertura_pular">Hoppa över intro · OK</string>
+</resources>

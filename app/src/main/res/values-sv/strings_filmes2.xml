@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Filtrera filmer</string>
+    <string name="filmes_filtro_genero">Genre: %1$s</string>
+    <string name="filmes_filtro_epoca">Period: %1$s</string>
+    <string name="filmes_filtro_nota">Lägsta betyg: %1$s</string>
+    <string name="filmes_filtro_lista">Lista: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Bara osedda: %1$s</string>
+    <string name="filmes_filtro_limpar">Rensa filter</string>
+    <string name="filmes_filtro_qualquer">Alla</string>
+    <string name="filmes_filtro_sim">Ja</string>
+    <string name="filmes_filtro_nao">Nej</string>
+    <string name="filmes_filtro_decada">%1$d-talet</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">osedda</string>
+    <string name="filmes_filtro_sem_genero">Ingen kategori i den här listan nämner en genre</string>
+    <string name="filmes_filtro_vazio">Ingen film matchar det här filtret i den här kategorin</string>
+    <string name="filmes_sorteio_vazio">Ingen film att välja härifrån</string>
+    <string name="filmes_colecao">Den här filmens samling</string>
+    <string name="filmes_colecao_cat">Samling: %1$s</string>
+    <string name="genero_acao">Action</string>
+    <string name="genero_aventura">Äventyr</string>
+    <string name="genero_comedia">Komedi</string>
+    <string name="genero_drama">Drama</string>
+    <string name="genero_terror">Skräck</string>
+    <string name="genero_suspense">Thriller</string>
+    <string name="genero_romance">Romantik</string>
+    <string name="genero_ficcao">Science fiction</string>
+    <string name="genero_fantasia">Fantasy</string>
+    <string name="genero_animacao">Animation</string>
+    <string name="genero_infantil">Barn och familj</string>
+    <string name="genero_documentario">Dokumentär</string>
+    <string name="genero_crime">Kriminal</string>
+    <string name="genero_guerra">Krig</string>
+    <string name="genero_faroeste">Western</string>
+    <string name="genero_musical">Musikal</string>
+</resources>

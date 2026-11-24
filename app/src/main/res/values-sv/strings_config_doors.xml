@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Hem och nätverk</string>
+    <string name="cfg3_mais_ajustes">Fler inställningar</string>
+    <string name="cfg3_mais_ajustes_det">Dolda för att hålla det kort: %1$d</string>
+    <string name="cfg3_modo">Läge: %1$s</string>
+    <string name="cfg3_porta_0_det">Kategorier, ikoner och bakgrund</string>
+    <string name="cfg3_porta_1_det">Tv-konton, ljud, undertexter</string>
+    <string name="cfg3_porta_2_det">Barn, PIN-kod och gäster</string>
+    <string name="cfg3_porta_3_det">Skärmsläckare, sömn, väckning</string>
+    <string name="cfg3_porta_4_det">Hem, telefon och panel</string>
+    <string name="cfg3_porta_5_det">Uppdateringar, säkerhetskopiering och hjälp</string>
+</resources>

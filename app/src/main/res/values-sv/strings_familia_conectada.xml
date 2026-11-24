@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Família conectada (degrau 3, FamiliaConectada.kt): fotos e recados dos parentes por um link. -->
+<resources>
+    <string name="famc_titulo">Familjelänk</string>
+    <string name="famc_det">Barn och barnbarn skickar foton och anteckningar till den här tv:n med en länk, inget konto behövs</string>
+    <string name="famc_ligado">På: OK visar QR-koden för att dela igen</string>
+    <string name="famc_texto">Skanna koden med telefonen och skicka länken till familjen (WhatsApp, e-post). Den som har länken kan skicka foton och anteckningar: de visas på skärmen direkt, anteckningar stannar på tavlan i snabbpanelen och foton läggs till skärmsläckarfotona. Inget går via våra servrar.</string>
+    <string name="famc_sem_tunel">Det här använder åtkomst utifrån (Tailscale), som inte är konfigurerat på den här tv:n än. Konfigurera det i Inställningar › Hem och nätverk › Fjärråtkomst och kom sedan tillbaka hit.</string>
+    <string name="famc_trocar">Ny länk</string>
+    <string name="famc_trocar_det">Den gamla länken slutar fungera direkt</string>
+    <string name="famc_desligar">Stäng av</string>
+    <string name="famc_alguem">Familj</string>
+    <string name="famc_de">Från %1$s</string>
+</resources>

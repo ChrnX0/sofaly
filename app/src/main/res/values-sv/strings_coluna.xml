@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">LISTOR</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Filter</string>
+    <string name="coluna_esportes">Sport</string>
+    <string name="coluna_guia">Guide</string>
+    <string name="coluna_filtro_titulo">Filter</string>
+    <string name="coluna_filtro_ordem">Sortering: %1$s</string>
+    <string name="coluna_filtro_combinado">Genre, era, betyg, osedda…</string>
+    <string name="coluna_filtro_combinado_ativo">Filter: %1$s</string>
+    <string name="coluna_filtro_limpar">Rensa filter</string>
+    <string name="coluna_filtro_sortear">Överraska mig</string>
+    <string name="coluna_filtro_ocultas_mostrar">Visa dolda kategorier (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Dölj dolda kategorier igen</string>
+    <string name="coluna_menu_assistido">Markera som sedd</string>
+    <string name="coluna_menu_nao_assistido">Markera som osedd</string>
+    <string name="coluna_menu_tirar_continuar">Ta bort från Fortsätt titta</string>
+    <string name="coluna_menu_por_interesse">Lägg till i Bevakningslista</string>
+    <string name="coluna_menu_tirar_interesse">Ta bort från Bevakningslista</string>
+    <string name="coluna_marcado_assistido">%1$s markerad som sedd</string>
+    <string name="coluna_marcado_nao_assistido">%1$s markerad som osedd</string>
+    <string name="coluna_tirado_continuar">%1$s togs bort från Fortsätt titta</string>
+    <string name="coluna_menu_tirar_home">Ta bort från startskärmen</string>
+    <string name="coluna_tirado_home">%1$s togs bort från startskärmen</string>
+    <string name="coluna_etiqueta_concluida">Avslutad</string>
+    <string name="coluna_etiqueta_nova_temporada">Ny säsong</string>
+    <string name="coluna_etiqueta_novos">Nya avsnitt</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d nytt avsnitt</item>
+        <item quantity="other">%d nya avsnitt</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Gå till bokstav</string>
+    <string name="coluna_letra">Gå till en bokstav</string>
+    <string name="coluna_ao_vivo">DIREKT</string>
+    <string name="coluna_ao_vivo_primeiro">Direkt först</string>
+    <string name="coluna_tv_titulo">Tv</string>
+    <string name="coluna_gravacoes">Inspelningar</string>
+</resources>

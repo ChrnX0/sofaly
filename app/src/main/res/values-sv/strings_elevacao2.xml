@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Hög kontrast</string>
+    <string name="elv_ac_det">Ljusare text och tydligare kanter på varje skärm (minst 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Syntolkning</string>
+    <string name="elv_ad_det">Välj ljudspåret som beskriver scenen när det finns ett</string>
+    <string name="elv_sdh_titulo">Undertexter för döva</string>
+    <string name="elv_sdh_det">Visa alltid undertexter med ljud ([dörr smäller]) på tv:ns språk, även när det är dubbat</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Affisch och handling för videorna</string>
+    <string name="elv_cat_explica">Bara titeln skickas till TMDB, aldrig mappen eller servern</string>
+    <string name="elv_cat_ligado">På</string>
+    <string name="elv_cat_desligado">Av</string>
+    <string name="elv_cat_ep">%1$s · S%2$d A%3$d</string>
+    <string name="pod_temp_ep">S%1$d A%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Avsnitt %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Säsong %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Säsonger: %d</string>
+    <string name="elv_cat_procurando">Letar efter affischen…</string>
+    <string name="elv_cat_nada">Inget hittades på TMDB. Håll OK för att skriva rätt namn.</string>
+    <string name="elv_cat_corrigir_titulo">Rätta: %s</string>
+    <string name="elv_cat_corrigir_explica">Fel affisch eller handling? Be om nästa resultat, eller skriv rätt namn och år. Ett tomt namn går tillbaka till automatiskt.</string>
+    <string name="elv_cat_nao_e">Inte den här</string>
+    <string name="elv_cat_escrever">Skriv namnet</string>
+    <string name="elv_cat_campo">Namn och år, t.ex. Dune 2021</string>
+    <string name="elv_cat_salvar">Spara</string>
+    <string name="elv_cat_dica">rätta</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Lista</string>
+    <string name="elv_bib_pasta">Mapp</string>
+    <string name="elv_bib_servidor">Server</string>
+    <string name="elv_bib_nuvem">Moln</string>
+    <string name="elv_bib_addon">Tillägg</string>
+</resources>

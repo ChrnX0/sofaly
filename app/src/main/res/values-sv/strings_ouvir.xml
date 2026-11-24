@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Stoppa</string>
+    <string name="ra_parar_det">Radion fortsätter spela på startskärmen och i skärmsläckaren tills du stoppar den</string>
+    <string name="ra_parar_det_antigo">Att lämna den här skärmen stoppar den också</string>
+    <string name="ouv_canal">Radio spelas</string>
+    <string name="ouv_abrir">Öppna radioskärmen</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Poddar</string>
+    <string name="pod_dica_mais">mer</string>
+    <string name="pod_de">%1$s av %2$s</string>
+    <string name="pod_velocidade">Hastighet</string>
+    <string name="pod_silencio">Hoppa över tystnad</string>
+    <string name="pod_silencio_det">Klipper bort pauserna i talet</string>
+    <string name="pod_ligado">på</string>
+    <string name="pod_desligado">av</string>
+    <string name="pod_continuar">Fortsätt</string>
+    <string name="pod_novos">Nya avsnitt</string>
+    <string name="pod_video">video</string>
+    <string name="pod_meus">Mina poddar</string>
+    <string name="pod_ultimo">senaste: %s</string>
+    <string name="pod_adicionar">Lägg till</string>
+    <string name="pod_colar">Klistra in en poddadress</string>
+    <string name="pod_colar_det">Länken till RSS-flödet (poddwebbplatser visar den som RSS)</string>
+    <string name="pod_pelo_celular">Från telefonen</string>
+    <string name="pod_pelo_celular_det">Öppna tv-panelen på telefonen › Poddar: klistra in en länk eller importera listan från din poddapp (OPML)</string>
+    <string name="pod_sem_episodios">Inga avsnitt att visa.</string>
+    <string name="pod_ouvido">lyssnat</string>
+    <string name="pod_do_comeco">Spela från början</string>
+    <string name="pod_marcar_nao">Markera som inte lyssnat</string>
+    <string name="pod_marcar_ouvido">Markera som lyssnat</string>
+    <string name="pod_abrir">Öppna</string>
+    <string name="pod_remover">Sluta prenumerera</string>
+    <string name="pod_removido">Prenumerationen avslutad</string>
+    <string name="pod_adicionando">Lägger till podden…</string>
+    <string name="pod_adicionado">Podden tillagd</string>
+    <string name="pod_nao_deu">Kunde inte lägga till den: %s</string>
+    <string name="pod_horas">%1$d h %2$s</string>
+    <string name="pod_minutos">%d min</string>
+    <string name="pod_hoje">i dag</string>
+    <string name="pod_ontem">i går</string>
+    <string name="pod_falhou">Det här avsnittet spelas inte nu. Försök igen senare.</string>
+    <string name="pod_abrir_tela">Öppna poddskärmen</string>
+    <string name="ra_podcasts_det">Program, nyheter och samtal du följer</string>
+    <string name="pod_procurar">Hitta</string>
+    <string name="pod_buscar">Sök poddar</string>
+    <string name="pod_em_alta">Populära i ditt land</string>
+    <string name="pod_atribuicao">Sök: Podcast Index</string>
+    <string name="pod_sugestoes">Förslag</string>
+    <string name="pod_sugestao_seguir">OK för att följa</string>
+    <string name="pod_sugeridos_seguidos">Föreslagna poddar har lagts till i Mina poddar</string>
+</resources>

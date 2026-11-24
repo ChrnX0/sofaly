@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Anslutningen bröts. Försöker igen (%1$d av %2$d)…</string>
+    <string name="vod_proximo_episodio">Nästa avsnitt</string>
+    <string name="vod_proximo_agora">Titta nu · %1$d s</string>
+    <string name="vod_proximo_cancelar">Avbryt</string>
+    <string name="vod_proximo_continuar">Fortsätt titta</string>
+    <string name="vod_ainda_assistindo">Tittar du fortfarande?</string>
+    <string name="vod_ainda_assistindo_texto">Några avsnitt spelades utan att någon rörde fjärrkontrollen, så nästa väntar på dig.</string>
+    <string name="vod_desligar_ao_fim">Stäng av tv:n när det här är slut</string>
+    <string name="vod_legenda_tamanho_titulo">Undertextstorlek</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Liten</item>
+        <item>Normal</item>
+        <item>Stor</item>
+        <item>Jättestor</item>
+    </string-array>
+</resources>

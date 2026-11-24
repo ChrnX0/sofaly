@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Dina data stannar hos dig</string>
+    <string name="nsc_det">Inget konto hos oss, inga annonser</string>
+    <string name="nsc_texto">Inget konto hos oss, inga annonser, ingen spårning av användning.\n\nDina inställningar, foton, anteckningar och säkerhetskopior stannar på den här tv:n, eller i ett eget konto om du ansluter ett.\n\nTv:n pratar bara med tjänsterna du slår på, som vädret eller filmaffischer. Några går via vår server (api.sofaly.tv), som poddsökning; den får bara förfrågan, aldrig ett konto som är ditt. Integritetspolicyn på webbplatsen listar var och en.</string>
+</resources>

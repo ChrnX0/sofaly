@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Barn-PIN</string>
+    <string name="fam_pin_det">En andra PIN-kod för att låsa upp kanaler, dolda kategorier och läggdags inför barnen. Panelens PIN-kod fungerar fortfarande överallt.</string>
+    <string name="fam_pin_ok">Barn-PIN sparad</string>
+    <string name="fam_pin_igual">Barn-PIN måste skilja sig från panelens PIN-kod</string>
+    <string name="fam_trocar">Ändra barn-PIN</string>
+    <string name="fam_apagar">Ta bort barn-PIN</string>
+    <string name="fam_apagado">Barn-PIN borttagen: nu låser bara panelens PIN-kod upp</string>
+    <string name="extras_TEMPO_TELA">Daglig skärmtid (när den tar slut öppnas bara tillåtna appar)</string>
+    <string name="tela_titulo">Skärmtid</string>
+    <string name="tela_acabou">Dagens skärmtid är slut. Vi ses i morgon!</string>
+    <string name="tela_5min">5 minuters skärmtid kvar i dag</string>
+    <string name="tela_pin">PIN-kod för att ändra skärmtiden</string>
+    <string name="tela_cota_linha">Skärmtid per dag: %1$s (kvar i dag: %2$s)</string>
+    <string name="tela_mais">Ge %1$d minuter till i dag</string>
+    <string name="tela_mais_ok">%1$d minuter till för i dag</string>
+    <string name="tela_h">h</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Kalender för alla tv:ns Google-konton tillsammans</string>
+    <string name="cal_todas_contas">Alla konton på tv:n (%1$d)</string>
+    <string name="tm_tempo_esgotado">Tiden är ute</string>
+    <string name="painel_desligado_pin">Webbpanelen avstängd: fel PIN-kod för många gånger</string>
+    <string name="tm_crono">Tidtagarur</string>
+    <string name="tm_crono_iniciar">Starta tidtagaruret</string>
+    <string name="tm_crono_parar">Stoppa tidtagaruret</string>
+    <string name="tm_crono_comecou">Tidtagaruret startat: det visas på startskärmen</string>
+    <string name="tm_crono_marcou">Tidtagaruret stoppat vid %1$s</string>
+    <string name="som_canal">Senaste direkt-tv-kanalen</string>
+</resources>
