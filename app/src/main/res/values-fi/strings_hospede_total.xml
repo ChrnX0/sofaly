@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Täysi siivous</string>
+    <string name="hos_total_det">Lähtiessä tyhjentää TV:n jokaisen sovelluksen tiedot, ei vain suoratoistoa. Googlen palvelut ja Asetukset säilytetään.</string>
+</resources>

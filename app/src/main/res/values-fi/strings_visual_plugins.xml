@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Laajennuksen tausta</string>
+    <string name="wp_cfg_det">Taustat, kuvakepaketit ja kortit muista sovelluksista. Kukin vaatii OK:si.</string>
+    <string name="wp_det">Muiden kehittäjien sovelluksia, jotka lisäävät aloitusnäyttöön taustoja, kuvakkeita tai kortteja. Kytke päälle vain ne, joihin luotat.</string>
+    <string name="wp_secao_fundos">Taustat</string>
+    <string name="wp_secao_icones">Kuvakepaketit</string>
+    <string name="wp_secao_cartoes">Kortit</string>
+    <string name="wp_secao_descobrir">Hanki laajennuksia</string>
+    <string name="wp_tipo_fundo">Tausta</string>
+    <string name="wp_tipo_icones">Kuvakkeet</string>
+    <string name="wp_em_uso">Käytössä</string>
+    <string name="wp_usar">Käytä taustana</string>
+    <string name="wp_configurar">Laajennuksen asetukset</string>
+    <string name="wp_parar">Lopeta käyttö</string>
+    <string name="wp_sem_cert">Tämän laajennuksen allekirjoitusta ei voitu lukea.</string>
+    <string name="wp_nenhum_fundo">Ei vielä taustalaajennusta. Katso alta, mistä sellaisen saa.</string>
+    <string name="wp_nenhum_icone">Ei vielä kuvakepakettia. Katso alta, mistä sellaisen saa.</string>
+    <string name="wp_icones_det">Pidetään jäädytettynä: launcher säilyttää kopion käyttämistään kuvakkeista.</string>
+    <string name="wp_usar_icones">Käytä</string>
+    <string name="wp_instalado">Asennettu</string>
+    <string name="wp_instalar">Asenna</string>
+    <string name="wp_instalando">Asennetaan…</string>
+    <string name="wp_instalou">%1$s asennettu.</string>
+    <string name="wp_nao_instalou">Asentaminen epäonnistui: %1$s</string>
+    <string name="wp_abrir_play">Avaa Play Kaupassa</string>
+    <string name="wp_qr">Osoita puhelimen kameralla koodia avataksesi sivun.</string>
+    <string name="wp_trocar_icone">Vaihda kuvake</string>
+    <string name="wp_icone_titulo">Kuvake kohteelle %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d kuvaketta</string>
+    <string name="wp_icone_original">Alkuperäinen kuvake</string>
+    <string name="wp_icone_sugerido">Ehdotettu</string>
+    <string name="wp_icone_voltar">Seuraa kuvakepakettia</string>
+    <string name="wp_icone_sem_pacote">Kuvakepakettia ei ole asennettu. Hanki sellainen kohdassa Asetukset › Aloitusnäyttö › Laajennukset.</string>
+    <string name="wp_d_aerial">Hitaita ilmakuvavideoita kaupungeista ja luonnosta</string>
+    <string name="wp_d_overflight">Apple TV:n ilmakuvavideot tai mikä tahansa valitsemasi videolista</string>
+    <string name="wp_d_daily">Uusi päivän kuva joka päivä</string>
+    <string name="wp_d_weather">Tämän päivän sää taustana</string>
+    <string name="wp_d_movieart">Elokuva- ja sarjakuvitusta TMDB:stä</string>
+    <string name="wp_d_sofadrop">Kuvitusta trendilistoilta, Traktista tai Simklistä</string>
+    <string name="wp_d_immich">Kuvia omalta Immich-palvelimeltasi</string>
+    <string name="wp_d_tvicons">Yli 800 TV:lle tehtyä kuvaketta</string>
+    <string name="wp_d_minimalist">Selkeitä symboleja yhdellä taustavärillä</string>
+    <string name="wp_d_arcticons">15 000 ohutta viivakuvaketta (tehty puhelimille, toimii täällä)</string>
+</resources>

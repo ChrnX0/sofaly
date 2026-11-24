@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Vikasietotila</string>
+    <string name="seg_texto">Aloitusnäyttö pysähtyi %1$d kertaa peräkkäin. Tämä on siitä yksinkertainen versio, jotta voit jatkaa TV:n käyttöä.</string>
+    <string name="seg_procurar">Etsi korjattu versio</string>
+    <string name="seg_procurar_det">Jos sellainen on, se ladataan ja asennetaan nyt.</string>
+    <string name="seg_procurando">Etsitään uutta versiota…</string>
+    <string name="seg_normal">Kokeile tavallista aloitusnäyttöä</string>
+    <string name="seg_normal_det">Jos se pysähtyy vielä 3 kertaa, tämä näyttö palaa.</string>
+    <string name="seg_config_tv">TV:n asetukset</string>
+    <string name="seg_erro">Katso, mikä meni vikaan</string>
+    <string name="seg_erro_det">Diagnostiikka tallennettujen virheiden kanssa.</string>
+    <string name="seg_apps">Sovellukset</string>
+</resources>

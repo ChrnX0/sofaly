@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Kun TV käynnistyy</string>
+    <string name="su_det">Avaa tämän heti, ohittaen aloitusnäytön</string>
+    <string name="su_home">Aloitusnäyttö</string>
+    <string name="su_last">Viimeisin sovellus</string>
+    <string name="su_quem">Kenelle?</string>
+    <string name="su_todos">Koko TV</string>
+    <string name="su_so">Vain %1$s</string>
+    <string name="su_segue_tv">Seuraa TV:n valintaa</string>
+    <string name="su_acordar">Myös herätessä</string>
+    <string name="su_acordar_det">Ei vain uudelleenkäynnistyksen jälkeen: myös kun TV herää valmiustilasta. Ei koskaan Cast-lähetyksen tai herätyksen päälle</string>
+    <string name="su_esperar">Odota uudelleenkäynnistyksen jälkeen</string>
+    <string name="su_esperar_det">Antaa TV:lle aikaa yhdistää ennen sovelluksen avaamista</string>
+    <string name="su_horario">Eri sovellus vuorokaudenajan mukaan</string>
+    <string name="su_horario_det">Automaatio laukaisimella ”TV käynnistyi” ja ”Vain jos”</string>
+    
+</resources>

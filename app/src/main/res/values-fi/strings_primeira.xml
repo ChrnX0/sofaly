@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Määritä puhelimella</string>
+    <string name="pc_linha_det">Suositeltu. Osoita puhelimen kameralla koodia: PIN, kieli, suora TV, kaupunki ja elokuvapalvelut, 5 vaiheessa.</string>
+    <string name="pc_instrucoes">Osoita puhelimen kameralla tämän vieressä olevaa koodia. Puhelin avaa 5-vaiheisen määrityksen.\n\nPuhelimen on oltava kodin Wi-Fissä. Pidä tämä näyttö auki, kunnes luot PIN-koodin puhelimella (%1$s jäljellä).</string>
+    <string name="pc_entrou">Jatka puhelimella.</string>
+    <string name="pc_venceu">Koodi vanheni.\nPaina \"%1$s\" näyttääksesi uuden.</string>
+    <string name="pc_sem_rede">TV ei ole verkossa.\nYhdistä se kodin Wi-Fiin ja yritä uudelleen.</string>
+</resources>

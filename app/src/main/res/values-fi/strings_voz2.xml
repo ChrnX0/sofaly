@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Apelidos de voz das telas (ideia 8, AtalhosVoz): o nome que se fala no "Ok Google, abrir <nome>". Curtos e distintos. -->
+<resources>
+    <string name="lbl_voz_filmes">Elokuvat</string>
+    <string name="lbl_voz_series">Sarjat</string>
+    <string name="lbl_voz_na_rede">Verkkomedia</string>
+    <string name="lbl_voz_casa">Kodin ohjaus</string>
+    <string name="lbl_voz_busca">Haku</string>
+    <string name="lbl_voz_mural">Taulu</string>
+    <string name="voz_mural_desligado">Perheen taulu on pois päältä (tai TV on vierastilassa).</string>
+</resources>

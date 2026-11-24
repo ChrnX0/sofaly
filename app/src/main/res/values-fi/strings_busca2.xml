@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search that continues in other apps (idea 14, 14/11/2026): BuscaActivity + BuscaOutrosApps. -->
+<resources>
+    <string name="bu_outros_apps">Muissa sovelluksissa</string>
+    <string name="bu_outro_googletv">Hae ”%1$s” Google TV:stä</string>
+    <string name="bu_outro_youtube">Hae ”%1$s” YouTubesta</string>
+    <string name="bu_outro_netflix">Hae ”%1$s” Netflixistä</string>
+    <string name="bu_outro_prime">Hae ”%1$s” Prime Videosta</string>
+    <string name="bu_outro_det">Avaa sovelluksen oman haun</string>
+</resources>

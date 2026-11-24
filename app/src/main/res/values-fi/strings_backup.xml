@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Automaattinen varmuuskopiointi</string>
+    <string name="bkn_explica">Joka yö, kun TV on toimettomana, tallentaa täyden varmuuskopion salasanallasi lukittuna. Viimeiset 7 säilytetään. Kirjoita salasana muistiin: ilman sitä varmuuskopiota ei voi avata.</string>
+    <string name="bkn_ligado">päällä</string>
+    <string name="bkn_desligado">pois</string>
+    <string name="bkn_sem_senha">pois · aseta ensin varmuuskopion salasana</string>
+    <string name="bkn_senha">Varmuuskopion salasana</string>
+    <string name="bkn_senha_ok">asetettu · OK muuttaa</string>
+    <string name="bkn_senha_falta">ei asetettu · OK asettaa</string>
+    <string name="bkn_senha_nova">Varmuuskopion salasana (vähintään 8 merkkiä)</string>
+    <string name="bkn_senha_repetir">Kirjoita salasana uudelleen</string>
+    <string name="bkn_senha_curta">Salasanassa on oltava 8–128 merkkiä.</string>
+    <string name="bkn_senha_diferente">Salasanat eivät täsmänneet.</string>
+    <string name="bkn_senha_gravada">Salasana tallennettu. Säilytä se turvallisessa paikassa.</string>
+    <string name="bkn_senha_erro">Salasanan tallentaminen epäonnistui.</string>
+    <string name="bkn_horario">Aika</string>
+    <string name="bkn_extra">Lisäkopio</string>
+    <string name="bkn_destino_tv">Vain TV</string>
+    <string name="bkn_destino_pendrive">USB-asema</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Varmuuskopioi nyt</string>
+    <string name="bkn_ultimo">Viimeisin</string>
+    <string name="bkn_nunca">ei koskaan</string>
+    <string name="bkn_pin">PIN varmuuskopion muuttamiseen</string>
+</resources>

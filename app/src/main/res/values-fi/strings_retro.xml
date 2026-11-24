@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Pelisi</string>
+    <string name="retro_vazio">USB-asemalta ei löytynyt pelejä. Laita omat pelisi kansioon, joka on nimetty konsolin mukaan (esim. SNES).</string>
+    <string name="retro_portugues">portugaliksi</string>
+    <string name="retro_abrindo">Avataan RetroArchissa…</string>
+    <string name="retro_nao_abriu">RetroArch ei avannut tätä peliä. Avaa RetroArch kerran ja lataa %1$s-ydin.</string>
+    <string name="retro_sem_retroarch">Asenna RetroArch (ilmainen Play Kaupassa) pelataksesi näitä pelejä.</string>
+    <string name="retro_aviso_legal">Sofaly ei sisällä pelejä. Käytä omistamiasi.</string>
+    <string name="retro_procurando">Etsitään pelejä USB-asemalta…</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Näyttelijät</string>
+    <string name="elenco_titulo">Näyttelijät</string>
+    <string name="elenco_carregando">Ladataan näyttelijöitä…</string>
+    <string name="elenco_vazio">TMDB:ssä ei ole näyttelijöitä tälle nimikkeelle.</string>
+    <string name="elenco_dica">Liiku henkilöiden läpi: alla, missä muussa listallasi olevassa he ovat mukana.</string>
+    <string name="elenco_na_lista">Myös listallasi</string>
+    <string name="elenco_procurando">Etsitään listaltasi…</string>
+    <string name="elenco_nada_na_lista">Listallasi ei ole muuta tämän henkilön kanssa.</string>
+    <string name="elenco_filme">Elokuva</string>
+    <string name="elenco_serie">Sarja</string>
+    <string name="elenco_opcao_player">Näyttelijät (kuka tämä näyttelijä on?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Aiemmin sarjassa %1$s</string>
+    <string name="anteriormente_assistir">Katso %1$s</string>
+    <string name="anteriormente_pular_sempre">Älä näytä koskaan</string>
+    <string name="anteriormente_desligado">Kertaukset kytketty pois. Kytkeäksesi ne taas päälle: pidä OK pohjassa jaksossa.</string>
+    <string name="anteriormente_ligar">Näytä ”Aiemmin sarjassa” -kertaukset</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Enimmäisikä lapsitilassa</string>
+    <string name="idade_det">Elokuvat ja sarjat, joiden ikäraja on enintään tämä ikä, näkyvät mistä tahansa luokasta (TMDB-luokitus). Luokittelemattomat vain lasten luokissa.</string>
+    <string name="idade_so_categorias">Vain lasten luokat</string>
+    <string name="idade_livre">Kaikki ikäryhmät</string>
+    <string name="idade_anos">Enintään %1$d vuotta</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Myös palvelussa: %1$s (JustWatch)</string>
+    <string name="onde_fora">Ei listallasi · palvelussa %1$s</string>
+    <string name="onde_grupo">Muualla (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Tekstitys ladattu automaattisesti (tehty tälle tiedostolle) · ▼ vaihtaa</string>
+    <string name="legenda_auto_pronta_nome">Tekstitys ladattu automaattisesti · ▼ vaihtaa tai säätää viivettä</string>
+    <string name="legenda_trad_rotulo">Automaattinen käännös</string>
+    <string name="legenda_trad_traduzindo">Ei tekstitystä kielelläsi: käännetään englanninkielistä TV:ssä…</string>
+    <string name="legenda_trad_parcial">Tekstitys käännetty TV:ssä (automaattinen käännös). Loput kääntyvät edelleen.</string>
+    <string name="legenda_trad_pronta">Tekstityksen käännös valmis</string>
+    <string name="series_sinopse_mais">Koko juoni</string>
+    <string name="series_continuar_curto">▶  Jatka %1$s</string>
+    <string name="series_episodios">Jaksot</string>
+    <string name="series_trocar_temporada">Vaihda kautta</string>
+    <string name="fechar">Sulje</string>
+    <string name="onde_assistir_botao">Missä katsoa</string>
+</resources>

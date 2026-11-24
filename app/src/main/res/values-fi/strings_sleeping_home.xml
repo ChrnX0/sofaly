@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Tunnit</string>
+    <string name="sh_dias">Päivät</string>
+    <string name="sh_dicas">Vinkit</string>
+    <string name="sh_ar">Ilma</string>
+    <string name="sh_orvalho">kastepiste %1$d°</string>
+    <string name="sh_nuvens">Pilvet</string>
+    <string name="sh_nascer">Auringonnousu</string>
+    <string name="sh_por">Auringonlasku</string>
+    <string name="sh_duracao">Päivän pituus</string>
+    <string name="sh_horas_min">%1$d t %2$02d min</string>
+    <string name="sh_dourada">Kultainen tunti</string>
+    <string name="sh_fase">Vaihe</string>
+    <string name="sh_iluminada">%1$s valaistuna</string>
+    <string name="sh_cheia">Täysikuu</string>
+    <string name="sh_nova">Uusikuu</string>
+    <string name="sh_em_dias">%1$d pv:n päästä</string>
+    <string name="sh_rodar">Kierrätä alapalkkia</string>
+    <string name="sh_rodar_det">Näytönsäästäjässä alapalkki vaihtuu itsestään. ↑ ja ↓ vaihtavat sitä heti.</string>
+    <string name="sh_rodar_desl">Pois</string>
+    <string name="sh_rodar_s">%1$d s:n välein</string>
+    <string name="sh_rodar_min">1 min välein</string>
+    <string name="sh_vidro">Lasi alapalkin takana</string>
+    <string name="sh_vidro_det">Lasipaneeli palkin takana. Pois: vain ohut viiva.</string>
+    <string name="sh_fundo">Näytönsäästäjän tausta</string>
+    <string name="sh_fundo_det">Mitä jää kellon taakse näytönsäästäjässä: toinen teema, kuva, video tai useita vuorotellen.</string>
+    <string name="sh_fundo_home">Sama kuin aloitusnäytössä</string>
+    <string name="sh_fundo_fotos">Vuorottelevat kuvat ja videot</string>
+    <string name="sh_fundo_arquivo">Yksi tiedosto vain näytönsäästäjälle</string>
+</resources>

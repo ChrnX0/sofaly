@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Yksi palkki</string>
+    <string name="strip_desc_watch">Elokuvat, sarjat ja TV</string>
+    <string name="strip_desc_listen">Musiikki, radio ja podcastit</string>
+    <string name="strip_desc_play">Pelit ja pilvipelaaminen</string>
+    <string name="strip_desc_apps">Kaikki asennettu</string>
+    <string name="strip_desc_tools">Herätys, sää ja asetukset</string>
+    <string name="strip_apps_count">%1$d sovellusta</string>
+    <string name="st_desc">Maailman kuvaus</string>
+    <string name="st_desc_fixa">Kiinteä lause</string>
+    <string name="st_desc_viva">Mitä nyt on menossa</string>
+    <string name="st_formato">Kortin muoto</string>
+    <string name="st_quadrado">Neliö</string>
+    <string name="st_tamanho">Kortin koko</string>
+    <string name="st_pequeno">Pieni</string>
+    <string name="st_medio">Keskikokoinen</string>
+    <string name="st_grande">Suuri</string>
+    <string name="st_espaco">Korttien väli</string>
+    <string name="st_justo">Tiivis</string>
+    <string name="st_normal">Normaali</string>
+    <string name="st_largo">Leveä</string>
+    <string name="st_cantos">Korttien kulmat</string>
+    <string name="st_retos">Kulmikas</string>
+    <string name="st_suaves">Pehmeä</string>
+    <string name="st_redondos">Pyöreä</string>
+    <string name="st_placa">Lasilevy takana</string>
+    <string name="st_nome">Nimi kohdistetussa kortissa</string>
+    <string name="st_sem">Pois</string>
+    <string name="st_com">Päällä</string>
+</resources>

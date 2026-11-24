@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado: Ouvir proposta C (21/11/2026). -->
+<resources>
+    <string name="som_titulo">Ääni</string>
+    <string name="som_titulo_pod">Ääni · %1$s</string>
+    <string name="som_voz_clara">Selkeä puhe</string>
+    <string name="som_so_este">Vain tälle podcastille</string>
+    <string name="som_abertura">Ohita alku</string>
+    <string name="som_fim">Ohita loppu</string>
+    <string name="som_segundos">%1$d s</string>
+    <string name="som_rodape_proprio">Nämä asetukset säilytetään vain podcastille %1$s.</string>
+    <string name="som_rodape_geral">Nopeus, hiljaiset kohdat ja selkeä puhe koskevat jokaista podcastia. Kytke \"Vain tälle podcastille\" päälle säilyttääksesi eri asetukset podcastille %1$s.</string>
+    <string name="som_det">Nopeus, selkeä puhe, uniajastin</string>
+    <string name="som_det_radio">Selkeä puhe ja uniajastin</string>
+    <string name="cap_titulo">Luvut</string>
+    <string name="cap_de">Luku %1$d / %2$d</string>
+    <string name="cap_barra_dica">◀ ▶ siirtävät 10 s · OK: luvut</string>
+    <string name="tx_titulo">Puheen teksti</string>
+    <string name="tx_carregando">ladataan</string>
+    <string name="tx_nao_tem">ei tässä jaksossa</string>
+    <string name="tx_nao_tem_det">Tämä podcast ei julkaise tämän jakson puheen tekstiä.</string>
+    <string name="tx_pe_busca">Löytyi %1$d / %2$d · ◀ ▶ edellinen / seuraava · ▼ uusi haku · OK: sulje</string>
+    <string name="tx_buscar">Hae siitä, mitä sanottiin</string>
+    <string name="tx_nada">Kukaan ei sanonut sitä tässä jaksossa.</string>
+    <string name="ra_ja_tocou">Jo toistettu</string>
+    <string name="ra_parecidas">Samankaltaisia asemia</string>
+    <string name="som_radio">Viimeisin kuuntelemani radioasema</string>
+    <string name="som_podcast">Uusin podcast-jakso</string>
+    <string name="jor_titulo">Uutiseni</string>
+    <string name="jor_ouvir">Toista uutiseni</string>
+    <string name="jor_min">%d min putkeen</string>
+    <string name="tx_pe">◀ ▶ edellinen / seuraava lause · ▲ yhteenveto · ▼ haku · OK: sulje</string>
+    <string name="tx_gerando">luodaan</string>
+    <string name="tx_gerando_det">Luodaan tekstiä… ensimmäinen osa kestää noin minuutin.</string>
+    <string name="tx_gerar">OK luo sen (ilmainen)</string>
+    <string name="tx_cota">palaa huomenna</string>
+    <string name="tx_cota_det">Tämän päivän ilmainen tekstikiintiö on käytetty. Se palaa huomenna.</string>
+    <string name="tx_pulei">Mainos ohitettu</string>
+    <string name="tx_pulei_det">%d s · ◀ palaa siihen</string>
+    <string name="tx_resumo">Sofyn yhteenveto</string>
+    <string name="tx_resumo_de">Yhteenveto · %s</string>
+    <string name="tx_resumindo">Luetaan, mitä sanottiin… hetkinen.</string>
+    <string name="tx_resumo_falhou">Yhteenveto ei tullut tällä kertaa. Yritä hetken kuluttua uudelleen.</string>
+    <string name="ra_globo">Tutki maapalloa</string>
+    <string name="ra_globo_det">Pyöritä maailmaa ja laskeudu radioasemalle mistä tahansa</string>
+    <string name="ra_globo_dica">◀ ▶ ▲ ▼ pyörittävät · OK: toista · Takaisin: sulje</string>
+    <string name="ra_globo_mar">Avomerta… pyöritä vielä vähän</string>
+    <string name="ra_voltar">Takaisin 30 s</string>
+    <string name="ra_voltar_det">Jäikö jotain kuulematta? Kuuntele uudelleen (⏪ kaukosäätimessä)</string>
+    <string name="ra_ao_vivo">Takaisin suoraan</string>
+    <string name="ra_atras">%s suorasta jäljessä</string>
+</resources>

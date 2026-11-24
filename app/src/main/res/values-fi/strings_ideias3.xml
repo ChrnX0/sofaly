@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Pehmeä sammutus (uniajastin himmentää näyttöä ja laskee äänenvoimakkuutta)</string>
+    <string name="extras_MURAL">Perheen taulu pikapaneelissa</string>
+    <string name="extras_PRESENCA">Sammuta, kun kaikki lähtevät kotoa (UniFi-reititin)</string>
+    <string name="extras_HOJE_NA_TV">\"Tänään TV:ssä\" Haku-näytössä</string>
+    <string name="extras_RETROSPECTIVA">Viikkokooste (sunnuntai-iltana)</string>
+    <string name="extras_MODO_SIMPLES">Helppo näyttö (isot kortit, nimet luettuna)</string>
+</resources>

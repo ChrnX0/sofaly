@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Työkalut</string>
+    <string name="cont_mais_opcoes">Lisää valintoja</string>
+    <string name="tl_proximo">Seuraavaksi: %1$s</string>
+    <string name="tl_clima_sub">Ennuste tuleville päiville</string>
+    <string name="tl_casa_sub">Valot, kamerat ja ovikello</string>
+    <string name="tl_painel_sub">Bluetooth, ääni, Wi-Fi ja ajastin</string>
+    <string name="tl_config_sub">Kaikki launcherista</string>
+    <string name="ac_cartoes">Sovelluskortit</string>
+    <string name="ac_coluna">Sarakkeessa</string>
+    <string name="ac_vitrine">Esittely</string>
+    <string name="ac_ver_tudo">Katso, mitä sovelluksessa on</string>
+    <string name="ac_ritmo">Aloitusnäytön välit</string>
+    <string name="rt_antes">Kuten ennen</string>
+    <string name="rt_a">A · Tiiviimpi</string>
+    <string name="rt_b">B · Kehykset</string>
+    <string name="rt_c">C · Ilmava</string>
+    <string name="ft_foco">Kohdistus</string>
+    <string name="ft_foco_fio">Viiva</string>
+    <string name="ft_foco_veu">Huntu</string>
+    <string name="ft_foco_quadro">Laatikko</string>
+</resources>

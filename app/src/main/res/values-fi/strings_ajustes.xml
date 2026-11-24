@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Lisää valintoja</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Näytönsäästäjän kuvat puhelimesta</string>
+    <string name="qrd_fotos_det">Näyttää koodin: puhelin avaa paneelin suoraan kuvasivulle</string>
+    <string name="qrd_mural">Perheen taulu puhelimesta</string>
+    <string name="qrd_mural_det">Ostoslista ja kiinnitetyt muistiinpanot</string>
+    <string name="qrd_cenas">Tilanteet puhelimesta</string>
+    <string name="qrd_cenas_det">Luo ja testaa tilanteita verkkopaneelissa</string>
+    <string name="qrd_casa">Home Assistant puhelimesta</string>
+    <string name="qrd_casa_det">Home Assistantisi osoite ja tunnus verkkopaneelissa</string>
+    <string name="qrd_time">Joukkueeni ja muistutukset puhelimesta</string>
+    <string name="qrd_time_det">Sanat, jotka muuttavat oppaan ohjelmat muistutuksiksi</string>
+    <string name="qrd_roteador">Reititin puhelimesta</string>
+    <string name="qrd_roteador_det">UniFi-reitittimen osoite ja API-avain verkkopaneelissa</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Pikapaneelin ruudut</string>
+    <string name="pb_subtitulo">OK näyttää tai piilottaa · ◀ ▶ muuttavat järjestystä</string>
+    <string name="pb_cfg_det">Valitse, mitkä ruudut pikapaneeli (pidä TAKAISIN) näyttää ja missä järjestyksessä</string>
+    <string name="pb_mostrado">näkyvissä</string>
+    <string name="pb_escondido">piilossa</string>
+    <string name="pb_padrao">Takaisin oletusruutuihin</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Yösuodatin</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Aloitusnäyttö</string>
+    <string name="cfg2_aba_inicio_det">Teema, piilotetut sovellukset, pikapaneeli ja sää</string>
+    <string name="cfg2_aba_familia">Perhe</string>
+    <string name="cfg2_aba_familia_det">Lapsilukko, lasten PIN, nukkumaanmenoaika ja vieraat</string>
+    <string name="cfg2_aba_casa">Koti ja automaatiot</string>
+    <string name="cfg2_aba_casa_det">Automaatiot, älykoti ja se, mitä määrität puhelimesta</string>
+    <string name="cfg2_aba_sistema_det">Diagnostiikka, päivitykset, varmuuskopio ja tietoja</string>
+    <string name="cfg2_aba_avancado">Lisäasetukset</string>
+    <string name="cfg2_aba_avancado_det">Verkko, työkalut, tehdassovellukset, käyttöoikeudet ja komentotulkki. Tarvitaan harvoin.</string>
+    <string name="cfg2_sec_visitas">Vieraat</string>
+    <string name="cfg2_sec_celular">Puhelimestasi</string>
+    <string name="cfg2_sec_ferramentas">Työkalut</string>
+    <string name="cfg2_sec_ocultos_sistema">Launcherin piilottamat järjestelmäsovellukset</string>
+    <string name="cfg2_apps_visita_det">Valitse, mitkä sovellukset katoavat vierastilan ollessa päällä</string>
+    <string name="cfg2_apps_visita_sub">OK vaihtaa · nämä katoavat vierastilan ollessa päällä</string>
+    <string name="cfg2_some_visita">piilossa vierailta</string>
+    <string name="cfg2_fica_visita">pysyy</string>
+    <string name="cfg2_casa_det">Valot, pistorasiat ja tilanteet Google Homesta tai Home Assistantista</string>
+    <string name="oc_titulo">Piilotetut sovellukset</string>
+    <string name="oc_subtitulo">OK näyttää tai piilottaa sovelluksen aloitusnäytössä · piilotetut ensin</string>
+    <string name="oc_nenhum">Ei piilotettuja sovelluksia · OK valitsee</string>
+    <string name="oc_quantos">Piilossa: %1$d · OK näyttää ne taas</string>
+    <string name="oc_oculto">piilossa</string>
+    <string name="oc_aparece">aloitusnäytössä</string>
+    <string name="oc_aviso_titulo">Sovellus piilotettu</string>
+    <string name="oc_aviso">Näytä se taas: Asetukset › Aloitusnäyttö › Piilotetut sovellukset</string>
+    <string name="extras_LER_FOCO">Lue ääneen kohdistettu, launcherin jokaisessa näytössä</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Sammutetaanko TV itsestään?</string>
+    <string name="sug_desligar">TV oli päällä keskiyön jälkeen %1$d yönä tällä viikolla. Sammutetaanko se 2 tunnin jälkeen, kun kukaan ei käytä kaukosäädintä? (Se varoittaa 60 sekuntia etukäteen.)</string>
+    <string name="sug_filtro_titulo">Kytketäänkö yösuodatin päälle?</string>
+    <string name="sug_filtro">TV:tä käytettiin klo 22 jälkeen %1$d yönä tällä viikolla. Yösuodatin lämmittää ja himmentää näyttöä yöllä, silmille helpompaa.</string>
+    <string name="sug_ligar">Kytke päälle</string>
+    <string name="sug_agora_nao">Ei nyt</string>
+    <string name="sug_nunca">Älä ehdota uudelleen</string>
+    <string name="sug_feito_titulo">Valmis</string>
+    <string name="sug_feito">Muuttaaksesi myöhemmin: Asetukset › Näyttö ja virta</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Tekstin koko</string>
+    <string name="tt_det">Launcherin jokaisessa näytössä. Elokuvat, sarjat ja suora TV olivat jo suurempia ja kasvavat mukana</string>
+    <string name="tt_normal">Normaali</string>
+    <string name="tt_grande">Suuri</string>
+    <string name="tt_maior">Suurempi</string>
+    <string name="pi_titulo">Kuvakepaketti</string>
+    <string name="pi_det">Vaihda sovelluskuvakkeet sisäänrakennettuun tyyliin (Symboli, Kaksisävy) tai asennettuun kuvakepakettiin. OK valitsee seuraavan.</string>
+    <string name="pi_det_vazio">Kuvakepakettia ei ole asennettu. Hae sellainen Play Kaupasta, niin se näkyy täällä.</string>
+    <string name="pi_nenhum">Ei mitään</string>
+    <string name="fm_titulo">Oma taustani</string>
+    <string name="fm_det">Kuvasi, GIF tai video aloitusnäytön takana. Laita tiedosto kansioon Fundo, Pictures, DCIM, Movies tai Download.</string>
+    <string name="fm_vazio">Kuvaa tai videota ei löytynyt. Kopioi sellainen Fundo-kansioon (verkkoasema tai USB) ja palaa.</string>
+    <string name="fm_nenhum">Ei mitään (takaisin Tummaan)</string>
+    <string name="fm_brilho">Taustan kirkkaus</string>
+    <string name="fm_contraste">Taustan kontrasti</string>
+    <string name="fm_ajuste_det">Koskee Omaa taustaani. OK muuttaa askelta.</string>
+    <string name="vp_titulo">Tuletko Projectivystä?</string>
+    <string name="vp_texto">Neljä vaihetta tuo asetuksesi noin minuutissa. Jokaisen voi tehdä myöhemmin Asetuksissa.</string>
+    <string name="vp_cfg_det">Tuo piilotetut sovellukset, kuvakepaketti ja tausta Projectivystä.</string>
+    <string name="vp_1">1. Piilotetut sovellukset</string>
+    <string name="vp_1_det">Merkitse sovellukset, jotka olit piilottanut. Järjestääksesi pidä OK pohjassa sovelluksessa aloitusnäytössä.</string>
+    <string name="vp_2">2. Kuvakepaketti</string>
+    <string name="vp_2_det">Samat kuvakepaketit, joita Projectivy käyttää, toimivat täällä.</string>
+    <string name="vp_3">3. Tausta</string>
+    <string name="vp_3_det">Kuvasi, GIF tai video. Kopioi se ensin Fundo-kansioon.</string>
+    <string name="vp_4">4. Kytke Projectivyn Home-painike pois</string>
+    <string name="vp_4_det">Kytke Projectivy pois kohdassa Esteettömyys. Kaksi Home-painiketta sieppaavaa sovellusta saavat väärän avautumaan.</string>
+    <string name="vp_pronto">Valmis</string>
+    <string name="vp_pronto_det">Siirry aloitusnäyttöön.</string>
+    <string name="vq_titulo">Jaa ulkoasu</string>
+    <string name="vq_det">Näytä QR-koodi tämän TV:n ulkoasulla: teema, tekstin koko, kuvakkeet.</string>
+    <string name="vq_texto">Skannaa se puhelimellasi säilyttääksesi sen tai lähettääksesi sen jollekulle, jolla on Sofaly.</string>
+    <string name="vq_fechar">Sulje</string>
+    <string name="pl_titulo">Tilaukset</string>
+    <string name="pl_texto">Kaikki on ilmaista, kunnes myynti avautuu. Myöhemmin Pro ja Ultra ostetaan puhelimella.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Aloitusnäyttö, näytönsäästäjä\n• Herätys, helppo näyttö\n• Soitin ja radiot\n• 1 IPTV-lista\n• 2 teemaa</string>
+    <string name="pl_pro_itens">• Kaikki Basicista\n• Monta IPTV-listaa, tallennus\n• Täysi verkkopaneeli\n• Claude, rutiinit, Home Assistant\n• Kaikki teemat, pilvivarmuuskopio</string>
+    <string name="pl_ultra_itens">• Kaikki Prosta\n• Parempi sää (3 mallia)\n• Rikkaat elokuvasivut\n• Automaattinen tekstitys\n• Enintään 3 TV:tä</string>
+    <string name="pl_qr">Skannaa puhelimellasi nähdäksesi hinnat ja ostaaksesi.</string>
+    <string name="pl_assinar">Tilaa</string>
+    <string name="pl_assinar_preco">Tilaa · %1$s</string>
+    <string name="pl_seu_plano">Tilauksesi</string>
+    <string name="pl_loja_indisponivel">Google Play ei voinut avata ostoa. Tarkista internet ja yritä uudelleen.</string>
+    <string name="atu_pela_play">Päivitykset tulevat Google Playsta.</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saude_titulo">Etäkäyttö pysähtyi</string>
+    <string name="saude_texto_shell">TV:n pääsy itseensä katkesi %1$d min sitten (paneeli, Claude ja automaattiset korjaukset pysähtyvät). Paina Parita uudelleen tai siirry kohtaan Asetukset › Järjestelmä › Lisäasetukset › Paritus ilman PC:tä.</string>
+    <string name="saude_texto_tunel">Claude internetin kautta on offline-tilassa. Paina Yhdistä nähdäksesi, mitä puuttuu, tai siirry kohtaan Asetukset › Koti ja verkko › Etäkäyttö.</string>
+    <string name="saude_parear">Parita uudelleen</string>
+    <string name="saude_conectar">Yhdistä</string>
+    <string name="saude_depois">Ei nyt</string>
+    <string name="saude_acao_shell">Parita uudelleen: Asetukset › Järjestelmä › Lisäasetukset › Paritus ilman PC:tä</string>
+    <string name="saude_acao_tunel">Yhdistä uudelleen: Asetukset › Koti ja verkko › Etäkäyttö › Yhdistä</string>
+    <string name="mnt_titulo">Yön ylläpito</string>
+    <string name="mnt_consertei">Korjattu:</string>
+    <string name="mnt_falhou">Ei voitu korjata:</string>
+    <string name="mnt_acesso">etäkäyttö</string>
+    <string name="mnt_permissoes">käyttöoikeudet</string>
+    <string name="mnt_agendamentos">herätykset ja rutiinit</string>
+    <string name="mnt_espaco">vapaa tila</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Lainaa järjestelmävaltuuksia</string>
+    <string name="emp_titulo">Lainaa komentotulkkia muille sovelluksille (Shizuku)</string>
+    <string name="emp_titulo_det">Shizukua varten tehdyt sovellukset toimivat asentamatta sitä. Jokainen sovellus kysyy TV:ssä PIN-koodin kanssa ensimmäisellä kerralla.</string>
+    <string name="emp_modo_desligado">Pois</string>
+    <string name="emp_modo_sob_demanda">Kun sovellus tarvitsee sitä</string>
+    <string name="emp_modo_sempre">Aina päällä</string>
+    <string name="emp_oficial">Shizuku-sovellus on asennettu tähän TV:hen, joten launcher pysyy sen tieltä. Poista se käyttääksesi launcherin omaa.</string>
+    <string name="emp_plano">Osa maksullisia tilauksia.</string>
+    <string name="emp_negar">Hylkää</string>
+    <string name="emp_permitir">Salli aina</string>
+    <string name="emp_pedido_titulo">Sallitaanko sovelluksen %1$s käyttää launcherin järjestelmävaltuuksia?</string>
+    <string name="emp_pedido_texto">Sovellus voi tehdä sen, mitä adb tekee: asentaa ja poistaa sovelluksia, muuttaa järjestelmäasetuksia ja muuta. Salli vain sovellukset, joihin luotat. Voit perua sen myöhemmin verkkopaneelissa.</string>
+    <string name="emp_pin_titulo">Paneelin PIN sallimiseen</string>
+    <string name="emp_sem_pin">Aseta ensin paneelin PIN (Asetukset, Verkkopaneeli).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Lainaa omistajan hallintaa muille sovelluksille (Dhizuku)</string>
+    <string name="emd_titulo_det">Dhizukua varten tehdyt sovellukset käyttävät launcherin omistajan hallintaa. Jokainen sovellus kysyy TV:ssä PIN-koodin kanssa. ”Salli”-valinnalla mikään ei voi poistaa launcheria omistajana eikä tyhjentää TV:tä; ”Täydellä vallalla” voi.</string>
+    <string name="emd_ligado">Päällä</string>
+    <string name="emd_sem_dono">Launcher ei ole tämän TV:n omistaja (Device Owner), joten lainattavaa ei ole.</string>
+    <string name="emd_pedido_titulo">Sallitaanko sovelluksen %1$s käyttää launcherin omistajan hallintaa?</string>
+    <string name="emd_pedido_texto">”Salli”-valinnalla sovellus voi piilottaa ja estää sovelluksia ja muuttaa TV:n käyttöoikeuksia ja sääntöjä, mutta ei koskaan poistaa launcheria omistajana tai tyhjentää TV:tä. ”Täysi valta” antaa sovelluksen toimia launcherina ja lukea sen tietoja: vain sovelluksille, joihin luotat täysin. Voit perua sen verkkopaneelissa. ”Täydellä vallalla” sovellus voi tehdä kaiken, minkä launcher voi, jopa tyhjentää TV:n.</string>
+    <string name="emd_total">Täysi valta</string>
+    <string name="emd_pin_total">TÄYSI VALTA: sovellus voi tehdä kaiken, minkä launcher voi, jopa tyhjentää TV:n. Paneelin PIN</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Testaa ohjain</string>
+    <string name="teste_controle_sub">Onko se tarpeeksi nopea pelaamiseen?</string>
+    <string name="teste_controle_mexa">Pyöritä vasenta sauvaa ympyrää 10 sekuntia.</string>
+    <string name="teste_controle_bom">Erinomainen peleihin: signaali %1$d ms:n välein.</string>
+    <string name="teste_controle_ok">Pelattava: signaali %1$d ms:n välein. Nopeat pelit voivat tuntua hieman viiveisiltä.</string>
+    <string name="teste_controle_ruim">Hidas: signaali %1$d ms:n välein ja %2$d taukoa. Langallinen ohjain tai ohjain lähempänä TV:tä auttaa.</string>
+    <string name="teste_controle_parado">Ohjain ei liikkunut. Yritä uudelleen ja jatka sauvan pyörittämistä.</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Joukkueesi seuraava peli aloitusnäytön TV-kohteessa</string>
+    <string name="extras_CARTAO_COTACAO">Päivän valuuttakurssit sään vieressä (dollari, euro, bitcoin; kysyy ilmaiselta Frankfurter-palvelulta)</string>
+    <string name="extras_CARTAO_CONTAGEM">Lähtölaskenta aloitusnäytön yläosassa viimeisten 7 päivän aikana (omat päivämääräsi tai seuraava pyhäpäivä)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Kodin muistutukset aloitusnäytön yläosassa niiden päivänä (esim. kierrätyspäivä), ilmoituksella asetettuun aikaan</string>
+    <string name="extras_CARTAO_SERVICO">Varoita aloitusnäytön yläosassa, kun lisäämäsi palvelu lakkaa vastaamasta</string>
+    <string name="extras_CARTAO_LUA">Kuun vaihe sääennusteessa</string>
+    <string name="hc_feriado_hoje">Pyhäpäivä tänään</string>
+    <string name="hc_hoje">Tänään: %1$s</string>
+    <string name="hc_lembrete_rotulo">Kodin muistutus</string>
+    <string name="hc_servico_fora">%1$s on alhaalla</string>
+    <string name="hc_servico_rotulo">Palvelusi</string>
+    <string name="hc_cotacao_rotulo">Valuuttakurssit</string>
+    <string name="hc_cotacao_fonte">Päivän kurssit, lähde: Frankfurter (keskuspankit)</string>
+    <string name="hc_mil">k</string>
+    <string name="hc_milhao">M</string>
+    <string name="hc_seu_time">Joukkueesi: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Pyhäpäivään %1$d päivä</item>
+        <item quantity="other">Pyhäpäivään %1$d päivää</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">%1$d päivä: %2$s</item>
+        <item quantity="other">%1$d päivää: %2$s</item>
+    </plurals>
+</resources>

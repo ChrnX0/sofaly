@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Kenelle tämä TV on?</string>
+    <string name="rec_subtitulo">Yksi OK määrittää TV:n. Voit kumota sen milloin tahansa.</string>
+    <string name="rec_vo">Mummon TV</string>
+    <string name="rec_vo_det">Isot kortit, nimet luettuna ääneen, suurempi teksti ja Pyydä apua -painike.</string>
+    <string name="rec_criancas">Lasten TV</string>
+    <string name="rec_criancas_det">Vain lasten sisältöä, nukkumaanmenoaika ja Pelaa-luokka.</string>
+    <string name="rec_gamer">Pelaajan TV</string>
+    <string name="rec_gamer_det">Pelaa-luokka, pelitila (ei näytönsäästäjää tai hälytyksiä pelin aikana) ja peliohjain avaa Pelit.</string>
+    <string name="rec_aluguel">Vuokra-TV</string>
+    <string name="rec_aluguel_det">Vierastila: tervetulonäyttö, ei mitään henkilökohtaista aloitusnäytössä ja siivous lähtiessä.</string>
+    <string name="rec_desfazer">Kumoa</string>
+    <string name="rec_desfazer_det">Palauta kaikki niin kuin oli ennen %1$s.</string>
+    <string name="rec_ja_esta">Tämä TV on jo määritetty näin.</string>
+    <string name="rec_aviso_prende">Helppo näyttö sulkeutuu vain PIN-koodilla. Varmista, että joku kotona tietää sen.</string>
+    <string name="rec_aviso_sem_pin">PIN-koodia ei ole vielä, joten kuka tahansa voi kytkeä tämän pois. Luo sellainen puhelinpaneelissa.</string>
+    <string name="rec_aviso_plano">Vaatii maksullisen tilauksen, joten se pysyy pois: %1$s.</string>
+    <string name="rec_voltar">Takaisin</string>
+    <string name="rec_aplicar">Käytä</string>
+    <string name="rec_pin">PIN TV:n määritystavan muuttamiseen</string>
+    <string name="rec_pronto">Valmis</string>
+    <string name="rec_aplicada">TV:si on valmis</string>
+    <string name="rec_aplicada_det">Muuttuiko jotain, mitä et halunnut? Kumoa palauttaa kaiken ennalleen.</string>
+    <string name="rec_desfeita">Kaikki on taas niin kuin oli.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">päällä</string>
+    <string name="rec_desligado">pois</string>
+    <string name="rec_aj_hospede">Vierastila</string>
+    <string name="rec_aj_visita">Vierailutila</string>
+    <string name="rec_aj_simples">Helppo näyttö</string>
+    <string name="rec_aj_infantil">Lapsitila</string>
+    <string name="rec_aj_dormir">Nukkumaanmenoaika</string>
+    <string name="rec_aj_texto">Tekstin koko</string>
+    <string name="rec_aj_ler_foco">Lue valittu ääneen</string>
+    <string name="rec_aj_som">Napsahdus jokaisella näppäimellä</string>
+    <string name="rec_aj_jogos">Pelaa-luokka</string>
+    <string name="rec_aj_modo_jogo">Pelitila</string>
+    <string name="rec_aj_controle">Peliohjain avaa Pelit</string>
+</resources>

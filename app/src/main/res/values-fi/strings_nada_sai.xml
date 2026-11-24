@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Tietosi pysyvät sinulla</string>
+    <string name="nsc_det">Ei tiliä meillä, ei mainoksia</string>
+    <string name="nsc_texto">Ei tiliä meillä, ei mainoksia, ei käytön seurantaa.\n\nAsetuksesi, kuvasi, muistiinpanosi ja varmuuskopiosi pysyvät tässä TV:ssä tai omalla tililläsi, jos yhdistät sellaisen.\n\nTV puhuu vain kytkemillesi palveluille, kuten säälle tai elokuvajulisteille. Jotkin kulkevat palvelimemme (api.sofaly.tv) kautta, kuten podcast-haku; se saa vain pyynnön, ei koskaan tiliäsi. Sivuston tietosuojakäytäntö luettelee jokaisen.</string>
+</resources>

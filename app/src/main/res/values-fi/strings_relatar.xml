@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Ilmoita ongelmasta</string>
+    <string name="rel_linha_det">QR-koodi avaa lomakkeen puhelimellasi tekniset tiedot valmiiksi täytettyinä</string>
+    <string name="rel_texto">Osoita puhelimen kameralla koodia. Kirjoita, mitä tapahtui, ja lähetä. Nimesi, tilisi, verkkosi ja kaupunkisi eivät tule mukaan.</string>
+    <string name="rel_vai_junto">Mitä menee mukana</string>
+    <string name="rel_l_oque">Mitä tapahtui</string>
+    <string name="rel_l_versao">Versio</string>
+    <string name="rel_l_uso">Tila</string>
+    <string name="rel_l_quedas">Kaatumiset / jumiutumiset (7 päivää)</string>
+    <string name="rel_l_erro">Viimeisin virhe</string>
+</resources>

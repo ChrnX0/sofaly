@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Kirjautuneena käyttäjänä %1$s. Mitä TV pitää tahdissa puhelimesi kanssa.</string>
+    <string name="sync_sub_mdblist">Kirjautuneena käyttäjänä %1$s. MDBList-listasi voivat näkyä luettelossa.</string>
+    <string name="sync_ultima">Viimeisin synkronointi: %1$s</string>
+    <string name="sync_nunca">Ei vielä synkronoitu</string>
+    <string name="sync_interesses">Kiinnostukset ⇄ Katselulista</string>
+    <string name="sync_interesses_simkl">Kiinnostukset ⇄ Aion katsoa</string>
+    <string name="sync_interesses_det">Mitä merkitset täällä, näkyy siellä, ja toisin päin</string>
+    <string name="sync_assistidos">Katsotut ← Historia</string>
+    <string name="sync_assistidos_det">Tuo mukaan sen, minkä katsoit jo puhelimella tai muualla</string>
+    <string name="sync_continuar">Jatka ⇄ Mihin jäit</string>
+    <string name="sync_continuar_det">Pysäytä puhelimessa, jatka TV:ssä samasta kohdasta</string>
+    <string name="sync_contar">Kerro palvelulle %1$s, mitä katson täällä</string>
+    <string name="sync_contar_det">Lähettää ”katsotaan nyt” ja ”katsottu” toiston aikana. Ei koskaan vierastilassa tai lapsen profiilissa.</string>
+    <string name="sync_listas">Listat luettelossa</string>
+    <string name="sync_listas_nenhuma">Ei valittu</string>
+    <string name="sync_listas_n">%1$d valittu: %2$s</string>
+    <string name="sync_listas_sub">Ne näkyvät kohdassa LISTAT, Kaikki-kohdan alla, vain listasi nimikkeillä. Enintään %1$d.</string>
+    <string name="sync_listas_carregando">Ladataan listojasi…</string>
+    <string name="sync_listas_vazio">Listoja ei löytynyt. Luo tai tykkää listasta Traktissa tai MDBListissä ja palaa tänne.</string>
+    <string name="sync_listas_cheio">Enintään %1$d listaa</string>
+    <string name="sync_lista_itens">%1$d nimikettä</string>
+    <string name="sync_agora">Synkronoi nyt</string>
+    <string name="sync_agora_det">Se tapahtuu myös itsestään, kun avaat Elokuvat tai Sarjat</string>
+    <string name="sync_rodando">Synkronoidaan…</string>
+    <string name="sync_feito">Synkronoitu</string>
+    <string name="sync_sair">Kirjaudu ulos palvelusta %1$s</string>
+    <string name="sync_bloqueado">Keskeytetty: vierastila tai lapsen profiili on päällä.</string>
+    <string name="sync_outro_perfil">Keskeytetty: synkronointi kuuluu toiselle profiilille.</string>
+    <string name="sync_trakt_cheia">Trakt-listasi on täynnä (ilmaisissa tileissä mahtuu 100). Launcher jatkaa vain TV:ssä.</string>
+    <string name="sync_ligado">Päällä</string>
+    <string name="sync_desligado">Pois</string>
+    <string name="sync_fonte_trakt">Tiedot Traktista (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Tiedot Simklistä (simkl.com)</string>
+    <string name="sync_n_de">%1$d / %2$d listallasi</string>
+    <string name="sync_continuando">Jatketaan siitä, mihin jäit toisella laitteella</string>
+</resources>

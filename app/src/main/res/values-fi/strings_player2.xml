@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Yhteys katkesi. Yritetään uudelleen (%1$d / %2$d)…</string>
+    <string name="vod_proximo_episodio">Seuraava jakso</string>
+    <string name="vod_proximo_agora">Katso nyt · %1$d s</string>
+    <string name="vod_proximo_cancelar">Peruuta</string>
+    <string name="vod_proximo_continuar">Jatka katsomista</string>
+    <string name="vod_ainda_assistindo">Katsotko vielä?</string>
+    <string name="vod_ainda_assistindo_texto">Muutama jakso toistui kenenkään koskematta kaukosäätimeen, joten seuraava odottaa sinua.</string>
+    <string name="vod_desligar_ao_fim">Sammuta TV, kun tämä päättyy</string>
+    <string name="vod_legenda_tamanho_titulo">Tekstityksen koko</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Pieni</item>
+        <item>Normaali</item>
+        <item>Suuri</item>
+        <item>Valtava</item>
+    </string-array>
+</resources>

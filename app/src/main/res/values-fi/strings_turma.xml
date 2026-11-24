@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">Sohvalla</string>
+    <string name="jogos_controle_pronto">valmis</string>
+    <string name="jogos_controle_carregar">lataa pian</string>
+    <string name="jogos_parear_um">Parita ohjain</string>
+    <string name="turma_titulo">Porukkasi</string>
+    <string name="turma_online">%1$d paikalla</string>
+    <string name="turma_mais_online">+ %1$d paikalla</string>
+    <string name="turma_na_voz">Puhekanavalla</string>
+    <string name="turma_ausente">poissa</string>
+    <string name="turma_ocupado">varattu</string>
+    <string name="turma_status_online">paikalla</string>
+    <string name="turma_ninguem">Kukaan ei ole paikalla juuri nyt</string>
+    <string name="turma_procurando">Etsitään porukkaasi…</string>
+    <string name="turma_sem_rede">Ei yhteyttä Discordiin juuri nyt.</string>
+    <string name="turma_mostrar_titulo">Näytä Discord-porukkasi</string>
+    <string name="turma_mostrar_texto">Katso TV:ssä, kuka on paikalla, pelaa ja puhekanavalla.</string>
+    <string name="turma_desligado_titulo">Palvelimen widget on pois päältä</string>
+    <string name="turma_desligado_texto">Discordissa: Server Settings, Widget, kytke Enable Server Widget päälle.</string>
+    <string name="turma_qr_dica">Osoita puhelimesi tänne liittyäksesi puhekeskusteluun. Puhuminen tapahtuu puhelimessa.</string>
+    <string name="turma_jogando">%1$s pelaa %2$s</string>
+    <string name="turma_dois">%1$s ja %2$s</string>
+    <string name="turma_e_mais">%1$s ja %2$d muuta</string>
+    <string name="turma_chamar">Kutsu porukka</string>
+    <string name="turma_chamar_pergunta">Lähetetäänkö Discord-kanavalle?</string>
+    <string name="turma_chamado_jogo">🎮 Kuka lähtee pelaamaan %1$s? Olen TV:n ääressä.</string>
+    <string name="turma_chamado">🎮 Kuka lähtee peliin? Olen TV:n ääressä.</string>
+    <string name="turma_mandar">Lähetä</string>
+    <string name="turma_enviado">Porukkasi kutsuttiin Discordissa.</string>
+    <string name="turma_espere">Odota minuutti ennen kuin kutsut uudelleen.</string>
+    <string name="turma_falhou">Discord ei saanut sitä. Tarkista internet tai webhook.</string>
+    <string name="turma_config_titulo">Discord-porukkasi</string>
+    <string name="turma_config_texto">1. Discordissa: Server Settings, Widget, kytke Enable Server Widget päälle.\n2. Kopioi samalta sivulta Server ID ja kirjoita se tähän.\n\nKutsu porukka -painiketta varten liitä kanavan webhook TV:n verkkopaneeliin.</string>
+    <string name="turma_config_dica">Server ID (vain numeroita)</string>
+    <string name="turma_config_guardar">Tallenna</string>
+    <string name="turma_config_tirar">Poista porukka</string>
+    <string name="turma_id_invalido">Tämä ei ole Discord-palvelimen tunnus (17–20 numeroa).</string>
+    <string name="cruz_sofa_sub">Ohjaimet ja Discord-porukkasi</string>
+    <string name="cruz_sofa_voz">%1$d puhekanavalla · %2$s</string>
+</resources>
