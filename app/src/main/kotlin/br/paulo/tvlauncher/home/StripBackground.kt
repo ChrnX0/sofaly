@@ -12,15 +12,14 @@ import android.graphics.Shader
 import android.view.View
 import br.paulo.tvlauncher.DesignTokens
 import br.paulo.tvlauncher.settings.Extras
-import br.paulo.tvlauncher.settings.Tema
 
 /**
  * Fundo da barra única (Paulo, 24/11/2026: "coloca os 3 planos de fundo que você me mostrou, adota o Vale como padrão").
  *
  * Porquê: a barra única existe para deixar a tela livre para o fundo; com o grafite liso, o meio da tela ficava vazio.
  * Para quê: uma foto de paisagem escura (as três do estudo escolhas-home: Vale, Serra, Noite) atrás da Ilha e da barra.
- * Como: [choice] decide (sem escolha gravada: Vale, se o tema for o Escuro de fábrica; com tema escolhido pela pessoa,
- * Galeria, Meu fundo, plugin, fica o do tema). [PhotoBackground] desenha a foto com véus em cima (atrás da Ilha) e
+ * Como: [choice] decide (sem escolha gravada: Vale, qualquer que seja o tema; "Do tema" no Ajuste fino volta ao fundo
+ * do tema: Escuro, Galeria, Meu fundo, plugin). [PhotoBackground] desenha a foto com véus em cima (atrás da Ilha) e
  * embaixo (atrás da linha do mundo e dos cards), para o texto continuar legível.
  */
 object StripBackground {
@@ -28,11 +27,10 @@ object StripBackground {
 
     enum class Choice(val asset: String?) { VALE("fundos/vale.jpg"), SERRA("fundos/serra.jpg"), NOITE("fundos/noite.jpg"), THEME(null) }
 
-    /** Pura (teste na JVM): o índice gravado e se o tema é o Escuro de fábrica. */
-    fun resolve(stored: Int, darkTheme: Boolean): Choice =
-        Choice.entries.getOrNull(stored) ?: if (darkTheme) Choice.VALE else Choice.THEME
+    /** Pura (teste na JVM): o índice gravado; nunca escolhido = Vale. */
+    fun resolve(stored: Int): Choice = Choice.entries.getOrNull(stored) ?: Choice.VALE
 
-    fun choice(ctx: Context): Choice = resolve(Extras.numero(ctx, KEY, -1), Tema.atual(ctx) == Tema.ESCURO)
+    fun choice(ctx: Context): Choice = resolve(Extras.numero(ctx, KEY, -1))
 
     /** Gira a escolha ([passo] +1/-1), grava e devolve a nova. */
     fun next(ctx: Context, passo: Int): Choice {
