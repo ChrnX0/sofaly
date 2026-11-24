@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">شريط واحد</string>
+    <string name="strip_desc_watch">أفلام ومسلسلات وتلفاز</string>
+    <string name="strip_desc_listen">موسيقى وراديو وبودكاست</string>
+    <string name="strip_desc_play">ألعاب وألعاب سحابية</string>
+    <string name="strip_desc_apps">كل ما هو مثبّت</string>
+    <string name="strip_desc_tools">منبّه وطقس وإعدادات</string>
+    <string name="strip_apps_count">%1$d تطبيقًا</string>
+    <string name="st_desc">وصف العالم</string>
+    <string name="st_desc_fixa">عبارة ثابتة</string>
+    <string name="st_desc_viva">ما يُعرض الآن</string>
+    <string name="st_formato">شكل البطاقات</string>
+    <string name="st_quadrado">مربع</string>
+    <string name="st_tamanho">حجم البطاقات</string>
+    <string name="st_pequeno">صغير</string>
+    <string name="st_medio">متوسط</string>
+    <string name="st_grande">كبير</string>
+    <string name="st_espaco">المسافة بين البطاقات</string>
+    <string name="st_justo">ضيقة</string>
+    <string name="st_normal">عادية</string>
+    <string name="st_largo">واسعة</string>
+    <string name="st_cantos">زوايا البطاقات</string>
+    <string name="st_retos">حادة</string>
+    <string name="st_suaves">ناعمة</string>
+    <string name="st_redondos">مستديرة</string>
+    <string name="st_placa">لوح زجاجي خلفها</string>
+    <string name="st_nome">الاسم على البطاقة المحددة</string>
+    <string name="st_sem">لا</string>
+    <string name="st_com">نعم</string>
+</resources>

@@ -149,6 +149,7 @@ class TelasTest {
             val app = RuntimeEnvironment.getApplication()
             // A abertura com a logo (SplashOverlay) cobriria a HOME na foto: o relógio do Robolectric começa "logo após o boot".
             br.paulo.tvlauncher.home.SplashOverlay.setEnabled(app, false)
+            br.paulo.tvlauncher.home.BottomBar.setMode(app, br.paulo.tvlauncher.home.BottomBar.Mode.CROSS)   // estas fotos são da cruz; a barra única tem a dela (StripScreenTest)
             br.paulo.tvlauncher.settings.AltoContraste.definir(app, nome.endsWith("-ac"))
             // "home" é a cruz (a única tela inicial; a antiga, em fileira/grade, saiu em 21/11/2026).
             br.paulo.tvlauncher.home.LayoutHome.definirBarraCruz(app, when (nome) {

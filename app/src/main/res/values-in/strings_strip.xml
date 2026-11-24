@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Satu bilah</string>
+    <string name="strip_desc_watch">Film, serial, dan TV</string>
+    <string name="strip_desc_listen">Musik, radio, dan podcast</string>
+    <string name="strip_desc_play">Game dan cloud gaming</string>
+    <string name="strip_desc_apps">Semua yang terpasang</string>
+    <string name="strip_desc_tools">Alarm, cuaca, dan setelan</string>
+    <string name="strip_apps_count">%1$d aplikasi</string>
+    <string name="st_desc">Deskripsi dunia</string>
+    <string name="st_desc_fixa">Kalimat tetap</string>
+    <string name="st_desc_viva">Yang ada sekarang</string>
+    <string name="st_formato">Bentuk kartu</string>
+    <string name="st_quadrado">Persegi</string>
+    <string name="st_tamanho">Ukuran kartu</string>
+    <string name="st_pequeno">Kecil</string>
+    <string name="st_medio">Sedang</string>
+    <string name="st_grande">Besar</string>
+    <string name="st_espaco">Jarak antar kartu</string>
+    <string name="st_justo">Rapat</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Lebar</string>
+    <string name="st_cantos">Sudut kartu</string>
+    <string name="st_retos">Siku</string>
+    <string name="st_suaves">Lembut</string>
+    <string name="st_redondos">Bulat</string>
+    <string name="st_placa">Pelat kaca di belakang</string>
+    <string name="st_nome">Nama di kartu terpilih</string>
+    <string name="st_sem">Tidak</string>
+    <string name="st_com">Ya</string>
+</resources>

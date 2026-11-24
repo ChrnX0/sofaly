@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Barre unique</string>
+    <string name="strip_desc_watch">Films, séries et TV</string>
+    <string name="strip_desc_listen">Musique, radio et podcasts</string>
+    <string name="strip_desc_play">Jeux et jeux en ligne</string>
+    <string name="strip_desc_apps">Tout ce qui est installé</string>
+    <string name="strip_desc_tools">Réveil, météo et réglages</string>
+    <string name="strip_apps_count">%1$d applis</string>
+    <string name="st_desc">Description du monde</string>
+    <string name="st_desc_fixa">Phrase fixe</string>
+    <string name="st_desc_viva">En ce moment</string>
+    <string name="st_formato">Forme des cartes</string>
+    <string name="st_quadrado">Carré</string>
+    <string name="st_tamanho">Taille des cartes</string>
+    <string name="st_pequeno">Petite</string>
+    <string name="st_medio">Moyenne</string>
+    <string name="st_grande">Grande</string>
+    <string name="st_espaco">Espace entre les cartes</string>
+    <string name="st_justo">Serré</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Large</string>
+    <string name="st_cantos">Coins des cartes</string>
+    <string name="st_retos">Droits</string>
+    <string name="st_suaves">Doux</string>
+    <string name="st_redondos">Arrondis</string>
+    <string name="st_placa">Plaque de verre derrière</string>
+    <string name="st_nome">Nom sur la carte active</string>
+    <string name="st_sem">Non</string>
+    <string name="st_com">Oui</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Einzelne Leiste</string>
+    <string name="strip_desc_watch">Filme, Serien und TV</string>
+    <string name="strip_desc_listen">Musik, Radio und Podcasts</string>
+    <string name="strip_desc_play">Spiele und Cloud-Gaming</string>
+    <string name="strip_desc_apps">Alles Installierte</string>
+    <string name="strip_desc_tools">Wecker, Wetter und Einstellungen</string>
+    <string name="strip_apps_count">%1$d Apps</string>
+    <string name="st_desc">Weltbeschreibung</string>
+    <string name="st_desc_fixa">Fester Satz</string>
+    <string name="st_desc_viva">Was gerade läuft</string>
+    <string name="st_formato">Kartenform</string>
+    <string name="st_quadrado">Quadratisch</string>
+    <string name="st_tamanho">Kartengröße</string>
+    <string name="st_pequeno">Klein</string>
+    <string name="st_medio">Mittel</string>
+    <string name="st_grande">Groß</string>
+    <string name="st_espaco">Abstand zwischen Karten</string>
+    <string name="st_justo">Eng</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Weit</string>
+    <string name="st_cantos">Kartenecken</string>
+    <string name="st_retos">Eckig</string>
+    <string name="st_suaves">Sanft</string>
+    <string name="st_redondos">Rund</string>
+    <string name="st_placa">Glasplatte dahinter</string>
+    <string name="st_nome">Name auf fokussierter Karte</string>
+    <string name="st_sem">Aus</string>
+    <string name="st_com">An</string>
+</resources>

@@ -107,6 +107,12 @@ object Fontes {
     /** O mesmo, sem precisar de um Context à mão (usa o do app). Serve nos lugares que só tinham Typeface.create(...). */
     fun nunito(peso: Int): Typeface = nunito(LauncherApp.instancia, peso)
 
+    /**
+     * Manrope (OFL), pesos 500 e 700: a linha do mundo da barra única (Paulo, 24/11/2026: a Nunito ficou "redondinha
+     * demais" ali). Só essa linha; o resto do app segue na letra escolhida.
+     */
+    fun manrope(ctx: Context, forte: Boolean): Typeface = carregar(ctx, if (forte) "manrope_700.ttf" else "manrope_500.ttf")
+
     /** Fraunces itálica (serifa "de museu", OFL): o nome da obra no protetor. */
     fun fraunces(ctx: Context): Typeface = carregar(ctx, "fraunces_italic.ttf")
 

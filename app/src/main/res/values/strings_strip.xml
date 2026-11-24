@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Single bar</string>
+    <string name="strip_desc_watch">Movies, series and TV</string>
+    <string name="strip_desc_listen">Music, radio and podcasts</string>
+    <string name="strip_desc_play">Games and cloud gaming</string>
+    <string name="strip_desc_apps">Everything installed</string>
+    <string name="strip_desc_tools">Alarm, weather and settings</string>
+    <string name="strip_apps_count">%1$d apps</string>
+    <string name="st_desc">World description</string>
+    <string name="st_desc_fixa">Fixed phrase</string>
+    <string name="st_desc_viva">What\'s on now</string>
+    <string name="st_formato">Card shape</string>
+    <string name="st_quadrado">Square</string>
+    <string name="st_tamanho">Card size</string>
+    <string name="st_pequeno">Small</string>
+    <string name="st_medio">Medium</string>
+    <string name="st_grande">Large</string>
+    <string name="st_espaco">Space between cards</string>
+    <string name="st_justo">Tight</string>
+    <string name="st_normal">Normal</string>
+    <string name="st_largo">Wide</string>
+    <string name="st_cantos">Card corners</string>
+    <string name="st_retos">Square</string>
+    <string name="st_suaves">Soft</string>
+    <string name="st_redondos">Round</string>
+    <string name="st_placa">Glass plate behind</string>
+    <string name="st_nome">Name on focused card</string>
+    <string name="st_sem">Off</string>
+    <string name="st_com">On</string>
+</resources>

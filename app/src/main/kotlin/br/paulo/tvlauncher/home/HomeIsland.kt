@@ -159,6 +159,8 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
  */
 internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
     val mundo = ilhaMundo
+    // Barra única: o mundo já está na linha dele, acima dos cards; a pílula fica só com a hora (sem repetir).
+    if (cruz?.faixa == true) { mundo?.visibility = View.GONE; return }
     val naPilula = mundo != null && WorldLabel.place(this) == WorldLabel.Place.PILL
     cruz?.nomeNaColuna(!naPilula)
     if (!naPilula || mundo == null) return

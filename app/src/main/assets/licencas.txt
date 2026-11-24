@@ -125,7 +125,7 @@ Apache Commons Net (FTP e FTPS), da Apache Software Foundation
 
 — Fontes dos temas —
 
-Manrope, de Mikhail Sharanda (painel web, letra de reserva)
+Manrope, de Mikhail Sharanda (painel web, letra de reserva; linha do mundo na tela inicial)
   https://github.com/sharanda/manrope
   Licença SIL Open Font License 1.1 (OFL).
 
