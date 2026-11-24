@@ -280,7 +280,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - **Night filter.** At night the screen gets warmer and softer on the eyes. <sub>Screen and power › More options.</sub>
 - **Weekly recap.** On Sunday night, a card with screen time per app, internet used and network drops. <sub>Screen and power › More options.</sub>
 - **Strong heat or cold alert.** The same alert as rain, over any screen, when strong heat or cold is coming.
-- **The night sky.** Planets, the Space Station and eclipses, calculated on the TV itself, no internet needed. <sub>Screensaver.</sub>
+- **The night sky.** Space Station, meteor showers, supermoons and eclipses. It only tells you when you can see them from home, with clear skies. <sub>Screensaver.</sub>
 - **Earth seen from space.** Photos taken by astronauts and a real Sky theme, with a map of your area.
 - **Fun facts and the time in words.** One fun fact at a time on the screensaver and the clock written out: “nine fifty-one”. <sub>Screensaver.</sub>
 - **Your TV's year.** In December, a look back at the year: what was watched, heard and played most on your TV. It stays on the TV. <sub>Shows up in December.</sub>
