@@ -20,8 +20,12 @@ import kotlin.math.cos
 object NightSky {
     enum class Kind { ECLIPSE_SUN, ISS, METEORS, SUPERMOON }
 
+    /**
+     * [peak]: a melhor hora de olhar (máximo do eclipse, meio da passagem, meio da janela escura, 1 h depois de escurecer
+     * na superlua). [pass] traz o rumo de entrada e de saída da Estação (0..7, [CeuNoturno.rumo]) para a arte do gesto.
+     */
     data class Event(
-        val kind: Kind, val start: Long, val end: Long,
+        val kind: Kind, val start: Long, val end: Long, val peak: Long = (start + end) / 2,
         val pass: CeuNoturno.Passagem? = null,
         val shower: CeuNoturno.ChuvaMeteoros? = null,
     )
@@ -61,7 +65,7 @@ object NightSky {
              eclipses: List<EclipseSolar>, fuso: TimeZone = TimeZone.getDefault()): Event? {
         fun ok(e: Event, olharEm: Long) = e.takeIf { it.end > agora && it.start - agora <= 24 * 3_600_000L && limpo(horas, olharEm) == true }
         eclipses.firstOrNull { it.fimMs > agora && it.inicioMs - agora <= 24 * 3_600_000L }
-            ?.let { ok(Event(Kind.ECLIPSE_SUN, it.inicioMs, it.fimMs), it.maximoMs) }?.let { return it }
+            ?.let { ok(Event(Kind.ECLIPSE_SUN, it.inicioMs, it.fimMs, it.maximoMs), it.maximoMs) }?.let { return it }
         iss?.takeIf { it.alturaMax >= ISS_ALTURA_MIN && it.inicio - agora <= 12 * 3_600_000L }
             ?.let { ok(Event(Kind.ISS, it.inicio, it.fim, pass = it), (it.inicio + it.fim) / 2) }?.let { return it }
         val noite = CeuNoturno.janelaDaNoite(agora, lat, lon, fuso) ?: return null
@@ -69,7 +73,7 @@ object NightSky {
         meteoros(agora, lat, fuso)?.takeIf { luaIluminada(meio) <= METEOROS_LUA_MAX }
             ?.let { ok(Event(Kind.METEORS, noite.first, noite.second, shower = it), meio) }?.let { return it }
         if (abs(Lua.idade(meio) - 29.530588853 / 2) <= 0.75 && CeuNoturno.distanciaLua(meio) < CeuNoturno.SUPERLUA_KM) {
-            ok(Event(Kind.SUPERMOON, noite.first, minOf(noite.second, noite.first + 3 * 3_600_000L)), noite.first + 3_600_000L)?.let { return it }
+            ok(Event(Kind.SUPERMOON, noite.first, minOf(noite.second, noite.first + 3 * 3_600_000L), noite.first + 3_600_000L), noite.first + 3_600_000L)?.let { return it }
         }
         return null
     }
