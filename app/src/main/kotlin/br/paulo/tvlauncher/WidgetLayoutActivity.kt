@@ -47,7 +47,7 @@ class WidgetLayoutActivity : Activity() {
         raiz.addView(camada, PluginWidgetsTv.lpCamada(this))
         val cima = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            addView(Estilo.tituloTela(this@WidgetLayoutActivity, getString(R.string.wl_titulo)))
+            addView(Estilo.tituloTela(this@WidgetLayoutActivity, getString(R.string.wdg_titulo)))
             estado = Estilo.texto(this@WidgetLayoutActivity, Estilo.Papel.LEGENDA, "")
             addView(estado)
         }
@@ -55,7 +55,7 @@ class WidgetLayoutActivity : Activity() {
             leftMargin = Estilo.dp(this@WidgetLayoutActivity, PluginWidgetsTv.LADO_DP); topMargin = Estilo.dp(this@WidgetLayoutActivity, 20)
         })
         val dicas = Estilo.barraDicas(this,
-            "◀ ▶ ▲ ▼" to getString(R.string.wl_d_setas), "OK" to getString(R.string.wl_d_opcoes), getString(R.string.wl_d_voltar) to getString(R.string.wl_d_sair))
+            "◀ ▶ ▲ ▼" to getString(R.string.wdg_d_setas), "OK" to getString(R.string.wdg_d_opcoes), getString(R.string.wdg_d_voltar) to getString(R.string.wdg_d_sair))
         raiz.addView(dicas, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply {
             leftMargin = Estilo.dp(this@WidgetLayoutActivity, PluginWidgetsTv.LADO_DP); bottomMargin = Estilo.dp(this@WidgetLayoutActivity, 40)
         })
@@ -83,9 +83,9 @@ class WidgetLayoutActivity : Activity() {
         val e = atual()
         val nome = e?.let { PluginWidgetsTv.info(this, it.id)?.let { i -> PluginWidgetsTv.nome(this, i) } ?: it.pacote }
         estado.text = when {
-            e == null -> getString(R.string.wl_vazio)
-            modo == Modo.TAMANHO -> getString(R.string.wl_estado_tamanho, nome, e.w, e.h)
-            else -> getString(R.string.wl_estado_mover, nome)
+            e == null -> getString(R.string.wdg_vazio)
+            modo == Modo.TAMANHO -> getString(R.string.wdg_estado_tamanho, nome, e.w, e.h)
+            else -> getString(R.string.wdg_estado_mover, nome)
         }
     }
 
@@ -124,30 +124,30 @@ class WidgetLayoutActivity : Activity() {
         val ops = mutableListOf<Pair<String, () -> Unit>>()
         if (e != null) {
             val info = PluginWidgetsTv.info(this, e.id)
-            ops += getString(if (modo == Modo.MOVER) R.string.wl_tamanho else R.string.wl_mover) to {
+            ops += getString(if (modo == Modo.MOVER) R.string.wdg_tamanho else R.string.wdg_mover) to {
                 modo = if (modo == Modo.MOVER) Modo.TAMANHO else Modo.MOVER; pintar()
             }
-            if (PluginWidgetsTv.temAjuste(info)) ops += getString(R.string.wl_ajustes) to {
+            if (PluginWidgetsTv.temAjuste(info)) ops += getString(R.string.wdg_ajustes) to {
                 if (!PluginWidgetsTv.abrirAjuste(this, e.id, PEDIDO_AJUSTE)) aviso(PluginWidgetsTv.Resultado.FALHOU)
             }
-            if (lista.size > 1) ops += getString(R.string.wl_proximo) to {
+            if (lista.size > 1) ops += getString(R.string.wdg_proximo) to {
                 escolhido = lista[(lista.indexOfFirst { it.id == e.id } + 1) % lista.size].id; modo = Modo.MOVER; pintar()
             }
-            ops += getString(R.string.wl_abrir) to {
+            ops += getString(R.string.wdg_abrir) to {
                 packageManager.getLeanbackLaunchIntentForPackage(e.pacote) ?.let { runCatching { startActivity(it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } }
                 Unit
             }
         }
-        if (lista.size < PluginWidget.MAX) ops += getString(R.string.wl_por) to { porWidget() }
-        if (e != null) ops += getString(R.string.wl_tirar) to { PluginWidgetsTv.remover(this, e.id); ler() }
-        aberto = Estilo.lista(this, getString(R.string.wl_titulo), ops.map { it.first }) { i -> ops[i].second() }
+        if (lista.size < PluginWidget.MAX) ops += getString(R.string.wdg_por) to { porWidget() }
+        if (e != null) ops += getString(R.string.wdg_tirar) to { PluginWidgetsTv.remover(this, e.id); ler() }
+        aberto = Estilo.lista(this, getString(R.string.wdg_titulo), ops.map { it.first }) { i -> ops[i].second() }
     }
 
     /** Lista dos widgets instalados; o escolhido é ligado fora da tela (pode chamar o shell) e já ganha um lugar. */
     private fun porWidget() {
         val disponiveis = PluginWidgetsTv.disponiveis(this)
         if (disponiveis.isEmpty()) { Toast.makeText(this, getString(R.string.ext_widget_nenhum), Toast.LENGTH_LONG).show(); return }
-        aberto = Estilo.lista(this, getString(R.string.wl_por), disponiveis.map { PluginWidgetsTv.nome(this, it) }) { i ->
+        aberto = Estilo.lista(this, getString(R.string.wdg_por), disponiveis.map { PluginWidgetsTv.nome(this, it) }) { i ->
             val info = disponiveis[i]
             val cl = camada.celL; val ca = camada.celA
             runCatching {
@@ -184,7 +184,7 @@ class WidgetLayoutActivity : Activity() {
             PluginWidgetsTv.Resultado.LIMITE -> getString(R.string.plg_limite, PluginWidget.MAX)
             PluginWidgetsTv.Resultado.SEM_PERMISSAO -> getString(R.string.ext_widget_sem_permissao)
             PluginWidgetsTv.Resultado.BLOQUEADO -> getString(R.string.ext_off_blocked)
-            PluginWidgetsTv.Resultado.CHEIO -> getString(R.string.wl_cheio)
+            PluginWidgetsTv.Resultado.CHEIO -> getString(R.string.wdg_cheio)
             else -> getString(R.string.ext_widget_falhou)
         }
         Toast.makeText(this, t, Toast.LENGTH_LONG).show()

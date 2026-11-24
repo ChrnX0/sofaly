@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
-    <string name="wl_titulo">Upravit widgety na ploše</string>
-    <string name="wl_det">Živé widgety jiných aplikací na ploše. Šipky posouvají, OK ukáže možnosti.</string>
-    <string name="wl_vazio">Na ploše zatím není žádný widget. OK jeden přidá.</string>
-    <string name="wl_estado_mover">Přesun: %1$s</string>
-    <string name="wl_estado_tamanho">Velikost: %1$s · %2$d × %3$d</string>
-    <string name="wl_mover">Přesunout</string>
-    <string name="wl_tamanho">Změnit velikost</string>
-    <string name="wl_ajustes">Nastavení widgetu</string>
-    <string name="wl_proximo">Další widget</string>
-    <string name="wl_por">Přidat widget</string>
-    <string name="wl_tirar">Odebrat tento widget</string>
-    <string name="wl_abrir">Otevřít aplikaci</string>
-    <string name="wl_cheio">Pro tento widget už není místo.</string>
-    <string name="wl_d_setas">přesun / velikost</string>
-    <string name="wl_d_opcoes">možnosti</string>
-    <string name="wl_d_voltar">ZPĚT</string>
-    <string name="wl_d_sair">uložit a odejít</string>
+    <string name="wdg_titulo">Upravit widgety na ploše</string>
+    <string name="wdg_det">Živé widgety jiných aplikací na ploše. Šipky posouvají, OK ukáže možnosti.</string>
+    <string name="wdg_vazio">Na ploše zatím není žádný widget. OK jeden přidá.</string>
+    <string name="wdg_estado_mover">Přesun: %1$s</string>
+    <string name="wdg_estado_tamanho">Velikost: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Přesunout</string>
+    <string name="wdg_tamanho">Změnit velikost</string>
+    <string name="wdg_ajustes">Nastavení widgetu</string>
+    <string name="wdg_proximo">Další widget</string>
+    <string name="wdg_por">Přidat widget</string>
+    <string name="wdg_tirar">Odebrat tento widget</string>
+    <string name="wdg_abrir">Otevřít aplikaci</string>
+    <string name="wdg_cheio">Pro tento widget už není místo.</string>
+    <string name="wdg_d_setas">přesun / velikost</string>
+    <string name="wdg_d_opcoes">možnosti</string>
+    <string name="wdg_d_voltar">ZPĚT</string>
+    <string name="wdg_d_sair">uložit a odejít</string>
 </resources>

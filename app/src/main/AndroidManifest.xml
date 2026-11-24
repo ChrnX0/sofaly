@@ -479,7 +479,7 @@
         <activity
             android:name=".WidgetLayoutActivity"
             android:exported="false"
-            android:label="@string/wl_titulo"
+            android:label="@string/wdg_titulo"
             android:theme="@style/One.Translucido" />
         <!-- Trocar ícone app por app (18/11/2026, IconPickerActivity.kt): a grade de ícones de um pacote -->
         <activity

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
-    <string name="wl_titulo">Edytuj widżety ekranu głównego</string>
-    <string name="wl_det">Aktywne widżety innych aplikacji na ekranie głównym. Strzałki przesuwają, OK pokazuje opcje.</string>
-    <string name="wl_vazio">Na ekranie głównym nie ma jeszcze widżetu. OK dodaje jeden.</string>
-    <string name="wl_estado_mover">Przesuwanie: %1$s</string>
-    <string name="wl_estado_tamanho">Rozmiar: %1$s · %2$d × %3$d</string>
-    <string name="wl_mover">Przesuń</string>
-    <string name="wl_tamanho">Zmień rozmiar</string>
-    <string name="wl_ajustes">Ustawienia widżetu</string>
-    <string name="wl_proximo">Następny widżet</string>
-    <string name="wl_por">Dodaj widżet</string>
-    <string name="wl_tirar">Usuń ten widżet</string>
-    <string name="wl_abrir">Otwórz aplikację</string>
-    <string name="wl_cheio">Brak miejsca na ten widżet.</string>
-    <string name="wl_d_setas">przesuń / rozmiar</string>
-    <string name="wl_d_opcoes">opcje</string>
-    <string name="wl_d_voltar">WSTECZ</string>
-    <string name="wl_d_sair">zapisz i wyjdź</string>
+    <string name="wdg_titulo">Edytuj widżety ekranu głównego</string>
+    <string name="wdg_det">Aktywne widżety innych aplikacji na ekranie głównym. Strzałki przesuwają, OK pokazuje opcje.</string>
+    <string name="wdg_vazio">Na ekranie głównym nie ma jeszcze widżetu. OK dodaje jeden.</string>
+    <string name="wdg_estado_mover">Przesuwanie: %1$s</string>
+    <string name="wdg_estado_tamanho">Rozmiar: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Przesuń</string>
+    <string name="wdg_tamanho">Zmień rozmiar</string>
+    <string name="wdg_ajustes">Ustawienia widżetu</string>
+    <string name="wdg_proximo">Następny widżet</string>
+    <string name="wdg_por">Dodaj widżet</string>
+    <string name="wdg_tirar">Usuń ten widżet</string>
+    <string name="wdg_abrir">Otwórz aplikację</string>
+    <string name="wdg_cheio">Brak miejsca na ten widżet.</string>
+    <string name="wdg_d_setas">przesuń / rozmiar</string>
+    <string name="wdg_d_opcoes">opcje</string>
+    <string name="wdg_d_voltar">WSTECZ</string>
+    <string name="wdg_d_sair">zapisz i wyjdź</string>
 </resources>

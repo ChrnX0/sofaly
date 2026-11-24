@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
-    <string name="wl_titulo">Modifica widget della home</string>
-    <string name="wl_det">Widget dal vivo di altre app nella schermata Home. Le frecce li spostano, OK mostra le opzioni.</string>
-    <string name="wl_vazio">Nessun widget nella Home. OK ne aggiunge uno.</string>
-    <string name="wl_estado_mover">Spostamento: %1$s</string>
-    <string name="wl_estado_tamanho">Dimensione: %1$s · %2$d × %3$d</string>
-    <string name="wl_mover">Sposta</string>
-    <string name="wl_tamanho">Cambia dimensione</string>
-    <string name="wl_ajustes">Impostazioni del widget</string>
-    <string name="wl_proximo">Widget successivo</string>
-    <string name="wl_por">Aggiungi un widget</string>
-    <string name="wl_tirar">Rimuovi questo widget</string>
-    <string name="wl_abrir">Apri l\'app</string>
-    <string name="wl_cheio">Non c\'è più spazio nella Home per questo widget.</string>
-    <string name="wl_d_setas">sposta / dimensione</string>
-    <string name="wl_d_opcoes">opzioni</string>
-    <string name="wl_d_voltar">INDIETRO</string>
-    <string name="wl_d_sair">salva ed esci</string>
+    <string name="wdg_titulo">Modifica widget della home</string>
+    <string name="wdg_det">Widget dal vivo di altre app nella schermata Home. Le frecce li spostano, OK mostra le opzioni.</string>
+    <string name="wdg_vazio">Nessun widget nella Home. OK ne aggiunge uno.</string>
+    <string name="wdg_estado_mover">Spostamento: %1$s</string>
+    <string name="wdg_estado_tamanho">Dimensione: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Sposta</string>
+    <string name="wdg_tamanho">Cambia dimensione</string>
+    <string name="wdg_ajustes">Impostazioni del widget</string>
+    <string name="wdg_proximo">Widget successivo</string>
+    <string name="wdg_por">Aggiungi un widget</string>
+    <string name="wdg_tirar">Rimuovi questo widget</string>
+    <string name="wdg_abrir">Apri l\'app</string>
+    <string name="wdg_cheio">Non c\'è più spazio nella Home per questo widget.</string>
+    <string name="wdg_d_setas">sposta / dimensione</string>
+    <string name="wdg_d_opcoes">opzioni</string>
+    <string name="wdg_d_voltar">INDIETRO</string>
+    <string name="wdg_d_sair">salva ed esci</string>
 </resources>

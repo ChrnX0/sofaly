@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
-    <string name="wl_titulo">Змінити віджети головного екрана</string>
-    <string name="wl_det">Живі віджети інших застосунків на головному екрані. Стрілки переміщують, OK показує параметри.</string>
-    <string name="wl_vazio">На головному екрані ще немає віджетів. OK додасть.</string>
-    <string name="wl_estado_mover">Переміщення: %1$s</string>
-    <string name="wl_estado_tamanho">Розмір: %1$s · %2$d × %3$d</string>
-    <string name="wl_mover">Перемістити</string>
-    <string name="wl_tamanho">Змінити розмір</string>
-    <string name="wl_ajustes">Налаштування віджета</string>
-    <string name="wl_proximo">Наступний віджет</string>
-    <string name="wl_por">Додати віджет</string>
-    <string name="wl_tirar">Прибрати цей віджет</string>
-    <string name="wl_abrir">Відкрити застосунок</string>
-    <string name="wl_cheio">Для цього віджета не лишилося місця.</string>
-    <string name="wl_d_setas">перемістити / розмір</string>
-    <string name="wl_d_opcoes">параметри</string>
-    <string name="wl_d_voltar">НАЗАД</string>
-    <string name="wl_d_sair">зберегти й вийти</string>
+    <string name="wdg_titulo">Змінити віджети головного екрана</string>
+    <string name="wdg_det">Живі віджети інших застосунків на головному екрані. Стрілки переміщують, OK показує параметри.</string>
+    <string name="wdg_vazio">На головному екрані ще немає віджетів. OK додасть.</string>
+    <string name="wdg_estado_mover">Переміщення: %1$s</string>
+    <string name="wdg_estado_tamanho">Розмір: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Перемістити</string>
+    <string name="wdg_tamanho">Змінити розмір</string>
+    <string name="wdg_ajustes">Налаштування віджета</string>
+    <string name="wdg_proximo">Наступний віджет</string>
+    <string name="wdg_por">Додати віджет</string>
+    <string name="wdg_tirar">Прибрати цей віджет</string>
+    <string name="wdg_abrir">Відкрити застосунок</string>
+    <string name="wdg_cheio">Для цього віджета не лишилося місця.</string>
+    <string name="wdg_d_setas">перемістити / розмір</string>
+    <string name="wdg_d_opcoes">параметри</string>
+    <string name="wdg_d_voltar">НАЗАД</string>
+    <string name="wdg_d_sair">зберегти й вийти</string>
 </resources>

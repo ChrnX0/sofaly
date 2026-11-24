@@ -356,7 +356,7 @@ class PluginsActivity : Activity() {
         if (PluginWidgetsTv.existe(this)) {
             coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_widgets)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
             val n = PluginWidgetsTv.escolhidos(this).size
-            coluna.addView(Estilo.linhaOpcao(this, getString(R.string.wl_titulo), getString(R.string.wl_det),
+            coluna.addView(Estilo.linhaOpcao(this, getString(R.string.wdg_titulo), getString(R.string.wdg_det),
                 Estilo.valor(this, "$n / ${PluginWidget.MAX}")).apply {
                 setOnClickListener { if (pro()) startActivity(Intent(this@PluginsActivity, WidgetLayoutActivity::class.java)) }
             }, Estilo.lpLinha(this))
