@@ -128,4 +128,11 @@ class JuntoEpisodioTest {
         assertEquals(null, JuntoRegras.episodio("tmdb:serie:1:s99999999999e1"))
         assertEquals(null, JuntoRegras.episodio("tmdb:serie:1:s1e99999999999"))
     }
+
+    @Test fun sessaoSemNoticiaPorMeiaHoraAcaba() {
+        assertEquals(false, JuntoRegras.parada(0, JuntoRegras.SESSAO_PARADA_MS))
+        assertEquals(true, JuntoRegras.parada(0, JuntoRegras.SESSAO_PARADA_MS + 1))
+        // pulso pausado (1 min) fica muito abaixo do limite: pausa longa não derruba a sessão
+        assertEquals(true, br.paulo.tvlauncher.JuntoNoPlayer.PAUSADO_MS * 10 < JuntoRegras.SESSAO_PARADA_MS)
+    }
 }
