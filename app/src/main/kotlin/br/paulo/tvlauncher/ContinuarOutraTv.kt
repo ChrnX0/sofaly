@@ -23,6 +23,10 @@ object ContinuarOutraTv {
     const val ACAO_ENVIAR = "br.paulo.tvlauncher.CONTINUAR_ENVIAR"
 
     @Volatile private var pendente: Pair<JuntoRegras.Continuar, Long>? = null
+    /** Tokens dos pedidos que ESTA TV mandou (5 min): a outra TV confere aqui antes de mostrar o cartão. */
+    private val enviados = HashMap<String, Long>()
+    /** Pedidos recebidos na última hora (limite igual ao dos convites). */
+    private val recebidosHora = ArrayList<Long>()
 
     /** Do player (processo ":player"): manda o pedido ao principal, que fala com a outra TV. */
     fun enviarDoPlayer(a: Activity, host: String, titulo: String, chave: String, posMs: Long, url: String?) {
@@ -35,7 +39,12 @@ object ContinuarOutraTv {
         val host = i.getStringExtra("host") ?: return
         val eu = EntreTvs.meuHost(app) ?: return
         val c = JuntoRegras.Continuar(i.getStringExtra("titulo").orEmpty(), i.getStringExtra("chave") ?: return,
-            i.getLongExtra("pos", 0), i.getStringExtra("url"), eu)
+            i.getLongExtra("pos", 0), i.getStringExtra("url"), eu, br.paulo.tvlauncher.network.Cenas.gerarToken())
+        synchronized(enviados) {
+            val agora = System.currentTimeMillis()
+            enviados.entries.removeAll { agora - it.value > 5 * 60_000L }
+            enviados[c.token] = agora
+        }
         Fundo.rodar("continuar-enviar") {
             val r = EntreTvs.chamar(app, host, "/continuar", JuntoRegras.continuarParaJson(c))
             val nome = JuntoRegras.nomeBonito(host)
@@ -51,6 +60,15 @@ object ContinuarOutraTv {
             return 403 to JSONObject().put("erro", "desligado")
         val c = JuntoRegras.continuarDeJson(corpo) ?: return 400 to JSONObject().put("erro", "pedido")
         if (EntreTvs.outras(app).none { it.host == c.de }) return 403 to JSONObject().put("erro", "tv")
+        synchronized(recebidosHora) {
+            val (pode, nova) = JuntoRegras.contarConvite(recebidosHora, System.currentTimeMillis())
+            recebidosHora.clear(); recebidosHora.addAll(nova)
+            if (!pode) return 429 to JSONObject().put("erro", "limite")
+        }
+        // Confere de volta, como o convite da Sessão junto: a TV "de" mandou mesmo este pedido? (revisor de segurança,
+        // 24/11/2026: sem isto qualquer um na internet abria o cartão com um endereço dele.)
+        val volta = EntreTvs.chamar(app, c.de, "/continuar/${c.token}/estado")
+        if (volta.codigo != 200 || volta.json?.optBoolean("ok") != true) return 403 to JSONObject().put("erro", "conferir")
         pendente = c to System.currentTimeMillis()
         try {
             app.startActivity(Intent(app, ContinuarActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
@@ -59,6 +77,17 @@ object ContinuarOutraTv {
                 som = true, guardarSeApagada = true)
         }
         return 200 to JSONObject().put("ok", true)
+    }
+
+    /** GET /continuar/<token>/estado: a outra TV conferindo que o pedido saiu daqui. Uso único. */
+    fun estado(token: String): Pair<Int, JSONObject> {
+        val agora = System.currentTimeMillis()
+        val ok = synchronized(enviados) {
+            val k = enviados.keys.firstOrNull { java.security.MessageDigest.isEqual(it.toByteArray(), token.toByteArray()) }
+            val t = k?.let { enviados.remove(it) }
+            t != null && agora - t <= 5 * 60_000L
+        }
+        return if (ok) 200 to JSONObject().put("ok", true) else 404 to JSONObject().put("erro", "não existe")
     }
 
     /** O pedido vale 30 min (depois disso o cartão não abre mais). */
