@@ -139,7 +139,7 @@ class GravacoesActivity : Activity() {
                 ok = { RecordingCloudCopy.definirApagar(this, !apagar); carregar() }, segurar = null)
         }
         val alvo = (0 until coluna.childCount).map { coluna.getChildAt(it) }.firstOrNull { it.tag != null && it.tag == focoAntes }
-            ?: (0 until coluna.childCount).map { coluna.getChildAt(it) }.firstOrNull { it.isFocusable }
+            ?: (0 until coluna.childCount).map { coluna.getChildAt(it) }.firstOrNull { it.isFocusable && it.tag != null }
         alvo?.requestFocus()
     }
 
