@@ -67,11 +67,18 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private var idsDesenhados: List<String> = emptyList()
     private var avisoAte = 0L
     private var linhaAnimando = false
+    /** O último desenho, para refazer no lugar quando a tela muda de tamanho (antes de medir vale 960 x 540). */
+    private var ultimo: (() -> Unit)? = null
+
+    override fun onSizeChanged(w: Int, h: Int, ow: Int, oh: Int) {
+        super.onSizeChanged(w, h, ow, oh)
+        if (w > 0 && h > 0 && (w != ow || h != oh)) post { ultimo?.invoke() }
+    }
 
     init {
         clipChildren = false; clipToPadding = false
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-        addView(trilho, LayoutParams(dpi(4f), dpi(StripHome.LINHA_A)))
+        addView(trilho, LayoutParams(dpi(4f), LayoutParams.WRAP_CONTENT))
         linha.addView(icone, LinearLayout.LayoutParams(dpi(StripHome.ICONE), dpi(StripHome.ICONE)))
         linha.addView(nome, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dpi(12f) })
         linha.addView(barrinha, LinearLayout.LayoutParams(dpi(1.5f).coerceAtLeast(2), dpi(20f)).apply { marginStart = dpi(14f); marginEnd = dpi(14f) })
@@ -106,6 +113,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
      * +1 de baixo, 0 = mesmo mundo); [animar] = false põe direto no lugar.
      */
     fun mostrar(cats: List<HomeCruz.Categoria>, cat: Int, sel: Int, focada: Boolean, animar: Boolean, direcao: Int) {
+        ultimo = { mostrar(cats, cat, sel, focada, false, 0) }
         val c = cats.getOrNull(cat) ?: return
         val anima = animar && !semAnimacao()
         val o = opcoes
@@ -124,7 +132,9 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             v.alpha = if (i == cat) 1f else 0.3f
         }
         val topoLinha = altura() - StripHome.LINHA_DO_FUNDO
-        trilho.translationX = dp(StripHome.TRILHO_X); trilho.translationY = dp(topoLinha)
+        // o trilho fica centrado na altura da linha do mundo (10 dp o atual, 4 dp os outros, 4 dp entre eles)
+        val trilhoA = 10f + (cats.size - 1) * 8f
+        trilho.translationX = dp(StripHome.TRILHO_X); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
         trilho.visibility = if (cats.size > 1) View.VISIBLE else View.INVISIBLE
         linha.translationX = dp(StripHome.MARGEM)
 
