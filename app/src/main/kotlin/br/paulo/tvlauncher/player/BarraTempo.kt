@@ -36,14 +36,29 @@ object BarraTempo {
      * É o formato ÚNICO do app (18/11/2026): a Sala mostrava o mesmo programa como "1 h 3 min" na HOME, "1 h 04 min" na
      * barra do player, "1 h 04" na lista de canais e "64 min" no detalhe do canal.
      */
-    fun duracao(ms: Long): String {
+    fun duracao(ms: Long, local: java.util.Locale = java.util.Locale.getDefault()): String {
         val min = ((ms + 59_999) / 60_000).coerceAtLeast(1)
+        // 24/11/2026 (teste de telas em árabe): "h"/"min" e algarismos latinos no meio do árabe embaralhavam a linha
+        // ("h 4 min 1 متبقٍ"). Agora as unidades e os algarismos são os da língua da TV.
+        val (h, m, junto) = UNIDADES[local.language] ?: Triple("h", "min", false)
+        val num = java.text.NumberFormat.getIntegerInstance(local)
+        fun parte(n: Long, u: String) = if (junto) num.format(n) + u else num.format(n) + "\u00A0" + u
+        val sep = if (junto) "" else " "
         return when {
-            min < 60 -> "$min min"
-            min % 60 == 0L -> "${min / 60} h"
-            else -> "${min / 60} h ${min % 60} min"
-        }
+            min < 60 -> parte(min, m)
+            min % 60 == 0L -> parte(min / 60, h)
+            else -> parte(min / 60, h) + sep + parte(min % 60, m)
+        }.let { if (local.language in setOf("pt", "en")) it.replace('\u00A0', ' ') else it }
     }
+
+    /** Hora e minuto abreviados por língua (o padrão é "h"/"min"); `true` = sem espaço entre número e unidade. */
+    private val UNIDADES = mapOf(
+        "ru" to Triple("ч", "мин", false), "uk" to Triple("год", "хв", false), "el" to Triple("ώ.", "λ.", false),
+        "ar" to Triple("س", "د", false), "hi" to Triple("घं.", "मि.", false), "ja" to Triple("時間", "分", true),
+        "ko" to Triple("시간", "분", true), "zh" to Triple("小时", "分钟", true), "th" to Triple("ชม.", "นาที", false),
+        "vi" to Triple("giờ", "phút", false), "tr" to Triple("sa", "dk", false), "in" to Triple("j", "mnt", false),
+        "id" to Triple("j", "mnt", false), "hu" to Triple("ó", "p", false), "pl" to Triple("godz.", "min", false),
+    )
 
     /**
      * Modelo "faltam X" com a concordância certa: "falta 1 min" / "falta 1 h 20 min" no singular, "faltam 5 min" no plural
@@ -51,7 +66,7 @@ object BarraTempo {
      * textos são iguais.
      */
     fun modeloFaltam(valor: String): Int =
-        if (valor.startsWith("1 ")) R.string.tempo_falta_um else R.string.tempo_faltam
+        if (valor.startsWith("1 ") || valor.startsWith("1\u00A0")) R.string.tempo_falta_um else R.string.tempo_faltam
 
     /** "faltam 22 min" / "falta 1 min", pronto. */
     fun faltam(ctx: Context, valor: String): String = ctx.getString(modeloFaltam(valor), valor)

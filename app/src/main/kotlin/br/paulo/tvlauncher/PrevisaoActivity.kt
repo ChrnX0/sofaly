@@ -163,7 +163,7 @@ class PrevisaoActivity : Activity() {
             ?: if (recente) guardado.getInt("umidade", -1).takeIf { it >= 0 } else null
         Fundo.rodar {
             val dados = try { carregar() } catch (e: Exception) { null }
-            dados?.let { d -> codigoTopo?.let { d.codigo = it }; umidadeTopo?.let { d.umidade = it } }
+            dados?.usarTopo(tempTopo, umidadeTopo, codigoTopo)
             runOnUiThread { if (!isFinishing) montar(dados, tempTopo, chovendo) }
         }
     }
@@ -364,7 +364,7 @@ class PrevisaoActivity : Activity() {
             ),
             listOf(
                 Triple(getString(R.string.pv_visib), if (vis >= 10) "10+ km" else "${"%.1f".format(Locale.getDefault(), vis)} km", "eye" to ""),
-                Triple(getString(R.string.pv_orvalho), "${Math.round(d.hOrvalho.getOrElse(i0) { d.temp }).toInt()}°", "droplet" to ""),
+                Triple(getString(R.string.pv_orvalho), "${Math.round(d.orvalho()).toInt()}°", "droplet" to ""),
                 Triple(getString(R.string.pv_pressao), "${Math.round(d.pressao).toInt()} hPa", "cloud" to ""),
                 Triple(getString(R.string.pv_chuva_hoje), "${"%.1f".format(Locale.getDefault(), d.dChuvaMm)} mm", "cloud_with_rain" to ""),
             ),
@@ -402,8 +402,10 @@ class PrevisaoActivity : Activity() {
         val sol = cartao(getString(R.string.pt_sol))
         val nascerMin = minutos(d.dNascer[0]); val poenteMin = minutos(d.dPoente[0])
         sol.contentDescription = "${getString(R.string.pt_sol)}: ↑ ${d.dNascer[0].substring(11)}, ↓ ${d.dPoente[0].substring(11)}"
-        sol.addView(ArcoSol(this, ((agoraMin - nascerMin).toFloat() / (poenteMin - nascerMin)).coerceIn(-0.05f, 1.05f)),
-            LinearLayout.LayoutParams(-1, dp(70)).apply { topMargin = dp(4) })
+        sol.addView(ArcoSol(this, ((agoraMin - nascerMin).toFloat() / (poenteMin - nascerMin)).coerceIn(-0.05f, 1.05f)).apply { minimumHeight = dp(64) },
+            // O arco fica com o que sobra: com altura fixa ele espremia a linha dos horários embaixo (letras saíam da
+            // caixa, 24/11/2026, checagem de corte vertical).
+            LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(4) })
         sol.addView(LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             addView(texto(18f, textoSuave).apply { text = "↑ ${d.dNascer[0].substring(11)}" }, LinearLayout.LayoutParams(0, -2, 1f))
