@@ -117,8 +117,6 @@ JogosActivity.kt titulo 1
 LembretesTv.kt dicas 1
 LembretesTv.kt titulo 1
 LicencasActivity.kt dicas 1
-LinhasTempo.kt cor 3
-LinhasTempo.kt letra 1
 MainActivity.kt cor 7
 MainActivity.kt dicas 1
 MainActivity.kt letra 5

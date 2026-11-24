@@ -13,4 +13,10 @@ class ClimaFontesFusoTest {
         assertEquals(TimeZone.getDefault().id, ClimaFontes.fusoDe(JSONObject("{}")).id)
         assertEquals(TimeZone.getDefault().id, ClimaFontes.fusoDe(JSONObject("""{"timezone":"Lugar/Inventado"}""")).id)
     }
+
+    @Test fun horasDoLugarViramHorasDaTv() {
+        val sp = TimeZone.getTimeZone("America/Sao_Paulo"); val lisboa = TimeZone.getTimeZone("Europe/Lisbon")
+        assertEquals("2026-11-24T21:00", ClimaFontes.paraFusoDaTv("2026-11-24T18:00", sp, lisboa))
+        assertEquals("2026-11-24T18:00", ClimaFontes.paraFusoDaTv("2026-11-24T18:00", sp, sp))
+    }
 }

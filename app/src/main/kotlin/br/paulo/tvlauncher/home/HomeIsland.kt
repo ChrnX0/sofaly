@@ -187,6 +187,11 @@ internal fun MainActivity.lerFontesIlha() {
             .filter { !it.diaInteiro && it.inicio + BarraIlha.AGENDA_ATRASO_MS > agora }.minByOrNull { it.inicio }
             ?.let { "${it.titulo} · ${hm.format(java.util.Date(it.inicio))}" to it.inicio }
     }.getOrNull()
+    // Céu da noite: só evento de verdade, visível daqui, com céu limpo; a pílula entra 3 h antes e sai no fim.
+    ilhaCeu = runCatching {
+        br.paulo.tvlauncher.weather.NightSkyTv.semEsperar(this, agora)?.takeIf { br.paulo.tvlauncher.weather.NightSky.naIlha(it, agora) }
+            ?.let { br.paulo.tvlauncher.weather.NightSkyTv.textoIlha(this, it) to it.kind }
+    }.getOrNull()
     val ind = HashSet<BarraIlha.Indicador>()
     if (runCatching { Gravacoes.resumoParaHome(this) }.getOrNull() != null) ind += BarraIlha.Indicador.GRAVANDO   // grava no ":player"
     if (runCatching { NaoPerturbeTv.motivoAgora(this) }.getOrNull() != null) ind += BarraIlha.Indicador.NAO_PERTURBE
@@ -262,6 +267,7 @@ internal fun MainActivity.atualizarIlha() {
         servicoFora = txtServico.se(pilulaServico),
         lembreteCasa = txtLembreteCasa.se(pilulaLembreteCasa),
         contagem = txtContagem.se(pilulaContagem),
+        ceu = ilhaCeu?.first,
     ))
     pintarTrilho(BarraIlha.trilho(ilhaIndicadores))
     if (fila != ilhaFila && BarraIlha.mesmaEstrutura(ilhaFila, fila)) {
@@ -337,6 +343,13 @@ internal fun MainActivity.aplicarIlha() {
             BarraIlha.Tipo.SERVICO_FORA -> IconeApp(IconeApp.Tipo.SEM_REDE, Estilo.ATENCAO)
             BarraIlha.Tipo.LEMBRETE_CASA -> IconeLinha(IconeLinha.Tipo.RECADO)
             BarraIlha.Tipo.CONTAGEM -> IconeLinha(IconeLinha.Tipo.CALENDARIO)
+            // Ícones provisórios: a arte do céu da noite é da thread Design.
+            BarraIlha.Tipo.CEU -> when (ilhaCeu?.second) {
+                br.paulo.tvlauncher.weather.NightSky.Kind.ISS -> IconeLinha(IconeLinha.Tipo.SATELITE)
+                br.paulo.tvlauncher.weather.NightSky.Kind.SUPERMOON -> IconeLinha(IconeLinha.Tipo.LUA, 1.0)
+                br.paulo.tvlauncher.weather.NightSky.Kind.ECLIPSE_SUN -> IconeLinha(IconeLinha.Tipo.SOL)
+                else -> IconeLinha(IconeLinha.Tipo.ESTRELA)
+            }
             else -> null
         }
         if (mudouTipo) { ilhaIcone?.setImageDrawable(ic); ilhaIcone?.visibility = if (ic != null) View.VISIBLE else View.GONE }
