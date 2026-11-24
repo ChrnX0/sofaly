@@ -107,7 +107,7 @@
     <string name="casa_campainha">Campanello</string>
     <string name="casa_alguem_porta">C’è qualcuno alla porta</string>
     <string name="casa_err_endereco">indirizzo non valido (es. http://192.168.1.10:8123; fuori dalla rete di casa usa https)</string>
-    <string name="casa_err_token">token non valido: creane uno in Profilo &gt; Sicurezza &gt; Token di accesso a lunga durata</string>
+    <string name="casa_err_token">token non valido: creane uno in Profilo › Sicurezza › Token di accesso a lunga durata</string>
     <string name="casa_err_keystore">il Keystore della TV ha fallito: %1$s</string>
     <string name="casa_err_sensor">sensore non valido (es. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">telecamera non valida (es. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Attiva l’indirizzo pubblico</string>
     <string name="cc_ativar_det">Account nuovo: HTTPS e Funnel vanno ancora attivati. Apri sul telefono il codice qui accanto e conferma.</string>
     <string name="cc_pronto">Fatto: la TV è online</string>
-    <string name="cc_pronto_det">Indirizzo: %1$s\n\nClaude: Impostazioni &gt; Connettori &gt; Aggiungi connettore personalizzato.\nChatGPT: Impostazioni &gt; Connettori (modalità sviluppatore).\nPerplexity: Impostazioni &gt; Connettori &gt; Personalizzato.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: aggiungi un server MCP con questo indirizzo.</string>
+    <string name="cc_pronto_det">Indirizzo: %1$s\n\nClaude: Impostazioni › Connettori › Aggiungi connettore personalizzato.\nChatGPT: Impostazioni › Connettori (modalità sviluppatore).\nPerplexity: Impostazioni › Connettori › Personalizzato.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: aggiungi un server MCP con questo indirizzo.</string>
     <string name="cc_pede_google">Alla connessione chiede l’account Google (google.com/device + codice).</string>
     <string name="cc_pede_pin">Alla connessione chiede il PIN.</string>
     <string name="cc_acoes_ok">Azioni sulla TV solo con OK sul telecomando.</string>

@@ -107,7 +107,7 @@
     <string name="casa_campainha">초인종</string>
     <string name="casa_alguem_porta">누군가 문 앞에 있습니다</string>
     <string name="casa_err_endereco">잘못된 주소(예: http://192.168.1.10:8123, 홈 네트워크 밖에서는 https 사용)</string>
-    <string name="casa_err_token">잘못된 토큰: Profile &gt; Security &gt; Long-lived access tokens에서 만드세요</string>
+    <string name="casa_err_token">잘못된 토큰: Profile › Security › Long-lived access tokens에서 만드세요</string>
     <string name="casa_err_keystore">TV의 Keystore 오류: %1$s</string>
     <string name="casa_err_sensor">잘못된 센서(예: binary_sensor.doorbell)</string>
     <string name="casa_err_camera">잘못된 카메라(예: camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. 공개 주소 켜기</string>
     <string name="cc_ativar_det">새 계정: HTTPS와 Funnel을 아직 켜야 합니다. 휴대폰에서 옆의 코드를 열고 확인하세요.</string>
     <string name="cc_pronto">완료: TV가 온라인입니다</string>
-    <string name="cc_pronto_det">주소: %1$s\n\nClaude: Settings &gt; Connectors &gt; Add custom connector.\nChatGPT: Settings &gt; Connectors(개발자 모드).\nPerplexity: Settings &gt; Connectors &gt; Custom.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: 이 주소로 MCP 서버를 추가하세요.</string>
+    <string name="cc_pronto_det">주소: %1$s\n\nClaude: Settings › Connectors › Add custom connector.\nChatGPT: Settings › Connectors(개발자 모드).\nPerplexity: Settings › Connectors › Custom.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: 이 주소로 MCP 서버를 추가하세요.</string>
     <string name="cc_pede_google">연결할 때 Google 계정을 요구합니다(google.com/device + 코드).</string>
     <string name="cc_pede_pin">연결할 때 PIN을 요구합니다.</string>
     <string name="cc_acoes_ok">TV 동작은 리모컨의 OK로만 실행됩니다.</string>

@@ -15,7 +15,7 @@
     <string name="continue_podcast">Podcast</string>
     <string name="cruz_jogo">Gioco</string>
     <string name="cruz_icones">Icone della schermata Home</string>
-    <string name="cruz_icones_det">Disegno di Guarda, Ascolta e Gioca</string>
+    <string name="cruz_icones_det">Disegno delle icone di categorie ed elementi</string>
     <string name="cruz_objeto">Oggetto</string>
     <string name="cruz_simbolo">Simbolo</string>
     <string name="cruz_duotom">Bicolore</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">Orologio grande</string>
     <string name="cruz_barra_capsulas">Capsule</string>
     <string name="cruz_arte">Immagine dell\'elemento selezionato</string>
-    <string name="cruz_arte_det">Dietro la croce, a destra</string>
+    <string name="cruz_arte_det">Dietro gli elementi, a destra</string>
     <string name="cruz_ligada">Attiva</string>
     <string name="cruz_desligada">Disattiva</string>
     <string name="cruz_sons">Suoni di navigazione</string>

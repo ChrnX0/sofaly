@@ -15,7 +15,7 @@
     <string name="continue_podcast">Podcast</string>
     <string name="cruz_jogo">Jogo</string>
     <string name="cruz_icones">Ícones do ecrã inicial</string>
-    <string name="cruz_icones_det">Desenho de Ver, Ouvir e Jogar</string>
+    <string name="cruz_icones_det">Desenho dos ícones das categorias e dos itens</string>
     <string name="cruz_objeto">Objeto</string>
     <string name="cruz_simbolo">Símbolo</string>
     <string name="cruz_duotom">Duotom</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">Relógio grande</string>
     <string name="cruz_barra_capsulas">Cápsulas</string>
     <string name="cruz_arte">Arte do item em foco</string>
-    <string name="cruz_arte_det">Atrás da cruz, à direita</string>
+    <string name="cruz_arte_det">Atrás dos itens, à direita</string>
     <string name="cruz_ligada">Ligada</string>
     <string name="cruz_desligada">Desligada</string>
     <string name="cruz_sons">Sons ao navegar</string>
@@ -78,7 +78,7 @@
     <string name="cruz_por_ultimo">Por último: %1$s</string>
     <string name="cruz_addons_n">Addons instalados: %1$d</string>
     <string name="cruz_apps_n">%1$d apps</string>
-    <string name="cruz_apps_ocultos">%1$d apps · escondidas: %2$d</string>
+    <string name="cruz_apps_ocultos">%1$d apps · escondidos: %2$d</string>
     <string name="cruz_podcasts_n">Podcasts que segue: %1$d</string>
     <string name="cruz_pendrive">Pen USB: %1$s</string>
     <string name="casa_fora_titulo">O Home Assistant está fora do ar</string>

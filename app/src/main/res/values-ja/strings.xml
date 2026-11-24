@@ -73,7 +73,7 @@
     <string name="bv_perm">カレンダー、位置情報、アカウントをオン</string>
     <string name="bv_perm_det">カレンダーの予定、お住まいの都市の天気、プロフィールのアカウント頭文字</string>
     <string name="bv_teclas">キーサービスをオン</string>
-    <string name="bv_teclas_det">ユーザー補助 &gt; ランチャー: HOME で必ずここに戻るようにします</string>
+    <string name="bv_teclas_det">ユーザー補助 › ランチャー: HOME で必ずここに戻るようにします</string>
     <string name="bv_tudo">オンにできる機能をすべて見る</string>
     <string name="lic_sem_arquivo">ライセンスファイルが見つかりません。</string>
     <string name="rot_ligar">TV をつける</string>

@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">已锁定</string>
     <string name="cl_cf_bloqueado_det">从频道列表、节目指南、搜索、▲▼ 和数字输入中隐藏，且无法播放</string>
     <string name="cl_cf_assistir">如需观看</string>
-    <string name="cl_cf_assistir_det">在播放器中：OK &gt; 筛选 &gt; “显示隐藏的类别和屏蔽的频道”并输入 PIN</string>
+    <string name="cl_cf_assistir_det">在播放器中：OK › 筛选 › “显示隐藏的类别和屏蔽的频道”并输入 PIN</string>
     <string name="cl_cf_tranca">重新锁定</string>
     <string name="cl_cf_tranca_det">播放器关闭时自动锁定（主屏幕键、其他应用或电视关机）</string>
     <string name="cl_cf_pin">PIN</string>

@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Bloqueado</string>
     <string name="cl_cf_bloqueado_det">Some da lista de canais, da grade, da pesquisa, do ▲▼ e do número digitado, e não toca</string>
     <string name="cl_cf_assistir">Para assistir</string>
-    <string name="cl_cf_assistir_det">No player: OK &gt; Filtros &gt; \"Mostrar categorias ocultas e canais bloqueados\" e o PIN</string>
+    <string name="cl_cf_assistir_det">No player: OK › Filtros › \"Mostrar categorias escondidas e canais bloqueados\" e o PIN</string>
     <string name="cl_cf_tranca">Tranca de novo</string>
     <string name="cl_cf_tranca_det">Sozinho, quando o player sai do ecrã (HOME, outro app ou TV apagada)</string>
     <string name="cl_cf_pin">PIN</string>
@@ -186,8 +186,8 @@
     <string name="fb_restaurando">A restaurar…</string>
     <string name="fb_feito">Pronto: %1$d voltaram, %2$d não foi possível alterar</string>
     <string name="fb_nada">Nada mudou desde %1$s</string>
-    <string name="fb_resumo">Desde %1$s: %2$d apps ocultadas pela Sofaly. OK repõe tudo</string>
-    <string name="fb_resumo_dns">Desde %1$s: %2$d apps ocultadas pela Sofaly e o DNS mudou. OK repõe tudo</string>
+    <string name="fb_resumo">Desde %1$s: %2$d apps escondidos pela Sofaly. OK repõe tudo</string>
+    <string name="fb_resumo_dns">Desde %1$s: %2$d apps escondidos pela Sofaly e o DNS mudou. OK repõe tudo</string>
     <string name="fb_desfazer">Anular o restauro</string>
     <string name="fb_desfazer_det">Esconde essas apps outra vez e repõe o DNS anterior</string>
     <string name="cl_mostrar_todos">Mostrar todos de volta</string>

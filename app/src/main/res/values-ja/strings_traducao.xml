@@ -107,7 +107,7 @@
     <string name="casa_campainha">ドアベル</string>
     <string name="casa_alguem_porta">玄関に誰か来ています</string>
     <string name="casa_err_endereco">無効なアドレス（例: http://192.168.1.10:8123。ホームネットワーク外では https を使用）</string>
-    <string name="casa_err_token">無効なトークン: プロフィール &gt; セキュリティ &gt; 長期アクセストークン で作成してください</string>
+    <string name="casa_err_token">無効なトークン: プロフィール › セキュリティ › 長期アクセストークン で作成してください</string>
     <string name="casa_err_keystore">TV の Keystore でエラー: %1$s</string>
     <string name="casa_err_sensor">無効なセンサー（例: binary_sensor.doorbell）</string>
     <string name="casa_err_camera">無効なカメラ（例: camera.front_door）</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. 公開アドレスをオン</string>
     <string name="cc_ativar_det">新しいアカウント: HTTPS と Funnel をまだオンにする必要があります。横のコードをスマートフォンで開いて確認してください。</string>
     <string name="cc_pronto">完了: TV はオンラインです</string>
-    <string name="cc_pronto_det">アドレス: %1$s\n\nClaude: 設定 &gt; コネクタ &gt; カスタムコネクタを追加。\nChatGPT: 設定 &gt; コネクタ（開発者モード）。\nPerplexity: 設定 &gt; コネクタ &gt; カスタム。\nGrok: grok.com/connectors &gt; 新規 &gt; カスタム。\nCodex、Antigravity、Claude Code、Cursor: このアドレスで MCP サーバーを追加。</string>
+    <string name="cc_pronto_det">アドレス: %1$s\n\nClaude: 設定 › コネクタ › カスタムコネクタを追加。\nChatGPT: 設定 › コネクタ（開発者モード）。\nPerplexity: 設定 › コネクタ › カスタム。\nGrok: grok.com/connectors › 新規 › カスタム。\nCodex、Antigravity、Claude Code、Cursor: このアドレスで MCP サーバーを追加。</string>
     <string name="cc_pede_google">接続時に Google アカウントを求めます（google.com/device + コード）。</string>
     <string name="cc_pede_pin">接続時に PIN を求めます。</string>
     <string name="cc_acoes_ok">TV での操作はリモコンの OK でのみ実行。</string>

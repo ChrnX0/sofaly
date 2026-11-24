@@ -107,7 +107,7 @@
     <string name="casa_campainha">Дверной звонок</string>
     <string name="casa_alguem_porta">Кто-то у двери</string>
     <string name="casa_err_endereco">неверный адрес (напр. http://192.168.1.10:8123; вне домашней сети используйте https)</string>
-    <string name="casa_err_token">неверный токен: создайте его в Профиль &gt; Безопасность &gt; Долгосрочные токены доступа</string>
+    <string name="casa_err_token">неверный токен: создайте его в Профиль › Безопасность › Долгосрочные токены доступа</string>
     <string name="casa_err_keystore">сбой Keystore на ТВ: %1$s</string>
     <string name="casa_err_sensor">неверный датчик (напр. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">неверная камера (напр. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Включите публичный адрес</string>
     <string name="cc_ativar_det">Новый аккаунт: HTTPS и Funnel ещё нужно включить. Откройте код рядом на телефоне и подтвердите.</string>
     <string name="cc_pronto">Готово: ТВ в сети</string>
-    <string name="cc_pronto_det">Адрес: %1$s\n\nClaude: Настройки &gt; Коннекторы &gt; Добавить свой коннектор.\nChatGPT: Настройки &gt; Коннекторы (режим разработчика).\nPerplexity: Настройки &gt; Коннекторы &gt; Свой.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: добавьте сервер MCP с этим адресом.</string>
+    <string name="cc_pronto_det">Адрес: %1$s\n\nClaude: Настройки › Коннекторы › Добавить свой коннектор.\nChatGPT: Настройки › Коннекторы (режим разработчика).\nPerplexity: Настройки › Коннекторы › Свой.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: добавьте сервер MCP с этим адресом.</string>
     <string name="cc_pede_google">При подключении запрашивает аккаунт Google (google.com/device + код).</string>
     <string name="cc_pede_pin">При подключении запрашивает PIN.</string>
     <string name="cc_acoes_ok">Действия на ТВ — только с OK на пульте.</string>

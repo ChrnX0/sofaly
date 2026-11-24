@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Zablokowany</string>
     <string name="cl_cf_bloqueado_det">Ukryty na liście kanałów, w programie, wyszukiwaniu, ▲▼ i wpisywanych numerach, i nie jest odtwarzany</string>
     <string name="cl_cf_assistir">Aby oglądać</string>
-    <string name="cl_cf_assistir_det">W odtwarzaczu: OK &gt; Filtry &gt; „Pokaż ukryte kategorie i zablokowane kanały” i PIN</string>
+    <string name="cl_cf_assistir_det">W odtwarzaczu: OK › Filtry › „Pokaż ukryte kategorie i zablokowane kanały” i PIN</string>
     <string name="cl_cf_tranca">Blokuje się ponownie</string>
     <string name="cl_cf_tranca_det">Sam, gdy odtwarzacz się zamyka (HOME, inna aplikacja lub wyłączenie telewizora)</string>
     <string name="cl_cf_pin">PIN</string>

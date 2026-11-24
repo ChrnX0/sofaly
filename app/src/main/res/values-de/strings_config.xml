@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Gesperrt</string>
     <string name="cl_cf_bloqueado_det">Ausgeblendet in Senderliste, Programmführer, Suche, ▲▼ und eingegebenen Nummern, und wird nicht abgespielt</string>
     <string name="cl_cf_assistir">Zum Ansehen</string>
-    <string name="cl_cf_assistir_det">Im Player: OK &gt; Filter &gt; \"Ausgeblendete Kategorien und gesperrte Sender zeigen\" und die PIN</string>
+    <string name="cl_cf_assistir_det">Im Player: OK › Filter › \"Ausgeblendete Kategorien und gesperrte Sender zeigen\" und die PIN</string>
     <string name="cl_cf_tranca">Sperrt wieder</string>
     <string name="cl_cf_tranca_det">Von selbst, wenn der Player schließt (HOME, andere App oder Fernseher aus)</string>
     <string name="cl_cf_pin">PIN</string>

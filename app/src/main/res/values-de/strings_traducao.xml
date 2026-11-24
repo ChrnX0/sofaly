@@ -107,7 +107,7 @@
     <string name="casa_campainha">Türklingel</string>
     <string name="casa_alguem_porta">Jemand ist an der Tür</string>
     <string name="casa_err_endereco">ungültige Adresse (z. B. http://192.168.1.10:8123; außerhalb des Heimnetzes https nutzen)</string>
-    <string name="casa_err_token">ungültiges Token: erstelle eines unter Profil &gt; Sicherheit &gt; Langlebige Zugangstoken</string>
+    <string name="casa_err_token">ungültiges Token: erstelle eines unter Profil › Sicherheit › Langlebige Zugangstoken</string>
     <string name="casa_err_keystore">der Keystore des Fernsehers ist fehlgeschlagen: %1$s</string>
     <string name="casa_err_sensor">ungültiger Sensor (z. B. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">ungültige Kamera (z. B. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Öffentliche Adresse einschalten</string>
     <string name="cc_ativar_det">Neues Konto: HTTPS und Funnel müssen noch eingeschaltet werden. Öffne den Code daneben auf dem Handy und bestätige.</string>
     <string name="cc_pronto">Fertig: der Fernseher ist online</string>
-    <string name="cc_pronto_det">Adresse: %1$s\n\nClaude: Settings &gt; Connectors &gt; Add custom connector.\nChatGPT: Settings &gt; Connectors (Entwicklermodus).\nPerplexity: Settings &gt; Connectors &gt; Custom.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: füge einen MCP-Server mit dieser Adresse hinzu.</string>
+    <string name="cc_pronto_det">Adresse: %1$s\n\nClaude: Settings › Connectors › Add custom connector.\nChatGPT: Settings › Connectors (Entwicklermodus).\nPerplexity: Settings › Connectors › Custom.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: füge einen MCP-Server mit dieser Adresse hinzu.</string>
     <string name="cc_pede_google">Beim Verbinden wird nach dem Google-Konto gefragt (google.com/device + Code).</string>
     <string name="cc_pede_pin">Beim Verbinden wird nach der PIN gefragt.</string>
     <string name="cc_acoes_ok">Aktionen auf dem Fernseher nur mit OK auf der Fernbedienung.</string>

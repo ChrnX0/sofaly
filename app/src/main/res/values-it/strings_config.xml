@@ -75,7 +75,7 @@
     <string name="cl_cf_bloqueado">Bloccato</string>
     <string name="cl_cf_bloqueado_det">Nascosto da elenco canali, guida, ricerca, ▲▼ e numeri digitati, e non si riproduce</string>
     <string name="cl_cf_assistir">Per guardare</string>
-    <string name="cl_cf_assistir_det">Nel player: OK &gt; Filtri &gt; «Mostra categorie nascoste e canali bloccati» e il PIN</string>
+    <string name="cl_cf_assistir_det">Nel player: OK › Filtri › «Mostra categorie nascoste e canali bloccati» e il PIN</string>
     <string name="cl_cf_tranca">Si riblocca</string>
     <string name="cl_cf_tranca_det">Da solo quando il player si chiude (HOME, un’altra app o TV spenta)</string>
     <string name="cl_cf_pin">PIN</string>

@@ -107,7 +107,7 @@
     <string name="casa_campainha">Sonnette</string>
     <string name="casa_alguem_porta">Quelqu’un est à la porte</string>
     <string name="casa_err_endereco">adresse non valide (ex. http://192.168.1.10:8123 ; hors du réseau domestique, utilisez https)</string>
-    <string name="casa_err_token">jeton non valide : créez-en un dans Profil &gt; Sécurité &gt; Jetons d’accès longue durée</string>
+    <string name="casa_err_token">jeton non valide : créez-en un dans Profil › Sécurité › Jetons d’accès longue durée</string>
     <string name="casa_err_keystore">le Keystore de la TV a échoué : %1$s</string>
     <string name="casa_err_sensor">capteur non valide (ex. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">caméra non valide (ex. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Activer l’adresse publique</string>
     <string name="cc_ativar_det">Nouveau compte : HTTPS et Funnel doivent encore être activés. Ouvrez le code à côté sur votre téléphone et confirmez.</string>
     <string name="cc_pronto">C’est fait : la TV est en ligne</string>
-    <string name="cc_pronto_det">Adresse : %1$s\n\nClaude : Settings &gt; Connectors &gt; Add custom connector.\nChatGPT : Settings &gt; Connectors (mode développeur).\nPerplexity : Settings &gt; Connectors &gt; Custom.\nGrok : grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor : ajoutez un serveur MCP avec cette adresse.</string>
+    <string name="cc_pronto_det">Adresse : %1$s\n\nClaude : Settings › Connectors › Add custom connector.\nChatGPT : Settings › Connectors (mode développeur).\nPerplexity : Settings › Connectors › Custom.\nGrok : grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor : ajoutez un serveur MCP avec cette adresse.</string>
     <string name="cc_pede_google">À la connexion, il demande le compte Google (google.com/device + code).</string>
     <string name="cc_pede_pin">À la connexion, il demande le PIN.</string>
     <string name="cc_acoes_ok">Actions sur la TV uniquement avec OK sur la télécommande.</string>

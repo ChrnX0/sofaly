@@ -15,7 +15,7 @@
     <string name="continue_podcast">播客</string>
     <string name="cruz_jogo">游戏</string>
     <string name="cruz_icones">主屏幕图标</string>
-    <string name="cruz_icones_det">\"观看\"\"收听\"\"游戏\"的图标样式</string>
+    <string name="cruz_icones_det">分类和项目图标的样式</string>
     <string name="cruz_objeto">实物</string>
     <string name="cruz_simbolo">符号</string>
     <string name="cruz_duotom">双色</string>
@@ -26,7 +26,7 @@
     <string name="cruz_barra_relogio">大时钟</string>
     <string name="cruz_barra_capsulas">胶囊</string>
     <string name="cruz_arte">所选项目的图片</string>
-    <string name="cruz_arte_det">十字后方，右侧</string>
+    <string name="cruz_arte_det">项目后方，右侧</string>
     <string name="cruz_ligada">开</string>
     <string name="cruz_desligada">关</string>
     <string name="cruz_sons">导航音效</string>

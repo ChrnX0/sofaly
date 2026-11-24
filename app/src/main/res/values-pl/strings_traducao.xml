@@ -107,7 +107,7 @@
     <string name="casa_campainha">Dzwonek do drzwi</string>
     <string name="casa_alguem_porta">Ktoś jest przy drzwiach</string>
     <string name="casa_err_endereco">nieprawidłowy adres (np. http://192.168.1.10:8123; poza siecią domową użyj https)</string>
-    <string name="casa_err_token">nieprawidłowy token: utwórz go w Profil &gt; Bezpieczeństwo &gt; Tokeny dostępu długoterminowego</string>
+    <string name="casa_err_token">nieprawidłowy token: utwórz go w Profil › Bezpieczeństwo › Tokeny dostępu długoterminowego</string>
     <string name="casa_err_keystore">błąd Keystore na telewizorze: %1$s</string>
     <string name="casa_err_sensor">nieprawidłowy czujnik (np. binary_sensor.doorbell)</string>
     <string name="casa_err_camera">nieprawidłowa kamera (np. camera.front_door)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Włącz adres publiczny</string>
     <string name="cc_ativar_det">Nowe konto: HTTPS i Funnel trzeba jeszcze włączyć. Otwórz kod obok na telefonie i potwierdź.</string>
     <string name="cc_pronto">Gotowe: telewizor online</string>
-    <string name="cc_pronto_det">Adres: %1$s\n\nClaude: Ustawienia &gt; Łączniki &gt; Dodaj własny łącznik.\nChatGPT: Ustawienia &gt; Łączniki (tryb programisty).\nPerplexity: Ustawienia &gt; Łączniki &gt; Własny.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: dodaj serwer MCP z tym adresem.</string>
+    <string name="cc_pronto_det">Adres: %1$s\n\nClaude: Ustawienia › Łączniki › Dodaj własny łącznik.\nChatGPT: Ustawienia › Łączniki (tryb programisty).\nPerplexity: Ustawienia › Łączniki › Własny.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: dodaj serwer MCP z tym adresem.</string>
     <string name="cc_pede_google">Przy łączeniu prosi o konto Google (google.com/device + kod).</string>
     <string name="cc_pede_pin">Przy łączeniu prosi o PIN.</string>
     <string name="cc_acoes_ok">Działania na telewizorze tylko z OK na pilocie.</string>

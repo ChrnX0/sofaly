@@ -107,7 +107,7 @@
     <string name="casa_campainha">Timbre</string>
     <string name="casa_alguem_porta">Hay alguien en la puerta</string>
     <string name="casa_err_endereco">dirección no válida (ej. http://192.168.1.10:8123; fuera de la red de casa usa https)</string>
-    <string name="casa_err_token">token no válido: crea uno en Perfil &gt; Seguridad &gt; Tokens de acceso de larga duración</string>
+    <string name="casa_err_token">token no válido: crea uno en Perfil › Seguridad › Tokens de acceso de larga duración</string>
     <string name="casa_err_keystore">falló el Keystore de la TV: %1$s</string>
     <string name="casa_err_sensor">sensor no válido (ej. binary_sensor.timbre)</string>
     <string name="casa_err_camera">cámara no válida (ej. camera.puerta_principal)</string>
@@ -182,7 +182,7 @@
     <string name="cc_ativar">2. Activa la dirección pública</string>
     <string name="cc_ativar_det">Cuenta nueva: aún hay que activar HTTPS y Funnel. Abre en el teléfono el código de al lado y confirma.</string>
     <string name="cc_pronto">Listo: la TV está en línea</string>
-    <string name="cc_pronto_det">Dirección: %1$s\n\nClaude: Configuración &gt; Conectores &gt; Agregar conector personalizado.\nChatGPT: Configuración &gt; Conectores (modo desarrollador).\nPerplexity: Configuración &gt; Conectores &gt; Personalizado.\nGrok: grok.com/connectors &gt; New &gt; Custom.\nCodex, Antigravity, Claude Code, Cursor: agrega un servidor MCP con esta dirección.</string>
+    <string name="cc_pronto_det">Dirección: %1$s\n\nClaude: Configuración › Conectores › Agregar conector personalizado.\nChatGPT: Configuración › Conectores (modo desarrollador).\nPerplexity: Configuración › Conectores › Personalizado.\nGrok: grok.com/connectors › New › Custom.\nCodex, Antigravity, Claude Code, Cursor: agrega un servidor MCP con esta dirección.</string>
     <string name="cc_pede_google">Al conectar, pide la cuenta de Google (google.com/device + código).</string>
     <string name="cc_pede_pin">Al conectar, pide el PIN.</string>
     <string name="cc_acoes_ok">Acciones en la TV solo con OK en el control.</string>
