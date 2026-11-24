@@ -108,11 +108,13 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     ilhaMundo = mundo; ilhaMundoIcone = mundoIcone; ilhaMundoNome = mundoNome
     val pilula = LinearLayout(this).apply {
         orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.CENTER_VERTICAL
+        gravity = Gravity.CENTER
         background = GradientDrawable().apply {
             cornerRadius = dp(20).toFloat(); setColor(0xC70A0B14.toInt()); setStroke(dp(1), 0x1FFFFFFF)
         }
         setPaddingRelative(dp(14), 0, dp(16), 0)
+        // Grade 12 x 8: no mínimo as colunas 5 a 8 (272 dp); com mais coisa ela cresce igual para os dois lados.
+        minimumWidth = dp(br.paulo.tvlauncher.ScreenGrid.span(4).toInt())
         // O leitor de tela lê a fila inteira (antes a pílula era invisível para ele e para o MCP).
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
         accessibilityLiveRegion = View.ACCESSIBILITY_LIVE_REGION_POLITE
@@ -130,7 +132,8 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     val palco = FrameLayout(this).apply { clipChildren = false; clipToPadding = false; importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
     palco.addView(pilula, FrameLayout.LayoutParams(WRAP, dp(40), Gravity.CENTER_HORIZONTAL))
     raiz.addView(palco, FrameLayout.LayoutParams(MATCH, dp(40), Gravity.TOP).apply {
-        topMargin = dp(TOPO_PALCO + (ALTURA_TOPO - 40) / 2)
+        // Grade 12 x 8 (24/11/2026): no meio da linha A (topo 30 + (60 - 40) / 2 = 40 dp).
+        topMargin = dp((br.paulo.tvlauncher.ScreenGrid.rowY(1) + (br.paulo.tvlauncher.ScreenGrid.ROW_H - 40f) / 2f).toInt())
     })
     val dica = texto(15f, Estilo.TEXTO, fonteUi).apply {
         includeFontPadding = false; maxLines = 1; ellipsize = TextUtils.TruncateAt.END; maxWidth = dp(ILHA_TEXTO_MAX + 200)
@@ -140,7 +143,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO   // a pílula já lê a fila inteira
     }
     raiz.addView(dica, FrameLayout.LayoutParams(WRAP, WRAP, Gravity.TOP or Gravity.CENTER_HORIZONTAL).apply {
-        topMargin = dp(TOPO_PALCO + (ALTURA_TOPO - 40) / 2 + 46)
+        topMargin = dp((br.paulo.tvlauncher.ScreenGrid.rowY(2) + 8f).toInt())   // linha B, 8 dp abaixo da A
     })
     ilhaDica = dica
     ilhaPilula = pilula; ilhaExtra = extra; ilhaIcone = icone; ilhaBarras = barras; ilhaTexto = txt; ilhaTemp = temp
