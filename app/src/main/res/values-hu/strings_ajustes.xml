@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">További beállítások</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Képernyővédő fotói a telefonjáról</string>
+    <string name="qrd_fotos_det">Kódot mutat: a telefon közvetlenül a fotók oldalán nyitja meg a panelt</string>
+    <string name="qrd_mural">Családi tábla a telefonjáról</string>
+    <string name="qrd_mural_det">Bevásárlólista és kitűzött jegyzetek</string>
+    <string name="qrd_cenas">Jelenetek a telefonjáról</string>
+    <string name="qrd_cenas_det">Jelenetek létrehozása és kipróbálása a webpanelen</string>
+    <string name="qrd_casa">Home Assistant a telefonjáról</string>
+    <string name="qrd_casa_det">A Home Assistant címe és tokenje a webpanelen</string>
+    <string name="qrd_time">Csapatom és emlékeztetők a telefonjáról</string>
+    <string name="qrd_time_det">Szavak, amelyekből a műsorújság műsorai emlékeztetők lesznek</string>
+    <string name="qrd_roteador">Router a telefonjáról</string>
+    <string name="qrd_roteador_det">A UniFi router címe és API-kulcsa a webpanelen</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Gyorspanel csempéi</string>
+    <string name="pb_subtitulo">Az OK megjeleníti vagy elrejti · ◀ ▶ a sorrendet módosítja</string>
+    <string name="pb_cfg_det">Válassza ki, mely csempéket mutassa a gyorspanel (VISSZA nyomva), és milyen sorrendben</string>
+    <string name="pb_mostrado">látható</string>
+    <string name="pb_escondido">rejtett</string>
+    <string name="pb_padrao">Vissza az alapértelmezett csempékhez</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Éjszakai szűrő</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Kezdőképernyő</string>
+    <string name="cfg2_aba_inicio_det">Téma, rejtett alkalmazások, gyorspanel és időjárás</string>
+    <string name="cfg2_aba_familia">Család</string>
+    <string name="cfg2_aba_familia_det">Szülői felügyelet, gyerek-PIN, lefekvési idő és vendégek</string>
+    <string name="cfg2_aba_casa">Otthon és automatizálás</string>
+    <string name="cfg2_aba_casa_det">Automatizálások, okosotthon és amit a telefonról állít be</string>
+    <string name="cfg2_aba_sistema_det">Diagnosztika, frissítések, mentés és névjegy</string>
+    <string name="cfg2_aba_avancado">Haladó</string>
+    <string name="cfg2_aba_avancado_det">Hálózat, eszközök, gyári alkalmazások, engedélyek és shell. Ritkán kell.</string>
+    <string name="cfg2_sec_visitas">Vendégek</string>
+    <string name="cfg2_sec_celular">A telefonjáról</string>
+    <string name="cfg2_sec_ferramentas">Eszközök</string>
+    <string name="cfg2_sec_ocultos_sistema">A launcher által elrejtett rendszeralkalmazások</string>
+    <string name="cfg2_apps_visita_det">Válassza ki, mely alkalmazások tűnjenek el, amíg a vendég mód be van kapcsolva</string>
+    <string name="cfg2_apps_visita_sub">Az OK vált · ezek eltűnnek, amíg a vendég mód be van kapcsolva</string>
+    <string name="cfg2_some_visita">rejtett a vendégek elől</string>
+    <string name="cfg2_fica_visita">marad</string>
+    <string name="cfg2_casa_det">Lámpák, konnektorok és jelenetek a Google Home-ból vagy a Home Assistantből</string>
+    <string name="oc_titulo">Rejtett alkalmazások</string>
+    <string name="oc_subtitulo">Az OK megjelenít vagy elrejt egy alkalmazást a kezdőképernyőn · a rejtettek vannak elöl</string>
+    <string name="oc_nenhum">Nincsenek rejtett alkalmazások · OK a kiválasztáshoz</string>
+    <string name="oc_quantos">Rejtett: %1$d · OK az újbóli megjelenítéshez</string>
+    <string name="oc_oculto">rejtett</string>
+    <string name="oc_aparece">a kezdőképernyőn</string>
+    <string name="oc_aviso_titulo">Alkalmazás elrejtve</string>
+    <string name="oc_aviso">Újbóli megjelenítéshez: Beállítások › Kezdőképernyő › Rejtett alkalmazások</string>
+    <string name="extras_LER_FOCO">A kijelölt elem felolvasása a launcher minden képernyőjén</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Kapcsoljon ki a TV magától?</string>
+    <string name="sug_desligar">A TV ezen a héten %1$d éjjel volt bekapcsolva éjfél után. Kikapcsoljon 2 óra után, ha senki sem használja a távirányítót? (60 másodperccel előtte figyelmeztet.)</string>
+    <string name="sug_filtro_titulo">Bekapcsolja az éjszakai szűrőt?</string>
+    <string name="sug_filtro">A TV-t ezen a héten %1$d éjjel használták este 10 után. Az éjszakai szűrő éjjel melegebbé és sötétebbé teszi a képernyőt, kíméletesebb a szemnek.</string>
+    <string name="sug_ligar">Bekapcsolás</string>
+    <string name="sug_agora_nao">Most nem</string>
+    <string name="sug_nunca">Ne javasolja újra</string>
+    <string name="sug_feito_titulo">Kész</string>
+    <string name="sug_feito">Későbbi módosítás: Beállítások › Képernyő és energia</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Szövegméret</string>
+    <string name="tt_det">A launcher minden képernyőjén. A filmek, sorozatok és az élő TV már eleve nagyobbak voltak, és velük nőnek</string>
+    <string name="tt_normal">Normál</string>
+    <string name="tt_grande">Nagy</string>
+    <string name="tt_maior">Nagyobb</string>
+    <string name="pi_titulo">Ikoncsomag</string>
+    <string name="pi_det">Cserélje az alkalmazásikonokat beépített stílusra (Szimbólum, Kéttónusú) vagy telepített ikoncsomagra. Az OK a következőt választja.</string>
+    <string name="pi_det_vazio">Nincs telepített ikoncsomag. Szerezzen egyet a Play Áruházból, és itt megjelenik.</string>
+    <string name="pi_nenhum">Nincs</string>
+    <string name="fm_titulo">Saját háttér</string>
+    <string name="fm_det">Saját fotó, GIF vagy videó a kezdőképernyő mögött. Tegye a fájlt a Fundo, Pictures, DCIM, Movies vagy Download mappába.</string>
+    <string name="fm_vazio">Nem található fotó vagy videó. Másoljon egyet a Fundo mappába (hálózati meghajtó vagy USB), és jöjjön vissza.</string>
+    <string name="fm_nenhum">Nincs (vissza a Sötéthez)</string>
+    <string name="fm_brilho">Háttér fényereje</string>
+    <string name="fm_contraste">Háttér kontrasztja</string>
+    <string name="fm_ajuste_det">A Saját háttérre vonatkozik. Az OK a fokozatot váltja.</string>
+    <string name="vp_titulo">A Projectivyből jön?</string>
+    <string name="vp_texto">Négy lépés kb. egy perc alatt áthozza a beállításait. Mindegyik később is elvégezhető a Beállításokban.</string>
+    <string name="vp_cfg_det">Rejtett alkalmazások, ikoncsomag és háttér áthozása a Projectivyből.</string>
+    <string name="vp_1">1. Rejtett alkalmazások</string>
+    <string name="vp_1_det">Jelölje meg az elrejtett alkalmazásait. Az átrendezéshez tartsa nyomva az OK-t egy alkalmazáson a kezdőképernyőn.</string>
+    <string name="vp_2">2. Ikoncsomag</string>
+    <string name="vp_2_det">Ugyanazok az ikoncsomagok, amelyeket a Projectivy használ, itt is működnek.</string>
+    <string name="vp_3">3. Háttér</string>
+    <string name="vp_3_det">Saját fotó, GIF vagy videó. Előbb másolja a Fundo mappába.</string>
+    <string name="vp_4">4. A Projectivy Home gombjának kikapcsolása</string>
+    <string name="vp_4_det">A Kisegítő lehetőségekben kapcsolja ki a Projectivyt. Ha két alkalmazás is elkapja a Home gombot, a rosszat nyitja meg.</string>
+    <string name="vp_pronto">Kész</string>
+    <string name="vp_pronto_det">Ugrás a kezdőképernyőre.</string>
+    <string name="vq_titulo">Megjelenés megosztása</string>
+    <string name="vq_det">QR-kódot mutat ennek a TV-nek a megjelenésével: téma, szövegméret, ikonok.</string>
+    <string name="vq_texto">Olvassa be a telefonjával, hogy megtartsa, vagy elküldje valakinek, akinek Sofaly-ja van.</string>
+    <string name="vq_fechar">Bezárás</string>
+    <string name="pl_titulo">Csomagok</string>
+    <string name="pl_texto">Minden ingyenes, amíg az értékesítés nem indul el. Később a Pro és az Ultra a telefonján vásárolható meg.</string>
+    <string name="pl_basico">Alap</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Kezdőképernyő, képernyővédő\n• Ébresztő, egyszerű képernyő\n• Lejátszó és rádiók\n• 1 IPTV-lista\n• 2 téma</string>
+    <string name="pl_pro_itens">• Minden, ami az Alapban\n• Több IPTV-lista, felvétel\n• Teljes webpanel\n• Claude, rutinok, Home Assistant\n• Minden téma, felhőmentés</string>
+    <string name="pl_ultra_itens">• Minden, ami a Próban\n• Jobb időjárás (3 modell)\n• Gazdag filmoldalak\n• Automatikus feliratok\n• Legfeljebb 3 TV</string>
+    <string name="pl_qr">Olvassa be a telefonjával az árakhoz és a vásárláshoz.</string>
+    <string name="pl_assinar">Előfizetés</string>
+    <string name="pl_assinar_preco">Előfizetés · %1$s</string>
+    <string name="pl_seu_plano">Az Ön csomagja</string>
+    <string name="pl_loja_indisponivel">A Google Play nem tudta megnyitni a vásárlást. Ellenőrizze az internetet, és próbálja újra.</string>
+    <string name="atu_pela_play">A frissítések a Google Playről érkeznek.</string>
+</resources>

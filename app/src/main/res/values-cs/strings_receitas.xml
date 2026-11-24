@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Pro koho je tento televizor?</string>
+    <string name="rec_subtitulo">Jedno OK nastaví televizor. Kdykoli to můžete vrátit.</string>
+    <string name="rec_vo">Televizor pro babičku</string>
+    <string name="rec_vo_det">Velké karty se jmény čtenými nahlas, větší text a tlačítko Získat pomoc.</string>
+    <string name="rec_criancas">Televizor pro děti</string>
+    <string name="rec_criancas_det">Jen obsah pro děti, večerka a kategorie Hrát.</string>
+    <string name="rec_gamer">Televizor pro hráče</string>
+    <string name="rec_gamer_det">Kategorie Hrát, herní režim (žádný spořič ani upozornění během hry) a ovladač otevírá Hry.</string>
+    <string name="rec_aluguel">Televizor k pronájmu</string>
+    <string name="rec_aluguel_det">Režim pro hosty: uvítací obrazovka, nic osobního na domovské obrazovce a úklid při odjezdu.</string>
+    <string name="rec_desfazer">Vrátit zpět</string>
+    <string name="rec_desfazer_det">Vrátit vše do stavu před %1$s.</string>
+    <string name="rec_ja_esta">Tento televizor je už takto nastaven.</string>
+    <string name="rec_aviso_prende">Snadnou obrazovku lze zavřít jen PINem. Ujistěte se, že ho někdo v domácnosti zná.</string>
+    <string name="rec_aviso_sem_pin">PIN zatím neexistuje, takže to může vypnout kdokoli. Vytvořte ho v panelu v telefonu.</string>
+    <string name="rec_aviso_plano">Vyžaduje placený tarif, proto zůstává vypnuto: %1$s.</string>
+    <string name="rec_voltar">Zpět</string>
+    <string name="rec_aplicar">Použít</string>
+    <string name="rec_pin">PIN pro změnu nastavení televizoru</string>
+    <string name="rec_pronto">Hotovo</string>
+    <string name="rec_aplicada">Váš televizor je připraven</string>
+    <string name="rec_aplicada_det">Změnilo se něco, co jste nechtěli? Vrátit zpět vrátí vše, jak to bylo.</string>
+    <string name="rec_desfeita">Vše je zpět, jak to bylo.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">zapnuto</string>
+    <string name="rec_desligado">vypnuto</string>
+    <string name="rec_aj_hospede">Režim pro hosty</string>
+    <string name="rec_aj_visita">Režim návštěvy</string>
+    <string name="rec_aj_simples">Snadná obrazovka</string>
+    <string name="rec_aj_infantil">Dětský režim</string>
+    <string name="rec_aj_dormir">Večerka</string>
+    <string name="rec_aj_texto">Velikost textu</string>
+    <string name="rec_aj_ler_foco">Číst nahlas, co je vybrané</string>
+    <string name="rec_aj_som">Zvuk kliknutí u každého tlačítka</string>
+    <string name="rec_aj_jogos">Kategorie Hrát</string>
+    <string name="rec_aj_modo_jogo">Herní režim</string>
+    <string name="rec_aj_controle">Ovladač otevírá Hry</string>
+</resources>

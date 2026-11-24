@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">A TV-hez csatlakoztatva</string>
+    <string name="rede_sub_usb">USB-meghajtó · videók, zene és fotók</string>
+    <string name="rede_acao_arquivos">FTP, SFTP vagy NFS</string>
+    <string name="rede_sub_arquivos">NAS, lemezes router, Linux vagy Mac számítógép</string>
+    <string name="rede_arq_explica">A címet a protokollal kezdje: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. Az SFTP és az FTPS titkosított; a sima FTP titkosítás nélkül küldi a jelszót, ezért csak otthon használja. Az NFS-nek nincs jelszava: a NAS-nak engedélyeznie kell a TV IP-címét és a nem privilegizált portokról érkező kapcsolatokat.</string>
+    <string name="rede_arq_endereco">Cím (sftp://, ftp://, ftps:// vagy nfs://)</string>
+    <string name="rede_arq_usuario">Felhasználónév (NFS: felhasználói szám, nem kötelező)</string>
+    <string name="rede_arq_endereco_erro">Kezdje sftp://, ftp://, ftps:// vagy nfs:// előtaggal, utána a szerver és a mappa. A felhasználónév és a jelszó a saját mezőjébe kerül.</string>
+    <string name="rede_erro_nfs_porta">Az NFS-szerver elutasította a TV-t. A NAS-on engedélyezze a nem privilegizált portokról érkező kapcsolatokat (Linux: az \"insecure\" opció az /etc/exports fájlban).</string>
+    <string name="rede_erro_nfs_ip">Az NFS-szerver nem engedélyezte ezt a TV-t. A NAS-on adja hozzá a TV IP-címét (vagy az otthoni hálózatát) a mappa NFS-szabályához.</string>
+    <string name="rede_erro_chave_mudou">A szerver kulcsa megváltozott a hozzáadása óta. Ha újratelepítette a szervert, távolítsa el itt, és adja hozzá újra; ha nem, lehet, hogy valaki megszemélyesíti.</string>
+    <string name="rede_erro_usb_acesso">A TV nem adott hozzáférést a launchernek az USB-meghajtóhoz. Próbálja újra kicsit később.</string>
+</resources>

@@ -52,6 +52,7 @@ object BackupCompleto {
         "busca_recentes",   // 20/11/2026: as últimas buscas da pessoa (6 no máximo) viajam junto
         "painel_atalhos",   // "Seus atalhos" do painel (PanelShortcuts, 20/11/2026): só ids de chaves e blocos, viajam junto
         "sofy",   // Sofy (20/11/2026): a chave "Sofy fala" e os tipos de fala que a pessoa calou viajam junto
+        "sofy_learning",   // 24/11/2026: o que a Sofy aprendeu da casa (hábito de uso por hora, pico); o do aparelho fica em "observer"
         "agenda_perfis",   // agenda da família (degrau 2, 16/11/2026): perfil troca sozinho no horário
         "gravacao",   // gravação (14/11/2026): a pasta da rede de reserva
         "nuvem",   // Na rede › OneDrive/Dropbox (14/11/2026): o id do app Microsoft e a chave do Dropbox que o dono digitou
@@ -91,7 +92,7 @@ object BackupCompleto {
         "ceu",   // cache do TLE da Estação Espacial (protetor com tempo): renovado a cada 12 h, de outro aparelho não vale
         "compatibilidade",   // medidas do "acordar" deste aparelho (CompatibilidadeTv): de outro aparelho não valem
         "qualidade_tv",   // TV ao vivo: banda, travadas e resolução real medidas NESTA rede e neste aparelho (QualidadeTv)
-        "observer",   // Observador (20/11/2026): leituras, registro e recados DESTA TV; de outro aparelho não dizem nada
+        "observer",   // Observador (20/11/2026): leituras, registro e recados DESTA TV; de outro aparelho não dizem nada (o que a Sofy aprende da casa mora em "sofy_learning", que vai)
         "app_storage",   // pen drive (20/11/2026): volume adotado, apps movidos e velocidade medida são DESTE pen drive nesta TV
         "google_home_trim",   // launcher do Google parado (GoogleHomeTrimTv): contagem e horários desta TV
         "on_demand",   // congelar sob demanda (OnDemandTv): o congelamento é desta TV; na outra o app nem está congelado

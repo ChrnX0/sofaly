@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Videók, zene és fotók a felhőjéből</string>
+    <string name="rede_nuvem_seguir">Folytatás</string>
+    <string name="rede_nuvem_entrar">Bejelentkezés</string>
+    <string name="rede_nuvem_pedindo">Kód kérése…</string>
+    <string name="rede_nuvem_esperando">Várakozás a telefonon történő megerősítésre…</string>
+    <string name="rede_nuvem_salvando">Bejelentkezés…</string>
+    <string name="rede_nuvem_recusado">A szolgáltatás elutasította. Ellenőrizze az alkalmazásazonosítót, és próbálja újra.</string>
+    <string name="rede_erro_nuvem_login">Ennek a fióknak az engedélye lejárt vagy visszavonták. Távolítsa el a fiókot (OK nyomva), és jelentkezzen be újra.</string>
+    <string name="rede_od_titulo">OneDrive: az Ön alkalmazása a Microsoftnál</string>
+    <string name="rede_od_explica">Egyszer, számítógépen: entra.microsoft.com › App registrations › New registration. A fióktípusoknál válassza azt, amely tartalmazza a személyes Microsoft-fiókokat. Aztán az Authentication alatt kapcsolja be az „Allow public client flows” lehetőséget. Másolja ki az „Application (client) ID” értéket, és írja be ide (a telefonjáról is gépelhet, a panelen).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">Az azonosító így néz ki: 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">A telefonján vagy számítógépén nyissa meg a microsoft.com/link oldalt (vagy irányítsa a kamerát a QR-kódra), és írja be az alábbi kódot. A TV csak fájlok olvasását kéri.</string>
+    <string name="rede_od_erro_app">A Microsoft nem fogadta el ezt az alkalmazást. Ellenőrizze az azonosítót, és hogy az „Allow public client flows” be van-e kapcsolva.</string>
+    <string name="rede_dbx_explica">Egyszer, számítógépen: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. A Permissions lapon jelölje be a files.metadata.read, files.content.read és account_info.read engedélyt (és a files.content.write-ot, ha az éjszakai mentést a Dropboxba szeretné), majd mentse (Submit). Másolja ki az „App key” értéket, és írja be ide.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">Az App key csak kisbetűket és számokat tartalmaz.</string>
+    <string name="rede_dbx_codigo_explica">Irányítsa a telefon kameráját a QR-kódra, jelentkezzen be a Dropboxba, és koppintson az Allow gombra. A Dropbox kódot mutat: írja be ide (a telefonjáról is gépelhet, a panelen).</string>
+    <string name="rede_dbx_codigo">Dropbox-kód</string>
+    <string name="rede_dbx_codigo_erro">Írja be a Dropbox által mutatott teljes kódot.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Egyszer, számítógépen: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). A Configuration lapon az OAuth 2.0 Redirect URI alá írja be: %1$s jelölje be a „Read all files and folders” lehetőséget (és a „Write all files and folders”-t, ha az éjszakai mentést a Boxba szeretné). Mentse, majd másolja ide a Client ID-t és a Client Secretet.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">A Client ID és a Client Secret csak betűket és számokat tartalmaz. Másolja ki mindkettőt a Configuration lapról.</string>
+    <string name="rede_volta_sem_rede">A TV nincs az otthoni hálózaton. Csatlakoztassa, és próbálja újra.</string>
+    <string name="rede_volta_explica">Irányítsa a TV-vel azonos Wi‑Fi-n lévő telefon kameráját a QR-kódra, jelentkezzen be ide: %1$s, és engedélyezze a hozzáférést. A telefon magától visszatér a TV-hez: nincs mit beírni.</string>
+    <string name="rede_volta_porta">A TV %1$d portja foglalt. Zárjon be más alkalmazásokat, és próbálja újra.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Egyszer, számítógépen, a Google Cloud-projektjében (console.cloud.google.com): APIs &amp; Services › Library › kapcsolja be a „Google Drive API”-t. A Google Auth Platform › Data Access részben adja hozzá a …/auth/drive.readonly hatókört. A Clients › Create client › Web application részben az Authorized redirect URIs alá írja be: %1$s. Másolja ide a Client ID-t és a Client secretet.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Másolja ki mindkettőt a kliens oldaláról: az azonosító .apps.googleusercontent.com-ra végződik, a secret általában GOCSPX- előtaggal kezdődik.</string>
+    <string name="rede_gd_aviso">Ha a Google szerint az alkalmazás nincs ellenőrizve, koppintson az Advanced › Go to lehetőségre (ez a saját alkalmazása).</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Συνδεδεμένος/η ως %1$s. Τι κρατά η τηλεόραση σε συγχρονισμό με το κινητό σας.</string>
+    <string name="sync_sub_mdblist">Συνδεδεμένος/η ως %1$s. Οι λίστες σας MDBList μπορούν να εμφανιστούν στον κατάλογο.</string>
+    <string name="sync_ultima">Τελευταίος συγχρονισμός: %1$s</string>
+    <string name="sync_nunca">Δεν έχει συγχρονιστεί ακόμα</string>
+    <string name="sync_interesses">Ενδιαφέροντα ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Ενδιαφέροντα ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Ό,τι σημειώνετε εδώ εμφανίζεται εκεί, και αντίστροφα</string>
+    <string name="sync_assistidos">Προβεβλημένα ← Ιστορικό</string>
+    <string name="sync_assistidos_det">Φέρνει όσα έχετε ήδη δει στο κινητό ή αλλού</string>
+    <string name="sync_continuar">Συνέχεια ⇄ Πού σταματήσατε</string>
+    <string name="sync_continuar_det">Σταματήστε στο κινητό, συνεχίστε στην τηλεόραση στο ίδιο σημείο</string>
+    <string name="sync_contar">Να λέγεται στο %1$s τι βλέπω εδώ</string>
+    <string name="sync_contar_det">Στέλνει «βλέπω τώρα» και «προβλήθηκε» όσο παίζει. Ποτέ σε λειτουργία επισκέπτη ή σε παιδικό προφίλ.</string>
+    <string name="sync_listas">Λίστες στον κατάλογο</string>
+    <string name="sync_listas_nenhuma">Καμία επιλεγμένη</string>
+    <string name="sync_listas_n">%1$d επιλεγμένες: %2$s</string>
+    <string name="sync_listas_sub">Εμφανίζονται στις ΛΙΣΤΕΣ, στο Όλα, μόνο με τους τίτλους που έχει η λίστα σας. Ως %1$d.</string>
+    <string name="sync_listas_carregando">Φόρτωση των λιστών σας…</string>
+    <string name="sync_listas_vazio">Δεν βρέθηκαν λίστες. Δημιουργήστε ή κάντε like σε μια λίστα στο Trakt ή στο MDBList και επιστρέψτε εδώ.</string>
+    <string name="sync_listas_cheio">Ως %1$d λίστες</string>
+    <string name="sync_lista_itens">%1$d τίτλοι</string>
+    <string name="sync_agora">Συγχρονισμός τώρα</string>
+    <string name="sync_agora_det">Γίνεται και μόνος του όταν ανοίγετε Ταινίες ή Σειρές</string>
+    <string name="sync_rodando">Συγχρονισμός…</string>
+    <string name="sync_feito">Συγχρονίστηκε</string>
+    <string name="sync_sair">Αποσύνδεση από το %1$s</string>
+    <string name="sync_bloqueado">Σε παύση: είναι ενεργή η λειτουργία επισκέπτη ή ένα παιδικό προφίλ.</string>
+    <string name="sync_outro_perfil">Σε παύση: ο συγχρονισμός ανήκει σε άλλο προφίλ.</string>
+    <string name="sync_trakt_cheia">Η λίστα σας στο Trakt είναι γεμάτη (οι δωρεάν λογαριασμοί χωρούν 100). Ο launcher συνεχίζει μόνο στην τηλεόραση.</string>
+    <string name="sync_ligado">Ενεργό</string>
+    <string name="sync_desligado">Ανενεργό</string>
+    <string name="sync_fonte_trakt">Δεδομένα από το Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Δεδομένα από το Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d από %2$d στη λίστα σας</string>
+    <string name="sync_continuando">Συνέχεια από εκεί που σταματήσατε στην άλλη συσκευή</string>
+</resources>

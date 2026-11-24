@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Μονάδα δικτύου</string>
+    <string name="ur_titulo">Εμφάνιση της τηλεόρασης ως μονάδας δικτύου</string>
+    <string name="ur_det">Ανενεργό. Η τηλεόραση εμφανίζεται μόνη της στο Αυτός ο υπολογιστής στα Windows, όπως ένα κινητό, και ως φάκελος δικτύου σε Mac, Linux και κινητά.</string>
+    <string name="ur_painel">Ενεργοποιήστε πρώτα τον πίνακα web παραπάνω (χρησιμοποιεί το ίδιο PIN και τη διεύθυνση https).</string>
+    <string name="ur_https">Αναμονή για τη διεύθυνση https του πίνακα (το πιστοποιητικό δημιουργείται περίπου 1 λεπτό μετά την ενεργοποίηση του πίνακα).</string>
+    <string name="ur_abra">Ενεργό. Στα Windows η τηλεόραση εμφανίζεται στο Αυτός ο υπολογιστής (η τηλεόραση ρωτά στην οθόνη την πρώτη φορά για κάθε υπολογιστή). Mac, Linux και κινητό: %1$s · κωδικός: το PIN του πίνακα.</string>
+    <string name="mtp_pergunta_titulo">Ένας υπολογιστής ζητά τα αρχεία της τηλεόρασης</string>
+    <string name="mtp_pergunta">Ο «%1$s» θέλει να δει και να αντιγράψει τα αρχεία στην αποθήκευση της τηλεόρασης μέσω του οικιακού δικτύου. Να επιτραπεί αυτός ο υπολογιστής;</string>
+    <string name="mtp_pcs">Επιτρεπόμενοι υπολογιστές</string>
+    <string name="mtp_pcs_nenhum">Κανένας ακόμα. Η τηλεόραση ρωτά στην οθόνη όταν ένας υπολογιστής ζητά τα αρχεία.</string>
+    <string name="mtp_pcs_lista">%1$s · OK τους ξεχνά όλους (ο καθένας ρωτά ξανά)</string>
+    <string name="mtp_pcs_esquecidos">Οι υπολογιστές ξεχάστηκαν</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Άνοιγμα του πίνακα της τηλεόρασης</string>
+</resources>

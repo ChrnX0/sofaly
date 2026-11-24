@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Γραμματοσειρά</string>
+    <string name="fc_det">Τα γράμματα σε κάθε οθόνη. Οι γραμματοσειρές Google κατεβαίνουν την πρώτη φορά</string>
+    <string name="fc_baixando">λήψη…</string>
+    <string name="fc_falhou">Δεν κατέβηκε. Ελέγξτε το internet</string>
+    <string name="ck_formato">Μορφή ώρας</string>
+    <string name="ck_formato_det">Στην επάνω μπάρα, στο Νησί και στο μεγάλο ρολόι</string>
+    <string name="ck_auto">Αυτόματα</string>
+    <string name="ck_24">24 ώρες (15:40)</string>
+    <string name="ck_12">12 ώρες (3:40)</string>
+    <string name="ck_12ampm">12 ώρες με π.μ./μ.μ.</string>
+    <string name="ck_seg">Με δευτερόλεπτα</string>
+    <string name="ck_cor">Χρώμα ώρας</string>
+    <string name="ck_cor_det">Στην επάνω μπάρα, στο Νησί και στο μεγάλο ρολόι</string>
+    <string name="ck_padrao">Προεπιλογή</string>
+    <string name="ck_laranja">Πορτοκαλί</string>
+    <string name="ck_creme">Κρεμ</string>
+    <string name="ck_ambar">Κεχριμπαρί</string>
+    <string name="ck_verde">Πετρόλ</string>
+</resources>

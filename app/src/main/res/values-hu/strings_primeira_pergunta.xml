@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Egyetlen válasz beállítja a menüt és a képernyőt. Később módosíthatja a Beállítások › Rendszer menüben.</string>
+    <string name="pp_casa">Az egész háznak</string>
+    <string name="pp_vo_det">Nagy kártyák felolvasott nevekkel és nagyobb szöveg, Ön pedig a telefonjáról segít, távolról.</string>
+</resources>

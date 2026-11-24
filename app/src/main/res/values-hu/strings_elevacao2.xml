@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Nagy kontraszt</string>
+    <string name="elv_ac_det">Világosabb szöveg és tisztább keretek minden képernyőn (legalább 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Hangos leírás</string>
+    <string name="elv_ad_det">A jelenetet leíró hangsáv kiválasztása, ha van ilyen</string>
+    <string name="elv_sdh_titulo">Feliratok siketeknek</string>
+    <string name="elv_sdh_det">Mindig mutasson hangokat is tartalmazó feliratot ([ajtócsapódás]) a TV nyelvén, szinkron esetén is</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Poszter és tartalom a videókhoz</string>
+    <string name="elv_cat_explica">Csak a cím megy a TMDB-hez, a mappa vagy a szerver soha</string>
+    <string name="elv_cat_ligado">Be</string>
+    <string name="elv_cat_desligado">Ki</string>
+    <string name="elv_cat_ep">%1$s · %2$d. évad %3$d. rész</string>
+    <string name="pod_temp_ep">%1$d. évad %2$d. rész</string>
+    <string name="elv_cat_so_ep">%1$s · %2$d. epizód</string>
+    <string name="elv_cat_temporada">%1$s · %2$d. évad</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Évadok: %d</string>
+    <string name="elv_cat_procurando">A poszter keresése…</string>
+    <string name="elv_cat_nada">Nincs találat a TMDB-ben. Tartsa nyomva az OK-t a helyes név beírásához.</string>
+    <string name="elv_cat_corrigir_titulo">Javítás: %s</string>
+    <string name="elv_cat_corrigir_explica">Rossz poszter vagy tartalom? Kérje a következő találatot, vagy írja be a helyes nevet és évet. Üres név esetén visszaáll automatikusra.</string>
+    <string name="elv_cat_nao_e">Nem ez</string>
+    <string name="elv_cat_escrever">Név beírása</string>
+    <string name="elv_cat_campo">Név és év, pl. Dűne 2021</string>
+    <string name="elv_cat_salvar">Mentés</string>
+    <string name="elv_cat_dica">javítás</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Lista</string>
+    <string name="elv_bib_pasta">Mappa</string>
+    <string name="elv_bib_servidor">Szerver</string>
+    <string name="elv_bib_nuvem">Felhő</string>
+    <string name="elv_bib_addon">Bővítmény</string>
+</resources>

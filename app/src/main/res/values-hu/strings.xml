@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">A launcher távirányító-gombjai (átállítható Netflix/YouTube gombok) és a számítógép nélküli párosítás ablaka.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">csatlakoztatva</string>
+    <string name="cfg_vpn_desconectada">leválasztva</string>
+    <string name="cfg_titulo">Beállítások</string>
+    <string name="cfg_diag">A TV diagnosztikája</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN és hogy miért állt le egy alkalmazás — egyszerre</string>
+    <string name="cfg_tema_det">Átvált a következő megjelenésre</string>
+    <string name="cfg_nunca">Soha</string>
+    <string name="cfg_min">%1$d perc</string>
+    <string name="cfg_nao_gravou_do">nem sikerült menteni (a Device Owner inaktív?)</string>
+    <string name="cfg_visita">Vendég mód</string>
+    <string name="cfg_rotinas">Rutinok</string>
+    <string name="cfg_sec_atualizacao">Frissítések</string>
+    <string name="cfg_atualizar">Új verzió keresése</string>
+    <string name="cfg_atualizar_det">Verzió: %1$s · %2$s · az OK most ellenőriz</string>
+    <string name="cfg_procurando">a GitHub ellenőrzése…</string>
+    <string name="cfg_instalar">A(z) %1$d verzió telepítése most</string>
+    <string name="cfg_instalar_det">A launcher bezárul, és néhány másodperc múlva magától visszajön · az OK telepít</string>
+    <string name="cfg_instalando">letöltés és ellenőrzés…</string>
+    <string name="cfg_sec_rede">Hálózat</string>
+    <string name="cfg_dns">Privát DNS</string>
+    <string name="cfg_dns_caiu">" · %1$s nem válaszolt, visszaállt automatikusra"</string>
+    <string name="cfg_velocidade">Internetsebesség mérése</string>
+    <string name="cfg_velocidade_det">Letölt 25 MB-ot és mér</string>
+    <string name="cfg_testando">Mérés…</string>
+    <string name="cfg_nao_mudou_do">nem sikerült módosítani (a Device Owner inaktív?)</string>
+    <string name="cfg_sec_ligado">Mi van bekapcsolva — %1$s</string>
+    <string name="cfg_ligado">be</string>
+    <string name="cfg_so_pc">" · csak számítógéppel (adb)"</string>
+    <string name="cfg_tenta_ligar">" · az OK megpróbálja bekapcsolni"</string>
+    <string name="cfg_perm_fixas">Megadott fix engedélyek</string>
+    <string name="cfg_shell_estado">Saját shell</string>
+    <string name="cfg_shell_pareado">párosítva: a launcher magától újracsatlakozik a Vezeték nélküli hibakeresésen át</string>
+    <string name="cfg_shell_nunca">még nincs párosítva: használja lent a \"Párosítás számítógép nélkül\" lehetőséget</string>
+    <string name="cfg_sec_shizuku">Launcher shell (Wi-Fi ADB)</string>
+    <string name="cfg_parear">Párosítás számítógép nélkül</string>
+    <string name="cfg_parear_det">Megnyitja az Android párosítási képernyőjét, rajta a launcher számbillentyűzetével</string>
+    <string name="cfg_acess_off">a launcher kisegítő szolgáltatása ki van kapcsolva</string>
+    <string name="cfg_versao">Launcher verziója</string>
+    <string name="cfg_desconhecida">ismeretlen</string>
+    <string name="cfg_depuracao">Vezeték nélküli hibakeresés</string>
+    <string name="cfg_depuracao_on">a launcher bekapcsolva tartja</string>
+    <string name="cfg_depuracao_android">ahogy az Android hagyja</string>
+    <string name="cfg_chave">Saját shell kulcsa</string>
+    <string name="cfg_calculando">számítás…</string>
+    <string name="cfg_erro">hiba: %1$s</string>
+    <string name="cfg_licencas">Licencek és köszönetnyilvánítás</string>
+    <string name="cfg_licencas_det">Az itt használt külső kód, betűtípusok, ikonok és adatok</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">nélküle: nincs alkalmazásrejtés, rögzített HOME vagy VPN, sem képernyővédő-időzítés</string>
+    <string name="rec_agenda">Naptár</string>
+    <string name="rec_agenda_sem">nélküle: a naptár nem mutat eseményeket</string>
+    <string name="rec_local">Helymeghatározás</string>
+    <string name="rec_local_sem">nélküle: az időjárás az IP szerinti várost használja, és a Wi-Fi nem mutatja a hálózat nevét</string>
+    <string name="rec_contas">Fiókok</string>
+    <string name="rec_contas_sem">nélküle: a profilpont nem mutatja a fiók kezdőbetűjét</string>
+    <string name="rec_uso">Alkalmazáshasználat</string>
+    <string name="rec_uso_sem">nélküle: az alkalmazások nincsenek a legutóbbi használat szerint rendezve</string>
+    <string name="rec_sobre">Rátét</string>
+    <string name="rec_sobre_sem">nélküle: a jegyzetek és a számítógép nélküli párosítás nem jelenik meg az alkalmazások fölött</string>
+    <string name="rec_seguras">Biztonságos beállítások</string>
+    <string name="rec_seguras_sem">nélküle: nincs DNS-váltás, és a gombszolgáltatás és a vezeték nélküli hibakeresés nem indul újra magától (csak számítógéppel vagy a launcher shelljével)</string>
+    <string name="rec_teclas">Gombszolgáltatás</string>
+    <string name="rec_teclas_sem">nélküle: a HOME megnyithatja a Google launcherét, és a Netflix/YouTube gombok nincsenek átállítva</string>
+    <string name="rec_tudo">minden be van kapcsolva</string>
+    <string name="rec_faltam">%2$d funkcióból %1$d hiányzik · az OK egy elemen megpróbálja bekapcsolni</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Üdvözöljük</string>
+    <string name="bv_texto">A kezdőképernyő, az óra, az időjárás, az ébresztő és a képernyővédő már működik. A többit itt kapcsolhatja be, ha szeretné (%1$s).</string>
+    <string name="bv_comecar">Kezdés</string>
+    <string name="bv_comecar_det">A kezdőképernyőre lép</string>
+    <string name="bv_perm">Naptár, helymeghatározás és fiókok bekapcsolása</string>
+    <string name="bv_perm_det">Naptáresemények, a város időjárása, a fiók kezdőbetűje a profilon</string>
+    <string name="bv_teclas">A gombszolgáltatás bekapcsolása</string>
+    <string name="bv_teclas_det">Kisegítő lehetőségek › Távirányító gombjai: a HOME mindig ide hoz vissza</string>
+    <string name="bv_tudo">Minden, amit bekapcsolhat</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">A licencfájl nem található.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">TV bekapcsolása</string>
+    <string name="rot_abrir_um">Bekapcsolás és alkalmazás megnyitása</string>
+    <string name="rot_desligar">TV kikapcsolása</string>
+    <string name="rot_abrir">Bekapcsolás és a(z) %1$s megnyitása</string>
+    <string name="rot_um_app">egy alkalmazás (válasszon)</string>
+    <string name="rot_se_ocioso">" ha senki nem nyúlt hozzá ennyi ideje: %1$s"</string>
+    <string name="rot_sempre">mindig</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">nincs bekapcsolt rutin</string>
+    <string name="rot_proxima">következő: %1$s</string>
+    <string name="rot_nova_mais">+ Új rutin</string>
+    <string name="rot_nova_det">Bekapcsolás, alkalmazás megnyitása vagy kikapcsolás egy adott időpontban</string>
+    <string name="rot_desligada_sufixo">" · ki"</string>
+    <string name="rot_nova">Új rutin</string>
+    <string name="rot_editar">Rutin szerkesztése</string>
+    <string name="rot_editor_det">Az OK minden sort módosít · a VISSZA mentés nélkül kilép</string>
+    <string name="rot_hora">Időpont: %1$s</string>
+    <string name="rot_dias">Napok: %1$s</string>
+    <string name="rot_acao">Művelet: %1$s</string>
+    <string name="rot_app">Alkalmazás: %1$s</string>
+    <string name="rot_nenhum">nincs</string>
+    <string name="rot_ocioso">Csak ha senki nem nyúlt hozzá ennyi ideje: %1$s</string>
+    <string name="rot_ligada">Be</string>
+    <string name="rot_desligada">Ki</string>
+    <string name="rot_hora_det">◀ ▶ 5 perc · OK +1 óra</string>
+    <string name="rot_dias_det">OK: minden nap, hétfőtől péntekig, hétvégén, egyszer</string>
+    <string name="rot_ok_muda">Az OK módosít</string>
+    <string name="rot_app_det">OK vagy ▶ következő · ◀ előző</string>
+    <string name="rot_ocioso_det">Nem zavarja azt, aki éppen néz</string>
+    <string name="rot_ativa_det">Az OK be- vagy kikapcsolja ezt a rutint</string>
+    <string name="rot_salvar">Mentés</string>
+    <string name="rot_escolha_app">Alkalmazás kiválasztása</string>
+    <string name="rot_apagar">A rutin törlése</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Egyszer</string>
+    <string name="dia_todo">Minden nap</string>
+    <string name="dia_seg_sex">Hétfőtől péntekig</string>
+    <string name="dia_fim">Hétvégén</string>
+    <string-array name="dias_curtos">
+        <item>V</item>
+        <item>H</item>
+        <item>K</item>
+        <item>Sze</item>
+        <item>Cs</item>
+        <item>P</item>
+        <item>Szo</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">MMMM d., EEEE</string>
+    <string name="home_perfil">Profil</string>
+    <string name="home_visita_titulo">Vendég mód bekapcsolva</string>
+    <string name="home_visita_msg">A profil, a naptár és a kiválasztott alkalmazások el vannak rejtve. Kilép a vendég módból?</string>
+    <string name="home_continuar">Megtartás</string>
+    <string name="home_sair">Kilépés</string>
+    <string name="comum_cancelar">Mégse</string>
+    <string name="home_mostrar">Megjelenítés a kezdőképernyőn</string>
+    <string name="home_ocultar">Elrejtés a kezdőképernyőről</string>
+    <string name="home_sob_demanda">Fagyasztás, amikor nincs használatban</string>
+    <string name="home_sob_demanda_tirar">Fagyasztás leállítása, amikor nincs használatban</string>
+    <string name="sob_demanda_ligado">Lefagyasztva. Itt marad: az OK feloldja és megnyitja, és 2 perccel azután, hogy kilép belőle, újra lefagy.</string>
+    <string name="sob_demanda_desligado">Feloldva. Úgy működik, mint korábban.</string>
+    <string name="sob_demanda_falhou">Most nem sikerült módosítani. Próbálja újra egy pillanat múlva.</string>
+    <string name="home_desinstalar">Eltávolítás</string>
+    <string name="home_app_sistema"> (rendszeralkalmazás)</string>
+    <string name="home_desinstalar_titulo">Eltávolítja: %1$s?</string>
+    <string name="home_desinstalar_aviso">Az alkalmazás és az adatai lekerülnek a TV-ről. Ez nem vonható vissza: a visszaszerzéshez telepítse újra a Play Áruházból.</string>
+    <string name="home_cancelar">Mégse</string>
+    <string name="home_desinstalando">%1$s eltávolítása…</string>
+    <string name="home_desinstalado">%1$s eltávolítva.</string>
+    <string name="home_desinstalar_falhou">Nem sikerült eltávolítani: %1$s: %2$s</string>
+    <string name="home_chovendo">Most esik</string>
+    <string name="home_chuva_agora">%1$s - Eső %2$d%% most</string>
+    <string name="home_chuva_em">%1$s - Eső %2$d%% %3$d óra múlva</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Ébresztő beállítva: %1$s</string>
+    <string name="al_um_app">egy alkalmazás</string>
+    <string name="al_criar_q">Beállít egy ébresztőt erre: %1$s?</string>
+    <string name="al_pedido">Kérte: %1$s.</string>
+    <string name="al_criar">Beállítás</string>
+    <string name="al_titulo">Ébresztőóra</string>
+    <string name="al_nenhum">Nincs bekapcsolt ébresztő</string>
+    <string name="al_novo_mais">+  Új ébresztő</string>
+    <string name="al_ligado">Be</string>
+    <string name="al_desligado">Ki</string>
+    <string name="al_novo">Új ébresztő</string>
+    <string name="al_editar">Ébresztő szerkesztése</string>
+    <string name="al_apagar">Törlés</string>
+    <string name="al_hoje">ma</string>
+    <string name="al_amanha">holnap</string>
+    <string name="al_dia_as">%1$s, %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Leállítás</string>
+    <string name="al_soneca">Szundi 10 perc</string>
+    <string name="al_perdido_um">A(z) %1$s ébresztő nem szólalt meg, mert a TV ki volt kapcsolva.</string>
+    <string name="al_perdido_varios">A(z) %1$s ébresztők nem szólaltak meg, mert a TV ki volt kapcsolva.</string>
+    <string name="al_perdido_e">és</string>
+    <string name="al_volume_nao_mexe">ne módosítsa</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Nincs Google-fiók</string>
+    <string name="pp_ativo">"  ·  aktív"</string>
+    <string name="pp_adicionar">Profil hozzáadása</string>
+    <string name="pr_bt_controle">Távirányító</string>
+    <string name="pp_audio">Hang</string>
+    <string name="pp_carregando">Betöltés…</string>
+    <string name="pp_conectar">Csatlakozás</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">nincs Google-fiók</string>
+    <string name="cal_dica">◀ ▶ hónap váltása</string>
+    <string name="cal_30">A következő 30 nap</string>
+    <string name="cal_nenhuma_conta">Nincs Google-fiók a TV-n</string>
+    <string name="cal_nada">Nincs semmi beütemezve (vagy a naptár még szinkronizál)</string>
+    <string name="fmt_mes_ano">yyyy. LLLL</string>
+    <string name="cal_dia_todo">Egész nap</string>
+    <string name="cal_sem_titulo">(nincs cím)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  esik"</string>
+    <string name="pt_lua">Hold</string>
+    <string name="pt_sol">Nap</string>
+    <string name="pt_umidade">Páratartalom</string>
+    <string name="pt_chuva">Eső</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Eső</string>
+    <string name="cl_limpo">Derült ég</string>
+    <string name="cl_poucas">Kevés felhő</string>
+    <string name="cl_parcial">Részben felhős</string>
+    <string name="cl_nublado">Felhős</string>
+    <string name="cl_neblina">Köd</string>
+    <string name="cl_garoa_fraca">Gyenge szitálás</string>
+    <string name="cl_garoa">Szitálás</string>
+    <string name="cl_garoa_forte">Erős szitálás</string>
+    <string name="cl_garoa_cong">Ónos szitálás</string>
+    <string name="cl_chuva_fraca">Gyenge eső</string>
+    <string name="cl_chuva_forte">Erős eső</string>
+    <string name="cl_chuva_cong">Ónos eső</string>
+    <string name="cl_neve_fraca">Gyenge havazás</string>
+    <string name="cl_neve">Havazás</string>
+    <string name="cl_neve_forte">Erős havazás</string>
+    <string name="cl_graos">Hódara</string>
+    <string name="cl_panc_fracas">Gyenge záporok</string>
+    <string name="cl_panc">Esőzáporok</string>
+    <string name="cl_panc_fortes">Erős záporok</string>
+    <string name="cl_panc_neve">Hózáporok</string>
+    <string name="cl_tempestade">Zivatar</string>
+    <string name="cl_granizo">Zivatar jégesővel</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">telihold %1$d nap múlva</string>
+    <string name="lua_nova_em">újhold %1$d nap múlva</string>
+    <string-array name="fases_lua">
+        <item>Újhold</item>
+        <item>Növekvő sarló</item>
+        <item>Első negyed</item>
+        <item>Növekvő hold</item>
+        <item>Telihold</item>
+        <item>Fogyó hold</item>
+        <item>Utolsó negyed</item>
+        <item>Fogyó sarló</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Az előrejelzés betöltése…</string>
+    <string name="pv_voz_agora">"Most %1$d fok van, %2$s. "</string>
+    <string name="pv_voz_hoje">Ma a legmagasabb %1$d, a legalacsonyabb %2$d fok</string>
+    <string name="pv_voz_chuva">", %1$d százalék esővalószínűséggel. "</string>
+    <string name="pv_voz_sem_chuva">", eső nem várható. "</string>
+    <string name="pv_voz_amanha">Holnap, %1$s, a legmagasabb %2$d, a legalacsonyabb %3$d fok</string>
+    <string name="pv_voz_amanha_chuva">, %1$d százalék esővalószínűség</string>
+    <string name="pv_sem">Most nem sikerült lekérni az előrejelzést. Ellenőrizze az internetet, és próbálja újra.</string>
+    <string name="pv_max_min">max. %1$d°   min. %2$d°   ·   hőérzet %3$d°</string>
+    <string name="pv_24h">A következő 24 óra</string>
+    <string name="pv_agora">Most</string>
+    <string name="pv_chance">Eső esélye</string>
+    <string name="pv_7d">A következő 9 nap</string>
+    <string name="pv_hoje">Ma</string>
+    <string name="pv_mais_quente">Melegebb</string>
+    <string name="pv_mais_frio">Hidegebb</string>
+    <string name="pv_igual">Ugyanaz, mint a valós</string>
+    <string name="pv_detalhes">Részletek</string>
+    <string name="pv_sensacao">Hőérzet</string>
+    <string name="pv_vento">Szél</string>
+    <string name="pv_uv">UV-index</string>
+    <string name="pv_visib">Látótávolság</string>
+    <string name="pv_orvalho">Harmatpont</string>
+    <string name="pv_pressao">Légnyomás</string>
+    <string name="pv_chuva_hoje">Eső ma</string>
+    <string name="pv_ar">Levegőminőség</string>
+    <string name="pv_sem_dados">Most nincs adat</string>
+    <string name="uv_baixo">Alacsony</string>
+    <string name="uv_moderado">Mérsékelt</string>
+    <string name="uv_alto">Magas</string>
+    <string name="uv_muito_alto">Nagyon magas</string>
+    <string name="uv_extremo">Szélsőséges</string>
+    <string name="aq_boa">Jó</string>
+    <string name="aq_moderada">Mérsékelt</string>
+    <string name="aq_sensiveis">Érzékenyeknek egészségtelen</string>
+    <string name="aq_ruim">Egészségtelen</string>
+    <string name="aq_muito_ruim">Nagyon egészségtelen</string>
+    <string name="aq_perigosa">Veszélyes</string>
+    <string-array name="rosa_ventos">
+        <item>É</item>
+        <item>ÉK</item>
+        <item>K</item>
+        <item>DK</item>
+        <item>D</item>
+        <item>DNy</item>
+        <item>Ny</item>
+        <item>ÉNy</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Sötét</string>
+    <string name="tema_galeria">Galéria</string>
+    <string name="tema_meu">Saját háttér</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Lágy</string>
+    <string name="som_classico">Klasszikus</string>
+    <string name="som_sino">Csengő</string>
+    <string name="som_rampa1">1½ perc alatt erősödik</string>
+    <string name="som_rampa2">2 perc alatt erősödik</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mbps (%2$.0f MB letöltve %3$.1f mp alatt)</string>
+    <string name="vel_falhou">A mérés sikertelen (nincs internet vagy a szerver nem elérhető)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  jelenlegi"</string>
+    <string name="esc_botao">A(z) %1$s gomb ezt nyitja meg:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">napkelte %1$s</string>
+    <string name="fd_por">napnyugta %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: használat   ·   OK nyomva tartása egy saját szerveren: eltávolítás   ·   Vissza: kilépés</string>
+    <string name="dns_auto">Automatikus</string>
+    <string name="dns_auto_det">A router DNS-ét használja, és titkosít, ha az elfogadja (Android alapértelmezés)</string>
+    <string name="dns_desl">Ki</string>
+    <string name="dns_desl_det">Egyszerű DNS, titkosítás nélkül</string>
+    <string name="dns_publicos">Nyilvános szerverek</string>
+    <string name="dns_meus">Saját szerverek</string>
+    <string name="dns_adicionar">+  Szerver hozzáadása</string>
+    <string name="dns_adicionar_det">DNS-over-TLS cím, például dns.example.com</string>
+    <string name="dns_sem_permissao">"Nincs engedély a DNS módosítására. Számítógépen: "</string>
+    <string name="dns_troque_antes">váltson szervert, mielőtt ezt eltávolítja</string>
+    <string name="dns_remover_q">Eltávolítja: %1$s?</string>
+    <string name="dns_remover">Eltávolítás</string>
+    <string name="dns_nome_opc">Név (nem kötelező)</string>
+    <string name="dns_endereco_ex">Cím, pl. dns.example.com</string>
+    <string name="dns_adicionar_tit">DNS-szerver hozzáadása</string>
+    <string name="dns_salvar_usar">Mentés és használat</string>
+    <string name="dns_invalido">Érvénytelen cím. Használjon olyan nevet, mint a dns.example.com (az Android nem fogad el IP-számot).</string>
+    <string name="dns_em_uso">Használatban: %1$s</string>
+    <string name="dns_testando">mérés…</string>
+    <string name="dns_falha">SIKERTELEN: nem oldott fel nevet. Válasszon másik szervert vagy az Automatikust.</string>
+    <string name="dns_res_sem_cripto">feloldás %1$d ms alatt (titkosítás nélkül)</string>
+    <string name="dns_res_tls">feloldás %1$d ms alatt   ·   TLS aktív</string>
+    <string name="dns_res_com">" ezzel: %1$s"</string>
+    <string name="dns_res_sem_tls">feloldás %1$d ms alatt   ·   most nincs TLS</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (személyes)</string>
+    <string name="dns_personalizado">Egyéni (%1$s)</string>
+    <string name="dns_rot_auto">automatikus</string>
+    <string name="dns_rot_desl">ki</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Összefoglaló</string>
+    <string name="diag_frase">Egy mondatban</string>
+    <string name="diag_wifi_desc">leválasztva: a TV nincs egyetlen hálózaton sem</string>
+    <string name="diag_lat">%1$d ms az internetig</string>
+    <string name="diag_sem_resp">nincs válasz az internetről</string>
+    <string name="diag_wifi">%1$s · jel %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Az Android ellenőrizte a Wi-Fi-t</string>
+    <string name="diag_nao_validou">Az Android NEM ellenőrizte a Wi-Fi-t</string>
+    <string name="diag_net_ok">működik (teszt %1$d ms alatt) · %2$s</string>
+    <string name="diag_net_falhou">a teszt nem érte el a Google-t · %1$s</string>
+    <string name="diag_net_estranha">furcsa válasz (%1$d): a hálózat bejelentkezést kérhet · %2$s</string>
+    <string name="diag_cripto">titkosítás aktív</string>
+    <string name="diag_sem_cripto">titkosítás NEM aktív</string>
+    <string name="diag_resolve">feloldja a neveket (%1$d ms)</string>
+    <string name="diag_nao_resolve">NEM oldja fel a neveket</string>
+    <string name="diag_caiu">%1$s korábban hibázott, és visszaváltottam automatikusra</string>
+    <string name="diag_nenhum_app">nincs alkalmazás</string>
+    <string name="diag_vpn_nada">nincs rögzített vagy bekapcsolt VPN</string>
+    <string name="diag_vpn_desc">%1$s rögzítve, de LEVÁLASZTVA (az internet VPN nélkül is működik)</string>
+    <string name="diag_vpn_nao_validada">%1$s csatlakozva, de az Android nem ellenőrizte az alagutat</string>
+    <string name="diag_vpn_ok">%1$s csatlakozva és működik</string>
+    <string name="diag_r_sem_wifi">a TV-nek nincs Wi-Fi-je</string>
+    <string name="diag_r_dns_fora">a DNS nem válaszol: úgy tűnik, nincs internet</string>
+    <string name="diag_r_net_fora">az internet nem jut át (router vagy szolgáltató)</string>
+    <string name="diag_r_dns">a DNS nem oldja fel a neveket: az alkalmazások nem találják a szervereiket</string>
+    <string name="diag_r_net">a DNS működik, de az internet nem válaszol</string>
+    <string name="diag_r_vpn">a hálózat rendben; csak a VPN nem működik (az alkalmazások nélküle is mennek)</string>
+    <string name="diag_r_atencao">a hálózat működik, lent figyelmet érdemlő pontokkal</string>
+    <string name="diag_r_ok">a hálózat rendben. Ha egy alkalmazás leállt, lent láthatja, mi történt vele</string>
+    <string name="diag_usava">" · %1$d MB-ot használt"</string>
+    <string name="diag_texto">Ok: %1$s\nFolyamat: %2$s\nFontosság: %3$s</string>
+    <string name="diag_detalhe">\nAndroid részletek: %1$s</string>
+    <string name="diag_m_memoria">memóriahiány miatt bezárva</string>
+    <string name="diag_m_crash">összeomlott</string>
+    <string name="diag_m_nativo">összeomlott (natív)</string>
+    <string name="diag_m_anr">nem válaszolt (ANR)</string>
+    <string name="diag_m_iniciar">nem tudott elindulni</string>
+    <string name="diag_m_recurso">túl sok erőforrás használata miatt bezárva</string>
+    <string name="diag_m_dependencia">bezárva, mert egy alkalmazás, amelytől függ, leállt</string>
+    <string name="diag_m_sinal">a rendszer leállította (jelzés)</string>
+    <string name="diag_m_permissao">engedélyváltozás miatt újraindult</string>
+    <string name="diag_i_tela">a képernyőn volt</string>
+    <string name="diag_i_visivel">látható</string>
+    <string name="diag_i_servico">a háttérben futott</string>
+    <string name="diag_i_cache">a háttérben (gyorsítótárban)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Diagnosztika</string>
+    <string name="diag_refazer">Újraellenőrzés</string>
+    <string name="diag_refazer_det">Újra lefuttatja az összes ellenőrzést</string>
+    <string name="diag_verificando">ellenőrzés…</string>
+    <string name="diag_apps">Alkalmazások (az elmúlt 7 nap)</string>
+    <string name="diag_lendo">Az alkalmazások előzményeinek olvasása</string>
+    <string name="diag_sem_perm">Nincs engedély más alkalmazások összeomlásainak olvasására</string>
+    <string name="diag_sem_perm_det">A launcher a saját shelljén át megadja magának a READ_LOGS és DUMP engedélyt; várjon néhány percet, vagy indítsa újra a TV-t</string>
+    <string name="diag_nada">nincs rögzítve semmi</string>
+    <string name="diag_erros">Launcher-hibák (általa rögzítve)</string>
+    <string name="diag_sem_erros">Nincs rögzített hiba</string>
+    <string name="diag_sem_erros_det">A launcher itt tartja az utolsó %1$d összeomlását</string>
+    <string name="diag_erro">Launcher-hiba</string>
+    <string name="diag_apagar">Rögzített hibák törlése</string>
+    <string name="diag_apagar_det">Törli a fenti listát (mást nem érint)</string>
+    <string name="diag_rodape">%1$s · a nyilak görgetnek · a VISSZA visszalép</string>
+    <string name="diag_app_ok">Az elmúlt 7 napban nem volt összeomlás, lefagyás vagy rendellenes kilépés.\n\nHa az alkalmazás megnyílik, de nem tölt be semmit, a probléma általában a hálózat: nézze meg az előző képernyő Hálózat részét.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">még nincs ellenőrizve</string>
+    <string name="atu_android9">Android 9 vagy újabb szükséges</string>
+    <string name="atu_ocupado">már ellenőrzi</string>
+    <string name="atu_erro">hiba: %1$s %2$s</string>
+    <string name="atu_em_dia">naprakész (telepítve %1$d, legújabb %2$d)</string>
+    <string name="atu_sem_tag">A legújabb Release címkéjében nincs verzió</string>
+    <string name="atu_sem_apk">A(z) %1$d Release-ben nincs APK vagy SHA-256</string>
+    <string name="atu_sha">%1$d Release: a SHA-256 nem egyezik, nincs telepítve</string>
+    <string name="atu_ilegivel">%1$d Release: olvashatatlan APK</string>
+    <string name="atu_pacote">%1$d Release: eltérő csomag (%2$s)</string>
+    <string name="atu_versao">%1$d Release: az APK verziója (%2$d) nem egyezik a címkével</string>
+    <string name="atu_chave">A GitHubon a(z) %1$d verzió van, de más kulccsal van aláírva, amelyet ez a TV nem fogad el: ezt a TV-t számítógépről kell frissíteni</string>
+    <string name="atu_migracao_disponivel">%1$d verzió: kész arra, hogy ezt a TV-t átvigye az új alkalmazásra (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">az új alkalmazás (%1$d) telepítése; utána minden beállítással átveszi ezt a TV-t</string>
+    <string name="atu_disponivel">a(z) %1$d verzió telepítésre kész (telepítve %2$d)</string>
+    <string name="atu_trocou">a verzió megváltozott a legutóbbi ellenőrzés óta · az OK újra ellenőriz</string>
+    <string name="atu_instalando">%1$d telepítése (telepítve %2$d)</string>
+    <string name="atu_ok">frissítve</string>
+    <string name="atu_falhou">a telepítés sikertelen (%1$d): %2$s</string>
+    <string name="atu_ruim">a(z) %1$d verzió közvetlenül a telepítés után összeomlott ezen a TV-n: nem telepíti újra</string>
+    <string name="vig_aviso_titulo">Frissítés szüneteltetve</string>
+    <string name="vig_pausada">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · az automatikus frissítés a következőre vár</string>
+    <string name="vig_pausada_tela">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · a \"%2$s\" kikapcsolva marad a következőig</string>
+    <string name="vig_tela_bloqueada">Ez a képernyő ki van kapcsolva a következő frissítésig (összeomlasztotta a launchert)</string>
+    <string name="cfg_vig_liberar">Csökkentett mód</string>
+    <string name="cfg_vig_liberar_det">" · az OK visszakapcsolja"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">A hangalapú keresés nem nyílt meg ezen a TV-n</string>
+    <string name="home_alarme_hoje">ma</string>
+    <string name="home_alarme_amanha">holnap</string>
+    <string name="player_carregando">Csatornák betöltése…</string>
+    <string name="player_carregando_canal">Csatorna betöltése…</string>
+    <string name="vod_carregando">Videó betöltése…</string>
+    <string name="player_sem_canais">Még nincs csatornalista hozzáadva.</string>
+    <string name="player_tentando">Nincs jel a(z) %1$d csatornán. Újrapróbálás…</string>
+    <string name="player_sem_sinal">A(z) %1$d csatorna nem válaszolt. Válasszon másikat a ▲ ▼ vagy az OK gombbal.</string>
+    <string name="player_canal_nao_existe">Nincs %1$d csatorna.</string>
+    <string name="player_ao_vivo">ÉLŐ</string>
+    <string name="player_a_seguir">következik: %1$s</string>
+    <string name="player_teclas">▲ ▼ csatorna · OK csatornalista · OK 2 mp-ig: kedvenc · ◀ előző csatorna · ▶ ▶ beállítások · VISSZA kilépés</string>
+    <string name="player_teclas_pausa">▶❙❙ vagy OK folytatás · ▶ beállítások (vissza élőbe) · ▲ ▼ csatorna · VISSZA kilépés</string>
+    <string name="player_cat_busca">Keresés: %1$s</string>
+    <string name="player_acao_buscar">Keresés</string>
+    <string name="player_acao_filtros">Szűrők</string>
+    <string name="filmes_titulo">Filmek</string>
+    <string name="filmes_carregando">Filmek betöltése…</string>
+    <string name="filmes_vazio">Még nincsenek filmek</string>
+    <string name="filmes_continuar">Folytatás</string>
+    <string name="filmes_ordem_titulo">Rendezés</string>
+    <string name="filmes_ordem_recentes">legújabb a katalógusban</string>
+    <string name="filmes_ordem_nome">név</string>
+    <string name="filmes_ordem_nota">értékelés</string>
+    <string name="filmes_ordem_ano">év</string>
+    <string name="filmes_busca_dica">A film neve</string>
+    <string name="filmes_do_comeco">Az elejétől</string>
+    <string name="filmes_assistir">▶  Lejátszás</string>
+    <string name="filmes_ficha_carregando">Részletek betöltése…</string>
+    <string name="filmes_direcao">Rendező</string>
+    <string name="filmes_elenco">Szereplők</string>
+    <string name="filmes_interesses">Megnézendők</string>
+    <string name="filmes_assistidos">Megnézve</string>
+    <string name="filmes_interesse_pos">★ %1$s hozzáadva a megnézendőkhöz</string>
+    <string name="filmes_interesse_tirou">%1$s eltávolítva a megnézendők közül</string>
+    <string name="filmes_interesses_cheio">A megnézendők listáján már 500 cím van: előbb távolítson el egyet.</string>
+    <string name="filmes_interesses_vazio">Tartsa nyomva az OK-t 2 másodpercig egy poszteren, hogy ide kerüljön (és újra, hogy eltávolítsa).</string>
+    <string name="filmes_assistido">Megnézve</string>
+    <string name="filmes_selo_leg">FELIRAT</string>
+    <string name="vod_sem_conta">Ennek a videónak a fiókja már nem létezik.</string>
+    <string name="vod_erro">Nem sikerült lejátszani ezt a videót. VISSZA a kilépéshez.</string>
+    <string name="vod_faixa">Sáv</string>
+    <string name="vod_audio">Hang</string>
+    <string name="vod_legenda">Feliratok</string>
+    <string name="vod_faixas">Hang és feliratok</string>
+    <string name="vod_teclas">OK szünet · ◀ 10 mp · ▶ 30 mp (nyomva tartva gyorsabb) · ▼ hang, feliratok és kép · ⏮ ⏭ fejezetek · VISSZA kilépés</string>
+    <string name="series_titulo">Sorozatok</string>
+    <string name="series_carregando">Sorozatok betöltése…</string>
+    <string name="series_vazio">Még nincsenek sorozatok</string>
+    <string name="series_ordem_recentes">új epizóddal</string>
+    <string name="series_busca_dica">A sorozat neve</string>
+    <string name="series_sem_episodios">A szerver nem küldött epizódot ehhez a sorozathoz.</string>
+    <string name="series_assistir">▶  Lejátszás: %1$s</string>
+    <string name="series_temporada">%1$d. évad</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d évad</item>
+        <item quantity="other">%d évad</item>
+    </plurals>
+    <string name="player_acao_guia">Műsorújság</string>
+    <string name="player_sem_guia_curto">Nincs műsorújság</string>
+    <string name="player_grade_teclas">OK lejátszás · ◀ ▶ műsor · ▲ ▼ csatorna</string>
+    <string name="player_busca_dica">Csatorna vagy műsor neve</string>
+    <string name="player_busca_nada">Nincs találat erre: „%1$s”.</string>
+    <string name="player_filtro_qualquer">Bármelyik</string>
+    <string name="player_filtro_qualidade">Minőség: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Képminőség</string>
+    <string name="player_filtro_pais">Ország: %1$s</string>
+    <string name="player_filtro_pais_titulo">Ország vagy nyelv</string>
+    <string name="player_filtro_limpar">Szűrők törlése</string>
+    <string name="player_filtro_nada">Ebben a listában a csatornanevekben nincs minőség vagy ország.</string>
+    <string name="player_bloqueado">A csatornát a szülői felügyelet letiltotta. A megtekintéshez adja meg a PIN-t a Szűrőkben.</string>
+    <string name="player_ocultas_mostrar">Rejtett kategóriák és letiltott csatornák megjelenítése (PIN)</string>
+    <string name="player_ocultas_esconder">Rejtett kategóriák és letiltott csatornák újbóli elrejtése</string>
+    <string name="player_pin_titulo">A panel PIN-je</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">Hibás PIN.</string>
+    <string name="player_pin_sem">Nincs panel-PIN: a rejtett kategóriák nincsenek védve.</string>
+    <string name="player_pin_espere">Túl sok hibás PIN. Próbálja újra %d perc múlva.</string>
+    <string name="infantil_titulo">Gyerekkategóriák</string>
+    <string name="infantil_carregando">kategóriák betöltése…</string>
+    <string name="infantil_coluna_itens">MI VAN BENNE</string>
+    <string name="infantil_dica">Az OK gyerekkategóriának jelöli vagy visszavonja · érvényes az Élő TV-re, a Filmekre és a Sorozatokra · a VISSZA kilép (már mentve)</string>
+    <string name="infantil_so_categoria">a teljes kategória jelölése a bal oszlopban</string>
+    <string name="infantil_vazio">nincsenek kategóriák: adjon hozzá fiókot a Beállítások › TV és filmek menüben, és töltse be újra a csatornákat</string>
+    <string name="infantil_limite">felnőtt kategória nem lehet gyerekkategória</string>
+    <string name="infantil_resumo_ligado">%2$d kategóriából %1$d gyereknek jelölve · gyerekmód BE</string>
+    <string name="infantil_resumo_desligado">%2$d kategóriából %1$d gyereknek jelölve · gyerekmód ki</string>
+    <string name="cfg_infantil">Gyerekmód</string>
+    <string name="cfg_infantil_ligado">be · csak a %d gyerekkategória látszik; a többi PIN-t kér</string>
+    <string name="cfg_infantil_desligado">ki · %d kategória gyereknek jelölve</string>
+    <string name="cfg_infantil_escolher">Gyerekkategóriák kiválasztása</string>
+    <string name="cfg_infantil_escolher_det">Alkalmazás az Élő TV-re, a Filmekre és a Sorozatokra</string>
+    <string name="player_grupo_oculto">%1$s elrejtve. A megtekintéshez: Szűrők, rejtettek megjelenítése.</string>
+    <string name="player_grupo_mostrado">%1$s újra látható.</string>
+    <string name="player_canais_de">%1$s · %2$d CSATORNA</string>
+    <string name="player_cat_todos">Mind</string>
+    <string name="player_cat_favoritos">Kedvencek</string>
+    <string name="player_cat_recentes">Legutóbbiak</string>
+    <string name="player_cat_outros">Egyéb</string>
+    <string name="player_sem_favoritos">Még nincsenek kedvencek. Tartsa nyomva az OK-t 2 mp-ig egy csatornán, hogy ide kerüljön.</string>
+    <string name="player_categoria_vazia">Ebben a kategóriában nincsenek csatornák.</string>
+    <string name="player_sem_guia">Ehhez a csatornához nincs műsorújság.</string>
+    <string name="player_depois">KÉSŐBB</string>
+    <string name="player_lista_teclas">OK lejátszás · OK 2 mp-ig: kedvenc vagy eltávolítás · OK nyomva egy kategórián: elrejtés · ◀ kategóriák</string>
+    <string name="player_favorito_pos">★ %1$s hozzáadva a kedvencekhez</string>
+    <string name="player_favorito_tirou">%1$s eltávolítva a kedvencek közül</string>
+    <string name="player_favoritos_cheio">Már 500 kedvenc van: előbb távolítson el egyet.</string>
+    <string name="player_assistindo">most nézi</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Élő csatornák</string>
+    <string name="home_destaque_app">Alkalmazás</string>
+    <string name="app_sub_youtube">Videók és csatornák</string>
+    <string name="app_sub_netflix">Filmek és műsorok</string>
+    <string name="app_sub_prime">Filmek, műsorok és sport</string>
+    <string name="app_sub_max">Filmek, műsorok és sport</string>
+    <string name="app_sub_play_store">Alkalmazások telepítése és frissítése</string>
+    <string name="app_sub_play_games">Játékok</string>
+    <string name="app_sub_google_tv">Megvásárolt és kölcsönzött filmek</string>
+    <string name="app_sub_config">TV-beállítások</string>
+    <string name="home_card_series">Sorozatok</string>
+    <string name="home_card_filmes">Filmek</string>
+    <string name="home_destaque_series">Sorozatok a listájáról · folytassa, ahol abbahagyta</string>
+    <string name="home_destaque_filmes">Filmek a listájáról · folytassa, ahol abbahagyta</string>
+    <string name="home_card_rede">Hálózat</string>
+    <string name="home_destaque_rede">Az Ön videói, zenéi és fotói</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">MMMM d.</string>
+    <string name="home_busca">Keresés</string>
+    <string name="home_falar">Beszélgetés a Geminivel</string>
+    <string name="home_dest_tv">TV · %1$d. csatorna</string>
+    <string name="rede_titulo">Hálózat</string>
+    <string name="rede_procurando">Médiaszerverek keresése a hálózaton…</string>
+    <string name="rede_nenhum">Most nincs bekapcsolt médiaszerver. Adjon hozzá egyet lent: a Plex és a Jellyfin a fiókját használja; egy számítógép vagy NAS mappája a címét.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d szerver</item>
+        <item quantity="other">%1$d szerver</item>
+    </plurals>
+    <string name="rede_secao_seus">Az Ön szerverei</string>
+    <string name="rede_secao_achados">A hálózaton talált</string>
+    <string name="rede_secao_adicionar">Hozzáadás</string>
+    <string name="rede_entrar">Bejelentkezés</string>
+    <string name="rede_adicionar">Hozzáadás</string>
+    <string name="rede_salvar">Mentés</string>
+    <string name="rede_testar_salvar">Tesztelés és mentés</string>
+    <string name="rede_testando">Tesztelés…</string>
+    <string name="rede_cancelar">Mégse</string>
+    <string name="rede_sub_dlna">DLNA · közvetlenül megnyílik</string>
+    <string name="rede_sub_maquina">Megosztott mappa · %1$s</string>
+    <string name="rede_sub_pasta">Megosztott mappa · %1$s</string>
+    <string name="rede_sub_lista">M3U lista · %1$s</string>
+    <string name="rede_sub_video">Videólink · %1$s</string>
+    <string name="rede_sub_plex">Bejelentkezés kóddal, jelszó nélkül a TV-n</string>
+    <string name="rede_sub_jellyfin">A szerver felhasználóneve és jelszava</string>
+    <string name="rede_sub_smb">Windows-, Mac- vagy NAS-mappa</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS WebDAV-val</string>
+    <string name="rede_sub_link">http-cím, HLS (.m3u8) vagy M3U lista</string>
+    <string name="rede_acao_smb">Megosztott mappa</string>
+    <string name="rede_acao_webdav">WebDAV vagy Nextcloud</string>
+    <string name="rede_acao_link">Videólink vagy lista</string>
+    <string name="rede_acao_procurar">Újbóli keresés</string>
+    <string name="rede_abrindo">Megnyitás…</string>
+    <string name="rede_vazia">Üres mappa</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d elem</item>
+        <item quantity="other">%1$d elem</item>
+    </plurals>
+    <string name="rede_dica_abrir">megnyitás</string>
+    <string name="rede_dica_remover">eltávolítás</string>
+    <string name="rede_dica_sair">kilépés</string>
+    <string name="rede_dica_subir">egy mappával feljebb</string>
+    <string name="rede_tecla_segurar">OK nyomva tartása</string>
+    <string name="rede_tecla_voltar">VISSZA</string>
+    <string name="rede_erro">A szerver nem válaszolt. Próbálja újra.</string>
+    <string name="rede_erro_senha">A szerver nem fogadta el a felhasználónevet vagy a jelszót.</string>
+    <string name="rede_erro_pasta">A szerver válaszolt, de nincs ilyen nevű mappája.</string>
+    <string name="rede_erro_servidor">A szerver nem található. Ellenőrizze a címet, és hogy ugyanazon a hálózaton van-e.</string>
+    <string name="rede_erro_certificado">A szerver biztonsági tanúsítványa nem érvényes erre a címre.</string>
+    <string name="rede_erro_cheio">Nem sikerült menteni: a TV már 20 szervert tárol. Előbb távolítson el egyet.</string>
+    <string name="rede_endereco_erro">Hiányos vagy érvénytelen cím.</string>
+    <string name="rede_salva">\"%1$s\" hozzáadva.</string>
+    <string name="rede_nome_opcional">Megjelenítendő név (nem kötelező)</string>
+    <string name="rede_senha">Jelszó</string>
+    <string name="rede_remover_titulo">Eltávolítja: \"%1$s\"?</string>
+    <string name="rede_remover_explica">A bejelentkezési neve és jelszava lekerül a TV-ről. A szerveren nem változik semmi.</string>
+    <string name="rede_remover">Eltávolítás</string>
+    <string name="rede_removida">\"%1$s\" eltávolítva.</string>
+    <string name="rede_smb_titulo">Megosztott mappa</string>
+    <string name="rede_smb_explica">Cím a Windowshoz hasonlóan: \\\\szerver\\mappa (pl. \\\\192.168.0.10\\Filmek). Üres felhasználónév és jelszó = vendég.</string>
+    <string name="rede_smb_endereco">\\\\szerver\\mappa</string>
+    <string name="rede_smb_endereco_erro">Hiányzik a szerver vagy a mappa (pl. \\\\NAS\\Filmek).</string>
+    <string name="rede_smb_usuario">Felhasználónév (nem kötelező)</string>
+    <string name="rede_smb_senha">Jelszó (nem kötelező)</string>
+    <string name="rede_jf_explica">%1$s szerver címe (pl. 192.168.0.10 vagy nas:8096), felhasználónév és jelszó. A jelszót a TV nem tárolja.</string>
+    <string name="rede_jf_endereco">Szerver címe</string>
+    <string name="rede_jf_usuario">Felhasználónév</string>
+    <string name="rede_jf_usuario_falta">Hiányzik a felhasználónév.</string>
+    <string name="rede_dav_explica">A mappa címe (Nextcloud: cloud.example.com/remote.php/dav/files/FELHASZNÁLÓNEVE). http nélkül a TV https-t használ. Nextcloudon inkább alkalmazásjelszót használjon.</string>
+    <string name="rede_dav_endereco">WebDAV-cím</string>
+    <string name="rede_link_explica">Egy videó (mp4, mkv…), egy HLS-adatfolyam (.m3u8) vagy egy több videót tartalmazó M3U lista. Itt mentve marad.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">http:// vagy https:// kezdetű címet használjon.</string>
+    <string name="rede_plex_titulo">Bejelentkezés a Plexbe</string>
+    <string name="rede_plex_explica">A telefonján vagy számítógépén nyissa meg a plex.tv/link oldalt, és írja be az alábbi kódot. Vagy irányítsa a telefon kameráját a QR-kódra.</string>
+    <string name="rede_plex_pedindo">Kód kérése a Plextől…</string>
+    <string name="rede_plex_esperando">Várakozás a Plexen történő megerősítésre…</string>
+    <string name="rede_plex_buscando">Fiók csatlakoztatva. A szerverei keresése…</string>
+    <string name="rede_plex_venceu">A kód lejárt. Kérjen újat.</string>
+    <string name="rede_plex_outro">Új kód kérése</string>
+    <string name="rede_plex_sem_servidor">Ennek a Plex-fióknak nincs szervere.</string>
+    <string name="rede_plex_inacessivel">A fiókon megtaláltam a szervert, de innen nem válaszolt. Ellenőrizze, hogy be van-e kapcsolva és ugyanazon a hálózaton van-e.</string>
+    <string name="rede_plex_varios">%1$d Plex-szerver hozzáadva.</string>
+    <string name="pg_amanha">Holnap</string>
+    <string name="pg_recado">Üzenet</string>
+    <string name="pg_app_despertador">Ébresztő</string>
+    <string name="pg_bom_dia">Jó reggelt</string>
+    <string name="pg_boa_tarde">Jó napot</string>
+    <string name="pg_boa_noite">Jó estét</string>
+    <string name="pg_agora">most</string>
+    <string name="pg_ontem">tegnap</string>
+    <string name="pg_mais_notif">+%1$d értesítés</string>
+    <string name="pg_dia_todo">ma</string>
+    <string name="pg_hoje_as">ma %1$s-kor</string>
+    <string name="pg_amanha_as">holnap %1$s-kor</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Most</string>
+    <string name="pw_proximas_horas">Következő órák</string>
+    <string name="pw_hoje">Ma</string>
+    <string name="pw_chuva_pct">%1$d%% esély esőre</string>
+    <string name="pw_umidade_pct">%1$d%% páratartalom</string>
+    <string name="pw_ate_umas">%1$s körülbelül %2$s-ig</string>
+    <string name="pw_chuva_pelas">%1$s, eső %2$s körül</string>
+    <string name="pw_chuva_segue">%1$s a következő órákban</string>
+    <string name="pw_amanha_frase">Holnap %1$d°, %2$s</string>
+    <string name="pw_nasce">napkelte %1$s</string>
+    <string name="pw_poe">napnyugta %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Értesítések</string>
+    <string name="pr_sem_notificacoes">Nincsenek értesítések</string>
+    <string name="pr_notificacoes_desligadas">Értesítési hozzáférés bekapcsolása…</string>
+    <string name="pr_perfis">Profilok</string>
+    <string name="pr_protetor">Képernyővédő</string>
+    <string name="pr_timer">Időzítő</string>
+    <string name="pr_timer_as">Eddig: %1$s</string>
+    <string name="pr_audio_arc">Erősítő (HDMI ARC)</string>
+    <string name="pr_dispensar">Elvetés</string>
+    <string name="pr_ontem">tegnap</string>
+    <string name="pr_agora">most</string>
+    <string name="pr_configuracoes">Launcher-beállítások</string>
+    <string name="pr_tocar_pausar">Lejátszás vagy szünet</string>
+    <string name="pr_proxima">Következő</string>
+    <string name="pr_tocando">lejátszás</string>
+    <string name="pr_pausado">szüneteltetve</string>
+    <string name="pr_dormir">Alvás</string>
+    <string name="pr_despertador">Ébresztő</string>
+    <string name="pr_visita">Vendégek</string>
+    <string name="pr_casa">Otthon</string>
+    <string name="pr_config_tv">TV-beállítások</string>
+    <string name="pr_sinal_bom">jó jel</string>
+    <string name="pr_sinal_medio">közepes jel</string>
+    <string name="pr_sinal_fraco">gyenge jel</string>
+    <string name="pr_bt_conectados">%1$d csatlakoztatva</string>
+    <string name="pr_hoje">Ma</string>
+    <string name="pr_amanha">Holnap</string>
+    <string name="pr_ligado">Be</string>
+    <string name="pr_limpar_tudo">Összes törlése</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Visszanézés: korábbi műsorok</string>
+    <string name="tvv_titulo">Visszanézés · %1$s</string>
+    <string name="tvv_do_inicio">Most · újrakezdés: %1$s</string>
+    <string name="tvv_carregando">Korábbi műsorok lekérése…</string>
+    <string name="tvv_sem_resposta">A szerver nem válaszolt. Próbálja újra egy pillanat múlva.</string>
+    <string name="tvv_vazio">Ennek a csatornának még nincsenek mentett műsorai.</string>
+    <string name="tvv_voltou">Vissza élőbe</string>
+    <string name="tvv_selo">VISSZANÉZÉS</string>
+    <string name="tvv_teclas">◀ ▶ 30 mp · OK beállítások · VISSZA élő</string>
+    <string name="tvv_pausar">Szünet</string>
+    <string name="tvv_continuar">Folytatás</string>
+    <string name="tvv_ao_vivo">Vissza élőbe</string>
+    <string name="tvv_hoje">Ma</string>
+    <string name="tvv_ontem">Tegnap</string>
+    <string name="imagem_titulo">Képarány</string>
+    <string name="imagem_ajustar">Képernyőhöz igazítás</string>
+    <string name="imagem_esticar">Nyújtás</string>
+    <string name="imagem_zoom">Nagyítás (levágja a széleket)</string>
+    <string name="velocidade_titulo">Sebesség</string>
+    <string name="trailer">Előzetes</string>
+    <string name="trailer_sem_app">Nem található alkalmazás az előzetes megnyitásához.</string>
+    <string name="series_visto_ate_aqui">Megnézettnek jelölés eddig: %1$s</string>
+    <string name="series_nao_visto">Nem megnézettnek jelölés</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Filmek és sorozatok</string>
+    <string name="idioma_titulo">Előnyben részesített hang</string>
+    <string name="idioma_det">Eredeti nyelven a TV nyelvén írt felirattal, vagy a TV nyelvére szinkronizálva. Minden film és sorozat megjegyzi a lejátszóban (▼) végzett módosítást</string>
+    <string name="idioma_original">Eredeti felirattal</string>
+    <string name="idioma_dublado">Szinkronizált</string>
+    <string name="idioma_legendado">Feliratos</string>
+    <string name="idioma_dublado_curto">Szinkronizált</string>
+    <string name="idioma_versao_legendada">Feliratos változat</string>
+    <string name="idioma_versao_dublada">Szinkronizált változat</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Feliratok keresése online</string>
+    <string name="legenda_procurando">Feliratok keresése…</string>
+    <string name="legenda_baixando">Feliratok letöltése…</string>
+    <string name="legenda_acertada">A felirat a beszédhez igazítva · %1$s</string>
+    <string name="legenda_pronta">A feliratok készen vannak</string>
+    <string name="legenda_nenhuma">Ehhez a videóhoz nincs felirat a TV nyelvén</string>
+    <string name="legenda_erro">Nem sikerült feliratot keresni</string>
+    <string name="legenda_invalida">A letöltött fájl nem felirat</string>
+    <string name="legenda_sem_conta">Adja meg az OpenSubtitles kulcsát a Beállítások › TV és filmek › Filmek és sorozatok menüben</string>
+    <string name="legenda_escolher">Feliratok ehhez: \"%1$s\"</string>
+    <string name="legenda_surdos">hallássérülteknek</string>
+    <string name="legenda_bate">ehhez a fájlhoz készült</string>
+    <string name="lista_dica_escolher">kiválasztás</string>
+    <string name="legenda_atraso_titulo">Felirat késleltetése (+ = a szöveg később jelenik meg)</string>
+    <string name="legenda_atraso_zero">Nincs késleltetés</string>
+    <string name="legenda_conta_titulo">Online feliratok</string>
+    <string name="legenda_conta_det">OpenSubtitles, az Ön API-kulcsával (ingyenes: opensubtitles.com/consumers). Fiók nélkül: napi 5 felirat</string>
+    <string name="legenda_conta_sim">beállítva</string>
+    <string name="legenda_conta_nao">nincs beállítva</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">még %1$s</string>
+    <string name="tempo_falta_um">még %1$s</string>
+    <string name="serie_ep_longo">%1$d. évad, %2$d. epizód</string>
+    <string name="ficha_continuar_de">innen: %1$s</string>
+    <string name="tempo_termina_as">vége: %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s epizód</string>
+    <string name="tempo_x_de_y">%1$d / %2$d</string>
+    <string name="tempo_visto">megnézve</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Google-profil</string>
+    <string name="fp_linha">Fiókfotó lekérése</string>
+    <string name="fp_linha_det">A Google-fiókja fotóját mutatja a profil gombon</string>
+    <string name="fp_titulo">Fiókfotó</string>
+    <string name="fp_fechar">Bezárás</string>
+    <string name="fp_pedindo">Kód kérése a Google-tól…</string>
+    <string name="fp_passos">1. A telefonján nyissa meg ezt: %1$s (vagy irányítsa a kamerát a jobb oldali kódra).\n2. Jelentkezzen be egy ezen a TV-n lévő Google-fiókkal, és írja be:\n\n%2$s\n\nEz a képernyő magától folytatódik. Ezt a bejelentkezést csak a fotó lekérésére használjuk.</string>
+    <string name="fp_ok">Kész: %1$s fotója már a profil gombon van.</string>
+    <string name="fp_sem_foto">Bejelentkezve mint %1$s, de a fotót nem sikerült menteni. Próbálja újra, vagy küldjön fotót a webpanelről (Képernyővédő fotói lap).</string>
+    <string name="fp_falha">Nem sikerült: %1$s</string>
+    <string name="fp_sem_google">A Google-bejelentkezés még nincs beállítva ezen a TV-n.\n\nKét módon tehet fotót a profil gombra:\n• Webpanel > Képernyővédő fotói lap > Profilfotó: válasszon bármilyen képet a telefonjáról.\n• Állítsa be a Google-bejelentkezést (webpanel > Claude lap), és jöjjön vissza ide a fiók fotójáért.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">%1$d. fejezet</string>
+    <string name="vod_capitulos_titulo">Fejezetek</string>
+    <string name="vod_capitulos_opcao">Fejezetek (%1$d)</string>
+    <string name="vod_segunda_opcao">Második felirat (fent)</string>
+    <string name="vod_segunda_titulo">Második felirat</string>
+    <string name="vod_segunda_desligada">Ki</string>
+    <string name="vod_dialogo_opcao">Hangosabb párbeszéd</string>
+    <string name="vod_dialogo_ligado">Hangosabb párbeszéd be</string>
+    <string name="vod_dialogo_desligado">Hangosabb párbeszéd ki</string>
+    <string name="vod_atraso_audio_titulo">Hangkésleltetés (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Nincs</string>
+    <string name="vod_atraso_audio_mais">A hang %1$d ms-mal késik</string>
+    <string name="vod_atraso_audio_menos">A hang %1$d ms-mal korábban érkezik</string>
+    <string name="vod_info_opcao">Műszaki adatok</string>
+    <string name="info_video">Videó</string>
+    <string name="info_audio">Hang</string>
+    <string name="info_perdidos">Eldobott képkockák</string>
+    <string name="info_taxa">Bitráta</string>
+    <string name="info_buffer">Puffer</string>
+    <string name="info_atraso">Hangkésleltetés</string>
+    <string name="info_dialogo">Hangosabb párbeszéd be</string>
+    <string name="info_chip">TV-chip</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">sztereó</string>
+    <string name="lista_dica_voltar">vissza</string>
+    <string name="pm_ligado">Be</string>
+    <string name="pm_desligado">Ki</string>
+    <string name="pm_imagem_som">Kép és hang</string>
+    <string name="pm_mais">További beállítások</string>
+    <string name="pm_versao_legendada">Megtekintés felirattal</string>
+    <string name="pm_versao_dublada">Megtekintés szinkronnal</string>
+    <string name="pm_versao_info">Ettől a ponttól folytatódik</string>
+    <string name="pm_leg_ajustes">Felirat beállításai</string>
+    <string name="pm_leg_tamanho">Méret</string>
+    <string name="pm_leg_estilo">Stílus</string>
+    <string name="pm_leg_posicao">Pozíció</string>
+    <string name="pm_leg_atraso">Késleltetés</string>
+    <string name="pm_leg_auto">Letöltés, ha hiányzik</string>
+    <string name="pm_leg_traduzir">Fordítás a TV-n, ha hiányzik</string>
+    <string name="pm_velocidade">Sebesség</string>
+    <string name="pm_proporcao">Képméret</string>
+    <string name="pm_atraso_audio">Hangkésleltetés</string>
+    <string name="pm_quadros">Igazítás a film képkockasebességéhez</string>
+    <string name="pm_qualidade">Minőség</string>
+    <string name="pv_sem_titulo">Most nincs előrejelzés</string>
+    <string name="bu_voz_grupo">Beszéljen</string>
+    <string name="bu_falar">Mondja ki, mit keres</string>
+    <string name="bu_falar_det">Gyorsabb, mint a távirányítóval gépelni</string>
+    <string name="bu_recentes">Legutóbbi keresések</string>
+    <string name="bu_recente_det">Újbóli keresés</string>
+    <string name="aviso_alarme_tocou_titulo">Az ébresztő megszólalt a TV-n</string>
+    <string name="aviso_alarme_tocou_texto">%1$s-kor kezdett csörögni.</string>
+    <string name="home_instalar_externo">Telepítés külső tárhelyre</string>
+    <string name="home_instalar_dispositivo">Telepítés erre az eszközre</string>
+    <string name="home_instalando_lugar">%1$s áthelyezése… a befejezésig bezárul.</string>
+    <string name="home_instalado_externo">%1$s most a külső tárhelyen van.</string>
+    <string name="home_instalado_dispositivo">%1$s visszakerült erre az eszközre.</string>
+    <string name="home_instalar_lugar_falhou">Nem sikerült áthelyezni: %1$s: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">a TV saját shellje nem aktív</string>
+    <string name="home_instalar_lugar_sem_pendrive">nincs TV-tárhelyként beállított USB-meghajtó</string>
+    <string name="st_titulo">USB-meghajtó és tárhely</string>
+    <string name="st_explica">Válassza ki, hogyan használja a TV az USB-meghajtót. Kevés a hely? TV-tárhely lehet a nagy alkalmazásoknak.</string>
+    <string name="st_linha_det">USB-meghajtó használata TV-tárhelyként</string>
+    <string name="st_sem_shell">A TV saját shellje szükséges (Beállítások › Rendszer › Haladó). Az OK újrapróbálja.</string>
+    <string name="st_sem_pen">Nincs USB-meghajtó csatlakoztatva. Dugjon be egyet, és nyomja meg az OK-t.</string>
+    <string name="st_tv_livre">TV-tárhely: %1$s szabad ennyiből: %2$s</string>
+    <string name="st_pen">USB-meghajtó · %1$s · %2$s</string>
+    <string name="st_modo_comum">Hagyományos USB-meghajtó</string>
+    <string name="st_modo_misto">Vegyes</string>
+    <string name="st_modo_tv">TV-tárhely</string>
+    <string name="st_modo_desconhecido">Nincs formázva</string>
+    <string name="st_recomendado">Ajánlott: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">ez a meghajtó lassú, az alkalmazások akadoznának</string>
+    <string name="st_motivo_pequeno">8 GB alatt, túl kicsi ahhoz, hogy segítsen</string>
+    <string name="st_motivo_folgada">a TV-n még van hely, nem kell törölni a meghajtót</string>
+    <string name="st_motivo_grande">fele az alkalmazásoknak, fele a felvételeknek és fájloknak</string>
+    <string name="st_motivo_apertada">a TV majdnem megtelt</string>
+    <string name="st_medido">%1$s MB/s-mal ír</string>
+    <string name="st_medir_dica">az OK megméri a sebességét</string>
+    <string name="st_usar_comum">Használat hagyományos USB-meghajtóként</string>
+    <string name="st_usar_misto">Vegyes használat: %1$d%% hagyományos  ◀ ▶</string>
+    <string name="st_usar_tv">Használat TV-tárhelyként</string>
+    <string name="st_apps">Alkalmazások az USB-meghajtón</string>
+    <string name="st_apps_det">Áthelyezendő alkalmazások kiválasztása (a legnagyobbak elöl)</string>
+    <string name="st_apps_nenhum">Egyik alkalmazás sem helyezhető át.</string>
+    <string name="st_apps_rodape">Az OK áthelyezi az alkalmazást; ✓ = már az USB-meghajtón van</string>
+    <string name="st_compartilhado">Fotók és fájlok: %1$s</string>
+    <string name="st_na_tv">a TV-n</string>
+    <string name="st_no_pen">az USB-meghajtón</string>
+    <string name="st_compartilhado_aviso">Minden átmásolódik, és közben az alkalmazások bezárulnak. Utána indítsa újra a TV-t.</string>
+    <string name="st_mover">Áthelyezés</string>
+    <string name="st_movendo">Áthelyezés… ez több percig is tarthat.</string>
+    <string name="st_aviso_titulo">Törli az USB-meghajtót?</string>
+    <string name="st_aviso">Minden törlődik róla, hogy \"%1$s\" legyen. TV-tárhelyként csak ezen a TV-n működik, és a rajta lévő alkalmazások eltűnnek, amíg ki van húzva.</string>
+    <string name="st_apagar">Törlés és formázás</string>
+    <string name="st_formatando">Formázás… ez néhány percig tarthat.</string>
+    <string name="st_pronto">Kész.</string>
+    <string name="st_falhou">Nem sikerült: %1$s</string>
+    <string name="st_depois">Most válassza ki, mely alkalmazások kerüljenek az USB-meghajtóra.</string>
+    <string name="st_pin">Panel-PIN az USB-meghajtó módosításához</string>
+    <string name="st_copiar_titulo">Előbb átmásolja a tartalmát? (%1$s)</string>
+    <string name="st_copiar_para">Másolás ide: %1$s</string>
+    <string name="st_copiar_pc">Másolás számítógéppel (hogyan)</string>
+    <string name="st_copiar_pc_texto">A számítógépen nyissa meg az Ez a gép > a TV > USB-meghajtó helyet, és másolja a fájlokat a számítógépre. Aztán jöjjön vissza ide, és formázzon.</string>
+    <string name="st_nao_copiar">Nem kell, törölje</string>
+    <string name="st_copiando_inicio">Az USB-meghajtó másolása… a TV közben működik.</string>
+    <string name="st_copiando">Másolva: %1$s / %2$s</string>
+    <string name="st_voltar_comum">Vissza hagyományos USB-meghajtóra (az alkalmazások visszakerülnek a TV-re)</string>
+    <string name="st_trazendo">%1$s visszahozása a TV-re…</string>
+    <string name="st_sumiram">Az USB-meghajtó ki van húzva: %1$s rejtve marad, amíg vissza nem kerül.</string>
+    <string name="st_sugestao">A TV-tárhely majdnem megtelt. Helyezze át ezt: %1$s (%2$s) az USB-meghajtóra: tartsa nyomva az OK-t az alkalmazáson.</string>
+    <string name="st_medindo">A meghajtó sebességének mérése a legjobb felhasználás ajánlásához…</string>
+    <string name="st_lento_titulo">Túl lassú meghajtó</string>
+    <string name="st_lento_bloqueado">Ez a meghajtó %1$s MB/s-mal ír. TV-tárhelyként legalább %2$d MB/s kell: ez alatt az alkalmazások lefagynak, és a TV esetleg el sem indul. Használja hagyományos meghajtóként.</string>
+    <string name="st_aviso_boot">Hagyja véglegesen bedugva: ha meghibásodik vagy kihúzzák, a TV esetleg nem indul el, amíg ki nem húzza.</string>
+    <string name="home_grande_titulo">Áthelyezi: %1$s?</string>
+    <string name="home_grande_aviso">%1$s %2$s helyet foglal. Lassú meghajtón az áthelyezés 10 percnél is tovább tarthat, és már lefagyasztott egy TV-t félúton. Csak akkor folytassa, ha senki sem néz.</string>
+    <string name="home_liberar_arquivos">USB-meghajtók és fájlok megnyitásának engedélyezése</string>
+    <string name="home_arquivos_liberado">%1$s mostantól megnyithatja az USB-meghajtókat és minden fájlt</string>
+    <string name="home_arquivos_falhou">Nem sikerült engedélyezni: %1$s: %2$s</string>
+    <string name="aviso_continuar_titulo">Nincs mit folytatni</string>
+    <string name="aviso_continuar_texto">A másik TV-ről érkező folytatási meghívás lejárt.</string>
+    <string name="aviso_simples_titulo">Az Egyszerű képernyő ki van kapcsolva</string>
+    <string name="aviso_simples_texto">A TV visszatért a teljes kezdőképernyőre.</string>
+    <string name="aviso_sync_titulo">Nincs csatlakoztatott fiók</string>
+    <string name="aviso_sync_texto">Ezen a TV-n nincs %1$s-fiók. Csatlakoztassa a Beállítások › TV és filmek menüben.</string>
+    <string name="dns_nota_familia">családi, letiltja a felnőtt oldalakat</string>
+    <string name="dns_nota_malware">letiltja a kártevőket</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">A TV-nek nincs Wi-Fi-je%1$s. Ellenőrizze, hogy a router be van-e kapcsolva, vagy nem változott-e a hálózat neve vagy jelszava.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">a router elvesztette a kapcsolatot a szolgáltató modemjével</string>
+    <string name="ief_roteador_ve_fora" formatted="true">a router is úgy látja, hogy nincs internet</string>
+    <string name="ief_ha" formatted="true"> (%1$s ezelőtt)</string>
+    <string name="ief_provedor_caiu" formatted="true">A Wi-Fi rendben van, de a szolgáltató internetje leállt%1$s; %2$s%3$s. Nem a TV a hibás: várjon a szolgáltatóra, vagy indítsa újra a modemet.</string>
+    <string name="ief_vpn_travada" formatted="true">A routeren van internet, de a TV nem jut át%1$s: valószínűleg a VPN akadt el. A VPN ki- és bekapcsolása általában megoldja.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">A routeren van internet, de a TV nem éri el%1$s: a probléma a TV és a router között van%2$s A TV újracsatlakoztatása a Wi-Fi-hez általában megoldja.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (a Wi-Fi-jel gyenge, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">A TV a Wi-Fi-n van, de sem a router, sem az internet nem válaszol%1$s: a router lefagyhatott. A router ki- és bekapcsolása általában megoldja.</string>
+    <string name="ief_sem_internet" formatted="true">A Wi-Fi rendben van, de az internet nem jut át%1$s; valószínűleg a szolgáltató vagy a router a hibás%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (a bekapcsolt VPN is lehet az ok).</string>
+    <string name="ief_dns" formatted="true">Az internet működik, de a DNS%1$s nem válaszol%2$s: az alkalmazások nem találják a szervereiket. A DNS Automatikusra állítása megoldja.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Az internet és a DNS válaszol, de a Google tesztoldala %1$s: valami útközben (VPN, DNS-szűrés vagy bejelentkezést kérő hálózat) blokkolja.</string>
+    <string name="ief_nao_abriu" formatted="true">nem nyílt meg</string>
+    <string name="ief_codigo_diferente" formatted="true">másképp válaszolt (kód: %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Az internet rendben van; csak a VPN van kikapcsolva (az alkalmazások nélküle is mennek).%1$s</string>
+    <string name="ief_lenta" formatted="true">Az internet működik, de lassan: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">a Wi-Fi-jel gyenge (%1$d dBm); segít, ha közelebb viszi a routert, vagy kábelt használ</string>
+    <string name="ief_lenta_tcp" formatted="true">az internet %1$d ms alatt válaszol%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, és a router is ugyanezt látja: a szolgáltató a hibás</string>
+    <string name="ief_lenta_http" formatted="true">a tesztoldal %1$.1f mp alatt nyílt meg</string>
+    <string name="ief_queda_recente" formatted="true">Az internet most rendben van; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Minden rendben: a Wi-Fi, az internet és a DNS válaszol.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Az elmúlt 24 órában nem volt kiesés.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Nincs rögzített kiesés (a TV az elmúlt 24 órának csak egy részében mért).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (A router internetproblémát jelez, de a TV normálisan böngészik.)</string>
+    <string name="ief_caiu_dns" formatted="true">A DNS hibázott</string>
+    <string name="ief_caiu_internet" formatted="true">az internet leállt</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (aztán a TV abbahagyta a mérést; nem tudni, mikor jött vissza)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d kiesés 24 óra alatt</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s, és visszajött %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d kiesés 24 óra alatt, összesen %2$s internet nélkül</string>
+    <string name="ief_quando_hoje" formatted="true">%1$s-kor</string>
+    <string name="ief_quando_ontem" formatted="true">tegnap %1$s-kor</string>
+    <string name="ief_quando_data" formatted="true">%1$s, %2$s-kor</string>
+    <string name="ief_desde_hoje" formatted="true">%1$s óta</string>
+    <string name="ief_desde_ontem" formatted="true">tegnap %1$s óta</string>
+    <string name="ief_desde_data" formatted="true">%1$s, %2$s óta</string>
+    <string name="ief_dur_menos_1" formatted="true">kevesebb mint 1 perc</string>
+    <string name="ief_dur_min" formatted="true">%1$d perc</string>
+    <string name="ief_dur_h" formatted="true">%1$d óra</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d óra %2$d perc</string>
+    <string name="ief_data_dm" formatted="true">MM.dd.</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: leválasztva</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">hálózat: csatlakoztatva</string>
+    <string name="ief_s_internet" formatted="true">internet DNS nélkül: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS gyorsítótár nélkül: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">sikertelen</string>
+    <string name="ief_s_pagina" formatted="true">tesztoldal: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok %1$d ms alatt</string>
+    <string name="ief_s_codigo" formatted="true">kód: %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: be</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: ki</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: úgy látja, nincs internet</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: úgy látja, az internet rendben%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: nincs véleménye</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: nem válaszolt</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: nincs ellenőrizve</string>
+    <string name="ief_s_historico" formatted="true">előzmények: %1$d mérés 24 óra alatt</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">A Google most nem válaszolt; próbálja újra</string>
+    <string name="lg_negado">a bejelentkezést a Google-on elutasították</string>
+    <string name="lg_google_respondeu">A Google válasza: %1$s</string>
+    <string name="lg_venceu">a kód lejárt; kezdje újra</string>
+    <string name="lg_outro_login">másik bejelentkezés indult; kezdje újra</string>
+    <string name="lg_email">A Google nem erősítette meg az e-mail-címet</string>
+    <string name="lg_conta_fora">a(z) %1$s fiók egyik profilban sincs ezen a TV-n</string>
+    <string name="lg_sem_drive">a Google Drive engedély nem volt bejelölve</string>
+    <string name="lg_sem_chave">A Google nem küldte el a hozzáférési kulcsot; próbálja újra</string>
+    <string name="lg_nao_guardei">nem sikerült menteni a fiókot ezen a TV-n</string>
+    <string name="lg_nao_configurado">A Google-bejelentkezés nincs beállítva</string>
+    <string name="lg_ritmo">túl sok bejelentkezés egymás után; várjon egy percet</string>
+    <string name="lg_recusou">A Google elutasította (%1$s): ellenőrizze a client id-t és a secretet</string>
+    <string name="lg_erro_google">hiba a Google-lal való kommunikációban</string>
+</resources>

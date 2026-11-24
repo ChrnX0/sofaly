@@ -109,6 +109,7 @@ object ObserverTv {
         ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putLong("alive_at", agora).apply()
         runCatching { OnDemandTv.tick(ctx) }   // sob demanda: congela de novo o que ficou aberto (cinto do onWindow)
         runCatching { GoogleHomeTrimTv.tick(ctx) }   // launcher do Google parado em segundo plano: devolve a memória
+        Fundo.rodar("app-profile") { runCatching { AppProfileTv.tick(ctx) }.onFailure { Log.w(TAG, "ficha dos apps: $it") } }
         if (trialsPending) Fundo.rodar("observer-trials") { runCatching { checkTrials(ctx) }.onFailure { Log.w(TAG, "provas: $it") } }
         // O último put passa pelo publish para acordar o juiz uma vez só por amostra.
         publish(ObserverCore.Signal.INTERNET, if (internet) 1 else 0)
@@ -135,7 +136,7 @@ object ObserverTv {
         if (change.appeared.isEmpty() && change.cleared.isEmpty()) return
         var log = p.getString("log", null)
         var notes = p.getString("notes", null)
-        val pico = pico(p)
+        val pico = pico(ctx)
         val use = habit(ctx).hour(hd)?.use ?: 0.0
         for (f in change.appeared) {
             // Pico em sombra (fase 2): a nota de "vale avisar?" vai ao registro; quem decide ainda é a regra (severidade ≥ WARNING).
@@ -202,8 +203,41 @@ object ObserverTv {
 
     @Volatile private var pico: ObserverPico? = null
 
-    private fun pico(p: android.content.SharedPreferences): ObserverPico = pico ?: ObserverPico.fromJson(
-        p.getString("pico", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() }).also { pico = it }
+    private fun pico(ctx: Context): ObserverPico = pico ?: ObserverPico.fromJson(
+        learning(ctx).getString("pico", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() }).also { pico = it }
+
+    // ---------------------------------------------------------------- o que a Sofy aprende da casa (24/11/2026)
+
+    /**
+     * Por quê: o Paulo (24/11/2026) quer que o que a Sofy aprende das pessoas viaje no backup automático; antes o hábito
+     * morava em "observer", que fica fora do backup de propósito (leituras e recados são DESTA TV). Para quê: TV restaurada
+     * ou trocada não recomeça do zero. Como: o que é da casa (hábito de uso por hora, o pico) mora em "sofy_learning", que
+     * vai no [br.paulo.tvlauncher.backup.BackupCompleto]; o que é do aparelho (linha de base do hardware, registro, recados,
+     * provas) continua em "observer". Na primeira leitura, o hábito antigo muda de casa uma vez.
+     */
+    @Volatile private var learningMoved = false
+
+    @Synchronized fun learning(ctx: Context): android.content.SharedPreferences {
+        val app = ctx.applicationContext
+        val l = app.getSharedPreferences("sofy_learning", Context.MODE_PRIVATE)
+        if (!learningMoved) {
+            learningMoved = true
+            val old = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            val e = l.edit(); val o = old.edit(); var moved = false
+            for (k in LEARNING_KEYS) old.getString(k, null)?.let { v -> if (!l.contains(k)) e.putString(k, v); o.remove(k); moved = true }
+            if (moved) { e.commit(); o.apply() }
+        }
+        return l
+    }
+
+    private val LEARNING_KEYS = listOf("habit", "pico")
+
+    /** Uma linha de SOMBRA no registro (o que a Sofy faria, sem fazer): ex. "app_tip" da ficha viva dos apps. */
+    @Synchronized fun logShadow(ctx: Context, event: String, why: String) {
+        val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val agora = System.currentTimeMillis()
+        p.edit().putString("log", ObserverCore.appendLog(p.getString("log", null), ObserverCore.logEntry(agora, event, null, null, why, emptyMap()), agora)).apply()
+    }
 
     // ---------------------------------------------------------------- hábito e sonda noturna (fase 2b)
 
@@ -212,7 +246,7 @@ object ObserverTv {
     @Volatile private var lastHabitSave = 0L
 
     private fun habit(ctx: Context): ObserverHabit = habit ?: ObserverHabit.fromJson(
-        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("habit", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() })
+        learning(ctx).getString("habit", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() })
         .also { habit = it }
 
     /** Em uso = tela acesa e controle tocado há menos de 1 h (TV esquecida ligada na madrugada não conta como hábito). */
@@ -224,7 +258,7 @@ object ObserverTv {
         h.learn(hours(agora).second, inUse)
         if (agora - lastHabitSave > BASE_SAVE_GAP_MS) {
             lastHabitSave = agora
-            ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putString("habit", h.toJson().toString()).apply()
+            learning(ctx).edit().putString("habit", h.toJson().toString()).apply()
         }
     }
 
@@ -254,8 +288,8 @@ object ObserverTv {
             val e = p.edit().putString("log", log)
             if (usable) e.putString("nights", ObserverMorning.appendNight(p.getString("nights", null), ObserverMorning.nightOf(agora, snap)))
             base?.let { e.putString("baseline", it.toJson().toString()) }
-            habit?.let { e.putString("habit", it.toJson().toString()) }
             e.apply()
+            habit?.let { learning(app).edit().putString("habit", it.toJson().toString()).apply() }
         }
         Log.i(TAG, "sonda da madrugada: ${snap.mapValues { it.value.value }}")
     }
@@ -438,6 +472,7 @@ object ObserverTv {
             .put("checks", runCatching { org.json.JSONObject().apply { checks(ctx).forEach { (c, v) -> put(c.name, v) } } }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("on_demand", runCatching { org.json.JSONArray(OnDemand.toJson(OnDemandTv.entries(ctx))) }.getOrNull() ?: org.json.JSONArray())
             .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("log_total", log.length()).put("log", logNovo)
     }
 

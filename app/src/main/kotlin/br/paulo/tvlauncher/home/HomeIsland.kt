@@ -194,6 +194,9 @@ internal fun MainActivity.lerFontesIlha() {
         br.paulo.tvlauncher.weather.NightSkyTv.semEsperar(this, agora)?.takeIf { br.paulo.tvlauncher.weather.NightSky.naIlha(it, agora) }
             ?.let { br.paulo.tvlauncher.weather.NightSkyTv.textoIlha(this, it) to it.kind }
     }.getOrNull()
+    // A Sofy (24/11/2026): o recado dela para a home e, de manhã, o que ela viu e fez de madrugada.
+    ilhaSofy = runCatching { br.paulo.tvlauncher.observer.SofyTv.islandLine(this) }.getOrNull()
+    ilhaSofyManha = runCatching { br.paulo.tvlauncher.observer.SofyTv.morningLine(this) }.getOrNull()
     val ind = HashSet<BarraIlha.Indicador>()
     if (runCatching { Gravacoes.resumoParaHome(this) }.getOrNull() != null) ind += BarraIlha.Indicador.GRAVANDO   // grava no ":player"
     if (runCatching { NaoPerturbeTv.motivoAgora(this) }.getOrNull() != null) ind += BarraIlha.Indicador.NAO_PERTURBE
@@ -271,6 +274,7 @@ internal fun MainActivity.atualizarIlha() {
         contagem = txtContagem.se(pilulaContagem),
         ceu = ilhaCeu?.first,
         // O clima renova a cada 15 min; um aviso de mais de 90 min (TV sem rede) já não vale.
+        sofy = ilhaSofy?.text,
         sol = ilhaUv?.takeIf { agora - it.second < 90 * 60_000L }?.let { getString(R.string.ilha_uv, it.first) },
     ))
     pintarTrilho(BarraIlha.trilho(ilhaIndicadores))
@@ -363,6 +367,8 @@ internal fun MainActivity.aplicarIlha() {
             BarraIlha.Tipo.LEMBRETE_CASA -> IconeLinha(IconeLinha.Tipo.RECADO)
             BarraIlha.Tipo.CONTAGEM -> IconeLinha(IconeLinha.Tipo.CALENDARIO)
             BarraIlha.Tipo.SOL -> IconeLinha(IconeLinha.Tipo.SOL)
+            // A Sofy fala com o próprio rosto (a cara do recado), parado na pose final: na Ilha nada se mexe sozinho.
+            BarraIlha.Tipo.SOFY -> br.paulo.tvlauncher.observer.SofyDrawable(this, ilhaSofy?.expression ?: br.paulo.tvlauncher.observer.SofyPolicy.Expression.ATTENTIVE)
             // Ícones provisórios: a arte do céu da noite é da thread Design.
             // Céu da noite: os 4 ícones de traço do estudo (24/11/2026), mesmo branco dos outros ícones da Ilha.
             BarraIlha.Tipo.CEU -> NightSkyGlyph(ilhaCeu?.second ?: br.paulo.tvlauncher.weather.NightSky.Kind.METEORS, android.graphics.Color.WHITE)
@@ -380,6 +386,8 @@ internal fun MainActivity.aplicarIlha() {
 internal fun MainActivity.abrirIlhaAoAcordar() {
     if (barraCruz != LayoutHome.BarraCruz.ILHA || ilhaPilula == null || !homeNaFrente) return
     recolherBarra(false)
+    // Lê de novo agora (a Sofy da manhã só vale na janela das 6h ao meio-dia; a última leitura pode ser da noite).
+    filaApps.execute { runCatching { lerFontesIlha() }; ui.post { atualizarIlha() } }
     ui.removeCallbacks(tarefaIlhaAcordou)
     ui.postDelayed(tarefaIlhaAcordou, BarraIlha.ACORDAR_ABERTA_MS)
 }

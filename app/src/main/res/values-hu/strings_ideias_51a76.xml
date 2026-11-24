@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">a visszaállítási ellenőrzés sikeres</string>
+    <string name="l51_ensaio_falhou">a mentett másolat nem állítható vissza (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Vendég Wi-Fi</string>
+    <string name="l51_wifi_nao">nincs beállítva: írja be egyszer, és a látogatók QR-kódot olvasnak be</string>
+    <string name="l51_wifi_dica">Használja a router vendéghálózatát: a szobában bárki leolvashatja a jelszót a képernyőről.</string>
+    <string name="l51_wifi_rede">Hálózat neve</string>
+    <string name="l51_wifi_senha">Jelszó</string>
+    <string name="l51_wifi_invalido">Név legfeljebb 32 karakter; jelszó üres (nyílt hálózat) vagy 8–63 karakter.</string>
+    <string name="l51_wifi_qr_titulo">A vendég Wi-Fi QR-kódjának megjelenítése</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Mit használnak</string>
+    <string name="l51_uso_det">Képernyők és beállítások használat szerint, csak ezen a TV-n számolva (semmi sem hagyja el)</string>
+    <string name="l51_uso_vazio">Még nincs számolva semmi. Nézzen vissza néhány nap múlva.</string>
+    <string name="l51_uso_tela">képernyő</string>
+    <string name="l51_uso_opcao">beállítás</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d alkalom</item>
+        <item quantity="other">%d alkalom</item>
+    </plurals>
+    <string name="l51_uso_hoje">utoljára ma</string>
+    <string name="l51_uso_ontem">utoljára tegnap</string>
+    <string name="l51_uso_dias">utoljára %d napja</string>
+    <string name="l51_tela_Main">Kezdőképernyő</string>
+    <string name="l51_tela_Dream">Képernyővédő</string>
+    <string name="l51_tela_Filmes">Filmek</string>
+    <string name="l51_tela_Series">Műsorok</string>
+    <string name="l51_tela_Jogos">Játékok</string>
+    <string name="l51_tela_Player">Élő TV és videók</string>
+    <string name="l51_tela_PainelRapido">Gyorspanel</string>
+    <string name="l51_tela_Vod">Lejátszási lista katalógusa</string>
+    <string name="l51_tela_Previsao">Időjárás-előrejelzés</string>
+    <string name="l51_tela_Elenco">Szereplők</string>
+    <string name="l51_tela_ConfigLauncher">Beállítások</string>
+    <string name="l51_tela_MidiaRede">Hálózat</string>
+    <string name="l51_tela_Calendario">Naptár</string>
+    <string name="l51_tela_Gravacoes">Felvételek</string>
+    <string name="l51_tela_Busca">Keresés</string>
+    <string name="l51_tela_Casa">Otthonom</string>
+    <string name="l51_tela_AlarmeTocando">Szóló ébresztő</string>
+    <string name="l51_tela_Radio">Rádió</string>
+    <string name="l51_tela_Diagnostico">Diagnosztika</string>
+    <string name="l51_uso_zerar">Visszaállítás</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Gépelés a TV-n</string>
+    <string name="l51_digitar_texto">Szövegmező van nyitva itt: %1$s. Koppintson, hogy innen gépeljen.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">%1$s helyiség</string>
+    <string name="casa_movimento">Mozgás</string>
+    <string name="casa_sem_movimento">Nincs mozgás</string>
+    <string name="casa_molhado">Nedves</string>
+    <string name="casa_seco">Száraz</string>
+    <string name="casa_fumaca">Füst!</string>
+    <string name="casa_sem_fumaca">Nincs füst</string>
+    <string name="casa_dica_temp">hőmérséklet</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">A kamera megnyitása…</string>
+    <string name="casa_camera_ver">Megjelenítés a TV-n</string>
+</resources>

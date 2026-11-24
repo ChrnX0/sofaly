@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Vaše data zůstávají u vás</string>
+    <string name="nsc_det">Žádný účet u nás, žádné reklamy</string>
+    <string name="nsc_texto">Žádný účet u nás, žádné reklamy, žádné sledování používání.\n\nVaše nastavení, fotky, poznámky a zálohy zůstávají na tomto televizoru, nebo ve vašem vlastním účtu, pokud ho připojíte.\n\nTelevizor mluví jen se službami, které zapnete, jako je počasí nebo plakáty filmů. Některé jdou přes náš server (api.sofaly.tv), například hledání podcastů; ten dostane jen požadavek, nikdy váš účet. Zásady ochrany soukromí na webu uvádějí každou z nich.</string>
+</resources>

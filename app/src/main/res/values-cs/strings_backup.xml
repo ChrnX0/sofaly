@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Automatická záloha</string>
+    <string name="bkn_explica">Každou noc, když je televizor nečinný, uloží úplnou zálohu zamčenou vaším heslem. Uchovává se posledních 7. Heslo si zapište: bez něj zálohu nelze otevřít.</string>
+    <string name="bkn_ligado">zapnuto</string>
+    <string name="bkn_desligado">vypnuto</string>
+    <string name="bkn_sem_senha">vypnuto · nejprve nastavte heslo zálohy</string>
+    <string name="bkn_senha">Heslo zálohy</string>
+    <string name="bkn_senha_ok">nastaveno · OK změní</string>
+    <string name="bkn_senha_falta">nenastaveno · OK nastaví</string>
+    <string name="bkn_senha_nova">Heslo zálohy (8 nebo více znaků)</string>
+    <string name="bkn_senha_repetir">Zadejte heslo znovu</string>
+    <string name="bkn_senha_curta">Heslo musí mít 8 až 128 znaků.</string>
+    <string name="bkn_senha_diferente">Hesla se neshodovala.</string>
+    <string name="bkn_senha_gravada">Heslo uloženo. Uschovejte ho na bezpečném místě.</string>
+    <string name="bkn_senha_erro">Heslo se nepodařilo uložit.</string>
+    <string name="bkn_horario">Čas</string>
+    <string name="bkn_extra">Další kopie</string>
+    <string name="bkn_destino_tv">Jen televizor</string>
+    <string name="bkn_destino_pendrive">USB disk</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Zálohovat nyní</string>
+    <string name="bkn_ultimo">Poslední</string>
+    <string name="bkn_nunca">nikdy</string>
+    <string name="bkn_pin">PIN pro změnu zálohy</string>
+</resources>

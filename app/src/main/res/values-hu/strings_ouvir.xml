@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Leállítás</string>
+    <string name="ra_parar_det">A rádió a kezdőképernyőn és a képernyővédőn is szól, amíg le nem állítja</string>
+    <string name="ra_parar_det_antigo">Ha kilép erről a képernyőről, az is leállítja</string>
+    <string name="ouv_canal">A rádió szól</string>
+    <string name="ouv_abrir">A rádió képernyő megnyitása</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podcastok</string>
+    <string name="pod_dica_mais">továbbiak</string>
+    <string name="pod_de">%1$s / %2$s</string>
+    <string name="pod_velocidade">Sebesség</string>
+    <string name="pod_silencio">Csendek átugrása</string>
+    <string name="pod_silencio_det">Kivágja a beszéd szüneteit</string>
+    <string name="pod_ligado">be</string>
+    <string name="pod_desligado">ki</string>
+    <string name="pod_continuar">Folytatás</string>
+    <string name="pod_novos">Új epizódok</string>
+    <string name="pod_video">videó</string>
+    <string name="pod_meus">Podcastjaim</string>
+    <string name="pod_ultimo">legújabb: %s</string>
+    <string name="pod_adicionar">Hozzáadás</string>
+    <string name="pod_colar">Podcast címének beillesztése</string>
+    <string name="pod_colar_det">Az RSS-hírcsatorna linkje (a podcastoldalak RSS-ként mutatják)</string>
+    <string name="pod_pelo_celular">A telefonjáról</string>
+    <string name="pod_pelo_celular_det">Nyissa meg a TV paneljét a telefonján › Podcastok: illesszen be egy linket, vagy importálja a podcastalkalmazása listáját (OPML)</string>
+    <string name="pod_sem_episodios">Nincs megjeleníthető epizód.</string>
+    <string name="pod_ouvido">meghallgatva</string>
+    <string name="pod_do_comeco">Lejátszás az elejétől</string>
+    <string name="pod_marcar_nao">Meg nem hallgatottnak jelölés</string>
+    <string name="pod_marcar_ouvido">Meghallgatottnak jelölés</string>
+    <string name="pod_abrir">Megnyitás</string>
+    <string name="pod_remover">Leiratkozás</string>
+    <string name="pod_removido">Leiratkozva</string>
+    <string name="pod_adicionando">A podcast hozzáadása…</string>
+    <string name="pod_adicionado">Podcast hozzáadva</string>
+    <string name="pod_nao_deu">Nem sikerült hozzáadni: %s</string>
+    <string name="pod_horas">%1$d óra %2$s</string>
+    <string name="pod_minutos">%d perc</string>
+    <string name="pod_hoje">ma</string>
+    <string name="pod_ontem">tegnap</string>
+    <string name="pod_falhou">Ez az epizód most nem szól. Próbálja újra később.</string>
+    <string name="pod_abrir_tela">A podcastok képernyő megnyitása</string>
+    <string name="ra_podcasts_det">Műsorok, hírek és beszélgetések, amelyeket követ</string>
+    <string name="pod_procurar">Keresés</string>
+    <string name="pod_buscar">Podcastok keresése</string>
+    <string name="pod_em_alta">Népszerű az Ön országában</string>
+    <string name="pod_atribuicao">Keresés: Podcast Index</string>
+    <string name="pod_sugestoes">Javaslatok</string>
+    <string name="pod_sugestao_seguir">OK a követéshez</string>
+    <string name="pod_sugeridos_seguidos">A javasolt podcastok hozzáadva a Podcastjaimhoz</string>
+</resources>

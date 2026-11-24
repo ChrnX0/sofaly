@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Nahlásit problém</string>
+    <string name="rel_linha_det">QR kód otevře formulář v telefonu s již vyplněnými technickými údaji</string>
+    <string name="rel_texto">Namiřte fotoaparát telefonu na kód. Napište, co se stalo, a odešlete. Vaše jméno, účet, síť a město se nepřikládají.</string>
+    <string name="rel_vai_junto">Co se přikládá</string>
+    <string name="rel_l_oque">Co se stalo</string>
+    <string name="rel_l_versao">Verze</string>
+    <string name="rel_l_uso">Režim</string>
+    <string name="rel_l_quedas">Pády / zamrznutí (7 dní)</string>
+    <string name="rel_l_erro">Poslední chyba</string>
+</resources>

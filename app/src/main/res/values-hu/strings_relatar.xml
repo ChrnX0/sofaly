@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
+<resources>
+    <string name="rel_titulo">Probléma bejelentése</string>
+    <string name="rel_linha_det">Egy QR-kód megnyitja az űrlapot a telefonon, a műszaki adatok már kitöltve</string>
+    <string name="rel_texto">Irányítsa a telefon kameráját a kódra. Írja le, mi történt, és küldje el. A neve, a fiókja, a hálózata és a városa nincs benne.</string>
+    <string name="rel_vai_junto">Mi megy vele együtt</string>
+    <string name="rel_l_oque">Mi történt</string>
+    <string name="rel_l_versao">Verzió</string>
+    <string name="rel_l_uso">Mód</string>
+    <string name="rel_l_quedas">Összeomlások / lefagyások (7 nap)</string>
+    <string name="rel_l_erro">Utolsó hiba</string>
+</resources>

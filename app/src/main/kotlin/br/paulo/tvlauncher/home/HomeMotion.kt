@@ -283,11 +283,14 @@ internal fun MainActivity.atualizarCruz() {
     }
     // Proposta A dos cartões dos apps (AppChannels.Mode.COLUMN): até 6 cartões no fim da coluna do mundo do app,
     // um de cada app por vez; só de apps visíveis.
+    // Barra única (24/11/2026): os cards de conteúdo (capas de filmes e episódios) entram sempre no fim do mundo do app,
+    // como as fileiras do Projectivy; ◀ ▶ chegam neles e OK abre direto o título.
     val modoCartoes = AppChannels.mode(this)
-    fun cartoesColuna(k: CruzLogica.Categoria): List<HomeCruz.Item> = if (modoCartoes != AppChannels.Mode.COLUMN) emptyList() else
+    val naBarra = BottomBar.strip(this)
+    fun cartoesColuna(k: CruzLogica.Categoria): List<HomeCruz.Item> = if (modoCartoes != AppChannels.Mode.COLUMN && !naBarra) emptyList() else
         AppChannels.intercalar(cartoesApps.filter { cd -> cd.pacote in porPacote &&
             CategoriaApps.destino(cd.pacote, this@atualizarCruz.categoria(cd.pacote), false, escolhasCat[cd.pacote], catsFicha?.get(cd.pacote)) == k },
-            AppChannels.MAX_NA_COLUNA).map { cd ->
+            if (naBarra) AppChannels.MAX_NA_BARRA else AppChannels.MAX_NA_COLUNA).map { cd ->
             HomeCruz.Item("card:${cd.id}", nomeDe(cd.pacote), CruzLogica.linhas(cd.titulo, cd.detalhe.takeIf { it.isNotBlank() }, cd.canal.takeIf { it.isNotBlank() }),
                 PosterDrawable(this, cd.poster, porPacote[cd.pacote]?.let { icApp(it) }),
                 { if (!AppChannels.abrir(this, cd)) cruz?.naoAbriu() }, opcoes = { menuAppCruz(cd.pacote) })

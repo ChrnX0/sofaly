@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Χωρίς internet</string>
+    <string name="observer_no_internet_text">Τα βίντεο μπορεί να σταματήσουν ως να επανέλθει.</string>
+    <string name="observer_slow_internet_title">Αργό internet</string>
+    <string name="observer_slow_internet_text">Οι απαντήσεις παίρνουν %1$s ms. Τα βίντεο μπορεί να σταματούν για φόρτωση.</string>
+    <string name="observer_weak_wifi_title">Αδύναμο Wi-Fi</string>
+    <string name="observer_weak_wifi_text">Το σήμα είναι %1$s dBm. Βοηθά ένας router πιο κοντά στην τηλεόραση.</string>
+    <string name="observer_low_memory_title">Η μνήμη σχεδόν γεμάτη</string>
+    <string name="observer_low_memory_text">Μόνο %1$s MB ελεύθερα. Οι εφαρμογές μπορεί να κλείνουν και να επανεκκινούν.</string>
+    <string name="observer_memory_pressure_title">Η τηλεόραση είναι υπερφορτωμένη</string>
+    <string name="observer_memory_pressure_text">Το Android κλείνει εφαρμογές για να κάνει χώρο.</string>
+    <string name="observer_slow_home_title">Η αρχική οθόνη είναι αργή</string>
+    <string name="observer_slow_home_text">Το %1$s%% των καρέ καθυστέρησε.</string>
+    <string name="observer_low_disk_title">Η αποθήκευση σχεδόν γεμάτη</string>
+    <string name="observer_low_disk_text">Απομένουν μόνο %1$s MB. Η αποθήκευση μπορεί να αποτύχει.</string>
+    <string name="observer_freeze_undone_title">Αναίρεσα ένα πάγωμα</string>
+    <string name="observer_freeze_undone_text">Το %1$s ήταν παγωμένο και το %2$s σταμάτησε να λειτουργεί, οπότε το ξεπάγωσα.</string>
+</resources>

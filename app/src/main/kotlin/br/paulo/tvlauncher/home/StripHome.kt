@@ -17,7 +17,7 @@ object StripHome {
 
     // ---- opções (Extras, números); padrão = o que o Paulo marcou no estudo em 24/11/2026 12:59Z
     const val KEY_DESC = "strip_desc"         // 0 frase fixa, 1 o que tem agora
-    const val KEY_FORMAT = "strip_format"     // 0 16:9, 1 4:3, 2 quadrado
+    const val KEY_FORMAT = "strip_format"     // 0 16:9, 1 4:3, 2 quadrado, 3 logo solto, 4 grade de 2 linhas, 5 redondo, 6 só o escolhido
     const val KEY_SIZE = "strip_size"         // 0 pequeno, 1 médio, 2 grande
     const val KEY_GAP = "strip_gap"           // 0 justo, 1 normal, 2 largo
     const val KEY_CORNERS = "strip_corners"   // 0 retos, 1 suaves, 2 redondos
@@ -25,7 +25,28 @@ object StripHome {
     const val KEY_NAME = "strip_name"         // 0 sem nome, 1 nome no card em foco
 
     enum class Desc { FIXED, LIVE }
-    enum class Format(val w: Float, val h: Float) { WIDE(122f, 69f), CLASSIC(96f, 72f), SQUARE(76f, 76f) }
+    /**
+     * Jeito dos cards (24/11/2026, Paulo: "a variedade de layouts dos ícones e cards" do Projectivy). Os 3 primeiros são
+     * placas; os 4 novos: LOGO = o logo solto, sem placa; GRID = grade de 2 linhas (◀ ▶ colunas, ▲ ▼ linhas e, na borda,
+     * mundo); ROUND = redondo com o nome embaixo; ONLY = só o escolhido tem placa e arte, os outros são só o ícone, menores.
+     * A ordem dos números não muda (fica guardada como número em Extras).
+     */
+    enum class Format(val w: Float, val h: Float) {
+        WIDE(122f, 69f), CLASSIC(96f, 72f), SQUARE(76f, 76f), LOGO(96f, 64f), GRID(104f, 58f), ROUND(64f, 64f), ONLY(122f, 69f);
+        /** Mostra o banner de TV do app (a arte 16:9). */
+        val banner get() = this == WIDE || this == ONLY || this == GRID || this == LOGO
+        /** Duas linhas de cards. */
+        val grade get() = this == GRID
+        /** Nome fora do card, embaixo (sempre visível). */
+        val nomeEmbaixo get() = this == ROUND
+        /** Nome dentro do card sem banner (16:9, grade e só o escolhido; nos quadrados só cabe o ícone). */
+        val rotuloDentro get() = this == WIDE || this == ONLY || this == GRID
+        /** Aceita o "nome no card em foco" (o card se alarga): não na grade nem no redondo, que já têm lugar fixo. */
+        val nomeNoFoco get() = !grade && !nomeEmbaixo
+    }
+    /** Vão entre as 2 linhas da grade e espaço do nome embaixo do redondo (dp). */
+    const val VAO_GRADE = 10f
+    const val NOME_EMBAIXO = 20f
     enum class Size(val k: Float) { SMALL(0.85f), MEDIUM(1f), LARGE(1.15f) }
     enum class Gap(val dp: Float) { TIGHT(12f), NORMAL(20f), WIDE(30f) }
     enum class Corners(val dp: Float) { SQUARE(4f), SOFT(12f), ROUND(22f) }
@@ -37,11 +58,28 @@ object StripHome {
         /** Largura e altura do card (dp). */
         val cardW get() = Math.round(format.w * size.k).toFloat()
         val cardH get() = Math.round(format.h * size.k).toFloat()
+        /** Altura do bloco de cards (2 linhas na grade; o nome embaixo do redondo). */
+        val blocoH get() = when {
+            format.grade -> 2 * cardH + VAO_GRADE
+            format.nomeEmbaixo -> cardH + NOME_EMBAIXO
+            else -> cardH
+        }
+        /** Raio dos cantos: o redondo é um círculo. */
+        val raio get() = if (format == Format.ROUND) cardH / 2f else corners.dp
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
         fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}"
     }
 
     val DEFAULT = Options()
+
+    /** As opções de um mundo: as do Ajuste fino com o jeito dos cards dele, se ele tiver um ([WorldOptions.Options.cards]). */
+    fun doMundo(geral: Options, cards: Int?): Options =
+        cards?.let { Format.entries.getOrNull(it) }?.let { geral.copy(format = it) } ?: geral
+
+    /** Coluna e linha do card [i] (a grade de 2 linhas enche coluna por coluna). */
+    fun coluna(i: Int, grade: Boolean) = if (grade) i / 2 else i
+    fun linhaDaGrade(i: Int, grade: Boolean) = if (grade) i % 2 else 0
+    fun colunas(n: Int, grade: Boolean) = if (grade) (n + 1) / 2 else n
 
     fun options(ctx: Context): Options {
         fun <E : Enum<E>> ler(key: String, todos: Array<E>, padrao: E): E = todos.getOrNull(Extras.numero(ctx, key, padrao.ordinal)) ?: padrao
@@ -78,18 +116,39 @@ object StripHome {
     // ---- teclas
 
     /** Resultado de uma tecla: a tecla da cruz a aplicar (null = nada, som de borda) ou sair para a barra de cima. */
-    data class Passo(val tecla: CruzLogica.Tecla?, val subirTopo: Boolean = false)
+    data class Passo(val tecla: CruzLogica.Tecla?, val subirTopo: Boolean = false, val paraSel: Int? = null)
 
     /**
      * ◀ ▶ andam nos apps do mundo (sem dar a volta), ▲ ▼ trocam o mundo; ▲ no 1º mundo sobe para a barra de cima (Ilha).
      * Na cruz, mundo = coluna e app = linha da coluna: ◀ ▶ viram ▲ ▼ da cruz e ▲ ▼ viram ◀ ▶.
+     * Grade de 2 linhas ([grade], [n] itens): o item i fica na coluna i/2, linha i%2. ◀ ▶ pulam de coluna ([Passo.paraSel]);
+     * ▼ na linha de cima desce para a de baixo, ▲ na de baixo sobe; nas bordas, troca o mundo como sempre.
      */
-    fun passo(t: CruzLogica.Tecla, cat: Int, sel: Int): Passo = when (t) {
-        CruzLogica.Tecla.ESQUERDA -> Passo(if (sel > 0) CruzLogica.Tecla.CIMA else null)
-        CruzLogica.Tecla.DIREITA -> Passo(CruzLogica.Tecla.BAIXO)
-        CruzLogica.Tecla.CIMA -> if (cat > 0) Passo(CruzLogica.Tecla.ESQUERDA) else Passo(null, subirTopo = true)
-        CruzLogica.Tecla.BAIXO -> Passo(CruzLogica.Tecla.DIREITA)
-        else -> Passo(t)
+    fun passo(t: CruzLogica.Tecla, cat: Int, sel: Int, n: Int = 0, grade: Boolean = false): Passo {
+        if (grade && n > 0) {
+            val linha = sel % 2
+            when (t) {
+                CruzLogica.Tecla.ESQUERDA -> return Passo(null, paraSel = (sel - 2).takeIf { it >= 0 })
+                CruzLogica.Tecla.DIREITA -> {
+                    val alvo = when {
+                        sel + 2 < n -> sel + 2
+                        (n - 1) / 2 > sel / 2 -> n - 1   // a última coluna só tem a linha de cima
+                        else -> null
+                    }
+                    return Passo(null, paraSel = alvo)
+                }
+                CruzLogica.Tecla.BAIXO -> if (linha == 0 && sel + 1 < n) return Passo(null, paraSel = sel + 1)
+                CruzLogica.Tecla.CIMA -> if (linha == 1) return Passo(null, paraSel = sel - 1)
+                else -> {}
+            }
+        }
+        return when (t) {
+            CruzLogica.Tecla.ESQUERDA -> Passo(if (sel > 0) CruzLogica.Tecla.CIMA else null)
+            CruzLogica.Tecla.DIREITA -> Passo(CruzLogica.Tecla.BAIXO)
+            CruzLogica.Tecla.CIMA -> if (cat > 0) Passo(CruzLogica.Tecla.ESQUERDA) else Passo(null, subirTopo = true)
+            CruzLogica.Tecla.BAIXO -> Passo(CruzLogica.Tecla.DIREITA)
+            else -> Passo(t)
+        }
     }
 
     /**
@@ -115,6 +174,18 @@ object StripHome {
     /** O "o que tem agora" de um mundo; null = sem nada a dizer (fica a frase fixa). Negrito entre ** **. */
     data class Itens(val id: String, val nome: String, val sub: String, val situacao: CruzLogica.Situacao?)
 
+    /**
+     * A descrição do card em foco: o que ele tem agora ("**No ar** Jornal Hoje · faltam 25 min"); sem isso, o nome dele
+     * em negrito e a linha de baixo dele ("**Netflix** Filmes e séries", "**Clima** 34° · Previsão").
+     */
+    fun doCard(i: Itens): String {
+        i.situacao?.takeIf { it.texto.isNotBlank() }?.let { return "**${it.rotulo}** ${semGritar(it.texto)}".trim() }
+        val sub = i.sub.lineSequence().map { it.trim() }.filter { it.isNotEmpty() && !it.equals(i.nome, ignoreCase = true) }
+            .distinct().joinToString(" · ")
+        return if (sub.isEmpty()) "**${i.nome}**" else "**${i.nome}** ${semGritar(sub)}"
+    }
+
+    /** O mundo inteiro (sem card em foco): a 1ª situação viva, ou o resumo do mundo. */
     fun viva(cat: CruzLogica.Categoria, itens: List<Itens>, appsTexto: (Int) -> String): String? {
         fun primeira(s: String) = s.lineSequence().map { it.trim() }.firstOrNull { it.isNotEmpty() }
         itens.firstOrNull { it.situacao != null && it.situacao.texto.isNotBlank() }?.situacao?.let { s ->
@@ -137,14 +208,27 @@ object StripHome {
      * 18 sp, caixa alta grita e ocupa ~30% mais largura. Texto normal passa igual.
      */
     fun semGritar(s: String): String {
-        val letras = s.filter { it.isLetter() }
-        if (letras.length < 8 || letras.count { it.isUpperCase() } < letras.length * 0.8) return s
-        val ws = s.lowercase().split(" ")
-        // Palavra pequena fica minúscula só no meio da frase; depois de "-", "·", ":" ou "?" ela abre frase nova.
-        return ws.mapIndexed { i, w ->
-            val abre = i == 0 || ws[i - 1].lastOrNull()?.let { !it.isLetterOrDigit() } ?: true
-            if (!abre && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() }
-        }.joinToString(" ")
+        // Por trechos (24/11/2026, visto na Sala: "ORAÇÃO DO DIA NADA FALTANDO... | Pastora Ana" passava gritando porque o
+        // fim normal baixava a conta): cada sequência de palavras em CAIXA ALTA com 8+ letras vira título; o resto fica.
+        val ws = s.split(" ")
+        fun alta(w: String) = w.any { it.isLetter() } && w.none { it.isLowerCase() }
+        fun neutra(w: String) = w.none { it.isLetter() }
+        val saida = ws.toMutableList()
+        var i = 0
+        while (i < ws.size) {
+            if (!alta(ws[i])) { i++; continue }
+            var j = i
+            while (j < ws.size && (alta(ws[j]) || neutra(ws[j]))) j++
+            val letras = (i until j).sumOf { k -> ws[k].count { it.isLetter() } }
+            if (letras >= 8 && (i until j).count { alta(ws[it]) } >= 2) for (k in i until j) {
+                val w = ws[k].lowercase()
+                // Palavra pequena fica minúscula só no meio da frase; depois de "-", "·", ":" ou "?" ela abre frase nova.
+                val abre = k == i || ws[k - 1].lastOrNull()?.let { !it.isLetterOrDigit() } ?: true
+                saida[k] = if (!abre && w in MIUDAS) w else w.replaceFirstChar { it.titlecase() }
+            }
+            i = j
+        }
+        return saida.joinToString(" ")
     }
 
     /** Palavras pequenas que ficam minúsculas no meio do título (pt, es, en, fr, it). */

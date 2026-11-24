@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Domácnost a síť</string>
+    <string name="cfg3_mais_ajustes">Další nastavení</string>
+    <string name="cfg3_mais_ajustes_det">Skryto pro stručnost: %1$d</string>
+    <string name="cfg3_modo">Režim: %1$s</string>
+    <string name="cfg3_porta_0_det">Kategorie, ikony a pozadí</string>
+    <string name="cfg3_porta_1_det">Účty TV, zvuk, titulky</string>
+    <string name="cfg3_porta_2_det">Děti, PIN a hosté</string>
+    <string name="cfg3_porta_3_det">Spořič, spánek, buzení</string>
+    <string name="cfg3_porta_4_det">Domácnost, telefon a panel</string>
+    <string name="cfg3_porta_5_det">Aktualizace, záloha a nápověda</string>
+</resources>

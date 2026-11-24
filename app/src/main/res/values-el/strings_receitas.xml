@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Για ποιον είναι αυτή η τηλεόραση;</string>
+    <string name="rec_subtitulo">Ένα OK ρυθμίζει την τηλεόραση. Μπορείτε να το αναιρέσετε οποτεδήποτε.</string>
+    <string name="rec_vo">Η τηλεόραση της γιαγιάς</string>
+    <string name="rec_vo_det">Μεγάλες κάρτες με ονόματα που διαβάζονται φωναχτά, μεγαλύτερο κείμενο και κουμπί Βοήθεια.</string>
+    <string name="rec_criancas">Η τηλεόραση των παιδιών</string>
+    <string name="rec_criancas_det">Μόνο παιδικό περιεχόμενο, ώρα ύπνου και η κατηγορία Παίζω.</string>
+    <string name="rec_gamer">Η τηλεόραση του gamer</string>
+    <string name="rec_gamer_det">Κατηγορία Παίζω, λειτουργία παιχνιδιού (χωρίς προφύλαξη ή ειδοποιήσεις κατά το παιχνίδι) και το χειριστήριο ανοίγει τα Παιχνίδια.</string>
+    <string name="rec_aluguel">Τηλεόραση ενοικίασης</string>
+    <string name="rec_aluguel_det">Λειτουργία επισκέπτη: οθόνη υποδοχής, τίποτα προσωπικό στην αρχική οθόνη και καθαρισμός στην αναχώρηση.</string>
+    <string name="rec_desfazer">Αναίρεση</string>
+    <string name="rec_desfazer_det">Επαναφορά όλων όπως ήταν πριν το %1$s.</string>
+    <string name="rec_ja_esta">Αυτή η τηλεόραση είναι ήδη ρυθμισμένη έτσι.</string>
+    <string name="rec_aviso_prende">Η εύκολη οθόνη κλείνει μόνο με το PIN. Βεβαιωθείτε ότι κάποιος στο σπίτι το ξέρει.</string>
+    <string name="rec_aviso_sem_pin">Δεν υπάρχει ακόμα PIN, οπότε ο καθένας μπορεί να το απενεργοποιήσει. Δημιουργήστε ένα στον πίνακα του κινητού.</string>
+    <string name="rec_aviso_plano">Χρειάζεται πληρωμένο πακέτο, οπότε μένει ανενεργό: %1$s.</string>
+    <string name="rec_voltar">Πίσω</string>
+    <string name="rec_aplicar">Εφαρμογή</string>
+    <string name="rec_pin">PIN για αλλαγή της ρύθμισης της τηλεόρασης</string>
+    <string name="rec_pronto">Έγινε</string>
+    <string name="rec_aplicada">Η τηλεόρασή σας είναι έτοιμη</string>
+    <string name="rec_aplicada_det">Άλλαξε κάτι που δεν θέλατε; Η Αναίρεση τα επαναφέρει όλα όπως ήταν.</string>
+    <string name="rec_desfeita">Όλα είναι ξανά όπως ήταν.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">ενεργό</string>
+    <string name="rec_desligado">ανενεργό</string>
+    <string name="rec_aj_hospede">Λειτουργία επισκέπτη</string>
+    <string name="rec_aj_visita">Λειτουργία επίσκεψης</string>
+    <string name="rec_aj_simples">Εύκολη οθόνη</string>
+    <string name="rec_aj_infantil">Παιδική λειτουργία</string>
+    <string name="rec_aj_dormir">Ώρα ύπνου</string>
+    <string name="rec_aj_texto">Μέγεθος κειμένου</string>
+    <string name="rec_aj_ler_foco">Ανάγνωση φωναχτά του επιλεγμένου</string>
+    <string name="rec_aj_som">Ήχος κλικ σε κάθε κουμπί</string>
+    <string name="rec_aj_jogos">Κατηγορία Παίζω</string>
+    <string name="rec_aj_modo_jogo">Λειτουργία παιχνιδιού</string>
+    <string name="rec_aj_controle">Το χειριστήριο ανοίγει τα Παιχνίδια</string>
+</resources>

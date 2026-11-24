@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">Σταθερότητα launcher (7 ημέρες)</string>
+    <string name="vit_ok">Χωρίς καταρρεύσεις ή παγώματα. Ημέρες σε χρήση: %1$d.</string>
+    <string name="vit_problemas">Καταρρεύσεις: %1$d. Παγώματα: %2$d. Ορατά στην οθόνη: %3$d. Ημέρες με πρόβλημα: %4$d από %5$d.</string>
+</resources>

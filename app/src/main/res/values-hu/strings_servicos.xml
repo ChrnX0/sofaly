@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Film- és sorozatszolgáltatások</string>
+    <string name="sv_subtitulo">Nem kötelező fiókok. Semmi sem hagyja el a TV-t, amíg be nem jelentkezik.</string>
+    <string name="sv_linha">Film- és sorozatszolgáltatások</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB és OpenSubtitles</string>
+    <string name="sv_trakt_det">A megnézetteket és a megnézendők listáját szinkronban tartja a telefonnal</string>
+    <string name="sv_simkl_det">Mint a Trakt, animéhez is kiváló. Használja az egyiket vagy mindkettőt</string>
+    <string name="sv_mdblist_det">Nem kötelező: a listái, például a Top 250, kategóriák lesznek a Filmekben és a Sorozatokban</string>
+    <string name="sv_tmdb_det">Tartalom, szereplők és a következő epizód dátuma, a TV nyelvén</string>
+    <string name="sv_os_det">Online feliratok. Fiók nélkül: napi 5. Ingyenes fiókkal: 20</string>
+    <string name="sv_desligado">Bejelentkezés</string>
+    <string name="sv_entrando">bejelentkezés…</string>
+    <string name="sv_conectado">csatlakoztatva</string>
+    <string name="sv_ativo">be</string>
+    <string name="sv_sem_chave">Ebben a verzióban még nincsenek meg ezeknek a szolgáltatásoknak a kulcsai. A következő frissítés után jelennek meg.</string>
+    <string name="sv_pedindo">Kód kérése innen: %1$s…</string>
+    <string name="sv_passos">1. A telefonján nyissa meg ezt: %1$s (vagy irányítsa a kamerát a jobb oldali kódra).\n2. Jelentkezzen be ide: %2$s, és írja be a kódot:</string>
+    <string name="sv_espera">Ez a képernyő magától folytatódik. A VISSZA megszakítja.</string>
+    <string name="sv_ok">Kész: %1$s csatlakoztatva%2$s.</string>
+    <string name="sv_ok_como"> mint %1$s</string>
+    <string name="sv_falhou">Nem sikerült: %1$s</string>
+    <string name="sv_motivo_venceu">a kód lejárt. Próbálja újra.</string>
+    <string name="sv_motivo_recusado">a hozzáférést a telefonon elutasították.</string>
+    <string name="sv_motivo_usado">ezt a kódot már használták. Próbálja újra.</string>
+    <string name="sv_motivo_erro">a szolgáltatás nem válaszolt. Próbálja újra kicsit később.</string>
+    <string name="sv_sair_pergunta">Kijelentkezik innen: %1$s? A TV elfelejti a fiókot, és többé nem kommunikál ezzel: %1$s. Az ottani adatai ott maradnak.</string>
+    <string name="sv_sair">Kijelentkezés</string>
+    <string name="sv_fechar">Bezárás</string>
+    <string name="sv_mdblist_titulo">MDBList-kulcs</string>
+    <string name="sv_mdblist_texto">Nem kötelező: az értékelések nélküle is működnek. A saját MDBList-fiókja használatához (a listái, a saját kerete) jelentkezzen be az mdblist.com oldalon, nyissa meg a Preferences részt, másolja ki az API key-t, és írja be ide (könnyebb a webpanelről, a Beállítások lapon, beillesztéssel).</string>
+    <string name="sv_mdblist_dica">API-kulcs</string>
+    <string name="sv_os_titulo">OpenSubtitles-fiók</string>
+    <string name="sv_os_texto">Nem kötelező: ingyenes opensubtitles.com-fiókkal a keret napi 5-ről 20 feliratra nő.</string>
+    <string name="sv_os_usuario">Felhasználónév</string>
+    <string name="sv_os_senha">Jelszó</string>
+    <string name="sv_gravar">Mentés</string>
+    <string name="sv_cancelar">Mégse</string>
+    <string name="sv_limite_dia">A napi feliratkeret elfogyott. 24 óra múlva megújul (OpenSubtitles-fiókkal napi 20).</string>
+    <string name="sv_tmdb_atribuicao">Ez a termék a TMDB API-t használja, de a TMDB nem támogatja és nem tanúsítja.</string>
+    <string name="ext_saga">%1$s · %3$d-ból %2$d a listájában</string>
+    <string name="ext_nao_e_este">Ne ez a film</string>
+    <string name="ext_proximo">Új epizód: %1$s (%2$d. évad %3$d. rész)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Új ep.: %1$s</string>
+    <string name="ext_hoje">ma</string>
+    <string name="ext_amanha">holnap</string>
+    <string name="sv_mdblist_passos">Nem kötelező: az MDBList-listái (például a Top 250) kategóriák lesznek a Filmekben és a Sorozatokban.\n1. Irányítsa a telefon kameráját a bal oldali kódra, és jelentkezzen be (vagy hozzon létre ingyenes fiókot). Az oldal alján koppintson az API Access lehetőségre, hozza létre a kulcsot, ha még nincs, és másolja ki.\n2. Irányítsa a jobb oldali kódra: a webpanel a Beállításoknál nyílik meg. Illessze be a kulcsot az MDBList részhez, és koppintson a Kulcs mentése gombra.\n3. A TV azonnal ellenőrzi, és ez a képernyő magától folytatódik.</string>
+    <string name="sv_mdblist_qr1">Az MDBList kulcsoldala</string>
+    <string name="sv_mdblist_qr2">Webpanel (%1$s)</string>
+    <string name="sv_mdblist_digitar">Írja be ide a kulcsot</string>
+    <string name="sv_f_chave_invalida">érvénytelen kulcs (csak betűk és számok)</string>
+    <string name="sv_f_chave_recusada">%1$s nem fogadta el ezt a kulcsot</string>
+    <string name="sv_f_respondeu">%1$s %2$d hibával válaszolt. Próbálja újra kicsit később.</string>
+    <string name="sv_f_falta">írja be a felhasználónevet és a jelszót</string>
+    <string name="sv_f_longo">túl hosszú felhasználónév vagy jelszó</string>
+    <string name="sv_f_senha">hibás felhasználónév vagy jelszó</string>
+    <string name="sv_f_gravar">nem mentődött a TV-n. Próbálja újra.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Simkl-értékelés</string>
+    <string name="sv_simkl_convite_det">Csatlakoztassa a fiókját</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Δανεισμός δυνατοτήτων συστήματος</string>
+    <string name="emp_titulo">Δανεισμός του shell σε άλλες εφαρμογές (Shizuku)</string>
+    <string name="emp_titulo_det">Οι εφαρμογές για Shizuku λειτουργούν χωρίς να το εγκαταστήσετε. Κάθε εφαρμογή ρωτά στην τηλεόραση, με το PIN, την πρώτη φορά.</string>
+    <string name="emp_modo_desligado">Ανενεργό</string>
+    <string name="emp_modo_sob_demanda">Όταν το χρειάζεται μια εφαρμογή</string>
+    <string name="emp_modo_sempre">Πάντα ενεργό</string>
+    <string name="emp_oficial">Η εφαρμογή Shizuku είναι εγκατεστημένη σε αυτή την τηλεόραση, οπότε ο launcher δεν της μπαίνει στη μέση. Απεγκαταστήστε την για να χρησιμοποιήσετε του launcher.</string>
+    <string name="emp_plano">Μέρος των πληρωμένων πακέτων.</string>
+    <string name="emp_negar">Άρνηση</string>
+    <string name="emp_permitir">Να επιτρέπεται πάντα</string>
+    <string name="emp_pedido_titulo">Να επιτραπεί στο %1$s να χρησιμοποιεί τις δυνατότητες συστήματος του launcher;</string>
+    <string name="emp_pedido_texto">Η εφαρμογή θα μπορεί να κάνει ό,τι κάνει το adb: εγκατάσταση και αφαίρεση εφαρμογών, αλλαγή ρυθμίσεων συστήματος και άλλα. Επιτρέψτε μόνο εφαρμογές που εμπιστεύεστε. Μπορείτε να το ανακαλέσετε αργότερα στον πίνακα web.</string>
+    <string name="emp_pin_titulo">PIN του πίνακα για έγκριση</string>
+    <string name="emp_sem_pin">Ορίστε πρώτα το PIN του πίνακα (Ρυθμίσεις, Πίνακας web).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Δανεισμός ελέγχου κατόχου σε άλλες εφαρμογές (Dhizuku)</string>
+    <string name="emd_titulo_det">Οι εφαρμογές για Dhizuku χρησιμοποιούν τον έλεγχο κατόχου του launcher. Κάθε εφαρμογή ρωτά στην τηλεόραση, με το PIN. Με «Να επιτρέπεται», καμία δεν μπορεί να αφαιρέσει τον launcher ως κάτοχο ή να σβήσει την τηλεόραση· με «Πλήρης δύναμη», μπορεί.</string>
+    <string name="emd_ligado">Ενεργό</string>
+    <string name="emd_sem_dono">Ο launcher δεν είναι ο κάτοχος (Device Owner) αυτής της τηλεόρασης, οπότε δεν υπάρχει τίποτα για δανεισμό.</string>
+    <string name="emd_pedido_titulo">Να επιτραπεί στο %1$s να χρησιμοποιεί τον έλεγχο κατόχου του launcher;</string>
+    <string name="emd_pedido_texto">Με «Να επιτρέπεται», η εφαρμογή μπορεί να κρύβει και να αποκλείει εφαρμογές και να αλλάζει τις άδειες και τους κανόνες της τηλεόρασης, αλλά ποτέ να αφαιρέσει τον launcher ως κάτοχο ή να σβήσει την τηλεόραση. Η «Πλήρης δύναμη» αφήνει την εφαρμογή να τρέχει ως ο launcher και να διαβάζει τα δεδομένα του: μόνο για εφαρμογές που εμπιστεύεστε πλήρως. Μπορείτε να το ανακαλέσετε στον πίνακα web. Με «Πλήρης δύναμη» η εφαρμογή μπορεί να κάνει ό,τι μπορεί ο launcher, ακόμα και να σβήσει την τηλεόραση.</string>
+    <string name="emd_total">Πλήρης δύναμη</string>
+    <string name="emd_pin_total">ΠΛΗΡΗΣ ΔΥΝΑΜΗ: η εφαρμογή μπορεί να κάνει ό,τι μπορεί ο launcher, ακόμα και να σβήσει την τηλεόραση. PIN του πίνακα</string>
+</resources>

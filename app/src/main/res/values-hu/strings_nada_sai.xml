@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Az adatai Önnél maradnak</string>
+    <string name="nsc_det">Nincs nálunk fiók, nincsenek hirdetések</string>
+    <string name="nsc_texto">Nincs nálunk fiók, nincsenek hirdetések, nincs használatkövetés.\n\nA beállításai, fotói, jegyzetei és mentései ezen a TV-n maradnak, vagy egy saját fiókban, ha csatlakoztat egyet.\n\nA TV csak azokkal a szolgáltatásokkal beszél, amelyeket bekapcsol, például az időjárással vagy a filmposzterekkel. Néhány a szerverünkön (api.sofaly.tv) keresztül megy, például a podcastkeresés; az csak a kérést kapja meg, az Ön fiókját soha. A weboldalon lévő adatvédelmi irányelv mindegyiket felsorolja.</string>
+</resources>

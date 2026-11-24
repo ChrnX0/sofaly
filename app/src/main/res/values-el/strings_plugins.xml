@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Plugins</string>
+    <string name="plg_nenhum">Κανένα plugin καρτών εγκατεστημένο. Τα plugins καρτών είναι εφαρμογές άλλων προγραμματιστών που δείχνουν μια κάρτα εδώ, όπως ένα σκορ αγώνα ή μια τιμή.</string>
+    <string name="plg_ligado">Ενεργό</string>
+    <string name="plg_desligado">Ανενεργό</string>
+    <string name="plg_limite">Το πολύ %1$d plugins ταυτόχρονα. Απενεργοποιήστε πρώτα ένα.</string>
+    <string name="plg_seguranca">Αν ένα plugin ενημερωθεί με διαφορετική υπογραφή, απενεργοποιείται ως να το επιτρέψετε ξανά.</string>
+</resources>

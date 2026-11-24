@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Nastavit pomocí telefonu</string>
+    <string name="pc_linha_det">Doporučeno. Namiřte fotoaparát telefonu na kód: PIN, jazyk, živá TV, město a filmové služby v 5 krocích.</string>
+    <string name="pc_instrucoes">Namiřte fotoaparát telefonu na kód vedle. Telefon otevře nastavení v 5 krocích.\n\nTelefon musí být v domácí Wi‑Fi. Nechte tuto obrazovku otevřenou, dokud v telefonu nevytvoříte PIN (zbývá %1$s).</string>
+    <string name="pc_entrou">Pokračujte v telefonu.</string>
+    <string name="pc_venceu">Kód vypršel.\nStiskněte \"%1$s\" pro zobrazení nového.</string>
+    <string name="pc_sem_rede">Televizor není v síti.\nPřipojte ho k domácí Wi‑Fi a zkuste to znovu.</string>
+</resources>

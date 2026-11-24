@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Obrazovka všech aplikací</string>
+    <string name="aa_layout_shelves">Police</string>
+    <string name="aa_layout_folders">Složky a kanály</string>
+    <string name="aa_layout_library">Knihovna</string>
+    <string name="aa_favoritos">Oblíbené</string>
+    <string name="aa_pastas">Složky</string>
+    <string name="aa_nova_pasta">Nová složka</string>
+    <string name="aa_por_na_pasta">Přidat do složky…</string>
+    <string name="aa_tirar_da_pasta">Odebrat z této složky</string>
+    <string name="aa_renomear_pasta">Přejmenovat složku</string>
+    <string name="aa_apagar_pasta">Smazat složku</string>
+    <string name="aa_fixar_cruz">Zobrazit na domovské obrazovce</string>
+    <string name="aa_soltar_cruz">Odebrat z domovské obrazovky</string>
+    <string name="aa_ordenar">Seřadit všechny aplikace</string>
+    <string name="aa_f_tudo">Vše</string>
+    <string name="aa_f_uso">Nejpoužívanější</string>
+    <string name="aa_f_novos">Nové</string>
+    <string name="aa_canais">Nyní na %1$s</string>
+    <string name="aa_hint_folder">OK otevře · podržte OK pro možnosti</string>
+</resources>

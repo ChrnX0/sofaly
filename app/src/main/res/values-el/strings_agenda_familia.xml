@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">Οικογενειακό πρόγραμμα</string>
+    <string name="agf_sub">Στην ορισμένη ώρα, η τηλεόραση αλλάζει μόνη της σε εκείνο το προφίλ. Ένα παιδικό προφίλ ενεργοποιεί την παιδική λειτουργία και την ώρα ύπνου.</string>
+    <string name="agf_cfg_det">Ορισμένες αλλαγές: %1$d. Το προφίλ αλλάζει μόνο του στην ορισμένη ώρα.</string>
+    <string name="agf_adicionar">Προσθήκη αλλαγής</string>
+    <string name="agf_adicionar_det">Ποιανού το προφίλ, ποιες μέρες και τι ώρα.</string>
+    <string name="agf_quem">Αλλαγή στο προφίλ ποιανού;</string>
+    <string name="agf_dias">Ποιες μέρες;</string>
+    <string name="agf_hora">Τι ώρα;</string>
+    <string name="agf_todos">Κάθε μέρα</string>
+    <string name="agf_uteis">Δευτέρα έως Παρασκευή</string>
+    <string name="agf_fds">Σάββατο και Κυριακή</string>
+    <string name="agf_alguns">Κάποιες μέρες</string>
+    <string name="agf_apagar">Διαγραφή αυτής της αλλαγής;</string>
+    <string name="agf_apagar_sim">Διαγραφή</string>
+    <string name="agf_cheia">Το πρόγραμμα είναι γεμάτο (12 αλλαγές).</string>
+    <string name="agf_sem_contas">Δεν υπάρχουν ακόμα προφίλ σε αυτή την τηλεόραση (λογαριασμοί Google).</string>
+</resources>

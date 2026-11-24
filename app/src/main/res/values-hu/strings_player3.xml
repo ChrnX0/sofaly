@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">A főcím kezdetének megjelölése itt (%1$s)</string>
+    <string name="abertura_marcar_fim">A főcím végének megjelölése itt (%1$s)</string>
+    <string name="abertura_apagar">A főcímjelölés törlése</string>
+    <string name="abertura_inicio_marcado">A főcím kezdete megjelölve itt: %1$s. Most jelölje meg a végét a ▼ menüben</string>
+    <string name="abertura_salva">Főcím mentve: %1$s – %2$s. A következő epizódok felkínálják az átugrását</string>
+    <string name="abertura_falta_inicio">Előbb jelölje meg a főcím kezdetét</string>
+    <string name="abertura_invalida">Ez nem tűnik főcímnek: 10 mp és 5 perc közötti hosszúnak kell lennie, és az első 15 percben kell kezdődnie</string>
+    <string name="abertura_apagada">Főcímjelölés törölve</string>
+    <string name="abertura_pular">Főcím átugrása · OK</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como a chance de chuva aparece (RainChance.kt, 24/11/2026). -->
+<resources>
+    <string name="rc_titulo" formatted="false">Eső esélye</string>
+    <string name="rc_baixa" formatted="false">Alacsony</string>
+    <string name="rc_media" formatted="false">Közepes</string>
+    <string name="rc_alta" formatted="false">Magas</string>
+    <string name="rc_modo_numero" formatted="false">Szám (37%)</string>
+    <string name="rc_modo_palavra" formatted="false">Szavak (Közepes)</string>
+    <string name="rc_modo_ambos" formatted="false">Mindkettő (Közepes 37%)</string>
+</resources>

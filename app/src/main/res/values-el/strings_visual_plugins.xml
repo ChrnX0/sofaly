@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Φόντο από plugin</string>
+    <string name="wp_cfg_det">Φόντα, πακέτα εικονιδίων και κάρτες από άλλες εφαρμογές. Το καθένα χρειάζεται το OK σας.</string>
+    <string name="wp_det">Εφαρμογές άλλων προγραμματιστών που προσθέτουν φόντα, εικονίδια ή κάρτες στην αρχική οθόνη. Ενεργοποιήστε μόνο όσες εμπιστεύεστε.</string>
+    <string name="wp_secao_fundos">Φόντα</string>
+    <string name="wp_secao_icones">Πακέτα εικονιδίων</string>
+    <string name="wp_secao_cartoes">Κάρτες</string>
+    <string name="wp_secao_descobrir">Βρείτε plugins</string>
+    <string name="wp_tipo_fundo">Φόντο</string>
+    <string name="wp_tipo_icones">Εικονίδια</string>
+    <string name="wp_em_uso">Σε χρήση</string>
+    <string name="wp_usar">Χρήση ως φόντο</string>
+    <string name="wp_configurar">Ρυθμίσεις plugin</string>
+    <string name="wp_parar">Διακοπή χρήσης</string>
+    <string name="wp_sem_cert">Δεν ήταν δυνατή η ανάγνωση της υπογραφής αυτού του plugin.</string>
+    <string name="wp_nenhum_fundo">Κανένα plugin φόντου ακόμα. Δείτε παρακάτω πού να βρείτε ένα.</string>
+    <string name="wp_nenhum_icone">Κανένα πακέτο εικονιδίων ακόμα. Δείτε παρακάτω πού να βρείτε ένα.</string>
+    <string name="wp_icones_det">Διατηρείται παγωμένο: ο launcher κρατά αντίγραφο των εικονιδίων που χρησιμοποιεί.</string>
+    <string name="wp_usar_icones">Χρήση</string>
+    <string name="wp_instalado">Εγκατεστημένο</string>
+    <string name="wp_instalar">Εγκατάσταση</string>
+    <string name="wp_instalando">Εγκατάσταση…</string>
+    <string name="wp_instalou">Το %1$s εγκαταστάθηκε.</string>
+    <string name="wp_nao_instalou">Δεν ήταν δυνατή η εγκατάσταση: %1$s</string>
+    <string name="wp_abrir_play">Άνοιγμα στο Play Store</string>
+    <string name="wp_qr">Στρέψτε την κάμερα του κινητού στον κωδικό για να ανοίξει η σελίδα.</string>
+    <string name="wp_trocar_icone">Αλλαγή εικονιδίου</string>
+    <string name="wp_icone_titulo">Εικονίδιο για %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d εικονίδια</string>
+    <string name="wp_icone_original">Αρχικό εικονίδιο</string>
+    <string name="wp_icone_sugerido">Προτεινόμενα</string>
+    <string name="wp_icone_voltar">Ακολουθεί το πακέτο εικονιδίων</string>
+    <string name="wp_icone_sem_pacote">Κανένα πακέτο εικονιδίων εγκατεστημένο. Βρείτε ένα στις Ρυθμίσεις › Αρχική οθόνη › Plugins.</string>
+    <string name="wp_d_aerial">Αργά εναέρια βίντεο πόλεων και φύσης</string>
+    <string name="wp_d_overflight">Εναέρια βίντεο του Apple TV, ή οποιαδήποτε λίστα βίντεο επιλέξετε</string>
+    <string name="wp_d_daily">Μια νέα φωτογραφία της ημέρας, κάθε μέρα</string>
+    <string name="wp_d_weather">Ο σημερινός καιρός ως φόντο</string>
+    <string name="wp_d_movieart">Εικόνες ταινιών και σειρών από το TMDB</string>
+    <string name="wp_d_sofadrop">Εικόνες από λίστες τάσεων, Trakt ή Simkl</string>
+    <string name="wp_d_immich">Φωτογραφίες από τον δικό σας διακομιστή Immich</string>
+    <string name="wp_d_tvicons">Πάνω από 800 εικονίδια φτιαγμένα για TV</string>
+    <string name="wp_d_minimalist">Καθαρά σύμβολα σε ένα χρώμα φόντου</string>
+    <string name="wp_d_arcticons">15.000 λεπτά γραμμικά εικονίδια (φτιαγμένα για κινητά, λειτουργούν και εδώ)</string>
+</resources>

@@ -176,4 +176,10 @@ class BarraIlhaTest {
     }
 
     private fun and(o: String?, f: Float?, falta: String?) = CruzLogica.andamento(o, f, falta).replace('\u00A0', ' ')
+
+    @Test fun sofyEntraNaIlhaECresce() {
+        val f = BarraIlha.fila(BarraIlha.Estado(tocandoTitulo = "Podcast", sofy = "Liguei o Wi-Fi de novo"))
+        assertEquals(listOf(BarraIlha.Tipo.TOCANDO, BarraIlha.Tipo.SOFY), f.map { it.tipo })
+        assertEquals(BarraIlha.Tipo.SOFY, BarraIlha.chegou(f.take(1), f)?.tipo)
+    }
 }

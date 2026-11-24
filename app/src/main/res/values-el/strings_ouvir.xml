@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Διακοπή</string>
+    <string name="ra_parar_det">Το ραδιόφωνο συνεχίζει να παίζει στην αρχική οθόνη και στην προφύλαξη οθόνης ως να το σταματήσετε</string>
+    <string name="ra_parar_det_antigo">Η έξοδος από αυτή την οθόνη επίσης το σταματά</string>
+    <string name="ouv_canal">Παίζει ραδιόφωνο</string>
+    <string name="ouv_abrir">Άνοιγμα της οθόνης ραδιοφώνου</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podcast</string>
+    <string name="pod_dica_mais">περισσότερα</string>
+    <string name="pod_de">%1$s από %2$s</string>
+    <string name="pod_velocidade">Ταχύτητα</string>
+    <string name="pod_silencio">Παράλειψη σιωπών</string>
+    <string name="pod_silencio_det">Κόβει τις παύσεις στην ομιλία</string>
+    <string name="pod_ligado">ενεργό</string>
+    <string name="pod_desligado">ανενεργό</string>
+    <string name="pod_continuar">Συνέχεια</string>
+    <string name="pod_novos">Νέα επεισόδια</string>
+    <string name="pod_video">βίντεο</string>
+    <string name="pod_meus">Τα podcast μου</string>
+    <string name="pod_ultimo">τελευταίο: %s</string>
+    <string name="pod_adicionar">Προσθήκη</string>
+    <string name="pod_colar">Επικόλληση διεύθυνσης podcast</string>
+    <string name="pod_colar_det">Ο σύνδεσμος της ροής RSS (οι ιστότοποι podcast τον δείχνουν ως RSS)</string>
+    <string name="pod_pelo_celular">Από το κινητό</string>
+    <string name="pod_pelo_celular_det">Ανοίξτε τον πίνακα της τηλεόρασης στο κινητό › Podcast: επικολλήστε σύνδεσμο ή εισαγάγετε τη λίστα της εφαρμογής podcast σας (OPML)</string>
+    <string name="pod_sem_episodios">Κανένα επεισόδιο για εμφάνιση.</string>
+    <string name="pod_ouvido">ακούστηκε</string>
+    <string name="pod_do_comeco">Αναπαραγωγή από την αρχή</string>
+    <string name="pod_marcar_nao">Σήμανση ως μη ακουσμένο</string>
+    <string name="pod_marcar_ouvido">Σήμανση ως ακουσμένο</string>
+    <string name="pod_abrir">Άνοιγμα</string>
+    <string name="pod_remover">Κατάργηση εγγραφής</string>
+    <string name="pod_removido">Η εγγραφή καταργήθηκε</string>
+    <string name="pod_adicionando">Προσθήκη του podcast…</string>
+    <string name="pod_adicionado">Το podcast προστέθηκε</string>
+    <string name="pod_nao_deu">Δεν ήταν δυνατή η προσθήκη: %s</string>
+    <string name="pod_horas">%1$d ώ. %2$s</string>
+    <string name="pod_minutos">%d λεπ.</string>
+    <string name="pod_hoje">σήμερα</string>
+    <string name="pod_ontem">χθες</string>
+    <string name="pod_falhou">Αυτό το επεισόδιο δεν παίζει τώρα. Δοκιμάστε ξανά αργότερα.</string>
+    <string name="pod_abrir_tela">Άνοιγμα της οθόνης podcast</string>
+    <string name="ra_podcasts_det">Εκπομπές, ειδήσεις και συζητήσεις που ακολουθείτε</string>
+    <string name="pod_procurar">Εύρεση</string>
+    <string name="pod_buscar">Αναζήτηση podcast</string>
+    <string name="pod_em_alta">Δημοφιλή στη χώρα σας</string>
+    <string name="pod_atribuicao">Αναζήτηση: Podcast Index</string>
+    <string name="pod_sugestoes">Προτάσεις</string>
+    <string name="pod_sugestao_seguir">OK για παρακολούθηση</string>
+    <string name="pod_sugeridos_seguidos">Τα προτεινόμενα podcast προστέθηκαν στα Τα podcast μου</string>
+</resources>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d hra</item>
+        <item quantity="few">%d hry</item>
+        <item quantity="other">%d her</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d ovladač připojen</item>
+        <item quantity="few">%d ovladače připojeny</item>
+        <item quantity="other">%d ovladačů připojeno</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Kategorie Hrát na domovské obrazovce (vypnuto: hry zůstanou v Aplikacích)</string>
+    <string name="extras_MODO_JOGO">Herní režim: když je otevřená hra, spořič, noční filtr a oznámení čekají</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Zapnutí herního ovladače otevře obrazovku Hry</string>
+
+    <string name="jogos_titulo">Hry</string>
+    <string name="jogos_medindo">Kontroluje se síť…</string>
+    <string name="jogos_sem_controle">Není připojen žádný herní ovladač</string>
+    <string name="jogos_rede_boa">Síť: dobrá pro cloudové hraní</string>
+    <string name="jogos_rede_ok">Síť: dostačující pro cloudové hraní</string>
+    <string name="jogos_rede_fraca">Síť: slabá pro cloudové hraní</string>
+    <string name="jogos_rede_sem">Žádný internet</string>
+    <string name="jogos_testar_rede">Otestovat síť</string>
+    <string name="jogos_jogar_pc">Hrát na PC</string>
+    <string name="jogos_parear">Spárovat ovladač</string>
+    <string name="jogos_parear_falhou">Tento televizor neotevřel nastavení Bluetooth. Otevřete Nastavení, Ovladače a příslušenství.</string>
+    <string name="jogos_baixar">Získat hry</string>
+    <string name="jogos_escolher">Vybrat aplikace</string>
+    <string name="jogos_escolher_sub">Které aplikace žijí v Hrát. OK přepíná mezi Hrát a Aplikace.</string>
+    <string name="jogos_no_card">v Hrát</string>
+    <string name="jogos_na_linha">v Aplikacích</string>
+    <string name="jogos_grupo_nuvem">V cloudu</string>
+    <string name="jogos_grupo_pc">Z PC a konzole</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Hry na televizoru</string>
+    <string name="jogos_para_comecar">Pro začátek</string>
+    <string name="jogos_aviso_fraca_titulo">Slabá síť pro cloudové hraní</string>
+    <string name="jogos_aviso_fraca">Hra se může zasekávat nebo zpožďovat. Pomůže síťový kabel nebo televizor blíž k routeru.</string>
+    <string name="jogos_jogar_assim">Hrát přesto</string>
+    <string name="jogos_nao_abriu">Tato aplikace se neotevřela.</string>
+    <string name="jogos_tirar">Vyjmout z Hrát</string>
+    <string name="jogos_automatico">Zpět na automatiku</string>
+    <string name="jogos_loja_tudo">Navrhované aplikace už na tomto televizoru jsou.</string>
+    <string name="jogos_loja_explica">Otevře stránku aplikace v Obchodě Play. Pokud Obchod Play říká, že na tomto televizoru neběží, je to omezení aplikace.</string>
+    <string name="jogos_sem_loja">Obchod Play se neotevřel.</string>
+    <string name="jogos_pc_sem_mac">Pro probuzení PC uložte jeho MAC adresu ve webovém panelu: Extras, Probudit počítač. PC také potřebuje zapnutý Wake-on-LAN a obvykle síťový kabel.</string>
+    <string name="jogos_pc_sem_app">Pro hraní na PC nainstalujte na televizor Moonlight nebo Steam Link.</string>
+    <string name="jogos_pc_qual_app">Která aplikace hraje na PC?</string>
+    <string name="jogos_pc_acordando">Probouzí se PC… %1$d s</string>
+    <string name="jogos_pc_nao_respondeu">PC neodpovědělo. Aplikace se přesto otevírá.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Další hry</string>
+    <string name="jogos_mais_opcoes">Více</string>
+    <string name="jogos_ligar_pc_jogar">Zapnout PC a hrát</string>
+    <string name="jogos_desc_pc">Hrajte hry z domácího počítače nebo konzole přímo zde na televizoru.</string>
+    <string name="jogos_chip_medindo">Kontroluje se síť…</string>
+    <string name="jogos_chip_boa">Dobrá síť</string>
+    <string name="jogos_chip_ok">Síť ok</string>
+    <string name="jogos_chip_fraca">Slabá síť</string>
+    <string name="jogos_chip_sem">Žádný internet</string>
+    <string name="jogos_tecla_jogar">hrát</string>
+    <string name="jogos_tecla_segurar">podržet OK</string>
+    <string name="jogos_tecla_opcoes">změnit skupinu</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Φίλτρο ταινιών</string>
+    <string name="filmes_filtro_genero">Είδος: %1$s</string>
+    <string name="filmes_filtro_epoca">Περίοδος: %1$s</string>
+    <string name="filmes_filtro_nota">Ελάχιστη βαθμολογία: %1$s</string>
+    <string name="filmes_filtro_lista">Λίστα: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Μόνο μη προβεβλημένες: %1$s</string>
+    <string name="filmes_filtro_limpar">Καθαρισμός φίλτρου</string>
+    <string name="filmes_filtro_qualquer">Οποιαδήποτε</string>
+    <string name="filmes_filtro_sim">Ναι</string>
+    <string name="filmes_filtro_nao">Όχι</string>
+    <string name="filmes_filtro_decada">Δεκαετία %1$d</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">μη προβεβλημένη</string>
+    <string name="filmes_filtro_sem_genero">Καμία κατηγορία αυτής της λίστας δεν ονομάζει είδος</string>
+    <string name="filmes_filtro_vazio">Καμία ταινία δεν ταιριάζει σε αυτό το φίλτρο σε αυτή την κατηγορία</string>
+    <string name="filmes_sorteio_vazio">Καμία ταινία για επιλογή εδώ</string>
+    <string name="filmes_colecao">Συλλογή αυτής της ταινίας</string>
+    <string name="filmes_colecao_cat">Συλλογή: %1$s</string>
+    <string name="genero_acao">Δράση</string>
+    <string name="genero_aventura">Περιπέτεια</string>
+    <string name="genero_comedia">Κωμωδία</string>
+    <string name="genero_drama">Δράμα</string>
+    <string name="genero_terror">Τρόμου</string>
+    <string name="genero_suspense">Θρίλερ</string>
+    <string name="genero_romance">Ρομαντική</string>
+    <string name="genero_ficcao">Επιστημονική φαντασία</string>
+    <string name="genero_fantasia">Φαντασίας</string>
+    <string name="genero_animacao">Κινούμενα σχέδια</string>
+    <string name="genero_infantil">Παιδικά και οικογενειακά</string>
+    <string name="genero_documentario">Ντοκιμαντέρ</string>
+    <string name="genero_crime">Αστυνομική</string>
+    <string name="genero_guerra">Πολεμική</string>
+    <string name="genero_faroeste">Γουέστερν</string>
+    <string name="genero_musical">Μιούζικαλ</string>
+</resources>

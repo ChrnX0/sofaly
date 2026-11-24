@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Kész megjelenések</string>
+    <string name="vpr_det">Minden OK a következő megjelenésre vált: téma, szöveg és háttérszín együtt</string>
+    <string name="vpr_meu">A sajátja</string>
+    <string name="vpr_classico">Klasszikus</string>
+    <string name="vpr_leitura">Könnyű olvasás</string>
+    <string name="vpr_galeria">Galéria</string>
+    <string name="vpr_galeria_grande">Nagy galéria</string>
+    <string name="vpr_cores">Alkalmazásszínek</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screensaver remote keys (idea 28) -->
+    <string name="pt_dica_dispensar">Az OK elveti · ◀ ▶ mozgatás</string>
+    <string name="pt_dica_pausar">Az OK szünetel vagy folytat · ◀ ▶ mozgatás</string>
+    <string name="pt_dica_andar">◀ ▶ mozgatás · a többi gomb bezár</string>
+    <!-- Screensaver photos from a network folder (idea 27) -->
+    <string name="rede_fotos_usar">Ezek a fotók legyenek a képernyővédőn</string>
+    <string name="rede_fotos_parar">Ezek a fotók ne legyenek többé a képernyővédőn</string>
+    <plurals name="rede_fotos_sub">
+        <item quantity="one">%1$d fotó · a TV-re másolva, kikapcsolt számítógéppel is működik</item>
+        <item quantity="other">%1$d fotó · a TV-re másolva, kikapcsolt számítógéppel is működnek</item>
+    </plurals>
+    <string name="rede_fotos_usando">A fotók másolása. A képernyővédő következő indulásakor jelennek meg.</string>
+    <string name="rede_fotos_paradas">A képernyővédő már nem használja ezt a mappát.</string>
+    <!-- "Network" as a catalog (idea 29) -->
+    <string name="rede_continuar">Nézés folytatása</string>
+    <string name="rede_recentes">Nemrég hozzáadva</string>
+    <string name="rede_buscar">Keresés</string>
+    <string name="rede_buscar_explica">Filmek, sorozatok, epizódok és zene ezen a szerveren.</string>
+    <string name="rede_buscar_campo">Név</string>
+    <string name="rede_buscar_curto">Írjon be legalább 2 betűt.</string>
+    <string name="rede_proximo_em">Következik: %1$s %2$d mp múlva · az OK most elindítja · más gomb megszakítja</string>
+    <string name="rede_ainda_assistindo">Még nézi? Az OK elindítja ezt: %1$s</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Nouzový režim</string>
+    <string name="seg_texto">Domovská obrazovka se %1$dkrát po sobě zastavila. Toto je její jednoduchá verze, abyste mohli televizor dál používat.</string>
+    <string name="seg_procurar">Hledat opravenou verzi</string>
+    <string name="seg_procurar_det">Pokud existuje, stáhne se a nainstaluje hned.</string>
+    <string name="seg_procurando">Hledá se nová verze…</string>
+    <string name="seg_normal">Zkusit normální domovskou obrazovku</string>
+    <string name="seg_normal_det">Pokud se zastaví ještě 3krát, tato obrazovka se vrátí.</string>
+    <string name="seg_config_tv">Nastavení televizoru</string>
+    <string name="seg_erro">Zobrazit, co se pokazilo</string>
+    <string name="seg_erro_det">Diagnostika s uloženými chybami.</string>
+    <string name="seg_apps">Aplikace</string>
+</resources>

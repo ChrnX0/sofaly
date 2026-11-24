@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Βίντεο, μουσική και φωτογραφίες από το cloud σας</string>
+    <string name="rede_nuvem_seguir">Συνέχεια</string>
+    <string name="rede_nuvem_entrar">Σύνδεση</string>
+    <string name="rede_nuvem_pedindo">Ζητείται κωδικός…</string>
+    <string name="rede_nuvem_esperando">Αναμονή για επιβεβαίωση στο κινητό σας…</string>
+    <string name="rede_nuvem_salvando">Σύνδεση…</string>
+    <string name="rede_nuvem_recusado">Η υπηρεσία αρνήθηκε. Ελέγξτε το αναγνωριστικό εφαρμογής και δοκιμάστε ξανά.</string>
+    <string name="rede_erro_nuvem_login">Η άδεια αυτού του λογαριασμού έληξε ή αφαιρέθηκε. Αφαιρέστε τον λογαριασμό (κρατήστε OK) και συνδεθείτε ξανά.</string>
+    <string name="rede_od_titulo">OneDrive: η εφαρμογή σας στη Microsoft</string>
+    <string name="rede_od_explica">Μία φορά, σε υπολογιστή: entra.microsoft.com › App registrations › New registration. Στους τύπους λογαριασμού, επιλέξτε αυτόν που περιλαμβάνει προσωπικούς λογαριασμούς Microsoft. Μετά, στο Authentication, ενεργοποιήστε το “Allow public client flows”. Αντιγράψτε το “Application (client) ID” και πληκτρολογήστε το εδώ (μπορείτε να γράψετε από το κινητό, στον πίνακα).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">Το ID μοιάζει με 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">Στο κινητό ή τον υπολογιστή, ανοίξτε το microsoft.com/link (ή στρέψτε την κάμερα στο QR) και πληκτρολογήστε τον κωδικό παρακάτω. Η τηλεόραση ζητά μόνο ανάγνωση αρχείων.</string>
+    <string name="rede_od_erro_app">Η Microsoft δεν δέχτηκε αυτή την εφαρμογή. Ελέγξτε το ID και ότι το “Allow public client flows” είναι ενεργό.</string>
+    <string name="rede_dbx_explica">Μία φορά, σε υπολογιστή: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. Στην καρτέλα Permissions, επιλέξτε files.metadata.read, files.content.read και account_info.read (και files.content.write, αν θέλετε το νυχτερινό αντίγραφο στο Dropbox) και αποθηκεύστε (Submit). Αντιγράψτε το “App key” και πληκτρολογήστε το εδώ.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">Το App key έχει μόνο πεζά γράμματα και αριθμούς.</string>
+    <string name="rede_dbx_codigo_explica">Στρέψτε την κάμερα του κινητού στο QR, συνδεθείτε στο Dropbox και πατήστε Allow. Το Dropbox δείχνει έναν κωδικό: πληκτρολογήστε τον εδώ (μπορείτε να γράψετε από το κινητό, στον πίνακα).</string>
+    <string name="rede_dbx_codigo">Κωδικός Dropbox</string>
+    <string name="rede_dbx_codigo_erro">Πληκτρολογήστε ολόκληρο τον κωδικό που έδειξε το Dropbox.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Μία φορά, σε υπολογιστή: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). Στην καρτέλα Configuration, στο OAuth 2.0 Redirect URI, βάλτε %1$s και επιλέξτε “Read all files and folders” (και “Write all files and folders”, αν θέλετε το νυχτερινό αντίγραφο στο Box). Αποθηκεύστε, μετά αντιγράψτε εδώ το Client ID και το Client Secret.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Τα Client ID και Client Secret έχουν μόνο γράμματα και αριθμούς. Αντιγράψτε και τα δύο από την καρτέλα Configuration.</string>
+    <string name="rede_volta_sem_rede">Η τηλεόραση δεν είναι στο οικιακό δίκτυο. Συνδέστε τη και δοκιμάστε ξανά.</string>
+    <string name="rede_volta_explica">Στρέψτε στο QR την κάμερα ενός κινητού που είναι στο ίδιο Wi‑Fi με την τηλεόραση, συνδεθείτε στο %1$s και επιτρέψτε την πρόσβαση. Το κινητό επιστρέφει μόνο του στην τηλεόραση: τίποτα για πληκτρολόγηση.</string>
+    <string name="rede_volta_porta">Η θύρα %1$d στην τηλεόραση είναι κατειλημμένη. Κλείστε άλλες εφαρμογές και δοκιμάστε ξανά.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Μία φορά, σε υπολογιστή, στο έργο σας Google Cloud (console.cloud.google.com): APIs &amp; Services › Library › ενεργοποιήστε το “Google Drive API”. Στο Google Auth Platform › Data Access, προσθέστε το εύρος …/auth/drive.readonly. Στο Clients › Create client › Web application, στο Authorized redirect URIs βάλτε %1$s. Αντιγράψτε εδώ το Client ID και το Client secret.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Αντιγράψτε και τα δύο από τη σελίδα του client: το ID τελειώνει σε .apps.googleusercontent.com και το secret συνήθως αρχίζει με GOCSPX-.</string>
+    <string name="rede_gd_aviso">Αν η Google πει ότι η εφαρμογή δεν είναι επαληθευμένη, πατήστε Σύνθετες › Μετάβαση (είναι η δική σας εφαρμογή).</string>
+</resources>

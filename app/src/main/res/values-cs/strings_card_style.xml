@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Jemné doladění</string>
+    <string name="ft_dica">OK nebo ▶ ◀ mění · ZPĚT zavře</string>
+    <string name="ft_abrir">Upravte při pohledu na domovskou obrazovku</string>
+    <string name="ft_abrir_det">Písmo, hodiny, barva zvýraznění, rohy, záře a velikost, živě</string>
+    <string name="cs_destaque">Barva zvýraznění</string>
+    <string name="cs_cantos">Rohy</string>
+    <string name="cs_brilho">Záře fokusu</string>
+    <string name="cs_tamanho">Velikost kříže</string>
+    <string name="cs_ceu">Obloha</string>
+    <string name="cs_lilas">Šeřík</string>
+    <string name="cs_retos">Hranaté</string>
+    <string name="cs_redondos">Kulaté</string>
+    <string name="cs_sem">Vypnuto</string>
+    <string name="cs_suave">Jemná</string>
+    <string name="cs_forte">Silná</string>
+    <string name="cs_menor">Menší</string>
+    <string name="cs_maior">Větší</string>
+    <string name="bg_tintura">Barva přes pozadí</string>
+    <string name="bg_cor">Barva pozadí</string>
+    <string name="bg_desfoque">Rozostření pozadí</string>
+    <string name="bg_transicao">Přechod obrázků</string>
+    <string name="bg_novo">Nové pozadí teď</string>
+    <string name="bg_solida">Plné</string>
+    <string name="bg_destaque">Zvýraznění</string>
+    <string name="bg_noite">Noc</string>
+    <string name="bg_mata">Les</string>
+    <string name="bg_brasa">Žhavé uhlíky</string>
+    <string name="bg_grafite">Grafit</string>
+    <string name="bg_corte">Střih</string>
+    <string name="bg_lenta">Pomalý</string>
+    <string name="bg_trocado">Změněno</string>
+    <string name="bg_nao_troca">Toto pozadí se nemění</string>
+    <string name="bg_camera">Domácí kamera jako pozadí</string>
+    <string name="bg_campainha">Kamera zvonku jako pozadí</string>
+    <string name="bg_nenhuma">Žádné</string>
+    <string name="bg_ligado">Zapnuto</string>
+</resources>

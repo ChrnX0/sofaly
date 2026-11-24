@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 50 do estudo (14/11/2026): cor e temperatura da luz na tela Casa (▲ ▼ no ajuste da luz). -->
+<resources>
+    <string name="casa_dica_brilho_cor">fényerő és szín</string>
+    <string name="casa_brilho_ajuste_cor">Fényerő %1$d%% · ◀ ▶ · szín ▲ ▼</string>
+    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_cor_quente">Meleg fehér</string>
+    <string name="casa_cor_neutra">Semleges fehér</string>
+    <string name="casa_cor_fria">Hideg fehér</string>
+    <string name="casa_cor_vermelho">Piros</string>
+    <string name="casa_cor_laranja">Narancs</string>
+    <string name="casa_cor_amarelo">Sárga</string>
+    <string name="casa_cor_verde">Zöld</string>
+    <string name="casa_cor_azul">Kék</string>
+    <string name="casa_cor_roxo">Lila</string>
+    <string name="casa_cor_rosa">Rózsaszín</string>
+</resources>

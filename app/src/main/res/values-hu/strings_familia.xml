@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">Gyerek-PIN</string>
+    <string name="fam_pin_det">Második PIN a csatornák, a rejtett kategóriák és a lefekvési idő feloldásához a gyerekek előtt. A panel PIN-je továbbra is mindenhol működik.</string>
+    <string name="fam_pin_ok">Gyerek-PIN mentve</string>
+    <string name="fam_pin_igual">A gyerek-PIN-nek különböznie kell a panel PIN-jétől</string>
+    <string name="fam_trocar">Gyerek-PIN módosítása</string>
+    <string name="fam_apagar">Gyerek-PIN eltávolítása</string>
+    <string name="fam_apagado">Gyerek-PIN eltávolítva: most csak a panel PIN-je old fel</string>
+    <string name="extras_TEMPO_TELA">Napi képernyőidő (ha elfogy, csak az engedélyezett alkalmazások nyílnak meg)</string>
+    <string name="tela_titulo">Képernyőidő</string>
+    <string name="tela_acabou">A mai képernyőidő lejárt. Holnap találkozunk!</string>
+    <string name="tela_5min">Ma még 5 perc képernyőidő van hátra</string>
+    <string name="tela_pin">PIN a képernyőidő módosításához</string>
+    <string name="tela_cota_linha">Napi képernyőidő: %1$s (ma hátra: %2$s)</string>
+    <string name="tela_mais">Még %1$d perc ma</string>
+    <string name="tela_mais_ok">Még %1$d perc mára</string>
+    <string name="tela_h">ó</string>
+    <string name="tela_min">perc</string>
+    <string name="extras_AGENDA_TODAS">A TV összes Google-fiókjának naptára együtt</string>
+    <string name="cal_todas_contas">A TV összes fiókja (%1$d)</string>
+    <string name="tm_tempo_esgotado">Lejárt az idő</string>
+    <string name="painel_desligado_pin">A webpanel kikapcsolt: túl sokszor volt hibás a PIN</string>
+    <string name="tm_crono">Stopper</string>
+    <string name="tm_crono_iniciar">Stopper indítása</string>
+    <string name="tm_crono_parar">Stopper leállítása</string>
+    <string name="tm_crono_comecou">A stopper elindult: a kezdőképernyőn látszik</string>
+    <string name="tm_crono_marcou">A stopper megállt ennél: %1$s</string>
+    <string name="som_canal">Utolsó élő TV-csatorna</string>
+</resources>

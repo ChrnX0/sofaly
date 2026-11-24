@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">LISTÁK</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Szűrő</string>
+    <string name="coluna_esportes">Sport</string>
+    <string name="coluna_guia">Műsorújság</string>
+    <string name="coluna_filtro_titulo">Szűrő</string>
+    <string name="coluna_filtro_ordem">Rendezés: %1$s</string>
+    <string name="coluna_filtro_combinado">Műfaj, korszak, értékelés, nem látott…</string>
+    <string name="coluna_filtro_combinado_ativo">Szűrő: %1$s</string>
+    <string name="coluna_filtro_limpar">Szűrő törlése</string>
+    <string name="coluna_filtro_sortear">Lepj meg</string>
+    <string name="coluna_filtro_ocultas_mostrar">Rejtett kategóriák megjelenítése (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Rejtett kategóriák újbóli elrejtése</string>
+    <string name="coluna_menu_assistido">Megnézettnek jelölés</string>
+    <string name="coluna_menu_nao_assistido">Nem megnézettnek jelölés</string>
+    <string name="coluna_menu_tirar_continuar">Eltávolítás a Folytatásból</string>
+    <string name="coluna_menu_por_interesse">Hozzáadás a megnézendőkhöz</string>
+    <string name="coluna_menu_tirar_interesse">Eltávolítás a megnézendők közül</string>
+    <string name="coluna_marcado_assistido">%1$s megnézettnek jelölve</string>
+    <string name="coluna_marcado_nao_assistido">%1$s nem megnézettnek jelölve</string>
+    <string name="coluna_tirado_continuar">%1$s eltávolítva a Folytatásból</string>
+    <string name="coluna_menu_tirar_home">Eltávolítás a kezdőképernyőről</string>
+    <string name="coluna_tirado_home">%1$s eltávolítva a kezdőképernyőről</string>
+    <string name="coluna_etiqueta_concluida">Befejezve</string>
+    <string name="coluna_etiqueta_nova_temporada">Új évad</string>
+    <string name="coluna_etiqueta_novos">Új epizódok</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d új epizód</item>
+        <item quantity="other">%d új epizód</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Ugrás betűre</string>
+    <string name="coluna_letra">Ugrás egy betűre</string>
+    <string name="coluna_ao_vivo">ÉLŐ</string>
+    <string name="coluna_ao_vivo_primeiro">Élők elöl</string>
+    <string name="coluna_tv_titulo">TV</string>
+    <string name="coluna_gravacoes">Felvételek</string>
+</resources>

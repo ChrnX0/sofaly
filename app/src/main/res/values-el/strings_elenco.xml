@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Ηθοποιοί</string>
+    <string name="elenco_titulo">Ηθοποιοί</string>
+    <string name="elenco_carregando">Φόρτωση ηθοποιών…</string>
+    <string name="elenco_vazio">Το TMDB δεν έχει ηθοποιούς για αυτόν τον τίτλο.</string>
+    <string name="elenco_dica">Περάστε από τα πρόσωπα: από κάτω, σε τι άλλο παίζουν που υπάρχει στη λίστα σας.</string>
+    <string name="elenco_na_lista">Επίσης στη λίστα σας</string>
+    <string name="elenco_procurando">Αναζήτηση στη λίστα σας…</string>
+    <string name="elenco_nada_na_lista">Τίποτα άλλο με αυτό το πρόσωπο στη λίστα σας.</string>
+    <string name="elenco_filme">Ταινία</string>
+    <string name="elenco_serie">Σειρά</string>
+    <string name="elenco_opcao_player">Ηθοποιοί (ποιος είναι αυτός ο ηθοποιός;)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Προηγουμένως στο %1$s</string>
+    <string name="anteriormente_assistir">Προβολή %1$s</string>
+    <string name="anteriormente_pular_sempre">Να μην εμφανίζεται ποτέ</string>
+    <string name="anteriormente_desligado">Οι συνόψεις απενεργοποιήθηκαν. Για να ενεργοποιηθούν ξανά: κρατήστε OK σε ένα επεισόδιο.</string>
+    <string name="anteriormente_ligar">Εμφάνιση συνόψεων «Προηγουμένως»</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Μέγιστη ηλικία στην παιδική λειτουργία</string>
+    <string name="idade_det">Ταινίες και σειρές με χαρακτηρισμό ως αυτή την ηλικία εμφανίζονται από κάθε κατηγορία (χαρακτηρισμός TMDB). Όσες δεν έχουν χαρακτηρισμό, μόνο στις παιδικές κατηγορίες.</string>
+    <string name="idade_so_categorias">Μόνο παιδικές κατηγορίες</string>
+    <string name="idade_livre">Όλες οι ηλικίες</string>
+    <string name="idade_anos">Ως %1$d ετών</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Επίσης στο: %1$s (JustWatch)</string>
+    <string name="onde_fora">Όχι στη λίστα σας · στο %1$s</string>
+    <string name="onde_grupo">Αλλού (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Υπότιτλοι κατέβηκαν αυτόματα (φτιαγμένοι για αυτό το αρχείο) · ▼ για αλλαγή</string>
+    <string name="legenda_auto_pronta_nome">Υπότιτλοι κατέβηκαν αυτόματα · ▼ για αλλαγή ή ρύθμιση καθυστέρησης</string>
+    <string name="legenda_trad_rotulo">Αυτόματη μετάφραση</string>
+    <string name="legenda_trad_traduzindo">Δεν υπάρχουν υπότιτλοι στη γλώσσα σας: μετάφραση των αγγλικών στην τηλεόραση…</string>
+    <string name="legenda_trad_parcial">Υπότιτλοι μεταφρασμένοι στην τηλεόραση (αυτόματη μετάφραση). Τα υπόλοιπα συνεχίζουν να μεταφράζονται.</string>
+    <string name="legenda_trad_pronta">Η μετάφραση υποτίτλων ολοκληρώθηκε</string>
+    <string name="series_sinopse_mais">Πλήρης περίληψη</string>
+    <string name="series_continuar_curto">▶  Συνέχεια %1$s</string>
+    <string name="series_episodios">Επεισόδια</string>
+    <string name="series_trocar_temporada">Αλλαγή σεζόν</string>
+    <string name="fechar">Κλείσιμο</string>
+    <string name="onde_assistir_botao">Πού να το δείτε</string>
+</resources>

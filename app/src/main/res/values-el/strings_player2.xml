@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Η σύνδεση διακόπηκε. Νέα προσπάθεια (%1$d από %2$d)…</string>
+    <string name="vod_proximo_episodio">Επόμενο επεισόδιο</string>
+    <string name="vod_proximo_agora">Προβολή τώρα · %1$d δ.</string>
+    <string name="vod_proximo_cancelar">Άκυρο</string>
+    <string name="vod_proximo_continuar">Συνέχεια προβολής</string>
+    <string name="vod_ainda_assistindo">Βλέπετε ακόμα;</string>
+    <string name="vod_ainda_assistindo_texto">Μερικά επεισόδια έπαιξαν χωρίς να αγγίξει κανείς το τηλεχειριστήριο, οπότε το επόμενο σας περιμένει.</string>
+    <string name="vod_desligar_ao_fim">Κλείσιμο της τηλεόρασης όταν τελειώσει αυτό</string>
+    <string name="vod_legenda_tamanho_titulo">Μέγεθος υποτίτλων</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Μικρό</item>
+        <item>Κανονικό</item>
+        <item>Μεγάλο</item>
+        <item>Τεράστιο</item>
+    </string-array>
+</resources>

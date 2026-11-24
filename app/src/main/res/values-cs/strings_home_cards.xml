@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Další zápas vašeho týmu na položce TV domovské obrazovky</string>
+    <string name="extras_CARTAO_COTACAO">Dnešní kurzy měn vedle počasí (dolar, euro, bitcoin; ptá se bezplatné služby Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Odpočet nahoře na domovské obrazovce v posledních 7 dnech (vaše data nebo další svátek)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Domácí připomenutí nahoře na domovské obrazovce v jejich den (např. den svozu tříděného odpadu), s oznámením v nastavený čas</string>
+    <string name="extras_CARTAO_SERVICO">Upozornit nahoře na domovské obrazovce, když vámi přidaná služba přestane odpovídat</string>
+    <string name="extras_CARTAO_LUA">Fáze měsíce v předpovědi počasí</string>
+    <string name="hc_feriado_hoje">Dnes svátek</string>
+    <string name="hc_hoje">Dnes: %1$s</string>
+    <string name="hc_lembrete_rotulo">Domácí připomenutí</string>
+    <string name="hc_servico_fora">%1$s nefunguje</string>
+    <string name="hc_servico_rotulo">Vaše služby</string>
+    <string name="hc_cotacao_rotulo">Kurzy měn</string>
+    <string name="hc_cotacao_fonte">Dnešní kurzy, zdroj: Frankfurter (centrální banky)</string>
+    <string name="hc_mil">tis.</string>
+    <string name="hc_milhao">mil.</string>
+    <string name="hc_seu_time">Váš tým: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Svátek za %1$d den</item>
+        <item quantity="few">Svátek za %1$d dny</item>
+        <item quantity="other">Svátek za %1$d dní</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">%1$d den do %2$s</item>
+        <item quantity="few">%1$d dny do %2$s</item>
+        <item quantity="other">%1$d dní do %2$s</item>
+    </plurals>
+</resources>

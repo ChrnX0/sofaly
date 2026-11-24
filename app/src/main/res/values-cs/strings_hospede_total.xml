@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Úplné vyčištění</string>
+    <string name="hos_total_det">Při odjezdu vymaže data všech aplikací na televizoru, nejen streamovacích. Služby Google a Nastavení zůstanou.</string>
+</resources>

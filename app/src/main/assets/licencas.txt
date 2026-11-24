@@ -169,3 +169,9 @@ Protetor "A Terra vista do espaço": fotos tiradas pelos astronautas da Estaçã
   sem direito autoral nos EUA, crédito à NASA; a NASA não apoia nem endossa este app).
 
 Os sons do despertador foram gerados pelo próprio projeto.
+
+— Fotos —
+
+Fundos "Noite", "Serra" e "Vale" da tela inicial (assets/fundos)
+  https://unsplash.com
+  Licença Unsplash (https://unsplash.com/license).

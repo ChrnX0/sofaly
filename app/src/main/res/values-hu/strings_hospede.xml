@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Vendég mód</string>
+    <string name="hos_det">Kiadáshoz: a vendégek bejelentkezései távozáskor törlődnek. A kikapcsolás PIN-t kér.</string>
+    <string name="hos_pin_sair">PIN a vendég módból való kilépéshez</string>
+    <string name="hos_pin_config">PIN a beállítások megnyitásához</string>
+    <string name="hos_saida">Vendég távozása</string>
+    <string name="hos_saida_det">Ebben az időpontban a streamingalkalmazások megtisztulnak. Az OK a napot módosítja.</string>
+    <string name="hos_saida_nenhuma">Nincs beállítva</string>
+    <string name="hos_saida_hoje">Ma %1$s-kor</string>
+    <string name="hos_saida_amanha">Holnap %1$s-kor</string>
+    <string name="hos_saida_dia">%1$s, %2$s-kor</string>
+    <string name="hos_hora">Távozás időpontja</string>
+    <string name="hos_hora_det">Az OK az órát módosítja (8:00 és 14:00 között).</string>
+    <string name="hos_regras">Házirend</string>
+    <string name="hos_regras_vazio">Még nincs. Az üdvözlőképernyőn jelenik meg.</string>
+    <string name="hos_regras_dica">Pl.: Este 10 után csend. Távozás 11-kor.</string>
+    <string name="hos_apps">Távozáskor tisztítandó alkalmazások</string>
+    <string name="hos_apps_det">A megjelölt alkalmazások bejelentkezései és előzményei törlődnek. A streamingalkalmazások eleve meg vannak jelölve.</string>
+    <string name="hos_apps_sub">Az OK megjelöl vagy visszavon. A rendszeralkalmazások nem tisztíthatók.</string>
+    <string name="hos_encerrar">A tartózkodás befejezése most</string>
+    <string name="hos_encerrar_det">Most megtisztítja az alkalmazásokat, és előkészíti az üdvözlést a következő vendégnek.</string>
+    <string name="hos_encerrar_pergunta">Most törli a vendégalkalmazások bejelentkezéseit és előzményeit? Ez nem vonható vissza.</string>
+    <string name="hos_encerrar_sim">Törlés</string>
+    <string name="hos_limpando">Tisztítás…</string>
+    <string name="hos_limpou">Megtisztított alkalmazások: %1$d.</string>
+    <string name="hos_limpou_falhas">Megtisztított alkalmazások: %1$d. Sikertelen: %2$s</string>
+    <string name="hos_ultima">Utolsó tisztítás: %1$s</string>
+    <string name="hos_bv_titulo">Üdvözöljük!</string>
+    <string name="hos_bv_regras">Házirend</string>
+    <string name="hos_bv_privacidade">Jelentkezzen be nyugodtan az alkalmazásaiba: távozáskor a streamingalkalmazások bejelentkezései és előzményei automatikusan törlődnek.</string>
+    <string name="hos_bv_ok">Kezdés</string>
+    <string name="hos_bv_wifi">Wi-Fi</string>
+</resources>

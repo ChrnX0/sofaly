@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Actions catalog (ComandosIa): what the TV shows before/after running an action from a scene, Claude or voice. -->
+<resources>
+    <string name="acao_recado">A(z) „%1$s” üzenet megjelenítése</string>
+    <string name="acao_timer">%1$d perces időzítő</string>
+    <string name="acao_timer_nome">%1$d perces időzítő („%2$s”)</string>
+    <string name="acao_desligar_em">A TV kikapcsolása %1$d perc múlva</string>
+    <string name="acao_desligar_cancelar">Az elalváskapcsoló törlése</string>
+    <string name="acao_filtro_ligar">Az éjszakai szűrő bekapcsolása</string>
+    <string name="acao_filtro_desligar">Az éjszakai szűrő kikapcsolása</string>
+    <string name="acao_filtro_sem_servico">az éjszakai szűrőhöz kisegítő szolgáltatás kell</string>
+    <string name="acao_rodar_cena">A(z) „%1$s” jelenet futtatása</string>
+    <string name="acao_cena_nao_existe">a(z) „%1$s” jelenet nem létezik</string>
+    <string name="acao_cena_em_cena">egy jelenet nem futtathat másik jelenetet</string>
+    <string name="acao_mural_compras">„%1$s” hozzáadása a bevásárlólistához</string>
+    <string name="acao_mural_recado">„%1$s” kitűzése a családi táblára</string>
+    <string name="acao_tocar_titulo">„%1$s” keresése és lejátszása</string>
+    <string name="acao_tocar">%1$s lejátszása</string>
+    <string name="acao_continuar">Ami szólt, annak folytatása</string>
+    <string name="acao_proximo">A következő epizód lejátszása</string>
+    <string name="acao_proximo_de">A(z) %1$s következő epizódja</string>
+    <string name="acao_o_que_via">Mi szólt</string>
+    <string name="acao_vendo">Utoljára nézett: %1$s</string>
+    <string name="acao_vendo_nada">A Filmekben és Sorozatokban még nem nézett semmit.</string>
+    <!-- Rotina e despertador que rodam cena (ideia 5) -->
+    <string name="rot_cena_uma">Jelenet futtatása</string>
+    <string name="rot_cena">Jelenet futtatása: %1$s</string>
+    <string name="rot_cena_linha">Jelenet: %1$s</string>
+    <string name="rot_cena_sem">Előbb hozzon létre egy jelenetet (webpanel › Otthon és automatizálás › Jelenetek)</string>
+    <!-- Tela Cenas (ideia 4) -->
+    <string name="lbl_cenas">Jelenetek</string>
+    <string name="pr_cenas">Jelenetek</string>
+    <string name="cenas_titulo">Jelenetek</string>
+    <string name="cenas_det">Az OK lefuttatja a jelenetet. Létrehozni és szerkeszteni a webpanel › Otthon és automatizálás › Jelenetek menüben lehet.</string>
+    <string name="cenas_vazio">Még nincsenek jelenetek. Hozzon létre egyet a webpanel › Otthon és automatizálás › Jelenetek menüben.</string>
+    <plurals name="cenas_acoes">
+        <item quantity="one">%d művelet</item>
+        <item quantity="other">%d művelet</item>
+    </plurals>
+    <!-- Botões do controle (ideia 6) -->
+    <string name="tec_titulo">Távirányító gombjai</string>
+    <string name="tec_det">A Netflix és a YouTube bármely képernyőn működik; a színes gombok és a számok csak a kezdőképernyőn.</string>
+    <string name="tec_nova">+ Gomb beállítása</string>
+    <string name="tec_nova_det">Aztán nyomja meg a gombot a távirányítón</string>
+    <string name="tec_aperte">Nyomja meg a gombot</string>
+    <string name="tec_aperte_det">Netflix, YouTube, színes gomb vagy szám. A VISSZA megszakítja.</string>
+    <string name="tec_nao_pode">A(z) %1$s nem módosítható (a TV használatához kell). Próbáljon másik gombot.</string>
+    <string name="tec_so_home">Csak a kezdőképernyőn működik (alkalmazásokban és a lejátszóban megtartja a saját feladatát).</string>
+    <string name="tec_toda_tela">Bármely képernyőn működik.</string>
+    <string name="tec_toque">Megnyomás</string>
+    <string name="tec_segurar">Nyomva tartás</string>
+    <string name="tec_duplo">Dupla megnyomás</string>
+    <string name="tec_triplo">Tripla megnyomás</string>
+    <string name="tec_padrao">alapértelmezett (mentett alkalmazás; 3 mp nyomva = választás)</string>
+    <string name="tec_cena">%1$s jelenet</string>
+    <string name="tec_salvo">%1$s mentve</string>
+    <string name="tec_apagar">A gomb törlése</string>
+    <string name="tec_vermelha">Piros</string>
+    <string name="tec_verde">Zöld</string>
+    <string name="tec_amarela">Sárga</string>
+    <string name="tec_azul">Kék</string>
+    <!-- Automações (ideia 1) -->
+    <string name="aut_titulo">Automatizálások</string>
+    <string name="aut_det">Minden, amit a TV magától csinál: egy időpontban, egy gombra, ha valami történik, és linkkel.</string>
+    <string name="aut_cfg_det">Időpontok, távirányító-gombok, események és jelenetlinkek</string>
+    <string name="aut_horario">Ha eljön az idő</string>
+    <string name="aut_botao">Ha megnyomnak egy gombot</string>
+    <string name="aut_evento">Ha valami történik</string>
+    <string name="aut_link">Linkkel</string>
+    <string name="aut_link_det">Létrehozás és szerkesztés a webpanel › Otthon és automatizálás › Jelenetek menüben</string>
+    <plurals name="aut_links">
+        <item quantity="one">%d jelenet linkkel</item>
+        <item quantity="other">%d jelenet linkkel</item>
+    </plurals>
+    <string name="ev_midia_tocou">Film vagy videó elindult</string>
+    <string name="ev_midia_pausou">Film vagy videó szünetel vagy véget ért</string>
+    <string name="ev_tv_ligou">A TV bekapcsolt</string>
+    <string name="ev_todos_sairam">Mindenki elment (jelenlét)</string>
+    <string name="ev_chuva">Eső közeleg</string>
+</resources>

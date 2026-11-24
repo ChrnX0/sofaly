@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Υπηρεσίες ταινιών και σειρών</string>
+    <string name="sv_subtitulo">Προαιρετικοί λογαριασμοί. Τίποτα δεν στέλνεται εκτός τηλεόρασης ως να συνδεθείτε.</string>
+    <string name="sv_linha">Υπηρεσίες ταινιών και σειρών</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB και OpenSubtitles</string>
+    <string name="sv_trakt_det">Κρατά τα προβεβλημένα και τη λίστα παρακολούθησης σε συγχρονισμό με το κινητό</string>
+    <string name="sv_simkl_det">Όπως το Trakt, εξαιρετικό και για anime. Χρησιμοποιήστε το ένα ή και τα δύο</string>
+    <string name="sv_mdblist_det">Προαιρετικό: οι λίστες σας, όπως το Top 250, γίνονται κατηγορίες σε Ταινίες και Σειρές</string>
+    <string name="sv_tmdb_det">Υπόθεση, ηθοποιοί και ημερομηνία επόμενου επεισοδίου, στη γλώσσα της τηλεόρασης</string>
+    <string name="sv_os_det">Υπότιτλοι online. Χωρίς λογαριασμό: 5 την ημέρα. Με δωρεάν λογαριασμό: 20</string>
+    <string name="sv_desligado">Σύνδεση</string>
+    <string name="sv_entrando">σύνδεση…</string>
+    <string name="sv_conectado">συνδεδεμένο</string>
+    <string name="sv_ativo">ενεργό</string>
+    <string name="sv_sem_chave">Αυτή η έκδοση δεν έχει ακόμα τα κλειδιά αυτών των υπηρεσιών. Εμφανίζονται μετά την επόμενη ενημέρωση.</string>
+    <string name="sv_pedindo">Ζητείται κωδικός από το %1$s…</string>
+    <string name="sv_passos">1. Στο κινητό, ανοίξτε το %1$s (ή στρέψτε την κάμερα στον κωδικό δεξιά).\n2. Συνδεθείτε στο %2$s και πληκτρολογήστε τον κωδικό:</string>
+    <string name="sv_espera">Αυτή η οθόνη συνεχίζει μόνη της. Το ΠΙΣΩ ακυρώνει.</string>
+    <string name="sv_ok">Έγινε: το %1$s συνδέθηκε%2$s.</string>
+    <string name="sv_ok_como"> ως %1$s</string>
+    <string name="sv_falhou">Δεν πέτυχε: %1$s</string>
+    <string name="sv_motivo_venceu">ο κωδικός έληξε. Δοκιμάστε ξανά.</string>
+    <string name="sv_motivo_recusado">η πρόσβαση απορρίφθηκε στο κινητό.</string>
+    <string name="sv_motivo_usado">αυτός ο κωδικός χρησιμοποιήθηκε ήδη. Δοκιμάστε ξανά.</string>
+    <string name="sv_motivo_erro">η υπηρεσία δεν απάντησε. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="sv_sair_pergunta">Αποσύνδεση από το %1$s; Η τηλεόραση ξεχνά τον λογαριασμό και σταματά να μιλά με το %1$s. Τα δεδομένα σας εκεί μένουν εκεί.</string>
+    <string name="sv_sair">Αποσύνδεση</string>
+    <string name="sv_fechar">Κλείσιμο</string>
+    <string name="sv_mdblist_titulo">Κλειδί MDBList</string>
+    <string name="sv_mdblist_texto">Προαιρετικό: οι βαθμολογίες λειτουργούν ήδη χωρίς αυτό. Για να χρησιμοποιήσετε τον δικό σας λογαριασμό MDBList (οι λίστες σας, το όριό σας), συνδεθείτε στο mdblist.com, ανοίξτε τις Preferences, αντιγράψτε το API key και πληκτρολογήστε το εδώ (πιο εύκολα από τον πίνακα web, καρτέλα Ρυθμίσεις, με επικόλληση).</string>
+    <string name="sv_mdblist_dica">Κλειδί API</string>
+    <string name="sv_os_titulo">Λογαριασμός OpenSubtitles</string>
+    <string name="sv_os_texto">Προαιρετικό: με δωρεάν λογαριασμό στο opensubtitles.com το όριο πηγαίνει από 5 σε 20 υπότιτλους την ημέρα.</string>
+    <string name="sv_os_usuario">Όνομα χρήστη</string>
+    <string name="sv_os_senha">Κωδικός</string>
+    <string name="sv_gravar">Αποθήκευση</string>
+    <string name="sv_cancelar">Άκυρο</string>
+    <string name="sv_limite_dia">Το ημερήσιο όριο υποτίτλων εξαντλήθηκε. Ανανεώνεται σε 24 ώ. (με λογαριασμό OpenSubtitles είναι 20 την ημέρα).</string>
+    <string name="sv_tmdb_atribuicao">Αυτό το προϊόν χρησιμοποιεί το API του TMDB αλλά δεν υποστηρίζεται ούτε πιστοποιείται από το TMDB.</string>
+    <string name="ext_saga">%1$s · %2$d από %3$d στη λίστα σας</string>
+    <string name="ext_nao_e_este">Όχι αυτή η ταινία</string>
+    <string name="ext_proximo">Νέο επεισόδιο %1$s (Σ%2$dΕ%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Νέο επ. %1$s</string>
+    <string name="ext_hoje">σήμερα</string>
+    <string name="ext_amanha">αύριο</string>
+    <string name="sv_mdblist_passos">Προαιρετικό: οι λίστες σας MDBList (όπως το Top 250) γίνονται κατηγορίες σε Ταινίες και Σειρές.\n1. Στρέψτε την κάμερα του κινητού στον κωδικό αριστερά και συνδεθείτε (ή δημιουργήστε δωρεάν λογαριασμό). Στο τέλος της σελίδας, πατήστε API Access, δημιουργήστε το κλειδί αν δεν υπάρχει ακόμα και αντιγράψτε το.\n2. Στρέψτε στον κωδικό δεξιά: ο πίνακας web ανοίγει στις Ρυθμίσεις. Επικολλήστε το κλειδί στο MDBList και πατήστε Αποθήκευση κλειδιού.\n3. Η τηλεόραση το ελέγχει αμέσως και αυτή η οθόνη συνεχίζει μόνη της.</string>
+    <string name="sv_mdblist_qr1">Σελίδα κλειδιού MDBList</string>
+    <string name="sv_mdblist_qr2">Πίνακας web (%1$s)</string>
+    <string name="sv_mdblist_digitar">Πληκτρολογήστε το κλειδί εδώ</string>
+    <string name="sv_f_chave_invalida">μη έγκυρο κλειδί (μόνο γράμματα και αριθμοί)</string>
+    <string name="sv_f_chave_recusada">Το %1$s δεν δέχτηκε αυτό το κλειδί</string>
+    <string name="sv_f_respondeu">Το %1$s απάντησε με σφάλμα %2$d. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="sv_f_falta">πληκτρολογήστε όνομα χρήστη και κωδικό</string>
+    <string name="sv_f_longo">όνομα χρήστη ή κωδικός πολύ μεγάλο</string>
+    <string name="sv_f_senha">λάθος όνομα χρήστη ή κωδικός</string>
+    <string name="sv_f_gravar">δεν αποθηκεύτηκε στην τηλεόραση. Δοκιμάστε ξανά.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Βαθμολογία Simkl</string>
+    <string name="sv_simkl_convite_det">Συνδέστε τον λογαριασμό σας</string>
+</resources>

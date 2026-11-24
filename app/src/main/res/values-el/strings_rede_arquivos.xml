@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">Συνδεδεμένο στην τηλεόραση</string>
+    <string name="rede_sub_usb">USB στικ · βίντεο, μουσική και φωτογραφίες</string>
+    <string name="rede_acao_arquivos">FTP, SFTP ή NFS</string>
+    <string name="rede_sub_arquivos">NAS, router με δίσκο, υπολογιστής Linux ή Mac</string>
+    <string name="rede_arq_explica">Ξεκινήστε τη διεύθυνση με το πρωτόκολλο: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video. Τα SFTP και FTPS είναι κρυπτογραφημένα· το απλό FTP στέλνει τον κωδικό χωρίς κρυπτογράφηση, οπότε χρησιμοποιήστε το μόνο στο σπίτι. Το NFS δεν έχει κωδικό: το NAS πρέπει να επιτρέπει την IP της τηλεόρασης και συνδέσεις από μη προνομιούχες θύρες.</string>
+    <string name="rede_arq_endereco">Διεύθυνση (sftp://, ftp://, ftps:// ή nfs://)</string>
+    <string name="rede_arq_usuario">Όνομα χρήστη (NFS: αριθμός χρήστη, προαιρετικό)</string>
+    <string name="rede_arq_endereco_erro">Ξεκινήστε με sftp://, ftp://, ftps:// ή nfs://, ακολουθούμενο από τον διακομιστή και τον φάκελο. Το όνομα χρήστη και ο κωδικός μπαίνουν στα δικά τους πεδία.</string>
+    <string name="rede_erro_nfs_porta">Ο διακομιστής NFS απέρριψε την τηλεόραση. Στο NAS, επιτρέψτε συνδέσεις από μη προνομιούχες θύρες (Linux: η επιλογή \"insecure\" στο /etc/exports).</string>
+    <string name="rede_erro_nfs_ip">Ο διακομιστής NFS δεν επέτρεψε αυτή την τηλεόραση. Στο NAS, προσθέστε την IP της τηλεόρασης (ή το οικιακό σας δίκτυο) στον κανόνα NFS αυτού του φακέλου.</string>
+    <string name="rede_erro_chave_mudou">Το κλειδί αυτού του διακομιστή άλλαξε από τότε που προστέθηκε. Αν επανεγκαταστήσατε τον διακομιστή, αφαιρέστε τον εδώ και προσθέστε τον ξανά· αν όχι, κάποιος μπορεί να τον υποδύεται.</string>
+    <string name="rede_erro_usb_acesso">Η τηλεόραση δεν έδωσε στον launcher πρόσβαση στο USB στικ. Δοκιμάστε ξανά σε λίγο.</string>
+</resources>

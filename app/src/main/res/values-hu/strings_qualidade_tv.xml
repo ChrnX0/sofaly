@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV ao vivo: canais novos, qualidade automática e motivo do "sem sinal" (18/11/2026). -->
+<resources>
+    <string name="coluna_novos_canais">Új</string>
+    <string name="qual_menu">Minőség: %1$s</string>
+    <string name="qual_auto">Automatikus</string>
+    <string name="qual_auto_curto">auto</string>
+    <string name="qual_titulo">Képminőség</string>
+    <string name="qual_padrao">Normál</string>
+    <string name="player_conta_vencida">A listája lejárt ekkor: %1$s. Újítsa meg az eladónál.</string>
+    <string name="player_conta_recusada">A lista szervere elutasította a fiókot. Forduljon az eladóhoz.</string>
+    <string name="player_telas_cheias">A lista már %2$d képernyőből %1$d-on nyitva van. Zárja be egy másik eszközön.</string>
+</resources>

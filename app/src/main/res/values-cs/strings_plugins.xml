@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Pluginy</string>
+    <string name="plg_nenhum">Není nainstalovaný žádný plugin karet. Pluginy karet jsou aplikace od jiných vývojářů, které zde ukazují kartu, například skóre zápasu nebo cenu.</string>
+    <string name="plg_ligado">Zapnuto</string>
+    <string name="plg_desligado">Vypnuto</string>
+    <string name="plg_limite">Najednou nejvýše %1$d pluginů. Nejprve jeden vypněte.</string>
+    <string name="plg_seguranca">Pokud se plugin aktualizuje s jiným podpisem, vypne se, dokud ho znovu nepovolíte.</string>
+</resources>

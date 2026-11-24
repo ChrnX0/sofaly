@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Profil: %1$s</string>
+    <string name="perfil_aviso_texto">Oblíbené, Pokračovat ve sledování a pořadí aplikací tohoto profilu</string>
+    <string name="perfil_aviso_crianca">Dětský profil: zapnut dětský režim a večerka</string>
+    <string name="perfil_crianca">Dětský profil</string>
+    <string name="perfil_crianca_linha">Dětský profil · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Vypnuto</string>
+    <string name="perfil_crianca_sem_pin">Nejprve nastavte PIN webového panelu: je to rodičovský PIN, který chrání dětský profil</string>
+    <string name="perfil_pin_sair">Rodičovský PIN pro opuštění dětského profilu</string>
+    <string name="perfil_pin_marcar">Rodičovský PIN pro změnu dětského profilu</string>
+</resources>

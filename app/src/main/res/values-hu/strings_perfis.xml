@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Profil: %1$s</string>
+    <string name="perfil_aviso_texto">Ennek a profilnak a kedvencei, folytatásai és alkalmazás-sorrendje</string>
+    <string name="perfil_aviso_crianca">Gyerekprofil: gyerekmód és lefekvési idő bekapcsolva</string>
+    <string name="perfil_crianca">Gyerekprofil</string>
+    <string name="perfil_crianca_linha">Gyerekprofil · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Ki</string>
+    <string name="perfil_crianca_sem_pin">Előbb állítsa be a webpanel PIN-jét: ez a szülői PIN, amely a gyerekprofilt védi</string>
+    <string name="perfil_pin_sair">Szülői PIN a gyerekprofilból való kilépéshez</string>
+    <string name="perfil_pin_marcar">Szülői PIN a gyerekprofil módosításához</string>
+</resources>

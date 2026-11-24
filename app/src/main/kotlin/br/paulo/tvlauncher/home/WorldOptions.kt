@@ -29,6 +29,8 @@ object WorldOptions {
         val hidden: Boolean = false,
         /** Só o ícone na linha da cruz, sem o nome embaixo (Paulo, 22/11/2026). O nome segue na pílula do topo com o foco. */
         val iconOnly: Boolean = false,
+        /** Jeito dos cards deste mundo na barra única (número de [StripHome.Format]); null = segue o do Ajuste fino. */
+        val cards: Int? = null,
     )
 
     private fun p(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -54,6 +56,7 @@ object WorldOptions {
                 name = o.optString("name").trim().takeIf { it.isNotEmpty() },
                 hidden = o.optBoolean("hidden", false),
                 iconOnly = o.optBoolean("iconOnly", false),
+                cards = if (o.has("cards")) o.optInt("cards", -1).takeIf { it >= 0 } else null,
             )
         }.getOrDefault(Options())   // JSON estragado = como era, nunca derruba a HOME
 
@@ -63,6 +66,7 @@ object WorldOptions {
             o.name?.let { put("name", it) }
             if (o.hidden) put("hidden", true)
             if (o.iconOnly) put("iconOnly", true)
+            o.cards?.let { put("cards", it) }
         }.toString()
 
         /**

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Hang fejhallgatón (telefon)</string>
+    <string name="fone_titulo">Hang fejhallgatón</string>
+    <string name="fone_texto">Olvassa be egy otthoni Wi-Fi-n lévő telefonnal, és csatlakoztasson fejhallgatót. Legfeljebb %1$d telefon. A TV elnémul, amíg valaki hallgat; az oldal bezárása visszahozza a hangot.</string>
+    <string name="fone_ouvindo">Hallgatók: %2$d-ból %1$d</string>
+    <string name="fone_fechar">Bezárás</string>
+    <string name="fone_parar">Leállítás</string>
+    <string name="fone_sem_rede">A TV nincs az otthoni hálózaton.</string>
+</resources>

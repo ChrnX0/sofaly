@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Zastavit</string>
+    <string name="ra_parar_det">Rádio hraje dál na domovské obrazovce i ve spořiči, dokud ho nezastavíte</string>
+    <string name="ra_parar_det_antigo">Odchodem z této obrazovky se také zastaví</string>
+    <string name="ouv_canal">Rádio hraje</string>
+    <string name="ouv_abrir">Otevřít obrazovku rádia</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podcasty</string>
+    <string name="pod_dica_mais">více</string>
+    <string name="pod_de">%1$s z %2$s</string>
+    <string name="pod_velocidade">Rychlost</string>
+    <string name="pod_silencio">Přeskakovat ticho</string>
+    <string name="pod_silencio_det">Odstraní pauzy v řeči</string>
+    <string name="pod_ligado">zapnuto</string>
+    <string name="pod_desligado">vypnuto</string>
+    <string name="pod_continuar">Pokračovat</string>
+    <string name="pod_novos">Nové díly</string>
+    <string name="pod_video">video</string>
+    <string name="pod_meus">Moje podcasty</string>
+    <string name="pod_ultimo">nejnovější: %s</string>
+    <string name="pod_adicionar">Přidat</string>
+    <string name="pod_colar">Vložit adresu podcastu</string>
+    <string name="pod_colar_det">Odkaz na RSS kanál (weby podcastů ho uvádějí jako RSS)</string>
+    <string name="pod_pelo_celular">Z telefonu</string>
+    <string name="pod_pelo_celular_det">Otevřete panel televizoru v telefonu › Podcasty: vložte odkaz nebo importujte seznam z aplikace pro podcasty (OPML)</string>
+    <string name="pod_sem_episodios">Žádné díly k zobrazení.</string>
+    <string name="pod_ouvido">poslechnuto</string>
+    <string name="pod_do_comeco">Přehrát od začátku</string>
+    <string name="pod_marcar_nao">Označit jako neposlechnuté</string>
+    <string name="pod_marcar_ouvido">Označit jako poslechnuté</string>
+    <string name="pod_abrir">Otevřít</string>
+    <string name="pod_remover">Zrušit odběr</string>
+    <string name="pod_removido">Odběr zrušen</string>
+    <string name="pod_adicionando">Přidává se podcast…</string>
+    <string name="pod_adicionado">Podcast přidán</string>
+    <string name="pod_nao_deu">Nepodařilo se přidat: %s</string>
+    <string name="pod_horas">%1$d h %2$s</string>
+    <string name="pod_minutos">%d min</string>
+    <string name="pod_hoje">dnes</string>
+    <string name="pod_ontem">včera</string>
+    <string name="pod_falhou">Tento díl teď nehraje. Zkuste to později.</string>
+    <string name="pod_abrir_tela">Otevřít obrazovku podcastů</string>
+    <string name="ra_podcasts_det">Pořady, zprávy a rozhovory, které sledujete</string>
+    <string name="pod_procurar">Hledat</string>
+    <string name="pod_buscar">Hledat podcasty</string>
+    <string name="pod_em_alta">Populární ve vaší zemi</string>
+    <string name="pod_atribuicao">Hledání: Podcast Index</string>
+    <string name="pod_sugestoes">Návrhy</string>
+    <string name="pod_sugestao_seguir">OK pro sledování</string>
+    <string name="pod_sugeridos_seguidos">Navrhované podcasty přidány do Moje podcasty</string>
+</resources>

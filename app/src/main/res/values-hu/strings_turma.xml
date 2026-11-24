@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">A kanapén</string>
+    <string name="jogos_controle_pronto">kész</string>
+    <string name="jogos_controle_carregar">hamarosan tölteni kell</string>
+    <string name="jogos_parear_um">Kontroller párosítása</string>
+    <string name="turma_titulo">A csapata</string>
+    <string name="turma_online">%1$d online</string>
+    <string name="turma_mais_online">+ %1$d online</string>
+    <string name="turma_na_voz">Hangcsatornán</string>
+    <string name="turma_ausente">offline</string>
+    <string name="turma_ocupado">elfoglalt</string>
+    <string name="turma_status_online">online</string>
+    <string name="turma_ninguem">Most senki sincs online</string>
+    <string name="turma_procurando">A csapata keresése…</string>
+    <string name="turma_sem_rede">Most nincs kapcsolat a Discorddal.</string>
+    <string name="turma_mostrar_titulo">A csapata megjelenítése a Discordon</string>
+    <string name="turma_mostrar_texto">Lássa a TV-n, ki van online, ki játszik és ki van hangcsatornán.</string>
+    <string name="turma_desligado_titulo">A szerver widgetje ki van kapcsolva</string>
+    <string name="turma_desligado_texto">A Discordon: Szerverbeállítások, Widget, kapcsolja be a Szerver widget engedélyezése lehetőséget.</string>
+    <string name="turma_qr_dica">Irányítsa ide a telefont, hogy belépjen a hangcsatornába. A beszélgetés a telefonon zajlik.</string>
+    <string name="turma_jogando">%1$s ezzel játszik: %2$s</string>
+    <string name="turma_dois">%1$s és %2$s</string>
+    <string name="turma_e_mais">%1$s és még %2$d</string>
+    <string name="turma_chamar">A csapat összehívása</string>
+    <string name="turma_chamar_pergunta">Elküldi a Discord-csatornára?</string>
+    <string name="turma_chamado_jogo">🎮 Ki jön játszani ezzel: %1$s? A TV-nél vagyok.</string>
+    <string name="turma_chamado">🎮 Ki jön játszani? A TV-nél vagyok.</string>
+    <string name="turma_mandar">Küldés</string>
+    <string name="turma_enviado">A csapata meg lett hívva a Discordon.</string>
+    <string name="turma_espere">Várjon egy percet, mielőtt újra hív.</string>
+    <string name="turma_falhou">A Discord nem kapta meg. Ellenőrizze az internetet vagy a webhookot.</string>
+    <string name="turma_config_titulo">A csapata a Discordon</string>
+    <string name="turma_config_texto">1. A Discordon: Szerverbeállítások, Widget, kapcsolja be a Szerver widget engedélyezése lehetőséget.\n2. Ugyanazon az oldalon másolja ki a szerverazonosítót, és írja be ide.\n\nA Csapat összehívása gombhoz illesszen be egy csatorna-webhookot a TV webpaneljén.</string>
+    <string name="turma_config_dica">Szerverazonosító (csak számok)</string>
+    <string name="turma_config_guardar">Mentés</string>
+    <string name="turma_config_tirar">A csapat eltávolítása</string>
+    <string name="turma_id_invalido">Ez nem Discord-szerverazonosító (17–20 számjegy).</string>
+    <string name="cruz_sofa_sub">Kontrollerek és a csapata a Discordon</string>
+    <string name="cruz_sofa_voz">%1$d hangcsatornán · %2$s</string>
+</resources>

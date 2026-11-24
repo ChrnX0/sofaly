@@ -420,7 +420,7 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
         "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
         "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.mode(this)}|" +
-        br.paulo.tvlauncher.home.StripHome.options(this).signature()   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        br.paulo.tvlauncher.home.StripHome.options(this).signature() + "|" + br.paulo.tvlauncher.home.StripBackground.choice(this)   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
 
     override fun onResume() {
         super.onResume()
@@ -935,16 +935,20 @@ class MainActivity : Activity() {
         // Sem decoração (arco do sol/lua, etiqueta da obra): o lugar dela é da cruz.
         // Fundo mais rico (BackgroundStyle, 21/11/2026): "cor sólida" troca o fundo inteiro; senão, cor por cima e desfoque.
         val camera = br.paulo.tvlauncher.settings.BackgroundStyle.camera(this).takeIf { it.isNotEmpty() && CasaHA.configurado(this) }
+        // Barra única (24/11/2026): a foto escolhida (Vale de fábrica) no lugar do fundo do tema; "do tema" = null.
+        val fotoDaBarra = br.paulo.tvlauncher.home.StripBackground.choice(this)
+            .takeIf { br.paulo.tvlauncher.home.BottomBar.strip(this) && it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME }
         val vivo = if (br.paulo.tvlauncher.settings.BackgroundStyle.tint(this) == br.paulo.tvlauncher.settings.BackgroundStyle.Tint.SOLID)
             br.paulo.tvlauncher.settings.BackgroundStyle.solido(this)
         else (if (camera != null) br.paulo.tvlauncher.home.CameraBackground(this, camera) { bloco -> rede.execute { bloco() } }
+              else if (fotoDaBarra != null) br.paulo.tvlauncher.home.PhotoBackground(this, fotoDaBarra) { bloco -> rede.execute { bloco() } }
               else criarFundo(this, tema, decoracao = false) { bloco -> rede.execute { bloco() } })
             .also { br.paulo.tvlauncher.settings.BackgroundStyle.vestir(this, it) }
         fundo = vivo
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = { (fundo as? FundoVivo)?.proximo() ?: false }
         // Sem fundo preto aqui (nem na janela, ver onCreate): o fundo vivo já cobre a tela inteira e é opaco. Cada camada
         // de tela cheia a mais é a GPU pintando 1920x1080 de novo A CADA QUADRO (medido: 3 camadas, 22 ms por quadro).
-        capa = CapaFoco(this).apply { desligada = tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || !LayoutHome.arteCruz(this@MainActivity) }   // Galeria: a obra é o fundo, sem brilho por cima
+        capa = CapaFoco(this).apply { desligada = tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || fotoDaBarra != null || !LayoutHome.arteCruz(this@MainActivity) }   // Galeria: a obra é o fundo, sem brilho por cima
         montarCruz(raiz)
         conteudo = raiz
         return FrameLayout(this).apply {
@@ -1288,7 +1292,7 @@ class MainActivity : Activity() {
             }
         }
     }
-    private val filaApps = java.util.concurrent.Executors.newSingleThreadExecutor { r -> Thread(r, "Apps") }
+    internal val filaApps = java.util.concurrent.Executors.newSingleThreadExecutor { r -> Thread(r, "Apps") }
     /** pacote -> último uso (ms), lido por preencherApps na filaApps. Só lido/escrito na thread da tela. */
     internal var ultimoUso: Map<String, Long> = emptyMap()
 
@@ -2182,6 +2186,9 @@ class MainActivity : Activity() {
     /** UV muito alto agora (SunAlert) e quando o clima o mediu; a Ilha ignora depois de 90 min. */
     @Volatile internal var ilhaUv: Pair<Int, Long>? = null
     @Volatile internal var ilhaCeu: Pair<String, br.paulo.tvlauncher.weather.NightSky.Kind>? = null
+    /** Recado da Sofy na Ilha e o resumo da manhã dela (lidos fora da tela em [lerFontesIlha]). */
+    @Volatile internal var ilhaSofy: br.paulo.tvlauncher.observer.SofyTv.IslandLine? = null
+    @Volatile internal var ilhaSofyManha: br.paulo.tvlauncher.observer.SofyTv.IslandLine? = null
     @Volatile internal var ilhaIndicadores: Set<BarraIlha.Indicador> = emptySet()
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null
     /** Ilha que cresce: a faixa de baixo com o evento que chegou e "▲ para abrir"; some em [BarraIlha.CRESCER_MS]. */
@@ -2215,7 +2222,13 @@ class MainActivity : Activity() {
     internal val tarefaIlhaAcordou = Runnable {
         if (cruz?.hasFocus() != true) return@Runnable
         recolherBarra(true)
-        BarraIlha.resumoChegada(ilhaFila)?.let { crescerIlhaTexto(it, ilhaFila.any { e -> e.atencao }) }   // resumo de chegada
+        // Manhã: o resumo da Sofy ("enquanto você dormia") vem antes do resumo de chegada; mostrado = visto.
+        val manha = ilhaSofyManha
+        if (manha != null) {
+            ilhaSofyManha = null
+            crescerIlhaTexto(manha.text, false)
+            Fundo.rodar("sofy-manha") { runCatching { br.paulo.tvlauncher.observer.SofyTv.shown(this@MainActivity, manha) } }
+        } else BarraIlha.resumoChegada(ilhaFila)?.let { crescerIlhaTexto(it, ilhaFila.any { e -> e.atencao }) }   // resumo de chegada
     }
 
 
@@ -2253,8 +2266,10 @@ class MainActivity : Activity() {
     /** Lê, na fila dos apps, o que o Continuar da cruz mostra além de TV/série/filme. */
     private fun lerContinuarCruz() {
         // Os canais dos apps também alimentam o painel de "Todos os apps" na forma Pastas e canais (B, 22/11/2026).
+        // Barra única (24/11/2026, Paulo: "sim" aos cards com o conteúdo dos apps, como no Projectivy): lê sempre.
         cartoesApps = if (br.paulo.tvlauncher.home.AppChannels.mode(this) == br.paulo.tvlauncher.home.AppChannels.Mode.OFF &&
-            br.paulo.tvlauncher.home.AllAppsLayout.mode(this) != br.paulo.tvlauncher.home.AllAppsLayout.Mode.FOLDERS) emptyList()
+            br.paulo.tvlauncher.home.AllAppsLayout.mode(this) != br.paulo.tvlauncher.home.AllAppsLayout.Mode.FOLDERS &&
+            !br.paulo.tvlauncher.home.BottomBar.strip(this)) emptyList()
             else br.paulo.tvlauncher.home.AppChannels.ler(this)
         radioCruz = runCatching { Radios.ultima(this) }.getOrNull()
         midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis()).associateBy { it.pacote } }.getOrDefault(emptyMap())

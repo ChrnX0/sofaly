@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Áthozás egy másik TV-ről</string>
+    <string name="mtv_qr_desc">QR-kód a beállítások áthozásához egy másik TV-ről</string>
+    <string name="mtv_instrucoes">A RÉGI TV-n nyissa meg a panelt (telefon vagy számítógép), menjen a Rendszer › Mentés › \"Költözés új TV-re\" részhez, és olvassa be ezt a QR-kódot, vagy írja be az alábbi kódot.\nMinden titkosítva megy, csak erre a TV-re. A kód érvényessége: %1$s.</string>
+    <string name="mtv_recebendo">Fogadás… ne kapcsolja ki a TV-t.</string>
+    <string name="mtv_pronto">Minden megérkezett innen: %1$s. A TV most újraindul; utána az alkalmazásai egyenként visszajönnek.</string>
+    <string name="mtv_erro">Nem sikerült: %1$s\nEzen a TV-n semmi sem változott. Nyomja meg a \"%2$s\" gombot az újrapróbáláshoz.</string>
+    <string name="mtv_venceu">A kód lejárt (10 percig érvényes).\nNyomja meg a \"%1$s\" gombot egy új megjelenítéséhez.</string>
+    <string name="mtv_cfg_det">A régi TV beállításai, PIN-je, csatornái és alkalmazásai 2 perc alatt, egy QR-kóddal</string>
+    <string name="mtv_fila_titulo">Az alkalmazásai visszajönnek</string>
+    <string name="mtv_fila_texto">%2$d alkalmazásból a(z) %1$d. Nyissa meg a Play Áruházban, és nyomja meg a Telepítés gombot; amikor visszajön, megjelenik a következő.</string>
+    <string name="mtv_fila_abrir">Megnyitás a Play Áruházban</string>
+    <string name="mtv_fila_pular">Kihagyás</string>
+    <string name="mtv_fila_depois">Később</string>
+    <string name="mtv_fila_fim">A másik TV összes alkalmazása itt van.</string>
+    <string name="mtv_fila_cfg_det">A másik TV-ről még %1$d alkalmazás telepítendő</string>
+    <string name="mtv_diario">Áthozva innen: %1$s: beállítások visszaállítva, %2$d alkalmazás telepítendő</string>
+    <string name="mtv_diario_enviado">Elküldve egy új TV-re: beállítások és %1$d alkalmazás</string>
+</resources>

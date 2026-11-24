@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Přihlášen(a) jako %1$s. Co televizor udržuje v souladu s telefonem.</string>
+    <string name="sync_sub_mdblist">Přihlášen(a) jako %1$s. Vaše seznamy MDBList se mohou objevit v katalogu.</string>
+    <string name="sync_ultima">Poslední synchronizace: %1$s</string>
+    <string name="sync_nunca">Zatím nesynchronizováno</string>
+    <string name="sync_interesses">Zájmy ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Zájmy ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Co označíte zde, objeví se tam, a naopak</string>
+    <string name="sync_assistidos">Zhlédnuté ← Historie</string>
+    <string name="sync_assistidos_det">Přenese, co jste už zhlédli v telefonu nebo jinde</string>
+    <string name="sync_continuar">Pokračovat ⇄ Kde jste skončili</string>
+    <string name="sync_continuar_det">Zastavte v telefonu a pokračujte na televizoru na stejném místě</string>
+    <string name="sync_contar">Říkat %1$s, co tady sleduji</string>
+    <string name="sync_contar_det">Při přehrávání posílá „právě sleduji“ a „zhlédnuto“. Nikdy v režimu pro hosty ani na dětském profilu.</string>
+    <string name="sync_listas">Seznamy v katalogu</string>
+    <string name="sync_listas_nenhuma">Nic nevybráno</string>
+    <string name="sync_listas_n">Vybráno %1$d: %2$s</string>
+    <string name="sync_listas_sub">Objeví se v SEZNAMECH, pod Vše, jen s tituly, které váš seznam obsahuje. Nejvýše %1$d.</string>
+    <string name="sync_listas_carregando">Načítají se vaše seznamy…</string>
+    <string name="sync_listas_vazio">Nenalezeny žádné seznamy. Vytvořte nebo označte To se mi líbí u seznamu na Traktu nebo MDBList a vraťte se sem.</string>
+    <string name="sync_listas_cheio">Nejvýše %1$d seznamů</string>
+    <string name="sync_lista_itens">%1$d titulů</string>
+    <string name="sync_agora">Synchronizovat teď</string>
+    <string name="sync_agora_det">Děje se to i samo, když otevřete Filmy nebo Seriály</string>
+    <string name="sync_rodando">Synchronizuje se…</string>
+    <string name="sync_feito">Synchronizováno</string>
+    <string name="sync_sair">Odhlásit se z %1$s</string>
+    <string name="sync_bloqueado">Pozastaveno: je zapnutý režim pro hosty nebo dětský profil.</string>
+    <string name="sync_outro_perfil">Pozastaveno: synchronizace patří jinému profilu.</string>
+    <string name="sync_trakt_cheia">Váš seznam na Traktu je plný (bezplatné účty pojmou 100). Launcher pokračuje jen na televizoru.</string>
+    <string name="sync_ligado">Zapnuto</string>
+    <string name="sync_desligado">Vypnuto</string>
+    <string name="sync_fonte_trakt">Data z Traktu (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Data ze Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d z %2$d ve vašem seznamu</string>
+    <string name="sync_continuando">Pokračuje se tam, kde jste skončili na jiném zařízení</string>
+</resources>
