@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wdg_titulo">تعديل أدوات الشاشة الرئيسية</string>
+    <string name="wdg_det">أدوات حية من تطبيقات أخرى على الشاشة الرئيسية. الأسهم تنقلها و OK يعرض الخيارات.</string>
+    <string name="wdg_vazio">لا توجد أداة على الشاشة الرئيسية بعد. OK يضيف واحدة.</string>
+    <string name="wdg_estado_mover">نقل: %1$s</string>
+    <string name="wdg_estado_tamanho">الحجم: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">نقل</string>
+    <string name="wdg_tamanho">تغيير الحجم</string>
+    <string name="wdg_ajustes">إعدادات الأداة</string>
+    <string name="wdg_proximo">الأداة التالية</string>
+    <string name="wdg_por">إضافة أداة</string>
+    <string name="wdg_tirar">إزالة هذه الأداة</string>
+    <string name="wdg_abrir">فتح التطبيق</string>
+    <string name="wdg_cheio">لم تعد هناك مساحة لهذه الأداة.</string>
+    <string name="wdg_d_setas">نقل / حجم</string>
+    <string name="wdg_d_opcoes">خيارات</string>
+    <string name="wdg_d_voltar">رجوع</string>
+    <string name="wdg_d_sair">حفظ وخروج</string>
+</resources>

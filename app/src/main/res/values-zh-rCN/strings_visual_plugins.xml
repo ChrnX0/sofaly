@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">快捷面板按钮</string>
     <string name="ext_nenhum_botao">还没有其他应用的按钮。有些应用会在快捷面板中添加开关按钮（长按返回）。</string>
     <string name="ext_off_blocked">已被 Sofaly 关闭：此插件存在已知问题。</string>
+    <string name="ext_secao_widgets">其他应用的小部件</string>
+    <string name="ext_widget_nenhum">这台电视上还没有带小部件的应用。</string>
+    <string name="ext_widget_sem_permissao">电视不允许 Sofaly 添加小部件。</string>
+    <string name="ext_widget_falhou">无法添加这个小部件。</string>
 </resources>

@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">Кнопки быстрой панели</string>
     <string name="ext_nenhum_botao">Кнопок других приложений пока нет. Некоторые приложения добавляют кнопку вкл./выкл. в быструю панель (удерживайте НАЗАД).</string>
     <string name="ext_off_blocked">Отключено Sofaly: у этого плагина известная проблема.</string>
+    <string name="ext_secao_widgets">Виджеты других приложений</string>
+    <string name="ext_widget_nenhum">Ни у одного приложения на этом телевизоре пока нет виджета.</string>
+    <string name="ext_widget_sem_permissao">Телевизор не разрешил Sofaly добавлять виджеты.</string>
+    <string name="ext_widget_falhou">Не удалось добавить этот виджет.</string>
 </resources>

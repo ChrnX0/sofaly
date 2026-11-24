@@ -8,7 +8,7 @@ package br.paulo.tvlauncher.screensaver
  * O launcher pergunta `content://<autoridade>/cartao` e recebe UMA linha com as colunas:
  *     titulo (até 30), valor (até 12, o número grande: "2 x 1", "R$ 5,42", "18°"), detalhe (até 80), cor ("#RRGGBB"),
  *     acao (opcional: Intent em URI, que só pode abrir o PRÓPRIO plugin).
- * Versão 2 (24/11/2026, no lugar dos widgets, que o Google TV não tem), colunas opcionais:
+ * Versão 2 (24/11/2026; widgets de verdade vieram depois, em PluginWidget), colunas opcionais:
  *     mundo ("watch" | "listen" | "play" | "apps": em qual mundo da HOME o cartão mora; outro valor ou vazio = watch),
  *     imagem (content:// de um provider do PRÓPRIO plugin, PNG/JPG; a HOME reduz e usa como ícone do cartão).
  * Plugin da versão 1 continua igual: as colunas novas só faltam.
