@@ -314,18 +314,18 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             val tamIcone = if (quad) o.cardH * 0.56f else o.cardH * 0.48f
             val ic = ImageView(context).apply { setImageDrawable(item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
-            if (!quad) proprio.addView(TextView(context).apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 11f); typeface = forte; setTextColor(DesignTokens.CREAM)
+            if (!quad) proprio.addView(texto(11f, forte, DesignTokens.CREAM).apply {
+                setShadowLayer(0f, 0f, 0f, 0)   // dentro do card não leva a sombra da linha do mundo
                 maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false; gravity = Gravity.CENTER
                 text = item.nome
             }, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
             raiz.addView(proprio, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
-            val nomeFoco = TextView(context).apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f); typeface = forte; setTextColor(DesignTokens.CREAM)
+            val nomeFoco = texto(15f, forte, DesignTokens.CREAM).apply {
+                setShadowLayer(0f, 0f, 0f, 0)
                 maxLines = 1; includeFontPadding = false; gravity = Gravity.CENTER_VERTICAL; text = item.nome
                 visibility = View.GONE
             }
-            raiz.addView(nomeFoco, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT).apply { leftMargin = dpi(o.cardW) })
+            raiz.addView(nomeFoco, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT).apply { marginStart = dpi(o.cardW) })
             addView(raiz, indexOfChild(anel), LayoutParams(dpi(o.cardW), dpi(o.cardH)))
             cards += Card(item, raiz, banner, proprio, ic, nomeFoco)
         }
