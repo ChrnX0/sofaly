@@ -352,6 +352,7 @@
     <string name="atu_ocupado">já está a verificar</string>
     <string name="atu_erro">erro: %1$s %2$s</string>
     <string name="atu_em_dia">em dia (instalada %1$d, última %2$d)</string>
+    <string name="atu_sem_tag">O último Release não tem versão na tag</string>
     <string name="atu_sem_apk">Release %1$d sem o APK ou o SHA-256</string>
     <string name="atu_sha">Release %1$d: SHA-256 não bate, não instalei</string>
     <string name="atu_ilegivel">Release %1$d: APK ilegível</string>

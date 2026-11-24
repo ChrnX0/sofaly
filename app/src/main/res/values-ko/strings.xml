@@ -352,6 +352,7 @@
     <string name="atu_ocupado">이미 확인 중</string>
     <string name="atu_erro">오류: %1$s %2$s</string>
     <string name="atu_em_dia">최신 상태(설치됨 %1$d, 최신 %2$d)</string>
+    <string name="atu_sem_tag">최신 릴리스의 태그에 버전이 없음</string>
     <string name="atu_sem_apk">릴리스 %1$d에 APK 또는 SHA-256이 없음</string>
     <string name="atu_sha">릴리스 %1$d: SHA-256이 일치하지 않아 설치하지 않음</string>
     <string name="atu_ilegivel">릴리스 %1$d: 읽을 수 없는 APK</string>

@@ -1260,7 +1260,8 @@ function desenharConfig(r) {
   $('cfgLiberarTudo').checked = r.confirmacoes.liberarTudo;
   const lista = $('cfgConfirmacoes');
   // Ideia 13 (estudo global): a lista é redesenhada a cada troca; sem isto o foco caía no começo da página.
-  const focoAntes = lista.contains(document.activeElement) ? document.activeElement.getAttribute('aria-label') : null;
+  // Pela chave, não pelo texto: fora do português o aria-label já foi traduzido e não bateria com a.titulo.
+  const focoAntes = lista.contains(document.activeElement) ? document.activeElement.dataset.chave : null;
   lista.replaceChildren();
   for (const a of r.confirmacoes.acoes) {
     const linha = document.createElement('div');
@@ -1270,13 +1271,14 @@ function desenharConfig(r) {
     nome.title = a.explicacao;
     const sel = document.createElement('select');
     sel.setAttribute('aria-label', a.titulo);
+    sel.dataset.chave = a.chave;
     for (const m of a.modos) { const o = document.createElement('option'); o.value = m.valor; o.textContent = m.nome; sel.appendChild(o); }
     sel.value = a.modo;
     sel.disabled = r.confirmacoes.liberarTudo;   // como na TV: com "Liberar tudo", as linhas não valem
-    sel.addEventListener('change', () => gravarConfig({ campo: 'confirmacao', acao: a.chave, valor: sel.value }, `${a.titulo}: ${sel.options[sel.selectedIndex].textContent}.`));
+    sel.addEventListener('change', () => gravarConfig({ campo: 'confirmacao', acao: a.chave, valor: sel.value }, `${nome.textContent}: ${sel.options[sel.selectedIndex].textContent}.`));   // o texto da tela (já traduzido)
     linha.append(nome, sel);
     lista.appendChild(linha);
-    if (focoAntes && focoAntes === a.titulo) sel.focus();
+    if (focoAntes && focoAntes === a.chave) sel.focus();
   }
 }
 

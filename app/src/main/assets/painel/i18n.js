@@ -35,6 +35,8 @@
       if (!t || !/[A-Za-zÀ-ú]/.test(t)) return null;
       if (memo.has(t)) return memo.get(t);
       let r = T[t] || null;
+      // Um texto só muda pela 1ª letra ("o adb está ocupado" no diário, "O adb está ocupado" no erro): mesma chave.
+      if (!r && t[0] !== t[0].toLowerCase()) { const k = T[t[0].toLowerCase() + t.slice(1)]; if (k) r = k[0].toUpperCase() + k.slice(1); }
       if (!r) for (const [rx, e] of P) { if (rx.test(t)) { r = t.replace(rx, e); break; } }
       if (!r) {
         let s = t;

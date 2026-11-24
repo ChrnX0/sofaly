@@ -148,9 +148,9 @@ object Atualizador {
     private fun verificarAgora(app: Context, instalar: Boolean, soComTelaApagada: Boolean): String {
         // Canal de teste (62c): lê a lista e aceita pré-lançamento; o normal pede só o /latest (CanalAtualizacao).
         val json = CanalAtualizacao.escolher(baixarTexto(CanalAtualizacao.url(Config.ATUALIZACAO_REPO, canalTeste(app))))
-            ?: return "Release sem versão na tag"
+            ?: return txt(R.string.atu_sem_tag)
         // A tag é "v<versionCode>" (o workflow cria assim).
-        val codigo = CanalAtualizacao.codigo(json.optString("tag_name")) ?: return "Release sem versão na tag"
+        val codigo = CanalAtualizacao.codigo(json.optString("tag_name")) ?: return txt(R.string.atu_sem_tag)
         val meu = instalado(app).longVersionCode
         // Troca de pacote (19/11/2026, PackageMigration.kt): no app ANTIGO, um Release com o APK do app novo
         // (sofaly-launcher*.apk) não é atualização, é a mudança para tv.sofaly.launcher. Vem ANTES do "em dia" (na Sala, 20/11/2026, vinha depois e a troca nunca começava pelo MCP): a ponte
