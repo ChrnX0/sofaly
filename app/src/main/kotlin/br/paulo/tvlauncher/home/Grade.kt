@@ -18,15 +18,6 @@ object Grade {
     const val TOPO = 36            // onde começa a linha da hora
     const val LINHA_APPS = 328     // onde começa a linha de cards (topo do banner): embaixo, deixando o fundo (céu, pintura, mostrador) aparecer
 
-    /** Onde começa a coluna [col] (1 a 12), a partir da borda esquerda da tela. */
-    fun x(col: Int): Int = MARGEM + (col - 1) * (COLUNA + VAO)
-
     /** Largura de [n] colunas, contando os vãos entre elas. */
     fun largura(n: Int): Int = n * COLUNA + (n - 1) * VAO
-
-    const val DISCO = 56           // diâmetro do ícone redondo de um app na linha de baixo (era 80 antes do layout Palco, 06/11)
-    const val VAO_DISCO = 32       // espaço entre discos (o nome embaixo usa DISCO + VAO_DISCO de largura; a fila rola)
-
-    val CARD_LARGURA = largura(3)                  // 198
-    val CARD_ALTURA = CARD_LARGURA * 9 / 16        // 111: banner de TV é 16:9
 }

@@ -66,6 +66,16 @@ object AppStorage {
             ctx.packageManager.getInstalledApplications(0).filter { it.storageUuid != StorageManager.UUID_DEFAULT }
                 .forEach { lembrar(ctx, it.packageName, fora = true) }
         }
+        // Pen drive montado e o app movido não existe: foi desinstalado, não "saiu com o pen drive". Sem isto o aviso
+        // "sumiu" voltava a cada vez que o launcher reiniciava, para sempre. (TV com 2 pen drives adotados ao mesmo
+        // tempo é rara: o Chromecast tem uma porta USB.)
+        if (uuid != null) runCatching {
+            val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            val movidos = p.getStringSet(CHAVE_MOVIDOS, emptySet()).orEmpty()
+            val sairam = movidos.filter { info(ctx, it) == null }
+            if (sairam.isNotEmpty()) p.edit().putStringSet(CHAVE_MOVIDOS, movidos - sairam.toSet())
+                .apply { sairam.forEach { remove("nome:$it") } }.apply()
+        }
         return uuid
     }
 
