@@ -654,7 +654,8 @@ class MainActivity : Activity() {
         // Data em duas linhas pequenas ao lado da hora ("Quinta-feira" / "12 de novembro"), no lugar do "| Google TV" do
         // launcher do Google (dono, 12/11/2026: a barra no estilo da do Google, sem sumir com nada nosso).
         val blocoData = pilula(vidro = false).apply {
-            addView(LinearLayout(this@MainActivity).apply {
+            addView(br.paulo.tvlauncher.home.DataDuasLinhas(this@MainActivity,
+                android.text.format.DateFormat.getBestDateTimePattern(resources.configuration.locales[0], "EEEMMMd")).apply {
                 orientation = LinearLayout.VERTICAL
                 for (fmt in listOf(R.string.fmt_data_dia, R.string.fmt_data_mes)) addView(RelogioTela(this@MainActivity, data = true).apply {
                     format12Hour = getString(fmt)

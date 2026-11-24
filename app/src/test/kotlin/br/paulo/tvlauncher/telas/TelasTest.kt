@@ -137,6 +137,56 @@ class TelasTest {
     @Config(qualifiers = "ar-ldrtl-w960dp-h540dp-land-television-xhdpi")
     @Test fun arabe() = conferir("ar")
 
+    // As outras 23 línguas da TV (24/11/2026, regra do Paulo: toda tela em toda língua). Rodam com -Ptelas -PtelasTodas.
+    @Config(qualifiers = "de-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_de() = todas("de")
+    @Config(qualifiers = "es-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_es() = todas("es")
+    @Config(qualifiers = "fr-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_fr() = todas("fr")
+    @Config(qualifiers = "it-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_it() = todas("it")
+    @Config(qualifiers = "ru-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_ru() = todas("ru")
+    @Config(qualifiers = "ja-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_ja() = todas("ja")
+    @Config(qualifiers = "ko-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_ko() = todas("ko")
+    @Config(qualifiers = "zh-rCN-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_zh() = todas("zh-rCN")
+    @Config(qualifiers = "hi-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_hi() = todas("hi")
+    @Config(qualifiers = "in-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_in() = todas("in")
+    @Config(qualifiers = "tr-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_tr() = todas("tr")
+    @Config(qualifiers = "pl-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_pl() = todas("pl")
+    @Config(qualifiers = "pt-rPT-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_ptPT() = todas("pt-rPT")
+    @Config(qualifiers = "nl-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_nl() = todas("nl")
+    @Config(qualifiers = "sv-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_sv() = todas("sv")
+    @Config(qualifiers = "da-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_da() = todas("da")
+    @Config(qualifiers = "nb-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_nb() = todas("nb")
+    @Config(qualifiers = "fi-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_fi() = todas("fi")
+    @Config(qualifiers = "cs-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_cs() = todas("cs")
+    @Config(qualifiers = "el-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_el() = todas("el")
+    @Config(qualifiers = "hu-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_hu() = todas("hu")
+    @Config(qualifiers = "ro-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_ro() = todas("ro")
+    @Config(qualifiers = "uk-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_uk() = todas("uk")
+
+    private fun todas(idioma: String) { org.junit.Assume.assumeTrue(System.getProperty("telas.todas") == "true"); conferir(idioma) }
+
     private fun conferir(idioma: String) {
         // Na TV não existe "modo toque": sem isto o requestFocus() das telas não pega e o foco parece sumido.
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
@@ -178,7 +228,9 @@ class TelasTest {
                 if (semRede) for ((k, v) in proxyAntes) if (v == null) System.clearProperty(k) else System.setProperty(k, v)
             }
             agora.put(chave, m.json())
-            val antes = ref.optJSONObject(chave)?.let { Medida.de(it) } ?: continue
+            // Língua (ou tela) ainda sem referência: compara com "nada de errado", não pula. Antes um idioma novo passava
+            // sem nenhuma checagem de corte (24/11/2026). Só a menor letra não tem com o que comparar.
+            val antes = ref.optJSONObject(chave)?.let { Medida.de(it) } ?: Medida(m.menorSp, emptySet(), emptySet(), true)
             if (m.menorSp < antes.menorSp - 0.05f) problemas += "$chave: a menor letra encolheu de ${antes.menorSp}sp para ${m.menorSp}sp"
             for (c in m.cortes - antes.cortes) problemas += "$chave: texto cortado: \"$c\""
             for (s in m.sobrepostos - antes.sobrepostos) problemas += "$chave: texto por cima de outro: $s"
@@ -234,7 +286,9 @@ class TelasTest {
         andar(raiz)
         val menor = textos.minOfOrNull { it.first.textSize / escala } ?: 0f
         val cortes = textos.filter { (t, _) -> t.layout?.let { l -> (0 until l.lineCount).any { l.getEllipsisCount(it) > 0 } } == true }
-            .map { rotulo(it.first) }.toSet()
+            .map { rotulo(it.first) }.toSet() +
+            // Corte na vertical (24/11/2026): letras que saem da caixa que corta. As reticências não pegavam isso.
+            textos.mapNotNull { (t, _) -> MedirTela.cortadoNaVertical(t)?.let { "vertical: ${rotulo(t)} ($it)" } }
         val sobrepostos = mutableSetOf<String>()
         for (i in textos.indices) for (j in i + 1 until textos.size) {
             val (t1, r1) = textos[i]; val (t2, r2) = textos[j]

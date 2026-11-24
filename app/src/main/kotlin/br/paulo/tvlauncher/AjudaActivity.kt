@@ -76,7 +76,9 @@ class AjudaActivity : Activity() {
             addView(qr, LinearLayout.LayoutParams(ladoQr, ladoQr))
             addView(Estilo.texto(this@AjudaActivity, Estilo.Papel.LEGENDA, getString(R.string.ajq_celular)).apply {
                 gravity = android.view.Gravity.CENTER; setPaddingRelative(0, dp(4), 0, 0)
-            })
+            // Largura fixa (24/11/2026): solta, a legenda era medida numa linha e desenhada em duas; em alemão, russo e
+            // outras línguas longas a 2ª linha ("Handy") ficava fora da coluna. Com a largura certa, a altura sai certa.
+            }, LinearLayout.LayoutParams(ladoQr + dp(24), ViewGroup.LayoutParams.WRAP_CONTENT))
         }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginStart = dp(Estilo.E3) })
         raiz.addView(meio, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(Estilo.E2) })
         raiz.addView(Estilo.barraDicas(this, "◀ ▶" to getString(R.string.aj_dica_assunto), "▲ ▼" to getString(R.string.aj_dica_rolar),
