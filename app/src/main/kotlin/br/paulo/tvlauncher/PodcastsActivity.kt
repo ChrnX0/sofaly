@@ -253,7 +253,7 @@ class PodcastsActivity : Activity() {
         val v = OuvirServico.efetivo(this, s.episodio?.feed).velocidade
         val texto = listOfNotNull(
             if (dur > 0) getString(R.string.pod_de, tempo(pos), tempo(dur)) else tempo(pos),
-            if (dur > pos && dur > 0) BarraTempo.faltam(this, duracaoCurta(((dur - pos) / v).toLong())) else null,
+            if (dur > pos && dur > 0) faltamJunto(((dur - pos) / v).toLong()) else null,
             if (v != 1f) rotuloVelocidade(v) else null).joinToString(" · ")
         return (if (dur > 0) pos.toFloat() / dur else null) to texto
     }
@@ -293,7 +293,7 @@ class PodcastsActivity : Activity() {
         return when {
             tocandoEste -> "● " + getString(R.string.ouv_tocando_agora) to p?.takeIf { it.durMs > 0 }?.let { it.ms.toFloat() / it.durMs }
             p?.ouvido == true -> "✓ " + getString(R.string.pod_ouvido).replaceFirstChar { it.titlecase(Locale.getDefault()) } to null
-            p != null && p.ms >= Podcasts.MIN_CONTINUAR_MS && p.durMs > 0 -> BarraTempo.faltam(this, duracaoCurta(p.durMs - p.ms)) to p.ms.toFloat() / p.durMs
+            p != null && p.ms >= Podcasts.MIN_CONTINUAR_MS && p.durMs > 0 -> faltamJunto(p.durMs - p.ms) to p.ms.toFloat() / p.durMs
             else -> duracaoEp(ep) to null
         }
     }
@@ -667,6 +667,9 @@ class PodcastsActivity : Activity() {
     // O formato único do app (BarraTempo.duracao), sem quebrar no meio: "faltam 2 h 57" saía sem "min" e com o "57"
     // sozinho na linha de baixo, e a HOME dizia "faltam 2 h 57 min" do mesmo episódio (Sala, 24/11/2026).
     private fun duracaoCurta(ms: Long): String = BarraTempo.duracao(ms).replace(' ', '\u00A0')
+
+    /** "faltam 2 h 57 min" inteiro numa linha só: a quebra cai antes do "faltam", nunca no meio (teste 100%, #56). */
+    private fun faltamJunto(ms: Long): String = BarraTempo.faltam(this, BarraTempo.duracao(ms)).replace(' ', '\u00A0')
 
     private fun duracaoEp(ep: PodcastFeed.Episodio): String? = if (ep.duracaoS > 0) duracaoCurta(ep.duracaoS * 1000L) else null
 

@@ -39,7 +39,7 @@
 "cat": "tools"
 },
 "com.amazon.amazonvideo.livingroom": {
-"d": "Prime Video.",
+"d": "Filmes e séries da Amazon.",
 "en": "Movies, shows and sports",
 "q": "Só ele some.",
 "r": "seguro",
@@ -327,7 +327,7 @@
 "cat": "system"
 },
 "com.android.vending": {
-"d": "A Google Play Store.",
+"d": "Loja de apps e jogos do Google.",
 "en": "Install and update apps",
 "q": "Não dá mais para instalar nem atualizar apps pela loja. Apps que conferem a compra pela Play podem reclamar.",
 "r": "cuidado",
@@ -801,14 +801,14 @@
 "cat": "system"
 },
 "com.google.android.youtube.tv": {
-"d": "YouTube. O botão YouTube do controle abre ele.",
+"d": "Vídeos e canais. O botão YouTube do controle abre o app.",
 "en": "Videos and channels",
 "q": "Só ele some, e o botão YouTube fica sem app.",
 "r": "seguro",
 "cat": "video"
 },
 "com.google.android.youtube.tvmusic": {
-"d": "YouTube Music.",
+"d": "Músicas, playlists e clipes.",
 "en": "Music, playlists and music videos",
 "q": "Só ele some.",
 "r": "seguro",
@@ -829,7 +829,7 @@
 "cat": "games"
 },
 "com.netflix.ninja": {
-"d": "Netflix. O botão Netflix do controle abre ele.",
+"d": "Filmes e séries. O botão Netflix do controle abre o app.",
 "en": "Movies and shows",
 "q": "Só ele some, e o botão Netflix fica sem app.",
 "r": "seguro",
