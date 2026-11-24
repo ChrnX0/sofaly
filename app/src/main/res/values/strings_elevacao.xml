@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Plays any file; right subtitles without fiddling</string>
     <string name="elv_prom_casa">The alarm rings on time, every time</string>
     <string name="elv_prom_controle">Panel, phone and AI do everything the remote does</string>
-    <string name="elv_prom_todos">Older people, children, guests, low vision or hearing; 14 languages</string>
+    <string name="elv_prom_todos">Older people, children, guests, low vision or hearing; %1$d languages</string>
     <string name="elv_prom_instala">From the first launch to the first channel in 5 minutes</string>
     <string name="elv_nao_medido">Not measured yet</string>
     <string name="elv_alvo">target %1$s</string>

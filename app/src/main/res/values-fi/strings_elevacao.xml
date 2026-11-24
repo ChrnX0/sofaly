@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Toistaa minkä tahansa tiedoston; oikea tekstitys ilman säätämistä</string>
     <string name="elv_prom_casa">Herätys soi ajallaan, joka kerta</string>
     <string name="elv_prom_controle">Paneeli, puhelin ja tekoäly tekevät kaiken, minkä kaukosäädin tekee</string>
-    <string name="elv_prom_todos">Vanhukset, lapset, vieraat, heikko näkö tai kuulo; 14 kieltä</string>
+    <string name="elv_prom_todos">Vanhukset, lapset, vieraat, heikko näkö tai kuulo; %1$d kieltä</string>
     <string name="elv_prom_instala">Ensimmäisestä käynnistyksestä ensimmäiseen kanavaan 5 minuutissa</string>
     <string name="elv_nao_medido">Ei vielä mitattu</string>
     <string name="elv_alvo">tavoite %1$s</string>

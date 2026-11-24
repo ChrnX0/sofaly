@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Přehraje jakýkoli soubor; správné titulky bez piplání</string>
     <string name="elv_prom_casa">Budík zazvoní včas, pokaždé</string>
     <string name="elv_prom_controle">Panel, telefon a AI zvládnou vše, co ovladač</string>
-    <string name="elv_prom_todos">Senioři, děti, hosté, horší zrak nebo sluch; 14 jazyků</string>
+    <string name="elv_prom_todos">Senioři, děti, hosté, horší zrak nebo sluch; %1$d jazyků</string>
     <string name="elv_prom_instala">Od prvního spuštění k prvnímu kanálu za 5 minut</string>
     <string name="elv_nao_medido">Zatím neměřeno</string>
     <string name="elv_alvo">cíl %1$s</string>

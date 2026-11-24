@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Παίζει κάθε αρχείο· σωστοί υπότιτλοι χωρίς μπέρδεμα</string>
     <string name="elv_prom_casa">Το ξυπνητήρι χτυπά στην ώρα του, κάθε φορά</string>
     <string name="elv_prom_controle">Πίνακας, κινητό και AI κάνουν όλα όσα κάνει το τηλεχειριστήριο</string>
-    <string name="elv_prom_todos">Ηλικιωμένοι, παιδιά, επισκέπτες, χαμηλή όραση ή ακοή· 14 γλώσσες</string>
+    <string name="elv_prom_todos">Ηλικιωμένοι, παιδιά, επισκέπτες, χαμηλή όραση ή ακοή· %1$d γλώσσες</string>
     <string name="elv_prom_instala">Από την πρώτη εκκίνηση ως το πρώτο κανάλι σε 5 λεπτά</string>
     <string name="elv_nao_medido">Δεν μετρήθηκε ακόμα</string>
     <string name="elv_alvo">στόχος %1$s</string>
