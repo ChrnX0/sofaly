@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">Test kontrolleren</string>
+    <string name="teste_controle_sub">Er den rask nok til å spille?</string>
+    <string name="teste_controle_mexa">Drei venstre stikke i sirkler i 10 sekunder.</string>
+    <string name="teste_controle_bom">Utmerket for spill: et signal for hvert %1$d ms.</string>
+    <string name="teste_controle_ok">Spillbar: et signal for hvert %1$d ms. Raske spill kan føles litt forsinket.</string>
+    <string name="teste_controle_ruim">Treg: et signal for hvert %1$d ms og %2$d pauser. En kontroller med ledning, eller kontrolleren nærmere TV-en, hjelper.</string>
+    <string name="teste_controle_parado">Kontrolleren beveget seg ikke. Prøv igjen og fortsett å dreie stikken.</string>
+</resources>

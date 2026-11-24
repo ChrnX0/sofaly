@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Telas Rádio e Podcasts redesenhadas em cruz (18/11/2026): CruzOuvir, RadioActivity, PodcastsActivity. -->
+<resources>
+    <string name="ouv_tocando_agora">Spilles nå</string>
+    <string name="ouv_pausado">På pause</string>
+    <string name="ouv_prat_tocando">Spiller</string>
+    <string name="ouv_pausar">Pause</string>
+    <string name="ouv_continuar">Fortsett</string>
+    <string name="ouv_favoritar">Favoritt</string>
+    <string name="ouv_desfavoritar">Fjern favoritt</string>
+    <string name="ouv_favoritar_det">Favoritter spilles også med tastene 1 til 9 på fjernkontrollen</string>
+    <string name="ouv_tecla">Tast %d på fjernkontrollen</string>
+    <string name="ouv_ao_sair">Når du går ut</string>
+    <string name="ouv_ao_sair_continua">Fortsetter å spille på startskjermen\n▶❙❙ på fjernkontrollen setter den på pause fra alle skjermer</string>
+    <string name="ouv_ao_sair_para">Stopper når du forlater denne skjermen</string>
+    <string name="ouv_recentes">Nylige</string>
+    <string name="ouv_sem_favoritas">Ingen favoritter ennå</string>
+    <string name="ouv_sem_favoritas_det">Hold OK på en stasjon for å beholde den her</string>
+    <string name="ouv_sem_recentes">Ingenting her ennå</string>
+    <string name="ouv_sem_recentes_det">Stasjonene du spiller av, vises her</string>
+    <string name="ouv_paises">Land</string>
+    <string name="ouv_n_radios">%d stasjoner</string>
+    <string name="ouv_ao_vivo">Direkte</string>
+    <string name="ouv_dica_pular">hopp over</string>
+    <string name="ouv_voltar">Tilbake 15 s</string>
+    <string name="ouv_voltar_det">Også ◀◀ på fjernkontrollen</string>
+    <string name="ouv_avancar">Frem 30 s</string>
+    <string name="ouv_avancar_det">Også ▶▶ på fjernkontrollen</string>
+    <string name="ouv_velocidade_det">%s · stemmen beholder tonehøyden</string>
+    <string name="ouv_parar_pod_det">Hvor du stoppet, lagres til senere</string>
+    <string name="ouv_seguindo">Følger</string>
+    <string name="ouv_sem_podcasts">Ingen podkaster ennå</string>
+    <string name="ouv_sem_podcasts_det">Legg til én i hyllen Legg til (lim inn adressen eller bruk telefonen)</string>
+    <string name="ouv_n_episodios">%d episoder</string>
+    <string name="ouv_colar">Lim inn adresse</string>
+    <string name="ouv_sobre">Om</string>
+    <string name="ouv_remover_det">Episoder og fremdrift forlater denne TV-en</string>
+    <string name="ouv_ver_podcast">Gå til podkasten</string>
+</resources>

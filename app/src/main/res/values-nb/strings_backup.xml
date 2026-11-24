@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Automatisk sikkerhetskopi</string>
+    <string name="bkn_explica">Hver natt, mens TV-en står uvirksom, lagres en fullstendig sikkerhetskopi låst med passordet ditt. De siste 7 beholdes. Skriv ned passordet: uten det kan sikkerhetskopien ikke åpnes.</string>
+    <string name="bkn_ligado">på</string>
+    <string name="bkn_desligado">av</string>
+    <string name="bkn_sem_senha">av · angi passordet for sikkerhetskopien først</string>
+    <string name="bkn_senha">Passord for sikkerhetskopi</string>
+    <string name="bkn_senha_ok">angitt · OK endrer</string>
+    <string name="bkn_senha_falta">ikke angitt · OK angir</string>
+    <string name="bkn_senha_nova">Passord for sikkerhetskopi (8 tegn eller mer)</string>
+    <string name="bkn_senha_repetir">Skriv passordet igjen</string>
+    <string name="bkn_senha_curta">Passordet må ha 8 til 128 tegn.</string>
+    <string name="bkn_senha_diferente">De to passordene stemte ikke overens.</string>
+    <string name="bkn_senha_gravada">Passordet er lagret. Oppbevar det et trygt sted.</string>
+    <string name="bkn_senha_erro">Kunne ikke lagre passordet.</string>
+    <string name="bkn_horario">Tidspunkt</string>
+    <string name="bkn_extra">Ekstra kopi</string>
+    <string name="bkn_destino_tv">Bare TV-en</string>
+    <string name="bkn_destino_pendrive">USB-stasjon</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Sikkerhetskopier nå</string>
+    <string name="bkn_ultimo">Siste</string>
+    <string name="bkn_nunca">aldri</string>
+    <string name="bkn_pin">PIN-kode for å endre sikkerhetskopien</string>
+</resources>

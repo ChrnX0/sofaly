@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Hvordan denne TV-en brukes</string>
+    <string name="uso_det">Basis skjuler Hjem og automatiseringer, Fjerntilgang og Avansert. Ingenting slås av.</string>
+    <string name="uso_simples">Basis</string>
+    <string name="uso_completo">Komplett</string>
+    <string name="uso_cuida">For noen jeg passer på</string>
+    <string name="uso_pergunta">Hvordan skal denne TV-en brukes?</string>
+    <string name="uso_pergunta_det">Du kan endre dette senere i Innstillinger › System.</string>
+    <string name="uso_simples_det">Bare det viktigste: apper, klokke og vær. Færre alternativer i Innstillinger.</string>
+    <string name="uso_completo_det">Alt: fjernstyring fra telefonen, hjemmets enheter, nettverksstasjon og avanserte alternativer.</string>
+    <string name="uso_cuida_det">Foreldres eller besteforeldres TV: enkel for dem, og du hjelper fra telefonen, langt unna.</string>
+    <string name="uso_cuidar_longe">Omsorg på avstand</string>
+    <string name="uso_cuidar_longe_det">Av til personen som bor der, sier ja på TV-en.</string>
+    <string name="uso_cartoes">Store kort på startskjermen</string>
+    <string name="uso_cartoes_det">Noen få store apper, navn lest høyt og en knapp \"Få hjelp\". Å slå det av ber om PIN-koden.</string>
+    <string name="uso_trocar_det">Nå: %1$s. OK for å velge igjen.</string>
+</resources>

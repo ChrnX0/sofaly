@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Hjem og nettverk</string>
+    <string name="cfg3_mais_ajustes">Flere innstillinger</string>
+    <string name="cfg3_mais_ajustes_det">Skjult for å holde det kort: %1$d</string>
+    <string name="cfg3_modo">Modus: %1$s</string>
+    <string name="cfg3_porta_0_det">Kategorier, ikoner og bakgrunn</string>
+    <string name="cfg3_porta_1_det">TV-kontoer, lyd, undertekster</string>
+    <string name="cfg3_porta_2_det">Barn, PIN-kode og gjester</string>
+    <string name="cfg3_porta_3_det">Skjermsparer, sov, vekking</string>
+    <string name="cfg3_porta_4_det">Hjem, telefon og panel</string>
+    <string name="cfg3_porta_5_det">Oppdateringer, sikkerhetskopi og hjelp</string>
+</resources>

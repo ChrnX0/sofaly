@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV ao vivo: canais novos, qualidade automática e motivo do "sem sinal" (18/11/2026). -->
+<resources>
+    <string name="coluna_novos_canais">Ny</string>
+    <string name="qual_menu">Kvalitet: %1$s</string>
+    <string name="qual_auto">Automatisk</string>
+    <string name="qual_auto_curto">auto</string>
+    <string name="qual_titulo">Bildekvalitet</string>
+    <string name="qual_padrao">Standard</string>
+    <string name="player_conta_vencida">Listen din utløp %1$s. Forny den hos selgeren.</string>
+    <string name="player_conta_recusada">Listens server avviste kontoen. Sjekk med selgeren.</string>
+    <string name="player_telas_cheias">Listen er allerede åpen på %1$d av %2$d skjermer. Lukk den på en annen enhet.</string>
+</resources>

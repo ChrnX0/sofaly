@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vitals locais (degrau 2, item 8): quedas e travadas do launcher nos últimos 7 dias (Diagnóstico). -->
+<resources>
+    <string name="vit_titulo">Launcherens stabilitet (7 dager)</string>
+    <string name="vit_ok">Ingen krasj eller frysinger. Dager i bruk: %1$d.</string>
+    <string name="vit_problemas">Krasj: %1$d. Frysinger: %2$d. Sett på skjermen: %3$d. Dager med et problem: %4$d av %5$d.</string>
+</resources>

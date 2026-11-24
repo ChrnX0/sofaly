@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Launcherens fjernkontrolltaster (Netflix/YouTube-knapper som kan tilordnes på nytt) og vinduet for paring uten PC.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">tilkoblet</string>
+    <string name="cfg_vpn_desconectada">frakoblet</string>
+    <string name="cfg_titulo">Innstillinger</string>
+    <string name="cfg_diag">Diagnostiser TV-en</string>
+    <string name="cfg_diag_det">Internett, DNS, VPN og hvorfor en app stoppet – alt på én gang</string>
+    <string name="cfg_tema_det">Bytter til neste utseende</string>
+    <string name="cfg_nunca">Aldri</string>
+    <string name="cfg_min">%1$d min</string>
+    <string name="cfg_nao_gravou_do">kunne ikke lagre (Device Owner inaktiv?)</string>
+    <string name="cfg_visita">Gjestemodus</string>
+    <string name="cfg_rotinas">Rutiner</string>
+    <string name="cfg_sec_atualizacao">Oppdateringer</string>
+    <string name="cfg_atualizar">Se etter ny versjon</string>
+    <string name="cfg_atualizar_det">Versjon %1$s · %2$s · OK sjekker nå</string>
+    <string name="cfg_procurando">sjekker GitHub…</string>
+    <string name="cfg_instalar">Installer versjon %1$d nå</string>
+    <string name="cfg_instalar_det">Launcheren lukkes og kommer tilbake av seg selv om noen sekunder · OK installerer</string>
+    <string name="cfg_instalando">laster ned og sjekker…</string>
+    <string name="cfg_sec_rede">Nettverk</string>
+    <string name="cfg_dns">Privat DNS</string>
+    <string name="cfg_dns_caiu">" · %1$s svarte ikke, byttet tilbake til automatisk"</string>
+    <string name="cfg_velocidade">Test internetthastigheten</string>
+    <string name="cfg_velocidade_det">Laster ned 25 MB og måler</string>
+    <string name="cfg_testando">Tester…</string>
+    <string name="cfg_nao_mudou_do">kunne ikke endre (Device Owner inaktiv?)</string>
+    <string name="cfg_sec_ligado">Hva som er på – %1$s</string>
+    <string name="cfg_ligado">på</string>
+    <string name="cfg_so_pc">" · bare med en datamaskin (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK prøver å slå på"</string>
+    <string name="cfg_perm_fixas">Faste tillatelser gitt</string>
+    <string name="cfg_shell_estado">Eget skall</string>
+    <string name="cfg_shell_pareado">paret: launcheren kobler til igjen av seg selv via trådløs feilsøking</string>
+    <string name="cfg_shell_nunca">ikke paret ennå: bruk \"Par uten PC\" nedenfor</string>
+    <string name="cfg_sec_shizuku">Launcherens skall (Wi-Fi ADB)</string>
+    <string name="cfg_parear">Par uten PC</string>
+    <string name="cfg_parear_det">Åpner Androids paringsskjerm med et tastatur fra launcheren øverst</string>
+    <string name="cfg_acess_off">launcherens tilgjengelighetstjeneste er av</string>
+    <string name="cfg_versao">Launcherversjon</string>
+    <string name="cfg_desconhecida">ukjent</string>
+    <string name="cfg_depuracao">Trådløs feilsøking</string>
+    <string name="cfg_depuracao_on">holdes på av launcheren</string>
+    <string name="cfg_depuracao_android">slik Android lar det være</string>
+    <string name="cfg_chave">Nøkkel for eget skall</string>
+    <string name="cfg_calculando">beregner…</string>
+    <string name="cfg_erro">feil: %1$s</string>
+    <string name="cfg_licencas">Lisenser og kreditter</string>
+    <string name="cfg_licencas_det">Kode, skrifter, ikoner og data fra tredjeparter som brukes her</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">uten den: ingen skjuling av apper, ingen fast HOME eller VPN, ingen tidsavbrudd for skjermspareren</string>
+    <string name="rec_agenda">Kalender</string>
+    <string name="rec_agenda_sem">uten den: kalenderen viser ingen hendelser</string>
+    <string name="rec_local">Posisjon</string>
+    <string name="rec_local_sem">uten den: været bruker byen fra IP-adressen og Wi-Fi viser ikke nettverksnavnet</string>
+    <string name="rec_contas">Kontoer</string>
+    <string name="rec_contas_sem">uten den: profilprikken viser ikke kontoens forbokstav</string>
+    <string name="rec_uso">Appbruk</string>
+    <string name="rec_uso_sem">uten den: apper sorteres ikke etter nylig bruk</string>
+    <string name="rec_sobre">Overlegg</string>
+    <string name="rec_sobre_sem">uten den: notater og paring uten PC vises ikke over apper</string>
+    <string name="rec_seguras">Sikre innstillinger</string>
+    <string name="rec_seguras_sem">uten den: ingen DNS-endring og ingen automatisk omstart av tastetjenesten og trådløs feilsøking (bare med en PC eller launcherens skall)</string>
+    <string name="rec_teclas">Tastetjeneste</string>
+    <string name="rec_teclas_sem">uten den: HOME kan åpne Google-launcheren og Netflix/YouTube-tastene tilordnes ikke på nytt</string>
+    <string name="rec_tudo">alt er på</string>
+    <string name="rec_faltam">%1$d av %2$d funksjoner mangler · OK på et element prøver å slå det på</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Velkommen</string>
+    <string name="bv_texto">Startskjermen, klokken, været, alarmen og skjermspareren virker allerede. Slå på resten her hvis du vil (%1$s).</string>
+    <string name="bv_comecar">Start</string>
+    <string name="bv_comecar_det">Går til startskjermen</string>
+    <string name="bv_perm">Slå på kalender, posisjon og kontoer</string>
+    <string name="bv_perm_det">Kalenderhendelser, vær for byen din, kontoens forbokstav på profilen</string>
+    <string name="bv_teclas">Slå på tastetjenesten</string>
+    <string name="bv_teclas_det">Tilgjengelighet › Fjernkontrollknapper: gjør at HOME alltid kommer tilbake hit</string>
+    <string name="bv_tudo">Se alt du kan slå på</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Lisensfilen ble ikke funnet.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Slå på TV-en</string>
+    <string name="rot_abrir_um">Slå på og åpne en app</string>
+    <string name="rot_desligar">Slå av TV-en</string>
+    <string name="rot_abrir">Slå på og åpne %1$s</string>
+    <string name="rot_um_app">en app (velg)</string>
+    <string name="rot_se_ocioso">" hvis ingen har rørt den på %1$s"</string>
+    <string name="rot_sempre">alltid</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">ingen rutine på</string>
+    <string name="rot_proxima">neste: %1$s</string>
+    <string name="rot_nova_mais">+ Ny rutine</string>
+    <string name="rot_nova_det">Slå på, åpne en app eller slå av på et fast tidspunkt</string>
+    <string name="rot_desligada_sufixo">" · av"</string>
+    <string name="rot_nova">Ny rutine</string>
+    <string name="rot_editar">Rediger rutine</string>
+    <string name="rot_editor_det">OK endrer hver linje · TILBAKE går ut uten å lagre</string>
+    <string name="rot_hora">Tid: %1$s</string>
+    <string name="rot_dias">Dager: %1$s</string>
+    <string name="rot_acao">Handling: %1$s</string>
+    <string name="rot_app">App: %1$s</string>
+    <string name="rot_nenhum">ingen</string>
+    <string name="rot_ocioso">Bare hvis ingen har rørt den på: %1$s</string>
+    <string name="rot_ligada">På</string>
+    <string name="rot_desligada">Av</string>
+    <string name="rot_hora_det">◀ ▶ 5 minutter · OK +1 time</string>
+    <string name="rot_dias_det">OK: hver dag, man til fre, helg, én gang</string>
+    <string name="rot_ok_muda">OK endrer</string>
+    <string name="rot_app_det">OK eller ▶ neste · ◀ forrige</string>
+    <string name="rot_ocioso_det">Avbryter ikke noen som ser på</string>
+    <string name="rot_ativa_det">OK slår denne rutinen på/av</string>
+    <string name="rot_salvar">Lagre</string>
+    <string name="rot_escolha_app">Velg appen</string>
+    <string name="rot_apagar">Slett denne rutinen</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Én gang</string>
+    <string name="dia_todo">Hver dag</string>
+    <string name="dia_seg_sex">Man til fre</string>
+    <string name="dia_fim">Helg</string>
+    <string-array name="dias_curtos">
+        <item>søn</item>
+        <item>man</item>
+        <item>tir</item>
+        <item>ons</item>
+        <item>tor</item>
+        <item>fre</item>
+        <item>lør</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE d. MMMM</string>
+    <string name="home_perfil">Profil</string>
+    <string name="home_visita_titulo">Gjestemodus på</string>
+    <string name="home_visita_msg">Profilen, kalenderen og de valgte appene er skjult. Gå ut av gjestemodus?</string>
+    <string name="home_continuar">Behold</string>
+    <string name="home_sair">Gå ut</string>
+    <string name="comum_cancelar">Avbryt</string>
+    <string name="home_mostrar">Vis på startskjermen</string>
+    <string name="home_ocultar">Skjul fra startskjermen</string>
+    <string name="home_sob_demanda">Frys når den ikke er i bruk</string>
+    <string name="home_sob_demanda_tirar">Slutt å fryse når den ikke er i bruk</string>
+    <string name="sob_demanda_ligado">Frosset. Den blir her: OK tiner den opp og åpner den, og den fryses igjen 2 minutter etter at du går ut.</string>
+    <string name="sob_demanda_desligado">Tint opp. Den virker som før.</string>
+    <string name="sob_demanda_falhou">Kunne ikke endre det nå. Prøv igjen om et øyeblikk.</string>
+    <string name="home_desinstalar">Avinstaller</string>
+    <string name="home_app_sistema"> (systemapp)</string>
+    <string name="home_desinstalar_titulo">Avinstallere %1$s?</string>
+    <string name="home_desinstalar_aviso">Appen og dataene dens forsvinner fra TV-en. Dette kan ikke angres: for å få den tilbake, installer den på nytt fra Play Butikk.</string>
+    <string name="home_cancelar">Avbryt</string>
+    <string name="home_desinstalando">Avinstallerer %1$s…</string>
+    <string name="home_desinstalado">%1$s ble avinstallert.</string>
+    <string name="home_desinstalar_falhou">Kunne ikke avinstallere %1$s: %2$s</string>
+    <string name="home_chovendo">Regner nå</string>
+    <string name="home_chuva_agora">%1$s - Regn %2$d%% akkurat nå</string>
+    <string name="home_chuva_em">%1$s - Regn %2$d%% om %3$d t</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Alarm satt: %1$s</string>
+    <string name="al_um_app">en app</string>
+    <string name="al_criar_q">Sette en alarm til %1$s?</string>
+    <string name="al_pedido">Forespurt av %1$s.</string>
+    <string name="al_criar">Sett</string>
+    <string name="al_titulo">Vekkerklokke</string>
+    <string name="al_nenhum">Ingen alarm på</string>
+    <string name="al_novo_mais">+  Ny alarm</string>
+    <string name="al_ligado">På</string>
+    <string name="al_desligado">Av</string>
+    <string name="al_novo">Ny alarm</string>
+    <string name="al_editar">Rediger alarm</string>
+    <string name="al_apagar">Slett</string>
+    <string name="al_hoje">i dag</string>
+    <string name="al_amanha">i morgen</string>
+    <string name="al_dia_as">%1$s kl. %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Stopp</string>
+    <string name="al_soneca">Slumre 10 min</string>
+    <string name="al_perdido_um">Alarmen %1$s ringte ikke fordi TV-en var av.</string>
+    <string name="al_perdido_varios">Alarmene %1$s ringte ikke fordi TV-en var av.</string>
+    <string name="al_perdido_e">og</string>
+    <string name="al_volume_nao_mexe">ikke endre</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Ingen Google-konto</string>
+    <string name="pp_ativo">"  ·  aktiv"</string>
+    <string name="pp_adicionar">Legg til profil</string>
+    <string name="pr_bt_controle">Fjernkontroll</string>
+    <string name="pp_audio">Lyd</string>
+    <string name="pp_carregando">Laster inn…</string>
+    <string name="pp_conectar">Koble til</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">ingen Google-konto</string>
+    <string name="cal_dica">◀ ▶ bytt måned</string>
+    <string name="cal_30">Neste 30 dager</string>
+    <string name="cal_nenhuma_conta">Ingen Google-konto på TV-en</string>
+    <string name="cal_nada">Ingenting planlagt (eller kalenderen synkroniserer fortsatt)</string>
+    <string name="fmt_mes_ano">MMMM yyyy</string>
+    <string name="cal_dia_todo">Hele dagen</string>
+    <string name="cal_sem_titulo">(uten tittel)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  regner"</string>
+    <string name="pt_lua">Måne</string>
+    <string name="pt_sol">Sol</string>
+    <string name="pt_umidade">Luftfuktighet</string>
+    <string name="pt_chuva">Regn</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Regn</string>
+    <string name="cl_limpo">Klar himmel</string>
+    <string name="cl_poucas">Noen skyer</string>
+    <string name="cl_parcial">Delvis skyet</string>
+    <string name="cl_nublado">Skyet</string>
+    <string name="cl_neblina">Tåke</string>
+    <string name="cl_garoa_fraca">Lett yr</string>
+    <string name="cl_garoa">Yr</string>
+    <string name="cl_garoa_forte">Kraftig yr</string>
+    <string name="cl_garoa_cong">Underkjølt yr</string>
+    <string name="cl_chuva_fraca">Lett regn</string>
+    <string name="cl_chuva_forte">Kraftig regn</string>
+    <string name="cl_chuva_cong">Underkjølt regn</string>
+    <string name="cl_neve_fraca">Lett snø</string>
+    <string name="cl_neve">Snø</string>
+    <string name="cl_neve_forte">Kraftig snø</string>
+    <string name="cl_graos">Kornsnø</string>
+    <string name="cl_panc_fracas">Lette byger</string>
+    <string name="cl_panc">Regnbyger</string>
+    <string name="cl_panc_fortes">Kraftige byger</string>
+    <string name="cl_panc_neve">Snøbyger</string>
+    <string name="cl_tempestade">Tordenvær</string>
+    <string name="cl_granizo">Tordenvær med hagl</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">full om %1$d d</string>
+    <string name="lua_nova_em">ny om %1$d d</string>
+    <string-array name="fases_lua">
+        <item>Nymåne</item>
+        <item>Voksende månesigd</item>
+        <item>Første kvarter</item>
+        <item>Voksende måne</item>
+        <item>Fullmåne</item>
+        <item>Avtagende måne</item>
+        <item>Siste kvarter</item>
+        <item>Avtagende månesigd</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Laster inn værmeldingen…</string>
+    <string name="pv_voz_agora">"Det er nå %1$d grader, %2$s. "</string>
+    <string name="pv_voz_hoje">I dag en høyeste temperatur på %1$d og en laveste på %2$d</string>
+    <string name="pv_voz_chuva">", med %1$d prosent sjanse for regn. "</string>
+    <string name="pv_voz_sem_chuva">", ingen regn ventet. "</string>
+    <string name="pv_voz_amanha">I morgen, %1$s, en høyeste temperatur på %2$d og en laveste på %3$d</string>
+    <string name="pv_voz_amanha_chuva">, %1$d prosent sjanse for regn</string>
+    <string name="pv_sem">Fikk ikke hentet værmeldingen akkurat nå. Sjekk internettet og prøv igjen.</string>
+    <string name="pv_max_min">maks %1$d°   min %2$d°   ·   føles som %3$d°</string>
+    <string name="pv_24h">Neste 24 timer</string>
+    <string name="pv_agora">Nå</string>
+    <string name="pv_chance">Sjanse for regn</string>
+    <string name="pv_7d">Neste 9 dager</string>
+    <string name="pv_hoje">I dag</string>
+    <string name="pv_mais_quente">Varmere</string>
+    <string name="pv_mais_frio">Kaldere</string>
+    <string name="pv_igual">Samme som faktisk</string>
+    <string name="pv_detalhes">Detaljer</string>
+    <string name="pv_sensacao">Føles som</string>
+    <string name="pv_vento">Vind</string>
+    <string name="pv_uv">UV-indeks</string>
+    <string name="pv_visib">Sikt</string>
+    <string name="pv_orvalho">Duggpunkt</string>
+    <string name="pv_pressao">Lufttrykk</string>
+    <string name="pv_chuva_hoje">Regn i dag</string>
+    <string name="pv_ar">Luftkvalitet</string>
+    <string name="pv_sem_dados">Ingen data nå</string>
+    <string name="uv_baixo">Lav</string>
+    <string name="uv_moderado">Moderat</string>
+    <string name="uv_alto">Høy</string>
+    <string name="uv_muito_alto">Svært høy</string>
+    <string name="uv_extremo">Ekstrem</string>
+    <string name="aq_boa">God</string>
+    <string name="aq_moderada">Moderat</string>
+    <string name="aq_sensiveis">Usunn for følsomme</string>
+    <string name="aq_ruim">Usunn</string>
+    <string name="aq_muito_ruim">Svært usunn</string>
+    <string name="aq_perigosa">Farlig</string>
+    <string-array name="rosa_ventos">
+        <item>N</item>
+        <item>NØ</item>
+        <item>Ø</item>
+        <item>SØ</item>
+        <item>S</item>
+        <item>SV</item>
+        <item>V</item>
+        <item>NV</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Mørk</string>
+    <string name="tema_galeria">Galleri</string>
+    <string name="tema_meu">Min bakgrunn</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Myk</string>
+    <string name="som_classico">Klassisk</string>
+    <string name="som_sino">Klokke</string>
+    <string name="som_rampa1">Stiger over 1½ min</string>
+    <string name="som_rampa2">Stiger over 2 min</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internett: %1$.0f Mbps (lastet ned %2$.0f MB på %3$.1f s)</string>
+    <string name="vel_falhou">Testen mislyktes (ingen internett eller serveren er nede)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  gjeldende"</string>
+    <string name="esc_botao">Knappen %1$s åpner:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">soloppgang %1$s</string>
+    <string name="fd_por">solnedgang %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: bruk   ·   hold OK på en av serverne dine: fjern   ·   Tilbake: avslutt</string>
+    <string name="dns_auto">Automatisk</string>
+    <string name="dns_auto_det">Bruker ruterens DNS og krypterer når den godtar det (Android-standard)</string>
+    <string name="dns_desl">Av</string>
+    <string name="dns_desl_det">Vanlig DNS, uten kryptering</string>
+    <string name="dns_publicos">Offentlige servere</string>
+    <string name="dns_meus">Mine servere</string>
+    <string name="dns_adicionar">+  Legg til server</string>
+    <string name="dns_adicionar_det">DNS-over-TLS-adresse, som dns.example.com</string>
+    <string name="dns_sem_permissao">"Ingen tillatelse til å endre DNS. På en datamaskin: "</string>
+    <string name="dns_troque_antes">bytt server før du fjerner denne</string>
+    <string name="dns_remover_q">Fjerne %1$s?</string>
+    <string name="dns_remover">Fjern</string>
+    <string name="dns_nome_opc">Navn (valgfritt)</string>
+    <string name="dns_endereco_ex">Adresse, f.eks. dns.example.com</string>
+    <string name="dns_adicionar_tit">Legg til DNS-server</string>
+    <string name="dns_salvar_usar">Lagre og bruk</string>
+    <string name="dns_invalido">Ugyldig adresse. Bruk et navn som dns.example.com (Android godtar ikke et IP-nummer).</string>
+    <string name="dns_em_uso">I bruk: %1$s</string>
+    <string name="dns_testando">tester…</string>
+    <string name="dns_falha">MISLYKTES: ingen navn ble slått opp. Velg en annen server eller Automatisk.</string>
+    <string name="dns_res_sem_cripto">slår opp på %1$d ms (uten kryptering)</string>
+    <string name="dns_res_tls">slår opp på %1$d ms   ·   TLS aktiv</string>
+    <string name="dns_res_com">" med %1$s"</string>
+    <string name="dns_res_sem_tls">slår opp på %1$d ms   ·   ingen TLS akkurat nå</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (personlig)</string>
+    <string name="dns_personalizado">Egendefinert (%1$s)</string>
+    <string name="dns_rot_auto">automatisk</string>
+    <string name="dns_rot_desl">av</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Sammendrag</string>
+    <string name="diag_frase">I én setning</string>
+    <string name="diag_wifi_desc">frakoblet: TV-en er ikke på noe nettverk</string>
+    <string name="diag_lat">%1$d ms til internett</string>
+    <string name="diag_sem_resp">internett svarer ikke</string>
+    <string name="diag_wifi">%1$s · signal %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Android godkjente Wi-Fi-en</string>
+    <string name="diag_nao_validou">Android godkjente IKKE Wi-Fi-en</string>
+    <string name="diag_net_ok">virker (test på %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">testen nådde ikke Google · %1$s</string>
+    <string name="diag_net_estranha">merkelig svar (%1$d): nettverket vil kanskje ha en innlogging · %2$s</string>
+    <string name="diag_cripto">kryptering aktiv</string>
+    <string name="diag_sem_cripto">kryptering IKKE aktiv</string>
+    <string name="diag_resolve">slår opp navn (%1$d ms)</string>
+    <string name="diag_nao_resolve">slår IKKE opp navn</string>
+    <string name="diag_caiu">%1$s mislyktes tidligere og jeg byttet tilbake til automatisk</string>
+    <string name="diag_nenhum_app">ingen app</string>
+    <string name="diag_vpn_nada">ingen VPN festet eller på</string>
+    <string name="diag_vpn_desc">%1$s festet, men FRAKOBLET (internett virker fortsatt uten VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s tilkoblet, men Android godkjente ikke tunnelen</string>
+    <string name="diag_vpn_ok">%1$s tilkoblet og virker</string>
+    <string name="diag_r_sem_wifi">TV-en har ikke Wi-Fi</string>
+    <string name="diag_r_dns_fora">DNS svarer ikke: internett ser ut til å være nede</string>
+    <string name="diag_r_net_fora">internett kommer ikke gjennom (ruter eller leverandør)</string>
+    <string name="diag_r_dns">DNS slår ikke opp navn: apper finner ikke serverne sine</string>
+    <string name="diag_r_net">DNS virker, men internett svarer ikke</string>
+    <string name="diag_r_vpn">nettverket er ok; bare VPN er nede (apper virker uten den)</string>
+    <string name="diag_r_atencao">nettverket virker, med punkter å se på nedenfor</string>
+    <string name="diag_r_ok">nettverket er ok. Hvis en app stoppet, se hva som skjedde med den nedenfor</string>
+    <string name="diag_usava">" · brukte %1$d MB"</string>
+    <string name="diag_texto">Årsak: %1$s\nProsess: %2$s\nViktighet: %3$s</string>
+    <string name="diag_detalhe">\nAndroid-detalj: %1$s</string>
+    <string name="diag_m_memoria">lukket på grunn av for lite minne</string>
+    <string name="diag_m_crash">krasjet</string>
+    <string name="diag_m_nativo">krasjet (native)</string>
+    <string name="diag_m_anr">sluttet å svare (ANR)</string>
+    <string name="diag_m_iniciar">kunne ikke starte</string>
+    <string name="diag_m_recurso">lukket fordi den brukte for mye ressurser</string>
+    <string name="diag_m_dependencia">lukket fordi en app den er avhengig av døde</string>
+    <string name="diag_m_sinal">avsluttet av systemet (signal)</string>
+    <string name="diag_m_permissao">startet på nytt av en endring i tillatelser</string>
+    <string name="diag_i_tela">var på skjermen</string>
+    <string name="diag_i_visivel">synlig</string>
+    <string name="diag_i_servico">kjører i bakgrunnen</string>
+    <string name="diag_i_cache">i bakgrunnen (bufret)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Diagnostikk</string>
+    <string name="diag_refazer">Sjekk igjen</string>
+    <string name="diag_refazer_det">Kjører alle sjekkene på nytt</string>
+    <string name="diag_verificando">sjekker…</string>
+    <string name="diag_apps">Apper (siste 7 dager)</string>
+    <string name="diag_lendo">Leser apphistorikken</string>
+    <string name="diag_sem_perm">Ingen tillatelse til å lese andre appers krasj</string>
+    <string name="diag_sem_perm_det">Launcheren gir seg selv READ_LOGS og DUMP via sitt eget skall; vent noen minutter eller start TV-en på nytt</string>
+    <string name="diag_nada">ingenting registrert</string>
+    <string name="diag_erros">Launcherfeil (registrert av den)</string>
+    <string name="diag_sem_erros">Ingen feil registrert</string>
+    <string name="diag_sem_erros_det">Launcheren holder sine siste %1$d krasj her</string>
+    <string name="diag_erro">Launcherfeil</string>
+    <string name="diag_apagar">Slett registrerte feil</string>
+    <string name="diag_apagar_det">Tømmer listen ovenfor (rører ingenting annet)</string>
+    <string name="diag_rodape">%1$s · pilene ruller · TILBAKE går tilbake</string>
+    <string name="diag_app_ok">Ingen krasj, frysing eller unormal avslutning de siste 7 dagene.\n\nHvis appen åpnes men ikke laster noe, er problemet som regel nettverket: se Nettverk-delen på forrige skjerm.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">ikke sjekket ennå</string>
+    <string name="atu_android9">krever Android 9 eller nyere</string>
+    <string name="atu_ocupado">sjekker allerede</string>
+    <string name="atu_erro">feil: %1$s %2$s</string>
+    <string name="atu_em_dia">oppdatert (installert %1$d, nyeste %2$d)</string>
+    <string name="atu_sem_tag">Den nyeste Release har ingen versjon i taggen</string>
+    <string name="atu_sem_apk">Release %1$d har ingen APK eller SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 stemmer ikke, ikke installert</string>
+    <string name="atu_ilegivel">Release %1$d: uleselig APK</string>
+    <string name="atu_pacote">Release %1$d: annen pakke (%2$s)</string>
+    <string name="atu_versao">Release %1$d: APK-versjonen (%2$d) stemmer ikke med taggen</string>
+    <string name="atu_chave">GitHub har versjon %1$d, men den er signert med en annen nøkkel som denne TV-en ikke godtar: denne TV-en oppdateres fra en PC</string>
+    <string name="atu_migracao_disponivel">versjon %1$d: klar til å flytte denne TV-en til den nye appen (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">installerer den nye appen (%1$d); den tar deretter over denne TV-en med alle innstillinger</string>
+    <string name="atu_disponivel">versjon %1$d klar til installering (installert %2$d)</string>
+    <string name="atu_trocou">versjonen er endret siden forrige sjekk · OK sjekker igjen</string>
+    <string name="atu_instalando">installerer %1$d (installert %2$d)</string>
+    <string name="atu_ok">oppdatert</string>
+    <string name="atu_falhou">installering mislyktes (%1$d): %2$s</string>
+    <string name="atu_ruim">versjon %1$d krasjet på denne TV-en rett etter installering: installeres ikke igjen</string>
+    <string name="vig_aviso_titulo">Oppdatering satt på pause</string>
+    <string name="vig_pausada">versjon %1$d krasjet to ganger rett etter installering · automatisk oppdatering venter på den neste</string>
+    <string name="vig_pausada_tela">versjon %1$d krasjet to ganger rett etter installering · \"%2$s\" forblir av til den neste</string>
+    <string name="vig_tela_bloqueada">Denne skjermen er av til neste oppdatering (den krasjet launcheren)</string>
+    <string name="cfg_vig_liberar">Sikker modus</string>
+    <string name="cfg_vig_liberar_det">" · OK slår den på igjen"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Talesøk åpnet ikke på denne TV-en</string>
+    <string name="home_alarme_hoje">i dag</string>
+    <string name="home_alarme_amanha">i morgen</string>
+    <string name="player_carregando">Laster inn kanaler…</string>
+    <string name="player_carregando_canal">Laster inn kanal…</string>
+    <string name="vod_carregando">Laster inn video…</string>
+    <string name="player_sem_canais">Ingen kanalliste lagt til ennå.</string>
+    <string name="player_tentando">Ingen signal på kanal %1$d. Prøver igjen…</string>
+    <string name="player_sem_sinal">Kanal %1$d svarte ikke. Velg en annen med ▲ ▼ eller OK.</string>
+    <string name="player_canal_nao_existe">Det finnes ingen kanal %1$d.</string>
+    <string name="player_ao_vivo">DIREKTE</string>
+    <string name="player_a_seguir">neste: %1$s</string>
+    <string name="player_teclas">▲ ▼ kanal · OK kanalliste · hold OK 2 s: favoritt · ◀ forrige kanal · ▶ ▶ alternativer · TILBAKE avslutt</string>
+    <string name="player_teclas_pausa">▶❙❙ eller OK fortsett · ▶ alternativer (tilbake til direkte) · ▲ ▼ kanal · TILBAKE avslutt</string>
+    <string name="player_cat_busca">Søk: %1$s</string>
+    <string name="player_acao_buscar">Søk</string>
+    <string name="player_acao_filtros">Filtre</string>
+    <string name="filmes_titulo">Filmer</string>
+    <string name="filmes_carregando">Laster inn filmer…</string>
+    <string name="filmes_vazio">Ingen filmer ennå</string>
+    <string name="filmes_continuar">Fortsett</string>
+    <string name="filmes_ordem_titulo">Sorter etter</string>
+    <string name="filmes_ordem_recentes">nyeste i katalogen</string>
+    <string name="filmes_ordem_nome">navn</string>
+    <string name="filmes_ordem_nota">vurdering</string>
+    <string name="filmes_ordem_ano">år</string>
+    <string name="filmes_busca_dica">Filmnavn</string>
+    <string name="filmes_do_comeco">Fra begynnelsen</string>
+    <string name="filmes_assistir">▶  Se</string>
+    <string name="filmes_ficha_carregando">Laster inn detaljer…</string>
+    <string name="filmes_direcao">Regissør</string>
+    <string name="filmes_elenco">Medvirkende</string>
+    <string name="filmes_interesses">Se senere</string>
+    <string name="filmes_assistidos">Sett</string>
+    <string name="filmes_interesse_pos">★ %1$s lagt til i Se senere</string>
+    <string name="filmes_interesse_tirou">%1$s fjernet fra Se senere</string>
+    <string name="filmes_interesses_cheio">Se senere har allerede 500 titler: fjern én først.</string>
+    <string name="filmes_interesses_vazio">Hold OK i 2 sekunder på en plakat for å legge den til her (og igjen for å fjerne den).</string>
+    <string name="filmes_assistido">Sett</string>
+    <string name="filmes_selo_leg">TEKST</string>
+    <string name="vod_sem_conta">Kontoen til denne videoen finnes ikke lenger.</string>
+    <string name="vod_erro">Kunne ikke spille av denne videoen. TILBAKE for å gå ut.</string>
+    <string name="vod_faixa">Spor</string>
+    <string name="vod_audio">Lyd</string>
+    <string name="vod_legenda">Undertekster</string>
+    <string name="vod_faixas">Lyd og undertekster</string>
+    <string name="vod_teclas">OK pause · ◀ 10 s · ▶ 30 s (hold for å gå raskere) · ▼ lyd, undertekster og bilde · ⏮ ⏭ kapitler · TILBAKE avslutt</string>
+    <string name="series_titulo">Serier</string>
+    <string name="series_carregando">Laster inn serier…</string>
+    <string name="series_vazio">Ingen serier ennå</string>
+    <string name="series_ordem_recentes">med en ny episode</string>
+    <string name="series_busca_dica">Serienavn</string>
+    <string name="series_sem_episodios">Serveren sendte ingen episoder for denne serien.</string>
+    <string name="series_assistir">▶  Se %1$s</string>
+    <string name="series_temporada">Sesong %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d sesong</item>
+        <item quantity="other">%d sesonger</item>
+    </plurals>
+    <string name="player_acao_guia">Programguide</string>
+    <string name="player_sem_guia_curto">Ingen programguide</string>
+    <string name="player_grade_teclas">OK se · ◀ ▶ program · ▲ ▼ kanal</string>
+    <string name="player_busca_dica">Kanal- eller programnavn</string>
+    <string name="player_busca_nada">Ingenting funnet for «%1$s».</string>
+    <string name="player_filtro_qualquer">Alle</string>
+    <string name="player_filtro_qualidade">Kvalitet: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Bildekvalitet</string>
+    <string name="player_filtro_pais">Land: %1$s</string>
+    <string name="player_filtro_pais_titulo">Land eller språk</string>
+    <string name="player_filtro_limpar">Fjern filtre</string>
+    <string name="player_filtro_nada">Denne listen har ingen kvalitet eller land i kanalnavnene.</string>
+    <string name="player_bloqueado">Kanalen er blokkert av foreldrekontroll. Skriv inn PIN-koden i Filtre for å se.</string>
+    <string name="player_ocultas_mostrar">Vis skjulte kategorier og blokkerte kanaler (PIN)</string>
+    <string name="player_ocultas_esconder">Skjul skjulte kategorier og blokkerte kanaler igjen</string>
+    <string name="player_pin_titulo">Panelets PIN-kode</string>
+    <string name="player_pin_dica">PIN-kode</string>
+    <string name="player_pin_errado">Feil PIN-kode.</string>
+    <string name="player_pin_sem">Ingen PIN-kode for panelet: skjulte kategorier er ikke beskyttet.</string>
+    <string name="player_pin_espere">For mange feil PIN-koder. Prøv igjen om %d min.</string>
+    <string name="infantil_titulo">Barnekategorier</string>
+    <string name="infantil_carregando">laster inn kategorier…</string>
+    <string name="infantil_coluna_itens">HVA DEN INNEHOLDER</string>
+    <string name="infantil_dica">OK merker eller fjerner merkingen av kategorien som barn · gjelder direkte-TV, Filmer og Serier · TILBAKE går ut (allerede lagret)</string>
+    <string name="infantil_so_categoria">merk hele kategorien i venstre kolonne</string>
+    <string name="infantil_vazio">ingen kategorier: legg til en konto i Innstillinger › TV og filmer og last inn kanalene på nytt</string>
+    <string name="infantil_limite">en voksenkategori kan ikke være en barnekategori</string>
+    <string name="infantil_resumo_ligado">%1$d av %2$d kategorier merket som barn · barnemodus PÅ</string>
+    <string name="infantil_resumo_desligado">%1$d av %2$d kategorier merket som barn · barnemodus av</string>
+    <string name="cfg_infantil">Barnemodus</string>
+    <string name="cfg_infantil_ligado">på · bare de %d barnekategoriene vises; resten ber om PIN-koden</string>
+    <string name="cfg_infantil_desligado">av · %d kategorier merket som barn</string>
+    <string name="cfg_infantil_escolher">Velg barnekategorier</string>
+    <string name="cfg_infantil_escolher_det">Bruk på direkte-TV, Filmer og Serier</string>
+    <string name="player_grupo_oculto">%1$s skjult. For å se den: Filtre, vis skjulte.</string>
+    <string name="player_grupo_mostrado">%1$s er synlig igjen.</string>
+    <string name="player_canais_de">%1$s · %2$d KANALER</string>
+    <string name="player_cat_todos">Alle</string>
+    <string name="player_cat_favoritos">Favoritter</string>
+    <string name="player_cat_recentes">Nylige</string>
+    <string name="player_cat_outros">Annet</string>
+    <string name="player_sem_favoritos">Ingen favoritter ennå. Hold OK i 2 s på en kanal for å legge den til her.</string>
+    <string name="player_categoria_vazia">Ingen kanaler i denne kategorien.</string>
+    <string name="player_sem_guia">Ingen programguide for denne kanalen.</string>
+    <string name="player_depois">SENERE</string>
+    <string name="player_lista_teclas">OK se · hold OK 2 s: favoritt eller fjern · hold OK på en kategori: skjul · ◀ kategorier</string>
+    <string name="player_favorito_pos">★ %1$s lagt til i favoritter</string>
+    <string name="player_favorito_tirou">%1$s fjernet fra favoritter</string>
+    <string name="player_favoritos_cheio">Det er allerede 500 favoritter: fjern én først.</string>
+    <string name="player_assistindo">ser på</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Direktekanaler</string>
+    <string name="home_destaque_app">App</string>
+    <string name="app_sub_youtube">Videoer og kanaler</string>
+    <string name="app_sub_netflix">Filmer og serier</string>
+    <string name="app_sub_prime">Filmer, serier og sport</string>
+    <string name="app_sub_max">Filmer, serier og sport</string>
+    <string name="app_sub_play_store">Installer og oppdater apper</string>
+    <string name="app_sub_play_games">Spill</string>
+    <string name="app_sub_google_tv">Kjøpte og leide filmer</string>
+    <string name="app_sub_config">TV-innstillinger</string>
+    <string name="home_card_series">Serier</string>
+    <string name="home_card_filmes">Filmer</string>
+    <string name="home_destaque_series">Serier fra listen din · fortsett der du slapp</string>
+    <string name="home_destaque_filmes">Filmer fra listen din · fortsett der du slapp</string>
+    <string name="home_card_rede">Nettverk</string>
+    <string name="home_destaque_rede">Videoene, musikken og bildene dine</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d. MMMM</string>
+    <string name="home_busca">Søk</string>
+    <string name="home_falar">Snakk med Gemini</string>
+    <string name="home_dest_tv">TV · kanal %1$d</string>
+    <string name="rede_titulo">Nettverk</string>
+    <string name="rede_procurando">Ser etter medieservere på nettverket…</string>
+    <string name="rede_nenhum">Ingen medieserver er på akkurat nå. Legg til en nedenfor: Plex og Jellyfin bruker kontoen din; en PC- eller NAS-mappe bruker adressen sin.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d server</item>
+        <item quantity="other">%1$d servere</item>
+    </plurals>
+    <string name="rede_secao_seus">Serverne dine</string>
+    <string name="rede_secao_achados">Funnet på nettverket</string>
+    <string name="rede_secao_adicionar">Legg til</string>
+    <string name="rede_entrar">Logg inn</string>
+    <string name="rede_adicionar">Legg til</string>
+    <string name="rede_salvar">Lagre</string>
+    <string name="rede_testar_salvar">Test og lagre</string>
+    <string name="rede_testando">Tester…</string>
+    <string name="rede_cancelar">Avbryt</string>
+    <string name="rede_sub_dlna">DLNA · åpnes direkte</string>
+    <string name="rede_sub_maquina">Delt mappe · %1$s</string>
+    <string name="rede_sub_pasta">Delt mappe · %1$s</string>
+    <string name="rede_sub_lista">M3U-liste · %1$s</string>
+    <string name="rede_sub_video">Videolenke · %1$s</string>
+    <string name="rede_sub_plex">Logg inn med en kode, uten passord på TV-en</string>
+    <string name="rede_sub_jellyfin">Serverens brukernavn og passord</string>
+    <string name="rede_sub_smb">Windows-, Mac- eller NAS-mappe</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS med WebDAV</string>
+    <string name="rede_sub_link">http-adresse, HLS (.m3u8) eller M3U-liste</string>
+    <string name="rede_acao_smb">Delt mappe</string>
+    <string name="rede_acao_webdav">WebDAV eller Nextcloud</string>
+    <string name="rede_acao_link">Videolenke eller liste</string>
+    <string name="rede_acao_procurar">Søk igjen</string>
+    <string name="rede_abrindo">Åpner…</string>
+    <string name="rede_vazia">Tom mappe</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d element</item>
+        <item quantity="other">%1$d elementer</item>
+    </plurals>
+    <string name="rede_dica_abrir">åpne</string>
+    <string name="rede_dica_remover">fjern</string>
+    <string name="rede_dica_sair">avslutt</string>
+    <string name="rede_dica_subir">én mappe opp</string>
+    <string name="rede_tecla_segurar">hold OK</string>
+    <string name="rede_tecla_voltar">TILBAKE</string>
+    <string name="rede_erro">Serveren svarte ikke. Prøv igjen.</string>
+    <string name="rede_erro_senha">Brukernavn eller passord ble ikke godtatt av serveren.</string>
+    <string name="rede_erro_pasta">Serveren svarte, men har ingen mappe med det navnet.</string>
+    <string name="rede_erro_servidor">Serveren ble ikke funnet. Sjekk adressen og at den er på samme nettverk.</string>
+    <string name="rede_erro_certificado">Serverens sikkerhetssertifikat er ikke gyldig for denne adressen.</string>
+    <string name="rede_erro_cheio">Kunne ikke lagre: TV-en har allerede 20 servere. Fjern én først.</string>
+    <string name="rede_endereco_erro">Ufullstendig eller ugyldig adresse.</string>
+    <string name="rede_salva">\"%1$s\" lagt til.</string>
+    <string name="rede_nome_opcional">Visningsnavn (valgfritt)</string>
+    <string name="rede_senha">Passord</string>
+    <string name="rede_remover_titulo">Fjerne \"%1$s\"?</string>
+    <string name="rede_remover_explica">Innloggingen og passordet forsvinner fra TV-en. Ingenting endres på serveren.</string>
+    <string name="rede_remover">Fjern</string>
+    <string name="rede_removida">\"%1$s\" fjernet.</string>
+    <string name="rede_smb_titulo">Delt mappe</string>
+    <string name="rede_smb_explica">Adresse som i Windows: \\\\server\\mappe (f.eks. \\\\192.168.0.10\\Filmer). Tomt brukernavn og passord = gjest.</string>
+    <string name="rede_smb_endereco">\\\\server\\mappe</string>
+    <string name="rede_smb_endereco_erro">Server eller mappe mangler (f.eks. \\\\NAS\\Filmer).</string>
+    <string name="rede_smb_usuario">Brukernavn (valgfritt)</string>
+    <string name="rede_smb_senha">Passord (valgfritt)</string>
+    <string name="rede_jf_explica">%1$s-serverens adresse (f.eks. 192.168.0.10 eller nas:8096), brukernavn og passord. Passordet lagres ikke på TV-en.</string>
+    <string name="rede_jf_endereco">Serveradresse</string>
+    <string name="rede_jf_usuario">Brukernavn</string>
+    <string name="rede_jf_usuario_falta">Brukernavn mangler.</string>
+    <string name="rede_dav_explica">Mappeadresse (Nextcloud: cloud.example.com/remote.php/dav/files/DIN_BRUKER). Uten http bruker TV-en https. På Nextcloud er et app-passord å foretrekke.</string>
+    <string name="rede_dav_endereco">WebDAV-adresse</string>
+    <string name="rede_link_explica">En video (mp4, mkv…), en HLS-strøm (.m3u8) eller en M3U-liste med flere videoer. Den blir lagret her.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Bruk en adresse som begynner med http:// eller https://.</string>
+    <string name="rede_plex_titulo">Logg inn på Plex</string>
+    <string name="rede_plex_explica">På telefonen eller datamaskinen, åpne plex.tv/link og skriv inn koden nedenfor. Eller rett telefonkameraet mot QR-koden.</string>
+    <string name="rede_plex_pedindo">Ber Plex om en kode…</string>
+    <string name="rede_plex_esperando">Venter på at du bekrefter på Plex…</string>
+    <string name="rede_plex_buscando">Kontoen er tilkoblet. Ser etter serverne dine…</string>
+    <string name="rede_plex_venceu">Koden er utløpt. Hent en ny.</string>
+    <string name="rede_plex_outro">Hent en ny kode</string>
+    <string name="rede_plex_sem_servidor">Denne Plex-kontoen har ingen server.</string>
+    <string name="rede_plex_inacessivel">Fant serveren på kontoen, men den svarte ikke herfra. Sjekk at den er på og på samme nettverk.</string>
+    <string name="rede_plex_varios">%1$d Plex-servere lagt til.</string>
+    <string name="pg_amanha">I morgen</string>
+    <string name="pg_recado">Melding</string>
+    <string name="pg_app_despertador">Alarm</string>
+    <string name="pg_bom_dia">God morgen</string>
+    <string name="pg_boa_tarde">God ettermiddag</string>
+    <string name="pg_boa_noite">God kveld</string>
+    <string name="pg_agora">nå</string>
+    <string name="pg_ontem">i går</string>
+    <string name="pg_mais_notif">+%1$d varsler</string>
+    <string name="pg_dia_todo">i dag</string>
+    <string name="pg_hoje_as">i dag kl. %1$s</string>
+    <string name="pg_amanha_as">i morgen kl. %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Nå</string>
+    <string name="pw_proximas_horas">De neste timene</string>
+    <string name="pw_hoje">I dag</string>
+    <string name="pw_chuva_pct">%1$d%% sjanse for regn</string>
+    <string name="pw_umidade_pct">%1$d%% luftfuktighet</string>
+    <string name="pw_ate_umas">%1$s til omtrent %2$s</string>
+    <string name="pw_chuva_pelas">%1$s, regn rundt %2$s</string>
+    <string name="pw_chuva_segue">%1$s de neste timene</string>
+    <string name="pw_amanha_frase">I morgen %1$d°, %2$s</string>
+    <string name="pw_nasce">soloppgang %1$s</string>
+    <string name="pw_poe">solnedgang %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Varsler</string>
+    <string name="pr_sem_notificacoes">Ingen varsler</string>
+    <string name="pr_notificacoes_desligadas">Slår på varseltilgang…</string>
+    <string name="pr_perfis">Profiler</string>
+    <string name="pr_protetor">Skjermsparer</string>
+    <string name="pr_timer">Tidtaker</string>
+    <string name="pr_timer_as">Til %1$s</string>
+    <string name="pr_audio_arc">Receiver (HDMI ARC)</string>
+    <string name="pr_dispensar">Avvis</string>
+    <string name="pr_ontem">i går</string>
+    <string name="pr_agora">nå</string>
+    <string name="pr_configuracoes">Launcherens innstillinger</string>
+    <string name="pr_tocar_pausar">Spill av eller pause</string>
+    <string name="pr_proxima">Neste</string>
+    <string name="pr_tocando">spiller</string>
+    <string name="pr_pausado">på pause</string>
+    <string name="pr_dormir">Sov</string>
+    <string name="pr_despertador">Alarm</string>
+    <string name="pr_visita">Gjester</string>
+    <string name="pr_casa">Hjem</string>
+    <string name="pr_config_tv">TV-innstillinger</string>
+    <string name="pr_sinal_bom">godt signal</string>
+    <string name="pr_sinal_medio">middels signal</string>
+    <string name="pr_sinal_fraco">svakt signal</string>
+    <string name="pr_bt_conectados">%1$d tilkoblet</string>
+    <string name="pr_hoje">I dag</string>
+    <string name="pr_amanha">I morgen</string>
+    <string name="pr_ligado">På</string>
+    <string name="pr_limpar_tudo">Fjern alle</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Catch-up: tidligere programmer</string>
+    <string name="tvv_titulo">Catch-up · %1$s</string>
+    <string name="tvv_do_inicio">Nå · start på nytt: %1$s</string>
+    <string name="tvv_carregando">Henter tidligere programmer…</string>
+    <string name="tvv_sem_resposta">Serveren svarte ikke. Prøv igjen om et øyeblikk.</string>
+    <string name="tvv_vazio">Denne kanalen har ingen lagrede programmer ennå.</string>
+    <string name="tvv_voltou">Tilbake til direkte</string>
+    <string name="tvv_selo">CATCH-UP</string>
+    <string name="tvv_teclas">◀ ▶ 30 s · OK alternativer · TILBAKE direkte</string>
+    <string name="tvv_pausar">Pause</string>
+    <string name="tvv_continuar">Fortsett</string>
+    <string name="tvv_ao_vivo">Tilbake til direkte</string>
+    <string name="tvv_hoje">I dag</string>
+    <string name="tvv_ontem">I går</string>
+    <string name="imagem_titulo">Bildeformat</string>
+    <string name="imagem_ajustar">Tilpass skjermen</string>
+    <string name="imagem_esticar">Strekk</string>
+    <string name="imagem_zoom">Zoom (beskjærer kantene)</string>
+    <string name="velocidade_titulo">Hastighet</string>
+    <string name="trailer">Trailer</string>
+    <string name="trailer_sem_app">Fant ingen app til å åpne traileren.</string>
+    <string name="series_visto_ate_aqui">Merk som sett frem til %1$s</string>
+    <string name="series_nao_visto">Merk som ikke sett</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Filmer og serier</string>
+    <string name="idioma_titulo">Foretrukket lyd</string>
+    <string name="idioma_det">Original med undertekster på TV-ens språk, eller dubbet til det. Hver film og serie husker endringen gjort i avspilleren (▼)</string>
+    <string name="idioma_original">Original med undertekster</string>
+    <string name="idioma_dublado">Dubbet</string>
+    <string name="idioma_legendado">Med undertekster</string>
+    <string name="idioma_dublado_curto">Dubbet</string>
+    <string name="idioma_versao_legendada">Versjon med undertekster</string>
+    <string name="idioma_versao_dublada">Dubbet versjon</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Finn undertekster på nettet</string>
+    <string name="legenda_procurando">Ser etter undertekster…</string>
+    <string name="legenda_baixando">Laster ned undertekster…</string>
+    <string name="legenda_acertada">Undertekster tilpasset talen · %1$s</string>
+    <string name="legenda_pronta">Undertekstene er klare</string>
+    <string name="legenda_nenhuma">Ingen undertekster på TV-ens språk for denne videoen</string>
+    <string name="legenda_erro">Kunne ikke søke etter undertekster</string>
+    <string name="legenda_invalida">Den nedlastede filen er ikke en undertekst</string>
+    <string name="legenda_sem_conta">Legg til OpenSubtitles-nøkkelen din i Innstillinger › TV og filmer › Filmer og serier</string>
+    <string name="legenda_escolher">Undertekster for \"%1$s\"</string>
+    <string name="legenda_surdos">for hørselshemmede</string>
+    <string name="legenda_bate">laget for denne filen</string>
+    <string name="lista_dica_escolher">velg</string>
+    <string name="legenda_atraso_titulo">Forsinkelse for undertekster (+ = teksten vises senere)</string>
+    <string name="legenda_atraso_zero">Ingen forsinkelse</string>
+    <string name="legenda_conta_titulo">Undertekster på nettet</string>
+    <string name="legenda_conta_det">OpenSubtitles, med API-nøkkelen din (gratis på opensubtitles.com/consumers). Uten konto: 5 undertekster om dagen</string>
+    <string name="legenda_conta_sim">satt opp</string>
+    <string name="legenda_conta_nao">ikke satt opp</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">%1$s igjen</string>
+    <string name="tempo_falta_um">%1$s igjen</string>
+    <string name="serie_ep_longo">Sesong %1$d, episode %2$d</string>
+    <string name="ficha_continuar_de">fra %1$s</string>
+    <string name="tempo_termina_as">slutter kl. %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s episoder</string>
+    <string name="tempo_x_de_y">%1$d av %2$d</string>
+    <string name="tempo_visto">sett</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Google-profil</string>
+    <string name="fp_linha">Hent kontobilde</string>
+    <string name="fp_linha_det">Viser bildet fra Google-kontoen din på profilknappen</string>
+    <string name="fp_titulo">Kontobilde</string>
+    <string name="fp_fechar">Lukk</string>
+    <string name="fp_pedindo">Ber Google om en kode…</string>
+    <string name="fp_passos">1. På telefonen, åpne %1$s (eller rett kameraet mot koden til høyre).\n2. Logg inn med en Google-konto som er på denne TV-en, og skriv:\n\n%2$s\n\nDenne skjermen fortsetter av seg selv. Denne innloggingen brukes bare til å hente bildet.</string>
+    <string name="fp_ok">Ferdig: bildet av %1$s er nå på profilknappen.</string>
+    <string name="fp_sem_foto">Logget inn som %1$s, men bildet kunne ikke lagres. Prøv igjen, eller send et bilde fra nettpanelet (fanen Skjermsparerbilder).</string>
+    <string name="fp_falha">Det virket ikke: %1$s</string>
+    <string name="fp_sem_google">Google-innlogging er ikke satt opp på denne TV-en ennå.\n\nTo måter å sette et bilde på profilknappen:\n• Nettpanel > fanen Skjermsparerbilder > Profilbilde: velg et hvilket som helst bilde fra telefonen.\n• Sett opp Google-innlogging (nettpanel > fanen Claude) og kom tilbake hit for å hente kontoens bilde.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Kapittel %1$d</string>
+    <string name="vod_capitulos_titulo">Kapitler</string>
+    <string name="vod_capitulos_opcao">Kapitler (%1$d)</string>
+    <string name="vod_segunda_opcao">Andre undertekst (øverst)</string>
+    <string name="vod_segunda_titulo">Andre undertekst</string>
+    <string name="vod_segunda_desligada">Av</string>
+    <string name="vod_dialogo_opcao">Kraftigere dialog</string>
+    <string name="vod_dialogo_ligado">Kraftigere dialog på</string>
+    <string name="vod_dialogo_desligado">Kraftigere dialog av</string>
+    <string name="vod_atraso_audio_titulo">Lydforsinkelse (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Ingen</string>
+    <string name="vod_atraso_audio_mais">Lyden kommer %1$d ms for sent</string>
+    <string name="vod_atraso_audio_menos">Lyden kommer %1$d ms for tidlig</string>
+    <string name="vod_info_opcao">Teknisk info</string>
+    <string name="info_video">Video</string>
+    <string name="info_audio">Lyd</string>
+    <string name="info_perdidos">Tapte bilder</string>
+    <string name="info_taxa">Bithastighet</string>
+    <string name="info_buffer">Buffer</string>
+    <string name="info_atraso">Lydforsinkelse</string>
+    <string name="info_dialogo">Kraftigere dialog på</string>
+    <string name="info_chip">TV-brikke</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">stereo</string>
+    <string name="lista_dica_voltar">tilbake</string>
+    <string name="pm_ligado">På</string>
+    <string name="pm_desligado">Av</string>
+    <string name="pm_imagem_som">Bilde og lyd</string>
+    <string name="pm_mais">Flere alternativer</string>
+    <string name="pm_versao_legendada">Se med undertekster</string>
+    <string name="pm_versao_dublada">Se dubbet</string>
+    <string name="pm_versao_info">Fortsetter fra dette punktet</string>
+    <string name="pm_leg_ajustes">Innstillinger for undertekster</string>
+    <string name="pm_leg_tamanho">Størrelse</string>
+    <string name="pm_leg_estilo">Stil</string>
+    <string name="pm_leg_posicao">Plassering</string>
+    <string name="pm_leg_atraso">Forsinkelse</string>
+    <string name="pm_leg_auto">Last ned én når den mangler</string>
+    <string name="pm_leg_traduzir">Oversett på TV-en når den mangler</string>
+    <string name="pm_velocidade">Hastighet</string>
+    <string name="pm_proporcao">Bildestørrelse</string>
+    <string name="pm_atraso_audio">Lydforsinkelse</string>
+    <string name="pm_quadros">Tilpass filmens bildefrekvens</string>
+    <string name="pm_qualidade">Kvalitet</string>
+    <string name="pv_sem_titulo">Ingen værmelding akkurat nå</string>
+    <string name="bu_voz_grupo">Snakk</string>
+    <string name="bu_falar">Si hva du leter etter</string>
+    <string name="bu_falar_det">Raskere enn å skrive med fjernkontrollen</string>
+    <string name="bu_recentes">Nylige søk</string>
+    <string name="bu_recente_det">Søk igjen</string>
+    <string name="aviso_alarme_tocou_titulo">Alarmen ringte på TV-en</string>
+    <string name="aviso_alarme_tocou_texto">Den begynte å ringe kl. %1$s.</string>
+    <string name="home_instalar_externo">Installer på ekstern lagring</string>
+    <string name="home_instalar_dispositivo">Installer på denne enheten</string>
+    <string name="home_instalando_lugar">Flytter %1$s… den lukkes til det er ferdig.</string>
+    <string name="home_instalado_externo">%1$s er nå på den eksterne lagringen.</string>
+    <string name="home_instalado_dispositivo">%1$s er tilbake på denne enheten.</string>
+    <string name="home_instalar_lugar_falhou">Kunne ikke flytte %1$s: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">TV-ens eget skall er ikke aktivt</string>
+    <string name="home_instalar_lugar_sem_pendrive">ingen USB-stasjon satt opp som TV-lagring</string>
+    <string name="st_titulo">USB-stasjon og lagring</string>
+    <string name="st_explica">Velg hvordan TV-en bruker en USB-stasjon. Lite plass? Den kan bli TV-lagring for tunge apper.</string>
+    <string name="st_linha_det">Bruk en USB-stasjon som TV-lagring</string>
+    <string name="st_sem_shell">Krever TV-ens eget skall (Innstillinger › System › Avansert). OK for å prøve igjen.</string>
+    <string name="st_sem_pen">Ingen USB-stasjon tilkoblet. Koble til én og trykk OK.</string>
+    <string name="st_tv_livre">TV-lagring: %1$s ledig av %2$s</string>
+    <string name="st_pen">USB-stasjon · %1$s · %2$s</string>
+    <string name="st_modo_comum">Vanlig USB-stasjon</string>
+    <string name="st_modo_misto">Blandet</string>
+    <string name="st_modo_tv">TV-lagring</string>
+    <string name="st_modo_desconhecido">Ikke formatert</string>
+    <string name="st_recomendado">Anbefalt: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">denne stasjonen er treg, apper ville hakke</string>
+    <string name="st_motivo_pequeno">under 8 GB, for lite til å hjelpe</string>
+    <string name="st_motivo_folgada">TV-en har fortsatt plass, ingen grunn til å slette stasjonen</string>
+    <string name="st_motivo_grande">halvparten til apper, halvparten til opptak og filer</string>
+    <string name="st_motivo_apertada">TV-en er nesten full</string>
+    <string name="st_medido">skriver med %1$s MB/s</string>
+    <string name="st_medir_dica">OK måler hastigheten</string>
+    <string name="st_usar_comum">Bruk som vanlig USB-stasjon</string>
+    <string name="st_usar_misto">Bruk som blandet: %1$d%% vanlig  ◀ ▶</string>
+    <string name="st_usar_tv">Bruk som TV-lagring</string>
+    <string name="st_apps">Apper på USB-stasjonen</string>
+    <string name="st_apps_det">Velg apper som skal flyttes (største først)</string>
+    <string name="st_apps_nenhum">Ingen app kan flyttes.</string>
+    <string name="st_apps_rodape">OK flytter appen; ✓ = allerede på USB-stasjonen</string>
+    <string name="st_compartilhado">Bilder og filer: %1$s</string>
+    <string name="st_na_tv">på TV-en</string>
+    <string name="st_no_pen">på USB-stasjonen</string>
+    <string name="st_compartilhado_aviso">Alt kopieres og apper lukkes imens. Start TV-en på nytt etterpå.</string>
+    <string name="st_mover">Flytt</string>
+    <string name="st_movendo">Flytter… dette kan ta flere minutter.</string>
+    <string name="st_aviso_titulo">Slette USB-stasjonen?</string>
+    <string name="st_aviso">Alt på den slettes for å gjøre den til \"%1$s\". Som TV-lagring virker den bare på denne TV-en, og apper på den forsvinner mens den er koblet fra.</string>
+    <string name="st_apagar">Slett og formater</string>
+    <string name="st_formatando">Formaterer… dette kan ta noen minutter.</string>
+    <string name="st_pronto">Ferdig.</string>
+    <string name="st_falhou">Det virket ikke: %1$s</string>
+    <string name="st_depois">Velg nå hvilke apper som skal til USB-stasjonen.</string>
+    <string name="st_pin">Panelets PIN-kode for å endre USB-stasjonen</string>
+    <string name="st_copiar_titulo">Kopiere det som er på den først? (%1$s)</string>
+    <string name="st_copiar_para">Kopier til %1$s</string>
+    <string name="st_copiar_pc">Kopier med PC-en (hvordan)</string>
+    <string name="st_copiar_pc_texto">På PC-en, åpne Denne PC-en > TV-en > USB-stasjon og kopier filene til datamaskinen. Kom så tilbake hit og formater.</string>
+    <string name="st_nao_copiar">Ikke nødvendig, slett den</string>
+    <string name="st_copiando_inicio">Kopierer USB-stasjonen… TV-en fortsetter å virke imens.</string>
+    <string name="st_copiando">Kopiert %1$s av %2$s</string>
+    <string name="st_voltar_comum">Tilbake til vanlig USB-stasjon (apper kommer tilbake til TV-en)</string>
+    <string name="st_trazendo">Henter %1$s tilbake til TV-en…</string>
+    <string name="st_sumiram">USB-stasjonen er fjernet: %1$s er skjult til den er tilbake.</string>
+    <string name="st_sugestao">TV-lagringen er nesten full. Flytt %1$s (%2$s) til USB-stasjonen: hold OK på appen.</string>
+    <string name="st_medindo">Måler stasjonens hastighet for å anbefale den beste bruken…</string>
+    <string name="st_lento_titulo">Stasjonen er for treg</string>
+    <string name="st_lento_bloqueado">Denne stasjonen skriver med %1$s MB/s. For å bli TV-lagring trenger den minst %2$d MB/s: under det fryser apper og TV-en starter kanskje ikke. Bruk den som en vanlig stasjon.</string>
+    <string name="st_aviso_boot">La den stå tilkoblet for godt: hvis den svikter eller fjernes, starter kanskje ikke TV-en før du kobler den fra.</string>
+    <string name="home_grande_titulo">Flytte %1$s?</string>
+    <string name="home_grande_aviso">%1$s tar %2$s. På en treg stasjon kan flyttingen ta mer enn 10 minutter og har fått en TV til å krasje halvveis. Fortsett bare mens ingen ser på.</string>
+    <string name="home_liberar_arquivos">La den åpne USB-stasjoner og filer</string>
+    <string name="home_arquivos_liberado">%1$s kan nå åpne USB-stasjoner og alle filer</string>
+    <string name="home_arquivos_falhou">Kunne ikke tillate %1$s: %2$s</string>
+    <string name="aviso_continuar_titulo">Ingenting å fortsette</string>
+    <string name="aviso_continuar_texto">Invitasjonen til å fortsette fra den andre TV-en er utløpt.</string>
+    <string name="aviso_simples_titulo">Enkel skjerm er av</string>
+    <string name="aviso_simples_texto">TV-en er tilbake til den fullstendige startskjermen.</string>
+    <string name="aviso_sync_titulo">Ingen konto tilkoblet</string>
+    <string name="aviso_sync_texto">Det finnes ingen %1$s-konto på denne TV-en. Koble den til i Innstillinger › TV og filmer.</string>
+    <string name="dns_nota_familia">familie, blokkerer voksennettsteder</string>
+    <string name="dns_nota_malware">blokkerer skadelig programvare</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">TV-en har ikke Wi-Fi%1$s. Sjekk at ruteren er på, eller om nettverksnavnet eller passordet er endret.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">ruteren mistet forbindelsen til leverandørens modem</string>
+    <string name="ief_roteador_ve_fora" formatted="true">ruteren ser også internett som nede</string>
+    <string name="ief_ha" formatted="true"> (for %1$s siden)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi er i orden, men leverandørens internett gikk ned%1$s; %2$s%3$s. Det er ikke TV-en: vent på leverandøren eller start modemet på nytt.</string>
+    <string name="ief_vpn_travada" formatted="true">Ruteren har internett, men TV-en kommer ikke gjennom%1$s: VPN-en har sannsynligvis hengt seg opp. Å slå VPN-en av og på løser det som regel.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Ruteren har internett, men TV-en når den ikke%1$s: problemet er mellom TV-en og ruteren%2$s Å koble TV-en til Wi-Fi på nytt løser det som regel.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi-signalet er svakt, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">TV-en er på Wi-Fi, men verken ruteren eller internett svarer%1$s: ruteren kan ha frosset. Å slå ruteren av og på løser det som regel.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi er i orden, men internett kommer ikke gjennom%1$s; det er sannsynligvis leverandøren eller ruteren%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (at VPN-en er på kan også være årsaken).</string>
+    <string name="ief_dns" formatted="true">Internett virker, men DNS-en%1$s svarer ikke%2$s: apper finner ikke serverne sine. Å bytte DNS til Automatisk løser det.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internett og DNS svarer, men Googles testside %1$s: noe underveis (VPN, DNS-blokkering eller et nettverk som ber om innlogging) blokkerer den.</string>
+    <string name="ief_nao_abriu" formatted="true">åpnet ikke</string>
+    <string name="ief_codigo_diferente" formatted="true">svarte annerledes (kode %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internett er i orden; bare VPN-en er av (apper virker uten den).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internett virker, men tregt: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">Wi-Fi-signalet er svakt (%1$d dBm); å flytte ruteren nærmere eller bruke kabel hjelper</string>
+    <string name="ief_lenta_tcp" formatted="true">internett bruker %1$d ms på å svare%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, og ruteren ser det samme: det er leverandøren</string>
+    <string name="ief_lenta_http" formatted="true">testsiden brukte %1$.1f s på å åpne</string>
+    <string name="ief_queda_recente" formatted="true">Internett er i orden nå; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Alt i orden: Wi-Fi, internett og DNS svarer.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Ingen brudd de siste 24 t.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Ingen brudd registrert (TV-en målte bare en del av de siste 24 t).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Ruteren melder et internettproblem, men TV-en surfer normalt.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS mislyktes</string>
+    <string name="ief_caiu_internet" formatted="true">internett gikk ned</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (så sluttet TV-en å måle; det er ingen måte å vite når det kom tilbake)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d brudd på 24 t</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s og kom tilbake %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d brudd på 24 t, %2$s uten internett totalt</string>
+    <string name="ief_quando_hoje" formatted="true">kl. %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">i går kl. %1$s</string>
+    <string name="ief_quando_data" formatted="true">den %1$s kl. %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">siden %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">siden i går kl. %1$s</string>
+    <string name="ief_desde_data" formatted="true">siden %1$s kl. %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">mindre enn 1 min</string>
+    <string name="ief_dur_min" formatted="true">%1$d min</string>
+    <string name="ief_dur_h" formatted="true">%1$d t</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d t %2$d min</string>
+    <string name="ief_data_dm" formatted="true">dd.MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: frakoblet</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">nettverk: tilkoblet</string>
+    <string name="ief_s_internet" formatted="true">internett uten DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS uten hurtigbuffer: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">mislyktes</string>
+    <string name="ief_s_pagina" formatted="true">testside: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok på %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">kode %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: på</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: av</string>
+    <string name="ief_s_roteador_fora" formatted="true">ruter: ser internett som nede</string>
+    <string name="ief_s_roteador_ok" formatted="true">ruter: ser internett som ok%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">ruter: ingen mening</string>
+    <string name="ief_s_roteador_mudo" formatted="true">ruter: svarte ikke</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">ruter: ikke sjekket</string>
+    <string name="ief_s_historico" formatted="true">historikk: %1$d målinger på 24 t</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google svarte ikke akkurat nå; prøv igjen</string>
+    <string name="lg_negado">innloggingen ble avvist hos Google</string>
+    <string name="lg_google_respondeu">Google svarte: %1$s</string>
+    <string name="lg_venceu">koden er utløpt; start på nytt</string>
+    <string name="lg_outro_login">en annen innlogging startet; start på nytt</string>
+    <string name="lg_email">Google bekreftet ikke e-postadressen</string>
+    <string name="lg_conta_fora">kontoen %1$s er ikke i noen profil på denne TV-en</string>
+    <string name="lg_sem_drive">tillatelsen for Google Disk ble ikke krysset av</string>
+    <string name="lg_sem_chave">Google sendte ikke tilgangsnøkkelen; prøv igjen</string>
+    <string name="lg_nao_guardei">kunne ikke lagre kontoen på denne TV-en</string>
+    <string name="lg_nao_configurado">Google-innlogging er ikke satt opp</string>
+    <string name="lg_ritmo">for mange innlogginger på rad; vent et minutt</string>
+    <string name="lg_recusou">Google avviste (%1$s): sjekk klient-ID og hemmelighet</string>
+    <string name="lg_erro_google">feil i kommunikasjonen med Google</string>
+</resources>

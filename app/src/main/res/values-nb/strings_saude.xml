@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="saude_titulo">Fjerntilgang stoppet</string>
+    <string name="saude_texto_shell">TV-ens tilgang til seg selv falt ut for %1$d min siden (panelet, Claude og automatiske rettinger stopper). Trykk Par igjen eller gå til Innstillinger › System › Avansert › Par uten PC.</string>
+    <string name="saude_texto_tunel">Claude over internett er frakoblet. Trykk Koble til for å se hva som mangler, eller gå til Innstillinger › Hjem og nettverk › Fjerntilgang.</string>
+    <string name="saude_parear">Par igjen</string>
+    <string name="saude_conectar">Koble til</string>
+    <string name="saude_depois">Ikke nå</string>
+    <string name="saude_acao_shell">Par igjen: Innstillinger › System › Avansert › Par uten PC</string>
+    <string name="saude_acao_tunel">Koble til igjen: Innstillinger › Hjem og nettverk › Fjerntilgang › Koble til</string>
+    <string name="mnt_titulo">Nattlig vedlikehold</string>
+    <string name="mnt_consertei">Rettet:</string>
+    <string name="mnt_falhou">Kunne ikke rette:</string>
+    <string name="mnt_acesso">fjerntilgang</string>
+    <string name="mnt_permissoes">tillatelser</string>
+    <string name="mnt_agendamentos">alarmer og rutiner</string>
+    <string name="mnt_espaco">ledig plass</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Filmer i sin egen bildefrekvens (24 Hz)</string>
+    <string name="quadros_det">TV-en bytter til 24 Hz mens filmen spilles, så bildet ikke hakker ved kamerabevegelser. Skjermen blir svart i 1 til 2 s i starten. Brukes ikke for direkte-TV.</string>
+</resources>

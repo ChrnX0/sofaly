@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Sett opp med telefonen</string>
+    <string name="pc_linha_det">Anbefalt. Rett telefonkameraet mot en kode: PIN-kode, språk, direkte-TV, by og filmtjenester, i 5 trinn.</string>
+    <string name="pc_instrucoes">Rett telefonkameraet mot koden ved siden av. Telefonen åpner et oppsett i 5 trinn.\n\nTelefonen må være på hjemmets Wi-Fi. Hold denne skjermen åpen til du lager PIN-koden på telefonen (%1$s igjen).</string>
+    <string name="pc_entrou">Fortsett på telefonen.</string>
+    <string name="pc_venceu">Koden er utløpt.\nTrykk på \"%1$s\" for å vise en ny.</string>
+    <string name="pc_sem_rede">TV-en er ikke på et nettverk.\nKoble den til hjemmets Wi-Fi og prøv igjen.</string>
+</resources>

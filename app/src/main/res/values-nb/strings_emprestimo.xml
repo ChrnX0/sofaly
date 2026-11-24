@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">Lån ut systemkrefter</string>
+    <string name="emp_titulo">Lån ut skallet til andre apper (Shizuku)</string>
+    <string name="emp_titulo_det">Apper laget for Shizuku virker uten å installere det. Hver app spør på TV-en, med PIN-koden, første gang.</string>
+    <string name="emp_modo_desligado">Av</string>
+    <string name="emp_modo_sob_demanda">Når en app trenger det</string>
+    <string name="emp_modo_sempre">Alltid på</string>
+    <string name="emp_oficial">Shizuku-appen er installert på denne TV-en, så launcheren holder seg unna. Avinstaller den for å bruke launcherens.</string>
+    <string name="emp_plano">En del av betalingsabonnementene.</string>
+    <string name="emp_negar">Avvis</string>
+    <string name="emp_permitir">Tillat alltid</string>
+    <string name="emp_pedido_titulo">Tillate %1$s å bruke launcherens systemkrefter?</string>
+    <string name="emp_pedido_texto">Appen vil kunne gjøre det adb gjør: installere og fjerne apper, endre systeminnstillinger og mer. Tillat bare apper du stoler på. Du kan tilbakekalle det senere i nettpanelet.</string>
+    <string name="emp_pin_titulo">Panelets PIN-kode for å tillate</string>
+    <string name="emp_sem_pin">Angi panelets PIN-kode først (Innstillinger, Nettpanel).</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">Lån ut eierkontroll til andre apper (Dhizuku)</string>
+    <string name="emd_titulo_det">Apper laget for Dhizuku bruker launcherens eierkontroll. Hver app spør på TV-en, med PIN-koden. Med «Tillat» kan ingen fjerne launcheren som eier eller slette TV-en; med «Full makt» kan den det.</string>
+    <string name="emd_ligado">På</string>
+    <string name="emd_sem_dono">Launcheren er ikke eier (Device Owner) av denne TV-en, så det er ingenting å låne ut.</string>
+    <string name="emd_pedido_titulo">Tillate %1$s å bruke launcherens eierkontroll?</string>
+    <string name="emd_pedido_texto">Med «Tillat» kan appen skjule og blokkere apper og endre TV-ens tillatelser og regler, men aldri fjerne launcheren som eier eller slette TV-en. «Full makt» lar appen kjøre som launcheren og lese dataene dens: bare for apper du stoler fullt på. Du kan tilbakekalle det i nettpanelet. Med «Full makt» kan appen gjøre alt launcheren kan, selv slette TV-en.</string>
+    <string name="emd_total">Full makt</string>
+    <string name="emd_pin_total">FULL MAKT: appen kan gjøre alt launcheren kan, selv slette TV-en. Panelets PIN-kode</string>
+</resources>

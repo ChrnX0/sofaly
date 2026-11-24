@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Plugin-bakgrunn</string>
+    <string name="wp_cfg_det">Bakgrunner, ikonpakker og kort fra andre apper. Hver krever ditt OK.</string>
+    <string name="wp_det">Apper fra andre utviklere som legger til bakgrunner, ikoner eller kort på startskjermen. Slå bare på dem du stoler på.</string>
+    <string name="wp_secao_fundos">Bakgrunner</string>
+    <string name="wp_secao_icones">Ikonpakker</string>
+    <string name="wp_secao_cartoes">Kort</string>
+    <string name="wp_secao_descobrir">Hent plugins</string>
+    <string name="wp_tipo_fundo">Bakgrunn</string>
+    <string name="wp_tipo_icones">Ikoner</string>
+    <string name="wp_em_uso">I bruk</string>
+    <string name="wp_usar">Bruk som bakgrunn</string>
+    <string name="wp_configurar">Plugin-innstillinger</string>
+    <string name="wp_parar">Slutt å bruke</string>
+    <string name="wp_sem_cert">Kunne ikke lese denne pluginens signatur.</string>
+    <string name="wp_nenhum_fundo">Ingen bakgrunnsplugin ennå. Se nedenfor hvor du kan få en.</string>
+    <string name="wp_nenhum_icone">Ingen ikonpakke ennå. Se nedenfor hvor du kan få en.</string>
+    <string name="wp_icones_det">Holdes frosset: launcheren beholder en kopi av ikonene den bruker.</string>
+    <string name="wp_usar_icones">Bruk</string>
+    <string name="wp_instalado">Installert</string>
+    <string name="wp_instalar">Installer</string>
+    <string name="wp_instalando">Installerer…</string>
+    <string name="wp_instalou">%1$s installert.</string>
+    <string name="wp_nao_instalou">Kunne ikke installere: %1$s</string>
+    <string name="wp_abrir_play">Åpne i Play Butikk</string>
+    <string name="wp_qr">Rett telefonkameraet mot koden for å åpne siden.</string>
+    <string name="wp_trocar_icone">Bytt ikon</string>
+    <string name="wp_icone_titulo">Ikon for %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d ikoner</string>
+    <string name="wp_icone_original">Originalt ikon</string>
+    <string name="wp_icone_sugerido">Foreslått</string>
+    <string name="wp_icone_voltar">Følg ikonpakken</string>
+    <string name="wp_icone_sem_pacote">Ingen ikonpakke installert. Hent én i Innstillinger › Startskjerm › Plugins.</string>
+    <string name="wp_d_aerial">Langsomme luftopptak av byer og natur</string>
+    <string name="wp_d_overflight">Apple TV-luftopptak, eller hvilken som helst liste med videoer du velger</string>
+    <string name="wp_d_daily">Et nytt dagens bilde, hver dag</string>
+    <string name="wp_d_weather">Dagens vær som bakgrunn</string>
+    <string name="wp_d_movieart">Film- og seriekunst fra TMDB</string>
+    <string name="wp_d_sofadrop">Kunst fra populære lister, Trakt eller Simkl</string>
+    <string name="wp_d_immich">Bilder fra din egen Immich-server</string>
+    <string name="wp_d_tvicons">800+ ikoner laget for TV</string>
+    <string name="wp_d_minimalist">Rene symboler på én bakgrunnsfarge</string>
+    <string name="wp_d_arcticons">15 000 tynne strekikoner (laget for telefoner, virker her)</string>
+</resources>

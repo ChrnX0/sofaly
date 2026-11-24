@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Alternativer for %1$s</string>
+    <string name="wo_ordenar">Sorter</string>
+    <string name="wo_ordenar_de">Sorter %1$s</string>
+    <string name="wo_por_uso">Mest brukt først</string>
+    <string name="wo_az">A til Å</string>
+    <string name="wo_a_mao">Min egen rekkefølge</string>
+    <string name="wo_renomear_mundo">Gi denne kategorien nytt navn</string>
+    <string name="wo_icone_mundo">Bytt ikonet til denne kategorien</string>
+    <string name="wo_esconder">Skjul denne kategorien</string>
+    <string name="wo_mostrar">Vis skjulte kategorier (%1$d)</string>
+    <string name="wo_padrao">Tilbake til slik det var</string>
+    <string name="wo_subir">Flytt opp</string>
+    <string name="wo_descer">Flytt ned</string>
+    <string name="wo_renomear_app">Gi nytt navn</string>
+    <string name="wo_vazio_original">Tomt = originalt navn</string>
+    <string name="wo_so_icone">Vis bare ikonet</string>
+    <string name="wo_com_nome">Vis navnet</string>
+    <string name="wo_nomes_titulo">Ikonetiketter</string>
+    <string name="wo_so_icone_curto">Bare ikon</string>
+    <string name="wo_com_nome_curto">Med navn</string>
+    <string name="co_titulo">Fortsett</string>
+    <string name="co_mostrar">Vist</string>
+    <string name="co_esconder">Skjult</string>
+    <string name="wo_nomes_det">Navn under hvert kategoriikon, eller bare ikonet</string>
+    <string name="co_det">Det du forlot halvveis, øverst i hver kategori</string>
+    <string name="tec_cfg_det">Trykk, hold, dobbelt- og trippeltrykk på hver knapp</string>
+    <string name="bb_titulo">Startskjermens oppsett</string>
+    <string name="bb_cruz">Kors</string>
+    <string name="bb_barra">Nedre linje</string>
+    <string name="bb_det">Kategorier i et kors, eller festet nederst med appene ovenfor (▲)</string>
+</resources>
