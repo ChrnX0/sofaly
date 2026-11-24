@@ -837,7 +837,7 @@
     <string name="st_titulo">USB drive and storage</string>
     <string name="st_explica">Choose how the TV uses a USB drive. Low on space? It can become TV storage for heavy apps.</string>
     <string name="st_linha_det">Use a USB drive as TV storage</string>
-    <string name="st_sem_shell">Needs the TV\'s own shell (Settings › Advanced). OK to try again.</string>
+    <string name="st_sem_shell">Needs the TV\'s own shell (Settings › System › Advanced). OK to try again.</string>
     <string name="st_sem_pen">No USB drive connected. Plug one in and press OK.</string>
     <string name="st_tv_livre">TV storage: %1$s free of %2$s</string>
     <string name="st_pen">USB drive · %1$s · %2$s</string>

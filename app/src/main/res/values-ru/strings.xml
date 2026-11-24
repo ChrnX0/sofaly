@@ -805,7 +805,7 @@ AS\\Фильмы).</string>
     <string name="st_titulo">Флешка и память</string>
     <string name="st_explica">Выберите, как ТВ использует флешку. Мало места? Она может стать памятью ТВ для тяжёлых приложений.</string>
     <string name="st_linha_det">Использовать флешку как память ТВ</string>
-    <string name="st_sem_shell">Нужна собственная оболочка ТВ (Настройки › Расширенные). OK — повторить.</string>
+    <string name="st_sem_shell">Нужна собственная оболочка ТВ (Настройки › Система › Расширенные). OK — повторить.</string>
     <string name="st_sem_pen">Флешка не подключена. Подключите её и нажмите OK.</string>
     <string name="st_tv_livre">Память ТВ: свободно %1$s из %2$s</string>
     <string name="st_pen">Флешка · %1$s · %2$s</string>

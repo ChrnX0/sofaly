@@ -799,7 +799,7 @@ AS\\Filme).</string>
     <string name="st_titulo">USB-Stick und Speicher</string>
     <string name="st_explica">Wähle, wie der Fernseher den USB-Stick nutzt. Zu wenig Platz? Er kann TV-Speicher für große Apps werden.</string>
     <string name="st_linha_det">USB-Stick als TV-Speicher nutzen</string>
-    <string name="st_sem_shell">Braucht die eigene Shell des Fernsehers (Einstellungen › Erweitert). OK zum Wiederholen.</string>
+    <string name="st_sem_shell">Braucht die eigene Shell des Fernsehers (Einstellungen › System › Erweitert). OK zum Wiederholen.</string>
     <string name="st_sem_pen">Kein USB-Stick angeschlossen. Stecke einen ein und drücke OK.</string>
     <string name="st_tv_livre">TV-Speicher: %1$s frei von %2$s</string>
     <string name="st_pen">USB-Stick · %1$s · %2$s</string>

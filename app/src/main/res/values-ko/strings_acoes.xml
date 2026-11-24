@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">장면 실행</string>
     <string name="rot_cena">장면 실행: %1$s</string>
     <string name="rot_cena_linha">장면: %1$s</string>
-    <string name="rot_cena_sem">먼저 장면을 만드세요(웹 패널 › 부가 기능 › 장면)</string>
+    <string name="rot_cena_sem">먼저 장면을 만드세요(웹 패널 › 홈 및 자동화 › 장면)</string>
     <string name="lbl_cenas">장면</string>
     <string name="pr_cenas">장면</string>
     <string name="cenas_titulo">장면</string>
-    <string name="cenas_det">OK로 장면 실행. 웹 패널 › 부가 기능 › 장면에서 만들고 편집하세요.</string>
-    <string name="cenas_vazio">아직 장면이 없습니다. 웹 패널 › 부가 기능 › 장면에서 만드세요.</string>
+    <string name="cenas_det">OK로 장면 실행. 웹 패널 › 홈 및 자동화 › 장면에서 만들고 편집하세요.</string>
+    <string name="cenas_vazio">아직 장면이 없습니다. 웹 패널 › 홈 및 자동화 › 장면에서 만드세요.</string>
     <string name="tec_titulo">리모컨 버튼</string>
     <string name="tec_det">Netflix와 YouTube는 모든 화면에서 작동하고, 컬러 키와 숫자는 홈 화면에서만 작동합니다.</string>
     <string name="tec_nova">+ 버튼 설정</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">버튼을 누를 때</string>
     <string name="aut_evento">어떤 일이 생길 때</string>
     <string name="aut_link">링크로</string>
-    <string name="aut_link_det">웹 패널 › 부가 기능 › 장면에서 만들고 편집</string>
+    <string name="aut_link_det">웹 패널 › 홈 및 자동화 › 장면에서 만들고 편집</string>
     <string name="ev_midia_tocou">영화 또는 동영상 시작됨</string>
     <string name="ev_midia_pausou">영화 또는 동영상 일시정지 또는 종료됨</string>
     <string name="ev_tv_ligou">TV가 켜짐</string>

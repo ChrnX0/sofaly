@@ -165,18 +165,18 @@
     <string name="qr_gerar_outro">새 코드</string>
     <string name="tentar_de_novo">다시 시도</string>
     <string name="qr_fechar">닫기</string>
-    <string name="qr_painel_fora">패널이 실행되고 있지 않습니다.\n런처 설정 &gt; 원격 액세스 &gt; 패널에서 켜세요(PIN 필요).</string>
+    <string name="qr_painel_fora">패널이 실행되고 있지 않습니다.\n설정 › 홈 및 네트워크 › 원격 액세스 › 브라우저 패널에서 켜세요(PIN 필요).</string>
     <string name="qr_pronto">완료</string>
     <string name="qr_entrou">휴대폰이 패널에 로그인했습니다.</string>
     <string name="qr_venceu">코드가 만료되었습니다(유효 시간 2분).\n‘%1$s’을(를) 눌러 새 코드를 표시하세요.</string>
     <string name="qr_instrucoes">휴대폰 카메라로 옆의 코드를 스캔하세요. 휴대폰에서 패널이 열리고 PIN 없이 로그인됩니다.\n\n휴대폰은 집 Wi-Fi에 연결되어 있어야 합니다. 코드는 한 번만 사용할 수 있으며 %1$s 남았습니다.\n설치, 제거, 백업 복원은 여전히 PIN이 필요합니다.</string>
     <string name="cc_dica_conta">휴대폰에서 ‘Google로 로그인’을 누르고 %1$s(이 TV의 계정)을(를) 사용하세요.</string>
     <string name="cc_pin">먼저 PIN</string>
-    <string name="cc_pin_det">브라우저의 런처 설정 &gt; 패널에서 PIN을 설정하세요.\nClaude가 TV 로그인을 요청할 때 입력하는 PIN입니다.</string>
+    <string name="cc_pin_det">설정 › 홈 및 네트워크 › 원격 액세스 › 브라우저 패널에서 PIN을 설정하세요.\nClaude가 TV 로그인을 요청할 때 입력하는 PIN입니다.</string>
     <string name="cc_sem_tunel">이 버전에는 터널이 없습니다</string>
     <string name="cc_sem_tunel_det">이 런처는 Tailscale 없이 빌드되었습니다. 전체 버전을 설치하세요.</string>
     <string name="cc_desligado">꺼짐</string>
-    <string name="cc_desligado_det">런처 설정 &gt; 인터넷으로 Claude 사용에서 켜세요.</string>
+    <string name="cc_desligado_det">설정 › 홈 및 네트워크 › 원격 액세스 › 인터넷으로 Claude 사용에서 켜세요.</string>
     <string name="cc_login">1. Tailscale 로그인</string>
     <string name="cc_login_det">휴대폰 카메라로 옆의 코드를 스캔하고 로그인하세요(무료).%1$s\n\nTailscale이 이 TV만을 위한 안전한 인터넷 주소를 만듭니다.</string>
     <string name="cc_ativar">2. 공개 주소 켜기</string>
@@ -269,7 +269,7 @@
         <item quantity="other">%d시입니다</item>
     </plurals>
     <plurals name="ii_erros_novos">
-        <item quantity="other">새 오류 %d개. 패널 &gt; 상태를 확인하세요.</item>
+        <item quantity="other">새 오류 %d개. 웹 패널 › 시스템을 확인하세요.</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="other">채널 %d개</item>

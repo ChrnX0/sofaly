@@ -26,13 +26,13 @@
     <string name="rot_cena_uma">Rodar uma cena</string>
     <string name="rot_cena">Rodar a cena: %1$s</string>
     <string name="rot_cena_linha">Cena: %1$s</string>
-    <string name="rot_cena_sem">Crie uma cena antes (painel web › Extras › Cenas)</string>
+    <string name="rot_cena_sem">Crie uma cena antes (painel web › Casa e automações › Cenas)</string>
     <!-- Tela Cenas (ideia 4) -->
     <string name="lbl_cenas">Cenas</string>
     <string name="pr_cenas">Cenas</string>
     <string name="cenas_titulo">Cenas</string>
-    <string name="cenas_det">OK roda a cena. Crie e edite no painel web › Extras › Cenas.</string>
-    <string name="cenas_vazio">Nenhuma cena ainda. Crie uma no painel web › Extras › Cenas.</string>
+    <string name="cenas_det">OK roda a cena. Crie e edite no painel web › Casa e automações › Cenas.</string>
+    <string name="cenas_vazio">Nenhuma cena ainda. Crie uma no painel web › Casa e automações › Cenas.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d ação</item>
         <item quantity="many">%d ações</item>
@@ -68,7 +68,7 @@
     <string name="aut_botao">Quando apertar um botão</string>
     <string name="aut_evento">Quando algo acontecer</string>
     <string name="aut_link">Por link</string>
-    <string name="aut_link_det">Criar e editar no painel web › Extras › Cenas</string>
+    <string name="aut_link_det">Criar e editar no painel web › Casa e automações › Cenas</string>
     <plurals name="aut_links">
         <item quantity="one">%d cena com link</item>
         <item quantity="many">%d cenas com link</item>

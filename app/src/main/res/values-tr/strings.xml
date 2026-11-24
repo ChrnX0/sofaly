@@ -799,7 +799,7 @@ AS\\Filmler).</string>
     <string name="st_titulo">USB bellek ve depolama</string>
     <string name="st_explica">TV\'nin USB belleği nasıl kullanacağını seçin. Yer mi az? Ağır uygulamalar için TV belleği olabilir.</string>
     <string name="st_linha_det">USB belleği TV depolaması olarak kullan</string>
-    <string name="st_sem_shell">TV\'nin kendi kabuğu gerekli (Ayarlar › Gelişmiş). Tekrar denemek için OK.</string>
+    <string name="st_sem_shell">TV\'nin kendi kabuğu gerekli (Ayarlar › Sistem › Gelişmiş). Tekrar denemek için OK.</string>
     <string name="st_sem_pen">USB bellek takılı değil. Birini takıp OK\'a basın.</string>
     <string name="st_tv_livre">TV belleği: %2$s içinde %1$s boş</string>
     <string name="st_pen">USB bellek · %1$s · %2$s</string>

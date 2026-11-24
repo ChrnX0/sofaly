@@ -799,7 +799,7 @@ AS\\Film).</string>
     <string name="st_titulo">Chiavetta USB e memoria</string>
     <string name="st_explica">Scegli come la TV usa la chiavetta. Poco spazio? Può diventare memoria della TV per le app pesanti.</string>
     <string name="st_linha_det">Usare una chiavetta USB come memoria della TV</string>
-    <string name="st_sem_shell">Serve la shell interna della TV (Impostazioni › Avanzate). OK per riprovare.</string>
+    <string name="st_sem_shell">Serve la shell interna della TV (Impostazioni › Sistema › Avanzate). OK per riprovare.</string>
     <string name="st_sem_pen">Nessuna chiavetta collegata. Collegane una e premi OK.</string>
     <string name="st_tv_livre">Memoria della TV: %1$s liberi su %2$s</string>
     <string name="st_pen">Chiavetta USB · %1$s · %2$s</string>

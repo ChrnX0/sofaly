@@ -165,18 +165,18 @@
     <string name="qr_gerar_outro">Новый код</string>
     <string name="tentar_de_novo">Повторить</string>
     <string name="qr_fechar">Закрыть</string>
-    <string name="qr_painel_fora">Панель не запущена.\nВключите её в Настройки лаунчера &gt; Удалённый доступ &gt; Панель (нужен PIN).</string>
+    <string name="qr_painel_fora">Панель не запущена.\nВключите её: Настройки › Дом и сеть › Удалённый доступ › Панель в браузере (нужен PIN).</string>
     <string name="qr_pronto">Готово</string>
     <string name="qr_entrou">Телефон вошёл в панель.</string>
     <string name="qr_venceu">Срок кода истёк (он действует 2 мин).\nНажмите «%1$s», чтобы показать новый.</string>
     <string name="qr_instrucoes">Наведите камеру телефона на код рядом. Телефон откроет панель и войдёт без PIN.\n\nТелефон должен быть в домашнем Wi-Fi. Код работает один раз, ещё %1$s.\nУстановка, удаление и восстановление копии всё равно требуют PIN.</string>
     <string name="cc_dica_conta">На телефоне нажмите «Войти через Google» и используйте %1$s (аккаунт этого ТВ).</string>
     <string name="cc_pin">Сначала PIN</string>
-    <string name="cc_pin_det">Задайте PIN в Настройки лаунчера &gt; Панель в браузере.\nЕго вы вводите, когда Claude просит войти в ТВ.</string>
+    <string name="cc_pin_det">Задайте PIN: Настройки › Дом и сеть › Удалённый доступ › Панель в браузере.\nЕго вы вводите, когда Claude просит войти в ТВ.</string>
     <string name="cc_sem_tunel">Эта версия без туннеля</string>
     <string name="cc_sem_tunel_det">Лаунчер собран без Tailscale. Установите полную версию.</string>
     <string name="cc_desligado">Выкл</string>
-    <string name="cc_desligado_det">Включите в Настройки лаунчера &gt; Claude через интернет.</string>
+    <string name="cc_desligado_det">Включите: Настройки › Дом и сеть › Удалённый доступ › Claude через интернет.</string>
     <string name="cc_login">1. Войдите в Tailscale</string>
     <string name="cc_login_det">Наведите камеру телефона на код рядом и войдите (это бесплатно).%1$s\n\nTailscale создаёт защищённый адрес в интернете только для этого ТВ.</string>
     <string name="cc_ativar">2. Включите публичный адрес</string>
@@ -281,10 +281,10 @@
         <item quantity="other">Сейчас %d часа</item>
     </plurals>
     <plurals name="ii_erros_novos">
-        <item quantity="one">%d новая ошибка. См. Панель &gt; Состояние.</item>
-        <item quantity="few">%d новые ошибки. См. Панель &gt; Состояние.</item>
-        <item quantity="many">%d новых ошибок. См. Панель &gt; Состояние.</item>
-        <item quantity="other">%d новой ошибки. См. Панель &gt; Состояние.</item>
+        <item quantity="one">%d новая ошибка. См. веб-панель › Система.</item>
+        <item quantity="few">%d новые ошибки. См. веб-панель › Система.</item>
+        <item quantity="many">%d новых ошибок. См. веб-панель › Система.</item>
+        <item quantity="other">%d новой ошибки. См. веб-панель › Система.</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="one">%d канал</item>

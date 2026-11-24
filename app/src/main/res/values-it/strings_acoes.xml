@@ -25,12 +25,12 @@
     <string name="rot_cena_uma">Esegui una scena</string>
     <string name="rot_cena">Esegui scena: %1$s</string>
     <string name="rot_cena_linha">Scena: %1$s</string>
-    <string name="rot_cena_sem">Crea prima una scena (pannello web › Extra › Scene)</string>
+    <string name="rot_cena_sem">Crea prima una scena (pannello web › Casa e automazioni › Scene)</string>
     <string name="lbl_cenas">Scene</string>
     <string name="pr_cenas">Scene</string>
     <string name="cenas_titulo">Scene</string>
-    <string name="cenas_det">OK esegue la scena. Creale e modificale nel pannello web › Extra › Scene.</string>
-    <string name="cenas_vazio">Nessuna scena. Creane una nel pannello web › Extra › Scene.</string>
+    <string name="cenas_det">OK esegue la scena. Creale e modificale nel pannello web › Casa e automazioni › Scene.</string>
+    <string name="cenas_vazio">Nessuna scena. Creane una nel pannello web › Casa e automazioni › Scene.</string>
     <string name="tec_titulo">Tasti del telecomando</string>
     <string name="tec_det">Netflix e YouTube funzionano in ogni schermata; tasti colorati e numeri solo nella schermata Home.</string>
     <string name="tec_nova">+ Configura un tasto</string>
@@ -59,7 +59,7 @@
     <string name="aut_botao">Alla pressione di un tasto</string>
     <string name="aut_evento">Quando succede qualcosa</string>
     <string name="aut_link">Tramite link</string>
-    <string name="aut_link_det">Crea e modifica nel pannello web › Extra › Scene</string>
+    <string name="aut_link_det">Crea e modifica nel pannello web › Casa e automazioni › Scene</string>
     <string name="ev_midia_tocou">Film o video avviato</string>
     <string name="ev_midia_pausou">Film o video in pausa o finito</string>
     <string name="ev_tv_ligou">La TV si è accesa</string>

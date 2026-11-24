@@ -796,7 +796,7 @@ AS\\Movies）。</string>
     <string name="st_titulo">USB メモリとストレージ</string>
     <string name="st_explica">TV で USB メモリをどう使うか選びます。容量不足なら、重いアプリ用の TV ストレージにできます。</string>
     <string name="st_linha_det">USB メモリを TV のストレージにする</string>
-    <string name="st_sem_shell">TV 内蔵のシェルが必要です（設定 › 詳細）。OK で再試行。</string>
+    <string name="st_sem_shell">TV 内蔵のシェルが必要です（設定 › システム › 詳細）。OK で再試行。</string>
     <string name="st_sem_pen">USB メモリがありません。差し込んで OK を押してください。</string>
     <string name="st_tv_livre">TV のストレージ: %2$s 中 %1$s 空き</string>
     <string name="st_pen">USB メモリ · %1$s · %2$s</string>

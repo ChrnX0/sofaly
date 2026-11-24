@@ -799,7 +799,7 @@ AS\\Movies)।</string>
     <string name="st_titulo">USB ड्राइव और स्टोरेज</string>
     <string name="st_explica">चुनें कि टीवी USB ड्राइव का कैसे उपयोग करे। जगह कम है? यह भारी ऐप्स के लिए टीवी स्टोरेज बन सकती है।</string>
     <string name="st_linha_det">USB ड्राइव को टीवी स्टोरेज बनाएं</string>
-    <string name="st_sem_shell">टीवी का अपना शेल चाहिए (सेटिंग्स › उन्नत)। फिर से कोशिश के लिए OK।</string>
+    <string name="st_sem_shell">टीवी का अपना शेल चाहिए (सेटिंग्स › सिस्टम › उन्नत)। फिर से कोशिश के लिए OK।</string>
     <string name="st_sem_pen">कोई USB ड्राइव नहीं लगी। एक लगाएं और OK दबाएं।</string>
     <string name="st_tv_livre">टीवी स्टोरेज: %2$s में से %1$s खाली</string>
     <string name="st_pen">USB ड्राइव · %1$s · %2$s</string>

@@ -241,7 +241,7 @@
     <string name="cl_ci_venceu_ha">expiré il y a %1$d jours</string>
     <string name="cl_ci_formato_data">d MMM yyyy</string>
     <string name="cl_vd_ja_dono">le launcher est déjà device owner</string>
-    <string name="cl_vd_sem_shell">le shell intégré n’a pas répondu (appairez-le dans Paramètres › Avancé › Shell du launcher)</string>
+    <string name="cl_vd_sem_shell">le shell intégré n’a pas répondu (appairez-le dans Paramètres › Système › Avancé › Shell du launcher)</string>
     <string name="cl_vd_usuario">Android n’a pas permis de retirer l’utilisateur %1$s</string>
     <string name="cl_vd_mudou">Les utilisateurs de la TV ont changé après la confirmation (maintenant : %1$s). Rien n\'a été supprimé ; recommencez.</string>
     <string name="cl_vd_google">Android n’a pas permis de mettre Google en pause un instant</string>

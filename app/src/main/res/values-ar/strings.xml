@@ -811,7 +811,7 @@ AS\\Movies).</string>
     <string name="st_titulo">ذاكرة USB والتخزين</string>
     <string name="st_explica">اختر كيف يستخدم التلفزيون ذاكرة USB. المساحة قليلة؟ يمكن أن تصبح تخزينًا للتلفزيون للتطبيقات الكبيرة.</string>
     <string name="st_linha_det">استخدام ذاكرة USB كتخزين للتلفزيون</string>
-    <string name="st_sem_shell">يحتاج إلى الصدفة الخاصة بالتلفزيون (الإعدادات › متقدم). OK للمحاولة مجددًا.</string>
+    <string name="st_sem_shell">يحتاج إلى الصدفة الخاصة بالتلفزيون (الإعدادات › النظام › متقدم). OK للمحاولة مجددًا.</string>
     <string name="st_sem_pen">لا توجد ذاكرة USB. وصّل واحدة واضغط OK.</string>
     <string name="st_tv_livre">تخزين التلفزيون: %1$s متاحة من %2$s</string>
     <string name="st_pen">ذاكرة USB · %1$s · %2$s</string>

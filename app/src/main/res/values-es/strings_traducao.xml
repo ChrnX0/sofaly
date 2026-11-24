@@ -165,18 +165,18 @@
     <string name="qr_gerar_outro">Código nuevo</string>
     <string name="tentar_de_novo">Reintentar</string>
     <string name="qr_fechar">Cerrar</string>
-    <string name="qr_painel_fora">El panel no está funcionando.\nActívalo en Ajustes del launcher &gt; Acceso remoto &gt; Panel (necesita un PIN).</string>
+    <string name="qr_painel_fora">El panel no está funcionando.\nActívalo en Ajustes › Casa y red › Acceso remoto › Panel del navegador (necesita un PIN).</string>
     <string name="qr_pronto">Listo</string>
     <string name="qr_entrou">El teléfono inició sesión en el panel.</string>
     <string name="qr_venceu">El código venció (dura 2 min).\nPulsa \"%1$s\" para mostrar uno nuevo.</string>
     <string name="qr_instrucoes">Apunta la cámara del teléfono al código de al lado. El teléfono abre el panel e inicia sesión, sin PIN.\n\nEl teléfono debe estar en el Wi-Fi de casa. El código sirve una sola vez, durante %1$s más.\nInstalar, desinstalar y restaurar una copia siguen pidiendo el PIN.</string>
     <string name="cc_dica_conta">En el teléfono, toca \"Iniciar sesión con Google\" y usa %1$s (la cuenta de esta TV).</string>
     <string name="cc_pin">Primero, un PIN</string>
-    <string name="cc_pin_det">Define el PIN en Ajustes del launcher &gt; Panel del navegador.\nEs lo que escribes cuando Claude pide iniciar sesión en la TV.</string>
+    <string name="cc_pin_det">Define el PIN en Ajustes › Casa y red › Acceso remoto › Panel del navegador.\nEs lo que escribes cuando Claude pide iniciar sesión en la TV.</string>
     <string name="cc_sem_tunel">Esta versión vino sin el túnel</string>
     <string name="cc_sem_tunel_det">El launcher se compiló sin Tailscale. Instala la versión completa.</string>
     <string name="cc_desligado">Desactivado</string>
-    <string name="cc_desligado_det">Actívalo en Ajustes del launcher &gt; Claude por internet.</string>
+    <string name="cc_desligado_det">Actívalo en Ajustes › Casa y red › Acceso remoto › Claude por internet.</string>
     <string name="cc_login">1. Inicia sesión en Tailscale</string>
     <string name="cc_login_det">Apunta la cámara del teléfono al código de al lado e inicia sesión (es gratis).%1$s\n\nTailscale crea una dirección segura en internet solo para esta TV.</string>
     <string name="cc_ativar">2. Activa la dirección pública</string>
@@ -277,9 +277,9 @@
         <item quantity="other">Son las %d</item>
     </plurals>
     <plurals name="ii_erros_novos">
-        <item quantity="one">%d error nuevo. Mira Panel &gt; Salud.</item>
-        <item quantity="many">%d errores nuevos. Mira Panel &gt; Salud.</item>
-        <item quantity="other">%d errores nuevos. Mira Panel &gt; Salud.</item>
+        <item quantity="one">%d error nuevo. Mira panel web › Sistema.</item>
+        <item quantity="many">%d errores nuevos. Mira panel web › Sistema.</item>
+        <item quantity="other">%d errores nuevos. Mira panel web › Sistema.</item>
     </plurals>
     <plurals name="bu_canais_n">
         <item quantity="one">%d canal</item>
