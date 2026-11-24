@@ -43,6 +43,16 @@ class PainelI18nTest {
         }
     }
 
+    /** A ficha de cada app (assets/fichas-apps.json, em português) aparece no painel: cada texto precisa de tradução. */
+    @Test fun aFichaDosAppsTemTraducao() {
+        val fichas = org.json.JSONObject(File(pasta().parentFile, "fichas-apps.json").readText())
+        val (t, _) = ler("en")
+        val chaves = t.map { org.json.JSONArray("[$it]").getString(0) }.toSet()
+        val faltam = fichas.keys().asSequence().flatMap { p -> fichas.getJSONObject(p).let { sequenceOf(it.getString("d"), it.getString("q")) } }
+            .filter { it !in chaves }.toSet()
+        assertEquals("textos da ficha dos apps sem tradução no painel", emptySet<String>(), faltam)
+    }
+
     @Test fun oMotorConheceAsMesmasLinguas() {
         val motor = File(pasta(), "i18n.js").readText()
         val lista = Regex("""LINGUAS = \[([^\]]+)]""").find(motor)?.groupValues?.get(1)
