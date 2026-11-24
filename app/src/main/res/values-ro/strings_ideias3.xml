@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Oprire blândă (temporizatorul de oprire estompează ecranul și scade volumul)</string>
+    <string name="extras_MURAL">Panoul familiei în panoul rapid</string>
+    <string name="extras_PRESENCA">Oprire când toți pleacă de acasă (router UniFi)</string>
+    <string name="extras_HOJE_NA_TV">\"Azi la TV\" în ecranul Căutare</string>
+    <string name="extras_RETROSPECTIVA">Rezumat săptămânal (duminică seara)</string>
+    <string name="extras_MODO_SIMPLES">Ecran simplu (carduri mari, nume rostite)</string>
+</resources>

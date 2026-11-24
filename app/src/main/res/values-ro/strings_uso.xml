@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Cum se folosește acest TV</string>
+    <string name="uso_det">Esențial ascunde Casă și automatizări, Acces la distanță și Avansat. Nimic nu se dezactivează.</string>
+    <string name="uso_simples">Esențial</string>
+    <string name="uso_completo">Complet</string>
+    <string name="uso_cuida">Pentru cineva de care am grijă</string>
+    <string name="uso_pergunta">Cum va fi folosit acest TV?</string>
+    <string name="uso_pergunta_det">Puteți schimba mai târziu în Setări › Sistem.</string>
+    <string name="uso_simples_det">Doar esențialul: aplicații, ceas și vreme. Mai puține opțiuni în Setări.</string>
+    <string name="uso_completo_det">Totul: control de pe telefon, dispozitive de casă, unitate de rețea și opțiuni avansate.</string>
+    <string name="uso_cuida_det">TV-ul părinților sau bunicilor: ușor pentru ei, iar dvs. ajutați de pe telefon, de departe.</string>
+    <string name="uso_cuidar_longe">Grijă de la distanță</string>
+    <string name="uso_cuidar_longe_det">Dezactivat până când persoana care locuiește acolo este de acord pe TV.</string>
+    <string name="uso_cartoes">Carduri mari pe ecranul principal</string>
+    <string name="uso_cartoes_det">Câteva aplicații mari, nume citite cu voce tare și un buton \"Cere ajutor\". Dezactivarea cere PIN-ul.</string>
+    <string name="uso_trocar_det">Acum: %1$s. OK pentru a alege din nou.</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Videoclipuri, muzică și fotografii din cloudul dvs.</string>
+    <string name="rede_nuvem_seguir">Continuă</string>
+    <string name="rede_nuvem_entrar">Conectare</string>
+    <string name="rede_nuvem_pedindo">Se cere un cod…</string>
+    <string name="rede_nuvem_esperando">Se așteaptă confirmarea pe telefon…</string>
+    <string name="rede_nuvem_salvando">Se conectează…</string>
+    <string name="rede_nuvem_recusado">Serviciul a refuzat. Verificați id-ul aplicației și încercați din nou.</string>
+    <string name="rede_erro_nuvem_login">Permisiunea acestui cont a expirat sau a fost eliminată. Eliminați contul (țineți OK) și conectați-vă din nou.</string>
+    <string name="rede_od_titulo">OneDrive: aplicația dvs. la Microsoft</string>
+    <string name="rede_od_explica">O dată, pe un computer: entra.microsoft.com › App registrations › New registration. La tipurile de cont, alegeți-l pe cel care include conturi Microsoft personale. Apoi, la Authentication, activați „Allow public client flows”. Copiați „Application (client) ID” și tastați-l aici (puteți tasta de pe telefon, în panou).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">ID-ul arată ca 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">Pe telefon sau computer, deschideți microsoft.com/link (sau îndreptați camera spre QR) și tastați codul de mai jos. TV-ul cere doar citirea fișierelor.</string>
+    <string name="rede_od_erro_app">Microsoft nu a acceptat această aplicație. Verificați ID-ul și dacă „Allow public client flows” este activat.</string>
+    <string name="rede_dbx_explica">O dată, pe un computer: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. În fila Permissions, bifați files.metadata.read, files.content.read și account_info.read (și files.content.write, dacă vreți copia de noapte în Dropbox) și salvați (Submit). Copiați „App key” și tastați-l aici.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">App key are doar litere mici și cifre.</string>
+    <string name="rede_dbx_codigo_explica">Îndreptați camera telefonului spre QR, conectați-vă la Dropbox și atingeți Allow. Dropbox arată un cod: tastați-l aici (puteți tasta de pe telefon, în panou).</string>
+    <string name="rede_dbx_codigo">Codul Dropbox</string>
+    <string name="rede_dbx_codigo_erro">Tastați tot codul arătat de Dropbox.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">O dată, pe un computer: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). În fila Configuration, la OAuth 2.0 Redirect URI, puneți %1$s, bifați „Read all files and folders” (și „Write all files and folders”, dacă vreți copia de noapte în Box). Salvați, apoi copiați aici Client ID și Client Secret.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID și Client Secret au doar litere și cifre. Copiați-le pe amândouă din fila Configuration.</string>
+    <string name="rede_volta_sem_rede">TV-ul nu este în rețeaua casei. Conectați-l și încercați din nou.</string>
+    <string name="rede_volta_explica">Îndreptați camera unui telefon aflat în același Wi‑Fi cu TV-ul spre QR, conectați-vă la %1$s și permiteți accesul. Telefonul revine singur la TV: nimic de tastat.</string>
+    <string name="rede_volta_porta">Portul %1$d al TV-ului este ocupat. Închideți alte aplicații și încercați din nou.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">O dată, pe un computer, în proiectul dvs. Google Cloud (console.cloud.google.com): APIs &amp; Services › Library › activați „Google Drive API”. În Google Auth Platform › Data Access, adăugați domeniul …/auth/drive.readonly. În Clients › Create client › Web application, la Authorized redirect URIs puneți %1$s. Copiați aici Client ID și Client secret.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Copiați-le pe amândouă din pagina clientului: ID-ul se termină în .apps.googleusercontent.com, iar secretul începe de obicei cu GOCSPX-.</string>
+    <string name="rede_gd_aviso">Dacă Google spune că aplicația nu e verificată, atingeți Advanced › Go to (este propria dvs. aplicație).</string>
+</resources>

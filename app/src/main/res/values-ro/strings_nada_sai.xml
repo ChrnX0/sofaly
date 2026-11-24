@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Datele dvs. rămân la dvs.</string>
+    <string name="nsc_det">Fără cont la noi, fără reclame</string>
+    <string name="nsc_texto">Fără cont la noi, fără reclame, fără urmărirea utilizării.\n\nSetările, fotografiile, notițele și copiile de siguranță rămân pe acest TV sau într-un cont propriu, dacă vă conectați unul.\n\nTV-ul vorbește doar cu serviciile pe care le activați, cum ar fi vremea sau posterele de filme. Unele trec prin serverul nostru (api.sofaly.tv), cum ar fi căutarea de podcasturi; acesta primește doar cererea, niciodată vreun cont de-al dvs. Politica de confidențialitate de pe site le enumeră pe fiecare.</string>
+</resources>

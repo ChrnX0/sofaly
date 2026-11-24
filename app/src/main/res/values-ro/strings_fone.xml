@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">Sunet în căști (telefon)</string>
+    <string name="fone_titulo">Sunet în căști</string>
+    <string name="fone_texto">Scanați cu un telefon din Wi-Fi-ul casei și conectați căștile. Până la %1$d telefoane. TV-ul tace cât timp cineva ascultă; închiderea paginii readuce sunetul.</string>
+    <string name="fone_ouvindo">Ascultă: %1$d din %2$d</string>
+    <string name="fone_fechar">Închide</string>
+    <string name="fone_parar">Oprește</string>
+    <string name="fone_sem_rede">TV-ul nu este în rețeaua casei.</string>
+</resources>

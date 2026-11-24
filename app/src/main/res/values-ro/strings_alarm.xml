@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Alegeți ora și zilele</string>
+    <string name="al_volume_rotulo">Volumul când sună</string>
+    <string name="al_volume_det">TV-ul urcă cel puțin la acest volum, chiar dacă era pe mut</string>
+    <string name="al_volume_lg_det">TV-ul LG începe încet și urcă la acest volum</string>
+    <string name="al_info_toca">sună %1$s</string>
+    <string name="al_proximo_rotulo">Următoarea alarmă</string>
+    <string name="al_dica_editar">editează</string>
+    <string name="al_dica_ligar">activ/inactiv</string>
+    <string name="al_dica_sair">ieșire</string>
+    <string name="al_dica_mudar">schimbă</string>
+    <string name="al_dica_andar">mută</string>
+    <string name="al_dica_salvar">salvează</string>
+    <string name="al_ligou">Alarma de la %1$s activată</string>
+    <string name="al_desligou">Alarma de la %1$s dezactivată</string>
+    <string name="al_sim">Da</string>
+    <string name="al_nao">Nu</string>
+    <string name="al_op_salvar_det">Și ÎNAPOI salvează</string>
+    <string name="al_op_repetir">Repetă</string>
+    <string name="al_op_repetir_det">OK alege zilele</string>
+    <string name="al_op_som">Sunet</string>
+    <string name="al_op_som_det">OK alege un sunet și vi-l redă</string>
+    <string name="al_op_rampa">Sonerie</string>
+    <string name="al_op_rampa_det">Pornirea încet e un mod mai blând de a vă trezi</string>
+    <string name="al_op_bom_dia">Bună dimineața</string>
+    <string name="al_op_bom_dia_det">Când o opriți, TV-ul spune ora, vremea și calendarul de azi</string>
+    <string name="al_op_cena">Scenă la oprire</string>
+    <string name="al_op_cena_det">OK alege scena</string>
+    <string name="al_op_nome">Nume</string>
+    <string name="al_op_nome_det">Apare pe ecran când sună</string>
+    <string name="al_op_nome_dica">de ex. Medicament</string>
+    <string name="al_op_alarme">Alarmă</string>
+    <string name="al_op_ligado_det">OK o activează sau dezactivează</string>
+    <string name="al_op_apagar">Șterge alarma</string>
+    <string name="al_op_apagar_det">Întreabă înainte de a șterge</string>
+    <string name="al_op_sair">Ieși fără a salva</string>
+    <string name="al_op_sair_det">Anulează ce ați schimbat aici</string>
+    <string name="al_apagar_q">Ștergeți alarma de la %1$s?</string>
+    <string name="al_salvo">Alarmă salvată: %1$s</string>
+    <string name="al_resumo">Sună %1$s</string>
+    <string name="al_resumo_desligado">Dezactivată: nu va suna</string>
+    <string name="al_op_hora">Ora</string>
+    <string name="al_op_minuto">Minutul</string>
+</resources>

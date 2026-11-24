@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Subiecte</string>
+    <string name="pod_ass_seus">Urmăriți: %d</string>
+    <string name="pod_ass_em_alta">În tendințe la acest subiect</string>
+    <string name="pod_parecidos">Similare: %s</string>
+    <string name="pod_ass_noticias">Știri</string>
+    <string name="pod_ass_humor">Comedie</string>
+    <string name="pod_ass_ciencia">Știință</string>
+    <string name="pod_ass_tecnologia">Tehnologie</string>
+    <string name="pod_ass_historia">Istorie</string>
+    <string name="pod_ass_negocios">Afaceri</string>
+    <string name="pod_ass_saude">Sănătate</string>
+    <string name="pod_ass_esportes">Sport</string>
+    <string name="pod_ass_cultura">Cultură</string>
+    <string name="pod_ass_crimes">Crime reale</string>
+    <string name="pod_ass_tv_filmes">TV și film</string>
+    <string name="pod_ass_musica">Muzică</string>
+    <string name="pod_ass_educacao">Educație</string>
+    <string name="pod_ass_infantil">Copii și familie</string>
+    <string name="pod_ass_fe">Credință</string>
+    <string name="pod_ass_lazer">Timp liber</string>
+</resources>

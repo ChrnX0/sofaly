@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Mod invitat</string>
+    <string name="hos_det">Pentru închirieri: conectările invitaților se șterg la plecare. Dezactivarea cere PIN-ul.</string>
+    <string name="hos_pin_sair">PIN pentru a ieși din modul invitat</string>
+    <string name="hos_pin_config">PIN pentru a deschide setările</string>
+    <string name="hos_saida">Plecarea invitatului</string>
+    <string name="hos_saida_det">La această oră, aplicațiile de streaming sunt curățate. OK schimbă ziua.</string>
+    <string name="hos_saida_nenhuma">Nesetat</string>
+    <string name="hos_saida_hoje">Azi la %1$s</string>
+    <string name="hos_saida_amanha">Mâine la %1$s</string>
+    <string name="hos_saida_dia">%1$s la %2$s</string>
+    <string name="hos_hora">Ora plecării</string>
+    <string name="hos_hora_det">OK schimbă ora (8:00 până la 14:00).</string>
+    <string name="hos_regras">Regulile casei</string>
+    <string name="hos_regras_vazio">Încă niciuna. Apar pe ecranul de bun venit.</string>
+    <string name="hos_regras_dica">De ex.: Liniște după ora 22. Plecarea la ora 11.</string>
+    <string name="hos_apps">Aplicații de curățat la plecare</string>
+    <string name="hos_apps_det">Conectările și istoricul aplicațiilor marcate se șterg. Aplicațiile de streaming vin marcate.</string>
+    <string name="hos_apps_sub">OK marchează sau demarchează. Aplicațiile de sistem nu pot fi curățate.</string>
+    <string name="hos_encerrar">Încheie șederea acum</string>
+    <string name="hos_encerrar_det">Curăță aplicațiile acum și pregătește bun venitul pentru următorul invitat.</string>
+    <string name="hos_encerrar_pergunta">Ștergeți acum conectările și istoricul aplicațiilor invitaților? Acțiunea nu poate fi anulată.</string>
+    <string name="hos_encerrar_sim">Șterge</string>
+    <string name="hos_limpando">Se curăță…</string>
+    <string name="hos_limpou">Aplicații curățate: %1$d.</string>
+    <string name="hos_limpou_falhas">Aplicații curățate: %1$d. Eșuate: %2$s</string>
+    <string name="hos_ultima">Ultima curățare: %1$s</string>
+    <string name="hos_bv_titulo">Bun venit!</string>
+    <string name="hos_bv_regras">Regulile casei</string>
+    <string name="hos_bv_privacidade">Conectați-vă la aplicații fără griji: la plecare, conectările și istoricul aplicațiilor de streaming se șterg automat.</string>
+    <string name="hos_bv_ok">Începe</string>
+    <string name="hos_bv_wifi">Wi-Fi</string>
+</resources>

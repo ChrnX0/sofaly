@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Copie de siguranță automată</string>
+    <string name="bkn_explica">În fiecare noapte, cât TV-ul e inactiv, salvează o copie completă blocată cu parola dvs. Se păstrează ultimele 7. Notați parola: fără ea copia nu poate fi deschisă.</string>
+    <string name="bkn_ligado">activată</string>
+    <string name="bkn_desligado">dezactivată</string>
+    <string name="bkn_sem_senha">dezactivată · setați mai întâi parola copiei</string>
+    <string name="bkn_senha">Parola copiei</string>
+    <string name="bkn_senha_ok">setată · OK o schimbă</string>
+    <string name="bkn_senha_falta">nesetată · OK o setează</string>
+    <string name="bkn_senha_nova">Parola copiei (8 sau mai multe caractere)</string>
+    <string name="bkn_senha_repetir">Tastați parola din nou</string>
+    <string name="bkn_senha_curta">Parola trebuie să aibă între 8 și 128 de caractere.</string>
+    <string name="bkn_senha_diferente">Cele două parole nu s-au potrivit.</string>
+    <string name="bkn_senha_gravada">Parolă salvată. Păstrați-o undeva sigur.</string>
+    <string name="bkn_senha_erro">Nu s-a putut salva parola.</string>
+    <string name="bkn_horario">Ora</string>
+    <string name="bkn_extra">Copie suplimentară</string>
+    <string name="bkn_destino_tv">Doar TV-ul</string>
+    <string name="bkn_destino_pendrive">Stick USB</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Copie acum</string>
+    <string name="bkn_ultimo">Ultima</string>
+    <string name="bkn_nunca">niciodată</string>
+    <string name="bkn_pin">PIN pentru a schimba copia de siguranță</string>
+</resources>

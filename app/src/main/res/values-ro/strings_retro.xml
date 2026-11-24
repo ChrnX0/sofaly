@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Biblioteca retrô da tela Jogos (21/11/2026): RetroLibrary, RetroLibraryTv, JogosActivity. -->
+<resources>
+    <string name="retro_titulo">Jocurile dvs.</string>
+    <string name="retro_vazio">Niciun joc găsit pe stickul USB. Puneți jocurile proprii într-un folder cu numele consolei (de ex. SNES).</string>
+    <string name="retro_portugues">în portugheză</string>
+    <string name="retro_abrindo">Se deschide în RetroArch…</string>
+    <string name="retro_nao_abriu">RetroArch nu a deschis acest joc. Deschideți RetroArch o dată și descărcați nucleul %1$s.</string>
+    <string name="retro_sem_retroarch">Instalați RetroArch (gratuit în Magazin Play) pentru a juca aceste jocuri.</string>
+    <string name="retro_aviso_legal">Sofaly nu include jocuri. Folosiți-le pe cele pe care le dețineți.</string>
+    <string name="retro_procurando">Se caută jocuri pe stickul USB…</string>
+</resources>

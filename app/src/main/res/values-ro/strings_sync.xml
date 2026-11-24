@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">Conectat ca %1$s. Ce păstrează TV-ul sincronizat cu telefonul.</string>
+    <string name="sync_sub_mdblist">Conectat ca %1$s. Listele dvs. MDBList pot apărea în catalog.</string>
+    <string name="sync_ultima">Ultima sincronizare: %1$s</string>
+    <string name="sync_nunca">Încă nesincronizat</string>
+    <string name="sync_interesses">Interese ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">Interese ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">Ce marcați aici apare acolo și invers</string>
+    <string name="sync_assistidos">Văzute ← History</string>
+    <string name="sync_assistidos_det">Aduce ce ați vizionat deja pe telefon sau în altă parte</string>
+    <string name="sync_continuar">Continuă ⇄ Unde v-ați oprit</string>
+    <string name="sync_continuar_det">Oprit pe telefon, reluat pe TV din același loc</string>
+    <string name="sync_contar">Spune-i lui %1$s ce vizionez aici</string>
+    <string name="sync_contar_det">Trimite „se vizionează acum” și „vizionat” în timpul redării. Niciodată în modul Invitat sau pe un profil de copil.</string>
+    <string name="sync_listas">Liste în catalog</string>
+    <string name="sync_listas_nenhuma">Niciuna aleasă</string>
+    <string name="sync_listas_n">%1$d alese: %2$s</string>
+    <string name="sync_listas_sub">Apar în LISTE, sub Toate, doar cu titlurile din lista dvs. Până la %1$d.</string>
+    <string name="sync_listas_carregando">Se încarcă listele dvs.…</string>
+    <string name="sync_listas_vazio">Nicio listă găsită. Creați sau apreciați o listă pe Trakt sau MDBList și reveniți aici.</string>
+    <string name="sync_listas_cheio">Până la %1$d liste</string>
+    <string name="sync_lista_itens">%1$d titluri</string>
+    <string name="sync_agora">Sincronizează acum</string>
+    <string name="sync_agora_det">Se întâmplă și singur când deschideți Filme sau Seriale</string>
+    <string name="sync_rodando">Se sincronizează…</string>
+    <string name="sync_feito">Sincronizat</string>
+    <string name="sync_sair">Deconectare de la %1$s</string>
+    <string name="sync_bloqueado">În pauză: modul Invitat sau un profil de copil este activ.</string>
+    <string name="sync_outro_perfil">În pauză: sincronizarea aparține altui profil.</string>
+    <string name="sync_trakt_cheia">Lista dvs. Trakt este plină (conturile gratuite au 100). Launcherul continuă doar pe TV.</string>
+    <string name="sync_ligado">Activat</string>
+    <string name="sync_desligado">Dezactivat</string>
+    <string name="sync_fonte_trakt">Date de la Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">Date de la Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d din %2$d în lista dvs.</string>
+    <string name="sync_continuando">Se reia de unde v-ați oprit pe celălalt dispozitiv</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">Filme la propria frecvență de cadre (24 Hz)</string>
+    <string name="quadros_det">TV-ul trece pe 24 Hz cât rulează filmul, ca imaginea să nu sacadeze la mișcările camerei. Ecranul se înnegrește 1–2 s la început. Nu se folosește la TV live.</string>
+</resources>

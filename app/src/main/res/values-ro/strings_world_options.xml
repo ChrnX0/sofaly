@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Opțiuni pentru %1$s</string>
+    <string name="wo_ordenar">Sortare</string>
+    <string name="wo_ordenar_de">Sortează %1$s</string>
+    <string name="wo_por_uso">Cele mai folosite primele</string>
+    <string name="wo_az">A–Z</string>
+    <string name="wo_a_mao">Ordinea mea</string>
+    <string name="wo_renomear_mundo">Redenumește această categorie</string>
+    <string name="wo_icone_mundo">Schimbă pictograma acestei categorii</string>
+    <string name="wo_esconder">Ascunde această categorie</string>
+    <string name="wo_mostrar">Afișează categoriile ascunse (%1$d)</string>
+    <string name="wo_padrao">Înapoi cum era</string>
+    <string name="wo_subir">Mută în sus</string>
+    <string name="wo_descer">Mută în jos</string>
+    <string name="wo_renomear_app">Redenumește</string>
+    <string name="wo_vazio_original">Gol = numele original</string>
+    <string name="wo_so_icone">Arată doar pictograma</string>
+    <string name="wo_com_nome">Arată numele</string>
+    <string name="wo_nomes_titulo">Etichetele pictogramelor</string>
+    <string name="wo_so_icone_curto">Doar pictogramă</string>
+    <string name="wo_com_nome_curto">Cu nume</string>
+    <string name="co_titulo">Continuă</string>
+    <string name="co_mostrar">Afișat</string>
+    <string name="co_esconder">Ascuns</string>
+    <string name="wo_nomes_det">Numele sub fiecare pictogramă de categorie, sau doar pictograma</string>
+    <string name="co_det">Ce ați lăsat la jumătate, în partea de sus a fiecărei categorii</string>
+    <string name="tec_cfg_det">Apăsare, ținere, apăsare dublă și triplă pe fiecare buton</string>
+    <string name="bb_titulo">Aspectul ecranului principal</string>
+    <string name="bb_cruz">Cruce</string>
+    <string name="bb_barra">Bară jos</string>
+    <string name="bb_det">Categorii în cruce sau fixate jos cu aplicațiile deasupra (▲)</string>
+</resources>

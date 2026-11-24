@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Oprește</string>
+    <string name="ra_parar_det">Radioul continuă pe ecranul principal și în screensaver până îl opriți</string>
+    <string name="ra_parar_det_antigo">Ieșirea din acest ecran îl oprește și ea</string>
+    <string name="ouv_canal">Radio în redare</string>
+    <string name="ouv_abrir">Deschide ecranul radio</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podcasturi</string>
+    <string name="pod_dica_mais">mai mult</string>
+    <string name="pod_de">%1$s din %2$s</string>
+    <string name="pod_velocidade">Viteză</string>
+    <string name="pod_silencio">Sari peste tăceri</string>
+    <string name="pod_silencio_det">Taie pauzele din vorbire</string>
+    <string name="pod_ligado">activat</string>
+    <string name="pod_desligado">dezactivat</string>
+    <string name="pod_continuar">Continuă</string>
+    <string name="pod_novos">Episoade noi</string>
+    <string name="pod_video">video</string>
+    <string name="pod_meus">Podcasturile mele</string>
+    <string name="pod_ultimo">ultimul: %s</string>
+    <string name="pod_adicionar">Adaugă</string>
+    <string name="pod_colar">Lipiți adresa unui podcast</string>
+    <string name="pod_colar_det">Linkul fluxului RSS (site-urile de podcasturi îl arată ca RSS)</string>
+    <string name="pod_pelo_celular">De pe telefon</string>
+    <string name="pod_pelo_celular_det">Deschideți panoul TV-ului pe telefon › Podcasturi: lipiți un link sau importați lista aplicației dvs. de podcasturi (OPML)</string>
+    <string name="pod_sem_episodios">Niciun episod de afișat.</string>
+    <string name="pod_ouvido">ascultat</string>
+    <string name="pod_do_comeco">Redă de la început</string>
+    <string name="pod_marcar_nao">Marchează ca neascultat</string>
+    <string name="pod_marcar_ouvido">Marchează ca ascultat</string>
+    <string name="pod_abrir">Deschide</string>
+    <string name="pod_remover">Dezabonare</string>
+    <string name="pod_removido">Dezabonat</string>
+    <string name="pod_adicionando">Se adaugă podcastul…</string>
+    <string name="pod_adicionado">Podcast adăugat</string>
+    <string name="pod_nao_deu">Nu s-a putut adăuga: %s</string>
+    <string name="pod_horas">%1$d h %2$s</string>
+    <string name="pod_minutos">%d min</string>
+    <string name="pod_hoje">azi</string>
+    <string name="pod_ontem">ieri</string>
+    <string name="pod_falhou">Acest episod nu rulează acum. Încercați din nou mai târziu.</string>
+    <string name="pod_abrir_tela">Deschide ecranul podcasturilor</string>
+    <string name="ra_podcasts_det">Emisiuni, știri și discuții pe care le urmăriți</string>
+    <string name="pod_procurar">Caută</string>
+    <string name="pod_buscar">Caută podcasturi</string>
+    <string name="pod_em_alta">Populare în țara dvs.</string>
+    <string name="pod_atribuicao">Căutare: Podcast Index</string>
+    <string name="pod_sugestoes">Sugestii</string>
+    <string name="pod_sugestao_seguir">OK pentru a urmări</string>
+    <string name="pod_sugeridos_seguidos">Podcasturile sugerate au fost adăugate la Podcasturile mele</string>
+</resources>

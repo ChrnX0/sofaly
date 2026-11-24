@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Configurare cu telefonul</string>
+    <string name="pc_linha_det">Recomandat. Îndreptați camera telefonului spre un cod: PIN, limbă, TV live, oraș și servicii de filme, în 5 pași.</string>
+    <string name="pc_instrucoes">Îndreptați camera telefonului spre codul de alături. Telefonul deschide o configurare în 5 pași.\n\nTelefonul trebuie să fie în Wi-Fi-ul casei. Țineți acest ecran deschis până creați PIN-ul pe telefon (mai sunt %1$s).</string>
+    <string name="pc_entrou">Continuați pe telefon.</string>
+    <string name="pc_venceu">Codul a expirat.\nApăsați \"%1$s\" pentru a afișa unul nou.</string>
+    <string name="pc_sem_rede">TV-ul nu este într-o rețea.\nConectați-l la Wi-Fi-ul casei și încercați din nou.</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">Aspecte gata făcute</string>
+    <string name="vpr_det">Fiecare OK trece la aspectul următor: temă, text și culoarea fundalului împreună</string>
+    <string name="vpr_meu">Al dvs.</string>
+    <string name="vpr_classico">Clasic</string>
+    <string name="vpr_leitura">Citire ușoară</string>
+    <string name="vpr_galeria">Galerie</string>
+    <string name="vpr_galeria_grande">Galerie mare</string>
+    <string name="vpr_cores">Culorile aplicațiilor</string>
+</resources>

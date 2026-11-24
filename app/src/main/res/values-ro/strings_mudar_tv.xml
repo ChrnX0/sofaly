@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Adu de pe alt TV</string>
+    <string name="mtv_qr_desc">Cod QR pentru a aduce setările de pe alt TV</string>
+    <string name="mtv_instrucoes">Pe TV-ul VECHI, deschideți panoul (telefon sau computer), mergeți la Sistem › Copie de siguranță › \"Mutare pe un TV nou\" și scanați acest QR sau tastați codul de mai jos.\nTotul merge criptat, doar la acest TV. Codul durează %1$s.</string>
+    <string name="mtv_recebendo">Se primește… nu opriți TV-ul.</string>
+    <string name="mtv_pronto">Totul a venit de la %1$s. TV-ul repornește acum; apoi aplicațiile revin una câte una.</string>
+    <string name="mtv_erro">Nu a funcționat: %1$s\nNimic nu s-a schimbat pe acest TV. Apăsați \"%2$s\" pentru a încerca din nou.</string>
+    <string name="mtv_venceu">Codul a expirat (durează 10 min).\nApăsați \"%1$s\" pentru a afișa unul nou.</string>
+    <string name="mtv_cfg_det">Setările, PIN-ul, canalele și aplicațiile TV-ului vechi în 2 minute, cu un QR</string>
+    <string name="mtv_fila_titulo">Aplicațiile dvs. revin</string>
+    <string name="mtv_fila_texto">Aplicația %1$d din %2$d. Deschideți-o în Magazin Play și apăsați Instalează; când reveniți, apare următoarea.</string>
+    <string name="mtv_fila_abrir">Deschide în Magazin Play</string>
+    <string name="mtv_fila_pular">Omite</string>
+    <string name="mtv_fila_depois">Mai târziu</string>
+    <string name="mtv_fila_fim">Toate aplicațiile de pe celălalt TV sunt aici.</string>
+    <string name="mtv_fila_cfg_det">Mai sunt de instalat %1$d aplicații de pe celălalt TV</string>
+    <string name="mtv_diario">Adus de la %1$s: setări restaurate, %2$d aplicații de instalat</string>
+    <string name="mtv_diario_enviado">Trimis la un TV nou: setări și %1$d aplicații</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Tastați ce vreți să facă TV-ul</string>
+    <string name="cc_nao_entendi">Nu am înțeles. Încercați ceva de genul:</string>
+    <string name="cc_exemplo_1">pune Globo</string>
+    <string name="cc_exemplo_2">deschide YouTube</string>
+    <string name="cc_exemplo_3">oprește în 30 de minute</string>
+    <string name="cc_abrindo">Se deschide %1$s</string>
+    <string name="cc_canal">Se pune %1$s</string>
+    <string name="cc_o_que_passa">Ce e pe %1$s</string>
+    <string name="cc_timer">Memento în %1$d minute</string>
+    <string name="cc_desligar">TV-ul se oprește în %1$d minute</string>
+    <string name="cc_desligar_cancelar">Temporizator de oprire anulat</string>
+    <string name="cc_volume_subir">Volum mai tare</string>
+    <string name="cc_volume_descer">Volum mai încet</string>
+    <string name="cc_mudo">Mut activ/inactiv</string>
+    <string name="cc_pausar">Pauză</string>
+    <string name="cc_continuar">Redare</string>
+    <string name="cc_tela_previsao">prognoza</string>
+    <string name="cc_tela_agenda">calendarul</string>
+    <string name="cc_tela_despertador">alarmele</string>
+    <string name="cc_tela_configuracoes">setările launcherului</string>
+    <string name="cc_tela_inicio">ecranul principal</string>
+    <string name="cc_confirme_na_tv">%1$s: confirmați cu OK pe TV</string>
+    <string name="cc_nao_fiz">%1$s: nefăcut (%2$s)</string>
+    <string name="cc_aviso_titulo">Panou de pe telefon</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Família conectada (degrau 3, FamiliaConectada.kt): fotos e recados dos parentes por um link. -->
+<resources>
+    <string name="famc_titulo">Link de familie</string>
+    <string name="famc_det">Copiii și nepoții trimit fotografii și notițe la acest TV cu un link, fără cont</string>
+    <string name="famc_ligado">Activat: OK arată din nou codul QR pentru distribuire</string>
+    <string name="famc_texto">Scanați codul cu telefonul și trimiteți linkul familiei (WhatsApp, e-mail). Cine are linkul poate trimite fotografii și notițe: apar imediat pe ecran, notițele rămân pe panou în panoul rapid, iar fotografiile se alătură celor din screensaver. Nimic nu trece prin serverele noastre.</string>
+    <string name="famc_sem_tunel">Aceasta folosește accesul din afara casei (Tailscale), care nu este încă configurat pe acest TV. Configurați-l în Setări › Casă și rețea › Acces la distanță, apoi reveniți aici.</string>
+    <string name="famc_trocar">Link nou</string>
+    <string name="famc_trocar_det">Linkul vechi încetează imediat să funcționeze</string>
+    <string name="famc_desligar">Dezactivează</string>
+    <string name="famc_alguem">Familie</string>
+    <string name="famc_de">De la %1$s</string>
+</resources>

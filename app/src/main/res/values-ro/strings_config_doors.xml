@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">Casă și rețea</string>
+    <string name="cfg3_mais_ajustes">Mai multe setări</string>
+    <string name="cfg3_mais_ajustes_det">Ascunse pentru concizie: %1$d</string>
+    <string name="cfg3_modo">Mod: %1$s</string>
+    <string name="cfg3_porta_0_det">Categorii, pictograme și fundal</string>
+    <string name="cfg3_porta_1_det">Conturi TV, audio, subtitrări</string>
+    <string name="cfg3_porta_2_det">Copii, PIN și invitați</string>
+    <string name="cfg3_porta_3_det">Screensaver, somn, trezire</string>
+    <string name="cfg3_porta_4_det">Casă, telefon și panou</string>
+    <string name="cfg3_porta_5_det">Actualizări, copie de siguranță și ajutor</string>
+</resources>

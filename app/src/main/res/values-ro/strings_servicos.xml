@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Servicii de filme și seriale</string>
+    <string name="sv_subtitulo">Conturi opționale. Nimic nu e trimis în afara TV-ului până nu vă conectați.</string>
+    <string name="sv_linha">Servicii de filme și seriale</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB și OpenSubtitles</string>
+    <string name="sv_trakt_det">Păstrează sincronizate cu telefonul ce ați vizionat și lista De văzut</string>
+    <string name="sv_simkl_det">Ca Trakt, excelent și pentru anime. Folosiți unul sau ambele</string>
+    <string name="sv_mdblist_det">Opțional: listele dvs., cum ar fi Top 250, devin categorii în Filme și Seriale</string>
+    <string name="sv_tmdb_det">Rezumat, distribuție și data episodului următor, în limba TV-ului</string>
+    <string name="sv_os_det">Subtitrări online. Fără cont: 5 pe zi. Cu un cont gratuit: 20</string>
+    <string name="sv_desligado">Conectare</string>
+    <string name="sv_entrando">se conectează…</string>
+    <string name="sv_conectado">conectat</string>
+    <string name="sv_ativo">activat</string>
+    <string name="sv_sem_chave">Această versiune nu are încă cheile acestor servicii. Apar după următoarea actualizare.</string>
+    <string name="sv_pedindo">Se cere un cod de la %1$s…</string>
+    <string name="sv_passos">1. Pe telefon, deschideți %1$s (sau îndreptați camera spre codul din dreapta).\n2. Conectați-vă la %2$s și tastați codul:</string>
+    <string name="sv_espera">Acest ecran continuă singur. ÎNAPOI anulează.</string>
+    <string name="sv_ok">Gata: %1$s este conectat%2$s.</string>
+    <string name="sv_ok_como"> ca %1$s</string>
+    <string name="sv_falhou">Nu a funcționat: %1$s</string>
+    <string name="sv_motivo_venceu">codul a expirat. Încercați din nou.</string>
+    <string name="sv_motivo_recusado">accesul a fost refuzat pe telefon.</string>
+    <string name="sv_motivo_usado">acest cod a fost deja folosit. Încercați din nou.</string>
+    <string name="sv_motivo_erro">serviciul nu a răspuns. Încercați din nou peste un moment.</string>
+    <string name="sv_sair_pergunta">Vă deconectați de la %1$s? TV-ul uită contul și nu mai vorbește cu %1$s. Datele dvs. de acolo rămân acolo.</string>
+    <string name="sv_sair">Deconectare</string>
+    <string name="sv_fechar">Închide</string>
+    <string name="sv_mdblist_titulo">Cheie MDBList</string>
+    <string name="sv_mdblist_texto">Opțional: notele funcționează deja fără ea. Pentru a folosi propriul cont MDBList (listele dvs., cota dvs.), conectați-vă pe mdblist.com, deschideți Preferences, copiați cheia API și tastați-o aici (mai ușor din panoul web, fila Setări, prin lipire).</string>
+    <string name="sv_mdblist_dica">Cheie API</string>
+    <string name="sv_os_titulo">Cont OpenSubtitles</string>
+    <string name="sv_os_texto">Opțional: cu un cont gratuit pe opensubtitles.com limita crește de la 5 la 20 de subtitrări pe zi.</string>
+    <string name="sv_os_usuario">Nume de utilizator</string>
+    <string name="sv_os_senha">Parolă</string>
+    <string name="sv_gravar">Salvează</string>
+    <string name="sv_cancelar">Anulează</string>
+    <string name="sv_limite_dia">Limita zilnică de subtitrări s-a terminat. Se reînnoiește în 24 h (cu un cont OpenSubtitles sunt 20 pe zi).</string>
+    <string name="sv_tmdb_atribuicao">Acest produs folosește API-ul TMDB, dar nu este aprobat sau certificat de TMDB.</string>
+    <string name="ext_saga">%1$s · %2$d din %3$d în lista dvs.</string>
+    <string name="ext_nao_e_este">Nu acest film</string>
+    <string name="ext_proximo">Episod nou %1$s (S%2$dE%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Ep. nou %1$s</string>
+    <string name="ext_hoje">azi</string>
+    <string name="ext_amanha">mâine</string>
+    <string name="sv_mdblist_passos">Opțional: listele dvs. MDBList (cum ar fi Top 250) devin categorii în Filme și Seriale.\n1. Îndreptați camera telefonului spre codul din stânga și conectați-vă (sau creați un cont gratuit). La finalul paginii, atingeți API Access, generați cheia dacă nu există încă și copiați-o.\n2. Îndreptați spre codul din dreapta: panoul web se deschide la Setări. Lipiți cheia la MDBList și atingeți Salvează cheia.\n3. TV-ul o verifică imediat și acest ecran continuă singur.</string>
+    <string name="sv_mdblist_qr1">Pagina cheii MDBList</string>
+    <string name="sv_mdblist_qr2">Panou web (%1$s)</string>
+    <string name="sv_mdblist_digitar">Tastați cheia aici</string>
+    <string name="sv_f_chave_invalida">cheie nevalidă (doar litere și cifre)</string>
+    <string name="sv_f_chave_recusada">%1$s nu a acceptat această cheie</string>
+    <string name="sv_f_respondeu">%1$s a răspuns cu eroarea %2$d. Încercați din nou peste un moment.</string>
+    <string name="sv_f_falta">introduceți numele de utilizator și parola</string>
+    <string name="sv_f_longo">nume de utilizator sau parolă prea lungi</string>
+    <string name="sv_f_senha">nume de utilizator sau parolă greșite</string>
+    <string name="sv_f_gravar">nu s-a putut salva pe TV. Încercați din nou.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Nota Simkl</string>
+    <string name="sv_simkl_convite_det">Conectați-vă contul</string>
+</resources>

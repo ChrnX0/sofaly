@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Ecranul Toate aplicațiile</string>
+    <string name="aa_layout_shelves">Rafturi</string>
+    <string name="aa_layout_folders">Foldere și canale</string>
+    <string name="aa_layout_library">Bibliotecă</string>
+    <string name="aa_favoritos">Favorite</string>
+    <string name="aa_pastas">Foldere</string>
+    <string name="aa_nova_pasta">Folder nou</string>
+    <string name="aa_por_na_pasta">Adaugă în folder…</string>
+    <string name="aa_tirar_da_pasta">Elimină din acest folder</string>
+    <string name="aa_renomear_pasta">Redenumește folderul</string>
+    <string name="aa_apagar_pasta">Șterge folderul</string>
+    <string name="aa_fixar_cruz">Afișează pe ecranul principal</string>
+    <string name="aa_soltar_cruz">Elimină de pe ecranul principal</string>
+    <string name="aa_ordenar">Sortează toate aplicațiile</string>
+    <string name="aa_f_tudo">Toate</string>
+    <string name="aa_f_uso">Cele mai folosite</string>
+    <string name="aa_f_novos">Noi</string>
+    <string name="aa_canais">Acum pe %1$s</string>
+    <string name="aa_hint_folder">OK deschide · țineți OK pentru opțiuni</string>
+</resources>

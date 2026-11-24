@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Internetul a revenit</string>
+    <string name="rd_voltou_texto">A fost căzut %1$s (de la %2$s). Cauză probabilă: %3$s.</string>
+    <string name="rd_causa_wifi">TV-ul și-a pierdut Wi-Fi-ul</string>
+    <string name="rd_causa_provedor">furnizorul de internet sau routerul</string>
+    <string name="rd_min">%1$d min</string>
+    <string name="rd_h_min">%1$d h %2$d min</string>
+    <string name="rd_disco_titulo">Stocarea TV-ului se umple</string>
+    <string name="rd_disco_texto">În acest ritm se umple în aproximativ %1$d zile (%2$d MB liberi). Goliți cache-ul aplicațiilor sau eliminați aplicațiile pe care nu le folosiți.</string>
+    <string name="pr_avisos_tv">De la TV</string>
+    <string name="mural_riscar">Taie %1$s</string>
+    <string name="ds_lento_titulo">Sofaly a devenit mai lent</string>
+    <string name="ds_lento_texto">Versiunea %1$d: cadrele lente durează %2$d ms, înainte durau %3$d ms (+%4$d%%).</string>
+</resources>

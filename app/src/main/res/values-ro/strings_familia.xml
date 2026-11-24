@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">PIN copii</string>
+    <string name="fam_pin_det">Un al doilea PIN pentru a debloca canale, categorii ascunse și ora de culcare în fața copiilor. PIN-ul panoului funcționează în continuare peste tot.</string>
+    <string name="fam_pin_ok">PIN copii salvat</string>
+    <string name="fam_pin_igual">PIN-ul copiilor trebuie să fie diferit de PIN-ul panoului</string>
+    <string name="fam_trocar">Schimbă PIN-ul copiilor</string>
+    <string name="fam_apagar">Elimină PIN-ul copiilor</string>
+    <string name="fam_apagado">PIN-ul copiilor eliminat: acum deblochează doar PIN-ul panoului</string>
+    <string name="extras_TEMPO_TELA">Timp zilnic de ecran (când se termină, se deschid doar aplicațiile permise)</string>
+    <string name="tela_titulo">Timp de ecran</string>
+    <string name="tela_acabou">Timpul de ecran de azi s-a terminat. Ne vedem mâine!</string>
+    <string name="tela_5min">Mai sunt 5 minute de ecran azi</string>
+    <string name="tela_pin">PIN pentru a schimba timpul de ecran</string>
+    <string name="tela_cota_linha">Timp de ecran pe zi: %1$s (rămas azi: %2$s)</string>
+    <string name="tela_mais">Dă încă %1$d minute azi</string>
+    <string name="tela_mais_ok">Încă %1$d minute pentru azi</string>
+    <string name="tela_h">h</string>
+    <string name="tela_min">min</string>
+    <string name="extras_AGENDA_TODAS">Calendarul tuturor conturilor Google ale TV-ului împreună</string>
+    <string name="cal_todas_contas">Toate conturile de pe TV (%1$d)</string>
+    <string name="tm_tempo_esgotado">Timpul a expirat</string>
+    <string name="painel_desligado_pin">Panoul web dezactivat: PIN greșit de prea multe ori</string>
+    <string name="tm_crono">Cronometru</string>
+    <string name="tm_crono_iniciar">Pornește cronometrul</string>
+    <string name="tm_crono_parar">Oprește cronometrul</string>
+    <string name="tm_crono_comecou">Cronometru pornit: apare pe ecranul principal</string>
+    <string name="tm_crono_marcou">Cronometru oprit la %1$s</string>
+    <string name="som_canal">Ultimul canal TV live</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Pluginuri</string>
+    <string name="plg_nenhum">Niciun plugin de card instalat. Pluginurile de card sunt aplicații de la alți dezvoltatori care arată un card aici, cum ar fi scorul unui meci sau un preț.</string>
+    <string name="plg_ligado">Activat</string>
+    <string name="plg_desligado">Dezactivat</string>
+    <string name="plg_limite">Cel mult %1$d pluginuri odată. Dezactivați mai întâi unul.</string>
+    <string name="plg_seguranca">Dacă un plugin este actualizat cu altă semnătură, este dezactivat până îl permiteți din nou.</string>
+</resources>

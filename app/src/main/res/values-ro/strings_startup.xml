@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Când pornește TV-ul</string>
+    <string name="su_det">Deschide imediat asta, sărind peste ecranul principal</string>
+    <string name="su_home">Ecran principal</string>
+    <string name="su_last">Ultima aplicație</string>
+    <string name="su_quem">Pentru cine?</string>
+    <string name="su_todos">Tot TV-ul</string>
+    <string name="su_so">Doar %1$s</string>
+    <string name="su_segue_tv">Urmează alegerea TV-ului</string>
+    <string name="su_acordar">Și la trezire</string>
+    <string name="su_acordar_det">Nu doar după o repornire: și când TV-ul iese din standby. Niciodată peste un Cast sau alarmă</string>
+    <string name="su_esperar">Așteaptă după o repornire</string>
+    <string name="su_esperar_det">Îi dă TV-ului timp să se conecteze înainte de a deschide aplicația</string>
+    <string name="su_horario">Altă aplicație după ora din zi</string>
+    <string name="su_horario_det">O automatizare cu declanșatorul „TV pornit” și „Doar dacă”</string>
+    
+</resources>

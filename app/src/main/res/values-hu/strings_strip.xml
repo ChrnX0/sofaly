@@ -29,4 +29,15 @@
     <string name="st_nome">Név a kijelölt kártyán</string>
     <string name="st_sem">Ki</string>
     <string name="st_com">Be</string>
+    <string name="st_fundo">Háttér</string>
+    <string name="st_fundo_vale">Völgy</string>
+    <string name="st_fundo_serra">Hegyek</string>
+    <string name="st_fundo_noite">Éjszaka</string>
+    <string name="st_fundo_tema">A témából</string>
+    <string name="st_logo_solto">Szabad logó</string>
+    <string name="st_grade2">2 soros rács</string>
+    <string name="st_redondo">Kerek</string>
+    <string name="st_so_escolhido">Csak a kijelölt</string>
+    <string name="wo_cards">Kártyaforma ebben a világban</string>
+    <string name="wo_cards_geral">Ugyanaz, mint a Finomhangolásban (%1$s)</string>
 </resources>

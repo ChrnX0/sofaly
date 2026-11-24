@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">Ore</string>
+    <string name="sh_dias">Zile</string>
+    <string name="sh_dicas">Sfaturi</string>
+    <string name="sh_ar">Aer</string>
+    <string name="sh_orvalho">punct de rouă %1$d°</string>
+    <string name="sh_nuvens">Nori</string>
+    <string name="sh_nascer">Răsărit</string>
+    <string name="sh_por">Apus</string>
+    <string name="sh_duracao">Durata zilei</string>
+    <string name="sh_horas_min">%1$dh%2$02d</string>
+    <string name="sh_dourada">Ora de aur</string>
+    <string name="sh_fase">Fază</string>
+    <string name="sh_iluminada">%1$s luminată</string>
+    <string name="sh_cheia">Lună plină</string>
+    <string name="sh_nova">Lună nouă</string>
+    <string name="sh_em_dias">în %1$d z</string>
+    <string name="sh_rodar">Rotirea benzii de jos</string>
+    <string name="sh_rodar_det">Pe screensaver, banda de jos se schimbă singură. ↑ și ↓ o schimbă imediat.</string>
+    <string name="sh_rodar_desl">Dezactivat</string>
+    <string name="sh_rodar_s">La fiecare %1$d s</string>
+    <string name="sh_rodar_min">La fiecare 1 min</string>
+    <string name="sh_vidro">Sticlă în spatele benzii de jos</string>
+    <string name="sh_vidro_det">Un panou de sticlă în spatele benzii. Dezactivat: doar o linie subțire.</string>
+    <string name="sh_fundo">Fundalul screensaverului</string>
+    <string name="sh_fundo_det">Ce rămâne în spatele ceasului pe screensaver: altă temă, o fotografie, un videoclip sau mai multe care se perindă.</string>
+    <string name="sh_fundo_home">La fel ca ecranul principal</string>
+    <string name="sh_fundo_fotos">Fotografii și videoclipuri care se perindă</string>
+    <string name="sh_fundo_arquivo">Un fișier doar pentru screensaver</string>
+</resources>

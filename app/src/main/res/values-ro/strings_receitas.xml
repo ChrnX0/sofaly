@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">Pentru cine este acest TV?</string>
+    <string name="rec_subtitulo">Un singur OK configurează TV-ul. Puteți anula oricând.</string>
+    <string name="rec_vo">TV-ul bunicii</string>
+    <string name="rec_vo_det">Carduri mari cu nume citite cu voce tare, text mai mare și un buton Cere ajutor.</string>
+    <string name="rec_criancas">TV-ul copiilor</string>
+    <string name="rec_criancas_det">Doar conținut pentru copii, ora de culcare și categoria Joc.</string>
+    <string name="rec_gamer">TV-ul gamerului</string>
+    <string name="rec_gamer_det">Categoria Joc, mod joc (fără screensaver sau alerte în timpul unui joc) și controlerul deschide Jocuri.</string>
+    <string name="rec_aluguel">TV de închiriat</string>
+    <string name="rec_aluguel_det">Mod invitat: ecran de bun venit, nimic personal pe ecranul principal și curățare la plecare.</string>
+    <string name="rec_desfazer">Anulează</string>
+    <string name="rec_desfazer_det">Pune totul înapoi cum era înainte de %1$s.</string>
+    <string name="rec_ja_esta">Acest TV este deja configurat așa.</string>
+    <string name="rec_aviso_prende">Ecranul simplu se închide doar cu PIN-ul. Asigurați-vă că cineva din casă îl știe.</string>
+    <string name="rec_aviso_sem_pin">Încă nu există PIN, așa că oricine poate dezactiva asta. Creați unul în panoul de pe telefon.</string>
+    <string name="rec_aviso_plano">Necesită un plan plătit, deci rămâne dezactivat: %1$s.</string>
+    <string name="rec_voltar">Înapoi</string>
+    <string name="rec_aplicar">Aplică</string>
+    <string name="rec_pin">PIN pentru a schimba cum e configurat TV-ul</string>
+    <string name="rec_pronto">Gata</string>
+    <string name="rec_aplicada">TV-ul dvs. este gata</string>
+    <string name="rec_aplicada_det">Ați schimbat ceva ce nu voiați? Anulează pune totul înapoi cum era.</string>
+    <string name="rec_desfeita">Totul este din nou cum era.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">activat</string>
+    <string name="rec_desligado">dezactivat</string>
+    <string name="rec_aj_hospede">Mod invitat</string>
+    <string name="rec_aj_visita">Mod vizită</string>
+    <string name="rec_aj_simples">Ecran simplu</string>
+    <string name="rec_aj_infantil">Mod copii</string>
+    <string name="rec_aj_dormir">Ora de culcare</string>
+    <string name="rec_aj_texto">Mărimea textului</string>
+    <string name="rec_aj_ler_foco">Citește cu voce tare ce e selectat</string>
+    <string name="rec_aj_som">Sunet de clic la fiecare tastă</string>
+    <string name="rec_aj_jogos">Categoria Joc</string>
+    <string name="rec_aj_modo_jogo">Mod joc</string>
+    <string name="rec_aj_controle">Controlerul deschide Jocuri</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Schimbare (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Anulat: %1$s</string>
+    <string name="desf_ocultou">Ascuns %1$s</string>
+    <string name="desf_mostrou">Reafișat %1$s</string>
+    <string name="desf_cat_ajuste">Setare</string>
+    <string name="desf_cat_organizacao">Organizare</string>
+    <string name="desf_cat_automacao">Automatizare</string>
+    <string name="desf_cat_limpeza">Curățare</string>
+    <string name="desf_nada">Nimic de anulat (era deja anulat).</string>
+    <string name="desf_feito">Anulat. Totul este din nou cum era.</string>
+    <string name="desf_parcial">Anulat parțial: %1$d element(e) se schimbaseră din nou și au rămas cum sunt.</string>
+    <string name="desf_barra">Schimbat: %1$s</string>
+    <string name="desf_botao">Anulează</string>
+    <string name="desf_tela">Schimbări recente</string>
+    <string name="desf_tela_det">Ce s-a schimbat în ultimele 7 zile. OK pe una o pune înapoi cum era.</string>
+    <string name="desf_tela_vazia">Nicio schimbare în ultimele 7 zile.</string>
+    <string name="desf_ja_desfeita">anulat</string>
+    <string name="desf_rot_config">Setări</string>
+    <string name="desf_rot_automacoes">Automatizări</string>
+    <string name="desf_rot_rotinas">Rutine</string>
+    <string name="desf_rot_apps">Lista de aplicații</string>
+    <string name="desf_rot_organizar">Aplicațiile ecranului principal</string>
+</resources>

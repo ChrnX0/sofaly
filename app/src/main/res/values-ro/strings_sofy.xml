@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">Fără internet</string>
+    <string name="observer_no_internet_text">Videoclipurile se pot opri până revine.</string>
+    <string name="observer_slow_internet_title">Internet lent</string>
+    <string name="observer_slow_internet_text">Răspunsurile durează %1$s ms. Videoclipurile pot face pauză pentru încărcare.</string>
+    <string name="observer_weak_wifi_title">Wi-Fi slab</string>
+    <string name="observer_weak_wifi_text">Semnalul este la %1$s dBm. Un router mai aproape de TV ajută.</string>
+    <string name="observer_low_memory_title">Memoria aproape plină</string>
+    <string name="observer_low_memory_text">Doar %1$s MB liberi. Aplicațiile se pot închide și reporni.</string>
+    <string name="observer_memory_pressure_title">TV-ul este supraîncărcat</string>
+    <string name="observer_memory_pressure_text">Android închide aplicații pentru a face loc.</string>
+    <string name="observer_slow_home_title">Ecranul principal este lent</string>
+    <string name="observer_slow_home_text">%1$s%% dintre cadre au întârziat.</string>
+    <string name="observer_low_disk_title">Stocarea aproape plină</string>
+    <string name="observer_low_disk_text">Au mai rămas doar %1$s MB. Salvarea poate eșua.</string>
+    <string name="observer_freeze_undone_title">Am anulat o înghețare</string>
+    <string name="observer_freeze_undone_text">%1$s era înghețată și %2$s nu mai funcționa, așa că am dezghețat-o.</string>
+
+    <string name="observer_wifi_restarted_title">Am repornit Wi-Fi-ul</string>
+    <string name="observer_wifi_restarted_text">TV-ul a fost fără Wi-Fi %1$s min. L-am oprit și pornit, și a revenit.</string>
+    <string name="observer_tv_restarted_title">Am repornit TV-ul</string>
+    <string name="observer_tv_restarted_text">Wi-Fi-ul a lipsit %1$s min, iar oprirea și pornirea nu au fost de ajuns, așa că am repornit TV-ul.</string>
+</resources>

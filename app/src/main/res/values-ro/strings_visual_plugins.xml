@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Fundal din plugin</string>
+    <string name="wp_cfg_det">Fundaluri, pachete de pictograme și carduri din alte aplicații. Fiecare are nevoie de OK-ul dvs.</string>
+    <string name="wp_det">Aplicații de la alți dezvoltatori care adaugă fundaluri, pictograme sau carduri pe ecranul principal. Activați doar pe cele în care aveți încredere.</string>
+    <string name="wp_secao_fundos">Fundaluri</string>
+    <string name="wp_secao_icones">Pachete de pictograme</string>
+    <string name="wp_secao_cartoes">Carduri</string>
+    <string name="wp_secao_descobrir">Obține pluginuri</string>
+    <string name="wp_tipo_fundo">Fundal</string>
+    <string name="wp_tipo_icones">Pictograme</string>
+    <string name="wp_em_uso">În uz</string>
+    <string name="wp_usar">Folosește ca fundal</string>
+    <string name="wp_configurar">Setările pluginului</string>
+    <string name="wp_parar">Nu mai folosi</string>
+    <string name="wp_sem_cert">Nu s-a putut citi semnătura acestui plugin.</string>
+    <string name="wp_nenhum_fundo">Încă niciun plugin de fundal. Vedeți mai jos de unde luați unul.</string>
+    <string name="wp_nenhum_icone">Încă niciun pachet de pictograme. Vedeți mai jos de unde luați unul.</string>
+    <string name="wp_icones_det">Păstrat înghețat: launcherul păstrează o copie a pictogramelor pe care le folosește.</string>
+    <string name="wp_usar_icones">Folosește</string>
+    <string name="wp_instalado">Instalat</string>
+    <string name="wp_instalar">Instalează</string>
+    <string name="wp_instalando">Se instalează…</string>
+    <string name="wp_instalou">%1$s instalat.</string>
+    <string name="wp_nao_instalou">Nu s-a putut instala: %1$s</string>
+    <string name="wp_abrir_play">Deschide în Magazin Play</string>
+    <string name="wp_qr">Îndreptați camera telefonului spre cod pentru a deschide pagina.</string>
+    <string name="wp_trocar_icone">Schimbă pictograma</string>
+    <string name="wp_icone_titulo">Pictogramă pentru %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d pictograme</string>
+    <string name="wp_icone_original">Pictograma originală</string>
+    <string name="wp_icone_sugerido">Sugerate</string>
+    <string name="wp_icone_voltar">Urmează pachetul de pictograme</string>
+    <string name="wp_icone_sem_pacote">Niciun pachet de pictograme instalat. Luați unul din Setări › Ecran principal › Pluginuri.</string>
+    <string name="wp_d_aerial">Videoclipuri aeriene lente cu orașe și natură</string>
+    <string name="wp_d_overflight">Videoclipuri aeriene Apple TV sau orice listă de videoclipuri aleasă de dvs.</string>
+    <string name="wp_d_daily">O fotografie nouă a zilei, în fiecare zi</string>
+    <string name="wp_d_weather">Vremea de azi ca fundal</string>
+    <string name="wp_d_movieart">Imagini de filme și seriale de la TMDB</string>
+    <string name="wp_d_sofadrop">Imagini din liste în tendințe, Trakt sau Simkl</string>
+    <string name="wp_d_immich">Fotografii de pe propriul server Immich</string>
+    <string name="wp_d_tvicons">Peste 800 de pictograme făcute pentru TV</string>
+    <string name="wp_d_minimalist">Simboluri curate pe o singură culoare de fundal</string>
+    <string name="wp_d_arcticons">15.000 de pictograme cu linie subțire (făcute pentru telefoane, funcționează aici)</string>
+</resources>

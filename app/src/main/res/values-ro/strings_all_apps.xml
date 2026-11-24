@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Filme și TV</string>
+    <string name="aa_shelf_video">Videoclipuri</string>
+    <string name="aa_shelf_sports">Sport</string>
+    <string name="aa_shelf_kids">Copii</string>
+    <string name="aa_shelf_music_audio">Muzică și audio</string>
+    <string name="aa_shelf_news">Știri</string>
+    <string name="aa_shelf_games">Jocuri</string>
+    <string name="aa_shelf_education">Educație</string>
+    <string name="aa_shelf_health_fitness">Sănătate și fitness</string>
+    <string name="aa_shelf_lifestyle">Stil de viață</string>
+    <string name="aa_shelf_tools">Instrumente</string>
+    <string name="aa_shelf_system">Sistem</string>
+    <string name="aa_shelf_other">Altele</string>
+    <string name="aa_frozen">Înghețate</string>
+    <string name="aa_hidden">Ascunse</string>
+    <string name="aa_badge_frozen">înghețată</string>
+    <string name="aa_badge_hidden">ascunsă</string>
+    <string name="aa_lock">Ascunse (%1$d)</string>
+    <string name="aa_count_hidden">ascunse: %1$d</string>
+    <string name="aa_count_frozen">înghețate: %1$d</string>
+    <string name="aa_pin_title">PIN pentru a vedea aplicațiile ascunse</string>
+    <string name="aa_used_today">Deschisă azi</string>
+    <string name="aa_used_days">Deschisă ultima dată acum %1$d zile</string>
+    <string name="aa_used_never">Încă nedeschisă de aici</string>
+    <string name="aa_size">Folosește %1$s</string>
+    <string name="aa_risk_safe">Sigur de schimbat, spune fișa ei</string>
+    <string name="aa_risk_care">Schimbați cu grijă, spune fișa ei</string>
+    <string name="aa_risk_essential">Esențială pentru TV: nu o înghețați</string>
+    <string name="aa_tip_idle">Nedeschisă de %1$d zile. Înghețarea eliberează memorie și poate fi anulată.</string>
+    <string name="aa_hint_app">OK deschide · țineți OK pentru a muta, ascunde, îngheța sau dezinstala</string>
+    <string name="aa_hint_frozen">OK dezgheață și deschide</string>
+    <string name="aa_hint_lock">OK cere PIN-ul și arată aici aplicațiile ascunse</string>
+    <string name="aa_open">Deschide</string>
+    <string name="aa_freeze">Îngheață</string>
+    <string name="aa_freezing">Se îngheață %1$s…</string>
+    <string name="aa_frozen_done">%1$s înghețată. În 10 minute TV-ul verifică dacă totul funcționează încă și anulează dacă ceva s-a oprit.</string>
+    <string name="aa_freeze_failed">Nu s-a putut îngheța %1$s: %2$s</string>
+    <string name="aa_unfreeze_open">Dezgheață și deschide</string>
+    <string name="aa_unfreeze_refreeze">Deschide și îngheață din nou când revin</string>
+    <string name="aa_unfreezing">Se dezgheață %1$s…</string>
+    <string name="aa_unfreeze_failed">Nu s-a putut dezgheța %1$s: %2$s</string>
+    <string name="aa_move_auto">Automat</string>
+</resources>

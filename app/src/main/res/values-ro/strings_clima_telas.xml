@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Acum și sfaturi</string>
+    <string name="cl_pg_horas">Orele și zilele următoare</string>
+    <string name="cl_pg_detalhes">Detalii, aer, soare și lună</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Plouă acum. Ar trebui să se oprească în jur de %1$s.</string>
+    <string name="cl_f_segue">Plouă acum și ar trebui să continue în orele următoare.</string>
+    <string name="cl_f_chuva">Ploaie probabilă în jur de %1$s (%2$s).</string>
+    <string name="cl_f_calor">Zi caldă: până la %1$d° în jur de %2$s. Beți apă.</string>
+    <string name="cl_f_frio">Vine frigul: până la %1$d°. Îmbrăcați-vă gros.</string>
+    <string name="cl_f_sol">Soare puternic de la %1$s la %2$s. Folosiți protecție solară.</string>
+    <string name="cl_f_amanha">Fără ploaie azi. Mâine e probabilă ploaia (%1$s).</string>
+    <string name="cl_f_calmo">Nu se așteaptă ploaie azi. Maxima de %1$d°.</string>
+    <string name="cl_d_guarda">Umbrelă</string>
+    <string name="cl_d_varal">Rufe afară</string>
+    <string name="cl_d_sair">Moment bun de ieșit</string>
+    <string name="cl_v_agora">Acum</string>
+    <string name="cl_v_sim_as">Da, la %1$s</string>
+    <string name="cl_v_talvez">Poate</string>
+    <string name="cl_v_nao">Nu e nevoie</string>
+    <string name="cl_v_ate">Până la %1$s</string>
+    <string name="cl_v_seca">Se usucă azi</string>
+    <string name="cl_v_melhor_nao">Mai bine nu</string>
+    <string name="cl_v_amanha_sim">Mâine, da</string>
+    <string name="cl_v_amanha_nao">Mâine nu</string>
+    <string name="cl_v_as">La %1$s</string>
+    <string name="cl_v_amanha_as">Mâine %1$s</string>
+    <string name="cl_v_hoje_nao">Nu azi</string>
+</resources>

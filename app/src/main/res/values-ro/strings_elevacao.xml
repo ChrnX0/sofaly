@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">Cum se descurcă acest TV</string>
+    <string name="elv_placar_det">Șapte promisiuni, fiecare cu un număr măsurat pe acest TV</string>
+    <string name="elv_placar_sub">Măsurat pe acest TV. Nimic de aici nu iese din casă.</string>
+    <string name="elv_pilar_liga">Pornește și e gata</string>
+    <string name="elv_pilar_ao_vivo">TV live care nu cedează</string>
+    <string name="elv_pilar_player">Cel mai bun player din sufragerie</string>
+    <string name="elv_pilar_casa">TV-ul care are grijă de casă</string>
+    <string name="elv_pilar_controle">Control de oriunde</string>
+    <string name="elv_pilar_todos">Oricine îl poate folosi</string>
+    <string name="elv_pilar_instala">Se configurează și se repară singur</string>
+    <string name="elv_prom_liga">Ecranul principal gata în sub 1 secundă</string>
+    <string name="elv_prom_ao_vivo">Schimbarea canalului durează sub 1,5 secunde, de la tastă la imagine</string>
+    <string name="elv_prom_player">Redă orice fișier; subtitrările potrivite fără bătăi de cap</string>
+    <string name="elv_prom_casa">Alarma sună la timp, de fiecare dată</string>
+    <string name="elv_prom_controle">Panoul, telefonul și IA fac tot ce face telecomanda</string>
+    <string name="elv_prom_todos">Vârstnici, copii, invitați, vedere sau auz slab; 14 limbi</string>
+    <string name="elv_prom_instala">De la prima pornire la primul canal în 5 minute</string>
+    <string name="elv_nao_medido">Încă nemăsurat</string>
+    <string name="elv_alvo">țintă %1$s</string>
+    <string name="elv_n_de_n">la timp %1$d din %2$d</string>
+    <string name="elv_dentro">în țintă</string>
+    <string name="elv_fora">în afara țintei</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d blocare sau înghețare în %2$d zile</item>
+        <item quantity="few">%1$d blocări sau înghețări în %2$d zile</item>
+        <item quantity="other">%1$d de blocări sau înghețări în %2$d zile</item>
+    </plurals>
+    <string name="elv_lp_titulo">Măsoară înainte și după</string>
+    <string name="elv_lp_det_antes">Măsoară memoria liberă și cât de repede se deschid cele 3 aplicații cele mai folosite, înainte de curățare. Se deschid câteva secunde.</string>
+    <string name="elv_lp_det_depois">„Înainte” este salvat. Ascundeți aplicațiile de mai sus, apoi apăsați OK pentru a măsura după.</string>
+    <string name="elv_lp_medindo">Se măsoară… aplicațiile se pot deschide câteva secunde</string>
+    <string name="elv_lp_mais_livre">%1$d MB mai mult liberi</string>
+    <string name="elv_lp_menos_livre">%1$d MB mai puțin liberi</string>
+    <string name="elv_lp_mais_rapido">%1$s se deschide cu %2$s mai repede</string>
+    <string name="elv_lp_mais_lento">%1$s se deschide cu %2$s mai încet</string>
+    <string name="elv_lp_igual">Nicio diferență suficient de mare pentru a fi măsurată</string>
+    <string name="elv_agora">chiar acum</string>
+    <string name="elv_sem_quedas">Nicio blocare sau înghețare în %1$d zile</string>
+    <string name="elv_reserva">%1$s a căzut. Se redă %2$s în loc.</string>
+    <string name="elv_zap_solte">Eliberați pentru a viziona</string>
+    <string name="elv_leg_padrao">standard</string>
+    <string name="elv_leg_contraste">contrast ridicat</string>
+    <string name="elv_leg_amarela">galben</string>
+    <string name="elv_leg_embaixo">jos</string>
+    <string name="elv_leg_em_cima">sus</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Fă-o</string>
+    <string name="elv_bf_ok_faz">OK o face acum</string>
+    <string name="elv_bf_wifi">Arată Wi-Fi-ul pentru invitați</string>
+    <string name="elv_bf_wifi_configurar">Încă neconfigurat: OK deschide Setări (Vizite)</string>
+    <string name="elv_bf_letra_maior">Text mai mare (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Text mai mic (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Este deja la această mărime</string>
+    <string name="elv_bf_radios">Posturi de radio</string>
+    <string name="elv_bf_radio_fav">Post preferat</string>
+    <string name="elv_bf_ajuda">Ajutor</string>
+    <string name="elv_bf_ajuda_det">Subiect din manual</string>
+    <string name="elv_bf_procurar">Caută mai departe</string>
+    <string name="elv_bf_procurar_radio">Posturi de radio numite „%1$s”</string>
+    <string name="elv_bf_procurar_radio_det">Posturi din toată lumea</string>
+    <string name="elv_bf_procurar_rede">„%1$s” în fișierele din rețea</string>
+    <string name="elv_bf_procurar_rede_det">Pe Jellyfin, Emby sau Plex</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Caută în setări</string>
+    <string name="elv_aj_explica">Tastați un cuvânt: numele opțiunii sau alt cuvânt pentru ea (\"font\" găsește mărimea textului)</string>
+    <string name="elv_aj_dica">De exemplu: font, Wi-Fi, screensaver</string>
+    <string name="elv_aj_recentes">Schimbate recent</string>
+    <string name="elv_aj_recentes_vazio">Opțiunile pe care le schimbați apar aici, cele mai recente primele</string>
+    <string name="elv_aj_nada">Nimic găsit pentru „%1$s”</string>
+    <string name="elv_aj_nada_det">Încercați alt cuvânt sau căutați în filele din stânga</string>
+    <string name="elv_aj_sinonimos">font,literă,litere,text,mărime,mai mare,mai mic;wifi,wi-fi,rețea,internet,conexiune;screensaver,protector de ecran,inactiv,repaus;parolă,pin,cod;sunet,volum,audio;oră,ceas,timp;vreme,prognoză,temperatură;limbă,limba,idiom;copii,copil,parental;invitat,oaspete,vizită;actualizare,versiune,nou;copie,backup,restaurare;telefon,mobil,celular;lumină,lampă,casă,locuință;somn,oprire,temporizator,energie,alimentare;canal,tv,live;film,filme,serial,emisiune;subtitrare,subtitrări,subtitlu;alarmă,trezire,deșteptător;fotografie,poză,imagine,fundal,tapet</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Necesită atenție</string>
+    <string name="elv_f_canal_caiu_frase">Acest canal nu se recepționează acum</string>
+    <string name="elv_f_canal_caiu_causa">Furnizorul canalului a încetat să-l trimită. De obicei revine singur.</string>
+    <string name="elv_f_canal_caiu_botao">Vizionați alt canal</string>
+    <string name="elv_f_lista_venceu_frase">Lista dvs. de canale a expirat</string>
+    <string name="elv_f_lista_venceu_causa">Contul la cel care vinde lista s-a terminat sau a fost refuzat.</string>
+    <string name="elv_f_lista_venceu_botao">Deschide contul</string>
+    <string name="elv_f_relogio_errado_frase">Ceasul TV-ului este greșit</string>
+    <string name="elv_f_relogio_errado_causa">Cu ora greșită, ghidul și site-urile securizate nu funcționează.</string>
+    <string name="elv_f_relogio_errado_botao">Setează ceasul</string>
+    <string name="elv_f_disco_cheio_frase">TV-ul rămâne fără spațiu</string>
+    <string name="elv_f_disco_cheio_causa">Fără spațiu, ghidul, înregistrările și actualizările nu pot fi salvate.</string>
+    <string name="elv_f_disco_cheio_botao">Eliberează spațiu</string>
+    <string name="elv_f_shell_parado_frase">Puterile suplimentare ale TV-ului s-au oprit</string>
+    <string name="elv_f_shell_parado_causa">Depanarea wireless a fost dezactivată sau asocierea s-a pierdut.</string>
+    <string name="elv_f_shell_parado_botao">Reactivează-le</string>
+    <string name="elv_f_tunel_sem_login_frase">Accesul din afara casei așteaptă o conectare</string>
+    <string name="elv_f_tunel_sem_login_causa">Conectarea Tailscale a expirat.</string>
+    <string name="elv_f_tunel_sem_login_botao">Conectați-vă din nou</string>
+    <string name="elv_f_backup_falhou_frase">Copia de noapte nu a rulat de 2 zile</string>
+    <string name="elv_f_backup_falhou_causa">Destinația nu a fost accesibilă sau parola s-a schimbat.</string>
+    <string name="elv_f_backup_falhou_botao">Copie acum</string>
+    <string name="elv_f_religando">Se reactivează: durează până la un minut</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Nu deranjați: în timpul unui film, noaptea târziu sau cu invitați, anunțurile așteaptă și revin într-un rezumat (alarma și soneria apar mereu)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Cât vizionați: %1$d anunț</item><item quantity="few">Cât vizionați: %1$d anunțuri</item>
+        <item quantity="other">Cât vizionați: %1$d de anunțuri</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">În timpul nopții: %1$d anunț</item><item quantity="few">În timpul nopții: %1$d anunțuri</item>
+        <item quantity="other">În timpul nopții: %1$d de anunțuri</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">În timpul vizitei: %1$d anunț</item><item quantity="few">În timpul vizitei: %1$d anunțuri</item>
+        <item quantity="other">În timpul vizitei: %1$d de anunțuri</item></plurals>
+    <string name="elv_np_mais">+%1$d în plus</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Când se termină un film</string>
+    <string name="elv_ev_programa_comecou">Când începe o emisiune marcată în ghid</string>
+    <string name="elv_ev_nascer_do_sol">La răsărit</string>
+    <string name="elv_ev_por_do_sol">La apus</string>
+    <string name="elv_ev_campainha">Când sună soneria</string>
+    <string name="elv_ev_alguem_chegou">Când ajunge cineva acasă</string>
+    <string name="elv_ev_internet_caiu">Când cade internetul</string>
+    <string name="elv_ev_internet_voltou">Când revine internetul</string>
+    <string name="elv_ev_recado_chegou">Când sosește un mesaj</string>
+    <string name="elv_ev_aniversario">La ziua cuiva (ora 9)</string>
+    <string name="elv_ev_compromisso">Când începe o programare din calendar</string>
+    <string name="elv_ss_sempre">Mereu</string>
+    <string name="elv_ss_so_se">Doar dacă %1$s</string>
+    <string name="elv_ss_e">" și "</string>
+    <string name="elv_ss_em_casa">e cineva acasă</string>
+    <string name="elv_ss_noite">după apus</string>
+    <string name="elv_ss_dia_util">e zi lucrătoare</string>
+    <string name="elv_ss_perfil">profilul este %1$s</string>
+    <string name="elv_ss_det">◀ ▶ schimbă condiția</string>
+    <string name="extras_ABERTURA_PRONTA">Sari peste intro (IntroDB): la episoade, TV-ul întreabă serviciul comunitar IntroDB unde e deschiderea (trimite ce episod, niciodată contul dvs.); dezactivat, doar introurile marcate de dvs.</string>
+</resources>

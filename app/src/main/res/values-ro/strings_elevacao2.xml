@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Contrast ridicat</string>
+    <string name="elv_ac_det">Text mai luminos și margini mai clare pe fiecare ecran (cel puțin 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Audiodescriere</string>
+    <string name="elv_ad_det">Alege pista audio care descrie scena oricând există una</string>
+    <string name="elv_sdh_titulo">Subtitrări pentru surzi</string>
+    <string name="elv_sdh_det">Arată mereu subtitrări cu sunete ([ușa se trântește]) în limba TV-ului, chiar și la dublaj</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Poster și rezumat pentru videoclipuri</string>
+    <string name="elv_cat_explica">Doar titlul merge la TMDB, niciodată folderul sau serverul</string>
+    <string name="elv_cat_ligado">Activat</string>
+    <string name="elv_cat_desligado">Dezactivat</string>
+    <string name="elv_cat_ep">%1$s · S%2$d E%3$d</string>
+    <string name="pod_temp_ep">S%1$d E%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Episodul %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Sezonul %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Sezoane: %d</string>
+    <string name="elv_cat_procurando">Se caută posterul…</string>
+    <string name="elv_cat_nada">Nimic găsit pe TMDB. Țineți OK pentru a tasta numele corect.</string>
+    <string name="elv_cat_corrigir_titulo">Corectează: %s</string>
+    <string name="elv_cat_corrigir_explica">Poster sau rezumat greșit? Cereți rezultatul următor sau tastați numele și anul corect. Un nume gol revine la automat.</string>
+    <string name="elv_cat_nao_e">Nu acesta</string>
+    <string name="elv_cat_escrever">Tastați numele</string>
+    <string name="elv_cat_campo">Nume și an, de ex. Dune 2021</string>
+    <string name="elv_cat_salvar">Salvează</string>
+    <string name="elv_cat_dica">corectează</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Listă</string>
+    <string name="elv_bib_pasta">Folder</string>
+    <string name="elv_bib_servidor">Server</string>
+    <string name="elv_bib_nuvem">Cloud</string>
+    <string name="elv_bib_addon">Supliment</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Ajustare fină</string>
+    <string name="ft_dica">OK sau ▶ ◀ schimbă · ÎNAPOI închide</string>
+    <string name="ft_abrir">Ajustați văzând ecranul principal</string>
+    <string name="ft_abrir_det">Font, ceas, culoare de evidențiere, colțuri, strălucire și mărime, în timp real</string>
+    <string name="cs_destaque">Culoare de evidențiere</string>
+    <string name="cs_cantos">Colțuri</string>
+    <string name="cs_brilho">Strălucirea focalizării</string>
+    <string name="cs_tamanho">Mărimea crucii</string>
+    <string name="cs_ceu">Cer</string>
+    <string name="cs_lilas">Liliachiu</string>
+    <string name="cs_retos">Pătrate</string>
+    <string name="cs_redondos">Rotunjite</string>
+    <string name="cs_sem">Dezactivat</string>
+    <string name="cs_suave">Slabă</string>
+    <string name="cs_forte">Puternică</string>
+    <string name="cs_menor">Mai mică</string>
+    <string name="cs_maior">Mai mare</string>
+    <string name="bg_tintura">Culoare peste fundal</string>
+    <string name="bg_cor">Culoarea fundalului</string>
+    <string name="bg_desfoque">Estomparea fundalului</string>
+    <string name="bg_transicao">Tranziția imaginii</string>
+    <string name="bg_novo">Fundal nou acum</string>
+    <string name="bg_solida">Uniform</string>
+    <string name="bg_destaque">Evidențiere</string>
+    <string name="bg_noite">Noapte</string>
+    <string name="bg_mata">Pădure</string>
+    <string name="bg_brasa">Jar</string>
+    <string name="bg_grafite">Grafit</string>
+    <string name="bg_corte">Tăietură</string>
+    <string name="bg_lenta">Lentă</string>
+    <string name="bg_trocado">Schimbat</string>
+    <string name="bg_nao_troca">Acest fundal nu se schimbă</string>
+    <string name="bg_camera">Camera casei ca fundal</string>
+    <string name="bg_campainha">Camera soneriei ca fundal</string>
+    <string name="bg_nenhuma">Niciuna</string>
+    <string name="bg_ligado">Activat</string>
+</resources>
