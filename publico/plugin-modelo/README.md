@@ -40,6 +40,10 @@ The launcher draws the card in its own style, with large letters. It never sends
   again. Scenes and routines can press it too.
 - **Wallpaper:** existing wallpaper-provider plugins for Android TV launchers work unchanged.
 - **Icon pack:** any pack with an `appfilter.xml`.
+- **Widget:** a normal Android `AppWidgetProvider` (see `ContagemWidget` in `contagem`). Sofaly shows the widget itself,
+  live, on the home screen; people move and resize it with the remote inside the min/max size you declare
+  (`minResizeWidth`, `maxResizeWidth`...). A `configure` activity opens when it is added and from "Widget settings".
+  Keep it readable at 180x110 dp.
 
 A plugin that fails 5 times in a row within 6 hours, or keeps taking more than 2.5 seconds, is turned off by itself;
 the person sees why in Plugins.
