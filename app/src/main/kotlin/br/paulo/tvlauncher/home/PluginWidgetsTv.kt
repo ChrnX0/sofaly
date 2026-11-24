@@ -168,8 +168,9 @@ object PluginWidgetsTv {
             foto ?: return@mapNotNull null
             val info = runCatching { AppWidgetManager.getInstance(app).getAppWidgetInfo(e.id) }.getOrNull()
             val titulo = info?.let { nome(app, it) } ?: e.pacote
-            val acao = app.packageManager.getLeanbackLaunchIntentForPackage(e.pacote)?.toUri(android.content.Intent.URI_INTENT_SCHEME)
-            PluginCartao.Cartao(e.pacote, titulo.take(30), "", "", br.paulo.tvlauncher.Estilo.CARTAO, acao, PluginCartao.Mundo.APPS, endereco) to foto
+            // Ação null: PluginsTv.abrir usa a tela de abertura do app (com o componente). Um "intent:" sem componente não
+            // resolve (Sala, 24/11: a categoria LEANBACK_LAUNCHER não tem DEFAULT).
+            PluginCartao.Cartao(e.pacote, titulo.take(30), "", "", br.paulo.tvlauncher.Estilo.CARTAO, null, PluginCartao.Mundo.APPS, endereco) to foto
         }
     }
 
