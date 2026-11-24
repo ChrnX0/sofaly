@@ -77,6 +77,14 @@ test('sem servidor de modelos: 503 (a TV fica no MET)', async () => {
   assert.equal(r.status, 503);
 });
 
+test('customer-api sem a chave: 503, sem chamar ninguém', async () => {
+  let n = 0;
+  const r = await handleWeatherOpen(new URL('https://a/v1/weather/open?lat=1&lon=1'),
+    { OPEN_MODELS_URL: 'https://customer-api.open-meteo.com/v1/forecast' }, { fetchFn: async () => { n++; } });
+  assert.equal(r.status, 503);
+  assert.equal(n, 0);
+});
+
 test('coordenada inválida: 400', async () => {
   const r = await handleWeatherOpen(new URL('https://a/v1/weather/open?lat=99&lon=1'), { OPEN_MODELS_URL: 'https://x' });
   assert.equal(r.status, 400);

@@ -139,7 +139,11 @@ export function combine(base, multi) {
 /** Atende /v1/weather/open. `fetchFn` e `cache` entram por parâmetro para os testes. */
 export async function handleWeatherOpen(url, env, { fetchFn = fetch, cache = globalThis.caches?.default, ip = '' } = {}) {
   const base = env.OPEN_MODELS_URL;
-  if (!base) return reply({ error: 'open models not configured' }, 503, 0);
+  // A customer-api paga só responde com a chave: sem ela, é "não configurado" (503, a TV fica 6 h no MET) e não um
+  // 401 a cada pedido.
+  if (!base || (base.includes('customer-api.open-meteo.com') && !env.OPEN_MODELS_KEY)) {
+    return reply({ error: 'open models not configured' }, 503, 0);
+  }
   if (!(await allowed(env.WEATHER_IP_LIMITER, `ip:${ip}`, true))) return reply({ error: 'rate limited' }, 429, 0);
   const lat = snap(url.searchParams.get('lat'), 90);
   const lon = snap(url.searchParams.get('lon'), 180);
