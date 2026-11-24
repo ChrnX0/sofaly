@@ -272,7 +272,7 @@ object AvisoTv {
             // detalhes da cruz, que subiram para lá, e o subtítulo de várias telas. Embaixo à direita a cruz não tem nada;
             // em outras telas cobre no máximo dicas por 5 s, nunca o texto que a pessoa está lendo.
             gravity = Gravity.BOTTOM or Gravity.END
-            x = dp(Estilo.MARGEM_LATERAL); y = dp(44)
+            x = dp(Estilo.MARGEM_LATERAL); y = dp(76)   // acima da marca "sofaly" do canto das Configurações (teste 100%, 23/11/2026)
             windowAnimations = android.R.style.Animation_Toast   // entra e sai esmaecendo, como as notificações do sistema
         }
         try {
