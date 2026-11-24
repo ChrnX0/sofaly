@@ -115,6 +115,18 @@ object StripHome {
     /** O "o que tem agora" de um mundo; null = sem nada a dizer (fica a frase fixa). Negrito entre ** **. */
     data class Itens(val id: String, val nome: String, val sub: String, val situacao: CruzLogica.Situacao?)
 
+    /**
+     * A descrição do card em foco: o que ele tem agora ("**No ar** Jornal Hoje · faltam 25 min"); sem isso, o nome dele
+     * em negrito e a linha de baixo dele ("**Netflix** Filmes e séries", "**Clima** 34° · Previsão").
+     */
+    fun doCard(i: Itens): String {
+        i.situacao?.takeIf { it.texto.isNotBlank() }?.let { return "**${it.rotulo}** ${semGritar(it.texto)}".trim() }
+        val sub = i.sub.lineSequence().map { it.trim() }.filter { it.isNotEmpty() && !it.equals(i.nome, ignoreCase = true) }
+            .distinct().joinToString(" · ")
+        return if (sub.isEmpty()) "**${i.nome}**" else "**${i.nome}** ${semGritar(sub)}"
+    }
+
+    /** O mundo inteiro (sem card em foco): a 1ª situação viva, ou o resumo do mundo. */
     fun viva(cat: CruzLogica.Categoria, itens: List<Itens>, appsTexto: (Int) -> String): String? {
         fun primeira(s: String) = s.lineSequence().map { it.trim() }.firstOrNull { it.isNotEmpty() }
         itens.firstOrNull { it.situacao != null && it.situacao.texto.isNotBlank() }?.situacao?.let { s ->

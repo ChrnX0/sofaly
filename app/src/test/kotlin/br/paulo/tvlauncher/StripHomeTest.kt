@@ -81,4 +81,13 @@ class StripHomeTest {
         assertEquals("respiração suave, nunca passa de 1", true, (0..12000 step 37).all { kotlin.math.abs(M.breath(it.toFloat())) <= 1f })
         assertEquals(0f, M.wave(0f), 1e-4f)
     }
+
+    @Test fun descricaoDoCardEmFoco() {
+        fun i(id: String, nome: String = id, sub: String = "", s: CruzLogica.Situacao? = null) = StripHome.Itens(id, nome, sub, s)
+        assertEquals("**No ar** Jornal Hoje · faltam 25 min", StripHome.doCard(i("tv", "TV", "Canais", CruzLogica.Situacao("No ar", "Jornal Hoje · faltam 25 min", "tv"))))
+        assertEquals("**Netflix** Filmes e séries", StripHome.doCard(i("app:n", "Netflix", "Filmes e séries")))
+        assertEquals("linhas viram ·", "**Clima** 34° · Previsão", StripHome.doCard(i("t:clima", "Clima", "34°\nPrevisão")))
+        assertEquals("sem linha de baixo: só o nome", "**Rádio**", StripHome.doCard(i("radio", "Rádio")))
+        assertEquals("não repete o nome", "**Casa**", StripHome.doCard(i("casa", "Casa", "casa")))
+    }
 }

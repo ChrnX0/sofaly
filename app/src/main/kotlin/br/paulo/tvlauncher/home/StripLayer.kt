@@ -121,6 +121,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
      */
     fun mostrar(cats: List<HomeCruz.Categoria>, cat: Int, sel: Int, focada: Boolean, animar: Boolean, direcao: Int) {
         ultimo = { mostrar(cats, cat, sel, focada, false, 0) }
+        selDesc = sel; focadaDesc = focada
         val c = cats.getOrNull(cat) ?: return
         val anima = animar && !semAnimacao()
         val o = opcoes
@@ -244,11 +245,17 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
     fun atualizarTexto(cats: List<HomeCruz.Categoria>, cat: Int) { cats.getOrNull(cat)?.let { escreverDesc(it) } }
 
+    // O card em foco: a descrição fala dele (Paulo, 24/11/2026: "o que aparece deveria ser relacionado a cada card").
+    private var selDesc = 0
+    private var focadaDesc = false
+
     private fun escreverDesc(c: HomeCruz.Categoria) {
         if (System.currentTimeMillis() < avisoAte) return
         val fixa = fixa(c.cat)
-        val viva = if (opcoes.desc == StripHome.Desc.LIVE) StripHome.viva(c.cat,
-            c.itens.map { StripHome.Itens(it.id, it.nome, it.sub, it.situacao) }) { n -> context.getString(R.string.strip_apps_count, n) } else null
+        val itens = c.itens.map { StripHome.Itens(it.id, it.nome, it.sub, it.situacao) }
+        val viva = if (opcoes.desc != StripHome.Desc.LIVE) null
+            else if (focadaDesc) itens.getOrNull(selDesc)?.let { StripHome.doCard(it) }
+            else StripHome.viva(c.cat, itens) { n -> context.getString(R.string.strip_apps_count, n) }
         val t = viva ?: fixa
         val sb = SpannableStringBuilder()
         for ((p, negrito) in StripHome.partes(t)) {
