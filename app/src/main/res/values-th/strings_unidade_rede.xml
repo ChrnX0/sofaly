@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">ไดรฟ์เครือข่าย</string>
+    <string name="ur_titulo">แสดงทีวีเป็นไดรฟ์เครือข่าย</string>
+    <string name="ur_det">ปิดอยู่ ทีวีจะแสดงเองใน This PC บน Windows เหมือนโทรศัพท์ และเป็นโฟลเดอร์เครือข่ายบน Mac, Linux และโทรศัพท์</string>
+    <string name="ur_painel">เปิดแผงควบคุมเว็บด้านบนก่อน (ใช้ PIN เดียวกันและที่อยู่ https)</string>
+    <string name="ur_https">กำลังรอที่อยู่ https ของแผงควบคุม (ใบรับรองจะถูกสร้างประมาณ 1 นาทีหลังเปิดแผงควบคุม)</string>
+    <string name="ur_abra">เปิดอยู่ บน Windows ทีวีจะแสดงใน This PC (ทีวีจะถามบนหน้าจอในครั้งแรกของคอมพิวเตอร์แต่ละเครื่อง) Mac, Linux และโทรศัพท์: %1$s · รหัสผ่าน: PIN ของแผงควบคุม</string>
+    <string name="mtp_pergunta_titulo">มีคอมพิวเตอร์ขอเข้าถึงไฟล์ในทีวี</string>
+    <string name="mtp_pergunta">“%1$s” ต้องการดูและคัดลอกไฟล์ในที่เก็บข้อมูลทีวีผ่านเครือข่ายในบ้าน อนุญาตคอมพิวเตอร์นี้ไหม</string>
+    <string name="mtp_pcs">คอมพิวเตอร์ที่อนุญาต</string>
+    <string name="mtp_pcs_nenhum">ยังไม่มี ทีวีจะถามบนหน้าจอเมื่อคอมพิวเตอร์ขอเข้าถึงไฟล์</string>
+    <string name="mtp_pcs_lista">%1$s · OK เพื่อลืมทั้งหมด (แต่ละเครื่องจะถามอีกครั้ง)</string>
+    <string name="mtp_pcs_esquecidos">ลืมคอมพิวเตอร์แล้ว</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">เปิดแผงควบคุมทีวี</string>
+</resources>

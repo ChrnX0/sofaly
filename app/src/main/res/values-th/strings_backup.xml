@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">สำรองข้อมูลอัตโนมัติ</string>
+    <string name="bkn_explica">ทุกคืน ขณะที่ทีวีว่าง จะบันทึกข้อมูลสำรองแบบเต็มที่ล็อกด้วยรหัสผ่านของคุณ เก็บไว้ 7 ชุดล่าสุด จดรหัสผ่านไว้: ถ้าไม่มีรหัสผ่าน จะเปิดข้อมูลสำรองไม่ได้</string>
+    <string name="bkn_ligado">เปิด</string>
+    <string name="bkn_desligado">ปิด</string>
+    <string name="bkn_sem_senha">ปิด · ตั้งรหัสผ่านสำรองข้อมูลก่อน</string>
+    <string name="bkn_senha">รหัสผ่านสำรองข้อมูล</string>
+    <string name="bkn_senha_ok">ตั้งแล้ว · OK เพื่อเปลี่ยน</string>
+    <string name="bkn_senha_falta">ยังไม่ได้ตั้ง · OK เพื่อตั้ง</string>
+    <string name="bkn_senha_nova">รหัสผ่านสำรองข้อมูล (8 ตัวอักษรขึ้นไป)</string>
+    <string name="bkn_senha_repetir">พิมพ์รหัสผ่านอีกครั้ง</string>
+    <string name="bkn_senha_curta">รหัสผ่านต้องมี 8 ถึง 128 ตัวอักษร</string>
+    <string name="bkn_senha_diferente">รหัสผ่านทั้งสองไม่ตรงกัน</string>
+    <string name="bkn_senha_gravada">บันทึกรหัสผ่านแล้ว เก็บไว้ในที่ปลอดภัย</string>
+    <string name="bkn_senha_erro">บันทึกรหัสผ่านไม่ได้</string>
+    <string name="bkn_horario">เวลา</string>
+    <string name="bkn_extra">สำเนาเพิ่มเติม</string>
+    <string name="bkn_destino_tv">เฉพาะทีวี</string>
+    <string name="bkn_destino_pendrive">ไดรฟ์ USB</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">สำรองข้อมูลตอนนี้</string>
+    <string name="bkn_ultimo">ล่าสุด</string>
+    <string name="bkn_nunca">ไม่เคย</string>
+    <string name="bkn_pin">PIN เพื่อเปลี่ยนการสำรองข้อมูล</string>
+</resources>

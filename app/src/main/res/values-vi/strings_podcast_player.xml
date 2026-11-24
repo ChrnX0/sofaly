@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player de podcast em tela cheia (PodcastPlayerActivity, 18/11/2026). -->
+<resources>
+    <string name="pl_termina">kết thúc lúc %1$s</string>
+    <string name="pl_dorme_em">ngủ sau %1$d phút</string>
+    <string name="pl_a_seguir">Tiếp theo</string>
+    <string name="pl_dormir">Hẹn giờ tắt</string>
+    <string name="pl_dormir_min">Sau %1$d phút</string>
+    <string name="pl_barra_dica">◀ ▶ tua 10 giây · giữ để tua nhanh hơn</string>
+    <string name="pl_abrir">Mở trình phát</string>
+    <string name="pl_abrir_det">Toàn màn hình, kèm nội dung phát tiếp theo</string>
+</resources>

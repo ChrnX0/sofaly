@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Actions catalog (ComandosIa): what the TV shows before/after running an action from a scene, Claude or voice. -->
+<resources>
+    <string name="acao_recado">Hiện tin nhắn “%1$s”</string>
+    <string name="acao_timer">Hẹn giờ %1$d phút</string>
+    <string name="acao_timer_nome">Hẹn giờ %1$d phút (“%2$s”)</string>
+    <string name="acao_desligar_em">Tắt TV sau %1$d phút</string>
+    <string name="acao_desligar_cancelar">Hủy hẹn giờ tắt</string>
+    <string name="acao_filtro_ligar">Bật bộ lọc ban đêm</string>
+    <string name="acao_filtro_desligar">Tắt bộ lọc ban đêm</string>
+    <string name="acao_filtro_sem_servico">bộ lọc ban đêm cần dịch vụ hỗ trợ tiếp cận</string>
+    <string name="acao_rodar_cena">Chạy cảnh “%1$s”</string>
+    <string name="acao_cena_nao_existe">cảnh “%1$s” không tồn tại</string>
+    <string name="acao_cena_em_cena">một cảnh không thể chạy cảnh khác</string>
+    <string name="acao_mural_compras">Thêm “%1$s” vào danh sách mua sắm</string>
+    <string name="acao_mural_recado">Ghim “%1$s” lên bảng gia đình</string>
+    <string name="acao_tocar_titulo">Tìm và phát “%1$s”</string>
+    <string name="acao_tocar">Phát %1$s</string>
+    <string name="acao_continuar">Tiếp tục nội dung đang phát</string>
+    <string name="acao_proximo">Phát tập tiếp theo</string>
+    <string name="acao_proximo_de">Tập tiếp theo của %1$s</string>
+    <string name="acao_o_que_via">Xem nội dung đang phát</string>
+    <string name="acao_vendo">Xem gần nhất: %1$s</string>
+    <string name="acao_vendo_nada">Chưa xem gì trong Phim và Phim bộ.</string>
+    <!-- Rotina e despertador que rodam cena (ideia 5) -->
+    <string name="rot_cena_uma">Chạy một cảnh</string>
+    <string name="rot_cena">Chạy cảnh: %1$s</string>
+    <string name="rot_cena_linha">Cảnh: %1$s</string>
+    <string name="rot_cena_sem">Hãy tạo cảnh trước (bảng điều khiển web › Nhà và tự động hóa › Cảnh)</string>
+    <!-- Tela Cenas (ideia 4) -->
+    <string name="lbl_cenas">Cảnh</string>
+    <string name="pr_cenas">Cảnh</string>
+    <string name="cenas_titulo">Cảnh</string>
+    <string name="cenas_det">OK để chạy cảnh. Tạo và sửa cảnh trong bảng điều khiển web › Nhà và tự động hóa › Cảnh.</string>
+    <string name="cenas_vazio">Chưa có cảnh nào. Tạo cảnh trong bảng điều khiển web › Nhà và tự động hóa › Cảnh.</string>
+    <plurals name="cenas_acoes">
+        <item quantity="one">%d hành động</item>
+        <item quantity="other">%d hành động</item>
+    </plurals>
+    <!-- Botões do controle (ideia 6) -->
+    <string name="tec_titulo">Nút điều khiển</string>
+    <string name="tec_det">Netflix và YouTube hoạt động trên mọi màn hình; phím màu và số chỉ trên màn hình chính.</string>
+    <string name="tec_nova">+ Thiết lập một nút</string>
+    <string name="tec_nova_det">Sau đó nhấn nút trên điều khiển</string>
+    <string name="tec_aperte">Nhấn nút</string>
+    <string name="tec_aperte_det">Netflix, YouTube, phím màu hoặc số. BACK để hủy.</string>
+    <string name="tec_nao_pode">Không thể đổi %1$s (cần để dùng TV). Hãy thử nút khác.</string>
+    <string name="tec_so_home">Chỉ hoạt động trên màn hình chính (trong ứng dụng và trình phát nó giữ chức năng riêng).</string>
+    <string name="tec_toda_tela">Hoạt động trên mọi màn hình.</string>
+    <string name="tec_toque">Nhấn</string>
+    <string name="tec_segurar">Giữ</string>
+    <string name="tec_duplo">Nhấn hai lần</string>
+    <string name="tec_triplo">Nhấn ba lần</string>
+    <string name="tec_padrao">mặc định (ứng dụng đã lưu; giữ 3 giây = chọn)</string>
+    <string name="tec_cena">cảnh %1$s</string>
+    <string name="tec_salvo">Đã lưu %1$s</string>
+    <string name="tec_apagar">Xóa nút này</string>
+    <string name="tec_vermelha">Đỏ</string>
+    <string name="tec_verde">Xanh lá</string>
+    <string name="tec_amarela">Vàng</string>
+    <string name="tec_azul">Xanh dương</string>
+    <!-- Automações (ideia 1) -->
+    <string name="aut_titulo">Tự động hóa</string>
+    <string name="aut_det">Mọi việc TV tự làm: theo giờ, theo nút, khi có sự kiện và qua liên kết.</string>
+    <string name="aut_cfg_det">Giờ, nút điều khiển, sự kiện và liên kết cảnh</string>
+    <string name="aut_horario">Khi đến giờ</string>
+    <string name="aut_botao">Khi nhấn nút</string>
+    <string name="aut_evento">Khi có sự kiện</string>
+    <string name="aut_link">Qua liên kết</string>
+    <string name="aut_link_det">Tạo và sửa trong bảng điều khiển web › Nhà và tự động hóa › Cảnh</string>
+    <plurals name="aut_links">
+        <item quantity="one">%d cảnh có liên kết</item>
+        <item quantity="other">%d cảnh có liên kết</item>
+    </plurals>
+    <string name="ev_midia_tocou">Phim hoặc video bắt đầu</string>
+    <string name="ev_midia_pausou">Phim hoặc video tạm dừng hoặc kết thúc</string>
+    <string name="ev_tv_ligou">TV đã bật</string>
+    <string name="ev_todos_sairam">Mọi người đã đi (hiện diện)</string>
+    <string name="ev_chuva">Sắp mưa</string>
+    <string name="acao_plugin_button">Nhấn “%1$s” (nút từ ứng dụng khác)</string>
+    <string name="acao_plugin_button_off">Nút đó chưa được bật trong Plugin</string>
+</resources>

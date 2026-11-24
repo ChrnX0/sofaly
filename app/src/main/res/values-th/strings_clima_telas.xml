@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">ตอนนี้และเคล็ดลับ</string>
+    <string name="cl_pg_horas">ชั่วโมงและวันถัดไป</string>
+    <string name="cl_pg_detalhes">รายละเอียด อากาศ ดวงอาทิตย์ และดวงจันทร์</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">ฝนกำลังตก น่าจะหยุดราว %1$s</string>
+    <string name="cl_f_segue">ฝนกำลังตก และน่าจะตกต่อไปอีกหลายชั่วโมง</string>
+    <string name="cl_f_chuva">ฝนน่าจะตกราว %1$s (%2$s)</string>
+    <string name="cl_f_calor">วันนี้ร้อน: สูงสุด %1$d° ราว %2$s ดื่มน้ำมากๆ</string>
+    <string name="cl_f_frio">อากาศจะหนาว: ต่ำสุด %1$d° แต่งตัวให้อบอุ่น</string>
+    <string name="cl_f_sol">แดดแรงตั้งแต่ %1$s ถึง %2$s ทาครีมกันแดด</string>
+    <string name="cl_f_amanha">วันนี้ไม่มีฝน พรุ่งนี้ฝนน่าจะตก (%1$s)</string>
+    <string name="cl_f_calmo">วันนี้ไม่คาดว่าจะมีฝน สูงสุด %1$d°</string>
+    <string name="cl_d_guarda">ร่ม</string>
+    <string name="cl_d_varal">ตากผ้านอกบ้าน</string>
+    <string name="cl_d_sair">เวลาที่ดีในการออกไปข้างนอก</string>
+    <string name="cl_v_agora">ตอนนี้</string>
+    <string name="cl_v_sim_as">ใช่ เวลา %1$s</string>
+    <string name="cl_v_talvez">อาจจะ</string>
+    <string name="cl_v_nao">ไม่จำเป็น</string>
+    <string name="cl_v_ate">จนถึง %1$s</string>
+    <string name="cl_v_seca">แห้งวันนี้</string>
+    <string name="cl_v_melhor_nao">ไม่ควร</string>
+    <string name="cl_v_amanha_sim">พรุ่งนี้ได้</string>
+    <string name="cl_v_amanha_nao">พรุ่งนี้ไม่ได้</string>
+    <string name="cl_v_as">เวลา %1$s</string>
+    <string name="cl_v_amanha_as">พรุ่งนี้ %1$s</string>
+    <string name="cl_v_hoje_nao">วันนี้ไม่ได้</string>
+</resources>

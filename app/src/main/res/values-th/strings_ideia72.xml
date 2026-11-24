@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">เปิด %1$s</string>
+    <string name="l72_tela_previsao">พยากรณ์อากาศ</string>
+    <string name="l72_tela_agenda">ปฏิทิน</string>
+    <string name="l72_tela_despertador">นาฬิกาปลุก</string>
+    <string name="l72_tela_configuracoes">การตั้งค่า Launcher</string>
+    <string name="l72_tela_inicio">หน้าจอหลัก</string>
+    <string name="l72_despertador">ตั้งนาฬิกาปลุกเวลา %1$s (%2$s)</string>
+    <string name="l72_dias_uma">ครั้งเดียว</string>
+    <string name="l72_dias_todos">ทุกวัน</string>
+    <string name="l72_dias_uteis">จันทร์ถึงศุกร์</string>
+    <string name="l72_dias_fds">สุดสัปดาห์</string>
+    <string name="l72_dias_nomes">อา.,จ.,อ.,พ.,พฤ.,ศ.,ส.</string>
+    <string name="l72_vol_subir">เพิ่มเสียง</string>
+    <string name="l72_vol_descer">ลดเสียง</string>
+    <string name="l72_vol_mudo">ปิด/เปิดเสียง</string>
+    <string name="l72_vezes">(%1$d ครั้ง)</string>
+    <string name="l72_midia_pausar">หยุดชั่วคราว</string>
+    <string name="l72_midia_tocar">เล่นต่อ</string>
+    <string name="l72_midia_proxima">ถัดไป</string>
+    <string name="l72_midia_anterior">ก่อนหน้า</string>
+    <string name="l72_visita_liga">เปิดโหมดผู้เยี่ยมชม</string>
+    <string name="l72_visita_desliga">ปิดโหมดผู้เยี่ยมชม</string>
+    <string name="l72_canal_pedido">เปลี่ยนไปช่อง %1$s</string>
+    <string name="l72_canal">เปลี่ยนไปช่อง %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">ดูว่ามีอะไรบน %1$s</string>
+    <string name="l72_casa_ligar">เปิด</string>
+    <string name="l72_casa_desligar">ปิด</string>
+    <string name="l72_casa_alternar">สลับ</string>
+    <string name="l72_casa">%1$s %2$s (บ้าน)</string>
+    <string name="l72_guia_vazio">%1$s: ไม่มีข้อมูลในผังรายการ</string>
+    <string name="l72_guia_agora">%1$s ตอนนี้: %2$s (จนถึง %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: ไม่มีข้อมูลในผังรายการตอนนี้</string>
+    <string name="l72_guia_depois">ถัดไป: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">กำลังเล่น: %1$s, %2$s OK เพื่อหยุดชั่วคราวหรือเล่นต่อ กด OK ค้างเพื่อเปิดแอป</string>
+</resources>

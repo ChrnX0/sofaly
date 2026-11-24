@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">Chế độ an toàn</string>
+    <string name="seg_texto">Màn hình chính đã ngừng %1$d lần liên tiếp. Đây là phiên bản đơn giản của nó, để bạn tiếp tục dùng TV.</string>
+    <string name="seg_procurar">Tìm phiên bản đã sửa</string>
+    <string name="seg_procurar_det">Nếu có, nó sẽ được tải và cài ngay.</string>
+    <string name="seg_procurando">Đang tìm phiên bản mới…</string>
+    <string name="seg_normal">Thử màn hình chính bình thường</string>
+    <string name="seg_normal_det">Nếu nó ngừng thêm 3 lần, màn hình này sẽ quay lại.</string>
+    <string name="seg_config_tv">Cài đặt TV</string>
+    <string name="seg_erro">Xem lỗi gì đã xảy ra</string>
+    <string name="seg_erro_det">Chẩn đoán, kèm các lỗi đã lưu.</string>
+    <string name="seg_apps">Ứng dụng</string>
+</resources>

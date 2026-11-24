@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The TV as a network drive (WebDAV, PainelDav.kt), Settings › Home and network › Remote access. -->
+<resources>
+    <string name="ur_secao">Ổ mạng</string>
+    <string name="ur_titulo">Hiện TV như một ổ mạng</string>
+    <string name="ur_det">Tắt. TV tự hiện trong This PC trên Windows, giống như điện thoại, và như một thư mục mạng trên Mac, Linux và điện thoại.</string>
+    <string name="ur_painel">Hãy bật bảng điều khiển web ở trên trước (dùng cùng PIN và địa chỉ https).</string>
+    <string name="ur_https">Đang chờ địa chỉ https của bảng điều khiển (chứng chỉ được tạo khoảng 1 phút sau khi bật bảng điều khiển).</string>
+    <string name="ur_abra">Bật. Trên Windows, TV hiện trong This PC (lần đầu với mỗi máy tính, TV hỏi trên màn hình). Mac, Linux và điện thoại: %1$s · mật khẩu: PIN bảng điều khiển.</string>
+    <string name="mtp_pergunta_titulo">Một máy tính đang yêu cầu tệp trên TV</string>
+    <string name="mtp_pergunta">“%1$s” muốn xem và sao chép tệp trong bộ nhớ TV qua mạng gia đình. Cho phép máy tính này?</string>
+    <string name="mtp_pcs">Máy tính được phép</string>
+    <string name="mtp_pcs_nenhum">Chưa có. TV sẽ hỏi trên màn hình khi một máy tính yêu cầu tệp.</string>
+    <string name="mtp_pcs_lista">%1$s · OK để quên tất cả (mỗi máy sẽ hỏi lại)</string>
+    <string name="mtp_pcs_esquecidos">Đã quên các máy tính</string>
+    <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
+    <string name="ur_atalho_nome">Mở bảng điều khiển TV</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Automatic backup to Google Drive (DriveBackup.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="drv_titulo">บัญชี Google Drive</string>
+    <string name="drv_destino">Google Drive</string>
+    <string name="drv_conta">บัญชี Google Drive</string>
+    <string name="drv_nao_conectada">ไม่ได้เชื่อมต่อ</string>
+    <string name="drv_passos">1. บนโทรศัพท์ เปิด %1$s (หรือส่องกล้องไปที่รหัสทางขวา)\n2. ลงชื่อเข้าใช้ด้วยบัญชี Google ที่อยู่ในทีวีนี้แล้วพิมพ์:\n\n%2$s\n\n3. อนุญาตการเข้าถึง Google Drive ทีวีจะเห็นเฉพาะไฟล์ที่ทีวีสร้างเอง (โฟลเดอร์ OneTV-backup) ไม่เห็นส่วนอื่นใน Drive ของคุณ\n\nหน้าจอนี้จะดำเนินการต่อเอง</string>
+    <string name="drv_ok">เรียบร้อย: เชื่อมต่อ %1$s แล้ว เลือก \"Google Drive\" ในบรรทัดสำเนาเพิ่มเติม เพื่อให้ข้อมูลสำรองทุกคืนไปที่นั่นด้วย</string>
+    <string name="drv_sem_google">ยังไม่ได้ตั้งค่าการลงชื่อเข้าใช้ Google บนทีวีนี้\n\nตั้งค่าในแผงควบคุมเว็บ > แท็บ Claude (OAuth client ของคุณเอง ประเภท \"TVs and Limited Input devices\") เปิด Google Drive API ในโปรเจกต์ Google Cloud เดียวกัน แล้วกลับมาที่นี่</string>
+    <string name="drv_desconectar_pergunta">ยกเลิกการเชื่อมต่อ %1$s ไหม สำเนาที่อยู่ใน Google Drive แล้วจะยังอยู่ ทีวีจะหยุดส่งสำเนาใหม่</string>
+    <string name="drv_desconectar">ยกเลิกการเชื่อมต่อ</string>
+    <string name="drv_restaurar">กู้คืนจาก Google Drive</string>
+    <string name="drv_precisa_conta">เชื่อมต่อบัญชี Google Drive ก่อน (บรรทัดด้านบน)</string>
+    <string name="drv_falhou">ไม่สำเร็จ: %1$s</string>
+    <string name="drv_nenhuma">ยังไม่มีสำเนาในโฟลเดอร์ OneTV-backup ของ Google Drive</string>
+    <string name="drv_escolha">สำเนาไหน</string>
+    <string name="drv_senha">รหัสผ่านของข้อมูลสำรอง</string>
+    <string name="drv_senha_errada">รหัสผ่านข้อมูลสำรองไม่ถูกต้อง (หรือไฟล์ถูกเปลี่ยน) ไม่มีอะไรถูกกู้คืน</string>
+    <string name="drv_restaurado">กู้คืนแล้ว Launcher จะรีสตาร์ทในอีกสักครู่</string>
+</resources>

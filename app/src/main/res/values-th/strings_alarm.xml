@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">เลือกเวลาและวัน</string>
+    <string name="al_volume_rotulo">ระดับเสียงเมื่อดัง</string>
+    <string name="al_volume_det">ทีวีจะเพิ่มเสียงอย่างน้อยถึงระดับนี้ แม้จะปิดเสียงอยู่</string>
+    <string name="al_volume_lg_det">ทีวี LG จะเริ่มเบาแล้วดังขึ้นถึงระดับนี้</string>
+    <string name="al_info_toca">ดัง %1$s</string>
+    <string name="al_proximo_rotulo">นาฬิกาปลุกถัดไป</string>
+    <string name="al_dica_editar">แก้ไข</string>
+    <string name="al_dica_ligar">เปิด/ปิด</string>
+    <string name="al_dica_sair">ออก</string>
+    <string name="al_dica_mudar">เปลี่ยน</string>
+    <string name="al_dica_andar">ย้าย</string>
+    <string name="al_dica_salvar">บันทึก</string>
+    <string name="al_ligou">นาฬิกาปลุก %1$s เปิด</string>
+    <string name="al_desligou">นาฬิกาปลุก %1$s ปิด</string>
+    <string name="al_sim">ใช่</string>
+    <string name="al_nao">ไม่</string>
+    <string name="al_op_salvar_det">BACK ก็บันทึกด้วย</string>
+    <string name="al_op_repetir">ทำซ้ำ</string>
+    <string name="al_op_repetir_det">OK เพื่อเลือกวัน</string>
+    <string name="al_op_som">เสียง</string>
+    <string name="al_op_som_det">OK เพื่อเลือกเสียงและเล่นให้ฟัง</string>
+    <string name="al_op_rampa">เสียงดัง</string>
+    <string name="al_op_rampa_det">เริ่มเบาๆ เป็นวิธีปลุกที่นุ่มนวลกว่า</string>
+    <string name="al_op_bom_dia">สวัสดีตอนเช้า</string>
+    <string name="al_op_bom_dia_det">เมื่อคุณหยุด ทีวีจะบอกเวลา สภาพอากาศ และปฏิทินวันนี้</string>
+    <string name="al_op_cena">ฉากเมื่อหยุด</string>
+    <string name="al_op_cena_det">OK เพื่อเลือกฉาก</string>
+    <string name="al_op_nome">ชื่อ</string>
+    <string name="al_op_nome_det">แสดงบนหน้าจอเมื่อดัง</string>
+    <string name="al_op_nome_dica">เช่น ยา</string>
+    <string name="al_op_alarme">นาฬิกาปลุก</string>
+    <string name="al_op_ligado_det">OK เพื่อเปิดหรือปิด</string>
+    <string name="al_op_apagar">ลบนาฬิกาปลุก</string>
+    <string name="al_op_apagar_det">ถามก่อนลบ</string>
+    <string name="al_op_sair">ออกโดยไม่บันทึก</string>
+    <string name="al_op_sair_det">ยกเลิกสิ่งที่คุณเปลี่ยนที่นี่</string>
+    <string name="al_apagar_q">ลบนาฬิกาปลุก %1$s ไหม</string>
+    <string name="al_salvo">บันทึกนาฬิกาปลุกแล้ว: %1$s</string>
+    <string name="al_resumo">ดัง %1$s</string>
+    <string name="al_resumo_desligado">ปิด: จะไม่ดัง</string>
+    <string name="al_op_hora">ชั่วโมง</string>
+    <string name="al_op_minuto">นาที</string>
+</resources>

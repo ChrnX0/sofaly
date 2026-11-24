@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">นำมาจากทีวีอีกเครื่อง</string>
+    <string name="mtv_qr_desc">คิวอาร์โค้ดเพื่อนำการตั้งค่ามาจากทีวีอีกเครื่อง</string>
+    <string name="mtv_instrucoes">บนทีวีเครื่องเก่า เปิดแผงควบคุม (โทรศัพท์หรือคอมพิวเตอร์) ไปที่ ระบบ › การสำรองข้อมูล › \"ย้ายไปทีวีเครื่องใหม่\" แล้วสแกนคิวอาร์นี้หรือพิมพ์รหัสด้านล่าง\nทุกอย่างจะถูกเข้ารหัส และส่งมาที่ทีวีนี้เท่านั้น รหัสมีอายุ %1$s</string>
+    <string name="mtv_recebendo">กำลังรับ… อย่าปิดทีวี</string>
+    <string name="mtv_pronto">ทุกอย่างมาจาก %1$s แล้ว ทีวีจะรีสตาร์ทตอนนี้ จากนั้นแอปของคุณจะกลับมาทีละแอป</string>
+    <string name="mtv_erro">ไม่สำเร็จ: %1$s\nไม่มีอะไรเปลี่ยนบนทีวีนี้ กด \"%2$s\" เพื่อลองอีกครั้ง</string>
+    <string name="mtv_venceu">รหัสหมดอายุแล้ว (มีอายุ 10 นาที)\nกด \"%1$s\" เพื่อแสดงรหัสใหม่</string>
+    <string name="mtv_cfg_det">การตั้งค่า PIN ช่อง และแอปของทีวีเครื่องเก่าใน 2 นาที ด้วยคิวอาร์</string>
+    <string name="mtv_fila_titulo">แอปของคุณกำลังกลับมา</string>
+    <string name="mtv_fila_texto">แอป %1$d จาก %2$d เปิดใน Play Store แล้วกดติดตั้ง เมื่อกลับมา แอปถัดไปจะแสดงขึ้น</string>
+    <string name="mtv_fila_abrir">เปิดใน Play Store</string>
+    <string name="mtv_fila_pular">ข้าม</string>
+    <string name="mtv_fila_depois">ภายหลัง</string>
+    <string name="mtv_fila_fim">แอปทั้งหมดจากทีวีอีกเครื่องอยู่ที่นี่แล้ว</string>
+    <string name="mtv_fila_cfg_det">ยังเหลือ %1$d แอปจากทีวีอีกเครื่องที่ต้องติดตั้ง</string>
+    <string name="mtv_diario">นำมาจาก %1$s: คืนค่าการตั้งค่าแล้ว เหลือ %2$d แอปที่ต้องติดตั้ง</string>
+    <string name="mtv_diario_enviado">ส่งไปที่ทีวีเครื่องใหม่: การตั้งค่าและ %1$d แอป</string>
+</resources>

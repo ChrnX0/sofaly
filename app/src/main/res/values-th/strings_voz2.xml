@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Apelidos de voz das telas (ideia 8, AtalhosVoz): o nome que se fala no "Ok Google, abrir <nome>". Curtos e distintos. -->
+<resources>
+    <string name="lbl_voz_filmes">ภาพยนตร์</string>
+    <string name="lbl_voz_series">ซีรีส์</string>
+    <string name="lbl_voz_na_rede">สื่อในเครือข่าย</string>
+    <string name="lbl_voz_casa">ควบคุมบ้าน</string>
+    <string name="lbl_voz_busca">ค้นหา</string>
+    <string name="lbl_voz_mural">กระดาน</string>
+    <string name="voz_mural_desligado">กระดานครอบครัวปิดอยู่ (หรือทีวีอยู่ในโหมดผู้เยี่ยมชม)</string>
+</resources>

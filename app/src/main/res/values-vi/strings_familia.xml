@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">PIN trẻ em</string>
+    <string name="fam_pin_det">PIN thứ hai để mở khóa kênh, danh mục ẩn và giờ đi ngủ trước mặt trẻ. PIN bảng điều khiển vẫn dùng được ở mọi nơi.</string>
+    <string name="fam_pin_ok">Đã lưu PIN trẻ em</string>
+    <string name="fam_pin_igual">PIN trẻ em phải khác PIN bảng điều khiển</string>
+    <string name="fam_trocar">Đổi PIN trẻ em</string>
+    <string name="fam_apagar">Xóa PIN trẻ em</string>
+    <string name="fam_apagado">Đã xóa PIN trẻ em: giờ chỉ PIN bảng điều khiển mở khóa được</string>
+    <string name="extras_TEMPO_TELA">Thời gian dùng màn hình mỗi ngày (khi hết, chỉ mở được ứng dụng được phép)</string>
+    <string name="tela_titulo">Thời gian dùng màn hình</string>
+    <string name="tela_acabou">Thời gian dùng màn hình hôm nay đã hết. Hẹn gặp ngày mai!</string>
+    <string name="tela_5min">Còn 5 phút thời gian dùng màn hình hôm nay</string>
+    <string name="tela_pin">PIN để đổi thời gian dùng màn hình</string>
+    <string name="tela_cota_linha">Thời gian dùng màn hình mỗi ngày: %1$s (còn lại hôm nay: %2$s)</string>
+    <string name="tela_mais">Cho thêm %1$d phút hôm nay</string>
+    <string name="tela_mais_ok">Thêm %1$d phút cho hôm nay</string>
+    <string name="tela_h">giờ</string>
+    <string name="tela_min">phút</string>
+    <string name="extras_AGENDA_TODAS">Lịch của tất cả tài khoản Google trên TV gộp lại</string>
+    <string name="cal_todas_contas">Mọi tài khoản trên TV (%1$d)</string>
+    <string name="tm_tempo_esgotado">Hết giờ</string>
+    <string name="painel_desligado_pin">Bảng điều khiển web đã tắt: sai PIN quá nhiều lần</string>
+    <string name="tm_crono">Đồng hồ bấm giờ</string>
+    <string name="tm_crono_iniciar">Bắt đầu bấm giờ</string>
+    <string name="tm_crono_parar">Dừng bấm giờ</string>
+    <string name="tm_crono_comecou">Đã bắt đầu bấm giờ: hiện trên màn hình chính</string>
+    <string name="tm_crono_marcou">Đã dừng bấm giờ ở %1$s</string>
+    <string name="som_canal">Kênh TV trực tiếp gần nhất</string>
+</resources>

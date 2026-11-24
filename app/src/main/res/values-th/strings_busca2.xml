@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search that continues in other apps (idea 14, 14/11/2026): BuscaActivity + BuscaOutrosApps. -->
+<resources>
+    <string name="bu_outros_apps">ในแอปอื่น</string>
+    <string name="bu_outro_googletv">ค้นหา “%1$s” ใน Google TV</string>
+    <string name="bu_outro_youtube">ค้นหา “%1$s” ใน YouTube</string>
+    <string name="bu_outro_netflix">ค้นหา “%1$s” ใน Netflix</string>
+    <string name="bu_outro_prime">ค้นหา “%1$s” ใน Prime Video</string>
+    <string name="bu_outro_det">เปิดการค้นหาของแอปนั้น</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">Thay đổi (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">Đã hoàn tác: %1$s</string>
+    <string name="desf_ocultou">Đã ẩn %1$s</string>
+    <string name="desf_mostrou">Đã hiện lại %1$s</string>
+    <string name="desf_cat_ajuste">Cài đặt</string>
+    <string name="desf_cat_organizacao">Sắp xếp</string>
+    <string name="desf_cat_automacao">Tự động hóa</string>
+    <string name="desf_cat_limpeza">Dọn dẹp</string>
+    <string name="desf_nada">Không có gì để hoàn tác (đã hoàn tác rồi).</string>
+    <string name="desf_feito">Đã hoàn tác. Mọi thứ đã trở lại như cũ.</string>
+    <string name="desf_parcial">Hoàn tác một phần: %1$d mục đã thay đổi lần nữa và được giữ nguyên.</string>
+    <string name="desf_barra">Đã đổi: %1$s</string>
+    <string name="desf_botao">Hoàn tác</string>
+    <string name="desf_tela">Thay đổi gần đây</string>
+    <string name="desf_tela_det">Những gì đã thay đổi trong 7 ngày qua. OK trên một mục để đưa nó về như cũ.</string>
+    <string name="desf_tela_vazia">Không có thay đổi trong 7 ngày qua.</string>
+    <string name="desf_ja_desfeita">đã hoàn tác</string>
+    <string name="desf_rot_config">Cài đặt</string>
+    <string name="desf_rot_automacoes">Tự động hóa</string>
+    <string name="desf_rot_rotinas">Thói quen</string>
+    <string name="desf_rot_apps">Danh sách ứng dụng</string>
+    <string name="desf_rot_organizar">Ứng dụng trên màn hình chính</string>
+</resources>

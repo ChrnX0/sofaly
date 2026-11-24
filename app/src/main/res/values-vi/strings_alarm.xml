@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela do despertador no jeito da cruz (18/11/2026). -->
+<resources>
+    <string name="al_novo_det">Chọn giờ và ngày</string>
+    <string name="al_volume_rotulo">Âm lượng khi reo</string>
+    <string name="al_volume_det">TV tăng ít nhất đến mức âm lượng này, kể cả khi đang tắt tiếng</string>
+    <string name="al_volume_lg_det">TV LG bắt đầu nhỏ và tăng dần đến mức này</string>
+    <string name="al_info_toca">reo %1$s</string>
+    <string name="al_proximo_rotulo">Báo thức tiếp theo</string>
+    <string name="al_dica_editar">sửa</string>
+    <string name="al_dica_ligar">bật/tắt</string>
+    <string name="al_dica_sair">thoát</string>
+    <string name="al_dica_mudar">đổi</string>
+    <string name="al_dica_andar">di chuyển</string>
+    <string name="al_dica_salvar">lưu</string>
+    <string name="al_ligou">Đã bật báo thức %1$s</string>
+    <string name="al_desligou">Đã tắt báo thức %1$s</string>
+    <string name="al_sim">Có</string>
+    <string name="al_nao">Không</string>
+    <string name="al_op_salvar_det">BACK cũng lưu</string>
+    <string name="al_op_repetir">Lặp lại</string>
+    <string name="al_op_repetir_det">OK để chọn ngày</string>
+    <string name="al_op_som">Âm thanh</string>
+    <string name="al_op_som_det">OK để chọn âm thanh và phát thử cho bạn nghe</string>
+    <string name="al_op_rampa">Reo</string>
+    <string name="al_op_rampa_det">Bắt đầu nhỏ giúp thức dậy nhẹ nhàng hơn</string>
+    <string name="al_op_bom_dia">Chào buổi sáng</string>
+    <string name="al_op_bom_dia_det">Khi bạn tắt, TV đọc giờ, thời tiết và lịch hôm nay</string>
+    <string name="al_op_cena">Cảnh khi tắt</string>
+    <string name="al_op_cena_det">OK để chọn cảnh</string>
+    <string name="al_op_nome">Tên</string>
+    <string name="al_op_nome_det">Hiện trên màn hình khi reo</string>
+    <string name="al_op_nome_dica">ví dụ: Uống thuốc</string>
+    <string name="al_op_alarme">Báo thức</string>
+    <string name="al_op_ligado_det">OK để bật hoặc tắt</string>
+    <string name="al_op_apagar">Xóa báo thức</string>
+    <string name="al_op_apagar_det">Hỏi trước khi xóa</string>
+    <string name="al_op_sair">Thoát không lưu</string>
+    <string name="al_op_sair_det">Hoàn tác những gì bạn đã đổi ở đây</string>
+    <string name="al_apagar_q">Xóa báo thức %1$s?</string>
+    <string name="al_salvo">Đã lưu báo thức: %1$s</string>
+    <string name="al_resumo">Reo %1$s</string>
+    <string name="al_resumo_desligado">Tắt: sẽ không reo</string>
+    <string name="al_op_hora">Giờ</string>
+    <string name="al_op_minuto">Phút</string>
+</resources>

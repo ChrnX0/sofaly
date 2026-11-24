@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">Trận đấu tiếp theo của đội bạn trên mục TV của màn hình chính</string>
+    <string name="extras_CARTAO_COTACAO">Tỷ giá trong ngày bên cạnh thời tiết (đô la, euro, bitcoin; lấy từ dịch vụ miễn phí Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">Đếm ngược ở trên cùng màn hình chính trong 7 ngày cuối (ngày của bạn, hoặc ngày lễ tiếp theo)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">Nhắc việc nhà ở trên cùng màn hình chính vào đúng ngày (ví dụ ngày đổ rác tái chế), kèm thông báo vào giờ đã đặt</string>
+    <string name="extras_CARTAO_SERVICO">Cảnh báo ở trên cùng màn hình chính khi một dịch vụ bạn đã thêm ngừng phản hồi</string>
+    <string name="extras_CARTAO_LUA">Tuần trăng trong dự báo thời tiết</string>
+    <string name="hc_feriado_hoje">Hôm nay là ngày lễ</string>
+    <string name="hc_hoje">Hôm nay: %1$s</string>
+    <string name="hc_lembrete_rotulo">Nhắc việc nhà</string>
+    <string name="hc_servico_fora">%1$s đang ngừng hoạt động</string>
+    <string name="hc_servico_rotulo">Dịch vụ của bạn</string>
+    <string name="hc_cotacao_rotulo">Tỷ giá</string>
+    <string name="hc_cotacao_fonte">Tỷ giá trong ngày, nguồn: Frankfurter (ngân hàng trung ương)</string>
+    <string name="hc_mil">k</string>
+    <string name="hc_milhao">M</string>
+    <string name="hc_seu_time">Đội của bạn: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">Còn %1$d ngày đến ngày lễ</item>
+        <item quantity="other">Còn %1$d ngày đến ngày lễ</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">Còn %1$d ngày đến %2$s</item>
+        <item quantity="other">Còn %1$d ngày đến %2$s</item>
+    </plurals>
+</resources>

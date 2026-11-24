@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wdg_titulo">แก้ไขวิดเจ็ตหน้าจอหลัก</string>
+    <string name="wdg_det">วิดเจ็ตแบบสดจากแอปอื่นบนหน้าจอหลัก ลูกศรเพื่อย้าย OK เพื่อแสดงตัวเลือก</string>
+    <string name="wdg_vazio">ยังไม่มีวิดเจ็ตบนหน้าจอหลัก OK เพื่อเพิ่ม</string>
+    <string name="wdg_estado_mover">กำลังย้าย: %1$s</string>
+    <string name="wdg_estado_tamanho">ขนาด: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">ย้าย</string>
+    <string name="wdg_tamanho">เปลี่ยนขนาด</string>
+    <string name="wdg_ajustes">การตั้งค่าวิดเจ็ต</string>
+    <string name="wdg_proximo">วิดเจ็ตถัดไป</string>
+    <string name="wdg_por">เพิ่มวิดเจ็ต</string>
+    <string name="wdg_tirar">นำวิดเจ็ตนี้ออก</string>
+    <string name="wdg_abrir">เปิดแอป</string>
+    <string name="wdg_cheio">ไม่มีพื้นที่เหลือบนหน้าจอหลักสำหรับวิดเจ็ตนี้</string>
+    <string name="wdg_d_setas">ย้าย / ขนาด</string>
+    <string name="wdg_d_opcoes">ตัวเลือก</string>
+    <string name="wdg_d_voltar">BACK</string>
+    <string name="wdg_d_sair">บันทึกและออก</string>
+</resources>

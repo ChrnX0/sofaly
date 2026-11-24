@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Actions catalog (ComandosIa): what the TV shows before/after running an action from a scene, Claude or voice. -->
+<resources>
+    <string name="acao_recado">แสดงข้อความ “%1$s”</string>
+    <string name="acao_timer">ตัวจับเวลา %1$d นาที</string>
+    <string name="acao_timer_nome">ตัวจับเวลา %1$d นาที (“%2$s”)</string>
+    <string name="acao_desligar_em">ปิดทีวีในอีก %1$d นาที</string>
+    <string name="acao_desligar_cancelar">ยกเลิกตั้งเวลาปิด</string>
+    <string name="acao_filtro_ligar">เปิดฟิลเตอร์กลางคืน</string>
+    <string name="acao_filtro_desligar">ปิดฟิลเตอร์กลางคืน</string>
+    <string name="acao_filtro_sem_servico">ฟิลเตอร์กลางคืนต้องใช้บริการการช่วยเหลือพิเศษ</string>
+    <string name="acao_rodar_cena">เรียกใช้ฉาก “%1$s”</string>
+    <string name="acao_cena_nao_existe">ไม่มีฉาก “%1$s”</string>
+    <string name="acao_cena_em_cena">ฉากไม่สามารถเรียกใช้ฉากอื่นได้</string>
+    <string name="acao_mural_compras">เพิ่ม “%1$s” ในรายการซื้อของ</string>
+    <string name="acao_mural_recado">ปักหมุด “%1$s” บนกระดานครอบครัว</string>
+    <string name="acao_tocar_titulo">ค้นหาและเล่น “%1$s”</string>
+    <string name="acao_tocar">เล่น %1$s</string>
+    <string name="acao_continuar">เล่นต่อจากที่กำลังเล่นอยู่</string>
+    <string name="acao_proximo">เล่นตอนถัดไป</string>
+    <string name="acao_proximo_de">ตอนถัดไปของ %1$s</string>
+    <string name="acao_o_que_via">ดูสิ่งที่กำลังเล่นอยู่</string>
+    <string name="acao_vendo">ดูล่าสุด: %1$s</string>
+    <string name="acao_vendo_nada">ยังไม่ได้ดูอะไรในภาพยนตร์และซีรีส์</string>
+    <!-- Rotina e despertador que rodam cena (ideia 5) -->
+    <string name="rot_cena_uma">เรียกใช้ฉาก</string>
+    <string name="rot_cena">เรียกใช้ฉาก: %1$s</string>
+    <string name="rot_cena_linha">ฉาก: %1$s</string>
+    <string name="rot_cena_sem">สร้างฉากก่อน (แผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก)</string>
+    <!-- Tela Cenas (ideia 4) -->
+    <string name="lbl_cenas">ฉาก</string>
+    <string name="pr_cenas">ฉาก</string>
+    <string name="cenas_titulo">ฉาก</string>
+    <string name="cenas_det">OK เพื่อเรียกใช้ฉาก สร้างและแก้ไขได้ในแผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก</string>
+    <string name="cenas_vazio">ยังไม่มีฉาก สร้างได้ในแผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก</string>
+    <plurals name="cenas_acoes">
+        <item quantity="one">%d การทำงาน</item>
+        <item quantity="other">%d การทำงาน</item>
+    </plurals>
+    <!-- Botões do controle (ideia 6) -->
+    <string name="tec_titulo">ปุ่มรีโมต</string>
+    <string name="tec_det">Netflix และ YouTube ใช้ได้ทุกหน้าจอ ส่วนปุ่มสีและตัวเลขใช้ได้เฉพาะหน้าจอหลัก</string>
+    <string name="tec_nova">+ ตั้งค่าปุ่ม</string>
+    <string name="tec_nova_det">จากนั้นกดปุ่มบนรีโมต</string>
+    <string name="tec_aperte">กดปุ่ม</string>
+    <string name="tec_aperte_det">Netflix, YouTube, ปุ่มสี หรือตัวเลข BACK เพื่อยกเลิก</string>
+    <string name="tec_nao_pode">เปลี่ยน %1$s ไม่ได้ (จำเป็นต่อการใช้ทีวี) ลองปุ่มอื่น</string>
+    <string name="tec_so_home">ใช้ได้เฉพาะหน้าจอหลัก (ในแอปและเครื่องเล่นยังทำหน้าที่เดิม)</string>
+    <string name="tec_toda_tela">ใช้ได้ทุกหน้าจอ</string>
+    <string name="tec_toque">กด</string>
+    <string name="tec_segurar">กดค้าง</string>
+    <string name="tec_duplo">กดสองครั้ง</string>
+    <string name="tec_triplo">กดสามครั้ง</string>
+    <string name="tec_padrao">ค่าเริ่มต้น (แอปที่บันทึกไว้ · กดค้าง 3 วินาที = เลือก)</string>
+    <string name="tec_cena">ฉาก %1$s</string>
+    <string name="tec_salvo">บันทึก %1$s แล้ว</string>
+    <string name="tec_apagar">ล้างปุ่มนี้</string>
+    <string name="tec_vermelha">แดง</string>
+    <string name="tec_verde">เขียว</string>
+    <string name="tec_amarela">เหลือง</string>
+    <string name="tec_azul">น้ำเงิน</string>
+    <!-- Automações (ideia 1) -->
+    <string name="aut_titulo">ระบบอัตโนมัติ</string>
+    <string name="aut_det">ทุกอย่างที่ทีวีทำเอง: ตามเวลา ตามปุ่ม เมื่อมีบางอย่างเกิดขึ้น และผ่านลิงก์</string>
+    <string name="aut_cfg_det">เวลา ปุ่มรีโมต เหตุการณ์ และลิงก์ฉาก</string>
+    <string name="aut_horario">เมื่อถึงเวลา</string>
+    <string name="aut_botao">เมื่อกดปุ่ม</string>
+    <string name="aut_evento">เมื่อมีบางอย่างเกิดขึ้น</string>
+    <string name="aut_link">ผ่านลิงก์</string>
+    <string name="aut_link_det">สร้างและแก้ไขในแผงควบคุมเว็บ › บ้านและระบบอัตโนมัติ › ฉาก</string>
+    <plurals name="aut_links">
+        <item quantity="one">%d ฉากที่มีลิงก์</item>
+        <item quantity="other">%d ฉากที่มีลิงก์</item>
+    </plurals>
+    <string name="ev_midia_tocou">ภาพยนตร์หรือวิดีโอเริ่มเล่น</string>
+    <string name="ev_midia_pausou">ภาพยนตร์หรือวิดีโอหยุดชั่วคราวหรือจบ</string>
+    <string name="ev_tv_ligou">ทีวีเปิดขึ้น</string>
+    <string name="ev_todos_sairam">ทุกคนออกไปแล้ว (การอยู่บ้าน)</string>
+    <string name="ev_chuva">ฝนกำลังจะตก</string>
+    <string name="acao_plugin_button">กด “%1$s” (ปุ่มจากแอปอื่น)</string>
+    <string name="acao_plugin_button_off">ปุ่มนี้ไม่ได้เปิดในปลั๊กอิน</string>
+</resources>

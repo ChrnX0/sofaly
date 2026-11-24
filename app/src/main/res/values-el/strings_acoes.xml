@@ -77,4 +77,6 @@
     <string name="ev_tv_ligou">Η τηλεόραση άνοιξε</string>
     <string name="ev_todos_sairam">Όλοι έφυγαν (παρουσία)</string>
     <string name="ev_chuva">Έρχεται βροχή</string>
+    <string name="acao_plugin_button">Πάτημα «%1$s» (κουμπί από άλλη εφαρμογή)</string>
+    <string name="acao_plugin_button_off">Αυτό το κουμπί δεν είναι ενεργό στα Πρόσθετα</string>
 </resources>

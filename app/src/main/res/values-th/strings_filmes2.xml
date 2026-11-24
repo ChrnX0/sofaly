@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">กรองภาพยนตร์</string>
+    <string name="filmes_filtro_genero">ประเภท: %1$s</string>
+    <string name="filmes_filtro_epoca">ช่วงเวลา: %1$s</string>
+    <string name="filmes_filtro_nota">คะแนนขั้นต่ำ: %1$s</string>
+    <string name="filmes_filtro_lista">ลิสต์: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">เฉพาะที่ยังไม่ดู: %1$s</string>
+    <string name="filmes_filtro_limpar">ล้างตัวกรอง</string>
+    <string name="filmes_filtro_qualquer">ทั้งหมด</string>
+    <string name="filmes_filtro_sim">ใช่</string>
+    <string name="filmes_filtro_nao">ไม่</string>
+    <string name="filmes_filtro_decada">ยุค %1$d</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">ยังไม่ได้ดู</string>
+    <string name="filmes_filtro_sem_genero">ไม่มีหมวดหมู่ใดในรายการนี้ที่ระบุประเภท</string>
+    <string name="filmes_filtro_vazio">ไม่มีภาพยนตร์ที่ตรงกับตัวกรองนี้ในหมวดหมู่นี้</string>
+    <string name="filmes_sorteio_vazio">ไม่มีภาพยนตร์ให้เลือกที่นี่</string>
+    <string name="filmes_colecao">คอลเลกชันของภาพยนตร์นี้</string>
+    <string name="filmes_colecao_cat">คอลเลกชัน: %1$s</string>
+    <string name="genero_acao">แอ็กชัน</string>
+    <string name="genero_aventura">ผจญภัย</string>
+    <string name="genero_comedia">ตลก</string>
+    <string name="genero_drama">ดราม่า</string>
+    <string name="genero_terror">สยองขวัญ</string>
+    <string name="genero_suspense">ระทึกขวัญ</string>
+    <string name="genero_romance">โรแมนติก</string>
+    <string name="genero_ficcao">ไซไฟ</string>
+    <string name="genero_fantasia">แฟนตาซี</string>
+    <string name="genero_animacao">แอนิเมชัน</string>
+    <string name="genero_infantil">เด็กและครอบครัว</string>
+    <string name="genero_documentario">สารคดี</string>
+    <string name="genero_crime">อาชญากรรม</string>
+    <string name="genero_guerra">สงคราม</string>
+    <string name="genero_faroeste">คาวบอย</string>
+    <string name="genero_musical">มิวสิคัล</string>
+</resources>

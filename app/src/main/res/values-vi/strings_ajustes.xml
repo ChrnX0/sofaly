@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">Thêm tùy chọn</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">Ảnh trình bảo vệ màn hình từ điện thoại</string>
+    <string name="qrd_fotos_det">Hiện một mã: điện thoại mở bảng điều khiển thẳng tới trang ảnh</string>
+    <string name="qrd_mural">Bảng gia đình từ điện thoại</string>
+    <string name="qrd_mural_det">Danh sách mua sắm và ghi chú đã ghim</string>
+    <string name="qrd_cenas">Cảnh từ điện thoại</string>
+    <string name="qrd_cenas_det">Tạo và thử cảnh trong bảng điều khiển web</string>
+    <string name="qrd_casa">Home Assistant từ điện thoại</string>
+    <string name="qrd_casa_det">Địa chỉ và token Home Assistant của bạn, trong bảng điều khiển web</string>
+    <string name="qrd_time">Đội của tôi và nhắc nhở từ điện thoại</string>
+    <string name="qrd_time_det">Từ khóa biến chương trình trong lịch phát sóng thành nhắc nhở</string>
+    <string name="qrd_roteador">Router từ điện thoại</string>
+    <string name="qrd_roteador_det">Địa chỉ và khóa API của router UniFi, trong bảng điều khiển web</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">Ô của bảng nhanh</string>
+    <string name="pb_subtitulo">OK để hiện hoặc ẩn · ◀ ▶ đổi thứ tự</string>
+    <string name="pb_cfg_det">Chọn ô nào bảng nhanh (giữ BACK) hiện, và theo thứ tự nào</string>
+    <string name="pb_mostrado">đang hiện</string>
+    <string name="pb_escondido">đang ẩn</string>
+    <string name="pb_padrao">Trở lại các ô mặc định</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">Bộ lọc ban đêm</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">Màn hình chính</string>
+    <string name="cfg2_aba_inicio_det">Giao diện, ứng dụng ẩn, bảng nhanh và thời tiết</string>
+    <string name="cfg2_aba_familia">Gia đình</string>
+    <string name="cfg2_aba_familia_det">Kiểm soát của phụ huynh, PIN trẻ em, giờ đi ngủ và khách</string>
+    <string name="cfg2_aba_casa">Nhà và tự động hóa</string>
+    <string name="cfg2_aba_casa_det">Tự động hóa, nhà thông minh và những gì bạn thiết lập từ điện thoại</string>
+    <string name="cfg2_aba_sistema_det">Chẩn đoán, cập nhật, sao lưu và giới thiệu</string>
+    <string name="cfg2_aba_avancado">Nâng cao</string>
+    <string name="cfg2_aba_avancado_det">Mạng, công cụ, ứng dụng nhà sản xuất, quyền và shell. Hiếm khi cần.</string>
+    <string name="cfg2_sec_visitas">Khách</string>
+    <string name="cfg2_sec_celular">Từ điện thoại</string>
+    <string name="cfg2_sec_ferramentas">Công cụ</string>
+    <string name="cfg2_sec_ocultos_sistema">Ứng dụng hệ thống bị launcher ẩn</string>
+    <string name="cfg2_apps_visita_det">Chọn ứng dụng nào biến mất khi chế độ khách bật</string>
+    <string name="cfg2_apps_visita_sub">OK để chuyển · các ứng dụng này biến mất khi chế độ khách bật</string>
+    <string name="cfg2_some_visita">ẩn với khách</string>
+    <string name="cfg2_fica_visita">giữ lại</string>
+    <string name="cfg2_casa_det">Đèn, ổ cắm và cảnh từ Google Home hoặc Home Assistant</string>
+    <string name="oc_titulo">Ứng dụng đã ẩn</string>
+    <string name="oc_subtitulo">OK để hiện hoặc ẩn ứng dụng trên màn hình chính · ứng dụng bị ẩn hiện trước</string>
+    <string name="oc_nenhum">Không có ứng dụng ẩn · OK để chọn</string>
+    <string name="oc_quantos">Đã ẩn: %1$d · OK để hiện lại</string>
+    <string name="oc_oculto">đã ẩn</string>
+    <string name="oc_aparece">trên màn hình chính</string>
+    <string name="oc_aviso_titulo">Đã ẩn ứng dụng</string>
+    <string name="oc_aviso">Để hiện lại: Cài đặt › Màn hình chính › Ứng dụng đã ẩn</string>
+    <string name="extras_LER_FOCO">Đọc to mục đang chọn, trên mọi màn hình của launcher</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">Để TV tự tắt?</string>
+    <string name="sug_desligar">TV bật sau nửa đêm %1$d đêm trong tuần này. Tắt sau 2 giờ không ai dùng điều khiển? (Báo trước 60 giây.)</string>
+    <string name="sug_filtro_titulo">Bật bộ lọc ban đêm?</string>
+    <string name="sug_filtro">TV được dùng sau 10 giờ tối %1$d đêm trong tuần này. Bộ lọc ban đêm làm ấm và tối màn hình vào ban đêm, dịu mắt hơn.</string>
+    <string name="sug_ligar">Bật</string>
+    <string name="sug_agora_nao">Để sau</string>
+    <string name="sug_nunca">Không gợi ý nữa</string>
+    <string name="sug_feito_titulo">Xong</string>
+    <string name="sug_feito">Để đổi sau: Cài đặt › Màn hình và nguồn</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">Cỡ chữ</string>
+    <string name="tt_det">Trên mọi màn hình của launcher. Phim, phim bộ và TV trực tiếp vốn đã lớn hơn và cũng tăng theo</string>
+    <string name="tt_normal">Bình thường</string>
+    <string name="tt_grande">Lớn</string>
+    <string name="tt_maior">Lớn hơn</string>
+    <string name="pi_titulo">Gói biểu tượng</string>
+    <string name="pi_det">Đổi biểu tượng ứng dụng sang kiểu có sẵn (Symbol, Duotone) hoặc gói biểu tượng đã cài. OK để chọn kiểu tiếp theo.</string>
+    <string name="pi_det_vazio">Chưa cài gói biểu tượng nào. Tải từ Play Store và nó sẽ hiện ở đây.</string>
+    <string name="pi_nenhum">Không có</string>
+    <string name="fm_titulo">Hình nền của tôi</string>
+    <string name="fm_det">Ảnh, GIF hoặc video của bạn phía sau màn hình chính. Đặt tệp vào thư mục Fundo, Pictures, DCIM, Movies hoặc Download.</string>
+    <string name="fm_vazio">Không tìm thấy ảnh hay video. Sao chép một tệp vào thư mục Fundo (ổ mạng hoặc USB) rồi quay lại.</string>
+    <string name="fm_nenhum">Không có (trở lại Tối)</string>
+    <string name="fm_brilho">Độ sáng hình nền</string>
+    <string name="fm_contraste">Độ tương phản hình nền</string>
+    <string name="fm_ajuste_det">Áp dụng cho Hình nền của tôi. OK để đổi mức.</string>
+    <string name="vp_titulo">Chuyển từ Projectivy?</string>
+    <string name="vp_texto">Bốn bước chuyển thiết lập của bạn sang trong khoảng một phút. Mỗi bước có thể làm sau trong Cài đặt.</string>
+    <string name="vp_cfg_det">Chuyển ứng dụng ẩn, gói biểu tượng và hình nền từ Projectivy.</string>
+    <string name="vp_1">1. Ứng dụng đã ẩn</string>
+    <string name="vp_1_det">Đánh dấu các ứng dụng bạn đã ẩn. Để sắp xếp lại, giữ OK trên một ứng dụng ở màn hình chính.</string>
+    <string name="vp_2">2. Gói biểu tượng</string>
+    <string name="vp_2_det">Các gói biểu tượng Projectivy dùng cũng dùng được ở đây.</string>
+    <string name="vp_3">3. Hình nền</string>
+    <string name="vp_3_det">Ảnh, GIF hoặc video của bạn. Hãy sao chép vào thư mục Fundo trước.</string>
+    <string name="vp_4">4. Tắt nút Home của Projectivy</string>
+    <string name="vp_4_det">Trong Hỗ trợ tiếp cận, tắt Projectivy. Hai ứng dụng cùng bắt nút Home sẽ khiến nó mở nhầm.</string>
+    <string name="vp_pronto">Xong</string>
+    <string name="vp_pronto_det">Đi đến màn hình chính.</string>
+    <string name="vq_titulo">Chia sẻ giao diện</string>
+    <string name="vq_det">Hiện mã QR với giao diện của TV này: chủ đề, cỡ chữ, biểu tượng.</string>
+    <string name="vq_texto">Quét bằng điện thoại để lưu lại hoặc gửi cho người dùng Sofaly khác.</string>
+    <string name="vq_fechar">Đóng</string>
+    <string name="pl_titulo">Gói dịch vụ</string>
+    <string name="pl_texto">Mọi thứ đều miễn phí khi chưa mở bán. Sau này, Pro và Ultra được mua trên điện thoại.</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• Màn hình chính, trình bảo vệ màn hình\n• Báo thức, màn hình dễ dùng\n• Trình phát và radio\n• 1 danh sách IPTV\n• 2 giao diện</string>
+    <string name="pl_pro_itens">• Mọi thứ trong Basic\n• Nhiều danh sách IPTV, ghi hình\n• Bảng điều khiển web đầy đủ\n• Claude, thói quen, Home Assistant\n• Mọi giao diện, sao lưu đám mây</string>
+    <string name="pl_ultra_itens">• Mọi thứ trong Pro\n• Thời tiết tốt hơn (3 mô hình)\n• Trang phim phong phú\n• Phụ đề tự động\n• Tối đa 3 TV</string>
+    <string name="pl_qr">Quét bằng điện thoại để xem giá và mua.</string>
+    <string name="pl_assinar">Đăng ký</string>
+    <string name="pl_assinar_preco">Đăng ký · %1$s</string>
+    <string name="pl_seu_plano">Gói của bạn</string>
+    <string name="pl_loja_indisponivel">Google Play không mở được giao dịch mua. Hãy kiểm tra internet và thử lại.</string>
+    <string name="atu_pela_play">Cập nhật đến từ Google Play.</string>
+</resources>

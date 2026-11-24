@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">Chế độ khách</string>
+    <string name="hos_det">Cho thuê nhà: thông tin đăng nhập của khách bị xóa khi trả phòng. Tắt chế độ này cần PIN.</string>
+    <string name="hos_pin_sair">PIN để thoát chế độ khách</string>
+    <string name="hos_pin_config">PIN để mở cài đặt</string>
+    <string name="hos_saida">Khách trả phòng</string>
+    <string name="hos_saida_det">Vào giờ này, các ứng dụng xem phim được dọn sạch. OK để đổi ngày.</string>
+    <string name="hos_saida_nenhuma">Chưa đặt</string>
+    <string name="hos_saida_hoje">Hôm nay lúc %1$s</string>
+    <string name="hos_saida_amanha">Ngày mai lúc %1$s</string>
+    <string name="hos_saida_dia">%1$s lúc %2$s</string>
+    <string name="hos_hora">Giờ trả phòng</string>
+    <string name="hos_hora_det">OK để đổi giờ (8:00 đến 14:00).</string>
+    <string name="hos_regras">Nội quy nhà</string>
+    <string name="hos_regras_vazio">Chưa có. Chúng sẽ hiện trên màn hình chào mừng.</string>
+    <string name="hos_regras_dica">Ví dụ: Giữ yên lặng sau 10 giờ tối. Trả phòng lúc 11 giờ sáng.</string>
+    <string name="hos_apps">Ứng dụng cần dọn khi trả phòng</string>
+    <string name="hos_apps_det">Thông tin đăng nhập và lịch sử của các ứng dụng được đánh dấu sẽ bị xóa. Ứng dụng xem phim được đánh dấu sẵn.</string>
+    <string name="hos_apps_sub">OK để đánh dấu hoặc bỏ đánh dấu. Ứng dụng hệ thống không dọn được.</string>
+    <string name="hos_encerrar">Kết thúc kỳ lưu trú ngay</string>
+    <string name="hos_encerrar_det">Dọn ứng dụng ngay và chuẩn bị màn hình chào mừng cho khách tiếp theo.</string>
+    <string name="hos_encerrar_pergunta">Xóa thông tin đăng nhập và lịch sử của các ứng dụng khách ngay? Không thể hoàn tác.</string>
+    <string name="hos_encerrar_sim">Xóa</string>
+    <string name="hos_limpando">Đang dọn…</string>
+    <string name="hos_limpou">Đã dọn ứng dụng: %1$d.</string>
+    <string name="hos_limpou_falhas">Đã dọn ứng dụng: %1$d. Thất bại: %2$s</string>
+    <string name="hos_ultima">Lần dọn gần nhất: %1$s</string>
+    <string name="hos_bv_titulo">Chào mừng!</string>
+    <string name="hos_bv_regras">Nội quy nhà</string>
+    <string name="hos_bv_privacidade">Cứ yên tâm đăng nhập ứng dụng: khi trả phòng, thông tin đăng nhập và lịch sử của các ứng dụng xem phim sẽ tự động bị xóa.</string>
+    <string name="hos_bv_ok">Bắt đầu</string>
+    <string name="hos_bv_wifi">Wi-Fi</string>
+</resources>

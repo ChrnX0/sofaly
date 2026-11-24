@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Som no fone (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="fone_menu">เสียงผ่านหูฟัง (โทรศัพท์)</string>
+    <string name="fone_titulo">เสียงผ่านหูฟัง</string>
+    <string name="fone_texto">สแกนด้วยโทรศัพท์ที่เชื่อมต่อ Wi-Fi ในบ้าน แล้วเสียบหูฟัง สูงสุด %1$d เครื่อง ทีวีจะเงียบขณะมีคนฟัง ปิดหน้าเว็บเพื่อให้เสียงกลับมา</string>
+    <string name="fone_ouvindo">กำลังฟัง: %1$d จาก %2$d</string>
+    <string name="fone_fechar">ปิด</string>
+    <string name="fone_parar">หยุด</string>
+    <string name="fone_sem_rede">ทีวีไม่ได้อยู่ในเครือข่ายในบ้าน</string>
+</resources>

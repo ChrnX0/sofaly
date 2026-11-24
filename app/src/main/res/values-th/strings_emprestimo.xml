@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emprestar o shell a outros apps (servidor do Shizuku embutido, 15/11/2026). -->
+<resources>
+    <string name="emp_secao">ให้ยืมสิทธิ์ระบบ</string>
+    <string name="emp_titulo">ให้แอปอื่นยืมเชลล์ (Shizuku)</string>
+    <string name="emp_titulo_det">แอปที่สร้างสำหรับ Shizuku ทำงานได้โดยไม่ต้องติดตั้ง Shizuku แต่ละแอปจะถามบนทีวีพร้อม PIN ในครั้งแรก</string>
+    <string name="emp_modo_desligado">ปิด</string>
+    <string name="emp_modo_sob_demanda">เมื่อแอปต้องการ</string>
+    <string name="emp_modo_sempre">เปิดตลอดเวลา</string>
+    <string name="emp_oficial">มีแอป Shizuku ติดตั้งอยู่บนทีวีนี้ Launcher จึงไม่เข้าไปยุ่ง ถอนการติดตั้งแอปนั้นเพื่อใช้ของ Launcher</string>
+    <string name="emp_plano">เป็นส่วนหนึ่งของแพ็กเกจแบบชำระเงิน</string>
+    <string name="emp_negar">ปฏิเสธ</string>
+    <string name="emp_permitir">อนุญาตเสมอ</string>
+    <string name="emp_pedido_titulo">อนุญาตให้ %1$s ใช้สิทธิ์ระบบของ Launcher ไหม</string>
+    <string name="emp_pedido_texto">แอปจะทำสิ่งที่ adb ทำได้: ติดตั้งและนำแอปออก เปลี่ยนการตั้งค่าระบบ และอื่นๆ อนุญาตเฉพาะแอปที่คุณไว้ใจ คุณเพิกถอนได้ภายหลังในแผงควบคุมเว็บ</string>
+    <string name="emp_pin_titulo">PIN ของแผงควบคุมเพื่ออนุญาต</string>
+    <string name="emp_sem_pin">ตั้ง PIN ของแผงควบคุมก่อน (การตั้งค่า, แผงควบคุมเว็บ)</string>
+    <!-- Lend the Device Owner (built-in Dhizuku server, 15/11/2026; DonoEmprestado.kt). -->
+    <string name="emd_titulo">ให้แอปอื่นยืมสิทธิ์ผู้ดูแลอุปกรณ์ (Dhizuku)</string>
+    <string name="emd_titulo_det">แอปที่สร้างสำหรับ Dhizuku ใช้สิทธิ์ผู้ดูแลอุปกรณ์ของ Launcher แต่ละแอปจะถามบนทีวีพร้อม PIN เมื่อเลือก “อนุญาต” จะไม่มีแอปใดนำ Launcher ออกจากการเป็นผู้ดูแลหรือล้างข้อมูลทีวีได้ เมื่อเลือก “สิทธิ์เต็ม” จะทำได้</string>
+    <string name="emd_ligado">เปิด</string>
+    <string name="emd_sem_dono">Launcher ไม่ได้เป็นผู้ดูแล (Device Owner) ของทีวีนี้ จึงไม่มีอะไรให้ยืม</string>
+    <string name="emd_pedido_titulo">อนุญาตให้ %1$s ใช้สิทธิ์ผู้ดูแลอุปกรณ์ของ Launcher ไหม</string>
+    <string name="emd_pedido_texto">เมื่อเลือก “อนุญาต” แอปจะซ่อนและบล็อกแอป และเปลี่ยนสิทธิ์และกฎของทีวีได้ แต่จะไม่สามารถนำ Launcher ออกจากการเป็นผู้ดูแลหรือล้างข้อมูลทีวี “สิทธิ์เต็ม” ให้แอปทำงานในฐานะ Launcher และอ่านข้อมูลของ Launcher ได้: เฉพาะแอปที่คุณไว้ใจอย่างเต็มที่ คุณเพิกถอนได้ในแผงควบคุมเว็บ เมื่อเลือก “สิทธิ์เต็ม” แอปจะทำได้ทุกอย่างที่ Launcher ทำได้ แม้กระทั่งล้างข้อมูลทีวี</string>
+    <string name="emd_total">สิทธิ์เต็ม</string>
+    <string name="emd_pin_total">สิทธิ์เต็ม: แอปจะทำได้ทุกอย่างที่ Launcher ทำได้ แม้กระทั่งล้างข้อมูลทีวี PIN ของแผงควบคุม</string>
+</resources>

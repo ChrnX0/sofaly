@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">ทีวีนี้เป็นอย่างไรบ้าง</string>
+    <string name="elv_placar_det">เจ็ดสัญญา แต่ละข้อมีตัวเลขที่วัดบนทีวีนี้</string>
+    <string name="elv_placar_sub">วัดบนทีวีนี้ ไม่มีข้อมูลใดในนี้ออกจากบ้าน</string>
+    <string name="elv_pilar_liga">เปิดแล้วพร้อมใช้</string>
+    <string name="elv_pilar_ao_vivo">ทีวีสดที่ไม่สะดุด</string>
+    <string name="elv_pilar_player">เครื่องเล่นที่ดีที่สุดในห้องนั่งเล่น</string>
+    <string name="elv_pilar_casa">ทีวีที่ดูแลบ้าน</string>
+    <string name="elv_pilar_controle">ควบคุมได้จากทุกที่</string>
+    <string name="elv_pilar_todos">ใครก็ใช้ได้</string>
+    <string name="elv_pilar_instala">ตั้งค่าเองและแก้ไขตัวเอง</string>
+    <string name="elv_prom_liga">หน้าจอหลักพร้อมในไม่ถึง 1 วินาที</string>
+    <string name="elv_prom_ao_vivo">การเปลี่ยนช่องใช้เวลาไม่ถึง 1.5 วินาที จากการกดปุ่มจนเห็นภาพ</string>
+    <string name="elv_prom_player">เล่นได้ทุกไฟล์ คำบรรยายถูกต้องโดยไม่ต้องปรับ</string>
+    <string name="elv_prom_casa">นาฬิกาปลุกดังตรงเวลา ทุกครั้ง</string>
+    <string name="elv_prom_controle">แผงควบคุม โทรศัพท์ และ AI ทำได้ทุกอย่างที่รีโมตทำได้</string>
+    <string name="elv_prom_todos">ผู้สูงอายุ เด็ก ผู้เยี่ยมชม ผู้ที่มองเห็นหรือได้ยินไม่ชัด รองรับ %1$d ภาษา</string>
+    <string name="elv_prom_instala">จากการเปิดครั้งแรกจนถึงช่องแรกใน 5 นาที</string>
+    <string name="elv_nao_medido">ยังไม่ได้วัด</string>
+    <string name="elv_alvo">เป้าหมาย %1$s</string>
+    <string name="elv_n_de_n">ตรงเวลา %1$d จาก %2$d</string>
+    <string name="elv_dentro">ตรงเป้า</string>
+    <string name="elv_fora">ไม่ตรงเป้า</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">ขัดข้องหรือค้าง %1$d ครั้งใน %2$d วัน</item>
+        <item quantity="other">ขัดข้องหรือค้าง %1$d ครั้งใน %2$d วัน</item>
+    </plurals>
+    <string name="elv_lp_titulo">วัดก่อนและหลัง</string>
+    <string name="elv_lp_det_antes">วัดหน่วยความจำว่างและความเร็วในการเปิด 3 แอปที่คุณใช้บ่อยที่สุด ก่อนล้าง แอปจะเปิดขึ้นสองสามวินาที</string>
+    <string name="elv_lp_det_depois">บันทึกค่าก่อนแล้ว ซ่อนแอปด้านบน แล้วกด OK เพื่อวัดค่าหลัง</string>
+    <string name="elv_lp_medindo">กำลังวัด… แอปอาจเปิดขึ้นสองสามวินาที</string>
+    <string name="elv_lp_mais_livre">ว่างเพิ่มขึ้น %1$d MB</string>
+    <string name="elv_lp_menos_livre">ว่างลดลง %1$d MB</string>
+    <string name="elv_lp_mais_rapido">%1$s เปิดเร็วขึ้น %2$s</string>
+    <string name="elv_lp_mais_lento">%1$s เปิดช้าลง %2$s</string>
+    <string name="elv_lp_igual">ไม่มีความแตกต่างมากพอที่จะวัดได้</string>
+    <string name="elv_agora">เมื่อสักครู่</string>
+    <string name="elv_sem_quedas">ไม่มีการขัดข้องหรือค้างใน %1$d วัน</string>
+    <string name="elv_reserva">%1$s หลุด กำลังเล่น %2$s แทน</string>
+    <string name="elv_zap_solte">ปล่อยเพื่อดู</string>
+    <string name="elv_leg_padrao">มาตรฐาน</string>
+    <string name="elv_leg_contraste">คอนทราสต์สูง</string>
+    <string name="elv_leg_amarela">เหลือง</string>
+    <string name="elv_leg_embaixo">ด้านล่าง</string>
+    <string name="elv_leg_em_cima">ด้านบน</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">ทำเลย</string>
+    <string name="elv_bf_ok_faz">OK เพื่อทำตอนนี้</string>
+    <string name="elv_bf_wifi">แสดง Wi-Fi สำหรับผู้เยี่ยมชม</string>
+    <string name="elv_bf_wifi_configurar">ยังไม่ได้ตั้งค่า: OK เพื่อเปิดการตั้งค่า (ผู้เยี่ยมชม)</string>
+    <string name="elv_bf_letra_maior">ตัวอักษรใหญ่ขึ้น (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">ตัวอักษรเล็กลง (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">เป็นขนาดนี้อยู่แล้ว</string>
+    <string name="elv_bf_radios">สถานีวิทยุ</string>
+    <string name="elv_bf_radio_fav">สถานีโปรด</string>
+    <string name="elv_bf_ajuda">ความช่วยเหลือ</string>
+    <string name="elv_bf_ajuda_det">หัวข้อในคู่มือ</string>
+    <string name="elv_bf_procurar">ค้นหาเพิ่มเติม</string>
+    <string name="elv_bf_procurar_radio">สถานีวิทยุชื่อ “%1$s”</string>
+    <string name="elv_bf_procurar_radio_det">สถานีจากทั่วโลก</string>
+    <string name="elv_bf_procurar_rede">“%1$s” ในไฟล์บนเครือข่ายของคุณ</string>
+    <string name="elv_bf_procurar_rede_det">บน Jellyfin, Emby หรือ Plex ของคุณ</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">ค้นหาการตั้งค่า</string>
+    <string name="elv_aj_explica">พิมพ์คำ: ชื่อตัวเลือกหรือคำอื่นที่มีความหมายเดียวกัน (\"แบบอักษร\" จะพบขนาดตัวอักษร)</string>
+    <string name="elv_aj_dica">ตัวอย่าง: แบบอักษร, Wi-Fi, โปรแกรมรักษาหน้าจอ</string>
+    <string name="elv_aj_recentes">เปลี่ยนล่าสุด</string>
+    <string name="elv_aj_recentes_vazio">ตัวเลือกที่คุณเปลี่ยนจะแสดงที่นี่ ล่าสุดอยู่ก่อน</string>
+    <string name="elv_aj_nada">ไม่พบผลลัพธ์สำหรับ “%1$s”</string>
+    <string name="elv_aj_nada_det">ลองคำอื่น หรือดูในแท็บทางซ้าย</string>
+    <string name="elv_aj_sinonimos">แบบอักษร,ฟอนต์,ตัวอักษร,ข้อความ,ขนาด,ใหญ่ขึ้น,เล็กลง;wifi,wi-fi,ไวไฟ,เครือข่าย,อินเทอร์เน็ต,เน็ต,การเชื่อมต่อ;โปรแกรมรักษาหน้าจอ,สกรีนเซฟเวอร์,พักหน้าจอ,ว่าง;รหัสผ่าน,pin,พิน,รหัส;เสียง,ระดับเสียง,ออดิโอ;เวลา,นาฬิกา,ชั่วโมง;สภาพอากาศ,พยากรณ์,อุณหภูมิ,อากาศ;ภาษา;เด็ก,ลูก,ผู้ปกครอง;ผู้เยี่ยมชม,แขก,ผู้มาเยือน;อัปเดต,เวอร์ชัน,ใหม่;สำรองข้อมูล,สำเนา,กู้คืน;โทรศัพท์,มือถือ;ไฟ,หลอดไฟ,บ้าน;ปิดเครื่อง,ปิด,ตัวจับเวลา,พลังงาน,นอน;ช่อง,ทีวี,สด;ภาพยนตร์,หนัง,ซีรีส์,รายการ;คำบรรยาย,ซับไตเติล,ซับ;นาฬิกาปลุก,ปลุก,ตื่น;รูป,รูปภาพ,ภาพ,พื้นหลัง,วอลเปเปอร์</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">ต้องดูแล</string>
+    <string name="elv_f_canal_caiu_frase">ช่องนี้ไม่มีสัญญาณในตอนนี้</string>
+    <string name="elv_f_canal_caiu_causa">ผู้ให้บริการของช่องหยุดส่งสัญญาณ ปกติจะกลับมาเอง</string>
+    <string name="elv_f_canal_caiu_botao">ดูช่องอื่น</string>
+    <string name="elv_f_lista_venceu_frase">รายการช่องของคุณหมดอายุแล้ว</string>
+    <string name="elv_f_lista_venceu_causa">บัญชีกับผู้ขายรายการหมดอายุหรือถูกปฏิเสธ</string>
+    <string name="elv_f_lista_venceu_botao">เปิดบัญชี</string>
+    <string name="elv_f_relogio_errado_frase">นาฬิกาของทีวีไม่ถูกต้อง</string>
+    <string name="elv_f_relogio_errado_causa">เมื่อเวลาไม่ถูกต้อง ผังรายการและเว็บไซต์ที่ปลอดภัยจะใช้งานไม่ได้</string>
+    <string name="elv_f_relogio_errado_botao">ตั้งนาฬิกา</string>
+    <string name="elv_f_disco_cheio_frase">พื้นที่ในทีวีใกล้เต็ม</string>
+    <string name="elv_f_disco_cheio_causa">เมื่อไม่มีพื้นที่ ผังรายการ การบันทึก และการอัปเดตจะบันทึกไม่ได้</string>
+    <string name="elv_f_disco_cheio_botao">เพิ่มพื้นที่ว่าง</string>
+    <string name="elv_f_shell_parado_frase">ความสามารถพิเศษของทีวีหยุดทำงาน</string>
+    <string name="elv_f_shell_parado_causa">การแก้ไขข้อบกพร่องแบบไร้สายถูกปิด หรือการจับคู่หายไป</string>
+    <string name="elv_f_shell_parado_botao">เปิดกลับมาใหม่</string>
+    <string name="elv_f_tunel_sem_login_frase">การเข้าถึงจากนอกบ้านกำลังรอการเข้าสู่ระบบ</string>
+    <string name="elv_f_tunel_sem_login_causa">การเข้าสู่ระบบ Tailscale หมดอายุ</string>
+    <string name="elv_f_tunel_sem_login_botao">เข้าสู่ระบบอีกครั้ง</string>
+    <string name="elv_f_backup_falhou_frase">การสำรองข้อมูลตอนกลางคืนไม่ได้ทำงานมา 2 วัน</string>
+    <string name="elv_f_backup_falhou_causa">เข้าถึงปลายทางไม่ได้ หรือรหัสผ่านเปลี่ยนไป</string>
+    <string name="elv_f_backup_falhou_botao">สำรองข้อมูลตอนนี้</string>
+    <string name="elv_f_religando">กำลังเปิดกลับมาใหม่: อาจใช้เวลาถึงหนึ่งนาที</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">ห้ามรบกวน: ระหว่างดูภาพยนตร์ ดึกๆ หรือเมื่อมีแขก ประกาศจะรอแล้วมาเป็นสรุป (นาฬิกาปลุกและกริ่งประตูแสดงเสมอ)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">ระหว่างที่คุณดู: %1$d ประกาศ</item><item quantity="other">ระหว่างที่คุณดู: %1$d ประกาศ</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">ระหว่างกลางคืน: %1$d ประกาศ</item><item quantity="other">ระหว่างกลางคืน: %1$d ประกาศ</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">ระหว่างการเยี่ยม: %1$d ประกาศ</item><item quantity="other">ระหว่างการเยี่ยม: %1$d ประกาศ</item></plurals>
+    <string name="elv_np_mais">+อีก %1$d</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">เมื่อภาพยนตร์จบ</string>
+    <string name="elv_ev_programa_comecou">เมื่อรายการที่คุณทำเครื่องหมายในผังรายการเริ่ม</string>
+    <string name="elv_ev_nascer_do_sol">เมื่อพระอาทิตย์ขึ้น</string>
+    <string name="elv_ev_por_do_sol">เมื่อพระอาทิตย์ตก</string>
+    <string name="elv_ev_campainha">เมื่อกริ่งประตูดัง</string>
+    <string name="elv_ev_alguem_chegou">เมื่อมีคนกลับถึงบ้าน</string>
+    <string name="elv_ev_internet_caiu">เมื่ออินเทอร์เน็ตล่ม</string>
+    <string name="elv_ev_internet_voltou">เมื่ออินเทอร์เน็ตกลับมา</string>
+    <string name="elv_ev_recado_chegou">เมื่อมีข้อความเข้ามา</string>
+    <string name="elv_ev_aniversario">ในวันเกิดของใครสักคน (9:00 น.)</string>
+    <string name="elv_ev_compromisso">เมื่อนัดหมายในปฏิทินเริ่ม</string>
+    <string name="elv_ss_sempre">ทุกครั้ง</string>
+    <string name="elv_ss_so_se">เฉพาะเมื่อ %1$s</string>
+    <string name="elv_ss_e">" และ "</string>
+    <string name="elv_ss_em_casa">มีคนอยู่บ้าน</string>
+    <string name="elv_ss_noite">หลังพระอาทิตย์ตก</string>
+    <string name="elv_ss_dia_util">เป็นวันธรรมดา</string>
+    <string name="elv_ss_perfil">โปรไฟล์คือ %1$s</string>
+    <string name="elv_ss_det">◀ ▶ เปลี่ยนเงื่อนไข</string>
+    <string name="extras_ABERTURA_PRONTA">ข้ามช่วงเปิดเรื่อง (IntroDB): สำหรับตอนของซีรีส์ ทีวีจะถามบริการชุมชน IntroDB ว่าช่วงเปิดเรื่องอยู่ตรงไหน (ส่งเพียงว่าเป็นตอนไหน ไม่ส่งบัญชีของคุณ) เมื่อปิด จะใช้เฉพาะช่วงเปิดเรื่องที่คุณทำเครื่องหมายไว้</string>
+</resources>

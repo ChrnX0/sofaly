@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">ภาพยนตร์และทีวี</string>
+    <string name="aa_shelf_video">วิดีโอ</string>
+    <string name="aa_shelf_sports">กีฬา</string>
+    <string name="aa_shelf_kids">เด็ก</string>
+    <string name="aa_shelf_music_audio">เพลงและเสียง</string>
+    <string name="aa_shelf_news">ข่าว</string>
+    <string name="aa_shelf_games">เกม</string>
+    <string name="aa_shelf_education">การศึกษา</string>
+    <string name="aa_shelf_health_fitness">สุขภาพและฟิตเนส</string>
+    <string name="aa_shelf_lifestyle">ไลฟ์สไตล์</string>
+    <string name="aa_shelf_tools">เครื่องมือ</string>
+    <string name="aa_shelf_system">ระบบ</string>
+    <string name="aa_shelf_other">อื่นๆ</string>
+    <string name="aa_frozen">ตรึงไว้</string>
+    <string name="aa_hidden">ซ่อน</string>
+    <string name="aa_badge_frozen">ตรึงไว้</string>
+    <string name="aa_badge_hidden">ซ่อน</string>
+    <string name="aa_lock">ซ่อน (%1$d)</string>
+    <string name="aa_count_hidden">ซ่อน: %1$d</string>
+    <string name="aa_count_frozen">ตรึงไว้: %1$d</string>
+    <string name="aa_pin_title">PIN เพื่อดูแอปที่ซ่อน</string>
+    <string name="aa_used_today">เปิดวันนี้</string>
+    <string name="aa_used_days">เปิดล่าสุดเมื่อ %1$d วันที่แล้ว</string>
+    <string name="aa_used_never">ยังไม่เคยเปิดจากที่นี่</string>
+    <string name="aa_size">ใช้ %1$s</string>
+    <string name="aa_risk_safe">เปลี่ยนได้อย่างปลอดภัย ตามข้อมูลของแอป</string>
+    <string name="aa_risk_care">เปลี่ยนอย่างระมัดระวัง ตามข้อมูลของแอป</string>
+    <string name="aa_risk_essential">จำเป็นต่อทีวี: ห้ามตรึง</string>
+    <string name="aa_tip_idle">ไม่ได้เปิดมา %1$d วัน การตรึงช่วยคืนหน่วยความจำและยกเลิกได้</string>
+    <string name="aa_hint_app">OK เพื่อเปิด · กด OK ค้างเพื่อย้าย ซ่อน ตรึง หรือถอนการติดตั้ง</string>
+    <string name="aa_hint_frozen">OK เพื่อปลดการตรึงและเปิด</string>
+    <string name="aa_hint_lock">OK เพื่อขอ PIN และแสดงแอปที่ซ่อนที่นี่</string>
+    <string name="aa_open">เปิด</string>
+    <string name="aa_freeze">ตรึง</string>
+    <string name="aa_freezing">กำลังตรึง %1$s…</string>
+    <string name="aa_frozen_done">ตรึง %1$s แล้ว ในอีก 10 นาที ทีวีจะตรวจสอบว่าทุกอย่างยังทำงาน และจะยกเลิกถ้ามีบางอย่างหยุดทำงาน</string>
+    <string name="aa_freeze_failed">ตรึง %1$s ไม่ได้: %2$s</string>
+    <string name="aa_unfreeze_open">ปลดการตรึงและเปิด</string>
+    <string name="aa_unfreeze_refreeze">เปิดและตรึงอีกครั้งเมื่อฉันกลับมา</string>
+    <string name="aa_unfreezing">กำลังปลดการตรึง %1$s…</string>
+    <string name="aa_unfreeze_failed">ปลดการตรึง %1$s ไม่ได้: %2$s</string>
+    <string name="aa_move_auto">อัตโนมัติ</string>
+</resources>

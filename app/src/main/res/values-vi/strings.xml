@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shown in the TV's accessibility settings. -->
+    <string name="descricao_autoriza_shizuku">Nút điều khiển của launcher (nút Netflix/YouTube có thể gán lại) và cửa sổ ghép nối không cần máy tính.</string>
+    <!-- ConfigLauncherActivity.kt -->
+    <string name="cfg_vpn_conectada">đã kết nối</string>
+    <string name="cfg_vpn_desconectada">đã ngắt kết nối</string>
+    <string name="cfg_titulo">Cài đặt</string>
+    <string name="cfg_diag">Chẩn đoán TV</string>
+    <string name="cfg_diag_det">Internet, DNS, VPN và lý do một ứng dụng dừng — tất cả cùng lúc</string>
+    <string name="cfg_tema_det">Chuyển sang giao diện tiếp theo</string>
+    <string name="cfg_nunca">Không bao giờ</string>
+    <string name="cfg_min">%1$d phút</string>
+    <string name="cfg_nao_gravou_do">không lưu được (Device Owner không hoạt động?)</string>
+    <string name="cfg_visita">Chế độ khách</string>
+    <string name="cfg_rotinas">Thói quen</string>
+    <string name="cfg_sec_atualizacao">Cập nhật</string>
+    <string name="cfg_atualizar">Kiểm tra phiên bản mới</string>
+    <string name="cfg_atualizar_det">Phiên bản %1$s · %2$s · OK để kiểm tra ngay</string>
+    <string name="cfg_procurando">đang kiểm tra GitHub…</string>
+    <string name="cfg_instalar">Cài phiên bản %1$d ngay</string>
+    <string name="cfg_instalar_det">Launcher sẽ đóng và tự mở lại sau vài giây · OK để cài</string>
+    <string name="cfg_instalando">đang tải và kiểm tra…</string>
+    <string name="cfg_sec_rede">Mạng</string>
+    <string name="cfg_dns">DNS riêng tư</string>
+    <string name="cfg_dns_caiu">" · %1$s không phản hồi, đã chuyển về tự động"</string>
+    <string name="cfg_velocidade">Kiểm tra tốc độ internet</string>
+    <string name="cfg_velocidade_det">Tải 25 MB và đo</string>
+    <string name="cfg_testando">Đang kiểm tra…</string>
+    <string name="cfg_nao_mudou_do">không thay đổi được (Device Owner không hoạt động?)</string>
+    <string name="cfg_sec_ligado">Những gì đang bật — %1$s</string>
+    <string name="cfg_ligado">bật</string>
+    <string name="cfg_so_pc">" · chỉ với máy tính (adb)"</string>
+    <string name="cfg_tenta_ligar">" · OK để thử bật"</string>
+    <string name="cfg_perm_fixas">Đã cấp quyền cố định</string>
+    <string name="cfg_shell_estado">Shell riêng</string>
+    <string name="cfg_shell_pareado">đã ghép nối: launcher tự kết nối lại qua Gỡ lỗi không dây</string>
+    <string name="cfg_shell_nunca">chưa ghép nối: dùng \"Ghép nối không cần PC\" bên dưới</string>
+    <string name="cfg_sec_shizuku">Shell của launcher (ADB qua Wi-Fi)</string>
+    <string name="cfg_parear">Ghép nối không cần PC</string>
+    <string name="cfg_parear_det">Mở màn hình ghép nối của Android với bàn phím số của launcher ở trên</string>
+    <string name="cfg_acess_off">dịch vụ hỗ trợ tiếp cận của launcher đang tắt</string>
+    <string name="cfg_versao">Phiên bản launcher</string>
+    <string name="cfg_desconhecida">không rõ</string>
+    <string name="cfg_depuracao">Gỡ lỗi không dây</string>
+    <string name="cfg_depuracao_on">được launcher giữ bật</string>
+    <string name="cfg_depuracao_android">như Android để mặc định</string>
+    <string name="cfg_chave">Khóa shell riêng</string>
+    <string name="cfg_calculando">đang tính…</string>
+    <string name="cfg_erro">lỗi: %1$s</string>
+    <string name="cfg_licencas">Giấy phép và ghi công</string>
+    <string name="cfg_licencas_det">Mã, phông chữ, biểu tượng và dữ liệu của bên thứ ba được dùng ở đây</string>
+    <!-- Recursos.kt -->
+    <string name="rec_do_sem">thiếu nó: không ẩn được ứng dụng, không ghim được HOME hay VPN, không hẹn giờ trình bảo vệ màn hình</string>
+    <string name="rec_agenda">Lịch</string>
+    <string name="rec_agenda_sem">thiếu nó: lịch không hiện sự kiện</string>
+    <string name="rec_local">Vị trí</string>
+    <string name="rec_local_sem">thiếu nó: thời tiết dùng thành phố theo IP và Wi-Fi không hiện tên mạng</string>
+    <string name="rec_contas">Tài khoản</string>
+    <string name="rec_contas_sem">thiếu nó: chấm hồ sơ không hiện chữ cái đầu của tài khoản</string>
+    <string name="rec_uso">Mức sử dụng ứng dụng</string>
+    <string name="rec_uso_sem">thiếu nó: ứng dụng không được sắp xếp theo lần dùng gần đây</string>
+    <string name="rec_sobre">Hiển thị trên ứng dụng khác</string>
+    <string name="rec_sobre_sem">thiếu nó: ghi chú và ghép nối không cần PC không hiện trên ứng dụng</string>
+    <string name="rec_seguras">Cài đặt bảo mật</string>
+    <string name="rec_seguras_sem">thiếu nó: không đổi được DNS và không tự khởi động lại dịch vụ phím và gỡ lỗi không dây (chỉ với PC hoặc shell của launcher)</string>
+    <string name="rec_teclas">Dịch vụ phím</string>
+    <string name="rec_teclas_sem">thiếu nó: HOME có thể mở launcher của Google và phím Netflix/YouTube không được gán lại</string>
+    <string name="rec_tudo">mọi thứ đều bật</string>
+    <string name="rec_faltam">Thiếu %1$d trên %2$d tính năng · OK trên một mục để thử bật</string>
+    <!-- BoasVindasActivity.kt -->
+    <string name="bv_titulo">Chào mừng</string>
+    <string name="bv_texto">Màn hình chính, đồng hồ, thời tiết, báo thức và trình bảo vệ màn hình đã hoạt động. Bật phần còn lại ở đây nếu muốn (%1$s).</string>
+    <string name="bv_comecar">Bắt đầu</string>
+    <string name="bv_comecar_det">Đi đến màn hình chính</string>
+    <string name="bv_perm">Bật lịch, vị trí và tài khoản</string>
+    <string name="bv_perm_det">Sự kiện lịch, thời tiết thành phố của bạn, chữ cái đầu tài khoản trên hồ sơ</string>
+    <string name="bv_teclas">Bật dịch vụ phím</string>
+    <string name="bv_teclas_det">Hỗ trợ tiếp cận › Nút điều khiển: giúp HOME luôn quay về đây</string>
+    <string name="bv_tudo">Xem mọi thứ có thể bật</string>
+    <!-- LicencasActivity.kt -->
+    <string name="lic_sem_arquivo">Không tìm thấy tệp giấy phép.</string>
+    <!-- Rotinas.kt -->
+    <string name="rot_ligar">Bật TV</string>
+    <string name="rot_abrir_um">Bật và mở ứng dụng</string>
+    <string name="rot_desligar">Tắt TV</string>
+    <string name="rot_abrir">Bật và mở %1$s</string>
+    <string name="rot_um_app">một ứng dụng (chọn)</string>
+    <string name="rot_se_ocioso">" nếu không ai chạm vào trong %1$s"</string>
+    <string name="rot_sempre">luôn luôn</string>
+    <!-- RotinasActivity.kt -->
+    <string name="rot_nenhuma">không có thói quen nào bật</string>
+    <string name="rot_proxima">tiếp theo: %1$s</string>
+    <string name="rot_nova_mais">+ Thói quen mới</string>
+    <string name="rot_nova_det">Bật, mở ứng dụng hoặc tắt vào giờ định sẵn</string>
+    <string name="rot_desligada_sufixo">" · tắt"</string>
+    <string name="rot_nova">Thói quen mới</string>
+    <string name="rot_editar">Sửa thói quen</string>
+    <string name="rot_editor_det">OK để đổi từng dòng · BACK để thoát không lưu</string>
+    <string name="rot_hora">Giờ: %1$s</string>
+    <string name="rot_dias">Ngày: %1$s</string>
+    <string name="rot_acao">Hành động: %1$s</string>
+    <string name="rot_app">Ứng dụng: %1$s</string>
+    <string name="rot_nenhum">không có</string>
+    <string name="rot_ocioso">Chỉ khi không ai chạm vào trong: %1$s</string>
+    <string name="rot_ligada">Bật</string>
+    <string name="rot_desligada">Tắt</string>
+    <string name="rot_hora_det">◀ ▶ 5 phút · OK +1 giờ</string>
+    <string name="rot_dias_det">OK: mỗi ngày, T2 đến T6, cuối tuần, một lần</string>
+    <string name="rot_ok_muda">OK để đổi</string>
+    <string name="rot_app_det">OK hoặc ▶ tiếp · ◀ trước</string>
+    <string name="rot_ocioso_det">Không làm phiền người đang xem</string>
+    <string name="rot_ativa_det">OK để bật/tắt thói quen này</string>
+    <string name="rot_salvar">Lưu</string>
+    <string name="rot_escolha_app">Chọn ứng dụng</string>
+    <string name="rot_apagar">Xóa thói quen này</string>
+    <!-- Despertador.kt -->
+    <string name="dia_uma_vez">Một lần</string>
+    <string name="dia_todo">Mỗi ngày</string>
+    <string name="dia_seg_sex">T2 đến T6</string>
+    <string name="dia_fim">Cuối tuần</string>
+    <string-array name="dias_curtos">
+        <item>CN</item>
+        <item>T2</item>
+        <item>T3</item>
+        <item>T4</item>
+        <item>T5</item>
+        <item>T6</item>
+        <item>T7</item>
+    </string-array>
+    <!-- MainActivity.kt -->
+    <string name="fmt_data_longa">EEEE, d MMMM</string>
+    <string name="home_perfil">Hồ sơ</string>
+    <string name="home_visita_titulo">Chế độ khách đang bật</string>
+    <string name="home_visita_msg">Hồ sơ, lịch và các ứng dụng đã chọn đang bị ẩn. Thoát chế độ khách?</string>
+    <string name="home_continuar">Giữ</string>
+    <string name="home_sair">Thoát</string>
+    <string name="comum_cancelar">Hủy</string>
+    <string name="home_mostrar">Hiện trên màn hình chính</string>
+    <string name="home_ocultar">Ẩn khỏi màn hình chính</string>
+    <string name="home_sob_demanda">Đóng băng khi không dùng</string>
+    <string name="home_sob_demanda_tirar">Ngừng đóng băng khi không dùng</string>
+    <string name="sob_demanda_ligado">Đã đóng băng. Ứng dụng vẫn ở đây: OK để bỏ đóng băng và mở, và nó sẽ đóng băng lại 2 phút sau khi bạn thoát.</string>
+    <string name="sob_demanda_desligado">Đã bỏ đóng băng. Ứng dụng hoạt động như trước.</string>
+    <string name="sob_demanda_falhou">Không thay đổi được lúc này. Hãy thử lại sau giây lát.</string>
+    <string name="home_desinstalar">Gỡ cài đặt</string>
+    <string name="home_app_sistema"> (ứng dụng hệ thống)</string>
+    <string name="home_desinstalar_titulo">Gỡ cài đặt %1$s?</string>
+    <string name="home_desinstalar_aviso">Ứng dụng và dữ liệu sẽ bị xóa khỏi TV. Không thể hoàn tác: muốn dùng lại, hãy cài lại từ Play Store.</string>
+    <string name="home_cancelar">Hủy</string>
+    <string name="home_desinstalando">Đang gỡ cài đặt %1$s…</string>
+    <string name="home_desinstalado">Đã gỡ cài đặt %1$s.</string>
+    <string name="home_desinstalar_falhou">Không gỡ được %1$s: %2$s</string>
+    <string name="home_chovendo">Đang mưa</string>
+    <string name="home_chuva_agora">%1$s - Mưa %2$d%% ngay bây giờ</string>
+    <string name="home_chuva_em">%1$s - Mưa %2$d%% sau %3$d giờ</string>
+    <!-- AlarmesActivity.kt -->
+    <string name="al_criado">Đã đặt báo thức: %1$s</string>
+    <string name="al_um_app">một ứng dụng</string>
+    <string name="al_criar_q">Đặt báo thức lúc %1$s?</string>
+    <string name="al_pedido">Do %1$s yêu cầu.</string>
+    <string name="al_criar">Đặt</string>
+    <string name="al_titulo">Đồng hồ báo thức</string>
+    <string name="al_nenhum">Không có báo thức nào bật</string>
+    <string name="al_novo_mais">+  Báo thức mới</string>
+    <string name="al_ligado">Bật</string>
+    <string name="al_desligado">Tắt</string>
+    <string name="al_novo">Báo thức mới</string>
+    <string name="al_editar">Sửa báo thức</string>
+    <string name="al_apagar">Xóa</string>
+    <string name="al_hoje">hôm nay</string>
+    <string name="al_amanha">ngày mai</string>
+    <string name="al_dia_as">%1$s lúc %2$s</string>
+    <!-- AlarmeTocandoActivity.kt -->
+    <string name="al_parar">Dừng</string>
+    <string name="al_soneca">Báo lại sau 10 phút</string>
+    <string name="al_perdido_um">Báo thức %1$s không reo vì TV đang tắt.</string>
+    <string name="al_perdido_varios">Các báo thức %1$s không reo vì TV đang tắt.</string>
+    <string name="al_perdido_e">và</string>
+    <string name="al_volume_nao_mexe">không đổi</string>
+    <!-- PopupPerfil.kt -->
+    <string name="pp_sem_conta">Không có tài khoản Google</string>
+    <string name="pp_ativo">"  ·  đang dùng"</string>
+    <string name="pp_adicionar">Thêm hồ sơ</string>
+    <string name="pr_bt_controle">Điều khiển</string>
+    <string name="pp_audio">Âm thanh</string>
+    <string name="pp_carregando">Đang tải…</string>
+    <string name="pp_conectar">Kết nối</string>
+    <!-- CalendarioActivity.kt -->
+    <string name="cal_sem_conta">không có tài khoản Google</string>
+    <string name="cal_dica">◀ ▶ đổi tháng</string>
+    <string name="cal_30">30 ngày tới</string>
+    <string name="cal_nenhuma_conta">Không có tài khoản Google trên TV</string>
+    <string name="cal_nada">Không có lịch hẹn (hoặc lịch vẫn đang đồng bộ)</string>
+    <string name="fmt_mes_ano">MMMM yyyy</string>
+    <string name="cal_dia_todo">Cả ngày</string>
+    <string name="cal_sem_titulo">(không có tiêu đề)</string>
+    <!-- ProtetorTela.kt -->
+    <string name="pt_chovendo">"  ·  đang mưa"</string>
+    <string name="pt_lua">Mặt trăng</string>
+    <string name="pt_sol">Mặt trời</string>
+    <string name="pt_umidade">Độ ẩm</string>
+    <string name="pt_chuva">Mưa</string>
+    <!-- IconesClima.kt -->
+    <string name="cl_chuva">Mưa</string>
+    <string name="cl_limpo">Trời quang</string>
+    <string name="cl_poucas">Ít mây</string>
+    <string name="cl_parcial">Có mây rải rác</string>
+    <string name="cl_nublado">Nhiều mây</string>
+    <string name="cl_neblina">Sương mù</string>
+    <string name="cl_garoa_fraca">Mưa phùn nhẹ</string>
+    <string name="cl_garoa">Mưa phùn</string>
+    <string name="cl_garoa_forte">Mưa phùn nặng hạt</string>
+    <string name="cl_garoa_cong">Mưa phùn băng giá</string>
+    <string name="cl_chuva_fraca">Mưa nhỏ</string>
+    <string name="cl_chuva_forte">Mưa to</string>
+    <string name="cl_chuva_cong">Mưa băng giá</string>
+    <string name="cl_neve_fraca">Tuyết nhẹ</string>
+    <string name="cl_neve">Tuyết</string>
+    <string name="cl_neve_forte">Tuyết dày</string>
+    <string name="cl_graos">Hạt tuyết</string>
+    <string name="cl_panc_fracas">Mưa rào nhẹ</string>
+    <string name="cl_panc">Mưa rào</string>
+    <string name="cl_panc_fortes">Mưa rào lớn</string>
+    <string name="cl_panc_neve">Mưa tuyết</string>
+    <string name="cl_tempestade">Dông</string>
+    <string name="cl_granizo">Dông kèm mưa đá</string>
+    <!-- Lua.kt -->
+    <string name="lua_cheia_em">trăng tròn sau %1$d ngày</string>
+    <string name="lua_nova_em">trăng mới sau %1$d ngày</string>
+    <string-array name="fases_lua">
+        <item>Trăng mới</item>
+        <item>Trăng lưỡi liềm đầu tháng</item>
+        <item>Trăng thượng huyền</item>
+        <item>Trăng khuyết đầu tháng</item>
+        <item>Trăng tròn</item>
+        <item>Trăng khuyết cuối tháng</item>
+        <item>Trăng hạ huyền</item>
+        <item>Trăng lưỡi liềm cuối tháng</item>
+    </string-array>
+    <!-- PrevisaoActivity.kt -->
+    <string name="pv_carregando">Đang tải dự báo…</string>
+    <string name="pv_voz_agora">"Bây giờ là %1$d độ, %2$s. "</string>
+    <string name="pv_voz_hoje">Hôm nay, cao nhất %1$d và thấp nhất %2$d</string>
+    <string name="pv_voz_chuva">", khả năng mưa %1$d phần trăm. "</string>
+    <string name="pv_voz_sem_chuva">", không có mưa. "</string>
+    <string name="pv_voz_amanha">Ngày mai, %1$s, cao nhất %2$d và thấp nhất %3$d</string>
+    <string name="pv_voz_amanha_chuva">, khả năng mưa %1$d phần trăm</string>
+    <string name="pv_sem">Không lấy được dự báo lúc này. Hãy kiểm tra internet và thử lại.</string>
+    <string name="pv_max_min">cao %1$d°   thấp %2$d°   ·   cảm giác như %3$d°</string>
+    <string name="pv_24h">24 giờ tới</string>
+    <string name="pv_agora">Bây giờ</string>
+    <string name="pv_chance">Khả năng mưa</string>
+    <string name="pv_7d">9 ngày tới</string>
+    <string name="pv_hoje">Hôm nay</string>
+    <string name="pv_mais_quente">Ấm hơn</string>
+    <string name="pv_mais_frio">Lạnh hơn</string>
+    <string name="pv_igual">Như thực tế</string>
+    <string name="pv_detalhes">Chi tiết</string>
+    <string name="pv_sensacao">Cảm giác như</string>
+    <string name="pv_vento">Gió</string>
+    <string name="pv_uv">Chỉ số UV</string>
+    <string name="pv_visib">Tầm nhìn</string>
+    <string name="pv_orvalho">Điểm sương</string>
+    <string name="pv_pressao">Áp suất</string>
+    <string name="pv_chuva_hoje">Mưa hôm nay</string>
+    <string name="pv_ar">Chất lượng không khí</string>
+    <string name="pv_sem_dados">Hiện không có dữ liệu</string>
+    <string name="uv_baixo">Thấp</string>
+    <string name="uv_moderado">Trung bình</string>
+    <string name="uv_alto">Cao</string>
+    <string name="uv_muito_alto">Rất cao</string>
+    <string name="uv_extremo">Cực cao</string>
+    <string name="aq_boa">Tốt</string>
+    <string name="aq_moderada">Trung bình</string>
+    <string name="aq_sensiveis">Không tốt cho nhóm nhạy cảm</string>
+    <string name="aq_ruim">Không tốt</string>
+    <string name="aq_muito_ruim">Rất không tốt</string>
+    <string name="aq_perigosa">Nguy hại</string>
+    <string-array name="rosa_ventos">
+        <item>B</item>
+        <item>ĐB</item>
+        <item>Đ</item>
+        <item>ĐN</item>
+        <item>N</item>
+        <item>TN</item>
+        <item>T</item>
+        <item>TB</item>
+    </string-array>
+    <!-- Tema.kt -->
+    <string name="tema_escuro">Tối</string>
+    <string name="tema_galeria">Thư viện ảnh</string>
+    <string name="tema_meu">Hình nền của tôi</string>
+    <!-- SomAlarme.kt -->
+    <string name="som_suave">Nhẹ nhàng</string>
+    <string name="som_classico">Cổ điển</string>
+    <string name="som_sino">Chuông</string>
+    <string name="som_rampa1">Tăng dần trong 1½ phút</string>
+    <string name="som_rampa2">Tăng dần trong 2 phút</string>
+    <!-- Velocidade.kt -->
+    <string name="vel_resultado">Internet: %1$.0f Mbps (đã tải %2$.0f MB trong %3$.1f giây)</string>
+    <string name="vel_falhou">Kiểm tra thất bại (không có internet hoặc máy chủ lỗi)</string>
+    <!-- Rede.kt -->
+    <!-- EscolherAppActivity.kt -->
+    <string name="esc_atual">"  ·  hiện tại"</string>
+    <string name="esc_botao">Nút %1$s mở:</string>
+    <!-- Config.kt -->
+    <!-- Fundos.kt -->
+    <string name="fd_nascer">mặt trời mọc %1$s</string>
+    <string name="fd_por">mặt trời lặn %1$s</string>
+    <!-- DnsActivity.kt -->
+    <string name="dns_dica">OK: dùng   ·   giữ OK trên một máy chủ của bạn: xóa   ·   Back: thoát</string>
+    <string name="dns_auto">Tự động</string>
+    <string name="dns_auto_det">Dùng DNS của router và mã hóa khi được hỗ trợ (mặc định của Android)</string>
+    <string name="dns_desl">Tắt</string>
+    <string name="dns_desl_det">DNS thường, không mã hóa</string>
+    <string name="dns_publicos">Máy chủ công cộng</string>
+    <string name="dns_meus">Máy chủ của tôi</string>
+    <string name="dns_adicionar">+  Thêm máy chủ</string>
+    <string name="dns_adicionar_det">Địa chỉ DNS-over-TLS, ví dụ dns.example.com</string>
+    <string name="dns_sem_permissao">"Không có quyền đổi DNS. Trên máy tính: "</string>
+    <string name="dns_troque_antes">hãy đổi máy chủ trước khi xóa máy chủ này</string>
+    <string name="dns_remover_q">Xóa %1$s?</string>
+    <string name="dns_remover">Xóa</string>
+    <string name="dns_nome_opc">Tên (không bắt buộc)</string>
+    <string name="dns_endereco_ex">Địa chỉ, ví dụ dns.example.com</string>
+    <string name="dns_adicionar_tit">Thêm máy chủ DNS</string>
+    <string name="dns_salvar_usar">Lưu và dùng</string>
+    <string name="dns_invalido">Địa chỉ không hợp lệ. Hãy dùng tên như dns.example.com (Android không nhận địa chỉ IP).</string>
+    <string name="dns_em_uso">Đang dùng: %1$s</string>
+    <string name="dns_testando">đang kiểm tra…</string>
+    <string name="dns_falha">THẤT BẠI: không phân giải được tên nào. Hãy chọn máy chủ khác hoặc Tự động.</string>
+    <string name="dns_res_sem_cripto">phân giải trong %1$d ms (không mã hóa)</string>
+    <string name="dns_res_tls">phân giải trong %1$d ms   ·   TLS đang hoạt động</string>
+    <string name="dns_res_com">" với %1$s"</string>
+    <string name="dns_res_sem_tls">phân giải trong %1$d ms   ·   hiện không có TLS</string>
+    <!-- Dns.kt -->
+    <string name="dns_adguard_pessoal">AdGuard (cá nhân)</string>
+    <string name="dns_personalizado">Tùy chỉnh (%1$s)</string>
+    <string name="dns_rot_auto">tự động</string>
+    <string name="dns_rot_desl">tắt</string>
+    <!-- Diagnostico.kt -->
+    <string name="diag_resumo">Tóm tắt</string>
+    <string name="diag_frase">Trong một câu</string>
+    <string name="diag_wifi_desc">đã ngắt kết nối: TV không ở trong mạng nào</string>
+    <string name="diag_lat">%1$d ms đến internet</string>
+    <string name="diag_sem_resp">internet không phản hồi</string>
+    <string name="diag_wifi">%1$s · tín hiệu %2$d dBm · %3$d Mbps · %4$s</string>
+    <string name="diag_validou">Android đã xác thực Wi-Fi</string>
+    <string name="diag_nao_validou">Android KHÔNG xác thực Wi-Fi</string>
+    <string name="diag_net_ok">đang hoạt động (kiểm tra trong %1$d ms) · %2$s</string>
+    <string name="diag_net_falhou">kiểm tra không đến được Google · %1$s</string>
+    <string name="diag_net_estranha">phản hồi lạ (%1$d): mạng có thể yêu cầu đăng nhập · %2$s</string>
+    <string name="diag_cripto">mã hóa đang hoạt động</string>
+    <string name="diag_sem_cripto">mã hóa KHÔNG hoạt động</string>
+    <string name="diag_resolve">phân giải được tên (%1$d ms)</string>
+    <string name="diag_nao_resolve">KHÔNG phân giải được tên</string>
+    <string name="diag_caiu">%1$s đã lỗi trước đó và tôi đã chuyển về tự động</string>
+    <string name="diag_nenhum_app">không có ứng dụng</string>
+    <string name="diag_vpn_nada">không có VPN được ghim hoặc bật</string>
+    <string name="diag_vpn_desc">%1$s được ghim nhưng ĐÃ NGẮT KẾT NỐI (internet vẫn chạy không qua VPN)</string>
+    <string name="diag_vpn_nao_validada">%1$s đã kết nối, nhưng Android chưa xác thực đường hầm</string>
+    <string name="diag_vpn_ok">%1$s đã kết nối và đang hoạt động</string>
+    <string name="diag_r_sem_wifi">TV không có Wi-Fi</string>
+    <string name="diag_r_dns_fora">DNS không phản hồi: có vẻ mất internet</string>
+    <string name="diag_r_net_fora">internet không thông (router hoặc nhà mạng)</string>
+    <string name="diag_r_dns">DNS không phân giải được tên: ứng dụng không tìm thấy máy chủ của chúng</string>
+    <string name="diag_r_net">DNS hoạt động, nhưng internet không phản hồi</string>
+    <string name="diag_r_vpn">mạng ổn; chỉ VPN bị ngắt (ứng dụng vẫn chạy không cần nó)</string>
+    <string name="diag_r_atencao">mạng đang hoạt động, có vài điểm cần chú ý bên dưới</string>
+    <string name="diag_r_ok">mạng ổn. Nếu một ứng dụng dừng, xem chuyện gì đã xảy ra bên dưới</string>
+    <string name="diag_usava">" · đang dùng %1$d MB"</string>
+    <string name="diag_texto">Lý do: %1$s\nTiến trình: %2$s\nMức quan trọng: %3$s</string>
+    <string name="diag_detalhe">\nChi tiết Android: %1$s</string>
+    <string name="diag_m_memoria">bị đóng do thiếu bộ nhớ</string>
+    <string name="diag_m_crash">bị lỗi</string>
+    <string name="diag_m_nativo">bị lỗi (native)</string>
+    <string name="diag_m_anr">ngừng phản hồi (ANR)</string>
+    <string name="diag_m_iniciar">không khởi động được</string>
+    <string name="diag_m_recurso">bị đóng do dùng quá nhiều tài nguyên</string>
+    <string name="diag_m_dependencia">bị đóng vì một ứng dụng nó phụ thuộc đã dừng</string>
+    <string name="diag_m_sinal">bị hệ thống kết thúc (tín hiệu)</string>
+    <string name="diag_m_permissao">khởi động lại do thay đổi quyền</string>
+    <string name="diag_i_tela">đang trên màn hình</string>
+    <string name="diag_i_visivel">hiển thị</string>
+    <string name="diag_i_servico">đang chạy nền</string>
+    <string name="diag_i_cache">ở chế độ nền (bộ nhớ đệm)</string>
+    <!-- DiagnosticoActivity.kt -->
+    <string name="diag_titulo">Chẩn đoán</string>
+    <string name="diag_refazer">Kiểm tra lại</string>
+    <string name="diag_refazer_det">Chạy lại tất cả kiểm tra</string>
+    <string name="diag_verificando">đang kiểm tra…</string>
+    <string name="diag_apps">Ứng dụng (7 ngày qua)</string>
+    <string name="diag_lendo">Đang đọc lịch sử ứng dụng</string>
+    <string name="diag_sem_perm">Không có quyền đọc lỗi của ứng dụng khác</string>
+    <string name="diag_sem_perm_det">Launcher tự cấp quyền READ_LOGS và DUMP qua shell riêng; hãy đợi vài phút hoặc khởi động lại TV</string>
+    <string name="diag_nada">không có ghi nhận nào</string>
+    <string name="diag_erros">Lỗi của launcher (do nó tự ghi)</string>
+    <string name="diag_sem_erros">Không có lỗi nào được ghi</string>
+    <string name="diag_sem_erros_det">Launcher giữ %1$d lần lỗi gần nhất ở đây</string>
+    <string name="diag_erro">Lỗi launcher</string>
+    <string name="diag_apagar">Xóa các lỗi đã ghi</string>
+    <string name="diag_apagar_det">Xóa danh sách bên trên (không đụng gì khác)</string>
+    <string name="diag_rodape">%1$s · mũi tên để cuộn · BACK để quay lại</string>
+    <string name="diag_app_ok">Không có lỗi, treo hay thoát bất thường trong 7 ngày qua.\n\nNếu ứng dụng mở nhưng không tải gì, thường là do mạng: xem mục Mạng ở màn hình trước.</string>
+    <!-- Atualizador.kt -->
+    <string name="atu_nunca">chưa kiểm tra</string>
+    <string name="atu_android9">cần Android 9 trở lên</string>
+    <string name="atu_ocupado">đang kiểm tra</string>
+    <string name="atu_erro">lỗi: %1$s %2$s</string>
+    <string name="atu_em_dia">đã mới nhất (đã cài %1$d, mới nhất %2$d)</string>
+    <string name="atu_sem_tag">Bản Release mới nhất không có phiên bản trong tag</string>
+    <string name="atu_sem_apk">Release %1$d không có APK hoặc SHA-256</string>
+    <string name="atu_sha">Release %1$d: SHA-256 không khớp, không cài</string>
+    <string name="atu_ilegivel">Release %1$d: APK không đọc được</string>
+    <string name="atu_pacote">Release %1$d: gói khác (%2$s)</string>
+    <string name="atu_versao">Release %1$d: phiên bản APK (%2$d) không khớp với tag</string>
+    <string name="atu_chave">GitHub có phiên bản %1$d, nhưng được ký bằng khóa khác mà TV này không chấp nhận: TV này được cập nhật từ PC</string>
+    <string name="atu_migracao_disponivel">phiên bản %1$d: sẵn sàng chuyển TV này sang ứng dụng mới (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">đang cài ứng dụng mới (%1$d); sau đó nó sẽ tiếp quản TV này với mọi cài đặt</string>
+    <string name="atu_disponivel">phiên bản %1$d sẵn sàng để cài (đã cài %2$d)</string>
+    <string name="atu_trocou">phiên bản đã thay đổi từ lần kiểm tra trước · OK để kiểm tra lại</string>
+    <string name="atu_instalando">đang cài %1$d (đã cài %2$d)</string>
+    <string name="atu_ok">đã cập nhật</string>
+    <string name="atu_falhou">cài đặt thất bại (%1$d): %2$s</string>
+    <string name="atu_ruim">phiên bản %1$d bị lỗi trên TV này ngay sau khi cài: sẽ không cài lại</string>
+    <string name="vig_aviso_titulo">Đã tạm dừng cập nhật</string>
+    <string name="vig_pausada">phiên bản %1$d bị lỗi hai lần ngay sau khi cài · cập nhật tự động sẽ đợi bản tiếp theo</string>
+    <string name="vig_pausada_tela">phiên bản %1$d bị lỗi hai lần ngay sau khi cài · \"%2$s\" sẽ tắt cho đến bản tiếp theo</string>
+    <string name="vig_tela_bloqueada">Màn hình này tắt cho đến bản cập nhật tiếp theo (nó làm launcher bị lỗi)</string>
+    <string name="cfg_vig_liberar">Chế độ an toàn</string>
+    <string name="cfg_vig_liberar_det">" · OK để bật lại"</string>
+    <!-- Universal player (06/11/2026) -->
+    <string name="home_voz_indisponivel">Tìm kiếm bằng giọng nói không mở được trên TV này</string>
+    <string name="home_alarme_hoje">hôm nay</string>
+    <string name="home_alarme_amanha">ngày mai</string>
+    <string name="player_carregando">Đang tải kênh…</string>
+    <string name="player_carregando_canal">Đang tải kênh…</string>
+    <string name="vod_carregando">Đang tải video…</string>
+    <string name="player_sem_canais">Chưa thêm danh sách kênh nào.</string>
+    <string name="player_tentando">Không có tín hiệu trên kênh %1$d. Đang thử lại…</string>
+    <string name="player_sem_sinal">Kênh %1$d không phản hồi. Chọn kênh khác bằng ▲ ▼ hoặc OK.</string>
+    <string name="player_canal_nao_existe">Không có kênh %1$d.</string>
+    <string name="player_ao_vivo">TRỰC TIẾP</string>
+    <string name="player_a_seguir">tiếp theo: %1$s</string>
+    <string name="player_teclas">▲ ▼ kênh · OK danh sách kênh · giữ OK 2 giây: yêu thích · ◀ kênh trước · ▶ ▶ tùy chọn · BACK thoát</string>
+    <string name="player_teclas_pausa">▶❙❙ hoặc OK tiếp tục · ▶ tùy chọn (về trực tiếp) · ▲ ▼ kênh · BACK thoát</string>
+    <string name="player_cat_busca">Tìm kiếm: %1$s</string>
+    <string name="player_acao_buscar">Tìm kiếm</string>
+    <string name="player_acao_filtros">Bộ lọc</string>
+    <string name="filmes_titulo">Phim</string>
+    <string name="filmes_carregando">Đang tải phim…</string>
+    <string name="filmes_vazio">Chưa có phim</string>
+    <string name="filmes_continuar">Xem tiếp</string>
+    <string name="filmes_ordem_titulo">Sắp xếp theo</string>
+    <string name="filmes_ordem_recentes">mới nhất trong danh mục</string>
+    <string name="filmes_ordem_nome">tên</string>
+    <string name="filmes_ordem_nota">đánh giá</string>
+    <string name="filmes_ordem_ano">năm</string>
+    <string name="filmes_busca_dica">Tên phim</string>
+    <string name="filmes_do_comeco">Từ đầu</string>
+    <string name="filmes_assistir">▶  Xem</string>
+    <string name="filmes_ficha_carregando">Đang tải chi tiết…</string>
+    <string name="filmes_direcao">Đạo diễn</string>
+    <string name="filmes_elenco">Diễn viên</string>
+    <string name="filmes_interesses">Danh sách xem</string>
+    <string name="filmes_assistidos">Đã xem</string>
+    <string name="filmes_interesse_pos">★ Đã thêm %1$s vào danh sách xem</string>
+    <string name="filmes_interesse_tirou">Đã xóa %1$s khỏi danh sách xem</string>
+    <string name="filmes_interesses_cheio">Danh sách xem đã có 500 mục: hãy xóa bớt một mục trước.</string>
+    <string name="filmes_interesses_vazio">Giữ OK 2 giây trên một áp phích để thêm vào đây (giữ lại lần nữa để xóa).</string>
+    <string name="filmes_assistido">Đã xem</string>
+    <string name="filmes_selo_leg">PHỤ ĐỀ</string>
+    <string name="vod_sem_conta">Tài khoản của video này không còn tồn tại.</string>
+    <string name="vod_erro">Không phát được video này. BACK để thoát.</string>
+    <string name="vod_faixa">Bản nhạc</string>
+    <string name="vod_audio">Âm thanh</string>
+    <string name="vod_legenda">Phụ đề</string>
+    <string name="vod_faixas">Âm thanh và phụ đề</string>
+    <string name="vod_teclas">OK tạm dừng · ◀ 10 giây · ▶ 30 giây (giữ để tua nhanh hơn) · ▼ âm thanh, phụ đề và hình ảnh · ⏮ ⏭ chương · BACK thoát</string>
+    <string name="series_titulo">Phim bộ</string>
+    <string name="series_carregando">Đang tải phim bộ…</string>
+    <string name="series_vazio">Chưa có phim bộ</string>
+    <string name="series_ordem_recentes">có tập mới</string>
+    <string name="series_busca_dica">Tên phim bộ</string>
+    <string name="series_sem_episodios">Máy chủ không gửi tập nào cho phim bộ này.</string>
+    <string name="series_assistir">▶  Xem %1$s</string>
+    <string name="series_temporada">Mùa %1$d</string>
+    <plurals name="series_temporadas">
+        <item quantity="one">%d mùa</item>
+        <item quantity="other">%d mùa</item>
+    </plurals>
+    <string name="player_acao_guia">Lịch phát sóng</string>
+    <string name="player_sem_guia_curto">Không có lịch phát sóng</string>
+    <string name="player_grade_teclas">OK xem · ◀ ▶ chương trình · ▲ ▼ kênh</string>
+    <string name="player_busca_dica">Tên kênh hoặc chương trình</string>
+    <string name="player_busca_nada">Không tìm thấy gì cho “%1$s”.</string>
+    <string name="player_filtro_qualquer">Bất kỳ</string>
+    <string name="player_filtro_qualidade">Chất lượng: %1$s</string>
+    <string name="player_filtro_qualidade_titulo">Chất lượng hình ảnh</string>
+    <string name="player_filtro_pais">Quốc gia: %1$s</string>
+    <string name="player_filtro_pais_titulo">Quốc gia hoặc ngôn ngữ</string>
+    <string name="player_filtro_limpar">Xóa bộ lọc</string>
+    <string name="player_filtro_nada">Danh sách này không có chất lượng hay quốc gia trong tên kênh.</string>
+    <string name="player_bloqueado">Kênh bị chặn bởi kiểm soát của phụ huynh. Nhập PIN trong Bộ lọc để xem.</string>
+    <string name="player_ocultas_mostrar">Hiện danh mục ẩn và kênh bị chặn (PIN)</string>
+    <string name="player_ocultas_esconder">Ẩn lại danh mục ẩn và kênh bị chặn</string>
+    <string name="player_pin_titulo">PIN của bảng điều khiển</string>
+    <string name="player_pin_dica">PIN</string>
+    <string name="player_pin_errado">Sai PIN.</string>
+    <string name="player_pin_sem">Không có PIN bảng điều khiển: danh mục ẩn không được bảo vệ.</string>
+    <string name="player_pin_espere">Sai PIN quá nhiều lần. Thử lại sau %d phút.</string>
+    <string name="infantil_titulo">Danh mục trẻ em</string>
+    <string name="infantil_carregando">đang tải danh mục…</string>
+    <string name="infantil_coluna_itens">BÊN TRONG CÓ GÌ</string>
+    <string name="infantil_dica">OK để đánh dấu hoặc bỏ đánh dấu danh mục trẻ em · áp dụng cho TV trực tiếp, Phim và Phim bộ · BACK thoát (đã lưu)</string>
+    <string name="infantil_so_categoria">đánh dấu cả danh mục ở cột bên trái</string>
+    <string name="infantil_vazio">không có danh mục: thêm tài khoản trong Cài đặt › TV và phim rồi tải lại kênh</string>
+    <string name="infantil_limite">danh mục người lớn không thể là danh mục trẻ em</string>
+    <string name="infantil_resumo_ligado">%1$d trên %2$d danh mục được đánh dấu trẻ em · chế độ trẻ em BẬT</string>
+    <string name="infantil_resumo_desligado">%1$d trên %2$d danh mục được đánh dấu trẻ em · chế độ trẻ em tắt</string>
+    <string name="cfg_infantil">Chế độ trẻ em</string>
+    <string name="cfg_infantil_ligado">bật · chỉ hiện %d danh mục trẻ em; phần còn lại cần PIN</string>
+    <string name="cfg_infantil_desligado">tắt · %d danh mục được đánh dấu trẻ em</string>
+    <string name="cfg_infantil_escolher">Chọn danh mục trẻ em</string>
+    <string name="cfg_infantil_escolher_det">Áp dụng cho TV trực tiếp, Phim và Phim bộ</string>
+    <string name="player_grupo_oculto">Đã ẩn %1$s. Để xem: Bộ lọc, hiện mục ẩn.</string>
+    <string name="player_grupo_mostrado">%1$s đã hiện lại.</string>
+    <string name="player_canais_de">%1$s · %2$d KÊNH</string>
+    <string name="player_cat_todos">Tất cả</string>
+    <string name="player_cat_favoritos">Yêu thích</string>
+    <string name="player_cat_recentes">Gần đây</string>
+    <string name="player_cat_outros">Khác</string>
+    <string name="player_sem_favoritos">Chưa có mục yêu thích. Giữ OK 2 giây trên một kênh để thêm vào đây.</string>
+    <string name="player_categoria_vazia">Không có kênh trong danh mục này.</string>
+    <string name="player_sem_guia">Không có lịch phát sóng cho kênh này.</string>
+    <string name="player_depois">SAU ĐÓ</string>
+    <string name="player_lista_teclas">OK xem · giữ OK 2 giây: yêu thích hoặc xóa · giữ OK trên danh mục: ẩn · ◀ danh mục</string>
+    <string name="player_favorito_pos">★ Đã thêm %1$s vào yêu thích</string>
+    <string name="player_favorito_tirou">Đã xóa %1$s khỏi yêu thích</string>
+    <string name="player_favoritos_cheio">Đã có 500 mục yêu thích: hãy xóa bớt một mục trước.</string>
+    <string name="player_assistindo">đang xem</string>
+    <string name="home_card_tv">TV</string>
+    <string name="home_destaque_tv_sub">Kênh trực tiếp</string>
+    <string name="home_destaque_app">Ứng dụng</string>
+    <string name="app_sub_youtube">Video và kênh</string>
+    <string name="app_sub_netflix">Phim và chương trình</string>
+    <string name="app_sub_prime">Phim, chương trình và thể thao</string>
+    <string name="app_sub_max">Phim, chương trình và thể thao</string>
+    <string name="app_sub_play_store">Cài đặt và cập nhật ứng dụng</string>
+    <string name="app_sub_play_games">Trò chơi</string>
+    <string name="app_sub_google_tv">Phim đã mua và đã thuê</string>
+    <string name="app_sub_config">Cài đặt TV</string>
+    <string name="home_card_series">Phim bộ</string>
+    <string name="home_card_filmes">Phim</string>
+    <string name="home_destaque_series">Chương trình trong danh sách của bạn · xem tiếp từ chỗ dừng</string>
+    <string name="home_destaque_filmes">Phim trong danh sách của bạn · xem tiếp từ chỗ dừng</string>
+    <string name="home_card_rede">Mạng</string>
+    <string name="home_destaque_rede">Video, nhạc và ảnh của bạn</string>
+    <string name="fmt_data_dia">EEEE</string>
+    <string name="fmt_data_mes">d MMMM</string>
+    <string name="home_busca">Tìm kiếm</string>
+    <string name="home_falar">Nói chuyện với Gemini</string>
+    <string name="home_dest_tv">TV · kênh %1$d</string>
+    <string name="rede_titulo">Mạng</string>
+    <string name="rede_procurando">Đang tìm máy chủ đa phương tiện trong mạng…</string>
+    <string name="rede_nenhum">Hiện không có máy chủ đa phương tiện nào bật. Thêm một máy chủ bên dưới: Plex và Jellyfin dùng tài khoản của bạn; thư mục trên PC hoặc NAS dùng địa chỉ của nó.</string>
+    <plurals name="rede_resumo">
+        <item quantity="one">%1$d máy chủ</item>
+        <item quantity="other">%1$d máy chủ</item>
+    </plurals>
+    <string name="rede_secao_seus">Máy chủ của bạn</string>
+    <string name="rede_secao_achados">Tìm thấy trong mạng</string>
+    <string name="rede_secao_adicionar">Thêm</string>
+    <string name="rede_entrar">Đăng nhập</string>
+    <string name="rede_adicionar">Thêm</string>
+    <string name="rede_salvar">Lưu</string>
+    <string name="rede_testar_salvar">Kiểm tra và lưu</string>
+    <string name="rede_testando">Đang kiểm tra…</string>
+    <string name="rede_cancelar">Hủy</string>
+    <string name="rede_sub_dlna">DLNA · mở trực tiếp</string>
+    <string name="rede_sub_maquina">Thư mục chia sẻ · %1$s</string>
+    <string name="rede_sub_pasta">Thư mục chia sẻ · %1$s</string>
+    <string name="rede_sub_lista">Danh sách M3U · %1$s</string>
+    <string name="rede_sub_video">Liên kết video · %1$s</string>
+    <string name="rede_sub_plex">Đăng nhập bằng mã, không cần mật khẩu trên TV</string>
+    <string name="rede_sub_jellyfin">Tên người dùng và mật khẩu của máy chủ</string>
+    <string name="rede_sub_smb">Thư mục Windows, Mac hoặc NAS</string>
+    <string name="rede_sub_webdav">Nextcloud, ownCloud, NAS có WebDAV</string>
+    <string name="rede_sub_link">địa chỉ http, HLS (.m3u8) hoặc danh sách M3U</string>
+    <string name="rede_acao_smb">Thư mục chia sẻ</string>
+    <string name="rede_acao_webdav">WebDAV hoặc Nextcloud</string>
+    <string name="rede_acao_link">Liên kết hoặc danh sách video</string>
+    <string name="rede_acao_procurar">Tìm lại</string>
+    <string name="rede_abrindo">Đang mở…</string>
+    <string name="rede_vazia">Thư mục trống</string>
+    <plurals name="rede_itens">
+        <item quantity="one">%1$d mục</item>
+        <item quantity="other">%1$d mục</item>
+    </plurals>
+    <string name="rede_dica_abrir">mở</string>
+    <string name="rede_dica_remover">xóa</string>
+    <string name="rede_dica_sair">thoát</string>
+    <string name="rede_dica_subir">lên một thư mục</string>
+    <string name="rede_tecla_segurar">giữ OK</string>
+    <string name="rede_tecla_voltar">BACK</string>
+    <string name="rede_erro">Máy chủ không phản hồi. Hãy thử lại.</string>
+    <string name="rede_erro_senha">Máy chủ không chấp nhận tên người dùng hoặc mật khẩu.</string>
+    <string name="rede_erro_pasta">Máy chủ đã trả lời, nhưng không có thư mục với tên đó.</string>
+    <string name="rede_erro_servidor">Không tìm thấy máy chủ. Hãy kiểm tra địa chỉ và xem nó có cùng mạng không.</string>
+    <string name="rede_erro_certificado">Chứng chỉ bảo mật của máy chủ không hợp lệ cho địa chỉ này.</string>
+    <string name="rede_erro_cheio">Không lưu được: TV đã có 20 máy chủ. Hãy xóa bớt một máy chủ trước.</string>
+    <string name="rede_endereco_erro">Địa chỉ thiếu hoặc không hợp lệ.</string>
+    <string name="rede_salva">Đã thêm \"%1$s\".</string>
+    <string name="rede_nome_opcional">Tên hiển thị (không bắt buộc)</string>
+    <string name="rede_senha">Mật khẩu</string>
+    <string name="rede_remover_titulo">Xóa \"%1$s\"?</string>
+    <string name="rede_remover_explica">Thông tin đăng nhập và mật khẩu sẽ bị xóa khỏi TV. Không có gì thay đổi trên máy chủ.</string>
+    <string name="rede_remover">Xóa</string>
+    <string name="rede_removida">Đã xóa \"%1$s\".</string>
+    <string name="rede_smb_titulo">Thư mục chia sẻ</string>
+    <string name="rede_smb_explica">Địa chỉ như trong Windows: \\\\server\\folder (ví dụ \\\\192.168.0.10\\Movies). Để trống tên người dùng và mật khẩu = khách.</string>
+    <string name="rede_smb_endereco">\\\\server\\folder</string>
+    <string name="rede_smb_endereco_erro">Thiếu máy chủ hoặc thư mục (ví dụ \\\\NAS\\Movies).</string>
+    <string name="rede_smb_usuario">Tên người dùng (không bắt buộc)</string>
+    <string name="rede_smb_senha">Mật khẩu (không bắt buộc)</string>
+    <string name="rede_jf_explica">Địa chỉ máy chủ %1$s (ví dụ 192.168.0.10 hoặc nas:8096), tên người dùng và mật khẩu. Mật khẩu không được lưu trên TV.</string>
+    <string name="rede_jf_endereco">Địa chỉ máy chủ</string>
+    <string name="rede_jf_usuario">Tên người dùng</string>
+    <string name="rede_jf_usuario_falta">Thiếu tên người dùng.</string>
+    <string name="rede_dav_explica">Địa chỉ thư mục (Nextcloud: cloud.example.com/remote.php/dav/files/YOUR_USER). Không có http thì TV dùng https. Với Nextcloud, nên dùng mật khẩu ứng dụng.</string>
+    <string name="rede_dav_endereco">Địa chỉ WebDAV</string>
+    <string name="rede_link_explica">Một video (mp4, mkv…), một luồng HLS (.m3u8) hoặc danh sách M3U có nhiều video. Nó được lưu ở đây.</string>
+    <string name="rede_link_endereco">https://…</string>
+    <string name="rede_link_erro">Hãy dùng địa chỉ bắt đầu bằng http:// hoặc https://.</string>
+    <string name="rede_plex_titulo">Đăng nhập Plex</string>
+    <string name="rede_plex_explica">Trên điện thoại hoặc máy tính, mở plex.tv/link và nhập mã bên dưới. Hoặc hướng camera điện thoại vào mã QR.</string>
+    <string name="rede_plex_pedindo">Đang xin mã từ Plex…</string>
+    <string name="rede_plex_esperando">Đang chờ bạn xác nhận trên Plex…</string>
+    <string name="rede_plex_buscando">Đã kết nối tài khoản. Đang tìm máy chủ của bạn…</string>
+    <string name="rede_plex_venceu">Mã đã hết hạn. Hãy lấy mã mới.</string>
+    <string name="rede_plex_outro">Lấy mã mới</string>
+    <string name="rede_plex_sem_servidor">Tài khoản Plex này không có máy chủ nào.</string>
+    <string name="rede_plex_inacessivel">Đã tìm thấy máy chủ trong tài khoản, nhưng nó không phản hồi từ đây. Hãy kiểm tra máy chủ đang bật và cùng mạng.</string>
+    <string name="rede_plex_varios">Đã thêm %1$d máy chủ Plex.</string>
+    <string name="pg_amanha">Ngày mai</string>
+    <string name="pg_recado">Tin nhắn</string>
+    <string name="pg_app_despertador">Báo thức</string>
+    <string name="pg_bom_dia">Chào buổi sáng</string>
+    <string name="pg_boa_tarde">Chào buổi chiều</string>
+    <string name="pg_boa_noite">Chào buổi tối</string>
+    <string name="pg_agora">bây giờ</string>
+    <string name="pg_ontem">hôm qua</string>
+    <string name="pg_mais_notif">+%1$d thông báo</string>
+    <string name="pg_dia_todo">hôm nay</string>
+    <string name="pg_hoje_as">hôm nay lúc %1$s</string>
+    <string name="pg_amanha_as">ngày mai lúc %1$s</string>
+    <!-- Widgets de baixo do protetor (15/11/2026, WidgetsProtetor.kt) -->
+    <string name="pw_agora">Bây giờ</string>
+    <string name="pw_proximas_horas">Vài giờ tới</string>
+    <string name="pw_hoje">Hôm nay</string>
+    <string name="pw_chuva_pct">Khả năng mưa %1$d%%</string>
+    <string name="pw_umidade_pct">Độ ẩm %1$d%%</string>
+    <string name="pw_ate_umas">%1$s đến khoảng %2$s</string>
+    <string name="pw_chuva_pelas">%1$s, mưa khoảng %2$s</string>
+    <string name="pw_chuva_segue">%1$s trong vài giờ tới</string>
+    <string name="pw_amanha_frase">Ngày mai %1$d°, %2$s</string>
+    <string name="pw_nasce">mặt trời mọc %1$s</string>
+    <string name="pw_poe">mặt trời lặn %1$s</string>
+    <!-- Painel rápido (PainelRapidoActivity, 11/11/2026) -->
+    <string name="pr_notificacoes">Thông báo</string>
+    <string name="pr_sem_notificacoes">Không có thông báo</string>
+    <string name="pr_notificacoes_desligadas">Đang bật quyền truy cập thông báo…</string>
+    <string name="pr_perfis">Hồ sơ</string>
+    <string name="pr_protetor">Trình bảo vệ màn hình</string>
+    <string name="pr_timer">Hẹn giờ</string>
+    <string name="pr_timer_as">Đến %1$s</string>
+    <string name="pr_audio_arc">Bộ thu (HDMI ARC)</string>
+    <string name="pr_dispensar">Bỏ qua</string>
+    <string name="pr_ontem">hôm qua</string>
+    <string name="pr_agora">bây giờ</string>
+    <string name="pr_configuracoes">Cài đặt launcher</string>
+    <string name="pr_tocar_pausar">Phát hoặc tạm dừng</string>
+    <string name="pr_proxima">Tiếp</string>
+    <string name="pr_tocando">đang phát</string>
+    <string name="pr_pausado">đã tạm dừng</string>
+    <string name="pr_dormir">Ngủ</string>
+    <string name="pr_despertador">Báo thức</string>
+    <string name="pr_visita">Khách</string>
+    <string name="pr_casa">Nhà</string>
+    <string name="pr_config_tv">Cài đặt TV</string>
+    <string name="pr_sinal_bom">tín hiệu tốt</string>
+    <string name="pr_sinal_medio">tín hiệu trung bình</string>
+    <string name="pr_sinal_fraco">tín hiệu yếu</string>
+    <string name="pr_bt_conectados">%1$d đã kết nối</string>
+    <string name="pr_hoje">Hôm nay</string>
+    <string name="pr_amanha">Ngày mai</string>
+    <string name="pr_ligado">Bật</string>
+    <string name="pr_limpar_tudo">Xóa tất cả</string>
+    <!-- Catch-up TV, aspect ratio and speed (11/11/2026) -->
+    <string name="tvv_abrir">Xem lại: chương trình đã phát</string>
+    <string name="tvv_titulo">Xem lại · %1$s</string>
+    <string name="tvv_do_inicio">Bây giờ · xem từ đầu: %1$s</string>
+    <string name="tvv_carregando">Đang tải chương trình đã phát…</string>
+    <string name="tvv_sem_resposta">Máy chủ không phản hồi. Hãy thử lại sau giây lát.</string>
+    <string name="tvv_vazio">Kênh này chưa có chương trình nào được lưu.</string>
+    <string name="tvv_voltou">Về trực tiếp</string>
+    <string name="tvv_selo">XEM LẠI</string>
+    <string name="tvv_teclas">◀ ▶ 30 giây · OK tùy chọn · BACK trực tiếp</string>
+    <string name="tvv_pausar">Tạm dừng</string>
+    <string name="tvv_continuar">Tiếp tục</string>
+    <string name="tvv_ao_vivo">Về trực tiếp</string>
+    <string name="tvv_hoje">Hôm nay</string>
+    <string name="tvv_ontem">Hôm qua</string>
+    <string name="imagem_titulo">Tỷ lệ khung hình</string>
+    <string name="imagem_ajustar">Vừa màn hình</string>
+    <string name="imagem_esticar">Kéo giãn</string>
+    <string name="imagem_zoom">Phóng to (cắt viền)</string>
+    <string name="velocidade_titulo">Tốc độ</string>
+    <string name="trailer">Đoạn giới thiệu</string>
+    <string name="trailer_sem_app">Không tìm thấy ứng dụng để mở đoạn giới thiệu.</string>
+    <string name="series_visto_ate_aqui">Đánh dấu đã xem đến %1$s</string>
+    <string name="series_nao_visto">Đánh dấu chưa xem</string>
+    <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
+    <string name="idioma_secao">Phim và phim bộ</string>
+    <string name="idioma_titulo">Âm thanh ưu tiên</string>
+    <string name="idioma_det">Bản gốc có phụ đề theo ngôn ngữ của TV, hoặc lồng tiếng theo ngôn ngữ đó. Mỗi phim và phim bộ ghi nhớ thay đổi bạn làm trong trình phát (▼)</string>
+    <string name="idioma_original">Bản gốc có phụ đề</string>
+    <string name="idioma_dublado">Lồng tiếng</string>
+    <string name="idioma_legendado">Phụ đề</string>
+    <string name="idioma_dublado_curto">Lồng tiếng</string>
+    <string name="idioma_versao_legendada">Bản phụ đề</string>
+    <string name="idioma_versao_dublada">Bản lồng tiếng</string>
+    <!-- Subtitles downloaded from the internet (OpenSubtitles, LegendaExterna, 11/11/2026) -->
+    <string name="legenda_buscar">Tìm phụ đề trực tuyến</string>
+    <string name="legenda_procurando">Đang tìm phụ đề…</string>
+    <string name="legenda_baixando">Đang tải phụ đề…</string>
+    <string name="legenda_acertada">Phụ đề đã khớp với lời thoại · %1$s</string>
+    <string name="legenda_pronta">Phụ đề đã sẵn sàng</string>
+    <string name="legenda_nenhuma">Không có phụ đề theo ngôn ngữ của TV cho video này</string>
+    <string name="legenda_erro">Không tìm được phụ đề</string>
+    <string name="legenda_invalida">Tệp đã tải không phải phụ đề</string>
+    <string name="legenda_sem_conta">Thêm khóa OpenSubtitles của bạn trong Cài đặt › TV và phim › Phim và phim bộ</string>
+    <string name="legenda_escolher">Phụ đề cho \"%1$s\"</string>
+    <string name="legenda_surdos">cho người khiếm thính</string>
+    <string name="legenda_bate">làm cho tệp này</string>
+    <string name="lista_dica_escolher">chọn</string>
+    <string name="legenda_atraso_titulo">Độ trễ phụ đề (+ = chữ hiện muộn hơn)</string>
+    <string name="legenda_atraso_zero">Không trễ</string>
+    <string name="legenda_conta_titulo">Phụ đề trực tuyến</string>
+    <string name="legenda_conta_det">OpenSubtitles, với khóa API của bạn (miễn phí tại opensubtitles.com/consumers). Không có tài khoản: 5 phụ đề mỗi ngày</string>
+    <string name="legenda_conta_sim">đã thiết lập</string>
+    <string name="legenda_conta_nao">chưa thiết lập</string>
+    <!-- Barra + tempo (BarraTempo.kt): %1$s is replaced by the highlighted value. -->
+    <string name="tempo_faltam">còn %1$s</string>
+    <string name="tempo_falta_um">còn %1$s</string>
+    <string name="serie_ep_longo">Mùa %1$d, tập %2$d</string>
+    <string name="ficha_continuar_de">từ %1$s</string>
+    <string name="tempo_termina_as">kết thúc lúc %1$s</string>
+    <string name="tempo_episodios_vistos">%1$s tập</string>
+    <string name="tempo_x_de_y">%1$d trên %2$d</string>
+    <string name="tempo_visto">đã xem</string>
+    <!-- Account photo on the profile button (FotoPerfilActivity) -->
+    <string name="fp_secao">Hồ sơ Google</string>
+    <string name="fp_linha">Lấy ảnh tài khoản</string>
+    <string name="fp_linha_det">Hiện ảnh tài khoản Google của bạn trên nút hồ sơ</string>
+    <string name="fp_titulo">Ảnh tài khoản</string>
+    <string name="fp_fechar">Đóng</string>
+    <string name="fp_pedindo">Đang xin mã từ Google…</string>
+    <string name="fp_passos">1. Trên điện thoại, mở %1$s (hoặc hướng camera vào mã bên phải).\n2. Đăng nhập bằng tài khoản Google có trên TV này và nhập:\n\n%2$s\n\nMàn hình này sẽ tự tiếp tục. Lần đăng nhập này chỉ dùng để lấy ảnh.</string>
+    <string name="fp_ok">Xong: ảnh của %1$s đã có trên nút hồ sơ.</string>
+    <string name="fp_sem_foto">Đã đăng nhập với %1$s, nhưng không lưu được ảnh. Hãy thử lại, hoặc gửi ảnh từ bảng điều khiển web (thẻ Ảnh trình bảo vệ màn hình).</string>
+    <string name="fp_falha">Không thành công: %1$s</string>
+    <string name="fp_sem_google">Đăng nhập Google chưa được thiết lập trên TV này.\n\nHai cách đặt ảnh trên nút hồ sơ:\n• Bảng điều khiển web > thẻ Ảnh trình bảo vệ màn hình > Ảnh hồ sơ: chọn bất kỳ ảnh nào từ điện thoại.\n• Thiết lập đăng nhập Google (bảng điều khiển web > thẻ Claude) rồi quay lại đây để lấy ảnh tài khoản.</string>
+    <!-- Player sem NextLib (15/11/2026): ideias 2 a 8 -->
+    <string name="vod_capitulo_n">Chương %1$d</string>
+    <string name="vod_capitulos_titulo">Chương</string>
+    <string name="vod_capitulos_opcao">Chương (%1$d)</string>
+    <string name="vod_segunda_opcao">Phụ đề thứ hai (trên)</string>
+    <string name="vod_segunda_titulo">Phụ đề thứ hai</string>
+    <string name="vod_segunda_desligada">Tắt</string>
+    <string name="vod_dialogo_opcao">Lời thoại to hơn</string>
+    <string name="vod_dialogo_ligado">Đã bật lời thoại to hơn</string>
+    <string name="vod_dialogo_desligado">Đã tắt lời thoại to hơn</string>
+    <string name="vod_atraso_audio_titulo">Độ trễ âm thanh (%1$s)</string>
+    <string name="vod_atraso_audio_tv">TV</string>
+    <string name="vod_atraso_audio_zero">Không có</string>
+    <string name="vod_atraso_audio_mais">Âm thanh đến trễ %1$d ms</string>
+    <string name="vod_atraso_audio_menos">Âm thanh đến sớm %1$d ms</string>
+    <string name="vod_info_opcao">Thông tin kỹ thuật</string>
+    <string name="info_video">Video</string>
+    <string name="info_audio">Âm thanh</string>
+    <string name="info_perdidos">Khung hình bị bỏ</string>
+    <string name="info_taxa">Tốc độ bit</string>
+    <string name="info_buffer">Bộ đệm</string>
+    <string name="info_atraso">Độ trễ âm thanh</string>
+    <string name="info_dialogo">Đã bật lời thoại to hơn</string>
+    <string name="info_chip">Chip TV</string>
+    <string name="info_qps">fps</string>
+    <string name="info_mono">mono</string>
+    <string name="info_estereo">stereo</string>
+    <string name="lista_dica_voltar">quay lại</string>
+    <string name="pm_ligado">Bật</string>
+    <string name="pm_desligado">Tắt</string>
+    <string name="pm_imagem_som">Hình ảnh và âm thanh</string>
+    <string name="pm_mais">Thêm tùy chọn</string>
+    <string name="pm_versao_legendada">Xem bản phụ đề</string>
+    <string name="pm_versao_dublada">Xem bản lồng tiếng</string>
+    <string name="pm_versao_info">Tiếp tục từ điểm này</string>
+    <string name="pm_leg_ajustes">Cài đặt phụ đề</string>
+    <string name="pm_leg_tamanho">Cỡ chữ</string>
+    <string name="pm_leg_estilo">Kiểu</string>
+    <string name="pm_leg_posicao">Vị trí</string>
+    <string name="pm_leg_atraso">Độ trễ</string>
+    <string name="pm_leg_auto">Tải về khi thiếu</string>
+    <string name="pm_leg_traduzir">Dịch trên TV khi thiếu</string>
+    <string name="pm_velocidade">Tốc độ</string>
+    <string name="pm_proporcao">Kích thước hình</string>
+    <string name="pm_atraso_audio">Độ trễ âm thanh</string>
+    <string name="pm_quadros">Khớp tốc độ khung hình của phim</string>
+    <string name="pm_qualidade">Chất lượng</string>
+    <string name="pv_sem_titulo">Hiện chưa có dự báo</string>
+    <string name="bu_voz_grupo">Nói</string>
+    <string name="bu_falar">Nói điều bạn đang tìm</string>
+    <string name="bu_falar_det">Nhanh hơn gõ bằng điều khiển</string>
+    <string name="bu_recentes">Tìm kiếm gần đây</string>
+    <string name="bu_recente_det">Tìm lại</string>
+    <string name="aviso_alarme_tocou_titulo">Báo thức đã reo trên TV</string>
+    <string name="aviso_alarme_tocou_texto">Bắt đầu reo lúc %1$s.</string>
+    <string name="home_instalar_externo">Cài vào bộ nhớ ngoài</string>
+    <string name="home_instalar_dispositivo">Cài vào thiết bị này</string>
+    <string name="home_instalando_lugar">Đang chuyển %1$s… ứng dụng sẽ đóng cho đến khi xong.</string>
+    <string name="home_instalado_externo">%1$s hiện đã ở bộ nhớ ngoài.</string>
+    <string name="home_instalado_dispositivo">%1$s đã quay lại thiết bị này.</string>
+    <string name="home_instalar_lugar_falhou">Không chuyển được %1$s: %2$s</string>
+    <string name="home_instalar_lugar_sem_shell">shell riêng của TV chưa hoạt động</string>
+    <string name="home_instalar_lugar_sem_pendrive">không có ổ USB nào được thiết lập làm bộ nhớ TV</string>
+    <string name="st_titulo">Ổ USB và bộ nhớ</string>
+    <string name="st_explica">Chọn cách TV dùng ổ USB. Thiếu dung lượng? Nó có thể làm bộ nhớ TV cho các ứng dụng nặng.</string>
+    <string name="st_linha_det">Dùng ổ USB làm bộ nhớ TV</string>
+    <string name="st_sem_shell">Cần shell riêng của TV (Cài đặt › Hệ thống › Nâng cao). OK để thử lại.</string>
+    <string name="st_sem_pen">Chưa cắm ổ USB. Hãy cắm vào và nhấn OK.</string>
+    <string name="st_tv_livre">Bộ nhớ TV: trống %1$s trên %2$s</string>
+    <string name="st_pen">Ổ USB · %1$s · %2$s</string>
+    <string name="st_modo_comum">Ổ USB thông thường</string>
+    <string name="st_modo_misto">Kết hợp</string>
+    <string name="st_modo_tv">Bộ nhớ TV</string>
+    <string name="st_modo_desconhecido">Chưa định dạng</string>
+    <string name="st_recomendado">Đề xuất: %1$s (%2$s)</string>
+    <string name="st_motivo_lento">ổ này chậm, ứng dụng sẽ bị giật</string>
+    <string name="st_motivo_pequeno">dưới 8 GB, quá nhỏ để có ích</string>
+    <string name="st_motivo_folgada">TV vẫn còn chỗ, không cần xóa ổ</string>
+    <string name="st_motivo_grande">một nửa cho ứng dụng, một nửa cho bản ghi và tệp</string>
+    <string name="st_motivo_apertada">TV gần đầy</string>
+    <string name="st_medido">ghi ở %1$s MB/s</string>
+    <string name="st_medir_dica">OK để đo tốc độ</string>
+    <string name="st_usar_comum">Dùng làm ổ USB thông thường</string>
+    <string name="st_usar_misto">Dùng kết hợp: %1$d%% thông thường  ◀ ▶</string>
+    <string name="st_usar_tv">Dùng làm bộ nhớ TV</string>
+    <string name="st_apps">Ứng dụng trên ổ USB</string>
+    <string name="st_apps_det">Chọn ứng dụng để chuyển (lớn nhất trước)</string>
+    <string name="st_apps_nenhum">Không ứng dụng nào chuyển được.</string>
+    <string name="st_apps_rodape">OK để chuyển ứng dụng; ✓ = đã ở trên ổ USB</string>
+    <string name="st_compartilhado">Ảnh và tệp: %1$s</string>
+    <string name="st_na_tv">trên TV</string>
+    <string name="st_no_pen">trên ổ USB</string>
+    <string name="st_compartilhado_aviso">Mọi thứ sẽ được sao chép và ứng dụng sẽ đóng trong lúc đó. Hãy khởi động lại TV sau đó.</string>
+    <string name="st_mover">Chuyển</string>
+    <string name="st_movendo">Đang chuyển… có thể mất vài phút.</string>
+    <string name="st_aviso_titulo">Xóa ổ USB?</string>
+    <string name="st_aviso">Mọi thứ trên ổ sẽ bị xóa để biến nó thành \"%1$s\". Khi làm bộ nhớ TV, nó chỉ hoạt động trên TV này, và ứng dụng trên đó sẽ biến mất khi rút ổ ra.</string>
+    <string name="st_apagar">Xóa và định dạng</string>
+    <string name="st_formatando">Đang định dạng… có thể mất vài phút.</string>
+    <string name="st_pronto">Xong.</string>
+    <string name="st_falhou">Không thành công: %1$s</string>
+    <string name="st_depois">Bây giờ hãy chọn ứng dụng nào chuyển sang ổ USB.</string>
+    <string name="st_pin">PIN bảng điều khiển để thay đổi ổ USB</string>
+    <string name="st_copiar_titulo">Sao chép dữ liệu trên ổ trước? (%1$s)</string>
+    <string name="st_copiar_para">Sao chép vào %1$s</string>
+    <string name="st_copiar_pc">Sao chép bằng PC (cách làm)</string>
+    <string name="st_copiar_pc_texto">Trên PC, mở This PC > TV > ổ USB và sao chép tệp vào máy tính. Sau đó quay lại đây và định dạng.</string>
+    <string name="st_nao_copiar">Không cần, xóa đi</string>
+    <string name="st_copiando_inicio">Đang sao chép ổ USB… TV vẫn hoạt động trong lúc đó.</string>
+    <string name="st_copiando">Đã sao chép %1$s trên %2$s</string>
+    <string name="st_voltar_comum">Trở lại ổ USB thông thường (ứng dụng quay về TV)</string>
+    <string name="st_trazendo">Đang đưa %1$s về TV…</string>
+    <string name="st_sumiram">Ổ USB đã bị rút: %1$s bị ẩn cho đến khi cắm lại.</string>
+    <string name="st_sugestao">Bộ nhớ TV gần đầy. Chuyển %1$s (%2$s) sang ổ USB: giữ OK trên ứng dụng.</string>
+    <string name="st_medindo">Đang đo tốc độ ổ để đề xuất cách dùng tốt nhất…</string>
+    <string name="st_lento_titulo">Ổ quá chậm</string>
+    <string name="st_lento_bloqueado">Ổ này ghi ở %1$s MB/s. Để làm bộ nhớ TV cần ít nhất %2$d MB/s: chậm hơn thì ứng dụng bị treo và TV có thể không khởi động. Hãy dùng làm ổ thông thường.</string>
+    <string name="st_aviso_boot">Luôn cắm ổ: nếu ổ hỏng hoặc bị rút, TV có thể không khởi động cho đến khi bạn rút nó ra.</string>
+    <string name="home_grande_titulo">Chuyển %1$s?</string>
+    <string name="home_grande_aviso">%1$s chiếm %2$s. Trên ổ chậm, việc chuyển có thể mất hơn 10 phút và đã từng làm TV bị lỗi giữa chừng. Chỉ tiếp tục khi không ai đang xem.</string>
+    <string name="home_liberar_arquivos">Cho phép mở ổ USB và tệp</string>
+    <string name="home_arquivos_liberado">%1$s giờ có thể mở ổ USB và mọi tệp</string>
+    <string name="home_arquivos_falhou">Không cho phép được %1$s: %2$s</string>
+    <string name="aviso_continuar_titulo">Không có gì để tiếp tục</string>
+    <string name="aviso_continuar_texto">Lời mời tiếp tục từ TV kia đã hết hạn.</string>
+    <string name="aviso_simples_titulo">Màn hình dễ dùng đã tắt</string>
+    <string name="aviso_simples_texto">TV đã trở lại màn hình chính đầy đủ.</string>
+    <string name="aviso_sync_titulo">Chưa kết nối tài khoản</string>
+    <string name="aviso_sync_texto">Không có tài khoản %1$s trên TV này. Hãy kết nối trong Cài đặt › TV và phim.</string>
+    <string name="dns_nota_familia">gia đình, chặn trang người lớn</string>
+    <string name="dns_nota_malware">chặn phần mềm độc hại</string>
+    <!-- Diagnóstico "Em uma frase" (InternetEmUmaFrase.PT_TEXTOS: mesmas chaves) -->
+    <string name="ief_sem_wifi" formatted="true">TV không có Wi-Fi%1$s. Hãy kiểm tra router có đang bật không, hoặc tên mạng hay mật khẩu có thay đổi không.</string>
+    <string name="ief_roteador_sem_modem" formatted="true">router mất kết nối với modem của nhà mạng</string>
+    <string name="ief_roteador_ve_fora" formatted="true">router cũng thấy mất internet</string>
+    <string name="ief_ha" formatted="true"> (%1$s trước)</string>
+    <string name="ief_provedor_caiu" formatted="true">Wi-Fi ổn, nhưng internet của nhà mạng bị mất%1$s; %2$s%3$s. Không phải do TV: hãy chờ nhà mạng hoặc khởi động lại modem.</string>
+    <string name="ief_vpn_travada" formatted="true">Router có internet, nhưng TV không vào được%1$s: có thể VPN bị kẹt. Tắt rồi bật lại VPN thường sẽ khắc phục.</string>
+    <string name="ief_entre_tv_roteador" formatted="true">Router có internet, nhưng TV không kết nối được%1$s: lỗi nằm giữa TV và router%2$s Kết nối lại TV với Wi-Fi thường sẽ khắc phục.</string>
+    <string name="ief_sinal_fraco_entre" formatted="true"> (tín hiệu Wi-Fi yếu, %1$d dBm).</string>
+    <string name="ief_ponto" formatted="true">.</string>
+    <string name="ief_roteador_travado" formatted="true">TV đã vào Wi-Fi, nhưng cả router lẫn internet đều không phản hồi%1$s: router có thể bị treo. Tắt rồi bật lại router thường sẽ khắc phục.</string>
+    <string name="ief_sem_internet" formatted="true">Wi-Fi ổn, nhưng internet không thông%1$s; có thể do nhà mạng hoặc router%2$s</string>
+    <string name="ief_vpn_culpada" formatted="true"> (VPN đang bật cũng có thể là nguyên nhân).</string>
+    <string name="ief_dns" formatted="true">Internet hoạt động, nhưng DNS%1$s không phản hồi%2$s: ứng dụng không tìm thấy máy chủ. Chuyển DNS sang Tự động sẽ khắc phục.</string>
+    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_bloqueio" formatted="true">Internet và DNS đều phản hồi, nhưng trang kiểm tra của Google %1$s: có gì đó trên đường đi (VPN, chặn DNS hoặc mạng yêu cầu đăng nhập) đang chặn nó.</string>
+    <string name="ief_nao_abriu" formatted="true">không mở được</string>
+    <string name="ief_codigo_diferente" formatted="true">phản hồi khác thường (mã %1$d)</string>
+    <string name="ief_vpn_desligada" formatted="true">Internet ổn; chỉ có VPN đang tắt (ứng dụng vẫn chạy không cần nó).%1$s</string>
+    <string name="ief_lenta" formatted="true">Internet hoạt động, nhưng chậm: %1$s.%2$s</string>
+    <string name="ief_lenta_sinal" formatted="true">tín hiệu Wi-Fi yếu (%1$d dBm); đặt router gần hơn hoặc dùng cáp sẽ tốt hơn</string>
+    <string name="ief_lenta_tcp" formatted="true">internet mất %1$d ms để phản hồi%2$s</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">, và router cũng thấy như vậy: do nhà mạng</string>
+    <string name="ief_lenta_http" formatted="true">trang kiểm tra mất %1$.1f giây để mở</string>
+    <string name="ief_queda_recente" formatted="true">Internet hiện đã ổn; %1$s.</string>
+    <string name="ief_tudo_ok" formatted="true">Mọi thứ đều tốt: Wi-Fi, internet và DNS đều phản hồi.%1$s%2$s</string>
+    <string name="ief_sem_quedas_24h" formatted="true"> Không bị mất kết nối trong 24 giờ qua.</string>
+    <string name="ief_sem_quedas_parcial" formatted="true"> Không ghi nhận mất kết nối (TV chỉ đo một phần của 24 giờ qua).</string>
+    <string name="ief_roteador_avisa" formatted="true"> (Router báo lỗi internet, nhưng TV vẫn duyệt web bình thường.)</string>
+    <string name="ief_caiu_dns" formatted="true">DNS bị lỗi</string>
+    <string name="ief_caiu_internet" formatted="true">internet bị mất</string>
+    <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (sau đó TV ngừng đo; không biết khi nào có lại)</string>
+    <string name="ief_quedas_n" formatted="true">; %1$d lần mất kết nối trong 24 giờ</string>
+    <string name="ief_queda_voltou" formatted="true">%1$s %2$s và có lại %3$s (%4$s)</string>
+    <string name="ief_quedas_total" formatted="true">; %1$d lần mất kết nối trong 24 giờ, tổng cộng %2$s không có internet</string>
+    <string name="ief_quando_hoje" formatted="true">lúc %1$s</string>
+    <string name="ief_quando_ontem" formatted="true">hôm qua lúc %1$s</string>
+    <string name="ief_quando_data" formatted="true">ngày %1$s lúc %2$s</string>
+    <string name="ief_desde_hoje" formatted="true">từ %1$s</string>
+    <string name="ief_desde_ontem" formatted="true">từ hôm qua lúc %1$s</string>
+    <string name="ief_desde_data" formatted="true">từ ngày %1$s lúc %2$s</string>
+    <string name="ief_dur_menos_1" formatted="true">dưới 1 phút</string>
+    <string name="ief_dur_min" formatted="true">%1$d phút</string>
+    <string name="ief_dur_h" formatted="true">%1$d giờ</string>
+    <string name="ief_dur_h_min" formatted="true">%1$d giờ %2$d phút</string>
+    <string name="ief_data_dm" formatted="true">dd/MM</string>
+    <string name="ief_s_wifi_desconectado" formatted="true">Wi-Fi: đã ngắt kết nối</string>
+    <string name="ief_s_wifi_dbm" formatted="true">Wi-Fi: %1$d dBm</string>
+    <string name="ief_s_rede_conectada" formatted="true">mạng: đã kết nối</string>
+    <string name="ief_s_internet" formatted="true">internet không qua DNS: %1$s</string>
+    <string name="ief_s_dns" formatted="true">DNS không bộ nhớ đệm: %1$s%2$s</string>
+    <string name="ief_s_ms" formatted="true">%1$d ms</string>
+    <string name="ief_s_falhou" formatted="true">thất bại</string>
+    <string name="ief_s_pagina" formatted="true">trang kiểm tra: %1$s</string>
+    <string name="ief_s_ok" formatted="true">ok</string>
+    <string name="ief_s_ok_em" formatted="true">ok trong %1$d ms</string>
+    <string name="ief_s_codigo" formatted="true">mã %1$d</string>
+    <string name="ief_s_vpn_ligada" formatted="true">VPN: bật</string>
+    <string name="ief_s_vpn_desligada" formatted="true">VPN: tắt</string>
+    <string name="ief_s_roteador_fora" formatted="true">router: thấy mất internet</string>
+    <string name="ief_s_roteador_ok" formatted="true">router: thấy internet ổn%1$s</string>
+    <string name="ief_s_roteador_sem_opiniao" formatted="true">router: không có ý kiến</string>
+    <string name="ief_s_roteador_mudo" formatted="true">router: không phản hồi</string>
+    <string name="ief_s_roteador_nao_consultado" formatted="true">router: chưa kiểm tra</string>
+    <string name="ief_s_historico" formatted="true">lịch sử: %1$d lần đo trong 24 giờ</string>
+    <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
+    <string name="lg_sem_resposta">Google hiện không phản hồi; hãy thử lại</string>
+    <string name="lg_negado">việc đăng nhập bị Google từ chối</string>
+    <string name="lg_google_respondeu">Google trả lời: %1$s</string>
+    <string name="lg_venceu">mã đã hết hạn; hãy bắt đầu lại</string>
+    <string name="lg_outro_login">một lần đăng nhập khác đã bắt đầu; hãy bắt đầu lại</string>
+    <string name="lg_email">Google không xác nhận e-mail</string>
+    <string name="lg_conta_fora">tài khoản %1$s không có trong hồ sơ nào trên TV này</string>
+    <string name="lg_sem_drive">quyền Google Drive chưa được đánh dấu</string>
+    <string name="lg_sem_chave">Google không gửi khóa truy cập; hãy thử lại</string>
+    <string name="lg_nao_guardei">không lưu được tài khoản trên TV này</string>
+    <string name="lg_nao_configurado">Đăng nhập Google chưa được thiết lập</string>
+    <string name="lg_ritmo">đăng nhập quá nhiều lần liên tiếp; hãy đợi một phút</string>
+    <string name="lg_recusou">Google từ chối (%1$s): hãy kiểm tra client id và secret</string>
+    <string name="lg_erro_google">lỗi khi liên lạc với Google</string>
+</resources>

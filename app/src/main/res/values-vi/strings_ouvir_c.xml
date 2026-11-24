@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado: Ouvir proposta C (21/11/2026). -->
+<resources>
+    <string name="som_titulo">Âm thanh</string>
+    <string name="som_titulo_pod">Âm thanh · %1$s</string>
+    <string name="som_voz_clara">Giọng rõ</string>
+    <string name="som_so_este">Chỉ cho podcast này</string>
+    <string name="som_abertura">Bỏ qua phần mở đầu</string>
+    <string name="som_fim">Bỏ qua phần kết</string>
+    <string name="som_segundos">%1$d giây</string>
+    <string name="som_rodape_proprio">Các cài đặt này chỉ được giữ cho %1$s.</string>
+    <string name="som_rodape_geral">Tốc độ, khoảng lặng và giọng rõ áp dụng cho mọi podcast. Bật \"Chỉ cho podcast này\" để giữ cài đặt riêng cho %1$s.</string>
+    <string name="som_det">Tốc độ, giọng rõ, hẹn giờ tắt</string>
+    <string name="som_det_radio">Giọng rõ và hẹn giờ tắt</string>
+    <string name="cap_titulo">Chương</string>
+    <string name="cap_de">Chương %1$d trên %2$d</string>
+    <string name="cap_barra_dica">◀ ▶ tua 10 giây · OK: chương</string>
+    <string name="tx_titulo">Lời thoại</string>
+    <string name="tx_carregando">đang tải</string>
+    <string name="tx_nao_tem">không có trong tập này</string>
+    <string name="tx_nao_tem_det">Podcast này không đăng lời thoại của tập này.</string>
+    <string name="tx_pe_busca">Tìm thấy %1$d trên %2$d · ◀ ▶ trước / tiếp · ▼ tìm mới · OK: đóng</string>
+    <string name="tx_buscar">Tìm trong lời thoại</string>
+    <string name="tx_nada">Không ai nói điều đó trong tập này.</string>
+    <string name="ra_ja_tocou">Đã phát</string>
+    <string name="ra_parecidas">Đài tương tự</string>
+    <string name="som_radio">Đài radio nghe gần nhất</string>
+    <string name="som_podcast">Tập podcast mới nhất</string>
+    <string name="jor_titulo">Tin tức của tôi</string>
+    <string name="jor_ouvir">Phát tin tức của tôi</string>
+    <string name="jor_min">%d phút liên tục</string>
+    <string name="tx_pe">◀ ▶ câu trước / tiếp · ▲ tóm tắt · ▼ tìm · OK: đóng</string>
+    <string name="tx_gerando">đang tạo</string>
+    <string name="tx_gerando_det">Đang tạo lời thoại… phần đầu mất khoảng một phút.</string>
+    <string name="tx_gerar">OK để tạo (miễn phí)</string>
+    <string name="tx_cota">trở lại vào ngày mai</string>
+    <string name="tx_cota_det">Lượt tạo lời thoại miễn phí hôm nay đã hết. Ngày mai sẽ có lại.</string>
+    <string name="tx_pulei">Đã bỏ qua quảng cáo</string>
+    <string name="tx_pulei_det">%d giây · ◀ để quay lại</string>
+    <string name="tx_resumo">Tóm tắt của Sofy</string>
+    <string name="tx_resumo_de">Tóm tắt · %s</string>
+    <string name="tx_resumindo">Đang đọc lời thoại… chờ một chút.</string>
+    <string name="tx_resumo_falhou">Lần này chưa có tóm tắt. Hãy thử lại sau.</string>
+    <string name="ra_globo">Khám phá địa cầu</string>
+    <string name="ra_globo_det">Xoay địa cầu và dừng ở một đài radio bất kỳ nơi đâu</string>
+    <string name="ra_globo_dica">◀ ▶ ▲ ▼ xoay · OK: phát · Back: đóng</string>
+    <string name="ra_globo_mar">Biển khơi… xoay thêm chút nữa</string>
+    <string name="ra_voltar">Lùi 30 giây</string>
+    <string name="ra_voltar_det">Lỡ mất gì? Nghe lại (⏪ trên điều khiển)</string>
+    <string name="ra_ao_vivo">Về trực tiếp</string>
+    <string name="ra_atras">Chậm %s so với trực tiếp</string>
+</resources>

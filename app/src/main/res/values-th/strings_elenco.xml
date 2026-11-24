@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">นักแสดง</string>
+    <string name="elenco_titulo">นักแสดง</string>
+    <string name="elenco_carregando">กำลังโหลดรายชื่อนักแสดง…</string>
+    <string name="elenco_vazio">TMDB ไม่มีรายชื่อนักแสดงของเรื่องนี้</string>
+    <string name="elenco_dica">เลื่อนดูแต่ละคน: ด้านล่างคือเรื่องอื่นที่เขาเล่นซึ่งอยู่ในรายการของคุณ</string>
+    <string name="elenco_na_lista">อยู่ในรายการของคุณด้วย</string>
+    <string name="elenco_procurando">กำลังค้นหาในรายการของคุณ…</string>
+    <string name="elenco_nada_na_lista">ไม่มีเรื่องอื่นของคนนี้ในรายการของคุณ</string>
+    <string name="elenco_filme">ภาพยนตร์</string>
+    <string name="elenco_serie">ซีรีส์</string>
+    <string name="elenco_opcao_player">นักแสดง (นักแสดงคนนี้คือใคร)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">ตอนที่แล้วของ %1$s</string>
+    <string name="anteriormente_assistir">ดู %1$s</string>
+    <string name="anteriormente_pular_sempre">ไม่ต้องแสดงอีก</string>
+    <string name="anteriormente_desligado">ปิดการสรุปแล้ว หากต้องการเปิดอีกครั้ง: กด OK ค้างที่ตอน</string>
+    <string name="anteriormente_ligar">แสดงสรุป “ตอนที่แล้ว”</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">อายุสูงสุดในโหมดเด็ก</string>
+    <string name="idade_det">ภาพยนตร์และซีรีส์ที่มีเรตไม่เกินอายุนี้จะแสดงจากหมวดหมู่ใดก็ได้ (เรตของ TMDB) เรื่องที่ไม่มีเรตจะแสดงเฉพาะในหมวดหมู่สำหรับเด็ก</string>
+    <string name="idade_so_categorias">เฉพาะหมวดหมู่สำหรับเด็ก</string>
+    <string name="idade_livre">ทุกวัย</string>
+    <string name="idade_anos">ไม่เกิน %1$d ปี</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">มีใน: %1$s ด้วย (JustWatch)</string>
+    <string name="onde_fora">ไม่อยู่ในรายการของคุณ · มีใน %1$s</string>
+    <string name="onde_grupo">ที่อื่น (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">ดาวน์โหลดคำบรรยายอัตโนมัติแล้ว (ทำมาสำหรับไฟล์นี้) · ▼ เพื่อเปลี่ยน</string>
+    <string name="legenda_auto_pronta_nome">ดาวน์โหลดคำบรรยายอัตโนมัติแล้ว · ▼ เพื่อเปลี่ยนหรือปรับการหน่วงเวลา</string>
+    <string name="legenda_trad_rotulo">แปลอัตโนมัติ</string>
+    <string name="legenda_trad_traduzindo">ไม่มีคำบรรยายในภาษาของคุณ: กำลังแปลคำบรรยายภาษาอังกฤษบนทีวี…</string>
+    <string name="legenda_trad_parcial">คำบรรยายแปลบนทีวีแล้ว (แปลอัตโนมัติ) ส่วนที่เหลือกำลังแปลต่อ</string>
+    <string name="legenda_trad_pronta">แปลคำบรรยายเสร็จแล้ว</string>
+    <string name="series_sinopse_mais">เรื่องย่อฉบับเต็ม</string>
+    <string name="series_continuar_curto">▶  ดูต่อ %1$s</string>
+    <string name="series_episodios">ตอน</string>
+    <string name="series_trocar_temporada">เปลี่ยนซีซัน</string>
+    <string name="fechar">ปิด</string>
+    <string name="onde_assistir_botao">ดูได้ที่ไหน</string>
+</resources>

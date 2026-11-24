@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">ทีวีนี้ใช้งานอย่างไร</string>
+    <string name="uso_det">แบบจำเป็นจะซ่อน บ้านและระบบอัตโนมัติ การเข้าถึงระยะไกล และขั้นสูง ไม่มีอะไรถูกปิด</string>
+    <string name="uso_simples">จำเป็น</string>
+    <string name="uso_completo">ครบถ้วน</string>
+    <string name="uso_cuida">สำหรับคนที่ฉันดูแล</string>
+    <string name="uso_pergunta">ทีวีนี้จะใช้งานอย่างไร</string>
+    <string name="uso_pergunta_det">เปลี่ยนได้ภายหลังใน การตั้งค่า › ระบบ</string>
+    <string name="uso_simples_det">เฉพาะสิ่งจำเป็น: แอป นาฬิกา และสภาพอากาศ ตัวเลือกในการตั้งค่าน้อยลง</string>
+    <string name="uso_completo_det">ทุกอย่าง: รีโมตคอนโทรลจากโทรศัพท์ อุปกรณ์ในบ้าน ไดรฟ์เครือข่าย และตัวเลือกขั้นสูง</string>
+    <string name="uso_cuida_det">ทีวีของพ่อแม่หรือปู่ย่าตายาย: ใช้ง่ายสำหรับพวกเขา และคุณช่วยได้จากโทรศัพท์แม้อยู่ไกล</string>
+    <string name="uso_cuidar_longe">ดูแลจากที่ไกล</string>
+    <string name="uso_cuidar_longe_det">ปิดอยู่จนกว่าผู้ที่อาศัยอยู่ที่นั่นจะยินยอมบนทีวี</string>
+    <string name="uso_cartoes">การ์ดใหญ่บนหน้าจอหลัก</string>
+    <string name="uso_cartoes_det">แอปใหญ่ไม่กี่แอป อ่านชื่อออกเสียง และปุ่ม \"ขอความช่วยเหลือ\" การปิดต้องใช้ PIN</string>
+    <string name="uso_trocar_det">ตอนนี้: %1$s OK เพื่อเลือกอีกครั้ง</string>
+</resources>

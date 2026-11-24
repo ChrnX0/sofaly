@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">Chủ đề</string>
+    <string name="pod_ass_seus">Bạn theo dõi: %d</string>
+    <string name="pod_ass_em_alta">Thịnh hành trong chủ đề này</string>
+    <string name="pod_parecidos">Tương tự: %s</string>
+    <string name="pod_ass_noticias">Tin tức</string>
+    <string name="pod_ass_humor">Hài</string>
+    <string name="pod_ass_ciencia">Khoa học</string>
+    <string name="pod_ass_tecnologia">Công nghệ</string>
+    <string name="pod_ass_historia">Lịch sử</string>
+    <string name="pod_ass_negocios">Kinh doanh</string>
+    <string name="pod_ass_saude">Sức khỏe</string>
+    <string name="pod_ass_esportes">Thể thao</string>
+    <string name="pod_ass_cultura">Văn hóa</string>
+    <string name="pod_ass_crimes">Tội phạm có thật</string>
+    <string name="pod_ass_tv_filmes">TV và điện ảnh</string>
+    <string name="pod_ass_musica">Âm nhạc</string>
+    <string name="pod_ass_educacao">Giáo dục</string>
+    <string name="pod_ass_infantil">Trẻ em và gia đình</string>
+    <string name="pod_ass_fe">Tín ngưỡng</string>
+    <string name="pod_ass_lazer">Giải trí</string>
+</resources>

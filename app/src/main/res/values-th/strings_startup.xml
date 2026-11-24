@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">เมื่อเปิดทีวี</string>
+    <string name="su_det">เปิดสิ่งนี้ทันที โดยข้ามหน้าจอหลัก</string>
+    <string name="su_home">หน้าจอหลัก</string>
+    <string name="su_last">แอปล่าสุด</string>
+    <string name="su_quem">สำหรับใคร</string>
+    <string name="su_todos">ทั้งทีวี</string>
+    <string name="su_so">เฉพาะ %1$s</string>
+    <string name="su_segue_tv">ตามตัวเลือกของทีวี</string>
+    <string name="su_acordar">เมื่อตื่นจากสแตนด์บายด้วย</string>
+    <string name="su_acordar_det">ไม่ใช่แค่หลังรีสตาร์ท แต่รวมถึงเมื่อทีวีตื่นจากสแตนด์บาย ไม่ทับการแคสต์หรือนาฬิกาปลุก</string>
+    <string name="su_esperar">รอหลังรีสตาร์ท</string>
+    <string name="su_esperar_det">ให้เวลาทีวีเชื่อมต่อก่อนเปิดแอป</string>
+    <string name="su_horario">แอปต่างกันตามช่วงเวลาของวัน</string>
+    <string name="su_horario_det">ระบบอัตโนมัติที่มีทริกเกอร์ “ทีวีเปิดขึ้น” และ “เฉพาะเมื่อ”</string>
+    
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">Hồ sơ: %1$s</string>
+    <string name="perfil_aviso_texto">Yêu thích, Xem tiếp và thứ tự ứng dụng của hồ sơ này</string>
+    <string name="perfil_aviso_crianca">Hồ sơ trẻ em: đã bật chế độ trẻ em và giờ đi ngủ</string>
+    <string name="perfil_crianca">Hồ sơ trẻ em</string>
+    <string name="perfil_crianca_linha">Hồ sơ trẻ em · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">Tắt</string>
+    <string name="perfil_crianca_sem_pin">Hãy đặt PIN bảng điều khiển web trước: đó là PIN của bố mẹ để bảo vệ hồ sơ trẻ em</string>
+    <string name="perfil_pin_sair">PIN của bố mẹ để thoát hồ sơ trẻ em</string>
+    <string name="perfil_pin_marcar">PIN của bố mẹ để đổi hồ sơ trẻ em</string>
+</resources>

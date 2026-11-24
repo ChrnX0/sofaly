@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sessão junto e Continuar em outra TV (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="junto_titulo">ดูด้วยกัน</string>
+    <string name="junto_menu">ดูด้วยกันกับทีวีอีกเครื่อง</string>
+    <string name="junto_escolher">เชิญทีวีเครื่องไหน</string>
+    <string name="junto_sem_tvs">ไม่มีทีวีเครื่องอื่นออนไลน์ในบัญชี Tailscale นี้ เปิด \"ทีวีของครอบครัว\" บนทีวีอีกเครื่องด้วย</string>
+    <string name="junto_sem_titulo">แชร์วิดีโอนี้ไม่ได้: ทีวีอีกเครื่องหาเรื่องเดียวกันไม่พบ</string>
+    <string name="junto_convidou">ส่งคำเชิญไปที่ %1$s แล้ว เมื่อเริ่มเรื่องเดียวกัน ทีวีทั้งสองจะเล่นไปพร้อมกัน</string>
+    <string name="junto_falhou">ติดต่อ %1$s ไม่ได้ เปิดอยู่และเปิด \"ทีวีของครอบครัว\" ไว้หรือไม่</string>
+    <string name="junto_convite_titulo">%1$s เชิญคุณดูด้วยกัน</string>
+    <string name="junto_convite_texto">%1$s\n\nเปิดเรื่องเดียวกันที่นี่ แล้วทีวีทั้งสองจะหยุดและเล่นไปพร้อมกัน</string>
+    <string name="junto_convite_canal">%1$s\n\nทีวีสด: ทีวีทั้งสองจะอยู่ช่องเดียวกัน ใครเปลี่ยนช่อง อีกเครื่องจะตาม</string>
+    <string name="junto_entrar">เข้าร่วม</string>
+    <string name="junto_agora_nao">ไม่ใช่ตอนนี้</string>
+    <string name="junto_entrou">%1$s เข้าร่วมแล้ว ตอนนี้หยุดชั่วคราวและเล่นจะใช้ร่วมกัน</string>
+    <string name="junto_saiu">%1$s ออกไปแล้ว ทีวีนี้จะเล่นต่อเอง</string>
+    <string name="junto_com">ดูด้วยกันกับ %1$s</string>
+    <string name="junto_sair">เลิกดูด้วยกัน</string>
+    <string name="junto_sem_canal">ช่องนี้ไม่อยู่ในรายการของทีวีนี้</string>
+    <string name="junto_tvs">ทีวีของครอบครัว</string>
+    <string name="junto_tvs_det">ทีวีในบัญชี Tailscale เดียวกันดูด้วยกันและส่งต่อวิดีโอได้ มีเพียงคำสั่งที่ส่งไป ไม่ใช่วิดีโอ ทีวีของญาติในบัญชีอื่นยังเข้าร่วมไม่ได้</string>
+    <string name="junto_outro_episodio">%1$s อยู่ที่ S%2$d E%3$d แล้ว เมื่อทีวีนี้ไปถึง คุณจะได้ดูด้วยกันอีกครั้ง</string>
+    <string name="cont_titulo">ดูต่อบนทีวีอีกเครื่อง</string>
+    <string name="cont_menu">ส่งไปที่ทีวีอีกเครื่อง</string>
+    <string name="cont_escolher">ส่งไปที่ทีวีเครื่องไหน</string>
+    <string name="cont_enviado">ส่งแล้ว %1$s จะถามว่าจะดูต่อจากที่นี่ไหม</string>
+    <string name="cont_falhou">ส่งไปที่ %1$s ไม่ได้ เปิดอยู่และเปิด \"ทีวีของครอบครัว\" ไว้หรือไม่</string>
+    <string name="cont_pergunta">ดูต่อจากที่ค้างไว้ไหม</string>
+    <string name="cont_texto">%1$s\nหยุดไว้ที่ %2$s บน %3$s</string>
+    <string name="cont_texto_canal">%1$s\nเปิดอยู่บน %3$s เปิดช่องเดียวกันที่นี่ไหม</string>
+    <string name="cont_continuar">ดูต่อ</string>
+    <string name="cont_buscar">ค้นหาที่นี่</string>
+</resources>

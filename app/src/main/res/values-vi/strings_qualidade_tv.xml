@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV ao vivo: canais novos, qualidade automática e motivo do "sem sinal" (18/11/2026). -->
+<resources>
+    <string name="coluna_novos_canais">Mới</string>
+    <string name="qual_menu">Chất lượng: %1$s</string>
+    <string name="qual_auto">Tự động</string>
+    <string name="qual_auto_curto">tự động</string>
+    <string name="qual_titulo">Chất lượng hình ảnh</string>
+    <string name="qual_padrao">Tiêu chuẩn</string>
+    <string name="player_conta_vencida">Danh sách của bạn đã hết hạn ngày %1$s. Hãy gia hạn với người bán.</string>
+    <string name="player_conta_recusada">Máy chủ danh sách từ chối tài khoản. Hãy hỏi lại người bán.</string>
+    <string name="player_telas_cheias">Danh sách đang mở trên %1$d trên %2$d màn hình. Hãy đóng trên một thiết bị khác.</string>
+</resources>
