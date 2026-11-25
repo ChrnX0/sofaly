@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Fehér</string>
     <string name="st_proprios_vidro">Világos üveg</string>
     <string name="st_proprios_escuro">Sötét üveg</string>
+    <string name="st_personalidade">Kártyaikonok</string>
+    <string name="st_pers_cor">Saját szín</string>
+    <string name="st_pers_brilho">Színes ragyogás</string>
 </resources>

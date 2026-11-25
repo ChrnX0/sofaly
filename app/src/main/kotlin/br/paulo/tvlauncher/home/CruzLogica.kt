@@ -229,6 +229,9 @@ object CruzLogica {
      * título ou depois de um "·" (visto na Sala, v463338: "faltam 28 / min" e "· 92%" começando a linha): o "·" fica
      * grudado no que vem antes e "faltam 28 min" não se parte.
      */
+    /** Programa do guia mais longo que isto é um bloco de enchimento (o dia todo): sem % nem "faltam" na HOME. */
+    const val PROGRAMA_LONGO_MS = 6 * 3_600_000L
+
     fun andamento(oQue: String?, fracao: Float?, falta: String?): String = listOfNotNull(
         oQue?.trim()?.takeIf { it.isNotEmpty() },
         fracao?.takeIf { it >= 0.01f && it < 0.995f }?.let { "${kotlin.math.round(it * 100).toInt()}%" },

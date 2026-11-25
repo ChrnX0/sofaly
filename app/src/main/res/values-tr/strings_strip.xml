@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Beyaz</string>
     <string name="st_proprios_vidro">Açık cam</string>
     <string name="st_proprios_escuro">Koyu cam</string>
+    <string name="st_personalidade">Kart simgeleri</string>
+    <string name="st_pers_cor">Kendi rengi</string>
+    <string name="st_pers_brilho">Renk parıltısı</string>
 </resources>

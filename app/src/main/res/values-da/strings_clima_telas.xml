@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Det regner nu. Det bør stoppe omkring %1$s.</string>
     <string name="cl_f_segue">Det regner nu, og det bør fortsætte de næste timer.</string>
     <string name="cl_f_chuva">Regn sandsynligt omkring %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Regn sandsynligt nu (%1$s).</string>
+    <string name="cl_f_chuva_agora">Det kan begynde at regne når som helst (%1$s).</string>
     <string name="cl_f_calor">Varm dag: op til %1$d° omkring %2$s. Drik vand.</string>
     <string name="cl_f_frio">Kulde på vej: ned til %1$d°. Klæd dig varmt på.</string>
     <string name="cl_f_sol">Stærk sol fra %1$s til %2$s. Brug solcreme.</string>

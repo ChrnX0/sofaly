@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Putih</string>
     <string name="st_proprios_vidro">Kaca terang</string>
     <string name="st_proprios_escuro">Kaca gelap</string>
+    <string name="st_personalidade">Ikon kartu</string>
+    <string name="st_pers_cor">Warna sendiri</string>
+    <string name="st_pers_brilho">Pendar warna</string>
 </resources>

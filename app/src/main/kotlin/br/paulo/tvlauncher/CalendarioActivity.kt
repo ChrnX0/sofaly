@@ -191,7 +191,7 @@ class CalendarioActivity : Activity() {
                         else -> fmtHora.format(e.inicio) + "–" + fmtHora.format(e.fim)
                     }
                 }, LinearLayout.LayoutParams(dp(132), ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginEnd = dp(12) })
-                addView(texto(17f, textoClaro).apply { text = e.titulo; maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END },
+                addView(texto(17f, textoClaro).apply { text = e.titulo; maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             })
         }

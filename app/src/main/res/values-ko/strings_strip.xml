@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">흰색</string>
     <string name="st_proprios_vidro">밝은 유리</string>
     <string name="st_proprios_escuro">어두운 유리</string>
+    <string name="st_personalidade">카드 아이콘</string>
+    <string name="st_pers_cor">고유 색상</string>
+    <string name="st_pers_brilho">색상 빛</string>
 </resources>

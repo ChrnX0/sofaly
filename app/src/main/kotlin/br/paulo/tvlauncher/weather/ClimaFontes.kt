@@ -23,7 +23,9 @@ object ClimaFontes {
         /** Chance de chuva do resto de hoje (a maior), para "Hoje · X% de chuva" (#185). */
         val chuvaHoje: Int = picoChuva,
         /** UV muito alto agora ou na próxima hora (SunAlert), arredondado; null = sem aviso. */
-        val uvAviso: Int? = null)
+        val uvAviso: Int? = null,
+        /** Chuva provável na hora de agora (a mesma regra da frase "Pode chover a qualquer momento"): o ícone vira chuva. */
+        val chuvaAgora: Boolean = false)
 
     @Volatile private var ultimaMedida: Medida? = null   // a última leitura boa do aeroporto
     @Volatile private var ultimaMedidaMs = 0L
@@ -126,13 +128,15 @@ object ClimaFontes {
         }
         // De noite, ceu limpo/poucas nuvens/parcial mostram a lua na fase de hoje no lugar do sol
         // (se estiver chovendo, vale a chuva, como de dia). Chuva, neblina etc. mantem o proprio icone.
-        val icone = iconeDoClima(codigo, eDia, chovendoAgora, ponto.lat)
+        // Chuva provável agora também troca o ícone (Paulo, 25/11/2026, A+C: o ícone "parcialmente nublado" ao lado de
+        // "Chuva provável agora (72%)" parecia contradição). O texto do céu continua dizendo o céu de agora.
+        val icone = iconeDoClima(codigo, eDia, chovendoAgora || primeira == 0, ponto.lat)
         // Decodifica e apara o ícone AQUI, fora da thread da tela (04/11/2026: um ANR de 5 s do launcher tinha
         // IconesClima.aparar na pilha da thread principal). Na tela, bitmap() já acha pronto no cache.
         if (IconesClima.ehIcone(icone)) IconesClima.bitmap(ctx, icone)
         return Resultado(ponto, temp, umidade, max, min, amanha, codigo, chovendoAgora, eDia, picoChuva, textoLinha, icone,
             proximasHoras(json, atual.optString("time", ""), horasData, horasChuva), chuvaHoje = chuvaHoje,
-            uvAviso = uvAviso(json, horaAgora, codigo, chovendoAgora, eDia))
+            uvAviso = uvAviso(json, horaAgora, codigo, chovendoAgora, eDia), chuvaAgora = primeira == 0)
     }
 
     /** O UV por hora vem no mesmo pedido (Open-Meteo, MET e WeatherAPI convertidos trazem "uv_index"). */

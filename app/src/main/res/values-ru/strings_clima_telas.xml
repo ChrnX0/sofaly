@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Идёт дождь. Должен закончиться около %1$s.</string>
     <string name="cl_f_segue">Идёт дождь, и он продлится ещё несколько часов.</string>
     <string name="cl_f_chuva">Вероятен дождь около %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Сейчас вероятен дождь (%1$s).</string>
+    <string name="cl_f_chuva_agora">Дождь может начаться в любую минуту (%1$s).</string>
     <string name="cl_f_calor">Жаркий день: до %1$d° около %2$s. Пейте воду.</string>
     <string name="cl_f_frio">Похолодание: до %1$d°. Одевайтесь теплее.</string>
     <string name="cl_f_sol">Сильное солнце с %1$s до %2$s. Нужен солнцезащитный крем.</string>

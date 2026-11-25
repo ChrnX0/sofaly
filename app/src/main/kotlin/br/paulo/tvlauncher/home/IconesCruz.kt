@@ -742,7 +742,10 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 // As antenas balançam (o miolo continua vazio: nada desenhado dentro do contorno).
                 c.save(); c.scale(ESCALA_TV, ESCALA_TV, 12f, 9f)
                 // As antenas balançam procurando o sinal...
-                alfa(1f); c.save(); c.rotate(-12f * sino, 12f, 6.5f)
+                // 25/11/2026 (Paulo: "sutil demais" no card da barra): o balanço era de 12 graus, agora vai e volta
+                // dos dois lados (procurando o sinal de verdade) com 24 graus.
+                val balanco = kotlin.math.sin(f * 2f * Math.PI.toFloat()) * 24f * sino
+                alfa(1f); c.save(); c.rotate(balanco, 12f, 6.5f)
                 c.drawLine(12f, 6.5f, 7f, 2.9f, traco); c.drawLine(12f, 6.5f, 17.8f, 4.1f, traco); c.restore()
                 // ...e o brilhinho do vidro atravessa a tela da esquerda para a direita e volta ao canto.
                 val dx = 7.6f * sino
@@ -763,9 +766,15 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
                 }
                 c.restore()
             }
-            Tipo.REDE -> {   // um sinal sobe pelo tronco até a seta (dado passando)
-                val y = 17.5f - 11f * easeInOut(f)
-                alfa(sino); c.drawCircle(12f, y, 1.3f, cheio)
+            Tipo.REDE -> {   // dois sinais sobem pelo tronco até a seta (dado passando) e a seta pisca ao receber
+                // 25/11/2026 (Paulo: "sutil demais"): o ponto era um só e pequeno (1,3).
+                for (k in 0..1) {
+                    val g = ((f - k * 0.25f) / 0.75f).coerceIn(0f, 1f)
+                    if (g <= 0f || g >= 1f) continue
+                    alfa(sino(g)); c.drawCircle(12f, 18f - 12.5f * easeInOut(g), 2f, cheio)
+                }
+                val chega = sino(((f - 0.55f) / 0.45f).coerceIn(0f, 1f))
+                if (chega > 0f) { alfa(chega); c.drawCircle(12f, 4f, 3.2f, traco) }
             }
             Tipo.ADDONS, Tipo.PLUGIN -> {   // uma peça nova chega e encaixa no dente da direita
                 val x = 6f * (1f - easeOut((f / 0.6f).coerceIn(0f, 1f)))

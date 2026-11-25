@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Sta piovendo. Dovrebbe smettere verso le %1$s.</string>
     <string name="cl_f_segue">Sta piovendo e dovrebbe continuare nelle prossime ore.</string>
     <string name="cl_f_chuva">Pioggia probabile verso le %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Pioggia probabile adesso (%1$s).</string>
+    <string name="cl_f_chuva_agora">Può piovere da un momento all\'altro (%1$s).</string>
     <string name="cl_f_calor">Giornata calda: fino a %1$d° verso le %2$s. Bevi acqua.</string>
     <string name="cl_f_frio">Arriva il freddo: fino a %1$d°. Copriti bene.</string>
     <string name="cl_f_sol">Sole forte dalle %1$s alle %2$s. Usa la crema solare.</string>

@@ -884,6 +884,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
         if (faixa) {
+            strip.nivel = if (semAnimacao()) MovimentoAdaptativo.Nivel.PARADO else nivel
             strip.mostrar(cats, estado.cat, estado.sel.getOrElse(estado.cat) { 0 }, hasFocus() || isFocused, animar, direcaoFaixa)
             return
         }

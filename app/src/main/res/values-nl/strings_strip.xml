@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Wit</string>
     <string name="st_proprios_vidro">Licht glas</string>
     <string name="st_proprios_escuro">Donker glas</string>
+    <string name="st_personalidade">Kaartpictogrammen</string>
+    <string name="st_pers_cor">Eigen kleur</string>
+    <string name="st_pers_brilho">Kleurgloed</string>
 </resources>

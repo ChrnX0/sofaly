@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Белые</string>
     <string name="st_proprios_vidro">Светлое стекло</string>
     <string name="st_proprios_escuro">Тёмное стекло</string>
+    <string name="st_personalidade">Значки карточек</string>
+    <string name="st_pers_cor">Свой цвет</string>
+    <string name="st_pers_brilho">Свечение цвета</string>
 </resources>

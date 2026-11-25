@@ -190,6 +190,7 @@ class MainActivity : Activity() {
     @Volatile private var pontoAtual: Localizacao.Ponto? = null
     private var ultimoCodigo = -1
     private var ultimoChovendo = false
+    private var ultimoChuvaAgora = false   // chuva provável agora: só o ícone (o fundo segue a chuva de verdade)
 
     private lateinit var txtIcone: TextView   // so para o texto de reserva
     private lateinit var imgIcone: ImageView   // o icone do clima (imagem de assets/clima/)
@@ -2678,6 +2679,7 @@ class MainActivity : Activity() {
                     pontoAtual = r.ponto
                     ultimoCodigo = r.codigo
                     ultimoChovendo = r.chovendo
+                    ultimoChuvaAgora = r.chuvaAgora
                     ultimoEDia = r.eDia
                     atualizarFundo()
                     iconeClima = r.icone
@@ -2691,7 +2693,7 @@ class MainActivity : Activity() {
                     // Guarda o que o topo mostra: a previsão aberta por voz ("Boletim do Tempo") e o protetor de tela
                     // (ProtetorTela.kt, sem rede própria) não passam por aqui e leem isto.
                     getSharedPreferences(Prefs.CLIMA, MODE_PRIVATE).edit()
-                        .putInt("temp", r.temp).putBoolean("chovendo", r.chovendo)
+                        .putInt("temp", r.temp).putBoolean("chovendo", r.chovendo).putBoolean("chuva_agora", r.chuvaAgora)
                         .putInt("codigo", r.codigo).putBoolean("eDia", r.eDia)
                         .putInt("umidade", r.umidade ?: -1).putInt("chuva", r.chuvaHoje)
                         .putInt("max", r.max).putInt("min", r.min)   // máxima e mínima de hoje: a barra do protetor mostra
@@ -2733,9 +2735,10 @@ class MainActivity : Activity() {
         val temp = c.getInt("temp", 0)
         ultimoCodigo = codigo
         ultimoChovendo = chovendo
+        ultimoChuvaAgora = c.getBoolean("chuva_agora", false)
         ultimoEDia = eDia
         ceuCoberto = codigo > 2 || chovendo
-        iconeClima = ClimaFontes.iconeDoClima(codigo, eDia, chovendo, lat)
+        iconeClima = ClimaFontes.iconeDoClima(codigo, eDia, chovendo || ultimoChuvaAgora, lat)
         txtTemp.text = "$temp°"
         ultimaTemp = temp
         txtMax.text = "↑ ${c.getInt("max", temp)}°"
@@ -2761,7 +2764,7 @@ class MainActivity : Activity() {
         val eDia = Astronomia.eDia(System.currentTimeMillis(), lat, lon, ultimoEDia ?: true)
         if (eDia == ultimoEDia) return
         ultimoEDia = eDia
-        iconeClima = ClimaFontes.iconeDoClima(ultimoCodigo, eDia, ultimoChovendo, lat)
+        iconeClima = ClimaFontes.iconeDoClima(ultimoCodigo, eDia, ultimoChovendo || ultimoChuvaAgora, lat)
         c.edit().putBoolean("eDia", eDia).apply()   // o protetor e a previsão leem daqui
     }
 

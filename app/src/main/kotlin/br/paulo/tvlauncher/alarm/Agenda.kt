@@ -45,14 +45,53 @@ object Agenda {
      * Junta eventos de várias contas: o mesmo compromisso nas duas agendas (um convite da família) aparece uma vez só.
      * Mesmo título, mesmo início e mesmo fim = o mesmo. Fica em ordem de início. Pura (AgendaTest).
      */
-    fun juntar(l: List<Evento>, idioma: String = java.util.Locale.getDefault().language): List<Evento> {
+    /**
+     * País de uma agenda de feriados do Google ("pt-br.brazilian#holiday@…" = "BR"), ou null se não for de feriados ou
+     * o nome não estiver na tabela [PAISES_FERIADOS] (aí ela não é descartada por país).
+     */
+    fun paisFeriados(dono: String): String? =
+        if ("#holiday@" in dono) PAISES_FERIADOS[dono.substringBefore('#').substringAfter('.').lowercase()] else null
+
+    /** Nome da região na agenda de feriados do Google -> país (ISO). Só os comuns; nome fora daqui = país desconhecido. */
+    private val PAISES_FERIADOS = mapOf(
+        "brazilian" to "BR", "usa" to "US", "uk" to "GB", "canadian" to "CA", "australian" to "AU", "irish" to "IE",
+        "new_zealand" to "NZ", "portuguese" to "PT", "spain" to "ES", "mexican" to "MX", "german" to "DE", "french" to "FR",
+        "italian" to "IT", "dutch" to "NL", "swedish" to "SE", "norwegian" to "NO", "danish" to "DK", "finnish" to "FI",
+        "polish" to "PL", "japanese" to "JP", "indian" to "IN",
+    )
+
+    /**
+     * Junta eventos de várias contas: o mesmo compromisso nas duas agendas (um convite da família) aparece uma vez só.
+     * Mesmo título, mesmo início e mesmo fim = o mesmo. Fica em ordem de início. Pura (AgendaTest).
+     */
+    fun juntar(l: List<Evento>, idioma: String = java.util.Locale.getDefault().language, pais: String? = null,
+               agendas: Collection<String> = l.map { it.dono }): List<Evento> {
+        // Feriados de outro país (25/11/2026, Sala: a conta assinava Brasil, EUA e Reino Unido e o protetor mostrou
+        // "Thanksgiving Day"): se alguma agenda de feriados é do país da TV, as de país conhecido diferente saem.
+        // [agendas] = as agendas ASSINADAS, não só as que têm evento na janela: na Sala a do Brasil não tinha feriado nos
+        // 2 dias do protetor, e por isso os dos EUA continuaram aparecendo depois da 1ª correção (foto de 25/11, 17:22Z).
+        val donos = (agendas + l.map { it.dono }).filter { "#holiday@" in it }.distinct()
+        val doPais = pais?.uppercase()?.let { p -> donos.filter { paisFeriados(it) == p } }.orEmpty()
+        val foraDoPais = if (doPais.isEmpty()) emptySet() else donos.filter { val q = paisFeriados(it); q != null && q != pais!!.uppercase() }.toSet()
+        val l1 = l.filter { it.dono !in foraDoPais }
         // Feriados: cada conta pode assinar a agenda de feriados num idioma ("Proclamação da República" numa e
         // "Republic Proclamation Day" na outra; teste na TV, 15/11/2026). Fica só uma: a do idioma da TV, senão a 1ª.
-        val idiomas = l.mapNotNull { idiomaFeriados(it.dono) }.distinct()
+        val idiomas = l1.mapNotNull { idiomaFeriados(it.dono) }.distinct()
         val fica = if (idiomas.size > 1) idiomas.firstOrNull { it == idioma.lowercase() } ?: idiomas.first() else null
-        return l.filter { e -> fica == null || idiomaFeriados(e.dono).let { it == null || it == fica } }
-            .distinctBy { Triple(it.titulo.trim().lowercase(), it.inicio, it.fim) }.sortedBy { it.inicio }
+        val l2 = l1.filter { e -> fica == null || idiomaFeriados(e.dono).let { it == null || it == fica } }
+        // O mesmo feriado também na agenda pessoal, com outro nome ("Dia de Natal" ao lado de "Natal", "Véspera de Natal"
+        // ao lado de "Véspera de Natal (após às 14 horas)"; agenda real da Sala, 25/11/2026): fica o da agenda de feriados.
+        val feriados = l2.filter { it.diaInteiro && idiomaFeriados(it.dono) != null }
+        val l3 = l2.filter { e ->
+            !(e.diaInteiro && idiomaFeriados(e.dono) == null &&
+                feriados.any { f -> f.inicio == e.inicio && nomeDeFeriado(f.titulo) == nomeDeFeriado(e.titulo) })
+        }
+        return l3.distinctBy { Triple(it.titulo.trim().lowercase(), it.inicio, it.fim) }.sortedBy { it.inicio }
     }
+
+    /** "Dia de Natal" e "Véspera de Natal (após às 14 horas)" viram "natal" e "véspera de natal": o nome sem enfeite. */
+    fun nomeDeFeriado(t: String): String =
+        t.substringBefore('(').trim().lowercase().removePrefix("dia de ").removePrefix("dia do ").removePrefix("dia da ").trim()
 
     /** Os eventos das contas Google [contas] entre [de] e [ate] (ms), em ordem. Vazio sem conta ou sem READ_CALENDAR. */
     fun eventos(ctx: Context, contas: List<String>, de: Long, ate: Long): List<Evento> {
@@ -92,8 +131,18 @@ object Agenda {
         } catch (e: Exception) {
             Log.w("TvLauncher.Agenda", "erro lendo a agenda: $e")
         }
-        return if (contas.size > 1) juntar(saida) else saida
+        // Sempre (antes só com 2+ contas): uma conta só também pode assinar feriados de vários países e idiomas.
+        return juntar(saida, pais = FeriadosTv.pais(), agendas = agendasAssinadas(ctx, contas))
     }
+
+    /** O dono (OWNER_ACCOUNT) de cada agenda visível das [contas]: diz quais agendas de feriados a conta assina. */
+    private fun agendasAssinadas(ctx: Context, contas: List<String>): List<String> = try {
+        ctx.contentResolver.query(
+            CalendarContract.Calendars.CONTENT_URI, arrayOf(CalendarContract.Calendars.OWNER_ACCOUNT),
+            "${CalendarContract.Calendars.ACCOUNT_NAME} IN (${contas.joinToString(",") { "?" }}) AND ${CalendarContract.Calendars.ACCOUNT_TYPE} = 'com.google' AND ${CalendarContract.Calendars.VISIBLE} = 1",
+            contas.toTypedArray(), null
+        )?.use { c -> buildList { while (c.moveToNext()) c.getString(0)?.let { add(it) } } }.orEmpty()
+    } catch (e: Exception) { Log.w("TvLauncher.Agenda", "erro lendo as agendas: $e"); emptyList() }
 
     /**
      * Os compromissos de hoje (a partir de agora) em uma frase para a voz, ou null se não houver nenhum:
