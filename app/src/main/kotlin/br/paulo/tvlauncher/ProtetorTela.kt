@@ -98,6 +98,18 @@ class ProtetorTela : DreamService() {
     /** Fecha o sonho como a tecla fazia antes (wakeUp devolve a tela ao que estava por baixo). */
     private fun fechar() { if (android.os.Build.VERSION.SDK_INT >= 29) wakeUp() else finish() }
 
+    // Os TextClock do descanso registram o receptor da hora no contexto DESTE serviço. Quando o sonho acaba, o Android
+    // destrói o serviço (e apaga os receptores dele) antes de destruir a janela (DreamActivity); ao sair da janela o
+    // TextClock tentava desregistrar de novo e o launcher caía ("Receiver not registered: TextClock$1", Sala 25/11/2026
+    // 15:51). Tirar o conteúdo aqui desregistra com o serviço ainda vivo; repetir no onDestroy cobre a outra ordem.
+    private fun soltarRelogios() {
+        runCatching { window?.findViewById<android.view.ViewGroup>(android.R.id.content)?.removeAllViews() }
+    }
+
+    override fun onDreamingStopped() { soltarRelogios(); super.onDreamingStopped() }
+
+    override fun onDestroy() { soltarRelogios(); super.onDestroy() }
+
     override fun onDetachedFromWindow() {
         if (atual?.get() === this) atual = null
         ui.removeCallbacks(trocar)
