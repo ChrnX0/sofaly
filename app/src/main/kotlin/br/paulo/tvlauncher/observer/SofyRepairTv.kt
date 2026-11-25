@@ -325,8 +325,8 @@ object SofyRepairTv {
             // Ferramenta sem alvo neste assunto (nenhum leitor de dado/chave registrado) não entra: falharia sempre e
             // viraria laço, que reabre a IA, que sugere a mesma ferramenta (Sala 25/11: norm:ai_drill2 x14 perguntas).
             val semAlvo = buildSet {
-                if (c.subject !in refreshers) add(Tool.REFRESH_DATA)
-                if (c.subject !in switches) add(Tool.DISABLE_FEATURE)
+                if (!refreshers.containsKey(c.subject)) add(Tool.REFRESH_DATA)
+                if (!switches.containsKey(c.subject)) add(Tool.DISABLE_FEATURE)
             }
             val passo = SofyRepair.next(c, learned, e.copy(unavailable = e.unavailable + semAlvo))
             if (passo is SofyRepair.Step.Wait) { noteWait(app, c, passo); continue }
