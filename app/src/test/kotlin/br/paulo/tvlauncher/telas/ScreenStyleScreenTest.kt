@@ -102,6 +102,8 @@ class ScreenStyleScreenTest {
         val rn = Rect(); nomeTv.getGlobalVisibleRect(rn)
         if (Rect.intersects(rt, rn)) p += "$nome: a linha do foco ficou em cima do título"
         raiz.findViewWithTag<View>("moldura-relogio")?.let { pil -> val rp = Rect(); pil.getGlobalVisibleRect(rp); if (Rect.intersects(rp, rn)) p += "$nome: a linha do foco ficou em cima da pílula da hora" }
+        val focado = raiz.findFocus()
+        if (br.paulo.tvlauncher.home.Moldura.jaVisivel(raiz, nomeTv.text.toString(), focado, linha)) p += "$nome: a linha do foco repete \"${nomeTv.text}\", que a tela já mostra"
         if ((nomeTv.layout?.getEllipsisCount(0) ?: 0) > 0) p += "$nome: o nome do item em foco saiu cortado (\"${nomeTv.text}\")"
         return p
     }
