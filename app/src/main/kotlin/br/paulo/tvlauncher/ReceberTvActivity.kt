@@ -53,7 +53,7 @@ class ReceberTvActivity : Activity() {
         codigo = Estilo.texto(this, Estilo.Papel.TITULO).apply { setPaddingRelative(0, dp(16), 0, 0); typeface = android.graphics.Typeface.MONOSPACE }
         col.addView(titulo); col.addView(texto); col.addView(codigo)
         val botoes = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
-        outro = Estilo.botao(this, getString(R.string.qr_gerar_outro)).apply { setOnClickListener { gerar() } }
+        outro = Estilo.botao(this, getString(R.string.qr_gerar_outro)).apply { setOnClickListener { gerar(pedido = true) } }
         botoes.addView(outro, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginEnd = dp(16) })
         val fechar = Estilo.botao(this, getString(R.string.qr_fechar)).apply { setOnClickListener { finish() } }
         botoes.addView(fechar)
@@ -77,7 +77,8 @@ class ReceberTvActivity : Activity() {
         super.onPause()
     }
 
-    private fun gerar() {
+    /** [pedido] = a pessoa apertou o botão: se continuar sem rede, diz isso (antes o OK parecia não fazer nada). */
+    private fun gerar(pedido: Boolean = false) {
         terminou = false
         // Depois de um ERRO o laço parou de se reagendar: "Gerar outro" tem de ligá-lo de novo (sem duplicar).
         ui.removeCallbacks(volta); ui.postDelayed(volta, 1000)
@@ -88,6 +89,7 @@ class ReceberTvActivity : Activity() {
             qr.visibility = View.INVISIBLE; codigo.text = ""
             texto.text = getString(R.string.pc_sem_rede)
             outro.text = getString(R.string.tentar_de_novo)   // sem rede não há código para "gerar outro"
+            if (pedido) AvisoTv.rapido(this, getString(R.string.mtv_titulo), texto.text.toString())
             return
         }
         outro.text = getString(R.string.qr_gerar_outro)

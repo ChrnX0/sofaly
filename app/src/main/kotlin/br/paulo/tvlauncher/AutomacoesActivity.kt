@@ -86,6 +86,9 @@ class AutomacoesActivity : Activity() {
             // "Evento → o que a TV faz" (crítica de design 19/11/2026): "Filme começou: nenhum" misturava gatilho e estado.
             fun texto() = "${nomeEvento(e)}  →  ${gatilhos[e] ?: getString(R.string.aut_nenhuma_acao)}"
             fun girar(passo: Int) {
+                // Sem cena nenhuma, girar não tem o que escolher: diz como criar uma, em vez de não fazer nada (25/11/2026,
+                // TodoBotaoFazAlgoTest: as 15 linhas de evento focavam e o OK ficava mudo).
+                if (cenas.isEmpty()) { AvisoTv.rapido(this, nomeEvento(e), getString(R.string.rot_cena_sem)); return }
                 val tinha = gatilhos[e] != null
                 val novo = Cenas.girar(cenas, gatilhos[e] ?: "", passo, comNenhuma = true)
                 if (novo.isEmpty()) gatilhos.remove(e) else gatilhos[e] = novo

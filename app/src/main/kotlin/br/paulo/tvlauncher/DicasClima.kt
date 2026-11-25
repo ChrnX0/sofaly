@@ -57,6 +57,20 @@ internal object DicasClima {
         return ini..fim
     }
 
+    /**
+     * A chuva que TODAS as telas anunciam (a pílula da HOME, a frase do Clima e do protetor): quantas horas faltam (0 = a
+     * hora de agora) e a chance mostrada. Uma regra só (25/11/2026, Paulo: "a porcentagem da HOME não concorda com a do
+     * descanso"): antes a HOME usava 40% e só o resto de hoje, com a chance da 1ª hora; o Clima, 50% e 12 horas, com o pico.
+     * Na hora de agora vale a chance DESTA hora; mais à frente, a maior das 3 horas a partir dali (a 1ª pode ser só 50%).
+     * null = nenhuma hora da janela chega a [CHUVA].
+     */
+    fun chuvaAnunciada(e: Entrada): Pair<Int, Int>? {
+        val janela = proximas(e)
+        val i = janela.indexOfFirst { it.chance >= CHUVA }
+        if (i < 0) return null
+        return i to (if (i == 0) janela[0].chance else janela.drop(i).take(3).maxOf { it.chance })
+    }
+
     /** O que mais importa hoje, por ordem: chuva agora, chuva chegando, calor, frio, sol forte, chuva amanhã, dia calmo. */
     fun frase(e: Entrada): Frase {
         val janela = proximas(e)
@@ -64,14 +78,8 @@ internal object DicasClima {
             val para = janela.drop(1).firstOrNull { it.chance < SECO }
             return if (para != null) Frase(TipoFrase.PARA_AS, para.hora) else Frase(TipoFrase.CHUVA_SEGUE)
         }
-        val chuva = janela.indexOfFirst { it.chance >= CHUVA }
-        // Chuva já na hora de agora (Sala, 25/11/2026, 6h38): "por volta das 6h" soava como passado. Vira "agora", com a
-        // chance DESTA hora, a mesma da HOME ("Chuva 76% neste momento"), para as duas telas dizerem o mesmo número.
-        if (chuva == 0) return Frase(TipoFrase.CHUVA_AGORA, janela[0].hora, janela[0].chance)
-        if (chuva >= 0) {
-            // A chance mostrada é a maior das 3 horas a partir dali (a da 1ª hora que passa do limiar pode ser só 50%).
-            val pico = janela.drop(chuva).take(3).maxOf { it.chance }
-            return Frase(TipoFrase.CHUVA_AS, janela[chuva].hora, pico)
+        chuvaAnunciada(e)?.let { (i, chance) ->
+            return if (i == 0) Frase(TipoFrase.CHUVA_AGORA, janela[0].hora, chance) else Frase(TipoFrase.CHUVA_AS, janela[i].hora, chance)
         }
         val hoje = e.horas.filter { it.hoje }
         val quente = hoje.maxByOrNull { it.temp }
