@@ -8,6 +8,7 @@
     <string name="cl_f_parar">Raining now. It should stop around %1$s.</string>
     <string name="cl_f_segue">Raining now, and it should go on for the next hours.</string>
     <string name="cl_f_chuva">Rain likely around %1$s (%2$s).</string>
+    <string name="cl_f_chuva_agora">Rain likely now (%1$s).</string>
     <string name="cl_f_calor">Hot day: up to %1$d° around %2$s. Drink water.</string>
     <string name="cl_f_frio">Cold ahead: down to %1$d°. Wrap up warm.</string>
     <string name="cl_f_sol">Strong sun from %1$s to %2$s. Use sunscreen.</string>

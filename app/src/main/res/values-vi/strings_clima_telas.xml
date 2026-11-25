@@ -8,6 +8,7 @@
     <string name="cl_f_parar">Đang mưa. Có thể tạnh khoảng %1$s.</string>
     <string name="cl_f_segue">Đang mưa, và có thể kéo dài trong vài giờ tới.</string>
     <string name="cl_f_chuva">Có thể mưa khoảng %1$s (%2$s).</string>
+    <string name="cl_f_chuva_agora">Có thể mưa ngay bây giờ (%1$s).</string>
     <string name="cl_f_calor">Ngày nóng: lên đến %1$d° khoảng %2$s. Hãy uống nước.</string>
     <string name="cl_f_frio">Sắp lạnh: xuống đến %1$d°. Hãy mặc ấm.</string>
     <string name="cl_f_sol">Nắng gắt từ %1$s đến %2$s. Hãy dùng kem chống nắng.</string>

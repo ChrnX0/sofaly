@@ -8,6 +8,7 @@
     <string name="cl_f_parar">Sataa nyt. Sen pitäisi lakata noin klo %1$s.</string>
     <string name="cl_f_segue">Sataa nyt, ja sen pitäisi jatkua seuraavat tunnit.</string>
     <string name="cl_f_chuva">Sade todennäköinen noin klo %1$s (%2$s).</string>
+    <string name="cl_f_chuva_agora">Sade todennäköinen nyt (%1$s).</string>
     <string name="cl_f_calor">Kuuma päivä: jopa %1$d° noin klo %2$s. Juo vettä.</string>
     <string name="cl_f_frio">Kylmää tulossa: jopa %1$d°. Pukeudu lämpimästi.</string>
     <string name="cl_f_sol">Voimakas aurinko klo %1$s–%2$s. Käytä aurinkovoidetta.</string>

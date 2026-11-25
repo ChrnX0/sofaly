@@ -78,4 +78,11 @@ class SaudeAcessoTest {
         assertEquals("ok", SaudeRegras.jsonItem(SaudeRegras.Item(ok = true), 0).getString("estado"))
         assertFalse(SaudeRegras.jsonItem(SaudeRegras.Item(), 0).has("foraHaMin"))
     }
+
+    /** Sala 25/11/2026: fora desde 6h19, launcher reinstalado às 7h26; o aviso dizia "caiu há 1 min". A hora guardada vence. */
+    @Test fun minutosForaSobreviveAoLauncherReiniciar() {
+        assertEquals(67, SaudeRegras.minutosFora(memoriaMs = 30_000, guardadoMs = 67 * 60_000L))
+        assertEquals(12, SaudeRegras.minutosFora(memoriaMs = 12 * 60_000L, guardadoMs = 0))
+        assertEquals(1, SaudeRegras.minutosFora(0, 0))
+    }
 }

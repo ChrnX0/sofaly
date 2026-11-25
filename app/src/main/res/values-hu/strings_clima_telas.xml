@@ -8,6 +8,7 @@
     <string name="cl_f_parar">Most esik. Körülbelül %1$s-kor áll el.</string>
     <string name="cl_f_segue">Most esik, és a következő órákban is folytatódik.</string>
     <string name="cl_f_chuva">Eső valószínű %1$s körül (%2$s).</string>
+    <string name="cl_f_chuva_agora">Most valószínű eső (%1$s).</string>
     <string name="cl_f_calor">Forró nap: akár %1$d° %2$s körül. Igyon vizet.</string>
     <string name="cl_f_frio">Hideg jön: akár %1$d°-ig. Öltözzön melegen.</string>
     <string name="cl_f_sol">Erős napsütés %1$s és %2$s között. Használjon naptejet.</string>

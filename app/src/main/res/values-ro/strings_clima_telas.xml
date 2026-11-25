@@ -8,6 +8,7 @@
     <string name="cl_f_parar">Plouă acum. Ar trebui să se oprească în jur de %1$s.</string>
     <string name="cl_f_segue">Plouă acum și ar trebui să continue în orele următoare.</string>
     <string name="cl_f_chuva">Ploaie probabilă în jur de %1$s (%2$s).</string>
+    <string name="cl_f_chuva_agora">Ploaie probabilă acum (%1$s).</string>
     <string name="cl_f_calor">Zi caldă: până la %1$d° în jur de %2$s. Beți apă.</string>
     <string name="cl_f_frio">Vine frigul: până la %1$d°. Îmbrăcați-vă gros.</string>
     <string name="cl_f_sol">Soare puternic de la %1$s la %2$s. Folosiți protecție solară.</string>
