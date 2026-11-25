@@ -112,7 +112,8 @@ class BuscaActivity : Activity() {
                 override fun beforeTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
                 override fun onTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
                 // Espera a pessoa parar de digitar: o guia pode ter dezenas de milhares de programas.
-                override fun afterTextChanged(s: Editable?) { ui.removeCallbacks(buscaAdiada); ui.postDelayed(buscaAdiada, 700) }
+                // Voltou a digitar: o "Buscar" de antes não vale mais (o foco não sai do campo no meio da digitação).
+                override fun afterTextChanged(s: Editable?) { focarResultado = false; ui.removeCallbacks(buscaAdiada); ui.postDelayed(buscaAdiada, 700) }
             })
         }
         coluna.addView(campo, LinearLayout.LayoutParams(-1, -2))
@@ -467,7 +468,8 @@ class BuscaActivity : Activity() {
     private fun desenhar(termo: String, grupos: List<Grupo>) {
         // O "onde assistir" chega depois e redesenha: quem já estava nos resultados continua neles (sem isto o foco caía
         // de volta no campo, porque a linha focada sai da tela).
-        val estavaNaLista = lista.hasFocus()
+        // Volta à MESMA linha (revisor, 25/11/2026): ir ao 1º era um salto visível para quem já estava no 5º resultado.
+        val linhaFocada = lista.focusedChild?.let { lista.indexOfChild(it) } ?: -1
         lista.removeAllViews()
         // Só as linhas "Procurar no YouTube..." (ideia 14): o "nada encontrado" continua aparecendo, em cima delas.
         // "Procurar" (rádios mais longe) e "outros apps" não são resultado: só eles = nada encontrado (rodada 15).
@@ -492,7 +494,15 @@ class BuscaActivity : Activity() {
                 setOnClickListener { if (termo.length >= 2) BuscaRecentes.guardar(this@BuscaActivity, termo); i.abrir() }
             }, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(6) })
         }
-        if (focarResultado || estavaNaLista) { focarResultado = false; lista.requestFocus(android.view.View.FOCUS_DOWN) }
+        when {
+            linhaFocada >= 0 -> {
+                // A linha de antes, ou a última que ainda existe; título de seção não é focável: desce até uma que seja.
+                val alvo = (minOf(linhaFocada, lista.childCount - 1) downTo 0).map { lista.getChildAt(it) }.firstOrNull { it.isFocusable }
+                if (alvo != null) alvo.requestFocus() else lista.requestFocus(android.view.View.FOCUS_DOWN)
+            }
+            focarResultado -> lista.requestFocus(android.view.View.FOCUS_DOWN)
+        }
+        focarResultado = false
     }
 
     private fun tocar(canalId: String, nome: String) {

@@ -175,8 +175,12 @@ object Moldura {
             return false
         }
         fun andar(x: android.view.View): Boolean {
-            if (x.visibility != android.view.View.VISIBLE || x === linha || x === foco) return false
-            if (x is android.widget.TextView) return x.text?.toString()?.trim()?.replace('\n', ' ') == n && !dentro(x, foco)
+            // Só o que a pessoa vê de verdade (revisor, 25/11/2026): texto rolado para fora da tela, transparente ou o
+            // campo onde ela digita não contam como "o nome já está na tela".
+            if (x.visibility != android.view.View.VISIBLE || x.alpha <= 0f || x === linha || x === foco) return false
+            if (x is android.widget.EditText) return false
+            if (x is android.widget.TextView) return x.text?.toString()?.trim()?.replace('\n', ' ') == n && !dentro(x, foco) &&
+                x.getGlobalVisibleRect(android.graphics.Rect())
             if (x is ViewGroup) for (k in 0 until x.childCount) if (andar(x.getChildAt(k))) return true
             return false
         }
