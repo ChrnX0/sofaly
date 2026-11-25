@@ -76,7 +76,10 @@ object SofyAiRules {
     }
 
     fun body(s: Settings, c: SofyRepair.Case): JSONObject = when (s.provider.format) {
-        Format.CLAUDE -> JSONObject().put("model", s.model).put("max_tokens", 300).put("system", SYSTEM)
+        // Modelos Claude atuais pensam por padrão (pensamento adaptativo). Com 300 tokens o pensamento gastava tudo e a
+        // resposta vinha sem texto (Sala 25/11: "resposta sem texto" num caso real, o teste curto passava). Espaço
+        // folgado; sem mexer no esforço (modelos antigos que o dono escolher recusam o campo).
+        Format.CLAUDE -> JSONObject().put("model", s.model).put("max_tokens", 4096).put("system", SYSTEM)
             .put("messages", JSONArray().put(JSONObject().put("role", "user").put("content", prompt(c))))
         Format.OPENAI -> JSONObject().put("model", s.model).put("max_tokens", 2048) // modelos que "pensam" gastam parte disso antes de responder
             .put("messages", JSONArray().put(JSONObject().put("role", "system").put("content", SYSTEM))
@@ -89,6 +92,13 @@ object SofyAiRules {
             (0 until a.length()).mapNotNull { a.optJSONObject(it)?.takeIf { o -> o.optString("type") == "text" }?.optString("text") }.joinToString("").ifEmpty { null }
         }
         Format.OPENAI -> response.optJSONArray("choices")?.optJSONObject(0)?.optJSONObject("message")?.optString("content")?.ifEmpty { null }
+    }
+
+    /** Por que veio sem texto (para o relatório): o motivo de parada e os tipos de bloco, sem conteúdo. */
+    fun shape(response: JSONObject): String {
+        val stop = response.optString("stop_reason").ifEmpty { response.optJSONArray("choices")?.optJSONObject(0)?.optString("finish_reason").orEmpty() }
+        val tipos = response.optJSONArray("content")?.let { a -> (0 until a.length()).map { a.optJSONObject(it)?.optString("type").orEmpty() } }.orEmpty()
+        return "parada=${stop.ifEmpty { "?" }} blocos=${tipos.joinToString(",").ifEmpty { "-" }}"
     }
 
     /** As ferramentas que a IA escolheu (só as da caixa) e a causa em uma frase. Texto solto em volta do JSON é tolerado. */

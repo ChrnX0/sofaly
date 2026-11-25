@@ -108,7 +108,7 @@ object SofyAi {
         val res = when {
             erro != null -> "erro de rede: $erro"
             answer == null -> "HTTP $lastHttp"
-            txt == null -> "resposta sem texto"
+            txt == null -> "resposta sem texto (${SofyAiRules.shape(answer)})"
             tools.isEmpty() -> "sem ferramenta válida: " + txt.replace(Regex("\\s+"), " ").take(160)
             else -> "ok: " + tools.joinToString(",") { it.name.lowercase() }
         }
