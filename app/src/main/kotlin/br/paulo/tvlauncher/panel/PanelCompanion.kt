@@ -49,7 +49,7 @@ object PanelCompanion {
                 ok(PanelCompanionRules.toJson(r))
             }
             "/remotes/ring" -> ok(remotes(app).put("vibrated", JSONArray(FindRemote.ring(app))))
-            "/audio/start" -> if (AudioSyncTv.startBeeps()) ok(JSONObject().put("beeps", AudioSyncMath.BEEPS).put("gapMs", AudioSyncMath.GAP_MS))
+            "/audio/start" -> if (AudioSyncTv.startBeeps(app)) ok(JSONObject().put("beeps", AudioSyncMath.BEEPS).put("gapMs", AudioSyncMath.GAP_MS))
                 else erro(409, "já tocando")
             "/audio/result" -> {
                 val ouvidos = PanelCompanionRules.times(c.optJSONArray("heard")) ?: return erro(400, "medida incompleta")
@@ -67,7 +67,7 @@ object PanelCompanion {
 
     private fun remotes(app: Context): JSONObject = JSONObject().put("remotes", JSONArray().apply {
         for (r in FindRemote.remotes(app)) put(JSONObject().put("name", r.name).put("lastUse", r.lastUse ?: JSONObject.NULL)
-            .put("canVibrate", r.canVibrate).put("gamepad", r.gamepad))
+            .put("canVibrate", r.canVibrate).put("gamepad", r.gamepad).put("connected", r.connected))
     }).put("now", System.currentTimeMillis())
 
     fun estado(app: Context): JSONObject = JSONObject()

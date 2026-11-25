@@ -42,18 +42,37 @@ object FindRemote {
     private fun lastUse(ctx: Context, nome: String): Long? =
         ultimo[nome] ?: runCatching { CompanionTv.prefs(ctx).getLong(CHAVE + nome, 0L) }.getOrDefault(0L).takeIf { it > 0 }
 
-    data class Remote(val name: String, val lastUse: Long?, val canVibrate: Boolean, val gamepad: Boolean)
+    data class Remote(val name: String, val lastUse: Long?, val canVibrate: Boolean, val gamepad: Boolean, val connected: Boolean = true)
 
     /**
      * Os controles que a pessoa segura: só aparelhos EXTERNOS (Bluetooth/USB). Na Sala (25/11/2026) a lista mostrava
      * também peças internas do Chromecast (gpio_keypad = botão do aparelho, vad_keypad = voz, input_btrcu) e os
      * controles "virtual-*" de apps de celular, que ninguém perde no sofá.
      */
-    fun remotes(ctx: Context): List<Remote> = InputDevice.getDeviceIds().toList().mapNotNull { InputDevice.getDevice(it) }
-        .filter { !it.isVirtual && (it.sources and (InputDevice.SOURCE_KEYBOARD or InputDevice.SOURCE_GAMEPAD or InputDevice.SOURCE_DPAD)) != 0 }
-        .filter { it.name != null && CompanionRules.isHandRemote(it.name, externo(it)) }
-        .distinctBy { it.name }
-        .map { Remote(it.name.take(40), lastUse(ctx, it.name.take(40)), vibra(it), (it.sources and InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD) }
+    fun remotes(ctx: Context): List<Remote> {
+        val ligados = InputDevice.getDeviceIds().toList().mapNotNull { InputDevice.getDevice(it) }
+            .filter { !it.isVirtual && (it.sources and (InputDevice.SOURCE_KEYBOARD or InputDevice.SOURCE_GAMEPAD or InputDevice.SOURCE_DPAD)) != 0 }
+            .filter { it.name != null && CompanionRules.isHandRemote(it.name, externo(it)) }
+            // Um controle pode aparecer com 2 nomes ("X" e "X Consumer Control"): junta pelo fabricante+modelo.
+            .groupBy { if (it.vendorId != 0 || it.productId != 0) "${it.vendorId}:${it.productId}" else it.name }
+            .values.map { grupo ->
+                val nomes = grupo.map { it.name.take(40) }
+                val uso = nomes.mapNotNull { lastUse(ctx, it) }.maxOrNull()
+                Remote(nomes.minBy { it.length }, uso, grupo.any { vibra(it) },
+                    grupo.any { (it.sources and InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD })
+            }
+        // O controle perdido costuma estar DESLIGADO (Bluetooth dormiu, pilha acabou) e some da lista do sistema: entra
+        // pelo que ficou guardado, até 30 dias, marcado como desligado (revisão, 25/11/2026).
+        val vistos = ligados.map { it.name }.toSet()
+        val agora = System.currentTimeMillis()
+        val guardados = runCatching { CompanionTv.prefs(ctx).all }.getOrDefault(emptyMap<String, Any?>())
+            .filterKeys { it.startsWith(CHAVE) }
+            .mapNotNull { (k, v) -> val nome = k.removePrefix(CHAVE); (v as? Long)?.let { nome to it } }
+            .filter { (nome, t) -> nome !in vistos && ligados.none { nome.startsWith(it.name) } && agora - t < 30L * 86_400_000L &&
+                CompanionRules.isHandRemote(nome, null) }
+            .map { (nome, t) -> Remote(nome, t, canVibrate = false, gamepad = false, connected = false) }
+        return ligados + guardados
+    }
 
     private fun externo(d: InputDevice): Boolean? =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) d.isExternal else null

@@ -439,12 +439,20 @@
       const no = new AudioWorkletNode(ac, 'ouvido-bipes');
       const blocos = [];   // [quadro, energia, ...]
       no.port.onmessage = (ev) => { for (const v of ev.data) blocos.push(v); };
-      ac.createMediaStreamSource(fluxo).connect(no);
+      // Passa-faixa no tom do bipe (2 kHz): tira fala, chiado e o ronco da sala antes de medir a energia. A diferença
+      // entre amostras do worklet sozinha fazia o contrário (o chiado ganhava do bipe; revisão, 25/11/2026).
+      const filtro = ac.createBiquadFilter();
+      filtro.type = 'bandpass'; filtro.frequency.value = 2000; filtro.Q.value = 8;
+      ac.createMediaStreamSource(fluxo).connect(filtro).connect(no);
       await ac.resume();
 
       mostrar(status, 'Acertando o relógio com a TV.');
       const pings = await acertarRelogio();
-      mostrar(status, 'Ouvindo os bipes da TV. Fique em silêncio por 6 segundos, com o celular perto de onde você assiste.');
+      // A TV pausa o que está tocando durante os bipes. Com fone Bluetooth na TV os bipes saem no fone: o celular encosta nele.
+      const rota = (await chamar('GET', '/api/companion').catch(() => ({}))).route || '';
+      mostrar(status, rota.startsWith('bt')
+        ? 'Ouvindo os bipes. Encoste o celular no fone Bluetooth e fique em silêncio por 6 segundos.'
+        : 'Ouvindo os bipes da TV. Fique em silêncio por 6 segundos, com o celular perto de onde você assiste.');
       const r0 = await chamar('POST', '/api/companion/audio/start');
       await espera(1000 + 250 + r0.beeps * r0.gapMs + 800);
 
@@ -463,7 +471,9 @@
       // Bipe = energia passa de 8x o ruído da sala (mediana do primeiro meio segundo), depois de 400 ms de calma.
       const energias = [];
       for (let i = 1; i < blocos.length; i += 2) energias.push(blocos[i]);
-      const inicio = energias.slice(0, Math.max(10, Math.floor(ac.sampleRate * 0.5 / 128))).slice().sort((a, b) => a - b);
+      // Ruído da sala: do 0,3 s ao 0,8 s (o microfone costuma começar com amostras mudas, que dariam ruído zero).
+      const bloco = ac.sampleRate / 128;
+      const inicio = energias.slice(Math.floor(bloco * 0.3), Math.max(Math.floor(bloco * 0.3) + 10, Math.floor(bloco * 0.8))).slice().sort((a, b) => a - b);
       const ruido = inicio[Math.floor(inicio.length / 2)] || 1e-9;
       const limite = Math.max(ruido * 8, 1e-6);
       const ouvidos = [];
@@ -525,8 +535,11 @@
       // Nome do aparelho, quando foi usado e se treme em pedaços separados: cada um se traduz sozinho.
       const s = document.createElement('span');
       const nome = document.createElement('span'); nome.textContent = c.name; nome.translate = false;
-      const uso = document.createElement('span'); uso.textContent = c.lastUse ? haQuanto(r.now - c.lastUse) : 'Sem uso desde que a TV ligou.';
+      const uso = document.createElement('span');
+      uso.textContent = c.lastUse ? haQuanto(r.now - c.lastUse) : 'Ainda sem uso registrado.';
       s.append(nome, document.createTextNode(' · '), uso);
+      // Controle que sumiu da TV (Bluetooth dormiu, pilha acabou): é justamente o perdido, então continua na lista.
+      if (c.connected === false) { const d = document.createElement('span'); d.textContent = 'Desligado agora (dormindo ou sem pilha).'; s.append(document.createTextNode(' '), d); }
       if (c.canVibrate) { const tr = document.createElement('span'); tr.textContent = 'Treme.'; s.append(document.createTextNode(' '), tr); }
       li.append(t, s); lista.appendChild(li);
     }
@@ -559,6 +572,19 @@
     ws.onopen = () => ok(ws);
     ws.onerror = () => erro(new Error('A TV não aceitou a conexão. Entre de novo no painel e tente outra vez.'));
   });
+  // Tela do celular acesa enquanto o microfone ou a câmera estão ligados: com ela apagada o navegador esconde a página
+  // e tudo para (revisão, 25/11/2026). Sem suporte (navegador velho) segue sem; o cartão avisa para não apagar.
+  let trava = null;
+  async function manterAcesa() {
+    if (trava || !('wakeLock' in navigator) || document.hidden) return;
+    try { trava = await navigator.wakeLock.request('screen'); trava.addEventListener('release', () => { trava = null; }); } catch (e) { trava = null; }
+  }
+  function soltarTela() { if (!mic && !cam && trava) { trava.release().catch(() => {}); trava = null; } }
+  // Por que a TV fechou (PanelStream.kt): 1008 = outro celular usa, 4001 = fecharam na TV, 4002 = TV dormindo.
+  const motivo = (ev, padrao) => ev && ev.code === 1008 ? 'Outro celular já está usando isto na TV.'
+    : ev && ev.code === 4001 ? 'Fecharam a câmera na TV.'
+    : ev && ev.code === 4002 ? 'A TV está desligada ou dormindo. Ligue a TV e tente de novo.' : padrao;
+
   const precisaHttps = () => {
     if (!window.isSecureContext || !navigator.mediaDevices) throw new Error('Abra o painel pelo endereço https (porta 8444): no http o navegador não libera microfone nem câmera.');
   };
@@ -575,7 +601,8 @@
     ligandoMic = true;
     try {
       precisaHttps();
-      const fluxo = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true } })
+      // Ganho automático DESLIGADO: ele sobe o volume nas pausas e a voz volta pela TV em eco (revisão, 25/11/2026).
+      const fluxo = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: false } })
         .catch(() => { throw new Error('Não consegui abrir o microfone. Confira se o navegador tem permissão para usá-lo.'); });
       mic = { fluxo };
       // Taxa do próprio aparelho (o Firefox recusa misturar taxas); o worklet converte para os 16 kHz que a TV espera.
@@ -584,7 +611,7 @@
       await ac.audioWorklet.addModule('companion-worklet.js');
       const ws = await abrirWs('mic');
       mic.ws = ws;
-      ws.onclose = () => { if (mic && mic.ws === ws) { pararMic(); mostrar(status, 'A TV encerrou o microfone.'); } };
+      ws.onclose = (ev) => { if (mic && mic.ws === ws) { pararMic(); mostrar(status, motivo(ev, 'A TV encerrou o microfone.')); } };
       const ganho = ac.createGain(); ganho.gain.value = parseFloat($('micGanho').value) || 1;
       mic.ganho = ganho;
       const no = new AudioWorkletNode(ac, 'mic-pcm');
@@ -593,7 +620,8 @@
       await ac.resume();
       if (!mic || mic.ws !== ws || ws.readyState !== 1) return;   // a TV fechou enquanto ligava: onclose já avisou
       botao.textContent = 'Desligar';
-      mostrar(status, 'Microfone ligado: sua voz está saindo na TV.');
+      manterAcesa();
+      mostrar(status, 'Microfone ligado: sua voz está saindo na TV. Deixe a tela do celular acesa.');
     } catch (e) { pararMic(); mostrar(status, e.message); }
     finally { ligandoMic = false; }
   }
@@ -606,14 +634,17 @@
       if (m.ac) m.ac.close().catch(() => {});
     }
     $('btnMicTv').textContent = 'Falar na TV';
+    soltarTela();
   }
   $('micGanho')?.addEventListener('input', () => { if (mic) mic.ganho.gain.value = parseFloat($('micGanho').value) || 1; });
   $('btnMicTv')?.addEventListener('click', ligarMic);
 
   // ----- câmera
-  let cam = null;   // { ws, fluxo, relogio }
+  let cam = null;   // { ws, fluxo, relogio, q }
   let frente = false;
   let ligandoCam = false;
+  const abrirFluxoCam = () => navigator.mediaDevices.getUserMedia({ video: { facingMode: frente ? 'user' : 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false })
+    .catch(() => { throw new Error('Não consegui abrir a câmera. Confira se o navegador tem permissão para usá-la.'); });
   async function ligarCam() {
     const status = $('statusCelularCam');
     if (cam) { pararCam(); return; }
@@ -621,31 +652,39 @@
     ligandoCam = true;
     try {
       precisaHttps();
-      const fluxo = await navigator.mediaDevices.getUserMedia({ video: { facingMode: frente ? 'user' : 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false })
-        .catch(() => { throw new Error('Não consegui abrir a câmera. Confira se o navegador tem permissão para usá-la.'); });
-      cam = { fluxo, relogio: 0 };   // já guarda o fluxo: se o resto falhar, pararCam() apaga a câmera
+      const fluxo = await abrirFluxoCam();
+      cam = { fluxo, relogio: 0, q: 0.6 };   // já guarda o fluxo: se o resto falhar, pararCam() apaga a câmera
       const video = $('camPrevia');
       video.srcObject = fluxo; video.hidden = false;
       await video.play().catch(() => {});
       const ws = await abrirWs('cam');
       cam.ws = ws;
-      ws.onclose = () => { if (cam && cam.ws === ws) { pararCam(); mostrar(status, 'A TV fechou a câmera.'); } };
+      ws.onclose = (ev) => { if (cam && cam.ws === ws) { pararCam(); mostrar(status, motivo(ev, 'A TV fechou a câmera.')); } };
       const tela = document.createElement('canvas');
-      // ~8 fotos por segundo, 960 px de largura, JPEG 0,6: cabe no Wi-Fi da casa e na CPU da TV. Fila cheia = pula a foto.
+      // ~8 fotos por segundo, até 960 px. Foto acima de 60 KB baixa a qualidade da próxima (e abaixo de 30 KB sobe):
+      // foto grande demais pesa no Wi-Fi e na CPU da TV. Fila cheia = pula a foto.
       const enviar = () => {
         if (!cam || cam.ws !== ws) return;
-        if (ws.readyState === 1 && ws.bufferedAmount < 300000 && video.videoWidth) {
-          const w = Math.min(960, video.videoWidth), h = Math.round(w * video.videoHeight / video.videoWidth);
+        const v = $('camPrevia');
+        if (ws.readyState === 1 && ws.bufferedAmount < 300000 && v.videoWidth) {
+          const w = Math.min(960, v.videoWidth), h = Math.round(w * v.videoHeight / v.videoWidth);
           tela.width = w; tela.height = h;
-          tela.getContext('2d').drawImage(video, 0, 0, w, h);
-          tela.toBlob((b) => { if (b && cam && cam.ws === ws && ws.readyState === 1) b.arrayBuffer().then((a) => ws.send(a)); }, 'image/jpeg', 0.6);
+          tela.getContext('2d').drawImage(v, 0, 0, w, h);
+          tela.toBlob((b) => {
+            if (!b || !cam || cam.ws !== ws || ws.readyState !== 1) return;
+            if (b.size > 60000) cam.q = Math.max(0.3, cam.q - 0.08); else if (b.size < 30000) cam.q = Math.min(0.7, cam.q + 0.04);
+            b.arrayBuffer().then((a) => ws.send(a));
+          }, 'image/jpeg', cam.q);
         }
         cam.relogio = setTimeout(enviar, 125);
       };
       enviar();
       $('btnCamTv').textContent = 'Desligar';
       $('btnCamVirar').hidden = false;
-      mostrar(status, 'Ao vivo na TV.');
+      manterAcesa();
+      // Celular em pé = faixa fina no meio da TV. Deitado enche a tela.
+      const deitado = video.videoWidth >= video.videoHeight || screen.orientation?.type?.startsWith('landscape');
+      mostrar(status, deitado ? 'Ao vivo na TV. Deixe a tela do celular acesa.' : 'Ao vivo na TV. Deite o celular para encher a tela da TV.');
     } catch (e) { pararCam(); mostrar(status, e.message); }
     finally { ligandoCam = false; }
   }
@@ -660,11 +699,29 @@
     const video = $('camPrevia'); video.srcObject = null; video.hidden = true;
     $('btnCamTv').textContent = 'Mostrar na TV';
     $('btnCamVirar').hidden = true;
+    soltarTela();
   }
   $('btnCamTv')?.addEventListener('click', ligarCam);
-  $('btnCamVirar')?.addEventListener('click', async () => { frente = !frente; if (cam) { pararCam(); await ligarCam(); } });
+  // Virar a câmera troca só o fluxo, na MESMA conexão: reconectar fechava e abria a tela da TV (piscava por cima do
+  // programa) e podia esbarrar no "um por vez" (revisão, 25/11/2026).
+  $('btnCamVirar')?.addEventListener('click', async () => {
+    frente = !frente;
+    if (!cam || ligandoCam) return;
+    ligandoCam = true;
+    try {
+      const novo = await abrirFluxoCam();
+      if (!cam) { novo.getTracks().forEach((t) => t.stop()); return; }
+      const velho = cam.fluxo;
+      cam.fluxo = novo;
+      const video = $('camPrevia'); video.srcObject = novo; await video.play().catch(() => {});
+      velho.getTracks().forEach((t) => t.stop());
+    } catch (e) { mostrar($('statusCelularCam'), e.message); }
+    finally { ligandoCam = false; }
+  });
 
   // Saiu da página ou escondeu o painel: desliga tudo (microfone aberto esquecido é a pior surpresa).
   document.addEventListener('aba', (ev) => { if (ev.detail !== 'celular') { pararMic(); pararCam(); } });
   document.addEventListener('visibilitychange', () => { if (document.hidden) { pararMic(); pararCam(); } });
+  // A trava da tela cai sozinha quando a página some um instante (notificação por cima): pede de novo ao voltar.
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && (mic || cam)) manterAcesa(); });
 })();
