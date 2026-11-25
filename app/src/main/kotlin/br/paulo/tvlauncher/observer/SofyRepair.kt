@@ -139,6 +139,9 @@ object SofyRepair {
     }
 
     private fun fits(t: Tool, c: Case) = when (t) {
+        // Texto cortado/foco perdido é defeito de código: nenhuma ferramenta conserta e a IA não tem o que escolher.
+        // Vai direto para o relatório (e para a issue da tarefa diária).
+        Tool.ASK_AI -> c.type != Type.SCREEN_BROKEN
         Tool.RESTART_APP, Tool.CLEAR_APP_CACHE -> c.subject.startsWith("app:")
         Tool.DISABLE_FEATURE -> c.subject.startsWith("feature:") || c.subject.startsWith("tile:")
         else -> true

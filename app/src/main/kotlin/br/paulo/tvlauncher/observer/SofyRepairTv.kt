@@ -288,6 +288,9 @@ object SofyRepairTv {
         saveLearned(app, learned)
         saveCases(app, cases)
 
+        // 3b. de madrugada, com a TV parada: confere uma tela nossa (parte C). Não gasta a batida: é noite, não há fila.
+        runCatching { SofyScreenCheckTv.talvez(app) }.onFailure { Log.w(TAG, "telas: $it") }
+
         // 4. um passo por batida, no caso aberto mais antigo que tenha o que fazer
         val e = env(app, now)
         for (c in cases.filter { it.state == SofyRepair.State.OPEN }.sortedBy { it.firstAt }) {
