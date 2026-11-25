@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Observatør",
 "Sofy fala em voz alta":"Sofy snakker høyt",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Hun leser opp det hun viser på TV-en. Med TalkBack på leser TalkBack det.",
+"Ajudar outras casas":"Hjelp andre hjem",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Én gang om dagen bare navn og versjon på apper som krasjet her, uten å si hvilket hjem. Mottak av det andre hjem har sett, er alltid på.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Det TV-en selv følger med på: minne, internett, Wi-Fi, hvor jevnt startskjermen går og lagring. Når noe avviker fra det normale, vises det her med årsaken. Foreløpig følger den bare med og noterer.",
 "Tudo normal agora.":"Alt er normalt akkurat nå.",
 "Nada fora do normal nos últimos 7 dias.":"Ingenting unormalt de siste 7 dagene.",

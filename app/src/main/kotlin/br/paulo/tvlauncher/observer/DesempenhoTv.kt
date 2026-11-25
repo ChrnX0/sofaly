@@ -75,7 +75,13 @@ object DesempenhoTv {
             julgar(ms)
             synchronized(trava) {
                 parcial.quadro(ms)
-                if (abriu != 0L) { abriuEm = 0L; parcial.abertura((SystemClock.uptimeMillis() - abriu).toInt()) }
+                if (abriu != 0L) {
+                    abriuEm = 0L
+                    val abertura = (SystemClock.uptimeMillis() - abriu).toInt()
+                    parcial.abertura(abertura)
+                    // Experimento noturno da Sofy (ideia 36): cada abertura da HOME mede a noite que passou.
+                    Fundo.rodar("sofy-experiment") { runCatching { SofyLearnTv.homeOpened(app, abertura) } }
+                }
             }
         }
         try { a.window.addOnFrameMetricsAvailableListener(o, Handler(fio.looper)); ouvinte = o } catch (_: Exception) {}
@@ -128,6 +134,13 @@ object DesempenhoTv {
         val p = prefs(ctx)
         fun ler(k: String) = Desempenho.deJson(p.getString(k, null)?.let { runCatching { JSONObject(it) }.getOrNull() })
         return ler("anterior") to ler("atual")
+    }
+
+    /** As aberturas da HOME (ms) por versão: a anterior e a atual (guarda de cada versão da Sofy, ideia 5). */
+    fun aberturasPorVersao(ctx: Context): List<Pair<Long, List<Int>>> {
+        val p = prefs(ctx)
+        val (a, b) = medidas(ctx)
+        return listOf(p.getLong("versao_anterior", 0L) to a.aberturas.toList(), p.getLong("versao_atual", 0L) to b.aberturas.toList())
     }
 
     /** Mediana do tempo de abertura da HOME na versão atual (relatório de compatibilidade). Null sem medida. */

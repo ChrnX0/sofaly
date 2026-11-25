@@ -71,6 +71,7 @@ object ExtensionHealth {
         e.apply()
         // A Sofy fica sabendo (Diário da TV, ferramenta diario_tv do MCP): só o evento, nunca o nome do app de terceiro.
         if (cai) runCatching { br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "sofy", "plugin desligado: parou de responder", "ok") }
+        if (cai) br.paulo.tvlauncher.observer.SofyBusTv.emit(ctx, br.paulo.tvlauncher.observer.SofyBus.Source.PLUGIN, "disabled", ok = false)
         return cai
     }
 }

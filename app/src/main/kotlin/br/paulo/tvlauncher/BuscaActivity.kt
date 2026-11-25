@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.observer.SofyAnswersTv
 import android.app.Activity
 import android.app.SearchManager
 import android.content.Intent
@@ -194,6 +195,20 @@ class BuscaActivity : Activity() {
                         getString(if (novo == atual) R.string.elv_bf_letra_limite else R.string.elv_bf_ok_faz)) {
                         if (novo != atual) { TamanhoTexto.definir(this, novo); recreate() }
                     }
+                }
+                // Sofy, ideia 44: o problema em palavras vira uma checagem (a resposta vem num aviso).
+                BuscaFaz.Local.PROBLEMA_INTERNET, BuscaFaz.Local.PROBLEMA_SOM, BuscaFaz.Local.PROBLEMA_LENTA, BuscaFaz.Local.PROBLEMA_CONTROLE -> {
+                    val p = when (l) {
+                        BuscaFaz.Local.PROBLEMA_INTERNET -> SofyAnswersTv.Problem.INTERNET
+                        BuscaFaz.Local.PROBLEMA_SOM -> SofyAnswersTv.Problem.SOUND
+                        BuscaFaz.Local.PROBLEMA_LENTA -> SofyAnswersTv.Problem.SLOW
+                        else -> SofyAnswersTv.Problem.REMOTE
+                    }
+                    Item(SofyAnswersTv.title(this, p), getString(R.string.elv_bf_ok_faz)) { SofyAnswersTv.check(this, p); finish() }
+                }
+                // Ideia 49: "o que você fez hoje".
+                BuscaFaz.Local.SOFY_HOJE -> Item(getString(R.string.sofy_today_title), getString(R.string.elv_bf_ok_faz)) {
+                    SofyAnswersTv.showToday(this); finish()
                 }
             }
         }

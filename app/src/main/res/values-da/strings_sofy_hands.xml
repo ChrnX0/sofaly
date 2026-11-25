@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Klar til at åbne</string>
+    <string name="sofy_hand_on_demand">Starter, når du åbner den</string>
+    <string name="sofy_hand_hour">Din vane på dette tidspunkt</string>
+    <string name="sofy_sug_cedo_titulo">Sluk tidligere?</string>
+    <string name="sofy_sug_cedo">%1$d nætter slukkede tv’et af sig selv sent uden seere. Sluk efter %2$d min uden fjernbetjening i stedet for %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Lad alarmen ringe senere?</string>
+    <string name="sofy_sug_alarme">Alarmen kl. %1$s blev ofte udsat. Ring %2$d min senere, kl. %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Gør det til en rutine?</string>
+    <string name="sofy_sug_rotina">%1$s blev åbnet omkring %2$s på %3$d dage. Åbn den selv kl. %2$s de dage?</string>
+    <string name="sofy_sug_teto_titulo">Lydstyrkegrænse om natten?</string>
+    <string name="sofy_sug_teto">Sent om aftenen er lyden meget højere end om dagen. Højst %1$d%% fra 23 til 6?</string>
+    <string name="sofy_sug_perfil_titulo">Skift profil?</string>
+    <string name="sofy_sug_perfil">De apps, der er åbne nu, ser %1$s normalt. Skift til profilen for %1$s?</string>
+    <string name="sofy_sug_trocar">Skift</string>
+    <string name="sofy_sug_feito">Færdig. Du kan fortryde når som helst i Indstillinger.</string>
+    <string name="sofy_lost_title">Faret vild?</string>
+    <string name="sofy_lost_text">Tryk én gang på HJEM for at gå tilbage til startskærmen. Hold TILBAGE nede for hurtigpanelet.</string>
+    <string name="sofy_help_internet">Sofy: tjek internettet</string>
+    <string name="sofy_help_sound">Sofy: tjek lyden</string>
+    <string name="sofy_help_slow">Sofy: hvorfor er det langsomt?</string>
+    <string name="sofy_help_remote">Sofy: tjek fjernbetjeningen</string>
+    <string name="sofy_help_sound_fixed">Lydstyrken her styres af tv’et: brug lydstyrketasterne på fjernbetjeningen, og tjek at tv’et ikke er sat på lydløs.</string>
+    <string name="sofy_help_sound_fixed_now">Lyden var slået fra. Jeg slog den til igen på %1$d %%.</string>
+    <string name="sofy_help_sound_low">Lydstyrken er lav (%1$d %%). Skru op på fjernbetjeningen.</string>
+    <string name="sofy_help_sound_ok">Lyden er slået til (%1$d %%). Tjek tv’ets egen lydstyrke og appen.</string>
+    <string name="sofy_help_slow_ok">Hukommelsen er fin (%1$d MB fri). Hvis én app er langsom, er det nok appen eller internettet.</string>
+    <string name="sofy_help_slow_freed">Hukommelsen var stram: jeg lukkede apps i baggrunden og frigjorde %1$d MB.</string>
+    <string name="sofy_help_slow_tight">Hukommelsen er stram (%1$d MB fri). Luk appen, og åbn den igen.</string>
+    <string name="sofy_help_remote_stuck">En tast sad fast i dag. Tjek at fjernbetjeningen ikke er klemt under noget.</string>
+    <string name="sofy_help_remote_battery">Fjernbetjeningens batteri er lavt. Skift batterierne.</string>
+    <string name="sofy_help_remote_lag">Fjernbetjeningen var forsinket i dag. Slå tv’ets spiltilstand til, og hold fjernbetjeningen væk fra andre enheder.</string>
+    <string name="sofy_help_remote_none">Jeg så intet problem med fjernbetjeningen i dag. Prøv nye batterier; hjælper det ikke, så par den igen under Indstillinger > Fjernbetjeninger og tilbehør.</string>
+    <string name="sofy_today_title">Hvad Sofy gjorde i dag</string>
+    <string name="sofy_today_none">En rolig dag: intet at fortælle.</string>
+    <string name="sofy_today_prepared">Apps gjort klar: %1$d</string>
+    <string name="sofy_today_night">Natlig pleje: %1$d</string>
+    <string name="sofy_today_guarded">Ting jeg holdt øje med: %1$d</string>
+    <string name="sofy_today_internet">Internetudfald: %1$d</string>
+    <string name="sofy_today_asked">Spørgsmål jeg stillede: %1$d</string>
+    <string name="sofy_today_applied">Accepterede forslag: %1$d</string>
+    <string name="sofy_today_alarms">Alarmer og påmindelser: %1$d</string>
+    <string name="sofy_today_auto_off">Gange jeg slukkede tv’et: %1$d</string>
+    <string name="sofy_today_home">Kommandoer i hjemmet: %1$d</string>
+    <string name="sofy_today_updates">Opdaterede apps: %1$d</string>
+    <string name="sofy_evidence_measured">Sådan ved jeg det: jeg målte det lige nu.</string>
+    <string name="sofy_evidence_baseline">Sådan ved jeg det: jeg sammenlignede med det normale i dette hjem.</string>
+    <string name="sofy_evidence_bus">Sådan ved jeg det: det står i loggen over, hvad der skete på tv’et.</string>
+    <string name="sofy_evidence_system">Sådan ved jeg det: Android viste mig det.</string>
+    <string name="sofy_evidence_router">Sådan ved jeg det: routeren og Wi-Fi’en fortalte det.</string>
+    <string name="sofy_evidence_test">Sådan ved jeg det: jeg testede og tjekkede.</string>
+    <string name="sofy_evidence_other_tv">Sådan ved jeg det: et andet tv i hjemmet fortalte det.</string>
+    <string name="sofy_evidence_community">Sådan ved jeg det: andre hjem med Sofaly meldte det (kun app og version, aldrig hvem).</string>
+</resources>

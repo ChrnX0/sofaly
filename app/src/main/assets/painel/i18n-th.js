@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Observer",
 "Sofy fala em voz alta":"Sofy พูดออกเสียง",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"เธออ่านสิ่งที่แสดงบนทีวี เมื่อเปิด TalkBack ไว้ TalkBack จะเป็นผู้อ่าน",
+"Ajudar outras casas":"ช่วยบ้านอื่น",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"วันละครั้ง ส่งเฉพาะชื่อและเวอร์ชันของแอปที่ค้างที่นี่ โดยไม่บอกว่ามาจากบ้านไหน การรับสิ่งที่บ้านอื่นเห็นเปิดไว้เสมอ",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"สิ่งที่ทีวีเฝ้าดูเอง: หน่วยความจำ อินเทอร์เน็ต Wi-Fi ความลื่นของหน้าจอหลัก และที่เก็บข้อมูล เมื่อมีอะไรผิดปกติ จะแสดงที่นี่พร้อมเหตุผล ตอนนี้ทำแค่เฝ้าดูและจดบันทึก",
 "Tudo normal agora.":"ตอนนี้ทุกอย่างปกติ",
 "Nada fora do normal nos últimos 7 dias.":"ไม่มีอะไรผิดปกติใน 7 วันที่ผ่านมา",

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Bereit zum Öffnen</string>
+    <string name="sofy_hand_on_demand">Startet erst beim Öffnen</string>
+    <string name="sofy_hand_hour">Dein Üblicher um diese Zeit</string>
+    <string name="sofy_sug_cedo_titulo">Früher ausschalten?</string>
+    <string name="sofy_sug_cedo">In %1$d Nächten schaltete sich der Fernseher spät von selbst aus, ohne Zuschauer. Nach %2$d Min. ohne Fernbedienung ausschalten statt nach %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Wecker später klingeln lassen?</string>
+    <string name="sofy_sug_alarme">Der Wecker um %1$s wurde oft verschoben. %2$d Min. später klingeln, um %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Als Routine einrichten?</string>
+    <string name="sofy_sug_rotina">%1$s wurde an %3$d Tagen gegen %2$s geöffnet. An diesen Tagen um %2$s automatisch öffnen?</string>
+    <string name="sofy_sug_teto_titulo">Lautstärke-Limit nachts?</string>
+    <string name="sofy_sug_teto">Spätabends ist die Lautstärke viel höher als tagsüber. Von 23 bis 6 Uhr höchstens %1$d%%?</string>
+    <string name="sofy_sug_perfil_titulo">Profil wechseln?</string>
+    <string name="sofy_sug_perfil">Die gerade geöffneten Apps schaut normalerweise %1$s. Zum Profil von %1$s wechseln?</string>
+    <string name="sofy_sug_trocar">Wechseln</string>
+    <string name="sofy_sug_feito">Erledigt. In den Einstellungen jederzeit rückgängig zu machen.</string>
+    <string name="sofy_lost_title">Verlaufen?</string>
+    <string name="sofy_lost_text">Drücke einmal HOME, um zum Startbildschirm zurückzukehren. Halte ZURÜCK für das Schnellmenü.</string>
+    <string name="sofy_help_internet">Sofy: Internet prüfen</string>
+    <string name="sofy_help_sound">Sofy: Ton prüfen</string>
+    <string name="sofy_help_slow">Sofy: warum ist es langsam?</string>
+    <string name="sofy_help_remote">Sofy: Fernbedienung prüfen</string>
+    <string name="sofy_help_sound_fixed">Die Lautstärke regelt hier der Fernseher: nutze die Lautstärketasten der Fernbedienung und prüfe, ob der Fernseher stummgeschaltet ist.</string>
+    <string name="sofy_help_sound_fixed_now">Der Ton war aus. Ich habe ihn auf %1$d %% wieder eingeschaltet.</string>
+    <string name="sofy_help_sound_low">Die Lautstärke ist niedrig (%1$d %%). Dreh sie mit der Fernbedienung hoch.</string>
+    <string name="sofy_help_sound_ok">Der Ton ist an (%1$d %%). Prüfe die Lautstärke des Fernsehers selbst und die App.</string>
+    <string name="sofy_help_slow_ok">Der Speicher ist in Ordnung (%1$d MB frei). Ist eine App langsam, liegt es wohl an ihr oder am Internet.</string>
+    <string name="sofy_help_slow_freed">Der Speicher war knapp: Ich habe Hintergrund-Apps geschlossen und %1$d MB freigegeben.</string>
+    <string name="sofy_help_slow_tight">Der Speicher ist knapp (%1$d MB frei). Schließe die App und öffne sie neu.</string>
+    <string name="sofy_help_remote_stuck">Heute hat eine Taste geklemmt. Prüfe, ob die Fernbedienung unter etwas eingeklemmt ist.</string>
+    <string name="sofy_help_remote_battery">Die Batterie der Fernbedienung ist schwach. Wechsle die Batterien.</string>
+    <string name="sofy_help_remote_lag">Die Fernbedienung hat heute verzögert. Schalte den Spielmodus des Fernsehers ein und halte die Fernbedienung von anderen Geräten fern.</string>
+    <string name="sofy_help_remote_none">Heute habe ich kein Problem mit der Fernbedienung gesehen. Wechsle die Batterien; hilft das nicht, kopple sie neu unter Einstellungen > Fernbedienungen &amp; Zubehör.</string>
+    <string name="sofy_today_title">Was Sofy heute getan hat</string>
+    <string name="sofy_today_none">Ein ruhiger Tag: nichts zu berichten.</string>
+    <string name="sofy_today_prepared">Apps vorbereitet: %1$d</string>
+    <string name="sofy_today_night">Nachtpflege: %1$d</string>
+    <string name="sofy_today_guarded">Im Blick behalten: %1$d</string>
+    <string name="sofy_today_internet">Internetausfälle: %1$d</string>
+    <string name="sofy_today_asked">Gestellte Fragen: %1$d</string>
+    <string name="sofy_today_applied">Angenommene Vorschläge: %1$d</string>
+    <string name="sofy_today_alarms">Wecker und Erinnerungen: %1$d</string>
+    <string name="sofy_today_auto_off">Fernseher ausgeschaltet: %1$d</string>
+    <string name="sofy_today_home">Befehle im Haus: %1$d</string>
+    <string name="sofy_today_updates">Aktualisierte Apps: %1$d</string>
+    <string name="sofy_evidence_measured">Woher ich das weiß: gerade gemessen.</string>
+    <string name="sofy_evidence_baseline">Woher ich das weiß: verglichen mit dem Normalwert dieses Haushalts.</string>
+    <string name="sofy_evidence_bus">Woher ich das weiß: es steht im Protokoll dessen, was auf dem Fernseher passiert ist.</string>
+    <string name="sofy_evidence_system">Woher ich das weiß: Android hat es mir gezeigt.</string>
+    <string name="sofy_evidence_router">Woher ich das weiß: Router und WLAN haben es gemeldet.</string>
+    <string name="sofy_evidence_test">Woher ich das weiß: getestet und geprüft.</string>
+    <string name="sofy_evidence_other_tv">Woher ich das weiß: ein anderer Fernseher im Haus hat es mir gesagt.</string>
+    <string name="sofy_evidence_community">Woher ich das weiß: andere Haushalte mit Sofaly haben es gemeldet (nur App und Version, nie wer).</string>
+</resources>

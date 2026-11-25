@@ -72,7 +72,17 @@ object BackupNoturno {
         return true
     }
 
-    fun minutoDoDia(ctx: Context): Int = prefs(ctx).getInt("minuto_do_dia", BackupNoturnoRegras.PADRAO_MINUTO_DO_DIA)
+    /**
+     * Horário do backup. Escolhido à mão: vale o escolhido. Senão, a noite da Sofy (SofyNight, 24/11/2026): 45 min
+     * depois da hora quieta aprendida, logo após a manutenção. Sem nada aprendido a hora quieta é 4h (4h45).
+     */
+    fun minutoDoDia(ctx: Context): Int {
+        val p = prefs(ctx)
+        if (p.contains("minuto_do_dia")) return p.getInt("minuto_do_dia", BackupNoturnoRegras.PADRAO_MINUTO_DO_DIA)
+        return runCatching { br.paulo.tvlauncher.observer.SofyNight.backupMinute(br.paulo.tvlauncher.observer.ObserverTv.quietStart(ctx), null) }
+            .getOrDefault(BackupNoturnoRegras.PADRAO_MINUTO_DO_DIA)
+    }
+    fun horarioEscolhido(ctx: Context): Int? = prefs(ctx).takeIf { it.contains("minuto_do_dia") }?.getInt("minuto_do_dia", 0)
     fun definirMinutoDoDia(ctx: Context, m: Int) {
         prefs(ctx).edit().putInt("minuto_do_dia", Math.floorMod(m, 24 * 60)).apply()
         agendar(ctx)
@@ -171,7 +181,9 @@ object BackupNoturno {
                 prefs(app).edit().remove("adiado_para").remove("adiado_tentativa")
                     .putLong("ultimo_alarme_em", System.currentTimeMillis()).apply()
                 if (!ligado(app)) return@execute
-                if (!tvOciosa(app)) {
+                // Juiz de conflitos (Sofy, ideia 4): o despertador tocando ou perto conta como "TV em uso" (espera 30 min).
+                val juiz = runCatching { br.paulo.tvlauncher.observer.SofyJudgeTv.mayRun(app, br.paulo.tvlauncher.observer.SofyJudge.Task.BACKUP).go }.getOrDefault(true)
+                if (!tvOciosa(app) || !juiz) {
                     val de = BackupNoturnoRegras.proximaTentativa(System.currentTimeMillis(), tentativa)
                     if (de != null) {
                         prefs(app).edit().putLong("adiado_para", de).putInt("adiado_tentativa", tentativa + 1).commit()
@@ -273,6 +285,8 @@ object BackupNoturno {
         val quando = java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.US).format(java.util.Date(agora))
         prefs(app).edit().putString("ultimo_texto", "$quando · $texto").apply { if (ok) putLong("ultimo_ok_em", agora) }.apply()
         runCatching { PainelArmazem.registrar(app, "TV", "backup noturno", texto) }
+        // Só o certo/errado: o texto pode ter o nome da pasta do NAS (dado da casa).
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.BACKUP, "night_backup", ok)
         if (ok) Log.i(TAG, texto) else Log.w(TAG, texto)
         return texto
     }

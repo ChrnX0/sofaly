@@ -238,6 +238,8 @@ object McpServidor {
             val (cod, r) = when {
                 acao == "convite" && req.metodo == "POST" -> SessaoJunto.receberConvite(app, o)
                 acao == "continuar" && req.metodo == "POST" -> ContinuarOutraTv.receber(app, o)
+                acao == "licoes" && req.metodo == "POST" -> br.paulo.tvlauncher.observer.SofyShareTv.receive(app, o)
+                acao == "conferir" && req.metodo == "GET" -> br.paulo.tvlauncher.observer.SofyShareTv.confirm(app, token)
                 acao == "continuar_estado" && req.metodo == "GET" -> if (EntreTvs.ligado(app)) ContinuarOutraTv.estado(token) else 403 to JSONObject().put("erro", "desligado")
                 acao == "estado" && req.metodo == "GET" -> if (EntreTvs.ligado(app)) SessaoJunto.estado(token) else 403 to JSONObject().put("erro", "desligado")
                 (acao == "evento" || acao == "sair") && req.metodo == "POST" ->

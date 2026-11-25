@@ -204,6 +204,11 @@ object JuntoRegras {
     fun rota(caminho: String): Pair<String, String>? {
         if (caminho == "/junto/convite") return "" to "convite"
         if (caminho == "/continuar") return "" to "continuar"
+        // Sofy entre as TVs da casa (ideia 40, SofyShare): a TV manda as lições; quem recebe confere de volta.
+        if (caminho == "/sofy/licoes") return "" to "licoes"
+        caminho.removePrefix("/sofy/").takeIf { it != caminho }?.trimEnd('/')?.split('/')?.let { p ->
+            return if (p.size == 2 && tokenValido(p[0]) && p[1] == "conferir") p[0] to "conferir" else null
+        }
         // A TV que recebe confere de volta que o pedido saiu mesmo daqui (segurança, 24/11/2026).
         caminho.removePrefix("/continuar/").takeIf { it != caminho }?.trimEnd('/')?.split('/')?.let { p ->
             return if (p.size == 2 && tokenValido(p[0]) && p[1] == "estado") p[0] to "continuar_estado" else null

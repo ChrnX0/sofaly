@@ -28,10 +28,19 @@ class_name = "Mailbox"
 name = "PAIRING"
 class_name = "Pairing"
 
+# Fichas comunitárias da Sofy (src/community.js): um Durable Object só, com SQLite.
+[[durable_objects.bindings]]
+name = "COMMUNITY"
+class_name = "Community"
+
 # SQLite nos Durable Objects: único tipo aceito no plano grátis.
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["Mailbox", "Pairing"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["Community"]
 
 # Limites da previsão do tempo (src/weather.js). Rate Limiting dos Workers: contadores por borda, period 10 ou 60 s.
 # Por IP: uma TV pede no máximo umas poucas vezes por hora; 30/min sobra para uma casa com várias TVs atrás do mesmo IP.
@@ -75,3 +84,9 @@ simple = { limit = 12, period = 60 }
 name = "OPEN_MODELS_LIMITER"
 namespace_id = "1006"
 simple = { limit = 60, period = 60 }
+
+# Fichas comunitárias: cada TV manda uma vez por dia; 5/min por IP sobra para uma casa com várias TVs.
+[[ratelimits]]
+name = "COMMUNITY_IP_LIMITER"
+namespace_id = "1007"
+simple = { limit = 5, period = 60 }

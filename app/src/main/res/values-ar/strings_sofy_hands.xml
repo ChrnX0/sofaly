@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">جاهز للفتح</string>
+    <string name="sofy_hand_on_demand">يعمل عندما تفتحه</string>
+    <string name="sofy_hand_hour">المعتاد لديك في هذه الساعة</string>
+    <string name="sofy_sug_cedo_titulo">إيقاف التشغيل أبكر؟</string>
+    <string name="sofy_sug_cedo">في %1$d ليالٍ انطفأ التلفاز وحده في وقت متأخر دون أن يشاهده أحد. إيقافه بعد %2$d دقيقة دون جهاز التحكم بدلاً من %3$d؟</string>
+    <string name="sofy_sug_alarme_titulo">تأخير المنبه؟</string>
+    <string name="sofy_sug_alarme">تم تأجيل منبه %1$s كثيراً. هل يرن بعد %2$d دقيقة، في %3$s؟</string>
+    <string name="sofy_sug_rotina_titulo">تحويله إلى روتين؟</string>
+    <string name="sofy_sug_rotina">فُتح %1$s نحو %2$s في %3$d أيام. هل يُفتح وحده في %2$s في تلك الأيام؟</string>
+    <string name="sofy_sug_teto_titulo">حد للصوت ليلاً؟</string>
+    <string name="sofy_sug_teto">في وقت متأخر من الليل يكون الصوت أعلى بكثير من النهار. ألا يتجاوز %1$d%% من 11 مساءً إلى 6 صباحاً؟</string>
+    <string name="sofy_sug_perfil_titulo">تبديل الملف الشخصي؟</string>
+    <string name="sofy_sug_perfil">التطبيقات المفتوحة الآن هي ما يشاهده %1$s عادةً. التبديل إلى ملف %1$s؟</string>
+    <string name="sofy_sug_trocar">تبديل</string>
+    <string name="sofy_sug_feito">تم. يمكنك التراجع في أي وقت من الإعدادات.</string>
+    <string name="sofy_lost_title">هل تهت؟</string>
+    <string name="sofy_lost_text">اضغط على الرئيسية مرة واحدة للعودة إلى الشاشة الرئيسية. اضغط مطوّلًا على رجوع للوحة السريعة.</string>
+    <string name="sofy_help_internet">Sofy: فحص الإنترنت</string>
+    <string name="sofy_help_sound">Sofy: فحص الصوت</string>
+    <string name="sofy_help_slow">Sofy: لماذا هو بطيء؟</string>
+    <string name="sofy_help_remote">Sofy: فحص جهاز التحكم</string>
+    <string name="sofy_help_sound_fixed">هنا الصوت يتحكم به التلفاز: استخدم أزرار الصوت في جهاز التحكم وتأكد أن التلفاز ليس على الكتم.</string>
+    <string name="sofy_help_sound_fixed_now">كان الصوت مغلقًا. شغّلته من جديد على %1$d%%.</string>
+    <string name="sofy_help_sound_low">الصوت منخفض (%1$d%%). ارفعه من جهاز التحكم.</string>
+    <string name="sofy_help_sound_ok">الصوت يعمل (%1$d%%). تحقّق من صوت التلفاز نفسه ومن التطبيق.</string>
+    <string name="sofy_help_slow_ok">الذاكرة جيدة (%1$d ميغابايت متاحة). إن كان تطبيق واحد بطيئًا فالسبب غالبًا التطبيق أو الإنترنت.</string>
+    <string name="sofy_help_slow_freed">كانت الذاكرة ضيقة: أغلقتُ تطبيقات في الخلفية وحرّرت %1$d ميغابايت.</string>
+    <string name="sofy_help_slow_tight">الذاكرة ضيقة (%1$d ميغابايت متاحة). أغلق التطبيق وافتحه من جديد.</string>
+    <string name="sofy_help_remote_stuck">علِق زر اليوم. تأكد أن جهاز التحكم ليس مضغوطًا تحت شيء.</string>
+    <string name="sofy_help_remote_battery">بطارية جهاز التحكم ضعيفة. غيّر البطاريات.</string>
+    <string name="sofy_help_remote_lag">تأخر جهاز التحكم اليوم. فعّل وضع الألعاب في التلفاز وأبعد جهاز التحكم عن الأجهزة الأخرى.</string>
+    <string name="sofy_help_remote_none">لم أرَ مشكلة في جهاز التحكم اليوم. جرّب بطاريات جديدة؛ وإن لم ينفع فأعد إقرانه من الإعدادات > أجهزة التحكم والملحقات.</string>
+    <string name="sofy_today_title">ما فعلته Sofy اليوم</string>
+    <string name="sofy_today_none">يوم هادئ: لا شيء يُذكر.</string>
+    <string name="sofy_today_prepared">تطبيقات جهّزتها: %1$d</string>
+    <string name="sofy_today_night">عناية الليل: %1$d</string>
+    <string name="sofy_today_guarded">أشياء راقبتها: %1$d</string>
+    <string name="sofy_today_internet">انقطاعات الإنترنت: %1$d</string>
+    <string name="sofy_today_asked">أسئلة طرحتها: %1$d</string>
+    <string name="sofy_today_applied">اقتراحات مقبولة: %1$d</string>
+    <string name="sofy_today_alarms">منبهات وتذكيرات: %1$d</string>
+    <string name="sofy_today_auto_off">مرات أطفأت فيها التلفاز: %1$d</string>
+    <string name="sofy_today_home">أوامر المنزل: %1$d</string>
+    <string name="sofy_today_updates">تطبيقات محدّثة: %1$d</string>
+    <string name="sofy_evidence_measured">كيف أعرف: قسته الآن.</string>
+    <string name="sofy_evidence_baseline">كيف أعرف: قارنته بالمعتاد في هذا المنزل.</string>
+    <string name="sofy_evidence_bus">كيف أعرف: إنه في سجل ما حدث على التلفاز.</string>
+    <string name="sofy_evidence_system">كيف أعرف: أراني إياه Android.</string>
+    <string name="sofy_evidence_router">كيف أعرف: أخبرني الراوتر والواي فاي.</string>
+    <string name="sofy_evidence_test">كيف أعرف: جرّبت وتحققت.</string>
+    <string name="sofy_evidence_other_tv">كيف أعرف: أخبرني تلفاز آخر في هذا المنزل.</string>
+    <string name="sofy_evidence_community">كيف أعرف: أبلغت عنه منازل أخرى تستخدم Sofaly (التطبيق والإصدار فقط، ولا أحد يُعرف).</string>
+</resources>

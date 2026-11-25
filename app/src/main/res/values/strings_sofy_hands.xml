@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Ready to open</string>
+    <string name="sofy_hand_on_demand">Starts when you open it</string>
+    <string name="sofy_hand_hour">Your usual at this hour</string>
+    <string name="sofy_sug_cedo_titulo">Turn off earlier?</string>
+    <string name="sofy_sug_cedo">On %1$d nights the TV turned itself off late with nobody watching. Turn off after %2$d min without the remote, instead of %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Ring the alarm later?</string>
+    <string name="sofy_sug_alarme">The %1$s alarm was often snoozed. Ring it %2$d min later, at %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Make it a routine?</string>
+    <string name="sofy_sug_rotina">%1$s was opened around %2$s on %3$d days. Open it by itself at %2$s on those days?</string>
+    <string name="sofy_sug_teto_titulo">Night volume limit?</string>
+    <string name="sofy_sug_teto">Late at night the volume goes much higher than by day. Keep it at most %1$d%% from 11 PM to 6 AM?</string>
+    <string name="sofy_sug_perfil_titulo">Switch profile?</string>
+    <string name="sofy_sug_perfil">The apps opened now are the ones %1$s usually watches. Switch to the profile of %1$s?</string>
+    <string name="sofy_sug_trocar">Switch</string>
+    <string name="sofy_sug_feito">Done. You can undo it anytime in Settings.</string>
+    <string name="sofy_lost_title">Lost?</string>
+    <string name="sofy_lost_text">Press HOME once to go back to the home screen. Hold BACK for the quick panel.</string>
+    <string name="sofy_help_internet">Sofy: check the internet</string>
+    <string name="sofy_help_sound">Sofy: check the sound</string>
+    <string name="sofy_help_slow">Sofy: see why it’s slow</string>
+    <string name="sofy_help_remote">Sofy: check the remote</string>
+    <string name="sofy_help_sound_fixed">The volume here belongs to the TV: use the volume keys on the remote and check that the TV isn’t muted.</string>
+    <string name="sofy_help_sound_fixed_now">The sound was off. I turned it back on at %1$d%%.</string>
+    <string name="sofy_help_sound_low">The volume is low (%1$d%%). Turn it up on the remote.</string>
+    <string name="sofy_help_sound_ok">The sound is on (%1$d%%). Check the TV’s own volume and the app.</string>
+    <string name="sofy_help_slow_ok">Memory is fine (%1$d MB free). If one app is slow, the app or the internet is the likely cause.</string>
+    <string name="sofy_help_slow_freed">Memory was tight: I closed apps in the background and freed %1$d MB.</string>
+    <string name="sofy_help_slow_tight">Memory is tight (%1$d MB free). Close the app and open it again.</string>
+    <string name="sofy_help_remote_stuck">A key got stuck today. Check that the remote isn’t pressed under something.</string>
+    <string name="sofy_help_remote_battery">The remote’s battery is low. Change the batteries.</string>
+    <string name="sofy_help_remote_lag">The remote lagged today. Turn on the TV’s Game mode and keep the remote away from other devices.</string>
+    <string name="sofy_help_remote_none">I saw no problem with the remote today. Try new batteries; if that doesn’t help, pair it again in Settings > Remotes &amp; Accessories.</string>
+    <string name="sofy_today_title">What Sofy did today</string>
+    <string name="sofy_today_none">A quiet day: nothing to tell.</string>
+    <string name="sofy_today_prepared">Got apps ready ahead: %1$d</string>
+    <string name="sofy_today_night">Night care: %1$d</string>
+    <string name="sofy_today_guarded">Things I kept an eye on: %1$d</string>
+    <string name="sofy_today_internet">Internet drops: %1$d</string>
+    <string name="sofy_today_asked">Questions I asked: %1$d</string>
+    <string name="sofy_today_applied">Suggestions accepted: %1$d</string>
+    <string name="sofy_today_alarms">Alarms and reminders: %1$d</string>
+    <string name="sofy_today_auto_off">Times I turned the TV off: %1$d</string>
+    <string name="sofy_today_home">Home commands: %1$d</string>
+    <string name="sofy_today_updates">Apps updated: %1$d</string>
+    <string name="sofy_evidence_measured">How I know: I measured it just now.</string>
+    <string name="sofy_evidence_baseline">How I know: I compared it with what’s normal in this home.</string>
+    <string name="sofy_evidence_bus">How I know: it’s in the log of what happened on the TV.</string>
+    <string name="sofy_evidence_system">How I know: Android showed me.</string>
+    <string name="sofy_evidence_router">How I know: the router and the Wi-Fi told me.</string>
+    <string name="sofy_evidence_test">How I know: I tested and checked.</string>
+    <string name="sofy_evidence_other_tv">How I know: another TV in this home told me.</string>
+    <string name="sofy_evidence_community">How I know: other homes that use Sofaly reported it (only the app and version, never who).</string>
+</resources>

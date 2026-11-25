@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Gata de deschis</string>
+    <string name="sofy_hand_on_demand">Pornește când o deschizi</string>
+    <string name="sofy_hand_hour">Obișnuitul tău la ora asta</string>
+    <string name="sofy_sug_cedo_titulo">Oprire mai devreme?</string>
+    <string name="sofy_sug_cedo">În %1$d nopți televizorul s-a oprit singur târziu, fără nimeni la el. Oprire după %2$d min fără telecomandă, în loc de %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Alarma mai târziu?</string>
+    <string name="sofy_sug_alarme">Alarma de la %1$s a fost amânată des. Să sune cu %2$d min mai târziu, la %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Să devină rutină?</string>
+    <string name="sofy_sug_rotina">%1$s a fost deschisă în jur de %2$s în %3$d zile. S-o deschidă singur la %2$s în acele zile?</string>
+    <string name="sofy_sug_teto_titulo">Limită de volum noaptea?</string>
+    <string name="sofy_sug_teto">Noaptea târziu volumul e mult mai mare decât ziua. Cel mult %1$d%% între 23 și 6?</string>
+    <string name="sofy_sug_perfil_titulo">Schimbi profilul?</string>
+    <string name="sofy_sug_perfil">Aplicațiile deschise acum sunt cele pe care le urmărește de obicei %1$s. Treci la profilul lui %1$s?</string>
+    <string name="sofy_sug_trocar">Schimbă</string>
+    <string name="sofy_sug_feito">Gata. Poți anula oricând din Setări.</string>
+    <string name="sofy_lost_title">Te-ai pierdut?</string>
+    <string name="sofy_lost_text">Apasă o dată ACASĂ ca să revii la ecranul de pornire. Ține apăsat ÎNAPOI pentru panoul rapid.</string>
+    <string name="sofy_help_internet">Sofy: verifică internetul</string>
+    <string name="sofy_help_sound">Sofy: verifică sunetul</string>
+    <string name="sofy_help_slow">Sofy: de ce merge greu?</string>
+    <string name="sofy_help_remote">Sofy: verifică telecomanda</string>
+    <string name="sofy_help_sound_fixed">Aici volumul e al televizorului: folosește tastele de volum ale telecomenzii și verifică dacă televizorul nu e pe mut.</string>
+    <string name="sofy_help_sound_fixed_now">Sunetul era oprit. L-am pornit din nou la %1$d%%.</string>
+    <string name="sofy_help_sound_low">Volumul e mic (%1$d%%). Dă-l mai tare din telecomandă.</string>
+    <string name="sofy_help_sound_ok">Sunetul e pornit (%1$d%%). Verifică volumul televizorului și aplicația.</string>
+    <string name="sofy_help_slow_ok">Memoria e în regulă (%1$d MB liberi). Dacă o aplicație merge greu, de vină e probabil ea sau internetul.</string>
+    <string name="sofy_help_slow_freed">Memoria era la limită: am închis aplicații din fundal și am eliberat %1$d MB.</string>
+    <string name="sofy_help_slow_tight">Memoria e la limită (%1$d MB liberi). Închide aplicația și deschide-o din nou.</string>
+    <string name="sofy_help_remote_stuck">Azi s-a blocat o tastă. Verifică dacă telecomanda nu e apăsată sub ceva.</string>
+    <string name="sofy_help_remote_battery">Bateria telecomenzii e slabă. Schimbă bateriile.</string>
+    <string name="sofy_help_remote_lag">Azi telecomanda a întârziat. Pornește modul Joc al televizorului și ține telecomanda departe de alte aparate.</string>
+    <string name="sofy_help_remote_none">Azi n-am văzut probleme la telecomandă. Încearcă baterii noi; dacă nu ajută, împerechează-o din nou din Setări > Telecomenzi și accesorii.</string>
+    <string name="sofy_today_title">Ce a făcut Sofy azi</string>
+    <string name="sofy_today_none">O zi liniștită: nimic de povestit.</string>
+    <string name="sofy_today_prepared">Aplicații pregătite: %1$d</string>
+    <string name="sofy_today_night">Îngrijire de noapte: %1$d</string>
+    <string name="sofy_today_guarded">Lucruri pe care le-am urmărit: %1$d</string>
+    <string name="sofy_today_internet">Căderi de internet: %1$d</string>
+    <string name="sofy_today_asked">Întrebări puse: %1$d</string>
+    <string name="sofy_today_applied">Sugestii acceptate: %1$d</string>
+    <string name="sofy_today_alarms">Alarme și mementouri: %1$d</string>
+    <string name="sofy_today_auto_off">De câte ori am oprit televizorul: %1$d</string>
+    <string name="sofy_today_home">Comenzi în casă: %1$d</string>
+    <string name="sofy_today_updates">Aplicații actualizate: %1$d</string>
+    <string name="sofy_evidence_measured">De unde știu: am măsurat chiar acum.</string>
+    <string name="sofy_evidence_baseline">De unde știu: am comparat cu normalul acestei case.</string>
+    <string name="sofy_evidence_bus">De unde știu: e în jurnalul a ce s-a întâmplat pe televizor.</string>
+    <string name="sofy_evidence_system">De unde știu: mi-a arătat Android.</string>
+    <string name="sofy_evidence_router">De unde știu: mi-au spus routerul și Wi-Fi-ul.</string>
+    <string name="sofy_evidence_test">De unde știu: am testat și am verificat.</string>
+    <string name="sofy_evidence_other_tv">De unde știu: mi-a spus alt televizor din casă.</string>
+    <string name="sofy_evidence_community">De unde știu: au raportat alte case cu Sofaly (doar aplicația și versiunea, niciodată cine).</string>
+</resources>

@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Παρατηρητής",
 "Sofy fala em voz alta":"Η Sofy μιλά φωναχτά",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Διαβάζει ό,τι δείχνει στην τηλεόραση. Με το TalkBack ενεργό, το διαβάζει το TalkBack.",
+"Ajudar outras casas":"Βοήθεια σε άλλα σπίτια",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Μία φορά την ημέρα, μόνο το όνομα και η έκδοση των εφαρμογών που κόλλησαν εδώ, χωρίς να λέει από ποιο σπίτι. Η λήψη όσων είδαν άλλα σπίτια είναι πάντα ενεργή.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Τι παρακολουθεί μόνη της η τηλεόραση: μνήμη, internet, Wi-Fi, ομαλότητα της αρχικής οθόνης και χώρο. Όταν κάτι ξεφεύγει από το κανονικό, εμφανίζεται εδώ με την αιτία. Προς το παρόν μόνο παρακολουθεί και κρατά σημειώσεις.",
 "Tudo normal agora.":"Όλα κανονικά αυτή τη στιγμή.",
 "Nada fora do normal nos últimos 7 dias.":"Τίποτα εκτός κανονικού τις τελευταίες 7 ημέρες.",

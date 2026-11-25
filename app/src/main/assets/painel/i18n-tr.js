@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Gözlemci",
 "Sofy fala em voz alta":"Sofy sesli konuşur",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"TV'de gösterdiğini sesli okur. TalkBack açıksa TalkBack okur.",
+"Ajudar outras casas":"Diğer evlere yardım et",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Günde bir kez, yalnızca burada çöken uygulamaların adı ve sürümü, hangi evden olduğu söylenmeden. Diğer evlerin gördüklerini almak her zaman açık.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"TV'nin kendi kendine izlediği şeyler: bellek, internet, Wi-Fi, ana ekranın akıcılığı ve depolama. Bir şey normalin dışına çıktığında burada nedeniyle birlikte görünür. Şimdilik yalnızca izler ve not alır.",
 "Tudo normal agora.":"Şu an her şey normal.",
 "Nada fora do normal nos últimos 7 dias.":"Son 7 günde olağan dışı bir şey yok.",

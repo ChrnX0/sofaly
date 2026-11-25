@@ -18,7 +18,11 @@ import br.paulo.tvlauncher.mcp.CaixaComando
  * Só vira pedido quando há mais que o nome (um verbo: "abre a netflix", "coloca na globo").
  */
 object BuscaFaz {
-    enum class Local { WIFI_VISITA, LETRA_MAIOR, LETRA_MENOR }
+    /**
+     * PROBLEMA_* (Sofy, ideia 44, 24/11/2026): o problema dito em palavras ("sem som", "internet lenta") vira uma
+     * checagem da Sofy, local, sem nuvem. SOFY_HOJE (ideia 49): "o que você fez hoje".
+     */
+    enum class Local { WIFI_VISITA, LETRA_MAIOR, LETRA_MENOR, PROBLEMA_INTERNET, PROBLEMA_SOM, PROBLEMA_LENTA, PROBLEMA_CONTROLE, SOFY_HOJE }
 
     /** O que fazer: um pedido do catálogo [pedido] OU uma ação [local]. */
     data class Faz(val pedido: CaixaComando.Pedido? = null, val local: Local? = null)
@@ -29,6 +33,11 @@ object BuscaFaz {
     private val reMenor = Regex("""\b(?:menor\w*|diminu\w*|pequen\w*|normal|smaller|decrease|reduz\w*|menos)\b""")
     private val reVisita = Regex("""\b(?:modo visita|modo de visita\w*|guest mode|modo hospede)\b""")
     private val reFiltro = Regex("""\b(?:filtro noturno|luz noturna|night light|night filter|filtro de luz azul|luz azul)\b""")
+    private val reHoje = Regex("""\b(?:o que (?:voce|a sofy|vc) fez hoje|o que fez hoje|what did you do today|que hiciste hoy|sofy hoje|sofy today)\b""")
+    private val reProbInternet = Regex("""\b(?:sem internet|internet (?:esta |ta )?(?:lenta|caiu|nao funciona|nao ta|nao esta|ruim|travando|fora|caindo)|wi ?fi (?:esta |ta )?(?:caiu|ruim|fraco|nao funciona|caindo)|no internet|internet (?:is )?(?:slow|down|not working)|wi ?fi (?:is )?(?:slow|down|not working)|sin internet)\b""")
+    private val reProbSom = Regex("""\b(?:sem som|sem audio|nao (?:tem|sai|ta saindo|esta saindo) (?:som|audio)|som (?:nao|baixo|sumiu|parou)|audio (?:nao|sumiu)|no sound|no audio|sound (?:is )?(?:not working|gone)|sin sonido)\b""")
+    private val reProbLenta = Regex("""\b(?:(?:tv|televisao|app|tudo|ela) (?:esta |ta )?(?:lenta|lento|travando|travada|travado|devagar)|(?:esta|ta) (?:lenta|travando|devagar)|(?:tv|it) (?:is )?(?:slow|lagging|freezing))\b""")
+    private val reProbControle = Regex("""\b(?:controle (?:nao funciona|nao responde|parou|falhando|ruim|com atraso|travando)|remote (?:is )?(?:not working|stopped|lagging)|control (?:no funciona))\b""")
     private val reDesliga = Regex("""\b(?:deslig\w*|tira\w*|sai\w*|turn off|off|disable|stop)\b""")
 
     /**
@@ -40,6 +49,11 @@ object BuscaFaz {
         if (f.length < 3) return null
         // Locais (antes do catálogo: "wifi visita" não pode virar "modo visita").
         if (reWifi.containsMatchIn(f)) return Faz(local = Local.WIFI_VISITA)
+        if (reHoje.containsMatchIn(f)) return Faz(local = Local.SOFY_HOJE)
+        if (reProbInternet.containsMatchIn(f)) return Faz(local = Local.PROBLEMA_INTERNET)
+        if (reProbSom.containsMatchIn(f)) return Faz(local = Local.PROBLEMA_SOM)
+        if (reProbControle.containsMatchIn(f)) return Faz(local = Local.PROBLEMA_CONTROLE)
+        if (reProbLenta.containsMatchIn(f)) return Faz(local = Local.PROBLEMA_LENTA)
         if (reLetra.containsMatchIn(f)) {
             if (reMenor.containsMatchIn(f)) return Faz(local = Local.LETRA_MENOR)
             if (reMaior.containsMatchIn(f)) return Faz(local = Local.LETRA_MAIOR)

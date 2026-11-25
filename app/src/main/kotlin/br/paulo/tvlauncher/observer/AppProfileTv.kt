@@ -18,7 +18,9 @@ import org.json.JSONObject
  *     Owner já concede) e soma na ficha do PERFIL ativo (Perfil.chaveDados; "" = compartilhado ou visita);
  *  2. a cada 2 h, pelo shell próprio (numa TV que já o pareou), lê no registro de eventos do Android quanto cada app
  *     demorou para abrir;
- *  3. uma vez por dia, escreve as dicas no registro do Observador ("app_tip") e no Diário. SOMBRA: ninguém age ainda.
+ *  3. uma vez por dia, escreve as dicas no registro do Observador ("app_tip") e no Diário;
+ *  4. AGE (24/11/2026): abre quente na hora firme ([prewarm]), receita antes de abrir app pesado ([beforeOpen]) e, de
+ *     madrugada, recompila o que abre devagar e põe sob demanda o esquecido ([night]). Cada ação vai ao registro e ao barramento.
  *
  * As fichas moram em "sofy_learning" (chave "apps"), que vai no backup: TV restaurada já conhece os hábitos da casa.
  */
@@ -57,12 +59,344 @@ object AppProfileTv {
         val clean = if (launchable == null) before else before.copy(cards = before.cards.filterKeys { it in launchable })
         var s = AppProfile.learn(clean, events, { ObserverTv.hours(it).second }, now, skip)
         s = withStarts(app, dev, s)
+        s = withVersionsAndMemory(app, s)
+        runCatching { prewarm(app, s, now) }.onFailure { Log.w(TAG, "abrir quente: $it") }?.getOrNull()?.let { s = it }
+        runCatching { scoreOutcomes(app, dev, s, now) }.onFailure { Log.w(TAG, "placar: $it") }
+        runCatching { preHome(app, dev, s, now) }.onFailure { Log.w(TAG, "pré-HOME: $it") }
+        runCatching { withCrashes(app, dev, s, now) }.onFailure { Log.w(TAG, "travadas: $it") }.getOrNull()?.let { s = it }
+        runCatching { withBackground(app, dev, s, now) }.onFailure { Log.w(TAG, "internet parado: $it") }.getOrNull()?.let { s = it }
+        runCatching { updateHand(app, dev, now) }
         all[profile] = s
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
         dev.edit().putLong("apps_events_at", now).apply()
         if (now - dev.getLong("apps_tips_at", 0L) >= TIPS_GAP_MS) {
             dev.edit().putLong("apps_tips_at", now).apply()
             shadowTips(app, profile, s, now)
+        }
+    }
+
+    // ---------------------------------------------------------------- a ficha age (ideias 8, 9, 10, 11 e 14)
+
+    /** Versão de cada app (mudou = recomeça a medir o tempo de abrir) e a memória livre com o app da frente (ideias 14 e 11). */
+    private fun withVersionsAndMemory(ctx: Context, s: AppProfile.State): AppProfile.State {
+        val pm = ctx.packageManager
+        val cards = HashMap(s.cards)
+        for ((pkg, c) in s.cards) {
+            val ver = runCatching { androidx.core.content.pm.PackageInfoCompat.getLongVersionCode(pm.getPackageInfo(pkg, 0)) }.getOrDefault(0L)
+            val n = AppProfile.noteVersion(c, ver, System.currentTimeMillis())
+            if (c.ver != 0L && n.ver != c.ver) SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "app_updated")
+            cards[pkg] = n
+        }
+        val front = s.front
+        if (front != null) cards[front]?.let { c ->
+            runCatching {
+                val mi = android.app.ActivityManager.MemoryInfo()
+                ctx.getSystemService(android.app.ActivityManager::class.java).getMemoryInfo(mi)
+                cards[front] = AppProfile.noteMemory(c, mi.availMem / 1_048_576)
+            }
+        }
+        return s.copy(cards = cards)
+    }
+
+    /**
+     * Solta memória: pede ao Android para fechar os apps das fichas que estão parados em segundo plano (`am kill` só
+     * mata processo em segundo plano; nunca o da frente, nunca o [keep], nada com som tocando). Pelo shell, então só
+     * numa TV que já o pareou. Devolve quantos pediu para fechar.
+     */
+    internal fun freeOthers(ctx: Context, keep: String, front: String?, cards: Collection<AppProfile.Card>): Int {
+        if (ctx.getSystemService(android.media.AudioManager::class.java)?.isMusicActive == true) return 0
+        if (!runCatching { SaudeAcesso.shellEsperado(ctx) }.getOrDefault(false)) return 0
+        val alvos = cards.map { it.pkg }.filter { it != keep && it != front && it != ctx.packageName }.take(12)
+        if (alvos.isEmpty()) return 0
+        runCatching { GuardiaoShizuku.comando(ctx, alvos.joinToString("; ") { "am kill $it" }, 15_000) }
+        return alvos.size
+    }
+
+    /** Abrir quente (ideia 8): até 20 min antes da hora firme de um app, com a tela acesa, solta a memória dos outros. */
+    private fun prewarm(ctx: Context, s: AppProfile.State, now: Long): AppProfile.State? {
+        if (ctx.getSystemService(android.os.PowerManager::class.java)?.isInteractive != true) return null
+        val cal = java.util.Calendar.getInstance().apply { timeInMillis = now }
+        val minuto = cal.get(java.util.Calendar.HOUR_OF_DAY) * 60 + cal.get(java.util.Calendar.MINUTE)
+        val dia = now / 86_400_000L
+        val tip = tips(ctx, s, now).firstOrNull { t -> t.advice == AppProfile.Advice.PREWARM && t.hour != null && t.pkg != s.front &&
+            s.cards[t.pkg]?.let { AppProfile.prewarmNow(it, t.hour, minuto, dia) } == true } ?: return null
+        val n = freeOthers(ctx, tip.pkg, s.front, s.cards.values)
+        SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "prewarm", detail = "$n apps")
+        // Placar (ideia 34): acertou se o app abrir até 1 h depois da hora firme.
+        val prazo = now + (Math.floorMod((tip.hour ?: 0) * 60 - minuto, 1440) + 60) * 60_000L
+        addPending(ctx, "prewarm", "${tip.pkg}|$now|$prazo")
+        ObserverTv.logShadow(ctx, "acted_prewarm", "hora firme às ${tip.hour}h: soltei a memória de $n apps parados")
+        return s.copy(cards = s.cards + (tip.pkg to s.cards.getValue(tip.pkg).copy(prewarmDay = dia)))
+    }
+
+    /** O app na frente na última leitura da ficha (até 15 min de atraso), ou null. Para o juiz de conflitos. */
+    fun frontPackage(ctx: Context): String? {
+        val app = ctx.applicationContext
+        val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
+        return synchronized(AppProfileTv) { load(app)[profile]?.front }
+    }
+
+    /**
+     * Pré-HOME (ideia 7): a HOME "fria" (6,1 s na Sala) é a volta depois de o Android matar o processo do launcher para dar
+     * memória ao app pesado. Perto da hora em que a pessoa costuma voltar ([AppProfile.returnSoon]), a Sofy solta a
+     * memória dos apps PARADOS (nunca o da frente, nada com som tocando), uma vez por sessão, para o launcher continuar
+     * vivo e a volta ser quente. O placar ([homeShown]) diz se a volta seguinte foi quente.
+     */
+    private fun preHome(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long) {
+        val f = s.front ?: return
+        if (!AppProfile.returnSoon(s, now)) return
+        val sessao = "$f|${s.frontSince}"
+        if (dev.getString("prehome_session", null) == sessao) return
+        dev.edit().putString("prehome_session", sessao).putLong("prehome_at", now).apply()
+        val n = freeOthers(ctx, f, f, s.cards.values)
+        SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "prehome", detail = "$n apps")
+        ObserverTv.logShadow(ctx, "acted_prehome", "a volta à HOME está perto: soltei a memória de $n apps parados")
+    }
+
+    /** A HOME apareceu ([cold] = o processo tinha morrido). Depois de um pré-HOME (até 3 h), conta no placar. */
+    fun homeShown(ctx: Context, cold: Boolean) {
+        val app = ctx.applicationContext
+        val dev = app.getSharedPreferences(ObserverTv.PREFS, Context.MODE_PRIVATE)
+        val at = dev.getLong("prehome_at", 0L)
+        if (at == 0L) return
+        dev.edit().remove("prehome_at").apply()
+        if (System.currentTimeMillis() - at > 3 * 3_600_000L) return
+        SofyLearnTv.record(app, SofyScore.Action.PREHOME, if (cold) SofyScore.Outcome.MISS else SofyScore.Outcome.HIT)
+    }
+
+    // ---------------------------------------------------------------- travadas por app (ideia 12)
+
+    private const val CRASHES_GAP_MS = 6 * 3_600_000L
+    private const val CRASHY_TELL_AGAIN_MS = 7 * 86_400_000L
+
+    /**
+     * De 6 em 6 h, lê pelo shell as travadas e "não responde" que o Android guarda ("dropbox") e liga cada uma à ficha do
+     * app. App que travou [AppProfile.CRASHY_COUNT] vezes na semana: a Sofy conta na Ilha (1 vez por semana por app),
+     * dizendo se foi desde a versão nova dele. Sem shell, nada.
+     */
+    private fun withCrashes(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long): AppProfile.State? {
+        if (now - dev.getLong("apps_crashes_at", 0L) < CRASHES_GAP_MS) return null
+        if (!runCatching { SaudeAcesso.shellEsperado(ctx) }.getOrDefault(false)) return null
+        dev.edit().putLong("apps_crashes_at", now).apply()
+        val out = runCatching {
+            GuardiaoShizuku.comando(ctx, "dumpsys dropbox --print data_app_crash data_app_anr | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2} |^Process:'", 20_000)
+        }.getOrNull() ?: return null
+        val fmt = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", java.util.Locale.US)
+        val found = AppProfile.parseDropbox(out.lineSequence()) { d -> runCatching { fmt.parse(d)?.time }.getOrNull() }
+        if (found.isEmpty()) return null
+        val cards = HashMap(s.cards)
+        for ((pkg, at, _) in found) cards[pkg]?.let { cards[pkg] = AppProfile.noteCrash(it, at) }
+        val told = JSONObject(dev.getString("crashy_told", null) ?: "{}")
+        for (c in cards.values) {
+            val n = AppProfile.crashesWeek(c, now)
+            if (n < AppProfile.CRASHY_COUNT || now - told.optLong(c.pkg) < CRASHY_TELL_AGAIN_MS) continue
+            told.put(c.pkg, now)
+            val nome = runCatching { ctx.packageManager.getApplicationLabel(ctx.packageManager.getApplicationInfo(c.pkg, 0)).toString() }.getOrDefault(c.pkg)
+            val kind = if (AppProfile.crashesSinceUpdate(c, now)) ObserverCore.Kind.APP_CRASHY_UPDATE else ObserverCore.Kind.APP_CRASHY
+            ObserverTv.enqueueNote(ctx, ObserverCore.sofyNote(kind, now, ObserverCore.Step.SUGGESTS, listOf(nome, n.toString())))
+            SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "app_crashy", ok = false)
+            ObserverTv.logShadow(ctx, "app_crashy", "${c.pkg} travou $n vezes em 7 dias${if (kind == ObserverCore.Kind.APP_CRASHY_UPDATE) ", desde a versão nova" else ""}")
+        }
+        dev.edit().putString("crashy_told", told.toString()).apply()
+        return s.copy(cards = cards)
+    }
+
+    // ---------------------------------------------------------------- internet parado (ideia 13)
+
+    /**
+     * Uma vez por dia: quanto cada app gastou de internet nas últimas 24 h em SEGUNDO PLANO (NetworkStatsManager, estado
+     * "default" = fora da frente). Vai para a ficha (média que esquece devagar); a dica aparece com 3 dias acima de 300 MB.
+     * "bg_state_split" anota se o Android desta TV separa frente e fundo (algumas versões só dão o total).
+     */
+    private fun withBackground(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long): AppProfile.State? {
+        if (now - dev.getLong("apps_bg_at", 0L) < TIPS_GAP_MS) return null
+        dev.edit().putLong("apps_bg_at", now).apply()
+        val nsm = ctx.getSystemService(android.app.usage.NetworkStatsManager::class.java) ?: return null
+        val bytes = HashMap<Int, Long>()
+        var split = false
+        for (tipo in intArrayOf(android.net.ConnectivityManager.TYPE_WIFI, android.net.ConnectivityManager.TYPE_ETHERNET)) {
+            val st = runCatching { nsm.querySummary(tipo, null, now - 86_400_000L, now) }.getOrNull() ?: continue
+            val b = android.app.usage.NetworkStats.Bucket()
+            st.use { while (it.hasNextBucket()) {
+                it.getNextBucket(b)
+                if (b.state == android.app.usage.NetworkStats.Bucket.STATE_FOREGROUND) split = true
+                if (b.state == android.app.usage.NetworkStats.Bucket.STATE_DEFAULT) bytes[b.uid] = (bytes[b.uid] ?: 0L) + b.rxBytes + b.txBytes
+            } }
+        }
+        dev.edit().putBoolean("bg_state_split", split).apply()
+        if (!split) return null   // sem separar frente e fundo, "parado" seria o total: não anota
+        val pm = ctx.packageManager
+        val cards = HashMap(s.cards)
+        for ((uid, b) in bytes) {
+            val pkgs = pm.getPackagesForUid(uid) ?: continue
+            if (pkgs.size != 1) continue   // uid compartilhado: não dá para dizer de quem é
+            cards[pkgs[0]]?.let { cards[pkgs[0]] = AppProfile.noteBackground(it, b / 1_048_576.0) }
+        }
+        // Apps com ficha sem nenhum byte em fundo também contam (0 MB naquele dia).
+        for ((pkg, c) in HashMap(cards)) {
+            val uid = runCatching { pm.getPackageUid(pkg, 0) }.getOrNull() ?: continue
+            if (uid !in bytes) cards[pkg] = AppProfile.noteBackground(c, 0.0)
+        }
+        return s.copy(cards = cards)
+    }
+
+    // ---------------------------------------------------------------- a mão dela nos cartões (ideia 15)
+
+    /** READY = abrir quente; ON_DEMAND = sob demanda; HOUR = o app de costume desta hora (ideia 19; a ordem não muda). */
+    enum class Hand { READY, ON_DEMAND, HOUR }
+
+    /** Solta a memória dos apps parados para [pkg] abrir leve (chegou em casa, ideia 33). Devolve quantos soltou. Fora da tela. */
+    fun prepareFor(ctx: Context, pkg: String): Int {
+        val app = ctx.applicationContext
+        val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
+        val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return 0
+        return freeOthers(app, pkg, runCatching { frontPackage(app) }.getOrNull(), s.cards.values)
+    }
+
+    /** As fichas de todos os perfis (a mais nova de cada pacote), para as lições entre TVs (SofyShareTv). */
+    fun allCards(ctx: Context): Collection<AppProfile.Card> = synchronized(AppProfileTv) {
+        load(ctx.applicationContext).values.flatMap { it.cards.values }.groupBy { it.pkg }.values.map { l -> l.maxBy { it.ver } }
+    }
+
+    /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
+    fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
+        synchronized(AppProfileTv) { load(ctx.applicationContext).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } } }
+
+    /** Lido pela HOME a cada foco (barato: só um mapa em memória). Pacote → a marca da Sofy. */
+    @Volatile var hand: Map<String, Hand> = emptyMap()
+        private set
+
+    private fun updateHand(ctx: Context, dev: android.content.SharedPreferences, now: Long) {
+        val m = HashMap<String, Hand>()
+        runCatching { OnDemandTv.entries(ctx).forEach { m[it.pkg] = Hand.ON_DEMAND } }
+        // Preparado pelo "abrir quente" e ainda dentro da hora firme (o prazo do placar).
+        for (e in dev.getString("score_pending_prewarm", "").orEmpty().split(';').filter { it.isNotBlank() }) {
+            val p = e.split('|')
+            if ((p.getOrNull(2)?.toLongOrNull() ?: 0L) > now) m.putIfAbsent(p[0], Hand.READY)
+        }
+        runCatching { SofyHabitsTv.usualNow(ctx, now) }.getOrNull()?.let { m.putIfAbsent(it, Hand.HOUR) }
+        hand = m
+    }
+
+    @Volatile private var lastRecipe = 0L
+
+    /**
+     * Receita por app (ideia 11): a HOME vai abrir [pkg]. Se a ficha diz que ele aperta a memória da TV, a Sofy solta a
+     * memória dos outros antes (no máximo 1 vez a cada 10 min). Não bloqueia a abertura.
+     */
+    fun beforeOpen(ctx: Context, pkg: String) {
+        val app = ctx.applicationContext
+        val now = System.currentTimeMillis()
+        if (now - lastRecipe < 10 * 60_000L) return
+        br.paulo.tvlauncher.Fundo.rodar("app-recipe") {
+            val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
+            val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return@rodar
+            val c = s.cards[pkg] ?: return@rodar
+            if (!AppProfile.heavy(c, ObserverTv.normalOf(app, ObserverCore.Signal.MEMORY_AVAILABLE_MB))) return@rodar
+            lastRecipe = now
+            val n = freeOthers(app, pkg, null, s.cards.values)
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "recipe_memory", detail = "$n apps")
+            ObserverTv.logShadow(app, "acted_recipe", "app pesado vai abrir: soltei a memória de $n apps parados")
+        }
+    }
+
+    /**
+     * De madrugada (ManutencaoNoturna, depois dos passos): recompila até 2 apps que abrem devagar (ideia 9) e põe sob
+     * demanda até 1 app esquecido e seguro (ideia 10, com o recado da manhã e o desfazer de sempre). Devolve o resumo.
+     */
+    @Synchronized fun night(ctx: Context): String {
+        val app = ctx.applicationContext
+        val now = System.currentTimeMillis()
+        val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
+        val all = load(app)
+        val s = all[profile] ?: return "sem ficha"
+        val t = tips(app, s, now)
+        val feito = ArrayList<String>()
+        val cards = HashMap(s.cards)
+        if (runCatching { SaudeAcesso.shellEsperado(app) }.getOrDefault(false)) {
+            for (tip in t.filter { it.advice == AppProfile.Advice.RECOMPILE }.take(2)) {
+                val out = runCatching { GuardiaoShizuku.comando(app, "cmd package compile -m speed-profile -f ${tip.pkg}", 180_000) }.getOrNull()
+                val ok = out?.contains("Success") == true
+                if (ok) cards[tip.pkg]?.let { cards[tip.pkg] = AppProfile.noteCompiled(it, now); addPending(app, "recompile", "${tip.pkg}|$now") }
+                SofyBusTv.emit(app, SofyBus.Source.SOFY, "acted_recompile", ok = ok)
+                ObserverTv.logShadow(app, "acted_recompile", "${tip.why}: recompilei (${if (ok) "ok" else "falhou"})")
+                feito += "recompilou 1 (${if (ok) "ok" else "falhou"})"
+            }
+        }
+        t.firstOrNull { it.advice == AppProfile.Advice.ON_DEMAND }?.let { tip ->
+            val motivo = runCatching { OnDemandTv.mark(app, tip.pkg) }.getOrElse { it.javaClass.simpleName }
+            val ok = motivo == null
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "acted_on_demand", ok = ok)
+            if (ok) {
+                val nome = runCatching { app.packageManager.getApplicationLabel(app.packageManager.getApplicationInfo(tip.pkg, 0)).toString() }.getOrDefault(tip.pkg)
+                addPending(app, "on_demand", "${tip.pkg}|$now")
+                ObserverTv.enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.APP_ON_DEMAND, now, ObserverCore.Step.ACTED_REVERSIBLE, listOf(nome)))
+                runCatching { Diario.anotar(app, "tv", "Sofy: app sob demanda", "$nome: ${tip.why}") }
+            }
+            ObserverTv.logShadow(app, "acted_on_demand", "${tip.why}: ${if (ok) "sob demanda" else "não deu ($motivo)"}")
+            feito += "sob demanda 1 (${if (ok) "ok" else "não deu"})"
+        }
+        all[profile] = s.copy(cards = cards)
+        ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
+        // Experimento noturno (ideia 36): numa noite fecha os apps parados, na outra não; o tempo de abrir a HOME no dia
+        // seguinte decide se a ação fica.
+        feito += SofyLearnTv.night(app) { "fechou ${freeOthers(app, "", null, cards.values)} apps parados" }
+        return feito.joinToString("; ").ifEmpty { "nada a fazer" }
+    }
+
+    // ---------------------------------------------------------------- placar das ações da ficha (ideia 34)
+
+    /** Ações à espera do desfecho, por tipo: "pacote|quando[|prazo]" (no registro "observer": são desta TV). */
+    @Synchronized private fun addPending(ctx: Context, kind: String, entry: String) {
+        val p = ctx.getSharedPreferences(ObserverTv.PREFS, Context.MODE_PRIVATE)
+        val l = p.getString("score_pending_$kind", "").orEmpty().split(';').filter { it.isNotBlank() } + entry
+        p.edit().putString("score_pending_$kind", l.takeLast(20).joinToString(";")).apply()
+    }
+
+    private const val ON_DEMAND_CHECK_MS = 14 * 86_400_000L
+    private const val RECOMPILE_GIVE_UP_MS = 21 * 86_400_000L
+
+    /**
+     * O desfecho de cada ação da ficha, medido pela própria TV:
+     *  - recompilar: a mediana nova (3+ aberturas) caiu 10% = acertou; subiu 10% = piorou; senão não fez diferença;
+     *  - abrir quente: o app abriu entre a preparação e 1 h depois da hora firme;
+     *  - sob demanda: 14 dias depois, ainda sob demanda = acertou; a pessoa tirou = desfez.
+     */
+    @Synchronized private fun scoreOutcomes(ctx: Context, dev: android.content.SharedPreferences, s: AppProfile.State, now: Long) {
+        fun each(kind: String, decide: (List<String>) -> SofyScore.Outcome?) {
+            val l = dev.getString("score_pending_$kind", "").orEmpty().split(';').filter { it.isNotBlank() }
+            if (l.isEmpty()) return
+            val fica = l.filter { e ->
+                val o = runCatching { decide(e.split('|')) }.getOrNull()
+                if (o != null) SofyLearnTv.record(ctx, when (kind) { "recompile" -> SofyScore.Action.RECOMPILE; "prewarm" -> SofyScore.Action.PREWARM
+                    else -> SofyScore.Action.ON_DEMAND }, o)
+                o == null && now - (e.split('|').getOrNull(1)?.toLongOrNull() ?: 0L) < RECOMPILE_GIVE_UP_MS
+            }
+            dev.edit().putString("score_pending_$kind", fica.joinToString(";")).apply()
+        }
+        each("recompile") { (pkg, at) ->
+            val c = s.cards[pkg]
+            val d = c?.let { AppProfile.startChange(it) }
+            if (c == null || c.compiledAt != at.toLong() || d == null) null
+            else if (d <= -c.startsBefore / 10) SofyScore.Outcome.HIT
+            else if (d >= c.startsBefore / 10) SofyScore.Outcome.UNDONE
+            else SofyScore.Outcome.MISS
+        }
+        each("prewarm") { (pkg, at, prazo) ->
+            val lastOpen = s.cards[pkg]?.lastOpen ?: 0L
+            when {
+                lastOpen in at.toLong()..prazo.toLong() -> SofyScore.Outcome.HIT
+                now > prazo.toLong() -> SofyScore.Outcome.MISS
+                else -> null
+            }
+        }
+        val sobDemanda = runCatching { OnDemandTv.entries(ctx).map { it.pkg }.toSet() }.getOrNull() ?: return
+        each("on_demand") { (pkg, at) ->
+            when {
+                pkg !in sobDemanda -> SofyScore.Outcome.UNDONE
+                now - at.toLong() >= ON_DEMAND_CHECK_MS -> SofyScore.Outcome.HIT
+                else -> null
+            }
         }
     }
 
@@ -97,27 +431,36 @@ object AppProfileTv {
         val now = System.currentTimeMillis()
         if (now - dev.getLong("apps_starts_tried", 0L) < STARTS_GAP_MS) return s
         if (!runCatching { SaudeAcesso.shellEsperado(ctx) }.getOrDefault(false)) return s
-        dev.edit().putLong("apps_starts_tried", now).apply()
+        // Tentativas e o resultado da última: a Sofy se acusa se o tempo de abrir nunca chega (SofySelfCheck, ideia 38).
+        dev.edit().putLong("apps_starts_tried", now).putInt("apps_starts_tries", dev.getInt("apps_starts_tries", 0) + 1).apply()
         val out = runCatching {
             GuardiaoShizuku.comando(ctx, "logcat -d -b events -v epoch -s wm_activity_launch_time am_activity_launch_time", 15_000)
-        }.getOrNull() ?: return s
+        }.getOrNull()
+        if (out == null) { dev.edit().putString("apps_starts_last", "o shell não respondeu").apply(); return s }
         val since = dev.getLong("apps_starts_at", 0L)
         var newest = since
         val cards = HashMap(s.cards)
+        var lidas = 0; var tempos = 0; var comFicha = 0
         for (line in out.lineSequence()) {
+            if (line.isBlank()) continue
+            lidas++
             val at = (line.trim().substringBefore(' ').toDoubleOrNull() ?: continue).times(1000).toLong()
-            if (at <= since) continue
             val (pkg, ms) = AppProfile.parseLaunchTime(line) ?: continue
-            cards[pkg]?.let { cards[pkg] = AppProfile.noteStart(it, ms) }
+            tempos++
+            if (at <= since) continue
+            cards[pkg]?.let { cards[pkg] = AppProfile.noteStart(it, ms); comFicha++ }
             if (at > newest) newest = at
         }
-        if (newest > since) dev.edit().putLong("apps_starts_at", newest).apply()
+        dev.edit().putString("apps_starts_last", "$lidas linhas, $tempos tempos, $comFicha de apps com ficha").apply {
+            if (newest > since) putLong("apps_starts_at", newest)
+        }.apply()
         return s.copy(cards = cards)
     }
 
     private fun tips(ctx: Context, s: AppProfile.State, now: Long): List<AppProfile.Tip> {
         val onDemand = runCatching { OnDemandTv.entries(ctx).map { it.pkg }.toSet() }.getOrDefault(emptySet())
-        return AppProfile.advise(s.cards.values, now, onDemand) { pkg -> runCatching { OnDemandTv.eligible(ctx, pkg) }.getOrDefault(false) }
+        return AppProfile.advise(s.cards.values, now, onDemand, SofyLearnTv.limit(ctx, SofyLimits.RECOMPILE_SLOW_MS).toInt(),
+            SofyLearnTv.limit(ctx, SofyLimits.PREWARM_SHARE)) { pkg -> runCatching { OnDemandTv.eligible(ctx, pkg) }.getOrDefault(false) }
     }
 
     private fun shadowTips(ctx: Context, profile: String, s: AppProfile.State, now: Long) {
@@ -140,10 +483,15 @@ object AppProfileTv {
             val h = c.opens.indices.maxByOrNull { c.opens[it] }
             cards.put(JSONObject().put("pkg", c.pkg).put("opens", Math.round(c.totalOpens * 10) / 10.0)
                 .put("top_hour", h ?: JSONObject.NULL).put("front_min", Math.round(c.frontMs / 60_000))
-                .put("last_open", c.lastOpen).put("start_ms_median", if (c.startsMs.isEmpty()) JSONObject.NULL else AppProfile.median(c.startsMs)))
+                .put("last_open", c.lastOpen).put("start_ms_median", if (c.startsMs.isEmpty()) JSONObject.NULL else AppProfile.median(c.startsMs))
+                .put("start_ms_before", if (c.startsBefore > 0) c.startsBefore else JSONObject.NULL)
+                .put("mem_front_mb", if (c.memSamples > 0) Math.round(c.memFrontMb) else JSONObject.NULL)
+                .put("compiled_at", if (c.compiledAt > 0) c.compiledAt else JSONObject.NULL))
         }
         val tips = JSONArray()
         for (t in tips(app, s, now)) tips.put(JSONObject().put("pkg", t.pkg).put("advice", t.advice.name).put("hour", t.hour ?: JSONObject.NULL).put("why", t.why))
-        return JSONObject().put("profile_shared", profile.isEmpty()).put("cards", cards).put("tips", tips).put("mode", "shadow")
+        val dev = app.getSharedPreferences("observer", Context.MODE_PRIVATE)
+        return JSONObject().put("profile_shared", profile.isEmpty()).put("cards", cards).put("tips", tips)
+            .put("mode", "acting").put("starts_tries", dev.getInt("apps_starts_tries", 0)).put("starts_last", dev.getString("apps_starts_last", "").orEmpty())
     }
 }

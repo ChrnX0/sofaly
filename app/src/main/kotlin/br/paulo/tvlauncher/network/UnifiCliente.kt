@@ -220,6 +220,13 @@ object UnifiCliente {
         return linhas.joinToString("\n")
     }
 
+    /** Tempo ligado (ms) de cada aparelho UniFi agora. Só leitura. Lança [Falha] (sem roteador configurado, etc.). */
+    fun tempoLigado(ctx: Context): List<Long> {
+        val app = ctx.applicationContext
+        val (endereco, cert, chave) = credenciais(app)
+        return Unifi.tempoLigadoMs(pegar(app, endereco, cert, chave, "/api/s/${siteAtual(app).ref}/stat/device", base = BASE_ANTIGA))
+    }
+
     /**
      * O que o ROTEADOR acha da internet agora: texto cru do stat/health da API antiga (subsistemas "wan" e "www"), lido
      * por InternetEmUmaFrase.lerSaudeRoteador. Só leitura. Lança [Falha]. Chamar fora da thread da tela.

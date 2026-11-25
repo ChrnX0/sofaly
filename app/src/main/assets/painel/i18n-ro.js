@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Observator",
 "Sofy fala em voz alta":"Sofy vorbește cu voce tare",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Citește ce arată pe TV. Cu TalkBack pornit, citește TalkBack.",
+"Ajudar outras casas":"Ajută alte case",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"O dată pe zi, doar numele și versiunea aplicațiilor care s-au blocat aici, fără a spune din ce casă. Primirea a ceea ce au văzut alte case este mereu pornită.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Ce urmărește TV-ul singur: memorie, internet, Wi-Fi, fluiditatea ecranului principal și spațiul. Când ceva iese din normal, apare aici cu motivul. Deocamdată doar urmărește și notează.",
 "Tudo normal agora.":"Totul e normal acum.",
 "Nada fora do normal nos últimos 7 dias.":"Nimic ieșit din normal în ultimele 7 zile.",

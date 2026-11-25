@@ -146,6 +146,10 @@ object ManutencaoNoturna {
         val r = ManutencaoRegras.Relatorio(System.currentTimeMillis(), passos)
         prefs(app).edit().putString("ultimo", ManutencaoRegras.paraJson(r).toString()).apply()
         Log.i(TAG, "relatório: " + passos.joinToString { "${it.nome}=${it.resultado}" })
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.SOFY, "night_maintenance",
+            ok = passos.none { it.resultado == ManutencaoRegras.Resultado.FALHOU })
+        // A ficha dos apps age de madrugada (Sofy, ideias 9 e 10): recompila o que abre devagar, põe sob demanda o esquecido.
+        runCatching { br.paulo.tvlauncher.observer.AppProfileTv.night(app) }.onSuccess { Log.i(TAG, "ficha dos apps: $it") }
         rede(app)
         return r
     }

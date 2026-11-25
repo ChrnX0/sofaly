@@ -1290,6 +1290,8 @@ class MainActivity : Activity() {
                 // Placar (elevação 2.1, pilar 1): volta à HOME até os apps desenhados; e, na 1ª vez do processo, desde
                 // o processo nascer (a TV ligou ou o launcher reiniciou).
                 MedidasTv.anotar(this, Placar.Chave.HOME, t1 - t0 + desenhou)
+                val fria = !homeFriaMedida
+                Fundo.rodar("prehome") { runCatching { br.paulo.tvlauncher.observer.AppProfileTv.homeShown(this, fria) } }
                 if (!homeFriaMedida) {
                     homeFriaMedida = true
                     MedidasTv.anotar(this, Placar.Chave.HOME_FRIA, android.os.SystemClock.uptimeMillis() - android.os.Process.getStartUptimeMillis())
@@ -1551,9 +1553,17 @@ class MainActivity : Activity() {
     internal fun subApp(pacote: String, nome: String): String {
         // Ideia 13 (14/11/2026): entre a frase à mão e a categoria, a ficha do painel (FrasesApps decide).
         val c = categoria(pacote)
-        return FrasesApps.escolher(pacote, nome, DESCRICAO_APPS[pacote]?.let { getString(it) }, fichasHome,
+        val frase = FrasesApps.escolher(pacote, nome, DESCRICAO_APPS[pacote]?.let { getString(it) }, fichasHome,
             resources.configuration.locales[0].language == "pt",
             if (c >= 0) ApplicationInfo.getCategoryTitle(this, c)?.toString() else null) ?: getString(R.string.home_destaque_app)
+        // A mão da Sofy no cartão (ideia 15): pronto para abrir (ela preparou a memória) ou ligando só quando abrir.
+        val mao = when (br.paulo.tvlauncher.observer.AppProfileTv.hand[pacote]) {
+            br.paulo.tvlauncher.observer.AppProfileTv.Hand.READY -> getString(R.string.sofy_hand_ready)
+            br.paulo.tvlauncher.observer.AppProfileTv.Hand.ON_DEMAND -> getString(R.string.sofy_hand_on_demand)
+            br.paulo.tvlauncher.observer.AppProfileTv.Hand.HOUR -> getString(R.string.sofy_hand_hour)
+            null -> null
+        }
+        return if (mao == null) frase else "$frase · $mao"
     }
 
     /** Lê o banner (ou a cor do ícone) de um app. Roda em qualquer thread; o resultado vai para [capas]. */
@@ -2292,17 +2302,18 @@ class MainActivity : Activity() {
             !br.paulo.tvlauncher.home.BottomBar.strip(this)) emptyList()
             else br.paulo.tvlauncher.home.AppChannels.ler(this)
         radioCruz = runCatching { Radios.ultima(this) }.getOrNull()
-        midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis()).associateBy { it.pacote } }.getOrDefault(emptyMap())
+        val perfilDados = runCatching { br.paulo.tvlauncher.family.Perfil.chaveDados(this) }.getOrDefault("")
+        midiaPorApp = runCatching { MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis(), perfilDados).associateBy { it.pacote } }.getOrDefault(emptyMap())
         assinadosCruz = runCatching { Podcasts.assinaturas(this).size }.getOrDefault(0)
         podcastCruz = runCatching {
             Podcasts.continuar(Podcasts.posicoes(this), Podcasts.assinaturas(this).map { it.url }.toSet(), max = 1).firstOrNull()
         }.getOrNull()
         val pm = packageManager
         midiaCruz = runCatching {
-            MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis())
+            MidiaRecente.validos(MidiaRecente.ler(this), System.currentTimeMillis(), perfilDados)
                 .filter { r -> pm.getLeanbackLaunchIntentForPackage(r.pacote) != null || pm.getLaunchIntentForPackage(r.pacote) != null }
                 .take(MIDIA_NO_CONTINUAR)
-                .map { r -> MidiaCruz(r, MidiaRecente.capa(this, r.pacote)?.let { capaArredondada(it) }) }
+                .map { r -> MidiaCruz(r, MidiaRecente.capa(this, r.pacote, r.perfil)?.let { capaArredondada(it) }) }
         }.getOrDefault(emptyList())
     }
 

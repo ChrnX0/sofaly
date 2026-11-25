@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">可以打开了</string>
+    <string name="sofy_hand_on_demand">打开时才启动</string>
+    <string name="sofy_hand_hour">这个时间你常用的</string>
+    <string name="sofy_sug_cedo_titulo">提早关机？</string>
+    <string name="sofy_sug_cedo">有 %1$d 个晚上，电视在深夜无人观看时自动关机。改为无遥控操作 %2$d 分钟后关机（原为 %3$d 分钟）？</string>
+    <string name="sofy_sug_alarme_titulo">推迟闹钟？</string>
+    <string name="sofy_sug_alarme">%1$s 的闹钟经常被推迟。推迟 %2$d 分钟，改到 %3$s 响？</string>
+    <string name="sofy_sug_rotina_titulo">设为日常安排？</string>
+    <string name="sofy_sug_rotina">%1$s 在 %3$d 天里都在 %2$s 左右打开。在这些日子的 %2$s 自动打开？</string>
+    <string name="sofy_sug_teto_titulo">夜间音量上限？</string>
+    <string name="sofy_sug_teto">深夜音量比白天高很多。晚上 11 点到早上 6 点最高 %1$d%%？</string>
+    <string name="sofy_sug_perfil_titulo">切换个人资料？</string>
+    <string name="sofy_sug_perfil">现在打开的应用是 %1$s 常看的。切换到 %1$s 的个人资料？</string>
+    <string name="sofy_sug_trocar">切换</string>
+    <string name="sofy_sug_feito">已完成。随时可以在设置中撤销。</string>
+    <string name="sofy_lost_title">迷路了吗？</string>
+    <string name="sofy_lost_text">按一次主页即可回到主屏幕。长按返回可打开快捷面板。</string>
+    <string name="sofy_help_internet">Sofy：检查网络</string>
+    <string name="sofy_help_sound">Sofy：检查声音</string>
+    <string name="sofy_help_slow">Sofy：为什么变慢了？</string>
+    <string name="sofy_help_remote">Sofy：检查遥控器</string>
+    <string name="sofy_help_sound_fixed">这里的音量由电视控制：请用遥控器的音量键，并确认电视没有静音。</string>
+    <string name="sofy_help_sound_fixed_now">声音之前是关的。我已把它重新打开到 %1$d%%。</string>
+    <string name="sofy_help_sound_low">音量很低（%1$d%%）。用遥控器调高。</string>
+    <string name="sofy_help_sound_ok">声音是开着的（%1$d%%）。请检查电视本身的音量和应用。</string>
+    <string name="sofy_help_slow_ok">内存正常（空闲 %1$d MB）。如果只有一个应用慢，原因可能是它本身或网络。</string>
+    <string name="sofy_help_slow_freed">内存紧张：我关闭了后台应用，释放了 %1$d MB。</string>
+    <string name="sofy_help_slow_tight">内存紧张（空闲 %1$d MB）。关闭应用后重新打开。</string>
+    <string name="sofy_help_remote_stuck">今天有个按键卡住了。看看遥控器是不是被什么东西压着。</string>
+    <string name="sofy_help_remote_battery">遥控器电量低。请更换电池。</string>
+    <string name="sofy_help_remote_lag">今天遥控器有延迟。打开电视的游戏模式，并让遥控器远离其他设备。</string>
+    <string name="sofy_help_remote_none">今天没看到遥控器有问题。试试换新电池；如果还不行，在 设置 > 遥控器和配件 中重新配对。</string>
+    <string name="sofy_today_title">Sofy 今天做了什么</string>
+    <string name="sofy_today_none">平静的一天：没什么可说的。</string>
+    <string name="sofy_today_prepared">提前准备的应用：%1$d</string>
+    <string name="sofy_today_night">夜间维护：%1$d</string>
+    <string name="sofy_today_guarded">留意的事情：%1$d</string>
+    <string name="sofy_today_internet">网络中断：%1$d</string>
+    <string name="sofy_today_asked">我提的问题：%1$d</string>
+    <string name="sofy_today_applied">被采纳的建议：%1$d</string>
+    <string name="sofy_today_alarms">闹钟和提醒：%1$d</string>
+    <string name="sofy_today_auto_off">关掉电视的次数：%1$d</string>
+    <string name="sofy_today_home">家居指令：%1$d</string>
+    <string name="sofy_today_updates">已更新的应用：%1$d</string>
+    <string name="sofy_evidence_measured">我怎么知道：刚刚测量的。</string>
+    <string name="sofy_evidence_baseline">我怎么知道：和这个家的正常情况比较过。</string>
+    <string name="sofy_evidence_bus">我怎么知道：电视的事件记录里有。</string>
+    <string name="sofy_evidence_system">我怎么知道：Android 显示的。</string>
+    <string name="sofy_evidence_router">我怎么知道：路由器和 Wi-Fi 告诉我的。</string>
+    <string name="sofy_evidence_test">我怎么知道：试过并确认了。</string>
+    <string name="sofy_evidence_other_tv">我怎么知道：这个家里的另一台电视告诉我的。</string>
+    <string name="sofy_evidence_community">我怎么知道：其他使用 Sofaly 的家庭报告的（只有应用和版本，从不包含是谁）。</string>
+</resources>

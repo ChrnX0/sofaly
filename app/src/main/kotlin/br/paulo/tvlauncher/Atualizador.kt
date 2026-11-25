@@ -103,6 +103,7 @@ object Atualizador {
 
     private fun anotar(ctx: Context, t: String) {
         Log.i(TAG, t)
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(ctx, br.paulo.tvlauncher.observer.SofyBus.Source.UPDATE, "check", detail = t)
         val hora = java.text.SimpleDateFormat("dd/MM HH:mm", java.util.Locale.getDefault()).format(java.util.Date())
         prefs(ctx).edit().putString(ESTADO, "$hora · $t").putLong(ESTADO_VERSAO, versaoAtual(ctx)).apply()
     }
@@ -116,6 +117,12 @@ object Atualizador {
         if (BuildConfig.PLAY || !Config.ATUALIZACAO_AUTOMATICA || android.os.Build.VERSION.SDK_INT < 28) return
         if (System.currentTimeMillis() - prefs(app).getLong(ULTIMA, 0) < INTERVALO_MS) return
         if (telaAcesa(app)) return   // espera a tela apagar: instalar reinicia o launcher
+        // Uma noite só (Sofy, ideia 2): na janela de manutenção + backup, a atualização espera (reiniciaria o launcher no meio).
+        val agoraCal = java.util.Calendar.getInstance()
+        val minuto = agoraCal.get(java.util.Calendar.HOUR_OF_DAY) * 60 + agoraCal.get(java.util.Calendar.MINUTE)
+        if (runCatching { br.paulo.tvlauncher.observer.SofyNight.updateWaits(minuto, br.paulo.tvlauncher.observer.ObserverTv.quietStart(app)) }.getOrDefault(false)) return
+        // Juiz de conflitos (Sofy, ideia 4): despertador perto ou tocando, jogo na nuvem, som tocando = espera a próxima conferida.
+        if (!br.paulo.tvlauncher.observer.SofyJudgeTv.mayRun(app, br.paulo.tvlauncher.observer.SofyJudge.Task.UPDATE).go) return
         // Confirmações: "Bloqueado" = só confere e avisa (fica pendente para o "Instalar agora" das Configurações).
         val sozinho = ConfirmacoesTv.modo(app, Confirmacoes.Acao.ATUALIZACAO) != Confirmacoes.Modo.BLOQUEAR
         verificar(app, instalar = sozinho, soComTelaApagada = true)

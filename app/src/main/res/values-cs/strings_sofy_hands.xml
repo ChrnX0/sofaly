@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Připravená k otevření</string>
+    <string name="sofy_hand_on_demand">Spustí se, až ji otevřete</string>
+    <string name="sofy_hand_hour">Vaše obvyklá volba v tuto hodinu</string>
+    <string name="sofy_sug_cedo_titulo">Vypínat dřív?</string>
+    <string name="sofy_sug_cedo">%1$d nocí se televize pozdě vypnula sama, nikdo se nedíval. Vypínat po %2$d min bez ovladače místo %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Budík později?</string>
+    <string name="sofy_sug_alarme">Budík v %1$s byl často odložen. Zvonit o %2$d min později, v %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Udělat z toho rutinu?</string>
+    <string name="sofy_sug_rotina">%1$s se otevíral kolem %2$s po %3$d dní. Otevírat ho v tyto dny sám v %2$s?</string>
+    <string name="sofy_sug_teto_titulo">Limit hlasitosti v noci?</string>
+    <string name="sofy_sug_teto">Pozdě v noci je hlasitost mnohem vyšší než přes den. Maximálně %1$d%% od 23 do 6?</string>
+    <string name="sofy_sug_perfil_titulo">Přepnout profil?</string>
+    <string name="sofy_sug_perfil">Právě otevřené aplikace obvykle sleduje %1$s. Přepnout na profil %1$s?</string>
+    <string name="sofy_sug_trocar">Přepnout</string>
+    <string name="sofy_sug_feito">Hotovo. V Nastavení to můžete kdykoli vrátit.</string>
+    <string name="sofy_lost_title">Ztratili jste se?</string>
+    <string name="sofy_lost_text">Stiskněte jednou DOMŮ pro návrat na úvodní obrazovku. Podržte ZPĚT pro rychlý panel.</string>
+    <string name="sofy_help_internet">Sofy: zkontrolovat internet</string>
+    <string name="sofy_help_sound">Sofy: zkontrolovat zvuk</string>
+    <string name="sofy_help_slow">Sofy: proč je to pomalé?</string>
+    <string name="sofy_help_remote">Sofy: zkontrolovat ovladač</string>
+    <string name="sofy_help_sound_fixed">Hlasitost tu ovládá televize: použijte tlačítka hlasitosti na ovladači a zkontrolujte, že televize není ztlumená.</string>
+    <string name="sofy_help_sound_fixed_now">Zvuk byl vypnutý. Zapnula jsem ho znovu na %1$d %%.</string>
+    <string name="sofy_help_sound_low">Hlasitost je nízká (%1$d %%). Zesilte ji ovladačem.</string>
+    <string name="sofy_help_sound_ok">Zvuk je zapnutý (%1$d %%). Zkontrolujte hlasitost samotné televize a aplikaci.</string>
+    <string name="sofy_help_slow_ok">Paměť je v pořádku (%1$d MB volno). Pokud je pomalá jedna aplikace, je příčinou nejspíš ona nebo internet.</string>
+    <string name="sofy_help_slow_freed">Paměti bylo málo: zavřela jsem aplikace na pozadí a uvolnila %1$d MB.</string>
+    <string name="sofy_help_slow_tight">Paměti je málo (%1$d MB volno). Zavřete aplikaci a otevřete ji znovu.</string>
+    <string name="sofy_help_remote_stuck">Dnes se zaseklo tlačítko. Zkontrolujte, že ovladač není něčím přimáčknutý.</string>
+    <string name="sofy_help_remote_battery">Baterie ovladače je slabá. Vyměňte baterie.</string>
+    <string name="sofy_help_remote_lag">Ovladač dnes reagoval se zpožděním. Zapněte herní režim televize a držte ovladač dál od jiných zařízení.</string>
+    <string name="sofy_help_remote_none">Dnes jsem s ovladačem žádný problém neviděla. Zkuste nové baterie; když to nepomůže, spárujte ho znovu v Nastavení > Ovladače a příslušenství.</string>
+    <string name="sofy_today_title">Co Sofy dnes udělala</string>
+    <string name="sofy_today_none">Klidný den: nic k vyprávění.</string>
+    <string name="sofy_today_prepared">Připravené aplikace: %1$d</string>
+    <string name="sofy_today_night">Noční péče: %1$d</string>
+    <string name="sofy_today_guarded">Věci, které jsem hlídala: %1$d</string>
+    <string name="sofy_today_internet">Výpadky internetu: %1$d</string>
+    <string name="sofy_today_asked">Položené otázky: %1$d</string>
+    <string name="sofy_today_applied">Přijaté návrhy: %1$d</string>
+    <string name="sofy_today_alarms">Budíky a připomínky: %1$d</string>
+    <string name="sofy_today_auto_off">Vypnutí televize: %1$d</string>
+    <string name="sofy_today_home">Příkazy v domácnosti: %1$d</string>
+    <string name="sofy_today_updates">Aktualizované aplikace: %1$d</string>
+    <string name="sofy_evidence_measured">Jak to vím: právě jsem to změřila.</string>
+    <string name="sofy_evidence_baseline">Jak to vím: porovnala jsem to s normálem této domácnosti.</string>
+    <string name="sofy_evidence_bus">Jak to vím: je to v záznamu toho, co se stalo na televizi.</string>
+    <string name="sofy_evidence_system">Jak to vím: ukázal mi to Android.</string>
+    <string name="sofy_evidence_router">Jak to vím: řekl mi to router a Wi-Fi.</string>
+    <string name="sofy_evidence_test">Jak to vím: vyzkoušela jsem a ověřila.</string>
+    <string name="sofy_evidence_other_tv">Jak to vím: řekla mi to jiná televize v této domácnosti.</string>
+    <string name="sofy_evidence_community">Jak to vím: nahlásily to jiné domácnosti se Sofaly (jen aplikace a verze, nikdy kdo).</string>
+</resources>

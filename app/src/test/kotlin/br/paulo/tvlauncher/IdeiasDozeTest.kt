@@ -315,4 +315,12 @@ class IdeiasDozeTest {
         assertEquals(80L, r.minutosTv)
         assertEquals("TV e filmes", r.apps.single().nome)
     }
+
+    // Sofy, ideia 24: lembrete que veio do Meu time (palavra) avisa 10 min antes; o marcado à mão, 2 min.
+    @Test fun lembreteDoTimeAvisaDezMinutosAntes() {
+        val ini = agora + 3 * h
+        assertEquals(ini - 10 * 60_000L, Lembretes.Lembrete("c", "C", "Jogo", ini, ini + 7_200_000L, palavra = "flamengo").momento)
+        assertEquals(ini - 2 * 60_000L, Lembretes.Lembrete("c", "C", "Filme", ini, ini + 7_200_000L).momento)
+        assertEquals(ini, Lembretes.Lembrete("c", "C", "Jogo", ini, ini + 7_200_000L, palavra = "flamengo", trocar = true).momento)
+    }
 }

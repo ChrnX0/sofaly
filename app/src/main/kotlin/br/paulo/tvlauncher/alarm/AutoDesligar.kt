@@ -233,6 +233,8 @@ object AutoDesligar {
     fun desligar() {
         val a = app ?: return
         ultimoDesligamento = System.currentTimeMillis()
+        // A Sofy aprende "dormiu vendo" (ideia 20): desligou sozinha de madrugada = ninguém mexeu no controle.
+        runCatching { br.paulo.tvlauncher.observer.SofyBusTv.emit(a, br.paulo.tvlauncher.observer.SofyBus.Source.HOUSE, "auto_off", detail = minutos(a).toString()) }
         // 17/11/2026 (decisão do Paulo): a LG pareada desliga junto, primeiro, se estiver na entrada do Chromecast (a LG
         // ignora o standby do CEC; antes ela ficava acesa sem sinal). Em outra entrada, só o Chromecast apaga.
         val feito = java.util.concurrent.atomic.AtomicBoolean(false)
