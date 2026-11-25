@@ -1713,6 +1713,7 @@ async function desenharSofy(agora) {
       });
     }
   }
+  sofyIa();
   if (!chave.dataset.ligada) {
     chave.dataset.ligada = '1';
     chave.addEventListener('change', async () => {
@@ -3153,3 +3154,41 @@ async function enviarCompartilhado() {
     mostrarEntrar();
   }
 })();
+
+// A IA do dono e o que a Sofy consertou sozinha (25/11/2026). A chave nunca volta da TV: só "tem uma guardada".
+async function sofyIa() {
+  const prov = $('sofyIaProvedor');
+  if (!prov) return;
+  const base = $('sofyIaBase'), modelo = $('sofyIaModelo'), chave = $('sofyIaChave'), estado = $('sofyIaEstado');
+  const dizer = (t) => { estado.textContent = t; estado.hidden = !t; };
+  const mostrar = () => { $('sofyIaLinhaBase').hidden = prov.value !== 'custom'; };
+  if (!prov.dataset.ligada) {
+    prov.dataset.ligada = '1';
+    try { const d = await chamar('GET', '/api/sofy/ai'); prov.value = d.provider || ''; base.value = d.base || ''; modelo.value = d.model || ''; } catch (e) { $('cartaoSofyIa').hidden = true; return; }
+    mostrar();
+    prov.addEventListener('change', mostrar);
+    $('sofyIaSalvar').addEventListener('click', async () => {
+      const corpo = { provider: prov.value, base: base.value, model: modelo.value };
+      if (chave.value) corpo.key = chave.value;
+      try { await chamar('POST', '/api/sofy/ai', corpo); chave.value = ''; dizer('Salvo.'); } catch (e) { dizer(e.message); }
+    });
+    $('sofyIaTestar').addEventListener('click', async () => {
+      dizer('');
+      try { const r = await chamar('POST', '/api/sofy/ai', { test: true }); dizer(r.ok ? 'A IA respondeu.' : 'A IA não respondeu. Confira a chave, o endereço e o modelo.'); }
+      catch (e) { dizer(e.message); }
+    });
+  }
+  try {
+    const casos = ((await chamar('GET', '/api/sofy/ai')).cases || []).filter((c) => (c.tried || []).length);
+    const ul = $('listaSofyConsertos');
+    ul.textContent = '';
+    for (const c of casos.slice(-12).reverse()) {
+      const li = document.createElement('li');
+      const marca = c.state === 'FIXED' ? '✓' : c.state === 'GIVEN_UP' ? '!' : '…';
+      li.textContent = marca + ' ' + c.subject + ' · ' + c.tried.map((t) => t.tool.toLowerCase()).join(' → ');
+      li.translate = false;
+      ul.appendChild(li);
+    }
+    $('sofyConsertos').hidden = !casos.length;
+  } catch (e) { /* fica como está */ }
+}

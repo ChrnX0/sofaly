@@ -1221,6 +1221,30 @@
         <p id="agoraObservador" class="aviso">Lendo…</p>
         <div id="listaObservador" class="lista-registro"></div>
       </div>
+      <!-- A IA do dono (25/11/2026): a Sofy pergunta a ela só o defeito que nenhuma receita resolveu. -->
+      <div id="cartaoSofyIa" class="cartao">
+        <h2>IA da Sofy</h2>
+        <p class="aviso">Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.</p>
+        <p class="aviso"><select id="sofyIaProvedor" aria-label="Provedor">
+          <option value="">Nenhuma IA</option>
+          <option value="claude">Claude</option>
+          <option value="openai">OpenAI</option>
+          <option value="perplexity">Perplexity</option>
+          <option value="gemini">Gemini</option>
+          <option value="groq">Groq</option>
+          <option value="openrouter">OpenRouter</option>
+          <option value="custom">IA local ou outro endereço</option>
+        </select></p>
+        <p class="aviso" id="sofyIaLinhaBase" hidden><input id="sofyIaBase" type="url" maxlength="200" autocomplete="off" spellcheck="false" placeholder="Endereço da IA, por exemplo http://192.168.1.50:11434/v1" aria-label="Endereço da IA, por exemplo http://192.168.1.50:11434/v1"></p>
+        <p class="aviso"><input id="sofyIaModelo" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Modelo (em branco = o padrão)" aria-label="Modelo (em branco = o padrão)"></p>
+        <p class="aviso"><input id="sofyIaChave" type="password" maxlength="300" autocomplete="off" placeholder="Chave da API (em branco = manter a atual)" aria-label="Chave da API (em branco = manter a atual)"></p>
+        <p><button id="sofyIaSalvar" class="botao-secundario" type="button">Salvar</button> <button id="sofyIaTestar" class="botao-secundario" type="button">Testar</button></p>
+        <p class="aviso" id="sofyIaEstado" hidden></p>
+        <div id="sofyConsertos" hidden>
+          <h2>O que a Sofy consertou sozinha</h2>
+          <ul id="listaSofyConsertos" class="lista-simples"></ul>
+        </div>
+      </div>
       <div id="cartaoAcessoRemoto" class="cartao">
         <h2>Acesso remoto</h2>
         <p class="aviso">O shell do launcher (teclas do painel, comandos do Claude, autocura) e o túnel do Claude pela
