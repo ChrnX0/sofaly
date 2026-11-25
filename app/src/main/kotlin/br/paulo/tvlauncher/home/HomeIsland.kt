@@ -132,7 +132,8 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     raiz.addView(palco, FrameLayout.LayoutParams(MATCH, dp(40), Gravity.TOP).apply {
         topMargin = dp(TOPO_PALCO + (ALTURA_TOPO - 40) / 2)
     })
-    val dica = texto(15f, Estilo.TEXTO, fonteUi).apply {
+    // 18sp, a menor letra da HOME (TelasTest, 25/11/2026: com 15sp a dica "amanhã 6:45 · ▲ para abrir" ficava abaixo).
+    val dica = texto(18f, Estilo.TEXTO, fonteUi).apply {
         includeFontPadding = false; maxLines = 1; ellipsize = TextUtils.TruncateAt.END; maxWidth = dp(ILHA_TEXTO_MAX + 200)
         background = GradientDrawable().apply { cornerRadius = dp(16).toFloat(); setColor(0xE60A0B14.toInt()); setStroke(dp(1), 0x26FFFFFF) }
         setPaddingRelative(dp(16), dp(8), dp(16), dp(8))
