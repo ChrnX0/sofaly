@@ -310,7 +310,13 @@ object SofyRepair {
         val fora = banned(c, e.now)
         var cedo: Step.Wait? = null   // a ferramenta que volta primeiro, se todas estiverem no recuo
         for (t in ordered(c, l)) {
-            if (t in e.unavailable || t in fora) continue
+            if (t in e.unavailable) continue
+            if (t in fora) {
+                // Fora por laço: não some em silêncio (Sala 473144, 25/11: tudo banido = Done mudo, sem log nenhum).
+                val volta = (c.banned[t] ?: e.now) + banMs(c)
+                if (cedo == null || volta < cedo.until) cedo = Step.Wait(t, "fora por laço", volta)
+                continue
+            }
             if (t == Tool.ASK_AI) { if (!e.aiAvailable || askedRecently) continue; return Step.Run(t) }
             if (t == Tool.REPORT) {
                 if (!reported) return Step.Run(t)   // registrar não gasta nada nem atrapalha ninguém

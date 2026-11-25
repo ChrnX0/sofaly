@@ -324,6 +324,8 @@ object SofyRepairTv {
         for (c in ordem) {
             val passo = SofyRepair.next(c, learned, e)
             if (passo is SofyRepair.Step.Wait) { noteWait(app, c, passo); continue }
+            // Não está mais esperando: o motivo antigo sai do relatório (a Revisão leu um "alguém está usando" velho).
+            p.edit().remove("wait:${c.key}").apply()
             val step = passo as? SofyRepair.Step.Run ?: continue
             val applied = runCatching { runTool(app, c, step.tool) }.onFailure { Log.w(TAG, "${step.tool}: $it") }.getOrNull()
             if (applied == null && step.tool == Tool.REPAIR_SHELL) {   // ainda não é a hora (regras do AutoPairing): tenta depois
