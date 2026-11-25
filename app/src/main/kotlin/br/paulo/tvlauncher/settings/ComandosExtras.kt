@@ -221,11 +221,11 @@ object ComandosExtras {
             fun gravar(extra: String, chave: String, nomes: List<String>) = i.getStringExtra(extra)?.let { n ->
                 nomes.firstOrNull { it.equals(n, true) }?.let { L.set(ctx, chave, it) }
             }
-            gravar("hora", L.KEY_CLOCK, L.Clock.entries.map { it.name })
-            gravar("cartao", L.KEY_CARD, L.Card.entries.map { it.name })
-            gravar("lugar", L.KEY_PLACE, L.Place.entries.map { it.name })
-            "descanso_look hora=${L.clock(ctx)} cartao=${L.card(ctx)} lugar=${L.place(ctx)}; horas: ${L.Clock.entries.joinToString { it.name.lowercase() }}; " +
-                "cartões: ${L.Card.entries.joinToString { it.name.lowercase() }}; lugares: ${L.Place.entries.joinToString { it.name.lowercase() }}"
+            gravar("hora", L.KEY_CLOCK, br.paulo.tvlauncher.screensaver.SleepingLook.Clock.entries.map { it.name })
+            gravar("cartao", L.KEY_CARD, br.paulo.tvlauncher.screensaver.SleepingLook.Card.entries.map { it.name })
+            gravar("lugar", L.KEY_PLACE, br.paulo.tvlauncher.screensaver.SleepingLook.Place.entries.map { it.name })
+            "descanso_look hora=${L.clock(ctx)} cartao=${L.card(ctx)} lugar=${L.place(ctx)}; horas: ${br.paulo.tvlauncher.screensaver.SleepingLook.Clock.entries.joinToString { it.name.lowercase() }}; " +
+                "cartões: ${br.paulo.tvlauncher.screensaver.SleepingLook.Card.entries.joinToString { it.name.lowercase() }}; lugares: ${br.paulo.tvlauncher.screensaver.SleepingLook.Place.entries.joinToString { it.name.lowercase() }}"
         }
         "personalidade" -> (i.getStringExtra("nome") ?: "").let { n ->
             val M = br.paulo.tvlauncher.home.StripHome.Mood.entries

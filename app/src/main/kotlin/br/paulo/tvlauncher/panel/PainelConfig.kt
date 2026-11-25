@@ -115,9 +115,9 @@ object PainelConfig {
             "horaDescanso", "cartaoDescanso", "lugarDescanso" -> {
                 val L = br.paulo.tvlauncher.screensaver.SleepingLook
                 val nomes = when (campo) {
-                    "horaDescanso" -> L.Clock.entries.map { it.name }
-                    "cartaoDescanso" -> L.Card.entries.map { it.name }
-                    else -> L.Place.entries.map { it.name }
+                    "horaDescanso" -> br.paulo.tvlauncher.screensaver.SleepingLook.Clock.entries.map { it.name }
+                    "cartaoDescanso" -> br.paulo.tvlauncher.screensaver.SleepingLook.Card.entries.map { it.name }
+                    else -> br.paulo.tvlauncher.screensaver.SleepingLook.Place.entries.map { it.name }
                 }
                 val n = nomes.firstOrNull { it.equals(v as? String, ignoreCase = true) } ?: return Resultado.Erro("valor inválido")
                 L.set(app, when (campo) { "horaDescanso" -> L.KEY_CLOCK; "cartaoDescanso" -> L.KEY_CARD; else -> L.KEY_PLACE }, n)
