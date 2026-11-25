@@ -104,7 +104,10 @@ class BackupNoturnoActivity : Activity() {
                 BackupNoturno.fazerAgora(this) { r -> runOnUiThread { if (!isDestroyed) { rodando = false; mostrar(r); atualizar() } } }
             }
         }
-        linha({ getString(R.string.bkn_ultimo) + ": " + BackupNoturno.ultimo(this).ifEmpty { getString(R.string.bkn_nunca) } }) {}
+        // OK relê e mostra (TodoBotaoFazAlgoTest, 25/11/2026: a linha focava e o OK não fazia nada).
+        linha({ getString(R.string.bkn_ultimo) + ": " + BackupNoturno.ultimo(this).ifEmpty { getString(R.string.bkn_nunca) } }) {
+            AvisoTv.rapido(this, getString(R.string.bkn_titulo), getString(R.string.bkn_ultimo) + ": " + BackupNoturno.ultimo(this).ifEmpty { getString(R.string.bkn_nunca) })
+        }
         linhas.firstOrNull()?.first?.requestFocus()
     }
 

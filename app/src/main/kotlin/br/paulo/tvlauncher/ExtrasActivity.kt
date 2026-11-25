@@ -72,6 +72,8 @@ class ExtrasActivity : Activity() {
         linhaDormir({ "${getString(R.string.dormir_fim)}: ${hhmm(janelaSel().fim)}" }, 30) { d -> mudarJanela(0, d) }
         linhaDormir({ getString(R.string.dormir_voltar_padrao) }, 0) { _ ->
             if (diaSel >= 0) HoraDormirTv.definirDias(this, HoraDormirTv.dias(this).toMutableList().also { it[diaSel] = null })
+            // Com "todos" já é o padrão: diz isso em vez de não fazer nada (TodoBotaoFazAlgoTest, 25/11/2026).
+            else aviso(getString(R.string.dormir_dia) + ": " + textoDia())
         }
         linhaDormir({ "${getString(R.string.dormir_teto)}: ${Extras.numero(this, HoraDormir.CHAVE_TETO, HoraDormir.PADRAO_TETO)}%" }, 5) { d ->
             val v = Math.floorMod(Extras.numero(this, HoraDormir.CHAVE_TETO, HoraDormir.PADRAO_TETO) + d, 105)   // 0..100, dá a volta
@@ -106,7 +108,10 @@ class ExtrasActivity : Activity() {
             Fundo.rodar { DiarioDns.apagarTudo(applicationContext) }
             aviso(getString(R.string.extras_diario_apagado))
         }
-        linha({ if (ExtrasDO.atualizacaoPendente(this) != null) getString(R.string.extras_ota_pendente) else getString(R.string.extras_ota_nenhuma) }) {}
+        // OK confere de novo e diz o resultado (25/11/2026, TodoBotaoFazAlgoTest: a linha focava e o OK não fazia nada).
+        linha({ if (ExtrasDO.atualizacaoPendente(this) != null) getString(R.string.extras_ota_pendente) else getString(R.string.extras_ota_nenhuma) }) {
+            aviso(if (ExtrasDO.atualizacaoPendente(this) != null) getString(R.string.extras_ota_pendente) else getString(R.string.extras_ota_nenhuma))
+        }
         // Vindo da busca: foco (e rolagem) na linha procurada; seção (ex.: "Hora de dormir") = a 1ª linha depois dela.
         val foco = intent?.getStringExtra(EXTRA_FOCO)
         val alvo = foco?.let { f -> linhas.firstOrNull { it.second().startsWith(f) }?.first ?: secaoAlvo(f) }
