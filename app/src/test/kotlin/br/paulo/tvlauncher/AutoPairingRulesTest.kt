@@ -46,6 +46,26 @@ class AutoPairingRulesTest {
         assertTrue(AutoPairingRules.stillTrying(st(attempts = listOf(now - 25 * h) + quatro.drop(1))))
     }
 
+    @Test fun walksByFocusLikeTheGoogleTvSala() {
+        // Leitura da Sala (25/11): o item é "Depuração por Wi-Fi", e o painel da direita já mostra "Parear..." de prévia.
+        val P = AutoPairingRules.PAIR_FALLBACK; val W = AutoPairingRules.WIRELESS_FALLBACK
+        val previa = listOf("Depuração por Wi-Fi", "Desativado", "Ativado", "Parear o dispositivo com um código de pareamento")
+        assertEquals(AutoPairingRules.Move.DOWN, AutoPairingRules.move(listOf("Ativar opções do desenvolvedor"), previa, false, P, W))
+        assertEquals(AutoPairingRules.Move.CENTER, AutoPairingRules.move(listOf("Depuração por Wi-Fi", "Ativado"), previa, false, P, W))
+        assertEquals(AutoPairingRules.Move.RIGHT, AutoPairingRules.move(listOf("Depuração por Wi-Fi", "Ativado"), previa, true, P, W))
+        // Dentro do painel: nunca OK em "Desativado"/"Ativado"; desce até "Parear".
+        assertEquals(AutoPairingRules.Move.DOWN, AutoPairingRules.move(listOf("Desativado"), previa, true, P, W))
+        assertEquals(AutoPairingRules.Move.DOWN, AutoPairingRules.move(listOf("Ativado"), previa, true, P, W))
+        assertEquals(AutoPairingRules.Move.CENTER, AutoPairingRules.move(listOf("Parear o dispositivo com um código de pareamento"), previa, true, P, W))
+        assertEquals(AutoPairingRules.Move.READ, AutoPairingRules.move(emptyList(), listOf("Código de pareamento Wi-Fi", "482913"), true, P, W))
+    }
+
+    @Test fun logsWhereItGotLostWithoutNumbers() {
+        assertEquals(listOf("open_wireless@x x3", "rolou", "open_pairing@x"), AutoPairingRules.squash(listOf("open_wireless@x", "open_wireless@x", "open_wireless@x", "rolou", "open_pairing@x")))
+        val t = AutoPairingRules.screenSummary(listOf("Depuração sem fio", "192.168.1.153:37123", "Código 123456", "Depuração sem fio"))
+        assertEquals("Depuração sem fio | ###.###.#.###:##### | Código ######", t)
+    }
+
     @Test fun findsTheStepFromTheScreenTexts() {
         val pair = AutoPairingRules.PAIR_FALLBACK
         assertEquals(Step.OPEN_WIRELESS, AutoPairingRules.step(listOf("Opções do desenvolvedor", "Depuração USB"), pair))
