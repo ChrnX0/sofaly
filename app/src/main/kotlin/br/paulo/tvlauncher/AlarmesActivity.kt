@@ -298,9 +298,16 @@ class AlarmesActivity : Activity() {
             val linhas = ArrayList<String>()
             val dias = Despertador.diasTexto(this@AlarmesActivity, a.dias)
             val prox = Despertador.proximaVez(a)
-            linhas += if (prox == null) "$dias · ${getString(R.string.al_desligado)}" else "$dias · ${getString(R.string.al_info_toca, quando(prox))}"
+            linhas += if (prox == null) dias else "$dias · ${getString(R.string.al_info_toca, quando(prox))}"
             if (a.nome.isNotBlank()) linhas += a.nome
-            return CrossColumn.Item(Despertador.horaTexto(a), linhas.joinToString("\n"), apagado = !a.ativo, fonte = 44f)
+            // "Desligado" ao lado da hora, não só no detalhe (revisor dos dados reais, 25/11/2026: o detalhe só aparece no
+            // alarme com foco, e o 15:26 sem foco não dizia se tocava).
+            val hora: CharSequence = if (prox != null) Despertador.horaTexto(a) else android.text.SpannableString(
+                Despertador.horaTexto(a) + "  " + getString(R.string.al_desligado)).apply {
+                val i = Despertador.horaTexto(a).length
+                setSpan(android.text.style.RelativeSizeSpan(0.45f), i, length, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
+            return CrossColumn.Item(hora, linhas.joinToString("\n"), apagado = !a.ativo, fonte = 44f)
         }
 
         fun rotuloVolume(pct: Int) = if (pct <= 0 || (lg && pct == LgNetcast.NAO_MEXER)) getString(R.string.al_volume_nao_mexe)
