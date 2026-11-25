@@ -115,6 +115,12 @@ object SaudeAcesso {
         shell = SaudeRegras.observar(shell, if (ok || shellEsperado(ctx)) ok else null, agora)
     }
 
+    /** Há quanto tempo o shell está fora (null = não está fora). Para o ciclo de conserto da Sofy. */
+    fun shellDownMs(): Long? = shell.let { if (it.ok == false) SystemClock.elapsedRealtime() - it.foraDesde else null }
+
+    /** O túnel devia estar no ar e está fora há mais que o limite. */
+    fun tunnelDown(): Boolean = tunel.let { it.ok == false && SystemClock.elapsedRealtime() - it.foraDesde >= LIMITE_TUNEL_MS }
+
     /** O serviço de acessibilidade avisa cada janela nova: a HOME apareceu é a hora boa para um aviso pendente. */
     fun janela(ctx: Context, pacote: CharSequence?, classe: CharSequence?) {
         val p = pacote?.toString() ?: return
@@ -177,6 +183,8 @@ object SaudeAcesso {
                 principal.post { talvezAvisar(app) }
             }
         }
+        // A Sofy percebe e conserta sozinha (SofyRepairTv, 25/11/2026): sondas baratas aqui; o trabalho vai para fora da tela.
+        br.paulo.tvlauncher.observer.SofyRepairTv.tick(app)
         talvezAvisar(app)
     }
 
@@ -189,7 +197,9 @@ object SaudeAcesso {
         // A tela está acesa mas o SCREEN_ON ainda não chegou (corrida com a janela da HOME): conta como "acabou de acordar".
         if (acordouEm == Long.MAX_VALUE) acordouEm = agora
         val p = prefs(app)
-        val avisarShell = SaudeRegras.precisaAvisar(shell, agora, LIMITE_SHELL_MS, p.getLong("aviso_shell", 0), parede, INTERVALO_AVISO_MS, acordouEm)
+        // Enquanto a Sofy ainda pode religar sozinha, não explica nada (Paulo, 25/11/2026: "só identificar e corrigir").
+        val avisarShell = !AutoPairing.stillTrying(app) &&
+            SaudeRegras.precisaAvisar(shell, agora, LIMITE_SHELL_MS, p.getLong("aviso_shell", 0), parede, INTERVALO_AVISO_MS, acordouEm)
         val avisarTunel = SaudeRegras.precisaAvisar(tunel, agora, LIMITE_TUNEL_MS, p.getLong("aviso_tunel", 0), parede, INTERVALO_AVISO_MS, acordouEm)
         if (!avisarShell && !avisarTunel) return
         val ctxTela: Context = AutorizaShizukuService.instancia ?: app   // o serviço pode abrir tela vindo de segundo plano
