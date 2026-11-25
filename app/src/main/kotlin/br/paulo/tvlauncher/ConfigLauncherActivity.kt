@@ -175,6 +175,8 @@ class ConfigLauncherActivity : Activity() {
     internal lateinit var rolagem: ScrollView
     internal lateinit var dica: FrameLayout
     internal val itensMenu = ArrayList<TextView>()
+    /** Como estava a cara da HOME antes do 1º visual pronto desta visita ("Como estava" volta a ela; ConfigLooksRow). */
+    internal var fotoVisuais: Map<String, Int?>? = null
     internal var reconstruirAoVoltar = false   // voltou de outra tela (Android, canais bloqueados): redesenha a aba
     internal var pinValidoAte = 0L
     private var liberadoHospede = false   // modo hóspede: o PIN já foi acertado nesta visita às Configurações

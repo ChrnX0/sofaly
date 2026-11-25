@@ -535,6 +535,8 @@ class MainActivity : Activity() {
      * mesmas preferências que o Desfazer vigia; se a aparência mudou (as mesmas assinaturas do onResume), ela se refaz
      * ali mesmo. Atrás de uma tela opaca o onStop chega logo e desliga o ouvinte (nada roda à toa).
      */
+    /** As do Desfazer e mais "extras", onde ficam as opções da barra única e os visuais prontos (só para a prévia). */
+    private val PREFS_PREVIA = DesfazerRegras.PREFS_VIGIADAS + "extras"
     private var previaLigada = false
     private val tarefaPrevia = Runnable { if (previaLigada && !isFinishing && !isDestroyed && aparenciaMudou()) { descongelar(); recriar() } }
     private val ouvintePrevia = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
@@ -543,7 +545,7 @@ class MainActivity : Activity() {
     private fun ligarPrevia() {
         if (previaLigada || isFinishing) return
         previaLigada = true
-        for (n in DesfazerRegras.PREFS_VIGIADAS) getSharedPreferences(n, MODE_PRIVATE).registerOnSharedPreferenceChangeListener(ouvintePrevia)
+        for (n in PREFS_PREVIA) getSharedPreferences(n, MODE_PRIVATE).registerOnSharedPreferenceChangeListener(ouvintePrevia)
         ui.postDelayed(congelar, CONGELAR_APOS_MS)
     }
     private fun desligarPrevia() {
@@ -551,7 +553,7 @@ class MainActivity : Activity() {
         if (!previaLigada) return
         previaLigada = false
         ui.removeCallbacks(tarefaPrevia)
-        for (n in DesfazerRegras.PREFS_VIGIADAS) getSharedPreferences(n, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(ouvintePrevia)
+        for (n in PREFS_PREVIA) getSharedPreferences(n, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(ouvintePrevia)
     }
     /**
      * HOME congelada atrás do painel (medido na Sala, 25/11/2026: parada, a HOME desenha ~31 quadros/s com as animações;
