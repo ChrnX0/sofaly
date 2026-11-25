@@ -259,7 +259,12 @@ dependencies {
 // Ficam fora do testReleaseUnitTest de sempre; rodam com "./gradlew testReleaseUnitTest -Ptelas" (workflow telas.yml).
 tasks.withType<Test>().configureEach {
     if (!project.hasProperty("telas")) exclude("br/paulo/tvlauncher/telas/**")
-    else filter { includeTestsMatching("br.paulo.tvlauncher.telas.*") }
+    else {
+        filter { includeTestsMatching("br.paulo.tvlauncher.telas.*") }
+        // 25/11/2026: com -PtelasTodas o TodoBotaoFazAlgoTest abre as 79 telas na mesma JVM e o padrão de 512 MB acabava;
+        // o executor morria com "exit value 1" sem relatório. Com 3 GB passa (127 testes); o ubuntu-latest tem 16 GB.
+        maxHeapSize = "3g"
+    }
     systemProperty("telas.atualizar", project.hasProperty("telasAtualizar").toString())
     systemProperty("telas.todas", project.hasProperty("telasTodas").toString())   // as 26 línguas (24/11/2026)
     systemProperty("telas.auditoria", project.hasProperty("auditoria").toString())
