@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI đã trả lời.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI không trả lời. Hãy kiểm tra khóa, địa chỉ và mô hình.",
 "O que a Sofy consertou sozinha":"Những gì Sofy tự sửa",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Những gì TV tự theo dõi: bộ nhớ, internet, Wi-Fi, độ mượt màn hình chính và dung lượng lưu trữ. Khi có gì khác thường, nó hiện ở đây kèm lý do. Hiện tại nó chỉ theo dõi và ghi chép.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Những gì TV tự theo dõi: bộ nhớ, internet, Wi-Fi, độ mượt màn hình chính và dung lượng lưu trữ. Khi có gì khác thường, nó hiện ở đây kèm lý do.",
 "Tudo normal agora.":"Hiện mọi thứ bình thường.",
 "Nada fora do normal nos últimos 7 dias.":"Không có gì bất thường trong 7 ngày qua.",
 "Esta versão do launcher ainda não tem o Observador.":"Phiên bản launcher này chưa có Observer.",

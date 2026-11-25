@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"Az MI válaszolt.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"Az MI nem válaszolt. Ellenőrizze a kulcsot, a címet és a modellt.",
 "O que a Sofy consertou sozinha":"Amit Sofy egyedül javított meg",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Amit a TV magától figyel: memória, internet, Wi-Fi, a kezdőképernyő gördülékenysége és a tárhely. Ha valami eltér a normálistól, itt jelenik meg az okkal együtt. Egyelőre csak figyel és jegyzetel.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Amit a TV magától figyel: memória, internet, Wi-Fi, a kezdőképernyő gördülékenysége és a tárhely. Ha valami eltér a normálistól, itt jelenik meg az okkal együtt.",
 "Tudo normal agora.":"Jelenleg minden normális.",
 "Nada fora do normal nos últimos 7 dias.":"Az elmúlt 7 napban semmi rendellenes.",
 "Esta versão do launcher ainda não tem o Observador.":"Ennek a launcher-verziónak még nincs Megfigyelője.",

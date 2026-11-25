@@ -145,7 +145,7 @@ class SofyRepairBusAndAiTest {
         assertEquals("https://api.anthropic.com/v1/messages", br.paulo.tvlauncher.observer.SofyAiRules.url(claude))
         assertEquals("k", br.paulo.tvlauncher.observer.SofyAiRules.headers(claude)["x-api-key"])
         val pplx = br.paulo.tvlauncher.observer.SofyAiRules.resolve(br.paulo.tvlauncher.observer.SofyAiRules.Provider.of("perplexity"), "http://ignorado", "", "k")!!
-        assertEquals("https://api.perplexity.ai/chat/completions", br.paulo.tvlauncher.observer.SofyAiRules.url(pplx))
+        assertEquals("https://api.perplexity.ai/orchestrator/v1/chat/completions", br.paulo.tvlauncher.observer.SofyAiRules.url(pplx))
         assertEquals("Bearer k", br.paulo.tvlauncher.observer.SofyAiRules.headers(pplx)["authorization"])
         // IA local na rede da casa: http e sem chave valem; http para fora, não.
         val local = br.paulo.tvlauncher.observer.SofyAiRules.resolve(br.paulo.tvlauncher.observer.SofyAiRules.Provider.CUSTOM, "http://192.168.1.50:11434/v1/", "llama3", "")!!
@@ -168,5 +168,40 @@ class SofyRepairBusAndAiTest {
         val claude = org.json.JSONObject("{\"content\":[{\"type\":\"text\",\"text\":\"oi\"}]}")
         val openai = org.json.JSONObject("{\"choices\":[{\"message\":{\"content\":\"oi\"}}]}")
         assertEquals("oi", br.paulo.tvlauncher.observer.SofyAiRules.text(br.paulo.tvlauncher.observer.SofyAiRules.Format.CLAUDE, claude)); assertEquals("oi", br.paulo.tvlauncher.observer.SofyAiRules.text(br.paulo.tvlauncher.observer.SofyAiRules.Format.OPENAI, openai))
+    }
+}
+
+/** Diário de ajustes: o que conta como mudança de alguém e qual delas a Sofy desfaz. */
+class SettingsJournalTest {
+    private val J = br.paulo.tvlauncher.observer.SettingsJournal
+    private fun ch(key: String, at: Long, old: String? = "b:false", new: String? = "b:true") =
+        br.paulo.tvlauncher.observer.SettingsJournal.Change("launcher", key, old, new, at)
+
+    @org.junit.Test fun relogioEContadorNaoSaoAjuste() {
+        org.junit.Assert.assertTrue(J.record(emptyList(), ch("ultima_vez", 1)).isEmpty())
+        org.junit.Assert.assertTrue(J.record(emptyList(), ch("tema", 1, "s:a", "s:a")).isEmpty())
+        org.junit.Assert.assertEquals(1, J.record(emptyList(), ch("tema", 1, "s:a", "s:b")).size)
+        org.junit.Assert.assertNull(J.encode(5L))
+        org.junit.Assert.assertEquals("i:5", J.encode(5))
+    }
+
+    @org.junit.Test fun desfazSoOQueMudouLogoAntesDoDefeito() {
+        val min = 60_000L
+        val l = listOf(ch("velho", 0), ch("recente", 50 * min), ch("depois", 70 * min))
+        // defeito aos 60 min: "velho" está fora da janela de 30 min, "depois" veio depois do defeito
+        org.junit.Assert.assertEquals("recente", J.candidate(l, 60 * min)?.key)
+        org.junit.Assert.assertNull(J.candidate(l, 40 * min))
+        org.junit.Assert.assertNull(J.candidate(l.map { it.copy(undone = true) }, 60 * min))
+    }
+
+    @org.junit.Test fun chaveQueMudaTodaHoraNaoECausa() {
+        val min = 60_000L
+        val l = listOf(ch("ajuste", 40 * min), ch("pisca", 50 * min), ch("pisca", 51 * min), ch("pisca", 52 * min))
+        org.junit.Assert.assertEquals("ajuste", J.candidate(l, 60 * min)?.key)
+    }
+
+    @org.junit.Test fun idaEVoltaDoJson() {
+        val l = listOf(ch("a", 1, null, "s:x"), ch("b", 2).copy(undone = true))
+        org.junit.Assert.assertEquals(l, J.fromJson(J.toJson(l)))
     }
 }

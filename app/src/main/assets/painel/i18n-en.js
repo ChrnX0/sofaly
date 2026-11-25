@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"The AI answered.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"The AI didn't answer. Check the key, the address and the model.",
 "O que a Sofy consertou sozinha":"What Sofy fixed by herself",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"What the TV watches on its own: memory, internet, Wi-Fi, home screen smoothness and storage. When something goes off normal, it shows up here with the reason. For now it only watches and takes notes.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"What the TV watches on its own: memory, internet, Wi-Fi, home screen smoothness and storage. When something goes off normal, it shows up here with the reason.",
 "Tudo normal agora.":"All normal right now.",
 "Nada fora do normal nos últimos 7 dias.":"Nothing off normal in the last 7 days.",
 "Esta versão do launcher ainda não tem o Observador.":"This launcher version doesn't have the Observer yet.",

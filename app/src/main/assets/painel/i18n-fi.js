@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"Tekoäly vastasi.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"Tekoäly ei vastannut. Tarkista avain, osoite ja malli.",
 "O que a Sofy consertou sozinha":"Mitä Sofy korjasi itse",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Mitä TV tarkkailee itse: muisti, internet, Wi-Fi, aloitusnäytön sujuvuus ja tallennustila. Kun jokin poikkeaa normaalista, se näkyy täällä syyn kanssa. Toistaiseksi se vain tarkkailee ja kirjaa ylös.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Mitä TV tarkkailee itse: muisti, internet, Wi-Fi, aloitusnäytön sujuvuus ja tallennustila. Kun jokin poikkeaa normaalista, se näkyy täällä syyn kanssa.",
 "Tudo normal agora.":"Kaikki normaalia juuri nyt.",
 "Nada fora do normal nos últimos 7 dias.":"Ei mitään normaalista poikkeavaa viimeisten 7 päivän aikana.",
 "Esta versão do launcher ainda não tem o Observador.":"Tässä launcherin versiossa ei vielä ole Tarkkailijaa.",

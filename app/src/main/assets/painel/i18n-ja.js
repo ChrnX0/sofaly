@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AIが応答しました。",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AIが応答しませんでした。キー、アドレス、モデルを確認してください。",
 "O que a Sofy consertou sozinha":"Sofyが自分で直したもの",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"テレビが自分で見守っていること：メモリ、インターネット、Wi-Fi、ホーム画面のなめらかさ、空き容量。何かがいつもと違うと、理由と一緒にここに表示されます。今は見守って記録するだけです。",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"テレビが自分で見守っていること：メモリ、インターネット、Wi-Fi、ホーム画面のなめらかさ、空き容量。何かがいつもと違うと、理由と一緒にここに表示されます。",
 "Tudo normal agora.":"今はすべて正常です。",
 "Nada fora do normal nos últimos 7 dias.":"過去7日間に異常はありません。",
 "Esta versão do launcher ainda não tem o Observador.":"このバージョンのランチャーにはまだオブザーバーがありません。",

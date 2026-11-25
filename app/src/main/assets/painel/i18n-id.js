@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI menjawab.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI tidak menjawab. Periksa kunci, alamat, dan model.",
 "O que a Sofy consertou sozinha":"Yang diperbaiki Sofy sendiri",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Yang dipantau TV sendiri: memori, internet, Wi-Fi, kelancaran layar utama, dan ruang penyimpanan. Saat ada yang tidak normal, akan muncul di sini beserta alasannya. Untuk saat ini ia hanya mengamati dan mencatat.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Yang dipantau TV sendiri: memori, internet, Wi-Fi, kelancaran layar utama, dan ruang penyimpanan. Saat ada yang tidak normal, akan muncul di sini beserta alasannya.",
 "Tudo normal agora.":"Semua normal saat ini.",
 "Nada fora do normal nos últimos 7 dias.":"Tidak ada yang tidak normal dalam 7 hari terakhir.",
 "Esta versão do launcher ainda não tem o Observador.":"Versi launcher ini belum punya Pengamat.",

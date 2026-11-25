@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI가 응답했습니다.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI가 응답하지 않았습니다. 키, 주소, 모델을 확인하세요.",
 "O que a Sofy consertou sozinha":"Sofy가 혼자 고친 것",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"TV가 스스로 지켜보는 것: 메모리, 인터넷, Wi-Fi, 홈 화면의 부드러움, 저장 공간. 무언가 평소와 다르면 이유와 함께 여기에 나타납니다. 지금은 지켜보고 기록만 합니다.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"TV가 스스로 지켜보는 것: 메모리, 인터넷, Wi-Fi, 홈 화면의 부드러움, 저장 공간. 무언가 평소와 다르면 이유와 함께 여기에 나타납니다.",
 "Tudo normal agora.":"지금은 모두 정상입니다.",
 "Nada fora do normal nos últimos 7 dias.":"지난 7일 동안 이상 없음.",
 "Esta versão do launcher ainda não tem o Observador.":"이 런처 버전에는 아직 옵저버가 없습니다.",

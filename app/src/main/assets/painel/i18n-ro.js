@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"IA a răspuns.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"IA nu a răspuns. Verifică cheia, adresa și modelul.",
 "O que a Sofy consertou sozinha":"Ce a reparat Sofy singură",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Ce urmărește TV-ul singur: memorie, internet, Wi-Fi, fluiditatea ecranului principal și spațiul. Când ceva iese din normal, apare aici cu motivul. Deocamdată doar urmărește și notează.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Ce urmărește TV-ul singur: memorie, internet, Wi-Fi, fluiditatea ecranului principal și spațiul. Când ceva iese din normal, apare aici cu motivul.",
 "Tudo normal agora.":"Totul e normal acum.",
 "Nada fora do normal nos últimos 7 dias.":"Nimic ieșit din normal în ultimele 7 zile.",
 "Esta versão do launcher ainda não tem o Observador.":"Această versiune a launcherului încă nu are Observatorul.",

@@ -20,7 +20,8 @@ object SofyAiRules {
     enum class Provider(val code: String, val format: Format, val base: String, val model: String, val needsKey: Boolean = true) {
         CLAUDE("claude", Format.CLAUDE, "https://api.anthropic.com", "claude-haiku-5-5"),
         OPENAI("openai", Format.OPENAI, "https://api.openai.com/v1", "gpt-4o-mini"),
-        PERPLEXITY("perplexity", Format.OPENAI, "https://api.perplexity.ai", "sonar"),
+        /** Endereço compatível com OpenAI da Perplexity (docs.perplexity.ai, "Orchestrator API", lido em 25/11/2026). */
+        PERPLEXITY("perplexity", Format.OPENAI, "https://api.perplexity.ai/orchestrator/v1", "perplexity/glm-5.3"),
         GEMINI("gemini", Format.OPENAI, "https://generativelanguage.googleapis.com/v1beta/openai", "gemini-2.0-flash"),
         GROQ("groq", Format.OPENAI, "https://api.groq.com/openai/v1", "llama-3.3-70b-versatile"),
         OPENROUTER("openrouter", Format.OPENAI, "https://openrouter.ai/api/v1", "openrouter/auto"),
@@ -77,7 +78,7 @@ object SofyAiRules {
     fun body(s: Settings, c: SofyRepair.Case): JSONObject = when (s.provider.format) {
         Format.CLAUDE -> JSONObject().put("model", s.model).put("max_tokens", 300).put("system", SYSTEM)
             .put("messages", JSONArray().put(JSONObject().put("role", "user").put("content", prompt(c))))
-        Format.OPENAI -> JSONObject().put("model", s.model).put("max_tokens", 300)
+        Format.OPENAI -> JSONObject().put("model", s.model).put("max_tokens", 2048) // modelos que "pensam" gastam parte disso antes de responder
             .put("messages", JSONArray().put(JSONObject().put("role", "system").put("content", SYSTEM))
                 .put(JSONObject().put("role", "user").put("content", prompt(c))))
     }

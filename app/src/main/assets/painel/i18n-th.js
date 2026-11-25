@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI ตอบแล้ว",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI ไม่ตอบ ตรวจสอบคีย์ ที่อยู่ และโมเดล",
 "O que a Sofy consertou sozinha":"สิ่งที่ Sofy แก้ไขเอง",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"สิ่งที่ทีวีเฝ้าดูเอง: หน่วยความจำ อินเทอร์เน็ต Wi-Fi ความลื่นของหน้าจอหลัก และที่เก็บข้อมูล เมื่อมีอะไรผิดปกติ จะแสดงที่นี่พร้อมเหตุผล ตอนนี้ทำแค่เฝ้าดูและจดบันทึก",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"สิ่งที่ทีวีเฝ้าดูเอง: หน่วยความจำ อินเทอร์เน็ต Wi-Fi ความลื่นของหน้าจอหลัก และที่เก็บข้อมูล เมื่อมีอะไรผิดปกติ จะแสดงที่นี่พร้อมเหตุผล",
 "Tudo normal agora.":"ตอนนี้ทุกอย่างปกติ",
 "Nada fora do normal nos últimos 7 dias.":"ไม่มีอะไรผิดปกติใน 7 วันที่ผ่านมา",
 "Esta versão do launcher ainda não tem o Observador.":"Launcher เวอร์ชันนี้ยังไม่มี Observer",

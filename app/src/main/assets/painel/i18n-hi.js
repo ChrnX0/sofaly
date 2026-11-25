@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI ने जवाब दिया।",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI ने जवाब नहीं दिया। कुंजी, पता और मॉडल जाँचें।",
 "O que a Sofy consertou sozinha":"Sofy ने अकेले क्या ठीक किया",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"TV खुद किन चीज़ों पर नज़र रखता है: मेमोरी, इंटरनेट, Wi-Fi, होम स्क्रीन की स्मूदनेस और स्टोरेज। जब कुछ सामान्य से हटता है, तो वह कारण के साथ यहाँ दिखता है। अभी यह सिर्फ़ देखता और नोट करता है।",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"TV खुद किन चीज़ों पर नज़र रखता है: मेमोरी, इंटरनेट, Wi-Fi, होम स्क्रीन की स्मूदनेस और स्टोरेज। जब कुछ सामान्य से हटता है, तो वह कारण के साथ यहाँ दिखता है।",
 "Tudo normal agora.":"अभी सब सामान्य है।",
 "Nada fora do normal nos últimos 7 dias.":"पिछले 7 दिनों में कुछ भी असामान्य नहीं।",
 "Esta versão do launcher ainda não tem o Observador.":"लॉन्चर के इस वर्ज़न में अभी ऑब्ज़र्वर नहीं है।",

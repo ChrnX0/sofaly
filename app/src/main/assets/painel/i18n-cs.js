@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI odpověděla.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI neodpověděla. Zkontrolujte klíč, adresu a model.",
 "O que a Sofy consertou sozinha":"Co Sofy opravila sama",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Co TV sama sleduje: paměť, internet, Wi-Fi, plynulost domovské obrazovky a úložiště. Když se něco vychýlí z normálu, objeví se to zde i s důvodem. Zatím jen sleduje a zapisuje si.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Co TV sama sleduje: paměť, internet, Wi-Fi, plynulost domovské obrazovky a úložiště. Když se něco vychýlí z normálu, objeví se to zde i s důvodem.",
 "Tudo normal agora.":"Teď je vše v normálu.",
 "Nada fora do normal nos últimos 7 dias.":"Za posledních 7 dní nic mimo normál.",
 "Esta versão do launcher ainda não tem o Observador.":"Tato verze launcheru zatím nemá Pozorovatele.",

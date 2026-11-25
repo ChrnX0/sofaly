@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"AI 已回应。",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"AI 没有回应。请检查密钥、地址和模型。",
 "O que a Sofy consertou sozinha":"Sofy 独自修复的内容",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"电视自己留意的事：内存、网络、Wi-Fi、主屏幕流畅度和存储空间。一旦有异常，会在这里显示并说明原因。目前它只观察和记录。",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"电视自己留意的事：内存、网络、Wi-Fi、主屏幕流畅度和存储空间。一旦有异常，会在这里显示并说明原因。",
 "Tudo normal agora.":"目前一切正常。",
 "Nada fora do normal nos últimos 7 dias.":"过去 7 天没有异常。",
 "Esta versão do launcher ainda não tem o Observador.":"此版本的启动器还没有观察者。",

@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"Yapay zekâ yanıt verdi.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"Yapay zekâ yanıt vermedi. Anahtarı, adresi ve modeli kontrol edin.",
 "O que a Sofy consertou sozinha":"Sofy'nin kendi başına düzelttikleri",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"TV'nin kendi kendine izlediği şeyler: bellek, internet, Wi-Fi, ana ekranın akıcılığı ve depolama. Bir şey normalin dışına çıktığında burada nedeniyle birlikte görünür. Şimdilik yalnızca izler ve not alır.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"TV'nin kendi kendine izlediği şeyler: bellek, internet, Wi-Fi, ana ekranın akıcılığı ve depolama. Bir şey normalin dışına çıktığında burada nedeniyle birlikte görünür.",
 "Tudo normal agora.":"Şu an her şey normal.",
 "Nada fora do normal nos últimos 7 dias.":"Son 7 günde olağan dışı bir şey yok.",
 "Esta versão do launcher ainda não tem o Observador.":"Bu launcher sürümünde henüz Gözlemci yok.",

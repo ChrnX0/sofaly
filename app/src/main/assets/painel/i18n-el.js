@@ -1517,7 +1517,7 @@ traduzirPainelCom({T:{
 "A IA respondeu.":"Η ΤΝ απάντησε.",
 "A IA não respondeu. Confira a chave, o endereço e o modelo.":"Η ΤΝ δεν απάντησε. Ελέγξτε το κλειδί, τη διεύθυνση και το μοντέλο.",
 "O que a Sofy consertou sozinha":"Τι διόρθωσε η Sofy μόνη της",
-"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Τι παρακολουθεί μόνη της η τηλεόραση: μνήμη, internet, Wi-Fi, ομαλότητα της αρχικής οθόνης και χώρο. Όταν κάτι ξεφεύγει από το κανονικό, εμφανίζεται εδώ με την αιτία. Προς το παρόν μόνο παρακολουθεί και κρατά σημειώσεις.",
+"O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo.":"Τι παρακολουθεί μόνη της η τηλεόραση: μνήμη, internet, Wi-Fi, ομαλότητα της αρχικής οθόνης και χώρο. Όταν κάτι ξεφεύγει από το κανονικό, εμφανίζεται εδώ με την αιτία.",
 "Tudo normal agora.":"Όλα κανονικά αυτή τη στιγμή.",
 "Nada fora do normal nos últimos 7 dias.":"Τίποτα εκτός κανονικού τις τελευταίες 7 ημέρες.",
 "Esta versão do launcher ainda não tem o Observador.":"Αυτή η έκδοση του launcher δεν έχει ακόμα τον Παρατηρητή.",

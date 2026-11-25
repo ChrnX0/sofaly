@@ -185,6 +185,7 @@ object SofyRepairTv {
     /** A cada ~2 min (pela saúde do acesso). Barato: lê estado; trabalho de verdade vai para fora da tela. */
     fun tick(ctx: Context) {
         val app = ctx.applicationContext
+        SettingsJournalTv.ensure(app)
         if (working) return
         working = true
         Fundo.rodar("sofy-conserto") { try { runCatching { beat(app) }.onFailure { Log.w(TAG, "batida: $it") } } finally { working = false } }
@@ -198,7 +199,7 @@ object SofyRepairTv {
         val runs = p.getString("runs", "").orEmpty().split(',').mapNotNull { it.toLongOrNull() }.filter { now - it < SofyRepair.HOUR }
         val indisponiveis = HashSet<Tool>()
         if (!SofyAi.configured(app)) indisponiveis += Tool.ASK_AI
-        indisponiveis += Tool.UNDO_LAST_CHANGE   // ainda sem diário de ajustes (próximo passo)
+        if (SettingsJournalTv.load(app).none { !it.undone && now - it.at < SofyRepair.DAY }) indisponiveis += Tool.UNDO_LAST_CHANGE
         return SofyRepair.Env(
             now, idle, NaoPerturbe.madrugada(cal.get(Calendar.HOUR_OF_DAY) * 60 + cal.get(Calendar.MINUTE)),
             aiAvailable = SofyAi.configured(app), toolsLastHour = runs.size,
@@ -232,6 +233,8 @@ object SofyRepairTv {
             val (novo, aprender) = SofyRepair.onVerified(c, stillBad = voltou, now = now)
             aprender?.let { (tool, ok) ->
                 learned = SofyRepair.learn(learned, c, tool, ok)
+                // Desfazer um ajuste que não resolveu nada: o ajuste volta para o que a pessoa escolheu.
+                if (tool == Tool.UNDO_LAST_CHANGE) { if (ok) SettingsJournalTv.keep(app, c.key) else SettingsJournalTv.redo(app, c.key) }
                 val o = if (ok) "repaired" else "repair_failed"
                 SofyBusTv.emit(app, SofyBus.Source.SOFY, o, ok = ok, detail = "${c.subject} ${tool.name.lowercase()}")
                 ObserverTv.logShadow(app, o, "${c.type.name} ${c.subject}: ${tool.name.lowercase()}")
@@ -311,7 +314,7 @@ object SofyRepairTv {
                 SofyBusTv.emit(app, SofyBus.Source.SOFY, "repair_gave_up", ok = false, detail = "${c.type.name.lowercase()} ${c.subject}")
                 true
             }
-            Tool.UNDO_LAST_CHANGE -> false
+            Tool.UNDO_LAST_CHANGE -> SettingsJournalTv.undo(app, c.key, c.firstAt)
         }
     }
 
