@@ -750,6 +750,7 @@ object ObserverTv {
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("house_norms", runCatching { SofyNormsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("ai_rules", runCatching { SofyRulesTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("habits", runCatching { SofyHabitsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("today", runCatching { SofyAnswersTv.todayJson(ctx) }.getOrNull() ?: org.json.JSONArray())

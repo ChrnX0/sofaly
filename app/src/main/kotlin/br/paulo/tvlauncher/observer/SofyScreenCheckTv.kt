@@ -77,6 +77,8 @@ object SofyScreenCheckTv {
         if (raiz == null || raiz.packageName?.toString() != app.packageName) { voltar(s); return }
         val tela = ler(raiz, nome)
         voltar(s)
+        // Revisor noturno (plano D, passo 3): regras aprendidas + IA do dono olhando o que a tela DIZ.
+        runCatching { SofyRulesTv.onScreen(app, nome, tela.caixas.map { it.texto }) }.onFailure { Log.w(TAG, "revisor: $it") }
         val achados = SofyScreenCheck.conferir(tela)
         if (achados.isEmpty()) { Log.i(TAG, "$nome: ok (${tela.caixas.size} textos)"); return }
         val resumo = SofyScreenCheck.resumo(nome, achados)
