@@ -73,7 +73,7 @@ class EntrarPeloQrActivity : Activity() {
         texto = Estilo.texto(this, Estilo.Papel.CORPO).apply { setTextColor(Estilo.TEXTO_2); setPaddingRelative(0, dp(16), dp(32), 0); setLineSpacing(0f, 1.2f) }
         col.addView(titulo); col.addView(texto)
         val botoes = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
-        outro = botao(getString(R.string.qr_gerar_outro)) { gerar() }
+        outro = botao(getString(R.string.qr_gerar_outro)) { gerar(pedido = true) }
         botoes.addView(outro, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginEnd = dp(16) })
         val fechar = botao(getString(R.string.qr_fechar)) { finish() }
         botoes.addView(fechar)
@@ -103,7 +103,8 @@ class EntrarPeloQrActivity : Activity() {
         super.onPause()
     }
 
-    private fun gerar() {
+    /** [pedido] = a pessoa apertou o botão: se continuar sem rede, diz isso (antes o OK parecia não fazer nada). */
+    private fun gerar(pedido: Boolean = false) {
         terminou = false
         primeira = !PainelArmazem.temPin(this)
         deOutra.visibility = if (primeira) View.VISIBLE else View.GONE
@@ -117,6 +118,7 @@ class EntrarPeloQrActivity : Activity() {
             texto.text = getString(if (primeira) R.string.pc_sem_rede else R.string.qr_painel_fora)
             // Sem rede não há código para "gerar outro": o botão diz o que de fato faz (crítica de design 19/11/2026).
             outro.text = getString(R.string.tentar_de_novo)
+            if (pedido) AvisoTv.rapido(this, titulo.text.toString(), texto.text.toString())
             return
         }
         outro.text = getString(R.string.qr_gerar_outro)

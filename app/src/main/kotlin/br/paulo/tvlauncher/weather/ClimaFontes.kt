@@ -3,6 +3,7 @@ package br.paulo.tvlauncher.weather
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.Config
+import br.paulo.tvlauncher.DicasClima
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.R
@@ -37,7 +38,7 @@ object ClimaFontes {
             "?latitude=${ponto.lat}&longitude=${ponto.lon}" +
             "&current=temperature_2m,relative_humidity_2m,weather_code,precipitation,is_day" +
             "&hourly=precipitation_probability,temperature_2m,weather_code,uv_index&forecast_hours=24" +
-            "&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max" +
+            "&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max,sunrise,sunset" +
             "&timezone=auto&forecast_days=${FaixaDias.DIAS}$unidade"
         // Fonte pelo plano e pela licença (DataSources, 19/11/2026): MET Norway no Básico, WeatherAPI no Pro, Open-Meteo paga no Ultra.
         val openMeteo = DataSources.weather(ctx) == DataSources.Weather.OPEN_METEO
@@ -103,13 +104,11 @@ object ClimaFontes {
             horasData = (0 until ht.length()).map { ht.getString(it) }
         }
         val hoje = atual.optString("time", "").take(10)   // "2026-11-01"
-        var primeira = -1   // quantas horas faltam para a primeira hora de hoje com chance de chuva >= 40%
-        var picoChuva = 0
-        for (i in horasChuva.indices) {
-            if (i >= horasData.size || !horasData[i].startsWith(hoje)) break   // so ate o fim do dia
-            val p = horasChuva[i]
-            if (p >= 40) { primeira = i; picoChuva = p; break }
-        }
+        // A chuva anunciada pela MESMA regra da frase do Clima e do protetor (DicasClima.chuvaAnunciada, 25/11/2026): antes a
+        // pílula usava 40% e só o resto de hoje, e as telas discordavam ("Chuva 45% em 2 h" aqui, "talvez" no Clima).
+        val anunciada = DicasClima.chuvaAnunciada(entradaDaChuva(json, atual.optString("time", ""), horasData, horasChuva, eDia))
+        val primeira = anunciada?.first ?: -1   // horas até a chuva anunciada (0 = agora); -1 = nenhuma
+        val picoChuva = anunciada?.second ?: 0
         // A maior chance de chuva no RESTO de hoje (da hora atual até meia-noite). É o "Hoje · X% de chuva" do protetor e o
         // chance_chuva_pct do MCP; antes eles recebiam o picoChuva (a 1ª hora >= 40%, ou 0), e o protetor dizia "0% de
         // chuva" num dia com 47% à tarde (visto na Sala, 17/11/2026).
@@ -166,6 +165,28 @@ object ClimaFontes {
         val f = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm", java.util.Locale.US)
         val ms = runCatching { f.apply { timeZone = de }.parse(t)?.time }.getOrNull() ?: return t
         return f.apply { timeZone = tv }.format(java.util.Date(ms))
+    }
+
+    /**
+     * As horas de agora em diante no formato das regras do Clima ([DicasClima.Entrada]), só com a chance de chuva (o que a
+     * pílula usa). Dia/noite pelo nascer e pôr do sol do "daily" quando vêm; sem eles, 6h às 17h59 (e agora = [eDiaAgora]).
+     */
+    internal fun entradaDaChuva(json: JSONObject, agora: String, horasData: List<String>, horasChuva: List<Int>, eDiaAgora: Boolean): DicasClima.Entrada {
+        val horaAgora = agora.take(13); val hoje = agora.take(10)
+        val d = json.optJSONObject("daily")
+        val dias = d?.optJSONArray("time"); val nasc = d?.optJSONArray("sunrise"); val por = d?.optJSONArray("sunset")
+        fun eDia(t: String, primeira: Boolean): Boolean {
+            if (primeira) return eDiaAgora
+            if (dias != null && nasc != null && por != null) for (k in 0 until dias.length()) if (t.startsWith(dias.optString(k))) {
+                val n = nasc.optString(k); val p = por.optString(k)
+                if (n.length >= 13 && p.length >= 13) return t >= n && t < p
+            }
+            return t.substring(11, 13).toIntOrNull()?.let { it in 6..17 } ?: true
+        }
+        val horas = horasData.indices.filter { it < horasChuva.size && horasData[it].take(13) >= horaAgora }.take(24)
+            .mapIndexed { n, i -> val t = horasData[i]
+                DicasClima.Hora(t.substring(11, 13).toIntOrNull() ?: 0, 0.0, horasChuva[i], 0.0, eDia(t, n == 0), t.startsWith(hoje)) }
+        return DicasClima.Entrada(false, horas, 0, null)
     }
 
     private fun proximasHoras(json: JSONObject, agora: String, horasData: List<String>, horasChuva: List<Int>): String = try {
