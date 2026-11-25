@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Λευκό</string>
     <string name="st_proprios_vidro">Ανοιχτό γυαλί</string>
     <string name="st_proprios_escuro">Σκούρο γυαλί</string>
+    <string name="st_personalidade">Εικονίδια καρτών</string>
+    <string name="st_pers_cor">Δικό του χρώμα</string>
+    <string name="st_pers_brilho">Λάμψη χρώματος</string>
 </resources>

@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Blanco</string>
     <string name="st_proprios_vidro">Cristal claro</string>
     <string name="st_proprios_escuro">Cristal oscuro</string>
+    <string name="st_personalidade">Iconos de las tarjetas</string>
+    <string name="st_pers_cor">Color propio</string>
+    <string name="st_pers_brilho">Brillo del color</string>
 </resources>

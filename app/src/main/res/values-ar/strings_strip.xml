@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">أبيض</string>
     <string name="st_proprios_vidro">زجاج فاتح</string>
     <string name="st_proprios_escuro">زجاج داكن</string>
+    <string name="st_personalidade">أيقونات البطاقات</string>
+    <string name="st_pers_cor">لون خاص</string>
+    <string name="st_pers_brilho">توهج اللون</string>
 </resources>

@@ -209,6 +209,12 @@ object ComandosExtras {
             O.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_OWN, it.ordinal); "proprios=${it.name} (aperte HOME)" }
                 ?: "proprios=${br.paulo.tvlauncher.home.StripHome.options(ctx).own} icones=${br.paulo.tvlauncher.home.LayoutHome.iconesCruz(ctx)}; opções: ${O.joinToString { it.name.lowercase() }}"
         }
+        // Personalidade dos ícones dos cards nossos (25/11/2026): `--es nome color|glow|tile`.
+        "personalidade" -> (i.getStringExtra("nome") ?: "").let { n ->
+            val M = br.paulo.tvlauncher.home.StripHome.Mood.entries
+            M.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_MOOD, it.ordinal); "personalidade=${it.name} (aperte HOME)" }
+                ?: "personalidade=${br.paulo.tvlauncher.home.StripHome.options(ctx).mood}; opções: ${M.joinToString { it.name.lowercase() }}"
+        }
         // Jeito das telas (Gaveta/Vidro/Barra) e forma do foco, para fotos e testes na TV: `--es nome drawer|glass|strip`.
         "telas" -> (i.getStringExtra("nome") ?: "").let { n ->
             val J = br.paulo.tvlauncher.home.ScreenStyle.entries

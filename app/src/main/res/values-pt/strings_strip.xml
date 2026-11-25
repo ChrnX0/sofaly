@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Branco</string>
     <string name="st_proprios_vidro">Vidro claro</string>
     <string name="st_proprios_escuro">Vidro escuro</string>
+    <string name="st_personalidade">Ícones dos cards</string>
+    <string name="st_pers_cor">Cor própria</string>
+    <string name="st_pers_brilho">Brilho da cor</string>
 </resources>

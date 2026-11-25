@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">White</string>
     <string name="st_proprios_vidro">Light glass</string>
     <string name="st_proprios_escuro">Dark glass</string>
+    <string name="st_personalidade">Card icons</string>
+    <string name="st_pers_cor">Own colour</string>
+    <string name="st_pers_brilho">Colour glow</string>
 </resources>

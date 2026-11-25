@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Bianco</string>
     <string name="st_proprios_vidro">Vetro chiaro</string>
     <string name="st_proprios_escuro">Vetro scuro</string>
+    <string name="st_personalidade">Icone delle schede</string>
+    <string name="st_pers_cor">Colore proprio</string>
+    <string name="st_pers_brilho">Bagliore di colore</string>
 </resources>

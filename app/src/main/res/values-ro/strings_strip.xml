@@ -49,4 +49,7 @@
     <string name="st_proprios_branco">Alb</string>
     <string name="st_proprios_vidro">Sticlă deschisă</string>
     <string name="st_proprios_escuro">Sticlă închisă</string>
+    <string name="st_personalidade">Pictogramele cardurilor</string>
+    <string name="st_pers_cor">Culoare proprie</string>
+    <string name="st_pers_brilho">Strălucire de culoare</string>
 </resources>

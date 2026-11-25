@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Vit</string>
     <string name="st_proprios_vidro">Ljust glas</string>
     <string name="st_proprios_escuro">Mörkt glas</string>
+    <string name="st_personalidade">Kortikoner</string>
+    <string name="st_pers_cor">Egen färg</string>
+    <string name="st_pers_brilho">Färgsken</string>
 </resources>

@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Hvid</string>
     <string name="st_proprios_vidro">Lyst glas</string>
     <string name="st_proprios_escuro">Mørkt glas</string>
+    <string name="st_personalidade">Kortikoner</string>
+    <string name="st_pers_cor">Egen farve</string>
+    <string name="st_pers_brilho">Farveglød</string>
 </resources>

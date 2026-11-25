@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Bílé</string>
     <string name="st_proprios_vidro">Světlé sklo</string>
     <string name="st_proprios_escuro">Tmavé sklo</string>
+    <string name="st_personalidade">Ikony karet</string>
+    <string name="st_pers_cor">Vlastní barva</string>
+    <string name="st_pers_brilho">Záře barvy</string>
 </resources>

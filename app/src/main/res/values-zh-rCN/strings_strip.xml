@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">白色</string>
     <string name="st_proprios_vidro">浅色玻璃</string>
     <string name="st_proprios_escuro">深色玻璃</string>
+    <string name="st_personalidade">卡片图标</string>
+    <string name="st_pers_cor">专属颜色</string>
+    <string name="st_pers_brilho">色彩光晕</string>
 </resources>
