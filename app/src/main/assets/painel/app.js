@@ -3166,11 +3166,18 @@ async function sofyIa() {
   const mostrar = () => { $('sofyIaLinhaBase').hidden = prov.value !== 'custom'; };
   if (!prov.dataset.ligada) {
     prov.dataset.ligada = '1';
-    try { const d = await chamar('GET', '/api/sofy/ai'); prov.value = d.provider || ''; base.value = d.base || ''; modelo.value = d.model || ''; } catch (e) { $('cartaoSofyIa').hidden = true; return; }
+    try {
+      const d = await chamar('GET', '/api/sofy/ai'); prov.value = d.provider || ''; base.value = d.base || ''; modelo.value = d.model || '';
+      // Gasto do mês na chave do dono (tokens contados pela própria resposta da IA) e o teto que ele escolheu.
+      const mil = (n) => Math.round((n || 0) / 1000);
+      $('sofyIaTeto').value = String(mil(d.budget_tokens));
+      $('sofyIaUso').textContent = mil(d.month_tokens) + ' / ' + (d.budget_tokens ? mil(d.budget_tokens) : '∞');
+      $('sofyIaUsoLinha').hidden = !d.provider;
+    } catch (e) { $('cartaoSofyIa').hidden = true; return; }
     mostrar();
     prov.addEventListener('change', mostrar);
     $('sofyIaSalvar').addEventListener('click', async () => {
-      const corpo = { provider: prov.value, base: base.value, model: modelo.value };
+      const corpo = { provider: prov.value, base: base.value, model: modelo.value, budget_tokens: Math.max(0, parseInt($('sofyIaTeto').value || '0', 10) || 0) * 1000 };
       if (chave.value) corpo.key = chave.value;
       try { await chamar('POST', '/api/sofy/ai', corpo); chave.value = ''; dizer('Salvo.'); } catch (e) { dizer(e.message); }
     });

@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Tekoälyn osoite, esimerkiksi http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Malli (tyhjä = oletus)",
 "Chave da API (em branco = manter a atual)":"API-avain (tyhjä = säilytä nykyinen)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Tekoälyn käyttö tässä kuussa, tuhansina tokeneina (käytetty / katto):",
+"Teto por mês em mil tokens (0 = sem teto)":"Kuukausikatto tuhansina tokeneina (0 = ei kattoa)",
 "Testar":"Testaa",
 "Salvo.":"Tallennettu.",
 "A IA respondeu.":"Tekoäly vastasi.",

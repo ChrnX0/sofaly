@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Địa chỉ AI, ví dụ http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Mô hình (để trống = mặc định)",
 "Chave da API (em branco = manter a atual)":"Khóa API (để trống = giữ khóa hiện tại)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Mức dùng AI tháng này, tính bằng nghìn token (đã dùng / giới hạn):",
+"Teto por mês em mil tokens (0 = sem teto)":"Giới hạn mỗi tháng tính bằng nghìn token (0 = không giới hạn)",
 "Testar":"Thử",
 "Salvo.":"Đã lưu.",
 "A IA respondeu.":"AI đã trả lời.",

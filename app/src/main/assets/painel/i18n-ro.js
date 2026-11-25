@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Adresa IA, de exemplu http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (gol = cel implicit)",
 "Chave da API (em branco = manter a atual)":"Cheie API (gol = păstrează-o pe cea actuală)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Utilizarea AI luna aceasta, în mii de tokeni (folosit / plafon):",
+"Teto por mês em mil tokens (0 = sem teto)":"Plafon lunar în mii de tokeni (0 = fără plafon)",
 "Testar":"Testează",
 "Salvo.":"Salvat.",
 "A IA respondeu.":"IA a răspuns.",

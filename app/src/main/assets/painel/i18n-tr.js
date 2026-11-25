@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Yapay zekâ adresi, örneğin http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (boş = varsayılan)",
 "Chave da API (em branco = manter a atual)":"API anahtarı (boş = mevcut olanı koru)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Bu ay yapay zekâ kullanımı, bin token olarak (kullanılan / sınır):",
+"Teto por mês em mil tokens (0 = sem teto)":"Aylık sınır, bin token olarak (0 = sınır yok)",
 "Testar":"Dene",
 "Salvo.":"Kaydedildi.",
 "A IA respondeu.":"Yapay zekâ yanıt verdi.",

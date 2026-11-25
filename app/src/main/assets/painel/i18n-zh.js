@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"AI 地址，例如 http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"模型（留空 = 默认）",
 "Chave da API (em branco = manter a atual)":"API 密钥（留空 = 保留当前密钥）",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"本月 AI 用量，单位千个 token（已用 / 上限）：",
+"Teto por mês em mil tokens (0 = sem teto)":"每月上限，单位千个 token（0 = 不设上限）",
 "Testar":"测试",
 "Salvo.":"已保存。",
 "A IA respondeu.":"AI 已回应。",

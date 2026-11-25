@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"AI'ens adresse, for eksempel http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (tom = standard)",
 "Chave da API (em branco = manter a atual)":"API-nøgle (tom = behold den nuværende)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"AI-forbrug denne måned, i tusinde tokens (brugt / loft):",
+"Teto por mês em mil tokens (0 = sem teto)":"Månedligt loft i tusinde tokens (0 = intet loft)",
 "Testar":"Test",
 "Salvo.":"Gemt.",
 "A IA respondeu.":"AI'en svarede.",

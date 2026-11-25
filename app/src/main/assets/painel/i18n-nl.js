@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Adres van de AI, bijvoorbeeld http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (leeg = de standaard)",
 "Chave da API (em branco = manter a atual)":"API-sleutel (leeg = de huidige behouden)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"AI-gebruik deze maand, in duizend tokens (gebruikt / limiet):",
+"Teto por mês em mil tokens (0 = sem teto)":"Maandlimiet in duizend tokens (0 = geen limiet)",
 "Testar":"Testen",
 "Salvo.":"Opgeslagen.",
 "A IA respondeu.":"De AI heeft geantwoord.",

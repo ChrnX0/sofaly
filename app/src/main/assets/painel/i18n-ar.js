@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"عنوان الذكاء الاصطناعي، مثلًا http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"النموذج (فارغ = الافتراضي)",
 "Chave da API (em branco = manter a atual)":"مفتاح API (فارغ = الإبقاء على الحالي)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"استخدام الذكاء الاصطناعي هذا الشهر، بآلاف الرموز (المستخدم / الحد):",
+"Teto por mês em mil tokens (0 = sem teto)":"الحد الشهري بآلاف الرموز (0 = بلا حد)",
 "Testar":"اختبار",
 "Salvo.":"تم الحفظ.",
 "A IA respondeu.":"أجاب الذكاء الاصطناعي.",

@@ -1517,6 +1517,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Адреса ШІ, наприклад http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Модель (порожньо = типова)",
 "Chave da API (em branco = manter a atual)":"Ключ API (порожньо = залишити поточний)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Використання ШІ цього місяця, у тисячах токенів (використано / ліміт):",
+"Teto por mês em mil tokens (0 = sem teto)":"Ліміт на місяць у тисячах токенів (0 = без ліміту)",
 "Testar":"Перевірити",
 "Salvo.":"Збережено.",
 "A IA respondeu.":"ШІ відповів.",
