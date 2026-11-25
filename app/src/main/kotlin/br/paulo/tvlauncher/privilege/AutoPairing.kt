@@ -1,6 +1,7 @@
 package br.paulo.tvlauncher.privilege
 
 import android.accessibilityservice.AccessibilityService
+import android.accessibilityservice.AccessibilityServiceInfo
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -12,12 +13,14 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.PlayPolicy
 import br.paulo.tvlauncher.ProtetorTela
+import br.paulo.tvlauncher.input.TecladoCelular
 import br.paulo.tvlauncher.observer.ObserverTv
 import br.paulo.tvlauncher.observer.SofyBus
 import br.paulo.tvlauncher.observer.SofyBusTv
@@ -45,7 +48,8 @@ object AutoPairing {
     private const val FOCUS_TICK_MS = 700L
 
     private val main = Handler(Looper.getMainLooper())
-    @Volatile private var running = false
+    @Volatile var running = false
+        private set
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
@@ -118,6 +122,7 @@ object AutoPairing {
         running = true
         val a = Attempt(app, System.currentTimeMillis())
         log(app, "tentativa: shell fora, protetor na frente; abrindo a depuração sem fio")
+        watchScreen(true)
         SofyBusTv.emit(app, SofyBus.Source.SOFY, "access_repair_started")
         ProtetorTela.fecharSeAberto()   // acorda e segura a TV 20 s (sem isso a tela abre atrás do protetor)
         discover(a)
@@ -157,7 +162,7 @@ object AutoPairing {
     /** Android 13+: anda pelo foco com as teclas globais do serviço de acessibilidade (o jeito do Google TV). */
     @androidx.annotation.RequiresApi(33)
     private fun byFocus(a: Attempt, svc: AutorizaShizukuService, texts: List<String>) {
-        val focus = runCatching { svc.findFocus(AccessibilityNodeInfo.FOCUS_INPUT) }.getOrNull()
+        val focus = runCatching { svc.findFocus(AccessibilityNodeInfo.FOCUS_INPUT)?.also { it.refresh() } }.getOrNull()
             ?.takeIf { it.packageName?.toString() != svc.packageName }?.let { texts(it) }.orEmpty()
         val m = AutoPairingRules.move(focus, texts, a.openedWireless, a.pairLabels, a.wirelessLabels)
         val antes = a.lastFocus
@@ -198,6 +203,7 @@ object AutoPairing {
     private fun finish(a: Attempt, ok: Boolean, why: String) {
         if (!running) return
         running = false
+        watchScreen(false)
         a.listener?.let { l -> runCatching { (a.app.getSystemService(Context.NSD_SERVICE) as NsdManager).stopServiceDiscovery(l) } }
         // Volta para a HOME (a caixinha do código fecha sozinha ao parear; sem parear, sai das Configurações do mesmo jeito).
         AutorizaShizukuService.instancia?.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
@@ -214,6 +220,26 @@ object AutoPairing {
     }
 
     // ---------------------------------------------------------------- tela (acessibilidade)
+
+    /**
+     * Por que a árvore das Configurações vinha velha (Sala, 25/11/2026): o serviço só assina typeWindowStateChanged.
+     * O Android guarda os nós lidos num cache do serviço que só é limpo pelos eventos que ele RECEBE; sem
+     * foco/conteúdo/rolagem, o foco real andava e a leitura continuava parada no topo ("down x46"; com o adb o foco
+     * andou e elementos_na_tela seguiu igual). Durante a tentativa ela assina esses eventos; no fim devolve como estava.
+     */
+    private const val SCREEN_EVENTS = AccessibilityEvent.TYPE_VIEW_FOCUSED or AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED or
+        AccessibilityEvent.TYPE_VIEW_SCROLLED or AccessibilityEvent.TYPE_VIEW_SELECTED or AccessibilityEvent.TYPE_WINDOWS_CHANGED
+
+    private fun watchScreen(on: Boolean) {
+        val s = AutorizaShizukuService.instancia ?: return
+        runCatching {
+            val info: AccessibilityServiceInfo = s.serviceInfo ?: return
+            val tipos = if (on) info.eventTypes or SCREEN_EVENTS
+                        else (info.eventTypes and SCREEN_EVENTS.inv()) or
+                             (if (TecladoCelular.ativo(s)) AccessibilityEvent.TYPE_VIEW_FOCUSED else 0)
+            if (tipos != info.eventTypes) { info.eventTypes = tipos; s.serviceInfo = info }
+        }.onFailure { Log.w(TAG, "eventos da tela: ${it.javaClass.simpleName}") }
+    }
 
     private fun roots(svc: AutorizaShizukuService): List<AccessibilityNodeInfo> =
         (runCatching { svc.windows.mapNotNull { it.root } }.getOrNull() ?: emptyList())
