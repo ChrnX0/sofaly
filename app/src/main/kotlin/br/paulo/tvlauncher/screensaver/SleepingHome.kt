@@ -171,8 +171,18 @@ class SleepingHome(private val ctx: Context) {
     fun montar(): View {
         val noFundo: (() -> Unit) -> Unit = { bloco -> Fundo.rodar("descanso-fundo") { bloco() } }
         val arquivoProprio = if (background(ctx) == BG_FILE) file(ctx) else null
-        raiz.addView(if (arquivoProprio != null) FundoMeu(ctx, noFundo, arquivoProprio).apply { setBackgroundColor(Color.BLACK) }
-            else criarFundo(ctx, backgroundTheme(ctx), decoracao = false, noFundo), FrameLayout.LayoutParams(-1, -1))
+        // "Igual à tela inicial" com a barra única: a mesma foto da barra (Vale, Serra, Noite), não o tema por baixo dela
+        // (Paulo, 25/11/2026: "o fundo da home não é igual ao fundo do descanso"). "Do tema" na barra continua no tema.
+        val v = background(ctx)
+        val fotoDaBarra = br.paulo.tvlauncher.home.StripBackground.choice(ctx).takeIf {
+            (v == BG_HOME || v == BG_PHOTOS) && br.paulo.tvlauncher.home.BottomBar.strip(ctx) &&
+                it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME
+        }
+        raiz.addView(when {
+            arquivoProprio != null -> FundoMeu(ctx, noFundo, arquivoProprio).apply { setBackgroundColor(Color.BLACK) }
+            fotoDaBarra != null -> br.paulo.tvlauncher.home.PhotoBackground(ctx, fotoDaBarra, noFundo)
+            else -> criarFundo(ctx, backgroundTheme(ctx), decoracao = false, noFundo)
+        }, FrameLayout.LayoutParams(-1, -1))
         // Véu: só luz, não caixa. Escurece um pouco em cima e embaixo, onde mora o texto, para ler em qualquer fundo.
         raiz.addView(View(ctx).apply {
             background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x73000000, 0x1A000000, 0x1A000000, 0x8C000000.toInt()))
