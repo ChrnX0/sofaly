@@ -290,7 +290,7 @@ class PrevisaoActivity : Activity() {
         val p2 = pagina(84)
         // Chance como número, palavra ou os dois (RainChance); com palavra a célula da hora alarga para caber "Média 45%".
         val modoChance = RainChance.modo(this)
-        val larguraHora = if (modoChance == RainChance.Modo.NUMERO) 78 else if (modoChance == RainChance.Modo.PALAVRA) 90 else 108
+        val larguraHora = if (modoChance == RainChance.Modo.NUMERO) 78 else if (modoChance == RainChance.Modo.PALAVRA) 90 else 126
         val horas = cartao(getString(R.string.pv_24h), focavel = false)
         val faixa = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         for (i in i0 until fim) {
@@ -309,7 +309,8 @@ class PrevisaoActivity : Activity() {
             item.addView(IconesClima.imagem(this, if (i == i0) iconeAgora else IconesClima.chave(d.hCodigo[i], eDiaNaHora(i), false)),
                 LinearLayout.LayoutParams(dp(40), dp(40)).apply { topMargin = dp(2); bottomMargin = dp(2) })
             item.addView(texto(22f, Estilo.TEXTO, fonteMedia).apply { text = "$tempH°"; gravity = Gravity.CENTER })
-            item.addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.hChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1 })
+            item.addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.hChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1
+                IconesClima.gotaAntes(this, dp(16), dp(3)) })
             faixa.addView(item, LinearLayout.LayoutParams(dp(larguraHora), ViewGroup.LayoutParams.WRAP_CONTENT))
         }
         horas.addView(android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; addView(faixa) })
@@ -333,7 +334,8 @@ class PrevisaoActivity : Activity() {
                     LinearLayout.LayoutParams(dp(40), dp(40)).apply { topMargin = dp(2) })
                 addView(texto(22f, Estilo.TEXTO, fonteMedia).apply { text = "$mx°"; gravity = Gravity.CENTER })
                 addView(texto(18f, textoSuave).apply { text = "$mn°"; gravity = Gravity.CENTER })
-                addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.dChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1 })
+                addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.dChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1
+                    IconesClima.gotaAntes(this, dp(16), dp(3)) })
             }, LinearLayout.LayoutParams(0, -2, 1f))
         }
         dias.contentDescription = getString(R.string.pv_7d) + ". " + descricao

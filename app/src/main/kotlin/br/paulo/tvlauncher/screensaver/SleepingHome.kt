@@ -381,11 +381,15 @@ class SleepingHome(private val ctx: Context) {
     private fun linhaBase() = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
 
     /** Uma célula de 3 andares: rótulo pequeno, valor grande, nota pequena (a nota pode ter cor de alerta/chuva). */
-    private fun celula(rot: String, valor: String, nota: String?, corNota: Int = suave, centro: Boolean = false) = LinearLayout(ctx).apply {
+    private fun celula(rot: String, valor: String, nota: String?, corNota: Int = suave, centro: Boolean = false, gota: Boolean = false) = LinearLayout(ctx).apply {
         orientation = LinearLayout.VERTICAL; gravity = if (centro) Gravity.CENTER_HORIZONTAL else Gravity.START
         addView(texto(18f, suave, Estilo.fonte(400)).apply { text = rot; maxLines = 1; ellipsize = TextUtils.TruncateAt.END })
         addView(texto(24f, Estilo.TEXTO, Estilo.fonte(400)).apply { text = valor; maxLines = 1; ellipsize = TextUtils.TruncateAt.END })
-        if (nota != null) addView(texto(18f, corNota, Estilo.fonte(400)).apply { text = nota; maxLines = 1; ellipsize = TextUtils.TruncateAt.END })
+        if (nota != null) addView(texto(18f, corNota, Estilo.fonte(400)).apply {
+            text = nota; maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+            // A nota das horas e dos dias é a chance de chuva: a gota diz isso (sem ela o "72%" podia ser umidade).
+            if (gota) IconesClima.gotaAntes(this, dp(16), dp(3))
+        })
     }
 
     /** O resumo do dia: a Sofy pequena, reagindo ao tempo, e a frase (a mesma da 1ª tela do Clima). */
@@ -405,7 +409,7 @@ class SleepingHome(private val ctx: Context) {
             val i = i0 + k; if (i >= f.hTempo.size) break
             val rot = if (k == 0) ctx.getString(R.string.pv_agora) else ForecastText.hora(ctx, f.hTempo[i].substring(11, 13).toInt())
             val t = if (k == 0) tempAgora else Math.round(f.hTemp[i]).toInt()
-            addView(celula(rot, "$t°", RainChance.texto(ctx, f.hChuva[i]), azulChuva, centro = true), LinearLayout.LayoutParams(0, -2, 1f))
+            addView(celula(rot, "$t°", RainChance.texto(ctx, f.hChuva[i]), azulChuva, centro = true, gota = true), LinearLayout.LayoutParams(0, -2, 1f))
         }
     }
 
@@ -414,7 +418,7 @@ class SleepingHome(private val ctx: Context) {
         for (i in 0 until min(7, f.dData.size)) {
             val nome = if (i == 0) ctx.getString(R.string.pv_hoje)
                 else fmt.format(ler.parse(f.dData[i]) ?: Date()).trimEnd('.').replaceFirstChar { it.titlecase(Locale.getDefault()) }
-            addView(celula(nome, "${Math.round(f.dMax[i]).toInt()}° ${Math.round(f.dMin[i]).toInt()}°", RainChance.texto(ctx, f.dChuva[i]), azulChuva, centro = true),
+            addView(celula(nome, "${Math.round(f.dMax[i]).toInt()}° ${Math.round(f.dMin[i]).toInt()}°", RainChance.texto(ctx, f.dChuva[i]), azulChuva, centro = true, gota = true),
                 LinearLayout.LayoutParams(0, -2, 1f))
         }
     }

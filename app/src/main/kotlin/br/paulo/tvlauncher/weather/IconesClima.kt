@@ -94,6 +94,18 @@ object IconesClima {
         return if (fim < ini) img else Bitmap.createBitmap(img, ini, 0, fim - ini + 1, h)
     }
 
+    /**
+     * Põe a gota de chuva antes do texto da chance ("💧 72%"). Sem ela o "72%" solto embaixo da hora não dizia de quê era
+     * (revisor independente das fotos da Sala, 25/11/2026: podia ser umidade). Mesma gota da umidade na tela do Clima.
+     */
+    fun gotaAntes(tv: android.widget.TextView, tamanhoPx: Int, vaoPx: Int) {
+        val b = bitmap(tv.context, PREFIXO + "3d/droplet") ?: return
+        val alt = tamanhoPx; val larg = (b.width * alt / b.height.toFloat()).toInt().coerceAtLeast(1)
+        val dr = android.graphics.drawable.BitmapDrawable(tv.resources, b).apply { setBounds(0, 0, larg, alt) }
+        tv.setCompoundDrawablesRelative(dr, null, null, null)
+        tv.compoundDrawablePadding = vaoPx
+    }
+
     /** Um ImageView já com o ícone, para colocar em qualquer linha. */
     fun imagem(ctx: Context, chave: String): ImageView = ImageView(ctx).apply {
         scaleType = ImageView.ScaleType.FIT_CENTER
