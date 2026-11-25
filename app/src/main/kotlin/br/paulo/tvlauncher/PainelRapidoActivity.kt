@@ -862,7 +862,7 @@ class PainelRapidoActivity : Activity() {
         try {
             ctx.startActivity(Intent(ctx, SaudeAvisoActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(SaudeAvisoActivity.EXTRA_SHELL, true)
-                .putExtra(SaudeAvisoActivity.EXTRA_MINUTOS, br.paulo.tvlauncher.privilege.SaudeAcesso.minutosForaShell()))
+                .putExtra(SaudeAvisoActivity.EXTRA_MINUTOS, br.paulo.tvlauncher.privilege.SaudeAcesso.minutosForaShell(app)))
         } catch (e: Exception) { android.util.Log.w("TvLauncher.Painel", "sem shell e sem aviso: $e") }
     }
 
