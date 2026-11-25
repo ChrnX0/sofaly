@@ -75,9 +75,20 @@ object Agenda {
         // "Republic Proclamation Day" na outra; teste na TV, 15/11/2026). Fica só uma: a do idioma da TV, senão a 1ª.
         val idiomas = l1.mapNotNull { idiomaFeriados(it.dono) }.distinct()
         val fica = if (idiomas.size > 1) idiomas.firstOrNull { it == idioma.lowercase() } ?: idiomas.first() else null
-        return l1.filter { e -> fica == null || idiomaFeriados(e.dono).let { it == null || it == fica } }
-            .distinctBy { Triple(it.titulo.trim().lowercase(), it.inicio, it.fim) }.sortedBy { it.inicio }
+        val l2 = l1.filter { e -> fica == null || idiomaFeriados(e.dono).let { it == null || it == fica } }
+        // O mesmo feriado também na agenda pessoal, com outro nome ("Dia de Natal" ao lado de "Natal", "Véspera de Natal"
+        // ao lado de "Véspera de Natal (após às 14 horas)"; agenda real da Sala, 25/11/2026): fica o da agenda de feriados.
+        val feriados = l2.filter { it.diaInteiro && idiomaFeriados(it.dono) != null }
+        val l3 = l2.filter { e ->
+            !(e.diaInteiro && idiomaFeriados(e.dono) == null &&
+                feriados.any { f -> f.inicio == e.inicio && nomeDeFeriado(f.titulo) == nomeDeFeriado(e.titulo) })
+        }
+        return l3.distinctBy { Triple(it.titulo.trim().lowercase(), it.inicio, it.fim) }.sortedBy { it.inicio }
     }
+
+    /** "Dia de Natal" e "Véspera de Natal (após às 14 horas)" viram "natal" e "véspera de natal": o nome sem enfeite. */
+    fun nomeDeFeriado(t: String): String =
+        t.substringBefore('(').trim().lowercase().removePrefix("dia de ").removePrefix("dia do ").removePrefix("dia da ").trim()
 
     /** Os eventos das contas Google [contas] entre [de] e [ate] (ms), em ordem. Vazio sem conta ou sem READ_CALENDAR. */
     fun eventos(ctx: Context, contas: List<String>, de: Long, ate: Long): List<Evento> {

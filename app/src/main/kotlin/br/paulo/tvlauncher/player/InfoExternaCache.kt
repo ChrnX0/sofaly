@@ -248,7 +248,7 @@ object InfoExternaCache {
         val linhas = m.entries.toList().takeLast(n.coerceIn(1, 100)).reversed().map { (k, g) ->
             val d = g.detalhe
             "$k tmdb=${g.tmdb ?: "-"} " + if (d == null) "sem ficha (busca ${if (g.buscaEm > 0) "${(agora - g.buscaEm) / 3_600_000} h atrás" else "-"})"
-            else "ficha ${(agora - g.detalheEm) / 3_600_000} h atrás: sinopse=${d.sinopse.length} elenco=${d.elenco.size} " +
+            else "ficha ${if (g.detalheEm > 0) "${(agora - g.detalheEm) / 3_600_000} h atrás" else "antiga (renova ao abrir)"}: sinopse=${d.sinopse.length} elenco=${d.elenco.size} " +
                 "próximo=${d.proximo != null} noAr=${d.noAr} temporadas=${d.temporadas} pôster=${d.poster.isNotEmpty()}"
         }
         "títulos=${m.size} trakt=${chaves().traktId.isNotBlank()} tmdb=${temTmdb()}\n" + linhas.joinToString("\n")

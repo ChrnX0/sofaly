@@ -54,4 +54,15 @@ class AgendaTest {
         assertEquals(null, Agenda.paisFeriados("en.atlantis#holiday@group.v.calendar.google.com"))
         assertEquals(null, Agenda.paisFeriados("alguem@gmail.com"))
     }
+
+    @Test fun mesmoFeriadoNaAgendaPessoalApareceUmaVez() {
+        // Agenda real da Sala (25/11/2026): a agenda pessoal também traz os feriados, com outro nome.
+        val ptBr = "pt.brazilian#holiday@group.v.calendar.google.com"; val eu = "alguem@exemplo.com"
+        val l = listOf(Agenda.Evento("Véspera de Natal", 1000, 2000, true, 0, eu),
+            Agenda.Evento("Véspera de Natal (após às 14 horas)", 1000, 2000, true, 0, ptBr),
+            Agenda.Evento("Dia de Natal", 2000, 3000, true, 0, eu), Agenda.Evento("Natal", 2000, 3000, true, 0, ptBr),
+            Agenda.Evento("Natal na casa da vó", 2000, 3000, true, 0, eu), Agenda.Evento("Natal", 2000, 2500, false, 0, eu))
+        assertEquals(listOf("Véspera de Natal (após às 14 horas)", "Natal", "Natal na casa da vó", "Natal"),
+            Agenda.juntar(l, "pt", "BR").map { it.titulo })
+    }
 }
