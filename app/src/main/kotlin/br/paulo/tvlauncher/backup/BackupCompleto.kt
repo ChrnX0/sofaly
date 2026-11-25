@@ -115,6 +115,8 @@ object BackupCompleto {
         "despertador_estado",   // próximo toque anotado (AlarmeGarantia): um antigo restaurado daria aviso falso de alarme perdido
         "backup_noturno",   // a senha do próprio cofre (cifrada pelo Keystore: não abre em outra instalação); redefinir na TV
         "saude_acesso", "manutencao",   // estado passageiro da saúde (SaudeAcesso) e o relatório da última noite
+        "sofy_ai",   // 25/11/2026: a chave da IA do dono (cifrada pelo Keystore DESTE aparelho; em outro não abre)
+        "sofy_repair", "auto_pairing",   // casos de conserto e tentativas de pareamento DESTA TV
         "trava_relogio",   // como a hora automática estava ANTES da trava: vale só para este aparelho (ver TravaRelogio.kt)
         "diario",   // ideias 58/59: linha do tempo de 7 dias (passageira) e o link do dono, que se cadastra de novo pelo painel
         "uso_local",   // ideia 67: contagem de uso das telas, só para o dono ver nesta TV; nunca sai dela

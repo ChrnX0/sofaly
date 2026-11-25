@@ -967,6 +967,20 @@ object PainelWeb {
                     return json(200, JSONObject().put("ok", true).put("voice_on", ligar))
                 }
             }
+            // A IA do dono (25/11/2026, SofyAi): provedor, endereço e modelo; a chave só entra, nunca volta. Junto, os casos
+            // que a Sofy consertou sozinha (SofyRepairTv). {"test":true} = pergunta de teste à IA.
+            "/api/sofy/ai" -> when (req.metodo) {
+                "GET" -> return json(200, br.paulo.tvlauncher.observer.SofyAi.json(app)
+                    .put("cases", br.paulo.tvlauncher.observer.SofyRepairTv.reportJson(app).optJSONArray("cases")))
+                "POST" -> {
+                    val o = try { JSONObject(req.corpoTexto()) } catch (e: Exception) { return erro(400, "JSON") }
+                    if (o.optBoolean("test")) return json(200, JSONObject().put("ok", br.paulo.tvlauncher.observer.SofyAi.test(app)))
+                    val pronto = br.paulo.tvlauncher.observer.SofyAi.save(app, o.optString("provider"), o.optString("base"), o.optString("model"),
+                        if (o.has("key")) o.optString("key") else null)
+                    PainelArmazem.registrar(app, ip, "IA da Sofy", o.optString("provider").ifEmpty { "nenhuma" })
+                    return json(200, JSONObject().put("ok", true).put("ready", pronto))
+                }
+            }
             "/api/saude/liberar" -> if (req.metodo == "POST") {
                 val ganho = PainelSaude.liberar(app)
                 PainelArmazem.registrar(app, ip, "liberar memória", if (ganho == null) "sem shell" else "ok, ${ganho / 1048576} MB")

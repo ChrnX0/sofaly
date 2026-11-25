@@ -54,7 +54,7 @@ object SofyAnswers {
         PREPARED("prepared", { (it.source == SofyBus.Source.SOFY && it.kind in setOf("prewarm", "prehome", "acted_on_demand", "acted_recompile", "recipe_memory"))
             || (it.source == SofyBus.Source.HOUSE && it.kind == "arrived") }),
         NIGHT("night", { (it.source == SofyBus.Source.SOFY && it.kind in setOf("night_maintenance", "experiment_night")) || (it.source == SofyBus.Source.BACKUP && it.ok) }),
-        GUARDED("guarded", { (it.source == SofyBus.Source.SOFY && it.kind in setOf("app_powerful", "lost_help", "app_crashy", "version_worse", "disk_filling", "self_defect"))
+        GUARDED("guarded", { (it.source == SofyBus.Source.SOFY && it.kind in setOf("app_powerful", "lost_help", "app_crashy", "version_worse", "disk_filling", "self_defect", "access_repaired"))
             || (it.source == SofyBus.Source.UPDATE && it.kind == "google_broke") || (it.source == SofyBus.Source.HOUSE && it.kind == "panel_pin_wrong")
             || (it.source == SofyBus.Source.DEVICE && it.kind in setOf("key_stuck", "battery_low")) }),
         INTERNET("internet", { it.source == SofyBus.Source.NETWORK && it.kind.startsWith("drop_") }),

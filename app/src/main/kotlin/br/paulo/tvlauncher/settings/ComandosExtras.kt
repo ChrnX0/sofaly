@@ -245,6 +245,23 @@ object ComandosExtras {
         "sofy_limits_reset" -> br.paulo.tvlauncher.observer.SofyLearnTv.resetLimits(ctx)
         // Energia na Retrospectiva (Sofy, ideia 30): watts da TV + Chromecast e a tarifa em centavos por kWh (0 = apaga).
         // Ideia 41: "Ajudar outras casas" (fichas comunitárias): --ez on true|false; sem --ez, só o estado.
+        // A Sofy conserta sozinha (25/11/2026): `repair` = os casos e o que ela aprendeu; `repair_signal --es type ERROR
+        // --es subject data:teste` injeta um sinal (teste); `repair_tick` roda uma batida agora.
+        "repair" -> br.paulo.tvlauncher.observer.SofyRepairTv.reportJson(ctx).toString()
+        "repair_tick" -> { br.paulo.tvlauncher.observer.SofyRepairTv.tick(ctx); "batida pedida" }
+        "repair_signal" -> {
+            val t = br.paulo.tvlauncher.observer.SofyRepair.Type.entries.firstOrNull { it.name == i.getStringExtra("type") }
+            val sub = i.getStringExtra("subject")
+            if (t == null || sub.isNullOrBlank()) "use --es type <TIPO> --es subject <assunto>"
+            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, "teste pelo adb"); "sinal ${t.name} $sub" }
+        }
+        // A IA do dono: `sofy_ai` = o estado (sem a chave); `sofy_ai --es provider claude|openai|perplexity|gemini|groq|
+        // openrouter|custom [--es base http://192.168.x.x:11434/v1] [--es model nome] [--es key CHAVE]` grava; `sofy_ai_test` testa.
+        "sofy_ai" -> {
+            if (i.hasExtra("provider")) br.paulo.tvlauncher.observer.SofyAi.save(ctx, i.getStringExtra("provider"), i.getStringExtra("base"), i.getStringExtra("model"), i.getStringExtra("key"))
+            br.paulo.tvlauncher.observer.SofyAi.json(ctx).toString()
+        }
+        "sofy_ai_test" -> { val c = ctx.applicationContext; br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste: " + br.paulo.tvlauncher.observer.SofyAi.test(c)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
         "community" -> {
             if (i.hasExtra("on")) br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(ctx, i.getBooleanExtra("on", false))
             "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)}"

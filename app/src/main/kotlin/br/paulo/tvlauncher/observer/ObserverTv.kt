@@ -751,6 +751,7 @@ object ObserverTv {
             .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("habits", runCatching { SofyHabitsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("today", runCatching { SofyAnswersTv.todayJson(ctx) }.getOrNull() ?: org.json.JSONArray())
+            .put("repair", runCatching { SofyRepairTv.reportJson(ctx) }.getOrNull() ?: org.json.JSONObject())
             .put("version_guard", runCatching { JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("version_guard", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)

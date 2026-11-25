@@ -77,6 +77,13 @@ object Privilegio {
         try {
             val cr = ctx.contentResolver
             // O nome é escrito por extenso porque Settings.Global.ADB_WIFI_ENABLED é @hide (não aparece no SDK público).
+            // O Android esquece um aparelho pareado que passa 7 dias sem se conectar (AdbDebuggingManager,
+            // adb_allowed_connection_time). Foi a provável causa da queda da Sala em 25/11/2026: o launcher perdeu o
+            // shell. 0 = nunca esquece (o mesmo que "Desativar o tempo limite de autorização do adb").
+            if (Settings.Global.getLong(cr, "adb_allowed_connection_time", -1L) != 0L) {
+                Settings.Global.putLong(cr, "adb_allowed_connection_time", 0L)
+                Log.i("TvLauncher.Adb", "prazo de 7 dias do adb desligado")
+            }
             if (Settings.Global.getInt(cr, "adb_wifi_enabled", 0) != 1) {
                 Settings.Global.putInt(cr, "adb_wifi_enabled", 1)
                 Log.i("TvLauncher.Adb", "Depuracao sem fio estava desligada; religada")
