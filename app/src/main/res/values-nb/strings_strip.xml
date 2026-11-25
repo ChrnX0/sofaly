@@ -29,6 +29,10 @@
     <string name="st_nome">Navn på kortet i fokus</string>
     <string name="st_sem">Av</string>
     <string name="st_com">På</string>
+    <string name="st_telas">Skjermstil</string>
+    <string name="st_telas_gaveta">Skuff</string>
+    <string name="st_telas_vidro">Glass</string>
+    <string name="st_telas_barra">Linje</string>
     <string name="st_fundo">Bakgrunn</string>
     <string name="st_fundo_vale">Dal</string>
     <string name="st_fundo_serra">Fjell</string>
@@ -40,4 +44,8 @@
     <string name="st_so_escolhido">Bare den valgte</string>
     <string name="wo_cards">Kortform i denne verdenen</string>
     <string name="wo_cards_geral">Samme som i Finjustering (%1$s)</string>
+    <string name="st_proprios">Snarveikort</string>
+    <string name="st_proprios_branco">Hvit</string>
+    <string name="st_proprios_vidro">Lyst glass</string>
+    <string name="st_proprios_escuro">Mørkt glass</string>
 </resources>

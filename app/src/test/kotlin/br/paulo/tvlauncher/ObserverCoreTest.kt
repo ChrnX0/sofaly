@@ -205,4 +205,31 @@ class ObserverCoreTest {
         assertEquals("remote_battery_low", n.typeKey)
         assertEquals(null, ObserverCore.signalOf(ObserverCore.Kind.REMOTE_BATTERY_LOW))
     }
+<<<<<<< HEAD
+=======
+
+    // 25/11/2026: a regra de "pode aparecer" mora só no Note; vale para fila cheia, Ilha, aviso e resumo.
+    @Test fun podeAparecerUmaRegraSo() {
+        val agora = 1_000_000L
+        val sug = ObserverCore.sofyNote(Kind.KEY_STUCK, agora, ObserverCore.Step.SUGGESTS)
+        assertTrue(sug.canAppear(agora))
+        assertEquals(false, sug.copy(seen = true).canAppear(agora))
+        assertEquals(false, sug.canAppear(sug.expiresAt))
+        assertEquals(false, sug.copy(step = ObserverCore.Step.OBSERVED).canAppear(agora))
+    }
+
+    // 25/11/2026: fila cheia de OBSERVED não empurra para fora o aviso que a pessoa ainda vai ver.
+    @Test fun filaCheiaGuardaOQueAindaAparece() {
+        val agora = 1_000_000L
+        var fila = ObserverCore.enqueue(null, ObserverCore.sofyNote(Kind.KEY_STUCK, agora, ObserverCore.Step.SUGGESTS), agora)
+        val observados = Kind.values().filter { it != Kind.KEY_STUCK }.take(ObserverCore.NOTES_MAX + 3)
+        observados.forEachIndexed { i, k ->
+            fila = ObserverCore.enqueue(fila, ObserverCore.sofyNote(k, agora + i + 1, ObserverCore.Step.OBSERVED), agora + i + 1)
+        }
+        val ficou = ObserverCore.readNotes(fila, agora + 100)
+        assertEquals(ObserverCore.NOTES_MAX, ficou.size)
+        assertTrue(ficou.any { it.kind == Kind.KEY_STUCK })
+        assertEquals(observados.last(), ficou.first().kind)   // o mais novo continua na frente
+    }
+>>>>>>> origin/main
 }

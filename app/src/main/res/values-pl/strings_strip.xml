@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Tylko wybrany</string>
     <string name="wo_cards">Kształt kart w tym świecie</string>
     <string name="wo_cards_geral">Jak w Dostrajaniu (%1$s)</string>
+    <string name="st_telas">Styl ekranów</string>
+    <string name="st_telas_gaveta">Szuflada</string>
+    <string name="st_telas_vidro">Szkło</string>
+    <string name="st_telas_barra">Pasek</string>
+    <string name="st_proprios">Karty skrótów</string>
+    <string name="st_proprios_branco">Białe</string>
+    <string name="st_proprios_vidro">Jasne szkło</string>
+    <string name="st_proprios_escuro">Ciemne szkło</string>
 </resources>

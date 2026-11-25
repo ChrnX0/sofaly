@@ -23,6 +23,7 @@ object StripHome {
     const val KEY_CORNERS = "strip_corners"   // 0 retos, 1 suaves, 2 redondos
     const val KEY_GLASS = "strip_glass"       // 0 sem placa, 1 com placa de vidro atrás
     const val KEY_NAME = "strip_name"         // 0 sem nome, 1 nome no card em foco
+    const val KEY_OWN = "strip_own"           // placa dos cards nossos (TV, Séries...): Own.ordinal
 
     enum class Desc { FIXED, LIVE }
     /**
@@ -49,11 +50,18 @@ object StripHome {
     const val NOME_EMBAIXO = 20f
     enum class Size(val k: Float) { SMALL(0.85f), MEDIUM(1f), LARGE(1.15f) }
     enum class Gap(val dp: Float) { TIGHT(12f), NORMAL(20f), WIDE(30f) }
+    /**
+     * Placa dos cards nossos (TV, Séries, Filmes, Rede...), com o ícone na linha do nome (Paulo, 25/11/2026: o marrom
+     * antigo "tinha um destaque feio"; quis as 3 propostas como opção). Branco = igual aos cards dos apps (padrão);
+     * Vidro claro = véu claro fino, a foto aparece atrás; Vidro escuro = véu escuro, ícone na cor da marca.
+     */
+    enum class Own { WHITE, GLASS, DARK }
     enum class Corners(val dp: Float) { SQUARE(4f), SOFT(12f), ROUND(22f) }
 
     data class Options(
         val desc: Desc = Desc.LIVE, val format: Format = Format.WIDE, val size: Size = Size.SMALL,
         val gap: Gap = Gap.WIDE, val corners: Corners = Corners.ROUND, val glass: Boolean = false, val name: Boolean = false,
+        val own: Own = Own.WHITE,
     ) {
         /** Largura e altura do card (dp). */
         val cardW get() = Math.round(format.w * size.k).toFloat()
@@ -67,7 +75,7 @@ object StripHome {
         /** Raio dos cantos: o redondo é um círculo. */
         val raio get() = if (format == Format.ROUND) cardH / 2f else corners.dp
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
-        fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}"
+        fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}${own.ordinal}"
     }
 
     val DEFAULT = Options()
@@ -91,6 +99,7 @@ object StripHome {
             corners = ler(KEY_CORNERS, Corners.entries.toTypedArray(), DEFAULT.corners),
             glass = Extras.numero(ctx, KEY_GLASS, 0) == 1,
             name = Extras.numero(ctx, KEY_NAME, 0) == 1,
+            own = ler(KEY_OWN, Own.entries.toTypedArray(), DEFAULT.own),
         )
     }
 

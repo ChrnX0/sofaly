@@ -2171,7 +2171,10 @@ class MainActivity : Activity() {
             letterSpacing = -0.02f
             includeFontPadding = false
             setShadowLayer(dp(10).toFloat(), 0f, 0f, sombra)
-        })
+            maxLines = 1
+        // WRAP explícito (24/11/2026): sem ele a coluna vertical dava ao relógio a largura da data, e uma data curta
+        // ("M01 1, Thu" no klingon, sem dados do ICU) quebrava o "00 : 00" em duas linhas.
+        }, LinearLayout.LayoutParams(WRAP, WRAP))
         val padrao = android.text.format.DateFormat.getBestDateTimePattern(resources.configuration.locales[0], "EEEEdMMMM")
         addView(RelogioTela(this@MainActivity, data = true).apply {
             format12Hour = padrao; format24Hour = padrao

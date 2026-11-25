@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Bara den valda</string>
     <string name="wo_cards">Kortform i den här världen</string>
     <string name="wo_cards_geral">Som Finjustering (%1$s)</string>
+    <string name="st_telas">Skärmstil</string>
+    <string name="st_telas_gaveta">Låda</string>
+    <string name="st_telas_vidro">Glas</string>
+    <string name="st_telas_barra">Rad</string>
+    <string name="st_proprios">Genvägskort</string>
+    <string name="st_proprios_branco">Vit</string>
+    <string name="st_proprios_vidro">Ljust glas</string>
+    <string name="st_proprios_escuro">Mörkt glas</string>
 </resources>

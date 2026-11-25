@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Alleen de gekozen</string>
     <string name="wo_cards">Kaartvorm in deze wereld</string>
     <string name="wo_cards_geral">Zoals Fijnafstelling (%1$s)</string>
+    <string name="st_telas">Stijl van schermen</string>
+    <string name="st_telas_gaveta">Lade</string>
+    <string name="st_telas_vidro">Glas</string>
+    <string name="st_telas_barra">Balk</string>
+    <string name="st_proprios">Snelkoppelingskaarten</string>
+    <string name="st_proprios_branco">Wit</string>
+    <string name="st_proprios_vidro">Licht glas</string>
+    <string name="st_proprios_escuro">Donker glas</string>
 </resources>

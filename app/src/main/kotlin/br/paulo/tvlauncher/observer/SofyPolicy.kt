@@ -81,7 +81,7 @@ object SofyPolicy {
             n.step == ObserverCore.Step.QUESTION ->
                 if (night(now.minuteOfDay)) Place.MORNING to "pergunta de madrugada espera a manhã"
                 else Place.HOME_CARD to "pergunta espera a resposta na home"
-            n.step == ObserverCore.Step.OBSERVED -> Place.DIARY to "só observou: fica no Diário"
+            !n.canAppear(now.at) -> Place.DIARY to "só observou, já visto ou vencido: fica no Diário"
             muted(n.typeKey, now.mutedUntil, now.at) -> Place.DIARY to "tipo calado depois de 2 recusas"
             night(now.minuteOfDay) -> Place.MORNING to "madrugada: vai para o resumo da manhã"
             n.step == ObserverCore.Step.ACTED_REVERSIBLE -> Place.MORNING to "agiu e dá para desfazer: conta no resumo"
@@ -100,7 +100,7 @@ object SofyPolicy {
      * de fora até a Ilha saber responder.
      */
     fun islandNote(notes: List<ObserverCore.Note>, now: Now, onIsland: Set<String>): ObserverCore.Note? =
-        notes.filter { !it.seen && it.expiresAt > now.at && it.step != ObserverCore.Step.QUESTION }.sortedBy { it.at }
+        notes.filter { it.canAppear(now.at) && it.step != ObserverCore.Step.QUESTION }.sortedBy { it.at }
             .firstOrNull { it.id in onIsland || decide(it, now).place == Place.HOME_CARD }
 
     /** Janela do resumo da manhã na Ilha: das 6h ao meio-dia. */
@@ -115,7 +115,7 @@ object SofyPolicy {
     fun morningNotes(notes: List<ObserverCore.Note>, now: Now, minuteOf: (Long) -> Int): List<ObserverCore.Note> =
         if (now.minuteOfDay !in MORNING_FROM_MIN until MORNING_UNTIL_MIN) emptyList()
         else notes.filter {
-            !it.seen && it.expiresAt > now.at && it.step != ObserverCore.Step.OBSERVED && it.step != ObserverCore.Step.QUESTION &&
+            it.canAppear(now.at) && it.step != ObserverCore.Step.QUESTION &&
                 !muted(it.typeKey, now.mutedUntil, now.at) && (night(minuteOf(it.at)) || it.step == ObserverCore.Step.ACTED_REVERSIBLE)
         }.sortedBy { it.at }
 

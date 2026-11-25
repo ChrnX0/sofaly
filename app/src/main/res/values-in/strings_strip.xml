@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Hanya yang dipilih</string>
     <string name="wo_cards">Bentuk kartu di dunia ini</string>
     <string name="wo_cards_geral">Sama seperti Penyesuaian halus (%1$s)</string>
+    <string name="st_telas">Gaya layar</string>
+    <string name="st_telas_gaveta">Laci</string>
+    <string name="st_telas_vidro">Kaca</string>
+    <string name="st_telas_barra">Bilah</string>
+    <string name="st_proprios">Kartu pintasan</string>
+    <string name="st_proprios_branco">Putih</string>
+    <string name="st_proprios_vidro">Kaca terang</string>
+    <string name="st_proprios_escuro">Kaca gelap</string>
 </resources>

@@ -9,7 +9,7 @@ import org.junit.Test
 
 /** Elevação 16.3: com o alto contraste ligado, todo texto da paleta passa de 7:1 onde ele aparece. */
 class AltoContrasteTest {
-    @After fun desligar() { Estilo.altoContraste = false; FocusStyle.atual = FocusStyle.LINE }
+    @After fun desligar() { Estilo.altoContraste = false; FocusStyle.atual = FocusStyle.RING }
 
     private fun conferir(nome: String, frente: Int, fundo: Int, minimo: Double = AltoContraste.MINIMO) {
         val c = CorSegura.contraste(CorSegura.compor(frente, fundo), fundo)
@@ -37,7 +37,7 @@ class AltoContrasteTest {
     /** Fio e Véu deixam o fundo escuro: o texto focado continua claro (Sala 22/11: escuro sobre escuro sumia). */
     @Test fun textoNoFocoSemQuadroFicaClaro() {
         val superficie = CorSegura.compor(Estilo.SUPERFICIE, Estilo.FUNDO)
-        for (f in listOf(FocusStyle.LINE, FocusStyle.VEIL)) {
+        for (f in listOf(FocusStyle.LINE, FocusStyle.VEIL, FocusStyle.RING)) {
             FocusStyle.atual = f
             conferir("TEXTO_NO_FOCO/$f", Estilo.TEXTO_NO_FOCO, superficie, 7.0)
             conferir("ACENTO_NO_FOCO/$f", Estilo.ACENTO_NO_FOCO, superficie, 3.0)

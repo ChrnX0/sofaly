@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Csak a kijelölt</string>
     <string name="wo_cards">Kártyaforma ebben a világban</string>
     <string name="wo_cards_geral">Ugyanaz, mint a Finomhangolásban (%1$s)</string>
+    <string name="st_telas">Képernyők stílusa</string>
+    <string name="st_telas_gaveta">Fiók</string>
+    <string name="st_telas_vidro">Üveg</string>
+    <string name="st_telas_barra">Sáv</string>
+    <string name="st_proprios">Parancsikon-kártyák</string>
+    <string name="st_proprios_branco">Fehér</string>
+    <string name="st_proprios_vidro">Világos üveg</string>
+    <string name="st_proprios_escuro">Sötét üveg</string>
 </resources>

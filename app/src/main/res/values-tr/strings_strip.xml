@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Yalnızca seçili</string>
     <string name="wo_cards">Bu dünyada kart biçimi</string>
     <string name="wo_cards_geral">İnce ayardaki gibi (%1$s)</string>
+    <string name="st_telas">Ekran stili</string>
+    <string name="st_telas_gaveta">Çekmece</string>
+    <string name="st_telas_vidro">Cam</string>
+    <string name="st_telas_barra">Çubuk</string>
+    <string name="st_proprios">Kısayol kartları</string>
+    <string name="st_proprios_branco">Beyaz</string>
+    <string name="st_proprios_vidro">Açık cam</string>
+    <string name="st_proprios_escuro">Koyu cam</string>
 </resources>

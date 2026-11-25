@@ -808,5 +808,275 @@
   "soCor": [],
   "contraste": [],
   "semNome": []
+ },
+ "tlh\/ajuda": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/ajuda-ac": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/automacoes": {
+  "menorSp": 14,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/boas-vindas": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/busca": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/configuracoes": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/configuracoes-ac": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/configuracoes-familia": {
+  "menorSp": 16,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/configuracoes-remoto": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/despertador": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/diagnostico": {
+  "menorSp": 14,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/entrar-celular": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/extras": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/fila-apps": {
+  "menorSp": 20,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/filmes": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/home": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/home-ac": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/home-leve": {
+  "menorSp": 15,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/home-recua": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/home-relogio": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/home-vidro": {
+  "menorSp": 15,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/jogos": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/mudar-tv": {
+  "menorSp": 20,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/placar": {
+  "menorSp": 16,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/placar-ac": {
+  "menorSp": 16,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/planos": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/previsao": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/radio": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/series": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
+ },
+ "tlh\/sobre": {
+  "menorSp": 18,
+  "foco": true,
+  "cortes": [],
+  "sobrepostos": [],
+  "soCor": [],
+  "contraste": [],
+  "semNome": []
  }
 }

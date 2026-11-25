@@ -29,6 +29,10 @@
     <string name="st_nome">Nimi kohdistetussa kortissa</string>
     <string name="st_sem">Pois</string>
     <string name="st_com">Päällä</string>
+    <string name="st_telas">Näyttöjen tyyli</string>
+    <string name="st_telas_gaveta">Laatikko</string>
+    <string name="st_telas_vidro">Lasi</string>
+    <string name="st_telas_barra">Palkki</string>
     <string name="st_fundo">Tausta</string>
     <string name="st_fundo_vale">Laakso</string>
     <string name="st_fundo_serra">Vuoret</string>
@@ -40,4 +44,8 @@
     <string name="st_so_escolhido">Vain valittu</string>
     <string name="wo_cards">Korttien muoto tässä maailmassa</string>
     <string name="wo_cards_geral">Sama kuin Hienosäädössä (%1$s)</string>
+    <string name="st_proprios">Pikakortit</string>
+    <string name="st_proprios_branco">Valkoinen</string>
+    <string name="st_proprios_vidro">Vaalea lasi</string>
+    <string name="st_proprios_escuro">Tumma lasi</string>
 </resources>

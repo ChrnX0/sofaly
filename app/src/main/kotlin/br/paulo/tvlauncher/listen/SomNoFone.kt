@@ -56,9 +56,19 @@ object SomNoFone {
 
     fun hora() = SystemClock.elapsedRealtime()
 
+    /**
+     * O atraso do som desta TV na saída de agora, medido pelo microfone do celular (AudioSyncTv, 24/11/2026); sem medida,
+     * o chute padrão. O celular soma a este número o ajuste fino que a pessoa fez de ouvido.
+     */
+    private fun atraso(): Int = appCtx?.let { runCatching { br.paulo.tvlauncher.companion.AudioSyncTv.delayInUse(it) }.getOrNull() }
+        ?: SomNoFoneRegras.ATRASO_PADRAO_MS
+    private fun atrasoMedido(): Boolean = appCtx?.let { runCatching { br.paulo.tvlauncher.companion.AudioSyncTv.forRoute(it) != null }.getOrNull() } ?: false
+    @Volatile private var appCtx: Context? = null
+
     fun ligar(ctx: Context): String? {
         servidor?.let { return endereco() }
         val app = ctx.applicationContext
+        appCtx = app
         if (pagina == null) pagina = try { app.assets.open("fone/index.html").use { it.readBytes() } } catch (_: Exception) { return null }
         return try {
             val s = ServerSocket(SomNoFoneRegras.PORTA, 8, InetAddress.getByName("0.0.0.0")).apply { reuseAddress = true }
@@ -132,7 +142,7 @@ object SomNoFone {
             when (acao) {
                 "pagina" -> responder(saida, 200, "text/html; charset=utf-8", pagina ?: ByteArray(0))
                 "hora" -> responder(saida, 200, "application/json",
-                    """{"t":${hora()},"ouvindo":$ouvindo,"max":${SomNoFoneRegras.MAX_CELULARES},"tv":$somTambemNaTv,"atraso":${SomNoFoneRegras.ATRASO_PADRAO_MS}}""".toByteArray())
+                    """{"t":${hora()},"ouvindo":$ouvindo,"max":${SomNoFoneRegras.MAX_CELULARES},"tv":$somTambemNaTv,"atraso":${atraso()},"medido":${atrasoMedido()}}""".toByteArray())
                 "tv" -> {
                     somTambemNaTv = caminho.substringAfter('?', "").split('&').any { it == "tambem=1" }
                     responder(saida, 200, "application/json", """{"tv":$somTambemNaTv}""".toByteArray())

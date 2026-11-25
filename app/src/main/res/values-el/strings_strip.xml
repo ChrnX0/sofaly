@@ -29,6 +29,10 @@
     <string name="st_nome">Όνομα στην επιλεγμένη κάρτα</string>
     <string name="st_sem">Ανενεργό</string>
     <string name="st_com">Ενεργό</string>
+    <string name="st_telas">Στυλ οθονών</string>
+    <string name="st_telas_gaveta">Συρτάρι</string>
+    <string name="st_telas_vidro">Γυαλί</string>
+    <string name="st_telas_barra">Μπάρα</string>
     <string name="st_fundo">Φόντο</string>
     <string name="st_fundo_vale">Κοιλάδα</string>
     <string name="st_fundo_serra">Βουνά</string>
@@ -40,4 +44,8 @@
     <string name="st_so_escolhido">Μόνο το επιλεγμένο</string>
     <string name="wo_cards">Σχήμα καρτών σε αυτόν τον κόσμο</string>
     <string name="wo_cards_geral">Όπως στη Λεπτή ρύθμιση (%1$s)</string>
+    <string name="st_proprios">Κάρτες συντόμευσης</string>
+    <string name="st_proprios_branco">Λευκό</string>
+    <string name="st_proprios_vidro">Ανοιχτό γυαλί</string>
+    <string name="st_proprios_escuro">Σκούρο γυαλί</string>
 </resources>

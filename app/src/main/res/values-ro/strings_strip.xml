@@ -41,4 +41,12 @@
     <string name="st_so_escolhido">Doar cel focalizat</string>
     <string name="wo_cards">Forma cardurilor în această lume</string>
     <string name="wo_cards_geral">La fel ca în Ajustare fină (%1$s)</string>
+    <string name="st_telas">Stilul ecranelor</string>
+    <string name="st_telas_gaveta">Sertar</string>
+    <string name="st_telas_vidro">Sticlă</string>
+    <string name="st_telas_barra">Bară</string>
+    <string name="st_proprios">Carduri de comenzi rapide</string>
+    <string name="st_proprios_branco">Alb</string>
+    <string name="st_proprios_vidro">Sticlă deschisă</string>
+    <string name="st_proprios_escuro">Sticlă închisă</string>
 </resources>

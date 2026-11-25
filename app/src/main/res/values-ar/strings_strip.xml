@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">المحدد فقط</string>
     <string name="wo_cards">شكل البطاقات في هذا العالم</string>
     <string name="wo_cards_geral">مثل ضبط دقيق (%1$s)</string>
+    <string name="st_telas">نمط الشاشات</string>
+    <string name="st_telas_gaveta">درج</string>
+    <string name="st_telas_vidro">زجاج</string>
+    <string name="st_telas_barra">شريط</string>
+    <string name="st_proprios">بطاقات الاختصار</string>
+    <string name="st_proprios_branco">أبيض</string>
+    <string name="st_proprios_vidro">زجاج فاتح</string>
+    <string name="st_proprios_escuro">زجاج داكن</string>
 </resources>

@@ -49,5 +49,8 @@ object TecladoCelular {
         ultimo = agora; ultimoPacote = pacote
         val nome = runCatching { ctx.packageManager.getApplicationLabel(ctx.packageManager.getApplicationInfo(pacote, 0)).toString() }.getOrDefault(pacote)
         Avisos.enviar(ctx, Avisos.Tipo.DIGITAR, ctx.getString(R.string.l51_digitar_titulo), ctx.getString(R.string.l51_digitar_texto, nome))
+        // A Sofy fica sabendo (24/11/2026, celular como parceiro) que a TV pediu texto. Sem o pacote (revisor, 25/11/2026):
+        // o barramento não guarda nome de app de terceiro (regra do SofyBus), e ninguém lia esse detalhe.
+        br.paulo.tvlauncher.companion.CompanionTv.sofy(ctx, "keyboard_prompt", true, "")
     }
 }

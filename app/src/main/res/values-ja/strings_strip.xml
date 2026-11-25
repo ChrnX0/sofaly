@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">選択中のみ</string>
     <string name="wo_cards">このワールドのカードの形</string>
     <string name="wo_cards_geral">微調整と同じ（%1$s）</string>
+    <string name="st_telas">画面のスタイル</string>
+    <string name="st_telas_gaveta">引き出し</string>
+    <string name="st_telas_vidro">ガラス</string>
+    <string name="st_telas_barra">バー</string>
+    <string name="st_proprios">ショートカットカード</string>
+    <string name="st_proprios_branco">白</string>
+    <string name="st_proprios_vidro">明るいガラス</string>
+    <string name="st_proprios_escuro">暗いガラス</string>
 </resources>

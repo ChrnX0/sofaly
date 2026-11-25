@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">Sprog</string>
+    <string name="app_language_detail">Sproget på Sofalys skærme</string>
+    <string name="app_language_same_as_tv">Samme som tv\'et</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! Klingon låst op: tlhIngan Hol står nederst på listen.</string>
+</resources>

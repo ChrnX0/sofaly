@@ -40,4 +40,12 @@
     <string name="st_so_escolhido">Solo il selezionato</string>
     <string name="wo_cards">Forma delle schede in questo mondo</string>
     <string name="wo_cards_geral">Come Regolazione fine (%1$s)</string>
+    <string name="st_telas">Stile delle schermate</string>
+    <string name="st_telas_gaveta">Cassetto</string>
+    <string name="st_telas_vidro">Vetro</string>
+    <string name="st_telas_barra">Barra</string>
+    <string name="st_proprios">Schede scorciatoia</string>
+    <string name="st_proprios_branco">Bianco</string>
+    <string name="st_proprios_vidro">Vetro chiaro</string>
+    <string name="st_proprios_escuro">Vetro scuro</string>
 </resources>
