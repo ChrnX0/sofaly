@@ -263,7 +263,15 @@ object ObserverCore {
         val titleKey: String, val textKey: String, val args: List<String>,
         val undoKey: String?, val typeKey: String,
         val expiresAt: Long, val seen: Boolean = false,
-    )
+    ) {
+        /**
+         * A regra ÚNICA de quando um recado ainda pode aparecer em alguma tela (aviso, Ilha, resumo da manhã), 25/11/2026.
+         * Antes ela estava repetida em 4 lugares (SofyPolicy.decide/islandNote/morningNotes e a fila) e um deles esqueceu o
+         * OBSERVED, o que deixou o recado da tecla presa invisível. OBSERVED nunca aparece: só observou, fica no Diário.
+         * A pergunta ([Step.QUESTION]) passa aqui; quem não sabe responder a tira por conta própria.
+         */
+        fun canAppear(now: Long): Boolean = !seen && expiresAt > now && step != Step.OBSERVED
+    }
 
     enum class Step { OBSERVED, SUGGESTS, ACTED_REVERSIBLE, ACTED_FELT, QUESTION, FAILED }
     enum class State { IN_PROGRESS, DONE, FAILED }
@@ -348,7 +356,19 @@ object ObserverCore {
         // Mesmo tipo com outro passo (ex.: um OBSERVED gravado por uma versão anterior, que nunca aparece): o novo substitui.
         // Antes o velho, invisível, barrava o novo por 6 h (Sala, 25/11/2026: tecla presa sem recado nenhum).
         val resto = atuais.filterNot { it.typeKey == n.typeKey && !it.seen }
-        return toJson((listOf(n) + resto).take(NOTES_MAX)).toString()
+        return toJson(trim(listOf(n) + resto, now)).toString()
+    }
+
+    /**
+     * Fila cheia: sai primeiro o mais velho que não aparece mais (visto ou só observado), não o mais velho de todos
+     * (25/11/2026). Antes 20 recados OBSERVED seguidos empurravam para fora um aviso que a pessoa ainda ia ver.
+     */
+    internal fun trim(notes: List<Note>, now: Long): List<Note> {
+        if (notes.size <= NOTES_MAX) return notes
+        val sobra = notes.size - NOTES_MAX
+        val fora = notes.withIndex().filter { !it.value.canAppear(now) }.map { it.index }.takeLast(sobra).toMutableSet()
+        if (fora.size < sobra) fora += notes.indices.filter { it !in fora }.takeLast(sobra - fora.size)
+        return notes.filterIndexed { i, _ -> i !in fora }
     }
 
     /** Os que valem agora, do mais novo ao mais velho. Linha estragada ou de versão desconhecida é pulada. */

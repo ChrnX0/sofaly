@@ -26,7 +26,7 @@ object SofyTv {
     @Synchronized fun present(ctx: Context) {
         val app = ctx.applicationContext
         val now = now(app)
-        val notes = runCatching { ObserverTv.notes(app) }.getOrDefault(emptyList()).filter { !it.seen }
+        val notes = runCatching { ObserverTv.notes(app) }.getOrDefault(emptyList()).filter { it.canAppear(now.at) }
         for (n in notes.reversed()) {   // do mais velho para o mais novo
             val d = SofyPolicy.decide(n, now)
             if (d.place != SofyPolicy.Place.OVERLAY) continue
