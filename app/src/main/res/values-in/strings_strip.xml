@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Laci</string>
     <string name="st_telas_vidro">Kaca</string>
     <string name="st_telas_barra">Bilah</string>
+    <string name="st_proprios">Kartu pintasan</string>
+    <string name="st_proprios_branco">Putih</string>
+    <string name="st_proprios_vidro">Kaca terang</string>
+    <string name="st_proprios_escuro">Kaca gelap</string>
 </resources>

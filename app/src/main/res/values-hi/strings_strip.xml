@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">दराज़</string>
     <string name="st_telas_vidro">कांच</string>
     <string name="st_telas_barra">पट्टी</string>
+    <string name="st_proprios">शॉर्टकट कार्ड</string>
+    <string name="st_proprios_branco">सफ़ेद</string>
+    <string name="st_proprios_vidro">हल्का कांच</string>
+    <string name="st_proprios_escuro">गहरा कांच</string>
 </resources>

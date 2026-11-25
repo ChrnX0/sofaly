@@ -211,6 +211,7 @@ class FineTuneActivity : Activity() {
         val espacos = listOf(R.string.st_justo, R.string.st_normal, R.string.st_largo)
         val cantos = listOf(R.string.st_retos, R.string.st_suaves, R.string.st_redondos)
         val simNao = listOf(R.string.st_sem, R.string.st_com)
+        val proprios = listOf(R.string.st_proprios_branco, R.string.st_proprios_vidro, R.string.st_proprios_escuro)
         val B = br.paulo.tvlauncher.home.StripBackground
         val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra)
         val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
@@ -224,6 +225,7 @@ class FineTuneActivity : Activity() {
             Ajuste(R.string.st_tamanho, { getString(tamanhos[o().size.ordinal]) }) { p -> getString(tamanhos[gira(S.KEY_SIZE, o().size.ordinal, 3, p)]) },
             Ajuste(R.string.st_espaco, { getString(espacos[o().gap.ordinal]) }) { p -> getString(espacos[gira(S.KEY_GAP, o().gap.ordinal, 3, p)]) },
             Ajuste(R.string.st_cantos, { getString(cantos[o().corners.ordinal]) }) { p -> getString(cantos[gira(S.KEY_CORNERS, o().corners.ordinal, 3, p)]) },
+            Ajuste(R.string.st_proprios, { getString(proprios[o().own.ordinal]) }) { p -> getString(proprios[gira(S.KEY_OWN, o().own.ordinal, 3, p)]) },
             Ajuste(R.string.st_placa, { getString(simNao[if (o().glass) 1 else 0]) }) { p -> getString(simNao[gira(S.KEY_GLASS, if (o().glass) 1 else 0, 2, p)]) },
             Ajuste(R.string.st_nome, { getString(simNao[if (o().name) 1 else 0]) }) { p -> getString(simNao[gira(S.KEY_NAME, if (o().name) 1 else 0, 2, p)]) },
         )

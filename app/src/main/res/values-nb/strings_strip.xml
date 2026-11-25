@@ -44,4 +44,8 @@
     <string name="st_so_escolhido">Bare den valgte</string>
     <string name="wo_cards">Kortform i denne verdenen</string>
     <string name="wo_cards_geral">Samme som i Finjustering (%1$s)</string>
+    <string name="st_proprios">Snarveikort</string>
+    <string name="st_proprios_branco">Hvit</string>
+    <string name="st_proprios_vidro">Lyst glass</string>
+    <string name="st_proprios_escuro">Mørkt glass</string>
 </resources>

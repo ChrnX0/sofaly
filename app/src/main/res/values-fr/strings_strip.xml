@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Tiroir</string>
     <string name="st_telas_vidro">Verre</string>
     <string name="st_telas_barra">Barre</string>
+    <string name="st_proprios">Cartes de raccourci</string>
+    <string name="st_proprios_branco">Blanc</string>
+    <string name="st_proprios_vidro">Verre clair</string>
+    <string name="st_proprios_escuro">Verre sombre</string>
 </resources>

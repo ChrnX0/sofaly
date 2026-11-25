@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Шторка</string>
     <string name="st_telas_vidro">Стекло</string>
     <string name="st_telas_barra">Панель</string>
+    <string name="st_proprios">Карточки ярлыков</string>
+    <string name="st_proprios_branco">Белые</string>
+    <string name="st_proprios_vidro">Светлое стекло</string>
+    <string name="st_proprios_escuro">Тёмное стекло</string>
 </resources>

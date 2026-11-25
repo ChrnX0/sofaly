@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">درج</string>
     <string name="st_telas_vidro">زجاج</string>
     <string name="st_telas_barra">شريط</string>
+    <string name="st_proprios">بطاقات الاختصار</string>
+    <string name="st_proprios_branco">أبيض</string>
+    <string name="st_proprios_vidro">زجاج فاتح</string>
+    <string name="st_proprios_escuro">زجاج داكن</string>
 </resources>
