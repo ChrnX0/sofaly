@@ -576,8 +576,12 @@ object Estilo {
      * Título de tela, com a margem segura da TV. Uma só altura e um só tamanho em todas as telas
      * (antes: Roboto Light 34 sp nas Configurações, nada na Previsão, 24 sp em outras).
      */
+    /** Marca do título de tela ([tituloTela]): a Moldura o acha para montar o cabeçalho da barra única. */
+    const val TAG_TITULO = "estilo-titulo-tela"
+
     fun tituloTela(ctx: Context, titulo: String): TextView = texto(ctx, Papel.TITULO, titulo).apply {
         maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+        tag = TAG_TITULO
         // Título sempre à esquerda, como no inglês: em árabe o texto se alinharia à direita e ficaria por baixo do
         // relógio do canto (o app não espelha o layout; o manifest não declara supportsRtl, e por isso o Android ignora
         // textAlignment: só a gravidade ABSOLUTA, LEFT em vez de START, segura o alinhamento).
