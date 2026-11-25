@@ -53,7 +53,7 @@ internal class SleepingClock(
 
     private fun relogioTexto(f12: String, f24: String, sp: Float, face: Typeface, alfa: Float = 1f) = TextClock(ctx).apply {
         format12Hour = f12; format24Hour = f24
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, sp); setTextColor(Estilo.TEXTO); typeface = face; includeFontPadding = false
+        Estilo.letraMostrador(this, sp); setTextColor(Estilo.TEXTO); typeface = face; includeFontPadding = false
         setShadowLayer(10 * d, 0f, d, 0x59000000); isSingleLine = true; alpha = alfa
         fontFeatureSettings = "tnum"   // algarismos da mesma largura: a hora não dança quando o minuto vira
     }
@@ -96,7 +96,7 @@ internal class SleepingClock(
             orientation = LinearLayout.VERTICAL
             addView(TextView(ctx).apply {
                 text = ctx.getString(R.string.pv_agora).lowercase(); letterSpacing = 0.32f
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setTextColor(Estilo.TEXTO_2); typeface = leve
+                Estilo.letraMostrador(this, 18f); setTextColor(Estilo.TEXTO_2); typeface = leve
             })
             addView(relogioTexto("h:mm", "HH:mm", 96f, fina))
         }
@@ -110,13 +110,13 @@ internal class SleepingClock(
 
     private fun montarExtra(): View? = when (estilo) {
         SleepingLook.Clock.RING -> TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setTextColor(Estilo.TEXTO); typeface = leve
+            Estilo.letraMostrador(this, 18f); setTextColor(Estilo.TEXTO); typeface = leve
             background = Estilo.vidro(ctx, 99); setPaddingRelative(dp(14), dp(4), dp(14), dp(5)); visibility = View.GONE
             pilula = this
         }
         SleepingLook.Clock.RULER -> Regua().also { regua = it }
         SleepingLook.Clock.PHRASE -> TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f); setTextColor(0xD1FFF3E6.toInt()); typeface = leve; maxLines = 2
+            Estilo.letraMostrador(this, 24f); setTextColor(0xD1FFF3E6.toInt()); typeface = leve; maxLines = 2
             setShadowLayer(10 * d, 0f, d, 0x59000000)
             frase = this
         }
@@ -225,7 +225,7 @@ internal class SleepingClock(
     inner class Regua : View(ctx) {
         private val trilho = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x29FFF3E6 }
         private val chuva = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0xD98EC5FF.toInt() }
-        private val sol = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = OURO }
+        private val sol = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.OURO }
         private val agora = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.TEXTO }
         private val aro = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x8C0E0D14.toInt() }
         private val txt = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -248,7 +248,7 @@ internal class SleepingClock(
             val hf = android.text.format.DateFormat.getTimeFormat(ctx)
             val r = mutableListOf<Triple<Float, String, Int>>()
             r += Triple(0f, listOfNotNull(ctx.getString(R.string.pv_agora).lowercase(), tempAgora?.let { "$it°" }).joinToString(" "), Estilo.TEXTO_2)
-            solEm?.let { s -> if (s in 0.18f..0.72f) r += Triple(s, "☀ " + hf.format(Date(porDoSol!!)), OURO) }
+            solEm?.let { s -> if (s in 0.18f..0.72f) r += Triple(s, "☀ " + hf.format(Date(porDoSol!!)), Estilo.OURO) }
             if (f != null) {
                 val i12 = f.i0 + HORAS
                 if (i12 < f.hTempo.size) r += Triple(1f, "${br.paulo.tvlauncher.weather.ForecastText.hora(ctx, f.hTempo[i12].substring(11, 13).toInt())} ${Math.round(f.hTemp[i12]).toInt()}°", Estilo.TEXTO_2)
@@ -280,7 +280,6 @@ internal class SleepingClock(
         const val TROCA_FRASE_MS = 8_000L
         const val HORAS = 12
         const val CHUVA_NA_REGUA = 40
-        const val OURO = 0xFFFFC27A.toInt()
     }
 }
 
