@@ -116,7 +116,7 @@ class RadioActivity : Activity() {
             addView(veuMusica, LinearLayout.LayoutParams(-2, -2).apply { topMargin = Estilo.dp(this@RadioActivity, 12) })
         }
         setContentView(FrameLayout(this).apply {
-            background = Estilo.fundoTela(this@RadioActivity)
+            background = Estilo.fundoEntrada(this@RadioActivity)
             addView(cruz, FrameLayout.LayoutParams(-1, -1))
             addView(veu, FrameLayout.LayoutParams(-1, -1))
         })

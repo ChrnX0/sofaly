@@ -29,6 +29,10 @@
     <string name="st_nome">Nimi kohdistetussa kortissa</string>
     <string name="st_sem">Pois</string>
     <string name="st_com">Päällä</string>
+    <string name="st_telas">Näyttöjen tyyli</string>
+    <string name="st_telas_gaveta">Laatikko</string>
+    <string name="st_telas_vidro">Lasi</string>
+    <string name="st_telas_barra">Palkki</string>
     <string name="st_fundo">Tausta</string>
     <string name="st_fundo_vale">Laakso</string>
     <string name="st_fundo_serra">Vuoret</string>

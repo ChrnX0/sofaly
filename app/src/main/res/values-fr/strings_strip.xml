@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">Seulement la sélection</string>
     <string name="wo_cards">Forme des cartes dans ce monde</string>
     <string name="wo_cards_geral">Comme Réglage fin (%1$s)</string>
+    <string name="st_telas">Style des écrans</string>
+    <string name="st_telas_gaveta">Tiroir</string>
+    <string name="st_telas_vidro">Verre</string>
+    <string name="st_telas_barra">Barre</string>
 </resources>

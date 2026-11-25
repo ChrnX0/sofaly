@@ -203,6 +203,17 @@ object ComandosExtras {
             F.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_FORMAT, it.ordinal); "cards=${it.name} (aperte HOME)" }
                 ?: "cards=${br.paulo.tvlauncher.home.StripHome.options(ctx).format}; opções: ${F.joinToString { it.name.lowercase() }}"
         }
+        // Jeito das telas (Gaveta/Vidro/Barra) e forma do foco, para fotos e testes na TV: `--es nome drawer|glass|strip`.
+        "telas" -> (i.getStringExtra("nome") ?: "").let { n ->
+            val J = br.paulo.tvlauncher.home.ScreenStyle.entries
+            J.firstOrNull { it.name.equals(n, true) }?.let { br.paulo.tvlauncher.home.ScreenStyle.set(ctx, it); "telas=${it.name}" }
+                ?: "telas=${br.paulo.tvlauncher.home.ScreenStyle.of(ctx)}; opções: ${J.joinToString { it.name.lowercase() }}"
+        }
+        "foco" -> (i.getStringExtra("nome") ?: "").let { n ->
+            val F = FocusStyle.entries
+            F.firstOrNull { it.name.equals(n, true) }?.let { FocusStyle.gravar(ctx, it); "foco=${it.name}" }
+                ?: "foco=${FocusStyle.ler(ctx)}; opções: ${F.joinToString { it.name.lowercase() }}"
+        }
         // Casa (Home Assistant): sem endereço mostra o atual; com endereço troca só ele (o token fica).
         "casa_procurar" -> CasaHA.procurarNaRede(ctx)   // procura o Home Assistant na rede (HomeAssistantFinder), ~6 s
         "casa_endereco" -> i.getStringExtra("endereco").let { e ->

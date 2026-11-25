@@ -212,9 +212,13 @@ class FineTuneActivity : Activity() {
         val cantos = listOf(R.string.st_retos, R.string.st_suaves, R.string.st_redondos)
         val simNao = listOf(R.string.st_sem, R.string.st_com)
         val B = br.paulo.tvlauncher.home.StripBackground
+        val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra)
         val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
         return listOf(
             Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },
+            // Jeito das outras telas (Paulo, 24/11/2026: Gaveta padrão, Vidro e Barra como opção; ScreenStyle).
+            Ajuste(R.string.st_telas, { getString(jeitos[br.paulo.tvlauncher.home.ScreenStyle.of(this).ordinal]) }) { p ->
+                getString(jeitos[br.paulo.tvlauncher.home.ScreenStyle.next(this, p).ordinal]) },
             Ajuste(R.string.st_desc, { getString(descs[o().desc.ordinal]) }) { p -> getString(descs[gira(S.KEY_DESC, o().desc.ordinal, 2, p)]) },
             Ajuste(R.string.st_formato, { formatos[o().format.ordinal] }) { p -> formatos[gira(S.KEY_FORMAT, o().format.ordinal, formatos.size, p)] },
             Ajuste(R.string.st_tamanho, { getString(tamanhos[o().size.ordinal]) }) { p -> getString(tamanhos[gira(S.KEY_SIZE, o().size.ordinal, 3, p)]) },
@@ -270,6 +274,7 @@ class FineTuneActivity : Activity() {
         br.paulo.tvlauncher.settings.FocusStyle.LINE -> R.string.ft_foco_fio
         br.paulo.tvlauncher.settings.FocusStyle.VEIL -> R.string.ft_foco_veu
         br.paulo.tvlauncher.settings.FocusStyle.BOX -> R.string.ft_foco_quadro
+        br.paulo.tvlauncher.settings.FocusStyle.RING -> R.string.ft_foco_anel
     })
     private fun nomeCartoes(k: br.paulo.tvlauncher.home.AppChannels.Mode) = getString(when (k) {
         br.paulo.tvlauncher.home.AppChannels.Mode.OFF -> R.string.cs_sem
