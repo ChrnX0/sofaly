@@ -145,5 +145,6 @@ object StartupApp {
         val i = ctx.packageManager.getLeanbackLaunchIntentForPackage(alvo) ?: ctx.packageManager.getLaunchIntentForPackage(alvo)
         if (i == null) { Log.w(TAG, "$alvo não está instalado"); return }
         ctx.startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        br.paulo.tvlauncher.observer.SofyRepairTv.expectApp(ctx, alvo)
     }
 }

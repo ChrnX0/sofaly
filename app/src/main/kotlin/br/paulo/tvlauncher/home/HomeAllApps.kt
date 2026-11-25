@@ -463,6 +463,7 @@ internal fun MainActivity.abrir(pacote: String) {
         ?: run { if (!todosAbertos) cruz?.naoAbriu(); return }   // sem tela para abrir: a cruz avisa, não falha calada
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     startActivity(intent)
+    br.paulo.tvlauncher.observer.SofyRepairTv.expectApp(this, pacote)   // Sofy: o app tem que aparecer
     contarAbertura(pacote)
 }
 

@@ -123,7 +123,8 @@ object SofyRepair {
                 else -> listOf(Tool.GRANT_PERMISSIONS)
             }
             Type.PERMISSION_LOST -> listOf(Tool.GRANT_PERMISSIONS)
-            Type.NO_EFFECT -> listOf(Tool.GRANT_PERMISSIONS, Tool.RESTART_LAUNCHER)
+            // App que não abriu: fechar e abrir de novo / limpar o cache dele; botão sem efeito: permissões, reinício.
+            Type.NO_EFFECT -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE, Tool.FREE_MEMORY) else listOf(Tool.GRANT_PERMISSIONS, Tool.RESTART_LAUNCHER)
             Type.ERROR -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE)
                 else listOf(Tool.REFRESH_DATA, Tool.UNDO_LAST_CHANGE, Tool.RESTART_LAUNCHER, Tool.DISABLE_FEATURE)
             Type.CRASH -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE)
@@ -138,6 +139,9 @@ object SofyRepair {
     }
 
     private fun fits(t: Tool, c: Case) = when (t) {
+        // Texto cortado/foco perdido é defeito de código: nenhuma ferramenta conserta e a IA não tem o que escolher.
+        // Vai direto para o relatório (e para a issue da tarefa diária).
+        Tool.ASK_AI -> c.type != Type.SCREEN_BROKEN
         Tool.RESTART_APP, Tool.CLEAR_APP_CACHE -> c.subject.startsWith("app:")
         Tool.DISABLE_FEATURE -> c.subject.startsWith("feature:") || c.subject.startsWith("tile:")
         else -> true

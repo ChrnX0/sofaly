@@ -27,7 +27,16 @@ object JanelaNaFrente {
         if (c.contains("ProtetorTela") || c.contains("DreamService")) return
         this.pacote = p
         this.classe = classe?.toString()
+        val agora = System.currentTimeMillis()
+        vistoEm[p] = agora
+        if (c.isNotEmpty()) vistoEm[c] = agora
     }
+
+    /**
+     * Quando cada pacote e cada tela apareceu por último (Sofy, 25/11/2026). Para conferir "abri X e ele apareceu":
+     * vale mesmo se a pessoa já saiu dele (comparar só com [pacote] acusaria quem volta rápido).
+     */
+    val vistoEm = java.util.concurrent.ConcurrentHashMap<String, Long>()
 
     /** A NOSSA HOME está na frente (teclas coloridas e números remapeados só valem aqui, ver RemapTeclas). */
     fun homeNaFrente(ctx: android.content.Context): Boolean =
