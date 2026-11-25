@@ -8,6 +8,7 @@
     <string name="cl_f_parar">雨が降っています。%1$sごろにやむ見込みです。</string>
     <string name="cl_f_segue">雨が降っています。この先数時間は続きそうです。</string>
     <string name="cl_f_chuva">%1$sごろ雨の可能性 (%2$s)。</string>
+    <string name="cl_f_chuva_agora">今、雨の可能性 (%1$s)。</string>
     <string name="cl_f_calor">暑い日: %2$sごろ最高%1$d°。水分をとりましょう。</string>
     <string name="cl_f_frio">冷え込み: 最低%1$d°。暖かくしてください。</string>
     <string name="cl_f_sol">%1$sから%2$sまで日差しが強い。日焼け止めを。</string>

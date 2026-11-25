@@ -101,11 +101,16 @@ object SaudeAcesso {
         // Falha com a tela apagada (ex.: a manutenção das 4h, Wi-Fi em economia) não conta: a TV ligar de manhã não pode
         // herdar uma "queda" que ninguém confirmou acordado.
         if (!ok && !telaAcesa(ctx)) return
+        val p = prefs(ctx)
         if (ok) {
             ultimoOkShell = agora
             // "Já funcionou alguma vez": só avisamos de pareamento PERDIDO, não de um que nunca foi feito.
-            val p = prefs(ctx)
             if (!p.getBoolean("shell_ja_funcionou", false)) p.edit().putBoolean("shell_ja_funcionou", true).apply()
+            if (p.contains(FORA_PAREDE)) p.edit().remove(FORA_PAREDE).apply()
+        } else if (!p.contains(FORA_PAREDE)) {
+            // Hora (do relógio) em que caiu, guardada: o relógio da memória zera quando o launcher reinicia (Sala 25/11/2026:
+            // fora desde 6h19, uma versão nova instalada às 7h26 fez o aviso dizer "caiu há 1 min").
+            p.edit().putLong(FORA_PAREDE, System.currentTimeMillis()).apply()
         }
         shell = SaudeRegras.observar(shell, if (ok || shellEsperado(ctx)) ok else null, agora)
     }
@@ -134,6 +139,17 @@ object SaudeAcesso {
     fun shellEsperado(ctx: Context) = prefs(ctx).getBoolean("shell_ja_funcionou", false)
 
     /** Elevação 2.3: false = o shell está fora há mais que o limite (o mesmo critério do aviso); null = não sei/não se aplica. */
+    /**
+     * Minutos desde que o shell caiu, para o aviso aberto por quem dependia dele agora (ex.: o tile Protetor do painel
+     * rápido, Sala 25/11/2026: o clique não fazia nada). Mínimo 1.
+     */
+    fun minutosForaShell(ctx: Context): Int {
+        val memoria = if (shell.ok == false) SystemClock.elapsedRealtime() - shell.foraDesde else 0L
+        val guardado = prefs(ctx).getLong(FORA_PAREDE, 0L).let { if (it > 0) System.currentTimeMillis() - it else 0L }
+        return SaudeRegras.minutosFora(memoria, guardado)
+    }
+    private const val FORA_PAREDE = "shell_fora_desde_parede"
+
     fun shellOk(): Boolean? = shell.ok.let { if (it == false && SystemClock.elapsedRealtime() - shell.foraDesde < LIMITE_SHELL_MS) null else it }
     /** O túnel deveria estar no ar e espera um login (o link de login apareceu). */
     fun tunelFaltaLogin(ctx: Context): Boolean = tunelEsperado(ctx.applicationContext) &&
@@ -192,7 +208,7 @@ object SaudeAcesso {
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(SaudeAvisoActivity.EXTRA_SHELL, avisarShell)
                 .putExtra(SaudeAvisoActivity.EXTRA_TUNEL, avisarTunel)
-                .putExtra(SaudeAvisoActivity.EXTRA_MINUTOS, ((agora - (if (avisarShell) shell else tunel).foraDesde) / 60_000).toInt()))
+                .putExtra(SaudeAvisoActivity.EXTRA_MINUTOS, if (avisarShell) minutosForaShell(app) else ((agora - tunel.foraDesde) / 60_000).toInt()))
         } catch (e: Exception) { Log.w(TAG, "não abri o aviso: $e"); return }
         // Marca já: uma vez por queda, e a hora vai para as prefs para valer também depois de um reinício do launcher.
         val ed = p.edit()
@@ -234,6 +250,9 @@ object SaudeAcesso {
  * "parede" (hora do relógio comum, que sobrevive a um reinício do launcher porque vai para as prefs).
  */
 object SaudeRegras {
+    /** Minutos fora: o maior entre o relógio da memória e a hora guardada (que sobrevive ao launcher reiniciar). Mínimo 1. */
+    fun minutosFora(memoriaMs: Long, guardadoMs: Long): Int = (maxOf(memoriaMs, guardadoMs) / 60_000).toInt().coerceAtLeast(1)
+
     /**
      * [ok]: true = no ar, false = fora, null = não se aplica (desligado/nunca configurado) ou ainda não sei.
      * [foraDesde]: quando caiu (vale com ok = false). [avisado]: já avisei desta queda.

@@ -8,6 +8,7 @@
     <string name="cl_f_parar">ฝนกำลังตก น่าจะหยุดราว %1$s</string>
     <string name="cl_f_segue">ฝนกำลังตก และน่าจะตกต่อไปอีกหลายชั่วโมง</string>
     <string name="cl_f_chuva">ฝนน่าจะตกราว %1$s (%2$s)</string>
+    <string name="cl_f_chuva_agora">ตอนนี้มีโอกาสฝนตก (%1$s)</string>
     <string name="cl_f_calor">วันนี้ร้อน: สูงสุด %1$d° ราว %2$s ดื่มน้ำมากๆ</string>
     <string name="cl_f_frio">อากาศจะหนาว: ต่ำสุด %1$d° แต่งตัวให้อบอุ่น</string>
     <string name="cl_f_sol">แดดแรงตั้งแต่ %1$s ถึง %2$s ทาครีมกันแดด</string>

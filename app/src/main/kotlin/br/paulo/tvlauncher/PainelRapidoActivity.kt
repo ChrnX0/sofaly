@@ -116,6 +116,9 @@ class PainelRapidoActivity : Activity() {
          * `service call` deu certo? A 1ª palavra da resposta é o código de erro: 00000000 = ok; uma exceção (sem permissão,
          * serviço errado) volta como ffffff.. com a mensagem. Puro.
          */
+        /** O shell próprio; o teste troca por uma resposta fixa (TodoTileFazAlgoTest: shell fora = null). */
+        @Volatile internal var shell: (android.content.Context, String, Long) -> String? = { c, cmd, ms -> GuardiaoShizuku.comando(c, cmd, ms) }
+
         fun chamadaRespondeu(saida: String?): Boolean =
             saida != null && Regex("""Result: Parcel\(\s*(0x[0-9a-f]+:\s*)?00000000\b""").containsMatchIn(saida)
 
@@ -838,8 +841,11 @@ class PainelRapidoActivity : Activity() {
      * Liga o protetor de tela agora (o nosso, ProtetorTela). App comum não tem API para isso; o shell próprio tem a
      * permissão WRITE_DREAM_STATE e chama IDreamManager.dream() direto (`service call dreams 1`: dream() é a 1ª função
      * da interface do Android 10 ao 14). O `cmd dreams start-dreaming` NÃO serve: exige root (medido na Sala, 11/11/2026,
-     * "Must be root to call Dream shell commands") e o painel fechava sem ligar nada. Sem shell, ou se a chamada não
-     * respondeu, abre a tela de protetor das Configurações.
+     * "Must be root to call Dream shell commands") e o painel fechava sem ligar nada.
+     *
+     * Sem shell, ou se a chamada não respondeu: abre o aviso "Acesso remoto parado" com o botão Parear de novo
+     * (SaudeAvisoActivity). Antes abria Settings.ACTION_DREAM_SETTINGS, que NÃO existe no Google TV ("No activity
+     * found", Sala 25/11/2026): com o shell fora, o clique não fazia nada e não dizia nada.
      */
     private fun ligarProtetor() {
         val app = applicationContext
@@ -847,11 +853,19 @@ class PainelRapidoActivity : Activity() {
         // Ação sem efeito (Sofy, 25/11/2026): em 6 s o protetor tem que estar na tela; se não, ela vai atrás do shell.
         br.paulo.tvlauncher.observer.SofyRepairTv.expect(app, "tile:screensaver", setOf(br.paulo.tvlauncher.observer.SofyRepair.Need.SHELL), 6_000) { ProtetorTela.aberto() }
         Fundo.rodar {
-            val r = GuardiaoShizuku.comando(app, "service call dreams 1", 10_000)
-            if (!chamadaRespondeu(r)) ui.post {
-                try { app.startActivity(Intent(Settings.ACTION_DREAM_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (_: Exception) {}
-            }
+            val r = shell(app, "service call dreams 1", 10_000)
+            if (!chamadaRespondeu(r)) ui.post { avisarSemShell(app) }
         }
+    }
+
+    /** Tile que precisa do shell e ele está fora: diz isso e oferece parear de novo, em vez de não fazer nada. */
+    private fun avisarSemShell(app: android.content.Context) {
+        val ctx: android.content.Context = AutorizaShizukuService.instancia ?: app   // abre tela vindo de segundo plano
+        try {
+            ctx.startActivity(Intent(ctx, SaudeAvisoActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .putExtra(SaudeAvisoActivity.EXTRA_SHELL, true)
+                .putExtra(SaudeAvisoActivity.EXTRA_MINUTOS, br.paulo.tvlauncher.privilege.SaudeAcesso.minutosForaShell(app)))
+        } catch (e: Exception) { android.util.Log.w("TvLauncher.Painel", "sem shell e sem aviso: $e") }
     }
 
     // ---------------------------------------------------------------- notificações

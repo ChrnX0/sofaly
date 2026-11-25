@@ -99,4 +99,17 @@ class DicasClimaTest {
         assertEquals("Chuva 72% em 13 h", br.paulo.tvlauncher.weather.ClimaFontes.semCeu(" - Chuva 72% em 13 h"))
         assertEquals("Regen 72% in 13 h", br.paulo.tvlauncher.weather.ClimaFontes.semCeu(" – Regen 72% in 13 h"))
     }
+
+    /**
+     * Sala, 25/11/2026 6h38: chuva já na hora de agora. A frase dizia "por volta das 6h (76%)" com o pico de 3 horas; a
+     * HOME dizia "76% neste momento" com a chance DESTA hora. Agora: "agora", com a chance desta hora (a mesma da HOME),
+     * e o guarda-chuva também diz agora: as três falas batem.
+     */
+    @Test fun chuvaNaHoraDeAgoraDizAgoraComONumeroDaHome() {
+        val h = horas(6, chance = { when (it) { 6 -> 76; 7 -> 80; 8 -> 90; else -> 20 } })
+        val f = DicasClima.frase(e(h))
+        assertEquals(Frase(TipoFrase.CHUVA_AGORA, 6, 76), f)
+        assertEquals(h.first().chance, f.b)   // o número da HOME (primeira hora >= 40%, que é a de agora)
+        assertEquals(Dica(Resposta.AGORA), DicasClima.guardaChuva(e(h)))
+    }
 }
