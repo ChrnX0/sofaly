@@ -116,7 +116,17 @@ object SaudeAcesso {
     }
 
     /** Há quanto tempo o shell está fora (null = não está fora). Para o ciclo de conserto da Sofy. */
-    fun shellDownMs(): Long? = shell.let { if (it.ok == false) SystemClock.elapsedRealtime() - it.foraDesde else null }
+    /**
+     * Há quanto tempo o shell está fora (null = não está fora / não sei). Usa também a hora do relógio guardada: o
+     * relógio da memória zera quando o launcher reinicia, e na Sala (25/11/2026) cada versão nova instalada fazia a
+     * queda "recomeçar", então o conserto sozinho (que espera 20 min) nunca chegava a rodar.
+     */
+    fun shellDownMs(ctx: Context): Long? {
+        if (shell.ok == true) return null
+        val memoria = if (shell.ok == false) SystemClock.elapsedRealtime() - shell.foraDesde else null
+        val guardado = prefs(ctx).getLong(FORA_PAREDE, 0L).takeIf { it > 0 }?.let { System.currentTimeMillis() - it }
+        return listOfNotNull(memoria, guardado).maxOrNull()
+    }
 
     /** O túnel devia estar no ar e está fora há mais que o limite. */
     fun tunnelDown(): Boolean = tunel.let { it.ok == false && SystemClock.elapsedRealtime() - it.foraDesde >= LIMITE_TUNEL_MS }

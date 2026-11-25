@@ -104,7 +104,7 @@ object SofyRepair {
     /** Caso aberto por uma versão antiga a partir de um evento que hoje não é mais defeito: sai da fila. */
     private fun nowNotDefect(c: Case): Boolean {
         val k = c.subject.removePrefix("bus:").takeIf { c.subject.startsWith("bus:") } ?: return false
-        return k in NOT_DEFECTS || k.substringBefore('.') in NOT_DEFECT_SOURCES
+        return k in NOT_DEFECTS || k.substringBefore('.') in NOT_DEFECT_SOURCES || (k.startsWith("sofy.") && k !in SOFY_DEFECTS)
     }
 
     // ---------------------------------------------------------------- 2. receitas (o ponto de partida, não o limite)
@@ -266,10 +266,16 @@ object SofyRepair {
     )
     /** Fontes cujo ok = false é resultado de medição/calibração ("unsure keep"), nunca defeito. */
     private val NOT_DEFECT_SOURCES = setOf("measure")
+    /**
+     * Da própria Sofy, só estes viram caso. O resto é ela contando o que fez (perguntou à IA, tentou um conserto...):
+     * virar caso era um laço (Sala, 25/11/2026: "sofy.asked_ai" abriu um caso novo, que ia perguntar à IA de novo).
+     */
+    private val SOFY_DEFECTS = setOf("sofy.self_defect", "sofy.version_worse")
 
     /** Um evento do barramento que deu errado vira sinal. Null = não é defeito para o ciclo.  */
     fun fromBus(e: SofyBus.Event): Signal? {
         if (e.ok || e.key in NOT_DEFECTS || e.key.substringBefore('.') in NOT_DEFECT_SOURCES || e.kind.startsWith("drop_")) return null
+        if (e.key.startsWith("sofy.") && e.key !in SOFY_DEFECTS) return null
         return when (e.key) {
             "crash.launcher_crash" -> Signal(Type.CRASH, "home", e.at, e.detail)
             "sofy.version_worse" -> Signal(Type.SLOW, "home", e.at, e.detail)

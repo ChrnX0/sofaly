@@ -109,7 +109,7 @@ object SofyRepairTv {
     }
 
     private val probes = listOf(
-        Probe(Type.ACCESS_LOST, "shell") { SaudeAcesso.shellEsperado(it) && (SaudeAcesso.shellDownMs() ?: 0L) >= SHELL_DOWN_MS },
+        Probe(Type.ACCESS_LOST, "shell") { SaudeAcesso.shellEsperado(it) && (SaudeAcesso.shellDownMs(it) ?: 0L) >= SHELL_DOWN_MS },
         Probe(Type.ACCESS_LOST, "accessibility") { Config.SERVICO_TECLAS_SEMPRE_LIGADO && SaudeAcesso.shellEsperado(it) && AutorizaShizukuService.instancia == null },
         Probe(Type.ACCESS_LOST, "wireless_debug") {
             Config.DEPURACAO_SEM_FIO_SEMPRE_LIGADA && SaudeAcesso.shellEsperado(it) && wifi(it) &&
@@ -323,7 +323,7 @@ object SofyRepairTv {
             Tool.RELIGHT_ACCESSIBILITY -> { Privilegio.religarAcessibilidade(app); true }
             Tool.RELIGHT_WIRELESS_DEBUG -> { Privilegio.religarDepuracaoSemFio(app); true }
             Tool.RECONNECT_SHELL -> { GuardiaoShizuku.garantir(app, "Sofy", mesmoSemFalta = true); GuardiaoShizuku.comando(app, "echo ok", 30_000)?.contains("ok") == true }
-            Tool.REPAIR_SHELL -> if (AutoPairing.maybe(app, SaudeAcesso.shellDownMs())) true else null
+            Tool.REPAIR_SHELL -> if (AutoPairing.maybe(app, SaudeAcesso.shellDownMs(app))) true else null
             Tool.RESTART_TUNNEL -> { TunelTailscale.reiniciar(); true }
             Tool.REFRESH_DATA -> refreshers[c.subject]?.let { it(app); true } ?: false
             Tool.FREE_MEMORY -> PainelSaude.liberar(app) != null
