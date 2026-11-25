@@ -145,11 +145,7 @@ object AppProfileTv {
     fun frontPackage(ctx: Context): String? {
         val app = ctx.applicationContext
         val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-<<<<<<< HEAD
-        return synchronized(AppProfileTv) { load(app)[profile]?.front }
-=======
         return snapshot(app)[profile]?.front
->>>>>>> origin/main
     }
 
     /**
@@ -265,31 +261,17 @@ object AppProfileTv {
     fun prepareFor(ctx: Context, pkg: String): Int {
         val app = ctx.applicationContext
         val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-<<<<<<< HEAD
-        val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return 0
-=======
         val s = snapshot(app)[profile] ?: return 0
->>>>>>> origin/main
         return freeOthers(app, pkg, runCatching { frontPackage(app) }.getOrNull(), s.cards.values)
     }
 
     /** As fichas de todos os perfis (a mais nova de cada pacote), para as lições entre TVs (SofyShareTv). */
-<<<<<<< HEAD
-    fun allCards(ctx: Context): Collection<AppProfile.Card> = synchronized(AppProfileTv) {
-        load(ctx.applicationContext).values.flatMap { it.cards.values }.groupBy { it.pkg }.values.map { l -> l.maxBy { it.ver } }
-    }
-
-    /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
-    fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
-        synchronized(AppProfileTv) { load(ctx.applicationContext).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } } }
-=======
     fun allCards(ctx: Context): Collection<AppProfile.Card> =
         snapshot(ctx).values.flatMap { it.cards.values }.groupBy { it.pkg }.values.map { l -> l.maxBy { it.ver } }
 
     /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
     fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
         snapshot(ctx).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } }
->>>>>>> origin/main
 
     /** Lido pela HOME a cada foco (barato: só um mapa em memória). Pacote → a marca da Sofy. */
     @Volatile var hand: Map<String, Hand> = emptyMap()
@@ -319,11 +301,7 @@ object AppProfileTv {
         if (now - lastRecipe < 10 * 60_000L) return
         br.paulo.tvlauncher.Fundo.rodar("app-recipe") {
             val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-<<<<<<< HEAD
-            val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return@rodar
-=======
             val s = snapshot(app)[profile] ?: return@rodar
->>>>>>> origin/main
             val c = s.cards[pkg] ?: return@rodar
             if (!AppProfile.heavy(c, ObserverTv.normalOf(app, ObserverCore.Signal.MEMORY_AVAILABLE_MB))) return@rodar
             lastRecipe = now
@@ -370,10 +348,7 @@ object AppProfileTv {
             feito += "sob demanda 1 (${if (ok) "ok" else "não deu"})"
         }
         all[profile] = s.copy(cards = cards)
-<<<<<<< HEAD
-=======
         view = HashMap(all)
->>>>>>> origin/main
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
         // Experimento noturno (ideia 36): numa noite fecha os apps parados, na outra não; o tempo de abrir a HOME no dia
         // seguinte decide se a ação fica.

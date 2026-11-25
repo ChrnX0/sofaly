@@ -38,18 +38,12 @@ object SofyGuard {
     }
 
     // ---------------------------------------------------------------- 43: tecla presa
-<<<<<<< HEAD
-    /** Volume segurado é normal; o resto segurado por ~7 s (150 repetições) é tecla presa ou controle apertado no sofá. */
-=======
     /** Volume segurado é normal; o resto segurado por ~8 s (0,5 s + 150 repetições de 50 ms) é tecla presa ou controle apertado no sofá. */
->>>>>>> origin/main
     const val STUCK_REPEATS = 150
     val VOLUME_KEYS = setOf(24, 25, 164)
 
     fun stuck(keyCode: Int, repeatCount: Int): Boolean = repeatCount >= STUCK_REPEATS && keyCode !in VOLUME_KEYS
 
-<<<<<<< HEAD
-=======
     /**
      * Os recados da tecla presa (43) e do PIN errado (47) vão à Ilha: são sugestão, não "só observou". Com OBSERVED (até
      * 25/11/2026) a SofyPolicy mandava os dois só ao Diário e o ObserverTv.notes ainda os escondia (tipo nunca "ativo"):
@@ -61,7 +55,6 @@ object SofyGuard {
     fun pinWrongNote(count: Int, at: Long): ObserverCore.Note =
         ObserverCore.sofyNote(ObserverCore.Kind.PANEL_PIN_WRONG, at, ObserverCore.Step.SUGGESTS, listOf(count.toString()), ObserverCore.Severity.CRITICAL)
 
->>>>>>> origin/main
     // ---------------------------------------------------------------- 46: app novo com poder demais
     /** Poderes que, sozinhos, já merecem um aviso: ler a tela inteira, administrar o aparelho, instalar apps, mexer em ajustes protegidos, desviar a rede. */
     val CRITICAL = mapOf(

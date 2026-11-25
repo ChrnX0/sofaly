@@ -2,10 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.observer.SofyBus
 import br.paulo.tvlauncher.observer.SofyGuard
-<<<<<<< HEAD
-=======
 import br.paulo.tvlauncher.observer.SofyPolicy
->>>>>>> origin/main
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -62,8 +59,6 @@ class SofyGuardTest {
         assertEquals(listOf("voice"), SofyGuard.regressions(mapOf("voice" to true, "store" to true), mapOf("voice" to false, "store" to true, "cast" to false)))
         assertEquals(listOf("com.android.vending"), SofyGuard.watchedUpdated(mapOf("com.android.vending" to 1L, "x" to 1L), mapOf("com.android.vending" to 2L, "x" to 3L)))
     }
-<<<<<<< HEAD
-=======
 
     /** 43 e 47 prometem a Ilha: de dia, sem vídeo e com teto livre, o recado tem de chegar lá (não só ao Diário). */
     @Test fun teclaPresaEPinErradoChegamNaIlha() {
@@ -86,5 +81,4 @@ class SofyGuardTest {
         val outra = br.paulo.tvlauncher.observer.ObserverCore.enqueue(fila, SofyGuard.keyStuckNote("DPAD_LEFT", 4_000L), 4_000L)
         assertEquals(listOf(novo.id), br.paulo.tvlauncher.observer.ObserverCore.readNotes(outra, 5_000L).map { it.id })
     }
->>>>>>> origin/main
 }

@@ -240,10 +240,7 @@ object ComandosExtras {
         "modo_seguro_sair" -> { ModoSeguro.sair(ctx); "modo de segurança desligado" }
         "leveza" -> LevezaTv.json(ctx).toString()   // degrau 2: memória e tempo da HOME (volte à HOME umas vezes antes)
         "observer" -> ObserverTv.report(ctx)
-<<<<<<< HEAD
-=======
         "observer_notes" -> ObserverTv.notesRaw(ctx)   // diagnóstico só de leitura: a fila de recados como está no disco
->>>>>>> origin/main
         // Desfazer dos limites que a Sofy ajusta sozinha (ideia 35, 24/11/2026): voltam todos ao de fábrica.
         "sofy_limits_reset" -> br.paulo.tvlauncher.observer.SofyLearnTv.resetLimits(ctx)
         // Energia na Retrospectiva (Sofy, ideia 30): watts da TV + Chromecast e a tarifa em centavos por kWh (0 = apaga).

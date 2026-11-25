@@ -30,8 +30,6 @@ object SofyBusTv {
      * [minGapMs]: o mesmo "fonte.tipo" repetido antes disso (neste processo) não é gravado de novo (ex.: um app que
      * pisca tocar/pausar não enche o arquivo).
      */
-<<<<<<< HEAD
-=======
     /**
      * A trava de arquivo separa os PROCESSOS (:player); dentro do mesmo processo, duas threads pedindo FileChannel.lock()
      * no mesmo arquivo dão OverlappingFileLockException (não esperam): o evento sumia e a leitura vinha vazia (revisor,
@@ -39,7 +37,6 @@ object SofyBusTv {
      */
     private val processLock = Any()
 
->>>>>>> origin/main
     fun emit(ctx: Context, source: SofyBus.Source, kind: String, ok: Boolean = true, detail: String = "", minGapMs: Long = 0L) {
         try {
             val now = System.currentTimeMillis()
@@ -50,11 +47,7 @@ object SofyBusTv {
                 lastByKey[k] = now
             }
             val linha = SofyBus.line(SofyBus.Event(now, source, kind, ok, detail)) + "\n"
-<<<<<<< HEAD
-            RandomAccessFile(file(ctx), "rw").use { raf ->
-=======
             synchronized(processLock) { RandomAccessFile(file(ctx), "rw").use { raf ->
->>>>>>> origin/main
                 raf.channel.lock().use {
                     if (raf.length() > TRIM_AT_BYTES) {
                         raf.seek(0)
@@ -66,31 +59,19 @@ object SofyBusTv {
                     raf.seek(raf.length())
                     raf.write(linha.toByteArray(Charsets.UTF_8))
                 }
-<<<<<<< HEAD
-            }
-=======
             } }
->>>>>>> origin/main
         } catch (t: Throwable) { Log.w(TAG, "emit $source/$kind: ${t.javaClass.simpleName}") }
     }
 
     /** Os eventos guardados (até 7 dias), do mais velho ao mais novo. */
     fun events(ctx: Context): List<SofyBus.Event> = try {
         val f = file(ctx)
-<<<<<<< HEAD
-        if (!f.exists()) emptyList() else RandomAccessFile(f, "rw").use { raf ->
-=======
         if (!f.exists()) emptyList() else synchronized(processLock) { RandomAccessFile(f, "rw").use { raf ->
->>>>>>> origin/main
             raf.channel.lock().use {
                 raf.seek(0)
                 ByteArray(raf.length().toInt()).also { raf.readFully(it) }.toString(Charsets.UTF_8)
             }
-<<<<<<< HEAD
-        }.lineSequence().mapNotNull { SofyBus.parse(it) }.filter { System.currentTimeMillis() - it.at <= SofyBus.KEEP_MS }.toList()
-=======
         } }.lineSequence().mapNotNull { SofyBus.parse(it) }.filter { System.currentTimeMillis() - it.at <= SofyBus.KEEP_MS }.toList()
->>>>>>> origin/main
     } catch (t: Throwable) { Log.w(TAG, "ler: ${t.javaClass.simpleName}"); emptyList() }
 
     fun toJson(e: SofyBus.Event): JSONObject = JSONObject().put("at", e.at).put("source", e.source.name.lowercase())

@@ -10,10 +10,7 @@ export const MAX_LESSONS = 30;
 export const MIN_HOMES = 5;
 export const WINDOW_DAYS = 14;
 export const MAX_PUBLISHED = 500;
-<<<<<<< HEAD
-=======
 export const MAX_ROWS = 200_000;   // ~10 MB no SQLite do plano grátis
->>>>>>> origin/main
 export const KINDS = new Set(['crashy', 'slower']);
 const PKG = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z0-9_]+)+$/;
 export const DAY_MS = 86_400_000;
@@ -38,8 +35,6 @@ export async function homeKey(ip, salt) {
   return [...h.slice(0, 8)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
-<<<<<<< HEAD
-=======
 // A "casa" de um IP (revisor, 25/11/2026): no IPv6 cada casa recebe uma /64 inteira, então um aparelho só podia
 // "ser" 5 casas trocando o fim do endereço. A casa vira o prefixo /64; o IPv4 fica inteiro.
 export function homeNet(ip) {
@@ -51,7 +46,6 @@ export function homeNet(ip) {
   return full.slice(0, 4).map((x) => (x || '0').replace(/^0+(?=.)/, '')).join(':') + '::/64';
 }
 
->>>>>>> origin/main
 // "pkg@ver:kind" -> {pkg, ver, kind}
 export function parseKey(k) {
   const m = /^(.+)@(\d+):(crashy|slower)$/.exec(k);
@@ -79,21 +73,14 @@ export async function handleCommunity(req, env, { ip }) {
     const { success } = await env.COMMUNITY_IP_LIMITER.limit({ key: ip || 'none' });
     if (!success) return json({ error: 'slow down' }, 429);
   }
-<<<<<<< HEAD
-=======
   // Corpo grande recusado antes de ler (o tamanho declarado), e conferido de novo depois de ler.
   if (Number(req.headers.get('content-length') || 0) > 8 * 1024) return json({ error: 'too large' }, 413);
->>>>>>> origin/main
   const text = await req.text();
   if (text.length > 8 * 1024) return json({ error: 'too large' }, 413);
   let o; try { o = JSON.parse(text); } catch { return json({ error: 'json' }, 400); }
   const lessons = cleanReport(o);
   if (!lessons) return json({ error: 'lessons' }, 400);
   if (!lessons.length) return json({ ok: true });
-<<<<<<< HEAD
-  const home = await homeKey(ip || 'none', env.COMMUNITY_SALT || 'sofaly-community-v1');
-=======
   const home = await homeKey(homeNet(ip), env.COMMUNITY_SALT || 'sofaly-community-v1');
->>>>>>> origin/main
   return json(await stub.report(home, lessons));
 }

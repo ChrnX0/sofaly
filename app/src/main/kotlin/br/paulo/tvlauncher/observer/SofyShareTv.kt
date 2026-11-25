@@ -55,23 +55,15 @@ object SofyShareTv {
         val app = ctx.applicationContext
         if (!EntreTvs.ligado(app)) return 403 to JSONObject().put("erro", "desligado")
         val now = System.currentTimeMillis()
-<<<<<<< HEAD
-=======
         val p = SofyShare.fromJson(o, now) { JuntoRegras.hostCurto(it) } ?: return 400 to JSONObject().put("erro", "pacote")
         if (EntreTvs.outras(app).none { it.host == p.from }) return 403 to JSONObject().put("erro", "tv")
         // A cota conta só pacote bem formado de uma TV da conta (revisor, 25/11/2026): lixo vindo da internet pelo túnel
         // gastava a cota e calava as lições da casa por 1 h. Ela ainda limita as conferências de volta (rede).
->>>>>>> origin/main
         synchronized(received) {
             received.removeAll { now - it > 3_600_000L }
             if (received.size >= MAX_RECEIVED_HOUR) return 429 to JSONObject().put("erro", "limite")
             received += now
         }
-<<<<<<< HEAD
-        val p = SofyShare.fromJson(o, now) { JuntoRegras.hostCurto(it) } ?: return 400 to JSONObject().put("erro", "pacote")
-        if (EntreTvs.outras(app).none { it.host == p.from }) return 403 to JSONObject().put("erro", "tv")
-=======
->>>>>>> origin/main
         val volta = EntreTvs.chamar(app, p.from, "/sofy/${p.nonce}/conferir")
         if (volta.codigo != 200 || volta.json?.optBoolean("ok") != true) return 403 to JSONObject().put("erro", "conferir")
         Fundo.rodar("sofy-licoes") { runCatching { apply(app, p, now) }.onFailure { Log.w(TAG, "lições: $it") } }

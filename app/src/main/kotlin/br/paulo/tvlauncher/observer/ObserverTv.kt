@@ -551,16 +551,12 @@ object ObserverTv {
     /** Um recado que não veio do juiz (pilha do controle, ...): entra na fila e a Sofy decide onde contar. */
     fun enqueueNote(ctx: Context, n: ObserverCore.Note) {
         val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-<<<<<<< HEAD
-        synchronized(this) { p.edit().putString("notes", ObserverCore.enqueue(p.getString("notes", null), n, n.at)).apply() }
-=======
         val n2 = synchronized(this) {
             val novo = ObserverCore.enqueue(p.getString("notes", null), n, n.at)
             p.edit().putString("notes", novo).apply()
             ObserverCore.readNotes(novo, System.currentTimeMillis()).size
         }
         Log.i(TAG, "recado na fila: ${n.typeKey} ${n.step} (fila=$n2)")
->>>>>>> origin/main
     }
 
     @Volatile private var drop: DropCause.Episode? = null
@@ -615,11 +611,6 @@ object ObserverTv {
      * A Sofy se acusa (ideia 38): a cada [SELF_CHECK_GAP_MS], na batida da rede. Defeito NOVO (que não estava na
      * conferência anterior) vai ao registro ("self_defect"), ao Diário e ao barramento; o que sumiu, "self_ok".
      */
-<<<<<<< HEAD
-    @Synchronized fun selfCheck(ctx: Context) {
-        val now = System.currentTimeMillis()
-        if (now - lastSelfCheck < SELF_CHECK_GAP_MS) return
-=======
     fun selfCheck(ctx: Context) {
         val now = System.currentTimeMillis()
         if (!selfCheckLocked(ctx, now)) return
@@ -635,7 +626,6 @@ object ObserverTv {
     /** A parte do autoexame que mexe no estado do ObserverTv. false = ainda não era hora. */
     @Synchronized private fun selfCheckLocked(ctx: Context, now: Long): Boolean {
         if (now - lastSelfCheck < SELF_CHECK_GAP_MS) return false
->>>>>>> origin/main
         lastSelfCheck = now
         val app = ctx.applicationContext
         val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -651,14 +641,7 @@ object ObserverTv {
         for (d in before - nowSet) logShadow(app, "self_ok", "$d: voltou a funcionar")
         p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
         runCatching { versionGuard(app, p, now) }.onFailure { Log.w(TAG, "guarda da versão: $it") }
-<<<<<<< HEAD
-        runCatching { SofyHouseTv.daily(app, now) }.onFailure { Log.w(TAG, "casa: $it") }   // ideias 27, 29 e 31
-        runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
-        runCatching { SofyShareTv.daily(app, now) }.onFailure { Log.w(TAG, "lições entre TVs: $it") }   // ideia 40
-        runCatching { SofyCommunityTv.daily(app, now) }.onFailure { Log.w(TAG, "fichas comunitárias: $it") }   // ideia 41
-=======
         return true
->>>>>>> origin/main
     }
 
     /**

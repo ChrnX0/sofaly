@@ -205,8 +205,6 @@ class ObserverCoreTest {
         assertEquals("remote_battery_low", n.typeKey)
         assertEquals(null, ObserverCore.signalOf(ObserverCore.Kind.REMOTE_BATTERY_LOW))
     }
-<<<<<<< HEAD
-=======
 
     // 25/11/2026: a regra de "pode aparecer" mora só no Note; vale para fila cheia, Ilha, aviso e resumo.
     @Test fun podeAparecerUmaRegraSo() {
@@ -231,5 +229,4 @@ class ObserverCoreTest {
         assertTrue(ficou.any { it.kind == Kind.KEY_STUCK })
         assertEquals(observados.last(), ficou.first().kind)   // o mais novo continua na frente
     }
->>>>>>> origin/main
 }
