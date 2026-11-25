@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"AIのアドレス（例: http://192.168.1.50:11434/v1）",
 "Modelo (em branco = o padrão)":"モデル（空欄 = 既定）",
 "Chave da API (em branco = manter a atual)":"APIキー（空欄 = 現在のものを保持）",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"今月のAI使用量（千トークン単位、使用量 / 上限）：",
+"Teto por mês em mil tokens (0 = sem teto)":"月間上限（千トークン単位、0 = 上限なし）",
 "Testar":"テスト",
 "Salvo.":"保存しました。",
 "A IA respondeu.":"AIが応答しました。",

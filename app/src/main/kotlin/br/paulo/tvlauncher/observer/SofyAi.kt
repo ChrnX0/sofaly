@@ -94,6 +94,22 @@ object SofyAiRules {
         Format.OPENAI -> response.optJSONArray("choices")?.optJSONObject(0)?.optJSONObject("message")?.optString("content")?.ifEmpty { null }
     }
 
+    /** Tokens gastos (entrada + saída) que a própria resposta informa; 0 se ela não diz. */
+    fun usage(response: JSONObject): Long {
+        val u = response.optJSONObject("usage") ?: return 0
+        val claude = u.optLong("input_tokens") + u.optLong("output_tokens")
+        return if (claude > 0) claude else u.optLong("prompt_tokens") + u.optLong("completion_tokens")
+    }
+
+    /** O mês corrente como número (202611), para zerar o contador na virada. */
+    fun month(nowMs: Long): Int {
+        val c = java.util.Calendar.getInstance().apply { timeInMillis = nowMs }
+        return c.get(java.util.Calendar.YEAR) * 100 + c.get(java.util.Calendar.MONTH) + 1
+    }
+
+    /** Ainda cabe perguntar? [budget] 0 = sem teto (o dono escolheu). */
+    fun withinBudget(used: Long, budget: Long) = budget <= 0 || used < budget
+
     /** Por que veio sem texto (para o relatório): o motivo de parada e os tipos de bloco, sem conteúdo. */
     fun shape(response: JSONObject): String {
         val stop = response.optString("stop_reason").ifEmpty { response.optJSONArray("choices")?.optJSONObject(0)?.optString("finish_reason").orEmpty() }

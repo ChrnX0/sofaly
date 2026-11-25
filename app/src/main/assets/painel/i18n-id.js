@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Alamat AI, misalnya http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (kosong = bawaan)",
 "Chave da API (em branco = manter a atual)":"Kunci API (kosong = pertahankan yang sekarang)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Pemakaian AI bulan ini, dalam ribu token (terpakai / batas):",
+"Teto por mês em mil tokens (0 = sem teto)":"Batas bulanan dalam ribu token (0 = tanpa batas)",
 "Testar":"Uji",
 "Salvo.":"Tersimpan.",
 "A IA respondeu.":"AI menjawab.",
