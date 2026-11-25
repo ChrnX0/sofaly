@@ -43,6 +43,7 @@ object PainelConfig {
             .put("tema", Tema.atual(app).name.lowercase())
             .put("temas", org.json.JSONArray().apply { for (t in Tema.values()) put(JSONObject().put("valor", t.name.lowercase()).put("nome", t.nome)) })
             .put("tamanhoTexto", TamanhoTexto.atual(app))
+            .put("animacaoMundo", br.paulo.tvlauncher.home.StripHome.options(app).worldAnim.name.lowercase())   // Ajuste fino › Animação do mundo
             .put("altoContraste", AltoContraste.ligado(app))
             .put("avisoChuva", AvisoChuva.ligado(app))
             .put("taxaQuadros", TaxaQuadros.ligada(app))
@@ -79,6 +80,13 @@ object PainelConfig {
             "tema" -> {
                 val t = Tema.values().firstOrNull { it.name.equals(v as? String, ignoreCase = true) } ?: return Resultado.Erro("tema desconhecido")
                 Tema.definir(app, t); registrar("tema: ${t.name.lowercase()}")
+            }
+            // Animação do ícone grande do mundo: a mesma chave do Ajuste fino da TV (25/11/2026).
+            "animacaoMundo" -> {
+                val a = br.paulo.tvlauncher.home.StripHome.WorldAnim.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) }
+                    ?: return Resultado.Erro("animação desconhecida")
+                br.paulo.tvlauncher.settings.Extras.definirNumero(app, br.paulo.tvlauncher.home.StripHome.KEY_WORLD_ANIM, a.ordinal)
+                registrar("animação do mundo: ${a.name.lowercase()}")
             }
             "tamanhoTexto" -> {
                 val n = (v as? Number)?.toInt()?.takeIf { it in TamanhoTexto.OPCOES } ?: return Resultado.Erro("tamanho inválido")

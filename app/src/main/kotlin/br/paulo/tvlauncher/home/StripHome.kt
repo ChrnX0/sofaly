@@ -25,6 +25,7 @@ object StripHome {
     const val KEY_NAME = "strip_name"         // 0 sem nome, 1 nome no card em foco
     const val KEY_OWN = "strip_own"           // placa dos cards nossos (TV, Séries...): Own.ordinal
     const val KEY_MOOD = "strip_mood"         // personalidade dos ícones dos cards nossos: Mood.ordinal
+    const val KEY_WORLD_ANIM = "strip_world_anim" // animação do ícone grande do mundo: WorldAnim.ordinal
 
     enum class Desc { FIXED, LIVE }
     /**
@@ -64,6 +65,13 @@ object StripHome {
      * num azulejo colorido dentro do card, a peça das Configurações (Apple Games, Opera).
      */
     enum class Mood { COLOR, GLOW, TILE }
+
+    /**
+     * Animação do ícone grande do mundo escolhido (Paulo, 25/11/2026: "algo incrível, mas não exagerado"; os 3 como opção,
+     * A padrão): SCENE = pequena cena (o ícone faz a ação do mundo), LIGHT = traço de luz correndo pelo contorno,
+     * BOUNCE = as partes acendem em sequência e o ícone dá um pulinho no fim da volta. Voltas de 5 a 7 s.
+     */
+    enum class WorldAnim { SCENE, LIGHT, BOUNCE }
     enum class Corners(val dp: Float) { SQUARE(4f), SOFT(12f), ROUND(22f) }
 
     data class Options(
@@ -71,6 +79,7 @@ object StripHome {
         val gap: Gap = Gap.WIDE, val corners: Corners = Corners.ROUND, val glass: Boolean = false, val name: Boolean = false,
         val own: Own = Own.DARK,   // Paulo, 25/11/2026: prefere o vidro escuro
         val mood: Mood = Mood.GLOW,
+        val worldAnim: WorldAnim = WorldAnim.SCENE,
     ) {
         /** Largura e altura do card (dp). */
         val cardW get() = Math.round(format.w * size.k).toFloat()
@@ -84,7 +93,7 @@ object StripHome {
         /** Raio dos cantos: o redondo é um círculo. */
         val raio get() = if (format == Format.ROUND) cardH / 2f else corners.dp
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
-        fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}${own.ordinal}${mood.ordinal}"
+        fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}${own.ordinal}${mood.ordinal}${worldAnim.ordinal}"
     }
 
     val DEFAULT = Options()
@@ -110,6 +119,7 @@ object StripHome {
             name = Extras.numero(ctx, KEY_NAME, 0) == 1,
             own = ler(KEY_OWN, Own.entries.toTypedArray(), DEFAULT.own),
             mood = ler(KEY_MOOD, Mood.entries.toTypedArray(), DEFAULT.mood),
+            worldAnim = ler(KEY_WORLD_ANIM, WorldAnim.entries.toTypedArray(), DEFAULT.worldAnim),
         )
     }
 
@@ -130,6 +140,7 @@ object StripHome {
     const val ANEL = 3f             // anel laranja (px no estudo; aqui dp/2 arredondado na tela)
     const val PLACA = 8f            // folga da placa de vidro em volta dos cards
     const val MS = 250L             // passo das animações (token "fast" do sistema)
+    const val MS_VOO = 680L         // o ícone do mundo voando do trilho para a linha (e de volta): lento e macio (Paulo 25/11: "mais gentil")
     const val ESCALONA_MS = 40L     // os cards entram um depois do outro
 
     // ---- teclas

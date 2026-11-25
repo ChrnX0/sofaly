@@ -51,4 +51,8 @@
     <string name="st_personalidade">Kortikoner</string>
     <string name="st_pers_cor">Egen färg</string>
     <string name="st_pers_brilho">Färgsken</string>
+    <string name="st_anim_mundo">Världsanimation</string>
+    <string name="st_anim_cena">Liten scen</string>
+    <string name="st_anim_luz">Ljusspår</string>
+    <string name="st_anim_pulo">Studs och glöd</string>
 </resources>

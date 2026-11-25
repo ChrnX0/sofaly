@@ -51,4 +51,8 @@
     <string name="st_personalidade">Εικονίδια καρτών</string>
     <string name="st_pers_cor">Δικό του χρώμα</string>
     <string name="st_pers_brilho">Λάμψη χρώματος</string>
+    <string name="st_anim_mundo">Κίνηση κόσμου</string>
+    <string name="st_anim_cena">Μικρή σκηνή</string>
+    <string name="st_anim_luz">Ίχνος φωτός</string>
+    <string name="st_anim_pulo">Αναπήδηση και λάμψη</string>
 </resources>

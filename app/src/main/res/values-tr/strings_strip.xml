@@ -51,4 +51,8 @@
     <string name="st_personalidade">Kart simgeleri</string>
     <string name="st_pers_cor">Kendi rengi</string>
     <string name="st_pers_brilho">Renk parıltısı</string>
+    <string name="st_anim_mundo">Dünya animasyonu</string>
+    <string name="st_anim_cena">Küçük sahne</string>
+    <string name="st_anim_luz">Işık izi</string>
+    <string name="st_anim_pulo">Zıpla ve parla</string>
 </resources>

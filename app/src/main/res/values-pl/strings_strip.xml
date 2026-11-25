@@ -51,4 +51,8 @@
     <string name="st_personalidade">Ikony kart</string>
     <string name="st_pers_cor">Własny kolor</string>
     <string name="st_pers_brilho">Poświata koloru</string>
+    <string name="st_anim_mundo">Animacja świata</string>
+    <string name="st_anim_cena">Mała scena</string>
+    <string name="st_anim_luz">Smuga światła</string>
+    <string name="st_anim_pulo">Podskok i blask</string>
 </resources>

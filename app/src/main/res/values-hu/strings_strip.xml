@@ -51,4 +51,8 @@
     <string name="st_personalidade">Kártyaikonok</string>
     <string name="st_pers_cor">Saját szín</string>
     <string name="st_pers_brilho">Színes ragyogás</string>
+    <string name="st_anim_mundo">Világ animáció</string>
+    <string name="st_anim_cena">Kis jelenet</string>
+    <string name="st_anim_luz">Fénycsík</string>
+    <string name="st_anim_pulo">Pattanás és fény</string>
 </resources>

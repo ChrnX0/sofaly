@@ -19,14 +19,21 @@ import kotlin.math.sin
  * Ícone do mundo em movimento na barra única (Paulo, 24/11/2026: "animações suaves, elegantes e contínuas").
  *
  * Porquê: o ícone parado era só um rótulo; o movimento lento dá vida à tela sem chamar atenção (o fundo é o protagonista).
- * Para quê: ao trocar de mundo o ícone se desenha traço a traço (0,7 s); depois respira num ciclo de 6 s, cada mundo com
+ * Para quê: ao trocar de mundo o ícone se desenha traço a traço (0,7 s); depois respira sem parar num ciclo de 4 s (25/11: gestos maiores, Paulo achou o de 6 s parado demais), cada mundo com
  * um gesto próprio: a tela de Assistir pulsa o "play"; o fone de Ouvir balança e solta ondas; o controle de Jogar
  * inclina e acende os botões; os quadrados de Aplicativos respiram em sequência; os botões de Ferramentas deslizam.
  * Como: as mesmas formas do [WorldGlyph] (grade de 32), separadas em peças; ~30 quadros/s só enquanto está na tela
  * ([start]/[stop]). Movimento desligado (sistema, alto contraste, "Parado"): quem chama usa o [WorldGlyph] parado.
  * Refs: transitions.dev (draw-on de traço, ease-out), Mobbin Calm/Headspace (respiração lenta), Apple TV (ícones vivos).
  */
-class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val traco: Float = 2.1f) : Drawable(), Animatable {
+class WorldMotion(
+    private val cat: CruzLogica.Categoria, cor: Int, private val traco: Float = 2.1f,
+    /** Estilo da animação (Ajuste fino); null = o respiro antigo (também o do relógio de Continuar). */
+    val anim: StripHome.WorldAnim? = StripHome.WorldAnim.SCENE,
+) : Drawable(), Animatable {
+
+    private val cenas = if (anim != null && cat != CruzLogica.Categoria.CONTINUAR) WorldScenes(cor, br.paulo.tvlauncher.DesignTokens.ORANGE, traco) else null
+    private val camada = RectF(-8f, -8f, 40f, 40f)
 
     private var rodando = false
     private var inicio = SystemClock.uptimeMillis()
@@ -67,16 +74,28 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
         val n = c.save()
         c.translate(b.left + (b.width() - 32f * esc) / 2f, b.top + (b.height() - 32f * esc) / 2f)
         c.scale(esc, esc)
+        cenas?.let { sc ->
+            // entrada: a cena aparece e cresce um pouco (0,7 s); depois anda sem parar
+            val e = 0.9f + 0.1f * desenho
+            c.scale(e, e, 16f, 16f)
+            val camadaN = if (desenho < 1f) c.saveLayerAlpha(camada, (255 * desenho).toInt()) else -1
+            sc.alfa = alfaBase
+            sc.desenhar(c, cat, anim!!, t / 1000f)
+            if (camadaN >= 0) c.restoreToCount(camadaN)
+            c.restoreToCount(n)
+            if (rodando) scheduleSelf(proximo, SystemClock.uptimeMillis() + QUADRO_MS)
+            return
+        }
         tinta.pathEffect = if (desenho < 1f) DashPathEffect(floatArrayOf(maior, maior), maior * (1f - desenho)) else null
         tintaCheia.alpha = (alfaBase * desenho).toInt()
         when (cat) {
             CruzLogica.Categoria.ASSISTIR -> {
                 peca(c, 0); peca(c, 1)
-                val e = 1f + 0.08f * s * k
+                val e = 1f + 0.16f * s * k
                 c.save(); c.scale(e, e, 16.3f, 14.25f); peca(c, 2); c.restore()
             }
             CruzLogica.Categoria.OUVIR -> {
-                c.save(); c.translate(0f, -0.7f * s * k); pecas.indices.forEach { peca(c, it) }; c.restore()
+                c.save(); c.translate(0f, -1.6f * s * k); pecas.indices.forEach { peca(c, it) }; c.restore()
                 // ondas que saem dos dois lados, uma a cada 3 s
                 val f = Motion.wave(t)
                 onda.alpha = (alfaBase * 0.7f * (1f - f) * k).toInt()
@@ -87,7 +106,7 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
                 }
             }
             CruzLogica.Categoria.JOGAR -> {
-                c.save(); c.rotate(4f * s * k, 16f, 16f)
+                c.save(); c.rotate(8f * s * k, 16f, 16f)
                 peca(c, 0); peca(c, 1)
                 val a = tintaCheia.alpha
                 tintaCheia.alpha = (a * (0.55f + 0.45f * maxOf(0f, s * k + (1 - k)))).toInt(); peca(c, 2)
@@ -98,13 +117,13 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
             CruzLogica.Categoria.APLICATIVOS -> {
                 val centros = listOf(9.5f to 9.5f, 22.5f to 9.5f, 9.5f to 22.5f, 22.5f to 22.5f)
                 for (i in 0 until 4) {
-                    val e = 1f + 0.09f * Motion.breath(t, i / 4f) * k
+                    val e = 1f + 0.16f * Motion.breath(t, i / 4f) * k
                     c.save(); c.scale(e, e, centros[i].first, centros[i].second); peca(c, i); c.restore()
                 }
             }
             CruzLogica.Categoria.FERRAMENTAS -> {
                 // os dois botões deslizam em sentidos opostos; os trilhos abrem o vão onde o botão está
-                val x1 = 12.5f + 3.5f * s * k; val x2 = 21f - 3.5f * s * k
+                val x1 = 12.5f + 4.5f * s * k; val x2 = 21f - 4.5f * s * k
                 linhaViva.rewind()
                 linhaViva.moveTo(5f, 10.5f); linhaViva.lineTo(x1 - 3f, 10.5f); linhaViva.moveTo(x1 + 3f, 10.5f); linhaViva.lineTo(27f, 10.5f)
                 linhaViva.moveTo(5f, 21.5f); linhaViva.lineTo(x2 - 3f, 21.5f); linhaViva.moveTo(x2 + 3f, 21.5f); linhaViva.lineTo(27f, 21.5f)
@@ -127,7 +146,7 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
     override fun isRunning() = rodando
 
     override fun setAlpha(alpha: Int) { alfaBase = alpha; tinta.alpha = alpha; tintaCheia.alpha = alpha; invalidateSelf() }
-    override fun setColorFilter(cf: ColorFilter?) { tinta.colorFilter = cf; tintaCheia.colorFilter = cf; onda.colorFilter = cf; invalidateSelf() }
+    override fun setColorFilter(cf: ColorFilter?) { cenas?.filtro = cf; tinta.colorFilter = cf; tintaCheia.colorFilter = cf; onda.colorFilter = cf; invalidateSelf() }
     @Deprecated("Deprecated in Java")
     override fun getOpacity() = PixelFormat.TRANSLUCENT
     override fun getIntrinsicWidth() = -1
@@ -136,7 +155,7 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
     /** As curvas do movimento, puras (teste na JVM). [t] em ms desde a troca de mundo. */
     object Motion {
         const val DRAW_MS = 700f
-        const val CYCLE_MS = 6000f
+        const val CYCLE_MS = 4000f
         const val CALM_MS = 1200f
         /** 0..1 do desenho do traço, ease-out cúbico. */
         fun drawOn(t: Float): Float { val x = (t / DRAW_MS).coerceIn(0f, 1f); val u = 1f - x; return 1f - u * u * u }

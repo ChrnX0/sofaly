@@ -51,4 +51,8 @@
     <string name="st_personalidade">Card icons</string>
     <string name="st_pers_cor">Own colour</string>
     <string name="st_pers_brilho">Colour glow</string>
+    <string name="st_anim_mundo">World icon motion</string>
+    <string name="st_anim_cena">Little scene</string>
+    <string name="st_anim_luz">Trail of light</string>
+    <string name="st_anim_pulo">Bounce and glow</string>
 </resources>

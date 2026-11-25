@@ -51,4 +51,8 @@
     <string name="st_personalidade">Kaartpictogrammen</string>
     <string name="st_pers_cor">Eigen kleur</string>
     <string name="st_pers_brilho">Kleurgloed</string>
+    <string name="st_anim_mundo">Wereldanimatie</string>
+    <string name="st_anim_cena">Klein tafereel</string>
+    <string name="st_anim_luz">Lichtspoor</string>
+    <string name="st_anim_pulo">Stuiter en gloed</string>
 </resources>

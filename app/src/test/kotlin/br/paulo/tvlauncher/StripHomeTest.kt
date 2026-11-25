@@ -85,6 +85,17 @@ class StripHomeTest {
         assertEquals(0f, M.wave(0f), 1e-4f)
     }
 
+    @Test fun animacoesDoMundo() {
+        val K = br.paulo.tvlauncher.home.WorldScenes.Curvas
+        assertEquals("padrão = Pequena cena (Paulo, 25/11/2026)", StripHome.WorldAnim.SCENE, StripHome.Options().worldAnim)
+        assertEquals(0f, K.io(0f), 1e-4f); assertEquals(1f, K.io(1f), 1e-4f); assertEquals(0.5f, K.io(0.5f), 1e-4f)
+        assertEquals("a mola chega no alvo", 1f, K.mola(1f), 0.01f)
+        assertEquals("sem pulinho antes do fim da volta", 1f to 1f, K.pulinho(1f, 5.5f))
+        assertEquals("loop sem fim: a mesma volta se repete", K.pulinho(5.0f, 5.5f).second, K.pulinho(5.0f + 5.5f * 3, 5.5f).second, 1e-3f)
+        assertEquals("acendem em sequência", listOf(false, false, false), (0..2).map { K.acende(0.1f, 5.5f, it, 3) })
+        assertEquals(listOf(true, true, true), (0..2).map { K.acende(5.5f * 0.77f, 5.5f, it, 3) })
+    }
+
     @Test fun descricaoDoCardEmFoco() {
         fun i(id: String, nome: String = id, sub: String = "", s: CruzLogica.Situacao? = null) = StripHome.Itens(id, nome, sub, s)
         assertEquals("**No ar** Jornal Hoje · faltam 25 min", StripHome.doCard(i("tv", "TV", "Canais", CruzLogica.Situacao("No ar", "Jornal Hoje · faltam 25 min", "tv"))))

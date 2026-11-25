@@ -51,4 +51,8 @@
     <string name="st_personalidade">卡片图标</string>
     <string name="st_pers_cor">专属颜色</string>
     <string name="st_pers_brilho">色彩光晕</string>
+    <string name="st_anim_mundo">世界图标动画</string>
+    <string name="st_anim_cena">小场景</string>
+    <string name="st_anim_luz">光之轨迹</string>
+    <string name="st_anim_pulo">弹跳与点亮</string>
 </resources>

@@ -51,4 +51,8 @@
     <string name="st_personalidade">카드 아이콘</string>
     <string name="st_pers_cor">고유 색상</string>
     <string name="st_pers_brilho">색상 빛</string>
+    <string name="st_anim_mundo">월드 애니메이션</string>
+    <string name="st_anim_cena">작은 장면</string>
+    <string name="st_anim_luz">빛의 선</string>
+    <string name="st_anim_pulo">통통 튀며 반짝</string>
 </resources>

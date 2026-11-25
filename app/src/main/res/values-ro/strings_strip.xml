@@ -52,4 +52,8 @@
     <string name="st_personalidade">Pictogramele cardurilor</string>
     <string name="st_pers_cor">Culoare proprie</string>
     <string name="st_pers_brilho">Strălucire de culoare</string>
+    <string name="st_anim_mundo">Animația lumii</string>
+    <string name="st_anim_cena">Scenă mică</string>
+    <string name="st_anim_luz">Dâră de lumină</string>
+    <string name="st_anim_pulo">Salt și strălucire</string>
 </resources>

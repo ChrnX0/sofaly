@@ -51,4 +51,8 @@
     <string name="st_personalidade">Kortikoner</string>
     <string name="st_pers_cor">Egen farve</string>
     <string name="st_pers_brilho">Farveglød</string>
+    <string name="st_anim_mundo">Verdensanimation</string>
+    <string name="st_anim_cena">Lille scene</string>
+    <string name="st_anim_luz">Lysspor</string>
+    <string name="st_anim_pulo">Hop og glød</string>
 </resources>
