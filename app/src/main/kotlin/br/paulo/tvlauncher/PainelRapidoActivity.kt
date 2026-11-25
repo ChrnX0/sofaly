@@ -604,6 +604,10 @@ class PainelRapidoActivity : Activity() {
             val app = applicationContext
             finish()
             ui.postDelayed({ Desligamento.apagarTela(app) }, 300)
+            // Sofy: em 8 s a tela tem que estar apagada.
+            br.paulo.tvlauncher.observer.SofyRepairTv.expect(app, "tile:sleep", afterMs = 8_000) {
+                app.getSystemService(android.os.PowerManager::class.java)?.isInteractive == false
+            }
         }
         val protetor = tile("protetor", getString(R.string.pr_protetor)) { ligarProtetor() }
         // Áudio (17/11/2026): a "Saída de áudio" do sistema (a mesma do painel do Google: TV, fone, caixa Bluetooth).
@@ -1136,7 +1140,10 @@ class PainelRapidoActivity : Activity() {
 
     /** Abre outra tela e fecha o painel (como o do Google: o painel não fica por baixo do que abriu). */
     private fun abrirEFechar(i: Intent) {
-        try { startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
+        try {
+            startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            br.paulo.tvlauncher.observer.SofyRepairTv.expectScreen(applicationContext, "tile:" + (i.component?.shortClassName ?: i.action ?: "tela"), i)
+        }
         catch (_: Exception) { try { startActivity(Intent(Settings.ACTION_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (_: Exception) {} }
         finish()
     }

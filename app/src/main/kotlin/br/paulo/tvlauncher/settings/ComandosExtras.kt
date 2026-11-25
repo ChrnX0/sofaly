@@ -207,7 +207,7 @@ object ComandosExtras {
         "proprios" -> (i.getStringExtra("nome") ?: "").let { n ->
             val O = br.paulo.tvlauncher.home.StripHome.Own.entries
             O.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_OWN, it.ordinal); "proprios=${it.name} (aperte HOME)" }
-                ?: "proprios=${br.paulo.tvlauncher.home.StripHome.options(ctx).own}; opções: ${O.joinToString { it.name.lowercase() }}"
+                ?: "proprios=${br.paulo.tvlauncher.home.StripHome.options(ctx).own} icones=${br.paulo.tvlauncher.home.LayoutHome.iconesCruz(ctx)}; opções: ${O.joinToString { it.name.lowercase() }}"
         }
         // Jeito das telas (Gaveta/Vidro/Barra) e forma do foco, para fotos e testes na TV: `--es nome drawer|glass|strip`.
         "telas" -> (i.getStringExtra("nome") ?: "").let { n ->

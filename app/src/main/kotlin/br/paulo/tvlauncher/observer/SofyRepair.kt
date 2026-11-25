@@ -99,7 +99,13 @@ object SofyRepair {
     private fun <T> List<T>.mapLast(f: (T) -> T): List<T> = if (isEmpty()) this else dropLast(1) + f(last())
 
     /** Limpeza: casos parados há [STALE_MS] saem (inclusive os desistidos: se voltar, começa de novo). */
-    fun prune(cases: List<Case>, now: Long) = cases.filter { now - it.lastAt < STALE_MS }
+    fun prune(cases: List<Case>, now: Long) = cases.filter { now - it.lastAt < STALE_MS && !nowNotDefect(it) }
+
+    /** Caso aberto por uma versão antiga a partir de um evento que hoje não é mais defeito: sai da fila. */
+    private fun nowNotDefect(c: Case): Boolean {
+        val k = c.subject.removePrefix("bus:").takeIf { c.subject.startsWith("bus:") } ?: return false
+        return k in NOT_DEFECTS || k.substringBefore('.') in NOT_DEFECT_SOURCES || (k.startsWith("sofy.") && k !in SOFY_DEFECTS)
+    }
 
     // ---------------------------------------------------------------- 2. receitas (o ponto de partida, não o limite)
 
@@ -123,7 +129,8 @@ object SofyRepair {
                 else -> listOf(Tool.GRANT_PERMISSIONS)
             }
             Type.PERMISSION_LOST -> listOf(Tool.GRANT_PERMISSIONS)
-            Type.NO_EFFECT -> listOf(Tool.GRANT_PERMISSIONS, Tool.RESTART_LAUNCHER)
+            // App que não abriu: fechar e abrir de novo / limpar o cache dele; botão sem efeito: permissões, reinício.
+            Type.NO_EFFECT -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE, Tool.FREE_MEMORY) else listOf(Tool.GRANT_PERMISSIONS, Tool.RESTART_LAUNCHER)
             Type.ERROR -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE)
                 else listOf(Tool.REFRESH_DATA, Tool.UNDO_LAST_CHANGE, Tool.RESTART_LAUNCHER, Tool.DISABLE_FEATURE)
             Type.CRASH -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE)
@@ -138,6 +145,9 @@ object SofyRepair {
     }
 
     private fun fits(t: Tool, c: Case) = when (t) {
+        // Texto cortado/foco perdido é defeito de código: nenhuma ferramenta conserta e a IA não tem o que escolher.
+        // Vai direto para o relatório (e para a issue da tarefa diária).
+        Tool.ASK_AI -> c.type != Type.SCREEN_BROKEN
         Tool.RESTART_APP, Tool.CLEAR_APP_CACHE -> c.subject.startsWith("app:")
         Tool.DISABLE_FEATURE -> c.subject.startsWith("feature:") || c.subject.startsWith("tile:")
         else -> true
@@ -250,11 +260,22 @@ object SofyRepair {
         "device.battery_low", "device.key_stuck", "house.panel_pin_wrong", "network.wifi_advice", "network.game_lag",
         "sofy.app_powerful", "sofy.disk_filling", "sofy.night_skipped", "sofy.access_repair_failed", "sofy.repair_failed",
         "sofy.repair_gave_up", "plugin.disabled", "sofy.app_crashy",
+        // Medições (Sala, 25/11/2026: o primeiro caso da Sala foi "audio_route hdmi not_measured"). "Não deu para medir,
+        // fico no padrão" é resposta de calibração, não defeito: virava caso e ia gastar a pergunta de IA do dono.
+        "device.audio_route",
     )
+    /** Fontes cujo ok = false é resultado de medição/calibração ("unsure keep"), nunca defeito. */
+    private val NOT_DEFECT_SOURCES = setOf("measure")
+    /**
+     * Da própria Sofy, só estes viram caso. O resto é ela contando o que fez (perguntou à IA, tentou um conserto...):
+     * virar caso era um laço (Sala, 25/11/2026: "sofy.asked_ai" abriu um caso novo, que ia perguntar à IA de novo).
+     */
+    private val SOFY_DEFECTS = setOf("sofy.self_defect", "sofy.version_worse")
 
     /** Um evento do barramento que deu errado vira sinal. Null = não é defeito para o ciclo.  */
     fun fromBus(e: SofyBus.Event): Signal? {
-        if (e.ok || e.key in NOT_DEFECTS || e.kind.startsWith("drop_")) return null
+        if (e.ok || e.key in NOT_DEFECTS || e.key.substringBefore('.') in NOT_DEFECT_SOURCES || e.kind.startsWith("drop_")) return null
+        if (e.key.startsWith("sofy.") && e.key !in SOFY_DEFECTS) return null
         return when (e.key) {
             "crash.launcher_crash" -> Signal(Type.CRASH, "home", e.at, e.detail)
             "sofy.version_worse" -> Signal(Type.SLOW, "home", e.at, e.detail)

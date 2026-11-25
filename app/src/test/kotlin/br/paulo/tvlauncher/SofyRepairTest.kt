@@ -106,7 +106,8 @@ class SofyRepairTest {
     @Test fun screenDefectIsCodeSoItIsOnlyReported() {
         val c = open(Type.SCREEN_BROKEN, "screen:previsao", n = 2)
         assertEquals(listOf(Tool.REPORT), drain(c, env(idle = true)))
-        assertEquals(listOf(Tool.ASK_AI, Tool.REPORT), drain(c, env(idle = true, ai = true)))
+        // Nem com IA configurada: nenhuma ferramenta conserta código, então não gasta a pergunta.
+        assertEquals(listOf(Tool.REPORT), drain(c, env(idle = true, ai = true)))
     }
 
     @Test fun aiOnlyPicksFromTheBox() {
@@ -137,6 +138,17 @@ class SofyRepairBusAndAiTest {
         // Aviso à pessoa não é defeito; o próprio ciclo não se realimenta.
         assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.DEVICE, "battery_low")))
         assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.SOFY, "repair_failed")))
+        // Medição ("não deu para medir, fico no padrão") não é defeito (Sala, 25/11/2026)
+        assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.DEVICE, "audio_route")))
+        assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.MEASURE, "picture_white")))
+        // e o caso que uma versão antiga abriu com ele sai da fila
+        val velho = SofyRepair.Case("ERROR:bus:device.audio_route", Type.ERROR, "bus:device.audio_route", emptySet(), 0, 0, 1)
+        assertEquals(emptyList<SofyRepair.Case>(), SofyRepair.prune(listOf(velho), 1))
+        // A Sofy contando o que ela mesma fez não vira caso (era um laço: asked_ai -> caso -> asked_ai)
+        assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.SOFY, "asked_ai")))
+        assertTrue(SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.SOFY, "self_defect")) != null)
+        val laco = SofyRepair.Case("ERROR:bus:sofy.asked_ai", Type.ERROR, "bus:sofy.asked_ai", emptySet(), 0, 0, 1)
+        assertEquals(emptyList<SofyRepair.Case>(), SofyRepair.prune(listOf(laco), 1))
         assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.NETWORK, "drop_router")))
     }
 
@@ -205,3 +217,47 @@ class SettingsJournalTest {
         org.junit.Assert.assertEquals(l, J.fromJson(J.toJson(l)))
     }
 }
+
+/** Régua das telas conferidas na própria TV (parte C). */
+class SofyScreenCheckTest {
+    private val S = br.paulo.tvlauncher.observer.SofyScreenCheck
+    private fun cx(t: String, x1: Int, y1: Int, x2: Int, y2: Int) = br.paulo.tvlauncher.observer.SofyScreenCheck.Caixa(t, x1, y1, x2, y2)
+    private fun tela(vararg c: br.paulo.tvlauncher.observer.SofyScreenCheck.Caixa, foco: Boolean = true) =
+        br.paulo.tvlauncher.observer.SofyScreenCheck.Tela("previsao", 1920, 1080, c.toList(), foco)
+
+    @org.junit.Test fun telaBoaNaoAcusaNada() {
+        org.junit.Assert.assertEquals(emptyList<Any>(), S.conferir(tela(cx("Hoje", 40, 40, 300, 100), cx("22°", 40, 120, 300, 180))))
+    }
+
+    @org.junit.Test fun textoForaDaTelaECortado() {
+        val a = S.conferir(tela(cx("Sexta-feira", 1800, 40, 2100, 100)))
+        org.junit.Assert.assertEquals(listOf(br.paulo.tvlauncher.observer.SofyScreenCheck.Defeito.CORTADO), a.map { it.defeito })
+        // 2 px na borda é folga, não defeito
+        org.junit.Assert.assertTrue(S.conferir(tela(cx("Sexta", 1700, 40, 1921, 100))).isEmpty())
+    }
+
+    @org.junit.Test fun textoComCaixaZeroEInvisivel() {
+        org.junit.Assert.assertEquals(listOf(br.paulo.tvlauncher.observer.SofyScreenCheck.Defeito.INVISIVEL),
+            S.conferir(tela(cx("22°", 40, 40, 40, 40))).map { it.defeito })
+    }
+
+    @org.junit.Test fun textoPorCimaDeOutro() {
+        val juntos = S.conferir(tela(cx("Hoje", 40, 40, 300, 100), cx("22°", 50, 50, 310, 110)))
+        org.junit.Assert.assertEquals(listOf(br.paulo.tvlauncher.observer.SofyScreenCheck.Defeito.SOBREPOSTO), juntos.map { it.defeito })
+        // encostados (1 px) não contam
+        org.junit.Assert.assertTrue(S.conferir(tela(cx("Hoje", 40, 40, 300, 100), cx("22°", 40, 99, 300, 160))).isEmpty())
+    }
+
+    @org.junit.Test fun telaSemFocoSoAcusaSeTemTexto() {
+        org.junit.Assert.assertEquals(listOf(br.paulo.tvlauncher.observer.SofyScreenCheck.Defeito.SEM_FOCO),
+            S.conferir(tela(cx("Hoje", 40, 40, 300, 100), foco = false)).map { it.defeito })
+        org.junit.Assert.assertTrue(S.conferir(tela(foco = false)).isEmpty())
+    }
+
+    @org.junit.Test fun resumoNaoLevaOTextoInteiro() {
+        val r = S.resumo("previsao", S.conferir(tela(cx("Sexta-feira em São Paulo, 22 graus", 1800, 40, 2100, 100))))
+        org.junit.Assert.assertTrue(r.startsWith("previsao: CORTADO "))
+        org.junit.Assert.assertFalse(r.contains("graus"))
+    }
+}
+
