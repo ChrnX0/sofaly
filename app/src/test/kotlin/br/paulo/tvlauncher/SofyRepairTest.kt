@@ -97,8 +97,9 @@ class SofyRepairTest {
         assertEquals(listOf(Tool.FREE_MEMORY, Tool.RESTART_LAUNCHER, Tool.REBOOT, Tool.REPORT), drain(lenta, env(idle = true, night = true)))
         // Alguém vendo: só o que não interrompe.
         assertEquals(listOf(Tool.FREE_MEMORY), drain(lenta, env()))
-        // Teto da hora.
-        assertTrue(SofyRepair.next(lenta, emptyMap(), env(idle = true, hour = 6)) is Step.Wait)
+        // Só a trava contra laço é fixa.
+        assertTrue(SofyRepair.next(lenta, emptyMap(), env(idle = true, hour = SofyRepair.LOOP_GUARD_PER_HOUR)) is Step.Wait)
+        assertTrue(SofyRepair.next(lenta, emptyMap(), env(idle = true, hour = 6)) is Step.Run)
         // Nada destrutivo existe na caixa.
         assertTrue(Tool.entries.none { it.name.contains("WIPE") || it.name.contains("UNINSTALL") || it.name.contains("CLEAR_DATA") })
     }
@@ -261,3 +262,91 @@ class SofyScreenCheckTest {
     }
 }
 
+
+/**
+ * Sala, 25/11/2026: shell fora 30 min sem tentativa porque outros casos gastaram um teto fixo da hora. Paulo: "ela tem
+ * que saber se calibrar sozinha". O ritmo agora vem da gravidade, do custo, do placar e das falhas seguidas.
+ */
+class SofyPaceTest {
+    private val t0 = 1_800_000_000_000L
+    private val min = 60_000L
+    private fun case(type: Type, subject: String, count: Int = 2) =
+        SofyRepair.Case(SofyRepair.key(type, subject), type, subject, emptySet<SofyRepair.Need>(), t0, t0, count)
+    private fun env(now: Long, fails: Int = 0, last: Long = 0, hour: Int = 0) =
+        SofyRepair.Env(now = now, idle = true, night = false, aiAvailable = false, toolsLastHour = hour, failsLastHour = fails, lastRunAt = last)
+
+    @org.junit.Test fun acessoPerdidoNaoEsperaPelosOutros() {
+        // Muita coisa falhando agora: o caso menos grave respira; o acesso perdido não.
+        val e = env(t0, fails = 5, last = t0 - min, hour = 8)
+        assertTrue(SofyRepair.next(case(Type.ACCESS_LOST, "shell"), emptyMap(), e) is Step.Run)
+        val w = SofyRepair.next(case(Type.ERROR, "bus:x.y"), emptyMap(), e)
+        assertTrue(w is Step.Wait && w.why.startsWith("calma") && w.until > t0)
+        // Sem pressão, nenhum teto fixo segura o caso menos grave.
+        assertTrue(SofyRepair.next(case(Type.ERROR, "bus:x.y"), emptyMap(), env(t0, hour = 8)) is Step.Run)
+        // Só a trava contra laço vale para todos.
+        assertTrue(SofyRepair.next(case(Type.ACCESS_LOST, "shell"), emptyMap(), env(t0, hour = SofyRepair.LOOP_GUARD_PER_HOUR)) is Step.Wait)
+    }
+
+    @org.junit.Test fun recuoDobraACadaFalhaEEncolheComAGravidade() {
+        val shell = case(Type.ACCESS_LOST, "shell"); val lento = case(Type.SLOW, "home")
+        val g1 = SofyRepair.retryGapMs(shell, Tool.RECONNECT_SHELL, 1, 0.5, 0)
+        assertEquals(2 * g1, SofyRepair.retryGapMs(shell, Tool.RECONNECT_SHELL, 2, 0.5, 0))
+        assertTrue(SofyRepair.retryGapMs(lento, Tool.FREE_MEMORY, 1, 0.5, 0) > g1)               // menos grave espera mais
+        assertTrue(SofyRepair.retryGapMs(shell, Tool.REPAIR_SHELL, 1, 0.5, 0) > g1)              // mais cara espera mais
+        assertTrue(SofyRepair.retryGapMs(shell, Tool.RECONNECT_SHELL, 1, 0.9, 0) < g1)           // o que costuma funcionar volta antes
+        assertTrue(SofyRepair.retryGapMs(lento, Tool.FREE_MEMORY, 1, 0.5, 8) > SofyRepair.retryGapMs(lento, Tool.FREE_MEMORY, 1, 0.5, 0))
+        // Nunca para de vez: o teto da espera é um dia dividido pela gravidade.
+        assertEquals(SofyRepair.DAY / 4, SofyRepair.retryGapMs(shell, Tool.REPAIR_SHELL, 30, 0.0, 0))
+    }
+
+    @org.junit.Test fun acessoPerdidoContinuaTentandoDepoisDeRegistrar() {
+        var c = case(Type.ACCESS_LOST, "shell", count = 7)
+        var now = t0
+        val rodou = ArrayList<Tool>()
+        repeat(40) {
+            when (val s = SofyRepair.next(c, emptyMap(), env(now))) {
+                is Step.Run -> { rodou += s.tool; c = SofyRepair.onRun(c, s.tool, now, true); if (s.tool != Tool.REPORT) c = SofyRepair.onVerified(c, true, now + 2 * min).first }
+                is Step.Wait -> now = maxOf(now + min, s.until)
+                else -> return@repeat
+            }
+        }
+        assertEquals(State.OPEN, c.state)                                    // registrar não é desistir
+        assertEquals(1, rodou.count { it == Tool.REPORT })
+        assertTrue(rodou.count { it == Tool.REPAIR_SHELL } >= 3)            // continua tentando, cada vez mais espaçado
+        val horas = c.tried.filter { it.tool == Tool.REPAIR_SHELL }.map { it.at }.zipWithNext { a, b -> b - a }
+        assertTrue(horas.zipWithNext().all { (a, b) -> b >= a })             // o espaço só cresce
+    }
+
+    @org.junit.Test fun lacoViraDefeitoEElaTrocaDeEstrategia() {
+        var c = case(Type.ACCESS_LOST, "shell")
+        repeat(3) { i -> c = SofyRepair.onVerified(SofyRepair.onRun(c, Tool.RECONNECT_SHELL, t0 + i * 10 * min, true), true, t0 + i * 10 * min + 2 * min).first }
+        val now = t0 + 40 * min
+        assertEquals(Tool.RECONNECT_SHELL, SofyRepair.looping(c, now))
+        // Pergunta à IA já feita antes do laço: depois do laço ela pode perguntar de novo.
+        c = c.copy(tried = listOf(SofyRepair.Attempt(Tool.ASK_AI, t0 - min, Result.NOT_FIXED)) + c.tried)
+        c = SofyRepair.onLoop(c, Tool.RECONNECT_SHELL, now)
+        assertEquals(null, SofyRepair.looping(c, now))
+        assertTrue(c.context.last().startsWith("laço: reconnect_shell"))
+        val e = SofyRepair.Env(now = now, idle = true, night = false, aiAvailable = true)
+        // A ferramenta em laço sai; segue com as outras e, quando acabarem, a IA é consultada de novo.
+        val passos = ArrayList<Tool>(); var x = c
+        while (true) { val s = SofyRepair.next(x, emptyMap(), e) as? Step.Run ?: break; passos += s.tool
+            x = SofyRepair.onRun(x, s.tool, now, true); if (s.tool != Tool.REPORT && s.tool != Tool.ASK_AI) x = SofyRepair.onVerified(x, true, now).first }
+        assertFalse(Tool.RECONNECT_SHELL in passos)
+        assertTrue(Tool.ASK_AI in passos)
+        // Consertou: as proibições caem; e a proibição vence sozinha depois de um dia.
+        val ok = SofyRepair.onVerified(SofyRepair.onRun(c, Tool.REPAIR_SHELL, now, true), false, now + 2 * min).first
+        assertTrue(ok.banned.isEmpty())
+        assertTrue(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS).isEmpty())
+        // A rede de segurança fixa continua, e é reconhecida como defeito da própria Sofy.
+        assertTrue(SofyRepair.guardTripped(SofyRepair.Env(now, true, false, false, toolsLastHour = SofyRepair.LOOP_GUARD_PER_HOUR)))
+    }
+
+    @org.junit.Test fun casoAntigoDesistidoReabreSeTemFerramenta() {
+        val velho = case(Type.ACCESS_LOST, "shell").copy(state = State.GIVEN_UP)
+        val cs = SofyRepair.onSignal(listOf(velho), Signal(Type.ACCESS_LOST, "shell", t0 + min))
+        assertEquals(State.OPEN, cs.single().state)
+        val tela = case(Type.SCREEN_BROKEN, "screen:x").copy(state = State.GIVEN_UP)
+        assertEquals(State.GIVEN_UP, SofyRepair.onSignal(listOf(tela), Signal(Type.SCREEN_BROKEN, "screen:x", t0 + min)).single().state)
+    }
+}

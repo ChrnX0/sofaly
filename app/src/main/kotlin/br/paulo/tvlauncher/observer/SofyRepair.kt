@@ -11,9 +11,11 @@ package br.paulo.tvlauncher.observer
  * deu certo vira receita aprendida ([SofyLearned]) e passa a ser tentado primeiro. Sem receita que sirva: pergunta à IA
  * ([Tool.ASK_AI], que só pode responder com ferramentas desta caixa) e, por fim, registra para virar issue ([Tool.REPORT]).
  *
- * Freios (não mudam com o aprendizado): nada destrutivo existe na caixa; ferramenta que interrompe só roda com a TV
- * parada; reinício só de madrugada; teto de tentativas por caso e por dia; um soluço só (1 ocorrência) não dispara
- * ferramenta pesada. Pura: SofyRepairTest. A parte Android é [SofyRepairTv].
+ * Freios de segurança (não mudam com o aprendizado): nada destrutivo existe na caixa; ferramenta que interrompe só roda
+ * com a TV parada; reinício só de madrugada; um soluço só (1 ocorrência) não dispara ferramenta pesada; uma trava contra
+ * laço ([LOOP_GUARD_PER_HOUR]). O RITMO não tem teto fixo: ele se calibra sozinho ([pace]) pela gravidade do caso, pelo
+ * custo da ferramenta, pelo placar dela e pelas falhas seguidas (recuo exponencial). Pura: SofyRepairTest. A parte
+ * Android é [SofyRepairTv].
  */
 object SofyRepair {
     /** Os sinais genéricos: o que caracteriza QUALQUER defeito, previsto ou não. */
@@ -62,6 +64,8 @@ object SofyRepair {
         /** Ferramentas que a IA indicou para este caso (entram na frente da fila). */
         val aiPlan: List<Tool> = emptyList(),
         val detail: String = "",
+        /** Ferramentas que entraram em laço neste caso -> quando (ficam de fora por [LOOP_BAN_MS] ou até consertar). */
+        val banned: Map<Tool, Long> = emptyMap(),
     )
 
     fun key(type: Type, subject: String) = "${type.name}:$subject"
@@ -72,8 +76,38 @@ object SofyRepair {
     const val RELAPSE_MS = 6 * HOUR
     /** Caso sem sinal novo há tanto tempo = sumiu sozinho; sai da lista. */
     const val STALE_MS = 3 * DAY
-    const val MAX_ATTEMPTS_PER_CASE_DAY = 6
-    const val MAX_TOOLS_PER_HOUR = 6
+    /**
+     * A única trava fixa do ritmo: mais que isto de ferramentas numa hora (todos os casos) é laço, não conserto.
+     * Paulo (25/11/2026): "ela tem que saber se calibrar sozinha"; o antigo teto de 6 por hora barrava o shell à toa.
+     */
+    const val LOOP_GUARD_PER_HOUR = 20
+
+    // ---------------------------------------------------------------- laço também é defeito (Paulo, 25/11/2026)
+
+    /**
+     * "Repetir a mesma ação sem parar não é um erro que ela deveria entender e corrigir também?" Sim: a mesma ferramenta
+     * [LOOP_REPEAT] vezes numa hora no mesmo caso, sem consertar, é um laço. Ela percebe ([looping]), troca de
+     * estratégia ([onLoop]: tira a ferramenta deste caso, anota no contexto e libera uma pergunta nova à IA) e a falha
+     * entra no placar. A trava fixa [LOOP_GUARD_PER_HOUR] fica só como rede, caso este detector falhe; disparar a trava
+     * é registrado como defeito da própria Sofy.
+     */
+    const val LOOP_REPEAT = 3
+    const val LOOP_BAN_MS = 24 * 3_600_000L
+
+    fun banned(c: Case, now: Long): Set<Tool> = c.banned.filterValues { now - it < LOOP_BAN_MS }.keys
+
+    /** A ferramenta em laço neste caso, se houver. */
+    fun looping(c: Case, now: Long): Tool? = c.tried
+        .filter { now - it.at < HOUR && it.tool != Tool.REPORT && it.tool != Tool.ASK_AI && (it.result == Result.NOT_FIXED || it.result == Result.FAILED) }
+        .groupingBy { it.tool }.eachCount().filter { (t, n) -> n >= LOOP_REPEAT && t !in banned(c, now) }.keys.firstOrNull()
+
+    fun onLoop(c: Case, t: Tool, now: Long): Case = c.copy(
+        banned = c.banned + (t to now), aiPlan = c.aiPlan - t,
+        context = (c.context + "laço: ${t.name.lowercase()} repetiu $LOOP_REPEAT vezes sem consertar").takeLast(MAX_CONTEXT),
+    )
+
+    /** A rede de segurança disparou: o detector de laço deixou passar (defeito da própria Sofy). */
+    fun guardTripped(e: Env) = e.toolsLastHour >= LOOP_GUARD_PER_HOUR
     const val VERIFY_AFTER_MS = 2 * 60_000L
     const val REBOOT_GAP_MS = 7 * DAY
     const val RESTART_LAUNCHER_GAP_MS = 6 * HOUR
@@ -88,13 +122,17 @@ object SofyRepair {
         val relapse = old.state == State.FIXED && s.at - old.lastAt < RELAPSE_MS
         val novo = old.copy(
             lastAt = s.at, count = old.count + 1, needs = old.needs + s.needs, detail = s.detail.ifEmpty { old.detail },
-            state = if (old.state == State.GIVEN_UP) State.GIVEN_UP else State.OPEN,
+            // Desistido só fica desistido se não há ferramenta (casos de versões antigas, que desistiam depois do REPORT, reabrem).
+            state = if (old.state == State.GIVEN_UP && !hasTools(old)) State.GIVEN_UP else State.OPEN,
             // Voltou logo depois do "consertado": aquela ferramenta não resolveu de verdade.
             tried = if (relapse) old.tried.mapLast { if (it.result == Result.FIXED) it.copy(result = Result.NOT_FIXED) else it } else old.tried,
         )
         return cases.map { if (it.key == k) novo else it }
     }
     const val MAX_CONTEXT = 12
+
+    /** Há alguma ferramenta de verdade (além de perguntar e registrar) para este caso? */
+    fun hasTools(c: Case) = candidates(c).any { it != Tool.ASK_AI && it != Tool.REPORT }
 
     private fun <T> List<T>.mapLast(f: (T) -> T): List<T> = if (isEmpty()) this else dropLast(1) + f(last())
 
@@ -195,48 +233,114 @@ object SofyRepair {
         val night: Boolean,
         /** Há chave/caminho para a IA da nuvem. */
         val aiAvailable: Boolean,
-        /** Ferramentas rodadas na última hora (todas os casos) e quando foram o último reinício do launcher e da TV. */
+        /** Ferramentas rodadas na última hora (todos os casos) e quando foram o último reinício do launcher e da TV. */
         val toolsLastHour: Int = 0, val lastLauncherRestart: Long = 0, val lastReboot: Long = 0,
+        /** Tentativas que NÃO consertaram na última hora (todos os casos) e a última ferramenta rodada: a pressão. */
+        val failsLastHour: Int = 0, val lastRunAt: Long = 0,
         /** Ferramentas que esta TV não tem como rodar agora (ex.: sem dono, sem acessibilidade). */
         val unavailable: Set<Tool> = emptySet(),
     )
 
     sealed class Step {
         data class Run(val tool: Tool) : Step()
-        /** Há o que tentar, mas não agora (alguém vendo, não é madrugada, teto da hora). */
-        data class Wait(val tool: Tool, val why: String) : Step()
+        /** Há o que tentar, mas não agora (alguém vendo, não é madrugada, recuo). [until] = quando volta (0 = depende da TV). */
+        data class Wait(val tool: Tool, val why: String, val until: Long = 0) : Step()
         /** Esperando conferir a última tentativa. */
         object Verify : Step()
         /** Acabou a caixa: fica registrado (já passou por REPORT). */
         object Done : Step()
     }
 
+    // ---------------------------------------------------------------- o ritmo que se calibra sozinho
+
+    /** Gravidade: acesso/permissão perdidos derrubam muita coisa; lentidão incomoda, mas espera. */
+    fun urgency(t: Type): Int = when (t) {
+        Type.ACCESS_LOST, Type.PERMISSION_LOST -> 4
+        Type.NO_EFFECT, Type.CRASH -> 3
+        Type.ERROR, Type.INCOHERENT -> 2
+        Type.SLOW, Type.SCREEN_BROKEN -> 1
+    }
+
+    /** Custo/risco da ferramenta: 1 (leve) a 5 (pesada e interrompe). Registrar e perguntar à IA não custam nada. */
+    fun cost(t: Tool): Int = if (t == Tool.REPORT || t == Tool.ASK_AI) 0 else 1 + (if (t.heavy) 2 else 0) + (if (t.interrupts) 2 else 0)
+
+    const val MIN = 60_000L
+    /** Base do recuo de uma ferramenta que não consertou (antes de gravidade, custo e placar). */
+    const val RETRY_BASE_MS = 15 * MIN
+    const val RETRY_MIN_MS = 2 * MIN
+    /** A espera máxima: um dia dividido pela gravidade (acesso perdido volta a tentar pelo menos a cada 6 h). */
+    fun retryMaxMs(c: Case) = DAY / urgency(c.type)
+    /** Sob pressão (outras tentativas falhando), um caso menos grave espera isto por falha recente antes de começar. */
+    const val PRESSURE_STEP_MS = 3 * MIN
+
+    /**
+     * Quanto esperar para repetir [t] neste caso depois de [fails] tentativas que não consertaram: dobra a cada falha
+     * (recuo exponencial), encolhe com a gravidade e com o placar da ferramenta (o que costuma funcionar volta logo),
+     * cresce com o custo e com a pressão geral (muita coisa falhando = calma no que é menos grave).
+     */
+    fun retryGapMs(c: Case, t: Tool, fails: Int, rate: Double, failsLastHour: Int): Long {
+        if (fails <= 0) return 0
+        val u = urgency(c.type)
+        val pressao = if (u >= 4) 1.0 else 1.0 + failsLastHour / 4.0
+        val gap = RETRY_BASE_MS * maxOf(1, cost(t)) * Math.pow(2.0, (fails - 1).coerceAtMost(12).toDouble()) * (1.5 - rate) * pressao / u
+        return gap.toLong().coerceIn(RETRY_MIN_MS, retryMaxMs(c))
+    }
+
+    /** Ferramentas que não consertaram este caso (o FIXED zera: o recuo é das falhas seguidas). */
+    private fun failsSinceFix(c: Case, t: Tool): Int =
+        c.tried.takeLastWhile { it.result != Result.FIXED }.count { it.tool == t && (it.result == Result.NOT_FIXED || it.result == Result.FAILED) }
+
     fun next(c: Case, l: SofyLearned, e: Env): Step {
         if (c.state != State.OPEN) return Step.Done
         if (c.tried.lastOrNull()?.result == Result.PENDING) return Step.Verify
-        val hoje = c.tried.count { e.now - it.at < DAY }
-        // Cada ferramenta uma vez por dia por caso (REPORT uma vez só por caso).
-        val usadas = c.tried.filter { e.now - it.at < DAY || it.tool == Tool.REPORT }.map { it.tool }.toSet()
+        val placar = l[family(c)].orEmpty()
+        val reported = c.tried.any { it.tool == Tool.REPORT }
+        // Depois de um laço, a IA pode ser consultada de novo (o caso mudou: uma estratégia caiu).
+        val ultimoLaco = c.banned.values.maxOrNull() ?: 0L
+        val askedRecently = c.tried.any { it.tool == Tool.ASK_AI && e.now - it.at < DAY && it.at >= ultimoLaco }
+        val fora = banned(c, e.now)
+        var cedo: Step.Wait? = null   // a ferramenta que volta primeiro, se todas estiverem no recuo
         for (t in ordered(c, l)) {
-            if (t in usadas || t in e.unavailable) continue
-            if (t == Tool.ASK_AI && !e.aiAvailable) continue
-            if (t == Tool.REPORT) return Step.Run(t)   // registrar não gasta nada nem atrapalha ninguém
-            if (hoje >= MAX_ATTEMPTS_PER_CASE_DAY) return Step.Wait(t, "teto do dia para este caso")
-            if (e.toolsLastHour >= MAX_TOOLS_PER_HOUR) return Step.Wait(t, "teto da hora")
+            if (t in e.unavailable || t in fora) continue
+            if (t == Tool.ASK_AI) { if (!e.aiAvailable || askedRecently) continue; return Step.Run(t) }
+            if (t == Tool.REPORT) {
+                if (!reported) return Step.Run(t)   // registrar não gasta nada nem atrapalha ninguém
+                continue
+            }
             // Um soluço só não dispara ferramenta pesada (uma queda de app isolada não limpa cache nem reinicia nada).
             if (t.heavy && c.count < 2) continue
-            if (t.nightOnly && !(e.night && e.idle)) return Step.Wait(t, "só de madrugada, com a TV parada")
-            if (t.interrupts && !e.idle) return Step.Wait(t, "alguém está usando a TV")
             if (t == Tool.RESTART_LAUNCHER && e.now - e.lastLauncherRestart < RESTART_LAUNCHER_GAP_MS) continue
             if (t == Tool.REBOOT && e.now - e.lastReboot < REBOOT_GAP_MS) continue
+            // Recuo próprio desta ferramenta neste caso.
+            val fails = failsSinceFix(c, t)
+            if (fails > 0) {
+                val ultima = c.tried.last { it.tool == t }.at
+                val volta = ultima + retryGapMs(c, t, fails, placar[t]?.rate ?: 0.5, e.failsLastHour)
+                if (e.now < volta) {
+                    if (cedo == null || volta < cedo.until) cedo = Step.Wait(t, "recuo: não consertou $fails vez(es)", volta)
+                    continue
+                }
+            }
+            if (e.toolsLastHour >= LOOP_GUARD_PER_HOUR) return Step.Wait(t, "trava contra laço", e.lastRunAt + HOUR)
+            // Pressão: com outras tentativas falhando, o caso menos grave dá um respiro antes de mexer de novo.
+            val u = urgency(c.type)
+            if (u < 4 && e.failsLastHour > 0) {
+                val respiro = e.lastRunAt + PRESSURE_STEP_MS * e.failsLastHour / u
+                if (e.now < respiro) return Step.Wait(t, "calma: ${e.failsLastHour} tentativa(s) falharam na última hora", respiro)
+            }
+            if (t.nightOnly && !(e.night && e.idle)) return Step.Wait(t, "só de madrugada, com a TV parada")
+            if (t.interrupts && !e.idle) return Step.Wait(t, "alguém está usando a TV")
             return Step.Run(t)
         }
-        return Step.Done
+        return cedo ?: Step.Done
     }
 
-    /** Marca a ferramenta como aplicada (esperando conferir). REPORT fecha o caso como "desisti, registrado". */
+    /**
+     * Marca a ferramenta como aplicada (esperando conferir). REPORT registra; o caso só fecha como "desisti" quando não
+     * há ferramenta nenhuma para ele (defeito de código). Com ferramenta, ela continua tentando no ritmo do recuo.
+     */
     fun onRun(c: Case, tool: Tool, now: Long, applied: Boolean): Case = when {
-        tool == Tool.REPORT -> c.copy(tried = c.tried + Attempt(tool, now, Result.NOT_FIXED), state = State.GIVEN_UP)
+        tool == Tool.REPORT -> c.copy(tried = c.tried + Attempt(tool, now, Result.NOT_FIXED), state = if (hasTools(c)) State.OPEN else State.GIVEN_UP)
         tool == Tool.ASK_AI -> c.copy(tried = c.tried + Attempt(tool, now, if (applied) Result.NOT_FIXED else Result.FAILED))
         !applied -> c.copy(tried = c.tried + Attempt(tool, now, Result.FAILED))
         else -> c.copy(tried = c.tried + Attempt(tool, now, Result.PENDING))
@@ -246,7 +350,8 @@ object SofyRepair {
     fun onVerified(c: Case, stillBad: Boolean, now: Long): Pair<Case, Pair<Tool, Boolean>?> {
         val last = c.tried.lastOrNull()?.takeIf { it.result == Result.PENDING } ?: return c to null
         val r = if (stillBad) Result.NOT_FIXED else Result.FIXED
-        val novo = c.copy(tried = c.tried.dropLast(1) + last.copy(result = r), state = if (stillBad) State.OPEN else State.FIXED, lastAt = if (stillBad) c.lastAt else now)
+        val novo = c.copy(tried = c.tried.dropLast(1) + last.copy(result = r), state = if (stillBad) State.OPEN else State.FIXED, lastAt = if (stillBad) c.lastAt else now,
+            banned = if (stillBad) c.banned else emptyMap())   // consertou: a próxima vez começa sem proibições
         return novo to (last.tool to !stillBad)
     }
 

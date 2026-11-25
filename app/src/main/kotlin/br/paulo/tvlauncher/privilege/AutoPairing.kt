@@ -72,11 +72,19 @@ object AutoPairing {
      * Chamado pelo ciclo de conserto da Sofy (SofyRepairTv, ferramenta REPAIR_SHELL). Barato: só lê estado; age só
      * quando a regra manda. Devolve true se começou uma tentativa.
      */
+    /** O último motivo de não tentar (para o relatório da Sofy). */
+    @Volatile var lastWhy = ""
+        private set
+
     fun maybe(ctx: Context, shellDownForMs: Long?): Boolean {
         val app = ctx.applicationContext
         if (running) return false
         val s = state(app, shellDownForMs)
-        if (AutoPairingRules.decide(s) != AutoPairingRules.Decision.TRY) return false
+        if (AutoPairingRules.decide(s) != AutoPairingRules.Decision.TRY) {
+            val w = AutoPairingRules.why(s)
+            if (w != lastWhy) { lastWhy = w; Log.i(TAG, "não tentou: $w") }
+            return false
+        }
         val list = (AutoPairingRules.recent(s.attempts, s.now) + s.now).joinToString(",")
         prefs(app).edit().putString("attempts", list).apply()
         main.post { start(app) }
@@ -152,6 +160,8 @@ object AutoPairing {
         // Volta para a HOME (a caixinha do código fecha sozinha ao parear; sem parear, sai das Configurações do mesmo jeito).
         AutorizaShizukuService.instancia?.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
         log(a.app, (if (ok) "consertado: " else "não consertou: ") + why)
+        // Deu certo: o recuo zera (a próxima queda começa do intervalo curto de novo).
+        if (ok) prefs(a.app).edit().remove("attempts").apply()
         SofyBusTv.emit(a.app, SofyBus.Source.SOFY, if (ok) "access_repaired" else "access_repair_failed", ok = ok, detail = why)
         ObserverTv.logShadow(a.app, if (ok) "access_repaired" else "access_repair_failed", why)
     }
