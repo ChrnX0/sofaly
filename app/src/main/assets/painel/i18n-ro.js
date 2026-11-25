@@ -651,7 +651,7 @@ traduzirPainelCom({T:{
 "Instalar APK…":"Instalați APK…",
 "Instalar como app (https)":"Instalați ca aplicație (https)",
 "Internet por app":"Internet pe aplicație",
-"Início":"Ecran principal",
+"Início":"Acasă",
 "Isso não existe mais na TV (talvez já tenha sido apagado).":"Asta nu mai există pe TV (poate a fost deja ștearsă).",
 "Leia o QR com o celular para colar o endereço no app da IA. O login pede o PIN deste painel (ou a conta Google, se ligada na aba Claude).":"Scanați QR-ul cu telefonul pentru a lipi adresa în aplicația AI. Conectarea cere PIN-ul acestui panou (sau contul Google, dacă e pornit în fila Claude).",
 "Lendo o certificado (a chave não vai junto)…":"Se citește certificatul (cheia nu vine cu el)…",

@@ -651,7 +651,7 @@ traduzirPainelCom({T:{
 "Instalar APK…":"Установити APK…",
 "Instalar como app (https)":"Установити як застосунок (https)",
 "Internet por app":"Інтернет за застосунками",
-"Início":"Головний екран",
+"Início":"Головна",
 "Isso não existe mais na TV (talvez já tenha sido apagado).":"Цього вже немає на телевізорі (можливо, вже видалено).",
 "Leia o QR com o celular para colar o endereço no app da IA. O login pede o PIN deste painel (ou a conta Google, se ligada na aba Claude).":"Відскануйте QR телефоном, щоб вставити адресу в застосунок ШІ. Вхід потребує PIN цієї панелі (або облікового запису Google, якщо ввімкнено на вкладці Claude).",
 "Lendo o certificado (a chave não vai junto)…":"Зчитування сертифіката (ключ не передається)…",
