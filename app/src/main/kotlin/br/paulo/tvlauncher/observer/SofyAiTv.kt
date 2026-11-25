@@ -81,6 +81,7 @@ object SofyAi {
             .put("month_calls", if (p.getInt("month", 0) == SofyAiRules.month(System.currentTimeMillis())) p.getInt("month_calls", 0) else 0)
             .put("test_at", p.getLong("test_at", 0L)).put("test_ok", p.getBoolean("test_ok", false)).put("test_http", p.getInt("test_http", 0))
             .put("ask_at", p.getLong("ask_at", 0L)).put("ask_http", p.getInt("ask_http", 0)).put("ask_result", p.getString("ask_result", "") ?: "")
+            .put("review_at", p.getLong("review_at", 0L)).put("review_result", p.getString("review_result", "") ?: "")
     }
 
     private fun key(ctx: Context): String? {
@@ -140,6 +141,28 @@ object SofyAi {
         note(res)
         if (tools.isNotEmpty()) ObserverTv.logShadow(app, "ai_plan", "${c.type.name} ${c.subject}: ${tools.joinToString(",") { it.name.lowercase() }} ($cause)")
         return tools
+    }
+
+    /**
+     * Pergunta livre à IA do dono (revisor noturno). Respeita o teto do mês e soma o gasto. Rede: chamar fora da tela.
+     * Devolve o texto da resposta ou null; o porquê fica em "review_result" (sem a chave).
+     */
+    fun ask(ctx: Context, system: String, user: String): String? {
+        val app = ctx.applicationContext
+        fun note(res: String) { Log.i(TAG, "revisor: $res")
+            prefs(app).edit().putLong("review_at", System.currentTimeMillis()).putString("review_result", res).apply() }
+        lastHttp = 0
+        val s = settings(app) ?: run { note("sem configuração utilizável"); return null }
+        val gasto = monthTokens(app); val teto = budget(app)
+        if (!SofyAiRules.withinBudget(gasto, teto)) { note("teto do mês: $gasto de $teto tokens"); return null }
+        var erro: String? = null
+        val answer = runCatching { post(s, SofyAiRules.bodyFor(s, system, user).toString()) }
+            .onFailure { erro = it.javaClass.simpleName }.getOrNull()
+        spend(app, answer)
+        val txt = answer?.let { runCatching { SofyAiRules.text(s.provider.format, it) }.getOrNull() }
+        note(when { erro != null -> "erro de rede: $erro"; answer == null -> "HTTP $lastHttp"
+            txt == null -> "resposta sem texto (${SofyAiRules.shape(answer)})"; else -> "ok (${txt.length} caracteres)" })
+        return txt
     }
 
     /** Testa a configuração (botão "Testar" do painel): um caso de mentira; devolve se a IA respondeu no formato. */
