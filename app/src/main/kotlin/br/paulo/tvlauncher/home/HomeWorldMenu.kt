@@ -83,7 +83,8 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     }
     if (BottomBar.strip(this)) opcoes += MainActivity.Opcao(getString(R.string.wo_cards)) { escolherCards(cat) }
     // Só o ícone na linha (Paulo, 22/11/2026): o nome some da cruz e fica na pílula do topo quando a categoria tem o foco.
-    opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {
+    // Na barra única a cruz não aparece: a troca não mudaria nada e sai do menu (onda A, 25/11/2026).
+    if (!BottomBar.strip(this)) opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {
         WorldOptions.save(this, cat, o.copy(iconOnly = !o.iconOnly)); atualizarAposMudanca(null)
     }
     if (WorldOptions.Rules.canHide(cat)) opcoes += MainActivity.Opcao(getString(R.string.wo_esconder)) {

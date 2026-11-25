@@ -97,6 +97,9 @@ class FineTuneActivity : Activity() {
             nomeRitmo(r[Math.floorMod(br.paulo.tvlauncher.home.CrossRhythm.ler(this).ordinal + passo, r.size)]
                 .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.CrossRhythm.KEY, it.ordinal) })
         },
+    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) emptyList() else listOf(
+        // Esconder o que não vale (Paulo, 25/11/2026, onda A da simplificação): na barra única a cruz some (HomeCruz
+        // deixa a cruz GONE) e o nome do mundo tem linha própria (mundoNaIlha); estas duas linhas não mudariam nada.
         // Nome do mundo (22/11/2026, Paulo): junto da hora, na pílula do topo, ou na coluna como era.
         Ajuste(R.string.wl_titulo, { nomeLugarMundo(br.paulo.tvlauncher.home.WorldLabel.place(this)) }) { passo ->
             val m = br.paulo.tvlauncher.home.WorldLabel.Place.entries
@@ -111,6 +114,7 @@ class FineTuneActivity : Activity() {
                 br.paulo.tvlauncher.home.WorldOptions.update(this, c) { it.copy(iconOnly = !todasSo) }
             nomeDasCategorias()
         },
+    )) + listOf(
         // Jeito da tela inicial (BottomBar): barra única (padrão desde 24/11/2026), cruz ou barra embaixo. A lista de
         // ajustes muda com o jeito (as opções dos cards só valem na barra única): recria o painel.
         Ajuste(R.string.bb_titulo, { nomeJeito(br.paulo.tvlauncher.home.BottomBar.mode(this)) }) { passo ->
