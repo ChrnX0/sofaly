@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Blanc</string>
     <string name="st_proprios_vidro">Verre clair</string>
     <string name="st_proprios_escuro">Verre sombre</string>
+    <string name="st_personalidade">Icônes des cartes</string>
+    <string name="st_pers_cor">Couleur propre</string>
+    <string name="st_pers_brilho">Halo de couleur</string>
 </resources>

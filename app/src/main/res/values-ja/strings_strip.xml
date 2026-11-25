@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">白</string>
     <string name="st_proprios_vidro">明るいガラス</string>
     <string name="st_proprios_escuro">暗いガラス</string>
+    <string name="st_personalidade">カードのアイコン</string>
+    <string name="st_pers_cor">固有の色</string>
+    <string name="st_pers_brilho">色の輝き</string>
 </resources>

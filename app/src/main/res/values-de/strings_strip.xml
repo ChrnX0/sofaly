@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Weiß</string>
     <string name="st_proprios_vidro">Helles Glas</string>
     <string name="st_proprios_escuro">Dunkles Glas</string>
+    <string name="st_personalidade">Kartensymbole</string>
+    <string name="st_pers_cor">Eigene Farbe</string>
+    <string name="st_pers_brilho">Farbschein</string>
 </resources>

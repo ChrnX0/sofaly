@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">Białe</string>
     <string name="st_proprios_vidro">Jasne szkło</string>
     <string name="st_proprios_escuro">Ciemne szkło</string>
+    <string name="st_personalidade">Ikony kart</string>
+    <string name="st_pers_cor">Własny kolor</string>
+    <string name="st_pers_brilho">Poświata koloru</string>
 </resources>

@@ -86,11 +86,17 @@ class StripScreenTest {
             cruz.opcoesFaixa = StripHome.DEFAULT.copy(format = StripHome.Format.CLASSIC, size = StripHome.Size.LARGE, name = true, glass = true)
             esperar()
             foto(a.window.decorView, "faixa-opcoes-$idioma")
-            // placa dos cards nossos (25/11/2026): branco (de fábrica, nas fotos acima), vidro claro e vidro escuro
-            for (own in listOf(StripHome.Own.GLASS, StripHome.Own.DARK)) {
+            // placa dos cards nossos (25/11/2026): vidro escuro (de fábrica, nas fotos acima), branco e vidro claro
+            for (own in listOf(StripHome.Own.WHITE, StripHome.Own.GLASS)) {
                 cruz.opcoesFaixa = StripHome.DEFAULT.copy(own = own)
                 esperar()
                 foto(a.window.decorView, "faixa-${own.name.lowercase()}-$idioma")
+            }
+            // personalidade dos ícones (25/11/2026): brilho da cor (de fábrica, acima), cor própria e azulejo
+            for (mood in listOf(StripHome.Mood.COLOR, StripHome.Mood.TILE)) {
+                cruz.opcoesFaixa = StripHome.DEFAULT.copy(mood = mood)
+                esperar()
+                foto(a.window.decorView, "faixa-${mood.name.lowercase()}-$idioma")
             }
         } finally {
             System.clearProperty("https.proxyHost"); System.clearProperty("https.proxyPort")

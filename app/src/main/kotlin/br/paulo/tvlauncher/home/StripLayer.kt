@@ -60,6 +60,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         const val LADO_VAO = 6f            // dp entre o ícone e o nome
         /** Conjuntos de traço de uma cor só (Linha e Símbolo): esses ganham a tinta da placa; o Duotom tem halo e fica. */
         val TRACO_DE_UMA_COR = setOf(IconeCruz.Estilo.LINHA, IconeCruz.Estilo.SIMBOLO)
+        const val BRILHO_ESCURO = 0.30f    // "Brilho da cor": quanto da cor do item entra no vidro escuro aceso
+        const val BRILHO_BRANCO = 0.16f    // e na placa branca
         const val SO_ICONE = 1.7f          // "só o escolhido": ícone dos outros, sem placa
         const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
         const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
@@ -86,6 +88,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private var idsDesenhados: List<String> = emptyList()
     private var avisoAte = 0L
     private var linhaAnimando = false
+    /** Quanto movimento a HOME pode ter agora (a [HomeCruz] passa antes de cada desenho; PARADO sem animações). */
+    var nivel: MovimentoAdaptativo.Nivel = MovimentoAdaptativo.Nivel.COMPLETO
     /** O último desenho, para refazer no lugar quando a tela muda de tamanho (antes de medir vale 960 x 540). */
     private var ultimo: (() -> Unit)? = null
 
@@ -96,10 +100,17 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
 
     /** O ícone vivo só anda com a HOME na tela (um app na frente ou a cruz no lugar da barra: para). */
     @Suppress("SENSELESS_COMPARISON", "UNNECESSARY_SAFE_CALL")
-    private fun moverIcone() { if (icone == null) return; (icone.drawable as? WorldMotion)?.let { if (isShown && windowVisibility == View.VISIBLE) it.start() else it.stop() } }
+    private fun moverIcone() {
+        if (icone == null) return
+        val aVista = isShown && windowVisibility == View.VISIBLE
+        (icone.drawable as? WorldMotion)?.let { if (aVista) it.start() else it.stop() }
+        // os ícones dos cards também param fora da tela; ao voltar, o último desenho liga de novo os que se mexem
+        if (!aVista) pararIcones() else if (cards.isNotEmpty()) post { if (isShown) ultimo?.invoke() }
+    }
+    private fun pararIcones() { for (k in cards) (k.icone.drawable as? IconeCruz)?.animar(false) }
     override fun onWindowVisibilityChanged(v: Int) { super.onWindowVisibilityChanged(v); moverIcone() }
     override fun onVisibilityAggregated(v: Boolean) { super.onVisibilityAggregated(v); moverIcone() }
-    override fun onDetachedFromWindow() { (icone.drawable as? WorldMotion)?.stop(); super.onDetachedFromWindow() }
+    override fun onDetachedFromWindow() { (icone.drawable as? WorldMotion)?.stop(); pararIcones(); super.onDetachedFromWindow() }
 
     init {
         clipChildren = false; clipToPadding = false
@@ -220,6 +231,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             k.nomeFoco.visibility = if (escolhido && o.name && fmt.nomeNoFoco) View.VISIBLE else View.GONE
             val escala = if (fmt == StripHome.Format.ONLY) soEscolhido(k, escolhido) else 1f
             tingir(k, escolhido, focada)
+            moverIconeDoCard(k, escolhido, focada && semMenu && visivel, kotlin.math.abs(col - sCol), o)
             val sobe = if (escolhido && focada) StripHome.SUBIR_FOCO else 0f
             val ty = dp(yDe(i) - sobe)
             val alfa = if (visivel) 1f else 0f
@@ -312,27 +324,81 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     }
 
     /**
-     * Card nosso: a placa do vidro claro acende no escolhido, e o traço da Linha (claro, feito para fundo escuro) ganha a
-     * tinta do jeito: escuro na placa branca (o escolhido na cor da marca para fundo claro), creme no vidro claro, laranja
-     * no vidro escuro. Os conjuntos coloridos (Objeto, Vintage, Joia...) já trazem as cores deles e ficam como estão.
+     * Card nosso. A placa: o vidro claro clareia no escolhido; com a personalidade "Brilho da cor" o card em foco acende
+     * na cor do item (fundo e borda). O ícone: cada um na cor dele (a cruz era assim: "a cor é de cada ícone, sempre");
+     * só na placa BRANCA o traço claro da Linha/Símbolo leva tinta escura, senão some (o escolhido na cor da marca).
      * No "só o escolhido" os outros ficam sem placa, sobre a foto: aí o traço volta ao dele.
+     * Por que não tingir mais no vidro (25/11/2026): a tinta única deixou todos os ícones laranja e iguais (Paulo:
+     * "senti falta de personalidade").
      */
     private fun tingir(k: Card, escolhido: Boolean, focada: Boolean) {
         val own = k.own ?: return
         val aceso = escolhido && focada
-        if (own == StripHome.Own.GLASS) k.fundo.setColor(placaPropria(own, aceso))
-        if ((k.item.icone as? IconeCruz)?.estilo !in TRACO_DE_UMA_COR) return
-        if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.setLayerType(View.LAYER_TYPE_NONE, null); return }
-        val cor = when (own) {
-            StripHome.Own.WHITE -> if (aceso) DesignTokens.ORANGE_ON_LIGHT else DesignTokens.NIGHT
-            StripHome.Own.GLASS -> if (aceso) DesignTokens.ORANGE else DesignTokens.CREAM
-            StripHome.Own.DARK -> DesignTokens.ORANGE
-        }
+        val cor = corDoItem(k)
+        val brilha = aceso && cor != null && opcoesDesenhadas?.mood == StripHome.Mood.GLOW
+        k.fundo.setColor(if (brilha) placaAcesa(own, cor!!) else placaPropria(own, aceso))
+        bordaPropria(k.fundo, own, if (brilha) cor else null)
+        val tinta = own == StripHome.Own.WHITE && (k.icone.drawable as? IconeCruz)?.estilo in TRACO_DE_UMA_COR &&
+            !(formatoDesenhado == StripHome.Format.ONLY && !escolhido)
+        if (!tinta) { if (k.icone.layerType != View.LAYER_TYPE_NONE) k.icone.setLayerType(View.LAYER_TYPE_NONE, null); return }
+        val c = if (aceso) DesignTokens.ORANGE_ON_LIGHT else DesignTokens.NIGHT
         // A tinta vai na camada da view, não no Drawable: o Símbolo desenha por um IconeApp interno, com pincéis
-        // próprios, e um colorFilter no Drawable não chegava nele (Sala, 25/11/2026: ícones continuaram coloridos).
+        // próprios, e um colorFilter no Drawable não chegava nele (Sala, 25/11/2026).
         k.icone.setLayerType(View.LAYER_TYPE_HARDWARE, android.graphics.Paint().apply {
-            colorFilter = android.graphics.PorterDuffColorFilter(cor, android.graphics.PorterDuff.Mode.SRC_IN)
+            colorFilter = android.graphics.PorterDuffColorFilter(c, android.graphics.PorterDuff.Mode.SRC_IN)
         })
+    }
+
+    /** A cor do item (a do desenho dele na cruz), ou null quando o ícone não é nosso. */
+    private fun corDoItem(k: Card): Int? = (k.item.icone as? IconeCruz)?.let { IconeCruz.corLinha(it.tipo) }
+
+    /** Placa do card em foco com "Brilho da cor": a do jeito, puxada para a cor do item. */
+    private fun placaAcesa(own: StripHome.Own, cor: Int): Int = when (own) {
+        StripHome.Own.DARK -> (mistura(DesignTokens.NIGHT, cor, BRILHO_ESCURO) and 0x00FFFFFF) or (200 shl 24)
+        StripHome.Own.GLASS -> (cor and 0x00FFFFFF) or (84 shl 24)
+        StripHome.Own.WHITE -> mistura(DesignTokens.PAPER, cor, BRILHO_BRANCO)
+    }
+
+    /** Borda fina do vidro; no card aceso com brilho, na cor do item. */
+    private fun bordaPropria(f: GradientDrawable, own: StripHome.Own, cor: Int?) {
+        val c = when {
+            cor != null -> (cor and 0x00FFFFFF) or (150 shl 24)
+            own == StripHome.Own.GLASS -> android.graphics.Color.argb(72, 255, 255, 255)
+            own == StripHome.Own.DARK -> android.graphics.Color.argb(26, 255, 255, 255)
+            else -> 0
+        }
+        f.setStroke(if (c == 0) 0 else dpi(1f), c)
+    }
+
+    /**
+     * O ícone do card nosso: no Azulejo, a peça das Configurações; o Símbolo (sem animação própria) vira a Linha, que
+     * tem o mesmo traço de uma cor e se mexe. Um objeto por card, para cada um ter o seu tempo de animação.
+     */
+    private fun iconeProprio(d: android.graphics.drawable.Drawable?, mood: StripHome.Mood): android.graphics.drawable.Drawable? {
+        val c = d as? IconeCruz ?: return d
+        val e = when {
+            mood == StripHome.Mood.TILE -> IconeCruz.Estilo.AZULEJO
+            c.estilo == IconeCruz.Estilo.SIMBOLO -> IconeCruz.Estilo.LINHA
+            else -> c.estilo
+        }
+        return IconeCruz(c.tipo, e)
+    }
+
+    /**
+     * Liga a animação do ícone (a mesma que a cruz tocava): o escolhido, com a linha em foco; no "Brilho da cor" os
+     * outros visíveis respiram devagar, um depois do outro. O nível de movimento da HOME manda (PARADO = nenhum).
+     */
+    private fun moverIconeDoCard(k: Card, escolhido: Boolean, ativa: Boolean, distancia: Int, o: StripHome.Options) {
+        val ic = k.icone.drawable as? IconeCruz ?: return
+        val descEsc = MovimentoAdaptativo.descansoEscolhido(nivel)
+        val descCat = MovimentoAdaptativo.descansoCategoria(nivel)
+        when {
+            !ativa || !isShown -> ic.animar(false)
+            escolhido -> ic.animar(descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS)
+            k.own != null && o.mood == StripHome.Mood.GLOW && descCat != null ->
+                ic.animar(true, descCat, MovimentoAdaptativo.atrasoCategoria(nivel, distancia))
+            else -> ic.animar(false)
+        }
     }
 
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
@@ -404,7 +470,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     }
 
     private fun refazerCards(c: HomeCruz.Categoria, o: StripHome.Options) {
-        for (k in cards) { k.raiz.animate().cancel(); removeView(k.raiz); k.fora?.let { it.animate().cancel(); removeView(it) } }
+        for (k in cards) { (k.icone.drawable as? IconeCruz)?.animar(false); k.raiz.animate().cancel(); removeView(k.raiz); k.fora?.let { it.animate().cancel(); removeView(it) } }
         cards.clear()
         val fmt = o.format
         for (item in c.itens) {
@@ -457,7 +523,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             }
             // A capa de um card de conteúdo é UM Drawable: em duas ImageViews, os limites da menor ganhavam e a capa saía
             // num cantinho (Sala, 24/11/2026). Ela fica só no banner.
-            val ic = ImageView(context).apply { setImageDrawable(if (conteudo) null else item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
+            val ic = ImageView(context).apply { setImageDrawable(if (conteudo) null else if (own != null) iconeProprio(item.icone, o.mood) else item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
             if (rotulo != null && lado) {
                 rotulo.gravity = Gravity.START or Gravity.CENTER_VERTICAL

@@ -24,6 +24,7 @@ object StripHome {
     const val KEY_GLASS = "strip_glass"       // 0 sem placa, 1 com placa de vidro atrás
     const val KEY_NAME = "strip_name"         // 0 sem nome, 1 nome no card em foco
     const val KEY_OWN = "strip_own"           // placa dos cards nossos (TV, Séries...): Own.ordinal
+    const val KEY_MOOD = "strip_mood"         // personalidade dos ícones dos cards nossos: Mood.ordinal
 
     enum class Desc { FIXED, LIVE }
     /**
@@ -56,12 +57,20 @@ object StripHome {
      * Vidro claro = véu claro fino, a foto aparece atrás; Vidro escuro = véu escuro, ícone na cor da marca.
      */
     enum class Own { WHITE, GLASS, DARK }
+    /**
+     * Personalidade dos ícones dos cards nossos (Paulo, 25/11/2026: "senti falta de personalidade; todos iguais, mesma
+     * cor, nem se mexem mais como na cruz"). [COLOR]: cada ícone na cor dele e o do foco se mexe. [GLOW] (padrão): o
+     * mesmo, e o card em foco acende na cor do item (How We Feel) enquanto os outros respiram devagar. [TILE]: o ícone
+     * num azulejo colorido dentro do card, a peça das Configurações (Apple Games, Opera).
+     */
+    enum class Mood { COLOR, GLOW, TILE }
     enum class Corners(val dp: Float) { SQUARE(4f), SOFT(12f), ROUND(22f) }
 
     data class Options(
         val desc: Desc = Desc.LIVE, val format: Format = Format.WIDE, val size: Size = Size.SMALL,
         val gap: Gap = Gap.WIDE, val corners: Corners = Corners.ROUND, val glass: Boolean = false, val name: Boolean = false,
-        val own: Own = Own.WHITE,
+        val own: Own = Own.DARK,   // Paulo, 25/11/2026: prefere o vidro escuro
+        val mood: Mood = Mood.GLOW,
     ) {
         /** Largura e altura do card (dp). */
         val cardW get() = Math.round(format.w * size.k).toFloat()
@@ -75,7 +84,7 @@ object StripHome {
         /** Raio dos cantos: o redondo é um círculo. */
         val raio get() = if (format == Format.ROUND) cardH / 2f else corners.dp
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
-        fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}${own.ordinal}"
+        fun signature() = "${desc.ordinal}${format.ordinal}${size.ordinal}${gap.ordinal}${corners.ordinal}${if (glass) 1 else 0}${if (name) 1 else 0}${own.ordinal}${mood.ordinal}"
     }
 
     val DEFAULT = Options()
@@ -100,6 +109,7 @@ object StripHome {
             glass = Extras.numero(ctx, KEY_GLASS, 0) == 1,
             name = Extras.numero(ctx, KEY_NAME, 0) == 1,
             own = ler(KEY_OWN, Own.entries.toTypedArray(), DEFAULT.own),
+            mood = ler(KEY_MOOD, Mood.entries.toTypedArray(), DEFAULT.mood),
         )
     }
 

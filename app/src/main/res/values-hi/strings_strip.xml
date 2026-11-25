@@ -48,4 +48,7 @@
     <string name="st_proprios_branco">सफ़ेद</string>
     <string name="st_proprios_vidro">हल्का कांच</string>
     <string name="st_proprios_escuro">गहरा कांच</string>
+    <string name="st_personalidade">कार्ड आइकन</string>
+    <string name="st_pers_cor">अपना रंग</string>
+    <string name="st_pers_brilho">रंग की चमक</string>
 </resources>
