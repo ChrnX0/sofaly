@@ -525,6 +525,14 @@ object ObserverTv {
             .filter { it.step != ObserverCore.Step.OBSERVED || it.kind.name in ativos }
     }
 
+    /** adb (EXTRAS observer_notes, 25/11/2026): a fila crua, os estados ativos e quantos recados [notes] deixa passar. */
+    fun notesRaw(ctx: Context): String {
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val bruto = p.getString("notes", null)
+        return "active=${p.getString("active", "")}\nlidos=${ObserverCore.readNotes(bruto, System.currentTimeMillis()).size} " +
+            "visiveis=${notes(ctx).size}\nnotes=${bruto?.take(3000)}"
+    }
+
     /** O rosto chama depois de mostrar um recado: ele não volta, e um novo do mesmo tipo pode entrar. */
     @Synchronized fun markSeen(ctx: Context, id: String) {
         val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -543,7 +551,12 @@ object ObserverTv {
     /** Um recado que não veio do juiz (pilha do controle, ...): entra na fila e a Sofy decide onde contar. */
     fun enqueueNote(ctx: Context, n: ObserverCore.Note) {
         val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        synchronized(this) { p.edit().putString("notes", ObserverCore.enqueue(p.getString("notes", null), n, n.at)).apply() }
+        val n2 = synchronized(this) {
+            val novo = ObserverCore.enqueue(p.getString("notes", null), n, n.at)
+            p.edit().putString("notes", novo).apply()
+            ObserverCore.readNotes(novo, System.currentTimeMillis()).size
+        }
+        Log.i(TAG, "recado na fila: ${n.typeKey} ${n.step} (fila=$n2)")
     }
 
     @Volatile private var drop: DropCause.Episode? = null
