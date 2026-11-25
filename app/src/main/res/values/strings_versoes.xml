@@ -16,6 +16,22 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
+        <item>Sofy notices and fixes things on her own: she redoes the internal access when the TV forgets it, learns what is normal in your home, checks the screens at night and, with the owner AI key, asks the AI what she does not know yet; what she learns goes into the backup</item>
+        <item>Sofy checks that what a screen says is true: a holiday from another country, the same event twice, a weather icon that does not match the sentence, today high below the current temperature, numbers that make no sense</item>
+        <item>Calendar and screensaver show only the holidays of the TV country, once, in the TV language; long names get two lines</item>
+        <item>Rain likely now: the icon turns to rain too, the sentence says “It may rain any moment” and every rain % has the drop in front</item>
+        <item>Screensaver: 7 clock styles, 3 styles at the bottom (Strip, Live card, Stack) and 6 positions, in Settings › Screen and power; “Today” counts the current temperature</item>
+        <item>World icon motion: the icon flies in from the rail and plays a little scene; choose Little scene, Trail of light or Bounce and glow in Fine tuning</item>
+        <item>Shortcut cards with the icon beside the name, in White, Light glass or Dark glass, and icons with personality</item>
+        <item>Other screens follow the bar (Drawer, Glass or Bar), with ring focus and the clock in a pill at the top</item>
+        <item>Live widgets from other apps on the home screen, arranged with the remote</item>
+        <item>Extensions from other apps: new backgrounds, icons, cards and buttons, reviewed before they go in</item>
+        <item>Phone and TV: calibrate picture and sound from the phone, make the remote ring when it is lost, and use the phone microphone and camera on the TV</item>
+        <item>App language separate from the TV (System › Language); the TV speaks 12 more languages and the panel and website 27</item>
+        <item>Every button does something: 79 screens were tested by pressing OK on every item</item>
+        <item>Sturdier: the launcher no longer crashes when the screensaver restarts, and the home screen no longer pulls the focus from where you already went with the remote</item>
+        <item>A switched-off alarm says “Off” next to the time, and notices no longer cover the bottom cards</item>
+        <item>Moon worked out more precisely (phase and moonrise)</item>
         <item>New default home screen, the single bar: ▲ and ▼ switch the world (Watch, Listen, Play…), ◀ and ▶ move through its apps and content in large cards, and the Ilha stays at the top</item>
         <item>The Ilha warns when the sun is strong (UV 8 or more): “wear sunscreen”</item>
         <item>Panel in other languages with no bits left in Portuguese: Wi-Fi tips, the page for the 140 known apps, the certificate step by step, the network drive page and the “The TV did not respond” screen</item>
@@ -75,6 +91,18 @@
         <item>Alarm clock: the sound always starts low and rises slowly, over at least a minute and a half, even with “Ring: direct”, so it never starts at full volume</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
+        <item>sofy_conserta</item>
+        <item>feriados_pais</item>
+        <item>chuva_icone</item>
+        <item>gota_porcento</item>
+        <item>descanso_jeitos</item>
+        <item>hoje_agora</item>
+        <item>animacao_mundo</item>
+        <item>cards_atalho</item>
+        <item>widgets_vivos</item>
+        <item>descanso_recomeca</item>
+        <item>foco_comeco</item>
+        <item>lingua_app</item>
         <item>barra_unica</item>
         <item>aviso_uv</item>
         <item>painel_traduzido</item>
@@ -122,6 +150,18 @@
         <item>ilha_central</item>
     </string-array>
     <string-array name="roteiro_titulos">
+        <item>Sofy fixes</item>
+        <item>Holidays of the country</item>
+        <item>Rain icon</item>
+        <item>Drop by the %</item>
+        <item>Screensaver styles</item>
+        <item>Today and now</item>
+        <item>World icon motion</item>
+        <item>Shortcut cards</item>
+        <item>Live widgets</item>
+        <item>Screensaver restarts</item>
+        <item>Focus at start</item>
+        <item>App language</item>
         <item>Single bar</item>
         <item>UV warning</item>
         <item>Translated panel</item>
@@ -169,6 +209,18 @@
         <item>Hold ▲</item>
     </string-array>
     <string-array name="roteiro_perguntas">
+        <item>In the panel, Sofy tab: are there fixes she made on her own today, with the reason, and none of them repeating in a loop?</item>
+        <item>On the screensaver and in Calendar, are there only holidays of your country, none of them twice?</item>
+        <item>When the sentence says “It may rain any moment”, is the icon on the home screen, Weather and screensaver a rain icon?</item>
+        <item>In the Forecast and on the screensaver, does every rain % for hours and days have the blue drop in front?</item>
+        <item>In Settings › Screen and power, set the clock style to Ring and the position to Bottom right: does the screensaver change with nothing cut off?</item>
+        <item>On the screensaver, in the days strip, is the “Today” high never below the current temperature?</item>
+        <item>Switch worlds with ▲ ▼: does the icon fly in from the rail and play its little scene, without stutter?</item>
+        <item>In Fine tuning › Shortcut cards, switch to Dark glass: do the cards show the icon beside the name with nothing turning brown?</item>
+        <item>Add a widget from another app to the home screen with the remote: does it show live, and can you move and remove it?</item>
+        <item>Let the screensaver come on, wake the TV and let it come back twice: does the home screen never restart on its own?</item>
+        <item>Right after the TV turns on, press ▲ to go to the top bar before the apps show up: does the focus stay where you went?</item>
+        <item>In System › Language, pick another language: do the Sofaly screens change while the TV screens stay as they were?</item>
         <item>Press HOME: is the home screen the bar at the bottom, with ▲ and ▼ switching the world and ◀ and ▶ moving through the cards, with nothing cut at the edge of the TV?</item>
         <item>On a strong-sun day (UV 8 or more), did the Ilha show the whole “wear sunscreen” without cutting it?</item>
         <item>Open the panel on a phone set to another language and tap an app in Apps: is its page (what it is, risk of hiding it) fully translated?</item>
