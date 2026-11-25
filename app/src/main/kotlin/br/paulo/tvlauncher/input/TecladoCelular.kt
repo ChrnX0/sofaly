@@ -35,6 +35,8 @@ object TecladoCelular {
     fun ajustar(s: AutorizaShizukuService) {
         runCatching {
             val info: AccessibilityServiceInfo = s.serviceInfo ?: return
+            // Durante o pareamento sozinho o foco fica assinado (AutoPairing.watchScreen devolve ao terminar).
+            if (br.paulo.tvlauncher.privilege.AutoPairing.running) return
             val tipos = if (ativo(s)) info.eventTypes or AccessibilityEvent.TYPE_VIEW_FOCUSED
                         else info.eventTypes and AccessibilityEvent.TYPE_VIEW_FOCUSED.inv()
             if (tipos != info.eventTypes) { info.eventTypes = tipos; s.serviceInfo = info }

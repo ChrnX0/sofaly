@@ -239,6 +239,9 @@ object SaudeAcesso {
         val agora = SystemClock.elapsedRealtime()
         val s = SaudeRegras.jsonItem(shell, agora).apply {
             if (ultimoOkShell > 0) put("okHaMin", (agora - ultimoOkShell) / 60_000)
+            // Desde a queda de verdade (hora do relógio guardada), não desde que o launcher reiniciou (Revisão, Sala 25/11:
+            // "foraHaMin":16 com o shell fora desde 06:19, porque a versão nova tinha sido instalada 16 min antes).
+            if (shell.ok == false) shellDownMs(app)?.let { put("foraHaMin", it / 60_000) }
         }
         val t = SaudeRegras.jsonItem(tunel, agora).apply {
             TunelTailscale.nome(app)?.let { put("nome", it) }
