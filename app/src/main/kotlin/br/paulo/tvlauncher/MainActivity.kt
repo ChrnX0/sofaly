@@ -2636,6 +2636,9 @@ class MainActivity : Activity() {
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
         // Tecla durante a abertura com a logo: a logo sai na hora e a tecla segue para a HOME.
         if (event.action == KeyEvent.ACTION_DOWN && SplashOverlay.showing(this)) SplashOverlay.dismiss(this)
+        // Quem já apertou uma tecla escolheu onde está: o foco inicial na cruz (1º desenho, que chega depois dos apps)
+        // não tira o foco de onde a pessoa foi (25/11/2026, TodoBotaoFazAlgoTest: "Buscar" perdia o foco para a cruz).
+        if (event.action == KeyEvent.ACTION_DOWN) focoInicialNaTv = false
         if (teclaDoAmbiente(event)) return true
         // Voltar no "Todos os apps" volta para a cruz (na cruz, Voltar não faz nada).
         // Com uma pasta aberta, Voltar fecha só a pasta (as prateleiras voltam com o foco nela).
