@@ -75,10 +75,35 @@ class ScreenStyleScreenTest {
                 val alto = foco.height
                 if (r.height() < alto - 2 || r.bottom > raiz.height) problemas += "$nome: o item com foco ficou cortado (${r.height()} de $alto px)"
             }
+            problemas += cabecalho(raiz, nome)
             ctl.pause().stop().destroy()
         }
         ScreenStyle.set(app, ScreenStyle.DEFAULT)
         assertTrue(problemas.joinToString("\n"), problemas.isEmpty())
+    }
+
+    /**
+     * A linha do foco ao lado do título (Moldura.cabecalho): move o foco para ela aparecer e confere que não fica em cima
+     * do título nem da pílula da hora, e que o nome do item não sai cortado. Na Sala, 25/11/2026, ela saiu em cima do
+     * título ("Configurações" + "TV e filmes") e, antes, cortada antes da pílula ("Tela inicial ..").
+     */
+    private fun cabecalho(raiz: View, nome: String): List<String> {
+        val titulo = raiz.findViewWithTag<android.widget.TextView>(br.paulo.tvlauncher.Estilo.TAG_TITULO) ?: return emptyList()
+        val faixa = titulo.parent as? android.view.ViewGroup ?: return emptyList()
+        val linha = (0 until faixa.childCount).map { faixa.getChildAt(it) }.firstOrNull { it !== titulo } as? android.view.ViewGroup ?: return emptyList()
+        val foco = raiz.findFocus() ?: return emptyList()
+        (foco.focusSearch(View.FOCUS_RIGHT) ?: foco.focusSearch(View.FOCUS_DOWN))?.requestFocus()
+        repeat(4) { Thread.sleep(30); ShadowLooper.idleMainLooper(200, TimeUnit.MILLISECONDS) }
+        if (linha.visibility != View.VISIBLE) return emptyList()
+        val p = mutableListOf<String>()
+        val rt = Rect(); titulo.getGlobalVisibleRect(rt)
+        val textos = (0 until linha.childCount).map { linha.getChildAt(it) }.filterIsInstance<android.widget.TextView>()
+        val nomeTv = textos.firstOrNull() ?: return emptyList()
+        val rn = Rect(); nomeTv.getGlobalVisibleRect(rn)
+        if (Rect.intersects(rt, rn)) p += "$nome: a linha do foco ficou em cima do título"
+        raiz.findViewWithTag<View>("moldura-relogio")?.let { pil -> val rp = Rect(); pil.getGlobalVisibleRect(rp); if (Rect.intersects(rp, rn)) p += "$nome: a linha do foco ficou em cima da pílula da hora" }
+        if ((nomeTv.layout?.getEllipsisCount(0) ?: 0) > 0) p += "$nome: o nome do item em foco saiu cortado (\"${nomeTv.text}\")"
+        return p
     }
 
     private fun foto(raiz: View, arquivo: String) {

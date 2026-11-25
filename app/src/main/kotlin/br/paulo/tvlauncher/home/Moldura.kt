@@ -146,14 +146,16 @@ object Moldura {
                 // Da borda onde o texto começa (à direita em árabe/hebraico) até a faixa.
                 val origem = if (v.layoutDirection == android.view.View.LAYOUT_DIRECTION_RTL) largura - (xy[0] + v.width) else xy[0]
                 val inicio = maxOf(largura / 2 + Estilo.dp(a, PILULA_FOLGA) - origem, titulo.width + Estilo.dp(a, Estilo.E2))
-                if (lpLinha.marginStart != inicio) { lpLinha.marginStart = inicio; v.post { v.requestLayout() } }
+                // setLayoutParams: só trocar a margem num LayoutParams já resolvido não move nada (foto da Sala, 25/11/2026).
+                if (lpLinha.marginStart != inicio) v.post { lpLinha.marginStart = inicio; linha.layoutParams = lpLinha }
             }
         }
         pai.addView(faixa, i, LinearLayout.LayoutParams(lp).apply { width = ViewGroup.LayoutParams.MATCH_PARENT })
         pai.setTag(R.id.moldura_cabecalho, true)
         conteudo.viewTreeObserver.addOnGlobalFocusChangeListener { _, novo ->
             val (n, d) = textosDoFoco(novo) ?: (null to null)
-            if (n.isNullOrBlank() || n == titulo.text.toString()) { linha.visibility = android.view.View.INVISIBLE; return@addOnGlobalFocusChangeListener }
+            // Parágrafo (Ajuda, textos longos) não é nome de item: repetir no alto só daria um texto cortado.
+            if (n.isNullOrBlank() || n == titulo.text.toString() || n.length > NOME_MAX) { linha.visibility = android.view.View.INVISIBLE; return@addOnGlobalFocusChangeListener }
             nome.text = n; desc.text = d.orEmpty()
             linha.visibility = android.view.View.VISIBLE
         }
@@ -178,6 +180,8 @@ object Moldura {
     private const val GAVETA_MINIMO = 0.2f
 
     private const val PILULA_ALTURA = 40
+    /** Acima disso o primeiro texto do item é um parágrafo, não um nome (a linha do foco some). */
+    private const val NOME_MAX = 60
     /** Meia pílula da hora (a mais larga, "00:00" em negrito) + o vão até ela, em dp: onde o cabeçalho tem de parar. */
     private const val PILULA_FOLGA = 80
     private const val PILULA_HORA_SP = 20f
