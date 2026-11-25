@@ -58,6 +58,7 @@ object PhoneCameraTv {
         ativa = false
         lastAt = 0L
         listener?.invoke()
+        latest = null   // a última foto (até ~7 MB) não fica presa no processo depois de fechar (revisor, 25/11/2026)
         CompanionTv.sofy(ctx, "phone_camera", true, "stop s=${(System.currentTimeMillis() - desde) / 1000}")
     }
 }

@@ -100,13 +100,20 @@ class BuscaActivity : Activity() {
             background = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA, Estilo.BORDA)
             setPaddingRelative(dp(22), dp(14), dp(22), dp(14))
             setOnEditorActionListener { _, acao, _ ->
-                if (acao == EditorInfo.IME_ACTION_SEARCH || acao == EditorInfo.IME_ACTION_DONE) { buscarJa(); true } else false
+                // Buscar no teclado: fecha o teclado e o foco desce ao 1º resultado assim que ele aparecer. Antes o teclado
+                // ficava aberto por cima dos resultados (teste da noite na Sala, 25/11/2026).
+                if (acao == EditorInfo.IME_ACTION_SEARCH || acao == EditorInfo.IME_ACTION_DONE) {
+                    getSystemService(android.view.inputmethod.InputMethodManager::class.java)?.hideSoftInputFromWindow(windowToken, 0)
+                    focarResultado = true
+                    buscarJa(); true
+                } else false
             }
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
                 override fun onTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
                 // Espera a pessoa parar de digitar: o guia pode ter dezenas de milhares de programas.
-                override fun afterTextChanged(s: Editable?) { ui.removeCallbacks(buscaAdiada); ui.postDelayed(buscaAdiada, 700) }
+                // Voltou a digitar: o "Buscar" de antes não vale mais (o foco não sai do campo no meio da digitação).
+                override fun afterTextChanged(s: Editable?) { focarResultado = false; ui.removeCallbacks(buscaAdiada); ui.postDelayed(buscaAdiada, 700) }
             })
         }
         coluna.addView(campo, LinearLayout.LayoutParams(-1, -2))
@@ -455,7 +462,14 @@ class BuscaActivity : Activity() {
         }))
     }
 
+    /** true = a pessoa apertou Buscar no teclado: o próximo desenho com resultado leva o foco para o 1º. */
+    private var focarResultado = false
+
     private fun desenhar(termo: String, grupos: List<Grupo>) {
+        // O "onde assistir" chega depois e redesenha: quem já estava nos resultados continua neles (sem isto o foco caía
+        // de volta no campo, porque a linha focada sai da tela).
+        // Volta à MESMA linha (revisor, 25/11/2026): ir ao 1º era um salto visível para quem já estava no 5º resultado.
+        val linhaFocada = lista.focusedChild?.let { lista.indexOfChild(it) } ?: -1
         lista.removeAllViews()
         // Só as linhas "Procurar no YouTube..." (ideia 14): o "nada encontrado" continua aparecendo, em cima delas.
         // "Procurar" (rádios mais longe) e "outros apps" não são resultado: só eles = nada encontrado (rodada 15).
@@ -469,6 +483,7 @@ class BuscaActivity : Activity() {
                 else -> getString(R.string.bu_digite)
             }
             lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, msg).apply { setPaddingRelative(dp(4), dp(Estilo.E3), 0, 0) })
+            focarResultado = false   // nada para focar: o foco fica no campo, e digitar de novo não o arranca dali
             return
         }
         for (g in grupos) {
@@ -479,6 +494,15 @@ class BuscaActivity : Activity() {
                 setOnClickListener { if (termo.length >= 2) BuscaRecentes.guardar(this@BuscaActivity, termo); i.abrir() }
             }, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(6) })
         }
+        when {
+            linhaFocada >= 0 -> {
+                // A linha de antes, ou a última que ainda existe; título de seção não é focável: desce até uma que seja.
+                val alvo = (minOf(linhaFocada, lista.childCount - 1) downTo 0).map { lista.getChildAt(it) }.firstOrNull { it.isFocusable }
+                if (alvo != null) alvo.requestFocus() else lista.requestFocus(android.view.View.FOCUS_DOWN)
+            }
+            focarResultado -> lista.requestFocus(android.view.View.FOCUS_DOWN)
+        }
+        focarResultado = false
     }
 
     private fun tocar(canalId: String, nome: String) {

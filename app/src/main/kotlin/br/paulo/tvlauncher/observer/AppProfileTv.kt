@@ -37,8 +37,19 @@ object AppProfileTv {
     private fun ignore(ctx: Context) = setOf(ctx.packageName, "com.android.systemui", "com.google.android.apps.tv.launcherx",
         "com.google.android.tvlauncher", "com.android.tv.settings")
 
-    private fun load(ctx: Context): MutableMap<String, AppProfile.State> = states ?: HashMap(AppProfile.fromJson(
-        ObserverTv.learning(ctx).getString("apps", null)?.let { runCatching { JSONObject(it) }.getOrNull() })).also { states = it }
+    private fun load(ctx: Context): MutableMap<String, AppProfile.State> = states ?: HashMap(read(ctx)).also { states = it; view = HashMap(it) }
+
+    private fun read(ctx: Context): Map<String, AppProfile.State> = AppProfile.fromJson(
+        ObserverTv.learning(ctx).getString("apps", null)?.let { runCatching { JSONObject(it) }.getOrNull() })
+
+    /**
+     * Cópia só de leitura das fichas, trocada inteira a cada gravação. Quem só LÊ (juiz, lições, hábitos, MCP) usa esta
+     * cópia e nunca a trava do AppProfileTv (revisor, 25/11/2026): o [tick] segura a trava por até ~35 s (shell) e chama o
+     * ObserverTv; o juiz segura a trava do ObserverTv e pedia a do AppProfileTv = as duas threads presas para sempre, e o
+     * funil de teclas (logShadow) junto.
+     */
+    @Volatile private var view: Map<String, AppProfile.State>? = null
+    private fun snapshot(ctx: Context): Map<String, AppProfile.State> = view ?: read(ctx.applicationContext)
 
     /** Na batida da rede (a cada 5 min); só trabalha de [GAP_MS] em [GAP_MS]. Fora da tela. */
     @Synchronized fun tick(ctx: Context) {
@@ -67,6 +78,7 @@ object AppProfileTv {
         runCatching { withBackground(app, dev, s, now) }.onFailure { Log.w(TAG, "internet parado: $it") }.getOrNull()?.let { s = it }
         runCatching { updateHand(app, dev, now) }
         all[profile] = s
+        view = HashMap(all)
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
         dev.edit().putLong("apps_events_at", now).apply()
         if (now - dev.getLong("apps_tips_at", 0L) >= TIPS_GAP_MS) {
@@ -133,7 +145,7 @@ object AppProfileTv {
     fun frontPackage(ctx: Context): String? {
         val app = ctx.applicationContext
         val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-        return synchronized(AppProfileTv) { load(app)[profile]?.front }
+        return snapshot(app)[profile]?.front
     }
 
     /**
@@ -249,18 +261,17 @@ object AppProfileTv {
     fun prepareFor(ctx: Context, pkg: String): Int {
         val app = ctx.applicationContext
         val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-        val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return 0
+        val s = snapshot(app)[profile] ?: return 0
         return freeOthers(app, pkg, runCatching { frontPackage(app) }.getOrNull(), s.cards.values)
     }
 
     /** As fichas de todos os perfis (a mais nova de cada pacote), para as lições entre TVs (SofyShareTv). */
-    fun allCards(ctx: Context): Collection<AppProfile.Card> = synchronized(AppProfileTv) {
-        load(ctx.applicationContext).values.flatMap { it.cards.values }.groupBy { it.pkg }.values.map { l -> l.maxBy { it.ver } }
-    }
+    fun allCards(ctx: Context): Collection<AppProfile.Card> =
+        snapshot(ctx).values.flatMap { it.cards.values }.groupBy { it.pkg }.values.map { l -> l.maxBy { it.ver } }
 
     /** Perfil → pacote → aberturas por hora (para os hábitos de cada pessoa, SofyHabitsTv). */
     fun opensByProfile(ctx: Context): Map<String, Map<String, List<Double>>> =
-        synchronized(AppProfileTv) { load(ctx.applicationContext).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } } }
+        snapshot(ctx).mapValues { (_, s) -> s.cards.mapValues { it.value.opens } }
 
     /** Lido pela HOME a cada foco (barato: só um mapa em memória). Pacote → a marca da Sofy. */
     @Volatile var hand: Map<String, Hand> = emptyMap()
@@ -290,7 +301,7 @@ object AppProfileTv {
         if (now - lastRecipe < 10 * 60_000L) return
         br.paulo.tvlauncher.Fundo.rodar("app-recipe") {
             val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-            val s = synchronized(AppProfileTv) { load(app)[profile] } ?: return@rodar
+            val s = snapshot(app)[profile] ?: return@rodar
             val c = s.cards[pkg] ?: return@rodar
             if (!AppProfile.heavy(c, ObserverTv.normalOf(app, ObserverCore.Signal.MEMORY_AVAILABLE_MB))) return@rodar
             lastRecipe = now
@@ -337,6 +348,7 @@ object AppProfileTv {
             feito += "sob demanda 1 (${if (ok) "ok" else "não deu"})"
         }
         all[profile] = s.copy(cards = cards)
+        view = HashMap(all)
         ObserverTv.learning(app).edit().putString("apps", AppProfile.toJson(all).toString()).apply()
         // Experimento noturno (ideia 36): numa noite fecha os apps parados, na outra não; o tempo de abrir a HOME no dia
         // seguinte decide se a ação fica.
@@ -477,7 +489,7 @@ object AppProfileTv {
         val app = ctx.applicationContext
         val now = System.currentTimeMillis()
         val profile = runCatching { Perfil.chaveDados(app) }.getOrDefault("")
-        val s = synchronized(this) { load(app)[profile] } ?: AppProfile.State(emptyMap())
+        val s = snapshot(app)[profile] ?: AppProfile.State(emptyMap())
         val cards = JSONArray()
         for (c in s.cards.values.map { AppProfile.decay(it, now) }.sortedByDescending { it.totalOpens }) {
             val h = c.opens.indices.maxByOrNull { c.opens[it] }

@@ -7,6 +7,8 @@ import android.os.Build
 import android.util.Log
 import android.view.Display
 import br.paulo.tvlauncher.CalibracaoActivity
+import br.paulo.tvlauncher.observer.SofyBus
+import br.paulo.tvlauncher.observer.SofyBusTv
 import org.json.JSONObject
 
 /**
@@ -71,7 +73,9 @@ object CompanionTv {
     const val PHONE_IDLE_MS = 90_000L
 
     @Volatile private var listener: (() -> Unit)? = null
-    fun listen(l: (() -> Unit)?) { listener = l }
+    fun listen(l: () -> Unit) { listener = l }
+    /** Só tira o ouvinte se ainda for [l]: a tela velha fechando não apaga o da nova (revisor, 25/11/2026; igual ao PhoneCameraTv). */
+    fun unlisten(l: () -> Unit) { if (listener === l) listener = null }
 
     /** O celular pediu um padrão: abre a tela, se não estiver aberta, e troca o desenho. */
     fun showPattern(ctx: Context, p: PictureMath.Pattern) {
@@ -90,24 +94,15 @@ object CompanionTv {
     // ------------------------------------------------------------------ Sofy
 
     /**
-     * Manda a medida para o barramento da Sofy (SofyBusTv, thread "Sofy", 24/11/2026). O barramento entra na main por
-     * outro PR; até lá a chamada procura a classe pelo nome e, sem ela, só registra no log. Nunca lança erro.
-     * [detail] já vem curto e sem dado pessoal ([CompanionRules.eventDetail]).
+     * Manda a medida para o barramento da Sofy (SofyBusTv). Chamada direta (25/11/2026): antes era por reflexão, para
+     * compilar sem o PR da Sofy; no APK final o R8 renomeia "emit" e todo evento do Celular e TV sumia (revisor).
+     * [detail] já vem curto e sem dado pessoal ([CompanionRules.eventDetail]). Nunca lança erro.
      */
     fun sofy(ctx: Context, kind: String, ok: Boolean, detail: String) {
-        runCatching {
-            val bus = Class.forName("br.paulo.tvlauncher.observer.SofyBusTv")
-            // Fonte (combinado com a thread da Sofy, 24/11/2026): medida = MEASURE; o aparelho agindo = DEVICE.
-            val fonte = if (kind in CompanionRules.DEVICE_KINDS) "DEVICE" else "MEASURE"
-            val source = Class.forName("br.paulo.tvlauncher.observer.SofyBus\$Source").enumConstants!!
-                .first { (it as Enum<*>).name == fonte }
-            val emit = bus.methods.first { it.name == "emit" && it.parameterCount == 6 }
-            val inst = bus.getField("INSTANCE").get(null)
-            val args = arrayOfNulls<Any>(emit.parameterCount)
-            args[0] = ctx; args[1] = source; args[2] = kind; args[3] = ok; args[4] = detail
-            if (emit.parameterCount > 5) args[5] = 0L
-            emit.invoke(inst, *args)
-        }.onFailure { Log.i(TAG, "sofy $kind ok=$ok $detail") }
+        // Fonte (combinado com a thread da Sofy, 24/11/2026): medida = MEASURE; o aparelho agindo = DEVICE.
+        val fonte = if (kind in CompanionRules.DEVICE_KINDS) SofyBus.Source.DEVICE else SofyBus.Source.MEASURE
+        runCatching { SofyBusTv.emit(ctx, fonte, kind, ok = ok, detail = detail) }
+            .onFailure { Log.i(TAG, "sofy $kind ok=$ok $detail") }
     }
 
     /**

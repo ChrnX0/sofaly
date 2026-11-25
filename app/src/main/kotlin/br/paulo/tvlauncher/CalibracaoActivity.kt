@@ -38,7 +38,7 @@ class CalibracaoActivity : Activity() {
         override fun run() {
             val p = CompanionTv.phonePattern
             if (p == null || System.currentTimeMillis() - CompanionTv.phoneAt > CompanionTv.PHONE_IDLE_MS) {
-                if (tela.celular != null) { CompanionTv.stopPattern(); finish() }
+                if (ouvinte != null) { soltarOuvinte(); CompanionTv.stopPattern(); finish() }
                 return
             }
             ui.postDelayed(this, 5_000)
@@ -60,21 +60,25 @@ class CalibracaoActivity : Activity() {
         if (::tela.isInitialized && intent.getBooleanExtra(EXTRA_PHONE, false)) entrarModoCelular()
     }
 
+    /** O ouvinte desta tela; sai (por identidade) ao fechar, para o próximo padrão abrir uma tela nova. */
+    private var ouvinte: (() -> Unit)? = null
+    private fun soltarOuvinte() { ouvinte?.let { CompanionTv.unlisten(it) }; ouvinte = null }
+
     private fun entrarModoCelular() {
-        CompanionTv.listen { ui.post { atualizarDoCelular() } }
+        if (ouvinte == null) ouvinte = { ui.post { atualizarDoCelular() }; Unit }.also { CompanionTv.listen(it) }
         atualizarDoCelular()
         ui.removeCallbacks(vigia); ui.postDelayed(vigia, 5_000)
     }
 
     private fun atualizarDoCelular() {
         val p = CompanionTv.phonePattern
-        if (p == null) { if (tela.celular != null) finish(); return }
+        if (p == null) { if (ouvinte != null) { soltarOuvinte(); finish() }; return }   // também quando o "parar" chegou antes da tela
         tela.celular = p; tela.invalidate()
     }
 
     override fun onDestroy() {
         ui.removeCallbacksAndMessages(null)
-        if (::tela.isInitialized && tela.celular != null) CompanionTv.listen(null)
+        soltarOuvinte()
         super.onDestroy()
     }
 

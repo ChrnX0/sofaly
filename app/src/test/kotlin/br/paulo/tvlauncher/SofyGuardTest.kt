@@ -2,6 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.observer.SofyBus
 import br.paulo.tvlauncher.observer.SofyGuard
+import br.paulo.tvlauncher.observer.SofyPolicy
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -57,5 +58,27 @@ class SofyGuardTest {
     @Test fun atualizacaoQuebrou() {
         assertEquals(listOf("voice"), SofyGuard.regressions(mapOf("voice" to true, "store" to true), mapOf("voice" to false, "store" to true, "cast" to false)))
         assertEquals(listOf("com.android.vending"), SofyGuard.watchedUpdated(mapOf("com.android.vending" to 1L, "x" to 1L), mapOf("com.android.vending" to 2L, "x" to 3L)))
+    }
+
+    /** 43 e 47 prometem a Ilha: de dia, sem vídeo e com teto livre, o recado tem de chegar lá (não só ao Diário). */
+    @Test fun teclaPresaEPinErradoChegamNaIlha() {
+        val dia = SofyPolicy.Now(at = 1_000_000L, minuteOfDay = 15 * 60, mediaPlaying = false, screenReader = false, voiceOn = false)
+        for (n in listOf(SofyGuard.keyStuckNote("DPAD_LEFT", 999_000L), SofyGuard.pinWrongNote(5, 999_000L))) {
+            assertEquals(n.kind.name, SofyPolicy.Place.HOME_CARD, SofyPolicy.decide(n, dia).place)
+            assertEquals(n.kind.name, n.id, SofyPolicy.islandNote(listOf(n), dia, emptySet())?.id)
+        }
+    }
+
+    /** Sala, 25/11/2026: um OBSERVED velho (versão anterior), nunca visto e invisível, barrava o recado novo por 6 h. */
+    @Test fun recadoVelhoInvisivelNaoBarraONovo() {
+        val velho = br.paulo.tvlauncher.observer.ObserverCore.sofyNote(br.paulo.tvlauncher.observer.ObserverCore.Kind.KEY_STUCK, 1_000L,
+            br.paulo.tvlauncher.observer.ObserverCore.Step.OBSERVED, listOf("DPAD_LEFT"))
+        val novo = SofyGuard.keyStuckNote("DPAD_LEFT", 2_000L)
+        val fila = br.paulo.tvlauncher.observer.ObserverCore.enqueue(
+            br.paulo.tvlauncher.observer.ObserverCore.enqueue(null, velho, 1_000L), novo, 2_000L)
+        assertEquals(listOf(novo.id), br.paulo.tvlauncher.observer.ObserverCore.readNotes(fila, 3_000L).map { it.id })
+        // E o mesmo passo continua sem repetir: o 2º igual, ainda não visto, não entra.
+        val outra = br.paulo.tvlauncher.observer.ObserverCore.enqueue(fila, SofyGuard.keyStuckNote("DPAD_LEFT", 4_000L), 4_000L)
+        assertEquals(listOf(novo.id), br.paulo.tvlauncher.observer.ObserverCore.readNotes(outra, 5_000L).map { it.id })
     }
 }

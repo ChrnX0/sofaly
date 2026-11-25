@@ -525,6 +525,14 @@ object ObserverTv {
             .filter { it.step != ObserverCore.Step.OBSERVED || it.kind.name in ativos }
     }
 
+    /** adb (EXTRAS observer_notes, 25/11/2026): a fila crua, os estados ativos e quantos recados [notes] deixa passar. */
+    fun notesRaw(ctx: Context): String {
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val bruto = p.getString("notes", null)
+        return "active=${p.getString("active", "")}\nlidos=${ObserverCore.readNotes(bruto, System.currentTimeMillis()).size} " +
+            "visiveis=${notes(ctx).size}\nnotes=${bruto?.take(3000)}"
+    }
+
     /** O rosto chama depois de mostrar um recado: ele não volta, e um novo do mesmo tipo pode entrar. */
     @Synchronized fun markSeen(ctx: Context, id: String) {
         val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -543,7 +551,12 @@ object ObserverTv {
     /** Um recado que não veio do juiz (pilha do controle, ...): entra na fila e a Sofy decide onde contar. */
     fun enqueueNote(ctx: Context, n: ObserverCore.Note) {
         val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        synchronized(this) { p.edit().putString("notes", ObserverCore.enqueue(p.getString("notes", null), n, n.at)).apply() }
+        val n2 = synchronized(this) {
+            val novo = ObserverCore.enqueue(p.getString("notes", null), n, n.at)
+            p.edit().putString("notes", novo).apply()
+            ObserverCore.readNotes(novo, System.currentTimeMillis()).size
+        }
+        Log.i(TAG, "recado na fila: ${n.typeKey} ${n.step} (fila=$n2)")
     }
 
     @Volatile private var drop: DropCause.Episode? = null
@@ -598,9 +611,21 @@ object ObserverTv {
      * A Sofy se acusa (ideia 38): a cada [SELF_CHECK_GAP_MS], na batida da rede. Defeito NOVO (que não estava na
      * conferência anterior) vai ao registro ("self_defect"), ao Diário e ao barramento; o que sumiu, "self_ok".
      */
-    @Synchronized fun selfCheck(ctx: Context) {
+    fun selfCheck(ctx: Context) {
         val now = System.currentTimeMillis()
-        if (now - lastSelfCheck < SELF_CHECK_GAP_MS) return
+        if (!selfCheckLocked(ctx, now)) return
+        val app = ctx.applicationContext
+        // Fora da trava do ObserverTv (revisor, 25/11/2026): estas vão à rede (até dezenas de segundos sem internet) e
+        // leem as fichas dos apps; com a trava presa, o juiz e o logShadow do funil de teclas ficavam esperando.
+        runCatching { SofyHouseTv.daily(app, now) }.onFailure { Log.w(TAG, "casa: $it") }   // ideias 27, 29 e 31
+        runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
+        runCatching { SofyShareTv.daily(app, now) }.onFailure { Log.w(TAG, "lições entre TVs: $it") }   // ideia 40
+        runCatching { SofyCommunityTv.daily(app, now) }.onFailure { Log.w(TAG, "fichas comunitárias: $it") }   // ideia 41
+    }
+
+    /** A parte do autoexame que mexe no estado do ObserverTv. false = ainda não era hora. */
+    @Synchronized private fun selfCheckLocked(ctx: Context, now: Long): Boolean {
+        if (now - lastSelfCheck < SELF_CHECK_GAP_MS) return false
         lastSelfCheck = now
         val app = ctx.applicationContext
         val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -616,10 +641,7 @@ object ObserverTv {
         for (d in before - nowSet) logShadow(app, "self_ok", "$d: voltou a funcionar")
         p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
         runCatching { versionGuard(app, p, now) }.onFailure { Log.w(TAG, "guarda da versão: $it") }
-        runCatching { SofyHouseTv.daily(app, now) }.onFailure { Log.w(TAG, "casa: $it") }   // ideias 27, 29 e 31
-        runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
-        runCatching { SofyShareTv.daily(app, now) }.onFailure { Log.w(TAG, "lições entre TVs: $it") }   // ideia 40
-        runCatching { SofyCommunityTv.daily(app, now) }.onFailure { Log.w(TAG, "fichas comunitárias: $it") }   // ideia 41
+        return true
     }
 
     /**

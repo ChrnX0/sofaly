@@ -132,6 +132,16 @@ object Extras {
 
     fun texto(ctx: Context, chave: String, padrao: String = ""): String = prefs(ctx).getString(chave, padrao) ?: padrao
     fun definirTexto(ctx: Context, chave: String, valor: String) { prefs(ctx).edit().putString(chave, valor).apply() }
-    fun numero(ctx: Context, chave: String, padrao: Int): Int = prefs(ctx).getInt(chave, padrao)
+    /**
+     * No processo :player (Rádio, Podcasts, Gravações e os players) o número é relido do disco: a pref em cache daquele
+     * processo não vê o que a HOME mudou (jeito das telas, barra, foco), e a tela seguia com o jeito antigo até o
+     * processo morrer (Sala, 25/11/2026: Podcasts igual nos 3 jeitos). No processo principal fica o cache (lido a cada desenho).
+     */
+    @Suppress("DEPRECATION")
+    fun numero(ctx: Context, chave: String, padrao: Int): Int =
+        (if (noPlayer) ctx.getSharedPreferences(ARQUIVO, Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS) else prefs(ctx)).getInt(chave, padrao)
+    private val noPlayer: Boolean by lazy {
+        runCatching { android.app.Application.getProcessName() }.getOrNull()?.endsWith(":player") == true
+    }
     fun definirNumero(ctx: Context, chave: String, valor: Int) { prefs(ctx).edit().putInt(chave, valor).apply() }
 }

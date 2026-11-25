@@ -27,3 +27,15 @@ test('lê a chave da lição', () => {
   assert.deepEqual(parseKey('com.app.x@50:slower'), { pkg: 'com.app.x', ver: 50, kind: 'slower' });
   assert.equal(parseKey('lixo'), null);
 });
+
+test('a casa no IPv6 é a /64 (um aparelho não vira 5 casas); IPv4 inteiro', async () => {
+  const { homeNet } = await import('../src/community.js');
+  assert.equal(homeNet('2804:14c:65:8000::1'), '2804:14c:65:8000::/64');
+  assert.equal(homeNet('2804:14c:65:8000:abcd:1:2:3'), '2804:14c:65:8000::/64');
+  assert.equal(homeNet('2804:014c:0065:8000::ffff'), '2804:14c:65:8000::/64');
+  assert.equal(homeNet('2001:db8::1'), '2001:db8:0:0::/64');
+  assert.equal(homeNet('::1'), '0:0:0:0::/64');
+  assert.equal(homeNet('203.0.113.7'), '203.0.113.7');
+  assert.equal(homeNet(''), 'none');
+  assert.equal(homeNet(undefined), 'none');
+});

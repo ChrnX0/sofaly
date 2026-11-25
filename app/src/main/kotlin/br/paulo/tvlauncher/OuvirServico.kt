@@ -232,6 +232,7 @@ class OuvirServico : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         ultimoInicio = startId
         instancia = this
+        CrossProcessPrefs.refresh(this)   // o serviço vive no :player: ajustes mudados nas Configurações
         // startForegroundService exige startForeground logo: primeiro a notificação, depois o resto.
         val r = intent?.takeIf { it.action == ACAO_RADIO }?.getStringExtra(EXTRA_RADIO)?.let { Radios.deJson(it).firstOrNull() }
         val e = intent?.takeIf { it.action == ACAO_EPISODIO }?.getStringExtra(EXTRA_EP)?.let { EpisodioTocando.deJson(it) }
