@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Agenda da família (degrau 2, 16/11/2026): AgendaFamiliaActivity e Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="agf_titulo">ตารางเวลาครอบครัว</string>
+    <string name="agf_sub">เมื่อถึงเวลาที่ตั้งไว้ ทีวีจะเปลี่ยนไปใช้โปรไฟล์นั้นเอง โปรไฟล์เด็กจะเปิดโหมดเด็กและเวลาเข้านอน</string>
+    <string name="agf_cfg_det">ตั้งการเปลี่ยนไว้: %1$d โปรไฟล์จะเปลี่ยนเองตามเวลาที่ตั้งไว้</string>
+    <string name="agf_adicionar">เพิ่มการเปลี่ยน</string>
+    <string name="agf_adicionar_det">โปรไฟล์ของใคร วันไหน และเวลาใด</string>
+    <string name="agf_quem">เปลี่ยนไปใช้โปรไฟล์ของใคร</string>
+    <string name="agf_dias">วันไหน</string>
+    <string name="agf_hora">เวลาใด</string>
+    <string name="agf_todos">ทุกวัน</string>
+    <string name="agf_uteis">จันทร์ถึงศุกร์</string>
+    <string name="agf_fds">เสาร์และอาทิตย์</string>
+    <string name="agf_alguns">บางวัน</string>
+    <string name="agf_apagar">ลบการเปลี่ยนนี้ไหม</string>
+    <string name="agf_apagar_sim">ลบ</string>
+    <string name="agf_cheia">ตารางเวลาเต็มแล้ว (12 รายการ)</string>
+    <string name="agf_sem_contas">ยังไม่มีโปรไฟล์บนทีวีนี้ (บัญชี Google)</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bkn_titulo">Sao lưu tự động</string>
+    <string name="bkn_explica">Mỗi đêm, khi TV không dùng, lưu một bản sao lưu đầy đủ khóa bằng mật khẩu của bạn. Giữ 7 bản gần nhất. Hãy ghi lại mật khẩu: không có nó thì không mở được bản sao lưu.</string>
+    <string name="bkn_ligado">bật</string>
+    <string name="bkn_desligado">tắt</string>
+    <string name="bkn_sem_senha">tắt · hãy đặt mật khẩu sao lưu trước</string>
+    <string name="bkn_senha">Mật khẩu sao lưu</string>
+    <string name="bkn_senha_ok">đã đặt · OK để đổi</string>
+    <string name="bkn_senha_falta">chưa đặt · OK để đặt</string>
+    <string name="bkn_senha_nova">Mật khẩu sao lưu (8 ký tự trở lên)</string>
+    <string name="bkn_senha_repetir">Nhập lại mật khẩu</string>
+    <string name="bkn_senha_curta">Mật khẩu cần từ 8 đến 128 ký tự.</string>
+    <string name="bkn_senha_diferente">Hai mật khẩu không khớp.</string>
+    <string name="bkn_senha_gravada">Đã lưu mật khẩu. Hãy giữ ở nơi an toàn.</string>
+    <string name="bkn_senha_erro">Không lưu được mật khẩu.</string>
+    <string name="bkn_horario">Giờ</string>
+    <string name="bkn_extra">Bản sao thêm</string>
+    <string name="bkn_destino_tv">Chỉ TV</string>
+    <string name="bkn_destino_pendrive">Ổ USB</string>
+    <string name="bkn_destino_nas">NAS (%1$s)</string>
+    <string name="bkn_agora">Sao lưu ngay</string>
+    <string name="bkn_ultimo">Lần cuối</string>
+    <string name="bkn_nunca">chưa bao giờ</string>
+    <string name="bkn_pin">PIN để thay đổi sao lưu</string>
+</resources>

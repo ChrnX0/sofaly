@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Telas Rádio e Podcasts redesenhadas em cruz (18/11/2026): CruzOuvir, RadioActivity, PodcastsActivity. -->
+<resources>
+    <string name="ouv_tocando_agora">กำลังเล่น</string>
+    <string name="ouv_pausado">หยุดชั่วคราว</string>
+    <string name="ouv_prat_tocando">กำลังเล่น</string>
+    <string name="ouv_pausar">หยุดชั่วคราว</string>
+    <string name="ouv_continuar">เล่นต่อ</string>
+    <string name="ouv_favoritar">รายการโปรด</string>
+    <string name="ouv_desfavoritar">นำออกจากรายการโปรด</string>
+    <string name="ouv_favoritar_det">รายการโปรดยังเล่นได้ด้วยปุ่ม 1 ถึง 9 บนรีโมต</string>
+    <string name="ouv_tecla">ปุ่ม %d บนรีโมต</string>
+    <string name="ouv_ao_sair">เมื่อออก</string>
+    <string name="ouv_ao_sair_continua">เล่นต่อบนหน้าจอหลัก\n▶❙❙ บนรีโมตหยุดชั่วคราวได้จากทุกหน้าจอ</string>
+    <string name="ouv_ao_sair_para">หยุดเมื่อคุณออกจากหน้าจอนี้</string>
+    <string name="ouv_recentes">ล่าสุด</string>
+    <string name="ouv_sem_favoritas">ยังไม่มีรายการโปรด</string>
+    <string name="ouv_sem_favoritas_det">กด OK ค้างที่สถานีเพื่อเก็บไว้ที่นี่</string>
+    <string name="ouv_sem_recentes">ยังไม่มีอะไรที่นี่</string>
+    <string name="ouv_sem_recentes_det">สถานีที่คุณเล่นจะแสดงที่นี่</string>
+    <string name="ouv_paises">ประเทศ</string>
+    <string name="ouv_n_radios">%d สถานี</string>
+    <string name="ouv_ao_vivo">สด</string>
+    <string name="ouv_dica_pular">ข้าม</string>
+    <string name="ouv_voltar">ย้อนกลับ 15 วินาที</string>
+    <string name="ouv_voltar_det">หรือ ◀◀ บนรีโมต</string>
+    <string name="ouv_avancar">ไปข้างหน้า 30 วินาที</string>
+    <string name="ouv_avancar_det">หรือ ▶▶ บนรีโมต</string>
+    <string name="ouv_velocidade_det">%s · เสียงพูดคงระดับเสียงเดิม</string>
+    <string name="ouv_parar_pod_det">จุดที่คุณหยุดจะถูกบันทึกไว้ภายหลัง</string>
+    <string name="ouv_seguindo">กำลังติดตาม</string>
+    <string name="ouv_sem_podcasts">ยังไม่มีพอดแคสต์</string>
+    <string name="ouv_sem_podcasts_det">เพิ่มได้ที่ชั้นเพิ่ม (วางที่อยู่หรือใช้โทรศัพท์)</string>
+    <string name="ouv_n_episodios">%d ตอน</string>
+    <string name="ouv_colar">วางที่อยู่</string>
+    <string name="ouv_sobre">เกี่ยวกับ</string>
+    <string name="ouv_remover_det">ตอนและความคืบหน้าจะออกจากทีวีนี้</string>
+    <string name="ouv_ver_podcast">ไปที่พอดแคสต์</string>
+</resources>

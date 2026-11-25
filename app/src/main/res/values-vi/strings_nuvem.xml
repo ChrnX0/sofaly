@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">Video, nhạc và ảnh từ đám mây của bạn</string>
+    <string name="rede_nuvem_seguir">Tiếp tục</string>
+    <string name="rede_nuvem_entrar">Đăng nhập</string>
+    <string name="rede_nuvem_pedindo">Đang xin mã…</string>
+    <string name="rede_nuvem_esperando">Đang chờ bạn xác nhận trên điện thoại…</string>
+    <string name="rede_nuvem_salvando">Đang đăng nhập…</string>
+    <string name="rede_nuvem_recusado">Dịch vụ từ chối. Hãy kiểm tra app id và thử lại.</string>
+    <string name="rede_erro_nuvem_login">Quyền của tài khoản này đã hết hạn hoặc bị gỡ. Hãy xóa tài khoản (giữ OK) và đăng nhập lại.</string>
+    <string name="rede_od_titulo">OneDrive: ứng dụng của bạn tại Microsoft</string>
+    <string name="rede_od_explica">Một lần, trên máy tính: entra.microsoft.com › App registrations › New registration. Ở loại tài khoản, chọn loại có bao gồm tài khoản Microsoft cá nhân. Sau đó, trong Authentication, bật “Allow public client flows”. Sao chép “Application (client) ID” và nhập vào đây (bạn có thể nhập từ điện thoại, trong bảng điều khiển).</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">ID có dạng 00000000-0000-0000-0000-000000000000.</string>
+    <string name="rede_od_codigo_explica">Trên điện thoại hoặc máy tính, mở microsoft.com/link (hoặc hướng camera vào QR) và nhập mã bên dưới. TV chỉ xin quyền đọc tệp.</string>
+    <string name="rede_od_erro_app">Microsoft không chấp nhận ứng dụng này. Hãy kiểm tra ID và xem “Allow public client flows” đã bật chưa.</string>
+    <string name="rede_dbx_explica">Một lần, trên máy tính: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox. Trong thẻ Permissions, đánh dấu files.metadata.read, files.content.read và account_info.read (và files.content.write, nếu muốn sao lưu hằng đêm vào Dropbox) rồi lưu (Submit). Sao chép “App key” và nhập vào đây.</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">App key chỉ có chữ thường và số.</string>
+    <string name="rede_dbx_codigo_explica">Hướng camera điện thoại vào QR, đăng nhập Dropbox và chạm Allow. Dropbox hiện một mã: nhập vào đây (bạn có thể nhập từ điện thoại, trong bảng điều khiển).</string>
+    <string name="rede_dbx_codigo">Mã Dropbox</string>
+    <string name="rede_dbx_codigo_erro">Nhập toàn bộ mã Dropbox đã hiện.</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">Một lần, trên máy tính: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0). Trong thẻ Configuration, ở OAuth 2.0 Redirect URI, nhập %1$s đánh dấu “Read all files and folders” (và “Write all files and folders”, nếu muốn sao lưu hằng đêm vào Box). Lưu lại, rồi sao chép Client ID và Client Secret vào đây.</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID và Client Secret chỉ có chữ và số. Hãy sao chép cả hai từ thẻ Configuration.</string>
+    <string name="rede_volta_sem_rede">TV không ở trong mạng gia đình. Hãy kết nối và thử lại.</string>
+    <string name="rede_volta_explica">Hướng camera của điện thoại đang dùng cùng Wi‑Fi với TV vào QR, đăng nhập %1$s và cho phép truy cập. Điện thoại tự quay lại TV: không cần nhập gì.</string>
+    <string name="rede_volta_porta">Cổng %1$d trên TV đang bận. Hãy đóng các ứng dụng khác và thử lại.</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">Một lần, trên máy tính, trong dự án Google Cloud của bạn (console.cloud.google.com): APIs &amp; Services › Library › bật “Google Drive API”. Trong Google Auth Platform › Data Access, thêm scope …/auth/drive.readonly. Trong Clients › Create client › Web application, ở Authorized redirect URIs nhập %1$s. Sao chép Client ID và Client secret vào đây.</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">Sao chép cả hai từ trang client: ID kết thúc bằng .apps.googleusercontent.com và secret thường bắt đầu bằng GOCSPX-.</string>
+    <string name="rede_gd_aviso">Nếu Google báo ứng dụng chưa được xác minh, chạm Advanced › Go to (đó là ứng dụng của chính bạn).</string>
+</resources>

@@ -3,13 +3,14 @@
 // Serve app/src/main/assets/painel/ com uma TV de mentira (/api/* responde com dados mínimos), entra direto
 // (/api/estado diz logado) e passa por TODAS as páginas do painel em:
 //   - computador (1280x800) e celular (390x844, toque);
-//   - as 14 línguas do painel (pt + as 13 de i18n-*.js; árabe da direita para a esquerda).
+//   - as 27 línguas do painel (pt + as 26 de i18n-*.js; árabe da direita para a esquerda).
 // Em cada página confere:
 //   1. sem rolagem para o lado (a página cabe na largura);
 //   2. acessibilidade básica: todo botão, link, campo e seleção visível tem nome (texto, aria-label, title ou
 //      <label>); toda imagem visível tem alt; o idioma da página (lang) e a direção (dir) estão certos;
 //   3. nenhum texto visível da tabela de tradução ficou em português (fora do pt);
-//   4. nenhum erro de script de verdade (SyntaxError/ReferenceError). TypeError por causa da TV de mentira (dado
+//   4. nenhum texto cortado com "…" (24/11/2026: o menu lateral cortava "Home and automations" até em inglês);
+//   5. nenhum erro de script de verdade (SyntaxError/ReferenceError). TypeError por causa da TV de mentira (dado
 //      faltando) só vai para o relatório.
 // Uso: node scripts/painel-navegador.mjs [--linguas en,ar] [--chrome /caminho]  (sai 1 se algo falhou)
 // No CI (painel.yml) usa o Chrome que já vem no runner (playwright-core, sem baixar navegador).
@@ -27,7 +28,8 @@ const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PAINEL = path.join(RAIZ, 'app/src/main/assets/painel');
 const args = process.argv.slice(2);
 const arg = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
-const TODAS = ['pt', 'en', 'es', 'fr', 'de', 'it', 'pl', 'ru', 'tr', 'ar', 'hi', 'id', 'ja', 'ko', 'zh'];
+const TODAS = ['pt', 'en', 'es', 'fr', 'de', 'it', 'pl', 'ru', 'tr', 'ar', 'hi', 'id', 'ja', 'ko', 'zh',
+  'nl', 'sv', 'da', 'nb', 'fi', 'cs', 'el', 'hu', 'ro', 'uk', 'vi', 'th'];
 const LINGUAS = arg('--linguas') ? arg('--linguas').split(',') : TODAS;
 
 // ---------- a TV de mentira ----------
@@ -134,13 +136,24 @@ for (const l of LINGUAS) {
             if (t && set.has(t) && n.parentElement && visivel(n.parentElement) && !n.parentElement.closest('textarea, pre, [contenteditable]')) sobra.push(t);
           }
         }
-        return { semNome, semAlt, largura, culpados, sobra, lang: document.documentElement.lang, dir: document.documentElement.dir };
+        // Texto cortado com "…" (ou escondido pelo overflow numa linha só): a frase não cabe na caixa.
+        const cortados = [];
+        for (const el of document.querySelectorAll('body *')) {
+          if (!visivel(el) || el.closest('textarea, pre, [contenteditable], input, select')) continue;
+          if (![...el.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim())) continue;
+          const s = getComputedStyle(el);
+          if (s.clip !== 'auto' || s.position === 'absolute' && el.getBoundingClientRect().width <= 2) continue;   // só para leitor de tela
+          const corta = s.textOverflow === 'ellipsis' || (s.whiteSpace === 'nowrap' && /hidden|clip/.test(s.overflowX));
+          if (corta && el.scrollWidth > el.clientWidth + 1) cortados.push(el.textContent.trim().slice(0, 50));
+        }
+        return { semNome, semAlt, largura, culpados, sobra, cortados, lang: document.documentElement.lang, dir: document.documentElement.dir };
       }, { traduzidas: [...chaves], lingua: l });
       conferidas++;
       const onde = `${l}/${v.nome}/${p}`;
       if (r.largura > 1) falhas.push(`${onde}: rolagem para o lado (${r.largura}px a mais): ${r.culpados.join(' | ')}`);
       if (r.semNome.length) falhas.push(`${onde}: sem nome acessível: ${r.semNome.slice(0, 3).join(' | ')}`);
       if (r.semAlt.length) falhas.push(`${onde}: imagem sem alt: ${r.semAlt.slice(0, 3).join(' | ')}`);
+      if (r.cortados.length) falhas.push(`${onde}: texto cortado: ${[...new Set(r.cortados)].slice(0, 4).join(' | ')}`);
       if (r.sobra.length) falhas.push(`${onde}: ficou em português: ${[...new Set(r.sobra)].slice(0, 3).join(' | ')}`);
       if (l !== 'pt' && r.lang !== l) falhas.push(`${onde}: lang="${r.lang}"`);
       if ((l === 'ar') !== (r.dir === 'rtl')) falhas.push(`${onde}: dir="${r.dir}"`);

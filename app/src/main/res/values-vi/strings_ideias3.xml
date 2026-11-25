@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">Tắt nhẹ nhàng (hẹn giờ tắt làm tối màn hình và giảm âm lượng)</string>
+    <string name="extras_MURAL">Bảng gia đình trong bảng nhanh</string>
+    <string name="extras_PRESENCA">Tắt khi mọi người rời nhà (router UniFi)</string>
+    <string name="extras_HOJE_NA_TV">\"Hôm nay trên TV\" trong màn hình Tìm kiếm</string>
+    <string name="extras_RETROSPECTIVA">Tóm tắt tuần (tối Chủ Nhật)</string>
+    <string name="extras_MODO_SIMPLES">Màn hình dễ dùng (thẻ lớn, đọc to tên)</string>
+</resources>

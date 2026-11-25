@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">Phông chữ</string>
+    <string name="fc_det">Kiểu chữ trên mọi màn hình. Phông của Google được tải về ở lần đầu</string>
+    <string name="fc_baixando">đang tải…</string>
+    <string name="fc_falhou">Không tải được. Hãy kiểm tra internet</string>
+    <string name="ck_formato">Định dạng giờ</string>
+    <string name="ck_formato_det">Trên thanh trên cùng, Đảo và đồng hồ lớn</string>
+    <string name="ck_auto">Tự động</string>
+    <string name="ck_24">24 giờ (15:40)</string>
+    <string name="ck_12">12 giờ (3:40)</string>
+    <string name="ck_12ampm">12 giờ có SA/CH</string>
+    <string name="ck_seg">Có giây</string>
+    <string name="ck_cor">Màu giờ</string>
+    <string name="ck_cor_det">Trên thanh trên cùng, Đảo và đồng hồ lớn</string>
+    <string name="ck_padrao">Mặc định</string>
+    <string name="ck_laranja">Cam</string>
+    <string name="ck_creme">Kem</string>
+    <string name="ck_ambar">Hổ phách</string>
+    <string name="ck_verde">Xanh mòng két</string>
+</resources>

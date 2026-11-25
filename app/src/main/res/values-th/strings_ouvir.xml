@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">หยุด</string>
+    <string name="ra_parar_det">วิทยุจะเล่นต่อบนหน้าจอหลักและในโปรแกรมรักษาหน้าจอจนกว่าคุณจะหยุด</string>
+    <string name="ra_parar_det_antigo">การออกจากหน้าจอนี้ก็จะหยุดด้วย</string>
+    <string name="ouv_canal">วิทยุกำลังเล่น</string>
+    <string name="ouv_abrir">เปิดหน้าจอวิทยุ</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">พอดแคสต์</string>
+    <string name="pod_dica_mais">เพิ่มเติม</string>
+    <string name="pod_de">%1$s จาก %2$s</string>
+    <string name="pod_velocidade">ความเร็ว</string>
+    <string name="pod_silencio">ข้ามช่วงเงียบ</string>
+    <string name="pod_silencio_det">ตัดช่วงหยุดในการพูด</string>
+    <string name="pod_ligado">เปิด</string>
+    <string name="pod_desligado">ปิด</string>
+    <string name="pod_continuar">ฟังต่อ</string>
+    <string name="pod_novos">ตอนใหม่</string>
+    <string name="pod_video">วิดีโอ</string>
+    <string name="pod_meus">พอดแคสต์ของฉัน</string>
+    <string name="pod_ultimo">ล่าสุด: %s</string>
+    <string name="pod_adicionar">เพิ่ม</string>
+    <string name="pod_colar">วางที่อยู่พอดแคสต์</string>
+    <string name="pod_colar_det">ลิงก์ฟีด RSS (เว็บไซต์พอดแคสต์แสดงเป็น RSS)</string>
+    <string name="pod_pelo_celular">จากโทรศัพท์ของคุณ</string>
+    <string name="pod_pelo_celular_det">เปิดแผงควบคุมทีวีบนโทรศัพท์ › พอดแคสต์: วางลิงก์หรือนำเข้ารายการจากแอปพอดแคสต์ของคุณ (OPML)</string>
+    <string name="pod_sem_episodios">ไม่มีตอนที่จะแสดง</string>
+    <string name="pod_ouvido">ฟังแล้ว</string>
+    <string name="pod_do_comeco">เล่นตั้งแต่ต้น</string>
+    <string name="pod_marcar_nao">ทำเครื่องหมายว่ายังไม่ได้ฟัง</string>
+    <string name="pod_marcar_ouvido">ทำเครื่องหมายว่าฟังแล้ว</string>
+    <string name="pod_abrir">เปิด</string>
+    <string name="pod_remover">เลิกติดตาม</string>
+    <string name="pod_removido">เลิกติดตามแล้ว</string>
+    <string name="pod_adicionando">กำลังเพิ่มพอดแคสต์…</string>
+    <string name="pod_adicionado">เพิ่มพอดแคสต์แล้ว</string>
+    <string name="pod_nao_deu">เพิ่มไม่ได้: %s</string>
+    <string name="pod_horas">%1$d ชม. %2$s</string>
+    <string name="pod_minutos">%d นาที</string>
+    <string name="pod_hoje">วันนี้</string>
+    <string name="pod_ontem">เมื่อวาน</string>
+    <string name="pod_falhou">ตอนนี้เล่นไม่ได้ในตอนนี้ ลองอีกครั้งภายหลัง</string>
+    <string name="pod_abrir_tela">เปิดหน้าจอพอดแคสต์</string>
+    <string name="ra_podcasts_det">รายการ ข่าว และการพูดคุยที่คุณติดตาม</string>
+    <string name="pod_procurar">ค้นหา</string>
+    <string name="pod_buscar">ค้นหาพอดแคสต์</string>
+    <string name="pod_em_alta">ยอดนิยมในประเทศของคุณ</string>
+    <string name="pod_atribuicao">ค้นหา: Podcast Index</string>
+    <string name="pod_sugestoes">คำแนะนำ</string>
+    <string name="pod_sugestao_seguir">OK เพื่อติดตาม</string>
+    <string name="pod_sugeridos_seguidos">เพิ่มพอดแคสต์ที่แนะนำในพอดแคสต์ของฉันแล้ว</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede (degrau 2, 16/11/2026): ModoHospede, HospedeBoasVindasActivity, Configurações > Família. Ordem: en pt ptPT es de fr it ru pl tr ja zh ko hi in ar. -->
+<resources>
+    <string name="hos_titulo">โหมดผู้เข้าพัก</string>
+    <string name="hos_det">สำหรับที่พักให้เช่า: การเข้าสู่ระบบของผู้เข้าพักจะถูกลบเมื่อเช็กเอาต์ การปิดต้องใช้ PIN</string>
+    <string name="hos_pin_sair">PIN เพื่อออกจากโหมดผู้เข้าพัก</string>
+    <string name="hos_pin_config">PIN เพื่อเปิดการตั้งค่า</string>
+    <string name="hos_saida">เช็กเอาต์ของผู้เข้าพัก</string>
+    <string name="hos_saida_det">เมื่อถึงเวลานี้ แอปสตรีมมิงจะถูกล้าง OK เพื่อเปลี่ยนวัน</string>
+    <string name="hos_saida_nenhuma">ยังไม่ได้ตั้ง</string>
+    <string name="hos_saida_hoje">วันนี้ เวลา %1$s</string>
+    <string name="hos_saida_amanha">พรุ่งนี้ เวลา %1$s</string>
+    <string name="hos_saida_dia">%1$s เวลา %2$s</string>
+    <string name="hos_hora">เวลาเช็กเอาต์</string>
+    <string name="hos_hora_det">OK เพื่อเปลี่ยนชั่วโมง (8:00 ถึง 14:00)</string>
+    <string name="hos_regras">กฎของบ้าน</string>
+    <string name="hos_regras_vazio">ยังไม่มี จะแสดงบนหน้าจอต้อนรับ</string>
+    <string name="hos_regras_dica">เช่น: งดเสียงดังหลัง 22:00 น. เช็กเอาต์ 11:00 น.</string>
+    <string name="hos_apps">แอปที่จะล้างเมื่อเช็กเอาต์</string>
+    <string name="hos_apps_det">การเข้าสู่ระบบและประวัติของแอปที่ทำเครื่องหมายไว้จะถูกลบ แอปสตรีมมิงทำเครื่องหมายไว้แล้ว</string>
+    <string name="hos_apps_sub">OK เพื่อทำเครื่องหมายหรือยกเลิก แอประบบล้างไม่ได้</string>
+    <string name="hos_encerrar">สิ้นสุดการเข้าพักตอนนี้</string>
+    <string name="hos_encerrar_det">ล้างแอปตอนนี้และเตรียมหน้าต้อนรับสำหรับผู้เข้าพักคนถัดไป</string>
+    <string name="hos_encerrar_pergunta">ลบการเข้าสู่ระบบและประวัติของแอปผู้เข้าพักตอนนี้ไหม ย้อนกลับไม่ได้</string>
+    <string name="hos_encerrar_sim">ลบ</string>
+    <string name="hos_limpando">กำลังล้าง…</string>
+    <string name="hos_limpou">ล้างแอปแล้ว: %1$d</string>
+    <string name="hos_limpou_falhas">ล้างแอปแล้ว: %1$d ล้มเหลว: %2$s</string>
+    <string name="hos_ultima">ล้างครั้งล่าสุด: %1$s</string>
+    <string name="hos_bv_titulo">ยินดีต้อนรับ!</string>
+    <string name="hos_bv_regras">กฎของบ้าน</string>
+    <string name="hos_bv_privacidade">ลงชื่อเข้าใช้แอปของคุณได้อย่างสบายใจ: เมื่อเช็กเอาต์ การเข้าสู่ระบบและประวัติของแอปสตรีมมิงจะถูกลบโดยอัตโนมัติ</string>
+    <string name="hos_bv_ok">เริ่ม</string>
+    <string name="hos_bv_wifi">Wi-Fi</string>
+</resources>

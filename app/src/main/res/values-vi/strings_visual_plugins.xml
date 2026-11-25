@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">Hình nền từ plugin</string>
+    <string name="wp_cfg_det">Hình nền, gói biểu tượng và thẻ từ ứng dụng khác. Mỗi cái cần bạn đồng ý.</string>
+    <string name="wp_det">Ứng dụng từ nhà phát triển khác thêm hình nền, biểu tượng hoặc thẻ vào màn hình chính. Chỉ bật những cái bạn tin tưởng.</string>
+    <string name="wp_secao_fundos">Hình nền</string>
+    <string name="wp_secao_icones">Gói biểu tượng</string>
+    <string name="wp_secao_cartoes">Thẻ</string>
+    <string name="wp_secao_descobrir">Tải plugin</string>
+    <string name="wp_tipo_fundo">Hình nền</string>
+    <string name="wp_tipo_icones">Biểu tượng</string>
+    <string name="wp_em_uso">Đang dùng</string>
+    <string name="wp_usar">Dùng làm hình nền</string>
+    <string name="wp_configurar">Cài đặt plugin</string>
+    <string name="wp_parar">Ngừng dùng</string>
+    <string name="wp_sem_cert">Không đọc được chữ ký của plugin này.</string>
+    <string name="wp_nenhum_fundo">Chưa có plugin hình nền. Xem nơi tải bên dưới.</string>
+    <string name="wp_nenhum_icone">Chưa có gói biểu tượng. Xem nơi tải bên dưới.</string>
+    <string name="wp_icones_det">Giữ đóng băng: launcher giữ một bản sao các biểu tượng nó dùng.</string>
+    <string name="wp_usar_icones">Dùng</string>
+    <string name="wp_instalado">Đã cài</string>
+    <string name="wp_instalar">Cài đặt</string>
+    <string name="wp_instalando">Đang cài…</string>
+    <string name="wp_instalou">Đã cài %1$s.</string>
+    <string name="wp_nao_instalou">Không cài được: %1$s</string>
+    <string name="wp_abrir_play">Mở trên Play Store</string>
+    <string name="wp_qr">Hướng camera điện thoại vào mã để mở trang.</string>
+    <string name="wp_trocar_icone">Đổi biểu tượng</string>
+    <string name="wp_icone_titulo">Biểu tượng cho %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d biểu tượng</string>
+    <string name="wp_icone_original">Biểu tượng gốc</string>
+    <string name="wp_icone_sugerido">Gợi ý</string>
+    <string name="wp_icone_voltar">Theo gói biểu tượng</string>
+    <string name="wp_icone_sem_pacote">Chưa cài gói biểu tượng nào. Tải trong Cài đặt › Màn hình chính › Plugin.</string>
+    <string name="wp_d_aerial">Video quay từ trên cao chậm rãi về thành phố và thiên nhiên</string>
+    <string name="wp_d_overflight">Video quay từ trên cao của Apple TV, hoặc bất kỳ danh sách video nào bạn chọn</string>
+    <string name="wp_d_daily">Một ảnh mới mỗi ngày</string>
+    <string name="wp_d_weather">Thời tiết hôm nay làm hình nền</string>
+    <string name="wp_d_movieart">Ảnh phim và phim bộ từ TMDB</string>
+    <string name="wp_d_sofadrop">Ảnh từ danh sách thịnh hành, Trakt hoặc Simkl</string>
+    <string name="wp_d_immich">Ảnh từ máy chủ Immich của riêng bạn</string>
+    <string name="wp_d_tvicons">Hơn 800 biểu tượng làm cho TV</string>
+    <string name="wp_d_minimalist">Biểu tượng gọn gàng trên một màu nền</string>
+    <string name="wp_d_arcticons">15.000 biểu tượng nét mảnh (làm cho điện thoại, dùng được ở đây)</string>
+    <string name="ext_off_health">Đã tắt: nó ngừng phản hồi. Bật lại nếu muốn.</string>
+    <string name="ext_secao_botoes">Nút trong bảng nhanh</string>
+    <string name="ext_nenhum_botao">Chưa có nút từ ứng dụng khác. Một số ứng dụng thêm nút bật/tắt vào bảng nhanh (giữ BACK).</string>
+    <string name="ext_off_blocked">Đã bị Sofaly tắt: plugin này có lỗi đã biết.</string>
+    <string name="ext_secao_widgets">Widget từ ứng dụng khác</string>
+    <string name="ext_widget_nenhum">Chưa có ứng dụng nào trên TV này có widget.</string>
+    <string name="ext_widget_sem_permissao">TV không cho Sofaly thêm widget.</string>
+    <string name="ext_widget_falhou">Không thêm được widget này.</string>
+</resources>

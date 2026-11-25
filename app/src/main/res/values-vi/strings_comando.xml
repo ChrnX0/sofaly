@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Command box in the phone panel, no AI (idea 10) and the next "My team" match on the Home and screensaver (idea 12). -->
+<resources>
+    <string name="cc_vazia">Gõ điều bạn muốn TV làm</string>
+    <string name="cc_nao_entendi">Tôi chưa hiểu. Hãy thử câu như:</string>
+    <string name="cc_exemplo_1">mở kênh Globo</string>
+    <string name="cc_exemplo_2">mở YouTube</string>
+    <string name="cc_exemplo_3">tắt sau 30 phút</string>
+    <string name="cc_abrindo">Đang mở %1$s</string>
+    <string name="cc_canal">Đang chuyển sang %1$s</string>
+    <string name="cc_o_que_passa">%1$s đang chiếu gì</string>
+    <string name="cc_timer">Nhắc sau %1$d phút</string>
+    <string name="cc_desligar">TV sẽ tắt sau %1$d phút</string>
+    <string name="cc_desligar_cancelar">Đã hủy hẹn giờ tắt</string>
+    <string name="cc_volume_subir">Tăng âm lượng</string>
+    <string name="cc_volume_descer">Giảm âm lượng</string>
+    <string name="cc_mudo">Bật/tắt tiếng</string>
+    <string name="cc_pausar">Đang tạm dừng</string>
+    <string name="cc_continuar">Đang phát</string>
+    <string name="cc_tela_previsao">dự báo</string>
+    <string name="cc_tela_agenda">lịch</string>
+    <string name="cc_tela_despertador">báo thức</string>
+    <string name="cc_tela_configuracoes">cài đặt launcher</string>
+    <string name="cc_tela_inicio">màn hình chính</string>
+    <string name="cc_confirme_na_tv">%1$s: xác nhận bằng OK trên TV</string>
+    <string name="cc_nao_fiz">%1$s: chưa thực hiện (%2$s)</string>
+    <string name="cc_aviso_titulo">Bảng điều khiển trên điện thoại</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ideia 84 "Quem é esse ator?" (ElencoActivity) -->
+    <string name="elenco_botao">Diễn viên</string>
+    <string name="elenco_titulo">Diễn viên</string>
+    <string name="elenco_carregando">Đang tải diễn viên…</string>
+    <string name="elenco_vazio">TMDB không có diễn viên cho tựa này.</string>
+    <string name="elenco_dica">Di chuyển qua từng người: bên dưới là các tựa khác họ tham gia có trong danh sách của bạn.</string>
+    <string name="elenco_na_lista">Cũng có trong danh sách của bạn</string>
+    <string name="elenco_procurando">Đang tìm trong danh sách của bạn…</string>
+    <string name="elenco_nada_na_lista">Không có gì khác với người này trong danh sách của bạn.</string>
+    <string name="elenco_filme">Phim</string>
+    <string name="elenco_serie">Phim bộ</string>
+    <string name="elenco_opcao_player">Diễn viên (diễn viên này là ai?)</string>
+    <!-- Ideia 83 "Anteriormente" (SeriesActivity) -->
+    <string name="anteriormente_titulo">Tập trước của %1$s</string>
+    <string name="anteriormente_assistir">Xem %1$s</string>
+    <string name="anteriormente_pular_sempre">Không bao giờ hiện</string>
+    <string name="anteriormente_desligado">Đã tắt tóm tắt tập trước. Để bật lại: giữ OK trên một tập.</string>
+    <string name="anteriormente_ligar">Hiện tóm tắt “Tập trước”</string>
+    <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
+    <string name="idade_titulo">Độ tuổi tối đa ở chế độ trẻ em</string>
+    <string name="idade_det">Phim và phim bộ được xếp hạng đến độ tuổi này sẽ hiện từ mọi danh mục (xếp hạng TMDB). Tựa chưa xếp hạng chỉ có trong danh mục trẻ em.</string>
+    <string name="idade_so_categorias">Chỉ danh mục trẻ em</string>
+    <string name="idade_livre">Mọi lứa tuổi</string>
+    <string name="idade_anos">Đến %1$d tuổi</string>
+    <!-- Ideia 82: onde assistir (OndeAssistir) -->
+    <string name="onde_tambem_em">Cũng có trên: %1$s (JustWatch)</string>
+    <string name="onde_fora">Không có trong danh sách của bạn · có trên %1$s</string>
+    <string name="onde_grupo">Nơi khác (JustWatch)</string>
+    <!-- Ideia 89: legenda automática -->
+    <string name="legenda_auto_pronta">Phụ đề được tải tự động (làm cho tệp này) · ▼ để đổi</string>
+    <string name="legenda_auto_pronta_nome">Phụ đề được tải tự động · ▼ để đổi hoặc chỉnh độ trễ</string>
+    <string name="legenda_trad_rotulo">Dịch tự động</string>
+    <string name="legenda_trad_traduzindo">Không có phụ đề theo ngôn ngữ của bạn: đang dịch phụ đề tiếng Anh trên TV…</string>
+    <string name="legenda_trad_parcial">Phụ đề được dịch trên TV (dịch tự động). Phần còn lại vẫn đang dịch.</string>
+    <string name="legenda_trad_pronta">Đã dịch xong phụ đề</string>
+    <string name="series_sinopse_mais">Tóm tắt đầy đủ</string>
+    <string name="series_continuar_curto">▶  Tiếp tục %1$s</string>
+    <string name="series_episodios">Các tập</string>
+    <string name="series_trocar_temporada">Đổi mùa</string>
+    <string name="fechar">Đóng</string>
+    <string name="onde_assistir_botao">Xem ở đâu</string>
+</resources>

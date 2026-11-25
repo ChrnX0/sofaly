@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins visuais (18/11/2026): fundo de plugin, trocar ícone, pacote congelado, vitrine -->
+<resources>
+    <string name="wp_tema">พื้นหลังจากปลั๊กอิน</string>
+    <string name="wp_cfg_det">พื้นหลัง ชุดไอคอน และการ์ดจากแอปอื่น แต่ละรายการต้องได้รับการยืนยันจากคุณ</string>
+    <string name="wp_det">แอปจากนักพัฒนาอื่นที่เพิ่มพื้นหลัง ไอคอน หรือการ์ดบนหน้าจอหลัก เปิดเฉพาะที่คุณไว้ใจ</string>
+    <string name="wp_secao_fundos">พื้นหลัง</string>
+    <string name="wp_secao_icones">ชุดไอคอน</string>
+    <string name="wp_secao_cartoes">การ์ด</string>
+    <string name="wp_secao_descobrir">หาปลั๊กอิน</string>
+    <string name="wp_tipo_fundo">พื้นหลัง</string>
+    <string name="wp_tipo_icones">ไอคอน</string>
+    <string name="wp_em_uso">กำลังใช้</string>
+    <string name="wp_usar">ใช้เป็นพื้นหลัง</string>
+    <string name="wp_configurar">การตั้งค่าปลั๊กอิน</string>
+    <string name="wp_parar">เลิกใช้</string>
+    <string name="wp_sem_cert">อ่านลายเซ็นของปลั๊กอินนี้ไม่ได้</string>
+    <string name="wp_nenhum_fundo">ยังไม่มีปลั๊กอินพื้นหลัง ดูว่าหาได้ที่ไหนด้านล่าง</string>
+    <string name="wp_nenhum_icone">ยังไม่มีชุดไอคอน ดูว่าหาได้ที่ไหนด้านล่าง</string>
+    <string name="wp_icones_det">ตรึงไว้: Launcher เก็บสำเนาของไอคอนที่ใช้อยู่</string>
+    <string name="wp_usar_icones">ใช้</string>
+    <string name="wp_instalado">ติดตั้งแล้ว</string>
+    <string name="wp_instalar">ติดตั้ง</string>
+    <string name="wp_instalando">กำลังติดตั้ง…</string>
+    <string name="wp_instalou">ติดตั้ง %1$s แล้ว</string>
+    <string name="wp_nao_instalou">ติดตั้งไม่ได้: %1$s</string>
+    <string name="wp_abrir_play">เปิดใน Play Store</string>
+    <string name="wp_qr">ส่องกล้องโทรศัพท์ไปที่รหัสเพื่อเปิดหน้า</string>
+    <string name="wp_trocar_icone">เปลี่ยนไอคอน</string>
+    <string name="wp_icone_titulo">ไอคอนสำหรับ %1$s</string>
+    <string name="wp_icone_sub">%1$s · %2$d ไอคอน</string>
+    <string name="wp_icone_original">ไอคอนเดิม</string>
+    <string name="wp_icone_sugerido">แนะนำ</string>
+    <string name="wp_icone_voltar">ตามชุดไอคอน</string>
+    <string name="wp_icone_sem_pacote">ไม่มีชุดไอคอนที่ติดตั้งไว้ หาได้ใน การตั้งค่า › หน้าจอหลัก › ปลั๊กอิน</string>
+    <string name="wp_d_aerial">วิดีโอมุมสูงแบบช้าๆ ของเมืองและธรรมชาติ</string>
+    <string name="wp_d_overflight">วิดีโอมุมสูงของ Apple TV หรือรายการวิดีโอใดก็ได้ที่คุณเลือก</string>
+    <string name="wp_d_daily">รูปใหม่ประจำวัน ทุกวัน</string>
+    <string name="wp_d_weather">สภาพอากาศวันนี้เป็นพื้นหลัง</string>
+    <string name="wp_d_movieart">ภาพภาพยนตร์และซีรีส์จาก TMDB</string>
+    <string name="wp_d_sofadrop">ภาพจากรายการมาแรง Trakt หรือ Simkl</string>
+    <string name="wp_d_immich">รูปจากเซิร์ฟเวอร์ Immich ของคุณเอง</string>
+    <string name="wp_d_tvicons">ไอคอนกว่า 800 แบบที่ทำมาสำหรับทีวี</string>
+    <string name="wp_d_minimalist">สัญลักษณ์เรียบๆ บนสีพื้นหลังเดียว</string>
+    <string name="wp_d_arcticons">ไอคอนเส้นบาง 15,000 แบบ (ทำมาสำหรับโทรศัพท์ ใช้ที่นี่ได้)</string>
+    <string name="ext_off_health">ปิดแล้ว: หยุดตอบสนอง เปิดอีกครั้งได้ถ้าต้องการ</string>
+    <string name="ext_secao_botoes">ปุ่มแผงด่วน</string>
+    <string name="ext_nenhum_botao">ยังไม่มีปุ่มจากแอปอื่น บางแอปเพิ่มปุ่มเปิด/ปิดในแผงด่วน (กด BACK ค้าง)</string>
+    <string name="ext_off_blocked">Sofaly ปิดไว้: ปลั๊กอินนี้มีปัญหาที่ทราบอยู่</string>
+    <string name="ext_secao_widgets">วิดเจ็ตจากแอปอื่น</string>
+    <string name="ext_widget_nenhum">ยังไม่มีแอปบนทีวีนี้ที่มีวิดเจ็ต</string>
+    <string name="ext_widget_sem_permissao">ทีวีไม่อนุญาตให้ Sofaly เพิ่มวิดเจ็ต</string>
+    <string name="ext_widget_falhou">เพิ่มวิดเจ็ตนี้ไม่ได้</string>
+</resources>

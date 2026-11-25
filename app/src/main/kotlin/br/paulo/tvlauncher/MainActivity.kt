@@ -425,6 +425,9 @@ class MainActivity : Activity() {
     override fun onResume() {
         super.onResume()
         homeNaFrente = true
+        // O host guarda UMA view por widget: só depois da tela de edição (que cria as dela) a HOME recria as suas.
+        br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this)
+        camadaWidgets?.let { if (br.paulo.tvlauncher.home.PluginWidgetsTv.editou) { br.paulo.tvlauncher.home.PluginWidgetsTv.editou = false; it.recriar() } else it.atualizar() }
         recongelarPendentes()   // "congelar de novo ao voltar" (Todos os apps, 20/11/2026)
         // Pen drive com apps foi tirado (AppStorage): diz quais sumiram até ele voltar.
         AppStorage.ausentes(this).takeIf { it.isNotEmpty() }?.let { f ->
@@ -526,6 +529,7 @@ class MainActivity : Activity() {
     override fun onPause() {
         super.onPause()
         homeNaFrente = false
+        br.paulo.tvlauncher.home.PluginWidgetsTv.parar()
         SonsCruz.naFrente = false
         ui.removeCallbacks(tarefaIlhaTique); ui.removeCallbacks(tarefaIlhaGira)
         CasaHA.aoTocarCampainha = null
@@ -654,7 +658,8 @@ class MainActivity : Activity() {
         // Data em duas linhas pequenas ao lado da hora ("Quinta-feira" / "12 de novembro"), no lugar do "| Google TV" do
         // launcher do Google (dono, 12/11/2026: a barra no estilo da do Google, sem sumir com nada nosso).
         val blocoData = pilula(vidro = false).apply {
-            addView(LinearLayout(this@MainActivity).apply {
+            addView(br.paulo.tvlauncher.home.DataDuasLinhas(this@MainActivity,
+                android.text.format.DateFormat.getBestDateTimePattern(resources.configuration.locales[0], "EEEMMMd")).apply {
                 orientation = LinearLayout.VERTICAL
                 for (fmt in listOf(R.string.fmt_data_dia, R.string.fmt_data_mes)) addView(RelogioTela(this@MainActivity, data = true).apply {
                     format12Hour = getString(fmt)
@@ -1700,6 +1705,8 @@ class MainActivity : Activity() {
     }
 
     /** Cartões dos plugins permitidos (PluginsTv), da última leitura na filaApps. */
+    /** A camada dos widgets de outros apps na HOME (PluginWidgetsTv.Camada). */
+    internal var camadaWidgets: br.paulo.tvlauncher.home.PluginWidgetsTv.Camada? = null
     @Volatile internal var cartoesPlugin: List<PluginCartao.Cartao> = emptyList()
     /** Imagens dos cartões de plugin (v2), por "pacote|uri". Trocadas junto com [cartoesPlugin]. */
     @Volatile internal var imagensPlugin: Map<String, Drawable> = emptyMap()
@@ -1988,6 +1995,16 @@ class MainActivity : Activity() {
                 .putLong(ULTIMO_ABERTO_EM, System.currentTimeMillis()).apply()
         }
         raiz.addView(c, 0, FrameLayout.LayoutParams(MATCH, MATCH))   // atrás da barra de cima (o véu não a escurece)
+        // Widgets de outros apps (24/11/2026): vivos, na área livre entre a ilha e o nome do mundo; não pegam o foco. Só na
+        // barra única (na cruz e na barra de categorias essa área tem ícones); a base acompanha a linha do mundo (grade de 2
+        // linhas sobe a linha).
+        camadaWidgets = null
+        if (br.paulo.tvlauncher.home.BottomBar.strip(this)) {
+            val w = br.paulo.tvlauncher.home.PluginWidgetsTv.Camada(this)
+            raiz.addView(w, 1, br.paulo.tvlauncher.home.PluginWidgetsTv.lpCamada(this))
+            camadaWidgets = w
+            c.aoMudarBase = { base -> br.paulo.tvlauncher.home.PluginWidgetsTv.baixoDp = base; w.post { w.layoutParams = br.paulo.tvlauncher.home.PluginWidgetsTv.lpCamada(this) } }
+        }
         cruz = c
         c.id = View.generateViewId()
         c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)

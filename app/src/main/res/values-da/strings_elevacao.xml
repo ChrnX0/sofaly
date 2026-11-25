@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Afspiller enhver fil; rigtige undertekster uden besvær</string>
     <string name="elv_prom_casa">Alarmen ringer til tiden, hver gang</string>
     <string name="elv_prom_controle">Panelet, telefonen og AI kan alt, hvad fjernbetjeningen kan</string>
-    <string name="elv_prom_todos">Ældre, børn, gæster, nedsat syn eller hørelse; 14 sprog</string>
+    <string name="elv_prom_todos">Ældre, børn, gæster, nedsat syn eller hørelse; %1$d sprog</string>
     <string name="elv_prom_instala">Fra første start til første kanal på 5 minutter</string>
     <string name="elv_nao_medido">Ikke målt endnu</string>
     <string name="elv_alvo">mål %1$s</string>

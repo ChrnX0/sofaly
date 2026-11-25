@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">หน้าจอแอปทั้งหมด</string>
+    <string name="aa_layout_shelves">ชั้นวาง</string>
+    <string name="aa_layout_folders">โฟลเดอร์และช่อง</string>
+    <string name="aa_layout_library">คลัง</string>
+    <string name="aa_favoritos">รายการโปรด</string>
+    <string name="aa_pastas">โฟลเดอร์</string>
+    <string name="aa_nova_pasta">โฟลเดอร์ใหม่</string>
+    <string name="aa_por_na_pasta">เพิ่มในโฟลเดอร์…</string>
+    <string name="aa_tirar_da_pasta">นำออกจากโฟลเดอร์นี้</string>
+    <string name="aa_renomear_pasta">เปลี่ยนชื่อโฟลเดอร์</string>
+    <string name="aa_apagar_pasta">ลบโฟลเดอร์</string>
+    <string name="aa_fixar_cruz">แสดงบนหน้าจอหลัก</string>
+    <string name="aa_soltar_cruz">นำออกจากหน้าจอหลัก</string>
+    <string name="aa_ordenar">เรียงแอปทั้งหมด</string>
+    <string name="aa_f_tudo">ทั้งหมด</string>
+    <string name="aa_f_uso">ใช้บ่อยที่สุด</string>
+    <string name="aa_f_novos">ใหม่</string>
+    <string name="aa_canais">ตอนนี้ทาง %1$s</string>
+    <string name="aa_hint_folder">OK เพื่อเปิด · กด OK ค้างเพื่อดูตัวเลือก</string>
+</resources>

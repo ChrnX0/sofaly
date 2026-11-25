@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Seletor de pastas e arquivos (DocumentPickerActivity, 21/11/2026). -->
+<resources>
+    <string name="dp_titulo_pasta">เลือกโฟลเดอร์</string>
+    <string name="dp_titulo_arquivo">เลือกไฟล์</string>
+    <string name="dp_titulo_salvar">เลือกที่บันทึก</string>
+    <string name="dp_para">สำหรับ %1$s</string>
+    <string name="dp_usar_pasta">ใช้โฟลเดอร์นี้</string>
+    <string name="dp_salvar_aqui">บันทึกที่นี่</string>
+    <string name="dp_memoria">ที่เก็บข้อมูลทีวี</string>
+    <string name="dp_rede">โฟลเดอร์ในเครือข่าย</string>
+    <string name="dp_livre">ว่าง %1$s</string>
+    <string name="dp_vazia">ไม่มีอะไรให้เลือกที่นี่</string>
+    <string name="dp_abrindo">กำลังเปิด…</string>
+    <string name="dp_erro">เปิดที่นี่ไม่ได้ ตรวจสอบว่าเชื่อมต่ออยู่แล้วลองอีกครั้ง</string>
+    <string name="dp_arquivos">ไฟล์ในโฟลเดอร์นี้: %1$d</string>
+    <string name="dp_dicas">OK: เปิด · BACK: กลับ</string>
+    <string name="dp_diario">%1$s ได้รับ %2$s จากตัวเลือก</string>
+    <string name="dp_sem_nome">ไม่มีชื่อ</string>
+</resources>

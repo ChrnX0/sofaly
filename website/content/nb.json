@@ -1,0 +1,992 @@
+{
+  "lang": "nb",
+  "path": "nb",
+  "label": "Norsk bokmål",
+  "ui": {
+    "nav_features": "Funksjoner",
+    "nav_plans": "Abonnementer",
+    "nav_developers": "Utviklere",
+    "nav_help": "Hjelp",
+    "cta_get": "Kommer snart på Google Play",
+    "cta_see": "Se alt den gjør",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "fra",
+    "how": "Slik",
+    "skip": "Gå til innhold",
+    "language": "Språk",
+    "back_top": "Tilbake til toppen",
+    "footer_tagline": "Startskjermen for Google TV og Android TV.",
+    "footer_privacy": "Personvern",
+    "footer_terms": "Vilkår",
+    "footer_compat": "Virker den på enheten din?",
+    "footer_trademark": "Sofaly er ikke tilknyttet Google. Google TV, Android TV og Chromecast er varemerker som tilhører Google LLC.",
+    "of": "av"
+  },
+  "home": {
+    "title": "Sofaly · TV-en din, enkel igjen",
+    "description": "Sofaly er startskjermen for Google TV og Android TV: alt ordnet i et kors (Se, Lytt, Spill, Apper), stor tekst og ingen reklame.",
+    "eyebrow": "Startskjerm for Google TV og Android TV",
+    "h1": "TV-en din, enkel igjen.",
+    "lead": "Sofaly erstatter TV-ens startskjerm med et ryddig kors: Se, Lytt, Spill og Apper, med stor tekst og uten reklame. Den passer også på hjemmet, vekker deg og snakker med telefonen din.",
+    "hero_note": "Ingen konto, ingen reklame, ingen sporing av hva du ser.",
+    "cross_title": "Én skjerm, fire veier",
+    "cross_lead": "◀ ▶ velg en verden. ▲ ▼ gå gjennom det som er der. Det er alt, og alle hjemme lærer det på et minutt.",
+    "worlds": {
+      "continue": [
+        "Fortsett",
+        "Tilbake dit du slapp: episoden, radiokanalen, podkasten eller appen."
+      ],
+      "watch": [
+        "Se",
+        "Videoappene dine, filmene dine fra datamaskinen eller en USB-stasjon, og en spiller som spiller alt."
+      ],
+      "listen": [
+        "Lytt",
+        "Radiokanaler fra hele verden og podkaster, med fullskjermspiller og innsovningstidtaker."
+      ],
+      "play": [
+        "Spill",
+        "Sky-, PC- og retrospill på ett sted, med kontrolleren allerede sammenkoblet."
+      ],
+      "apps": [
+        "Apper",
+        "De 8 du bruker mest, foran, og alle de andre ett klikk unna."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Delvis skyet",
+      "day": "Onsdag",
+      "date": "18. november",
+      "watch_items": [
+        "Filmer",
+        "Serier",
+        "På nettverket",
+        "YouTube"
+      ],
+      "watch_title": "På nettverket",
+      "watch_detail": "Filmer fra datamaskinen din · 214 titler",
+      "listen_items": [
+        "Radio",
+        "Podkaster",
+        "Spilles nå"
+      ],
+      "listen_title": "Radio",
+      "listen_detail": "Stasjoner fra hele verden, etter navn eller land",
+      "play_items": [
+        "Sky",
+        "Fra PC-en",
+        "Retro",
+        "Gjengen"
+      ],
+      "play_title": "Spill",
+      "play_detail": "3 skyspill · kontroller tilkoblet",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Alle apper"
+      ],
+      "apps_title": "Apper",
+      "apps_detail": "De 8 du bruker mest",
+      "continue_items": [
+        "Episode 4",
+        "Radio",
+        "Podkast"
+      ],
+      "continue_title": "Fortsett",
+      "continue_detail": "Stoppet på episode 4 · 21 min igjen"
+    },
+    "why_title": "Hvorfor bytte ut Googles startskjerm",
+    "why_lead": "Startskjermen TV-en kom med, er laget for å selge. Sofaly er laget for at familien din skal bruke den.",
+    "why_rows": [
+      [
+        "Reklame på startskjermen",
+        "Ja: sponsede forslag og reklame",
+        "Aldri"
+      ],
+      [
+        "Stor tekst på alle skjermer",
+        "Nei",
+        "Normal, Stor eller Større"
+      ],
+      [
+        "Vekkerklokke som slår på TV-en",
+        "Nei",
+        "Slår seg på, skrur sakte opp volumet og sier god morgen"
+      ],
+      [
+        "Radio og podkaster på startskjermen",
+        "Bare via apper",
+        "I sin egen verden, Lytt"
+      ],
+      [
+        "Filmer fra datamaskinen eller NAS",
+        "Bare via apper",
+        "På nettverket, med plakater og fortsettelse"
+      ],
+      [
+        "Styring fra alle telefoner hjemme",
+        "Enkel fjernkontroll",
+        "Et komplett panel, beskyttet med PIN-kode"
+      ],
+      [
+        "Barneprofil og leggetid",
+        "Begrenset",
+        "Tillatte apper, et volumtak og en PIN-kode for å gå ut"
+      ],
+      [
+        "Sikkerhetskopi av oppsettet ditt",
+        "Nei",
+        "Hver natt, låst med et passord"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Google TV-start",
+      "Sofaly"
+    ],
+    "why_source": "Reklame på Google TVs startskjerm: Android Authority, april 2026.",
+    "highlights_title": "Laget for hele hjemmet",
+    "highlights": [
+      [
+        "access",
+        "Besteforeldre også",
+        "Stor tekst, en enkel modus som sier navnet på appen, høy kontrast og skjermleser. På 27 språk."
+      ],
+      [
+        "alarm",
+        "Våkner med deg",
+        "Vekkerklokken slår på TV-en av seg selv, skrur sakte opp volumet og åpner God morgen: klokkeslett, vær og kalender."
+      ],
+      [
+        "house",
+        "Passer på hjemmet",
+        "Lys, scener og ringeklokke fra Home Assistant på TV-en. Går i hvilemodus når alle har dratt."
+      ],
+      [
+        "phone",
+        "Snakker med telefonen din",
+        "Styr den, skriv og send meldinger fra hvilken som helst telefon eller datamaskin hjemme, beskyttet med PIN-kode."
+      ],
+      [
+        "sun",
+        "Vær som stemmer",
+        "Været nå kommer fra nærmeste flyplass: målt, ikke gjettet. Værmelding for 9 dager med ett OK."
+      ],
+      [
+        "lock",
+        "Passer på seg selv",
+        "En låst sikkerhetskopi hver natt, vedlikehold mens du sover og en diagnose som forklarer hva som gikk galt."
+      ]
+    ],
+    "chapters_title": "Alt den gjør, ordnet slik den selv er",
+    "chapters_lead": "Over 80 funksjoner. Velg en verden for å se hver enkelt forklart.",
+    "privacy_title": "Det som er ditt, blir hjemme",
+    "privacy_text": "Sofaly ber ikke om konto, viser ingen reklame og sporer ikke hva du ser. Innstillinger, bilder, meldinger og sikkerhetskopier blir på TV-en, eller i en konto du selv kobler til. TV-en snakker bare med tjenestene du slår på, og personvernerklæringen lister opp alle.",
+    "privacy_link": "Les personvernerklæringen",
+    "dev_title": "Har du en app? Sett den på startskjermen.",
+    "dev_text": "Sofaly har allerede ferdige kort (måne, kurser, nedtelling, påminnelse). Et plugin er din egen Android TV-app som sender ett kort til til startskjermen: matleveringen, bussen som kommer, beskjeden fra borettslaget. Ingen SDK, ingen avgift, og appen forblir din.",
+    "dev_link": "Bli kjent med utviklersettet",
+    "plans_title": "Start gratis. Utvid når du vil.",
+    "plans_text": "Basic har allerede hele startskjermen, spilleren, Lytt, Spill, vekkerklokken og skjermspareren. Pro og Ultra legger til telefonen, hjemmet og familien.",
+    "plans_link": "Sammenlign abonnementene",
+    "faq_title": "Raske spørsmål",
+    "faq": [
+      [
+        "Virker den på TV-en min?",
+        "Den virker på Google TV og Android TV, som Chromecast med Google TV, TV-er med Google TV og Android TV-bokser. Kompatibilitetssiden lister opp de testede enhetene."
+      ],
+      [
+        "Trenger jeg en datamaskin for å installere den?",
+        "Nei. Installer den fra Google Play på selve TV-en og følg trinnene med fjernkontrollen."
+      ],
+      [
+        "Blir appene mine værende?",
+        "Alle sammen. Sofaly erstatter bare startskjermen: Netflix, YouTube, Prime Video og resten åpnes som alltid, og mikrofonknappen er fortsatt Google Assistent."
+      ],
+      [
+        "Er det reklame?",
+        "Nei, heller ikke i gratisabonnementet. Sofaly selger ikke reklame og sporer ikke hva du ser."
+      ],
+      [
+        "Følger det med kanaler eller filmer?",
+        "Nei. Sofaly ordner det som allerede er ditt: appene dine, filene dine og åpne radiokanaler og podkaster."
+      ],
+      [
+        "Hva om jeg vil ha Googles startskjerm tilbake?",
+        "Bare velg Googles startskjerm igjen i TV-ens innstillinger. Ingenting av ditt blir slettet."
+      ]
+    ],
+    "final_title": "TV-en din, enkel igjen.",
+    "final_text": "Installer den, trykk på HOME, og hele hjemmet skjønner den."
+  },
+  "features_page": {
+    "title": "Alt Sofaly gjør",
+    "description": "Alle Sofalys funksjoner forklart: startskjermen med korset, Se, Lytt, Spill, hjemmet, været, familien, telefonen og personvern.",
+    "h1": "Alt Sofaly gjør",
+    "lead": "Ordnet på samme måte som TV-skjermen: én verden om gangen. Hver funksjons merke viser hvilket abonnement den starter i.",
+    "index": "Verdener"
+  },
+  "chapters": {
+    "home": [
+      "Korset",
+      "En ryddig skjerm alle forstår, ordnet slik du vil."
+    ],
+    "watch": [
+      "Se",
+      "Filmene dine, seriene dine og en spiller som i en hjemmekino."
+    ],
+    "listen": [
+      "Lytt",
+      "Radio og podkaster med samme omtanke som video."
+    ],
+    "play": [
+      "Spill",
+      "Alle spillene dine på ett sted, klare for kontrolleren."
+    ],
+    "apps": [
+      "Apper",
+      "Appene dine i en rekkefølge som gir mening."
+    ],
+    "house": [
+      "Hjemmet",
+      "Vekkerklokke, tidtakere, automatiseringer og smarthjemmet."
+    ],
+    "sky": [
+      "Vær og skjermsparer",
+      "Riktig vær og en skjermsparer det er verdt å la stå på."
+    ],
+    "family": [
+      "Familie",
+      "En profil for alle, omsorg for barna og en varm velkomst for gjester."
+    ],
+    "phone": [
+      "Telefon og datamaskin",
+      "TV-en snakker med enhetene hjemme."
+    ],
+    "care": [
+      "Passer på seg selv",
+      "Sikkerhetskopi, vedlikehold og diagnose uten at du må huske det."
+    ],
+    "everyone": [
+      "For alle",
+      "Laget for folk som ser, hører eller bruker fjernkontrollen på forskjellige måter."
+    ],
+    "privacy": [
+      "Personvern",
+      "Ingen reklame, ingen sporing og en PIN-kode der det betyr noe."
+    ]
+  },
+  "features": {
+    "cross": [
+      "Korset",
+      "Fortsett, Se, Lytt, Spill og Apper på én rad. Verdenen du velger, blir stor, med innholdet rett under.",
+      "◀ ▶ bytter verden, ▲ ▼ går ned i kolonnen, OK åpner."
+    ],
+    "continue": [
+      "Fortsett",
+      "Ett sted for å komme tilbake til det du holdt på med: episoden, stasjonen, podkasten eller den siste appen.",
+      "Det er korsets første punkt."
+    ],
+    "topbar": [
+      "Topplinje",
+      "Søk, tale, været på én linje og klokken, alltid på samme sted. Den foldes sammen mens du blar, så skjermen får puste.",
+      "Gå opp til den med ▲."
+    ],
+    "quick-panel": [
+      "Hurtigpanel",
+      "Wi-Fi, Bluetooth, innsovningstidtaker, lydutgang, alarm, profiler, varsler og handlelisten, fra hvilken som helst app.",
+      "Hold TILBAKE."
+    ],
+    "remote": [
+      "Din fjernkontroll, dine regler",
+      "HOME kommer alltid tilbake til Sofaly. Hold TILBAKE for å åpne hurtigpanelet, hold HOME for å åpne Hjemmet, og hold OK på en app for å åpne menyen dens.",
+      "En tastetester viser hver knapp TV-en mottar."
+    ],
+    "now-playing": [
+      "Spilles nå",
+      "En pille øverst med omslag og tittel på det som spilles. OK setter på pause eller fortsetter, hold OK for å åpne appen.",
+      "Slå det på i Startskjerm › Flere valg."
+    ],
+    "themes": [
+      "Temaer og bakgrunner",
+      "Mørkt, med kunsten fra det som er i fokus. Galleri, med et maleri fra The Met hver dag. Himmel, med satellitt og kart. Eller din egen bakgrunn, bilde eller video. Bakgrunner fra plugins virker også, som luftopptakene fra Overflight.",
+      "Mørkt, Galleri og Himmel i Basic; de andre i Pro."
+    ],
+    "icons": [
+      "Ikoner du liker",
+      "Bruk en ikonpakke fra Play, eller bytt ikonet til én app, én om gangen.",
+      "Hold OK på appen › Endre ikon."
+    ],
+    "card-moon": [
+      "Månefase",
+      "Kveldens måne og hvor mye av den som er opplyst, beregnet på selve TV-en, uten internett.",
+      "I værmeldingen, på skjermspareren og på værikonet om natten. Innstillinger › Utseende."
+    ],
+    "card-countdown": [
+      "Nedtelling",
+      "Hvor mange dager det er igjen til datoen du velger, eller til neste helligdag.",
+      "I pillen øverst på skjermen. Innstillinger › Utseende."
+    ],
+    "card-reminder": [
+      "Påminnelse for hjemmet",
+      "En lapp som kommer igjen på ukedagene du velger: hentedag for avfall, medisin, en time.",
+      "I pillen øverst på skjermen. Innstillinger › Utseende."
+    ],
+    "card-status": [
+      "Status for tjenesten din",
+      "TV-en sjekker en adresse du gir den, og viser om den er oppe: hjemmeserveren, butikkens nettsted.",
+      "I pillen øverst på skjermen. Innstillinger › Utseende."
+    ],
+    "card-rates": [
+      "Dagens kurser",
+      "Valutaer, bitcoin og ether til dagens verdi, fra åpne offisielle kilder.",
+      "Ved siden av været, i topplinjen. Innstillinger › Utseende."
+    ],
+    "card-match": [
+      "Lagets neste kamp",
+      "Når og mot hvem laget ditt spiller neste gang, på et kort på startskjermen.",
+      "I korsets TV-punkt. Innstillinger › Utseende."
+    ],
+    "plugin-cards": [
+      "Kort fra andre apper",
+      "I tillegg til Sofalys egne kort setter partnerapper sine på startskjermen: matleveringen, bussen, beskjeden fra borettslaget.",
+      "Kortene vises på slutten av Se."
+    ],
+    "network-library": [
+      "Fra datamaskinen",
+      "Videoer, musikk og bilder fra Plex, Jellyfin, Emby, mapper på PC eller NAS (SMB, WebDAV, FTP, SFTP, NFS), OneDrive, Dropbox, Box, Google Disk, UPnP og USB-stasjoner.",
+      "Servere som er på, og USB-stasjoner dukker opp av seg selv; resten legges inn under Legg til."
+    ],
+    "player": [
+      "En spiller som spiller alt",
+      "Dolby- (AC3, E-AC3), DTS- og TrueHD-lyd, og undertekster fra Blu-ray, DVD og anime, uten å installere Kodi eller VLC.",
+      "Trykk ▼ under en video for lyd, undertekster og tekststørrelse."
+    ],
+    "resume": [
+      "Fortsetter der du slapp",
+      "Filmer og episoder starter på riktig sted. Neste episode starter etter 10 sekunder, og etter 3 på rad spør TV-en om du fortsatt ser på.",
+      "Virker av seg selv."
+    ],
+    "skip-intro": [
+      "Hopp over intro",
+      "Når introen til en serie er kjent, vises «Hopp over intro · OK». Du kan også markere introen én gang, så husker TV-en den.",
+      "På fra start."
+    ],
+    "audio-subtitles": [
+      "Foretrukket lyd og undertekster",
+      "Original med undertekster eller dubbet, valgt én gang og husket per tittel. Undertekster fra internett når filen ikke har noen.",
+      "TV og filmer › Lyd og undertekster."
+    ],
+    "easy-viewing": [
+      "Se og hør bedre",
+      "Undertekster på svart bakgrunn eller i gult, «Tydeligere stemme» som løfter fram tale, og «Jevnt volum» som demper høylytte filmer og løfter stille.",
+      "I spillerens ▼-meny."
+    ],
+    "auto-subtitles": [
+      "Automatiske undertekster",
+      "Når det ikke finnes undertekster på ditt språk, oversetter TV-en dem som finnes.",
+      "Velg det i spillerens undertekstmeny."
+    ],
+    "movie-pages": [
+      "Komplette filmsider",
+      "Plakat, vurdering, rolleliste, trailer, aldersgrense og filmens samling på en vakker side, med stor tekst. Med «Hvem er den skuespilleren?»: bilde, rolle og andre verk.",
+      "OK på en film eller serie."
+    ],
+    "lists": [
+      "Listene dine fra Trakt og Simkl",
+      "Det du vil se og det du har sett, synkronisert med kontoen din og de andre enhetene dine.",
+      "Logg inn med QR-koden i TV og filmer › Tjenester."
+    ],
+    "search": [
+      "Ett søk for alt",
+      "Finner filmer, serier, stasjoner og apper på én gang, og tar med det samme søket til YouTube, Netflix eller Prime Video.",
+      "I topplinjen, eller med stemmen."
+    ],
+    "radio": [
+      "Radio fra hele verden",
+      "Tusenvis av åpne radiokanaler, etter navn, land eller sjanger, med favorittene dine og de siste du har spilt.",
+      "Lytt › Radio."
+    ],
+    "podcasts": [
+      "Podkaster",
+      "Abonner etter navn, lytt på TV-en og fortsett episoden der du slapp.",
+      "Lytt › Podkaster."
+    ],
+    "podcast-search": [
+      "Oppdag podkaster",
+      "Søk i hele den åpne podkastkatalogen og se hva som er populært i landet ditt.",
+      "Lytt › Podkaster › Søk."
+    ],
+    "podcast-player": [
+      "Fullskjermspiller",
+      "Stort omslag, kapitler, hastighet og en innsovningstidtaker som stopper på slutten av episoden.",
+      "Lytt › Spilles nå › Åpne spilleren."
+    ],
+    "phone-sound": [
+      "Lyd i hodetelefonene dine",
+      "Filmens lyd går til hodetelefonene på telefonen din, synkront, så du kan se om kvelden uten å vekke noen.",
+      "Spillerens ▼-meny › Lyd på telefonen."
+    ],
+    "games-hub": [
+      "Alle spillene dine på ett sted",
+      "GeForce NOW, Steam Link, Moonlight, PS Remote Play, RetroArch og TV-ens spill forlater apprekken og bor i Spill, gruppert i Sky, Fra PC-en, Retro og På TV-en.",
+      "Hold OK på et spill for å bytte gruppe."
+    ],
+    "pc-games": [
+      "Spill på PC-en i andre etasje",
+      "TV-en vekker datamaskinen over nettverket, venter på svar og åpner Moonlight eller Steam Link. Å vekke PC-en over nettverket virker også utenfor Spill, fra en snarvei på startskjermen.",
+      "Lagre datamaskinen én gang i nettpanelet."
+    ],
+    "network-test": [
+      "Test nettverket",
+      "Forteller om internettet ditt klarer skyspilling, og advarer før et skyspill åpnes på et svakt nettverk.",
+      "Spill › Test nettverket."
+    ],
+    "controllers": [
+      "Spillkontrollere",
+      "Koble til en kontroller uten å lete i menyer, se de tilkoblede øverst og, om du vil, la en tilkoblet kontroller åpne Spill.",
+      "Spill › Koble til kontroller."
+    ],
+    "game-mode": [
+      "Spillmodus",
+      "Mens et spill er åpent, venter skjermspareren, nattfilteret og varslene til kampen er over.",
+      "Slår seg på av seg selv."
+    ],
+    "crew": [
+      "Discord-gjengen din",
+      "Se hvem fra Discord-serveren din som er pålogget og i hvilket spill, og rop på gjengen rett fra TV-en.",
+      "Slå på serverens widget og lim inn nummeret."
+    ],
+    "apps-top": [
+      "Favorittene dine foran",
+      "Apper viser de 8 appene du åpner mest, og «Alle apper» viser resten i et rutenett.",
+      "Apper, i korset."
+    ],
+    "apps-organize": [
+      "På din måte",
+      "Flytt, stable eller skjul hvilken som helst app. Fabrikkapper du ikke bruker, går av veien.",
+      "Hold OK på en app."
+    ],
+    "app-buttons": [
+      "Frie Netflix- og YouTube-knapper",
+      "Fjernkontrollens appknapper åpner den appen du vil. Trykk for å åpne, hold i 3 sekunder for å bytte.",
+      "Virker med den originale fjernkontrollen."
+    ],
+    "alarm": [
+      "En vekkerklokke som slår på TV-en",
+      "Til rett tid slår TV-en seg på, volumet stiger sakte, og det er slumring. Hver alarm har navn, dager, lyd og volum, til og med en app eller den siste stasjonen.",
+      "Hold TILBAKE › Alarm."
+    ],
+    "timers": [
+      "Tidtakere og timeglass",
+      "Opptil 3 navngitte tidtakere med varsel på skjermen, og en stoppeklokke.",
+      "«Hey Google, åpne Påminn meg om 10 minutter»."
+    ],
+    "gentle-off": [
+      "Myk avslåing",
+      "Innsovningstidtakeren demper skjermen og senker volumet de siste 5 minuttene, så ingen våkner når den slår av.",
+      "Tidtakerflisen i hurtigpanelet."
+    ],
+    "idle-off": [
+      "Slår seg av hvis ingen ser på",
+      "Etter tiden du velger uten tastetrykk, spør TV-en med stor tekst om du fortsatt ser på, og går så i hvilemodus.",
+      "Skjerm og strøm › Slå av ved inaktivitet."
+    ],
+    "recipes": [
+      "Ferdige oppskrifter",
+      "Sove, Såpeopera og Kamp stiller inn TV-en på én gang (lyd, skjerm og varsler). Ett OK bruker, et annet angrer.",
+      "Hurtigpanel."
+    ],
+    "automations": [
+      "Automatiseringer",
+      "På et bestemt tidspunkt, når en knapp trykkes, eller når noe skjer (filmen ble satt på pause, alle har dratt, det kommer regn): TV-en åpner en app, kjører en scene eller slår seg av.",
+      "Hjem og automatiseringer › Automatiseringer."
+    ],
+    "home-assistant": [
+      "Home Assistant på TV-en",
+      "Lys, stikkontakter, vifter, gardiner, aircondition og scener, rett fra sofaen. Den snakker med serveren din på nettverket ditt, uten sky imellom.",
+      "Hold HOME."
+    ],
+    "doorbell": [
+      "Hvem står ved døren",
+      "Når det ringer på døren, dukker kameraets bilde opp over det du ser på.",
+      "Med Home Assistant."
+    ],
+    "presence": [
+      "Går i hvilemodus når alle drar",
+      "Med en UniFi-ruter merker TV-en at husstandens telefoner har dratt, og går i hvilemodus.",
+      "Skjerm og strøm › Flere valg."
+    ],
+    "voice": [
+      "Talesnarveier",
+      "«Hey Google, åpne Værrapport» leser værmeldingen høyt. Filmer, Mitt hjem, Tavle, tidtakere og avslåing åpnes på samme måte.",
+      "Bruk mikrofonknappen."
+    ],
+    "weather-now": [
+      "Dagens vær, målt",
+      "Temperaturen kommer fra rapporten til nærmeste flyplass, og dag/natt-ikonet følger soloppgang og solnedgang der TV-en står.",
+      "Øverst på startskjermen."
+    ],
+    "weather-3": [
+      "Regn fra tre modeller",
+      "Sjansen for regn er medianen av tre værmodeller (ECMWF, ICON og GFS), som bommer sjeldnere enn hver av dem alene.",
+      "Vises av seg selv i værmeldingen."
+    ],
+    "forecast": [
+      "Værmelding i fullskjerm",
+      "De neste 24 timene, et regndiagram, 9 dager, luftkvalitet, solen og månen.",
+      "OK på været."
+    ],
+    "rain-alert": [
+      "Regnvarsel",
+      "Et varsel over appen din når det snart begynner å regne. På tide å ta inn klesvasken.",
+      "Startskjerm › Vær."
+    ],
+    "screensaver": [
+      "En skjermsparer det er verdt å la stå på",
+      "Hilsen, en stor klokke, datoen, været og kort med varsler, neste alarm og meldinger. I Galleri-temaet glir dagens maleri sakte, så ingenting brenner seg fast.",
+      "Skjerm og strøm › Skjermsparer."
+    ],
+    "photos": [
+      "Bildene dine på skjermspareren",
+      "Send bilder fra telefonen eller velg en nettverksmappe. De ligger i en mappe bare TV-en kan se.",
+      "En QR-kode åpner panelet på riktig side."
+    ],
+    "good-morning": [
+      "God morgen",
+      "Når du stopper alarmen: hilsen, klokkeslett, værmelding og dagens kalender, og TV-en kan lese det høyt.",
+      "«Hey Google, åpne God morgen»."
+    ],
+    "calendar": [
+      "Google Kalender",
+      "Dagens hendelser og bursdager på TV-en, fra én konto eller alle samlet.",
+      "OK på datoen øverst."
+    ],
+    "night-filter": [
+      "Nattfilter",
+      "Om kvelden blir skjermen varmere og mykere for øynene.",
+      "Skjerm og strøm › Flere valg."
+    ],
+    "recap": [
+      "Ukesoppsummering",
+      "Søndag kveld, et kort med skjermtid per app, brukt internett og nettverksbrudd.",
+      "Skjerm og strøm › Flere valg."
+    ],
+    "profiles": [
+      "En profil for alle",
+      "Hver Google-konto på TV-en har egne favoritter, ting å fortsette og egen apprekkefølge.",
+      "Hold TILBAKE › Profiler."
+    ],
+    "kid-profile": [
+      "Barneprofil",
+      "Merk en profil som et barns: barnemodus og leggetid slår seg på av seg selv, og å gå ut ber om foreldrenes PIN-kode.",
+      "Hurtigpanel › Profiler."
+    ],
+    "bedtime": [
+      "Leggetid",
+      "I tidsrommet du velger, åpnes bare tillatte apper, og volumet har et tak.",
+      "Familie › Flere valg."
+    ],
+    "screen-time": [
+      "Daglig skjermtid",
+      "En daglig TV-grense for hvem du vil.",
+      "Familie › Flere valg."
+    ],
+    "guest": [
+      "Gjestemodus",
+      "Skjuler profilen din, kalenderen din og appene du velger, mens du har besøk.",
+      "Gjester-flisen i hurtigpanelet."
+    ],
+    "guest-wifi": [
+      "Wi-Fi for gjester",
+      "Skriv passordet én gang; gjestene skanner en QR-kode på TV-en og er på.",
+      "Familie › Wi-Fi for gjester."
+    ],
+    "family-board": [
+      "Familietavle",
+      "Handleliste, festede lapper og dagens bursdager, i hurtigpanelet og på skjermspareren.",
+      "Rediger fra telefonen; OK krysser av et punkt."
+    ],
+    "family-link": [
+      "Meldinger på avstand",
+      "Familie som bor langt unna, sender meldinger og bilder til TV-en hjemme, hvor som helst fra.",
+      "Inviter via lenke."
+    ],
+    "video-message": [
+      "Videomeldinger",
+      "En kort video fra familien vises på TV-en med avsenderens navn.",
+      "Fra panelet på telefonen."
+    ],
+    "web-panel": [
+      "Panel på telefonen og datamaskinen",
+      "Fjernkontroll, skriving med aksenter, direktevisning av TV-skjermen, bilder til skjermspareren, tavlen og sikkerhetskopier, fra nettleseren på hvilken som helst enhet hjemme.",
+      "Fjerntilgang › Logg inn fra telefonen (QR)."
+    ],
+    "ask-tv": [
+      "Spør TV-en",
+      "Skriv eller si «åpne YouTube», «påminn meg om 7 minutter», «slå av om 30 minutter», og TV-en gjør det.",
+      "I panelet på telefonen."
+    ],
+    "share": [
+      "Del fra telefonen",
+      "Installert som app dukker panelet opp under Del: en YouTube-video åpnes på TV-en, en lenke åpnes på TV-en, og en tekst blir en melding.",
+      "Del › Sofaly."
+    ],
+    "network-drive": [
+      "TV-en som nettverksstasjon",
+      "Kopier filer til TV-en ved å dra dem: på Windows dukker den opp i Denne PC-en som en telefon; på Mac, Linux og telefoner via sikker WebDAV.",
+      "Fjerntilgang › Vis som nettverksstasjon."
+    ],
+    "windows": [
+      "Snarvei på Windows",
+      "TV-en vises under Nettverk i Filutforsker med en snarvei som åpner panelet, selv om IP-en endres.",
+      "På når panelet er på."
+    ],
+    "continue-tv": [
+      "Fortsett på en annen TV",
+      "Stoppet du i stuen? Send det til soverommet: den andre TV-en viser «Fortsette der du slapp?» og åpner på samme sted.",
+      "Spillermeny › Send til en annen TV."
+    ],
+    "together": [
+      "Se sammen",
+      "To hjem ser det samme samtidig: pause her, pause der, med reaksjoner i hjørnet.",
+      "Invitasjon mellom familiens TV-er."
+    ],
+    "homes": [
+      "Flere hjem",
+      "Pass på TV-en hjemme hos deg og hos foreldrene dine fra samme telefon.",
+      "Fra telefonappen."
+    ],
+    "backup": [
+      "Låst sikkerhetskopi, hver natt",
+      "Mens TV-en er i ro, en fullstendig sikkerhetskopi låst med passordet ditt. De siste 7 beholdes, og hver natt sjekker TV-en at den kan gjenopprettes.",
+      "System › Automatisk sikkerhetskopi."
+    ],
+    "cloud-backup": [
+      "En kopi i skyen",
+      "Kopiene går også til Google Disk, OneDrive, Dropbox, Box, NAS eller USB-stasjon. Låst: ikke engang skyen kan lese dem.",
+      "System › Automatisk sikkerhetskopi."
+    ],
+    "maintenance": [
+      "Vedlikehold om natten",
+      "Rydder opp rester, reparerer tillatelser og planlegger alarmer på nytt mens du sover.",
+      "Kjører av seg selv."
+    ],
+    "diagnose": [
+      "TV-diagnostikk",
+      "Internett, DNS og hvorfor en app stoppet, på én gang og i setninger du forstår.",
+      "«Hey Google, åpne TV-diagnostikk»."
+    ],
+    "scoreboard": [
+      "Slik har denne TV-en det",
+      "TV-en måler sine egne tall (tid for å åpne, krasj, alarmer i tide) og viser dem på én skjerm. Ingenting forlater hjemmet ditt.",
+      "System › Slik har denne TV-en det."
+    ],
+    "safe-mode": [
+      "Sikker modus",
+      "Hvis en ny versjon oppfører seg feil rett etter installering, faller TV-en tilbake til en sikker modus og viser veien ut.",
+      "Vises bare når det trengs."
+    ],
+    "whats-new": [
+      "Hva er nytt",
+      "Hver versjon forklarer hva som er endret, og har en kort sjekkliste du kan prøve med fjernkontrollen.",
+      "System › Hva er nytt."
+    ],
+    "report": [
+      "Rapporter et problem",
+      "Fortell hva som skjedde med fjernkontrollen eller fra telefonen; TV-en samler det som trengs, ingenting personlig.",
+      "System › Rapporter et problem."
+    ],
+    "languages": [
+      "27 språk",
+      "Portugisisk, engelsk, spansk, fransk, tysk, italiensk, russisk, polsk, tyrkisk, japansk, kinesisk, koreansk, hindi, indonesisk og arabisk, med skjermer fra høyre mot venstre. I tillegg nederlandsk, svensk, dansk, norsk, finsk, tsjekkisk, gresk, ungarsk, rumensk, ukrainsk, vietnamesisk og thai. Den følger TV-ens språk.",
+      "Bytter av seg selv sammen med TV-en."
+    ],
+    "text-size": [
+      "Tekststørrelse",
+      "Normal, Stor eller Større, på alle skjermer, testet så tekst aldri blir kuttet eller overlapper.",
+      "Startskjerm › Tekststørrelse."
+    ],
+    "simple-mode": [
+      "Enkel modus",
+      "Store kort, færre ting på skjermen og appens navn lest høyt. For dem som synes fjernkontrollen er vanskelig.",
+      "Startskjerm › Flere valg."
+    ],
+    "read-aloud": [
+      "Les høyt",
+      "TV-en sier hva som er i fokus, med navigasjonslyder så du vet hvor du er.",
+      "Startskjerm › Flere valg."
+    ],
+    "contrast": [
+      "Høy kontrast",
+      "Tekst med kontrastforhold 7:1, og alle skjermer kan leses av Androids skjermleser.",
+      "Følger TV-ens tilgjengelighetsinnstillinger."
+    ],
+    "no-ads": [
+      "Ingen reklame i det hele tatt",
+      "Ikke i gratisabonnementet, ikke ett sponset forslag. Skjermen er din.",
+      "Alltid."
+    ],
+    "no-tracking": [
+      "Ingen sporing",
+      "Ingen konto, ingen bruksanalyse og ingen krasjrapport som sendes uten at du sender den.",
+      "Alltid."
+    ],
+    "pin": [
+      "En PIN-kode der det betyr noe",
+      "Alt som endrer TV-en, ber om en PIN-kode, og handlinger som sletter noe, spør igjen. For mange feil forsøk? Ventetiden øker hver gang.",
+      "Fjerntilgang › PIN-kode."
+    ],
+    "private-dns": [
+      "Privat DNS",
+      "Velg en sikker DNS (DNS over TLS); hvis den ikke svarer, går TV-en tilbake til den forrige av seg selv.",
+      "Avansert › Nettverk."
+    ],
+    "usage": [
+      "Internett per app",
+      "Hvor mye internett hver app brukte og hvem den snakket med, lagret på TV-en i 7 dager.",
+      "Avansert › Nettverk."
+    ],
+    "google-inside": [
+      "Google virker som før",
+      "Google Assistent, Gemini, søk og Google-kontoen din virker som før. Sofaly endrer startskjermen, ikke TV-en din.",
+      "Bruk mikrofonknappen som alltid."
+    ],
+    "motion": [
+      "Animasjoner som passer TV-en din",
+      "Kraftige TV-er animerer alt; enklere animerer bare det du har valgt, og senker farten av seg selv når bilder faller ut.",
+      "Innstillinger › Utseende."
+    ],
+    "frame-rate": [
+      "Filmer uten hakking",
+      "TV-en bytter til 24 Hz mens en film spilles, så kamerapanoreringer forblir jevne.",
+      "Slår seg på med filmen; skjermen blinker svart i et sekund."
+    ],
+    "wifi-check": [
+      "Test av internetthastighet",
+      "Måler internettet ditt med ett trykk og viser Wi-Fi-signal, forsinkelse og hastighet med vanlige ord.",
+      "Innstillinger › Avansert › Nettverk."
+    ]
+  },
+  "plans_page": {
+    "title": "Abonnementer · Sofaly",
+    "description": "Basic, Pro og Ultra: hva hvert Sofaly-abonnement inneholder.",
+    "h1": "Abonnementer",
+    "lead": "Start med Basic, som allerede er hele startskjermen. Salget har ikke åpnet ennå: foreløpig er alt gratis.",
+    "price_soon": "Pris ved lansering",
+    "basic_who": "For dem i sofaen",
+    "pro_who": "For den som tar seg av TV-en",
+    "ultra_who": "For hjemmet og familien",
+    "basic_text": "Startskjermen med korset, spilleren, Lytt, Spill, vekkerklokken, skjermspareren og all tilgjengeligheten.",
+    "pro_text": "Alt i Basic, pluss telefonen, automatiseringer, smarthjemmet, meldinger på avstand, ferdige kort til startskjermen og full tilpasning.",
+    "ultra_text": "Alt i Pro, pluss vær fra tre modeller, komplette filmsider, automatiske undertekster, flere hjem og se sammen.",
+    "includes": "Inkluderer",
+    "everything_basic": "Alt i Basic",
+    "everything_pro": "Alt i Pro"
+  },
+  "dev_page": {
+    "title": "Utviklere · Sofaly",
+    "description": "Sett Android TV-appens kort på Sofalys startskjerm. Ingen SDK, ingen avgift.",
+    "eyebrow": "Utviklersett",
+    "h1": "Appen din på startskjermen folk faktisk ser på.",
+    "lead": "Et Sofaly-plugin er din egen Android TV-app. Den sender et kort kort, og Sofaly tegner det på startskjermen, med stor tekst og i husets stil.",
+    "cta_start": "Start fra malen",
+    "cta_spec": "Les hele kontrakten",
+    "why_title": "Hvorfor lage et plugin",
+    "why": [
+      [
+        "star",
+        "Foran, ikke i en skuff",
+        "Kortet ditt ligger på startskjermen, der familien ser hver gang TV-en slås på, ikke gjemt i en liste over apper."
+      ],
+      [
+        "puzzle",
+        "Ingen SDK, ingen avgift",
+        "Én ContentProvider og én rad med data. Ikke noe bibliotek fra oss å installere, ingen avgift å betale."
+      ],
+      [
+        "heart",
+        "Din app, din forretning",
+        "Publiser på Play som du vil, gratis eller betalt. Sofaly tegner bare kortet; appen og kundene er dine."
+      ]
+    ],
+    "can_title": "Hva du kan bygge utover våre",
+    "can": [
+      [
+        "Leveringen din",
+        "Bestillingen er på vei, 12 min unna."
+      ],
+      [
+        "Bussen din",
+        "Linje 42 kommer om 6 min."
+      ],
+      [
+        "Treningssenteret ditt",
+        "Dagens time kl. 19."
+      ],
+      [
+        "Borettslaget ditt",
+        "Vannet stenges i morgen kl. 9–12."
+      ],
+      [
+        "Butikken din",
+        "Dagens tilbud: 20 % på kaffe."
+      ],
+      [
+        "Klubben din",
+        "Treningen er flyttet til lørdag."
+      ]
+    ],
+    "steps_title": "To trinn",
+    "step1": "Deklarer en provider med Sofalys action",
+    "step2": "Svar med én rad: tittel, verdi, detalj og farge",
+    "rules_title": "Regler som beskytter seeren",
+    "rules": [
+      "Du tegner aldri på startskjermen: du sender tekst og en farge, Sofaly tegner.",
+      "Sofaly sender deg aldri noe om personens apper, kontoer eller hva hen ser på.",
+      "Plugins er en del av Pro-abonnementet, og personen velger hvilke som vises."
+    ],
+    "soon_title": "Kommer snart",
+    "soon_text": "Bakgrunnsplugins og et utstillingsvindu for plugins rett på TV-en.",
+    "template_title": "Ferdig mal",
+    "template_text": "To eksempelapper du kan bygge i dag: en nedtelling til en dato personen velger på TV-en, og dagens månefase. Ikke noe internett, ingen konto. MIT No Attribution: kopier den, gi pakken nytt navn, publiser.",
+    "demo": [
+      [
+        "Levering",
+        "12 min"
+      ],
+      [
+        "Buss 42",
+        "6 min"
+      ],
+      [
+        "Trening",
+        "kl. 19"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Se det på TV-en",
+    "lead": "Disse skjermene spilles av seg selv, slik Sofaly ser ut og beveger seg på en ekte TV. Velg en for å bli på den.",
+    "screens": {
+      "forecast": [
+        "Værmelding",
+        "De neste 24 timene, sjansen for regn og månen, med ett blikk og med store bokstaver.",
+        [
+          "Lett yr",
+          "Neste 24 timer",
+          "Sjanse for regn",
+          "Nå",
+          "Maks 27° · min 19° · føles som 26°"
+        ]
+      ],
+      "screensaver": [
+        "Skjermsparer",
+        "Et maleri fra The Met hver dag, klokken og dagens vær. En TV det er verdt å la stå på.",
+        [
+          "God kveld",
+          "Dagens maleri · The Met",
+          "Voksende måne"
+        ]
+      ],
+      "player": [
+        "Filmer",
+        "Dubbet eller med undertekster med én tast, introen hoppet over for deg, og tilbake der du slapp.",
+        [
+          "Den lange veien hjem",
+          "Lyd",
+          "Original + undertekster",
+          "Dubbet",
+          "Hopp over intro"
+        ]
+      ],
+      "radio": [
+        "Radio og podkaster",
+        "Stasjoner fra hele verden og podkastene dine, med en fullskjermspiller.",
+        [
+          "Spilles nå",
+          "Direkte radio",
+          "Jazz fra kysten",
+          "Morgennyheter",
+          "Samba og bossa",
+          "Podkast · episode 12"
+        ]
+      ],
+      "alarm": [
+        "Alarm",
+        "TV-en slår seg på, lyden stiger sakte, og dagens værmelding venter allerede.",
+        [
+          "God morgen",
+          "Volumet stiger",
+          "Slumre · 10 min",
+          "TV-en slo seg på"
+        ]
+      ],
+      "cards": [
+        "Kort på startskjermen",
+        "Nedtelling, påminnelser, kurser, månen og lagets neste kamp, rett på startskjermen.",
+        [
+          "12 dager til ferien",
+          "Medisin kl. 20",
+          "Garasjekameraet svarer ikke lenger",
+          "Neste kamp",
+          "Lør · kl. 16",
+          "Voksende måne",
+          "Kurser",
+          "Nedtelling",
+          "Laget ditt × Rivalene"
+        ]
+      ],
+      "games": [
+        "Spill",
+        "Sky-, PC- og retrospill på ett sted, med nettverket testet før du spiller.",
+        [
+          "Kontroller tilkoblet",
+          "Nettverket er klart for skyspilling",
+          "Sky",
+          "PC",
+          "Retro",
+          "Gjengen",
+          "Spill"
+        ]
+      ],
+      "phone": [
+        "Telefon",
+        "Panelet på telefonen: fjernkontroll, skriving, direktevisning av skjermen og meldinger som dukker opp på TV-en.",
+        [
+          "Send til TV-en",
+          "Middagen er klar!",
+          "Melding fra telefonen",
+          "Fjernkontroll",
+          "Skriv",
+          "Skjerm",
+          "Bilder"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "TV-en dukker opp i Denne PC-en som en telefon: dra filmer og bilder rett inn i den.",
+        [
+          "Denne PC-en",
+          "Sofaly · Stue",
+          "Lokal disk",
+          "Åpne TV-panelet",
+          "Kopierer til TV-en … 68 %"
+        ]
+      ],
+      "kids": [
+        "Familie",
+        "Barneprofil, leggetid og skjermtid, alt bak foreldrenes PIN-kode.",
+        [
+          "Leggetid",
+          "Vi ses i morgen!",
+          "Bare barneapper til kl. 7",
+          "Foreldrenes PIN-kode"
+        ]
+      ]
+    }
+  }
+}

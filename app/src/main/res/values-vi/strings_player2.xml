@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">Mất kết nối. Đang thử lại (%1$d trên %2$d)…</string>
+    <string name="vod_proximo_episodio">Tập tiếp theo</string>
+    <string name="vod_proximo_agora">Xem ngay · %1$d giây</string>
+    <string name="vod_proximo_cancelar">Hủy</string>
+    <string name="vod_proximo_continuar">Tiếp tục xem</string>
+    <string name="vod_ainda_assistindo">Vẫn đang xem?</string>
+    <string name="vod_ainda_assistindo_texto">Đã phát vài tập mà không ai chạm vào điều khiển, nên tập tiếp theo sẽ chờ bạn.</string>
+    <string name="vod_desligar_ao_fim">Tắt TV khi phát xong</string>
+    <string name="vod_legenda_tamanho_titulo">Cỡ phụ đề</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>Nhỏ</item>
+        <item>Bình thường</item>
+        <item>Lớn</item>
+        <item>Rất lớn</item>
+    </string-array>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">Công cụ</string>
+    <string name="cont_mais_opcoes">Thêm tùy chọn</string>
+    <string name="tl_proximo">Tiếp theo: %1$s</string>
+    <string name="tl_clima_sub">Dự báo những ngày tới</string>
+    <string name="tl_casa_sub">Đèn, camera và chuông cửa</string>
+    <string name="tl_painel_sub">Bluetooth, âm thanh, Wi-Fi và hẹn giờ</string>
+    <string name="tl_config_sub">Mọi thứ về launcher</string>
+    <string name="ac_cartoes">Thẻ ứng dụng</string>
+    <string name="ac_coluna">Trong cột</string>
+    <string name="ac_vitrine">Trưng bày</string>
+    <string name="ac_ver_tudo">Xem nội dung trong ứng dụng</string>
+    <string name="ac_ritmo">Khoảng cách màn hình chính</string>
+    <string name="rt_antes">Như trước</string>
+    <string name="rt_a">A · Chặt hơn</string>
+    <string name="rt_b">B · Khung</string>
+    <string name="rt_c">C · Thoáng</string>
+    <string name="ft_foco">Tiêu điểm</string>
+    <string name="ft_foco_fio">Đường kẻ</string>
+    <string name="ft_foco_veu">Lớp phủ</string>
+    <string name="ft_foco_quadro">Khung</string>
+</resources>

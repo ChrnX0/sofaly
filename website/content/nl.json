@@ -1,0 +1,992 @@
+{
+  "lang": "nl",
+  "path": "nl",
+  "label": "Nederlands",
+  "ui": {
+    "nav_features": "Functies",
+    "nav_plans": "Abonnementen",
+    "nav_developers": "Ontwikkelaars",
+    "nav_help": "Hulp",
+    "cta_get": "Binnenkort op Google Play",
+    "cta_see": "Bekijk alles wat het doet",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "vanaf",
+    "how": "Hoe",
+    "skip": "Naar de inhoud",
+    "language": "Taal",
+    "back_top": "Terug naar boven",
+    "footer_tagline": "Het startscherm voor Google TV en Android TV.",
+    "footer_privacy": "Privacy",
+    "footer_terms": "Voorwaarden",
+    "footer_compat": "Werkt het op jouw apparaat?",
+    "footer_trademark": "Sofaly is niet verbonden aan Google. Google TV, Android TV en Chromecast zijn handelsmerken van Google LLC.",
+    "of": "van"
+  },
+  "home": {
+    "title": "Sofaly · Je tv, weer eenvoudig",
+    "description": "Sofaly is het startscherm voor Google TV en Android TV: alles geordend in een kruis (Kijken, Luisteren, Spelen, Apps), grote tekst en geen advertenties.",
+    "eyebrow": "Startscherm voor Google TV en Android TV",
+    "h1": "Je tv, weer eenvoudig.",
+    "lead": "Sofaly vervangt het startscherm van je tv door een overzichtelijk kruis: Kijken, Luisteren, Spelen en Apps, in grote tekst en zonder advertenties. Het let ook op het huis, maakt je wakker en praat met je telefoon.",
+    "hero_note": "Geen account, geen advertenties, niemand die bijhoudt wat je kijkt.",
+    "cross_title": "Eén scherm, vier richtingen",
+    "cross_lead": "◀ ▶ kies een wereld. ▲ ▼ loop door wat erin zit. Meer is het niet, en iedereen in huis leert het in een minuut.",
+    "worlds": {
+      "continue": [
+        "Verder kijken",
+        "Terug naar waar je stopte: de aflevering, de radiozender, de podcast of de app."
+      ],
+      "watch": [
+        "Kijken",
+        "Je video-apps, je films van de computer of een USB-stick, en een speler die alles afspeelt."
+      ],
+      "listen": [
+        "Luisteren",
+        "Radiozenders van over de hele wereld en podcasts, met een speler op volledig scherm en een slaaptimer."
+      ],
+      "play": [
+        "Spelen",
+        "Cloud-, pc- en retrogames op één plek, met je controller al gekoppeld."
+      ],
+      "apps": [
+        "Apps",
+        "De 8 die je het meest gebruikt vooraan, en alle andere één klik verder."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Half bewolkt",
+      "day": "Woensdag",
+      "date": "18 november",
+      "watch_items": [
+        "Films",
+        "Series",
+        "Op het netwerk",
+        "YouTube"
+      ],
+      "watch_title": "Op het netwerk",
+      "watch_detail": "Films van je computer · 214 titels",
+      "listen_items": [
+        "Radio",
+        "Podcasts",
+        "Speelt nu"
+      ],
+      "listen_title": "Radio",
+      "listen_detail": "Zenders van over de hele wereld, op naam of land",
+      "play_items": [
+        "Cloud",
+        "Van de pc",
+        "Retro",
+        "Crew"
+      ],
+      "play_title": "Games",
+      "play_detail": "3 cloudgames · controller verbonden",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Alle apps"
+      ],
+      "apps_title": "Apps",
+      "apps_detail": "De 8 die je het meest gebruikt",
+      "continue_items": [
+        "Aflevering 4",
+        "Radio",
+        "Podcast"
+      ],
+      "continue_title": "Verder kijken",
+      "continue_detail": "Gestopt bij aflevering 4 · nog 21 min"
+    },
+    "why_title": "Waarom het startscherm van Google vervangen",
+    "why_lead": "Het startscherm waarmee je tv kwam, is gemaakt om te verkopen. Sofaly is gemaakt om door je gezin gebruikt te worden.",
+    "why_rows": [
+      [
+        "Advertenties op het startscherm",
+        "Ja: gesponsorde tips en advertenties",
+        "Nooit"
+      ],
+      [
+        "Grote tekst op elk scherm",
+        "Nee",
+        "Normaal, Groot of Groter"
+      ],
+      [
+        "Wekker die de tv aanzet",
+        "Nee",
+        "Gaat aan, zet het volume langzaam hoger en zegt goedemorgen"
+      ],
+      [
+        "Radio en podcasts op het startscherm",
+        "Alleen via apps",
+        "In een eigen wereld, Luisteren"
+      ],
+      [
+        "Films van je computer of NAS",
+        "Alleen via apps",
+        "Op het netwerk, met posters en verder kijken"
+      ],
+      [
+        "Bediening vanaf elke telefoon in huis",
+        "Eenvoudige afstandsbediening",
+        "Een volledig paneel, beschermd met een pincode"
+      ],
+      [
+        "Kinderprofiel en bedtijd",
+        "Beperkt",
+        "Toegestane apps, een maximumvolume en een pincode om eruit te gaan"
+      ],
+      [
+        "Back-up van je instellingen",
+        "Nee",
+        "Elke nacht, vergrendeld met een wachtwoord"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Startscherm van Google TV",
+      "Sofaly"
+    ],
+    "why_source": "Advertenties op het startscherm van Google TV: Android Authority, april 2026.",
+    "highlights_title": "Gemaakt voor het hele huis",
+    "highlights": [
+      [
+        "access",
+        "Ook voor opa en oma",
+        "Grote tekst, een eenvoudige modus die de naam van de app uitspreekt, hoog contrast en de schermlezer. In 27 talen."
+      ],
+      [
+        "alarm",
+        "Wordt samen met jou wakker",
+        "De wekker zet de tv zelf aan, zet het volume langzaam hoger en opent Goedemorgen: tijd, weer en agenda."
+      ],
+      [
+        "house",
+        "Let op het huis",
+        "Lampen, scènes en deurbel van Home Assistant op de tv. Gaat slapen als iedereen de deur uit is."
+      ],
+      [
+        "phone",
+        "Praat met je telefoon",
+        "Bedienen, typen en berichten sturen vanaf elke telefoon of computer in huis, beschermd met een pincode."
+      ],
+      [
+        "sun",
+        "Weer dat klopt",
+        "Het huidige weer komt van het dichtstbijzijnde vliegveld: gemeten, niet geraden. Een verwachting voor 9 dagen met één OK."
+      ],
+      [
+        "lock",
+        "Zorgt voor zichzelf",
+        "Elke nacht een vergrendelde back-up, onderhoud terwijl je slaapt en een diagnose die uitlegt wat er misging."
+      ]
+    ],
+    "chapters_title": "Alles wat het doet, geordend zoals het is",
+    "chapters_lead": "Meer dan 80 functies. Kies een wereld om ze allemaal uitgelegd te zien.",
+    "privacy_title": "Wat van jou is, blijft thuis",
+    "privacy_text": "Sofaly vraagt geen account, toont geen advertenties en houdt niet bij wat je kijkt. Instellingen, foto's, berichten en back-ups blijven op de tv, of in een eigen account als je er een koppelt. De tv praat alleen met de diensten die jij aanzet, en het privacybeleid noemt ze allemaal.",
+    "privacy_link": "Lees het privacybeleid",
+    "dev_title": "Heb je een app? Zet hem op het startscherm.",
+    "dev_text": "Sofaly heeft al kant-en-klare kaarten (maan, koersen, aftellen, herinnering). Een plug-in is je eigen Android TV-app die nog een kaart naar het startscherm stuurt: de bezorging van je bestelling, de bus die eraan komt, het bericht van de VvE. Geen SDK, geen kosten, en de app blijft van jou.",
+    "dev_link": "Bekijk de ontwikkelaarskit",
+    "plans_title": "Begin gratis. Groei wanneer je wilt.",
+    "plans_text": "Basic heeft al het volledige startscherm, de speler, Luisteren, Spelen, de wekker en de schermbeveiliging. Pro en Ultra voegen de telefoon, het huis en het gezin toe.",
+    "plans_link": "Vergelijk de abonnementen",
+    "faq_title": "Korte vragen",
+    "faq": [
+      [
+        "Werkt het op mijn tv?",
+        "Het werkt op Google TV en Android TV, zoals de Chromecast met Google TV, tv's met Google TV en Android TV-boxen. De compatibiliteitspagina noemt de geteste apparaten."
+      ],
+      [
+        "Heb ik een computer nodig om het te installeren?",
+        "Nee. Installeer het via Google Play op de tv zelf en volg de stappen met de afstandsbediening."
+      ],
+      [
+        "Blijven mijn apps?",
+        "Allemaal. Sofaly vervangt alleen het startscherm: Netflix, YouTube, Prime Video en de rest openen zoals altijd, en de microfoonknop is nog steeds de Google Assistent."
+      ],
+      [
+        "Zijn er advertenties?",
+        "Nee, zelfs niet in het gratis abonnement. Sofaly verkoopt geen advertenties en houdt niet bij wat je kijkt."
+      ],
+      [
+        "Zitten er kanalen of films bij?",
+        "Nee. Sofaly ordent wat al van jou is: je apps, je bestanden en open radiozenders en podcasts."
+      ],
+      [
+        "En als ik het startscherm van Google terug wil?",
+        "Kies gewoon weer het startscherm van Google in de instellingen van de tv. Er wordt niets van je verwijderd."
+      ]
+    ],
+    "final_title": "Je tv, weer eenvoudig.",
+    "final_text": "Installeer het, druk op HOME en het hele huis snapt het."
+  },
+  "features_page": {
+    "title": "Alles wat Sofaly doet",
+    "description": "Elke functie van Sofaly uitgelegd: het startscherm in een kruis, Kijken, Luisteren, Spelen, het huis, het weer, het gezin, de telefoon en privacy.",
+    "h1": "Alles wat Sofaly doet",
+    "lead": "Op dezelfde manier geordend als het tv-scherm: één wereld tegelijk. Het label bij elke functie zegt in welk abonnement die begint.",
+    "index": "Werelden"
+  },
+  "chapters": {
+    "home": [
+      "Het kruis",
+      "Een overzichtelijk scherm dat iedereen begrijpt, ingedeeld zoals jij wilt."
+    ],
+    "watch": [
+      "Kijken",
+      "Je films, je series en een speler als in een thuisbioscoop."
+    ],
+    "listen": [
+      "Luisteren",
+      "Radio en podcasts met dezelfde zorg als video."
+    ],
+    "play": [
+      "Spelen",
+      "Al je games op één plek, klaar voor de controller."
+    ],
+    "apps": [
+      "Apps",
+      "Je apps in een volgorde die klopt."
+    ],
+    "house": [
+      "Het huis",
+      "Wekker, timers, automatiseringen en het slimme huis."
+    ],
+    "sky": [
+      "Weer en schermbeveiliging",
+      "Het juiste weer en een schermbeveiliging die je graag laat aanstaan."
+    ],
+    "family": [
+      "Gezin",
+      "Een profiel voor iedereen, zorg voor de kinderen en een warm welkom voor gasten."
+    ],
+    "phone": [
+      "Telefoon en computer",
+      "De tv praat met de apparaten in huis."
+    ],
+    "care": [
+      "Zorgt voor zichzelf",
+      "Back-up, onderhoud en diagnose zonder dat jij eraan hoeft te denken."
+    ],
+    "everyone": [
+      "Voor iedereen",
+      "Gemaakt voor mensen die op verschillende manieren zien, horen of de afstandsbediening gebruiken."
+    ],
+    "privacy": [
+      "Privacy",
+      "Geen advertenties, niets wat je volgt, en een pincode waar het ertoe doet."
+    ]
+  },
+  "features": {
+    "cross": [
+      "Het kruis",
+      "Verder kijken, Kijken, Luisteren, Spelen en Apps op één rij. De wereld die je kiest wordt groot, met de inhoud er direct onder.",
+      "◀ ▶ wisselen van wereld, ▲ ▼ omlaag door de kolom, OK opent."
+    ],
+    "continue": [
+      "Verder kijken",
+      "Eén plek om terug te gaan naar waar je mee bezig was: de aflevering, de zender, de podcast of de laatste app.",
+      "Het is het eerste item van het kruis."
+    ],
+    "topbar": [
+      "Bovenste balk",
+      "Zoeken, spraak, het weer op één regel en de klok, altijd op dezelfde plek. Hij klapt in terwijl je bladert, zodat het scherm ruimte heeft.",
+      "Ga ernaartoe met ▲."
+    ],
+    "quick-panel": [
+      "Snelpaneel",
+      "Wifi, Bluetooth, slaaptimer, geluidsuitvoer, wekker, profielen, meldingen en de boodschappenlijst, vanuit elke app.",
+      "Houd TERUG ingedrukt."
+    ],
+    "remote": [
+      "Jouw afstandsbediening, jouw regels",
+      "HOME komt altijd terug bij Sofaly. TERUG ingedrukt houden opent het snelpaneel, HOME ingedrukt houden opent het Huis, en OK ingedrukt houden op een app opent het menu ervan.",
+      "Een toetsentester toont elke knop die de tv ontvangt."
+    ],
+    "now-playing": [
+      "Speelt nu",
+      "Een pil bovenaan met de hoes en titel van wat er speelt. OK pauzeert of hervat, OK ingedrukt houden opent de app.",
+      "Zet het aan in Startscherm › Meer opties."
+    ],
+    "themes": [
+      "Thema's en achtergronden",
+      "Donker, met de afbeelding van wat de focus heeft. Galerij, met elke dag een schilderij uit The Met. Hemel, met satelliet en kaart. Of een eigen achtergrond, foto of video. Achtergronden van plug-ins werken ook, zoals de luchtopnamen van Overflight.",
+      "Donker, Galerij en Hemel in Basic; de andere in Pro."
+    ],
+    "icons": [
+      "Pictogrammen die je mooi vindt",
+      "Gebruik een pictogrammenpakket uit Play of wijzig het pictogram van één app, een voor een.",
+      "Houd OK ingedrukt op de app › Pictogram wijzigen."
+    ],
+    "card-moon": [
+      "Maanfase",
+      "De maan van vannacht en hoeveel ervan verlicht is, berekend op de tv zelf, zonder internet.",
+      "In de verwachting, op de schermbeveiliging en op het weerpictogram 's nachts. Instellingen › Uiterlijk."
+    ],
+    "card-countdown": [
+      "Aftellen",
+      "Hoeveel dagen het nog is tot de datum die je kiest, of tot de volgende feestdag.",
+      "In de pil bovenaan het scherm. Instellingen › Uiterlijk."
+    ],
+    "card-reminder": [
+      "Huisherinnering",
+      "Een notitie die terugkomt op de weekdagen die je kiest: afvaldag, medicijnen, een les.",
+      "In de pil bovenaan het scherm. Instellingen › Uiterlijk."
+    ],
+    "card-status": [
+      "Status van je dienst",
+      "De tv controleert een adres dat je opgeeft en laat zien of het werkt: de thuisserver, de website van de winkel.",
+      "In de pil bovenaan het scherm. Instellingen › Uiterlijk."
+    ],
+    "card-rates": [
+      "Koersen van vandaag",
+      "Valuta, bitcoin en ether tegen de koers van vandaag, uit open officiële bronnen.",
+      "Naast het weer, in de bovenste balk. Instellingen › Uiterlijk."
+    ],
+    "card-match": [
+      "De volgende wedstrijd van je team",
+      "Wanneer en tegen wie je team de volgende keer speelt, op een kaart op het startscherm.",
+      "In het tv-item van het kruis. Instellingen › Uiterlijk."
+    ],
+    "plugin-cards": [
+      "Kaarten van andere apps",
+      "Naast de eigen kaarten van Sofaly zetten partner-apps hun kaarten op het startscherm: de bezorging van je bestelling, de bus, het bericht van de VvE.",
+      "Kaarten staan aan het eind van Kijken."
+    ],
+    "network-library": [
+      "Van de computer",
+      "Video's, muziek en foto's uit Plex, Jellyfin, Emby, mappen op pc of NAS (SMB, WebDAV, FTP, SFTP, NFS), OneDrive, Dropbox, Box, Google Drive, UPnP en USB-sticks.",
+      "Servers die aanstaan en USB-sticks verschijnen vanzelf; de rest voeg je toe met Toevoegen."
+    ],
+    "player": [
+      "Een speler die alles afspeelt",
+      "Dolby-geluid (AC3, E-AC3), DTS en TrueHD, en ondertitels van Blu-ray, dvd en anime, zonder Kodi of VLC te installeren.",
+      "Druk tijdens een video op ▼ voor audio, ondertiteling en grootte van de ondertitels."
+    ],
+    "resume": [
+      "Gaat verder waar je stopte",
+      "Films en afleveringen komen terug op de juiste plek. De volgende aflevering start na 10 seconden, en na 3 achter elkaar vraagt de tv of je nog kijkt.",
+      "Werkt vanzelf."
+    ],
+    "skip-intro": [
+      "Intro overslaan",
+      "Als de intro van een serie bekend is, verschijnt “Intro overslaan · OK”. Je kunt de intro ook één keer markeren en de tv onthoudt het.",
+      "Staat standaard aan."
+    ],
+    "audio-subtitles": [
+      "Voorkeur voor audio en ondertiteling",
+      "Origineel met ondertitels of nagesynchroniseerd, één keer gekozen en per titel onthouden. Ondertitels van internet als het bestand er geen heeft.",
+      "Tv en films › Audio en ondertiteling."
+    ],
+    "easy-viewing": [
+      "Beter zien en horen",
+      "Ondertitels op een zwart vlak of in geel, “Duidelijkere stem” die spraak naar voren haalt, en “Gelijk volume” dat harde films temt en zachte optilt.",
+      "In het ▼-menu van de speler."
+    ],
+    "auto-subtitles": [
+      "Automatische ondertitels",
+      "Als er geen ondertitel in je taal is, vertaalt de tv de ondertitel die er wel is.",
+      "Kies het in het ondertitelmenu van de speler."
+    ],
+    "movie-pages": [
+      "Volledige filmpagina's",
+      "Poster, beoordeling, cast, trailer, leeftijdskeuring en de filmreeks op een mooie pagina, in grote tekst. Met “Wie is die acteur?”: foto, personage en ander werk.",
+      "OK op een film of serie."
+    ],
+    "lists": [
+      "Je lijsten van Trakt en Simkl",
+      "Wat je wilt kijken en wat je gekeken hebt, gesynchroniseerd met je account en je andere apparaten.",
+      "Log in met de QR in Tv en films › Diensten."
+    ],
+    "search": [
+      "Eén zoekopdracht voor alles",
+      "Vindt films, series, zenders en apps tegelijk, en neemt dezelfde zoekopdracht mee naar YouTube, Netflix of Prime Video.",
+      "In de bovenste balk, of met je stem."
+    ],
+    "radio": [
+      "Radio van over de hele wereld",
+      "Duizenden open radiozenders, op naam, land of genre, met je favorieten en de laatst gespeelde.",
+      "Luisteren › Radio."
+    ],
+    "podcasts": [
+      "Podcasts",
+      "Abonneer op naam, luister op de tv en ga verder met de aflevering waar je stopte.",
+      "Luisteren › Podcasts."
+    ],
+    "podcast-search": [
+      "Podcasts ontdekken",
+      "Doorzoek de hele open podcastcatalogus en zie wat er populair is in jouw land.",
+      "Luisteren › Podcasts › Zoeken."
+    ],
+    "podcast-player": [
+      "Speler op volledig scherm",
+      "Grote hoes, hoofdstukken, snelheid en een slaaptimer die pauzeert aan het eind van de aflevering.",
+      "Luisteren › Speelt nu › Speler openen."
+    ],
+    "phone-sound": [
+      "Geluid in je koptelefoon",
+      "Het geluid van de film gaat naar de koptelefoon van je telefoon, synchroon, om 's avonds te kijken zonder iemand wakker te maken.",
+      "▼-menu van de speler › Geluid op telefoon."
+    ],
+    "games-hub": [
+      "Al je games op één plek",
+      "GeForce NOW, Steam Link, Moonlight, PS Remote Play, RetroArch en de games van de tv verlaten de rij met apps en wonen in Spelen, gegroepeerd in Cloud, Van de pc, Retro en Op de tv.",
+      "Houd OK ingedrukt op een game om de groep te wijzigen."
+    ],
+    "pc-games": [
+      "Speel op de pc boven",
+      "De tv wekt de computer via het netwerk, wacht tot hij antwoordt en opent Moonlight of Steam Link. De pc via het netwerk wekken werkt ook buiten Spelen, via een snelkoppeling op het startscherm.",
+      "Sla de computer één keer op in het webpaneel."
+    ],
+    "network-test": [
+      "Test het netwerk",
+      "Vertelt of je internet cloudgaming aankan, en waarschuwt voordat je een cloudgame opent op een zwak netwerk.",
+      "Spelen › Het netwerk testen."
+    ],
+    "controllers": [
+      "Gamecontrollers",
+      "Koppel een controller zonder door menu's te zoeken, zie bovenaan welke verbonden zijn en laat, als je wilt, een verbonden controller Spelen openen.",
+      "Spelen › Controller koppelen."
+    ],
+    "game-mode": [
+      "Gamemodus",
+      "Terwijl een game open is, wachten de schermbeveiliging, het nachtfilter en meldingen tot de partij voorbij is.",
+      "Gaat vanzelf aan."
+    ],
+    "crew": [
+      "Je Discord-crew",
+      "Zie wie van je Discord-server online is en in welke game, en roep de crew op vanaf de tv.",
+      "Zet de serverwidget aan en plak het nummer ervan."
+    ],
+    "apps-top": [
+      "Je favorieten vooraan",
+      "Apps toont de 8 apps die je het meest opent, en “Alle apps” toont de rest in een raster.",
+      "Apps, in het kruis."
+    ],
+    "apps-organize": [
+      "Op jouw manier",
+      "Verplaats, stapel of verberg elke app. Fabrieksapps die je niet gebruikt, gaan uit de weg.",
+      "Houd OK ingedrukt op een app."
+    ],
+    "app-buttons": [
+      "Netflix- en YouTube-knoppen vrij",
+      "De app-knoppen van de afstandsbediening openen elke app die je wilt. Druk om te openen, houd 3 seconden ingedrukt om hem te wijzigen.",
+      "Werkt met de originele afstandsbediening."
+    ],
+    "alarm": [
+      "Een wekker die de tv aanzet",
+      "Op tijd gaat de tv vanzelf aan, het volume stijgt langzaam en er is een sluimerknop. Elke wekker heeft een naam, dagen, een geluid en een volume, zelfs een app of de laatste zender.",
+      "Houd TERUG ingedrukt › Wekker."
+    ],
+    "timers": [
+      "Timers en zandloper",
+      "Tot 3 timers met een naam en een melding op het scherm, plus een stopwatch.",
+      "“Hey Google, open Herinner me over 10 minuten”."
+    ],
+    "gentle-off": [
+      "Zacht uitgaan",
+      "De slaaptimer dimt het scherm en zet het volume lager in de laatste 5 minuten, zodat niemand wakker wordt van het afbreken.",
+      "Tegel Timer in het snelpaneel."
+    ],
+    "idle-off": [
+      "Gaat uit als niemand kijkt",
+      "Na de tijd die je kiest zonder knopdruk vraagt de tv in grote tekst of je nog kijkt, en gaat dan slapen.",
+      "Scherm en stroom › Uitzetten bij geen gebruik."
+    ],
+    "recipes": [
+      "Kant-en-klare recepten",
+      "Slapen, Soap en Wedstrijd stellen de tv in één keer in (geluid, scherm en meldingen). Eén OK past toe, nog een maakt het ongedaan.",
+      "Snelpaneel."
+    ],
+    "automations": [
+      "Automatiseringen",
+      "Op een vaste tijd, bij een knopdruk of als er iets gebeurt (de film is gepauzeerd, iedereen is weg, er komt regen): de tv opent een app, voert een scène uit of gaat uit.",
+      "Huis en automatiseringen › Automatiseringen."
+    ],
+    "home-assistant": [
+      "Home Assistant op de tv",
+      "Lampen, stekkers, ventilatoren, zonwering, airco en scènes, gewoon vanaf de bank. Het praat met je server op je eigen netwerk, zonder cloud ertussen.",
+      "Houd HOME ingedrukt."
+    ],
+    "doorbell": [
+      "Wie staat er voor de deur",
+      "Als de deurbel gaat, verschijnt de opname van de camera over wat je aan het kijken bent.",
+      "Met Home Assistant."
+    ],
+    "presence": [
+      "Slaapt als iedereen weg is",
+      "Met een UniFi-router merkt de tv dat de telefoons van de huisgenoten weg zijn en gaat hij slapen.",
+      "Scherm en stroom › Meer opties."
+    ],
+    "voice": [
+      "Spraaksnelkoppelingen",
+      "“Hey Google, open Weerbericht” leest de verwachting voor. Films, Mijn huis, Prikbord, timers en uitzetten openen op dezelfde manier.",
+      "Gebruik de microfoonknop."
+    ],
+    "weather-now": [
+      "Het weer van vandaag, gemeten",
+      "De temperatuur komt uit het rapport van het dichtstbijzijnde vliegveld, en het dag/nachtpictogram volgt zonsopkomst en zonsondergang waar de tv staat.",
+      "Bovenaan het startscherm."
+    ],
+    "weather-3": [
+      "Regen uit drie modellen",
+      "De kans op regen is de mediaan van drie weermodellen (ECMWF, ICON en GFS), die minder vaak missen dan elk afzonderlijk.",
+      "Verschijnt vanzelf in de verwachting."
+    ],
+    "forecast": [
+      "Verwachting op volledig scherm",
+      "De komende 24 uur, een regengrafiek, 9 dagen, luchtkwaliteit, de zon en de maan.",
+      "OK op het weer."
+    ],
+    "rain-alert": [
+      "Regenwaarschuwing",
+      "Een melding over je app als het bijna gaat regenen. Tijd om de was binnen te halen.",
+      "Startscherm › Weer."
+    ],
+    "screensaver": [
+      "Een schermbeveiliging die je graag laat aanstaan",
+      "Begroeting, een grote klok, de datum, het weer en kaarten met meldingen, de volgende wekker en berichten. In het thema Galerij beweegt het schilderij van de dag langzaam, zodat er niets inbrandt.",
+      "Scherm en stroom › Schermbeveiliging."
+    ],
+    "photos": [
+      "Je foto's op de schermbeveiliging",
+      "Stuur foto's vanaf je telefoon of kies een netwerkmap. Ze blijven in een map die alleen de tv kan zien.",
+      "Een QR opent het paneel op de juiste pagina."
+    ],
+    "good-morning": [
+      "Goedemorgen",
+      "Als je de wekker uitzet: begroeting, tijd, verwachting en de agenda van vandaag, en de tv kan het voorlezen.",
+      "“Hey Google, open Goedemorgen”."
+    ],
+    "calendar": [
+      "Google Agenda",
+      "De afspraken en verjaardagen van vandaag op de tv, van één account of van allemaal samen.",
+      "OK op de datum bovenaan."
+    ],
+    "night-filter": [
+      "Nachtfilter",
+      "'s Avonds wordt het scherm warmer en zachter voor de ogen.",
+      "Scherm en stroom › Meer opties."
+    ],
+    "recap": [
+      "Weekoverzicht",
+      "Op zondagavond een kaart met schermtijd per app, verbruikt internet en netwerkonderbrekingen.",
+      "Scherm en stroom › Meer opties."
+    ],
+    "profiles": [
+      "Een profiel voor iedereen",
+      "Elk Google-account op de tv heeft eigen favorieten, eigen dingen om verder te kijken en een eigen volgorde van apps.",
+      "Houd TERUG ingedrukt › Profielen."
+    ],
+    "kid-profile": [
+      "Kinderprofiel",
+      "Markeer een profiel als kinderprofiel: kindermodus en bedtijd gaan vanzelf aan, en eruit gaan vraagt om de pincode van de ouders.",
+      "Snelpaneel › Profielen."
+    ],
+    "bedtime": [
+      "Bedtijd",
+      "Tijdens de uren die je kiest, openen alleen toegestane apps en heeft het volume een maximum.",
+      "Gezin › Meer opties."
+    ],
+    "screen-time": [
+      "Dagelijkse schermtijd",
+      "Een dagelijkse tv-limiet voor wie je maar kiest.",
+      "Gezin › Meer opties."
+    ],
+    "guest": [
+      "Gastmodus",
+      "Verbergt je profiel, je agenda en de apps die je kiest terwijl je bezoek hebt.",
+      "Tegel Gast in het snelpaneel."
+    ],
+    "guest-wifi": [
+      "Gastwifi",
+      "Typ het wachtwoord één keer; gasten scannen een QR op de tv en zijn verbonden.",
+      "Gezin › Gastwifi."
+    ],
+    "family-board": [
+      "Familieprikbord",
+      "Boodschappenlijst, vastgezette berichtjes en de verjaardagen van vandaag, in het snelpaneel en op de schermbeveiliging.",
+      "Bewerk vanaf je telefoon; OK vinkt een item af."
+    ],
+    "family-link": [
+      "Berichten van ver weg",
+      "Familie die ver weg woont stuurt berichten en foto's naar de tv thuis, van overal.",
+      "Uitnodigen via link."
+    ],
+    "video-message": [
+      "Videoberichten",
+      "Een korte video van de familie verschijnt op de tv met de naam van de afzender.",
+      "Vanuit het paneel op de telefoon."
+    ],
+    "web-panel": [
+      "Paneel op je telefoon en computer",
+      "Afstandsbediening, typen met accenten, een live beeld van het tv-scherm, foto's voor de schermbeveiliging, het prikbord en back-ups, vanuit de browser van elk apparaat in huis.",
+      "Toegang op afstand › Inloggen vanaf de telefoon (QR)."
+    ],
+    "ask-tv": [
+      "Vraag het de tv",
+      "Typ of zeg “open YouTube”, “herinner me over 7 minuten”, “zet uit over 30 minuten” en de tv doet het.",
+      "In het paneel op de telefoon."
+    ],
+    "share": [
+      "Delen vanaf je telefoon",
+      "Als app geïnstalleerd verschijnt het paneel bij Delen: een YouTube-video opent op de tv, een link opent op de tv en een tekst wordt een bericht.",
+      "Delen › Sofaly."
+    ],
+    "network-drive": [
+      "De tv als netwerkstation",
+      "Kopieer bestanden naar de tv door ze te slepen: op Windows verschijnt hij in Deze pc zoals een telefoon; op Mac, Linux en telefoons via beveiligde WebDAV.",
+      "Toegang op afstand › Tonen als netwerkstation."
+    ],
+    "windows": [
+      "Snelkoppeling op Windows",
+      "De tv verschijnt in Netwerk in de Verkenner met een snelkoppeling die het paneel opent, ook als het IP verandert.",
+      "Aan zolang het paneel aanstaat."
+    ],
+    "continue-tv": [
+      "Verder op een andere tv",
+      "Gestopt in de woonkamer? Stuur het naar de slaapkamer: de andere tv toont “Verder waar je stopte?” en opent op dezelfde plek.",
+      "Menu van de speler › Naar een andere tv sturen."
+    ],
+    "together": [
+      "Samen kijken",
+      "Twee huizen kijken hetzelfde op hetzelfde moment: pauzeer hier, dan pauzeert het daar, met reacties in de hoek.",
+      "Uitnodiging tussen tv's van de familie."
+    ],
+    "homes": [
+      "Meerdere huizen",
+      "Zorg voor de tv bij jou thuis en bij je ouders vanaf dezelfde telefoon.",
+      "Vanuit de telefoonapp."
+    ],
+    "backup": [
+      "Vergrendelde back-up, elke nacht",
+      "Terwijl de tv niet gebruikt wordt, een volledige back-up vergrendeld met jouw wachtwoord. De laatste 7 blijven bewaard, en elke nacht controleert de tv of hij zou herstellen.",
+      "Systeem › Automatische back-up."
+    ],
+    "cloud-backup": [
+      "Een kopie in de cloud",
+      "Kopieën gaan ook naar je Google Drive, OneDrive, Dropbox, Box, NAS of USB-stick. Vergrendeld: zelfs de cloud kan ze niet lezen.",
+      "Systeem › Automatische back-up."
+    ],
+    "maintenance": [
+      "Nachtelijk onderhoud",
+      "Ruimt restjes op, herstelt machtigingen en plant wekkers opnieuw in terwijl je slaapt.",
+      "Draait vanzelf."
+    ],
+    "diagnose": [
+      "Tv-diagnose",
+      "Internet, DNS en waarom een app stopte, alles tegelijk en in zinnen die je begrijpt.",
+      "“Hey Google, open Tv-diagnose”."
+    ],
+    "scoreboard": [
+      "Hoe het met deze tv gaat",
+      "De tv meet zijn eigen cijfers (tijd om te openen, crashes, wekkers op tijd) en toont ze op één scherm. Er verlaat niets je huis.",
+      "Systeem › Hoe het met deze tv gaat."
+    ],
+    "safe-mode": [
+      "Veilige modus",
+      "Als een nieuwe versie zich direct na het installeren misdraagt, valt de tv terug op een veilige modus en toont hij de uitweg.",
+      "Verschijnt alleen als het nodig is."
+    ],
+    "whats-new": [
+      "Wat er veranderd is",
+      "Elke versie legt uit wat er veranderd is en brengt een korte checklist mee om met de afstandsbediening te proberen.",
+      "Systeem › Wat er veranderd is."
+    ],
+    "report": [
+      "Een probleem melden",
+      "Vertel wat er gebeurde met de afstandsbediening of vanaf de telefoon; de tv verzamelt wat nodig is, niets persoonlijks.",
+      "Systeem › Een probleem melden."
+    ],
+    "languages": [
+      "27 talen",
+      "Portugees, Engels, Spaans, Frans, Duits, Italiaans, Russisch, Pools, Turks, Japans, Chinees, Koreaans, Hindi, Indonesisch en Arabisch, met schermen van rechts naar links. Daarnaast Nederlands, Zweeds, Deens, Noors, Fins, Tsjechisch, Grieks, Hongaars, Roemeens, Oekraïens, Vietnamees en Thai. Het volgt de taal van de tv.",
+      "Verandert vanzelf mee met de tv."
+    ],
+    "text-size": [
+      "Tekstgrootte",
+      "Normaal, Groot of Groter, op elk scherm, getest zodat tekst nooit wordt afgekapt of overlapt.",
+      "Startscherm › Tekstgrootte."
+    ],
+    "simple-mode": [
+      "Eenvoudige modus",
+      "Grote kaarten, minder dingen op het scherm en de naam van de app hardop uitgesproken. Voor wie de afstandsbediening lastig vindt.",
+      "Startscherm › Meer opties."
+    ],
+    "read-aloud": [
+      "Voorlezen",
+      "De tv zegt wat de focus heeft, met navigatiegeluiden zodat je weet waar je bent.",
+      "Startscherm › Meer opties."
+    ],
+    "contrast": [
+      "Hoog contrast",
+      "Tekst met een contrastverhouding van 7:1 en elk scherm leesbaar voor de schermlezer van Android.",
+      "Volgt de toegankelijkheidsinstellingen van de tv."
+    ],
+    "no-ads": [
+      "Helemaal geen advertenties",
+      "Niet in het gratis abonnement, geen enkele gesponsorde tip. Het scherm is van jou.",
+      "Altijd."
+    ],
+    "no-tracking": [
+      "Niets wat je volgt",
+      "Geen account, geen gebruiksanalyse en geen crashrapport dat vertrekt zonder dat jij het stuurt.",
+      "Altijd."
+    ],
+    "pin": [
+      "Een pincode waar het ertoe doet",
+      "Alles wat de tv verandert, vraagt om een pincode, en acties die iets verwijderen vragen het nog een keer. Te vaak fout? De wachttijd wordt elke keer langer.",
+      "Toegang op afstand › Pincode."
+    ],
+    "private-dns": [
+      "Privé-DNS",
+      "Kies een veilige DNS (DNS over TLS); als die niet antwoordt, gaat de tv vanzelf terug naar de vorige.",
+      "Geavanceerd › Netwerk."
+    ],
+    "usage": [
+      "Internet per app",
+      "Hoeveel internet elke app gebruikte en met wie hij praatte, 7 dagen bewaard op de tv.",
+      "Geavanceerd › Netwerk."
+    ],
+    "google-inside": [
+      "Google blijft werken",
+      "De Google Assistent, Gemini, zoeken en je Google-account werken zoals altijd. Sofaly verandert het startscherm, niet je tv.",
+      "Gebruik de microfoonknop zoals altijd."
+    ],
+    "motion": [
+      "Animaties die bij je tv passen",
+      "Krachtige tv's animeren alles; eenvoudigere animeren alleen wat jij kiest en vertragen vanzelf als er frames wegvallen.",
+      "Instellingen › Uiterlijk."
+    ],
+    "frame-rate": [
+      "Films zonder haperingen",
+      "De tv schakelt over naar 24 Hz terwijl een film speelt, zodat camerabewegingen vloeiend blijven.",
+      "Gaat aan met de film; het scherm knippert een seconde zwart."
+    ],
+    "wifi-check": [
+      "Snelheidstest van internet",
+      "Meet je internet met één tik en toont wifisignaal, vertraging en snelheid in gewone woorden.",
+      "Instellingen › Geavanceerd › Netwerk."
+    ]
+  },
+  "plans_page": {
+    "title": "Abonnementen · Sofaly",
+    "description": "Basic, Pro en Ultra: wat elk abonnement van Sofaly bevat.",
+    "h1": "Abonnementen",
+    "lead": "Begin met Basic, dat al het volledige startscherm is. De verkoop is nog niet open: voorlopig is alles gratis.",
+    "price_soon": "Prijs bij de lancering",
+    "basic_who": "Voor wie op de bank zit",
+    "pro_who": "Voor wie voor de tv zorgt",
+    "ultra_who": "Voor het huis en het gezin",
+    "basic_text": "Het startscherm in een kruis, de speler, Luisteren, Spelen, de wekker, de schermbeveiliging en alle toegankelijkheid.",
+    "pro_text": "Alles uit Basic, plus de telefoon, automatiseringen, het slimme huis, berichten van ver weg, kant-en-klare kaarten voor het startscherm en volledige personalisatie.",
+    "ultra_text": "Alles uit Pro, plus weer uit drie modellen, volledige filmpagina's, automatische ondertitels, meerdere huizen en samen kijken.",
+    "includes": "Inbegrepen",
+    "everything_basic": "Alles uit Basic",
+    "everything_pro": "Alles uit Pro"
+  },
+  "dev_page": {
+    "title": "Ontwikkelaars · Sofaly",
+    "description": "Zet de kaart van je Android TV-app op het startscherm van Sofaly. Geen SDK, geen kosten.",
+    "eyebrow": "Ontwikkelaarskit",
+    "h1": "Je app op het startscherm waar mensen echt naar kijken.",
+    "lead": "Een plug-in voor Sofaly is je eigen Android TV-app. Hij stuurt een korte kaart en Sofaly tekent die op het startscherm, in grote tekst en in de stijl van het huis.",
+    "cta_start": "Begin met de sjabloon",
+    "cta_spec": "Lees het volledige contract",
+    "why_title": "Waarom een plug-in bouwen",
+    "why": [
+      [
+        "star",
+        "Vooraan, niet in een la",
+        "Je kaart staat op het startscherm, waar het gezin kijkt elke keer dat de tv aangaat, niet verloren in een lijst met apps."
+      ],
+      [
+        "puzzle",
+        "Geen SDK, geen kosten",
+        "Eén ContentProvider en één rij gegevens. Geen bibliotheek van ons om te installeren, geen kosten om te betalen."
+      ],
+      [
+        "heart",
+        "Jouw app, jouw zaak",
+        "Publiceer op Play zoals je wilt, gratis of betaald. Sofaly tekent alleen de kaart; de app en de klanten zijn van jou."
+      ]
+    ],
+    "can_title": "Wat je verder kunt bouwen dan wij",
+    "can": [
+      [
+        "Je bezorging",
+        "Bestelling is onderweg, nog 12 min."
+      ],
+      [
+        "Je bus",
+        "Lijn 42 komt over 6 min."
+      ],
+      [
+        "Je sportschool",
+        "Les van vandaag om 19:00."
+      ],
+      [
+        "Je gebouw",
+        "Morgen geen water, van 9:00 tot 12:00."
+      ],
+      [
+        "Je winkel",
+        "Aanbieding van de dag: 20% korting op koffie."
+      ],
+      [
+        "Je club",
+        "Training verplaatst naar zaterdag."
+      ]
+    ],
+    "steps_title": "Twee stappen",
+    "step1": "Declareer een provider met de action van Sofaly",
+    "step2": "Antwoord met één rij: titel, waarde, detail en kleur",
+    "rules_title": "Regels die de kijker beschermen",
+    "rules": [
+      "Je tekent nooit op het startscherm: je stuurt tekst en een kleur, Sofaly tekent.",
+      "Sofaly stuurt je nooit iets over de apps, accounts of het kijkgedrag van de persoon.",
+      "Plug-ins horen bij het Pro-abonnement, en de persoon kiest welke er verschijnen."
+    ],
+    "soon_title": "Binnenkort",
+    "soon_text": "Achtergrondplug-ins en een etalage met plug-ins direct op de tv.",
+    "template_title": "Kant-en-klare sjabloon",
+    "template_text": "Twee voorbeeldapps die je vandaag kunt bouwen: aftellen tot een datum die de persoon op de tv kiest, en de maanfase van vandaag. Geen internet, geen account. MIT No Attribution: kopieer het, hernoem het pakket, publiceer.",
+    "demo": [
+      [
+        "Bezorging",
+        "12 min"
+      ],
+      [
+        "Bus 42",
+        "6 min"
+      ],
+      [
+        "Sportschool",
+        "19:00"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Zie het op de tv",
+    "lead": "Deze schermen spelen vanzelf af, zoals Sofaly eruitziet en beweegt op een echte tv. Kies er een om erop te blijven.",
+    "screens": {
+      "forecast": [
+        "Weersverwachting",
+        "De komende 24 uur, de kans op regen en de maan, in één oogopslag en in grote letters.",
+        [
+          "Lichte motregen",
+          "Komende 24 uur",
+          "Kans op regen",
+          "Nu",
+          "Max 27° · min 19° · voelt als 26°"
+        ]
+      ],
+      "screensaver": [
+        "Schermbeveiliging",
+        "Elke dag een schilderij uit The Met, de klok en het weer van de dag. Een tv die je graag laat aanstaan.",
+        [
+          "Goedenavond",
+          "Schilderij van de dag · The Met",
+          "Wassende maan"
+        ]
+      ],
+      "player": [
+        "Films",
+        "Nagesynchroniseerd of ondertiteld met één knop, de intro voor je overgeslagen, en terug waar je stopte.",
+        [
+          "De lange weg naar huis",
+          "Audio",
+          "Origineel + ondertitels",
+          "Nagesynchroniseerd",
+          "Intro overslaan"
+        ]
+      ],
+      "radio": [
+        "Radio & podcasts",
+        "Zenders van de hele wereld en je podcasts, met een speler op volledig scherm.",
+        [
+          "Speelt nu",
+          "Live radio",
+          "Jazz van de kust",
+          "Ochtendnieuws",
+          "Samba & bossa",
+          "Podcast · aflevering 12"
+        ]
+      ],
+      "alarm": [
+        "Wekker",
+        "De tv gaat vanzelf aan, het geluid stijgt langzaam en de verwachting van de dag staat al klaar.",
+        [
+          "Goedemorgen",
+          "Volume stijgt",
+          "Sluimeren · 10 min",
+          "De tv ging vanzelf aan"
+        ]
+      ],
+      "cards": [
+        "Kaarten op het startscherm",
+        "Aftellen, herinneringen, koersen, de maan en de volgende wedstrijd van je team, direct op het startscherm.",
+        [
+          "Nog 12 dagen tot de vakantie",
+          "Medicijn om 20:00",
+          "Garagecamera reageert niet meer",
+          "Volgende wedstrijd",
+          "za · 16:00",
+          "Wassende maan",
+          "Koersen",
+          "Aftellen",
+          "Jouw team × Rivalen"
+        ]
+      ],
+      "games": [
+        "Games",
+        "Cloud-, pc- en retrogames op één plek, met je netwerk getest voordat je speelt.",
+        [
+          "Controller verbonden",
+          "Netwerk klaar voor cloudgaming",
+          "Cloud",
+          "Pc",
+          "Retro",
+          "Crew",
+          "Games"
+        ]
+      ],
+      "phone": [
+        "Telefoon",
+        "Het paneel op je telefoon: afstandsbediening, typen, een live beeld van het scherm en berichten die op de tv verschijnen.",
+        [
+          "Naar de tv sturen",
+          "Het eten is klaar!",
+          "Bericht van de telefoon",
+          "Afstandsbediening",
+          "Typen",
+          "Scherm",
+          "Foto's"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "De tv verschijnt in Deze pc zoals een telefoon: sleep films en foto's er direct in.",
+        [
+          "Deze pc",
+          "Sofaly · Woonkamer",
+          "Lokale schijf",
+          "Open het tv-paneel",
+          "Kopiëren naar de tv… 68%"
+        ]
+      ],
+      "kids": [
+        "Gezin",
+        "Kinderprofiel, bedtijd en schermtijd, allemaal achter de pincode van de ouders.",
+        [
+          "Bedtijd",
+          "Tot morgen!",
+          "Alleen kinderapps tot 7:00",
+          "Pincode van de ouders"
+        ]
+      ]
+    }
+  }
+}

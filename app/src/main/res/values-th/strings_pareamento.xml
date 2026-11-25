@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">เปิดตัวเลือกสำหรับนักพัฒนาซอฟต์แวร์ไม่ได้ (%1$s)</string>
+    <string name="pn_porta_achada">พบพอร์ตจับคู่ %1$d</string>
+    <string name="pn_mdns_falhou">ค้นหาเครือข่ายไม่สำเร็จ (%1$s)</string>
+    <string name="pn_pareando">กำลังจับคู่…</string>
+    <string name="pn_confirme">อ่านรหัสแล้ว หากต้องการจับคู่ ให้กด OK บนรีโมตที่ “%1$s”</string>
+    <string name="pn_so_controle">มีเพียงปุ่มบนรีโมตเท่านั้นที่ยืนยันการจับคู่ได้</string>
+</resources>

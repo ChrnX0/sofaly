@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">คอนทราสต์สูง</string>
+    <string name="elv_ac_det">ข้อความสว่างขึ้นและขอบชัดขึ้นในทุกหน้าจอ (อย่างน้อย 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">เสียงบรรยายภาพ</string>
+    <string name="elv_ad_det">เลือกแทร็กเสียงที่บรรยายฉากเมื่อมี</string>
+    <string name="elv_sdh_titulo">คำบรรยายสำหรับผู้บกพร่องทางการได้ยิน</string>
+    <string name="elv_sdh_det">แสดงคำบรรยายพร้อมเสียงประกอบ ([ประตูปิดดังปัง]) ในภาษาของทีวีเสมอ แม้จะพากย์แล้ว</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">โปสเตอร์และเรื่องย่อสำหรับวิดีโอ</string>
+    <string name="elv_cat_explica">ส่งเฉพาะชื่อเรื่องไปที่ TMDB ไม่ส่งโฟลเดอร์หรือเซิร์ฟเวอร์</string>
+    <string name="elv_cat_ligado">เปิด</string>
+    <string name="elv_cat_desligado">ปิด</string>
+    <string name="elv_cat_ep">%1$s · S%2$d E%3$d</string>
+    <string name="pod_temp_ep">S%1$d E%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · ตอนที่ %2$d</string>
+    <string name="elv_cat_temporada">%1$s · ซีซัน %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">ซีซัน: %d</string>
+    <string name="elv_cat_procurando">กำลังค้นหาโปสเตอร์…</string>
+    <string name="elv_cat_nada">ไม่พบใน TMDB กด OK ค้างเพื่อพิมพ์ชื่อที่ถูกต้อง</string>
+    <string name="elv_cat_corrigir_titulo">แก้ไข: %s</string>
+    <string name="elv_cat_corrigir_explica">โปสเตอร์หรือเรื่องย่อไม่ถูกต้องไหม ขอผลลัพธ์ถัดไป หรือพิมพ์ชื่อและปีที่ถูกต้อง ชื่อว่างจะกลับไปเป็นอัตโนมัติ</string>
+    <string name="elv_cat_nao_e">ไม่ใช่เรื่องนี้</string>
+    <string name="elv_cat_escrever">พิมพ์ชื่อ</string>
+    <string name="elv_cat_campo">ชื่อและปี เช่น Dune 2021</string>
+    <string name="elv_cat_salvar">บันทึก</string>
+    <string name="elv_cat_dica">แก้ไข</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">รายการ</string>
+    <string name="elv_bib_pasta">โฟลเดอร์</string>
+    <string name="elv_bib_servidor">เซิร์ฟเวอร์</string>
+    <string name="elv_bib_nuvem">คลาวด์</string>
+    <string name="elv_bib_addon">ส่วนเสริม</string>
+</resources>

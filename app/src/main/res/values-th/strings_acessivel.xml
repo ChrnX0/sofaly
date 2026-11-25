@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Player for people who see and hear less well (14/11/2026): subtitles, even volume, clearer voices. -->
+<resources>
+    <string name="acess_legenda_fundo">คำบรรยายพื้นหลังสีดำ</string>
+    <string name="acess_legenda_amarela">คำบรรยายสีเหลือง</string>
+    <string name="acess_volume">ระดับเสียงเท่ากันทุกช่อง</string>
+    <string name="acess_voz">เสียงพูดชัดขึ้น</string>
+    <string name="acess_volume_ligado">ระดับเสียงเท่ากัน เปิด: ช่องและภาพยนตร์ที่เสียงเบาจะดังขึ้น</string>
+    <string name="acess_volume_desligado">ระดับเสียงเท่ากัน ปิด</string>
+    <string name="acess_voz_ligado">เสียงพูดชัดขึ้น เปิด</string>
+    <string name="acess_voz_desligado">เสียงพูดชัดขึ้น ปิด</string>
+    <string name="acess_config_titulo">เสียงและคำบรรยาย</string>
+    <string name="acess_config_texto">สำหรับผู้ที่มองเห็นหรือได้ยินไม่ชัด มีในเมนู ▼ ของเครื่องเล่นด้วย</string>
+</resources>

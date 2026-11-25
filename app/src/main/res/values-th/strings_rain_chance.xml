@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como a chance de chuva aparece (RainChance.kt, 24/11/2026). -->
+<resources>
+    <string name="rc_titulo" formatted="false">โอกาสฝนตก</string>
+    <string name="rc_baixa" formatted="false">ต่ำ</string>
+    <string name="rc_media" formatted="false">ปานกลาง</string>
+    <string name="rc_alta" formatted="false">สูง</string>
+    <string name="rc_modo_numero" formatted="false">ตัวเลข (37%)</string>
+    <string name="rc_modo_palavra" formatted="false">คำ (ปานกลาง)</string>
+    <string name="rc_modo_ambos" formatted="false">ทั้งสองแบบ (ปานกลาง 37%)</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">Ẩn tóm tắt cho đến khi bạn xem</string>
+    <string name="cf_spoiler">Ẩn tóm tắt của các tập chưa xem</string>
+    <string name="cf_spoiler_det">Tóm tắt chỉ hiện sau khi bạn bắt đầu xem tập</string>
+    <string name="cf_segundo">Ngôn ngữ thứ hai</string>
+    <string name="cf_segundo_det">Dùng khi video không có âm thanh hoặc phụ đề theo ngôn ngữ của TV</string>
+    <string name="cf_nenhum">Không có</string>
+    <string name="cf_proximo">Đếm ngược tập tiếp theo</string>
+    <string name="cf_proximo_det">Chờ bao lâu trước khi tập tiếp theo tự bắt đầu</string>
+    <string name="cf_proximo_nao">Không tự bắt đầu</string>
+    <string name="cf_segundos">%1$d giây</string>
+    <string name="cf_consent_titulo">Gửi dữ liệu đến %1$s?</string>
+    <string name="cf_consent_texto">Bật mục này sẽ gửi đến %1$s qua internet: các tựa bạn đánh dấu và xem trên TV này cùng chỗ bạn đã dừng. Chúng được lưu trong tài khoản %1$s của bạn theo quy định quyền riêng tư của %1$s. Bạn có thể tắt bất cứ lúc nào.</string>
+    <string name="cf_consent_sim">Tôi đồng ý</string>
+</resources>

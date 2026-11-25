@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">ตรวจสอบการกู้คืนผ่าน</string>
+    <string name="l51_ensaio_falhou">สำเนาที่บันทึกไว้จะกู้คืนไม่ได้ (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Wi-Fi สำหรับผู้เยี่ยมชม</string>
+    <string name="l51_wifi_nao">ยังไม่ได้ตั้ง: พิมพ์ครั้งเดียว แล้วผู้เยี่ยมชมสแกนคิวอาร์</string>
+    <string name="l51_wifi_dica">ใช้เครือข่ายผู้เยี่ยมชมของเราเตอร์: ทุกคนในห้องอ่านรหัสผ่านบนหน้าจอได้</string>
+    <string name="l51_wifi_rede">ชื่อเครือข่าย</string>
+    <string name="l51_wifi_senha">รหัสผ่าน</string>
+    <string name="l51_wifi_invalido">ชื่อไม่เกิน 32 ตัวอักษร รหัสผ่านว่าง (เครือข่ายเปิด) หรือ 8 ถึง 63 ตัวอักษร</string>
+    <string name="l51_wifi_qr_titulo">แสดงคิวอาร์ Wi-Fi สำหรับผู้เยี่ยมชม</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">สิ่งที่ถูกใช้งาน</string>
+    <string name="l51_uso_det">หน้าจอและการตั้งค่าตามการใช้งาน นับเฉพาะบนทีวีนี้ (ไม่มีอะไรออกไป)</string>
+    <string name="l51_uso_vazio">ยังไม่ได้นับอะไร กลับมาดูในอีกไม่กี่วัน</string>
+    <string name="l51_uso_tela">หน้าจอ</string>
+    <string name="l51_uso_opcao">การตั้งค่า</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d ครั้ง</item>
+        <item quantity="other">%d ครั้ง</item>
+    </plurals>
+    <string name="l51_uso_hoje">ล่าสุดวันนี้</string>
+    <string name="l51_uso_ontem">ล่าสุดเมื่อวาน</string>
+    <string name="l51_uso_dias">ล่าสุดเมื่อ %d วันที่แล้ว</string>
+    <string name="l51_tela_Main">หน้าจอหลัก</string>
+    <string name="l51_tela_Dream">โปรแกรมรักษาหน้าจอ</string>
+    <string name="l51_tela_Filmes">ภาพยนตร์</string>
+    <string name="l51_tela_Series">รายการ</string>
+    <string name="l51_tela_Jogos">เกม</string>
+    <string name="l51_tela_Player">ทีวีสดและวิดีโอ</string>
+    <string name="l51_tela_PainelRapido">แผงด่วน</string>
+    <string name="l51_tela_Vod">แคตตาล็อกเพลย์ลิสต์</string>
+    <string name="l51_tela_Previsao">พยากรณ์อากาศ</string>
+    <string name="l51_tela_Elenco">นักแสดง</string>
+    <string name="l51_tela_ConfigLauncher">การตั้งค่า</string>
+    <string name="l51_tela_MidiaRede">เครือข่าย</string>
+    <string name="l51_tela_Calendario">ปฏิทิน</string>
+    <string name="l51_tela_Gravacoes">การบันทึก</string>
+    <string name="l51_tela_Busca">ค้นหา</string>
+    <string name="l51_tela_Casa">บ้านของฉัน</string>
+    <string name="l51_tela_AlarmeTocando">นาฬิกาปลุกกำลังดัง</string>
+    <string name="l51_tela_Radio">วิทยุ</string>
+    <string name="l51_tela_Diagnostico">การวินิจฉัย</string>
+    <string name="l51_uso_zerar">รีเซ็ต</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">พิมพ์บนทีวี</string>
+    <string name="l51_digitar_texto">มีช่องข้อความเปิดอยู่ใน %1$s แตะเพื่อพิมพ์จากที่นี่</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">ห้อง %1$s</string>
+    <string name="casa_movimento">มีการเคลื่อนไหว</string>
+    <string name="casa_sem_movimento">ไม่มีการเคลื่อนไหว</string>
+    <string name="casa_molhado">เปียก</string>
+    <string name="casa_seco">แห้ง</string>
+    <string name="casa_fumaca">มีควัน!</string>
+    <string name="casa_sem_fumaca">ไม่มีควัน</string>
+    <string name="casa_dica_temp">อุณหภูมิ</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">กำลังเปิดกล้อง…</string>
+    <string name="casa_camera_ver">แสดงบนทีวี</string>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cloud as a source (14/11/2026, Nuvem.kt): OneDrive and Dropbox in "On the network". -->
+    <string name="rede_sub_nuvem">วิดีโอ เพลง และรูปภาพจากคลาวด์ของคุณ</string>
+    <string name="rede_nuvem_seguir">ดำเนินการต่อ</string>
+    <string name="rede_nuvem_entrar">ลงชื่อเข้าใช้</string>
+    <string name="rede_nuvem_pedindo">กำลังขอรหัส…</string>
+    <string name="rede_nuvem_esperando">กำลังรอให้คุณยืนยันบนโทรศัพท์…</string>
+    <string name="rede_nuvem_salvando">กำลังลงชื่อเข้าใช้…</string>
+    <string name="rede_nuvem_recusado">บริการปฏิเสธ ตรวจสอบ app id แล้วลองอีกครั้ง</string>
+    <string name="rede_erro_nuvem_login">สิทธิ์ของบัญชีนี้หมดอายุหรือถูกนำออก นำบัญชีออก (กด OK ค้าง) แล้วลงชื่อเข้าใช้อีกครั้ง</string>
+    <string name="rede_od_titulo">OneDrive: แอปของคุณที่ Microsoft</string>
+    <string name="rede_od_explica">ทำครั้งเดียวบนคอมพิวเตอร์: entra.microsoft.com › App registrations › New registration สำหรับประเภทบัญชี เลือกแบบที่รวมบัญชี Microsoft ส่วนตัว จากนั้นใน Authentication เปิด “Allow public client flows” คัดลอก “Application (client) ID” แล้วพิมพ์ที่นี่ (พิมพ์จากโทรศัพท์ในแผงควบคุมได้)</string>
+    <string name="rede_od_id">Application (client) ID</string>
+    <string name="rede_od_id_erro">ID มีรูปแบบเช่น 00000000-0000-0000-0000-000000000000</string>
+    <string name="rede_od_codigo_explica">บนโทรศัพท์หรือคอมพิวเตอร์ เปิด microsoft.com/link (หรือส่องกล้องไปที่คิวอาร์) แล้วพิมพ์รหัสด้านล่าง ทีวีขอสิทธิ์อ่านไฟล์เท่านั้น</string>
+    <string name="rede_od_erro_app">Microsoft ไม่ยอมรับแอปนี้ ตรวจสอบ ID และดูว่าเปิด “Allow public client flows” แล้ว</string>
+    <string name="rede_dbx_explica">ทำครั้งเดียวบนคอมพิวเตอร์: dropbox.com/developers/apps › Create app › Scoped access › Full Dropbox ในแท็บ Permissions เลือก files.metadata.read, files.content.read และ account_info.read (และ files.content.write ถ้าต้องการสำรองข้อมูลทุกคืนใน Dropbox) แล้วบันทึก (Submit) คัดลอก “App key” แล้วพิมพ์ที่นี่</string>
+    <string name="rede_dbx_chave">App key</string>
+    <string name="rede_dbx_chave_erro">App key มีเฉพาะตัวอักษรพิมพ์เล็กและตัวเลข</string>
+    <string name="rede_dbx_codigo_explica">ส่องกล้องโทรศัพท์ไปที่คิวอาร์ ลงชื่อเข้าใช้ Dropbox แล้วแตะ Allow Dropbox จะแสดงรหัส: พิมพ์ที่นี่ (พิมพ์จากโทรศัพท์ในแผงควบคุมได้)</string>
+    <string name="rede_dbx_codigo">รหัส Dropbox</string>
+    <string name="rede_dbx_codigo_erro">พิมพ์รหัสทั้งหมดที่ Dropbox แสดง</string>
+    <!-- Box (14/11/2026): needs the app secret and a return address; RetornoNuvem.kt + site/volta.html. -->
+    <string name="rede_box_explica">ทำครั้งเดียวบนคอมพิวเตอร์: app.box.com/developers/console › Create New App › Custom App › User Authentication (OAuth 2.0) ในแท็บ Configuration ใต้ OAuth 2.0 Redirect URI ใส่ %1$s เลือก “Read all files and folders” (และ “Write all files and folders” ถ้าต้องการสำรองข้อมูลทุกคืนใน Box) บันทึก แล้วคัดลอก Client ID และ Client Secret มาที่นี่</string>
+    <string name="rede_box_id">Client ID</string>
+    <string name="rede_box_segredo">Client Secret</string>
+    <string name="rede_box_erro">Client ID และ Client Secret มีเฉพาะตัวอักษรและตัวเลข คัดลอกทั้งสองจากแท็บ Configuration</string>
+    <string name="rede_volta_sem_rede">ทีวีไม่ได้อยู่ในเครือข่ายในบ้าน เชื่อมต่อแล้วลองอีกครั้ง</string>
+    <string name="rede_volta_explica">ส่องกล้องของโทรศัพท์ที่อยู่ใน Wi‑Fi เดียวกับทีวีไปที่คิวอาร์ ลงชื่อเข้าใช้ %1$s และอนุญาตการเข้าถึง โทรศัพท์จะกลับมาที่ทีวีเอง: ไม่ต้องพิมพ์อะไร</string>
+    <string name="rede_volta_porta">พอร์ต %1$d บนทีวีไม่ว่าง ปิดแอปอื่นแล้วลองอีกครั้ง</string>
+    <!-- Google Drive as a source (14/11/2026): drive.readonly needs a "Web application" client, same return as Box. -->
+    <string name="rede_gd_explica">ทำครั้งเดียวบนคอมพิวเตอร์ ในโปรเจกต์ Google Cloud ของคุณ (console.cloud.google.com): APIs &amp; Services › Library › เปิด “Google Drive API” ใน Google Auth Platform › Data Access เพิ่มขอบเขต …/auth/drive.readonly ใน Clients › Create client › Web application ใต้ Authorized redirect URIs ใส่ %1$s คัดลอก Client ID และ Client secret มาที่นี่</string>
+    <string name="rede_gd_id">Client ID (…apps.googleusercontent.com)</string>
+    <string name="rede_gd_segredo">Client secret</string>
+    <string name="rede_gd_erro">คัดลอกทั้งสองจากหน้าไคลเอ็นต์: ID ลงท้ายด้วย .apps.googleusercontent.com และ secret มักขึ้นต้นด้วย GOCSPX-</string>
+    <string name="rede_gd_aviso">ถ้า Google บอกว่าแอปยังไม่ได้รับการยืนยัน ให้แตะ Advanced › Go to (เป็นแอปของคุณเอง)</string>
+</resources>

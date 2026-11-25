@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">ทำเครื่องหมายจุดเริ่มช่วงเปิดเรื่องที่นี่ (%1$s)</string>
+    <string name="abertura_marcar_fim">ทำเครื่องหมายจุดจบช่วงเปิดเรื่องที่นี่ (%1$s)</string>
+    <string name="abertura_apagar">ลบเครื่องหมายช่วงเปิดเรื่อง</string>
+    <string name="abertura_inicio_marcado">ทำเครื่องหมายจุดเริ่มช่วงเปิดเรื่องที่ %1$s แล้ว ตอนนี้ทำเครื่องหมายจุดจบในเมนู ▼</string>
+    <string name="abertura_salva">บันทึกช่วงเปิดเรื่องแล้ว: %1$s ถึง %2$s ตอนถัดไปจะมีตัวเลือกให้ข้าม</string>
+    <string name="abertura_falta_inicio">ทำเครื่องหมายจุดเริ่มช่วงเปิดเรื่องก่อน</string>
+    <string name="abertura_invalida">ดูไม่เหมือนช่วงเปิดเรื่อง: ต้องยาว 10 วินาทีถึง 5 นาที และเริ่มใน 15 นาทีแรก</string>
+    <string name="abertura_apagada">ลบเครื่องหมายช่วงเปิดเรื่องแล้ว</string>
+    <string name="abertura_pular">ข้ามช่วงเปิดเรื่อง · OK</string>
+</resources>

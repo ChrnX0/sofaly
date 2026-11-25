@@ -153,7 +153,7 @@
       [
         "access",
         "Grandparents too",
-        "Large text, a simple mode that says the app's name, high contrast and the screen reader. In 15 languages."
+        "Large text, a simple mode that says the app's name, high contrast and the screen reader. In 27 languages."
       ],
       [
         "alarm",
@@ -701,8 +701,8 @@
       "System › Report a problem."
     ],
     "languages": [
-      "15 languages",
-      "Portuguese, English, Spanish, French, German, Italian, Russian, Polish, Turkish, Japanese, Chinese, Korean, Hindi, Indonesian and Arabic, with right-to-left screens. It follows the TV's language.",
+      "27 languages",
+      "Portuguese, English, Spanish, French, German, Italian, Russian, Polish, Turkish, Japanese, Chinese, Korean, Hindi, Indonesian and Arabic, with right-to-left screens. Also Dutch, Swedish, Danish, Norwegian, Finnish, Czech, Greek, Hungarian, Romanian, Ukrainian, Vietnamese and Thai. It follows the TV's language.",
       "Changes with the TV by itself."
     ],
     "text-size": [

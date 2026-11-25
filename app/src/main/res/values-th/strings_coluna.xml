@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">ลิสต์</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">ตัวกรอง</string>
+    <string name="coluna_esportes">กีฬา</string>
+    <string name="coluna_guia">ผังรายการ</string>
+    <string name="coluna_filtro_titulo">ตัวกรอง</string>
+    <string name="coluna_filtro_ordem">เรียง: %1$s</string>
+    <string name="coluna_filtro_combinado">ประเภท ยุค คะแนน ที่ยังไม่ดู…</string>
+    <string name="coluna_filtro_combinado_ativo">ตัวกรอง: %1$s</string>
+    <string name="coluna_filtro_limpar">ล้างตัวกรอง</string>
+    <string name="coluna_filtro_sortear">สุ่มให้หน่อย</string>
+    <string name="coluna_filtro_ocultas_mostrar">แสดงหมวดหมู่ที่ซ่อน (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">ซ่อนหมวดหมู่ที่ซ่อนอีกครั้ง</string>
+    <string name="coluna_menu_assistido">ทำเครื่องหมายว่าดูแล้ว</string>
+    <string name="coluna_menu_nao_assistido">ทำเครื่องหมายว่ายังไม่ได้ดู</string>
+    <string name="coluna_menu_tirar_continuar">นำออกจากดูต่อ</string>
+    <string name="coluna_menu_por_interesse">เพิ่มในรายการที่จะดู</string>
+    <string name="coluna_menu_tirar_interesse">นำออกจากรายการที่จะดู</string>
+    <string name="coluna_marcado_assistido">ทำเครื่องหมาย %1$s ว่าดูแล้ว</string>
+    <string name="coluna_marcado_nao_assistido">ทำเครื่องหมาย %1$s ว่ายังไม่ได้ดู</string>
+    <string name="coluna_tirado_continuar">นำ %1$s ออกจากดูต่อแล้ว</string>
+    <string name="coluna_menu_tirar_home">นำออกจากหน้าจอหลัก</string>
+    <string name="coluna_tirado_home">นำ %1$s ออกจากหน้าจอหลักแล้ว</string>
+    <string name="coluna_etiqueta_concluida">จบแล้ว</string>
+    <string name="coluna_etiqueta_nova_temporada">ซีซันใหม่</string>
+    <string name="coluna_etiqueta_novos">ตอนใหม่</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d ตอนใหม่</item>
+        <item quantity="other">%d ตอนใหม่</item>
+    </plurals>
+    <string name="coluna_letra_titulo">ไปที่ตัวอักษร</string>
+    <string name="coluna_letra">ไปที่ตัวอักษร</string>
+    <string name="coluna_ao_vivo">สด</string>
+    <string name="coluna_ao_vivo_primeiro">ช่องสดก่อน</string>
+    <string name="coluna_tv_titulo">ทีวี</string>
+    <string name="coluna_gravacoes">การบันทึก</string>
+</resources>

@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Speelt elk bestand af; de juiste ondertiteling zonder gedoe</string>
     <string name="elv_prom_casa">De wekker gaat op tijd af, elke keer</string>
     <string name="elv_prom_controle">Paneel, telefoon en AI doen alles wat de afstandsbediening doet</string>
-    <string name="elv_prom_todos">Ouderen, kinderen, gasten, slechtziend of slechthorend; 14 talen</string>
+    <string name="elv_prom_todos">Ouderen, kinderen, gasten, slechtziend of slechthorend; %1$d talen</string>
     <string name="elv_prom_instala">Van de eerste start tot de eerste zender in 5 minuten</string>
     <string name="elv_nao_medido">Nog niet gemeten</string>
     <string name="elv_alvo">doel %1$s</string>

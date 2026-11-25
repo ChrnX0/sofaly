@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">ทีวีนี้สำหรับใคร</string>
+    <string name="rec_subtitulo">กด OK ครั้งเดียวเพื่อตั้งค่าทีวี ยกเลิกได้ทุกเมื่อ</string>
+    <string name="rec_vo">ทีวีของคุณยาย</string>
+    <string name="rec_vo_det">การ์ดใหญ่ อ่านชื่อออกเสียง ตัวอักษรใหญ่ขึ้น และปุ่มขอความช่วยเหลือ</string>
+    <string name="rec_criancas">ทีวีของเด็ก</string>
+    <string name="rec_criancas_det">เฉพาะเนื้อหาสำหรับเด็ก เวลาเข้านอน และหมวดหมู่เล่น</string>
+    <string name="rec_gamer">ทีวีของเกมเมอร์</string>
+    <string name="rec_gamer_det">หมวดหมู่เล่น โหมดเกม (ไม่มีโปรแกรมรักษาหน้าจอหรือการแจ้งเตือนระหว่างเล่นเกม) และจอยเกมเปิดหน้าจอเกม</string>
+    <string name="rec_aluguel">ทีวีให้เช่า</string>
+    <string name="rec_aluguel_det">โหมดผู้เข้าพัก: หน้าจอต้อนรับ ไม่มีข้อมูลส่วนตัวบนหน้าจอหลัก และล้างข้อมูลเมื่อเช็กเอาต์</string>
+    <string name="rec_desfazer">เลิกทำ</string>
+    <string name="rec_desfazer_det">คืนทุกอย่างให้เป็นเหมือนก่อน %1$s</string>
+    <string name="rec_ja_esta">ทีวีนี้ตั้งค่าแบบนี้อยู่แล้ว</string>
+    <string name="rec_aviso_prende">หน้าจอแบบง่ายจะปิดได้ด้วย PIN เท่านั้น ตรวจสอบให้แน่ใจว่ามีคนในบ้านรู้ PIN</string>
+    <string name="rec_aviso_sem_pin">ยังไม่มี PIN ใครก็ปิดส่วนนี้ได้ สร้าง PIN ในแผงควบคุมบนโทรศัพท์</string>
+    <string name="rec_aviso_plano">ต้องใช้แพ็กเกจแบบชำระเงิน จึงยังปิดอยู่: %1$s</string>
+    <string name="rec_voltar">กลับ</string>
+    <string name="rec_aplicar">ใช้</string>
+    <string name="rec_pin">PIN เพื่อเปลี่ยนวิธีตั้งค่าทีวี</string>
+    <string name="rec_pronto">เรียบร้อย</string>
+    <string name="rec_aplicada">ทีวีของคุณพร้อมแล้ว</string>
+    <string name="rec_aplicada_det">เปลี่ยนบางอย่างที่คุณไม่ต้องการใช่ไหม เลิกทำจะคืนทุกอย่างให้เป็นเหมือนเดิม</string>
+    <string name="rec_desfeita">ทุกอย่างกลับเป็นเหมือนเดิมแล้ว</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">เปิด</string>
+    <string name="rec_desligado">ปิด</string>
+    <string name="rec_aj_hospede">โหมดผู้เข้าพัก</string>
+    <string name="rec_aj_visita">โหมดผู้เยี่ยมชม</string>
+    <string name="rec_aj_simples">หน้าจอแบบง่าย</string>
+    <string name="rec_aj_infantil">โหมดเด็ก</string>
+    <string name="rec_aj_dormir">เวลาเข้านอน</string>
+    <string name="rec_aj_texto">ขนาดตัวอักษร</string>
+    <string name="rec_aj_ler_foco">อ่านออกเสียงสิ่งที่เลือก</string>
+    <string name="rec_aj_som">เสียงคลิกทุกครั้งที่กดปุ่ม</string>
+    <string name="rec_aj_jogos">หมวดหมู่เล่น</string>
+    <string name="rec_aj_modo_jogo">โหมดเกม</string>
+    <string name="rec_aj_controle">จอยเกมเปิดหน้าจอเกม</string>
+</resources>

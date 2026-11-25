@@ -26,7 +26,8 @@ e = html.escape
 
 # ---------- languages of the images ----------
 SCREEN_LANG = {"pt": "pt", "pt-PT": "pt", "ar": "ar"}          # app screens exist in pt, en and ar; others use en
-PANEL_LANGS = {"ar", "de", "en", "es", "fr", "hi", "id", "it", "ja", "ko", "pl", "pt", "ru", "tr", "zh"}
+PANEL_LANGS = {"ar", "de", "en", "es", "fr", "hi", "id", "it", "ja", "ko", "pl", "pt", "ru", "tr", "zh",
+               "nl", "sv", "da", "nb", "fi", "cs", "el", "hu", "ro", "uk", "vi", "th"}
 
 
 def screen_lang(code):

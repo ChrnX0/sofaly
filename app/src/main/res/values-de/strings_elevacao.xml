@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Spielt jede Datei; richtige Untertitel ohne Herumprobieren</string>
     <string name="elv_prom_casa">Der Wecker klingelt pünktlich, jedes Mal</string>
     <string name="elv_prom_controle">Panel, Handy und KI können alles, was die Fernbedienung kann</string>
-    <string name="elv_prom_todos">Ältere, Kinder, Gäste, Seh- oder Hörschwäche; 14 Sprachen</string>
+    <string name="elv_prom_todos">Ältere, Kinder, Gäste, Seh- oder Hörschwäche; %1$d Sprachen</string>
     <string name="elv_prom_instala">Vom ersten Start bis zum ersten Sender in 5 Minuten</string>
     <string name="elv_nao_medido">Noch nicht gemessen</string>
     <string name="elv_alvo">Ziel %1$s</string>

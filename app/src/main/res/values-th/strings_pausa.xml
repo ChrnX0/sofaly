@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Short pause on live TV (idea 18): only in the player's memory, gone when the channel changes. -->
+<resources>
+    <string name="pausa_pausar">หยุดทีวีสดชั่วคราว</string>
+    <string name="pausa_continuar">เล่นต่อ</string>
+    <string name="pausa_ao_vivo">กลับไปที่สด</string>
+    <string name="pausa_selo">⏸ หยุดชั่วคราว · OK เล่นต่อ</string>
+    <string name="pausa_atrasado_min">ช้ากว่า %1$d นาที · ▶ สด</string>
+    <string name="pausa_atrasado_seg">ช้ากว่า %1$d วินาที · ▶ สด</string>
+    <string name="pausa_voltou">หยุดนานเกินกว่าหน่วยความจำจะเก็บได้: กลับไปที่สด</string>
+</resources>

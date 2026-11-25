@@ -213,6 +213,10 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     var bannerDe: ((Item, (Drawable?) -> Unit) -> Unit)?
         get() = strip.bannerDe
         set(v) { strip.bannerDe = v }
+    /** Distância (dp) do pé da tela até o topo da linha do mundo, a cada mudança (camada dos widgets). */
+    var aoMudarBase: ((Float) -> Unit)?
+        get() = strip.aoMudarBase
+        set(v) { strip.aoMudarBase = v }
     /** De onde o mundo veio no último passo (-1 de cima, +1 de baixo): a linha do mundo entra por esse lado. */
     private var direcaoFaixa = 0
 

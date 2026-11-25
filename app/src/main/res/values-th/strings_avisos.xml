@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">อินเทอร์เน็ตกลับมาแล้ว</string>
+    <string name="rd_voltou_texto">ล่มไป %1$s (ตั้งแต่ %2$s) สาเหตุที่เป็นไปได้: %3$s</string>
+    <string name="rd_causa_wifi">ทีวีขาดการเชื่อมต่อ Wi-Fi</string>
+    <string name="rd_causa_provedor">ผู้ให้บริการอินเทอร์เน็ตหรือเราเตอร์</string>
+    <string name="rd_min">%1$d นาที</string>
+    <string name="rd_h_min">%1$d ชม. %2$d นาที</string>
+    <string name="rd_disco_titulo">ที่เก็บข้อมูลทีวีกำลังจะเต็ม</string>
+    <string name="rd_disco_texto">ในอัตรานี้จะเต็มในประมาณ %1$d วัน (ว่าง %2$d MB) ล้างแคชของแอปหรือนำแอปที่ไม่ได้ใช้ออก</string>
+    <string name="pr_avisos_tv">จากทีวี</string>
+    <string name="mural_riscar">ขีดฆ่า %1$s</string>
+    <string name="ds_lento_titulo">Sofaly ช้าลง</string>
+    <string name="ds_lento_texto">เวอร์ชัน %1$d: เฟรมที่ช้าใช้เวลา %2$d ms เดิมใช้ %3$d ms (+%4$d%%)</string>
+</resources>

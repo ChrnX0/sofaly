@@ -39,7 +39,7 @@ class PlayerTvTelaTest {
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi") @Test fun pt() = desenhar("tv-canais-pt")
     @Config(qualifiers = "en-w960dp-h540dp-land-television-xhdpi") @Test fun en() = desenhar("tv-canais-en")
     @Config(qualifiers = "de-w960dp-h540dp-land-television-xhdpi") @Test fun de() = desenhar("tv-canais-de")
-    @Config(qualifiers = "ar-w960dp-h540dp-land-television-xhdpi") @Test fun ar() = desenhar("tv-canais-ar")
+    @Config(qualifiers = "ar-ldrtl-w960dp-h540dp-land-television-xhdpi") @Test fun ar() = desenhar("tv-canais-ar")
 
     private fun desenhar(arquivo: String) {
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
@@ -87,7 +87,12 @@ class PlayerTvTelaTest {
         andar(raiz)
         // "DEPOIS": linhas em ordem de horário, nenhuma cortada.
         val horas = textos.map { it.text.toString() }.mapNotNull { Regex("^(\\p{Nd}\\p{Nd}:\\p{Nd}\\p{Nd})\\s{3}").find(it)?.groupValues?.get(1) }
-        if (horas != horas.sorted()) problemas += "$arquivo: DEPOIS fora de ordem: $horas"
+        // Em minutos do dia; passar da meia-noite (23:44 → 00:24) conta como dia seguinte. O guia usa o relógio de verdade,
+        // e o teste comparava textos: falhava se rodasse entre ~21:36 e 22:56 (revisor, 24/11/2026).
+        var dia = 0; var antes = -1
+        val minutos = horas.map { h -> val m = h.substring(0, 2).toInt() * 60 + h.substring(3, 5).toInt()
+            if (antes >= 0 && m < antes - 12 * 60) dia += 24 * 60; antes = m; m + dia }
+        if (minutos != minutos.sorted()) problemas += "$arquivo: DEPOIS fora de ordem: $horas"
         if (horas.isEmpty()) problemas += "$arquivo: DEPOIS sem nenhum programa (o espaço não deu nem para uma linha)"
         assertTrue(problemas.joinToString("\n"), problemas.isEmpty())
     }

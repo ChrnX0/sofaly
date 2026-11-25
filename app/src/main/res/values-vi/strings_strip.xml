@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">Thanh đơn</string>
+    <string name="strip_desc_watch">Phim, phim bộ và TV</string>
+    <string name="strip_desc_listen">Nhạc, radio và podcast</string>
+    <string name="strip_desc_play">Trò chơi và chơi game đám mây</string>
+    <string name="strip_desc_apps">Mọi thứ đã cài</string>
+    <string name="strip_desc_tools">Báo thức, thời tiết và cài đặt</string>
+    <string name="strip_apps_count">%1$d ứng dụng</string>
+    <string name="st_desc">Mô tả thế giới</string>
+    <string name="st_desc_fixa">Câu cố định</string>
+    <string name="st_desc_viva">Đang chiếu gì</string>
+    <string name="st_formato">Hình dạng thẻ</string>
+    <string name="st_quadrado">Vuông</string>
+    <string name="st_tamanho">Kích thước thẻ</string>
+    <string name="st_pequeno">Nhỏ</string>
+    <string name="st_medio">Vừa</string>
+    <string name="st_grande">Lớn</string>
+    <string name="st_espaco">Khoảng cách giữa các thẻ</string>
+    <string name="st_justo">Chặt</string>
+    <string name="st_normal">Bình thường</string>
+    <string name="st_largo">Rộng</string>
+    <string name="st_cantos">Góc thẻ</string>
+    <string name="st_retos">Vuông</string>
+    <string name="st_suaves">Mềm</string>
+    <string name="st_redondos">Tròn</string>
+    <string name="st_placa">Tấm kính phía sau</string>
+    <string name="st_nome">Tên trên thẻ đang chọn</string>
+    <string name="st_sem">Tắt</string>
+    <string name="st_com">Bật</string>
+    <string name="st_fundo">Hình nền</string>
+    <string name="st_fundo_vale">Thung lũng</string>
+    <string name="st_fundo_serra">Núi</string>
+    <string name="st_fundo_noite">Đêm</string>
+    <string name="st_fundo_tema">Theo giao diện</string>
+    <string name="st_logo_solto">Logo rời</string>
+    <string name="st_grade2">Lưới 2 hàng</string>
+    <string name="st_redondo">Tròn</string>
+    <string name="st_so_escolhido">Chỉ mục đang chọn</string>
+    <string name="wo_cards">Hình dạng thẻ trong thế giới này</string>
+    <string name="wo_cards_geral">Giống Tinh chỉnh (%1$s)</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rodada 2 (14/11/2026): aniversários (93), calor/frio (94), mural pela TV (95), Sua TV no ano (92), rádios (87). -->
+<resources>
+    <string name="an_rotulo">Sinh nhật</string>
+    <string name="an_hoje">Hôm nay là sinh nhật của %s</string>
+    <string name="an_amanha">Ngày mai là sinh nhật của %s</string>
+    <plurals name="an_anos">
+        <item quantity="one">tròn %d tuổi</item>
+        <item quantity="other">tròn %d tuổi</item>
+    </plurals>
+    <string name="tp_calor">Nắng nóng gay gắt</string>
+    <string name="tp_calor_texto">Lên đến %d° hôm nay · Hãy uống nước</string>
+    <string name="tp_frio">Rét đậm</string>
+    <string name="tp_frio_texto">Xuống đến %d° tối nay · Hãy mặc ấm</string>
+    <string name="tp_cfg">Cảnh báo nóng và lạnh</string>
+    <string name="tp_cfg_det">Một thẻ hiện trên mọi ứng dụng khi hôm nay đạt %1$d° hoặc tối nay xuống %2$d°</string>
+    <string name="mu_ok_lido">OK để đánh dấu đã đọc</string>
+    <string name="mu_ok_nao_lido">Đã đọc · OK để đánh dấu chưa đọc</string>
+    <string name="mu_lido_desc">Tin nhắn, đã đọc: %s. OK để đánh dấu chưa đọc.</string>
+    <string name="mu_nao_lido_desc">Tin nhắn: %s. OK để đánh dấu đã đọc.</string>
+    <string name="mu_apagar">Xóa tin nhắn: %s</string>
+    <string name="extras_RETROSPECTIVA_ANO">TV của bạn năm nay (vào tháng 12, trên trình bảo vệ màn hình)</string>
+    <string name="extras_ENTRADAS_TV">Cổng HDMI trong Ứng dụng (chỉ trên TV có cổng vào)</string>
+    <string name="ra_titulo">TV của bạn năm %d</string>
+    <string name="ra_canal">Kênh yêu thích: %1$s (%2$s)</string>
+    <string name="ra_coluna">Radio</string>
+    <string name="ra_dica_ouvir">nghe</string>
+    <string name="ra_dica_favoritar">yêu thích</string>
+    <string name="ra_carregando">Đang tải đài…</string>
+    <string name="ra_sem_catalogo">Danh mục radio không phản hồi. Đài yêu thích vẫn dùng được.</string>
+    <string name="ra_nada">Không tìm thấy đài nào.</string>
+    <string name="ra_continuar">tiếp tục</string>
+    <string name="ra_pausar">tạm dừng</string>
+    <string name="ra_favoritas">Yêu thích</string>
+    <string name="ra_procurar">Tìm</string>
+    <string name="ra_buscar">Tìm theo tên</string>
+    <string name="ra_buscar_det">Bất kỳ đài nào trên thế giới</string>
+    <string name="ra_generos">Thể loại</string>
+    <string name="ra_perto">Gần đây</string>
+    <string name="ra_mundo">Nghe nhiều nhất thế giới</string>
+    <string name="ra_resultado">Tìm kiếm: %s</string>
+    <string name="ra_favoritada">Đã thêm vào yêu thích</string>
+    <string name="ra_desfavoritada">Đã xóa khỏi yêu thích</string>
+    <string name="ra_falhou">Đài này hiện không phát. Hãy thử đài khác.</string>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ouvir parte 1 (17/11/2026): rádio que continua fora da tela (OuvirServico, RadioActivity, pílula da HOME). -->
+<resources>
+    <string name="ra_parar">Dừng</string>
+    <string name="ra_parar_det">Radio tiếp tục phát trên màn hình chính và trình bảo vệ màn hình cho đến khi bạn dừng</string>
+    <string name="ra_parar_det_antigo">Rời màn hình này cũng sẽ dừng phát</string>
+    <string name="ouv_canal">Radio đang phát</string>
+    <string name="ouv_abrir">Mở màn hình radio</string>
+    <!-- Ouvir parte 2: podcasts -->
+    <string name="pod_titulo">Podcast</string>
+    <string name="pod_dica_mais">thêm</string>
+    <string name="pod_de">%1$s trên %2$s</string>
+    <string name="pod_velocidade">Tốc độ</string>
+    <string name="pod_silencio">Bỏ qua khoảng lặng</string>
+    <string name="pod_silencio_det">Cắt các khoảng ngừng trong lời nói</string>
+    <string name="pod_ligado">bật</string>
+    <string name="pod_desligado">tắt</string>
+    <string name="pod_continuar">Tiếp tục</string>
+    <string name="pod_novos">Tập mới</string>
+    <string name="pod_video">video</string>
+    <string name="pod_meus">Podcast của tôi</string>
+    <string name="pod_ultimo">mới nhất: %s</string>
+    <string name="pod_adicionar">Thêm</string>
+    <string name="pod_colar">Dán địa chỉ podcast</string>
+    <string name="pod_colar_det">Liên kết nguồn cấp RSS (trang web podcast hiển thị là RSS)</string>
+    <string name="pod_pelo_celular">Từ điện thoại</string>
+    <string name="pod_pelo_celular_det">Mở bảng điều khiển TV trên điện thoại › Podcast: dán liên kết hoặc nhập danh sách từ ứng dụng podcast của bạn (OPML)</string>
+    <string name="pod_sem_episodios">Không có tập nào để hiện.</string>
+    <string name="pod_ouvido">đã nghe</string>
+    <string name="pod_do_comeco">Phát từ đầu</string>
+    <string name="pod_marcar_nao">Đánh dấu chưa nghe</string>
+    <string name="pod_marcar_ouvido">Đánh dấu đã nghe</string>
+    <string name="pod_abrir">Mở</string>
+    <string name="pod_remover">Hủy theo dõi</string>
+    <string name="pod_removido">Đã hủy theo dõi</string>
+    <string name="pod_adicionando">Đang thêm podcast…</string>
+    <string name="pod_adicionado">Đã thêm podcast</string>
+    <string name="pod_nao_deu">Không thêm được: %s</string>
+    <string name="pod_horas">%1$d giờ %2$s</string>
+    <string name="pod_minutos">%d phút</string>
+    <string name="pod_hoje">hôm nay</string>
+    <string name="pod_ontem">hôm qua</string>
+    <string name="pod_falhou">Tập này hiện không phát được. Hãy thử lại sau.</string>
+    <string name="pod_abrir_tela">Mở màn hình podcast</string>
+    <string name="ra_podcasts_det">Chương trình, tin tức và trò chuyện bạn theo dõi</string>
+    <string name="pod_procurar">Tìm</string>
+    <string name="pod_buscar">Tìm podcast</string>
+    <string name="pod_em_alta">Phổ biến ở nước bạn</string>
+    <string name="pod_atribuicao">Tìm kiếm: Podcast Index</string>
+    <string name="pod_sugestoes">Gợi ý</string>
+    <string name="pod_sugestao_seguir">OK để theo dõi</string>
+    <string name="pod_sugeridos_seguidos">Đã thêm podcast gợi ý vào Podcast của tôi</string>
+</resources>

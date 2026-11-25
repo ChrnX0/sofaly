@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thread "Organizar Configurações e painel rápido" (14/11/2026): ideias 42, 43, 44, 46, 47 e 48. -->
+<resources>
+    <!-- Ideia 46: Extras dentro das abas -->
+    <string name="cfg_extras_secao">ตัวเลือกเพิ่มเติม</string>
+    <!-- Ideia 43: QR that opens the right page of the web panel -->
+    <string name="qrd_fotos">รูปโปรแกรมรักษาหน้าจอจากโทรศัพท์</string>
+    <string name="qrd_fotos_det">แสดงรหัส: โทรศัพท์จะเปิดแผงควบคุมที่หน้ารูปภาพโดยตรง</string>
+    <string name="qrd_mural">กระดานครอบครัวจากโทรศัพท์</string>
+    <string name="qrd_mural_det">รายการซื้อของและโน้ตที่ปักหมุด</string>
+    <string name="qrd_cenas">ฉากจากโทรศัพท์</string>
+    <string name="qrd_cenas_det">สร้างและทดสอบฉากในแผงควบคุมเว็บ</string>
+    <string name="qrd_casa">Home Assistant จากโทรศัพท์</string>
+    <string name="qrd_casa_det">ที่อยู่และโทเค็นของ Home Assistant ในแผงควบคุมเว็บ</string>
+    <string name="qrd_time">ทีมของฉันและการเตือนจากโทรศัพท์</string>
+    <string name="qrd_time_det">คำที่เปลี่ยนรายการในผังรายการให้เป็นการเตือน</string>
+    <string name="qrd_roteador">เราเตอร์จากโทรศัพท์</string>
+    <string name="qrd_roteador_det">ที่อยู่และคีย์ API ของเราเตอร์ UniFi ในแผงควบคุมเว็บ</string>
+    <!-- Ideia 42: blocos do painel rápido -->
+    <string name="pb_titulo">ไทล์แผงด่วน</string>
+    <string name="pb_subtitulo">OK แสดงหรือซ่อน · ◀ ▶ เปลี่ยนลำดับ</string>
+    <string name="pb_cfg_det">เลือกไทล์ที่แผงด่วน (กด BACK ค้าง) แสดง และเรียงลำดับอย่างไร</string>
+    <string name="pb_mostrado">แสดง</string>
+    <string name="pb_escondido">ซ่อน</string>
+    <string name="pb_padrao">กลับไปใช้ไทล์มาตรฐาน</string>
+    <string name="pb_wifi">Wi-Fi</string>
+    <string name="pb_bluetooth">Bluetooth</string>
+    <string name="pb_filtro">ฟิลเตอร์กลางคืน</string>
+    <string name="pb_dns">DNS</string>
+    <!-- Configurações reorganizadas e apps ocultos fora da HOME (pedido de 14/11/2026) -->
+    <string name="cfg2_aba_inicio">หน้าจอหลัก</string>
+    <string name="cfg2_aba_inicio_det">ธีม แอปที่ซ่อน แผงด่วน และสภาพอากาศ</string>
+    <string name="cfg2_aba_familia">ครอบครัว</string>
+    <string name="cfg2_aba_familia_det">การควบคุมโดยผู้ปกครอง PIN สำหรับเด็ก เวลาเข้านอน และผู้เยี่ยมชม</string>
+    <string name="cfg2_aba_casa">บ้านและระบบอัตโนมัติ</string>
+    <string name="cfg2_aba_casa_det">ระบบอัตโนมัติ บ้านอัจฉริยะ และสิ่งที่คุณตั้งค่าจากโทรศัพท์</string>
+    <string name="cfg2_aba_sistema_det">การวินิจฉัย การอัปเดต การสำรองข้อมูล และเกี่ยวกับ</string>
+    <string name="cfg2_aba_avancado">ขั้นสูง</string>
+    <string name="cfg2_aba_avancado_det">เครือข่าย เครื่องมือ แอปจากโรงงาน สิทธิ์ และเชลล์ ไม่ค่อยจำเป็นต้องใช้</string>
+    <string name="cfg2_sec_visitas">ผู้เยี่ยมชม</string>
+    <string name="cfg2_sec_celular">จากโทรศัพท์ของคุณ</string>
+    <string name="cfg2_sec_ferramentas">เครื่องมือ</string>
+    <string name="cfg2_sec_ocultos_sistema">แอประบบที่ Launcher ซ่อนไว้</string>
+    <string name="cfg2_apps_visita_det">เลือกแอปที่จะหายไประหว่างที่เปิดโหมดผู้เยี่ยมชม</string>
+    <string name="cfg2_apps_visita_sub">OK เพื่อสลับ · แอปเหล่านี้จะหายไประหว่างที่เปิดโหมดผู้เยี่ยมชม</string>
+    <string name="cfg2_some_visita">ซ่อนจากผู้เยี่ยมชม</string>
+    <string name="cfg2_fica_visita">คงไว้</string>
+    <string name="cfg2_casa_det">ไฟ ปลั๊ก และฉากจาก Google Home หรือ Home Assistant</string>
+    <string name="oc_titulo">แอปที่ซ่อน</string>
+    <string name="oc_subtitulo">OK แสดงหรือซ่อนแอปบนหน้าจอหลัก · แอปที่ซ่อนจะอยู่ก่อน</string>
+    <string name="oc_nenhum">ไม่มีแอปที่ซ่อน · OK เพื่อเลือก</string>
+    <string name="oc_quantos">ซ่อนอยู่: %1$d · OK เพื่อแสดงอีกครั้ง</string>
+    <string name="oc_oculto">ซ่อน</string>
+    <string name="oc_aparece">บนหน้าจอหลัก</string>
+    <string name="oc_aviso_titulo">ซ่อนแอปแล้ว</string>
+    <string name="oc_aviso">หากต้องการแสดงอีกครั้ง: การตั้งค่า › หน้าจอหลัก › แอปที่ซ่อน</string>
+    <string name="extras_LER_FOCO">อ่านออกเสียงสิ่งที่เลือกอยู่ ในทุกหน้าจอของ Launcher</string>
+    <!-- Ideia 44: sugestões -->
+    <string name="sug_desligar_titulo">ให้ทีวีปิดเองไหม</string>
+    <string name="sug_desligar">สัปดาห์นี้ทีวีเปิดหลังเที่ยงคืน %1$d คืน ปิดทีวีหลังจาก 2 ชั่วโมงที่ไม่มีใครใช้รีโมตไหม (จะเตือน 60 วินาทีก่อน)</string>
+    <string name="sug_filtro_titulo">เปิดฟิลเตอร์กลางคืนไหม</string>
+    <string name="sug_filtro">สัปดาห์นี้ทีวีถูกใช้หลัง 22:00 น. %1$d คืน ฟิลเตอร์กลางคืนทำให้หน้าจออุ่นและหรี่ลงตอนกลางคืน สบายตากว่า</string>
+    <string name="sug_ligar">เปิด</string>
+    <string name="sug_agora_nao">ไม่ใช่ตอนนี้</string>
+    <string name="sug_nunca">ไม่ต้องแนะนำอีก</string>
+    <string name="sug_feito_titulo">เรียบร้อย</string>
+    <string name="sug_feito">หากต้องการเปลี่ยนภายหลัง: การตั้งค่า › หน้าจอและพลังงาน</string>
+    <!-- Ideia 47: tamanho do texto -->
+    <string name="tt_titulo">ขนาดตัวอักษร</string>
+    <string name="tt_det">ในทุกหน้าจอของ Launcher ภาพยนตร์ ซีรีส์ และทีวีสดใหญ่อยู่แล้วและจะใหญ่ขึ้นตาม</string>
+    <string name="tt_normal">ปกติ</string>
+    <string name="tt_grande">ใหญ่</string>
+    <string name="tt_maior">ใหญ่ขึ้น</string>
+    <string name="pi_titulo">ชุดไอคอน</string>
+    <string name="pi_det">เปลี่ยนไอคอนแอปเป็นสไตล์ในตัว (Symbol, Duotone) หรือชุดไอคอนที่ติดตั้งไว้ OK เพื่อเลือกถัดไป</string>
+    <string name="pi_det_vazio">ไม่มีชุดไอคอนที่ติดตั้งไว้ ดาวน์โหลดจาก Play Store แล้วจะแสดงที่นี่</string>
+    <string name="pi_nenhum">ไม่มี</string>
+    <string name="fm_titulo">พื้นหลังของฉัน</string>
+    <string name="fm_det">รูป GIF หรือวิดีโอของคุณหลังหน้าจอหลัก ใส่ไฟล์ในโฟลเดอร์ Fundo, Pictures, DCIM, Movies หรือ Download</string>
+    <string name="fm_vazio">ไม่พบรูปหรือวิดีโอ คัดลอกไฟล์ไปที่โฟลเดอร์ Fundo (ไดรฟ์เครือข่ายหรือ USB) แล้วกลับมาใหม่</string>
+    <string name="fm_nenhum">ไม่มี (กลับไปใช้แบบมืด)</string>
+    <string name="fm_brilho">ความสว่างพื้นหลัง</string>
+    <string name="fm_contraste">คอนทราสต์พื้นหลัง</string>
+    <string name="fm_ajuste_det">ใช้กับพื้นหลังของฉัน OK เพื่อเปลี่ยนระดับ</string>
+    <string name="vp_titulo">ย้ายมาจาก Projectivy ใช่ไหม</string>
+    <string name="vp_texto">สี่ขั้นตอนจะย้ายการตั้งค่าของคุณมาในประมาณหนึ่งนาที แต่ละขั้นตอนทำภายหลังในการตั้งค่าได้</string>
+    <string name="vp_cfg_det">นำแอปที่ซ่อน ชุดไอคอน และพื้นหลังมาจาก Projectivy</string>
+    <string name="vp_1">1. แอปที่ซ่อน</string>
+    <string name="vp_1_det">ทำเครื่องหมายแอปที่คุณเคยซ่อนไว้ หากต้องการจัดลำดับใหม่ ให้กด OK ค้างที่แอปบนหน้าจอหลัก</string>
+    <string name="vp_2">2. ชุดไอคอน</string>
+    <string name="vp_2_det">ชุดไอคอนเดียวกับที่ Projectivy ใช้ ใช้ที่นี่ได้</string>
+    <string name="vp_3">3. พื้นหลัง</string>
+    <string name="vp_3_det">รูป GIF หรือวิดีโอของคุณ คัดลอกไปที่โฟลเดอร์ Fundo ก่อน</string>
+    <string name="vp_4">4. ปิดปุ่ม Home ของ Projectivy</string>
+    <string name="vp_4_det">ในการช่วยเหลือพิเศษ ให้ปิด Projectivy หากสองแอปรับปุ่ม Home จะทำให้เปิดผิดแอป</string>
+    <string name="vp_pronto">เรียบร้อย</string>
+    <string name="vp_pronto_det">ไปที่หน้าจอหลัก</string>
+    <string name="vq_titulo">แชร์รูปลักษณ์</string>
+    <string name="vq_det">แสดงคิวอาร์โค้ดของรูปลักษณ์ทีวีนี้: ธีม ขนาดตัวอักษร ไอคอน</string>
+    <string name="vq_texto">สแกนด้วยโทรศัพท์เพื่อเก็บไว้หรือส่งให้คนอื่นที่ใช้ Sofaly</string>
+    <string name="vq_fechar">ปิด</string>
+    <string name="pl_titulo">แพ็กเกจ</string>
+    <string name="pl_texto">ทุกอย่างฟรีในระหว่างที่ยังไม่เปิดขาย ภายหลัง Pro และ Ultra จะซื้อได้บนโทรศัพท์</string>
+    <string name="pl_basico">Basic</string>
+    <string name="pl_pro">Pro</string>
+    <string name="pl_ultra">Ultra</string>
+    <string name="pl_basico_itens">• หน้าจอหลัก โปรแกรมรักษาหน้าจอ\n• นาฬิกาปลุก หน้าจอแบบง่าย\n• เครื่องเล่นและวิทยุ\n• รายการ IPTV 1 รายการ\n• 2 ธีม</string>
+    <string name="pl_pro_itens">• ทุกอย่างใน Basic\n• รายการ IPTV หลายรายการ การบันทึก\n• แผงควบคุมเว็บเต็มรูปแบบ\n• Claude กิจวัตร Home Assistant\n• ทุกธีม สำรองข้อมูลบนคลาวด์</string>
+    <string name="pl_ultra_itens">• ทุกอย่างใน Pro\n• สภาพอากาศที่ดีกว่า (3 แบบจำลอง)\n• หน้าภาพยนตร์ที่ละเอียด\n• คำบรรยายอัตโนมัติ\n• สูงสุด 3 ทีวี</string>
+    <string name="pl_qr">สแกนด้วยโทรศัพท์เพื่อดูราคาและซื้อ</string>
+    <string name="pl_assinar">สมัครสมาชิก</string>
+    <string name="pl_assinar_preco">สมัครสมาชิก · %1$s</string>
+    <string name="pl_seu_plano">แพ็กเกจของคุณ</string>
+    <string name="pl_loja_indisponivel">Google Play เปิดการซื้อไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง</string>
+    <string name="atu_pela_play">การอัปเดตมาจาก Google Play</string>
+</resources>

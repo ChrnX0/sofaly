@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra única (StripHome / StripLayer), 24/11/2026 -->
+<resources>
+    <string name="bb_faixa">แถบเดียว</string>
+    <string name="strip_desc_watch">ภาพยนตร์ ซีรีส์ และทีวี</string>
+    <string name="strip_desc_listen">เพลง วิทยุ และพอดแคสต์</string>
+    <string name="strip_desc_play">เกมและเกมบนคลาวด์</string>
+    <string name="strip_desc_apps">ทุกอย่างที่ติดตั้งไว้</string>
+    <string name="strip_desc_tools">นาฬิกาปลุก สภาพอากาศ และการตั้งค่า</string>
+    <string name="strip_apps_count">%1$d แอป</string>
+    <string name="st_desc">คำอธิบายโลก</string>
+    <string name="st_desc_fixa">วลีคงที่</string>
+    <string name="st_desc_viva">มีอะไรออกอากาศตอนนี้</string>
+    <string name="st_formato">รูปทรงการ์ด</string>
+    <string name="st_quadrado">สี่เหลี่ยมจัตุรัส</string>
+    <string name="st_tamanho">ขนาดการ์ด</string>
+    <string name="st_pequeno">เล็ก</string>
+    <string name="st_medio">กลาง</string>
+    <string name="st_grande">ใหญ่</string>
+    <string name="st_espaco">ระยะห่างระหว่างการ์ด</string>
+    <string name="st_justo">แน่น</string>
+    <string name="st_normal">ปกติ</string>
+    <string name="st_largo">กว้าง</string>
+    <string name="st_cantos">มุมการ์ด</string>
+    <string name="st_retos">เหลี่ยม</string>
+    <string name="st_suaves">มนเล็กน้อย</string>
+    <string name="st_redondos">มน</string>
+    <string name="st_placa">แผ่นกระจกด้านหลัง</string>
+    <string name="st_nome">ชื่อบนการ์ดที่เลือก</string>
+    <string name="st_sem">ปิด</string>
+    <string name="st_com">เปิด</string>
+    <string name="st_fundo">พื้นหลัง</string>
+    <string name="st_fundo_vale">หุบเขา</string>
+    <string name="st_fundo_serra">ภูเขา</string>
+    <string name="st_fundo_noite">กลางคืน</string>
+    <string name="st_fundo_tema">จากธีม</string>
+    <string name="st_logo_solto">โลโก้อิสระ</string>
+    <string name="st_grade2">ตาราง 2 แถว</string>
+    <string name="st_redondo">กลม</string>
+    <string name="st_so_escolhido">เฉพาะที่เลือก</string>
+    <string name="wo_cards">รูปทรงการ์ดในโลกนี้</string>
+    <string name="wo_cards_geral">เหมือนกับปรับแต่ง (%1$s)</string>
+</resources>

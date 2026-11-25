@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="rec_titulo">TV này dành cho ai?</string>
+    <string name="rec_subtitulo">Một lần OK là thiết lập xong TV. Bạn có thể hoàn tác bất cứ lúc nào.</string>
+    <string name="rec_vo">TV của bà</string>
+    <string name="rec_vo_det">Thẻ lớn có đọc to tên, chữ lớn hơn và nút Nhờ giúp đỡ.</string>
+    <string name="rec_criancas">TV của trẻ em</string>
+    <string name="rec_criancas_det">Chỉ nội dung trẻ em, giờ đi ngủ và danh mục Chơi.</string>
+    <string name="rec_gamer">TV của game thủ</string>
+    <string name="rec_gamer_det">Danh mục Chơi, chế độ trò chơi (không có trình bảo vệ màn hình hay cảnh báo khi đang chơi) và tay cầm mở Trò chơi.</string>
+    <string name="rec_aluguel">TV cho thuê</string>
+    <string name="rec_aluguel_det">Chế độ khách: màn hình chào mừng, không có gì cá nhân trên màn hình chính và dọn dẹp khi trả phòng.</string>
+    <string name="rec_desfazer">Hoàn tác</string>
+    <string name="rec_desfazer_det">Đưa mọi thứ về như trước %1$s.</string>
+    <string name="rec_ja_esta">TV này đã được thiết lập như vậy rồi.</string>
+    <string name="rec_aviso_prende">Màn hình dễ dùng chỉ đóng được bằng PIN. Hãy chắc chắn có người trong nhà biết PIN.</string>
+    <string name="rec_aviso_sem_pin">Chưa có PIN, nên ai cũng tắt được. Hãy tạo PIN trong bảng điều khiển trên điện thoại.</string>
+    <string name="rec_aviso_plano">Cần gói trả phí, nên vẫn tắt: %1$s.</string>
+    <string name="rec_voltar">Quay lại</string>
+    <string name="rec_aplicar">Áp dụng</string>
+    <string name="rec_pin">PIN để đổi cách thiết lập TV</string>
+    <string name="rec_pronto">Xong</string>
+    <string name="rec_aplicada">TV của bạn đã sẵn sàng</string>
+    <string name="rec_aplicada_det">Đổi điều gì đó bạn không muốn? Hoàn tác sẽ đưa mọi thứ về như cũ.</string>
+    <string name="rec_desfeita">Mọi thứ đã trở lại như cũ.</string>
+    <string name="rec_linha">%1$s: %2$s</string>
+    <string name="rec_ligado">bật</string>
+    <string name="rec_desligado">tắt</string>
+    <string name="rec_aj_hospede">Chế độ khách</string>
+    <string name="rec_aj_visita">Chế độ người thăm</string>
+    <string name="rec_aj_simples">Màn hình dễ dùng</string>
+    <string name="rec_aj_infantil">Chế độ trẻ em</string>
+    <string name="rec_aj_dormir">Giờ đi ngủ</string>
+    <string name="rec_aj_texto">Cỡ chữ</string>
+    <string name="rec_aj_ler_foco">Đọc to mục đang chọn</string>
+    <string name="rec_aj_som">Tiếng click mỗi lần nhấn phím</string>
+    <string name="rec_aj_jogos">Danh mục Chơi</string>
+    <string name="rec_aj_modo_jogo">Chế độ trò chơi</string>
+    <string name="rec_aj_controle">Tay cầm mở Trò chơi</string>
+</resources>

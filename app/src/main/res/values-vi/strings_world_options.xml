@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opções dos mundos da cruz (WorldOptions/HomeWorldMenu, 22/11/2026). -->
+<resources>
+    <string name="wo_opcoes">Tùy chọn cho %1$s</string>
+    <string name="wo_ordenar">Sắp xếp</string>
+    <string name="wo_ordenar_de">Sắp xếp %1$s</string>
+    <string name="wo_por_uso">Dùng nhiều nhất trước</string>
+    <string name="wo_az">A đến Z</string>
+    <string name="wo_a_mao">Thứ tự của tôi</string>
+    <string name="wo_renomear_mundo">Đổi tên danh mục này</string>
+    <string name="wo_icone_mundo">Đổi biểu tượng danh mục này</string>
+    <string name="wo_esconder">Ẩn danh mục này</string>
+    <string name="wo_mostrar">Hiện danh mục đã ẩn (%1$d)</string>
+    <string name="wo_padrao">Trở lại như cũ</string>
+    <string name="wo_subir">Lên trên</string>
+    <string name="wo_descer">Xuống dưới</string>
+    <string name="wo_renomear_app">Đổi tên</string>
+    <string name="wo_vazio_original">Để trống = tên gốc</string>
+    <string name="wo_so_icone">Chỉ hiện biểu tượng</string>
+    <string name="wo_com_nome">Hiện tên</string>
+    <string name="wo_nomes_titulo">Nhãn biểu tượng</string>
+    <string name="wo_so_icone_curto">Chỉ biểu tượng</string>
+    <string name="wo_com_nome_curto">Có tên</string>
+    <string name="co_titulo">Xem tiếp</string>
+    <string name="co_mostrar">Đang hiện</string>
+    <string name="co_esconder">Đang ẩn</string>
+    <string name="wo_nomes_det">Tên dưới mỗi biểu tượng danh mục, hoặc chỉ biểu tượng</string>
+    <string name="co_det">Những gì bạn xem dở, ở đầu mỗi danh mục</string>
+    <string name="tec_cfg_det">Nhấn, giữ, nhấn hai lần và ba lần trên mỗi nút</string>
+    <string name="bb_titulo">Bố cục màn hình chính</string>
+    <string name="bb_cruz">Chữ thập</string>
+    <string name="bb_barra">Thanh dưới cùng</string>
+    <string name="bb_det">Danh mục dạng chữ thập, hoặc cố định ở dưới với ứng dụng ở trên (▲)</string>
+</resources>

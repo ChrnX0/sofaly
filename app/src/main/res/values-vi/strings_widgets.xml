@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wdg_titulo">Sửa widget màn hình chính</string>
+    <string name="wdg_det">Widget trực tiếp của ứng dụng khác trên màn hình chính. Mũi tên để di chuyển, OK để xem tùy chọn.</string>
+    <string name="wdg_vazio">Chưa có widget trên màn hình chính. OK để thêm.</string>
+    <string name="wdg_estado_mover">Đang di chuyển: %1$s</string>
+    <string name="wdg_estado_tamanho">Kích thước: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Di chuyển</string>
+    <string name="wdg_tamanho">Đổi kích thước</string>
+    <string name="wdg_ajustes">Cài đặt widget</string>
+    <string name="wdg_proximo">Widget tiếp theo</string>
+    <string name="wdg_por">Thêm widget</string>
+    <string name="wdg_tirar">Xóa widget này</string>
+    <string name="wdg_abrir">Mở ứng dụng</string>
+    <string name="wdg_cheio">Không còn chỗ trên màn hình chính cho widget này.</string>
+    <string name="wdg_d_setas">di chuyển / kích thước</string>
+    <string name="wdg_d_opcoes">tùy chọn</string>
+    <string name="wdg_d_voltar">BACK</string>
+    <string name="wdg_d_sair">lưu và thoát</string>
+</resources>

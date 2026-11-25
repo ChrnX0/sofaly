@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inside Movies (idea 23, 14/11/2026): combined filter, collections by name and a random pick. -->
+<resources>
+    <string name="filmes_filtro_titulo">Lọc phim</string>
+    <string name="filmes_filtro_genero">Thể loại: %1$s</string>
+    <string name="filmes_filtro_epoca">Thời kỳ: %1$s</string>
+    <string name="filmes_filtro_nota">Đánh giá tối thiểu: %1$s</string>
+    <string name="filmes_filtro_lista">Danh sách: %1$s</string>
+    <string name="filmes_filtro_nao_vistos">Chỉ chưa xem: %1$s</string>
+    <string name="filmes_filtro_limpar">Xóa bộ lọc</string>
+    <string name="filmes_filtro_qualquer">Bất kỳ</string>
+    <string name="filmes_filtro_sim">Có</string>
+    <string name="filmes_filtro_nao">Không</string>
+    <string name="filmes_filtro_decada">Thập niên %1$d</string>
+    <string name="filmes_filtro_nota_min">%1$d+</string>
+    <string name="filmes_filtro_nao_vistos_curto">chưa xem</string>
+    <string name="filmes_filtro_sem_genero">Không danh mục nào trong danh sách này ghi thể loại</string>
+    <string name="filmes_filtro_vazio">Không có phim nào khớp bộ lọc này trong danh mục này</string>
+    <string name="filmes_sorteio_vazio">Không có phim nào để chọn ở đây</string>
+    <string name="filmes_colecao">Bộ sưu tập của phim này</string>
+    <string name="filmes_colecao_cat">Bộ sưu tập: %1$s</string>
+    <string name="genero_acao">Hành động</string>
+    <string name="genero_aventura">Phiêu lưu</string>
+    <string name="genero_comedia">Hài</string>
+    <string name="genero_drama">Chính kịch</string>
+    <string name="genero_terror">Kinh dị</string>
+    <string name="genero_suspense">Giật gân</string>
+    <string name="genero_romance">Lãng mạn</string>
+    <string name="genero_ficcao">Khoa học viễn tưởng</string>
+    <string name="genero_fantasia">Giả tưởng</string>
+    <string name="genero_animacao">Hoạt hình</string>
+    <string name="genero_infantil">Trẻ em và gia đình</string>
+    <string name="genero_documentario">Tài liệu</string>
+    <string name="genero_crime">Hình sự</string>
+    <string name="genero_guerra">Chiến tranh</string>
+    <string name="genero_faroeste">Viễn Tây</string>
+    <string name="genero_musical">Ca nhạc</string>
+</resources>

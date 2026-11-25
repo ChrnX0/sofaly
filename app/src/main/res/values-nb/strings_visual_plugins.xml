@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">Knapper i hurtigpanelet</string>
     <string name="ext_nenhum_botao">Ingen knapper fra andre apper ennå. Noen apper legger til en av/på-knapp i hurtigpanelet (hold inne TILBAKE).</string>
     <string name="ext_off_blocked">Slått av av Sofaly: denne utvidelsen har et kjent problem.</string>
+    <string name="ext_secao_widgets">Moduler fra andre apper</string>
+    <string name="ext_widget_nenhum">Ingen app på denne TV-en har en modul ennå.</string>
+    <string name="ext_widget_sem_permissao">TV-en lot ikke Sofaly legge til moduler.</string>
+    <string name="ext_widget_falhou">Kunne ikke legge til denne modulen.</string>
 </resources>

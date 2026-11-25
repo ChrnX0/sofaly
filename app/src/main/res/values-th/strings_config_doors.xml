@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
+<resources>
+    <string name="cfg3_porta_casa_rede">บ้านและเครือข่าย</string>
+    <string name="cfg3_mais_ajustes">การตั้งค่าเพิ่มเติม</string>
+    <string name="cfg3_mais_ajustes_det">ซ่อนไว้เพื่อให้สั้น: %1$d</string>
+    <string name="cfg3_modo">โหมด: %1$s</string>
+    <string name="cfg3_porta_0_det">หมวดหมู่ ไอคอน และพื้นหลัง</string>
+    <string name="cfg3_porta_1_det">บัญชีทีวี เสียง คำบรรยาย</string>
+    <string name="cfg3_porta_2_det">เด็ก PIN และผู้เยี่ยมชม</string>
+    <string name="cfg3_porta_3_det">โปรแกรมรักษาหน้าจอ การปิด การปลุก</string>
+    <string name="cfg3_porta_4_det">บ้าน โทรศัพท์ และแผงควบคุม</string>
+    <string name="cfg3_porta_5_det">การอัปเดต การสำรองข้อมูล และความช่วยเหลือ</string>
+</resources>

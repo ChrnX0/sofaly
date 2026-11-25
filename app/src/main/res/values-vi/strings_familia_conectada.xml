@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Família conectada (degrau 3, FamiliaConectada.kt): fotos e recados dos parentes por um link. -->
+<resources>
+    <string name="famc_titulo">Liên kết gia đình</string>
+    <string name="famc_det">Con cháu gửi ảnh và lời nhắn đến TV này bằng một liên kết, không cần tài khoản</string>
+    <string name="famc_ligado">Bật: OK để hiện lại mã QR để chia sẻ</string>
+    <string name="famc_texto">Quét mã bằng điện thoại và gửi liên kết cho gia đình (WhatsApp, email). Ai có liên kết đều gửi được ảnh và lời nhắn: chúng hiện ngay trên màn hình, lời nhắn ở lại trên bảng trong bảng nhanh và ảnh được thêm vào ảnh trình bảo vệ màn hình. Không có gì đi qua máy chủ của chúng tôi.</string>
+    <string name="famc_sem_tunel">Tính năng này dùng truy cập từ bên ngoài nhà (Tailscale), chưa được thiết lập trên TV này. Hãy thiết lập trong Cài đặt › Nhà và mạng › Truy cập từ xa, rồi quay lại đây.</string>
+    <string name="famc_trocar">Liên kết mới</string>
+    <string name="famc_trocar_det">Liên kết cũ ngừng hoạt động ngay</string>
+    <string name="famc_desligar">Tắt</string>
+    <string name="famc_alguem">Gia đình</string>
+    <string name="famc_de">Từ %1$s</string>
+</resources>

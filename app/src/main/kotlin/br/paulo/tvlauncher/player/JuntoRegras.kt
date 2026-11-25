@@ -207,7 +207,11 @@ object JuntoRegras {
         // Sofy entre as TVs da casa (ideia 40, SofyShare): a TV manda as lições; quem recebe confere de volta.
         if (caminho == "/sofy/licoes") return "" to "licoes"
         caminho.removePrefix("/sofy/").takeIf { it != caminho }?.trimEnd('/')?.split('/')?.let { p ->
-            if (p.size == 2 && tokenValido(p[0]) && p[1] == "conferir") return p[0] to "conferir"
+            return if (p.size == 2 && tokenValido(p[0]) && p[1] == "conferir") p[0] to "conferir" else null
+        }
+        // A TV que recebe confere de volta que o pedido saiu mesmo daqui (segurança, 24/11/2026).
+        caminho.removePrefix("/continuar/").takeIf { it != caminho }?.trimEnd('/')?.split('/')?.let { p ->
+            return if (p.size == 2 && tokenValido(p[0]) && p[1] == "estado") p[0] to "continuar_estado" else null
         }
         val p = caminho.removePrefix("/junto/").takeIf { it != caminho } ?: return null
         val partes = p.trimEnd('/').split('/')
@@ -221,21 +225,41 @@ object JuntoRegras {
      * arquivo da rede da casa (smb://, http do DLNA, jellyfin://, plex://, webdav:// — a outra TV da mesma casa alcança)
      * e para canal (o nome; a outra TV procura na lista dela).
      */
-    data class Continuar(val titulo: String, val chave: String, val posMs: Long, val url: String?, val de: String)
+    data class Continuar(val titulo: String, val chave: String, val posMs: Long, val url: String?, val de: String, val token: String = "")
 
     private val ESQUEMAS_CASA = listOf("smb://", "http://", "jellyfin://", "plex://", "webdav://", "webdavs://")
 
     fun continuarParaJson(c: Continuar): JSONObject = JSONObject().put("titulo", c.titulo).put("chave", c.chave).put("pos", c.posMs)
-        .put("url", c.url ?: "").put("de", c.de)
+        .put("url", c.url ?: "").put("de", c.de).put("token", c.token)
 
     fun continuarDeJson(o: JSONObject?): Continuar? {
         o ?: return null
         val de = hostCurto(o.optString("de")) ?: return null
         val chave = o.optString("chave").takeIf { it.length <= 220 && tipoDaChave(it) != null } ?: return null
         val pos = o.optLong("pos", -1).takeIf { it in 0..(48L * 3_600_000) } ?: return null
-        val url = o.optString("url").takeIf { u -> u.length <= 2_000 && ESQUEMAS_CASA.any { u.startsWith(it) } && u.none { it.code < 32 } }
+        // Sem o token de uso único não há como conferir de volta com a TV que diz ter mandado: recusa (revisor de segurança,
+        // 24/11/2026: o "de" é o próprio chamador quem declara, e a rota está aberta na internet pelo Funnel).
+        val token = o.optString("token").takeIf { tokenValido(it) } ?: return null
+        val url = o.optString("url").takeIf { u -> u.length <= 2_000 && ESQUEMAS_CASA.any { u.startsWith(it) } && u.none { it.code < 32 } &&
+            (!u.startsWith("http://") || hostDaCasa(u.removePrefix("http://").substringBefore('/').substringBefore('?').substringAfterLast('@'))) }
         val titulo = o.optString("titulo").filter { it.isLetterOrDigit() || it in " .,:;!?'&()-·" }.replace(Regex("\\s+"), " ").trim().take(80)
-        return Continuar(titulo.ifEmpty { "?" }, chave, pos, url, de)
+        return Continuar(titulo.ifEmpty { "?" }, chave, pos, url, de, token)
+    }
+
+    /**
+     * http:// só para aparelho da rede de casa (IPv4 privado, nome sem ponto, .local, .lan, .home.arpa): senão um pedido
+     * podia fazer a TV buscar um endereço qualquer da internet (revisor de segurança, 24/11/2026).
+     */
+    fun hostDaCasa(hostPorta: String): Boolean {
+        val h = hostPorta.substringBefore(':').lowercase()
+        if (h.isEmpty()) return false
+        val n = h.split('.').map { it.toIntOrNull() }
+        if (n.size == 4 && n.all { it != null && it in 0..255 }) {
+            val (a, b) = n[0]!! to n[1]!!
+            return a == 10 || (a == 172 && b in 16..31) || (a == 192 && b == 168)
+        }
+        return h.all { it.isLetterOrDigit() || it == '-' || it == '.' } &&
+            ('.' !in h || h.endsWith(".local") || h.endsWith(".lan") || h.endsWith(".home.arpa"))
     }
 
     /** "1:02:03" / "12:34" para o cartão "Continuar de onde parou?". */

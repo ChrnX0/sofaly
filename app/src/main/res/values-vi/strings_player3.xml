@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: skip the opening, marked once per series (idea 24, 14/11/2026). -->
+<resources>
+    <string name="abertura_marcar_inicio">Đánh dấu bắt đầu mở đầu ở đây (%1$s)</string>
+    <string name="abertura_marcar_fim">Đánh dấu kết thúc mở đầu ở đây (%1$s)</string>
+    <string name="abertura_apagar">Xóa đánh dấu mở đầu</string>
+    <string name="abertura_inicio_marcado">Đã đánh dấu bắt đầu mở đầu ở %1$s. Giờ hãy đánh dấu kết thúc trong menu ▼</string>
+    <string name="abertura_salva">Đã lưu đoạn mở đầu: %1$s đến %2$s. Các tập tiếp theo sẽ cho bỏ qua</string>
+    <string name="abertura_falta_inicio">Hãy đánh dấu bắt đầu mở đầu trước</string>
+    <string name="abertura_invalida">Có vẻ không phải đoạn mở đầu: phải dài từ 10 giây đến 5 phút và bắt đầu trong 15 phút đầu</string>
+    <string name="abertura_apagada">Đã xóa đánh dấu mở đầu</string>
+    <string name="abertura_pular">Bỏ qua mở đầu · OK</string>
+</resources>

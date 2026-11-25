@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">Dọn sạch toàn bộ</string>
+    <string name="hos_total_det">Khi trả phòng, xóa dữ liệu của mọi ứng dụng trên TV, không chỉ ứng dụng xem phim. Dịch vụ Google và Cài đặt được giữ lại.</string>
+</resources>

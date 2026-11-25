@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mundo Ferramentas e o Continuar de cada mundo (21/11/2026). -->
+<resources>
+    <string name="cruz_ferramentas">เครื่องมือ</string>
+    <string name="cont_mais_opcoes">ตัวเลือกเพิ่มเติม</string>
+    <string name="tl_proximo">ถัดไป: %1$s</string>
+    <string name="tl_clima_sub">พยากรณ์อากาศวันข้างหน้า</string>
+    <string name="tl_casa_sub">ไฟ กล้อง และกริ่งประตู</string>
+    <string name="tl_painel_sub">Bluetooth เสียง Wi-Fi และตัวจับเวลา</string>
+    <string name="tl_config_sub">ทุกอย่างเกี่ยวกับ Launcher</string>
+    <string name="ac_cartoes">การ์ดแอป</string>
+    <string name="ac_coluna">ในคอลัมน์</string>
+    <string name="ac_vitrine">ตู้โชว์</string>
+    <string name="ac_ver_tudo">ดูว่ามีอะไรในแอป</string>
+    <string name="ac_ritmo">ระยะห่างหน้าจอหลัก</string>
+    <string name="rt_antes">เหมือนเดิม</string>
+    <string name="rt_a">A · แน่นขึ้น</string>
+    <string name="rt_b">B · กรอบ</string>
+    <string name="rt_c">C · โปร่ง</string>
+    <string name="ft_foco">การเลือก</string>
+    <string name="ft_foco_fio">เส้น</string>
+    <string name="ft_foco_veu">ม่าน</string>
+    <string name="ft_foco_quadro">กล่อง</string>
+</resources>

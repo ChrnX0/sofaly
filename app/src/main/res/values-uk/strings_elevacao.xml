@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Відтворює будь-який файл; правильні субтитри без мороки</string>
     <string name="elv_prom_casa">Будильник дзвонить вчасно, щоразу</string>
     <string name="elv_prom_controle">Панель, телефон і ШІ роблять усе, що й пульт</string>
-    <string name="elv_prom_todos">Літні люди, діти, гості, слабкий зір чи слух; 14 мов</string>
+    <string name="elv_prom_todos">Літні люди, діти, гості, слабкий зір чи слух; %1$d мов</string>
     <string name="elv_prom_instala">Від першого запуску до першого каналу за 5 хвилин</string>
     <string name="elv_nao_medido">Ще не виміряно</string>
     <string name="elv_alvo">ціль %1$s</string>

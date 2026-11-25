@@ -111,6 +111,7 @@ object PainelControle {
      */
     fun tecla(ctx: Context, nome: String, pelaIa: Boolean = false): String? {
         val codigo = TECLAS[nome] ?: return "tecla desconhecida"
+        if (nome !in TECLAS_SEM_PERGUNTA) perguntaNaTela()?.let { return it }
         // Tecla pelo painel também é alguém usando a TV. Com o aviso de desligar na tela, ela só o cancela (igual ao controle).
         val cancelouAviso = AutoDesligar.avisoNaTela()
         AutoDesligar.atividade()
@@ -138,7 +139,17 @@ object PainelControle {
     /** Texto aceito: o ASCII de ChecagensPainel.textoTvValido ou, com acento, TextoNaTv.validoPainel (ideia 56). */
     fun textoValido(t: String) = ChecagensPainel.textoTvValido(t) || TextoNaTv.validoPainel(t)
 
+    /**
+     * Com uma pergunta da TV aberta ("Permitir?", Confirmações "Perguntar na TV"), nenhuma tecla nem texto vindo de fora
+     * (painel, convidado, MCP): quem responde é quem está na frente da TV. Revisor de segurança, 24/11/2026: pelo painel,
+     * até o papel convidado apertava ▶ OK e aprovava o próprio PC no MTP. Liga, desliga e volume não respondem nada.
+     */
+    private val TECLAS_SEM_PERGUNTA = setOf("ligar", "apagar", "volume+", "volume-", "mudo")
+    internal fun perguntaNaTela(): String? =
+        if (br.paulo.tvlauncher.ConfirmacoesTv.atual() != null) "há uma pergunta na TV esperando a resposta de quem está na frente dela" else null
+
     fun digitar(ctx: Context, texto: String): String? {
+        perguntaNaTela()?.let { return it }
         AutoDesligar.atividade()
         if (!textoValido(texto)) return "só letras, números, espaço e . , @ _ - (até 100)"
         // Ideia 56: com acento, escreve pela acessibilidade no campo em foco. Sem campo ou sem o serviço, cai no

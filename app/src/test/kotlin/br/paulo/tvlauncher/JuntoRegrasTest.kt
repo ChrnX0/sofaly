@@ -104,12 +104,29 @@ class JuntoRegrasTest {
     }
 
     @Test fun continuarSoEnderecoDaCasa() {
-        val c = JuntoRegras.Continuar("Filme", "arquivo:Filme.mkv", 3_723_000, "smb://nas/Filme.mkv", "onetv-sala")
+        val c = JuntoRegras.Continuar("Filme", "arquivo:Filme.mkv", 3_723_000, "smb://nas/Filme.mkv", "onetv-sala", "0123456789abcdef0123456789abcdef")
         assertEquals(c, JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c)))
         // Endereço de fora da casa (file://, content://, https qualquer) não passa: só o título e a posição.
         assertNull(JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c.copy(url = "file:///sdcard/x")))!!.url)
         assertNull(JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c.copy(url = "https://x.com/v.mp4")))!!.url)
         assertEquals("1:02:03", JuntoRegras.tempo(3_723_000)); assertEquals("4:05", JuntoRegras.tempo(245_000))
+    }
+
+    /** Segurança (24/11/2026): sem token não há como conferir de volta; http só para aparelho da casa; rota de conferência. */
+    @Test fun continuarExigeTokenEHttpDaCasa() {
+        val t = "0123456789abcdef0123456789abcdef"
+        val c = JuntoRegras.Continuar("Filme", "arquivo:Filme.mkv", 1_000, "http://192.168.1.20:8200/v.mkv", "onetv-sala", t)
+        assertNull(JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c.copy(token = ""))))
+        assertNull(JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c.copy(token = "abc"))))
+        assertEquals(c.url, JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c))!!.url)
+        for (fora in listOf("http://atacante.com/x.mkv", "http://8.8.8.8/x", "http://192.169.1.1/x", "http://172.32.0.1/x",
+                "http://user@evil.com/x", "http://127.0.0.1:8080/api"))
+            assertNull(fora, JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c.copy(url = fora)))!!.url)
+        for (casa in listOf("http://10.0.0.5/x", "http://172.16.3.4:9000/x", "http://nas/x", "http://nas.local:8200/x", "http://tv.lan/x"))
+            assertEquals(casa, JuntoRegras.continuarDeJson(JuntoRegras.continuarParaJson(c.copy(url = casa)))!!.url)
+        assertEquals(t to "continuar_estado", JuntoRegras.rota("/continuar/$t/estado"))
+        assertNull(JuntoRegras.rota("/continuar/xyz/estado"))
+        assertNull(JuntoRegras.rota("/continuar/$t/apagar"))
     }
 }
 
