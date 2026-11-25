@@ -44,4 +44,8 @@
     <string name="st_so_escolhido">Μόνο το επιλεγμένο</string>
     <string name="wo_cards">Σχήμα καρτών σε αυτόν τον κόσμο</string>
     <string name="wo_cards_geral">Όπως στη Λεπτή ρύθμιση (%1$s)</string>
+    <string name="st_proprios">Κάρτες συντόμευσης</string>
+    <string name="st_proprios_branco">Λευκό</string>
+    <string name="st_proprios_vidro">Ανοιχτό γυαλί</string>
+    <string name="st_proprios_escuro">Σκούρο γυαλί</string>
 </resources>

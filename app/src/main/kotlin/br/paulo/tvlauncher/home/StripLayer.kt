@@ -56,6 +56,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private companion object {
         const val TRILHO_ICONE = 16f; const val TRILHO_VAO = 6f; const val TRILHO_OUTROS = 0.75f
         const val ROTULO_SP = 11f          // nome dentro do card
+        const val ICONE_LADO = 0.42f       // card nosso: ícone ao lado do nome (fração da altura)
+        const val LADO_VAO = 6f            // dp entre o ícone e o nome
         const val SO_ICONE = 1.7f          // "só o escolhido": ícone dos outros, sem placa
         const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
         const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
@@ -70,7 +72,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
 
     private class Card(val item: HomeCruz.Item, val raiz: FrameLayout, val banner: ImageView, val proprio: LinearLayout,
                        val icone: ImageView, val nomeFoco: TextView, val rotulo: TextView?, val fora: TextView?,
-                       val fundo: GradientDrawable, val conteudo: Boolean) {
+                       val fundo: GradientDrawable, val conteudo: Boolean, val own: StripHome.Own?) {
         var pediu = false
         var temBanner = false
     }
@@ -215,6 +217,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             if (lp.width != dpi(w)) { lp.width = dpi(w); k.raiz.layoutParams = lp }
             k.nomeFoco.visibility = if (escolhido && o.name && fmt.nomeNoFoco) View.VISIBLE else View.GONE
             val escala = if (fmt == StripHome.Format.ONLY) soEscolhido(k, escolhido) else 1f
+            tingir(k, escolhido, focada)
             val sobe = if (escolhido && focada) StripHome.SUBIR_FOCO else 0f
             val ty = dp(yDe(i) - sobe)
             val alfa = if (visivel) 1f else 0f
@@ -299,6 +302,33 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         return if (escolhido) 1f else SO_OUTROS
     }
 
+    /** Cor da placa de um card nosso ([own]); [aceso] = escolhido com o foco na linha (o vidro claro clareia um pouco). */
+    private fun placaPropria(own: StripHome.Own?, aceso: Boolean): Int = when (own) {
+        StripHome.Own.GLASS -> android.graphics.Color.argb(if (aceso) 66 else 40, 255, 255, 255)
+        StripHome.Own.DARK -> (DesignTokens.NIGHT and 0x00FFFFFF) or (150 shl 24)
+        else -> DesignTokens.PAPER
+    }
+
+    /**
+     * Card nosso: a placa do vidro claro acende no escolhido, e o traço da Linha (claro, feito para fundo escuro) ganha a
+     * tinta do jeito: escuro na placa branca (o escolhido na cor da marca para fundo claro), creme no vidro claro, laranja
+     * no vidro escuro. Os conjuntos coloridos (Objeto, Vintage, Joia...) já trazem as cores deles e ficam como estão.
+     * No "só o escolhido" os outros ficam sem placa, sobre a foto: aí o traço volta ao dele.
+     */
+    private fun tingir(k: Card, escolhido: Boolean, focada: Boolean) {
+        val own = k.own ?: return
+        val aceso = escolhido && focada
+        if (own == StripHome.Own.GLASS) k.fundo.setColor(placaPropria(own, aceso))
+        if ((k.item.icone as? IconeCruz)?.estilo != IconeCruz.Estilo.LINHA) return
+        if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.clearColorFilter(); return }
+        val cor = when (own) {
+            StripHome.Own.WHITE -> if (aceso) DesignTokens.ORANGE_ON_LIGHT else DesignTokens.NIGHT
+            StripHome.Own.GLASS -> if (aceso) DesignTokens.ORANGE else DesignTokens.CREAM
+            StripHome.Own.DARK -> DesignTokens.ORANGE
+        }
+        k.icone.setColorFilter(cor, android.graphics.PorterDuff.Mode.SRC_IN)
+    }
+
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
     fun atualizarTexto(cats: List<HomeCruz.Categoria>, cat: Int) { cats.getOrNull(cat)?.let { escreverDesc(it) } }
 
@@ -371,33 +401,41 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         for (k in cards) { k.raiz.animate().cancel(); removeView(k.raiz); k.fora?.let { it.animate().cancel(); removeView(it) } }
         cards.clear()
         val fmt = o.format
-        val corMundo = BottomBar.cor(c.cat)
         for (item in c.itens) {
             val raiz = FrameLayout(context)
             val app = ehApp(item.id)
             val conteudo = item.id.startsWith("card:")
+            // Card nosso (TV, Séries, Filmes, Rede...): placa clara como a dos apps, com o ícone na linha do nome
+            // (Paulo, 25/11/2026: o marrom "tinha um destaque feio"; ícone alinhado à descrição, igual ao card do YouTube).
+            val own = if (!app && !conteudo && fmt != StripHome.Format.LOGO) o.own else null
+            val claro = own == StripHome.Own.WHITE
             val fundo = GradientDrawable().apply {
                 cornerRadius = dp(o.raio)
                 setColor(when {
                     conteudo -> DesignTokens.NIGHT
                     fmt == StripHome.Format.LOGO -> 0   // logo solto: sem placa
                     app -> fundoDoIcone(item.icone)
-                    else -> mistura(corMundo, DesignTokens.NIGHT, 0.78f)
+                    else -> placaPropria(own, false)
                 })
             }
+            if (own == StripHome.Own.GLASS) fundo.setStroke(dpi(1f), android.graphics.Color.argb(72, 255, 255, 255))
+            if (own == StripHome.Own.DARK) fundo.setStroke(dpi(1f), android.graphics.Color.argb(26, 255, 255, 255))
             raiz.background = fundo
             raiz.clipToOutline = true
             val banner = ImageView(context).apply { scaleType = ImageView.ScaleType.CENTER_CROP; visibility = View.GONE }
             raiz.addView(banner, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
-            val proprio = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER }
-            val rotulo = if (!fmt.rotuloDentro) null else texto(ROTULO_SP, forte, DesignTokens.CREAM).apply {
+            val lado = own != null && fmt.rotuloDentro   // ícone ao lado do nome
+            val proprio = LinearLayout(context).apply {
+                orientation = if (lado) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL; gravity = Gravity.CENTER
+            }
+            val rotulo = if (!fmt.rotuloDentro) null else texto(ROTULO_SP, forte, if (claro) DesignTokens.NIGHT else DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)   // dentro do card não leva a sombra da linha do mundo
                 includeFontPadding = false; gravity = Gravity.CENTER; text = item.nome
                 breakStrategy = android.text.Layout.BREAK_STRATEGY_BALANCED
             }
             // Nome que não cabe numa linha ("Dormir em 30 min") vai inteiro em duas, com o ícone menor: nunca "Dormir em 30 m…".
             // Uma palavra só que não cabe ("Configurações" na grade) não se parte ao meio: a letra diminui até caber.
-            val cabe = dp(o.cardW - 12f)
+            val cabe = dp(o.cardW - 12f - (if (lado) o.cardH * ICONE_LADO + LADO_VAO else 0f))
             val largo = rotulo != null && rotulo.paint.measureText(item.nome) > cabe
             val umaPalavra = !item.nome.trim().contains(' ')
             if (largo && umaPalavra) rotulo?.let { it.textSize = ROTULO_SP * maxOf(0.75f, cabe / it.paint.measureText(item.nome)) }   // em sp
@@ -406,6 +444,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             val tamIcone = o.cardH * when {
                 fmt == StripHome.Format.LOGO -> 0.8f
                 fmt == StripHome.Format.ROUND -> 0.6f
+                lado -> ICONE_LADO
                 rotulo == null -> 0.56f
                 duasLinhas -> 0.36f
                 else -> 0.48f
@@ -414,7 +453,11 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             // num cantinho (Sala, 24/11/2026). Ela fica só no banner.
             val ic = ImageView(context).apply { setImageDrawable(if (conteudo) null else item.icone); scaleType = ImageView.ScaleType.FIT_CENTER }
             proprio.addView(ic, LinearLayout.LayoutParams(dpi(tamIcone), dpi(tamIcone)))
-            if (rotulo != null) proprio.addView(rotulo, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
+            if (rotulo != null && lado) {
+                rotulo.gravity = Gravity.START or Gravity.CENTER_VERTICAL
+                rotulo.maxWidth = cabe.toInt()
+                proprio.addView(rotulo, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dpi(LADO_VAO) })
+            } else if (rotulo != null) proprio.addView(rotulo, LinearLayout.LayoutParams(dpi(o.cardW - 12f), -2).apply { topMargin = dpi(3f) })
             raiz.addView(proprio, LayoutParams(dpi(o.cardW), LayoutParams.MATCH_PARENT))
             // Card de conteúdo (capa de filme/episódio de dentro do app, AppChannels): a capa ocupa o card inteiro.
             if (conteudo) {
@@ -422,7 +465,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
                 banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE
                 proprio.visibility = View.INVISIBLE
             }
-            val nomeFoco = texto(15f, forte, DesignTokens.CREAM).apply {
+            val nomeFoco = texto(15f, forte, if (claro) DesignTokens.NIGHT else DesignTokens.CREAM).apply {
                 setShadowLayer(0f, 0f, 0f, 0)
                 maxLines = 1; includeFontPadding = false; gravity = Gravity.CENTER_VERTICAL; text = item.nome
                 visibility = View.GONE
@@ -435,7 +478,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
                 alpha = 0f
             }
             fora?.let { addView(it, indexOfChild(anel), LayoutParams(dpi(o.cardW + NOME_FORA_SOBRA), LayoutParams.WRAP_CONTENT)) }
-            cards += Card(item, raiz, banner, proprio, ic, nomeFoco, rotulo, fora, fundo, conteudo)
+            cards += Card(item, raiz, banner, proprio, ic, nomeFoco, rotulo, fora, fundo, conteudo, own)
+            tingir(cards.last(), escolhido = false, focada = false)
         }
     }
 
