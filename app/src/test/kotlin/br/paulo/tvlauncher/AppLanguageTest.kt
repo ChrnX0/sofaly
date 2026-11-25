@@ -42,9 +42,22 @@ class AppLanguageTest {
         assertTrue(!File(res, "values-b+tlh/strings.xml").exists())
     }
 
-    @Test fun aContaDeRepeticoesParaNoLimite() {
-        assertEquals(1, AppLanguage.nextRepeat(0))
-        assertEquals(AppLanguage.REPEATS_TO_UNLOCK, AppLanguage.nextRepeat(AppLanguage.REPEATS_TO_UNLOCK))
-        assertTrue(AppLanguage.sameTag("pt-BR", "pt-br"))
+    @Test fun aContaDeRepeticoesSoValeEmSeguida() {
+        val w = AppLanguage.REPEAT_WINDOW_MS
+        assertEquals(1, AppLanguage.nextRepeat(0, 0L, 1_000_000L))
+        assertEquals(2, AppLanguage.nextRepeat(1, 1_000_000L, 1_000_000L + 5_000))
+        assertEquals("depois de 1 min recomeça", 1, AppLanguage.nextRepeat(2, 1_000_000L, 1_000_000L + w + 1))
+        assertEquals(AppLanguage.REPEATS_TO_UNLOCK, AppLanguage.nextRepeat(AppLanguage.REPEATS_TO_UNLOCK, 10L, 20L))
+    }
+
+    @Test fun aTagDoSistemaCasaComAOpcaoCerta() {
+        val o = AppLanguage.OPTIONS + AppLanguage.KLINGON
+        fun m(t: String) = AppLanguage.match(o, t)?.tag
+        assertEquals("pt-BR", m("pt-BR")); assertEquals("pt-BR", m("pt")); assertEquals("pt-PT", m("pt-PT"))
+        assertEquals("zh-CN", m("zh-Hans-CN")); assertEquals("id", m("in")); assertEquals("id", m("id-ID"))
+        assertEquals("nb", m("no")); assertEquals("nb", m("nb-NO")); assertEquals("en", m("en-US"))
+        assertEquals("de", m("de-DE-u-mu-celsius")); assertEquals("tlh", m("tlh"))
+        assertEquals(null, AppLanguage.match(AppLanguage.OPTIONS, "tlh"))   // klingon ainda não liberado
+        assertEquals(null, m("pt-AO")); assertEquals(null, m("")); assertEquals(null, m("he"))
     }
 }

@@ -1061,7 +1061,7 @@ input[type=time]:focus-within, input[type=date]:focus-within { border-color: var
 /* Celular estreito ou língua de nome longo: os ícones apertam para a pílula da página aberta caber */
 @media (max-width: 899px) {
   .abas { gap: 2px; padding: 7px; }
-  .aba:not(.ativa) { min-width: 40px; padding: 0 9px; }
+  .aba:not(.ativa) { min-width: 44px; padding: 0 9px; }   /* 44 px: alvo de toque mínimo */
   .aba.ativa { padding: 0 14px; font-size: 15px; letter-spacing: -.01em; }
 }
 

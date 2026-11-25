@@ -65,7 +65,8 @@ internal fun ConfigLauncherActivity.abaSistema(c: LinearLayout) {
     // Língua do app (24/11/2026, AppLanguage.kt): a da TV ou uma das 27; Android 13+.
     if (AppLanguage.supported()) {
         fun nomeLingua(tag: String) = if (tag.isEmpty()) getString(R.string.app_language_same_as_tv)
-            else (AppLanguage.options(this).firstOrNull { AppLanguage.sameTag(it.tag, tag) }?.name ?: tag)
+            else (AppLanguage.match(AppLanguage.options(this), tag)?.name
+                ?: java.util.Locale.forLanguageTag(tag).let { it.getDisplayName(it) }.ifBlank { tag })
         c.addView(linha(getString(R.string.app_language_title), getString(R.string.app_language_detail),
             valor = nomeLingua(AppLanguage.current(this))) { escolherLingua() }, lp())
     }
@@ -473,8 +474,10 @@ internal fun ConfigLauncherActivity.escolherLingua() {
     val opcoes = AppLanguage.options(this)
     val tags = listOf("") + opcoes.map { it.tag }
     val nomes: List<CharSequence> = listOf(getString(R.string.app_language_same_as_tv)) + opcoes.map { it.name }
-    val marcada = tags.indexOfFirst { AppLanguage.sameTag(it, atual) }.coerceAtLeast(0)
-    Estilo.lista(this, getString(R.string.app_language_title), nomes, listOf(marcada)) { i ->
+    // Língua gravada fora da lista (adb, backup do Android, klingon ainda não liberado nesta TV): nenhuma marcada, e
+    // escolher "A mesma da TV" troca de verdade em vez de contar para o segredo.
+    val marcada = if (atual.isEmpty()) 0 else AppLanguage.match(opcoes, atual)?.let { o -> tags.indexOf(o.tag) } ?: -1
+    Estilo.lista(this, getString(R.string.app_language_title), nomes, if (marcada >= 0) listOf(marcada) else emptyList()) { i ->
         if (i == marcada) {
             if (AppLanguage.countRepeat(this, pickedCurrent = true)) {
                 aviso(getString(R.string.app_language_klingon_unlocked))
