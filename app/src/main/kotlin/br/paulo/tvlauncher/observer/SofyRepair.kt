@@ -123,7 +123,8 @@ object SofyRepair {
                 else -> listOf(Tool.GRANT_PERMISSIONS)
             }
             Type.PERMISSION_LOST -> listOf(Tool.GRANT_PERMISSIONS)
-            Type.NO_EFFECT -> listOf(Tool.GRANT_PERMISSIONS, Tool.RESTART_LAUNCHER)
+            // App que não abriu: fechar e abrir de novo / limpar o cache dele; botão sem efeito: permissões, reinício.
+            Type.NO_EFFECT -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE, Tool.FREE_MEMORY) else listOf(Tool.GRANT_PERMISSIONS, Tool.RESTART_LAUNCHER)
             Type.ERROR -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE)
                 else listOf(Tool.REFRESH_DATA, Tool.UNDO_LAST_CHANGE, Tool.RESTART_LAUNCHER, Tool.DISABLE_FEATURE)
             Type.CRASH -> if (app) listOf(Tool.RESTART_APP, Tool.CLEAR_APP_CACHE)

@@ -253,7 +253,7 @@ object BotoesControle {
             Log.w(TAG, "app $pacote não encontrado")
             return
         }
-        try { ctx.startActivity(abrir.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
+        try { ctx.startActivity(abrir.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); br.paulo.tvlauncher.observer.SofyRepairTv.expectApp(ctx, pacote) }
         catch (e: Exception) { Log.w(TAG, "não abriu $pacote: $e") }
     }
 }

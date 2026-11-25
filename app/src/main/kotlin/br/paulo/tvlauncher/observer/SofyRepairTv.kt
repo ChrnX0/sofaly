@@ -80,6 +80,24 @@ object SofyRepairTv {
         }, afterMs)
     }
 
+    /**
+     * Abri o app [pkg]: em [afterMs] ele tem que ter aparecido. Só confere com a acessibilidade ligada (é ela que vê a
+     * tela; sem ela não há como saber e é melhor não acusar). Assunto "app:<pacote>" (as ferramentas de app entram).
+     */
+    fun expectApp(ctx: Context, pkg: String, afterMs: Long = 8_000) {
+        if (pkg.isBlank() || AutorizaShizukuService.instancia == null) return
+        val at = System.currentTimeMillis()
+        expect(ctx, "app:$pkg", emptySet(), afterMs) { AutorizaShizukuService.instancia == null || (JanelaNaFrente.vistoEm[pkg] ?: 0L) >= at - 500 }
+    }
+
+    /** Abri uma tela (nossa ou do sistema) pelo [intent]: em [afterMs] o pacote dela tem que ter aparecido. */
+    fun expectScreen(ctx: Context, subject: String, intent: android.content.Intent, needs: Set<Need> = emptySet(), afterMs: Long = 6_000) {
+        if (AutorizaShizukuService.instancia == null) return
+        val pkg = intent.component?.packageName ?: runCatching { ctx.packageManager.resolveActivity(intent, 0)?.activityInfo?.packageName }.getOrNull() ?: return
+        val at = System.currentTimeMillis()
+        expect(ctx, subject, needs, afterMs) { AutorizaShizukuService.instancia == null || (JanelaNaFrente.vistoEm[pkg] ?: 0L) >= at - 500 }
+    }
+
     // ---------------------------------------------------------------- porta 1: sondas
 
     private data class Probe(val type: Type, val subject: String, val bad: (Context) -> Boolean)
@@ -101,7 +119,27 @@ object SofyRepairTv {
         Probe(Type.PERMISSION_LOST, "perm:overlay") { SaudeAcesso.shellEsperado(it) && !Settings.canDrawOverlays(it) },
         Probe(Type.PERMISSION_LOST, "perm:secure_settings") { SaudeAcesso.shellEsperado(it) && !granted(it, "android.permission.WRITE_SECURE_SETTINGS") },
         Probe(Type.PERMISSION_LOST, "perm:logs") { SaudeAcesso.shellEsperado(it) && Diagnostico.PERMISSOES_SHELL.any { p -> !granted(it, p) } },
+        // Testar como gente (C): bater na porta do painel e do MCP como um celular/o Claude bateria. Só depois de 3 min de
+        // processo (subindo, a porta ainda não abriu) e só se a função está ligada.
+        Probe(Type.ERROR, "feature:panel") { upMs() > 3 * 60_000L && br.paulo.tvlauncher.panel.PainelArmazem.podeLigar(it) && !answers(Config.PAINEL_PORTA) },
+        Probe(Type.ERROR, "feature:mcp") {
+            upMs() > 3 * 60_000L && br.paulo.tvlauncher.mcp.McpServidor.precisaServidor(it) && br.paulo.tvlauncher.panel.PainelArmazem.temPin(it) && !answers(Config.MCP_PORTA)
+        },
     )
+
+    private fun upMs() = android.os.SystemClock.elapsedRealtime() - android.os.Process.getStartElapsedRealtime()
+
+    /** A porta local aceita conexão em até 1,5 s? (Só abre e fecha: não fala HTTP, não conta como tentativa de PIN.) */
+    private fun answers(port: Int): Boolean = runCatching {
+        java.net.Socket().use { it.connect(java.net.InetSocketAddress("127.0.0.1", port), 1_500) }
+        true
+    }.getOrDefault(false)
+
+    init {
+        // Como "reler do zero" cada função testada acima (REFRESH_DATA): pedir para ela se ajustar de novo.
+        refreshers["feature:panel"] = { br.paulo.tvlauncher.panel.PainelWeb.ajustar(it) }
+        refreshers["feature:mcp"] = { br.paulo.tvlauncher.mcp.McpServidor.ajustar(it) }
+    }
     private const val SHELL_DOWN_MS = 20 * 60_000L
 
     // ---------------------------------------------------------------- porta 2: o barramento
