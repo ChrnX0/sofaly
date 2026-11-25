@@ -188,6 +188,9 @@ class TelasTest {
     @Test fun lingua_vi() = todas("vi")
     @Config(qualifiers = "th-w960dp-h540dp-land-television-xhdpi")
     @Test fun lingua_th() = todas("th")
+    // Modo nerd escondido (AppLanguage.kt): klingon em ~40 textos, o resto em inglês.
+    @Config(qualifiers = "b+tlh-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_tlh() = todas("tlh")
 
     private fun todas(idioma: String) { org.junit.Assume.assumeTrue(System.getProperty("telas.todas") == "true"); conferir(idioma) }
 

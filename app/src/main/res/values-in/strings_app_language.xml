@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">Bahasa</string>
+    <string name="app_language_detail">Bahasa layar Sofaly</string>
+    <string name="app_language_same_as_tv">Sama dengan TV</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! Klingon terbuka: tlhIngan Hol ada di akhir daftar.</string>
+</resources>
