@@ -101,6 +101,9 @@ object AutoPairing {
         var scrolls = 0
         var pairing = false
         var openedWireless = false
+        /** O caminho que ela fez (para saber onde se perdeu quando não acha). */
+        val trail = ArrayList<String>()
+        var lastTexts: List<String> = emptyList()
         val pairLabels = labels(app, AutoPairingRules.PAIR_RES) + AutoPairingRules.PAIR_FALLBACK
         val wirelessLabels = labels(app, AutoPairingRules.WIRELESS_RES) + AutoPairingRules.WIRELESS_FALLBACK
     }
@@ -127,16 +130,19 @@ object AutoPairing {
         val svc = AutorizaShizukuService.instancia ?: run { finish(a, false, "sem acessibilidade"); return }
         val roots = roots(svc)
         val texts = roots.flatMap { texts(it) }
-        when (AutoPairingRules.step(texts, a.pairLabels)) {
+        a.lastTexts = texts
+        val passo = AutoPairingRules.step(texts, a.pairLabels)
+        a.trail += "${passo.name.lowercase()}@${roots.firstOrNull()?.packageName ?: "?"}"
+        when (passo) {
             AutoPairingRules.Step.READ_CODE -> {
                 a.code = CodigoPareamento.achar(texts)
                 if (a.port > 0 && a.code != null) { pair(a); return }
             }
-            AutoPairingRules.Step.OPEN_PAIRING -> { if (!clickLabel(roots, a.pairLabels)) scroll(roots, a) else a.clicks++ }
+            AutoPairingRules.Step.OPEN_PAIRING -> { if (!clickLabel(roots, a.pairLabels)) { scroll(roots, a); a.trail += "rolou" } else { a.clicks++; a.trail += "clicou parear" } }
             // Já entrou na "Depuração sem fio" e o item de parear não apareceu: está abaixo da dobra. Rola em vez de
             // clicar de novo no rótulo (na página de dentro ele é o interruptor: clicar desligaria a depuração).
             AutoPairingRules.Step.OPEN_WIRELESS ->
-                if (a.openedWireless || !clickLabel(roots, a.wirelessLabels)) scroll(roots, a) else { a.clicks++; a.openedWireless = true }
+                if (a.openedWireless || !clickLabel(roots, a.wirelessLabels)) { scroll(roots, a); a.trail += "rolou" } else { a.clicks++; a.openedWireless = true; a.trail += "clicou sem fio" }
         }
         if (a.clicks > 8 || a.scrolls > 20) { finish(a, false, "não achei o caminho na tela"); return }
         main.postDelayed({ tick(a) }, TICK_MS)
@@ -160,6 +166,11 @@ object AutoPairing {
         // Volta para a HOME (a caixinha do código fecha sozinha ao parear; sem parear, sai das Configurações do mesmo jeito).
         AutorizaShizukuService.instancia?.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
         log(a.app, (if (ok) "consertado: " else "não consertou: ") + why)
+        // Onde se perdeu: o caminho (passos repetidos juntados) e o que a tela mostrava, sem números (sem IP/porta/código).
+        if (!ok) {
+            log(a.app, "caminho: " + AutoPairingRules.squash(a.trail).joinToString(" > "))
+            log(a.app, "tela: " + AutoPairingRules.screenSummary(a.lastTexts))
+        }
         // Deu certo: o recuo zera (a próxima queda começa do intervalo curto de novo).
         if (ok) prefs(a.app).edit().remove("attempts").apply()
         SofyBusTv.emit(a.app, SofyBus.Source.SOFY, if (ok) "access_repaired" else "access_repair_failed", ok = ok, detail = why)

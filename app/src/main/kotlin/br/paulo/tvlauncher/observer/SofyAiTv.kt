@@ -57,6 +57,7 @@ object SofyAi {
             .put("model", p.getString("model", "") ?: "").put("has_key", p.contains("key")).put("ready", configured(ctx))
             .put("asked_today", askedToday(ctx))
             .put("test_at", p.getLong("test_at", 0L)).put("test_ok", p.getBoolean("test_ok", false)).put("test_http", p.getInt("test_http", 0))
+            .put("ask_at", p.getLong("ask_at", 0L)).put("ask_http", p.getInt("ask_http", 0)).put("ask_result", p.getString("ask_result", "") ?: "")
     }
 
     private fun key(ctx: Context): String? {
@@ -91,8 +92,21 @@ object SofyAi {
         val n = askedToday(app)
         if (n >= MAX_PER_DAY) return emptyList()
         prefs(app).edit().putLong("asked_day", System.currentTimeMillis() / 86_400_000L).putInt("asked", n + 1).apply()
-        val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.onFailure { Log.w(TAG, "pedido: ${it.javaClass.simpleName}") }.getOrNull()
-        val (tools, cause) = SofyAiRules.plan(answer?.let { SofyAiRules.text(s.provider.format, it) })
+        lastHttp = 0
+        var erro: String? = null
+        val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.onFailure { erro = it.javaClass.simpleName; Log.w(TAG, "pedido: $erro") }.getOrNull()
+        val txt = answer?.let { SofyAiRules.text(s.provider.format, it) }
+        val (tools, cause) = SofyAiRules.plan(txt)
+        // O que a última pergunta deu (Revisão, Sala 25/11: ask_ai falhou 3 vezes sem uma linha dizendo por quê). Sem a chave.
+        val res = when {
+            erro != null -> "erro de rede: $erro"
+            answer == null -> "HTTP $lastHttp"
+            txt == null -> "resposta sem texto"
+            tools.isEmpty() -> "sem ferramenta válida: " + txt.replace(Regex("\\s+"), " ").take(160)
+            else -> "ok: " + tools.joinToString(",") { it.name.lowercase() }
+        }
+        Log.i(TAG, "pergunta ${c.type.name} ${c.subject}: $res")
+        prefs(app).edit().putLong("ask_at", System.currentTimeMillis()).putInt("ask_http", lastHttp).putString("ask_result", res).apply()
         if (tools.isNotEmpty()) ObserverTv.logShadow(app, "ai_plan", "${c.type.name} ${c.subject}: ${tools.joinToString(",") { it.name.lowercase() }} ($cause)")
         return tools
     }

@@ -46,6 +46,12 @@ class AutoPairingRulesTest {
         assertTrue(AutoPairingRules.stillTrying(st(attempts = listOf(now - 25 * h) + quatro.drop(1))))
     }
 
+    @Test fun logsWhereItGotLostWithoutNumbers() {
+        assertEquals(listOf("open_wireless@x x3", "rolou", "open_pairing@x"), AutoPairingRules.squash(listOf("open_wireless@x", "open_wireless@x", "open_wireless@x", "rolou", "open_pairing@x")))
+        val t = AutoPairingRules.screenSummary(listOf("Depuração sem fio", "192.168.1.153:37123", "Código 123456", "Depuração sem fio"))
+        assertEquals("Depuração sem fio | ###.###.#.###:##### | Código ######", t)
+    }
+
     @Test fun findsTheStepFromTheScreenTexts() {
         val pair = AutoPairingRules.PAIR_FALLBACK
         assertEquals(Step.OPEN_WIRELESS, AutoPairingRules.step(listOf("Opções do desenvolvedor", "Depuração USB"), pair))

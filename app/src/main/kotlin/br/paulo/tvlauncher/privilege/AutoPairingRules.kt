@@ -61,6 +61,24 @@ object AutoPairingRules {
         else -> ""
     }
 
+    /** "a, a, a, b" vira "a x3, b" (o caminho no log fica curto). */
+    fun squash(trail: List<String>): List<String> {
+        val out = ArrayList<String>()
+        var i = 0
+        while (i < trail.size) {
+            var j = i
+            while (j + 1 < trail.size && trail[j + 1] == trail[i]) j++
+            out += if (j > i) "${trail[i]} x${j - i + 1}" else trail[i]
+            i = j + 1
+        }
+        return out
+    }
+
+    /** Os textos da tela para o log: sem dígitos (IP, porta, código), únicos, curtos. */
+    fun screenSummary(texts: List<String>): String = texts.asSequence()
+        .map { it.replace(Regex("[0-9]"), "#").replace(Regex("\\s+"), " ").trim().take(40) }
+        .filter { it.isNotEmpty() }.distinct().take(25).joinToString(" | ")
+
     fun recent(attempts: List<Long>, now: Long) = attempts.filter { now - it in 0 until DAY_MS }
 
     /** Espera depois de [n] tentativas sem sucesso: dobra a cada uma, até [MAX_GAP_MS]. */
