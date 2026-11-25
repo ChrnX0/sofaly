@@ -56,6 +56,7 @@ object SofyAi {
         return JSONObject().put("provider", p.getString("provider", "") ?: "").put("base", p.getString("base", "") ?: "")
             .put("model", p.getString("model", "") ?: "").put("has_key", p.contains("key")).put("ready", configured(ctx))
             .put("asked_today", askedToday(ctx))
+            .put("test_at", p.getLong("test_at", 0L)).put("test_ok", p.getBoolean("test_ok", false)).put("test_http", p.getInt("test_http", 0))
     }
 
     private fun key(ctx: Context): String? {
@@ -100,9 +101,14 @@ object SofyAi {
     fun test(ctx: Context): Boolean {
         val s = settings(ctx.applicationContext) ?: return false
         val c = SofyRepair.Case("ERROR:test", SofyRepair.Type.ERROR, "test", emptySet(), 0, 0, 2)
-        val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.getOrNull() ?: return false
-        return SofyAiRules.text(s.provider.format, answer) != null
+        val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.getOrNull()
+        val ok = answer != null && SofyAiRules.text(s.provider.format, answer) != null
+        // Gravado para o relatório (MCP/painel): dá para saber se a IA do dono funciona sem ver a chave.
+        prefs(ctx.applicationContext).edit().putLong("test_at", System.currentTimeMillis()).putBoolean("test_ok", ok).putInt("test_http", lastHttp).apply()
+        return ok
     }
+
+    @Volatile private var lastHttp = 0
 
     private fun post(s: SofyAiRules.Settings, body: String): JSONObject? {
         val bytes = body.toByteArray()
@@ -113,6 +119,7 @@ object SofyAi {
             SofyAiRules.headers(s).forEach { (k, v) -> c.setRequestProperty(k, v) }
             c.setFixedLengthStreamingMode(bytes.size)
             c.outputStream.use { it.write(bytes) }
+            lastHttp = c.responseCode
             if (c.responseCode !in 200..299) { Log.w(TAG, "a IA respondeu ${c.responseCode}"); return null }
             val raw = Http.readLimited(c.inputStream, 256 * 1024, cut = false) ?: return null
             return JSONObject(String(raw))
