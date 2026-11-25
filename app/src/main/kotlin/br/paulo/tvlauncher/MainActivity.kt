@@ -536,7 +536,7 @@ class MainActivity : Activity() {
      * ali mesmo. Atrás de uma tela opaca o onStop chega logo e desliga o ouvinte (nada roda à toa).
      */
     private var previaLigada = false
-    private val tarefaPrevia = Runnable { if (previaLigada && !isFinishing && !isDestroyed && aparenciaMudou()) recriar() }
+    private val tarefaPrevia = Runnable { if (previaLigada && !isFinishing && !isDestroyed && aparenciaMudou()) { descongelar(); recriar() } }
     private val ouvintePrevia = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
         ui.removeCallbacks(tarefaPrevia); ui.postDelayed(tarefaPrevia, PREVIA_ESPERA_MS)
     }
@@ -544,13 +544,54 @@ class MainActivity : Activity() {
         if (previaLigada || isFinishing) return
         previaLigada = true
         for (n in DesfazerRegras.PREFS_VIGIADAS) getSharedPreferences(n, MODE_PRIVATE).registerOnSharedPreferenceChangeListener(ouvintePrevia)
+        ui.postDelayed(congelar, CONGELAR_APOS_MS)
     }
     private fun desligarPrevia() {
+        descongelar()
         if (!previaLigada) return
         previaLigada = false
         ui.removeCallbacks(tarefaPrevia)
         for (n in DesfazerRegras.PREFS_VIGIADAS) getSharedPreferences(n, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(ouvintePrevia)
     }
+    /**
+     * HOME congelada atrás do painel (medido na Sala, 25/11/2026: parada, a HOME desenha ~31 quadros/s com as animações;
+     * com o vidro borrado por cima, o sistema refaz o borrão a cada quadro e 96% deles atrasavam). Como: uma foto exata da
+     * janela (PixelCopy, que pega até o vídeo de fundo numa TextureView) fica por cima e a HOME de verdade fica invisível,
+     * então nada se mexe atrás do vidro e o borrão é feito uma vez. A prévia continua: mudar a aparência refaz a HOME, que
+     * mostra a mudança e congela de novo. Com SurfaceView (camada à parte, fora da foto) não congela.
+     */
+    private var congelada: ImageView? = null
+    private val congelar = Runnable { congelarAtras() }
+    private fun congelarAtras() {
+        if (!previaLigada || congelada != null || isFinishing || isDestroyed || android.os.Build.VERSION.SDK_INT < 26) return
+        val raiz = findViewById<FrameLayout>(android.R.id.content) ?: return
+        val alvo = raiz.getChildAt(0) ?: return
+        val w = window.decorView.width; val h = window.decorView.height
+        if (w <= 0 || h <= 0 || temSurfaceView(alvo)) return
+        val bmp = runCatching { android.graphics.Bitmap.createBitmap(w, h, android.graphics.Bitmap.Config.ARGB_8888) }.getOrNull() ?: return
+        runCatching {
+            android.view.PixelCopy.request(window, bmp, { r ->
+                if (r != android.view.PixelCopy.SUCCESS || !previaLigada || congelada != null || isDestroyed) { bmp.recycle(); return@request }
+                val foto = ImageView(this).apply { setImageBitmap(bmp); scaleType = ImageView.ScaleType.FIT_XY; isFocusable = false }
+                val xy = IntArray(2); raiz.getLocationInWindow(xy)
+                raiz.addView(foto, FrameLayout.LayoutParams(w, h).apply { leftMargin = -xy[0]; topMargin = -xy[1] })
+                alvo.visibility = View.INVISIBLE
+                congelada = foto
+            }, ui)
+        }.onFailure { bmp.recycle() }
+    }
+    private fun temSurfaceView(v: View): Boolean =
+        v is android.view.SurfaceView || (v is android.view.ViewGroup && (0 until v.childCount).any { temSurfaceView(v.getChildAt(it)) })
+    private fun descongelar() {
+        ui.removeCallbacks(congelar)
+        val foto = congelada ?: return
+        congelada = null
+        val raiz = foto.parent as? FrameLayout
+        raiz?.getChildAt(0)?.visibility = View.VISIBLE
+        raiz?.removeView(foto)
+        ((foto.drawable as? android.graphics.drawable.BitmapDrawable)?.bitmap)?.recycle()
+    }
+
     /** As mesmas perguntas do onResume: algo que a HOME desenhou mudou desde que ela foi montada? */
     private fun aparenciaMudou(): Boolean = Tema.atual(this) != tema || idiomaAtual() != idiomaMontado ||
         ((tema == Tema.MEU || tema == Tema.PLUGIN) && FundoMeuDados.assinatura(this) + "|" + WallpaperPlugins.escolhidoId(this) != assinaturaFundo) ||
@@ -1178,6 +1219,8 @@ class MainActivity : Activity() {
         const val FOCO_TOPO_VALE_MS = 5 * 60_000L
         /** Prévia ao vivo: espera as gravações de uma opção terminarem antes de refazer a HOME. */
         const val PREVIA_ESPERA_MS = 350L
+        /** Quanto a HOME pausada e à vista anima antes de congelar atrás do painel (o painel entra em 250 ms). */
+        const val CONGELAR_APOS_MS = 600L
         /** Prefs "cruz": o último item aberto na cruz ("categoria|item") e quando; vale [ULTIMO_ABERTO_VALE_MS] na HOME refeita. */
         const val ULTIMO_ABERTO = "ultimo_aberto"
         const val ULTIMO_ABERTO_EM = "ultimo_aberto_em"
