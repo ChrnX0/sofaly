@@ -237,7 +237,6 @@ class PrevisaoActivity : Activity() {
         // O modelo erra a temperatura de agora (hoje: modelo 25°, aeroporto 20°). Corrige a sensação pela mesma diferença,
         // para "20°, sensação 28° mais quente" não aparecer.
         val sensacao = Math.round(d.sensacao + (tempAgora - d.temp)).toInt()
-        val iconeAgora = IconesClima.chave(d.codigo, d.eDia, chovendo)
         val fim = min(d.hTempo.size, i0 + 24)
 
         // ================================================================ tela 1: agora, a frase do dia e as dicas
@@ -247,6 +246,8 @@ class PrevisaoActivity : Activity() {
                 d.hChuva[i], d.hUv.getOrElse(i) { 0.0 }, if (i == i0) d.eDia else eDiaNaHora(i), d.hTempo[i].startsWith(hojeData)) },
             maxHoje, d.dChuva.getOrNull(1))
         val frase = DicasClima.frase(entrada)
+        // Chuva provável agora troca o ícone de agora (Paulo, 25/11/2026, A+C): o ícone e a frase dizem a mesma coisa.
+        val iconeAgora = IconesClima.chave(d.codigo, d.eDia, chovendo || frase.tipo == DicasClima.TipoFrase.CHUVA_AGORA)
         val p1 = pagina(28)
         // O lugar escolhido no painel (LocalClima.kt), para não haver dúvida de onde é a previsão. Na linha do relógio.
         p1.addView(Estilo.texto(this, Estilo.Papel.CORPO, d.ponto.nome ?: "").apply {
@@ -289,7 +290,7 @@ class PrevisaoActivity : Activity() {
         val p2 = pagina(84)
         // Chance como número, palavra ou os dois (RainChance); com palavra a célula da hora alarga para caber "Média 45%".
         val modoChance = RainChance.modo(this)
-        val larguraHora = if (modoChance == RainChance.Modo.NUMERO) 78 else if (modoChance == RainChance.Modo.PALAVRA) 90 else 108
+        val larguraHora = if (modoChance == RainChance.Modo.NUMERO) 78 else if (modoChance == RainChance.Modo.PALAVRA) 90 else 126
         val horas = cartao(getString(R.string.pv_24h), focavel = false)
         val faixa = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         for (i in i0 until fim) {
@@ -308,7 +309,8 @@ class PrevisaoActivity : Activity() {
             item.addView(IconesClima.imagem(this, if (i == i0) iconeAgora else IconesClima.chave(d.hCodigo[i], eDiaNaHora(i), false)),
                 LinearLayout.LayoutParams(dp(40), dp(40)).apply { topMargin = dp(2); bottomMargin = dp(2) })
             item.addView(texto(22f, Estilo.TEXTO, fonteMedia).apply { text = "$tempH°"; gravity = Gravity.CENTER })
-            item.addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.hChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1 })
+            item.addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.hChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1
+                IconesClima.gotaAntes(this, dp(16), dp(3)) })
             faixa.addView(item, LinearLayout.LayoutParams(dp(larguraHora), ViewGroup.LayoutParams.WRAP_CONTENT))
         }
         horas.addView(android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; addView(faixa) })
@@ -332,7 +334,8 @@ class PrevisaoActivity : Activity() {
                     LinearLayout.LayoutParams(dp(40), dp(40)).apply { topMargin = dp(2) })
                 addView(texto(22f, Estilo.TEXTO, fonteMedia).apply { text = "$mx°"; gravity = Gravity.CENTER })
                 addView(texto(18f, textoSuave).apply { text = "$mn°"; gravity = Gravity.CENTER })
-                addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.dChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1 })
+                addView(texto(18f, azulChuva).apply { text = RainChance.texto(this@PrevisaoActivity, d.dChuva[i], modoChance); gravity = Gravity.CENTER; maxLines = 1
+                    IconesClima.gotaAntes(this, dp(16), dp(3)) })
             }, LinearLayout.LayoutParams(0, -2, 1f))
         }
         dias.contentDescription = getString(R.string.pv_7d) + ". " + descricao

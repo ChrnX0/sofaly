@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Právě prší. Mělo by přestat kolem %1$s.</string>
     <string name="cl_f_segue">Právě prší a mělo by pršet i v příštích hodinách.</string>
     <string name="cl_f_chuva">Déšť pravděpodobně kolem %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Déšť pravděpodobně teď (%1$s).</string>
+    <string name="cl_f_chuva_agora">Může začít pršet každou chvíli (%1$s).</string>
     <string name="cl_f_calor">Horký den: až %1$d° kolem %2$s. Pijte vodu.</string>
     <string name="cl_f_frio">Blíží se chlad: až %1$d°. Teple se oblečte.</string>
     <string name="cl_f_sol">Silné slunce od %1$s do %2$s. Použijte opalovací krém.</string>

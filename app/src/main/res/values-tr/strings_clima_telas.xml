@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Şu an yağmur yağıyor. %1$s civarı durması bekleniyor.</string>
     <string name="cl_f_segue">Şu an yağmur yağıyor ve önümüzdeki saatlerde sürecek.</string>
     <string name="cl_f_chuva">%1$s civarı yağmur olası (%2$s).</string>
-    <string name="cl_f_chuva_agora">Şu an yağmur olası (%1$s).</string>
+    <string name="cl_f_chuva_agora">Her an yağmur başlayabilir (%1$s).</string>
     <string name="cl_f_calor">Sıcak gün: %2$s civarı %1$d° kadar. Su için.</string>
     <string name="cl_f_frio">Soğuk geliyor: %1$d° kadar. Sıkı giyinin.</string>
     <string name="cl_f_sol">%1$s ile %2$s arası güneş güçlü. Güneş kremi sürün.</string>
