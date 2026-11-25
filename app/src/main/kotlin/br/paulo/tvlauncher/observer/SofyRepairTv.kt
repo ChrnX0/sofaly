@@ -217,6 +217,7 @@ object SofyRepairTv {
     fun reportJson(ctx: Context): JSONObject = JSONObject()
         .put("cases", JSONArray().apply { loadCases(ctx).forEach { put(json(it)) } })
         .put("learned", JSONObject(prefs(ctx).getString("learned", "{}") ?: "{}"))
+        .put("ai", runCatching { SofyAi.json(ctx) }.getOrNull() ?: JSONObject())   // sem a chave (SofyAi.json não a põe)
 
     // ---------------------------------------------------------------- a batida
 

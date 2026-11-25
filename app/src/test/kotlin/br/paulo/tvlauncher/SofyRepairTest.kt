@@ -138,6 +138,12 @@ class SofyRepairBusAndAiTest {
         // Aviso à pessoa não é defeito; o próprio ciclo não se realimenta.
         assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.DEVICE, "battery_low")))
         assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.SOFY, "repair_failed")))
+        // Medição ("não deu para medir, fico no padrão") não é defeito (Sala, 25/11/2026)
+        assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.DEVICE, "audio_route")))
+        assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.MEASURE, "picture_white")))
+        // e o caso que uma versão antiga abriu com ele sai da fila
+        val velho = SofyRepair.Case("ERROR:bus:device.audio_route", Type.ERROR, "bus:device.audio_route", emptySet(), 0, 0, 1)
+        assertEquals(emptyList<SofyRepair.Case>(), SofyRepair.prune(listOf(velho), 1))
         assertEquals(null, SofyRepair.fromBus(ev(br.paulo.tvlauncher.observer.SofyBus.Source.NETWORK, "drop_router")))
     }
 

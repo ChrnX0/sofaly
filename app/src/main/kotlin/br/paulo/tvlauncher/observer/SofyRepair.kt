@@ -99,7 +99,13 @@ object SofyRepair {
     private fun <T> List<T>.mapLast(f: (T) -> T): List<T> = if (isEmpty()) this else dropLast(1) + f(last())
 
     /** Limpeza: casos parados há [STALE_MS] saem (inclusive os desistidos: se voltar, começa de novo). */
-    fun prune(cases: List<Case>, now: Long) = cases.filter { now - it.lastAt < STALE_MS }
+    fun prune(cases: List<Case>, now: Long) = cases.filter { now - it.lastAt < STALE_MS && !nowNotDefect(it) }
+
+    /** Caso aberto por uma versão antiga a partir de um evento que hoje não é mais defeito: sai da fila. */
+    private fun nowNotDefect(c: Case): Boolean {
+        val k = c.subject.removePrefix("bus:").takeIf { c.subject.startsWith("bus:") } ?: return false
+        return k in NOT_DEFECTS || k.substringBefore('.') in NOT_DEFECT_SOURCES
+    }
 
     // ---------------------------------------------------------------- 2. receitas (o ponto de partida, não o limite)
 
@@ -254,11 +260,16 @@ object SofyRepair {
         "device.battery_low", "device.key_stuck", "house.panel_pin_wrong", "network.wifi_advice", "network.game_lag",
         "sofy.app_powerful", "sofy.disk_filling", "sofy.night_skipped", "sofy.access_repair_failed", "sofy.repair_failed",
         "sofy.repair_gave_up", "plugin.disabled", "sofy.app_crashy",
+        // Medições (Sala, 25/11/2026: o primeiro caso da Sala foi "audio_route hdmi not_measured"). "Não deu para medir,
+        // fico no padrão" é resposta de calibração, não defeito: virava caso e ia gastar a pergunta de IA do dono.
+        "device.audio_route",
     )
+    /** Fontes cujo ok = false é resultado de medição/calibração ("unsure keep"), nunca defeito. */
+    private val NOT_DEFECT_SOURCES = setOf("measure")
 
     /** Um evento do barramento que deu errado vira sinal. Null = não é defeito para o ciclo.  */
     fun fromBus(e: SofyBus.Event): Signal? {
-        if (e.ok || e.key in NOT_DEFECTS || e.kind.startsWith("drop_")) return null
+        if (e.ok || e.key in NOT_DEFECTS || e.key.substringBefore('.') in NOT_DEFECT_SOURCES || e.kind.startsWith("drop_")) return null
         return when (e.key) {
             "crash.launcher_crash" -> Signal(Type.CRASH, "home", e.at, e.detail)
             "sofy.version_worse" -> Signal(Type.SLOW, "home", e.at, e.detail)
