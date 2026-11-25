@@ -32,4 +32,26 @@ class AgendaTest {
         assertEquals("en", Agenda.idiomaFeriados("en.brazilian#holiday@group.v.calendar.google.com"))
         assertEquals(null, Agenda.idiomaFeriados("alguem@gmail.com"))
     }
+
+    @Test fun feriadosDeOutroPaisSaemQuandoHaODoPaisDaTv() {
+        // Caso real da Sala (25/11/2026): Brasil em pt e en, EUA e Reino Unido em en, TV em português no Brasil.
+        val ptBr = "pt.brazilian#holiday@group.v.calendar.google.com"; val enBr = "en.brazilian#holiday@group.v.calendar.google.com"
+        val us = "en.usa#holiday@group.v.calendar.google.com"; val uk = "en.uk#holiday@group.v.calendar.google.com"
+        val l = listOf(Agenda.Evento("Thanksgiving Day", 1000, 2000, true, 0, us), Agenda.Evento("Black Friday", 3000, 4000, true, 0, us),
+            Agenda.Evento("St Andrew's Day", 5000, 6000, true, 0, uk), Agenda.Evento("Natal", 7000, 8000, true, 0, ptBr),
+            Agenda.Evento("Christmas Day", 7000, 8000, true, 0, enBr), ev("Dentista", 9000))
+        assertEquals(listOf("Natal", "Dentista"), Agenda.juntar(l, "pt", "BR").map { it.titulo })
+        assertEquals(listOf("Christmas Day", "Dentista"), Agenda.juntar(l, "en", "BR").map { it.titulo })
+        assertEquals(listOf("Thanksgiving Day", "Black Friday", "Dentista"), Agenda.juntar(l, "en", "US").map { it.titulo })
+        // País da TV sem agenda própria (ou desconhecido): nada sai por país, só a regra do idioma.
+        assertEquals(5, Agenda.juntar(l, "en", "DE").size)
+        assertEquals(5, Agenda.juntar(l, "en", null).size)
+    }
+
+    @Test fun paisDaAgendaDeFeriados() {
+        assertEquals("BR", Agenda.paisFeriados("pt-br.brazilian#holiday@group.v.calendar.google.com"))
+        assertEquals("US", Agenda.paisFeriados("en.usa#holiday@group.v.calendar.google.com"))
+        assertEquals(null, Agenda.paisFeriados("en.atlantis#holiday@group.v.calendar.google.com"))
+        assertEquals(null, Agenda.paisFeriados("alguem@gmail.com"))
+    }
 }
