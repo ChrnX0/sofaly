@@ -26,7 +26,7 @@ internal object DicasClima {
     /** [horas] começa na hora de agora (índice 0) e vai até 24 horas. [chanceAmanha] = máxima do dia seguinte. */
     data class Entrada(val chovendo: Boolean, val horas: List<Hora>, val maxHoje: Int, val chanceAmanha: Int?)
 
-    enum class TipoFrase { PARA_AS, CHUVA_SEGUE, CHUVA_AS, CALOR, FRIO, SOL_FORTE, AMANHA_CHUVA, CALMO }
+    enum class TipoFrase { PARA_AS, CHUVA_SEGUE, CHUVA_AGORA, CHUVA_AS, CALOR, FRIO, SOL_FORTE, AMANHA_CHUVA, CALMO }
 
     /** [a] e [b]: hora, temperatura ou chance, conforme o tipo (ver cada caso em [frase]). */
     data class Frase(val tipo: TipoFrase, val a: Int = 0, val b: Int = 0)
@@ -65,6 +65,9 @@ internal object DicasClima {
             return if (para != null) Frase(TipoFrase.PARA_AS, para.hora) else Frase(TipoFrase.CHUVA_SEGUE)
         }
         val chuva = janela.indexOfFirst { it.chance >= CHUVA }
+        // Chuva já na hora de agora (Sala, 25/11/2026, 6h38): "por volta das 6h" soava como passado. Vira "agora", com a
+        // chance DESTA hora, a mesma da HOME ("Chuva 76% neste momento"), para as duas telas dizerem o mesmo número.
+        if (chuva == 0) return Frase(TipoFrase.CHUVA_AGORA, janela[0].hora, janela[0].chance)
         if (chuva >= 0) {
             // A chance mostrada é a maior das 3 horas a partir dali (a da 1ª hora que passa do limiar pode ser só 50%).
             val pico = janela.drop(chuva).take(3).maxOf { it.chance }

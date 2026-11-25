@@ -8,6 +8,7 @@
     <string name="cl_f_parar">Зараз дощ. Має припинитися близько %1$s.</string>
     <string name="cl_f_segue">Зараз дощ, і він має тривати найближчі години.</string>
     <string name="cl_f_chuva">Імовірний дощ близько %1$s (%2$s).</string>
+    <string name="cl_f_chuva_agora">Зараз імовірний дощ (%1$s).</string>
     <string name="cl_f_calor">Спекотний день: до %1$d° близько %2$s. Пийте воду.</string>
     <string name="cl_f_frio">Похолодання: до %1$d°. Одягайтеся тепло.</string>
     <string name="cl_f_sol">Сильне сонце з %1$s до %2$s. Користуйтеся сонцезахисним кремом.</string>

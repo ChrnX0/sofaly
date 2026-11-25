@@ -352,7 +352,7 @@ class SleepingHome(private val ctx: Context) {
             }
         }
         if (fr != null) l += Linha("resumo", linhaResumo(ForecastText.frase(ctx, fr), when {
-            chovendo || fr.tipo == DicasClima.TipoFrase.CHUVA_AS -> SofyPolicy.Expression.WORRIED
+            chovendo || fr.tipo in setOf(DicasClima.TipoFrase.CHUVA_AS, DicasClima.TipoFrase.CHUVA_AGORA) -> SofyPolicy.Expression.WORRIED
             fr.tipo == DicasClima.TipoFrase.CALOR || fr.tipo == DicasClima.TipoFrase.FRIO -> SofyPolicy.Expression.SURPRISED
             !eDia -> SofyPolicy.Expression.SLEEPING
             else -> SofyPolicy.Expression.HAPPY
@@ -493,13 +493,14 @@ class SleepingHome(private val ctx: Context) {
         addView(IconesClima.imagem(ctx, Lua.chaveIcone(agoraMs, lat)), LinearLayout.LayoutParams(dp(54), dp(54)).apply { marginEnd = dp(16) })
         addView(celula(ctx.getString(R.string.sh_fase), p[0].substringAfter("  ").trim(), ctx.getString(R.string.sh_iluminada, p.getOrElse(1) { "" })),
             LinearLayout.LayoutParams(0, -2, 1.4f))
-        val idade = Lua.idade(agoraMs); val ciclo = 29.530588853; val metade = ciclo / 2
-        val paraCheia = if (idade < metade) metade - idade else ciclo - idade + metade
-        val paraNova = ciclo - idade
-        fun evento(rot: Int, dias: Double) = celula(ctx.getString(rot), diaMes(agoraMs + (dias * 86_400_000).toLong()),
-            ctx.getString(R.string.sh_em_dias, Lua.diasNoCalendario(agoraMs, dias)))
-        addView(evento(R.string.sh_cheia, paraCheia), LinearLayout.LayoutParams(0, -2, 1f))
-        addView(evento(R.string.sh_nova, paraNova), LinearLayout.LayoutParams(0, -2, 1f))
+        // Instante verdadeiro do evento (Lua.proxima, Meeus): o ciclo médio pôs a lua nova de 8/12/2026 em 9/12 (Sala, 25/11).
+        fun evento(rot: Int, cheia: Boolean): View {
+            val quando = Lua.proxima(agoraMs, cheia)
+            return celula(ctx.getString(rot), diaMes(quando),
+                ctx.getString(R.string.sh_em_dias, Lua.diasNoCalendario(agoraMs, (quando - agoraMs) / 86_400_000.0)))
+        }
+        addView(evento(R.string.sh_cheia, true), LinearLayout.LayoutParams(0, -2, 1f))
+        addView(evento(R.string.sh_nova, false), LinearLayout.LayoutParams(0, -2, 1f))
     }
 
     /** "26/11" no formato da língua (dia e mês, sem o ano). */

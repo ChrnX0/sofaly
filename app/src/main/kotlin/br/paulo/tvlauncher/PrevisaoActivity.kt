@@ -263,7 +263,7 @@ class PrevisaoActivity : Activity() {
         }, LinearLayout.LayoutParams(0, -2, 1f))
         // A Sofy reage ao tempo (como o sapo do Google Weather): preocupada com chuva, feliz com dia bom, dormindo de noite.
         val sofy = SofyDrawable(this, when {
-            chovendo || frase.tipo == DicasClima.TipoFrase.CHUVA_AS -> SofyPolicy.Expression.WORRIED
+            chovendo || frase.tipo in setOf(DicasClima.TipoFrase.CHUVA_AS, DicasClima.TipoFrase.CHUVA_AGORA) -> SofyPolicy.Expression.WORRIED
             frase.tipo == DicasClima.TipoFrase.CALOR || frase.tipo == DicasClima.TipoFrase.FRIO -> SofyPolicy.Expression.SURPRISED
             !d.eDia -> SofyPolicy.Expression.SLEEPING
             else -> SofyPolicy.Expression.HAPPY

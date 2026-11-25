@@ -128,6 +128,12 @@ object SaudeAcesso {
     fun shellEsperado(ctx: Context) = prefs(ctx).getBoolean("shell_ja_funcionou", false)
 
     /** Elevação 2.3: false = o shell está fora há mais que o limite (o mesmo critério do aviso); null = não sei/não se aplica. */
+    /**
+     * Minutos desde que o shell caiu, para o aviso aberto por quem dependia dele agora (ex.: o tile Protetor do painel
+     * rápido, Sala 25/11/2026: o clique não fazia nada). Mínimo 1.
+     */
+    fun minutosForaShell(): Int = if (shell.ok == false) ((SystemClock.elapsedRealtime() - shell.foraDesde) / 60_000).toInt().coerceAtLeast(1) else 1
+
     fun shellOk(): Boolean? = shell.ok.let { if (it == false && SystemClock.elapsedRealtime() - shell.foraDesde < LIMITE_SHELL_MS) null else it }
     /** O túnel deveria estar no ar e espera um login (o link de login apareceu). */
     fun tunelFaltaLogin(ctx: Context): Boolean = tunelEsperado(ctx.applicationContext) &&
