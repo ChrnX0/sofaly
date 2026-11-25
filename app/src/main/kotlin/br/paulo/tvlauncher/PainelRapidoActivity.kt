@@ -844,6 +844,8 @@ class PainelRapidoActivity : Activity() {
     private fun ligarProtetor() {
         val app = applicationContext
         finish()
+        // Ação sem efeito (Sofy, 25/11/2026): em 6 s o protetor tem que estar na tela; se não, ela vai atrás do shell.
+        br.paulo.tvlauncher.observer.SofyRepairTv.expect(app, "tile:screensaver", setOf(br.paulo.tvlauncher.observer.SofyRepair.Need.SHELL), 6_000) { ProtetorTela.aberto() }
         Fundo.rodar {
             val r = GuardiaoShizuku.comando(app, "service call dreams 1", 10_000)
             if (!chamadaRespondeu(r)) ui.post {

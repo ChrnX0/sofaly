@@ -68,15 +68,19 @@ object AutoPairing {
     /** O aviso de "acesso caiu" espera enquanto a Sofy ainda pode consertar sozinha. */
     fun stillTrying(ctx: Context) = AutoPairingRules.stillTrying(state(ctx.applicationContext, null))
 
-    /** Chamado pela saúde do acesso (SaudeAcesso, a cada 2 min). Barato: só lê estado; age só quando a regra manda. */
-    fun maybe(ctx: Context, shellDownForMs: Long?) {
+    /**
+     * Chamado pelo ciclo de conserto da Sofy (SofyRepairTv, ferramenta REPAIR_SHELL). Barato: só lê estado; age só
+     * quando a regra manda. Devolve true se começou uma tentativa.
+     */
+    fun maybe(ctx: Context, shellDownForMs: Long?): Boolean {
         val app = ctx.applicationContext
-        if (running) return
+        if (running) return false
         val s = state(app, shellDownForMs)
-        if (AutoPairingRules.decide(s) != AutoPairingRules.Decision.TRY) return
+        if (AutoPairingRules.decide(s) != AutoPairingRules.Decision.TRY) return false
         val list = (AutoPairingRules.recent(s.attempts, s.now) + s.now).joinToString(",")
         prefs(app).edit().putString("attempts", list).apply()
         main.post { start(app) }
+        return true
     }
 
     // ---------------------------------------------------------------- uma tentativa

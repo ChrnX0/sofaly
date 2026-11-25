@@ -110,6 +110,12 @@ object SaudeAcesso {
         shell = SaudeRegras.observar(shell, if (ok || shellEsperado(ctx)) ok else null, agora)
     }
 
+    /** Há quanto tempo o shell está fora (null = não está fora). Para o ciclo de conserto da Sofy. */
+    fun shellDownMs(): Long? = shell.let { if (it.ok == false) SystemClock.elapsedRealtime() - it.foraDesde else null }
+
+    /** O túnel devia estar no ar e está fora há mais que o limite. */
+    fun tunnelDown(): Boolean = tunel.let { it.ok == false && SystemClock.elapsedRealtime() - it.foraDesde >= LIMITE_TUNEL_MS }
+
     /** O serviço de acessibilidade avisa cada janela nova: a HOME apareceu é a hora boa para um aviso pendente. */
     fun janela(ctx: Context, pacote: CharSequence?, classe: CharSequence?) {
         val p = pacote?.toString() ?: return
@@ -161,9 +167,8 @@ object SaudeAcesso {
                 principal.post { talvezAvisar(app) }
             }
         }
-        // A Sofy religa sozinha quando a TV esquece o pareamento (AutoPairing, 25/11/2026). Barato: só lê estado.
-        val s = shell
-        AutoPairing.maybe(app, if (s.ok == false) agora - s.foraDesde else null)
+        // A Sofy percebe e conserta sozinha (SofyRepairTv, 25/11/2026): sondas baratas aqui; o trabalho vai para fora da tela.
+        br.paulo.tvlauncher.observer.SofyRepairTv.tick(app)
         talvezAvisar(app)
     }
 
