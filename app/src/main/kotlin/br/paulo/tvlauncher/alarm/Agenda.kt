@@ -94,7 +94,8 @@ object Agenda {
         t.substringBefore('(').trim().lowercase().removePrefix("dia de ").removePrefix("dia do ").removePrefix("dia da ").trim()
 
     /** Os eventos das contas Google [contas] entre [de] e [ate] (ms), em ordem. Vazio sem conta ou sem READ_CALENDAR. */
-    fun eventos(ctx: Context, contas: List<String>, de: Long, ate: Long): List<Evento> {
+    /** [cru] = sem o juntar (a conferência noturna da Sofy compara o cru com o que a tela mostra; SofyContentCheck). */
+    fun eventos(ctx: Context, contas: List<String>, de: Long, ate: Long, cru: Boolean = false): List<Evento> {
         if (contas.isEmpty()) return emptyList()
         if (ctx.checkSelfPermission(Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) return emptyList()
         // Pede 1 dia a mais de cada lado: a agenda filtra o dia inteiro pelo horário UTC (ver Datas.janelaConsulta).
@@ -131,12 +132,13 @@ object Agenda {
         } catch (e: Exception) {
             Log.w("TvLauncher.Agenda", "erro lendo a agenda: $e")
         }
+        if (cru) return saida
         // Sempre (antes só com 2+ contas): uma conta só também pode assinar feriados de vários países e idiomas.
         return juntar(saida, pais = FeriadosTv.pais(), agendas = agendasAssinadas(ctx, contas))
     }
 
     /** O dono (OWNER_ACCOUNT) de cada agenda visível das [contas]: diz quais agendas de feriados a conta assina. */
-    private fun agendasAssinadas(ctx: Context, contas: List<String>): List<String> = try {
+    fun agendasAssinadas(ctx: Context, contas: List<String>): List<String> = try {
         ctx.contentResolver.query(
             CalendarContract.Calendars.CONTENT_URI, arrayOf(CalendarContract.Calendars.OWNER_ACCOUNT),
             "${CalendarContract.Calendars.ACCOUNT_NAME} IN (${contas.joinToString(",") { "?" }}) AND ${CalendarContract.Calendars.ACCOUNT_TYPE} = 'com.google' AND ${CalendarContract.Calendars.VISIBLE} = 1",

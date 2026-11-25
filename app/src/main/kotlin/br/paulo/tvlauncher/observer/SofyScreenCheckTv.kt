@@ -79,12 +79,38 @@ object SofyScreenCheckTv {
         voltar(s)
         // Revisor noturno (plano D, passo 3): regras aprendidas + IA do dono olhando o que a tela DIZ.
         runCatching { SofyRulesTv.onScreen(app, nome, tela.caixas.map { it.texto }) }.onFailure { Log.w(TAG, "revisor: $it") }
+        // O que a Revisão ensinou (#502): o SENTIDO do que a tela diz (feriado de fora, evento repetido, "498783 h", 140%).
+        runCatching { conteudo(app, tela) }.onFailure { Log.w(TAG, "conteúdo: $it") }
         val achados = SofyScreenCheck.conferir(tela)
         if (achados.isEmpty()) { Log.i(TAG, "$nome: ok (${tela.caixas.size} textos)"); return }
         val resumo = SofyScreenCheck.resumo(nome, achados)
         Log.w(TAG, resumo)
         ObserverTv.logShadow(app, "self_defect", resumo)   // a tarefa diária abre a issue a partir daqui
         SofyRepairTv.signal(app, SofyRepair.Type.SCREEN_BROKEN, "screen:$nome", achados.first().defeito.name)
+    }
+
+    /**
+     * Conferência do conteúdo ([SofyContentCheck]) com o que a TV sabe agora: país, agenda crua e agendas assinadas.
+     * Defeito de dado (velho) vira INCOHERENT (o conserto atualiza os dados); o resto é de código e vai para o relato.
+     * Ainda sem a temperatura e a chuva de agora no retrato (as regras que usam isso ficam caladas aqui).
+     */
+    private fun conteudo(app: Context, tela: SofyScreenCheck.Tela) {
+        val agora = System.currentTimeMillis()
+        val contas = br.paulo.tvlauncher.alarm.Agenda.contas(app)
+        val retrato = SofyContentCheck.Retrato(
+            pais = br.paulo.tvlauncher.alarm.FeriadosTv.pais(),
+            eventos = br.paulo.tvlauncher.alarm.Agenda.eventos(app, contas, agora - 86_400_000L, agora + 14 * 86_400_000L, cru = true),
+            agendas = br.paulo.tvlauncher.alarm.Agenda.agendasAssinadas(app, contas),
+        )
+        val achados = SofyContentCheck.conferir(listOf(tela), retrato)
+        if (achados.isEmpty()) return
+        val resumo = SofyContentCheck.resumo(achados)
+        Log.w(TAG, "${tela.nome}: $resumo")
+        ObserverTv.logShadow(app, "self_defect", "conteúdo de ${tela.nome}: $resumo")
+        for (a in achados.distinctBy { it.defeito }) {
+            val tipo = if (a.defeito in SofyContentCheck.deDado) SofyRepair.Type.INCOHERENT else SofyRepair.Type.SCREEN_BROKEN
+            SofyRepairTv.signal(app, tipo, "content:${tela.nome}:${a.defeito.name.lowercase()}", a.onde.take(80))
+        }
     }
 
     private fun voltar(s: AutorizaShizukuService) {
