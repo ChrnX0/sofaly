@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Es regnet. Gegen %1$s sollte es aufhören.</string>
     <string name="cl_f_segue">Es regnet, und das dürfte die nächsten Stunden so bleiben.</string>
     <string name="cl_f_chuva">Regen wahrscheinlich gegen %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Regen jetzt wahrscheinlich (%1$s).</string>
+    <string name="cl_f_chuva_agora">Es kann jeden Moment regnen (%1$s).</string>
     <string name="cl_f_calor">Heißer Tag: bis %1$d° gegen %2$s. Trinken Sie Wasser.</string>
     <string name="cl_f_frio">Es wird kalt: bis %1$d°. Ziehen Sie sich warm an.</string>
     <string name="cl_f_sol">Starke Sonne von %1$s bis %2$s. Sonnencreme nutzen.</string>

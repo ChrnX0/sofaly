@@ -386,7 +386,7 @@ class PainelRapidoActivity : Activity() {
         val lat = c.getFloat("lat", Config.LATITUDE.toFloat()).toDouble()
         val lon = c.getFloat("lon", Config.LONGITUDE.toFloat()).toDouble()
         val eDia = Astronomia.eDia(System.currentTimeMillis(), lat, lon, c.getBoolean("eDia", true))
-        val chave = IconesClima.chave(codigo, eDia, chovendo)
+        val chave = IconesClima.chave(codigo, eDia, chovendo || c.getBoolean("chuva_agora", false))   // A+C, 25/11/2026
         val bmp = IconesClima.bitmap(this, chave)
         imgClima.visibility = if (bmp != null) View.VISIBLE else View.GONE
         if (bmp != null) imgClima.setImageBitmap(bmp)

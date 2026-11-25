@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Het regent nu. Het zou rond %1$s moeten stoppen.</string>
     <string name="cl_f_segue">Het regent nu, en dat gaat de komende uren door.</string>
     <string name="cl_f_chuva">Regen waarschijnlijk rond %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Nu kans op regen (%1$s).</string>
+    <string name="cl_f_chuva_agora">Het kan elk moment gaan regenen (%1$s).</string>
     <string name="cl_f_calor">Warme dag: tot %1$d° rond %2$s. Drink water.</string>
     <string name="cl_f_frio">Kou op komst: tot %1$d°. Kleed je warm aan.</string>
     <string name="cl_f_sol">Felle zon van %1$s tot %2$s. Smeer je in.</string>
