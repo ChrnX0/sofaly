@@ -1232,6 +1232,7 @@ class ConfigLauncherActivity : Activity() {
                       anterior: (() -> Unit)? = null, aoClicar: () -> Unit): LinhaCfg =
         LinhaCfg(this, focavel = true).apply {
             this.anterior = anterior
+            chaveUso = "opcao:$titulo"
             if (indexando >= 0) indiceMontando += BuscaAjustes.Entrada(indexando, titulo, detalhe)
             montarLinha(titulo, detalhe)
             if (chave != null) ligado(chave)
@@ -1396,6 +1397,8 @@ class ConfigLauncherActivity : Activity() {
         private var tValor: TextView? = null
         /** ◀ numa linha de valor: volta um passo (quem monta a linha diz como; sem isto, ◀ não muda nada). */
         var anterior: (() -> Unit)? = null
+        /** O nome com que o UsoLocal conta esta linha ("opcao:<título>"); o modo Simples mostra as mais usadas. */
+        var chaveUso: String? = null
 
         /**
          * Painel ao lado: ◀▶ mudam a linha sem entrar nela. Chave: ▶ liga, ◀ desliga. Valor: ▶ = próximo (o mesmo do OK),

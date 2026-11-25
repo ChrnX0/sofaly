@@ -45,8 +45,19 @@ internal object PortasConfig {
     /** As abas da porta [porta] que aparecem no uso [uso] (Simples esconde as técnicas, ver [UsoTv.ABAS_TECNICAS]). */
     fun abasVisiveis(porta: Int, uso: UsoTv): List<Int> = PORTAS[porta].filter { UsoTv.mostraAba(uso, it) }
 
-    /** Quantas linhas uma aba mostra no modo Simples antes de "Mais ajustes". */
-    const val LINHAS_SIMPLES = 8
+    /**
+     * Quantas linhas uma aba mostra no modo Simples antes de "Mais ajustes". Era 8; 5 desde 25/11/2026 (onda C da
+     * simplificação: "no máximo 5 por porta, as mais usadas").
+     */
+    const val LINHAS_SIMPLES = 5
+
+    /**
+     * Quais linhas ficam à vista no Simples (puro, PortasConfigTest): as [max] mais usadas ([vezes] = quantas vezes cada
+     * linha foi apertada, na ordem da aba); empate (e TV nova, tudo zero) fica com a ordem da aba, que já põe o
+     * principal em cima. Devolve as posições que ficam.
+     */
+    fun noSimples(vezes: List<Int>, max: Int = LINHAS_SIMPLES): Set<Int> =
+        vezes.indices.sortedWith(compareByDescending<Int> { vezes[it] }.thenBy { it }).take(max).toSet()
 }
 
 /** As portas estão na tela agora (e não uma porta aberta)? */
@@ -325,25 +336,32 @@ internal fun ConfigLauncherActivity.menuDaPorta() {
 }
 
 /**
- * Modo Simples (proposta E): a aba mostra as primeiras [PortasConfig.LINHAS_SIMPLES] linhas e uma linha "Mais ajustes"
- * que abre o resto. Quem chega por busca ou "Conversa com" vê tudo (a aba entra em [abasAbertas]).
+ * Modo Simples (proposta E; onda C, 25/11/2026): a aba mostra só as [PortasConfig.LINHAS_SIMPLES] linhas mais usadas
+ * nesta TV (contadas pelo UsoLocal a cada OK) e uma linha "Mais ajustes" que abre o resto. Título de grupo sem nenhuma
+ * linha à vista some junto. Quem chega por busca ou "Conversa com" vê tudo (a aba entra em [abasAbertas]).
  */
 internal fun ConfigLauncherActivity.recolherNoSimples(aba: Int, inicio: Int) {
     if (UsoTv.atual(this) != UsoTv.SIMPLES || aba in abasAbertas || indexando >= 0) return
-    var vistas = 0
-    var corte = -1
+    val linhas = (inicio until conteudo.childCount).filter { primeiroFocavel(conteudo.getChildAt(it)) != null }
+    if (linhas.size <= PortasConfig.LINHAS_SIMPLES) return
+    val uso = br.paulo.tvlauncher.family.UsoLocal.vezes(this)
+    val vezes = linhas.map { k -> (conteudo.getChildAt(k) as? ConfigLauncherActivity.LinhaCfg)?.chaveUso?.let { uso[it] } ?: 0 }
+    val ficam = PortasConfig.noSimples(vezes).map { linhas[it] }.toSet()
+    val escondidas = linhas.filter { it !in ficam }
+    escondidas.forEach { conteudo.getChildAt(it).visibility = View.GONE }
+    // Título de grupo (texto sem foco) que ficou sem nenhuma linha à vista até o próximo título: some também.
+    // Textos seguidos (título + explicação do grupo) contam como um cabeçalho só.
+    val cabecalho = ArrayList<Int>(); var temLinha = false; var ultimoFoiTexto = false
+    fun fecharGrupo() { if (!temLinha) cabecalho.forEach { conteudo.getChildAt(it).visibility = View.GONE } }
     for (k in inicio until conteudo.childCount) {
-        if (primeiroFocavel(conteudo.getChildAt(k)) == null) continue
-        vistas++
-        if (vistas > PortasConfig.LINHAS_SIMPLES) { corte = k; break }
+        val v = conteudo.getChildAt(k)
+        if (v is TextView && !v.isFocusable && primeiroFocavel(v) == null) {
+            if (!ultimoFoiTexto) { fecharGrupo(); cabecalho.clear(); temLinha = false }
+            cabecalho += k; ultimoFoiTexto = true
+        } else { ultimoFoiTexto = false; if (k in ficam) temLinha = true }
     }
-    if (corte < 0) return
-    // Um título de grupo logo antes do corte vai junto (não fica um título sozinho em cima de "Mais ajustes").
-    while (corte > inicio && conteudo.getChildAt(corte - 1).let { it is TextView && !it.isFocusable }) corte--
-    val escondidas = (corte until conteudo.childCount).map { conteudo.getChildAt(it) }
-    val quantas = escondidas.count { primeiroFocavel(it) != null }
-    escondidas.forEach { it.visibility = View.GONE }
-    conteudo.addView(linha(getString(R.string.cfg3_mais_ajustes), getString(R.string.cfg3_mais_ajustes_det, quantas), seta = true) {
+    fecharGrupo()
+    conteudo.addView(linha(getString(R.string.cfg3_mais_ajustes), getString(R.string.cfg3_mais_ajustes_det, escondidas.size), seta = true) {
         abasAbertas += aba
         recarregarAba()
     }, lp())
