@@ -100,7 +100,13 @@ class BuscaActivity : Activity() {
             background = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA, Estilo.BORDA)
             setPaddingRelative(dp(22), dp(14), dp(22), dp(14))
             setOnEditorActionListener { _, acao, _ ->
-                if (acao == EditorInfo.IME_ACTION_SEARCH || acao == EditorInfo.IME_ACTION_DONE) { buscarJa(); true } else false
+                // Buscar no teclado: fecha o teclado e o foco desce ao 1º resultado assim que ele aparecer. Antes o teclado
+                // ficava aberto por cima dos resultados (teste da noite na Sala, 25/11/2026).
+                if (acao == EditorInfo.IME_ACTION_SEARCH || acao == EditorInfo.IME_ACTION_DONE) {
+                    getSystemService(android.view.inputmethod.InputMethodManager::class.java)?.hideSoftInputFromWindow(windowToken, 0)
+                    focarResultado = true
+                    buscarJa(); true
+                } else false
             }
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
@@ -455,7 +461,13 @@ class BuscaActivity : Activity() {
         }))
     }
 
+    /** true = a pessoa apertou Buscar no teclado: o próximo desenho com resultado leva o foco para o 1º. */
+    private var focarResultado = false
+
     private fun desenhar(termo: String, grupos: List<Grupo>) {
+        // O "onde assistir" chega depois e redesenha: quem já estava nos resultados continua neles (sem isto o foco caía
+        // de volta no campo, porque a linha focada sai da tela).
+        val estavaNaLista = lista.hasFocus()
         lista.removeAllViews()
         // Só as linhas "Procurar no YouTube..." (ideia 14): o "nada encontrado" continua aparecendo, em cima delas.
         // "Procurar" (rádios mais longe) e "outros apps" não são resultado: só eles = nada encontrado (rodada 15).
@@ -469,6 +481,7 @@ class BuscaActivity : Activity() {
                 else -> getString(R.string.bu_digite)
             }
             lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, msg).apply { setPaddingRelative(dp(4), dp(Estilo.E3), 0, 0) })
+            focarResultado = false   // nada para focar: o foco fica no campo, e digitar de novo não o arranca dali
             return
         }
         for (g in grupos) {
@@ -479,6 +492,7 @@ class BuscaActivity : Activity() {
                 setOnClickListener { if (termo.length >= 2) BuscaRecentes.guardar(this@BuscaActivity, termo); i.abrir() }
             }, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(6) })
         }
+        if (focarResultado || estavaNaLista) { focarResultado = false; lista.requestFocus(android.view.View.FOCUS_DOWN) }
     }
 
     private fun tocar(canalId: String, nome: String) {

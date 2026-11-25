@@ -2,6 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.observer.SofyBus
 import br.paulo.tvlauncher.observer.SofyGuard
+import br.paulo.tvlauncher.observer.SofyPolicy
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -57,5 +58,14 @@ class SofyGuardTest {
     @Test fun atualizacaoQuebrou() {
         assertEquals(listOf("voice"), SofyGuard.regressions(mapOf("voice" to true, "store" to true), mapOf("voice" to false, "store" to true, "cast" to false)))
         assertEquals(listOf("com.android.vending"), SofyGuard.watchedUpdated(mapOf("com.android.vending" to 1L, "x" to 1L), mapOf("com.android.vending" to 2L, "x" to 3L)))
+    }
+
+    /** 43 e 47 prometem a Ilha: de dia, sem vídeo e com teto livre, o recado tem de chegar lá (não só ao Diário). */
+    @Test fun teclaPresaEPinErradoChegamNaIlha() {
+        val dia = SofyPolicy.Now(at = 1_000_000L, minuteOfDay = 15 * 60, mediaPlaying = false, screenReader = false, voiceOn = false)
+        for (n in listOf(SofyGuard.keyStuckNote("DPAD_LEFT", 999_000L), SofyGuard.pinWrongNote(5, 999_000L))) {
+            assertEquals(n.kind.name, SofyPolicy.Place.HOME_CARD, SofyPolicy.decide(n, dia).place)
+            assertEquals(n.kind.name, n.id, SofyPolicy.islandNote(listOf(n), dia, emptySet())?.id)
+        }
     }
 }

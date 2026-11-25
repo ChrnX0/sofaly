@@ -53,13 +53,13 @@ object SofyGuardTv {
         }
     }
 
-    /** 43: tecla presa (segurada ~7 s, fora o volume). Vai à Ilha: o controle pode estar apertado no sofá. */
+    /** 43: tecla presa (segurada ~8 s, fora o volume). Vai à Ilha: o controle pode estar apertado no sofá. */
     private fun stuckKey(app: Context, keyCode: Int) {
         val nome = KeyEvent.keyCodeToString(keyCode).removePrefix("KEYCODE_")
         Fundo.rodar("sofy-tecla-presa") {
             SofyBusTv.emit(app, SofyBus.Source.DEVICE, "key_stuck", ok = false, detail = nome)
-            ObserverTv.logShadow(app, "key_stuck", "tecla $nome segurada por mais de 7 s")
-            ObserverTv.enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.KEY_STUCK, System.currentTimeMillis(), ObserverCore.Step.OBSERVED, listOf(nome)))
+            ObserverTv.logShadow(app, "key_stuck", "tecla $nome segurada por mais de 8 s")
+            ObserverTv.enqueueNote(app, SofyGuard.keyStuckNote(nome, System.currentTimeMillis()))
         }
     }
 
@@ -74,8 +74,7 @@ object SofyGuardTv {
         p.edit().putLong("guard_pin_told_at", now).apply()
         ObserverTv.logShadow(app, "panel_pin_wrong", "$n PINs errados no painel em 1 h")
         runCatching { Diario.anotar(app, "tv", "Sofy: PIN errado no painel", "$n tentativas erradas na última hora") }
-        ObserverTv.enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.PANEL_PIN_WRONG, now, ObserverCore.Step.OBSERVED, listOf(n.toString()),
-            ObserverCore.Severity.CRITICAL))
+        ObserverTv.enqueueNote(app, SofyGuard.pinWrongNote(n, now))
     }
 
     /** 46 e 48: uma vez por dia (pelo autoexame). Apps novos com poder demais; atualização do Google que quebrou algo. */
