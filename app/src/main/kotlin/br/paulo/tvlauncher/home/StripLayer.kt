@@ -62,6 +62,9 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val TRACO_DE_UMA_COR = setOf(IconeCruz.Estilo.LINHA, IconeCruz.Estilo.SIMBOLO)
         const val BRILHO_ESCURO = 0.30f    // "Brilho da cor": quanto da cor do item entra no vidro escuro aceso
         const val BRILHO_BRANCO = 0.16f    // e na placa branca
+        const val OUTROS_ESPERA_MS = 1500L // cards fora do foco: o 1º começa depois que o do foco tocou
+        const val OUTROS_VEZ_MS = 1900L    // e cada um depois do outro (um de cada vez, como as categorias da cruz)
+        const val OUTROS_DESCANSO_EQUILIBRADO_MS = 12_000L
         const val SO_ICONE = 1.7f          // "só o escolhido": ícone dos outros, sem placa
         const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
         const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
@@ -385,20 +388,29 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     }
 
     /**
-     * Liga a animação do ícone (a mesma que a cruz tocava): o escolhido, com a linha em foco; no "Brilho da cor" os
-     * outros visíveis respiram devagar, um depois do outro. O nível de movimento da HOME manda (PARADO = nenhum).
+     * Liga a animação do ícone (a mesma que a cruz tocava): o escolhido repete com a linha em foco; os outros cards
+     * nossos visíveis também tocam em ciclo, um de cada vez (Paulo, 25/11/2026: "só o Filmes está animado"; no
+     * Equilibrado eles tocavam uma vez só ao chegar). O nível de movimento da HOME manda: Econômico só o escolhido,
+     * Parado nenhum. [o] fica para o jeito do mundo (hoje todas as personalidades se mexem igual).
      */
+    @Suppress("UNUSED_PARAMETER")
     private fun moverIconeDoCard(k: Card, escolhido: Boolean, ativa: Boolean, distancia: Int, o: StripHome.Options) {
         val ic = k.icone.drawable as? IconeCruz ?: return
         val descEsc = MovimentoAdaptativo.descansoEscolhido(nivel)
-        val descCat = MovimentoAdaptativo.descansoCategoria(nivel)
+        val descOutros = descansoDosOutros(nivel)
         when {
             !ativa || !isShown -> ic.animar(false)
             escolhido -> ic.animar(descEsc != null, descEsc ?: IconeCruz.DESCANSO_ESCOLHIDO_MS)
-            k.own != null && o.mood == StripHome.Mood.GLOW && descCat != null ->
-                ic.animar(true, descCat, MovimentoAdaptativo.atrasoCategoria(nivel, distancia))
+            k.own != null && descOutros != null -> ic.animar(true, descOutros, OUTROS_ESPERA_MS + distancia * OUTROS_VEZ_MS)
             else -> ic.animar(false)
         }
+    }
+
+    /** Pausa entre duas passadas dos cards que não estão em foco (null = parados). */
+    private fun descansoDosOutros(n: MovimentoAdaptativo.Nivel): Long? = when (n) {
+        MovimentoAdaptativo.Nivel.COMPLETO -> IconeCruz.DESCANSO_CATEGORIA_MS
+        MovimentoAdaptativo.Nivel.EQUILIBRADO -> OUTROS_DESCANSO_EQUILIBRADO_MS
+        else -> null
     }
 
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
