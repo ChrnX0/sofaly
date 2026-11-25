@@ -44,4 +44,8 @@
     <string name="st_so_escolhido">Jen vybraná</string>
     <string name="wo_cards">Tvar karet v tomto světě</string>
     <string name="wo_cards_geral">Stejné jako v Jemném ladění (%1$s)</string>
+    <string name="st_proprios">Karty zkratek</string>
+    <string name="st_proprios_branco">Bílé</string>
+    <string name="st_proprios_vidro">Světlé sklo</string>
+    <string name="st_proprios_escuro">Tmavé sklo</string>
 </resources>

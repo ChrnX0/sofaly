@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Gaveta</string>
     <string name="st_telas_vidro">Vidro</string>
     <string name="st_telas_barra">Barra</string>
+    <string name="st_proprios">Cards de atalho</string>
+    <string name="st_proprios_branco">Branco</string>
+    <string name="st_proprios_vidro">Vidro claro</string>
+    <string name="st_proprios_escuro">Vidro escuro</string>
 </resources>

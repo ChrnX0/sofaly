@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Szuflada</string>
     <string name="st_telas_vidro">Szkło</string>
     <string name="st_telas_barra">Pasek</string>
+    <string name="st_proprios">Karty skrótów</string>
+    <string name="st_proprios_branco">Białe</string>
+    <string name="st_proprios_vidro">Jasne szkło</string>
+    <string name="st_proprios_escuro">Ciemne szkło</string>
 </resources>

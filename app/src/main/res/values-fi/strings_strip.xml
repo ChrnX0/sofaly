@@ -44,4 +44,8 @@
     <string name="st_so_escolhido">Vain valittu</string>
     <string name="wo_cards">Korttien muoto tässä maailmassa</string>
     <string name="wo_cards_geral">Sama kuin Hienosäädössä (%1$s)</string>
+    <string name="st_proprios">Pikakortit</string>
+    <string name="st_proprios_branco">Valkoinen</string>
+    <string name="st_proprios_vidro">Vaalea lasi</string>
+    <string name="st_proprios_escuro">Tumma lasi</string>
 </resources>

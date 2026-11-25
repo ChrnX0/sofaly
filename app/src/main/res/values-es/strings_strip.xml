@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Cajón</string>
     <string name="st_telas_vidro">Cristal</string>
     <string name="st_telas_barra">Barra</string>
+    <string name="st_proprios">Tarjetas de acceso</string>
+    <string name="st_proprios_branco">Blanco</string>
+    <string name="st_proprios_vidro">Cristal claro</string>
+    <string name="st_proprios_escuro">Cristal oscuro</string>
 </resources>

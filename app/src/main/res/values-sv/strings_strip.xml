@@ -44,4 +44,8 @@
     <string name="st_telas_gaveta">Låda</string>
     <string name="st_telas_vidro">Glas</string>
     <string name="st_telas_barra">Rad</string>
+    <string name="st_proprios">Genvägskort</string>
+    <string name="st_proprios_branco">Vit</string>
+    <string name="st_proprios_vidro">Ljust glas</string>
+    <string name="st_proprios_escuro">Mörkt glas</string>
 </resources>
