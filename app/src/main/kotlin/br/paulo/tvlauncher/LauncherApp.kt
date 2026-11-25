@@ -85,6 +85,10 @@ class LauncherApp : Application() {
         })
         // A IA na nuvem saiu em 05/11/2026: apaga a chave cifrada que ela tenha deixado (fora da thread da tela).
         Fundo.rodar("limpa-ia") { PedidoIa.apagarRestosDaNuvem(this) }
+        // Celular como parceiro (24/11/2026): a Sofy percebe a troca de saída de som e passa a usar o atraso medido nela.
+        // Só no processo principal: no :player o mesmo aviso sairia em dobro.
+        if (android.os.Build.VERSION.SDK_INT < 28 || getProcessName() == packageName)
+            runCatching { br.paulo.tvlauncher.companion.AudioSyncTv.watch(this) }
         // Backup noturno: reagenda a cada processo novo (uma atualização do app apaga os alarmes dele). Só no processo
         // principal (o player roda em ":player") e fora da thread da tela (lê preferências do disco).
         if (android.os.Build.VERSION.SDK_INT < 28 || getProcessName() == packageName) {

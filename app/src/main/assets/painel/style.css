@@ -1354,3 +1354,38 @@ label[data-atalho] > .estrela { margin: -8px -8px -8px auto; }
   .aba:is([data-aba="arquivos"], [data-aba="remoto"], [data-aba="casa"]) .ic { background: var(--t-world-network) !important; }
   .aba:is([data-aba="familia"], [data-aba="energia"]) .ic { background: var(--t-area-home) !important; }
 }
+
+/* ---------- Celular e TV (companion.js, 24/11/2026) ----------
+   Visor da câmera: tela cheia escura, cantos brancos e uma folha embaixo (Mesh, Shopify no Mobbin); barra de passos em
+   laranja = progresso (regra 1 da marca). Branco = ação principal, igual à TV. */
+.lista-medidas { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 8px; }
+.lista-medidas .medida { display: grid; grid-template-columns: 12px 88px 1fr; gap: 10px; align-items: baseline;
+  padding: 12px 14px; border-radius: var(--t-radius-medium); background: var(--superficie2); }
+.lista-medidas .medida::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--texto-apagado); align-self: center; }
+.lista-medidas .medida.boa::before { background: var(--ok); }
+.lista-medidas .medida.ajustar::before { background: var(--atencao); }
+.lista-medidas .medida.incerta::before { background: transparent; border: 2px solid var(--texto-apagado); width: 6px; height: 6px; }
+.lista-medidas .medida strong { font-weight: 700; }
+.lista-medidas .medida span { color: var(--texto-fraco); }
+body.com-visor { overflow: hidden; }
+.visor { position: fixed; inset: 0; z-index: 900; background: #000; color: #fff; display: flex; flex-direction: column; }
+.visor[hidden] { display: none !important; }
+.visor video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .9; }
+.visor-cantos { position: absolute; inset: 18% 8% 34% 8%; pointer-events: none; }
+.visor-cantos span { position: absolute; width: 36px; height: 36px; border: 3px solid #fff; }
+.visor-cantos span:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 12px; }
+.visor-cantos span:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 12px; }
+.visor-cantos span:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 12px; }
+.visor-cantos span:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 12px; }
+.visor-topo { position: relative; padding: max(16px, env(safe-area-inset-top)) 16px 0; }
+.visor-passos { height: 4px; border-radius: 2px; background: rgba(255,255,255,.2); overflow: hidden; }
+.visor-passos span { display: block; height: 100%; width: calc(var(--feito, 0) * 100%); background: var(--acento);
+  transition: width var(--t-ms-medium) var(--t-ease-out); }
+.visor-passo { margin: 10px 0 0; font-size: 15px; font-weight: 700; text-align: center; }
+.visor-folha { position: relative; margin-top: auto; padding: 20px 16px max(20px, env(safe-area-inset-bottom));
+  background: var(--flutuante); color: var(--texto); border-radius: 20px 20px 0 0; }
+.visor-texto { margin: 0 0 16px; font-size: 18px; line-height: 1.4; min-height: 3em; }
+@media (prefers-reduced-motion: reduce) { .visor-passos span { transition: none; } }
+.cam-previa { display: block; width: 100%; max-height: 50vh; border-radius: var(--t-radius-medium); background: #000; margin: 12px 0; object-fit: contain; }
+.cam-previa[hidden] { display: none !important; }
+#micGanho { width: 100%; margin: 8px 0 4px; accent-color: var(--acento); }

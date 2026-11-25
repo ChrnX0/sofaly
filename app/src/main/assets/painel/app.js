@@ -234,6 +234,7 @@ const PAGINAS = {
   tvfilmes: { grupo: 'ajustes', acorda: ['tv', 'config', 'extras', 'fotos'] },
   familia: { grupo: 'ajustes', acorda: ['config', 'extras'] },
   energia: { grupo: 'ajustes', acorda: ['config', 'desligar', 'fotos', 'extras'] },
+  celular: { grupo: 'ajustes', acorda: ['celular'] },   // celular como parceiro (companion.js, 24/11/2026)
   casa: { grupo: 'ajustes', acorda: ['extras'] },
   remoto: { grupo: 'ajustes', acorda: ['config', 'extras', 'claude', 'ia', 'registro'] },
   sistema: { grupo: 'ajustes', acorda: ['saude', 'extras', 'backup'] },
