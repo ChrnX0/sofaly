@@ -222,7 +222,11 @@ object SofyRepair {
             if (t == Tool.ASK_AI && !e.aiAvailable) continue
             if (t == Tool.REPORT) return Step.Run(t)   // registrar não gasta nada nem atrapalha ninguém
             if (hoje >= MAX_ATTEMPTS_PER_CASE_DAY) return Step.Wait(t, "teto do dia para este caso")
-            if (e.toolsLastHour >= MAX_TOOLS_PER_HOUR) return Step.Wait(t, "teto da hora")
+            // O teto da hora não vale para acesso/permissão perdidos: é a causa de muita coisa, e as ferramentas são
+            // baratas. Na Sala (25/11/2026) o shell ficou fora 30 min sem nenhuma tentativa porque casos sem importância
+            // tinham gastado a hora.
+            if (e.toolsLastHour >= MAX_TOOLS_PER_HOUR && c.type != Type.ACCESS_LOST && c.type != Type.PERMISSION_LOST)
+                return Step.Wait(t, "teto da hora")
             // Um soluço só não dispara ferramenta pesada (uma queda de app isolada não limpa cache nem reinicia nada).
             if (t.heavy && c.count < 2) continue
             if (t.nightOnly && !(e.night && e.idle)) return Step.Wait(t, "só de madrugada, com a TV parada")

@@ -217,7 +217,8 @@ object SofyRepairTv {
     fun reportJson(ctx: Context): JSONObject = JSONObject()
         .put("cases", JSONArray().apply { loadCases(ctx).forEach { put(json(it)) } })
         .put("learned", JSONObject(prefs(ctx).getString("learned", "{}") ?: "{}"))
-        .put("ai", runCatching { SofyAi.json(ctx) }.getOrNull() ?: JSONObject())   // sem a chave (SofyAi.json não a põe)
+        .put("ai", runCatching { SofyAi.json(ctx) }.getOrNull() ?: JSONObject())
+        .put("waiting", JSONObject().apply { prefs(ctx).all.forEach { (k, v) -> if (k.startsWith("wait:")) put(k.removePrefix("wait:"), v.toString()) } })   // sem a chave (SofyAi.json não a põe)
 
     // ---------------------------------------------------------------- a batida
 
@@ -294,8 +295,13 @@ object SofyRepairTv {
 
         // 4. um passo por batida, no caso aberto mais antigo que tenha o que fazer
         val e = env(app, now)
-        for (c in cases.filter { it.state == SofyRepair.State.OPEN }.sortedBy { it.firstAt }) {
-            val step = SofyRepair.next(c, learned, e) as? SofyRepair.Step.Run ?: continue
+        // Acesso e permissão primeiro: são a causa de muita coisa (sem shell, metade das ferramentas não roda).
+        val ordem = cases.filter { it.state == SofyRepair.State.OPEN }
+            .sortedWith(compareBy({ it.type != Type.ACCESS_LOST && it.type != Type.PERMISSION_LOST }, { it.firstAt }))
+        for (c in ordem) {
+            val passo = SofyRepair.next(c, learned, e)
+            if (passo is SofyRepair.Step.Wait) { noteWait(app, c, passo); continue }
+            val step = passo as? SofyRepair.Step.Run ?: continue
             val applied = runCatching { runTool(app, c, step.tool) }.onFailure { Log.w(TAG, "${step.tool}: $it") }.getOrNull()
             if (applied == null && step.tool == Tool.REPAIR_SHELL) continue   // ainda não é a hora (regras do AutoPairing): tenta depois
             Log.i(TAG, "${c.subject}: ${step.tool} aplicada=$applied")
@@ -305,13 +311,29 @@ object SofyRepairTv {
             var novo = SofyRepair.onRun(c, step.tool, now, applied == true)
             if (step.tool == Tool.ASK_AI) novo = SofyRepair.withAiPlan(novo, aiPlan)
             saveCases(app, loadCases(app).map { if (it.key == c.key) novo else it })
-            val runs = (p.getString("runs", "").orEmpty().split(',').mapNotNull { it.toLongOrNull() }.filter { now - it < SofyRepair.HOUR } + now)
-            p.edit().putString("runs", runs.joinToString(",")).apply()
+            // Só ferramenta de verdade conta no teto da hora (registrar e perguntar à IA não mexem na TV).
+            if (step.tool != Tool.REPORT && step.tool != Tool.ASK_AI) {
+                val runs = (p.getString("runs", "").orEmpty().split(',').mapNotNull { it.toLongOrNull() }.filter { now - it < SofyRepair.HOUR } + now)
+                p.edit().putString("runs", runs.joinToString(",")).apply()
+            }
             break
         }
     }
 
     @Volatile private var aiPlan: List<Tool> = emptyList()
+
+    /**
+     * Por que um caso está parado (o freio que barrou). Vai para o log e para o relatório, uma vez por mudança: a
+     * Revisão (Sala, 25/11/2026) viu um caso aberto 7 batidas sem tentativa nenhuma e sem uma linha dizendo por quê.
+     */
+    private fun noteWait(app: Context, c: SofyRepair.Case, w: SofyRepair.Step.Wait) {
+        val txt = "${w.tool.name.lowercase()}: ${w.why}"
+        val p = prefs(app)
+        if (p.getString("wait:${c.key}", null) == txt) return
+        p.edit().putString("wait:${c.key}", txt).apply()
+        Log.i(TAG, "${c.subject} esperando ($txt)")
+        ObserverTv.logShadow(app, "repair_wait", "${c.type.name} ${c.subject}: $txt")
+    }
 
     // ---------------------------------------------------------------- as ferramentas
 

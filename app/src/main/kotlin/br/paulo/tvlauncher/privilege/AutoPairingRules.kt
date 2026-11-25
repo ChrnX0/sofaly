@@ -42,6 +42,20 @@ object AutoPairingRules {
         else -> Decision.TRY
     }
 
+    /** O freio que barrou, em poucas palavras (para o log e o relatório). Vazio = pode tentar. */
+    fun why(s: State): String = when {
+        !s.enabled -> "desligado neste build"
+        !s.shellExpected -> "shell nunca funcionou aqui"
+        !s.accessibilityOn -> "sem acessibilidade"
+        s.shellDownForMs == null -> "shell não está fora"
+        s.shellDownForMs < MIN_DOWN_MS -> "fora há só ${s.shellDownForMs / 60_000} min"
+        !s.wifiOn -> "sem Wi-Fi"
+        recent(s.attempts, s.now).size >= MAX_PER_DAY -> "teto do dia"
+        s.attempts.any { s.now - it in 0 until GAP_MS } -> "intervalo de 3 h"
+        !s.screensaverOpen -> "protetor não está na frente"
+        else -> ""
+    }
+
     fun recent(attempts: List<Long>, now: Long) = attempts.filter { now - it in 0 until DAY_MS }
 
     /** Enquanto a Sofy ainda pode consertar sozinha, o aviso de "acesso caiu" não aparece (ela não explica, conserta). */

@@ -72,11 +72,17 @@ object AutoPairing {
      * Chamado pelo ciclo de conserto da Sofy (SofyRepairTv, ferramenta REPAIR_SHELL). Barato: só lê estado; age só
      * quando a regra manda. Devolve true se começou uma tentativa.
      */
+    @Volatile private var lastWhy = ""
+
     fun maybe(ctx: Context, shellDownForMs: Long?): Boolean {
         val app = ctx.applicationContext
         if (running) return false
         val s = state(app, shellDownForMs)
-        if (AutoPairingRules.decide(s) != AutoPairingRules.Decision.TRY) return false
+        if (AutoPairingRules.decide(s) != AutoPairingRules.Decision.TRY) {
+            val w = AutoPairingRules.why(s)
+            if (w != lastWhy) { lastWhy = w; Log.i(TAG, "não tentou: $w") }
+            return false
+        }
         val list = (AutoPairingRules.recent(s.attempts, s.now) + s.now).joinToString(",")
         prefs(app).edit().putString("attempts", list).apply()
         main.post { start(app) }

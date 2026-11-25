@@ -261,3 +261,14 @@ class SofyScreenCheckTest {
     }
 }
 
+
+/** Sala, 25/11/2026: shell fora 30 min sem tentativa porque outros casos gastaram o teto da hora. */
+class SofyAccessFirstTest {
+    @org.junit.Test fun acessoPerdidoNaoEsperaOTetoDaHora() {
+        val c = SofyRepair.Case("ACCESS_LOST:shell", Type.ACCESS_LOST, "shell", emptySet<SofyRepair.Need>(), 0, 0, 7)
+        val e = SofyRepair.Env(now = 1_000_000, idle = true, night = false, aiAvailable = false, toolsLastHour = 99)
+        assertTrue(SofyRepair.next(c, emptyMap(), e) is SofyRepair.Step.Run)
+        val outro = SofyRepair.Case("ERROR:bus:x.y", Type.ERROR, "bus:x.y", emptySet<SofyRepair.Need>(), 0, 0, 2)
+        assertTrue(SofyRepair.next(outro, emptyMap(), e) is SofyRepair.Step.Wait)
+    }
+}
