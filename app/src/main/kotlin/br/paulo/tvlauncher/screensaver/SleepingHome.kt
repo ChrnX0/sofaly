@@ -447,9 +447,13 @@ class SleepingHome(private val ctx: Context) {
         sofy = s
     }
 
+    /** Cartão vivo e pilha têm ~60% da largura: cada linha mostra menos células para nada sair cortado
+     *  (Sala, 25/11/2026: "Nascer …", "Duração…" com 5 células num cartão de 64%). */
+    private fun compacto() = SleepingLook.card(ctx) != SleepingLook.Card.LINE
+
     private fun linhaHoras(f: ForecastData, tempAgora: Int): View = linhaBase().apply {
         val i0 = f.i0
-        for (k in 0 until 8) {
+        for (k in 0 until if (compacto()) 5 else 8) {
             val i = i0 + k; if (i >= f.hTempo.size) break
             val rot = if (k == 0) ctx.getString(R.string.pv_agora) else ForecastText.hora(ctx, f.hTempo[i].substring(11, 13).toInt())
             val t = if (k == 0) tempAgora else Math.round(f.hTemp[i]).toInt()
@@ -459,7 +463,7 @@ class SleepingHome(private val ctx: Context) {
 
     private fun linhaDias(f: ForecastData, tempAgora: Int): View = linhaBase().apply {
         val fmt = SimpleDateFormat("EEE", Locale.getDefault()); val ler = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-        for (i in 0 until min(7, f.dData.size)) {
+        for (i in 0 until min(if (compacto()) 4 else 7, f.dData.size)) {
             val nome = if (i == 0) ctx.getString(R.string.pv_hoje)
                 else fmt.format(ler.parse(f.dData[i]) ?: Date()).trimEnd('.').replaceFirstChar { it.titlecase(Locale.getDefault()) }
             // Hoje: a máxima/mínima contam a temperatura de agora, como no topo e na tela do Clima (Sala, 25/11/2026: "30°"
@@ -507,6 +511,7 @@ class SleepingHome(private val ctx: Context) {
         val lp = { LinearLayout.LayoutParams(0, -2, 1f) }
         addView(celula(ctx.getString(R.string.pv_chuva_hoje), "${f.dChuva[0]}%", "${"%.1f".format(Locale.getDefault(), f.dChuvaMm)} mm", azulChuva), lp())
         addView(celula(ctx.getString(R.string.pv_sensacao), "$sens°", sensTexto), lp())
+        if (compacto()) return@apply   // chuva e sensação; o resto fica para a faixa inteira
         addView(celula(ctx.getString(R.string.pt_umidade), "${f.umidade}%",
             ctx.getString(R.string.sh_orvalho, Math.round(f.orvalho()).toInt())), lp())
         addView(celula(ctx.getString(R.string.pv_vento), "${Math.round(f.vento).toInt()} km/h", ForecastText.rosa(ctx, f.ventoDir)), lp())
@@ -520,7 +525,7 @@ class SleepingHome(private val ctx: Context) {
         addView(celula(ctx.getString(R.string.pv_pressao), "${Math.round(f.pressao).toInt()} hPa", null), lp())
         val vis = f.hVisib.getOrElse(f.i0) { 10000.0 } / 1000
         addView(celula(ctx.getString(R.string.pv_visib), if (vis >= 10) "10+ km" else "${"%.1f".format(Locale.getDefault(), vis)} km", null), lp())
-        if (f.nuvens >= 0) addView(celula(ctx.getString(R.string.sh_nuvens), "${f.nuvens}%", null), lp())
+        if (f.nuvens >= 0 && !compacto()) addView(celula(ctx.getString(R.string.sh_nuvens), "${f.nuvens}%", null), lp())
     }
 
     private fun linhaSol(agoraMs: Long, lat: Double, lon: Double): View? {
@@ -532,6 +537,7 @@ class SleepingHome(private val ctx: Context) {
             addView(celula(ctx.getString(R.string.sh_nascer), hf.format(Date(nasce)), null), LinearLayout.LayoutParams(0, -2, 1f))
             addView(ArcoSol(ctx, fracao), LinearLayout.LayoutParams(dp(150), dp(56)).apply { marginEnd = dp(24) })
             addView(celula(ctx.getString(R.string.sh_por), hf.format(Date(poe)), null), LinearLayout.LayoutParams(0, -2, 1f))
+            if (compacto()) return@apply   // nascer, arco e pôr; duração e hora dourada só na faixa inteira
             addView(celula(ctx.getString(R.string.sh_duracao), ctx.getString(R.string.sh_horas_min, durMin / 60, durMin % 60), null), LinearLayout.LayoutParams(0, -2, 1f))
             // Hora dourada: a última hora antes do pôr do sol (luz baixa e quente; regra usual de fotografia).
             addView(celula(ctx.getString(R.string.sh_dourada), hf.format(Date(poe - 60 * 60_000L)), null), LinearLayout.LayoutParams(0, -2, 1f))
@@ -551,7 +557,7 @@ class SleepingHome(private val ctx: Context) {
                 ctx.getString(R.string.sh_em_dias, Lua.diasNoCalendario(agoraMs, (quando - agoraMs) / 86_400_000.0)))
         }
         addView(evento(R.string.sh_cheia, true), LinearLayout.LayoutParams(0, -2, 1f))
-        addView(evento(R.string.sh_nova, false), LinearLayout.LayoutParams(0, -2, 1f))
+        if (!compacto()) addView(evento(R.string.sh_nova, false), LinearLayout.LayoutParams(0, -2, 1f))
     }
 
     /** "26/11" no formato da língua (dia e mês, sem o ano). */

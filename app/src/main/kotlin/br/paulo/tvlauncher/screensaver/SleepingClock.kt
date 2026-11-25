@@ -193,6 +193,10 @@ internal class SleepingClock(
         private val trilho = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x2EFFF3E6 }
         private val cheio = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = DesignTokens.ORANGE }
         init { andar(this, 250) }
+        // Pede largura zero: a coluna (WRAP) fica da largura da hora e depois estica o fio até ela. Com MATCH_PARENT puro
+        // o fio pedia a tela inteira e empurrava o tempo para fora (Sala, 25/11/2026).
+        override fun onMeasure(w: Int, h: Int) = setMeasuredDimension(
+            if (MeasureSpec.getMode(w) == MeasureSpec.EXACTLY) MeasureSpec.getSize(w) else 0, MeasureSpec.getSize(h))
         override fun onDraw(c: Canvas) {
             val r = height / 2f
             c.drawRoundRect(0f, 0f, width.toFloat(), height.toFloat(), r, r, trilho)
