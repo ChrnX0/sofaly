@@ -47,6 +47,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private fun dp(v: Float) = v * dm.density
     private fun dpi(v: Float) = (v * dm.density + 0.5f).toInt()
     private val curva = PathInterpolator(0.22f, 1f, 0.36f, 1f)
+    /** Curva do voo do mundo: entra e sai devagar (ease-in-out suave), sem o arranque da [curva]. */
+    private val curvaVoo = PathInterpolator(0.45f, 0f, 0.2f, 1f)
     private val forte = Fontes.manrope(ctx, true)
     private val media = Fontes.manrope(ctx, false)
     private val desc2 = 0xBDFFF3E6.toInt()   // creme 74%
@@ -178,7 +180,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
                 // volta do lugar grande para o vão, encolhendo
                 v.translationX = -voo; v.scaleX = zoom; v.scaleY = zoom; v.alpha = 1f
                 v.animate().translationX(0f).scaleX(TRILHO_OUTROS).scaleY(TRILHO_OUTROS).alpha(0.38f)
-                    .setDuration(StripHome.MS_VOO).setInterpolator(curva).start()
+                    .setDuration(StripHome.MS_VOO).setInterpolator(curvaVoo).start()
             } else { v.translationX = 0f; v.scaleX = TRILHO_OUTROS; v.scaleY = TRILHO_OUTROS; v.alpha = 0.38f }
         }
         // Cards grandes (ou com placa, ou a grade de 2 linhas) não encostam no pé da tela nem na linha do mundo: sobem o que
@@ -191,7 +193,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val trilhoY = dp(topoLinha + StripHome.LINHA_A / 2f - (cat * (TRILHO_ICONE + TRILHO_VAO) + TRILHO_ICONE / 2f))
         trilho.translationX = dp(StripHome.TRILHO_X + 2f - TRILHO_ICONE / 2f)
         trilho.animate().cancel()
-        if (anima && antigo >= 0 && antigo != cat) trilho.animate().translationY(trilhoY).setDuration(StripHome.MS_VOO).setInterpolator(curva).start()
+        if (anima && antigo >= 0 && antigo != cat) trilho.animate().translationY(trilhoY).setDuration(StripHome.MS_VOO).setInterpolator(curvaVoo).start()
         else trilho.translationY = trilhoY
         trilho.visibility = if (cats.size > 1) View.VISIBLE else View.INVISIBLE
         linha.translationX = dp(StripHome.MARGEM)
@@ -213,10 +215,10 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             linha.animate().cancel(); linha.alpha = 1f; linha.translationY = dp(topoLinha)
             icone.animate().cancel()
             icone.translationX = voo; icone.scaleX = 1f / zoom; icone.scaleY = 1f / zoom
-            icone.animate().translationX(0f).scaleX(1f).scaleY(1f).setDuration(StripHome.MS_VOO).setInterpolator(curva).start()
+            icone.animate().translationX(0f).scaleX(1f).scaleY(1f).setDuration(StripHome.MS_VOO).setInterpolator(curvaVoo).start()
             for (t in listOf(nome, barrinha, desc)) {
                 t.animate().cancel(); t.alpha = 0f; t.translationY = dp(6f * direcao)
-                t.animate().alpha(1f).translationY(0f).setStartDelay(StripHome.MS_VOO / 3).setDuration(StripHome.MS).setInterpolator(curva)
+                t.animate().alpha(1f).translationY(0f).setStartDelay(StripHome.MS_VOO / 2).setDuration(StripHome.MS_VOO / 2 + 80).setInterpolator(curvaVoo)
                     .withEndAction { t.animate().setStartDelay(0) }.start()
             }
         } else if (!linhaAnimando) {
