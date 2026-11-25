@@ -100,6 +100,9 @@ object AvisoTv {
      * Aviso curto de confirmação ("Claude abriu a Previsão", "Despertador salvo"): substitui os Toasts do Android, que
      * eram outro formato e outro lugar da tela. Sem o serviço de acessibilidade, cai no Toast (melhor que nada).
      */
+    /** Distância do aviso ao pé da tela: acima dos cards da fileira de baixo (que vão até ~155 dp do pé). */
+    const val AVISO_Y_DP = 164
+
     fun rapido(ctx: Context, titulo: String, texto: String, segundos: Int = 5) {
         val r = mostrar(ctx, titulo, texto, segundos, som = false, guardarSeApagada = false, historico = false)
         if (r == Resultado.SEM_ACESSIBILIDADE) principal.post {
@@ -275,7 +278,9 @@ object AvisoTv {
             // detalhes da cruz, que subiram para lá, e o subtítulo de várias telas. Embaixo à direita a cruz não tem nada;
             // em outras telas cobre no máximo dicas por 5 s, nunca o texto que a pessoa está lendo.
             gravity = Gravity.BOTTOM or Gravity.END
-            x = dp(Estilo.MARGEM_LATERAL); y = dp(76)   // acima da marca "sofaly" do canto das Configurações (teste 100%, 23/11/2026)
+            // Acima da fileira de cards de baixo (barra única, Configurações; revisor dos dados reais, 25/11/2026: em y 76 dp o
+            // aviso tapava os cards 4-6 das Configurações). Ali sobra fundo na HOME e nas Configurações.
+            x = dp(Estilo.MARGEM_LATERAL); y = dp(AVISO_Y_DP)
             windowAnimations = android.R.style.Animation_Toast   // entra e sai esmaecendo, como as notificações do sistema
         }
         try {

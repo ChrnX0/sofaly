@@ -229,6 +229,13 @@ class TelasTest {
             if (semRede) { br.paulo.tvlauncher.weather.ClimaMet.esquecerCache(); br.paulo.tvlauncher.weather.WeatherApiSource.esquecerCache(); br.paulo.tvlauncher.weather.OpenModelsSource.esquecerCache()
                 System.setProperty("https.proxyHost", "127.0.0.1"); System.setProperty("https.proxyPort", "9")
                 System.setProperty("http.proxyHost", "127.0.0.1"); System.setProperty("http.proxyPort", "9") }
+            // Despertador com alarmes como os da Sala (dados reais, 25/11/2026): sem eles a foto só tinha "+ Novo alarme" e
+            // o "Desligado" de um alarme sem foco nunca era conferido.
+            if (nome == "despertador" && br.paulo.tvlauncher.alarm.Despertador.listar(app).isEmpty()) {
+                br.paulo.tvlauncher.alarm.Despertador.salvar(app, br.paulo.tvlauncher.alarm.Despertador.Alarme(0, 8, 16, 0, "Teste LG", false))
+                br.paulo.tvlauncher.alarm.Despertador.salvar(app, br.paulo.tvlauncher.alarm.Despertador.Alarme(0, 15, 26, 0, "", false))
+                br.paulo.tvlauncher.alarm.Despertador.salvar(app, br.paulo.tvlauncher.alarm.Despertador.Alarme(0, 6, 45, 0b0111110, "Remédio da pressão antes do café da manhã", true))
+            }
             val m = try { medir(cls, "$idioma-$nome", ABA_DA_TELA[nome]) } catch (e: Throwable) {
                 problemas += "$chave: a tela não abriu (${e.javaClass.simpleName}: ${e.message?.take(160)})"; continue
             } finally {
