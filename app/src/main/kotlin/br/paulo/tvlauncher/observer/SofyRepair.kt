@@ -94,7 +94,16 @@ object SofyRepair {
     const val LOOP_REPEAT = 3
     const val LOOP_BAN_MS = 24 * 3_600_000L
 
-    fun banned(c: Case, now: Long): Set<Tool> = c.banned.filterValues { now - it < LOOP_BAN_MS }.keys
+    /**
+     * Quanto a ferramenta fica de fora: um dia dividido pela gravidade. Sala (25/11): o laço tirou o REPAIR_SHELL, a única
+     * ferramenta que conserta o shell, por um dia inteiro; com acesso perdido são 6 h. Versão nova também limpa ([unban]).
+     */
+    fun banMs(c: Case) = LOOP_BAN_MS / urgency(c.type)
+
+    fun banned(c: Case, now: Long): Set<Tool> = c.banned.filterValues { now - it < banMs(c) }.keys
+
+    /** Versão nova do app = estratégia nova: as proibições por laço caem (o motivo do laço pode ter sido consertado). */
+    fun unban(cases: List<Case>) = cases.map { if (it.banned.isEmpty()) it else it.copy(banned = emptyMap()) }
 
     /** A ferramenta em laço neste caso, se houver. */
     fun looping(c: Case, now: Long): Tool? = c.tried
@@ -301,7 +310,13 @@ object SofyRepair {
         val fora = banned(c, e.now)
         var cedo: Step.Wait? = null   // a ferramenta que volta primeiro, se todas estiverem no recuo
         for (t in ordered(c, l)) {
-            if (t in e.unavailable || t in fora) continue
+            if (t in e.unavailable) continue
+            if (t in fora) {
+                // Fora por laço: não some em silêncio (Sala 473144, 25/11: tudo banido = Done mudo, sem log nenhum).
+                val volta = (c.banned[t] ?: e.now) + banMs(c)
+                if (cedo == null || volta < cedo.until) cedo = Step.Wait(t, "fora por laço", volta)
+                continue
+            }
             if (t == Tool.ASK_AI) { if (!e.aiAvailable || askedRecently) continue; return Step.Run(t) }
             if (t == Tool.REPORT) {
                 if (!reported) return Step.Run(t)   // registrar não gasta nada nem atrapalha ninguém
