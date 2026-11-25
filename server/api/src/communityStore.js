@@ -1,6 +1,6 @@
 // O Durable Object das fichas comunitárias (regras e rotas em community.js). Um só, com SQLite (plano grátis).
 import { DurableObject } from 'cloudflare:workers';
-import { DAY_MS, MAX_PUBLISHED, MAX_ROWS, MIN_HOMES, WINDOW_DAYS, parseKey } from './community.js';
+import { DAY_MS, MAX_PUBLISHED, MAX_ROWS, MIN_HOMES, WINDOW_DAYS, parseKey, parseRuleKey } from './community.js';
 
 export class Community extends DurableObject {
   constructor(ctx, env) {
@@ -26,7 +26,10 @@ export class Community extends DurableObject {
     const day = Math.floor(now / DAY_MS);
     const rows = this.sql.exec('SELECT lesson, COUNT(*) AS homes FROM reports WHERE day >= ? GROUP BY lesson HAVING homes >= ? ORDER BY homes DESC LIMIT ?',
       day - WINDOW_DAYS, MIN_HOMES, MAX_PUBLISHED).toArray();
-    return rows.map((r) => ({ ...parseKey(r.lesson), homes: r.homes })).filter((r) => r.pkg);
+    return rows.map((r) => {
+      const x = r.lesson.startsWith('rule|') ? parseRuleKey(r.lesson) : parseKey(r.lesson);
+      return x ? { ...x, homes: r.homes } : null;
+    }).filter(Boolean);
   }
 }
 

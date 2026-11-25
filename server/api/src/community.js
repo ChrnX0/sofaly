@@ -4,7 +4,11 @@
 // Como: quem ligou "Ajudar outras casas" manda, no máximo uma vez por dia, só pacote + versão + tipo ("crashy"/"slower").
 // Aqui cada casa vira um código curto (sha-256 do IP com sal, nunca o IP), e a lição só aparece na lista pública depois
 // de [MIN_HOMES] casas diferentes em [WINDOW_DAYS] dias. Tudo apaga sozinho depois da janela.
-// Rotas (públicas): POST /v1/community/lessons {"lessons":[...]}   GET /v1/community/lessons
+// Regras do revisor noturno (plano D, passo 4, 25/11/2026): a regra que VALE numa TV (passou a sombra lá) também pode ir,
+// só o padrão e a faixa. Privacidade: o padrão vem da IA lendo a tela da casa, então palavra de 4+ letras só passa se for
+// técnica ([RULE_WORDS]); nome, cidade, evento nunca saem. E vale o mesmo limiar de [MIN_HOMES] casas: um texto de uma
+// casa só nunca chega à lista pública. Quem recebe põe a regra na SOMBRA dela (3 noites) antes de valer.
+// Rotas (públicas): POST /v1/community/lessons {"lessons":[...],"rules":[...]}   GET /v1/community/lessons
 
 export const MAX_LESSONS = 30;
 export const MIN_HOMES = 5;
@@ -14,6 +18,40 @@ export const MAX_ROWS = 200_000;   // ~10 MB no SQLite do plano grátis
 export const KINDS = new Set(['crashy', 'slower']);
 const PKG = /^[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z0-9_]+)+$/;
 export const DAY_MS = 86_400_000;
+export const MAX_RULES = 10;
+export const RULE_PATTERN_MAX = 80;
+export const RULE_KINDS = new Set(['FORBIDDEN', 'RANGE']);
+export const RULE_SCREENS = new Set(['*', 'previsao', 'agenda', 'despertador', 'config', 'jogos', 'podcasts', 'filmes', 'series',
+  'diagnostico', 'armazenamento', 'ajuda', 'sobre']);
+export const RULE_WORDS = new Set(['null', 'undefined', 'infinity', 'error', 'true', 'false', 'none', 'nan', 'http', 'https']);
+const NESTED = /\((?:[^()\\]|\\.)*[+*}](?:[^()\\]|\\.)*\)[+*{]/;
+
+// O padrão pode sair da casa? Curto, sem quantificador aninhado, compila, e sem palavra que possa ser da casa.
+export function shareablePattern(p) {
+  if (typeof p !== 'string' || !p || p.length > RULE_PATTERN_MAX || NESTED.test(p)) return false;
+  try { new RegExp(p); } catch { return false; }
+  const words = p.replace(/\\./g, ' ').replace(/\[[^\]]*\]/g, ' ').match(/\p{L}{4,}/gu) || [];
+  return words.every((w) => RULE_WORDS.has(w.toLowerCase()));
+}
+
+// "rule|KIND|screen|min|max|pattern"
+export function ruleKey(r) {
+  if (!r || typeof r !== 'object' || !RULE_KINDS.has(r.kind) || !shareablePattern(r.pattern)) return null;
+  const screen = typeof r.screen === 'string' && RULE_SCREENS.has(r.screen) ? r.screen : '*';
+  let min = 0, max = 0;
+  if (r.kind === 'RANGE') {
+    if (!Number.isFinite(r.min) || !Number.isFinite(r.max) || r.min > r.max || Math.abs(r.min) > 1e9 || Math.abs(r.max) > 1e9) return null;
+    let groups = 0; try { groups = new RegExp(`${r.pattern}|`).exec('').length - 1; } catch { return null; }
+    if (groups < 1) return null;
+    min = r.min; max = r.max;
+  }
+  return `rule|${r.kind}|${screen}|${min}|${max}|${r.pattern}`;
+}
+
+export function parseRuleKey(k) {
+  const m = /^rule\|(FORBIDDEN|RANGE)\|([^|]+)\|([^|]+)\|([^|]+)\|(.+)$/s.exec(k);
+  return m ? { kind: m[1], screen: m[2], min: Number(m[3]), max: Number(m[4]), pattern: m[5] } : null;
+}
 
 // O corpo que a TV manda, conferido. null = recusa (400).
 export function cleanReport(o) {
@@ -24,6 +62,11 @@ export function cleanReport(o) {
     if (!Number.isSafeInteger(l.ver) || l.ver <= 0) return null;
     if (!KINDS.has(l.kind)) return null;
     out.add(`${l.pkg}@${l.ver}:${l.kind}`);
+  }
+  if (o.rules !== undefined) {
+    if (!Array.isArray(o.rules) || o.rules.length > MAX_RULES) return null;
+    // Regra que não pode sair (palavra da casa, padrão perigoso) é só pulada: a TV confere antes, isto é a segunda trava.
+    for (const r of o.rules) { const k = ruleKey(r); if (k) out.add(k); }
   }
   return [...out];
 }
@@ -64,7 +107,8 @@ export async function handleCommunity(req, env, { ip }) {
     const key = new Request('https://api.sofaly.tv/v1/community/lessons');
     const hit = cache && await cache.match(key);
     if (hit) return hit;
-    const res = json({ lessons: await stub.list(), min_homes: MIN_HOMES, window_days: WINDOW_DAYS }, 200, 'public, max-age=3600');
+    const all = await stub.list();
+    const res = json({ lessons: all.filter((r) => r.pkg), rules: all.filter((r) => r.pattern), min_homes: MIN_HOMES, window_days: WINDOW_DAYS }, 200, 'public, max-age=3600');
     if (cache) await cache.put(key, res.clone());
     return res;
   }

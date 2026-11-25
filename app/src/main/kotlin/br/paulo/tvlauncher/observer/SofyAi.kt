@@ -75,15 +75,18 @@ object SofyAiRules {
         return "Case: ${SofyRepair.brief(c)}\nTools: $tools"
     }
 
-    fun body(s: Settings, c: SofyRepair.Case): JSONObject = when (s.provider.format) {
+    fun body(s: Settings, c: SofyRepair.Case): JSONObject = bodyFor(s, SYSTEM, prompt(c))
+
+    /** Qualquer pergunta (conserto, revisor noturno): instrução de sistema + texto do usuário, nos dois formatos. */
+    fun bodyFor(s: Settings, system: String, user: String): JSONObject = when (s.provider.format) {
         // Modelos Claude atuais pensam por padrão (pensamento adaptativo). Com 300 tokens o pensamento gastava tudo e a
         // resposta vinha sem texto (Sala 25/11: "resposta sem texto" num caso real, o teste curto passava). Espaço
         // folgado; sem mexer no esforço (modelos antigos que o dono escolher recusam o campo).
-        Format.CLAUDE -> JSONObject().put("model", s.model).put("max_tokens", 4096).put("system", SYSTEM)
-            .put("messages", JSONArray().put(JSONObject().put("role", "user").put("content", prompt(c))))
+        Format.CLAUDE -> JSONObject().put("model", s.model).put("max_tokens", 4096).put("system", system)
+            .put("messages", JSONArray().put(JSONObject().put("role", "user").put("content", user)))
         Format.OPENAI -> JSONObject().put("model", s.model).put("max_tokens", 2048) // modelos que "pensam" gastam parte disso antes de responder
-            .put("messages", JSONArray().put(JSONObject().put("role", "system").put("content", SYSTEM))
-                .put(JSONObject().put("role", "user").put("content", prompt(c))))
+            .put("messages", JSONArray().put(JSONObject().put("role", "system").put("content", system))
+                .put(JSONObject().put("role", "user").put("content", user)))
     }
 
     /** O texto da resposta, nos dois formatos. */

@@ -39,3 +39,24 @@ test('a casa no IPv6 é a /64 (um aparelho não vira 5 casas); IPv4 inteiro', as
   assert.equal(homeNet(''), 'none');
   assert.equal(homeNet(undefined), 'none');
 });
+
+test('regras do revisor: só padrão técnico sai da casa', async () => {
+  const { cleanReport, shareablePattern, ruleKey, parseRuleKey, MAX_RULES } = await import('../src/community.js');
+  assert.ok(shareablePattern('\\bnull\\b'));
+  assert.ok(shareablePattern('(\\d+)\\s*%'));
+  assert.ok(shareablePattern('\\d{5,} h'));
+  assert.ok(!shareablePattern('Aniversário da Maria'));   // palavra da casa nunca sai
+  assert.ok(!shareablePattern('Curitiba \\d+'));
+  assert.ok(!shareablePattern('(a+)+'));
+  assert.ok(!shareablePattern('[unclosed'));
+  assert.ok(!shareablePattern('x'.repeat(81)));
+  assert.equal(ruleKey({ kind: 'RANGE', pattern: '(\\d+)\\s*%', min: 0, max: 100, screen: 'previsao' }), 'rule|RANGE|previsao|0|100|(\\d+)\\s*%');
+  assert.equal(ruleKey({ kind: 'RANGE', pattern: '\\d+%', min: 0, max: 100 }), null);   // sem grupo
+  assert.equal(ruleKey({ kind: 'RANGE', pattern: '(\\d+)%', min: 5, max: 1 }), null);
+  assert.equal(ruleKey({ kind: 'EXEC', pattern: 'x' }), null);
+  assert.equal(ruleKey({ kind: 'FORBIDDEN', pattern: 'NaN', screen: 'casa do joão' }), 'rule|FORBIDDEN|*|0|0|NaN');
+  assert.deepEqual(parseRuleKey('rule|RANGE|*|0|100|(\\d+)|%'), { kind: 'RANGE', screen: '*', min: 0, max: 100, pattern: '(\\d+)|%' });
+  assert.deepEqual(cleanReport({ lessons: [], rules: [{ kind: 'FORBIDDEN', pattern: 'NaN' }, { kind: 'FORBIDDEN', pattern: 'Maria' }] }), ['rule|FORBIDDEN|*|0|0|NaN']);
+  assert.equal(cleanReport({ lessons: [], rules: 'x' }), null);
+  assert.equal(cleanReport({ lessons: [], rules: Array.from({ length: MAX_RULES + 1 }, () => ({ kind: 'FORBIDDEN', pattern: 'NaN' })) }), null);
+});

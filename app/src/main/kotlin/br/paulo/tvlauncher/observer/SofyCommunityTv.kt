@@ -11,7 +11,8 @@ import java.net.URL
  * Fichas comunitárias (ideia 41; servidor em server/api/src/community.js). Duas metades separadas de propósito:
  *  - RECEBER (ligado): uma vez por dia a TV baixa a lista pública (lições vistas em 5+ casas) e confere SOZINHA o que
  *    vale para os apps dela. Nada da TV sai nisso além do pedido em si (igual à previsão do tempo).
- *  - MANDAR (desligado de fábrica, "Ajudar outras casas"): só pacote + versão + tipo das lições desta TV, sem remetente.
+ *  - MANDAR (desligado de fábrica, "Ajudar outras casas"): só pacote + versão + tipo das lições desta TV, sem remetente,
+ *    e as regras do revisor que JÁ VALEM aqui, só padrão e faixa, sem palavra que possa ser da casa ([SofyRules.shareable]).
  */
 object SofyCommunityTv {
     const val URL_LESSONS = "https://api.sofaly.tv/v1/community/lessons"
@@ -36,8 +37,9 @@ object SofyCommunityTv {
 
     private fun send(app: Context) {
         val lessons = SofyShare.lessons(AppProfileTv.allCards(app), System.currentTimeMillis())
-        if (lessons.isEmpty()) return
-        val body = SofyShare.communityBody(lessons).toString().toByteArray()
+        val rules = SofyRules.communityRules(SofyRulesTv.rules(app))
+        if (lessons.isEmpty() && rules.length() == 0) return
+        val body = SofyShare.communityBody(lessons).apply { if (rules.length() > 0) put("rules", rules) }.toString().toByteArray()
         val c = URL(URL_LESSONS).openConnection() as HttpURLConnection
         val code = try {
             c.connectTimeout = 8_000; c.readTimeout = 8_000; c.requestMethod = "POST"; c.doOutput = true
@@ -46,12 +48,15 @@ object SofyCommunityTv {
             c.outputStream.use { it.write(body) }
             c.responseCode
         } catch (e: Exception) { 0 } finally { c.disconnect() }
-        SofyBusTv.emit(app, SofyBus.Source.SOFY, "community_sent", ok = code == 200, detail = "${lessons.size} lições")
+        SofyBusTv.emit(app, SofyBus.Source.SOFY, "community_sent", ok = code == 200, detail = "${lessons.size} lições, ${rules.length()} regras")
     }
 
     private fun receive(app: Context, now: Long) {
         val text = Http.getTextOrNull(URL_LESSONS, maxBytes = 256 * 1024) ?: return
-        val list = SofyShare.fromCommunity(runCatching { JSONObject(text) }.getOrNull())
+        val obj = runCatching { JSONObject(text) }.getOrNull()
+        // Regras do revisor vindas de outras casas (passo 4): entram na sombra daqui; só valem se passarem 3 noites.
+        runCatching { SofyRulesTv.addFromCommunity(app, SofyRules.fromCommunity(obj, SofyShare.COMMUNITY_MIN_HOMES, now)) }
+        val list = SofyShare.fromCommunity(obj)
         if (list.isEmpty()) return
         val pm = app.packageManager
         val installed = list.mapNotNull { (l, _) -> runCatching { l.pkg to pm.getPackageInfo(l.pkg, 0).longVersionCode }.getOrNull() }.toMap()
