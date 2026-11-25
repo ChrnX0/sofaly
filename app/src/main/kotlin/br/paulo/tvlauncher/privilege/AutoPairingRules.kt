@@ -12,9 +12,16 @@ import java.text.Normalizer
 object AutoPairingRules {
     /** O shell precisa estar fora há pelo menos isto (umas duas sondas): não reage a um soluço do adb. */
     const val MIN_DOWN_MS = 20 * 60_000L
-    /** Uma tentativa a cada 3 h, no máximo 4 por dia: se não pegar, não fica abrindo as Configurações a toda hora. */
-    const val GAP_MS = 3 * 3_600_000L
-    const val MAX_PER_DAY = 4
+    /**
+     * Ritmo que se calibra (Paulo, 25/11/2026: "ela tem que saber se calibrar sozinha"; antes eram 3 h fixas e 4 por
+     * dia). Recuo exponencial: a 1ª repetição espera [FIRST_GAP_MS] e cada tentativa sem sucesso dobra a espera, até
+     * [MAX_GAP_MS]. Sem teto por dia: o shell fora é grave, então ela nunca para de tentar, só espaça. Tentativa que deu
+     * certo zera a conta ([AutoPairing] limpa a lista quando o shell volta).
+     */
+    const val FIRST_GAP_MS = 15 * 60_000L
+    const val MAX_GAP_MS = 6 * 3_600_000L
+    /** A partir de tantas tentativas sem sucesso no dia, o aviso de "acesso caiu" pode aparecer (ela segue tentando). */
+    const val SILENT_TRIES = 4
     const val DAY_MS = 24 * 3_600_000L
     /** Prazo de uma tentativa inteira (abrir, navegar, ler código, parear). */
     const val ATTEMPT_MS = 75_000L
@@ -35,17 +42,38 @@ object AutoPairingRules {
     fun decide(s: State): Decision = when {
         !s.enabled || !s.shellExpected || !s.accessibilityOn -> Decision.NO
         s.shellDownForMs == null || s.shellDownForMs < MIN_DOWN_MS || !s.wifiOn -> Decision.NO
-        recent(s.attempts, s.now).size >= MAX_PER_DAY -> Decision.WAIT
-        s.attempts.any { s.now - it in 0 until GAP_MS } -> Decision.WAIT
+        s.now < nextAt(s) -> Decision.WAIT
         // Só com o protetor na frente: com alguém vendo, abrir as Configurações por cima é atrapalhar.
         !s.screensaverOpen -> Decision.WAIT
         else -> Decision.TRY
     }
 
+    /** O freio que barrou, em poucas palavras (para o log e o relatório). Vazio = pode tentar. */
+    fun why(s: State): String = when {
+        !s.enabled -> "desligado neste build"
+        !s.shellExpected -> "shell nunca funcionou aqui"
+        !s.accessibilityOn -> "sem acessibilidade"
+        s.shellDownForMs == null -> "shell não está fora"
+        s.shellDownForMs < MIN_DOWN_MS -> "fora há só ${s.shellDownForMs / 60_000} min"
+        !s.wifiOn -> "sem Wi-Fi"
+        s.now < nextAt(s) -> "recuo: ${recent(s.attempts, s.now).size} tentativa(s) hoje, próxima em ${(nextAt(s) - s.now + 59_999) / 60_000} min"
+        !s.screensaverOpen -> "protetor não está na frente"
+        else -> ""
+    }
+
     fun recent(attempts: List<Long>, now: Long) = attempts.filter { now - it in 0 until DAY_MS }
 
+    /** Espera depois de [n] tentativas sem sucesso: dobra a cada uma, até [MAX_GAP_MS]. */
+    fun gapMs(n: Int): Long = if (n <= 0) 0 else minOf(MAX_GAP_MS, FIRST_GAP_MS shl (n - 1).coerceAtMost(10))
+
+    /** Quando pode tentar de novo (0 = já). */
+    fun nextAt(s: State): Long {
+        val r = recent(s.attempts, s.now)
+        return if (r.isEmpty()) 0 else r.max() + gapMs(r.size)
+    }
+
     /** Enquanto a Sofy ainda pode consertar sozinha, o aviso de "acesso caiu" não aparece (ela não explica, conserta). */
-    fun stillTrying(s: State): Boolean = s.enabled && s.shellExpected && s.accessibilityOn && recent(s.attempts, s.now).size < MAX_PER_DAY
+    fun stillTrying(s: State): Boolean = s.enabled && s.shellExpected && s.accessibilityOn && recent(s.attempts, s.now).size < SILENT_TRIES
 
     // ---------------------------------------------------------------- navegação na tela das Configurações
 
