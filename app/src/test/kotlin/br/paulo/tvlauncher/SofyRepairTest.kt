@@ -337,7 +337,14 @@ class SofyPaceTest {
         // Consertou: as proibições caem; e a proibição vence sozinha depois de um dia.
         val ok = SofyRepair.onVerified(SofyRepair.onRun(c, Tool.REPAIR_SHELL, now, true), false, now + 2 * min).first
         assertTrue(ok.banned.isEmpty())
-        assertTrue(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS).isEmpty())
+        assertTrue(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS / 4).isEmpty())   // acesso perdido: 6 h, não um dia
+        assertFalse(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS / 4 - 1).isEmpty())
+        assertTrue(SofyRepair.unban(listOf(c)).single().banned.isEmpty())               // versão nova: estratégia nova
+        // Tudo fora por laço: espera com motivo e hora de volta, nunca some em silêncio.
+        val tudo = c.copy(banned = mapOf(Tool.RELIGHT_WIRELESS_DEBUG to now, Tool.RECONNECT_SHELL to now, Tool.REPAIR_SHELL to now),
+            tried = c.tried + SofyRepair.Attempt(Tool.ASK_AI, now, Result.FAILED) + SofyRepair.Attempt(Tool.REPORT, now, Result.NOT_FIXED))
+        val w = SofyRepair.next(tudo, emptyMap(), e)
+        assertTrue(w is Step.Wait && w.why == "fora por laço" && w.until == now + SofyRepair.LOOP_BAN_MS / 4)
         // A rede de segurança fixa continua, e é reconhecida como defeito da própria Sofy.
         assertTrue(SofyRepair.guardTripped(SofyRepair.Env(now, true, false, false, toolsLastHour = SofyRepair.LOOP_GUARD_PER_HOUR)))
     }

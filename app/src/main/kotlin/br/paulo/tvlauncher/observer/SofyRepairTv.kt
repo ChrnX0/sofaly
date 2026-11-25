@@ -264,6 +264,10 @@ object SofyRepairTv {
         p.edit().putLong("bus_read", now).apply()
 
         var cases = SofyRepair.prune(loadCases(app), now)
+        if (p.getInt("ban_version", 0) != br.paulo.tvlauncher.BuildConfig.VERSION_CODE) {
+            cases = SofyRepair.unban(cases)
+            p.edit().putInt("ban_version", br.paulo.tvlauncher.BuildConfig.VERSION_CODE).apply()
+        }
         var learned = loadLearned(app)
         val ruinsAgora = ruins.map { SofyRepair.key(it.type, it.subject) }.toSet()
         val comSonda = probes.map { SofyRepair.key(it.type, it.subject) }.toSet()
@@ -320,6 +324,8 @@ object SofyRepairTv {
         for (c in ordem) {
             val passo = SofyRepair.next(c, learned, e)
             if (passo is SofyRepair.Step.Wait) { noteWait(app, c, passo); continue }
+            // Não está mais esperando: o motivo antigo sai do relatório (a Revisão leu um "alguém está usando" velho).
+            p.edit().remove("wait:${c.key}").apply()
             val step = passo as? SofyRepair.Step.Run ?: continue
             val applied = runCatching { runTool(app, c, step.tool) }.onFailure { Log.w(TAG, "${step.tool}: $it") }.getOrNull()
             if (applied == null && step.tool == Tool.REPAIR_SHELL) {   // ainda não é a hora (regras do AutoPairing): tenta depois
