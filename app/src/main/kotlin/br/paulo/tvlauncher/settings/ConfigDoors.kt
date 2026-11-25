@@ -133,6 +133,9 @@ private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
         isVerticalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
         setPaddingRelative(dp(4), dp(4), dp(4), dp(4))
         addView(lista)
+        // Corta em cima e embaixo (a lista rolada não passa por cima da barra de dicas; teste de telas, 25/11/2026),
+        // com folga dos lados para o foco crescer. Igual à rolagem das opções.
+        addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) }
     }, LinearLayout.LayoutParams(MATCH, 0, 1f))
     SidePanel.escalonar(this, lista)
     focar?.post { focar?.requestFocus() }
