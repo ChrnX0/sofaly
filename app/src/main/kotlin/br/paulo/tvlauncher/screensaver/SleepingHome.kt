@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher.screensaver
 
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
@@ -12,7 +11,6 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
-import android.view.animation.LinearInterpolator
 import android.view.animation.PathInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -54,7 +52,7 @@ import kotlin.math.min
  * mesma tela inicial, com o MESMO fundo, que só troca a cruz pela hora e pelo tempo quando ninguém mexe.
  * Para quê: quem passa pela sala lê de longe a hora, a temperatura e a frase do dia; quem quer mais aperta ↑/↓ (ou
  * espera) e a faixa de baixo passa por horas, dias, dicas, medidas, ar, sol, lua e agenda, uma linha por vez.
- * Fino e calmo (Paulo: "nada gritante ou bruto"): pesos leves, sem maiúsculas, laranja só no fio que conta o tempo.
+ * Fino e calmo (Paulo: "nada gritante ou bruto"): pesos leves, sem maiúsculas, sem laranja (o fio que contava o tempo saiu em 25/11/2026).
  * Como: um FrameLayout com o fundo do tema ([criarFundo]), um véu leve para o texto ler em qualquer fundo, o topo
  * (o widget de hora e tempo, no formato do relógio clássico do Android) e a faixa, que começa pela frase do dia. A faixa roda sozinha a cada [rotateSeconds] (0 = só o controle). Contra marcar
  * a tela: depois de [ESCURECER_MS] sem tecla tudo escurece devagar até ficar pálido, e a informação anda uns dp a cada
@@ -152,7 +150,6 @@ class SleepingHome(private val ctx: Context) {
         setShadowLayer(10 * ctx.resources.displayMetrics.density, 0f, ctx.resources.displayMetrics.density, 0x59000000)
     }
     private val faixa = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL }
-    private val fio = View(ctx).apply { setBackgroundColor(DesignTokens.ORANGE); alpha = 0.7f; pivotX = 0f; scaleX = 0f }
     private val janela = FrameLayout(ctx).apply { clipChildren = true; tag = TAG_JANELA }
     private var sofy: SofyDrawable? = null
     /** O movimento do céu da noite na faixa (parado junto com a Sofy). */
@@ -161,7 +158,6 @@ class SleepingHome(private val ctx: Context) {
     private class Linha(val nome: String, val view: View)
     private var linhas: List<Linha> = emptyList()
     private var atual = 0
-    private var progresso: ObjectAnimator? = null
     private var passo = 0
     private var escurecido = false
     private var solto = false
@@ -212,16 +208,9 @@ class SleepingHome(private val ctx: Context) {
         coluna.addView(topo, LinearLayout.LayoutParams(-2, -2))
         coluna.addView(View(ctx), LinearLayout.LayoutParams(-1, 0, 1f))   // o meio é do fundo
 
-        // Sem fileira de nomes (Paulo, 21/11: "informação demais"): só um fio fino, que se enche de laranja até a
-        // próxima troca. Com o vidro ligado, o vidro faz a separação e o fio some.
-        if (glass(ctx)) {
-            faixa.background = Estilo.vidro(ctx); faixa.setPaddingRelative(dp(20), dp(10), dp(20), dp(6))
-        } else {
-            faixa.addView(FrameLayout(ctx).apply {
-                setBackgroundColor(0x1AFFFFFF)
-                addView(fio, FrameLayout.LayoutParams(-1, -1))
-            }, LinearLayout.LayoutParams(-1, dp(1)).apply { bottomMargin = dp(12) })
-        }
+        // Sem fileira de nomes (Paulo, 21/11: "informação demais") e sem o fio laranja que se enchia até a próxima troca
+        // (Paulo, 25/11/2026: "acho melhor tirar"). A troca segue no mesmo tempo; com o vidro ligado, o vidro separa.
+        if (glass(ctx)) faixa.background = Estilo.vidro(ctx).also { faixa.setPaddingRelative(dp(20), dp(10), dp(20), dp(6)) }
         faixa.addView(janela, LinearLayout.LayoutParams(-1, dp(92)))   // 3 linhas (nome, valor, detalhe) com folga para a sombra
         coluna.addView(faixa, LinearLayout.LayoutParams(-1, -2))
         camadaInfo.addView(coluna, FrameLayout.LayoutParams(-1, -1))
@@ -540,11 +529,10 @@ class SleepingHome(private val ctx: Context) {
     private val rodar = Runnable { mover(1) }
 
     private fun reiniciarRoda() {
-        ui.removeCallbacks(rodar); progresso?.cancel(); progresso = null; fio.scaleX = 0f
+        ui.removeCallbacks(rodar)
         val s = rotateSeconds(ctx)
         if (s <= 0 || linhas.size < 2) return
         ui.postDelayed(rodar, s * 1000L)
-        if (!semMovimento()) progresso = ObjectAnimator.ofFloat(fio, View.SCALE_X, 0f, 1f).apply { duration = s * 1000L; interpolator = LinearInterpolator(); start() }
     }
 
     // ------------------------------------------------------------------ teclas, escurecer, deslocar
@@ -589,7 +577,7 @@ class SleepingHome(private val ctx: Context) {
     fun soltar() {
         solto = true
         ui.removeCallbacksAndMessages(null)
-        progresso?.cancel(); sofy?.stop(); ceuMov?.stop()
+        sofy?.stop(); ceuMov?.stop()
     }
 
     // ------------------------------------------------------------------ utilidades
