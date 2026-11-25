@@ -322,13 +322,17 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val aceso = escolhido && focada
         if (own == StripHome.Own.GLASS) k.fundo.setColor(placaPropria(own, aceso))
         if ((k.item.icone as? IconeCruz)?.estilo !in TRACO_DE_UMA_COR) return
-        if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.clearColorFilter(); return }
+        if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.setLayerType(View.LAYER_TYPE_NONE, null); return }
         val cor = when (own) {
             StripHome.Own.WHITE -> if (aceso) DesignTokens.ORANGE_ON_LIGHT else DesignTokens.NIGHT
             StripHome.Own.GLASS -> if (aceso) DesignTokens.ORANGE else DesignTokens.CREAM
             StripHome.Own.DARK -> DesignTokens.ORANGE
         }
-        k.icone.setColorFilter(cor, android.graphics.PorterDuff.Mode.SRC_IN)
+        // A tinta vai na camada da view, não no Drawable: o Símbolo desenha por um IconeApp interno, com pincéis
+        // próprios, e um colorFilter no Drawable não chegava nele (Sala, 25/11/2026: ícones continuaram coloridos).
+        k.icone.setLayerType(View.LAYER_TYPE_HARDWARE, android.graphics.Paint().apply {
+            colorFilter = android.graphics.PorterDuffColorFilter(cor, android.graphics.PorterDuff.Mode.SRC_IN)
+        })
     }
 
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
