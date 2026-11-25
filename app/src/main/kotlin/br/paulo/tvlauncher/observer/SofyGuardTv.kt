@@ -46,16 +46,19 @@ object SofyGuardTv {
     /** 42: a dica de como voltar, uma vez a cada meia hora, e o barramento fica sabendo. */
     private fun lostHelp(app: Context) {
         runCatching { AvisoTv.rapido(app, app.getString(R.string.sofy_lost_title), app.getString(R.string.sofy_lost_text), 10) }
-        SofyBusTv.emit(app, SofyBus.Source.SOFY, "lost_help")
-        ObserverTv.logShadow(app, "lost_help", "VOLTAR/INÍCIO repetidos sem navegar: mostrei como voltar")
+        // Disco e travas do ObserverTv fora da thread principal: aqui estamos no funil das teclas (revisor, 25/11/2026).
+        Fundo.rodar("sofy-perdido") {
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "lost_help")
+            ObserverTv.logShadow(app, "lost_help", "VOLTAR/INÍCIO repetidos sem navegar: mostrei como voltar")
+        }
     }
 
     /** 43: tecla presa (segurada ~7 s, fora o volume). Vai à Ilha: o controle pode estar apertado no sofá. */
     private fun stuckKey(app: Context, keyCode: Int) {
         val nome = KeyEvent.keyCodeToString(keyCode).removePrefix("KEYCODE_")
-        SofyBusTv.emit(app, SofyBus.Source.DEVICE, "key_stuck", ok = false, detail = nome)
-        ObserverTv.logShadow(app, "key_stuck", "tecla $nome segurada por mais de 7 s")
         Fundo.rodar("sofy-tecla-presa") {
+            SofyBusTv.emit(app, SofyBus.Source.DEVICE, "key_stuck", ok = false, detail = nome)
+            ObserverTv.logShadow(app, "key_stuck", "tecla $nome segurada por mais de 7 s")
             ObserverTv.enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.KEY_STUCK, System.currentTimeMillis(), ObserverCore.Step.OBSERVED, listOf(nome)))
         }
     }

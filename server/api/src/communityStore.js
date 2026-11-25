@@ -1,6 +1,6 @@
 // O Durable Object das fichas comunitárias (regras e rotas em community.js). Um só, com SQLite (plano grátis).
 import { DurableObject } from 'cloudflare:workers';
-import { DAY_MS, MAX_PUBLISHED, MIN_HOMES, WINDOW_DAYS, parseKey } from './community.js';
+import { DAY_MS, MAX_PUBLISHED, MAX_ROWS, MIN_HOMES, WINDOW_DAYS, parseKey } from './community.js';
 
 export class Community extends DurableObject {
   constructor(ctx, env) {
@@ -11,6 +11,10 @@ export class Community extends DurableObject {
 
   async report(home, lessons, now = Date.now()) {
     const day = Math.floor(now / DAY_MS);
+    this.sql.exec('DELETE FROM reports WHERE day < ?', day - WINDOW_DAYS);
+    // Teto de linhas (revisor, 25/11/2026): a janela de 14 dias sozinha não limita quem manda muito de muitos IPs.
+    const n = this.sql.exec('SELECT COUNT(*) AS n FROM reports').one().n;
+    if (n + lessons.length > MAX_ROWS) return { ok: false, error: 'full' };
     for (const l of lessons) {
       this.sql.exec('INSERT INTO reports (lesson, home, day) VALUES (?, ?, ?) ON CONFLICT(lesson, home) DO UPDATE SET day = excluded.day', l, home, day);
     }

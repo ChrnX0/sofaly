@@ -123,17 +123,33 @@ object Moldura {
         val i = pai.indexOfChild(titulo)
         val lp = titulo.layoutParams
         pai.removeViewAt(i)
-        val faixa = LinearLayout(a).apply {
-            orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
-            addView(titulo, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
-            // A linha fica à esquerda da pílula da hora (que está no centro do alto): não passa da metade da tela.
-            addView(linha, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { marginStart = Estilo.dp(a, Estilo.E2) })
+        // Na Gaveta o título fica abaixo da pílula da hora e a linha vem logo depois dele. Nos outros jeitos o título fica
+        // na altura da pílula (centro do alto): a linha passa para DEPOIS da pílula, na metade direita, que está livre.
+        // Antes ela parava antes da pílula e, com "Configurações", sobrava tão pouco que até o nome saía cortado
+        // ("Tela inicial ..", Sala, 25/11/2026).
+        val faixa: ViewGroup
+        if (ScreenStyle.of(a) == ScreenStyle.DRAWER) {
+            faixa = LinearLayout(a).apply {
+                orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+                addView(titulo, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+                addView(linha, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { marginStart = Estilo.dp(a, Estilo.E2) })
+            }
+        } else {
+            faixa = FrameLayout(a)
+            faixa.addView(titulo, FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER_VERTICAL or Gravity.START))
+            val lpLinha = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER_VERTICAL or Gravity.START)
+            faixa.addView(linha, lpLinha)
+            // Onde a linha começa: depois da pílula (centro da tela + meia pílula) e nunca em cima do título.
+            faixa.addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ ->
+                val xy = IntArray(2); v.getLocationOnScreen(xy)
+                val largura = a.resources.displayMetrics.widthPixels
+                // Da borda onde o texto começa (à direita em árabe/hebraico) até a faixa.
+                val origem = if (v.layoutDirection == android.view.View.LAYOUT_DIRECTION_RTL) largura - (xy[0] + v.width) else xy[0]
+                val inicio = maxOf(largura / 2 + Estilo.dp(a, PILULA_FOLGA) - origem, titulo.width + Estilo.dp(a, Estilo.E2))
+                if (lpLinha.marginStart != inicio) { lpLinha.marginStart = inicio; v.post { v.requestLayout() } }
+            }
         }
-        // Na Gaveta o título fica abaixo da pílula da hora e a linha usa a largura toda; nos outros jeitos ele fica na
-        // altura da pílula (centro do alto), então a faixa para antes dela.
-        val largura = if (ScreenStyle.of(a) == ScreenStyle.DRAWER) ViewGroup.LayoutParams.MATCH_PARENT
-            else (a.resources.displayMetrics.widthPixels / 2 - Estilo.dp(a, PILULA_FOLGA) - pai.paddingStart).coerceAtLeast(titulo.measuredWidth)
-        pai.addView(faixa, i, LinearLayout.LayoutParams(lp).apply { width = largura })
+        pai.addView(faixa, i, LinearLayout.LayoutParams(lp).apply { width = ViewGroup.LayoutParams.MATCH_PARENT })
         pai.setTag(R.id.moldura_cabecalho, true)
         conteudo.viewTreeObserver.addOnGlobalFocusChangeListener { _, novo ->
             val (n, d) = textosDoFoco(novo) ?: (null to null)

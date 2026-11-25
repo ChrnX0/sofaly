@@ -293,6 +293,8 @@ object AppProfile {
         return o
     }
 
+    private val PKG = Regex("^[A-Za-z][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)*$")
+
     fun fromJson(o: JSONObject?): Map<String, State> {
         if (o == null) return emptyMap()
         val out = HashMap<String, State>()
@@ -301,6 +303,9 @@ object AppProfile {
             val cards = HashMap<String, Card>()
             for (i in 0 until arr.length()) {
                 val j = arr.getJSONObject(i)
+                // O pacote vira comando de shell (am kill, cmd package compile): só nome de pacote válido (revisor,
+                // 25/11/2026; "sofy_learning" chega por backup e por "Trazer de outra TV").
+                if (!PKG.matches(j.optString("p")) || j.optString("p").length > 150) continue
                 val op = j.optJSONArray("o")
                 val opens = List(24) { k -> op?.optDouble(k, 0.0)?.takeIf { !it.isNaN() } ?: 0.0 }
                 val st = j.optJSONArray("s")
