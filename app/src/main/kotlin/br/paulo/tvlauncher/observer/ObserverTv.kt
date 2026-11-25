@@ -621,6 +621,7 @@ object ObserverTv {
         runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
         runCatching { SofyShareTv.daily(app, now) }.onFailure { Log.w(TAG, "lições entre TVs: $it") }   // ideia 40
         runCatching { SofyCommunityTv.daily(app, now) }.onFailure { Log.w(TAG, "fichas comunitárias: $it") }   // ideia 41
+        runCatching { SofyNormsTv.daily(app, now) }.onFailure { Log.w(TAG, "padrões da casa: $it") }   // plano D, passo 2
     }
 
     /** A parte do autoexame que mexe no estado do ObserverTv. false = ainda não era hora. */
@@ -748,6 +749,7 @@ object ObserverTv {
             .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("house_norms", runCatching { SofyNormsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("habits", runCatching { SofyHabitsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("today", runCatching { SofyAnswersTv.todayJson(ctx) }.getOrNull() ?: org.json.JSONArray())

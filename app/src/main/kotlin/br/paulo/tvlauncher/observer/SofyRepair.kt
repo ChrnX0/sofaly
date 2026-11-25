@@ -184,7 +184,9 @@ object SofyRepair {
                 else listOf(Tool.UNDO_LAST_CHANGE, Tool.DISABLE_FEATURE, Tool.RESTART_LAUNCHER)
             Type.SLOW -> if (app) listOf(Tool.FREE_MEMORY, Tool.RESTART_APP, Tool.CLEAR_APP_CACHE, Tool.REBOOT)
                 else listOf(Tool.FREE_MEMORY, Tool.RESTART_LAUNCHER, Tool.REBOOT)
-            Type.INCOHERENT -> listOf(Tool.REFRESH_DATA, Tool.RESTART_LAUNCHER)
+            // Quebra do normal da casa (SofyNorms): conferida uma vez por dia, então nenhuma ferramenta daria para
+            // verificar em minutos (o placar aprenderia "consertou" à toa). Vai para a IA do dono e para o relato.
+            Type.INCOHERENT -> if (c.subject.startsWith("norm:")) emptyList() else listOf(Tool.REFRESH_DATA, Tool.RESTART_LAUNCHER)
             Type.SCREEN_BROKEN -> emptyList()   // texto cortado, foco perdido: é defeito de código
         }
         // DISABLE_FEATURE só para o que é uma função desligável; CLEAR_APP_CACHE/RESTART_APP só para app.
