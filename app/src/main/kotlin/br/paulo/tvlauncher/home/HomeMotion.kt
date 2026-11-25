@@ -170,7 +170,10 @@ internal fun MainActivity.atualizarCruz() {
     // Quanto já foi visto (barra no pé do ícone em Continuar): filme/série pela posição salva; TV, o programa no ar.
     fun visto(f: PlayerArmazem.FichaHome, serie: Boolean): Float? = posicoesHome[f.chave]
         ?.takeIf { it.duracao > 0 && (serie || Vod.deveRetomar(it)) }?.let { (it.ms.toFloat() / it.duracao).coerceIn(0f, 1f) }
-    val noAr = programa?.takeIf { it.fim > it.inicio }?.let { ((agora - it.inicio).toFloat() / (it.fim - it.inicio)).coerceIn(0f, 1f) }
+    // Bloco de guia com mais de 6 h (o canal sem grade põe um título só para o dia todo; Sala, 25/11/2026: "Ding-Ding Pula ·
+    // 42% · faltam 14 h 2 min"): mostra o título, sem % nem quanto falta, que ali não querem dizer nada.
+    val blocoLongo = programa != null && programa.fim - programa.inicio > CruzLogica.PROGRAMA_LONGO_MS
+    val noAr = programa?.takeIf { it.fim > it.inicio && !blocoLongo }?.let { ((agora - it.inicio).toFloat() / (it.fim - it.inicio)).coerceIn(0f, 1f) }
     // Sem internet: Séries, Filmes, Rádio e Podcasts avisam antes do OK (Na rede, TV gravada e pendrive seguem normais).
     val precisa = if (semInternetCruz) getString(R.string.cruz_precisa_internet) else null
     // A situação de cada item (1ª linha do canto de baixo à direita), sempre "rótulo + o quê · % · quanto falta" (Paulo, 18/11/2026 14:15
@@ -178,7 +181,7 @@ internal fun MainActivity.atualizarCruz() {
     fun situacaoTv(oQue: String?, tira: String?): CruzLogica.Situacao? =
         gravandoTv?.let { CruzLogica.Situacao(getString(R.string.cruz_canto_gravando), it, "tv") }
             ?: programa?.let { p -> CruzLogica.Situacao(getString(R.string.cruz_canto_no_ar),
-                CruzLogica.andamento(oQue, noAr, linhaAgoraTv(p, agora, comPrograma = false)), "tv", listOfNotNull(tira)) }
+                CruzLogica.andamento(oQue, noAr, if (blocoLongo) null else linhaAgoraTv(p, agora, comPrograma = false)), "tv", listOfNotNull(tira)) }
                 ?.takeIf { it.texto.isNotEmpty() }
     fun situacaoParou(oQue: String?, fracao: Float?, falta: String?, tira: String?, origem: String): CruzLogica.Situacao? =
         falta?.takeIf { it.isNotBlank() }?.let { CruzLogica.Situacao(getString(R.string.cruz_canto_parou), CruzLogica.andamento(oQue, fracao, it), origem, listOfNotNull(tira)) }
