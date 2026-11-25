@@ -1238,6 +1238,7 @@ function desenharConfig(r) {
   tema.replaceChildren(...r.temas.map((t) => { const o = document.createElement('option'); o.value = t.valor; o.textContent = t.nome; return o; }));
   tema.value = r.tema;
   $('cfgTamanho').value = String(r.tamanhoTexto);
+  $('cfgAnimMundo').value = r.animacaoMundo || 'scene';
   $('cfgAltoContraste').checked = !!r.altoContraste;
   aplicarContraste(r.altoContraste);
   $('cfgChuva').checked = r.avisoChuva;
@@ -1312,6 +1313,7 @@ async function gravarConfig(corpo, ok, titulo = 'Confirme o PIN') {
 
 $('cfgTema').addEventListener('change', (e) => gravarConfig({ campo: 'tema', valor: e.target.value }, 'Tema trocado.'));
 $('cfgAltoContraste').addEventListener('change', (e) => gravarConfig({ campo: 'altoContraste', valor: e.target.checked }, e.target.checked ? 'Alto contraste ligado.' : 'Alto contraste desligado.'));
+$('cfgAnimMundo').addEventListener('change', (e) => gravarConfig({ campo: 'animacaoMundo', valor: e.target.value }, 'Animação do mundo trocada.'));
 $('cfgTamanho').addEventListener('change', (e) => gravarConfig({ campo: 'tamanhoTexto', valor: Number(e.target.value) }, 'Tamanho do texto gravado (vale ao abrir cada tela).'));
 $('cfgChuva').addEventListener('change', (e) => gravarConfig({ campo: 'avisoChuva', valor: e.target.checked }, e.target.checked ? 'Aviso de chuva ligado.' : 'Aviso de chuva desligado.'));
 $('cfgQuadros').addEventListener('change', (e) => gravarConfig({ campo: 'taxaQuadros', valor: e.target.checked }, e.target.checked ? 'Taxa de quadros do filme ligada.' : 'Taxa de quadros do filme desligada.'));
