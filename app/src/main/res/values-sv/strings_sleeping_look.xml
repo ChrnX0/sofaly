@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Klockstil</string>
+    <string name="slk_hora_det">Hur tiden visas i viloläget</string>
+    <string name="slk_c_thin">Tunn</string>
+    <string name="slk_c_split">Timme och minut</string>
+    <string name="slk_c_stacked">Staplad</string>
+    <string name="slk_c_minute">Löpande minut</string>
+    <string name="slk_c_ring">Ring</string>
+    <string name="slk_c_ruler">Dagslinjal</string>
+    <string name="slk_c_phrase">Mening</string>
+    <string name="slk_cartao">Längst ner</string>
+    <string name="slk_cartao_det">Det som växlar längst ner i viloläget</string>
+    <string name="slk_k_line">Remsa</string>
+    <string name="slk_k_card">Levande kort</string>
+    <string name="slk_k_stack">Stapel</string>
+    <string name="slk_lugar">Widgetarnas plats</string>
+    <string name="slk_lugar_det">Var klockan och vädret står; kortet hamnar vid motsatt kant</string>
+    <string name="slk_p_ts">Uppe till vänster</string>
+    <string name="slk_p_tc">Uppe i mitten</string>
+    <string name="slk_p_te">Uppe till höger</string>
+    <string name="slk_p_bs">Nere till vänster</string>
+    <string name="slk_p_bc">Nere i mitten</string>
+    <string name="slk_p_be">Nere till höger</string>
+    <string name="slk_por_em">Solnedgång om %1$s</string>
+    <string name="slk_regua">Kommande 12 timmar: regn och solnedgång</string>
+</resources>

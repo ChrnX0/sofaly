@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Kellon tyyli</string>
+    <string name="slk_hora_det">Miten aika näkyy lepotilassa</string>
+    <string name="slk_c_thin">Ohut</string>
+    <string name="slk_c_split">Tunti ja minuutti</string>
+    <string name="slk_c_stacked">Pinottu</string>
+    <string name="slk_c_minute">Kulkeva minuutti</string>
+    <string name="slk_c_ring">Rengas</string>
+    <string name="slk_c_ruler">Päivän viivain</string>
+    <string name="slk_c_phrase">Lause</string>
+    <string name="slk_cartao">Alhaalla</string>
+    <string name="slk_cartao_det">Mikä vaihtuu alhaalla lepotilassa</string>
+    <string name="slk_k_line">Nauha</string>
+    <string name="slk_k_card">Elävä kortti</string>
+    <string name="slk_k_stack">Pino</string>
+    <string name="slk_lugar">Widgetien paikka</string>
+    <string name="slk_lugar_det">Missä kello ja sää ovat; kortti menee vastakkaiseen reunaan</string>
+    <string name="slk_p_ts">Ylhäällä vasemmalla</string>
+    <string name="slk_p_tc">Ylhäällä keskellä</string>
+    <string name="slk_p_te">Ylhäällä oikealla</string>
+    <string name="slk_p_bs">Alhaalla vasemmalla</string>
+    <string name="slk_p_bc">Alhaalla keskellä</string>
+    <string name="slk_p_be">Alhaalla oikealla</string>
+    <string name="slk_por_em">Auringonlasku %1$s päästä</string>
+    <string name="slk_regua">Seuraavat 12 tuntia: sade ja auringonlasku</string>
+</resources>

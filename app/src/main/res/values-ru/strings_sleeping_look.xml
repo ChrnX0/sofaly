@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Стиль часов</string>
+    <string name="slk_hora_det">Как показывается время в режиме покоя</string>
+    <string name="slk_c_thin">Тонкий</string>
+    <string name="slk_c_split">Часы и минуты</string>
+    <string name="slk_c_stacked">Столбиком</string>
+    <string name="slk_c_minute">Бегущая минута</string>
+    <string name="slk_c_ring">Кольцо</string>
+    <string name="slk_c_ruler">Линейка дня</string>
+    <string name="slk_c_phrase">Фраза</string>
+    <string name="slk_cartao">Внизу</string>
+    <string name="slk_cartao_det">Что сменяется внизу в режиме покоя</string>
+    <string name="slk_k_line">Полоса</string>
+    <string name="slk_k_card">Живая карточка</string>
+    <string name="slk_k_stack">Стопка</string>
+    <string name="slk_lugar">Положение виджетов</string>
+    <string name="slk_lugar_det">Где стоят часы и погода; карточка уходит к противоположному краю</string>
+    <string name="slk_p_ts">Вверху слева</string>
+    <string name="slk_p_tc">Вверху по центру</string>
+    <string name="slk_p_te">Вверху справа</string>
+    <string name="slk_p_bs">Внизу слева</string>
+    <string name="slk_p_bc">Внизу по центру</string>
+    <string name="slk_p_be">Внизу справа</string>
+    <string name="slk_por_em">Закат через %1$s</string>
+    <string name="slk_regua">Ближайшие 12 часов: дождь и закат</string>
+</resources>

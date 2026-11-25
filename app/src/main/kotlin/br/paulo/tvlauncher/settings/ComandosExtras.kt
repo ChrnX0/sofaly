@@ -215,6 +215,18 @@ object ComandosExtras {
             M.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_WORLD_ANIM, it.ordinal); "animacao_mundo=${it.name} (aperte HOME)" }
                 ?: "animacao_mundo=${br.paulo.tvlauncher.home.StripHome.options(ctx).worldAnim}; opções: ${M.joinToString { it.name.lowercase() }}"
         }
+        // Jeito dos widgets do descanso: EXTRAS --es o descanso_look [--es hora ring] [--es cartao card] [--es lugar top_end]
+        "descanso_look" -> {
+            val L = br.paulo.tvlauncher.screensaver.SleepingLook
+            fun gravar(extra: String, chave: String, nomes: List<String>) = i.getStringExtra(extra)?.let { n ->
+                nomes.firstOrNull { it.equals(n, true) }?.let { L.set(ctx, chave, it) }
+            }
+            gravar("hora", L.KEY_CLOCK, L.Clock.entries.map { it.name })
+            gravar("cartao", L.KEY_CARD, L.Card.entries.map { it.name })
+            gravar("lugar", L.KEY_PLACE, L.Place.entries.map { it.name })
+            "descanso_look hora=${L.clock(ctx)} cartao=${L.card(ctx)} lugar=${L.place(ctx)}; horas: ${L.Clock.entries.joinToString { it.name.lowercase() }}; " +
+                "cartões: ${L.Card.entries.joinToString { it.name.lowercase() }}; lugares: ${L.Place.entries.joinToString { it.name.lowercase() }}"
+        }
         "personalidade" -> (i.getStringExtra("nome") ?: "").let { n ->
             val M = br.paulo.tvlauncher.home.StripHome.Mood.entries
             M.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_MOOD, it.ordinal); "personalidade=${it.name} (aperte HOME)" }

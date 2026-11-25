@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Στυλ ώρας</string>
+    <string name="slk_hora_det">Πώς φαίνεται η ώρα στην ανάπαυση</string>
+    <string name="slk_c_thin">Λεπτή</string>
+    <string name="slk_c_split">Ώρα και λεπτά</string>
+    <string name="slk_c_stacked">Στοιβαγμένη</string>
+    <string name="slk_c_minute">Λεπτό που τρέχει</string>
+    <string name="slk_c_ring">Δαχτυλίδι</string>
+    <string name="slk_c_ruler">Χάρακας ημέρας</string>
+    <string name="slk_c_phrase">Φράση</string>
+    <string name="slk_cartao">Κάτω</string>
+    <string name="slk_cartao_det">Τι εναλλάσσεται κάτω στην ανάπαυση</string>
+    <string name="slk_k_line">Λωρίδα</string>
+    <string name="slk_k_card">Ζωντανή κάρτα</string>
+    <string name="slk_k_stack">Στοίβα</string>
+    <string name="slk_lugar">Θέση γραφικών στοιχείων</string>
+    <string name="slk_lugar_det">Πού μπαίνουν η ώρα και ο καιρός· η κάρτα πάει στην απέναντι άκρη</string>
+    <string name="slk_p_ts">Πάνω αριστερά</string>
+    <string name="slk_p_tc">Πάνω στο κέντρο</string>
+    <string name="slk_p_te">Πάνω δεξιά</string>
+    <string name="slk_p_bs">Κάτω αριστερά</string>
+    <string name="slk_p_bc">Κάτω στο κέντρο</string>
+    <string name="slk_p_be">Κάτω δεξιά</string>
+    <string name="slk_por_em">Δύση ηλίου σε %1$s</string>
+    <string name="slk_regua">Επόμενες 12 ώρες: βροχή και δύση</string>
+</resources>

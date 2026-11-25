@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Styl hodin</string>
+    <string name="slk_hora_det">Jak se čas zobrazuje v klidovém režimu</string>
+    <string name="slk_c_thin">Tenký</string>
+    <string name="slk_c_split">Hodina a minuta</string>
+    <string name="slk_c_stacked">Nad sebou</string>
+    <string name="slk_c_minute">Běžící minuta</string>
+    <string name="slk_c_ring">Kruh</string>
+    <string name="slk_c_ruler">Pravítko dne</string>
+    <string name="slk_c_phrase">Věta</string>
+    <string name="slk_cartao">Dole</string>
+    <string name="slk_cartao_det">Co se střídá dole v klidovém režimu</string>
+    <string name="slk_k_line">Pruh</string>
+    <string name="slk_k_card">Živá karta</string>
+    <string name="slk_k_stack">Stoh</string>
+    <string name="slk_lugar">Umístění widgetů</string>
+    <string name="slk_lugar_det">Kde jsou hodiny a počasí; karta jde k opačnému okraji</string>
+    <string name="slk_p_ts">Nahoře vlevo</string>
+    <string name="slk_p_tc">Nahoře uprostřed</string>
+    <string name="slk_p_te">Nahoře vpravo</string>
+    <string name="slk_p_bs">Dole vlevo</string>
+    <string name="slk_p_bc">Dole uprostřed</string>
+    <string name="slk_p_be">Dole vpravo</string>
+    <string name="slk_por_em">Západ slunce za %1$s</string>
+    <string name="slk_regua">Příštích 12 hodin: déšť a západ slunce</string>
+</resources>

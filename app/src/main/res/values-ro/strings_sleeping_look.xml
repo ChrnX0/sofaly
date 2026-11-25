@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Stilul orei</string>
+    <string name="slk_hora_det">Cum apare ora în repaus</string>
+    <string name="slk_c_thin">Subțire</string>
+    <string name="slk_c_split">Oră și minut</string>
+    <string name="slk_c_stacked">Suprapusă</string>
+    <string name="slk_c_minute">Minut în mișcare</string>
+    <string name="slk_c_ring">Inel</string>
+    <string name="slk_c_ruler">Rigla zilei</string>
+    <string name="slk_c_phrase">Frază</string>
+    <string name="slk_cartao">Jos</string>
+    <string name="slk_cartao_det">Ce se schimbă jos în repaus</string>
+    <string name="slk_k_line">Bandă</string>
+    <string name="slk_k_card">Card viu</string>
+    <string name="slk_k_stack">Teanc</string>
+    <string name="slk_lugar">Poziția widgeturilor</string>
+    <string name="slk_lugar_det">Unde stau ora și vremea; cardul merge la marginea opusă</string>
+    <string name="slk_p_ts">Sus, stânga</string>
+    <string name="slk_p_tc">Sus, centru</string>
+    <string name="slk_p_te">Sus, dreapta</string>
+    <string name="slk_p_bs">Jos, stânga</string>
+    <string name="slk_p_bc">Jos, centru</string>
+    <string name="slk_p_be">Jos, dreapta</string>
+    <string name="slk_por_em">Apus în %1$s</string>
+    <string name="slk_regua">Următoarele 12 ore: ploaie și apus</string>
+</resources>

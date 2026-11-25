@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">시계 스타일</string>
+    <string name="slk_hora_det">휴식 화면에서 시간이 보이는 방식</string>
+    <string name="slk_c_thin">가늘게</string>
+    <string name="slk_c_split">시와 분</string>
+    <string name="slk_c_stacked">세로로</string>
+    <string name="slk_c_minute">흐르는 분</string>
+    <string name="slk_c_ring">링</string>
+    <string name="slk_c_ruler">하루 눈금자</string>
+    <string name="slk_c_phrase">한 문장</string>
+    <string name="slk_cartao">아래</string>
+    <string name="slk_cartao_det">휴식 화면 아래에서 바뀌는 것</string>
+    <string name="slk_k_line">띠</string>
+    <string name="slk_k_card">라이브 카드</string>
+    <string name="slk_k_stack">스택</string>
+    <string name="slk_lugar">위젯 위치</string>
+    <string name="slk_lugar_det">시계와 날씨의 자리, 카드는 반대쪽 가장자리로</string>
+    <string name="slk_p_ts">왼쪽 위</string>
+    <string name="slk_p_tc">가운데 위</string>
+    <string name="slk_p_te">오른쪽 위</string>
+    <string name="slk_p_bs">왼쪽 아래</string>
+    <string name="slk_p_bc">가운데 아래</string>
+    <string name="slk_p_be">오른쪽 아래</string>
+    <string name="slk_por_em">일몰까지 %1$s</string>
+    <string name="slk_regua">앞으로 12시간: 비와 일몰</string>
+</resources>

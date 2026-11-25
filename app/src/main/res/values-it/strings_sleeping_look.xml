@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Stile dell’ora</string>
+    <string name="slk_hora_det">Come appare l’ora nel riposo</string>
+    <string name="slk_c_thin">Sottile</string>
+    <string name="slk_c_split">Ora e minuto</string>
+    <string name="slk_c_stacked">Impilata</string>
+    <string name="slk_c_minute">Minuto che scorre</string>
+    <string name="slk_c_ring">Anello</string>
+    <string name="slk_c_ruler">Righello del giorno</string>
+    <string name="slk_c_phrase">Frase</string>
+    <string name="slk_cartao">In basso</string>
+    <string name="slk_cartao_det">Cosa scorre in basso nel riposo</string>
+    <string name="slk_k_line">Striscia</string>
+    <string name="slk_k_card">Scheda viva</string>
+    <string name="slk_k_stack">Pila</string>
+    <string name="slk_lugar">Posizione dei widget</string>
+    <string name="slk_lugar_det">Dove stanno ora e meteo; la scheda va sul bordo opposto</string>
+    <string name="slk_p_ts">In alto a sinistra</string>
+    <string name="slk_p_tc">In alto al centro</string>
+    <string name="slk_p_te">In alto a destra</string>
+    <string name="slk_p_bs">In basso a sinistra</string>
+    <string name="slk_p_bc">In basso al centro</string>
+    <string name="slk_p_be">In basso a destra</string>
+    <string name="slk_por_em">Tramonto tra %1$s</string>
+    <string name="slk_regua">Prossime 12 ore: pioggia e tramonto</string>
+</resources>

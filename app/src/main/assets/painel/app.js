@@ -1247,6 +1247,9 @@ function desenharConfig(r) {
   $('cfgQuadros').checked = r.taxaQuadros !== false;
   $('cfgProtetor').value = String(r.protetorMs);
   $('cfgVidro').value = r.vidroDescanso ? '1' : '0';
+  $('cfgHoraDescanso').value = r.horaDescanso || 'thin';
+  $('cfgCartaoDescanso').value = r.cartaoDescanso || 'line';
+  $('cfgLugarDescanso').value = r.lugarDescanso || 'top_start';
   $('cfgParental').checked = r.parental;
   $('cfgParentalDet').textContent = `(${r.parentalCanais} canal(is) ou categoria(s) escolhidos)`;
   $('cfgInfantil').checked = r.infantil;
@@ -1321,6 +1324,9 @@ $('cfgTemperatura').addEventListener('change', (e) => gravarConfig({ campo: 'avi
 $('cfgAudio').addEventListener('change', (e) => gravarConfig({ campo: 'audio', valor: e.target.value }, 'Áudio preferido gravado.'));
 $('cfgProtetor').addEventListener('change', (e) => gravarConfig({ campo: 'protetorMs', valor: Number(e.target.value) }, 'Tempo do protetor gravado.'));
 $('cfgVidro').addEventListener('change', (e) => gravarConfig({ campo: 'vidroDescanso', valor: e.target.value === '1' }, 'Gravado.'));
+$('cfgHoraDescanso').addEventListener('change', (e) => gravarConfig({ campo: 'horaDescanso', valor: e.target.value }, 'Gravado.'));
+$('cfgCartaoDescanso').addEventListener('change', (e) => gravarConfig({ campo: 'cartaoDescanso', valor: e.target.value }, 'Gravado.'));
+$('cfgLugarDescanso').addEventListener('change', (e) => gravarConfig({ campo: 'lugarDescanso', valor: e.target.value }, 'Gravado.'));
 $('cfgParental').addEventListener('change', (e) => gravarConfig({ campo: 'parental', valor: e.target.checked }, e.target.checked ? 'Controle parental ligado.' : 'Controle parental desligado.'));
 $('cfgIdadeInfantil').addEventListener('change', (e) => gravarConfig({ campo: 'idadeInfantil', valor: Number(e.target.value) },
   'Idade do modo infantil gravada. Filmes e séries com classificação até ela aparecem; os sem classificação, só nas categorias infantis.', 'Confirme o PIN'));

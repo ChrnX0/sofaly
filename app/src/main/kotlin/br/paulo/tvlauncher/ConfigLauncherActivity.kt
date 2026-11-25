@@ -50,6 +50,8 @@ import br.paulo.tvlauncher.privilege.Confirmacoes
 import br.paulo.tvlauncher.privilege.Debloat
 import br.paulo.tvlauncher.privilege.PrivilegioDO
 import br.paulo.tvlauncher.screensaver.SleepingHome
+import br.paulo.tvlauncher.screensaver.SleepingLook
+import br.paulo.tvlauncher.screensaver.SleepingLookNomes
 import br.paulo.tvlauncher.settings.AjudaQr
 import br.paulo.tvlauncher.settings.BuscaAjustes
 import br.paulo.tvlauncher.settings.Extras
@@ -575,6 +577,23 @@ class ConfigLauncherActivity : Activity() {
             SleepingHome.setGlass(this, !SleepingHome.glass(this)); linhaVidro.ligado(SleepingHome.glass(this))
         }
         c.addView(linhaVidro, lp())
+        // Jeito dos widgets do descanso (25/11/2026): a hora (7 jeitos), o que passa embaixo e o canto (SleepingLook).
+        fun linhaLook(titulo: Int, det: Int, chave: String, nomes: List<Int>, atual: () -> Int, valores: List<String>) {
+            lateinit var l: LinhaCfg
+            l = linha(getString(titulo), getString(det), valor = getString(nomes[atual()])) {
+                Estilo.lista(this, getString(titulo), nomes.map { getString(it) }, marcadas = listOf(atual())) { i ->
+                    val v = valores.getOrNull(i) ?: return@lista
+                    SleepingLook.set(this, chave, v); l.valor(getString(nomes[i]))
+                }
+            }
+            c.addView(l, lp())
+        }
+        linhaLook(R.string.slk_hora, R.string.slk_hora_det, SleepingLook.KEY_CLOCK, SleepingLookNomes.CLOCK,
+            { SleepingLook.clock(this).ordinal }, SleepingLook.Clock.entries.map { it.name })
+        linhaLook(R.string.slk_cartao, R.string.slk_cartao_det, SleepingLook.KEY_CARD, SleepingLookNomes.CARD,
+            { SleepingLook.card(this).ordinal }, SleepingLook.Card.entries.map { it.name })
+        linhaLook(R.string.slk_lugar, R.string.slk_lugar_det, SleepingLook.KEY_PLACE, SleepingLookNomes.PLACE,
+            { SleepingLook.place(this).ordinal }, SleepingLook.Place.entries.map { it.name })
         // (11/11/2026) Saiu a linha "Estilo do protetor": o protetor é um só (o da Galeria) e o TEMA decide o fundo
         // (pintura na Galeria, wallpaper escuro no Escuro). O "clássico" escolhido por engano deixava o Escuro diferente.
         // Desligar sozinha (AutoDesligar): depois de X min sem ninguém apertar o controle, avisa por 60 s e apaga a TV.

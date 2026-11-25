@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">घड़ी की शैली</string>
+    <string name="slk_hora_det">आराम में समय कैसे दिखे</string>
+    <string name="slk_c_thin">पतली</string>
+    <string name="slk_c_split">घंटा और मिनट</string>
+    <string name="slk_c_stacked">एक के ऊपर एक</string>
+    <string name="slk_c_minute">चलता मिनट</string>
+    <string name="slk_c_ring">छल्ला</string>
+    <string name="slk_c_ruler">दिन का पैमाना</string>
+    <string name="slk_c_phrase">वाक्य</string>
+    <string name="slk_cartao">नीचे</string>
+    <string name="slk_cartao_det">आराम में नीचे क्या बदलता है</string>
+    <string name="slk_k_line">पट्टी</string>
+    <string name="slk_k_card">जीवंत कार्ड</string>
+    <string name="slk_k_stack">ढेर</string>
+    <string name="slk_lugar">विजेट की जगह</string>
+    <string name="slk_lugar_det">घड़ी और मौसम कहाँ रहें; कार्ड सामने वाले किनारे पर जाता है</string>
+    <string name="slk_p_ts">ऊपर बाएँ</string>
+    <string name="slk_p_tc">ऊपर बीच में</string>
+    <string name="slk_p_te">ऊपर दाएँ</string>
+    <string name="slk_p_bs">नीचे बाएँ</string>
+    <string name="slk_p_bc">नीचे बीच में</string>
+    <string name="slk_p_be">नीचे दाएँ</string>
+    <string name="slk_por_em">सूर्यास्त %1$s में</string>
+    <string name="slk_regua">अगले 12 घंटे: बारिश और सूर्यास्त</string>
+</resources>

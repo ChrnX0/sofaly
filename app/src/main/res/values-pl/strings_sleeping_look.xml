@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Styl zegara</string>
+    <string name="slk_hora_det">Jak godzina wygląda w trybie spoczynku</string>
+    <string name="slk_c_thin">Cienki</string>
+    <string name="slk_c_split">Godzina i minuta</string>
+    <string name="slk_c_stacked">Piętrowy</string>
+    <string name="slk_c_minute">Biegnąca minuta</string>
+    <string name="slk_c_ring">Pierścień</string>
+    <string name="slk_c_ruler">Linijka dnia</string>
+    <string name="slk_c_phrase">Zdanie</string>
+    <string name="slk_cartao">Na dole</string>
+    <string name="slk_cartao_det">Co zmienia się na dole w spoczynku</string>
+    <string name="slk_k_line">Pasek</string>
+    <string name="slk_k_card">Żywa karta</string>
+    <string name="slk_k_stack">Stos</string>
+    <string name="slk_lugar">Położenie widżetów</string>
+    <string name="slk_lugar_det">Gdzie są zegar i pogoda; karta idzie do przeciwnej krawędzi</string>
+    <string name="slk_p_ts">U góry po lewej</string>
+    <string name="slk_p_tc">U góry pośrodku</string>
+    <string name="slk_p_te">U góry po prawej</string>
+    <string name="slk_p_bs">Na dole po lewej</string>
+    <string name="slk_p_bc">Na dole pośrodku</string>
+    <string name="slk_p_be">Na dole po prawej</string>
+    <string name="slk_por_em">Zachód słońca za %1$s</string>
+    <string name="slk_regua">Najbliższe 12 godzin: deszcz i zachód słońca</string>
+</resources>

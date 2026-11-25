@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Óra stílusa</string>
+    <string name="slk_hora_det">Hogyan jelenik meg az idő pihenéskor</string>
+    <string name="slk_c_thin">Vékony</string>
+    <string name="slk_c_split">Óra és perc</string>
+    <string name="slk_c_stacked">Egymás alatt</string>
+    <string name="slk_c_minute">Haladó perc</string>
+    <string name="slk_c_ring">Gyűrű</string>
+    <string name="slk_c_ruler">A nap vonalzója</string>
+    <string name="slk_c_phrase">Mondat</string>
+    <string name="slk_cartao">Lent</string>
+    <string name="slk_cartao_det">Ami lent váltakozik pihenéskor</string>
+    <string name="slk_k_line">Sáv</string>
+    <string name="slk_k_card">Élő kártya</string>
+    <string name="slk_k_stack">Halom</string>
+    <string name="slk_lugar">Widgetek helye</string>
+    <string name="slk_lugar_det">Hol van az óra és az időjárás; a kártya a szemközti szélre kerül</string>
+    <string name="slk_p_ts">Fent balra</string>
+    <string name="slk_p_tc">Fent középen</string>
+    <string name="slk_p_te">Fent jobbra</string>
+    <string name="slk_p_bs">Lent balra</string>
+    <string name="slk_p_bc">Lent középen</string>
+    <string name="slk_p_be">Lent jobbra</string>
+    <string name="slk_por_em">Napnyugta %1$s múlva</string>
+    <string name="slk_regua">Következő 12 óra: eső és napnyugta</string>
+</resources>

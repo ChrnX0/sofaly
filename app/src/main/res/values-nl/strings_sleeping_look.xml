@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Klokstijl</string>
+    <string name="slk_hora_det">Hoe de tijd in rust wordt getoond</string>
+    <string name="slk_c_thin">Dun</string>
+    <string name="slk_c_split">Uur en minuut</string>
+    <string name="slk_c_stacked">Gestapeld</string>
+    <string name="slk_c_minute">Lopende minuut</string>
+    <string name="slk_c_ring">Ring</string>
+    <string name="slk_c_ruler">Daglineaal</string>
+    <string name="slk_c_phrase">Zin</string>
+    <string name="slk_cartao">Onderaan</string>
+    <string name="slk_cartao_det">Wat onderaan in rust wisselt</string>
+    <string name="slk_k_line">Strook</string>
+    <string name="slk_k_card">Live-kaart</string>
+    <string name="slk_k_stack">Stapel</string>
+    <string name="slk_lugar">Positie van widgets</string>
+    <string name="slk_lugar_det">Waar klok en weer staan; de kaart gaat naar de andere rand</string>
+    <string name="slk_p_ts">Linksboven</string>
+    <string name="slk_p_tc">Middenboven</string>
+    <string name="slk_p_te">Rechtsboven</string>
+    <string name="slk_p_bs">Linksonder</string>
+    <string name="slk_p_bc">Middenonder</string>
+    <string name="slk_p_be">Rechtsonder</string>
+    <string name="slk_por_em">Zonsondergang over %1$s</string>
+    <string name="slk_regua">Komende 12 uur: regen en zonsondergang</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Style de l’heure</string>
+    <string name="slk_hora_det">Comment l’heure s’affiche en veille</string>
+    <string name="slk_c_thin">Fine</string>
+    <string name="slk_c_split">Heure et minute</string>
+    <string name="slk_c_stacked">Empilée</string>
+    <string name="slk_c_minute">Minute qui avance</string>
+    <string name="slk_c_ring">Anneau</string>
+    <string name="slk_c_ruler">Règle du jour</string>
+    <string name="slk_c_phrase">Phrase</string>
+    <string name="slk_cartao">En bas</string>
+    <string name="slk_cartao_det">Ce qui défile en bas en veille</string>
+    <string name="slk_k_line">Bandeau</string>
+    <string name="slk_k_card">Carte vivante</string>
+    <string name="slk_k_stack">Pile</string>
+    <string name="slk_lugar">Position des widgets</string>
+    <string name="slk_lugar_det">Où vont l’heure et la météo ; la carte va au bord opposé</string>
+    <string name="slk_p_ts">En haut à gauche</string>
+    <string name="slk_p_tc">En haut au centre</string>
+    <string name="slk_p_te">En haut à droite</string>
+    <string name="slk_p_bs">En bas à gauche</string>
+    <string name="slk_p_bc">En bas au centre</string>
+    <string name="slk_p_be">En bas à droite</string>
+    <string name="slk_por_em">Coucher du soleil dans %1$s</string>
+    <string name="slk_regua">12 prochaines heures : pluie et coucher du soleil</string>
+</resources>

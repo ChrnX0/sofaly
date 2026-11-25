@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Estilo da hora</string>
+    <string name="slk_hora_det">Como a hora aparece no descanso</string>
+    <string name="slk_c_thin">Fina</string>
+    <string name="slk_c_split">Hora e minuto</string>
+    <string name="slk_c_stacked">Empilhada</string>
+    <string name="slk_c_minute">Minuto a andar</string>
+    <string name="slk_c_ring">Anel</string>
+    <string name="slk_c_ruler">Régua do dia</string>
+    <string name="slk_c_phrase">Frase</string>
+    <string name="slk_cartao">Em baixo</string>
+    <string name="slk_cartao_det">O que passa em baixo no descanso</string>
+    <string name="slk_k_line">Faixa</string>
+    <string name="slk_k_card">Cartão vivo</string>
+    <string name="slk_k_stack">Pilha</string>
+    <string name="slk_lugar">Posição dos widgets</string>
+    <string name="slk_lugar_det">Onde ficam a hora e o tempo; o cartão vai para a margem oposta</string>
+    <string name="slk_p_ts">Em cima, à esquerda</string>
+    <string name="slk_p_tc">Em cima, ao centro</string>
+    <string name="slk_p_te">Em cima, à direita</string>
+    <string name="slk_p_bs">Em baixo, à esquerda</string>
+    <string name="slk_p_bc">Em baixo, ao centro</string>
+    <string name="slk_p_be">Em baixo, à direita</string>
+    <string name="slk_por_em">Pôr do sol em %1$s</string>
+    <string name="slk_regua">Próximas 12 horas: chuva e pôr do sol</string>
+</resources>

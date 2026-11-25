@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Стиль годинника</string>
+    <string name="slk_hora_det">Як показується час у режимі спокою</string>
+    <string name="slk_c_thin">Тонкий</string>
+    <string name="slk_c_split">Години і хвилини</string>
+    <string name="slk_c_stacked">Стовпчиком</string>
+    <string name="slk_c_minute">Біжуча хвилина</string>
+    <string name="slk_c_ring">Кільце</string>
+    <string name="slk_c_ruler">Лінійка дня</string>
+    <string name="slk_c_phrase">Фраза</string>
+    <string name="slk_cartao">Унизу</string>
+    <string name="slk_cartao_det">Що змінюється внизу в режимі спокою</string>
+    <string name="slk_k_line">Смуга</string>
+    <string name="slk_k_card">Жива картка</string>
+    <string name="slk_k_stack">Стос</string>
+    <string name="slk_lugar">Розташування віджетів</string>
+    <string name="slk_lugar_det">Де стоять годинник і погода; картка йде до протилежного краю</string>
+    <string name="slk_p_ts">Угорі ліворуч</string>
+    <string name="slk_p_tc">Угорі по центру</string>
+    <string name="slk_p_te">Угорі праворуч</string>
+    <string name="slk_p_bs">Унизу ліворуч</string>
+    <string name="slk_p_bc">Унизу по центру</string>
+    <string name="slk_p_be">Унизу праворуч</string>
+    <string name="slk_por_em">Захід сонця через %1$s</string>
+    <string name="slk_regua">Найближчі 12 годин: дощ і захід сонця</string>
+</resources>
