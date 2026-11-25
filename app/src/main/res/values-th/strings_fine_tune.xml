@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fc_titulo">แบบอักษร</string>
+    <string name="fc_det">ตัวอักษรในทุกหน้าจอ แบบอักษรของ Google จะดาวน์โหลดในครั้งแรก</string>
+    <string name="fc_baixando">กำลังดาวน์โหลด…</string>
+    <string name="fc_falhou">ดาวน์โหลดไม่ได้ ตรวจสอบอินเทอร์เน็ต</string>
+    <string name="ck_formato">รูปแบบเวลา</string>
+    <string name="ck_formato_det">ในแถบด้านบน เกาะ และนาฬิกาใหญ่</string>
+    <string name="ck_auto">อัตโนมัติ</string>
+    <string name="ck_24">24 ชม. (15:40)</string>
+    <string name="ck_12">12 ชม. (3:40)</string>
+    <string name="ck_12ampm">12 ชม. พร้อม AM/PM</string>
+    <string name="ck_seg">แสดงวินาที</string>
+    <string name="ck_cor">สีของเวลา</string>
+    <string name="ck_cor_det">ในแถบด้านบน เกาะ และนาฬิกาใหญ่</string>
+    <string name="ck_padrao">ค่าเริ่มต้น</string>
+    <string name="ck_laranja">ส้ม</string>
+    <string name="ck_creme">ครีม</string>
+    <string name="ck_ambar">อำพัน</string>
+    <string name="ck_verde">เขียวอมฟ้า</string>
+</resources>

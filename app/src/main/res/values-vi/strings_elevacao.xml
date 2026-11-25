@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação do launcher, onda 0 (17/11/2026): placar dos 7 pilares (2.1) e antes e depois da limpeza (14.3). -->
+<resources>
+    <string name="elv_placar_titulo">TV này đang thế nào</string>
+    <string name="elv_placar_det">Bảy cam kết, mỗi cái có một con số đo trên TV này</string>
+    <string name="elv_placar_sub">Đo trên TV này. Không có gì ở đây rời khỏi nhà.</string>
+    <string name="elv_pilar_liga">Bật lên là sẵn sàng</string>
+    <string name="elv_pilar_ao_vivo">TV trực tiếp không bị lỗi</string>
+    <string name="elv_pilar_player">Trình phát tốt nhất cho phòng khách</string>
+    <string name="elv_pilar_casa">TV chăm sóc ngôi nhà</string>
+    <string name="elv_pilar_controle">Điều khiển từ bất kỳ đâu</string>
+    <string name="elv_pilar_todos">Ai cũng dùng được</string>
+    <string name="elv_pilar_instala">Tự thiết lập và tự sửa</string>
+    <string name="elv_prom_liga">Màn hình chính sẵn sàng dưới 1 giây</string>
+    <string name="elv_prom_ao_vivo">Đổi kênh dưới 1,5 giây, từ lúc nhấn phím đến khi có hình</string>
+    <string name="elv_prom_player">Phát mọi tệp; đúng phụ đề không cần loay hoay</string>
+    <string name="elv_prom_casa">Báo thức reo đúng giờ, mọi lần</string>
+    <string name="elv_prom_controle">Bảng điều khiển, điện thoại và AI làm được mọi việc như điều khiển</string>
+    <string name="elv_prom_todos">Người lớn tuổi, trẻ em, khách, người nhìn hoặc nghe kém; %1$d ngôn ngữ</string>
+    <string name="elv_prom_instala">Từ lần mở đầu tiên đến kênh đầu tiên trong 5 phút</string>
+    <string name="elv_nao_medido">Chưa đo</string>
+    <string name="elv_alvo">mục tiêu %1$s</string>
+    <string name="elv_n_de_n">đúng giờ %1$d trên %2$d</string>
+    <string name="elv_dentro">đạt mục tiêu</string>
+    <string name="elv_fora">chưa đạt mục tiêu</string>
+    <plurals name="elv_quedas">
+        <item quantity="one">%1$d lần lỗi hoặc treo trong %2$d ngày</item>
+        <item quantity="other">%1$d lần lỗi hoặc treo trong %2$d ngày</item>
+    </plurals>
+    <string name="elv_lp_titulo">Đo trước và sau</string>
+    <string name="elv_lp_det_antes">Đo bộ nhớ trống và tốc độ mở 3 ứng dụng dùng nhiều nhất, trước khi dọn dẹp. Chúng sẽ mở trong vài giây.</string>
+    <string name="elv_lp_det_depois">Đã lưu số đo trước. Hãy ẩn các ứng dụng ở trên, rồi nhấn OK để đo sau.</string>
+    <string name="elv_lp_medindo">Đang đo… ứng dụng có thể mở trong vài giây</string>
+    <string name="elv_lp_mais_livre">Trống thêm %1$d MB</string>
+    <string name="elv_lp_menos_livre">Trống ít hơn %1$d MB</string>
+    <string name="elv_lp_mais_rapido">%1$s mở nhanh hơn %2$s</string>
+    <string name="elv_lp_mais_lento">%1$s mở chậm hơn %2$s</string>
+    <string name="elv_lp_igual">Không có khác biệt đủ lớn để đo</string>
+    <string name="elv_agora">vừa xong</string>
+    <string name="elv_sem_quedas">Không có lỗi hay treo trong %1$d ngày</string>
+    <string name="elv_reserva">%1$s bị ngắt. Đang phát %2$s thay thế.</string>
+    <string name="elv_zap_solte">Thả ra để xem</string>
+    <string name="elv_leg_padrao">tiêu chuẩn</string>
+    <string name="elv_leg_contraste">tương phản cao</string>
+    <string name="elv_leg_amarela">vàng</string>
+    <string name="elv_leg_embaixo">dưới</string>
+    <string name="elv_leg_em_cima">trên</string>
+    <!-- 3.11 busca que faz -->
+    <string name="elv_bf_fazer">Thực hiện</string>
+    <string name="elv_bf_ok_faz">OK để làm ngay</string>
+    <string name="elv_bf_wifi">Hiện Wi-Fi cho khách</string>
+    <string name="elv_bf_wifi_configurar">Chưa thiết lập: OK để mở Cài đặt (Khách)</string>
+    <string name="elv_bf_letra_maior">Chữ lớn hơn (%1$d%%)</string>
+    <string name="elv_bf_letra_menor">Chữ nhỏ hơn (%1$d%%)</string>
+    <string name="elv_bf_letra_limite">Đã ở cỡ này rồi</string>
+    <string name="elv_bf_radios">Đài phát thanh</string>
+    <string name="elv_bf_radio_fav">Đài yêu thích</string>
+    <string name="elv_bf_ajuda">Trợ giúp</string>
+    <string name="elv_bf_ajuda_det">Chủ đề trong hướng dẫn</string>
+    <string name="elv_bf_procurar">Tìm thêm</string>
+    <string name="elv_bf_procurar_radio">Đài phát thanh tên “%1$s”</string>
+    <string name="elv_bf_procurar_radio_det">Đài từ khắp thế giới</string>
+    <string name="elv_bf_procurar_rede">“%1$s” trong tệp trên mạng</string>
+    <string name="elv_bf_procurar_rede_det">Trên Jellyfin, Emby hoặc Plex của bạn</string>
+    <!-- 12.2 busca nos ajustes -->
+    <string name="elv_aj_buscar">Tìm trong cài đặt</string>
+    <string name="elv_aj_explica">Gõ một từ: tên tùy chọn hoặc từ khác cho nó (\"phông\" sẽ tìm cỡ chữ)</string>
+    <string name="elv_aj_dica">Ví dụ: phông chữ, Wi-Fi, bảo vệ màn hình</string>
+    <string name="elv_aj_recentes">Đã đổi gần đây</string>
+    <string name="elv_aj_recentes_vazio">Các tùy chọn bạn đổi sẽ hiện ở đây, mới nhất trước</string>
+    <string name="elv_aj_nada">Không tìm thấy gì cho “%1$s”</string>
+    <string name="elv_aj_nada_det">Hãy thử từ khác, hoặc xem các thẻ bên trái</string>
+    <string name="elv_aj_sinonimos">phông,phông chữ,chữ,cỡ chữ,cỡ,lớn hơn,nhỏ hơn;wifi,wi-fi,mạng,internet,kết nối;bảo vệ màn hình,trình bảo vệ,chờ,nghỉ;mật khẩu,pin,mã;âm thanh,âm lượng,tiếng;giờ,đồng hồ,thời gian;thời tiết,dự báo,nhiệt độ;ngôn ngữ,tiếng;trẻ em,con,trẻ,phụ huynh;khách,người lạ,thăm;cập nhật,phiên bản,mới;sao lưu,bản sao,khôi phục;điện thoại,di động,máy;đèn,bóng đèn,nhà,ngôi nhà;ngủ,tắt,hẹn giờ,năng lượng,nguồn;kênh,tv,trực tiếp;phim,phim bộ,chương trình;phụ đề,chú thích;báo thức,thức dậy,đồng hồ báo thức;ảnh,hình,hình ảnh,hình nền,nền</string>
+    <!-- 2.3 falhas em uma frase -->
+    <string name="elv_f_titulo">Cần chú ý</string>
+    <string name="elv_f_canal_caiu_frase">Kênh này hiện không có tín hiệu</string>
+    <string name="elv_f_canal_caiu_causa">Nhà cung cấp kênh đã ngừng phát. Thường nó sẽ tự có lại.</string>
+    <string name="elv_f_canal_caiu_botao">Xem kênh khác</string>
+    <string name="elv_f_lista_venceu_frase">Danh sách kênh của bạn đã hết hạn</string>
+    <string name="elv_f_lista_venceu_causa">Tài khoản với người bán danh sách đã hết hạn hoặc bị từ chối.</string>
+    <string name="elv_f_lista_venceu_botao">Mở tài khoản</string>
+    <string name="elv_f_relogio_errado_frase">Đồng hồ của TV bị sai</string>
+    <string name="elv_f_relogio_errado_causa">Khi sai giờ, lịch phát sóng và các trang bảo mật sẽ lỗi.</string>
+    <string name="elv_f_relogio_errado_botao">Chỉnh đồng hồ</string>
+    <string name="elv_f_disco_cheio_frase">TV sắp hết dung lượng</string>
+    <string name="elv_f_disco_cheio_causa">Không có dung lượng thì không lưu được lịch phát sóng, bản ghi và bản cập nhật.</string>
+    <string name="elv_f_disco_cheio_botao">Giải phóng dung lượng</string>
+    <string name="elv_f_shell_parado_frase">Các quyền mở rộng của TV đã ngừng</string>
+    <string name="elv_f_shell_parado_causa">Gỡ lỗi không dây đã bị tắt hoặc mất ghép nối.</string>
+    <string name="elv_f_shell_parado_botao">Bật lại</string>
+    <string name="elv_f_tunel_sem_login_frase">Truy cập từ bên ngoài nhà đang chờ đăng nhập</string>
+    <string name="elv_f_tunel_sem_login_causa">Đăng nhập Tailscale đã hết hạn.</string>
+    <string name="elv_f_tunel_sem_login_botao">Đăng nhập lại</string>
+    <string name="elv_f_backup_falhou_frase">Sao lưu ban đêm đã không chạy 2 ngày</string>
+    <string name="elv_f_backup_falhou_causa">Không kết nối được nơi lưu hoặc mật khẩu đã thay đổi.</string>
+    <string name="elv_f_backup_falhou_botao">Sao lưu ngay</string>
+    <string name="elv_f_religando">Đang bật lại: mất tối đa một phút</string>
+    <!-- 11.4 não perturbe -->
+    <string name="extras_NAO_PERTURBE">Không làm phiền: khi xem phim, đêm khuya hoặc có khách, thông báo sẽ chờ và hiện lại trong bản tóm tắt (báo thức và chuông cửa luôn hiện)</string>
+    <plurals name="elv_np_resumo_filme"><item quantity="one">Trong lúc bạn xem: %1$d thông báo</item><item quantity="other">Trong lúc bạn xem: %1$d thông báo</item></plurals>
+    <plurals name="elv_np_resumo_noite"><item quantity="one">Trong đêm: %1$d thông báo</item><item quantity="other">Trong đêm: %1$d thông báo</item></plurals>
+    <plurals name="elv_np_resumo_visita"><item quantity="one">Trong lúc có khách: %1$d thông báo</item><item quantity="other">Trong lúc có khách: %1$d thông báo</item></plurals>
+    <string name="elv_np_mais">+%1$d thông báo khác</string>
+    <!-- 10.5 só se / 10.6 gatilhos -->
+    <string name="elv_ev_filme_acabou">Khi phim kết thúc</string>
+    <string name="elv_ev_programa_comecou">Khi chương trình bạn đánh dấu trong lịch phát sóng bắt đầu</string>
+    <string name="elv_ev_nascer_do_sol">Lúc mặt trời mọc</string>
+    <string name="elv_ev_por_do_sol">Lúc mặt trời lặn</string>
+    <string name="elv_ev_campainha">Khi chuông cửa reo</string>
+    <string name="elv_ev_alguem_chegou">Khi có người về nhà</string>
+    <string name="elv_ev_internet_caiu">Khi mất internet</string>
+    <string name="elv_ev_internet_voltou">Khi internet có lại</string>
+    <string name="elv_ev_recado_chegou">Khi có tin nhắn</string>
+    <string name="elv_ev_aniversario">Vào ngày sinh nhật của ai đó (9 giờ sáng)</string>
+    <string name="elv_ev_compromisso">Khi một lịch hẹn trong lịch bắt đầu</string>
+    <string name="elv_ss_sempre">Luôn luôn</string>
+    <string name="elv_ss_so_se">Chỉ khi %1$s</string>
+    <string name="elv_ss_e">" và "</string>
+    <string name="elv_ss_em_casa">có người ở nhà</string>
+    <string name="elv_ss_noite">sau khi mặt trời lặn</string>
+    <string name="elv_ss_dia_util">là ngày trong tuần</string>
+    <string name="elv_ss_perfil">hồ sơ là %1$s</string>
+    <string name="elv_ss_det">◀ ▶ đổi điều kiện</string>
+    <string name="extras_ABERTURA_PRONTA">Bỏ qua mở đầu (IntroDB): với các tập phim, TV hỏi dịch vụ cộng đồng IntroDB xem đoạn mở đầu ở đâu (nó gửi tên tập, không bao giờ gửi tài khoản của bạn); khi tắt, chỉ dùng các đoạn mở đầu bạn đã đánh dấu</string>
+</resources>

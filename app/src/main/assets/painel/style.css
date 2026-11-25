@@ -354,6 +354,9 @@ details summary { cursor: pointer; color: var(--texto-fraco); margin-top: 12px; 
   /* Páginas de "Na TV" e "Configurações" logo abaixo da seção, recuadas, como o menu das Configurações da TV. */
   .aba.sub { min-height: 40px; padding-left: 24px; font-size: 15px; font-weight: 600; color: var(--texto-fraco); }
   .aba.sub .ic svg.i { width: 18px; height: 18px; }
+  /* Nome comprido ("Casa e automações", "Zuhause und Automationen") quebra em 2 linhas em vez de virar "…" (24/11/2026). */
+  .aba > span:last-child { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.2; padding: 6px 0; overflow-wrap: break-word; hyphens: auto; }
+  .aba > .ic { flex: none; }   /* o ícone não encolhe quando o nome quebra */
   .aba:not(.sub) ~ .aba:not(.sub) { margin-top: 8px; }
   .aba .ic { width: 22px; height: 22px; background: none !important; border-radius: 0; color: inherit; }
   .aba.ativa .ic { color: inherit !important; }   /* na pílula branca o ícone fica escuro, como o texto */
@@ -1058,8 +1061,8 @@ input[type=time]:focus-within, input[type=date]:focus-within { border-color: var
 /* Celular estreito ou língua de nome longo: os ícones apertam para a pílula da página aberta caber */
 @media (max-width: 899px) {
   .abas { gap: 2px; padding: 7px; }
-  .aba:not(.ativa) { min-width: 44px; padding: 0 12px; }
-  .aba.ativa { padding: 0 16px; font-size: 15px; letter-spacing: -.01em; }
+  .aba:not(.ativa) { min-width: 40px; padding: 0 9px; }
+  .aba.ativa { padding: 0 14px; font-size: 15px; letter-spacing: -.01em; }
 }
 
 /* Elevação 19.6: a chave de recuperação aparece uma vez (QR + texto para imprimir). Na impressão sai só ela. */

@@ -1,0 +1,992 @@
+{
+  "lang": "ro",
+  "path": "ro",
+  "label": "Română",
+  "ui": {
+    "nav_features": "Funcții",
+    "nav_plans": "Planuri",
+    "nav_developers": "Dezvoltatori",
+    "nav_help": "Ajutor",
+    "cta_get": "În curând pe Google Play",
+    "cta_see": "Vezi tot ce face",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "de la",
+    "how": "Cum",
+    "skip": "Sari la conținut",
+    "language": "Limbă",
+    "back_top": "Înapoi sus",
+    "footer_tagline": "Ecranul principal pentru Google TV și Android TV.",
+    "footer_privacy": "Confidențialitate",
+    "footer_terms": "Termeni",
+    "footer_compat": "Funcționează pe dispozitivul tău?",
+    "footer_trademark": "Sofaly nu este afiliat cu Google. Google TV, Android TV și Chromecast sunt mărci comerciale ale Google LLC.",
+    "of": "din"
+  },
+  "home": {
+    "title": "Sofaly · Televizorul tău, din nou simplu",
+    "description": "Sofaly este ecranul principal pentru Google TV și Android TV: totul organizat într-o cruce (Vizionare, Ascultare, Joc, Aplicații), text mare și fără reclame.",
+    "eyebrow": "Ecran principal pentru Google TV și Android TV",
+    "h1": "Televizorul tău, din nou simplu.",
+    "lead": "Sofaly înlocuiește ecranul principal al televizorului cu o cruce ordonată: Vizionare, Ascultare, Joc și Aplicații, cu text mare și fără reclame. În plus, are grijă de casă, te trezește dimineața și vorbește cu telefonul tău.",
+    "hero_note": "Fără cont, fără reclame, fără urmărirea a ceea ce vizionezi.",
+    "cross_title": "Un singur ecran, patru direcții",
+    "cross_lead": "◀ ▶ alegi o lume. ▲ ▼ treci prin ce e în ea. Atât, și oricine din casă învață într-un minut.",
+    "worlds": {
+      "continue": [
+        "Continuă",
+        "Înapoi unde ai rămas: episodul, postul de radio, podcastul sau aplicația."
+      ],
+      "watch": [
+        "Vizionare",
+        "Aplicațiile tale video, filmele de pe computer sau de pe un stick USB și un player care redă orice."
+      ],
+      "listen": [
+        "Ascultare",
+        "Posturi de radio din toată lumea și podcasturi, cu player pe tot ecranul și temporizator de somn."
+      ],
+      "play": [
+        "Joc",
+        "Jocuri în cloud, de pe PC și retro într-un singur loc, cu controlerul deja asociat."
+      ],
+      "apps": [
+        "Aplicații",
+        "Cele 8 pe care le folosești cel mai des în față, iar toate celelalte la un clic distanță."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Parțial noros",
+      "day": "Miercuri",
+      "date": "18 noiembrie",
+      "watch_items": [
+        "Filme",
+        "Seriale",
+        "În rețea",
+        "YouTube"
+      ],
+      "watch_title": "În rețea",
+      "watch_detail": "Filme de pe computer · 214 titluri",
+      "listen_items": [
+        "Radio",
+        "Podcasturi",
+        "Se redă acum"
+      ],
+      "listen_title": "Radio",
+      "listen_detail": "Posturi din toată lumea, după nume sau țară",
+      "play_items": [
+        "Cloud",
+        "De pe PC",
+        "Retro",
+        "Gașca"
+      ],
+      "play_title": "Jocuri",
+      "play_detail": "3 jocuri în cloud · controler conectat",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Toate aplicațiile"
+      ],
+      "apps_title": "Aplicații",
+      "apps_detail": "Cele 8 pe care le folosești cel mai des",
+      "continue_items": [
+        "Episodul 4",
+        "Radio",
+        "Podcast"
+      ],
+      "continue_title": "Continuă",
+      "continue_detail": "Oprit la episodul 4 · mai sunt 21 min"
+    },
+    "why_title": "De ce să schimbi ecranul principal Google",
+    "why_lead": "Ecranul principal cu care a venit televizorul a fost făcut ca să vândă. Sofaly a fost făcut ca să-l folosească familia ta.",
+    "why_rows": [
+      [
+        "Reclame pe ecranul principal",
+        "Da: recomandări sponsorizate și reclame",
+        "Niciodată"
+      ],
+      [
+        "Text mare pe toate ecranele",
+        "Nu",
+        "Normal, Mare sau Mai mare"
+      ],
+      [
+        "Ceas deșteptător care pornește televizorul",
+        "Nu",
+        "Pornește, crește volumul încet și spune bună dimineața"
+      ],
+      [
+        "Radio și podcasturi pe ecranul principal",
+        "Doar prin aplicații",
+        "Într-o lume a lor, Ascultare"
+      ],
+      [
+        "Filme de pe computer sau NAS",
+        "Doar prin aplicații",
+        "În rețea, cu postere și reluare"
+      ],
+      [
+        "Control de pe orice telefon din casă",
+        "Telecomandă de bază",
+        "Un panou complet, protejat cu PIN"
+      ],
+      [
+        "Profil pentru copii și ora de culcare",
+        "Limitat",
+        "Aplicații permise, limită de volum și PIN pentru ieșire"
+      ],
+      [
+        "Backup al configurării",
+        "Nu",
+        "În fiecare noapte, încuiat cu parolă"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Ecranul Google TV",
+      "Sofaly"
+    ],
+    "why_source": "Reclame pe ecranul principal Google TV: Android Authority, aprilie 2026.",
+    "highlights_title": "Făcut pentru toată casa",
+    "highlights": [
+      [
+        "access",
+        "Și pentru bunici",
+        "Text mare, un mod simplu care rostește numele aplicației, contrast ridicat și cititor de ecran. În 27 de limbi."
+      ],
+      [
+        "alarm",
+        "Se trezește odată cu tine",
+        "Alarma pornește singură televizorul, crește volumul încet și deschide Bună dimineața: ora, vremea și agenda."
+      ],
+      [
+        "house",
+        "Are grijă de casă",
+        "Luminile, scenele și soneria din Home Assistant pe televizor. Intră în repaus când pleacă toată lumea."
+      ],
+      [
+        "phone",
+        "Vorbește cu telefonul tău",
+        "Controlează, scrie și trimite mesaje de pe orice telefon sau computer din casă, cu protecție prin PIN."
+      ],
+      [
+        "sun",
+        "Vremea corectă",
+        "Vremea actuală vine de la cel mai apropiat aeroport: măsurată, nu ghicită. Prognoză pe 9 zile cu un singur OK."
+      ],
+      [
+        "lock",
+        "Are grijă de el însuși",
+        "Un backup încuiat în fiecare noapte, întreținere cât dormi și un diagnostic care explică ce n-a mers."
+      ]
+    ],
+    "chapters_title": "Tot ce face, organizat ca el însuși",
+    "chapters_lead": "Peste 80 de funcții. Alege o lume ca să vezi fiecare funcție explicată.",
+    "privacy_title": "Ce e al tău rămâne acasă",
+    "privacy_text": "Sofaly nu cere cont, nu arată reclame și nu urmărește ce vizionezi. Setările, fotografiile, mesajele și backupurile rămân pe televizor sau într-un cont al tău, dacă îl conectezi. Televizorul vorbește doar cu serviciile pe care le pornești, iar politica de confidențialitate le enumeră pe toate.",
+    "privacy_link": "Citește politica de confidențialitate",
+    "dev_title": "Ai o aplicație? Pune-o pe ecranul principal.",
+    "dev_text": "Sofaly vine deja cu carduri gata făcute (luna, cursuri, numărătoare inversă, memento). Un plugin este propria ta aplicație Android TV care trimite încă un card pe ecranul principal: comanda care vine, autobuzul care sosește, anunțul de la bloc. Fără SDK, fără taxe, iar aplicația rămâne a ta.",
+    "dev_link": "Descoperă kitul pentru dezvoltatori",
+    "plans_title": "Începe gratuit. Crește când vrei.",
+    "plans_text": "Basic are deja ecranul principal complet, playerul, Ascultare, Joc, ceasul deșteptător și screensaverul. Pro și Ultra adaugă telefonul, casa și familia.",
+    "plans_link": "Compară planurile",
+    "faq_title": "Întrebări rapide",
+    "faq": [
+      [
+        "Funcționează pe televizorul meu?",
+        "Funcționează pe Google TV și Android TV, precum Chromecast cu Google TV, televizoarele cu Google TV și boxurile Android TV. Pagina de compatibilitate enumeră dispozitivele testate."
+      ],
+      [
+        "Am nevoie de un computer ca să-l instalez?",
+        "Nu. Instalează-l din Google Play direct pe televizor și urmează pașii cu telecomanda."
+      ],
+      [
+        "Aplicațiile mele rămân?",
+        "Toate. Sofaly înlocuiește doar ecranul principal: Netflix, YouTube, Prime Video și restul se deschid ca întotdeauna, iar butonul de microfon rămâne Asistentul Google."
+      ],
+      [
+        "Are reclame?",
+        "Nu, nici măcar în planul gratuit. Sofaly nu vinde reclame și nu urmărește ce vizionezi."
+      ],
+      [
+        "Vine cu canale sau filme?",
+        "Nu. Sofaly organizează ce e deja al tău: aplicațiile, fișierele tale și posturile de radio și podcasturile deschise."
+      ],
+      [
+        "Și dacă vreau înapoi ecranul principal Google?",
+        "Alege din nou ecranul principal Google în setările televizorului. Nu se șterge nimic din ce e al tău."
+      ]
+    ],
+    "final_title": "Televizorul tău, din nou simplu.",
+    "final_text": "Instalează-l, apasă HOME și toată casa se descurcă."
+  },
+  "features_page": {
+    "title": "Tot ce face Sofaly",
+    "description": "Toate funcțiile Sofaly explicate: ecranul principal în cruce, Vizionare, Ascultare, Joc, casa, vremea, familia, telefonul și confidențialitatea.",
+    "h1": "Tot ce face Sofaly",
+    "lead": "Organizat la fel ca ecranul televizorului: câte o lume. Eticheta fiecărei funcții spune în ce plan începe.",
+    "index": "Lumi"
+  },
+  "chapters": {
+    "home": [
+      "Crucea",
+      "Un ecran ordonat pe care îl înțelege oricine, aranjat cum îți place."
+    ],
+    "watch": [
+      "Vizionare",
+      "Filmele tale, serialele tale și un player de home cinema."
+    ],
+    "listen": [
+      "Ascultare",
+      "Radio și podcasturi cu aceeași grijă ca pentru video."
+    ],
+    "play": [
+      "Joc",
+      "Toate jocurile tale într-un singur loc, gata pentru controler."
+    ],
+    "apps": [
+      "Aplicații",
+      "Aplicațiile tale într-o ordine care are sens."
+    ],
+    "house": [
+      "Casa",
+      "Ceas deșteptător, temporizatoare, automatizări și casa conectată."
+    ],
+    "sky": [
+      "Vreme și screensaver",
+      "Vremea corectă și un screensaver pe care merită să-l lași pornit."
+    ],
+    "family": [
+      "Familie",
+      "Un profil pentru fiecare, grijă pentru copii și o primire caldă pentru oaspeți."
+    ],
+    "phone": [
+      "Telefon și computer",
+      "Televizorul vorbește cu dispozitivele din casă."
+    ],
+    "care": [
+      "Are grijă de el însuși",
+      "Backup, întreținere și diagnostic fără să trebuiască să-ți amintești."
+    ],
+    "everyone": [
+      "Pentru toată lumea",
+      "Făcut pentru oameni care văd, aud sau folosesc telecomanda în moduri diferite."
+    ],
+    "privacy": [
+      "Confidențialitate",
+      "Fără reclame, fără urmărire și un PIN acolo unde contează."
+    ]
+  },
+  "features": {
+    "cross": [
+      "Crucea",
+      "Continuă, Vizionare, Ascultare, Joc și Aplicații pe un singur rând. Lumea aleasă se mărește, iar ce conține apare imediat dedesubt.",
+      "◀ ▶ schimbi lumea, ▲ ▼ cobori pe coloană, OK deschide."
+    ],
+    "continue": [
+      "Continuă",
+      "Un singur loc ca să revii la ce făceai: episodul, postul, podcastul sau ultima aplicație.",
+      "Este primul element al crucii."
+    ],
+    "topbar": [
+      "Bara de sus",
+      "Căutare, voce, vremea pe un rând și ceasul, mereu în același loc. Se strânge cât navighezi, ca ecranul să respire.",
+      "Urci la ea cu ▲."
+    ],
+    "quick-panel": [
+      "Panou rapid",
+      "Wi-Fi, Bluetooth, temporizator de somn, ieșire audio, alarmă, profiluri, notificări și lista de cumpărături, din orice aplicație.",
+      "Ține apăsat BACK."
+    ],
+    "remote": [
+      "Telecomanda ta, regulile tale",
+      "HOME revine mereu la Sofaly. Dacă ții apăsat BACK se deschide panoul rapid, dacă ții apăsat HOME se deschide Casa, iar dacă ții apăsat OK pe o aplicație i se deschide meniul.",
+      "Un tester de taste arată fiecare buton pe care îl primește televizorul."
+    ],
+    "now-playing": [
+      "Se redă acum",
+      "O pastilă sus, cu coperta și titlul a ceea ce rulează. OK pune pauză sau reia, iar ținut apăsat deschide aplicația.",
+      "Pornește-o în Ecran principal › Mai multe opțiuni."
+    ],
+    "themes": [
+      "Teme și fundaluri",
+      "Întunecată, cu imaginea a ceea ce e în focus. Galerie, cu un tablou de la The Met în fiecare zi. Cer, cu satelit și hartă. Sau un fundal propriu, fotografie ori video. Merg și fundalurile din pluginuri, precum filmările aeriene Overflight.",
+      "Întunecată, Galerie și Cer în Basic; celelalte în Pro."
+    ],
+    "icons": [
+      "Pictograme pe placul tău",
+      "Folosește un pachet de pictograme din Play sau schimbă pictograma unei singure aplicații, pe rând.",
+      "Ține apăsat OK pe aplicație › Schimbă pictograma."
+    ],
+    "card-moon": [
+      "Faza lunii",
+      "Luna din seara asta și cât din ea e luminată, calculate chiar pe televizor, fără internet.",
+      "În prognoză, pe screensaver și pe pictograma vremii noaptea. Setări › Aspect."
+    ],
+    "card-countdown": [
+      "Numărătoare inversă",
+      "Câte zile mai sunt până la data aleasă sau până la următoarea sărbătoare.",
+      "În pastila din partea de sus a ecranului. Setări › Aspect."
+    ],
+    "card-reminder": [
+      "Memento pentru casă",
+      "O notă care revine în zilele săptămânii pe care le alegi: ziua reciclării, medicamentul, un curs.",
+      "În pastila din partea de sus a ecranului. Setări › Aspect."
+    ],
+    "card-status": [
+      "Starea serviciului tău",
+      "Televizorul verifică o adresă dată de tine și arată dacă funcționează: serverul de acasă, site-ul magazinului.",
+      "În pastila din partea de sus a ecranului. Setări › Aspect."
+    ],
+    "card-rates": [
+      "Cursurile de azi",
+      "Valute, bitcoin și ether la valoarea de azi, din surse oficiale deschise.",
+      "Lângă vreme, în bara de sus. Setări › Aspect."
+    ],
+    "card-match": [
+      "Următorul meci al echipei tale",
+      "Când și cu cine joacă echipa ta data viitoare, pe un card pe ecranul principal.",
+      "În elementul TV al crucii. Setări › Aspect."
+    ],
+    "plugin-cards": [
+      "Carduri din alte aplicații",
+      "Pe lângă cardurile Sofaly, aplicațiile partenere își pun cardurile pe ecranul principal: comanda care vine, autobuzul, anunțul de la bloc.",
+      "Cardurile apar la finalul lumii Vizionare."
+    ],
+    "network-library": [
+      "De pe computer",
+      "Videoclipuri, muzică și fotografii din Plex, Jellyfin, Emby, foldere de pe PC sau NAS (SMB, WebDAV, FTP, SFTP, NFS), OneDrive, Dropbox, Box, Google Drive, UPnP și stickuri USB.",
+      "Serverele pornite și stickurile USB apar singure; restul se pun din Adaugă."
+    ],
+    "player": [
+      "Un player care redă orice",
+      "Sunet Dolby (AC3, E-AC3), DTS și TrueHD, plus subtitrări Blu-ray, DVD și anime, fără să instalezi Kodi sau VLC.",
+      "Apasă ▼ în timpul unui video pentru audio, subtitrări și mărimea subtitrărilor."
+    ],
+    "resume": [
+      "Reia de unde ai rămas",
+      "Filmele și episoadele revin exact unde trebuie. Episodul următor pornește după 10 secunde, iar după 3 la rând televizorul te întreabă dacă te mai uiți.",
+      "Funcționează singur."
+    ],
+    "skip-intro": [
+      "Sari peste intro",
+      "Când introul unui serial e cunoscut, apare „Sari peste intro · OK”. Poți și să marchezi introul o dată, iar televizorul ține minte.",
+      "Pornit din prima."
+    ],
+    "audio-subtitles": [
+      "Audio și subtitrări preferate",
+      "Original cu subtitrări sau dublat, ales o dată și ținut minte pentru fiecare titlu. Subtitrări de pe internet când fișierul nu are.",
+      "TV și filme › Audio și subtitrări."
+    ],
+    "easy-viewing": [
+      "Vezi și auzi mai bine",
+      "Subtitrări pe fundal negru sau în galben, „Voce mai clară”, care scoate în evidență vorbirea, și „Volum uniform”, care domolește filmele zgomotoase și le ridică pe cele încete.",
+      "În meniul ▼ al playerului."
+    ],
+    "auto-subtitles": [
+      "Subtitrări automate",
+      "Când nu există subtitrare în limba ta, televizorul o traduce pe cea care există.",
+      "Alege-o în meniul de subtitrări al playerului."
+    ],
+    "movie-pages": [
+      "Pagini complete de film",
+      "Poster, notă, distribuție, trailer, clasificare de vârstă și colecția filmului pe o pagină frumoasă, cu text mare. Cu „Cine e actorul acela?”: fotografie, personaj și alte roluri.",
+      "OK pe un film sau serial."
+    ],
+    "lists": [
+      "Listele tale Trakt și Simkl",
+      "Ce vrei să vezi și ce ai văzut, sincronizate cu contul tău și cu celelalte dispozitive.",
+      "Conectează-te cu QR-ul din TV și filme › Servicii."
+    ],
+    "search": [
+      "O singură căutare pentru tot",
+      "Găsește filme, seriale, posturi și aplicații deodată și duce aceeași căutare în YouTube, Netflix sau Prime Video.",
+      "În bara de sus sau cu vocea."
+    ],
+    "radio": [
+      "Radio din toată lumea",
+      "Mii de posturi de radio deschise, după nume, țară sau gen, cu favoritele tale și ultimele ascultate.",
+      "Ascultare › Radio."
+    ],
+    "podcasts": [
+      "Podcasturi",
+      "Abonează-te după nume, ascultă pe televizor și reia episodul de unde ai rămas.",
+      "Ascultare › Podcasturi."
+    ],
+    "podcast-search": [
+      "Descoperă podcasturi",
+      "Caută în tot catalogul deschis de podcasturi și vezi ce e în tendințe în țara ta.",
+      "Ascultare › Podcasturi › Căutare."
+    ],
+    "podcast-player": [
+      "Player pe tot ecranul",
+      "Copertă mare, capitole, viteză și un temporizator de somn care pune pauză la finalul episodului.",
+      "Ascultare › Se redă acum › Deschide playerul."
+    ],
+    "phone-sound": [
+      "Sunetul în căștile tale",
+      "Sunetul filmului merge în căștile telefonului, sincronizat, ca să te uiți noaptea fără să trezești pe nimeni.",
+      "Meniul ▼ al playerului › Sunet pe telefon."
+    ],
+    "games-hub": [
+      "Toate jocurile tale într-un singur loc",
+      "GeForce NOW, Steam Link, Moonlight, PS Remote Play, RetroArch și jocurile televizorului ies din rândul de aplicații și stau în Joc, grupate în Cloud, De pe PC, Retro și Pe TV.",
+      "Ține apăsat OK pe un joc ca să-i schimbi grupul."
+    ],
+    "pc-games": [
+      "Joacă pe PC-ul de la etaj",
+      "Televizorul trezește computerul prin rețea, așteaptă să răspundă și deschide Moonlight sau Steam Link. Trezirea PC-ului prin rețea merge și în afara lumii Joc, dintr-o scurtătură pe ecranul principal.",
+      "Salvează computerul o dată în panoul web."
+    ],
+    "network-test": [
+      "Testează rețeaua",
+      "Îți spune dacă internetul tău face față jocurilor în cloud și te avertizează înainte să deschizi un joc în cloud pe o rețea slabă.",
+      "Joc › Testează rețeaua."
+    ],
+    "controllers": [
+      "Controlere de jocuri",
+      "Asociază un controler fără să cauți prin meniuri, vezi sus controlerele conectate și, dacă vrei, fă ca un controler conectat să deschidă Joc.",
+      "Joc › Asociază controlerul."
+    ],
+    "game-mode": [
+      "Mod joc",
+      "Cât timp un joc e deschis, screensaverul, filtrul de noapte și avizele așteaptă să se termine partida.",
+      "Pornește singur."
+    ],
+    "crew": [
+      "Gașca ta de pe Discord",
+      "Vezi cine de pe serverul tău Discord e online și în ce joc și cheamă gașca direct de pe televizor.",
+      "Pornește widgetul serverului și lipește numărul lui."
+    ],
+    "apps-top": [
+      "Favoritele tale în față",
+      "Aplicații arată cele 8 aplicații pe care le deschizi cel mai des, iar „Toate aplicațiile” aduce restul într-o grilă.",
+      "Aplicații, pe cruce."
+    ],
+    "apps-organize": [
+      "Cum vrei tu",
+      "Mută, grupează sau ascunde orice aplicație. Aplicațiile din fabrică pe care nu le folosești se dau la o parte.",
+      "Ține apăsat OK pe o aplicație."
+    ],
+    "app-buttons": [
+      "Butoanele Netflix și YouTube, libere",
+      "Butoanele de aplicații ale telecomenzii deschid orice aplicație vrei. Apeși ca să deschizi, ții apăsat 3 secunde ca să schimbi.",
+      "Funcționează cu telecomanda originală."
+    ],
+    "alarm": [
+      "O alarmă care pornește televizorul",
+      "La oră fixă, televizorul pornește singur, volumul crește încet și există amânare. Fiecare alarmă are nume, zile, sunet și volum, ba chiar o aplicație sau ultimul post.",
+      "Ține apăsat BACK › Alarmă."
+    ],
+    "timers": [
+      "Temporizatoare și clepsidră",
+      "Până la 3 temporizatoare cu nume, cu aviz pe ecran, și un cronometru.",
+      "„Hey Google, deschide Amintește-mi peste 10 minute”."
+    ],
+    "gentle-off": [
+      "Oprire blândă",
+      "Temporizatorul de somn estompează ecranul și scade volumul în ultimele 5 minute, ca nimeni să nu se trezească la oprire.",
+      "Butonul temporizatorului din panoul rapid."
+    ],
+    "idle-off": [
+      "Se oprește dacă nu se uită nimeni",
+      "După timpul ales fără nicio tastă apăsată, televizorul întreabă cu text mare dacă te mai uiți, apoi intră în repaus.",
+      "Ecran și energie › Oprire când nu e folosit."
+    ],
+    "recipes": [
+      "Rețete gata făcute",
+      "Somn, Telenovelă și Meci configurează televizorul dintr-odată (sunet, ecran și avize). Un OK aplică, altul anulează.",
+      "Panou rapid."
+    ],
+    "automations": [
+      "Automatizări",
+      "La o oră fixă, la apăsarea unui buton sau când se întâmplă ceva (filmul a fost pus pe pauză, au plecat toți, vine ploaia): televizorul deschide o aplicație, rulează o scenă sau se oprește.",
+      "Casă și automatizări › Automatizări."
+    ],
+    "home-assistant": [
+      "Home Assistant pe televizor",
+      "Lumini, prize, ventilatoare, jaluzele, aer condiționat și scene, direct de pe canapea. Vorbește cu serverul tău în rețeaua ta, fără cloud la mijloc.",
+      "Ține apăsat HOME."
+    ],
+    "doorbell": [
+      "Cine e la ușă",
+      "Când sună soneria, imaginea camerei apare peste ce te uiți.",
+      "Cu Home Assistant."
+    ],
+    "presence": [
+      "Doarme când pleacă toți",
+      "Cu un router UniFi, televizorul observă că telefoanele familiei au plecat și intră în repaus.",
+      "Ecran și energie › Mai multe opțiuni."
+    ],
+    "voice": [
+      "Scurtături vocale",
+      "„Hey Google, deschide Prognoza meteo” citește prognoza cu voce tare. Filme, Casa mea, Tabla, temporizatoarele și oprirea se deschid la fel.",
+      "Folosește butonul de microfon."
+    ],
+    "weather-now": [
+      "Vremea de azi, măsurată",
+      "Temperatura vine din raportul celui mai apropiat aeroport, iar pictograma de zi/noapte urmează răsăritul și apusul din locul unde e televizorul.",
+      "Sus pe ecranul principal."
+    ],
+    "weather-3": [
+      "Ploaia din trei modele",
+      "Șansa de ploaie este mediana a trei modele meteo (ECMWF, ICON și GFS), care greșește mai rar decât oricare dintre ele.",
+      "Apare singură în prognoză."
+    ],
+    "forecast": [
+      "Prognoză pe tot ecranul",
+      "Următoarele 24 de ore, un grafic al ploii, 9 zile, calitatea aerului, soarele și luna.",
+      "OK pe vreme."
+    ],
+    "rain-alert": [
+      "Alertă de ploaie",
+      "Un aviz peste aplicația ta când e pe cale să înceapă ploaia. E timpul să strângi rufele.",
+      "Ecran principal › Vreme."
+    ],
+    "screensaver": [
+      "Un screensaver pe care merită să-l lași pornit",
+      "Salut, un ceas mare, data, vremea și carduri cu notificări, următoarea alarmă și mesaje. În tema Galerie, tabloul zilei se mișcă încet, ca nimic să nu rămână imprimat pe ecran.",
+      "Ecran și energie › Screensaver."
+    ],
+    "photos": [
+      "Fotografiile tale pe screensaver",
+      "Trimite fotografii de pe telefon sau alege un folder din rețea. Rămân într-un folder pe care doar televizorul îl vede.",
+      "Un QR deschide panoul la pagina potrivită."
+    ],
+    "good-morning": [
+      "Bună dimineața",
+      "Când oprești alarma: salut, ora, prognoza și agenda zilei, iar televizorul le poate citi cu voce tare.",
+      "„Hey Google, deschide Bună dimineața”."
+    ],
+    "calendar": [
+      "Google Calendar",
+      "Evenimentele și zilele de naștere de azi pe televizor, dintr-un cont sau din toate împreună.",
+      "OK pe data de sus."
+    ],
+    "night-filter": [
+      "Filtru de noapte",
+      "Noaptea ecranul devine mai cald și mai blând cu ochii.",
+      "Ecran și energie › Mai multe opțiuni."
+    ],
+    "recap": [
+      "Rezumatul săptămânii",
+      "Duminică seara, un card cu timpul de ecran pe aplicație, internetul consumat și căderile de rețea.",
+      "Ecran și energie › Mai multe opțiuni."
+    ],
+    "profiles": [
+      "Un profil pentru fiecare",
+      "Fiecare cont Google de pe televizor are propriile favorite, lucruri de continuat și ordinea aplicațiilor.",
+      "Ține apăsat BACK › Profiluri."
+    ],
+    "kid-profile": [
+      "Profil pentru copii",
+      "Marchează un profil ca fiind al unui copil: modul copii și ora de culcare pornesc singure, iar ieșirea cere PIN-ul părinților.",
+      "Panou rapid › Profiluri."
+    ],
+    "bedtime": [
+      "Ora de culcare",
+      "În orele alese, se deschid doar aplicațiile permise, iar volumul are o limită.",
+      "Familie › Mai multe opțiuni."
+    ],
+    "screen-time": [
+      "Timp de ecran zilnic",
+      "O limită zilnică de televizor pentru cine alegi tu.",
+      "Familie › Mai multe opțiuni."
+    ],
+    "guest": [
+      "Modul oaspete",
+      "Ascunde profilul tău, calendarul tău și aplicațiile pe care le alegi cât ai musafiri.",
+      "Butonul Oaspete din panoul rapid."
+    ],
+    "guest-wifi": [
+      "Wi-Fi pentru oaspeți",
+      "Tastezi parola o dată; oaspeții scanează un QR de pe televizor și sunt conectați.",
+      "Familie › Wi-Fi pentru oaspeți."
+    ],
+    "family-board": [
+      "Tabla familiei",
+      "Lista de cumpărături, notițe fixate și zilele de naștere de azi, în panoul rapid și pe screensaver.",
+      "Editezi de pe telefon; OK bifează un element."
+    ],
+    "family-link": [
+      "Mesaje de departe",
+      "Familia care locuiește departe trimite mesaje și fotografii pe televizorul de acasă, de oriunde.",
+      "Invitație prin link."
+    ],
+    "video-message": [
+      "Mesaje video",
+      "Un videoclip scurt de la familie apare pe televizor cu numele celui care l-a trimis.",
+      "Din panoul de pe telefon."
+    ],
+    "web-panel": [
+      "Panou pe telefon și computer",
+      "Telecomandă, scriere cu diacritice, imaginea live a ecranului, fotografii pentru screensaver, tabla și backupurile, din browserul oricărui dispozitiv din casă.",
+      "Acces de la distanță › Conectare de pe telefon (QR)."
+    ],
+    "ask-tv": [
+      "Întreabă televizorul",
+      "Scrie sau spune „deschide YouTube”, „amintește-mi peste 7 minute”, „oprește-te peste 30 de minute”, iar televizorul face.",
+      "În panoul de pe telefon."
+    ],
+    "share": [
+      "Partajează de pe telefon",
+      "Instalat ca aplicație, panoul apare în Partajare: un videoclip YouTube se deschide pe televizor, un link se deschide pe televizor, iar un text devine mesaj.",
+      "Partajare › Sofaly."
+    ],
+    "network-drive": [
+      "Televizorul ca unitate de rețea",
+      "Copiază fișiere pe televizor trăgându-le: pe Windows apare în This PC ca un telefon; pe Mac, Linux și telefoane, prin WebDAV securizat.",
+      "Acces de la distanță › Afișați ca unitate de rețea."
+    ],
+    "windows": [
+      "Scurtătură în Windows",
+      "Televizorul apare în Rețea din Explorer, cu o scurtătură care deschide panoul, chiar dacă IP-ul i se schimbă.",
+      "Activă oricând panoul e pornit."
+    ],
+    "continue-tv": [
+      "Continuă pe alt televizor",
+      "Te-ai oprit în sufragerie? Trimite-l în dormitor: celălalt televizor arată „Continui de unde ai rămas?” și se deschide în același punct.",
+      "Meniul playerului › Trimite pe alt televizor."
+    ],
+    "together": [
+      "Vizionare împreună",
+      "Două case văd același lucru în același timp: pui pauză aici, se pune pauză și acolo, cu reacții în colț.",
+      "Invitație între televizoarele familiei."
+    ],
+    "homes": [
+      "Mai multe case",
+      "Ai grijă de televizorul de acasă și de cel al părinților de pe același telefon.",
+      "Din aplicația pentru telefon."
+    ],
+    "backup": [
+      "Backup încuiat, în fiecare noapte",
+      "Cât televizorul stă nefolosit, un backup complet încuiat cu parola ta. Se păstrează ultimele 7, iar în fiecare noapte televizorul verifică dacă s-ar restaura.",
+      "Sistem › Backup automat."
+    ],
+    "cloud-backup": [
+      "O copie în cloud",
+      "Copiile merg și în Google Drive, OneDrive, Dropbox, Box, NAS sau pe un stick USB. Încuiate: nici măcar cloudul nu le poate citi.",
+      "Sistem › Backup automat."
+    ],
+    "maintenance": [
+      "Întreținere de noapte",
+      "Curăță resturile, repară permisiunile și reprogramează alarmele cât dormi.",
+      "Rulează singură."
+    ],
+    "diagnose": [
+      "Diagnosticul televizorului",
+      "Internet, DNS și de ce s-a oprit o aplicație, totul deodată și în propoziții pe care le înțelegi.",
+      "„Hey Google, deschide Diagnosticul televizorului”."
+    ],
+    "scoreboard": [
+      "Cum se simte acest televizor",
+      "Televizorul își măsoară singur cifrele (timpul de deschidere, blocările, alarmele la timp) și le arată pe un singur ecran. Nimic nu iese din casă.",
+      "Sistem › Cum se simte acest televizor."
+    ],
+    "safe-mode": [
+      "Mod sigur",
+      "Dacă o versiune nouă se poartă ciudat imediat după instalare, televizorul trece într-un mod sigur și arată calea de ieșire.",
+      "Apare doar când e nevoie."
+    ],
+    "whats-new": [
+      "Ce s-a schimbat",
+      "Fiecare versiune explică ce s-a schimbat și aduce o scurtă listă de verificat cu telecomanda.",
+      "Sistem › Ce s-a schimbat."
+    ],
+    "report": [
+      "Raportează o problemă",
+      "Spune ce s-a întâmplat cu telecomanda sau de pe telefon; televizorul adună ce trebuie, nimic personal.",
+      "Sistem › Raportează o problemă."
+    ],
+    "languages": [
+      "27 de limbi",
+      "Portugheză, engleză, spaniolă, franceză, germană, italiană, rusă, poloneză, turcă, japoneză, chineză, coreeană, hindi, indoneziană și arabă, cu ecrane de la dreapta la stânga. De asemenea neerlandeză, suedeză, daneză, norvegiană, finlandeză, cehă, greacă, maghiară, română, ucraineană, vietnameză și thailandeză. Urmează limba televizorului.",
+      "Se schimbă singur odată cu televizorul."
+    ],
+    "text-size": [
+      "Mărimea textului",
+      "Normal, Mare sau Mai mare, pe toate ecranele, testat ca textul să nu fie niciodată tăiat sau suprapus.",
+      "Ecran principal › Mărimea textului."
+    ],
+    "simple-mode": [
+      "Ecran simplu",
+      "Carduri mari, mai puține lucruri pe ecran și numele aplicației rostit cu voce tare. Pentru cei cărora telecomanda li se pare grea.",
+      "Ecran principal › Mai multe opțiuni."
+    ],
+    "read-aloud": [
+      "Citire cu voce tare",
+      "Televizorul spune ce e în focus, cu sunete de navigare ca să știi unde ești.",
+      "Ecran principal › Mai multe opțiuni."
+    ],
+    "contrast": [
+      "Contrast ridicat",
+      "Text cu raport de contrast 7:1 și toate ecranele lizibile pentru cititorul de ecran Android.",
+      "Urmează setările de accesibilitate ale televizorului."
+    ],
+    "no-ads": [
+      "Deloc reclame",
+      "Nici în planul gratuit, nicio recomandare sponsorizată. Ecranul e al tău.",
+      "Mereu."
+    ],
+    "no-tracking": [
+      "Fără urmărire",
+      "Fără cont, fără statistici de utilizare și niciun raport de eroare care pleacă fără să-l trimiți tu.",
+      "Mereu."
+    ],
+    "pin": [
+      "Un PIN acolo unde contează",
+      "Tot ce schimbă televizorul cere un PIN, iar acțiunile care șterg ceva îl cer din nou. Prea multe încercări greșite? Așteptarea crește de fiecare dată.",
+      "Acces de la distanță › PIN."
+    ],
+    "private-dns": [
+      "DNS privat",
+      "Alege un DNS securizat (DNS over TLS); dacă nu răspunde, televizorul revine singur la cel anterior.",
+      "Avansat › Rețea."
+    ],
+    "usage": [
+      "Internet pe aplicație",
+      "Cât internet a folosit fiecare aplicație și cu cine a vorbit, păstrat pe televizor 7 zile.",
+      "Avansat › Rețea."
+    ],
+    "google-inside": [
+      "Google funcționează în continuare",
+      "Asistentul Google, Gemini, căutarea și contul tău Google funcționează ca înainte. Sofaly schimbă ecranul principal, nu televizorul.",
+      "Folosește butonul de microfon ca întotdeauna."
+    ],
+    "motion": [
+      "Animații pe măsura televizorului",
+      "Televizoarele puternice animă totul; cele mai simple animă doar ce ai ales și încetinesc singure când scad cadrele.",
+      "Setări › Aspect."
+    ],
+    "frame-rate": [
+      "Filme fără sacadări",
+      "Televizorul trece la 24 Hz cât rulează un film, ca panoramările camerei să rămână fluide.",
+      "Pornește odată cu filmul; ecranul clipește negru o secundă."
+    ],
+    "wifi-check": [
+      "Test de viteză a internetului",
+      "Îți măsoară internetul dintr-o atingere și arată semnalul Wi-Fi, latența și viteza în cuvinte simple.",
+      "Setări › Avansat › Rețea."
+    ]
+  },
+  "plans_page": {
+    "title": "Planuri · Sofaly",
+    "description": "Basic, Pro și Ultra: ce include fiecare plan Sofaly.",
+    "h1": "Planuri",
+    "lead": "Începe cu Basic, care e deja ecranul principal complet. Vânzările nu sunt încă deschise: deocamdată totul e gratuit.",
+    "price_soon": "Prețul la lansare",
+    "basic_who": "Pentru cine stă pe canapea",
+    "pro_who": "Pentru cine are grijă de televizor",
+    "ultra_who": "Pentru casă și familie",
+    "basic_text": "Ecranul principal în cruce, playerul, Ascultare, Joc, ceasul deșteptător, screensaverul și toată accesibilitatea.",
+    "pro_text": "Tot ce e în Basic, plus telefonul, automatizările, casa conectată, mesajele de departe, cardurile gata făcute pentru ecranul principal și personalizarea completă.",
+    "ultra_text": "Tot ce e în Pro, plus vremea din trei modele, pagini complete de film, subtitrări automate, mai multe case și vizionarea împreună.",
+    "includes": "Include",
+    "everything_basic": "Tot ce e în Basic",
+    "everything_pro": "Tot ce e în Pro"
+  },
+  "dev_page": {
+    "title": "Dezvoltatori · Sofaly",
+    "description": "Pune cardul aplicației tale Android TV pe ecranul principal Sofaly. Fără SDK, fără taxe.",
+    "eyebrow": "Kit pentru dezvoltatori",
+    "h1": "Aplicația ta pe ecranul principal la care oamenii chiar se uită.",
+    "lead": "Un plugin Sofaly este propria ta aplicație Android TV. Trimite un card scurt, iar Sofaly îl desenează pe ecranul principal, cu text mare și în stilul casei.",
+    "cta_start": "Pornește de la șablon",
+    "cta_spec": "Citește contractul complet",
+    "why_title": "De ce să faci un plugin",
+    "why": [
+      [
+        "star",
+        "În față, nu într-un sertar",
+        "Cardul tău stă pe ecranul principal, unde familia se uită de fiecare dată când pornește televizorul, nu pierdut într-o listă de aplicații."
+      ],
+      [
+        "puzzle",
+        "Fără SDK, fără taxe",
+        "Un ContentProvider și un rând de date. Nicio bibliotecă de-a noastră de instalat, nicio taxă de plătit."
+      ],
+      [
+        "heart",
+        "Aplicația ta, afacerea ta",
+        "Publică pe Play cum vrei, gratuit sau contra cost. Sofaly doar desenează cardul; aplicația și clienții sunt ai tăi."
+      ]
+    ],
+    "can_title": "Ce poți construi dincolo de ale noastre",
+    "can": [
+      [
+        "Livrarea ta",
+        "Comanda a plecat, ajunge în 12 min."
+      ],
+      [
+        "Autobuzul tău",
+        "Linia 42 sosește în 6 min."
+      ],
+      [
+        "Sala ta de sport",
+        "Antrenamentul de azi la 19:00."
+      ],
+      [
+        "Blocul tău",
+        "Fără apă mâine, între 9 și 12."
+      ],
+      [
+        "Magazinul tău",
+        "Oferta zilei: 20% reducere la cafea."
+      ],
+      [
+        "Clubul tău",
+        "Antrenamentul s-a mutat sâmbătă."
+      ]
+    ],
+    "steps_title": "Doi pași",
+    "step1": "Declară un provider cu acțiunea Sofaly",
+    "step2": "Răspunde cu un rând: titlu, valoare, detaliu și culoare",
+    "rules_title": "Reguli care îl protejează pe privitor",
+    "rules": [
+      "Nu desenezi niciodată pe ecranul principal: trimiți text și o culoare, iar Sofaly desenează.",
+      "Sofaly nu îți trimite niciodată nimic despre aplicațiile, conturile persoanei sau despre ce vizionează.",
+      "Pluginurile fac parte din planul Pro, iar persoana alege care apar."
+    ],
+    "soon_title": "În curând",
+    "soon_text": "Pluginuri de fundal și o vitrină de pluginuri direct pe televizor.",
+    "template_title": "Șablon gata făcut",
+    "template_text": "Două aplicații exemplu pe care le poți compila azi: o numărătoare inversă până la o dată aleasă pe televizor și faza lunii de azi. Fără internet, fără cont. MIT No Attribution: copiază, redenumește pachetul, publică.",
+    "demo": [
+      [
+        "Livrare",
+        "12 min"
+      ],
+      [
+        "Bus 42",
+        "6 min"
+      ],
+      [
+        "Sală de sport",
+        "19:00"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Vezi-l pe televizor",
+    "lead": "Aceste ecrane rulează singure, așa cum arată și se mișcă Sofaly pe un televizor real. Alege unul ca să rămâi pe el.",
+    "screens": {
+      "forecast": [
+        "Prognoză",
+        "Următoarele 24 de ore, șansa de ploaie și luna, dintr-o privire și cu litere mari.",
+        [
+          "Burniță ușoară",
+          "Următoarele 24 de ore",
+          "Șansa de ploaie",
+          "Acum",
+          "Maximă 27° · minimă 19° · resimțită 26°"
+        ]
+      ],
+      "screensaver": [
+        "Screensaver",
+        "Un tablou de la The Met în fiecare zi, ceasul și vremea zilei. Un televizor pe care merită să-l lași pornit.",
+        [
+          "Bună seara",
+          "Tabloul zilei · The Met",
+          "Lună în creștere"
+        ]
+      ],
+      "player": [
+        "Filme",
+        "Dublat sau subtitrat dintr-o tastă, introul sărit pentru tine și înapoi unde ai rămas.",
+        [
+          "Drumul lung spre casă",
+          "Audio",
+          "Original + subtitrări",
+          "Dublat",
+          "Sari peste intro"
+        ]
+      ],
+      "radio": [
+        "Radio și podcasturi",
+        "Posturi din toată lumea și podcasturile tale, cu player pe tot ecranul.",
+        [
+          "Se redă acum",
+          "Radio live",
+          "Jazz de pe litoral",
+          "Știrile dimineții",
+          "Samba și bossa",
+          "Podcast · episodul 12"
+        ]
+      ],
+      "alarm": [
+        "Alarmă",
+        "Televizorul pornește singur, sunetul crește încet, iar prognoza zilei te așteaptă deja.",
+        [
+          "Bună dimineața",
+          "Volumul crește",
+          "Amânare · 10 min",
+          "Televizorul a pornit singur"
+        ]
+      ],
+      "cards": [
+        "Carduri pe ecranul principal",
+        "Numărătoare inversă, mementouri, cursuri, luna și următorul meci al echipei tale, direct pe ecranul principal.",
+        [
+          "12 zile până la vacanță",
+          "Medicamentul la 20:00",
+          "Camera din garaj nu mai răspunde",
+          "Următorul meci",
+          "Sâm · 16:00",
+          "Lună în creștere",
+          "Cursuri",
+          "Numărătoare inversă",
+          "Echipa ta × Rivalii"
+        ]
+      ],
+      "games": [
+        "Jocuri",
+        "Jocuri în cloud, de pe PC și retro într-un singur loc, cu rețeaua testată înainte să joci.",
+        [
+          "Controler conectat",
+          "Rețea pregătită pentru jocuri în cloud",
+          "Cloud",
+          "PC",
+          "Retro",
+          "Gașca",
+          "Jocuri"
+        ]
+      ],
+      "phone": [
+        "Telefon",
+        "Panoul pe telefon: telecomandă, scriere, imaginea live a ecranului și mesaje care apar pe televizor.",
+        [
+          "Trimite pe televizor",
+          "Cina e gata!",
+          "Mesaj de pe telefon",
+          "Telecomandă",
+          "Scrie",
+          "Ecran",
+          "Fotografii"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "Televizorul apare în This PC ca un telefon: trage filme și fotografii direct în el.",
+        [
+          "This PC",
+          "Sofaly · Sufragerie",
+          "Disc local",
+          "Deschide panoul televizorului",
+          "Se copiază pe televizor… 68%"
+        ]
+      ],
+      "kids": [
+        "Familie",
+        "Profil pentru copii, ora de culcare și timp de ecran, totul în spatele PIN-ului părinților.",
+        [
+          "Ora de culcare",
+          "Pe mâine!",
+          "Doar aplicații pentru copii până la 7:00",
+          "PIN-ul părinților"
+        ]
+      ]
+    }
+  }
+}

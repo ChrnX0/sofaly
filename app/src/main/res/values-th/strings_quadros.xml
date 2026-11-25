@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 86 (14/11/2026, TaxaQuadros.kt): movies at their own frame rate. -->
+    <string name="quadros_opcao">ภาพยนตร์ตามเฟรมเรตของตัวเอง (24 Hz)</string>
+    <string name="quadros_det">ทีวีจะเปลี่ยนเป็น 24 Hz ขณะเล่นภาพยนตร์ เพื่อให้ภาพไม่กระตุกเมื่อกล้องเคลื่อน หน้าจอจะดำ 1 ถึง 2 วินาทีตอนเริ่ม ไม่ใช้กับทีวีสด</string>
+</resources>

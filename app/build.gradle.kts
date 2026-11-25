@@ -64,6 +64,11 @@ android {
         buildConfigField("double", "LONGITUDE", pessoalNumero("longitude", 0.0))
         buildConfigField("boolean", "USAR_FAHRENHEIT", (dadosPessoais.getProperty("fahrenheit")?.trim() == "true").toString())
         buildConfigField("String", "ESTACAO_METAR", pessoalTexto("estacao_metar"))
+        // Quantas línguas o app traz (pastas values-* com strings.xml + o inglês padrão): o Placar diz o número certo
+        // sem ninguém lembrar de trocar o texto a cada língua nova (estava "14" com 26, 24/11/2026).
+        // Línguas distintas: values-pt e values-pt-rPT contam uma (português); + 1 = o inglês de values/.
+        buildConfigField("int", "IDIOMAS", (file("src/main/res").listFiles { d -> d.name.startsWith("values-") && d.resolve("strings.xml").exists() }!!
+            .map { it.name.removePrefix("values-").substringBefore("-r") }.toSet().size + 1).toString())
         buildConfigField("String", "APPS_FIXOS", pessoalTexto("apps_fixos"))
         buildConfigField("String", "APPS_ORDEM", pessoalTexto("apps_ordem",
             "com.google.android.youtube.tv,com.google.android.youtube.tvmusic,com.netflix.ninja,com.android.vending"))

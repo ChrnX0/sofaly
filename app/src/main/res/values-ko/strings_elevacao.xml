@@ -16,7 +16,7 @@
     <string name="elv_prom_player">어떤 파일도 재생, 손대지 않아도 맞는 자막</string>
     <string name="elv_prom_casa">알람은 매번 제시간에 울림</string>
     <string name="elv_prom_controle">패널, 휴대폰, AI가 리모컨이 하는 모든 것을 함</string>
-    <string name="elv_prom_todos">어르신, 어린이, 손님, 시력이나 청력이 약한 분, 14개 언어</string>
+    <string name="elv_prom_todos">어르신, 어린이, 손님, 시력이나 청력이 약한 분, %1$d개 언어</string>
     <string name="elv_prom_instala">처음 실행부터 첫 채널까지 5분</string>
     <string name="elv_nao_medido">아직 측정 안 됨</string>
     <string name="elv_alvo">목표 %1$s</string>

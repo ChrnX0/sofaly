@@ -475,6 +475,12 @@
             android:name=".PluginsActivity"
             android:exported="false"
             android:label="@string/plg_titulo" />
+        <!-- Modo de edição dos widgets da HOME (24/11/2026, WidgetLayoutActivity.kt): por cima da HOME, translúcido -->
+        <activity
+            android:name=".WidgetLayoutActivity"
+            android:exported="false"
+            android:label="@string/wdg_titulo"
+            android:theme="@style/One.Translucido" />
         <!-- Trocar ícone app por app (18/11/2026, IconPickerActivity.kt): a grade de ícones de um pacote -->
         <activity
             android:name=".IconPickerActivity"

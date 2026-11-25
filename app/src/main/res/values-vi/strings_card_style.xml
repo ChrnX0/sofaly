@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">Tinh chỉnh</string>
+    <string name="ft_dica">OK hoặc ▶ ◀ để đổi · BACK để đóng</string>
+    <string name="ft_abrir">Chỉnh trong khi xem màn hình chính</string>
+    <string name="ft_abrir_det">Phông chữ, đồng hồ, màu nổi bật, góc bo, ánh sáng và kích thước, xem trực tiếp</string>
+    <string name="cs_destaque">Màu nổi bật</string>
+    <string name="cs_cantos">Góc bo</string>
+    <string name="cs_brilho">Ánh sáng khi chọn</string>
+    <string name="cs_tamanho">Kích thước chữ thập</string>
+    <string name="cs_ceu">Bầu trời</string>
+    <string name="cs_lilas">Tử đinh hương</string>
+    <string name="cs_retos">Vuông</string>
+    <string name="cs_redondos">Tròn</string>
+    <string name="cs_sem">Tắt</string>
+    <string name="cs_suave">Nhẹ</string>
+    <string name="cs_forte">Mạnh</string>
+    <string name="cs_menor">Nhỏ hơn</string>
+    <string name="cs_maior">Lớn hơn</string>
+    <string name="bg_tintura">Màu phủ trên hình nền</string>
+    <string name="bg_cor">Màu nền</string>
+    <string name="bg_desfoque">Làm mờ hình nền</string>
+    <string name="bg_transicao">Chuyển cảnh hình ảnh</string>
+    <string name="bg_novo">Đổi hình nền ngay</string>
+    <string name="bg_solida">Màu trơn</string>
+    <string name="bg_destaque">Nổi bật</string>
+    <string name="bg_noite">Đêm</string>
+    <string name="bg_mata">Rừng</string>
+    <string name="bg_brasa">Than hồng</string>
+    <string name="bg_grafite">Than chì</string>
+    <string name="bg_corte">Cắt</string>
+    <string name="bg_lenta">Chậm</string>
+    <string name="bg_trocado">Đã đổi</string>
+    <string name="bg_nao_troca">Hình nền này không thay đổi</string>
+    <string name="bg_camera">Camera trong nhà làm hình nền</string>
+    <string name="bg_campainha">Camera chuông cửa làm hình nền</string>
+    <string name="bg_nenhuma">Không có</string>
+    <string name="bg_ligado">Bật</string>
+</resources>

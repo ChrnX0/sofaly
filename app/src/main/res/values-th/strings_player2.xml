@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movies and series player: next episode, retry, subtitle size (ideas 19 to 22, 14/11/2026). -->
+<resources>
+    <string name="vod_tentando">การเชื่อมต่อหลุด กำลังลองอีกครั้ง (%1$d จาก %2$d)…</string>
+    <string name="vod_proximo_episodio">ตอนถัดไป</string>
+    <string name="vod_proximo_agora">ดูตอนนี้ · %1$d วินาที</string>
+    <string name="vod_proximo_cancelar">ยกเลิก</string>
+    <string name="vod_proximo_continuar">ดูต่อ</string>
+    <string name="vod_ainda_assistindo">ยังดูอยู่ไหม</string>
+    <string name="vod_ainda_assistindo_texto">มีการเล่นไปหลายตอนโดยไม่มีใครแตะรีโมต ตอนถัดไปจึงรอคุณอยู่</string>
+    <string name="vod_desligar_ao_fim">ปิดทีวีเมื่อเรื่องนี้จบ</string>
+    <string name="vod_legenda_tamanho_titulo">ขนาดคำบรรยาย</string>
+    <string-array name="vod_legenda_tamanhos">
+        <item>เล็ก</item>
+        <item>ปกติ</item>
+        <item>ใหญ่</item>
+        <item>ใหญ่มาก</item>
+    </string-array>
+</resources>

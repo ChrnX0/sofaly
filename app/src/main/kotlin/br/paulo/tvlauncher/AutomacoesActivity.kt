@@ -136,9 +136,11 @@ class AutomacoesActivity : Activity() {
         })
 
         setContentView(raiz)
-        val alvo = (0 until lista.childCount).map { lista.getChildAt(it) }.firstOrNull { (it.tag as? Linha)?.chave == focoAntes }
+        // Sem foco anterior, null == null casava com o 1º filho sem Linha (o título "Quando for hora", que não aceita foco):
+        // a tela ficava sem nenhum foco ao voltar (teste de ciclo de vida, 24/11/2026).
+        val alvo = focoAntes?.let { f -> (0 until lista.childCount).map { lista.getChildAt(it) }.firstOrNull { (it.tag as? Linha)?.chave == f } }
         // Depois do layout (Sala, 17/11/2026): pedido aqui direto, a tela abria sem nenhuma linha em foco e o 1º ▼ só achava a 1ª.
-        val primeira = alvo ?: (0 until lista.childCount).map { lista.getChildAt(it) }.firstOrNull { it.isFocusable }
+        val primeira = alvo ?: (0 until lista.childCount).map { lista.getChildAt(it) }.firstOrNull { it.tag is Linha }
         lista.post { primeira?.requestFocus() }
     }
 

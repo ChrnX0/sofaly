@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hub de jogos: painel "No sofá" e "Sua turma" do Discord (17/11/2026, TurmaDiscord.kt). -->
+<resources>
+    <string name="jogos_no_sofa">บนโซฟา</string>
+    <string name="jogos_controle_pronto">พร้อม</string>
+    <string name="jogos_controle_carregar">ชาร์จเร็วๆ นี้</string>
+    <string name="jogos_parear_um">จับคู่จอยเกม</string>
+    <string name="turma_titulo">แก๊งของคุณ</string>
+    <string name="turma_online">ออนไลน์ %1$d</string>
+    <string name="turma_mais_online">+ ออนไลน์ %1$d</string>
+    <string name="turma_na_voz">ในห้องเสียง</string>
+    <string name="turma_ausente">ไม่อยู่</string>
+    <string name="turma_ocupado">ไม่ว่าง</string>
+    <string name="turma_status_online">ออนไลน์</string>
+    <string name="turma_ninguem">ไม่มีใครออนไลน์ในตอนนี้</string>
+    <string name="turma_procurando">กำลังค้นหาแก๊งของคุณ…</string>
+    <string name="turma_sem_rede">ไม่มีการเชื่อมต่อกับ Discord ในตอนนี้</string>
+    <string name="turma_mostrar_titulo">แสดงแก๊ง Discord ของคุณ</string>
+    <string name="turma_mostrar_texto">ดูบนทีวีว่าใครออนไลน์ กำลังเล่น และอยู่ในห้องเสียง</string>
+    <string name="turma_desligado_titulo">วิดเจ็ตเซิร์ฟเวอร์ปิดอยู่</string>
+    <string name="turma_desligado_texto">ใน Discord: Server Settings, Widget เปิด Enable Server Widget</string>
+    <string name="turma_qr_dica">ส่องโทรศัพท์มาที่นี่เพื่อเข้าร่วมแชทเสียง การพูดคุยเกิดขึ้นบนโทรศัพท์</string>
+    <string name="turma_jogando">%1$s กำลังเล่น %2$s</string>
+    <string name="turma_dois">%1$s และ %2$s</string>
+    <string name="turma_e_mais">%1$s และอีก %2$d คน</string>
+    <string name="turma_chamar">เรียกแก๊ง</string>
+    <string name="turma_chamar_pergunta">ส่งไปที่ช่อง Discord ไหม</string>
+    <string name="turma_chamado_jogo">🎮 ใครจะเล่น %1$s บ้าง ฉันอยู่ที่ทีวี</string>
+    <string name="turma_chamado">🎮 ใครจะเล่นเกมบ้าง ฉันอยู่ที่ทีวี</string>
+    <string name="turma_mandar">ส่ง</string>
+    <string name="turma_enviado">เรียกแก๊งของคุณใน Discord แล้ว</string>
+    <string name="turma_espere">รอหนึ่งนาทีก่อนเรียกอีกครั้ง</string>
+    <string name="turma_falhou">Discord ไม่ได้รับ ตรวจสอบอินเทอร์เน็ตหรือ webhook</string>
+    <string name="turma_config_titulo">แก๊ง Discord ของคุณ</string>
+    <string name="turma_config_texto">1. ใน Discord: Server Settings, Widget เปิด Enable Server Widget\n2. ในหน้าเดียวกัน คัดลอก Server ID แล้วพิมพ์ที่นี่\n\nสำหรับปุ่มเรียกแก๊ง ให้วาง webhook ของช่องในแผงควบคุมเว็บของทีวี</string>
+    <string name="turma_config_dica">Server ID (ตัวเลขเท่านั้น)</string>
+    <string name="turma_config_guardar">บันทึก</string>
+    <string name="turma_config_tirar">นำแก๊งออก</string>
+    <string name="turma_id_invalido">นี่ไม่ใช่ Server ID ของ Discord (17 ถึง 20 หลัก)</string>
+    <string name="cruz_sofa_sub">จอยเกมและแก๊ง Discord ของคุณ</string>
+    <string name="cruz_sofa_voz">ในห้องเสียง %1$d · %2$s</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Real profiles (idea 11): each Google account with its own favorites, Continue watching and app order; kid profile. -->
+<resources>
+    <string name="perfil_aviso_titulo">โปรไฟล์: %1$s</string>
+    <string name="perfil_aviso_texto">รายการโปรด ดูต่อ และลำดับแอปของโปรไฟล์นี้</string>
+    <string name="perfil_aviso_crianca">โปรไฟล์เด็ก: เปิดโหมดเด็กและเวลาเข้านอนแล้ว</string>
+    <string name="perfil_crianca">โปรไฟล์เด็ก</string>
+    <string name="perfil_crianca_linha">โปรไฟล์เด็ก · %1$s: %2$s</string>
+    <string name="perfil_crianca_nao">ปิด</string>
+    <string name="perfil_crianca_sem_pin">ตั้ง PIN ของแผงควบคุมเว็บก่อน: เป็น PIN ของผู้ปกครองที่ป้องกันโปรไฟล์เด็ก</string>
+    <string name="perfil_pin_sair">PIN ของผู้ปกครองเพื่อออกจากโปรไฟล์เด็ก</string>
+    <string name="perfil_pin_marcar">PIN ของผู้ปกครองเพื่อเปลี่ยนโปรไฟล์เด็ก</string>
+</resources>

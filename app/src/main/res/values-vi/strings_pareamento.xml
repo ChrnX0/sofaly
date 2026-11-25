@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pareamento na TV (PareamentoNaTv): textos que eram fixos em português (depuração 18/11/2026). -->
+<resources>
+    <string name="pn_sem_opcoes">không mở được Tùy chọn nhà phát triển (%1$s)</string>
+    <string name="pn_porta_achada">đã tìm thấy cổng ghép nối %1$d</string>
+    <string name="pn_mdns_falhou">tìm trong mạng thất bại (%1$s)</string>
+    <string name="pn_pareando">đang ghép nối…</string>
+    <string name="pn_confirme">đã đọc mã. Để ghép nối, nhấn OK trên điều khiển ở “%1$s”</string>
+    <string name="pn_so_controle">chỉ phím trên điều khiển mới xác nhận được ghép nối</string>
+</resources>

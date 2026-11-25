@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofy (20/11/2026): frases dos recados do Observador, uma por tipo (ObserverCore.noteFor: observer_<tipo>_title/_text). %1$s = o número do sinal. -->
+<resources>
+    <string name="observer_no_internet_title">ไม่มีอินเทอร์เน็ต</string>
+    <string name="observer_no_internet_text">วิดีโออาจหยุดจนกว่าจะกลับมา</string>
+    <string name="observer_slow_internet_title">อินเทอร์เน็ตช้า</string>
+    <string name="observer_slow_internet_text">การตอบกลับใช้เวลา %1$s ms วิดีโออาจหยุดเพื่อโหลด</string>
+    <string name="observer_weak_wifi_title">Wi-Fi อ่อน</string>
+    <string name="observer_weak_wifi_text">สัญญาณอยู่ที่ %1$s dBm เราเตอร์ที่ใกล้ทีวีขึ้นจะช่วยได้</string>
+    <string name="observer_low_memory_title">หน่วยความจำใกล้เต็ม</string>
+    <string name="observer_low_memory_text">ว่างเพียง %1$s MB แอปอาจปิดและเริ่มใหม่</string>
+    <string name="observer_memory_pressure_title">ทีวีทำงานหนักเกินไป</string>
+    <string name="observer_memory_pressure_text">Android กำลังปิดแอปเพื่อเพิ่มพื้นที่</string>
+    <string name="observer_slow_home_title">หน้าจอหลักช้า</string>
+    <string name="observer_slow_home_text">%1$s%% ของเฟรมมาช้า</string>
+    <string name="observer_low_disk_title">ที่เก็บข้อมูลใกล้เต็ม</string>
+    <string name="observer_low_disk_text">เหลือเพียง %1$s MB การบันทึกอาจล้มเหลว</string>
+    <string name="observer_freeze_undone_title">ฉันยกเลิกการตรึงแล้ว</string>
+    <string name="observer_freeze_undone_text">%1$s ถูกตรึงไว้และ %2$s หยุดทำงาน จึงปลดการตรึงให้</string>
+    <string name="observer_wifi_restarted_title">ฉันรีสตาร์ท Wi-Fi แล้ว</string>
+    <string name="observer_wifi_restarted_text">ทีวีไม่มี Wi-Fi เป็นเวลา %1$s นาที ฉันจึงปิดแล้วเปิดใหม่ และกลับมาใช้ได้แล้ว</string>
+    <string name="observer_tv_restarted_title">ฉันรีสตาร์ททีวีแล้ว</string>
+    <string name="observer_tv_restarted_text">Wi-Fi หายไป %1$s นาที และการปิดแล้วเปิดใหม่ไม่ได้ผล ฉันจึงรีสตาร์ททีวี</string>
+</resources>

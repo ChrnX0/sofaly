@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wdg_titulo">Startbildschirm-Widgets bearbeiten</string>
+    <string name="wdg_det">Live-Widgets anderer Apps auf dem Startbildschirm. Pfeile verschieben, OK zeigt Optionen.</string>
+    <string name="wdg_vazio">Noch kein Widget auf dem Startbildschirm. OK fügt eines hinzu.</string>
+    <string name="wdg_estado_mover">Verschieben: %1$s</string>
+    <string name="wdg_estado_tamanho">Größe: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Verschieben</string>
+    <string name="wdg_tamanho">Größe ändern</string>
+    <string name="wdg_ajustes">Widget-Einstellungen</string>
+    <string name="wdg_proximo">Nächstes Widget</string>
+    <string name="wdg_por">Widget hinzufügen</string>
+    <string name="wdg_tirar">Dieses Widget entfernen</string>
+    <string name="wdg_abrir">App öffnen</string>
+    <string name="wdg_cheio">Kein Platz mehr für dieses Widget.</string>
+    <string name="wdg_d_setas">verschieben / Größe</string>
+    <string name="wdg_d_opcoes">Optionen</string>
+    <string name="wdg_d_voltar">ZURÜCK</string>
+    <string name="wdg_d_sair">speichern und beenden</string>
+</resources>

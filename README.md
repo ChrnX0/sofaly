@@ -346,7 +346,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 <details>
 <summary><b>For everyone</b> · Made for people who see, hear or use the remote in different ways. (5)</summary>
 
-- **15 languages.** Portuguese, English, Spanish, French, German, Italian, Russian, Polish, Turkish, Japanese, Chinese, Korean, Hindi, Indonesian and Arabic, with right-to-left screens. It follows the TV's language. <sub>Changes with the TV by itself.</sub>
+- **27 languages.** Portuguese, English, Spanish, French, German, Italian, Russian, Polish, Turkish, Japanese, Chinese, Korean, Hindi, Indonesian and Arabic, with right-to-left screens. Also Dutch, Swedish, Danish, Norwegian, Finnish, Czech, Greek, Hungarian, Romanian, Ukrainian, Vietnamese and Thai. It follows the TV's language. <sub>Changes with the TV by itself.</sub>
 - **Text size.** Normal, Large or Larger, on every screen, tested so text never gets cut or overlaps. <sub>Home screen › Text size.</sub>
 - **Simple mode.** Big cards, fewer things on screen and the app's name spoken aloud. For people who find the remote hard. <sub>Home screen › More options.</sub>
 - **Read aloud.** The TV says what's in focus, with navigation sounds so you know where you are. <sub>Home screen › More options.</sub>

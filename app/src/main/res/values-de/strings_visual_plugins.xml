@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">Schnellmenü-Tasten</string>
     <string name="ext_nenhum_botao">Noch keine Tasten anderer Apps. Manche Apps fügen dem Schnellmenü eine Ein/Aus-Taste hinzu (ZURÜCK gedrückt halten).</string>
     <string name="ext_off_blocked">Von Sofaly ausgeschaltet: Dieses Plugin hat ein bekanntes Problem.</string>
+    <string name="ext_secao_widgets">Widgets anderer Apps</string>
+    <string name="ext_widget_nenhum">Noch keine App auf diesem Fernseher hat ein Widget.</string>
+    <string name="ext_widget_sem_permissao">Der Fernseher hat Sofaly keine Widgets erlaubt.</string>
+    <string name="ext_widget_falhou">Dieses Widget konnte nicht hinzugefügt werden.</string>
 </resources>

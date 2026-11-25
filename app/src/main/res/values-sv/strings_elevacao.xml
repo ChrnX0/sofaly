@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Spelar alla filer; rätt undertexter utan krångel</string>
     <string name="elv_prom_casa">Larmet ringer i tid, varje gång</string>
     <string name="elv_prom_controle">Panelen, telefonen och AI gör allt som fjärrkontrollen gör</string>
-    <string name="elv_prom_todos">Äldre, barn, gäster, nedsatt syn eller hörsel; 14 språk</string>
+    <string name="elv_prom_todos">Äldre, barn, gäster, nedsatt syn eller hörsel; %1$d språk</string>
     <string name="elv_prom_instala">Från första start till första kanalen på 5 minuter</string>
     <string name="elv_nao_medido">Inte mätt än</string>
     <string name="elv_alvo">mål %1$s</string>

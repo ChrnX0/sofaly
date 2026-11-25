@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Lit n\'importe quel fichier ; les bons sous-titres sans rien régler</string>
     <string name="elv_prom_casa">Le réveil sonne à l\'heure, à chaque fois</string>
     <string name="elv_prom_controle">Le panneau, le téléphone et l\'IA font tout ce que fait la télécommande</string>
-    <string name="elv_prom_todos">Personnes âgées, enfants, invités, malvoyants ou malentendants ; 14 langues</string>
+    <string name="elv_prom_todos">Personnes âgées, enfants, invités, malvoyants ou malentendants ; %1$d langues</string>
     <string name="elv_prom_instala">Du premier lancement à la première chaîne en 5 minutes</string>
     <string name="elv_nao_medido">Pas encore mesuré</string>
     <string name="elv_alvo">objectif %1$s</string>

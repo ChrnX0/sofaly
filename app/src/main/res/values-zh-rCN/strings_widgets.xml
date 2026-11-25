@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wdg_titulo">编辑主屏幕小部件</string>
+    <string name="wdg_det">主屏幕上其他应用的实时小部件。方向键移动,OK 显示选项。</string>
+    <string name="wdg_vazio">主屏幕上还没有小部件。按 OK 添加一个。</string>
+    <string name="wdg_estado_mover">正在移动:%1$s</string>
+    <string name="wdg_estado_tamanho">大小:%1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">移动</string>
+    <string name="wdg_tamanho">更改大小</string>
+    <string name="wdg_ajustes">小部件设置</string>
+    <string name="wdg_proximo">下一个小部件</string>
+    <string name="wdg_por">添加小部件</string>
+    <string name="wdg_tirar">移除此小部件</string>
+    <string name="wdg_abrir">打开应用</string>
+    <string name="wdg_cheio">没有空间放这个小部件了。</string>
+    <string name="wdg_d_setas">移动 / 大小</string>
+    <string name="wdg_d_opcoes">选项</string>
+    <string name="wdg_d_voltar">返回</string>
+    <string name="wdg_d_sair">保存并退出</string>
+</resources>

@@ -8,11 +8,13 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import br.paulo.tvlauncher.home.PacoteIcones
+import br.paulo.tvlauncher.home.PluginWidgetsTv
 import br.paulo.tvlauncher.panel.QrCodigo
 import br.paulo.tvlauncher.player.LojaCurada
 import br.paulo.tvlauncher.screensaver.PluginCartao
 import br.paulo.tvlauncher.screensaver.PluginCatalog
 import br.paulo.tvlauncher.screensaver.PluginTile
+import br.paulo.tvlauncher.screensaver.PluginWidget
 import br.paulo.tvlauncher.screensaver.WallpaperPlugins
 import br.paulo.tvlauncher.screensaver.ExtensionHealth
 import br.paulo.tvlauncher.settings.Planos
@@ -62,6 +64,7 @@ object PluginsTv {
         for (pac in ExtensionHealth.definirBloqueados(ctx, lista)) {
             definir(ctx, pac, false)
             PluginTilesTv.definir(ctx, pac, false)
+            PluginWidgetsTv.removerPacote(ctx, pac)
             WallpaperPlugins.escolhido(ctx)?.takeIf { it.pacote == pac }?.let { WallpaperPlugins.parar(ctx, it) }
             if (PacoteIcones.escolhido(ctx) == pac) PacoteIcones.escolher(ctx, "")
             runCatching { br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "sofy", "plugin desligado pela Sofaly (problema conhecido)", "ok") }
@@ -346,6 +349,16 @@ class PluginsActivity : Activity() {
                         android.widget.Toast.makeText(this@PluginsActivity, getString(R.string.plg_limite, PluginTile.MAX), android.widget.Toast.LENGTH_LONG).show()
                     pintar()
                 }
+            }, Estilo.lpLinha(this))
+        }
+
+        // ---- Widgets de outros apps (PluginWidgetsTv, 24/11/2026): vivos na HOME; o modo de edição põe, move e tira.
+        if (PluginWidgetsTv.existe(this)) {
+            coluna.addView(Estilo.secao(this, getString(R.string.ext_secao_widgets)).apply { setPaddingRelative(0, Estilo.dp(context, 24), 0, 0) })
+            val n = PluginWidgetsTv.escolhidos(this).size
+            coluna.addView(Estilo.linhaOpcao(this, getString(R.string.wdg_titulo), getString(R.string.wdg_det),
+                Estilo.valor(this, "$n / ${PluginWidget.MAX}")).apply {
+                setOnClickListener { if (pro()) startActivity(Intent(this@PluginsActivity, WidgetLayoutActivity::class.java)) }
             }, Estilo.lpLinha(this))
         }
 

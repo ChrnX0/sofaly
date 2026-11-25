@@ -16,7 +16,7 @@
     <string name="elv_prom_player">يشغّل أي ملف؛ الترجمة الصحيحة دون عبث</string>
     <string name="elv_prom_casa">المنبّه يرنّ في وقته، كل مرة</string>
     <string name="elv_prom_controle">اللوحة والهاتف والذكاء الاصطناعي تفعل كل ما يفعله جهاز التحكم</string>
-    <string name="elv_prom_todos">كبار السن والأطفال والضيوف وضعاف البصر أو السمع؛ 14 لغة</string>
+    <string name="elv_prom_todos">كبار السن والأطفال والضيوف وضعاف البصر أو السمع؛ %1$d لغة</string>
     <string name="elv_prom_instala">من أول تشغيل إلى أول قناة في 5 دقائق</string>
     <string name="elv_nao_medido">لم يُقَس بعد</string>
     <string name="elv_alvo">الهدف %1$s</string>

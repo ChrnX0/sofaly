@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 72 (14/11/2026): o que a TV mostra antes de executar uma ação do catálogo (ComandosIa), no idioma da TV. -->
+<resources>
+    
+    <string name="l72_abrir">Mở %1$s</string>
+    <string name="l72_tela_previsao">dự báo thời tiết</string>
+    <string name="l72_tela_agenda">lịch</string>
+    <string name="l72_tela_despertador">đồng hồ báo thức</string>
+    <string name="l72_tela_configuracoes">Cài đặt launcher</string>
+    <string name="l72_tela_inicio">màn hình chính</string>
+    <string name="l72_despertador">Tạo báo thức lúc %1$s (%2$s)</string>
+    <string name="l72_dias_uma">một lần</string>
+    <string name="l72_dias_todos">mỗi ngày</string>
+    <string name="l72_dias_uteis">T2 đến T6</string>
+    <string name="l72_dias_fds">cuối tuần</string>
+    <string name="l72_dias_nomes">CN,T2,T3,T4,T5,T6,T7</string>
+    <string name="l72_vol_subir">Tăng âm lượng</string>
+    <string name="l72_vol_descer">Giảm âm lượng</string>
+    <string name="l72_vol_mudo">Tắt/bật tiếng</string>
+    <string name="l72_vezes">(%1$d lần)</string>
+    <string name="l72_midia_pausar">Tạm dừng</string>
+    <string name="l72_midia_tocar">Tiếp tục phát</string>
+    <string name="l72_midia_proxima">Tiếp</string>
+    <string name="l72_midia_anterior">Trước</string>
+    <string name="l72_visita_liga">Bật chế độ khách</string>
+    <string name="l72_visita_desliga">Tắt chế độ khách</string>
+    <string name="l72_canal_pedido">Chuyển sang kênh %1$s</string>
+    <string name="l72_canal">Chuyển sang kênh %1$d (%2$s)</string>
+    <string name="l72_o_que_passa">Xem %1$s đang chiếu gì</string>
+    <string name="l72_casa_ligar">Bật</string>
+    <string name="l72_casa_desligar">Tắt</string>
+    <string name="l72_casa_alternar">Bật/tắt</string>
+    <string name="l72_casa">%1$s %2$s (nhà)</string>
+    <string name="l72_guia_vazio">%1$s: không có gì trong lịch phát sóng.</string>
+    <string name="l72_guia_agora">%1$s đang chiếu: %2$s (đến %3$s)</string>
+    <string name="l72_guia_nada_agora">%1$s: hiện không có gì trong lịch phát sóng</string>
+    <string name="l72_guia_depois">Tiếp theo: %1$s (%2$s)</string>
+    <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
+    <string name="l75_pilula">Đang phát: %1$s, %2$s. OK để tạm dừng hoặc tiếp tục; giữ OK để mở ứng dụng</string>
+</resources>

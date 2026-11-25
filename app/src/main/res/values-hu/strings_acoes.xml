@@ -77,4 +77,6 @@
     <string name="ev_tv_ligou">A TV bekapcsolt</string>
     <string name="ev_todos_sairam">Mindenki elment (jelenlét)</string>
     <string name="ev_chuva">Eső közeleg</string>
+    <string name="acao_plugin_button">„%1$s” megnyomása (gomb egy másik alkalmazásból)</string>
+    <string name="acao_plugin_button_off">Ez a gomb nincs bekapcsolva a Bővítményekben</string>
 </resources>

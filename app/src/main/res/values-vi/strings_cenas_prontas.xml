@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cenas prontas sem voz (degrau 3, CenasProntas.kt). -->
+<resources>
+    <string name="cpr_secao">Cảnh có sẵn</string>
+    <string name="cpr_dormir">Ngủ</string>
+    <string name="cpr_dormir_det">Bộ lọc ban đêm, giảm âm lượng, TV tắt sau 30 phút</string>
+    <string name="cpr_novela">Phim truyền hình</string>
+    <string name="cpr_novela_det">Kênh của bạn, màu bình thường</string>
+    <string name="cpr_jogo">Trận đấu</string>
+    <string name="cpr_jogo_det">Kênh thể thao của bạn, to hơn</string>
+    <string name="cpr_canal">Kênh nào cho “%1$s”?</string>
+    <string name="cpr_canal_dica">Tên hoặc số kênh</string>
+</resources>

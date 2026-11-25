@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">คำตอบเดียวจะตั้งค่าเมนูและหน้าจอ เปลี่ยนได้ภายหลังใน การตั้งค่า › ระบบ</string>
+    <string name="pp_casa">สำหรับทั้งบ้าน</string>
+    <string name="pp_vo_det">การ์ดใหญ่ อ่านชื่อออกเสียง และตัวอักษรใหญ่ขึ้น และคุณช่วยได้จากโทรศัพท์แม้อยู่ไกล</string>
+</resources>

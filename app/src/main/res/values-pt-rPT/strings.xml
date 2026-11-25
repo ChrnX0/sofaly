@@ -948,4 +948,6 @@ AS\\Filmes).</string>
     <string name="lg_ritmo">demasiados inícios de sessão seguidos; aguarde um minuto</string>
     <string name="lg_recusou">o Google recusou (%1$s): confira o id e o segredo do cliente</string>
     <string name="lg_erro_google">erro ao falar com o Google</string>
+    <string name="atu_migracao_disponivel">versão %1$d: pronta para passar esta TV para a nova app (tv.sofaly.launcher)</string>
+    <string name="atu_migracao_instalando">a instalar a nova app (%1$d); depois ela assume esta TV com todas as definições</string>
 </resources>

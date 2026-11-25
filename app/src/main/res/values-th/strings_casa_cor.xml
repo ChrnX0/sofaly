@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideia 50 do estudo (14/11/2026): cor e temperatura da luz na tela Casa (▲ ▼ no ajuste da luz). -->
+<resources>
+    <string name="casa_dica_brilho_cor">ความสว่างและสี</string>
+    <string name="casa_brilho_ajuste_cor">ความสว่าง %1$d%% · ◀ ▶ · สี ▲ ▼</string>
+    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_cor_quente">ขาวอบอุ่น</string>
+    <string name="casa_cor_neutra">ขาวกลาง</string>
+    <string name="casa_cor_fria">ขาวเย็น</string>
+    <string name="casa_cor_vermelho">แดง</string>
+    <string name="casa_cor_laranja">ส้ม</string>
+    <string name="casa_cor_amarelo">เหลือง</string>
+    <string name="casa_cor_verde">เขียว</string>
+    <string name="casa_cor_azul">น้ำเงิน</string>
+    <string name="casa_cor_roxo">ม่วง</string>
+    <string name="casa_cor_rosa">ชมพู</string>
+</resources>

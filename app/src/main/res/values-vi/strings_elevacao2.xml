@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação, onda 2 (17/11/2026): vitrine (acessibilidade, árabe, catálogo, biblioteca). -->
+<resources>
+    <!-- 16.3 alto contraste -->
+    <string name="elv_ac_titulo">Tương phản cao</string>
+    <string name="elv_ac_det">Chữ sáng hơn và viền rõ hơn trên mọi màn hình (ít nhất 7:1)</string>
+    <!-- 16.2 audiodescrição e legenda para surdos -->
+    <string name="elv_ad_titulo">Mô tả âm thanh</string>
+    <string name="elv_ad_det">Chọn bản âm thanh mô tả cảnh mỗi khi có</string>
+    <string name="elv_sdh_titulo">Phụ đề cho người khiếm thính</string>
+    <string name="elv_sdh_det">Luôn hiện phụ đề có mô tả âm thanh ([cửa đóng sầm]) theo ngôn ngữ của TV, kể cả khi lồng tiếng</string>
+
+    <!-- Elevação 8.2: a pasta vira catálogo -->
+    <string name="elv_cat_titulo">Áp phích và tóm tắt cho video</string>
+    <string name="elv_cat_explica">Chỉ có tên được gửi đến TMDB, không bao giờ gửi thư mục hay máy chủ</string>
+    <string name="elv_cat_ligado">Bật</string>
+    <string name="elv_cat_desligado">Tắt</string>
+    <string name="elv_cat_ep">%1$s · S%2$d E%3$d</string>
+    <string name="pod_temp_ep">S%1$d E%2$d</string>
+    <string name="elv_cat_so_ep">%1$s · Tập %2$d</string>
+    <string name="elv_cat_temporada">%1$s · Mùa %2$d</string>
+    <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
+    <string name="elv_cat_n_temporadas">Số mùa: %d</string>
+    <string name="elv_cat_procurando">Đang tìm áp phích…</string>
+    <string name="elv_cat_nada">Không tìm thấy gì trên TMDB. Giữ OK để nhập đúng tên.</string>
+    <string name="elv_cat_corrigir_titulo">Sửa: %s</string>
+    <string name="elv_cat_corrigir_explica">Sai áp phích hoặc tóm tắt? Yêu cầu kết quả tiếp theo, hoặc nhập đúng tên và năm. Để trống tên sẽ trở về tự động.</string>
+    <string name="elv_cat_nao_e">Không phải phim này</string>
+    <string name="elv_cat_escrever">Nhập tên</string>
+    <string name="elv_cat_campo">Tên và năm, ví dụ Dune 2021</string>
+    <string name="elv_cat_salvar">Lưu</string>
+    <string name="elv_cat_dica">sửa</string>
+
+    <!-- Elevação 7.1: biblioteca única (de onde vem cada fonte) -->
+    <string name="elv_bib_lista">Danh sách</string>
+    <string name="elv_bib_pasta">Thư mục</string>
+    <string name="elv_bib_servidor">Máy chủ</string>
+    <string name="elv_bib_nuvem">Đám mây</string>
+    <string name="elv_bib_addon">Add-on</string>
+</resources>

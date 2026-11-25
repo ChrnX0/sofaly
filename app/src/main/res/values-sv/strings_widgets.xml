@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
+<resources>
+    <string name="wdg_titulo">Redigera widgetar på hemskärmen</string>
+    <string name="wdg_det">Levande widgetar från andra appar på hemskärmen. Pilarna flyttar, OK visar alternativ.</string>
+    <string name="wdg_vazio">Ingen widget på hemskärmen än. OK lägger till en.</string>
+    <string name="wdg_estado_mover">Flyttar: %1$s</string>
+    <string name="wdg_estado_tamanho">Storlek: %1$s · %2$d × %3$d</string>
+    <string name="wdg_mover">Flytta</string>
+    <string name="wdg_tamanho">Ändra storlek</string>
+    <string name="wdg_ajustes">Widgetinställningar</string>
+    <string name="wdg_proximo">Nästa widget</string>
+    <string name="wdg_por">Lägg till widget</string>
+    <string name="wdg_tirar">Ta bort widgeten</string>
+    <string name="wdg_abrir">Öppna appen</string>
+    <string name="wdg_cheio">Ingen plats kvar för den här widgeten.</string>
+    <string name="wdg_d_setas">flytta / storlek</string>
+    <string name="wdg_d_opcoes">alternativ</string>
+    <string name="wdg_d_voltar">TILLBAKA</string>
+    <string name="wdg_d_sair">spara och stäng</string>
+</resources>

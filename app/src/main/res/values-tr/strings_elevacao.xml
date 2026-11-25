@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Her dosyayı oynatır; uğraşmadan doğru altyazı</string>
     <string name="elv_prom_casa">Çalar saat her seferinde zamanında çalar</string>
     <string name="elv_prom_controle">Panel, telefon ve yapay zekâ kumandanın yaptığı her şeyi yapar</string>
-    <string name="elv_prom_todos">Yaşlılar, çocuklar, misafirler, az gören veya az duyanlar; 14 dil</string>
+    <string name="elv_prom_todos">Yaşlılar, çocuklar, misafirler, az gören veya az duyanlar; %1$d dil</string>
     <string name="elv_prom_instala">İlk açılıştan ilk kanala 5 dakikada</string>
     <string name="elv_nao_medido">Henüz ölçülmedi</string>
     <string name="elv_alvo">hedef %1$s</string>

@@ -1,0 +1,992 @@
+{
+  "lang": "vi",
+  "path": "vi",
+  "label": "Tiếng Việt",
+  "ui": {
+    "nav_features": "Tính năng",
+    "nav_plans": "Gói",
+    "nav_developers": "Nhà phát triển",
+    "nav_help": "Trợ giúp",
+    "cta_get": "Sắp có trên Google Play",
+    "cta_see": "Xem mọi thứ nó làm được",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "từ",
+    "how": "Cách dùng",
+    "skip": "Chuyển đến nội dung",
+    "language": "Ngôn ngữ",
+    "back_top": "Lên đầu trang",
+    "footer_tagline": "Màn hình chính cho Google TV và Android TV.",
+    "footer_privacy": "Quyền riêng tư",
+    "footer_terms": "Điều khoản",
+    "footer_compat": "Có chạy trên thiết bị của bạn không?",
+    "footer_trademark": "Sofaly không liên kết với Google. Google TV, Android TV và Chromecast là nhãn hiệu của Google LLC.",
+    "of": "trên"
+  },
+  "home": {
+    "title": "Sofaly · TV của bạn, đơn giản trở lại",
+    "description": "Sofaly là màn hình chính cho Google TV và Android TV: mọi thứ được sắp xếp thành hình chữ thập (Xem, Nghe, Chơi, Ứng dụng), chữ lớn và không quảng cáo.",
+    "eyebrow": "Màn hình chính cho Google TV và Android TV",
+    "h1": "TV của bạn, đơn giản trở lại.",
+    "lead": "Sofaly thay màn hình chính của TV bằng một hình chữ thập gọn gàng: Xem, Nghe, Chơi và Ứng dụng, chữ lớn và không quảng cáo. Nó còn trông nhà, đánh thức bạn và nói chuyện với điện thoại của bạn.",
+    "hero_note": "Không cần tài khoản, không quảng cáo, không theo dõi những gì bạn xem.",
+    "cross_title": "Một màn hình, bốn hướng đi",
+    "cross_lead": "◀ ▶ chọn một thế giới. ▲ ▼ duyệt những gì bên trong. Chỉ vậy thôi, và ai trong nhà cũng học được trong một phút.",
+    "worlds": {
+      "continue": [
+        "Xem tiếp",
+        "Quay lại chỗ bạn đã dừng: tập phim, đài radio, podcast hay ứng dụng."
+      ],
+      "watch": [
+        "Xem",
+        "Các ứng dụng video, phim từ máy tính hoặc ổ USB, và một trình phát phát được mọi thứ."
+      ],
+      "listen": [
+        "Nghe",
+        "Đài radio từ khắp thế giới và podcast, với trình phát toàn màn hình và hẹn giờ ngủ."
+      ],
+      "play": [
+        "Chơi",
+        "Game đám mây, game PC và game retro ở cùng một chỗ, tay cầm đã được ghép nối sẵn."
+      ],
+      "apps": [
+        "Ứng dụng",
+        "8 ứng dụng bạn dùng nhiều nhất ở phía trước, và mọi ứng dụng khác chỉ cách một lần nhấn."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Có mây rải rác",
+      "day": "Thứ Tư",
+      "date": "18 tháng 11",
+      "watch_items": [
+        "Phim",
+        "Phim bộ",
+        "Trên mạng",
+        "YouTube"
+      ],
+      "watch_title": "Trên mạng",
+      "watch_detail": "Phim từ máy tính của bạn · 214 tựa",
+      "listen_items": [
+        "Radio",
+        "Podcast",
+        "Đang phát"
+      ],
+      "listen_title": "Radio",
+      "listen_detail": "Đài từ khắp thế giới, theo tên hoặc quốc gia",
+      "play_items": [
+        "Đám mây",
+        "Từ PC",
+        "Retro",
+        "Hội bạn"
+      ],
+      "play_title": "Trò chơi",
+      "play_detail": "3 game đám mây · tay cầm đã kết nối",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Tất cả ứng dụng"
+      ],
+      "apps_title": "Ứng dụng",
+      "apps_detail": "8 ứng dụng bạn dùng nhiều nhất",
+      "continue_items": [
+        "Tập 4",
+        "Radio",
+        "Podcast"
+      ],
+      "continue_title": "Xem tiếp",
+      "continue_detail": "Dừng ở tập 4 · còn 21 phút"
+    },
+    "why_title": "Vì sao nên thay màn hình chính của Google",
+    "why_lead": "Màn hình chính đi kèm TV được làm ra để bán hàng. Sofaly được làm ra để gia đình bạn sử dụng.",
+    "why_rows": [
+      [
+        "Quảng cáo trên màn hình chính",
+        "Có: đề xuất được tài trợ và quảng cáo",
+        "Không bao giờ"
+      ],
+      [
+        "Chữ lớn trên mọi màn hình",
+        "Không",
+        "Bình thường, Lớn hoặc Rất lớn"
+      ],
+      [
+        "Báo thức tự bật TV",
+        "Không",
+        "Tự bật, tăng âm lượng từ từ và chào buổi sáng"
+      ],
+      [
+        "Radio và podcast trên màn hình chính",
+        "Chỉ qua ứng dụng",
+        "Trong một thế giới riêng, Nghe"
+      ],
+      [
+        "Phim từ máy tính hoặc NAS",
+        "Chỉ qua ứng dụng",
+        "Trên mạng, có áp phích và xem tiếp"
+      ],
+      [
+        "Điều khiển từ bất kỳ điện thoại nào trong nhà",
+        "Điều khiển cơ bản",
+        "Bảng điều khiển đầy đủ, bảo vệ bằng PIN"
+      ],
+      [
+        "Hồ sơ trẻ em và giờ đi ngủ",
+        "Hạn chế",
+        "Ứng dụng được phép, giới hạn âm lượng và PIN để thoát"
+      ],
+      [
+        "Sao lưu thiết lập của bạn",
+        "Không",
+        "Mỗi đêm, khóa bằng mật khẩu"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Màn hình chính Google TV",
+      "Sofaly"
+    ],
+    "why_source": "Quảng cáo trên màn hình chính Google TV: Android Authority, tháng 4 năm 2026.",
+    "highlights_title": "Làm cho cả nhà",
+    "highlights": [
+      [
+        "access",
+        "Cả ông bà cũng dùng được",
+        "Chữ lớn, chế độ đơn giản đọc tên ứng dụng, độ tương phản cao và trình đọc màn hình. Bằng 27 ngôn ngữ."
+      ],
+      [
+        "alarm",
+        "Thức dậy cùng bạn",
+        "Báo thức tự bật TV, tăng âm lượng từ từ và mở Chào buổi sáng: giờ, thời tiết và lịch hẹn."
+      ],
+      [
+        "house",
+        "Trông nhà",
+        "Đèn, cảnh và chuông cửa Home Assistant trên TV. Tự đi ngủ khi mọi người đã ra ngoài."
+      ],
+      [
+        "phone",
+        "Nói chuyện với điện thoại",
+        "Điều khiển, gõ chữ và gửi tin nhắn từ bất kỳ điện thoại hay máy tính nào trong nhà, bảo vệ bằng PIN."
+      ],
+      [
+        "sun",
+        "Thời tiết chính xác",
+        "Thời tiết hiện tại lấy từ sân bay gần nhất: đo thật, không đoán. Dự báo 9 ngày chỉ với một lần OK."
+      ],
+      [
+        "lock",
+        "Tự chăm sóc mình",
+        "Bản sao lưu được khóa mỗi đêm, bảo trì trong lúc bạn ngủ và chẩn đoán giải thích điều gì đã trục trặc."
+      ]
+    ],
+    "chapters_title": "Mọi thứ nó làm, sắp xếp đúng như cách nó vận hành",
+    "chapters_lead": "Hơn 80 tính năng. Chọn một thế giới để xem giải thích từng tính năng.",
+    "privacy_title": "Những gì của bạn ở lại trong nhà",
+    "privacy_text": "Sofaly không đòi tài khoản, không hiện quảng cáo và không theo dõi những gì bạn xem. Cài đặt, ảnh, tin nhắn và bản sao lưu ở lại trên TV, hoặc trong tài khoản của bạn nếu bạn kết nối. TV chỉ nói chuyện với các dịch vụ bạn bật, và chính sách quyền riêng tư liệt kê từng dịch vụ.",
+    "privacy_link": "Đọc chính sách quyền riêng tư",
+    "dev_title": "Có ứng dụng? Đưa nó lên màn hình chính.",
+    "dev_text": "Sofaly đã có sẵn các thẻ (mặt trăng, tỷ giá, đếm ngược, lời nhắc). Plugin là ứng dụng Android TV của chính bạn gửi thêm một thẻ lên màn hình chính: đơn giao hàng, chuyến xe buýt sắp đến, thông báo của tòa nhà. Không SDK, không phí, và ứng dụng vẫn là của bạn.",
+    "dev_link": "Tìm hiểu bộ công cụ cho nhà phát triển",
+    "plans_title": "Bắt đầu miễn phí. Nâng cấp khi bạn muốn.",
+    "plans_text": "Basic đã có đầy đủ màn hình chính, trình phát, Nghe, Chơi, báo thức và trình bảo vệ màn hình. Pro và Ultra thêm điện thoại, ngôi nhà và gia đình.",
+    "plans_link": "So sánh các gói",
+    "faq_title": "Câu hỏi nhanh",
+    "faq": [
+      [
+        "Có chạy trên TV của tôi không?",
+        "Chạy trên Google TV và Android TV, như Chromecast với Google TV, TV có Google TV và các hộp Android TV. Trang tương thích liệt kê các thiết bị đã thử."
+      ],
+      [
+        "Tôi có cần máy tính để cài không?",
+        "Không. Cài từ Google Play ngay trên TV và làm theo các bước bằng điều khiển."
+      ],
+      [
+        "Ứng dụng của tôi có còn không?",
+        "Còn tất cả. Sofaly chỉ thay màn hình chính: Netflix, YouTube, Prime Video và các ứng dụng khác vẫn mở như mọi khi, và nút micro vẫn là Google Assistant."
+      ],
+      [
+        "Có quảng cáo không?",
+        "Không, kể cả ở gói miễn phí. Sofaly không bán quảng cáo và không theo dõi những gì bạn xem."
+      ],
+      [
+        "Có kèm kênh hay phim không?",
+        "Không. Sofaly sắp xếp những gì vốn đã là của bạn: ứng dụng, tệp của bạn, cùng các đài radio và podcast mở."
+      ],
+      [
+        "Nếu tôi muốn quay lại màn hình chính của Google thì sao?",
+        "Chỉ cần chọn lại màn hình chính của Google trong cài đặt của TV. Không có gì của bạn bị xóa."
+      ]
+    ],
+    "final_title": "TV của bạn, đơn giản trở lại.",
+    "final_text": "Cài đặt, nhấn HOME và cả nhà đều dùng được."
+  },
+  "features_page": {
+    "title": "Mọi thứ Sofaly làm được",
+    "description": "Giải thích mọi tính năng của Sofaly: màn hình chính hình chữ thập, Xem, Nghe, Chơi, ngôi nhà, thời tiết, gia đình, điện thoại và quyền riêng tư.",
+    "h1": "Mọi thứ Sofaly làm được",
+    "lead": "Sắp xếp giống màn hình TV: từng thế giới một. Nhãn của mỗi tính năng cho biết nó có từ gói nào.",
+    "index": "Các thế giới"
+  },
+  "chapters": {
+    "home": [
+      "Hình chữ thập",
+      "Một màn hình gọn gàng ai cũng hiểu, sắp xếp theo ý bạn."
+    ],
+    "watch": [
+      "Xem",
+      "Phim, phim bộ của bạn và một trình phát chuẩn rạp tại gia."
+    ],
+    "listen": [
+      "Nghe",
+      "Radio và podcast được chăm chút như video."
+    ],
+    "play": [
+      "Chơi",
+      "Mọi trò chơi của bạn ở một chỗ, sẵn sàng cho tay cầm."
+    ],
+    "apps": [
+      "Ứng dụng",
+      "Ứng dụng của bạn theo thứ tự hợp lý."
+    ],
+    "house": [
+      "Ngôi nhà",
+      "Báo thức, hẹn giờ, tự động hóa và nhà thông minh."
+    ],
+    "sky": [
+      "Thời tiết và trình bảo vệ màn hình",
+      "Thời tiết chính xác và trình bảo vệ màn hình đáng để luôn bật."
+    ],
+    "family": [
+      "Gia đình",
+      "Hồ sơ cho mỗi người, chăm sóc cho trẻ em và đón tiếp khách chu đáo."
+    ],
+    "phone": [
+      "Điện thoại và máy tính",
+      "TV nói chuyện với các thiết bị trong nhà."
+    ],
+    "care": [
+      "Tự chăm sóc mình",
+      "Sao lưu, bảo trì và chẩn đoán mà bạn không cần nhớ."
+    ],
+    "everyone": [
+      "Cho mọi người",
+      "Dành cho những người nhìn, nghe hoặc dùng điều khiển theo những cách khác nhau."
+    ],
+    "privacy": [
+      "Quyền riêng tư",
+      "Không quảng cáo, không theo dõi, và có PIN ở những chỗ quan trọng."
+    ]
+  },
+  "features": {
+    "cross": [
+      "Hình chữ thập",
+      "Xem tiếp, Xem, Nghe, Chơi và Ứng dụng trên một hàng. Thế giới bạn chọn sẽ phóng to, với nội dung bên trong ngay bên dưới.",
+      "◀ ▶ đổi thế giới, ▲ ▼ đi xuống cột, OK để mở."
+    ],
+    "continue": [
+      "Xem tiếp",
+      "Một chỗ để quay lại việc bạn đang làm: tập phim, đài radio, podcast hay ứng dụng gần nhất.",
+      "Đây là mục đầu tiên của hình chữ thập."
+    ],
+    "topbar": [
+      "Thanh trên cùng",
+      "Tìm kiếm, giọng nói, thời tiết trong một dòng và đồng hồ, luôn ở cùng một chỗ. Nó thu gọn khi bạn duyệt để màn hình thoáng hơn.",
+      "Đi lên bằng ▲."
+    ],
+    "quick-panel": [
+      "Bảng nhanh",
+      "Wi-Fi, Bluetooth, hẹn giờ ngủ, đầu ra âm thanh, báo thức, hồ sơ, thông báo và danh sách mua sắm, từ bất kỳ ứng dụng nào.",
+      "Giữ BACK."
+    ],
+    "remote": [
+      "Điều khiển của bạn, luật của bạn",
+      "HOME luôn quay về Sofaly. Giữ BACK mở bảng nhanh, giữ HOME mở Ngôi nhà, và giữ OK trên một ứng dụng mở menu của nó.",
+      "Công cụ kiểm tra phím hiển thị mọi nút mà TV nhận được."
+    ],
+    "now-playing": [
+      "Đang phát",
+      "Một ô nhỏ ở trên cùng với ảnh bìa và tên của nội dung đang phát. OK để tạm dừng hoặc tiếp tục, giữ OK để mở ứng dụng.",
+      "Bật trong Màn hình chính › Thêm tùy chọn."
+    ],
+    "themes": [
+      "Giao diện và hình nền",
+      "Tối, với ảnh của mục đang chọn. Thư viện ảnh, với một bức tranh của The Met mỗi ngày. Bầu trời, với vệ tinh và bản đồ. Hoặc hình nền của riêng bạn, ảnh hay video. Hình nền từ plugin cũng dùng được, như cảnh quay trên không của Overflight.",
+      "Tối, Thư viện ảnh và Bầu trời trong Basic; các giao diện khác trong Pro."
+    ],
+    "icons": [
+      "Biểu tượng bạn thích",
+      "Dùng gói biểu tượng từ Play hoặc đổi biểu tượng của từng ứng dụng, từng cái một.",
+      "Giữ OK trên ứng dụng › Đổi biểu tượng."
+    ],
+    "card-moon": [
+      "Tuần trăng",
+      "Mặt trăng đêm nay và phần được chiếu sáng, tính ngay trên TV, không cần internet.",
+      "Trong dự báo, trên trình bảo vệ màn hình và trên biểu tượng thời tiết vào ban đêm. Cài đặt › Giao diện."
+    ],
+    "card-countdown": [
+      "Đếm ngược",
+      "Còn bao nhiêu ngày đến ngày bạn chọn, hoặc đến ngày lễ tiếp theo.",
+      "Trong ô nhỏ ở đầu màn hình. Cài đặt › Giao diện."
+    ],
+    "card-reminder": [
+      "Lời nhắc việc nhà",
+      "Một ghi chú lặp lại vào các ngày trong tuần bạn chọn: ngày đổ rác tái chế, uống thuốc, một lớp học.",
+      "Trong ô nhỏ ở đầu màn hình. Cài đặt › Giao diện."
+    ],
+    "card-status": [
+      "Trạng thái dịch vụ của bạn",
+      "TV kiểm tra một địa chỉ bạn cung cấp và cho biết nó có hoạt động không: máy chủ tại nhà, trang web của cửa hàng.",
+      "Trong ô nhỏ ở đầu màn hình. Cài đặt › Giao diện."
+    ],
+    "card-rates": [
+      "Tỷ giá hôm nay",
+      "Tiền tệ, bitcoin và ether theo giá hôm nay, từ các nguồn chính thức mở.",
+      "Bên cạnh thời tiết, trên thanh trên cùng. Cài đặt › Giao diện."
+    ],
+    "card-match": [
+      "Trận đấu tiếp theo của đội bạn",
+      "Khi nào và gặp ai trong trận tiếp theo của đội bạn, trên một thẻ ở màn hình chính.",
+      "Trong mục TV của hình chữ thập. Cài đặt › Giao diện."
+    ],
+    "plugin-cards": [
+      "Thẻ từ ứng dụng khác",
+      "Ngoài các thẻ của Sofaly, ứng dụng đối tác đưa thẻ của họ lên màn hình chính: đơn giao hàng, xe buýt, thông báo của tòa nhà.",
+      "Các thẻ hiện ở cuối Xem."
+    ],
+    "network-library": [
+      "Từ máy tính",
+      "Video, nhạc và ảnh từ Plex, Jellyfin, Emby, thư mục trên PC hoặc NAS (SMB, WebDAV, FTP, SFTP, NFS), OneDrive, Dropbox, Box, Google Drive, UPnP và ổ USB.",
+      "Máy chủ đang bật và ổ USB tự hiện ra; những nguồn khác thêm trong mục Thêm."
+    ],
+    "player": [
+      "Trình phát phát được mọi thứ",
+      "Âm thanh Dolby (AC3, E-AC3), DTS và TrueHD, cùng phụ đề Blu-ray, DVD và anime, không cần cài Kodi hay VLC.",
+      "Nhấn ▼ khi đang xem video để chọn âm thanh, phụ đề và cỡ phụ đề."
+    ],
+    "resume": [
+      "Xem tiếp từ chỗ bạn dừng",
+      "Phim và tập phim quay lại đúng chỗ. Tập tiếp theo bắt đầu sau 10 giây, và sau 3 tập liền TV sẽ hỏi bạn còn đang xem không.",
+      "Tự hoạt động."
+    ],
+    "skip-intro": [
+      "Bỏ qua đoạn mở đầu",
+      "Khi biết đoạn mở đầu của phim bộ, “Bỏ qua mở đầu · OK” sẽ hiện ra. Bạn cũng có thể đánh dấu đoạn mở đầu một lần và TV sẽ ghi nhớ.",
+      "Bật sẵn ngay từ đầu."
+    ],
+    "audio-subtitles": [
+      "Âm thanh và phụ đề ưu tiên",
+      "Bản gốc có phụ đề hoặc lồng tiếng, chọn một lần và được ghi nhớ theo từng tựa. Phụ đề từ internet khi tệp không có.",
+      "TV và phim › Âm thanh và phụ đề."
+    ],
+    "easy-viewing": [
+      "Nhìn và nghe rõ hơn",
+      "Phụ đề trên nền đen hoặc màu vàng, “Giọng rõ hơn” làm nổi lời thoại, và “Âm lượng đều” giảm phim quá ồn và tăng phim quá nhỏ.",
+      "Trong menu ▼ của trình phát."
+    ],
+    "auto-subtitles": [
+      "Phụ đề tự động",
+      "Khi không có phụ đề bằng ngôn ngữ của bạn, TV sẽ dịch phụ đề đang có.",
+      "Chọn trong menu phụ đề của trình phát."
+    ],
+    "movie-pages": [
+      "Trang phim đầy đủ",
+      "Áp phích, điểm đánh giá, diễn viên, trailer, phân loại độ tuổi và bộ sưu tập của phim trên một trang đẹp, chữ lớn. Có “Diễn viên đó là ai?”: ảnh, vai diễn và các tác phẩm khác.",
+      "OK trên một phim hoặc phim bộ."
+    ],
+    "lists": [
+      "Danh sách Trakt và Simkl của bạn",
+      "Những gì bạn muốn xem và đã xem, đồng bộ với tài khoản và các thiết bị khác của bạn.",
+      "Đăng nhập bằng QR trong TV và phim › Dịch vụ."
+    ],
+    "search": [
+      "Một ô tìm kiếm cho mọi thứ",
+      "Tìm phim, phim bộ, đài radio và ứng dụng cùng lúc, và chuyển cùng từ khóa sang YouTube, Netflix hoặc Prime Video.",
+      "Trên thanh trên cùng, hoặc bằng giọng nói."
+    ],
+    "radio": [
+      "Radio từ khắp thế giới",
+      "Hàng nghìn đài radio mở, theo tên, quốc gia hoặc thể loại, với đài yêu thích và những đài bạn nghe gần đây.",
+      "Nghe › Radio."
+    ],
+    "podcasts": [
+      "Podcast",
+      "Đăng ký theo tên, nghe trên TV và tiếp tục tập từ chỗ bạn dừng.",
+      "Nghe › Podcast."
+    ],
+    "podcast-search": [
+      "Khám phá podcast",
+      "Tìm trong toàn bộ danh mục podcast mở và xem những gì đang thịnh hành ở quốc gia của bạn.",
+      "Nghe › Podcast › Tìm kiếm."
+    ],
+    "podcast-player": [
+      "Trình phát toàn màn hình",
+      "Ảnh bìa lớn, chương, tốc độ và hẹn giờ ngủ dừng ở cuối tập.",
+      "Nghe › Đang phát › Mở trình phát."
+    ],
+    "phone-sound": [
+      "Âm thanh trong tai nghe của bạn",
+      "Âm thanh của phim được chuyển sang tai nghe điện thoại, đồng bộ, để xem ban đêm mà không đánh thức ai.",
+      "Menu ▼ của trình phát › Âm thanh trên điện thoại."
+    ],
+    "games-hub": [
+      "Mọi trò chơi của bạn ở một chỗ",
+      "GeForce NOW, Steam Link, Moonlight, PS Remote Play, RetroArch và các trò chơi trên TV rời khỏi hàng ứng dụng và nằm trong Chơi, chia thành Đám mây, Từ PC, Retro và Trên TV.",
+      "Giữ OK trên một trò chơi để đổi nhóm."
+    ],
+    "pc-games": [
+      "Chơi trên PC ở tầng trên",
+      "TV đánh thức máy tính qua mạng, chờ nó phản hồi rồi mở Moonlight hoặc Steam Link. Đánh thức PC qua mạng cũng dùng được ngoài Chơi, từ một lối tắt trên màn hình chính.",
+      "Lưu máy tính một lần trong bảng điều khiển web."
+    ],
+    "network-test": [
+      "Kiểm tra mạng",
+      "Cho bạn biết internet có đủ cho game đám mây không, và cảnh báo trước khi mở game đám mây trên mạng yếu.",
+      "Chơi › Kiểm tra mạng."
+    ],
+    "controllers": [
+      "Tay cầm chơi game",
+      "Ghép nối tay cầm mà không phải lục tìm menu, xem các tay cầm đã kết nối ở trên cùng và, nếu muốn, cho tay cầm vừa kết nối mở Chơi.",
+      "Chơi › Ghép nối tay cầm."
+    ],
+    "game-mode": [
+      "Chế độ chơi game",
+      "Khi đang mở trò chơi, trình bảo vệ màn hình, bộ lọc ban đêm và thông báo sẽ chờ đến khi ván đấu kết thúc.",
+      "Tự bật."
+    ],
+    "crew": [
+      "Hội Discord của bạn",
+      "Xem ai trong máy chủ Discord của bạn đang trực tuyến và chơi game gì, và gọi cả hội ngay từ TV.",
+      "Bật widget của máy chủ và dán số của nó."
+    ],
+    "apps-top": [
+      "Ứng dụng yêu thích ở phía trước",
+      "Ứng dụng hiện 8 ứng dụng bạn mở nhiều nhất, và “Tất cả ứng dụng” mang phần còn lại dưới dạng lưới.",
+      "Ứng dụng, trên hình chữ thập."
+    ],
+    "apps-organize": [
+      "Theo cách của bạn",
+      "Di chuyển, xếp chồng hoặc ẩn bất kỳ ứng dụng nào. Ứng dụng cài sẵn mà bạn không dùng sẽ tránh sang một bên.",
+      "Giữ OK trên một ứng dụng."
+    ],
+    "app-buttons": [
+      "Giải phóng nút Netflix và YouTube",
+      "Các nút ứng dụng trên điều khiển mở bất kỳ ứng dụng nào bạn muốn. Nhấn để mở, giữ 3 giây để đổi.",
+      "Dùng được với điều khiển gốc."
+    ],
+    "alarm": [
+      "Báo thức tự bật TV",
+      "Đúng giờ, TV tự bật, âm lượng tăng từ từ và có báo lại. Mỗi báo thức có tên, ngày, âm thanh và âm lượng, thậm chí cả một ứng dụng hoặc đài radio gần nhất.",
+      "Giữ BACK › Báo thức."
+    ],
+    "timers": [
+      "Hẹn giờ và đồng hồ cát",
+      "Tối đa 3 bộ hẹn giờ có tên với thông báo trên màn hình, và một đồng hồ bấm giờ.",
+      "“Ok Google, mở Nhắc tôi sau 10 phút”."
+    ],
+    "gentle-off": [
+      "Tắt nhẹ nhàng",
+      "Hẹn giờ ngủ làm tối màn hình và giảm âm lượng trong 5 phút cuối, để không ai bị đánh thức lúc tắt.",
+      "Ô hẹn giờ trong bảng nhanh."
+    ],
+    "idle-off": [
+      "Tự tắt khi không ai xem",
+      "Sau khoảng thời gian bạn chọn mà không có phím nào được nhấn, TV hỏi bằng chữ lớn xem bạn còn xem không, rồi đi ngủ.",
+      "Màn hình và nguồn › Tắt khi không dùng."
+    ],
+    "recipes": [
+      "Công thức có sẵn",
+      "Ngủ, Phim truyền hình và Trận đấu thiết lập TV chỉ trong một lần (âm thanh, màn hình và thông báo). Một lần OK để áp dụng, một lần nữa để hoàn tác.",
+      "Bảng nhanh."
+    ],
+    "automations": [
+      "Tự động hóa",
+      "Vào giờ định sẵn, khi nhấn một nút hoặc khi có điều gì xảy ra (phim tạm dừng, mọi người đã ra ngoài, sắp mưa): TV mở một ứng dụng, chạy một cảnh hoặc tắt.",
+      "Nhà và tự động hóa › Tự động hóa."
+    ],
+    "home-assistant": [
+      "Home Assistant trên TV",
+      "Đèn, ổ cắm, quạt, rèm, điều hòa và cảnh, ngay từ ghế sofa. TV nói chuyện với máy chủ trong mạng của bạn, không có đám mây ở giữa.",
+      "Giữ HOME."
+    ],
+    "doorbell": [
+      "Ai đang ở cửa",
+      "Khi chuông cửa reo, ảnh chụp từ camera hiện lên trên bất cứ thứ gì bạn đang xem.",
+      "Với Home Assistant."
+    ],
+    "presence": [
+      "Đi ngủ khi mọi người ra ngoài",
+      "Với router UniFi, TV nhận ra điện thoại của cả nhà đã rời đi và đi ngủ.",
+      "Màn hình và nguồn › Thêm tùy chọn."
+    ],
+    "voice": [
+      "Lối tắt giọng nói",
+      "“Ok Google, mở Bản tin thời tiết” đọc to dự báo. Phim, Nhà của tôi, Bảng tin, hẹn giờ và tắt TV cũng mở theo cách đó.",
+      "Dùng nút micro."
+    ],
+    "weather-now": [
+      "Thời tiết hôm nay, được đo thật",
+      "Nhiệt độ lấy từ bản tin của sân bay gần nhất, và biểu tượng ngày/đêm theo giờ mặt trời mọc và lặn nơi đặt TV.",
+      "Ở đầu màn hình chính."
+    ],
+    "weather-3": [
+      "Mưa từ ba mô hình",
+      "Khả năng mưa là trung vị của ba mô hình thời tiết (ECMWF, ICON và GFS), sai ít hơn bất kỳ mô hình riêng lẻ nào.",
+      "Tự hiện trong dự báo."
+    ],
+    "forecast": [
+      "Dự báo toàn màn hình",
+      "24 giờ tới, biểu đồ mưa, 9 ngày, chất lượng không khí, mặt trời và mặt trăng.",
+      "OK trên thời tiết."
+    ],
+    "rain-alert": [
+      "Cảnh báo mưa",
+      "Thông báo hiện trên ứng dụng của bạn khi trời sắp mưa. Đến lúc mang quần áo vào.",
+      "Màn hình chính › Thời tiết."
+    ],
+    "screensaver": [
+      "Trình bảo vệ màn hình đáng để luôn bật",
+      "Lời chào, đồng hồ lớn, ngày, thời tiết và các thẻ với thông báo, báo thức tiếp theo và tin nhắn. Ở giao diện Thư viện ảnh, bức tranh của ngày trôi chậm để không gì bị lưu ảnh trên màn hình.",
+      "Màn hình và nguồn › Trình bảo vệ màn hình."
+    ],
+    "photos": [
+      "Ảnh của bạn trên trình bảo vệ màn hình",
+      "Gửi ảnh từ điện thoại hoặc chọn một thư mục mạng. Ảnh nằm trong một thư mục chỉ TV thấy được.",
+      "Một mã QR mở bảng điều khiển đúng trang."
+    ],
+    "good-morning": [
+      "Chào buổi sáng",
+      "Khi bạn tắt báo thức: lời chào, giờ, dự báo và lịch hôm nay, và TV có thể đọc to.",
+      "“Ok Google, mở Chào buổi sáng”."
+    ],
+    "calendar": [
+      "Google Calendar",
+      "Sự kiện và sinh nhật hôm nay trên TV, từ một tài khoản hoặc tất cả gộp lại.",
+      "OK trên ngày ở trên cùng."
+    ],
+    "night-filter": [
+      "Bộ lọc ban đêm",
+      "Ban đêm, màn hình ấm hơn và dịu mắt hơn.",
+      "Màn hình và nguồn › Thêm tùy chọn."
+    ],
+    "recap": [
+      "Tổng kết tuần",
+      "Tối Chủ nhật, một thẻ với thời gian xem theo ứng dụng, lượng internet đã dùng và số lần mất mạng.",
+      "Màn hình và nguồn › Thêm tùy chọn."
+    ],
+    "profiles": [
+      "Hồ sơ cho mỗi người",
+      "Mỗi tài khoản Google trên TV có mục yêu thích, nội dung xem tiếp và thứ tự ứng dụng riêng.",
+      "Giữ BACK › Hồ sơ."
+    ],
+    "kid-profile": [
+      "Hồ sơ trẻ em",
+      "Đánh dấu một hồ sơ là của trẻ em: chế độ trẻ em và giờ đi ngủ tự bật, và muốn thoát phải có PIN của bố mẹ.",
+      "Bảng nhanh › Hồ sơ."
+    ],
+    "bedtime": [
+      "Giờ đi ngủ",
+      "Trong các giờ bạn chọn, chỉ ứng dụng được phép mới mở được và âm lượng có giới hạn.",
+      "Gia đình › Thêm tùy chọn."
+    ],
+    "screen-time": [
+      "Thời gian xem mỗi ngày",
+      "Giới hạn xem TV mỗi ngày cho người bạn chọn.",
+      "Gia đình › Thêm tùy chọn."
+    ],
+    "guest": [
+      "Chế độ khách",
+      "Ẩn hồ sơ, lịch và các ứng dụng bạn chọn khi nhà có khách.",
+      "Ô Khách trong bảng nhanh."
+    ],
+    "guest-wifi": [
+      "Wi-Fi cho khách",
+      "Gõ mật khẩu một lần; khách quét QR trên TV là vào được.",
+      "Gia đình › Wi-Fi cho khách."
+    ],
+    "family-board": [
+      "Bảng gia đình",
+      "Danh sách mua sắm, ghi chú được ghim và sinh nhật hôm nay, trong bảng nhanh và trên trình bảo vệ màn hình.",
+      "Sửa từ điện thoại; OK để gạch một mục."
+    ],
+    "family-link": [
+      "Tin nhắn từ xa",
+      "Người thân ở xa gửi tin nhắn và ảnh đến TV ở nhà, từ bất cứ đâu.",
+      "Mời bằng liên kết."
+    ],
+    "video-message": [
+      "Tin nhắn video",
+      "Một đoạn video ngắn của gia đình hiện trên TV kèm tên người gửi.",
+      "Từ bảng điều khiển trên điện thoại."
+    ],
+    "web-panel": [
+      "Bảng điều khiển trên điện thoại và máy tính",
+      "Điều khiển từ xa, gõ chữ có dấu, xem trực tiếp màn hình TV, ảnh trình bảo vệ màn hình, bảng gia đình và sao lưu, từ trình duyệt của bất kỳ thiết bị nào trong nhà.",
+      "Truy cập từ xa › Đăng nhập từ điện thoại (QR)."
+    ],
+    "ask-tv": [
+      "Hỏi TV",
+      "Gõ hoặc nói “mở YouTube”, “nhắc tôi sau 7 phút”, “tắt sau 30 phút” và TV sẽ làm.",
+      "Trong bảng điều khiển trên điện thoại."
+    ],
+    "share": [
+      "Chia sẻ từ điện thoại",
+      "Khi được cài như ứng dụng, bảng điều khiển hiện trong mục Chia sẻ: video YouTube mở trên TV, liên kết mở trên TV và văn bản trở thành tin nhắn.",
+      "Chia sẻ › Sofaly."
+    ],
+    "network-drive": [
+      "TV làm ổ mạng",
+      "Sao chép tệp vào TV bằng cách kéo thả: trên Windows, TV hiện trong This PC như một chiếc điện thoại; trên Mac, Linux và điện thoại, qua WebDAV bảo mật.",
+      "Truy cập từ xa › Hiện như ổ mạng."
+    ],
+    "windows": [
+      "Lối tắt trên Windows",
+      "TV hiện trong mục Network của Explorer với một lối tắt mở bảng điều khiển, kể cả khi IP thay đổi.",
+      "Luôn bật khi bảng điều khiển bật."
+    ],
+    "continue-tv": [
+      "Xem tiếp trên TV khác",
+      "Đang xem dở ở phòng khách? Gửi sang phòng ngủ: TV kia hiện “Xem tiếp từ chỗ đã dừng?” và mở đúng chỗ đó.",
+      "Menu trình phát › Gửi sang TV khác."
+    ],
+    "together": [
+      "Xem cùng nhau",
+      "Hai nhà xem cùng một nội dung cùng lúc: tạm dừng ở đây, bên kia cũng dừng, kèm biểu cảm ở góc màn hình.",
+      "Mời giữa các TV trong gia đình."
+    ],
+    "homes": [
+      "Nhiều ngôi nhà",
+      "Trông TV ở nhà bạn và ở nhà bố mẹ từ cùng một điện thoại.",
+      "Từ ứng dụng trên điện thoại."
+    ],
+    "backup": [
+      "Sao lưu được khóa, mỗi đêm",
+      "Khi TV rảnh, một bản sao lưu đầy đủ được khóa bằng mật khẩu của bạn. Giữ 7 bản gần nhất, và mỗi đêm TV kiểm tra xem bản sao có khôi phục được không.",
+      "Hệ thống › Sao lưu tự động."
+    ],
+    "cloud-backup": [
+      "Một bản trên đám mây",
+      "Bản sao còn được gửi đến Google Drive, OneDrive, Dropbox, Box, NAS hoặc ổ USB của bạn. Được khóa: ngay cả đám mây cũng không đọc được.",
+      "Hệ thống › Sao lưu tự động."
+    ],
+    "maintenance": [
+      "Bảo trì qua đêm",
+      "Dọn phần thừa, sửa quyền và lên lịch lại báo thức trong lúc bạn ngủ.",
+      "Tự chạy."
+    ],
+    "diagnose": [
+      "Chẩn đoán TV",
+      "Internet, DNS và lý do một ứng dụng ngừng chạy, tất cả cùng lúc và bằng những câu dễ hiểu.",
+      "“Ok Google, mở Chẩn đoán TV”."
+    ],
+    "scoreboard": [
+      "Tình trạng của TV này",
+      "TV tự đo các chỉ số của mình (thời gian mở, sự cố, báo thức đúng giờ) và hiển thị trên một màn hình. Không có gì rời khỏi nhà bạn.",
+      "Hệ thống › Tình trạng của TV này."
+    ],
+    "safe-mode": [
+      "Chế độ an toàn",
+      "Nếu phiên bản mới gặp trục trặc ngay sau khi cài, TV chuyển về chế độ an toàn và chỉ cách thoát ra.",
+      "Chỉ hiện khi cần."
+    ],
+    "whats-new": [
+      "Có gì thay đổi",
+      "Mỗi phiên bản giải thích những gì đã thay đổi và kèm một danh sách ngắn để thử bằng điều khiển.",
+      "Hệ thống › Có gì thay đổi."
+    ],
+    "report": [
+      "Báo cáo sự cố",
+      "Kể lại chuyện gì đã xảy ra bằng điều khiển hoặc từ điện thoại; TV thu thập những gì cần thiết, không có gì cá nhân.",
+      "Hệ thống › Báo cáo sự cố."
+    ],
+    "languages": [
+      "27 ngôn ngữ",
+      "Tiếng Bồ Đào Nha, tiếng Anh, tiếng Tây Ban Nha, tiếng Pháp, tiếng Đức, tiếng Ý, tiếng Nga, tiếng Ba Lan, tiếng Thổ Nhĩ Kỳ, tiếng Nhật, tiếng Trung, tiếng Hàn, tiếng Hindi, tiếng Indonesia và tiếng Ả Rập, với màn hình từ phải sang trái. Ngoài ra còn tiếng Hà Lan, Thụy Điển, Đan Mạch, Na Uy, Phần Lan, Séc, Hy Lạp, Hungary, Romania, Ukraina, tiếng Việt và tiếng Thái. Theo ngôn ngữ của TV.",
+      "Tự thay đổi theo TV."
+    ],
+    "text-size": [
+      "Cỡ chữ",
+      "Bình thường, Lớn hoặc Rất lớn, trên mọi màn hình, đã được kiểm tra để chữ không bao giờ bị cắt hay chồng lên nhau.",
+      "Màn hình chính › Cỡ chữ."
+    ],
+    "simple-mode": [
+      "Chế độ đơn giản",
+      "Thẻ lớn, ít thứ trên màn hình và tên ứng dụng được đọc to. Dành cho người thấy điều khiển khó dùng.",
+      "Màn hình chính › Thêm tùy chọn."
+    ],
+    "read-aloud": [
+      "Đọc to",
+      "TV nói mục đang được chọn, kèm âm thanh điều hướng để bạn biết mình đang ở đâu.",
+      "Màn hình chính › Thêm tùy chọn."
+    ],
+    "contrast": [
+      "Độ tương phản cao",
+      "Chữ có tỷ lệ tương phản 7:1 và mọi màn hình đều đọc được bằng trình đọc màn hình của Android.",
+      "Theo cài đặt hỗ trợ tiếp cận của TV."
+    ],
+    "no-ads": [
+      "Hoàn toàn không quảng cáo",
+      "Kể cả ở gói miễn phí, không một đề xuất được tài trợ nào. Màn hình là của bạn.",
+      "Luôn luôn."
+    ],
+    "no-tracking": [
+      "Không theo dõi",
+      "Không tài khoản, không phân tích sử dụng và không báo cáo sự cố nào được gửi đi nếu bạn không gửi.",
+      "Luôn luôn."
+    ],
+    "pin": [
+      "PIN ở những chỗ quan trọng",
+      "Mọi thứ thay đổi TV đều cần PIN, và các thao tác xóa sẽ hỏi lại. Sai quá nhiều lần? Thời gian chờ tăng dần mỗi lần.",
+      "Truy cập từ xa › PIN."
+    ],
+    "private-dns": [
+      "DNS riêng tư",
+      "Chọn một DNS bảo mật (DNS over TLS); nếu nó không phản hồi, TV tự quay lại DNS trước đó.",
+      "Nâng cao › Mạng."
+    ],
+    "usage": [
+      "Internet theo ứng dụng",
+      "Mỗi ứng dụng đã dùng bao nhiêu internet và đã kết nối với ai, lưu trên TV trong 7 ngày.",
+      "Nâng cao › Mạng."
+    ],
+    "google-inside": [
+      "Google vẫn hoạt động",
+      "Google Assistant, Gemini, tìm kiếm và tài khoản Google của bạn vẫn hoạt động như trước. Sofaly thay màn hình chính, không thay TV của bạn.",
+      "Dùng nút micro như mọi khi."
+    ],
+    "motion": [
+      "Hiệu ứng chuyển động hợp với TV của bạn",
+      "TV mạnh tạo hiệu ứng cho mọi thứ; TV đơn giản hơn chỉ tạo hiệu ứng cho những gì bạn chọn và tự giảm khi bị rớt khung hình.",
+      "Cài đặt › Giao diện."
+    ],
+    "frame-rate": [
+      "Phim không bị giật",
+      "TV chuyển sang 24 Hz khi phát phim, để các cú lia máy luôn mượt.",
+      "Bật cùng bộ phim; màn hình nháy đen trong một giây."
+    ],
+    "wifi-check": [
+      "Kiểm tra tốc độ internet",
+      "Đo internet chỉ với một lần chạm và hiển thị tín hiệu Wi-Fi, độ trễ và tốc độ bằng lời dễ hiểu.",
+      "Cài đặt › Nâng cao › Mạng."
+    ]
+  },
+  "plans_page": {
+    "title": "Gói · Sofaly",
+    "description": "Basic, Pro và Ultra: mỗi gói Sofaly gồm những gì.",
+    "h1": "Gói",
+    "lead": "Bắt đầu với Basic, vốn đã là màn hình chính đầy đủ. Chưa mở bán: hiện tại, mọi thứ đều miễn phí.",
+    "price_soon": "Giá khi ra mắt",
+    "basic_who": "Cho người ngồi trên sofa",
+    "pro_who": "Cho người chăm lo TV",
+    "ultra_who": "Cho ngôi nhà và gia đình",
+    "basic_text": "Màn hình chính hình chữ thập, trình phát, Nghe, Chơi, báo thức, trình bảo vệ màn hình và toàn bộ tính năng hỗ trợ tiếp cận.",
+    "pro_text": "Mọi thứ trong Basic, thêm điện thoại, tự động hóa, nhà thông minh, tin nhắn từ xa, thẻ có sẵn cho màn hình chính và cá nhân hóa đầy đủ.",
+    "ultra_text": "Mọi thứ trong Pro, thêm thời tiết từ ba mô hình, trang phim đầy đủ, phụ đề tự động, nhiều ngôi nhà và xem cùng nhau.",
+    "includes": "Bao gồm",
+    "everything_basic": "Mọi thứ trong Basic",
+    "everything_pro": "Mọi thứ trong Pro"
+  },
+  "dev_page": {
+    "title": "Nhà phát triển · Sofaly",
+    "description": "Đưa thẻ từ ứng dụng Android TV của bạn lên màn hình chính Sofaly. Không SDK, không phí.",
+    "eyebrow": "Bộ công cụ cho nhà phát triển",
+    "h1": "Ứng dụng của bạn trên màn hình chính mà mọi người thật sự nhìn vào.",
+    "lead": "Plugin Sofaly là ứng dụng Android TV của chính bạn. Nó gửi một thẻ ngắn và Sofaly vẽ thẻ đó lên màn hình chính, chữ lớn và theo phong cách chung của ngôi nhà.",
+    "cta_start": "Bắt đầu từ mẫu",
+    "cta_spec": "Đọc toàn bộ hợp đồng",
+    "why_title": "Vì sao nên làm plugin",
+    "why": [
+      [
+        "star",
+        "Ở phía trước, không nằm trong ngăn kéo",
+        "Thẻ của bạn nằm trên màn hình chính, nơi cả nhà nhìn vào mỗi lần bật TV, chứ không bị lạc trong danh sách ứng dụng."
+      ],
+      [
+        "puzzle",
+        "Không SDK, không phí",
+        "Một ContentProvider và một dòng dữ liệu. Không thư viện nào của chúng tôi cần cài, không phí nào phải trả."
+      ],
+      [
+        "heart",
+        "Ứng dụng của bạn, việc kinh doanh của bạn",
+        "Phát hành trên Play theo cách bạn muốn, miễn phí hay trả phí. Sofaly chỉ vẽ thẻ; ứng dụng và khách hàng là của bạn."
+      ]
+    ],
+    "can_title": "Những gì bạn có thể làm ngoài các thẻ của chúng tôi",
+    "can": [
+      [
+        "Đơn giao hàng của bạn",
+        "Đơn hàng đang trên đường, còn 12 phút."
+      ],
+      [
+        "Xe buýt của bạn",
+        "Tuyến 42 đến sau 6 phút."
+      ],
+      [
+        "Phòng tập của bạn",
+        "Lớp hôm nay lúc 19 giờ."
+      ],
+      [
+        "Tòa nhà của bạn",
+        "Ngày mai cắt nước, từ 9 giờ đến 12 giờ trưa."
+      ],
+      [
+        "Cửa hàng của bạn",
+        "Ưu đãi hôm nay: giảm 20% cà phê."
+      ],
+      [
+        "Câu lạc bộ của bạn",
+        "Buổi tập dời sang thứ Bảy."
+      ]
+    ],
+    "steps_title": "Hai bước",
+    "step1": "Khai báo một provider với action của Sofaly",
+    "step2": "Trả về một dòng: tiêu đề, giá trị, chi tiết và màu",
+    "rules_title": "Quy tắc bảo vệ người xem",
+    "rules": [
+      "Bạn không bao giờ vẽ lên màn hình chính: bạn gửi văn bản và màu, Sofaly sẽ vẽ.",
+      "Sofaly không bao giờ gửi cho bạn bất cứ điều gì về ứng dụng, tài khoản hay những gì người dùng xem.",
+      "Plugin thuộc gói Pro, và người dùng chọn plugin nào được hiện."
+    ],
+    "soon_title": "Sắp ra mắt",
+    "soon_text": "Plugin hình nền và kho giới thiệu plugin ngay trên TV.",
+    "template_title": "Mẫu có sẵn",
+    "template_text": "Hai ứng dụng mẫu bạn có thể build ngay hôm nay: đếm ngược đến ngày người dùng chọn trên TV, và tuần trăng hôm nay. Không internet, không tài khoản. MIT No Attribution: sao chép, đổi tên gói, phát hành.",
+    "demo": [
+      [
+        "Giao hàng",
+        "12 phút"
+      ],
+      [
+        "Xe buýt 42",
+        "6 phút"
+      ],
+      [
+        "Phòng tập",
+        "19:00"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Xem trên TV",
+    "lead": "Các màn hình này tự chạy, đúng như Sofaly hiển thị và chuyển động trên TV thật. Chọn một màn hình để dừng lại ở đó.",
+    "screens": {
+      "forecast": [
+        "Dự báo",
+        "24 giờ tới, khả năng mưa và mặt trăng, chỉ trong một cái nhìn và bằng chữ lớn.",
+        [
+          "Mưa phùn nhẹ",
+          "24 giờ tới",
+          "Khả năng mưa",
+          "Bây giờ",
+          "Cao 27° · thấp 19° · cảm giác như 26°"
+        ]
+      ],
+      "screensaver": [
+        "Trình bảo vệ màn hình",
+        "Một bức tranh của The Met mỗi ngày, đồng hồ và thời tiết trong ngày. Một chiếc TV đáng để luôn bật.",
+        [
+          "Chào buổi tối",
+          "Tranh của ngày · The Met",
+          "Trăng lưỡi liềm đầu tháng"
+        ]
+      ],
+      "player": [
+        "Phim",
+        "Lồng tiếng hoặc phụ đề chỉ với một phím, đoạn mở đầu được bỏ qua giúp bạn, và quay lại đúng chỗ bạn dừng.",
+        [
+          "Đường dài về nhà",
+          "Âm thanh",
+          "Bản gốc + phụ đề",
+          "Lồng tiếng",
+          "Bỏ qua mở đầu"
+        ]
+      ],
+      "radio": [
+        "Radio và podcast",
+        "Đài từ khắp thế giới và podcast của bạn, với trình phát toàn màn hình.",
+        [
+          "Đang phát",
+          "Radio trực tiếp",
+          "Jazz miền biển",
+          "Tin buổi sáng",
+          "Samba và bossa",
+          "Podcast · tập 12"
+        ]
+      ],
+      "alarm": [
+        "Báo thức",
+        "TV tự bật, âm thanh tăng từ từ và dự báo của ngày đã chờ sẵn.",
+        [
+          "Chào buổi sáng",
+          "Âm lượng đang tăng",
+          "Báo lại · 10 phút",
+          "TV đã tự bật"
+        ]
+      ],
+      "cards": [
+        "Thẻ trên màn hình chính",
+        "Đếm ngược, lời nhắc, tỷ giá, mặt trăng và trận đấu tiếp theo của đội bạn, ngay trên màn hình chính.",
+        [
+          "12 ngày nữa đến kỳ nghỉ",
+          "Uống thuốc lúc 20:00",
+          "Camera nhà xe không phản hồi",
+          "Trận tiếp theo",
+          "T7 · 16:00",
+          "Trăng lưỡi liềm đầu tháng",
+          "Tỷ giá",
+          "Đếm ngược",
+          "Đội bạn × Đối thủ"
+        ]
+      ],
+      "games": [
+        "Trò chơi",
+        "Game đám mây, PC và retro ở một chỗ, mạng được kiểm tra trước khi bạn chơi.",
+        [
+          "Tay cầm đã kết nối",
+          "Mạng sẵn sàng cho game đám mây",
+          "Đám mây",
+          "PC",
+          "Retro",
+          "Hội bạn",
+          "Trò chơi"
+        ]
+      ],
+      "phone": [
+        "Điện thoại",
+        "Bảng điều khiển trên điện thoại: điều khiển, gõ chữ, xem trực tiếp màn hình và tin nhắn hiện lên trên TV.",
+        [
+          "Gửi đến TV",
+          "Bữa tối đã sẵn sàng!",
+          "Tin nhắn từ điện thoại",
+          "Điều khiển",
+          "Gõ chữ",
+          "Màn hình",
+          "Ảnh"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "TV hiện trong This PC như một chiếc điện thoại: kéo phim và ảnh thẳng vào đó.",
+        [
+          "This PC",
+          "Sofaly · Phòng khách",
+          "Ổ đĩa cục bộ",
+          "Mở bảng điều khiển TV",
+          "Đang sao chép vào TV… 68%"
+        ]
+      ],
+      "kids": [
+        "Gia đình",
+        "Hồ sơ trẻ em, giờ đi ngủ và thời gian xem, tất cả được bảo vệ bằng PIN của bố mẹ.",
+        [
+          "Giờ đi ngủ",
+          "Hẹn gặp ngày mai!",
+          "Chỉ ứng dụng trẻ em đến 7 giờ sáng",
+          "PIN của bố mẹ"
+        ]
+      ]
+    }
+  }
+}

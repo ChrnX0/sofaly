@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d trò chơi</item>
+        <item quantity="other">%d trò chơi</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">%d tay cầm đã kết nối</item>
+        <item quantity="other">%d tay cầm đã kết nối</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">Danh mục Chơi trên màn hình chính (tắt thì trò chơi ở lại trong Ứng dụng)</string>
+    <string name="extras_MODO_JOGO">Chế độ trò chơi: khi đang mở trò chơi, trình bảo vệ màn hình, bộ lọc ban đêm và thông báo sẽ chờ</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">Bật tay cầm chơi game sẽ mở màn hình Trò chơi</string>
+
+    <string name="jogos_titulo">Trò chơi</string>
+    <string name="jogos_medindo">Đang kiểm tra mạng…</string>
+    <string name="jogos_sem_controle">Chưa kết nối tay cầm chơi game</string>
+    <string name="jogos_rede_boa">Mạng: tốt cho chơi game trên đám mây</string>
+    <string name="jogos_rede_ok">Mạng: đủ cho chơi game trên đám mây</string>
+    <string name="jogos_rede_fraca">Mạng: yếu cho chơi game trên đám mây</string>
+    <string name="jogos_rede_sem">Không có internet</string>
+    <string name="jogos_testar_rede">Kiểm tra mạng</string>
+    <string name="jogos_jogar_pc">Chơi trên PC</string>
+    <string name="jogos_parear">Ghép nối tay cầm</string>
+    <string name="jogos_parear_falhou">TV này không mở được cài đặt Bluetooth. Hãy mở Cài đặt, Điều khiển và phụ kiện.</string>
+    <string name="jogos_baixar">Tải trò chơi</string>
+    <string name="jogos_escolher">Chọn ứng dụng</string>
+    <string name="jogos_escolher_sub">Ứng dụng nào nằm trong Chơi. OK để chuyển giữa Chơi và Ứng dụng.</string>
+    <string name="jogos_no_card">trong Chơi</string>
+    <string name="jogos_na_linha">trong Ứng dụng</string>
+    <string name="jogos_grupo_nuvem">Trên đám mây</string>
+    <string name="jogos_grupo_pc">Từ PC và máy console</string>
+    <string name="jogos_grupo_retro">Retro</string>
+    <string name="jogos_grupo_tv">Trò chơi trên TV</string>
+    <string name="jogos_para_comecar">Để bắt đầu</string>
+    <string name="jogos_aviso_fraca_titulo">Mạng yếu cho chơi game trên đám mây</string>
+    <string name="jogos_aviso_fraca">Trò chơi có thể bị giật hoặc trễ. Dùng cáp mạng, hoặc đặt TV gần router hơn sẽ tốt hơn.</string>
+    <string name="jogos_jogar_assim">Vẫn chơi</string>
+    <string name="jogos_nao_abriu">Ứng dụng này không mở được.</string>
+    <string name="jogos_tirar">Bỏ khỏi Chơi</string>
+    <string name="jogos_automatico">Trở về tự động</string>
+    <string name="jogos_loja_tudo">Các ứng dụng gợi ý đã có trên TV này.</string>
+    <string name="jogos_loja_explica">Mở trang ứng dụng trên Play Store. Nếu Play Store báo không chạy được trên TV này, đó là giới hạn của ứng dụng.</string>
+    <string name="jogos_sem_loja">Play Store không mở được.</string>
+    <string name="jogos_pc_sem_mac">Để đánh thức PC, hãy lưu địa chỉ MAC của nó trong bảng điều khiển web: Extras, Đánh thức máy tính. PC cũng cần bật Wake-on-LAN và thường cần cáp mạng.</string>
+    <string name="jogos_pc_sem_app">Để chơi trên PC, hãy cài Moonlight hoặc Steam Link trên TV.</string>
+    <string name="jogos_pc_qual_app">Ứng dụng nào để chơi trên PC?</string>
+    <string name="jogos_pc_acordando">Đang đánh thức PC… %1$d giây</string>
+    <string name="jogos_pc_nao_respondeu">PC không phản hồi. Vẫn mở ứng dụng.</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">Thêm trò chơi</string>
+    <string name="jogos_mais_opcoes">Thêm</string>
+    <string name="jogos_ligar_pc_jogar">Bật PC và chơi</string>
+    <string name="jogos_desc_pc">Chơi trò chơi từ máy tính hoặc máy console trong nhà ngay trên TV.</string>
+    <string name="jogos_chip_medindo">Đang kiểm tra mạng…</string>
+    <string name="jogos_chip_boa">Mạng tốt</string>
+    <string name="jogos_chip_ok">Mạng ổn</string>
+    <string name="jogos_chip_fraca">Mạng yếu</string>
+    <string name="jogos_chip_sem">Không có internet</string>
+    <string name="jogos_tecla_jogar">chơi</string>
+    <string name="jogos_tecla_segurar">giữ OK</string>
+    <string name="jogos_tecla_opcoes">đổi nhóm</string>
+</resources>

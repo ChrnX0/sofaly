@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screensaver remote keys (idea 28) -->
+    <string name="pt_dica_dispensar">OK để bỏ qua · ◀ ▶ di chuyển</string>
+    <string name="pt_dica_pausar">OK để tạm dừng hoặc tiếp tục · ◀ ▶ di chuyển</string>
+    <string name="pt_dica_andar">◀ ▶ di chuyển · phím khác để đóng</string>
+    <!-- Screensaver photos from a network folder (idea 27) -->
+    <string name="rede_fotos_usar">Dùng các ảnh này cho trình bảo vệ màn hình</string>
+    <string name="rede_fotos_parar">Ngừng dùng các ảnh này cho trình bảo vệ màn hình</string>
+    <plurals name="rede_fotos_sub">
+        <item quantity="one">%1$d ảnh · đã sao chép vào TV, vẫn chạy khi tắt máy tính</item>
+        <item quantity="other">%1$d ảnh · đã sao chép vào TV, vẫn chạy khi tắt máy tính</item>
+    </plurals>
+    <string name="rede_fotos_usando">Đang sao chép ảnh. Ảnh sẽ hiện ở lần tiếp theo trình bảo vệ màn hình bật.</string>
+    <string name="rede_fotos_paradas">Trình bảo vệ màn hình không còn dùng thư mục này.</string>
+    <!-- "Network" as a catalog (idea 29) -->
+    <string name="rede_continuar">Xem tiếp</string>
+    <string name="rede_recentes">Mới thêm</string>
+    <string name="rede_buscar">Tìm kiếm</string>
+    <string name="rede_buscar_explica">Phim, chương trình, tập và nhạc trên máy chủ này.</string>
+    <string name="rede_buscar_campo">Tên</string>
+    <string name="rede_buscar_curto">Hãy gõ ít nhất 2 chữ.</string>
+    <string name="rede_proximo_em">Tiếp theo: %1$s sau %2$d giây · OK để bắt đầu ngay · phím khác để hủy</string>
+    <string name="rede_ainda_assistindo">Vẫn đang xem? OK để bắt đầu %1$s</string>
+</resources>

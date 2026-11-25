@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nada sai da sua casa (degrau 3): o compromisso de privacidade, o mesmo texto do site. -->
+<resources>
+    <string name="nsc_titulo">Dữ liệu của bạn ở lại với bạn</string>
+    <string name="nsc_det">Không cần tài khoản với chúng tôi, không quảng cáo</string>
+    <string name="nsc_texto">Không cần tài khoản với chúng tôi, không quảng cáo, không theo dõi việc sử dụng.\n\nCài đặt, ảnh, ghi chú và bản sao lưu của bạn ở lại trên TV này, hoặc trong tài khoản riêng của bạn nếu bạn kết nối.\n\nTV chỉ liên lạc với các dịch vụ bạn bật, như thời tiết hay áp phích phim. Một số đi qua máy chủ của chúng tôi (api.sofaly.tv), như tìm podcast; máy chủ chỉ nhận yêu cầu, không bao giờ nhận tài khoản của bạn. Chính sách quyền riêng tư trên trang web liệt kê từng dịch vụ.</string>
+</resources>

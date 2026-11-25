@@ -43,4 +43,12 @@
     <string name="wp_d_tvicons">Több mint 800 TV-re készült ikon</string>
     <string name="wp_d_minimalist">Tiszta szimbólumok egyszínű háttéren</string>
     <string name="wp_d_arcticons">15 000 finom vonalas ikon (telefonra készült, itt is működik)</string>
+    <string name="ext_secao_widgets">Más alkalmazások widgetjei</string>
+    <string name="ext_widget_nenhum">Ezen a tévén még egyik alkalmazásnak sincs widgetje.</string>
+    <string name="ext_widget_sem_permissao">A tévé nem engedte, hogy a Sofaly widgetet adjon hozzá.</string>
+    <string name="ext_widget_falhou">Ezt a widgetet nem sikerült hozzáadni.</string>
+    <string name="ext_off_health">Kikapcsolva: nem válaszolt. Ha szeretné, kapcsolja be újra.</string>
+    <string name="ext_secao_botoes">Gyorspanel gombjai</string>
+    <string name="ext_nenhum_botao">Még nincsenek gombok más alkalmazásokból. Egyes alkalmazások be/ki gombot adnak a gyorspanelhez (tartsa lenyomva a VISSZA gombot).</string>
+    <string name="ext_off_blocked">A Sofaly kikapcsolta: ennek a bővítménynek ismert hibája van.</string>
 </resources>

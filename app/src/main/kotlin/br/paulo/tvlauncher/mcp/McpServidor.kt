@@ -238,6 +238,7 @@ object McpServidor {
             val (cod, r) = when {
                 acao == "convite" && req.metodo == "POST" -> SessaoJunto.receberConvite(app, o)
                 acao == "continuar" && req.metodo == "POST" -> ContinuarOutraTv.receber(app, o)
+                acao == "continuar_estado" && req.metodo == "GET" -> if (EntreTvs.ligado(app)) ContinuarOutraTv.estado(token) else 403 to JSONObject().put("erro", "desligado")
                 acao == "estado" && req.metodo == "GET" -> if (EntreTvs.ligado(app)) SessaoJunto.estado(token) else 403 to JSONObject().put("erro", "desligado")
                 (acao == "evento" || acao == "sair") && req.metodo == "POST" ->
                     if (EntreTvs.ligado(app)) SessaoJunto.receberEvento(app, token, acao, o) else 403 to JSONObject().put("erro", "desligado")

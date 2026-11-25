@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filtro de assunto dos podcasts (21/11/2026): PodcastsActivity + listen/PodcastAssuntos. -->
+<resources>
+    <string name="pod_assuntos">หัวข้อ</string>
+    <string name="pod_ass_seus">คุณติดตาม: %d</string>
+    <string name="pod_ass_em_alta">มาแรงในหัวข้อนี้</string>
+    <string name="pod_parecidos">คล้ายกัน: %s</string>
+    <string name="pod_ass_noticias">ข่าว</string>
+    <string name="pod_ass_humor">ตลก</string>
+    <string name="pod_ass_ciencia">วิทยาศาสตร์</string>
+    <string name="pod_ass_tecnologia">เทคโนโลยี</string>
+    <string name="pod_ass_historia">ประวัติศาสตร์</string>
+    <string name="pod_ass_negocios">ธุรกิจ</string>
+    <string name="pod_ass_saude">สุขภาพ</string>
+    <string name="pod_ass_esportes">กีฬา</string>
+    <string name="pod_ass_cultura">วัฒนธรรม</string>
+    <string name="pod_ass_crimes">คดีจริง</string>
+    <string name="pod_ass_tv_filmes">ทีวีและภาพยนตร์</string>
+    <string name="pod_ass_musica">เพลง</string>
+    <string name="pod_ass_educacao">การศึกษา</string>
+    <string name="pod_ass_infantil">เด็กและครอบครัว</string>
+    <string name="pod_ass_fe">ศาสนา</string>
+    <string name="pod_ass_lazer">สันทนาการ</string>
+</resources>

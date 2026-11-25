@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recado em vídeo (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="vid_de">Video từ %1$s</string>
+    <string name="vid_mural">đã gửi một video</string>
+    <string name="vid_onde">Để xem: Cài đặt › Gia đình › Video gia đình.</string>
+    <string name="vid_depois">Để sau</string>
+    <string name="vid_assistir">Xem</string>
+    <string name="vid_ok_para_assistir">Nhấn OK để xem.</string>
+    <string name="vid_lista">Video gia đình</string>
+    <string name="vid_lista_det">Được gửi qua liên kết gia đình. Mỗi video giữ 30 ngày. Giữ OK để xóa.</string>
+    <string name="vid_nenhum">Chưa có video.</string>
+    <string name="vid_apagar">Xóa video</string>
+    <string name="vid_aceitar">Nhận video</string>
+    <string name="vid_aceitar_det">Gia đình có thể gửi video dài tối đa 30 giây. Chúng không bao giờ tự phát.</string>
+    <string name="vid_quantos">Video: %1$d</string>
+</resources>

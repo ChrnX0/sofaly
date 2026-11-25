@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
+<resources>
+    <string name="ft_titulo">ปรับแต่ง</string>
+    <string name="ft_dica">OK หรือ ▶ ◀ เพื่อเปลี่ยน · BACK เพื่อปิด</string>
+    <string name="ft_abrir">ปรับขณะดูหน้าจอหลัก</string>
+    <string name="ft_abrir_det">แบบอักษร นาฬิกา สีไฮไลต์ มุม แสงเรือง และขนาด แบบสด</string>
+    <string name="cs_destaque">สีไฮไลต์</string>
+    <string name="cs_cantos">มุม</string>
+    <string name="cs_brilho">แสงเรืองเมื่อเลือก</string>
+    <string name="cs_tamanho">ขนาดกากบาท</string>
+    <string name="cs_ceu">ฟ้า</string>
+    <string name="cs_lilas">ม่วงอ่อน</string>
+    <string name="cs_retos">เหลี่ยม</string>
+    <string name="cs_redondos">มน</string>
+    <string name="cs_sem">ปิด</string>
+    <string name="cs_suave">อ่อน</string>
+    <string name="cs_forte">เข้ม</string>
+    <string name="cs_menor">เล็กลง</string>
+    <string name="cs_maior">ใหญ่ขึ้น</string>
+    <string name="bg_tintura">สีทับพื้นหลัง</string>
+    <string name="bg_cor">สีพื้นหลัง</string>
+    <string name="bg_desfoque">เบลอพื้นหลัง</string>
+    <string name="bg_transicao">การเปลี่ยนภาพ</string>
+    <string name="bg_novo">เปลี่ยนพื้นหลังตอนนี้</string>
+    <string name="bg_solida">สีทึบ</string>
+    <string name="bg_destaque">ไฮไลต์</string>
+    <string name="bg_noite">กลางคืน</string>
+    <string name="bg_mata">ป่า</string>
+    <string name="bg_brasa">ถ่านไฟ</string>
+    <string name="bg_grafite">กราไฟต์</string>
+    <string name="bg_corte">ตัดทันที</string>
+    <string name="bg_lenta">ช้า</string>
+    <string name="bg_trocado">เปลี่ยนแล้ว</string>
+    <string name="bg_nao_troca">พื้นหลังนี้ไม่เปลี่ยน</string>
+    <string name="bg_camera">กล้องในบ้านเป็นพื้นหลัง</string>
+    <string name="bg_campainha">กล้องกริ่งประตูเป็นพื้นหลัง</string>
+    <string name="bg_nenhuma">ไม่มี</string>
+    <string name="bg_ligado">เปิด</string>
+</resources>

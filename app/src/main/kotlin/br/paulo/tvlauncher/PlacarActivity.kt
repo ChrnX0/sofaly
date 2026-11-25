@@ -74,7 +74,7 @@ class PlacarActivity : Activity() {
         Placar.Pilar.INSTALA -> R.string.elv_pilar_instala
     })
 
-    private fun promessa(p: Placar.Pilar) = getString(when (p) {
+    private fun promessa(p: Placar.Pilar) = if (p == Placar.Pilar.TODOS) getString(R.string.elv_prom_todos, BuildConfig.IDIOMAS) else getString(when (p) {
         Placar.Pilar.LIGA -> R.string.elv_prom_liga
         Placar.Pilar.AO_VIVO -> R.string.elv_prom_ao_vivo
         Placar.Pilar.PLAYER -> R.string.elv_prom_player

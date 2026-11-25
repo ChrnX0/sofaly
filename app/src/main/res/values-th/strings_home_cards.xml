@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cartões próprios da tela inicial (HomeCards.kt, 18/11/2026). -->
+<resources>
+    <string name="extras_CARTAO_PLACAR">การแข่งขันนัดถัดไปของทีมคุณในรายการทีวีของหน้าจอหลัก</string>
+    <string name="extras_CARTAO_COTACAO">อัตราแลกเปลี่ยนประจำวันข้างสภาพอากาศ (ดอลลาร์ ยูโร บิตคอยน์ ใช้บริการฟรี Frankfurter)</string>
+    <string name="extras_CARTAO_CONTAGEM">นับถอยหลังที่ด้านบนของหน้าจอหลักใน 7 วันสุดท้าย (วันสำคัญของคุณ หรือวันหยุดถัดไป)</string>
+    <string name="extras_CARTAO_LEMBRETE_CASA">การเตือนเรื่องบ้านที่ด้านบนของหน้าจอหลักในวันนั้น (เช่น วันทิ้งขยะรีไซเคิล) พร้อมประกาศตามเวลาที่ตั้ง</string>
+    <string name="extras_CARTAO_SERVICO">เตือนที่ด้านบนของหน้าจอหลักเมื่อบริการที่คุณเพิ่มไว้หยุดตอบสนอง</string>
+    <string name="extras_CARTAO_LUA">ข้างขึ้นข้างแรมในพยากรณ์อากาศ</string>
+    <string name="hc_feriado_hoje">วันหยุดวันนี้</string>
+    <string name="hc_hoje">วันนี้: %1$s</string>
+    <string name="hc_lembrete_rotulo">การเตือนเรื่องบ้าน</string>
+    <string name="hc_servico_fora">%1$s ล่ม</string>
+    <string name="hc_servico_rotulo">บริการของคุณ</string>
+    <string name="hc_cotacao_rotulo">อัตราแลกเปลี่ยน</string>
+    <string name="hc_cotacao_fonte">อัตราประจำวัน แหล่งที่มา: Frankfurter (ธนาคารกลาง)</string>
+    <string name="hc_mil">k</string>
+    <string name="hc_milhao">M</string>
+    <string name="hc_seu_time">ทีมของคุณ: %1$s</string>
+    <plurals name="hc_feriado_em">
+        <item quantity="one">วันหยุดในอีก %1$d วัน</item>
+        <item quantity="other">วันหยุดในอีก %1$d วัน</item>
+    </plurals>
+    <plurals name="hc_faltam">
+        <item quantity="one">อีก %1$d วันถึง %2$s</item>
+        <item quantity="other">อีก %1$d วันถึง %2$s</item>
+    </plurals>
+</resources>

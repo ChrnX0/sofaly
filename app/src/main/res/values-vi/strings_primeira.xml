@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">Thiết lập bằng điện thoại</string>
+    <string name="pc_linha_det">Nên dùng. Hướng camera điện thoại vào mã: PIN, ngôn ngữ, TV trực tiếp, thành phố và dịch vụ phim, trong 5 bước.</string>
+    <string name="pc_instrucoes">Hướng camera điện thoại vào mã bên cạnh. Điện thoại sẽ mở phần thiết lập 5 bước.\n\nĐiện thoại phải dùng Wi-Fi nhà. Giữ màn hình này mở cho đến khi bạn tạo PIN trên điện thoại (còn %1$s).</string>
+    <string name="pc_entrou">Tiếp tục trên điện thoại.</string>
+    <string name="pc_venceu">Mã đã hết hạn.\nNhấn \"%1$s\" để hiện mã mới.</string>
+    <string name="pc_sem_rede">TV không ở trong mạng nào.\nHãy kết nối với Wi-Fi nhà và thử lại.</string>
+</resources>

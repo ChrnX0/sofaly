@@ -1,10 +1,10 @@
-// Painel em outras línguas (ideia 76, 14/11/2026; 14 línguas no painel v3, 16/11/2026).
+// Painel em outras línguas (ideia 76, 14/11/2026; 14 línguas no painel v3, 16/11/2026; 26 em 24/11/2026).
 // O painel é escrito em português. Fora do português, este arquivo escolhe a língua do navegador entre as do app
 // e carrega SÓ o arquivo dela (i18n-<língua>.js, 115 a 180 KB), que chama traduzirPainelCom({ T, P }):
 //   T = texto em português -> texto traduzido (frase inteira, como aparece na tela);
 //   P = [regex, troca] para frases montadas com partes que mudam ("Instalado: X. ..."); $1, $2 = as partes.
 // Língua sem arquivo = inglês. Texto novo no painel sem entrada em T (ou padrão em P) aparece em português:
-// ao criar um texto, ponha a tradução nos 13 arquivos (o PainelI18nTest confere que todos têm as mesmas chaves).
+// ao criar um texto, ponha a tradução nos 25 arquivos (o PainelI18nTest confere que todos têm as mesmas chaves).
 // Como troca: cada texto da página (e o que os scripts escrevem depois, por um MutationObserver). Só textos
 // visíveis, placeholder, aria-label, title e alt; nunca o que a pessoa digitou. Mensagens de erro que vêm da TV
 // (servidor) também estão na tabela (15/11/2026).
@@ -13,9 +13,12 @@
   const idioma = (navigator.languages && navigator.languages[0]) || navigator.language || 'pt';
   if (/^pt/i.test(idioma)) return;
   // As línguas do app (res/values-*). "in" é o código antigo do indonésio no Android.
-  const LINGUAS = ['en', 'es', 'fr', 'de', 'it', 'pl', 'ru', 'tr', 'ar', 'hi', 'id', 'ja', 'ko', 'zh'];
+  const LINGUAS = ['en', 'es', 'fr', 'de', 'it', 'pl', 'ru', 'tr', 'ar', 'hi', 'id', 'ja', 'ko', 'zh',
+    'nl', 'sv', 'da', 'nb', 'fi', 'cs', 'el', 'hu', 'ro', 'uk', 'vi', 'th'];
   let lingua = idioma.toLowerCase().split(/[-_]/)[0];
   if (lingua === 'in') lingua = 'id';
+  // Norueguês: navegadores mandam "no" ou "nn" (nynorsk); o arquivo é o bokmål (nb).
+  if (lingua === 'no' || lingua === 'nn') lingua = 'nb';
   if (!LINGUAS.includes(lingua)) lingua = 'en';
   document.documentElement.lang = lingua;
   if (lingua === 'ar') document.documentElement.dir = 'rtl';

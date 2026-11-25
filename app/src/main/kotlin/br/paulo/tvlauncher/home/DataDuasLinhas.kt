@@ -20,10 +20,16 @@ class DataDuasLinhas(ctx: Context, private val umaLinha: String) : LinearLayout(
         // Escrita alta (japonês, coreano, chinês, árabe, híndi…): a fonte de reserva desenha fora da linha que a fonte da
         // interface mede, então a conta de altura não enxerga o corte. Nessas escritas vai direto para uma linha.
         val alta = (0 until childCount).any { EscritaAlta.tem((getChildAt(it) as? android.widget.TextView)?.text) }
-        // A altura medida já vem cortada no limite (AT_MOST): soma o que as linhas pedem de verdade.
+        // A medida do LinearLayout já vem cortada no limite (AT_MOST para cada filho): mede cada linha de novo sem limite
+        // de altura para saber o que ela pede de verdade (revisor, 24/11/2026: somar as alturas cortadas nunca passava).
+        val semLimite = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
         var precisa = paddingTop + paddingBottom
-        for (i in 0 until childCount) getChildAt(i).takeIf { it.visibility != View.GONE }?.let { precisa += it.measuredHeight }
-        if (!alta && precisa <= MeasureSpec.getSize(alt)) return
+        for (i in 0 until childCount) getChildAt(i).takeIf { it.visibility != View.GONE }?.let { f ->
+            val lp = f.layoutParams as? MarginLayoutParams
+            f.measure(getChildMeasureSpec(larg, paddingLeft + paddingRight, f.layoutParams.width), semLimite)
+            precisa += f.measuredHeight + (lp?.topMargin ?: 0) + (lp?.bottomMargin ?: 0)
+        }
+        if (!alta && precisa <= MeasureSpec.getSize(alt)) { super.onMeasure(larg, alt); return }
         virou = true
         getChildAt(0).visibility = View.GONE
         (getChildAt(1) as? TextClock)?.let { it.format12Hour = umaLinha; it.format24Hour = umaLinha }

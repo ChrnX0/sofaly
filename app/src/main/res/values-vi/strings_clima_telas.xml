@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Weather screen in three pages: the line of the day and the three everyday tips (DicasClima, 21/11/2026). -->
+<resources>
+    <string name="cl_pg_agora">Bây giờ và mẹo</string>
+    <string name="cl_pg_horas">Vài giờ và vài ngày tới</string>
+    <string name="cl_pg_detalhes">Chi tiết, không khí, mặt trời và mặt trăng</string>
+    <string name="cl_hora">%1$d:00</string>
+    <string name="cl_f_parar">Đang mưa. Có thể tạnh khoảng %1$s.</string>
+    <string name="cl_f_segue">Đang mưa, và có thể kéo dài trong vài giờ tới.</string>
+    <string name="cl_f_chuva">Có thể mưa khoảng %1$s (%2$s).</string>
+    <string name="cl_f_calor">Ngày nóng: lên đến %1$d° khoảng %2$s. Hãy uống nước.</string>
+    <string name="cl_f_frio">Sắp lạnh: xuống đến %1$d°. Hãy mặc ấm.</string>
+    <string name="cl_f_sol">Nắng gắt từ %1$s đến %2$s. Hãy dùng kem chống nắng.</string>
+    <string name="cl_f_amanha">Hôm nay không mưa. Ngày mai có thể mưa (%1$s).</string>
+    <string name="cl_f_calmo">Hôm nay không có mưa. Cao nhất %1$d°.</string>
+    <string name="cl_d_guarda">Ô dù</string>
+    <string name="cl_d_varal">Phơi đồ ngoài trời</string>
+    <string name="cl_d_sair">Lúc nên ra ngoài</string>
+    <string name="cl_v_agora">Bây giờ</string>
+    <string name="cl_v_sim_as">Có, lúc %1$s</string>
+    <string name="cl_v_talvez">Có thể</string>
+    <string name="cl_v_nao">Không cần</string>
+    <string name="cl_v_ate">Đến %1$s</string>
+    <string name="cl_v_seca">Khô trong hôm nay</string>
+    <string name="cl_v_melhor_nao">Không nên</string>
+    <string name="cl_v_amanha_sim">Ngày mai thì có</string>
+    <string name="cl_v_amanha_nao">Ngày mai không</string>
+    <string name="cl_v_as">Lúc %1$s</string>
+    <string name="cl_v_amanha_as">Ngày mai %1$s</string>
+    <string name="cl_v_hoje_nao">Hôm nay không</string>
+</resources>

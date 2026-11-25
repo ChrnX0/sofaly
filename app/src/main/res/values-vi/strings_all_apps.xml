@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tela "Todos os apps" em prateleiras (AllAppsScreen, AppShelf), 20/11/2026. -->
+<resources>
+    <string name="aa_shelf_entertainment">Phim &amp; TV</string>
+    <string name="aa_shelf_video">Video</string>
+    <string name="aa_shelf_sports">Thể thao</string>
+    <string name="aa_shelf_kids">Trẻ em</string>
+    <string name="aa_shelf_music_audio">Nhạc &amp; âm thanh</string>
+    <string name="aa_shelf_news">Tin tức</string>
+    <string name="aa_shelf_games">Trò chơi</string>
+    <string name="aa_shelf_education">Giáo dục</string>
+    <string name="aa_shelf_health_fitness">Sức khỏe &amp; thể hình</string>
+    <string name="aa_shelf_lifestyle">Phong cách sống</string>
+    <string name="aa_shelf_tools">Công cụ</string>
+    <string name="aa_shelf_system">Hệ thống</string>
+    <string name="aa_shelf_other">Khác</string>
+    <string name="aa_frozen">Đã đóng băng</string>
+    <string name="aa_hidden">Đã ẩn</string>
+    <string name="aa_badge_frozen">đã đóng băng</string>
+    <string name="aa_badge_hidden">đã ẩn</string>
+    <string name="aa_lock">Đã ẩn (%1$d)</string>
+    <string name="aa_count_hidden">đã ẩn: %1$d</string>
+    <string name="aa_count_frozen">đã đóng băng: %1$d</string>
+    <string name="aa_pin_title">PIN để xem ứng dụng đã ẩn</string>
+    <string name="aa_used_today">Đã mở hôm nay</string>
+    <string name="aa_used_days">Mở lần cuối %1$d ngày trước</string>
+    <string name="aa_used_never">Chưa mở từ đây</string>
+    <string name="aa_size">Dùng %1$s</string>
+    <string name="aa_risk_safe">An toàn để thay đổi, theo thông tin của nó</string>
+    <string name="aa_risk_care">Thay đổi cẩn thận, theo thông tin của nó</string>
+    <string name="aa_risk_essential">Thiết yếu cho TV: không đóng băng</string>
+    <string name="aa_tip_idle">Không mở trong %1$d ngày. Đóng băng giúp giải phóng bộ nhớ và có thể hoàn tác.</string>
+    <string name="aa_hint_app">OK để mở · giữ OK để di chuyển, ẩn, đóng băng hoặc gỡ cài đặt</string>
+    <string name="aa_hint_frozen">OK để bỏ đóng băng và mở</string>
+    <string name="aa_hint_lock">OK để hỏi PIN và hiện ứng dụng đã ẩn ở đây</string>
+    <string name="aa_open">Mở</string>
+    <string name="aa_freeze">Đóng băng</string>
+    <string name="aa_freezing">Đang đóng băng %1$s…</string>
+    <string name="aa_frozen_done">Đã đóng băng %1$s. Sau 10 phút, TV kiểm tra mọi thứ vẫn hoạt động và hoàn tác nếu có gì ngừng chạy.</string>
+    <string name="aa_freeze_failed">Không đóng băng được %1$s: %2$s</string>
+    <string name="aa_unfreeze_open">Bỏ đóng băng và mở</string>
+    <string name="aa_unfreeze_refreeze">Mở và đóng băng lại khi tôi quay về</string>
+    <string name="aa_unfreezing">Đang bỏ đóng băng %1$s…</string>
+    <string name="aa_unfreeze_failed">Không bỏ đóng băng được %1$s: %2$s</string>
+    <string name="aa_move_auto">Tự động</string>
+</resources>

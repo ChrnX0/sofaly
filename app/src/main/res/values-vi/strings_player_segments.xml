@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
+<resources>
+    <string name="seg_pular_resumo">Bỏ qua tóm tắt · OK</string>
+    <string name="seg_proximo">Tập tiếp theo · OK</string>
+    <string name="seg_proximo_em">Tập tiếp theo sau %1$d · OK</string>
+    <string name="seg_termina">kết thúc lúc %1$s</string>
+    <string name="seg_repetir">Họ vừa nói gì?</string>
+    <string name="seg_repetir_info">Lùi 10 giây kèm phụ đề</string>
+    <string name="seg_sem_legenda">Video này không có phụ đề</string>
+</resources>

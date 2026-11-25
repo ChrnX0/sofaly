@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pergunta única da primeira abertura (T3, 17/11/2026): BoasVindasActivity + PrimeiraPergunta. -->
+<resources>
+    <string name="pp_det">Một câu trả lời sẽ thiết lập menu và màn hình. Bạn có thể đổi sau trong Cài đặt › Hệ thống.</string>
+    <string name="pp_casa">Cho cả nhà</string>
+    <string name="pp_vo_det">Thẻ lớn có đọc to tên và chữ lớn hơn, và bạn giúp đỡ từ điện thoại, ở xa.</string>
+</resources>

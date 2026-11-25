@@ -16,7 +16,7 @@
     <string name="elv_prom_player">什么文件都能播；字幕不用调就对</string>
     <string name="elv_prom_casa">闹钟每次都准时响</string>
     <string name="elv_prom_controle">面板、手机和 AI 能做遥控器能做的一切</string>
-    <string name="elv_prom_todos">老人、儿童、访客、视力或听力不好的人；14 种语言</string>
+    <string name="elv_prom_todos">老人、儿童、访客、视力或听力不好的人；%1$d 种语言</string>
     <string name="elv_prom_instala">从首次打开到第一个频道只需 5 分钟</string>
     <string name="elv_nao_medido">尚未测量</string>
     <string name="elv_alvo">目标 %1$s</string>

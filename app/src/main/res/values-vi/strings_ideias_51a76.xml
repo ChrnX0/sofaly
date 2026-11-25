@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas 51 to 76 of the 13/11/2026 study (thread "Executar ideias aprovadas 51 a 76"). -->
+<resources>
+    <!-- 64: restore rehearsal of the nightly backup -->
+    <string name="l51_ensaio_ok">đã kiểm tra khôi phục thành công</string>
+    <string name="l51_ensaio_falhou">bản sao đã lưu không khôi phục được (%1$s)</string>
+    <!-- 54: guest Wi-Fi QR in visitor mode -->
+    <string name="l51_wifi_titulo">Wi-Fi cho khách</string>
+    <string name="l51_wifi_nao">chưa đặt: nhập một lần và khách quét QR</string>
+    <string name="l51_wifi_dica">Hãy dùng mạng khách của router: ai trong phòng cũng đọc được mật khẩu trên màn hình.</string>
+    <string name="l51_wifi_rede">Tên mạng</string>
+    <string name="l51_wifi_senha">Mật khẩu</string>
+    <string name="l51_wifi_invalido">Tên tối đa 32 ký tự; mật khẩu để trống (mạng mở) hoặc từ 8 đến 63 ký tự.</string>
+    <string name="l51_wifi_qr_titulo">Hiện QR Wi-Fi cho khách</string>
+    <!-- 67: local usage of screens and settings -->
+    <string name="l51_uso_titulo">Những gì được dùng</string>
+    <string name="l51_uso_det">Màn hình và cài đặt theo mức dùng, chỉ đếm trên TV này (không gửi đi đâu)</string>
+    <string name="l51_uso_vazio">Chưa đếm được gì. Hãy quay lại sau vài ngày.</string>
+    <string name="l51_uso_tela">màn hình</string>
+    <string name="l51_uso_opcao">cài đặt</string>
+    <string name="l51_uso_linha">%1$s (%2$s): %3$s, %4$s</string>
+    <plurals name="l51_uso_vezes">
+        <item quantity="one">%d lần</item>
+        <item quantity="other">%d lần</item>
+    </plurals>
+    <string name="l51_uso_hoje">gần nhất hôm nay</string>
+    <string name="l51_uso_ontem">gần nhất hôm qua</string>
+    <string name="l51_uso_dias">gần nhất %d ngày trước</string>
+    <string name="l51_tela_Main">Màn hình chính</string>
+    <string name="l51_tela_Dream">Trình bảo vệ màn hình</string>
+    <string name="l51_tela_Filmes">Phim</string>
+    <string name="l51_tela_Series">Chương trình</string>
+    <string name="l51_tela_Jogos">Trò chơi</string>
+    <string name="l51_tela_Player">TV trực tiếp và video</string>
+    <string name="l51_tela_PainelRapido">Bảng nhanh</string>
+    <string name="l51_tela_Vod">Danh mục danh sách phát</string>
+    <string name="l51_tela_Previsao">Dự báo thời tiết</string>
+    <string name="l51_tela_Elenco">Diễn viên</string>
+    <string name="l51_tela_ConfigLauncher">Cài đặt</string>
+    <string name="l51_tela_MidiaRede">Mạng</string>
+    <string name="l51_tela_Calendario">Lịch</string>
+    <string name="l51_tela_Gravacoes">Bản ghi</string>
+    <string name="l51_tela_Busca">Tìm kiếm</string>
+    <string name="l51_tela_Casa">Nhà của tôi</string>
+    <string name="l51_tela_AlarmeTocando">Báo thức đang reo</string>
+    <string name="l51_tela_Radio">Radio</string>
+    <string name="l51_tela_Diagnostico">Chẩn đoán</string>
+    <string name="l51_uso_zerar">Đặt lại</string>
+    <!-- 57: phone keyboard called by the TV -->
+    <string name="l51_digitar_titulo">Gõ trên TV</string>
+    <string name="l51_digitar_texto">Một ô nhập văn bản đang mở trong %1$s. Chạm để gõ từ đây.</string>
+    <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
+    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_ambiente">phòng %1$s</string>
+    <string name="casa_movimento">Có chuyển động</string>
+    <string name="casa_sem_movimento">Không có chuyển động</string>
+    <string name="casa_molhado">Ướt</string>
+    <string name="casa_seco">Khô</string>
+    <string name="casa_fumaca">Có khói!</string>
+    <string name="casa_sem_fumaca">Không có khói</string>
+    <string name="casa_dica_temp">nhiệt độ</string>
+    <!-- Ideia 52: câmera sob demanda -->
+    <string name="casa_camera_abrindo">Đang mở camera…</string>
+    <string name="casa_camera_ver">Hiện trên TV</string>
+</resources>

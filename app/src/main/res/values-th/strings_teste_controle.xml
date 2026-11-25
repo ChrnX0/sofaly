@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teste do controle da tela Jogos (21/11/2026, ControleLatencia). -->
+<resources>
+    <string name="teste_controle">ทดสอบจอยเกม</string>
+    <string name="teste_controle_sub">เร็วพอสำหรับเล่นเกมไหม</string>
+    <string name="teste_controle_mexa">หมุนจอยอนาล็อกซ้ายเป็นวงกลม 10 วินาที</string>
+    <string name="teste_controle_bom">ดีมากสำหรับเกม: สัญญาณทุก %1$d ms</string>
+    <string name="teste_controle_ok">เล่นได้: สัญญาณทุก %1$d ms เกมที่เร็วอาจรู้สึกช้าเล็กน้อย</string>
+    <string name="teste_controle_ruim">ช้า: สัญญาณทุก %1$d ms และสะดุด %2$d ครั้ง จอยแบบมีสาย หรือวางจอยใกล้ทีวีขึ้นจะช่วยได้</string>
+    <string name="teste_controle_parado">จอยไม่ขยับ ลองอีกครั้งและหมุนจอยอนาล็อกต่อไป</string>
+</resources>

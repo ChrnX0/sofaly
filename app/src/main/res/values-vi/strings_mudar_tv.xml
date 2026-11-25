@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 19.7: TV nova em 2 min (MudarDeTv, ReceberTvActivity, FilaAppsActivity). -->
+<resources>
+    <string name="mtv_titulo">Lấy từ TV khác</string>
+    <string name="mtv_qr_desc">Mã QR để lấy cài đặt từ TV khác</string>
+    <string name="mtv_instrucoes">Trên TV CŨ, mở bảng điều khiển (điện thoại hoặc máy tính), vào Hệ thống › Sao lưu › \"Chuyển sang TV mới\" và quét QR này hoặc nhập mã bên dưới.\nMọi thứ được mã hóa, chỉ gửi đến TV này. Mã có hiệu lực %1$s.</string>
+    <string name="mtv_recebendo">Đang nhận… đừng tắt TV.</string>
+    <string name="mtv_pronto">Mọi thứ đã được lấy từ %1$s. TV sẽ khởi động lại ngay; sau đó các ứng dụng sẽ lần lượt trở lại.</string>
+    <string name="mtv_erro">Không thành công: %1$s\nKhông có gì thay đổi trên TV này. Nhấn \"%2$s\" để thử lại.</string>
+    <string name="mtv_venceu">Mã đã hết hạn (hiệu lực 10 phút).\nNhấn \"%1$s\" để hiện mã mới.</string>
+    <string name="mtv_cfg_det">Cài đặt, PIN, kênh và ứng dụng của TV cũ trong 2 phút, bằng QR</string>
+    <string name="mtv_fila_titulo">Ứng dụng của bạn đang trở lại</string>
+    <string name="mtv_fila_texto">Ứng dụng %1$d trên %2$d. Mở trên Play Store và nhấn Cài đặt; khi bạn quay lại, ứng dụng tiếp theo sẽ hiện.</string>
+    <string name="mtv_fila_abrir">Mở trên Play Store</string>
+    <string name="mtv_fila_pular">Bỏ qua</string>
+    <string name="mtv_fila_depois">Để sau</string>
+    <string name="mtv_fila_fim">Mọi ứng dụng từ TV kia đã có ở đây.</string>
+    <string name="mtv_fila_cfg_det">Còn %1$d ứng dụng từ TV kia cần cài</string>
+    <string name="mtv_diario">Đã lấy từ %1$s: cài đặt đã khôi phục, %2$d ứng dụng cần cài</string>
+    <string name="mtv_diario_enviado">Đã gửi sang TV mới: cài đặt và %1$d ứng dụng</string>
+</resources>

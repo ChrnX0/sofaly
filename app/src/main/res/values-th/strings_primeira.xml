@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Primeira configuração pelo celular (ideia 97, 14/11/2026): BoasVindasActivity e EntrarPeloQrActivity sem PIN. -->
+<resources>
+    <string name="pc_titulo">ตั้งค่าด้วยโทรศัพท์</string>
+    <string name="pc_linha_det">แนะนำ ส่องกล้องโทรศัพท์ไปที่รหัส: PIN ภาษา ทีวีสด เมือง และบริการภาพยนตร์ ใน 5 ขั้นตอน</string>
+    <string name="pc_instrucoes">ส่องกล้องโทรศัพท์ไปที่รหัสข้างๆ นี้ โทรศัพท์จะเปิดการตั้งค่า 5 ขั้นตอน\n\nโทรศัพท์ต้องอยู่ใน Wi-Fi ของบ้าน เปิดหน้าจอนี้ไว้จนกว่าคุณจะสร้าง PIN บนโทรศัพท์ (เหลือ %1$s)</string>
+    <string name="pc_entrou">ดำเนินการต่อบนโทรศัพท์</string>
+    <string name="pc_venceu">รหัสหมดอายุแล้ว\nกด \"%1$s\" เพื่อแสดงรหัสใหม่</string>
+    <string name="pc_sem_rede">ทีวีไม่ได้อยู่ในเครือข่าย\nเชื่อมต่อกับ Wi-Fi ของบ้านแล้วลองอีกครั้ง</string>
+</resources>

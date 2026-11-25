@@ -82,4 +82,6 @@
     <string name="ev_todos_sairam">Усі пішли (присутність)</string>
     <string name="ev_chuva">Наближається дощ</string>
 
+    <string name="acao_plugin_button">Натиснути «%1$s» (кнопка з іншого застосунку)</string>
+    <string name="acao_plugin_button_off">Цю кнопку не ввімкнено в Плагінах</string>
 </resources>

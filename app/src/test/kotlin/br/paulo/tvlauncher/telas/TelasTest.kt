@@ -184,6 +184,10 @@ class TelasTest {
     @Test fun lingua_ro() = todas("ro")
     @Config(qualifiers = "uk-w960dp-h540dp-land-television-xhdpi")
     @Test fun lingua_uk() = todas("uk")
+    @Config(qualifiers = "vi-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_vi() = todas("vi")
+    @Config(qualifiers = "th-w960dp-h540dp-land-television-xhdpi")
+    @Test fun lingua_th() = todas("th")
 
     private fun todas(idioma: String) { org.junit.Assume.assumeTrue(System.getProperty("telas.todas") == "true"); conferir(idioma) }
 

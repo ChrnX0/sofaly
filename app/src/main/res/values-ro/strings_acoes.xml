@@ -79,4 +79,6 @@
     <string name="ev_tv_ligou">TV-ul a pornit</string>
     <string name="ev_todos_sairam">Toți au plecat (prezență)</string>
     <string name="ev_chuva">Vine ploaia</string>
+    <string name="acao_plugin_button">Apasă „%1$s” (buton din altă aplicație)</string>
+    <string name="acao_plugin_button_off">Acest buton nu este pornit în Pluginuri</string>
 </resources>

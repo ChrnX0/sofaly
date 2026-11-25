@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Bármilyen fájlt lejátszik; helyes feliratok bajlódás nélkül</string>
     <string name="elv_prom_casa">Az ébresztő időben szól, minden alkalommal</string>
     <string name="elv_prom_controle">A panel, a telefon és az MI mindent megtesz, amit a távirányító</string>
-    <string name="elv_prom_todos">Idősek, gyerekek, vendégek, gyengén látók vagy hallók; 14 nyelv</string>
+    <string name="elv_prom_todos">Idősek, gyerekek, vendégek, gyengén látók vagy hallók; %1$d nyelv</string>
     <string name="elv_prom_instala">Az első indítástól az első csatornáig 5 perc alatt</string>
     <string name="elv_nao_medido">Még nincs mérve</string>
     <string name="elv_alvo">cél: %1$s</string>

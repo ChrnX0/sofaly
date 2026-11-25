@@ -16,7 +16,7 @@
     <string name="elv_prom_player">कोई भी फ़ाइल चलाता है; बिना छेड़े सही सबटाइटल</string>
     <string name="elv_prom_casa">अलार्म हर बार समय पर बजता है</string>
     <string name="elv_prom_controle">पैनल, फ़ोन और AI वह सब करते हैं जो रिमोट करता है</string>
-    <string name="elv_prom_todos">बुज़ुर्ग, बच्चे, मेहमान, कम देखने या सुनने वाले; 14 भाषाएँ</string>
+    <string name="elv_prom_todos">बुज़ुर्ग, बच्चे, मेहमान, कम देखने या सुनने वाले; %1$d भाषाएँ</string>
     <string name="elv_prom_instala">पहली बार खोलने से पहले चैनल तक 5 मिनट में</string>
     <string name="elv_nao_medido">अभी मापा नहीं गया</string>
     <string name="elv_alvo">लक्ष्य %1$s</string>
