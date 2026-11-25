@@ -31,7 +31,7 @@ object PanelCompanion {
 
     fun rotear(app: Context, metodo: String, rota: String, corpo: JSONObject?): Pair<Int, JSONObject>? {
         if (metodo == "GET" && rota == "") return ok(estado(app))
-        if (metodo == "GET" && rota == "/remotes") return ok(remotes())
+        if (metodo == "GET" && rota == "/remotes") return ok(remotes(app))
         if (metodo == "GET" && rota == "/clock") return 200 to JSONObject().put("t", AudioSyncTv.nowMs())
         if (metodo != "POST") return null
         val c = corpo ?: JSONObject()
@@ -48,7 +48,7 @@ object PanelCompanion {
                 if (c.optBoolean("save")) CompanionTv.savePicture(app, parte, r)
                 ok(PanelCompanionRules.toJson(r))
             }
-            "/remotes/ring" -> ok(remotes().put("vibrated", JSONArray(FindRemote.ring(app))))
+            "/remotes/ring" -> ok(remotes(app).put("vibrated", JSONArray(FindRemote.ring(app))))
             "/audio/start" -> if (AudioSyncTv.startBeeps()) ok(JSONObject().put("beeps", AudioSyncMath.BEEPS).put("gapMs", AudioSyncMath.GAP_MS))
                 else erro(409, "já tocando")
             "/audio/result" -> {
@@ -65,14 +65,15 @@ object PanelCompanion {
         }
     }
 
-    private fun remotes(): JSONObject = JSONObject().put("remotes", JSONArray().apply {
-        for (r in FindRemote.remotes()) put(JSONObject().put("name", r.name).put("lastUse", r.lastUse ?: JSONObject.NULL)
+    private fun remotes(app: Context): JSONObject = JSONObject().put("remotes", JSONArray().apply {
+        for (r in FindRemote.remotes(app)) put(JSONObject().put("name", r.name).put("lastUse", r.lastUse ?: JSONObject.NULL)
             .put("canVibrate", r.canVibrate).put("gamepad", r.gamepad))
     }).put("now", System.currentTimeMillis())
 
     fun estado(app: Context): JSONObject = JSONObject()
         .put("display", CompanionTv.displayKey(app))
         .put("displayName", CompanionTv.displayName(app) ?: JSONObject.NULL)
+        .put("aspect", CompanionTv.aspect(app))   // largura/altura da tela de verdade: a moldura do visor segue a TV
         .put("picture", CompanionTv.picture(app))
         .put("measuring", CompanionTv.phonePattern?.name ?: JSONObject.NULL)
         .put("route", runCatching { AudioSyncTv.route(app) }.getOrDefault("hdmi"))

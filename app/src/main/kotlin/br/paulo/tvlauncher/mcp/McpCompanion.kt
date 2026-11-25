@@ -33,7 +33,7 @@ object McpCompanion {
 
     fun chamar(ctx: Context, nome: String, a: JSONObject): String = when (nome) {
         "celular_tv" -> PanelCompanion.estado(ctx).put("remotes", JSONArray().apply {
-            for (r in FindRemote.remotes()) put(JSONObject().put("name", r.name).put("lastUse", r.lastUse ?: JSONObject.NULL)
+            for (r in FindRemote.remotes(ctx)) put(JSONObject().put("name", r.name).put("lastUse", r.lastUse ?: JSONObject.NULL)
                 .put("canVibrate", r.canVibrate).put("gamepad", r.gamepad))
         }).put("now", System.currentTimeMillis()).toString()
         // Tremer um controle por 8 s não muda nada na TV nem atrapalha quem assiste: roda sem pedir OK, mas fica no diário.

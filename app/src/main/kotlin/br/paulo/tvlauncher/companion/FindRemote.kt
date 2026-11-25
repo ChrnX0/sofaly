@@ -18,24 +18,45 @@ import android.view.KeyEvent
  * não há como fazê-lo apitar. O que dá: controle de jogo (DualSense, Xbox) treme; o da TV mostra a última vez usado.
  */
 object FindRemote {
-    /** Nome do controle -> hora (ms) da última tecla. Só na memória: é passageiro e não diz nada da pessoa. */
+    /**
+     * Nome do controle -> hora (ms) da última tecla. Também vai para as prefs (no máximo 1 gravação por minuto por
+     * controle): só na memória, todo Release ou reinício apagava e a página mostrava "nunca usado" (Sala, 25/11/2026).
+     */
     private val ultimo = java.util.concurrent.ConcurrentHashMap<String, Long>()
+    private val gravado = java.util.concurrent.ConcurrentHashMap<String, Long>()
+    private const val CHAVE = "remote_last."
 
-    fun touched(e: KeyEvent) {
+    fun touched(ctx: Context, e: KeyEvent) {
         if (e.action != KeyEvent.ACTION_DOWN) return
-        val d = e.device ?: return
+        val d = e.device ?: InputDevice.getDevice(e.deviceId) ?: return
         if (d.isVirtual) return
-        ultimo[d.name.take(40)] = System.currentTimeMillis()
+        val nome = d.name.take(40)
+        val agora = System.currentTimeMillis()
+        ultimo[nome] = agora
+        if (agora - (gravado[nome] ?: 0L) > 60_000L) {
+            gravado[nome] = agora
+            runCatching { CompanionTv.prefs(ctx).edit().putLong(CHAVE + nome, agora).apply() }
+        }
     }
+
+    private fun lastUse(ctx: Context, nome: String): Long? =
+        ultimo[nome] ?: runCatching { CompanionTv.prefs(ctx).getLong(CHAVE + nome, 0L) }.getOrDefault(0L).takeIf { it > 0 }
 
     data class Remote(val name: String, val lastUse: Long?, val canVibrate: Boolean, val gamepad: Boolean)
 
-    /** Os controles ligados agora (sem os virtuais e sem o teclado interno). */
-    fun remotes(): List<Remote> = InputDevice.getDeviceIds().toList().mapNotNull { InputDevice.getDevice(it) }
+    /**
+     * Os controles que a pessoa segura: só aparelhos EXTERNOS (Bluetooth/USB). Na Sala (25/11/2026) a lista mostrava
+     * também peças internas do Chromecast (gpio_keypad = botão do aparelho, vad_keypad = voz, input_btrcu) e os
+     * controles "virtual-*" de apps de celular, que ninguém perde no sofá.
+     */
+    fun remotes(ctx: Context): List<Remote> = InputDevice.getDeviceIds().toList().mapNotNull { InputDevice.getDevice(it) }
         .filter { !it.isVirtual && (it.sources and (InputDevice.SOURCE_KEYBOARD or InputDevice.SOURCE_GAMEPAD or InputDevice.SOURCE_DPAD)) != 0 }
-        .filter { it.name != null && !it.name.contains("builtin", true) && !it.name.contains("cec", true) }
+        .filter { it.name != null && CompanionRules.isHandRemote(it.name, externo(it)) }
         .distinctBy { it.name }
-        .map { Remote(it.name.take(40), ultimo[it.name.take(40)], vibra(it), (it.sources and InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD) }
+        .map { Remote(it.name.take(40), lastUse(ctx, it.name.take(40)), vibra(it), (it.sources and InputDevice.SOURCE_GAMEPAD) == InputDevice.SOURCE_GAMEPAD) }
+
+    private fun externo(d: InputDevice): Boolean? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) d.isExternal else null
 
     private fun vibra(d: InputDevice): Boolean =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) runCatching { d.vibratorManager.vibratorIds.isNotEmpty() }.getOrDefault(false)

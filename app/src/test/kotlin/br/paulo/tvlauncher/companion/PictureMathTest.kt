@@ -42,6 +42,35 @@ class PictureMathTest {
         assertEquals(Verdict.UNSURE, PictureMath.judgeOverscan(null).verdict)
     }
 
+    /** Sala, 25/11/2026: a medida que virou "cortando" falso. Assimétrico assim é foto torta/estourada, não corte. */
+    @Test fun overscanTortoNaoViraCorte() {
+        val sala = PictureMath.Overscan(0.014, 0.0, 0.011, 0.037)
+        val j = PictureMath.judgeOverscan(sala)
+        assertEquals(Verdict.UNSURE, j.verdict)
+        assertTrue(j.detail, j.detail.startsWith("tilted"))
+        // Corte de verdade (parecido dos dois lados) continua virando conselho; corte pequeno fica no erro da foto.
+        assertEquals(Advice.TURN_ON_JUST_SCAN, PictureMath.judgeOverscan(PictureMath.Overscan(0.03, 0.035, 0.03, 0.04)).advice)
+        assertEquals(Verdict.GOOD, PictureMath.judgeOverscan(PictureMath.Overscan(0.015, 0.0, 0.012, 0.018)).verdict)
+    }
+
+    @Test fun proporcaoDaTela() {
+        assertEquals(1.778, CompanionRules.aspect(3840, 2160), 1e-9)
+        assertEquals(1.778, CompanionRules.aspect(1920, 1080), 1e-9)
+        assertEquals(2.333, CompanionRules.aspect(2560, 1097), 1e-3)   // ultrawide 21:9
+        assertEquals(16.0 / 9, CompanionRules.aspect(0, 0), 1e-9)
+        assertEquals(16.0 / 9, CompanionRules.aspect(1080, 1920), 1e-9)   // em pé: valor estranho, volta ao 16:9
+    }
+
+    /** Nomes vistos na Sala em 25/11/2026: só o controle de mão fica. */
+    @Test fun soControleDeMao() {
+        assertTrue(CompanionRules.isHandRemote("Chromecast Remote", true))
+        assertTrue(CompanionRules.isHandRemote("DualSense Wireless Controller", true))
+        assertTrue(CompanionRules.isHandRemote("Chromecast Remote", null))
+        for (n in listOf("input_btrcu", "gpio_keypad", "vad_keypad", "virtual-search", "virtual-remote", "hdmi_cec_key"))
+            assertTrue(n, !CompanionRules.isHandRemote(n, true))
+        assertTrue(!CompanionRules.isHandRemote("Algum teclado", false))
+    }
+
     @Test fun pretoEsmagadoPedeMaisBrilho() {
         // Só o degrau 20 (índice 4) se separa do 0.
         val r = PictureMath.judgeBlack(listOf(10.0, 10.2, 10.5, 11.0, 18.0, 25.0, 33.0), null)

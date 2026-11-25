@@ -25,7 +25,8 @@
   };
   const INCERTO = {
     no_frame: 'Não achei a TV na foto. Enquadre a tela inteira, com um pouco de parede em volta, e meça de novo.',
-    camera_saturated: 'A câmera ofuscou. Afaste um pouco o celular ou diminua a luz da sala e meça de novo.',
+    camera_saturated: 'Este celular não deixou escurecer a câmera e o branco estourou na foto.',
+    tilted: 'A foto saiu torta. Segure o celular de frente para o meio da TV e meça de novo.',
     wb: 'Este celular não deixou travar a cor da câmera, então a cor não dá para medir com confiança.',
   };
   const PARTES = [
@@ -39,6 +40,7 @@
     if (!r) return 'Ainda não medido.';
     if (r.verdict === 'UNSURE') {
       if (/wb=auto/.test(r.detail || '')) return INCERTO.wb;
+      if (/^tilted/.test(r.detail || '')) return INCERTO.tilted;
       return INCERTO[r.detail] || INCERTO.no_frame;
     }
     return CONSELHO[r.advice] || CONSELHO.KEEP;
@@ -52,6 +54,8 @@
     try {
       const r = await chamar('GET', '/api/companion');
       const nome = r.displayName ? 'TV: ' + r.displayName : '';
+      // A moldura do visor tem o formato da tela de verdade (16:9 na maioria; vem do modo HDMI da TV).
+      if (r.aspect > 1) document.documentElement.style.setProperty('--tela-tv', String(r.aspect));
       mostrar($('celularTvNome'), nome);
       desenharResultado(r.picture || {});
     } catch (e) { mostrar($('statusCelularImagem'), e.message); }
@@ -112,8 +116,13 @@
 
   /** Volta a exposição para automática (para os degraus escuros e claros a câmera precisa se ajustar). */
   async function soltarExposicao() {
-    const t = trilha(); if (!t || !travou.exp) return;
-    try { await t.applyConstraints({ advanced: [{ exposureMode: 'continuous' }] }); } catch (e) { /* tanto faz */ }
+    const t = trilha(); if (!t) return;
+    // Volta o tempo automático e zera a compensação (o acertarExposicao pode ter mexido em qualquer um dos dois).
+    const cap = t.getCapabilities ? t.getCapabilities() : {};
+    const volta = {};
+    if (travou.exp) volta.exposureMode = 'continuous';
+    if (cap.exposureCompensation) volta.exposureCompensation = 0;
+    if (Object.keys(volta).length) try { await t.applyConstraints({ advanced: [volta] }); } catch (e) { /* tanto faz */ }
     travou.exp = false;
   }
 
@@ -133,6 +142,42 @@
     }
     for (let j = 0; j < soma.length; j++) soma[j] /= n;
     return { w, h, rgb: soma };
+  }
+
+  /**
+   * Escurece a câmera até o branco da TV ficar perto de 200 (de 255), com a TV mostrando branco. Por quê (Sala,
+   * 25/11/2026): com a exposição automática a câmera clareia pela sala escura e o branco estoura; aí branco e cor
+   * davam "ofuscou" e o branco espalhado inchava a caixa do recuo (bordas "cortando" sem cortar). Usa o tempo de
+   * exposição manual; sem ele, a compensação de exposição. Devolve o brilho final do miolo da TV.
+   */
+  async function acertarExposicao(tv) {
+    const t = trilha(); if (!t || !t.getCapabilities) return null;
+    const cap = t.getCapabilities(), cfg = t.getSettings ? t.getSettings() : {};
+    const manual = (cap.exposureMode || []).includes('manual') && cap.exposureTime && cfg.exposureTime;
+    const comp = cap.exposureCompensation;
+    let tempo = cfg.exposureTime, ev = cfg.exposureCompensation || 0, brilho = null;
+    for (let i = 0; i < 8; i++) {
+      brilho = barras(await foto(2), tv, 1)[0];
+      if (brilho >= 150 && brilho <= 225) break;
+      const fator = brilho > 225 ? (brilho >= 250 ? 0.45 : 0.75) : 1.3;
+      try {
+        if (manual) {
+          const novo = Math.min(cap.exposureTime.max, Math.max(cap.exposureTime.min, tempo * fator));
+          if (novo === tempo) break;
+          tempo = novo;
+          await t.applyConstraints({ advanced: [{ exposureMode: 'manual', exposureTime: tempo }] });
+          travou.exp = true;
+        } else if (comp && comp.max > comp.min) {
+          const passo = Math.max(comp.step || 0.33, 0.33) * (brilho >= 250 ? 3 : 1);
+          const novo = Math.min(comp.max, Math.max(comp.min, ev + (fator < 1 ? -passo : passo)));
+          if (novo === ev) break;
+          ev = novo;
+          await t.applyConstraints({ advanced: [{ exposureCompensation: ev }] });
+        } else break;
+      } catch (e) { break; }
+      await espera(350);   // a câmera leva uns quadros para obedecer
+    }
+    return brilho;
   }
 
   const luma = (f, p) => 0.2126 * f.rgb[p * 3] + 0.7152 * f.rgb[p * 3 + 1] + 0.0722 * f.rgb[p * 3 + 2];
@@ -180,7 +225,7 @@
 
   // ---------------------------------------------------------------- a medição
 
-  const PASSOS = ['Achando a TV', 'Bordas', 'Preto', 'Branco', 'Cor'];
+  const PASSOS = ['Achando a TV', 'Bordas', 'Branco', 'Cor', 'Preto'];
   let cancelada = false;
 
   function passo(i, texto) {
@@ -207,17 +252,19 @@
       document.body.classList.add('com-visor');
       passo(0, 'Aponte o celular para a TV, com a tela inteira dentro dos cantos. Segure firme.');
       await padrao('BLACK', 1500);
-      const preto = await foto();
+      const preto0 = await foto();
       await padrao('WHITE', 1500);
+      const tv0 = caixa(preto0, await foto());
+      if (!tv0) throw new Error(INCERTO.no_frame);
+      // Daqui em diante a câmera fica escurecida e parada no branco da TV: bordas, branco e cor na MESMA exposição.
       await travar();
-      await espera(500);
+      await acertarExposicao(tv0);
       const branco = await foto();
-      const tv = caixa(preto, branco);
-      if (!tv) throw new Error(INCERTO.no_frame);
-
-      passo(1, 'Medindo as bordas.');
       await padrao('BLACK');
       const pretoTravado = await foto();
+      const tv = caixa(pretoTravado, branco) || tv0;
+
+      passo(1, 'Medindo as bordas.');
       await padrao('INSET');
       const dentro = caixa(pretoTravado, await foto());
       await julgar({ part: 'overscan', save: true, visible: { l: tv.l, t: tv.t, r: tv.r, b: tv.b },
@@ -229,19 +276,20 @@
         const w = c(branco); return w > 5 ? Math.min(1, c(pretoTravado) / w) : null;
       })() : null;
 
-      passo(2, 'Medindo os pretos.');
-      await soltarExposicao();
-      await padrao('NEAR_BLACK', 1600);
-      await julgar({ part: 'black', save: true, luma: barras(await foto(4), tv, 7), blackOverWhite: razao });
-
-      passo(3, 'Medindo os brancos.');
-      await padrao('NEAR_WHITE', 1600);
+      passo(2, 'Medindo os brancos.');
+      await padrao('NEAR_WHITE', 1200);
       await julgar({ part: 'white', save: true, luma: barras(await foto(4), tv, 7) });
 
-      passo(4, 'Medindo a cor do branco.');
+      passo(3, 'Medindo a cor do branco.');
       await padrao('GRAY', 1200);
       const cor = corMedia(await foto(4), tv);
       await julgar({ part: 'color', save: true, r: cor.r, g: cor.g, b: cor.b, wbLocked: travou.wb });
+
+      // Os pretos por último: a câmera volta ao automático e clareia para enxergar os degraus escuros.
+      passo(4, 'Medindo os pretos.');
+      await soltarExposicao();
+      await padrao('NEAR_BLACK', 1600);
+      await julgar({ part: 'black', save: true, luma: barras(await foto(4), tv, 7), blackOverWhite: razao });
       ultimaCaixa = tv;
       aviso('Medição pronta.', 'ok');
     } catch (e) {
@@ -272,10 +320,10 @@
       await padrao('BLACK', 1500);
       const preto = await foto();
       await padrao('WHITE', 1500);
-      await travar();
-      await espera(500);
       const tv = caixa(preto, await foto()) || ultimaCaixa;
       if (!tv) throw new Error(INCERTO.no_frame);
+      await travar();
+      await acertarExposicao(tv);   // sem isso o cinza estoura no celular em sala escura (Sala, 25/11/2026)
       await padrao('GRAY', 1000);
       let r = null, cor = null;
       while (aoVivo && !cancelada) {

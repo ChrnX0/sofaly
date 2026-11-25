@@ -43,6 +43,16 @@ object CompanionTv {
         return runCatching { d?.deviceProductInfo?.name }.getOrNull()?.trim()?.takeIf { it.isNotEmpty() }?.take(40)
     }
 
+    /**
+     * Proporção da tela (largura/altura, ex.: 1,778 = 16:9) pelo modo de vídeo real do HDMI, não pela janela do app.
+     * O visor do celular desenha a moldura com ela (25/11/2026: a moldura fixa saía quase quadrada no celular em pé).
+     */
+    fun aspect(ctx: Context): Double {
+        val d = runCatching { ctx.getSystemService(DisplayManager::class.java).getDisplay(Display.DEFAULT_DISPLAY) }.getOrNull()
+        val m = runCatching { d?.mode }.getOrNull()
+        return CompanionRules.aspect(m?.physicalWidth ?: 0, m?.physicalHeight ?: 0)
+    }
+
     // ------------------------------------------------------------------ imagem
 
     /** A medida de imagem desta TV (o que o painel e a Sofy leem). Vazio quando ela nunca foi calibrada. */
@@ -122,6 +132,23 @@ object CompanionRules {
     fun routeType(route: String): String = route.substringBefore('-')
 
     /** Chave da TV pelo EDID: só letras, números e "-"; nada de nome livre na chave (o nome vai à parte). */
+    /**
+     * Controle de mão? [external] = InputDevice.isExternal (null no Android antigo). Fora sempre: nomes de peças
+     * internas e controles virtuais de apps (vistos na Sala em 25/11/2026), mesmo que o sistema diga externo.
+     */
+    fun isHandRemote(name: String, external: Boolean?): Boolean {
+        val n = name.lowercase()
+        if (n.startsWith("virtual") || listOf("builtin", "cec", "gpio", "keypad", "btrcu", "vad_").any { it in n }) return false
+        return external != false
+    }
+
+    /** Largura/altura com limites (TV em pé ou valor estranho cai no 16:9 de sempre). */
+    fun aspect(w: Int, h: Int): Double {
+        if (w <= 0 || h <= 0) return 16.0 / 9
+        val a = w.toDouble() / h
+        return if (a in 1.2..2.5) Math.round(a * 1000) / 1000.0 else 16.0 / 9
+    }
+
     fun displayKey(pnp: String?, productId: String?, year: Int, name: String?): String {
         val partes = listOf(pnp, productId, year.takeIf { it > 0 }?.toString())
             .map { it.orEmpty().filter { c -> c.isLetterOrDigit() }.take(12) }
