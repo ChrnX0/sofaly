@@ -64,6 +64,8 @@ object SofyRepair {
         /** Ferramentas que a IA indicou para este caso (entram na frente da fila). */
         val aiPlan: List<Tool> = emptyList(),
         val detail: String = "",
+        /** Ferramentas que entraram em laço neste caso -> quando (ficam de fora por [LOOP_BAN_MS] ou até consertar). */
+        val banned: Map<Tool, Long> = emptyMap(),
     )
 
     fun key(type: Type, subject: String) = "${type.name}:$subject"
@@ -79,6 +81,33 @@ object SofyRepair {
      * Paulo (25/11/2026): "ela tem que saber se calibrar sozinha"; o antigo teto de 6 por hora barrava o shell à toa.
      */
     const val LOOP_GUARD_PER_HOUR = 20
+
+    // ---------------------------------------------------------------- laço também é defeito (Paulo, 25/11/2026)
+
+    /**
+     * "Repetir a mesma ação sem parar não é um erro que ela deveria entender e corrigir também?" Sim: a mesma ferramenta
+     * [LOOP_REPEAT] vezes numa hora no mesmo caso, sem consertar, é um laço. Ela percebe ([looping]), troca de
+     * estratégia ([onLoop]: tira a ferramenta deste caso, anota no contexto e libera uma pergunta nova à IA) e a falha
+     * entra no placar. A trava fixa [LOOP_GUARD_PER_HOUR] fica só como rede, caso este detector falhe; disparar a trava
+     * é registrado como defeito da própria Sofy.
+     */
+    const val LOOP_REPEAT = 3
+    const val LOOP_BAN_MS = 24 * 3_600_000L
+
+    fun banned(c: Case, now: Long): Set<Tool> = c.banned.filterValues { now - it < LOOP_BAN_MS }.keys
+
+    /** A ferramenta em laço neste caso, se houver. */
+    fun looping(c: Case, now: Long): Tool? = c.tried
+        .filter { now - it.at < HOUR && it.tool != Tool.REPORT && it.tool != Tool.ASK_AI && (it.result == Result.NOT_FIXED || it.result == Result.FAILED) }
+        .groupingBy { it.tool }.eachCount().filter { (t, n) -> n >= LOOP_REPEAT && t !in banned(c, now) }.keys.firstOrNull()
+
+    fun onLoop(c: Case, t: Tool, now: Long): Case = c.copy(
+        banned = c.banned + (t to now), aiPlan = c.aiPlan - t,
+        context = (c.context + "laço: ${t.name.lowercase()} repetiu $LOOP_REPEAT vezes sem consertar").takeLast(MAX_CONTEXT),
+    )
+
+    /** A rede de segurança disparou: o detector de laço deixou passar (defeito da própria Sofy). */
+    fun guardTripped(e: Env) = e.toolsLastHour >= LOOP_GUARD_PER_HOUR
     const val VERIFY_AFTER_MS = 2 * 60_000L
     const val REBOOT_GAP_MS = 7 * DAY
     const val RESTART_LAUNCHER_GAP_MS = 6 * HOUR
@@ -266,10 +295,13 @@ object SofyRepair {
         if (c.tried.lastOrNull()?.result == Result.PENDING) return Step.Verify
         val placar = l[family(c)].orEmpty()
         val reported = c.tried.any { it.tool == Tool.REPORT }
-        val askedRecently = c.tried.any { it.tool == Tool.ASK_AI && e.now - it.at < DAY }
+        // Depois de um laço, a IA pode ser consultada de novo (o caso mudou: uma estratégia caiu).
+        val ultimoLaco = c.banned.values.maxOrNull() ?: 0L
+        val askedRecently = c.tried.any { it.tool == Tool.ASK_AI && e.now - it.at < DAY && it.at >= ultimoLaco }
+        val fora = banned(c, e.now)
         var cedo: Step.Wait? = null   // a ferramenta que volta primeiro, se todas estiverem no recuo
         for (t in ordered(c, l)) {
-            if (t in e.unavailable) continue
+            if (t in e.unavailable || t in fora) continue
             if (t == Tool.ASK_AI) { if (!e.aiAvailable || askedRecently) continue; return Step.Run(t) }
             if (t == Tool.REPORT) {
                 if (!reported) return Step.Run(t)   // registrar não gasta nada nem atrapalha ninguém
@@ -318,7 +350,8 @@ object SofyRepair {
     fun onVerified(c: Case, stillBad: Boolean, now: Long): Pair<Case, Pair<Tool, Boolean>?> {
         val last = c.tried.lastOrNull()?.takeIf { it.result == Result.PENDING } ?: return c to null
         val r = if (stillBad) Result.NOT_FIXED else Result.FIXED
-        val novo = c.copy(tried = c.tried.dropLast(1) + last.copy(result = r), state = if (stillBad) State.OPEN else State.FIXED, lastAt = if (stillBad) c.lastAt else now)
+        val novo = c.copy(tried = c.tried.dropLast(1) + last.copy(result = r), state = if (stillBad) State.OPEN else State.FIXED, lastAt = if (stillBad) c.lastAt else now,
+            banned = if (stillBad) c.banned else emptyMap())   // consertou: a próxima vez começa sem proibições
         return novo to (last.tool to !stillBad)
     }
 

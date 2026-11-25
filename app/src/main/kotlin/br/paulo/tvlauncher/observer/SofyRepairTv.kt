@@ -172,6 +172,7 @@ object SofyRepairTv {
         .put("type", c.type.name).put("subject", c.subject).put("first", c.firstAt).put("last", c.lastAt).put("count", c.count)
         .put("state", c.state.name).put("detail", c.detail)
         .put("needs", JSONArray(c.needs.map { it.name })).put("context", JSONArray(c.context)).put("ai", JSONArray(c.aiPlan.map { it.name }))
+        .put("banned", JSONObject().apply { c.banned.forEach { (t, at) -> put(t.name, at) } })
         .put("tried", JSONArray().apply { c.tried.forEach { put(JSONObject().put("tool", it.tool.name).put("at", it.at).put("result", it.result.name)) } })
 
     fun caseOf(o: JSONObject): SofyRepair.Case? {
@@ -192,6 +193,7 @@ object SofyRepairTv {
             o.optLong("first"), o.optLong("last"), o.optInt("count", 1), tried,
             SofyRepair.State.entries.firstOrNull { it.name == o.optString("state") } ?: SofyRepair.State.OPEN,
             strings("context"), strings("ai").mapNotNull { n -> Tool.entries.firstOrNull { it.name == n } }, o.optString("detail"),
+            o.optJSONObject("banned")?.let { b -> b.keys().asSequence().mapNotNull { k -> Tool.entries.firstOrNull { it.name == k }?.let { it to b.optLong(k) } }.toMap() }.orEmpty(),
         )
     }
 
@@ -290,6 +292,14 @@ object SofyRepairTv {
             if (c.state == SofyRepair.State.OPEN && c.key in comSonda && c.key !in ruinsAgora && c.tried.lastOrNull()?.result != SofyRepair.Result.PENDING)
                 c.copy(state = SofyRepair.State.FIXED) else c
         }
+        // Laço é defeito como qualquer outro: percebe, troca de estratégia e registra (vira issue pela tarefa diária).
+        cases = cases.map { c ->
+            val t = c.takeIf { it.state == SofyRepair.State.OPEN }?.let { SofyRepair.looping(it, now) } ?: return@map c
+            Log.w(TAG, "laço: ${c.subject} com ${t.name}; troca de estratégia")
+            ObserverTv.logShadow(app, "repair_loop", "${c.type.name} ${c.subject}: ${t.name.lowercase()}")
+            ObserverTv.logShadow(app, "self_defect", "REPAIR_LOOP: ${SofyRepair.brief(c)}")
+            SofyRepair.onLoop(c, t, now)
+        }
         saveLearned(app, learned)
         saveCases(app, cases)
 
@@ -298,6 +308,12 @@ object SofyRepairTv {
 
         // 4. um passo por batida, no caso aberto mais antigo que tenha o que fazer
         val e = env(app, now)
+        // A rede de segurança disparou: o detector de laço deixou passar. Defeito da própria Sofy, registrado uma vez por hora.
+        if (SofyRepair.guardTripped(e) && now - p.getLong("guard_tripped_at", 0L) > SofyRepair.HOUR) {
+            p.edit().putLong("guard_tripped_at", now).apply()
+            Log.w(TAG, "trava contra laço disparou: ${e.toolsLastHour} ferramentas na última hora")
+            ObserverTv.logShadow(app, "self_defect", "REPAIR_LOOP_GUARD: ${e.toolsLastHour} ferramentas na última hora")
+        }
         // Acesso e permissão primeiro: são a causa de muita coisa (sem shell, metade das ferramentas não roda).
         val ordem = cases.filter { it.state == SofyRepair.State.OPEN }
             .sortedWith(compareBy({ it.type != Type.ACCESS_LOST && it.type != Type.PERMISSION_LOST }, { it.firstAt }))
