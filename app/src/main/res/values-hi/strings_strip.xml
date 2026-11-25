@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">सिर्फ़ चुना हुआ</string>
     <string name="wo_cards">इस दुनिया में कार्ड का आकार</string>
     <string name="wo_cards_geral">बारीक समायोजन जैसा (%1$s)</string>
+    <string name="st_telas">स्क्रीन की शैली</string>
+    <string name="st_telas_gaveta">दराज़</string>
+    <string name="st_telas_vidro">कांच</string>
+    <string name="st_telas_barra">पट्टी</string>
 </resources>

@@ -70,7 +70,17 @@ object ObserverCore {
         // Fase 3: não é achado do juiz; é o recado de quando a prova desfez um congelamento que quebrou algo ([freezeUndoneNote]).
         FREEZE_UNDONE,
         // 24/11/2026: o que a Sofy fez sozinha pela rede ([actedNote]): religou o Wi-Fi, ou reiniciou a TV porque não bastou.
-        WIFI_RESTARTED, TV_RESTARTED }
+        WIFI_RESTARTED, TV_RESTARTED,
+        // 24/11/2026 (estudo "extrapolar a Sofy"): sugestões dela, que vão à Ilha ([sofyNote]).
+        REMOTE_BATTERY_LOW, APP_ON_DEMAND, VERSION_SLOWER, APP_CRASHY, APP_CRASHY_UPDATE,
+        // A casa em volta da TV (SofyHouse, ideias 27 a 31).
+        WIFI_ADVICE, GAME_LAG, TV_WAKE_FAILING, HOME_HUB_FAILING,
+        // Guardando a casa (SofyGuard, ideias 43, 45 a 48).
+        KEY_STUCK, APP_POWERFUL, SYSTEM_UPDATE_BROKE, PANEL_PIN_WRONG, DISK_FILLING,
+        // Outra TV da casa contou (SofyShare, ideia 40).
+        OTHER_TV_CRASHY, OTHER_TV_SLOWER,
+        // Outras casas contaram (fichas comunitárias, ideia 41).
+        HOMES_CRASHY, HOMES_SLOWER }
 
     /** Abaixo disto o Android começa a fechar apps em segundo plano num aparelho de 2 GB (inferido; a fase 2 troca pela linha de base da casa). */
     const val LOW_MEMORY_MB = 150L
@@ -282,6 +292,16 @@ object ObserverCore {
             base + "_title", base + "_text", listOf(minutes.toString()), null, kind.name.lowercase(), at + NOTE_TTL_MS)
     }
 
+    /**
+     * Uma fala da Sofy que não vem do juiz (24/11/2026): [step] diz onde ela aparece (SUGGESTS = Ilha da home, com o
+     * freio de sempre). Chaves observer_<kind>_title/_text em todas as línguas (SofyStringsTest).
+     */
+    fun sofyNote(kind: Kind, at: Long, step: Step, args: List<String> = emptyList(), severity: Severity = Severity.WARNING): Note {
+        val base = "observer_" + kind.name.lowercase()
+        return Note("${kind.name}-$at", at, kind, severity, step, State.DONE,
+            base + "_title", base + "_text", args, null, kind.name.lowercase(), at + NOTE_TTL_MS)
+    }
+
     /** Fase 1: o Observador só observa, então todo recado é OBSERVED + DONE, sem desfazer. */
     fun noteFor(f: Finding, at: Long, args: List<String> = emptyList()): Note {
         val base = "observer_" + f.kind.name.lowercase()
@@ -299,7 +319,10 @@ object ObserverCore {
         Kind.MEMORY_PRESSURE -> Signal.MEMORY_PRESSURE
         Kind.SLOW_HOME, Kind.UNUSUAL_FRAMES -> Signal.SLOW_FRAMES_PCT
         Kind.LOW_DISK -> Signal.DISK_FREE_MB
-        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED -> null
+        Kind.FREEZE_UNDONE, Kind.WIFI_RESTARTED, Kind.TV_RESTARTED, Kind.REMOTE_BATTERY_LOW, Kind.APP_ON_DEMAND, Kind.VERSION_SLOWER, Kind.APP_CRASHY, Kind.APP_CRASHY_UPDATE,
+        Kind.WIFI_ADVICE, Kind.GAME_LAG, Kind.TV_WAKE_FAILING, Kind.HOME_HUB_FAILING,
+        Kind.KEY_STUCK, Kind.APP_POWERFUL, Kind.SYSTEM_UPDATE_BROKE, Kind.PANEL_PIN_WRONG, Kind.DISK_FILLING,
+        Kind.OTHER_TV_CRASHY, Kind.OTHER_TV_SLOWER, Kind.HOMES_CRASHY, Kind.HOMES_SLOWER -> null
     }
 
     fun argsFor(kind: Kind, snapshot: Map<Signal, Reading>): List<String> {

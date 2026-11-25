@@ -27,6 +27,11 @@ import org.json.JSONObject
  * quem assiste; não vai no backup nem sai da TV).
  *
  * Limite honesto: o que aparece depende do app. Sem título (ou título = nome do app), não entra.
+ *
+ * De quem (Sofy, ideia 23, 24/11/2026): cada registro leva o perfil dos dados de quem estava na TV ([Registro.perfil],
+ * a chave de [br.paulo.tvlauncher.family.PerfilDados]; "" = sem conta, vale para todos). Por quê: com duas pessoas na
+ * casa, o "Continuar" mostrava o episódio do outro. Para quê: cada perfil vê o SEU; [MAX] por perfil. Modo visita não
+ * anota nada (o hóspede não deixa rastro).
  */
 object MidiaRecente {
     private const val TAG = "TvLauncher.MidiaRecente"
@@ -36,27 +41,38 @@ object MidiaRecente {
     /** Lado maior da capa guardada (a cruz mostra o ícone a ~112 dp e a arte de fundo borrada). */
     const val CAPA_PX = 320
 
-    data class Registro(val pacote: String, val titulo: String, val sub: String, val posMs: Long, val durMs: Long, val quando: Long)
+    data class Registro(val pacote: String, val titulo: String, val sub: String, val posMs: Long, val durMs: Long, val quando: Long,
+                        val perfil: String = "")
 
     // ---------------------------------------------------------------- puro
 
-    /** [r] entra no topo e tira o registro anterior do mesmo app; fica no máximo [max]. */
-    fun juntar(lista: List<Registro>, r: Registro, max: Int = MAX): List<Registro> =
-        (listOf(r) + lista.filter { it.pacote != r.pacote }).take(max)
+    /** [r] entra no topo e tira o registro anterior do mesmo app DO MESMO perfil; fica no máximo [max] por perfil. */
+    fun juntar(lista: List<Registro>, r: Registro, max: Int = MAX): List<Registro> {
+        val porPerfil = HashMap<String, Int>()
+        return (listOf(r) + lista.filter { it.pacote != r.pacote || it.perfil != r.perfil })
+            .filter { porPerfil.merge(it.perfil, 1, Int::plus)!! <= max }
+    }
 
     /** Título que vale guardar: não vazio e não é só o nome do app (alguns apps mandam isso quando não há nada). */
     fun tituloUtil(titulo: String?, nomeApp: String): Boolean =
         !titulo.isNullOrBlank() && !titulo.trim().equals(nomeApp.trim(), ignoreCase = true)
 
-    /** Os que valem agora, do mais novo para o mais velho. */
-    fun validos(lista: List<Registro>, agora: Long): List<Registro> =
-        lista.filter { agora - it.quando in 0..VALIDADE_MS }.sortedByDescending { it.quando }
+    /**
+     * Os que valem agora, do mais novo para o mais velho. Com [perfil], só os dele e os sem dono (""), um por app: o do
+     * perfil ganha do sem dono.
+     */
+    fun validos(lista: List<Registro>, agora: Long, perfil: String? = null): List<Registro> =
+        lista.filter { agora - it.quando in 0..VALIDADE_MS && (perfil == null || it.perfil == perfil || it.perfil.isEmpty()) }
+            .sortedWith(compareByDescending<Registro> { perfil != null && it.perfil == perfil && perfil.isNotEmpty() }.thenByDescending { it.quando })
+            .distinctBy { it.pacote }
+            .sortedByDescending { it.quando }
 
     /** Fração já vista (0..1), ou null quando o app não manda duração (rádio ao vivo, alguns apps de vídeo). */
     fun progresso(r: Registro): Float? = if (r.durMs > 0 && r.posMs > 0) (r.posMs.toFloat() / r.durMs).coerceIn(0f, 1f) else null
 
     fun paraJson(l: List<Registro>): String = JSONArray().apply {
-        for (r in l) put(JSONObject().put("p", r.pacote).put("t", r.titulo).put("s", r.sub).put("pos", r.posMs).put("dur", r.durMs).put("q", r.quando))
+        for (r in l) put(JSONObject().put("p", r.pacote).put("t", r.titulo).put("s", r.sub).put("pos", r.posMs).put("dur", r.durMs).put("q", r.quando)
+            .apply { if (r.perfil.isNotEmpty()) put("k", r.perfil) })
     }.toString()
 
     fun deJson(t: String?): List<Registro> = runCatching {
@@ -65,7 +81,7 @@ object MidiaRecente {
             val o = a.optJSONObject(i) ?: return@mapNotNull null
             val p = o.optString("p"); val ti = o.optString("t")
             if (p.isEmpty() || ti.isEmpty()) null
-            else Registro(p, ti, o.optString("s"), o.optLong("pos"), o.optLong("dur"), o.optLong("q"))
+            else Registro(p, ti, o.optString("s"), o.optLong("pos"), o.optLong("dur"), o.optLong("q"), o.optString("k"))
         }
     }.getOrDefault(emptyList())
 
@@ -78,19 +94,19 @@ object MidiaRecente {
 
     private fun pasta(ctx: Context) = File(ctx.noBackupFilesDir, "midia_recente").apply { mkdirs() }
     private fun arquivo(ctx: Context) = File(pasta(ctx), "recentes.json")
-    private fun arqCapa(ctx: Context, pacote: String) = File(pasta(ctx), "$pacote.jpg")
+    private fun arqCapa(ctx: Context, pacote: String, perfil: String = "") = File(pasta(ctx), if (perfil.isEmpty()) "$pacote.jpg" else "$pacote@$perfil.jpg")
     private val trava = Any()
 
     fun ler(ctx: Context): List<Registro> = synchronized(trava) { deJson(runCatching { arquivo(ctx).readText() }.getOrNull()) }
 
-    fun capa(ctx: Context, pacote: String): Bitmap? = runCatching {
-        arqCapa(ctx, pacote).takeIf { it.exists() }?.let { BitmapFactory.decodeFile(it.path) }
+    fun capa(ctx: Context, pacote: String, perfil: String = ""): Bitmap? = runCatching {
+        arqCapa(ctx, pacote, perfil).takeIf { it.exists() }?.let { BitmapFactory.decodeFile(it.path) }
     }.getOrNull()
 
     /** Esquece um app (desinstalado ou o dono tirou do Continuar). */
     fun esquecer(ctx: Context, pacote: String) = synchronized(trava) {
         PlayerCarga.gravarAtomico(arquivo(ctx), paraJson(ler(ctx).filter { it.pacote != pacote }))
-        arqCapa(ctx, pacote).delete()
+        pasta(ctx).listFiles()?.filter { it.name == "$pacote.jpg" || it.name.startsWith("$pacote@") }?.forEach { it.delete() }
     }
 
     // ---------------------------------------------------------------- sessão de mídia -> registro
@@ -111,6 +127,7 @@ object MidiaRecente {
         val md = c.metadata ?: return
         val pacote = c.packageName ?: return
         if (pacote == app.packageName) return
+        if (br.paulo.tvlauncher.family.ModoVisita.ativo(app)) return
         val titulo = md.getString(MediaMetadata.METADATA_KEY_TITLE) ?: md.getString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE)
         if (titulo.isNullOrBlank()) return
         // Mesmo título, mesmo estado, há menos de 30 s: nada novo para o disco (o app pode mandar a posição toda hora).
@@ -123,12 +140,13 @@ object MidiaRecente {
         val sub = listOf(MediaMetadata.METADATA_KEY_ARTIST, MediaMetadata.METADATA_KEY_DISPLAY_SUBTITLE, MediaMetadata.METADATA_KEY_ALBUM)
             .firstNotNullOfOrNull { k -> md.getString(k)?.takeIf { it.isNotBlank() && it != titulo } } ?: ""
         val pos = posicaoAgora(st.position, st.lastPositionUpdateTime, st.playbackSpeed.takeIf { it > 0f } ?: 1f, tocando, SystemClock.elapsedRealtime())
-        val r = Registro(pacote, titulo.trim(), sub.trim(), pos, md.getLong(MediaMetadata.METADATA_KEY_DURATION).coerceAtLeast(0), System.currentTimeMillis())
+        val perfil = runCatching { br.paulo.tvlauncher.family.Perfil.chaveDados(app) }.getOrDefault("")
+        val r = Registro(pacote, titulo.trim(), sub.trim(), pos, md.getLong(MediaMetadata.METADATA_KEY_DURATION).coerceAtLeast(0), System.currentTimeMillis(), perfil)
         // A capa só é copiada quando o título muda (a mesma música/episódio não regrava a cada pausa). Título novo sem
         // capa apaga a velha (senão o episódio novo apareceria com a arte do anterior).
         ultimaEscrita[pacote] = chaveEscrita to SystemClock.elapsedRealtime()
-        val mudou = tituloDaCapa[pacote] != r.titulo
-        tituloDaCapa[pacote] = r.titulo
+        val mudou = tituloDaCapa["$pacote@$perfil"] != r.titulo
+        tituloDaCapa["$pacote@$perfil"] = r.titulo
         val capa = if (mudou) listOf(MediaMetadata.METADATA_KEY_ART, MediaMetadata.METADATA_KEY_ALBUM_ART, MediaMetadata.METADATA_KEY_DISPLAY_ICON)
             .firstNotNullOfOrNull { k -> md.getBitmap(k) }?.let { reduzir(it) } else null
         Fundo.rodar("midia-recente") {
@@ -136,7 +154,7 @@ object MidiaRecente {
                 synchronized(trava) {
                     if (mudou) {
                         // Grava ao lado e troca de uma vez: a cruz pode ler a capa enquanto ela é escrita (JPEG pela metade).
-                        val destino = arqCapa(app, pacote)
+                        val destino = arqCapa(app, pacote, perfil)
                         if (capa != null) {
                             val tmp = File(destino.path + ".tmp")
                             tmp.outputStream().use { capa.compress(Bitmap.CompressFormat.JPEG, 85, it) }

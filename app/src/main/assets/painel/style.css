@@ -1061,7 +1061,7 @@ input[type=time]:focus-within, input[type=date]:focus-within { border-color: var
 /* Celular estreito ou língua de nome longo: os ícones apertam para a pílula da página aberta caber */
 @media (max-width: 899px) {
   .abas { gap: 2px; padding: 7px; }
-  .aba:not(.ativa) { min-width: 40px; padding: 0 9px; }
+  .aba:not(.ativa) { min-width: 44px; padding: 0 9px; }   /* 44 px: alvo de toque mínimo */
   .aba.ativa { padding: 0 14px; font-size: 15px; letter-spacing: -.01em; }
 }
 
@@ -1307,6 +1307,7 @@ label[data-atalho] > .estrela { margin: -8px -8px -8px auto; }
 .recado .link { align-self: center; }
 .recado.sev-warning .quando, .recado.sev-critical .quando { color: var(--atencao); font-weight: 800; }
 @media (max-width: 599px) { .recado { grid-template-columns: auto minmax(0, 1fr); } .recado .link { grid-column: 2; justify-self: start; } }
+.lista-simples { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 17px; }
 .linha-registro.prova { display: flex; flex-direction: row; align-items: center; gap: 16px; text-align: left; }
 .linha-registro.prova .nome { flex: 1; min-width: 0; font-weight: 700; }
 .portas-sofy { grid-template-columns: repeat(3, minmax(0, 1fr)); }

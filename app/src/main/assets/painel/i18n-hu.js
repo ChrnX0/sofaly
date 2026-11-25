@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Megfigyelő",
 "Sofy fala em voz alta":"Sofy hangosan beszél",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Felolvassa, amit a TV-n mutat. Bekapcsolt TalkBack esetén a TalkBack olvassa fel.",
+"Ajudar outras casas":"Más otthonok segítése",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Naponta egyszer csak az itt összeomlott alkalmazások neve és verziója, anélkül, hogy kiderülne, melyik otthonból. Amit más otthonok láttak, annak fogadása mindig be van kapcsolva.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Amit a TV magától figyel: memória, internet, Wi-Fi, a kezdőképernyő gördülékenysége és a tárhely. Ha valami eltér a normálistól, itt jelenik meg az okkal együtt. Egyelőre csak figyel és jegyzetel.",
 "Tudo normal agora.":"Jelenleg minden normális.",
 "Nada fora do normal nos últimos 7 dias.":"Az elmúlt 7 napban semmi rendellenes.",

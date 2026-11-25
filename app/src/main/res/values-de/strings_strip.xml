@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">Nur die Auswahl</string>
     <string name="wo_cards">Kartenform in dieser Welt</string>
     <string name="wo_cards_geral">Wie Feinabstimmung (%1$s)</string>
+    <string name="st_telas">Bildschirmstil</string>
+    <string name="st_telas_gaveta">Schublade</string>
+    <string name="st_telas_vidro">Glas</string>
+    <string name="st_telas_barra">Leiste</string>
 </resources>

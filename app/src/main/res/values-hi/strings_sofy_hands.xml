@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">खुलने को तैयार</string>
+    <string name="sofy_hand_on_demand">खोलने पर ही चलेगा</string>
+    <string name="sofy_hand_hour">इस समय आपकी आदत</string>
+    <string name="sofy_sug_cedo_titulo">जल्दी बंद करें?</string>
+    <string name="sofy_sug_cedo">%1$d रातों में टीवी देर रात बिना किसी के देखे अपने आप बंद हुआ। रिमोट के बिना %3$d की जगह %2$d मिनट बाद बंद करें?</string>
+    <string name="sofy_sug_alarme_titulo">अलार्म बाद में बजाएं?</string>
+    <string name="sofy_sug_alarme">%1$s का अलार्म अक्सर टाला गया। %2$d मिनट बाद, %3$s पर बजाएं?</string>
+    <string name="sofy_sug_rotina_titulo">इसे रूटीन बनाएं?</string>
+    <string name="sofy_sug_rotina">%1$s को %3$d दिन लगभग %2$s बजे खोला गया। उन दिनों %2$s बजे अपने आप खोलें?</string>
+    <string name="sofy_sug_teto_titulo">रात में आवाज़ की सीमा?</string>
+    <string name="sofy_sug_teto">देर रात आवाज़ दिन से बहुत ज़्यादा रहती है। रात 11 से सुबह 6 तक %1$d%% से ज़्यादा नहीं?</string>
+    <string name="sofy_sug_perfil_titulo">प्रोफ़ाइल बदलें?</string>
+    <string name="sofy_sug_perfil">अभी खुले ऐप वही हैं जो %1$s आम तौर पर देखते हैं। %1$s की प्रोफ़ाइल पर जाएं?</string>
+    <string name="sofy_sug_trocar">बदलें</string>
+    <string name="sofy_sug_feito">हो गया। सेटिंग में कभी भी वापस कर सकते हैं।</string>
+    <string name="sofy_lost_title">भटक गए?</string>
+    <string name="sofy_lost_text">होम स्क्रीन पर लौटने के लिए होम एक बार दबाएँ। क्विक पैनल के लिए बैक दबाकर रखें।</string>
+    <string name="sofy_help_internet">Sofy: इंटरनेट जाँचें</string>
+    <string name="sofy_help_sound">Sofy: आवाज़ जाँचें</string>
+    <string name="sofy_help_slow">Sofy: धीमा क्यों है?</string>
+    <string name="sofy_help_remote">Sofy: रिमोट जाँचें</string>
+    <string name="sofy_help_sound_fixed">यहाँ आवाज़ टीवी की है: रिमोट के वॉल्यूम बटन इस्तेमाल करें और देखें कि टीवी म्यूट तो नहीं है।</string>
+    <string name="sofy_help_sound_fixed_now">आवाज़ बंद थी। मैंने उसे %1$d%% पर फिर चालू कर दिया।</string>
+    <string name="sofy_help_sound_low">आवाज़ कम है (%1$d%%)। रिमोट से बढ़ाएँ।</string>
+    <string name="sofy_help_sound_ok">आवाज़ चालू है (%1$d%%)। टीवी का अपना वॉल्यूम और ऐप जाँचें।</string>
+    <string name="sofy_help_slow_ok">मेमोरी ठीक है (%1$d MB खाली)। अगर एक ऐप धीमा है, तो वजह शायद वही ऐप या इंटरनेट है।</string>
+    <string name="sofy_help_slow_freed">मेमोरी कम थी: मैंने पीछे चल रहे ऐप बंद करके %1$d MB खाली किए।</string>
+    <string name="sofy_help_slow_tight">मेमोरी कम है (%1$d MB खाली)। ऐप बंद करके फिर खोलें।</string>
+    <string name="sofy_help_remote_stuck">आज एक बटन अटका रहा। देखें कि रिमोट किसी चीज़ के नीचे दबा तो नहीं है।</string>
+    <string name="sofy_help_remote_battery">रिमोट की बैटरी कम है। बैटरी बदलें।</string>
+    <string name="sofy_help_remote_lag">आज रिमोट देर से चला। टीवी का गेम मोड चालू करें और रिमोट को दूसरे उपकरणों से दूर रखें।</string>
+    <string name="sofy_help_remote_none">आज मुझे रिमोट में कोई दिक्कत नहीं दिखी। नई बैटरी डालें; फिर भी न चले तो सेटिंग > रिमोट और एक्सेसरी में दोबारा पेयर करें।</string>
+    <string name="sofy_today_title">Sofy ने आज क्या किया</string>
+    <string name="sofy_today_none">शांत दिन: बताने को कुछ नहीं।</string>
+    <string name="sofy_today_prepared">पहले से तैयार ऐप: %1$d</string>
+    <string name="sofy_today_night">रात की देखभाल: %1$d</string>
+    <string name="sofy_today_guarded">जिन पर नज़र रखी: %1$d</string>
+    <string name="sofy_today_internet">इंटरनेट कटना: %1$d</string>
+    <string name="sofy_today_asked">पूछे गए सवाल: %1$d</string>
+    <string name="sofy_today_applied">माने गए सुझाव: %1$d</string>
+    <string name="sofy_today_alarms">अलार्म और रिमाइंडर: %1$d</string>
+    <string name="sofy_today_auto_off">टीवी बंद किया: %1$d</string>
+    <string name="sofy_today_home">घर के आदेश: %1$d</string>
+    <string name="sofy_today_updates">अपडेट हुए ऐप: %1$d</string>
+    <string name="sofy_evidence_measured">मुझे कैसे पता: अभी मापा।</string>
+    <string name="sofy_evidence_baseline">मुझे कैसे पता: इस घर के सामान्य से तुलना की।</string>
+    <string name="sofy_evidence_bus">मुझे कैसे पता: यह टीवी पर हुई घटनाओं के लॉग में है।</string>
+    <string name="sofy_evidence_system">मुझे कैसे पता: Android ने दिखाया।</string>
+    <string name="sofy_evidence_router">मुझे कैसे पता: राउटर और वाई-फ़ाई ने बताया।</string>
+    <string name="sofy_evidence_test">मुझे कैसे पता: परखा और जाँचा।</string>
+    <string name="sofy_evidence_other_tv">मुझे कैसे पता: इस घर के दूसरे टीवी ने बताया।</string>
+    <string name="sofy_evidence_community">मुझे कैसे पता: Sofaly वाले दूसरे घरों ने बताया (सिर्फ़ ऐप और वर्शन, कभी यह नहीं कि कौन)।</string>
+</resources>

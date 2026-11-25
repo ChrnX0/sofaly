@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Megnyitásra kész</string>
+    <string name="sofy_hand_on_demand">Akkor indul, amikor megnyitja</string>
+    <string name="sofy_hand_hour">A szokásos ilyenkor</string>
+    <string name="sofy_sug_cedo_titulo">Korábban kikapcsoljon?</string>
+    <string name="sofy_sug_cedo">%1$d éjjel a tévé későn magától kikapcsolt, senki sem nézte. Kapcsoljon ki %2$d perc után távirányító nélkül %3$d helyett?</string>
+    <string name="sofy_sug_alarme_titulo">Később szóljon az ébresztő?</string>
+    <string name="sofy_sug_alarme">A %1$s ébresztőt gyakran elhalasztották. Szóljon %2$d perccel később, %3$s-kor?</string>
+    <string name="sofy_sug_rotina_titulo">Legyen belőle rutin?</string>
+    <string name="sofy_sug_rotina">A(z) %1$s alkalmazást %3$d napon %2$s körül nyitották meg. Nyíljon meg magától %2$s-kor ezeken a napokon?</string>
+    <string name="sofy_sug_teto_titulo">Éjszakai hangerőkorlát?</string>
+    <string name="sofy_sug_teto">Késő éjjel a hangerő sokkal magasabb, mint nappal. Legfeljebb %1$d%% 23 és 6 óra között?</string>
+    <string name="sofy_sug_perfil_titulo">Profilváltás?</string>
+    <string name="sofy_sug_perfil">A most megnyitott alkalmazásokat általában %1$s nézi. Váltás %1$s profiljára?</string>
+    <string name="sofy_sug_trocar">Váltás</string>
+    <string name="sofy_sug_feito">Kész. A Beállításokban bármikor visszavonhatod.</string>
+    <string name="sofy_lost_title">Eltévedtél?</string>
+    <string name="sofy_lost_text">Nyomd meg egyszer a KEZDŐLAP gombot a kezdőképernyőhöz. Tartsd lenyomva a VISSZA gombot a gyorspanelhez.</string>
+    <string name="sofy_help_internet">Sofy: internet ellenőrzése</string>
+    <string name="sofy_help_sound">Sofy: hang ellenőrzése</string>
+    <string name="sofy_help_slow">Sofy: miért lassú?</string>
+    <string name="sofy_help_remote">Sofy: távirányító ellenőrzése</string>
+    <string name="sofy_help_sound_fixed">Itt a hangerőt a tévé kezeli: használd a távirányító hangerőgombjait, és ellenőrizd, hogy a tévé nincs-e lenémítva.</string>
+    <string name="sofy_help_sound_fixed_now">A hang ki volt kapcsolva. Visszakapcsoltam %1$d%%-ra.</string>
+    <string name="sofy_help_sound_low">A hangerő alacsony (%1$d%%). Hangosítsd fel a távirányítóval.</string>
+    <string name="sofy_help_sound_ok">A hang be van kapcsolva (%1$d%%). Ellenőrizd magának a tévének a hangerejét és az alkalmazást.</string>
+    <string name="sofy_help_slow_ok">A memória rendben van (%1$d MB szabad). Ha egy alkalmazás lassú, valószínűleg az vagy az internet a hibás.</string>
+    <string name="sofy_help_slow_freed">Kevés volt a memória: bezártam a háttérben futó alkalmazásokat, és felszabadítottam %1$d MB-ot.</string>
+    <string name="sofy_help_slow_tight">Kevés a memória (%1$d MB szabad). Zárd be az alkalmazást, és nyisd meg újra.</string>
+    <string name="sofy_help_remote_stuck">Ma beragadt egy gomb. Nézd meg, nincs-e a távirányító valami alá szorulva.</string>
+    <string name="sofy_help_remote_battery">A távirányító eleme gyenge. Cseréld ki az elemeket.</string>
+    <string name="sofy_help_remote_lag">Ma késett a távirányító. Kapcsold be a tévé játék módját, és tartsd távol a távirányítót más eszközöktől.</string>
+    <string name="sofy_help_remote_none">Ma nem láttam gondot a távirányítóval. Próbálj új elemeket; ha nem segít, párosítsd újra a Beállítások > Távirányítók és tartozékok menüben.</string>
+    <string name="sofy_today_title">Mit csinált ma Sofy</string>
+    <string name="sofy_today_none">Nyugodt nap: nincs mit mesélni.</string>
+    <string name="sofy_today_prepared">Előkészített alkalmazások: %1$d</string>
+    <string name="sofy_today_night">Éjszakai karbantartás: %1$d</string>
+    <string name="sofy_today_guarded">Amire figyeltem: %1$d</string>
+    <string name="sofy_today_internet">Internetkimaradások: %1$d</string>
+    <string name="sofy_today_asked">Feltett kérdések: %1$d</string>
+    <string name="sofy_today_applied">Elfogadott javaslatok: %1$d</string>
+    <string name="sofy_today_alarms">Ébresztők és emlékeztetők: %1$d</string>
+    <string name="sofy_today_auto_off">Ennyiszer kapcsoltam ki a tévét: %1$d</string>
+    <string name="sofy_today_home">Otthoni parancsok: %1$d</string>
+    <string name="sofy_today_updates">Frissített alkalmazások: %1$d</string>
+    <string name="sofy_evidence_measured">Honnan tudom: most mértem.</string>
+    <string name="sofy_evidence_baseline">Honnan tudom: összevetettem ennek az otthonnak a szokásos értékével.</string>
+    <string name="sofy_evidence_bus">Honnan tudom: benne van a tévén történtek naplójában.</string>
+    <string name="sofy_evidence_system">Honnan tudom: az Android mutatta meg.</string>
+    <string name="sofy_evidence_router">Honnan tudom: a router és a Wi-Fi jelezte.</string>
+    <string name="sofy_evidence_test">Honnan tudom: kipróbáltam és ellenőriztem.</string>
+    <string name="sofy_evidence_other_tv">Honnan tudom: egy másik tévé szólt ebben az otthonban.</string>
+    <string name="sofy_evidence_community">Honnan tudom: más Sofalyt használó otthonok jelezték (csak az alkalmazás és a verzió, soha nem az, hogy ki).</string>
+</resources>

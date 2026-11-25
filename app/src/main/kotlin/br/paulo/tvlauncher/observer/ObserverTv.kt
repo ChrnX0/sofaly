@@ -14,6 +14,7 @@ import br.paulo.tvlauncher.player.OnDemandTv
 import br.paulo.tvlauncher.network.HistoricoRede
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
 import br.paulo.tvlauncher.privilege.PrivilegioDO
+import org.json.JSONObject
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -33,7 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 object ObserverTv {
     private const val TAG = "TvLauncher.Observer"
-    private const val PREFS = "observer"
+    internal const val PREFS = "observer"
     private const val MIN_JUDGE_GAP_MS = 10_000L
 
     val blackBox = ObserverCore.BlackBox()
@@ -115,6 +116,9 @@ object ObserverTv {
         runCatching { OnDemandTv.tick(ctx) }   // sob demanda: congela de novo o que ficou aberto (cinto do onWindow)
         runCatching { GoogleHomeTrimTv.tick(ctx) }   // launcher do Google parado em segundo plano: devolve a memória
         Fundo.rodar("app-profile") { runCatching { AppProfileTv.tick(ctx) }.onFailure { Log.w(TAG, "ficha dos apps: $it") } }
+        Fundo.rodar("sofy-self-check") { runCatching { selfCheck(ctx) }.onFailure { Log.w(TAG, "autoexame: $it") } }
+        runCatching { trackDrop(ctx, internet, dbm, agora) }
+        Fundo.rodar("controller-battery") { runCatching { ControllerBatteryTv.tick(ctx) }.onFailure { Log.w(TAG, "pilha: $it") } }
         if (trialsPending) Fundo.rodar("observer-trials") { runCatching { checkTrials(ctx) }.onFailure { Log.w(TAG, "provas: $it") } }
         // O último put passa pelo publish para acordar o juiz uma vez só por amostra.
         publish(ObserverCore.Signal.INTERNET, if (internet) 1 else 0)
@@ -138,10 +142,17 @@ object ObserverTv {
         learn(p, base, snap, hw, hd, agora)
         val raw = ObserverCore.diff(active.toList(), findings)
         val change = raw.copy(cleared = ObserverCore.confirmedCleared(raw.cleared, snap, agora))
+        val pico = pico(ctx)
+        // Placar do pico (ideias 34 e 37): o achado durou ou era barulho? Roda a cada batida, mesmo sem mudança.
+        var notes = p.getString("notes", null)
+        val notesAntes = notes
+        runCatching { notes = picoFollow(ctx, p, pico, agora, change.cleared, findings, snap, notes) }.onFailure { Log.w(TAG, "pico: $it") }
+        if (notes != notesAntes) p.edit().putString("notes", notes).apply()
+        runCatching { SofyHouseTv.onJudge(ctx, snap, agora) }.onFailure { Log.w(TAG, "casa: $it") }   // ideia 28: jogo na nuvem
         if (change.appeared.isEmpty() && change.cleared.isEmpty()) return
         var log = p.getString("log", null)
-        var notes = p.getString("notes", null)
-        val pico = pico(ctx)
+        val picoDecide = SofyLearnTv.picoReady(ctx)
+        val pending = picoPending(p)
         val use = habit(ctx).hour(hd)?.use ?: 0.0
         for (f in change.appeared) {
             // Pico em sombra (fase 2): a nota de "vale avisar?" vai ao registro; quem decide ainda é a regra (severidade ≥ WARNING).
@@ -150,19 +161,29 @@ object ObserverTv {
             }
             val x = ObserverCore.tellingFeatures(f, snap, base, hw, hd, use, 0.0, vezes)
             val nota = pico.score(ObserverPico.Task.WORTH_TELLING, x)
-            log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "appeared", f.kind, f.severity, f.why, snap)
-                .put("pico_tell", Math.round(nota * 100) / 100.0), agora)
-            if (f.severity >= ObserverCore.Severity.WARNING) notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
+            val entry = ObserverCore.logEntry(agora, "appeared", f.kind, f.severity, f.why, snap).put("pico_tell", Math.round(nota * 100) / 100.0)
+            // HOME lenta com causa (ideia 6): o que estava acontecendo na hora, para o episódio virar conserto.
+            if (f.kind == ObserverCore.Kind.SLOW_HOME || f.kind == ObserverCore.Kind.UNUSUAL_FRAMES) runCatching { entry.put("context", slowContext(ctx, agora)) }
+            log = ObserverCore.appendLog(log, entry, agora)
+            runCatching { SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "found_${f.kind.name.lowercase()}", ok = false) }
+            // Ideia 37: com o critério escrito cumprido, o pico decide os avisos pequenos (WARNING): nota baixa = espera
+            // [SofyScore.TELL_REAL_MS] para ver se dura; durou, o recado sai mesmo assim (picoFollow). Grave nunca espera.
+            val segura = picoDecide && f.severity == ObserverCore.Severity.WARNING && nota < 0.5
+            if (segura) entry.put("pico_held", true)
+            if (f.severity >= ObserverCore.Severity.WARNING && !segura) notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
+            pending.put(f.kind.name, JSONObject().put("at", agora).put("s", nota).put("held", segura).put("x", org.json.JSONArray(x.toList())))
             runCatching { Diario.anotar(ctx, "tv", "Observer: ${f.kind.name}", f.why) }
             active.add(f.kind)
         }
         for (k in change.cleared) {
             log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "cleared", k, null, "voltou ao normal", snap), agora)
             runCatching { Diario.anotar(ctx, "tv", "Observer: ${k.name}", "voltou ao normal") }
+            runCatching { SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "cleared_${k.name.lowercase()}") }
             active.remove(k)
         }
         if (change.cleared.isNotEmpty()) notes = ObserverCore.dropCleared(notes, change.cleared, agora)   // o recado não fica mentindo
-        p.edit().putString("log", log).putString("notes", notes).putString("active", active.joinToString(",") { it.name }).apply()
+        p.edit().putString("log", log).putString("notes", notes).putString("active", active.joinToString(",") { it.name })
+            .putString("pico_pending", pending.toString()).apply()
         Log.i(TAG, "apareceu=${change.appeared.map { it.kind }} sumiu=${change.cleared}")
         // A Sofy (rosto e voz) olha a fila: só o que a regra dela manda mostrar agora aparece (SofyTv/SofyPolicy).
         if (change.appeared.isNotEmpty()) Fundo.rodar { runCatching { SofyTv.present(ctx) } }   // fora do lock do Observador
@@ -211,6 +232,44 @@ object ObserverTv {
     private fun pico(ctx: Context): ObserverPico = pico ?: ObserverPico.fromJson(
         learning(ctx).getString("pico", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() }).also { pico = it }
 
+    /** Achados à espera do desfecho: tipo → quando apareceu, a nota do pico, as medidas e se o recado foi segurado. */
+    private fun picoPending(p: android.content.SharedPreferences): JSONObject =
+        p.getString("pico_pending", null)?.let { runCatching { JSONObject(it) }.getOrNull() } ?: JSONObject()
+
+    /**
+     * O desfecho de cada achado (ideia 34): durou [SofyScore.TELL_REAL_MS] = valia avisar; sumiu em menos de
+     * [SofyScore.TELL_NOISE_MS] = barulho. O pico aprende com isso (até aqui ele dava nota e nunca aprendia), o placar anota
+     * se ele acertou, e o recado segurado pelo pico (ideia 37) sai agora se o achado durou. Devolve os recados.
+     */
+    private fun picoFollow(ctx: Context, p: android.content.SharedPreferences, pico: ObserverPico, agora: Long, cleared: List<ObserverCore.Kind>,
+                           findings: List<ObserverCore.Finding>, snap: Map<ObserverCore.Signal, ObserverCore.Reading>, notesIn: String?): String? {
+        val pend = picoPending(p)
+        if (pend.length() == 0) return notesIn
+        var notes = notesIn
+        var aprendeu = false
+        for (k in pend.keys().asSequence().toList()) {
+            val e = pend.optJSONObject(k)
+            val kind = ObserverCore.Kind.entries.firstOrNull { it.name == k }
+            val xa = e?.optJSONArray("x")
+            if (e == null || kind == null || xa == null) { pend.remove(k); continue }
+            val open = kind in active
+            if (!open && kind !in cleared) { pend.remove(k); continue }   // sumiu sem passar pelo "voltou ao normal" (processo reiniciou)
+            val label = SofyScore.tellLabel(agora - e.optLong("at"), open) ?: continue
+            val x = DoubleArray(xa.length()) { xa.optDouble(it) }
+            val s = e.optDouble("s", 0.5)
+            runCatching { pico.learn(ObserverPico.Task.WORTH_TELLING, x, label); aprendeu = true }
+            SofyLearnTv.record(ctx, SofyScore.Action.TELL, if (label) SofyScore.Outcome.HIT else SofyScore.Outcome.MISS, (s >= 0.5) == label, kind.name)
+            if (label && e.optBoolean("held")) findings.firstOrNull { it.kind == kind }?.let { f ->
+                notes = ObserverCore.enqueue(notes, ObserverCore.noteFor(f, agora, ObserverCore.argsFor(f.kind, snap)), agora)
+                logShadow(ctx, "pico_released", "${kind.name} durou ${(agora - e.optLong("at")) / 60_000} min: o recado segurado saiu")
+            }
+            pend.remove(k)
+        }
+        p.edit().putString("pico_pending", pend.toString()).apply()
+        if (aprendeu) learning(ctx).edit().putString("pico", pico.toJson().toString()).apply()
+        return notes
+    }
+
     // ---------------------------------------------------------------- o que a Sofy aprende da casa (24/11/2026)
 
     /**
@@ -251,12 +310,14 @@ object ObserverTv {
             p.edit().putString("log", log).putString("notes", notes).commit()   // commit: o próximo passo pode ser reiniciar
         }
         runCatching { Diario.anotar(app, "tv", "Sofy: ${kind.name}", why) }
+        SofyBusTv.emit(app, SofyBus.Source.SOFY, "acted_${kind.name.lowercase()}", detail = "$minutes min")
         Fundo.rodar { runCatching { SofyTv.present(app) } }
     }
 
     /** A manutenção da madrugada (e a sonda) não rodou nesta noite: fica no registro e no Diário, com o porquê. */
     fun nightSkipped(ctx: Context, why: String) {
         logShadow(ctx, "night_skipped", why)
+        SofyBusTv.emit(ctx, SofyBus.Source.SOFY, "night_skipped", ok = false)
         runCatching { Diario.anotar(ctx.applicationContext, "tv", "Sofy: noite pulada", why) }
     }
 
@@ -284,6 +345,7 @@ object ObserverTv {
         val inUse = ctx.getSystemService(android.os.PowerManager::class.java)?.isInteractive == true && Rotinas.minutosSemTecla() < 60
         val h = habit(ctx)
         h.learn(hours(agora).second, inUse)
+        runCatching { SofyHabitsTv.sampleVolume(ctx, inUse, hours(agora).second) }   // ideia 16: o volume de cada hora, por pessoa
         if (agora - lastHabitSave > BASE_SAVE_GAP_MS) {
             lastHabitSave = agora
             learning(ctx).edit().putString("habit", h.toJson().toString()).apply()
@@ -412,6 +474,7 @@ object ObserverTv {
             when (val v = ObserverTrial.decide(t, agora, agoraChecks)) {
                 ObserverTrial.Verdict.Wait -> restantes += t
                 ObserverTrial.Verdict.Keep -> {
+                    runCatching { SofyLearnTv.record(ctx, SofyScore.Action.FREEZE_TRIAL, SofyScore.Outcome.HIT) }
                     log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "trial_kept", null, null, t.pkg, blackBox.snapshot()), agora)
                     runCatching { Diario.anotar(ctx, "tv", "Observer: ${t.pkg}", "congelado e conferido") }
                 }
@@ -421,6 +484,7 @@ object ObserverTv {
                     val voltou = pkgOk(ctx, t.pkg) == true
                     // O Android recusou (shell fora do ar, DPM disse não): a prova fica para tentar na próxima batida (Codex, #335).
                     if (!voltou) { restantes += t; Log.w(TAG, "prova: ${t.pkg} quebrou ${v.broke}; descongelar falhou, tenta de novo"); continue }
+                    runCatching { SofyLearnTv.record(ctx, SofyScore.Action.FREEZE_TRIAL, SofyScore.Outcome.UNDONE) }
                     log = ObserverCore.appendLog(log, ObserverCore.logEntry(agora, "trial_undone", null, null, t.pkg, blackBox.snapshot())
                         .put("broke", org.json.JSONArray(v.broke.map { it.name })).put("restored", voltou), agora)
                     runCatching { Diario.anotar(ctx, "tv", "Observer: ${t.pkg}", "congelamento desfeito: parou ${v.broke.joinToString { it.name }}") }
@@ -467,6 +531,166 @@ object ObserverTv {
         p.edit().putString("notes", ObserverCore.markSeen(p.getString("notes", null), id, System.currentTimeMillis())).apply()
     }
 
+    // ---------------------------------------------------------------- recados de fora do juiz e causa da queda (ideias 25 e 26)
+
+    /** O normal desta casa para [signal] nesta hora da semana (linha de base), ou null se ainda não aprendeu. */
+    fun normalOf(ctx: Context, signal: ObserverCore.Signal): Double? {
+        val (hw, hd) = hours(System.currentTimeMillis())
+        val b = base ?: runCatching { baseline(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)) }.getOrNull()
+        return b?.expected(signal, hw, hd)?.mean
+    }
+
+    /** Um recado que não veio do juiz (pilha do controle, ...): entra na fila e a Sofy decide onde contar. */
+    fun enqueueNote(ctx: Context, n: ObserverCore.Note) {
+        val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        synchronized(this) { p.edit().putString("notes", ObserverCore.enqueue(p.getString("notes", null), n, n.at)).apply() }
+    }
+
+    @Volatile private var drop: DropCause.Episode? = null
+
+    /** Cada amostra de rede: abre/acompanha/fecha a queda; ao fechar, pergunta ao roteador (fora desta thread) e anota a causa. */
+    private fun trackDrop(ctx: Context, internet: Boolean, dbm: Int, now: Long) {
+        val (open, closed) = DropCause.step(drop, internet, dbm, now)
+        drop = open
+        if (closed == null || now - closed.start < DropCause.MIN_DROP_MS) return
+        val app = ctx.applicationContext
+        Fundo.rodar("drop-cause") {
+            val ups = runCatching { br.paulo.tvlauncher.network.UnifiCliente.tempoLigado(app) }.getOrDefault(emptyList())
+            val r = DropCause.classify(closed, now, ups, System.currentTimeMillis()) ?: return@rodar
+            val why = "${r.cause.name}: ${r.why}"
+            logShadow(app, "drop_cause", why)
+            runCatching { Diario.anotar(app, "tv", "Sofy: por que a internet caiu", r.why) }
+            SofyBusTv.emit(app, SofyBus.Source.NETWORK, "drop_" + r.cause.name.lowercase(), ok = false, detail = "${r.minutes} min")
+            app.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().putString("last_drop", JSONObject()
+                .put("at", closed.start).put("minutes", r.minutes).put("cause", r.cause.name).put("why", r.why).toString()).apply()
+        }
+    }
+
+    // ---------------------------------------------------------------- autoexame e contexto (ideias 38 e 6)
+
+    private const val SELF_CHECK_GAP_MS = 6 * 3_600_000L
+    @Volatile private var lastSelfCheck = 0L
+
+    /** Quanto tempo o processo principal está de pé (o que a Sofy pode cobrar de cada peça). */
+    private fun upSince(now: Long): Long = runCatching {
+        now - (SystemClock.elapsedRealtime() - android.os.Process.getStartElapsedRealtime())
+    }.getOrDefault(now)
+
+    private fun pulse(ctx: Context, now: Long): SofySelfCheck.Pulse {
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val log = ObserverCore.readLog(p.getString("log", null), now)
+        var night = 0L
+        for (i in 0 until log.length()) {
+            val o = log.getJSONObject(i)
+            if (o.optString("event") == "night" || o.optString("event") == "night_skipped") { night = maxOf(night, o.optLong("at")) }
+        }
+        return SofySelfCheck.Pulse(
+            now = now, upSince = upSince(now),
+            interactive = ctx.getSystemService(android.os.PowerManager::class.java)?.isInteractive == true,
+            lastReadingAt = blackBox.snapshot().values.maxOfOrNull { it.at } ?: 0L,
+            appsEventsAt = p.getLong("apps_events_at", 0L),
+            startsTries = p.getInt("apps_starts_tries", 0), startsAt = p.getLong("apps_starts_at", 0L),
+            startsLastResult = p.getString("apps_starts_last", "").orEmpty(),
+            lastNightAt = night, lastEventAt = SofyBusTv.events(ctx).lastOrNull { it.source != SofyBus.Source.SOFY }?.at ?: 0L)
+    }
+
+    /**
+     * A Sofy se acusa (ideia 38): a cada [SELF_CHECK_GAP_MS], na batida da rede. Defeito NOVO (que não estava na
+     * conferência anterior) vai ao registro ("self_defect"), ao Diário e ao barramento; o que sumiu, "self_ok".
+     */
+    @Synchronized fun selfCheck(ctx: Context) {
+        val now = System.currentTimeMillis()
+        if (now - lastSelfCheck < SELF_CHECK_GAP_MS) return
+        lastSelfCheck = now
+        val app = ctx.applicationContext
+        val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val found = SofySelfCheck.check(pulse(app, now))
+        val before = p.getString("self_defects", "").orEmpty().split(',').filter { it.isNotEmpty() }.toSet()
+        val nowSet = found.map { it.defect.name }.toSet()
+        for (f in found) if (f.defect.name !in before) {
+            logShadow(app, "self_defect", "${f.defect.name}: ${f.why}")
+            runCatching { Diario.anotar(app, "tv", "Sofy: defeito meu", f.why) }
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "self_defect", ok = false, detail = f.defect.name.lowercase())
+            Log.w(TAG, "autoexame: ${f.defect} ${f.why}")
+        }
+        for (d in before - nowSet) logShadow(app, "self_ok", "$d: voltou a funcionar")
+        p.edit().putString("self_defects", nowSet.joinToString(",")).apply()
+        runCatching { versionGuard(app, p, now) }.onFailure { Log.w(TAG, "guarda da versão: $it") }
+        runCatching { SofyHouseTv.daily(app, now) }.onFailure { Log.w(TAG, "casa: $it") }   // ideias 27, 29 e 31
+        runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
+        runCatching { SofyShareTv.daily(app, now) }.onFailure { Log.w(TAG, "lições entre TVs: $it") }   // ideia 40
+        runCatching { SofyCommunityTv.daily(app, now) }.onFailure { Log.w(TAG, "fichas comunitárias: $it") }   // ideia 41
+    }
+
+    /**
+     * Guarda de cada versão (ideia 5, [SofyVersionGuard]): na troca de versão congela os números da anterior (quedas no
+     * barramento, que guarda 7 dias); depois compara. Cada piora é contada uma vez por versão; a Ilha só ouve da HOME lenta.
+     */
+    private fun versionGuard(app: Context, p: android.content.SharedPreferences, now: Long) {
+        val v = br.paulo.tvlauncher.BuildConfig.VERSION_CODE.toLong()
+        val g = p.getString("version_guard", null)?.let { runCatching { JSONObject(it) }.getOrNull() } ?: JSONObject()
+        val ev = SofyBusTv.events(app)
+        fun stats(ver: Long, since: Long, to: Long, open: Pair<Int?, Int>): SofyVersionGuard.Stats {
+            val from = maxOf(since, to - SofyBus.KEEP_MS)
+            val (c, d) = SofyVersionGuard.count(ev, from, to)
+            return SofyVersionGuard.Stats(ver, (to - from) / 3_600_000.0, c, d, open.first, open.second)
+        }
+        val curV = g.optLong("v")
+        if (curV != v) {
+            if (curV != 0L) {
+                val s = stats(curV, g.optLong("since"), now, null to 0)
+                g.put("prev", JSONObject().put("v", s.version).put("hours", s.hours).put("crashes", s.crashes).put("drops", s.drops))
+            }
+            g.put("v", v).put("since", now).remove("told")
+            p.edit().putString("version_guard", g.toString()).apply()
+            return
+        }
+        val pv = g.optJSONObject("prev") ?: return
+        val home = runCatching { DesempenhoTv.aberturasPorVersao(app) }.getOrNull()
+        fun openOf(ver: Long): Pair<Int?, Int> = home?.firstOrNull { it.first == ver }?.second?.let { Desempenho.mediana(it) to it.size } ?: (null to 0)
+        val prev = SofyVersionGuard.Stats(pv.optLong("v"), pv.optDouble("hours", 0.0), pv.optInt("crashes"), pv.optInt("drops"), openOf(pv.optLong("v")).first, openOf(pv.optLong("v")).second)
+        val cur = stats(v, g.optLong("since"), now, openOf(v))
+        val told = g.optString("told").split(',').filter { it.isNotEmpty() }.toMutableSet()
+        for (w in SofyVersionGuard.compare(prev, cur)) {
+            if (!told.add(w.what.name)) continue
+            logShadow(app, "version_worse", w.why)
+            runCatching { Diario.anotar(app, "tv", "Sofy: a versão nova piorou", w.why) }
+            SofyBusTv.emit(app, SofyBus.Source.SOFY, "version_worse", ok = false, detail = w.what.name.lowercase())
+            if (w.what == SofyVersionGuard.What.HOME_SLOWER) {
+                fun s(ms: Int?) = String.format(java.util.Locale.getDefault(), "%.1f", (ms ?: 0) / 1000.0)
+                enqueueNote(app, ObserverCore.sofyNote(ObserverCore.Kind.VERSION_SLOWER, now, ObserverCore.Step.SUGGESTS, listOf(s(cur.homeOpenMs), s(prev.homeOpenMs))))
+            }
+        }
+        g.put("told", told.joinToString(","))
+        g.put("last", JSONObject().put("prev_v", prev.version).put("prev_open_ms", prev.homeOpenMs ?: JSONObject.NULL).put("cur_open_ms", cur.homeOpenMs ?: JSONObject.NULL)
+            .put("prev_crashes_day", if (prev.hours > 0) prev.crashes / (prev.hours / 24) else JSONObject.NULL)
+            .put("cur_crashes_day", if (cur.hours > 0) cur.crashes / (cur.hours / 24) else JSONObject.NULL).put("cur_hours", cur.hours))
+        p.edit().putString("version_guard", g.toString()).apply()
+    }
+
+    private fun selfCheckJson(ctx: Context): org.json.JSONObject {
+        val now = System.currentTimeMillis()
+        val pu = pulse(ctx.applicationContext, now)
+        val arr = org.json.JSONArray()
+        for (f in SofySelfCheck.check(pu)) arr.put(org.json.JSONObject().put("defect", f.defect.name).put("why", f.why))
+        return org.json.JSONObject().put("defects", arr).put("up_min", (now - pu.upSince) / 60_000)
+            .put("starts_tries", pu.startsTries).put("starts_last", pu.startsLastResult)
+    }
+
+    /**
+     * O contexto de um episódio de HOME lenta (ideia 6): há quanto tempo o processo está de pé (abriu a frio?), quanto
+     * de memória o launcher usa e o que o barramento contou nos 10 minutos antes (backup? alarme? plugin?).
+     */
+    private fun slowContext(ctx: Context, now: Long): org.json.JSONObject {
+        val rt = Runtime.getRuntime()
+        val antes = SofyBus.around(SofyBusTv.events(ctx), now - 10 * 60_000L, now)
+        return org.json.JSONObject()
+            .put("process_up_min", (now - upSince(now)) / 60_000)
+            .put("heap_used_mb", (rt.totalMemory() - rt.freeMemory()) / 1_048_576)
+            .put("native_heap_mb", android.os.Debug.getNativeHeapAllocatedSize() / 1_048_576)
+            .put("recent_events", org.json.JSONArray(antes.takeLast(10).map { it.key }))
+    }
+
     // ---------------------------------------------------------------- adb e MCP
 
     /**
@@ -501,6 +725,16 @@ object ObserverTv {
             .put("on_demand", runCatching { org.json.JSONArray(OnDemand.toJson(OnDemandTv.entries(ctx))) }.getOrNull() ?: org.json.JSONArray())
             .put("google_home_trim", runCatching { GoogleHomeTrimTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
             .put("apps", runCatching { AppProfileTv.report(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("self_check", runCatching { selfCheckJson(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("learning", runCatching { SofyLearnTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("habits", runCatching { SofyHabitsTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("today", runCatching { SofyAnswersTv.todayJson(ctx) }.getOrNull() ?: org.json.JSONArray())
+            .put("version_guard", runCatching { JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("version_guard", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("events", runCatching { SofyBusTv.json(ctx) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("last_drop", runCatching { org.json.JSONObject(ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString("last_drop", null)!!) }.getOrNull() ?: org.json.JSONObject.NULL)
+            .put("controllers", runCatching { ControllerBatteryTv.json() }.getOrNull() ?: org.json.JSONArray())
+            .put("night_plan", runCatching { org.json.JSONArray(SofyNight.plan(quietStart(ctx), br.paulo.tvlauncher.BackupNoturno.horarioEscolhido(ctx)).map {
+                org.json.JSONObject().put("task", it.task.name).put("at", "%02d:%02d".format(it.minuteOfDay / 60, it.minuteOfDay % 60)).put("learned", it.learned) }) }.getOrNull() ?: org.json.JSONArray())
             .put("log_total", log.length()).put("log", logNovo)
     }
 

@@ -8,4 +8,5 @@
     <item name="brand_splash_leaving" type="id" />
     <!-- VozFoco.kt: o ouvinte de foco fica preso na própria tela, não numa lista global (que segurava a tela fechada). -->
     <item name="voice_focus_listener" type="id" />
+    <item name="moldura_cabecalho" type="id" />
 </resources>

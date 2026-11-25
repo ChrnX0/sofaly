@@ -1701,6 +1701,18 @@ async function desenharSofy(agora) {
   if (!svg) { svg = Sofy.criar(expr, { tamanho: 84 }); svg.setAttribute('aria-hidden', 'true'); lugar.appendChild(svg); Sofy.tocar(svg, expr); }
   else if (svg._sofy.expr !== expr) Sofy.tocar(svg, expr);
   chave.checked = !!d.voice_on;
+  // Ideia 41: "Ajudar outras casas" (fichas comunitárias), desligado de fábrica.
+  const ajudar = $('sofyAjudarCasas');
+  if (ajudar) {
+    try { ajudar.checked = !!(await chamar('GET', '/api/sofy')).community_share; } catch (e) { /* fica como está */ }
+    if (!ajudar.dataset.ligada) {
+      ajudar.dataset.ligada = '1';
+      ajudar.addEventListener('change', async () => {
+        try { ajudar.checked = !!(await chamar('POST', '/api/sofy', { community_share: ajudar.checked })).community_share; }
+        catch (e) { ajudar.checked = !ajudar.checked; }
+      });
+    }
+  }
   if (!chave.dataset.ligada) {
     chave.dataset.ligada = '1';
     chave.addEventListener('change', async () => {

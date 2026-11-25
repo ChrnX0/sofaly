@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">Lingua</string>
+    <string name="app_language_detail">La lingua delle schermate di Sofaly</string>
+    <string name="app_language_same_as_tv">Come la TV</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! Klingon sbloccato: tlhIngan Hol è in fondo alla lista.</string>
+</resources>

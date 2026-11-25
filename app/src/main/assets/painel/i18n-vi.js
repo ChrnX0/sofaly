@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Observer",
 "Sofy fala em voz alta":"Sofy đọc thành tiếng",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Cô ấy đọc những gì hiển thị trên TV. Khi bật TalkBack, TalkBack sẽ đọc.",
+"Ajudar outras casas":"Giúp các nhà khác",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Mỗi ngày một lần, chỉ tên và phiên bản các ứng dụng bị treo ở đây, không cho biết là nhà nào. Việc nhận những gì các nhà khác thấy luôn bật.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Những gì TV tự theo dõi: bộ nhớ, internet, Wi-Fi, độ mượt màn hình chính và dung lượng lưu trữ. Khi có gì khác thường, nó hiện ở đây kèm lý do. Hiện tại nó chỉ theo dõi và ghi chép.",
 "Tudo normal agora.":"Hiện mọi thứ bình thường.",
 "Nada fora do normal nos últimos 7 dias.":"Không có gì bất thường trong 7 ngày qua.",

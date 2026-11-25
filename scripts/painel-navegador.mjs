@@ -140,11 +140,14 @@ for (const l of LINGUAS) {
         const cortados = [];
         for (const el of document.querySelectorAll('body *')) {
           if (!visivel(el) || el.closest('textarea, pre, [contenteditable], input, select')) continue;
-          if (![...el.childNodes].some((c) => c.nodeType === 3 && c.nodeValue.trim())) continue;
+          // O texto pode estar no próprio elemento ou em filhos em linha (<b>, <mark>, <span>); filho em bloco tem a sua vez.
+          if (!el.textContent.trim() || [...el.children].some((c) => getComputedStyle(c).display !== 'inline')) continue;
           const s = getComputedStyle(el);
           if (s.clip !== 'auto' || s.position === 'absolute' && el.getBoundingClientRect().width <= 2) continue;   // só para leitor de tela
           const corta = s.textOverflow === 'ellipsis' || (s.whiteSpace === 'nowrap' && /hidden|clip/.test(s.overflowX));
           if (corta && el.scrollWidth > el.clientWidth + 1) cortados.push(el.textContent.trim().slice(0, 50));
+          // Na vertical: caixa que esconde o que passa da altura (altura fixa ou line-clamp) e o texto não cabe.
+          else if (/hidden|clip/.test(s.overflowY) && el.scrollHeight > el.clientHeight + 2) cortados.push('↕ ' + el.textContent.trim().slice(0, 48));
         }
         return { semNome, semAlt, largura, culpados, sobra, cortados, lang: document.documentElement.lang, dir: document.documentElement.dir };
       }, { traduzidas: [...chaves], lingua: l });

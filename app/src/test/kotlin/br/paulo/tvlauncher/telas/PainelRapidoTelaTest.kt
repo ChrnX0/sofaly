@@ -53,6 +53,6 @@ class PainelRapidoTelaTest {
             }
             ctl.pause().stop().destroy()
         }
-        FocusStyle.gravar(InstrumentationRegistry.getInstrumentation().targetContext, FocusStyle.LINE)
+        FocusStyle.gravar(InstrumentationRegistry.getInstrumentation().targetContext, FocusStyle.RING)
     }
 }

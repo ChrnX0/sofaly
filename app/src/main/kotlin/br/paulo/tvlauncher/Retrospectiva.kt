@@ -169,7 +169,14 @@ object Retrospectiva {
         if (r.minutosTv < 1) return null   // sem uso medido (ou sem permissão): "0 min de TV" só confunde
         val (a, b) = linhas(r, Frases(deTv = { ctx.getString(R.string.rt_de_tv, it) }, internet = { ctx.getString(R.string.rt_internet, it) },
             semQueda = ctx.getString(R.string.rt_sem_queda), quedas = { ctx.resources.getQuantityString(R.plurals.rt_quedas, it, it) }))
-        return Triple(ctx.getString(R.string.rt_titulo), a, b)
+        // Energia (Sofy, ideia 30): só quando a casa disse os watts (não inventamos o consumo da TV).
+        val e = br.paulo.tvlauncher.observer.SofyHouse.energy(r.minutosTv,
+            Extras.numero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_WATTS, 0), Extras.numero(ctx, br.paulo.tvlauncher.observer.SofyHouseTv.KEY_CENTS_KWH, 0))
+        val energia = e?.let { (kwh, cents) ->
+            "≈ " + java.text.NumberFormat.getNumberInstance().apply { maximumFractionDigits = 1 }.format(kwh) + " kWh" +
+                (cents?.let { " (" + java.text.NumberFormat.getCurrencyInstance().format(it / 100.0) + ")" } ?: "")
+        }
+        return Triple(ctx.getString(R.string.rt_titulo), a, listOfNotNull(b.ifEmpty { null }, energia).joinToString(" · "))
     }
 }
 

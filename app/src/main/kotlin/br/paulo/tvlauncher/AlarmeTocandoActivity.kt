@@ -88,6 +88,13 @@ class AlarmeTocandoActivity : Activity() {
                 // Fila do nosso shell (uid 2000): o app sozinho não tem a permissão HDMI_CEC.
                 val r = GuardiaoShizuku.comando(app, TvWakeRetry.COMANDO, 15_000)
                 Log.i("TvLauncher.Alarme", "ligar a TV pelo CEC, tentativa $n: ${if (r == null) "sem shell" else "pedido"}")
+                // LG de olho (Sofy, ideia 29): na última tentativa, com ninguém tendo mexido, a LG pareada está na rede?
+                // Só com a LG pareada (sem ela não dá para saber se a tela acendeu: não inventamos o resultado).
+                if (TvWakeRetry.proxima(n) == null && br.paulo.tvlauncher.network.VolumeLg.configurado(app)) {
+                    Thread.sleep(20_000)
+                    if (tocando && !alguemMexeu) br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.DEVICE,
+                        "tv_wake", ok = br.paulo.tvlauncher.network.VolumeLg.naRede(app))
+                }
             }
             TvWakeRetry.proxima(tentativasTv)?.let { ui.postDelayed(this, it) }
         }
@@ -107,6 +114,7 @@ class AlarmeTocandoActivity : Activity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         id = intent.getIntExtra(Despertador.EXTRA_ID, 0)
         timer = intent.getBooleanExtra(EXTRA_TIMER, false)
+        if (savedInstanceState == null) br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, if (timer) "timer_rang" else "rang", detail = if (timer) "" else id.toString())
         // Ideia 15 (estudo global 20/11): avisa no celular de quem cuida, se o aviso estiver ligado no painel (desligado de fábrica).
         if (!timer && savedInstanceState == null) Avisos.enviar(applicationContext, Avisos.Tipo.ALARME_TOCOU,
             getString(R.string.aviso_alarme_tocou_titulo), getString(R.string.aviso_alarme_tocou_texto,
@@ -341,6 +349,7 @@ class AlarmeTocandoActivity : Activity() {
 
     private fun parar(falar: Boolean = true) {
         decidido = true
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, if (falar) "stopped" else "nobody_came")
         if (timer) { finish(); return }
         val alarme = Despertador.listar(this).firstOrNull { it.id == id }
         val bomDia = alarme?.bomDia == true && falar
@@ -359,6 +368,7 @@ class AlarmeTocandoActivity : Activity() {
 
     private fun soneca() {
         decidido = true
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(this, br.paulo.tvlauncher.observer.SofyBus.Source.ALARM, "snoozed", detail = id.toString())
         Despertador.soneca(this, id)
         finish()
     }

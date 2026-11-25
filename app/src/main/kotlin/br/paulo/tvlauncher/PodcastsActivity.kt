@@ -81,7 +81,7 @@ class PodcastsActivity : Activity() {
             aoSom = { s -> if (OuvirServico.instancia?.tocando != true) SonsCruz.tocar(this@PodcastsActivity, s, CruzLogica.Categoria.OUVIR) }
         }
         setContentView(FrameLayout(this).apply {
-            background = Estilo.fundoTela(this@PodcastsActivity)
+            background = Estilo.fundoEntrada(this@PodcastsActivity)
             addView(cruz, FrameLayout.LayoutParams(-1, -1))
         })
         cruz.requestFocus()

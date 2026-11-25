@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"观察者",
 "Sofy fala em voz alta":"Sofy 朗读",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"她会朗读电视上显示的内容。开启 TalkBack 时由 TalkBack 朗读。",
+"Ajudar outras casas":"帮助其他家庭",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"每天一次，只发送在这里崩溃过的应用的名称和版本，不说明来自哪个家庭。接收其他家庭看到的信息始终开启。",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"电视自己留意的事：内存、网络、Wi-Fi、主屏幕流畅度和存储空间。一旦有异常，会在这里显示并说明原因。目前它只观察和记录。",
 "Tudo normal agora.":"目前一切正常。",
 "Nada fora do normal nos últimos 7 dias.":"过去 7 天没有异常。",

@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"オブザーバー",
 "Sofy fala em voz alta":"Sofy が声で話す",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"テレビに表示した内容を読み上げます。TalkBack がオンなら TalkBack が読み上げます。",
+"Ajudar outras casas":"ほかの家を手伝う",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"1日1回、ここで落ちたアプリの名前とバージョンだけを、どの家かは伝えずに送ります。ほかの家の情報を受け取る機能は常にオンです。",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"テレビが自分で見守っていること：メモリ、インターネット、Wi-Fi、ホーム画面のなめらかさ、空き容量。何かがいつもと違うと、理由と一緒にここに表示されます。今は見守って記録するだけです。",
 "Tudo normal agora.":"今はすべて正常です。",
 "Nada fora do normal nos últimos 7 dias.":"過去7日間に異常はありません。",

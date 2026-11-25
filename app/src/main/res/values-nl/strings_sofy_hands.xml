@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Klaar om te openen</string>
+    <string name="sofy_hand_on_demand">Start pas als je haar opent</string>
+    <string name="sofy_hand_hour">Je gewoonte op dit uur</string>
+    <string name="sofy_sug_cedo_titulo">Eerder uitzetten?</string>
+    <string name="sofy_sug_cedo">Op %1$d nachten ging de tv laat vanzelf uit zonder kijker. Uitzetten na %2$d min zonder afstandsbediening, in plaats van %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Wekker later laten afgaan?</string>
+    <string name="sofy_sug_alarme">De wekker van %1$s werd vaak gesnoozed. %2$d min later afgaan, om %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Een routine van maken?</string>
+    <string name="sofy_sug_rotina">%1$s werd op %3$d dagen rond %2$s geopend. Op die dagen om %2$s vanzelf openen?</string>
+    <string name="sofy_sug_teto_titulo">Volumegrens ’s nachts?</string>
+    <string name="sofy_sug_teto">Laat op de avond staat het volume veel hoger dan overdag. Van 23 tot 6 uur maximaal %1$d%%?</string>
+    <string name="sofy_sug_perfil_titulo">Profiel wisselen?</string>
+    <string name="sofy_sug_perfil">De apps die nu open zijn, kijkt %1$s meestal. Naar het profiel van %1$s?</string>
+    <string name="sofy_sug_trocar">Wisselen</string>
+    <string name="sofy_sug_feito">Klaar. Je kunt het altijd terugdraaien in Instellingen.</string>
+    <string name="sofy_lost_title">Verdwaald?</string>
+    <string name="sofy_lost_text">Druk één keer op HOME om terug te gaan naar het startscherm. Houd TERUG ingedrukt voor het snelpaneel.</string>
+    <string name="sofy_help_internet">Sofy: internet controleren</string>
+    <string name="sofy_help_sound">Sofy: geluid controleren</string>
+    <string name="sofy_help_slow">Sofy: waarom is het traag?</string>
+    <string name="sofy_help_remote">Sofy: afstandsbediening controleren</string>
+    <string name="sofy_help_sound_fixed">Het volume is hier van de tv: gebruik de volumeknoppen van de afstandsbediening en controleer of de tv niet gedempt is.</string>
+    <string name="sofy_help_sound_fixed_now">Het geluid stond uit. Ik heb het weer aangezet op %1$d%%.</string>
+    <string name="sofy_help_sound_low">Het volume is laag (%1$d%%). Zet het hoger met de afstandsbediening.</string>
+    <string name="sofy_help_sound_ok">Het geluid staat aan (%1$d%%). Controleer het volume van de tv zelf en de app.</string>
+    <string name="sofy_help_slow_ok">Het geheugen is in orde (%1$d MB vrij). Is één app traag, dan ligt het waarschijnlijk aan die app of aan het internet.</string>
+    <string name="sofy_help_slow_freed">Het geheugen was krap: ik heb apps op de achtergrond gesloten en %1$d MB vrijgemaakt.</string>
+    <string name="sofy_help_slow_tight">Het geheugen is krap (%1$d MB vrij). Sluit de app en open hem opnieuw.</string>
+    <string name="sofy_help_remote_stuck">Vandaag bleef een toets hangen. Kijk of de afstandsbediening nergens onder klem zit.</string>
+    <string name="sofy_help_remote_battery">De batterij van de afstandsbediening is bijna leeg. Vervang de batterijen.</string>
+    <string name="sofy_help_remote_lag">De afstandsbediening reageerde vandaag traag. Zet de gamemodus van de tv aan en houd de afstandsbediening weg van andere apparaten.</string>
+    <string name="sofy_help_remote_none">Ik zag vandaag geen probleem met de afstandsbediening. Probeer nieuwe batterijen; helpt dat niet, koppel hem dan opnieuw via Instellingen > Afstandsbedieningen en accessoires.</string>
+    <string name="sofy_today_title">Wat Sofy vandaag deed</string>
+    <string name="sofy_today_none">Rustige dag: niets te melden.</string>
+    <string name="sofy_today_prepared">Apps klaargezet: %1$d</string>
+    <string name="sofy_today_night">Nachtzorg: %1$d</string>
+    <string name="sofy_today_guarded">Dingen die ik in de gaten hield: %1$d</string>
+    <string name="sofy_today_internet">Internetonderbrekingen: %1$d</string>
+    <string name="sofy_today_asked">Vragen die ik stelde: %1$d</string>
+    <string name="sofy_today_applied">Geaccepteerde suggesties: %1$d</string>
+    <string name="sofy_today_alarms">Wekkers en herinneringen: %1$d</string>
+    <string name="sofy_today_auto_off">Keren dat ik de tv uitzette: %1$d</string>
+    <string name="sofy_today_home">Opdrachten in huis: %1$d</string>
+    <string name="sofy_today_updates">Bijgewerkte apps: %1$d</string>
+    <string name="sofy_evidence_measured">Hoe ik het weet: net gemeten.</string>
+    <string name="sofy_evidence_baseline">Hoe ik het weet: vergeleken met wat normaal is in dit huis.</string>
+    <string name="sofy_evidence_bus">Hoe ik het weet: het staat in het logboek van wat er op de tv gebeurde.</string>
+    <string name="sofy_evidence_system">Hoe ik het weet: Android liet het zien.</string>
+    <string name="sofy_evidence_router">Hoe ik het weet: de router en de wifi meldden het.</string>
+    <string name="sofy_evidence_test">Hoe ik het weet: getest en gecontroleerd.</string>
+    <string name="sofy_evidence_other_tv">Hoe ik het weet: een andere tv in dit huis vertelde het.</string>
+    <string name="sofy_evidence_community">Hoe ik het weet: andere huizen met Sofaly meldden het (alleen app en versie, nooit wie).</string>
+</resources>

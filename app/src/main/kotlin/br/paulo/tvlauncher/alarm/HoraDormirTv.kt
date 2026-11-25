@@ -66,16 +66,27 @@ object HoraDormirTv {
             ?.substringBefore('/')
     } catch (e: Exception) { null }
 
-    /** VOLUME + na hora de dormir: engole a tecla se passaria do teto (true = tecla usada). */
+    /**
+     * O teto de agora, em %: a hora de dormir das crianças manda; fora dela, o teto da noite que a Sofy propôs e a pessoa
+     * aceitou (ideia 21, 23 h às 6 h). null = sem teto.
+     */
+    private fun tetoAgora(ctx: Context): Int? =
+        if (valendo(ctx)) teto(ctx) else br.paulo.tvlauncher.observer.SofyHabitsTv.ceilingNow(ctx, agoraMin() / 60)
+
+    private fun algumTeto(ctx: Context) = Extras.ligado(ctx, Extras.Chave.HORA_DORMIR) ||
+        Extras.numero(ctx, br.paulo.tvlauncher.observer.SofyHabitsTv.KEY_NIGHT_CEILING, 0) > 0
+
+    /** VOLUME + na hora de dormir (ou no teto da noite): engole a tecla se passaria do teto (true = tecla usada). */
     fun tecla(ctx: Context, e: KeyEvent): Boolean {
-        if (e.keyCode != KeyEvent.KEYCODE_VOLUME_UP || !valendo(ctx)) return false
+        if (e.keyCode != KeyEvent.KEYCODE_VOLUME_UP) return false
+        val teto = tetoAgora(ctx) ?: return false
         armarVigiaLg(ctx)
         val am = ctx.getSystemService(AudioManager::class.java) ?: return false
         val atual = am.getStreamVolume(AudioManager.STREAM_MUSIC)
         val max = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
-        if (!HoraDormir.passaDoTeto(atual, max, teto(ctx))) return false
+        if (!HoraDormir.passaDoTeto(atual, max, teto)) return false
         // Se já passou do teto (alguém subiu antes do horário), desce até ele.
-        val limite = max * teto(ctx).coerceIn(0, 100) / 100
+        val limite = max * teto.coerceIn(0, 100) / 100
         if (e.action == KeyEvent.ACTION_DOWN && atual > limite) am.setStreamVolume(AudioManager.STREAM_MUSIC, limite, 0)
         return true
     }
@@ -86,15 +97,15 @@ object HoraDormirTv {
      * LG e baixa até o teto. Armada pela janela e pela tecla; para sozinha se a chave desligar ou a LG for esquecida.
      */
     private fun armarVigiaLg(ctx: Context) {
-        if (vigiaLg || !Extras.ligado(ctx, Extras.Chave.HORA_DORMIR) || !VolumeLg.configurado(ctx)) return
+        if (vigiaLg || !algumTeto(ctx) || !VolumeLg.configurado(ctx)) return
         vigiaLg = true
         val app = ctx.applicationContext
         principal.post(object : Runnable {
             override fun run() {
-                if (!Extras.ligado(app, Extras.Chave.HORA_DORMIR) || !VolumeLg.configurado(app)) { vigiaLg = false; return }
-                if (noHorario(app)) Fundo.rodar("HoraDormir-lg") {
-                    VolumeLg.baixarAte(app, LgNetcast.nivelDaPorcentagem(teto(app)))
-                }
+                if (!algumTeto(app) || !VolumeLg.configurado(app)) { vigiaLg = false; return }
+                val t = if (Extras.ligado(app, Extras.Chave.HORA_DORMIR) && noHorario(app)) teto(app)
+                    else br.paulo.tvlauncher.observer.SofyHabitsTv.ceilingNow(app, agoraMin() / 60)
+                if (t != null) Fundo.rodar("HoraDormir-lg") { VolumeLg.baixarAte(app, LgNetcast.nivelDaPorcentagem(t)) }
                 principal.postDelayed(this, VIGIA_LG_MS)
             }
         })

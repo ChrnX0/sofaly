@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">Só o escolhido</string>
     <string name="wo_cards">Formato dos cards neste mundo</string>
     <string name="wo_cards_geral">Igual ao Ajuste fino (%1$s)</string>
+    <string name="st_telas">Jeito das telas</string>
+    <string name="st_telas_gaveta">Gaveta</string>
+    <string name="st_telas_vidro">Vidro</string>
+    <string name="st_telas_barra">Barra</string>
 </resources>

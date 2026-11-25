@@ -950,9 +950,18 @@ object PainelWeb {
             "/api/observer" -> if (req.metodo == "GET") return json(200, ObserverTv.reportJson(app, 20).also { SofyTv.resolveNotes(app, it, req.consulta["lang"]) })
             // Sofy (20/11/2026): os movimentos (mesma fonte da TV, SofyMotion) e a chave "Sofy fala". O POST só liga/desliga a voz.
             "/api/sofy" -> when (req.metodo) {
-                "GET" -> return json(200, SofyMotion.toJson().put("voice_on", SofyVoice.voiceOn(app)).put("screen_reader", SofyVoice.screenReaderOn(app)))
+                "GET" -> return json(200, SofyMotion.toJson().put("voice_on", SofyVoice.voiceOn(app)).put("screen_reader", SofyVoice.screenReaderOn(app))
+                    .put("community_share", br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(app)))
                 "POST" -> {
-                    val ligar = try { JSONObject(req.corpoTexto()).getBoolean("voice") } catch (e: Exception) { return erro(400, "falta voice") }
+                    val o = try { JSONObject(req.corpoTexto()) } catch (e: Exception) { return erro(400, "JSON") }
+                    // Ideia 41: "Ajudar outras casas" (manda só pacote, versão e tipo das lições desta TV).
+                    if (o.has("community_share")) {
+                        val sim = o.optBoolean("community_share")
+                        br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(app, sim)
+                        PainelArmazem.registrar(app, ip, "Ajudar outras casas", if (sim) "ligado" else "desligado")
+                        return json(200, JSONObject().put("ok", true).put("community_share", sim))
+                    }
+                    val ligar = try { o.getBoolean("voice") } catch (e: Exception) { return erro(400, "falta voice") }
                     SofyVoice.setVoiceOn(app, ligar)
                     PainelArmazem.registrar(app, ip, "Sofy fala", if (ligar) "ligada" else "desligada")
                     return json(200, JSONObject().put("ok", true).put("voice_on", ligar))

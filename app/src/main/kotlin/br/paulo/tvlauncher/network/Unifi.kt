@@ -280,6 +280,12 @@ object Unifi {
 
     // ------------------------------------------------------------ relato do roteador (só leitura, 15/11/2026)
 
+    /** Tempo ligado (ms) de cada aparelho UniFi do stat/device (a causa da queda, ideia 26 da Sofy). */
+    fun tempoLigadoMs(texto: String): List<Long> {
+        val dados = JSONObject(texto).optJSONArray("data") ?: return emptyList()
+        return (0 until dados.length()).mapNotNull { i -> dados.optJSONObject(i)?.optLong("uptime", -1L)?.takeIf { it >= 0 }?.times(1000) }
+    }
+
     /**
      * "Por que a TV caiu do Wi-Fi?": os aparelhos UniFi (gateway, pontos de acesso) com o tempo que estão ligados,
      * a partir do stat/device da API antiga. Um tempo ligado menor que o da queda mostra que o roteador reiniciou.

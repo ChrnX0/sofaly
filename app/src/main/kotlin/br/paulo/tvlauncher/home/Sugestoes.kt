@@ -21,6 +21,15 @@ object Sugestoes {
         DESLIGAR_SOZINHA,
         /** A TV foi usada depois das 22 h em 4 noites: ligar o filtro noturno. */
         FILTRO_NOTURNO,
+        // Sofy, hábitos de cada pessoa (24/11/2026, SofyHabits). Nomes vão para o arquivo: nunca renomear.
+        /** Ideia 20: desligou sozinha de madrugada em 3 noites (dormiu vendo): desligar mais cedo. */
+        DESLIGAR_MAIS_CEDO,
+        /** Ideia 22: o mesmo despertador adiado em 3 dos últimos 5 dias: tocar mais tarde. */
+        ALARME_MAIS_TARDE,
+        /** Ideia 18: o mesmo app na mesma meia hora em 4 de 7 dias: virar Rotina. */
+        ROTINA,
+        /** Ideia 21: de madrugada o volume fica bem acima do de dia: teto da noite. */
+        TETO_NOITE,
     }
 
     data class Sinais(
@@ -31,6 +40,11 @@ object Sugestoes {
         val dispensadas: Set<String>,   // nomes de Tipo com "Não sugerir mais"
         val ultimaEm: Long,             // quando a última sugestão apareceu (0 = nunca)
         val agora: Long,
+        val noitesDormiu: Int = 0,      // noites da semana em que desligou sozinha de madrugada
+        val desligarPara: Int? = null,  // o degrau mais curto do desligar sozinha (null = não há)
+        val alarmeAdiar: Int? = null,   // minutos a adiar o despertador que vive na soneca (null = nenhum)
+        val rotina: Boolean = false,    // há uma rotina a propor
+        val tetoNoite: Int? = null,     // teto da noite a propor, em %
     )
 
     /** A sugestão de agora, ou null. Ordem = prioridade: desligar sozinha economiza energia e acorda menos gente. */
@@ -39,6 +53,11 @@ object Sugestoes {
         fun pode(t: Tipo) = t.name !in s.dispensadas
         return when {
             pode(Tipo.DESLIGAR_SOZINHA) && s.desligarSozinhaMin == 0 && s.noitesMadrugada >= NOITES_MADRUGADA -> Tipo.DESLIGAR_SOZINHA
+            pode(Tipo.DESLIGAR_MAIS_CEDO) && s.desligarSozinhaMin > 0 && s.desligarPara != null &&
+                s.noitesDormiu >= br.paulo.tvlauncher.observer.SofyHabits.DOZE_NIGHTS -> Tipo.DESLIGAR_MAIS_CEDO
+            pode(Tipo.ALARME_MAIS_TARDE) && s.alarmeAdiar != null -> Tipo.ALARME_MAIS_TARDE
+            pode(Tipo.ROTINA) && s.rotina -> Tipo.ROTINA
+            pode(Tipo.TETO_NOITE) && s.tetoNoite != null -> Tipo.TETO_NOITE
             pode(Tipo.FILTRO_NOTURNO) && !s.filtroLigado && s.noitesTarde >= NOITES_TARDE -> Tipo.FILTRO_NOTURNO
             else -> null
         }

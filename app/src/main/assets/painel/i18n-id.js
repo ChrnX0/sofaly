@@ -1502,6 +1502,8 @@ traduzirPainelCom({T:{
 "Observador":"Pengamat",
 "Sofy fala em voz alta":"Sofy berbicara dengan suara",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Ia membacakan apa yang ditampilkan di TV. Jika TalkBack aktif, TalkBack yang membaca.",
+"Ajudar outras casas":"Bantu rumah lain",
+"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Sekali sehari, hanya nama dan versi aplikasi yang macet di sini, tanpa menyebut rumah mana. Menerima yang dilihat rumah lain selalu aktif.",
 "O que a TV vigia sozinha: memória, internet, Wi-Fi, fluidez da tela inicial e espaço. Quando algo sai do normal, aparece aqui com o motivo. Por enquanto ele só observa e anota.":"Yang dipantau TV sendiri: memori, internet, Wi-Fi, kelancaran layar utama, dan ruang penyimpanan. Saat ada yang tidak normal, akan muncul di sini beserta alasannya. Untuk saat ini ia hanya mengamati dan mencatat.",
 "Tudo normal agora.":"Semua normal saat ini.",
 "Nada fora do normal nos últimos 7 dias.":"Tidak ada yang tidak normal dalam 7 hari terakhir.",

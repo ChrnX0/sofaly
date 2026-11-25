@@ -76,6 +76,8 @@ object Gatilhos {
 
     /** Aconteceu [e]: roda a cena ligada a ele, se houver. Qualquer thread. */
     fun disparar(ctx: Context, e: Evento) {
+        // A Sofy fica sabendo de todo evento da casa, com ou sem cena ligada (barramento, ideia 1 do estudo da Sofy).
+        br.paulo.tvlauncher.observer.SofyBusTv.emit(ctx, br.paulo.tvlauncher.observer.SofyBus.Source.HOUSE, e.chave, minGapMs = 60_000L)
         val cena = todos(ctx)[e] ?: return
         val agora = SystemClock.elapsedRealtime()
         synchronized(ultimo) { if (!podeDisparar(ultimo[e], agora)) return; ultimo[e] = agora }

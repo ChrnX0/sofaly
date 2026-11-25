@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">Готовий до запуску</string>
+    <string name="sofy_hand_on_demand">Запуститься, коли ви відкриєте</string>
+    <string name="sofy_hand_hour">Ваше звичне о цій порі</string>
+    <string name="sofy_sug_cedo_titulo">Вимикати раніше?</string>
+    <string name="sofy_sug_cedo">%1$d ночей телевізор сам вимикався пізно, коли ніхто не дивився. Вимикати через %2$d хв без пульта замість %3$d?</string>
+    <string name="sofy_sug_alarme_titulo">Будильник пізніше?</string>
+    <string name="sofy_sug_alarme">Будильник на %1$s часто відкладали. Дзвонити на %2$d хв пізніше, о %3$s?</string>
+    <string name="sofy_sug_rotina_titulo">Зробити це розкладом?</string>
+    <string name="sofy_sug_rotina">%1$s відкривали близько %2$s протягом %3$d днів. Відкривати саму о %2$s у ці дні?</string>
+    <string name="sofy_sug_teto_titulo">Межа гучності вночі?</string>
+    <string name="sofy_sug_teto">Пізно вночі гучність набагато вища, ніж удень. Не більше %1$d%% з 23 до 6?</string>
+    <string name="sofy_sug_perfil_titulo">Змінити профіль?</string>
+    <string name="sofy_sug_perfil">Відкриті зараз застосунки зазвичай дивиться %1$s. Перейти в профіль %1$s?</string>
+    <string name="sofy_sug_trocar">Змінити</string>
+    <string name="sofy_sug_feito">Готово. Скасувати можна будь-коли в Налаштуваннях.</string>
+    <string name="sofy_lost_title">Заблукали?</string>
+    <string name="sofy_lost_text">Натисніть ДОДОМУ один раз, щоб повернутися на головний екран. Утримуйте НАЗАД для швидкої панелі.</string>
+    <string name="sofy_help_internet">Sofy: перевірити інтернет</string>
+    <string name="sofy_help_sound">Sofy: перевірити звук</string>
+    <string name="sofy_help_slow">Sofy: чому гальмує?</string>
+    <string name="sofy_help_remote">Sofy: перевірити пульт</string>
+    <string name="sofy_help_sound_fixed">Тут гучність регулює телевізор: користуйтеся кнопками гучності на пульті й перевірте, чи не вимкнено звук на телевізорі.</string>
+    <string name="sofy_help_sound_fixed_now">Звук був вимкнений. Я ввімкнула його знову на %1$d%%.</string>
+    <string name="sofy_help_sound_low">Гучність низька (%1$d%%). Додайте її пультом.</string>
+    <string name="sofy_help_sound_ok">Звук увімкнений (%1$d%%). Перевірте гучність самого телевізора й застосунок.</string>
+    <string name="sofy_help_slow_ok">З пам’яттю все гаразд (вільно %1$d МБ). Якщо гальмує один застосунок, причина, мабуть, у ньому або в інтернеті.</string>
+    <string name="sofy_help_slow_freed">Пам’яті було мало: я закрила фонові застосунки й звільнила %1$d МБ.</string>
+    <string name="sofy_help_slow_tight">Пам’яті мало (вільно %1$d МБ). Закрийте застосунок і відкрийте знову.</string>
+    <string name="sofy_help_remote_stuck">Сьогодні залипала кнопка. Перевірте, чи пульт нічим не притиснутий.</string>
+    <string name="sofy_help_remote_battery">Батарейка пульта сідає. Замініть батарейки.</string>
+    <string name="sofy_help_remote_lag">Сьогодні пульт запізнювався. Увімкніть ігровий режим телевізора й тримайте пульт подалі від інших пристроїв.</string>
+    <string name="sofy_help_remote_none">Сьогодні я не бачила проблем із пультом. Спробуйте нові батарейки; якщо не допоможе, під’єднайте його знову в Налаштування > Пульти й аксесуари.</string>
+    <string name="sofy_today_title">Що Sofy зробила сьогодні</string>
+    <string name="sofy_today_none">Спокійний день: нічого розповісти.</string>
+    <string name="sofy_today_prepared">Підготувала застосунки: %1$d</string>
+    <string name="sofy_today_night">Нічний догляд: %1$d</string>
+    <string name="sofy_today_guarded">За чим стежила: %1$d</string>
+    <string name="sofy_today_internet">Обриви інтернету: %1$d</string>
+    <string name="sofy_today_asked">Поставлені запитання: %1$d</string>
+    <string name="sofy_today_applied">Прийняті поради: %1$d</string>
+    <string name="sofy_today_alarms">Будильники й нагадування: %1$d</string>
+    <string name="sofy_today_auto_off">Скільки разів вимкнула телевізор: %1$d</string>
+    <string name="sofy_today_home">Команди вдома: %1$d</string>
+    <string name="sofy_today_updates">Оновлені застосунки: %1$d</string>
+    <string name="sofy_evidence_measured">Звідки я знаю: щойно виміряла.</string>
+    <string name="sofy_evidence_baseline">Звідки я знаю: порівняла з нормою цього дому.</string>
+    <string name="sofy_evidence_bus">Звідки я знаю: це є в журналі подій телевізора.</string>
+    <string name="sofy_evidence_system">Звідки я знаю: це показав Android.</string>
+    <string name="sofy_evidence_router">Звідки я знаю: повідомили роутер і Wi-Fi.</string>
+    <string name="sofy_evidence_test">Звідки я знаю: перевірила на ділі.</string>
+    <string name="sofy_evidence_other_tv">Звідки я знаю: сказав інший телевізор у цьому домі.</string>
+    <string name="sofy_evidence_community">Звідки я знаю: повідомили інші домівки з Sofaly (лише застосунок і версія, ніколи — хто).</string>
+</resources>

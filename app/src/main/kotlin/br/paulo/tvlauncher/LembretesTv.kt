@@ -191,6 +191,9 @@ object LembretesTv {
         val devidos = Lembretes.devidos(listar(app), agora)
         if (devidos.isNotEmpty()) {
             Gatilhos.disparar(app, Gatilhos.Evento.PROGRAMA_COMECOU)   // elevação 10.6 / 5.10: programa marcado no guia começou
+            // A Sofy fica sabendo (ideia 24): "auto" = veio do Meu time / palavra; sem título (histórico de quem assiste).
+            runCatching { br.paulo.tvlauncher.observer.SofyBusTv.emit(app, br.paulo.tvlauncher.observer.SofyBus.Source.PLAYER, "reminder",
+                detail = if (devidos.any { !it.manual }) "auto" else "manual") }
             editar(app) { l -> Lembretes.marcarAvisados(Lembretes.limpar(l, agora), devidos.mapTo(HashSet()) { it.chave }) }
             val acesa = app.getSystemService(PowerManager::class.java)?.isInteractive != false
             // Dois ao mesmo tempo (raro): mostra o que começa primeiro; o outro vira aviso curto.

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo nerd escondido (24/11/2026, AppLanguage.kt): klingon em ~40 textos da tela inicial e das Configurações.
+     O resto cai no inglês (values/). Só aparece depois de escolher a mesma língua 3 vezes seguidas em Sistema › Língua.
+     Escrita latina padrão do klingon (o pIqaD não está no Unicode). -->
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="cruz_assistir">bej</string>   <!-- Watch -->
+    <string name="cruz_ouvir">\'Ij</string>   <!-- Listen -->
+    <string name="cruz_jogar">reH</string>   <!-- Play -->
+    <string name="cruz_aplicativos">ghunmey</string>   <!-- Apps -->
+    <string name="cruz_todos_apps">ghunmey Hoch</string>   <!-- All apps -->
+    <string name="cruz_continuar">taH</string>   <!-- Continue -->
+    <string name="cruz_radio">QumwI\'</string>   <!-- Radio -->
+    <string name="cruz_ferramentas">janmey</string>   <!-- Tools -->
+    <string name="cfg2_sec_ferramentas">janmey</string>   <!-- Tools -->
+    <string name="aa_shelf_tools">janmey</string>   <!-- Tools -->
+    <string name="home_card_rede">rarmey</string>   <!-- Network -->
+    <string name="home_destaque_rede">bomlIj mIlloghlIj je</string>   <!-- Your videos, music and photos -->
+    <string name="home_busca">nej</string>   <!-- Search -->
+    <string name="home_card_filmes">lutmey</string>   <!-- Movies -->
+    <string name="home_perfil">ponglIj</string>   <!-- Profile -->
+    <string name="home_chovendo">DaH SIS</string>   <!-- Raining now -->
+    <string name="home_alarme_hoje">DaHjaj</string>   <!-- today -->
+    <string name="home_alarme_amanha">wa\'leS</string>   <!-- tomorrow -->
+    <string name="al_hoje">DaHjaj</string>   <!-- today -->
+    <string name="al_amanha">wa\'leS</string>   <!-- tomorrow -->
+    <string name="home_cancelar">qIl</string>   <!-- Cancel -->
+    <string name="comum_cancelar">qIl</string>   <!-- Cancel -->
+    <string name="al_sim">HIja\'</string>   <!-- Yes -->
+    <string name="al_nao">ghobe\'</string>   <!-- No -->
+    <string name="fechar">SoQmoH</string>   <!-- Close -->
+    <string name="rot_salvar">pol</string>   <!-- Save -->
+    <string name="cfg_titulo">SeHlaw</string>   <!-- Settings -->
+    <string name="elv_aj_buscar">SeHlaw nej</string>   <!-- Search settings -->
+    <string name="cfg3_modo">mIw: %1$s</string>   <!-- Mode: %1$s -->
+    <string name="uso_completo">naQ</string>   <!-- Complete -->
+    <string name="cfg2_aba_inicio">juH HaSta</string>   <!-- Home screen -->
+    <string name="cl_aba_conta">HaSta lutmey je</string>   <!-- TV and movies -->
+    <string name="cfg2_aba_familia">qorDu\'</string>   <!-- Family -->
+    <string name="cl_aba_energia">HaSta HoS je</string>   <!-- Screen and power -->
+    <string name="cfg3_porta_casa_rede">juH rarmey je</string>   <!-- Home and network -->
+    <string name="cl_aba_sistema">pat</string>   <!-- System -->
+    <string name="cl_dica_escolher">wIv</string>   <!-- choose -->
+    <string name="cl_dica_entrar">DuH poSmoH</string>   <!-- open the options -->
+    <string name="cl_dica_sair">mej</string>   <!-- exit -->
+    <string name="app_language_title">Hol</string>   <!-- Language -->
+    <string name="app_language_same_as_tv">HaSta Hol</string>   <!-- Same as the TV -->
+    <string name="app_language_detail">Sofaly HaSta Hol</string>   <!-- The language of the Sofaly screens -->
+    <string name="app_language_klingon_unlocked">Qapla\'! tlhIngan Hol DaH Dalo\'laH.</string>   <!-- Qapla'! Klingon unlocked: tlhIngan Hol is now at the end of the list. -->
+</resources>

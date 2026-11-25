@@ -53,6 +53,13 @@ function linhaRecado(n) {
   porque.className = 'aviso-curto';
   porque.textContent = PASSOS_SOFY[n.step] || '';
   texto.append(t, p, porque);
+  // Ideia 50: de onde ela tirou isso (medi agora, o normal da casa, o registro...), já na língua do navegador.
+  if (n.evidence) {
+    const sei = document.createElement('p');
+    sei.className = 'aviso-curto';
+    sei.textContent = n.evidence;
+    texto.appendChild(sei);
+  }
   linha.append(quando, texto);
   const lugar = LUGAR_DO_RECADO[n.kind];
   if (lugar) {
@@ -115,6 +122,14 @@ async function carregarSofy() {
 
   lista.replaceChildren(...notas.map(linhaRecado));
   if (!notas.length) lista.appendChild(Object.assign(document.createElement('p'), { className: 'aviso', textContent: 'Nada fora do normal hoje.' }));
+
+  // Ideia 49: o que ela fez hoje (título e linhas vêm prontos da TV, na língua pedida).
+  const hoje = r.today_lines || [];
+  $('cartaoSofyHoje').hidden = !hoje.length;
+  if (hoje.length) {
+    $('tituloSofyHoje').textContent = r.today_title || '';
+    $('listaSofyHoje').replaceChildren(...hoje.map((l) => Object.assign(document.createElement('li'), { textContent: l })));
+  }
 
   // Congelados em prova: a TV confere em 10 min se algo parou; enquanto isso, a pessoa pode desfazer.
   const provas = r.trials || [];

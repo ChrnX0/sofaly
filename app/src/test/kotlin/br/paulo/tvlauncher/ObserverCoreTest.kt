@@ -197,4 +197,12 @@ class ObserverCoreTest {
         assertEquals(listOf("12"), n.args)
         assertEquals(null, ObserverCore.signalOf(ObserverCore.Kind.TV_RESTARTED))
     }
+
+    @Test fun sofySuggestionGoesToTheIsland() {
+        val n = ObserverCore.sofyNote(ObserverCore.Kind.REMOTE_BATTERY_LOW, 2_000L, ObserverCore.Step.SUGGESTS, listOf("12"))
+        assertEquals(ObserverCore.Step.SUGGESTS, n.step)
+        assertEquals("observer_remote_battery_low_text", n.textKey)
+        assertEquals("remote_battery_low", n.typeKey)
+        assertEquals(null, ObserverCore.signalOf(ObserverCore.Kind.REMOTE_BATTERY_LOW))
+    }
 }

@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">Kun den valgte</string>
     <string name="wo_cards">Kortform i denne verden</string>
     <string name="wo_cards_geral">Som Finjustering (%1$s)</string>
+    <string name="st_telas">Skærmstil</string>
+    <string name="st_telas_gaveta">Skuffe</string>
+    <string name="st_telas_vidro">Glas</string>
+    <string name="st_telas_barra">Bjælke</string>
 </resources>

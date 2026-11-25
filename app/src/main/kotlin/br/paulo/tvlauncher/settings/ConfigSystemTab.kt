@@ -19,6 +19,7 @@ import br.paulo.tvlauncher.DesfazerRegras
 import br.paulo.tvlauncher.DiagnosticoActivity
 import br.paulo.tvlauncher.ExtrasActivity
 import br.paulo.tvlauncher.FilaAppsActivity
+import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.LicencasActivity
 import br.paulo.tvlauncher.PlacarActivity
@@ -61,6 +62,14 @@ internal fun ConfigLauncherActivity.abaSistema(c: LinearLayout) {
         mostrarAbasDoUso()
     }
     c.addView(linhaUso, lp())
+    // Língua do app (24/11/2026, AppLanguage.kt): a da TV ou uma das 27; Android 13+.
+    if (AppLanguage.supported()) {
+        fun nomeLingua(tag: String) = if (tag.isEmpty()) getString(R.string.app_language_same_as_tv)
+            else (AppLanguage.match(AppLanguage.options(this), tag)?.name
+                ?: java.util.Locale.forLanguageTag(tag).let { it.getDisplayName(it) }.ifBlank { tag })
+        c.addView(linha(getString(R.string.app_language_title), getString(R.string.app_language_detail),
+            valor = nomeLingua(AppLanguage.current(this))) { escolherLingua() }, lp())
+    }
     // Degrau 4: receitas prontas ("Para quem é esta TV?"), com Desfazer (ReceitasTv.kt).
     c.addView(linha(getString(R.string.rec_titulo), getString(R.string.rec_subtitulo), seta = true) {
         startActivity(Intent(this, ReceitasActivity::class.java))
@@ -455,3 +464,28 @@ internal fun ConfigLauncherActivity.ligarRecurso(r: Recursos.Recurso) {
  * pede confirmação dizendo exatamente o que vai acontecer. Tudo fora da thread da tela.
  */
 internal fun ConfigLauncherActivity.virarDono() = VirarDono.perguntar(this, ::aviso) { if (it.ok) recarregarAba() }
+
+/**
+ * Lista das línguas (AppLanguage.kt). 1ª opção = a da TV. Escolher a que já está marcada 3 vezes seguidas libera o
+ * klingon (modo nerd): aparece "Qapla'!" e a lista volta com tlhIngan Hol no fim.
+ */
+internal fun ConfigLauncherActivity.escolherLingua() {
+    val atual = AppLanguage.current(this)
+    val opcoes = AppLanguage.options(this)
+    val tags = listOf("") + opcoes.map { it.tag }
+    val nomes: List<CharSequence> = listOf(getString(R.string.app_language_same_as_tv)) + opcoes.map { it.name }
+    // Língua gravada fora da lista (adb, backup do Android, klingon ainda não liberado nesta TV): nenhuma marcada, e
+    // escolher "A mesma da TV" troca de verdade em vez de contar para o segredo.
+    val marcada = if (atual.isEmpty()) 0 else AppLanguage.match(opcoes, atual)?.let { o -> tags.indexOf(o.tag) } ?: -1
+    Estilo.lista(this, getString(R.string.app_language_title), nomes, if (marcada >= 0) listOf(marcada) else emptyList()) { i ->
+        if (i == marcada) {
+            if (AppLanguage.countRepeat(this, pickedCurrent = true)) {
+                aviso(getString(R.string.app_language_klingon_unlocked))
+                escolherLingua()
+            }
+        } else {
+            AppLanguage.countRepeat(this, pickedCurrent = false)
+            AppLanguage.set(this, tags[i])   // o sistema recria esta tela já na língua nova
+        }
+    }
+}

@@ -46,6 +46,24 @@ object AppProfile {
         val decayedAt: Long = firstSeen,
         /** Tempos de abrir medidos pelo Android (ms), os [MAX_STARTS] mais novos. */
         val startsMs: List<Int> = emptyList(),
+        /** Versão do app (versionCode) da última leitura; 0 = ainda não lida (ideia 14). */
+        val ver: Long = 0L,
+        /** Mediana do tempo de abrir ANTES da última mudança (versão nova ou recompilação); 0 = sem base. */
+        val startsBefore: Int = 0,
+        /** Memória livre da TV (MB) com este app na frente, média que esquece devagar ([MEM_ALPHA]) (ideia 11). */
+        val memFrontMb: Double = 0.0,
+        val memSamples: Int = 0,
+        /** Quando a Sofy recompilou este app (ideia 9); 0 = nunca. */
+        val compiledAt: Long = 0L,
+        /** Dia (época / 1 dia) em que ela já soltou memória antes da hora firme deste app (ideia 8). */
+        val prewarmDay: Long = 0L,
+        /** Quando o app travou ou parou de responder (o Android guarda no "dropbox"), os [MAX_CRASHES] mais novos (ideia 12). */
+        val crashes: List<Long> = emptyList(),
+        /** Quando a Sofy viu a versão do app mudar (0 = não viu): "travou desde a versão nova". */
+        val verAt: Long = 0L,
+        /** Internet gasta com o app em segundo plano, MB por dia (média que esquece devagar), e quantos dias medidos (ideia 13). */
+        val bgMbDay: Double = 0.0,
+        val bgDays: Int = 0,
     ) {
         val totalOpens: Double get() = opens.sum()
     }
@@ -100,27 +118,145 @@ object AppProfile {
 
     fun noteStart(c: Card, ms: Int): Card = c.copy(startsMs = (c.startsMs + ms).takeLast(MAX_STARTS))
 
-    enum class Advice { PREWARM, RECOMPILE, ON_DEMAND }
+    // ---------------------------------------------------------------- a ficha age (24/11/2026, ideias 8-11 e 14)
+
+    const val MEM_ALPHA = 0.3
+    const val MEM_MIN_SAMPLES = 3
+    /** Pesado: com ele na frente sobra menos que isto do normal da casa. */
+    const val HEAVY_SHARE = 0.75
+    /** Recompilado há menos que isto: não recompila de novo (dá tempo de medir o efeito). */
+    const val RECOMPILE_AGAIN_MS = 30 * 86_400_000L
+    /** Mais lento depois da atualização: mediana nova acima de [SLOWER_FACTOR] × a velha e pelo menos [SLOWER_MIN_MS] a mais. */
+    const val SLOWER_FACTOR = 1.5
+    const val SLOWER_MIN_MS = 500
+
+    /** A versão lida agora. Mudou: guarda a mediana de antes e recomeça a medir (a comparação diz se a versão nova piorou). */
+    fun noteVersion(c: Card, ver: Long, now: Long = 0L): Card = when {
+        ver <= 0L || ver == c.ver -> c
+        c.ver == 0L -> c.copy(ver = ver)
+        else -> c.copy(ver = ver, verAt = now, startsBefore = if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES) median(c.startsMs) else c.startsBefore, startsMs = emptyList())
+    }
+
+    fun noteMemory(c: Card, mb: Long): Card = c.copy(
+        memFrontMb = if (c.memSamples == 0) mb.toDouble() else c.memFrontMb * (1 - MEM_ALPHA) + mb * MEM_ALPHA,
+        memSamples = c.memSamples + 1)
+
+    /** Com este app na frente a TV fica apertada de memória? [houseNormalMb] = o normal da casa (linha de base). */
+    fun heavy(c: Card, houseNormalMb: Double?): Boolean =
+        houseNormalMb != null && houseNormalMb > 0 && c.memSamples >= MEM_MIN_SAMPLES && c.memFrontMb < HEAVY_SHARE * houseNormalMb
+
+    /** A Sofy recompilou: a mediana de agora vira a base e o tempo de abrir recomeça (a prova é a próxima mediana). */
+    fun noteCompiled(c: Card, now: Long): Card = c.copy(compiledAt = now,
+        startsBefore = if (c.startsMs.isNotEmpty()) median(c.startsMs) else c.startsBefore, startsMs = emptyList())
+
+    /** Quanto mudou o tempo de abrir desde a base (negativo = ficou mais rápido); null sem medidas suficientes. */
+    fun startChange(c: Card): Int? =
+        if (c.startsBefore <= 0 || c.startsMs.size < RECOMPILE_MIN_SAMPLES) null else median(c.startsMs) - c.startsBefore
+
+    /** A hora firme de [c] começa daqui a pouco? (de [leadMin] minutos antes até a hora) e ainda não preparou hoje. */
+    fun prewarmNow(c: Card, firmHour: Int, minuteOfDay: Int, day: Long, leadMin: Int = 20): Boolean {
+        val alvo = firmHour * 60
+        val falta = Math.floorMod(alvo - minuteOfDay, 1440)
+        return falta in 1..leadMin && c.prewarmDay != day
+    }
+
+    // ---------------------------------------------------------------- pré-HOME (ideia 7)
+
+    /** Sessões curtas não pesam: pré-HOME só para app que fica pelo menos isto na frente, em média. */
+    const val PREHOME_MIN_SESSION_MS = 10 * 60_000L
+    const val PREHOME_MIN_OPENS = 3.0
+    /** Começa a preparar a volta quando a sessão chega a esta fração da média. */
+    const val PREHOME_AT = 0.8
+
+    /** Quanto tempo uma sessão de [c] costuma durar (tempo na frente / aberturas, as duas com meia-vida); null sem base. */
+    fun avgSessionMs(c: Card): Long? = if (c.totalOpens < PREHOME_MIN_OPENS) null else (c.frontMs / c.totalOpens).toLong()
+
+    /** A pessoa deve voltar à HOME logo? (o app da frente já passou de [PREHOME_AT] da sessão de costume) */
+    fun returnSoon(s: State, now: Long): Boolean {
+        val f = s.front ?: return false
+        val avg = s.cards[f]?.let { avgSessionMs(it) } ?: return false
+        if (avg < PREHOME_MIN_SESSION_MS || s.frontSince <= 0) return false
+        val on = now - s.frontSince
+        return on >= PREHOME_AT * avg && on <= 2 * avg
+    }
+
+    // ---------------------------------------------------------------- travadas e internet parado (ideias 12 e 13)
+
+    const val MAX_CRASHES = 10
+    const val CRASHY_COUNT = 3
+    const val CRASHY_WINDOW_MS = 7 * 86_400_000L
+    const val BG_ALPHA = 0.3
+    const val BG_MIN_DAYS = 3
+    const val BG_HEAVY_MB = 300.0
+
+    fun noteCrash(c: Card, at: Long): Card = if (at in c.crashes) c else c.copy(crashes = (c.crashes + at).sorted().takeLast(MAX_CRASHES))
+
+    /** Travadas nos últimos 7 dias. */
+    fun crashesWeek(c: Card, now: Long): Int = c.crashes.count { now - it in 0..CRASHY_WINDOW_MS }
+
+    /** Todas as travadas da semana vieram depois da versão nova? */
+    fun crashesSinceUpdate(c: Card, now: Long): Boolean =
+        c.verAt > 0 && c.crashes.filter { now - it in 0..CRASHY_WINDOW_MS }.let { it.isNotEmpty() && it.all { t -> t >= c.verAt } }
+
+    fun noteBackground(c: Card, mb: Double): Card = c.copy(
+        bgMbDay = if (c.bgDays == 0) mb else c.bgMbDay * (1 - BG_ALPHA) + mb * BG_ALPHA, bgDays = c.bgDays + 1)
+
+    /**
+     * O "dropbox" do Android (`dumpsys dropbox --print data_app_crash data_app_anr`, filtrado para as linhas de data e de
+     * "Process:"): cada entrada começa com "aaaa-mm-dd hh:mm:ss data_app_crash (text, N bytes)" e logo depois vem
+     * "Process: pacote". [toMillis] converte a data (fuso da TV). Devolve (pacote, quando, é ANR?).
+     */
+    fun parseDropbox(lines: Sequence<String>, toMillis: (String) -> Long?): List<Triple<String, Long, Boolean>> {
+        val out = ArrayList<Triple<String, Long, Boolean>>()
+        var at: Long? = null; var anr = false
+        for (raw in lines) {
+            val l = raw.trim()
+            // Toda linha que começa com data abre uma entrada nova; só as de travada/ANR valem (as outras zeram).
+            if (DROPBOX_DATE.containsMatchIn(l)) {
+                val m = DROPBOX_HEAD.find(l)
+                at = m?.let { toMillis(it.groupValues[1]) }; anr = m?.groupValues?.get(2) == "data_app_anr"; continue
+            }
+            if (l.startsWith("Process:") && at != null) {
+                val pkg = l.removePrefix("Process:").trim().substringBefore(':').substringBefore(' ')
+                if (pkg.isNotEmpty()) out += Triple(pkg, at!!, anr)
+                at = null
+            }
+        }
+        return out
+    }
+    private val DROPBOX_DATE = Regex("^\\d{4}-\\d{2}-\\d{2} ")
+    private val DROPBOX_HEAD = Regex("^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}) (data_app_crash|data_app_anr)\\b")
+
+    enum class Advice { PREWARM, RECOMPILE, ON_DEMAND, SLOWER_AFTER_UPDATE, CRASHY, BACKGROUND_DATA }
     data class Tip(val pkg: String, val advice: Advice, val hour: Int?, val why: String)
 
     fun median(v: List<Int>): Int = v.sorted().let { if (it.isEmpty()) 0 else it[it.size / 2] }
 
     /**
      * As dicas de cada ficha. [onDemand] = já congelados sob demanda; [freezable] = a ficha do pacote diz que é seguro
-     * congelar (OnDemand só aceita esses).
+     * congelar (OnDemand só aceita esses). [slowMs] e [prewarmShare]: os limites de agora (a Sofy ajusta, [SofyLimits]).
      */
-    fun advise(cards: Collection<Card>, now: Long, onDemand: Set<String>, freezable: (String) -> Boolean): List<Tip> {
+    fun advise(cards: Collection<Card>, now: Long, onDemand: Set<String>, slowMs: Int = RECOMPILE_SLOW_MS,
+               prewarmShare: Double = PREWARM_SHARE, freezable: (String) -> Boolean): List<Tip> {
         val out = ArrayList<Tip>()
         for (c0 in cards) {
             val c = decay(c0, now)
             val total = c.totalOpens
             val h = c.opens.indices.maxByOrNull { c.opens[it] }
-            if (h != null && c.opens[h] >= PREWARM_MIN_OPENS && c.opens[h] >= PREWARM_SHARE * total)
+            if (h != null && c.opens[h] >= PREWARM_MIN_OPENS && c.opens[h] >= prewarmShare * total)
                 out += Tip(c.pkg, Advice.PREWARM, h, "abre mais às ${h}h (${"%.1f".format(c.opens[h])} de ${"%.1f".format(total)} aberturas)")
-            if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES && median(c.startsMs) > RECOMPILE_SLOW_MS)
+            if (c.startsMs.size >= RECOMPILE_MIN_SAMPLES && median(c.startsMs) > slowMs && now - c.compiledAt >= RECOMPILE_AGAIN_MS)
                 out += Tip(c.pkg, Advice.RECOMPILE, null, "demora ${median(c.startsMs)} ms para abrir (mediana de ${c.startsMs.size})")
             if (c.pkg !in onDemand && now - c.firstSeen >= UNUSED_MS && now - c.lastOpen >= UNUSED_MS && freezable(c.pkg))
                 out += Tip(c.pkg, Advice.ON_DEMAND, null, "sem abrir há ${(now - c.lastOpen) / 86_400_000L} dias")
+            val cw = crashesWeek(c, now)
+            if (cw >= CRASHY_COUNT)
+                out += Tip(c.pkg, Advice.CRASHY, null, "travou $cw vezes em 7 dias" + if (crashesSinceUpdate(c, now)) ", desde a versão nova dele" else "")
+            if (c.bgDays >= BG_MIN_DAYS && c.bgMbDay >= BG_HEAVY_MB)
+                out += Tip(c.pkg, Advice.BACKGROUND_DATA, null, "gasta ${Math.round(c.bgMbDay)} MB por dia de internet parado (média de ${c.bgDays} dias)")
+            val delta = startChange(c)
+            if (delta != null && c.compiledAt == 0L && median(c.startsMs) > SLOWER_FACTOR * c.startsBefore && delta >= SLOWER_MIN_MS)
+                out += Tip(c.pkg, Advice.SLOWER_AFTER_UPDATE, null, "abre em ${median(c.startsMs)} ms desde a versão nova (antes ${c.startsBefore} ms)")
         }
         return out.sortedWith(compareBy({ it.advice.ordinal }, { it.pkg }))
     }
@@ -149,7 +285,9 @@ object AppProfile {
             val cards = JSONArray()
             for (c in s.cards.values) cards.put(JSONObject().put("p", c.pkg).put("f", c.firstSeen).put("l", c.lastOpen)
                 .put("o", JSONArray(c.opens.map { Math.round(it * 100) / 100.0 })).put("t", Math.round(c.frontMs)).put("d", c.decayedAt)
-                .put("s", JSONArray(c.startsMs)))
+                .put("s", JSONArray(c.startsMs)).put("v", c.ver).put("sb", c.startsBefore).put("m", Math.round(c.memFrontMb))
+                .put("mn", c.memSamples).put("ca", c.compiledAt).put("pw", c.prewarmDay).put("cr", JSONArray(c.crashes)).put("va", c.verAt)
+                .put("bg", Math.round(c.bgMbDay * 10) / 10.0).put("bd", c.bgDays))
             o.put(profile, JSONObject().put("cards", cards))
         }
         return o
@@ -167,7 +305,10 @@ object AppProfile {
                 val opens = List(24) { k -> op?.optDouble(k, 0.0)?.takeIf { !it.isNaN() } ?: 0.0 }
                 val st = j.optJSONArray("s")
                 val starts = if (st == null) emptyList() else (0 until st.length()).map { st.getInt(it) }
-                val c = Card(j.getString("p"), j.getLong("f"), j.optLong("l"), opens, j.optDouble("t", 0.0), j.optLong("d", j.getLong("f")), starts)
+                val c = Card(j.getString("p"), j.getLong("f"), j.optLong("l"), opens, j.optDouble("t", 0.0), j.optLong("d", j.getLong("f")), starts,
+                    j.optLong("v"), j.optInt("sb"), j.optDouble("m", 0.0), j.optInt("mn"), j.optLong("ca"), j.optLong("pw"),
+                    j.optJSONArray("cr")?.let { a -> (0 until a.length()).map { a.getLong(it) } } ?: emptyList(), j.optLong("va"),
+                    j.optDouble("bg", 0.0).takeIf { !it.isNaN() } ?: 0.0, j.optInt("bd"))
                 cards[c.pkg] = c
             }
             out[profile] = State(cards)

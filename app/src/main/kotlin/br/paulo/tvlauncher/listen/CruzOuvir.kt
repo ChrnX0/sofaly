@@ -107,7 +107,29 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         /** Arte do fundo: baixada bem pequena (32 px) e esticada; o próprio esticar já desfoca, sem custo de GPU. */
         const val ARTE_LADO = 32
         const val ARTE_ALFA = 0.24f
+
+        // Jeito Barra (dp numa tela de 960 x 540): a fileira embaixo, acima das dicas, como a barra da HOME.
+        private const val TELA_A = 540f
+        private val BARRA_X get() = Estilo.MARGEM_LATERAL.toFloat()
+        private val BARRA_Y get() = TELA_A - 68f - CAPA / 2f   // centro da fileira: a base dela 68 dp acima do fim da tela
+        private const val BARRA_VAO = 22f
+        private const val BARRA_ESCALA = 0.78f
+        private const val BARRA_ALFA = 0.8f
+        private const val BARRA_SALTO = 70f       // quanto a prateleira vizinha fica acima/abaixo, para entrar deslizando
+        private const val BARRA_TEXTO_L = 620     // largura do bloco de texto (não chega ao cartão "Tocando agora")
+        private const val BARRA_TEXTO_VAO = 18f   // do bloco de texto ao topo da fileira
     }
+
+    /**
+     * Jeito Barra (coerência das telas, 24/11/2026; ScreenStyle.STRIP): a mesma leitura da HOME de barra única. Os itens
+     * da prateleira viram uma FILEIRA embaixo (◀ ▶ andam), ▲ ▼ trocam a prateleira, e o nome do grupo, do item e a
+     * informação dele ficam na linha acima da fileira. Decidido ao criar a tela.
+     */
+    private val barra = br.paulo.tvlauncher.home.ScreenStyle.barra(ctx)
+    private var barraBloco: LinearLayout? = null
+    private var barraGrupo: TextView? = null
+    private var barraNome: TextView? = null
+    private var barraSub: TextView? = null
 
     var aoMudar: ((Prateleira, Item) -> Unit)? = null
     /** Som de cada passo ([SonsCruz]); quem usa decide se toca (a tela não pia por cima da música). */
@@ -259,7 +281,31 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             marginEnd = dpi(Estilo.MARGEM_LATERAL); bottomMargin = dpi(20)
         })
 
+        if (barra) montarBarra(ctx)
         setOnFocusChangeListener { _, _ -> posicionar(animar = false); anunciar() }
+    }
+
+    /** O bloco de texto do jeito Barra: grupo (creme apagado), nome do item e a informação, presos acima da fileira. */
+    private fun montarBarra(ctx: Context) {
+        val grupo = Estilo.texto(ctx, Estilo.Papel.LEGENDA).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+        val nome = Estilo.texto(ctx, Estilo.Papel.TITULO).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END; typeface = fonteForte }
+        val sub = Estilo.texto(ctx, Estilo.Papel.LEGENDA).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END }
+        for (t in listOf(grupo, nome, sub)) t.setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+        val bloco = LinearLayout(ctx).apply {
+            orientation = LinearLayout.VERTICAL
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+            addView(grupo, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+            addView(nome, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(6) })
+            addView(sub, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(6) })
+        }
+        addView(bloco, indexOfChild(cartao), LayoutParams(dpi(BARRA_TEXTO_L), LayoutParams.WRAP_CONTENT, Gravity.BOTTOM or Gravity.START).apply {
+            marginStart = dpi(Estilo.MARGEM_LATERAL)
+            bottomMargin = dpi((TELA_A - (BARRA_Y - CAPA / 2f) + BARRA_TEXTO_VAO).toInt())
+        })
+        barraBloco = bloco; barraGrupo = grupo; barraNome = nome; barraSub = sub
+        cabecalho.visibility = View.GONE
+        // O título da tela no lugar do título das outras telas (margem do sistema), não na coluna da cruz.
+        titulo.translationX = dp(Estilo.MARGEM_LATERAL.toFloat()); titulo.translationY = dp(Estilo.MARGEM_VERTICAL + 9f)
     }
 
     fun definirTitulo(t: String) { titulo.text = t; contentDescription = t }
@@ -393,11 +439,12 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         repeticao = event.repeatCount
+        // Na Barra os eixos trocam: a fileira anda de lado e as prateleiras ficam uma acima da outra (como os mundos da HOME).
         when (keyCode) {
-            KeyEvent.KEYCODE_DPAD_LEFT -> andarPrateleira(-1)
-            KeyEvent.KEYCODE_DPAD_RIGHT -> andarPrateleira(1)
-            KeyEvent.KEYCODE_DPAD_UP -> andarItem(-1)
-            KeyEvent.KEYCODE_DPAD_DOWN -> andarItem(1)
+            KeyEvent.KEYCODE_DPAD_LEFT -> if (barra) andarItem(-1) else andarPrateleira(-1)
+            KeyEvent.KEYCODE_DPAD_RIGHT -> if (barra) andarItem(1) else andarPrateleira(1)
+            KeyEvent.KEYCODE_DPAD_UP -> if (barra) andarPrateleira(-1) else andarItem(-1)
+            KeyEvent.KEYCODE_DPAD_DOWN -> if (barra) andarPrateleira(1) else andarItem(1)
             KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_NUMPAD_ENTER -> event.startTracking()
             else -> return super.onKeyDown(keyCode, event)
         }
@@ -534,8 +581,11 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             criarItem().also { v ->
                 preencher(v, item)
                 addView(v.raiz, indexOfChild(cartao), LayoutParams(dpi(LARGURA_ITEM), dpi(CAPA + SUB_SOBRA + NOME_SOBRA)))
-                val cx = cxPrateleira(j - cat)
-                mola.mover(v.raiz, dp(cx - CAPA * ESCALA_PEQUENO / 2f), dp(LINHA - CAPA / 2f), 0f, ESCALA_PEQUENO, animar = false)
+                if (barra) mola.mover(v.raiz, dp(BARRA_X), dp(BARRA_Y - CAPA / 2f + (j - cat) * BARRA_SALTO), 0f, BARRA_ESCALA, animar = false)
+                else {
+                    val cx = cxPrateleira(j - cat)
+                    mola.mover(v.raiz, dp(cx - CAPA * ESCALA_PEQUENO / 2f), dp(LINHA - CAPA / 2f), 0f, ESCALA_PEQUENO, animar = false)
+                }
             }
         }
         viewsItem[p.id] = vs
@@ -591,6 +641,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
             addView(capa, LinearLayout.LayoutParams(dpi(CAPA), dpi(CAPA)))
             addView(textos, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT).apply { marginStart = dpi(20) })
+            if (barra) textos.visibility = View.GONE   // na Barra o texto do item fica no bloco acima da fileira
             pivotX = 0f; pivotY = dp(CAPA / 2f)
             visibility = View.INVISIBLE
             alpha = 0f
@@ -636,6 +687,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        if (barra) { posicionarBarra(animar); return }
         val focada = hasFocus() || isFocused
         val semMovimento = MolaViews.semAnimacao(this)
         val p = prats.getOrNull(cat)
@@ -691,6 +743,51 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
                 iv.sub.alpha = if (rel == 0) 1f else 0f
                 ic?.animar(rel == 0 && focada && !semMovimento)
                 // a capa só é baixada quando o item aparece (uma lista de 60 rádios não baixa 60 logos de uma vez)
+                iv.item?.let { if (it.icone == null && it.imagem == null) iv.capa.carregar(it.capa) }
+            }
+        }
+    }
+
+    /**
+     * Jeito Barra: o escolhido no começo da fileira, em tamanho cheio; os seguintes menores à direita; os de antes saem
+     * pela esquerda. As outras prateleiras ficam guardadas acima/abaixo, invisíveis, e entram deslizando no ▲ ▼.
+     */
+    private fun posicionarBarra(animar: Boolean) {
+        val focada = hasFocus() || isFocused
+        val semMovimento = MolaViews.semAnimacao(this)
+        val p = prats.getOrNull(cat)
+        mostrarCartao(animar)
+        for (v in viewsCat) { v.alpha = 0f; v.visibility = View.INVISIBLE }
+        if (p != null) garantirItens(cat)
+        val atual = itemAtual()
+        barraGrupo?.text = p?.nome?.replace("\n", " · ").orEmpty()
+        barraNome?.text = atual?.nome?.replace("\n", " ").orEmpty()
+        barraSub?.let { t ->
+            val sub = atual?.sub?.replace("\n", " · ").orEmpty()
+            t.text = sub; t.visibility = if (sub.isEmpty()) View.GONE else View.VISIBLE
+        }
+        barraBloco?.alpha = if (focada) 1f else HomeCruz.ALFA_ESCOLHIDO_FORA
+        val passo = CAPA * BARRA_ESCALA + BARRA_VAO
+        for ((j, pr) in prats.withIndex()) {
+            val lista = viewsItem[pr.id] ?: continue
+            val k = j - cat
+            val s = indiceSel(pr)
+            for ((i, iv) in lista.withIndex()) {
+                val rel = i - s
+                val ic = iv.capa.icone as? IconeOuvir
+                val x = when {
+                    rel == 0 -> BARRA_X
+                    rel > 0 -> BARRA_X + CAPA + BARRA_VAO + (rel - 1) * passo
+                    else -> BARRA_X + rel * passo
+                }
+                val y = BARRA_Y - CAPA / 2f + k * BARRA_SALTO
+                val escala = if (rel == 0) 1f else BARRA_ESCALA
+                val visivel = k == 0 && rel >= 0 && x < TELA_L
+                if (!visivel) { esconder(iv, dp(x), dp(y), animar, onda(kotlin.math.abs(rel)), escala); ic?.animar(false); continue }
+                val alfa = if (rel == 0) (if (focada) 1f else HomeCruz.ALFA_ESCOLHIDO_FORA) else BARRA_ALFA
+                mola.mover(iv.raiz, dp(x), dp(y), alfa, escala, animar, onda(rel), amortece = amortece)
+                iv.ponto.alpha = 0f
+                ic?.animar(rel == 0 && focada && !semMovimento)
                 iv.item?.let { if (it.icone == null && it.imagem == null) iv.capa.carregar(it.capa) }
             }
         }

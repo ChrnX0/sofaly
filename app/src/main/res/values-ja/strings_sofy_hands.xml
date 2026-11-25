@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A mão da Sofy nos cartões e as perguntas dos hábitos (fora de strings_sofy.xml, que só guarda os avisos do Observador: SofyStringsTest). -->
+<resources>
+    <string name="sofy_hand_ready">すぐ開けます</string>
+    <string name="sofy_hand_on_demand">開いたときに起動</string>
+    <string name="sofy_hand_hour">この時間のいつもの</string>
+    <string name="sofy_sug_cedo_titulo">早めに電源を切りますか？</string>
+    <string name="sofy_sug_cedo">%1$d晩、深夜に誰も見ていないのにテレビが自動で切れました。リモコン操作なしで%3$d分ではなく%2$d分後に切りますか？</string>
+    <string name="sofy_sug_alarme_titulo">アラームを遅らせますか？</string>
+    <string name="sofy_sug_alarme">%1$sのアラームがよくスヌーズされています。%2$d分遅らせて%3$sに鳴らしますか？</string>
+    <string name="sofy_sug_rotina_titulo">ルーティンにしますか？</string>
+    <string name="sofy_sug_rotina">%1$sは%3$d日間、%2$sごろに開かれました。その曜日の%2$sに自動で開きますか？</string>
+    <string name="sofy_sug_teto_titulo">夜の音量上限は？</string>
+    <string name="sofy_sug_teto">深夜は日中よりかなり音量が大きくなっています。23時から6時は%1$d%%までにしますか？</string>
+    <string name="sofy_sug_perfil_titulo">プロフィールを切り替えますか？</string>
+    <string name="sofy_sug_perfil">今開いているアプリは%1$sさんがよく見るものです。%1$sさんのプロフィールに切り替えますか？</string>
+    <string name="sofy_sug_trocar">切り替える</string>
+    <string name="sofy_sug_feito">完了しました。設定からいつでも元に戻せます。</string>
+    <string name="sofy_lost_title">迷いましたか？</string>
+    <string name="sofy_lost_text">ホームを1回押すとホーム画面に戻ります。戻るを長押しするとクイックパネルが開きます。</string>
+    <string name="sofy_help_internet">Sofy：インターネットを確認</string>
+    <string name="sofy_help_sound">Sofy：音を確認</string>
+    <string name="sofy_help_slow">Sofy：なぜ遅い？</string>
+    <string name="sofy_help_remote">Sofy：リモコンを確認</string>
+    <string name="sofy_help_sound_fixed">ここではテレビが音量を管理しています。リモコンの音量ボタンを使い、テレビが消音になっていないか確認してください。</string>
+    <string name="sofy_help_sound_fixed_now">音が切れていました。%1$d%%で戻しました。</string>
+    <string name="sofy_help_sound_low">音量が小さいです（%1$d%%）。リモコンで上げてください。</string>
+    <string name="sofy_help_sound_ok">音は出ています（%1$d%%）。テレビ本体の音量とアプリを確認してください。</string>
+    <string name="sofy_help_slow_ok">メモリは十分です（空き%1$d MB）。1つのアプリだけ遅いなら、原因はそのアプリかインターネットでしょう。</string>
+    <string name="sofy_help_slow_freed">メモリが足りませんでした。裏で動くアプリを閉じて%1$d MB空けました。</string>
+    <string name="sofy_help_slow_tight">メモリが足りません（空き%1$d MB）。アプリを閉じて開き直してください。</string>
+    <string name="sofy_help_remote_stuck">今日、ボタンが押されたままになりました。リモコンが何かの下敷きになっていないか見てください。</string>
+    <string name="sofy_help_remote_battery">リモコンの電池が少なくなっています。電池を交換してください。</string>
+    <string name="sofy_help_remote_lag">今日はリモコンが遅れました。テレビのゲームモードをオンにし、リモコンをほかの機器から離してください。</string>
+    <string name="sofy_help_remote_none">今日はリモコンに問題は見えませんでした。電池を替えてみて、だめなら 設定 > リモコンとアクセサリ でペアリングし直してください。</string>
+    <string name="sofy_today_title">Sofyが今日したこと</string>
+    <string name="sofy_today_none">静かな一日：特に話すことはありません。</string>
+    <string name="sofy_today_prepared">先に準備したアプリ：%1$d</string>
+    <string name="sofy_today_night">夜のお手入れ：%1$d</string>
+    <string name="sofy_today_guarded">見守ったこと：%1$d</string>
+    <string name="sofy_today_internet">インターネットの切断：%1$d</string>
+    <string name="sofy_today_asked">した質問：%1$d</string>
+    <string name="sofy_today_applied">採用された提案：%1$d</string>
+    <string name="sofy_today_alarms">アラームとリマインダー：%1$d</string>
+    <string name="sofy_today_auto_off">テレビを消した回数：%1$d</string>
+    <string name="sofy_today_home">家の操作：%1$d</string>
+    <string name="sofy_today_updates">更新されたアプリ：%1$d</string>
+    <string name="sofy_evidence_measured">根拠：いま測りました。</string>
+    <string name="sofy_evidence_baseline">根拠：この家のふだんと比べました。</string>
+    <string name="sofy_evidence_bus">根拠：テレビで起きたことの記録にあります。</string>
+    <string name="sofy_evidence_system">根拠：Androidが示しました。</string>
+    <string name="sofy_evidence_router">根拠：ルーターとWi-Fiが知らせました。</string>
+    <string name="sofy_evidence_test">根拠：試して確かめました。</string>
+    <string name="sofy_evidence_other_tv">根拠：この家の別のテレビが教えてくれました。</string>
+    <string name="sofy_evidence_community">根拠：Sofalyを使うほかの家からの報告です（アプリとバージョンだけで、誰かは分かりません）。</string>
+</resources>

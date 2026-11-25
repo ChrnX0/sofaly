@@ -31,8 +31,11 @@ object Lembretes {
         val trocar: Boolean = false,
     ) {
         val manual: Boolean get() = palavra.isEmpty()
-        /** Quando avisar: 2 min antes ("Me avise"), ou no início (troca sozinha). */
-        val momento: Long get() = if (trocar) inicio else inicio - ANTECEDENCIA_MS
+        /**
+         * Quando avisar: 2 min antes ("Me avise"), 10 min antes quando veio de uma palavra ("Meu time": Sofy, ideia 24,
+         * dá tempo de chegar no sofá), ou no início (troca sozinha).
+         */
+        val momento: Long get() = if (trocar) inicio else inicio - (if (manual) ANTECEDENCIA_MS else ANTECEDENCIA_AUTO_MS)
         val chave: String get() = "$canalId|$inicio"
     }
 
@@ -42,6 +45,7 @@ object Lembretes {
     const val MAX = 60
     const val MAX_PALAVRAS = 20
     const val ANTECEDENCIA_MS = 2 * 60_000L
+    const val ANTECEDENCIA_AUTO_MS = 10 * 60_000L
     /**
      * Até onde olhar à frente ao gerar pelas palavras. O guia guarda só 14 h; desde a ideia 16 (14/11/2026) as partidas
      * de até 7 dias vêm da lista à parte do MeuTimeAdiante, gravada junto com o guia.

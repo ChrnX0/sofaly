@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">Limbă</string>
+    <string name="app_language_detail">Limba ecranelor Sofaly</string>
+    <string name="app_language_same_as_tv">La fel ca televizorul</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! Klingoniana deblocată: tlhIngan Hol e la finalul listei.</string>
+</resources>

@@ -540,7 +540,10 @@ object CasaHA {
         // Ideia 51: "alternar" no ar-condicionado vira ligar ou desligar pelo estado de agora (o climate não tem toggle certo).
         val a = if (acao == "alternar" && id.startsWith("climate.")) (if (estadoDe(ctx, id) == "off") "ligar" else "desligar") else acao
         val (d, s) = servico(id, a) ?: throw Erro("ação não permitida para $id")
-        pedir(ctx, "POST", "/api/services/$d/$s", JSONObject().put("entity_id", id).toString())
+        // Casa que falha (Sofy, ideia 31): cada pedido vai ao barramento, certo ou errado (sem o nome do aparelho).
+        val ok = runCatching { pedir(ctx, "POST", "/api/services/$d/$s", JSONObject().put("entity_id", id).toString()) }
+        runCatching { br.paulo.tvlauncher.observer.SofyBusTv.emit(ctx, br.paulo.tvlauncher.observer.SofyBus.Source.HOUSE, "ha_call", ok = ok.isSuccess, detail = d) }
+        ok.getOrThrow()
         return "$id: $acao"
     }
 
