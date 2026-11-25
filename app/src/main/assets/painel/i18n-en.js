@@ -603,7 +603,7 @@ traduzirPainelCom({T:{
 "Quando a internet cair":"When the internet goes down",
 "Quando a internet voltar":"When the internet comes back",
 "Quando chegar um recado":"When a message arrives",
-"No aniversário de alguém (9h)":"On someone\\'s birthday (9 AM)",
+"No aniversário de alguém (9h)":"On someone's birthday (9 AM)",
 "Quando começar um compromisso da agenda":"When an appointment in the calendar starts",
 "Filme ou vídeo pausou ou acabou":"Movie or video paused or ended",
 "Filtro noturno (tela mais quente no horário abaixo)":"Night filter (warmer screen in the hours below)",

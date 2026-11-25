@@ -6,12 +6,13 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
- * O painel em 14 línguas (17/11/2026): o i18n.js escolhe a língua do navegador e carrega i18n-<língua>.js.
+ * O painel em 26 línguas (14 em 17/11/2026, +12 em 24/11/2026): o i18n.js escolhe a língua do navegador e carrega i18n-<língua>.js.
  * Confere que as 14 têm as mesmas frases (texto novo esquecido numa língua aparece em português só nela),
  * que as frases montadas guardam as partes ($1, $2...) e que o servidor entrega cada arquivo (fora do TIPOS = 404 calado).
  */
 class PainelI18nTest {
-    private val LINGUAS = listOf("en", "es", "fr", "de", "it", "pl", "ru", "tr", "ar", "hi", "id", "ja", "ko", "zh")
+    private val LINGUAS = listOf("en", "es", "fr", "de", "it", "pl", "ru", "tr", "ar", "hi", "id", "ja", "ko", "zh",
+        "nl", "sv", "da", "nb", "fi", "cs", "el", "hu", "ro", "uk", "vi", "th")
 
     private fun pasta(): File = listOf("src/main/assets/painel", "app/src/main/assets/painel").map(::File).first { it.isDirectory }
 
@@ -24,7 +25,8 @@ class PainelI18nTest {
         assertTrue("i18n-$l.js sem a parte P", meio > 0)
         val chave = Regex("""^("(?:[^"\\]|\\.)*"):""")
         val t = linhas.subList(0, meio).mapNotNull { chave.find(it)?.groupValues?.get(1) }
-        val troca = Regex("""^\["(?:[^"\\]|\\.)*","((?:[^"\\]|\\.)*)"],$""")
+        // Com ou sem espaço depois da vírgula: 7 linhas do en/de/... têm o espaço e ficavam fora da conta (24/11/2026).
+        val troca = Regex("""^\["(?:[^"\\]|\\.)*",\s*"((?:[^"\\]|\\.)*)"],$""")
         val p = linhas.subList(meio + 1, linhas.size).mapNotNull { troca.find(it)?.groupValues?.get(1) }
         return t to p
     }
