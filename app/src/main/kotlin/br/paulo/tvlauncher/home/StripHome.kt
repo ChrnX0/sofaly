@@ -130,6 +130,7 @@ object StripHome {
     const val ANEL = 3f             // anel laranja (px no estudo; aqui dp/2 arredondado na tela)
     const val PLACA = 8f            // folga da placa de vidro em volta dos cards
     const val MS = 250L             // passo das animações (token "fast" do sistema)
+    const val MS_VOO = 420L         // o ícone do mundo voando do trilho para a linha (e de volta): mais lento, para se ver
     const val ESCALONA_MS = 40L     // os cards entram um depois do outro
 
     // ---- teclas

@@ -87,7 +87,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
     private var formatoDesenhado: StripHome.Format = StripHome.DEFAULT.format
     private var idsDesenhados: List<String> = emptyList()
     private var avisoAte = 0L
-    private var linhaAnimando = false
+    private val linhaAnimando = false   // (25/11/2026) a linha não anda mais inteira: o ícone voa e os textos entram
     /** Quanto movimento a HOME pode ter agora (a [HomeCruz] passa antes de cada desenho; PARADO sem animações). */
     var nivel: MovimentoAdaptativo.Nivel = MovimentoAdaptativo.Nivel.COMPLETO
     /** O último desenho, para refazer no lugar quando a tela muda de tamanho (antes de medir vale 960 x 540). */
@@ -114,6 +114,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
 
     init {
         clipChildren = false; clipToPadding = false
+        trilho.clipChildren = false; trilho.clipToPadding = false
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
         addView(trilho, LayoutParams(dpi(TRILHO_ICONE), LayoutParams.WRAP_CONTENT))
         linha.addView(icone, LinearLayout.LayoutParams(dpi(StripHome.ICONE), dpi(StripHome.ICONE)))
@@ -163,11 +164,22 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             for ((i, k) in cats.withIndex()) trilho.addView(ImageView(context).apply { setImageDrawable(WorldGlyph(k.cat, DesignTokens.CREAM, 2.4f)) },
                 LinearLayout.LayoutParams(dpi(TRILHO_ICONE), dpi(TRILHO_ICONE)).apply { topMargin = if (i > 0) dpi(TRILHO_VAO) else 0 })
         }
+        // O mundo escolhido SAI do trilho (Paulo, 25/11/2026: o ícone ficava duplicado, no trilho e grande na linha):
+        // no trilho fica o vão dele, e o ícone grande da linha "voa" desse vão para o lugar dele (zoom para a direita).
+        // O que deixou de ser o escolhido volta voando para o vão dele.
+        val voo = dp((StripHome.TRILHO_X + 2f) - (StripHome.MARGEM + StripHome.ICONE / 2f))   // do lugar grande até o vão (negativo)
+        val zoom = StripHome.ICONE / TRILHO_ICONE
+        val antigo = mundoDesenhado
         for (i in 0 until trilho.childCount) trilho.getChildAt(i).let { v ->
             val atual = i == cat
-            val e = if (atual) 1f else TRILHO_OUTROS
-            if (anima) v.animate().scaleX(e).scaleY(e).alpha(if (atual) 1f else 0.38f).setDuration(StripHome.MS).setInterpolator(curva).start()
-            else { v.scaleX = e; v.scaleY = e; v.alpha = if (atual) 1f else 0.38f }
+            v.animate().cancel()
+            if (atual) { v.alpha = 0f; v.translationX = 0f; v.scaleX = TRILHO_OUTROS; v.scaleY = TRILHO_OUTROS; return@let }
+            if (anima && i == antigo && antigo != cat) {
+                // volta do lugar grande para o vão, encolhendo
+                v.translationX = -voo; v.scaleX = zoom; v.scaleY = zoom; v.alpha = 1f
+                v.animate().translationX(0f).scaleX(TRILHO_OUTROS).scaleY(TRILHO_OUTROS).alpha(0.38f)
+                    .setDuration(StripHome.MS_VOO).setInterpolator(curva).start()
+            } else { v.translationX = 0f; v.scaleX = TRILHO_OUTROS; v.scaleY = TRILHO_OUTROS; v.alpha = 0.38f }
         }
         // Cards grandes (ou com placa, ou a grade de 2 linhas) não encostam no pé da tela nem na linha do mundo: sobem o que
         // precisar. [topo] = alto do bloco de cards (o card em foco sobe mais 4 dp).
@@ -175,9 +187,12 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val topo = minOf(altura() - StripHome.CARDS_DO_FUNDO - o.cardH / 2f, altura() - 16f - folgaPlaca - o.blocoH)
         val topoLinha = minOf(altura() - StripHome.LINHA_DO_FUNDO, topo - folgaPlaca - StripHome.SUBIR_FOCO - 14f - StripHome.LINHA_A)
         if (height > 0 && altura() - topoLinha != baseAvisada) { baseAvisada = altura() - topoLinha; aoMudarBase?.invoke(baseAvisada) }
-        // o trilho fica centrado na altura da linha do mundo
-        val trilhoA = cats.size * TRILHO_ICONE + (cats.size - 1) * TRILHO_VAO
-        trilho.translationX = dp(StripHome.TRILHO_X + 2f - TRILHO_ICONE / 2f); trilho.translationY = dp(topoLinha + StripHome.LINHA_A / 2f - trilhoA / 2f)
+        // o trilho anda para que o vão do mundo escolhido fique sempre na altura da linha do mundo (sobe e desce nas setas)
+        val trilhoY = dp(topoLinha + StripHome.LINHA_A / 2f - (cat * (TRILHO_ICONE + TRILHO_VAO) + TRILHO_ICONE / 2f))
+        trilho.translationX = dp(StripHome.TRILHO_X + 2f - TRILHO_ICONE / 2f)
+        trilho.animate().cancel()
+        if (anima && antigo >= 0 && antigo != cat) trilho.animate().translationY(trilhoY).setDuration(StripHome.MS_VOO).setInterpolator(curva).start()
+        else trilho.translationY = trilhoY
         trilho.visibility = if (cats.size > 1) View.VISIBLE else View.INVISIBLE
         linha.translationX = dp(StripHome.MARGEM)
 
@@ -193,13 +208,22 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
             nome.text = c.nome
         }
         escreverDesc(c)
-        if (trocouMundo && anima && direcao != 0) {
-            linha.animate().cancel()
-            linha.alpha = 0f; linha.translationY = dp(topoLinha + 8f * direcao)
-            linhaAnimando = true
-            linha.animate().alpha(1f).translationY(dp(topoLinha)).setDuration(StripHome.MS).setInterpolator(curva)
-                .withEndAction { linhaAnimando = false }.start()
-        } else if (!linhaAnimando) { linha.alpha = 1f; linha.translationY = dp(topoLinha) }
+        if (trocouMundo && anima && antigo >= 0) {
+            // o ícone sai do vão do trilho (mesma altura) e cresce até o lugar dele; os textos entram logo atrás
+            linha.animate().cancel(); linha.alpha = 1f; linha.translationY = dp(topoLinha)
+            icone.animate().cancel()
+            icone.translationX = voo; icone.scaleX = 1f / zoom; icone.scaleY = 1f / zoom
+            icone.animate().translationX(0f).scaleX(1f).scaleY(1f).setDuration(StripHome.MS_VOO).setInterpolator(curva).start()
+            for (t in listOf(nome, barrinha, desc)) {
+                t.animate().cancel(); t.alpha = 0f; t.translationY = dp(6f * direcao)
+                t.animate().alpha(1f).translationY(0f).setStartDelay(StripHome.MS_VOO / 3).setDuration(StripHome.MS).setInterpolator(curva)
+                    .withEndAction { t.animate().setStartDelay(0) }.start()
+            }
+        } else if (!linhaAnimando) {
+            linha.alpha = 1f; linha.translationY = dp(topoLinha)
+            if (trocouMundo) { icone.animate().cancel(); icone.translationX = 0f; icone.scaleX = 1f; icone.scaleY = 1f
+                for (t in listOf(nome, barrinha, desc)) { t.animate().cancel(); t.alpha = 1f; t.translationY = 0f } }
+        }
 
         // cards
         val fmt = o.format
