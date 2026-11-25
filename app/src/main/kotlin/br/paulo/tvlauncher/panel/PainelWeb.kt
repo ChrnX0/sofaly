@@ -977,6 +977,7 @@ object PainelWeb {
                     if (o.optBoolean("test")) return json(200, JSONObject().put("ok", br.paulo.tvlauncher.observer.SofyAi.test(app)))
                     val pronto = br.paulo.tvlauncher.observer.SofyAi.save(app, o.optString("provider"), o.optString("base"), o.optString("model"),
                         if (o.has("key")) o.optString("key") else null)
+                    if (o.has("budget_tokens")) br.paulo.tvlauncher.observer.SofyAi.setBudget(app, o.optLong("budget_tokens"))
                     PainelArmazem.registrar(app, ip, "IA da Sofy", o.optString("provider").ifEmpty { "nenhuma" })
                     return json(200, JSONObject().put("ok", true).put("ready", pronto))
                 }

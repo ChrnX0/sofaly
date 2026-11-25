@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Adres AI, na przykład http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (puste = domyślny)",
 "Chave da API (em branco = manter a atual)":"Klucz API (puste = zachowaj obecny)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Użycie AI w tym miesiącu, w tysiącach tokenów (zużyte / limit):",
+"Teto por mês em mil tokens (0 = sem teto)":"Miesięczny limit w tysiącach tokenów (0 = bez limitu)",
 "Testar":"Testuj",
 "Salvo.":"Zapisano.",
 "A IA respondeu.":"AI odpowiedziała.",

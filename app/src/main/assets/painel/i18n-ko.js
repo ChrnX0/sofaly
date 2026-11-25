@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"AI 주소, 예: http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"모델(비워 두면 기본값)",
 "Chave da API (em branco = manter a atual)":"API 키(비워 두면 현재 키 유지)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"이번 달 AI 사용량, 천 토큰 단위(사용 / 한도):",
+"Teto por mês em mil tokens (0 = sem teto)":"월 한도(천 토큰 단위, 0 = 한도 없음)",
 "Testar":"테스트",
 "Salvo.":"저장했습니다.",
 "A IA respondeu.":"AI가 응답했습니다.",

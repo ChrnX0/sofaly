@@ -185,6 +185,31 @@ class SofyRepairBusAndAiTest {
 }
 
 /** Diário de ajustes: o que conta como mudança de alguém e qual delas a Sofy desfaz. */
+/** Gasto da IA na chave do dono (Paulo, 25/11/2026: o sistema não pode "devorar" o crédito de ninguém). */
+class SofyAiSpendTest {
+    private val R = br.paulo.tvlauncher.observer.SofyAiRules
+
+    @Test fun contaOsTokensQueARespostaInforma() {
+        // Claude informa input/output; OpenAI e parecidos, prompt/completion. Sem "usage", não inventa número.
+        assertEquals(1234L, R.usage(org.json.JSONObject("""{"usage":{"input_tokens":1000,"output_tokens":234}}""")))
+        assertEquals(80L, R.usage(org.json.JSONObject("""{"usage":{"prompt_tokens":50,"completion_tokens":30}}""")))
+        assertEquals(0L, R.usage(org.json.JSONObject("{}")))
+    }
+
+    @Test fun tetoParaEZeroESemTeto() {
+        assertTrue(R.withinBudget(299_999, 300_000))
+        assertFalse(R.withinBudget(300_000, 300_000))
+        assertTrue(R.withinBudget(9_000_000, 0))   // o dono tirou o teto
+    }
+
+    @Test fun respostaSemTextoDizPorque() {
+        // Sala 25/11: o pensamento gastou o limite e não veio bloco de texto; o relatório tem que dizer isso.
+        val r = org.json.JSONObject("""{"stop_reason":"max_tokens","content":[{"type":"thinking","thinking":""}]}""")
+        assertEquals(null, R.text(br.paulo.tvlauncher.observer.SofyAiRules.Format.CLAUDE, r))
+        assertEquals("parada=max_tokens blocos=thinking", R.shape(r))
+    }
+}
+
 class SettingsJournalTest {
     private val J = br.paulo.tvlauncher.observer.SettingsJournal
     private fun ch(key: String, at: Long, old: String? = "b:false", new: String? = "b:true") =

@@ -264,6 +264,8 @@ object ComandosExtras {
         // A IA do dono: `sofy_ai` = o estado (sem a chave); `sofy_ai --es provider claude|openai|perplexity|gemini|groq|
         // openrouter|custom [--es base http://192.168.x.x:11434/v1] [--es model nome] [--es key CHAVE]` grava; `sofy_ai_test` testa.
         "sofy_ai" -> {
+            // --el budget N: teto do mês em tokens (0 = sem teto).
+            if (i.hasExtra("budget")) br.paulo.tvlauncher.observer.SofyAi.setBudget(ctx, i.getLongExtra("budget", br.paulo.tvlauncher.observer.SofyAi.DEFAULT_BUDGET))
             if (i.hasExtra("provider")) br.paulo.tvlauncher.observer.SofyAi.save(ctx, i.getStringExtra("provider"), i.getStringExtra("base"), i.getStringExtra("model"), i.getStringExtra("key"))
             br.paulo.tvlauncher.observer.SofyAi.json(ctx).toString()
         }

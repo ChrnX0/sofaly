@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"KI-ens adresse, for eksempel http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Modell (tom = standard)",
 "Chave da API (em branco = manter a atual)":"API-nøkkel (tom = behold den nåværende)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"AI-bruk denne måneden, i tusen tokens (brukt / tak):",
+"Teto por mês em mil tokens (0 = sem teto)":"Månedlig tak i tusen tokens (0 = intet tak)",
 "Testar":"Test",
 "Salvo.":"Lagret.",
 "A IA respondeu.":"KI-en svarte.",

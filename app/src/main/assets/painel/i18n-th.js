@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"ที่อยู่ของ AI เช่น http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"โมเดล (เว้นว่าง = ค่าเริ่มต้น)",
 "Chave da API (em branco = manter a atual)":"คีย์ API (เว้นว่าง = ใช้คีย์เดิม)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"การใช้ AI เดือนนี้ หน่วยพันโทเคน (ใช้ไป / เพดาน):",
+"Teto por mês em mil tokens (0 = sem teto)":"เพดานต่อเดือน หน่วยพันโทเคน (0 = ไม่จำกัด)",
 "Testar":"ทดสอบ",
 "Salvo.":"บันทึกแล้ว",
 "A IA respondeu.":"AI ตอบแล้ว",
