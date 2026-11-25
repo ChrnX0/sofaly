@@ -337,7 +337,9 @@ class SofyPaceTest {
         // Consertou: as proibições caem; e a proibição vence sozinha depois de um dia.
         val ok = SofyRepair.onVerified(SofyRepair.onRun(c, Tool.REPAIR_SHELL, now, true), false, now + 2 * min).first
         assertTrue(ok.banned.isEmpty())
-        assertTrue(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS).isEmpty())
+        assertTrue(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS / 4).isEmpty())   // acesso perdido: 6 h, não um dia
+        assertFalse(SofyRepair.banned(c, now + SofyRepair.LOOP_BAN_MS / 4 - 1).isEmpty())
+        assertTrue(SofyRepair.unban(listOf(c)).single().banned.isEmpty())               // versão nova: estratégia nova
         // A rede de segurança fixa continua, e é reconhecida como defeito da própria Sofy.
         assertTrue(SofyRepair.guardTripped(SofyRepair.Env(now, true, false, false, toolsLastHour = SofyRepair.LOOP_GUARD_PER_HOUR)))
     }

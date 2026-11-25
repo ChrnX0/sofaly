@@ -94,7 +94,16 @@ object SofyRepair {
     const val LOOP_REPEAT = 3
     const val LOOP_BAN_MS = 24 * 3_600_000L
 
-    fun banned(c: Case, now: Long): Set<Tool> = c.banned.filterValues { now - it < LOOP_BAN_MS }.keys
+    /**
+     * Quanto a ferramenta fica de fora: um dia dividido pela gravidade. Sala (25/11): o laço tirou o REPAIR_SHELL, a única
+     * ferramenta que conserta o shell, por um dia inteiro; com acesso perdido são 6 h. Versão nova também limpa ([unban]).
+     */
+    fun banMs(c: Case) = LOOP_BAN_MS / urgency(c.type)
+
+    fun banned(c: Case, now: Long): Set<Tool> = c.banned.filterValues { now - it < banMs(c) }.keys
+
+    /** Versão nova do app = estratégia nova: as proibições por laço caem (o motivo do laço pode ter sido consertado). */
+    fun unban(cases: List<Case>) = cases.map { if (it.banned.isEmpty()) it else it.copy(banned = emptyMap()) }
 
     /** A ferramenta em laço neste caso, se houver. */
     fun looping(c: Case, now: Long): Tool? = c.tried

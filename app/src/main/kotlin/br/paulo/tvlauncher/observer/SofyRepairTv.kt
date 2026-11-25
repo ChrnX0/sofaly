@@ -264,6 +264,10 @@ object SofyRepairTv {
         p.edit().putLong("bus_read", now).apply()
 
         var cases = SofyRepair.prune(loadCases(app), now)
+        if (p.getInt("ban_version", 0) != br.paulo.tvlauncher.BuildConfig.VERSION_CODE) {
+            cases = SofyRepair.unban(cases)
+            p.edit().putInt("ban_version", br.paulo.tvlauncher.BuildConfig.VERSION_CODE).apply()
+        }
         var learned = loadLearned(app)
         val ruinsAgora = ruins.map { SofyRepair.key(it.type, it.subject) }.toSet()
         val comSonda = probes.map { SofyRepair.key(it.type, it.subject) }.toSet()
