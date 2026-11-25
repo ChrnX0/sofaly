@@ -165,6 +165,12 @@ class TodoBotaoFazAlgoTest {
                 val ctl = try { Robolectric.buildActivity(cls).setup() } catch (e: Throwable) { mudos += "$tela: não abriu"; break }
                 val a = ctl.get()
                 esperar(1500)
+                // A HOME põe o foco na cruz no 1º desenho, que chega depois dos apps (em outra thread): esperar por ele,
+                // senão no CI lento ele tira o foco do item que o teste escolheu ("home › Buscar (não pega o foco)").
+                if (a is br.paulo.tvlauncher.MainActivity) {
+                    val ate = System.currentTimeMillis() + 5000
+                    while (a.focoInicialNaTv && System.currentTimeMillis() < ate) { Thread.sleep(50); esperar(50) }
+                }
                 val v = clicaveis(a).filter { nome(it) == alvo }.getOrNull(n - 1)
                 if (v == null) { runCatching { ctl.pause().stop().destroy() }; continue }   // item que só aparece às vezes
                 v.requestFocus(); esperar(100)

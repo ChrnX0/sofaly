@@ -358,7 +358,7 @@ class SleepingHome(private val ctx: Context) {
         }))
         if (f != null && tempAgora != null && entrada != null) {
             l += Linha(ctx.getString(R.string.sh_horas), linhaHoras(f, tempAgora))
-            l += Linha(ctx.getString(R.string.sh_dias), linhaDias(f))
+            l += Linha(ctx.getString(R.string.sh_dias), linhaDias(f, tempAgora))
             l += Linha(ctx.getString(R.string.sh_dicas), linhaDicas(entrada))
             l += Linha(ctx.getString(R.string.pv_agora), linhaAgora(f, tempAgora))
             l += Linha(ctx.getString(R.string.sh_ar), linhaAr(f))
@@ -413,12 +413,16 @@ class SleepingHome(private val ctx: Context) {
         }
     }
 
-    private fun linhaDias(f: ForecastData): View = linhaBase().apply {
+    private fun linhaDias(f: ForecastData, tempAgora: Int): View = linhaBase().apply {
         val fmt = SimpleDateFormat("EEE", Locale.getDefault()); val ler = SimpleDateFormat("yyyy-MM-dd", Locale.US)
         for (i in 0 until min(7, f.dData.size)) {
             val nome = if (i == 0) ctx.getString(R.string.pv_hoje)
                 else fmt.format(ler.parse(f.dData[i]) ?: Date()).trimEnd('.').replaceFirstChar { it.titlecase(Locale.getDefault()) }
-            addView(celula(nome, "${Math.round(f.dMax[i]).toInt()}° ${Math.round(f.dMin[i]).toInt()}°", RainChance.texto(ctx, f.dChuva[i]), azulChuva, centro = true, gota = true),
+            // Hoje: a máxima/mínima contam a temperatura de agora, como no topo e na tela do Clima (Sala, 25/11/2026: "30°"
+            // agora e "Hoje 27° 22°" na faixa dos dias; o modelo diário ficou abaixo do que já fez).
+            val mx = Math.round(f.dMax[i]).toInt().let { if (i == 0) max(it, tempAgora) else it }
+            val mn = Math.round(f.dMin[i]).toInt().let { if (i == 0) min(it, tempAgora) else it }
+            addView(celula(nome, "$mx° $mn°", RainChance.texto(ctx, f.dChuva[i]), azulChuva, centro = true, gota = true),
                 LinearLayout.LayoutParams(0, -2, 1f))
         }
     }
