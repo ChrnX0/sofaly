@@ -1175,7 +1175,7 @@ object PainelWeb {
         "/" to ("index.html" to "text/html; charset=utf-8"),
         "/app.js" to ("app.js" to "text/javascript; charset=utf-8"),
         "/i18n.js" to ("i18n.js" to "text/javascript; charset=utf-8"),   // ideia 76: escolhe a língua do navegador
-        "/i18n-en.js" to ("i18n-en.js" to "text/javascript; charset=utf-8"),   // as 14 línguas do app (17/11/2026)
+        "/i18n-en.js" to ("i18n-en.js" to "text/javascript; charset=utf-8"),   // as línguas do app (14 em 17/11/2026, 26 em 24/11/2026)
         "/i18n-es.js" to ("i18n-es.js" to "text/javascript; charset=utf-8"),
         "/i18n-fr.js" to ("i18n-fr.js" to "text/javascript; charset=utf-8"),
         "/i18n-de.js" to ("i18n-de.js" to "text/javascript; charset=utf-8"),
@@ -1189,6 +1189,18 @@ object PainelWeb {
         "/i18n-ja.js" to ("i18n-ja.js" to "text/javascript; charset=utf-8"),
         "/i18n-ko.js" to ("i18n-ko.js" to "text/javascript; charset=utf-8"),
         "/i18n-zh.js" to ("i18n-zh.js" to "text/javascript; charset=utf-8"),
+        "/i18n-nl.js" to ("i18n-nl.js" to "text/javascript; charset=utf-8"),
+        "/i18n-sv.js" to ("i18n-sv.js" to "text/javascript; charset=utf-8"),
+        "/i18n-da.js" to ("i18n-da.js" to "text/javascript; charset=utf-8"),
+        "/i18n-nb.js" to ("i18n-nb.js" to "text/javascript; charset=utf-8"),
+        "/i18n-fi.js" to ("i18n-fi.js" to "text/javascript; charset=utf-8"),
+        "/i18n-cs.js" to ("i18n-cs.js" to "text/javascript; charset=utf-8"),
+        "/i18n-el.js" to ("i18n-el.js" to "text/javascript; charset=utf-8"),
+        "/i18n-hu.js" to ("i18n-hu.js" to "text/javascript; charset=utf-8"),
+        "/i18n-ro.js" to ("i18n-ro.js" to "text/javascript; charset=utf-8"),
+        "/i18n-uk.js" to ("i18n-uk.js" to "text/javascript; charset=utf-8"),
+        "/i18n-vi.js" to ("i18n-vi.js" to "text/javascript; charset=utf-8"),
+        "/i18n-th.js" to ("i18n-th.js" to "text/javascript; charset=utf-8"),
         "/style.css" to ("style.css" to "text/css; charset=utf-8"),
         "/extras.js" to ("extras.js" to "text/javascript; charset=utf-8"),
         "/ui.js" to ("ui.js" to "text/javascript; charset=utf-8"),   // casca do painel: navegação, Início, avisos

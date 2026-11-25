@@ -1,0 +1,992 @@
+{
+  "lang": "hu",
+  "path": "hu",
+  "label": "Magyar",
+  "ui": {
+    "nav_features": "Funkciók",
+    "nav_plans": "Csomagok",
+    "nav_developers": "Fejlesztőknek",
+    "nav_help": "Súgó",
+    "cta_get": "Hamarosan a Google Playen",
+    "cta_see": "Nézze meg, mi mindenre képes",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "már",
+    "how": "Hogyan",
+    "skip": "Ugrás a tartalomhoz",
+    "language": "Nyelv",
+    "back_top": "Vissza a tetejére",
+    "footer_tagline": "A kezdőképernyő Google TV-hez és Android TV-hez.",
+    "footer_privacy": "Adatvédelem",
+    "footer_terms": "Feltételek",
+    "footer_compat": "Működik az Ön eszközén?",
+    "footer_trademark": "A Sofaly nem áll kapcsolatban a Google-lal. A Google TV, az Android TV és a Chromecast a Google LLC védjegyei.",
+    "of": "/"
+  },
+  "home": {
+    "title": "Sofaly · A TV újra egyszerű",
+    "description": "A Sofaly kezdőképernyő Google TV-hez és Android TV-hez: minden keresztben elrendezve (Nézni, Hallgatni, Játszani, Alkalmazások), nagy betűkkel és reklámok nélkül.",
+    "eyebrow": "Kezdőképernyő Google TV-hez és Android TV-hez",
+    "h1": "A TV újra egyszerű.",
+    "lead": "A Sofaly egy rendezett keresztre cseréli a TV kezdőképernyőjét: Nézni, Hallgatni, Játszani és Alkalmazások, nagy betűkkel és reklámok nélkül. Emellett vigyáz az otthonra, felébreszti Önt, és beszél a telefonjával.",
+    "hero_note": "Nincs fiók, nincs reklám, és senki nem követi, mit néz.",
+    "cross_title": "Egy képernyő, négy irány",
+    "cross_lead": "◀ ▶ válasszon egy világot. ▲ ▼ lapozzon végig a tartalmán. Ennyi az egész, és otthon bárki megtanulja egy perc alatt.",
+    "worlds": {
+      "continue": [
+        "Folytatás",
+        "Vissza oda, ahol abbahagyta: az epizód, a rádióállomás, a podcast vagy az alkalmazás."
+      ],
+      "watch": [
+        "Nézni",
+        "A videós alkalmazásai, a filmjei a számítógépről vagy USB-meghajtóról, és egy lejátszó, amely mindent lejátszik."
+      ],
+      "listen": [
+        "Hallgatni",
+        "Rádióállomások a világ minden tájáról és podcastok, teljes képernyős lejátszóval és elalvási időzítővel."
+      ],
+      "play": [
+        "Játszani",
+        "Felhős, számítógépes és retró játékok egy helyen, a kontroller már párosítva."
+      ],
+      "apps": [
+        "Alkalmazások",
+        "A 8 leggyakrabban használt elöl, az összes többi egy kattintásnyira."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Részben felhős",
+      "day": "Szerda",
+      "date": "november 18.",
+      "watch_items": [
+        "Filmek",
+        "Sorozatok",
+        "A hálózaton",
+        "YouTube"
+      ],
+      "watch_title": "A hálózaton",
+      "watch_detail": "Filmek a számítógépéről · 214 cím",
+      "listen_items": [
+        "Rádió",
+        "Podcastok",
+        "Most szól"
+      ],
+      "listen_title": "Rádió",
+      "listen_detail": "Állomások a világ minden tájáról, név vagy ország szerint",
+      "play_items": [
+        "Felhő",
+        "A PC-ről",
+        "Retró",
+        "Csapat"
+      ],
+      "play_title": "Játékok",
+      "play_detail": "3 felhős játék · kontroller csatlakoztatva",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Összes alkalmazás"
+      ],
+      "apps_title": "Alkalmazások",
+      "apps_detail": "A 8 leggyakrabban használt",
+      "continue_items": [
+        "4. epizód",
+        "Rádió",
+        "Podcast"
+      ],
+      "continue_title": "Folytatás",
+      "continue_detail": "A 4. epizódnál tart · 21 perc van hátra"
+    },
+    "why_title": "Miért cserélje le a Google kezdőképernyőjét",
+    "why_lead": "A TV-vel érkezett kezdőképernyőt eladásra tervezték. A Sofalyt arra, hogy a családja használja.",
+    "why_rows": [
+      [
+        "Reklámok a kezdőképernyőn",
+        "Igen: szponzorált ajánlások és hirdetések",
+        "Soha"
+      ],
+      [
+        "Nagy betűk minden képernyőn",
+        "Nem",
+        "Normál, Nagy vagy Nagyobb"
+      ],
+      [
+        "Ébresztőóra, amely bekapcsolja a TV-t",
+        "Nem",
+        "Bekapcsol, lassan felhangosít, és jó reggelt kíván"
+      ],
+      [
+        "Rádió és podcastok a kezdőképernyőn",
+        "Csak alkalmazásokon keresztül",
+        "Saját világban, a Hallgatniban"
+      ],
+      [
+        "Filmek a számítógépéről vagy NAS-ról",
+        "Csak alkalmazásokon keresztül",
+        "A Hálózaton, plakátokkal és folytatással"
+      ],
+      [
+        "Vezérlés bármelyik otthoni telefonról",
+        "Alap távirányító",
+        "Teljes panel, PIN-nel védve"
+      ],
+      [
+        "Gyerekprofil és lefekvési idő",
+        "Korlátozott",
+        "Engedélyezett alkalmazások, hangerőkorlát és PIN a kilépéshez"
+      ],
+      [
+        "Beállításai biztonsági mentése",
+        "Nem",
+        "Minden éjjel, jelszóval lezárva"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Google TV kezdőképernyő",
+      "Sofaly"
+    ],
+    "why_source": "Reklámok a Google TV kezdőképernyőjén: Android Authority, 2026. április.",
+    "highlights_title": "Az egész háznak készült",
+    "highlights": [
+      [
+        "access",
+        "A nagyszülőknek is",
+        "Nagy betűk, egyszerű mód, amely kimondja az alkalmazás nevét, nagy kontraszt és képernyőolvasó. 27 nyelven."
+      ],
+      [
+        "alarm",
+        "Önnel együtt ébred",
+        "Az ébresztő magától bekapcsolja a TV-t, lassan felhangosít, és megnyitja a Jó reggelt képernyőt: idő, időjárás és napirend."
+      ],
+      [
+        "house",
+        "Vigyáz az otthonra",
+        "Home Assistant lámpák, jelenetek és csengő a TV-n. Elalszik, ha mindenki elment."
+      ],
+      [
+        "phone",
+        "Beszél a telefonjával",
+        "Vezérelje, gépeljen és küldjön üzeneteket bármelyik otthoni telefonról vagy számítógépről, PIN-nel védve."
+      ],
+      [
+        "sun",
+        "Időjárás, amely stimmel",
+        "Az aktuális időjárás a legközelebbi repülőtérről jön: mért, nem becsült. 9 napos előrejelzés egyetlen OK-val."
+      ],
+      [
+        "lock",
+        "Gondoskodik magáról",
+        "Minden éjjel lezárt mentés, karbantartás, amíg alszik, és diagnosztika, amely elmagyarázza, mi romlott el."
+      ]
+    ],
+    "chapters_title": "Minden, amit tud, úgy rendezve, ahogy ő maga",
+    "chapters_lead": "Több mint 80 funkció. Válasszon egy világot, és nézze meg mindegyik magyarázatát.",
+    "privacy_title": "Ami az Öné, otthon marad",
+    "privacy_text": "A Sofaly nem kér fiókot, nem mutat reklámot, és nem követi, mit néz. A beállítások, fotók, üzenetek és mentések a TV-n maradnak, vagy egy saját fiókjában, ha csatlakoztat egyet. A TV csak az Ön által bekapcsolt szolgáltatásokkal kommunikál, és az adatvédelmi szabályzat mindegyiket felsorolja.",
+    "privacy_link": "Olvassa el az adatvédelmi szabályzatot",
+    "dev_title": "Van egy alkalmazása? Tegye a kezdőképernyőre.",
+    "dev_text": "A Sofaly már kész kártyákkal érkezik (Hold, árfolyamok, visszaszámlálás, emlékeztető). A bővítmény az Ön saját Android TV-alkalmazása, amely még egy kártyát küld a kezdőképernyőre: a kiszállítás alatt álló rendelés, az érkező busz, a társasház közleménye. Nincs SDK, nincs díj, és az alkalmazás az Öné marad.",
+    "dev_link": "Ismerje meg a fejlesztői készletet",
+    "plans_title": "Kezdje ingyen. Bővítsen, amikor akar.",
+    "plans_text": "A Basic már tartalmazza a teljes kezdőképernyőt, a lejátszót, a Hallgatni és a Játszani részt, az ébresztőórát és a képernyővédőt. A Pro és az Ultra hozzáadja a telefont, az otthont és a családot.",
+    "plans_link": "Hasonlítsa össze a csomagokat",
+    "faq_title": "Gyors kérdések",
+    "faq": [
+      [
+        "Működik a TV-men?",
+        "Google TV-n és Android TV-n működik, például a Chromecast with Google TV-n, Google TV-s televíziókon és Android TV-s dobozokon. A kompatibilitási oldal felsorolja a tesztelt eszközöket."
+      ],
+      [
+        "Kell számítógép a telepítéshez?",
+        "Nem. Telepítse a Google Playről magán a TV-n, és kövesse a lépéseket a távirányítóval."
+      ],
+      [
+        "Megmaradnak az alkalmazásaim?",
+        "Mind. A Sofaly csak a kezdőképernyőt cseréli le: a Netflix, a YouTube, a Prime Video és a többi ugyanúgy megnyílik, és a mikrofongomb továbbra is a Google Asszisztens."
+      ],
+      [
+        "Vannak reklámok?",
+        "Nincsenek, még az ingyenes csomagban sem. A Sofaly nem árul reklámot, és nem követi, mit néz."
+      ],
+      [
+        "Csatornákkal vagy filmekkel érkezik?",
+        "Nem. A Sofaly azt rendezi el, ami már az Öné: az alkalmazásait, a fájljait, valamint a nyílt rádióállomásokat és podcastokat."
+      ],
+      [
+        "És ha vissza akarom kapni a Google kezdőképernyőjét?",
+        "Egyszerűen válassza újra a Google kezdőképernyőjét a TV beállításaiban. Semmi nem törlődik."
+      ]
+    ],
+    "final_title": "A TV újra egyszerű.",
+    "final_text": "Telepítse, nyomja meg a HOME gombot, és az egész család érteni fogja."
+  },
+  "features_page": {
+    "title": "Minden, amit a Sofaly tud",
+    "description": "A Sofaly összes funkciója elmagyarázva: a keresztes kezdőképernyő, Nézni, Hallgatni, Játszani, az otthon, az időjárás, a család, a telefon és az adatvédelem.",
+    "h1": "Minden, amit a Sofaly tud",
+    "lead": "Ugyanúgy rendezve, mint a TV képernyője: egyszerre egy világ. Minden funkció címkéje megmutatja, melyik csomagtól érhető el.",
+    "index": "Világok"
+  },
+  "chapters": {
+    "home": [
+      "A kereszt",
+      "Rendezett képernyő, amelyet bárki megért, úgy elrendezve, ahogy Ön szeretné."
+    ],
+    "watch": [
+      "Nézni",
+      "Az Ön filmjei, sorozatai és egy házimozi-lejátszó."
+    ],
+    "listen": [
+      "Hallgatni",
+      "Rádió és podcastok ugyanolyan gondossággal, mint a videó."
+    ],
+    "play": [
+      "Játszani",
+      "Minden játéka egy helyen, a kontrollerre készen."
+    ],
+    "apps": [
+      "Alkalmazások",
+      "Az alkalmazásai értelmes sorrendben."
+    ],
+    "house": [
+      "Az otthon",
+      "Ébresztőóra, időzítők, automatizálások és az okosotthon."
+    ],
+    "sky": [
+      "Időjárás és képernyővédő",
+      "Pontos időjárás és egy képernyővédő, amelyet érdemes bekapcsolva hagyni."
+    ],
+    "family": [
+      "Család",
+      "Mindenkinek saját profil, gondoskodás a gyerekekről és meleg fogadtatás a vendégeknek."
+    ],
+    "phone": [
+      "Telefon és számítógép",
+      "A TV beszél az otthoni eszközökkel."
+    ],
+    "care": [
+      "Gondoskodik magáról",
+      "Mentés, karbantartás és diagnosztika anélkül, hogy emlékeznie kellene rá."
+    ],
+    "everyone": [
+      "Mindenkinek",
+      "Azoknak készült, akik különbözőképpen látnak, hallanak vagy használják a távirányítót."
+    ],
+    "privacy": [
+      "Adatvédelem",
+      "Nincs reklám, nincs követés, és PIN ott, ahol számít."
+    ]
+  },
+  "features": {
+    "cross": [
+      "A kereszt",
+      "Folytatás, Nézni, Hallgatni, Játszani és Alkalmazások egy sorban. A kiválasztott világ megnő, alatta pedig ott a tartalma.",
+      "◀ ▶ világot vált, ▲ ▼ végigmegy az oszlopon, az OK megnyit."
+    ],
+    "continue": [
+      "Folytatás",
+      "Egy hely, ahol visszatérhet ahhoz, amit csinált: az epizódhoz, az állomáshoz, a podcasthoz vagy az utolsó alkalmazáshoz.",
+      "Ez a kereszt első eleme."
+    ],
+    "topbar": [
+      "Felső sáv",
+      "Keresés, hang, egysoros időjárás és az óra, mindig ugyanott. Böngészés közben összecsukódik, hogy a képernyő levegőhöz jusson.",
+      "A ▲ gombbal jut el hozzá."
+    ],
+    "quick-panel": [
+      "Gyorspanel",
+      "Wi-Fi, Bluetooth, elalvási időzítő, hangkimenet, ébresztő, profilok, értesítések és a bevásárlólista, bármely alkalmazásból.",
+      "Tartsa nyomva a VISSZA gombot."
+    ],
+    "remote": [
+      "Az Ön távirányítója, az Ön szabályai",
+      "A HOME mindig a Sofalyhoz tér vissza. A VISSZA nyomva tartása megnyitja a gyorspanelt, a HOME nyomva tartása az Otthont, az OK nyomva tartása egy alkalmazáson pedig annak menüjét.",
+      "Egy gombteszter megmutatja a TV által fogadott összes gombot."
+    ],
+    "now-playing": [
+      "Most szól",
+      "Egy kapszula felül azzal a borítóval és címmel, ami épp szól. Az OK szüneteltet vagy folytat, az OK nyomva tartása megnyitja az alkalmazást.",
+      "Kapcsolja be a Kezdőképernyő › További beállítások menüben."
+    ],
+    "themes": [
+      "Témák és hátterek",
+      "Sötét, a kijelölt elem képével. Galéria, minden nap egy festménnyel a The Metből. Égbolt, műholdképpel és térképpel. Vagy saját háttér, fotó vagy videó. A bővítményes hátterek is működnek, például az Overflight légi felvételei.",
+      "Sötét, Galéria és Égbolt a Basicben; a többi a Próban."
+    ],
+    "icons": [
+      "Ikonok, amelyek tetszenek",
+      "Használjon ikoncsomagot a Playről, vagy cserélje le egy-egy alkalmazás ikonját egyenként.",
+      "OK nyomva tartása az alkalmazáson › Ikon módosítása."
+    ],
+    "card-moon": [
+      "Holdfázis",
+      "A ma esti Hold, és hogy mekkora része világos, magán a TV-n kiszámolva, internet nélkül.",
+      "Az előrejelzésben, a képernyővédőn és éjjel az időjárás ikonján. Beállítások › Megjelenés."
+    ],
+    "card-countdown": [
+      "Visszaszámlálás",
+      "Hány nap van hátra az Ön által választott dátumig vagy a következő ünnepnapig.",
+      "A képernyő tetején lévő kapszulában. Beállítások › Megjelenés."
+    ],
+    "card-reminder": [
+      "Otthoni emlékeztető",
+      "Egy jegyzet, amely a választott napokon visszatér: szelektív hulladék napja, gyógyszer, egy óra.",
+      "A képernyő tetején lévő kapszulában. Beállítások › Megjelenés."
+    ],
+    "card-status": [
+      "Szolgáltatása állapota",
+      "A TV ellenőriz egy megadott címet, és megmutatja, működik-e: az otthoni szerver, az üzlet weboldala.",
+      "A képernyő tetején lévő kapszulában. Beállítások › Megjelenés."
+    ],
+    "card-rates": [
+      "Mai árfolyamok",
+      "Pénznemek, bitcoin és ether mai értéken, nyílt hivatalos forrásokból.",
+      "Az időjárás mellett, a felső sávban. Beállítások › Megjelenés."
+    ],
+    "card-match": [
+      "Csapata következő meccse",
+      "Mikor és ki ellen játszik legközelebb a csapata, egy kártyán a kezdőképernyőn.",
+      "A kereszt TV elemén. Beállítások › Megjelenés."
+    ],
+    "plugin-cards": [
+      "Kártyák más alkalmazásokból",
+      "A Sofaly saját kártyái mellett partneralkalmazások is a kezdőképernyőre teszik a sajátjukat: a rendelés, a busz, a társasház közleménye.",
+      "A kártyák a Nézni végén jelennek meg."
+    ],
+    "network-library": [
+      "A számítógépről",
+      "Videók, zene és fotók a Plexből, Jellyfinből, Embyből, PC- vagy NAS-mappákból (SMB, WebDAV, FTP, SFTP, NFS), a OneDrive-ról, Dropboxról, Boxról, Google Drive-ról, UPnP-ről és USB-meghajtókról.",
+      "A bekapcsolt szerverek és az USB-meghajtók maguktól megjelennek; a többi a Hozzáadás alá kerül."
+    ],
+    "player": [
+      "Lejátszó, amely mindent lejátszik",
+      "Dolby (AC3, E-AC3), DTS és TrueHD hang, valamint Blu-ray-, DVD- és animefeliratok, Kodi vagy VLC telepítése nélkül.",
+      "Videó közben nyomja meg a ▼ gombot a hanghoz, a feliratokhoz és a feliratmérethez."
+    ],
+    "resume": [
+      "Ott folytatja, ahol abbahagyta",
+      "A filmek és epizódok a megfelelő ponton folytatódnak. A következő epizód 10 másodperc után indul, és 3 egymás után a TV megkérdezi, nézi-e még.",
+      "Magától működik."
+    ],
+    "skip-intro": [
+      "Bevezető átugrása",
+      "Ha egy sorozat bevezetője ismert, megjelenik a „Bevezető átugrása · OK”. Egyszer meg is jelölheti a bevezetőt, és a TV megjegyzi.",
+      "Alapból bekapcsolva."
+    ],
+    "audio-subtitles": [
+      "Előnyben részesített hang és felirat",
+      "Eredeti felirattal vagy szinkronnal, egyszer kiválasztva és címenként megjegyezve. Feliratok az internetről, ha a fájlban nincs.",
+      "TV és filmek › Hang és feliratok."
+    ],
+    "easy-viewing": [
+      "Jobb látás és hallás",
+      "Feliratok fekete dobozban vagy sárgán, „Tisztább hang”, amely kiemeli a beszédet, és „Kiegyenlített hangerő”, amely megszelídíti a hangos filmeket, és felerősíti a halkakat.",
+      "A lejátszó ▼ menüjében."
+    ],
+    "auto-subtitles": [
+      "Automatikus feliratok",
+      "Ha nincs felirat az Ön nyelvén, a TV lefordítja a meglévőt.",
+      "Válassza ki a lejátszó feliratmenüjében."
+    ],
+    "movie-pages": [
+      "Teljes filmoldalak",
+      "Plakát, értékelés, szereplők, előzetes, korhatár és a film gyűjteménye egy szép oldalon, nagy betűkkel. A „Ki ez a színész?” funkcióval: fotó, szerep és más munkák.",
+      "OK egy filmen vagy sorozaton."
+    ],
+    "lists": [
+      "Trakt- és Simkl-listái",
+      "Amit meg szeretne nézni, és amit már megnézett, szinkronban a fiókjával és a többi eszközével.",
+      "Jelentkezzen be QR-kóddal a TV és filmek › Szolgáltatások menüben."
+    ],
+    "search": [
+      "Egy keresés mindenre",
+      "Egyszerre talál filmeket, sorozatokat, állomásokat és alkalmazásokat, és ugyanazt a keresést átviszi a YouTube-ra, a Netflixre vagy a Prime Videóra.",
+      "A felső sávban vagy hanggal."
+    ],
+    "radio": [
+      "Rádió a világ minden tájáról",
+      "Több ezer nyílt rádióállomás név, ország vagy műfaj szerint, a kedvenceivel és a legutóbb hallgatottakkal.",
+      "Hallgatni › Rádió."
+    ],
+    "podcasts": [
+      "Podcastok",
+      "Iratkozzon fel név alapján, hallgassa a TV-n, és folytassa az epizódot ott, ahol abbahagyta.",
+      "Hallgatni › Podcastok."
+    ],
+    "podcast-search": [
+      "Podcastok felfedezése",
+      "Keressen a teljes nyílt podcastkatalógusban, és nézze meg, mi felkapott az Ön országában.",
+      "Hallgatni › Podcastok › Keresés."
+    ],
+    "podcast-player": [
+      "Teljes képernyős lejátszó",
+      "Nagy borító, fejezetek, sebesség és elalvási időzítő, amely az epizód végén megáll.",
+      "Hallgatni › Most szól › A lejátszó megnyitása."
+    ],
+    "phone-sound": [
+      "Hang a fejhallgatójában",
+      "A film hangja a telefonja fejhallgatójába megy, szinkronban, hogy éjjel is nézhessen anélkül, hogy bárkit felébresztene.",
+      "A lejátszó ▼ menüje › Hang a telefonon."
+    ],
+    "games-hub": [
+      "Minden játéka egy helyen",
+      "A GeForce NOW, a Steam Link, a Moonlight, a PS Remote Play, a RetroArch és a TV játékai kikerülnek az alkalmazások sorából, és a Játszani részben élnek, Felhő, A PC-ről, Retró és A TV-n csoportokba rendezve.",
+      "Tartsa nyomva az OK-t egy játékon a csoport módosításához."
+    ],
+    "pc-games": [
+      "Játsszon az emeleti PC-n",
+      "A TV hálózaton keresztül felébreszti a számítógépet, megvárja a válaszát, és megnyitja a Moonlightot vagy a Steam Linket. A PC hálózati ébresztése a Játszani részen kívül is működik, a kezdőképernyő egyik parancsikonjáról.",
+      "Mentse el egyszer a számítógépet a webpanelen."
+    ],
+    "network-test": [
+      "Hálózatteszt",
+      "Megmondja, elbírja-e az internete a felhős játékot, és figyelmeztet, mielőtt gyenge hálózaton felhős játékot nyitna meg.",
+      "Játszani › Hálózatteszt."
+    ],
+    "controllers": [
+      "Játékvezérlők",
+      "Párosítson kontrollert menük böngészése nélkül, lássa felül a csatlakoztatottakat, és ha szeretné, egy csatlakoztatott kontroller nyissa meg a Játszani részt.",
+      "Játszani › Kontroller párosítása."
+    ],
+    "game-mode": [
+      "Játék mód",
+      "Amíg egy játék nyitva van, a képernyővédő, az éjszakai szűrő és az értesítések megvárják a meccs végét.",
+      "Magától bekapcsol."
+    ],
+    "crew": [
+      "Discord-csapata",
+      "Nézze meg, ki van online a Discord-szerveréről és melyik játékban, és hívja a csapatot egyenesen a TV-ről.",
+      "Kapcsolja be a szerver widgetjét, és illessze be a számát."
+    ],
+    "apps-top": [
+      "Kedvencei elöl",
+      "Az Alkalmazások a 8 leggyakrabban megnyitott alkalmazást mutatja, az „Összes alkalmazás” pedig rácsban hozza a többit.",
+      "Alkalmazások, a kereszten."
+    ],
+    "apps-organize": [
+      "Az Ön módján",
+      "Bármely alkalmazást áthelyezhet, csoportosíthat vagy elrejthet. A nem használt gyári alkalmazások félreállnak.",
+      "Tartsa nyomva az OK-t egy alkalmazáson."
+    ],
+    "app-buttons": [
+      "Szabad Netflix és YouTube gombok",
+      "A távirányító alkalmazásgombjai bármelyik kívánt alkalmazást megnyitják. Nyomja meg a megnyitáshoz, tartsa nyomva 3 másodpercig a módosításhoz.",
+      "Az eredeti távirányítóval működik."
+    ],
+    "alarm": [
+      "Ébresztő, amely bekapcsolja a TV-t",
+      "Időben a TV magától bekapcsol, a hangerő lassan nő, és van szundi. Minden ébresztőnek van neve, napjai, hangja és hangereje, akár egy alkalmazás vagy az utolsó állomás is.",
+      "VISSZA nyomva tartása › Ébresztő."
+    ],
+    "timers": [
+      "Időzítők és homokóra",
+      "Legfeljebb 3 elnevezett időzítő képernyős értesítéssel, és egy stopperóra.",
+      "„Hey Google, nyisd meg: Emlékeztess 10 perc múlva”."
+    ],
+    "gentle-off": [
+      "Kíméletes kikapcsolás",
+      "Az elalvási időzítő az utolsó 5 percben elsötétíti a képernyőt és lehalkítja a hangot, hogy senki ne ébredjen fel a lekapcsoláskor.",
+      "Időzítő csempe a gyorspanelen."
+    ],
+    "idle-off": [
+      "Kikapcsol, ha senki nem nézi",
+      "A választott idő után gombnyomás nélkül a TV nagy betűkkel megkérdezi, nézi-e még, majd elalszik.",
+      "Képernyő és energia › Kikapcsolás tétlenség esetén."
+    ],
+    "recipes": [
+      "Kész receptek",
+      "Az Alvás, a Szappanopera és a Meccs egy mozdulattal beállítja a TV-t (hang, képernyő és értesítések). Egy OK alkalmazza, egy másik visszavonja.",
+      "Gyorspanel."
+    ],
+    "automations": [
+      "Automatizálások",
+      "Megadott időpontban, gombnyomásra vagy ha valami történik (szünetel a film, mindenki elment, eső jön): a TV megnyit egy alkalmazást, lefuttat egy jelenetet, vagy kikapcsol.",
+      "Otthon és automatizálások › Automatizálások."
+    ],
+    "home-assistant": [
+      "Home Assistant a TV-n",
+      "Lámpák, konnektorok, ventilátorok, redőnyök, légkondi és jelenetek, egyenesen a kanapéról. A saját hálózatán lévő szerverével beszél, felhő nélkül.",
+      "HOME nyomva tartása."
+    ],
+    "doorbell": [
+      "Ki van az ajtóban",
+      "Amikor megszólal a csengő, a kamera pillanatképe felugrik bármi fölött, amit éppen néz.",
+      "Home Assistanttel."
+    ],
+    "presence": [
+      "Elalszik, ha mindenki elmegy",
+      "UniFi routerrel a TV észreveszi, hogy a háztartás telefonjai elmentek, és elalszik.",
+      "Képernyő és energia › További beállítások."
+    ],
+    "voice": [
+      "Hangalapú parancsikonok",
+      "A „Hey Google, nyisd meg: Időjárás-jelentés” felolvassa az előrejelzést. A Filmek, az Otthonom, a Tábla, az időzítők és a kikapcsolás ugyanígy nyílik meg.",
+      "Használja a mikrofongombot."
+    ],
+    "weather-now": [
+      "A mai időjárás, mérve",
+      "A hőmérséklet a legközelebbi repülőtér jelentéséből jön, a nappali/éjszakai ikon pedig a TV helyén érvényes napkeltét és napnyugtát követi.",
+      "A kezdőképernyő tetején."
+    ],
+    "weather-3": [
+      "Eső három modellből",
+      "Az eső valószínűsége három időjárási modell (ECMWF, ICON és GFS) mediánja, amely ritkábban téved, mint bármelyikük külön.",
+      "Magától megjelenik az előrejelzésben."
+    ],
+    "forecast": [
+      "Teljes képernyős előrejelzés",
+      "A következő 24 óra, csapadékgrafikon, 9 nap, levegőminőség, a Nap és a Hold.",
+      "OK az időjáráson."
+    ],
+    "rain-alert": [
+      "Esőriasztás",
+      "Értesítés az alkalmazása fölött, amikor esni készül. Ideje behozni a ruhákat.",
+      "Kezdőképernyő › Időjárás."
+    ],
+    "screensaver": [
+      "Képernyővédő, amelyet érdemes bekapcsolva hagyni",
+      "Üdvözlés, nagy óra, dátum, időjárás és kártyák az értesítésekkel, a következő ébresztővel és az üzenetekkel. A Galéria témában a nap festménye lassan úszik, hogy semmi ne égjen be.",
+      "Képernyő és energia › Képernyővédő."
+    ],
+    "photos": [
+      "Saját fotói a képernyővédőn",
+      "Küldjön fotókat a telefonjáról, vagy válasszon egy hálózati mappát. Egy olyan mappában maradnak, amelyet csak a TV lát.",
+      "Egy QR-kód a megfelelő oldalon nyitja meg a panelt."
+    ],
+    "good-morning": [
+      "Jó reggelt",
+      "Amikor leállítja az ébresztőt: üdvözlés, idő, előrejelzés és a mai napirend, és a TV fel is tudja olvasni.",
+      "„Hey Google, nyisd meg: Jó reggelt”."
+    ],
+    "calendar": [
+      "Google Naptár",
+      "A mai események és születésnapok a TV-n, egy fiókból vagy az összesből együtt.",
+      "OK a felül lévő dátumon."
+    ],
+    "night-filter": [
+      "Éjszakai szűrő",
+      "Éjjel a képernyő melegebb és kíméletesebb a szemnek.",
+      "Képernyő és energia › További beállítások."
+    ],
+    "recap": [
+      "Heti összefoglaló",
+      "Vasárnap este egy kártya az alkalmazásonkénti képernyőidővel, a felhasznált internettel és a hálózati kiesésekkel.",
+      "Képernyő és energia › További beállítások."
+    ],
+    "profiles": [
+      "Mindenkinek saját profil",
+      "A TV minden Google-fiókjának megvannak a saját kedvencei, folytatandó tartalmai és alkalmazássorrendje.",
+      "VISSZA nyomva tartása › Profilok."
+    ],
+    "kid-profile": [
+      "Gyerekprofil",
+      "Jelöljön meg egy profilt gyerekprofilként: a gyerekmód és a lefekvési idő magától bekapcsol, a kilépéshez pedig a szülői PIN kell.",
+      "Gyorspanel › Profilok."
+    ],
+    "bedtime": [
+      "Lefekvési idő",
+      "A választott órákban csak az engedélyezett alkalmazások nyílnak meg, és a hangerőnek felső határa van.",
+      "Család › További beállítások."
+    ],
+    "screen-time": [
+      "Napi képernyőidő",
+      "Napi TV-korlát annak, akinek Ön választja.",
+      "Család › További beállítások."
+    ],
+    "guest": [
+      "Vendég mód",
+      "Elrejti a profilját, a naptárát és a választott alkalmazásokat, amíg vendégei vannak.",
+      "Vendégek csempe a gyorspanelen."
+    ],
+    "guest-wifi": [
+      "Vendég Wi-Fi",
+      "Írja be egyszer a jelszót; a vendégek beolvasnak egy QR-kódot a TV-n, és már csatlakoztak is.",
+      "Család › Vendég Wi-Fi."
+    ],
+    "family-board": [
+      "Családi tábla",
+      "Bevásárlólista, kitűzött jegyzetek és a mai születésnapok, a gyorspanelen és a képernyővédőn.",
+      "Szerkessze a telefonjáról; az OK kipipál egy tételt."
+    ],
+    "family-link": [
+      "Üzenetek távolról",
+      "A távol élő családtagok bárhonnan küldhetnek üzeneteket és fotókat az otthoni TV-re.",
+      "Meghívás linkkel."
+    ],
+    "video-message": [
+      "Videoüzenetek",
+      "A család rövid videója megjelenik a TV-n a küldő nevével.",
+      "A telefonos panelről."
+    ],
+    "web-panel": [
+      "Panel a telefonján és a számítógépén",
+      "Távirányító, ékezetes gépelés, a TV képernyőjének élő képe, képernyővédő-fotók, a tábla és a mentések, bármely otthoni eszköz böngészőjéből.",
+      "Távoli hozzáférés › Bejelentkezés a telefonról (QR)."
+    ],
+    "ask-tv": [
+      "Kérdezze a TV-t",
+      "Írja vagy mondja: „nyisd meg a YouTube-ot”, „emlékeztess 7 perc múlva”, „kapcsolj ki 30 perc múlva”, és a TV megteszi.",
+      "A telefonos panelen."
+    ],
+    "share": [
+      "Megosztás a telefonról",
+      "Alkalmazásként telepítve a panel megjelenik a Megosztás menüben: egy YouTube-videó a TV-n nyílik meg, egy link a TV-n nyílik meg, egy szöveg pedig üzenet lesz.",
+      "Megosztás › Sofaly."
+    ],
+    "network-drive": [
+      "A TV mint hálózati meghajtó",
+      "Másoljon fájlokat a TV-re áthúzással: Windowson az Ez a gép mappában jelenik meg, mint egy telefon; Macen, Linuxon és telefonokon biztonságos WebDAV-on keresztül.",
+      "Távoli hozzáférés › Megjelenítés hálózati meghajtóként."
+    ],
+    "windows": [
+      "Parancsikon Windowson",
+      "A TV megjelenik az Intéző Hálózat részében egy parancsikonnal, amely megnyitja a panelt, akkor is, ha az IP-címe megváltozik.",
+      "Mindig bekapcsolva, amikor a panel be van kapcsolva."
+    ],
+    "continue-tv": [
+      "Folytatás egy másik TV-n",
+      "A nappaliban hagyta abba? Küldje át a hálószobába: a másik TV megkérdezi: „Folytatja, ahol abbahagyta?”, és ugyanott nyílik meg.",
+      "Lejátszó menü › Küldés másik TV-re."
+    ],
+    "together": [
+      "Közös nézés",
+      "Két otthon ugyanazt nézi egyszerre: itt szünet, ott is szünet, reakciókkal a sarokban.",
+      "Meghívás a családi TV-k között."
+    ],
+    "homes": [
+      "Több otthon",
+      "Gondoskodjon a saját és a szülei TV-jéről ugyanarról a telefonról.",
+      "A telefonos alkalmazásból."
+    ],
+    "backup": [
+      "Lezárt mentés minden éjjel",
+      "Amíg a TV tétlen, teljes mentés készül az Ön jelszavával lezárva. Az utolsó 7 megmarad, és a TV minden éjjel ellenőrzi, hogy visszaállítható lenne-e.",
+      "Rendszer › Automatikus biztonsági mentés."
+    ],
+    "cloud-backup": [
+      "Másolat a felhőben",
+      "A másolatok a Google Drive-jára, OneDrive-jára, Dropboxára, Boxára, NAS-ára vagy USB-meghajtójára is kerülnek. Lezárva: még a felhő sem tudja olvasni őket.",
+      "Rendszer › Automatikus biztonsági mentés."
+    ],
+    "maintenance": [
+      "Éjszakai karbantartás",
+      "Eltakarítja a maradványokat, javítja az engedélyeket, és újraütemezi az ébresztőket, amíg Ön alszik.",
+      "Magától fut."
+    ],
+    "diagnose": [
+      "TV-diagnosztika",
+      "Internet, DNS, és hogy miért állt le egy alkalmazás, egyszerre és érthető mondatokban.",
+      "„Hey Google, nyisd meg: TV-diagnosztika”."
+    ],
+    "scoreboard": [
+      "Hogy van ez a TV",
+      "A TV méri a saját számait (megnyitási idő, összeomlások, időben szóló ébresztők), és egy képernyőn mutatja őket. Semmi nem hagyja el az otthonát.",
+      "Rendszer › Hogy van ez a TV."
+    ],
+    "safe-mode": [
+      "Csökkentett mód",
+      "Ha egy új verzió közvetlenül telepítés után rosszul működik, a TV csökkentett módba vált, és megmutatja a kiutat.",
+      "Csak szükség esetén jelenik meg."
+    ],
+    "whats-new": [
+      "Mi változott",
+      "Minden verzió elmagyarázza, mi változott, és egy rövid ellenőrzőlistát hoz a távirányítós kipróbáláshoz.",
+      "Rendszer › Mi változott."
+    ],
+    "report": [
+      "Probléma bejelentése",
+      "Mondja el, mi történt, a távirányítóval vagy a telefonjáról; a TV összegyűjti, ami kell, semmi személyeset.",
+      "Rendszer › Probléma bejelentése."
+    ],
+    "languages": [
+      "27 nyelv",
+      "Portugál, angol, spanyol, francia, német, olasz, orosz, lengyel, török, japán, kínai, koreai, hindi, indonéz és arab, jobbról balra haladó képernyőkkel. Továbbá holland, svéd, dán, norvég, finn, cseh, görög, magyar, román, ukrán, vietnámi és thai. A TV nyelvét követi.",
+      "Magától változik a TV-vel."
+    ],
+    "text-size": [
+      "Szövegméret",
+      "Normál, Nagy vagy Nagyobb, minden képernyőn, tesztelve, hogy a szöveg soha ne vágódjon le és ne fedje egymást.",
+      "Kezdőképernyő › Szövegméret."
+    ],
+    "simple-mode": [
+      "Egyszerű mód",
+      "Nagy kártyák, kevesebb dolog a képernyőn, és az alkalmazás nevének felolvasása. Azoknak, akiknek nehéz a távirányító.",
+      "Kezdőképernyő › További beállítások."
+    ],
+    "read-aloud": [
+      "Felolvasás",
+      "A TV kimondja, mi van kijelölve, navigációs hangokkal, hogy mindig tudja, hol jár.",
+      "Kezdőképernyő › További beállítások."
+    ],
+    "contrast": [
+      "Nagy kontraszt",
+      "Szöveg 7:1-es kontrasztaránnyal, és minden képernyő olvasható az Android képernyőolvasójával.",
+      "A TV kisegítő beállításait követi."
+    ],
+    "no-ads": [
+      "Semmi reklám",
+      "Az ingyenes csomagban sem, egyetlen szponzorált ajánlás sem. A képernyő az Öné.",
+      "Mindig."
+    ],
+    "no-tracking": [
+      "Nincs követés",
+      "Nincs fiók, nincs használati analitika, és egyetlen hibajelentés sem megy el anélkül, hogy Ön elküldené.",
+      "Mindig."
+    ],
+    "pin": [
+      "PIN ott, ahol számít",
+      "Bármi, ami a TV-t módosítja, PIN-t kér, a törlő műveletek pedig újra kérik. Túl sok hibás próbálkozás? A várakozás minden alkalommal nő.",
+      "Távoli hozzáférés › PIN."
+    ],
+    "private-dns": [
+      "Privát DNS",
+      "Válasszon biztonságos DNS-t (DNS over TLS); ha nem válaszol, a TV magától visszatér az előzőhöz.",
+      "Haladó › Hálózat."
+    ],
+    "usage": [
+      "Internet alkalmazásonként",
+      "Mennyi internetet használt az egyes alkalmazások, és kivel kommunikáltak, 7 napig a TV-n tárolva.",
+      "Haladó › Hálózat."
+    ],
+    "google-inside": [
+      "A Google tovább működik",
+      "A Google Asszisztens, a Gemini, a keresés és a Google-fiókja ugyanúgy működik, mint eddig. A Sofaly a kezdőképernyőt cseréli le, nem a TV-t.",
+      "Használja a mikrofongombot, mint mindig."
+    ],
+    "motion": [
+      "A TV-hez illő animációk",
+      "Az erős TV-k mindent animálnak; az egyszerűbbek csak azt, amit kiválasztott, és maguktól lassítanak, ha kiesnek képkockák.",
+      "Beállítások › Megjelenés."
+    ],
+    "frame-rate": [
+      "Filmek akadozás nélkül",
+      "A TV film lejátszása közben 24 Hz-re vált, így a kameramozgások simák maradnak.",
+      "A filmmel együtt kapcsol be; a képernyő egy másodpercre elsötétül."
+    ],
+    "wifi-check": [
+      "Internetsebesség-teszt",
+      "Egy koppintással méri az internetét, és közérthetően mutatja a Wi-Fi-jelet, a késleltetést és a sebességet.",
+      "Beállítások › Haladó › Hálózat."
+    ]
+  },
+  "plans_page": {
+    "title": "Csomagok · Sofaly",
+    "description": "Basic, Pro és Ultra: mit tartalmaz a Sofaly egyes csomagja.",
+    "h1": "Csomagok",
+    "lead": "Kezdje a Basickel, amely már a teljes kezdőképernyő. Az értékesítés még nem indult el: egyelőre minden ingyenes.",
+    "price_soon": "Ár az induláskor",
+    "basic_who": "Annak, aki a kanapén ül",
+    "pro_who": "Annak, aki a TV-ről gondoskodik",
+    "ultra_who": "Az otthonnak és a családnak",
+    "basic_text": "A keresztes kezdőképernyő, a lejátszó, a Hallgatni, a Játszani, az ébresztőóra, a képernyővédő és az összes kisegítő funkció.",
+    "pro_text": "Minden, ami a Basicben, plusz a telefon, az automatizálások, az okosotthon, az üzenetek távolról, a kész kezdőképernyő-kártyák és a teljes testreszabás.",
+    "ultra_text": "Minden, ami a Próban, plusz időjárás három modellből, teljes filmoldalak, automatikus feliratok, több otthon és közös nézés.",
+    "includes": "Tartalmazza",
+    "everything_basic": "Minden, ami a Basicben",
+    "everything_pro": "Minden, ami a Próban"
+  },
+  "dev_page": {
+    "title": "Fejlesztőknek · Sofaly",
+    "description": "Tegye Android TV-alkalmazása kártyáját a Sofaly kezdőképernyőjére. Nincs SDK, nincs díj.",
+    "eyebrow": "Fejlesztői készlet",
+    "h1": "Az alkalmazása azon a kezdőképernyőn, amelyet az emberek tényleg néznek.",
+    "lead": "A Sofaly-bővítmény az Ön saját Android TV-alkalmazása. Egy rövid kártyát küld, a Sofaly pedig megrajzolja a kezdőképernyőn, nagy betűkkel és a ház stílusában.",
+    "cta_start": "Kezdje a sablonnal",
+    "cta_spec": "Olvassa el a teljes szerződést",
+    "why_title": "Miért érdemes bővítményt készíteni",
+    "why": [
+      [
+        "star",
+        "Elöl, nem egy fiókban",
+        "Kártyája a kezdőképernyőn van, ahová a család minden TV-bekapcsoláskor néz, nem elveszve egy alkalmazáslistában."
+      ],
+      [
+        "puzzle",
+        "Nincs SDK, nincs díj",
+        "Egy ContentProvider és egy adatsor. Nincs telepítendő könyvtárunk, nincs fizetendő díj."
+      ],
+      [
+        "heart",
+        "Az Ön alkalmazása, az Ön üzlete",
+        "Tegye közzé a Playen, ahogy szeretné, ingyen vagy fizetősen. A Sofaly csak a kártyát rajzolja meg; az alkalmazás és az ügyfelek az Önéi."
+      ]
+    ],
+    "can_title": "Mit építhet a mieinken túl",
+    "can": [
+      [
+        "Az Ön kiszállítása",
+        "A rendelés úton van, 12 percre."
+      ],
+      [
+        "Az Ön busza",
+        "A 42-es 6 perc múlva érkezik."
+      ],
+      [
+        "Az Ön edzőterme",
+        "A mai óra 19:00-kor."
+      ],
+      [
+        "Az Ön társasháza",
+        "Holnap vízszünet 9 és 12 óra között."
+      ],
+      [
+        "Az Ön üzlete",
+        "A nap ajánlata: 20% kedvezmény a kávéra."
+      ],
+      [
+        "Az Ön klubja",
+        "Az edzés szombatra került."
+      ]
+    ],
+    "steps_title": "Két lépés",
+    "step1": "Deklaráljon egy providert a Sofaly actionjével",
+    "step2": "Válaszoljon egy sorral: cím, érték, részlet és szín",
+    "rules_title": "A nézőt védő szabályok",
+    "rules": [
+      "Soha nem Ön rajzol a kezdőképernyőre: szöveget és színt küld, a Sofaly rajzol.",
+      "A Sofaly soha nem küld Önnek semmit a felhasználó alkalmazásairól, fiókjairól vagy arról, mit néz.",
+      "A bővítmények a Pro csomag részei, és a felhasználó választja ki, melyek jelenjenek meg."
+    ],
+    "soon_title": "Hamarosan",
+    "soon_text": "Háttérbővítmények és bővítménykirakat közvetlenül a TV-n.",
+    "template_title": "Kész sablon",
+    "template_text": "Két mintaalkalmazás, amelyet már ma elkészíthet: visszaszámlálás a felhasználó által a TV-n választott dátumig, és a mai holdfázis. Internet és fiók nélkül. MIT No Attribution: másolja le, nevezze át a csomagot, tegye közzé.",
+    "demo": [
+      [
+        "Kiszállítás",
+        "12 perc"
+      ],
+      [
+        "42-es busz",
+        "6 perc"
+      ],
+      [
+        "Edzőterem",
+        "19:00"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Nézze meg a TV-n",
+    "lead": "Ezek a képernyők maguktól futnak, úgy, ahogy a Sofaly egy valódi TV-n kinéz és mozog. Válasszon egyet, hogy azon maradjon.",
+    "screens": {
+      "forecast": [
+        "Előrejelzés",
+        "A következő 24 óra, az eső valószínűsége és a Hold, egy pillantással és nagy betűkkel.",
+        [
+          "Gyenge szitálás",
+          "Következő 24 óra",
+          "Eső valószínűsége",
+          "Most",
+          "Max. 27° · min. 19° · hőérzet 26°"
+        ]
+      ],
+      "screensaver": [
+        "Képernyővédő",
+        "Minden nap egy festmény a The Metből, az óra és a nap időjárása. Egy TV, amelyet érdemes bekapcsolva hagyni.",
+        [
+          "Jó estét",
+          "A nap festménye · The Met",
+          "Növekvő sarló"
+        ]
+      ],
+      "player": [
+        "Filmek",
+        "Szinkron vagy felirat egy gombbal, a bevezetőt átugorja Ön helyett, és ott folytatja, ahol abbahagyta.",
+        [
+          "A hosszú út haza",
+          "Hang",
+          "Eredeti + felirat",
+          "Szinkronizált",
+          "Bevezető átugrása"
+        ]
+      ],
+      "radio": [
+        "Rádió és podcastok",
+        "Állomások az egész világról és az Ön podcastjai, teljes képernyős lejátszóval.",
+        [
+          "Most szól",
+          "Élő rádió",
+          "Jazz a partról",
+          "Reggeli hírek",
+          "Samba & bossa",
+          "Podcast · 12. epizód"
+        ]
+      ],
+      "alarm": [
+        "Ébresztő",
+        "A TV magától bekapcsol, a hang lassan erősödik, és a napi előrejelzés már várja.",
+        [
+          "Jó reggelt",
+          "A hangerő nő",
+          "Szundi · 10 perc",
+          "A TV magától bekapcsolt"
+        ]
+      ],
+      "cards": [
+        "Kezdőkártyák",
+        "Visszaszámlálás, emlékeztetők, árfolyamok, a Hold és csapata következő meccse, egyenesen a kezdőképernyőn.",
+        [
+          "12 nap a szabadságig",
+          "Gyógyszer 20:00-kor",
+          "A garázskamera nem válaszol",
+          "Következő meccs",
+          "Szo · 16:00",
+          "Növekvő sarló",
+          "Árfolyamok",
+          "Visszaszámlálás",
+          "Az Ön csapata × Ellenfelek"
+        ]
+      ],
+      "games": [
+        "Játékok",
+        "Felhős, számítógépes és retró játékok egy helyen, játék előtt tesztelt hálózattal.",
+        [
+          "Kontroller csatlakoztatva",
+          "A hálózat kész a felhős játékra",
+          "Felhő",
+          "PC",
+          "Retró",
+          "Csapat",
+          "Játékok"
+        ]
+      ],
+      "phone": [
+        "Telefon",
+        "A panel a telefonján: távirányító, gépelés, a képernyő élő képe és üzenetek, amelyek felugranak a TV-n.",
+        [
+          "Küldés a TV-re",
+          "Kész a vacsora!",
+          "Üzenet a telefonról",
+          "Távirányító",
+          "Gépelés",
+          "Képernyő",
+          "Fotók"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "A TV telefonként jelenik meg az Ez a gép mappában: húzza bele egyenesen a filmeket és fotókat.",
+        [
+          "Ez a gép",
+          "Sofaly · Nappali",
+          "Helyi lemez",
+          "A TV paneljének megnyitása",
+          "Másolás a TV-re… 68%"
+        ]
+      ],
+      "kids": [
+        "Család",
+        "Gyerekprofil, lefekvési idő és képernyőidő, mind a szülői PIN mögött.",
+        [
+          "Lefekvési idő",
+          "Holnap találkozunk!",
+          "Csak gyerekalkalmazások reggel 7-ig",
+          "Szülői PIN"
+        ]
+      ]
+    }
+  }
+}

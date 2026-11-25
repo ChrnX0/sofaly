@@ -1,17 +1,22 @@
 // Draws the REAL web panel (app/src/main/assets/painel) with example data, on a computer and a phone, in every
 // language the panel has. Output: PNGs for make_images.py. Needs Playwright (not a dependency of the site build).
-// Run: node website/home/render_panel.js <output folder>
+// Run: node website/home/render_panel.js <output folder> [langs, e.g. nl,sv]
 const { chromium } = require("playwright");
 const fs = require("fs"), path = require("path");
 const DIR = path.resolve(__dirname, "../../app/src/main/assets/painel");
 const OUT = process.argv[2];
-const LANGS = ["pt", "en", "es", "fr", "de", "it", "pl", "ru", "tr", "ja", "ko", "zh", "hi", "id", "ar"];
+const TODAS = ["pt", "en", "es", "fr", "de", "it", "pl", "ru", "tr", "ja", "ko", "zh", "hi", "id", "ar",
+  "nl", "sv", "da", "nb", "fi", "cs", "el", "hu", "ro", "uk", "vi", "th"];
+const LANGS = process.argv[3] ? process.argv[3].split(",") : TODAS;
 // Example data in each language: the TV's room name and what is on it (the home screen).
 const ROOM = { pt: ["Sala de estar", "Tela inicial"], en: ["Living room", "Home screen"], es: ["Sala de estar", "Pantalla de inicio"],
   fr: ["Salon", "Écran d'accueil"], de: ["Wohnzimmer", "Startbildschirm"], it: ["Soggiorno", "Schermata iniziale"],
   pl: ["Salon", "Ekran główny"], ru: ["Гостиная", "Главный экран"], tr: ["Oturma odası", "Ana ekran"], ja: ["リビング", "ホーム画面"],
   ko: ["거실", "홈 화면"], zh: ["客厅", "主屏幕"], hi: ["बैठक", "होम स्क्रीन"], id: ["Ruang keluarga", "Layar utama"],
-  ar: ["غرفة المعيشة", "الشاشة الرئيسية"] };
+  ar: ["غرفة المعيشة", "الشاشة الرئيسية"], nl: ["Woonkamer", "Startscherm"], sv: ["Vardagsrum", "Startskärm"],
+  da: ["Stue", "Startskærm"], nb: ["Stue", "Startskjerm"], fi: ["Olohuone", "Aloitusnäyttö"], cs: ["Obývací pokoj", "Domovská obrazovka"],
+  el: ["Σαλόνι", "Αρχική οθόνη"], hu: ["Nappali", "Kezdőképernyő"], ro: ["Sufragerie", "Ecran principal"],
+  uk: ["Вітальня", "Головний екран"], vi: ["Phòng khách", "Màn hình chính"], th: ["ห้องนั่งเล่น", "หน้าจอหลัก"] };
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".woff2": "font/woff2", ".png": "image/png", ".webmanifest": "application/json" };
 (async () => {
   const b = await chromium.launch();
