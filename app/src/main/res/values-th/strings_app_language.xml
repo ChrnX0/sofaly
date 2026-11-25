@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">ภาษา</string>
+    <string name="app_language_detail">ภาษาของหน้าจอ Sofaly</string>
+    <string name="app_language_same_as_tv">เหมือนทีวี</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! ปลดล็อกภาษาคลิงออนแล้ว: tlhIngan Hol อยู่ท้ายรายการ</string>
+</resources>

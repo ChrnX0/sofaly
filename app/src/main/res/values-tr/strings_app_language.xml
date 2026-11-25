@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">Dil</string>
+    <string name="app_language_detail">Sofaly ekranlarının dili</string>
+    <string name="app_language_same_as_tv">TV ile aynı</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! Klingonca açıldı: tlhIngan Hol listenin sonunda.</string>
+</resources>

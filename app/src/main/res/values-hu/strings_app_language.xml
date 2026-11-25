@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">Nyelv</string>
+    <string name="app_language_detail">A Sofaly képernyőinek nyelve</string>
+    <string name="app_language_same_as_tv">Ugyanaz, mint a TV-n</string>
+    <string name="app_language_klingon_unlocked">Qapla\'! Klingon feloldva: a tlhIngan Hol a lista végén van.</string>
+</resources>

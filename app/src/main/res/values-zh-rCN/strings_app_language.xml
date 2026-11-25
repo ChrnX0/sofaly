@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Língua do app (AppLanguage.kt, 24/11/2026). -->
+<resources>
+    <string name="app_language_title">语言</string>
+    <string name="app_language_detail">Sofaly 界面的语言</string>
+    <string name="app_language_same_as_tv">与电视相同</string>
+    <string name="app_language_klingon_unlocked">Qapla\'！克林贡语已解锁：tlhIngan Hol 在列表末尾。</string>
+</resources>
