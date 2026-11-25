@@ -7,6 +7,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.nsd.NsdManager
 import android.net.nsd.NsdServiceInfo
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
@@ -40,6 +41,8 @@ object AutoPairing {
     private const val PREFS = "auto_pairing"
     private const val SERVICE = "_adb-tls-pairing._tcp"
     private const val TICK_MS = 1_500L
+    /** Um passo de foco por vez, com tempo para a lista andar e o painel da direita trocar. */
+    private const val FOCUS_TICK_MS = 700L
 
     private val main = Handler(Looper.getMainLooper())
     @Volatile private var running = false
@@ -104,6 +107,8 @@ object AutoPairing {
         /** O caminho que ela fez (para saber onde se perdeu quando não acha). */
         val trail = ArrayList<String>()
         var lastTexts: List<String> = emptyList()
+        var lastFocus: List<String> = emptyList()
+        var up = false
         val pairLabels = labels(app, AutoPairingRules.PAIR_RES) + AutoPairingRules.PAIR_FALLBACK
         val wirelessLabels = labels(app, AutoPairingRules.WIRELESS_RES) + AutoPairingRules.WIRELESS_FALLBACK
     }
@@ -131,6 +136,7 @@ object AutoPairing {
         val roots = roots(svc)
         val texts = roots.flatMap { texts(it) }
         a.lastTexts = texts
+        if (Build.VERSION.SDK_INT >= 33) { byFocus(a, svc, texts); return }
         val passo = AutoPairingRules.step(texts, a.pairLabels)
         a.trail += "${passo.name.lowercase()}@${roots.firstOrNull()?.packageName ?: "?"}"
         when (passo) {
@@ -146,6 +152,36 @@ object AutoPairing {
         }
         if (a.clicks > 8 || a.scrolls > 20) { finish(a, false, "não achei o caminho na tela"); return }
         main.postDelayed({ tick(a) }, TICK_MS)
+    }
+
+    /** Android 13+: anda pelo foco com as teclas globais do serviço de acessibilidade (o jeito do Google TV). */
+    @androidx.annotation.RequiresApi(33)
+    private fun byFocus(a: Attempt, svc: AutorizaShizukuService, texts: List<String>) {
+        val focus = runCatching { svc.findFocus(AccessibilityNodeInfo.FOCUS_INPUT) }.getOrNull()
+            ?.takeIf { it.packageName?.toString() != svc.packageName }?.let { texts(it) }.orEmpty()
+        val m = AutoPairingRules.move(focus, texts, a.openedWireless, a.pairLabels, a.wirelessLabels)
+        val antes = a.lastFocus
+        a.lastFocus = focus
+        a.trail += m.name.lowercase() + (if (m == AutoPairingRules.Move.CENTER) "(${focus.firstOrNull()?.take(24) ?: "?"})" else "")
+        when (m) {
+            AutoPairingRules.Move.READ -> {
+                a.code = CodigoPareamento.achar(texts)
+                if (a.port > 0 && a.code != null) { pair(a); return }
+            }
+            AutoPairingRules.Move.CENTER -> {
+                if (a.wirelessLabels.any { l -> focus.any { AutoPairingRules.matches(it, l) } }) a.openedWireless = true
+                svc.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER); a.clicks++
+            }
+            AutoPairingRules.Move.RIGHT -> { svc.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT); a.clicks++ }
+            AutoPairingRules.Move.DOWN -> {
+                // A lista pode ter aberto com o foco abaixo do item: chegou ao fim (o foco não mudou) = passa a subir.
+                if (focus.isNotEmpty() && focus == antes) a.up = !a.up
+                svc.performGlobalAction(if (a.up) AccessibilityService.GLOBAL_ACTION_DPAD_UP else AccessibilityService.GLOBAL_ACTION_DPAD_DOWN)
+                a.scrolls++
+            }
+        }
+        if (a.clicks > 6 || a.scrolls > AutoPairingRules.MAX_MOVES) { finish(a, false, "não achei o caminho na tela"); return }
+        main.postDelayed({ tick(a) }, FOCUS_TICK_MS)
     }
 
     private fun pair(a: Attempt) {

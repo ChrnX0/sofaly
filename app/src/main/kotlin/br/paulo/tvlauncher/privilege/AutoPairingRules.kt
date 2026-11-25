@@ -108,6 +108,32 @@ object AutoPairingRules {
         else -> Step.OPEN_WIRELESS
     }
 
+    // ---------------------------------------------------------------- navegação pelo FOCO (Google TV, 25/11/2026)
+
+    /**
+     * Sala, 25/11/2026 (leitura da Revisão): nas Configurações do Google TV o item é "Depuração por Wi-Fi", a ~9 itens do
+     * topo, fora da tela; a lista é do leanback, que anda pelo foco, não por rolagem. E com o foco no item, o painel da
+     * direita JÁ mostra "Parear o dispositivo com um código..." como prévia, sem dar para clicar. Por isso a navegação
+     * segue o foco, como uma pessoa com o controle: desce até o item, OK, desce até "Parear", OK. Nunca aperta OK em
+     * outra coisa (o "Desativado" desligaria a depuração).
+     */
+    enum class Move { CENTER, RIGHT, DOWN, READ }
+
+    /** [focus] = textos do item com o foco; [all] = textos da tela; [entered] = já apertou OK em "Depuração por Wi-Fi". */
+    fun move(focus: List<String>, all: List<String>, entered: Boolean, pairLabels: List<String>, wirelessLabels: List<String>): Move {
+        fun hit(ts: List<String>, ls: List<String>) = ts.any { t -> ls.any { matches(t, it) } }
+        return when {
+            CodigoPareamento.achar(all) != null -> Move.READ
+            hit(focus, pairLabels) -> Move.CENTER
+            !entered && hit(focus, wirelessLabels) -> Move.CENTER
+            // Já apertou OK e o foco ficou no item da esquerda: entra no painel da direita.
+            entered && hit(focus, wirelessLabels) -> Move.RIGHT
+            else -> Move.DOWN   // na lista da esquerda (antes) ou no painel da direita (depois): desce até o alvo
+        }
+    }
+    /** Teto de passos pelo foco numa tentativa (a lista tem ~25 itens; o painel, ~6). */
+    const val MAX_MOVES = 45
+
     /** O texto da tela [text] é o rótulo [label]? Sem acento e sem caixa; começa com ele (o Android às vezes põe "…"). */
     fun matches(text: String, label: String): Boolean {
         val t = norm(text); val l = norm(label)
