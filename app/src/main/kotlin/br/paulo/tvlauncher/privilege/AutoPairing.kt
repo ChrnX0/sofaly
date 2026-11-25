@@ -72,7 +72,9 @@ object AutoPairing {
      * Chamado pelo ciclo de conserto da Sofy (SofyRepairTv, ferramenta REPAIR_SHELL). Barato: só lê estado; age só
      * quando a regra manda. Devolve true se começou uma tentativa.
      */
-    @Volatile private var lastWhy = ""
+    /** O último motivo de não tentar (para o relatório da Sofy). */
+    @Volatile var lastWhy = ""
+        private set
 
     fun maybe(ctx: Context, shellDownForMs: Long?): Boolean {
         val app = ctx.applicationContext
@@ -158,6 +160,8 @@ object AutoPairing {
         // Volta para a HOME (a caixinha do código fecha sozinha ao parear; sem parear, sai das Configurações do mesmo jeito).
         AutorizaShizukuService.instancia?.performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME)
         log(a.app, (if (ok) "consertado: " else "não consertou: ") + why)
+        // Deu certo: o recuo zera (a próxima queda começa do intervalo curto de novo).
+        if (ok) prefs(a.app).edit().remove("attempts").apply()
         SofyBusTv.emit(a.app, SofyBus.Source.SOFY, if (ok) "access_repaired" else "access_repair_failed", ok = ok, detail = why)
         ObserverTv.logShadow(a.app, if (ok) "access_repaired" else "access_repair_failed", why)
     }

@@ -28,13 +28,22 @@ class AutoPairingRulesTest {
         assertEquals(Decision.WAIT, AutoPairingRules.decide(st(saver = false)))      // alguém pode estar vendo
     }
 
-    @Test fun spacesAndLimitsAttempts() {
-        assertEquals(Decision.WAIT, AutoPairingRules.decide(st(attempts = listOf(now - h))))
-        assertEquals(Decision.TRY, AutoPairingRules.decide(st(attempts = listOf(now - 4 * h))))
-        val four = listOf(now - 20 * h, now - 15 * h, now - 10 * h, now - 4 * h)
-        assertEquals(Decision.WAIT, AutoPairingRules.decide(st(attempts = four)))
-        assertFalse(AutoPairingRules.stillTrying(st(attempts = four)))              // aí o aviso pode aparecer
-        assertTrue(AutoPairingRules.stillTrying(st(attempts = listOf(now - 25 * h) + four.drop(1))))
+    @Test fun backsOffByItselfAndNeverStopsTrying() {
+        // Recuo: 15 min depois da 1ª, 30 depois da 2ª, 1 h depois da 3ª... até 6 h. Sem teto por dia.
+        val m = 60_000L
+        assertEquals(Decision.WAIT, AutoPairingRules.decide(st(attempts = listOf(now - 10 * m))))
+        assertEquals(Decision.TRY, AutoPairingRules.decide(st(attempts = listOf(now - 16 * m))))
+        assertEquals(Decision.WAIT, AutoPairingRules.decide(st(attempts = listOf(now - 40 * m, now - 20 * m))))
+        assertEquals(Decision.TRY, AutoPairingRules.decide(st(attempts = listOf(now - 60 * m, now - 31 * m))))
+        assertEquals(AutoPairingRules.MAX_GAP_MS, AutoPairingRules.gapMs(30))
+        val sete = (1..7).map { now - 23 * h + it * h }          // 7 no dia, a última há 16 h (> 6 h): tenta de novo
+        assertEquals(Decision.TRY, AutoPairingRules.decide(st(attempts = sete)))
+        assertTrue(AutoPairingRules.why(st(attempts = listOf(now - 10 * m))).startsWith("recuo: 1 tentativa(s) hoje, próxima em 5 min"))
+        // O aviso só pode aparecer depois de várias tentativas sem sucesso; ela segue tentando.
+        val quatro = listOf(now - 20 * h, now - 15 * h, now - 10 * h, now - 7 * h)
+        assertFalse(AutoPairingRules.stillTrying(st(attempts = quatro)))
+        assertEquals(Decision.TRY, AutoPairingRules.decide(st(attempts = quatro)))
+        assertTrue(AutoPairingRules.stillTrying(st(attempts = listOf(now - 25 * h) + quatro.drop(1))))
     }
 
     @Test fun findsTheStepFromTheScreenTexts() {

@@ -243,6 +243,9 @@ object SofyRepairTv {
         return SofyRepair.Env(
             now, idle, NaoPerturbe.madrugada(cal.get(Calendar.HOUR_OF_DAY) * 60 + cal.get(Calendar.MINUTE)),
             aiAvailable = SofyAi.configured(app), toolsLastHour = runs.size,
+            failsLastHour = loadCases(app).sumOf { c -> c.tried.count { now - it.at < SofyRepair.HOUR && it.tool != Tool.REPORT && it.tool != Tool.ASK_AI &&
+                (it.result == SofyRepair.Result.NOT_FIXED || it.result == SofyRepair.Result.FAILED) } },
+            lastRunAt = runs.maxOrNull() ?: 0L,
             lastLauncherRestart = p.getLong("launcher_restart", 0L), lastReboot = p.getLong("reboot", 0L), unavailable = indisponiveis,
         )
     }
@@ -303,7 +306,10 @@ object SofyRepairTv {
             if (passo is SofyRepair.Step.Wait) { noteWait(app, c, passo); continue }
             val step = passo as? SofyRepair.Step.Run ?: continue
             val applied = runCatching { runTool(app, c, step.tool) }.onFailure { Log.w(TAG, "${step.tool}: $it") }.getOrNull()
-            if (applied == null && step.tool == Tool.REPAIR_SHELL) continue   // ainda não é a hora (regras do AutoPairing): tenta depois
+            if (applied == null && step.tool == Tool.REPAIR_SHELL) {   // ainda não é a hora (regras do AutoPairing): tenta depois
+                noteWait(app, c, SofyRepair.Step.Wait(Tool.REPAIR_SHELL, "pareamento: ${AutoPairing.lastWhy}"))
+                continue
+            }
             Log.i(TAG, "${c.subject}: ${step.tool} aplicada=$applied")
             ObserverTv.logShadow(app, "repair_try", "${c.type.name} ${c.subject}: ${step.tool.name.lowercase()}${if (applied == true) "" else " (não aplicou)"}")
             // Reinício do launcher/da TV: a tentativa já foi gravada antes de o processo morrer (saveCasesNow).
@@ -311,7 +317,7 @@ object SofyRepairTv {
             var novo = SofyRepair.onRun(c, step.tool, now, applied == true)
             if (step.tool == Tool.ASK_AI) novo = SofyRepair.withAiPlan(novo, aiPlan)
             saveCases(app, loadCases(app).map { if (it.key == c.key) novo else it })
-            // Só ferramenta de verdade conta no teto da hora (registrar e perguntar à IA não mexem na TV).
+            // Só ferramenta de verdade conta no ritmo (registrar e perguntar à IA não mexem na TV).
             if (step.tool != Tool.REPORT && step.tool != Tool.ASK_AI) {
                 val runs = (p.getString("runs", "").orEmpty().split(',').mapNotNull { it.toLongOrNull() }.filter { now - it < SofyRepair.HOUR } + now)
                 p.edit().putString("runs", runs.joinToString(",")).apply()
@@ -327,7 +333,8 @@ object SofyRepairTv {
      * Revisão (Sala, 25/11/2026) viu um caso aberto 7 batidas sem tentativa nenhuma e sem uma linha dizendo por quê.
      */
     private fun noteWait(app: Context, c: SofyRepair.Case, w: SofyRepair.Step.Wait) {
-        val txt = "${w.tool.name.lowercase()}: ${w.why}"
+        val ate = if (w.until > 0) " (até " + java.text.SimpleDateFormat("HH:mm", java.util.Locale.ROOT).format(java.util.Date(w.until)) + ")" else ""
+        val txt = "${w.tool.name.lowercase()}: ${w.why}$ate"
         val p = prefs(app)
         if (p.getString("wait:${c.key}", null) == txt) return
         p.edit().putString("wait:${c.key}", txt).apply()
