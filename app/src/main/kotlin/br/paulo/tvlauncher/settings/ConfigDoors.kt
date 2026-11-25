@@ -88,6 +88,7 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
         tag = TAG_MODO
     })
     grade.addView(topo, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2); marginStart = dp(4) })
+    objetivos(foco)
 
     val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
     if (painel) {
@@ -119,6 +120,54 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
 }
 
 private const val TAG_MODO = "cfg3_modo"
+
+/**
+ * Os 4 objetivos (onda D, 25/11/2026; ver [SettingsGoals]) em 2 x 2 botões, logo abaixo da busca. O ativo mostra "✓" e
+ * o mesmo OK desfaz. Na barra única e no jeito cruz, o que não existe no jeito atual só não aparece na tela (as chaves
+ * ficam gravadas e valem se a pessoa mudar o jeito).
+ */
+private fun ConfigLauncherActivity.objetivos(foco: Int) {
+    val ativo = SettingsGoals.ativo(this)
+    val tabela = GridLayout(this).apply { columnCount = 2; clipChildren = false; clipToPadding = false }
+    SettingsGoals.Goal.entries.forEachIndexed { n, g ->
+        val nome = getString(when (g) {
+            SettingsGoals.Goal.READ -> R.string.goal_read
+            SettingsGoals.Goal.CLEAN -> R.string.goal_clean
+            SettingsGoals.Goal.ENERGY -> R.string.goal_energy
+            SettingsGoals.Goal.KIDS -> R.string.goal_kids
+        })
+        val icone = when (g) {
+            SettingsGoals.Goal.READ -> "Aa"
+            SettingsGoals.Goal.CLEAN -> "◻"
+            SettingsGoals.Goal.ENERGY -> "☾"
+            SettingsGoals.Goal.KIDS -> "☺"
+        }
+        val b = Estilo.pilula(this).apply {
+            addView(Estilo.texto(context, Estilo.Papel.CORPO, (if (g == ativo) "✓  " else "$icone  ") + nome).apply {
+                maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+            })
+            contentDescription = if (g == ativo) getString(R.string.goal_desfazer, nome) else nome
+            tag = "goal:" + g.name
+            setOnClickListener {
+                when {
+                    g == SettingsGoals.Goal.KIDS -> startActivity(android.content.Intent(this@objetivos, br.paulo.tvlauncher.ReceitasActivity::class.java)
+                        .putExtra(br.paulo.tvlauncher.ReceitasActivity.EXTRA_CONFIRMAR, br.paulo.tvlauncher.settings.Receitas.Receita.CRIANCAS.name))
+                    g == ativo -> { SettingsGoals.desfazer(this@objetivos); aviso(getString(R.string.goal_desfeito, nome)) }
+                    else -> { SettingsGoals.aplicar(this@objetivos, g); aviso(getString(R.string.goal_feito, nome)) }
+                }
+                if (g == SettingsGoals.Goal.KIDS) return@setOnClickListener
+                // A letra muda a própria tela das Configurações: refaz e volta o foco ao mesmo botão.
+                if (g == SettingsGoals.Goal.READ) { recreate(); return@setOnClickListener }
+                mostrarPortas(foco)
+                grade.post { grade.findViewWithTag<View>("goal:" + g.name)?.requestFocus() }
+            }
+        }
+        tabela.addView(b, GridLayout.LayoutParams(GridLayout.spec(n / 2), GridLayout.spec(n % 2, 1f)).apply {
+            width = 0; setMargins(dp(4), dp(4), dp(Estilo.E1), dp(Estilo.E1))
+        })
+    }
+    grade.addView(tabela, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2) })
+}
 
 /**
  * Painel ao lado (A+B no estilo da E, 25/11/2026): as portas viram uma lista agrupada num cartão só (caminho A), cada
