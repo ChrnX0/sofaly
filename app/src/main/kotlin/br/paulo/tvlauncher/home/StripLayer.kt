@@ -58,6 +58,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         const val ROTULO_SP = 11f          // nome dentro do card
         const val ICONE_LADO = 0.42f       // card nosso: ícone ao lado do nome (fração da altura)
         const val LADO_VAO = 6f            // dp entre o ícone e o nome
+        /** Conjuntos de traço de uma cor só (Linha e Símbolo): esses ganham a tinta da placa; o Duotom tem halo e fica. */
+        val TRACO_DE_UMA_COR = setOf(IconeCruz.Estilo.LINHA, IconeCruz.Estilo.SIMBOLO)
         const val SO_ICONE = 1.7f          // "só o escolhido": ícone dos outros, sem placa
         const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
         const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
@@ -319,7 +321,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val own = k.own ?: return
         val aceso = escolhido && focada
         if (own == StripHome.Own.GLASS) k.fundo.setColor(placaPropria(own, aceso))
-        if ((k.item.icone as? IconeCruz)?.estilo != IconeCruz.Estilo.LINHA) return
+        if ((k.item.icone as? IconeCruz)?.estilo !in TRACO_DE_UMA_COR) return
         if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.clearColorFilter(); return }
         val cor = when (own) {
             StripHome.Own.WHITE -> if (aceso) DesignTokens.ORANGE_ON_LIGHT else DesignTokens.NIGHT
