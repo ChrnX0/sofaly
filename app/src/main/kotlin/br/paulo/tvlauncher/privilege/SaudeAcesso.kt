@@ -161,6 +161,9 @@ object SaudeAcesso {
                 principal.post { talvezAvisar(app) }
             }
         }
+        // A Sofy religa sozinha quando a TV esquece o pareamento (AutoPairing, 25/11/2026). Barato: só lê estado.
+        val s = shell
+        AutoPairing.maybe(app, if (s.ok == false) agora - s.foraDesde else null)
         talvezAvisar(app)
     }
 
@@ -173,7 +176,9 @@ object SaudeAcesso {
         // A tela está acesa mas o SCREEN_ON ainda não chegou (corrida com a janela da HOME): conta como "acabou de acordar".
         if (acordouEm == Long.MAX_VALUE) acordouEm = agora
         val p = prefs(app)
-        val avisarShell = SaudeRegras.precisaAvisar(shell, agora, LIMITE_SHELL_MS, p.getLong("aviso_shell", 0), parede, INTERVALO_AVISO_MS, acordouEm)
+        // Enquanto a Sofy ainda pode religar sozinha, não explica nada (Paulo, 25/11/2026: "só identificar e corrigir").
+        val avisarShell = !AutoPairing.stillTrying(app) &&
+            SaudeRegras.precisaAvisar(shell, agora, LIMITE_SHELL_MS, p.getLong("aviso_shell", 0), parede, INTERVALO_AVISO_MS, acordouEm)
         val avisarTunel = SaudeRegras.precisaAvisar(tunel, agora, LIMITE_TUNEL_MS, p.getLong("aviso_tunel", 0), parede, INTERVALO_AVISO_MS, acordouEm)
         if (!avisarShell && !avisarTunel) return
         val ctxTela: Context = AutorizaShizukuService.instancia ?: app   // o serviço pode abrir tela vindo de segundo plano
