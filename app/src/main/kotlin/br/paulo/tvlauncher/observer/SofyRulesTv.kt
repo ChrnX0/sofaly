@@ -35,8 +35,8 @@ object SofyRulesTv {
                 if (r.state == SofyRules.State.DROPPED) ": alarme falso em \"${r.example}\"" else "")
         }
         rules = after
-        if (SofyAiTv.configured(app) && texts.isNotEmpty()) {
-            val answer = SofyAiTv.ask(app, SofyRules.SYSTEM, SofyRules.prompt(screen, texts, rules))
+        if (SofyAi.configured(app) && texts.isNotEmpty()) {
+            val answer = SofyAi.ask(app, SofyRules.SYSTEM, SofyRules.prompt(screen, texts, rules))
             val review = SofyRules.parse(answer, screen, texts, rules, System.currentTimeMillis())
             for (d in review.defects) {
                 Log.w(TAG, "IA em $screen: $d")
@@ -48,6 +48,17 @@ object SofyRulesTv {
             Log.i(TAG, "$screen: ${review.defects.size} defeitos, ${review.rules.size} regras novas, ${rules.size} guardadas")
         }
         prefs(app).edit().putString(KEY, SofyRules.toJson(rules)).apply()
+    }
+
+    /** Regras que vieram de outras casas: as que esta TV ainda não tem (nem derrubou) entram na sombra. */
+    fun addFromCommunity(ctx: Context, incoming: List<SofyRules.Rule>): Int {
+        val app = ctx.applicationContext
+        val rules = rules(app)
+        val news = incoming.filter { n -> rules.none { it.id == n.id } }.take(SofyRules.PER_NIGHT)
+        if (news.isEmpty()) return 0
+        for (r in news) ObserverTv.logShadow(app, "ai_rule_new", "${r.kind.name} ${r.pattern} (${r.screen}): ${r.why}")
+        prefs(app).edit().putString(KEY, SofyRules.toJson(SofyRules.merge(rules, news))).apply()
+        return news.size
     }
 
     fun json(ctx: Context): JSONObject {

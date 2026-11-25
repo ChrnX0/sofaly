@@ -132,7 +132,7 @@ object SofyRules {
             if (pattern in known || rules.any { it.pattern == pattern }) continue
             if (kind == Kind.RANGE && (re.toPattern().matcher("").groupCount() < 1 || !r.has("min") || !r.has("max") || r.optDouble("min") > r.optDouble("max"))) continue
             val sc = r.optString("screen", "*").ifEmpty { "*" }.take(30)
-            val rule = Rule(id = "r" + Integer.toHexString((pattern + kind + sc).hashCode()), kind = kind, screen = sc, pattern = pattern,
+            val rule = Rule(id = idOf(pattern, kind, sc), kind = kind, screen = sc, pattern = pattern,
                 min = r.optDouble("min", 0.0), max = r.optDouble("max", 0.0), why = r.optString("why").take(120), at = now)
             // Casa com a tela de agora: só entra se a IA apontou defeito nela; o texto vira o "defeito conhecido".
             val now0 = if (sc == "*" || sc == screen) violation(rule, texts) else null
@@ -140,6 +140,43 @@ object SofyRules {
             rules += if (now0 != null) rule.copy(example = now0) else rule
         }
         return Review(rules, defects)
+    }
+
+    fun idOf(pattern: String, kind: Kind, screen: String) = "r" + Integer.toHexString((pattern + kind + screen).hashCode())
+
+    // ---------------------------------------------------------------- outras casas (passo 4)
+
+    /** Palavras de 4+ letras que podem sair da casa; o resto (nome, cidade, evento) nunca vai ao servidor. */
+    val SHARE_WORDS = setOf("null", "undefined", "infinity", "error", "true", "false", "none", "nan", "http", "https")
+    private val LETTERS = Regex("\\p{L}{4,}")
+
+    /** O padrão pode ir para outras casas? Seguro e sem palavra que possa ser da casa (o servidor confere de novo). */
+    fun shareable(pattern: String): Boolean {
+        if (safe(pattern) == null) return false
+        val bare = pattern.replace(Regex("\\\\."), " ").replace(Regex("\\[[^\\]]*\\]"), " ")
+        return LETTERS.findAll(bare).all { it.value.lowercase() in SHARE_WORDS }
+    }
+
+    /** O que vai ao servidor: só as regras que JÁ VALEM aqui e podem sair. Sem exemplo, sem motivo, sem hora. */
+    fun communityRules(rules: List<Rule>): JSONArray = JSONArray().apply {
+        rules.filter { it.state == State.ACTIVE && shareable(it.pattern) }.take(10).forEach { r ->
+            put(JSONObject().put("kind", r.kind.name).put("screen", r.screen).put("pattern", r.pattern).apply {
+                if (r.kind == Kind.RANGE) put("min", r.min).put("max", r.max) })
+        }
+    }
+
+    /** As regras da lista pública (vistas em [minHomes]+ casas): entram na SOMBRA desta TV, como as da IA daqui. */
+    fun fromCommunity(o: JSONObject?, minHomes: Int, now: Long): List<Rule> {
+        val a = o?.optJSONArray("rules") ?: return emptyList()
+        return (0 until minOf(a.length(), 200)).mapNotNull { i ->
+            val x = a.optJSONObject(i) ?: return@mapNotNull null
+            val kind = runCatching { Kind.valueOf(x.optString("kind")) }.getOrNull() ?: return@mapNotNull null
+            val pattern = x.optString("pattern").takeIf { shareable(it) } ?: return@mapNotNull null
+            val homes = x.optInt("homes", 0).takeIf { it >= minHomes } ?: return@mapNotNull null
+            val sc = x.optString("screen", "*").ifEmpty { "*" }.take(30)
+            if (kind == Kind.RANGE && (safe(pattern)!!.toPattern().matcher("").groupCount() < 1 || x.optDouble("min") > x.optDouble("max"))) return@mapNotNull null
+            Rule(idOf(pattern, kind, sc), kind, sc, pattern, x.optDouble("min", 0.0), x.optDouble("max", 0.0), "outras $homes casas", at = now)
+        }
     }
 
     /** Junta as novas, tirando as mais velhas que caíram quando passa de [MAX_RULES]. */

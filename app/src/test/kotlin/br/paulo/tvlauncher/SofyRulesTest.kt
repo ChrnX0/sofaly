@@ -100,4 +100,37 @@ class SofyRulesTest {
         assertTrue(p.contains("- Chance de chuva 40%"))
         assertTrue(p.contains("false alarms"))
     }
+
+    @Test fun soPadraoTecnicoSaiDaCasa() {
+        assertTrue(SofyRules.shareable("\\bnull\\b"))
+        assertTrue(SofyRules.shareable("(\\d+)\\s*%"))
+        assertTrue(SofyRules.shareable("[A-Za-z]+ NaN"))
+        assertTrue(!SofyRules.shareable("Aniversário da Maria"))
+        assertTrue(!SofyRules.shareable("Curitiba \\d+"))
+        assertTrue(!SofyRules.shareable("(a+)+"))
+    }
+
+    @Test fun mandaSoAsQueValemEPodemSair() {
+        val rs = listOf(
+            Rule("a", Kind.RANGE, "previsao", "(\\d+)\\s*%", 0.0, 100.0, "w", State.ACTIVE, example = "x", at = 9),
+            Rule("b", Kind.FORBIDDEN, "*", "null", state = State.SHADOW),
+            Rule("c", Kind.FORBIDDEN, "*", "Natal da Maria", state = State.ACTIVE))
+        val a = SofyRules.communityRules(rs)
+        assertEquals(1, a.length())
+        val o = a.getJSONObject(0)
+        assertEquals("(\\d+)\\s*%", o.getString("pattern")); assertEquals(100.0, o.getDouble("max"), 0.0)
+        assertTrue(!o.has("example") && !o.has("why") && !o.has("at"))
+    }
+
+    @Test fun recebeDeOutrasCasasNaSombra() {
+        val o = org.json.JSONObject("{\"rules\":[" +
+            "{\"kind\":\"FORBIDDEN\",\"screen\":\"*\",\"pattern\":\"NaN\",\"homes\":7}," +
+            "{\"kind\":\"FORBIDDEN\",\"screen\":\"*\",\"pattern\":\"undefined\",\"homes\":2}," +
+            "{\"kind\":\"FORBIDDEN\",\"screen\":\"*\",\"pattern\":\"Maria\",\"homes\":9}," +
+            "{\"kind\":\"RANGE\",\"screen\":\"*\",\"pattern\":\"\\\\d+%\",\"min\":0,\"max\":100,\"homes\":9}]}")
+        val r = SofyRules.fromCommunity(o, 5, 3).single()
+        assertEquals("NaN", r.pattern); assertEquals(State.SHADOW, r.state)
+        assertEquals(SofyRules.idOf("NaN", Kind.FORBIDDEN, "*"), r.id)   // mesma regra derrubada aqui não volta
+        assertTrue(SofyRules.fromCommunity(null, 5, 0).isEmpty())
+    }
 }
