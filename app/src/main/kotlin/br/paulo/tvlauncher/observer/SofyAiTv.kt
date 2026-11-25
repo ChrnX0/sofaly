@@ -88,15 +88,22 @@ object SofyAi {
     /** Pergunta à IA do dono o que tentar neste caso. Rede: chamar fora da tela. Vazio = sem resposta útil. */
     fun plan(ctx: Context, c: SofyRepair.Case): List<SofyRepair.Tool> {
         val app = ctx.applicationContext
-        val s = settings(app) ?: return emptyList()
-        val n = askedToday(app)
-        if (n >= MAX_PER_DAY) return emptyList()
-        prefs(app).edit().putLong("asked_day", System.currentTimeMillis() / 86_400_000L).putInt("asked", n + 1).apply()
+        // Toda saída deixa rastro (Revisão, Sala 25/11: 4 ASK_AI "FAILED" com ask_at=0, sem saber se a chamada saiu).
+        fun note(res: String) {
+            Log.i(TAG, "pergunta ${c.type.name} ${c.subject}: $res")
+            prefs(app).edit().putLong("ask_at", System.currentTimeMillis()).putInt("ask_http", lastHttp).putString("ask_result", res).apply()
+        }
         lastHttp = 0
+        val s = settings(app) ?: run { note("sem configuração utilizável (chave ilegível?)"); return emptyList() }
+        val n = askedToday(app)
+        if (n >= MAX_PER_DAY) { note("limite do dia: $n perguntas"); return emptyList() }
+        prefs(app).edit().putLong("asked_day", System.currentTimeMillis() / 86_400_000L).putInt("asked", n + 1).apply()
         var erro: String? = null
         val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.onFailure { erro = it.javaClass.simpleName; Log.w(TAG, "pedido: $erro") }.getOrNull()
-        val txt = answer?.let { SofyAiRules.text(s.provider.format, it) }
-        val (tools, cause) = SofyAiRules.plan(txt)
+        val lido = runCatching { val t = answer?.let { SofyAiRules.text(s.provider.format, it) }; t to SofyAiRules.plan(t) }
+            .getOrElse { note("erro ao ler a resposta: ${it.javaClass.simpleName}"); return emptyList() }
+        val txt = lido.first
+        val (tools, cause) = lido.second
         // O que a última pergunta deu (Revisão, Sala 25/11: ask_ai falhou 3 vezes sem uma linha dizendo por quê). Sem a chave.
         val res = when {
             erro != null -> "erro de rede: $erro"
@@ -105,8 +112,7 @@ object SofyAi {
             tools.isEmpty() -> "sem ferramenta válida: " + txt.replace(Regex("\\s+"), " ").take(160)
             else -> "ok: " + tools.joinToString(",") { it.name.lowercase() }
         }
-        Log.i(TAG, "pergunta ${c.type.name} ${c.subject}: $res")
-        prefs(app).edit().putLong("ask_at", System.currentTimeMillis()).putInt("ask_http", lastHttp).putString("ask_result", res).apply()
+        note(res)
         if (tools.isNotEmpty()) ObserverTv.logShadow(app, "ai_plan", "${c.type.name} ${c.subject}: ${tools.joinToString(",") { it.name.lowercase() }} ($cause)")
         return tools
     }
