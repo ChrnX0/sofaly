@@ -210,6 +210,11 @@ object ComandosExtras {
                 ?: "proprios=${br.paulo.tvlauncher.home.StripHome.options(ctx).own} icones=${br.paulo.tvlauncher.home.LayoutHome.iconesCruz(ctx)}; opções: ${O.joinToString { it.name.lowercase() }}"
         }
         // Personalidade dos ícones dos cards nossos (25/11/2026): `--es nome color|glow|tile`.
+        "animacao_mundo" -> (i.getStringExtra("nome") ?: "").let { n ->
+            val M = br.paulo.tvlauncher.home.StripHome.WorldAnim.entries
+            M.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_WORLD_ANIM, it.ordinal); "animacao_mundo=${it.name} (aperte HOME)" }
+                ?: "animacao_mundo=${br.paulo.tvlauncher.home.StripHome.options(ctx).worldAnim}; opções: ${M.joinToString { it.name.lowercase() }}"
+        }
         "personalidade" -> (i.getStringExtra("nome") ?: "").let { n ->
             val M = br.paulo.tvlauncher.home.StripHome.Mood.entries
             M.firstOrNull { it.name.equals(n, true) }?.let { Extras.definirNumero(ctx, br.paulo.tvlauncher.home.StripHome.KEY_MOOD, it.ordinal); "personalidade=${it.name} (aperte HOME)" }

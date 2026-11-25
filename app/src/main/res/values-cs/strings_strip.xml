@@ -51,4 +51,8 @@
     <string name="st_personalidade">Ikony karet</string>
     <string name="st_pers_cor">Vlastní barva</string>
     <string name="st_pers_brilho">Záře barvy</string>
+    <string name="st_anim_mundo">Animace světa</string>
+    <string name="st_anim_cena">Malá scéna</string>
+    <string name="st_anim_luz">Světelná stopa</string>
+    <string name="st_anim_pulo">Poskok a záře</string>
 </resources>

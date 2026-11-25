@@ -51,4 +51,8 @@
     <string name="st_personalidade">Значки карточек</string>
     <string name="st_pers_cor">Свой цвет</string>
     <string name="st_pers_brilho">Свечение цвета</string>
+    <string name="st_anim_mundo">Анимация мира</string>
+    <string name="st_anim_cena">Маленькая сцена</string>
+    <string name="st_anim_luz">Световой след</string>
+    <string name="st_anim_pulo">Прыжок и свечение</string>
 </resources>

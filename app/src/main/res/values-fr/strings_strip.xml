@@ -51,4 +51,8 @@
     <string name="st_personalidade">Icônes des cartes</string>
     <string name="st_pers_cor">Couleur propre</string>
     <string name="st_pers_brilho">Halo de couleur</string>
+    <string name="st_anim_mundo">Animation du monde</string>
+    <string name="st_anim_cena">Petite scène</string>
+    <string name="st_anim_luz">Trait de lumière</string>
+    <string name="st_anim_pulo">Rebond et lueur</string>
 </resources>

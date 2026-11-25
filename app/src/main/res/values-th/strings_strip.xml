@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">เฉพาะที่เลือก</string>
     <string name="wo_cards">รูปทรงการ์ดในโลกนี้</string>
     <string name="wo_cards_geral">เหมือนกับปรับแต่ง (%1$s)</string>
+    <string name="st_anim_mundo">ภาพเคลื่อนไหวของโลก</string>
+    <string name="st_anim_cena">ฉากเล็ก ๆ</string>
+    <string name="st_anim_luz">เส้นแสง</string>
+    <string name="st_anim_pulo">เด้งและเรืองแสง</string>
 </resources>

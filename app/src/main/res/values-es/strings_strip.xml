@@ -51,4 +51,8 @@
     <string name="st_personalidade">Iconos de las tarjetas</string>
     <string name="st_pers_cor">Color propio</string>
     <string name="st_pers_brilho">Brillo del color</string>
+    <string name="st_anim_mundo">Animación del mundo</string>
+    <string name="st_anim_cena">Pequeña escena</string>
+    <string name="st_anim_luz">Trazo de luz</string>
+    <string name="st_anim_pulo">Salto y brillo</string>
 </resources>

@@ -213,6 +213,7 @@ class FineTuneActivity : Activity() {
         val simNao = listOf(R.string.st_sem, R.string.st_com)
         val proprios = listOf(R.string.st_proprios_branco, R.string.st_proprios_vidro, R.string.st_proprios_escuro)
         val personalidades = listOf(R.string.st_pers_cor, R.string.st_pers_brilho, R.string.cruz_azulejo)
+        val animsMundo = listOf(R.string.st_anim_cena, R.string.st_anim_luz, R.string.st_anim_pulo)
         val B = br.paulo.tvlauncher.home.StripBackground
         val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra)
         val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
@@ -228,6 +229,8 @@ class FineTuneActivity : Activity() {
             Ajuste(R.string.st_cantos, { getString(cantos[o().corners.ordinal]) }) { p -> getString(cantos[gira(S.KEY_CORNERS, o().corners.ordinal, 3, p)]) },
             Ajuste(R.string.st_proprios, { getString(proprios[o().own.ordinal]) }) { p -> getString(proprios[gira(S.KEY_OWN, o().own.ordinal, 3, p)]) },
             Ajuste(R.string.st_personalidade, { getString(personalidades[o().mood.ordinal]) }) { p -> getString(personalidades[gira(S.KEY_MOOD, o().mood.ordinal, 3, p)]) },
+            // Animação do ícone grande do mundo (Paulo, 25/11/2026: os 3 estilos como opção, Pequena cena de padrão).
+            Ajuste(R.string.st_anim_mundo, { getString(animsMundo[o().worldAnim.ordinal]) }) { p -> getString(animsMundo[gira(S.KEY_WORLD_ANIM, o().worldAnim.ordinal, 3, p)]) },
             Ajuste(R.string.st_placa, { getString(simNao[if (o().glass) 1 else 0]) }) { p -> getString(simNao[gira(S.KEY_GLASS, if (o().glass) 1 else 0, 2, p)]) },
             Ajuste(R.string.st_nome, { getString(simNao[if (o().name) 1 else 0]) }) { p -> getString(simNao[gira(S.KEY_NAME, if (o().name) 1 else 0, 2, p)]) },
         )

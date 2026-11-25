@@ -51,4 +51,8 @@
     <string name="st_personalidade">カードのアイコン</string>
     <string name="st_pers_cor">固有の色</string>
     <string name="st_pers_brilho">色の輝き</string>
+    <string name="st_anim_mundo">ワールドのアニメーション</string>
+    <string name="st_anim_cena">小さなシーン</string>
+    <string name="st_anim_luz">光のライン</string>
+    <string name="st_anim_pulo">はずみと光</string>
 </resources>

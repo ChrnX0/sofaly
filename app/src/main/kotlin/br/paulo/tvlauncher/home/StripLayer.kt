@@ -202,10 +202,11 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val ids = c.itens.map { it.id }
         val mundoNovo = cat != mundoDesenhado || ids != idsDesenhados
         val trocouMundo = cat != mundoDesenhado
-        if (trocouMundo) {
-            // Ícone vivo (24/11/2026): desenha o traço e respira; sem movimento permitido, o parado.
+        val trocouAnim = (icone.drawable as? WorldMotion)?.let { it.anim != o.worldAnim } ?: false
+        if (trocouMundo || trocouAnim) {
+            // Ícone vivo (24/11/2026; estilos de 25/11 no Ajuste fino): anima sem parar; sem movimento permitido, o parado.
             (icone.drawable as? WorldMotion)?.stop()
-            icone.setImageDrawable(if (WorldMotion.permitido(context)) WorldMotion(c.cat, DesignTokens.CREAM).also { if (isShown) it.start() }
+            icone.setImageDrawable(if (WorldMotion.permitido(context)) WorldMotion(c.cat, DesignTokens.CREAM, anim = o.worldAnim).also { if (isShown) it.start() }
                 else WorldGlyph(c.cat, DesignTokens.CREAM))
             nome.text = c.nome
         }

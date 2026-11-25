@@ -40,4 +40,8 @@
     <string name="st_so_escolhido">Chỉ mục đang chọn</string>
     <string name="wo_cards">Hình dạng thẻ trong thế giới này</string>
     <string name="wo_cards_geral">Giống Tinh chỉnh (%1$s)</string>
+    <string name="st_anim_mundo">Hiệu ứng thế giới</string>
+    <string name="st_anim_cena">Cảnh nhỏ</string>
+    <string name="st_anim_luz">Vệt sáng</string>
+    <string name="st_anim_pulo">Nảy và sáng</string>
 </resources>

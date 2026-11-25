@@ -41,4 +41,8 @@
     <string name="st_so_escolhido">Лише вибрана</string>
     <string name="wo_cards">Форма карток у цьому світі</string>
     <string name="wo_cards_geral">Як у Точному налаштуванні (%1$s)</string>
+    <string name="st_anim_mundo">Анімація світу</string>
+    <string name="st_anim_cena">Маленька сцена</string>
+    <string name="st_anim_luz">Світловий слід</string>
+    <string name="st_anim_pulo">Стрибок і сяйво</string>
 </resources>

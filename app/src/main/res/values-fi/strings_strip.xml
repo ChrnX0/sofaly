@@ -51,4 +51,8 @@
     <string name="st_personalidade">Korttien kuvakkeet</string>
     <string name="st_pers_cor">Oma väri</string>
     <string name="st_pers_brilho">Värihehku</string>
+    <string name="st_anim_mundo">Maailman animaatio</string>
+    <string name="st_anim_cena">Pieni kohtaus</string>
+    <string name="st_anim_luz">Valojuova</string>
+    <string name="st_anim_pulo">Pomppu ja hehku</string>
 </resources>

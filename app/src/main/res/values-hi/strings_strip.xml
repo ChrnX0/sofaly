@@ -51,4 +51,8 @@
     <string name="st_personalidade">कार्ड आइकन</string>
     <string name="st_pers_cor">अपना रंग</string>
     <string name="st_pers_brilho">रंग की चमक</string>
+    <string name="st_anim_mundo">दुनिया का एनिमेशन</string>
+    <string name="st_anim_cena">छोटा दृश्य</string>
+    <string name="st_anim_luz">रोशनी की लकीर</string>
+    <string name="st_anim_pulo">उछाल और चमक</string>
 </resources>

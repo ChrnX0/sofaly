@@ -26,7 +26,14 @@ import kotlin.math.sin
  * ([start]/[stop]). Movimento desligado (sistema, alto contraste, "Parado"): quem chama usa o [WorldGlyph] parado.
  * Refs: transitions.dev (draw-on de traço, ease-out), Mobbin Calm/Headspace (respiração lenta), Apple TV (ícones vivos).
  */
-class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val traco: Float = 2.1f) : Drawable(), Animatable {
+class WorldMotion(
+    private val cat: CruzLogica.Categoria, cor: Int, private val traco: Float = 2.1f,
+    /** Estilo da animação (Ajuste fino); null = o respiro antigo (também o do relógio de Continuar). */
+    val anim: StripHome.WorldAnim? = StripHome.WorldAnim.SCENE,
+) : Drawable(), Animatable {
+
+    private val cenas = if (anim != null && cat != CruzLogica.Categoria.CONTINUAR) WorldScenes(cor, br.paulo.tvlauncher.DesignTokens.ORANGE, traco) else null
+    private val camada = RectF(-8f, -8f, 40f, 40f)
 
     private var rodando = false
     private var inicio = SystemClock.uptimeMillis()
@@ -67,6 +74,18 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
         val n = c.save()
         c.translate(b.left + (b.width() - 32f * esc) / 2f, b.top + (b.height() - 32f * esc) / 2f)
         c.scale(esc, esc)
+        cenas?.let { sc ->
+            // entrada: a cena aparece e cresce um pouco (0,7 s); depois anda sem parar
+            val e = 0.9f + 0.1f * desenho
+            c.scale(e, e, 16f, 16f)
+            val camadaN = if (desenho < 1f) c.saveLayerAlpha(camada, (255 * desenho).toInt()) else -1
+            sc.alfa = alfaBase
+            sc.desenhar(c, cat, anim!!, t / 1000f)
+            if (camadaN >= 0) c.restoreToCount(camadaN)
+            c.restoreToCount(n)
+            if (rodando) scheduleSelf(proximo, SystemClock.uptimeMillis() + QUADRO_MS)
+            return
+        }
         tinta.pathEffect = if (desenho < 1f) DashPathEffect(floatArrayOf(maior, maior), maior * (1f - desenho)) else null
         tintaCheia.alpha = (alfaBase * desenho).toInt()
         when (cat) {
@@ -127,7 +146,7 @@ class WorldMotion(private val cat: CruzLogica.Categoria, cor: Int, private val t
     override fun isRunning() = rodando
 
     override fun setAlpha(alpha: Int) { alfaBase = alpha; tinta.alpha = alpha; tintaCheia.alpha = alpha; invalidateSelf() }
-    override fun setColorFilter(cf: ColorFilter?) { tinta.colorFilter = cf; tintaCheia.colorFilter = cf; onda.colorFilter = cf; invalidateSelf() }
+    override fun setColorFilter(cf: ColorFilter?) { cenas?.filtro = cf; tinta.colorFilter = cf; tintaCheia.colorFilter = cf; onda.colorFilter = cf; invalidateSelf() }
     @Deprecated("Deprecated in Java")
     override fun getOpacity() = PixelFormat.TRANSLUCENT
     override fun getIntrinsicWidth() = -1

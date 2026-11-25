@@ -51,4 +51,8 @@
     <string name="st_personalidade">أيقونات البطاقات</string>
     <string name="st_pers_cor">لون خاص</string>
     <string name="st_pers_brilho">توهج اللون</string>
+    <string name="st_anim_mundo">حركة أيقونة العالم</string>
+    <string name="st_anim_cena">مشهد صغير</string>
+    <string name="st_anim_luz">خيط ضوء</string>
+    <string name="st_anim_pulo">قفزة وتوهج</string>
 </resources>

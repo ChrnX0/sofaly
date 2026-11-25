@@ -51,4 +51,8 @@
     <string name="st_personalidade">Icone delle schede</string>
     <string name="st_pers_cor">Colore proprio</string>
     <string name="st_pers_brilho">Bagliore di colore</string>
+    <string name="st_anim_mundo">Animazione del mondo</string>
+    <string name="st_anim_cena">Piccola scena</string>
+    <string name="st_anim_luz">Scia di luce</string>
+    <string name="st_anim_pulo">Salto e luce</string>
 </resources>

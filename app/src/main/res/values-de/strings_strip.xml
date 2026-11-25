@@ -51,4 +51,8 @@
     <string name="st_personalidade">Kartensymbole</string>
     <string name="st_pers_cor">Eigene Farbe</string>
     <string name="st_pers_brilho">Farbschein</string>
+    <string name="st_anim_mundo">Welt-Animation</string>
+    <string name="st_anim_cena">Kleine Szene</string>
+    <string name="st_anim_luz">Lichtspur</string>
+    <string name="st_anim_pulo">Hüpfen und Leuchten</string>
 </resources>

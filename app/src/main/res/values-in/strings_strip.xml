@@ -51,4 +51,8 @@
     <string name="st_personalidade">Ikon kartu</string>
     <string name="st_pers_cor">Warna sendiri</string>
     <string name="st_pers_brilho">Pendar warna</string>
+    <string name="st_anim_mundo">Animasi dunia</string>
+    <string name="st_anim_cena">Adegan kecil</string>
+    <string name="st_anim_luz">Jejak cahaya</string>
+    <string name="st_anim_pulo">Lompat dan menyala</string>
 </resources>
