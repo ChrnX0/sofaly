@@ -64,10 +64,13 @@ object Agenda {
      * Junta eventos de várias contas: o mesmo compromisso nas duas agendas (um convite da família) aparece uma vez só.
      * Mesmo título, mesmo início e mesmo fim = o mesmo. Fica em ordem de início. Pura (AgendaTest).
      */
-    fun juntar(l: List<Evento>, idioma: String = java.util.Locale.getDefault().language, pais: String? = null): List<Evento> {
+    fun juntar(l: List<Evento>, idioma: String = java.util.Locale.getDefault().language, pais: String? = null,
+               agendas: Collection<String> = l.map { it.dono }): List<Evento> {
         // Feriados de outro país (25/11/2026, Sala: a conta assinava Brasil, EUA e Reino Unido e o protetor mostrou
         // "Thanksgiving Day"): se alguma agenda de feriados é do país da TV, as de país conhecido diferente saem.
-        val donos = l.map { it.dono }.filter { "#holiday@" in it }.distinct()
+        // [agendas] = as agendas ASSINADAS, não só as que têm evento na janela: na Sala a do Brasil não tinha feriado nos
+        // 2 dias do protetor, e por isso os dos EUA continuaram aparecendo depois da 1ª correção (foto de 25/11, 17:22Z).
+        val donos = (agendas + l.map { it.dono }).filter { "#holiday@" in it }.distinct()
         val doPais = pais?.uppercase()?.let { p -> donos.filter { paisFeriados(it) == p } }.orEmpty()
         val foraDoPais = if (doPais.isEmpty()) emptySet() else donos.filter { val q = paisFeriados(it); q != null && q != pais!!.uppercase() }.toSet()
         val l1 = l.filter { it.dono !in foraDoPais }
@@ -129,8 +132,17 @@ object Agenda {
             Log.w("TvLauncher.Agenda", "erro lendo a agenda: $e")
         }
         // Sempre (antes só com 2+ contas): uma conta só também pode assinar feriados de vários países e idiomas.
-        return juntar(saida, pais = FeriadosTv.pais())
+        return juntar(saida, pais = FeriadosTv.pais(), agendas = agendasAssinadas(ctx, contas))
     }
+
+    /** O dono (OWNER_ACCOUNT) de cada agenda visível das [contas]: diz quais agendas de feriados a conta assina. */
+    private fun agendasAssinadas(ctx: Context, contas: List<String>): List<String> = try {
+        ctx.contentResolver.query(
+            CalendarContract.Calendars.CONTENT_URI, arrayOf(CalendarContract.Calendars.OWNER_ACCOUNT),
+            "${CalendarContract.Calendars.ACCOUNT_NAME} IN (${contas.joinToString(",") { "?" }}) AND ${CalendarContract.Calendars.ACCOUNT_TYPE} = 'com.google' AND ${CalendarContract.Calendars.VISIBLE} = 1",
+            contas.toTypedArray(), null
+        )?.use { c -> buildList { while (c.moveToNext()) c.getString(0)?.let { add(it) } } }.orEmpty()
+    } catch (e: Exception) { Log.w("TvLauncher.Agenda", "erro lendo as agendas: $e"); emptyList() }
 
     /**
      * Os compromissos de hoje (a partir de agora) em uma frase para a voz, ou null se não houver nenhum:
