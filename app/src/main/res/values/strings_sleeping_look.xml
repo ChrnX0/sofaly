@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Clock style</string>
+    <string name="slk_hora_det">How the time is drawn on the screensaver</string>
+    <string name="slk_c_thin">Thin</string>
+    <string name="slk_c_split">Hour and minute</string>
+    <string name="slk_c_stacked">Stacked</string>
+    <string name="slk_c_minute">Moving minute</string>
+    <string name="slk_c_ring">Ring</string>
+    <string name="slk_c_ruler">Day ruler</string>
+    <string name="slk_c_phrase">Phrase</string>
+    <string name="slk_cartao">At the bottom</string>
+    <string name="slk_cartao_det">What rotates at the bottom of the screensaver</string>
+    <string name="slk_k_line">Strip</string>
+    <string name="slk_k_card">Live card</string>
+    <string name="slk_k_stack">Stack</string>
+    <string name="slk_lugar">Widget position</string>
+    <string name="slk_lugar_det">Where the clock and weather sit; the card goes to the opposite edge</string>
+    <string name="slk_p_ts">Top left</string>
+    <string name="slk_p_tc">Top center</string>
+    <string name="slk_p_te">Top right</string>
+    <string name="slk_p_bs">Bottom left</string>
+    <string name="slk_p_bc">Bottom center</string>
+    <string name="slk_p_be">Bottom right</string>
+    <string name="slk_por_em">Sunset in %1$s</string>
+    <string name="slk_regua">Next 12 hours: rain and sunset</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Gaya jam</string>
+    <string name="slk_hora_det">Cara jam tampil saat istirahat</string>
+    <string name="slk_c_thin">Tipis</string>
+    <string name="slk_c_split">Jam dan menit</string>
+    <string name="slk_c_stacked">Bertumpuk</string>
+    <string name="slk_c_minute">Menit berjalan</string>
+    <string name="slk_c_ring">Cincin</string>
+    <string name="slk_c_ruler">Penggaris hari</string>
+    <string name="slk_c_phrase">Kalimat</string>
+    <string name="slk_cartao">Di bawah</string>
+    <string name="slk_cartao_det">Yang berganti di bawah saat istirahat</string>
+    <string name="slk_k_line">Pita</string>
+    <string name="slk_k_card">Kartu hidup</string>
+    <string name="slk_k_stack">Tumpukan</string>
+    <string name="slk_lugar">Posisi widget</string>
+    <string name="slk_lugar_det">Tempat jam dan cuaca; kartu ke tepi seberang</string>
+    <string name="slk_p_ts">Kiri atas</string>
+    <string name="slk_p_tc">Tengah atas</string>
+    <string name="slk_p_te">Kanan atas</string>
+    <string name="slk_p_bs">Kiri bawah</string>
+    <string name="slk_p_bc">Tengah bawah</string>
+    <string name="slk_p_be">Kanan bawah</string>
+    <string name="slk_por_em">Matahari terbenam dalam %1$s</string>
+    <string name="slk_regua">12 jam ke depan: hujan dan matahari terbenam</string>
+</resources>

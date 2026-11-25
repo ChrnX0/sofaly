@@ -50,7 +50,11 @@ object PainelConfig {
             .put("avisoTemperatura", AvisoTemperatura.ligado(app))
             .put("audio", if (IdiomaPlayer.prefs(app).padrao == Idioma.Pref.ORIGINAL) "original" else "dublado")
             .put("protetorMs", PrivilegioDO.tempoDescanso(app).toLong())
-            .put("vidroDescanso", br.paulo.tvlauncher.screensaver.SleepingHome.glass(app))   // o protetor é a home que adormece (21/11/2026)
+            .put("vidroDescanso", br.paulo.tvlauncher.screensaver.SleepingHome.glass(app))
+            // Jeito dos widgets do descanso (a mesma chave das Configurações › Tela e energia).
+            .put("horaDescanso", br.paulo.tvlauncher.screensaver.SleepingLook.clock(app).name.lowercase())
+            .put("cartaoDescanso", br.paulo.tvlauncher.screensaver.SleepingLook.card(app).name.lowercase())
+            .put("lugarDescanso", br.paulo.tvlauncher.screensaver.SleepingLook.place(app).name.lowercase())   // o protetor é a home que adormece (21/11/2026)
             .put("parental", par.ligado)
             .put("parentalCanais", par.canais.size + par.grupos.size)
             .put("infantil", par.infantil)
@@ -108,6 +112,17 @@ object PainelConfig {
             }
             // Vidro atrás da faixa de baixo do descanso (a mesma chave das Configurações › Tela e energia). O antigo
             // "barraProtetor" (widgets do protetor de antes de 21/11/2026) não mudava mais nada na tela.
+            "horaDescanso", "cartaoDescanso", "lugarDescanso" -> {
+                val L = br.paulo.tvlauncher.screensaver.SleepingLook
+                val nomes = when (campo) {
+                    "horaDescanso" -> br.paulo.tvlauncher.screensaver.SleepingLook.Clock.entries.map { it.name }
+                    "cartaoDescanso" -> br.paulo.tvlauncher.screensaver.SleepingLook.Card.entries.map { it.name }
+                    else -> br.paulo.tvlauncher.screensaver.SleepingLook.Place.entries.map { it.name }
+                }
+                val n = nomes.firstOrNull { it.equals(v as? String, ignoreCase = true) } ?: return Resultado.Erro("valor inválido")
+                L.set(app, when (campo) { "horaDescanso" -> L.KEY_CLOCK; "cartaoDescanso" -> L.KEY_CARD; else -> L.KEY_PLACE }, n)
+                registrar("descanso, $campo: ${n.lowercase()}")
+            }
             "vidroDescanso" -> {
                 val b = v as? Boolean ?: return Resultado.Erro("valor inválido")
                 br.paulo.tvlauncher.screensaver.SleepingHome.setGlass(app, b); registrar("vidro atrás da faixa do descanso: $b")

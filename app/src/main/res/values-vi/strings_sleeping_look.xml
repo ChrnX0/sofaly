@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Kiểu đồng hồ</string>
+    <string name="slk_hora_det">Cách giờ hiện khi nghỉ</string>
+    <string name="slk_c_thin">Mảnh</string>
+    <string name="slk_c_split">Giờ và phút</string>
+    <string name="slk_c_stacked">Xếp chồng</string>
+    <string name="slk_c_minute">Phút chạy</string>
+    <string name="slk_c_ring">Vòng</string>
+    <string name="slk_c_ruler">Thước ngày</string>
+    <string name="slk_c_phrase">Câu</string>
+    <string name="slk_cartao">Bên dưới</string>
+    <string name="slk_cartao_det">Những gì đổi bên dưới khi nghỉ</string>
+    <string name="slk_k_line">Dải</string>
+    <string name="slk_k_card">Thẻ sống</string>
+    <string name="slk_k_stack">Chồng thẻ</string>
+    <string name="slk_lugar">Vị trí tiện ích</string>
+    <string name="slk_lugar_det">Nơi đặt giờ và thời tiết; thẻ ở mép đối diện</string>
+    <string name="slk_p_ts">Trên bên trái</string>
+    <string name="slk_p_tc">Trên ở giữa</string>
+    <string name="slk_p_te">Trên bên phải</string>
+    <string name="slk_p_bs">Dưới bên trái</string>
+    <string name="slk_p_bc">Dưới ở giữa</string>
+    <string name="slk_p_be">Dưới bên phải</string>
+    <string name="slk_por_em">Mặt trời lặn sau %1$s</string>
+    <string name="slk_regua">12 giờ tới: mưa và hoàng hôn</string>
+</resources>

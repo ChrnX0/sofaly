@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">时钟样式</string>
+    <string name="slk_hora_det">待机时时间的显示方式</string>
+    <string name="slk_c_thin">纤细</string>
+    <string name="slk_c_split">时与分</string>
+    <string name="slk_c_stacked">上下排列</string>
+    <string name="slk_c_minute">走动的分钟</string>
+    <string name="slk_c_ring">圆环</string>
+    <string name="slk_c_ruler">一日刻度</string>
+    <string name="slk_c_phrase">一句话</string>
+    <string name="slk_cartao">底部</string>
+    <string name="slk_cartao_det">待机时底部轮换的内容</string>
+    <string name="slk_k_line">横条</string>
+    <string name="slk_k_card">动态卡片</string>
+    <string name="slk_k_stack">卡片堆</string>
+    <string name="slk_lugar">小组件位置</string>
+    <string name="slk_lugar_det">时钟和天气的位置；卡片放在对边</string>
+    <string name="slk_p_ts">左上</string>
+    <string name="slk_p_tc">上方居中</string>
+    <string name="slk_p_te">右上</string>
+    <string name="slk_p_bs">左下</string>
+    <string name="slk_p_bc">下方居中</string>
+    <string name="slk_p_be">右下</string>
+    <string name="slk_por_em">%1$s后日落</string>
+    <string name="slk_regua">未来12小时：降雨和日落</string>
+</resources>

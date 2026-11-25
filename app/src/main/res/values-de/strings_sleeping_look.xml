@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Uhrstil</string>
+    <string name="slk_hora_det">Wie die Uhrzeit im Ruhemodus aussieht</string>
+    <string name="slk_c_thin">Dünn</string>
+    <string name="slk_c_split">Stunde und Minute</string>
+    <string name="slk_c_stacked">Gestapelt</string>
+    <string name="slk_c_minute">Laufende Minute</string>
+    <string name="slk_c_ring">Ring</string>
+    <string name="slk_c_ruler">Tageslineal</string>
+    <string name="slk_c_phrase">Satz</string>
+    <string name="slk_cartao">Unten</string>
+    <string name="slk_cartao_det">Was unten im Ruhemodus wechselt</string>
+    <string name="slk_k_line">Leiste</string>
+    <string name="slk_k_card">Live-Karte</string>
+    <string name="slk_k_stack">Stapel</string>
+    <string name="slk_lugar">Position der Widgets</string>
+    <string name="slk_lugar_det">Wo Uhr und Wetter stehen; die Karte kommt an den gegenüberliegenden Rand</string>
+    <string name="slk_p_ts">Oben links</string>
+    <string name="slk_p_tc">Oben mittig</string>
+    <string name="slk_p_te">Oben rechts</string>
+    <string name="slk_p_bs">Unten links</string>
+    <string name="slk_p_bc">Unten mittig</string>
+    <string name="slk_p_be">Unten rechts</string>
+    <string name="slk_por_em">Sonnenuntergang in %1$s</string>
+    <string name="slk_regua">Nächste 12 Stunden: Regen und Sonnenuntergang</string>
+</resources>

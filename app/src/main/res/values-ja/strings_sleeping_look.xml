@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">時計のスタイル</string>
+    <string name="slk_hora_det">休止画面での時刻の見せ方</string>
+    <string name="slk_c_thin">細字</string>
+    <string name="slk_c_split">時と分</string>
+    <string name="slk_c_stacked">縦並び</string>
+    <string name="slk_c_minute">進む分</string>
+    <string name="slk_c_ring">リング</string>
+    <string name="slk_c_ruler">一日の目盛り</string>
+    <string name="slk_c_phrase">ひとこと</string>
+    <string name="slk_cartao">下部</string>
+    <string name="slk_cartao_det">休止画面の下で切り替わるもの</string>
+    <string name="slk_k_line">帯</string>
+    <string name="slk_k_card">ライブカード</string>
+    <string name="slk_k_stack">スタック</string>
+    <string name="slk_lugar">ウィジェットの位置</string>
+    <string name="slk_lugar_det">時計と天気の場所。カードは反対側の端へ</string>
+    <string name="slk_p_ts">左上</string>
+    <string name="slk_p_tc">中央上</string>
+    <string name="slk_p_te">右上</string>
+    <string name="slk_p_bs">左下</string>
+    <string name="slk_p_bc">中央下</string>
+    <string name="slk_p_be">右下</string>
+    <string name="slk_por_em">日の入りまで%1$s</string>
+    <string name="slk_regua">この先12時間：雨と日の入り</string>
+</resources>

@@ -152,6 +152,10 @@ class SleepingHome(private val ctx: Context) {
     private val faixa = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL }
     private val janela = FrameLayout(ctx).apply { clipChildren = true; tag = TAG_JANELA }
     private var sofy: SofyDrawable? = null
+    /** A hora no jeito escolhido ([SleepingLook.Clock]). */
+    private var relogio: SleepingClock? = null
+    /** Os pontinhos do cartão vivo (um por linha da faixa; o aceso é a que está na tela). */
+    private val pontos = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
     /** O movimento do céu da noite na faixa (parado junto com a Sofy). */
     private var ceuMov: NightSkyMotion? = null
 
@@ -185,34 +189,52 @@ class SleepingHome(private val ctx: Context) {
         }, FrameLayout.LayoutParams(-1, -1))
 
         val coluna = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(48), dp(30), dp(48), dp(22)) }
-        // Topo: o widget clássico de hora e tempo do Android (referência que o Paulo mandou, 21/11/2026): hora bem fina,
-        // data e a dica do guarda-chuva alinhadas à direita, um fio vertical, e o tempo ao lado (ícone, temperatura, máxima/mínima).
+        // Topo: o widget clássico de hora e tempo do Android (referência que o Paulo mandou, 21/11/2026): hora,
+        // data e a dica do guarda-chuva, um fio vertical, e o tempo ao lado (ícone, temperatura, máxima/mínima).
+        // A hora tem 7 jeitos e o conjunto vai para o canto que a pessoa escolher (SleepingLook, 25/11/2026).
+        val lugarEscolhido = SleepingLook.place(ctx)
+        val estiloCartao = SleepingLook.card(ctx)
+        val hora = SleepingClock(ctx, SleepingLook.clock(ctx), fina, leve, !semMovimento()).also { relogio = it }
+        val ladoTopo = gravidadeDoLado(lugarEscolhido.side)
         val topo = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         topo.addView(LinearLayout(ctx).apply {
-            orientation = LinearLayout.VERTICAL; gravity = Gravity.END
-            addView(TextClock(ctx).apply {
-                format12Hour = "h:mm"; format24Hour = "HH:mm"
-                tamanho(this, 76f); setTextColor(Estilo.TEXTO); typeface = fina; includeFontPadding = false; sombra(this)
-                // Hora nunca quebra (24/11/2026: em árabe "١٢:٠٠" saía em duas linhas numa caixa de uma, e a 2ª sumia).
-                isSingleLine = true
-            })
-            addView(TextClock(ctx).apply {
+            orientation = LinearLayout.VERTICAL; gravity = Gravity.START
+            addView(hora.relogio, LinearLayout.LayoutParams(-2, -2))
+            if (hora.mostraData) addView(TextClock(ctx).apply {
                 format12Hour = ctx.getString(R.string.fmt_data_longa); format24Hour = ctx.getString(R.string.fmt_data_longa)
                 tamanho(this, 20f); setTextColor(Estilo.TEXTO); typeface = leve; sombra(this)
             }, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(4) })
             addView(lugar, LinearLayout.LayoutParams(-2, -2))
+            hora.extra?.let { addView(it, LinearLayout.LayoutParams(hora.larguraExtra(), -2).apply { topMargin = dp(12) }) }
         }, LinearLayout.LayoutParams(-2, -2))
         topo.addView(View(ctx).apply { setBackgroundColor(0x8CFFFFFF.toInt()) },
             LinearLayout.LayoutParams(dp(1), -1).apply { marginStart = dp(22); marginEnd = dp(22); topMargin = dp(6); bottomMargin = dp(6) })
         topo.addView(topoDireita, LinearLayout.LayoutParams(-2, -2))
-        coluna.addView(topo, LinearLayout.LayoutParams(-2, -2))
-        coluna.addView(View(ctx), LinearLayout.LayoutParams(-1, 0, 1f))   // o meio é do fundo
 
-        // Sem fileira de nomes (Paulo, 21/11: "informação demais") e sem o fio laranja que se enchia até a próxima troca
-        // (Paulo, 25/11/2026: "acho melhor tirar"). A troca segue no mesmo tempo; com o vidro ligado, o vidro separa.
-        if (glass(ctx)) faixa.background = Estilo.vidro(ctx).also { faixa.setPaddingRelative(dp(20), dp(10), dp(20), dp(6)) }
+        // Embaixo: a faixa de sempre (LINE), o cartão vivo (CARD, vidro com pontinhos) ou a pilha (STACK, vidro que
+        // troca subindo, do lado oposto). Sem fileira de nomes (Paulo, 21/11) e sem o fio laranja (25/11/2026).
+        val larguraTela = ctx.resources.displayMetrics.widthPixels - dp(96)
+        val lpFaixa: LinearLayout.LayoutParams = when (estiloCartao) {
+            SleepingLook.Card.LINE -> {
+                if (glass(ctx)) faixa.background = Estilo.vidro(ctx).also { faixa.setPaddingRelative(dp(20), dp(10), dp(20), dp(6)) }
+                LinearLayout.LayoutParams(-1, -2)
+            }
+            SleepingLook.Card.CARD, SleepingLook.Card.STACK -> {
+                faixa.background = Estilo.vidro(ctx, 22)
+                faixa.setPaddingRelative(dp(22), dp(14), dp(22), dp(10))
+                val fr = if (estiloCartao == SleepingLook.Card.CARD) 0.64f else 0.58f
+                LinearLayout.LayoutParams((larguraTela * fr).toInt(), -2).apply { gravity = gravidadeDoLado(SleepingLook.cardSide(estiloCartao, lugarEscolhido)) }
+            }
+        }
         faixa.addView(janela, LinearLayout.LayoutParams(-1, dp(92)))   // 3 linhas (nome, valor, detalhe) com folga para a sombra
-        coluna.addView(faixa, LinearLayout.LayoutParams(-1, -2))
+        if (estiloCartao == SleepingLook.Card.CARD) faixa.addView(pontos, LinearLayout.LayoutParams(-2, dp(10)).apply { gravity = Gravity.END; topMargin = dp(4) })
+        val lpTopo = LinearLayout.LayoutParams(-2, -2).apply { gravity = ladoTopo }
+        val meio = View(ctx)   // o meio é do fundo
+        if (lugarEscolhido.top) {
+            coluna.addView(topo, lpTopo); coluna.addView(meio, LinearLayout.LayoutParams(-1, 0, 1f)); coluna.addView(faixa, lpFaixa)
+        } else {
+            coluna.addView(faixa, lpFaixa); coluna.addView(meio, LinearLayout.LayoutParams(-1, 0, 1f)); coluna.addView(topo, lpTopo)
+        }
         camadaInfo.addView(coluna, FrameLayout.LayoutParams(-1, -1))
         raiz.addView(camadaInfo, FrameLayout.LayoutParams(-1, -1))
         raiz.addView(escuro, FrameLayout.LayoutParams(-1, -1))
@@ -373,8 +395,30 @@ class SleepingHome(private val ctx: Context) {
         atual = if (ceuAgora != null && nomeAntes != ceuAgora) 0 else l.indexOfFirst { it.nome == nomeAntes }.takeIf { it >= 0 } ?: 0
         janela.removeAllViews()
         l.forEachIndexed { i, x -> janela.addView(x.view, FrameLayout.LayoutParams(-1, -1)); x.view.visibility = if (i == atual) View.VISIBLE else View.INVISIBLE }
+        pintarPontos()
+        relogio?.let { h ->
+            val por = (Astronomia.nascerEPor(agoraMs, lat, lon)?.second?.takeIf { it > agoraMs }
+                ?: Astronomia.nascerEPor(agoraMs + 86_400_000L, lat, lon)?.second)
+            val desp = runCatching { Despertador.proximo(ctx) }.getOrNull()?.takeIf { it.second - agoraMs < 2 * 86_400_000L }?.let { quando(it.second, false) }
+            h.atualizar(f, tempAgora, desp, fr?.let { ForecastText.frase(ctx, it) }, por)
+        }
         reiniciarRoda()
     }
+
+    /** Um pontinho por linha no cartão vivo; o aceso é o da linha na tela. */
+    private fun pintarPontos() {
+        if (SleepingLook.card(ctx) != SleepingLook.Card.CARD) return
+        pontos.removeAllViews()
+        if (linhas.size < 2) return
+        linhas.indices.forEach { i ->
+            pontos.addView(View(ctx).apply {
+                background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(if (i == atual) Estilo.TEXTO else 0x59FFF3E6) }
+            }, LinearLayout.LayoutParams(dp(6), dp(6)).apply { marginStart = dp(6) })
+        }
+    }
+
+    /** Lado escolhido -> gravidade horizontal (-1 começo, 0 centro, 1 fim; segue a direção da língua). */
+    private fun gravidadeDoLado(lado: Int) = when (lado) { -1 -> Gravity.START; 0 -> Gravity.CENTER_HORIZONTAL; else -> Gravity.END }
 
     // ------------------------------------------------------------------ linhas
 
@@ -403,9 +447,13 @@ class SleepingHome(private val ctx: Context) {
         sofy = s
     }
 
+    /** Cartão vivo e pilha têm ~60% da largura: cada linha mostra menos células para nada sair cortado
+     *  (Sala, 25/11/2026: "Nascer …", "Duração…" com 5 células num cartão de 64%). */
+    private fun compacto() = SleepingLook.card(ctx) != SleepingLook.Card.LINE
+
     private fun linhaHoras(f: ForecastData, tempAgora: Int): View = linhaBase().apply {
         val i0 = f.i0
-        for (k in 0 until 8) {
+        for (k in 0 until if (compacto()) 5 else 8) {
             val i = i0 + k; if (i >= f.hTempo.size) break
             val rot = if (k == 0) ctx.getString(R.string.pv_agora) else ForecastText.hora(ctx, f.hTempo[i].substring(11, 13).toInt())
             val t = if (k == 0) tempAgora else Math.round(f.hTemp[i]).toInt()
@@ -415,7 +463,7 @@ class SleepingHome(private val ctx: Context) {
 
     private fun linhaDias(f: ForecastData, tempAgora: Int): View = linhaBase().apply {
         val fmt = SimpleDateFormat("EEE", Locale.getDefault()); val ler = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-        for (i in 0 until min(7, f.dData.size)) {
+        for (i in 0 until min(if (compacto()) 4 else 7, f.dData.size)) {
             val nome = if (i == 0) ctx.getString(R.string.pv_hoje)
                 else fmt.format(ler.parse(f.dData[i]) ?: Date()).trimEnd('.').replaceFirstChar { it.titlecase(Locale.getDefault()) }
             // Hoje: a máxima/mínima contam a temperatura de agora, como no topo e na tela do Clima (Sala, 25/11/2026: "30°"
@@ -463,6 +511,7 @@ class SleepingHome(private val ctx: Context) {
         val lp = { LinearLayout.LayoutParams(0, -2, 1f) }
         addView(celula(ctx.getString(R.string.pv_chuva_hoje), "${f.dChuva[0]}%", "${"%.1f".format(Locale.getDefault(), f.dChuvaMm)} mm", azulChuva), lp())
         addView(celula(ctx.getString(R.string.pv_sensacao), "$sens°", sensTexto), lp())
+        if (compacto()) return@apply   // chuva e sensação; o resto fica para a faixa inteira
         addView(celula(ctx.getString(R.string.pt_umidade), "${f.umidade}%",
             ctx.getString(R.string.sh_orvalho, Math.round(f.orvalho()).toInt())), lp())
         addView(celula(ctx.getString(R.string.pv_vento), "${Math.round(f.vento).toInt()} km/h", ForecastText.rosa(ctx, f.ventoDir)), lp())
@@ -476,7 +525,7 @@ class SleepingHome(private val ctx: Context) {
         addView(celula(ctx.getString(R.string.pv_pressao), "${Math.round(f.pressao).toInt()} hPa", null), lp())
         val vis = f.hVisib.getOrElse(f.i0) { 10000.0 } / 1000
         addView(celula(ctx.getString(R.string.pv_visib), if (vis >= 10) "10+ km" else "${"%.1f".format(Locale.getDefault(), vis)} km", null), lp())
-        if (f.nuvens >= 0) addView(celula(ctx.getString(R.string.sh_nuvens), "${f.nuvens}%", null), lp())
+        if (f.nuvens >= 0 && !compacto()) addView(celula(ctx.getString(R.string.sh_nuvens), "${f.nuvens}%", null), lp())
     }
 
     private fun linhaSol(agoraMs: Long, lat: Double, lon: Double): View? {
@@ -488,6 +537,7 @@ class SleepingHome(private val ctx: Context) {
             addView(celula(ctx.getString(R.string.sh_nascer), hf.format(Date(nasce)), null), LinearLayout.LayoutParams(0, -2, 1f))
             addView(ArcoSol(ctx, fracao), LinearLayout.LayoutParams(dp(150), dp(56)).apply { marginEnd = dp(24) })
             addView(celula(ctx.getString(R.string.sh_por), hf.format(Date(poe)), null), LinearLayout.LayoutParams(0, -2, 1f))
+            if (compacto()) return@apply   // nascer, arco e pôr; duração e hora dourada só na faixa inteira
             addView(celula(ctx.getString(R.string.sh_duracao), ctx.getString(R.string.sh_horas_min, durMin / 60, durMin % 60), null), LinearLayout.LayoutParams(0, -2, 1f))
             // Hora dourada: a última hora antes do pôr do sol (luz baixa e quente; regra usual de fotografia).
             addView(celula(ctx.getString(R.string.sh_dourada), hf.format(Date(poe - 60 * 60_000L)), null), LinearLayout.LayoutParams(0, -2, 1f))
@@ -507,7 +557,7 @@ class SleepingHome(private val ctx: Context) {
                 ctx.getString(R.string.sh_em_dias, Lua.diasNoCalendario(agoraMs, (quando - agoraMs) / 86_400_000.0)))
         }
         addView(evento(R.string.sh_cheia, true), LinearLayout.LayoutParams(0, -2, 1f))
-        addView(evento(R.string.sh_nova, false), LinearLayout.LayoutParams(0, -2, 1f))
+        if (!compacto()) addView(evento(R.string.sh_nova, false), LinearLayout.LayoutParams(0, -2, 1f))
     }
 
     /** "26/11" no formato da língua (dia e mês, sem o ano). */
@@ -522,14 +572,19 @@ class SleepingHome(private val ctx: Context) {
         atual = girar(atual, passoFaixa, linhas.size)
         val depois = linhas[atual].view
         val h = janela.height.toFloat().coerceAtLeast(dp(92).toFloat())
+        val estilo = SleepingLook.card(ctx)
+        pintarPontos()
         if (semMovimento()) {
             antes.visibility = View.INVISIBLE; depois.visibility = View.VISIBLE; depois.translationY = 0f; depois.alpha = 1f
         } else {
+            // Faixa: sobe 60% e esmaece; cartão vivo: só esmaece (fica no lugar); pilha: a de cima sai inteira e a
+            // próxima sobe de baixo (como a pilha de widgets do iPhone).
             val dir = if (passoFaixa > 0) 1 else -1
+            val curso = when (estilo) { SleepingLook.Card.LINE -> 0.6f; SleepingLook.Card.CARD -> 0f; SleepingLook.Card.STACK -> 1.1f }
             antes.animate().cancel(); depois.animate().cancel()
-            antes.animate().translationY(-dir * h * 0.6f).alpha(0f).setDuration(TROCA_MS).setInterpolator(curva)
+            antes.animate().translationY(-dir * h * curso).alpha(0f).setDuration(TROCA_MS).setInterpolator(curva)
                 .withEndAction { antes.visibility = View.INVISIBLE; antes.translationY = 0f; antes.alpha = 1f }.start()
-            depois.translationY = dir * h * 0.6f; depois.alpha = 0f; depois.visibility = View.VISIBLE
+            depois.translationY = dir * h * curso; depois.alpha = 0f; depois.visibility = View.VISIBLE
             depois.animate().translationY(0f).alpha(1f).setDuration(TROCA_MS).setInterpolator(curva).start()
         }
         reiniciarRoda()
@@ -586,6 +641,7 @@ class SleepingHome(private val ctx: Context) {
     fun soltar() {
         solto = true
         ui.removeCallbacksAndMessages(null)
+        relogio?.parar()
         sofy?.stop(); ceuMov?.stop()
     }
 

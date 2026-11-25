@@ -290,6 +290,12 @@ object Estilo {
         t.includeFontPadding = false   // sem o "colchão" de cima e de baixo da fonte: o espaço fica por conta da grade
     }
 
+    /** Letra de mostrador (o relógio do descanso, 18-96 sp): fora da escala dos [Papel], que é para telas de ler. */
+    fun letraMostrador(t: TextView, sp: Float) = t.setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
+
+    /** O dourado do pôr do sol (régua do descanso). */
+    const val OURO = 0xFFFFC27A.toInt()
+
     /** Fundo arredondado. [borda] = cor do fio (0 = sem fio). */
     fun fundo(ctx: Context, cor: Int, raioDp: Int = RAIO, borda: Int = 0, espessuraDp: Int = 1): GradientDrawable =
         GradientDrawable().apply {

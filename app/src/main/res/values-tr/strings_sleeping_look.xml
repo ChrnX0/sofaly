@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">Saat stili</string>
+    <string name="slk_hora_det">Dinlenmede saatin görünümü</string>
+    <string name="slk_c_thin">İnce</string>
+    <string name="slk_c_split">Saat ve dakika</string>
+    <string name="slk_c_stacked">Üst üste</string>
+    <string name="slk_c_minute">Akan dakika</string>
+    <string name="slk_c_ring">Halka</string>
+    <string name="slk_c_ruler">Günün cetveli</string>
+    <string name="slk_c_phrase">Cümle</string>
+    <string name="slk_cartao">Altta</string>
+    <string name="slk_cartao_det">Dinlenmede altta dönenler</string>
+    <string name="slk_k_line">Şerit</string>
+    <string name="slk_k_card">Canlı kart</string>
+    <string name="slk_k_stack">Yığın</string>
+    <string name="slk_lugar">Widget konumu</string>
+    <string name="slk_lugar_det">Saat ve hava nerede durur; kart karşı kenara geçer</string>
+    <string name="slk_p_ts">Üst sol</string>
+    <string name="slk_p_tc">Üst orta</string>
+    <string name="slk_p_te">Üst sağ</string>
+    <string name="slk_p_bs">Alt sol</string>
+    <string name="slk_p_bc">Alt orta</string>
+    <string name="slk_p_be">Alt sağ</string>
+    <string name="slk_por_em">Gün batımına %1$s</string>
+    <string name="slk_regua">Sonraki 12 saat: yağmur ve gün batımı</string>
+</resources>

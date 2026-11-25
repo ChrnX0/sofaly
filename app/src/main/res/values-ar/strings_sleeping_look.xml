@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">شكل الساعة</string>
+    <string name="slk_hora_det">كيف يظهر الوقت في وضع الراحة</string>
+    <string name="slk_c_thin">رفيع</string>
+    <string name="slk_c_split">الساعة والدقيقة</string>
+    <string name="slk_c_stacked">مكدّس</string>
+    <string name="slk_c_minute">دقيقة تمشي</string>
+    <string name="slk_c_ring">حلقة</string>
+    <string name="slk_c_ruler">مسطرة اليوم</string>
+    <string name="slk_c_phrase">عبارة</string>
+    <string name="slk_cartao">في الأسفل</string>
+    <string name="slk_cartao_det">ما يتبدّل في الأسفل أثناء الراحة</string>
+    <string name="slk_k_line">شريط</string>
+    <string name="slk_k_card">بطاقة حيّة</string>
+    <string name="slk_k_stack">كومة</string>
+    <string name="slk_lugar">موضع الأدوات</string>
+    <string name="slk_lugar_det">مكان الساعة والطقس؛ تذهب البطاقة إلى الحافة المقابلة</string>
+    <string name="slk_p_ts">أعلى البداية</string>
+    <string name="slk_p_tc">أعلى الوسط</string>
+    <string name="slk_p_te">أعلى النهاية</string>
+    <string name="slk_p_bs">أسفل البداية</string>
+    <string name="slk_p_bc">أسفل الوسط</string>
+    <string name="slk_p_be">أسفل النهاية</string>
+    <string name="slk_por_em">الغروب بعد %1$s</string>
+    <string name="slk_regua">الساعات الـ12 القادمة: المطر والغروب</string>
+</resources>

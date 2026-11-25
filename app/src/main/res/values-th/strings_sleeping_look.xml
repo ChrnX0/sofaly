@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jeito dos widgets do descanso (SleepingLook, 25/11/2026). -->
+<resources>
+    <string name="slk_hora">รูปแบบนาฬิกา</string>
+    <string name="slk_hora_det">เวลาแสดงอย่างไรตอนพัก</string>
+    <string name="slk_c_thin">บาง</string>
+    <string name="slk_c_split">ชั่วโมงและนาที</string>
+    <string name="slk_c_stacked">ซ้อนกัน</string>
+    <string name="slk_c_minute">นาทีที่เดิน</string>
+    <string name="slk_c_ring">วงแหวน</string>
+    <string name="slk_c_ruler">ไม้บรรทัดของวัน</string>
+    <string name="slk_c_phrase">ประโยค</string>
+    <string name="slk_cartao">ด้านล่าง</string>
+    <string name="slk_cartao_det">สิ่งที่หมุนเวียนด้านล่างตอนพัก</string>
+    <string name="slk_k_line">แถบ</string>
+    <string name="slk_k_card">การ์ดมีชีวิต</string>
+    <string name="slk_k_stack">กองการ์ด</string>
+    <string name="slk_lugar">ตำแหน่งวิดเจ็ต</string>
+    <string name="slk_lugar_det">ที่วางนาฬิกาและอากาศ การ์ดไปขอบฝั่งตรงข้าม</string>
+    <string name="slk_p_ts">บนซ้าย</string>
+    <string name="slk_p_tc">บนกลาง</string>
+    <string name="slk_p_te">บนขวา</string>
+    <string name="slk_p_bs">ล่างซ้าย</string>
+    <string name="slk_p_bc">ล่างกลาง</string>
+    <string name="slk_p_be">ล่างขวา</string>
+    <string name="slk_por_em">พระอาทิตย์ตกในอีก %1$s</string>
+    <string name="slk_regua">12 ชั่วโมงข้างหน้า: ฝนและพระอาทิตย์ตก</string>
+</resources>
