@@ -48,6 +48,16 @@ class AgendaTest {
         assertEquals(5, Agenda.juntar(l, "en", null).size)
     }
 
+    @Test fun feriadosDeOutroPaisSaemMesmoSemFeriadoDoPaisNaJanela() {
+        // Foto da Sala (25/11/2026, 17:22Z), depois da 1ª correção: nos 2 dias do protetor só havia feriados dos EUA, a
+        // agenda do Brasil não tinha evento na janela, e o "Thanksgiving Day" continuou. Vale a agenda ASSINADA.
+        val ptBr = "pt.brazilian#holiday@group.v.calendar.google.com"; val us = "en.usa#holiday@group.v.calendar.google.com"
+        val l = listOf(Agenda.Evento("Thanksgiving Day", 1000, 2000, true, 0, us), Agenda.Evento("Black Friday", 3000, 4000, true, 0, us), ev("Dentista", 9000))
+        assertEquals(listOf("Dentista"), Agenda.juntar(l, "pt", "BR", agendas = listOf(ptBr, us, "alguem@gmail.com")).map { it.titulo })
+        // Sem a do Brasil assinada, os dos EUA ficam (melhor mostrar algum feriado que esconder todos).
+        assertEquals(3, Agenda.juntar(l, "pt", "BR", agendas = listOf(us)).size)
+    }
+
     @Test fun paisDaAgendaDeFeriados() {
         assertEquals("BR", Agenda.paisFeriados("pt-br.brazilian#holiday@group.v.calendar.google.com"))
         assertEquals("US", Agenda.paisFeriados("en.usa#holiday@group.v.calendar.google.com"))
