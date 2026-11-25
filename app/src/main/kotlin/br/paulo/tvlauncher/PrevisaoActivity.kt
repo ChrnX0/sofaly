@@ -237,7 +237,6 @@ class PrevisaoActivity : Activity() {
         // O modelo erra a temperatura de agora (hoje: modelo 25°, aeroporto 20°). Corrige a sensação pela mesma diferença,
         // para "20°, sensação 28° mais quente" não aparecer.
         val sensacao = Math.round(d.sensacao + (tempAgora - d.temp)).toInt()
-        val iconeAgora = IconesClima.chave(d.codigo, d.eDia, chovendo)
         val fim = min(d.hTempo.size, i0 + 24)
 
         // ================================================================ tela 1: agora, a frase do dia e as dicas
@@ -247,6 +246,8 @@ class PrevisaoActivity : Activity() {
                 d.hChuva[i], d.hUv.getOrElse(i) { 0.0 }, if (i == i0) d.eDia else eDiaNaHora(i), d.hTempo[i].startsWith(hojeData)) },
             maxHoje, d.dChuva.getOrNull(1))
         val frase = DicasClima.frase(entrada)
+        // Chuva provável agora troca o ícone de agora (Paulo, 25/11/2026, A+C): o ícone e a frase dizem a mesma coisa.
+        val iconeAgora = IconesClima.chave(d.codigo, d.eDia, chovendo || frase.tipo == DicasClima.TipoFrase.CHUVA_AGORA)
         val p1 = pagina(28)
         // O lugar escolhido no painel (LocalClima.kt), para não haver dúvida de onde é a previsão. Na linha do relógio.
         p1.addView(Estilo.texto(this, Estilo.Papel.CORPO, d.ponto.nome ?: "").apply {

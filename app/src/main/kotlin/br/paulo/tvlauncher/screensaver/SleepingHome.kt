@@ -316,7 +316,7 @@ class SleepingHome(private val ctx: Context) {
         val dicaTopo = entrada?.let { "${ctx.getString(R.string.cl_d_guarda)}: ${ForecastText.dica(ctx, DicasClima.guardaChuva(it)).replaceFirstChar { c -> c.lowercase(ctx.resources.configuration.locales[0]) }}" }
         lugar.text = dicaTopo ?: ""; lugar.visibility = if (dicaTopo == null) View.GONE else View.VISIBLE
         if (tempAgora != null) {
-            if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.chave(codigo, eDia, chovendo)),
+            if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.chave(codigo, eDia, chovendo || fr?.tipo == DicasClima.TipoFrase.CHUVA_AGORA)),
                 LinearLayout.LayoutParams(dp(44), dp(44)))
             topoDireita.addView(texto(44f, Estilo.TEXTO, leve).apply { text = "$tempAgora°"; includeFontPadding = false },
                 LinearLayout.LayoutParams(-2, -2))   // sem isto a coluna vertical dá MATCH_PARENT e o texto fica da largura do ícone

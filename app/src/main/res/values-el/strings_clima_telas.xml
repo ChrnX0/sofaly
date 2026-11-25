@@ -8,7 +8,7 @@
     <string name="cl_f_parar">Βρέχει τώρα. Θα σταματήσει γύρω στις %1$s.</string>
     <string name="cl_f_segue">Βρέχει τώρα, και θα συνεχίσει τις επόμενες ώρες.</string>
     <string name="cl_f_chuva">Πιθανή βροχή γύρω στις %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">Πιθανή βροχή τώρα (%1$s).</string>
+    <string name="cl_f_chuva_agora">Μπορεί να βρέξει από στιγμή σε στιγμή (%1$s).</string>
     <string name="cl_f_calor">Ζεστή μέρα: ως %1$d° γύρω στις %2$s. Πιείτε νερό.</string>
     <string name="cl_f_frio">Έρχεται κρύο: ως %1$d°. Ντυθείτε ζεστά.</string>
     <string name="cl_f_sol">Δυνατός ήλιος από %1$s ως %2$s. Βάλτε αντηλιακό.</string>

@@ -8,7 +8,7 @@
     <string name="cl_f_parar">تمطر الآن. يُتوقع أن تتوقف نحو %1$s.</string>
     <string name="cl_f_segue">تمطر الآن، ويُتوقع أن تستمر في الساعات القادمة.</string>
     <string name="cl_f_chuva">مطر محتمل نحو %1$s (%2$s).</string>
-    <string name="cl_f_chuva_agora">مطر محتمل الآن (%1$s).</string>
+    <string name="cl_f_chuva_agora">قد تمطر في أي لحظة (%1$s).</string>
     <string name="cl_f_calor">يوم حار: حتى %1$d° نحو %2$s. اشرب الماء.</string>
     <string name="cl_f_frio">برد قادم: حتى %1$d°. ارتدِ ملابس دافئة.</string>
     <string name="cl_f_sol">شمس قوية من %1$s إلى %2$s. استخدم واقي الشمس.</string>
