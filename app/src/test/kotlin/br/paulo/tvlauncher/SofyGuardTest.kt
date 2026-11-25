@@ -68,4 +68,17 @@ class SofyGuardTest {
             assertEquals(n.kind.name, n.id, SofyPolicy.islandNote(listOf(n), dia, emptySet())?.id)
         }
     }
+
+    /** Sala, 25/11/2026: um OBSERVED velho (versão anterior), nunca visto e invisível, barrava o recado novo por 6 h. */
+    @Test fun recadoVelhoInvisivelNaoBarraONovo() {
+        val velho = br.paulo.tvlauncher.observer.ObserverCore.sofyNote(br.paulo.tvlauncher.observer.ObserverCore.Kind.KEY_STUCK, 1_000L,
+            br.paulo.tvlauncher.observer.ObserverCore.Step.OBSERVED, listOf("DPAD_LEFT"))
+        val novo = SofyGuard.keyStuckNote("DPAD_LEFT", 2_000L)
+        val fila = br.paulo.tvlauncher.observer.ObserverCore.enqueue(
+            br.paulo.tvlauncher.observer.ObserverCore.enqueue(null, velho, 1_000L), novo, 2_000L)
+        assertEquals(listOf(novo.id), br.paulo.tvlauncher.observer.ObserverCore.readNotes(fila, 3_000L).map { it.id })
+        // E o mesmo passo continua sem repetir: o 2º igual, ainda não visto, não entra.
+        val outra = br.paulo.tvlauncher.observer.ObserverCore.enqueue(fila, SofyGuard.keyStuckNote("DPAD_LEFT", 4_000L), 4_000L)
+        assertEquals(listOf(novo.id), br.paulo.tvlauncher.observer.ObserverCore.readNotes(outra, 5_000L).map { it.id })
+    }
 }

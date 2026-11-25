@@ -344,8 +344,11 @@ object ObserverCore {
     /** Recado de um tipo que já está na fila e não foi visto não entra de novo (sem repetir a mesma coisa). */
     fun enqueue(stored: String?, n: Note, now: Long): String {
         val atuais = readNotes(stored, now)
-        if (atuais.any { it.typeKey == n.typeKey && !it.seen }) return toJson(atuais).toString()
-        return toJson((listOf(n) + atuais).take(NOTES_MAX)).toString()
+        if (atuais.any { it.typeKey == n.typeKey && !it.seen && it.step == n.step }) return toJson(atuais).toString()
+        // Mesmo tipo com outro passo (ex.: um OBSERVED gravado por uma versão anterior, que nunca aparece): o novo substitui.
+        // Antes o velho, invisível, barrava o novo por 6 h (Sala, 25/11/2026: tecla presa sem recado nenhum).
+        val resto = atuais.filterNot { it.typeKey == n.typeKey && !it.seen }
+        return toJson((listOf(n) + resto).take(NOTES_MAX)).toString()
     }
 
     /** Os que valem agora, do mais novo ao mais velho. Linha estragada ou de versão desconhecida é pulada. */
