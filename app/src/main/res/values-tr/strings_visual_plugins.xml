@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">Hızlı panel düğmeleri</string>
     <string name="ext_nenhum_botao">Henüz başka uygulamaların düğmesi yok. Bazı uygulamalar hızlı panele aç/kapat düğmesi ekler (GERİ\'yi basılı tut).</string>
     <string name="ext_off_blocked">Sofaly tarafından kapatıldı: bu eklentinin bilinen bir sorunu var.</string>
+    <string name="ext_secao_widgets">Diğer uygulamaların widget\'ları</string>
+    <string name="ext_widget_nenhum">Bu TV\'deki hiçbir uygulamanın henüz widget\'ı yok.</string>
+    <string name="ext_widget_sem_permissao">TV, Sofaly\'nin widget eklemesine izin vermedi.</string>
+    <string name="ext_widget_falhou">Bu widget eklenemedi.</string>
 </resources>

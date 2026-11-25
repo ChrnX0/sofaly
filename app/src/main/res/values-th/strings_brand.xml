@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sofaly logo (18/11/2026): splash when the TV turns on, top of Settings, About Sofaly and the screensaver corner. -->
+<resources>
+    <string name="brand_slogan">ทีวีของคุณ กลับมาใช้ง่ายอีกครั้ง</string>
+    <string name="brand_about">เกี่ยวกับ Sofaly</string>
+    <string name="brand_about_det">เวอร์ชัน สิ่งที่เปลี่ยนแปลง และสัญญาอนุญาต</string>
+    <string name="brand_splash">โลโก้เมื่อเปิดทีวี</string>
+    <string name="brand_splash_det">โลโก้ Sofaly หนึ่งวินาทีเมื่อทีวีตื่น</string>
+    <string name="brand_version">เวอร์ชัน %1$s</string>
+</resources>

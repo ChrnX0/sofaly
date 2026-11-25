@@ -33,4 +33,15 @@
     <string name="st_telas_gaveta">Skuff</string>
     <string name="st_telas_vidro">Glass</string>
     <string name="st_telas_barra">Linje</string>
+    <string name="st_fundo">Bakgrunn</string>
+    <string name="st_fundo_vale">Dal</string>
+    <string name="st_fundo_serra">Fjell</string>
+    <string name="st_fundo_noite">Natt</string>
+    <string name="st_fundo_tema">Fra temaet</string>
+    <string name="st_logo_solto">Frittstående logo</string>
+    <string name="st_grade2">Rutenett med 2 rader</string>
+    <string name="st_redondo">Rund</string>
+    <string name="st_so_escolhido">Bare den valgte</string>
+    <string name="wo_cards">Kortform i denne verdenen</string>
+    <string name="wo_cards_geral">Samme som i Finjustering (%1$s)</string>
 </resources>

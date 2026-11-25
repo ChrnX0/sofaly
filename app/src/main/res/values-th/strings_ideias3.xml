@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideas of 2026-11-12 (brainstorm 3): labels of the Extras switches. -->
+<resources>
+    <string name="extras_SONO_SUAVE">การปิดแบบนุ่มนวล (ตั้งเวลาปิดจะหรี่หน้าจอและลดเสียง)</string>
+    <string name="extras_MURAL">กระดานครอบครัวในแผงด่วน</string>
+    <string name="extras_PRESENCA">ปิดเมื่อทุกคนออกจากบ้าน (เราเตอร์ UniFi)</string>
+    <string name="extras_HOJE_NA_TV">\"วันนี้ในทีวี\" ในหน้าจอค้นหา</string>
+    <string name="extras_RETROSPECTIVA">สรุปรายสัปดาห์ (คืนวันอาทิตย์)</string>
+    <string name="extras_MODO_SIMPLES">หน้าจอแบบง่าย (การ์ดใหญ่ อ่านชื่อออกเสียง)</string>
+</resources>

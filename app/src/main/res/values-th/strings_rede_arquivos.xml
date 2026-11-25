@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "On the network" with FTP, FTPS, SFTP, NFS and USB drives plugged into the TV (14/11/2026). -->
+<resources>
+    <string name="rede_secao_na_tv">เสียบกับทีวี</string>
+    <string name="rede_sub_usb">ไดรฟ์ USB · วิดีโอ เพลง และรูปภาพ</string>
+    <string name="rede_acao_arquivos">FTP, SFTP หรือ NFS</string>
+    <string name="rede_sub_arquivos">NAS, เราเตอร์ที่มีไดรฟ์, คอมพิวเตอร์ Linux หรือ Mac</string>
+    <string name="rede_arq_explica">ขึ้นต้นที่อยู่ด้วยโปรโตคอล: sftp://nas/Movies · ftp://192.168.0.10 · ftps://nas/Videos · nfs://nas/volume1/video SFTP และ FTPS มีการเข้ารหัส ส่วน FTP ธรรมดาส่งรหัสผ่านโดยไม่เข้ารหัส จึงควรใช้เฉพาะในบ้าน NFS ไม่มีรหัสผ่าน: NAS ต้องอนุญาต IP ของทีวีและการเชื่อมต่อจากพอร์ตที่ไม่มีสิทธิ์พิเศษ</string>
+    <string name="rede_arq_endereco">ที่อยู่ (sftp://, ftp://, ftps:// หรือ nfs://)</string>
+    <string name="rede_arq_usuario">ชื่อผู้ใช้ (NFS: หมายเลขผู้ใช้ ไม่บังคับ)</string>
+    <string name="rede_arq_endereco_erro">ขึ้นต้นด้วย sftp://, ftp://, ftps:// หรือ nfs:// ตามด้วยเซิร์ฟเวอร์และโฟลเดอร์ ชื่อผู้ใช้และรหัสผ่านใส่ในช่องของตัวเอง</string>
+    <string name="rede_erro_nfs_porta">เซิร์ฟเวอร์ NFS ปฏิเสธทีวี บน NAS ให้อนุญาตการเชื่อมต่อจากพอร์ตที่ไม่มีสิทธิ์พิเศษ (Linux: ตัวเลือก \"insecure\" ใน /etc/exports)</string>
+    <string name="rede_erro_nfs_ip">เซิร์ฟเวอร์ NFS ไม่อนุญาตทีวีนี้ บน NAS ให้เพิ่ม IP ของทีวี (หรือเครือข่ายในบ้าน) ในกฎ NFS ของโฟลเดอร์นี้</string>
+    <string name="rede_erro_chave_mudou">คีย์ของเซิร์ฟเวอร์นี้เปลี่ยนไปตั้งแต่ที่เพิ่มไว้ ถ้าคุณติดตั้งเซิร์ฟเวอร์ใหม่ ให้นำออกที่นี่แล้วเพิ่มอีกครั้ง ถ้าไม่ใช่ อาจมีคนแอบอ้างเป็นเซิร์ฟเวอร์นี้</string>
+    <string name="rede_erro_usb_acesso">ทีวีไม่ได้ให้ Launcher เข้าถึงไดรฟ์ USB ลองอีกครั้งในอีกสักครู่</string>
+</resources>

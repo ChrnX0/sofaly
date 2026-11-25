@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Games" card on the HOME (14/11/2026): JogosActivity, JogosTv, MainActivity. -->
+<resources>
+    <plurals name="jogos_qtd">
+        <item quantity="one">%d เกม</item>
+        <item quantity="other">%d เกม</item>
+    </plurals>
+    <plurals name="jogos_controles">
+        <item quantity="one">เชื่อมต่อจอยเกม %d ตัว</item>
+        <item quantity="other">เชื่อมต่อจอยเกม %d ตัว</item>
+    </plurals>
+    <string name="extras_CARD_JOGOS">หมวดหมู่เล่นบนหน้าจอหลัก (เมื่อปิด เกมจะอยู่ในแอป)</string>
+    <string name="extras_MODO_JOGO">โหมดเกม: ขณะเปิดเกม โปรแกรมรักษาหน้าจอ ฟิลเตอร์กลางคืน และประกาศจะรอ</string>
+    <string name="extras_CONTROLE_ABRE_JOGOS">การเปิดจอยเกมจะเปิดหน้าจอเกม</string>
+
+    <string name="jogos_titulo">เกม</string>
+    <string name="jogos_medindo">กำลังตรวจสอบเครือข่าย…</string>
+    <string name="jogos_sem_controle">ไม่ได้เชื่อมต่อจอยเกม</string>
+    <string name="jogos_rede_boa">เครือข่าย: ดีสำหรับเกมบนคลาวด์</string>
+    <string name="jogos_rede_ok">เครือข่าย: พอใช้สำหรับเกมบนคลาวด์</string>
+    <string name="jogos_rede_fraca">เครือข่าย: อ่อนสำหรับเกมบนคลาวด์</string>
+    <string name="jogos_rede_sem">ไม่มีอินเทอร์เน็ต</string>
+    <string name="jogos_testar_rede">ทดสอบเครือข่าย</string>
+    <string name="jogos_jogar_pc">เล่นบนคอมพิวเตอร์</string>
+    <string name="jogos_parear">จับคู่จอยเกม</string>
+    <string name="jogos_parear_falhou">ทีวีนี้ไม่เปิดการตั้งค่า Bluetooth เปิดการตั้งค่า รีโมตและอุปกรณ์เสริม</string>
+    <string name="jogos_baixar">หาเกม</string>
+    <string name="jogos_escolher">เลือกแอป</string>
+    <string name="jogos_escolher_sub">แอปใดอยู่ในเล่น OK เพื่อสลับระหว่างเล่นและแอป</string>
+    <string name="jogos_no_card">ในเล่น</string>
+    <string name="jogos_na_linha">ในแอป</string>
+    <string name="jogos_grupo_nuvem">บนคลาวด์</string>
+    <string name="jogos_grupo_pc">จากคอมพิวเตอร์และคอนโซล</string>
+    <string name="jogos_grupo_retro">เรโทร</string>
+    <string name="jogos_grupo_tv">เกมบนทีวี</string>
+    <string name="jogos_para_comecar">เพื่อเริ่มต้น</string>
+    <string name="jogos_aviso_fraca_titulo">เครือข่ายอ่อนสำหรับเกมบนคลาวด์</string>
+    <string name="jogos_aviso_fraca">เกมอาจกระตุกหรือหน่วง สายแลน หรือวางทีวีใกล้เราเตอร์ขึ้นจะช่วยได้</string>
+    <string name="jogos_jogar_assim">เล่นต่อไป</string>
+    <string name="jogos_nao_abriu">แอปนี้เปิดไม่ขึ้น</string>
+    <string name="jogos_tirar">นำออกจากเล่น</string>
+    <string name="jogos_automatico">กลับไปเป็นอัตโนมัติ</string>
+    <string name="jogos_loja_tudo">แอปที่แนะนำอยู่บนทีวีนี้แล้ว</string>
+    <string name="jogos_loja_explica">เปิดหน้าแอปใน Play Store ถ้า Play Store บอกว่าใช้กับทีวีนี้ไม่ได้ แสดงว่าเป็นข้อจำกัดของแอป</string>
+    <string name="jogos_sem_loja">Play Store เปิดไม่ขึ้น</string>
+    <string name="jogos_pc_sem_mac">หากต้องการปลุกคอมพิวเตอร์ ให้บันทึกที่อยู่ MAC ในแผงควบคุมเว็บ: Extras, ปลุกคอมพิวเตอร์ คอมพิวเตอร์ต้องเปิด Wake-on-LAN ด้วย และส่วนใหญ่ต้องใช้สายแลน</string>
+    <string name="jogos_pc_sem_app">หากต้องการเล่นบนคอมพิวเตอร์ ให้ติดตั้ง Moonlight หรือ Steam Link บนทีวี</string>
+    <string name="jogos_pc_qual_app">แอปไหนใช้เล่นบนคอมพิวเตอร์</string>
+    <string name="jogos_pc_acordando">กำลังปลุกคอมพิวเตอร์… %1$d วินาที</string>
+    <string name="jogos_pc_nao_respondeu">คอมพิวเตอร์ไม่ตอบสนอง จะเปิดแอปต่อไป</string>
+    <!-- Sketch A "Console" (14/11/2026): focused game spotlight + recently played row. -->
+    <string name="jogos_mais_jogos">เกมเพิ่มเติม</string>
+    <string name="jogos_mais_opcoes">เพิ่มเติม</string>
+    <string name="jogos_ligar_pc_jogar">เปิดคอมพิวเตอร์แล้วเล่น</string>
+    <string name="jogos_desc_pc">เล่นเกมจากคอมพิวเตอร์หรือคอนโซลในบ้านได้ที่นี่บนทีวี</string>
+    <string name="jogos_chip_medindo">กำลังตรวจสอบเครือข่าย…</string>
+    <string name="jogos_chip_boa">เครือข่ายดี</string>
+    <string name="jogos_chip_ok">เครือข่ายปกติ</string>
+    <string name="jogos_chip_fraca">เครือข่ายอ่อน</string>
+    <string name="jogos_chip_sem">ไม่มีอินเทอร์เน็ต</string>
+    <string name="jogos_tecla_jogar">เล่น</string>
+    <string name="jogos_tecla_segurar">กด OK ค้าง</string>
+    <string name="jogos_tecla_opcoes">เปลี่ยนกลุ่ม</string>
+</resources>

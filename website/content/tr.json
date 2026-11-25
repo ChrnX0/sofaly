@@ -153,7 +153,7 @@
       [
         "access",
         "Büyükler için de",
-        "Büyük yazı, uygulamanın adını söyleyen basit mod, yüksek kontrast ve ekran okuyucu. 15 dilde."
+        "Büyük yazı, uygulamanın adını söyleyen basit mod, yüksek kontrast ve ekran okuyucu. 27 dilde."
       ],
       [
         "alarm",
@@ -701,8 +701,8 @@
       "Sistem › Sorun bildir."
     ],
     "languages": [
-      "15 dil",
-      "Portekizce, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Rusça, Lehçe, Türkçe, Japonca, Çince, Korece, Hintçe, Endonezce ve Arapça, sağdan sola ekranlarla. Televizyonun dilini izler.",
+      "27 dil",
+      "Portekizce, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Rusça, Lehçe, Türkçe, Japonca, Çince, Korece, Hintçe, Endonezce ve Arapça, sağdan sola ekranlarla. Ayrıca Felemenkçe, İsveççe, Danca, Norveççe, Fince, Çekçe, Yunanca, Macarca, Rumence, Ukraynaca, Vietnamca ve Tayca. Televizyonun dilini izler.",
       "Televizyonla birlikte kendiliğinden değişir."
     ],
     "text-size": [

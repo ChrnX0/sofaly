@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screensaver remote keys (idea 28) -->
+    <string name="pt_dica_dispensar">OK เพื่อปิด · ◀ ▶ เลื่อน</string>
+    <string name="pt_dica_pausar">OK เพื่อหยุดชั่วคราวหรือเล่นต่อ · ◀ ▶ เลื่อน</string>
+    <string name="pt_dica_andar">◀ ▶ เลื่อน · ปุ่มอื่นเพื่อปิด</string>
+    <!-- Screensaver photos from a network folder (idea 27) -->
+    <string name="rede_fotos_usar">ใช้รูปเหล่านี้ในโปรแกรมรักษาหน้าจอ</string>
+    <string name="rede_fotos_parar">เลิกใช้รูปเหล่านี้ในโปรแกรมรักษาหน้าจอ</string>
+    <plurals name="rede_fotos_sub">
+        <item quantity="one">%1$d รูป · คัดลอกไปที่ทีวีแล้ว ใช้ได้แม้ปิดคอมพิวเตอร์</item>
+        <item quantity="other">%1$d รูป · คัดลอกไปที่ทีวีแล้ว ใช้ได้แม้ปิดคอมพิวเตอร์</item>
+    </plurals>
+    <string name="rede_fotos_usando">กำลังคัดลอกรูป จะแสดงในครั้งถัดไปที่โปรแกรมรักษาหน้าจอเริ่มทำงาน</string>
+    <string name="rede_fotos_paradas">โปรแกรมรักษาหน้าจอไม่ใช้โฟลเดอร์นี้อีกแล้ว</string>
+    <!-- "Network" as a catalog (idea 29) -->
+    <string name="rede_continuar">ดูต่อ</string>
+    <string name="rede_recentes">เพิ่มล่าสุด</string>
+    <string name="rede_buscar">ค้นหา</string>
+    <string name="rede_buscar_explica">ภาพยนตร์ รายการ ตอน และเพลงบนเซิร์ฟเวอร์นี้</string>
+    <string name="rede_buscar_campo">ชื่อ</string>
+    <string name="rede_buscar_curto">พิมพ์อย่างน้อย 2 ตัวอักษร</string>
+    <string name="rede_proximo_em">ถัดไป: %1$s ในอีก %2$d วินาที · OK เพื่อเริ่มตอนนี้ · ปุ่มอื่นเพื่อยกเลิก</string>
+    <string name="rede_ainda_assistindo">ยังดูอยู่ไหม OK เพื่อเริ่ม %1$s</string>
+</resources>

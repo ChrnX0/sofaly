@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home que adormece (SleepingHome.kt, 21/11/2026). -->
+<resources>
+    <string name="sh_horas">รายชั่วโมง</string>
+    <string name="sh_dias">รายวัน</string>
+    <string name="sh_dicas">เคล็ดลับ</string>
+    <string name="sh_ar">อากาศ</string>
+    <string name="sh_orvalho">จุดน้ำค้าง %1$d°</string>
+    <string name="sh_nuvens">เมฆ</string>
+    <string name="sh_nascer">พระอาทิตย์ขึ้น</string>
+    <string name="sh_por">พระอาทิตย์ตก</string>
+    <string name="sh_duracao">ความยาวของวัน</string>
+    <string name="sh_horas_min">%1$d ชม. %2$02d นาที</string>
+    <string name="sh_dourada">ช่วงแสงทอง</string>
+    <string name="sh_fase">ข้างขึ้นข้างแรม</string>
+    <string name="sh_iluminada">สว่าง %1$s</string>
+    <string name="sh_cheia">พระจันทร์เต็มดวง</string>
+    <string name="sh_nova">เดือนดับ</string>
+    <string name="sh_em_dias">ในอีก %1$d วัน</string>
+    <string name="sh_rodar">หมุนเวียนแถบด้านล่าง</string>
+    <string name="sh_rodar_det">บนโปรแกรมรักษาหน้าจอ แถบด้านล่างจะเปลี่ยนเอง ↑ และ ↓ เปลี่ยนได้ทันที</string>
+    <string name="sh_rodar_desl">ปิด</string>
+    <string name="sh_rodar_s">ทุก %1$d วินาที</string>
+    <string name="sh_rodar_min">ทุก 1 นาที</string>
+    <string name="sh_vidro">กระจกหลังแถบด้านล่าง</string>
+    <string name="sh_vidro_det">แผ่นกระจกหลังแถบ ปิด: เป็นแค่เส้นบางๆ</string>
+    <string name="sh_fundo">พื้นหลังโปรแกรมรักษาหน้าจอ</string>
+    <string name="sh_fundo_det">สิ่งที่อยู่หลังนาฬิกาบนโปรแกรมรักษาหน้าจอ: ธีมอื่น รูป วิดีโอ หรือหลายรายการสลับกัน</string>
+    <string name="sh_fundo_home">เหมือนหน้าจอหลัก</string>
+    <string name="sh_fundo_fotos">รูปและวิดีโอสลับกัน</string>
+    <string name="sh_fundo_arquivo">ไฟล์เดียวสำหรับโปรแกรมรักษาหน้าจอ</string>
+</resources>

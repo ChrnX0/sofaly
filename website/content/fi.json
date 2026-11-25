@@ -1,0 +1,992 @@
+{
+  "lang": "fi",
+  "path": "fi",
+  "label": "Suomi",
+  "ui": {
+    "nav_features": "Ominaisuudet",
+    "nav_plans": "Tilaukset",
+    "nav_developers": "Kehittäjät",
+    "nav_help": "Ohje",
+    "cta_get": "Pian Google Playssa",
+    "cta_see": "Katso kaikki, mitä se tekee",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "alkaen",
+    "how": "Miten",
+    "skip": "Siirry sisältöön",
+    "language": "Kieli",
+    "back_top": "Takaisin ylös",
+    "footer_tagline": "Aloitusnäyttö Google TV:lle ja Android TV:lle.",
+    "footer_privacy": "Tietosuoja",
+    "footer_terms": "Ehdot",
+    "footer_compat": "Toimiiko se laitteessasi?",
+    "footer_trademark": "Sofaly ei ole sidoksissa Googleen. Google TV, Android TV ja Chromecast ovat Google LLC:n tavaramerkkejä.",
+    "of": "/"
+  },
+  "home": {
+    "title": "Sofaly · TV:si, taas yksinkertainen",
+    "description": "Sofaly on aloitusnäyttö Google TV:lle ja Android TV:lle: kaikki järjestettynä ristiin (Katso, Kuuntele, Pelaa, Sovellukset), isolla tekstillä ja ilman mainoksia.",
+    "eyebrow": "Aloitusnäyttö Google TV:lle ja Android TV:lle",
+    "h1": "TV:si, taas yksinkertainen.",
+    "lead": "Sofaly korvaa TV:si aloitusnäytön siistillä ristillä: Katso, Kuuntele, Pelaa ja Sovellukset, isolla tekstillä ja ilman mainoksia. Se myös pitää huolta kodista, herättää sinut ja puhuu puhelimesi kanssa.",
+    "hero_note": "Ei tiliä, ei mainoksia, ei katselusi seurantaa.",
+    "cross_title": "Yksi näyttö, neljä suuntaa",
+    "cross_lead": "◀ ▶ valitse maailma. ▲ ▼ selaa sen sisältöä. Siinä kaikki, ja kuka tahansa kotona oppii sen minuutissa.",
+    "worlds": {
+      "continue": [
+        "Jatka",
+        "Takaisin siihen, mihin jäit: jakso, radioasema, podcast tai sovellus."
+      ],
+      "watch": [
+        "Katso",
+        "Videosovelluksesi, elokuvasi tietokoneelta tai USB-asemalta ja soitin, joka toistaa kaiken."
+      ],
+      "listen": [
+        "Kuuntele",
+        "Radioasemia kaikkialta maailmasta ja podcasteja, koko näytön soittimella ja uniajastimella."
+      ],
+      "play": [
+        "Pelaa",
+        "Pilvi-, PC- ja retropelit yhdessä paikassa, ohjain valmiiksi yhdistettynä."
+      ],
+      "apps": [
+        "Sovellukset",
+        "8 eniten käyttämääsi edessä ja kaikki muut yhden napsautuksen päässä."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Puolipilvistä",
+      "day": "Keskiviikko",
+      "date": "18. marraskuuta",
+      "watch_items": [
+        "Elokuvat",
+        "Sarjat",
+        "Verkossa",
+        "YouTube"
+      ],
+      "watch_title": "Verkossa",
+      "watch_detail": "Elokuvia tietokoneelta · 214 nimikettä",
+      "listen_items": [
+        "Radio",
+        "Podcastit",
+        "Nyt soi"
+      ],
+      "listen_title": "Radio",
+      "listen_detail": "Asemia kaikkialta maailmasta, nimen tai maan mukaan",
+      "play_items": [
+        "Pilvi",
+        "PC:ltä",
+        "Retro",
+        "Porukka"
+      ],
+      "play_title": "Pelit",
+      "play_detail": "3 pilvipeliä · ohjain yhdistetty",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Kaikki sovellukset"
+      ],
+      "apps_title": "Sovellukset",
+      "apps_detail": "8 eniten käyttämääsi",
+      "continue_items": [
+        "Jakso 4",
+        "Radio",
+        "Podcast"
+      ],
+      "continue_title": "Jatka",
+      "continue_detail": "Pysähtyi jaksoon 4 · 21 min jäljellä"
+    },
+    "why_title": "Miksi vaihtaa Googlen aloitusnäyttö",
+    "why_lead": "TV:si mukana tullut aloitusnäyttö tehtiin myymään. Sofaly tehtiin perheesi käyttöön.",
+    "why_rows": [
+      [
+        "Mainokset aloitusnäytöllä",
+        "Kyllä: sponsoroituja nostoja ja mainoksia",
+        "Ei koskaan"
+      ],
+      [
+        "Iso teksti joka näytöllä",
+        "Ei",
+        "Normaali, Iso tai Isompi"
+      ],
+      [
+        "Herätyskello, joka käynnistää TV:n",
+        "Ei",
+        "Käynnistyy, nostaa äänenvoimakkuutta hitaasti ja toivottaa hyvää huomenta"
+      ],
+      [
+        "Radio ja podcastit aloitusnäytöllä",
+        "Vain sovellusten kautta",
+        "Omassa maailmassaan, Kuuntele"
+      ],
+      [
+        "Elokuvat tietokoneelta tai NAS:ista",
+        "Vain sovellusten kautta",
+        "Verkossa, julisteiden ja jatkamisen kanssa"
+      ],
+      [
+        "Ohjaus mistä tahansa kodin puhelimesta",
+        "Perus kaukosäädin",
+        "Täysi paneeli, PIN-koodilla suojattu"
+      ],
+      [
+        "Lasten profiili ja nukkumaanmenoaika",
+        "Rajoitettu",
+        "Sallitut sovellukset, äänenvoimakkuuden katto ja PIN poistumiseen"
+      ],
+      [
+        "Asetustesi varmuuskopio",
+        "Ei",
+        "Joka yö, salasanalla lukittuna"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Google TV:n aloitus",
+      "Sofaly"
+    ],
+    "why_source": "Mainokset Google TV:n aloitusnäytöllä: Android Authority, huhtikuu 2026.",
+    "highlights_title": "Tehty koko perheelle",
+    "highlights": [
+      [
+        "saavutettavuus",
+        "Isovanhemmillekin",
+        "Iso teksti, yksinkertainen tila, joka sanoo sovelluksen nimen, korkea kontrasti ja näytönlukija. 27 kielellä."
+      ],
+      [
+        "herätys",
+        "Herää kanssasi",
+        "Herätys käynnistää TV:n itse, nostaa äänenvoimakkuutta hitaasti ja avaa Hyvää huomenta -näkymän: aika, sää ja kalenteri."
+      ],
+      [
+        "koti",
+        "Pitää huolta kodista",
+        "Home Assistantin valot, tilanteet ja ovikello TV:ssä. Menee lepotilaan, kun kaikki ovat lähteneet."
+      ],
+      [
+        "puhelin",
+        "Puhuu puhelimesi kanssa",
+        "Ohjaa, kirjoita ja lähetä viestejä mistä tahansa kodin puhelimesta tai tietokoneesta, PIN-koodilla suojattuna."
+      ],
+      [
+        "aurinko",
+        "Sää, joka osuu oikeaan",
+        "Nykyinen sää tulee lähimmältä lentoasemalta: mitattu, ei arvattu. 9 päivän ennuste yhdellä OK:lla."
+      ],
+      [
+        "lukko",
+        "Pitää huolta itsestään",
+        "Lukittu varmuuskopio joka yö, huolto nukkuessasi ja diagnoosi, joka selittää, mikä meni vikaan."
+      ]
+    ],
+    "chapters_title": "Kaikki, mitä se tekee, järjestettynä kuten se itse",
+    "chapters_lead": "Yli 80 ominaisuutta. Valitse maailma nähdäksesi jokaisen selitettynä.",
+    "privacy_title": "Omasi pysyy kotona",
+    "privacy_text": "Sofaly ei pyydä tiliä, ei näytä mainoksia eikä seuraa, mitä katsot. Asetukset, kuvat, viestit ja varmuuskopiot pysyvät TV:ssä tai omalla tililläsi, jos yhdistät sellaisen. TV puhuu vain päälle kytkemiesi palveluiden kanssa, ja tietosuojakäytäntö luettelee jokaisen.",
+    "privacy_link": "Lue tietosuojakäytäntö",
+    "dev_title": "Onko sinulla sovellus? Tuo se aloitusnäytölle.",
+    "dev_text": "Sofalyssa on jo valmiita kortteja (kuu, kurssit, lähtölaskenta, muistutus). Laajennus on oma Android TV -sovelluksesi, joka lähettää aloitusnäytölle yhden kortin lisää: tilauksen toimitus, tuleva bussi, taloyhtiön tiedote. Ei SDK:ta, ei maksua, ja sovellus pysyy sinun.",
+    "dev_link": "Tutustu kehittäjäpakettiin",
+    "plans_title": "Aloita ilmaiseksi. Kasva, kun haluat.",
+    "plans_text": "Basicissa on jo koko aloitusnäyttö, soitin, Kuuntele, Pelaa, herätyskello ja näytönsäästäjä. Pro ja Ultra tuovat lisäksi puhelimen, kodin ja perheen.",
+    "plans_link": "Vertaile tilauksia",
+    "faq_title": "Nopeat kysymykset",
+    "faq": [
+      [
+        "Toimiiko se TV:ssäni?",
+        "Se toimii Google TV:ssä ja Android TV:ssä, kuten Chromecast with Google TV:ssä, Google TV -televisioissa ja Android TV -bokseissa. Yhteensopivuussivu luettelee testatut laitteet."
+      ],
+      [
+        "Tarvitsenko tietokoneen asennukseen?",
+        "Et. Asenna se Google Playsta suoraan TV:ssä ja seuraa ohjeita kaukosäätimellä."
+      ],
+      [
+        "Säilyvätkö sovellukseni?",
+        "Kaikki. Sofaly korvaa vain aloitusnäytön: Netflix, YouTube, Prime Video ja muut aukeavat kuten ennenkin, ja mikrofonipainike on yhä Google Assistant."
+      ],
+      [
+        "Onko mainoksia?",
+        "Ei, ei edes ilmaisessa tilauksessa. Sofaly ei myy mainoksia eikä seuraa, mitä katsot."
+      ],
+      [
+        "Tuleeko sen mukana kanavia tai elokuvia?",
+        "Ei. Sofaly järjestää sen, mikä on jo sinun: sovelluksesi, tiedostosi sekä avoimet radioasemat ja podcastit."
+      ],
+      [
+        "Entä jos haluan Googlen aloitusnäytön takaisin?",
+        "Valitse vain Googlen aloitusnäyttö uudelleen TV:n asetuksista. Mitään omaasi ei poisteta."
+      ]
+    ],
+    "final_title": "TV:si, taas yksinkertainen.",
+    "final_text": "Asenna se, paina HOME, ja koko perhe ymmärtää sen."
+  },
+  "features_page": {
+    "title": "Kaikki, mitä Sofaly tekee",
+    "description": "Jokainen Sofalyn ominaisuus selitettynä: ristiaiheinen aloitusnäyttö, Katso, Kuuntele, Pelaa, koti, sää, perhe, puhelin ja tietosuoja.",
+    "h1": "Kaikki, mitä Sofaly tekee",
+    "lead": "Järjestetty samalla tavalla kuin TV:n näyttö: yksi maailma kerrallaan. Kunkin ominaisuuden merkintä kertoo, mistä tilauksesta se alkaa.",
+    "index": "Maailmat"
+  },
+  "chapters": {
+    "home": [
+      "Risti",
+      "Siisti näyttö, jonka kuka tahansa ymmärtää, järjestettynä mieleiseksesi."
+    ],
+    "watch": [
+      "Katso",
+      "Elokuvasi, sarjasi ja kotiteatterisoitin."
+    ],
+    "listen": [
+      "Kuuntele",
+      "Radio ja podcastit samalla huolella kuin video."
+    ],
+    "play": [
+      "Pelaa",
+      "Kaikki pelisi yhdessä paikassa, valmiina ohjaimelle."
+    ],
+    "apps": [
+      "Sovellukset",
+      "Sovelluksesi järkevässä järjestyksessä."
+    ],
+    "house": [
+      "Koti",
+      "Herätyskello, ajastimet, automaatiot ja älykoti."
+    ],
+    "sky": [
+      "Sää ja näytönsäästäjä",
+      "Oikea sää ja näytönsäästäjä, jonka haluaa jättää päälle."
+    ],
+    "family": [
+      "Perhe",
+      "Profiili jokaiselle, huolenpitoa lapsille ja lämmin vastaanotto vieraille."
+    ],
+    "phone": [
+      "Puhelin ja tietokone",
+      "TV puhuu kodin laitteiden kanssa."
+    ],
+    "care": [
+      "Pitää huolta itsestään",
+      "Varmuuskopio, huolto ja diagnoosi ilman, että sinun tarvitsee muistaa."
+    ],
+    "everyone": [
+      "Kaikille",
+      "Tehty ihmisille, jotka näkevät, kuulevat tai käyttävät kaukosäädintä eri tavoin."
+    ],
+    "privacy": [
+      "Tietosuoja",
+      "Ei mainoksia, ei seurantaa ja PIN siellä, missä sillä on väliä."
+    ]
+  },
+  "features": {
+    "cross": [
+      "Risti",
+      "Jatka, Katso, Kuuntele, Pelaa ja Sovellukset yhdellä rivillä. Valitsemasi maailma kasvaa isoksi, ja sen sisältö on heti alla.",
+      "◀ ▶ vaihda maailmaa, ▲ ▼ kulje saraketta alas, OK avaa."
+    ],
+    "continue": [
+      "Jatka",
+      "Yksi paikka palata siihen, mitä teit: jakso, asema, podcast tai viimeisin sovellus.",
+      "Se on ristin ensimmäinen kohta."
+    ],
+    "topbar": [
+      "Yläpalkki",
+      "Haku, ääni, sää yhdellä rivillä ja kello, aina samassa paikassa. Se taittuu pois selatessa, jotta näyttö saa hengittää.",
+      "Nouse sinne ▲:lla."
+    ],
+    "quick-panel": [
+      "Pikapaneeli",
+      "Wi-Fi, Bluetooth, uniajastin, äänilähtö, herätys, profiilit, ilmoitukset ja ostoslista mistä tahansa sovelluksesta.",
+      "Pidä BACK painettuna."
+    ],
+    "remote": [
+      "Sinun kaukosäätimesi, sinun sääntösi",
+      "HOME palaa aina Sofalyyn. BACKin pitäminen avaa pikapaneelin, HOMEn pitäminen avaa Kodin ja OK:n pitäminen sovelluksen kohdalla avaa sen valikon.",
+      "Näppäintestaaja näyttää jokaisen painikkeen, jonka TV vastaanottaa."
+    ],
+    "now-playing": [
+      "Nyt soi",
+      "Pilleri ylhäällä soivan sisällön kannella ja nimellä. OK keskeyttää tai jatkaa, OK:n pitäminen avaa sovelluksen.",
+      "Kytke päälle kohdassa Aloitusnäyttö › Lisää vaihtoehtoja."
+    ],
+    "themes": [
+      "Teemat ja taustat",
+      "Tumma, kohdistetun sisällön kuvalla. Galleria, joka päivä uudella The Metin maalauksella. Taivas, satelliittikuvalla ja kartalla. Tai oma tausta, kuva tai video. Laajennustaustat toimivat myös, kuten Overflightin ilmakuvat.",
+      "Tumma, Galleria ja Taivas Basicissa; muut Prossa."
+    ],
+    "icons": [
+      "Kuvakkeet, joista pidät",
+      "Käytä Playn kuvakepakettia tai vaihda yksittäisen sovelluksen kuvake, yksi kerrallaan.",
+      "Pidä OK painettuna sovelluksen kohdalla › Vaihda kuvake."
+    ],
+    "card-moon": [
+      "Kuun vaihe",
+      "Tämän illan kuu ja kuinka suuri osa siitä on valaistu, laskettuna TV:ssä itsessään, ilman internetiä.",
+      "Ennusteessa, näytönsäästäjässä ja sääkuvakkeessa yöllä. Asetukset › Ulkoasu."
+    ],
+    "card-countdown": [
+      "Lähtölaskenta",
+      "Kuinka monta päivää on jäljellä valitsemaasi päivään tai seuraavaan pyhään.",
+      "Pillerissä näytön yläosassa. Asetukset › Ulkoasu."
+    ],
+    "card-reminder": [
+      "Kodin muistutus",
+      "Muistiinpano, joka palaa valitsemina viikonpäivinä: kierrätyspäivä, lääke, harrastus.",
+      "Pillerissä näytön yläosassa. Asetukset › Ulkoasu."
+    ],
+    "card-status": [
+      "Palvelusi tila",
+      "TV tarkistaa antamasi osoitteen ja näyttää, onko se toiminnassa: kotipalvelin, kaupan verkkosivu.",
+      "Pillerissä näytön yläosassa. Asetukset › Ulkoasu."
+    ],
+    "card-rates": [
+      "Päivän kurssit",
+      "Valuutat, bitcoin ja ether päivän arvoon, avoimista virallisista lähteistä.",
+      "Sään vieressä yläpalkissa. Asetukset › Ulkoasu."
+    ],
+    "card-match": [
+      "Joukkueesi seuraava ottelu",
+      "Milloin ja ketä vastaan joukkueesi pelaa seuraavaksi, kortilla aloitusnäytöllä.",
+      "Ristin TV-kohdassa. Asetukset › Ulkoasu."
+    ],
+    "plugin-cards": [
+      "Kortit muista sovelluksista",
+      "Sofalyn omien korttien lisäksi kumppanisovellukset tuovat omansa aloitusnäytölle: tilauksen toimitus, bussi, taloyhtiön tiedote.",
+      "Kortit näkyvät Katso-maailman lopussa."
+    ],
+    "network-library": [
+      "Tietokoneelta",
+      "Videot, musiikki ja kuvat Plexistä, Jellyfinistä, Embystä, PC:n tai NAS:n kansioista (SMB, WebDAV, FTP, SFTP, NFS), OneDrivesta, Dropboxista, Boxista, Google Drivesta, UPnP:stä ja USB-asemilta.",
+      "Päällä olevat palvelimet ja USB-asemat näkyvät itsestään; muut lisätään kohdassa Lisää."
+    ],
+    "player": [
+      "Soitin, joka toistaa kaiken",
+      "Dolby- (AC3, E-AC3), DTS- ja TrueHD-ääni sekä Blu-ray-, DVD- ja anime-tekstitykset ilman Kodin tai VLC:n asentamista.",
+      "Paina ▼ videon aikana: ääni, tekstitykset ja tekstityksen koko."
+    ],
+    "resume": [
+      "Jatkaa siitä, mihin jäit",
+      "Elokuvat ja jaksot palaavat oikeaan kohtaan. Seuraava jakso alkaa 10 sekunnin päästä, ja kolmen peräkkäisen jälkeen TV kysyy, katsotko yhä.",
+      "Toimii itsestään."
+    ],
+    "skip-intro": [
+      "Ohita alkutunnus",
+      "Kun sarjan alkutunnus tiedetään, näkyviin tulee “Ohita alkutunnus · OK”. Voit myös merkitä alkutunnuksen kerran, ja TV muistaa sen.",
+      "Päällä heti alusta."
+    ],
+    "audio-subtitles": [
+      "Ensisijainen ääni ja tekstitys",
+      "Alkuperäinen tekstityksellä tai dubattu, valittu kerran ja muistettu nimikkeittäin. Tekstitykset internetistä, kun tiedostossa ei ole niitä.",
+      "TV ja elokuvat › Ääni ja tekstitykset."
+    ],
+    "easy-viewing": [
+      "Näe ja kuule paremmin",
+      "Tekstitykset mustalla taustalla tai keltaisena, “Selkeämpi puhe”, joka nostaa puheen esiin, ja “Tasainen äänenvoimakkuus”, joka hillitsee kovaäänisiä elokuvia ja nostaa hiljaisia.",
+      "Soittimen ▼-valikossa."
+    ],
+    "auto-subtitles": [
+      "Automaattiset tekstitykset",
+      "Kun omalla kielelläsi ei ole tekstitystä, TV kääntää olemassa olevan.",
+      "Valitse se soittimen tekstitysvalikosta."
+    ],
+    "movie-pages": [
+      "Täydet elokuvasivut",
+      "Juliste, arvosana, näyttelijät, traileri, ikäraja ja elokuvan kokoelma kauniilla sivulla, isolla tekstillä. Mukana “Kuka tuo näyttelijä on?”: kuva, rooli ja muut työt.",
+      "OK elokuvan tai sarjan kohdalla."
+    ],
+    "lists": [
+      "Trakt- ja Simkl-listasi",
+      "Mitä haluat katsoa ja mitä olet katsonut, synkronoituna tiliisi ja muihin laitteisiisi.",
+      "Kirjaudu QR-koodilla kohdassa TV ja elokuvat › Palvelut."
+    ],
+    "search": [
+      "Yksi haku kaikkeen",
+      "Löytää elokuvat, sarjat, asemat ja sovellukset kerralla ja vie saman haun YouTubeen, Netflixiin tai Prime Videoon.",
+      "Yläpalkissa tai äänellä."
+    ],
+    "radio": [
+      "Radiota kaikkialta maailmasta",
+      "Tuhansia avoimia radioasemia nimen, maan tai lajityypin mukaan, suosikkiesi ja viimeksi kuuntelemiesi kanssa.",
+      "Kuuntele › Radio."
+    ],
+    "podcasts": [
+      "Podcastit",
+      "Tilaa nimellä, kuuntele TV:ssä ja jatka jaksoa siitä, mihin jäit.",
+      "Kuuntele › Podcastit."
+    ],
+    "podcast-search": [
+      "Löydä podcasteja",
+      "Hae koko avoimesta podcast-luettelosta ja katso, mikä on suosittua maassasi.",
+      "Kuuntele › Podcastit › Haku."
+    ],
+    "podcast-player": [
+      "Koko näytön soitin",
+      "Iso kansi, kappaleet, nopeus ja uniajastin, joka pysäyttää jakson lopussa.",
+      "Kuuntele › Nyt soi › Avaa soitin."
+    ],
+    "phone-sound": [
+      "Ääni kuulokkeisiisi",
+      "Elokuvan ääni menee puhelimesi kuulokkeisiin synkronoituna, jotta voit katsoa yöllä herättämättä ketään.",
+      "Soittimen ▼-valikko › Ääni puhelimessa."
+    ],
+    "games-hub": [
+      "Kaikki pelisi yhdessä paikassa",
+      "GeForce NOW, Steam Link, Moonlight, PS Remote Play, RetroArch ja TV:n pelit lähtevät sovellusriviltä ja asuvat Pelaa-maailmassa ryhmiteltyinä: Pilvi, PC:ltä, Retro ja TV:ssä.",
+      "Pidä OK painettuna pelin kohdalla vaihtaaksesi sen ryhmää."
+    ],
+    "pc-games": [
+      "Pelaa yläkerran PC:llä",
+      "TV herättää tietokoneen verkon kautta, odottaa sen vastausta ja avaa Moonlightin tai Steam Linkin. PC:n herättäminen verkon kautta toimii myös Pelaa-maailman ulkopuolella, aloitusnäytön pikakuvakkeesta.",
+      "Tallenna tietokone kerran verkkopaneelissa."
+    ],
+    "network-test": [
+      "Testaa verkko",
+      "Kertoo, riittääkö internetisi pilvipelaamiseen, ja varoittaa ennen pilvipelin avaamista heikossa verkossa.",
+      "Pelaa › Testaa verkko."
+    ],
+    "controllers": [
+      "Peliohjaimet",
+      "Yhdistä ohjain etsimättä valikoita, näe yhdistetyt ylhäällä ja halutessasi anna yhdistetyn ohjaimen avata Pelaa.",
+      "Pelaa › Yhdistä ohjain."
+    ],
+    "game-mode": [
+      "Pelitila",
+      "Kun peli on auki, näytönsäästäjä, yösuodatin ja ilmoitukset odottavat ottelun loppumista.",
+      "Kytkeytyy päälle itsestään."
+    ],
+    "crew": [
+      "Discord-porukkasi",
+      "Näe, kuka Discord-palvelimeltasi on paikalla ja missä pelissä, ja kutsu porukka suoraan TV:stä.",
+      "Kytke palvelimen widget päälle ja liitä sen numero."
+    ],
+    "apps-top": [
+      "Suosikkisi edessä",
+      "Sovellukset näyttää 8 eniten avaamaasi sovellusta, ja “Kaikki sovellukset” tuo loput ruudukkona.",
+      "Sovellukset, ristissä."
+    ],
+    "apps-organize": [
+      "Sinun tapasi",
+      "Siirrä, pinoa tai piilota mikä tahansa sovellus. Käyttämättömät tehdassovellukset väistyvät tieltä.",
+      "Pidä OK painettuna sovelluksen kohdalla."
+    ],
+    "app-buttons": [
+      "Vapaat Netflix- ja YouTube-painikkeet",
+      "Kaukosäätimen sovelluspainikkeet avaavat minkä tahansa haluamasi sovelluksen. Paina avataksesi, pidä 3 sekuntia vaihtaaksesi.",
+      "Toimii alkuperäisellä kaukosäätimellä."
+    ],
+    "alarm": [
+      "Herätys, joka käynnistää TV:n",
+      "Ajallaan TV käynnistyy itse, äänenvoimakkuus nousee hitaasti ja torkku on mukana. Jokaisella herätyksellä on nimi, päivät, ääni ja äänenvoimakkuus, jopa sovellus tai viimeisin asema.",
+      "Pidä BACK painettuna › Herätys."
+    ],
+    "timers": [
+      "Ajastimet ja tiimalasi",
+      "Enintään 3 nimettyä ajastinta näytöllä näkyvällä ilmoituksella sekä sekuntikello.",
+      "“Hey Google, avaa Muistuta 10 minuutin päästä”."
+    ],
+    "gentle-off": [
+      "Pehmeä sammutus",
+      "Uniajastin himmentää näyttöä ja laskee äänenvoimakkuutta viimeisten 5 minuutin aikana, jotta kukaan ei herää katkaisuun.",
+      "Ajastinruutu pikapaneelissa."
+    ],
+    "idle-off": [
+      "Sammuu, jos kukaan ei katso",
+      "Kun valitsemasi aika on kulunut ilman näppäinpainallusta, TV kysyy isolla tekstillä, katsotko yhä, ja menee sitten lepotilaan.",
+      "Näyttö ja virta › Sammuta käyttämättömänä."
+    ],
+    "recipes": [
+      "Valmiit reseptit",
+      "Uni, Saippuasarja ja Ottelu säätävät TV:n kerralla (ääni, näyttö ja ilmoitukset). Yksi OK ottaa käyttöön, toinen peruu.",
+      "Pikapaneeli."
+    ],
+    "automations": [
+      "Automaatiot",
+      "Tiettyyn aikaan, painikkeen painalluksesta tai kun jotain tapahtuu (elokuva pysähtyi, kaikki lähtivät, sade on tulossa): TV avaa sovelluksen, suorittaa tilanteen tai sammuu.",
+      "Koti ja automaatiot › Automaatiot."
+    ],
+    "home-assistant": [
+      "Home Assistant TV:ssä",
+      "Valot, pistorasiat, tuulettimet, verhot, ilmastointi ja tilanteet suoraan sohvalta. Se puhuu palvelimesi kanssa omassa verkossasi, ilman pilveä välissä.",
+      "Pidä HOME painettuna."
+    ],
+    "doorbell": [
+      "Kuka on ovella",
+      "Kun ovikello soi, kameran kuva ponnahtaa esiin katsomasi sisällön päälle.",
+      "Home Assistantin kanssa."
+    ],
+    "presence": [
+      "Nukkuu, kun kaikki lähtevät",
+      "UniFi-reitittimen kanssa TV huomaa, että perheen puhelimet ovat lähteneet, ja menee lepotilaan.",
+      "Näyttö ja virta › Lisää vaihtoehtoja."
+    ],
+    "voice": [
+      "Ääni-pikakomennot",
+      "“Hey Google, avaa Sääraportti” lukee ennusteen ääneen. Elokuvat, Kotini, Taulu, ajastimet ja sammutus aukeavat samalla tavalla.",
+      "Käytä mikrofonipainiketta."
+    ],
+    "weather-now": [
+      "Päivän sää, mitattuna",
+      "Lämpötila tulee lähimmän lentoaseman havainnosta, ja päivä- ja yökuvake seuraa auringonnousua ja -laskua TV:n sijainnissa.",
+      "Aloitusnäytön yläosassa."
+    ],
+    "weather-3": [
+      "Sade kolmesta mallista",
+      "Sateen todennäköisyys on kolmen sääennustemallin (ECMWF, ICON ja GFS) mediaani, joka erehtyy harvemmin kuin mikään niistä yksinään.",
+      "Näkyy ennusteessa itsestään."
+    ],
+    "forecast": [
+      "Koko näytön ennuste",
+      "Seuraavat 24 tuntia, sadekaavio, 9 päivää, ilmanlaatu, aurinko ja kuu.",
+      "OK sään kohdalla."
+    ],
+    "rain-alert": [
+      "Sadevaroitus",
+      "Ilmoitus sovelluksesi päällä, kun sade on alkamassa. Aika hakea pyykit sisään.",
+      "Aloitusnäyttö › Sää."
+    ],
+    "screensaver": [
+      "Näytönsäästäjä, jonka haluaa jättää päälle",
+      "Tervehdys, iso kello, päivämäärä, sää ja kortit ilmoituksista, seuraavasta herätyksestä ja viesteistä. Galleria-teemassa päivän maalaus liukuu hitaasti, jotta mikään ei pala kiinni.",
+      "Näyttö ja virta › Näytönsäästäjä."
+    ],
+    "photos": [
+      "Kuvasi näytönsäästäjässä",
+      "Lähetä kuvia puhelimesta tai valitse verkkokansio. Ne pysyvät kansiossa, jonka vain TV näkee.",
+      "QR-koodi avaa paneelin oikealle sivulle."
+    ],
+    "good-morning": [
+      "Hyvää huomenta",
+      "Kun pysäytät herätyksen: tervehdys, aika, ennuste ja päivän kalenteri, ja TV voi lukea sen ääneen.",
+      "“Hey Google, avaa Hyvää huomenta”."
+    ],
+    "calendar": [
+      "Google-kalenteri",
+      "Päivän tapahtumat ja syntymäpäivät TV:ssä, yhdeltä tililtä tai kaikilta yhdessä.",
+      "OK yläosan päivämäärän kohdalla."
+    ],
+    "night-filter": [
+      "Yösuodatin",
+      "Illalla näyttö muuttuu lämpimämmäksi ja silmille pehmeämmäksi.",
+      "Näyttö ja virta › Lisää vaihtoehtoja."
+    ],
+    "recap": [
+      "Viikkokooste",
+      "Sunnuntai-iltana kortti, jossa on ruutuaika sovelluksittain, käytetty internet ja verkkokatkokset.",
+      "Näyttö ja virta › Lisää vaihtoehtoja."
+    ],
+    "profiles": [
+      "Profiili jokaiselle",
+      "Jokaisella TV:n Google-tilillä on omat suosikkinsa, jatkettavansa ja sovellusjärjestyksensä.",
+      "Pidä BACK painettuna › Profiilit."
+    ],
+    "kid-profile": [
+      "Lasten profiili",
+      "Merkitse profiili lapsen profiiliksi: lapsitila ja nukkumaanmenoaika kytkeytyvät päälle itsestään, ja poistuminen kysyy vanhempien PIN-koodia.",
+      "Pikapaneeli › Profiilit."
+    ],
+    "bedtime": [
+      "Nukkumaanmenoaika",
+      "Valitsemiesi tuntien aikana vain sallitut sovellukset aukeavat ja äänenvoimakkuudella on katto.",
+      "Perhe › Lisää vaihtoehtoja."
+    ],
+    "screen-time": [
+      "Päivittäinen ruutuaika",
+      "Päivittäinen TV-raja valitsemallesi.",
+      "Perhe › Lisää vaihtoehtoja."
+    ],
+    "guest": [
+      "Vierastila",
+      "Piilottaa profiilisi, kalenterisi ja valitsemasi sovellukset, kun sinulla on vieraita.",
+      "Vierasruutu pikapaneelissa."
+    ],
+    "guest-wifi": [
+      "Vieras-Wi-Fi",
+      "Kirjoita salasana kerran; vieraat skannaavat QR-koodin TV:stä ja pääsevät verkkoon.",
+      "Perhe › Vieras-Wi-Fi."
+    ],
+    "family-board": [
+      "Perheen taulu",
+      "Ostoslista, kiinnitetyt muistiinpanot ja päivän syntymäpäivät pikapaneelissa ja näytönsäästäjässä.",
+      "Muokkaa puhelimesta; OK merkitsee kohdan tehdyksi."
+    ],
+    "family-link": [
+      "Viestit kaukaa",
+      "Kaukana asuva perhe lähettää viestejä ja kuvia kodin TV:hen mistä tahansa.",
+      "Kutsu linkillä."
+    ],
+    "video-message": [
+      "Videoviestit",
+      "Lyhyt video perheeltä näkyy TV:ssä lähettäjän nimellä.",
+      "Puhelimen paneelista."
+    ],
+    "web-panel": [
+      "Paneeli puhelimessa ja tietokoneella",
+      "Kaukosäädin, kirjoittaminen ääkkösineen, TV-näytön live-näkymä, näytönsäästäjän kuvat, taulu ja varmuuskopiot minkä tahansa kodin laitteen selaimesta.",
+      "Etäkäyttö › Kirjaudu puhelimesta (QR)."
+    ],
+    "ask-tv": [
+      "Kysy TV:ltä",
+      "Kirjoita tai sano “avaa YouTube”, “muistuta 7 minuutin päästä”, “sammuta 30 minuutin päästä”, ja TV tekee sen.",
+      "Puhelimen paneelissa."
+    ],
+    "share": [
+      "Jaa puhelimesta",
+      "Sovelluksena asennettu paneeli näkyy Jaa-valikossa: YouTube-video aukeaa TV:ssä, linkki aukeaa TV:ssä ja tekstistä tulee viesti.",
+      "Jaa › Sofaly."
+    ],
+    "network-drive": [
+      "TV verkkoasemana",
+      "Kopioi tiedostoja TV:hen vetämällä: Windowsissa se näkyy kohdassa Tämä tietokone kuten puhelin; Macilla, Linuxilla ja puhelimilla suojatun WebDAVin kautta.",
+      "Etäkäyttö › Näytä verkkoasemana."
+    ],
+    "windows": [
+      "Pikakuvake Windowsissa",
+      "TV näkyy Resurssienhallinnan Verkko-kohdassa pikakuvakkeella, joka avaa paneelin, vaikka sen IP muuttuisi.",
+      "Päällä aina, kun paneeli on päällä."
+    ],
+    "continue-tv": [
+      "Jatka toisessa TV:ssä",
+      "Pysähdyitkö olohuoneessa? Lähetä se makuuhuoneeseen: toinen TV näyttää “Jatketaanko siitä, mihin jäit?” ja aukeaa samasta kohdasta.",
+      "Soittimen valikko › Lähetä toiseen TV:hen."
+    ],
+    "together": [
+      "Katsokaa yhdessä",
+      "Kaksi kotia katsoo samaa samaan aikaan: tauko täällä, tauko siellä, ja reaktiot kulmassa.",
+      "Kutsu perheen TV:iden kesken."
+    ],
+    "homes": [
+      "Useita koteja",
+      "Pidä huolta oman ja vanhempiesi TV:stä samasta puhelimesta.",
+      "Puhelinsovelluksesta."
+    ],
+    "backup": [
+      "Lukittu varmuuskopio, joka yö",
+      "Kun TV on joutilaana, täysi varmuuskopio lukittuna salasanallasi. 7 viimeisintä säilytetään, ja joka yö TV tarkistaa, että palautus onnistuisi.",
+      "Järjestelmä › Automaattinen varmuuskopio."
+    ],
+    "cloud-backup": [
+      "Kopio pilveen",
+      "Kopiot menevät myös Google Driveen, OneDriveen, Dropboxiin, Boxiin, NAS:iin tai USB-asemalle. Lukittuina: edes pilvi ei voi lukea niitä.",
+      "Järjestelmä › Automaattinen varmuuskopio."
+    ],
+    "maintenance": [
+      "Yöllinen huolto",
+      "Siivoaa jäänteet, korjaa käyttöoikeudet ja ajastaa herätykset uudelleen nukkuessasi.",
+      "Toimii itsestään."
+    ],
+    "diagnose": [
+      "TV:n diagnoosi",
+      "Internet, DNS ja miksi sovellus lakkasi toimimasta, kaikki kerralla ja ymmärrettävin lausein.",
+      "“Hey Google, avaa TV:n diagnoosi”."
+    ],
+    "scoreboard": [
+      "Miten tämä TV voi",
+      "TV mittaa omat lukunsa (avautumisaika, kaatumiset, herätykset ajallaan) ja näyttää ne yhdellä näytöllä. Mikään ei lähde kodistasi.",
+      "Järjestelmä › Miten tämä TV voi."
+    ],
+    "safe-mode": [
+      "Vikasietotila",
+      "Jos uusi versio toimii huonosti heti asennuksen jälkeen, TV palaa vikasietotilaan ja näyttää tien ulos.",
+      "Näkyy vain tarvittaessa."
+    ],
+    "whats-new": [
+      "Mitä muuttui",
+      "Jokainen versio kertoo, mitä muuttui, ja tuo lyhyen tarkistuslistan kokeiltavaksi kaukosäätimellä.",
+      "Järjestelmä › Mitä muuttui."
+    ],
+    "report": [
+      "Ilmoita ongelmasta",
+      "Kerro, mitä tapahtui, kaukosäätimellä tai puhelimesta; TV kerää tarvittavan, ei mitään henkilökohtaista.",
+      "Järjestelmä › Ilmoita ongelmasta."
+    ],
+    "languages": [
+      "27 kieltä",
+      "Portugali, englanti, espanja, ranska, saksa, italia, venäjä, puola, turkki, japani, kiina, korea, hindi, indonesia ja arabia, oikealta vasemmalle -näytöillä. Lisäksi hollanti, ruotsi, tanska, norja, suomi, tšekki, kreikka, unkari, romania, ukraina, vietnam ja thai. Se noudattaa TV:n kieltä.",
+      "Vaihtuu TV:n mukana itsestään."
+    ],
+    "text-size": [
+      "Tekstin koko",
+      "Normaali, Iso tai Isompi joka näytöllä, testattu niin, ettei teksti koskaan katkea tai mene päällekkäin.",
+      "Aloitusnäyttö › Tekstin koko."
+    ],
+    "simple-mode": [
+      "Yksinkertainen tila",
+      "Isot kortit, vähemmän asioita näytöllä ja sovelluksen nimi ääneen luettuna. Niille, joille kaukosäädin on hankala.",
+      "Aloitusnäyttö › Lisää vaihtoehtoja."
+    ],
+    "read-aloud": [
+      "Lue ääneen",
+      "TV sanoo, mikä on kohdistettuna, ja navigointiäänet kertovat, missä olet.",
+      "Aloitusnäyttö › Lisää vaihtoehtoja."
+    ],
+    "contrast": [
+      "Korkea kontrasti",
+      "Teksti kontrastisuhteella 7:1 ja jokainen näyttö luettavissa Androidin näytönlukijalla.",
+      "Noudattaa TV:n esteettömyysasetuksia."
+    ],
+    "no-ads": [
+      "Ei mainoksia lainkaan",
+      "Ei ilmaisessa tilauksessa, ei yhtään sponsoroitua nostoa. Näyttö on sinun.",
+      "Aina."
+    ],
+    "no-tracking": [
+      "Ei seurantaa",
+      "Ei tiliä, ei käyttöanalytiikkaa eikä yhtään kaatumisraporttia, joka lähtisi ilman että lähetät sen.",
+      "Aina."
+    ],
+    "pin": [
+      "PIN siellä, missä sillä on väliä",
+      "Kaikki, mikä muuttaa TV:tä, kysyy PIN-koodia, ja jotain poistavat toiminnot kysyvät uudelleen. Liian monta väärää yritystä? Odotus pitenee joka kerta.",
+      "Etäkäyttö › PIN."
+    ],
+    "private-dns": [
+      "Yksityinen DNS",
+      "Valitse turvallinen DNS (DNS over TLS); jos se ei vastaa, TV palaa edelliseen itsestään.",
+      "Lisäasetukset › Verkko."
+    ],
+    "usage": [
+      "Internet sovelluksittain",
+      "Kuinka paljon internetiä kukin sovellus käytti ja kenen kanssa se puhui, säilytettynä TV:ssä 7 päivää.",
+      "Lisäasetukset › Verkko."
+    ],
+    "google-inside": [
+      "Google toimii edelleen",
+      "Google Assistant, Gemini, haku ja Google-tilisi toimivat kuten ennenkin. Sofaly muuttaa aloitusnäytön, ei TV:täsi.",
+      "Käytä mikrofonipainiketta kuten aina."
+    ],
+    "motion": [
+      "TV:llesi sopivat animaatiot",
+      "Tehokkaat TV:t animoivat kaiken; yksinkertaisemmat animoivat vain valitsemasi ja hidastavat itse, kun kuvia putoaa.",
+      "Asetukset › Ulkoasu."
+    ],
+    "frame-rate": [
+      "Elokuvat ilman nykimistä",
+      "TV vaihtaa 24 Hz:iin elokuvan ajaksi, jotta kameran panoroinnit pysyvät sujuvina.",
+      "Kytkeytyy elokuvan mukana; näyttö välähtää mustana sekunnin."
+    ],
+    "wifi-check": [
+      "Internetin nopeustesti",
+      "Mittaa internetisi yhdellä napautuksella ja näyttää Wi-Fi-signaalin, viiveen ja nopeuden selkokielellä.",
+      "Asetukset › Lisäasetukset › Verkko."
+    ]
+  },
+  "plans_page": {
+    "title": "Tilaukset · Sofaly",
+    "description": "Basic, Pro ja Ultra: mitä kukin Sofaly-tilaus sisältää.",
+    "h1": "Tilaukset",
+    "lead": "Aloita Basicilla, joka on jo koko aloitusnäyttö. Myynti ei ole vielä auki: toistaiseksi kaikki on ilmaista.",
+    "price_soon": "Hinta julkaisussa",
+    "basic_who": "Sille, joka on sohvalla",
+    "pro_who": "Sille, joka pitää huolta TV:stä",
+    "ultra_who": "Kodille ja perheelle",
+    "basic_text": "Ristiaiheinen aloitusnäyttö, soitin, Kuuntele, Pelaa, herätyskello, näytönsäästäjä ja kaikki saavutettavuus.",
+    "pro_text": "Kaikki Basicista sekä puhelin, automaatiot, älykoti, viestit kaukaa, valmiit aloitusnäytön kortit ja täysi personointi.",
+    "ultra_text": "Kaikki Prosta sekä sää kolmesta mallista, täydet elokuvasivut, automaattiset tekstitykset, useita koteja ja yhdessä katsominen.",
+    "includes": "Sisältää",
+    "everything_basic": "Kaikki Basicista",
+    "everything_pro": "Kaikki Prosta"
+  },
+  "dev_page": {
+    "title": "Kehittäjät · Sofaly",
+    "description": "Tuo Android TV -sovelluksesi kortti Sofalyn aloitusnäytölle. Ei SDK:ta, ei maksua.",
+    "eyebrow": "Kehittäjäpaketti",
+    "h1": "Sovelluksesi aloitusnäytöllä, jota ihmiset oikeasti katsovat.",
+    "lead": "Sofaly-laajennus on oma Android TV -sovelluksesi. Se lähettää lyhyen kortin, ja Sofaly piirtää sen aloitusnäytölle isolla tekstillä ja kodin tyyliin.",
+    "cta_start": "Aloita mallipohjasta",
+    "cta_spec": "Lue koko sopimus",
+    "why_title": "Miksi tehdä laajennus",
+    "why": [
+      [
+        "tähti",
+        "Edessä, ei laatikossa",
+        "Korttisi on aloitusnäytöllä, jonne perhe katsoo joka kerta TV:n käynnistyessä, ei hukassa sovelluslistassa."
+      ],
+      [
+        "palapeli",
+        "Ei SDK:ta, ei maksua",
+        "Yksi ContentProvider ja yksi tietorivi. Ei meidän kirjastoamme asennettavaksi, ei maksua maksettavaksi."
+      ],
+      [
+        "sydän",
+        "Sinun sovelluksesi, sinun liiketoimintasi",
+        "Julkaise Playssa miten haluat, ilmaiseksi tai maksullisena. Sofaly vain piirtää kortin; sovellus ja asiakkaat ovat sinun."
+      ]
+    ],
+    "can_title": "Mitä voit rakentaa meidän korttiemme lisäksi",
+    "can": [
+      [
+        "Toimituksesi",
+        "Tilaus on matkalla, 12 min päässä."
+      ],
+      [
+        "Bussisi",
+        "Linja 42 saapuu 6 minuutissa."
+      ],
+      [
+        "Kuntosalisi",
+        "Päivän tunti klo 19."
+      ],
+      [
+        "Taloyhtiösi",
+        "Vesikatko huomenna klo 9–12."
+      ],
+      [
+        "Kauppasi",
+        "Päivän tarjous: kahvi −20 %."
+      ],
+      [
+        "Seurasi",
+        "Treenit siirretty lauantaille."
+      ]
+    ],
+    "steps_title": "Kaksi vaihetta",
+    "step1": "Määritä provider Sofalyn actionilla",
+    "step2": "Vastaa yhdellä rivillä: otsikko, arvo, lisätieto ja väri",
+    "rules_title": "Katsojaa suojaavat säännöt",
+    "rules": [
+      "Et koskaan piirrä aloitusnäytölle: lähetät tekstin ja värin, Sofaly piirtää.",
+      "Sofaly ei koskaan lähetä sinulle mitään henkilön sovelluksista, tileistä tai siitä, mitä hän katsoo.",
+      "Laajennukset kuuluvat Pro-tilaukseen, ja henkilö valitsee, mitkä näkyvät."
+    ],
+    "soon_title": "Tulossa pian",
+    "soon_text": "Taustalaajennukset ja laajennusesittely suoraan TV:ssä.",
+    "template_title": "Valmis mallipohja",
+    "template_text": "Kaksi esimerkkisovellusta, jotka voit rakentaa jo tänään: lähtölaskenta henkilön TV:ssä valitsemaan päivään ja päivän kuun vaihe. Ei internetiä, ei tiliä. MIT No Attribution: kopioi se, nimeä paketti uudelleen, julkaise.",
+    "demo": [
+      [
+        "Toimitus",
+        "12 min"
+      ],
+      [
+        "Bussi 42",
+        "6 min"
+      ],
+      [
+        "Kuntosali",
+        "klo 19"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Katso sitä TV:ssä",
+    "lead": "Nämä näytöt toistuvat itsestään, kuten Sofaly näyttää ja liikkuu oikeassa TV:ssä. Valitse yksi jäädäksesi siihen.",
+    "screens": {
+      "forecast": [
+        "Ennuste",
+        "Seuraavat 24 tuntia, sateen todennäköisyys ja kuu yhdellä silmäyksellä ja isoin kirjaimin.",
+        [
+          "Heikkoa tihkua",
+          "Seuraavat 24 tuntia",
+          "Sateen todennäköisyys",
+          "Nyt",
+          "Ylin 27° · alin 19° · tuntuu kuin 26°"
+        ]
+      ],
+      "screensaver": [
+        "Näytönsäästäjä",
+        "The Metin maalaus joka päivä, kello ja päivän sää. TV, jonka haluaa jättää päälle.",
+        [
+          "Hyvää iltaa",
+          "Päivän maalaus · The Met",
+          "Kasvava kuunsirppi"
+        ]
+      ],
+      "player": [
+        "Elokuvat",
+        "Dubattu tai tekstitetty yhdellä painikkeella, alkutunnus ohitettu puolestasi ja takaisin siihen, mihin jäit.",
+        [
+          "Pitkä tie kotiin",
+          "Ääni",
+          "Alkuperäinen + tekstitys",
+          "Dubattu",
+          "Ohita alkutunnus"
+        ]
+      ],
+      "radio": [
+        "Radio ja podcastit",
+        "Asemia koko maailmasta ja podcastisi koko näytön soittimella.",
+        [
+          "Nyt soi",
+          "Suora radio",
+          "Jazzia rannikolta",
+          "Aamun uutiset",
+          "Samba ja bossa",
+          "Podcast · jakso 12"
+        ]
+      ],
+      "alarm": [
+        "Herätys",
+        "TV käynnistyy itse, ääni nousee hitaasti ja päivän ennuste odottaa jo.",
+        [
+          "Hyvää huomenta",
+          "Äänenvoimakkuus nousee",
+          "Torkku · 10 min",
+          "TV käynnistyi itse"
+        ]
+      ],
+      "cards": [
+        "Aloitusnäytön kortit",
+        "Lähtölaskenta, muistutukset, kurssit, kuu ja joukkueesi seuraava ottelu suoraan aloitusnäytöllä.",
+        [
+          "12 päivää lomaan",
+          "Lääke klo 20",
+          "Autotallin kamera lakkasi vastaamasta",
+          "Seuraava ottelu",
+          "la · klo 16",
+          "Kasvava kuunsirppi",
+          "Kurssit",
+          "Lähtölaskenta",
+          "Joukkueesi × Vastustajat"
+        ]
+      ],
+      "games": [
+        "Pelit",
+        "Pilvi-, PC- ja retropelit yhdessä paikassa, verkkosi testattuna ennen pelaamista.",
+        [
+          "Ohjain yhdistetty",
+          "Verkko valmis pilvipelaamiseen",
+          "Pilvi",
+          "PC",
+          "Retro",
+          "Porukka",
+          "Pelit"
+        ]
+      ],
+      "phone": [
+        "Puhelin",
+        "Paneeli puhelimessasi: kaukosäädin, kirjoittaminen, näytön live-näkymä ja viestit, jotka ponnahtavat TV:hen.",
+        [
+          "Lähetä TV:hen",
+          "Ruoka on valmista!",
+          "Viesti puhelimesta",
+          "Kaukosäädin",
+          "Kirjoita",
+          "Näyttö",
+          "Kuvat"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "TV näkyy kohdassa Tämä tietokone kuten puhelin: vedä elokuvat ja kuvat suoraan siihen.",
+        [
+          "Tämä tietokone",
+          "Sofaly · Olohuone",
+          "Paikallinen levy",
+          "Avaa TV:n paneeli",
+          "Kopioidaan TV:hen… 68 %"
+        ]
+      ],
+      "kids": [
+        "Perhe",
+        "Lasten profiili, nukkumaanmenoaika ja ruutuaika, kaikki vanhempien PIN-koodin takana.",
+        [
+          "Nukkumaanmenoaika",
+          "Nähdään huomenna!",
+          "Vain lasten sovellukset klo 7 asti",
+          "Vanhempien PIN"
+        ]
+      ]
+    }
+  }
+}

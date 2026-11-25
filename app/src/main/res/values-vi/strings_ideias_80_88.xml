@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Idea 88: HOME without internet -->
+    <string name="si_sem_internet">Không có internet</string>
+    <string name="si_funcionam">Vẫn đang chạy: %1$s</string>
+    <string name="si_pendrive">Ổ USB</string>
+    <!-- Idea 80: "Are you still watching?" -->
+    <string name="ad_pergunta">Bạn vẫn đang xem chứ?</string>
+</resources>

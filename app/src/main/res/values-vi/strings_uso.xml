@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Como esta TV vai ser usada (degrau 2, 16/11/2026): UsoTv, BoasVindasActivity, Configurações > Sistema. -->
+<resources>
+    <string name="uso_titulo">Cách dùng TV này</string>
+    <string name="uso_det">Cơ bản ẩn Nhà và tự động hóa, Truy cập từ xa và Nâng cao. Không có gì bị tắt.</string>
+    <string name="uso_simples">Cơ bản</string>
+    <string name="uso_completo">Đầy đủ</string>
+    <string name="uso_cuida">Cho người tôi chăm sóc</string>
+    <string name="uso_pergunta">TV này sẽ được dùng thế nào?</string>
+    <string name="uso_pergunta_det">Bạn có thể đổi sau trong Cài đặt › Hệ thống.</string>
+    <string name="uso_simples_det">Chỉ những thứ cơ bản: ứng dụng, đồng hồ và thời tiết. Ít tùy chọn hơn trong Cài đặt.</string>
+    <string name="uso_completo_det">Mọi thứ: điều khiển từ điện thoại, thiết bị trong nhà, ổ mạng và tùy chọn nâng cao.</string>
+    <string name="uso_cuida_det">TV của bố mẹ hoặc ông bà: dễ dùng cho họ, và bạn giúp đỡ từ điện thoại, ở xa.</string>
+    <string name="uso_cuidar_longe">Chăm sóc từ xa</string>
+    <string name="uso_cuidar_longe_det">Tắt cho đến khi người sống ở đó đồng ý trên TV.</string>
+    <string name="uso_cartoes">Thẻ lớn trên màn hình chính</string>
+    <string name="uso_cartoes_det">Vài ứng dụng lớn, đọc to tên và nút \"Nhờ giúp đỡ\". Tắt cần PIN.</string>
+    <string name="uso_trocar_det">Hiện tại: %1$s. OK để chọn lại.</string>
+</resources>

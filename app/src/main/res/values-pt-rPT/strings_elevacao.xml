@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Reproduz qualquer ficheiro; legendas certas sem mexer</string>
     <string name="elv_prom_casa">O despertador toca na hora, todas as vezes</string>
     <string name="elv_prom_controle">Painel, telemóvel e IA fazem tudo o que o comando faz</string>
-    <string name="elv_prom_todos">Idosos, crianças, visitas, quem vê ou ouve mal; 14 línguas</string>
+    <string name="elv_prom_todos">Idosos, crianças, visitas, quem vê ou ouve mal; %1$d línguas</string>
     <string name="elv_prom_instala">Da primeira abertura ao primeiro canal em 5 minutos</string>
     <string name="elv_nao_medido">Ainda não medido</string>
     <string name="elv_alvo">alvo %1$s</string>

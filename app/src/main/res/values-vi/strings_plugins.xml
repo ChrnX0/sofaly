@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Plugins de terceiros na HOME (degrau 3, PluginsTv.kt) -->
+<resources>
+    <string name="plg_titulo">Plugin</string>
+    <string name="plg_nenhum">Chưa cài plugin thẻ nào. Plugin thẻ là ứng dụng của nhà phát triển khác hiển thị một thẻ ở đây, như tỷ số trận đấu hay giá cả.</string>
+    <string name="plg_ligado">Bật</string>
+    <string name="plg_desligado">Tắt</string>
+    <string name="plg_limite">Tối đa %1$d plugin cùng lúc. Hãy tắt một plugin trước.</string>
+    <string name="plg_seguranca">Nếu một plugin được cập nhật với chữ ký khác, nó sẽ bị tắt cho đến khi bạn cho phép lại.</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As 3 formas de "Todos os apps", pastas e ordem (AllAppsLayout/AppFolders, 22/11/2026). -->
+<resources>
+    <string name="aa_layout_titulo">Màn hình tất cả ứng dụng</string>
+    <string name="aa_layout_shelves">Kệ</string>
+    <string name="aa_layout_folders">Thư mục và kênh</string>
+    <string name="aa_layout_library">Thư viện</string>
+    <string name="aa_favoritos">Yêu thích</string>
+    <string name="aa_pastas">Thư mục</string>
+    <string name="aa_nova_pasta">Thư mục mới</string>
+    <string name="aa_por_na_pasta">Thêm vào thư mục…</string>
+    <string name="aa_tirar_da_pasta">Xóa khỏi thư mục này</string>
+    <string name="aa_renomear_pasta">Đổi tên thư mục</string>
+    <string name="aa_apagar_pasta">Xóa thư mục</string>
+    <string name="aa_fixar_cruz">Hiện trên màn hình chính</string>
+    <string name="aa_soltar_cruz">Xóa khỏi màn hình chính</string>
+    <string name="aa_ordenar">Sắp xếp tất cả ứng dụng</string>
+    <string name="aa_f_tudo">Tất cả</string>
+    <string name="aa_f_uso">Dùng nhiều nhất</string>
+    <string name="aa_f_novos">Mới</string>
+    <string name="aa_canais">Đang chiếu trên %1$s</string>
+    <string name="aa_hint_folder">OK để mở · giữ OK để xem tùy chọn</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Clock and family (study ideas 30 to 34, 14/11/2026), in its own file to avoid conflicts with open PRs. -->
+<resources>
+    <string name="fam_pin">PIN สำหรับเด็ก</string>
+    <string name="fam_pin_det">PIN ที่สองเพื่อปลดล็อกช่อง หมวดหมู่ที่ซ่อน และเวลาเข้านอนต่อหน้าเด็ก PIN ของแผงควบคุมยังใช้ได้ทุกที่</string>
+    <string name="fam_pin_ok">บันทึก PIN สำหรับเด็กแล้ว</string>
+    <string name="fam_pin_igual">PIN สำหรับเด็กต้องไม่เหมือนกับ PIN ของแผงควบคุม</string>
+    <string name="fam_trocar">เปลี่ยน PIN สำหรับเด็ก</string>
+    <string name="fam_apagar">นำ PIN สำหรับเด็กออก</string>
+    <string name="fam_apagado">นำ PIN สำหรับเด็กออกแล้ว: ตอนนี้ปลดล็อกได้ด้วย PIN ของแผงควบคุมเท่านั้น</string>
+    <string name="extras_TEMPO_TELA">เวลาหน้าจอรายวัน (เมื่อหมดเวลา จะเปิดได้เฉพาะแอปที่อนุญาต)</string>
+    <string name="tela_titulo">เวลาหน้าจอ</string>
+    <string name="tela_acabou">เวลาหน้าจอของวันนี้หมดแล้ว พบกันพรุ่งนี้!</string>
+    <string name="tela_5min">เวลาหน้าจอวันนี้เหลือ 5 นาที</string>
+    <string name="tela_pin">PIN เพื่อเปลี่ยนเวลาหน้าจอ</string>
+    <string name="tela_cota_linha">เวลาหน้าจอต่อวัน: %1$s (เหลือวันนี้: %2$s)</string>
+    <string name="tela_mais">ให้เพิ่มอีก %1$d นาทีวันนี้</string>
+    <string name="tela_mais_ok">เพิ่มอีก %1$d นาทีสำหรับวันนี้</string>
+    <string name="tela_h">ชม.</string>
+    <string name="tela_min">นาที</string>
+    <string name="extras_AGENDA_TODAS">ปฏิทินของบัญชี Google ทั้งหมดในทีวีรวมกัน</string>
+    <string name="cal_todas_contas">ทุกบัญชีในทีวี (%1$d)</string>
+    <string name="tm_tempo_esgotado">หมดเวลาแล้ว</string>
+    <string name="painel_desligado_pin">ปิดแผงควบคุมเว็บแล้ว: ใส่ PIN ผิดหลายครั้งเกินไป</string>
+    <string name="tm_crono">นาฬิกาจับเวลา</string>
+    <string name="tm_crono_iniciar">เริ่มนาฬิกาจับเวลา</string>
+    <string name="tm_crono_parar">หยุดนาฬิกาจับเวลา</string>
+    <string name="tm_crono_comecou">เริ่มนาฬิกาจับเวลาแล้ว: แสดงบนหน้าจอหลัก</string>
+    <string name="tm_crono_marcou">นาฬิกาจับเวลาหยุดที่ %1$s</string>
+    <string name="som_canal">ช่องทีวีสดล่าสุด</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
+<resources>
+    <string name="vpr_titulo">รูปลักษณ์สำเร็จรูป</string>
+    <string name="vpr_det">กด OK แต่ละครั้งเพื่อเปลี่ยนเป็นรูปลักษณ์ถัดไป: ธีม ตัวอักษร และสีพื้นหลังพร้อมกัน</string>
+    <string name="vpr_meu">ของคุณเอง</string>
+    <string name="vpr_classico">คลาสสิก</string>
+    <string name="vpr_leitura">อ่านง่าย</string>
+    <string name="vpr_galeria">แกลเลอรี</string>
+    <string name="vpr_galeria_grande">แกลเลอรีใหญ่</string>
+    <string name="vpr_cores">สีของแอป</string>
+</resources>

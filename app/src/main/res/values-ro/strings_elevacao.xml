@@ -16,7 +16,7 @@
     <string name="elv_prom_player">Redă orice fișier; subtitrările potrivite fără bătăi de cap</string>
     <string name="elv_prom_casa">Alarma sună la timp, de fiecare dată</string>
     <string name="elv_prom_controle">Panoul, telefonul și IA fac tot ce face telecomanda</string>
-    <string name="elv_prom_todos">Vârstnici, copii, invitați, vedere sau auz slab; 14 limbi</string>
+    <string name="elv_prom_todos">Vârstnici, copii, invitați, vedere sau auz slab; %1$d limbi</string>
     <string name="elv_prom_instala">De la prima pornire la primul canal în 5 minute</string>
     <string name="elv_nao_medido">Încă nemăsurat</string>
     <string name="elv_alvo">țintă %1$s</string>

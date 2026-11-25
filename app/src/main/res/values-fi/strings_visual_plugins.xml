@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">Pikapaneelin painikkeet</string>
     <string name="ext_nenhum_botao">Muiden sovellusten painikkeita ei vielä ole. Jotkin sovellukset lisäävät pikapaneeliin päälle/pois-painikkeen (pidä TAKAISIN painettuna).</string>
     <string name="ext_off_blocked">Sofaly poisti käytöstä: tässä laajennuksessa on tunnettu ongelma.</string>
+    <string name="ext_secao_widgets">Muiden sovellusten widgetit</string>
+    <string name="ext_widget_nenhum">Tämän television sovelluksilla ei ole vielä widgettejä.</string>
+    <string name="ext_widget_sem_permissao">Televisio ei antanut Sofalyn lisätä widgettejä.</string>
+    <string name="ext_widget_falhou">Widgetin lisääminen ei onnistunut.</string>
 </resources>

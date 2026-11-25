@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Trakt/Simkl sync and outside lists (movie services, part 3). Portuguese in values-pt. -->
+<resources>
+    <string name="sync_sub">ลงชื่อเข้าใช้เป็น %1$s สิ่งที่ทีวีซิงค์กับโทรศัพท์ของคุณ</string>
+    <string name="sync_sub_mdblist">ลงชื่อเข้าใช้เป็น %1$s ลิสต์ MDBList ของคุณแสดงในแคตตาล็อกได้</string>
+    <string name="sync_ultima">ซิงค์ล่าสุด: %1$s</string>
+    <string name="sync_nunca">ยังไม่ได้ซิงค์</string>
+    <string name="sync_interesses">ความสนใจ ⇄ Watchlist</string>
+    <string name="sync_interesses_simkl">ความสนใจ ⇄ Plan to watch</string>
+    <string name="sync_interesses_det">สิ่งที่คุณทำเครื่องหมายที่นี่จะแสดงที่นั่น และในทางกลับกัน</string>
+    <string name="sync_assistidos">ดูแล้ว ← History</string>
+    <string name="sync_assistidos_det">นำสิ่งที่คุณดูแล้วบนโทรศัพท์หรือที่อื่นเข้ามา</string>
+    <string name="sync_continuar">ดูต่อ ⇄ จุดที่คุณหยุด</string>
+    <string name="sync_continuar_det">หยุดบนโทรศัพท์ ดูต่อบนทีวีที่จุดเดียวกัน</string>
+    <string name="sync_contar">บอก %1$s ว่าฉันดูอะไรที่นี่</string>
+    <string name="sync_contar_det">ส่ง “กำลังดู” และ “ดูแล้ว” ขณะเล่น ไม่ส่งในโหมดผู้เข้าพักหรือโปรไฟล์เด็ก</string>
+    <string name="sync_listas">ลิสต์ในแคตตาล็อก</string>
+    <string name="sync_listas_nenhuma">ยังไม่ได้เลือก</string>
+    <string name="sync_listas_n">เลือกแล้ว %1$d: %2$s</string>
+    <string name="sync_listas_sub">จะแสดงใน ลิสต์ ใต้ทั้งหมด โดยมีเฉพาะเรื่องที่อยู่ในรายการของคุณ สูงสุด %1$d</string>
+    <string name="sync_listas_carregando">กำลังโหลดลิสต์ของคุณ…</string>
+    <string name="sync_listas_vazio">ไม่พบลิสต์ สร้างหรือกดถูกใจลิสต์ใน Trakt หรือ MDBList แล้วกลับมาที่นี่</string>
+    <string name="sync_listas_cheio">สูงสุด %1$d ลิสต์</string>
+    <string name="sync_lista_itens">%1$d เรื่อง</string>
+    <string name="sync_agora">ซิงค์ตอนนี้</string>
+    <string name="sync_agora_det">จะซิงค์เองด้วยเมื่อคุณเปิดภาพยนตร์หรือซีรีส์</string>
+    <string name="sync_rodando">กำลังซิงค์…</string>
+    <string name="sync_feito">ซิงค์แล้ว</string>
+    <string name="sync_sair">ออกจากระบบ %1$s</string>
+    <string name="sync_bloqueado">หยุดชั่วคราว: โหมดผู้เข้าพักหรือโปรไฟล์เด็กเปิดอยู่</string>
+    <string name="sync_outro_perfil">หยุดชั่วคราว: การซิงค์เป็นของโปรไฟล์อื่น</string>
+    <string name="sync_trakt_cheia">ลิสต์ Trakt ของคุณเต็มแล้ว (บัญชีฟรีเก็บได้ 100) Launcher จะทำต่อบนทีวีเท่านั้น</string>
+    <string name="sync_ligado">เปิด</string>
+    <string name="sync_desligado">ปิด</string>
+    <string name="sync_fonte_trakt">ข้อมูลจาก Trakt (trakt.tv)</string>
+    <string name="sync_fonte_simkl">ข้อมูลจาก Simkl (simkl.com)</string>
+    <string name="sync_n_de">%1$d จาก %2$d อยู่ในรายการของคุณ</string>
+    <string name="sync_continuando">กำลังดูต่อจากจุดที่คุณหยุดบนอุปกรณ์อื่น</string>
+</resources>

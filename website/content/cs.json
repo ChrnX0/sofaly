@@ -1,0 +1,992 @@
+{
+  "lang": "cs",
+  "path": "cs",
+  "label": "Čeština",
+  "ui": {
+    "nav_features": "Funkce",
+    "nav_plans": "Tarify",
+    "nav_developers": "Vývojáři",
+    "nav_help": "Nápověda",
+    "cta_get": "Brzy na Google Play",
+    "cta_see": "Podívejte se, co všechno umí",
+    "plan_basic": "Basic",
+    "plan_pro": "Pro",
+    "plan_ultra": "Ultra",
+    "plan_from": "od",
+    "how": "Jak",
+    "skip": "Přeskočit na obsah",
+    "language": "Jazyk",
+    "back_top": "Zpět nahoru",
+    "footer_tagline": "Domovská obrazovka pro Google TV a Android TV.",
+    "footer_privacy": "Soukromí",
+    "footer_terms": "Podmínky",
+    "footer_compat": "Funguje na vašem zařízení?",
+    "footer_trademark": "Sofaly není přidružena ke společnosti Google. Google TV, Android TV a Chromecast jsou ochranné známky Google LLC.",
+    "of": "z"
+  },
+  "home": {
+    "title": "Sofaly · Vaše TV, zase jednoduchá",
+    "description": "Sofaly je domovská obrazovka pro Google TV a Android TV: vše uspořádané do kříže (Sledovat, Poslouchat, Hrát, Aplikace), velké písmo a žádné reklamy.",
+    "eyebrow": "Domovská obrazovka pro Google TV a Android TV",
+    "h1": "Vaše TV, zase jednoduchá.",
+    "lead": "Sofaly nahradí domovskou obrazovku vaší TV přehledným křížem: Sledovat, Poslouchat, Hrát a Aplikace, velkým písmem a bez reklam. Navíc se stará o domácnost, budí vás a mluví s vaším telefonem.",
+    "hero_note": "Žádný účet, žádné reklamy, žádné sledování toho, na co se díváte.",
+    "cross_title": "Jedna obrazovka, čtyři směry",
+    "cross_lead": "◀ ▶ vyberte svět. ▲ ▼ procházejte jeho obsah. To je vše a naučí se to každý doma za minutu.",
+    "worlds": {
+      "continue": [
+        "Pokračovat",
+        "Zpět tam, kde jste skončili: epizoda, rozhlasová stanice, podcast nebo aplikace."
+      ],
+      "watch": [
+        "Sledovat",
+        "Vaše video aplikace, filmy z počítače nebo USB disku a přehrávač, který přehraje všechno."
+      ],
+      "listen": [
+        "Poslouchat",
+        "Rozhlasové stanice z celého světa a podcasty, s přehrávačem přes celou obrazovku a časovačem spánku."
+      ],
+      "play": [
+        "Hrát",
+        "Cloudové, PC a retro hry na jednom místě, s již spárovaným ovladačem."
+      ],
+      "apps": [
+        "Aplikace",
+        "8 nejpoužívanějších vepředu a všechny ostatní na jedno kliknutí."
+      ]
+    },
+    "mock": {
+      "weather": "25° · Polojasno",
+      "day": "Středa",
+      "date": "18. listopadu",
+      "watch_items": [
+        "Filmy",
+        "Seriály",
+        "V síti",
+        "YouTube"
+      ],
+      "watch_title": "V síti",
+      "watch_detail": "Filmy z počítače · 214 titulů",
+      "listen_items": [
+        "Rádio",
+        "Podcasty",
+        "Právě hraje"
+      ],
+      "listen_title": "Rádio",
+      "listen_detail": "Stanice z celého světa, podle názvu nebo země",
+      "play_items": [
+        "Cloud",
+        "Z PC",
+        "Retro",
+        "Parta"
+      ],
+      "play_title": "Hry",
+      "play_detail": "3 cloudové hry · ovladač připojen",
+      "apps_items": [
+        "YouTube",
+        "Netflix",
+        "Prime Video",
+        "Všechny aplikace"
+      ],
+      "apps_title": "Aplikace",
+      "apps_detail": "8 nejpoužívanějších",
+      "continue_items": [
+        "Epizoda 4",
+        "Rádio",
+        "Podcast"
+      ],
+      "continue_title": "Pokračovat",
+      "continue_detail": "Zastaveno u epizody 4 · zbývá 21 min"
+    },
+    "why_title": "Proč vyměnit domovskou obrazovku Google",
+    "why_lead": "Domovská obrazovka, se kterou TV přišla, byla navržena, aby prodávala. Sofaly vznikla, aby ji vaše rodina používala.",
+    "why_rows": [
+      [
+        "Reklamy na domovské obrazovce",
+        "Ano: sponzorované tipy a reklamy",
+        "Nikdy"
+      ],
+      [
+        "Velké písmo na každé obrazovce",
+        "Ne",
+        "Normální, Velké nebo Větší"
+      ],
+      [
+        "Budík, který zapne TV",
+        "Ne",
+        "Zapne se, pomalu zesílí a popřeje dobré ráno"
+      ],
+      [
+        "Rádio a podcasty na domovské obrazovce",
+        "Jen přes aplikace",
+        "Ve vlastním světě, Poslouchat"
+      ],
+      [
+        "Filmy z počítače nebo NAS",
+        "Jen přes aplikace",
+        "V síti, s plakáty a pokračováním"
+      ],
+      [
+        "Ovládání z jakéhokoli telefonu doma",
+        "Základní ovladač",
+        "Plnohodnotný panel chráněný PIN"
+      ],
+      [
+        "Dětský profil a večerka",
+        "Omezené",
+        "Povolené aplikace, strop hlasitosti a PIN pro odchod"
+      ],
+      [
+        "Záloha vašeho nastavení",
+        "Ne",
+        "Každou noc, zamčená heslem"
+      ]
+    ],
+    "why_head": [
+      "",
+      "Domovská obrazovka Google TV",
+      "Sofaly"
+    ],
+    "why_source": "Reklamy na domovské obrazovce Google TV: Android Authority, duben 2026.",
+    "highlights_title": "Pro celou domácnost",
+    "highlights": [
+      [
+        "přístupnost",
+        "I pro babičku a dědu",
+        "Velké písmo, jednoduchý režim, který vysloví název aplikace, vysoký kontrast a čtečka obrazovky. V 27 jazycích."
+      ],
+      [
+        "budík",
+        "Vstává s vámi",
+        "Budík sám zapne TV, pomalu zesílí a otevře Dobré ráno: čas, počasí a program dne."
+      ],
+      [
+        "domov",
+        "Stará se o domácnost",
+        "Světla, scény a zvonek z Home Assistantu na TV. Usne, když všichni odejdou."
+      ],
+      [
+        "telefon",
+        "Mluví s vaším telefonem",
+        "Ovládejte, pište a posílejte zprávy z jakéhokoli telefonu nebo počítače doma, chráněno PIN."
+      ],
+      [
+        "slunce",
+        "Počasí, které sedí",
+        "Aktuální počasí pochází z nejbližšího letiště: naměřené, ne odhadnuté. Předpověď na 9 dní jedním OK."
+      ],
+      [
+        "zámek",
+        "Stará se sama o sebe",
+        "Každou noc zamčená záloha, údržba, zatímco spíte, a diagnostika, která vysvětlí, co se pokazilo."
+      ]
+    ],
+    "chapters_title": "Vše, co umí, uspořádané stejně jako ona sama",
+    "chapters_lead": "Přes 80 funkcí. Vyberte svět a uvidíte vysvětlení každé z nich.",
+    "privacy_title": "Co je vaše, zůstává doma",
+    "privacy_text": "Sofaly nežádá žádný účet, nezobrazuje reklamy a nesleduje, na co se díváte. Nastavení, fotky, zprávy a zálohy zůstávají na TV, nebo na vašem účtu, pokud nějaký připojíte. TV komunikuje jen se službami, které zapnete, a zásady ochrany soukromí uvádějí každou z nich.",
+    "privacy_link": "Přečíst zásady ochrany soukromí",
+    "dev_title": "Máte aplikaci? Dejte ji na domovskou obrazovku.",
+    "dev_text": "Sofaly už má hotové karty (Měsíc, kurzy, odpočet, připomínka). Plugin je vaše vlastní aplikace pro Android TV, která na domovskou obrazovku pošle kartu navíc: doručovanou objednávku, přijíždějící autobus, oznámení od správy domu. Žádné SDK, žádný poplatek a aplikace zůstává vaše.",
+    "dev_link": "Seznamte se se sadou pro vývojáře",
+    "plans_title": "Začněte zdarma. Rozšiřte, až budete chtít.",
+    "plans_text": "Basic už obsahuje celou domovskou obrazovku, přehrávač, Poslouchat, Hrát, budík a spořič obrazovky. Pro a Ultra přidávají telefon, domácnost a rodinu.",
+    "plans_link": "Porovnat tarify",
+    "faq_title": "Rychlé otázky",
+    "faq": [
+      [
+        "Funguje na mé TV?",
+        "Funguje na Google TV a Android TV, například na Chromecastu s Google TV, televizorech s Google TV a boxech s Android TV. Stránka kompatibility uvádí otestovaná zařízení."
+      ],
+      [
+        "Potřebuji k instalaci počítač?",
+        "Ne. Nainstalujte ji z Google Play přímo na TV a postupujte podle kroků ovladačem."
+      ],
+      [
+        "Zůstanou mi aplikace?",
+        "Všechny. Sofaly nahrazuje jen domovskou obrazovku: Netflix, YouTube, Prime Video a ostatní se otevírají jako vždy a tlačítko mikrofonu je dál Asistent Google."
+      ],
+      [
+        "Jsou tam reklamy?",
+        "Ne, ani v bezplatném tarifu. Sofaly neprodává reklamy a nesleduje, na co se díváte."
+      ],
+      [
+        "Obsahuje kanály nebo filmy?",
+        "Ne. Sofaly uspořádá to, co už máte: vaše aplikace, vaše soubory a otevřené rozhlasové stanice a podcasty."
+      ],
+      [
+        "Co když budu chtít domovskou obrazovku Google zpět?",
+        "Stačí v nastavení TV znovu vybrat domovskou obrazovku Google. Nic vašeho se nesmaže."
+      ]
+    ],
+    "final_title": "Vaše TV, zase jednoduchá.",
+    "final_text": "Nainstalujte, stiskněte HOME a celá domácnost to pochopí."
+  },
+  "features_page": {
+    "title": "Vše, co Sofaly umí",
+    "description": "Každá funkce Sofaly vysvětlená: domovská obrazovka ve tvaru kříže, Sledovat, Poslouchat, Hrát, domácnost, počasí, rodina, telefon a soukromí.",
+    "h1": "Vše, co Sofaly umí",
+    "lead": "Uspořádáno stejně jako obrazovka TV: jeden svět po druhém. Štítek každé funkce říká, od kterého tarifu je k dispozici.",
+    "index": "Světy"
+  },
+  "chapters": {
+    "home": [
+      "Kříž",
+      "Přehledná obrazovka, které rozumí každý, uspořádaná podle vás."
+    ],
+    "watch": [
+      "Sledovat",
+      "Vaše filmy, seriály a přehrávač jako v domácím kině."
+    ],
+    "listen": [
+      "Poslouchat",
+      "Rádio a podcasty se stejnou péčí jako video."
+    ],
+    "play": [
+      "Hrát",
+      "Všechny vaše hry na jednom místě, připravené na ovladač."
+    ],
+    "apps": [
+      "Aplikace",
+      "Vaše aplikace v pořadí, které dává smysl."
+    ],
+    "house": [
+      "Domácnost",
+      "Budík, časovače, automatizace a chytrá domácnost."
+    ],
+    "sky": [
+      "Počasí a spořič obrazovky",
+      "Správné počasí a spořič, který stojí za to nechat běžet."
+    ],
+    "family": [
+      "Rodina",
+      "Profil pro každého, péče o děti a vřelé přivítání pro hosty."
+    ],
+    "phone": [
+      "Telefon a počítač",
+      "TV mluví se zařízeními v domácnosti."
+    ],
+    "care": [
+      "Stará se sama o sebe",
+      "Zálohy, údržba a diagnostika, aniž byste na to museli myslet."
+    ],
+    "everyone": [
+      "Pro každého",
+      "Pro lidi, kteří vidí, slyší nebo používají ovladač různými způsoby."
+    ],
+    "privacy": [
+      "Soukromí",
+      "Žádné reklamy, žádné sledování a PIN tam, kde na tom záleží."
+    ]
+  },
+  "features": {
+    "cross": [
+      "Kříž",
+      "Pokračovat, Sledovat, Poslouchat, Hrát a Aplikace v jedné řadě. Vybraný svět se zvětší a jeho obsah je hned pod ním.",
+      "◀ ▶ přepnout svět, ▲ ▼ procházet sloupec, OK otevře."
+    ],
+    "continue": [
+      "Pokračovat",
+      "Jedno místo, kde se vrátíte k tomu, co jste dělali: epizoda, stanice, podcast nebo poslední aplikace.",
+      "Je to první položka kříže."
+    ],
+    "topbar": [
+      "Horní lišta",
+      "Hledání, hlas, počasí na jednom řádku a hodiny, vždy na stejném místě. Při procházení se složí, aby obrazovka mohla dýchat.",
+      "Dostanete se k ní pomocí ▲."
+    ],
+    "quick-panel": [
+      "Rychlý panel",
+      "Wi-Fi, Bluetooth, časovač spánku, zvukový výstup, budík, profily, upozornění a nákupní seznam, z jakékoli aplikace.",
+      "Podržte BACK."
+    ],
+    "remote": [
+      "Váš ovladač, vaše pravidla",
+      "HOME se vždy vrátí do Sofaly. Podržení BACK otevře rychlý panel, podržení HOME otevře Domácnost a podržení OK na aplikaci otevře její nabídku.",
+      "Tester kláves ukáže každé tlačítko, které TV přijme."
+    ],
+    "now-playing": [
+      "Právě hraje",
+      "Pilulka nahoře s obalem a názvem toho, co hraje. OK pozastaví nebo obnoví přehrávání, podržení OK otevře aplikaci.",
+      "Zapněte v Domovská obrazovka › Další možnosti."
+    ],
+    "themes": [
+      "Motivy a pozadí",
+      "Tmavý, s obrázkem toho, co je ve fokusu. Galerie, každý den s obrazem z The Met. Nebe, se satelitem a mapou. Nebo vlastní pozadí, fotka či video. Fungují i pozadí z pluginů, například letecké záběry z Overflight.",
+      "Tmavý, Galerie a Nebe v Basic; ostatní v Pro."
+    ],
+    "icons": [
+      "Ikony podle vašeho gusta",
+      "Použijte balíček ikon z Play nebo změňte ikonu jednotlivé aplikace, jednu po druhé.",
+      "Podržte OK na aplikaci › Změnit ikonu."
+    ],
+    "card-moon": [
+      "Fáze Měsíce",
+      "Dnešní Měsíc a jak velká část je osvětlená, spočítané přímo na TV, bez internetu.",
+      "V předpovědi, na spořiči obrazovky a v noci na ikoně počasí. Nastavení › Vzhled."
+    ],
+    "card-countdown": [
+      "Odpočet",
+      "Kolik dní zbývá do zvoleného data nebo do dalšího svátku.",
+      "V pilulce nahoře na obrazovce. Nastavení › Vzhled."
+    ],
+    "card-reminder": [
+      "Domácí připomínka",
+      "Poznámka, která se vrací ve vybrané dny v týdnu: den svozu tříděného odpadu, léky, kroužek.",
+      "V pilulce nahoře na obrazovce. Nastavení › Vzhled."
+    ],
+    "card-status": [
+      "Stav vaší služby",
+      "TV kontroluje zadanou adresu a ukazuje, jestli funguje: domácí server, web obchodu.",
+      "V pilulce nahoře na obrazovce. Nastavení › Vzhled."
+    ],
+    "card-rates": [
+      "Dnešní kurzy",
+      "Měny, bitcoin a ether v dnešní hodnotě, z otevřených oficiálních zdrojů.",
+      "Vedle počasí v horní liště. Nastavení › Vzhled."
+    ],
+    "card-match": [
+      "Další zápas vašeho týmu",
+      "Kdy a s kým váš tým hraje příště, na kartě na domovské obrazovce.",
+      "V položce TV kříže. Nastavení › Vzhled."
+    ],
+    "plugin-cards": [
+      "Karty z jiných aplikací",
+      "Kromě vlastních karet Sofaly přidávají své karty na domovskou obrazovku i partnerské aplikace: doručovanou objednávku, autobus, oznámení od správy domu.",
+      "Karty se zobrazují na konci světa Sledovat."
+    ],
+    "network-library": [
+      "Z počítače",
+      "Videa, hudba a fotky z Plexu, Jellyfinu, Emby, složek na PC nebo NAS (SMB, WebDAV, FTP, SFTP, NFS), OneDrive, Dropboxu, Boxu, Google Drive, UPnP a USB disků.",
+      "Zapnuté servery a USB disky se objeví samy; ostatní přidáte v Přidat."
+    ],
+    "player": [
+      "Přehrávač, který přehraje všechno",
+      "Zvuk Dolby (AC3, E-AC3), DTS a TrueHD a titulky z Blu-ray, DVD a anime, bez instalace Kodi nebo VLC.",
+      "Během videa stiskněte ▼: zvuk, titulky a velikost titulků."
+    ],
+    "resume": [
+      "Pokračuje, kde jste skončili",
+      "Filmy a epizody se vrátí na správné místo. Další epizoda začne po 10 sekundách a po 3 v řadě se TV zeptá, jestli se ještě díváte.",
+      "Funguje samo."
+    ],
+    "skip-intro": [
+      "Přeskočit úvod",
+      "Když je úvod seriálu známý, objeví se „Přeskočit úvod · OK“. Úvod si také můžete jednou označit a TV si ho zapamatuje.",
+      "Zapnuto hned od začátku."
+    ],
+    "audio-subtitles": [
+      "Preferovaný zvuk a titulky",
+      "Originál s titulky nebo dabing, zvoleno jednou a zapamatováno pro každý titul. Titulky z internetu, když je soubor nemá.",
+      "TV a filmy › Zvuk a titulky."
+    ],
+    "easy-viewing": [
+      "Lépe vidět i slyšet",
+      "Titulky na černém podkladu nebo žluté, „Čistší hlas“, který zvýrazní řeč, a „Vyrovnaná hlasitost“, která zkrotí hlasité filmy a zesílí tiché.",
+      "V nabídce ▼ přehrávače."
+    ],
+    "auto-subtitles": [
+      "Automatické titulky",
+      "Když nejsou titulky ve vašem jazyce, TV přeloží ty, které jsou k dispozici.",
+      "Vyberte je v nabídce titulků přehrávače."
+    ],
+    "movie-pages": [
+      "Plnohodnotné stránky filmů",
+      "Plakát, hodnocení, obsazení, trailer, věková přístupnost a filmová série na krásné stránce, velkým písmem. Včetně „Kdo je ten herec?“: fotka, postava a další role.",
+      "OK na filmu nebo seriálu."
+    ],
+    "lists": [
+      "Vaše seznamy z Traktu a Simkl",
+      "Co chcete vidět a co jste už viděli, synchronizované s vaším účtem a dalšími zařízeními.",
+      "Přihlaste se QR kódem v TV a filmy › Služby."
+    ],
+    "search": [
+      "Jedno hledání pro všechno",
+      "Najde filmy, seriály, stanice a aplikace najednou a stejné hledání přenese do YouTube, Netflixu nebo Prime Video.",
+      "V horní liště nebo hlasem."
+    ],
+    "radio": [
+      "Rádio z celého světa",
+      "Tisíce otevřených rozhlasových stanic podle názvu, země nebo žánru, s oblíbenými a naposledy přehrávanými.",
+      "Poslouchat › Rádio."
+    ],
+    "podcasts": [
+      "Podcasty",
+      "Odebírejte podle názvu, poslouchejte na TV a pokračujte v epizodě tam, kde jste skončili.",
+      "Poslouchat › Podcasty."
+    ],
+    "podcast-search": [
+      "Objevujte podcasty",
+      "Prohledejte celý otevřený katalog podcastů a podívejte se, co je populární ve vaší zemi.",
+      "Poslouchat › Podcasty › Hledat."
+    ],
+    "podcast-player": [
+      "Přehrávač přes celou obrazovku",
+      "Velký obal, kapitoly, rychlost a časovač spánku, který zastaví na konci epizody.",
+      "Poslouchat › Právě hraje › Otevřít přehrávač."
+    ],
+    "phone-sound": [
+      "Zvuk do sluchátek",
+      "Zvuk filmu jde synchronizovaně do sluchátek ve vašem telefonu, abyste mohli v noci sledovat a nikoho nevzbudili.",
+      "Nabídka ▼ přehrávače › Zvuk v telefonu."
+    ],
+    "games-hub": [
+      "Všechny vaše hry na jednom místě",
+      "GeForce NOW, Steam Link, Moonlight, PS Remote Play, RetroArch a hry z TV opustí řadu aplikací a žijí ve světě Hrát, rozdělené do skupin Cloud, Z PC, Retro a Na TV.",
+      "Podržením OK na hře změníte její skupinu."
+    ],
+    "pc-games": [
+      "Hrajte na PC v patře",
+      "TV probudí počítač přes síť, počká, až odpoví, a otevře Moonlight nebo Steam Link. Probuzení PC přes síť funguje i mimo svět Hrát, ze zkratky na domovské obrazovce.",
+      "Počítač jednou uložte ve webovém panelu."
+    ],
+    "network-test": [
+      "Otestovat síť",
+      "Řekne vám, jestli váš internet zvládne cloudové hraní, a před otevřením cloudové hry na slabé síti varuje.",
+      "Hrát › Otestovat síť."
+    ],
+    "controllers": [
+      "Herní ovladače",
+      "Spárujte ovladač bez hledání v nabídkách, nahoře uvidíte připojené a pokud chcete, připojený ovladač otevře svět Hrát.",
+      "Hrát › Spárovat ovladač."
+    ],
+    "game-mode": [
+      "Herní režim",
+      "Když je otevřená hra, spořič obrazovky, noční filtr a upozornění počkají na konec zápasu.",
+      "Zapne se sám."
+    ],
+    "crew": [
+      "Vaše parta z Discordu",
+      "Podívejte se, kdo z vašeho serveru na Discordu je online a v jaké hře, a svolejte partu přímo z TV.",
+      "Zapněte widget serveru a vložte jeho číslo."
+    ],
+    "apps-top": [
+      "Oblíbené vepředu",
+      "Aplikace ukazují 8 nejčastěji otevíraných aplikací a „Všechny aplikace“ zobrazí zbytek v mřížce.",
+      "Aplikace, v kříži."
+    ],
+    "apps-organize": [
+      "Po vašem",
+      "Přesuňte, seskupte nebo skryjte jakoukoli aplikaci. Tovární aplikace, které nepoužíváte, uhnou z cesty.",
+      "Podržte OK na aplikaci."
+    ],
+    "app-buttons": [
+      "Volná tlačítka Netflix a YouTube",
+      "Tlačítka aplikací na ovladači otevřou jakoukoli aplikaci, kterou chcete. Stisknutím otevřete, podržením na 3 sekundy změníte.",
+      "Funguje s původním ovladačem."
+    ],
+    "alarm": [
+      "Budík, který zapne TV",
+      "Včas se TV sama zapne, hlasitost pomalu stoupá a nechybí odložení. Každý budík má název, dny, zvuk a hlasitost, dokonce i aplikaci nebo poslední stanici.",
+      "Podržte BACK › Budík."
+    ],
+    "timers": [
+      "Časovače a přesýpací hodiny",
+      "Až 3 pojmenované časovače s upozorněním na obrazovce a stopky.",
+      "„Hey Google, otevři Připomeň mi za 10 minut“."
+    ],
+    "gentle-off": [
+      "Jemné vypnutí",
+      "Časovač spánku v posledních 5 minutách ztlumí obrazovku a sníží hlasitost, aby se nikdo neprobudil při vypnutí.",
+      "Dlaždice časovače v rychlém panelu."
+    ],
+    "idle-off": [
+      "Vypne se, když se nikdo nedívá",
+      "Po zvolené době bez stisku tlačítka se TV velkým písmem zeptá, jestli se ještě díváte, a pak usne.",
+      "Obrazovka a napájení › Vypnout při nečinnosti."
+    ],
+    "recipes": [
+      "Hotové recepty",
+      "Spánek, Telenovela a Zápas nastaví TV najednou (zvuk, obrazovka a upozornění). Jedno OK použije, další vrátí zpět.",
+      "Rychlý panel."
+    ],
+    "automations": [
+      "Automatizace",
+      "V daný čas, po stisku tlačítka nebo když se něco stane (film se pozastavil, všichni odešli, blíží se déšť): TV otevře aplikaci, spustí scénu nebo se vypne.",
+      "Domácnost a automatizace › Automatizace."
+    ],
+    "home-assistant": [
+      "Home Assistant na TV",
+      "Světla, zásuvky, ventilátory, žaluzie, klimatizace a scény přímo z gauče. Komunikuje s vaším serverem ve vaší síti, bez cloudu mezi tím.",
+      "Podržte HOME."
+    ],
+    "doorbell": [
+      "Kdo je u dveří",
+      "Když zazvoní zvonek, snímek z kamery vyskočí nad tím, co sledujete.",
+      "S Home Assistantem."
+    ],
+    "presence": [
+      "Usne, když všichni odejdou",
+      "S routerem UniFi TV pozná, že telefony členů domácnosti odešly, a usne.",
+      "Obrazovka a napájení › Další možnosti."
+    ],
+    "voice": [
+      "Hlasové zkratky",
+      "„Hey Google, otevři Předpověď počasí“ přečte předpověď nahlas. Stejně se otevírají Filmy, Můj domov, Nástěnka, časovače a vypnutí.",
+      "Použijte tlačítko mikrofonu."
+    ],
+    "weather-now": [
+      "Dnešní počasí, naměřené",
+      "Teplota pochází z hlášení nejbližšího letiště a ikona dne a noci se řídí východem a západem slunce v místě TV.",
+      "Nahoře na domovské obrazovce."
+    ],
+    "weather-3": [
+      "Déšť ze tří modelů",
+      "Pravděpodobnost deště je medián tří meteorologických modelů (ECMWF, ICON a GFS), který se mýlí méně než kterýkoli z nich zvlášť.",
+      "Zobrazí se v předpovědi samo."
+    ],
+    "forecast": [
+      "Předpověď přes celou obrazovku",
+      "Příštích 24 hodin, graf srážek, 9 dní, kvalita ovzduší, Slunce a Měsíc.",
+      "OK na počasí."
+    ],
+    "rain-alert": [
+      "Upozornění na déšť",
+      "Upozornění nad vaší aplikací, když má začít pršet. Čas sundat prádlo.",
+      "Domovská obrazovka › Počasí."
+    ],
+    "screensaver": [
+      "Spořič, který stojí za to nechat běžet",
+      "Pozdrav, velké hodiny, datum, počasí a karty s upozorněními, dalším budíkem a zprávami. V motivu Galerie se obraz dne pomalu posouvá, aby se nic nevypálilo.",
+      "Obrazovka a napájení › Spořič obrazovky."
+    ],
+    "photos": [
+      "Vaše fotky na spořiči obrazovky",
+      "Pošlete fotky z telefonu nebo vyberte síťovou složku. Zůstávají ve složce, kterou vidí jen TV.",
+      "QR kód otevře panel na správné stránce."
+    ],
+    "good-morning": [
+      "Dobré ráno",
+      "Když vypnete budík: pozdrav, čas, předpověď a dnešní program, a TV to může přečíst nahlas.",
+      "„Hey Google, otevři Dobré ráno“."
+    ],
+    "calendar": [
+      "Kalendář Google",
+      "Dnešní události a narozeniny na TV, z jednoho účtu nebo ze všech dohromady.",
+      "OK na datu nahoře."
+    ],
+    "night-filter": [
+      "Noční filtr",
+      "V noci je obrazovka teplejší a šetrnější k očím.",
+      "Obrazovka a napájení › Další možnosti."
+    ],
+    "recap": [
+      "Týdenní shrnutí",
+      "V neděli večer karta s časem u obrazovky podle aplikací, spotřebou internetu a výpadky sítě.",
+      "Obrazovka a napájení › Další možnosti."
+    ],
+    "profiles": [
+      "Profil pro každého",
+      "Každý účet Google na TV má vlastní oblíbené, rozkoukané a pořadí aplikací.",
+      "Podržte BACK › Profily."
+    ],
+    "kid-profile": [
+      "Dětský profil",
+      "Označte profil jako dětský: dětský režim a večerka se zapnou samy a odchod vyžaduje rodičovský PIN.",
+      "Rychlý panel › Profily."
+    ],
+    "bedtime": [
+      "Večerka",
+      "V hodinách, které zvolíte, se otevírají jen povolené aplikace a hlasitost má strop.",
+      "Rodina › Další možnosti."
+    ],
+    "screen-time": [
+      "Denní čas u obrazovky",
+      "Denní limit pro TV pro toho, koho vyberete.",
+      "Rodina › Další možnosti."
+    ],
+    "guest": [
+      "Režim hosta",
+      "Skryje váš profil, kalendář a vybrané aplikace, když máte návštěvu.",
+      "Dlaždice hosta v rychlém panelu."
+    ],
+    "guest-wifi": [
+      "Wi-Fi pro hosty",
+      "Heslo zadáte jednou; hosté naskenují QR kód na TV a jsou připojení.",
+      "Rodina › Wi-Fi pro hosty."
+    ],
+    "family-board": [
+      "Rodinná nástěnka",
+      "Nákupní seznam, připnuté poznámky a dnešní narozeniny v rychlém panelu a na spořiči obrazovky.",
+      "Upravujte z telefonu; OK položku odškrtne."
+    ],
+    "family-link": [
+      "Zprávy z dálky",
+      "Rodina, která žije daleko, posílá zprávy a fotky na TV doma odkudkoli.",
+      "Pozvánka odkazem."
+    ],
+    "video-message": [
+      "Videozprávy",
+      "Krátké video od rodiny se objeví na TV se jménem odesílatele.",
+      "Z panelu v telefonu."
+    ],
+    "web-panel": [
+      "Panel v telefonu a počítači",
+      "Ovladač, psaní s diakritikou, živý náhled obrazovky TV, fotky spořiče, nástěnka a zálohy z prohlížeče jakéhokoli zařízení doma.",
+      "Vzdálený přístup › Přihlásit se z telefonu (QR)."
+    ],
+    "ask-tv": [
+      "Zeptejte se TV",
+      "Napište nebo řekněte „otevři YouTube“, „připomeň mi za 7 minut“, „vypni se za 30 minut“ a TV to udělá.",
+      "V panelu v telefonu."
+    ],
+    "share": [
+      "Sdílení z telefonu",
+      "Panel nainstalovaný jako aplikace se objeví ve Sdílet: video z YouTube se otevře na TV, odkaz se otevře na TV a z textu se stane zpráva.",
+      "Sdílet › Sofaly."
+    ],
+    "network-drive": [
+      "TV jako síťový disk",
+      "Kopírujte soubory do TV přetažením: ve Windows se objeví v Tento počítač jako telefon; na Macu, Linuxu a telefonech přes zabezpečený WebDAV.",
+      "Vzdálený přístup › Zobrazit jako síťový disk."
+    ],
+    "windows": [
+      "Zkratka ve Windows",
+      "TV se objeví v Síti v Průzkumníku se zkratkou, která otevře panel, i když se změní její IP.",
+      "Zapnuto vždy, když je zapnutý panel."
+    ],
+    "continue-tv": [
+      "Pokračujte na jiné TV",
+      "Zastavili jste v obýváku? Pošlete to do ložnice: druhá TV ukáže „Pokračovat, kde jste skončili?“ a otevře se na stejném místě.",
+      "Nabídka přehrávače › Poslat na jinou TV."
+    ],
+    "together": [
+      "Sledujte spolu",
+      "Dvě domácnosti sledují totéž ve stejnou chvíli: pozastavíte tady, pozastaví se i tam, s reakcemi v rohu.",
+      "Pozvánka mezi rodinnými TV."
+    ],
+    "homes": [
+      "Více domácností",
+      "Starejte se o TV u vás i u rodičů ze stejného telefonu.",
+      "Z aplikace v telefonu."
+    ],
+    "backup": [
+      "Zamčená záloha, každou noc",
+      "Když TV nic nedělá, vytvoří úplnou zálohu zamčenou vaším heslem. Uchovává se posledních 7 a každou noc TV ověří, že by šla obnovit.",
+      "Systém › Automatická záloha."
+    ],
+    "cloud-backup": [
+      "Kopie v cloudu",
+      "Kopie jdou také na váš Google Drive, OneDrive, Dropbox, Box, NAS nebo USB disk. Zamčené: nepřečte je ani cloud.",
+      "Systém › Automatická záloha."
+    ],
+    "maintenance": [
+      "Noční údržba",
+      "Uklidí zbytky, opraví oprávnění a znovu naplánuje budíky, zatímco spíte.",
+      "Běží sama."
+    ],
+    "diagnose": [
+      "Diagnostika TV",
+      "Internet, DNS a proč aplikace přestala fungovat, vše najednou a srozumitelnými větami.",
+      "„Hey Google, otevři Diagnostika TV“."
+    ],
+    "scoreboard": [
+      "Jak se této TV daří",
+      "TV měří vlastní čísla (čas otevření, pády, budíky včas) a ukazuje je na jedné obrazovce. Nic neopouští váš domov.",
+      "Systém › Jak se této TV daří."
+    ],
+    "safe-mode": [
+      "Nouzový režim",
+      "Pokud se nová verze hned po instalaci chová špatně, TV přejde do nouzového režimu a ukáže cestu ven.",
+      "Objeví se jen v případě potřeby."
+    ],
+    "whats-new": [
+      "Co je nového",
+      "Každá verze vysvětlí, co se změnilo, a přinese krátký kontrolní seznam k vyzkoušení ovladačem.",
+      "Systém › Co je nového."
+    ],
+    "report": [
+      "Nahlásit problém",
+      "Popište, co se stalo, ovladačem nebo z telefonu; TV shromáždí potřebné, nic osobního.",
+      "Systém › Nahlásit problém."
+    ],
+    "languages": [
+      "27 jazyků",
+      "Portugalština, angličtina, španělština, francouzština, němčina, italština, ruština, polština, turečtina, japonština, čínština, korejština, hindština, indonéština a arabština, s obrazovkami zprava doleva. Dále nizozemština, švédština, dánština, norština, finština, čeština, řečtina, maďarština, rumunština, ukrajinština, vietnamština a thajština. Řídí se jazykem TV.",
+      "Mění se s TV sama."
+    ],
+    "text-size": [
+      "Velikost textu",
+      "Normální, Velké nebo Větší na každé obrazovce, otestováno tak, aby se text nikdy neořízl ani nepřekrýval.",
+      "Domovská obrazovka › Velikost textu."
+    ],
+    "simple-mode": [
+      "Jednoduchý režim",
+      "Velké karty, méně věcí na obrazovce a název aplikace vyslovený nahlas. Pro lidi, kterým ovladač dělá potíže.",
+      "Domovská obrazovka › Další možnosti."
+    ],
+    "read-aloud": [
+      "Čtení nahlas",
+      "TV řekne, co je ve fokusu, a zvuky navigace vám dají vědět, kde jste.",
+      "Domovská obrazovka › Další možnosti."
+    ],
+    "contrast": [
+      "Vysoký kontrast",
+      "Text s kontrastním poměrem 7:1 a každá obrazovka čitelná čtečkou obrazovky Androidu.",
+      "Řídí se nastavením přístupnosti TV."
+    ],
+    "no-ads": [
+      "Vůbec žádné reklamy",
+      "Ani v bezplatném tarifu, ani jeden sponzorovaný tip. Obrazovka je vaše.",
+      "Vždy."
+    ],
+    "no-tracking": [
+      "Žádné sledování",
+      "Žádný účet, žádná analytika používání a žádné hlášení o pádu, které by odešlo, aniž byste ho poslali.",
+      "Vždy."
+    ],
+    "pin": [
+      "PIN tam, kde na tom záleží",
+      "Vše, co mění TV, vyžaduje PIN, a akce, které něco mažou, se ptají znovu. Příliš mnoho špatných pokusů? Čekání se pokaždé prodlouží.",
+      "Vzdálený přístup › PIN."
+    ],
+    "private-dns": [
+      "Soukromé DNS",
+      "Zvolte bezpečné DNS (DNS over TLS); pokud neodpovídá, TV se sama vrátí k předchozímu.",
+      "Pokročilé › Síť."
+    ],
+    "usage": [
+      "Internet podle aplikací",
+      "Kolik internetu která aplikace spotřebovala a s kým komunikovala, uchováno na TV 7 dní.",
+      "Pokročilé › Síť."
+    ],
+    "google-inside": [
+      "Google funguje dál",
+      "Asistent Google, Gemini, vyhledávání a váš účet Google fungují jako dřív. Sofaly mění domovskou obrazovku, ne vaši TV.",
+      "Používejte tlačítko mikrofonu jako vždy."
+    ],
+    "motion": [
+      "Animace na míru vaší TV",
+      "Výkonné TV animují vše; jednodušší animují jen to, co jste vybrali, a samy zpomalí, když ubývají snímky.",
+      "Nastavení › Vzhled."
+    ],
+    "frame-rate": [
+      "Filmy bez trhání",
+      "Během filmu TV přepne na 24 Hz, aby kamerové pohyby zůstaly plynulé.",
+      "Zapne se s filmem; obrazovka na vteřinu zčerná."
+    ],
+    "wifi-check": [
+      "Test rychlosti internetu",
+      "Změří váš internet jedním klepnutím a ukáže signál Wi-Fi, latenci a rychlost srozumitelnými slovy.",
+      "Nastavení › Pokročilé › Síť."
+    ]
+  },
+  "plans_page": {
+    "title": "Tarify · Sofaly",
+    "description": "Basic, Pro a Ultra: co obsahuje každý tarif Sofaly.",
+    "h1": "Tarify",
+    "lead": "Začněte s Basic, který už je celou domovskou obrazovkou. Prodej zatím není spuštěn: zatím je vše zdarma.",
+    "price_soon": "Cena při spuštění",
+    "basic_who": "Pro toho, kdo sedí na gauči",
+    "pro_who": "Pro toho, kdo se o TV stará",
+    "ultra_who": "Pro domácnost a rodinu",
+    "basic_text": "Domovská obrazovka ve tvaru kříže, přehrávač, Poslouchat, Hrát, budík, spořič obrazovky a veškerá přístupnost.",
+    "pro_text": "Vše z Basic a navíc telefon, automatizace, chytrá domácnost, zprávy z dálky, hotové karty domovské obrazovky a plné přizpůsobení.",
+    "ultra_text": "Vše z Pro a navíc počasí ze tří modelů, plnohodnotné stránky filmů, automatické titulky, více domácností a společné sledování.",
+    "includes": "Obsahuje",
+    "everything_basic": "Vše z Basic",
+    "everything_pro": "Vše z Pro"
+  },
+  "dev_page": {
+    "title": "Vývojáři · Sofaly",
+    "description": "Dejte kartu své aplikace pro Android TV na domovskou obrazovku Sofaly. Žádné SDK, žádný poplatek.",
+    "eyebrow": "Sada pro vývojáře",
+    "h1": "Vaše aplikace na domovské obrazovce, na kterou se lidé opravdu dívají.",
+    "lead": "Plugin Sofaly je vaše vlastní aplikace pro Android TV. Pošle krátkou kartu a Sofaly ji vykreslí na domovské obrazovce velkým písmem a ve stylu domácnosti.",
+    "cta_start": "Začněte ze šablony",
+    "cta_spec": "Přečtěte si celou smlouvu",
+    "why_title": "Proč vytvořit plugin",
+    "why": [
+      [
+        "hvězda",
+        "Vepředu, ne v šuplíku",
+        "Vaše karta je na domovské obrazovce, kam se rodina dívá pokaždé, když se TV zapne, ne ztracená v seznamu aplikací."
+      ],
+      [
+        "puzzle",
+        "Žádné SDK, žádný poplatek",
+        "Jeden ContentProvider a jeden řádek dat. Žádná naše knihovna k instalaci, žádný poplatek k zaplacení."
+      ],
+      [
+        "srdce",
+        "Vaše aplikace, váš byznys",
+        "Publikujte na Play, jak chcete, zdarma nebo placeně. Sofaly jen vykreslí kartu; aplikace i zákazníci jsou vaši."
+      ]
+    ],
+    "can_title": "Co můžete vytvořit nad rámec našich",
+    "can": [
+      [
+        "Vaše doručení",
+        "Objednávka je na cestě, za 12 min."
+      ],
+      [
+        "Váš autobus",
+        "Linka 42 přijede za 6 min."
+      ],
+      [
+        "Vaše posilovna",
+        "Dnešní lekce v 19:00."
+      ],
+      [
+        "Váš dům",
+        "Zítra od 9 do 12 nepoteče voda."
+      ],
+      [
+        "Váš obchod",
+        "Nabídka dne: káva o 20 % levněji."
+      ],
+      [
+        "Váš klub",
+        "Trénink přesunut na sobotu."
+      ]
+    ],
+    "steps_title": "Dva kroky",
+    "step1": "Deklarujte provider s akcí Sofaly",
+    "step2": "Odpovězte jedním řádkem: název, hodnota, detail a barva",
+    "rules_title": "Pravidla, která chrání diváka",
+    "rules": [
+      "Na domovskou obrazovku nikdy nekreslíte: pošlete text a barvu, Sofaly kreslí.",
+      "Sofaly vám nikdy nepošle nic o aplikacích, účtech dané osoby ani o tom, co sleduje.",
+      "Pluginy jsou součástí tarifu Pro a uživatel si vybírá, které se zobrazí."
+    ],
+    "soon_title": "Již brzy",
+    "soon_text": "Pluginy na pozadí a přehlídka pluginů přímo na TV.",
+    "template_title": "Hotová šablona",
+    "template_text": "Dvě ukázkové aplikace, které můžete sestavit ještě dnes: odpočet do data, které si uživatel vybere na TV, a dnešní fáze Měsíce. Bez internetu, bez účtu. MIT No Attribution: zkopírujte, přejmenujte balíček, publikujte.",
+    "demo": [
+      [
+        "Doručení",
+        "12 min"
+      ],
+      [
+        "Autobus 42",
+        "6 min"
+      ],
+      [
+        "Posilovna",
+        "19:00"
+      ]
+    ]
+  },
+  "show": {
+    "title": "Podívejte se na TV",
+    "lead": "Tyto obrazovky se přehrávají samy, tak jak Sofaly vypadá a pohybuje se na skutečné TV. Vyberte jednu a zůstaňte na ní.",
+    "screens": {
+      "forecast": [
+        "Předpověď",
+        "Příštích 24 hodin, pravděpodobnost deště a Měsíc na jeden pohled a velkým písmem.",
+        [
+          "Slabé mrholení",
+          "Příštích 24 hodin",
+          "Pravděpodobnost deště",
+          "Teď",
+          "Max. 27° · min. 19° · pocitově 26°"
+        ]
+      ],
+      "screensaver": [
+        "Spořič obrazovky",
+        "Každý den obraz z The Met, hodiny a počasí na den. TV, kterou stojí za to nechat zapnutou.",
+        [
+          "Dobrý večer",
+          "Obraz dne · The Met",
+          "Dorůstající srpek"
+        ]
+      ],
+      "player": [
+        "Filmy",
+        "Dabing nebo titulky jedním tlačítkem, úvod přeskočený za vás a zpět tam, kde jste skončili.",
+        [
+          "Dlouhá cesta domů",
+          "Zvuk",
+          "Originál + titulky",
+          "Dabing",
+          "Přeskočit úvod"
+        ]
+      ],
+      "radio": [
+        "Rádio a podcasty",
+        "Stanice z celého světa a vaše podcasty, s přehrávačem přes celou obrazovku.",
+        [
+          "Právě hraje",
+          "Živé rádio",
+          "Jazz z pobřeží",
+          "Ranní zprávy",
+          "Samba a bossa",
+          "Podcast · epizoda 12"
+        ]
+      ],
+      "alarm": [
+        "Budík",
+        "TV se sama zapne, zvuk pomalu zesílí a předpověď na den už čeká.",
+        [
+          "Dobré ráno",
+          "Hlasitost stoupá",
+          "Odložit · 10 min",
+          "TV se sama zapnula"
+        ]
+      ],
+      "cards": [
+        "Karty domovské obrazovky",
+        "Odpočet, připomínky, kurzy, Měsíc a další zápas vašeho týmu přímo na domovské obrazovce.",
+        [
+          "12 dní do dovolené",
+          "Léky ve 20:00",
+          "Kamera v garáži přestala odpovídat",
+          "Další zápas",
+          "So · 16:00",
+          "Dorůstající srpek",
+          "Kurzy",
+          "Odpočet",
+          "Váš tým × Soupeři"
+        ]
+      ],
+      "games": [
+        "Hry",
+        "Cloudové, PC a retro hry na jednom místě, se sítí otestovanou ještě před hraním.",
+        [
+          "Ovladač připojen",
+          "Síť připravena na cloudové hraní",
+          "Cloud",
+          "PC",
+          "Retro",
+          "Parta",
+          "Hry"
+        ]
+      ],
+      "phone": [
+        "Telefon",
+        "Panel ve vašem telefonu: ovladač, psaní, živý náhled obrazovky a zprávy, které vyskočí na TV.",
+        [
+          "Poslat na TV",
+          "Večeře je hotová!",
+          "Zpráva z telefonu",
+          "Ovladač",
+          "Psát",
+          "Obrazovka",
+          "Fotky"
+        ]
+      ],
+      "windows": [
+        "Windows",
+        "TV se objeví v Tento počítač jako telefon: přetáhněte filmy a fotky přímo do ní.",
+        [
+          "Tento počítač",
+          "Sofaly · Obývák",
+          "Místní disk",
+          "Otevřít panel TV",
+          "Kopírování do TV… 68 %"
+        ]
+      ],
+      "kids": [
+        "Rodina",
+        "Dětský profil, večerka a čas u obrazovky, vše za rodičovským PIN.",
+        [
+          "Večerka",
+          "Zítra ahoj!",
+          "Jen dětské aplikace do 7:00",
+          "Rodičovský PIN"
+        ]
+      ]
+    }
+  }
+}

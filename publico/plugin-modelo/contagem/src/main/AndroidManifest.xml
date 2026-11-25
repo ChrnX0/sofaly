@@ -24,5 +24,11 @@
                 <action android:name="tv.sofaly.plugin.CARTAO" />
             </intent-filter>
         </provider>
+
+        <!-- Opcional: o mesmo número como widget (a Sofaly mostra a foto dele como cartão em Apps). -->
+        <receiver android:name=".ContagemWidget" android:exported="true" android:label="@string/nome">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+        </receiver>
     </application>
 </manifest>

@@ -79,4 +79,6 @@
     <string name="ev_tv_ligou">Televizor se zapnul</string>
     <string name="ev_todos_sairam">Všichni odešli (přítomnost)</string>
     <string name="ev_chuva">Blíží se déšť</string>
+    <string name="acao_plugin_button">Stisknout „%1$s“ (tlačítko z jiné aplikace)</string>
+    <string name="acao_plugin_button_off">Toto tlačítko není zapnuté v Pluginech</string>
 </resources>

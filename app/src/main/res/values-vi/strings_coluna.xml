@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
+<resources>
+    <string name="coluna_listas">DANH SÁCH</string>
+    <string name="coluna_novos">+%1$s</string>
+    <string name="coluna_filtro">Bộ lọc</string>
+    <string name="coluna_esportes">Thể thao</string>
+    <string name="coluna_guia">Lịch phát sóng</string>
+    <string name="coluna_filtro_titulo">Bộ lọc</string>
+    <string name="coluna_filtro_ordem">Sắp xếp: %1$s</string>
+    <string name="coluna_filtro_combinado">Thể loại, thời kỳ, đánh giá, chưa xem…</string>
+    <string name="coluna_filtro_combinado_ativo">Bộ lọc: %1$s</string>
+    <string name="coluna_filtro_limpar">Xóa bộ lọc</string>
+    <string name="coluna_filtro_sortear">Gợi ý bất ngờ</string>
+    <string name="coluna_filtro_ocultas_mostrar">Hiện danh mục ẩn (PIN)</string>
+    <string name="coluna_filtro_ocultas_esconder">Ẩn lại danh mục ẩn</string>
+    <string name="coluna_menu_assistido">Đánh dấu đã xem</string>
+    <string name="coluna_menu_nao_assistido">Đánh dấu chưa xem</string>
+    <string name="coluna_menu_tirar_continuar">Xóa khỏi Xem tiếp</string>
+    <string name="coluna_menu_por_interesse">Thêm vào Danh sách xem</string>
+    <string name="coluna_menu_tirar_interesse">Xóa khỏi Danh sách xem</string>
+    <string name="coluna_marcado_assistido">Đã đánh dấu %1$s là đã xem</string>
+    <string name="coluna_marcado_nao_assistido">Đã đánh dấu %1$s là chưa xem</string>
+    <string name="coluna_tirado_continuar">Đã xóa %1$s khỏi Xem tiếp</string>
+    <string name="coluna_menu_tirar_home">Xóa khỏi màn hình chính</string>
+    <string name="coluna_tirado_home">Đã xóa %1$s khỏi màn hình chính</string>
+    <string name="coluna_etiqueta_concluida">Đã kết thúc</string>
+    <string name="coluna_etiqueta_nova_temporada">Mùa mới</string>
+    <string name="coluna_etiqueta_novos">Tập mới</string>
+    <plurals name="coluna_etiqueta_n_novos">
+        <item quantity="one">%d tập mới</item>
+        <item quantity="other">%d tập mới</item>
+    </plurals>
+    <string name="coluna_letra_titulo">Đến chữ cái</string>
+    <string name="coluna_letra">Đến một chữ cái</string>
+    <string name="coluna_ao_vivo">TRỰC TIẾP</string>
+    <string name="coluna_ao_vivo_primeiro">Trực tiếp trước</string>
+    <string name="coluna_tv_titulo">TV</string>
+    <string name="coluna_gravacoes">Bản ghi</string>
+</resources>

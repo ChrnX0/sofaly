@@ -94,6 +94,9 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
         escondidos.forEach { c -> WorldOptions.update(this, c) { it.copy(hidden = false) } }
         atualizarAposMudanca(null)
     }
+    // Widgets de outros apps na HOME (24/11/2026): o modo de edição (setas movem, OK opções, VOLTAR salva).
+    if (BottomBar.strip(this) && br.paulo.tvlauncher.settings.Planos.permite(this, br.paulo.tvlauncher.settings.Planos.Recurso.PLUGINS))
+        opcoes += MainActivity.Opcao(getString(R.string.wdg_titulo)) { startActivity(android.content.Intent(this, br.paulo.tvlauncher.WidgetLayoutActivity::class.java)) }
     if (o != WorldOptions.Options()) opcoes += MainActivity.Opcao(getString(R.string.wo_padrao)) {
         WorldOptions.save(this, cat, WorldOptions.Options()); atualizarAposMudanca(null)
     }

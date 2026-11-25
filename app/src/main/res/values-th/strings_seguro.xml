@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo de segurança da HOME (degrau 2, 16/11/2026): HomeSeguraActivity. -->
+<resources>
+    <string name="seg_titulo">เซฟโหมด</string>
+    <string name="seg_texto">หน้าจอหลักหยุดทำงาน %1$d ครั้งติดต่อกัน นี่คือหน้าจอหลักแบบง่าย เพื่อให้คุณใช้ทีวีต่อได้</string>
+    <string name="seg_procurar">ค้นหาเวอร์ชันที่แก้ไขแล้ว</string>
+    <string name="seg_procurar_det">ถ้ามี จะดาวน์โหลดและติดตั้งทันที</string>
+    <string name="seg_procurando">กำลังค้นหาเวอร์ชันใหม่…</string>
+    <string name="seg_normal">ลองใช้หน้าจอหลักแบบปกติ</string>
+    <string name="seg_normal_det">ถ้าหยุดทำงานอีก 3 ครั้ง หน้าจอนี้จะกลับมา</string>
+    <string name="seg_config_tv">การตั้งค่าทีวี</string>
+    <string name="seg_erro">ดูว่าเกิดอะไรผิดพลาด</string>
+    <string name="seg_erro_det">การวินิจฉัย พร้อมข้อผิดพลาดที่บันทึกไว้</string>
+    <string name="seg_apps">แอป</string>
+</resources>

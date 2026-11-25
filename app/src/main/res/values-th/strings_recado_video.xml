@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recado em vídeo (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
+<resources>
+    <string name="vid_de">วิดีโอจาก %1$s</string>
+    <string name="vid_mural">ส่งวิดีโอมา</string>
+    <string name="vid_onde">หากต้องการดู: การตั้งค่า › ครอบครัว › วิดีโอครอบครัว</string>
+    <string name="vid_depois">ภายหลัง</string>
+    <string name="vid_assistir">ดู</string>
+    <string name="vid_ok_para_assistir">กด OK เพื่อดู</string>
+    <string name="vid_lista">วิดีโอครอบครัว</string>
+    <string name="vid_lista_det">ส่งผ่านลิงก์ครอบครัว แต่ละวิดีโอเก็บไว้ 30 วัน กด OK ค้างเพื่อลบ</string>
+    <string name="vid_nenhum">ยังไม่มีวิดีโอ</string>
+    <string name="vid_apagar">ลบวิดีโอ</string>
+    <string name="vid_aceitar">รับวิดีโอ</string>
+    <string name="vid_aceitar_det">ครอบครัวส่งวิดีโอยาวไม่เกิน 30 วินาทีได้ วิดีโอจะไม่เล่นเอง</string>
+    <string name="vid_quantos">วิดีโอ: %1$d</string>
+</resources>

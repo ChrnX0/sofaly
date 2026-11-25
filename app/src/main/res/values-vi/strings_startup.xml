@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ao ligar a TV" (StartupApp.kt, 21/11/2026) -->
+<resources>
+    <string name="su_titulo">Khi TV bật</string>
+    <string name="su_det">Mở ngay mục này, bỏ qua màn hình chính</string>
+    <string name="su_home">Màn hình chính</string>
+    <string name="su_last">Ứng dụng gần nhất</string>
+    <string name="su_quem">Cho ai?</string>
+    <string name="su_todos">Cả TV</string>
+    <string name="su_so">Chỉ %1$s</string>
+    <string name="su_segue_tv">Theo lựa chọn của TV</string>
+    <string name="su_acordar">Cả khi thức dậy</string>
+    <string name="su_acordar_det">Không chỉ sau khi khởi động lại: cả khi TV thức dậy từ chế độ chờ. Không bao giờ khi đang Truyền hoặc báo thức</string>
+    <string name="su_esperar">Chờ sau khi khởi động lại</string>
+    <string name="su_esperar_det">Cho TV thời gian kết nối trước khi mở ứng dụng</string>
+    <string name="su_horario">Ứng dụng khác theo giờ trong ngày</string>
+    <string name="su_horario_det">Một tự động hóa với điều kiện kích hoạt “TV đã bật” và “Chỉ khi”</string>
+    
+</resources>

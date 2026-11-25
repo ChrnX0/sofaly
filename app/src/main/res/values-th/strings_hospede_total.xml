@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modo hóspede com limpeza total (degrau 3). -->
+<resources>
+    <string name="hos_total">ล้างทั้งหมด</string>
+    <string name="hos_total_det">เมื่อเช็กเอาต์ จะล้างข้อมูลของทุกแอปบนทีวี ไม่ใช่แค่แอปสตรีมมิง บริการของ Google และการตั้งค่าจะคงไว้</string>
+</resources>

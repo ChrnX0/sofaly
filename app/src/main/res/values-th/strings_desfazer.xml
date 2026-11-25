@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Elevação 2.11: Desfazer em tudo (Desfazer.kt). -->
+<resources>
+    <string name="desf_diario">เปลี่ยน (%1$s): %2$s</string>
+    <string name="desf_diario_desfeito">ยกเลิกแล้ว: %1$s</string>
+    <string name="desf_ocultou">ซ่อน %1$s แล้ว</string>
+    <string name="desf_mostrou">แสดง %1$s อีกครั้งแล้ว</string>
+    <string name="desf_cat_ajuste">การตั้งค่า</string>
+    <string name="desf_cat_organizacao">การจัดระเบียบ</string>
+    <string name="desf_cat_automacao">ระบบอัตโนมัติ</string>
+    <string name="desf_cat_limpeza">การล้างแอป</string>
+    <string name="desf_nada">ไม่มีอะไรให้ยกเลิก (ยกเลิกไปแล้ว)</string>
+    <string name="desf_feito">ยกเลิกแล้ว ทุกอย่างกลับเป็นเหมือนเดิม</string>
+    <string name="desf_parcial">ยกเลิกบางส่วน: %1$d รายการถูกเปลี่ยนอีกครั้งและคงไว้ตามเดิม</string>
+    <string name="desf_barra">เปลี่ยนแล้ว: %1$s</string>
+    <string name="desf_botao">เลิกทำ</string>
+    <string name="desf_tela">การเปลี่ยนแปลงล่าสุด</string>
+    <string name="desf_tela_det">สิ่งที่เปลี่ยนใน 7 วันที่ผ่านมา OK ที่รายการเพื่อคืนค่าเป็นเหมือนเดิม</string>
+    <string name="desf_tela_vazia">ไม่มีการเปลี่ยนแปลงใน 7 วันที่ผ่านมา</string>
+    <string name="desf_ja_desfeita">ยกเลิกแล้ว</string>
+    <string name="desf_rot_config">การตั้งค่า</string>
+    <string name="desf_rot_automacoes">ระบบอัตโนมัติ</string>
+    <string name="desf_rot_rotinas">กิจวัตร</string>
+    <string name="desf_rot_apps">รายการแอป</string>
+    <string name="desf_rot_organizar">แอปบนหน้าจอหลัก</string>
+</resources>

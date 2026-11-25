@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Confortos do estudo do Stremio (16/11/2026): Conforto.kt, ConfigLauncherActivity, SincronizarActivity. -->
+<resources>
+    <string name="cf_resumo_escondido">ซ่อนเรื่องย่อจนกว่าคุณจะดู</string>
+    <string name="cf_spoiler">ซ่อนเรื่องย่อของตอนที่ยังไม่ได้ดู</string>
+    <string name="cf_spoiler_det">เรื่องย่อจะแสดงหลังจากคุณเริ่มดูตอนนั้นเท่านั้น</string>
+    <string name="cf_segundo">ภาษาที่สอง</string>
+    <string name="cf_segundo_det">ใช้เมื่อวิดีโอไม่มีเสียงหรือคำบรรยายในภาษาของทีวี</string>
+    <string name="cf_nenhum">ไม่มี</string>
+    <string name="cf_proximo">นับถอยหลังตอนถัดไป</string>
+    <string name="cf_proximo_det">รอนานเท่าไรก่อนตอนถัดไปจะเริ่มเอง</string>
+    <string name="cf_proximo_nao">ไม่เริ่มเอง</string>
+    <string name="cf_segundos">%1$d วินาที</string>
+    <string name="cf_consent_titulo">ส่งข้อมูลไปที่ %1$s ไหม</string>
+    <string name="cf_consent_texto">การเปิดส่วนนี้จะส่งข้อมูลไปที่ %1$s ผ่านอินเทอร์เน็ต: เรื่องที่คุณทำเครื่องหมายและดูบนทีวีนี้ และจุดที่คุณหยุดไว้ ข้อมูลจะเก็บไว้ในบัญชี %1$s ของคุณภายใต้กฎความเป็นส่วนตัวของ %1$s คุณปิดได้ทุกเมื่อ</string>
+    <string name="cf_consent_sim">ยอมรับ</string>
+</resources>

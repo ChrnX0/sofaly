@@ -47,4 +47,8 @@
     <string name="ext_secao_botoes">Quick panel buttons</string>
     <string name="ext_nenhum_botao">No buttons from other apps yet. Some apps add an on/off button to the quick panel (hold BACK).</string>
     <string name="ext_off_blocked">Turned off by Sofaly: this plugin has a known problem.</string>
+    <string name="ext_secao_widgets">Widgets from other apps</string>
+    <string name="ext_widget_nenhum">No app on this TV has a widget yet.</string>
+    <string name="ext_widget_sem_permissao">The TV did not let Sofaly add widgets.</string>
+    <string name="ext_widget_falhou">This widget could not be added.</string>
 </resources>

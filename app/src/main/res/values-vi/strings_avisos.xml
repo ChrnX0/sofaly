@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideias 35, 36, 37, 39 e 41 do estudo (14/11/2026): avisos de internet que voltou e de armazenamento enchendo. -->
+<resources>
+    <string name="rd_voltou_titulo">Internet đã có lại</string>
+    <string name="rd_voltou_texto">Đã mất trong %1$s (từ %2$s). Nguyên nhân có thể: %3$s.</string>
+    <string name="rd_causa_wifi">TV mất Wi-Fi</string>
+    <string name="rd_causa_provedor">nhà mạng hoặc router</string>
+    <string name="rd_min">%1$d phút</string>
+    <string name="rd_h_min">%1$d giờ %2$d phút</string>
+    <string name="rd_disco_titulo">Bộ nhớ TV sắp đầy</string>
+    <string name="rd_disco_texto">Với tốc độ này, bộ nhớ sẽ đầy sau khoảng %1$d ngày (còn trống %2$d MB). Hãy xóa bộ nhớ đệm ứng dụng hoặc gỡ ứng dụng không dùng.</string>
+    <string name="pr_avisos_tv">Từ TV</string>
+    <string name="mural_riscar">Gạch bỏ %1$s</string>
+    <string name="ds_lento_titulo">Sofaly đã chậm hơn</string>
+    <string name="ds_lento_texto">Phiên bản %1$d: khung hình chậm mất %2$d ms, trước đây mất %3$d ms (+%4$d%%).</string>
+</resources>

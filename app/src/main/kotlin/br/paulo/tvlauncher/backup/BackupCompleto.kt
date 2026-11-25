@@ -74,7 +74,7 @@ object BackupCompleto {
           // plugins: o OK vale para o certificado desta TV
         "wallpaper_plugins",   // plugins de fundo (18/11/2026): o OK também é por certificado desta TV
         "plugin_tiles",   // botões de outros apps (24/11/2026): OK por certificado desta TV, como "plugins"
-        "extension_health", "plugin_catalog",   // 24/11/2026: placar de saúde dos plugins e vitrine baixada (refaz sozinho)
+        "extension_health", "plugin_catalog", "plugin_widgets",   // 24/11/2026: placar de saúde dos plugins e vitrine baixada (refaz sozinho)
         "icon_pack_frozen",   // pacotes que NÓS congelamos nesta TV (na outra o pacote nem está congelado)
           // degrau 3: o link da família não viaja no backup (restaurar = link novo)
         "emprestimo_shell", "emprestimo_dono",   // empréstimos: restaurar não pode ligar poder emprestado sem o PIN (e o uid de cada app muda entre aparelhos)

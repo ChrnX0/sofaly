@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Movie and series services (ServicosFilmes.kt, ServicosFilmesActivity.kt). Own file so it does not conflict with other PRs. -->
+<resources>
+    <string name="sv_titulo">Dịch vụ phim và phim bộ</string>
+    <string name="sv_subtitulo">Tài khoản không bắt buộc. Không có gì được gửi ra ngoài TV cho đến khi bạn đăng nhập.</string>
+    <string name="sv_linha">Dịch vụ phim và phim bộ</string>
+    <string name="sv_linha_det">Trakt, Simkl, MDBList, TMDB và OpenSubtitles</string>
+    <string name="sv_trakt_det">Đồng bộ những gì bạn đã xem và danh sách xem với điện thoại</string>
+    <string name="sv_simkl_det">Giống Trakt, cũng rất tốt cho anime. Dùng một hoặc cả hai</string>
+    <string name="sv_mdblist_det">Không bắt buộc: danh sách của bạn, như Top 250, trở thành danh mục trong Phim và Phim bộ</string>
+    <string name="sv_tmdb_det">Nội dung, diễn viên và ngày ra tập tiếp theo, theo ngôn ngữ của TV</string>
+    <string name="sv_os_det">Phụ đề trực tuyến. Không có tài khoản: 5 mỗi ngày. Có tài khoản miễn phí: 20</string>
+    <string name="sv_desligado">Đăng nhập</string>
+    <string name="sv_entrando">đang đăng nhập…</string>
+    <string name="sv_conectado">đã kết nối</string>
+    <string name="sv_ativo">bật</string>
+    <string name="sv_sem_chave">Bản này chưa có khóa của các dịch vụ này. Chúng sẽ có sau bản cập nhật tiếp theo.</string>
+    <string name="sv_pedindo">Đang xin mã từ %1$s…</string>
+    <string name="sv_passos">1. Trên điện thoại, mở %1$s (hoặc hướng camera vào mã bên phải).\n2. Đăng nhập %2$s và nhập mã:</string>
+    <string name="sv_espera">Màn hình này sẽ tự tiếp tục. BACK để hủy.</string>
+    <string name="sv_ok">Xong: %1$s đã kết nối%2$s.</string>
+    <string name="sv_ok_como"> với tên %1$s</string>
+    <string name="sv_falhou">Không thành công: %1$s</string>
+    <string name="sv_motivo_venceu">mã đã hết hạn. Hãy thử lại.</string>
+    <string name="sv_motivo_recusado">quyền truy cập bị từ chối trên điện thoại.</string>
+    <string name="sv_motivo_usado">mã này đã được dùng. Hãy thử lại.</string>
+    <string name="sv_motivo_erro">dịch vụ không phản hồi. Hãy thử lại sau giây lát.</string>
+    <string name="sv_sair_pergunta">Đăng xuất khỏi %1$s? TV sẽ quên tài khoản và ngừng liên lạc với %1$s. Dữ liệu của bạn ở đó vẫn được giữ.</string>
+    <string name="sv_sair">Đăng xuất</string>
+    <string name="sv_fechar">Đóng</string>
+    <string name="sv_mdblist_titulo">Khóa MDBList</string>
+    <string name="sv_mdblist_texto">Không bắt buộc: đánh giá đã hoạt động mà không cần nó. Để dùng tài khoản MDBList của riêng bạn (danh sách của bạn, hạn mức của bạn), đăng nhập mdblist.com, mở Preferences, sao chép khóa API và nhập vào đây (dễ hơn từ bảng điều khiển web, thẻ Cài đặt, bằng cách dán).</string>
+    <string name="sv_mdblist_dica">Khóa API</string>
+    <string name="sv_os_titulo">Tài khoản OpenSubtitles</string>
+    <string name="sv_os_texto">Không bắt buộc: với tài khoản miễn phí tại opensubtitles.com, giới hạn tăng từ 5 lên 20 phụ đề mỗi ngày.</string>
+    <string name="sv_os_usuario">Tên người dùng</string>
+    <string name="sv_os_senha">Mật khẩu</string>
+    <string name="sv_gravar">Lưu</string>
+    <string name="sv_cancelar">Hủy</string>
+    <string name="sv_limite_dia">Đã hết giới hạn phụ đề trong ngày. Sẽ làm mới sau 24 giờ (với tài khoản OpenSubtitles là 20 mỗi ngày).</string>
+    <string name="sv_tmdb_atribuicao">Sản phẩm này dùng API của TMDB nhưng không được TMDB chứng thực hay chứng nhận.</string>
+    <string name="ext_saga">%1$s · %2$d trên %3$d trong danh sách của bạn</string>
+    <string name="ext_nao_e_este">Không phải phim này</string>
+    <string name="ext_proximo">Tập mới %1$s (S%2$dE%3$d)</string>
+    <!-- Etiqueta do pôster em Séries (Interesses): "Novo ep. sex., 20/11" -->
+    <string name="ext_proximo_curto">Tập mới %1$s</string>
+    <string name="ext_hoje">hôm nay</string>
+    <string name="ext_amanha">ngày mai</string>
+    <string name="sv_mdblist_passos">Không bắt buộc: danh sách MDBList của bạn (như Top 250) trở thành danh mục trong Phim và Phim bộ.\n1. Hướng camera điện thoại vào mã bên trái và đăng nhập (hoặc tạo tài khoản miễn phí). Cuối trang, chạm API Access, tạo khóa nếu chưa có và sao chép.\n2. Hướng vào mã bên phải: bảng điều khiển web mở ở Cài đặt. Dán khóa vào mục MDBList và chạm Lưu khóa.\n3. TV kiểm tra ngay và màn hình này sẽ tự tiếp tục.</string>
+    <string name="sv_mdblist_qr1">Trang khóa MDBList</string>
+    <string name="sv_mdblist_qr2">Bảng điều khiển web (%1$s)</string>
+    <string name="sv_mdblist_digitar">Nhập khóa ở đây</string>
+    <string name="sv_f_chave_invalida">khóa không hợp lệ (chỉ chữ và số)</string>
+    <string name="sv_f_chave_recusada">%1$s không chấp nhận khóa này</string>
+    <string name="sv_f_respondeu">%1$s trả lời với lỗi %2$d. Hãy thử lại sau giây lát.</string>
+    <string name="sv_f_falta">nhập tên người dùng và mật khẩu</string>
+    <string name="sv_f_longo">tên người dùng hoặc mật khẩu quá dài</string>
+    <string name="sv_f_senha">sai tên người dùng hoặc mật khẩu</string>
+    <string name="sv_f_gravar">không lưu được trên TV. Hãy thử lại.</string>
+    <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
+    <string name="sv_simkl_convite">Đánh giá Simkl</string>
+    <string name="sv_simkl_convite_det">Kết nối tài khoản</string>
+</resources>
