@@ -33,6 +33,7 @@
     <string name="st_telas_gaveta">Zásuvka</string>
     <string name="st_telas_vidro">Sklo</string>
     <string name="st_telas_barra">Lišta</string>
+    <string name="st_telas_painel">Boční panel</string>
     <string name="st_fundo">Pozadí</string>
     <string name="st_fundo_vale">Údolí</string>
     <string name="st_fundo_serra">Hory</string>

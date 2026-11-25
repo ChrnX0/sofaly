@@ -425,6 +425,7 @@ class MainActivity : Activity() {
 
     override fun onResume() {
         super.onResume()
+        desligarPrevia()   // na frente de novo: o onResume abaixo já confere a aparência
         homeNaFrente = true
         // O host guarda UMA view por widget: só depois da tela de edição (que cria as dela) a HOME recria as suas.
         br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this)
@@ -527,8 +528,37 @@ class MainActivity : Activity() {
         rede.execute { Dns.voltarAoAutomaticoSeQuebrado(this) }
     }
 
+    // ------------------------------------------------------------ prévia ao vivo (painel ao lado, 25/11/2026)
+    /**
+     * Com as Configurações no painel ao lado (ScreenStyle.PANEL) a HOME fica pausada mas à vista. Porquê: a proposta B
+     * pede que a pessoa veja a HOME mudar enquanto mexe na aparência. Como: entre o onPause e o onStop, a HOME ouve as
+     * mesmas preferências que o Desfazer vigia; se a aparência mudou (as mesmas assinaturas do onResume), ela se refaz
+     * ali mesmo. Atrás de uma tela opaca o onStop chega logo e desliga o ouvinte (nada roda à toa).
+     */
+    private var previaLigada = false
+    private val tarefaPrevia = Runnable { if (previaLigada && !isFinishing && !isDestroyed && aparenciaMudou()) recriar() }
+    private val ouvintePrevia = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
+        ui.removeCallbacks(tarefaPrevia); ui.postDelayed(tarefaPrevia, PREVIA_ESPERA_MS)
+    }
+    private fun ligarPrevia() {
+        if (previaLigada || isFinishing) return
+        previaLigada = true
+        for (n in DesfazerRegras.PREFS_VIGIADAS) getSharedPreferences(n, MODE_PRIVATE).registerOnSharedPreferenceChangeListener(ouvintePrevia)
+    }
+    private fun desligarPrevia() {
+        if (!previaLigada) return
+        previaLigada = false
+        ui.removeCallbacks(tarefaPrevia)
+        for (n in DesfazerRegras.PREFS_VIGIADAS) getSharedPreferences(n, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(ouvintePrevia)
+    }
+    /** As mesmas perguntas do onResume: algo que a HOME desenhou mudou desde que ela foi montada? */
+    private fun aparenciaMudou(): Boolean = Tema.atual(this) != tema || idiomaAtual() != idiomaMontado ||
+        ((tema == Tema.MEU || tema == Tema.PLUGIN) && FundoMeuDados.assinatura(this) + "|" + WallpaperPlugins.escolhidoId(this) != assinaturaFundo) ||
+        assinaturaDoLayout() != assinaturaLayout
+
     override fun onPause() {
         super.onPause()
+        ligarPrevia()
         homeNaFrente = false
         br.paulo.tvlauncher.home.PluginWidgetsTv.parar()
         SonsCruz.naFrente = false
@@ -596,7 +626,13 @@ class MainActivity : Activity() {
         ui.postDelayed({ if (!isDestroyed) recriar() }, CAMPAINHA_FUNDO_MS)
     }
 
+    override fun onStop() {
+        super.onStop()
+        desligarPrevia()   // coberta por uma tela opaca: a prévia não serve, o onResume confere na volta
+    }
+
     override fun onDestroy() {
+        desligarPrevia()
         br.paulo.tvlauncher.settings.Extras.parar(this, ouvinteAjuste)
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = null
         vigiaTela?.let { runCatching { unregisterReceiver(it) } }; vigiaTela = null
@@ -1140,6 +1176,8 @@ class MainActivity : Activity() {
         const val CONTINUAR_MAX = 9          // itens do Continuar da cruz (o 10º seria o "Dormir em 30 min")
         /** Foco na barra de cima vale por isto fora da HOME; depois, a volta cai na cruz. */
         const val FOCO_TOPO_VALE_MS = 5 * 60_000L
+        /** Prévia ao vivo: espera as gravações de uma opção terminarem antes de refazer a HOME. */
+        const val PREVIA_ESPERA_MS = 350L
         /** Prefs "cruz": o último item aberto na cruz ("categoria|item") e quando; vale [ULTIMO_ABERTO_VALE_MS] na HOME refeita. */
         const val ULTIMO_ABERTO = "ultimo_aberto"
         const val ULTIMO_ABERTO_EM = "ultimo_aberto_em"

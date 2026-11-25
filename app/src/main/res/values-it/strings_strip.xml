@@ -44,6 +44,7 @@
     <string name="st_telas_gaveta">Cassetto</string>
     <string name="st_telas_vidro">Vetro</string>
     <string name="st_telas_barra">Barra</string>
+    <string name="st_telas_painel">Pannello laterale</string>
     <string name="st_proprios">Schede scorciatoia</string>
     <string name="st_proprios_branco">Bianco</string>
     <string name="st_proprios_vidro">Vetro chiaro</string>

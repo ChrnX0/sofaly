@@ -59,6 +59,13 @@ object Estilo {
     /** Vidro (sobre imagem): tinta escura translúcida + fio claro. Igual à pílula da HOME que o dono aprovou. */
     const val VIDRO_TINTA = 0x8C121528.toInt()
     const val VIDRO_BORDA = 0x38FFFFFF
+    /**
+     * Painel ao lado (A+B no estilo da E, Paulo, 25/11/2026): a tinta do painel de vidro das Configurações sobre a HOME
+     * viva. Com o borrão do sistema por trás, 72% basta para ler; sem borrão (aparelho sem suporte, economia de bateria,
+     * "Remover animações"), quase sólido, para o texto não brigar com a HOME.
+     */
+    const val PAINEL_VIDRO = 0xB8121528.toInt()
+    const val PAINEL_CHEIO = 0xF2121528.toInt()
 
     /** Texto: principal, explicação (70%) e rótulo apagado (48%). Nunca branco puro em bloco grande: cansa a vista. */
     const val TEXTO = DesignTokens.CREAM

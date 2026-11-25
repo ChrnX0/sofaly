@@ -79,6 +79,12 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
     grade.addView(topo, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2); marginStart = dp(4) })
 
     val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
+    if (painel) {
+        SidePanel.previa(this, false)
+        portasEmLista(portas, foco)
+        mostrarDicaDasPortas()
+        return
+    }
     if (ScreenStyle.barra(this)) {
         (grade.parent as? View)?.background = Estilo.fundoEntrada(this)
         portasEmBarra(portas, foco)
@@ -102,6 +108,68 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
 }
 
 private const val TAG_MODO = "cfg3_modo"
+
+/**
+ * Painel ao lado (A+B no estilo da E, 25/11/2026): as portas viram uma lista agrupada num cartão só (caminho A), cada
+ * linha com o azulejo da área, o nome, o que tem dentro e "›". Porquê: no painel estreito a grade de 3 colunas não cabe,
+ * e a lista em grupo lê de cima para baixo como os Ajustes do celular (Mobbin: Grok e Tide Guide, grupos de linhas num
+ * cartão; WhatsApp e bunq, "Settings" com ícone tingido à esquerda).
+ */
+private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
+    val lista = LinearLayout(this).apply {
+        orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false
+        background = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO + 4, Estilo.BORDA)
+        setPaddingRelative(0, dp(4), 0, dp(4))
+    }
+    var focar: View? = null
+    portas.forEachIndexed { n, p ->
+        if (n > 0) lista.addView(View(this).apply { setBackgroundColor(Estilo.BORDA) },
+            LinearLayout.LayoutParams(MATCH, dp(1)).apply { marginStart = dp(Estilo.E2 + 36 + 14); marginEnd = dp(Estilo.E2) })
+        val l = linhaDaPorta(p)
+        lista.addView(l, LinearLayout.LayoutParams(MATCH, WRAP))
+        if (p == foco || focar == null) focar = l
+    }
+    grade.addView(android.widget.ScrollView(this).apply {
+        isVerticalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
+        setPaddingRelative(dp(4), dp(4), dp(4), dp(4))
+        addView(lista)
+    }, LinearLayout.LayoutParams(MATCH, 0, 1f))
+    SidePanel.escalonar(this, lista)
+    focar?.post { focar?.requestFocus() }
+}
+
+/** Uma linha de porta no painel: azulejo, nome e frase, e "›" à direita. Foco = o jeito escolhido (Anel, Quadro...). */
+private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
+    val primeira = abas[PortasConfig.PORTAS[p].first()]
+    val nome = if (p == PORTA_CASA_REDE) getString(R.string.cfg3_porta_casa_rede) else primeira.titulo
+    return LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+        setPaddingRelative(dp(Estilo.E2), dp(12), dp(Estilo.E2), dp(12))
+        isFocusable = true; isClickable = true
+        contentDescription = nome
+        addView(View(context).apply {
+            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
+                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
+            }
+        }, LinearLayout.LayoutParams(dp(36), dp(36)).apply { marginEnd = dp(14) })
+        val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { maxLines = 2; typeface = Estilo.fonte(600) }
+        val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, getString(FRASES[p])).apply { setPaddingRelative(0, dp(2), 0, 0) }
+        addView(LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; addView(tNome); addView(tFrase) },
+            LinearLayout.LayoutParams(0, WRAP, 1f))
+        val tSeta = Estilo.texto(context, Estilo.Papel.CORPO, "›").apply { setTextColor(Estilo.TEXTO_3) }
+        addView(tSeta, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E1) })
+        setOnFocusChangeListener { v, f ->
+            v.background = if (f) Estilo.fundoFocado(context, Estilo.RAIO) else null
+            val escura = f && Estilo.focoEscurece(context)
+            tNome.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
+            tFrase.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
+            tSeta.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
+            v.animate().scaleX(if (f) Estilo.ESCALA_LINHA else 1f).scaleY(if (f) Estilo.ESCALA_LINHA else 1f).setDuration(Estilo.FOCO_MS).start()
+            if (f) mostrarDicaDasPortas()
+        }
+        setOnClickListener { abrirPorta(p) }
+    }
+}
 
 /** Um cartão de porta: o azulejo da área ao lado do nome e, embaixo, o que tem dentro em poucas palavras. */
 private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
@@ -214,6 +282,8 @@ internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
     sairDaBarra()
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
+    // Painel: na "Tela inicial" a HOME atrás fica nítida e muda na hora (a prévia); nas outras portas ela escurece.
+    if (painel) SidePanel.previa(this, p == 0)
     abaAtual = alvo
     mostrarAba(alvo)
     mostrarAbasDoUso()
@@ -247,6 +317,8 @@ internal fun ConfigLauncherActivity.menuDaPorta() {
     itensMenu.forEachIndexed { i, t ->
         t.visibility = if (!naBusca && i in porta && (UsoTv.mostraAba(uso, i) || i == abaAtual)) View.VISIBLE else View.GONE
     }
+    // Painel: a fileira das abas só aparece quando a porta tem mais de uma (sem menu de um item só, nem na busca).
+    if (painel) caixaMenu.visibility = if (!naBusca && itensMenu.count { it.visibility == View.VISIBLE } > 1) View.VISIBLE else View.GONE
 }
 
 /**

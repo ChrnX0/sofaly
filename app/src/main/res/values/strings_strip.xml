@@ -44,6 +44,7 @@
     <string name="st_telas_gaveta">Drawer</string>
     <string name="st_telas_vidro">Glass</string>
     <string name="st_telas_barra">Bar</string>
+    <string name="st_telas_painel">Side panel</string>
     <string name="st_proprios">Shortcut cards</string>
     <string name="st_proprios_branco">White</string>
     <string name="st_proprios_vidro">Light glass</string>
