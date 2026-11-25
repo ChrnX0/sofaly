@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Az MI címe, például http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Modell (üres = alapértelmezett)",
 "Chave da API (em branco = manter a atual)":"API-kulcs (üres = a jelenlegi megtartása)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"AI-használat ebben a hónapban, ezer tokenben (felhasznált / korlát):",
+"Teto por mês em mil tokens (0 = sem teto)":"Havi korlát ezer tokenben (0 = nincs korlát)",
 "Testar":"Teszt",
 "Salvo.":"Mentve.",
 "A IA respondeu.":"Az MI válaszolt.",

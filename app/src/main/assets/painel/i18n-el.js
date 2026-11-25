@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"Διεύθυνση της ΤΝ, για παράδειγμα http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Μοντέλο (κενό = το προεπιλεγμένο)",
 "Chave da API (em branco = manter a atual)":"Κλειδί API (κενό = διατήρηση του τρέχοντος)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"Χρήση AI αυτόν τον μήνα, σε χιλιάδες tokens (χρήση / όριο):",
+"Teto por mês em mil tokens (0 = sem teto)":"Μηνιαίο όριο σε χιλιάδες tokens (0 = χωρίς όριο)",
 "Testar":"Δοκιμή",
 "Salvo.":"Αποθηκεύτηκε.",
 "A IA respondeu.":"Η ΤΝ απάντησε.",

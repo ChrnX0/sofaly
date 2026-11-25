@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"AI address, for example http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"Model (blank = the default)",
 "Chave da API (em branco = manter a atual)":"API key (blank = keep the current one)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"AI usage this month, in thousand tokens (used / cap):",
+"Teto por mês em mil tokens (0 = sem teto)":"Monthly cap in thousand tokens (0 = no cap)",
 "Testar":"Test",
 "Salvo.":"Saved.",
 "A IA respondeu.":"The AI answered.",

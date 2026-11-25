@@ -24,8 +24,29 @@ object SofyAi {
     private const val TAG = "TvLauncher.SofyAi"
     const val PREFS = "sofy_ai"
     private const val ALIAS = "sofy_ai_key"
-    /** No máximo isto de perguntas por dia: um defeito em laço não vira conta alta na chave do dono. */
-    private const val MAX_PER_DAY = 10
+    /**
+     * Teto do mês de fábrica, em tokens (entrada + saída), para a chave do dono não ser "devorada" (Paulo, 25/11/2026: não
+     * sabemos ainda quanto o sistema gasta). O dono muda no painel; 0 = sem teto. ~300 mil tokens custam centavos num
+     * modelo pequeno. Contado pelo que a própria resposta da IA informa.
+     */
+    const val DEFAULT_BUDGET = 300_000L
+
+    fun budget(ctx: Context) = prefs(ctx).getLong("budget_tokens", DEFAULT_BUDGET)
+    fun monthTokens(ctx: Context): Long {
+        val p = prefs(ctx)
+        return if (p.getInt("month", 0) == SofyAiRules.month(System.currentTimeMillis())) p.getLong("month_tokens", 0) else 0
+    }
+    fun setBudget(ctx: Context, tokens: Long) { prefs(ctx).edit().putLong("budget_tokens", tokens.coerceAtLeast(0)).apply() }
+
+    /** Soma o gasto desta resposta ao mês (zera na virada). */
+    private fun spend(ctx: Context, answer: JSONObject?) {
+        val n = answer?.let { SofyAiRules.usage(it) } ?: 0L
+        val mes = SofyAiRules.month(System.currentTimeMillis())
+        val p = prefs(ctx)
+        val antes = if (p.getInt("month", 0) == mes) p.getLong("month_tokens", 0) else 0
+        val calls = if (p.getInt("month", 0) == mes) p.getInt("month_calls", 0) else 0
+        p.edit().putInt("month", mes).putLong("month_tokens", antes + n).putInt("month_calls", calls + 1).apply()
+    }
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
@@ -56,6 +77,8 @@ object SofyAi {
         return JSONObject().put("provider", p.getString("provider", "") ?: "").put("base", p.getString("base", "") ?: "")
             .put("model", p.getString("model", "") ?: "").put("has_key", p.contains("key")).put("ready", configured(ctx))
             .put("asked_today", askedToday(ctx))
+            .put("budget_tokens", budget(ctx)).put("month_tokens", monthTokens(ctx))
+            .put("month_calls", if (p.getInt("month", 0) == SofyAiRules.month(System.currentTimeMillis())) p.getInt("month_calls", 0) else 0)
             .put("test_at", p.getLong("test_at", 0L)).put("test_ok", p.getBoolean("test_ok", false)).put("test_http", p.getInt("test_http", 0))
             .put("ask_at", p.getLong("ask_at", 0L)).put("ask_http", p.getInt("ask_http", 0)).put("ask_result", p.getString("ask_result", "") ?: "")
     }
@@ -96,10 +119,12 @@ object SofyAi {
         lastHttp = 0
         val s = settings(app) ?: run { note("sem configuração utilizável (chave ilegível?)"); return emptyList() }
         val n = askedToday(app)
-        if (n >= MAX_PER_DAY) { note("limite do dia: $n perguntas"); return emptyList() }
+        val gasto = monthTokens(app); val teto = budget(app)
+        if (!SofyAiRules.withinBudget(gasto, teto)) { note("teto do mês: $gasto de $teto tokens"); return emptyList() }
         prefs(app).edit().putLong("asked_day", System.currentTimeMillis() / 86_400_000L).putInt("asked", n + 1).apply()
         var erro: String? = null
         val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.onFailure { erro = it.javaClass.simpleName; Log.w(TAG, "pedido: $erro") }.getOrNull()
+        spend(app, answer)
         val lido = runCatching { val t = answer?.let { SofyAiRules.text(s.provider.format, it) }; t to SofyAiRules.plan(t) }
             .getOrElse { note("erro ao ler a resposta: ${it.javaClass.simpleName}"); return emptyList() }
         val txt = lido.first
@@ -108,7 +133,7 @@ object SofyAi {
         val res = when {
             erro != null -> "erro de rede: $erro"
             answer == null -> "HTTP $lastHttp"
-            txt == null -> "resposta sem texto"
+            txt == null -> "resposta sem texto (${SofyAiRules.shape(answer)})"
             tools.isEmpty() -> "sem ferramenta válida: " + txt.replace(Regex("\\s+"), " ").take(160)
             else -> "ok: " + tools.joinToString(",") { it.name.lowercase() }
         }
@@ -122,6 +147,7 @@ object SofyAi {
         val s = settings(ctx.applicationContext) ?: return false
         val c = SofyRepair.Case("ERROR:test", SofyRepair.Type.ERROR, "test", emptySet(), 0, 0, 2)
         val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.getOrNull()
+        spend(ctx.applicationContext, answer)
         val ok = answer != null && SofyAiRules.text(s.provider.format, answer) != null
         // Gravado para o relatório (MCP/painel): dá para saber se a IA do dono funciona sem ver a chave.
         prefs(ctx.applicationContext).edit().putLong("test_at", System.currentTimeMillis()).putBoolean("test_ok", ok).putInt("test_http", lastHttp).apply()

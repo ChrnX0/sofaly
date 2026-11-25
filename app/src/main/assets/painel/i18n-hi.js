@@ -1512,6 +1512,8 @@ traduzirPainelCom({T:{
 "Endereço da IA, por exemplo http://192.168.1.50:11434/v1":"AI का पता, उदाहरण के लिए http://192.168.1.50:11434/v1",
 "Modelo (em branco = o padrão)":"मॉडल (खाली = डिफ़ॉल्ट)",
 "Chave da API (em branco = manter a atual)":"API कुंजी (खाली = मौजूदा रखें)",
+"Uso da IA neste mês, em mil tokens (usado / teto):":"इस महीने AI का उपयोग, हज़ार टोकन में (उपयोग / सीमा):",
+"Teto por mês em mil tokens (0 = sem teto)":"मासिक सीमा हज़ार टोकन में (0 = कोई सीमा नहीं)",
 "Testar":"जाँचें",
 "Salvo.":"सहेजा गया।",
 "A IA respondeu.":"AI ने जवाब दिया।",
