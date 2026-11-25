@@ -58,6 +58,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         const val ROTULO_SP = 11f          // nome dentro do card
         const val ICONE_LADO = 0.42f       // card nosso: ícone ao lado do nome (fração da altura)
         const val LADO_VAO = 6f            // dp entre o ícone e o nome
+        /** Conjuntos de traço de uma cor só (Linha e Símbolo): esses ganham a tinta da placa; o Duotom tem halo e fica. */
+        val TRACO_DE_UMA_COR = setOf(IconeCruz.Estilo.LINHA, IconeCruz.Estilo.SIMBOLO)
         const val SO_ICONE = 1.7f          // "só o escolhido": ícone dos outros, sem placa
         const val SO_OUTROS = 0.72f        // "só o escolhido": tamanho dos outros
         const val NOME_FORA_SOBRA = 28f    // o nome embaixo do redondo pode passar um pouco da largura do círculo
@@ -319,14 +321,18 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         val own = k.own ?: return
         val aceso = escolhido && focada
         if (own == StripHome.Own.GLASS) k.fundo.setColor(placaPropria(own, aceso))
-        if ((k.item.icone as? IconeCruz)?.estilo != IconeCruz.Estilo.LINHA) return
-        if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.clearColorFilter(); return }
+        if ((k.item.icone as? IconeCruz)?.estilo !in TRACO_DE_UMA_COR) return
+        if (formatoDesenhado == StripHome.Format.ONLY && !escolhido) { k.icone.setLayerType(View.LAYER_TYPE_NONE, null); return }
         val cor = when (own) {
             StripHome.Own.WHITE -> if (aceso) DesignTokens.ORANGE_ON_LIGHT else DesignTokens.NIGHT
             StripHome.Own.GLASS -> if (aceso) DesignTokens.ORANGE else DesignTokens.CREAM
             StripHome.Own.DARK -> DesignTokens.ORANGE
         }
-        k.icone.setColorFilter(cor, android.graphics.PorterDuff.Mode.SRC_IN)
+        // A tinta vai na camada da view, não no Drawable: o Símbolo desenha por um IconeApp interno, com pincéis
+        // próprios, e um colorFilter no Drawable não chegava nele (Sala, 25/11/2026: ícones continuaram coloridos).
+        k.icone.setLayerType(View.LAYER_TYPE_HARDWARE, android.graphics.Paint().apply {
+            colorFilter = android.graphics.PorterDuffColorFilter(cor, android.graphics.PorterDuff.Mode.SRC_IN)
+        })
     }
 
     /** O texto do mundo mudou (o que tem agora); a linha fica onde está. */
