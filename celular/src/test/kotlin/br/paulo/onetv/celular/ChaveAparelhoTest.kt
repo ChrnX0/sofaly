@@ -37,4 +37,10 @@ class ChaveAparelhoTest {
         assertFalse("TV que recusou não é perguntada de novo", ApiTv.devePedirChave(200, false, "/api/estado", true))
         assertFalse(ApiTv.devePedirChave(200, false, "/api/aparelho/emitir", false))
     }
+
+    @Test fun semPinAindaTentaDepois() {
+        assertTrue("TV pediu o PIN: tenta de novo depois", ApiTv.esperaPin(403, true))
+        assertFalse("403 sem precisaPin: desiste nesta sessão", ApiTv.esperaPin(403, false))
+        assertFalse(ApiTv.esperaPin(404, false))
+    }
 }

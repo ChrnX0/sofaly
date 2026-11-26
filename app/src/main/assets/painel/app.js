@@ -1701,42 +1701,29 @@ function desenharAcesso(a) {
   }
 }
 
-// ---------- erros do launcher -> issue no GitHub (ErrosFiltrados.kt, 11/11/2026) ----------
-// A TV não guarda token do GitHub: o link abre a página de issue nova com o texto pronto, e quem envia é a pessoa.
-
-const REPO_ISSUES = 'https://github.com/ChrnX0/sofaly/issues/new';
-const MAX_URL_ISSUE = 7000;   // o GitHub recusa endereços muito longos; corta erros inteiros, nunca no meio
-
-/** Texto da issue a partir da resposta de /api/extras/erros. Só campos já filtrados na TV. */
-function textoIssue(r, limite = MAX_URL_ISSUE) {
-  let corpo = `Relatado pelo painel da TV.\n\n- Versão: ${r.versao_atual}\n- Erros nesta versão: ${r.erros_nesta_versao}` +
-    ` (de ${r.total_guardados} guardados)\n`;
-  let incluidos = 0;
-  for (const e of r.erros || []) {
-    const bloco = `\n### ${e.tipo || 'erro'} (${e.dia || 'sem data'}, versão ${e.versao || '?'})\n\n\`\`\`\n` +
-      (e.pilha || []).slice(0, 15).join('\n') + '\n\`\`\`\n';
-    if (encodeURIComponent(corpo + bloco).length > limite) break;
-    corpo += bloco; incluidos++;
-  }
-  const primeiro = (r.erros || [])[0];
-  const titulo = `Erro na TV: ${primeiro ? (primeiro.tipo || 'erro') : 'sem erros'} (${r.versao_atual})`;
-  return { titulo, corpo, incluidos };
-}
+// ---------- erros do launcher -> relato particular para a Sofaly (11/11/2026; item 6 do Brainstorm 26/11/2026) ----------
+// Antes abria uma issue no repositório público do GitHub. Agora a TV manda o relato assinado para o api.sofaly.tv
+// (PainelExtras "erros/relatar"), que guarda em particular; a Sofy transforma em issue só o que é técnico.
+$('btnRelatarErros').addEventListener('click', async () => {
+  const b = $('btnRelatarErros');
+  b.disabled = true;
+  mostrar($('statusRelatar'), 'Enviando…');
+  try { await chamar('POST', '/api/extras/erros/relatar', {}); mostrar($('statusRelatar'), 'Enviado. Obrigado!'); }
+  catch (e) { mostrar($('statusRelatar'), textoErro(e)); b.disabled = false; }
+});
 
 async function carregarErros() {
   const resumo = $('resumoErros');
-  const link = $('linkRelatar');
+  const botao = $('btnRelatarErros');
   try {
     const r = await chamar('GET', '/api/extras/erros');
     const n = (r.erros || []).length;
-    if (n === 0) { resumo.textContent = 'Nenhum erro guardado.'; link.hidden = true; return; }
+    if (n === 0) { resumo.textContent = 'Nenhum erro guardado.'; botao.hidden = true; return; }
     resumo.textContent = r.erros_nesta_versao > 0
       ? `${r.erros_nesta_versao} erro(s) nesta versão, ${r.total_guardados} guardados no total.`
       : `Nenhum erro nesta versão. ${r.total_guardados} guardado(s) de versões anteriores.`;
-    const t = textoIssue(r);
-    link.href = `${REPO_ISSUES}?${new URLSearchParams({ title: t.titulo, body: t.corpo })}`;
-    link.hidden = t.incluidos === 0;
-  } catch (e) { resumo.textContent = textoErro(e); link.hidden = true; }
+    botao.hidden = false; botao.disabled = false;
+  } catch (e) { resumo.textContent = textoErro(e); botao.hidden = true; }
 }
 
 // ---------- Observador (ObserverTv.kt, fase 1: só observa e anota) ----------

@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">문제 신고</string>
-    <string name="rel_linha_det">QR 코드로 휴대폰에서 양식이 열리고 기술 정보는 이미 입력되어 있습니다</string>
-    <string name="rel_texto">휴대폰 카메라를 코드에 비추세요. 무슨 일이 있었는지 적어 보내면 됩니다. 이름, 계정, 네트워크, 도시는 포함되지 않습니다.</string>
+    <string name="rel_linha_det">무슨 일이 있었는지 적어 Sofaly에 비공개로 보내세요</string>
+    <string name="rel_texto">무슨 일이 있었는지 적고 보내세요(키보드 마이크도 쓸 수 있어요). Sofaly에만 비공개로 전달되며 공개 페이지에는 올라가지 않아요. 이름, 계정, 네트워크, 도시는 함께 보내지 않아요.</string>
     <string name="rel_vai_junto">함께 보내는 내용</string>
     <string name="rel_l_oque">무슨 일이 있었나요</string>
     <string name="rel_l_versao">버전</string>
     <string name="rel_l_uso">모드</string>
     <string name="rel_l_quedas">강제 종료 / 멈춤 (7일)</string>
     <string name="rel_l_erro">마지막 오류</string>
+    <string name="rel_escreva">무슨 일이 있었나요? (선택)</string>
+    <string name="rel_enviar">Sofaly에 보내기</string>
+    <string name="rel_enviando">보내는 중…</string>
+    <string name="rel_enviado">보냈어요. 고마워요!</string>
+    <string name="rel_cota">이 TV는 오늘 이미 5건을 보냈어요. 내일 다시 시도하세요.</string>
+    <string name="rel_falhou">지금은 보낼 수 없어요. 인터넷을 확인하고 다시 시도하세요.</string>
+    <string name="rel_email">또는 이메일로: 휴대폰 카메라로 코드를 비추세요.</string>
 </resources>

@@ -92,7 +92,7 @@ object ApiTv {
         // revogar lá corta o acesso de fora também.
         val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido, ChaveAparelho.ler(ctx, tv)?.let { mapOf("X-Aparelho" to it) } ?: emptyMap())
         if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json))
-            semRelay[Pareamento.chave(tv)] = if (r.codigo == 403) System.currentTimeMillis() + 60_000 else Long.MAX_VALUE
+            semRelay[Pareamento.chave(tv)] = if (esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
     }
 
     /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
@@ -130,15 +130,30 @@ object ApiTv {
     }
 
     private fun pedirChave(ctx: Context, tv: Pareamento.Tv) {
+        val k = Pareamento.chave(tv)
+        val agora = System.currentTimeMillis()
+        if (agora - (ultimoPedido[k] ?: 0L) < ESPERA_PIN_MS) return
+        ultimoPedido[k] = agora
         val r = chamarUmaVez(tv, "POST", "/api/aparelho/emitir", JSONObject().put("nome", android.os.Build.MODEL ?: ""))
         val chave = r.json?.optString("chave")
-        if (r.codigo == 200 && ChaveAparelho.valida(chave)) {
-            ChaveAparelho.guardar(ctx, tv, chave!!)
+        if (r.codigo == 200 && ChaveAparelho.valida(chave) && ChaveAparelho.guardar(ctx, tv, chave!!)) {
             // Chave nova (primeira vez, ou depois de revogado e lido o QR de novo): troca as chaves do relay de novo, já
             // ligadas a ela, para que "Revogar" no painel corte também o acesso de fora deste celular.
             RelayCelular.esquecer(ctx, tv)
-        } else semChave += Pareamento.chave(tv)
+            return
+        }
+        if (!esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
     }
+
+    /**
+     * Revisor 26/11: a TV só dá a chave com a sessão elevada (PIN digitado no painel deste celular). Sem PIN ainda, o app
+     * não desiste: tenta de novo depois, no máximo a cada [ESPERA_PIN_MS]. Qualquer outra recusa vale para a sessão do app.
+     * Pura (ChaveAparelhoTest).
+     */
+    fun esperaPin(codigo: Int, precisaPin: Boolean): Boolean = codigo == 403 && precisaPin
+
+    private const val ESPERA_PIN_MS = 60_000L
+    private val ultimoPedido = java.util.concurrent.ConcurrentHashMap<String, Long>()
 
     /**
      * Manda um arquivo para uma pasta da TV (Brainstorm 26/11, item 16), pela mesma rota do painel

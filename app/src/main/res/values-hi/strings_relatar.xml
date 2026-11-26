@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">समस्या बताएं</string>
-    <string name="rel_linha_det">QR से फ़ोन पर फ़ॉर्म खुलता है, तकनीकी जानकारी पहले से भरी होती है</string>
-    <string name="rel_texto">फ़ोन का कैमरा कोड की ओर करें। क्या हुआ लिखें और भेजें। आपका नाम, खाता, नेटवर्क और शहर नहीं जाते।</string>
+    <string name="rel_linha_det">जो हुआ वह लिखें और Sofaly को निजी रूप से भेजें</string>
+    <string name="rel_texto">जो हुआ वह लिखें (कीबोर्ड का माइक भी काम करता है) और भेजें। यह निजी रूप से Sofaly को जाता है, कभी किसी सार्वजनिक पेज पर नहीं। आपका नाम, खाता, नेटवर्क और शहर साथ नहीं जाते।</string>
     <string name="rel_vai_junto">साथ में क्या जाता है</string>
     <string name="rel_l_oque">क्या हुआ</string>
     <string name="rel_l_versao">संस्करण</string>
     <string name="rel_l_uso">मोड</string>
     <string name="rel_l_quedas">क्रैश / अटकना (7 दिन)</string>
     <string name="rel_l_erro">आखिरी त्रुटि</string>
+    <string name="rel_escreva">क्या हुआ? (वैकल्पिक)</string>
+    <string name="rel_enviar">Sofaly को भेजें</string>
+    <string name="rel_enviando">भेजा जा रहा है…</string>
+    <string name="rel_enviado">भेज दिया गया। धन्यवाद!</string>
+    <string name="rel_cota">यह टीवी आज 5 रिपोर्ट भेज चुका है। कल फिर कोशिश करें।</string>
+    <string name="rel_falhou">अभी भेजा नहीं जा सका। इंटरनेट जाँचें और फिर कोशिश करें।</string>
+    <string name="rel_email">या ई-मेल से: फ़ोन का कैमरा कोड की ओर करें।</string>
 </resources>

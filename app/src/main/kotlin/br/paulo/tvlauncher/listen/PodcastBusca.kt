@@ -57,5 +57,9 @@ object PodcastBusca {
     fun emAlta(idioma: String, assunto: PodcastAssuntos.Assunto? = null): List<Resultado> =
         if (!disponivel()) emptyList() else ler(get(urlEmAlta(SERVIDOR, idioma, assunto)))
 
-    private fun get(u: String): String? = Http.getTextOrNull(u, readMs = 12_000, maxBytes = 1_000_000, cut = true)
+    // Assinado pela TV (item 23 do Brainstorm 26/11): a cota do dia no servidor é desta TV, não da rede toda.
+    private fun get(u: String): String? = try {
+        Http.getText(u, readMs = 12_000, maxBytes = 1_000_000, cut = true,
+            headers = br.paulo.tvlauncher.relay.RelayTv.assinatura("GET", java.net.URL(u).path))
+    } catch (e: java.io.IOException) { null }
 }

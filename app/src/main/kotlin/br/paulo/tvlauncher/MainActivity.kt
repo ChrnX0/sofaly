@@ -696,6 +696,8 @@ class MainActivity : Activity() {
     // Apertar HOME de novo volta o foco para o primeiro app.
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
+        // App travado por PIN aberto por outro caminho (busca, botão do controle, modo simples): pede o PIN aqui.
+        intent?.getStringExtra(br.paulo.tvlauncher.home.TravaCartaoTv.EXTRA_PACOTE)?.let { intent.removeExtra(br.paulo.tvlauncher.home.TravaCartaoTv.EXTRA_PACOTE); abrir(it); return }
         if (intent?.hasCategory(Intent.CATEGORY_HOME) == true) {
             sairAmbiente(animar = false)
             focoTopo = null

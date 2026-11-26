@@ -127,7 +127,8 @@ class Sessoes(private val relogio: () -> Long, private val maximoSessoes: Int = 
     }
 
     private class Sessao(val criada: Long, var ultimoUso: Long, var elevadaAte: Long,
-                         var papel: PapeisPainel.Papel = PapeisPainel.Papel.DONO, val venceEm: Long = Long.MAX_VALUE)
+                         var papel: PapeisPainel.Papel = PapeisPainel.Papel.DONO, val venceEm: Long = Long.MAX_VALUE,
+                         val aparelho: String? = null)
 
     private val aleatorio = SecureRandom()
     private val mapa = LinkedHashMap<String, Sessao>()
@@ -137,7 +138,7 @@ class Sessoes(private val relogio: () -> Long, private val maximoSessoes: Int = 
      * PIN); pelo QR da TV ([elevada] = false), não: desinstalar, instalar etc. continuam pedindo o PIN.
      */
     @Synchronized fun criar(elevada: Boolean = true, papel: PapeisPainel.Papel = PapeisPainel.Papel.DONO,
-                            venceEm: Long = Long.MAX_VALUE): String {
+                            venceEm: Long = Long.MAX_VALUE, aparelho: String? = null): String {
         limpar()
         // Convidado nunca derruba o dono (rodada 15: quem tem o link do convite fazia 8 entradas e tirava a sessão do
         // dono): sessão de convidado só tira outra de convidado, e eles ficam com no máximo metade das vagas.
@@ -151,7 +152,7 @@ class Sessoes(private val relogio: () -> Long, private val maximoSessoes: Int = 
         val agora = relogio()
         // Elevação 18.1: só o dono nasce elevado; o convidado de um dia cai quando o convite vence.
         val dono = papel == PapeisPainel.Papel.DONO
-        mapa[chave(token)] = Sessao(agora, agora, if (elevada && dono) agora + ELEVADA_MS else 0L, papel, venceEm)
+        mapa[chave(token)] = Sessao(agora, agora, if (elevada && dono) agora + ELEVADA_MS else 0L, papel, venceEm, aparelho)
         return token
     }
 
@@ -183,6 +184,9 @@ class Sessoes(private val relogio: () -> Long, private val maximoSessoes: Int = 
 
     /** Convites revogados: quem entrou por convite sai na hora (o dono continua). */
     @Synchronized fun encerrarConvidados() { mapa.values.removeAll { it.papel != PapeisPainel.Papel.DONO } }
+
+    /** Celular revogado no painel (item 9): as sessões que ele abriu com a chave caem na hora, não só a próxima entrada. */
+    @Synchronized fun encerrarAparelho(id: String) { mapa.values.removeAll { it.aparelho == id } }
 
     @Synchronized fun encerrar(token: String?) { if (token != null) mapa.remove(chave(token)) }
 

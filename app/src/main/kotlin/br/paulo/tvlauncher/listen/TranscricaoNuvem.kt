@@ -165,6 +165,7 @@ object TranscricaoNuvem {
             c.requestMethod = "POST"; c.doOutput = true; c.connectTimeout = 10_000; c.readTimeout = 60_000
             c.setRequestProperty("User-Agent", Http.USER_AGENT)
             c.setRequestProperty("Content-Type", "application/json")
+            br.paulo.tvlauncher.relay.RelayTv.assinar(c, corpo)   // cota do dia por TV (item 23)
             c.setFixedLengthStreamingMode(corpo.size)
             c.outputStream.use { it.write(corpo) }
             if (c.responseCode == 429) throw SemCota()
@@ -185,6 +186,7 @@ object TranscricaoNuvem {
             c.setRequestProperty("User-Agent", Http.USER_AGENT)
             c.setRequestProperty("Content-Type", "text/plain")
             val corpo = Base64.encode(bytes, Base64.NO_WRAP)
+            br.paulo.tvlauncher.relay.RelayTv.assinar(c, corpo)   // cota do dia por TV (item 23)
             c.setFixedLengthStreamingMode(corpo.size)
             c.outputStream.use { it.write(corpo) }
             when (c.responseCode) {
