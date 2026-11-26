@@ -193,6 +193,10 @@ object RelayTv {
         if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
         val nome = quem?.nome ?: a.remetente
         val c = RelayPairing.comando(a.mensagem)
+        if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis())) {
+            br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "chegou atrasado (TV estava desligada)")
+            return
+        }
         val motivo = when (c) {
             is RelayPairing.Comando.Tecla -> br.paulo.tvlauncher.panel.PainelControle.tecla(ctx, c.nome)
             is RelayPairing.Comando.Texto -> br.paulo.tvlauncher.panel.PainelControle.digitar(ctx, c.texto)

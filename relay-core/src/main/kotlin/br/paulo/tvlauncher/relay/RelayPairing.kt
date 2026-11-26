@@ -29,6 +29,13 @@ object RelayPairing {
     }
 
     /** O que a TV devolve: o id dela e a X25519 pública (o celular fecha os envelopes com ela). */
+    /**
+     * Tecla e texto só valem na hora: a caixa postal guarda até 7 dias, e uma tecla mandada com a TV desligada não pode
+     * ser executada quando ela ligar (horas depois, com alguém vendo outra coisa). Passou disto, descarta.
+     */
+    const val ATRASO_MAX_MS = 60_000L
+    fun naHora(m: RelayEnvelope.Mensagem, agora: Long): Boolean = agora - m.t <= ATRASO_MAX_MS
+
     fun resposta(tvId: String, tvX: ByteArray): JSONObject = JSONObject().put("id", tvId).put("x", RelayCrypto.b64url(tvX))
 
     // ---------------------------------------------------------------- o que pode vir de fora (lista fechada)
