@@ -185,6 +185,8 @@ object Estilo {
     const val FOCO_MS = DesignTokens.MS_QUICK
     const val TRANSICAO_MS = DesignTokens.MS_FAST
     private val desacelera = DesignTokens.EASE_OUT.let { PathInterpolator(it[0], it[1], it[2], it[3]) }
+    /** A curva única do padrão (design/tokens.json motion.easeOut): todo abrir, fechar e deslizar. Nova a cada chamada (ValueAnimator guarda estado). */
+    fun curva(): android.view.animation.Interpolator = DesignTokens.EASE_OUT.let { PathInterpolator(it[0], it[1], it[2], it[3]) }
 
     /** Quanto cresce o que ganha foco: card 8%, linha de lista 2%. */
     const val ESCALA_CARD = 1.05f   // era 1,08 (régua 22/11/2026: nada "pula" na tela)
@@ -834,7 +836,7 @@ object Estilo {
         val media = fonte(500)
         val sombra = 0x99000000.toInt()
         val anima = android.provider.Settings.Global.getFloat(ctx.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
-        val suave = DecelerateInterpolator(1.6f)
+        val suave = curva()
         val nomeLista = titulo.toString()   // régua: sem maiúsculas
         // Cabeçalho só com o nome da lista (crítica de design 19/11/2026: o "3 de 14" ao lado era ruído; o foco já diz onde se está).
         val cabecalho = TextView(ctx).apply {
@@ -1047,8 +1049,8 @@ object Estilo {
     const val LISTA_FONTE_MARCA = 20f
     /** Dicas do pé: 16 sp, o mínimo da casa (idosos); as do Rádio usam 14 na tecla. */
     const val LISTA_FONTE_DICA = 18f   // régua 22/11/2026: mínimo 18 sp
-    const val LISTA_FOCO_MS = 180L
-    const val LISTA_ENTRAR_MS = 260L
+    const val LISTA_FOCO_MS = DesignTokens.MS_QUICK   // era 180 (padrão único, 26/11/2026)
+    const val LISTA_ENTRAR_MS = DesignTokens.MS_FAST   // era 260
     /** Cada linha chega este tanto depois da vizinha (a "onda" da cruz é 16 ms por passo). */
     const val LISTA_ONDA_MS = 18L
     const val LISTA_ONDA_MAX_MS = 120L

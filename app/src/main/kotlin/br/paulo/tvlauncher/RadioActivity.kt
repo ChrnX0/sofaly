@@ -481,7 +481,7 @@ class RadioActivity : Activity() {
         })
         (window.decorView.findViewById<android.view.ViewGroup>(android.R.id.content)).addView(raiz, FrameLayout.LayoutParams(-1, -1))
         globo = raiz
-        raiz.alpha = 0f; raiz.animate().alpha(1f).setDuration(220).start()
+        raiz.alpha = 0f; raiz.animate().alpha(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).start()
         v.requestFocus()
     }
 

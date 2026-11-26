@@ -89,7 +89,7 @@ internal fun MainActivity.deslizarArte(t: CruzLogica.Tecla) {
     capa.animate().cancel()
     capa.translationX = x * passo; capa.translationY = y * passo
     capa.animate().translationX(0f).translationY(0f).setDuration(CruzOnda3.PARALAXE_MS)
-        .setInterpolator(android.view.animation.DecelerateInterpolator(1.6f)).start()
+        .setInterpolator(Estilo.curva()).start()
 }
 
 internal fun MainActivity.vigiarTela() {

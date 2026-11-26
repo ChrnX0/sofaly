@@ -1074,7 +1074,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val base = LINHA - VAO_CIMA - ICONE_A * ESCALA_PEQUENO / 2f
         val alvo = dp(base - ROTULO_VAO) - altura
         if (cabecalho.translationY == alvo) return
-        if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(300L).setInterpolator(curvaRotulo).start()
+        if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(curvaRotulo).start()
         else { cabecalho.animate().cancel(); cabecalho.translationY = alvo }
     }
 
@@ -1102,7 +1102,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val alvo = if (pequeno && CrossRhythm.atual.nomeNoMeio)
             (dp(ICONE_A.toFloat()) - (fm.descent - fm.ascent)) / 2f - dp(TEXTO_TOPO.toFloat()) else 0f
         if (textos.translationY == alvo) return
-        if (animar && !semMov) textos.animate().translationY(alvo).setDuration(200L).start()
+        if (animar && !semMov) textos.animate().translationY(alvo).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva()).start()
         else { textos.animate().cancel(); textos.translationY = alvo }
     }
 

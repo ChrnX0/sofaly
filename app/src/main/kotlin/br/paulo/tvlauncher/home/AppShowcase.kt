@@ -74,13 +74,13 @@ class AppShowcase(ctx: Context, fonte: Typeface, fonteForte: Typeface) : LinearL
             translationY = dp(8).toFloat()
         }
         animate().cancel()
-        animate().alpha(1f).translationY(0f).setDuration(400).setInterpolator(curva).start()
+        animate().alpha(1f).translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW).setInterpolator(curva).start()
     }
 
     fun esconder() {
         if (pacoteAgora == null && alpha == 0f) return
         pacoteAgora = null
         animate().cancel()
-        animate().alpha(0f).setDuration(350).setInterpolator(curva).start()
+        animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_MEDIUM).setInterpolator(curva).start()
     }
 }

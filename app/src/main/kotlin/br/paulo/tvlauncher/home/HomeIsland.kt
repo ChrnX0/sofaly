@@ -168,8 +168,8 @@ internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
     if (ilhaMundoNome?.text?.toString() == c.nome && mundo.visibility == View.VISIBLE) return
     // A pílula muda de largura deslizando para os dois lados (centro fixo); o mundo novo acende junto.
     if (capaPronta && !semAnimacoes()) {
-        (ilhaPilula?.parent as? ViewGroup)?.let { android.transition.TransitionManager.beginDelayedTransition(it, android.transition.ChangeBounds().setDuration(250)) }
-        mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(200L).start()
+        (ilhaPilula?.parent as? ViewGroup)?.let { android.transition.TransitionManager.beginDelayedTransition(it, android.transition.ChangeBounds().setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva())) }
+        mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).start()
     }
     ilhaMundoIcone?.setImageDrawable(icCruz("ilha:" + c.cat.id, WorldLabel.tipo(c.cat)))   // outra cópia do desenho da categoria
     ilhaMundoNome?.text = c.nome
@@ -330,7 +330,7 @@ internal fun MainActivity.crescerIlhaTexto(texto: String, atencao: Boolean) {
     d.setTextColor(if (atencao) Estilo.ATENCAO else Estilo.TEXTO)
     d.animate().cancel()
     if (semAnimacoes()) { d.alpha = 1f; d.translationY = 0f }
-    else { d.translationY = -dp(6).toFloat(); d.animate().alpha(1f).translationY(0f).setDuration(260).start() }
+    else { d.translationY = -dp(6).toFloat(); d.animate().alpha(1f).translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva()).start() }
     ui.removeCallbacks(tarefaIlhaEncolhe)
     ui.postDelayed(tarefaIlhaEncolhe, BarraIlha.CRESCER_MS)
 }
@@ -348,7 +348,7 @@ internal fun MainActivity.aplicarIlha() {
     if (e == ilhaEvento) return
     val mudouTipo = e?.tipo != ilhaEvento?.tipo
     if (mudouTipo && capaPronta && !semAnimacoes()) {
-        android.transition.TransitionManager.beginDelayedTransition(pilula.parent as? ViewGroup ?: pilula, android.transition.AutoTransition().setDuration(260))
+        android.transition.TransitionManager.beginDelayedTransition(pilula.parent as? ViewGroup ?: pilula, android.transition.AutoTransition().setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva()))
     }
     ilhaEvento = e
     val extra = ilhaExtra ?: return

@@ -483,8 +483,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         if (semAnimacao()) return
         k.animate().cancel()
         k.pivotX = k.width / 2f; k.pivotY = k.height / 2f
-        k.animate().scaleX(0.94f).scaleY(0.94f).setDuration(70L).withEndAction {
-            k.animate().scaleX(1f).scaleY(1f).setDuration(210L).setInterpolator(android.view.animation.OvershootInterpolator(2f)).start()
+        k.animate().scaleX(0.94f).scaleY(0.94f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_MICRO).withEndAction {
+            k.animate().scaleX(1f).scaleY(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(android.view.animation.OvershootInterpolator(2f)).start()
         }.start()
     }
 

@@ -296,7 +296,7 @@ class PodcastPlayerActivity : Activity() {
         if (arte.tag != endereco) {
             arte.tag = endereco
             if (endereco.isEmpty()) arte.setImageDrawable(null) else PlayerLogos.carregar(this, endereco, arte, CruzOuvir.ARTE_LADO)
-            arte.animate().alpha(if (endereco.isEmpty()) 0f else 0.55f).setDuration(500).start()
+            arte.animate().alpha(if (endereco.isEmpty()) 0f else 0.55f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW).start()
         }
 
         vistas[Acao.ALTERNAR]?.icone(if (pausado) IconeOuvir.Tipo.CONTINUAR else IconeOuvir.Tipo.PAUSAR)
@@ -622,14 +622,14 @@ class PodcastPlayerActivity : Activity() {
             palco = this
         }
         achados = emptyList(); noAchado = -1; palcoVisto = -2
-        p.visibility = View.VISIBLE; p.alpha = 0f; p.animate().alpha(1f).setDuration(220).start()
+        p.visibility = View.VISIBLE; p.alpha = 0f; p.animate().alpha(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).start()
         desenharPalco()
         ui.removeCallbacks(relogio); ui.post(relogio)
     }
 
     private fun fecharPalco() {
         val p = palco ?: return
-        p.animate().alpha(0f).setDuration(160).withEndAction { p.visibility = View.GONE }.start()
+        p.animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).withEndAction { p.visibility = View.GONE }.start()
         p.visibility = View.GONE
         desenharFoco(true)
     }
@@ -658,7 +658,7 @@ class PodcastPlayerActivity : Activity() {
         palcoVisto = i
         fun frase(k: Int): String = l.getOrNull(k)?.let { x -> if (x.quem.isNotEmpty() && (k == 0 || l[k - 1].quem != x.quem)) x.quem + ": " + x.texto else x.texto }.orEmpty()
         linhasPalco.getOrNull(0)?.text = frase(i - 1)
-        linhasPalco.getOrNull(1)?.let { tv -> tv.text = if (i < 0) "…" else frase(i); tv.translationY = dp(10f); tv.animate().translationY(0f).setDuration(180).start() }
+        linhasPalco.getOrNull(1)?.let { tv -> tv.text = if (i < 0) "…" else frase(i); tv.translationY = dp(10f); tv.animate().translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start() }
         linhasPalco.getOrNull(2)?.text = frase(i + 1)
         linhasPalco.getOrNull(3)?.text = frase(i + 2)
         val raiz = window.decorView.findFocus()
@@ -758,7 +758,7 @@ class PodcastPlayerActivity : Activity() {
         private var ic: IconeOuvir? = null
         private var escrita: String? = null
         var focado = false
-            set(v) { if (field != v) { field = v; animate().scaleX(if (v) 1.12f else 1f).scaleY(if (v) 1.12f else 1f).setDuration(140).start(); invalidate() } }
+            set(v) { if (field != v) { field = v; animate().scaleX(if (v) 1.12f else 1f).scaleY(if (v) 1.12f else 1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); invalidate() } }
         var ligado = true
             set(v) { if (field != v) { field = v; invalidate() } }
         private val fundo = Paint(Paint.ANTI_ALIAS_FLAG)

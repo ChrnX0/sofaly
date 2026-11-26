@@ -100,10 +100,10 @@ class CapaFoco(ctx: Context) : View(ctx) {
         this.cores = cores
         invalidate()
         animate().cancel()
-        if (imagem == null && cores == null) { animate().alpha(0f).setDuration(200).start(); return }
+        if (imagem == null && cores == null) { animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); return }
         if (!TesteHome.capaAnima) { alpha = OPACIDADE; return }   // só para medir (gancho HOME_TESTE)
         alpha = 0.3f
-        animate().alpha(OPACIDADE).setDuration(260).start()
+        animate().alpha(OPACIDADE).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(br.paulo.tvlauncher.Estilo.curva()).start()
     }
 
     fun esconder() = mostrar(null, null)

@@ -38,9 +38,9 @@ internal object SidePanel {
     const val BORRAO_DP = 36
     /** Quanto a HOME escurece fora da prévia (0 = nada, 1 = preto). */
     const val ESCURECE = 0.45f
-    const val ABRIR_MS = 250L
-    const val FECHAR_MS = 150L
-    const val ESCALONAR_MS = 40L
+    const val ABRIR_MS = br.paulo.tvlauncher.DesignTokens.MS_FAST
+    const val FECHAR_MS = br.paulo.tvlauncher.DesignTokens.MS_QUICK
+    const val ESCALONAR_MS = br.paulo.tvlauncher.DesignTokens.MS_STAGGER
     /** Quantas linhas entram escalonadas (as de baixo, fora da tela, não precisam). */
     const val ESCALONAR_MAX = 8
 
@@ -142,7 +142,7 @@ internal object SidePanel {
         if (semMovimento(a) || ms <= 0) { w.setDimAmount(alvo); return }
         animDim = ValueAnimator.ofFloat(de, alvo).apply {
             duration = ms
-            interpolator = DecelerateInterpolator()
+            interpolator = Estilo.curva()
             addUpdateListener { if (!a.isDestroyed) w.setDimAmount(it.animatedValue as Float) }
             start()
         }
@@ -154,7 +154,7 @@ internal object SidePanel {
         val lado = if (raiz.layoutDirection == View.LAYOUT_DIRECTION_RTL) -1 else 1
         raiz.alpha = 0f
         raiz.translationX = lado * Estilo.dp(a, 24).toFloat()
-        raiz.animate().alpha(1f).translationX(0f).setDuration(ABRIR_MS).setInterpolator(DecelerateInterpolator()).start()
+        raiz.animate().alpha(1f).translationX(0f).setDuration(ABRIR_MS).setInterpolator(Estilo.curva()).start()
         previa(a, previa)
     }
 
@@ -164,7 +164,7 @@ internal object SidePanel {
         val lado = if (raiz.layoutDirection == View.LAYOUT_DIRECTION_RTL) -1 else 1
         escurecer(a, 0f, FECHAR_MS)
         raiz.animate().alpha(0f).translationX(lado * Estilo.dp(a, 16).toFloat()).setDuration(FECHAR_MS)
-            .setInterpolator(AccelerateInterpolator()).withEndAction(depois).start()
+            .setInterpolator(Estilo.curva()).withEndAction(depois).start()
     }
 
     /** As primeiras linhas de [c] entram uma depois da outra (40 ms), subindo 8 dp. */
@@ -185,7 +185,7 @@ internal object SidePanel {
             android.animation.AnimatorSet().apply {
                 playTogether(android.animation.ObjectAnimator.ofFloat(v, View.ALPHA, 0f, 1f),
                     android.animation.ObjectAnimator.ofFloat(v, View.TRANSLATION_Y, sobe, 0f))
-                startDelay = atraso; duration = ABRIR_MS; interpolator = DecelerateInterpolator()
+                startDelay = atraso; duration = ABRIR_MS; interpolator = Estilo.curva()
                 start()
             }
             if (!fio) n++

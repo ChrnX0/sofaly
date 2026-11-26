@@ -1084,7 +1084,7 @@ class MainActivity : Activity() {
             setOnFocusChangeListener { v, temFoco ->
                 v.background = anel(temFoco)
                 val escala = if (temFoco) 1.12f else 1f
-                v.animate().scaleX(escala).scaleY(escala).setDuration(140).start()
+                v.animate().scaleX(escala).scaleY(escala).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start()
             }
         }
     }
@@ -2307,7 +2307,7 @@ class MainActivity : Activity() {
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null
     /** Ilha que cresce: a faixa de baixo com o evento que chegou e "▲ para abrir"; some em [BarraIlha.CRESCER_MS]. */
     internal var ilhaDica: TextView? = null
-    internal val tarefaIlhaEncolhe = Runnable { ilhaDica?.animate()?.alpha(0f)?.translationY(-dp(6).toFloat())?.setDuration(220)?.start() }
+    internal val tarefaIlhaEncolhe = Runnable { ilhaDica?.animate()?.alpha(0f)?.translationY(-dp(6).toFloat())?.setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST)?.start() }
     /** Rodízio da fila: troca o evento da vez a cada [BarraIlha.RODIZIO_MS], só com a barra recolhida e a HOME na frente. */
     internal val tarefaIlhaGira = object : Runnable {
         override fun run() {

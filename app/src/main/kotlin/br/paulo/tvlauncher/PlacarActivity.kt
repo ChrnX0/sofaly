@@ -153,11 +153,13 @@ class PlacarActivity : Activity() {
                 LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             addView(tSinal, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginStart = dp(16) })
             setOnFocusChangeListener { v, foco ->
-                v.background = if (foco) Estilo.fundo(context, Estilo.FOCO, Estilo.RAIO) else Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
-                val claro = if (foco) Estilo.FUNDO else Estilo.TEXTO
+                val normal = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
+                v.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO, normal) else normal
+                val escuro = foco && Estilo.focoEscurece(context)
+                val claro = if (escuro) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO
                 tTitulo.setTextColor(claro); tMedida.setTextColor(claro)
-                tDetalhe.setTextColor(if (foco) Estilo.FUNDO else Estilo.TEXTO_2)
-                tSinal.setTextColor(if (foco) Estilo.FUNDO else cor)
+                tDetalhe.setTextColor(if (escuro) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
+                tSinal.setTextColor(if (escuro) Estilo.TEXTO_NO_FOCO else cor)
             }
         }
     }
