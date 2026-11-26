@@ -226,7 +226,7 @@ object Moldura {
         isFocusable = false
         importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
         background = android.graphics.drawable.GradientDrawable().apply {
-            cornerRadius = Estilo.dp(a, PILULA_ALTURA / 2).toFloat(); setColor(0xBF0B0B0A.toInt())
+            cornerRadius = Estilo.dp(a, PILULA_ALTURA / 2).toFloat(); setColor(0xBF0B0B0B.toInt())
         }
         setPaddingRelative(Estilo.dp(a, 16), 0, Estilo.dp(a, 18), 0)
         addView(android.view.View(a).apply {

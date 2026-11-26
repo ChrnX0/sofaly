@@ -1515,7 +1515,7 @@ class ConfigLauncherActivity : Activity() {
         private fun pintarChave(sim: Boolean) {
             val focada = focada && Estilo.focoEscurece(context)   // no Fio e no Véu a chave fica como está
             trilho?.background = Estilo.fundo(context,
-                when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33141413; else -> 0x33FFFFFF },
+                when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33121212; else -> 0x33FFFFFF },
                 Estilo.RAIO_PILULA)
             bolinha?.background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL

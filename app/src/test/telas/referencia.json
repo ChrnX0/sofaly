@@ -63,7 +63,7 @@
   "semNome": []
  },
  "ar\/configuracoes-familia": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -207,7 +207,7 @@
   "semNome": []
  },
  "ar\/placar": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -216,7 +216,7 @@
   "semNome": []
  },
  "ar\/placar-ac": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -333,7 +333,7 @@
   "semNome": []
  },
  "en\/configuracoes-familia": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -477,7 +477,7 @@
   "semNome": []
  },
  "en\/placar": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -486,7 +486,7 @@
   "semNome": []
  },
  "en\/placar-ac": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -603,7 +603,7 @@
   "semNome": []
  },
  "pt\/configuracoes-familia": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -747,7 +747,7 @@
   "semNome": []
  },
  "pt\/placar": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],
@@ -756,7 +756,7 @@
   "semNome": []
  },
  "pt\/placar-ac": {
-  "menorSp": 16,
+  "menorSp": 18,
   "foco": true,
   "cortes": [],
   "sobrepostos": [],

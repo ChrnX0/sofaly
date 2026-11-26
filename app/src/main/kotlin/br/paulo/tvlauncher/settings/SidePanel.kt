@@ -108,7 +108,7 @@ internal object SidePanel {
      */
     fun degrade(rtl: Boolean, @Suppress("UNUSED_PARAMETER") borrao: Boolean = false): GradientDrawable {
         // Mais firme onde está o texto (Sala, 26/11/2026: os cartões da HOME apareciam atrás das linhas).
-        val cores = intArrayOf(0x00141413, 0xB3141413.toInt(), 0xEB141413.toInt(), 0xF7141413.toInt())
+        val cores = intArrayOf(0x00121212, 0xB3121212.toInt(), 0xEB121212.toInt(), 0xF7121212.toInt())
         return GradientDrawable(if (rtl) GradientDrawable.Orientation.RIGHT_LEFT else GradientDrawable.Orientation.LEFT_RIGHT, cores)
     }
 
