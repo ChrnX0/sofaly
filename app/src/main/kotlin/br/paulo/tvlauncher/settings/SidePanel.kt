@@ -107,8 +107,8 @@ internal object SidePanel {
      * Com borrão do sistema a tinta é mais leve; sem ele, mais firme, para o texto não brigar com a imagem.
      */
     fun degrade(rtl: Boolean, @Suppress("UNUSED_PARAMETER") borrao: Boolean = false): GradientDrawable {
-        val cores = intArrayOf(0x00141413, 0xA6141413.toInt(),
-            Estilo.PAINEL_CHEIO_DENTRO, Estilo.PAINEL_CHEIO)
+        // Mais firme onde está o texto (Sala, 26/11/2026: os cartões da HOME apareciam atrás das linhas).
+        val cores = intArrayOf(0x00141413, 0xB3141413.toInt(), 0xEB141413.toInt(), 0xF7141413.toInt())
         return GradientDrawable(if (rtl) GradientDrawable.Orientation.RIGHT_LEFT else GradientDrawable.Orientation.LEFT_RIGHT, cores)
     }
 
