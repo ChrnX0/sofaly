@@ -22,7 +22,7 @@ class ExtrasAbasTest {
         val todas = ExtrasAbas.Aba.values().flatMap { ExtrasAbas.daAba(it, nomes) }
         assertEquals(todas.toSet().size, todas.size)
         assertEquals(nomes.toSet(), todas.toSet())
-        assertEquals(listOf("HORA_DORMIR", "TEMPO_TELA", "PIN_HOME"), ExtrasAbas.daAba(ExtrasAbas.Aba.PARENTAL, nomes))
+        assertEquals(listOf("HORA_DORMIR", "TEMPO_TELA", "PIN_HOME", "MURAL"), ExtrasAbas.daAba(ExtrasAbas.Aba.PARENTAL, nomes))
     }
 
     @Test fun nomeQueNaoExisteNestaVersaoNaoAparece() =
