@@ -143,9 +143,8 @@ private fun ConfigLauncherActivity.objetivos(foco: Int) {
             SettingsGoals.Goal.KIDS -> "☺"
         }
         val b = Estilo.pilula(this).apply {
-            addView(Estilo.texto(context, Estilo.Papel.CORPO, (if (g == ativo) "✓  " else "$icone  ") + nome).apply {
-                maxLines = 1; ellipsize = TextUtils.TruncateAt.END
-            })
+            // Duas linhas: no painel estreito (560 dp, 2 colunas) um nome longo em alemão não cabe numa.
+            addView(Estilo.texto(context, Estilo.Papel.CORPO, (if (g == ativo) "✓  " else "$icone  ") + nome).apply { maxLines = 2 })
             contentDescription = if (g == ativo) getString(R.string.goal_desfazer, nome) else nome
             tag = "goal:" + g.name
             setOnClickListener {
