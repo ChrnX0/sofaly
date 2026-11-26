@@ -1445,3 +1445,5 @@ body.com-visor { overflow: hidden; }
   padding: 12px 20px; background: var(--t-night-deep); border-top: 2px solid var(--t-orange); }
 .faixa-pedetexto .faixa-texto { flex: 1; min-width: 0; margin: 0; font-size: 18px; line-height: 1.4; }
 .faixa-pedetexto .faixa-texto strong { font-weight: 800; }
+.cartao-app { border: 2px solid var(--t-orange); }
+.cartao-app .botao-primario { text-decoration: none; display: inline-flex; align-items: center; }

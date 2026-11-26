@@ -3294,3 +3294,17 @@ async function sofyIa() {
     $('sofyConsertos').hidden = !casos.length;
   } catch (e) { /* fica como está */ }
 }
+
+// Item 20: cartão "Use pelo app" só no Chrome do Android (não no WebView do próprio app, que tem "; wv)").
+document.addEventListener('DOMContentLoaded', () => {
+  const c = $('cartaoApp'); if (!c) return;
+  const ua = navigator.userAgent || '';
+  let dispensou = false;
+  try { dispensou = localStorage.getItem('cartaoAppFora') === '1'; } catch (e) { /* sem armazenamento */ }
+  if (!/Android/i.test(ua) || /; wv\)/.test(ua) || dispensou) return;
+  c.hidden = false;
+  $('dispensarApp').addEventListener('click', () => {
+    c.hidden = true;
+    try { localStorage.setItem('cartaoAppFora', '1'); } catch (e) { /* tanto faz */ }
+  });
+});
