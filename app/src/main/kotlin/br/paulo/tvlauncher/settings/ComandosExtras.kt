@@ -203,6 +203,12 @@ object ComandosExtras {
             M.firstOrNull { it.name.equals(n, true) }?.let { br.paulo.tvlauncher.home.BottomBar.setMode(ctx, it); "home=${it.name} (aperte HOME)" }
                 ?: "home=${br.paulo.tvlauncher.home.BottomBar.mode(ctx)}; opções: ${M.joinToString { it.name.lowercase() }}"
         }
+        // Linhas de cards de um mundo nas Fileiras (bloco 3, 26/11/2026): --es mundo jogar --ei linhas 1|2|3 (aperte HOME).
+        "linhas" -> br.paulo.tvlauncher.home.CruzLogica.Categoria.entries.firstOrNull { it.id == i.getStringExtra("mundo") }?.let { c ->
+            val n = i.getIntExtra("linhas", 0)
+            if (n in 1..br.paulo.tvlauncher.home.WorldOptions.MAX_LINES) br.paulo.tvlauncher.home.WorldOptions.update(ctx, c) { it.copy(lines = n) }
+            "linhas ${c.id}=${br.paulo.tvlauncher.home.WorldOptions.of(ctx, c).lines} (aperte HOME)"
+        } ?: "linhas: --es mundo ${br.paulo.tvlauncher.home.CruzLogica.Categoria.entries.joinToString("|") { it.id }} --ei linhas 1..3"
         // Jeito dos cards da barra única (24/11/2026): wide, classic, square, logo, grid, round, only (aperte HOME).
         "cards" -> (i.getStringExtra("nome") ?: "").let { n ->
             val F = br.paulo.tvlauncher.home.StripHome.Format.entries
