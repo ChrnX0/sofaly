@@ -432,7 +432,7 @@ class VodActivity : Activity() {
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             setShadowLayer(8f, 0f, 2f, Color.BLACK)
             setPaddingRelative(dp(18), dp(6), dp(18), dp(6))
-            background = GradientDrawable().apply { cornerRadius = dp(8).toFloat(); setColor(0x8C000000.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0x8C000000.toInt()) }
         }
         raiz.addView(legenda, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL).apply { setMargins(dp(96), 0, dp(96), dp(56)) })
         // Música não tem imagem: sem isto a tela ficava toda preta. Aparece só quando o arquivo não tem faixa de vídeo.
@@ -447,7 +447,7 @@ class VodActivity : Activity() {
             textSize = 18f; setTextColor(papel); visibility = View.GONE; text = getString(R.string.abertura_pular)
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             setPaddingRelative(dp(22), dp(12), dp(22), dp(12))
-            background = GradientDrawable().apply { cornerRadius = dp(24).toFloat(); setColor(0xD9141413.toInt()); setStroke(dp(2), papel) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xD9141413.toInt()); setStroke(dp(2), papel) }
         }
         raiz.addView(pilulaPular, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.END).apply { setMargins(0, 0, dp(48), dp(170)) })
         // Ideia 6: a segunda legenda fica em cima (a primeira continua embaixo), com o mesmo estilo.
@@ -456,7 +456,7 @@ class VodActivity : Activity() {
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             setShadowLayer(8f, 0f, 2f, Color.BLACK)
             setPaddingRelative(dp(18), dp(6), dp(18), dp(6))
-            background = GradientDrawable().apply { cornerRadius = dp(8).toFloat(); setColor(0x8C000000.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0x8C000000.toInt()) }
         }
         raiz.addView(legenda2, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.CENTER_HORIZONTAL).apply { setMargins(dp(96), dp(40), dp(96), 0) })
         // Ideia 3: miniatura acima da barra enquanto ◀ ▶ estão segurados (anda junto com o ponto da barra).

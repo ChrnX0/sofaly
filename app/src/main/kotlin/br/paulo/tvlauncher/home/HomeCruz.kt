@@ -991,7 +991,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val corCat = BottomBar.cor(cats.getOrNull(f)?.cat)
         val anel = focada && !naApps && (hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto)
         realce.background = GradientDrawable().apply {
-            cornerRadius = dp(20f)
+            cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO.toFloat())
             setColor(Estilo.alfa(corCat, 0x29))
             if (anel) setStroke(dpi(3), Estilo.ACENTO)
         }

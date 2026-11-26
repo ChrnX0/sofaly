@@ -424,7 +424,7 @@ class PodcastPlayerActivity : Activity() {
             x.dataMs.takeIf { it > 0 }?.let { dataCurta(it) },
             x.duracaoS.takeIf { it > 0 }?.let { getString(R.string.pod_minutos, maxOf(1, (it + 59) / 60)) },
         ).joinToString(" · "), d, larguraTexto, 1)
-        background = GradientDrawable().apply { cornerRadius = dp(16f); setColor(0x00000000) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO.toFloat()); setColor(0x00000000) }
     }
 
     /** "13 de nov." / "Nov 13": dia e mês na ordem da língua, sem o ano. */

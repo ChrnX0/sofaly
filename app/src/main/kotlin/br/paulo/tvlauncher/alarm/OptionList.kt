@@ -87,7 +87,7 @@ class OptionList(ctx: Context) : LinearLayout(ctx) {
         aoMudar(itens.getOrNull(escolhido))
     }
 
-    private fun fundoFoco() = GradientDrawable().apply { setColor(Estilo.SUPERFICIE_ALTA); cornerRadius = dp(10f) }
+    private fun fundoFoco() = GradientDrawable().apply { setColor(Estilo.SUPERFICIE_ALTA); cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO.toFloat()) }
 
     private fun criarLinha(): Linha {
         val barra = View(context).apply { background = GradientDrawable().apply { setColor(Estilo.ACENTO); cornerRadius = dp(2f) } }

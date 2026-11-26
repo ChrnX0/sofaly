@@ -73,7 +73,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     ilhaTrilho = trilho
     val contador = texto(Estilo.Leitura.DICA, textoClaro, fonteUi).apply {
         includeFontPadding = false; visibility = View.GONE
-        background = GradientDrawable().apply { cornerRadius = dp(9).toFloat(); setStroke(dp(1), 0x40FFFFFF) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setStroke(dp(1), 0x40FFFFFF) }
         setPaddingRelative(dp(7), dp(2), dp(7), dp(2))
     }
     ilhaContador = contador
@@ -110,7 +110,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         background = GradientDrawable().apply {
-            cornerRadius = dp(20).toFloat(); setColor(0xC70A0B14.toInt()); setStroke(dp(1), 0x1FFFFFFF)
+            cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xC70A0B14.toInt()); setStroke(dp(1), 0x1FFFFFFF)
         }
         setPaddingRelative(dp(14), 0, dp(16), 0)
         // O leitor de tela lê a fila inteira (antes a pílula era invisível para ele e para o MCP).
@@ -135,7 +135,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     // 18sp, a menor letra da HOME (TelasTest, 25/11/2026: com 15sp a dica "amanhã 6:45 · ▲ para abrir" ficava abaixo).
     val dica = texto(18f, Estilo.TEXTO, fonteUi).apply {
         includeFontPadding = false; maxLines = 1; ellipsize = TextUtils.TruncateAt.END; maxWidth = dp(ILHA_TEXTO_MAX + 200)
-        background = GradientDrawable().apply { cornerRadius = dp(16).toFloat(); setColor(0xE60A0B14.toInt()); setStroke(dp(1), 0x26FFFFFF) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xE60A0B14.toInt()); setStroke(dp(1), 0x26FFFFFF) }
         setPaddingRelative(dp(16), dp(8), dp(16), dp(8))
         alpha = 0f
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO   // a pílula já lê a fila inteira
