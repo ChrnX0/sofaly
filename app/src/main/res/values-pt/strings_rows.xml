@@ -112,4 +112,8 @@
     <string name="rw_tema_vitrine">Vitrine</string>
     <string name="rw_tema_minimo">Mínimo</string>
     <string name="rw_personalizado">Personalizado</string>
+    <string name="rw_ocioso">Modo ocioso</string>
+    <string name="rw_ocioso_min">Ocioso depois de</string>
+    <string name="rw_ocioso_opacidade">Opacidade da tela inicial ociosa</string>
+    <string name="rw_ocioso_hora">Hora grande no modo ocioso</string>
 </resources>

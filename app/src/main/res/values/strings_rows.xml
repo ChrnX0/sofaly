@@ -112,4 +112,8 @@
     <string name="rw_tema_vitrine">Showcase</string>
     <string name="rw_tema_minimo">Minimal</string>
     <string name="rw_personalizado">Custom</string>
+    <string name="rw_ocioso">Idle mode</string>
+    <string name="rw_ocioso_min">Idle after</string>
+    <string name="rw_ocioso_opacidade">Home opacity when idle</string>
+    <string name="rw_ocioso_hora">Big clock when idle</string>
 </resources>

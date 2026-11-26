@@ -228,6 +228,12 @@ class FineTuneActivity : Activity() {
         val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
         fun enumA(t: Int, nomes: List<String>, key: String, atual: () -> Int) =
             Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
+        val C3 = br.paulo.tvlauncher.home.CruzOnda3
+        /** Opção guardada direto em Extras.numero (fora das Options das Fileiras), com [padrao] de fábrica. */
+        fun numA(t: Int, nomes: List<String>, key: String, padrao: Int): Ajuste {
+            fun atual() = br.paulo.tvlauncher.settings.Extras.numero(this, key, padrao).coerceIn(0, nomes.size - 1)
+            return Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
+        }
         fun simA(t: Int, key: String, atual: () -> Boolean) =
             Ajuste(t, { simNao[if (atual()) 1 else 0] }) { p -> simNao[gira(key, if (atual()) 1 else 0, 2, p)] }
         // Tema pronto (bloco 6): ◀ ▶ aplica o anterior/próximo; mexeu em qualquer opção = "Personalizado"
@@ -287,6 +293,11 @@ class FineTuneActivity : Activity() {
             enumA(R.string.rw_letra_tam, nomes(R.string.rw_m, R.string.rw_l, R.string.rw_xl), R2.KEY_TEXT_SIZE) { o().textSize.ordinal },
             simA(R.string.rw_negrito, R2.KEY_BOLD) { o().bold },
             simA(R.string.rw_italico, R2.KEY_ITALIC) { o().italic },
+            // Modo ocioso (bloco 7): o modo ambiente da HOME, com os ajustes dele
+            numA(R.string.rw_ocioso, simNao, C3.CHAVE_AMBIENTE, 1),
+            numA(R.string.rw_ocioso_min, C3.AMBIENTE_MINUTOS.map { getString(R.string.rw_min, it) }, C3.CHAVE_AMBIENTE_MIN, 1),
+            numA(R.string.rw_ocioso_opacidade, C3.AMBIENTE_ALFAS.map { "${(it * 100).toInt()}%" }, C3.CHAVE_AMBIENTE_ALFA, 0),
+            numA(R.string.rw_ocioso_hora, simNao, C3.CHAVE_AMBIENTE_HORA, 1),
         )
     }
 

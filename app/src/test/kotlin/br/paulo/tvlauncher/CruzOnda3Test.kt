@@ -41,4 +41,10 @@ class CruzOnda3Test {
         assertFalse(CruzOnda3.mostraDormir(false, 23, false))
         assertTrue("timer marcado aparece sempre (para cancelar)", CruzOnda3.mostraDormir(false, 15, true))
     }
+
+    @Test fun ociosoDepoisDoTempoEscolhido() {
+        assertEquals(2 * 60_000L, CruzOnda3.ambienteMs(1))      // padrão de fábrica: 2 min (o de antes)
+        assertEquals(30 * 60_000L, CruzOnda3.ambienteMs(4))
+        assertEquals(2 * 60_000L, CruzOnda3.ambienteMs(99))     // índice estranho = padrão
+    }
 }

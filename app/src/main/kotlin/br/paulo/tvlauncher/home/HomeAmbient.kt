@@ -24,7 +24,7 @@ private const val MATCH = android.view.ViewGroup.LayoutParams.MATCH_PARENT
 
 internal fun MainActivity.reagendarAmbiente() {
     ui.removeCallbacks(tarefaAmbiente)
-    if (cruz != null && homeNaFrente && CruzOnda3.ligado(this, CruzOnda3.CHAVE_AMBIENTE)) ui.postDelayed(tarefaAmbiente, CruzOnda3.AMBIENTE_MS)
+    if (cruz != null && homeNaFrente && CruzOnda3.ligado(this, CruzOnda3.CHAVE_AMBIENTE)) ui.postDelayed(tarefaAmbiente, CruzOnda3.ambienteMs(this))
 }
 
 internal fun MainActivity.tocandoAgora() = capsulaPronta && capsulaTocando.visibility == View.VISIBLE && barrasTocando.tocando
@@ -37,9 +37,11 @@ internal fun MainActivity.entrarAmbiente() {
     ambiente = true
     (fundo as? WallpaperPluginView)?.ocioso(true)
     val d = CruzOnda3.AMBIENTE_FADE_MS
-    c.animate().alpha(0f).setDuration(d).start()
-    topoRaiz?.animate()?.alpha(0f)?.setDuration(d)?.start()
+    val alfa = CruzOnda3.ambienteAlfa(this)
+    c.animate().alpha(alfa).setDuration(d).start()
+    topoRaiz?.animate()?.alpha(alfa)?.setDuration(d)?.start()
     relogioCruz?.animate()?.alpha(0f)?.setDuration(d)?.start()
+    if (!CruzOnda3.ambienteHora(this)) { c.announceForAccessibility(getString(R.string.cruz_ambiente)); return }
     // A hora grande no canto livre de baixo (a mesma da barra "Relógio grande"), com a data e o tempo.
     val r = relogioAmbiente ?: montarRelogioCruz().also { v ->
         v.alpha = 0f
