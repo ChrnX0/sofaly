@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">已固定 %1$s，但已断开（没有 VPN 也能上网）</string>
     <string name="diag_vpn_nao_validada">%1$s 已连接，但 Android 未验证隧道</string>
     <string name="diag_vpn_ok">%1$s 已连接且工作正常</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv 正常响应:天气、播客、转写等都在运行</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv 没有响应。家里的功能照常使用;天气、播客搜索和插件暂时等待</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv 正在维护,暂停中。家里的功能照常使用</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv 有响应,但这部分出故障了:%1$s</string>
+    <string name="diag_sofaly_clima">天气</string>
+    <string name="diag_sofaly_podcasts">播客搜索</string>
+    <string name="diag_sofaly_ia">转写和摘要</string>
+    <string name="diag_sofaly_comunidade">帮助其他家庭</string>
+    <string name="diag_sofaly_celular">离家时的手机</string>
     <string name="diag_r_sem_wifi">电视没有 Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS 无响应：互联网似乎中断了</string>
     <string name="diag_r_net_fora">无法连通互联网（路由器或运营商问题）</string>

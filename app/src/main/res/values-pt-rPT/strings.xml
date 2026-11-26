@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s fixada, mas DESCONECTADA (a internet segue sem VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s conectada, mas o Android não validou o túnel</string>
     <string name="diag_vpn_ok">%1$s conectada e a funcionar</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv a responder: meteorologia, podcasts, transcrição e o resto a funcionar</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv não respondeu. Tudo em casa continua a funcionar; meteorologia, pesquisa de podcasts e plugins esperam</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv está em pausa para manutenção. Tudo em casa continua a funcionar</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv responde, mas esta parte está em baixo: %1$s</string>
+    <string name="diag_sofaly_clima">meteorologia</string>
+    <string name="diag_sofaly_podcasts">pesquisa de podcasts</string>
+    <string name="diag_sofaly_ia">transcrição e resumos</string>
+    <string name="diag_sofaly_comunidade">ajudar outras casas</string>
+    <string name="diag_sofaly_celular">telemóvel fora de casa</string>
     <string name="diag_r_sem_wifi">a TV está sem Wi-Fi</string>
     <string name="diag_r_dns_fora">o DNS não responde: a internet parece fora</string>
     <string name="diag_r_net_fora">a internet não está a chegar (router ou operadora)</string>

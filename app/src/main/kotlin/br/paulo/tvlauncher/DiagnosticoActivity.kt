@@ -127,6 +127,7 @@ class DiagnosticoActivity : Activity() {
         val internet = info("Internet", getString(R.string.diag_verificando)).also { adicionar(it) }
         val dns = info("DNS", getString(R.string.diag_verificando)).also { adicionar(it) }
         val vpn = info("VPN", getString(R.string.diag_verificando)).also { adicionar(it) }
+        val sofaly = info("Sofaly", getString(R.string.diag_verificando)).also { adicionar(it) }
 
         // Cada verificação numa thread; cada linha aparece quando a sua chega.
         fun rodar(i: Int, linha: TextView, f: () -> Diagnostico.Item) = trabalho.execute {
@@ -144,6 +145,7 @@ class DiagnosticoActivity : Activity() {
         rodar(1, internet) { Diagnostico.internet(this) }
         rodar(2, dns) { Diagnostico.dns(this) }
         rodar(3, vpn) { Diagnostico.vpn(this) }
+        rodar(4, sofaly) { Diagnostico.servico(this) }
 
         secao(getString(R.string.diag_apps))
         val carregando = info(getString(R.string.diag_lendo), "…").also { adicionar(it) }

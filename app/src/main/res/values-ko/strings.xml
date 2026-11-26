@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s 고정됨, 그러나 연결 끊김(VPN 없이 인터넷은 계속 작동)</string>
     <string name="diag_vpn_nao_validada">%1$s 연결됨, 그러나 Android가 터널을 검증하지 않음</string>
     <string name="diag_vpn_ok">%1$s 연결되어 작동 중</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv 응답 중: 날씨, 팟캐스트, 받아쓰기 등이 작동합니다</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv가 응답하지 않았습니다. 집 안 기능은 계속 작동합니다. 날씨, 팟캐스트 검색, 플러그인은 대기합니다</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv가 점검으로 일시 중지되었습니다. 집 안 기능은 계속 작동합니다</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv는 응답하지만 이 부분이 멈췄습니다: %1$s</string>
+    <string name="diag_sofaly_clima">날씨</string>
+    <string name="diag_sofaly_podcasts">팟캐스트 검색</string>
+    <string name="diag_sofaly_ia">받아쓰기와 요약</string>
+    <string name="diag_sofaly_comunidade">다른 집 돕기</string>
+    <string name="diag_sofaly_celular">집 밖의 휴대폰</string>
     <string name="diag_r_sem_wifi">TV에 Wi-Fi가 없음</string>
     <string name="diag_r_dns_fora">DNS가 응답하지 않음: 인터넷이 끊긴 것 같음</string>
     <string name="diag_r_net_fora">인터넷이 연결되지 않음(라우터 또는 통신사)</string>

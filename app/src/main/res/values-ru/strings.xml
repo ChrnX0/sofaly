@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s закреплён, но ОТКЛЮЧЁН (интернет работает без VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s подключён, но Android не подтвердил туннель</string>
     <string name="diag_vpn_ok">%1$s подключён и работает</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv отвечает: погода, подкасты, расшифровка и остальное работают</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv не ответил. Дома всё работает; погода, поиск подкастов и плагины подождут</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv приостановлен на обслуживание. Дома всё работает</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv отвечает, но эта часть не работает: %1$s</string>
+    <string name="diag_sofaly_clima">погода</string>
+    <string name="diag_sofaly_podcasts">поиск подкастов</string>
+    <string name="diag_sofaly_ia">расшифровки и пересказы</string>
+    <string name="diag_sofaly_comunidade">помощь другим домам</string>
+    <string name="diag_sofaly_celular">телефон вне дома</string>
     <string name="diag_r_sem_wifi">у ТВ нет Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS не отвечает: похоже, интернет не работает</string>
     <string name="diag_r_net_fora">интернет не проходит (роутер или провайдер)</string>

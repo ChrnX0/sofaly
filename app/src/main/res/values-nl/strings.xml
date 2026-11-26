@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s vastgezet, maar NIET VERBONDEN (internet blijft werken zonder VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s verbonden, maar Android heeft de tunnel niet gevalideerd</string>
     <string name="diag_vpn_ok">%1$s verbonden en werkt</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv antwoordt: weer, podcasts, transcriptie en de rest werken</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv antwoordde niet. Thuis blijft alles werken; weer, podcasts zoeken en plugins wachten</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv is gepauzeerd voor onderhoud. Thuis blijft alles werken</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv antwoordt, maar dit deel ligt eruit: %1$s</string>
+    <string name="diag_sofaly_clima">weer</string>
+    <string name="diag_sofaly_podcasts">podcasts zoeken</string>
+    <string name="diag_sofaly_ia">transcripties en samenvattingen</string>
+    <string name="diag_sofaly_comunidade">andere huishoudens helpen</string>
+    <string name="diag_sofaly_celular">telefoon buiten de deur</string>
     <string name="diag_r_sem_wifi">de tv heeft geen wifi</string>
     <string name="diag_r_dns_fora">de DNS antwoordt niet: het internet lijkt plat te liggen</string>
     <string name="diag_r_net_fora">het internet komt niet door (router of provider)</string>

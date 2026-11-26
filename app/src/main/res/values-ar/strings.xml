@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s مثبّت لكنه غير متصل (الإنترنت يعمل بدون VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s متصل، لكن Android لم يتحقق من النفق</string>
     <string name="diag_vpn_ok">%1$s متصل ويعمل</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv يستجيب: الطقس والبودكاست والتفريغ وباقي الخدمات تعمل</string>
+    <string name="diag_sofaly_sem">لم يستجب api.sofaly.tv. كل شيء في البيت يعمل؛ الطقس والبحث عن البودكاست والإضافات تنتظر</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv متوقف مؤقتاً للصيانة. كل شيء في البيت يعمل</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv يستجيب، لكن هذا الجزء متوقف: %1$s</string>
+    <string name="diag_sofaly_clima">الطقس</string>
+    <string name="diag_sofaly_podcasts">البحث عن البودكاست</string>
+    <string name="diag_sofaly_ia">التفريغ والملخصات</string>
+    <string name="diag_sofaly_comunidade">مساعدة بيوت أخرى</string>
+    <string name="diag_sofaly_celular">الهاتف خارج البيت</string>
     <string name="diag_r_sem_wifi">التلفزيون ليس لديه Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS لا يستجيب: يبدو أن الإنترنت منقطع</string>
     <string name="diag_r_net_fora">الإنترنت لا يصل (الراوتر أو المزوّد)</string>

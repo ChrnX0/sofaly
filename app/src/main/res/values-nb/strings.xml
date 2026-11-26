@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s festet, men FRAKOBLET (internett virker fortsatt uten VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s tilkoblet, men Android godkjente ikke tunnelen</string>
     <string name="diag_vpn_ok">%1$s tilkoblet og virker</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv svarer: vær, podkaster, transkripsjon og resten fungerer</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv svarte ikke. Alt hjemme fungerer fortsatt; vær, podkastsøk og plugins venter</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv er satt på pause for vedlikehold. Alt hjemme fungerer fortsatt</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv svarer, men denne delen er nede: %1$s</string>
+    <string name="diag_sofaly_clima">vær</string>
+    <string name="diag_sofaly_podcasts">podkastsøk</string>
+    <string name="diag_sofaly_ia">transkripsjoner og sammendrag</string>
+    <string name="diag_sofaly_comunidade">hjelp andre hjem</string>
+    <string name="diag_sofaly_celular">telefon utenfor hjemmet</string>
     <string name="diag_r_sem_wifi">TV-en har ikke Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS svarer ikke: internett ser ut til å være nede</string>
     <string name="diag_r_net_fora">internett kommer ikke gjennom (ruter eller leverandør)</string>

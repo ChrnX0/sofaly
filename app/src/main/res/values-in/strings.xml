@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s dikunci, tetapi TERPUTUS (internet tetap jalan tanpa VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s terhubung, tetapi Android tidak memvalidasi terowongan</string>
     <string name="diag_vpn_ok">%1$s terhubung dan berfungsi</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv menjawab: cuaca, podcast, transkrip, dan lainnya berjalan</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv tidak menjawab. Semua di rumah tetap berjalan; cuaca, pencarian podcast, dan plugin menunggu</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv dijeda untuk pemeliharaan. Semua di rumah tetap berjalan</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv menjawab, tapi bagian ini mati: %1$s</string>
+    <string name="diag_sofaly_clima">cuaca</string>
+    <string name="diag_sofaly_podcasts">pencarian podcast</string>
+    <string name="diag_sofaly_ia">transkrip dan ringkasan</string>
+    <string name="diag_sofaly_comunidade">bantu rumah lain</string>
+    <string name="diag_sofaly_celular">ponsel di luar rumah</string>
     <string name="diag_r_sem_wifi">TV tidak memiliki Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS tidak menjawab: internet sepertinya mati</string>
     <string name="diag_r_net_fora">internet tidak tembus (router atau penyedia)</string>

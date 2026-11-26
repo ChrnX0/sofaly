@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s kiinnitetty, mutta EI YHTEYTTÄ (internet toimii edelleen ilman VPN:ää)</string>
     <string name="diag_vpn_nao_validada">%1$s yhdistetty, mutta Android ei vahvistanut tunnelia</string>
     <string name="diag_vpn_ok">%1$s yhdistetty ja toimii</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv vastaa: sää, podcastit, litterointi ja muut toimivat</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv ei vastannut. Kotona kaikki toimii edelleen; sää, podcast-haku ja lisäosat odottavat</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv on tauolla huollon vuoksi. Kotona kaikki toimii edelleen</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv vastaa, mutta tämä osa ei toimi: %1$s</string>
+    <string name="diag_sofaly_clima">sää</string>
+    <string name="diag_sofaly_podcasts">podcast-haku</string>
+    <string name="diag_sofaly_ia">litteroinnit ja tiivistelmät</string>
+    <string name="diag_sofaly_comunidade">muiden kotien auttaminen</string>
+    <string name="diag_sofaly_celular">puhelin kodin ulkopuolella</string>
     <string name="diag_r_sem_wifi">TV:llä ei ole Wi-Fiä</string>
     <string name="diag_r_dns_fora">DNS ei vastaa: internet näyttää olevan alhaalla</string>
     <string name="diag_r_net_fora">internet ei mene läpi (reititin tai palveluntarjoaja)</string>

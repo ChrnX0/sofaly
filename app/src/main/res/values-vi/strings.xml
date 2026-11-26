@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s được ghim nhưng ĐÃ NGẮT KẾT NỐI (internet vẫn chạy không qua VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s đã kết nối, nhưng Android chưa xác thực đường hầm</string>
     <string name="diag_vpn_ok">%1$s đã kết nối và đang hoạt động</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv đang phản hồi: thời tiết, podcast, chép lời và phần còn lại hoạt động</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv không phản hồi. Mọi thứ trong nhà vẫn chạy; thời tiết, tìm podcast và plugin tạm chờ</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv đang tạm dừng để bảo trì. Mọi thứ trong nhà vẫn chạy</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv có phản hồi nhưng phần này đang lỗi: %1$s</string>
+    <string name="diag_sofaly_clima">thời tiết</string>
+    <string name="diag_sofaly_podcasts">tìm podcast</string>
+    <string name="diag_sofaly_ia">chép lời và tóm tắt</string>
+    <string name="diag_sofaly_comunidade">giúp nhà khác</string>
+    <string name="diag_sofaly_celular">điện thoại ngoài nhà</string>
     <string name="diag_r_sem_wifi">TV không có Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS không phản hồi: có vẻ mất internet</string>
     <string name="diag_r_net_fora">internet không thông (router hoặc nhà mạng)</string>

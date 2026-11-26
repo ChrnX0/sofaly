@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s स्थिर है, पर डिस्कनेक्टेड (इंटरनेट बिना VPN के चलता रहता है)</string>
     <string name="diag_vpn_nao_validada">%1$s कनेक्टेड, पर Android ने टनल सत्यापित नहीं किया</string>
     <string name="diag_vpn_ok">%1$s कनेक्टेड और काम कर रहा है</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv जवाब दे रहा है: मौसम, पॉडकास्ट, ट्रांसक्रिप्ट और बाकी सब चल रहे हैं</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv ने जवाब नहीं दिया। घर में सब चलता रहेगा; मौसम, पॉडकास्ट खोज और प्लगइन रुके रहेंगे</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv रखरखाव के लिए रुका है। घर में सब चलता रहेगा</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv जवाब दे रहा है, पर यह हिस्सा बंद है: %1$s</string>
+    <string name="diag_sofaly_clima">मौसम</string>
+    <string name="diag_sofaly_podcasts">पॉडकास्ट खोज</string>
+    <string name="diag_sofaly_ia">ट्रांसक्रिप्ट और सारांश</string>
+    <string name="diag_sofaly_comunidade">दूसरे घरों की मदद</string>
+    <string name="diag_sofaly_celular">घर से बाहर फ़ोन</string>
     <string name="diag_r_sem_wifi">TV पर Wi-Fi नहीं है</string>
     <string name="diag_r_dns_fora">DNS जवाब नहीं देता: इंटरनेट बंद लगता है</string>
     <string name="diag_r_net_fora">इंटरनेट नहीं पहुँच रहा (राउटर या प्रदाता)</string>

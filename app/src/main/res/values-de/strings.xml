@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s festgelegt, aber GETRENNT (das Internet funktioniert ohne VPN weiter)</string>
     <string name="diag_vpn_nao_validada">%1$s verbunden, aber Android hat den Tunnel nicht bestätigt</string>
     <string name="diag_vpn_ok">%1$s verbunden und funktioniert</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv antwortet: Wetter, Podcasts, Transkription und der Rest funktionieren</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv hat nicht geantwortet. Zu Hause funktioniert alles weiter; Wetter, Podcastsuche und Plugins warten</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv ist wegen Wartung pausiert. Zu Hause funktioniert alles weiter</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv antwortet, aber dieser Teil ist ausgefallen: %1$s</string>
+    <string name="diag_sofaly_clima">Wetter</string>
+    <string name="diag_sofaly_podcasts">Podcastsuche</string>
+    <string name="diag_sofaly_ia">Transkripte und Zusammenfassungen</string>
+    <string name="diag_sofaly_comunidade">anderen Haushalten helfen</string>
+    <string name="diag_sofaly_celular">Handy unterwegs</string>
     <string name="diag_r_sem_wifi">der Fernseher hat kein WLAN</string>
     <string name="diag_r_dns_fora">das DNS antwortet nicht: das Internet scheint ausgefallen</string>
     <string name="diag_r_net_fora">das Internet kommt nicht durch (Router oder Anbieter)</string>
