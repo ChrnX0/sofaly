@@ -764,6 +764,46 @@ object Estilo {
      * Põe [tela] (um [dialogo], já com o véu) numa janela [d] de tela cheia, sem título e sem o fundo do tema. As
      * cópias destas 5 linhas em cada diálogo viraram esta função (refatoração 21/11/2026).
      */
+    /**
+     * A pergunta do jeito Guiado, medida no Projectivy (Sala, 26/11/2026): uma faixa embaixo com 230 dp de altura e 20 dp
+     * de margem; ícone de 72 dp, título fino e o texto à esquerda; os botões de 250 x 47 dp empilhados à direita, o
+     * primeiro (o seguro) já com o foco. A tela atrás fica à vista em cima, escurecida.
+     */
+    private fun faixaDeBaixo(ctx: Context, sobre: String?, titulo: CharSequence, mensagem: CharSequence?, botoes: List<TextView>,
+                             icone: Drawable?): FrameLayout {
+        val cartao = LinearLayout(ctx).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            clipChildren = false; clipToPadding = false
+            minimumHeight = dp(ctx, 230)
+            setPaddingRelative(dp(ctx, E3 + 8), dp(ctx, E3), dp(ctx, E3 + 8), dp(ctx, E3))
+            background = fundo(ctx, CARTAO, RAIO, VIDRO_BORDA)
+            if (icone != null) addView(android.widget.ImageView(ctx).apply { setImageDrawable(icone) },
+                LinearLayout.LayoutParams(dp(ctx, 72), dp(ctx, 72)).apply { marginEnd = dp(ctx, E3) })
+            addView(LinearLayout(ctx).apply {
+                orientation = LinearLayout.VERTICAL
+                if (sobre != null) addView(texto(ctx, Papel.SECAO, sobre), LinearLayout.LayoutParams(-2, -2).apply { bottomMargin = dp(ctx, E1) })
+                addView(texto(ctx, Papel.TITULO, titulo).apply { textSize = 24f; typeface = fonte(300) })
+                if (!mensagem.isNullOrEmpty()) addView(texto(ctx, Papel.LEGENDA, mensagem).apply {
+                    textSize = 18f; setLineSpacing(0f, 1.25f)
+                }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(ctx, E1) })
+            }, LinearLayout.LayoutParams(0, -2, 1f))
+            addView(LinearLayout(ctx).apply {
+                orientation = LinearLayout.VERTICAL
+                clipChildren = false
+                botoes.forEachIndexed { i, b ->
+                    b.gravity = Gravity.CENTER; b.minHeight = dp(ctx, 47)
+                    addView(b, LinearLayout.LayoutParams(dp(ctx, 250), -2).apply { if (i > 0) topMargin = dp(ctx, E1) })
+                }
+            }, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(ctx, E3) })
+        }
+        return FrameLayout(ctx).apply {
+            setBackgroundColor(VEU)
+            val m = dp(ctx, 20)
+            addView(cartao, FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM).apply { setMargins(m, m, m, m) })
+        }
+    }
+
     fun vestir(d: android.app.Dialog, tela: View) {
         d.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
         d.setContentView(tela)
@@ -780,7 +820,10 @@ object Estilo {
      * O primeiro botão da lista é o seguro (Cancelar/Negar) e fica à esquerda; quem chama dá o foco nele.
      */
     fun dialogo(ctx: Context, sobre: String?, titulo: CharSequence, mensagem: CharSequence?, botoes: List<TextView>,
-                icone: Drawable? = null, larguraDp: Int = 640): FrameLayout {
+                icone: Drawable? = null, larguraDp: Int = 640, faixa: Boolean = true): FrameLayout {
+        // Guiado (molde do Projectivy, 26/11/2026): a pergunta curta vira a faixa de baixo dele. Quem monta um cartão
+        // próprio por cima (sinopse larga, QR) passa [faixa] = false ou uma largura maior e fica com o cartão do meio.
+        if (faixa && larguraDp <= 640 && br.paulo.tvlauncher.home.ScreenStyle.guided(ctx)) return faixaDeBaixo(ctx, sobre, titulo, mensagem, botoes, icone)
         val cartao = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER_HORIZONTAL

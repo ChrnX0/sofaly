@@ -1565,7 +1565,7 @@ class ConfigLauncherActivity : Activity() {
         val qr = android.widget.ImageView(this).apply {
             setImageBitmap(runCatching { QrCodigo.bitmap(link, dp(280)) }.getOrNull())
         }
-        val tela = Estilo.dialogo(this, null, getString(R.string.vq_titulo), getString(R.string.vq_texto), listOf(fechar))
+        val tela = Estilo.dialogo(this, null, getString(R.string.vq_titulo), getString(R.string.vq_texto), listOf(fechar), faixa = false)
         // o QR entra no cartão antes do título (o cartão é o 1º filho do véu)
         (tela.getChildAt(0) as android.widget.LinearLayout).addView(qr, 0,
             android.widget.LinearLayout.LayoutParams(dp(280), dp(280)).apply { bottomMargin = dp(16) })
