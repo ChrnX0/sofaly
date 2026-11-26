@@ -229,6 +229,9 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
                 open -> Estilo.fundo(a, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
                 else -> null
             }
+            // Marcado = "você está dentro desta seção" (foco nas linhas dela). Diz isso à acessibilidade e deixa o
+            // TodoBotaoFazAlgoTest ver que o OK no trilho levou o foco para as linhas (26/11/2026).
+            t.isSelected = open && !t.isFocused
             t.typeface = Estilo.fonte(if (open) 700 else 400)
             t.setTextColor(if (t.isFocused && Estilo.focoEscurece(a)) Estilo.TEXTO_NO_FOCO else if (open || t.isFocused) Estilo.TEXTO else Estilo.TEXTO_2)
         }
