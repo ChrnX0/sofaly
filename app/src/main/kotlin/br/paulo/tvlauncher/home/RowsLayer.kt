@@ -295,6 +295,9 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         postDelayed({ avisoAte = 0L; nome.setTextColor(DesignTokens.CREAM); nomeMostrado = null; ultimo?.invoke() }, ms)
     }
 
+    /** Tira o aviso já (o reordenar terminou): o nome do card volta. */
+    fun fimDoAviso() { avisoAte = 0L; nome.setTextColor(DesignTokens.CREAM); nomeMostrado = null; ultimo?.invoke() }
+
     /** O card escolhido "aperta" e volta: o OK foi entendido. */
     fun apertar(cat: Int, sel: Int) {
         val c = fileiras.getOrNull(cat)?.cards?.getOrNull(sel) ?: return

@@ -73,4 +73,11 @@
     <string name="rw_linhas">Linhas de cards nesta categoria</string>
     <string name="rw_linhas_1">Uma fileira</string>
     <string name="rw_linhas_n">Grade de %1$d linhas</string>
+    <string name="rw_abrir">Abrir</string>
+    <string name="rw_atalhos">Atalhos</string>
+    <string name="rw_reordenar">Reordenar</string>
+    <string name="rw_reordenar_dica">◀ ▶ levam o card · OK termina</string>
+    <string name="rw_ao_ligar">Abrir ao ligar a TV</string>
+    <string name="rw_ao_ligar_tirar">Abrir ao ligar a TV ✓ (desligar)</string>
+    <string name="rw_detalhes">Detalhes do app</string>
 </resources>

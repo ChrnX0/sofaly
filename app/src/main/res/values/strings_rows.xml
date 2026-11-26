@@ -73,4 +73,11 @@
     <string name="rw_linhas">Card rows in this category</string>
     <string name="rw_linhas_1">One row</string>
     <string name="rw_linhas_n">Grid of %1$d rows</string>
+    <string name="rw_abrir">Open</string>
+    <string name="rw_atalhos">Shortcuts</string>
+    <string name="rw_reordenar">Reorder</string>
+    <string name="rw_reordenar_dica">◀ ▶ move the card · OK done</string>
+    <string name="rw_ao_ligar">Launch on boot</string>
+    <string name="rw_ao_ligar_tirar">Launch on boot ✓ (turn off)</string>
+    <string name="rw_detalhes">Details</string>
 </resources>

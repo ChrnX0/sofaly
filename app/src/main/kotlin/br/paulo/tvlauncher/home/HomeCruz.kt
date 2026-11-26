@@ -137,6 +137,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val SOM_A_CADA = 3
         const val APERTO = 0.92f        // "aperto" do ícone no OK: resposta no mesmo quadro do toque
         const val APERTO_MS = 70L
+        const val MOVER_AVISO_MS = 600_000L   // a dica do reordenar fica até terminar
         const val NAO_ABRIU_MS = 4000L  // "Não deu para abrir" no lugar da linha de baixo
         const val FONTE_POSICAO = 18f   // "3 de 9"
         const val BARRA_A = 5f          // altura da barra de progresso (dp)
@@ -453,6 +454,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         }
         estado = if (assinatura == null) CruzLogica.inicial(novoMapa, lembrados, ultimoAberto?.substringAfter('|'))
             else CruzLogica.reajustar(mapa, estado, novoMapa)
+        // Reordenando: o foco segue o card que andou
+        movendo?.let { id -> CruzLogica.focar(novoMapa, estado, id, cats.getOrNull(estado.cat)?.cat)?.let { estado = it } }
         if (voltarPendente) ultimoAberto?.let { u ->
             CruzLogica.focar(novoMapa, estado, u.substringAfter('|'), CruzLogica.Categoria.entries.firstOrNull { it.id == u.substringBefore('|') })
                 ?.let { estado = it; voltarPendente = false }
@@ -493,6 +496,26 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private var voltarPendente = false
 
     /**
+     * Reordenar (menu do card, como no Projectivy, 26/11/2026): com o id do card aqui, ◀ ▶ chamam [aoMover] (-1/+1, quem
+     * usa grava a ordem nova e refaz a HOME; o foco segue o card) e OK, ▲ ▼ ou VOLTAR terminam ([pararDeMover]).
+     */
+    var movendo: String? = null
+        private set
+    private var aoMover: ((Int) -> Unit)? = null
+    fun comecarAMover(id: String, mover: (Int) -> Unit) { movendo = id; aoMover = mover; avisoDeMover() }
+    fun pararDeMover(): Boolean {
+        if (movendo == null) return false
+        movendo = null; aoMover = null
+        if (fileiras) rows.fimDoAviso() else strip.aviso(itemAtual()?.nome.orEmpty(), 1)
+        return true
+    }
+    private fun avisoDeMover() {
+        val t = context.getString(R.string.rw_reordenar_dica)
+        if (fileiras) rows.aviso(t, MOVER_AVISO_MS) else if (faixa) strip.aviso(t, MOVER_AVISO_MS)
+        announceForAccessibility(t)
+    }
+
+    /**
      * Um app aberto FORA da cruz (grade "Todos os apps"): ao voltar, o foco vai nele, não em "Todos os apps"
      * (Paulo, 21/11/2026: "o destaque seja exatamente o último aplicativo selecionado"). Sem categoria: procura em todas.
      */
@@ -525,6 +548,14 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             }
             else -> return super.onKeyDown(keyCode, event)
         }
+        if (movendo != null) {
+            when (t) {
+                CruzLogica.Tecla.ESQUERDA -> { if (repeticao == 0 || repeticao % 3 == 0) aoMover?.invoke(-1); avisoDeMover() }
+                CruzLogica.Tecla.DIREITA -> { if (repeticao == 0 || repeticao % 3 == 0) aoMover?.invoke(+1); avisoDeMover() }
+                else -> pararDeMover()
+            }
+            return true
+        }
         if (faixa) return teclaFaixa(t)
         if (barra) return teclaBarra(t)
         if (t == CruzLogica.Tecla.CIMA && CruzLogica.passo(mapa, estado, t) is CruzLogica.Resultado.SubirTopo) {
@@ -546,6 +577,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
         val ok = keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER
         if (!ok) return super.onKeyUp(keyCode, event)
+        if (movendo != null) { pararDeMover(); return true }   // OK termina o reordenar (não abre o app)
         if (event.isTracking && !event.isCanceled) { if (barra && !faixa) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK) }
         return true
     }
