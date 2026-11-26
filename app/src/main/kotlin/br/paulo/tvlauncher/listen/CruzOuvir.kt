@@ -72,6 +72,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         private const val FIL_LADO = 124
         private const val FIL_VAO = 20
         private const val FIL_INFO_L = 430
+        private const val NEUTRO = 0xFF77736D.toInt()   // grafite quente: o quadro da capa sem foto
         // Geometria da HomeCruz (dp numa tela de 960 x 540): o mesmo lugar da linha, da coluna e das prateleiras.
         private val LINHA get() = HomeCruz.LINHA
         private val COLUNA get() = HomeCruz.COLUNA
@@ -149,7 +150,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
     private var filLista: LinearLayout? = null
     private var filInfoNome: TextView? = null
     private var filInfoSub: TextView? = null
-    private val filCartoes = ArrayList<List<View?>>()   // [fileira][item]: null = item só de leitura (não pega o foco)
+    private val filCartoes = ArrayList<List<View?>>()
+    private val filCabecas = ArrayList<View>()          // o nome de cada fileira: a rolagem para nele   // [fileira][item]: null = item só de leitura (não pega o foco)
     private var filCalado = false                       // foco posto pelo código: sem som
 
     var aoMudar: ((Prateleira, Item) -> Unit)? = null
@@ -870,7 +872,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         val lista = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             clipChildren = false; clipToPadding = false
-            setPaddingRelative(dpi(Estilo.MARGEM_LATERAL), dpi(8), 0, dpi(48))
+            // Embaixo, uma tela de folga: até a última fileira sobe para o lugar fixo do foco (o alto da área).
+            setPaddingRelative(dpi(Estilo.MARGEM_LATERAL), dpi(8), 0, dpi(400))
         }
         val rolagem = android.widget.ScrollView(ctx).apply {
             isVerticalScrollBarEnabled = false; isFillViewport = true
@@ -930,6 +933,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         val lista = filLista ?: return
         lista.removeAllViews()
         filCartoes.clear()
+        filCabecas.clear()
         for ((j, p) in prats.withIndex()) {
             val cabeca = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
@@ -939,6 +943,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
                 addView(Estilo.texto(context, Estilo.Papel.CORPO, p.nome.replace("\n", " · ")).apply { setTextColor(Estilo.TEXTO_2); maxLines = 1 })
             }
             lista.addView(cabeca, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { if (j > 0) topMargin = dpi(26) })
+            filCabecas += cabeca
             val fila = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 clipChildren = false; clipToPadding = false
@@ -987,11 +992,21 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
                 Estilo.focarCartao(caixaV, nome, foco)
                 pintarIcone(icone, foco)
                 if (!foco) return@setOnFocusChangeListener
+                rolarPara(j)
                 val trocouFila = cat != j
                 cat = j; prats.getOrNull(j)?.itens?.getOrNull(i)?.let { sel[pid] = it.id }
                 if (!filCalado) aoSom?.invoke(if (trocouFila) SonsCruz.Som.GRUPO else SonsCruz.Som.ANDAR)
                 atualizarInfo(); mostrarCartao(isAttachedToWindow && !MolaViews.semAnimacao(this@CruzOuvir)); avisarMudanca()
             }
+        }
+    }
+
+    /** A fileira em foco fica sempre no alto da área (o foco parado das Fileiras da HOME): a de cima não aparece cortada. */
+    private fun rolarPara(j: Int) {
+        val r = filRolagem ?: return
+        r.post {
+            val y = (filCabecas.getOrNull(j)?.top ?: return@post) - dpi(8)
+            if (MolaViews.semAnimacao(this)) r.scrollTo(0, y) else r.smoothScrollTo(0, y)
         }
     }
 
@@ -1007,12 +1022,13 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         v.contentDescription = listOf(item.nome, item.sub.replace('\n', ' ')).filter { it.isNotEmpty() }.joinToString(". ")
         // Com capa (logo, capa do podcast, ícone do jogo, iniciais/bandeira): a capa enche a caixa. Só ícone (Pausar,
         // Buscar...): o ícone de linha no meio da caixa de vidro, creme, laranja no foco (o mesmo do [Estilo.cartao]).
+        // Sem foto, o quadro é grafite neutro (nunca azulado, nem a cor de cada item): a caixa de vidro de todo o sistema.
         val comCapa = item.imagem != null || item.capa.isNotEmpty() || item.monograma.isNotEmpty() || item.icone == null
         c.capa.visibility = if (comCapa) View.VISIBLE else View.GONE
         c.icone.visibility = if (comCapa) View.GONE else View.VISIBLE
         if (comCapa) {
             c.capa.icone = null
-            c.capa.cor = item.cor; c.capa.monograma = item.monograma; c.capa.cobrir = item.cobrir; c.capa.progresso = item.progresso
+            c.capa.cor = NEUTRO; c.capa.monograma = item.monograma; c.capa.cobrir = item.cobrir; c.capa.progresso = item.progresso
             if (item.imagem != null) c.capa.mostrar(item.imagem) else if (item.capa.isNotEmpty()) c.capa.carregar(item.capa, FIL_LADO * 2)
             c.capa.invalidate()
         } else if ((c.icone.drawable as? IconeOuvir)?.tipo != item.icone) {
