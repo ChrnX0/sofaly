@@ -430,7 +430,7 @@ class PlayerListaTela(
     private fun montarDetalhe(): View {
         val col = LinearLayout(act).apply {
             orientation = LinearLayout.VERTICAL
-            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.alfa(Estilo.FUNDO, 0xCC)); setStroke(dp(1), Estilo.SUPERFICIE_ALTA) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.alfa(Estilo.FUNDO, 0xCC)) }
             setPaddingRelative(dp(18), dp(18), dp(18), dp(16))
         }
         detLogo = ImageView(act).apply { scaleType = ImageView.ScaleType.FIT_START }

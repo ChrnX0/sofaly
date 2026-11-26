@@ -877,7 +877,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             clipChildren = false; clipToPadding = false
             overScrollMode = View.OVER_SCROLL_NEVER
             isFocusable = false
-            addView(lista, android.widget.ScrollView.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+            addView(lista, FrameLayout.LayoutParams(-1, -2))
         }
         addView(rolagem, indexOfChild(cartao), LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT).apply { topMargin = dpi(FIL_TOPO) })
         filRolagem = rolagem; filLista = lista; filInfoNome = nome; filInfoSub = sub

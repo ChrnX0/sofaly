@@ -417,15 +417,16 @@ class PainelRapidoActivity : Activity() {
         setOnClickListener { aoClicar() }
         setOnFocusChangeListener { v, foco ->
             v.background = if (dentro is ImageView && !foco) null else anel(foco)
-            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO)
+            (dentro as? IconeCard)?.definirCor(if (foco) Estilo.corIconeNoFoco(this@PainelRapidoActivity) else Estilo.TEXTO)
             v.animate().scaleX(if (foco) 1.1f else 1f).scaleY(if (foco) 1.1f else 1f).setDuration(Estilo.FOCO_MS).start()
         }
     }
 
     private fun anel(foco: Boolean) = GradientDrawable().apply {
         shape = GradientDrawable.OVAL
-        setColor(if (foco) Estilo.FOCO else Estilo.SUPERFICIE_ALTA)
-        setStroke(dp(1), if (foco) Estilo.FOCO else Estilo.BORDA)
+        // o foco de todo o sistema (26/11/2026): círculo mais claro com a borda creme; parado, a caixa sem contorno
+        setColor(if (foco) Estilo.FOCO_CARTAO else Estilo.CAIXA)
+        if (foco) setStroke(dp(Estilo.ANEL_DP), Estilo.TEXTO)
     }
 
     /** As contas Google da TV como bolinhas (OK troca o perfil ativo) e o "+" (Configurações > Contas e perfis). */
@@ -486,14 +487,14 @@ class PainelRapidoActivity : Activity() {
             ellipsize = TextUtils.TruncateAt.END
             typeface = Estilo.fonte(500)
             setPaddingRelative(dp(Estilo.E2 - 4), dp(7), dp(Estilo.E2 - 4), dp(7))
-            background = Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+            background = Estilo.caixa(this@PainelRapidoActivity)
             setOnClickListener {
                 val conta = alvoCrianca ?: return@setOnClickListener
                 PerfilCriancaTv.alternarMarca(this@PainelRapidoActivity, conta, ativa) { mostrarCrianca() }
             }
             setOnFocusChangeListener { v, foco ->
                 // Foco do padrão único (26/11/2026): o jeito escolhido (Anel por padrão), não um branco próprio.
-                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO_PILULA, Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)) else Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO, Estilo.caixa(this@PainelRapidoActivity)) else Estilo.caixa(this@PainelRapidoActivity)
                 (v as TextView).setTextColor(when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(this@PainelRapidoActivity) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.TEXTO })
             }
             visibility = if (contas.isEmpty()) View.GONE else View.VISIBLE
@@ -531,7 +532,8 @@ class PainelRapidoActivity : Activity() {
     private fun anelPerfil(foco: Boolean, eAtiva: Boolean) = GradientDrawable().apply {
         shape = GradientDrawable.OVAL
         setColor(Color.TRANSPARENT)
-        setStroke(dp(3), when { foco -> Estilo.FOCO; eAtiva -> Estilo.ACENTO; else -> Estilo.BORDA })
+        // foco = a borda creme do sistema; o perfil ativo, o laranja; os outros, sem contorno (26/11/2026)
+        when { foco -> setStroke(dp(Estilo.ANEL_DP), Estilo.TEXTO); eAtiva -> setStroke(dp(Estilo.ANEL_DP), Estilo.ACENTO) }
     }
 
     // ---------------------------------------------------------------- tocando agora
@@ -896,14 +898,14 @@ class PainelRapidoActivity : Activity() {
             isClickable = true
             typeface = Estilo.fonte(500)
             setPaddingRelative(dp(Estilo.E2 - 4), dp(7), dp(Estilo.E2 - 4), dp(7))
-            background = Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+            background = Estilo.caixa(this@PainelRapidoActivity)
             setOnClickListener {
                 NotificacoesTv.atuais.forEach { OuvinteNotificacoes.dispensar(it.chave) }
                 AvisoTv.limparHistorico(this@PainelRapidoActivity)
             }
             setOnFocusChangeListener { v, foco ->
                 // Foco do padrão único (26/11/2026): o jeito escolhido (Anel por padrão), não um branco próprio.
-                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO_PILULA, Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)) else Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO, Estilo.caixa(this@PainelRapidoActivity)) else Estilo.caixa(this@PainelRapidoActivity)
                 (v as TextView).setTextColor(when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(this@PainelRapidoActivity) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.TEXTO })
             }
         }

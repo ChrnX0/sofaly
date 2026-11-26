@@ -812,7 +812,7 @@ class MainActivity : Activity() {
             gravity = Gravity.CENTER_VERTICAL
             clipChildren = false
             clipToPadding = false
-            background = Estilo.vidro(this@MainActivity, Estilo.RAIO_PILULA)
+            background = Estilo.vidro(this@MainActivity, Estilo.RAIO)   // caixa, não pílula (26/11/2026)
             setPaddingRelative(dp(8), 0, dp(8), 0)
         }
         fun lpPilula() = LinearLayout.LayoutParams(WRAP, alturaPilula).apply { marginEnd = dp(2) }
