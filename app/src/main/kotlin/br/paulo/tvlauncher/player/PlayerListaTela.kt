@@ -515,7 +515,7 @@ class PlayerListaTela(
         isFocusable = true
         choiceMode = AbsListView.CHOICE_MODE_NONE
         // A moldura branca do foco (só aparece na lista que tem o foco: é o que diz ao usuário em que coluna está).
-        PlayerFoco.molduraSoComFoco(this, GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), Estilo.FOCO) })
+        PlayerFoco.molduraSoComFoco(this, Estilo.fundo(act, Estilo.FOCO_CARTAO, Estilo.RAIO_PEQUENO, Estilo.TEXTO, Estilo.ANEL_DP))
         setDrawSelectorOnTop(false)
         cacheColorHint = 0
     }

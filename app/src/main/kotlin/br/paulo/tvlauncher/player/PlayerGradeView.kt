@@ -76,7 +76,7 @@ class PlayerGradeView(
     init {
         isFocusable = true
         isFocusableInTouchMode = true
-        setBackgroundColor(Estilo.FUNDO)
+        background = Estilo.fundoTela(context)   // a arte com véu, como em toda tela (26/11/2026)
         visibility = GONE
     }
 

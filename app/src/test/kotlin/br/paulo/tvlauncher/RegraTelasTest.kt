@@ -16,6 +16,9 @@ class RegraTelasTest {
         "cor" to Regex("""Color\.parseColor\(|0x[Ff][Ff][0-9A-Fa-f]{6}"""),
         // tamanho de letra escrito à mão em vez de Estilo.Papel
         "letra" to Regex("""textSize\s*=\s*[0-9]|setTextSize\("""),
+        // caixa desenhada à mão (contorno, pílula, vidro com fio) em vez de Estilo.caixa / cartao / fundoFocado
+        // (padrão das Fileiras em todas as telas, Paulo, 26/11/2026: "faltou uma padronização desse design")
+        "caixa" to Regex("""RAIO_PILULA|setStroke\(|Estilo\.vidro\("""),
     )
     private val tela = Regex("""class \w+ *(\([^)]*\))? *: *(Activity|ComponentActivity|FragmentActivity|AppCompatActivity)\(""")
 
@@ -50,7 +53,7 @@ class RegraTelasTest {
         val base = divida()
         val piorou = contar().filter { (k, n) -> n > (base[k] ?: 0) }
         if (piorou.isNotEmpty()) fail(
-            "Tela fora da regra (use Estilo.tituloTela, as cores e os Papéis do Estilo):\n" +
+            "Tela fora da regra (use Estilo.tituloTela, as cores, os Papéis e as peças caixa/cartao/fundoFocado do Estilo):\n" +
                 piorou.entries.sortedBy { it.key }.joinToString("\n") { (k, n) -> "  $k: $n (a lista permite ${base[k] ?: 0})" }
         )
     }

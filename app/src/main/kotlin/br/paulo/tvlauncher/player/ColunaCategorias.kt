@@ -135,7 +135,7 @@ class ColunaCategorias(
         })
         // O bloco fixo de ações numa caixa própria, um pouco mais clara que o fundo (o esboço aprovado).
         addView(acoes.apply {
-            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
+            background = Estilo.caixa(act)
             setPaddingRelative(dp(4), dp(4), dp(4), dp(4)); clipToPadding = false
         }, LinearLayout.LayoutParams(-1, 0))
         addView(tituloListas)
@@ -208,11 +208,12 @@ class ColunaCategorias(
     }
 
     private fun botao(l: Linha, k: Int, total: Int, parada: Int): FrameLayout {
-        val fundoNormal = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
-        val fundoFoco = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.FOCO) }
+        // Padrão das Fileiras (26/11/2026): disco de vidro sem contorno; foco = disco mais claro, anel creme e ícone laranja.
+        val fundoNormal = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.CAIXA) }
+        val fundoFoco = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.FOCO_CARTAO); setStroke(dp(Estilo.ANEL_DP), Estilo.TEXTO) }
         val corIcone = corBotao(l)
         val img = ImageView(act).apply { setImageDrawable(iconeBotao(l, corIcone)); tag = corIcone }
-        val focado = ImageView(act).apply { setImageDrawable(iconeBotao(l, Estilo.FUNDO)); visibility = View.GONE }
+        val focado = ImageView(act).apply { setImageDrawable(iconeBotao(l, Estilo.ACENTO)); visibility = View.GONE }
         val lado = dp((22 * escala).toInt())
         return FrameLayout(act).apply {
             isFocusable = true; isClickable = true; contentDescription = l.nome; background = fundoNormal
@@ -376,7 +377,7 @@ class ColunaCategorias(
         divider = null; isVerticalScrollBarEnabled = false; itemsCanFocus = false; isFocusable = true
         choiceMode = AbsListView.CHOICE_MODE_NONE; cacheColorHint = Color.TRANSPARENT; setDrawSelectorOnTop(false)
         // A moldura branca do foco só na lista que tem o foco (é o que diz em que lugar da coluna a pessoa está).
-        val moldura = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), Estilo.FOCO) }
+        val moldura = Estilo.fundo(act, Estilo.FOCO_CARTAO, Estilo.RAIO_PEQUENO, Estilo.TEXTO, Estilo.ANEL_DP)
         val nenhuma = ColorDrawable(Color.TRANSPARENT)
         selector = nenhuma
         setOnFocusChangeListener { _, tem ->

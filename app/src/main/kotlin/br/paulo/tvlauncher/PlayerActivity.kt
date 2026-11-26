@@ -1342,7 +1342,7 @@ class PlayerActivity : Activity() {
      * O vidro do sistema (mesmo fio claro e raio da HOME), mas com a tinta mais escura: aqui ele fica em cima de VÍDEO, que
      * pode ser uma cena clara (neve, estúdio branco); com os 55% da HOME o texto branco ficaria difícil de ler.
      */
-    private fun vidro(raio: Int) = Estilo.fundo(this, Estilo.alfa(Estilo.FUNDO, 0xD9), raio, Estilo.VIDRO_BORDA)
+    private fun vidro(raio: Int) = Estilo.fundo(this, Estilo.alfa(Estilo.FUNDO, 0xD9), raio)
 
     /** "19 min" ou "1 h 05 min". */
     private fun minutosTexto(m: Int) = BarraTempo.duracao(m * 60_000L - 59_999L)
