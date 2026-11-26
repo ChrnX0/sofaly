@@ -13,4 +13,6 @@
     <string name="mural_riscar">شطب %1$s</string>
     <string name="ds_lento_titulo">أصبح Sofaly أبطأ</string>
     <string name="ds_lento_texto">الإصدار %1$d: الإطارات البطيئة تستغرق %2$d مللي ثانية، وكانت %3$d (+%4$d%%).</string>
+    <string name="cert_vence_titulo">شهادة اللوحة تنتهي قريبًا</string>
+    <string name="cert_vence_texto">تنتهي شهادة أمان لوحة التلفاز خلال %1$d يومًا. جدّدها من اللوحة (الوصول عن بُعد) وثبّتها من جديد على أجهزتك.</string>
 </resources>

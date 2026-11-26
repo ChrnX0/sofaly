@@ -13,4 +13,6 @@
     <string name="mural_riscar">Tachar %1$s</string>
     <string name="ds_lento_titulo">Sofaly se volvió más lento</string>
     <string name="ds_lento_texto">Versión %1$d: los cuadros lentos tardan %2$d ms, tardaban %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">El certificado del panel vence pronto</string>
+    <string name="cert_vence_texto">El certificado de seguridad del panel de la TV vence en %1$d días. Renuévalo en el panel (Acceso remoto) e instálalo de nuevo en tus dispositivos.</string>
 </resources>

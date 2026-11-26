@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"电视上打开了文本框(点按即可用手机输入)",
 "Despertador tocou na TV":"电视上的闹钟响了",
 "Alerta importante da Sofy":"来自 Sofy 的重要提醒",
+"Certificado do painel perto de vencer":"面板证书即将过期",
 "Ouvir no celular":"在手机上收听",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"从同一位置在此继续电视最后播放的电台或播客。",
 "Ouvir aqui":"在此收听",

@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"ช่องข้อความเปิดอยู่บนทีวี (แตะเพื่อพิมพ์จากโทรศัพท์)",
 "Despertador tocou na TV":"นาฬิกาปลุกดังบนทีวี",
 "Alerta importante da Sofy":"การแจ้งเตือนสำคัญจาก Sofy",
+"Certificado do painel perto de vencer":"ใบรับรองของแผงใกล้หมดอายุ",
 "Ouvir no celular":"ฟังบนโทรศัพท์",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"ฟังสถานีวิทยุหรือพอดแคสต์ที่ทีวีเล่นล่าสุดต่อที่นี่ จากจุดเดิม",
 "Ouvir aqui":"ฟังที่นี่",

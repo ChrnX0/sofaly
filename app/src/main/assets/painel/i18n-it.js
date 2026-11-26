@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Campo di testo aperto sulla TV (tocca per scrivere dal telefono)",
 "Despertador tocou na TV":"La sveglia ha suonato sulla TV",
 "Alerta importante da Sofy":"Avviso importante di Sofy",
+"Certificado do painel perto de vencer":"Il certificato del pannello sta per scadere",
 "Ouvir no celular":"Ascolta sul telefono",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Continua qui la radio o il podcast che la TV ha riprodotto per ultimo, dallo stesso punto.",
 "Ouvir aqui":"Ascolta qui",

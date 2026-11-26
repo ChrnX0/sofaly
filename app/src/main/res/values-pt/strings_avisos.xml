@@ -13,4 +13,6 @@
     <string name="mural_riscar">Riscar %1$s</string>
     <string name="ds_lento_titulo">O Sofaly ficou mais lento</string>
     <string name="ds_lento_texto">Versão %1$d: quadro lento leva %2$d ms, levava %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Certificado do painel vence logo</string>
+    <string name="cert_vence_texto">O certificado de segurança do painel da TV vence em %1$d dias. Renove no painel (Acesso remoto) e instale de novo nos aparelhos.</string>
 </resources>

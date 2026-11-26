@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s durchstreichen</string>
     <string name="ds_lento_titulo">Sofaly ist langsamer geworden</string>
     <string name="ds_lento_texto">Version %1$d: langsame Bilder brauchen %2$d ms, vorher %3$d ms (+%4$d %%).</string>
+    <string name="cert_vence_titulo">Panel-Zertifikat läuft bald ab</string>
+    <string name="cert_vence_texto">Das Sicherheitszertifikat des TV-Panels läuft in %1$d Tagen ab. Erneuere es im Panel (Fernzugriff) und installiere es erneut auf deinen Geräten.</string>
 </resources>

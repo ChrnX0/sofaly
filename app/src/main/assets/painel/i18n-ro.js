@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Câmp de text deschis pe TV (atingeți pentru a scrie de pe telefon)",
 "Despertador tocou na TV":"Alarma a sunat pe TV",
 "Alerta importante da Sofy":"Alertă importantă de la Sofy",
+"Certificado do painel perto de vencer":"Certificatul panoului expiră curând",
 "Ouvir no celular":"Ascultați pe telefon",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Continuă aici postul de radio sau podcastul redat ultima dată pe TV, din același punct.",
 "Ouvir aqui":"Ascultați aici",

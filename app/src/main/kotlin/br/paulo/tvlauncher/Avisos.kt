@@ -57,6 +57,8 @@ object Avisos {
         ALARME_TOCOU("Despertador tocou na TV", false),
         // Brainstorm 26/11 (item 4): o grave da Sofy e o "agi e você vai sentir". O teto é o da Sofy (SofyPolicy.toPhone).
         SOFY("Alerta importante da Sofy", true, semLimite = true),
+        // Brainstorm 26/11 (item 18): o certificado do painel vence e, renovado, quebra a PWA, a unidade e o celular.
+        CERTIFICADO("Certificado do painel perto de vencer", true),
     }
 
     data class Inscricao(val endpoint: String, val p256dh: String, val auth: String, val nome: String, val desde: Long)

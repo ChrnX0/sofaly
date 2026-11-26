@@ -13,4 +13,6 @@
     <string name="mural_riscar">Škrtnout %1$s</string>
     <string name="ds_lento_titulo">Sofaly se zpomalil</string>
     <string name="ds_lento_texto">Verze %1$d: pomalé snímky trvají %2$d ms, dříve %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Certifikát panelu brzy vyprší</string>
+    <string name="cert_vence_texto">Bezpečnostní certifikát panelu TV vyprší za %1$d dní. Obnovte ho v panelu (Vzdálený přístup) a znovu ho nainstalujte do zařízení.</string>
 </resources>

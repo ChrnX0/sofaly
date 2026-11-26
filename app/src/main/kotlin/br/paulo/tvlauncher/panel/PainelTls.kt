@@ -76,10 +76,31 @@ object PainelTls {
     @Synchronized fun garantir(ctx: Context, ip: String?, prefixo: Int): CertificadoX509.Emissao? {
         val agora = System.currentTimeMillis()
         val e = atual ?: carregar(ctx)
-        if (e != null && e.servidor.notAfter.time > agora) { atual = e; return e }
+        if (e != null && e.servidor.notAfter.time > agora) { atual = e; avisarVencimento(ctx, e, agora); return e }
         if (e != null) Log.i(TAG, "certificado vencido: emitindo outro")
         return emitir(ctx, ip, prefixo)
     }
+
+    /**
+     * Brainstorm 26/11, item 18: faltando [AVISO_DIAS] dias ou menos, avisa o celular (uma vez por semana) para a
+     * pessoa renovar com calma, em vez de descobrir quando a PWA, a unidade do Windows e o app param juntos.
+     */
+    private fun avisarVencimento(ctx: Context, e: CertificadoX509.Emissao, agora: Long) {
+        val dias = diasAteVencer(e.servidor.notAfter.time, agora)
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        if (!deveAvisar(dias, p.getLong("aviso_vencimento", 0L), agora)) return
+        p.edit().putLong("aviso_vencimento", agora).apply()
+        runCatching {
+            br.paulo.tvlauncher.Avisos.enviar(ctx, br.paulo.tvlauncher.Avisos.Tipo.CERTIFICADO,
+                ctx.getString(br.paulo.tvlauncher.R.string.cert_vence_titulo), ctx.getString(br.paulo.tvlauncher.R.string.cert_vence_texto, dias))
+        }
+    }
+
+    const val AVISO_DIAS = 60L
+    private const val SEMANA_MS = 7 * 86_400_000L
+    fun diasAteVencer(fim: Long, agora: Long): Long = (fim - agora) / 86_400_000L
+    /** Pura: avisa com [AVISO_DIAS] dias ou menos, no máximo uma vez a cada 7 dias. */
+    fun deveAvisar(dias: Long, ultimo: Long, agora: Long): Boolean = dias in 0..AVISO_DIAS && agora - ultimo >= SEMANA_MS
 
     /** Emite um certificado novo (CA nova): os aparelhos que já tinham o antigo precisam instalar o novo. */
     @Synchronized fun emitir(ctx: Context, ip: String?, prefixo: Int): CertificadoX509.Emissao? = try {

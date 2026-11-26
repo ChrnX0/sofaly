@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Tekstfelt åpent på TV-en (trykk for å skrive fra telefonen)",
 "Despertador tocou na TV":"Alarmen ringte på TV-en",
 "Alerta importante da Sofy":"Viktig varsel fra Sofy",
+"Certificado do painel perto de vencer":"Panelets sertifikat utløper snart",
 "Ouvir no celular":"Lytt på telefonen",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Fortsetter her radiokanalen eller podkasten TV-en spilte sist, fra samme sted.",
 "Ouvir aqui":"Lytt her",

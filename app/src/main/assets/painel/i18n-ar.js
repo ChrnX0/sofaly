@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"حقل نص مفتوح على التلفزيون (المس للكتابة من الهاتف)",
 "Despertador tocou na TV":"رنّ المنبّه على التلفزيون",
 "Alerta importante da Sofy":"تنبيه مهم من Sofy",
+"Certificado do painel perto de vencer":"شهادة اللوحة على وشك الانتهاء",
 "Ouvir no celular":"استمع على الهاتف",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"يتابع هنا الإذاعة أو البودكاست الذي شغّله التلفاز آخر مرة، من النقطة نفسها.",
 "Ouvir aqui":"استمع هنا",

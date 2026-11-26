@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Szövegmező nyílt meg a TV-n (koppintson a telefonról gépeléshez)",
 "Despertador tocou na TV":"Ébresztő szólt a TV-n",
 "Alerta importante da Sofy":"Fontos riasztás Sofytól",
+"Certificado do painel perto de vencer":"A panel tanúsítványa hamarosan lejár",
 "Ouvir no celular":"Hallgassa a telefonján",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Itt folytatja azt a rádióállomást vagy podcastot, amelyet a TV utoljára játszott, ugyanattól a ponttól.",
 "Ouvir aqui":"Hallgatás itt",

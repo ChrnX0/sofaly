@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Ανοιχτό πεδίο κειμένου στην τηλεόραση (πατήστε για πληκτρολόγηση από το κινητό)",
 "Despertador tocou na TV":"Χτύπησε ξυπνητήρι στην τηλεόραση",
 "Alerta importante da Sofy":"Σημαντική ειδοποίηση από τη Sofy",
+"Certificado do painel perto de vencer":"Το πιστοποιητικό του πίνακα λήγει σύντομα",
 "Ouvir no celular":"Ακούστε στο κινητό",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Συνεχίζει εδώ τον ραδιοφωνικό σταθμό ή το podcast που έπαιξε τελευταίο η τηλεόραση, από το ίδιο σημείο.",
 "Ouvir aqui":"Ακούστε εδώ",

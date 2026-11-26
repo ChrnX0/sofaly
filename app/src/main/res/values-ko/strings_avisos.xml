@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s 지우기</string>
     <string name="ds_lento_titulo">Sofaly가 느려짐</string>
     <string name="ds_lento_texto">버전 %1$d: 느린 프레임 %2$d ms, 이전 %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">패널 인증서가 곧 만료됩니다</string>
+    <string name="cert_vence_texto">TV 패널의 보안 인증서가 %1$d일 후 만료됩니다. 패널(원격 접속)에서 갱신하고 기기에 다시 설치하세요.</string>
 </resources>

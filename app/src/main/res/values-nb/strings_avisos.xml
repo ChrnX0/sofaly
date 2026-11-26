@@ -13,4 +13,6 @@
     <string name="mural_riscar">Kryss av %1$s</string>
     <string name="ds_lento_titulo">Sofaly har blitt tregere</string>
     <string name="ds_lento_texto">Versjon %1$d: trege bilder tar %2$d ms, de tok %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Panelets sertifikat utløper snart</string>
+    <string name="cert_vence_texto">TV-panelets sikkerhetssertifikat utløper om %1$d dager. Forny det i panelet (Fjerntilgang) og installer det på nytt på enhetene.</string>
 </resources>

@@ -13,4 +13,6 @@
     <string name="mural_riscar">Spunta %1$s</string>
     <string name="ds_lento_titulo">Sofaly è diventato più lento</string>
     <string name="ds_lento_texto">Versione %1$d: i fotogrammi lenti richiedono %2$d ms, prima %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Il certificato del pannello scade presto</string>
+    <string name="cert_vence_texto">Il certificato di sicurezza del pannello della TV scade tra %1$d giorni. Rinnovalo nel pannello (Accesso remoto) e reinstallalo sui dispositivi.</string>
 </resources>

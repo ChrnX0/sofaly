@@ -142,6 +142,7 @@ class ControleActivity : Activity() {
             in 200..299 -> situacao.text = getString(R.string.cel_ctrl_dica)
             401 -> entrarPrimeiro()
             0 -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
+            ApiTv.CERTIFICADO_TROCOU -> situacao.text = getString(R.string.cel_ctrl_cert_novo)
             else -> situacao.text = getString(R.string.cel_ctrl_recusou)
         }
     }

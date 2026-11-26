@@ -13,4 +13,6 @@
     <string name="mural_riscar">划掉 %1$s</string>
     <string name="ds_lento_titulo">Sofaly 变慢了</string>
     <string name="ds_lento_texto">版本 %1$d:慢帧需要 %2$d 毫秒,之前为 %3$d 毫秒(+%4$d%%)。</string>
+    <string name="cert_vence_titulo">面板证书即将过期</string>
+    <string name="cert_vence_texto">电视面板的安全证书将在 %1$d 天后过期。请在面板（远程访问）中续订，并在设备上重新安装。</string>
 </resources>

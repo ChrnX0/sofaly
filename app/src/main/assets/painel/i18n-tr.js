@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"TV'de metin alanı açık (telefondan yazmak için dokunun)",
 "Despertador tocou na TV":"Alarm TV'de çaldı",
 "Alerta importante da Sofy":"Sofy'den önemli uyarı",
+"Certificado do painel perto de vencer":"Panel sertifikasının süresi dolmak üzere",
 "Ouvir no celular":"Telefonda dinle",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"TV'nin en son çaldığı radyo veya podcast'i burada aynı yerden sürdürür.",
 "Ouvir aqui":"Burada dinle",

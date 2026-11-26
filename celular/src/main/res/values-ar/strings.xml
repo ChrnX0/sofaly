@@ -33,6 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">كتم</string>
     <string name="cel_ctrl_sem_tv">لم يرد التلفاز. هل هو مشغّل وعلى الشبكة نفسها؟</string>
+    <string name="cel_ctrl_cert_novo">لدى التلفاز شهادة أمان جديدة. امسح رمز QR الظاهر على التلفاز مرة أخرى.</string>
     <string name="cel_ctrl_recusou">لم يتمكن التلفاز من فعل ذلك الآن.</string>
     <string name="cel_ctrl_entrar">ادخل مرة واحدة برمز PIN للتلفاز في اللوحة؛ بعدها يعمل جهاز التحكم.</string>
     <string name="cel_notif_canal">جهاز تحكم التلفاز</string>

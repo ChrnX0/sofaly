@@ -13,4 +13,6 @@
     <string name="mural_riscar">Taie %1$s</string>
     <string name="ds_lento_titulo">Sofaly a devenit mai lent</string>
     <string name="ds_lento_texto">Versiunea %1$d: cadrele lente durează %2$d ms, înainte durau %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Certificatul panoului expiră curând</string>
+    <string name="cert_vence_texto">Certificatul de securitate al panoului TV expiră în %1$d zile. Reînnoiește-l din panou (Acces la distanță) și instalează-l din nou pe dispozitive.</string>
 </resources>

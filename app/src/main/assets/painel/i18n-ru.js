@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Текстовое поле открыто на ТВ (нажмите, чтобы печатать с телефона)",
 "Despertador tocou na TV":"Будильник сработал на ТВ",
 "Alerta importante da Sofy":"Важное оповещение от Sofy",
+"Certificado do painel perto de vencer":"Сертификат панели скоро истечёт",
 "Ouvir no celular":"Слушать на телефоне",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Продолжает здесь радио или подкаст, которые последними играли на ТВ, с того же места.",
 "Ouvir aqui":"Слушать здесь",

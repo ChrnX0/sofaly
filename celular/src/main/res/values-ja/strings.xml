@@ -33,6 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">消音</string>
     <string name="cel_ctrl_sem_tv">テレビが応答しません。電源が入っていて同じネットワークにありますか？</string>
+    <string name="cel_ctrl_cert_novo">テレビのセキュリティ証明書が新しくなりました。テレビのQRコードをもう一度読み取ってください。</string>
     <string name="cel_ctrl_recusou">テレビは今それを実行できませんでした。</string>
     <string name="cel_ctrl_entrar">パネルでテレビの PIN を一度入力すると、リモコンが使えます。</string>
     <string name="cel_notif_canal">テレビのリモコン</string>

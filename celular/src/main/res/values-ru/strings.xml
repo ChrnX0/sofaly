@@ -33,6 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Без звука</string>
     <string name="cel_ctrl_sem_tv">ТВ не отвечает. Он включён и в той же сети?</string>
+    <string name="cel_ctrl_cert_novo">У ТВ новый сертификат безопасности. Отсканируйте QR-код на ТВ ещё раз.</string>
     <string name="cel_ctrl_recusou">ТВ сейчас не смог это сделать.</string>
     <string name="cel_ctrl_entrar">Войдите один раз с PIN-кодом ТВ в панели; потом пульт заработает.</string>
     <string name="cel_notif_canal">Пульт ТВ</string>

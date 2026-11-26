@@ -13,4 +13,6 @@
     <string name="mural_riscar">Coret %1$s</string>
     <string name="ds_lento_titulo">Sofaly jadi lebih lambat</string>
     <string name="ds_lento_texto">Versi %1$d: bingkai lambat kini %2$d ms, sebelumnya %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Sertifikat panel segera kedaluwarsa</string>
+    <string name="cert_vence_texto">Sertifikat keamanan panel TV kedaluwarsa dalam %1$d hari. Perbarui di panel (Akses jarak jauh) lalu pasang lagi di perangkat Anda.</string>
 </resources>

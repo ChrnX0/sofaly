@@ -18,6 +18,7 @@ traduzirPainelCom({T:{
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"TV에 입력란이 열림(눌러서 휴대폰으로 입력)",
 "Despertador tocou na TV":"TV에서 알람이 울림",
 "Alerta importante da Sofy":"Sofy의 중요 알림",
+"Certificado do painel perto de vencer":"패널 인증서가 곧 만료됩니다",
 "Ouvir no celular":"휴대폰으로 듣기",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"TV에서 마지막으로 재생한 라디오나 팟캐스트를 같은 지점부터 여기서 이어 듣습니다.",
 "Ouvir aqui":"여기서 듣기",

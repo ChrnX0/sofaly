@@ -32,16 +32,26 @@ object ApiTv {
 
     class Resposta(val codigo: Int, val json: JSONObject?)
 
-    /** Chamada bloqueante. Código 0 = não chegou na TV (desligada, fora de casa, certificado diferente). */
+    /**
+     * A TV respondeu com OUTRO certificado (Brainstorm 26/11, item 18): renovado no painel, ou outro aparelho no IP.
+     * Diferente de "não respondeu": a pessoa precisa ler o QR da TV de novo, e o app diz isso.
+     */
+    const val CERTIFICADO_TROCOU = -2
+
+    /** Chamada bloqueante. Código 0 = não chegou na TV (desligada, fora de casa); [CERTIFICADO_TROCOU] = outro certificado. */
     fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta {
         if (!podeUsar(tv)) return Resposta(0, null)
         val base = "https://${tv.ip}:${Pareamento.PORTA_HTTPS}"
+        var trocou = false
         return try {
             val c = URL(base + caminho).openConnection() as HttpsURLConnection
             val fixo = object : X509TrustManager {
                 override fun checkClientTrusted(chain: Array<X509Certificate>, tipo: String) = throw java.security.cert.CertificateException()
                 override fun checkServerTrusted(chain: Array<X509Certificate>, tipo: String) {
-                    if (chain.isEmpty() || !Pareamento.confere(tv, chain[0].encoded)) throw java.security.cert.CertificateException("não é o certificado da TV")
+                    if (chain.isEmpty() || !Pareamento.confere(tv, chain[0].encoded)) {
+                        trocou = chain.isNotEmpty()
+                        throw java.security.cert.CertificateException("não é o certificado da TV")
+                    }
                 }
                 override fun getAcceptedIssuers(): Array<X509Certificate> = emptyArray()
             }
@@ -62,7 +72,7 @@ object ApiTv {
                 val txt = runCatching { (if (cod in 200..299) c.inputStream else c.errorStream)?.bufferedReader()?.use { it.readText() } }.getOrNull()
                 Resposta(cod, txt?.let { runCatching { JSONObject(it) }.getOrNull() })
             } finally { c.disconnect() }
-        } catch (_: Exception) { Resposta(0, null) }
+        } catch (_: Exception) { Resposta(if (trocou) CERTIFICADO_TROCOU else 0, null) }
     }
 
     fun tecla(tv: Pareamento.Tv, nome: String): Resposta = chamar(tv, "POST", "/api/tela/tecla", JSONObject().put("tecla", nome))
