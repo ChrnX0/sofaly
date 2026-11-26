@@ -421,6 +421,14 @@ object SofyRepair {
     fun withAiPlan(c: Case, plan: List<Tool>) = c.copy(aiPlan = plan)
 
     /** A ficha do caso em texto curto, para a IA e para a issue. Sem dados pessoais: só tipo, assunto, contagem e contexto do barramento. */
+    /**
+     * Sinal posto pelo adb para teste (`repair_signal`): o detalhe começa com [TEST_MARK]. O defeito desses casos vai para
+     * "test_defect", não para "self_defect": a tarefa diária não abre issue de teste (Revisão, 26/11/2026: #519/#520).
+     */
+    const val TEST_MARK = "[teste]"
+    fun isTest(c: Case) = c.detail.startsWith(TEST_MARK)
+    fun defectLog(c: Case) = if (isTest(c)) "test_defect" else "self_defect"
+
     fun brief(c: Case): String = buildString {
         append("${c.type.name} em ${c.subject}; ${c.count} vez(es)")
         if (c.detail.isNotEmpty()) append("; ${c.detail}")

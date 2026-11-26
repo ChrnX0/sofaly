@@ -178,6 +178,20 @@ object SofyAiRules {
         return if (claude > 0) claude else u.optLong("prompt_tokens") + u.optLong("completion_tokens")
     }
 
+    /** Entrada, saída e leitura de cache, separadas (o banco de prova precisa do preço: saída custa 5x a entrada). */
+    fun usageParts(response: JSONObject): LongArray {
+        val u = response.optJSONObject("usage") ?: return LongArray(3)
+        val i = u.optLong("input_tokens"); val o = u.optLong("output_tokens")
+        return if (i + o > 0) longArrayOf(i, o, u.optLong("cache_read_input_tokens"))
+            else longArrayOf(u.optLong("prompt_tokens"), u.optLong("completion_tokens"), 0)
+    }
+
+    /** O esforço do pensamento (low, medium, high...), só no formato do Claude; vazio = o padrão do modelo. */
+    fun withEffort(s: Settings, body: JSONObject, effort: String?): JSONObject {
+        if (effort.isNullOrBlank() || s.provider.format != Format.CLAUDE) return body
+        return body.put("output_config", JSONObject().put("effort", effort.trim()))
+    }
+
     /** O mês corrente como número (202611), para zerar o contador na virada. */
     fun month(nowMs: Long): Int {
         val c = java.util.Calendar.getInstance().apply { timeInMillis = nowMs }

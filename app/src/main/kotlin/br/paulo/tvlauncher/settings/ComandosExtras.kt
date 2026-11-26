@@ -276,7 +276,8 @@ object ComandosExtras {
             val t = br.paulo.tvlauncher.observer.SofyRepair.Type.entries.firstOrNull { it.name == i.getStringExtra("type") }
             val sub = i.getStringExtra("subject")
             if (t == null || sub.isNullOrBlank()) "use --es type <TIPO> --es subject <assunto>"
-            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, i.getStringExtra("detail")?.take(160) ?: "teste pelo adb"); "sinal ${t.name} $sub" }
+            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, br.paulo.tvlauncher.observer.SofyRepair.TEST_MARK + " " +
+                (i.getStringExtra("detail")?.take(150) ?: "pelo adb")); "sinal ${t.name} $sub (teste)" }
         }
         // A IA do dono: `sofy_ai` = o estado (sem a chave); `sofy_ai --es provider claude|openai|perplexity|gemini|groq|
         // openrouter|custom [--es base http://192.168.x.x:11434/v1] [--es model nome] [--es key CHAVE]` grava; `sofy_ai_test` testa.
@@ -290,7 +291,17 @@ object ComandosExtras {
         }
         // `screen_review [--es telas previsao,agenda]`: confere agora as telas (revisão da IA + segunda opinião), só com a TV parada.
         "screen_review" -> br.paulo.tvlauncher.observer.SofyScreenCheckTv.agora(ctx,
-            i.getStringExtra("telas").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() })
+            i.getStringExtra("telas").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() }, i.getBooleanExtra("capture", false))
+        // Banco de prova dos modelos (Paulo, 26/11/2026): `sofy_bench --es task repair|review|second|real --es models a,b
+        // [--ei reps N] [--es effort low]`; `sofy_bench_status`, `sofy_bench_stop`, `sofy_bench_dump [--ei from N]`,
+        // `sofy_bench_clear`. "real" usa as telas lidas por `screen_review --ez capture true`.
+        "sofy_bench" -> br.paulo.tvlauncher.observer.SofyBenchTv.start(ctx, i.getStringExtra("task").orEmpty(),
+            i.getStringExtra("models").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() }, i.getIntExtra("reps", 1),
+            i.getStringExtra("effort").orEmpty())
+        "sofy_bench_status" -> br.paulo.tvlauncher.observer.SofyBenchTv.status()
+        "sofy_bench_stop" -> br.paulo.tvlauncher.observer.SofyBenchTv.stop()
+        "sofy_bench_dump" -> br.paulo.tvlauncher.observer.SofyBenchTv.dump(ctx, i.getIntExtra("from", 0))
+        "sofy_bench_clear" -> br.paulo.tvlauncher.observer.SofyBenchTv.clear(ctx)
         "sofy_ai_test" -> { val c = ctx.applicationContext; val slot = if (i.getBooleanExtra("backup", false)) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
             br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste${if (slot.isEmpty()) "" else " (reserva)"}: " + br.paulo.tvlauncher.observer.SofyAi.test(c, slot)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
         "community" -> {
