@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Screensaver, sleep, wake-up</string>
     <string name="cfg3_porta_4_det">Home, phone and panel</string>
     <string name="cfg3_porta_5_det">Updates, backup and help</string>
+    <string name="cfg4_fila_portas">Settings areas</string>
 </resources>

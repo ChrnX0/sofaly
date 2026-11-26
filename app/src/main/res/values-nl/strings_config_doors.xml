@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Schermbeveiliging, slaap, wekken</string>
     <string name="cfg3_porta_4_det">Huis, telefoon en paneel</string>
     <string name="cfg3_porta_5_det">Updates, back-up en help</string>
+    <string name="cfg4_fila_portas">Instellingen</string>
 </resources>

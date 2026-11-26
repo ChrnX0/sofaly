@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Spořič, spánek, buzení</string>
     <string name="cfg3_porta_4_det">Domácnost, telefon a panel</string>
     <string name="cfg3_porta_5_det">Aktualizace, záloha a nápověda</string>
+    <string name="cfg4_fila_portas">Nastavení</string>
 </resources>

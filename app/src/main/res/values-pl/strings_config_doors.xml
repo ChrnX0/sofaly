@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Wygaszacz, uśpienie, budzik</string>
     <string name="cfg3_porta_4_det">Dom, telefon i panel</string>
     <string name="cfg3_porta_5_det">Aktualizacje, kopia, pomoc</string>
+    <string name="cfg4_fila_portas">Ustawienia</string>
 </resources>

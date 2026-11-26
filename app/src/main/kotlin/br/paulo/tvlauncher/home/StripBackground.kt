@@ -205,6 +205,12 @@ object GlassBackground {
      */
     fun strip(ctx: Context): android.graphics.drawable.Drawable? = nitida(ctx)?.let { GlassDrawable(it, barra = true) }
 
+    /**
+     * O fundo de toda tela desde 26/11/2026 (Paulo aprovou a prévia "Arte com véu"): a foto nítida inteira sob um véu
+     * Noite em degradê, mais leve no alto e firme embaixo, o mesmo das Fileiras. Null quando não há foto.
+     */
+    fun veiled(ctx: Context): android.graphics.drawable.Drawable? = nitida(ctx)?.let { GlassDrawable(it, veu = true) }
+
     /** A foto da barra em metade do tamanho (800 x 450, RGB 565: ~700 KB), guardada só a da escolha atual. */
     private fun nitida(ctx: Context): Bitmap? {
         val escolha = StripBackground.choice(ctx)
@@ -261,7 +267,8 @@ object GlassBackground {
 }
 
 /** Desenha a foto borrada em "centerCrop" com filtro e o véu Noite por cima. Opaco. */
-class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = false, val barra: Boolean = false) : android.graphics.drawable.Drawable() {
+class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = false, val barra: Boolean = false,
+                    private val veu: Boolean = false) : android.graphics.drawable.Drawable() {
     private val pinta = Paint(Paint.FILTER_BITMAP_FLAG)
     private val veu = Paint().apply { color = (GlassBackground.VEU shl 24) or (DesignTokens.NIGHT and 0xFFFFFF) }
     private val origem = Rect()
@@ -276,6 +283,7 @@ class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = fals
         c.drawColor(DesignTokens.NIGHT)
         c.drawBitmap(foto, origem, destino, pinta)
         if (barra) { barra(c, h); return }
+        if (veu) { veuInteiro(c, h); return }
         if (!gaveta) { c.drawRect(destino, veu); return }
         // Gaveta: véu de cima atrás da pílula (como na barra) e o painel Noite que sobe um pouco antes do conteúdo.
         val t = bounds.top.toFloat()
@@ -299,6 +307,20 @@ class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = fals
         c.drawRect(l, t + h * BARRA_DEGRADE, r, bounds.bottom.toFloat(), degrade)
         degrade.shader = null
     }
+    /**
+     * Véu da tela inteira (prévia aprovada 26/11/2026): Noite a 55% no alto, 62% a um terço, 85% a 62% e pleno embaixo.
+     * O texto nunca fica sobre a foto crua; a montanha aparece no meio, como nas Fileiras.
+     */
+    private fun veuInteiro(c: Canvas, h: Float) {
+        val t = bounds.top.toFloat()
+        val noite = DesignTokens.NIGHT and 0xFFFFFF
+        degrade.shader = LinearGradient(0f, t, 0f, t + h,
+            intArrayOf((0x8C shl 24) or noite, (0x9E shl 24) or noite, (0xD9 shl 24) or noite, (0xFF shl 24) or noite),
+            floatArrayOf(0f, 0.35f, 0.62f, 1f), Shader.TileMode.CLAMP)
+        c.drawRect(bounds.left.toFloat(), t, bounds.right.toFloat(), bounds.bottom.toFloat(), degrade)
+        degrade.shader = null
+    }
+
     private companion object {
         /** Onde a foto começa a escurecer e onde chega ao Noite quase pleno (fração da altura), no jeito Barra. */
         const val BARRA_DEGRADE = 0.38f

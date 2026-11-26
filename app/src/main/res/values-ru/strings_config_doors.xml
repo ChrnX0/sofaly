@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Заставка, сон, будильник</string>
     <string name="cfg3_porta_4_det">Дом, телефон и панель</string>
     <string name="cfg3_porta_5_det">Обновления, копия, помощь</string>
+    <string name="cfg4_fila_portas">Настройки</string>
 </resources>

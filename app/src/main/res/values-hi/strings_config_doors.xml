@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">स्क्रीनसेवर, स्लीप, अलार्म</string>
     <string name="cfg3_porta_4_det">घर, फ़ोन और पैनल</string>
     <string name="cfg3_porta_5_det">अपडेट, बैकअप और मदद</string>
+    <string name="cfg4_fila_portas">सेटिंग्स</string>
 </resources>

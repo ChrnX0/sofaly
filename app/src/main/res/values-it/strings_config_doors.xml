@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Salvaschermo, sonno, sveglia</string>
     <string name="cfg3_porta_4_det">Casa, telefono e pannello</string>
     <string name="cfg3_porta_5_det">Aggiornamenti, backup, aiuto</string>
+    <string name="cfg4_fila_portas">Impostazioni</string>
 </resources>
