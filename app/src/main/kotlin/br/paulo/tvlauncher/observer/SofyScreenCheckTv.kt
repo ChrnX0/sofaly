@@ -79,13 +79,13 @@ object SofyScreenCheckTv {
      * (nomes de [TELAS]; vazio = todas), com a revisão da IA e a segunda opinião em cada uma. Mesmos freios da noite,
      * menos a hora: só com a TV parada; dormindo, acende a tela como de madrugada.
      */
-    fun agora(ctx: Context, nomes: List<String>): String {
+    fun agora(ctx: Context, nomes: List<String>, capture: Boolean = false): String {
         val app = ctx.applicationContext
         val s = AutorizaShizukuService.instancia ?: return "sem acessibilidade"
         if (!paradaDeVerdade(app)) return "a TV está em uso: só com a tela apagada ou o protetor"
         val lista = TELAS.filter { nomes.isEmpty() || it.first in nomes }
         if (lista.isEmpty()) return "telas: " + TELAS.joinToString(",") { it.first }
-        Fundo.rodar("sofy-telas-agora") { rodada(app, s, lista) }
+        Fundo.rodar("sofy-telas-agora") { rodada(app, s, lista, capture) }
         return "conferindo ${lista.size} telas: " + lista.joinToString(",") { it.first }
     }
 
@@ -94,7 +94,15 @@ object SofyScreenCheckTv {
      * conferência não lia nada, em silêncio), lê as telas, volta para a home e apaga de novo. A IA só olha DEPOIS, com a
      * TV já apagada: a tela fica acesa o mínimo. Se alguém apertar uma tecla no meio, para e deixa a TV acesa para a pessoa.
      */
-    private fun rodada(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>) {
+    /** Uma rodada por vez: a da noite e a do adb não podem abrir telas ao mesmo tempo. */
+    private val emRodada = java.util.concurrent.atomic.AtomicBoolean(false)
+
+    private fun rodada(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean = false) {
+        if (!emRodada.compareAndSet(false, true)) { Log.w(TAG, "outra conferência já está rodando: pulei"); return }
+        try { rodada0(app, s, lista, capture) } finally { emRodada.set(false) }
+    }
+
+    private fun rodada0(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean) {
         val pm = app.getSystemService(android.os.PowerManager::class.java)
         val acendi = pm?.isInteractive == false
         val inicio = android.os.SystemClock.elapsedRealtime()
@@ -129,6 +137,8 @@ object SofyScreenCheckTv {
         }
         Log.i(TAG, "li ${lidas.size} de ${lista.size} telas" + (if (acendi) " (acendi a tela)" else "") + (if (parei) "; alguém mexeu: parei" else ""))
         if (lidas.size < lista.size && !parei) ObserverTv.logShadow(app, "self_defect", "conferência de telas: li ${lidas.size} de ${lista.size}")
+        // Banco de prova (SofyBench): só guarda os textos para todos os modelos lerem a mesma tela; não analisa nem grava regra.
+        if (capture) { for (t in lidas) SofyBenchTv.capture(t.nome, t.caixas.map { it.texto }); return }
         for (t in lidas) runCatching { analisar(app, t) }.onFailure { Log.w(TAG, "${t.nome}: $it") }
     }
 
