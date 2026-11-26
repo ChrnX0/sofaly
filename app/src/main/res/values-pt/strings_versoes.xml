@@ -13,6 +13,22 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
+        <item>A Sofy percebe e conserta sozinha: refaz o acesso interno quando a TV o esquece, aprende o normal da sua casa, confere as telas de madrugada e, com a chave de IA do dono, pergunta à IA o que ainda não sabe; o que ela aprende vai no backup</item>
+        <item>A Sofy confere se o que a tela diz é verdade: feriado de outro país, o mesmo evento duas vezes, ícone de tempo que não bate com a frase, máxima de hoje abaixo da temperatura de agora, números sem sentido</item>
+        <item>Agenda e descanso mostram só os feriados do país da TV, uma vez só, na língua da TV; nomes longos ganham duas linhas</item>
+        <item>Chuva provável agora: o ícone também vira chuva, a frase diz “Pode chover a qualquer momento” e cada % de chuva tem a gota na frente</item>
+        <item>Descanso: 7 jeitos da hora, 3 jeitos de embaixo (Faixa, Cartão vivo, Pilha) e 6 lugares, em Configurações › Tela e energia; o “Hoje” conta a temperatura de agora</item>
+        <item>Animação do mundo: o ícone voa do trilho e ganha uma pequena cena; escolha Pequena cena, Traço de luz ou Pulo e acende no Ajuste fino</item>
+        <item>Cards de atalho com o ícone ao lado do nome, em Branco, Vidro claro ou Vidro escuro, e ícones com personalidade</item>
+        <item>Jeito das telas: as outras telas seguem a barra (Gaveta, Vidro ou Barra), com o foco em anel e a hora numa pílula no alto</item>
+        <item>Widgets de outros apps vivos na tela inicial, que você arruma pelo controle</item>
+        <item>Extensões de outros apps: fundos, ícones, cartões e botões novos, revisados antes de entrar</item>
+        <item>Celular e TV: calibre imagem e som pelo celular, faça o controle tocar quando sumir e use o microfone e a câmera do celular na TV</item>
+        <item>Língua do app separada da TV (Sistema › Língua); a TV fala mais 12 línguas e o painel e o site, 27</item>
+        <item>Todo botão faz alguma coisa: 79 telas foram testadas apertando OK em cada item</item>
+        <item>Mais firme: o launcher não cai mais quando o descanso recomeça, e a tela inicial não tira o foco de onde você já foi com o controle</item>
+        <item>Despertador desligado diz “Desligado” ao lado da hora, e os avisos não cobrem mais os cards de baixo</item>
+        <item>Lua calculada com mais precisão (fase e nascer da lua)</item>
         <item>Tela inicial nova de fábrica, a barra única: ▲ e ▼ trocam o mundo (Assistir, Ouvir, Jogar…), ◀ e ▶ andam pelos apps e conteúdos dele em cartões grandes, e a Ilha continua no alto</item>
         <item>A Ilha avisa quando o sol está forte (UV 8 ou mais): “use protetor solar”</item>
         <item>Painel em outras línguas sem pedaços em português: as dicas do Wi-Fi, a ficha dos 140 apps conhecidos, o passo a passo do certificado, a página da unidade de rede e a tela “A TV não respondeu”</item>
@@ -72,6 +88,18 @@
         <item>Despertador: o som sempre começa baixo e sobe devagar, por pelo menos 1 minuto e meio, mesmo com “Toque: direto”, para nunca começar no volume cheio</item>
     </string-array>
     <string-array name="roteiro_titulos">
+        <item>Sofy conserta</item>
+        <item>Feriados do país</item>
+        <item>Ícone de chuva</item>
+        <item>Gota no %</item>
+        <item>Jeitos do descanso</item>
+        <item>Hoje com agora</item>
+        <item>Animação do mundo</item>
+        <item>Cards de atalho</item>
+        <item>Widgets vivos</item>
+        <item>Descanso recomeça</item>
+        <item>Foco ao abrir</item>
+        <item>Língua do app</item>
         <item>Barra única</item>
         <item>Aviso de UV</item>
         <item>Painel traduzido</item>
@@ -119,6 +147,18 @@
         <item>Segurar ▲</item>
     </string-array>
     <string-array name="roteiro_perguntas">
+        <item>No painel, aba Sofy: aparecem consertos que ela fez sozinha hoje, com o porquê, e nenhum deles repetiu em laço?</item>
+        <item>No descanso e na Agenda, aparecem só feriados do Brasil (nenhum Thanksgiving ou Black Friday), e nenhum duas vezes?</item>
+        <item>Quando a frase diz “Pode chover a qualquer momento”, o ícone da tela inicial, do Clima e do descanso é de chuva?</item>
+        <item>Na Previsão e no descanso, cada % de chuva das horas e dos dias tem a gota azul na frente?</item>
+        <item>Em Configurações › Tela e energia, troque o Jeito da hora para Anel e o Lugar para Embaixo, à direita: o descanso muda e nada fica cortado?</item>
+        <item>No descanso, na faixa dos dias, a máxima de “Hoje” nunca fica abaixo da temperatura de agora?</item>
+        <item>Troque de mundo com ▲ ▼: o ícone voa do trilho e faz a pequena cena, sem engasgar?</item>
+        <item>Em Ajuste fino › Cards de atalho, troque para Vidro escuro: os cards mostram o ícone ao lado do nome e nada fica marrom?</item>
+        <item>Ponha um widget de outro app na tela inicial pelo controle: ele aparece vivo e dá para mover e tirar?</item>
+        <item>Deixe o descanso aparecer, acorde a TV e deixe ele voltar duas vezes: a tela inicial nunca reinicia sozinha?</item>
+        <item>Logo depois de a TV ligar, aperte ▲ para ir à barra de cima antes de os apps aparecerem: o foco fica onde você foi?</item>
+        <item>Em Sistema › Língua, escolha outra língua: as telas da Sofaly mudam e as da TV continuam como estavam?</item>
         <item>Aperte HOME: a tela inicial é a barra embaixo; ▲ e ▼ trocam o mundo e ◀ e ▶ andam pelos cartões, sem nada cortado na borda da TV?</item>
         <item>Num dia de sol forte (UV 8 ou mais), a Ilha mostrou “use protetor solar” inteiro, sem cortar?</item>
         <item>Abra o painel num celular em inglês e toque num app em Apps: a ficha (o que é, risco ao esconder) aparece toda em inglês?</item>
