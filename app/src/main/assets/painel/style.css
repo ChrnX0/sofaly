@@ -100,7 +100,13 @@
   /* Medidas: grade de 4/8 e só três raios, os mesmos da TV (Estilo.kt: 8, 16 e pílula) */
   --raio: var(--t-radius-medium);
   --raio-pequeno: var(--t-radius-small);
-  --pilula: var(--t-radius-pill);
+  /* Caixa, não pílula (padrão único da TV, 26/11/2026): botões, abas e selos têm o canto da caixa. Chave e barra
+     de progresso continuam redondas (usam --t-radius-pill direto). */
+  --pilula: var(--raio);
+  /* Selecionado e botão principal = a caixa um tom mais clara com letra creme, como a seção aberta e o botão principal
+     da TV (Estilo.SUPERFICIE_ALTA); o branco/creme fica só para o anel do foco (--foco). */
+  --selecao: #3e3d3a;
+  --selecao-texto: var(--t-cream);
   --sombra: 0 16px 40px rgba(0, 0, 0, .45);
   --sombra-leve: none;
   --lateral: 264px;
@@ -134,6 +140,8 @@
     --foco: var(--t-night);                               /* no claro o "selecionado" é a pílula Noite com letra clara */
     --foco-texto: var(--t-cream);
     --foco-hover: #2a2a27;
+    --selecao: var(--t-night);
+    --selecao-texto: var(--t-cream);
     --perigo: #b3261e;
     --perigo-fundo: rgba(179, 38, 30, .08);
     --perigo-borda: rgba(179, 38, 30, .4);
@@ -219,7 +227,7 @@ kbd { font: 700 13px/1 "Nunito", system-ui, sans-serif; padding: 4px 8px; border
 }
 /* Ação principal = pílula branca, como o foco na TV */
 /* Botão principal = a cor do foco (branco no escuro, Noite no claro), igual ao botão focado na TV e ao do app do celular. */
-.botao-primario { background: var(--foco); color: var(--foco-texto); }
+.botao-primario { background: var(--selecao); color: var(--selecao-texto); }
 .botao-primario:hover { background: var(--foco-hover); }
 .botao-secundario { background: var(--superficie2); color: var(--texto); border-color: var(--borda); }
 .botao-secundario:hover { background: var(--superficie-hover); border-color: var(--borda-forte); }
@@ -342,7 +350,7 @@ details summary { cursor: pointer; color: var(--texto-fraco); margin-top: 12px; 
 .aba > span:last-child { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .aba .ic { display: grid; place-items: center; width: 56px; height: 32px; border-radius: var(--pilula); transition: background-color var(--t-ms-quick); }
 .aba.ativa { color: var(--texto); }
-.aba.ativa .ic { background: var(--foco); color: var(--foco-texto); }
+.aba.ativa .ic { background: var(--selecao); color: var(--selecao-texto); }
 .aba .ic svg.i { width: 22px; height: 22px; }
 
 /* Computador: coluna lateral fixa com tudo; "Mais" some */
@@ -367,7 +375,7 @@ details summary { cursor: pointer; color: var(--texto-fraco); margin-top: 12px; 
   .aba .ic { width: 22px; height: 22px; background: none !important; border-radius: 0; color: inherit; }
   .aba.ativa .ic { color: inherit !important; }   /* na pílula branca o ícone fica escuro, como o texto */
   .aba:hover { background: var(--superficie2); color: var(--texto); }
-  .aba.ativa { background: var(--foco); color: var(--foco-texto); font-weight: 600; }
+  .aba.ativa { background: var(--selecao); color: var(--selecao-texto); font-weight: 600; }
   .conteudo { padding-bottom: 40px; }
   .painel-aba { padding: 28px 32px; }
   .rotulo-busca, .botao-busca kbd { display: inline; }
@@ -405,7 +413,7 @@ details summary { cursor: pointer; color: var(--texto-fraco); margin-top: 12px; 
 .linha-uso img { width: 36px; height: 36px; border-radius: 10px; flex: none; background: var(--superficie2); object-fit: cover; }
 .linha-uso .info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .linha-uso .nome { font-size: 17px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.linha-uso .barra { height: 4px; border-radius: var(--pilula); background: var(--superficie2); position: relative; overflow: hidden; }
+.linha-uso .barra { height: 4px; border-radius: var(--t-radius-pill); background: var(--superficie2); position: relative; overflow: hidden; }
 .linha-uso .barra::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--p); background: var(--acento); border-radius: inherit; }
 .linha-uso .tempo { font-size: 15px; color: var(--texto-fraco); white-space: nowrap; }
 
@@ -544,7 +552,7 @@ dialog.busca::backdrop { background: var(--veu); backdrop-filter: blur(6px); }
   background: transparent; color: var(--texto); width: 100%; outline: none; }
 #resultadosBusca { list-style: none; margin: 0; padding: 8px; overflow-y: auto; flex: 1; }
 #resultadosBusca li { display: flex; align-items: center; gap: 12px; padding: 12px 12px; border-radius: 14px; cursor: pointer; }
-#resultadosBusca li.marcado { background: var(--foco); color: var(--foco-texto); }
+#resultadosBusca li.marcado { background: var(--selecao); color: var(--selecao-texto); }
 #resultadosBusca li.marcado .tipo { color: inherit; opacity: .8; }
 #resultadosBusca li.vazio { color: var(--texto-fraco); cursor: default; }
 #resultadosBusca .ic { width: 30px; height: 30px; flex: none; display: grid; place-items: center; font-size: 17px; }
@@ -627,13 +635,13 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .controle button:hover { background: var(--superficie-hover); border-color: var(--borda-forte); }
 .controle button:active { transform: scale(.96); }
 .controle .botao-perigo { background: transparent; color: var(--perigo); border-color: var(--borda); }
-.controle .botao-primario { background: var(--foco); color: var(--foco-texto); }
+.controle .botao-primario { background: var(--selecao); color: var(--selecao-texto); }
 /* Cruz direcional num círculo, como o controle da TV */
 .dpad { display: grid; grid-template-columns: repeat(3, 72px); grid-template-rows: repeat(3, 72px); padding: 12px;
   background: var(--superficie); border: 1px solid var(--borda); border-radius: 50%; }
 .dpad button { font-size: 17px; padding: 0; background: transparent; border-color: transparent; border-radius: 50%; color: var(--texto-fraco); }
 .dpad button:hover { color: var(--texto); background: var(--superficie2); }
-.dpad .ok { background: var(--foco); color: var(--foco-texto); font-weight: 700; font-size: 15px; }
+.dpad .ok { background: var(--selecao); color: var(--selecao-texto); font-weight: 700; font-size: 15px; }
 .dpad .ok:hover { background: var(--foco-hover); color: var(--foco-texto); }
 .teclas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 420px; }
 /* Células de 1/3 da largura: rótulo longo em outra língua ("Uruchom ponownie telewizor") quebra a linha em vez de
@@ -662,7 +670,7 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .recado-opcoes { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .recado-opcoes label { display: inline-flex; gap: 8px; align-items: center; }
 .recado-opcoes button { margin-left: auto; }
-.recado-opcoes button[type=submit], .recado > .recado-opcoes > button:last-child { background: var(--foco); color: var(--foco-texto); border-color: transparent; border-radius: var(--pilula); padding: 0 20px;
+.recado-opcoes button[type=submit], .recado > .recado-opcoes > button:last-child { background: var(--selecao); color: var(--selecao-texto); border-color: transparent; border-radius: var(--pilula); padding: 0 20px;
   min-height: 44px; }  /* sem classe ficava com 22px de altura (pente fino 19/11: alvo de toque) */
 #formClima .recado-opcoes button[type=submit] { margin-left: 0; }
 .recado-opcoes .botao-secundario { border-radius: var(--pilula); }
@@ -690,7 +698,7 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .perfil-linha .nome { flex: 1 1 160px; overflow-wrap: anywhere; color: var(--texto-fraco); font-size: 17px; }
 .perfil-linha input[type=text] { flex: 1 1 140px; max-width: 220px; }
 
-.periodo.ativo { background: var(--foco); color: var(--foco-texto); border-color: transparent; }
+.periodo.ativo { background: var(--selecao); color: var(--selecao-texto); border-color: transparent; }
 .resumo-rede { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
 .bloco-rede { background: var(--superficie); border: 1px solid transparent; border-radius: var(--raio-pequeno); padding: 16px; display: flex; flex-direction: column; gap: 4px; }
 .bloco-rede strong { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
@@ -892,7 +900,7 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .linha-chave .estado-chave.ligado { color: var(--ok); font-weight: 700; }
 /* Interruptor: a caixinha de marcar desenhada como chave, igual à da TV (continua sendo um checkbox para o leitor de tela) */
 .linha-chave input[type=checkbox] { appearance: none; -webkit-appearance: none; flex: none; width: 54px; height: 32px; margin: 0;
-  border-radius: var(--pilula); background: var(--superficie-hover); border: 1px solid var(--borda-forte); position: relative;
+  border-radius: var(--t-radius-pill); background: var(--superficie-hover); border: 1px solid var(--borda-forte); position: relative;
   cursor: pointer; transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick); }
 .linha-chave input[type=checkbox]::after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px;
   border-radius: 50%; background: var(--texto-fraco); transition: transform var(--t-ms-quick), background-color var(--t-ms-quick); }
@@ -962,7 +970,7 @@ textarea { border-radius: var(--raio); border-color: transparent; }
   .aba .ic { width: auto; height: auto; background: none !important; color: inherit !important; }
   /* O nome some da vista mas continua para o leitor de tela */
   .aba:not(.ativa) > span:last-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .aba.ativa { background: var(--foco); color: var(--foco-texto); font-size: 15px; font-weight: 900; flex: 0 1 auto; min-width: 0; }
+  .aba.ativa { background: var(--selecao); color: var(--selecao-texto); font-size: 15px; font-weight: 900; flex: 0 1 auto; min-width: 0; }
   .aba:hover:not(.ativa) { color: var(--texto); }
   .conteudo { padding-bottom: calc(var(--barra-baixo) + 28px + env(safe-area-inset-bottom)); }
 }
@@ -974,7 +982,7 @@ textarea { border-radius: var(--raio); border-color: transparent; }
   .aba { font-weight: 800; }
   .aba.ativa { font-weight: 900; }
   .aba.sub.ativa { background: none; color: var(--texto); font-weight: 900; box-shadow: inset 3px 0 0 var(--foco); }
-  .abas:has(.aba.sub.ativa) .aba.ativa:not(.sub) { background: var(--foco); color: var(--foco-texto); }
+  .abas:has(.aba.sub.ativa) .aba.ativa:not(.sub) { background: var(--selecao); color: var(--selecao-texto); }
   .aba.sub { border-left: 1px solid var(--borda); border-radius: 0 var(--pilula) var(--pilula) 0; margin-left: 24px; padding-left: 16px; }
   .painel-aba { padding: 36px 48px; }
 }
@@ -1022,7 +1030,7 @@ textarea { border-radius: var(--raio); border-color: transparent; }
   box-shadow: inset 0 2px 0 rgba(255, 255, 255, .06), var(--sombra); }
 .dpad button { color: var(--texto); }
 /* OK branco como o foco da TV (o OK é "escolher o que está em foco"), não laranja. */
-.dpad .ok { background: var(--foco); color: var(--foco-texto); font-weight: 900; font-size: 17px;
+.dpad .ok { background: var(--selecao); color: var(--selecao-texto); font-weight: 900; font-size: 17px;
   box-shadow: 0 10px 28px rgba(0, 0, 0, .35), inset 0 2px 0 rgba(255, 255, 255, .35); }
 .dpad .ok:hover { background: var(--foco-hover); color: var(--foco-texto); }
 .controle button { border-color: transparent; border-radius: var(--pilula); font-weight: 800; }
@@ -1044,7 +1052,7 @@ textarea { border-radius: var(--raio); border-color: transparent; }
   display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; min-height: 56px; margin: 0;
   padding: 8px 0; border-top: 1px solid var(--borda); font-weight: 800; cursor: pointer; }
 .pagina-ajustes label > input[type=checkbox]:first-child, .marcar input[type=checkbox] {
-  appearance: none; -webkit-appearance: none; flex: none; width: 54px; height: 32px; margin: 0; border-radius: var(--pilula);
+  appearance: none; -webkit-appearance: none; flex: none; width: 54px; height: 32px; margin: 0; border-radius: var(--t-radius-pill);
   background: var(--superficie-hover); position: relative; cursor: pointer; transition: background-color var(--t-ms-quick); order: 2; }
 .pagina-ajustes label > input[type=checkbox]:first-child::after, .marcar input[type=checkbox]::after {
   content: ""; position: absolute; top: 4px; left: 4px; width: 24px; height: 24px; border-radius: 50%; background: var(--texto);
@@ -1111,7 +1119,7 @@ input[type=time]:focus-within, input[type=date]:focus-within { border-color: var
 .abas-controle [role=tab] { flex: 1 0 auto; min-height: 44px; padding: 0 16px; border-radius: var(--pilula); border: 1px solid var(--borda);
   background: var(--superficie2); color: var(--texto); font: inherit; font-weight: 700; cursor: pointer;
   transition: background-color var(--t-ms-quick), color var(--t-ms-quick); }
-.abas-controle [role=tab][aria-selected="true"] { background: var(--foco); color: var(--foco-texto); border-color: transparent; }
+.abas-controle [role=tab][aria-selected="true"] { background: var(--selecao); color: var(--selecao-texto); border-color: transparent; }
 
 /* Ideia 12: seletor de arquivo com a cara do painel (o nativo saía em inglês e cinza). */
 .escolher-arquivo { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; cursor: pointer; }
@@ -1142,7 +1150,7 @@ button.botao-secundario[aria-pressed="true"] { box-shadow: inset 0 -3px 0 var(--
 /* Aviso com barra (envio para a TV): texto em cima, barra laranja embaixo; um só aviso que se atualiza. */
 .toast-progresso { flex-wrap: wrap; row-gap: 8px; }
 .toast-progresso .toast-texto { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.toast-barra { flex-basis: 100%; height: 6px; border-radius: var(--pilula); background: var(--superficie-hover); overflow: hidden; }
+.toast-barra { flex-basis: 100%; height: 6px; border-radius: var(--t-radius-pill); background: var(--superficie-hover); overflow: hidden; }
 .toast-barra > span { display: block; height: 100%; width: 0; background: var(--acento); transition: width var(--t-ms-fast) linear; }
 @media (prefers-reduced-motion: reduce) { .toast-barra > span { transition: none; } }
 
@@ -1184,7 +1192,7 @@ button.botao-secundario[aria-pressed="true"] { box-shadow: inset 0 -3px 0 var(--
 .chip-indice { flex: none; min-height: 48px; padding: 0 16px; border: none; border-radius: var(--pilula); background: var(--superficie2);
   color: var(--texto); font: inherit; font-size: 15px; font-weight: 700; white-space: nowrap; cursor: pointer;
   transition: background-color var(--t-ms-quick), color var(--t-ms-quick); }
-.chip-indice.atual { background: var(--foco); color: var(--foco-texto); }
+.chip-indice.atual { background: var(--selecao); color: var(--selecao-texto); }
 @media (min-width: 900px) { .indice-chips { display: none; } }
 @media (max-width: 600px) { .indice-chips { margin-left: -12px; margin-right: -12px; padding: 0 12px 4px; scroll-padding: 0 12px; } }   /* a página tem 12 px aqui: -16 passava 4 px da tela */   /* no computador o índice mora na coluna */
 :is(.indice-item, .chip-indice):focus-visible { outline: 3px solid var(--acento); outline-offset: -3px; }
