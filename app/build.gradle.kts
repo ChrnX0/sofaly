@@ -307,4 +307,7 @@ val compilarTunel = tasks.register("compilarTunel") {
 android.sourceSets["main"].jniLibs.srcDir(pastaTunel)
 // Player: FFmpeg, libass e a cola nativa, já compilados (nativo/compilar.sh). O build do app não precisa do NDK.
 android.sourceSets["main"].jniLibs.srcDir(rootProject.file("nativo/libs"))
+// Relay do api.sofaly.tv (26/11/2026): a parte pura (criptografia, envelopes, WebSocket) mora em relay-core/ e é
+// compilada junto no app da TV e no app do celular, para os dois lados nunca divergirem.
+android.sourceSets["main"].java.srcDir(rootProject.file("relay-core/src/main/kotlin"))
 tasks.named("preBuild") { dependsOn(compilarTunel) }
