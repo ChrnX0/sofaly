@@ -8,8 +8,8 @@
 <style>
   /* Família conectada (degrau 3, FamiliaConectada.kt). Página do link que os parentes recebem: sem conta, sem app.
      Tudo inline (a CSP do servidor não deixa carregar nada de fora). Letra grande: quem manda pode ser a avó também. */
-  :root { color-scheme: light dark; --fundo: #f6f7f9; --cartao: #fff; --texto: #13161c; --fraco: #5b6474; --acento: #CE3D00; --borda: #d8dce3; }
-  @media (prefers-color-scheme: dark) { :root { --fundo: #0b0f17; --cartao: #151a24; --texto: #f2f4f8; --fraco: #98a1b3; --acento: #FF6A2B; --borda: #2a3140; } }
+  :root { color-scheme: light dark; --fundo: #f6f7f9; --cartao: #fff; --texto: #121212; --fraco: #5b6474; --acento: #CE3D00; --borda: #d8dce3; }
+  @media (prefers-color-scheme: dark) { :root { --fundo: #121212; --cartao: #1e1e1e; --texto: #f2f4f8; --fraco: #98a1b3; --acento: #FF6A2B; --borda: #2a3140; } }
   [hidden] { display: none !important; }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--fundo); color: var(--texto); font: 19px/1.5 system-ui, sans-serif; }
@@ -24,7 +24,7 @@
   .foto img, .foto video { max-width: 100%; border-radius: 12px; }
   button { font: inherit; font-weight: 600; min-height: 54px; border-radius: 14px; border: 0; cursor: pointer; }
   .principal { background: var(--acento); color: #fff; }
-  @media (prefers-color-scheme: dark) { .principal { color: #0b0f17; } }
+  @media (prefers-color-scheme: dark) { .principal { color: #121212; } }
   .secundario { background: transparent; color: var(--acento); border: 2px solid var(--acento); }
   .msg { font-weight: 600; margin: 0; }
   .ok { color: var(--acento); }

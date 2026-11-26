@@ -170,11 +170,25 @@ class ModoSimplesActivity : Activity() {
             val i = packageManager.getLeanbackLaunchIntentForPackage(pacote) ?: packageManager.getLaunchIntentForPackage(pacote)
             if (i != null) try { startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (_: Exception) {}
         }
-        cards += card(getString(R.string.ms_pedir_ajuda), null, Estilo.ATENCAO) {
+        // Só aparece quando há como avisar (Brainstorm 26/11, item 1): sem celular inscrito o card prometia ajuda que não
+        // vinha. E só diz "avisei" depois que pelo menos um celular aceitou o aviso; senão manda ligar para alguém.
+        if (Avisos.podeAvisar(this, Avisos.Tipo.AJUDA)) cards += card(getString(R.string.ms_pedir_ajuda), null, Estilo.ATENCAO) {
+            val app = applicationContext
             val tv = android.provider.Settings.Global.getString(contentResolver, "device_name") ?: "TV"
-            Avisos.enviar(applicationContext, Avisos.Tipo.AJUDA, getString(R.string.ms_pedido_ajuda), getString(R.string.ms_alguem_pediu, tv))
-            falar(getString(R.string.ms_avisei_falado))
-            AvisoTv.rapido(applicationContext, getString(R.string.ms_pedido_ajuda), getString(R.string.ms_avisei))
+            val titulo = getString(R.string.ms_pedido_ajuda)
+            val texto = getString(R.string.ms_alguem_pediu, tv)
+            Fundo.rodar("pedir-ajuda") {
+                val (aceitos, _) = Avisos.enviarAgora(app, Avisos.Tipo.AJUDA, titulo, texto)
+                runOnUiThread {
+                    if (aceitos > 0) {
+                        falar(getString(R.string.ms_avisei_falado))
+                        AvisoTv.rapido(app, titulo, getString(R.string.ms_avisei))
+                    } else {
+                        falar(getString(R.string.ms_ninguem_recebeu))
+                        AvisoTv.rapido(app, titulo, getString(R.string.ms_ninguem_recebeu))
+                    }
+                }
+            }
         }
         // 3 por linha, cards grandes (o dobro dos da HOME).
         cards.chunked(3).forEach { linha ->

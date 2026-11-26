@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">มีคนขอความช่วยเหลือที่ทีวี %1$s</string>
     <string name="ms_avisei_falado">เรียบร้อย แจ้งครอบครัวแล้ว</string>
     <string name="ms_avisei">แจ้งครอบครัวทางโทรศัพท์แล้ว</string>
+    <string name="ms_ninguem_recebeu">ไม่มีโทรศัพท์เครื่องใดได้รับการแจ้งเตือน โปรดโทรหาใครสักคน</string>
     <string name="ms_voltar">กลับไปที่หน้าจอแบบเต็ม</string>
     <string name="pv_bom_dia">สวัสดีตอนเช้า!</string>
     <string name="pv_boa_tarde">สวัสดีตอนบ่าย!</string>

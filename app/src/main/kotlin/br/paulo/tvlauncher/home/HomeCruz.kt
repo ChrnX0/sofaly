@@ -318,13 +318,13 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Véu escuro atrás da coluna (contraste com qualquer tema ou foto): da esquerda até depois do texto, some antes
         // das categorias da direita. Uma camada só, parada.
         veu = View(ctx).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC141413.toInt(), 0x99141413.toInt(), 0x00141413))
+            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC121212.toInt(), 0x99121212.toInt(), 0x00121212))
         }
         addView(veu, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
         // Barra embaixo: a placa (vidro escuro de cantos redondos, largura toda) e o realce da categoria escolhida.
         // Ficam atrás das categorias (que entram depois, em [definir]); somem na cruz.
         placa = View(ctx).apply {
-            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30B0B0A.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
+            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30B0B0B.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
             visibility = View.GONE
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
@@ -1287,6 +1287,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val linhas = CruzLogica.partes(i.sub, CruzLogica.tirarDoItem(i.situacao)).let { listOf(it.principal) + it.detalhes }.filter { it.isNotEmpty() }.joinToString("\n")
         contentDescription = listOf(c.nome, i.nome, i.situacao?.let { it.rotulo + " " + it.texto }.orEmpty(), linhas, posicao.text.toString()).filter { it.isNotEmpty() }.joinToString(", ")
         if (isFocused) sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+        br.paulo.tvlauncher.input.VozFoco.anunciar(this)   // LER_FOCO: o foco não sai da cruz, então ela mesma avisa a voz
     }
 
     override fun onInitializeAccessibilityNodeInfo(info: AccessibilityNodeInfo) {

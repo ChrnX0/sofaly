@@ -97,7 +97,7 @@ class AllAppsScreen(ctx: Context, private val host: Host, val mode: AllAppsLayou
         // Véu Noite sobre o fundo da casa. Opaco em cima: com 80% a ilha recolhida da barra de cima (hora, "feriado hoje")
         // aparecia por trás do título (visto na Sala, 20/11/2026).
         background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,
-            intArrayOf(0xFF141413.toInt(), 0xF0141413.toInt(), 0xF5141413.toInt()))
+            intArrayOf(0xFF121212.toInt(), 0xF0121212.toInt(), 0xF5121212.toInt()))
         val margem = dp(Grade.MARGEM)
         val titulo = TextView(ctx).apply {
             // Régua de estilo (22/11/2026): título leve em creme, sem maiúsculas (o laranja é só detalhe).

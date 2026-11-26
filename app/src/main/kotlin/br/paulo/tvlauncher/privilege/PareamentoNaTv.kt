@@ -168,7 +168,7 @@ object PareamentoNaTv {
         }.apply {
             orientation = LinearLayout.VERTICAL
             setPaddingRelative(dp(app, 20), dp(app, 16), dp(app, 20), dp(app, 16))
-            background = GradientDrawable().apply { cornerRadius = dp(app, 18).toFloat(); setColor(0xF01C2024.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(app, 18).toFloat(); setColor(0xF01E1E1E.toInt()) }
             addView(texto(app.getString(R.string.pn_titulo), 20f))
             addView(linhaPorta)
             addView(linhaCodigo)

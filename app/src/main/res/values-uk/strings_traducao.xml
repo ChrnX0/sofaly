@@ -116,6 +116,7 @@
     <string name="ms_alguem_pediu">Хтось попросив допомоги на телевізорі %1$s.</string>
     <string name="ms_avisei_falado">Готово. Я повідомила родину.</string>
     <string name="ms_avisei">Я повідомила родину на їхніх телефонах.</string>
+    <string name="ms_ninguem_recebeu">Жоден телефон не отримав сповіщення. Зателефонуйте комусь.</string>
     <string name="ms_voltar">Назад до повного екрана</string>
     <string name="pv_bom_dia">Доброго ранку!</string>
     <string name="pv_boa_tarde">Доброго дня!</string>

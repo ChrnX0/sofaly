@@ -125,7 +125,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         linha.addView(desc, LinearLayout.LayoutParams(-2, -2))
         icone.elevation = 0f
         addView(linha, LayoutParams(-2, dpi(StripHome.LINHA_A)))
-        placa.background = GradientDrawable().apply { setColor(0x8C151514.toInt()); setStroke(dpi(1f), 0x1FFFF3E6) }
+        placa.background = GradientDrawable().apply { setColor(0x8C121212.toInt()); setStroke(dpi(1f), 0x1FFFF3E6) }
         placa.visibility = View.GONE
         addView(placa, LayoutParams(0, 0))
         anel.outlineProvider = null

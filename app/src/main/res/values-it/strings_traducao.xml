@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">Qualcuno ha chiesto aiuto sulla TV %1$s.</string>
     <string name="ms_avisei_falado">Fatto. Ho avvisato la famiglia.</string>
     <string name="ms_avisei">Ho avvisato la famiglia sui loro telefoni.</string>
+    <string name="ms_ninguem_recebeu">Nessun telefono ha ricevuto l’avviso. Per favore, chiami qualcuno.</string>
     <string name="ms_voltar">Torna alla schermata completa</string>
     <string name="pv_bom_dia">Buongiorno!</string>
     <string name="pv_boa_tarde">Buon pomeriggio!</string>

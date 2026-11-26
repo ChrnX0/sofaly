@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Κάποιος ζήτησε βοήθεια στην τηλεόραση %1$s.</string>
     <string name="ms_avisei_falado">Έγινε. Ενημέρωσα την οικογένεια.</string>
     <string name="ms_avisei">Ενημέρωσα την οικογένεια στα κινητά τους.</string>
+    <string name="ms_ninguem_recebeu">Κανένα κινητό δεν πήρε την ειδοποίηση. Τηλεφωνήστε σε κάποιον.</string>
     <string name="ms_voltar">Πίσω στην πλήρη οθόνη</string>
     <string name="pv_bom_dia">Καλημέρα!</string>
     <string name="pv_boa_tarde">Καλό απόγευμα!</string>

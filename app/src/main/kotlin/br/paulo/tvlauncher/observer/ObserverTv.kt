@@ -574,6 +574,9 @@ object ObserverTv {
             ObserverCore.readNotes(novo, System.currentTimeMillis()).size
         }
         Log.i(TAG, "recado na fila: ${n.typeKey} ${n.step} (fila=$n2)")
+        // Grave ou "agi e você vai sentir": o celular fica sabendo mesmo quando ninguém chama a Sofy depois (ex.: PIN errado).
+        if (n.severity == ObserverCore.Severity.CRITICAL || n.step == ObserverCore.Step.ACTED_FELT)
+            Fundo.rodar { runCatching { SofyTv.phone(ctx) } }
     }
 
     @Volatile private var drop: DropCause.Episode? = null

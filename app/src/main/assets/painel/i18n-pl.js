@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"Pamięć TV się zapełnia",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Pole tekstowe otwarte na TV (dotknij, aby pisać z telefonu)",
 "Despertador tocou na TV":"Budzik zadzwonił na TV",
+"Alerta importante da Sofy":"Ważny alert od Sofy",
 "Ouvir no celular":"Słuchaj na telefonie",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Kontynuuje tutaj radio lub podcast, który telewizor odtwarzał ostatnio, od tego samego miejsca.",
 "Ouvir aqui":"Słuchaj tutaj",

@@ -55,6 +55,8 @@ object Avisos {
         DIGITAR("Campo de texto aberto na TV (toque para digitar pelo celular)", false, semLimite = true),   // ideia 57
         // Estudo global 20/11 (ideia 15): a TV chama o celular também quando o despertador toca (quem cuida fica sabendo).
         ALARME_TOCOU("Despertador tocou na TV", false),
+        // Brainstorm 26/11 (item 4): o grave da Sofy e o "agi e você vai sentir". O teto é o da Sofy (SofyPolicy.toPhone).
+        SOFY("Alerta importante da Sofy", true, semLimite = true),
     }
 
     data class Inscricao(val endpoint: String, val p256dh: String, val auth: String, val nome: String, val desde: Long)
@@ -135,6 +137,23 @@ object Avisos {
         prefs(app).edit().putLong("ultimo_${tipo.name}", agora).apply()
         Fundo.rodar("avisos") { lista.forEach { enviarUm(app, it, tipo, titulo, texto) } }
     }
+
+    /**
+     * Como [enviar], mas ESPERA e devolve (aceitos, tentados): para quem precisa dizer a verdade a quem pediu
+     * (Brainstorm 26/11, item 1: o "Pedir ajuda" dizia "avisei" mesmo sem nenhum celular receber). Tipo desligado ou
+     * nenhum celular inscrito = (0, 0). BLOQUEIA (rede): chamar fora da thread principal.
+     */
+    fun enviarAgora(ctx: Context, tipo: Tipo, titulo: String, texto: String): Pair<Int, Int> {
+        val app = ctx.applicationContext
+        if (!ligado(app, tipo)) return 0 to 0
+        val lista = inscricoes(app)
+        if (lista.isEmpty()) return 0 to 0
+        prefs(app).edit().putLong("ultimo_${tipo.name}", System.currentTimeMillis()).apply()
+        return enviarPara(app, lista.map { it.endpoint.takeLast(16) }, tipo.name, titulo, texto)
+    }
+
+    /** Há como avisar desse tipo agora (ligado e com pelo menos um celular inscrito)? */
+    fun podeAvisar(ctx: Context, tipo: Tipo) = ligado(ctx, tipo) && inscricoes(ctx).isNotEmpty()
 
     /**
      * Um envio. 404/410 = o celular cancelou a inscrição (desinstalou o painel, limpou o navegador): sai da lista.

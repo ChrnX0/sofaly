@@ -447,7 +447,7 @@ class VodActivity : Activity() {
             textSize = 18f; setTextColor(papel); visibility = View.GONE; text = getString(R.string.abertura_pular)
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             setPaddingRelative(dp(22), dp(12), dp(22), dp(12))
-            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xD9141413.toInt()); setStroke(dp(2), papel) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xD9121212.toInt()); setStroke(dp(2), papel) }
         }
         raiz.addView(pilulaPular, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.END).apply { setMargins(0, 0, dp(48), dp(170)) })
         // Ideia 6: a segunda legenda fica em cima (a primeira continua embaixo), com o mesmo estilo.
@@ -1504,7 +1504,7 @@ class VodActivity : Activity() {
     internal fun esconderAviso() { aviso.visibility = View.GONE }
 
     internal fun vidro(raio: Int) = GradientDrawable().apply {
-        cornerRadius = dp(raio).toFloat(); setColor(0xD9141413.toInt()); setStroke(dp(1), Estilo.SUPERFICIE_ALTA)
+        cornerRadius = dp(raio).toFloat(); setColor(0xD9121212.toInt()); setStroke(dp(1), Estilo.SUPERFICIE_ALTA)
     }
 
     internal fun dp(v: Int) = (v * resources.displayMetrics.density + 0.5f).toInt()

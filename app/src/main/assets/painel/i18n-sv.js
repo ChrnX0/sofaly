@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"Tv:ns lagring håller på att bli full",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Textfält öppet på tv:n (tryck för att skriva från mobilen)",
 "Despertador tocou na TV":"Larmet ringde på tv:n",
+"Alerta importante da Sofy":"Viktig varning från Sofy",
 "Ouvir no celular":"Lyssna på mobilen",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Fortsätter här med radiokanalen eller podden som tv:n spelade sist, från samma ställe.",
 "Ouvir aqui":"Lyssna här",

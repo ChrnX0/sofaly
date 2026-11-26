@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"TV:n tallennustila täyttyy",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Tekstikenttä auki TV:ssä (napauta kirjoittaaksesi puhelimesta)",
 "Despertador tocou na TV":"Herätys soi TV:ssä",
+"Alerta importante da Sofy":"Tärkeä hälytys Sofylta",
 "Ouvir no celular":"Kuuntele puhelimessa",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Jatkaa tässä radiokanavaa tai podcastia, jota TV soitti viimeksi, samasta kohdasta.",
 "Ouvir aqui":"Kuuntele täällä",

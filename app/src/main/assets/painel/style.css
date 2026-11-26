@@ -16,8 +16,10 @@
 
 /* design-tokens:start (GERADO por scripts/design-tokens.py a partir de design/tokens.json; não edite à mão) */
 :root {
-  --t-night: #141413;
-  --t-night-deep: #0b0b0a;
+  --t-night: #121212;
+  --t-night-deep: #0b0b0b;
+  --t-surface: #1e1e1e;
+  --t-text-secondary: #c8c8c8;
   --t-cream: #fff3e6;
   --t-paper: #fff8f0;
   --t-orange: #ff6a2b;
@@ -52,7 +54,7 @@
 
 /* Tema escuro (o padrão; também é o que a TV usa). */
 :root {
-  --fundo: #141413;   /* grafite quente, não azul (26/11/2026, Paulo; Mobbin Claude, Todoist, Linear) */
+  --fundo: #121212;   /* grafite quente, não azul (26/11/2026, Paulo; Mobbin Claude, Todoist, Linear) */
   --superficie: #1f1f1d;        /* cartão: translúcido, como os painéis da TV */
   --superficie2: #2a2a27;       /* campo, botão secundário, bloco dentro de cartão */
   --superficie-hover: #30302d;

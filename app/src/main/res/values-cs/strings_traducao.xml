@@ -113,6 +113,7 @@
     <string name="ms_alguem_pediu">Někdo požádal o pomoc u televizoru %1$s.</string>
     <string name="ms_avisei_falado">Hotovo. Dal(a) jsem vědět rodině.</string>
     <string name="ms_avisei">Dal(a) jsem vědět rodině do telefonů.</string>
+    <string name="ms_ninguem_recebeu">Upozornění nedostal žádný telefon. Zavolejte prosím někomu.</string>
     <string name="ms_voltar">Zpět na celou obrazovku</string>
     <string name="pv_bom_dia">Dobré ráno!</string>
     <string name="pv_boa_tarde">Dobré odpoledne!</string>

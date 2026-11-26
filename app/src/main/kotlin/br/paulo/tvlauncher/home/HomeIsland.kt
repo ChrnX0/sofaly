@@ -43,7 +43,7 @@ private const val MATCH = android.view.ViewGroup.LayoutParams.MATCH_PARENT
  */
 internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     val veu = View(this).apply {
-        background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xC7080910.toInt(), 0x80080910.toInt(), 0x00080910))
+        background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xC70B0B0B.toInt(), 0x800B0B0B.toInt(), 0x000B0B0B))
         alpha = 0f
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
     }
@@ -110,7 +110,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         background = GradientDrawable().apply {
-            cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xC70B0B0A.toInt()); setStroke(dp(1), 0x1FFFFFFF)
+            cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xC70B0B0B.toInt()); setStroke(dp(1), 0x1FFFFFFF)
         }
         setPaddingRelative(dp(14), 0, dp(16), 0)
         // O leitor de tela lê a fila inteira (antes a pílula era invisível para ele e para o MCP).
@@ -135,7 +135,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     // 18sp, a menor letra da HOME (TelasTest, 25/11/2026: com 15sp a dica "amanhã 6:45 · ▲ para abrir" ficava abaixo).
     val dica = texto(18f, Estilo.TEXTO, fonteUi).apply {
         includeFontPadding = false; maxLines = 1; ellipsize = TextUtils.TruncateAt.END; maxWidth = dp(ILHA_TEXTO_MAX + 200)
-        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xE60B0B0A.toInt()); setStroke(dp(1), 0x26FFFFFF) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xE60B0B0B.toInt()); setStroke(dp(1), 0x26FFFFFF) }
         setPaddingRelative(dp(16), dp(8), dp(16), dp(8))
         alpha = 0f
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO   // a pílula já lê a fila inteira

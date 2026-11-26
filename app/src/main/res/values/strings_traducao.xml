@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Someone asked for help on the TV %1$s.</string>
     <string name="ms_avisei_falado">Done. I let the family know.</string>
     <string name="ms_avisei">I let the family know on their phones.</string>
+    <string name="ms_ninguem_recebeu">No phone got the alert. Please call someone.</string>
     <string name="ms_voltar">Back to the full screen</string>
     <string name="pv_bom_dia">Good morning!</string>
     <string name="pv_boa_tarde">Good afternoon!</string>
