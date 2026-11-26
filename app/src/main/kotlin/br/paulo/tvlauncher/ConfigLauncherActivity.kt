@@ -753,6 +753,14 @@ class ConfigLauncherActivity : Activity() {
                 startActivity(Intent(this, FamiliaConectadaActivity::class.java))
             }
         }, lp())
+        // Outras casas (26/11/2026, CasasActivity): ligar a TV de um parente por código de 8 letras para Assistir junto, sem
+        // Tailscale. Atrás do PIN dos pais (uma casa ligada pode mandar convites para esta TV).
+        c.addView(linha(getString(R.string.casas_menu), getString(R.string.casas_menu_det), seta = true) {
+            pedirPinParental {
+                reconstruirAoVoltar = true
+                startActivity(Intent(this, CasasActivity::class.java))
+            }
+        }, lp())
         // Cuidar de longe (ideias 77-79, 15/11/2026): pedido de ajuda, lembrete com aviso, TV que não ligou. Desligado de fábrica.
         secao(c, getString(R.string.cuidar_titulo))
         c.addView(linha(getString(R.string.cuidar_titulo), getString(

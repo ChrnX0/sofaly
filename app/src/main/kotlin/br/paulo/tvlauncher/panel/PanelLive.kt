@@ -231,7 +231,7 @@ internal fun PainelWeb.entrarComAparelho(req: Requisicao, ip: String, https: Boo
 }
 
 internal fun PainelWeb.listarAparelhos(): Resposta {
-    val fora = br.paulo.tvlauncher.relay.RelayTv.pareados(app).map { AparelhosPareados.DeFora(it.id, it.nome, it.aparelho) }
+    val fora = br.paulo.tvlauncher.relay.RelayTv.pareados(app).filterNot { it.tv }.map { AparelhosPareados.DeFora(it.id, it.nome, it.aparelho) }
     return json(200, JSONObject().put("aparelhos", AparelhosPareados.listaDoPainel(aparelhos(), fora)))
 }
 
@@ -245,7 +245,7 @@ internal fun PainelWeb.revogarAparelho(req: Requisicao, ip: String): Resposta {
     // Celular só de fora de casa (linha "relay:<id>"): sai da lista do relay; as teclas dele param de valer na hora.
     if (id.startsWith(AparelhosPareados.PREFIXO_RELAY)) {
         val rid = id.removePrefix(AparelhosPareados.PREFIXO_RELAY)
-        val nome = br.paulo.tvlauncher.relay.RelayTv.pareados(app).firstOrNull { it.id == rid }?.nome
+        val nome = br.paulo.tvlauncher.relay.RelayTv.pareados(app).firstOrNull { it.id == rid && !it.tv }?.nome
         if (nome == null || !br.paulo.tvlauncher.relay.RelayTv.esquecer(app, rid)) return erro(404, "esse aparelho já não tem acesso")
         PainelArmazem.registrar(app, ip, "acesso de fora de casa revogado: $nome", "ok")
         return json(200, JSONObject().put("ok", true))

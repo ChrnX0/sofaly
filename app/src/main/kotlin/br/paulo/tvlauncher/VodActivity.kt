@@ -1234,7 +1234,7 @@ class VodActivity : Activity() {
         }
         if (EntreTvs.ligado(this) && p != null) {
             val titulo = intent.getStringExtra(EXTRA_TITULO).orEmpty()
-            itens += PlayerMenu.acao(getString(R.string.junto_menu)) { junto?.menu(titulo, JuntoTvsProvider.tvs(this)) }
+            itens += PlayerMenu.acao(getString(R.string.junto_menu)) { junto?.menu(titulo, JuntoTvsProvider.junto(this)) }
             itens += PlayerMenu.acao(getString(R.string.cont_menu)) {
                 junto?.enviarPara(titulo, JuntoTvsProvider.tvs(this), p.currentPosition, intent.getStringExtra(EXTRA_URL))
             }

@@ -441,6 +441,11 @@
             android:name=".FamiliaConectadaActivity"
             android:exported="false"
             android:label="@string/famc_titulo" />
+        <!-- Outras casas: ligar a TV de um parente por código para Assistir junto pelo relay (RelayCasas) -->
+        <activity
+            android:name=".CasasActivity"
+            android:exported="false"
+            android:label="@string/casas_titulo" />
         <!-- Degrau 4: receitas prontas ("Para quem é esta TV?", Receitas.kt / ReceitasTv.kt) -->
         <activity
             android:name=".ReceitasActivity"

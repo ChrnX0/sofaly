@@ -85,7 +85,9 @@ object RelayTv {
      * Um celular que pode mandar teclas e texto de fora de casa. [aparelho] = o id do mesmo celular em "Celulares com
      * acesso" do painel (AparelhosPareados), quando ele pareou com a chave de aparelho: revogar lá revoga aqui também.
      */
-    data class Pareado(val id: String, val xPub: ByteArray, val nome: String, val aparelho: String? = null)
+    data class Pareado(val id: String, val xPub: ByteArray, val nome: String, val aparelho: String? = null,
+                       /** Uma TV de outra casa (RelayCasas: só Sessão junto), não um celular (só teclas e texto). */
+                       val tv: Boolean = false)
 
     fun pareados(ctx: Context): List<Pareado> {
         val a = runCatching { JSONArray(prefs(ctx).getString("pareados", "[]")) }.getOrNull() ?: return emptyList()
@@ -93,14 +95,14 @@ object RelayTv {
             val o = a.optJSONObject(i) ?: return@mapNotNull null
             val id = o.optString("id"); val x = runCatching { RelayCrypto.deB64(o.optString("x")) }.getOrNull()
             if (!RelayCrypto.ID_RE.matches(id) || x?.size != 32) null
-            else Pareado(id, x, o.optString("nome"), o.optString("aparelho").ifEmpty { null })
+            else Pareado(id, x, o.optString("nome"), o.optString("aparelho").ifEmpty { null }, o.optBoolean("tv"))
         }
     }
 
     private fun guardar(ctx: Context, lista: List<Pareado>) {
         prefs(ctx).edit().putString("pareados", JSONArray().apply {
             for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome)
-                .apply { q.aparelho?.let { put("aparelho", it) } })
+                .apply { q.aparelho?.let { put("aparelho", it) }; if (q.tv) put("tv", true) })
         }.toString()).apply()
     }
 
@@ -167,6 +169,7 @@ object RelayTv {
         val agora = System.currentTimeMillis()
         var n = 0
         for (e in lista) {
+            if (RelayCasas.chegou(ctx, e.de, e.dados)) continue   // apresentação de outra TV (código de 8 letras)
             if (!RelayEnvelope.remetenteConfere(e)) { Log.w(TAG, "envelope ${e.caixaId}: remetente não confere"); continue }
             val a = RelayEnvelope.abrir(eu.id, eu.x, e.dados, agora) { chaves[it] }
             if (a == null) { Log.w(TAG, "envelope ${e.caixaId} de ${e.de}: não abriu"); continue }
@@ -185,7 +188,10 @@ object RelayTv {
 
     /** O que fazer com um comando de fora. Mesma porta do painel: as mesmas travas (pergunta na tela, texto válido). */
     fun tratar(ctx: Context, a: RelayEnvelope.Aberto) {
-        val nome = pareados(ctx).firstOrNull { it.id == a.remetente }?.nome ?: a.remetente
+        val quem = pareados(ctx).firstOrNull { it.id == a.remetente }
+        // TV de outra casa: só Sessão junto. Nunca tecla nem texto (e um celular nunca manda Sessão junto).
+        if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
+        val nome = quem?.nome ?: a.remetente
         val c = RelayPairing.comando(a.mensagem)
         val motivo = when (c) {
             is RelayPairing.Comando.Tecla -> br.paulo.tvlauncher.panel.PainelControle.tecla(ctx, c.nome)
@@ -207,13 +213,16 @@ object RelayTv {
      */
     @Synchronized fun ajustar(ctx: Context) {
         val app = ctx.applicationContext
-        if (pareados(app).isEmpty() || escutando?.isAlive == true) return
+        if (!precisaEscutar(app) || escutando?.isAlive == true) return
         escutando = Thread({ laco(app) }, "RelayEscuta").apply { isDaemon = true; start() }
     }
 
+    /** Há quem possa mandar algo: aparelho pareado, ou um pareamento por código em andamento (RelayCasas). */
+    private fun precisaEscutar(app: Context) = pareados(app).isNotEmpty() || RelayCasas.emAndamento()
+
     private fun laco(app: Context) {
         var espera = 5_000L
-        while (pareados(app).isNotEmpty()) {
+        while (precisaEscutar(app)) {
             val eu = identidade(app) ?: return
             try {
                 val ws = RelaySocket.conectar(SERVIDOR.removePrefix("https://"), eu.ed, Http.USER_AGENT, System.currentTimeMillis() / 1000)
@@ -240,6 +249,7 @@ object RelayTv {
         val r = RelayEnvelope.lerPendentes("{\"envelopes\":[$msg]}").firstOrNull() ?: return null
         synchronized(this) {
             if (!vistosCarregados) { vistos.carregar(prefs(app).getString("vistos", null)); vistosCarregados = true }
+            if (RelayCasas.chegou(app, r.de, r.dados)) return r.caixaId
             if (!RelayEnvelope.remetenteConfere(r)) return r.caixaId
             val chaves = pareados(app).associate { it.id to it.xPub }
             val agora = System.currentTimeMillis()

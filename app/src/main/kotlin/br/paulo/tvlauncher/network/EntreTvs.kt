@@ -38,6 +38,19 @@ object EntreTvs {
     fun outras(ctx: Context): List<JuntoRegras.Tv> =
         if (!ligado(ctx)) emptyList() else JuntoRegras.outrasTvs(TunelTailscale.pares, TunelTailscale.nome(ctx))
 
+    /**
+     * As TVs com quem dá para assistir junto: as da conta Tailscale ([outras]) e as casas ligadas pelo código de 8
+     * letras (relay do api.sofaly.tv, [br.paulo.tvlauncher.relay.RelayCasas]; host "relay:<id>", sempre "online": a
+     * caixa postal guarda o convite até a TV de lá ligar). "Continuar em outra TV" segue só com [outras].
+     */
+    fun paraJunto(ctx: Context): List<JuntoRegras.Tv> =
+        outras(ctx) + br.paulo.tvlauncher.relay.RelayCasas.casas(ctx).map { JuntoRegras.Tv(br.paulo.tvlauncher.relay.RelayCasas.host(it.id), true) }
+
+    /** Nome para mostrar: o que a casa do relay disse ao conectar, ou o nome curto do Tailscale. */
+    fun nome(ctx: Context, host: String): String =
+        br.paulo.tvlauncher.relay.RelayCasas.idDoHost(host)?.let { id -> br.paulo.tvlauncher.relay.RelayCasas.casas(ctx).firstOrNull { it.id == id }?.nome }
+            ?: JuntoRegras.nomeBonito(host)
+
     fun meuHost(ctx: Context): String? = JuntoRegras.hostCurto(TunelTailscale.nome(ctx))
 
     /** Resposta de uma chamada: código HTTP (0 = sem rede), corpo JSON e quanto levou (ida e volta). */
@@ -48,6 +61,12 @@ object EntreTvs {
      * tela. Só vai para TV da lista da conta, montada pelo sufixo do NOSSO nome (nada de endereço vindo de fora).
      */
     fun chamar(ctx: Context, host: String, caminho: String, corpo: JSONObject? = null): Resposta {
+        // Casa do relay: vai cifrado pela caixa postal, sem resposta da outra TV (só "o servidor guardou").
+        br.paulo.tvlauncher.relay.RelayCasas.idDoHost(host)?.let { id ->
+            val t0 = System.currentTimeMillis()
+            val ok = br.paulo.tvlauncher.relay.RelayCasas.enviarJunto(ctx, id, caminho, corpo)
+            return Resposta(if (ok) 200 else 0, JSONObject().put("ok", ok), System.currentTimeMillis() - t0)
+        }
         val endereco = JuntoRegras.enderecoDoPar(TunelTailscale.nome(ctx), host) ?: return Resposta(0, null, 0)
         val inicio = System.currentTimeMillis()
         var c: HttpURLConnection? = null
