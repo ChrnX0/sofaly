@@ -193,6 +193,11 @@ object RelayTv {
         if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
         val nome = quem?.nome ?: a.remetente
         val c = RelayPairing.comando(a.mensagem)
+        // Painel desligado = nada de fora mexe na TV (o relay é outra porta para o mesmo controle do painel).
+        if (c != null && !br.paulo.tvlauncher.panel.PainelArmazem.podeLigar(ctx)) {
+            br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "painel desligado")
+            return
+        }
         if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis())) {
             br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "chegou atrasado (TV estava desligada)")
             return

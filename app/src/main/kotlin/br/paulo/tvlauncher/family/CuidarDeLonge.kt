@@ -92,7 +92,7 @@ object CuidarDeLonge {
     val MARGENS = listOf(60, 120, 180, 240)
     const val PADRAO_MARGEM = 120
     /** Uma lista só para a casa (26/11/2026): os lembretes com "Feito" e os antigos "lembretes da casa" da pílula. */
-    const val MAX_LEMBRETES = 24
+    const val MAX_LEMBRETES = 44   // 24 do Cuidar de longe + 20 da pílula (HomeCards.MAX_ITENS): a migração não perde nada
     const val MAX_TEXTO = 60
     const val MAX_NOME = 30
     const val TODO_DIA = 0b1111111

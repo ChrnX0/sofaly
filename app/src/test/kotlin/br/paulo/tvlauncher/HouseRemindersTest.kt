@@ -107,4 +107,16 @@ class HouseRemindersTest {
         val antiga = JSONArray("""[{"id":5,"hora":8,"minuto":0,"dias":127,"texto":"Água"}]""")
         assertTrue(CuidarDeLonge.lembretesDeJson(antiga).single().feito)
     }
+
+    @Test fun migracaoDasDuasListasCheiasNaoPerdeNada() {
+        // Revisor 26/11/2026: com 24 no Cuidar de longe e 20 na pílula, a lista única cortava em 24 e a migração apagava
+        // as antigas. Agora cabem as duas inteiras.
+        val cuidar = (0 until 24).map { Lembrete(0, 8, it, CuidarDeLonge.TODO_DIA, "Remédio $it", feito = true) }
+            .fold(emptyList<Lembrete>()) { acc, l -> CuidarDeLonge.salvarLembrete(acc, l) }
+        assertEquals(24, cuidar.size)
+        val casa = (0 until HomeCards.MAX_ITENS).map { CuidarDeLonge.daCasa(HomeCards.criarLembrete("Casa $it", HomeCards.TODOS_OS_DIAS, null)!!) }
+        val unica = CuidarDeLonge.juntar(emptyList(), cuidar + casa)
+        assertEquals(24 + HomeCards.MAX_ITENS, unica.size)
+        assertEquals(unica.size, unica.map { it.id }.toSet().size)
+    }
 }

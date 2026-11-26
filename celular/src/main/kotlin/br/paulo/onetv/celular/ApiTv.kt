@@ -71,12 +71,16 @@ object ApiTv {
             return if (entrarComChave(ctx, tv, chave!!)) chamarUmaVez(tv, metodo, caminho, corpo) else r
         }
         if (devePedirChave(r.codigo, chave != null, caminho, Pareamento.chave(tv) in semChave)) pedirChave(ctx, tv)
-        if (deveParearRelay(r.codigo, RelayCelular.tv(ctx, tv) != null, caminho, Pareamento.chave(tv) in semRelay)) parearRelay(ctx, tv)
+        if (deveParearRelay(r.codigo, RelayCelular.tv(ctx, tv) != null, caminho, recusouRelay(tv))) parearRelay(ctx, tv)
         return r
     }
 
-    /** TVs que não aceitaram as chaves do relay neste processo (versão antiga, ou sessão que não é do dono). */
-    private val semRelay = java.util.Collections.synchronizedSet(HashSet<String>())
+    /**
+     * TVs que não aceitaram as chaves do relay: até quando não tentar de novo. Pediu o PIN (403) = de novo em 60 s, até
+     * o PIN ser digitado no painel; outra recusa (versão antiga, chaves inválidas) = não neste processo.
+     */
+    private val semRelay = java.util.concurrent.ConcurrentHashMap<String, Long>()
+    private fun recusouRelay(tv: Pareamento.Tv) = (semRelay[Pareamento.chave(tv)] ?: 0L) > System.currentTimeMillis()
 
     /** Depois de uma chamada que deu certo em casa, sem as chaves do relay desta TV: troca agora. Pura (RelayCelularTest). */
     fun deveParearRelay(codigo: Int, temRelay: Boolean, caminho: String, jaRecusou: Boolean): Boolean =
@@ -87,7 +91,8 @@ object ApiTv {
         // Com a chave de aparelho (se já tiver), a TV liga este pareamento à linha do celular em "Celulares com acesso":
         // revogar lá corta o acesso de fora também.
         val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido, ChaveAparelho.ler(ctx, tv)?.let { mapOf("X-Aparelho" to it) } ?: emptyMap())
-        if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json)) semRelay += Pareamento.chave(tv)
+        if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json))
+            semRelay[Pareamento.chave(tv)] = if (r.codigo == 403) System.currentTimeMillis() + 60_000 else Long.MAX_VALUE
     }
 
     /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
