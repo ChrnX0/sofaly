@@ -79,13 +79,13 @@ object SofyScreenCheckTv {
      * (nomes de [TELAS]; vazio = todas), com a revisão da IA e a segunda opinião em cada uma. Mesmos freios da noite,
      * menos a hora: só com a TV parada; dormindo, acende a tela como de madrugada.
      */
-    fun agora(ctx: Context, nomes: List<String>): String {
+    fun agora(ctx: Context, nomes: List<String>, capture: Boolean = false): String {
         val app = ctx.applicationContext
         val s = AutorizaShizukuService.instancia ?: return "sem acessibilidade"
         if (!paradaDeVerdade(app)) return "a TV está em uso: só com a tela apagada ou o protetor"
         val lista = TELAS.filter { nomes.isEmpty() || it.first in nomes }
         if (lista.isEmpty()) return "telas: " + TELAS.joinToString(",") { it.first }
-        Fundo.rodar("sofy-telas-agora") { rodada(app, s, lista) }
+        Fundo.rodar("sofy-telas-agora") { rodada(app, s, lista, capture) }
         return "conferindo ${lista.size} telas: " + lista.joinToString(",") { it.first }
     }
 
@@ -94,7 +94,15 @@ object SofyScreenCheckTv {
      * conferência não lia nada, em silêncio), lê as telas, volta para a home e apaga de novo. A IA só olha DEPOIS, com a
      * TV já apagada: a tela fica acesa o mínimo. Se alguém apertar uma tecla no meio, para e deixa a TV acesa para a pessoa.
      */
-    private fun rodada(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>) {
+    /** Uma rodada por vez: a da noite e a do adb não podem abrir telas ao mesmo tempo. */
+    private val emRodada = java.util.concurrent.atomic.AtomicBoolean(false)
+
+    private fun rodada(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean = false) {
+        if (!emRodada.compareAndSet(false, true)) { Log.w(TAG, "outra conferência já está rodando: pulei"); return }
+        try { rodada0(app, s, lista, capture) } finally { emRodada.set(false) }
+    }
+
+    private fun rodada0(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean) {
         val pm = app.getSystemService(android.os.PowerManager::class.java)
         val acendi = pm?.isInteractive == false
         val inicio = android.os.SystemClock.elapsedRealtime()
@@ -129,6 +137,8 @@ object SofyScreenCheckTv {
         }
         Log.i(TAG, "li ${lidas.size} de ${lista.size} telas" + (if (acendi) " (acendi a tela)" else "") + (if (parei) "; alguém mexeu: parei" else ""))
         if (lidas.size < lista.size && !parei) ObserverTv.logShadow(app, "self_defect", "conferência de telas: li ${lidas.size} de ${lista.size}")
+        // Banco de prova (SofyBench): só guarda os textos para todos os modelos lerem a mesma tela; não analisa nem grava regra.
+        if (capture) { for (t in lidas) SofyBenchTv.capture(t.nome, t.caixas.map { it.texto }); return }
         for (t in lidas) runCatching { analisar(app, t) }.onFailure { Log.w(TAG, "${t.nome}: $it") }
     }
 
@@ -179,13 +189,30 @@ object SofyScreenCheckTv {
         return pm?.isInteractive == false || ProtetorTela.aberto()
     }
 
-    /** Abre a tela e lê o que ela mostra. null = não deu para ler (outra janela na frente). */
+    /**
+     * Abre a tela e lê o que ela mostra. null = não deu para ler (outra janela na frente).
+     * Confere a CLASSE da tela da frente, não só o pacote (#518, 26/11/2026): a HOME também é nossa, e quando a tela pedida
+     * demorava a abrir a leitura pegava a barra da HOME (relógio, clima e "Assistir, TV…" lidos como texto encavalado).
+     * Lê duas vezes e só fica o defeito que aparece nas duas: tela ainda carregando não é defeito.
+     */
     private fun ler(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
         app.startActivity(Intent(app, classe).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
         Thread.sleep(ESPERA_MS)
+        val primeira = lerAgora(app, s, nome, classe) ?: return null
+        val achados = SofyScreenCheck.conferir(primeira)
+        if (achados.isEmpty()) return primeira
+        Thread.sleep(ESPERA_MS)
+        val segunda = lerAgora(app, s, nome, classe) ?: return null
+        val ficam = SofyScreenCheck.confirmados(achados, SofyScreenCheck.conferir(segunda))
+        if (ficam.size < achados.size) Log.i(TAG, "$nome: ${achados.size - ficam.size} achado(s) sumiram na segunda leitura (tela carregando)")
+        return segunda.copy(confirmados = ficam)
+    }
+
+    private fun lerAgora(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
+        val frente = br.paulo.tvlauncher.privilege.JanelaNaFrente.classe
         val raiz = runCatching { s.rootInActiveWindow }.getOrNull()
-        if (raiz == null || raiz.packageName?.toString() != app.packageName) {
-            Log.w(TAG, "$nome: não deu para ler (janela ${raiz?.packageName ?: "nenhuma"})")
+        if (raiz == null || raiz.packageName?.toString() != app.packageName || frente != classe.name) {
+            Log.w(TAG, "$nome: não deu para ler (janela ${raiz?.packageName ?: "nenhuma"}, na frente $frente)")
             return null
         }
         return ler(raiz, nome)
@@ -241,6 +268,9 @@ object SofyScreenCheckTv {
         var foco = false
         fun andar(n: AccessibilityNodeInfo?, nivel: Int) {
             if (n == null || nivel > 25) return
+            // Fora da vista (item rolado para fora de uma lista) não conta: a caixa dele vem com tamanho zero e virava
+            // INVISIVEL ("DNS automático" no Diagnóstico, #518). O que a pessoa não vê também não se encavala.
+            if (!n.isVisibleToUser) return
             if (n.isFocusable) foco = true
             val t = (n.text ?: n.contentDescription)?.toString()
             // Só o nó folha: um ViewGroup repete o texto dos filhos e sobreporia tudo.

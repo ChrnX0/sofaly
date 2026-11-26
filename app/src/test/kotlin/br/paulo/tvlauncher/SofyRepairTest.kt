@@ -290,6 +290,23 @@ class SofyScreenCheckTest {
         org.junit.Assert.assertTrue(S.conferir(tela(foco = false)).isEmpty())
     }
 
+    // #518: tela ainda carregando (sem foco na 1ª olhada) não é defeito; só fica o que se repete na 2ª leitura.
+    @org.junit.Test fun soFicaOQueApareceNasDuasLeituras() {
+        val carregando = S.conferir(tela(cx("Carregando", 40, 40, 300, 100), foco = false))
+        val pronta = S.conferir(tela(cx("Hoje", 40, 40, 300, 100)))
+        org.junit.Assert.assertTrue(S.confirmados(carregando, pronta).isEmpty())
+        val cortada = S.conferir(tela(cx("Sexta-feira", 1800, 40, 2100, 100)))
+        org.junit.Assert.assertEquals(cortada, S.confirmados(cortada, S.conferir(tela(cx("Sexta-feira", 1801, 40, 2101, 100)))))
+        // a tela que já veio conferida não é conferida de novo
+        org.junit.Assert.assertTrue(S.conferir(tela(cx("Sexta-feira", 1800, 40, 2100, 100)).copy(confirmados = emptyList())).isEmpty())
+    }
+
+    // #518: o CORTADO leva onde a caixa estava e o tamanho da tela (a issue de "Configurações" não dizia onde).
+    @org.junit.Test fun cortadoDizOnde() {
+        val r = S.resumo("config", S.conferir(tela(cx("Configurações", 1800, 40, 2100, 100))))
+        org.junit.Assert.assertTrue(r, r.contains("[1800,40-2100,100 em 1920x1080]"))
+    }
+
     @org.junit.Test fun resumoNaoLevaOTextoInteiro() {
         val r = S.resumo("previsao", S.conferir(tela(cx("Sexta-feira em São Paulo, 22 graus", 1800, 40, 2100, 100))))
         org.junit.Assert.assertTrue(r.startsWith("previsao: CORTADO "))

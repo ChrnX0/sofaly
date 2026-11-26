@@ -188,7 +188,9 @@ class DiagnosticoActivity : Activity() {
         if (erros.isEmpty()) { adicionar(info(getString(R.string.diag_sem_erros), getString(R.string.diag_sem_erros_det, RegistroErros.MAXIMO), 0)); return }
         for (e in erros) {
             val quando = DateUtils.getRelativeTimeSpanString(e.quando, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS)
-            adicionar(linha(e.resumo, quando.toString(), 2) { mostrarTexto(getString(R.string.diag_erro), e.arquivo.name, e.texto) })
+            // Na lista só o tipo do erro ("NullPointerException"); a mensagem crua ("... on a null object reference")
+            // fica no detalhe, junto da pilha (#518: texto técnico com "null" no meio da tela).
+            adicionar(linha(e.resumo.substringBefore(':').trim().ifEmpty { e.resumo }, quando.toString(), 2) { mostrarTexto(getString(R.string.diag_erro), e.arquivo.name, e.texto) })
         }
         adicionar(linha(getString(R.string.diag_apagar), getString(R.string.diag_apagar_det), -1) {
             RegistroErros.apagarTodos(this)

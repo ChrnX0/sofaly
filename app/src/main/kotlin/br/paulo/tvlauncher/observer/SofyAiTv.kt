@@ -235,6 +235,29 @@ object SofyAi {
         return r.text
     }
 
+    /** Uma chamada do banco de prova: o texto e as medidas (nunca a chave nem o pedido). */
+    class BenchCall(val text: String?, val http: Int, val ms: Long, val inTok: Long, val outTok: Long, val cacheRead: Long, val stop: String)
+
+    /**
+     * Banco de prova ([SofyBench]): a mesma pergunta com a chave principal e um modelo escolhido, sem fila nem reserva.
+     * Soma no gasto do mês como qualquer outra. Null = sem configuração ou teto do mês. Rede: chamar fora da tela.
+     */
+    fun bench(ctx: Context, model: String, system: String, user: String, effort: String?): BenchCall? {
+        val app = ctx.applicationContext
+        val s = settings(app)?.copy(model = model) ?: return null
+        if (!SofyAiRules.withinBudget(monthTokens(app), budget(app))) return null
+        val body = SofyAiRules.withEffort(s, SofyAiRules.bodyFor(s, system, user), effort)
+        lastHttp = 0
+        val t0 = android.os.SystemClock.elapsedRealtime()
+        val answer = runCatching { post(s, body.toString()) }.onFailure { Log.w(TAG, "banco: ${it.javaClass.simpleName}") }.getOrNull()
+        val ms = android.os.SystemClock.elapsedRealtime() - t0
+        spend(app, answer)
+        val u = answer?.let { SofyAiRules.usageParts(it) } ?: LongArray(3)
+        val txt = answer?.let { runCatching { SofyAiRules.text(s.provider.format, it) }.getOrNull() }
+        val stop = answer?.optString("stop_reason").orEmpty()
+        return BenchCall(txt, lastHttp, ms, u[0], u[1], u[2], stop)
+    }
+
     /** O resultado de perguntar a uma fila de IAs: o texto, por que falhou (sem a chave) e quem respondeu. */
     private class Answer(val text: String?, val why: String, val by: String)
 
