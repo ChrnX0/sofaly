@@ -11,7 +11,10 @@ import br.paulo.tvlauncher.player.PlayerArmazem
 import br.paulo.tvlauncher.player.TaxaQuadros
 import br.paulo.tvlauncher.privilege.Confirmacoes
 import br.paulo.tvlauncher.privilege.PrivilegioDO
+import br.paulo.tvlauncher.home.HomeLooks
 import br.paulo.tvlauncher.settings.AltoContraste
+import br.paulo.tvlauncher.settings.SettingsGoals
+import br.paulo.tvlauncher.settings.SettingsIntents
 import br.paulo.tvlauncher.settings.TamanhoTexto
 import br.paulo.tvlauncher.settings.Tema
 import br.paulo.tvlauncher.weather.AvisoChuva
@@ -106,37 +109,34 @@ object PainelConfig {
                 registrar("animação do mundo: ${a.name.lowercase()}")
             }
             "visualPronto" -> {
-                val L = br.paulo.tvlauncher.home.HomeLooks
                 if (v == "voltar") {
                     val f = fotoVisual ?: return Resultado.Erro("nada para voltar")
-                    L.voltar(app, f); fotoVisual = null; registrar("visual: como estava")
+                    HomeLooks.voltar(app, f); fotoVisual = null; registrar("visual: como estava")
                 } else {
-                    val l = L.Look.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) } ?: return Resultado.Erro("visual desconhecido")
-                    if (fotoVisual == null) fotoVisual = L.foto(app)
-                    L.aplicar(app, l); registrar("visual pronto: ${l.name.lowercase()}")
+                    val l = HomeLooks.Look.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) } ?: return Resultado.Erro("visual desconhecido")
+                    if (fotoVisual == null) fotoVisual = HomeLooks.foto(app)
+                    HomeLooks.aplicar(app, l); registrar("visual pronto: ${l.name.lowercase()}")
                 }
             }
             // Objetivo (o mesmo botão da TV): o ativo desfaz; "Proteger crianças" fica na TV (pede o PIN da receita).
             "objetivo" -> {
-                val G = br.paulo.tvlauncher.settings.SettingsGoals
-                val g = G.Goal.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) && it != G.Goal.KIDS }
+                val g = SettingsGoals.Goal.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) && it != SettingsGoals.Goal.KIDS }
                     ?: return Resultado.Erro("objetivo desconhecido")
-                if (G.ativo(app) == g) { G.desfazer(app); registrar("objetivo desfeito: ${g.name.lowercase()}") }
-                else { G.aplicar(app, g); registrar("objetivo: ${g.name.lowercase()}") }
+                if (SettingsGoals.ativo(app) == g) { SettingsGoals.desfazer(app); registrar("objetivo desfeito: ${g.name.lowercase()}") }
+                else { SettingsGoals.aplicar(app, g); registrar("objetivo: ${g.name.lowercase()}") }
             }
             // Pedido em frase ("deixa a letra maior"), entendido com as frases do idioma da TV; "desfazer" volta o último.
             "pedido" -> {
-                val I = br.paulo.tvlauncher.settings.SettingsIntents
                 if (v == "desfazer") {
                     (desfazerPedido ?: return Resultado.Erro("nada para desfazer")).invoke()
                     registrar("pedido desfeito: ${pedidoFeito?.name?.lowercase()}"); desfazerPedido = null; pedidoFeito = null
                 } else {
                     val frase = (v as? String)?.take(200) ?: return Resultado.Erro("valor inválido")
                     // O painel já entende a frase sozinho (pedidoFrases) e manda o nome da ação; uma frase também serve.
-                    val a = I.Action.entries.firstOrNull { it.name.equals(frase, ignoreCase = true) }
-                        ?: I.entender(frase, I.modelos(app.getString(br.paulo.tvlauncher.R.string.si_frases)))
+                    val a = SettingsIntents.Action.entries.firstOrNull { it.name.equals(frase, ignoreCase = true) }
+                        ?: SettingsIntents.entender(frase, SettingsIntents.modelos(app.getString(br.paulo.tvlauncher.R.string.si_frases)))
                         ?: return Resultado.Erro("não entendi o pedido")
-                    desfazerPedido = I.fazer(app, a); pedidoFeito = a; registrar("pedido: ${a.name.lowercase()}")
+                    desfazerPedido = SettingsIntents.fazer(app, a); pedidoFeito = a; registrar("pedido: ${a.name.lowercase()}")
                 }
             }
             "tamanhoTexto" -> {
