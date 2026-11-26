@@ -2731,6 +2731,11 @@ class MainActivity : Activity() {
         }
         if (todosAbertos && telaTodos?.key(event) == true) return true   // OK curto abre, OK segurado = opções
         if (centralAoSegurarCima(event)) return true
+        // Guiado (molde do Projectivy, 26/11/2026): a tecla MENU do controle abre as Configurações, como no dele.
+        if (event.keyCode == KeyEvent.KEYCODE_MENU && br.paulo.tvlauncher.home.ScreenStyle.guided(this)) {
+            if (event.action == KeyEvent.ACTION_UP) startActivity(Intent(this, ConfigLauncherActivity::class.java))
+            return true
+        }
         return super.dispatchKeyEvent(event)
     }
 

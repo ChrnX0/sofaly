@@ -76,6 +76,7 @@ import br.paulo.tvlauncher.settings.SidePanel
 import br.paulo.tvlauncher.settings.PortasConfig
 import br.paulo.tvlauncher.settings.menuDaPorta
 import br.paulo.tvlauncher.settings.mostrarPortas
+import br.paulo.tvlauncher.settings.guiaDaAba
 import br.paulo.tvlauncher.settings.naGrade
 import br.paulo.tvlauncher.settings.recolherNoSimples
 import br.paulo.tvlauncher.weather.LocalClima

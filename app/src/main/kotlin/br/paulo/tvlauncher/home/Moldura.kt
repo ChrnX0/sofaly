@@ -52,7 +52,8 @@ object Moldura {
     private fun colocar(a: Activity) {
         if (a.javaClass.simpleName !in TELAS || a.isFinishing) return
         // Painel ao lado: a HOME de verdade fica à vista atrás, com a hora dela; a moldura no painel seria repetição.
-        if (a.javaClass.simpleName == "ConfigLauncherActivity" && ScreenStyle.panel(a)) return
+        // Guiado: a coluna da esquerda já diz onde se está e a lista sobe até o alto; a hora em cima só atrapalharia.
+        if (a.javaClass.simpleName == "ConfigLauncherActivity" && (ScreenStyle.panel(a) || ScreenStyle.guided(a))) return
         val conteudo = a.findViewById<ViewGroup>(android.R.id.content) as? FrameLayout ?: return
         if (conteudo.childCount == 0 || conteudo.findViewWithTag<android.view.View>(MARCA) != null) return
         if (BottomBar.strip(a) && ScreenStyle.drawer(a)) gaveta(a, conteudo)

@@ -973,7 +973,8 @@ object Estilo {
         }
         // Jeito "Painel ao lado" (25/11/2026, menus no mesmo vidro das Configurações): a janela vira o próprio painel de
         // vidro à direita (borrando a tela atrás; no player o vídeo fica nítido) e o véu em degradê sai.
-        val vidro = br.paulo.tvlauncher.home.ScreenStyle.panel(ctx)
+        // Guiado (molde do Projectivy, 26/11/2026): os menus também abrem no painel lateral dele, por cima da tela.
+        val vidro = br.paulo.tvlauncher.home.ScreenStyle.panel(ctx) || br.paulo.tvlauncher.home.ScreenStyle.guided(ctx)
         val noVideo = ctx.javaClass.name.contains(".player.")
         val larguraPainel = if (valores.any { !it.isNullOrBlank() }) LISTA_LARGURA_VALORES else LISTA_LARGURA
         if (vidro) {

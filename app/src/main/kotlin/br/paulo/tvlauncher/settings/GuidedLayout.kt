@@ -46,13 +46,13 @@ internal class GuidedPane(ctx: Context) : LinearLayout(ctx) {
         azulejo.addView(icone, FrameLayout.LayoutParams(Estilo.dp(ctx, 30), Estilo.dp(ctx, 30), Gravity.CENTER))
         addView(azulejo, LayoutParams(lado, lado).apply { bottomMargin = Estilo.dp(ctx, 24) })
         tTrilha.setTextColor(Estilo.TEXTO_2)
-        addView(tTrilha, LayoutParams(MATCH_PARENT, WRAP_CONTENT))
+        addView(tTrilha, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
         tTitulo.setTextColor(Estilo.ACENTO)
-        addView(tTitulo, LayoutParams(MATCH_PARENT, WRAP_CONTENT).apply { topMargin = Estilo.dp(ctx, 2) })
+        addView(tTitulo, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).apply { topMargin = Estilo.dp(ctx, 2) })
         tTexto.setTextColor(Estilo.TEXTO_2)
-        addView(tTexto, LayoutParams(MATCH_PARENT, WRAP_CONTENT).apply { topMargin = Estilo.dp(ctx, 12) })
-        addView(View(ctx), LayoutParams(MATCH_PARENT, 0, 1f))
-        addView(rodape, LayoutParams(MATCH_PARENT, WRAP_CONTENT))
+        addView(tTexto, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).apply { topMargin = Estilo.dp(ctx, 12) })
+        addView(View(ctx), LayoutParams(LayoutParams.MATCH_PARENT, 0, 1f))
+        addView(rodape, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
     }
 
     /** Troca o que a coluna diz. Mesmo texto = não anima (redesenho da aba no lugar). */
