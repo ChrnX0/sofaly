@@ -197,6 +197,12 @@ object ComandosExtras {
                 ?: "barra=${LayoutHome.barraCruz(ctx)}; opções: ${LayoutHome.BarraCruz.entries.joinToString { it.name.lowercase() }}"
         }
         "movimento" -> MovimentoAdaptativo.comando(ctx, i.getStringExtra("nivel"))
+        // Jeito da HOME (26/11/2026): cross, bar, strip, rows (Fileiras, clone do Projectivy). Aperte HOME depois.
+        "home" -> (i.getStringExtra("nome") ?: "").let { n ->
+            val M = br.paulo.tvlauncher.home.BottomBar.Mode.entries
+            M.firstOrNull { it.name.equals(n, true) }?.let { br.paulo.tvlauncher.home.BottomBar.setMode(ctx, it); "home=${it.name} (aperte HOME)" }
+                ?: "home=${br.paulo.tvlauncher.home.BottomBar.mode(ctx)}; opções: ${M.joinToString { it.name.lowercase() }}"
+        }
         // Jeito dos cards da barra única (24/11/2026): wide, classic, square, logo, grid, round, only (aperte HOME).
         "cards" -> (i.getStringExtra("nome") ?: "").let { n ->
             val F = br.paulo.tvlauncher.home.StripHome.Format.entries
