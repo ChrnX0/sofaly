@@ -39,4 +39,19 @@
     <string name="cel_notif_canal">Pilot TV</string>
     <string name="cel_notif_texto">Pauza i głośność bez otwierania aplikacji</string>
     <string name="cel_bloco">Pilot TV</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Wyślij do %1$s</string>
+    <string name="cel_enviar_lendo">Czytam plik…</string>
+    <string name="cel_enviar_nada">Nie udało się odczytać pliku.</string>
+    <string name="cel_enviar_fechar">Zamknij</string>
+    <string name="cel_enviar_n">Pliki: %1$d</string>
+    <string name="cel_enviar_mostrar">Pokaż na telewizorze</string>
+    <string name="cel_enviar_tocar">Odtwórz na telewizorze</string>
+    <string name="cel_enviar_guardar">Zapisz na telewizorze</string>
+    <string name="cel_enviar_mandando">Wysyłanie… %1$d%%</string>
+    <string name="cel_enviar_pronto">Gotowe. Jest na telewizorze.</string>
+    <string name="cel_enviar_sem_espaco">Telewizor nie ma dość wolnego miejsca.</string>
+    <string name="cel_enviar_tipo">Telewizor nie otworzy tego pliku.</string>
+    <string name="cel_enviar_de_novo">Spróbuj ponownie</string>
+    <string name="cel_enviar_qr">Aby wysyłać zdjęcia i pliki, najpierw zeskanuj kod QR z telewizora.</string>
 </resources>

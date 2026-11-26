@@ -39,4 +39,19 @@
     <string name="cel_notif_canal">TV remote</string>
     <string name="cel_notif_texto">Pause and volume without opening the app</string>
     <string name="cel_bloco">TV remote</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Send to %1$s</string>
+    <string name="cel_enviar_lendo">Reading the file…</string>
+    <string name="cel_enviar_nada">Couldn\'t read that file.</string>
+    <string name="cel_enviar_fechar">Close</string>
+    <string name="cel_enviar_n">%1$d files</string>
+    <string name="cel_enviar_mostrar">Show on the TV</string>
+    <string name="cel_enviar_tocar">Play on the TV</string>
+    <string name="cel_enviar_guardar">Save on the TV</string>
+    <string name="cel_enviar_mandando">Sending… %1$d%%</string>
+    <string name="cel_enviar_pronto">Done. It\'s on the TV.</string>
+    <string name="cel_enviar_sem_espaco">The TV doesn\'t have enough free space.</string>
+    <string name="cel_enviar_tipo">The TV can\'t open this file.</string>
+    <string name="cel_enviar_de_novo">Try again</string>
+    <string name="cel_enviar_qr">To send photos and files, scan the QR code on the TV first.</string>
 </resources>

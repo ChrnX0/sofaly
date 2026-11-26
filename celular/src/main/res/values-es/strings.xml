@@ -39,4 +39,19 @@
     <string name="cel_notif_canal">Control de la TV</string>
     <string name="cel_notif_texto">Pausa y volumen sin abrir la app</string>
     <string name="cel_bloco">Control de la TV</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Enviar a %1$s</string>
+    <string name="cel_enviar_lendo">Leyendo el archivo…</string>
+    <string name="cel_enviar_nada">No pude leer ese archivo.</string>
+    <string name="cel_enviar_fechar">Cerrar</string>
+    <string name="cel_enviar_n">%1$d archivos</string>
+    <string name="cel_enviar_mostrar">Mostrar en la TV</string>
+    <string name="cel_enviar_tocar">Reproducir en la TV</string>
+    <string name="cel_enviar_guardar">Guardar en la TV</string>
+    <string name="cel_enviar_mandando">Enviando… %1$d%%</string>
+    <string name="cel_enviar_pronto">Listo. Ya está en la TV.</string>
+    <string name="cel_enviar_sem_espaco">La TV no tiene suficiente espacio libre.</string>
+    <string name="cel_enviar_tipo">La TV no puede abrir este archivo.</string>
+    <string name="cel_enviar_de_novo">Intentar de nuevo</string>
+    <string name="cel_enviar_qr">Para enviar fotos y archivos, primero escanea el código QR de la TV.</string>
 </resources>

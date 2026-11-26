@@ -4,7 +4,9 @@ import android.content.Context
 import android.webkit.CookieManager
 import org.json.JSONObject
 import java.net.HttpURLConnection
+import java.io.InputStream
 import java.net.URL
+import java.net.URLEncoder
 import java.security.cert.X509Certificate
 import javax.net.ssl.HttpsURLConnection
 import javax.net.ssl.SSLContext
@@ -39,7 +41,45 @@ object ApiTv {
     const val CERTIFICADO_TROCOU = -2
 
     /** Chamada bloqueante. Código 0 = não chegou na TV (desligada, fora de casa); [CERTIFICADO_TROCOU] = outro certificado. */
-    fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta {
+    fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta =
+        conversar(tv, metodo, caminho, 8_000) { c ->
+            if (metodo == "POST") {
+                c.setRequestProperty("Content-Type", "application/json")
+                c.doOutput = true
+                c.outputStream.use { it.write((corpo ?: JSONObject()).toString().toByteArray()) }
+            }
+        }
+
+    /**
+     * Manda um arquivo para uma pasta da TV (Brainstorm 26/11, item 16), pela mesma rota do painel
+     * (`/api/arquivos/enviar`, corpo cru). Em fluxo, com o tamanho exato: a TV confere os bytes e só então dá o nome final.
+     * [progresso] recebe os bytes já enviados. 409 = já existe um arquivo com esse nome na pasta.
+     */
+    fun enviar(tv: Pareamento.Tv, pasta: String, nome: String, tamanho: Long, entrada: InputStream,
+               progresso: (Long) -> Unit = {}): Resposta {
+        val q = "/api/arquivos/enviar?pasta=" + URLEncoder.encode(pasta, "UTF-8") + "&nome=" + URLEncoder.encode(nome, "UTF-8")
+        // 2 min de espera pela resposta: no fim a TV grava no disco (fd.sync) antes de dizer "ok".
+        return conversar(tv, "POST", q, 120_000) { c ->
+            c.setRequestProperty("Content-Type", "application/octet-stream")
+            c.doOutput = true
+            c.setFixedLengthStreamingMode(tamanho)   // sem isso o Android guardaria o vídeo inteiro na memória
+            c.outputStream.use { saida ->
+                val buf = ByteArray(64 * 1024)
+                var total = 0L
+                while (true) {
+                    val n = entrada.read(buf)
+                    if (n < 0) break
+                    saida.write(buf, 0, n)
+                    total += n
+                    progresso(total)
+                }
+            }
+        }
+    }
+
+    /** O que todas as chamadas têm em comum: certificado fixado, cookie do painel e os cabeçalhos de um POST. */
+    private fun conversar(tv: Pareamento.Tv, metodo: String, caminho: String, espera: Int,
+                          escrever: (HttpsURLConnection) -> Unit): Resposta {
         if (!podeUsar(tv)) return Resposta(0, null)
         val base = "https://${tv.ip}:${Pareamento.PORTA_HTTPS}"
         var trocou = false
@@ -58,15 +98,11 @@ object ApiTv {
             c.sslSocketFactory = SSLContext.getInstance("TLS").apply { init(null, arrayOf(fixo), null) }.socketFactory
             c.hostnameVerifier = javax.net.ssl.HostnameVerifier { h, _ -> h == tv.ip }   // o certificado já foi fixado
             c.instanceFollowRedirects = false
-            c.connectTimeout = 4_000; c.readTimeout = 8_000
+            c.connectTimeout = 4_000; c.readTimeout = espera
             c.requestMethod = metodo
             CookieManager.getInstance().getCookie("$base/")?.let { c.setRequestProperty("Cookie", it) }
-            if (metodo == "POST") {
-                c.setRequestProperty("Origin", base); c.setRequestProperty("X-Painel", "1")
-                c.setRequestProperty("Content-Type", "application/json")
-                c.doOutput = true
-                c.outputStream.use { it.write((corpo ?: JSONObject()).toString().toByteArray()) }
-            }
+            if (metodo == "POST") { c.setRequestProperty("Origin", base); c.setRequestProperty("X-Painel", "1") }
+            escrever(c)
             try {
                 val cod = c.responseCode
                 val txt = runCatching { (if (cod in 200..299) c.inputStream else c.errorStream)?.bufferedReader()?.use { it.readText() } }.getOrNull()

@@ -39,4 +39,19 @@
     <string name="cel_notif_canal">جهاز تحكم التلفاز</string>
     <string name="cel_notif_texto">إيقاف مؤقت وصوت دون فتح التطبيق</string>
     <string name="cel_bloco">جهاز تحكم التلفاز</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">إرسال إلى %1$s</string>
+    <string name="cel_enviar_lendo">جارٍ قراءة الملف…</string>
+    <string name="cel_enviar_nada">تعذّرت قراءة هذا الملف.</string>
+    <string name="cel_enviar_fechar">إغلاق</string>
+    <string name="cel_enviar_n">عدد الملفات: %1$d</string>
+    <string name="cel_enviar_mostrar">العرض على التلفزيون</string>
+    <string name="cel_enviar_tocar">التشغيل على التلفزيون</string>
+    <string name="cel_enviar_guardar">الحفظ على التلفزيون</string>
+    <string name="cel_enviar_mandando">جارٍ الإرسال… %1$d%%</string>
+    <string name="cel_enviar_pronto">تم. أصبح على التلفزيون.</string>
+    <string name="cel_enviar_sem_espaco">لا توجد مساحة كافية على التلفزيون.</string>
+    <string name="cel_enviar_tipo">لا يستطيع التلفزيون فتح هذا الملف.</string>
+    <string name="cel_enviar_de_novo">إعادة المحاولة</string>
+    <string name="cel_enviar_qr">لإرسال الصور والملفات، امسح رمز QR على التلفزيون أولاً.</string>
 </resources>

@@ -43,7 +43,7 @@ class TvsActivity : Activity() {
         // Ícones escuros na barra de cima quando o fundo é claro (senão somem).
         if (Visual.claro) window.decorView.systemUiVisibility = android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or android.view.View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
         window.navigationBarColor = Visual.FUNDO
-        if (intent?.action == Intent.ACTION_SEND) compartilhado = intent
+        if (intent?.action == Intent.ACTION_SEND || intent?.action == Intent.ACTION_SEND_MULTIPLE) compartilhado = intent
         val raiz = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; setBackgroundColor(Visual.FUNDO)
             setPadding(dp(20), dp(28), dp(20), dp(20))
@@ -112,6 +112,19 @@ class TvsActivity : Activity() {
             startActivity(Intent(this, ControleActivity::class.java).putExtra(ControleActivity.EXTRA_CHAVE, Pareamento.chave(tv)))
             return
         }
+        // Item 16 (Brainstorm 26/11): foto, vídeo, música ou arquivo vão pela tela de envio, não pelo painel.
+        val arquivos = compartilhado?.let { arquivosDe(it) }.orEmpty()
+        if (lido == null && arquivos.isNotEmpty()) {
+            if (!ApiTv.podeUsar(tv)) { android.widget.Toast.makeText(this, R.string.cel_enviar_qr, android.widget.Toast.LENGTH_LONG).show(); return }
+            val e = Intent(this, EnviarActivity::class.java).putExtra(EnviarActivity.EXTRA_CHAVE, Pareamento.chave(tv))
+                .putParcelableArrayListExtra(EnviarActivity.EXTRA_ARQUIVOS, ArrayList(arquivos))
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            // Repassa a leitura que a galeria deu a esta tela (a permissão vem junto com a Intent, não com o app).
+            e.clipData = android.content.ClipData.newRawUri("", arquivos[0]).apply { arquivos.drop(1).forEach { addItem(android.content.ClipData.Item(it)) } }
+            compartilhado = null
+            startActivity(e)
+            return
+        }
         val i = Intent(this, PainelActivity::class.java).putExtra(PainelActivity.EXTRA_IP, tv.ip)
             .putExtra(PainelActivity.EXTRA_CHAVE, Pareamento.chave(tv))
         if (lido != null) i.putExtra(PainelActivity.EXTRA_FRAGMENTO, Pareamento.fragmento(lido))
@@ -122,6 +135,13 @@ class TvsActivity : Activity() {
         }
         startActivity(i)
     }
+
+    /** Arquivos que vieram do "Compartilhar" (um no SEND, vários no SEND_MULTIPLE). Texto puro não tem. */
+    @Suppress("DEPRECATION")
+    private fun arquivosDe(c: Intent): List<android.net.Uri> = when (c.action) {
+        Intent.ACTION_SEND_MULTIPLE -> c.getParcelableArrayListExtra<android.net.Uri>(Intent.EXTRA_STREAM).orEmpty()
+        else -> listOfNotNull(c.getParcelableExtra<android.net.Uri>(Intent.EXTRA_STREAM))
+    }.filter { it.scheme == "content" }   // file:// de outro app seria ler arquivo alheio pelo caminho; só content://
 
     // ---------------------------------------------------------------- QR
 

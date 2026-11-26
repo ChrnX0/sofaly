@@ -39,4 +39,19 @@
     <string name="cel_notif_canal">テレビのリモコン</string>
     <string name="cel_notif_texto">アプリを開かずに一時停止と音量</string>
     <string name="cel_bloco">テレビのリモコン</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">%1$s に送る</string>
+    <string name="cel_enviar_lendo">ファイルを読み込み中…</string>
+    <string name="cel_enviar_nada">このファイルを読み込めませんでした。</string>
+    <string name="cel_enviar_fechar">閉じる</string>
+    <string name="cel_enviar_n">%1$d 個のファイル</string>
+    <string name="cel_enviar_mostrar">テレビに表示</string>
+    <string name="cel_enviar_tocar">テレビで再生</string>
+    <string name="cel_enviar_guardar">テレビに保存</string>
+    <string name="cel_enviar_mandando">送信中… %1$d%%</string>
+    <string name="cel_enviar_pronto">完了。テレビにあります。</string>
+    <string name="cel_enviar_sem_espaco">テレビの空き容量が足りません。</string>
+    <string name="cel_enviar_tipo">テレビはこのファイルを開けません。</string>
+    <string name="cel_enviar_de_novo">もう一度</string>
+    <string name="cel_enviar_qr">写真やファイルを送るには、先にテレビの QR コードを読み取ってください。</string>
 </resources>
