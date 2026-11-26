@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">الإبلاغ عن مشكلة</string>
-    <string name="rel_linha_det">يفتح رمز QR النموذج على الهاتف مع البيانات التقنية معبأة</string>
-    <string name="rel_texto">وجّه كاميرا الهاتف إلى الرمز. اكتب ما حدث وأرسله. لا يُرسل اسمك أو حسابك أو شبكتك أو مدينتك.</string>
+    <string name="rel_linha_det">اكتب ما حدث وأرسله بشكل خاص إلى Sofaly</string>
+    <string name="rel_texto">اكتب ما حدث (يعمل ميكروفون لوحة المفاتيح أيضًا) ثم أرسل. يصل بشكل خاص إلى Sofaly، وليس إلى صفحة عامة أبدًا. لا يُرسل اسمك أو حسابك أو شبكتك أو مدينتك.</string>
     <string name="rel_vai_junto">ما يُرسل معه</string>
     <string name="rel_l_oque">ماذا حدث</string>
     <string name="rel_l_versao">الإصدار</string>
     <string name="rel_l_uso">الوضع</string>
     <string name="rel_l_quedas">الأعطال / التجمد (7 أيام)</string>
     <string name="rel_l_erro">آخر خطأ</string>
+    <string name="rel_escreva">ماذا حدث؟ (اختياري)</string>
+    <string name="rel_enviar">إرسال إلى Sofaly</string>
+    <string name="rel_enviando">جارٍ الإرسال…</string>
+    <string name="rel_enviado">تم الإرسال. شكرًا!</string>
+    <string name="rel_cota">أرسل هذا التلفاز 5 بلاغات اليوم. حاول مجددًا غدًا.</string>
+    <string name="rel_falhou">تعذّر الإرسال الآن. تحقق من الإنترنت وحاول مجددًا.</string>
+    <string name="rel_email">أو عبر البريد: وجّه كاميرا الهاتف نحو الرمز.</string>
 </resources>

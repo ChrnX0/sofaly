@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Ilmoita ongelmasta</string>
-    <string name="rel_linha_det">QR-koodi avaa lomakkeen puhelimellasi tekniset tiedot valmiiksi täytettyinä</string>
-    <string name="rel_texto">Osoita puhelimen kameralla koodia. Kirjoita, mitä tapahtui, ja lähetä. Nimesi, tilisi, verkkosi ja kaupunkisi eivät tule mukaan.</string>
+    <string name="rel_linha_det">Kirjoita, mitä tapahtui, ja lähetä se yksityisesti Sofalylle</string>
+    <string name="rel_texto">Kirjoita, mitä tapahtui (näppäimistön mikrofoni toimii myös), ja lähetä. Se menee yksityisesti Sofalylle, ei koskaan julkiselle sivulle. Nimeäsi, tiliäsi, verkkoasi ja kaupunkiasi ei lähetetä.</string>
     <string name="rel_vai_junto">Mitä menee mukana</string>
     <string name="rel_l_oque">Mitä tapahtui</string>
     <string name="rel_l_versao">Versio</string>
     <string name="rel_l_uso">Tila</string>
     <string name="rel_l_quedas">Kaatumiset / jumiutumiset (7 päivää)</string>
     <string name="rel_l_erro">Viimeisin virhe</string>
+    <string name="rel_escreva">Mitä tapahtui? (valinnainen)</string>
+    <string name="rel_enviar">Lähetä Sofalylle</string>
+    <string name="rel_enviando">Lähetetään…</string>
+    <string name="rel_enviado">Lähetetty. Kiitos!</string>
+    <string name="rel_cota">Tämä televisio on jo lähettänyt tänään 5 raporttia. Yritä huomenna uudelleen.</string>
+    <string name="rel_falhou">Lähetys ei onnistunut nyt. Tarkista internet ja yritä uudelleen.</string>
+    <string name="rel_email">Tai sähköpostilla: osoita puhelimen kameralla koodia.</string>
 </resources>

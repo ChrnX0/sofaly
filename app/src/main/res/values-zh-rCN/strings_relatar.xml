@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">报告问题</string>
-    <string name="rel_linha_det">扫码在手机上打开表单，技术信息已填好</string>
-    <string name="rel_texto">用手机相机对准二维码。写下发生了什么并发送。不会附带你的姓名、账号、网络和城市。</string>
+    <string name="rel_linha_det">写下发生了什么，私下发送给 Sofaly</string>
+    <string name="rel_texto">写下发生了什么（也可以用键盘上的麦克风），然后发送。内容只私下发给 Sofaly，绝不会出现在公开页面。不会附带你的姓名、账号、网络和城市。</string>
     <string name="rel_vai_junto">附带的内容</string>
     <string name="rel_l_oque">发生了什么</string>
     <string name="rel_l_versao">版本</string>
     <string name="rel_l_uso">模式</string>
     <string name="rel_l_quedas">崩溃 / 卡死（7天）</string>
     <string name="rel_l_erro">最近的错误</string>
+    <string name="rel_escreva">发生了什么？（可选）</string>
+    <string name="rel_enviar">发送给 Sofaly</string>
+    <string name="rel_enviando">正在发送…</string>
+    <string name="rel_enviado">已发送，谢谢！</string>
+    <string name="rel_cota">这台电视今天已经发送了 5 份报告。请明天再试。</string>
+    <string name="rel_falhou">现在无法发送。请检查网络后重试。</string>
+    <string name="rel_email">也可以发邮件：用手机相机扫描二维码。</string>
 </resources>

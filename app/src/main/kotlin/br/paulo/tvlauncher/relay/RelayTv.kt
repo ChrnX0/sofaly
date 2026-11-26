@@ -110,6 +110,22 @@ object RelayTv {
 
     class Resposta(val codigo: Int, val corpo: String)
 
+    /**
+     * Cabeçalhos X-Sofaly-* para um pedido às rotas abertas do api.sofaly.tv (clima, podcasts, fala, fichas; item 23 do
+     * Brainstorm 26/11): com eles a cota do dia é desta TV, e uma TV com defeito não gasta a das outras. [caminho] é só
+     * o caminho, sem a consulta (é o que o servidor confere). Sem identidade (Keystore com defeito), vazio: o pedido
+     * segue sem assinatura e conta só na cota da rede.
+     */
+    fun assinatura(metodo: String, caminho: String, corpo: ByteArray = ByteArray(0)): Map<String, String> = runCatching {
+        val eu = identidade(br.paulo.tvlauncher.LauncherApp.instancia) ?: return emptyMap()
+        RelayCrypto.cabecalhos(eu.ed, metodo, caminho, System.currentTimeMillis() / 1000, corpo)
+    }.getOrDefault(emptyMap())
+
+    /** O mesmo, para uma conexão já aberta (o caminho sai da própria URL). */
+    fun assinar(c: HttpURLConnection, corpo: ByteArray = ByteArray(0)) {
+        for ((k, v) in assinatura(c.requestMethod, c.url.path, corpo)) c.setRequestProperty(k, v)
+    }
+
     /** Pedido assinado ao api.sofaly.tv. Erro de rede vira IOException. */
     @Throws(IOException::class)
     fun pedir(ctx: Context, metodo: String, caminho: String, corpo: ByteArray = ByteArray(0)): Resposta {

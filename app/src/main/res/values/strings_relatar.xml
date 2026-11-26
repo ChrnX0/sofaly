@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Report a problem</string>
-    <string name="rel_linha_det">A QR code opens the form on your phone, with the technical details already filled in</string>
-    <string name="rel_texto">Point your phone camera at the code. Write what happened and send. Your name, account, network and city are not included.</string>
+    <string name="rel_linha_det">Write what happened and send it privately to Sofaly</string>
+    <string name="rel_texto">Write what happened (the keyboard microphone works too) and send. It goes privately to Sofaly, never to a public page. Your name, account, network and city are not included.</string>
     <string name="rel_vai_junto">What goes along</string>
     <string name="rel_l_oque">What happened</string>
     <string name="rel_l_versao">Version</string>
     <string name="rel_l_uso">Mode</string>
     <string name="rel_l_quedas">Crashes / freezes (7 days)</string>
     <string name="rel_l_erro">Last error</string>
+    <string name="rel_escreva">What happened? (optional)</string>
+    <string name="rel_enviar">Send to Sofaly</string>
+    <string name="rel_enviando">Sending…</string>
+    <string name="rel_enviado">Sent. Thank you!</string>
+    <string name="rel_cota">This TV already sent 5 reports today. Try again tomorrow.</string>
+    <string name="rel_falhou">Couldn\'t send now. Check the internet and try again.</string>
+    <string name="rel_email">Or by e-mail: point your phone camera at the code.</string>
 </resources>

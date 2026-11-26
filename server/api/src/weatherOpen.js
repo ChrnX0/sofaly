@@ -170,7 +170,7 @@ export function combine(base, multi) {
 }
 
 /** Atende /v1/weather/open. `fetchFn` e `cache` entram por parâmetro para os testes. */
-export async function handleWeatherOpen(url, env, { fetchFn = fetch, cache = globalThis.caches?.default, ip = '' } = {}) {
+export async function handleWeatherOpen(url, env, { fetchFn = fetch, cache = globalThis.caches?.default, ip = '', take = async () => true } = {}) {
   const base = env.OPEN_MODELS_URL;
   // A customer-api paga só responde com a chave: sem ela, é "não configurado" (503, a TV fica 6 h no MET) e não um
   // 401 a cada pedido.
@@ -186,6 +186,7 @@ export async function handleWeatherOpen(url, env, { fetchFn = fetch, cache = glo
   const hit = cache ? await cache.match(cacheKey) : null;
   if (hit) return hit;
 
+  if (!(await take('weather_open'))) return reply({ error: 'daily quota' }, 429, 0);   // src/quota.js
   if (!(await allowed(env.OPEN_MODELS_LIMITER, 'upstream', false))) return reply({ error: 'rate limited' }, 429, 0);
   let datas;
   try {

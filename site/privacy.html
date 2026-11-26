@@ -10,7 +10,7 @@
 <p>Sofaly asks for no account, shows no ads and does not track what you watch. There are no analytics or telemetry, and your data is never sold. A small service of ours, api.sofaly.tv, only relays a few requests to providers whose keys cannot ship inside the app (see below). Everything the app keeps stays on your TV, or in accounts that belong to you (such as your own Google Drive) when you choose to connect them.</p>
 
 <h2>Sofaly's own service (api.sofaly.tv)</h2>
-<p>It exists so the app can use providers whose keys are not allowed inside an app. It receives the request and your TV's IP address, never an account or a name, and does not keep who asked:</p>
+<p>It exists so the app can use providers whose keys are not allowed inside an app. It receives the request and your TV's IP address, never an account or a name. Most requests are signed with a random key the TV creates for itself (an id that is not tied to you); to share the free quota fairly, the service only counts how many requests each id and each network made today, with the network kept only as a salted hash, and the count is erased within two days. It does not keep what was asked or the address:</p>
 <ul>
 <li>Podcast search and “trending”: the words you search, passed on to the Podcast Index.</li>
 <li>Podcast transcripts and summaries: audio of public podcasts, processed by Cloudflare Workers AI, which does not keep the request.</li>
@@ -20,6 +20,7 @@
 <li>The showcase of recommended plugins (animated backgrounds and cards) and the list of app versions on hold. The TV only downloads these lists; it sends nothing about you.</li>
 <li>“Help other homes” (off unless you turn it on in Sofy's settings): at most once a day, the TV sends the package name and version of apps that crashed or got slower on it, and short technical screen patterns Sofy learned (never names, places or text from your screen). Each home is counted by a salted hash of its IP address, never the address itself; a lesson only becomes public after 5 different homes report it within 14 days, and everything is erased after those 14 days.</li>
 <li>Phone pairing and messages between your phone and your TV: end-to-end encrypted envelopes that the service relays without being able to read them, kept only until your device receives them.</li>
+<li>“Report a problem” (only when you press Send): the text you write and, from the web panel, the type of the last errors with the app's code lines (never their messages). Before saving, the service removes e-mails, links, IP and MAC addresses, coordinates and phone numbers; the TV is stored as a short salted hash, never its id. Reports are kept for 30 days, read only by us to fix the app, and never published.</li>
 </ul>
 
 <h2>Data kept on your TV</h2>
@@ -69,7 +70,7 @@
 <p>A Sofaly não pede conta, não mostra anúncios e não rastreia o que você assiste. Não há análise de uso nem telemetria, e seus dados nunca são vendidos. Um serviço pequeno nosso, o api.sofaly.tv, só repassa alguns pedidos a fornecedores cuja chave não pode ir dentro do app (veja abaixo). Tudo o que o app guarda fica na sua TV, ou em contas que são suas (como o seu próprio Google Drive) quando você escolhe conectá-las.</p>
 
 <h2>O serviço da Sofaly (api.sofaly.tv)</h2>
-<p>Ele existe para o app usar fornecedores cuja chave não pode ficar dentro de um app. Recebe o pedido e o endereço IP da TV, nunca uma conta ou um nome, e não guarda quem pediu:</p>
+<p>Ele existe para o app usar fornecedores cuja chave não pode ficar dentro de um app. Recebe o pedido e o endereço IP da TV, nunca uma conta ou um nome. A maioria dos pedidos vai assinada com uma chave aleatória que a TV cria para si (um id que não está ligado a você); para dividir a cota grátis com justiça, o serviço só conta quantos pedidos cada id e cada rede fizeram hoje, com a rede guardada só como um código com sal, e a conta é apagada em até dois dias. Não guarda o que foi pedido nem o endereço:</p>
 <ul>
 <li>Busca de podcasts e “em alta”: as palavras buscadas, repassadas ao Podcast Index.</li>
 <li>Texto e resumo de podcasts: o áudio de podcasts públicos, processado pela Cloudflare Workers AI, que não guarda o pedido.</li>
@@ -79,6 +80,7 @@
 <li>A vitrine de plugins recomendados (fundos animados e cartões) e a lista de versões do app seguradas. A TV só baixa essas listas; não manda nada sobre você.</li>
 <li>“Ajudar outras casas” (desligado até você ligar nos ajustes da Sofy): no máximo uma vez por dia, a TV manda o nome do pacote e a versão dos apps que travaram ou ficaram lentos nela, e padrões técnicos curtos de tela que a Sofy aprendeu (nunca nomes, lugares ou textos da sua tela). Cada casa é contada por um código feito do IP com sal, nunca o endereço; uma lição só fica pública depois que 5 casas diferentes a mandam em 14 dias, e tudo é apagado depois desses 14 dias.</li>
 <li>Pareamento e mensagens entre o celular e a TV: envelopes cifrados de ponta a ponta, que o serviço repassa sem conseguir ler e guarda só até o aparelho receber.</li>
+<li>“Relatar problema” (só quando você aperta Enviar): o texto que você escreve e, pelo painel web, o tipo dos últimos erros com as linhas de código do app (nunca as mensagens deles). Antes de guardar, o serviço tira e-mails, links, endereços IP e MAC, coordenadas e telefones; a TV fica guardada como um código curto com sal, nunca o id dela. Os relatos ficam 30 dias, só nós lemos (para consertar o app) e nunca são publicados.</li>
 </ul>
 
 <h2>Dados guardados na TV</h2>

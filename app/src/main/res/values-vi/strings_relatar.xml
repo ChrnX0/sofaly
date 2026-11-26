@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Báo cáo sự cố</string>
-    <string name="rel_linha_det">Mã QR mở biểu mẫu trên điện thoại, với thông tin kỹ thuật đã điền sẵn</string>
-    <string name="rel_texto">Hướng camera điện thoại vào mã. Viết điều đã xảy ra và gửi. Tên, tài khoản, mạng và thành phố của bạn không được gửi kèm.</string>
+    <string name="rel_linha_det">Viết điều đã xảy ra và gửi riêng cho Sofaly</string>
+    <string name="rel_texto">Viết điều đã xảy ra (micrô của bàn phím cũng dùng được) rồi gửi. Báo cáo được gửi riêng cho Sofaly, không bao giờ lên trang công khai. Tên, tài khoản, mạng và thành phố của bạn không được gửi kèm.</string>
     <string name="rel_vai_junto">Thông tin gửi kèm</string>
     <string name="rel_l_oque">Điều đã xảy ra</string>
     <string name="rel_l_versao">Phiên bản</string>
     <string name="rel_l_uso">Chế độ</string>
     <string name="rel_l_quedas">Lỗi / treo (7 ngày)</string>
     <string name="rel_l_erro">Lỗi gần nhất</string>
+    <string name="rel_escreva">Đã xảy ra chuyện gì? (không bắt buộc)</string>
+    <string name="rel_enviar">Gửi cho Sofaly</string>
+    <string name="rel_enviando">Đang gửi…</string>
+    <string name="rel_enviado">Đã gửi. Cảm ơn bạn!</string>
+    <string name="rel_cota">TV này đã gửi 5 báo cáo hôm nay. Hãy thử lại vào ngày mai.</string>
+    <string name="rel_falhou">Hiện không gửi được. Kiểm tra internet rồi thử lại.</string>
+    <string name="rel_email">Hoặc qua e-mail: hướng camera điện thoại vào mã.</string>
 </resources>

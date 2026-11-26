@@ -392,4 +392,15 @@ class PainelSegurancaTest {
         assertFalse(s.elevada(s.criar(elevada = false)))
         assertTrue(s.elevada(s.criar()))
     }
+
+    @Test fun revogarCelularDerrubaAsSessoesDele() {
+        val s = Sessoes({ 0L })
+        val dono = s.criar()
+        val cel = s.criar(elevada = false, aparelho = "a1")
+        val outro = s.criar(elevada = false, aparelho = "a2")
+        s.encerrarAparelho("a1")
+        assertFalse(s.valida(cel))
+        assertTrue(s.valida(dono))
+        assertTrue(s.valida(outro))
+    }
 }

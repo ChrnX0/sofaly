@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Een probleem melden</string>
-    <string name="rel_linha_det">Een QR-code opent het formulier op je telefoon, met de technische details al ingevuld</string>
-    <string name="rel_texto">Richt de camera van je telefoon op de code. Schrijf wat er gebeurde en verstuur. Je naam, account, netwerk en stad worden niet meegestuurd.</string>
+    <string name="rel_linha_det">Schrijf wat er gebeurde en stuur het privé naar Sofaly</string>
+    <string name="rel_texto">Schrijf wat er gebeurde (de microfoon van het toetsenbord werkt ook) en verstuur. Het gaat privé naar Sofaly, nooit naar een openbare pagina. Je naam, account, netwerk en stad gaan niet mee.</string>
     <string name="rel_vai_junto">Wat er meegaat</string>
     <string name="rel_l_oque">Wat er gebeurde</string>
     <string name="rel_l_versao">Versie</string>
     <string name="rel_l_uso">Modus</string>
     <string name="rel_l_quedas">Crashes / bevriezingen (7 dagen)</string>
     <string name="rel_l_erro">Laatste fout</string>
+    <string name="rel_escreva">Wat gebeurde er? (optioneel)</string>
+    <string name="rel_enviar">Naar Sofaly sturen</string>
+    <string name="rel_enviando">Versturen…</string>
+    <string name="rel_enviado">Verstuurd. Bedankt!</string>
+    <string name="rel_cota">Deze tv heeft vandaag al 5 meldingen gestuurd. Probeer het morgen opnieuw.</string>
+    <string name="rel_falhou">Versturen lukt nu niet. Controleer het internet en probeer opnieuw.</string>
+    <string name="rel_email">Of per e-mail: richt de camera van je telefoon op de code.</string>
 </resources>

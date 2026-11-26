@@ -41,7 +41,7 @@ export function shape(data) {
 }
 
 /** Atende /v1/weather. `fetchFn` e `cache` entram por parâmetro para os testes. */
-export async function handleWeather(url, env, { fetchFn = fetch, cache = globalThis.caches?.default, ip = '' } = {}) {
+export async function handleWeather(url, env, { fetchFn = fetch, cache = globalThis.caches?.default, ip = '', take = async () => true } = {}) {
   const key = env.WEATHERAPI_KEY;
   if (!key) return reply({ error: 'weather not configured' }, 503, 0);
   if (!(await allowed(env.WEATHER_IP_LIMITER, `ip:${ip}`, true))) return reply({ error: 'rate limited' }, 429, 0);
@@ -55,6 +55,8 @@ export async function handleWeather(url, env, { fetchFn = fetch, cache = globalT
   const hit = cache ? await cache.match(cacheKey) : null;
   if (hit) return hit;
 
+  // Cota do dia por aparelho e por rede (src/quota.js): só o que vai à WeatherAPI gasta.
+  if (!(await take('weather'))) return reply({ error: 'daily quota' }, 429, 0);
   if (!(await allowed(env.WEATHER_UPSTREAM_LIMITER, 'upstream', false))) return reply({ error: 'rate limited' }, 429, 0);
   let res;
   try {

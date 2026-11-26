@@ -74,6 +74,7 @@ class AutorizaShizukuService : AccessibilityService() {
             OnDemandTv.onWindow(this, evento.packageName)   // sob demanda: saiu da frente -> congela de novo depois de 2 min
             br.paulo.tvlauncher.observer.GoogleHomeTrimTv.onWindow(evento.packageName)   // launcher do Google: quando foi usado
             SaudeAcesso.janela(this, evento.packageName, evento.className)   // HOME na frente: hora boa para aviso pendente
+            br.paulo.tvlauncher.home.TravaCartaoTv.janela(this, evento.packageName, evento.className)   // app travado por PIN aberto por outro caminho
             HoraDormirTv.janela(this, evento.packageName)   // hora de dormir: app fora da lista volta para a HOME
             TempoTelaTv.janela(this, evento.packageName)   // tempo de tela por dia (ideia 33): conta e fecha se acabou
             JogosTv.janela(this)   // modo jogo: entrou ou saiu de um jogo -> o filtro noturno se reavalia

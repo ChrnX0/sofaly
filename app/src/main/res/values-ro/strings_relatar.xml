@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Raportează o problemă</string>
-    <string name="rel_linha_det">Un cod QR deschide formularul pe telefon, cu detaliile tehnice deja completate</string>
-    <string name="rel_texto">Îndreptați camera telefonului spre cod. Scrieți ce s-a întâmplat și trimiteți. Numele, contul, rețeaua și orașul dvs. nu sunt incluse.</string>
+    <string name="rel_linha_det">Scrie ce s-a întâmplat și trimite în privat către Sofaly</string>
+    <string name="rel_texto">Scrie ce s-a întâmplat (merge și microfonul tastaturii) și trimite. Ajunge în privat la Sofaly, niciodată pe o pagină publică. Numele, contul, rețeaua și orașul tău nu sunt incluse.</string>
     <string name="rel_vai_junto">Ce se trimite</string>
     <string name="rel_l_oque">Ce s-a întâmplat</string>
     <string name="rel_l_versao">Versiune</string>
     <string name="rel_l_uso">Mod</string>
     <string name="rel_l_quedas">Blocări / înghețări (7 zile)</string>
     <string name="rel_l_erro">Ultima eroare</string>
+    <string name="rel_escreva">Ce s-a întâmplat? (opțional)</string>
+    <string name="rel_enviar">Trimite către Sofaly</string>
+    <string name="rel_enviando">Se trimite…</string>
+    <string name="rel_enviado">Trimis. Mulțumim!</string>
+    <string name="rel_cota">Acest televizor a trimis deja 5 rapoarte azi. Încearcă mâine.</string>
+    <string name="rel_falhou">Nu s-a putut trimite acum. Verifică internetul și încearcă din nou.</string>
+    <string name="rel_email">Sau pe e-mail: îndreaptă camera telefonului spre cod.</string>
 </resources>

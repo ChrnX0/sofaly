@@ -202,7 +202,10 @@ private fun PainelWeb.guardarAparelhos(l: List<AparelhosPareados.Aparelho>) {
     app.getSharedPreferences(PREFS_APARELHOS, android.content.Context.MODE_PRIVATE).edit().putString("lista", AparelhosPareados.texto(l)).apply()
 }
 
-/** O app do celular, já dentro (sessão do dono), pede a chave dele. Só pelo https: a chave nunca anda em texto aberto. */
+/**
+ * O app do celular, já dentro, pede a chave dele. Só pelo https (a chave nunca anda em texto aberto) e só com a sessão
+ * elevada (revisor 26/11: quem só fotografou o QR da TV não ganha acesso para sempre; o PIN é digitado uma vez).
+ */
 internal fun PainelWeb.emitirAparelho(req: Requisicao, ip: String, https: Boolean): Resposta {
     if (!https) return erro(403, "só pelo https com o certificado da TV")
     val nome = corpoJson(req)?.optString("nome")
@@ -225,7 +228,7 @@ internal fun PainelWeb.entrarComAparelho(req: Requisicao, ip: String, https: Boo
         guardarAparelhos(AparelhosPareados.usado(lista, a.id, System.currentTimeMillis()))
         a
     }
-    val token = sessoes.criar(elevada = false)
+    val token = sessoes.criar(elevada = false, aparelho = a.id)
     PainelArmazem.registrar(app, ip, "entrar pelo celular pareado (${a.nome})", "ok")
     return json(200, JSONObject().put("ok", true), cookieSessao(token))
 }
@@ -242,6 +245,7 @@ internal fun PainelWeb.revogarAparelho(req: Requisicao, ip: String): Resposta {
         guardarAparelhos(AparelhosPareados.revogar(lista, id))
         a.nome
     }
+    sessoes.encerrarAparelho(id)
     PainelArmazem.registrar(app, ip, "acesso revogado: $nome", "ok")
     return json(200, JSONObject().put("ok", true))
 }
