@@ -99,7 +99,8 @@ class HouseRemindersTest {
     }
 
     @Test fun jsonGuardaOFeito() {
-        val l = listOf(Lembrete(1, 20, 0, CuidarDeLonge.TODO_DIA, "Remédio"), Lembrete(2, -1, -1, 0b0000010, "Lixo", feito = false))
+        // Na ordem da lista: "o dia todo" (hora -1) vem antes dos com hora.
+        val l = listOf(Lembrete(2, -1, -1, 0b0000010, "Lixo", feito = false), Lembrete(1, 20, 0, CuidarDeLonge.TODO_DIA, "Remédio"))
         val volta = CuidarDeLonge.lembretesDeJson(JSONArray(CuidarDeLonge.lembretesParaJson(l).toString()))
         assertEquals(l, volta)
         // Lista antiga do Cuidar (sem o campo): continua com Feito.
