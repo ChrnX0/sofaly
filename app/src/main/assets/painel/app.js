@@ -3174,6 +3174,9 @@ async function sofyIa() {
     prov.dataset.ligada = '1';
     try {
       const d = await chamar('GET', '/api/sofy/ai'); prov.value = d.provider || ''; base.value = d.base || ''; modelo.value = d.model || '';
+      $('sofyIaModeloRevisao').value = d.model_review || '';
+      const b = d.backup || {};
+      $('sofyIa2Provedor').value = b.provider || ''; $('sofyIa2Base').value = b.base || ''; $('sofyIa2Modelo').value = b.model || '';
       // Gasto do mês na chave do dono (tokens contados pela própria resposta da IA) e o teto que ele escolheu.
       const mil = (n) => Math.round((n || 0) / 1000);
       $('sofyIaTeto').value = String(mil(d.budget_tokens));
@@ -3182,8 +3185,24 @@ async function sofyIa() {
     } catch (e) { $('cartaoSofyIa').hidden = true; return; }
     mostrar();
     prov.addEventListener('change', mostrar);
+    // IA reserva: mesmo formulário, gravado com {backup:true}.
+    const prov2 = $('sofyIa2Provedor'), estado2 = $('sofyIa2Estado');
+    const dizer2 = (t) => { estado2.textContent = t; estado2.hidden = !t; };
+    const mostrar2 = () => { $('sofyIa2LinhaBase').hidden = prov2.value !== 'custom'; };
+    mostrar2();
+    prov2.addEventListener('change', mostrar2);
+    $('sofyIa2Salvar').addEventListener('click', async () => {
+      const corpo = { backup: true, provider: prov2.value, base: $('sofyIa2Base').value, model: $('sofyIa2Modelo').value };
+      if ($('sofyIa2Chave').value) corpo.key = $('sofyIa2Chave').value;
+      try { await chamar('POST', '/api/sofy/ai', corpo); $('sofyIa2Chave').value = ''; dizer2('Salvo.'); } catch (e) { dizer2(e.message); }
+    });
+    $('sofyIa2Testar').addEventListener('click', async () => {
+      dizer2('');
+      try { const r = await chamar('POST', '/api/sofy/ai', { test: true, backup: true }); dizer2(r.ok ? 'A IA respondeu.' : 'A IA não respondeu. Confira a chave, o endereço e o modelo.'); }
+      catch (e) { dizer2(e.message); }
+    });
     $('sofyIaSalvar').addEventListener('click', async () => {
-      const corpo = { provider: prov.value, base: base.value, model: modelo.value, budget_tokens: Math.max(0, parseInt($('sofyIaTeto').value || '0', 10) || 0) * 1000 };
+      const corpo = { provider: prov.value, base: base.value, model: modelo.value, model_review: $('sofyIaModeloRevisao').value, budget_tokens: Math.max(0, parseInt($('sofyIaTeto').value || '0', 10) || 0) * 1000 };
       if (chave.value) corpo.key = chave.value;
       try { await chamar('POST', '/api/sofy/ai', corpo); chave.value = ''; dizer('Salvo.'); } catch (e) { dizer(e.message); }
     });

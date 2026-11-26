@@ -1249,11 +1249,30 @@
         </select></p>
         <p class="aviso" id="sofyIaLinhaBase" hidden><input id="sofyIaBase" type="url" maxlength="200" autocomplete="off" spellcheck="false" placeholder="Endereço da IA, por exemplo http://192.168.1.50:11434/v1" aria-label="Endereço da IA, por exemplo http://192.168.1.50:11434/v1"></p>
         <p class="aviso"><input id="sofyIaModelo" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Modelo (em branco = o padrão)" aria-label="Modelo (em branco = o padrão)"></p>
+        <p class="aviso"><input id="sofyIaModeloRevisao" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Modelo para revisar as telas (em branco = um mais forte)" aria-label="Modelo para revisar as telas (em branco = um mais forte)"></p>
         <p class="aviso"><input id="sofyIaChave" type="password" maxlength="300" autocomplete="off" placeholder="Chave da API (em branco = manter a atual)" aria-label="Chave da API (em branco = manter a atual)"></p>
         <p class="aviso"><input id="sofyIaTeto" type="number" min="0" max="100000" step="1" placeholder="Teto por mês em mil tokens (0 = sem teto)" aria-label="Teto por mês em mil tokens (0 = sem teto)"></p>
         <p class="aviso" id="sofyIaUsoLinha" hidden><span>Uso da IA neste mês, em mil tokens (usado / teto):</span> <strong id="sofyIaUso"></strong></p>
         <p><button id="sofyIaSalvar" class="botao-secundario" type="button">Salvar</button> <button id="sofyIaTestar" class="botao-secundario" type="button">Testar</button></p>
         <p class="aviso" id="sofyIaEstado" hidden></p>
+        <!-- IA reserva (25/11/2026, Paulo): pergunta quando a primeira falha e dá a segunda opinião sobre regra nova. -->
+        <h2>IA reserva</h2>
+        <p class="aviso">Se a primeira IA falhar, a Sofy pergunta a esta. Ela também dá a segunda opinião antes de uma regra nova valer.</p>
+        <p class="aviso"><select id="sofyIa2Provedor" aria-label="Provedor">
+          <option value="">Nenhuma IA</option>
+          <option value="claude">Claude</option>
+          <option value="openai">OpenAI</option>
+          <option value="perplexity">Perplexity</option>
+          <option value="gemini">Gemini</option>
+          <option value="groq">Groq</option>
+          <option value="openrouter">OpenRouter</option>
+          <option value="custom">IA local ou outro endereço</option>
+        </select></p>
+        <p class="aviso" id="sofyIa2LinhaBase" hidden><input id="sofyIa2Base" type="url" maxlength="200" autocomplete="off" spellcheck="false" placeholder="Endereço da IA, por exemplo http://192.168.1.50:11434/v1" aria-label="Endereço da IA, por exemplo http://192.168.1.50:11434/v1"></p>
+        <p class="aviso"><input id="sofyIa2Modelo" type="text" maxlength="80" autocomplete="off" spellcheck="false" placeholder="Modelo (em branco = o padrão)" aria-label="Modelo (em branco = o padrão)"></p>
+        <p class="aviso"><input id="sofyIa2Chave" type="password" maxlength="300" autocomplete="off" placeholder="Chave da API (em branco = manter a atual)" aria-label="Chave da API (em branco = manter a atual)"></p>
+        <p><button id="sofyIa2Salvar" class="botao-secundario" type="button">Salvar</button> <button id="sofyIa2Testar" class="botao-secundario" type="button">Testar</button></p>
+        <p class="aviso" id="sofyIa2Estado" hidden></p>
         <div id="sofyConsertos" hidden>
           <h2>O que a Sofy consertou sozinha</h2>
           <ul id="listaSofyConsertos" class="lista-simples"></ul>

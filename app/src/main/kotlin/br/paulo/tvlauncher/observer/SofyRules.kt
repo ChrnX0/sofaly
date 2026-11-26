@@ -142,6 +142,32 @@ object SofyRules {
         return Review(rules, defects)
     }
 
+    // ---------------------------------------------------------------- segunda opinião (Paulo, 25/11/2026)
+
+    /** Outra IA julga cada regra nova antes de ela entrar na sombra: menos alarme falso, custo de uma pergunta por noite. */
+    const val SECOND_SYSTEM = "Another reviewer proposed checking rules for the visible texts of one TV screen. For each rule, " +
+        "decide if it catches a REAL defect class (impossible or contradictory values, placeholders, absurd durations) and " +
+        "would NOT fire on correct texts in other languages, dates, places or seasons. Answer ONLY with JSON " +
+        "{\"keep\":[\"<id>\",...]} listing the ids you agree with. No other text."
+
+    fun secondPrompt(screen: String, texts: List<String>, candidates: List<Rule>): String = buildString {
+        append("Screen: ").append(screen).append('\n')
+        append("Texts (one per line):\n")
+        texts.map { it.replace('\n', ' ').take(TEXT_MAX) }.distinct().take(80).forEach { append("- ").append(it).append('\n') }
+        append("Proposed rules:\n")
+        candidates.forEach { r -> append("- id=").append(r.id).append(' ').append(r.kind).append(' ').append(r.pattern)
+            if (r.kind == Kind.RANGE) append(" min=").append(r.min).append(" max=").append(r.max)
+            append(" why: ").append(r.why).append('\n') }
+    }
+
+    /** As regras com que a segunda IA concordou. Resposta ilegível ou ausente = nenhuma (tenta de novo outra noite). */
+    fun agreed(answer: String?, candidates: List<Rule>): List<Rule> {
+        val o = answer?.let { a -> val i = a.indexOf('{'); val j = a.lastIndexOf('}')
+            if (i < 0 || j <= i) null else runCatching { JSONObject(a.substring(i, j + 1)) }.getOrNull() } ?: return emptyList()
+        val keep = o.optJSONArray("keep")?.let { a -> (0 until a.length()).map { a.optString(it).trim() } }.orEmpty().toSet()
+        return candidates.filter { it.id in keep }
+    }
+
     fun idOf(pattern: String, kind: Kind, screen: String) = "r" + Integer.toHexString((pattern + kind + screen).hashCode())
 
     // ---------------------------------------------------------------- outras casas (passo 4)

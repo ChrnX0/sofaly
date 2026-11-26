@@ -17,9 +17,14 @@ import org.json.JSONObject
 object SofyAiRules {
     enum class Format { CLAUDE, OPENAI }
 
-    enum class Provider(val code: String, val format: Format, val base: String, val model: String, val needsKey: Boolean = true) {
-        CLAUDE("claude", Format.CLAUDE, "https://api.anthropic.com", "claude-haiku-5-5"),
-        OPENAI("openai", Format.OPENAI, "https://api.openai.com/v1", "gpt-4o-mini"),
+    /**
+     * [model] = o de fábrica para CONSERTAR (escolher ferramentas de uma lista fechada: o pequeno e barato basta).
+     * [review] = o de fábrica para a REVISÃO das telas (ler, achar o que está errado e escrever regra: pede um mais forte).
+     * Paulo, 25/11/2026: "pode fazer os 3" (modelo por tarefa, IA reserva, segunda opinião).
+     */
+    enum class Provider(val code: String, val format: Format, val base: String, val model: String, val needsKey: Boolean = true, val review: String = model) {
+        CLAUDE("claude", Format.CLAUDE, "https://api.anthropic.com", "claude-haiku-5-5", review = "claude-sonnet-5-5"),
+        OPENAI("openai", Format.OPENAI, "https://api.openai.com/v1", "gpt-4o-mini", review = "gpt-4o"),
         /** Endereço compatível com OpenAI da Perplexity (docs.perplexity.ai, "Orchestrator API", lido em 25/11/2026). */
         PERPLEXITY("perplexity", Format.OPENAI, "https://api.perplexity.ai/orchestrator/v1", "perplexity/glm-5.3"),
         GEMINI("gemini", Format.OPENAI, "https://generativelanguage.googleapis.com/v1beta/openai", "gemini-2.0-flash"),
@@ -31,17 +36,86 @@ object SofyAiRules {
         companion object { fun of(code: String?) = entries.firstOrNull { it.code == code } }
     }
 
-    data class Settings(val provider: Provider, val base: String, val model: String, val key: String)
+    /** [ownModel] = o dono escreveu o modelo (então a revisão usa o mesmo, salvo se ele escolheu outro para ela). */
+    data class Settings(val provider: Provider, val base: String, val model: String, val key: String, val ownModel: Boolean = false)
+
+    /** As tarefas: consertar (barato), revisar as telas (mais forte) e dar a segunda opinião sobre uma regra nova. */
+    enum class Task { REPAIR, REVIEW, SECOND }
+
+    /**
+     * O mais indicado para cada tarefa, em ordem de preferência (Paulo, 25/11/2026: "faz a Sofy escolher os mais indicados
+     * para cada tipo de tarefa"). Conserto = escolher ferramentas de uma lista fechada: o pequeno e rápido basta.
+     * Revisão = ler a tela, achar o erro de sentido e escrever regra: o intermediário forte. Segunda opinião = julgar a
+     * regra de outro modelo: o mais capaz (é uma pergunta por noite, no máximo). A Sofy usa o primeiro que a chave alcança.
+     */
+    fun preferred(p: Provider, t: Task): List<String> = when (p) {
+        Provider.CLAUDE -> when (t) {
+            Task.REPAIR -> listOf("claude-haiku-5-5", "claude-haiku-4-5")
+            Task.REVIEW -> listOf("claude-sonnet-5-5", "claude-sonnet-5", "claude-sonnet-4-6", "claude-opus-5-5")
+            Task.SECOND -> listOf("claude-opus-5-5", "claude-opus-5", "claude-opus-4-8", "claude-sonnet-5-5")
+        }
+        Provider.OPENAI -> when (t) { Task.REPAIR -> listOf("gpt-4o-mini"); else -> listOf("gpt-4o") }
+        else -> listOf(if (t == Task.REPAIR) p.model else p.review).filter { it.isNotEmpty() }
+    }
+
+    /**
+     * O modelo desta tarefa entre os que a chave alcança ([available], lido da própria API; vazio = não deu para ler,
+     * vale a preferência). Um id com data no fim ("claude-x-20260101") conta como o apelido sem data.
+     */
+    fun pick(p: Provider, t: Task, available: Set<String>): String? {
+        val pref = preferred(p, t)
+        if (available.isEmpty()) return pref.firstOrNull()
+        return pref.firstOrNull { m -> available.any { it == m || it.startsWith("$m-") } }
+    }
+
+    /** O modelo da revisão: o que o dono escolheu para ela; senão o dele; senão o mais indicado que a chave alcança. */
+    fun forReview(s: Settings, modelReview: String?, available: Set<String> = emptySet()): Settings {
+        val m = modelReview?.trim()?.takeIf { it.isNotEmpty() }
+            ?: if (s.ownModel) s.model else pick(s.provider, Task.REVIEW, available) ?: s.provider.review.ifEmpty { s.model }
+        return s.copy(model = m)
+    }
+
+    /** O do conserto: o do dono; senão o mais indicado que a chave alcança. */
+    fun forRepair(s: Settings, available: Set<String> = emptySet()): Settings =
+        if (s.ownModel) s else s.copy(model = pick(s.provider, Task.REPAIR, available) ?: s.model)
+
+    /**
+     * A ordem de quem perguntar. Conserto e revisão: a principal e, se ela falhar, a reserva. Segunda opinião: OUTRA IA
+     * (a reserva, com o modelo de revisão dela); sem reserva, a principal com o modelo mais capaz, se for diferente do da
+     * revisão (outro modelo ainda é outro olhar); sem nada diferente, ninguém (a regra espera a próxima noite).
+     */
+    fun chain(task: Task, primary: Settings?, backup: Settings?, reviewPrimary: String?, reviewBackup: String?,
+              availPrimary: Set<String> = emptySet(), availBackup: Set<String> = emptySet()): List<Settings> = when (task) {
+        Task.REPAIR -> listOfNotNull(primary?.let { forRepair(it, availPrimary) }, backup?.let { forRepair(it, availBackup) })
+        Task.REVIEW -> listOfNotNull(primary?.let { forReview(it, reviewPrimary, availPrimary) }, backup?.let { forReview(it, reviewBackup, availBackup) })
+        Task.SECOND -> {
+            val outra = backup?.let { forReview(it, reviewBackup, availBackup) }
+            val mesma = primary?.takeIf { !it.ownModel }?.let { p ->
+                val revisao = forReview(p, reviewPrimary, availPrimary).model
+                pick(p.provider, Task.SECOND, availPrimary)?.takeIf { it != revisao }?.let { p.copy(model = it) }
+                    ?: forRepair(p, availPrimary).takeIf { it.model != revisao }
+            }
+            listOfNotNull(outra ?: mesma)
+        }
+    }
+
+    /** Onde perguntar à API que modelos a chave alcança (GET), nos dois formatos. */
+    fun modelsUrl(s: Settings) = if (s.provider.format == Format.CLAUDE) "${s.base}/v1/models?limit=1000" else "${s.base}/models"
+
+    /** Os ids da lista de modelos (os dois formatos usam {"data":[{"id":...}]}). */
+    fun modelIds(response: JSONObject): Set<String> = response.optJSONArray("data")?.let { a ->
+        (0 until a.length()).mapNotNull { a.optJSONObject(it)?.optString("id")?.trim()?.ifEmpty { null } }.toSet() }.orEmpty()
 
     /** O endereço escolhido (o de fábrica do provedor, ou o que o dono escreveu) e o modelo. Null = não dá para usar. */
     fun resolve(provider: Provider?, base: String?, model: String?, key: String?): Settings? {
         provider ?: return null
         val b = (base?.trim()?.trimEnd('/')?.takeIf { it.isNotEmpty() && provider == Provider.CUSTOM } ?: provider.base)
-        val m = model?.trim()?.takeIf { it.isNotEmpty() } ?: provider.model
+        val own = model?.trim()?.takeIf { it.isNotEmpty() }
+        val m = own ?: provider.model
         val k = key?.trim().orEmpty()
         if (b.isEmpty() || m.isEmpty() || !allowed(b)) return null
         if (provider.needsKey && k.isEmpty()) return null
-        return Settings(provider, b, m, k)
+        return Settings(provider, b, m, k, ownModel = own != null)
     }
 
     /** https sempre; http só para um endereço de dentro de casa (a IA local não tem certificado). */

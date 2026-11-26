@@ -276,17 +276,20 @@ object ComandosExtras {
             val t = br.paulo.tvlauncher.observer.SofyRepair.Type.entries.firstOrNull { it.name == i.getStringExtra("type") }
             val sub = i.getStringExtra("subject")
             if (t == null || sub.isNullOrBlank()) "use --es type <TIPO> --es subject <assunto>"
-            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, "teste pelo adb"); "sinal ${t.name} $sub" }
+            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, i.getStringExtra("detail")?.take(160) ?: "teste pelo adb"); "sinal ${t.name} $sub" }
         }
         // A IA do dono: `sofy_ai` = o estado (sem a chave); `sofy_ai --es provider claude|openai|perplexity|gemini|groq|
         // openrouter|custom [--es base http://192.168.x.x:11434/v1] [--es model nome] [--es key CHAVE]` grava; `sofy_ai_test` testa.
         "sofy_ai" -> {
             // --el budget N: teto do mês em tokens (0 = sem teto).
             if (i.hasExtra("budget")) br.paulo.tvlauncher.observer.SofyAi.setBudget(ctx, i.getLongExtra("budget", br.paulo.tvlauncher.observer.SofyAi.DEFAULT_BUDGET))
-            if (i.hasExtra("provider")) br.paulo.tvlauncher.observer.SofyAi.save(ctx, i.getStringExtra("provider"), i.getStringExtra("base"), i.getStringExtra("model"), i.getStringExtra("key"))
+            // --ez backup true: grava a IA RESERVA; --es model_review nome: modelo da revisão das telas.
+            val slot = if (i.getBooleanExtra("backup", false)) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
+            if (i.hasExtra("provider")) br.paulo.tvlauncher.observer.SofyAi.save(ctx, i.getStringExtra("provider"), i.getStringExtra("base"), i.getStringExtra("model"), i.getStringExtra("key"), slot, i.getStringExtra("model_review"))
             br.paulo.tvlauncher.observer.SofyAi.json(ctx).toString()
         }
-        "sofy_ai_test" -> { val c = ctx.applicationContext; br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste: " + br.paulo.tvlauncher.observer.SofyAi.test(c)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
+        "sofy_ai_test" -> { val c = ctx.applicationContext; val slot = if (i.getBooleanExtra("backup", false)) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
+            br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste${if (slot.isEmpty()) "" else " (reserva)"}: " + br.paulo.tvlauncher.observer.SofyAi.test(c, slot)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
         "community" -> {
             if (i.hasExtra("on")) br.paulo.tvlauncher.observer.SofyCommunityTv.setSharing(ctx, i.getBooleanExtra("on", false))
             "ajudar outras casas=${br.paulo.tvlauncher.observer.SofyCommunityTv.sharing(ctx)}"
