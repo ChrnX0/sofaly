@@ -20,7 +20,7 @@ class PainelBlocosActivity : Activity() {
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return   // modo seguro (VigiaAtualizacao)
-        val (raiz, col) = Estilo.telaLista(this, getString(R.string.pb_titulo), getString(R.string.pb_subtitulo))
+        val (raiz, col) = Estilo.telaLista(this, getString(R.string.pb_titulo))   // o subtítulo era só teclas: Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
         coluna = col
         setContentView(raiz)
         lista = PainelBlocosTv.escolhidos(this)

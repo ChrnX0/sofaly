@@ -365,7 +365,6 @@ class PlayerGradeView(
         val info = buildList {
             add("${canal.numero}  ${canal.nome}")
             focado?.let { add("${hora.format(Date(it.inicio))} – ${hora.format(Date(it.fim))}"); if (it.categoria.isNotEmpty()) add(it.categoria) }
-            add(context.getString(R.string.player_grade_teclas))
         }.joinToString("   ·   ")
         val infoCurta = TextUtils.ellipsize(info, pPequeno, larg, TextUtils.TruncateAt.END)
         Rtl.texto(c, rtl, infoCurta, 0, infoCurta.length, xt, yt, pPequeno)

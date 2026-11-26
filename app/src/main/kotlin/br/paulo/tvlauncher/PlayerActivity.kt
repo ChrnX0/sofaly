@@ -1208,8 +1208,8 @@ class PlayerActivity : Activity() {
         vivo.setTextColor(Estilo.ATENCAO)   // passado: âmbar, para não confundir com o vermelho do ao vivo
         infoNumero.text = c.numero.toString()
         infoTitulo.text = a.titulo
-        infoLinha.text = listOf(c.nome, "${diaCurto(a.inicio)} ${hora.format(Date(a.inicio))} – ${hora.format(Date(a.fim))}",
-            getString(R.string.tvv_teclas)).joinToString("  ·  ")
+        infoLinha.text = listOf(c.nome, "${diaCurto(a.inicio)} ${hora.format(Date(a.inicio))} – ${hora.format(Date(a.fim))}")
+            .joinToString("  ·  ")   // sem as teclas: Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
         infoLinha.visibility = View.VISIBLE
         val pos = avanco.alvo.takeIf { it >= 0 } ?: player?.currentPosition ?: 0   // segurando ◀ ▶: mostra para onde vai
         infoHora.text = hora.format(Date(a.inicio + pos))

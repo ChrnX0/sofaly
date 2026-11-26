@@ -458,7 +458,7 @@ class PodcastPlayerActivity : Activity() {
         for ((i, a) in Acao.entries.withIndex()) vistas[a]?.focado = andar == ANDAR_BOTOES && i == botao
         rotuloBotao.text = when (andar) {
             ANDAR_BOTOES -> rotuloDoBotao(Acao.entries[botao])
-            ANDAR_BARRA -> getString(if (OuvirServico.instancia?.capitulos.isNullOrEmpty()) R.string.pl_barra_dica else R.string.cap_barra_dica)
+            ANDAR_BARRA -> ""   // Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
             else -> ""
         }
         for (i in 0 until fila.childCount) {
@@ -653,7 +653,7 @@ class PodcastPlayerActivity : Activity() {
         if (l.isEmpty()) { fecharPalco(); return }
         val i = Transcricao.atual(l, pos)
         p.findViewWithTag<TextView>("topo")?.text = (getString(R.string.tx_titulo) + " · " + (ep?.podcast ?: ""))
-        p.findViewWithTag<TextView>("pe")?.text = if (achados.isNotEmpty()) getString(R.string.tx_pe_busca, noAchado + 1, achados.size) else getString(R.string.tx_pe)
+        p.findViewWithTag<TextView>("pe")?.text = if (achados.isNotEmpty()) "${noAchado + 1} / ${achados.size}" else ""   // sem as teclas: Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
         if (i == palcoVisto) return
         palcoVisto = i
         fun frase(k: Int): String = l.getOrNull(k)?.let { x -> if (x.quem.isNotEmpty() && (k == 0 || l[k - 1].quem != x.quem)) x.quem + ": " + x.texto else x.texto }.orEmpty()

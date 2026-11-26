@@ -52,8 +52,7 @@ class FineTuneActivity : Activity() {
                 setStroke(dp(1), Estilo.VIDRO_BORDA)
             }
             addView(Estilo.tituloTela(this@FineTuneActivity, getString(R.string.ft_titulo)))
-            addView(Estilo.texto(this@FineTuneActivity, Estilo.Papel.LEGENDA, getString(R.string.ft_dica)),
-                LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(4); bottomMargin = dp(12) })
+            addView(View(this@FineTuneActivity), LinearLayout.LayoutParams(1, dp(12)))   // sem a linha de teclas: Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
             addView(ScrollView(this@FineTuneActivity).apply {
                 isVerticalScrollBarEnabled = false; clipChildren = false; clipToPadding = false; isFocusable = false
                 isVerticalFadingEdgeEnabled = true; setFadingEdgeLength(dp(32))

@@ -26,12 +26,10 @@ class RegraTelasTest {
             val s = f.readText()
             padroes.forEach { (tipo, p) -> p.findAll(s).count().takeIf { it > 0 }?.let { r["${f.name} $tipo"] = it } }
             if (tela.containsMatchIn(s)) {
-                // Estilo.telaLista já traz o título e (sem dicas = false) a barra de dicas. Os moldes de 26/11/2026
-                // (ColumnsScreen nos ajustes, CardsScreen na leitura) trazem o título e não têm barra de dicas: a coluna
-                // da direita explica o item em foco (Paulo aprovou tirar a linha de teclas dos menus).
+                // Estilo.telaLista e os moldes de 26/11/2026 (ColumnsScreen, CardsScreen) trazem o título. A regra da barra de
+                // dicas saiu: Paulo, 26/11/2026, "essas dicas são absolutamente idiotas. remove de tudo".
                 val lista = "telaLista(" in s
                 val molde = "ColumnsScreen(" in s || "CardsScreen(" in s
-                if (!molde && "barraDicas" !in s && "dicasDeTexto" !in s && !(lista && "dicas = false" !in s)) r["${f.name} dicas"] = 1
                 if ("tituloTela" !in s && !lista && !molde) r["${f.name} titulo"] = 1
             }
         }
@@ -52,7 +50,7 @@ class RegraTelasTest {
         val base = divida()
         val piorou = contar().filter { (k, n) -> n > (base[k] ?: 0) }
         if (piorou.isNotEmpty()) fail(
-            "Tela fora da regra (use Estilo.tituloTela, Estilo.barraDicas, as cores e os Papéis do Estilo):\n" +
+            "Tela fora da regra (use Estilo.tituloTela, as cores e os Papéis do Estilo):\n" +
                 piorou.entries.sortedBy { it.key }.joinToString("\n") { (k, n) -> "  $k: $n (a lista permite ${base[k] ?: 0})" }
         )
     }

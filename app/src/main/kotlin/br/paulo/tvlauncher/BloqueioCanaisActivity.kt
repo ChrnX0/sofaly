@@ -88,6 +88,7 @@ class BloqueioCanaisActivity : Activity() {
             text = if (modoInfantis) getString(R.string.infantil_dica)
                 else getString(R.string.bc_dica)
             textSize = Estilo.Papel.LEGENDA.sp; setTextColor(apagado); setPaddingRelative(0, dp(10), 0, 0)
+            visibility = View.GONE   // Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)
         })
         setContentView(raiz)
 
