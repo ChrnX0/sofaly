@@ -73,17 +73,26 @@ class FineTuneActivity : Activity() {
         lista.getChildAt(0)?.requestFocus()
     }
 
+    /** Relê o valor de cada linha. Um tema pronto ou um tema importado mudam várias opções de uma vez (Sala, 26/11/2026:
+     *  depois de escolher "Padrão", "Arte do card em foco no fundo" ainda mostrava o valor antigo). */
+    private val releituras = mutableListOf<Pair<Ajuste, () -> Unit>>()
+
     private fun linha(a: Ajuste): View {
-        val valor = Estilo.valor(this, a.valor(), seta = false)
+        val valor = Estilo.valor(this, a.valor(), seta = false).apply {
+            // Valor longo ("Caber + fundo borrado") quebra em 2 linhas e não esmaga o título (Sala, 26/11/2026)
+            maxWidth = (170 * resources.displayMetrics.density).toInt(); gravity = Gravity.END
+        }
         fun mostrar(t: String) { valor.text = "‹  $t  ›" }
         mostrar(a.valor())
+        releituras += a to { mostrar(a.valor()) }
+        fun trocar(p: Int) { mostrar(a.trocar(p)); releituras.forEach { (outro, reler) -> if (outro !== a) reler() } }
         return Estilo.linhaOpcao(this, getString(a.titulo), null, valor).apply {
-            setOnClickListener { mostrar(a.trocar(1)) }
+            setOnClickListener { trocar(1) }
             setOnKeyListener { _, code, ev ->
                 if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
                 when (code) {
-                    KeyEvent.KEYCODE_DPAD_RIGHT -> { mostrar(a.trocar(1)); true }
-                    KeyEvent.KEYCODE_DPAD_LEFT -> { mostrar(a.trocar(-1)); true }
+                    KeyEvent.KEYCODE_DPAD_RIGHT -> { trocar(1); true }
+                    KeyEvent.KEYCODE_DPAD_LEFT -> { trocar(-1); true }
                     else -> false
                 }
             }
