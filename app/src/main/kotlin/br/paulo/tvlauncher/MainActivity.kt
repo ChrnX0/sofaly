@@ -1654,7 +1654,7 @@ class MainActivity : Activity() {
     private fun lerCapa(pacote: String, icone: Drawable?): Pair<Bitmap?, IntArray> {
         val b = CapaFoco.banner(packageManager, pacote)?.let { runCatching { CapaFoco.bitmapReduzido(it) }.getOrNull() }
         val ic = icone ?: runCatching { packageManager.getApplicationIcon(pacote) }.getOrNull()
-        val cores = ic?.let { runCatching { CapaFoco.corDoIcone(it) }.getOrNull() } ?: intArrayOf(0xFF2B2F3A.toInt(), Estilo.FUNDO)
+        val cores = ic?.let { runCatching { CapaFoco.corDoIcone(it) }.getOrNull() } ?: intArrayOf(0xFF2C2C29.toInt(), Estilo.FUNDO)
         return (b to cores).also { capas[pacote] = it }
     }
 
@@ -2020,7 +2020,7 @@ class MainActivity : Activity() {
                     val doPacote = if (item.pacote in iconeDePacote) CustomIcons.icone(this, item.pacote, null) else null
                     val banner = capa?.first
                     if (doPacote != null) {
-                        c.drawColor(0xFF1C2030.toInt())
+                        c.drawColor(0xFF1C1C1A.toInt())
                         val brilho = android.graphics.Paint().apply {
                             shader = android.graphics.LinearGradient(0f, 0f, 0f, a.toFloat(), 0x1FFFFFFF, 0x00FFFFFF, android.graphics.Shader.TileMode.CLAMP)
                         }
@@ -2035,7 +2035,7 @@ class MainActivity : Activity() {
                         c.drawBitmap(banner, null, android.graphics.RectF((l - w) / 2, (a - h) / 2, (l + w) / 2, (a + h) / 2),
                             android.graphics.Paint(android.graphics.Paint.FILTER_BITMAP_FLAG))
                     } else {
-                        val cores = capa?.second ?: intArrayOf(0xFF2B2F3A.toInt(), Estilo.FUNDO)
+                        val cores = capa?.second ?: intArrayOf(0xFF2C2C29.toInt(), Estilo.FUNDO)
                         c.drawColor(cores[0])
                         val t = (a * 0.72f).toInt()
                         val ic = redondo(item.icone, t)

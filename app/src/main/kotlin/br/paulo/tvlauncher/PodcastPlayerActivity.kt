@@ -603,7 +603,7 @@ class PodcastPlayerActivity : Activity() {
 
     private fun abrirPalco() {
         val p = palco ?: FrameLayout(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5141413.toInt(), 0xFA0E1020.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5141413.toInt(), 0xFA0E0E0D.toInt()))
             val col = LinearLayout(this@PodcastPlayerActivity).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_VERTICAL }
             val topo = texto(15f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f; tag = "topo" }
             col.addView(topo, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dpi(26) })
@@ -765,7 +765,7 @@ class PodcastPlayerActivity : Activity() {
         private val letra = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER; typeface = fonteForte }
         private val ponto = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.ACENTO }
         // O ícone do botão grande vai escuro sobre o laranja (o traço Linha claro sumia nele).
-        private val escuro = android.graphics.PorterDuffColorFilter(0xFF14161F.toInt(), android.graphics.PorterDuff.Mode.SRC_IN)
+        private val escuro = android.graphics.PorterDuffColorFilter(0xFF161615.toInt(), android.graphics.PorterDuff.Mode.SRC_IN)
 
         init { importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
 
@@ -791,7 +791,7 @@ class PodcastPlayerActivity : Activity() {
                 it.draw(cv)
             }
             escrita?.let {
-                letra.color = if (focado) 0xFF14161F.toInt() else Estilo.TEXTO; letra.textSize = h * 0.3f
+                letra.color = if (focado) 0xFF161615.toInt() else Estilo.TEXTO; letra.textSize = h * 0.3f
                 cv.drawText(it, w / 2, h / 2 - (letra.descent() + letra.ascent()) / 2, letra)
             }
             // Ligado (pular silêncios, timer): um ponto laranja embaixo, como o ponto do item escolhido da cruz.

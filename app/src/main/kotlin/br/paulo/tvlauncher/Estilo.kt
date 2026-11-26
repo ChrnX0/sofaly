@@ -758,7 +758,7 @@ object Estilo {
     /** Escurecido atrás de um diálogo: a tela de trás fica visível mas não compete. */
     const val VEU = 0xB3000000.toInt()
     /** Cartão de diálogo: quase opaco (lê-se por cima de qualquer coisa), com o fio do vidro. */
-    const val CARTAO = 0xF5191C30.toInt()
+    const val CARTAO = 0xF51C1C1A.toInt()
 
     /**
      * Põe [tela] (um [dialogo], já com o véu) numa janela [d] de tela cheia, sem título e sem o fundo do tema. As

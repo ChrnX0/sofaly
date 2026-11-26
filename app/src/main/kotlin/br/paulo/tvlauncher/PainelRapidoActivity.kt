@@ -138,7 +138,7 @@ class PainelRapidoActivity : Activity() {
         /** Botões redondos do cabeçalho e do Tocando agora. */
         private const val BOTAO_DP = 34
         /** Fundo do painel: azul-ardósia escuro e opaco, como o do Google (e próximo do FUNDO do launcher). */
-        private const val FUNDO_PAINEL = 0xFF151C25.toInt()
+        private const val FUNDO_PAINEL = 0xFF171716.toInt()
         /** Ícone de tile desligado: o texto do sistema a 85%. */
         private const val ICONE_APAGADO = 0xD9FFF3E6.toInt()
     }

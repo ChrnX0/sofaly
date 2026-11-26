@@ -306,7 +306,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Barra embaixo: a placa (vidro escuro de cantos redondos, largura toda) e o realce da categoria escolhida.
         // Ficam atrás das categorias (que entram depois, em [definir]); somem na cruz.
         placa = View(ctx).apply {
-            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30A0D18.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
+            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30B0B0A.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
             visibility = View.GONE
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }

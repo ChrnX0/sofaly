@@ -415,7 +415,7 @@ class AddonsActivity : Activity() {
         camada.removeAllViews()
         val cartao = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            background = Estilo.fundo(this@AddonsActivity, 0xF2141A24.toInt(), Estilo.RAIO, Estilo.VIDRO_BORDA)
+            background = Estilo.fundo(this@AddonsActivity, 0xF2171716.toInt(), Estilo.RAIO, Estilo.VIDRO_BORDA)
             setPaddingRelative(dp(Estilo.E3 + 4), dp(Estilo.E3), dp(Estilo.E3 + 4), dp(Estilo.E3))
             clipChildren = false; clipToPadding = false
         }
