@@ -1119,6 +1119,6 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         return if (min < 60) "$min min" else String.format(Locale.ROOT, "%d h %02d min", min / 60, min % 60)
     }
 
-    private fun vidro(raio: Int) = GradientDrawable().apply { cornerRadius = dp(raio).toFloat(); setColor(0xD9121212.toInt()); setStroke(dp(1), Estilo.SUPERFICIE_ALTA) }
+    private fun vidro(raio: Int) = GradientDrawable().apply { cornerRadius = dp(raio).toFloat(); setColor(0xD9121212.toInt()) }
 
 }

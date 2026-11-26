@@ -1227,7 +1227,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         background = StateListDrawable().apply {
             addState(intArrayOf(android.R.attr.state_focused), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(papel) })
             // Sem foco: mais apagado (6% + fio, texto a 70%), para o botão branco com foco saltar aos olhos a 3 m (15/11/2026).
-            addState(intArrayOf(), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (marcado) 0x4DF5B544 else Estilo.SUPERFICIE); if (!marcado) setStroke(dp(1), Estilo.BORDA) })
+            addState(intArrayOf(), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (marcado) 0x4DF5B544 else Estilo.SUPERFICIE) })
         }
         setTextColor(ColorStateList(arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()), intArrayOf(Estilo.FUNDO, if (marcado) papel else Estilo.TEXTO_2)))
         setOnClickListener { aoApertar() }

@@ -47,7 +47,7 @@ class PainelCatalogo(private val act: Activity) {
     /** A faixa da ficha rápida: caixa um pouco mais clara que o fundo, como o bloco de ações da coluna. */
     val faixa: View = LinearLayout(act).apply {
         orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(18), dp(10), dp(18), dp(11))
-        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE) }
         addView(info)
     }
 

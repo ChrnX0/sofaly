@@ -340,7 +340,8 @@ object Estilo {
         }
 
     /** Vidro sem desfoque (o desfoque de verdade só existe em janela; ver [AvisoTv]): tinta escura + fio claro. */
-    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, VIDRO_TINTA, raioDp, VIDRO_BORDA)
+    /** Vidro escuro, sem contorno (padrão único, 26/11/2026: caixa cheia, sem fio); o fio só no alto contraste. */
+    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, VIDRO_TINTA, raioDp, if (altoContraste) VIDRO_BORDA else 0)
 
     // ------------------------------------------------------------------ foco (UMA regra no app inteiro)
 

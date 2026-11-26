@@ -277,12 +277,12 @@ class AllAppsScreen(ctx: Context, private val host: Host, val mode: AllAppsLayou
         if (c.kind == Kind.LOCK) {
             nome.text = c.name
         } else if (c.kind == Kind.FOLDER || c.kind == Kind.NEW_FOLDER) {
-            // Pasta: a cor de Aplicativos por baixo e o nome no meio; "+ Nova pasta" só com o contorno.
+            // Pasta: a cor de Aplicativos por baixo e o nome no meio; "+ Nova pasta" numa caixa (sem contorno, 26/11/2026).
             nome.text = c.name; nome.maxLines = 2
             moldura.background = GradientDrawable().apply {
                 cornerRadius = raio
                 if (c.kind == Kind.FOLDER) setColor((DesignTokens.WORLD_APPS and 0x00FFFFFF) or 0x40000000)
-                else { setColor(0x14FFFFFF); setStroke(dp(1), 0x40FFFFFF) }
+                else setColor(Estilo.CAIXA)
             }
         } else {
             // Sem banner (ainda, ou o app não tem): o ícone no meio de cima e o nome embaixo.

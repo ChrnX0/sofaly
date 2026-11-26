@@ -49,7 +49,6 @@ class FineTuneActivity : Activity() {
                 setColor(Estilo.VIDRO_TINTA or (0xFF shl 24))   // a tinta do vidro do Estilo, sem transparência
                 val r = dp(Estilo.RAIO + 8).toFloat()
                 cornerRadii = floatArrayOf(r, r, 0f, 0f, 0f, 0f, r, r)   // canto arredondado só do lado da HOME
-                setStroke(dp(1), Estilo.VIDRO_BORDA)
             }
             addView(Estilo.tituloTela(this@FineTuneActivity, getString(R.string.ft_titulo)))
             addView(View(this@FineTuneActivity), LinearLayout.LayoutParams(1, dp(12)))   // sem a linha de teclas: Paulo, 26/11/2026: "essas dicas são absolutamente idiotas. remove de tudo" (as teclas ficam em Configurações > Ajuda)

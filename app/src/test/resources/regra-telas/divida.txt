@@ -146,27 +146,20 @@ WallpaperPluginView.kt letra 1
 # RowsLayer (Fileiras, clone do Projectivy 26/11/2026): fundo grafite dos cards dos nossos itens, medido nas fotos dele
 RowsLayer.kt cor 1
 # caixa: desenho próprio de caixa/pílula/contorno (26/11/2026); a catraca só deixa diminuir
-AllAppsScreen.kt caixa 2
-AutoDesligar.kt caixa 1
-AvisoTv.kt caixa 2
+AllAppsScreen.kt caixa 1
 ColunaCategorias.kt caixa 1
 ConfigDoors.kt caixa 2
 CrossColumn.kt caixa 1
-Desfazer.kt caixa 1
-FilmesActivity.kt caixa 2
-FineTuneActivity.kt caixa 1
+FilmesActivity.kt caixa 1
 HomeCruz.kt caixa 3
 HomeIsland.kt caixa 3
 MainActivity.kt caixa 4
 ModoSimples.kt caixa 1
-PainelCatalogo.kt caixa 1
 PainelRapidoActivity.kt caixa 10
 PlayerListaTela.kt caixa 1
-PrevisaoActivity.kt caixa 2
 RowsLayer.kt caixa 2
-SeriesActivity.kt caixa 2
+SeriesActivity.kt caixa 1
 SleepingClock.kt caixa 1
 SleepingHome.kt caixa 2
-SomNoFone.kt caixa 1
 StripLayer.kt caixa 5
-VodActivity.kt caixa 3
+VodActivity.kt caixa 1
