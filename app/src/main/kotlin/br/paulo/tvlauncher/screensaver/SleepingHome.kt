@@ -348,7 +348,7 @@ class SleepingHome(private val ctx: Context) {
         val dicaTopo = entrada?.let { "${ctx.getString(R.string.cl_d_guarda)}: ${ForecastText.dica(ctx, DicasClima.guardaChuva(it)).replaceFirstChar { c -> c.lowercase(ctx.resources.configuration.locales[0]) }}" }
         lugar.text = dicaTopo ?: ""; lugar.visibility = if (dicaTopo == null) View.GONE else View.VISIBLE
         if (tempAgora != null) {
-            if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.chave(codigo, eDia, chovendo || fr?.tipo == DicasClima.TipoFrase.CHUVA_AGORA)),
+            if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.comFaseDaLua(IconesClima.chave(codigo, eDia, chovendo || fr?.tipo == DicasClima.TipoFrase.CHUVA_AGORA), lat)),
                 LinearLayout.LayoutParams(dp(44), dp(44)))
             topoDireita.addView(texto(44f, Estilo.TEXTO, leve).apply { text = "$tempAgora°"; includeFontPadding = false },
                 LinearLayout.LayoutParams(-2, -2))   // sem isto a coluna vertical dá MATCH_PARENT e o texto fica da largura do ícone
@@ -399,7 +399,9 @@ class SleepingHome(private val ctx: Context) {
             l += Linha(ctx.getString(R.string.sh_ar), linhaAr(f))
         }
         linhaSol(agoraMs, lat, lon)?.let { l += Linha(ctx.getString(R.string.pt_sol), it) }
-        l += Linha(ctx.getString(R.string.pt_lua), linhaLua(agoraMs, lat))
+        // A chave "Fase da lua" (CARTAO_LUA) vale aqui também, não só na Previsão (Brainstorm item 20).
+        if (br.paulo.tvlauncher.settings.Extras.ligado(ctx, br.paulo.tvlauncher.settings.Extras.Chave.CARTAO_LUA))
+            l += Linha(ctx.getString(R.string.pt_lua), linhaLua(agoraMs, lat))
         if (agenda.isNotEmpty()) l += Linha(ctx.getString(R.string.lbl_agenda), linhaItens(agenda))
         for ((titulo, a, b) in resumos) l += Linha(titulo, linhaBase().apply { addView(celula(titulo, a, b.ifEmpty { null }), LinearLayout.LayoutParams(0, -2, 1f)) })
         val nomeAntes = linhas.getOrNull(atual)?.nome
