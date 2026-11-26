@@ -87,6 +87,7 @@ internal fun MainActivity.deslizarArte(t: CruzLogica.Tecla) {
     if (x == 0 && y == 0) return
     val passo = CruzOnda3.PARALAXE_DP * resources.displayMetrics.density
     capa.animate().cancel()
+    capa.alpha = capa.alfaAlvo   // o cancel também parava o esmaecer da capa no meio
     capa.translationX = x * passo; capa.translationY = y * passo
     capa.animate().translationX(0f).translationY(0f).setDuration(CruzOnda3.PARALAXE_MS)
         .setInterpolator(Estilo.curva()).start()

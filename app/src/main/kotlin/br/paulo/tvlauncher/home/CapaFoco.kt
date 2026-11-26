@@ -55,8 +55,15 @@ class CapaFoco(ctx: Context) : View(ctx) {
      */
     var telaCheia = false
 
+    /**
+     * A opacidade que a capa quer ter agora (0 escondida). Quem cancela o animate() dela (a paralaxe, [deslizarArte])
+     * põe esta de volta: antes a capa ficava presa nos 0,3 do começo do esmaecer a cada tecla (visto na Sala, 26/11/2026).
+     */
+    var alfaAlvo = 0f
+        private set
+
     var desligada = false
-        set(v) { field = v; if (v) { animate().cancel(); alpha = 0f } }
+        set(v) { field = v; if (v) { animate().cancel(); alpha = 0f; alfaAlvo = 0f } }
 
     /**
      * Escala de repouso da capa. A HOME desenha a capa em METADE da resolução e a amplia 2x (MainActivity), então a escala
@@ -106,8 +113,9 @@ class CapaFoco(ctx: Context) : View(ctx) {
         this.cores = cores
         invalidate()
         animate().cancel()
-        if (imagem == null && cores == null) { animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); return }
+        if (imagem == null && cores == null) { alfaAlvo = 0f; animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); return }
         val opaca = if (telaCheia) 1f else OPACIDADE
+        alfaAlvo = opaca
         if (!TesteHome.capaAnima) { alpha = opaca; return }   // só para medir (gancho HOME_TESTE)
         alpha = 0.3f
         animate().alpha(opaca).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(br.paulo.tvlauncher.Estilo.curva()).start()
