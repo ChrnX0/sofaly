@@ -202,7 +202,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         nome.visibility = if (o.cardTitle) View.VISIBLE else View.INVISIBLE
         nome.maxWidth = dpi(larg - RowsHome.TEXTO_X * 2)
         val nh = if (nome.height > 0) nome.height / 2f else dp(RowsHome.NOME_SP * 0.6f)
-        mover(nome, dp(RowsHome.TEXTO_X), dp(cyF + RowsHome.NOME_ABAIXO) - nh, nome.alpha, 1f, anima, mexeAlfa = false)
+        // posição direto (sem animate(): ele cancelaria o esmaecer do texto que acabou de começar)
+        nome.translationX = dp(RowsHome.TEXTO_X); nome.translationY = dp(cyF + RowsHome.NOME_ABAIXO) - nh
         // brilho em volta do card em foco
         if (card != null) {
             val k1 = o.focusSize.k
@@ -226,13 +227,10 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     fun lembrar(sel: List<Int>) { lembradosRef = sel }
     private fun lembrado(j: Int, n: Int) = lembradosRef.getOrElse(j) { 0 }.coerceIn(0, (n - 1).coerceAtLeast(0))
 
-    private fun mover(v: View, x: Float, y: Float, a: Float, k: Float, anima: Boolean, mexeAlfa: Boolean = true) {
+    private fun mover(v: View, x: Float, y: Float, a: Float, k: Float, anima: Boolean) {
         v.animate().cancel()
-        if (anima) {
-            val an = v.animate().translationX(x).translationY(y).scaleX(k).scaleY(k).setDuration(RowsHome.MS).setInterpolator(curva)
-            if (mexeAlfa) an.alpha(a)
-            an.start()
-        } else { v.translationX = x; v.translationY = y; v.scaleX = k; v.scaleY = k; if (mexeAlfa) v.alpha = a }
+        if (anima) v.animate().translationX(x).translationY(y).scaleX(k).scaleY(k).alpha(a).setDuration(RowsHome.MS).setInterpolator(curva).start()
+        else { v.translationX = x; v.translationY = y; v.scaleX = k; v.scaleY = k; v.alpha = a }
     }
 
     /** Cor do brilho: a do card, clara (Projectivy: "vazio = cor dinâmica do card"); card escuro = creme. */
