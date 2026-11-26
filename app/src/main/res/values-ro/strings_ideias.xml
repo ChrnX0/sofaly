@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Arată jurnalul DNS de azi</string>
     <string name="extras_diario_apagar">Șterge jurnalul DNS</string>
     <string name="extras_diario_apagado">Jurnal șters</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Noaptea casei</string>
+    <string name="noite_casa_inicio">Noaptea începe</string>
+    <string name="noite_casa_fim">Noaptea se termină</string>
+    <string name="noite_casa_corpo">Nu deranja și filtrul de noapte urmează acest program. Ora de culcare a copiilor are programul ei.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Nu deranja urmează acest program. Filtrul de noapte are program propriu; pune aceleași ore ca să urmeze din nou noaptea casei.</string>
 </resources>

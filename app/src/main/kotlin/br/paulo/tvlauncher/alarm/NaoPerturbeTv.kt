@@ -27,7 +27,7 @@ object NaoPerturbeTv {
         val filme = (p == app.packageName && JanelaNaFrente.classe == VodActivity::class.java.name) || p in NaoPerturbe.APPS_FILME
         val c = Calendar.getInstance()
         return NaoPerturbe.motivo(true, filme, c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE),
-            runCatching { ModoVisita.ativo(app) }.getOrDefault(false))
+            runCatching { ModoVisita.ativo(app) }.getOrDefault(false), NoiteCasa.inicio(app), NoiteCasa.fim(app))
     }
 
     /**

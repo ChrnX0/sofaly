@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">A mai DNS-napló megjelenítése</string>
     <string name="extras_diario_apagar">A DNS-napló törlése</string>
     <string name="extras_diario_apagado">Napló törölve</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Az otthon éjszakája</string>
+    <string name="noite_casa_inicio">Az éjszaka kezdete</string>
+    <string name="noite_casa_fim">Az éjszaka vége</string>
+    <string name="noite_casa_corpo">A Ne zavarjanak és az éjszakai szűrő ezt az időt követi. A gyerekek lefekvési ideje a sajátja marad.</string>
+    <string name="noite_casa_corpo_filtro_proprio">A Ne zavarjanak ezt az időt követi. Az éjszakai szűrőnek saját ideje van; állítsa ugyanarra az órákra, hogy újra az otthon éjszakáját kövesse.</string>
 </resources>

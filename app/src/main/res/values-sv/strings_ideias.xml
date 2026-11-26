@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Visa dagens DNS-dagbok</string>
     <string name="extras_diario_apagar">Ta bort DNS-dagboken</string>
     <string name="extras_diario_apagado">Dagboken borttagen</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Husets natt</string>
+    <string name="noite_casa_inicio">Natten börjar</string>
+    <string name="noite_casa_fim">Natten slutar</string>
+    <string name="noite_casa_corpo">Stör ej och nattfiltret följer den här tiden. Barnens läggdags har sin egen.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Stör ej följer den här tiden. Nattfiltret har en egen tid; välj samma timmar så följer det husets natt igen.</string>
 </resources>

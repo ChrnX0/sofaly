@@ -35,11 +35,13 @@ object NaoPerturbe {
         if (inicio <= fim) minutoDoDia in inicio until fim else minutoDoDia >= inicio || minutoDoDia < fim
 
     /** Por que segurar agora (null = não segura). Filme primeiro: é o motivo que a pessoa reconhece no resumo. */
-    fun motivo(ligado: Boolean, filme: Boolean, minutoDoDia: Int, visita: Boolean): Motivo? = when {
+    /** [inicio]/[fim] = a noite da casa (NoiteCasa, Brainstorm 26/11 item 12); antes o 23h-7h era fixo. */
+    fun motivo(ligado: Boolean, filme: Boolean, minutoDoDia: Int, visita: Boolean,
+               inicio: Int = MADRUGADA_INICIO_MIN, fim: Int = MADRUGADA_FIM_MIN): Motivo? = when {
         !ligado -> null
         filme -> Motivo.FILME
         visita -> Motivo.VISITA
-        madrugada(minutoDoDia) -> Motivo.MADRUGADA
+        inicio != fim && madrugada(minutoDoDia, inicio, fim) -> Motivo.MADRUGADA
         else -> null
     }
 

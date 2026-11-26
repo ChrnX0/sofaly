@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">今日の DNS 日誌を表示</string>
     <string name="extras_diario_apagar">DNS 日誌を削除</string>
     <string name="extras_diario_apagado">日誌を削除しました</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">家の夜</string>
+    <string name="noite_casa_inicio">夜の開始</string>
+    <string name="noite_casa_fim">夜の終わり</string>
+    <string name="noite_casa_corpo">おやすみモードと夜間フィルターはこの時間に従います。子どもの就寝時間は別に設定されます。</string>
+    <string name="noite_casa_corpo_filtro_proprio">おやすみモードはこの時間に従います。夜間フィルターは独自の時間です。同じ時間にすると再び家の夜に従います。</string>
 </resources>

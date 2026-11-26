@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Show today\'s DNS diary</string>
     <string name="extras_diario_apagar">Delete the DNS diary</string>
     <string name="extras_diario_apagado">Diary deleted</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">House night</string>
+    <string name="noite_casa_inicio">Night starts</string>
+    <string name="noite_casa_fim">Night ends</string>
+    <string name="noite_casa_corpo">Do not disturb and the night filter follow this time. Bedtime for kids keeps its own.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Do not disturb follows this time. The night filter has its own time; set it to the same hours to follow the house night again.</string>
 </resources>
