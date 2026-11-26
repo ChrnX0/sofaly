@@ -124,7 +124,8 @@ object PainelWeb {
     private fun sufixoApp(): String {
         val der = try { PainelTls.emissao()?.servidor?.encoded } catch (_: Exception) { null }
         val ts = if (::app.isInitialized) TunelTailscale.nome(app) else null
-        return QrDoApp.sufixo(der, ts)
+        val id = if (::app.isInitialized) runCatching { PainelVizinhos.idDaTv(app) }.getOrNull() else null
+        return QrDoApp.sufixo(der, ts, id)
     }
 
     /**

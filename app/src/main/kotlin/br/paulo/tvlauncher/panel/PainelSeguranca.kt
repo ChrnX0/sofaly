@@ -454,10 +454,16 @@ object QrDoApp {
     fun impressao(der: ByteArray): String =
         java.security.MessageDigest.getInstance("SHA-256").digest(der).joinToString("") { "%02x".format(it.toInt() and 0xff) }
 
-    /** "&fp=...&ts=..." (cada um só se existir e for válido), ou "". */
-    fun sufixo(certificadoDer: ByteArray?, nomeTailscale: String?): String {
+    private val ID = Regex("^[0-9a-f]{8}$")
+
+    /**
+     * "&fp=...&ts=...&id=..." (cada um só se existir e for válido), ou "". O id (PainelVizinhos.idDaTv, o mesmo do mDNS)
+     * deixa o celular achar a TV de novo quando o IP dela muda (Brainstorm 26/11, item 8).
+     */
+    fun sufixo(certificadoDer: ByteArray?, nomeTailscale: String?, idTv: String? = null): String {
         val fp = certificadoDer?.let { "&fp=" + impressao(it) }.orEmpty()
         val ts = nomeTailscale?.lowercase()?.takeIf { NOME_TS.matches(it) }?.let { "&ts=$it" }.orEmpty()
-        return fp + ts
+        val id = idTv?.takeIf { ID.matches(it) }?.let { "&id=$it" }.orEmpty()
+        return fp + ts + id
     }
 }

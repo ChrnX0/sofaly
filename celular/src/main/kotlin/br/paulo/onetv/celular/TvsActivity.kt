@@ -143,12 +143,13 @@ class TvsActivity : Activity() {
         val salvas = Tvs.lista(this)
         // A mesma TV de antes: pelo nome no Tailscale (único) ou, numa casa só, pelo IP. Com várias casas o IP não basta.
         val antiga = salvas.firstOrNull { lido.ts.isNotEmpty() && it.ts == lido.ts }
+            ?: salvas.firstOrNull { lido.id.isNotEmpty() && it.id == lido.id }
             ?: salvas.filter { it.ip == lido.ip }.takeIf { it.size == 1 && Pareamento.casas(salvas).size <= 1 }?.first()
         val nome = achadas[lido.ip] ?: antiga?.nome ?: "TV"
         fun salvar(casa: String) {
             // Lido na tela da TV: este é o certificado em que o app passa a confiar (e só nele).
             val tv = Pareamento.Tv(nome, lido.ip, lido.fp.ifEmpty { antiga?.fp.orEmpty() }, lido.ts.ifEmpty { antiga?.ts.orEmpty() },
-                antiga?.id.orEmpty(), casa)
+                lido.id.ifEmpty { antiga?.id.orEmpty() }, casa)
             Tvs.guardar(this, tv)
             abrir(tv, lido)
         }
@@ -195,7 +196,13 @@ class TvsActivity : Activity() {
                         val ip = (if (Build.VERSION.SDK_INT >= 34) s.hostAddresses.firstOrNull { it is Inet4Address } else @Suppress("DEPRECATION") s.host)
                             ?.hostAddress ?: return
                         if (!Pareamento.privado(ip)) return
-                        ui.post { achadas[ip] = s.serviceName; desenhar() }
+                        val id = Pareamento.idValido(s.attributes["id"]?.let { String(it, Charsets.UTF_8) })
+                        ui.post {
+                            // Item 8: TV salva que mudou de IP segue sozinha, sem ler o QR de novo.
+                            Pareamento.seguir(Tvs.lista(this@TvsActivity), id, ip)?.let { Tvs.guardar(this@TvsActivity, it) }
+                            if (id.isEmpty() || Tvs.lista(this@TvsActivity).none { it.id == id }) achadas[ip] = s.serviceName
+                            desenhar()
+                        }
                     }
                 })
             }

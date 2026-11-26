@@ -67,4 +67,9 @@ class QrDoAppTest {
         org.junit.Assert.assertEquals("", QrDoApp.sufixo(null, "evil.example.com"))
         org.junit.Assert.assertEquals("", QrDoApp.sufixo(null, "a&b.ts.net"))
     }
+
+    @org.junit.Test fun `id da TV entra no QR so com 8 hex`() {
+        org.junit.Assert.assertEquals("&id=1a2b3c4d", QrDoApp.sufixo(null, null, "1a2b3c4d"))
+        org.junit.Assert.assertEquals("", QrDoApp.sufixo(null, null, "1a2b&x=1"))
+    }
 }
