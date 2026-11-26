@@ -18,7 +18,8 @@ import java.util.Calendar
  *
  * Freios (a TV é da casa, não bancada): só com a tela APAGADA ou o nosso protetor na frente, só na madrugada da casa,
  * só com a acessibilidade de pé (é ela que lê), uma rodada por noite, e volta para a home no fim. Com a tela apagada a
- * árvore vem vazia, então ela acende a tela (e a TV pelo HDMI) por uns 15 s e apaga de novo (Paulo, 26/11/2026).
+ * árvore vem vazia, então ela acende a tela (e a TV pelo HDMI) por uns 15 s, com um véu preto por cima, e apaga de
+ * novo (Paulo, 26/11/2026).
  * Durante a rodada segura a tela acesa (sem protetor por cima e sem o "desligar sem uso"). Se alguém apertar uma
  * tecla no meio, para na hora e deixa a TV acesa.
  */
@@ -97,7 +98,10 @@ object SofyScreenCheckTv {
         val pm = app.getSystemService(android.os.PowerManager::class.java)
         val acendi = pm?.isInteractive == false
         val inicio = android.os.SystemClock.elapsedRealtime()
-        if (acendi && !acender(app, pm)) { Log.w(TAG, "não consegui acender a tela: telas não conferidas"); return }
+        // Véu preto por cima de tudo (Paulo, 26/11/2026): de madrugada a sala não vê as telas passando. É uma janela da
+        // acessibilidade sem foco: a tela de baixo continua ativa e a árvore dela é lida normalmente.
+        val veu = cobrir(s)
+        if (acendi && !acender(app, pm)) { descobrir(veu); Log.w(TAG, "não consegui acender a tela: telas não conferidas"); return }
         // Só tecla do controle conta como "alguém chegou": abrir a nossa tela por cima do protetor já o fecha.
         fun mexeram() = br.paulo.tvlauncher.Rotinas.teclaEm() > inicio
         // Segura a TV acesa até o fim (Paulo, 26/11/2026): nem o protetor por cima, nem o "desligar sem uso" no meio.
@@ -118,12 +122,43 @@ object SofyScreenCheckTv {
             voltar(s)
             parei = parei || mexeram()
             br.paulo.tvlauncher.alarm.AutoDesligar.segurar(0)
+            if (acendi && !parei) Thread.sleep(1_500)   // a home atrás do véu antes de apagar (não pisca a cruz)
+            descobrir(veu)
             runCatching { if (acesa?.isHeld == true) acesa.release() }
             if (acendi && !parei) br.paulo.tvlauncher.Rotinas.desligar(app)
         }
         Log.i(TAG, "li ${lidas.size} de ${lista.size} telas" + (if (acendi) " (acendi a tela)" else "") + (if (parei) "; alguém mexeu: parei" else ""))
         if (lidas.size < lista.size && !parei) ObserverTv.logShadow(app, "self_defect", "conferência de telas: li ${lidas.size} de ${lista.size}")
         for (t in lidas) runCatching { analisar(app, t) }.onFailure { Log.w(TAG, "${t.nome}: $it") }
+    }
+
+    private val principal = android.os.Handler(android.os.Looper.getMainLooper())
+
+    /** Põe o véu preto e espera ele estar na tela (até 2 s). null = não deu (segue sem véu). */
+    private fun cobrir(s: AutorizaShizukuService): android.view.View? {
+        val pronto = java.util.concurrent.CountDownLatch(1)
+        var v: android.view.View? = null
+        principal.post {
+            runCatching {
+                val p = android.view.WindowManager.LayoutParams(
+                    android.view.WindowManager.LayoutParams.MATCH_PARENT, android.view.WindowManager.LayoutParams.MATCH_PARENT,
+                    android.view.WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY,
+                    android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or android.view.WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
+                        android.view.WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
+                    android.graphics.PixelFormat.OPAQUE)
+                val preto = android.view.View(s).apply { setBackgroundColor(android.graphics.Color.BLACK); importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO }
+                s.getSystemService(android.view.WindowManager::class.java).addView(preto, p)
+                v = preto
+            }.onFailure { Log.w(TAG, "véu: $it") }
+            pronto.countDown()
+        }
+        pronto.await(2, java.util.concurrent.TimeUnit.SECONDS)
+        return v
+    }
+
+    private fun descobrir(v: android.view.View?) {
+        v ?: return
+        principal.post { runCatching { v.context.getSystemService(android.view.WindowManager::class.java).removeView(v) } }
     }
 
     /** Acende a tela pela tela invisível das rotinas (o mesmo caminho do despertador) e espera ela acender. */
