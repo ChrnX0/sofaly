@@ -79,6 +79,12 @@ class SofyBenchTest {
         assertEquals(listOf(1, 1, 1, 1), listOf(s.tp, s.fp, s.fn, s.tn))
     }
 
+    @Test fun sinalDeTesteNaoViraIssue() {
+        val base = br.paulo.tvlauncher.observer.SofyRepair.Case("ERROR:x", br.paulo.tvlauncher.observer.SofyRepair.Type.ERROR, "x", emptySet(), 0, 0, 1)
+        assertEquals("self_defect", br.paulo.tvlauncher.observer.SofyRepair.defectLog(base))
+        assertEquals("test_defect", br.paulo.tvlauncher.observer.SofyRepair.defectLog(base.copy(detail = "[teste] pelo adb")))
+    }
+
     @Test fun linhaNaoLevaTexto() {
         val l = SofyBench.line(SofyBench.Task.REPAIR, "claude-haiku-5-5", "", "r01", 1, 200, 1500, 600, 200, 0, "end_turn", "valid=1")
         assertEquals("B task=REPAIR model=claude-haiku-5-5 eff=- item=r01 rep=1 http=200 ms=1500 in=600 out=200 cache=0 stop=end_turn valid=1", l)

@@ -276,7 +276,8 @@ object ComandosExtras {
             val t = br.paulo.tvlauncher.observer.SofyRepair.Type.entries.firstOrNull { it.name == i.getStringExtra("type") }
             val sub = i.getStringExtra("subject")
             if (t == null || sub.isNullOrBlank()) "use --es type <TIPO> --es subject <assunto>"
-            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, i.getStringExtra("detail")?.take(160) ?: "teste pelo adb"); "sinal ${t.name} $sub" }
+            else { br.paulo.tvlauncher.observer.SofyRepairTv.signal(ctx, t, sub, br.paulo.tvlauncher.observer.SofyRepair.TEST_MARK + " " +
+                (i.getStringExtra("detail")?.take(150) ?: "pelo adb")); "sinal ${t.name} $sub (teste)" }
         }
         // A IA do dono: `sofy_ai` = o estado (sem a chave); `sofy_ai --es provider claude|openai|perplexity|gemini|groq|
         // openrouter|custom [--es base http://192.168.x.x:11434/v1] [--es model nome] [--es key CHAVE]` grava; `sofy_ai_test` testa.

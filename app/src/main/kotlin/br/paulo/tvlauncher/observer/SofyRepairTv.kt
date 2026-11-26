@@ -302,7 +302,7 @@ object SofyRepairTv {
             val t = c.takeIf { it.state == SofyRepair.State.OPEN }?.let { SofyRepair.looping(it, now) } ?: return@map c
             Log.w(TAG, "laço: ${c.subject} com ${t.name}; troca de estratégia")
             ObserverTv.logShadow(app, "repair_loop", "${c.type.name} ${c.subject}: ${t.name.lowercase()}")
-            ObserverTv.logShadow(app, "self_defect", "REPAIR_LOOP: ${SofyRepair.brief(c)}")
+            ObserverTv.logShadow(app, SofyRepair.defectLog(c), "REPAIR_LOOP: ${SofyRepair.brief(c)}")
             SofyRepair.onLoop(c, t, now)
         }
         saveLearned(app, learned)
@@ -317,7 +317,9 @@ object SofyRepairTv {
         if (SofyRepair.guardTripped(e) && now - p.getLong("guard_tripped_at", 0L) > SofyRepair.HOUR) {
             p.edit().putLong("guard_tripped_at", now).apply()
             Log.w(TAG, "trava contra laço disparou: ${e.toolsLastHour} ferramentas na última hora")
-            ObserverTv.logShadow(app, "self_defect", "REPAIR_LOOP_GUARD: ${e.toolsLastHour} ferramentas na última hora")
+            val abertos = cases.filter { it.state == SofyRepair.State.OPEN }
+            val log = if (abertos.isNotEmpty() && abertos.all { SofyRepair.isTest(it) }) "test_defect" else "self_defect"
+            ObserverTv.logShadow(app, log, "REPAIR_LOOP_GUARD: ${e.toolsLastHour} ferramentas na última hora")
         }
         // Acesso e permissão primeiro: são a causa de muita coisa (sem shell, metade das ferramentas não roda).
         val ordem = cases.filter { it.state == SofyRepair.State.OPEN }
@@ -411,7 +413,7 @@ object SofyRepairTv {
             }
             Tool.REPORT -> {
                 // Vira issue pela tarefa diária, que lê o registro "observer" (mesmo caminho do autoexame).
-                ObserverTv.logShadow(app, "self_defect", "REPAIR_${c.type.name}: ${SofyRepair.brief(c)}")
+                ObserverTv.logShadow(app, SofyRepair.defectLog(c), "REPAIR_${c.type.name}: ${SofyRepair.brief(c)}")
                 SofyBusTv.emit(app, SofyBus.Source.SOFY, "repair_gave_up", ok = false, detail = "${c.type.name.lowercase()} ${c.subject}")
                 true
             }
