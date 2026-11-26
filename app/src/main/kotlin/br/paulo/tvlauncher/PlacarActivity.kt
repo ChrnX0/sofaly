@@ -45,7 +45,7 @@ class PlacarActivity : Activity() {
         }
         raiz.addView(Estilo.tituloTela(this, getString(R.string.elv_placar_titulo)))
         raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.elv_placar_sub)).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f); setPaddingRelative(0, dp(6), 0, 0)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setPaddingRelative(0, dp(6), 0, 0)
         })
         lista = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false }
         raiz.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(lista) },
@@ -137,7 +137,7 @@ class PlacarActivity : Activity() {
             null -> Triple("—", "", Estilo.TEXTO_3)
         }
         val tTitulo = Estilo.texto(this, Estilo.Papel.CORPO, titulo).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f) }
-        val tDetalhe = Estilo.texto(this, Estilo.Papel.LEGENDA, detalhe).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f); setPaddingRelative(0, dp(4), 0, 0) }
+        val tDetalhe = Estilo.texto(this, Estilo.Papel.LEGENDA, detalhe).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setPaddingRelative(0, dp(4), 0, 0) }
         val tMedida = Estilo.texto(this, Estilo.Papel.CORPO, medida).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setPaddingRelative(0, dp(6), 0, 0) }
         val tSinal = TextView(this).apply {
             text = if (palavra.isEmpty()) sinal else "$sinal  $palavra"

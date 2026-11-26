@@ -206,7 +206,7 @@ class DiagnosticoActivity : Activity() {
         }
         raiz.addView(Estilo.tituloTela(this, titulo))
         raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA).apply { text = getString(R.string.diag_rodape, subtitulo) })
-        val corpo = texto(15f, textoClaro, Typeface.MONOSPACE).apply { text = conteudo; setPaddingRelative(dp(8), dp(8), dp(8), dp(8)) }
+        val corpo = texto(18f, textoClaro, Typeface.MONOSPACE).apply { text = conteudo; setPaddingRelative(dp(8), dp(8), dp(8), dp(8)) }
         val rolagem = ScrollView(this).apply { isFocusable = true; addView(corpo) }
         raiz.addView(rolagem, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(16) })
         noDetalhe = true
@@ -235,7 +235,7 @@ class DiagnosticoActivity : Activity() {
         }
         raiz.addView(Estilo.tituloTela(this, nome))
         raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA).apply { text = getString(R.string.diag_rodape, pacote) })
-        val corpo = texto(15f, textoClaro, Typeface.MONOSPACE).apply { text = sb; setPaddingRelative(dp(8), dp(8), dp(8), dp(8)) }
+        val corpo = texto(18f, textoClaro, Typeface.MONOSPACE).apply { text = sb; setPaddingRelative(dp(8), dp(8), dp(8), dp(8)) }
         val rolagem = ScrollView(this).apply {
             isFocusable = true
             isVerticalScrollBarEnabled = true

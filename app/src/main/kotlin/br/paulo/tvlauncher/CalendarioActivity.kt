@@ -90,7 +90,7 @@ class CalendarioActivity : Activity() {
         val colunaMes = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         tituloMes = Estilo.tituloTela(this, "")
         colunaMes.addView(tituloMes)
-        colunaMes.addView(texto(15f, textoSuave).apply {
+        colunaMes.addView(texto(18f, textoSuave).apply {
             text = (if (contas.size > 1) getString(R.string.cal_todas_contas, contas.size) else contas.firstOrNull() ?: getString(R.string.cal_sem_conta)) + "\n" + getString(R.string.cal_dica)
             setPaddingRelative(0, dp(4), 0, dp(18))
         })
@@ -101,7 +101,7 @@ class CalendarioActivity : Activity() {
         // Coluna dos eventos: colunas 7-12.
         val colunaEventos = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         colunaEventos.addView(Estilo.secao(this, getString(R.string.cal_30)).apply { setPaddingRelative(0, dp(12), 0, dp(4)) })
-        aviso = texto(15f, textoSuave).apply { setPaddingRelative(0, dp(8), 0, 0) }
+        aviso = texto(18f, textoSuave).apply { setPaddingRelative(0, dp(8), 0, 0) }
         colunaEventos.addView(aviso)
         listaEventos = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         colunaEventos.addView(ScrollView(this).apply {
@@ -183,7 +183,7 @@ class CalendarioActivity : Activity() {
                 addView(android.view.View(this@CalendarioActivity).apply {
                     background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(e.cor) }
                 }, LinearLayout.LayoutParams(dp(10), dp(10)).apply { marginEnd = dp(12) })
-                addView(texto(16f, textoSuave).apply {
+                addView(texto(18f, textoSuave).apply {
                     text = when {
                         e.diaInteiro -> getString(R.string.cal_dia_todo)
                         // Lembrete sem duração (visto na TV, 12/11: "20:00–20:00"): só a hora.
@@ -191,7 +191,7 @@ class CalendarioActivity : Activity() {
                         else -> fmtHora.format(e.inicio) + "–" + fmtHora.format(e.fim)
                     }
                 }, LinearLayout.LayoutParams(dp(132), ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginEnd = dp(12) })
-                addView(texto(17f, textoClaro).apply { text = e.titulo; maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END },
+                addView(texto(18f, textoClaro).apply { text = e.titulo; maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END },
                     LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             })
         }
@@ -223,7 +223,7 @@ class CalendarioActivity : Activity() {
 
     private fun celula(rotulo: String, cor: Int, hoje: Boolean, comEvento: Boolean, lado: Int) = FrameLayout(this).apply {
         layoutParams = GridLayout.LayoutParams().apply { width = lado; height = lado }
-        addView(texto(17f, cor, if (hoje) fonteMedia else null).apply {
+        addView(texto(18f, cor, if (hoje) fonteMedia else null).apply {
             text = rotulo
             gravity = Gravity.CENTER
             if (hoje) background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(destaque) }

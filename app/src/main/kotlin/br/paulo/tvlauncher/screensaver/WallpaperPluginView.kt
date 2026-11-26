@@ -89,7 +89,7 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
             background = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(0x99000000.toInt(), 0x00000000))
         }, LayoutParams(-1, dp(120), Gravity.BOTTOM))
         credito = TextView(ctx).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f)
+            setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f)
             setTextColor(0xCCF2EDE4.toInt())
             typeface = Fontes.nunito(500)
             maxLines = 1
