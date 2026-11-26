@@ -50,6 +50,10 @@ that read sources find files with `CodeSource.file(name)`. Background work goes 
   publish there, and the "Repo publico" workflow mirrors `site/`, `comunidade/`, `publico/`, screenshots and a code-free
   README to it (Pages, `volta.html`, raw `comunidade/` keep their URLs). Nothing else from this repo goes public.
 - The signing key and its password never go into git, issues or logs.
+- **No AI marks in new commits, PRs or branches** (Paulo, 26/11/2026; `.claude/settings.json` has
+  `includeCoAuthoredBy: false` and empty `attribution`): no `Co-Authored-By: Claude` or `Claude-Session` trailers, no
+  "Generated with Claude Code" footer in PRs, no `claude/` branch prefix where the tool lets you pick the name; PRs in the
+  name of the ChrnX0 account when possible. Never rewrite history or force-push to remove old marks.
 - No personal data in the repo (city, coordinates, IPs, names, account ids). Per-owner build values go in
   `pessoal.properties` (git-ignored; template `pessoal.properties.exemplo`) and reach the code via `BuildConfig`.
 - Before touching a real TV, check it is idle (`dumpsys power`, `topResumedActivity`): people may be watching.
