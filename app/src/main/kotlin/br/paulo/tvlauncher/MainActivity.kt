@@ -100,6 +100,7 @@ import br.paulo.tvlauncher.home.recongelarPendentes
 import br.paulo.tvlauncher.home.sairAmbiente
 import br.paulo.tvlauncher.home.talvezPerguntarQuemVe
 import br.paulo.tvlauncher.home.teclaDoAmbiente
+import br.paulo.tvlauncher.home.voltarDuplo
 import br.paulo.tvlauncher.home.vigiarTela
 import br.paulo.tvlauncher.listen.BarrasSom
 import br.paulo.tvlauncher.listen.OuvirEstado
