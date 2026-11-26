@@ -33,7 +33,7 @@
 name: Build e Release
 
 on:
-  # Economia de minutos (26/11/2026, repo privado): PR em RASCUNHO não roda. Roda quando o PR sai do rascunho
+  # Economia de minutos (26/11/2026), SÓ COM O REPO PRIVADO (público = Actions grátis = roda tudo): PR em RASCUNHO não roda. Roda quando o PR sai do rascunho
   # (ready_for_review), em cada push depois disso, e no push para a main (o merge confere a main de verdade; não publica).
   # Rascunho que precisa do teste pesado: etiqueta "run-ci" no PR (roda a cada push enquanto ela estiver lá) ou
   # Actions > "Build e Release" > Run workflow na branch (fora da main só compila e testa; nunca publica).
@@ -105,8 +105,11 @@ concurrency:
 jobs:
   build:
     # Rascunho não roda (ver "on:"), salvo com a etiqueta run-ci. Etiqueta qualquer outra não dispara nada.
+    # Repo PÚBLICO (Actions grátis): roda tudo, sem trava (Paulo, 25/11/2026). A trava do rascunho só liga sozinha
+    # quando o repo fica privado (Actions cobrado).
     if: >-
       github.event_name != 'pull_request' ||
+      !github.event.repository.private ||
       (github.event.action != 'labeled' || github.event.label.name == 'run-ci') &&
       (!github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'run-ci'))
     concurrency:

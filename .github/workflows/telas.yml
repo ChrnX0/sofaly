@@ -42,8 +42,11 @@ permissions:
 
 jobs:
   telas:
+    # Repo PÚBLICO (Actions grátis): roda tudo, sem trava (Paulo, 25/11/2026). A trava do rascunho só liga sozinha
+    # quando o repo fica privado (Actions cobrado).
     if: >-
       github.event_name != 'pull_request' ||
+      !github.event.repository.private ||
       (github.event.action != 'labeled' || github.event.label.name == 'run-ci') &&
       (!github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'run-ci'))
     # No job (não no workflow): execução pulada não entra no grupo, então não cancela uma de verdade.

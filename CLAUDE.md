@@ -41,7 +41,7 @@ that read sources find files with `CodeSource.file(name)`. Background work goes 
   `python3 scripts/readme.py`: the README feature list, "What changed", the Release notes and the CHANGELOG come from
   that file and from the website's feature list (`website/features.json` + `content/en.json`); the workflow refuses to
   publish when they are stale. README pictures: `node scripts/readme-images.js` (source `docs/readme/art.html`).
-  Pull requests compile + test (and cost CI minutes), but a DRAFT PR runs nothing (26/11/2026, private repo): CI runs
+  Pull requests compile + test (and cost CI minutes), but once the repo is PRIVATE (paid Actions) a DRAFT PR runs nothing (26/11/2026; while public, Actions are free and every PR runs, no limits — Paulo): CI runs
   when the PR leaves draft, on each push after that and on push to `main`. Need CI on a draft? Add the label `run-ci`
   (runs on every push while it is there) or run the workflow by hand on the branch. Changes only in `docs/`, `*.md` or
   `website/` skip Build/Telas; `res/values*.xml` is code. Batch commits; `[skip ci]` only for pure .md/doc commits.

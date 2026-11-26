@@ -29,6 +29,9 @@ O cancelamento do push anterior devolve parte disso (não medido ainda: medir no
 
 ## Rascunho não roda (26/11/2026, repo privado)
 
+**Só vale com o repo privado.** Enquanto for público, o Actions é grátis e o PR em rascunho roda tudo (decisão do Paulo,
+25/11/2026 23:29 BRT): o `if` olha `github.event.repository.private` e a trava liga sozinha quando o repo fechar.
+
 O que mudou: "Build e Release" (`release.yml`) e "Telas" (`telas.yml`) **não rodam em PR em rascunho**. Rodam quando o
 PR sai do rascunho (`ready_for_review`), a cada push depois disso, no push para a `main` (compila e testa; não publica)
 e à mão. Rascunho que precisa do teste pesado: etiqueta **`run-ci`** no PR, ou "Run workflow" na branch. O cancelamento
