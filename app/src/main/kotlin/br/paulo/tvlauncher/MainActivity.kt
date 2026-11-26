@@ -1023,7 +1023,8 @@ class MainActivity : Activity() {
         val camera = br.paulo.tvlauncher.settings.BackgroundStyle.camera(this).takeIf { it.isNotEmpty() && CasaHA.configurado(this) }
         // Barra única (24/11/2026): a foto escolhida (Vale de fábrica) no lugar do fundo do tema; "do tema" = null.
         val fotoDaBarra = br.paulo.tvlauncher.home.StripBackground.choice(this)
-            .takeIf { br.paulo.tvlauncher.home.BottomBar.strip(this) && it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME }
+            .takeIf { (br.paulo.tvlauncher.home.BottomBar.strip(this) || br.paulo.tvlauncher.home.BottomBar.rows(this)) &&
+                it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME }   // Fileiras: foto de fundo como o Projectivy
         val vivo = if (br.paulo.tvlauncher.settings.BackgroundStyle.tint(this) == br.paulo.tvlauncher.settings.BackgroundStyle.Tint.SOLID)
             br.paulo.tvlauncher.settings.BackgroundStyle.solido(this)
         else (if (camera != null) br.paulo.tvlauncher.home.CameraBackground(this, camera) { bloco -> rede.execute { bloco() } }
