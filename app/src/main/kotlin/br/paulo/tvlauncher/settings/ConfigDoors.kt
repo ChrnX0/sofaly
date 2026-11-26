@@ -72,11 +72,13 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
     val uso = UsoTv.atual(this)
 
     // Busca e Simples/Completo numa linha só, em cima (Ajustes do Apple Watch e Reddit no Mobbin: a busca vem antes de tudo).
-    val topo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
+    // Guiado: a coluna da lista tem 400 dp e as duas pílulas lado a lado não cabem ("Modo: Completo" quebrava e cortava,
+    // teste de telas 26/11/2026): uma embaixo da outra.
+    val topo = LinearLayout(this).apply { orientation = if (guiado) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
     topo.addView(Estilo.pilula(this).apply {
         addView(Estilo.texto(context, Estilo.Papel.CORPO, "⌕  " + getString(R.string.elv_aj_buscar)).apply { maxLines = 1 })
         setOnClickListener { abrirBuscaDasPortas() }
-    }, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E2) })
+    }, LinearLayout.LayoutParams(WRAP, WRAP).apply { if (guiado) bottomMargin = dp(Estilo.E1) else marginEnd = dp(Estilo.E2) })
     // Simples / Completo (proposta E), à vista: a mesma escolha de Sistema > "Como esta TV é usada".
     topo.addView(Estilo.pilula(this).apply {
         addView(Estilo.texto(context, Estilo.Papel.CORPO, getString(R.string.cfg3_modo, nomeUso(uso))).apply { maxLines = 1 })
