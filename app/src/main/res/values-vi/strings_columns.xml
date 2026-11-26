@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Bây giờ</string>
+    <string name="col_filter_on">Bộ lọc đang bật</string>
+    <string name="col_filter_off">Bộ lọc ban đêm đang tắt</string>
+    <string name="col_filter_at">Bật lúc %1$s</string>
+    <string name="col_filter_body">Làm màn hình ấm và tối hơn từ %1$s đến %2$s, cường độ %3$d%%.</string>
+    <string name="col_sleep_off">Giờ đi ngủ đang tắt</string>
+    <string name="col_sleep_now">Đang là giờ đi ngủ</string>
+    <string name="col_sleep_at">Bắt đầu lúc %1$s</string>
+    <string name="col_sleep_body">Từ %1$s đến %2$s chỉ mở các ứng dụng được phép và âm lượng không quá %3$d%%.</string>
+    <string name="col_screen_off">Thời gian sử dụng đang tắt</string>
+    <string name="col_screen_left">Còn %1$s hôm nay</string>
+    <string name="col_screen_body">Khi hết thời gian trong ngày, TV quay về màn hình chính.</string>
+    <string name="col_screen_daily">Thời gian mỗi ngày</string>
+    <string name="col_changes">Những gì thay đổi</string>
+</resources>

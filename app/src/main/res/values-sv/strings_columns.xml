@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Nu</string>
+    <string name="col_filter_on">Filtret är på nu</string>
+    <string name="col_filter_off">Nattfiltret är av</string>
+    <string name="col_filter_at">Slås på %1$s</string>
+    <string name="col_filter_body">Gör skärmen varmare och mörkare från %1$s till %2$s, med %3$d%% styrka.</string>
+    <string name="col_sleep_off">Läggdags är av</string>
+    <string name="col_sleep_now">Läggdags nu</string>
+    <string name="col_sleep_at">Börjar %1$s</string>
+    <string name="col_sleep_body">Från %1$s till %2$s öppnas bara tillåtna appar och volymen stannar på högst %3$d%%.</string>
+    <string name="col_screen_off">Skärmtid är av</string>
+    <string name="col_screen_left">%1$s kvar i dag</string>
+    <string name="col_screen_body">När dagens tid tar slut går tv:n tillbaka till startskärmen.</string>
+    <string name="col_screen_daily">Tid per dag</string>
+    <string name="col_changes">Vad som ändras</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Sekarang</string>
+    <string name="col_filter_on">Filter menyala sekarang</string>
+    <string name="col_filter_off">Filter malam mati</string>
+    <string name="col_filter_at">Menyala pukul %1$s</string>
+    <string name="col_filter_body">Menghangatkan dan meredupkan layar dari %1$s sampai %2$s, kekuatan %3$d%%.</string>
+    <string name="col_sleep_off">Waktu tidur mati</string>
+    <string name="col_sleep_now">Sekarang waktu tidur</string>
+    <string name="col_sleep_at">Mulai pukul %1$s</string>
+    <string name="col_sleep_body">Dari %1$s sampai %2$s hanya aplikasi yang diizinkan yang terbuka dan volume tidak lebih dari %3$d%%.</string>
+    <string name="col_screen_off">Waktu layar mati</string>
+    <string name="col_screen_left">Sisa %1$s hari ini</string>
+    <string name="col_screen_body">Saat waktu hari ini habis, TV kembali ke layar utama.</string>
+    <string name="col_screen_daily">Waktu per hari</string>
+    <string name="col_changes">Yang berubah</string>
+</resources>

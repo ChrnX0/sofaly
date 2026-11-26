@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">今</string>
+    <string name="col_filter_on">フィルターがオン</string>
+    <string name="col_filter_off">夜間フィルターはオフ</string>
+    <string name="col_filter_at">%1$sにオン</string>
+    <string name="col_filter_body">%1$sから%2$sまで画面を暖かく暗くします(強さ%3$d%%)。</string>
+    <string name="col_sleep_off">おやすみ時間はオフ</string>
+    <string name="col_sleep_now">今はおやすみ時間</string>
+    <string name="col_sleep_at">%1$sに開始</string>
+    <string name="col_sleep_body">%1$sから%2$sまでは許可したアプリだけが開き、音量は%3$d%%までです。</string>
+    <string name="col_screen_off">スクリーンタイムはオフ</string>
+    <string name="col_screen_left">今日の残り%1$s</string>
+    <string name="col_screen_body">今日の時間が終わると、テレビはホーム画面に戻ります。</string>
+    <string name="col_screen_daily">1日の時間</string>
+    <string name="col_changes">変わること</string>
+</resources>

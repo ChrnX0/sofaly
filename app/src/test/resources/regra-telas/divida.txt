@@ -141,8 +141,6 @@ PedidoShizukuActivity.kt dicas 1
 PedidoShizukuActivity.kt letra 3
 PedidoShizukuActivity.kt titulo 1
 Perfil.kt cor 6
-PlacarActivity.kt dicas 1
-PlacarActivity.kt letra 5
 PlayerAcessivel.kt cor 3
 PlayerActivity.kt dicas 1
 PlayerActivity.kt letra 4

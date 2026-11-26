@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">अभी</string>
+    <string name="col_filter_on">फ़िल्टर अभी चालू है</string>
+    <string name="col_filter_off">नाइट फ़िल्टर बंद है</string>
+    <string name="col_filter_at">%1$s बजे चालू होगा</string>
+    <string name="col_filter_body">%1$s से %2$s तक स्क्रीन को गर्म और धीमा करता है, %3$d%% शक्ति पर।</string>
+    <string name="col_sleep_off">सोने का समय बंद है</string>
+    <string name="col_sleep_now">अभी सोने का समय</string>
+    <string name="col_sleep_at">%1$s बजे शुरू</string>
+    <string name="col_sleep_body">%1$s से %2$s तक सिर्फ़ अनुमति वाले ऐप खुलते हैं और आवाज़ %3$d%% से ऊपर नहीं जाती।</string>
+    <string name="col_screen_off">स्क्रीन टाइम बंद है</string>
+    <string name="col_screen_left">आज %1$s बाकी</string>
+    <string name="col_screen_body">आज का समय खत्म होने पर टीवी होम स्क्रीन पर लौट आता है।</string>
+    <string name="col_screen_daily">रोज़ का समय</string>
+    <string name="col_changes">क्या बदलेगा</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">지금</string>
+    <string name="col_filter_on">지금 필터 켜짐</string>
+    <string name="col_filter_off">야간 필터 꺼짐</string>
+    <string name="col_filter_at">%1$s에 켜짐</string>
+    <string name="col_filter_body">%1$s부터 %2$s까지 화면을 따뜻하고 어둡게 합니다(강도 %3$d%%).</string>
+    <string name="col_sleep_off">취침 시간 꺼짐</string>
+    <string name="col_sleep_now">지금 취침 시간</string>
+    <string name="col_sleep_at">%1$s에 시작</string>
+    <string name="col_sleep_body">%1$s부터 %2$s까지 허용된 앱만 열리고 볼륨은 %3$d%%를 넘지 않습니다.</string>
+    <string name="col_screen_off">스크린 타임 꺼짐</string>
+    <string name="col_screen_left">오늘 %1$s 남음</string>
+    <string name="col_screen_body">오늘 시간이 다 되면 TV가 홈 화면으로 돌아갑니다.</string>
+    <string name="col_screen_daily">하루 시간</string>
+    <string name="col_changes">바뀌는 것</string>
+</resources>
