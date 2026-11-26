@@ -111,7 +111,7 @@ class AddonsActivity : Activity() {
         }
         trilha = Estilo.texto(this, Estilo.Papel.SECAO).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.START; visibility = View.GONE }
         titulo = Estilo.tituloTela(this, getString(R.string.ad_titulo)).apply { setPaddingRelative(0, dp(4), 0, 0) }
-        aviso = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.E2)); textSize = 15f }
+        aviso = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.E2)); textSize = 18f }
         lista = ListView(this).apply {
             divider = null; dividerHeight = dp(6); isVerticalScrollBarEnabled = false; itemsCanFocus = false
             selector = android.graphics.drawable.ColorDrawable(Color.TRANSPARENT)

@@ -584,7 +584,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         }
         moldura.addView(etiqueta, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply { setMargins(dp(5), 0, 0, dp(5)) })
         val estrela = TextView(this).apply {
-            text = "★"; textSize = 15f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
+            text = "★"; textSize = 18f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
             background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0xD9141413.toInt()) }
         }
         moldura.addView(estrela, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.END).apply { setMargins(0, dp(5), dp(5), 0) })

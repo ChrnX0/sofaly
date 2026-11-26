@@ -487,7 +487,7 @@ class CasaActivity : Activity() {
             addView(icone, FrameLayout.LayoutParams(dp(18), dp(18), Gravity.CENTER))
         }
         private val nomeTv = Estilo.texto(this@CasaActivity, Estilo.Papel.CORPO, nome).apply {
-            textSize = 15f; maxLines = 2; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
+            textSize = 18f; maxLines = 2; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
         }
         private val estadoTv = Estilo.texto(this@CasaActivity, Estilo.Papel.LEGENDA, "").apply {
             textSize = Estilo.Papel.LEGENDA.sp; typeface = Estilo.fonte(500); maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false

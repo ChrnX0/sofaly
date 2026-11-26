@@ -242,7 +242,7 @@ object AvisoTv {
             addView(msg)
             // A dica do "❤ Vi" em letra maior que o recado: é para quem está no sofá enxergar o que fazer.
             if (vistoId != null) addView(Estilo.texto(svc, Estilo.Papel.CORPO, svc.getString(R.string.famc_ok_vi)).apply {
-                textSize = 15f; typeface = Estilo.fonte(700); setTextColor(Estilo.ACENTO)
+                textSize = 18f; typeface = Estilo.fonte(700); setTextColor(Estilo.ACENTO)
             }, LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply { topMargin = Estilo.dp(svc, 8) })
             if (imagem != null) addView(android.widget.ImageView(svc).apply {
                 setImageBitmap(imagem); adjustViewBounds = true

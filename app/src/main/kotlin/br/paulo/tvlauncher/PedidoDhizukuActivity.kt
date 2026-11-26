@@ -91,7 +91,7 @@ class PedidoDhizukuActivity : Activity() {
             })
             addView(TextView(this@PedidoDhizukuActivity).apply {
                 text = getString(R.string.emd_pedido_texto)
-                setTextColor(0xCCFFFFFF.toInt()); textSize = 16f; gravity = Gravity.CENTER
+                setTextColor(0xCCFFFFFF.toInt()); textSize = 18f; gravity = Gravity.CENTER
                 typeface = Fontes.ui(this@PedidoDhizukuActivity, tema)
             }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 topMargin = dp(10); bottomMargin = dp(22)

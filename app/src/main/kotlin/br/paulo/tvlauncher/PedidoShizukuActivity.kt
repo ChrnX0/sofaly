@@ -114,7 +114,7 @@ class PedidoShizukuActivity : Activity() {
             addView(TextView(this@PedidoShizukuActivity).apply {
                 text = getString(R.string.emp_pedido_texto)
                 setTextColor(0xCCFFFFFF.toInt())
-                textSize = 16f
+                textSize = 18f
                 gravity = Gravity.CENTER
                 typeface = Fontes.ui(this@PedidoShizukuActivity, tema)
             }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {

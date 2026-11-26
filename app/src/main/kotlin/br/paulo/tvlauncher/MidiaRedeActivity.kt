@@ -159,7 +159,7 @@ class MidiaRedeActivity : Activity() {
         }
         trilha = Estilo.texto(this, Estilo.Papel.SECAO).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.START; visibility = View.GONE }
         titulo = Estilo.tituloTela(this, getString(R.string.rede_titulo)).apply { setPaddingRelative(0, dp(4), 0, 0) }
-        aviso = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.E2)); textSize = 15f }
+        aviso = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.E2)); textSize = 18f }
         lista = ListView(this).apply {
             divider = null; dividerHeight = dp(6); isVerticalScrollBarEnabled = false; itemsCanFocus = false
             selector = android.graphics.drawable.ColorDrawable(Color.TRANSPARENT)
@@ -1081,7 +1081,7 @@ class MidiaRedeActivity : Activity() {
             p.addView(Estilo.texto(this, Estilo.Papel.TITULO, getString(R.string.rede_plex_titulo)).apply { textSize = 22f })
             val corpo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(0, dp(Estilo.E2), 0, 0) }
             val esquerda = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_plex_explica)).apply { setLineSpacing(0f, 1.25f); textSize = 15f })
+            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_plex_explica)).apply { setLineSpacing(0f, 1.25f); textSize = 18f })
             codigoTv = Estilo.texto(this, Estilo.Papel.DISPLAY, "····").apply { letterSpacing = 0.25f; setPaddingRelative(0, dp(Estilo.E2), 0, dp(Estilo.E1)) }
             esquerda.addView(codigoTv)
             estado = Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_plex_pedindo))
@@ -1184,7 +1184,7 @@ class MidiaRedeActivity : Activity() {
             p.addView(Estilo.texto(this, Estilo.Papel.TITULO, "OneDrive").apply { textSize = 22f })
             val corpo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(0, dp(Estilo.E2), 0, 0) }
             val esquerda = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_od_codigo_explica)).apply { setLineSpacing(0f, 1.25f); textSize = 15f })
+            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_od_codigo_explica)).apply { setLineSpacing(0f, 1.25f); textSize = 18f })
             codigoTv = Estilo.texto(this, Estilo.Papel.DISPLAY, "····").apply { letterSpacing = 0.2f; setPaddingRelative(0, dp(Estilo.E2), 0, dp(Estilo.E1)) }
             esquerda.addView(codigoTv)
             estado = Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_nuvem_pedindo))
@@ -1259,7 +1259,7 @@ class MidiaRedeActivity : Activity() {
             p.addView(Estilo.texto(this, Estilo.Papel.TITULO, "Dropbox").apply { textSize = 22f })
             val corpo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(0, dp(Estilo.E2), 0, 0) }
             val esquerda = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_dbx_codigo_explica)).apply { setLineSpacing(0f, 1.25f); textSize = 15f })
+            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_dbx_codigo_explica)).apply { setLineSpacing(0f, 1.25f); textSize = 18f })
             campo = campoTexto(Campo(getString(R.string.rede_dbx_codigo)))
             esquerda.addView(campo, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E2) })
             estado = Estilo.texto(this, Estilo.Papel.LEGENDA, "").apply { setPaddingRelative(0, dp(Estilo.E1), 0, 0) }
@@ -1363,7 +1363,7 @@ class MidiaRedeActivity : Activity() {
             p.addView(Estilo.texto(this, Estilo.Papel.TITULO, servico).apply { textSize = 22f })
             val corpo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(0, dp(Estilo.E2), 0, 0) }
             val esquerda = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, explica).apply { setLineSpacing(0f, 1.25f); textSize = 15f })
+            esquerda.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, explica).apply { setLineSpacing(0f, 1.25f); textSize = 18f })
             estado = Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.rede_nuvem_esperando)).apply { setPaddingRelative(0, dp(Estilo.E2), 0, 0) }
             esquerda.addView(estado)
             corpo.addView(esquerda, LinearLayout.LayoutParams(0, -2, 1f))

@@ -794,7 +794,7 @@ object Estilo {
                 LinearLayout.LayoutParams(-2, -2).apply { bottomMargin = dp(ctx, E1) })
             addView(texto(ctx, Papel.TITULO, titulo).apply { textSize = 24f; gravity = Gravity.CENTER })
             if (!mensagem.isNullOrEmpty()) addView(texto(ctx, Papel.LEGENDA, mensagem).apply {
-                textSize = 16f; gravity = Gravity.CENTER; setLineSpacing(0f, 1.25f)
+                textSize = 18f; gravity = Gravity.CENTER; setLineSpacing(0f, 1.25f)
             }, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(ctx, E2) })
             addView(LinearLayout(ctx).apply {
                 orientation = LinearLayout.HORIZONTAL

@@ -659,7 +659,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         val moldura = FrameLayout(this)
         moldura.addView(capa, FrameLayout.LayoutParams(-1, -1))
         val estrela = TextView(this).apply {
-            text = "★"; textSize = 15f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
+            text = "★"; textSize = 18f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
             background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0xD9141413.toInt()) }
         }
         moldura.addView(estrela, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.END).apply { setMargins(0, dp(5), dp(5), 0) })
