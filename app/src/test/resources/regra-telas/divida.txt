@@ -197,3 +197,5 @@ VodActivity.kt letra 3
 VodActivity.kt titulo 1
 WallpaperPluginContract.kt cor 3
 WallpaperPluginView.kt letra 1
+# RowsLayer (Fileiras, clone do Projectivy 26/11/2026): fundo grafite dos cards dos nossos itens, medido nas fotos dele
+RowsLayer.kt cor 1

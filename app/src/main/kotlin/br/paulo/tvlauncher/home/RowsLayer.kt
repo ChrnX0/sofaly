@@ -11,7 +11,6 @@ import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.text.TextUtils
-import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.view.animation.PathInterpolator
@@ -83,7 +82,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         anel.alpha = 0f
         addView(anel, LayoutParams(0, 0))
         nome.apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, RowsHome.NOME_SP)
+            Estilo.letraMostrador(this, RowsHome.NOME_SP)
             typeface = Fontes.nunito(ctx, 500)
             setTextColor(DesignTokens.CREAM)
             maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
@@ -112,7 +111,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         topo.addView(pilula, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         hora.apply {
             format12Hour = "hh:mm"; format24Hour = "HH:mm"
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, RowsHome.HORA_SP)
+            Estilo.letraMostrador(this, RowsHome.HORA_SP)
             typeface = Fontes.nunito(ctx, 300)
             setTextColor(0xE6FFFFFF.toInt())
             includeFontPadding = false
@@ -242,7 +241,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     /** Cor do brilho: a do card, clara (Projectivy: "vazio = cor dinâmica do card"); card escuro = creme. */
     private fun corDoBrilho(c: Int): Int {
         val l = (0.299 * ((c shr 16) and 0xFF) + 0.587 * ((c shr 8) and 0xFF) + 0.114 * (c and 0xFF)) / 255.0
-        return if (l < 0.25) 0xE6FFF3E6.toInt() else (mistura(c, 0xFFFFFFFF.toInt(), 0.55f) and 0x00FFFFFF) or (0xE6 shl 24)
+        return if (l < 0.25) 0xE6FFF3E6.toInt() else (mistura(c, DesignTokens.FOCUS, 0.55f) and 0x00FFFFFF) or (0xE6 shl 24)
     }
 
     private var animAtual = RowsHome.GlowAnim.NONE
@@ -309,7 +308,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             if (o.rowIcon) titulo.addView(ImageView(context).apply { setImageDrawable(WorldGlyph(c.cat, DesignTokens.CREAM, 2.2f)) },
                 LinearLayout.LayoutParams(dpi(RowsHome.ICONE_TITULO), dpi(RowsHome.ICONE_TITULO)).apply { marginEnd = dpi(10f) })
             titulo.addView(TextView(context).apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, RowsHome.TITULO_SP); typeface = fonte
+                Estilo.letraMostrador(this, RowsHome.TITULO_SP); typeface = fonte
                 setTextColor(DesignTokens.CREAM); includeFontPadding = false; maxLines = 1; text = c.nome
                 setShadowLayer(dp(6f), 0f, dp(1f), 0x99000000.toInt())
             }, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
@@ -328,7 +327,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val cor = when {
             conteudo -> DesignTokens.NIGHT
             o.cardBg == RowsHome.CardBg.GRAPHITE -> PLACA_PROPRIA
-            o.cardBg == RowsHome.CardBg.BLACK -> 0xFF0E0E0D.toInt()
+            o.cardBg == RowsHome.CardBg.BLACK -> DesignTokens.NIGHT_DEEP
             o.cardBg == RowsHome.CardBg.WHITE -> DesignTokens.PAPER
             o.cardBg == RowsHome.CardBg.ACCENT -> Estilo.ACENTO
             app -> fundoDoIcone(item.icone)
@@ -366,7 +365,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.ACENTO); setStroke(dpi(1.5f), DesignTokens.NIGHT) }
         }, LayoutParams(dpi(11f), dpi(11f), Gravity.TOP or Gravity.END).apply { topMargin = dpi(6f); marginEnd = dpi(6f) })
         val onda = View(context).apply {
-            background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(0xFFFFFFFF.toInt()) }
+            background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(DesignTokens.FOCUS) }
             alpha = 0f
         }
         raiz.addView(onda, LayoutParams(dpi(w), dpi(w), Gravity.CENTER))
