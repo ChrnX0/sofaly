@@ -290,7 +290,17 @@ object ComandosExtras {
         }
         // `screen_review [--es telas previsao,agenda]`: confere agora as telas (revisão da IA + segunda opinião), só com a TV parada.
         "screen_review" -> br.paulo.tvlauncher.observer.SofyScreenCheckTv.agora(ctx,
-            i.getStringExtra("telas").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() })
+            i.getStringExtra("telas").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() }, i.getBooleanExtra("capture", false))
+        // Banco de prova dos modelos (Paulo, 26/11/2026): `sofy_bench --es task repair|review|second|real --es models a,b
+        // [--ei reps N] [--es effort low]`; `sofy_bench_status`, `sofy_bench_stop`, `sofy_bench_dump [--ei from N]`,
+        // `sofy_bench_clear`. "real" usa as telas lidas por `screen_review --ez capture true`.
+        "sofy_bench" -> br.paulo.tvlauncher.observer.SofyBenchTv.start(ctx, i.getStringExtra("task").orEmpty(),
+            i.getStringExtra("models").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() }, i.getIntExtra("reps", 1),
+            i.getStringExtra("effort").orEmpty())
+        "sofy_bench_status" -> br.paulo.tvlauncher.observer.SofyBenchTv.status()
+        "sofy_bench_stop" -> br.paulo.tvlauncher.observer.SofyBenchTv.stop()
+        "sofy_bench_dump" -> br.paulo.tvlauncher.observer.SofyBenchTv.dump(ctx, i.getIntExtra("from", 0))
+        "sofy_bench_clear" -> br.paulo.tvlauncher.observer.SofyBenchTv.clear(ctx)
         "sofy_ai_test" -> { val c = ctx.applicationContext; val slot = if (i.getBooleanExtra("backup", false)) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
             br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste${if (slot.isEmpty()) "" else " (reserva)"}: " + br.paulo.tvlauncher.observer.SofyAi.test(c, slot)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
         "community" -> {
