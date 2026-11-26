@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Teď</string>
+    <string name="col_filter_on">Filtr je teď zapnutý</string>
+    <string name="col_filter_off">Noční filtr je vypnutý</string>
+    <string name="col_filter_at">Zapne se v %1$s</string>
+    <string name="col_filter_body">Od %1$s do %2$s dělá obraz teplejší a tmavší, síla %3$d%%.</string>
+    <string name="col_sleep_off">Večerka je vypnutá</string>
+    <string name="col_sleep_now">Teď je večerka</string>
+    <string name="col_sleep_at">Začíná v %1$s</string>
+    <string name="col_sleep_body">Od %1$s do %2$s se otevírají jen povolené aplikace a hlasitost nepřekročí %3$d%%.</string>
+    <string name="col_screen_off">Čas u obrazovky je vypnutý</string>
+    <string name="col_screen_left">Dnes zbývá %1$s</string>
+    <string name="col_screen_body">Když dnešní čas vyprší, televize se vrátí na hlavní obrazovku.</string>
+    <string name="col_screen_daily">Čas za den</string>
+    <string name="col_changes">Co se změní</string>
+</resources>

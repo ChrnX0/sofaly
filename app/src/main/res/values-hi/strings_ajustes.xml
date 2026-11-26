@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">आपका प्लान</string>
     <string name="pl_loja_indisponivel">Google Play ख़रीद नहीं खोल सका। इंटरनेट जाँचें और फिर कोशिश करें।</string>
     <string name="atu_pela_play">अपडेट Google Play से आते हैं।</string>
+    <string name="cfg_sec_tema">थीम और पृष्ठभूमि</string>
+    <string name="cfg_sec_leitura">पढ़ना</string>
+    <string name="cfg_sec_inicio">होम स्क्रीन</string>
 </resources>

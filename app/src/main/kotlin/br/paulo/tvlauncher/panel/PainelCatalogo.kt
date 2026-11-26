@@ -47,7 +47,7 @@ class PainelCatalogo(private val act: Activity) {
     /** A faixa da ficha rápida: caixa um pouco mais clara que o fundo, como o bloco de ações da coluna. */
     val faixa: View = LinearLayout(act).apply {
         orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(18), dp(10), dp(18), dp(11))
-        background = GradientDrawable().apply { cornerRadius = dp(14).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
         addView(info)
     }
 
@@ -82,7 +82,7 @@ class PainelCatalogo(private val act: Activity) {
                 text = t; textSize = PILULA_SP; typeface = Fontes.nunito(600); maxLines = 1
                 setTextColor(if (destaque) Estilo.FUNDO else Estilo.TEXTO)
                 setPaddingRelative(dp(14), dp(5), dp(14), dp(6))
-                background = GradientDrawable().apply { cornerRadius = dp(18).toFloat(); setColor(if (destaque) Estilo.ATENCAO else Estilo.SUPERFICIE_ALTA) }
+                background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (destaque) Estilo.ATENCAO else Estilo.SUPERFICIE_ALTA) }
             }, LinearLayout.LayoutParams(-2, -2).apply { marginEnd = dp(8) })
         }
     }
@@ -112,8 +112,8 @@ class PainelCatalogo(private val act: Activity) {
                 TextView(act).apply {
                     text = letra.toString(); textSize = LETRA_SP; typeface = Fontes.nunito(700); gravity = Gravity.CENTER
                     isFocusable = true; isClickable = true
-                    val normal = GradientDrawable().apply { cornerRadius = dp(12).toFloat(); setColor(Estilo.SUPERFICIE_ALTA) }
-                    val foco = GradientDrawable().apply { cornerRadius = dp(12).toFloat(); setColor(Estilo.FOCO) }
+                    val normal = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA) }
+                    val foco = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.FOCO) }
                     background = normal; setTextColor(Estilo.TEXTO)
                     // Foco = branco com letra escura (o mesmo contraste das opções das outras janelas).
                     setOnFocusChangeListener { _, tem -> background = if (tem) foco else normal; setTextColor(if (tem) Estilo.FUNDO else Estilo.TEXTO) }

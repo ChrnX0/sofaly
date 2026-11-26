@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">الآن</string>
+    <string name="col_filter_on">الفلتر يعمل الآن</string>
+    <string name="col_filter_off">الفلتر الليلي متوقف</string>
+    <string name="col_filter_at">يعمل عند %1$s</string>
+    <string name="col_filter_body">يجعل الشاشة أدفأ وأغمق من %1$s إلى %2$s، بقوة %3$d%%.</string>
+    <string name="col_sleep_off">وقت النوم متوقف</string>
+    <string name="col_sleep_now">وقت النوم الآن</string>
+    <string name="col_sleep_at">يبدأ عند %1$s</string>
+    <string name="col_sleep_body">من %1$s إلى %2$s تُفتح التطبيقات المسموح بها فقط ولا يتجاوز الصوت %3$d%%.</string>
+    <string name="col_screen_off">وقت الشاشة متوقف</string>
+    <string name="col_screen_left">متبقٍ اليوم %1$s</string>
+    <string name="col_screen_body">عندما ينتهي وقت اليوم، يعود التلفاز إلى الشاشة الرئيسية.</string>
+    <string name="col_screen_daily">الوقت في اليوم</string>
+    <string name="col_changes">ما الذي سيتغير</string>
+</resources>

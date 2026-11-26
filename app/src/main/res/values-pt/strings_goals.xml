@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Ler melhor</string>
+    <string name="goal_clean">Tela mais limpa</string>
+    <string name="goal_energy">Poupar energia</string>
+    <string name="goal_kids">Proteger crianças</string>
+    <string name="goal_desfazer">%1$s, ligado. OK desfaz</string>
+    <string name="goal_feito">%1$s: pronto. OK de novo desfaz</string>
+    <string name="goal_desfeito">%1$s: desfeito</string>
+</resources>

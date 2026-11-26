@@ -101,7 +101,7 @@ class PedidoShizukuActivity : Activity() {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER_HORIZONTAL
             setPaddingRelative(dp(32), dp(28), dp(32), dp(24))
-            background = GradientDrawable().apply { cornerRadius = dp(22).toFloat(); setColor(0xF01C2024.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xF01C2024.toInt()) }
             addView(ImageView(this@PedidoShizukuActivity).apply { setImageDrawable(ai.loadIcon(packageManager)) },
                 LinearLayout.LayoutParams(dp(64), dp(64)).apply { bottomMargin = dp(14) })
             addView(TextView(this@PedidoShizukuActivity).apply {
@@ -114,7 +114,7 @@ class PedidoShizukuActivity : Activity() {
             addView(TextView(this@PedidoShizukuActivity).apply {
                 text = getString(R.string.emp_pedido_texto)
                 setTextColor(0xCCFFFFFF.toInt())
-                textSize = 16f
+                textSize = 18f
                 gravity = Gravity.CENTER
                 typeface = Fontes.ui(this@PedidoShizukuActivity, tema)
             }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {

@@ -100,6 +100,7 @@ import br.paulo.tvlauncher.home.recongelarPendentes
 import br.paulo.tvlauncher.home.sairAmbiente
 import br.paulo.tvlauncher.home.talvezPerguntarQuemVe
 import br.paulo.tvlauncher.home.teclaDoAmbiente
+import br.paulo.tvlauncher.home.voltarDuplo
 import br.paulo.tvlauncher.home.vigiarTela
 import br.paulo.tvlauncher.listen.BarrasSom
 import br.paulo.tvlauncher.listen.OuvirEstado
@@ -421,11 +422,15 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
         "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
         "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.mode(this)}|" +
-        br.paulo.tvlauncher.home.StripHome.options(this).signature() + "|" + br.paulo.tvlauncher.home.StripBackground.choice(this)   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        br.paulo.tvlauncher.home.StripHome.options(this).signature() + "|" + br.paulo.tvlauncher.home.StripBackground.choice(this) +   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        "|" + br.paulo.tvlauncher.home.RowsHome.options(this).signature()   // Fileiras (26/11/2026)
 
     override fun onResume() {
         super.onResume()
+        desligarPrevia()   // na frente de novo: o onResume abaixo já confere a aparência
         homeNaFrente = true
+        // "Abrir ao ligar" (menu do card, bloco 4 do clone): na 1ª HOME depois de a TV ligar do zero, abre o app escolhido
+        br.paulo.tvlauncher.home.CardMenu.takeBootApp(this)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, br.paulo.tvlauncher.home.CardMenu.delayMs(this)) }
         // O host guarda UMA view por widget: só depois da tela de edição (que cria as dela) a HOME recria as suas.
         br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this)
         camadaWidgets?.let { if (br.paulo.tvlauncher.home.PluginWidgetsTv.editou) { br.paulo.tvlauncher.home.PluginWidgetsTv.editou = false; it.recriar() } else it.atualizar() }
@@ -527,8 +532,81 @@ class MainActivity : Activity() {
         rede.execute { Dns.voltarAoAutomaticoSeQuebrado(this) }
     }
 
+    // ------------------------------------------------------------ prévia ao vivo (painel ao lado, 25/11/2026)
+    /**
+     * Com as Configurações no painel ao lado (ScreenStyle.PANEL) a HOME fica pausada mas à vista. Porquê: a proposta B
+     * pede que a pessoa veja a HOME mudar enquanto mexe na aparência. Como: entre o onPause e o onStop, a HOME ouve as
+     * mesmas preferências que o Desfazer vigia; se a aparência mudou (as mesmas assinaturas do onResume), ela se refaz
+     * ali mesmo. Atrás de uma tela opaca o onStop chega logo e desliga o ouvinte (nada roda à toa).
+     */
+    /** As do Desfazer e mais "extras", onde ficam as opções da barra única e os visuais prontos (só para a prévia). */
+    private val PREFS_PREVIA = DesfazerRegras.PREFS_VIGIADAS + "extras"
+    private var previaLigada = false
+    private val tarefaPrevia = Runnable { if (previaLigada && !isFinishing && !isDestroyed && aparenciaMudou()) { descongelar(); recriar() } }
+    private val ouvintePrevia = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->
+        ui.removeCallbacks(tarefaPrevia); ui.postDelayed(tarefaPrevia, PREVIA_ESPERA_MS)
+    }
+    private fun ligarPrevia() {
+        if (previaLigada || isFinishing) return
+        previaLigada = true
+        for (n in PREFS_PREVIA) getSharedPreferences(n, MODE_PRIVATE).registerOnSharedPreferenceChangeListener(ouvintePrevia)
+        ui.postDelayed(congelar, CONGELAR_APOS_MS)
+    }
+    private fun desligarPrevia() {
+        descongelar()
+        if (!previaLigada) return
+        previaLigada = false
+        ui.removeCallbacks(tarefaPrevia)
+        for (n in PREFS_PREVIA) getSharedPreferences(n, MODE_PRIVATE).unregisterOnSharedPreferenceChangeListener(ouvintePrevia)
+    }
+    /**
+     * HOME congelada atrás do painel (medido na Sala, 25/11/2026: parada, a HOME desenha ~31 quadros/s com as animações;
+     * com o vidro borrado por cima, o sistema refaz o borrão a cada quadro e 96% deles atrasavam). Como: uma foto exata da
+     * janela (PixelCopy, que pega até o vídeo de fundo numa TextureView) fica por cima e a HOME de verdade fica invisível,
+     * então nada se mexe atrás do vidro e o borrão é feito uma vez. A prévia continua: mudar a aparência refaz a HOME, que
+     * mostra a mudança e congela de novo. Com SurfaceView (camada à parte, fora da foto) não congela.
+     */
+    private var congelada: ImageView? = null
+    private val congelar = Runnable { congelarAtras() }
+    private fun congelarAtras() {
+        if (!previaLigada || congelada != null || isFinishing || isDestroyed || android.os.Build.VERSION.SDK_INT < 26) return
+        val raiz = findViewById<FrameLayout>(android.R.id.content) ?: return
+        val alvo = raiz.getChildAt(0) ?: return
+        val w = window.decorView.width; val h = window.decorView.height
+        if (w <= 0 || h <= 0 || temSurfaceView(alvo)) return
+        val bmp = runCatching { android.graphics.Bitmap.createBitmap(w, h, android.graphics.Bitmap.Config.ARGB_8888) }.getOrNull() ?: return
+        runCatching {
+            android.view.PixelCopy.request(window, bmp, { r ->
+                if (r != android.view.PixelCopy.SUCCESS || !previaLigada || congelada != null || isDestroyed) { bmp.recycle(); return@request }
+                val foto = ImageView(this).apply { setImageBitmap(bmp); scaleType = ImageView.ScaleType.FIT_XY; isFocusable = false }
+                val xy = IntArray(2); raiz.getLocationInWindow(xy)
+                raiz.addView(foto, FrameLayout.LayoutParams(w, h))
+                foto.translationX = -xy[0].toFloat(); foto.translationY = -xy[1].toFloat()   // posição exata na janela (a foto é da janela inteira, vale em RTL)
+                alvo.visibility = View.INVISIBLE
+                congelada = foto
+            }, ui)
+        }.onFailure { bmp.recycle() }
+    }
+    private fun temSurfaceView(v: View): Boolean =
+        v is android.view.SurfaceView || (v is android.view.ViewGroup && (0 until v.childCount).any { temSurfaceView(v.getChildAt(it)) })
+    private fun descongelar() {
+        ui.removeCallbacks(congelar)
+        val foto = congelada ?: return
+        congelada = null
+        val raiz = foto.parent as? FrameLayout
+        raiz?.getChildAt(0)?.visibility = View.VISIBLE
+        raiz?.removeView(foto)
+        ((foto.drawable as? android.graphics.drawable.BitmapDrawable)?.bitmap)?.recycle()
+    }
+
+    /** As mesmas perguntas do onResume: algo que a HOME desenhou mudou desde que ela foi montada? */
+    private fun aparenciaMudou(): Boolean = Tema.atual(this) != tema || idiomaAtual() != idiomaMontado ||
+        ((tema == Tema.MEU || tema == Tema.PLUGIN) && FundoMeuDados.assinatura(this) + "|" + WallpaperPlugins.escolhidoId(this) != assinaturaFundo) ||
+        assinaturaDoLayout() != assinaturaLayout
+
     override fun onPause() {
         super.onPause()
+        ligarPrevia()
         homeNaFrente = false
         br.paulo.tvlauncher.home.PluginWidgetsTv.parar()
         SonsCruz.naFrente = false
@@ -596,7 +674,13 @@ class MainActivity : Activity() {
         ui.postDelayed({ if (!isDestroyed) recriar() }, CAMPAINHA_FUNDO_MS)
     }
 
+    override fun onStop() {
+        super.onStop()
+        desligarPrevia()   // coberta por uma tela opaca: a prévia não serve, o onResume confere na volta
+    }
+
     override fun onDestroy() {
+        desligarPrevia()
         br.paulo.tvlauncher.settings.Extras.parar(this, ouvinteAjuste)
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = null
         vigiaTela?.let { runCatching { unregisterReceiver(it) } }; vigiaTela = null
@@ -943,7 +1027,8 @@ class MainActivity : Activity() {
         val camera = br.paulo.tvlauncher.settings.BackgroundStyle.camera(this).takeIf { it.isNotEmpty() && CasaHA.configurado(this) }
         // Barra única (24/11/2026): a foto escolhida (Vale de fábrica) no lugar do fundo do tema; "do tema" = null.
         val fotoDaBarra = br.paulo.tvlauncher.home.StripBackground.choice(this)
-            .takeIf { br.paulo.tvlauncher.home.BottomBar.strip(this) && it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME }
+            .takeIf { (br.paulo.tvlauncher.home.BottomBar.strip(this) || br.paulo.tvlauncher.home.BottomBar.rows(this)) &&
+                it != br.paulo.tvlauncher.home.StripBackground.Choice.THEME }   // Fileiras: foto de fundo como o Projectivy
         val vivo = if (br.paulo.tvlauncher.settings.BackgroundStyle.tint(this) == br.paulo.tvlauncher.settings.BackgroundStyle.Tint.SOLID)
             br.paulo.tvlauncher.settings.BackgroundStyle.solido(this)
         else (if (camera != null) br.paulo.tvlauncher.home.CameraBackground(this, camera) { bloco -> rede.execute { bloco() } }
@@ -954,7 +1039,9 @@ class MainActivity : Activity() {
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = { (fundo as? FundoVivo)?.proximo() ?: false }
         // Sem fundo preto aqui (nem na janela, ver onCreate): o fundo vivo já cobre a tela inteira e é opaco. Cada camada
         // de tela cheia a mais é a GPU pintando 1920x1080 de novo A CADA QUADRO (medido: 3 camadas, 22 ms por quadro).
-        capa = CapaFoco(this).apply { desligada = tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || fotoDaBarra != null || !LayoutHome.arteCruz(this@MainActivity) }   // Galeria: a obra é o fundo, sem brilho por cima
+        val focoNoFundo = fotoDaBarra != null && br.paulo.tvlauncher.home.BottomBar.rows(this) && br.paulo.tvlauncher.home.RowsHome.options(this).focusBg
+        // Fileiras com "Arte do card em foco no fundo" (bloco 5): a capa liga mesmo com Meu fundo/Galeria, porque nas Fileiras o fundo é a foto delas
+        capa = CapaFoco(this).apply { desligada = if (focoNoFundo) false else tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || fotoDaBarra != null || !LayoutHome.arteCruz(this@MainActivity) }   // Fileiras com "Fundo do card em foco" (bloco 5): a arte do foco vira o fundo   // Galeria: a obra é o fundo, sem brilho por cima
         montarCruz(raiz)
         conteudo = raiz
         return FrameLayout(this).apply {
@@ -968,7 +1055,10 @@ class MainActivity : Activity() {
             // de fundo escurecida, a perda de nitidez não aparece). A ampliação parte do canto de cima à direita.
             // Esboço do dono (06/11 noite): de volta ao alto à direita, atrás do topo e do destaque, sumindo antes dos apps.
             // 12/11/2026: 600 x 400 dp (era 680 x 330), o tamanho da arte de filme/série aprovada no teste do dono.
-            addView(capa, FrameLayout.LayoutParams(dp(300), dp(200), Gravity.TOP or Gravity.END))
+            // Fileiras com a arte do foco no fundo: a capa cobre a tela inteira (metade da resolução, ampliada 2x como sempre)
+            if (focoNoFundo) capa.telaCheia = true
+            addView(capa, if (focoNoFundo) FrameLayout.LayoutParams(resources.displayMetrics.widthPixels / 2, resources.displayMetrics.heightPixels / 2, Gravity.TOP or Gravity.END)
+                else FrameLayout.LayoutParams(dp(300), dp(200), Gravity.TOP or Gravity.END))
             capa.escalaBase = 2f
             capa.addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.pivotX = v.width.toFloat(); v.pivotY = 0f }
             addView(raiz, FrameLayout.LayoutParams(MATCH, MATCH))
@@ -1005,7 +1095,7 @@ class MainActivity : Activity() {
             setOnFocusChangeListener { v, temFoco ->
                 v.background = anel(temFoco)
                 val escala = if (temFoco) 1.12f else 1f
-                v.animate().scaleX(escala).scaleY(escala).setDuration(140).start()
+                v.animate().scaleX(escala).scaleY(escala).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start()
             }
         }
     }
@@ -1140,6 +1230,10 @@ class MainActivity : Activity() {
         const val CONTINUAR_MAX = 9          // itens do Continuar da cruz (o 10º seria o "Dormir em 30 min")
         /** Foco na barra de cima vale por isto fora da HOME; depois, a volta cai na cruz. */
         const val FOCO_TOPO_VALE_MS = 5 * 60_000L
+        /** Prévia ao vivo: espera as gravações de uma opção terminarem antes de refazer a HOME. */
+        const val PREVIA_ESPERA_MS = 350L
+        /** Quanto a HOME pausada e à vista anima antes de congelar atrás do painel (o painel entra em 250 ms). */
+        const val CONGELAR_APOS_MS = 600L
         /** Prefs "cruz": o último item aberto na cruz ("categoria|item") e quando; vale [ULTIMO_ABERTO_VALE_MS] na HOME refeita. */
         const val ULTIMO_ABERTO = "ultimo_aberto"
         const val ULTIMO_ABERTO_EM = "ultimo_aberto_em"
@@ -1571,7 +1665,7 @@ class MainActivity : Activity() {
     private fun lerCapa(pacote: String, icone: Drawable?): Pair<Bitmap?, IntArray> {
         val b = CapaFoco.banner(packageManager, pacote)?.let { runCatching { CapaFoco.bitmapReduzido(it) }.getOrNull() }
         val ic = icone ?: runCatching { packageManager.getApplicationIcon(pacote) }.getOrNull()
-        val cores = ic?.let { runCatching { CapaFoco.corDoIcone(it) }.getOrNull() } ?: intArrayOf(0xFF2B2F3A.toInt(), Estilo.FUNDO)
+        val cores = ic?.let { runCatching { CapaFoco.corDoIcone(it) }.getOrNull() } ?: intArrayOf(0xFF2C2C29.toInt(), Estilo.FUNDO)
         return (b to cores).also { capas[pacote] = it }
     }
 
@@ -1937,7 +2031,7 @@ class MainActivity : Activity() {
                     val doPacote = if (item.pacote in iconeDePacote) CustomIcons.icone(this, item.pacote, null) else null
                     val banner = capa?.first
                     if (doPacote != null) {
-                        c.drawColor(0xFF1C2030.toInt())
+                        c.drawColor(0xFF1C1C1A.toInt())
                         val brilho = android.graphics.Paint().apply {
                             shader = android.graphics.LinearGradient(0f, 0f, 0f, a.toFloat(), 0x1FFFFFFF, 0x00FFFFFF, android.graphics.Shader.TileMode.CLAMP)
                         }
@@ -1952,7 +2046,7 @@ class MainActivity : Activity() {
                         c.drawBitmap(banner, null, android.graphics.RectF((l - w) / 2, (a - h) / 2, (l + w) / 2, (a + h) / 2),
                             android.graphics.Paint(android.graphics.Paint.FILTER_BITMAP_FLAG))
                     } else {
-                        val cores = capa?.second ?: intArrayOf(0xFF2B2F3A.toInt(), Estilo.FUNDO)
+                        val cores = capa?.second ?: intArrayOf(0xFF2C2C29.toInt(), Estilo.FUNDO)
                         c.drawColor(cores[0])
                         val t = (a * 0.72f).toInt()
                         val ic = redondo(item.icone, t)
@@ -2011,7 +2105,11 @@ class MainActivity : Activity() {
         c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)
         c.barra = br.paulo.tvlauncher.home.BottomBar.on(this)   // 23/11/2026: 2º jeito, categorias paradas embaixo
         // 24/11/2026: a barra única (mundo ▲ ▼, cards ◀ ▶), o jeito de fábrica; cards com a arte de TV de cada app.
-        c.faixa = br.paulo.tvlauncher.home.BottomBar.strip(this)
+        c.faixa = br.paulo.tvlauncher.home.BottomBar.strip(this) || br.paulo.tvlauncher.home.BottomBar.rows(this)
+        // 26/11/2026: as Fileiras do Projectivy (mesmas teclas da barra única, outro desenho e a pílula própria no alto).
+        c.fileiras = br.paulo.tvlauncher.home.BottomBar.rows(this)
+        c.opcoesFileiras = br.paulo.tvlauncher.home.RowsHome.options(this)
+        c.aoEngrenagem = { startActivity(Intent(this, ConfigLauncherActivity::class.java)) }
         c.opcoesFaixa = br.paulo.tvlauncher.home.StripHome.options(this)
         c.bannerDe = { item, pronto -> bannerDaFaixa(item, pronto) }
         c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
@@ -2022,12 +2120,14 @@ class MainActivity : Activity() {
             }
         c.aoSom = { som, cat -> if (homeNaFrente) SonsCruz.tocar(this, som, cat) }   // voltando de um app (HOME), sem som
         c.aoSubirTopo = { repeticao ->
+            if (c.fileiras) ui.post { c.engrenagem().apply { nextFocusDownId = c.id }.requestFocus() } else {
             // Só o ▲ que SAI da cruz para a barra arma a Central (▲ entre itens da cruz continua repetindo normalmente).
             // Visto na Sala (v464530): o foco só sai da cruz DEPOIS do dispatchKeyEvent, então o aviso vem daqui.
             // E só um ▲ NOVO no 1º item (repetição 0): segurar ▲ para subir a coluna chegava ao topo e abria a Central
             // sem querer (debug 20/11/2026).
             if (barraCruz == LayoutHome.BarraCruz.ILHA && repeticao == 0) ilhaCimaDaCruz = true
             ui.post { bolinhaPerfil?.requestFocus() }   // ▲ no 1º item: o perfil, 1º da barra
+            }
         }
         c.aoPasso = { t -> deslizarArte(t) }
         // Ajuste fino (CardStyle): brilho atrás do escolhido e tamanho da cruz, com o centro no cruzamento (não sai do lugar).
@@ -2055,6 +2155,8 @@ class MainActivity : Activity() {
      */
     private fun montarBarraCruz(raiz: FrameLayout, c: HomeCruz) {
         val topo = topoRaiz as? ViewGroup ?: return
+        // Fileiras (clone do Projectivy): a barra de cima sai; a pílula com Wi-Fi, engrenagem e hora é das Fileiras.
+        if (c.fileiras) { topo.visibility = View.GONE; return }
         // ▼ em qualquer item da barra volta para a cruz (ela ocupa a tela inteira: a busca de foco "para baixo" não a acha).
         fun descer(v: View) {
             if (v.isFocusable) v.nextFocusDownId = c.id
@@ -2115,6 +2217,7 @@ class MainActivity : Activity() {
 
     internal fun recolherBarra(recolher: Boolean, animar: Boolean = true) {
         val topo = topoRaiz as? ViewGroup ?: return
+        if (cruz?.fileiras == true) return
         if (recolher == barraRecolhida && animar) return
         barraRecolhida = recolher
         val d = if (animar) 220L else 0L
@@ -2224,7 +2327,7 @@ class MainActivity : Activity() {
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null
     /** Ilha que cresce: a faixa de baixo com o evento que chegou e "▲ para abrir"; some em [BarraIlha.CRESCER_MS]. */
     internal var ilhaDica: TextView? = null
-    internal val tarefaIlhaEncolhe = Runnable { ilhaDica?.animate()?.alpha(0f)?.translationY(-dp(6).toFloat())?.setDuration(220)?.start() }
+    internal val tarefaIlhaEncolhe = Runnable { ilhaDica?.animate()?.alpha(0f)?.translationY(-dp(6).toFloat())?.setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST)?.start() }
     /** Rodízio da fila: troca o evento da vez a cada [BarraIlha.RODIZIO_MS], só com a barra recolhida e a HOME na frente. */
     internal val tarefaIlhaGira = object : Runnable {
         override fun run() {
@@ -2504,6 +2607,8 @@ class MainActivity : Activity() {
 
     // ---- "Quem está vendo?" ao ligar a TV
     internal var vigiaTela: android.content.BroadcastReceiver? = null
+    /** Quando foi o último Voltar na HOME (Voltar duplo = protetor de tela). */
+    internal var ultimoVoltar = 0L
     internal var apagouEm = 0L
     internal var acendeuEm = 0L
     internal var dormiuMs = 0L
@@ -2640,6 +2745,7 @@ class MainActivity : Activity() {
         // não tira o foco de onde a pessoa foi (25/11/2026, TodoBotaoFazAlgoTest: "Buscar" perdia o foco para a cruz).
         if (event.action == KeyEvent.ACTION_DOWN) focoInicialNaTv = false
         if (teclaDoAmbiente(event)) return true
+        if (voltarDuplo(event)) return true   // Voltar duas vezes = protetor de tela (bloco 7 do clone)
         // Voltar no "Todos os apps" volta para a cruz (na cruz, Voltar não faz nada).
         // Com uma pasta aberta, Voltar fecha só a pasta (as prateleiras voltam com o foco nela).
         if (todosAbertos && event.keyCode == KeyEvent.KEYCODE_BACK) {
@@ -2648,6 +2754,11 @@ class MainActivity : Activity() {
         }
         if (todosAbertos && telaTodos?.key(event) == true) return true   // OK curto abre, OK segurado = opções
         if (centralAoSegurarCima(event)) return true
+        // Guiado (molde do Projectivy, 26/11/2026): a tecla MENU do controle abre as Configurações, como no dele.
+        if (event.keyCode == KeyEvent.KEYCODE_MENU && br.paulo.tvlauncher.home.ScreenStyle.guided(this)) {
+            if (event.action == KeyEvent.ACTION_UP) startActivity(Intent(this, ConfigLauncherActivity::class.java))
+            return true
+        }
         return super.dispatchKeyEvent(event)
     }
 

@@ -44,6 +44,9 @@
     <string name="st_telas_gaveta">Lade</string>
     <string name="st_telas_vidro">Glas</string>
     <string name="st_telas_barra">Balk</string>
+    <string name="st_telas_painel">Zijpaneel</string>
+    <string name="st_telas_guiada">Begeleid</string>
+    <string name="gl_root_desc">Alles over deze tv, stap voor stap.</string>
     <string name="st_proprios">Snelkoppelingskaarten</string>
     <string name="st_proprios_branco">Wit</string>
     <string name="st_proprios_vidro">Licht glas</string>

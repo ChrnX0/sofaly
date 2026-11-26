@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Acum</string>
+    <string name="col_filter_on">Filtrul e pornit acum</string>
+    <string name="col_filter_off">Filtrul de noapte e oprit</string>
+    <string name="col_filter_at">Pornește la %1$s</string>
+    <string name="col_filter_body">Încălzește și întunecă ecranul de la %1$s la %2$s, cu putere de %3$d%%.</string>
+    <string name="col_sleep_off">Ora de culcare e oprită</string>
+    <string name="col_sleep_now">Acum e ora de culcare</string>
+    <string name="col_sleep_at">Începe la %1$s</string>
+    <string name="col_sleep_body">De la %1$s la %2$s se deschid doar aplicațiile permise, iar volumul nu trece de %3$d%%.</string>
+    <string name="col_screen_off">Timpul de ecran e oprit</string>
+    <string name="col_screen_left">Mai sunt %1$s azi</string>
+    <string name="col_screen_body">Când timpul de azi se termină, televizorul revine la ecranul principal.</string>
+    <string name="col_screen_daily">Timp pe zi</string>
+    <string name="col_changes">Ce se schimbă</string>
+</resources>

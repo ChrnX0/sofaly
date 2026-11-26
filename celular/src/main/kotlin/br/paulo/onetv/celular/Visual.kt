@@ -31,12 +31,12 @@ object Visual {
 
     val FUNDO: Int get() = if (claro) DesignTokens.PAPER else DesignTokens.NIGHT
     /** Cartão: um degrau acima do fundo, como os cartões translúcidos do painel. */
-    val SUPERFICIE: Int get() = if (claro) 0xFFFFFFFF.toInt() else 0xFF1E2136.toInt()
+    val SUPERFICIE: Int get() = if (claro) 0xFFFFFFFF.toInt() else 0xFF1F1F1D.toInt()
     val TEXTO: Int get() = if (claro) DesignTokens.NIGHT else DesignTokens.CREAM
     val TEXTO_2: Int get() = when {
         altoContraste -> TEXTO
-        claro -> 0xFF4B4E63.toInt()
-        else -> 0xFFC9C3D6.toInt()
+        claro -> 0xFF4D4C48.toInt()
+        else -> 0xFFB8B0A7.toInt()
     }
     /** Botão principal = a cor do foco (branco no escuro, Noite no claro), igual ao painel e à TV. */
     val PRINCIPAL: Int get() = if (claro) DesignTokens.NIGHT else DesignTokens.FOCUS

@@ -111,7 +111,7 @@ class AddonsActivity : Activity() {
         }
         trilha = Estilo.texto(this, Estilo.Papel.SECAO).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.START; visibility = View.GONE }
         titulo = Estilo.tituloTela(this, getString(R.string.ad_titulo)).apply { setPaddingRelative(0, dp(4), 0, 0) }
-        aviso = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.E2)); textSize = 15f }
+        aviso = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.E2)); textSize = 18f }
         lista = ListView(this).apply {
             divider = null; dividerHeight = dp(6); isVerticalScrollBarEnabled = false; itemsCanFocus = false
             selector = android.graphics.drawable.ColorDrawable(Color.TRANSPARENT)
@@ -415,7 +415,7 @@ class AddonsActivity : Activity() {
         camada.removeAllViews()
         val cartao = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            background = Estilo.fundo(this@AddonsActivity, 0xF2141A24.toInt(), Estilo.RAIO, Estilo.VIDRO_BORDA)
+            background = Estilo.fundo(this@AddonsActivity, 0xF2171716.toInt(), Estilo.RAIO, Estilo.VIDRO_BORDA)
             setPaddingRelative(dp(Estilo.E3 + 4), dp(Estilo.E3), dp(Estilo.E3 + 4), dp(Estilo.E3))
             clipChildren = false; clipToPadding = false
         }

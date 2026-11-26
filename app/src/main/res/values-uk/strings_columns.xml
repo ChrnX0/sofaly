@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Зараз</string>
+    <string name="col_filter_on">Фільтр зараз увімкнено</string>
+    <string name="col_filter_off">Нічний фільтр вимкнено</string>
+    <string name="col_filter_at">Увімкнеться о %1$s</string>
+    <string name="col_filter_body">Робить екран теплішим і темнішим з %1$s до %2$s, сила %3$d%%.</string>
+    <string name="col_sleep_off">Час сну вимкнено</string>
+    <string name="col_sleep_now">Зараз час сну</string>
+    <string name="col_sleep_at">Почнеться о %1$s</string>
+    <string name="col_sleep_body">З %1$s до %2$s відкриваються лише дозволені застосунки, а гучність не вища за %3$d%%.</string>
+    <string name="col_screen_off">Екранний час вимкнено</string>
+    <string name="col_screen_left">Сьогодні лишилося %1$s</string>
+    <string name="col_screen_body">Коли час на сьогодні закінчується, ТВ повертається на головний екран.</string>
+    <string name="col_screen_daily">Час на день</string>
+    <string name="col_changes">Що зміниться</string>
+</resources>

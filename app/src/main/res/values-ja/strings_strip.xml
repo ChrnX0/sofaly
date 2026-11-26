@@ -44,6 +44,9 @@
     <string name="st_telas_gaveta">引き出し</string>
     <string name="st_telas_vidro">ガラス</string>
     <string name="st_telas_barra">バー</string>
+    <string name="st_telas_painel">サイドパネル</string>
+    <string name="st_telas_guiada">ガイド</string>
+    <string name="gl_root_desc">このテレビのすべてを、一歩ずつ。</string>
     <string name="st_proprios">ショートカットカード</string>
     <string name="st_proprios_branco">白</string>
     <string name="st_proprios_vidro">明るいガラス</string>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Jetzt</string>
+    <string name="col_filter_on">Nachtfilter jetzt an</string>
+    <string name="col_filter_off">Nachtfilter ist aus</string>
+    <string name="col_filter_at">Geht um %1$s an</string>
+    <string name="col_filter_body">Macht das Bild von %1$s bis %2$s wärmer und dunkler, mit %3$d%% Stärke.</string>
+    <string name="col_sleep_off">Schlafenszeit ist aus</string>
+    <string name="col_sleep_now">Jetzt Schlafenszeit</string>
+    <string name="col_sleep_at">Beginnt um %1$s</string>
+    <string name="col_sleep_body">Von %1$s bis %2$s öffnen nur erlaubte Apps und die Lautstärke bleibt bei höchstens %3$d%%.</string>
+    <string name="col_screen_off">Bildschirmzeit ist aus</string>
+    <string name="col_screen_left">Heute noch %1$s</string>
+    <string name="col_screen_body">Wenn die Zeit für heute um ist, kehrt der Fernseher zum Startbildschirm zurück.</string>
+    <string name="col_screen_daily">Zeit pro Tag</string>
+    <string name="col_changes">Was sich ändert</string>
+</resources>

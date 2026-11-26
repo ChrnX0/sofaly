@@ -604,7 +604,7 @@ class SleepingHome(private val ctx: Context) {
     /** Qualquer tecla (que não fecha) clareia de novo e reinicia a conta do escurecer. */
     fun tecla() {
         ui.removeCallbacks(escurecer); ui.postDelayed(escurecer, ESCURECER_MS)
-        if (escurecido) { escurecido = false; escuro.animate().cancel(); escuro.animate().alpha(0f).setDuration(400).start() }
+        if (escurecido) { escurecido = false; escuro.animate().cancel(); escuro.animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW).start() }
     }
 
     private val escurecer = Runnable {

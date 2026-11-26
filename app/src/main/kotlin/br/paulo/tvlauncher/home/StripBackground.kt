@@ -47,7 +47,32 @@ object StripBackground {
 class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
                       private val emSegundoPlano: (() -> Unit) -> Unit) : View(ctx), FundoVivo {
     private var foto: Bitmap? = null
+    /** Versão pequena e borrada da foto (modos "Caber com fundo borrado" e "Borrar") e a cor média dela (cores dinâmicas). */
+    private var borrada: Bitmap? = null
+    private var corMedia = DesignTokens.NIGHT
+    /** Modo e cores dinâmicas (Fileiras), lidos uma vez: mudar a opção refaz a HOME (assinatura) e esta view. */
+    private val modo = if (BottomBar.rows(ctx)) RowsHome.options(ctx).bgMode else RowsHome.BgMode.CROP
+    private val dinamico = BottomBar.rows(ctx) && RowsHome.options(ctx).bgDynamic
+    /** A foto de antes, que some aos poucos quando a nova chega (troca com esmaecer, bloco 5). */
+    private var anterior: Bitmap? = null
+    private var mistura = 1f
     private val pinta = Paint(Paint.FILTER_BITMAP_FLAG)
+    private val pintaNova = Paint(Paint.FILTER_BITMAP_FLAG)
+    /** Troca sozinha (Fileiras: "Trocar o fundo a cada"): a próxima das três fotos a cada N minutos. */
+    private val trocar = object : Runnable {
+        override fun run() {
+            val min = trocaMin()
+            if (min <= 0) return
+            proximo()
+            postDelayed(this, min * 60_000L)
+        }
+    }
+    private fun trocaMin(): Int = if (BottomBar.rows(context)) RowsHome.options(context).bgEvery.min else 0
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        trocaMin().takeIf { it > 0 }?.let { postDelayed(trocar, it * 60_000L) }
+    }
+    override fun onDetachedFromWindow() { removeCallbacks(trocar); super.onDetachedFromWindow() }
     private val veu = Paint()
     private val origem = Rect()
     private val destino = RectF()
@@ -58,7 +83,27 @@ class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
         val asset = escolha.asset ?: return
         emSegundoPlano {
             val b = runCatching { context.assets.open(asset).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inPreferredConfig = Bitmap.Config.RGB_565 }) } }.getOrNull()
-            post { foto = b; invalidate() }
+            val pequena = b?.let { runCatching { Bitmap.createScaledBitmap(it, maxOf(1, it.width / 8), maxOf(1, it.height / 8), true) }.getOrNull() }
+            val media = pequena?.let { corMediaDe(it) } ?: DesignTokens.NIGHT
+            val borr = pequena?.let { p ->
+                val w = p.width; val h = p.height
+                val px = IntArray(w * h); p.getPixels(px, 0, w, 0, 0, w, h)
+                repeat(3) { GlassBackground.caixa(px, w, h, 4) }
+                Bitmap.createBitmap(px, w, h, Bitmap.Config.ARGB_8888)
+            }
+            post {
+                borrada = borr; corMedia = media
+                // a primeira entra direto; as outras esmaecem por cima da de antes (600 ms)
+                if (foto == null || b == null) { foto = b; invalidate(); return@post }
+                anterior = foto; foto = b; mistura = 0f
+                android.animation.ValueAnimator.ofFloat(0f, 1f).apply {
+                    duration = TROCA_MS
+                    addUpdateListener { mistura = it.animatedValue as Float; invalidate() }
+                    addListener(object : android.animation.AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(a: android.animation.Animator) { anterior = null; mistura = 1f; invalidate() }
+                    })
+                }.start()
+            }
         }
     }
 
@@ -71,18 +116,54 @@ class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
         return true
     }
 
+    /** Cor média da foto, escurecida para virar véu (cores dinâmicas). */
+    private fun corMediaDe(b: Bitmap): Int {
+        var r = 0L; var g = 0L; var bl = 0L; var n = 0L
+        for (y in 0 until b.height step 2) for (x in 0 until b.width step 2) {
+            val c = b.getPixel(x, y); r += c shr 16 and 0xFF; g += c shr 8 and 0xFF; bl += c and 0xFF; n++
+        }
+        if (n == 0L) return DesignTokens.NIGHT
+        return RowsHome.dynamicVeil((r / n).toInt(), (g / n).toInt(), (bl / n).toInt())
+    }
+
+    /** Desenha a foto [img] no modo escolhido (Fileiras: "Modo de exibição"). */
+    private fun desenhar(c: Canvas, img: Bitmap, w: Float, h: Float, p: Paint) {
+        when (modo) {
+            RowsHome.BgMode.CROP -> recortar(c, img, w, h, p)
+            RowsHome.BgMode.STRETCH -> { origem.set(0, 0, img.width, img.height); destino.set(0f, 0f, w, h); c.drawBitmap(img, origem, destino, p) }
+            RowsHome.BgMode.BLUR -> recortar(c, borrada ?: img, w, h, p)
+            RowsHome.BgMode.FIT, RowsHome.BgMode.FIT_BLUR -> {
+                if (modo == RowsHome.BgMode.FIT_BLUR) borrada?.let { recortar(c, it, w, h, p) }
+                val escala = minOf(w / img.width, h / img.height)
+                val dw = img.width * escala; val dh = img.height * escala
+                origem.set(0, 0, img.width, img.height); destino.set((w - dw) / 2, (h - dh) / 2, (w + dw) / 2, (h + dh) / 2)
+                c.drawBitmap(img, origem, destino, p)
+            }
+        }
+    }
+
+    /** centerCrop da foto [img] na tela inteira. */
+    private fun recortar(c: Canvas, img: Bitmap, w: Float, h: Float, p: Paint) {
+        val escala = maxOf(w / img.width, h / img.height)
+        val vw = (w / escala).toInt(); val vh = (h / escala).toInt()
+        val x0 = (img.width - vw) / 2; val y0 = (img.height - vh) / 2
+        origem.set(x0, y0, x0 + vw, y0 + vh); destino.set(0f, 0f, w, h)
+        c.drawBitmap(img, origem, destino, p)
+    }
+
+    private companion object { const val TROCA_MS = 600L }
+
     private fun noite(alfa: Int) = (alfa shl 24) or (DesignTokens.NIGHT and 0xFFFFFF)
 
     override fun onDraw(c: Canvas) {
         val w = width.toFloat(); val h = height.toFloat()
         c.drawColor(DesignTokens.NIGHT)
         val img = foto ?: return
-        // centerCrop
-        val escala = maxOf(w / img.width, h / img.height)
-        val vw = (w / escala).toInt(); val vh = (h / escala).toInt()
-        val x0 = (img.width - vw) / 2; val y0 = (img.height - vh) / 2
-        origem.set(x0, y0, x0 + vw, y0 + vh); destino.set(0f, 0f, w, h)
-        c.drawBitmap(img, origem, destino, pinta)
+        anterior?.let { desenhar(c, it, w, h, pinta) }
+        pintaNova.alpha = (mistura * 255).toInt()
+        desenhar(c, img, w, h, if (anterior != null) pintaNova else pinta)
+        // Cores dinâmicas (Fileiras): um véu na cor da foto por cima, que pinta a tela com o tom dela
+        if (dinamico) { veu.color = (0x66 shl 24) or (corMedia and 0xFFFFFF); c.drawRect(0f, 0f, w, h, veu) }
         // Véu de cima (atrás da Ilha) e de baixo (atrás da linha do mundo, que começa a 76% da altura, e dos cards).
         veu.shader = LinearGradient(0f, 0f, 0f, h * 0.28f, noite(0x8C), noite(0), Shader.TileMode.CLAMP)
         c.drawRect(0f, 0f, w, h * 0.28f, veu)

@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Tilauksesi</string>
     <string name="pl_loja_indisponivel">Google Play ei voinut avata ostoa. Tarkista internet ja yritä uudelleen.</string>
     <string name="atu_pela_play">Päivitykset tulevat Google Playsta.</string>
+    <string name="cfg_sec_tema">Teema ja tausta</string>
+    <string name="cfg_sec_leitura">Lukeminen</string>
+    <string name="cfg_sec_inicio">Aloitusnäyttö</string>
 </resources>

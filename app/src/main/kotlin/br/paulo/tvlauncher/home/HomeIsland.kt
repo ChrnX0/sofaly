@@ -73,7 +73,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     ilhaTrilho = trilho
     val contador = texto(Estilo.Leitura.DICA, textoClaro, fonteUi).apply {
         includeFontPadding = false; visibility = View.GONE
-        background = GradientDrawable().apply { cornerRadius = dp(9).toFloat(); setStroke(dp(1), 0x40FFFFFF) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setStroke(dp(1), 0x40FFFFFF) }
         setPaddingRelative(dp(7), dp(2), dp(7), dp(2))
     }
     ilhaContador = contador
@@ -110,7 +110,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         background = GradientDrawable().apply {
-            cornerRadius = dp(20).toFloat(); setColor(0xC70A0B14.toInt()); setStroke(dp(1), 0x1FFFFFFF)
+            cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xC70B0B0A.toInt()); setStroke(dp(1), 0x1FFFFFFF)
         }
         setPaddingRelative(dp(14), 0, dp(16), 0)
         // O leitor de tela lê a fila inteira (antes a pílula era invisível para ele e para o MCP).
@@ -135,7 +135,7 @@ internal fun MainActivity.montarIlha(raiz: FrameLayout, topo: ViewGroup) {
     // 18sp, a menor letra da HOME (TelasTest, 25/11/2026: com 15sp a dica "amanhã 6:45 · ▲ para abrir" ficava abaixo).
     val dica = texto(18f, Estilo.TEXTO, fonteUi).apply {
         includeFontPadding = false; maxLines = 1; ellipsize = TextUtils.TruncateAt.END; maxWidth = dp(ILHA_TEXTO_MAX + 200)
-        background = GradientDrawable().apply { cornerRadius = dp(16).toFloat(); setColor(0xE60A0B14.toInt()); setStroke(dp(1), 0x26FFFFFF) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xE60B0B0A.toInt()); setStroke(dp(1), 0x26FFFFFF) }
         setPaddingRelative(dp(16), dp(8), dp(16), dp(8))
         alpha = 0f
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO   // a pílula já lê a fila inteira
@@ -168,8 +168,8 @@ internal fun MainActivity.mundoNaIlha(c: HomeCruz.Categoria) {
     if (ilhaMundoNome?.text?.toString() == c.nome && mundo.visibility == View.VISIBLE) return
     // A pílula muda de largura deslizando para os dois lados (centro fixo); o mundo novo acende junto.
     if (capaPronta && !semAnimacoes()) {
-        (ilhaPilula?.parent as? ViewGroup)?.let { android.transition.TransitionManager.beginDelayedTransition(it, android.transition.ChangeBounds().setDuration(250)) }
-        mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(200L).start()
+        (ilhaPilula?.parent as? ViewGroup)?.let { android.transition.TransitionManager.beginDelayedTransition(it, android.transition.ChangeBounds().setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva())) }
+        mundo.alpha = 0.35f; mundo.animate().alpha(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).start()
     }
     ilhaMundoIcone?.setImageDrawable(icCruz("ilha:" + c.cat.id, WorldLabel.tipo(c.cat)))   // outra cópia do desenho da categoria
     ilhaMundoNome?.text = c.nome
@@ -330,7 +330,7 @@ internal fun MainActivity.crescerIlhaTexto(texto: String, atencao: Boolean) {
     d.setTextColor(if (atencao) Estilo.ATENCAO else Estilo.TEXTO)
     d.animate().cancel()
     if (semAnimacoes()) { d.alpha = 1f; d.translationY = 0f }
-    else { d.translationY = -dp(6).toFloat(); d.animate().alpha(1f).translationY(0f).setDuration(260).start() }
+    else { d.translationY = -dp(6).toFloat(); d.animate().alpha(1f).translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva()).start() }
     ui.removeCallbacks(tarefaIlhaEncolhe)
     ui.postDelayed(tarefaIlhaEncolhe, BarraIlha.CRESCER_MS)
 }
@@ -348,7 +348,7 @@ internal fun MainActivity.aplicarIlha() {
     if (e == ilhaEvento) return
     val mudouTipo = e?.tipo != ilhaEvento?.tipo
     if (mudouTipo && capaPronta && !semAnimacoes()) {
-        android.transition.TransitionManager.beginDelayedTransition(pilula.parent as? ViewGroup ?: pilula, android.transition.AutoTransition().setDuration(260))
+        android.transition.TransitionManager.beginDelayedTransition(pilula.parent as? ViewGroup ?: pilula, android.transition.AutoTransition().setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva()))
     }
     ilhaEvento = e
     val extra = ilhaExtra ?: return

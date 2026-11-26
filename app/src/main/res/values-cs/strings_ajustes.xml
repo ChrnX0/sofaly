@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Váš tarif</string>
     <string name="pl_loja_indisponivel">Google Play nedokázal otevřít nákup. Zkontrolujte internet a zkuste to znovu.</string>
     <string name="atu_pela_play">Aktualizace přicházejí z Google Play.</string>
+    <string name="cfg_sec_tema">Motiv a pozadí</string>
+    <string name="cfg_sec_leitura">Čtení</string>
+    <string name="cfg_sec_inicio">Domovská obrazovka</string>
 </resources>

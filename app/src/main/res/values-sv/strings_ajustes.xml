@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Ditt abonnemang</string>
     <string name="pl_loja_indisponivel">Google Play kunde inte öppna köpet. Kontrollera internet och försök igen.</string>
     <string name="atu_pela_play">Uppdateringar kommer från Google Play.</string>
+    <string name="cfg_sec_tema">Tema och bakgrund</string>
+    <string name="cfg_sec_leitura">Läsning</string>
+    <string name="cfg_sec_inicio">Startskärm</string>
 </resources>

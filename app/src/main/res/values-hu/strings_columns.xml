@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Most</string>
+    <string name="col_filter_on">A szűrő most be van kapcsolva</string>
+    <string name="col_filter_off">Az éjszakai szűrő ki van kapcsolva</string>
+    <string name="col_filter_at">%1$s-kor bekapcsol</string>
+    <string name="col_filter_body">%1$s és %2$s között melegebbé és sötétebbé teszi a képet, %3$d%% erősséggel.</string>
+    <string name="col_sleep_off">A lefekvési idő ki van kapcsolva</string>
+    <string name="col_sleep_now">Most lefekvési idő van</string>
+    <string name="col_sleep_at">%1$s-kor kezdődik</string>
+    <string name="col_sleep_body">%1$s és %2$s között csak az engedélyezett alkalmazások nyílnak meg, és a hangerő legfeljebb %3$d%%.</string>
+    <string name="col_screen_off">A képernyőidő ki van kapcsolva</string>
+    <string name="col_screen_left">Ma még %1$s</string>
+    <string name="col_screen_body">Ha a mai idő lejár, a TV visszatér a kezdőképernyőre.</string>
+    <string name="col_screen_daily">Idő naponta</string>
+    <string name="col_changes">Mi változik</string>
+</resources>

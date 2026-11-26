@@ -75,7 +75,7 @@ class BloqueioCanaisActivity : Activity() {
             setPaddingRelative(dp(72), dp(40), dp(72), dp(24))
         }
         raiz.addView(TextView(this).apply { text = if (modoInfantis) getString(R.string.infantil_titulo) else getString(R.string.lbl_canais_bloqueados); textSize = 32f; typeface = fonteLeve; setTextColor(papel) })
-        subtitulo = TextView(this).apply { textSize = 15f; setTextColor(suave); text = if (modoInfantis) getString(R.string.infantil_carregando) else getString(R.string.bc_carregando) }
+        subtitulo = TextView(this).apply { textSize = 18f; setTextColor(suave); text = if (modoInfantis) getString(R.string.infantil_carregando) else getString(R.string.bc_carregando) }
         raiz.addView(subtitulo)
         val colunas = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         listaCats = lista()
@@ -257,7 +257,7 @@ class BloqueioCanaisActivity : Activity() {
     }
 
     private fun item() = TextView(this).apply {
-        textSize = 17f; typeface = fonteMedia; maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+        textSize = 18f; typeface = fonteMedia; maxLines = 1; ellipsize = TextUtils.TruncateAt.END
         gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(dp(16), dp(10), dp(16), dp(10))
     }
 

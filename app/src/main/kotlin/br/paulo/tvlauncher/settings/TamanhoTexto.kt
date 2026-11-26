@@ -14,15 +14,19 @@ import android.content.Context
  *
  * Decisão anterior que isto toca: a letra maior de Filmes/Séries/TV (13/11). Ela continua; o tamanho escolhido aqui
  * vale por cima dela também. Padrão = 100% (nada muda).
+ *
+ * 80% e 90% (Paulo, 26/11/2026: "a fonte deixa pro user poder escolher"): o Projectivy usa letra de 14 sp nos ajustes;
+ * a Sofaly fica nos 18 sp de fábrica, e quem quiser a letra menor dele escolhe 80% (18 x 0,8 = 14,4 sp).
  */
 object TamanhoTexto {
-    val OPCOES = listOf(100, 110, 120)
+    val OPCOES = listOf(80, 90, 100, 110, 120)
+    const val NORMAL = 100
     const val CHAVE = "tamanho_texto"
 
-    /** Próxima opção (dá a volta); valor fora da lista volta ao normal. */
-    fun proximo(atual: Int): Int = OPCOES[(OPCOES.indexOf(atual) + 1).mod(OPCOES.size)]
+    /** Próxima opção (dá a volta: 120 -> 80); valor fora da lista volta ao normal. */
+    fun proximo(atual: Int): Int = if (atual !in OPCOES) NORMAL else OPCOES[(OPCOES.indexOf(atual) + 1).mod(OPCOES.size)]
 
-    fun valido(v: Int): Int = if (v in OPCOES) v else 100
+    fun valido(v: Int): Int = if (v in OPCOES) v else NORMAL
 
     fun atual(ctx: Context): Int = valido(Extras.numero(ctx, CHAVE, 100))
     fun definir(ctx: Context, v: Int) = Extras.definirNumero(ctx, CHAVE, valido(v))

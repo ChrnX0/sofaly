@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Ваш план</string>
     <string name="pl_loja_indisponivel">Google Play не вдалося відкрити покупку. Перевірте інтернет і спробуйте ще раз.</string>
     <string name="atu_pela_play">Оновлення надходять з Google Play.</string>
+    <string name="cfg_sec_tema">Тема і фон</string>
+    <string name="cfg_sec_leitura">Читання</string>
+    <string name="cfg_sec_inicio">Головний екран</string>
 </resources>

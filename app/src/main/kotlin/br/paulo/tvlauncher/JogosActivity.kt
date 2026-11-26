@@ -576,7 +576,7 @@ class JogosActivity : Activity() {
         }
         val corpo = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            addView(Estilo.texto(this@JogosActivity, Estilo.Papel.CORPO, getString(R.string.turma_config_texto)).apply { textSize = 17f; setLineSpacing(0f, 1.2f) })
+            addView(Estilo.texto(this@JogosActivity, Estilo.Papel.CORPO, getString(R.string.turma_config_texto)).apply { textSize = 18f; setLineSpacing(0f, 1.2f) })
             addView(campo, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E2) })
         }
         val caixa = CaixaTv(this).setTitle(R.string.turma_config_titulo).setView(corpo)

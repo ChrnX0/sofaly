@@ -165,7 +165,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         raiz.addView(painel, FrameLayout.LayoutParams(-1, -1))
         aviso = TextView(this).apply {
             textSize = 18f; setTextColor(papel); gravity = Gravity.CENTER
-            background = GradientDrawable().apply { cornerRadius = dp(16).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xD9141413.toInt()) }
             setPaddingRelative(dp(24), dp(16), dp(24), dp(16)); text = getString(R.string.series_carregando)
         }
         raiz.addView(aviso, FrameLayout.LayoutParams(-2, -2, Gravity.CENTER))
@@ -635,7 +635,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
                 c.etiqueta.setTextColor(if (novo) Estilo.FUNDO else if (marcado) ambar else papel)
                 (c.etiqueta.background as GradientDrawable).setColor(when (etq) {
                     EtiquetaSerie.Concluida -> verdeEtiqueta
-                    null -> 0xD9121528.toInt()
+                    null -> 0xD9141413.toInt()
                     else -> ambar
                 })
             }
@@ -659,13 +659,13 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         val moldura = FrameLayout(this)
         moldura.addView(capa, FrameLayout.LayoutParams(-1, -1))
         val estrela = TextView(this).apply {
-            text = "★"; textSize = 15f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9121528.toInt()) }
+            text = "★"; textSize = 18f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0xD9141413.toInt()) }
         }
         moldura.addView(estrela, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.END).apply { setMargins(0, dp(5), dp(5), 0) })
         val etiqueta = TextView(this).apply {
             textSize = Estilo.Leitura.DICA; typeface = fonteMedia; setTextColor(papel); setPaddingRelative(dp(7), dp(2), dp(7), dp(2))
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0xD9141413.toInt()) }
             maxLines = 1; ellipsize = TextUtils.TruncateAt.END   // selo de uma linha: nunca cobre metade do pôster
         }
         moldura.addView(etiqueta, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply { setMargins(dp(5), 0, 0, dp(5)) })
@@ -681,7 +681,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         val selo = TextView(this).apply {
             text = getString(R.string.filmes_selo_leg); textSize = Estilo.Leitura.DICA; typeface = fonteMedia; setTextColor(papel)
             setPaddingRelative(dp(6), dp(1), dp(6), dp(2)); visibility = View.GONE
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(0xD9141413.toInt()) }
         }
         moldura.addView(selo, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.START).apply { setMargins(dp(5), dp(5), 0, 0) })
         col.addView(moldura, LinearLayout.LayoutParams(-1, dp(medidaGrade.alturaPoster)))
@@ -921,7 +921,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         if (!verEpisodios) {
             val capa = ImageView(this).apply {
                 scaleType = ImageView.ScaleType.CENTER_CROP
-                background = GradientDrawable().apply { cornerRadius = dp(12).toFloat(); setColor(Estilo.BORDA) }; clipToOutline = true
+                background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.BORDA) }; clipToOutline = true
             }
             PlayerLogos.carregar(this, s.capa, capa, lado = 600)
             topo.addView(capa, LinearLayout.LayoutParams(dp(140), dp(210)).apply { marginStart = dp(24) })
@@ -1225,9 +1225,9 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         setPaddingRelative(dp(if (pequeno) 18 else 26), dp(if (pequeno) 8 else 12), dp(if (pequeno) 18 else 26), dp(if (pequeno) 8 else 12))
         isFocusable = true; isClickable = true
         background = StateListDrawable().apply {
-            addState(intArrayOf(android.R.attr.state_focused), GradientDrawable().apply { cornerRadius = dp(24).toFloat(); setColor(papel) })
+            addState(intArrayOf(android.R.attr.state_focused), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(papel) })
             // Sem foco: mais apagado (6% + fio, texto a 70%), para o botão branco com foco saltar aos olhos a 3 m (15/11/2026).
-            addState(intArrayOf(), GradientDrawable().apply { cornerRadius = dp(24).toFloat(); setColor(if (marcado) 0x4DF5B544 else Estilo.SUPERFICIE); if (!marcado) setStroke(dp(1), Estilo.BORDA) })
+            addState(intArrayOf(), GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (marcado) 0x4DF5B544 else Estilo.SUPERFICIE); if (!marcado) setStroke(dp(1), Estilo.BORDA) })
         }
         setTextColor(ColorStateList(arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()), intArrayOf(Estilo.FUNDO, if (marcado) papel else Estilo.TEXTO_2)))
         setOnClickListener { aoApertar() }
@@ -1235,7 +1235,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
 
     private fun estilo(l: AbsListView) {
         l.isVerticalScrollBarEnabled = false
-        PlayerFoco.molduraSoComFoco(l, GradientDrawable().apply { cornerRadius = dp(10).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), papel) })
+        PlayerFoco.molduraSoComFoco(l, GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), papel) })
         l.setDrawSelectorOnTop(l is GridView)
         l.cacheColorHint = Color.TRANSPARENT
         if (l is ListView) l.divider = null

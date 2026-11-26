@@ -98,7 +98,7 @@ class ElencoActivity : Activity() {
             }
             val foto = ImageView(this).apply {
                 scaleType = ImageView.ScaleType.CENTER_CROP; clipToOutline = true
-                background = GradientDrawable().apply { cornerRadius = dp(12).toFloat(); setColor(Estilo.SUPERFICIE_ALTA) }
+                background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA) }
             }
             if (p.foto.isNotEmpty()) PlayerLogos.carregar(this, p.foto, foto, lado = 300)
             card.addView(foto, LinearLayout.LayoutParams(dp(120), dp(170)))

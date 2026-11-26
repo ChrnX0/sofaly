@@ -67,7 +67,8 @@ object PlayerBar {
             secondaryProgressTintList = ColorStateList.valueOf(0x66FFFFFF)   // o que já carregou (filmes e séries)
         }
         raiz.addView(progresso, LinearLayout.LayoutParams(-1, dp(BarraTempo.ESPESSURA_DP)).apply { topMargin = dp(12) })
-        val linhaTeclas = TextView(ctx).apply { text = juntarTeclas(teclas); textSize = Estilo.Leitura.DICA; setTextColor(Estilo.TEXTO_3) }
+        // Paulo, 26/11/2026: dicas de teclas saem também dos players (as teclas ficam em Configurações > Ajuda)
+        val linhaTeclas = TextView(ctx).apply { text = juntarTeclas(teclas); textSize = Estilo.Leitura.DICA; setTextColor(Estilo.TEXTO_3); visibility = View.GONE }
         raiz.addView(linhaTeclas, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(10) })
         return Partes(raiz, linha, titulo, detalhe, estado, progresso, linhaTeclas)
     }

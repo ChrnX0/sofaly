@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">Ihr Tarif</string>
     <string name="pl_loja_indisponivel">Google Play konnte den Kauf nicht öffnen. Prüfen Sie das Internet und versuchen Sie es erneut.</string>
     <string name="atu_pela_play">Updates kommen über Google Play.</string>
+    <string name="cfg_sec_tema">Design und Hintergrund</string>
+    <string name="cfg_sec_leitura">Lesen</string>
+    <string name="cfg_sec_inicio">Startbildschirm</string>
 </resources>

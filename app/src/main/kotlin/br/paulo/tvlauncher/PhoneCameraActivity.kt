@@ -39,7 +39,7 @@ class PhoneCameraActivity : Activity() {
             addView(titulo, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.START).apply { setMargins(m, v, m, 0) })
             addView(dicas, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply { setMargins(m, 0, m, v) })
         })
-        ui.postDelayed({ titulo.animate().alpha(0f).setDuration(400); dicas.animate().alpha(0f).setDuration(400) }, 4_000)
+        ui.postDelayed({ titulo.animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW); dicas.animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW) }, 4_000)
         PhoneCameraTv.listen(ouvinte)
         ui.postDelayed(vigia, 4_000)
     }

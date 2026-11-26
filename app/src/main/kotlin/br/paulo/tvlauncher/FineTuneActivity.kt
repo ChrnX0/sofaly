@@ -73,17 +73,26 @@ class FineTuneActivity : Activity() {
         lista.getChildAt(0)?.requestFocus()
     }
 
+    /** Relê o valor de cada linha. Um tema pronto ou um tema importado mudam várias opções de uma vez (Sala, 26/11/2026:
+     *  depois de escolher "Padrão", "Arte do card em foco no fundo" ainda mostrava o valor antigo). */
+    private val releituras = mutableListOf<Pair<Ajuste, () -> Unit>>()
+
     private fun linha(a: Ajuste): View {
-        val valor = Estilo.valor(this, a.valor(), seta = false)
+        val valor = Estilo.valor(this, a.valor(), seta = false).apply {
+            // Valor longo ("Caber + fundo borrado") quebra em 2 linhas e não esmaga o título (Sala, 26/11/2026)
+            maxWidth = (170 * resources.displayMetrics.density).toInt(); gravity = Gravity.END
+        }
         fun mostrar(t: String) { valor.text = "‹  $t  ›" }
         mostrar(a.valor())
+        releituras += a to { mostrar(a.valor()) }
+        fun trocar(p: Int) { mostrar(a.trocar(p)); releituras.forEach { (outro, reler) -> if (outro !== a) reler() } }
         return Estilo.linhaOpcao(this, getString(a.titulo), null, valor).apply {
-            setOnClickListener { mostrar(a.trocar(1)) }
+            setOnClickListener { trocar(1) }
             setOnKeyListener { _, code, ev ->
                 if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
                 when (code) {
-                    KeyEvent.KEYCODE_DPAD_RIGHT -> { mostrar(a.trocar(1)); true }
-                    KeyEvent.KEYCODE_DPAD_LEFT -> { mostrar(a.trocar(-1)); true }
+                    KeyEvent.KEYCODE_DPAD_RIGHT -> { trocar(1); true }
+                    KeyEvent.KEYCODE_DPAD_LEFT -> { trocar(-1); true }
                     else -> false
                 }
             }
@@ -97,6 +106,9 @@ class FineTuneActivity : Activity() {
             nomeRitmo(r[Math.floorMod(br.paulo.tvlauncher.home.CrossRhythm.ler(this).ordinal + passo, r.size)]
                 .also { br.paulo.tvlauncher.settings.Extras.definirNumero(this, br.paulo.tvlauncher.home.CrossRhythm.KEY, it.ordinal) })
         },
+    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) emptyList() else listOf(
+        // Esconder o que não vale (Paulo, 25/11/2026, onda A da simplificação): na barra única a cruz some (HomeCruz
+        // deixa a cruz GONE) e o nome do mundo tem linha própria (mundoNaIlha); estas duas linhas não mudariam nada.
         // Nome do mundo (22/11/2026, Paulo): junto da hora, na pílula do topo, ou na coluna como era.
         Ajuste(R.string.wl_titulo, { nomeLugarMundo(br.paulo.tvlauncher.home.WorldLabel.place(this)) }) { passo ->
             val m = br.paulo.tvlauncher.home.WorldLabel.Place.entries
@@ -111,12 +123,14 @@ class FineTuneActivity : Activity() {
                 br.paulo.tvlauncher.home.WorldOptions.update(this, c) { it.copy(iconOnly = !todasSo) }
             nomeDasCategorias()
         },
+    )) + listOf(
         // Jeito da tela inicial (BottomBar): barra única (padrão desde 24/11/2026), cruz ou barra embaixo. A lista de
         // ajustes muda com o jeito (as opções dos cards só valem na barra única): recria o painel.
         Ajuste(R.string.bb_titulo, { nomeJeito(br.paulo.tvlauncher.home.BottomBar.mode(this)) }) { passo ->
             nomeJeito(br.paulo.tvlauncher.home.BottomBar.next(this, passo)).also { window.decorView.post { recreate() } }
         },
-    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) ajustesFaixa() else emptyList()) + listOf(
+    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) ajustesFaixa() else emptyList()) +
+        (if (br.paulo.tvlauncher.home.BottomBar.rows(this)) ajustesFileiras() else emptyList()) + listOf(
         // Continuar no topo de cada categoria (Paulo, 22/11/2026): desligado de fábrica (ContinueOption).
         Ajuste(R.string.co_titulo, { getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder) }) { _ ->
             val on = !br.paulo.tvlauncher.home.ContinueOption.on(this)
@@ -195,7 +209,123 @@ class FineTuneActivity : Activity() {
         br.paulo.tvlauncher.home.BottomBar.Mode.CROSS -> R.string.bb_cruz
         br.paulo.tvlauncher.home.BottomBar.Mode.BAR -> R.string.bb_barra
         br.paulo.tvlauncher.home.BottomBar.Mode.STRIP -> R.string.bb_faixa
+        br.paulo.tvlauncher.home.BottomBar.Mode.ROWS -> R.string.bb_fileiras
     })
+
+    /**
+     * Opções das Fileiras (RowsHome; Paulo, 26/11/2026: "clone deles, com todas as opções"): as mesmas do Projectivy em
+     * Aparência > Cartões e Categorias, na mesma ordem. Cada ◀ ▶ grava; a HOME atrás se refaz na volta.
+     */
+    private fun ajustesFileiras(): List<Ajuste> {
+        val R2 = br.paulo.tvlauncher.home.RowsHome
+        fun o() = R2.options(this)
+        fun gira(key: String, atual: Int, total: Int, passo: Int) = R2.next(this, key, atual, total, passo)
+        fun nomes(vararg ids: Int) = ids.map { getString(it) }
+        val tam = nomes(R.string.rw_xs, R.string.rw_s, R.string.rw_m, R.string.rw_l, R.string.rw_xl)
+        val esp = nomes(R.string.rw_nenhum, R.string.rw_justo, R.string.rw_normal, R.string.rw_largo, R.string.rw_mais_largo)
+        val can = nomes(R.string.rw_reto, R.string.rw_leve, R.string.rw_suave, R.string.rw_redondo, R.string.rw_bem_redondo)
+        val foc = nomes(R.string.rw_igual, R.string.rw_s, R.string.rw_m, R.string.rw_l)
+        val efe = nomes(R.string.rw_nenhum, R.string.rw_brilho, R.string.rw_sombra_proj)
+        val ani = nomes(R.string.rw_nenhum, R.string.rw_respirar, R.string.rw_esmaecer, R.string.rw_pulsar, R.string.rw_reluzir)
+        val vao = listOf(getString(R.string.rw_auto)) + br.paulo.tvlauncher.home.RowsHome.Spacing.entries.drop(1).map { "${(it.pct * 100).toInt()}%" }
+        val opa = listOf(getString(R.string.rw_escondidas)) + br.paulo.tvlauncher.home.RowsHome.Dim.entries.drop(1).map { "${(it.alpha * 100).toInt()}%" }
+        val som = nomes(R.string.rw_nenhum, R.string.rw_fraca, R.string.rw_normal, R.string.rw_forte)
+        val simNao = nomes(R.string.st_sem, R.string.st_com)
+        val prop = listOf("16/9", "4/3", "3/2", "1/1", "2/3", getString(R.string.rw_poster))
+        val comp = nomes(R.string.rw_curta, R.string.rw_media, R.string.rw_longa, R.string.rw_tela_toda)
+        val B = br.paulo.tvlauncher.home.StripBackground
+        val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
+        fun enumA(t: Int, nomes: List<String>, key: String, atual: () -> Int) =
+            Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
+        val C3 = br.paulo.tvlauncher.home.CruzOnda3
+        /** Opção guardada direto em Extras.numero (fora das Options das Fileiras), com [padrao] de fábrica. */
+        fun numA(t: Int, nomes: List<String>, key: String, padrao: Int): Ajuste {
+            fun atual() = br.paulo.tvlauncher.settings.Extras.numero(this, key, padrao).coerceIn(0, nomes.size - 1)
+            return Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
+        }
+        fun simA(t: Int, key: String, atual: () -> Boolean) =
+            Ajuste(t, { simNao[if (atual()) 1 else 0] }) { p -> simNao[gira(key, if (atual()) 1 else 0, 2, p)] }
+        // Tema pronto (bloco 6): ◀ ▶ aplica o anterior/próximo; mexeu em qualquer opção = "Personalizado"
+        val temas = nomes(R.string.rw_tema_padrao, R.string.rw_tema_cinema, R.string.rw_tema_vitrine, R.string.rw_tema_minimo)
+        val tema = Ajuste(R.string.rw_tema, { R2.preset(o())?.let { temas[it.ordinal] } ?: getString(R.string.rw_personalizado) }) { p ->
+            val atual = R2.preset(o())?.ordinal ?: if (p > 0) -1 else 0
+            val novo = br.paulo.tvlauncher.home.RowsHome.Preset.entries[Math.floorMod(atual + p, br.paulo.tvlauncher.home.RowsHome.Preset.entries.size)]
+            R2.apply(this, novo); temas[novo.ordinal]
+        }
+        // Exportar e importar o tema (bloco 6): um arquivo em Download, que o PC/celular vê pela unidade de rede
+        fun arquivoTema() = java.io.File(android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS), R2.THEME_FILE)
+        val exportar = Ajuste(R.string.rw_tema_exportar, { R2.THEME_FILE }) { _ ->
+            runCatching { arquivoTema().writeText(R2.toJson(o())) }.fold({ getString(R.string.rw_tema_salvo) }, { getString(R.string.rw_tema_falhou) })
+        }
+        val importar = Ajuste(R.string.rw_tema_importar, { R2.THEME_FILE }) { _ ->
+            val v = runCatching { R2.fromJson(arquivoTema().readText()) }.getOrNull()
+            if (v.isNullOrEmpty()) getString(R.string.rw_tema_falhou)
+            else { v.forEach { (k, n) -> br.paulo.tvlauncher.settings.Extras.definirNumero(this, k, n) }; getString(R.string.rw_tema_aplicado) }
+        }
+        return listOf(
+            tema, exportar, importar,
+            simA(R.string.rw_nome_card, R2.KEY_CARD_TITLE) { o().cardTitle },
+            enumA(R.string.rw_cantos, can, R2.KEY_CORNERS) { o().corners.ordinal },
+            enumA(R.string.rw_tamanho, tam, R2.KEY_SIZE) { o().size.ordinal },
+            enumA(R.string.rw_espaco, esp, R2.KEY_GAP) { o().gap.ordinal },
+            enumA(R.string.rw_foco_tamanho, foc, R2.KEY_FOCUS_SIZE) { o().focusSize.ordinal },
+            enumA(R.string.rw_efeito, efe, R2.KEY_EFFECT) { o().effect.ordinal },
+            enumA(R.string.rw_brilho_anim, ani, R2.KEY_GLOW_ANIM) { o().glowAnim.ordinal },
+            simA(R.string.rw_titulo_fileira, R2.KEY_ROW_TITLE) { o().rowTitle },
+            simA(R.string.rw_icone_fileira, R2.KEY_ROW_ICON) { o().rowIcon },
+            enumA(R.string.rw_espaco_fileiras, vao, R2.KEY_SPACING) { o().spacing.ordinal },
+            simA(R.string.rw_fixo, R2.KEY_FIXED) { o().fixed },
+            simA(R.string.rw_esconder_acima, R2.KEY_HIDE_ABOVE) { o().hideAbove },
+            enumA(R.string.rw_opacidade, opa, R2.KEY_DIM) { o().dim.ordinal },
+            enumA(R.string.rw_sombra, som, R2.KEY_SHADOW) { o().shadow.ordinal },
+            simA(R.string.rw_hora, R2.KEY_CLOCK) { o().clock },
+            simA(R.string.rw_status, R2.KEY_STATUS) { o().status },
+            // Cartões (onda 2): o resto de Aparência > Cartões dele, na ordem dele
+            simA(R.string.rw_onda, R2.KEY_RIPPLE) { o().ripple },
+            enumA(R.string.rw_fundo_card, nomes(R.string.rw_auto, R.string.rw_grafite, R.string.rw_preto, R.string.rw_branco, R.string.rw_destaque), R2.KEY_CARD_BG) { o().cardBg.ordinal },
+            simA(R.string.rw_zoom, R2.KEY_ZOOM) { o().zoom },
+            enumA(R.string.rw_brilho_tam, nomes(R.string.rw_fino, R.string.rw_normal, R.string.rw_grosso), R2.KEY_GLOW_SIZE) { o().glowSize.ordinal },
+            enumA(R.string.rw_brilho_cor, nomes(R.string.rw_dinamica, R.string.rw_branco, R.string.rw_destaque), R2.KEY_GLOW_COLOR) { o().glowColor.ordinal },
+            simA(R.string.rw_progresso, R2.KEY_PROGRESS) { o().progress },
+            simA(R.string.rw_selo, R2.KEY_BADGE) { o().badge },
+            enumA(R.string.rw_prop_tv, prop, R2.KEY_TV_RATIO) { o().tvRatio.ordinal },
+            enumA(R.string.rw_prop_cel, prop, R2.KEY_MOBILE_RATIO) { o().mobileRatio.ordinal },
+            enumA(R.string.rw_tinta, nomes(R.string.rw_creme, R.string.rw_preto, R.string.rw_destaque), R2.KEY_ICON_TINT) { o().iconTint.ordinal },
+            // Categorias (bloco 3): margens das fileiras
+            enumA(R.string.rw_margem_inicio, nomes(R.string.rw_justo, R.string.rw_s, R.string.rw_normal, R.string.rw_largo, R.string.rw_mais_largo), R2.KEY_START) { o().start.ordinal },
+            enumA(R.string.rw_margem_fim, nomes(R.string.rw_nenhum, R.string.rw_s, R.string.rw_m, R.string.rw_l), R2.KEY_END) { o().end.ordinal },
+            enumA(R.string.rw_margem_topo, nomes(R.string.rw_mais_alto, R.string.rw_alto, R.string.rw_normal, R.string.rw_baixo, R.string.rw_mais_baixo), R2.KEY_TOP) { o().top.ordinal },
+            // Fundo (bloco 5): a foto, a sombra por cima e a troca sozinha
+            Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },
+            simA(R.string.rw_fundo_foco, R2.KEY_FOCUS_BG) { o().focusBg },
+            enumA(R.string.rw_fundo_modo, nomes(R.string.rw_recortar, R.string.rw_caber, R.string.rw_caber_borrado, R.string.rw_esticar, R.string.rw_borrar), R2.KEY_BG_MODE) { o().bgMode.ordinal },
+            simA(R.string.rw_fundo_dinamico, R2.KEY_BG_DYNAMIC) { o().bgDynamic },
+            enumA(R.string.rw_trocar_fundo, listOf(getString(R.string.rw_nunca)) + br.paulo.tvlauncher.home.RowsHome.BgEvery.entries.drop(1).map { if (it.min < 60) getString(R.string.rw_min, it.min) else getString(R.string.rw_horas, it.min / 60) }, R2.KEY_BG_EVERY) { o().bgEvery.ordinal },
+            enumA(R.string.rw_sombra_cor, nomes(R.string.rw_preto, R.string.rw_grafite), R2.KEY_SHADOW_TINT) { o().shadowTint.ordinal },
+            enumA(R.string.rw_sombra_larg, comp, R2.KEY_SHADOW_W) { o().shadowW.ordinal },
+            enumA(R.string.rw_sombra_alt, comp, R2.KEY_SHADOW_H) { o().shadowH.ordinal },
+            // Barra de status, hora e letra (bloco 6)
+            simA(R.string.rw_ocultar_topo, R2.KEY_AUTOHIDE) { o().autohide },
+            enumA(R.string.rw_status_cor, nomes(R.string.rw_creme, R.string.rw_branco, R.string.rw_destaque), R2.KEY_STATUS_COLOR) { o().statusColor.ordinal },
+            enumA(R.string.rw_status_fundo, nomes(R.string.rw_vidro, R.string.rw_escuro, R.string.rw_nenhum), R2.KEY_STATUS_BOX) { o().statusBox.ordinal },
+            enumA(R.string.rw_status_tam, nomes(R.string.rw_s, R.string.rw_m, R.string.rw_l), R2.KEY_STATUS_SIZE) { o().statusSize.ordinal },
+            enumA(R.string.rw_hora_tam, nomes(R.string.rw_s, R.string.rw_m, R.string.rw_l, R.string.rw_xl), R2.KEY_CLOCK_SIZE) { o().clockSize.ordinal },
+            enumA(R.string.rw_hora_linha2, nomes(R.string.rw_nenhum, R.string.rw_data, R.string.rw_dia_semana, R.string.rw_data_e_dia), R2.KEY_CLOCK_LINE2) { o().clockLine2.ordinal },
+            enumA(R.string.rw_letra_tam, nomes(R.string.rw_m, R.string.rw_l, R.string.rw_xl), R2.KEY_TEXT_SIZE) { o().textSize.ordinal },
+            simA(R.string.rw_negrito, R2.KEY_BOLD) { o().bold },
+            simA(R.string.rw_italico, R2.KEY_ITALIC) { o().italic },
+            // Modo ocioso (bloco 7): o modo ambiente da HOME, com os ajustes dele
+            numA(R.string.rw_ocioso, simNao, C3.CHAVE_AMBIENTE, 1),
+            numA(R.string.rw_ocioso_min, C3.AMBIENTE_MINUTOS.map { getString(R.string.rw_min, it) }, C3.CHAVE_AMBIENTE_MIN, 1),
+            numA(R.string.rw_ocioso_opacidade, C3.AMBIENTE_ALFAS.map { "${(it * 100).toInt()}%" }, C3.CHAVE_AMBIENTE_ALFA, 0),
+            numA(R.string.rw_ocioso_hora, simNao, C3.CHAVE_AMBIENTE_HORA, 1),
+            numA(R.string.rw_voltar2, simNao, C3.CHAVE_VOLTAR2, 0),
+            // "Abrir ao ligar" do menu do card (bloco 7)
+            numA(R.string.rw_ao_ligar_espera, br.paulo.tvlauncher.home.CardMenu.DELAYS_S.map { getString(R.string.rw_seg, it) },
+                br.paulo.tvlauncher.home.CardMenu.KEY_DELAY, 0),
+            numA(R.string.rw_ao_ligar_acordar, simNao, br.paulo.tvlauncher.home.CardMenu.KEY_WAKE, 0),
+        )
+    }
 
     /**
      * Opções da barra única (StripHome; Paulo, 24/11/2026: "customizável pelo usuário, como no Projectivy"): descrição do
@@ -215,7 +345,7 @@ class FineTuneActivity : Activity() {
         val personalidades = listOf(R.string.st_pers_cor, R.string.st_pers_brilho, R.string.cruz_azulejo)
         val animsMundo = listOf(R.string.st_anim_cena, R.string.st_anim_luz, R.string.st_anim_pulo)
         val B = br.paulo.tvlauncher.home.StripBackground
-        val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra)
+        val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra, R.string.st_telas_painel, R.string.st_telas_guiada)
         val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
         return listOf(
             Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },

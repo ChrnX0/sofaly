@@ -144,4 +144,6 @@ object Extras {
         runCatching { android.app.Application.getProcessName() }.getOrNull()?.endsWith(":player") == true
     }
     fun definirNumero(ctx: Context, chave: String, valor: Int) { prefs(ctx).edit().putInt(chave, valor).apply() }
+    /** Tira a chave (volta a valer o padrão de quem lê). */
+    fun apagar(ctx: Context, chave: String) { prefs(ctx).edit().remove(chave).apply() }
 }

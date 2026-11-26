@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">ตอนนี้</string>
+    <string name="col_filter_on">ฟิลเตอร์เปิดอยู่</string>
+    <string name="col_filter_off">ฟิลเตอร์กลางคืนปิดอยู่</string>
+    <string name="col_filter_at">เปิดเวลา %1$s</string>
+    <string name="col_filter_body">ทำให้หน้าจออุ่นและมืดลงตั้งแต่ %1$s ถึง %2$s ความแรง %3$d%%</string>
+    <string name="col_sleep_off">เวลานอนปิดอยู่</string>
+    <string name="col_sleep_now">ตอนนี้เป็นเวลานอน</string>
+    <string name="col_sleep_at">เริ่มเวลา %1$s</string>
+    <string name="col_sleep_body">ตั้งแต่ %1$s ถึง %2$s เปิดได้เฉพาะแอปที่อนุญาต และเสียงไม่เกิน %3$d%%</string>
+    <string name="col_screen_off">เวลาหน้าจอปิดอยู่</string>
+    <string name="col_screen_left">เหลือ %1$s วันนี้</string>
+    <string name="col_screen_body">เมื่อหมดเวลาของวันนี้ ทีวีจะกลับไปหน้าหลัก</string>
+    <string name="col_screen_daily">เวลาต่อวัน</string>
+    <string name="col_changes">สิ่งที่เปลี่ยน</string>
+</resources>

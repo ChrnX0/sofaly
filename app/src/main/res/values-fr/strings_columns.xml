@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Maintenant</string>
+    <string name="col_filter_on">Filtre activé</string>
+    <string name="col_filter_off">Filtre de nuit désactivé</string>
+    <string name="col_filter_at">S\'active à %1$s</string>
+    <string name="col_filter_body">Réchauffe et assombrit l\'écran de %1$s à %2$s, à %3$d%% d\'intensité.</string>
+    <string name="col_sleep_off">Heure du coucher désactivée</string>
+    <string name="col_sleep_now">Heure du coucher en cours</string>
+    <string name="col_sleep_at">Commence à %1$s</string>
+    <string name="col_sleep_body">De %1$s à %2$s, seules les applis autorisées s\'ouvrent et le volume ne dépasse pas %3$d%%.</string>
+    <string name="col_screen_off">Temps d\'écran désactivé</string>
+    <string name="col_screen_left">Il reste %1$s aujourd\'hui</string>
+    <string name="col_screen_body">Quand le temps du jour est écoulé, la TV revient à l\'écran d\'accueil.</string>
+    <string name="col_screen_daily">Temps par jour</string>
+    <string name="col_changes">Ce qui change</string>
+</resources>

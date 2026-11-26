@@ -52,7 +52,7 @@ class ConectarClaudeActivity : Activity() {
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         // Sistema de design: título de tela e texto de explicação (Estilo), sem cor nem fonte soltas.
         titulo = Estilo.tituloTela(this, "")
-        texto = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { textSize = 16f; setPaddingRelative(0, dp(Estilo.E2), dp(32), 0); setLineSpacing(0f, 1.25f) }
+        texto = Estilo.texto(this, Estilo.Papel.LEGENDA).apply { textSize = 18f; setPaddingRelative(0, dp(Estilo.E2), dp(32), 0); setLineSpacing(0f, 1.25f) }
         col.addView(titulo); col.addView(texto)
         val sair = Estilo.botao(this, getString(R.string.qr_fechar)).apply { setOnClickListener { finish() } }
         col.addView(sair, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = dp(24) })

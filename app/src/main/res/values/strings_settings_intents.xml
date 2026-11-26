@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Pedir na busca das Configurações (SettingsIntents, 25/11/2026). Modelos: todas as palavras precisam aparecer. -->
+    <string name="si_frases">TEXT_BIGGER=bigger text|text bigger|larger text|increase text|bigger letters|bigger font;TEXT_SMALLER=smaller text|text smaller|decrease text|smaller letters|smaller font;GOAL_READ=read better|hard to read|easier read;GOAL_CLEAN=cleaner screen|clean screen|less clutter|simpler screen;GOAL_ENERGY=less energy|save energy|save power|less power;LOOK_SOFALY=sofaly look|default look;LOOK_NIGHT=night look|dark sky;LOOK_MOUNTAIN=mountain look|mountains look;LOOK_MINIMAL=minimal look</string>
+    <string name="si_fazer">Do it now: %1$s</string>
+    <string name="si_desfazer">Undo: %1$s</string>
+    <string name="si_fazer_det">Changes it right away. OK again undoes it</string>
+    <string name="si_maior">Bigger text</string>
+    <string name="si_menor">Smaller text</string>
+</resources>

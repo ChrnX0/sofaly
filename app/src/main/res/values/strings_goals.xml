@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Configurar por objetivo (SettingsGoals, 25/11/2026). -->
+    <string name="goal_read">Read better</string>
+    <string name="goal_clean">Cleaner screen</string>
+    <string name="goal_energy">Save energy</string>
+    <string name="goal_kids">Protect the kids</string>
+    <string name="goal_desfazer">%1$s, on. OK undoes it</string>
+    <string name="goal_feito">%1$s: done. OK again undoes it</string>
+    <string name="goal_desfeito">%1$s: undone</string>
+</resources>

@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Gói của bạn</string>
     <string name="pl_loja_indisponivel">Google Play không mở được giao dịch mua. Hãy kiểm tra internet và thử lại.</string>
     <string name="atu_pela_play">Cập nhật đến từ Google Play.</string>
+    <string name="cfg_sec_tema">Chủ đề và nền</string>
+    <string name="cfg_sec_leitura">Đọc</string>
+    <string name="cfg_sec_inicio">Màn hình chính</string>
 </resources>

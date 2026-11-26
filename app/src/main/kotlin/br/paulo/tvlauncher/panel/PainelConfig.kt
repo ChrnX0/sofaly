@@ -11,7 +11,10 @@ import br.paulo.tvlauncher.player.PlayerArmazem
 import br.paulo.tvlauncher.player.TaxaQuadros
 import br.paulo.tvlauncher.privilege.Confirmacoes
 import br.paulo.tvlauncher.privilege.PrivilegioDO
+import br.paulo.tvlauncher.home.HomeLooks
 import br.paulo.tvlauncher.settings.AltoContraste
+import br.paulo.tvlauncher.settings.SettingsGoals
+import br.paulo.tvlauncher.settings.SettingsIntents
 import br.paulo.tvlauncher.settings.TamanhoTexto
 import br.paulo.tvlauncher.settings.Tema
 import br.paulo.tvlauncher.weather.AvisoChuva
@@ -36,6 +39,12 @@ object PainelConfig {
         class Erro(val mensagem: String) : Resultado()
     }
 
+    /** Como estava a cara da HOME antes do 1º visual pronto escolhido pelo painel ("Como estava" volta a ela). */
+    @Volatile private var fotoVisual: Map<String, Int?>? = null
+    /** O último pedido em frase feito pelo painel e como desfazê-lo (some quando é desfeito). */
+    @Volatile private var pedidoFeito: br.paulo.tvlauncher.settings.SettingsIntents.Action? = null
+    @Volatile private var desfazerPedido: (() -> Unit)? = null
+
     fun estado(app: Context): JSONObject {
         val par = PlayerArmazem.parental(app)
         val conf = ConfirmacoesTv.regras(app)
@@ -44,6 +53,13 @@ object PainelConfig {
             .put("temas", org.json.JSONArray().apply { for (t in Tema.values()) put(JSONObject().put("valor", t.name.lowercase()).put("nome", t.nome)) })
             .put("tamanhoTexto", TamanhoTexto.atual(app))
             .put("animacaoMundo", br.paulo.tvlauncher.home.StripHome.options(app).worldAnim.name.lowercase())   // Ajuste fino › Animação do mundo
+            // Os mesmos padrões da TV (25/11/2026, onda B/D/E no painel): visuais prontos, objetivos e o pedido em frase.
+            .put("barraUnica", br.paulo.tvlauncher.home.BottomBar.strip(app))
+            .put("visualPronto", br.paulo.tvlauncher.home.HomeLooks.atual(app)?.name?.lowercase() ?: JSONObject.NULL)
+            .put("visualVoltar", fotoVisual != null)
+            .put("objetivo", br.paulo.tvlauncher.settings.SettingsGoals.ativo(app)?.name?.lowercase() ?: JSONObject.NULL)
+            .put("pedidoFrases", app.getString(br.paulo.tvlauncher.R.string.si_frases))
+            .put("pedidoFeito", pedidoFeito?.name?.lowercase() ?: JSONObject.NULL)
             .put("altoContraste", AltoContraste.ligado(app))
             .put("avisoChuva", AvisoChuva.ligado(app))
             .put("taxaQuadros", TaxaQuadros.ligada(app))
@@ -91,6 +107,37 @@ object PainelConfig {
                     ?: return Resultado.Erro("animação desconhecida")
                 br.paulo.tvlauncher.settings.Extras.definirNumero(app, br.paulo.tvlauncher.home.StripHome.KEY_WORLD_ANIM, a.ordinal)
                 registrar("animação do mundo: ${a.name.lowercase()}")
+            }
+            "visualPronto" -> {
+                if (v == "voltar") {
+                    val f = fotoVisual ?: return Resultado.Erro("nada para voltar")
+                    HomeLooks.voltar(app, f); fotoVisual = null; registrar("visual: como estava")
+                } else {
+                    val l = HomeLooks.Look.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) } ?: return Resultado.Erro("visual desconhecido")
+                    if (fotoVisual == null) fotoVisual = HomeLooks.foto(app)
+                    HomeLooks.aplicar(app, l); registrar("visual pronto: ${l.name.lowercase()}")
+                }
+            }
+            // Objetivo (o mesmo botão da TV): o ativo desfaz; "Proteger crianças" fica na TV (pede o PIN da receita).
+            "objetivo" -> {
+                val g = SettingsGoals.Goal.entries.firstOrNull { it.name.equals(v as? String, ignoreCase = true) && it != SettingsGoals.Goal.KIDS }
+                    ?: return Resultado.Erro("objetivo desconhecido")
+                if (SettingsGoals.ativo(app) == g) { SettingsGoals.desfazer(app); registrar("objetivo desfeito: ${g.name.lowercase()}") }
+                else { SettingsGoals.aplicar(app, g); registrar("objetivo: ${g.name.lowercase()}") }
+            }
+            // Pedido em frase ("deixa a letra maior"), entendido com as frases do idioma da TV; "desfazer" volta o último.
+            "pedido" -> {
+                if (v == "desfazer") {
+                    (desfazerPedido ?: return Resultado.Erro("nada para desfazer")).invoke()
+                    registrar("pedido desfeito: ${pedidoFeito?.name?.lowercase()}"); desfazerPedido = null; pedidoFeito = null
+                } else {
+                    val frase = (v as? String)?.take(200) ?: return Resultado.Erro("valor inválido")
+                    // O painel já entende a frase sozinho (pedidoFrases) e manda o nome da ação; uma frase também serve.
+                    val a = SettingsIntents.Action.entries.firstOrNull { it.name.equals(frase, ignoreCase = true) }
+                        ?: SettingsIntents.entender(frase, SettingsIntents.modelos(app.getString(br.paulo.tvlauncher.R.string.si_frases)))
+                        ?: return Resultado.Erro("não entendi o pedido")
+                    desfazerPedido = SettingsIntents.fazer(app, a); pedidoFeito = a; registrar("pedido: ${a.name.lowercase()}")
+                }
             }
             "tamanhoTexto" -> {
                 val n = (v as? Number)?.toInt()?.takeIf { it in TamanhoTexto.OPCOES } ?: return Resultado.Erro("tamanho inválido")

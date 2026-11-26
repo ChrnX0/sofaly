@@ -24,6 +24,25 @@ object CruzOnda3 {
 
     /** Parada este tempo na HOME (sem tecla), a cruz recua e ficam a arte e a hora grande. */
     const val AMBIENTE_MS = 2 * 60_000L
+    /** Ajustes do modo ambiente (bloco 7 do clone do Projectivy, o "modo ocioso" dele): depois de quanto tempo, quanto
+     *  da tela inicial fica à vista e se a hora grande aparece. Índices em Extras.numero. */
+    const val CHAVE_AMBIENTE_MIN = "cruz_ambiente_min"
+    const val CHAVE_AMBIENTE_ALFA = "cruz_ambiente_alfa"
+    const val CHAVE_AMBIENTE_HORA = "cruz_ambiente_hora"
+    val AMBIENTE_MINUTOS = listOf(1, 2, 5, 10, 30)
+    val AMBIENTE_ALFAS = listOf(0f, 0.2f, 0.4f)
+    fun ambienteMs(ctx: Context) = ambienteMs(Extras.numero(ctx, CHAVE_AMBIENTE_MIN, 1))
+    fun ambienteMs(i: Int) = AMBIENTE_MINUTOS.getOrElse(i) { 2 } * 60_000L
+    fun ambienteAlfa(ctx: Context) = AMBIENTE_ALFAS.getOrElse(Extras.numero(ctx, CHAVE_AMBIENTE_ALFA, 0)) { 0f }
+    fun ambienteHora(ctx: Context) = Extras.numero(ctx, CHAVE_AMBIENTE_HORA, 1) != 0
+
+    /** Voltar duas vezes na HOME abre o protetor de tela (o "Modo ambiente com Voltar duplo" dele). 0 = desligado. */
+    const val CHAVE_VOLTAR2 = "cruz_voltar2"
+    const val VOLTAR2_MS = 600L
+    fun voltar2(ctx: Context) = Extras.numero(ctx, CHAVE_VOLTAR2, 0) == 1
+    /** Regra pura: o 2º Voltar conta se veio a tempo depois do 1º. */
+    fun voltarDuplo(antes: Long, agora: Long) = antes > 0 && agora - antes in 1..VOLTAR2_MS
+
     /** A cruz some (e volta) neste tempo: devagar, para não assustar quem está olhando. */
     const val AMBIENTE_FADE_MS = 1000L
     const val VOLTA_MS = 250L

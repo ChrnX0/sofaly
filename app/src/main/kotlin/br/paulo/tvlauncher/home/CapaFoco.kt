@@ -49,8 +49,21 @@ class CapaFoco(ctx: Context) : View(ctx) {
      * Tema Galeria (dono, 10/11/2026: "no tema galeria aquele glow tem que sumir"): a pintura já é o fundo; a capa por
      * cima dela brigava com a obra. Desligada, ela nunca aparece.
      */
+    /**
+     * Fileiras com "Arte do card em foco no fundo" (clone do Projectivy, 26/11/2026): a capa cobre a tela inteira, sem
+     * as máscaras do canto; quem escurece a arte para as fileiras serem lidas é a sombra das próprias Fileiras.
+     */
+    var telaCheia = false
+
+    /**
+     * A opacidade que a capa quer ter agora (0 escondida). Quem cancela o animate() dela (a paralaxe, [deslizarArte])
+     * põe esta de volta: antes a capa ficava presa nos 0,3 do começo do esmaecer a cada tecla (visto na Sala, 26/11/2026).
+     */
+    var alfaAlvo = 0f
+        private set
+
     var desligada = false
-        set(v) { field = v; if (v) { animate().cancel(); alpha = 0f } }
+        set(v) { field = v; if (v) { animate().cancel(); alpha = 0f; alfaAlvo = 0f } }
 
     /**
      * Escala de repouso da capa. A HOME desenha a capa em METADE da resolução e a amplia 2x (MainActivity), então a escala
@@ -100,10 +113,12 @@ class CapaFoco(ctx: Context) : View(ctx) {
         this.cores = cores
         invalidate()
         animate().cancel()
-        if (imagem == null && cores == null) { animate().alpha(0f).setDuration(200).start(); return }
-        if (!TesteHome.capaAnima) { alpha = OPACIDADE; return }   // só para medir (gancho HOME_TESTE)
+        if (imagem == null && cores == null) { alfaAlvo = 0f; animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); return }
+        val opaca = if (telaCheia) 1f else OPACIDADE
+        alfaAlvo = opaca
+        if (!TesteHome.capaAnima) { alpha = opaca; return }   // só para medir (gancho HOME_TESTE)
         alpha = 0.3f
-        animate().alpha(OPACIDADE).setDuration(260).start()
+        animate().alpha(opaca).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(br.paulo.tvlauncher.Estilo.curva()).start()
     }
 
     fun esconder() = mostrar(null, null)
@@ -135,6 +150,7 @@ class CapaFoco(ctx: Context) : View(ctx) {
             }
             else -> return
         }
+        if (telaCheia) return
         // Máscara: transparente na borda esquerda (até ~55% da largura) e embaixo: some ANTES da faixa de 9 dias (a capa
         // tem 330 dp e a faixa começa em 252: 252/330 = 76%; visto na Sala, 06/11, o banner ainda passava atrás dos dias).
         // Arte: some mais cedo pela esquerda (45%) e só no último terço de baixo (o teste aprovado pelo dono, 12/11/2026).

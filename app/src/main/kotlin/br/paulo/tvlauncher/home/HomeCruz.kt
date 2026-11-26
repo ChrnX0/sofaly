@@ -137,6 +137,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         const val SOM_A_CADA = 3
         const val APERTO = 0.92f        // "aperto" do ícone no OK: resposta no mesmo quadro do toque
         const val APERTO_MS = 70L
+        const val MOVER_AVISO_MS = 600_000L   // a dica do reordenar fica até terminar
         const val NAO_ABRIU_MS = 4000L  // "Não deu para abrir" no lugar da linha de baixo
         const val FONTE_POSICAO = 18f   // "3 de 9"
         const val BARRA_A = 5f          // altura da barra de progresso (dp)
@@ -212,7 +213,22 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Banner de TV de um item da barra única (só apps); quem usa responde na thread principal. */
     var bannerDe: ((Item, (Drawable?) -> Unit) -> Unit)?
         get() = strip.bannerDe
-        set(v) { strip.bannerDe = v }
+        set(v) { strip.bannerDe = v; rows.bannerDe = v }
+    /**
+     * "Fileiras" ([RowsHome], 26/11/2026, clone do Projectivy): uma fileira por categoria. Usa as teclas e o estado da
+     * barra única ([faixa] fica ligada junto); só o desenho muda ([RowsLayer]).
+     */
+    var fileiras = false
+        set(v) { if (field == v) return; field = v; aplicarModo(); posicionar(animar = false) }
+    var opcoesFileiras: RowsHome.Options
+        get() = rows.opcoes
+        set(v) { rows.opcoes = v; if (fileiras) posicionar(animar = false) }
+    /** Engrenagem da pílula do alto nas Fileiras (abre as Configurações). */
+    var aoEngrenagem: (() -> Unit)?
+        get() = rows.aoEngrenagem
+        set(v) { rows.aoEngrenagem = v }
+    /** A engrenagem das Fileiras, para o ▲ da 1ª fileira chegar nela. */
+    internal fun engrenagem(): View = rows.engrenagem
     /** Distância (dp) do pé da tela até o topo da linha do mundo, a cada mudança (camada dos widgets). */
     var aoMudarBase: ((Float) -> Unit)?
         get() = strip.aoMudarBase
@@ -228,6 +244,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private val viewsCat = ArrayList<View>()
     /** A camada da barra única ([faixa]); some nos outros jeitos. */
     private val strip: StripLayer
+    /** A camada das Fileiras ([fileiras]). */
+    private lateinit var rows: RowsLayer
     private val veu: View
     private val placa: View
     private val realce: View
@@ -300,13 +318,13 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Véu escuro atrás da coluna (contraste com qualquer tema ou foto): da esquerda até depois do texto, some antes
         // das categorias da direita. Uma camada só, parada.
         veu = View(ctx).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC121528.toInt(), 0x99121528.toInt(), 0x00121528))
+            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC141413.toInt(), 0x99141413.toInt(), 0x00141413))
         }
         addView(veu, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
         // Barra embaixo: a placa (vidro escuro de cantos redondos, largura toda) e o realce da categoria escolhida.
         // Ficam atrás das categorias (que entram depois, em [definir]); somem na cruz.
         placa = View(ctx).apply {
-            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30A0D18.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
+            background = GradientDrawable().apply { cornerRadius = dp(28f); setColor(0xB30B0B0A.toInt()); setStroke(dpi(1), 0x14FFFFFF) }
             visibility = View.GONE
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
@@ -392,6 +410,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         addView(nomeApp, LayoutParams(dpi(BARRA_PASSO_APPS.toInt() + 40), LayoutParams.WRAP_CONTENT))
         strip = StripLayer(ctx).apply { visibility = View.GONE }
         addView(strip, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
+        rows = RowsLayer(ctx).apply { visibility = View.GONE }
+        addView(rows, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
         setOnFocusChangeListener { _, tem -> posicionar(animar = false); anunciar(); atualizarDetalhe(); if (tem) dicaDepois() else esconderDica() }
     }
 
@@ -407,7 +427,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         for (v in viewsCat) v.visibility = cruzVis
         for (l in viewsItem) for (iv in l) iv.raiz.visibility = cruzVis
         if (::cabecalho.isInitialized) cabecalho.visibility = if (faixa) View.GONE else View.VISIBLE
-        strip.visibility = if (faixa) View.VISIBLE else View.GONE
+        strip.visibility = if (faixa && !fileiras) View.VISIBLE else View.GONE
+        if (::rows.isInitialized) rows.visibility = if (faixa && fileiras) View.VISIBLE else View.GONE
         if (faixa) { detalhe.animate().cancel(); detalhe.alpha = 0f }
     }
 
@@ -425,7 +446,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             val antes = itemAtual()
             cats = novas
             for ((j, c) in novas.withIndex()) for ((i, it) in c.itens.withIndex()) preencher(viewsItem[j][i], it)
-            if (faixa) strip.atualizarTexto(cats, estado.cat)
+            if (faixa && !fileiras) strip.atualizarTexto(cats, estado.cat)
             // O item em foco mudou de texto ou ícone (canal novo, episódio novo): a arte e o TalkBack acompanham.
             val agora = itemAtual()
             if (agora != null && (antes?.nome != agora.nome || antes.sub != agora.sub || antes.icone !== agora.icone || antes.situacao != agora.situacao)) avisarMudanca()
@@ -433,6 +454,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         }
         estado = if (assinatura == null) CruzLogica.inicial(novoMapa, lembrados, ultimoAberto?.substringAfter('|'))
             else CruzLogica.reajustar(mapa, estado, novoMapa)
+        // Reordenando: o foco segue o card que andou
+        movendo?.let { id -> CruzLogica.focar(novoMapa, estado, id, cats.getOrNull(estado.cat)?.cat)?.let { estado = it } }
         if (voltarPendente) ultimoAberto?.let { u ->
             CruzLogica.focar(novoMapa, estado, u.substringAfter('|'), CruzLogica.Categoria.entries.firstOrNull { it.id == u.substringBefore('|') })
                 ?.let { estado = it; voltarPendente = false }
@@ -473,6 +496,26 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private var voltarPendente = false
 
     /**
+     * Reordenar (menu do card, como no Projectivy, 26/11/2026): com o id do card aqui, ◀ ▶ chamam [aoMover] (-1/+1, quem
+     * usa grava a ordem nova e refaz a HOME; o foco segue o card) e OK, ▲ ▼ ou VOLTAR terminam ([pararDeMover]).
+     */
+    var movendo: String? = null
+        private set
+    private var aoMover: ((Int) -> Unit)? = null
+    fun comecarAMover(id: String, mover: (Int) -> Unit) { movendo = id; aoMover = mover; avisoDeMover() }
+    fun pararDeMover(): Boolean {
+        if (movendo == null) return false
+        movendo = null; aoMover = null
+        if (fileiras) rows.fimDoAviso() else strip.aviso(itemAtual()?.nome.orEmpty(), 1)
+        return true
+    }
+    private fun avisoDeMover() {
+        val t = context.getString(R.string.rw_reordenar_dica)
+        if (fileiras) rows.aviso(t, MOVER_AVISO_MS) else if (faixa) strip.aviso(t, MOVER_AVISO_MS)
+        announceForAccessibility(t)
+    }
+
+    /**
      * Um app aberto FORA da cruz (grade "Todos os apps"): ao voltar, o foco vai nele, não em "Todos os apps"
      * (Paulo, 21/11/2026: "o destaque seja exatamente o último aplicativo selecionado"). Sem categoria: procura em todas.
      */
@@ -505,6 +548,14 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             }
             else -> return super.onKeyDown(keyCode, event)
         }
+        if (movendo != null) {
+            when (t) {
+                CruzLogica.Tecla.ESQUERDA -> { if (repeticao == 0 || repeticao % 3 == 0) aoMover?.invoke(-1); avisoDeMover() }
+                CruzLogica.Tecla.DIREITA -> { if (repeticao == 0 || repeticao % 3 == 0) aoMover?.invoke(+1); avisoDeMover() }
+                else -> pararDeMover()
+            }
+            return true
+        }
         if (faixa) return teclaFaixa(t)
         if (barra) return teclaBarra(t)
         if (t == CruzLogica.Tecla.CIMA && CruzLogica.passo(mapa, estado, t) is CruzLogica.Resultado.SubirTopo) {
@@ -526,6 +577,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     override fun onKeyUp(keyCode: Int, event: KeyEvent): Boolean {
         val ok = keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER
         if (!ok) return super.onKeyUp(keyCode, event)
+        if (movendo != null) { pararDeMover(); return true }   // OK termina o reordenar (não abre o app)
         if (event.isTracking && !event.isCanceled) { if (barra && !faixa) teclaBarra(CruzLogica.Tecla.OK) else aplicar(CruzLogica.Tecla.OK) }
         return true
     }
@@ -555,7 +607,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun teclaFaixa(t: CruzLogica.Tecla): Boolean {
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
         val n = categoriaAtual()?.itens?.size ?: 0
-        val p = StripHome.passo(t, estado.cat, sel, n, categoriaAtual()?.let { strip.formato(it.cat).grade } ?: false)
+        // Grade: a barra tem a de 2 linhas do jeito dos cards; as Fileiras, as linhas do mundo (menu do mundo)
+        val linhas = categoriaAtual()?.let { if (fileiras) WorldOptions.of(context, it.cat).lines else if (strip.formato(it.cat).grade) 2 else 1 } ?: 1
+        val p = StripHome.passo(t, estado.cat, sel, n, linhas = linhas)
         if (p.subirTopo) { aoSubirTopo?.invoke(repeticao); return false }
         p.paraSel?.let { irParaFaixa(it); return true }
         val tecla = p.tecla
@@ -613,6 +667,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** O ícone do item escolhido "aperta" e volta: o toque foi entendido, no mesmo quadro. */
     private fun apertar() {
+        if (faixa && fileiras) { rows.apertar(estado.cat, estado.sel.getOrElse(estado.cat) { 0 }); return }
         if (faixa) { strip.apertar(estado.sel.getOrElse(estado.cat) { 0 }); return }
         val iv = viewAtual() ?: return
         if (semAnimacao()) return
@@ -629,7 +684,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      * destaque por [NAO_ABRIU_MS], e o leitor de tela fala. Depois volta ao texto de antes.
      */
     fun naoAbriu() {
-        if (faixa) { context.getString(R.string.cruz_nao_abriu).let { strip.aviso(it, NAO_ABRIU_MS); announceForAccessibility(it) }; return }
+        if (faixa) { context.getString(R.string.cruz_nao_abriu).let { if (fileiras) rows.aviso(it, NAO_ABRIU_MS) else strip.aviso(it, NAO_ABRIU_MS); announceForAccessibility(it) }; return }
         val iv = viewAtual() ?: return
         val aviso = context.getString(R.string.cruz_nao_abriu)
         iv.sub.text = aviso
@@ -883,6 +938,12 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        if (faixa && fileiras) {
+            rows.nivel = if (semAnimacao()) MovimentoAdaptativo.Nivel.PARADO else nivel
+            rows.lembrar(estado.sel)
+            rows.mostrar(cats, estado.cat, estado.sel.getOrElse(estado.cat) { 0 }, hasFocus() || isFocused, animar)
+            return
+        }
         if (faixa) {
             strip.nivel = if (semAnimacao()) MovimentoAdaptativo.Nivel.PARADO else nivel
             strip.mostrar(cats, estado.cat, estado.sel.getOrElse(estado.cat) { 0 }, hasFocus() || isFocused, animar, direcaoFaixa)
@@ -991,7 +1052,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val corCat = BottomBar.cor(cats.getOrNull(f)?.cat)
         val anel = focada && !naApps && (hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto)
         realce.background = GradientDrawable().apply {
-            cornerRadius = dp(20f)
+            cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO.toFloat())
             setColor(Estilo.alfa(corCat, 0x29))
             if (anel) setStroke(dpi(3), Estilo.ACENTO)
         }
@@ -1047,7 +1108,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Para o teste de tela da barra única: a linha do mundo, a descrição e os cards visíveis. */
     internal fun linhaDoMundo(): View = strip.linhaDoMundo()
     internal fun descricaoDoMundo(): TextView = strip.descricao()
-    internal fun cardsDaFaixa(): List<View> = strip.cardsVisiveis()
+    internal fun cardsDaFaixa(): List<View> = if (fileiras) rows.cardsVisiveis() else strip.cardsVisiveis()
+    /** Para o teste de tela das Fileiras: o nome grande do card em foco. */
+    internal fun nomeDoFoco(): TextView = rows.nomeDoFoco()
 
     /** Para o teste de tela: a linha de apps da barra está aberta. */
     internal fun appsAbertos(): Boolean = barra && naApps
@@ -1074,7 +1137,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val base = LINHA - VAO_CIMA - ICONE_A * ESCALA_PEQUENO / 2f
         val alvo = dp(base - ROTULO_VAO) - altura
         if (cabecalho.translationY == alvo) return
-        if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(300L).setInterpolator(curvaRotulo).start()
+        if (animar && !semAnimacao()) cabecalho.animate().translationY(alvo).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(curvaRotulo).start()
         else { cabecalho.animate().cancel(); cabecalho.translationY = alvo }
     }
 
@@ -1102,7 +1165,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val alvo = if (pequeno && CrossRhythm.atual.nomeNoMeio)
             (dp(ICONE_A.toFloat()) - (fm.descent - fm.ascent)) / 2f - dp(TEXTO_TOPO.toFloat()) else 0f
         if (textos.translationY == alvo) return
-        if (animar && !semMov) textos.animate().translationY(alvo).setDuration(200L).start()
+        if (animar && !semMov) textos.animate().translationY(alvo).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(Estilo.curva()).start()
         else { textos.animate().cancel(); textos.translationY = alvo }
     }
 

@@ -33,6 +33,9 @@
     <string name="st_telas_gaveta">Laatikko</string>
     <string name="st_telas_vidro">Lasi</string>
     <string name="st_telas_barra">Palkki</string>
+    <string name="st_telas_painel">Sivupaneeli</string>
+    <string name="st_telas_guiada">Opastettu</string>
+    <string name="gl_root_desc">Kaikki tästä televisiosta, askel kerrallaan.</string>
     <string name="st_fundo">Tausta</string>
     <string name="st_fundo_vale">Laakso</string>
     <string name="st_fundo_serra">Vuoret</string>

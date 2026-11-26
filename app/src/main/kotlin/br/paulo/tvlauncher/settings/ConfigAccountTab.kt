@@ -233,7 +233,9 @@ internal fun ConfigLauncherActivity.contasNoTopo(c: LinearLayout, fontes: List<F
             // Foco = borda no acento, não o fundo branco das linhas: os textos do quadro são claros e sumiam no branco
             // (visto na Sala, 19/11/2026).
             setOnFocusChangeListener { v, temFoco ->
-                v.background = if (temFoco) Estilo.fundo(this@contasNoTopo, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.ACENTO, 2) else vidro(false)
+                v.background = if (!temFoco) vidro(false)
+                    else if (Estilo.focoEscurece(this@contasNoTopo)) Estilo.fundo(this@contasNoTopo, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.ACENTO, 2)
+                    else Estilo.fundoFocado(this@contasNoTopo, Estilo.RAIO, vidro(false))
                 if (temFoco) mostrarDica(noMenu = false)
             }
         }

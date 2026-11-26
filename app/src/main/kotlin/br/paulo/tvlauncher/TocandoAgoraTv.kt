@@ -114,6 +114,9 @@ object TocandoAgoraTv {
             .filter { it.packageName != ctx.packageName }   // a nossa sessão: ver [nosso]
     } catch (e: SecurityException) { emptyList() }
 
+    /** A sessão de mídia ativa do app [pacote] (menu do card: tocar/pausar, próxima, anterior), ou null. */
+    fun controlador(ctx: Context, pacote: String): MediaController? = controladores(ctx).firstOrNull { it.packageName == pacote }
+
     /** O nosso som (rádio), ou null. Leve: um arquivo pequeno e a lista de processos do app. */
     private fun nosso(ctx: Context): OuvirEstado.Estado? = runCatching { OuvirEstado.ler(ctx) }.getOrNull()
     private fun rotuloNosso(ctx: Context, e: OuvirEstado.Estado) = ctx.getString(if (e.tipo == "podcast") R.string.pod_titulo else R.string.ra_coluna)

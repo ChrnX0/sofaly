@@ -45,8 +45,19 @@ internal object PortasConfig {
     /** As abas da porta [porta] que aparecem no uso [uso] (Simples esconde as técnicas, ver [UsoTv.ABAS_TECNICAS]). */
     fun abasVisiveis(porta: Int, uso: UsoTv): List<Int> = PORTAS[porta].filter { UsoTv.mostraAba(uso, it) }
 
-    /** Quantas linhas uma aba mostra no modo Simples antes de "Mais ajustes". */
-    const val LINHAS_SIMPLES = 8
+    /**
+     * Quantas linhas uma aba mostra no modo Simples antes de "Mais ajustes". Era 8; 5 desde 25/11/2026 (onda C da
+     * simplificação: "no máximo 5 por porta, as mais usadas").
+     */
+    const val LINHAS_SIMPLES = 5
+
+    /**
+     * Quais linhas ficam à vista no Simples (puro, PortasConfigTest): as [max] mais usadas ([vezes] = quantas vezes cada
+     * linha foi apertada, na ordem da aba); empate (e TV nova, tudo zero) fica com a ordem da aba, que já põe o
+     * principal em cima. Devolve as posições que ficam.
+     */
+    fun noSimples(vezes: List<Int>, max: Int = LINHAS_SIMPLES): Set<Int> =
+        vezes.indices.sortedWith(compareByDescending<Int> { vezes[it] }.thenBy { it }).take(max).toSet()
 }
 
 /** As portas estão na tela agora (e não uma porta aberta)? */
@@ -61,11 +72,13 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
     val uso = UsoTv.atual(this)
 
     // Busca e Simples/Completo numa linha só, em cima (Ajustes do Apple Watch e Reddit no Mobbin: a busca vem antes de tudo).
-    val topo = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
+    // Guiado: a coluna da lista tem 400 dp e as duas pílulas lado a lado não cabem ("Modo: Completo" quebrava e cortava,
+    // teste de telas 26/11/2026): uma embaixo da outra.
+    val topo = LinearLayout(this).apply { orientation = if (guiado) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false }
     topo.addView(Estilo.pilula(this).apply {
         addView(Estilo.texto(context, Estilo.Papel.CORPO, "⌕  " + getString(R.string.elv_aj_buscar)).apply { maxLines = 1 })
         setOnClickListener { abrirBuscaDasPortas() }
-    }, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E2) })
+    }, LinearLayout.LayoutParams(WRAP, WRAP).apply { if (guiado) bottomMargin = dp(Estilo.E1) else marginEnd = dp(Estilo.E2) })
     // Simples / Completo (proposta E), à vista: a mesma escolha de Sistema > "Como esta TV é usada".
     topo.addView(Estilo.pilula(this).apply {
         addView(Estilo.texto(context, Estilo.Papel.CORPO, getString(R.string.cfg3_modo, nomeUso(uso))).apply { maxLines = 1 })
@@ -77,8 +90,16 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
         tag = TAG_MODO
     })
     grade.addView(topo, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2); marginStart = dp(4) })
+    objetivos(foco)
 
     val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
+    if (painel) {
+        if (janelaPainel) SidePanel.previa(this, false)
+        guiaDasPortas()
+        portasEmLista(portas, foco)
+        mostrarDicaDasPortas()
+        return
+    }
     if (ScreenStyle.barra(this)) {
         (grade.parent as? View)?.background = Estilo.fundoEntrada(this)
         portasEmBarra(portas, foco)
@@ -103,6 +124,113 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
 
 private const val TAG_MODO = "cfg3_modo"
 
+/**
+ * Os 4 objetivos (onda D, 25/11/2026; ver [SettingsGoals]) em 2 x 2 botões, logo abaixo da busca. O ativo mostra "✓" e
+ * o mesmo OK desfaz. Só o nome, sem símbolo (26/11/2026, Sala: "Aa", "◻", "☾" e um emoji colorido, quatro jeitos
+ * diferentes numa linha só; o protótipo aprovado tem pílulas só de texto). Na barra única e no jeito cruz, o que não existe no jeito atual só não aparece na tela (as chaves
+ * ficam gravadas e valem se a pessoa mudar o jeito).
+ */
+private fun ConfigLauncherActivity.objetivos(foco: Int) {
+    val ativo = SettingsGoals.ativo(this)
+    val tabela = GridLayout(this).apply { columnCount = 2; clipChildren = false; clipToPadding = false }
+    SettingsGoals.Goal.entries.forEachIndexed { n, g ->
+        val nome = getString(when (g) {
+            SettingsGoals.Goal.READ -> R.string.goal_read
+            SettingsGoals.Goal.CLEAN -> R.string.goal_clean
+            SettingsGoals.Goal.ENERGY -> R.string.goal_energy
+            SettingsGoals.Goal.KIDS -> R.string.goal_kids
+        })
+        val b = Estilo.pilula(this).apply {
+            // Duas linhas: no painel estreito (560 dp, 2 colunas) um nome longo em alemão não cabe numa.
+            addView(Estilo.texto(context, Estilo.Papel.CORPO, (if (g == ativo) "✓  " else "") + nome).apply { maxLines = 2 })
+            contentDescription = if (g == ativo) getString(R.string.goal_desfazer, nome) else nome
+            tag = "goal:" + g.name
+            setOnClickListener {
+                when {
+                    g == SettingsGoals.Goal.KIDS -> startActivity(android.content.Intent(this@objetivos, br.paulo.tvlauncher.ReceitasActivity::class.java)
+                        .putExtra(br.paulo.tvlauncher.ReceitasActivity.EXTRA_CONFIRMAR, br.paulo.tvlauncher.settings.Receitas.Receita.CRIANCAS.name))
+                    g == ativo -> { SettingsGoals.desfazer(this@objetivos); aviso(getString(R.string.goal_desfeito, nome)) }
+                    else -> { SettingsGoals.aplicar(this@objetivos, g); aviso(getString(R.string.goal_feito, nome)) }
+                }
+                if (g == SettingsGoals.Goal.KIDS) return@setOnClickListener
+                // A letra muda a própria tela das Configurações: refaz e volta o foco ao mesmo botão.
+                if (g == SettingsGoals.Goal.READ) { recreate(); return@setOnClickListener }
+                mostrarPortas(foco)
+                grade.post { grade.findViewWithTag<View>("goal:" + g.name)?.requestFocus() }
+            }
+        }
+        tabela.addView(b, GridLayout.LayoutParams(GridLayout.spec(n / 2), GridLayout.spec(n % 2, 1f)).apply {
+            width = 0; setMargins(dp(4), dp(4), dp(Estilo.E1), dp(Estilo.E1))
+        })
+    }
+    grade.addView(tabela, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E2) })
+}
+
+/**
+ * Painel ao lado (A+B no estilo da E, 25/11/2026): as portas viram uma lista agrupada num cartão só (caminho A), cada
+ * linha com o azulejo da área, o nome, o que tem dentro e "›". Porquê: no painel estreito a grade de 3 colunas não cabe,
+ * e a lista em grupo lê de cima para baixo como os Ajustes do celular (Mobbin: Grok e Tide Guide, grupos de linhas num
+ * cartão; WhatsApp e bunq, "Settings" com ícone tingido à esquerda).
+ */
+private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
+    val lista = LinearLayout(this).apply {
+        orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false
+        // Sem cartão em volta (protótipo aprovado 26/11/2026): só as linhas e o fio fino entre elas, sobre o vidro.
+        setPaddingRelative(0, dp(4), 0, dp(4))
+    }
+    var focar: View? = null
+    portas.forEachIndexed { n, p ->
+        if (n > 0 && !guiado) lista.addView(View(this).apply { setBackgroundColor(Estilo.BORDA) },   // guiado: sem fio, como no Projectivy
+            LinearLayout.LayoutParams(MATCH, dp(1)).apply { marginStart = dp(Estilo.E2 + 36 + 14); marginEnd = dp(Estilo.E2) })
+        val l = linhaDaPorta(p)
+        lista.addView(l, LinearLayout.LayoutParams(MATCH, WRAP))
+        if (p == foco || focar == null) focar = l
+    }
+    // Guiado: o foco fica parado na mesma altura também nas portas (molde do Projectivy).
+    grade.addView((if (guiado) br.paulo.tvlauncher.FixedFocusScrollView(this) else android.widget.ScrollView(this)).apply {
+        isVerticalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
+        setPaddingRelative(dp(4), dp(4), dp(4), dp(4))
+        addView(lista)
+        // Corta em cima e embaixo (a lista rolada não passa por cima da barra de dicas; teste de telas, 25/11/2026),
+        // com folga dos lados para o foco crescer. Igual à rolagem das opções.
+        addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) }
+    }, LinearLayout.LayoutParams(MATCH, 0, 1f))
+    SidePanel.escalonar(this, lista)
+    focar?.post { focar?.requestFocus() }
+}
+
+/** Uma linha de porta no painel: azulejo, nome e frase, e "›" à direita. Foco = o jeito escolhido (Anel, Quadro...). */
+private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
+    val primeira = abas[PortasConfig.PORTAS[p].first()]
+    val nome = if (p == PORTA_CASA_REDE) getString(R.string.cfg3_porta_casa_rede) else primeira.titulo
+    return LinearLayout(this).apply {
+        orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+        setPaddingRelative(dp(Estilo.E2), dp(12), dp(Estilo.E2), dp(12))
+        isFocusable = true; isClickable = true
+        contentDescription = nome
+        val ic = iconeDoMenu(primeira.icone)
+        addView(View(context).apply { background = ic }, LinearLayout.LayoutParams(dp(28), dp(28)).apply { marginEnd = dp(16) })
+        val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { maxLines = 2; typeface = Estilo.fonte(600) }
+        val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, getString(FRASES[p])).apply { setPaddingRelative(0, dp(2), 0, 0) }
+        addView(LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; addView(tNome); addView(tFrase) },
+            LinearLayout.LayoutParams(0, WRAP, 1f))
+        val tSeta = Estilo.texto(context, Estilo.Papel.CORPO, if (guiado) "▸" else "›").apply { setTextColor(Estilo.TEXTO_3) }
+        addView(tSeta, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E1) })
+        setOnFocusChangeListener { v, f ->
+            v.background = when { !f -> null; guiado -> Estilo.fundo(context, 0x2EFFFFFF, Estilo.RAIO_PILULA); else -> Estilo.fundoFocado(context, Estilo.RAIO) }
+            val escura = f && !guiado && Estilo.focoEscurece(context)
+            tNome.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
+            tFrase.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
+            tSeta.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
+            acenderIcone(context, ic, f)
+            val escala = if (f && !guiado) Estilo.ESCALA_LINHA else 1f
+            v.animate().scaleX(escala).scaleY(escala).setDuration(Estilo.FOCO_MS).start()
+            if (f) mostrarDicaDasPortas()
+        }
+        setOnClickListener { abrirPorta(p) }
+    }
+}
+
 /** Um cartão de porta: o azulejo da área ao lado do nome e, embaixo, o que tem dentro em poucas palavras. */
 private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
     val primeira = abas[PortasConfig.PORTAS[p].first()]
@@ -116,11 +244,8 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
         background = normal
         val cabeca = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         val lado = dp(40)
-        cabeca.addView(View(context).apply {
-            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
-                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
-            }
-        }, LinearLayout.LayoutParams(lado, lado).apply { marginEnd = dp(12) })
+        val ic = iconeDoMenu(primeira.icone)
+        cabeca.addView(View(context).apply { background = ic }, LinearLayout.LayoutParams(lado, lado).apply { marginEnd = dp(12) })
         val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { textSize = 22f; maxLines = 2 }
         cabeca.addView(tNome, LinearLayout.LayoutParams(0, WRAP, 1f))
         // Sem limite de linhas (24/11/2026): com maxLines = 2 e sem "…", a 3ª linha sumia calada em holandês e sueco.
@@ -130,6 +255,7 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
             v.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO + 4, Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO + 4, Estilo.BORDA)) else normal
             tNome.setTextColor(if (foco && Estilo.focoEscurece(context)) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tFrase.setTextColor(if (foco && Estilo.focoEscurece(context)) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO_2)
+            acenderIcone(context, ic, foco)
             v.animate().scaleX(if (foco) Estilo.ESCALA_CARD else 1f).scaleY(if (foco) Estilo.ESCALA_CARD else 1f).setDuration(Estilo.FOCO_MS).start()
             if (foco) mostrarDicaDasPortas()
         }
@@ -175,13 +301,11 @@ private fun ConfigLauncherActivity.cardDaPortaNaBarra(p: Int, emFoco: (String, S
         isFocusable = true; isClickable = true
         contentDescription = nome
         background = Estilo.vidro(context, BARRA_RAIO)
-        addView(View(context).apply {
-            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
-                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
-            }
-        }, android.widget.FrameLayout.LayoutParams(dp(BARRA_AZULEJO), dp(BARRA_AZULEJO), Gravity.CENTER))
+        val ic = iconeDoMenu(primeira.icone)
+        addView(View(context).apply { background = ic }, android.widget.FrameLayout.LayoutParams(dp(BARRA_AZULEJO), dp(BARRA_AZULEJO), Gravity.CENTER))
         setOnFocusChangeListener { v, f ->
             v.foreground = if (f) Estilo.fundoFocado(context, BARRA_RAIO) else null
+            acenderIcone(context, ic, f)
             v.animate().scaleX(if (f) Estilo.ESCALA_CARD else 1f).scaleY(if (f) Estilo.ESCALA_CARD else 1f).setDuration(Estilo.FOCO_MS).start()
             if (f) emFoco(nome, frase)
         }
@@ -214,6 +338,8 @@ internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
     sairDaBarra()
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
+    // Painel: na "Tela inicial" a HOME atrás fica nítida e muda na hora (a prévia); nas outras portas ela escurece.
+    if (janelaPainel) SidePanel.previa(this, p == 0)
     abaAtual = alvo
     mostrarAba(alvo)
     mostrarAbasDoUso()
@@ -247,29 +373,65 @@ internal fun ConfigLauncherActivity.menuDaPorta() {
     itensMenu.forEachIndexed { i, t ->
         t.visibility = if (!naBusca && i in porta && (UsoTv.mostraAba(uso, i) || i == abaAtual)) View.VISIBLE else View.GONE
     }
+    // Painel: a fileira das abas só aparece quando a porta tem mais de uma (sem menu de um item só, nem na busca).
+    if (painel) caixaMenu.visibility = if (!naBusca && itensMenu.count { it.visibility == View.VISIBLE } > 1) View.VISIBLE else View.GONE
 }
 
 /**
- * Modo Simples (proposta E): a aba mostra as primeiras [PortasConfig.LINHAS_SIMPLES] linhas e uma linha "Mais ajustes"
- * que abre o resto. Quem chega por busca ou "Conversa com" vê tudo (a aba entra em [abasAbertas]).
+ * Modo Simples (proposta E; onda C, 25/11/2026): a aba mostra só as [PortasConfig.LINHAS_SIMPLES] linhas mais usadas
+ * nesta TV (contadas pelo UsoLocal a cada OK) e uma linha "Mais ajustes" que abre o resto. Título de grupo sem nenhuma
+ * linha à vista some junto. Quem chega por busca ou "Conversa com" vê tudo (a aba entra em [abasAbertas]).
  */
 internal fun ConfigLauncherActivity.recolherNoSimples(aba: Int, inicio: Int) {
     if (UsoTv.atual(this) != UsoTv.SIMPLES || aba in abasAbertas || indexando >= 0) return
-    var vistas = 0
-    var corte = -1
+    val linhas = (inicio until conteudo.childCount).filter { primeiroFocavel(conteudo.getChildAt(it)) != null }
+    if (linhas.size <= PortasConfig.LINHAS_SIMPLES) return
+    val uso = br.paulo.tvlauncher.family.UsoLocal.vezes(this)
+    val vezes = linhas.map { k -> (conteudo.getChildAt(k) as? ConfigLauncherActivity.LinhaCfg)?.chaveUso?.let { uso[it] } ?: 0 }
+    val ficam = PortasConfig.noSimples(vezes).map { linhas[it] }.toSet()
+    val escondidas = linhas.filter { it !in ficam }
+    escondidas.forEach { conteudo.getChildAt(it).visibility = View.GONE }
+    // Título de grupo (texto sem foco) que ficou sem nenhuma linha à vista até o próximo título: some também.
+    // Textos seguidos (título + explicação do grupo) contam como um cabeçalho só.
+    val cabecalho = ArrayList<Int>(); var temLinha = false; var ultimoFoiTexto = false
+    fun fecharGrupo() { if (!temLinha) cabecalho.forEach { conteudo.getChildAt(it).visibility = View.GONE } }
     for (k in inicio until conteudo.childCount) {
-        if (primeiroFocavel(conteudo.getChildAt(k)) == null) continue
-        vistas++
-        if (vistas > PortasConfig.LINHAS_SIMPLES) { corte = k; break }
+        val v = conteudo.getChildAt(k)
+        if (v is TextView && !v.isFocusable && primeiroFocavel(v) == null) {
+            if (!ultimoFoiTexto) { fecharGrupo(); cabecalho.clear(); temLinha = false }
+            cabecalho += k; ultimoFoiTexto = true
+        } else { ultimoFoiTexto = false; if (k in ficam) temLinha = true }
     }
-    if (corte < 0) return
-    // Um título de grupo logo antes do corte vai junto (não fica um título sozinho em cima de "Mais ajustes").
-    while (corte > inicio && conteudo.getChildAt(corte - 1).let { it is TextView && !it.isFocusable }) corte--
-    val escondidas = (corte until conteudo.childCount).map { conteudo.getChildAt(it) }
-    val quantas = escondidas.count { primeiroFocavel(it) != null }
-    escondidas.forEach { it.visibility = View.GONE }
-    conteudo.addView(linha(getString(R.string.cfg3_mais_ajustes), getString(R.string.cfg3_mais_ajustes_det, quantas), seta = true) {
+    fecharGrupo()
+    conteudo.addView(linha(getString(R.string.cfg3_mais_ajustes), getString(R.string.cfg3_mais_ajustes_det, escondidas.size), seta = true) {
         abasAbertas += aba
         recarregarAba()
     }, lp())
+}
+
+/**
+ * Ícone dos menus (padrão do protótipo aprovado, Paulo 26/11/2026: os azulejos coloridos deixavam a tela "grosseira"):
+ * o desenho da Linha em traço fino, creme apagado; acende em laranja com o foco ([acenderIcone]).
+ */
+internal fun iconeDoMenu(tipo: IconeCruz.Tipo): IconeCruz = IconeCruz(tipo, IconeCruz.Estilo.LINHA).apply { corFixa = Estilo.TEXTO_2 }
+
+internal fun acenderIcone(ctx: android.content.Context, ic: IconeCruz, foco: Boolean) {
+    ic.corFixa = when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.ACENTO }
+}
+
+/** Nome de uma porta (a da casa e rede tem nome próprio; as outras usam o da 1ª aba). */
+private fun ConfigLauncherActivity.nomeDaPorta(p: Int): String =
+    if (p == PORTA_CASA_REDE) getString(R.string.cfg3_porta_casa_rede) else abas[PortasConfig.PORTAS[p].first()].titulo
+
+/** Guiado: a coluna da esquerda nas portas = "Sofaly", "Configurações" e o que se faz aqui. */
+internal fun ConfigLauncherActivity.guiaDasPortas() {
+    guia?.mostrar(getString(R.string.app_nome), getString(R.string.cfg_titulo), getString(R.string.gl_root_desc), IconeCruz.Tipo.AJUSTE)
+}
+
+/** Guiado: a coluna da esquerda numa aba = caminho (Configurações › porta), nome da aba, explicação e o ícone dela. */
+internal fun ConfigLauncherActivity.guiaDaAba(i: Int) {
+    val aba = abas.getOrNull(i) ?: return
+    val porta = nomeDaPorta(PortasConfig.daAba(i))
+    val trilha = getString(R.string.cfg_titulo) + if (porta != aba.titulo) "  ›  $porta" else ""
+    guia?.mostrar(trilha, aba.titulo, aba.explica, aba.icone)
 }

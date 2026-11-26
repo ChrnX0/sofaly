@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">现在</string>
+    <string name="col_filter_on">滤镜已开启</string>
+    <string name="col_filter_off">夜间滤镜已关闭</string>
+    <string name="col_filter_at">%1$s 开启</string>
+    <string name="col_filter_body">%1$s 到 %2$s 让屏幕更暖更暗,强度 %3$d%%。</string>
+    <string name="col_sleep_off">就寝时间已关闭</string>
+    <string name="col_sleep_now">现在是就寝时间</string>
+    <string name="col_sleep_at">%1$s 开始</string>
+    <string name="col_sleep_body">%1$s 到 %2$s 只能打开允许的应用,音量不超过 %3$d%%。</string>
+    <string name="col_screen_off">屏幕时间已关闭</string>
+    <string name="col_screen_left">今天还剩 %1$s</string>
+    <string name="col_screen_body">今天的时间用完后,电视会回到主屏幕。</string>
+    <string name="col_screen_daily">每天时间</string>
+    <string name="col_changes">会改变什么</string>
+</resources>

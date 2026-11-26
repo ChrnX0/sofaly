@@ -487,7 +487,7 @@ class CasaActivity : Activity() {
             addView(icone, FrameLayout.LayoutParams(dp(18), dp(18), Gravity.CENTER))
         }
         private val nomeTv = Estilo.texto(this@CasaActivity, Estilo.Papel.CORPO, nome).apply {
-            textSize = 15f; maxLines = 2; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
+            textSize = 18f; maxLines = 2; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
         }
         private val estadoTv = Estilo.texto(this@CasaActivity, Estilo.Papel.LEGENDA, "").apply {
             textSize = Estilo.Papel.LEGENDA.sp; typeface = Estilo.fonte(500); maxLines = 1; ellipsize = TextUtils.TruncateAt.END; includeFontPadding = false
@@ -547,7 +547,7 @@ class CasaActivity : Activity() {
             circulo.background = Estilo.fundo(this@CasaActivity, when {
                 ligado && foco -> Estilo.ACENTO_NO_FOCO
                 ligado -> Estilo.ACENTO
-                foco -> 0x14121528
+                foco -> 0x14141413
                 else -> Estilo.SUPERFICIE_ALTA
             }, Estilo.RAIO_PILULA)
             icone.definirCor(when {
@@ -576,7 +576,7 @@ class CasaActivity : Activity() {
         private val tinta = Paint(Paint.ANTI_ALIAS_FLAG)
         override fun onDraw(c: Canvas) {
             val w = width.toFloat(); val h = height.toFloat(); val r = h / 2
-            tinta.color = if (foco) 0x22121528 else 0x26FFFFFF
+            tinta.color = if (foco) 0x22141413 else 0x26FFFFFF
             c.drawRoundRect(0f, 0f, w, h, r, r, tinta)
             val p = (pct ?: 0).coerceIn(0, 100)
             if (p > 0) {

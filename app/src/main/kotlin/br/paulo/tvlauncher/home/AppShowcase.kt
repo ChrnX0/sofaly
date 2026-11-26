@@ -24,14 +24,14 @@ class AppShowcase(ctx: Context, fonte: Typeface, fonteForte: Typeface) : LinearL
     private val d = ctx.resources.displayMetrics.density
     private fun dp(v: Int) = (v * d + 0.5f).toInt()
     private val titulo = TextView(ctx).apply {
-        typeface = fonteForte; textSize = 17f; setTextColor(0xFFFFF3E6.toInt()); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+        typeface = fonteForte; textSize = 18f; setTextColor(0xFFFFF3E6.toInt()); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
         setShadowLayer(6f, 0f, 1f, 0xCC000000.toInt())
     }
     private val fila = LinearLayout(ctx).apply { orientation = HORIZONTAL }
     private val capas = Array(AppChannels.MAX_VITRINE) { ImageView(ctx).apply { scaleType = ImageView.ScaleType.FIT_XY } }
     private val nomes = Array(AppChannels.MAX_VITRINE) {
         TextView(ctx).apply {
-            typeface = fonte; textSize = 15f; setTextColor(0xE6FFF3E6.toInt()); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
+            typeface = fonte; textSize = 18f; setTextColor(0xE6FFF3E6.toInt()); maxLines = 1; ellipsize = TextUtils.TruncateAt.END
             setShadowLayer(6f, 0f, 1f, 0xCC000000.toInt())
         }
     }
@@ -74,13 +74,13 @@ class AppShowcase(ctx: Context, fonte: Typeface, fonteForte: Typeface) : LinearL
             translationY = dp(8).toFloat()
         }
         animate().cancel()
-        animate().alpha(1f).translationY(0f).setDuration(400).setInterpolator(curva).start()
+        animate().alpha(1f).translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW).setInterpolator(curva).start()
     }
 
     fun esconder() {
         if (pacoteAgora == null && alpha == 0f) return
         pacoteAgora = null
         animate().cancel()
-        animate().alpha(0f).setDuration(350).setInterpolator(curva).start()
+        animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_MEDIUM).setInterpolator(curva).start()
     }
 }

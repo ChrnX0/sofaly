@@ -581,9 +581,9 @@ class PrevisaoActivity : Activity() {
         animando = true
         val curva = android.view.animation.PathInterpolator(0.22f, 1f, 0.36f, 1f)
         entra.alpha = 0f; entra.translationY = dist
-        sai.animate().alpha(0f).translationY(-dist).setDuration(250).setInterpolator(curva)
+        sai.animate().alpha(0f).translationY(-dist).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(curva)
             .withEndAction { sai.visibility = View.GONE; sai.alpha = 1f; sai.translationY = 0f }.start()
-        entra.animate().alpha(1f).translationY(0f).setDuration(250).setInterpolator(curva).withEndAction { animando = false }.start()
+        entra.animate().alpha(1f).translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(curva).withEndAction { animando = false }.start()
     }
 
     /** Os pontinhos da direita: onde estou entre as 3 telas (o atual maior e branco). */
@@ -609,10 +609,10 @@ class PrevisaoActivity : Activity() {
     // Os cartões ficam por cima do céu/da pintura do fundo: vidro do sistema de design (Estilo.vidro). Foco = anel branco,
     // o mesmo dos cards da HOME (o cartão tem gráficos desenhados, então não vira pílula branca como uma linha de lista).
     private fun fundoCartao(foco: Boolean) =
-        if (foco) Estilo.fundo(this, Estilo.VIDRO_TINTA, Estilo.RAIO, Estilo.FOCO, 2) else Estilo.vidro(this)
+        if (foco) Estilo.fundoFocado(this, Estilo.RAIO, Estilo.vidro(this)) else Estilo.vidro(this)
 
     private fun itemFoco(foco: Boolean) =
-        if (foco) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PEQUENO + 4, Estilo.FOCO, 2)
+        if (foco) Estilo.fundoFocado(this, Estilo.RAIO_PEQUENO + 4)
         else Estilo.fundo(this, Color.TRANSPARENT, Estilo.RAIO_PEQUENO + 4)
 
     private fun texto(sp: Float, cor: Int, fonte: Typeface? = null) = TextView(this).apply {

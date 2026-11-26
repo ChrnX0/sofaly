@@ -16,8 +16,8 @@
 
 /* design-tokens:start (GERADO por scripts/design-tokens.py a partir de design/tokens.json; não edite à mão) */
 :root {
-  --t-night: #121528;
-  --t-night-deep: #0b0d18;
+  --t-night: #141413;
+  --t-night-deep: #0b0b0a;
   --t-cream: #fff3e6;
   --t-paper: #fff8f0;
   --t-orange: #ff6a2b;
@@ -52,20 +52,20 @@
 
 /* Tema escuro (o padrão; também é o que a TV usa). */
 :root {
-  --fundo: var(--t-night);                              /* Noite do site (19/11/2026: era #0e1020) */
-  --superficie: rgba(255, 255, 255, .05);        /* cartão: translúcido, como os painéis da TV */
-  --superficie2: rgba(255, 255, 255, .07);       /* campo, botão secundário, bloco dentro de cartão */
-  --superficie-hover: rgba(255, 255, 255, .11);
-  --superficie3: #1e2136;                        /* coisas que flutuam (aviso, barra de lote) */
-  --flutuante: #191c30;                          /* janelas (modal, busca, prévia): opaco */
+  --fundo: #141413;   /* grafite quente, não azul (26/11/2026, Paulo; Mobbin Claude, Todoist, Linear) */
+  --superficie: #1f1f1d;        /* cartão: translúcido, como os painéis da TV */
+  --superficie2: #2a2a27;       /* campo, botão secundário, bloco dentro de cartão */
+  --superficie-hover: #30302d;
+  --superficie3: #262624;                        /* coisas que flutuam (aviso, barra de lote) */
+  --flutuante: #1f1f1d;                          /* janelas (modal, busca, prévia): opaco */
   --afundado: rgba(0, 0, 0, .22);                /* lista dentro de cartão, saída de comando */
   --campo: rgba(255, 255, 255, .07);
   --campo-foco: rgba(255, 255, 255, .10);
-  --borda: rgba(255, 255, 255, .07);
-  --borda-forte: rgba(255, 255, 255, .16);
+  --borda: rgba(255, 255, 255, .08);
+  --borda-forte: rgba(255, 255, 255, .14);
   --texto: var(--t-cream);                       /* Creme da marca */
-  --texto-fraco: #c9c3d6;
-  --texto-apagado: #8f8da1;
+  --texto-fraco: #c7c4bd;
+  --texto-apagado: #8f8c86;
   --acento: var(--t-orange);                     /* Laranja = ligado, escolhido, progresso e marca (regra 1); nunca botão comum */
   --acento-texto: #1a0a02;                       /* texto em cima do laranja */
   --acento-hover: #ff8550;
@@ -89,10 +89,10 @@
   --area-apps: var(--t-world-apps);        /* Apps, Instalar apps, Tela inicial (é ela que arruma os apps na cruz) */
   --area-conectado: var(--t-world-network);/* Arquivos, Acesso remoto, Casa: o que fala com outro aparelho */
   --area-casa: var(--t-area-home);         /* Família, Tela e energia: a rotina da casa */
-  --vidro-topo: rgba(18, 21, 40, .72);
-  --vidro-barra: rgba(28, 31, 52, .92);
-  --veu: rgba(6, 7, 16, .66);                    /* atrás de janela */
-  --brilho: rgba(255, 106, 43, .18);             /* luz laranja no canto, a assinatura da Cinema+ */
+  --vidro-topo: rgba(20, 20, 19, .78);
+  --vidro-barra: rgba(31, 31, 29, .94);
+  --veu: rgba(8, 8, 7, .66);                    /* atrás de janela */
+  --brilho: rgba(255, 106, 43, 0);   /* sem luz laranja no canto: no grafite ela vira marrom */             /* luz laranja no canto, a assinatura da Cinema+ */
   --brilho2: transparent;
   /* Medidas: grade de 4/8 e só três raios, os mesmos da TV (Estilo.kt: 8, 16 e pílula) */
   --raio: var(--t-radius-medium);
@@ -111,25 +111,25 @@
   :root {
     --fundo: var(--t-paper);
     --superficie: #ffffff;
-    --superficie2: rgba(14, 16, 32, .06);
-    --superficie-hover: rgba(14, 16, 32, .10);
+    --superficie2: rgba(20, 20, 19, .06);
+    --superficie-hover: rgba(20, 20, 19, .10);
     --superficie3: #ffffff;
     --flutuante: #ffffff;
-    --afundado: rgba(14, 16, 32, .04);
-    --campo: rgba(14, 16, 32, .06);
+    --afundado: rgba(20, 20, 19, .04);
+    --campo: rgba(20, 20, 19, .06);
     --campo-foco: #ffffff;
-    --borda: rgba(14, 16, 32, .08);
-    --borda-forte: rgba(14, 16, 32, .20);
+    --borda: rgba(20, 20, 19, .08);
+    --borda-forte: rgba(20, 20, 19, .20);
     --texto: var(--t-night);
-    --texto-fraco: #4b4e63;
-    --texto-apagado: #63667c;
+    --texto-fraco: #4d4c48;
+    --texto-apagado: #64635e;
     --acento: var(--t-orange-on-light);
     --acento-texto: #ffffff;
     --acento-hover: #a83200;
     --acento-fundo: rgba(206, 61, 0, .10);
     --foco: var(--t-night);                               /* no claro o "selecionado" é a pílula Noite com letra clara */
     --foco-texto: var(--t-cream);
-    --foco-hover: #24273f;
+    --foco-hover: #2a2a27;
     --perigo: #b3261e;
     --perigo-fundo: rgba(179, 38, 30, .08);
     --perigo-borda: rgba(179, 38, 30, .4);
@@ -146,11 +146,11 @@
     --area-casa: #298def;
     --vidro-topo: rgba(255, 248, 240, .82);
     --vidro-barra: rgba(255, 255, 255, .94);
-    --veu: rgba(14, 16, 32, .45);
+    --veu: rgba(20, 20, 19, .45);
     --brilho: rgba(255, 106, 43, .14);
     --brilho2: transparent;
-    --sombra: 0 16px 40px rgba(14, 16, 32, .16);
-    --sombra-leve: 0 1px 2px rgba(14, 16, 32, .05);
+    --sombra: 0 16px 40px rgba(20, 20, 19, .16);
+    --sombra-leve: 0 1px 2px rgba(20, 20, 19, .05);
     color-scheme: light;
   }
 }
@@ -204,7 +204,7 @@ kbd { font: 700 13px/1 "Nunito", system-ui, sans-serif; padding: 4px 8px; border
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; white-space: nowrap;
   min-height: 48px; padding: 0 20px; border-radius: var(--pilula); border: 1px solid transparent;
   font-size: 17px; font-weight: 700; text-decoration: none; line-height: 1;
-  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), color var(--t-ms-quick), transform .06s;
+  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), color var(--t-ms-quick), transform var(--t-ms-micro);
 }
 /* Em outras línguas o rótulo pode ser bem mais longo ("Verbindung zum Fernseher wird wiederhergestellt"): no
    celular o botão quebra a linha em vez de passar da tela (17/11/2026). */
@@ -385,7 +385,7 @@ details summary { cursor: pointer; color: var(--texto-fraco); margin-top: 12px; 
 .rapido button {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 76px;
   background: var(--superficie2); color: var(--texto); border: 1px solid var(--borda); border-radius: var(--raio-pequeno);
-  cursor: pointer; font: inherit; transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform .06s;
+  cursor: pointer; font: inherit; transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform var(--t-ms-micro);
 }
 .rapido button svg.i { width: 22px; height: 22px; }
 .rapido button:hover { background: var(--superficie-hover); border-color: var(--borda-forte); }
@@ -617,7 +617,7 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .controle { display: flex; flex-direction: column; gap: 16px; align-items: center; }
 .controle button { background: var(--superficie2); color: var(--texto); border: 1px solid var(--borda); border-radius: var(--raio-pequeno);
   min-height: 50px; padding: 0 16px; font: inherit; font-size: 17px; font-weight: 700; cursor: pointer;
-  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform .06s; }
+  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform var(--t-ms-micro); }
 .controle button:hover { background: var(--superficie-hover); border-color: var(--borda-forte); }
 .controle button:active { transform: scale(.96); }
 .controle .botao-perigo { background: transparent; color: var(--perigo); border-color: var(--borda); }
@@ -1094,10 +1094,10 @@ input[type=time]:focus-within, input[type=date]:focus-within { border-color: var
   }
 }
 @media (prefers-color-scheme: light) {
-  :root[data-contraste="alto"] { --borda: rgba(18, 21, 40, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
+  :root[data-contraste="alto"] { --borda: rgba(20, 20, 19, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
 }
 @media (prefers-color-scheme: light) and (prefers-contrast: more) {
-  :root { --borda: rgba(18, 21, 40, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
+  :root { --borda: rgba(20, 20, 19, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
 }
 
 /* Ideia 11: abas embaixo do controle, no desenho das pílulas da barra de baixo (selecionado = pílula do foco). */
@@ -1389,3 +1389,47 @@ body.com-visor { overflow: hidden; }
 .cam-previa { display: block; width: 100%; max-height: 50vh; border-radius: var(--t-radius-medium); background: #000; margin: 12px 0; object-fit: contain; }
 .cam-previa[hidden] { display: none !important; }
 #micGanho { width: 100%; margin: 8px 0 4px; accent-color: var(--acento); }
+
+/* ---- Os mesmos padrões da TV (25/11/2026, painel de vidro + simplificação). Referências na TV: Mobbin Grok e Tide Guide
+   (linhas em grupo num cartão), Circle (valor à direita), Joi e Cal AI (objetivo primeiro), Muse e stoic. (visuais prontos).
+   Linha de ajuste = nome à esquerda, valor à direita, fio fino entre uma e outra; nunca "Nome: valor" numa frase. */
+.linha-valor, .grade-fino .linha-fino {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 56px; padding: 8px 0; border-bottom: 1px solid var(--borda); margin: 0;
+}
+.linha-valor:last-of-type, .grade-fino .linha-fino:last-child { border-bottom: none; }
+.linha-valor .nome, .grade-fino .linha-fino > span { color: var(--texto); font-size: 17px; flex: 1 1 auto; }
+.linha-valor select, .grade-fino .linha-fino select { width: auto; max-width: 55%; flex: 0 0 auto; }
+.grade-fino { display: block; margin-top: 8px; }
+.grade-fino .linha-fino[hidden], .linha-valor[hidden] { display: none !important; }
+
+/* Objetivos: 2 x 2 botões grandes no alto das Configurações. O ativo ganha o laranja (ligado) e o ✓. */
+.objetivos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 0 20px; }
+.objetivo {
+  display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 12px 18px; text-align: left;
+  background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--t-radius-medium); color: var(--texto);
+  font-size: 17px; font-weight: 600; cursor: pointer;
+  transition: background var(--t-ms-quick) var(--t-ease-out), transform var(--t-ms-quick) var(--t-ease-out);
+}
+.objetivo:hover { background: var(--superficie-hover); }
+.objetivo:active { transform: scale(.98); }
+.objetivo .ic { display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--t-radius-small);
+  background: var(--superficie2); font-size: 18px; flex: 0 0 auto; }
+.objetivo.ativo { border-color: var(--acento); box-shadow: inset 0 0 0 1px var(--acento); }   /* sem fundo tingido: no escuro o laranja apagado vira marrom */
+.objetivo.ativo .ic { background: var(--acento); color: var(--acento-texto); }
+
+/* Visuais prontos: miniatura (foto + 3 cards) e o nome embaixo; o escolhido tem o anel laranja da HOME. */
+.visuais { display: flex; gap: 14px; overflow-x: auto; padding: 6px 4px 10px; scroll-snap-type: x proximity; }
+.visual { flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; width: 144px; padding: 0; background: none;
+  border: none; color: var(--texto); cursor: pointer; scroll-snap-align: start; text-align: left; }
+.visual .mini { position: relative; display: grid; place-items: center; width: 144px; height: 81px; border-radius: 14px;
+  background: var(--superficie2); border: 1px solid var(--borda-forte); font-size: 28px; overflow: hidden;
+  transition: transform var(--t-ms-quick) var(--t-ease-out), box-shadow var(--t-ms-quick) var(--t-ease-out); }
+.visual .cards { position: absolute; left: 0; right: 0; bottom: 8px; display: flex; justify-content: center; gap: 6px; }
+.visual .cards span { width: 30px; height: 18px; border-radius: 4px; border: 1px solid var(--borda-forte); }
+.visual .t { font-size: 15px; }
+.visual:hover .mini { transform: translateY(-2px); }
+.visual.escolhido .mini { box-shadow: 0 0 0 3px var(--acento); }
+.visual.escolhido .t { color: var(--acento); }
+@media (prefers-reduced-motion: reduce) { .objetivo, .visual .mini { transition: none; } }
+@media (max-width: 420px) { .objetivos { gap: 8px; } .objetivo { padding: 10px 12px; gap: 10px; font-size: 16px; } .objetivo .ic { width: 30px; height: 30px; } }
