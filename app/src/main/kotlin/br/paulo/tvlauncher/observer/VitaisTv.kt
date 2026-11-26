@@ -21,8 +21,12 @@ object VitaisTv {
     private fun arquivo(ctx: Context) = File(ctx.filesDir, "vitais.json")
     private fun data(ms: Long) = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date(ms))
 
-    /** O dia do build (versionCode = minutos desde 01/01/2026, app/build.gradle.kts), menos 1 dia de folga de fuso. */
-    private val piso by lazy { data(1_767_225_600_000L + br.paulo.tvlauncher.BuildConfig.VERSION_CODE * 60_000L - 24L * 60 * 60 * 1000) }
+    /**
+     * Data antes desta é relógio errado (TV sem rede volta para a data da fábrica). Era o dia do build e cada versão nova
+     * apagava os dias de antes dela: o resumo de 7 dias ficava com 1 ou 2 dias e brigava com a lista de erros (#518,
+     * 26/11/2026). Agora é fixo: o mês em que a estabilidade passou a ser contada.
+     */
+    private const val piso = "2026-11-01"
 
     @Synchronized fun estado(ctx: Context): VitaisLocais.Estado =
         VitaisLocais.ler(try { arquivo(ctx).takeIf { it.exists() }?.readText() } catch (_: Exception) { null }, piso)

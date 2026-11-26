@@ -42,6 +42,9 @@ class StorageActivity : Activity() {
         val (raiz, col) = Estilo.telaLista(this, getString(R.string.st_titulo), getString(R.string.st_explica))
         coluna = col
         setContentView(raiz)
+        // "Carregando" com o foco enquanto lê o pendrive pelo shell (alguns segundos): na TV não existe tela sem foco,
+        // senão o controle "não anda" (a Sofy achou a tela sem foco de madrugada, #518).
+        linha(getString(R.string.pp_carregando)) {}.requestFocus()
         recarregar()
     }
 

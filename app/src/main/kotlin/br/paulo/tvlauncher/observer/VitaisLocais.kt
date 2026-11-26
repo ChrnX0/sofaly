@@ -26,8 +26,8 @@ object VitaisLocais {
 
     /**
      * 25/11/2026: a Sala mostrou um dia "2025-09-30", gravado logo depois de ligar, antes de o relógio acertar pela
-     * rede (a TV volta para a data da fábrica). Data antes de [piso] (o dia do build: o app não pode ter rodado antes de
-     * existir) é relógio errado e não vira dia. Vazio = sem piso.
+     * rede (a TV volta para a data da fábrica). Data antes de [piso] (um dia fixo de antes de o app existir, ver VitaisTv; era o dia do build, mas isso apagava a história a cada versão)
+     * é relógio errado e não vira dia. Vazio = sem piso.
      */
     fun dataValida(data: String, piso: String) = piso.isEmpty() || data >= piso
 
