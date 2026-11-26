@@ -162,35 +162,10 @@ private fun ConfigLauncherActivity.pedido(resultados: LinearLayout, a: SettingsI
     val feito = pedidoFeito == a && desfazerPedido != null
     resultados.addView(linha(getString(if (feito) R.string.si_desfazer else R.string.si_fazer, nome), getString(R.string.si_fazer_det), seta = true) {
         if (feito) { desfazerPedido?.invoke(); desfazerPedido = null; pedidoFeito = null; aviso(getString(R.string.goal_desfeito, nome)) }
-        else { desfazerPedido = fazer(a); pedidoFeito = a; aviso(getString(R.string.goal_feito, nome)) }
+        else { desfazerPedido = SettingsIntents.fazer(this, a); pedidoFeito = a; aviso(getString(R.string.goal_feito, nome)) }
         // A letra muda a própria tela: refaz (a busca some; a pessoa vê o resultado já maior). O resto redesenha a lista.
         if (a == SettingsIntents.Action.TEXT_BIGGER || a == SettingsIntents.Action.TEXT_SMALLER || a == SettingsIntents.Action.GOAL_READ) recreate()
         else campoBusca?.let { it.text = it.text }
     }, 0, lp())
 }
 
-/** Faz [a] e devolve como desfazer. */
-private fun ConfigLauncherActivity.fazer(a: SettingsIntents.Action): () -> Unit {
-    val ctx = this
-    fun objetivo(g: SettingsGoals.Goal): () -> Unit { SettingsGoals.aplicar(ctx, g); return { SettingsGoals.desfazer(ctx) } }
-    fun visual(l: br.paulo.tvlauncher.home.HomeLooks.Look): () -> Unit {
-        val foto = br.paulo.tvlauncher.home.HomeLooks.foto(ctx)
-        br.paulo.tvlauncher.home.HomeLooks.aplicar(ctx, l)
-        return { br.paulo.tvlauncher.home.HomeLooks.voltar(ctx, foto) }
-    }
-    return when (a) {
-        SettingsIntents.Action.TEXT_BIGGER, SettingsIntents.Action.TEXT_SMALLER -> {
-            val antes = TamanhoTexto.atual(ctx)
-            val i = TamanhoTexto.OPCOES.indexOf(antes) + if (a == SettingsIntents.Action.TEXT_BIGGER) 1 else -1
-            TamanhoTexto.definir(ctx, TamanhoTexto.OPCOES[i.coerceIn(0, TamanhoTexto.OPCOES.lastIndex)])
-            ({ TamanhoTexto.definir(ctx, antes) })
-        }
-        SettingsIntents.Action.GOAL_READ -> objetivo(SettingsGoals.Goal.READ)
-        SettingsIntents.Action.GOAL_CLEAN -> objetivo(SettingsGoals.Goal.CLEAN)
-        SettingsIntents.Action.GOAL_ENERGY -> objetivo(SettingsGoals.Goal.ENERGY)
-        SettingsIntents.Action.LOOK_SOFALY -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.SOFALY)
-        SettingsIntents.Action.LOOK_NIGHT -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.NIGHT)
-        SettingsIntents.Action.LOOK_MOUNTAIN -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.MOUNTAIN)
-        SettingsIntents.Action.LOOK_MINIMAL -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.MINIMAL)
-    }
-}

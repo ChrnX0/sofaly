@@ -34,4 +34,29 @@ object SettingsIntents {
         return modelos.flatMap { (a, ms) -> ms.filter { palavras.containsAll(it) }.map { a to it.size } }
             .maxByOrNull { it.second }?.first
     }
+
+    /** Faz [a] e devolve como desfazer. */
+    fun fazer(ctx: android.content.Context, a: Action): () -> Unit {
+        fun objetivo(g: SettingsGoals.Goal): () -> Unit { SettingsGoals.aplicar(ctx, g); return { SettingsGoals.desfazer(ctx) } }
+        fun visual(l: br.paulo.tvlauncher.home.HomeLooks.Look): () -> Unit {
+            val foto = br.paulo.tvlauncher.home.HomeLooks.foto(ctx)
+            br.paulo.tvlauncher.home.HomeLooks.aplicar(ctx, l)
+            return { br.paulo.tvlauncher.home.HomeLooks.voltar(ctx, foto) }
+        }
+        return when (a) {
+            Action.TEXT_BIGGER, Action.TEXT_SMALLER -> {
+                val antes = TamanhoTexto.atual(ctx)
+                val i = TamanhoTexto.OPCOES.indexOf(antes) + if (a == Action.TEXT_BIGGER) 1 else -1
+                TamanhoTexto.definir(ctx, TamanhoTexto.OPCOES[i.coerceIn(0, TamanhoTexto.OPCOES.lastIndex)])
+                ({ TamanhoTexto.definir(ctx, antes) })
+            }
+            Action.GOAL_READ -> objetivo(SettingsGoals.Goal.READ)
+            Action.GOAL_CLEAN -> objetivo(SettingsGoals.Goal.CLEAN)
+            Action.GOAL_ENERGY -> objetivo(SettingsGoals.Goal.ENERGY)
+            Action.LOOK_SOFALY -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.SOFALY)
+            Action.LOOK_NIGHT -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.NIGHT)
+            Action.LOOK_MOUNTAIN -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.MOUNTAIN)
+            Action.LOOK_MINIMAL -> visual(br.paulo.tvlauncher.home.HomeLooks.Look.MINIMAL)
+        }
+    }
 }

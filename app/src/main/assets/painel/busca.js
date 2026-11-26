@@ -68,6 +68,9 @@ function desenharBusca() {
   const todos = todosOsItens();
   itensBusca = todos.map((it, i) => ({ it, n: nota(it, q), i })).filter((x) => x.n >= 0)
     .sort((a, b) => b.n - a.n || a.i - b.i).slice(0, 14).map((x) => x.it);
+  // Pedido em frase (patterns.js, 25/11/2026): "deixa a letra maior" vira "Fazer agora" no topo, como na TV.
+  const pedido = typeof itemDoPedido === 'function' ? itemDoPedido($('campoBusca').value) : null;
+  if (pedido) itensBusca.unshift(pedido);
   escolhido = 0;
   const lista = $('resultadosBusca');
   lista.replaceChildren();

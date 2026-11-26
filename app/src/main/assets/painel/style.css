@@ -1389,3 +1389,47 @@ body.com-visor { overflow: hidden; }
 .cam-previa { display: block; width: 100%; max-height: 50vh; border-radius: var(--t-radius-medium); background: #000; margin: 12px 0; object-fit: contain; }
 .cam-previa[hidden] { display: none !important; }
 #micGanho { width: 100%; margin: 8px 0 4px; accent-color: var(--acento); }
+
+/* ---- Os mesmos padrões da TV (25/11/2026, painel de vidro + simplificação). Referências na TV: Mobbin Grok e Tide Guide
+   (linhas em grupo num cartão), Circle (valor à direita), Joi e Cal AI (objetivo primeiro), Muse e stoic. (visuais prontos).
+   Linha de ajuste = nome à esquerda, valor à direita, fio fino entre uma e outra; nunca "Nome: valor" numa frase. */
+.linha-valor, .grade-fino .linha-fino {
+  display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 56px; padding: 8px 0; border-bottom: 1px solid var(--borda); margin: 0;
+}
+.linha-valor:last-of-type, .grade-fino .linha-fino:last-child { border-bottom: none; }
+.linha-valor .nome, .grade-fino .linha-fino > span { color: var(--texto); font-size: 17px; flex: 1 1 auto; }
+.linha-valor select, .grade-fino .linha-fino select { width: auto; max-width: 55%; flex: 0 0 auto; }
+.grade-fino { display: block; margin-top: 8px; }
+.grade-fino .linha-fino[hidden], .linha-valor[hidden] { display: none !important; }
+
+/* Objetivos: 2 x 2 botões grandes no alto das Configurações. O ativo ganha o laranja (ligado) e o ✓. */
+.objetivos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 0 20px; }
+.objetivo {
+  display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 12px 18px; text-align: left;
+  background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--t-radius-medium); color: var(--texto);
+  font-size: 17px; font-weight: 600; cursor: pointer;
+  transition: background var(--t-ms-quick) var(--t-ease-out), transform var(--t-ms-quick) var(--t-ease-out);
+}
+.objetivo:hover { background: var(--superficie-hover); }
+.objetivo:active { transform: scale(.98); }
+.objetivo .ic { display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--t-radius-small);
+  background: var(--superficie2); font-size: 18px; flex: 0 0 auto; }
+.objetivo.ativo { border-color: var(--acento); background: var(--acento-fundo); }
+.objetivo.ativo .ic { background: var(--acento); color: var(--acento-texto); }
+
+/* Visuais prontos: miniatura (foto + 3 cards) e o nome embaixo; o escolhido tem o anel laranja da HOME. */
+.visuais { display: flex; gap: 14px; overflow-x: auto; padding: 6px 4px 10px; scroll-snap-type: x proximity; }
+.visual { flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; width: 144px; padding: 0; background: none;
+  border: none; color: var(--texto); cursor: pointer; scroll-snap-align: start; text-align: left; }
+.visual .mini { position: relative; display: grid; place-items: center; width: 144px; height: 81px; border-radius: 14px;
+  background: var(--superficie2); border: 1px solid var(--borda-forte); font-size: 28px; overflow: hidden;
+  transition: transform var(--t-ms-quick) var(--t-ease-out), box-shadow var(--t-ms-quick) var(--t-ease-out); }
+.visual .cards { position: absolute; left: 0; right: 0; bottom: 8px; display: flex; justify-content: center; gap: 6px; }
+.visual .cards span { width: 30px; height: 18px; border-radius: 4px; border: 1px solid var(--borda-forte); }
+.visual .t { font-size: 15px; }
+.visual:hover .mini { transform: translateY(-2px); }
+.visual.escolhido .mini { box-shadow: 0 0 0 3px var(--acento); }
+.visual.escolhido .t { color: var(--acento); }
+@media (prefers-reduced-motion: reduce) { .objetivo, .visual .mini { transition: none; } }
+@media (max-width: 420px) { .objetivos { grid-template-columns: 1fr; } }
