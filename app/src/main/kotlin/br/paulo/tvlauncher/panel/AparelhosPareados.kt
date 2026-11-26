@@ -53,6 +53,28 @@ object AparelhosPareados {
     /** O que o painel mostra (sem o hash). */
     fun publico(a: Aparelho): JSONObject = JSONObject().put("id", a.id).put("nome", a.nome).put("criado", a.criado).put("uso", a.ultimoUso)
 
+    /** Celular que controla a TV de fora de casa (relay do api.sofaly.tv, RelayTv). [aparelho] = id daqui, se veio junto. */
+    data class DeFora(val id: String, val nome: String, val aparelho: String?)
+
+    /** Id no painel de um celular só de fora de casa (sem linha própria nesta lista). */
+    const val PREFIXO_RELAY = "relay:"
+
+    /**
+     * A lista que o painel mostra, uma linha por celular: quem pareou o relay com a chave de aparelho fica na própria
+     * linha, marcado "fora"; quem pareou sem ela (ou cuja linha já saiu daqui) vira linha própria com id
+     * [PREFIXO_RELAY]<id do relay>, sem "uso". Assim nenhum acesso de fora fica invisível ou sem botão de revogar.
+     */
+    fun listaDoPainel(lista: List<Aparelho>, fora: List<DeFora>): JSONArray {
+        val ids = lista.map { it.id }.toSet()
+        val comFora = fora.mapNotNull { it.aparelho }.filter { it in ids }.toSet()
+        return JSONArray().apply {
+            lista.sortedByDescending { it.ultimoUso }.forEach { put(publico(it).put("fora", it.id in comFora)) }
+            fora.filter { it.aparelho == null || it.aparelho !in ids }.forEach {
+                put(JSONObject().put("id", PREFIXO_RELAY + it.id).put("nome", nomeLimpo(it.nome)).put("fora", true))
+            }
+        }
+    }
+
     fun texto(lista: List<Aparelho>): String = JSONArray().apply {
         lista.forEach { put(JSONObject().put("id", it.id).put("h", it.hash).put("n", it.nome).put("c", it.criado).put("u", it.ultimoUso)) }
     }.toString()

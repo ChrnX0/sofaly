@@ -83,6 +83,10 @@ object RelayCelular {
             .put("x", RelayCrypto.b64url(RelayCrypto.xPublica(e.x))).put("name", android.os.Build.MODEL ?: "Celular")
     }
 
+    /** Esquece as chaves do relay desta TV: o próximo uso em casa troca de novo (e liga à chave de aparelho nova). */
+    fun esquecer(ctx: Context, tv: Pareamento.Tv) =
+        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().remove("tv:" + Pareamento.chave(tv)).apply()
+
     /** Guarda a resposta da TV ({id, x}). false = resposta ruim. */
     fun guardar(ctx: Context, tv: Pareamento.Tv, resposta: JSONObject?): Boolean {
         val id = resposta?.optString("id") ?: return false

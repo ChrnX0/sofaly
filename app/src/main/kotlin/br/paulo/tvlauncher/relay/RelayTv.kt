@@ -81,30 +81,41 @@ object RelayTv {
 
     // ---------------------------------------------------------------- aparelhos pareados
 
-    data class Pareado(val id: String, val xPub: ByteArray, val nome: String)
+    /**
+     * Um celular que pode mandar teclas e texto de fora de casa. [aparelho] = o id do mesmo celular em "Celulares com
+     * acesso" do painel (AparelhosPareados), quando ele pareou com a chave de aparelho: revogar lá revoga aqui também.
+     */
+    data class Pareado(val id: String, val xPub: ByteArray, val nome: String, val aparelho: String? = null)
 
     fun pareados(ctx: Context): List<Pareado> {
         val a = runCatching { JSONArray(prefs(ctx).getString("pareados", "[]")) }.getOrNull() ?: return emptyList()
         return (0 until a.length()).mapNotNull { i ->
             val o = a.optJSONObject(i) ?: return@mapNotNull null
             val id = o.optString("id"); val x = runCatching { RelayCrypto.deB64(o.optString("x")) }.getOrNull()
-            if (!RelayCrypto.ID_RE.matches(id) || x?.size != 32) null else Pareado(id, x, o.optString("nome"))
+            if (!RelayCrypto.ID_RE.matches(id) || x?.size != 32) null
+            else Pareado(id, x, o.optString("nome"), o.optString("aparelho").ifEmpty { null })
         }
     }
 
-    @Synchronized fun parear(ctx: Context, p: Pareado) {
-        val lista = pareados(ctx).filterNot { it.id == p.id } + p
+    private fun guardar(ctx: Context, lista: List<Pareado>) {
         prefs(ctx).edit().putString("pareados", JSONArray().apply {
-            for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome))
+            for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome)
+                .apply { q.aparelho?.let { put("aparelho", it) } })
         }.toString()).apply()
     }
 
-    @Synchronized fun esquecer(ctx: Context, id: String) {
-        val lista = pareados(ctx).filterNot { it.id == id }
-        prefs(ctx).edit().putString("pareados", JSONArray().apply {
-            for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome))
-        }.toString()).apply()
+    @Synchronized fun parear(ctx: Context, p: Pareado) = guardar(ctx, pareados(ctx).filterNot { it.id == p.id } + p)
+
+    /** true = havia esse celular. */
+    @Synchronized fun esquecer(ctx: Context, id: String): Boolean {
+        val antes = pareados(ctx)
+        guardar(ctx, antes.filterNot { it.id == id })
+        return antes.any { it.id == id }
     }
+
+    /** O celular [aparelho] foi revogado no painel: sai daqui também. */
+    @Synchronized fun esquecerDoAparelho(ctx: Context, aparelho: String) =
+        guardar(ctx, pareados(ctx).filterNot { it.aparelho == aparelho })
 
     // ---------------------------------------------------------------- servidor (fora da thread da tela)
 
@@ -241,10 +252,10 @@ object RelayTv {
     }
 
     /** Pedido do painel (POST /api/relay/parear, só o dono): guarda o celular e devolve as chaves da TV. */
-    fun parearPeloPainel(ctx: Context, corpo: JSONObject?): JSONObject? {
+    fun parearPeloPainel(ctx: Context, corpo: JSONObject?, aparelho: String?): JSONObject? {
         val p = RelayPairing.lerPedido(corpo) ?: return null
         val eu = identidade(ctx) ?: return null
-        parear(ctx, Pareado(p.id, p.xPub, p.nome))
+        parear(ctx, Pareado(p.id, p.xPub, p.nome, aparelho))
         ajustar(ctx)
         return RelayPairing.resposta(eu.id, eu.xPub)
     }

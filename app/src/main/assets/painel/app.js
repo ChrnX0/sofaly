@@ -890,8 +890,16 @@ async function carregarCelulares() {
     const linha = document.createElement('div'); linha.className = 'linha-registro';
     const t = document.createElement('strong'); t.textContent = a.nome;   // textContent: o nome vem do celular, nunca vira HTML
     const d = document.createElement('span');
-    const rot = document.createElement('span'); rot.textContent = 'Último uso';
-    d.append(rot, ': ' + new Date(a.uso).toLocaleString(undefined, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }));
+    if (a.uso) {
+      const rot = document.createElement('span'); rot.textContent = 'Último uso';
+      d.append(rot, ': ' + new Date(a.uso).toLocaleString(undefined, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }));
+    }
+    // Relay do api.sofaly.tv (decisão A): Revogar também corta as teclas e o texto que este celular manda de fora.
+    if (a.fora) {
+      const f = document.createElement('span'); f.textContent = 'Controla a TV de fora de casa';
+      if (a.uso) d.append(' · ');
+      d.append(f);
+    }
     const b = document.createElement('button'); b.type = 'button'; b.className = 'botao-secundario'; b.textContent = 'Revogar';
     b.addEventListener('click', async () => {
       const ok = await confirmar('Revogar o acesso deste celular?', 'Ele sai do painel e só volta lendo o QR da TV.', 'Revogar',

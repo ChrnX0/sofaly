@@ -162,6 +162,7 @@ traduzirPainelCom({T:{
 "O app Sofaly do celular entra no painel sem pedir o PIN. Revogue o celular que se perdeu ou foi vendido: para voltar, ele precisa ler o QR da TV de novo.":"휴대폰의 Sofaly 앱은 PIN 없이 패널을 엽니다. 잃어버리거나 판 휴대폰은 취소하세요. 다시 쓰려면 TV의 QR 코드를 다시 스캔해야 합니다.",
 "Nenhum celular com acesso.":"접근 가능한 휴대폰이 없습니다.",
 "Último uso":"마지막 사용",
+"Controla a TV de fora de casa":"집 밖에서 TV를 조작",
 "Revogar o acesso deste celular?":"이 휴대폰의 접근을 취소할까요?",
 "Ele sai do painel e só volta lendo o QR da TV.":"패널에서 나가며 TV의 QR 코드를 스캔해야만 돌아옵니다.",
 "Quem entrou por convite sai do painel agora.":"초대로 들어온 사람은 지금 패널에서 나갑니다.",

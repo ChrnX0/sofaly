@@ -162,6 +162,7 @@ traduzirPainelCom({T:{
 "O app Sofaly do celular entra no painel sem pedir o PIN. Revogue o celular que se perdeu ou foi vendido: para voltar, ele precisa ler o QR da TV de novo.":"De Sofaly-app op de telefoon opent het paneel zonder om de pincode te vragen. Trek een verloren of verkochte telefoon in: om terug te komen moet hij de QR-code van de tv opnieuw scannen.",
 "Nenhum celular com acesso.":"Geen telefoons met toegang.",
 "Último uso":"Laatst gebruikt",
+"Controla a TV de fora de casa":"Bedient de tv buitenshuis",
 "Revogar o acesso deste celular?":"Toegang van deze telefoon intrekken?",
 "Ele sai do painel e só volta lendo o QR da TV.":"Hij verlaat het paneel en komt alleen terug door de QR-code van de tv te scannen.",
 "Quem entrou por convite sai do painel agora.":"Wie via de uitnodiging binnenkwam, verlaat het paneel nu.",
