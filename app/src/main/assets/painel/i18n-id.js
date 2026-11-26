@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"Penyimpanan TV hampir penuh",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Kolom teks terbuka di TV (ketuk untuk mengetik dari ponsel)",
 "Despertador tocou na TV":"Alarm berbunyi di TV",
+"Alerta importante da Sofy":"Peringatan penting dari Sofy",
 "Ouvir no celular":"Dengarkan di ponsel",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Melanjutkan di sini radio atau podcast yang terakhir diputar TV, dari titik yang sama.",
 "Ouvir aqui":"Dengarkan di sini",

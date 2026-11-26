@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"Пам'ять телевізора заповнюється",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"На телевізорі відкрито текстове поле (торкніться, щоб писати з телефона)",
 "Despertador tocou na TV":"На телевізорі задзвонив будильник",
+"Alerta importante da Sofy":"Важливе сповіщення від Sofy",
 "Ouvir no celular":"Слухайте на телефоні",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Продовжує тут радіостанцію або подкаст, які телевізор грав останніми, з того самого місця.",
 "Ouvir aqui":"Слухати тут",

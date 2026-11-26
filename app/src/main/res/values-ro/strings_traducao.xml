@@ -113,6 +113,7 @@
     <string name="ms_alguem_pediu">Cineva a cerut ajutor la TV-ul %1$s.</string>
     <string name="ms_avisei_falado">Gata. Am anunțat familia.</string>
     <string name="ms_avisei">Am anunțat familia pe telefoanele lor.</string>
+    <string name="ms_ninguem_recebeu">Niciun telefon nu a primit alerta. Vă rugăm să sunați pe cineva.</string>
     <string name="ms_voltar">Înapoi la ecranul complet</string>
     <string name="pv_bom_dia">Bună dimineața!</string>
     <string name="pv_boa_tarde">Bună ziua!</string>

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
 <style>
 :root{
-  --bg:#17110D; --bg2:#121528; --fg:#FFF3E6; --mut:#C9B8A6; --line:#33271F;
+  --bg:#17110D; --bg2:#121212; --fg:#FFF3E6; --mut:#C9B8A6; --line:#33271F;
   --orange:#FF6A2B; --screen:#1C2140; --card:#21180F;
   color-scheme:dark;
 }
@@ -45,7 +45,7 @@ body{background:radial-gradient(60% 50% at 72% 38%,rgba(255,138,70,.16),transpar
 .ant2{animation-delay:-.6s;animation-duration:4.4s}
 @keyframes balanca{0%,100%{transform:rotate(0)}45%{transform:rotate(-3.5deg)}70%{transform:rotate(2deg)}}
 /* tela da TV-sofá: x 32..208 (de 240), y 42..141 (de 168) = 16:9 */
-.screen{position:absolute;left:13.333%;top:25%;width:73.333%;height:58.929%;border-radius:2.2%/3.9%;overflow:hidden;background:#0A0C16;container-type:inline-size}
+.screen{position:absolute;left:13.333%;top:25%;width:73.333%;height:58.929%;border-radius:2.2%/3.9%;overflow:hidden;background:#0f0f0f;container-type:inline-size}
 .stage{position:absolute;left:0;top:0;width:960px;height:540px;transform-origin:0 0;transform:scale(calc(100cqw / 960px));
   font-family:Nunito,system-ui,sans-serif;color:#fff}
 @supports not (width:1cqw){.stage{transform:scale(var(--s,1))}}
@@ -97,7 +97,7 @@ h1 em{font-style:normal;color:#C7A98E;font-weight:600}
 .c1 h3{margin:0 0 8px;font-size:22px}
 .c1 p{margin:0;color:var(--mut);font-size:17px;line-height:1.55}
 .c1 .k{display:inline-block;margin-top:14px;font-size:14px;color:var(--fg);background:#1E2340;border-radius:8px;padding:4px 10px}
-details{margin-top:20px;border:1px solid var(--line);border-radius:20px;background:#0F1226}
+details{margin-top:20px;border:1px solid var(--line);border-radius:20px;background:#181818}
 summary{cursor:pointer;list-style:none;padding:20px 22px;font-size:19px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:12px}
 summary::-webkit-details-marker{display:none}
 summary span{color:var(--orange);font-size:15px;font-weight:600;white-space:nowrap}
@@ -267,7 +267,7 @@ td code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;color:#
    el.style.transitionDelay=Math.min(Math.abs(d)*16,64)+'ms';
   });
   rot.innerHTML=`${c.nome}<span class="pos">${s+1} de ${c.itens.length}</span>`;
-  glow.style.background=`radial-gradient(120% 90% at 0% 0%, ${W[c.id]}55 0%, transparent 55%), radial-gradient(90% 80% at 100% 0%, #2a9a8e18 0%, transparent 60%), linear-gradient(180deg,#0f1325,#080a12)`;
+  glow.style.background=`radial-gradient(120% 90% at 0% 0%, ${W[c.id]}55 0%, transparent 55%), radial-gradient(90% 80% at 100% 0%, #2a9a8e18 0%, transparent 60%), linear-gradient(180deg,#181818,#0c0c0c)`;
   seta.classList.remove('on');clearTimeout(desenhar.t);
   if(s<c.itens.length-1)desenhar.t=setTimeout(()=>seta.classList.add('on'),1500);
  }

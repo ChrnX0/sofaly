@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Iemand vroeg om hulp op de tv %1$s.</string>
     <string name="ms_avisei_falado">Klaar. Ik heb de familie laten weten.</string>
     <string name="ms_avisei">Ik heb de familie op hun telefoon laten weten.</string>
+    <string name="ms_ninguem_recebeu">Geen enkele telefoon kreeg de melding. Bel alstublieft iemand.</string>
     <string name="ms_voltar">Terug naar het volledige scherm</string>
     <string name="pv_bom_dia">Goedemorgen!</string>
     <string name="pv_boa_tarde">Goedemiddag!</string>

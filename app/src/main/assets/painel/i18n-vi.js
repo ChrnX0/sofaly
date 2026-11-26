@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"Bộ nhớ TV sắp đầy",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Ô nhập văn bản đang mở trên TV (chạm để gõ từ điện thoại)",
 "Despertador tocou na TV":"Báo thức đã reo trên TV",
+"Alerta importante da Sofy":"Cảnh báo quan trọng từ Sofy",
 "Ouvir no celular":"Nghe trên điện thoại",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Tiếp tục tại đây đài radio hoặc podcast mà TV phát gần nhất, từ đúng chỗ đó.",
 "Ouvir aqui":"Nghe tại đây",

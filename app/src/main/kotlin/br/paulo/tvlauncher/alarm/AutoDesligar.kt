@@ -184,7 +184,7 @@ object AutoDesligar {
         val caixa = LinearLayout(servico).apply {
             orientation = LinearLayout.VERTICAL
             setPaddingRelative(dp(64), dp(40), dp(64), dp(40))
-            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xF0101418.toInt()); setStroke(dp(1), 0x40FFFFFF) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(0xF0121212.toInt()); setStroke(dp(1), 0x40FFFFFF) }
             addView(pergunta)
             addView(titulo)
             addView(texto(22f, 0xFFD0D7DE.toInt()).apply {

@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">%1$s TV’sinde biri yardım istedi.</string>
     <string name="ms_avisei_falado">Tamam. Aileye haber verdim.</string>
     <string name="ms_avisei">Aileye telefonlarından haber verdim.</string>
+    <string name="ms_ninguem_recebeu">Hiçbir telefona uyarı ulaşmadı. Lütfen birini arayın.</string>
     <string name="ms_voltar">Tam ekrana dön</string>
     <string name="pv_bom_dia">Günaydın!</string>
     <string name="pv_boa_tarde">İyi günler!</string>

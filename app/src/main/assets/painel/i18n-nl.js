@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"Opslag van de tv raakt vol",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"Tekstveld open op de tv (tik om vanaf je telefoon te typen)",
 "Despertador tocou na TV":"Wekker ging af op de tv",
+"Alerta importante da Sofy":"Belangrijke melding van Sofy",
 "Ouvir no celular":"Luisteren op je telefoon",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"Gaat hier verder met de radiozender of podcast die de tv het laatst speelde, vanaf hetzelfde punt.",
 "Ouvir aqui":"Hier luisteren",
