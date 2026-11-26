@@ -44,4 +44,23 @@
     <string name="rw_escondidas">Escondidas</string>
     <string name="rw_fraca">Fraca</string>
     <string name="rw_forte">Forte</string>
+    <string name="rw_zoom">Aumentar o card em foco</string>
+    <string name="rw_brilho_tam">Espessura do brilho</string>
+    <string name="rw_brilho_cor">Cor do brilho</string>
+    <string name="rw_onda">Onda ao apertar o card</string>
+    <string name="rw_prop_tv">Proporção dos cards de apps de TV</string>
+    <string name="rw_prop_cel">Proporção dos cards de apps de celular</string>
+    <string name="rw_fundo_card">Cor de fundo dos cards</string>
+    <string name="rw_tinta">Cor dos ícones de um tom só</string>
+    <string name="rw_progresso">Mostrar barra de progresso</string>
+    <string name="rw_selo">Mostrar selo de novidade</string>
+    <string name="rw_fino">Fino</string>
+    <string name="rw_grosso">Grosso</string>
+    <string name="rw_dinamica">Cor do card</string>
+    <string name="rw_branco">Branco</string>
+    <string name="rw_destaque">Cor de destaque</string>
+    <string name="rw_grafite">Grafite</string>
+    <string name="rw_preto">Preto</string>
+    <string name="rw_creme">Creme</string>
+    <string name="rw_poster">Pôster de filme</string>
 </resources>

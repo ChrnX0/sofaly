@@ -222,6 +222,7 @@ class FineTuneActivity : Activity() {
         val opa = listOf(getString(R.string.rw_escondidas)) + br.paulo.tvlauncher.home.RowsHome.Dim.entries.drop(1).map { "${(it.alpha * 100).toInt()}%" }
         val som = nomes(R.string.rw_nenhum, R.string.rw_fraca, R.string.rw_normal, R.string.rw_forte)
         val simNao = nomes(R.string.st_sem, R.string.st_com)
+        val prop = listOf("16/9", "4/3", "3/2", "1/1", "2/3", getString(R.string.rw_poster))
         fun enumA(t: Int, nomes: List<String>, key: String, atual: () -> Int) =
             Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
         fun simA(t: Int, key: String, atual: () -> Boolean) =
@@ -243,6 +244,17 @@ class FineTuneActivity : Activity() {
             enumA(R.string.rw_sombra, som, R2.KEY_SHADOW) { o().shadow.ordinal },
             simA(R.string.rw_hora, R2.KEY_CLOCK) { o().clock },
             simA(R.string.rw_status, R2.KEY_STATUS) { o().status },
+            // Cartões (onda 2): o resto de Aparência > Cartões dele, na ordem dele
+            simA(R.string.rw_onda, R2.KEY_RIPPLE) { o().ripple },
+            enumA(R.string.rw_fundo_card, nomes(R.string.rw_auto, R.string.rw_grafite, R.string.rw_preto, R.string.rw_branco, R.string.rw_destaque), R2.KEY_CARD_BG) { o().cardBg.ordinal },
+            simA(R.string.rw_zoom, R2.KEY_ZOOM) { o().zoom },
+            enumA(R.string.rw_brilho_tam, nomes(R.string.rw_fino, R.string.rw_normal, R.string.rw_grosso), R2.KEY_GLOW_SIZE) { o().glowSize.ordinal },
+            enumA(R.string.rw_brilho_cor, nomes(R.string.rw_dinamica, R.string.rw_branco, R.string.rw_destaque), R2.KEY_GLOW_COLOR) { o().glowColor.ordinal },
+            simA(R.string.rw_progresso, R2.KEY_PROGRESS) { o().progress },
+            simA(R.string.rw_selo, R2.KEY_BADGE) { o().badge },
+            enumA(R.string.rw_prop_tv, prop, R2.KEY_TV_RATIO) { o().tvRatio.ordinal },
+            enumA(R.string.rw_prop_cel, prop, R2.KEY_MOBILE_RATIO) { o().mobileRatio.ordinal },
+            enumA(R.string.rw_tinta, nomes(R.string.rw_creme, R.string.rw_preto, R.string.rw_destaque), R2.KEY_ICON_TINT) { o().iconTint.ordinal },
         )
     }
 

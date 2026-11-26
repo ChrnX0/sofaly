@@ -38,6 +38,17 @@ object RowsHome {
     const val KEY_SHADOW = "rows_shadow"            // sombra sobre o fundo (esquerda e embaixo): Shadow
     const val KEY_CLOCK = "rows_clock"              // hora no alto (1 = sim)
     const val KEY_STATUS = "rows_status"            // pílula com Wi-Fi e engrenagem (1 = sim)
+    // Cartões (onda 2): o resto de Aparência > Cartões do Projectivy
+    const val KEY_ZOOM = "rows_zoom"                // o card em foco cresce (1 = sim)
+    const val KEY_GLOW_SIZE = "rows_glow_size"      // espessura do brilho: GlowSize
+    const val KEY_GLOW_COLOR = "rows_glow_color"    // cor do brilho: GlowColor
+    const val KEY_RIPPLE = "rows_ripple"            // onda de luz ao apertar o card (1 = sim)
+    const val KEY_TV_RATIO = "rows_tv_ratio"        // proporção dos cards de apps de TV (com banner): Ratio
+    const val KEY_MOBILE_RATIO = "rows_mobile_ratio" // proporção dos cards de apps de celular (sem banner): Ratio
+    const val KEY_CARD_BG = "rows_card_bg"          // cor de fundo dos cards sem arte: CardBg
+    const val KEY_ICON_TINT = "rows_icon_tint"      // cor dos ícones de um tom só (os nossos): IconTint
+    const val KEY_PROGRESS = "rows_progress"        // barra de progresso no card (1 = sim)
+    const val KEY_BADGE = "rows_badge"              // selo no card com novidade (1 = sim)
 
     enum class Size(val k: Float) { XS(0.75f), S(0.875f), M(1f), L(1.15f), XL(1.3f) }
     enum class Gap(val dp: Float) { NONE(0f), TIGHT(4f), NORMAL(8f), WIDE(14f), WIDER(20f) }
@@ -51,6 +62,15 @@ object RowsHome {
     enum class Spacing(val pct: Float) { AUTO(0f), P24(0.24f), P28(0.28f), P36(0.36f), P42(0.42f) }
     /** Opacidade das fileiras fora do foco. */
     enum class Dim(val alpha: Float) { HIDDEN(0f), FAINT(0.2f), DEFAULT(0.4f), HALF(0.6f), FULL(1f) }
+    enum class GlowSize(val dp: Float) { THIN(1.5f), NORMAL(2.5f), THICK(4f) }
+    /** Cor do brilho: DYNAMIC = a do card, clara (o padrão dele: "vazio = cor dinâmica do card"). */
+    enum class GlowColor { DYNAMIC, WHITE, ACCENT }
+    /** Proporções dele: 16/9, 4/3, 3/2, 1/1, 2/3 e pôster de filme. */
+    enum class Ratio(val wh: Float) { R16_9(16f / 9f), R4_3(4f / 3f), R3_2(1.5f), R1_1(1f), R2_3(2f / 3f), POSTER(27f / 40f) }
+    /** Fundo dos cards sem arte: AUTO = a cor do ícone (o dele); os outros, uma cor fixa. */
+    enum class CardBg { AUTO, GRAPHITE, BLACK, WHITE, ACCENT }
+    /** Tinta dos ícones de um tom só (dele: "Cor de ícone personalizado, para ícones monocromáticos"). */
+    enum class IconTint { CREAM, BLACK, ACCENT }
     /** Sombra sobre o fundo (Projectivy: comprimento e opacidade da sombra horizontal e vertical). */
     enum class Shadow(val alpha: Float) { NONE(0f), LIGHT(0.45f), DEFAULT(0.7f), STRONG(0.9f) }
 
@@ -60,12 +80,20 @@ object RowsHome {
         val cardTitle: Boolean = true, val rowTitle: Boolean = true, val rowIcon: Boolean = true,
         val spacing: Spacing = Spacing.AUTO, val fixed: Boolean = true, val hideAbove: Boolean = false,
         val dim: Dim = Dim.DEFAULT, val shadow: Shadow = Shadow.DEFAULT, val clock: Boolean = true, val status: Boolean = true,
+        val zoom: Boolean = true, val glowSize: GlowSize = GlowSize.NORMAL, val glowColor: GlowColor = GlowColor.DYNAMIC,
+        val ripple: Boolean = true, val tvRatio: Ratio = Ratio.R16_9, val mobileRatio: Ratio = Ratio.R1_1,
+        val cardBg: CardBg = CardBg.AUTO, val iconTint: IconTint = IconTint.CREAM, val progress: Boolean = true, val badge: Boolean = true,
     ) {
+        /** Quanto o card em foco cresce (sem o zoom, nada). */
+        val focoK get() = if (zoom) focusSize.k else 1f
+        /** Largura de um card com a proporção [r] (a altura é a do tamanho escolhido). */
+        fun largura(r: Ratio) = Math.round(cardH * r.wh).toFloat()
         val cardW get() = Math.round(CARD_W * size.k).toFloat()
         val cardH get() = Math.round(CARD_H * size.k).toFloat()
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
-        fun signature() = listOf(size, gap, corners, focusSize, effect, glowAnim, spacing, dim, shadow).joinToString("") { it.ordinal.toString() } +
-            listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status).joinToString("") { if (it) "1" else "0" }
+        fun signature() = listOf(size, gap, corners, focusSize, effect, glowAnim, spacing, dim, shadow, glowSize, glowColor, tvRatio,
+            mobileRatio, cardBg, iconTint).joinToString("") { it.ordinal.toString() } +
+            listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge).joinToString("") { if (it) "1" else "0" }
     }
 
     val DEFAULT = Options()
@@ -82,6 +110,11 @@ object RowsHome {
             spacing = ler(KEY_SPACING, Spacing.entries, d.spacing), fixed = sim(KEY_FIXED, d.fixed), hideAbove = sim(KEY_HIDE_ABOVE, d.hideAbove),
             dim = ler(KEY_DIM, Dim.entries, d.dim), shadow = ler(KEY_SHADOW, Shadow.entries, d.shadow),
             clock = sim(KEY_CLOCK, d.clock), status = sim(KEY_STATUS, d.status),
+            zoom = sim(KEY_ZOOM, d.zoom), glowSize = ler(KEY_GLOW_SIZE, GlowSize.entries, d.glowSize),
+            glowColor = ler(KEY_GLOW_COLOR, GlowColor.entries, d.glowColor), ripple = sim(KEY_RIPPLE, d.ripple),
+            tvRatio = ler(KEY_TV_RATIO, Ratio.entries, d.tvRatio), mobileRatio = ler(KEY_MOBILE_RATIO, Ratio.entries, d.mobileRatio),
+            cardBg = ler(KEY_CARD_BG, CardBg.entries, d.cardBg), iconTint = ler(KEY_ICON_TINT, IconTint.entries, d.iconTint),
+            progress = sim(KEY_PROGRESS, d.progress), badge = sim(KEY_BADGE, d.badge),
         )
     }
 
@@ -138,22 +171,26 @@ object RowsHome {
 
     /**
      * x (dp) de cada card da fileira com o card [sel] em foco preso a [FOCO_X]: os de antes saem pela esquerda, os
-     * de depois vêm logo atrás do foco aumentado. [focada] = a fileira é a escolhida (só ela cresce).
+     * de depois vêm logo atrás do foco aumentado. [larguras] de cada card (a proporção muda com o tipo de app);
+     * [focada] = a fileira é a escolhida (só ela cresce).
      */
-    fun xs(n: Int, sel: Int, o: Options, focada: Boolean): FloatArray {
-        val w = o.cardW; val vao = o.gap.dp
-        val grande = if (focada) w * o.focusSize.k else w
+    fun xs(larguras: List<Float>, sel: Int, o: Options, focada: Boolean): FloatArray {
+        val n = larguras.size
+        val vao = o.gap.dp
         val r = FloatArray(n)
-        val s = sel.coerceIn(0, (n - 1).coerceAtLeast(0))
         if (n == 0) return r
+        val s = sel.coerceIn(0, n - 1)
         r[s] = FOCO_X
-        var x = FOCO_X + grande + vao
-        for (i in s + 1 until n) { r[i] = x; x += w + vao }
+        var x = FOCO_X + larguras[s] * (if (focada) o.focoK else 1f) + vao
+        for (i in s + 1 until n) { r[i] = x; x += larguras[i] + vao }
         x = FOCO_X
-        for (i in s - 1 downTo 0) { x -= w + vao; r[i] = x }
+        for (i in s - 1 downTo 0) { x -= larguras[i] + vao; r[i] = x }
         return r
     }
 
-    /** O card [i] aparece numa tela de [largura] dp (com folga de um card de cada lado, para entrar deslizando). */
-    fun visivel(x: Float, o: Options, largura: Float): Boolean = x + o.cardW * o.focusSize.k > -o.cardW && x < largura + o.cardW
+    /** Fileira de [n] cards iguais (teste e quem não tem as larguras). */
+    fun xs(n: Int, sel: Int, o: Options, focada: Boolean) = xs(List(n) { o.cardW }, sel, o, focada)
+
+    /** O card em [x] com largura [w] aparece numa tela de [largura] dp (folga de um card de cada lado, para entrar deslizando). */
+    fun visivel(x: Float, w: Float, o: Options, largura: Float): Boolean = x + w * o.focoK > -w && x < largura + w
 }

@@ -60,8 +60,10 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     private val nome = TextView(ctx)
 
     private class Card(val item: HomeCruz.Item, val raiz: FrameLayout, val banner: ImageView, val icone: ImageView,
-                       val fundo: GradientDrawable, val cor: Int) {
+                       val fundo: GradientDrawable, val cor: Int, val onda: View) {
         var pediu = false
+        /** Largura (dp): a proporção de app de TV; vira a de celular quando o app não tem banner. */
+        var w = 0f
     }
     private class Fileira(val cat: HomeCruz.Categoria, val titulo: LinearLayout, val cards: List<Card>)
     private val fileiras = ArrayList<Fileira>()
@@ -164,7 +166,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             val naTela = cy > -o.cardH * 2 && cy < alt + o.cardH * 2
             val emFoco = j == cat
             val s = if (emFoco) sel else (f.cards.size.let { n -> lembrado(j, n) })
-            val xs = RowsHome.xs(f.cards.size, s, o, emFoco)
+            val xs = RowsHome.xs(f.cards.map { it.w }, s, o, emFoco)
             // título: centro 72 dp acima do centro dos cards
             val th = if (f.titulo.height == 0) dp(12f) else f.titulo.height / 2f
             val ty = dp(cy - RowsHome.TITULO_ACIMA) - th
@@ -172,8 +174,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             mover(f.titulo, dp(RowsHome.TEXTO_X), ty, tAlfa, 1f, anima)
             for ((i, k) in f.cards.withIndex()) {
                 val escolhido = emFoco && i == s
-                val k1 = if (escolhido) o.focusSize.k else 1f
-                val vis = naTela && RowsHome.visivel(xs[i], o, larg) && xs[i] + o.cardW * k1 > 0f
+                val k1 = if (escolhido) o.focoK else 1f
+                val vis = naTela && RowsHome.visivel(xs[i], k.w, o, larg) && xs[i] + k.w * k1 > 0f
                 val a = if (!vis) 0f else if (emFoco) 1f else alfa
                 k.raiz.pivotX = 0f; k.raiz.pivotY = dp(o.cardH) / 2f
                 k.raiz.elevation = dp(if (escolhido) (if (o.effect == RowsHome.Effect.SHADOW) 16f else 8f) else 2f)
@@ -206,15 +208,19 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         nome.translationX = dp(RowsHome.TEXTO_X); nome.translationY = dp(cyF + RowsHome.NOME_ABAIXO) - nh
         // brilho em volta do card em foco
         if (card != null) {
-            val k1 = o.focusSize.k
-            val w = o.cardW * k1; val h = o.cardH * k1
-            val b = RowsHome.BRILHO
+            val k1 = o.focoK
+            val w = card.w * k1; val h = o.cardH * k1
+            val b = o.glowSize.dp
             val lp = anel.layoutParams
             if (lp.width != dpi(w + 2 * b) || lp.height != dpi(h + 2 * b)) { lp.width = dpi(w + 2 * b); lp.height = dpi(h + 2 * b); anel.layoutParams = lp }
             val g = anel.background as? GradientDrawable ?: GradientDrawable().also { anel.background = it }
             g.cornerRadius = dp(o.corners.dp * k1 + b)
             g.setColor(0)
-            g.setStroke(dpi(b), corDoBrilho(card.cor))
+            g.setStroke(dpi(b), when (o.glowColor) {
+                RowsHome.GlowColor.DYNAMIC -> corDoBrilho(card.cor)
+                RowsHome.GlowColor.WHITE -> 0xF2FFFFFF.toInt()
+                RowsHome.GlowColor.ACCENT -> Estilo.ACENTO
+            })
             anel.elevation = dp(20f)
             val ligado = focada && semMenu && o.effect == RowsHome.Effect.GLOW
             mover(anel, dp(RowsHome.FOCO_X - b), dp(cyF - h / 2f - b), if (ligado) 1f else 0f, 1f, anima)
@@ -277,8 +283,14 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
 
     /** O card escolhido "aperta" e volta: o OK foi entendido. */
     fun apertar(cat: Int, sel: Int) {
-        val k = fileiras.getOrNull(cat)?.cards?.getOrNull(sel)?.raiz ?: return
+        val c = fileiras.getOrNull(cat)?.cards?.getOrNull(sel) ?: return
+        val k = c.raiz
         if (semAnimacao()) return
+        if (opcoes.ripple) c.onda.apply {
+            // onda de luz que nasce no centro do card e se espalha (o "efeito ondulatório" dele)
+            animate().cancel(); alpha = 0.45f; scaleX = 0.2f; scaleY = 0.2f
+            animate().alpha(0f).scaleX(1.6f).scaleY(1.6f).setDuration(420L).setInterpolator(curva).start()
+        }
         val s = k.scaleX
         k.animate().cancel()
         k.animate().scaleX(s * 0.94f).scaleY(s * 0.94f).setDuration(DesignTokens.MS_MICRO).withEndAction {
@@ -315,8 +327,17 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val conteudo = item.id.startsWith("card:")
         val cor = when {
             conteudo -> DesignTokens.NIGHT
+            o.cardBg == RowsHome.CardBg.GRAPHITE -> PLACA_PROPRIA
+            o.cardBg == RowsHome.CardBg.BLACK -> 0xFF0E0E0D.toInt()
+            o.cardBg == RowsHome.CardBg.WHITE -> DesignTokens.PAPER
+            o.cardBg == RowsHome.CardBg.ACCENT -> Estilo.ACENTO
             app -> fundoDoIcone(item.icone)
             else -> PLACA_PROPRIA
+        }
+        val tinta = when (o.iconTint) {
+            RowsHome.IconTint.CREAM -> if (o.cardBg == RowsHome.CardBg.WHITE) DesignTokens.NIGHT else DesignTokens.CREAM
+            RowsHome.IconTint.BLACK -> DesignTokens.NIGHT
+            RowsHome.IconTint.ACCENT -> if (o.cardBg == RowsHome.CardBg.ACCENT) DesignTokens.NIGHT else Estilo.ACENTO
         }
         val fundo = GradientDrawable().apply { cornerRadius = dp(o.corners.dp); setColor(cor) }
         raiz.background = fundo
@@ -328,16 +349,29 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val ic = ImageView(context).apply {
             scaleType = ImageView.ScaleType.FIT_CENTER
             // os itens nossos (TV, Séries, Configurações...) em traço creme sobre o grafite, como os atalhos dele
-            setImageDrawable(if (conteudo) null else (item.icone as? IconeCruz)?.let { c -> IconeCruz(c.tipo, IconeCruz.Estilo.LINHA).apply { corFixa = DesignTokens.CREAM } } ?: item.icone)
+            setImageDrawable(if (conteudo) null else (item.icone as? IconeCruz)?.let { c -> IconeCruz(c.tipo, IconeCruz.Estilo.LINHA).apply { corFixa = tinta } } ?: item.icone)
         }
         raiz.addView(ic, LayoutParams(dpi(lado), dpi(lado), Gravity.CENTER))
         if (conteudo) { banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE }
-        item.progresso?.let { p ->
-            raiz.addView(View(context).apply { background = GradientDrawable().apply { setColor(Estilo.ACENTO) } },
-                LayoutParams(dpi(o.cardW * p.coerceIn(0f, 1f)), dpi(3f), Gravity.BOTTOM or Gravity.START))
+        val w = o.largura(o.tvRatio)
+        if (o.progress) item.progresso?.let { p ->
+            // barra de progresso embaixo (filme pela metade, episódio): trilho escuro e a parte vista na cor de destaque
+            raiz.addView(View(context).apply { background = GradientDrawable().apply { setColor(0x66000000) } },
+                LayoutParams(LayoutParams.MATCH_PARENT, dpi(4f), Gravity.BOTTOM))
+            raiz.addView(View(context).apply { pivotX = 0f; scaleX = p.coerceIn(0f, 1f); background = GradientDrawable().apply { setColor(Estilo.ACENTO) } },
+                LayoutParams(LayoutParams.MATCH_PARENT, dpi(4f), Gravity.BOTTOM))
         }
-        addView(raiz, indexOfChild(anel), LayoutParams(dpi(o.cardW), dpi(o.cardH)))
-        return Card(item, raiz, banner, ic, fundo, cor)
+        // selo: o item tem novidade agora (no ar, episódio novo, tocando): um ponto na cor de destaque no canto
+        if (o.badge && item.situacao?.texto?.isNotBlank() == true) raiz.addView(View(context).apply {
+            background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.ACENTO); setStroke(dpi(1.5f), DesignTokens.NIGHT) }
+        }, LayoutParams(dpi(11f), dpi(11f), Gravity.TOP or Gravity.END).apply { topMargin = dpi(6f); marginEnd = dpi(6f) })
+        val onda = View(context).apply {
+            background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(0xFFFFFFFF.toInt()) }
+            alpha = 0f
+        }
+        raiz.addView(onda, LayoutParams(dpi(w), dpi(w), Gravity.CENTER))
+        addView(raiz, indexOfChild(anel), LayoutParams(dpi(w), dpi(o.cardH)))
+        return Card(item, raiz, banner, ic, fundo, cor, onda).also { it.w = w }
     }
 
     private fun pedirBanner(k: Card) {
@@ -345,7 +379,12 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         k.pediu = true
         val f = bannerDe ?: return
         f(k.item) { d ->
-            if (d == null) return@f
+            if (d == null) {
+                // sem banner = app de celular: o card fica na proporção deles (1:1 de fábrica) e a fileira se refaz
+                val w = opcoes.largura(opcoes.mobileRatio)
+                if (w != k.w) { k.w = w; k.raiz.layoutParams = k.raiz.layoutParams.apply { width = dpi(w) }; post { ultimo?.invoke() } }
+                return@f
+            }
             k.banner.setImageDrawable(d); k.banner.visibility = View.VISIBLE; k.icone.visibility = View.INVISIBLE
         }
     }

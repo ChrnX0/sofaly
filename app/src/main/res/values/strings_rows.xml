@@ -44,4 +44,23 @@
     <string name="rw_escondidas">Hidden</string>
     <string name="rw_fraca">Light</string>
     <string name="rw_forte">Strong</string>
+    <string name="rw_zoom">Zoom effect when focused</string>
+    <string name="rw_brilho_tam">Glow size</string>
+    <string name="rw_brilho_cor">Glow color</string>
+    <string name="rw_onda">Ripple effect on card press</string>
+    <string name="rw_prop_tv">TV apps card aspect ratio</string>
+    <string name="rw_prop_cel">Mobile apps card aspect ratio</string>
+    <string name="rw_fundo_card">Card background color</string>
+    <string name="rw_tinta">Custom icon tint</string>
+    <string name="rw_progresso">Show progressbar</string>
+    <string name="rw_selo">Show badge</string>
+    <string name="rw_fino">Thin</string>
+    <string name="rw_grosso">Thick</string>
+    <string name="rw_dinamica">Card color</string>
+    <string name="rw_branco">White</string>
+    <string name="rw_destaque">Accent</string>
+    <string name="rw_grafite">Graphite</string>
+    <string name="rw_preto">Black</string>
+    <string name="rw_creme">Cream</string>
+    <string name="rw_poster">Movie poster</string>
 </resources>
