@@ -18,4 +18,6 @@
     <string name="mtv_fila_cfg_det">Encore %1$d applis de l\'autre TV à installer</string>
     <string name="mtv_diario">Importé de %1$s : réglages restaurés, %2$d applis à installer</string>
     <string name="mtv_diario_enviado">Envoyé vers une nouvelle TV : réglages et %1$d applis</string>
+    <string name="bv_ja_usava">Vous utilisiez déjà Sofaly sur une autre TV ?</string>
+    <string name="bv_backup_det">Votre sauvegarde chiffrée revient avec son mot de passe</string>
 </resources>

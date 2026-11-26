@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Amit Sofy tud</string>
+    <string name="smem_sub">Amit erről az otthonról megtanult. Az OK egy elemet elfelejt; újratanulja.</string>
+    <string name="smem_linha_det">Amit megtanult, Elfelejtés gombbal</string>
+    <string name="smem_uso">Mikor használják a tévét</string>
+    <string name="smem_uso_det">Megtanult órák: %1$d</string>
+    <string name="smem_rede">Az otthon szokásos hálózata</string>
+    <string name="smem_rede_det">%1$d hálózati jel szokásos értékei</string>
+    <string name="smem_pessoas">Mindenki szokásai</string>
+    <string name="smem_pessoas_det">%1$d profil szokásai</string>
+    <string name="smem_casa">Az otthon szokásos napja</string>
+    <string name="smem_casa_det">%1$d nap előzmény</string>
+    <string name="smem_regras">Szabályok, amiket felfedezett</string>
+    <string name="smem_regras_det">%1$d szabály ellenőrzi a képernyőket</string>
+    <string name="smem_vazio">Még semmi</string>
+    <string name="smem_tudo">Mindent elfelejt</string>
+    <string name="smem_tudo_det">Sofy elölről kezdi</string>
+    <string name="smem_esqueceu">Elfelejtve. Sofy újra tanul.</string>
+    <string name="smem_pin">PIN az elfelejtéshez</string>
+</resources>

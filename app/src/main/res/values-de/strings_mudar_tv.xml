@@ -18,4 +18,6 @@
     <string name="mtv_fila_cfg_det">Noch %1$d Apps vom anderen Fernseher zu installieren</string>
     <string name="mtv_diario">Übernommen von %1$s: Einstellungen wiederhergestellt, %2$d Apps zu installieren</string>
     <string name="mtv_diario_enviado">An neuen Fernseher gesendet: Einstellungen und %1$d Apps</string>
+    <string name="bv_ja_usava">Sofaly schon auf einem anderen Fernseher genutzt?</string>
+    <string name="bv_backup_det">Die verschlüsselte Sicherung kommt mit dem Sicherungspasswort zurück</string>
 </resources>

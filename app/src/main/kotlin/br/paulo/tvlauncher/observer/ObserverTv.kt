@@ -338,6 +338,23 @@ object ObserverTv {
         learning(ctx).getString("habit", null)?.let { runCatching { org.json.JSONObject(it) }.getOrNull() })
         .also { habit = it }
 
+    /** "O que a Sofy sabe" (Brainstorm item 28): quantas horas do dia ela já conhece e quantos sinais de rede têm o normal. */
+    fun knownUseHours(ctx: Context): Int = runCatching { habit(ctx.applicationContext).let { h -> (0..23).count { h.hour(it) != null } } }.getOrDefault(0)
+    fun knownNetworkSignals(ctx: Context): Int = runCatching {
+        val p = ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        baseline(p).toJson().keys().asSequence().count { it != "v" }
+    }.getOrDefault(0)
+
+    /** Esquecer: a memória e a cópia gravada somem juntas (a próxima amostra recomeça do zero). */
+    @Synchronized fun forgetUseHours(ctx: Context) {
+        habit = null; lastHabitSave = 0L
+        learning(ctx.applicationContext).edit().remove("habit").apply()
+    }
+    @Synchronized fun forgetNetworkNormal(ctx: Context) {
+        base = null
+        ctx.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().remove("baseline").apply()
+    }
+
     /** Em uso = tela acesa e controle tocado há menos de 1 h (TV esquecida ligada na madrugada não conta como hábito). */
     @Synchronized private fun learnHabit(ctx: Context, agora: Long) {
         if (agora - lastHabitAt < LEARN_GAP_MS) return

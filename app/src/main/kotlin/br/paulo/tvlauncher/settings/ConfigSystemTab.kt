@@ -91,6 +91,10 @@ internal fun ConfigLauncherActivity.abaSistema(c: LinearLayout) {
     c.addView(linha(getString(R.string.rel_titulo), getString(R.string.rel_linha_det), seta = true) {
         startActivity(Intent(this, RelatarProblemaActivity::class.java))
     }, lp())
+    // O que a Sofy sabe, com Esquecer (Brainstorm item 28).
+    c.addView(linha(getString(R.string.smem_titulo), getString(R.string.smem_linha_det), seta = true) {
+        startActivity(Intent(this, br.paulo.tvlauncher.SofyMemoryActivity::class.java))
+    }, lp())
     // Backup noturno cifrado (BackupNoturno.kt): as opções ficam numa tela própria; ao voltar, o resumo se atualiza.
     c.addView(linha(getString(R.string.bkn_titulo), BackupNoturno.resumo(this), seta = true) {
         reconstruirAoVoltar = true

@@ -82,6 +82,10 @@ object SofyNormsTv {
     }
 
     /** Para o MCP/painel ("o que ela aprendeu"): dias de história e as quebras do último dia conferido. */
+    /** "O que a Sofy sabe" (Brainstorm item 28): quantos dias de normal da casa ela guarda, e Esquecer. */
+    fun daysKnown(ctx: Context): Int = runCatching { SofyNorms.fromJson(prefs(ctx).getString(KEY, null)).days.size }.getOrDefault(0)
+    fun forget(ctx: Context) { prefs(ctx).edit().remove(KEY).remove(KEY_SEEN).remove(KEY_PENDING).remove(KEY_LAST).apply() }
+
     fun json(ctx: Context): JSONObject {
         val p = prefs(ctx)
         val book = SofyNorms.fromJson(p.getString(KEY, null))

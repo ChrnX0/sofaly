@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Τι ξέρει η Sofy</string>
+    <string name="smem_sub">Τι έμαθε για το σπίτι. Το OK ξεχνά ένα στοιχείο· το μαθαίνει ξανά.</string>
+    <string name="smem_linha_det">Τι έμαθε, με Ξέχασε</string>
+    <string name="smem_uso">Πότε χρησιμοποιείται η TV</string>
+    <string name="smem_uso_det">Ώρες της μέρας που έμαθε: %1$d</string>
+    <string name="smem_rede">Το κανονικό δίκτυο του σπιτιού</string>
+    <string name="smem_rede_det">Κανονικές τιμές για %1$d σήματα δικτύου</string>
+    <string name="smem_pessoas">Συνήθειες του καθενός</string>
+    <string name="smem_pessoas_det">Συνήθειες %1$d προφίλ</string>
+    <string name="smem_casa">Η κανονική μέρα του σπιτιού</string>
+    <string name="smem_casa_det">%1$d μέρες ιστορικού</string>
+    <string name="smem_regras">Κανόνες που ανακάλυψε</string>
+    <string name="smem_regras_det">%1$d κανόνες ελέγχουν τις οθόνες</string>
+    <string name="smem_vazio">Τίποτα ακόμη</string>
+    <string name="smem_tudo">Ξέχασέ τα όλα</string>
+    <string name="smem_tudo_det">Η Sofy ξεκινά από το μηδέν</string>
+    <string name="smem_esqueceu">Ξεχάστηκε. Η Sofy μαθαίνει ξανά.</string>
+    <string name="smem_pin">PIN για διαγραφή</string>
+</resources>

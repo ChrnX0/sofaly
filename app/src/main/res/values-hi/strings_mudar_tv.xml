@@ -18,4 +18,6 @@
     <string name="mtv_fila_cfg_det">दूसरे टीवी के %1$d ऐप अभी इंस्टॉल करने बाकी हैं</string>
     <string name="mtv_diario">%1$s से लाया गया: सेटिंग्स बहाल, %2$d ऐप इंस्टॉल करने हैं</string>
     <string name="mtv_diario_enviado">नए टीवी पर भेजा: सेटिंग्स और %1$d ऐप</string>
+    <string name="bv_ja_usava">क्या आप दूसरे टीवी पर Sofaly इस्तेमाल करते थे?</string>
+    <string name="bv_backup_det">एन्क्रिप्टेड बैकअप उसके पासवर्ड से वापस आता है</string>
 </resources>

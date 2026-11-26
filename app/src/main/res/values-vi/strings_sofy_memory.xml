@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Sofy biết gì</string>
+    <string name="smem_sub">Những gì cô ấy học về ngôi nhà. OK quên một mục; cô ấy học lại.</string>
+    <string name="smem_linha_det">Những gì đã học, có nút Quên</string>
+    <string name="smem_uso">Khi nào TV được dùng</string>
+    <string name="smem_uso_det">Đã học %1$d giờ trong ngày</string>
+    <string name="smem_rede">Mạng bình thường của nhà</string>
+    <string name="smem_rede_det">Giá trị bình thường của %1$d tín hiệu mạng</string>
+    <string name="smem_pessoas">Thói quen của từng người</string>
+    <string name="smem_pessoas_det">Thói quen của %1$d hồ sơ</string>
+    <string name="smem_casa">Ngày bình thường của nhà</string>
+    <string name="smem_casa_det">%1$d ngày lịch sử</string>
+    <string name="smem_regras">Quy tắc cô ấy tìm ra</string>
+    <string name="smem_regras_det">%1$d quy tắc kiểm tra màn hình</string>
+    <string name="smem_vazio">Chưa học gì</string>
+    <string name="smem_tudo">Quên tất cả</string>
+    <string name="smem_tudo_det">Sofy bắt đầu lại</string>
+    <string name="smem_esqueceu">Đã quên. Sofy học lại.</string>
+    <string name="smem_pin">PIN để quên</string>
+</resources>

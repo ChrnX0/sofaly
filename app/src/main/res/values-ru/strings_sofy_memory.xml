@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Что знает Sofy</string>
+    <string name="smem_sub">Что она узнала об этом доме. OK стирает пункт; она учится заново.</string>
+    <string name="smem_linha_det">Что она узнала, с кнопкой Забыть</string>
+    <string name="smem_uso">Когда смотрят телевизор</string>
+    <string name="smem_uso_det">Изучено часов суток: %1$d</string>
+    <string name="smem_rede">Обычная сеть этого дома</string>
+    <string name="smem_rede_det">Обычные значения сетевых сигналов: %1$d</string>
+    <string name="smem_pessoas">Привычки каждого</string>
+    <string name="smem_pessoas_det">Привычки профилей: %1$d</string>
+    <string name="smem_casa">Обычный день этого дома</string>
+    <string name="smem_casa_det">Дней истории: %1$d</string>
+    <string name="smem_regras">Найденные ею правила</string>
+    <string name="smem_regras_det">Правил проверяют экраны: %1$d</string>
+    <string name="smem_vazio">Пока ничего</string>
+    <string name="smem_tudo">Забыть всё</string>
+    <string name="smem_tudo_det">Sofy начнёт с нуля</string>
+    <string name="smem_esqueceu">Забыто. Sofy учится заново.</string>
+    <string name="smem_pin">PIN, чтобы забыть</string>
+</resources>

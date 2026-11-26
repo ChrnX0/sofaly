@@ -487,6 +487,11 @@
             android:exported="false"
             android:label="@string/wp_trocar_icone" />
         <!-- Degrau 3: relatar um problema pelo celular (RelatarProblema.kt) -->
+        <!-- O que a Sofy sabe, com Esquecer (Brainstorm item 28, SofyMemoryActivity.kt) -->
+        <activity
+            android:name=".SofyMemoryActivity"
+            android:exported="false"
+            android:label="@string/smem_titulo" />
         <activity
             android:name=".RelatarProblemaActivity"
             android:exported="false"

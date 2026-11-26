@@ -19,6 +19,10 @@ object SofyRulesTv {
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
     fun rules(ctx: Context) = SofyRules.fromJson(prefs(ctx).getString(KEY, null))
 
+    /** "O que a Sofy sabe" (Brainstorm item 28): as regras que ela descobriu e ainda valem (ou estão à prova), e Esquecer. */
+    fun liveCount(ctx: Context): Int = runCatching { rules(ctx).count { it.state != SofyRules.State.DROPPED } }.getOrDefault(0)
+    fun forget(ctx: Context) { prefs(ctx).edit().remove(KEY).apply() }
+
     /** Rede: chamar fora da tela (já roda no Fundo da conferência). */
     fun onScreen(ctx: Context, screen: String, texts: List<String>) {
         val app = ctx.applicationContext

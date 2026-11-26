@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Mitä Sofy tietää</string>
+    <string name="smem_sub">Mitä hän on oppinut kodista. OK unohtaa kohdan; hän oppii sen alusta.</string>
+    <string name="smem_linha_det">Mitä hän on oppinut, ja Unohda</string>
+    <string name="smem_uso">Milloin tv on käytössä</string>
+    <string name="smem_uso_det">%1$d vuorokauden tuntia opittu</string>
+    <string name="smem_rede">Kodin tavallinen verkko</string>
+    <string name="smem_rede_det">Tavalliset arvot %1$d verkkosignaalille</string>
+    <string name="smem_pessoas">Jokaisen tavat</string>
+    <string name="smem_pessoas_det">%1$d profiilin tavat</string>
+    <string name="smem_casa">Kodin tavallinen päivä</string>
+    <string name="smem_casa_det">%1$d päivän historia</string>
+    <string name="smem_regras">Hänen löytämänsä säännöt</string>
+    <string name="smem_regras_det">%1$d sääntöä tarkistaa näytöt</string>
+    <string name="smem_vazio">Ei vielä mitään</string>
+    <string name="smem_tudo">Unohda kaikki</string>
+    <string name="smem_tudo_det">Sofy aloittaa alusta</string>
+    <string name="smem_esqueceu">Unohdettu. Sofy oppii uudelleen.</string>
+    <string name="smem_pin">PIN unohtamiseen</string>
+</resources>

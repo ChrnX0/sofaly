@@ -70,6 +70,13 @@ object SofyHabitsTv {
 
     fun json(ctx: Context): JSONObject = SofyHabits.toJson(load(ctx.applicationContext))
 
+    /** "O que a Sofy sabe" (Brainstorm item 28): de quantas pessoas ela tem ficha, e Esquecer todas. */
+    fun peopleCount(ctx: Context): Int = runCatching { load(ctx.applicationContext).size }.getOrDefault(0)
+    @Synchronized fun forget(ctx: Context) {
+        people = HashMap(); lastSave = 0L
+        ObserverTv.learning(ctx.applicationContext).edit().remove("habits").apply()
+    }
+
     // ---------------------------------------------------------------- o que as Sugestões perguntam
 
     /** Ideia 21: o teto da noite a propor para quem está na TV, ou null (já tem teto, ou sem dado). */

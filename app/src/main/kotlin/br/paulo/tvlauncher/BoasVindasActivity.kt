@@ -94,6 +94,16 @@ class BoasVindasActivity : Activity() {
         opcao(PrimeiraPergunta.Resposta.CRIANCAS, R.string.rec_criancas, R.string.rec_criancas_det)
         opcao(PrimeiraPergunta.Resposta.GAMER, R.string.rec_gamer, R.string.rec_gamer_det)
         opcao(PrimeiraPergunta.Resposta.ALUGUEL, R.string.rec_aluguel, R.string.rec_aluguel_det)
+        // Brainstorm item 14 (26/11/2026): quem troca de TV não recomeça do zero. Antes da pergunta valer, a TV nova
+        // pode receber tudo da antiga (QR, ReceberTvActivity) ou de um backup no Drive (BackupNoturnoActivity).
+        lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.bv_ja_usava)),
+            LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(20); bottomMargin = dp(4); marginStart = dp(8) })
+        lista.addView(linha(getString(R.string.mtv_titulo), getString(R.string.mtv_cfg_det)) {
+            abrir(Intent(this, ReceberTvActivity::class.java))
+        })
+        lista.addView(linha(getString(R.string.drv_restaurar), getString(R.string.bv_backup_det)) {
+            abrir(Intent(this, BackupNoturnoActivity::class.java))
+        })
         setContentView(raiz)
         lista.getChildAt(0)?.requestFocus()
     }

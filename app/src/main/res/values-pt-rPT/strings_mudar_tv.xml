@@ -18,4 +18,6 @@
     <string name="mtv_fila_cfg_det">Faltam instalar %1$d apps da outra TV</string>
     <string name="mtv_diario">Trazido de %1$s: definições restauradas, %2$d apps para instalar</string>
     <string name="mtv_diario_enviado">Enviado para uma TV nova: definições e %1$d apps</string>
+    <string name="bv_ja_usava">Já usava o Sofaly noutra TV?</string>
+    <string name="bv_backup_det">A cópia cifrada volta com a palavra-passe da cópia</string>
 </resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Wat Sofy weet</string>
+    <string name="smem_sub">Wat ze over dit huis leerde. OK vergeet één item; ze leert het opnieuw.</string>
+    <string name="smem_linha_det">Wat ze leerde, met Vergeten</string>
+    <string name="smem_uso">Wanneer de tv aanstaat</string>
+    <string name="smem_uso_det">%1$d uren van de dag geleerd</string>
+    <string name="smem_rede">Het normale netwerk van dit huis</string>
+    <string name="smem_rede_det">Normale waarden van %1$d netwerksignalen</string>
+    <string name="smem_pessoas">Gewoontes van iedereen</string>
+    <string name="smem_pessoas_det">Gewoontes van %1$d profielen</string>
+    <string name="smem_casa">De normale dag van dit huis</string>
+    <string name="smem_casa_det">%1$d dagen geschiedenis</string>
+    <string name="smem_regras">Regels die ze ontdekte</string>
+    <string name="smem_regras_det">%1$d regels controleren de schermen</string>
+    <string name="smem_vazio">Nog niets geleerd</string>
+    <string name="smem_tudo">Alles vergeten</string>
+    <string name="smem_tudo_det">Sofy begint opnieuw</string>
+    <string name="smem_esqueceu">Vergeten. Sofy leert opnieuw.</string>
+    <string name="smem_pin">Pincode om te vergeten</string>
+</resources>
