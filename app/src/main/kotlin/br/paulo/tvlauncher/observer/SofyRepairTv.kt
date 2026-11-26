@@ -322,7 +322,13 @@ object SofyRepairTv {
         val ordem = cases.filter { it.state == SofyRepair.State.OPEN }
             .sortedWith(compareBy({ it.type != Type.ACCESS_LOST && it.type != Type.PERMISSION_LOST }, { it.firstAt }))
         for (c in ordem) {
-            val passo = SofyRepair.next(c, learned, e)
+            // Ferramenta sem alvo neste assunto (nenhum leitor de dado/chave registrado) não entra: falharia sempre e
+            // viraria laço, que reabre a IA, que sugere a mesma ferramenta (Sala 25/11: norm:ai_drill2 x14 perguntas).
+            val semAlvo = buildSet {
+                if (!refreshers.containsKey(c.subject)) add(Tool.REFRESH_DATA)
+                if (!switches.containsKey(c.subject)) add(Tool.DISABLE_FEATURE)
+            }
+            val passo = SofyRepair.next(c, learned, e.copy(unavailable = e.unavailable + semAlvo))
             if (passo is SofyRepair.Step.Wait) { noteWait(app, c, passo); continue }
             // Não está mais esperando: o motivo antigo sai do relatório (a Revisão leu um "alguém está usando" velho).
             p.edit().remove("wait:${c.key}").apply()
@@ -397,6 +403,7 @@ object SofyRepairTv {
                 PainelControle.reiniciarTv(app) == null
             }
             Tool.ASK_AI -> {
+                aiPlan = emptyList()   // se a pergunta falhar, o plano de OUTRO caso não pode ficar neste
                 aiPlan = SofyAi.plan(app, c)
                 SofyBusTv.emit(app, SofyBus.Source.SOFY, "asked_ai", ok = aiPlan.isNotEmpty(), detail = c.subject)
                 aiPlan.isNotEmpty()
