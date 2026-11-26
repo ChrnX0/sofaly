@@ -3,7 +3,6 @@ package br.paulo.tvlauncher
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.widget.LinearLayout
 import br.paulo.tvlauncher.settings.RoteiroConferencia
 
 /**
@@ -26,32 +25,32 @@ class ConferirTvActivity : Activity() {
         fun relatorio(ctx: Context): String = RoteiroConferencia.relatorio(estado(ctx), ids(ctx))
     }
 
-    private lateinit var coluna: LinearLayout
     private var focoEm = 0
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return   // modo seguro: tela que derrubou esta versão (VigiaAtualizacao)
-        val (raiz, c) = Estilo.telaLista(this, getString(R.string.ver_conferir),
-            getString(R.string.ver_conferir_sub, BuildConfig.VERSION_CODE.toString(), ids(this).size))
-        coluna = c
-        setContentView(raiz)
         montar()
     }
 
     private fun montar() {
-        coluna.removeAllViews()
+        // Molde das telas de ajuste (Paulo, 26/11/2026): os itens no meio, a pergunta do item em foco à direita.
         val ids = ids(this)
+        val e0 = estado(this)
+        val conferidos = getString(R.string.ver_conferido, RoteiroConferencia.conferidos(e0, ids), ids.size)
+        val tela = ColumnsScreen(this, getString(R.string.ver_conferir),
+            getString(R.string.ver_conferir_sub, BuildConfig.VERSION_CODE.toString(), ids.size) + "  ·  " + conferidos)
         val titulos = resources.getStringArray(R.array.roteiro_titulos)
         val perguntas = resources.getStringArray(R.array.roteiro_perguntas)
         val e = estado(this)
-        coluna.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.ver_conferido, RoteiroConferencia.conferidos(e, ids), ids.size)))
+        val coluna = tela.section(conferidos)
+        val linhas = mutableListOf<android.view.View>()
         ids.forEachIndexed { i, id ->
             val resp = e.respostas[id]
             val marca = when (resp) { true -> "✓"; false -> "✕"; null -> "${i + 1}" }
-            val det = perguntas.getOrElse(i) { "" } + when (resp) {
-                true -> " · " + getString(R.string.ver_respondido_sim); false -> " · " + getString(R.string.ver_respondido_nao); null -> "" }
-            val linha = Estilo.linhaOpcao(this, titulos.getOrElse(i) { id }, det, Estilo.valor(this, marca, seta = false))
+            val resposta = when (resp) { true -> getString(R.string.ver_respondido_sim); false -> getString(R.string.ver_respondido_nao); null -> null }
+            val linha = Estilo.linhaOpcao(this, titulos.getOrElse(i) { id }, resposta, Estilo.valor(this, marca, seta = false))
+            tela.describe(linha) { ColumnsScreen.Info(titulos.getOrElse(i) { id }, null, perguntas.getOrElse(i) { "" }) }
             linha.setOnClickListener {
                 focoEm = i
                 Estilo.lista(this, titulos.getOrElse(i) { id }, listOf(getString(R.string.ver_sim), getString(R.string.ver_nao)),
@@ -63,9 +62,10 @@ class ConferirTvActivity : Activity() {
                     montar()
                 }
             }
-            coluna.addView(linha, Estilo.lpLinha(this))
+            coluna.addView(linha, tela.lpRow())
+            linhas += linha
         }
-        // +1: a primeira vista da coluna é a contagem.
-        coluna.post { coluna.getChildAt(focoEm + 1)?.requestFocus() }
+        setContentView(tela.root)
+        tela.start(linhas.getOrNull(focoEm))
     }
 }
