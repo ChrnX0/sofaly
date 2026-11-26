@@ -84,6 +84,7 @@ object BackupCompleto {
         "fichas",   // 19/11/2026: só a marca "buscas antigas já liberadas" do cache de fichas desta TV
         "convite_simkl",   // 20/11/2026: só a conta de convites do dia (zera sozinha)
         "abertura_pronta",   // rodada 15: só cache das marcações do IntroDB (refaz sozinho)
+        "painel_aparelhos",   // item 9 (Brainstorm 26/11): celulares pareados são desta TV; restaurar não reabre acesso
         "painel_papeis",   // elevação 18.1: convites (família/convidado) não viajam: restaurar não pode reabrir acesso revogado
         "mudar_tv",   // elevação 19.7: a fila dos apps que faltam é desta TV, depois de receber de outra
         "seletor_docs",   // seletor de pastas (#380): a última pasta de cada app é um caminho DESTA TV (pen drive, armazenamento)

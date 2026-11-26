@@ -9,7 +9,7 @@
 //   PUT    /v1/dns/txt             (TV) {"value": "..."} desafio DNS-01 do certificado dela
 //   DELETE /v1/dns/txt             (TV) apaga os desafios
 //   GET    /v1/dns/txt/<id>        pública: as máquinas de DNS leem o desafio daqui
-//   GET    /v1/health              pública
+//   GET    /v1/health              pública; ?deep=1 diz qual serviço está sem chave/binding (src/health.js)
 //   GET    /v1/addons/recommended  pública: lista curada de add-ons (src/addons.js)
 //   GET    /v1/plugins/recommended pública: vitrine de plugins (src/plugins.js)
 //   GET    /v1/addons/public-domain/...  pública: nosso add-on de filmes de domínio público (src/publicdomain.js)
@@ -21,6 +21,7 @@
 //   GET    /v1/weather/open        pública: previsão do Básico, consenso de 4 modelos abertos, ?lat=&lon= (src/weatherOpen.js)
 //   POST   /v1/community/lessons   pública: lições da Sofy de uma casa (opt-in na TV), só pacote+versão+tipo (src/community.js)
 //   GET    /v1/community/lessons   pública: as lições vistas em 5+ casas nos últimos 14 dias
+//   GET    /v1/updates/hold        pública: versões que as TVs não devem instalar (src/updates.js, variável UPDATES_HOLD)
 import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { pluginsBody } from './plugins.js';
@@ -29,6 +30,8 @@ import { handleWeather } from './weather.js';
 import { handleWeatherOpen } from './weatherOpen.js';
 import { handleTranscribe } from './transcribe.js';
 import { handleCommunity } from './community.js';
+import { handleHold } from './updates.js';
+import { healthBody } from './health.js';
 import { BASE_PATH as PD_BASE, handlePublicDomain } from './publicdomain.js';
 export { Mailbox } from './mailbox.js';
 export { Pairing } from './pairing.js';
@@ -45,7 +48,8 @@ export default {
     const path = url.pathname;
     // Chave de desligar tudo (variável DISABLED=1 no painel da Cloudflare): o app segue funcionando em casa.
     if (env.DISABLED === '1') return json({ error: 'api disabled' }, 503);
-    if (path === '/v1/health') return json({ ok: true });
+    if (path === '/v1/health') return json(healthBody(env, url.searchParams.get('deep') === '1'));
+    if (path === '/v1/updates/hold' && req.method === 'GET') return handleHold(env);
     if (path === '/v1/addons/recommended' && req.method === 'GET') {
       // Igual para todos e muda raramente: a borda da Cloudflare pode guardar 1 h.
       return new Response(JSON.stringify(recommendedBody()), {

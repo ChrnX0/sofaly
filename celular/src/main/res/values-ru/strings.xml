@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Без звука</string>
     <string name="cel_ctrl_sem_tv">ТВ не отвечает. Он включён и в той же сети?</string>
+    <string name="cel_ctrl_cert_novo">У ТВ новый сертификат безопасности. Отсканируйте QR-код на ТВ ещё раз.</string>
     <string name="cel_ctrl_recusou">ТВ сейчас не смог это сделать.</string>
     <string name="cel_ctrl_entrar">Войдите один раз с PIN-кодом ТВ в панели; потом пульт заработает.</string>
     <string name="cel_notif_canal">Пульт ТВ</string>
     <string name="cel_notif_texto">Пауза и громкость без открытия приложения</string>
     <string name="cel_bloco">Пульт ТВ</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Отправить на %1$s</string>
+    <string name="cel_enviar_lendo">Читаю файл…</string>
+    <string name="cel_enviar_nada">Не удалось прочитать файл.</string>
+    <string name="cel_enviar_fechar">Закрыть</string>
+    <string name="cel_enviar_n">Файлов: %1$d</string>
+    <string name="cel_enviar_mostrar">Показать на ТВ</string>
+    <string name="cel_enviar_tocar">Воспроизвести на ТВ</string>
+    <string name="cel_enviar_guardar">Сохранить на ТВ</string>
+    <string name="cel_enviar_mandando">Отправка… %1$d%%</string>
+    <string name="cel_enviar_pronto">Готово. Уже на ТВ.</string>
+    <string name="cel_enviar_sem_espaco">На ТВ не хватает свободного места.</string>
+    <string name="cel_enviar_tipo">ТВ не может открыть этот файл.</string>
+    <string name="cel_enviar_de_novo">Повторить</string>
+    <string name="cel_enviar_qr">Чтобы отправлять фото и файлы, сначала отсканируйте QR-код на ТВ.</string>
 </resources>

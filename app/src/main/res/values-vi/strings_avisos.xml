@@ -13,4 +13,6 @@
     <string name="mural_riscar">Gạch bỏ %1$s</string>
     <string name="ds_lento_titulo">Sofaly đã chậm hơn</string>
     <string name="ds_lento_texto">Phiên bản %1$d: khung hình chậm mất %2$d ms, trước đây mất %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Chứng chỉ bảng điều khiển sắp hết hạn</string>
+    <string name="cert_vence_texto">Chứng chỉ bảo mật của bảng điều khiển TV sẽ hết hạn sau %1$d ngày. Hãy gia hạn trong bảng điều khiển (Truy cập từ xa) và cài lại trên thiết bị.</string>
 </resources>

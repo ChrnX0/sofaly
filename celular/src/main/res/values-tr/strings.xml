@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Sessiz</string>
     <string name="cel_ctrl_sem_tv">TV yanıt vermedi. Açık ve aynı ağda mı?</string>
+    <string name="cel_ctrl_cert_novo">TV\'nin yeni bir güvenlik sertifikası var. TV\'deki QR kodunu tekrar okutun.</string>
     <string name="cel_ctrl_recusou">TV bunu şu an yapamadı.</string>
     <string name="cel_ctrl_entrar">Panelde TV PIN\'iyle bir kez gir; sonra kumanda çalışır.</string>
     <string name="cel_notif_canal">TV kumandası</string>
     <string name="cel_notif_texto">Uygulamayı açmadan duraklat ve ses</string>
     <string name="cel_bloco">TV kumandası</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">%1$s cihazına gönder</string>
+    <string name="cel_enviar_lendo">Dosya okunuyor…</string>
+    <string name="cel_enviar_nada">Bu dosya okunamadı.</string>
+    <string name="cel_enviar_fechar">Kapat</string>
+    <string name="cel_enviar_n">%1$d dosya</string>
+    <string name="cel_enviar_mostrar">TV\'de göster</string>
+    <string name="cel_enviar_tocar">TV\'de oynat</string>
+    <string name="cel_enviar_guardar">TV\'ye kaydet</string>
+    <string name="cel_enviar_mandando">Gönderiliyor… %%%1$d</string>
+    <string name="cel_enviar_pronto">Tamam. TV\'de.</string>
+    <string name="cel_enviar_sem_espaco">TV\'de yeterli boş alan yok.</string>
+    <string name="cel_enviar_tipo">TV bu dosyayı açamıyor.</string>
+    <string name="cel_enviar_de_novo">Tekrar dene</string>
+    <string name="cel_enviar_qr">Fotoğraf ve dosya göndermek için önce TV\'deki QR kodunu okutun.</string>
 </resources>

@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s pinned, but DISCONNECTED (internet keeps working without VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s connected, but Android did not validate the tunnel</string>
     <string name="diag_vpn_ok">%1$s connected and working</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv answering: weather, podcasts, transcripts and the rest are working</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv did not answer. Everything at home keeps working; weather, podcast search and plugins wait</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv is paused for maintenance. Everything at home keeps working</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv is answering, but this part is down: %1$s</string>
+    <string name="diag_sofaly_clima">weather</string>
+    <string name="diag_sofaly_podcasts">podcast search</string>
+    <string name="diag_sofaly_ia">transcripts and summaries</string>
+    <string name="diag_sofaly_comunidade">help other homes</string>
+    <string name="diag_sofaly_celular">phone away from home</string>
     <string name="diag_r_sem_wifi">the TV has no Wi-Fi</string>
     <string name="diag_r_dns_fora">the DNS does not answer: the internet seems down</string>
     <string name="diag_r_net_fora">the internet is not getting through (router or provider)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">updated</string>
     <string name="atu_falhou">install failed (%1$d): %2$s</string>
     <string name="atu_ruim">version %1$d crashed on this TV right after installing: will not install it again</string>
+    <string name="atu_segurada">version %1$d is on hold (it had problems on other TVs): waiting for the next one</string>
     <string name="vig_aviso_titulo">Update paused</string>
     <string name="vig_pausada">version %1$d crashed twice right after installing · automatic update waits for the next one</string>
     <string name="vig_pausada_tela">version %1$d crashed twice right after installing · \"%2$s\" stays off until the next one</string>

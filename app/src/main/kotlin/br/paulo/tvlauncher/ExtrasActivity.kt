@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.alarm.NoiteCasa
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -71,10 +72,15 @@ class ExtrasActivity : Activity() {
         // As chaves liga/desliga moraram aqui até 14/11/2026; agora cada uma está na aba dela das Configurações (ideia 46,
         // ExtrasAbas). Aqui ficam os ajustes finos e as ferramentas.
         // Agrupado em seções (crítica de design 19/11/2026): antes eram 20 linhas iguais com "Hora de dormir:" repetido.
+        // Noite da casa (Brainstorm 26/11, item 12): o horário que o Não perturbe e o filtro seguem por padrão.
+        secao(R.string.noite_casa_titulo) { infoNoite() }
+        numero(R.string.noite_casa_inicio, NoiteCasa.CHAVE_INICIO, { NoiteCasa.PADRAO_INICIO }, 30, 0, 24 * 60 - 30, hora = true)
+        numero(R.string.noite_casa_fim, NoiteCasa.CHAVE_FIM, { NoiteCasa.PADRAO_FIM }, 30, 0, 24 * 60 - 30, hora = true)
         secao(R.string.pb_filtro) { infoFiltro() }
-        numero(R.string.extras_filtro_inicio, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO, 30, 0, 24 * 60 - 30, hora = true)
-        numero(R.string.extras_filtro_fim, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM, 30, 0, 24 * 60 - 30, hora = true)
-        numero(R.string.extras_filtro_forca, FiltroNoturno.CHAVE_FORCA, FiltroNoturno.PADRAO_FORCA, 5, 5, 100, hora = false)
+        // Horário do filtro: igual ao da noite = segue a noite (apaga o ajuste próprio).
+        numero(R.string.extras_filtro_inicio, FiltroNoturno.CHAVE_INICIO, { NoiteCasa.inicio(this) }, 30, 0, 24 * 60 - 30, hora = true, segueNoite = true)
+        numero(R.string.extras_filtro_fim, FiltroNoturno.CHAVE_FIM, { NoiteCasa.fim(this) }, 30, 0, 24 * 60 - 30, hora = true, segueNoite = true)
+        numero(R.string.extras_filtro_forca, FiltroNoturno.CHAVE_FORCA, { FiltroNoturno.PADRAO_FORCA }, 5, 5, 100, hora = false)
         secao(R.string.dormir_titulo) { infoDormir() }
         // Hora de dormir por dia: a linha "dia" escolhe o que as duas de baixo editam (todos = o padrão; um dia = só ele).
         linhaDormir({ getString(R.string.dormir_dia) }, { textoDia() }, 1, protegida = false) { delta ->
@@ -140,10 +146,18 @@ class ExtrasActivity : Activity() {
 
     private fun agoraMin(): Int = java.util.Calendar.getInstance().let { it.get(java.util.Calendar.HOUR_OF_DAY) * 60 + it.get(java.util.Calendar.MINUTE) }
 
+    /** Noite da casa: o horário e quem segue ele (o filtro só enquanto não tiver horário próprio). */
+    private fun infoNoite(): ColumnsScreen.Info {
+        val ini = NoiteCasa.inicio(this); val fim = NoiteCasa.fim(this)
+        val filtroSegue = FiltroNoturno.inicio(this) == ini && FiltroNoturno.fim(this) == fim
+        return ColumnsScreen.Info(getString(R.string.noite_casa_titulo), "${hhmm(ini)} – ${hhmm(fim)}",
+            getString(if (filtroSegue) R.string.noite_casa_corpo else R.string.noite_casa_corpo_filtro_proprio))
+    }
+
     /** Coluna da direita do filtro noturno: ligado agora, ou a que horas liga; e o que ele faz. */
     private fun infoFiltro(): ColumnsScreen.Info {
-        val ini = Extras.numero(this, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO)
-        val fim = Extras.numero(this, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM)
+        val ini = FiltroNoturno.inicio(this)
+        val fim = FiltroNoturno.fim(this)
         val forca = Extras.numero(this, FiltroNoturno.CHAVE_FORCA, FiltroNoturno.PADRAO_FORCA)
         val agora = when {
             !Extras.ligado(this, Extras.Chave.FILTRO_NOTURNO) -> getString(R.string.col_filter_off)
@@ -173,12 +187,14 @@ class ExtrasActivity : Activity() {
         return ColumnsScreen.Info(getString(R.string.col_now), agora, getString(R.string.col_screen_body))
     }
 
-    private fun numero(rotulo: Int, chave: String, padrao: Int, passo: Int, min: Int, max: Int, hora: Boolean) {
-        fun valor() = Extras.numero(this, chave, padrao)
+    private fun numero(rotulo: Int, chave: String, padrao: () -> Int, passo: Int, min: Int, max: Int, hora: Boolean,
+                       segueNoite: Boolean = false) {
+        fun valor() = Extras.numero(this, chave, padrao())
         fun mudar(delta: Int) {
             var v = valor() + delta
             if (v > max) v = min; if (v < min) v = max   // dá a volta
-            Extras.definirNumero(this, chave, v)
+            val proprio = if (segueNoite) NoiteCasa.proprio(v, padrao()) else v
+            if (proprio == null) Extras.apagar(this, chave) else Extras.definirNumero(this, chave, proprio)
             FiltroNoturno.avaliar()
             atualizarTextos()
         }

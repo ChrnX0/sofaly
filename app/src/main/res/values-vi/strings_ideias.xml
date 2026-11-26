@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Hiện nhật ký DNS hôm nay</string>
     <string name="extras_diario_apagar">Xóa nhật ký DNS</string>
     <string name="extras_diario_apagado">Đã xóa nhật ký</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Đêm của nhà</string>
+    <string name="noite_casa_inicio">Đêm bắt đầu</string>
+    <string name="noite_casa_fim">Đêm kết thúc</string>
+    <string name="noite_casa_corpo">Không làm phiền và bộ lọc ban đêm theo giờ này. Giờ đi ngủ của trẻ có giờ riêng.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Không làm phiền theo giờ này. Bộ lọc ban đêm có giờ riêng; đặt cùng giờ để nó lại theo đêm của nhà.</string>
 </resources>

@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">Показать журнал DNS за сегодня</string>
     <string name="extras_diario_apagar">Удалить журнал DNS</string>
     <string name="extras_diario_apagado">Журнал удалён</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Ночь в доме</string>
+    <string name="noite_casa_inicio">Ночь начинается</string>
+    <string name="noite_casa_fim">Ночь заканчивается</string>
+    <string name="noite_casa_corpo">«Не беспокоить» и ночной фильтр следуют этому времени. У отбоя для детей своё время.</string>
+    <string name="noite_casa_corpo_filtro_proprio">«Не беспокоить» следует этому времени. У ночного фильтра своё время; поставьте те же часы, чтобы он снова следовал ночи в доме.</string>
 </resources>

@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s закріплено, але ВІДКЛЮЧЕНО (інтернет працює без VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s підключено, але Android не перевірив тунель</string>
     <string name="diag_vpn_ok">%1$s підключено й працює</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv відповідає: погода, подкасти, розшифровка й решта працюють</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv не відповів. Удома все працює; погода, пошук подкастів і плагіни чекають</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv призупинено на обслуговування. Удома все працює</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv відповідає, але ця частина не працює: %1$s</string>
+    <string name="diag_sofaly_clima">погода</string>
+    <string name="diag_sofaly_podcasts">пошук подкастів</string>
+    <string name="diag_sofaly_ia">розшифровки й підсумки</string>
+    <string name="diag_sofaly_comunidade">допомога іншим домам</string>
+    <string name="diag_sofaly_celular">телефон поза домом</string>
     <string name="diag_r_sem_wifi">у телевізора немає Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS не відповідає: схоже, інтернету немає</string>
     <string name="diag_r_net_fora">інтернет не проходить (роутер або провайдер)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">оновлено</string>
     <string name="atu_falhou">встановлення не вдалося (%1$d): %2$s</string>
     <string name="atu_ruim">версія %1$d аварійно завершилася на цьому телевізорі одразу після встановлення: більше не встановлюватиметься</string>
+    <string name="atu_segurada">версію %1$d притримано (збої на інших ТВ): чекаю наступну</string>
     <string name="vig_aviso_titulo">Оновлення призупинено</string>
     <string name="vig_pausada">версія %1$d двічі аварійно завершилася одразу після встановлення · автооновлення чекає наступної</string>
     <string name="vig_pausada_tela">версія %1$d двічі аварійно завершилася одразу після встановлення · \"%2$s\" вимкнено до наступної</string>

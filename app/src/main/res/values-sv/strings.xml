@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s fast, men FRÅNKOPPLAD (internet fungerar vidare utan VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s ansluten, men Android godkände inte tunneln</string>
     <string name="diag_vpn_ok">%1$s ansluten och fungerar</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv svarar: väder, poddar, transkribering och resten fungerar</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv svarade inte. Allt hemma fungerar som vanligt; väder, poddsökning och plugins väntar</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv är pausad för underhåll. Allt hemma fungerar som vanligt</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv svarar, men den här delen är nere: %1$s</string>
+    <string name="diag_sofaly_clima">väder</string>
+    <string name="diag_sofaly_podcasts">poddsökning</string>
+    <string name="diag_sofaly_ia">transkribering och sammanfattningar</string>
+    <string name="diag_sofaly_comunidade">hjälp andra hem</string>
+    <string name="diag_sofaly_celular">telefon utanför hemmet</string>
     <string name="diag_r_sem_wifi">tv:n har inget wifi</string>
     <string name="diag_r_dns_fora">DNS svarar inte: internet verkar vara nere</string>
     <string name="diag_r_net_fora">internet kommer inte fram (router eller leverantör)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">uppdaterad</string>
     <string name="atu_falhou">installationen misslyckades (%1$d): %2$s</string>
     <string name="atu_ruim">version %1$d kraschade på den här tv:n direkt efter installationen: installeras inte igen</string>
+    <string name="atu_segurada">version %1$d hålls tillbaka (problem på andra tv-apparater): väntar på nästa</string>
     <string name="vig_aviso_titulo">Uppdatering pausad</string>
     <string name="vig_pausada">version %1$d kraschade två gånger direkt efter installationen · den automatiska uppdateringen väntar på nästa</string>
     <string name="vig_pausada_tela">version %1$d kraschade två gånger direkt efter installationen · \"%2$s\" är av till nästa</string>

@@ -13,4 +13,6 @@
     <string name="mural_riscar">Streg %1$s ud</string>
     <string name="ds_lento_titulo">Sofaly er blevet langsommere</string>
     <string name="ds_lento_texto">Version %1$d: langsomme billeder tager %2$d ms, de tog %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Panelets certifikat udløber snart</string>
+    <string name="cert_vence_texto">Tv-panelets sikkerhedscertifikat udløber om %1$d dage. Forny det i panelet (Fjernadgang), og installer det igen på dine enheder.</string>
 </resources>

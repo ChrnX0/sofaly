@@ -810,6 +810,31 @@ async function carregarConvites() {
   }
 }
 document.addEventListener('aba', (ev) => { if (ev.detail === 'remoto' && document.body.dataset.papel === 'dono') carregarConvites(); });
+// ---------- celulares pareados (item 9; PainelWeb "/api/aparelhos"): o app do celular entra sem o PIN ----------
+async function carregarCelulares() {
+  const lista = $('listaCelulares');
+  let r;
+  try { r = await chamar('GET', '/api/aparelhos'); } catch (e) { mostrar($('statusCelulares'), textoErro(e)); return; }
+  lista.replaceChildren();
+  const aparelhos = (r && r.aparelhos) || [];
+  if (!aparelhos.length) { const p = document.createElement('p'); p.className = 'aviso'; p.textContent = 'Nenhum celular com acesso.'; lista.append(p); return; }
+  for (const a of aparelhos) {
+    const linha = document.createElement('div'); linha.className = 'linha-registro';
+    const t = document.createElement('strong'); t.textContent = a.nome;   // textContent: o nome vem do celular, nunca vira HTML
+    const d = document.createElement('span');
+    const rot = document.createElement('span'); rot.textContent = 'Último uso';
+    d.append(rot, ': ' + new Date(a.uso).toLocaleString(undefined, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }));
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'botao-secundario'; b.textContent = 'Revogar';
+    b.addEventListener('click', async () => {
+      const ok = await confirmar('Revogar o acesso deste celular?', 'Ele sai do painel e só volta lendo o QR da TV.', 'Revogar',
+        () => chamar('POST', '/api/aparelhos/revogar', { id: a.id }));
+      if (ok) carregarCelulares();
+    });
+    linha.append(t, d, b);
+    lista.append(linha);
+  }
+}
+document.addEventListener('aba', (ev) => { if (ev.detail === 'remoto' && document.body.dataset.papel === 'dono') carregarCelulares(); });
 async function criarConvite(papel) {
   const r = await confirmar('Criar convite?', papel === 'convidado'
     ? 'Quem abrir o link usa o controle remoto e abre apps até amanhã neste horário.'
@@ -3085,7 +3110,7 @@ window.addEventListener('resize', () => { if (abaAberta('rede')) carregarRede();
  */
 function pegarCodigoQr() {
   if (!location.hash.startsWith('#qr=')) return null;
-  const m = /^#qr=([0-9a-f]{48})(?:&ir=([a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)?))?(?:&(?:fp|ts)=[a-z0-9.-]*)*$/.exec(location.hash);
+  const m = /^#qr=([0-9a-f]{48})(?:&ir=([a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)?))?(?:&(?:fp|ts|id)=[a-z0-9.-]*)*$/.exec(location.hash);
   history.replaceState(null, '', location.pathname + location.search);
   return m ? { codigo: m[1], ir: m[2] || '' } : null;
 }

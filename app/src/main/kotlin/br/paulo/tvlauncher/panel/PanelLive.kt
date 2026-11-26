@@ -189,6 +189,62 @@ internal fun PainelWeb.entrarPeloQr(req: Requisicao, ip: String): Resposta {
     return json(200, JSONObject().put("ok", true), cookieSessao(token))
 }
 
+// ---------------------------------------------------------------- celulares pareados (item 9, AparelhosPareados)
+
+private const val PREFS_APARELHOS = "painel_aparelhos"   // fora do backup (BackupCompleto): restaurar não reabre acesso
+private val travaAparelhos = Any()
+
+private fun PainelWeb.aparelhos(): List<AparelhosPareados.Aparelho> =
+    AparelhosPareados.ler(app.getSharedPreferences(PREFS_APARELHOS, android.content.Context.MODE_PRIVATE).getString("lista", null))
+
+private fun PainelWeb.guardarAparelhos(l: List<AparelhosPareados.Aparelho>) {
+    app.getSharedPreferences(PREFS_APARELHOS, android.content.Context.MODE_PRIVATE).edit().putString("lista", AparelhosPareados.texto(l)).apply()
+}
+
+/** O app do celular, já dentro (sessão do dono), pede a chave dele. Só pelo https: a chave nunca anda em texto aberto. */
+internal fun PainelWeb.emitirAparelho(req: Requisicao, ip: String, https: Boolean): Resposta {
+    if (!https) return erro(403, "só pelo https com o certificado da TV")
+    val nome = corpoJson(req)?.optString("nome")
+    val (chave, id) = synchronized(travaAparelhos) {
+        val (lista, chave) = AparelhosPareados.emitir(aparelhos(), nome, System.currentTimeMillis())
+        guardarAparelhos(lista)
+        chave to lista.last().id
+    }
+    PainelArmazem.registrar(app, ip, "celular pareado: ${AparelhosPareados.nomeLimpo(nome)}", "ok")
+    return json(200, JSONObject().put("chave", chave).put("id", id))
+}
+
+/** Chave de aparelho (cabeçalho X-Aparelho) -> sessão nova do dono, SEM elevação. Chave errada: 403 (256 bits). */
+internal fun PainelWeb.entrarComAparelho(req: Requisicao, ip: String, https: Boolean): Resposta {
+    if (!https) return erro(403, "só pelo https com o certificado da TV")
+    if (!ligado() || !PainelArmazem.podeLigar(app)) return erro(503, "painel desligado")
+    val a = synchronized(travaAparelhos) {
+        val lista = aparelhos()
+        val a = AparelhosPareados.conferir(lista, req.cabecalho("x-aparelho")) ?: return erro(403, "aparelho sem acesso: leia o QR da TV de novo")
+        guardarAparelhos(AparelhosPareados.usado(lista, a.id, System.currentTimeMillis()))
+        a
+    }
+    val token = sessoes.criar(elevada = false)
+    PainelArmazem.registrar(app, ip, "entrar pelo celular pareado (${a.nome})", "ok")
+    return json(200, JSONObject().put("ok", true), cookieSessao(token))
+}
+
+internal fun PainelWeb.listarAparelhos(): Resposta =
+    json(200, JSONObject().put("aparelhos", JSONArray().apply { aparelhos().sortedByDescending { it.ultimoUso }.forEach { put(AparelhosPareados.publico(it)) } }))
+
+/** Revogar não tem volta para o celular (precisa ler o QR de novo), mas não apaga nada da casa: não pede o PIN. */
+internal fun PainelWeb.revogarAparelho(req: Requisicao, ip: String): Resposta {
+    val id = corpoJson(req)?.optString("id").orEmpty()
+    val nome = synchronized(travaAparelhos) {
+        val lista = aparelhos()
+        val a = lista.firstOrNull { it.id == id } ?: return erro(404, "esse aparelho já não tem acesso")
+        guardarAparelhos(AparelhosPareados.revogar(lista, id))
+        a.nome
+    }
+    PainelArmazem.registrar(app, ip, "acesso revogado: $nome", "ok")
+    return json(200, JSONObject().put("ok", true))
+}
+
 /**
  * Passo 1 do assistente da primeira configuração ([PrimeiraConfig]): com o código do QR da TV, cria o PIN, liga o
  * painel e entra (sessão elevada: a pessoa acabou de digitar o PIN). Sem volta só no sentido de que, com PIN, este

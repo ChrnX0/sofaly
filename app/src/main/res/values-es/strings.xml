@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s fijada, pero DESCONECTADA (internet sigue funcionando sin VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s conectada, pero Android no validó el túnel</string>
     <string name="diag_vpn_ok">%1$s conectada y funcionando</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv responde: clima, podcasts, transcripción y lo demás funcionan</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv no respondió. Todo en casa sigue funcionando; clima, búsqueda de podcasts y plugins esperan</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv está en pausa por mantenimiento. Todo en casa sigue funcionando</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv responde, pero esta parte está caída: %1$s</string>
+    <string name="diag_sofaly_clima">clima</string>
+    <string name="diag_sofaly_podcasts">búsqueda de podcasts</string>
+    <string name="diag_sofaly_ia">transcripción y resúmenes</string>
+    <string name="diag_sofaly_comunidade">ayudar a otras casas</string>
+    <string name="diag_sofaly_celular">móvil fuera de casa</string>
     <string name="diag_r_sem_wifi">la TV no tiene Wi-Fi</string>
     <string name="diag_r_dns_fora">el DNS no responde: internet parece caída</string>
     <string name="diag_r_net_fora">internet no pasa (router o proveedor)</string>
@@ -365,6 +374,7 @@
     <string name="atu_ok">actualizado</string>
     <string name="atu_falhou">la instalación falló (%1$d): %2$s</string>
     <string name="atu_ruim">la versión %1$d se cerró en esta TV justo después de instalarse: no se volverá a instalar</string>
+    <string name="atu_segurada">la versión %1$d está retenida (falló en otras TV): espero la siguiente</string>
     <string name="vig_aviso_titulo">Actualización en pausa</string>
     <string name="vig_pausada">la versión %1$d se cerró dos veces justo después de instalarse · la actualización automática espera la siguiente</string>
     <string name="vig_pausada_tela">la versión %1$d se cerró dos veces justo después de instalarse · \"%2$s\" queda desactivada hasta la siguiente</string>

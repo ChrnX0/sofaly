@@ -810,8 +810,8 @@ class PainelRapidoActivity : Activity() {
         val ligado = Extras.ligado(this, Extras.Chave.FILTRO_NOTURNO)
         tFiltro.ligado = ligado
         fun hhmm(m: Int) = "%02d:%02d".format(m / 60, m % 60)
-        tFiltro.detalhe(if (!ligado) "" else hhmm(Extras.numero(this, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO)) +
-            "–" + hhmm(Extras.numero(this, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM)))
+        tFiltro.detalhe(if (!ligado) "" else hhmm(FiltroNoturno.inicio(this)) +
+            "–" + hhmm(FiltroNoturno.fim(this)))
     }
 
     private fun mostrarVisita() {

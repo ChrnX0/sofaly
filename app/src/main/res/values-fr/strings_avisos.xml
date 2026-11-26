@@ -13,4 +13,6 @@
     <string name="mural_riscar">Rayer %1$s</string>
     <string name="ds_lento_titulo">Sofaly est devenu plus lent</string>
     <string name="ds_lento_texto">Version %1$d : les images lentes prennent %2$d ms, contre %3$d ms avant (+%4$d %%).</string>
+    <string name="cert_vence_titulo">Le certificat du panneau expire bientôt</string>
+    <string name="cert_vence_texto">Le certificat de sécurité du panneau de la TV expire dans %1$d jours. Renouvelez-le dans le panneau (Accès à distance) et réinstallez-le sur vos appareils.</string>
 </resources>

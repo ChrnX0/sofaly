@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">음소거</string>
     <string name="cel_ctrl_sem_tv">TV가 응답하지 않아요. 켜져 있고 같은 네트워크인가요?</string>
+    <string name="cel_ctrl_cert_novo">TV의 보안 인증서가 새로 바뀌었어요. TV의 QR 코드를 다시 스캔하세요.</string>
     <string name="cel_ctrl_recusou">TV가 지금은 그렇게 하지 못했어요.</string>
     <string name="cel_ctrl_entrar">패널에서 TV PIN으로 한 번 로그인하면 리모컨이 작동해요.</string>
     <string name="cel_notif_canal">TV 리모컨</string>
     <string name="cel_notif_texto">앱을 열지 않고 일시정지와 볼륨</string>
     <string name="cel_bloco">TV 리모컨</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">%1$s(으)로 보내기</string>
+    <string name="cel_enviar_lendo">파일을 읽는 중…</string>
+    <string name="cel_enviar_nada">이 파일을 읽을 수 없습니다.</string>
+    <string name="cel_enviar_fechar">닫기</string>
+    <string name="cel_enviar_n">파일 %1$d개</string>
+    <string name="cel_enviar_mostrar">TV에 표시</string>
+    <string name="cel_enviar_tocar">TV에서 재생</string>
+    <string name="cel_enviar_guardar">TV에 저장</string>
+    <string name="cel_enviar_mandando">보내는 중… %1$d%%</string>
+    <string name="cel_enviar_pronto">완료. TV에 있습니다.</string>
+    <string name="cel_enviar_sem_espaco">TV에 여유 공간이 부족합니다.</string>
+    <string name="cel_enviar_tipo">TV에서 이 파일을 열 수 없습니다.</string>
+    <string name="cel_enviar_de_novo">다시 시도</string>
+    <string name="cel_enviar_qr">사진과 파일을 보내려면 먼저 TV의 QR 코드를 스캔하세요.</string>
 </resources>

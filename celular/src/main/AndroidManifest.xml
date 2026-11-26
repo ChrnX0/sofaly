@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".CelularApp"
         android:label="@string/cel_nome"
         android:icon="@mipmap/ic_onetv"
         android:allowBackup="false"
@@ -27,8 +28,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
+            <!-- Foto, vídeo, música ou qualquer arquivo (Brainstorm 26/11, item 16): mostrar ou guardar na TV. -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="application/*" />
+            </intent-filter>
         </activity>
         <!-- Controle nativo (estudo global 20/11, ideia 14): abre direto ao tocar numa TV pareada pelo QR. -->
+        <activity android:name=".EnviarActivity" android:exported="false" />
         <activity android:name=".ControleActivity" android:exported="false" android:launchMode="singleTop"
             android:windowSoftInputMode="adjustResize" />
         <!-- Botões da notificação (ideia 16): não exportado, só o próprio app manda. -->

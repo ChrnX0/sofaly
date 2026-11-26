@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">आज की DNS डायरी दिखाएँ</string>
     <string name="extras_diario_apagar">DNS डायरी हटाएँ</string>
     <string name="extras_diario_apagado">डायरी हटाई गई</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">घर की रात</string>
+    <string name="noite_casa_inicio">रात शुरू</string>
+    <string name="noite_casa_fim">रात खत्म</string>
+    <string name="noite_casa_corpo">परेशान न करें और रात का फ़िल्टर इसी समय पर चलते हैं। बच्चों के सोने का समय अलग रहता है।</string>
+    <string name="noite_casa_corpo_filtro_proprio">परेशान न करें इसी समय पर चलता है। रात के फ़िल्टर का अपना समय है; वही घंटे रखें तो वह फिर घर की रात पर चलेगा।</string>
 </resources>

@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">Bugünün DNS günlüğünü göster</string>
     <string name="extras_diario_apagar">DNS günlüğünü sil</string>
     <string name="extras_diario_apagado">Günlük silindi</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Evin gecesi</string>
+    <string name="noite_casa_inicio">Gece başlar</string>
+    <string name="noite_casa_fim">Gece biter</string>
+    <string name="noite_casa_corpo">Rahatsız etmeyin ve gece filtresi bu saati izler. Çocukların uyku saati kendi saatini kullanır.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Rahatsız etmeyin bu saati izler. Gece filtresinin kendi saati var; yeniden evin gecesini izlemesi için aynı saatleri ayarlayın.</string>
 </resources>

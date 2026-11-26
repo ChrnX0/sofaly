@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">عرض يوميات DNS لليوم</string>
     <string name="extras_diario_apagar">حذف يوميات DNS</string>
     <string name="extras_diario_apagado">حُذفت اليوميات</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">ليل البيت</string>
+    <string name="noite_casa_inicio">يبدأ الليل</string>
+    <string name="noite_casa_fim">ينتهي الليل</string>
+    <string name="noite_casa_corpo">وضع عدم الإزعاج وفلتر الليل يتبعان هذا الوقت. وقت نوم الأطفال له وقته الخاص.</string>
+    <string name="noite_casa_corpo_filtro_proprio">وضع عدم الإزعاج يتبع هذا الوقت. لفلتر الليل وقت خاص؛ اضبط الساعات نفسها ليعود إلى اتباع ليل البيت.</string>
 </resources>

@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Показати сьогоднішній щоденник DNS</string>
     <string name="extras_diario_apagar">Видалити щоденник DNS</string>
     <string name="extras_diario_apagado">Щоденник видалено</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Ніч у домі</string>
+    <string name="noite_casa_inicio">Ніч починається</string>
+    <string name="noite_casa_fim">Ніч закінчується</string>
+    <string name="noite_casa_corpo">«Не турбувати» і нічний фільтр ідуть за цим часом. Час сну дітей має свій.</string>
+    <string name="noite_casa_corpo_filtro_proprio">«Не турбувати» йде за цим часом. Нічний фільтр має свій час; поставте ті самі години, щоб він знову йшов за ніччю в домі.</string>
 </resources>

@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">静音</string>
     <string name="cel_ctrl_sem_tv">电视没有回应。它开着并且在同一网络吗？</string>
+    <string name="cel_ctrl_cert_novo">电视有了新的安全证书。请再次扫描电视上的二维码。</string>
     <string name="cel_ctrl_recusou">电视现在无法执行此操作。</string>
     <string name="cel_ctrl_entrar">在面板中用电视的 PIN 登录一次，之后遥控器就能用。</string>
     <string name="cel_notif_canal">电视遥控器</string>
     <string name="cel_notif_texto">无需打开应用即可暂停和调音量</string>
     <string name="cel_bloco">电视遥控器</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">发送到 %1$s</string>
+    <string name="cel_enviar_lendo">正在读取文件…</string>
+    <string name="cel_enviar_nada">无法读取该文件。</string>
+    <string name="cel_enviar_fechar">关闭</string>
+    <string name="cel_enviar_n">%1$d 个文件</string>
+    <string name="cel_enviar_mostrar">在电视上显示</string>
+    <string name="cel_enviar_tocar">在电视上播放</string>
+    <string name="cel_enviar_guardar">保存到电视</string>
+    <string name="cel_enviar_mandando">正在发送… %1$d%%</string>
+    <string name="cel_enviar_pronto">完成，已在电视上。</string>
+    <string name="cel_enviar_sem_espaco">电视的可用空间不足。</string>
+    <string name="cel_enviar_tipo">电视无法打开此文件。</string>
+    <string name="cel_enviar_de_novo">重试</string>
+    <string name="cel_enviar_qr">要发送照片和文件，请先扫描电视上的二维码。</string>
 </resources>

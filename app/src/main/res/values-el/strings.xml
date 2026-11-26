@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s κλειδωμένο, αλλά ΑΠΟΣΥΝΔΕΔΕΜΕΝΟ (το internet λειτουργεί χωρίς VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s συνδεδεμένο, αλλά το Android δεν επικύρωσε τη σήραγγα</string>
     <string name="diag_vpn_ok">%1$s συνδεδεμένο και λειτουργεί</string>
+    <string name="diag_sofaly_ok">Το api.sofaly.tv απαντά: καιρός, podcast, απομαγνητοφώνηση και τα υπόλοιπα λειτουργούν</string>
+    <string name="diag_sofaly_sem">Το api.sofaly.tv δεν απάντησε. Όλα στο σπίτι συνεχίζουν να λειτουργούν· καιρός, αναζήτηση podcast και πρόσθετα περιμένουν</string>
+    <string name="diag_sofaly_desligado">Το api.sofaly.tv είναι σε παύση για συντήρηση. Όλα στο σπίτι συνεχίζουν να λειτουργούν</string>
+    <string name="diag_sofaly_falta">Το api.sofaly.tv απαντά, αλλά αυτό το μέρος δεν λειτουργεί: %1$s</string>
+    <string name="diag_sofaly_clima">καιρός</string>
+    <string name="diag_sofaly_podcasts">αναζήτηση podcast</string>
+    <string name="diag_sofaly_ia">απομαγνητοφωνήσεις και περιλήψεις</string>
+    <string name="diag_sofaly_comunidade">βοήθεια σε άλλα σπίτια</string>
+    <string name="diag_sofaly_celular">κινητό εκτός σπιτιού</string>
     <string name="diag_r_sem_wifi">η τηλεόραση δεν έχει Wi-Fi</string>
     <string name="diag_r_dns_fora">το DNS δεν απαντά: το internet φαίνεται εκτός λειτουργίας</string>
     <string name="diag_r_net_fora">το internet δεν περνά (router ή πάροχος)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">ενημερώθηκε</string>
     <string name="atu_falhou">η εγκατάσταση απέτυχε (%1$d): %2$s</string>
     <string name="atu_ruim">η έκδοση %1$d κατέρρευσε σε αυτή την τηλεόραση αμέσως μετά την εγκατάσταση: δεν θα εγκατασταθεί ξανά</string>
+    <string name="atu_segurada">η έκδοση %1$d είναι σε αναμονή (προβλήματα σε άλλες τηλεοράσεις): περιμένω την επόμενη</string>
     <string name="vig_aviso_titulo">Η ενημέρωση σε παύση</string>
     <string name="vig_pausada">η έκδοση %1$d κατέρρευσε δύο φορές αμέσως μετά την εγκατάσταση · η αυτόματη ενημέρωση περιμένει την επόμενη</string>
     <string name="vig_pausada_tela">η έκδοση %1$d κατέρρευσε δύο φορές αμέσως μετά την εγκατάσταση · το \"%2$s\" μένει ανενεργό ως την επόμενη</string>

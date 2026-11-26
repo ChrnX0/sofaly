@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s üstünü çiz</string>
     <string name="ds_lento_titulo">Sofaly yavaşladı</string>
     <string name="ds_lento_texto">Sürüm %1$d: yavaş kareler %2$d ms sürüyor, önce %3$d ms idi (+%%%4$d).</string>
+    <string name="cert_vence_titulo">Panel sertifikasının süresi yakında doluyor</string>
+    <string name="cert_vence_texto">TV panelinin güvenlik sertifikasının süresi %1$d gün içinde doluyor. Panelden (Uzaktan erişim) yenileyin ve cihazlara yeniden yükleyin.</string>
 </resources>

@@ -1,0 +1,44 @@
+# Monitor externo do api.sofaly.tv (Brainstorm 26/11/2026, item 25). A cada 30 min pergunta /v1/health; se não
+# responder 2 vezes seguidas (com 1 min entre elas), abre uma issue "Servidor fora" (ou comenta na que já está aberta).
+# Quando volta, fecha a issue. Por quê: o Worker cair era silencioso; só se notava quando uma TV reclamava.
+name: Monitor do servidor
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Perguntar /v1/health
+        id: saude
+        run: |
+          ok=0
+          for tentativa in 1 2; do
+            if curl -fsS --max-time 15 https://api.sofaly.tv/v1/health -o /dev/null; then ok=1; break; fi
+            sleep 60
+          done
+          profundo=$(curl -sS --max-time 15 'https://api.sofaly.tv/v1/health?deep=1' || echo '{}')
+          echo "ok=$ok" >> "$GITHUB_OUTPUT"
+          { echo 'profundo<<FIM'; echo "$profundo"; echo 'FIM'; } >> "$GITHUB_OUTPUT"
+      - name: Abrir ou fechar a issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OK: ${{ steps.saude.outputs.ok }}
+          PROFUNDO: ${{ steps.saude.outputs.profundo }}
+        run: |
+          aberta=$(gh issue list -R "$GITHUB_REPOSITORY" --state open --search 'in:title "Servidor fora"' --json number -q '.[0].number')
+          if [ "$OK" = "1" ]; then
+            if [ -n "$aberta" ]; then gh issue close "$aberta" -R "$GITHUB_REPOSITORY" -c "Voltou: /v1/health respondeu às $(date -u +%H:%MZ). Partes: $PROFUNDO"; fi
+          elif [ -n "$aberta" ]; then
+            gh issue comment "$aberta" -R "$GITHUB_REPOSITORY" -b "Continua fora às $(date -u +%H:%MZ)."
+          else
+            gh issue create -R "$GITHUB_REPOSITORY" -t "Servidor fora: api.sofaly.tv não responde" \
+              -b "O /v1/health não respondeu 2 vezes seguidas às $(date -u +%H:%MZ). As TVs seguem funcionando em casa; clima, podcasts, transcrição e plugins param. Partes: $PROFUNDO"
+          fi

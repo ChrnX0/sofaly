@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s fissata, ma DISCONNESSA (internet funziona senza VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s connessa, ma Android non ha convalidato il tunnel</string>
     <string name="diag_vpn_ok">%1$s connessa e funzionante</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv risponde: meteo, podcast, trascrizione e il resto funzionano</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv non ha risposto. A casa tutto continua a funzionare; meteo, ricerca podcast e plugin aspettano</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv è in pausa per manutenzione. A casa tutto continua a funzionare</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv risponde, ma questa parte non funziona: %1$s</string>
+    <string name="diag_sofaly_clima">meteo</string>
+    <string name="diag_sofaly_podcasts">ricerca podcast</string>
+    <string name="diag_sofaly_ia">trascrizioni e riassunti</string>
+    <string name="diag_sofaly_comunidade">aiutare altre case</string>
+    <string name="diag_sofaly_celular">telefono fuori casa</string>
     <string name="diag_r_sem_wifi">la TV non ha Wi-Fi</string>
     <string name="diag_r_dns_fora">il DNS non risponde: internet sembra giù</string>
     <string name="diag_r_net_fora">internet non passa (router o provider)</string>
@@ -365,6 +374,7 @@
     <string name="atu_ok">aggiornato</string>
     <string name="atu_falhou">installazione non riuscita (%1$d): %2$s</string>
     <string name="atu_ruim">la versione %1$d si è bloccata su questa TV subito dopo l’installazione: non verrà reinstallata</string>
+    <string name="atu_segurada">la versione %1$d è sospesa (problemi su altre TV): aspetto la prossima</string>
     <string name="vig_aviso_titulo">Aggiornamento in pausa</string>
     <string name="vig_pausada">la versione %1$d si è bloccata due volte subito dopo l’installazione · l’aggiornamento automatico aspetta la prossima</string>
     <string name="vig_pausada_tela">la versione %1$d si è bloccata due volte subito dopo l’installazione · «%2$s» resta disattivato fino alla prossima</string>

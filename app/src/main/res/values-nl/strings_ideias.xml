@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Het DNS-dagboek van vandaag tonen</string>
     <string name="extras_diario_apagar">Het DNS-dagboek wissen</string>
     <string name="extras_diario_apagado">Dagboek gewist</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Nacht in huis</string>
+    <string name="noite_casa_inicio">Nacht begint</string>
+    <string name="noite_casa_fim">Nacht eindigt</string>
+    <string name="noite_casa_corpo">Niet storen en het nachtfilter volgen deze tijd. Bedtijd voor kinderen heeft een eigen tijd.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Niet storen volgt deze tijd. Het nachtfilter heeft een eigen tijd; zet dezelfde uren om weer de nacht in huis te volgen.</string>
 </resources>

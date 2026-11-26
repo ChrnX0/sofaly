@@ -45,6 +45,7 @@ object VigiaRegras {
         val seguroVersao: Long = 0L,     // a versão em que o modo seguro vale
         val avisoPendente: Boolean = false,     // falta mostrar o aviso na TV
         val registroPendente: Boolean = false,  // falta escrever no registro do painel
+        val saidasAte: Long = 0L,        // hora da última saída do processo já lida (item 22: ANR, nativa, memória)
     ) {
         val pausada get() = pausaPor != 0L
     }
@@ -89,6 +90,30 @@ object VigiaRegras {
             telaSuspeita = tela.orEmpty(), seguroVersao = if (tela.isNullOrEmpty()) 0L else versao,
             avisoPendente = true, registroPendente = true,
         ), true)
+    }
+
+    /** Saídas que o tratador de quedas não vê (Brainstorm 26/11, item 22): o Android fecha o processo sem avisar. */
+    enum class Saida { TRAVADA, NATIVA, MEMORIA }
+
+    /**
+     * As saídas do processo que o Android guarda (ApplicationExitInfo, Android 11+), lidas na abertura. Cada uma ainda
+     * não lida ([Estado.saidasAte]) e de DEPOIS do começo da vigia conta como uma queda ([aoCair]), na hora em que
+     * aconteceu. Por quê: travamento (ANR), queda de código nativo e morte por falta de memória com a tela na frente são
+     * as falhas mais comuns num Chromecast de 2 GB, e nenhuma passava pelo tratador. Quem chama já filtrou a memória:
+     * só a morte com o launcher NA FRENTE conta (no fundo, o Android fecha apps o tempo todo e isso é normal).
+     */
+    fun aoSair(e0: Estado, versao: Long, saidas: List<Pair<Long, Saida>>): Queda {
+        var e = e0
+        var ruim = false
+        val novas = saidas.filter { it.first > e0.saidasAte }.sortedBy { it.first }
+        for ((quando, _) in novas) {
+            if (e.vigiando != versao || quando < e.vigiaDesde) continue   // versão antiga, ou vigia já encerrada
+            val q = aoCair(e, versao, quando, null)
+            e = q.estado
+            ruim = ruim || q.marcouRuim
+        }
+        val ate = maxOf(e0.saidasAte, novas.maxOfOrNull { it.first } ?: 0L)
+        return Queda(e.copy(saidasAte = ate), ruim)
     }
 
     /** O Release [codigo] pode ser instalado? Nunca uma versão ruim; com a pausa, só uma MAIOR que a que caiu. */
@@ -136,6 +161,7 @@ object VigiaRegras {
         append("seguro_versao=").append(e.seguroVersao).append('\n')
         append("aviso=").append(e.avisoPendente).append('\n')
         append("registro=").append(e.registroPendente).append('\n')
+        append("saidas_ate=").append(e.saidasAte).append('\n')
     }
 
     /** O contrário de [paraTexto]. Texto estragado = valores padrão (nunca derruba o launcher). */
@@ -150,6 +176,7 @@ object VigiaRegras {
             quedas = lista("quedas").takeLast(10), ruins = lista("ruins").takeLast(MAX_RUINS), pausaPor = n("pausa_por"),
             telaSuspeita = tela, seguroVersao = n("seguro_versao"),
             avisoPendente = m["aviso"] == "true", registroPendente = m["registro"] == "true",
+            saidasAte = n("saidas_ate"),
         )
     }
 }

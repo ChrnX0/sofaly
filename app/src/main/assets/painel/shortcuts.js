@@ -26,7 +26,7 @@ const RELACOES = [
   ['cartaoPresenca', 'cartaoCasa', 'cartaoAvisosNoCelular'],
   ['cartaoCasa', 'cartaoCenas'],
   ['cartaoPINDoPainel', 'cartaoOutrasPessoas', 'cartaoDigital', 'cartaoLoginPelaContaGoogle', 'cartaoConfirmacoes'],
-  ['cartaoOutrasPessoas', 'cartaoAcessos'],
+  ['cartaoOutrasPessoas', 'cartaoAcessos', 'cartaoCelulares'],
   ['cartaoClaudePelaInternetMCP', 'cartaoRedeTailscale', 'cartaoConectarUmaIAATV'],
   ['cartaoUnidadeDeRede', 'cartaoStorage', 'cartaoInstalarComoAppHttps'],
   ['cartaoObservador', 'cartaoDiarioDaTV', 'cartaoComoATVEsta'],

@@ -16,6 +16,10 @@
 <li>Podcast transcripts and summaries: audio of public podcasts, processed by Cloudflare Workers AI, which does not keep the request.</li>
 <li>Pro plan weather: your location rounded to about 11 km, passed on to WeatherAPI.com. Answers are cached by place, not by TV, for up to 30 minutes.</li>
 <li>The list of recommended add-ons and Sofaly's public-domain movies add-on (links to the Internet Archive).</li>
+<li>Basic plan weather: your location rounded to about 11 km, passed on to Open-Meteo. Answers are cached by place, not by TV.</li>
+<li>The showcase of recommended plugins (animated backgrounds and cards) and the list of app versions on hold. The TV only downloads these lists; it sends nothing about you.</li>
+<li>“Help other homes” (off unless you turn it on in Sofy's settings): at most once a day, the TV sends the package name and version of apps that crashed or got slower on it, and short technical screen patterns Sofy learned (never names, places or text from your screen). Each home is counted by a salted hash of its IP address, never the address itself; a lesson only becomes public after 5 different homes report it within 14 days, and everything is erased after those 14 days.</li>
+<li>Phone pairing and messages between your phone and your TV: end-to-end encrypted envelopes that the service relays without being able to read them, kept only until your device receives them.</li>
 </ul>
 
 <h2>Data kept on your TV</h2>
@@ -71,6 +75,10 @@
 <li>Texto e resumo de podcasts: o áudio de podcasts públicos, processado pela Cloudflare Workers AI, que não guarda o pedido.</li>
 <li>Clima do plano Pro: a sua localização arredondada a cerca de 11 km, repassada à WeatherAPI.com. A resposta fica guardada por lugar, não por TV, por até 30 minutos.</li>
 <li>A lista de add-ons recomendados e o add-on de filmes de domínio público da Sofaly (links para o Internet Archive).</li>
+<li>Clima do plano Básico: sua localização arredondada em cerca de 11 km, repassada ao Open-Meteo. As respostas ficam guardadas por lugar, não por TV.</li>
+<li>A vitrine de plugins recomendados (fundos animados e cartões) e a lista de versões do app seguradas. A TV só baixa essas listas; não manda nada sobre você.</li>
+<li>“Ajudar outras casas” (desligado até você ligar nos ajustes da Sofy): no máximo uma vez por dia, a TV manda o nome do pacote e a versão dos apps que travaram ou ficaram lentos nela, e padrões técnicos curtos de tela que a Sofy aprendeu (nunca nomes, lugares ou textos da sua tela). Cada casa é contada por um código feito do IP com sal, nunca o endereço; uma lição só fica pública depois que 5 casas diferentes a mandam em 14 dias, e tudo é apagado depois desses 14 dias.</li>
+<li>Pareamento e mensagens entre o celular e a TV: envelopes cifrados de ponta a ponta, que o serviço repassa sem conseguir ler e guarda só até o aparelho receber.</li>
 </ul>
 
 <h2>Dados guardados na TV</h2>

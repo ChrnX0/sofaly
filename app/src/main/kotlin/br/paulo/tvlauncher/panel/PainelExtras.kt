@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.panel
 
+import br.paulo.tvlauncher.alarm.NoiteCasa
 import android.content.Context
 import android.util.Base64
 import br.paulo.tvlauncher.AvisoTv
@@ -144,10 +145,23 @@ object PainelExtras {
             post && rota == "filtro" -> {
                 val o = corpo ?: return erro(400, "JSON inválido")
                 fun minuto(k: String, padrao: Int) = if (o.has(k)) o.optInt(k).coerceIn(0, 24 * 60 - 1) else padrao
-                Extras.definirNumero(app, FiltroNoturno.CHAVE_INICIO, minuto("inicio", Extras.numero(app, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO)))
-                Extras.definirNumero(app, FiltroNoturno.CHAVE_FIM, minuto("fim", Extras.numero(app, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM)))
+                // Só grava o que veio: mandar só a força não pode tirar o filtro da noite da casa (item 12).
+                if (o.has("inicio")) Extras.definirNumero(app, FiltroNoturno.CHAVE_INICIO, minuto("inicio", FiltroNoturno.inicio(app)))
+                if (o.has("fim")) Extras.definirNumero(app, FiltroNoturno.CHAVE_FIM, minuto("fim", FiltroNoturno.fim(app)))
                 if (o.has("forca")) Extras.definirNumero(app, FiltroNoturno.CHAVE_FORCA, o.optInt("forca").coerceIn(5, 100))
                 android.os.Handler(android.os.Looper.getMainLooper()).post { FiltroNoturno.avaliar() }
+                ok(estado(app))
+            }
+            // Noite da casa (Brainstorm 26/11, item 12): o horário que o Não perturbe e o filtro seguem.
+            post && rota == "noite" -> {
+                val o = corpo ?: return erro(400, "JSON inválido")
+                for ((k, chave) in listOf("inicio" to NoiteCasa.CHAVE_INICIO, "fim" to NoiteCasa.CHAVE_FIM)) {
+                    if (!o.has(k)) continue
+                    val v = NoiteCasa.minutoValido(o.optInt(k, -1)) ?: return erro(400, "horário inválido")
+                    Extras.definirNumero(app, chave, v)
+                }
+                android.os.Handler(android.os.Looper.getMainLooper()).post { FiltroNoturno.avaliar() }
+                PainelArmazem.registrar(app, ip, "noite da casa", "ok")
                 ok(estado(app))
             }
             post && rota == "wol" -> {
@@ -364,9 +378,10 @@ object PainelExtras {
         .put("comPin", JSONArray(CHAVES_COM_PIN.map { it.name }))
         // Painel v3 (16/11/2026): em que aba das Configurações da TV cada chave mora, para o painel mostrá-la no mesmo lugar.
         .put("abas", JSONObject().apply { ExtrasAbas.MAPA.forEach { (chave, aba) -> put(chave, aba.name) } })
+        .put("noite", JSONObject().put("inicio", NoiteCasa.inicio(app)).put("fim", NoiteCasa.fim(app)))
         .put("filtro", JSONObject()
-            .put("inicio", Extras.numero(app, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO))
-            .put("fim", Extras.numero(app, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM))
+            .put("inicio", FiltroNoturno.inicio(app))
+            .put("fim", FiltroNoturno.fim(app))
             .put("forca", Extras.numero(app, FiltroNoturno.CHAVE_FORCA, FiltroNoturno.PADRAO_FORCA)))
         .put("mac", AcordarPc.macGuardado(app))
         .put("pcIp", JogosTv.ipPc(app))

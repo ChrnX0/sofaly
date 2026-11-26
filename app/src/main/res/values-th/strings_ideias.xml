@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">แสดงบันทึก DNS ของวันนี้</string>
     <string name="extras_diario_apagar">ลบบันทึก DNS</string>
     <string name="extras_diario_apagado">ลบบันทึกแล้ว</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">กลางคืนของบ้าน</string>
+    <string name="noite_casa_inicio">กลางคืนเริ่ม</string>
+    <string name="noite_casa_fim">กลางคืนสิ้นสุด</string>
+    <string name="noite_casa_corpo">ห้ามรบกวนและฟิลเตอร์กลางคืนใช้เวลานี้ เวลานอนของเด็กมีเวลาของตัวเอง</string>
+    <string name="noite_casa_corpo_filtro_proprio">ห้ามรบกวนใช้เวลานี้ ฟิลเตอร์กลางคืนมีเวลาของตัวเอง ตั้งเป็นเวลาเดียวกันเพื่อให้กลับมาใช้กลางคืนของบ้าน</string>
 </resources>

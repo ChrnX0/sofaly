@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">오늘의 DNS 기록 보기</string>
     <string name="extras_diario_apagar">DNS 기록 삭제</string>
     <string name="extras_diario_apagado">기록이 삭제됨</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">집의 밤</string>
+    <string name="noite_casa_inicio">밤 시작</string>
+    <string name="noite_casa_fim">밤 끝</string>
+    <string name="noite_casa_corpo">방해 금지와 야간 필터가 이 시간을 따릅니다. 아이 취침 시간은 따로 정합니다.</string>
+    <string name="noite_casa_corpo_filtro_proprio">방해 금지가 이 시간을 따릅니다. 야간 필터는 자체 시간을 씁니다. 같은 시간으로 맞추면 다시 집의 밤을 따릅니다.</string>
 </resources>

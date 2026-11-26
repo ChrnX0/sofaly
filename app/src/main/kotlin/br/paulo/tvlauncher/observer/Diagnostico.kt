@@ -113,6 +113,31 @@ object Diagnostico {
     /** Uma frase com o culpado mais provável, olhando os itens na ordem em que um problema causa o outro. */
     private val R_ get() = txt(R.string.diag_resumo)
 
+    /** O nosso serviço (api.sofaly.tv), por parte (item 25 do Brainstorm 26/11): qual está fora, em uma linha. */
+    fun servico(ctx: Context): Item {
+        var codigo = -1; var corpo: String? = null
+        try {
+            val c = java.net.URL(ServicoSofaly.URL).openConnection() as java.net.HttpURLConnection
+            c.connectTimeout = 5_000; c.readTimeout = 5_000
+            c.setRequestProperty("User-Agent", br.paulo.tvlauncher.Http.USER_AGENT)
+            try {
+                codigo = c.responseCode
+                if (codigo == 200) corpo = c.inputStream.use { br.paulo.tvlauncher.Http.readLimited(it, 8_192, cut = true) }?.toString(Charsets.UTF_8)
+            } finally { c.disconnect() }
+        } catch (_: Exception) { codigo = -1 }
+        val r = ServicoSofaly.ler(codigo, corpo)
+        val nomes = mapOf("weather_open" to R.string.diag_sofaly_clima, "podcasts" to R.string.diag_sofaly_podcasts,
+            "ai" to R.string.diag_sofaly_ia, "community" to R.string.diag_sofaly_comunidade, "mailbox" to R.string.diag_sofaly_celular)
+        val txt = when (r.estado) {
+            ServicoSofaly.Estado.OK -> ctx.getString(R.string.diag_sofaly_ok)
+            ServicoSofaly.Estado.DESLIGADO -> ctx.getString(R.string.diag_sofaly_desligado)
+            ServicoSofaly.Estado.SEM_RESPOSTA -> ctx.getString(R.string.diag_sofaly_sem)
+            ServicoSofaly.Estado.FALTA -> ctx.getString(R.string.diag_sofaly_falta, r.faltando.mapNotNull { nomes[it]?.let(ctx::getString) }.joinToString(", "))
+        }
+        return Item("Sofaly", txt, r.nivel)
+    }
+
+
     fun veredito(wifi: Item, internet: Item, dns: Item, vpn: Item): Item = when {
         wifi.nivel == 2 && wifi.detalhe == txt(R.string.diag_wifi_desc) -> Item(R_, txt(R.string.diag_r_sem_wifi), 2)
         internet.nivel == 2 && dns.nivel == 2 -> Item(R_,
