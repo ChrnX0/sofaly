@@ -134,7 +134,8 @@ class CasasActivity : Activity() {
     private fun digitarCodigo() {
         val campo = EditText(this).apply {
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-            isSingleLine = true; textSize = 28f; hint = "ABCD EFGH"
+            isSingleLine = true; hint = "ABCD EFGH"
+            Estilo.aplicar(this, Estilo.Papel.TITULO)   // código grande para ler do sofá (régua do Estilo, não tamanho à mão)
         }
         val moldura = FrameLayout(this).apply { setPaddingRelative(dp(20), dp(8), dp(20), 0); addView(campo) }
         val d = CaixaTv(this).setTitle(getString(R.string.casas_digitar)).setView(moldura)

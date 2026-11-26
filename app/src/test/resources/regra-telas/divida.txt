@@ -43,6 +43,8 @@ CapaFoco.kt cor 2
 CapaOuvir.kt cor 2
 CardStyle.kt cor 10
 CasaActivity.kt letra 1
+# CasasActivity: sem barra de teclas de propósito (Paulo 26/11/2026: dicas de teclas removidas de todas as telas); o texto da coluna explica.
+CasasActivity.kt dicas 1
 CenasActivity.kt dicas 1
 CeuDeVerdade.kt cor 4
 ColunaCategorias.kt cor 2
