@@ -190,6 +190,9 @@ dependencies {
     // Shell proprio MARCO 2: cliente ADB embutido (pareamento + TLS + shell). Licenca Apache-2.0 (opcao da dupla).
     implementation("com.github.MuntashirAkon:libadb-android:3.1.1")
     implementation("com.github.MuntashirAkon:sun-security-android:1.1")
+    // Relay do api.sofaly.tv (26/11/2026): Ed25519/X25519/HKDF (relay/RelayCrypto.kt). Já vinha no APK pela libadb, mas
+    // como "runtime" (fora do classpath de compilação); declarado aqui na MESMA versão, para não entrar uma segunda.
+    implementation("org.bouncycastle:bcprov-jdk15to18:1.81")
 
     // Empréstimo de shell (15/11/2026, "poder máximo"): o servidor do Shizuku EMBUTIDO. As classes do servidor
     // precisam estar no APK do launcher, porque o processo shizuku_server é iniciado com

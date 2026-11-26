@@ -105,6 +105,7 @@ object BackupCompleto {
         "podcast_starter",   // "já seguiu os sugeridos" (PodcastStarter): marca desta TV; os podcasts seguidos vão no backup do player
         // Cuidar de longe (CuidarDeLongeTv): o consentimento é de quem mora com ESTA TV; restaurar em outra não pode levá-lo.
         "cuidar_de_longe",
+        "relay",   // decisão A (26/11/2026): a identidade do relay é DESTA TV (Keystore); restaurar em outra clonaria o id
         // Degrau 4 (17/11/2026). "receitas": a receita ativa e a foto do "Desfazer" são do momento desta TV (os ajustes já vão
         // pelo backup). "familia_video": a lista aponta para vídeos que não vão no backup. "entre_tvs": restaurar não pode
         // abrir a conversa com as outras TVs da casa sem a pessoa ligar de novo (como o "familia_link").
