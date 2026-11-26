@@ -24,6 +24,8 @@ object SofyAi {
     private const val TAG = "TvLauncher.SofyAi"
     const val PREFS = "sofy_ai"
     private const val ALIAS = "sofy_ai_key"
+    /** Prefixo das prefs da IA RESERVA (a segunda chave: outra empresa ou outra conta). A principal não tem prefixo. */
+    const val BACKUP = "b_"
     /**
      * Teto do mês de fábrica, em tokens (entrada + saída), para a chave do dono não ser "devorada" (Paulo, 25/11/2026: não
      * sabemos ainda quanto o sistema gasta). O dono muda no painel; 0 = sem teto. ~300 mil tokens custam centavos num
@@ -50,32 +52,92 @@ object SofyAi {
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun settings(ctx: Context): SofyAiRules.Settings? {
+    /** A IA principal ([slot] "") ou a reserva ([BACKUP]). */
+    fun settings(ctx: Context, slot: String = ""): SofyAiRules.Settings? {
         val p = prefs(ctx)
-        return SofyAiRules.resolve(SofyAiRules.Provider.of(p.getString("provider", null)), p.getString("base", null), p.getString("model", null), key(ctx))
+        return SofyAiRules.resolve(SofyAiRules.Provider.of(p.getString(slot + "provider", null)), p.getString(slot + "base", null),
+            p.getString(slot + "model", null), key(ctx, slot))
     }
 
-    fun configured(ctx: Context) = settings(ctx) != null
+    fun configured(ctx: Context) = settings(ctx) != null || settings(ctx, BACKUP) != null
 
-    /** Grava a escolha do dono (painel). [key] null = mantém a que está; "" = apaga. Devolve se ficou utilizável. */
-    fun save(ctx: Context, provider: String?, base: String?, model: String?, key: String?): Boolean {
-        val e = prefs(ctx).edit().putString("provider", SofyAiRules.Provider.of(provider)?.code).putString("base", base?.trim()).putString("model", model?.trim())
+    /** Quem perguntar, em ordem, para esta tarefa (principal, depois a reserva; segunda opinião = outra IA). */
+    private fun chain(ctx: Context, task: SofyAiRules.Task): List<SofyAiRules.Settings> {
+        val p = prefs(ctx)
+        return SofyAiRules.chain(task, settings(ctx), settings(ctx, BACKUP), p.getString("model_review", null), p.getString(BACKUP + "model_review", null),
+            available(ctx, ""), available(ctx, BACKUP))
+    }
+
+    /** Os modelos que a chave alcança, como a própria API disse da última vez (vazio = ainda não leu). */
+    fun available(ctx: Context, slot: String): Set<String> =
+        prefs(ctx).getString(slot + "models", "").orEmpty().split(',').filter { it.isNotBlank() }.toSet()
+
+    /**
+     * Pergunta à API que modelos a chave alcança (Paulo, 25/11/2026: "verifica se pode usar qq modelo"). Uma vez por dia
+     * por IA, e sempre no Testar. Rede: chamar fora da tela. Não gasta token (é só a lista).
+     */
+    fun refreshModels(ctx: Context, force: Boolean = false) {
+        val app = ctx.applicationContext
+        for (slot in listOf("", BACKUP)) {
+            val s = settings(app, slot) ?: continue
+            val p = prefs(app)
+            if (!force && System.currentTimeMillis() - p.getLong(slot + "models_at", 0L) < 86_400_000L) continue
+            val ids = runCatching { get(s, SofyAiRules.modelsUrl(s))?.let { SofyAiRules.modelIds(it) } }.getOrNull()
+            val e = p.edit().putLong(slot + "models_at", System.currentTimeMillis())
+            if (!ids.isNullOrEmpty()) e.putString(slot + "models", ids.sorted().joinToString(","))
+            e.apply()
+            Log.i(TAG, "modelos ${s.provider.code}: ${ids?.size ?: "não li"}; conserto=${SofyAiRules.pick(s.provider, SofyAiRules.Task.REPAIR, ids.orEmpty())} " +
+                "revisão=${SofyAiRules.pick(s.provider, SofyAiRules.Task.REVIEW, ids.orEmpty())} segunda=${SofyAiRules.pick(s.provider, SofyAiRules.Task.SECOND, ids.orEmpty())}")
+        }
+    }
+
+    private fun get(s: SofyAiRules.Settings, url: String): JSONObject? {
+        val c = URL(url).openConnection() as HttpURLConnection
+        try {
+            c.connectTimeout = 10_000; c.readTimeout = 20_000
+            c.setRequestProperty("User-Agent", Http.USER_AGENT)
+            SofyAiRules.headers(s).forEach { (k, v) -> c.setRequestProperty(k, v) }
+            if (c.responseCode !in 200..299) { Log.w(TAG, "lista de modelos: HTTP ${c.responseCode}"); return null }
+            val raw = Http.readLimited(c.inputStream, 512 * 1024, cut = false) ?: return null
+            return JSONObject(String(raw))
+        } finally { c.disconnect() }
+    }
+
+    /**
+     * Grava a escolha do dono (painel). [key] null = mantém a que está; "" = apaga. [modelReview] null = mantém.
+     * Devolve se ficou utilizável.
+     */
+    fun save(ctx: Context, provider: String?, base: String?, model: String?, key: String?, slot: String = "", modelReview: String? = null): Boolean {
+        val e = prefs(ctx).edit().putString(slot + "provider", SofyAiRules.Provider.of(provider)?.code).putString(slot + "base", base?.trim())
+            .putString(slot + "model", model?.trim())
+        if (modelReview != null) e.putString(slot + "model_review", modelReview.trim())
         if (key != null) {
-            if (key.isBlank()) e.remove("key").remove("iv")
+            if (key.isBlank()) e.remove(slot + "key").remove(slot + "iv")
             else runCatching {
                 val c = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.ENCRYPT_MODE, secret()) }
-                e.putString("key", Base64.encodeToString(c.doFinal(key.trim().toByteArray()), Base64.NO_WRAP)).putString("iv", Base64.encodeToString(c.iv, Base64.NO_WRAP))
+                e.putString(slot + "key", Base64.encodeToString(c.doFinal(key.trim().toByteArray()), Base64.NO_WRAP))
+                    .putString(slot + "iv", Base64.encodeToString(c.iv, Base64.NO_WRAP))
             }.onFailure { Log.w(TAG, "não guardei a chave: ${it.javaClass.simpleName}") }
         }
         e.apply()
-        return configured(ctx)
+        return settings(ctx, slot) != null
     }
 
     /** Para o painel: o que está escolhido, SEM a chave (só se existe uma). */
     fun json(ctx: Context): JSONObject {
         val p = prefs(ctx)
         return JSONObject().put("provider", p.getString("provider", "") ?: "").put("base", p.getString("base", "") ?: "")
-            .put("model", p.getString("model", "") ?: "").put("has_key", p.contains("key")).put("ready", configured(ctx))
+            .put("model", p.getString("model", "") ?: "").put("has_key", p.contains("key")).put("ready", settings(ctx) != null)
+            .put("model_review", p.getString("model_review", "") ?: "")
+            .put("review_model_used", chain(ctx, SofyAiRules.Task.REVIEW).firstOrNull()?.model ?: "")
+            .put("backup", JSONObject().put("provider", p.getString(BACKUP + "provider", "") ?: "").put("base", p.getString(BACKUP + "base", "") ?: "")
+                .put("model", p.getString(BACKUP + "model", "") ?: "").put("model_review", p.getString(BACKUP + "model_review", "") ?: "")
+                .put("has_key", p.contains(BACKUP + "key")).put("ready", settings(ctx, BACKUP) != null))
+            .put("second_model", chain(ctx, SofyAiRules.Task.SECOND).firstOrNull()?.let { "${it.provider.code}/${it.model}" } ?: "")
+            .put("second_at", p.getLong("second_at", 0L)).put("second_result", p.getString("second_result", "") ?: "")
+            .put("fallbacks", p.getInt("fallbacks", 0))
+            .put("repair_model_used", chain(ctx, SofyAiRules.Task.REPAIR).firstOrNull()?.model ?: "")
+            .put("models_known", available(ctx, "").size).put("models_at", p.getLong("models_at", 0L))
             .put("asked_today", askedToday(ctx))
             .put("budget_tokens", budget(ctx)).put("month_tokens", monthTokens(ctx))
             .put("month_calls", if (p.getInt("month", 0) == SofyAiRules.month(System.currentTimeMillis())) p.getInt("month_calls", 0) else 0)
@@ -84,10 +146,10 @@ object SofyAi {
             .put("review_at", p.getLong("review_at", 0L)).put("review_result", p.getString("review_result", "") ?: "")
     }
 
-    private fun key(ctx: Context): String? {
+    private fun key(ctx: Context, slot: String = ""): String? {
         val p = prefs(ctx)
-        val cif = p.getString("key", null) ?: return null
-        val iv = p.getString("iv", null) ?: return null
+        val cif = p.getString(slot + "key", null) ?: return null
+        val iv = p.getString(slot + "iv", null) ?: return null
         return runCatching {
             val c = Cipher.getInstance("AES/GCM/NoPadding")
             c.init(Cipher.DECRYPT_MODE, secret(), GCMParameterSpec(128, Base64.decode(iv, Base64.NO_WRAP)))
@@ -118,26 +180,21 @@ object SofyAi {
             prefs(app).edit().putLong("ask_at", System.currentTimeMillis()).putInt("ask_http", lastHttp).putString("ask_result", res).apply()
         }
         lastHttp = 0
-        val s = settings(app) ?: run { note("sem configuração utilizável (chave ilegível?)"); return emptyList() }
+        runCatching { refreshModels(app) }
+        val ordem = chain(app, SofyAiRules.Task.REPAIR)
+        if (ordem.isEmpty()) { note("sem configuração utilizável (chave ilegível?)"); return emptyList() }
         val n = askedToday(app)
         val gasto = monthTokens(app); val teto = budget(app)
         if (!SofyAiRules.withinBudget(gasto, teto)) { note("teto do mês: $gasto de $teto tokens"); return emptyList() }
         prefs(app).edit().putLong("asked_day", System.currentTimeMillis() / 86_400_000L).putInt("asked", n + 1).apply()
-        var erro: String? = null
-        val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.onFailure { erro = it.javaClass.simpleName; Log.w(TAG, "pedido: $erro") }.getOrNull()
-        spend(app, answer)
-        val lido = runCatching { val t = answer?.let { SofyAiRules.text(s.provider.format, it) }; t to SofyAiRules.plan(t) }
-            .getOrElse { note("erro ao ler a resposta: ${it.javaClass.simpleName}"); return emptyList() }
-        val txt = lido.first
-        val (tools, cause) = lido.second
+        val r = call(app, ordem) { SofyAiRules.body(it, c) }
+        val (tools, cause) = runCatching { SofyAiRules.plan(r.text) }.getOrElse { note("erro ao ler a resposta: ${it.javaClass.simpleName}"); return emptyList() }
         // O que a última pergunta deu (Revisão, Sala 25/11: ask_ai falhou 3 vezes sem uma linha dizendo por quê). Sem a chave.
         val res = when {
-            erro != null -> "erro de rede: $erro"
-            answer == null -> "HTTP $lastHttp"
-            txt == null -> "resposta sem texto (${SofyAiRules.shape(answer)})"
-            tools.isEmpty() -> "sem ferramenta válida: " + txt.replace(Regex("\\s+"), " ").take(160)
+            r.text == null -> r.why
+            tools.isEmpty() -> "sem ferramenta válida: " + r.text.replace(Regex("\\s+"), " ").take(160)
             else -> "ok: " + tools.joinToString(",") { it.name.lowercase() }
-        }
+        } + r.by
         note(res)
         if (tools.isNotEmpty()) ObserverTv.logShadow(app, "ai_plan", "${c.type.name} ${c.subject}: ${tools.joinToString(",") { it.name.lowercase() }} ($cause)")
         return tools
@@ -152,28 +209,68 @@ object SofyAi {
         fun note(res: String) { Log.i(TAG, "revisor: $res")
             prefs(app).edit().putLong("review_at", System.currentTimeMillis()).putString("review_result", res).apply() }
         lastHttp = 0
-        val s = settings(app) ?: run { note("sem configuração utilizável"); return null }
+        runCatching { refreshModels(app) }
+        val ordem = chain(app, SofyAiRules.Task.REVIEW)
+        if (ordem.isEmpty()) { note("sem configuração utilizável"); return null }
         val gasto = monthTokens(app); val teto = budget(app)
         if (!SofyAiRules.withinBudget(gasto, teto)) { note("teto do mês: $gasto de $teto tokens"); return null }
-        var erro: String? = null
-        val answer = runCatching { post(s, SofyAiRules.bodyFor(s, system, user).toString()) }
-            .onFailure { erro = it.javaClass.simpleName }.getOrNull()
-        spend(app, answer)
-        val txt = answer?.let { runCatching { SofyAiRules.text(s.provider.format, it) }.getOrNull() }
-        note(when { erro != null -> "erro de rede: $erro"; answer == null -> "HTTP $lastHttp"
-            txt == null -> "resposta sem texto (${SofyAiRules.shape(answer)})"; else -> "ok (${txt.length} caracteres)" })
-        return txt
+        val r = call(app, ordem) { SofyAiRules.bodyFor(it, system, user) }
+        note((if (r.text == null) r.why else "ok (${r.text.length} caracteres)") + r.by)
+        return r.text
+    }
+
+    /**
+     * Segunda opinião (Paulo, 25/11/2026): OUTRA IA julga as regras novas da revisão. Null = ninguém diferente para
+     * perguntar, teto do mês ou falha; quem chama trata como "não concordou" (a regra volta a ser proposta outra noite).
+     */
+    fun second(ctx: Context, system: String, user: String): String? {
+        val app = ctx.applicationContext
+        fun note(res: String) { Log.i(TAG, "segunda opinião: $res")
+            prefs(app).edit().putLong("second_at", System.currentTimeMillis()).putString("second_result", res).apply() }
+        val ordem = chain(app, SofyAiRules.Task.SECOND)
+        if (ordem.isEmpty()) { note("sem outra IA ou outro modelo para perguntar"); return null }
+        if (!SofyAiRules.withinBudget(monthTokens(app), budget(app))) { note("teto do mês"); return null }
+        val r = call(app, ordem) { SofyAiRules.bodyFor(it, system, user) }
+        note((if (r.text == null) r.why else "ok") + r.by)
+        return r.text
+    }
+
+    /** O resultado de perguntar a uma fila de IAs: o texto, por que falhou (sem a chave) e quem respondeu. */
+    private class Answer(val text: String?, val why: String, val by: String)
+
+    /**
+     * Pergunta à primeira da fila; se ela falhar (rede, HTTP de erro, resposta sem texto), à próxima. Cada resposta soma
+     * no gasto do mês. Toda troca para a reserva é contada ("fallbacks"), para o relatório.
+     */
+    private fun call(app: Context, ordem: List<SofyAiRules.Settings>, body: (SofyAiRules.Settings) -> JSONObject): Answer {
+        val falhas = ArrayList<String>()
+        for ((i, s) in ordem.withIndex()) {
+            lastHttp = 0
+            var erro: String? = null
+            val answer = runCatching { post(s, body(s).toString()) }.onFailure { erro = it.javaClass.simpleName; Log.w(TAG, "pedido: $erro") }.getOrNull()
+            spend(app, answer)
+            val txt = answer?.let { runCatching { SofyAiRules.text(s.provider.format, it) }.getOrNull() }
+            val quem = "${s.provider.code}/${s.model}"
+            if (txt != null) {
+                if (i > 0) prefs(app).edit().putInt("fallbacks", prefs(app).getInt("fallbacks", 0) + 1).apply()
+                return Answer(txt, "", " [$quem" + (if (falhas.isEmpty()) "" else "; antes: ${falhas.joinToString("; ")}") + "]")
+            }
+            falhas += "$quem " + when { erro != null -> "erro de rede: $erro"; answer == null -> "HTTP $lastHttp"
+                else -> "resposta sem texto (${SofyAiRules.shape(answer)})" }
+        }
+        return Answer(null, falhas.joinToString("; "), "")
     }
 
     /** Testa a configuração (botão "Testar" do painel): um caso de mentira; devolve se a IA respondeu no formato. */
-    fun test(ctx: Context): Boolean {
-        val s = settings(ctx.applicationContext) ?: return false
+    fun test(ctx: Context, slot: String = ""): Boolean {
+        runCatching { refreshModels(ctx, force = true) }
+        val s = settings(ctx.applicationContext, slot)?.let { SofyAiRules.forRepair(it, available(ctx, slot)) } ?: return false
         val c = SofyRepair.Case("ERROR:test", SofyRepair.Type.ERROR, "test", emptySet(), 0, 0, 2)
         val answer = runCatching { post(s, SofyAiRules.body(s, c).toString()) }.getOrNull()
         spend(ctx.applicationContext, answer)
         val ok = answer != null && SofyAiRules.text(s.provider.format, answer) != null
         // Gravado para o relatório (MCP/painel): dá para saber se a IA do dono funciona sem ver a chave.
-        prefs(ctx.applicationContext).edit().putLong("test_at", System.currentTimeMillis()).putBoolean("test_ok", ok).putInt("test_http", lastHttp).apply()
+        prefs(ctx.applicationContext).edit().putLong(slot + "test_at", System.currentTimeMillis()).putBoolean(slot + "test_ok", ok).putInt(slot + "test_http", lastHttp).apply()
         return ok
     }
 

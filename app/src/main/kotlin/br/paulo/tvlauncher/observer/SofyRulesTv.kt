@@ -43,9 +43,13 @@ object SofyRulesTv {
                 ObserverTv.logShadow(app, "self_defect", "IA viu em $screen: $d")
                 SofyRepairTv.signal(app, SofyRepair.Type.SCREEN_BROKEN, "screen:$screen", ("IA: $d").take(120))
             }
-            for (r in review.rules) ObserverTv.logShadow(app, "ai_rule_new", "${r.kind.name} ${r.pattern} ($screen): ${r.why}")
-            rules = SofyRules.merge(rules, review.rules)
-            Log.i(TAG, "$screen: ${review.defects.size} defeitos, ${review.rules.size} regras novas, ${rules.size} guardadas")
+            // Segunda opinião: só entra na sombra a regra com que OUTRA IA concorda (Paulo, 25/11/2026).
+            val aceitas = if (review.rules.isEmpty()) emptyList()
+                else SofyRules.agreed(SofyAi.second(app, SofyRules.SECOND_SYSTEM, SofyRules.secondPrompt(screen, texts, review.rules)), review.rules)
+            for (r in review.rules - aceitas.toSet()) ObserverTv.logShadow(app, "ai_rule_rejected", "${r.kind.name} ${r.pattern} ($screen): a segunda IA não concordou")
+            for (r in aceitas) ObserverTv.logShadow(app, "ai_rule_new", "${r.kind.name} ${r.pattern} ($screen): ${r.why}")
+            rules = SofyRules.merge(rules, aceitas)
+            Log.i(TAG, "$screen: ${review.defects.size} defeitos, ${aceitas.size}/${review.rules.size} regras novas aceitas, ${rules.size} guardadas")
         }
         prefs(app).edit().putString(KEY, SofyRules.toJson(rules)).apply()
     }
