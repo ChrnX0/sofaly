@@ -489,14 +489,24 @@ object Estilo {
             if (tDet != null) addView(tDet, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(ctx, 2) })
             if (aoClicar != null) setOnClickListener { aoClicar() }
             setOnFocusChangeListener { _, foco ->
-                caixaV.background = if (foco) fundoFocado(ctx, RAIO, caixa(ctx)) else caixa(ctx)
+                focarCartao(caixaV, tNome, foco)
                 desenho.definirCor(if (foco) corIconeNoFoco(ctx) else TEXTO_2)
-                tNome.setTextColor(if (foco) TEXTO else TEXTO_2)
                 tDet?.visibility = if (foco) View.VISIBLE else View.INVISIBLE
-                caixaV.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
-                    .setDuration(FOCO_MS).setInterpolator(desacelera).start()
             }
         }
+    }
+
+    /**
+     * O foco do [cartao] para quem monta a própria caixa (capa de rádio, de podcast, ícone de jogo): o MESMO desenho,
+     * num lugar só. Caixa mais clara com borda creme, nome em creme cheio e a caixa cresce um pouco; o ícone, quem
+     * chama pinta com [corIconeNoFoco].
+     */
+    fun focarCartao(caixaV: View, nome: TextView?, foco: Boolean) {
+        val ctx = caixaV.context
+        caixaV.background = if (foco) fundoFocado(ctx, RAIO, caixa(ctx)) else caixa(ctx)
+        nome?.setTextColor(if (foco) TEXTO else TEXTO_2)
+        caixaV.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
+            .setDuration(FOCO_MS).setInterpolator(desacelera).start()
     }
 
     /** Altura da caixa do [cartao] (dp): a dos cartões das Fileiras no tamanho médio. */

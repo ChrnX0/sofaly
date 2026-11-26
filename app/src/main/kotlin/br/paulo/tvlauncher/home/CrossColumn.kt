@@ -16,8 +16,8 @@ import br.paulo.tvlauncher.settings.Fontes
 
 /**
  * Uma COLUNA no jeito da cruz para telas inteiras (18/11/2026, despertador; Paulo: "todo o sistema com a mesma leitura
- * visual da cruz"). Sem caixas: o item escolhido fica grande e branco, com o ponto laranja à esquerda do nome e a
- * informação útil embaixo (creme, 18 sp); os vizinhos encolhem e apagam aos poucos, como na [HomeCruz]. Movimento em
+ * visual da cruz"). Desde 26/11/2026 (padrão único das Fileiras) cada linha é uma caixa e a escolhida fica grande, na
+ * caixa clara com a borda creme do foco, com a informação útil embaixo (creme, 18 sp); os vizinhos encolhem e apagam aos poucos, como na [HomeCruz]. Movimento em
  * mola ([MolaViews]) com a "onda" dos vizinhos.
  *
  * Não usa o foco do Android: quem tem a tela chama [mover] nas setas e lê [escolhido] no OK. Assim a coluna nunca perde
@@ -44,6 +44,9 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
             else -> 0.25f
         }
         const val COR_APAGADO = 0xFFA39C95.toInt()
+        /** Folga do texto dentro da caixa (dp): a linha é uma caixa, como o resto do sistema (26/11/2026). */
+        const val CAIXA_X = 18
+        const val CAIXA_Y = 12
 
         /** A fileira de dicas do pé (tecla numa pílula + o que ela faz), a mesma do Rádio e das listas. */
         fun dicas(ctx: Context, vararg pares: Pair<String, String>): android.view.ViewGroup = Estilo.barraDicas(ctx, *pares)
@@ -58,7 +61,7 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
     private val info = TextView(ctx).apply {
         setTextSize(TypedValue.COMPLEX_UNIT_SP, FONTE_INFO); typeface = Fontes.nunito(500); setTextColor(HomeCruz.COR_SUB)
         includeFontPadding = false; setLineSpacing(dp(4f), 1f)
-        setPaddingRelative(dpi(HomeCruz.PONTO + 14), 0, 0, 0)
+        setPaddingRelative(dpi(CAIXA_X), 0, 0, 0)   // alinhado ao texto de dentro da caixa
         alpha = 0f
     }
 
@@ -124,8 +127,13 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
         val raiz = LinearLayout(context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.TOP
+            // Padrão único (Paulo, 26/11/2026: "padroniza tudo"): a linha é uma caixa; a escolhida ganha a caixa clara com
+            // a borda creme ([Estilo.fundoFocado]), no lugar do ponto laranja da cruz antiga.
+            ponto.visibility = View.GONE
             addView(ponto, LinearLayout.LayoutParams(dpi(HomeCruz.PONTO), dpi(HomeCruz.PONTO)).apply { marginEnd = dpi(14) })
             addView(nome, LinearLayout.LayoutParams(0, -2, 1f))
+            setPaddingRelative(dpi(CAIXA_X), dpi(CAIXA_Y), dpi(CAIXA_X), dpi(CAIXA_Y))
+            background = Estilo.caixa(context)
             alpha = 0f
         }
         addView(raiz, LayoutParams(-1, -2, Gravity.TOP or Gravity.START))
@@ -175,10 +183,11 @@ class CrossColumn(ctx: Context) : FrameLayout(ctx) {
             if (ys[k] < 0f || ys[k] + alto > height) a = 0f
             val atraso = (kotlin.math.abs(dist) * HomeCruz.ONDA_MS).coerceAtMost(HomeCruz.ONDA_MAX_MS)
             mola.mover(l.raiz, 0f, ys[k], a, if (dist == 0) 1f else ESCALA, animar, if (animar) atraso else 0L)
-            val p = if (dist == 0 && ativa) 1f else 0f
-            if (animar && p == 1f && l.ponto.alpha < 1f) { l.ponto.scaleX = 0.4f; l.ponto.scaleY = 0.4f }   // o ponto "acende"
-            if (animar) l.ponto.animate().alpha(p).scaleX(1f).scaleY(1f).setDuration(Estilo.LISTA_FOCO_MS).start()
-            else { l.ponto.animate().cancel(); l.ponto.alpha = p; l.ponto.scaleX = 1f; l.ponto.scaleY = 1f }
+            val foco = dist == 0 && ativa
+            if (l.raiz.tag != foco) {
+                l.raiz.tag = foco
+                l.raiz.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO, Estilo.caixa(context)) else Estilo.caixa(context)
+            }
         }
     }
 
@@ -219,10 +228,11 @@ class TimeWheel(ctx: Context, private val maximo: Int) : FrameLayout(ctx) {
         }
     }
     private val pilha = FrameLayout(ctx)
-    /** Moldura laranja atrás do número em foco, só no modo [soCentro] (deixa claro qual dos dois números as setas mudam). */
+    /** Moldura do foco (a de todo o sistema) atrás do número em foco, só no modo [soCentro] (deixa claro qual dos dois números as setas mudam). */
     private val caixa = View(ctx).apply {
         background = android.graphics.drawable.GradientDrawable().apply {
-            setColor(0x29FF6A2B); setStroke(dpi(3), Estilo.ACENTO); cornerRadius = dpi(14).toFloat()
+            // o foco de todo o sistema: caixa clara com borda creme (era laranja; padrão único, 26/11/2026)
+            setColor(Estilo.FOCO_CARTAO); setStroke(dpi(Estilo.ANEL_DP), Estilo.TEXTO); cornerRadius = dpi(Estilo.RAIO).toFloat()
         }
         alpha = 0f
     }

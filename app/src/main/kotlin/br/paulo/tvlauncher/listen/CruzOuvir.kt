@@ -51,7 +51,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         val icone: IconeOuvir.Tipo? = null,
         val capa: String = "", val cor: Int = IconeOuvir.cor(IconeOuvir.Tipo.RADIO), val monograma: String = "",
         val cobrir: Boolean = false, val progresso: Float? = null,
-        val abrir: () -> Unit = {}, val opcoes: (() -> Unit)? = null,
+        val abrir: () -> Unit = NADA, val opcoes: (() -> Unit)? = null,
         /** Imagem já pronta (ícone de um app, na tela Jogos): fica no lugar da [capa] baixada. */
         val imagem: android.graphics.drawable.Drawable? = null,
     )
@@ -65,6 +65,13 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
     )
 
     companion object {
+        /** O [Item.abrir] de quem só informa ("nenhuma recente ainda"): nas Fileiras ele não pega o foco. */
+        val NADA: () -> Unit = {}
+        // Fileiras (dp): onde começam (abaixo do título e do cartão "Tocando agora"), o lado da caixa e o vão entre cartões.
+        private const val FIL_TOPO = 196
+        private const val FIL_LADO = 112
+        private const val FIL_VAO = 20
+        private const val FIL_INFO_L = 430
         // Geometria da HomeCruz (dp numa tela de 960 x 540): o mesmo lugar da linha, da coluna e das prateleiras.
         private val LINHA get() = HomeCruz.LINHA
         private val COLUNA get() = HomeCruz.COLUNA
@@ -130,6 +137,20 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
     private var barraGrupo: TextView? = null
     private var barraNome: TextView? = null
     private var barraSub: TextView? = null
+
+    /**
+     * Fileiras (Paulo, 26/11/2026: "olha absolutamente todas as telas e padroniza", "tudo entra"): com a HOME nas Fileiras
+     * (o jeito de fábrica, [br.paulo.tvlauncher.home.BottomBar.rows]), Rádio, Podcasts e Jogos viram o mesmo desenho:
+     * uma fileira de cartões por prateleira, a caixa com a capa, o nome embaixo, foco creme ([Estilo.focarCartao]).
+     * ◀ ▶ andam na fileira, ▲ ▼ trocam de fileira e voltam ao cartão em que a pessoa estava nela. Decidido ao criar a tela.
+     */
+    private val fileiras = br.paulo.tvlauncher.home.BottomBar.rows(ctx)
+    private var filRolagem: android.widget.ScrollView? = null
+    private var filLista: LinearLayout? = null
+    private var filInfoNome: TextView? = null
+    private var filInfoSub: TextView? = null
+    private val filCartoes = ArrayList<List<View?>>()   // [fileira][item]: null = item só de leitura (não pega o foco)
+    private var filCalado = false                       // foco posto pelo código: sem som
 
     var aoMudar: ((Prateleira, Item) -> Unit)? = null
     /** Som de cada passo ([SonsCruz]); quem usa decide se toca (a tela não pia por cima da música). */
@@ -282,6 +303,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         })
 
         if (barra) montarBarra(ctx)
+        if (fileiras) montarFileiras(ctx)
         setOnFocusChangeListener { _, _ -> posicionar(animar = false); anunciar() }
     }
 
@@ -324,6 +346,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
      * para onde levar o foco agora (resultado de uma busca, o tocando que começou).
      */
     fun definir(novas: List<Prateleira>, focar: Pair<String, String?>? = null) {
+        if (fileiras) { definirFileiras(novas, focar); return }
         val sig = novas.flatMap { p -> listOf("#" + p.id) + p.itens.map { it.id } }
         val antesPrat = prats.getOrNull(cat)?.id
         val antesItem = itemAtual()
@@ -373,6 +396,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         if (item != null && prats[j].itens.any { it.id == item }) sel[prateleira] = item
         amortece = MolaViews.AMORTECE_SALTO
         cat = j
+        if (fileiras) { focarCartao(); atualizarInfo(); avisarMudanca(); return true }
         posicionar(animar); avisarMudanca()
         return true
     }
@@ -687,6 +711,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        if (fileiras) return
         if (barra) { posicionarBarra(animar); return }
         val focada = hasFocus() || isFocused
         val semMovimento = MolaViews.semAnimacao(this)
@@ -820,5 +845,232 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         super.onInitializeAccessibilityNodeInfo(info)
         info.className = android.widget.Button::class.java.name
         info.isClickable = true
+    }
+
+    // ------------------------------------------------------------------ Fileiras
+
+    /** O alto da tela nas Fileiras: título no lugar de sempre, e embaixo dele o nome e a informação do cartão em foco. */
+    private fun montarFileiras(ctx: Context) {
+        isFocusable = false
+        descendantFocusability = FOCUS_AFTER_DESCENDANTS
+        cabecalho.visibility = View.GONE
+        titulo.translationX = dp(Estilo.MARGEM_LATERAL.toFloat()); titulo.translationY = dp(Estilo.MARGEM_VERTICAL + 9f)
+        val nome = Estilo.texto(ctx, Estilo.Papel.TITULO).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END; typeface = fonteForte }
+        val sub = Estilo.texto(ctx, Estilo.Papel.CORPO).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setTextColor(Estilo.TEXTO_2) }
+        for (t in listOf(nome, sub)) t.setShadowLayer(dp(6f), 0f, 0f, 0x99000000.toInt())
+        val info = LinearLayout(ctx).apply {
+            orientation = LinearLayout.VERTICAL
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+            addView(nome, LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+            addView(sub, LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(6) })
+        }
+        addView(info, indexOfChild(cartao), LayoutParams(dpi(FIL_INFO_L), LayoutParams.WRAP_CONTENT).apply {
+            marginStart = dpi(Estilo.MARGEM_LATERAL); topMargin = dpi(Estilo.MARGEM_VERTICAL + 64)
+        })
+        val lista = LinearLayout(ctx).apply {
+            orientation = LinearLayout.VERTICAL
+            clipChildren = false; clipToPadding = false
+            setPaddingRelative(dpi(Estilo.MARGEM_LATERAL), dpi(8), 0, dpi(48))
+        }
+        val rolagem = android.widget.ScrollView(ctx).apply {
+            isVerticalScrollBarEnabled = false; isFillViewport = true
+            clipChildren = false; clipToPadding = false
+            overScrollMode = View.OVER_SCROLL_NEVER
+            isFocusable = false
+            addView(lista, android.widget.ScrollView.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+        }
+        addView(rolagem, indexOfChild(cartao), LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT).apply { topMargin = dpi(FIL_TOPO) })
+        filRolagem = rolagem; filLista = lista; filInfoNome = nome; filInfoSub = sub
+    }
+
+    /** O [definir] das Fileiras: mesmos ids = troca textos e capas no lugar (o foco fica); senão refaz as fileiras. */
+    private fun definirFileiras(novas: List<Prateleira>, focar: Pair<String, String?>?) {
+        val sig = novas.flatMap { p -> listOf("#" + p.id) + p.itens.map { it.id } }
+        val antesItem = itemAtual()
+        if (sig == assinatura && focar == null) {
+            prats = novas
+            for ((j, p) in novas.withIndex()) p.itens.forEachIndexed { i, it -> filCartoes.getOrNull(j)?.getOrNull(i)?.let { v -> preencherCartao(v, it) } }
+            atualizarInfo()
+            val agora = itemAtual()
+            if (agora != null && (antesItem?.nome != agora.nome || antesItem.sub != agora.sub)) avisarMudanca()
+            return
+        }
+        val tinhaFoco = hasFocus()
+        val antesPrat = prats.getOrNull(cat)?.id
+        val antesIdx = cat
+        val antigas = prats
+        prats = novas
+        assinatura = sig
+        for (p in novas) {
+            val lembrado = sel[p.id]
+            if (lembrado == null || p.itens.none { it.id == lembrado }) {
+                val antiga = antigas.firstOrNull { it.id == p.id }
+                val i = antiga?.itens?.indexOfFirst { it.id == lembrado }?.takeIf { it >= 0 } ?: 0
+                p.itens.getOrNull(i.coerceAtMost(p.itens.size - 1))?.let { sel[p.id] = it.id }
+            }
+        }
+        cat = when {
+            focar != null -> novas.indexOfFirst { it.id == focar.first }.takeIf { it >= 0 }
+            antesPrat != null -> novas.indexOfFirst { it.id == antesPrat }.takeIf { it >= 0 }
+            else -> null
+        } ?: antesIdx.coerceIn(0, (novas.size - 1).coerceAtLeast(0))
+        focar?.second?.let { id -> novas.getOrNull(cat)?.takeIf { p -> p.itens.any { it.id == id } }?.let { sel[it.id] = id } }
+        montarLinhas()
+        // Foco: quem já tinha, quem pediu (resultado de busca), ou a tela recém-aberta (nada mais na janela com foco).
+        if (tinhaFoco || focar != null || rootView?.findFocus() == null) focarCartao()
+        atualizarInfo()
+        avisarMudanca()
+    }
+
+    private fun montarLinhas() {
+        val lista = filLista ?: return
+        lista.removeAllViews()
+        filCartoes.clear()
+        for ((j, p) in prats.withIndex()) {
+            val cabeca = LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+                addView(ImageView(context).apply {
+                    setImageDrawable(IconeOuvir(p.icone).apply { colorFilter = android.graphics.PorterDuffColorFilter(Estilo.TEXTO_2, android.graphics.PorterDuff.Mode.SRC_IN) })
+                }, LinearLayout.LayoutParams(dpi(20), dpi(20)).apply { marginEnd = dpi(10) })
+                addView(Estilo.texto(context, Estilo.Papel.CORPO, p.nome.replace("\n", " · ")).apply { setTextColor(Estilo.TEXTO_2); maxLines = 1 })
+            }
+            lista.addView(cabeca, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { if (j > 0) topMargin = dpi(26) })
+            val fila = LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                clipChildren = false; clipToPadding = false
+                setPaddingRelative(0, dpi(12), dpi(Estilo.MARGEM_LATERAL), dpi(4))
+            }
+            val cartoes = p.itens.mapIndexed { i, item ->
+                val v = criarCartao(j, i, item)
+                fila.addView(v, LinearLayout.LayoutParams(dpi(FIL_LADO), LayoutParams.WRAP_CONTENT).apply { if (i > 0) marginStart = dpi(FIL_VAO) })
+                v.takeIf { it.isFocusable }
+            }
+            filCartoes += cartoes
+            lista.addView(android.widget.HorizontalScrollView(context).apply {
+                isHorizontalScrollBarEnabled = false; overScrollMode = View.OVER_SCROLL_NEVER
+                clipChildren = false; clipToPadding = false; isFocusable = false
+                addView(fila)
+            }, LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+        }
+    }
+
+    private class Cartao(val caixa: FrameLayout, val capa: CapaOuvir, val icone: ImageView, val nome: TextView)
+
+    private fun criarCartao(j: Int, i: Int, item: Item): View {
+        val capa = CapaOuvir(context).apply { fonte(fonteForte) }
+        val icone = ImageView(context).apply { scaleType = ImageView.ScaleType.FIT_CENTER }
+        val caixaV = FrameLayout(context).apply {
+            background = Estilo.caixa(context)
+            setPadding(dpi(4), dpi(4), dpi(4), dpi(4))   // a borda creme do foco aparece em volta da capa
+            addView(capa, FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
+            addView(icone, FrameLayout.LayoutParams(dpi(40), dpi(40), Gravity.CENTER))
+        }
+        val nome = Estilo.texto(context, Estilo.Papel.CORPO).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setTextColor(Estilo.TEXTO_2) }
+        val pid = prats[j].id
+        val so = item.abrir === NADA && item.opcoes == null
+        return LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            clipChildren = false; clipToPadding = false
+            addView(caixaV, LinearLayout.LayoutParams(dpi(FIL_LADO), dpi(FIL_LADO)))
+            addView(nome, LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(10) })
+            tag = Cartao(caixaV, capa, icone, nome)
+            preencherCartao(this, item)
+            if (so) { alpha = 0.7f; return@apply }   // só informa: não pega o foco (o OK nele não faria nada)
+            isFocusable = true; isClickable = true; isLongClickable = true
+            setOnClickListener { atual(pid, i)?.let { aoSom?.invoke(SonsCruz.Som.ABRIR); apertarCartao(caixaV); it.abrir() } }
+            setOnLongClickListener { atual(pid, i)?.opcoes?.let { it(); true } ?: false }
+            setOnFocusChangeListener { _, foco ->
+                Estilo.focarCartao(caixaV, nome, foco)
+                pintarIcone(icone, foco)
+                if (!foco) return@setOnFocusChangeListener
+                val trocouFila = cat != j
+                cat = j; prats.getOrNull(j)?.itens?.getOrNull(i)?.let { sel[pid] = it.id }
+                if (!filCalado) aoSom?.invoke(if (trocouFila) SonsCruz.Som.GRUPO else SonsCruz.Som.ANDAR)
+                atualizarInfo(); mostrarCartao(isAttachedToWindow && !MolaViews.semAnimacao(this@CruzOuvir)); avisarMudanca()
+            }
+        }
+    }
+
+    /** O item de agora na posição do cartão (a lista pode ter sido trocada no lugar, com textos e ações novos). */
+    private fun atual(pid: String, i: Int): Item? = prats.firstOrNull { it.id == pid }?.itens?.getOrNull(i)
+
+    private fun pintarIcone(v: ImageView, foco: Boolean) =
+        v.setColorFilter(if (foco) Estilo.corIconeNoFoco(context) else Estilo.TEXTO_2)
+
+    private fun preencherCartao(v: View, item: Item) {
+        val c = v.tag as? Cartao ?: return
+        if (c.nome.text.toString() != item.nome) c.nome.text = item.nome
+        v.contentDescription = listOf(item.nome, item.sub.replace('\n', ' ')).filter { it.isNotEmpty() }.joinToString(". ")
+        // Com capa (logo, capa do podcast, ícone do jogo, iniciais/bandeira): a capa enche a caixa. Só ícone (Pausar,
+        // Buscar...): o ícone de linha no meio da caixa de vidro, creme, laranja no foco (o mesmo do [Estilo.cartao]).
+        val comCapa = item.imagem != null || item.capa.isNotEmpty() || item.monograma.isNotEmpty() || item.icone == null
+        c.capa.visibility = if (comCapa) View.VISIBLE else View.GONE
+        c.icone.visibility = if (comCapa) View.GONE else View.VISIBLE
+        if (comCapa) {
+            c.capa.icone = null
+            c.capa.cor = item.cor; c.capa.monograma = item.monograma; c.capa.cobrir = item.cobrir; c.capa.progresso = item.progresso
+            if (item.imagem != null) c.capa.mostrar(item.imagem) else if (item.capa.isNotEmpty()) c.capa.carregar(item.capa, FIL_LADO * 2)
+            c.capa.invalidate()
+        } else if ((c.icone.drawable as? IconeOuvir)?.tipo != item.icone) {
+            c.icone.setImageDrawable(IconeOuvir(item.icone!!))
+            pintarIcone(c.icone, v.isFocused)
+        }
+    }
+
+    private fun apertarCartao(v: View) {
+        if (MolaViews.semAnimacao(this)) return
+        v.animate().cancel()
+        v.animate().scaleX(APERTO).scaleY(APERTO).setDuration(APERTO_MS).withEndAction {
+            v.animate().scaleX(Estilo.ESCALA_CARD).scaleY(Estilo.ESCALA_CARD).setDuration(APERTO_MS * 2).start()
+        }.start()
+    }
+
+    private fun atualizarInfo() {
+        val i = itemAtual()
+        filInfoNome?.text = i?.nome.orEmpty()
+        filInfoSub?.text = i?.sub?.replace("\n", " · ").orEmpty()
+    }
+
+    /** Põe o foco no cartão lembrado da fileira atual (ou no 1º que pega foco). */
+    private fun focarCartao(): Boolean {
+        val v = cartaoDe(cat, prats.getOrNull(cat)?.let { indiceSel(it) } ?: 0) ?: filCartoes.asSequence().flatten().firstOrNull { it != null } ?: return false
+        filCalado = true
+        val ok = v.requestFocus()
+        filCalado = false
+        return ok
+    }
+
+    /** O cartão (j, i) se pega foco; senão o mais perto dele na mesma fileira. */
+    private fun cartaoDe(j: Int, i: Int): View? {
+        val l = filCartoes.getOrNull(j) ?: return null
+        if (l.getOrNull(i) != null) return l[i]
+        return l.withIndex().filter { it.value != null }.minByOrNull { Math.abs(it.index - i) }?.value
+    }
+
+    override fun requestFocus(direction: Int, previouslyFocusedRect: android.graphics.Rect?): Boolean =
+        if (fileiras && filCartoes.isNotEmpty()) focarCartao() else super.requestFocus(direction, previouslyFocusedRect)
+
+    /**
+     * Andar nas Fileiras com o controle: ◀ ▶ dentro da fileira (sem pular para a de baixo), ▲ ▼ de fileira em fileira,
+     * voltando ao cartão em que a pessoa estava nela (como as Fileiras da HOME). Na beira, o som de borda e fica.
+     */
+    override fun focusSearch(focused: View?, direction: Int): View? {
+        if (!fileiras || focused == null) return super.focusSearch(focused, direction)
+        val j = filCartoes.indexOfFirst { l -> l.any { it === focused } }
+        if (j < 0) return super.focusSearch(focused, direction)
+        val i = filCartoes[j].indexOfFirst { it === focused }
+        val alvo: View? = when (direction) {
+            View.FOCUS_LEFT -> filCartoes[j].subList(0, i).lastOrNull { it != null }
+            View.FOCUS_RIGHT -> filCartoes[j].subList(i + 1, filCartoes[j].size).firstOrNull { it != null }
+            View.FOCUS_UP, View.FOCUS_DOWN -> {
+                val passo = if (direction == View.FOCUS_UP) -1 else 1
+                var k = j + passo
+                while (k in filCartoes.indices && filCartoes[k].all { it == null }) k += passo
+                prats.getOrNull(k)?.let { cartaoDe(k, indiceSel(it)) }
+            }
+            else -> return super.focusSearch(focused, direction)
+        }
+        if (alvo == null) { aoSom?.invoke(SonsCruz.Som.BORDA); return focused }
+        return alvo
     }
 }
