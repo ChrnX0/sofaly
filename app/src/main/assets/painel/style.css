@@ -52,7 +52,7 @@
 
 /* Tema escuro (o padrão; também é o que a TV usa). */
 :root {
-  --fundo: #141413;   /* grafite quente, não azul (26/11/2026, Paulo; Mobbin Claude, Todoist, Linear) */                              /* Noite do site (19/11/2026: era #0e1020) */
+  --fundo: #141413;   /* grafite quente, não azul (26/11/2026, Paulo; Mobbin Claude, Todoist, Linear) */
   --superficie: #1f1f1d;        /* cartão: translúcido, como os painéis da TV */
   --superficie2: #2a2a27;       /* campo, botão secundário, bloco dentro de cartão */
   --superficie-hover: #30302d;
@@ -111,25 +111,25 @@
   :root {
     --fundo: var(--t-paper);
     --superficie: #ffffff;
-    --superficie2: rgba(14, 16, 32, .06);
-    --superficie-hover: rgba(14, 16, 32, .10);
+    --superficie2: rgba(20, 20, 19, .06);
+    --superficie-hover: rgba(20, 20, 19, .10);
     --superficie3: #ffffff;
     --flutuante: #ffffff;
-    --afundado: rgba(14, 16, 32, .04);
-    --campo: rgba(14, 16, 32, .06);
+    --afundado: rgba(20, 20, 19, .04);
+    --campo: rgba(20, 20, 19, .06);
     --campo-foco: #ffffff;
-    --borda: rgba(14, 16, 32, .08);
-    --borda-forte: rgba(14, 16, 32, .20);
+    --borda: rgba(20, 20, 19, .08);
+    --borda-forte: rgba(20, 20, 19, .20);
     --texto: var(--t-night);
-    --texto-fraco: #4b4e63;
-    --texto-apagado: #63667c;
+    --texto-fraco: #4d4c48;
+    --texto-apagado: #64635e;
     --acento: var(--t-orange-on-light);
     --acento-texto: #ffffff;
     --acento-hover: #a83200;
     --acento-fundo: rgba(206, 61, 0, .10);
     --foco: var(--t-night);                               /* no claro o "selecionado" é a pílula Noite com letra clara */
     --foco-texto: var(--t-cream);
-    --foco-hover: #24273f;
+    --foco-hover: #2a2a27;
     --perigo: #b3261e;
     --perigo-fundo: rgba(179, 38, 30, .08);
     --perigo-borda: rgba(179, 38, 30, .4);
@@ -146,11 +146,11 @@
     --area-casa: #298def;
     --vidro-topo: rgba(255, 248, 240, .82);
     --vidro-barra: rgba(255, 255, 255, .94);
-    --veu: rgba(14, 16, 32, .45);
+    --veu: rgba(20, 20, 19, .45);
     --brilho: rgba(255, 106, 43, .14);
     --brilho2: transparent;
-    --sombra: 0 16px 40px rgba(14, 16, 32, .16);
-    --sombra-leve: 0 1px 2px rgba(14, 16, 32, .05);
+    --sombra: 0 16px 40px rgba(20, 20, 19, .16);
+    --sombra-leve: 0 1px 2px rgba(20, 20, 19, .05);
     color-scheme: light;
   }
 }
@@ -204,7 +204,7 @@ kbd { font: 700 13px/1 "Nunito", system-ui, sans-serif; padding: 4px 8px; border
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; white-space: nowrap;
   min-height: 48px; padding: 0 20px; border-radius: var(--pilula); border: 1px solid transparent;
   font-size: 17px; font-weight: 700; text-decoration: none; line-height: 1;
-  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), color var(--t-ms-quick), transform .06s;
+  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), color var(--t-ms-quick), transform var(--t-ms-micro);
 }
 /* Em outras línguas o rótulo pode ser bem mais longo ("Verbindung zum Fernseher wird wiederhergestellt"): no
    celular o botão quebra a linha em vez de passar da tela (17/11/2026). */
@@ -385,7 +385,7 @@ details summary { cursor: pointer; color: var(--texto-fraco); margin-top: 12px; 
 .rapido button {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 76px;
   background: var(--superficie2); color: var(--texto); border: 1px solid var(--borda); border-radius: var(--raio-pequeno);
-  cursor: pointer; font: inherit; transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform .06s;
+  cursor: pointer; font: inherit; transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform var(--t-ms-micro);
 }
 .rapido button svg.i { width: 22px; height: 22px; }
 .rapido button:hover { background: var(--superficie-hover); border-color: var(--borda-forte); }
@@ -617,7 +617,7 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .controle { display: flex; flex-direction: column; gap: 16px; align-items: center; }
 .controle button { background: var(--superficie2); color: var(--texto); border: 1px solid var(--borda); border-radius: var(--raio-pequeno);
   min-height: 50px; padding: 0 16px; font: inherit; font-size: 17px; font-weight: 700; cursor: pointer;
-  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform .06s; }
+  transition: background-color var(--t-ms-quick), border-color var(--t-ms-quick), transform var(--t-ms-micro); }
 .controle button:hover { background: var(--superficie-hover); border-color: var(--borda-forte); }
 .controle button:active { transform: scale(.96); }
 .controle .botao-perigo { background: transparent; color: var(--perigo); border-color: var(--borda); }
