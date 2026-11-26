@@ -394,6 +394,7 @@ class MainActivity : Activity() {
         Privilegio.vigiarDepuracaoSemFio(this)   // religa a Depuração sem fio sempre que o Android a desligar
         PrivilegioDO.aplicar(this)   // Device Owner: fixa o nosso protetor e oculta apps substituidos (ver PrivilegioDO.kt)
         PainelWeb.ajustar(this)   // painel no navegador: só abre a porta se estiver ligado e com PIN (ver PainelWeb.kt)
+        br.paulo.tvlauncher.relay.RelayTv.ajustar(this)   // relay: escuta os comandos de fora de casa (só com celular pareado)
         HistoricoRede.iniciar(this)   // histórico de rede (ver HistoricoRede.kt); idempotente
         AutoDesligar.iniciar(this)   // desligar sozinha depois de X min sem controle (ver AutoDesligar.kt)
         AcordarComLg.iniciar(this)   // LG ligou pelo controle dela na entrada do Chromecast: acorda o Chromecast

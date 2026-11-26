@@ -50,6 +50,7 @@ class BootReceiver : BroadcastReceiver() {
         GuardiaoShizuku.garantir(context, "boot")
         McpServidor.ajustar(context); TunelTailscale.ajustar(context)   // MCP pela internet (se ligado)
         PainelWeb.ajustar(context)   // painel no navegador (se ligado): já de pé antes de alguém abrir a HOME
+        br.paulo.tvlauncher.relay.RelayTv.ajustar(context)   // relay: escuta os comandos de fora de casa (só com celular pareado)
         BackupAutomatico.talvezGravar(context)   // cópia diária das configurações (ver BackupAutomatico.kt)
         BackupNoturno.agendar(context)   // o Android esquece os alarmes no boot (backup noturno cifrado, se ligado)
         HistoricoRede.iniciar(context)   // histórico de rede: mede desde o boot

@@ -3,77 +3,54 @@ package br.paulo.tvlauncher.relay
 import org.json.JSONObject
 
 /**
- * Pareamento pelo relay (passo A2, 26/11/2026): o celular aprende a chave da TV pelo QR e a TV aprende a do celular
- * pelo envelope de apresentação que o servidor entrega junto com o código.
+ * Pareamento pelo relay (passo A2, 26/11/2026). As chaves se trocam pelo canal que JÁ é de confiança: o celular
+ * pareado com a TV em casa (QR + certificado fixado + sessão do painel aberta com o PIN do dono) manda as chaves públicas
+ * dele em POST /api/relay/parear e recebe as da TV. Sem tela nova na TV e sem "Permitir?": quem tem a sessão do dono
+ * já pode controlar a TV, e só o dono chega nessa rota (PapeisPainel nega o que não está na lista do papel).
  *
- * 1. A TV pede um código (POST /v1/pairing) e mostra um QR com: código + id da TV + X25519 pública da TV.
- * 2. O celular lê o QR e manda POST /v1/pairing/<código> com a [apresentacao] no corpo. O servidor entrega o corpo na
- *    caixa da TV, com o "from" = id do celular (tirado da assinatura do pedido).
- * 3. A TV [abrirApresentacao]: confere que a Ed25519 do corpo dá o id que o servidor viu, que o código é o que ela está
- *    mostrando, e decifra com a X25519 do celular. Só então pergunta na tela ("Permitir?") e guarda o pareado.
- * Quem não viu o QR não tem a X25519 da TV: não consegue fechar uma apresentação que abra.
+ * Depois disso, fora de casa, o celular fecha envelopes ([RelayEnvelope]) para a TV pelo api.sofaly.tv.
+ * Lógica pura (RelayPairingTest).
  */
 object RelayPairing {
-    const val VERSAO: Byte = 1
-    private const val TIPO_APRESENTACAO = 'I'.code.toByte()
-    private const val CAB = 2 + 32 + 32
-    private val INFO = "sofaly-pair-v1".toByteArray()
-    val CODIGO_RE = Regex("^[A-HJKMNP-Z2-9]{8}$")   // igual ao CODE_RE do servidor (rules.js)
-    const val ESQUEMA = "sofaly://pair"
-
-    data class Qr(val codigo: String, val tvId: String, val tvX: ByteArray)
-
-    fun qrTexto(q: Qr): String = "$ESQUEMA?c=${q.codigo}&t=${q.tvId}&x=${RelayCrypto.b64url(q.tvX)}"
-
-    /** Lê o texto do QR. Null = não é um QR de pareamento da Sofaly (ou está estragado). */
-    fun lerQr(texto: String): Qr? {
-        if (!texto.startsWith("$ESQUEMA?")) return null
-        val campos = texto.substringAfter('?').split('&').mapNotNull { p ->
-            val i = p.indexOf('='); if (i <= 0) null else p.substring(0, i) to p.substring(i + 1)
-        }.toMap()
-        val c = campos["c"] ?: return null; val t = campos["t"] ?: return null
-        val x = runCatching { RelayCrypto.deB64url(campos["x"] ?: return null) }.getOrNull() ?: return null
-        if (!CODIGO_RE.matches(c) || !RelayCrypto.ID_RE.matches(t) || x.size != 32) return null
-        return Qr(c, t, x)
-    }
-
-    private fun chave(meuX: ByteArray, xDele: ByteArray, codigo: String) =
-        RelayCrypto.hkdf(RelayCrypto.xSegredo(meuX, xDele), codigo.toByteArray(Charsets.US_ASCII), INFO)
-
-    private fun aad(cab: ByteArray, codigo: String, tvId: String) = cab + "$codigo|$tvId".toByteArray(Charsets.US_ASCII)
-
-    /** Lado do celular: o corpo do POST /v1/pairing/<código>. [nome] é como o celular aparece na TV. */
-    fun apresentacao(
-        edSeed: ByteArray, x: ByteArray, q: Qr, nome: String, agora: Long,
-        nonce: ByteArray = RelayCrypto.aleatorios(RelayCrypto.NONCE),
-    ): ByteArray {
-        val cab = byteArrayOf(VERSAO, TIPO_APRESENTACAO) + RelayCrypto.edPublica(edSeed) + RelayCrypto.xPublica(x)
-        val texto = JSONObject().put("name", nome.take(40)).put("t", agora).toString().toByteArray()
-        return cab + nonce + RelayCrypto.aesCifrar(chave(x, q.tvX, q.codigo), nonce, texto, aad(cab, q.codigo, q.tvId))
-    }
-
-    /** O que a TV fica sabendo do celular que quer parear (antes de perguntar na tela). */
-    data class Pedido(val id: String, val xPub: ByteArray, val nome: String)
-
-    /** É uma apresentação (e não um envelope comum)? A caixa da TV recebe os dois. */
-    fun ehApresentacao(dados: ByteArray) = dados.size > CAB + RelayCrypto.NONCE + 16 && dados[0] == VERSAO && dados[1] == TIPO_APRESENTACAO
+    data class Pedido(val id: String, val edPub: ByteArray, val xPub: ByteArray, val nome: String)
 
     /**
-     * Lado da TV. [de] = o "from" que o servidor viu; [codigo] = o código que ESTA TV está mostrando agora.
-     * Null = não é para este código, id não bate com a chave, mexida, ou velha (mais de 15 min).
+     * Lê e confere o corpo {id, ed, x, name} (chaves em base64url). Null = faltando, tamanho errado ou id que não vem
+     * da chave Ed25519 (o id é o endereço da caixa postal: não pode ser um id qualquer escolhido pelo pedido).
      */
-    fun abrirApresentacao(meuId: String, meuX: ByteArray, codigo: String, de: String, dados: ByteArray, agora: Long): Pedido? {
-        if (!ehApresentacao(dados) || dados.size > 4096) return null
-        val edPub = dados.copyOfRange(2, 34); val xPub = dados.copyOfRange(34, 66)
-        if (RelayCrypto.idDe(edPub) != de) return null   // o corpo tem que ser de quem assinou o pedido
-        val cab = dados.copyOfRange(0, CAB)
-        val nonce = dados.copyOfRange(CAB, CAB + RelayCrypto.NONCE)
-        val k = runCatching { chave(meuX, xPub, codigo) }.getOrNull() ?: return null
-        val texto = RelayCrypto.aesDecifrar(k, nonce, dados.copyOfRange(CAB + RelayCrypto.NONCE, dados.size), aad(cab, codigo, meuId)) ?: return null
-        val o = runCatching { JSONObject(String(texto, Charsets.UTF_8)) }.getOrNull() ?: return null
-        val t = o.optLong("t", -1)
-        if (t < agora - 15 * 60_000L || t > agora + RelayEnvelope.FOLGA_MS) return null
-        val nome = o.optString("name").replace(Regex("[\\p{Cntrl}]"), "").trim().take(40).ifEmpty { "Celular" }
-        return Pedido(de, xPub, nome)
+    fun lerPedido(o: JSONObject?): Pedido? {
+        o ?: return null
+        val id = o.optString("id")
+        val ed = runCatching { RelayCrypto.deB64url(o.optString("ed")) }.getOrNull() ?: return null
+        val x = runCatching { RelayCrypto.deB64url(o.optString("x")) }.getOrNull() ?: return null
+        if (ed.size != 32 || x.size != 32 || !RelayCrypto.ID_RE.matches(id) || RelayCrypto.idDe(ed) != id) return null
+        val nome = o.optString("name").replace(Regex("\\p{Cntrl}"), "").trim().take(40).ifEmpty { "Celular" }
+        return Pedido(id, ed, x, nome)
     }
+
+    /** O que a TV devolve: o id dela e a X25519 pública (o celular fecha os envelopes com ela). */
+    fun resposta(tvId: String, tvX: ByteArray): JSONObject = JSONObject().put("id", tvId).put("x", RelayCrypto.b64url(tvX))
+
+    // ---------------------------------------------------------------- o que pode vir de fora (lista fechada)
+
+    /** Tipos aceitos pela TV. Qualquer outro é ignorado (e confirmado na caixa, para não voltar). */
+    const val TECLA = "key"
+    const val TEXTO = "text"
+    val TIPOS = setOf(TECLA, TEXTO)
+
+    sealed class Comando {
+        data class Tecla(val nome: String) : Comando()
+        data class Texto(val texto: String) : Comando()
+    }
+
+    /** Traduz uma mensagem aberta num comando da lista fechada; null = fora da lista ou dados ruins. */
+    fun comando(m: RelayEnvelope.Mensagem): Comando? = when (m.tipo) {
+        TECLA -> m.dados.optString("key").takeIf { it.isNotEmpty() && it.length <= 40 }?.let { Comando.Tecla(it) }
+        TEXTO -> m.dados.optString("text").takeIf { it.isNotEmpty() && it.length <= 500 }?.let { Comando.Texto(it) }
+        else -> null
+    }
+
+    /** Mensagem pronta para o celular mandar ([RelayEnvelope.fechar]). */
+    fun tecla(nome: String, agora: Long) = RelayEnvelope.Mensagem(RelayEnvelope.novoId(), agora, TECLA, JSONObject().put("key", nome))
+    fun texto(t: String, agora: Long) = RelayEnvelope.Mensagem(RelayEnvelope.novoId(), agora, TEXTO, JSONObject().put("text", t))
 }

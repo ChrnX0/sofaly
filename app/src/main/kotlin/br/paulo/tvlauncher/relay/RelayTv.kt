@@ -170,11 +170,90 @@ object RelayTv {
         return n
     }
 
+    // ---------------------------------------------------------------- escuta (WebSocket) e a lista fechada
+
+    /** O que fazer com um comando de fora. Mesma porta do painel: as mesmas travas (pergunta na tela, texto válido). */
+    fun tratar(ctx: Context, a: RelayEnvelope.Aberto) {
+        val nome = pareados(ctx).firstOrNull { it.id == a.remetente }?.nome ?: a.remetente
+        val c = RelayPairing.comando(a.mensagem)
+        val motivo = when (c) {
+            is RelayPairing.Comando.Tecla -> br.paulo.tvlauncher.panel.PainelControle.tecla(ctx, c.nome)
+            is RelayPairing.Comando.Texto -> br.paulo.tvlauncher.panel.PainelControle.digitar(ctx, c.texto)
+            null -> "fora da lista (${a.mensagem.tipo.take(20)})"
+        }
+        // O texto em si não vai para o registro (pode ser uma senha), igual ao painel.
+        val acao = when (c) { is RelayPairing.Comando.Tecla -> "tecla ${c.nome}"; is RelayPairing.Comando.Texto -> "digitar ${c.texto.length} caractere(s)"; null -> "ignorado" }
+        br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", acao, motivo ?: "ok")
+    }
+
+    @Volatile private var escutando: Thread? = null
+    @Volatile var conectado = false; private set
+
+    /**
+     * Liga a escuta quando há aparelho pareado (barato e idempotente: chamar à vontade, como o PainelWeb.ajustar).
+     * Laço sem fim numa Thread própria (regra do CLAUDE.md para servidores e vigias): conecta, trata o que chega,
+     * confirma, e reconecta com espera crescente (5 s até 5 min) quando cai.
+     */
+    @Synchronized fun ajustar(ctx: Context) {
+        val app = ctx.applicationContext
+        if (pareados(app).isEmpty() || escutando?.isAlive == true) return
+        escutando = Thread({ laco(app) }, "RelayEscuta").apply { isDaemon = true; start() }
+    }
+
+    private fun laco(app: Context) {
+        var espera = 5_000L
+        while (pareados(app).isNotEmpty()) {
+            val eu = identidade(app) ?: return
+            try {
+                val ws = RelaySocket.conectar(SERVIDOR.removePrefix("https://"), eu.ed, Http.USER_AGENT, System.currentTimeMillis() / 1000)
+                conectado = true; espera = 5_000L
+                Log.i(TAG, "escuta ligada (${eu.id})")
+                ws.tempoDeLeitura(50_000)   // sem nada em 50 s: manda ping (o Cloudflare derruba conexão parada em ~100 s)
+                try {
+                    while (true) {
+                        val msg = try { ws.receber() } catch (_: java.net.SocketTimeoutException) { ws.ping(); continue } ?: break
+                        processar(app, eu, msg)?.let { id -> ws.enviar(JSONObject().put("ack", JSONArray().put(id)).toString()) }
+                    }
+                } finally { ws.fechar(); conectado = false }
+            } catch (e: IOException) {
+                Log.w(TAG, "escuta caiu: ${e.message}")
+            }
+            Thread.sleep(espera)
+            espera = minOf(espera * 2, 5 * 60_000L)
+        }
+        escutando = null
+    }
+
+    /** Uma mensagem do WebSocket ({id, from, created, data}). Devolve o id para o ack (sempre, até lixo), ou null. */
+    private fun processar(app: Context, eu: Identidade, msg: String): String? {
+        val r = RelayEnvelope.lerPendentes("{\"envelopes\":[$msg]}").firstOrNull() ?: return null
+        synchronized(this) {
+            if (!vistosCarregados) { vistos.carregar(prefs(app).getString("vistos", null)); vistosCarregados = true }
+            if (!RelayEnvelope.remetenteConfere(r)) return r.caixaId
+            val chaves = pareados(app).associate { it.id to it.xPub }
+            val agora = System.currentTimeMillis()
+            val a = RelayEnvelope.abrir(eu.id, eu.x, r.dados, agora) { chaves[it] } ?: return r.caixaId
+            if (!vistos.primeiraVez(a.mensagem.id, a.mensagem.t, agora)) return r.caixaId
+            prefs(app).edit().putString("vistos", vistos.paraJson()).apply()
+            runCatching { tratar(app, a) }.onFailure { Log.w(TAG, "tratar: ${it.javaClass.simpleName}") }
+        }
+        return r.caixaId
+    }
+
+    /** Pedido do painel (POST /api/relay/parear, só o dono): guarda o celular e devolve as chaves da TV. */
+    fun parearPeloPainel(ctx: Context, corpo: JSONObject?): JSONObject? {
+        val p = RelayPairing.lerPedido(corpo) ?: return null
+        val eu = identidade(ctx) ?: return null
+        parear(ctx, Pareado(p.id, p.xPub, p.nome))
+        ajustar(ctx)
+        return RelayPairing.resposta(eu.id, eu.xPub)
+    }
+
     /** adb: EXTRAS --es o relay. Mostra o id e testa a caixa postal (sem tratar nada). */
     fun texto(ctx: Context): String {
         val eu = identidade(ctx) ?: return "sem identidade: Keystore falhou"
         val teste = runCatching { pedir(ctx, "GET", "/v1/inbox/pending") }
             .fold({ r -> "HTTP ${r.codigo}, ${RelayEnvelope.lerPendentes(r.corpo).size} pendente(s)" }, { "sem rede: ${it.javaClass.simpleName}" })
-        return "id ${eu.id}; pareados ${pareados(ctx).size}; caixa: $teste"
+        return "id ${eu.id}; pareados ${pareados(ctx).joinToString { it.nome }.ifEmpty { "nenhum" }}; escuta ${if (conectado) "ligada" else "desligada"}; caixa: $teste"
     }
 }
