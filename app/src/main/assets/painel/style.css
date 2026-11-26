@@ -52,20 +52,20 @@
 
 /* Tema escuro (o padrão; também é o que a TV usa). */
 :root {
-  --fundo: var(--t-night);                              /* Noite do site (19/11/2026: era #0e1020) */
-  --superficie: rgba(255, 255, 255, .05);        /* cartão: translúcido, como os painéis da TV */
-  --superficie2: rgba(255, 255, 255, .07);       /* campo, botão secundário, bloco dentro de cartão */
-  --superficie-hover: rgba(255, 255, 255, .11);
-  --superficie3: #1e2136;                        /* coisas que flutuam (aviso, barra de lote) */
-  --flutuante: #191c30;                          /* janelas (modal, busca, prévia): opaco */
+  --fundo: #141413;   /* grafite quente, não azul (26/11/2026, Paulo; Mobbin Claude, Todoist, Linear) */                              /* Noite do site (19/11/2026: era #0e1020) */
+  --superficie: #1f1f1d;        /* cartão: translúcido, como os painéis da TV */
+  --superficie2: #2a2a27;       /* campo, botão secundário, bloco dentro de cartão */
+  --superficie-hover: #30302d;
+  --superficie3: #262624;                        /* coisas que flutuam (aviso, barra de lote) */
+  --flutuante: #1f1f1d;                          /* janelas (modal, busca, prévia): opaco */
   --afundado: rgba(0, 0, 0, .22);                /* lista dentro de cartão, saída de comando */
   --campo: rgba(255, 255, 255, .07);
   --campo-foco: rgba(255, 255, 255, .10);
-  --borda: rgba(255, 255, 255, .07);
-  --borda-forte: rgba(255, 255, 255, .16);
+  --borda: rgba(255, 255, 255, .08);
+  --borda-forte: rgba(255, 255, 255, .14);
   --texto: var(--t-cream);                       /* Creme da marca */
-  --texto-fraco: #c9c3d6;
-  --texto-apagado: #8f8da1;
+  --texto-fraco: #c7c4bd;
+  --texto-apagado: #8f8c86;
   --acento: var(--t-orange);                     /* Laranja = ligado, escolhido, progresso e marca (regra 1); nunca botão comum */
   --acento-texto: #1a0a02;                       /* texto em cima do laranja */
   --acento-hover: #ff8550;
@@ -89,10 +89,10 @@
   --area-apps: var(--t-world-apps);        /* Apps, Instalar apps, Tela inicial (é ela que arruma os apps na cruz) */
   --area-conectado: var(--t-world-network);/* Arquivos, Acesso remoto, Casa: o que fala com outro aparelho */
   --area-casa: var(--t-area-home);         /* Família, Tela e energia: a rotina da casa */
-  --vidro-topo: rgba(18, 21, 40, .72);
-  --vidro-barra: rgba(28, 31, 52, .92);
-  --veu: rgba(6, 7, 16, .66);                    /* atrás de janela */
-  --brilho: rgba(255, 106, 43, .18);             /* luz laranja no canto, a assinatura da Cinema+ */
+  --vidro-topo: rgba(20, 20, 19, .78);
+  --vidro-barra: rgba(31, 31, 29, .94);
+  --veu: rgba(8, 8, 7, .66);                    /* atrás de janela */
+  --brilho: rgba(255, 106, 43, 0);   /* sem luz laranja no canto: no grafite ela vira marrom */             /* luz laranja no canto, a assinatura da Cinema+ */
   --brilho2: transparent;
   /* Medidas: grade de 4/8 e só três raios, os mesmos da TV (Estilo.kt: 8, 16 e pílula) */
   --raio: var(--t-radius-medium);
