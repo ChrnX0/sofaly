@@ -477,8 +477,8 @@ object Estilo {
             background = caixa(ctx)
             addView(desenho, FrameLayout.LayoutParams(dp(ctx, 28), dp(ctx, 28), Gravity.CENTER))
         }
-        val tNome = texto(ctx, Papel.CORPO, nome).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END; setTextColor(TEXTO_2) }
-        val tDet = detalhe?.let { texto(ctx, Papel.LEGENDA, it).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; visibility = View.INVISIBLE } }
+        val tNome = texto(ctx, Papel.CORPO, nome).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setTextColor(TEXTO_2) }   // 2 linhas: nada cortado (6 por fileira)
+        val tDet = detalhe?.let { texto(ctx, Papel.LEGENDA, it).apply { maxLines = 4; ellipsize = TextUtils.TruncateAt.END; visibility = View.INVISIBLE } }
         return LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             clipChildren = false; clipToPadding = false

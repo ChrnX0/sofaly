@@ -439,8 +439,9 @@ class AlarmesActivity : Activity() {
             coluna.aoMudar = {
                 explica.text = when (zona) {
                     2 -> it?.info ?: ""
-                    0 -> getString(R.string.al_op_hora) + ":  ▲▼ " + getString(R.string.al_dica_mudar)
-                    else -> getString(R.string.al_op_minuto) + ":  ▲▼ " + getString(R.string.al_dica_mudar)
+                    // Sem dica de tecla (Paulo, 26/11/2026: "remove de tudo"): só o nome do campo.
+                    0 -> getString(R.string.al_op_hora)
+                    else -> getString(R.string.al_op_minuto)
                 }
             }
             conteudo.addView(CrossColumn.dicas(this@AlarmesActivity,
