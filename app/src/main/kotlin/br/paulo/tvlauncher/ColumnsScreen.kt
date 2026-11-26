@@ -55,7 +55,8 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
         clipChildren = false; clipToPadding = false
         setPaddingRelative(0, dp(Estilo.E1), 0, dp(Estilo.MARGEM_VERTICAL + 16))
     }
-    private val middleScroll = ScrollView(a).apply {
+    // Jeito Guiado (molde do Projectivy, 26/11/2026): a linha com foco fica parada na mesma altura e a lista corre por baixo.
+    private val middleScroll = (if (br.paulo.tvlauncher.home.ScreenStyle.guided(a)) FixedFocusScrollView(a) else ScrollView(a)).apply {
         isVerticalScrollBarEnabled = false; clipChildren = false; clipToPadding = false; isFocusable = false
         isVerticalFadingEdgeEnabled = true; setFadingEdgeLength(dp(48))
         setPaddingRelative(dp(Estilo.E1), 0, dp(Estilo.E1), 0)

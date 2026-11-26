@@ -45,6 +45,8 @@
     <string name="st_telas_vidro">玻璃</string>
     <string name="st_telas_barra">横栏</string>
     <string name="st_telas_painel">侧边面板</string>
+    <string name="st_telas_guiada">引导式</string>
+    <string name="gl_root_desc">这台电视的一切，一步一步来。</string>
     <string name="st_proprios">快捷卡片</string>
     <string name="st_proprios_branco">白色</string>
     <string name="st_proprios_vidro">浅色玻璃</string>

@@ -45,6 +45,8 @@
     <string name="st_telas_vidro">Cam</string>
     <string name="st_telas_barra">Çubuk</string>
     <string name="st_telas_painel">Yan panel</string>
+    <string name="st_telas_guiada">Rehberli</string>
+    <string name="gl_root_desc">Bu TV hakkında her şey, adım adım.</string>
     <string name="st_proprios">Kısayol kartları</string>
     <string name="st_proprios_branco">Beyaz</string>
     <string name="st_proprios_vidro">Açık cam</string>

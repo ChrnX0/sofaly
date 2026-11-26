@@ -92,7 +92,8 @@ internal fun ConfigLauncherActivity.mostrarPortas(foco: Int = PortasConfig.daAba
 
     val portas = PortasConfig.PORTAS.indices.filter { PortasConfig.abasVisiveis(it, uso).isNotEmpty() }
     if (painel) {
-        SidePanel.previa(this, false)
+        if (janelaPainel) SidePanel.previa(this, false)
+        guiaDasPortas()
         portasEmLista(portas, foco)
         mostrarDicaDasPortas()
         return
@@ -183,7 +184,8 @@ private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
         lista.addView(l, LinearLayout.LayoutParams(MATCH, WRAP))
         if (p == foco || focar == null) focar = l
     }
-    grade.addView(android.widget.ScrollView(this).apply {
+    // Guiado: o foco fica parado na mesma altura também nas portas (molde do Projectivy).
+    grade.addView((if (guiado) br.paulo.tvlauncher.FixedFocusScrollView(this) else android.widget.ScrollView(this)).apply {
         isVerticalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
         setPaddingRelative(dp(4), dp(4), dp(4), dp(4))
         addView(lista)
@@ -210,16 +212,17 @@ private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
         val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, getString(FRASES[p])).apply { setPaddingRelative(0, dp(2), 0, 0) }
         addView(LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; addView(tNome); addView(tFrase) },
             LinearLayout.LayoutParams(0, WRAP, 1f))
-        val tSeta = Estilo.texto(context, Estilo.Papel.CORPO, "›").apply { setTextColor(Estilo.TEXTO_3) }
+        val tSeta = Estilo.texto(context, Estilo.Papel.CORPO, if (guiado) "▸" else "›").apply { setTextColor(Estilo.TEXTO_3) }
         addView(tSeta, LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E1) })
         setOnFocusChangeListener { v, f ->
-            v.background = if (f) Estilo.fundoFocado(context, Estilo.RAIO) else null
-            val escura = f && Estilo.focoEscurece(context)
+            v.background = when { !f -> null; guiado -> Estilo.fundo(context, 0x2EFFFFFF, Estilo.RAIO_PILULA); else -> Estilo.fundoFocado(context, Estilo.RAIO) }
+            val escura = f && !guiado && Estilo.focoEscurece(context)
             tNome.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tFrase.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
             tSeta.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
             acenderIcone(context, ic, f)
-            v.animate().scaleX(if (f) Estilo.ESCALA_LINHA else 1f).scaleY(if (f) Estilo.ESCALA_LINHA else 1f).setDuration(Estilo.FOCO_MS).start()
+            val escala = if (f && !guiado) Estilo.ESCALA_LINHA else 1f
+            v.animate().scaleX(escala).scaleY(escala).setDuration(Estilo.FOCO_MS).start()
             if (f) mostrarDicaDasPortas()
         }
         setOnClickListener { abrirPorta(p) }
@@ -334,7 +337,7 @@ internal fun ConfigLauncherActivity.abrirPorta(p: Int, aba: Int? = null) {
     grade.visibility = View.GONE
     colunas.visibility = View.VISIBLE
     // Painel: na "Tela inicial" a HOME atrás fica nítida e muda na hora (a prévia); nas outras portas ela escurece.
-    if (painel) SidePanel.previa(this, p == 0)
+    if (janelaPainel) SidePanel.previa(this, p == 0)
     abaAtual = alvo
     mostrarAba(alvo)
     mostrarAbasDoUso()
@@ -412,4 +415,21 @@ internal fun iconeDoMenu(tipo: IconeCruz.Tipo): IconeCruz = IconeCruz(tipo, Icon
 
 internal fun acenderIcone(ctx: android.content.Context, ic: IconeCruz, foco: Boolean) {
     ic.corFixa = when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.ACENTO }
+}
+
+/** Nome de uma porta (a da casa e rede tem nome próprio; as outras usam o da 1ª aba). */
+private fun ConfigLauncherActivity.nomeDaPorta(p: Int): String =
+    if (p == PORTA_CASA_REDE) getString(R.string.cfg3_porta_casa_rede) else abas[PortasConfig.PORTAS[p].first()].titulo
+
+/** Guiado: a coluna da esquerda nas portas = "Sofaly", "Configurações" e o que se faz aqui. */
+internal fun ConfigLauncherActivity.guiaDasPortas() {
+    guia?.mostrar(getString(R.string.app_nome), getString(R.string.cfg_titulo), getString(R.string.gl_root_desc), IconeCruz.Tipo.AJUSTE)
+}
+
+/** Guiado: a coluna da esquerda numa aba = caminho (Configurações › porta), nome da aba, explicação e o ícone dela. */
+internal fun ConfigLauncherActivity.guiaDaAba(i: Int) {
+    val aba = abas.getOrNull(i) ?: return
+    val porta = nomeDaPorta(PortasConfig.daAba(i))
+    val trilha = getString(R.string.cfg_titulo) + if (porta != aba.titulo) "  ›  $porta" else ""
+    guia?.mostrar(trilha, aba.titulo, aba.explica, aba.icone)
 }

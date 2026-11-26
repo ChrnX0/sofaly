@@ -45,6 +45,8 @@
     <string name="st_telas_vidro">Vetro</string>
     <string name="st_telas_barra">Barra</string>
     <string name="st_telas_painel">Pannello laterale</string>
+    <string name="st_telas_guiada">Guidata</string>
+    <string name="gl_root_desc">Tutto su questa TV, un passo alla volta.</string>
     <string name="st_proprios">Schede scorciatoia</string>
     <string name="st_proprios_branco">Bianco</string>
     <string name="st_proprios_vidro">Vetro chiaro</string>

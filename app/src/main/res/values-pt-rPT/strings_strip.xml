@@ -45,6 +45,8 @@
     <string name="st_telas_vidro">Vidro</string>
     <string name="st_telas_barra">Barra</string>
     <string name="st_telas_painel">Painel lateral</string>
+    <string name="st_telas_guiada">Guiada</string>
+    <string name="gl_root_desc">Tudo sobre esta TV, um passo de cada vez.</string>
     <string name="st_proprios">Cartões de atalho</string>
     <string name="st_proprios_branco">Branco</string>
     <string name="st_proprios_vidro">Vidro claro</string>

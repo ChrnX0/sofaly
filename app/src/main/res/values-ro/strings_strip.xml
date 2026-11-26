@@ -46,6 +46,8 @@
     <string name="st_telas_vidro">Sticlă</string>
     <string name="st_telas_barra">Bară</string>
     <string name="st_telas_painel">Panou lateral</string>
+    <string name="st_telas_guiada">Ghidat</string>
+    <string name="gl_root_desc">Totul despre acest televizor, pas cu pas.</string>
     <string name="st_proprios">Carduri de comenzi rapide</string>
     <string name="st_proprios_branco">Alb</string>
     <string name="st_proprios_vidro">Sticlă deschisă</string>

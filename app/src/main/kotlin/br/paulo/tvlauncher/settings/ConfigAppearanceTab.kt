@@ -92,7 +92,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     }
     secao(c, getString(R.string.cfg_sec_leitura))
     // Tamanho do texto (ideia 47, TamanhoTexto): vale em todas as telas do launcher; esta tela se refaz para mostrar.
-    fun rotuloTamanho(v: Int) = getString(when (v) { 110 -> R.string.tt_grande; 120 -> R.string.tt_maior; else -> R.string.tt_normal })
+    fun rotuloTamanho(v: Int) = if (v < 100) "$v%" else getString(when (v) { 110 -> R.string.tt_grande; 120 -> R.string.tt_maior; else -> R.string.tt_normal })
     c.addView(linha(getString(R.string.tt_titulo), getString(R.string.tt_det), valor = rotuloTamanho(TamanhoTexto.atual(this))) {
         TamanhoTexto.definir(this, TamanhoTexto.proximo(TamanhoTexto.atual(this)))
         recreate()

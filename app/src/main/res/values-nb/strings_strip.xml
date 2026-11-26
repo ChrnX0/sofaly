@@ -34,6 +34,8 @@
     <string name="st_telas_vidro">Glass</string>
     <string name="st_telas_barra">Linje</string>
     <string name="st_telas_painel">Sidepanel</string>
+    <string name="st_telas_guiada">Veiledet</string>
+    <string name="gl_root_desc">Alt om denne TV-en, ett steg om gangen.</string>
     <string name="st_fundo">Bakgrunn</string>
     <string name="st_fundo_vale">Dal</string>
     <string name="st_fundo_serra">Fjell</string>

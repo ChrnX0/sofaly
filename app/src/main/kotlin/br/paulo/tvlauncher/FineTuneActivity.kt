@@ -219,7 +219,7 @@ class FineTuneActivity : Activity() {
         val personalidades = listOf(R.string.st_pers_cor, R.string.st_pers_brilho, R.string.cruz_azulejo)
         val animsMundo = listOf(R.string.st_anim_cena, R.string.st_anim_luz, R.string.st_anim_pulo)
         val B = br.paulo.tvlauncher.home.StripBackground
-        val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra, R.string.st_telas_painel)
+        val jeitos = listOf(R.string.st_telas_gaveta, R.string.st_telas_vidro, R.string.st_telas_barra, R.string.st_telas_painel, R.string.st_telas_guiada)
         val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
         return listOf(
             Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },

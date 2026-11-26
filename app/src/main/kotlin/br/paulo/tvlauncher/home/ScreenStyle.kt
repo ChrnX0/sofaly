@@ -23,11 +23,17 @@ enum class ScreenStyle {
      * Configurações usam o painel; as outras telas de lista ficam na Gaveta até os menus entrarem no mesmo vidro.
      * Fica no fim da lista: o número gravado das outras escolhas não muda.
      */
-    PANEL;
+    PANEL,
+    /**
+     * Tela guiada (Paulo, 26/11/2026: "adota tudo do Projectivy, depois vou modificando"; padrão). As Configurações
+     * ocupam a tela: à esquerda o azulejo, o caminho, o título no acento e a explicação; à direita a lista estreita com o
+     * foco parado na mesma altura ([br.paulo.tvlauncher.settings.GuidedLayout]). Fica no fim da lista pelo mesmo motivo.
+     */
+    GUIDED;
 
     companion object {
         const val KEY = "screen_style"
-        val DEFAULT = PANEL
+        val DEFAULT = GUIDED
         fun deNumero(n: Int): ScreenStyle = entries.getOrNull(n) ?: DEFAULT
         fun of(ctx: Context): ScreenStyle = deNumero(Extras.numero(ctx, KEY, -1))
         fun set(ctx: Context, s: ScreenStyle) = Extras.definirNumero(ctx, KEY, s.ordinal)
@@ -36,6 +42,8 @@ enum class ScreenStyle {
             BottomBar.strip(ctx) && of(ctx) == STRIP && !br.paulo.tvlauncher.Estilo.altoContraste
         /** As Configurações abrem no painel ao lado? Fora do alto contraste (que pede a tela chapada, sem nada por trás). */
         fun panel(ctx: Context): Boolean = of(ctx) == PANEL && !br.paulo.tvlauncher.Estilo.altoContraste
+        /** As Configurações abrem na tela guiada (o molde do Projectivy)? Também fora do alto contraste. */
+        fun guided(ctx: Context): Boolean = of(ctx) == GUIDED && !br.paulo.tvlauncher.Estilo.altoContraste
         /** As telas de lista descem na gaveta? A Gaveta, e o Painel enquanto só as Configurações usam o painel. */
         fun drawer(ctx: Context): Boolean = of(ctx).let { it == DRAWER || it == PANEL }
         fun next(ctx: Context, passo: Int): ScreenStyle =

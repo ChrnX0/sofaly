@@ -155,6 +155,11 @@ class ConfigLauncherActivity : Activity() {
     internal var abaAtual = 0
     /** Painel ao lado (ScreenStyle.PANEL, 25/11/2026): a tela é um vidro à direita por cima da HOME viva ([SidePanel]). */
     internal var painel = false
+    /** A janela é mesmo o vidro ao lado da HOME (só no jeito PANEL); [painel] também vale no GUIADO (lista estreita). */
+    internal var janelaPainel = false
+    /** Jeito GUIADO (ScreenStyle.GUIDED, 26/11/2026, molde do Projectivy): explicação à esquerda, lista estreita à direita. */
+    internal var guiado = false
+    internal var guia: br.paulo.tvlauncher.settings.GuidedPane? = null
     /** O que segura o menu das abas (no painel, uma fileira em cima que some quando a porta tem uma aba só). */
     internal lateinit var caixaMenu: View
     private var naGradeAoAbrir = false
@@ -186,7 +191,10 @@ class ConfigLauncherActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        painel = SidePanel.janela(this, br.paulo.tvlauncher.home.ScreenStyle.panel(this))
+        guiado = br.paulo.tvlauncher.home.ScreenStyle.guided(this)
+        janelaPainel = SidePanel.janela(this, br.paulo.tvlauncher.home.ScreenStyle.panel(this))
+        // O GUIADO usa a mesma lista estreita do painel (abas numa fileira em cima, ◀▶ mudam o valor), em tela cheia.
+        painel = janelaPainel || guiado
         // Elevação 2.11: toda mudança feita aqui vira um passo com "Desfazer" por 10 s (Desfazer.kt).
         VigiaDesfazer.ligar(this, getString(R.string.desf_rot_config), mostrarBarra = false) { if (::conteudo.isInitialized) recarregarAba() }
         abaAtual = (savedInstanceState?.getInt(EXTRA_ABA) ?: intent.getIntExtra(EXTRA_ABA, 0)).coerceIn(0, abas.size - 1)
@@ -216,7 +224,7 @@ class ConfigLauncherActivity : Activity() {
     private fun abrirTela() {
         val tela = montarTela()
         setContentView(tela)
-        if (painel) SidePanel.entrar(this, tela, previa = !naGradeAoAbrir && PortasConfig.daAba(abaAtual) == 0)
+        if (janelaPainel) SidePanel.entrar(this, tela, previa = !naGradeAoAbrir && PortasConfig.daAba(abaAtual) == 0)
         mostrarAba(abaAtual)
         // Sem aba pedida (abriu pelo painel rápido ou pela cruz): começa nas seis portas. Com aba (atalho de outra tela, ou a
         // tela recriada dentro de uma porta): abre direto na porta dela.
@@ -245,13 +253,13 @@ class ConfigLauncherActivity : Activity() {
     /** Painel: sai deslizando em 150 ms antes de fechar (sem a animação de janela do sistema, que cortava o vidro). */
     override fun finish() {
         val raiz = (findViewById<ViewGroup>(android.R.id.content))?.getChildAt(0)
-        if (!painel || saindo || raiz == null || !raiz.isAttachedToWindow) { super.finish(); semAnimacaoDeJanela(); return }
+        if (!janelaPainel || saindo || raiz == null || !raiz.isAttachedToWindow) { super.finish(); semAnimacaoDeJanela(); return }
         saindo = true
         SidePanel.sair(this, raiz) { super.finish(); semAnimacaoDeJanela() }
     }
 
     @Suppress("DEPRECATION")
-    private fun semAnimacaoDeJanela() { if (painel) overridePendingTransition(0, 0) }
+    private fun semAnimacaoDeJanela() { if (janelaPainel) overridePendingTransition(0, 0) }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -289,10 +297,12 @@ class ConfigLauncherActivity : Activity() {
             setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL - 7))   // a mesma margem da HOME
             // Painel ao lado: o vidro é o fundo da própria janela (SidePanel); aqui só a margem de dentro dele.
             if (painel) { background = null; val m = dp(SidePanel.MARGEM_DP); setPaddingRelative(m, m, m, dp(Estilo.E2)) }
+            // Guiado: a lista começa no alto (o foco parado fica a 39% da tela) e encosta na margem da direita.
+            if (guiado) setPaddingRelative(0, dp(Estilo.MARGEM_VERTICAL), dp(Estilo.MARGEM_LATERAL), dp(Estilo.E2))
             // A pílula com foco cresce 2% e passa um pouco da margem: sem isto a borda esquerda dela saía cortada (TV, 10/11/2026).
             clipChildren = false; clipToPadding = false
         }
-        raiz.addView(Estilo.tituloTela(this, getString(R.string.cfg_titulo)))
+        if (!guiado) raiz.addView(Estilo.tituloTela(this, getString(R.string.cfg_titulo)))   // no guiado o título mora na explicação
 
         colunas = LinearLayout(this).apply { orientation = if (painel) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL; clipChildren = false }
         if (painel) {
@@ -322,7 +332,8 @@ class ConfigLauncherActivity : Activity() {
             setPaddingRelative(dp(12), dp(4), dp(24), dp(24))
             if (painel) setPaddingRelative(dp(4), dp(4), dp(4), dp(Estilo.E3))
         }
-        rolagem = ScrollView(this).apply {
+        // Guiado: foco parado na mesma altura (FixedFocusScrollView), a lista corre por baixo dele.
+        rolagem = (if (guiado) br.paulo.tvlauncher.FixedFocusScrollView(this) else ScrollView(this)).apply {
             isVerticalScrollBarEnabled = false; clipChildren = false; isSmoothScrollingEnabled = true; addView(conteudo)
             // Corta em cima e embaixo (o conteúdo não passa por cima do título nem da barra de dicas), mas deixa 16 dp de folga
             // dos lados para a linha com foco crescer sem ser cortada. A raiz não corta mais na margem (ver acima).
@@ -344,9 +355,19 @@ class ConfigLauncherActivity : Activity() {
         rodape.addView(dica, LinearLayout.LayoutParams(0, WRAP, 1f))
         rodape.addView(SofalyWordmark(this, dp(26).toFloat()).apply { setPaddingRelative(0, dp(12), 0, 0) },
             LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E3) })
-        raiz.addView(rodape, LinearLayout.LayoutParams(MATCH, WRAP))
         mostrarDica(noMenu = true)
-        return raiz
+        if (!guiado) { raiz.addView(rodape, LinearLayout.LayoutParams(MATCH, WRAP)); guia = null; return raiz }
+        // Guiado: [explicação | lista]. A barra de dicas e a marca descem para a coluna larga (na lista estreita apertavam).
+        val g = br.paulo.tvlauncher.settings.GuidedPane(this)
+        g.rodape.addView(rodape, LinearLayout.LayoutParams(MATCH, WRAP))
+        guia = g
+        return LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            background = Estilo.fundoTela(context)
+            clipChildren = false; clipToPadding = false
+            addView(g, LinearLayout.LayoutParams(0, MATCH, 1f))
+            addView(raiz, LinearLayout.LayoutParams(dp(br.paulo.tvlauncher.settings.GuidedPane.LISTA_DP + Estilo.MARGEM_LATERAL), MATCH))
+        }
     }
 
     /** Uso "Simples"/"Para quem cuida" (UsoTv, degrau 2): as abas técnicas somem do menu (a aberta agora fica). */
@@ -412,8 +433,11 @@ class ConfigLauncherActivity : Activity() {
         conteudo.removeAllViews()
         rolagem.scrollTo(0, 0)
         val aba = abas[i]
+        if (guiado) { if (indexando < 0) guiaDaAba(i) }   // título e explicação vão para a coluna da esquerda
+        else {
         conteudo.addView(Estilo.texto(this, Estilo.Papel.TITULO, aba.titulo).apply { textSize = 24f; setPaddingRelative(dp(8), dp(4), 0, 0) })   // menor que o título da tela (crítica 19/11/2026)
         conteudo.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, aba.explica).apply { setPaddingRelative(dp(8), dp(6), 0, dp(12)) })
+        }
         secoesDaAba.clear()
         aba.montar(conteudo)
         // Modo Simples (23/11/2026): até 8 linhas e "Mais ajustes"; sem índice nem "Conversa com", que são para quem explora.
@@ -1375,8 +1399,14 @@ class ConfigLauncherActivity : Activity() {
 
     /** Superfície das linhas e cartões (sistema de design): repouso = branco 6% com fio; foco = branco sólido. */
     // Régua 22/11/2026: a linha não tem caixa (um fio embaixo separa); o foco segue Ajuste fino > Foco.
-    internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable =
-        if (focado) Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this)) else Estilo.fioBaixo(this)
+    private val PILULA_GUIADA = 0x2EFFFFFF
+
+    internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable? = when {
+        // Guiado (molde do Projectivy): sem fio entre as linhas; foco = pílula clara de ponta a ponta, sem borda.
+        guiado -> if (focado) Estilo.fundo(this, PILULA_GUIADA, Estilo.RAIO_PILULA) else null
+        focado -> Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this))
+        else -> Estilo.fioBaixo(this)
+    }
 
     /**
      * A linha das Configurações: [título / detalhe] à esquerda e um acessório à direita (chave, valor ou seta).
@@ -1395,6 +1425,10 @@ class ConfigLauncherActivity : Activity() {
         private var trilho: View? = null
         private var bolinha: View? = null
         private var tValor: TextView? = null
+        /** Guiado: o valor escolhido na 2ª linha, embaixo do nome ("Escuro", "5 min"), como no Projectivy. */
+        private val tValorBaixo = Estilo.texto(ctx, Estilo.Papel.CORPO).apply {
+            maxLines = 1; ellipsize = TextUtils.TruncateAt.MIDDLE; visibility = View.GONE; setPaddingRelative(0, dp(2), 0, 0)
+        }
         /** ◀ numa linha de valor: volta um passo (quem monta a linha diz como; sem isto, ◀ não muda nada). */
         var anterior: (() -> Unit)? = null
         /** O nome com que o UsoLocal conta esta linha ("opcao:<título>"); o modo Simples mostra as mais usadas. */
@@ -1417,7 +1451,7 @@ class ConfigLauncherActivity : Activity() {
             orientation = HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             setPaddingRelative(dp(Estilo.E3), dp(14), dp(Estilo.E3), dp(14))
-            val textos = LinearLayout(ctx).apply { orientation = VERTICAL; addView(tTitulo); addView(tDetalhe) }
+            val textos = LinearLayout(ctx).apply { orientation = VERTICAL; addView(tTitulo); addView(tValorBaixo); addView(tDetalhe) }
             addView(textos, LayoutParams(0, WRAP, 1f))
             addView(direita, LayoutParams(WRAP, WRAP).apply { marginStart = dp(16) })
             if (focavel) {
@@ -1428,8 +1462,9 @@ class ConfigLauncherActivity : Activity() {
                     focada = temFoco
                     v.background = vidro(temFoco)
                     pintarTextos()
-                    v.animate().scaleX(if (temFoco) Estilo.ESCALA_LINHA else 1f).scaleY(if (temFoco) Estilo.ESCALA_LINHA else 1f)
-                        .setDuration(Estilo.FOCO_MS).start()
+                    // Guiado: a pílula não cresce (no Projectivy só a faixa clara aparece; a linha fica parada no lugar).
+                    val escala = if (temFoco && !guiado) Estilo.ESCALA_LINHA else 1f
+                    v.animate().scaleX(escala).scaleY(escala).setDuration(Estilo.FOCO_MS).start()
                     if (temFoco) mostrarDica(noMenu = false)
                 }
             }
@@ -1447,7 +1482,8 @@ class ConfigLauncherActivity : Activity() {
 
         /** Foco = linha branca: os textos escurecem (o valor também; laranja ficou só para marca, foco e progresso). */
         private fun pintarTextos() {
-            val escura = focada && Estilo.focoEscurece(context)   // só o Quadro (fundo branco) escurece o texto
+            val escura = focada && !guiado && Estilo.focoEscurece(context)   // só o Quadro (fundo branco) escurece o texto
+            tValorBaixo.setTextColor(if (guiado) Estilo.ACENTO else Estilo.TEXTO_2)
             tTitulo.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tDetalhe.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
             tValor?.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)   // valor sem laranja (crítica de design 19/11/2026)
@@ -1499,14 +1535,18 @@ class ConfigLauncherActivity : Activity() {
                 direita.addView(it, FrameLayout.LayoutParams(WRAP, WRAP, Gravity.CENTER_VERTICAL or Gravity.END))
                 tValor = it
             }
-            t.text = "$v  ›"
+            if (guiado) {   // ▾ = abre uma lista de opções; o valor desce para baixo do nome
+                tValorBaixo.text = v; tValorBaixo.visibility = View.VISIBLE
+                t.text = "▾"
+            } else t.text = "$v  ›"
             pintarTextos()
         }
 
         fun seta() {
             direita.removeAllViews()
             // A mesma seta do valor ("Escuro  ›"): antes era uma seta fina no tamanho de título, de outro desenho.
-            direita.addView(Estilo.texto(context, Estilo.Papel.CORPO, "›").also { tSeta = it })
+            // Guiado: ▸ = abre outra página (o sinal do Projectivy); nos outros jeitos, a seta fina de sempre.
+            direita.addView(Estilo.texto(context, Estilo.Papel.CORPO, if (guiado) "▸" else "›").also { tSeta = it })
             pintarTextos()
         }
     }

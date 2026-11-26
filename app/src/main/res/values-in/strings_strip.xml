@@ -45,6 +45,8 @@
     <string name="st_telas_vidro">Kaca</string>
     <string name="st_telas_barra">Bilah</string>
     <string name="st_telas_painel">Panel samping</string>
+    <string name="st_telas_guiada">Terpandu</string>
+    <string name="gl_root_desc">Semua tentang TV ini, selangkah demi selangkah.</string>
     <string name="st_proprios">Kartu pintasan</string>
     <string name="st_proprios_branco">Putih</string>
     <string name="st_proprios_vidro">Kaca terang</string>
