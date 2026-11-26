@@ -82,6 +82,15 @@ private fun MainActivity.escolherTamanho(cat: CruzLogica.Categoria) {
     }
 }
 
+/** Linhas de cards do mundo nas Fileiras (bloco 3): 1 = fileira comum; 2 ou 3 = grade (◀ ▶ andam por coluna). */
+private fun MainActivity.escolherLinhas(cat: CruzLogica.Categoria) {
+    val o = WorldOptions.of(this, cat)
+    val rotulos = (1..WorldOptions.MAX_LINES).map<Int, CharSequence> { if (it == 1) getString(R.string.rw_linhas_1) else getString(R.string.rw_linhas_n, it) }
+    menuAberto = Estilo.lista(this, getString(R.string.rw_linhas), rotulos, marcadas = listOf(o.lines - 1)) { i ->
+        WorldOptions.save(this, cat, o.copy(lines = i + 1)); atualizarAposMudanca(null)
+    }
+}
+
 internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     if (TravaHome.precisaPin(this)) { TravaHome.comPin(this) { menuDoMundo(cat, nome) }; return }
     val o = WorldOptions.of(this, cat)
@@ -98,6 +107,7 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     }
     if (BottomBar.strip(this)) opcoes += MainActivity.Opcao(getString(R.string.wo_cards)) { escolherCards(cat) }
     if (BottomBar.rows(this)) opcoes += MainActivity.Opcao(getString(R.string.rw_tamanho)) { escolherTamanho(cat) }
+    if (BottomBar.rows(this)) opcoes += MainActivity.Opcao(getString(R.string.rw_linhas)) { escolherLinhas(cat) }
     // Só o ícone na linha (Paulo, 22/11/2026): o nome some da cruz e fica na pílula do topo quando a categoria tem o foco.
     // Na barra única a cruz não aparece: a troca não mudaria nada e sai do menu (onda A, 25/11/2026).
     if (!BottomBar.strip(this) && !BottomBar.rows(this)) opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {

@@ -70,4 +70,7 @@
     <string name="rw_alto">Alto</string>
     <string name="rw_baixo">Baixo</string>
     <string name="rw_mais_baixo">Mais baixo</string>
+    <string name="rw_linhas">Linhas de cards nesta categoria</string>
+    <string name="rw_linhas_1">Uma fileira</string>
+    <string name="rw_linhas_n">Grade de %1$d linhas</string>
 </resources>

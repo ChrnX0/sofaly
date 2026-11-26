@@ -106,6 +106,20 @@ class StripHomeTest {
     }
 
     /** Grade de 2 linhas: 5 itens = colunas [0,1] [2,3] [4]. */
+    @Test fun gradeDeTresLinhasDasFileiras() {
+        // 7 cards: colunas [0,1,2] [3,4,5] [6]
+        fun g(t: Tecla, sel: Int) = StripHome.passo(t, 1, sel, 7, linhas = 3)
+        assertEquals("▼ desce na coluna", 2, g(Tecla.BAIXO, 1).paraSel)
+        assertEquals("▼ na última linha vai ao mundo de baixo", StripHome.Passo(Tecla.DIREITA), g(Tecla.BAIXO, 5))
+        assertEquals("▲ sobe na coluna", 3, g(Tecla.CIMA, 4).paraSel)
+        assertEquals("▲ na 1ª linha vai ao mundo de cima", StripHome.Passo(Tecla.ESQUERDA), g(Tecla.CIMA, 3))
+        assertEquals("▶ mesma linha da coluna seguinte", 4, g(Tecla.DIREITA, 1).paraSel)
+        assertEquals("▶ coluna curta: o último card", 6, g(Tecla.DIREITA, 5).paraSel)
+        assertNull("▶ na última coluna para", g(Tecla.DIREITA, 6).paraSel)
+        assertNull("◀ na 1ª coluna para", g(Tecla.ESQUERDA, 2).paraSel)
+        assertEquals("▼ no último card (coluna curta) vai ao mundo de baixo", StripHome.Passo(Tecla.DIREITA), g(Tecla.BAIXO, 6))
+    }
+
     @Test fun gradeDeDuasLinhas() {
         fun g(t: Tecla, sel: Int, cat: Int = 1) = StripHome.passo(t, cat, sel, 5, grade = true)
         assertEquals("▶ pula a coluna", 2, g(Tecla.DIREITA, 0).paraSel)

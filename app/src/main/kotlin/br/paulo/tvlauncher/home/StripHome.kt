@@ -154,21 +154,23 @@ object StripHome {
      * Grade de 2 linhas ([grade], [n] itens): o item i fica na coluna i/2, linha i%2. ◀ ▶ pulam de coluna ([Passo.paraSel]);
      * ▼ na linha de cima desce para a de baixo, ▲ na de baixo sobe; nas bordas, troca o mundo como sempre.
      */
-    fun passo(t: CruzLogica.Tecla, cat: Int, sel: Int, n: Int = 0, grade: Boolean = false): Passo {
-        if (grade && n > 0) {
-            val linha = sel % 2
+    fun passo(t: CruzLogica.Tecla, cat: Int, sel: Int, n: Int = 0, grade: Boolean = false, linhas: Int = if (grade) 2 else 1): Passo {
+        // Grade de [linhas] linhas (barra: 2; Fileiras: 1 a 3 por mundo). Card i fica na coluna i / L, linha i % L.
+        val l = linhas.coerceAtLeast(1)
+        if (l > 1 && n > 0) {
+            val linha = sel % l
             when (t) {
-                CruzLogica.Tecla.ESQUERDA -> return Passo(null, paraSel = (sel - 2).takeIf { it >= 0 })
+                CruzLogica.Tecla.ESQUERDA -> return Passo(null, paraSel = (sel - l).takeIf { it >= 0 })
                 CruzLogica.Tecla.DIREITA -> {
                     val alvo = when {
-                        sel + 2 < n -> sel + 2
-                        (n - 1) / 2 > sel / 2 -> n - 1   // a última coluna só tem a linha de cima
+                        sel + l < n -> sel + l
+                        (n - 1) / l > sel / l -> n - 1   // a última coluna é mais curta: vai ao último card
                         else -> null
                     }
                     return Passo(null, paraSel = alvo)
                 }
-                CruzLogica.Tecla.BAIXO -> if (linha == 0 && sel + 1 < n) return Passo(null, paraSel = sel + 1)
-                CruzLogica.Tecla.CIMA -> if (linha == 1) return Passo(null, paraSel = sel - 1)
+                CruzLogica.Tecla.BAIXO -> if (linha < l - 1 && sel + 1 < n) return Passo(null, paraSel = sel + 1)
+                CruzLogica.Tecla.CIMA -> if (linha > 0) return Passo(null, paraSel = sel - 1)
                 else -> {}
             }
         }

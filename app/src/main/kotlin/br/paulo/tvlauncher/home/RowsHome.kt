@@ -162,16 +162,31 @@ object RowsHome {
      * Centro vertical (dp) dos cards da fileira [linha] com a [foco] escolhida, numa tela de [altura] dp. Com o foco
      * parado, a fileira em foco fica sempre na mesma altura; sem ele, as fileiras não andam até a escolhida sair da tela.
      */
-    fun centroDaFileira(linha: Int, foco: Int, altura: Float, o: Options): Float {
+    fun centroDaFileira(linha: Int, foco: Int, altura: Float, o: Options, extras: FloatArray? = null): Float {
         val base = altura * FOCO_Y + o.top.dp
         val baixo = if (o.spacing == Spacing.AUTO) PASSO_BAIXO else altura * o.spacing.pct
         val cima = if (o.spacing == Spacing.AUTO) PASSO_CIMA else baixo * (PASSO_CIMA / PASSO_BAIXO)
+        fun ex(j: Int) = extras?.getOrNull(j) ?: 0f
         // Solto: a 1ª fileira começa logo abaixo da hora e a escolhida desce até a altura do foco parado; dali, as
         // fileiras sobem (como uma lista comum). Parado: a escolhida está sempre na mesma altura.
-        val focoY = if (o.fixed) base else minOf(base, INICIO_SOLTO + foco * cima)
-        val d = linha - foco
-        return if (d >= 0) focoY + d * baixo else focoY + d * cima
+        var focoY = if (o.fixed) base else minOf(base, INICIO_SOLTO + (0 until foco).sumOf { (cima + ex(it)).toDouble() }.toFloat())
+        // Grade em foco: sobe o bastante para as linhas de baixo e o nome caberem na tela
+        if (ex(foco) > 0f) focoY = minOf(focoY, altura - ex(foco) - NOME_ABAIXO - MARGEM_BAIXO).coerceAtLeast(INICIO_SOLTO)
+        return when {
+            linha == foco -> focoY
+            linha > foco -> focoY + (foco until linha).sumOf { (baixo + ex(it)).toDouble() }.toFloat()
+            else -> focoY - (linha until foco).sumOf { (cima + ex(it)).toDouble() }.toFloat()
+        }
     }
+
+    /** Folga embaixo do nome do card quando a fileira em foco é uma grade. */
+    const val MARGEM_BAIXO = 24f
+
+    /** Distância (dp) entre as linhas de uma grade: cabe o card em foco crescido sem encostar no vizinho. */
+    fun passoDaLinha(o: Options): Float = o.cardH * (1f + (o.focoK - 1f) / 2f) + o.gap.dp.coerceAtLeast(8f)
+
+    /** Altura a mais (dp) de uma fileira de [n] cards em [linhas] linhas (0 = fileira comum). */
+    fun extraDaGrade(n: Int, linhas: Int, o: Options): Float = (minOf(linhas, n).coerceAtLeast(1) - 1) * passoDaLinha(o)
 
     /** Centro dos cards da 1ª fileira sem o foco parado (logo abaixo da hora, com o título dela visível). */
     const val INICIO_SOLTO = 170f
@@ -188,17 +203,24 @@ object RowsHome {
      * de depois vêm logo atrás do foco aumentado. [larguras] de cada card (a proporção muda com o tipo de app);
      * [focada] = a fileira é a escolhida (só ela cresce).
      */
-    fun xs(larguras: List<Float>, sel: Int, o: Options, focada: Boolean): FloatArray {
+    fun xs(larguras: List<Float>, sel: Int, o: Options, focada: Boolean, linhas: Int = 1): FloatArray {
         val n = larguras.size
         val vao = o.gap.dp
         val r = FloatArray(n)
         if (n == 0) return r
+        // Grade: as colunas andam juntas (card i na coluna i / L); a coluna do foco fica presa em focoX.
+        val l = linhas.coerceAtLeast(1)
         val s = sel.coerceIn(0, n - 1)
-        r[s] = o.focoX
-        var x = o.focoX + larguras[s] * (if (focada) o.focoK else 1f) + vao
-        for (i in s + 1 until n) { r[i] = x; x += larguras[i] + vao }
+        val cols = (n + l - 1) / l
+        val sc = s / l
+        val largura = FloatArray(cols) { c -> (c * l until minOf(n, c * l + l)).maxOf { larguras[it] } }
+        val colX = FloatArray(cols)
+        colX[sc] = o.focoX
+        var x = o.focoX + maxOf(largura[sc], larguras[s] * (if (focada) o.focoK else 1f)) + vao
+        for (c in sc + 1 until cols) { colX[c] = x; x += largura[c] + vao }
         x = o.focoX
-        for (i in s - 1 downTo 0) { x -= larguras[i] + vao; r[i] = x }
+        for (c in sc - 1 downTo 0) { x -= largura[c] + vao; colX[c] = x }
+        for (i in 0 until n) r[i] = colX[i / l]
         return r
     }
 

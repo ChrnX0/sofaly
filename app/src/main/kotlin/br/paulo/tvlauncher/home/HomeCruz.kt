@@ -575,7 +575,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun teclaFaixa(t: CruzLogica.Tecla): Boolean {
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
         val n = categoriaAtual()?.itens?.size ?: 0
-        val p = StripHome.passo(t, estado.cat, sel, n, !fileiras && (categoriaAtual()?.let { strip.formato(it.cat).grade } ?: false))
+        // Grade: a barra tem a de 2 linhas do jeito dos cards; as Fileiras, as linhas do mundo (menu do mundo)
+        val linhas = categoriaAtual()?.let { if (fileiras) WorldOptions.of(context, it.cat).lines else if (strip.formato(it.cat).grade) 2 else 1 } ?: 1
+        val p = StripHome.passo(t, estado.cat, sel, n, linhas = linhas)
         if (p.subirTopo) { aoSubirTopo?.invoke(repeticao); return false }
         p.paraSel?.let { irParaFaixa(it); return true }
         val tecla = p.tecla

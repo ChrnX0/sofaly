@@ -17,6 +17,7 @@ import org.json.JSONObject
  */
 object WorldOptions {
     private const val PREFS = "world_options"
+    const val MAX_LINES = 3
 
     /**
      * USAGE = como sempre foi (mais usados primeiro); AZ = pelo nome; MANUAL = a ordem que a pessoa arrumou;
@@ -37,6 +38,8 @@ object WorldOptions {
         val cards: Int? = null,
         /** Tamanho dos cards deste mundo nas Fileiras (número de [RowsHome.Size]); null = segue o do Ajuste fino. */
         val size: Int? = null,
+        /** Fileiras: linhas de cards do mundo (1 = fileira comum, 2 ou 3 = grade; Projectivy: grade por categoria). */
+        val lines: Int = 1,
     )
 
     private fun p(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -64,6 +67,7 @@ object WorldOptions {
                 iconOnly = o.optBoolean("iconOnly", false),
                 cards = if (o.has("cards")) o.optInt("cards", -1).takeIf { it >= 0 } else null,
                 size = if (o.has("size")) o.optInt("size", -1).takeIf { it >= 0 } else null,
+                lines = o.optInt("lines", 1).coerceIn(1, MAX_LINES),
             )
         }.getOrDefault(Options())   // JSON estragado = como era, nunca derruba a HOME
 
@@ -75,6 +79,7 @@ object WorldOptions {
             if (o.iconOnly) put("iconOnly", true)
             o.cards?.let { put("cards", it) }
             o.size?.let { put("size", it) }
+            if (o.lines > 1) put("lines", o.lines)
         }.toString()
 
         /**

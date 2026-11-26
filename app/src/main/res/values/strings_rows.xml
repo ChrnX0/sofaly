@@ -70,4 +70,7 @@
     <string name="rw_alto">High</string>
     <string name="rw_baixo">Low</string>
     <string name="rw_mais_baixo">Lower</string>
+    <string name="rw_linhas">Card rows in this category</string>
+    <string name="rw_linhas_1">One row</string>
+    <string name="rw_linhas_n">Grid of %1$d rows</string>
 </resources>

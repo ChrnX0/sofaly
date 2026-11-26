@@ -34,6 +34,30 @@ class RowsHomeTest {
         assertTrue(xs[0] < 0f)
     }
 
+    @Test fun gradeAndaPorColuna() {
+        // 7 cards em 3 linhas = colunas [0,1,2] [3,4,5] [6]; foco no 4 prende a coluna do meio
+        val xs = RowsHome.xs(List(7) { 128f }, 4, o, focada = true, linhas = 3)
+        for (i in 3..5) assertEquals(RowsHome.FOCO_X, xs[i], 0.01f)
+        assertEquals(RowsHome.FOCO_X + 128f * 1.3f + 8f, xs[6], 0.01f)
+        for (i in 0..2) assertEquals(RowsHome.FOCO_X - 136f, xs[i], 0.01f)
+        // 1 linha = a conta de sempre
+        assertEquals(RowsHome.xs(6, 2, o, true).toList(), RowsHome.xs(List(6) { 128f }, 2, o, true, linhas = 1).toList())
+    }
+
+    @Test fun gradeEmpurraAsDeBaixoESobeParaCaber() {
+        val e = RowsHome.extraDaGrade(7, 3, o)
+        assertEquals(2 * RowsHome.passoDaLinha(o), e, 0.01f)
+        assertEquals(0f, RowsHome.extraDaGrade(1, 3, o), 0f)   // 1 card não vira grade
+        val extras = floatArrayOf(0f, e, 0f)
+        // a grade em foco sobe até as 3 linhas e o nome caberem
+        val y = RowsHome.centroDaFileira(1, 1, 540f, o, extras)
+        assertTrue(y + e + RowsHome.NOME_ABAIXO <= 540f - RowsHome.MARGEM_BAIXO + 0.1f)
+        // a fileira de baixo desce o passo comum mais a altura da grade
+        assertEquals(y + RowsHome.PASSO_BAIXO + e, RowsHome.centroDaFileira(2, 1, 540f, o, extras), 0.1f)
+        // com o foco na de baixo, a grade de cima sobe também a altura dela
+        assertEquals(314f - RowsHome.PASSO_CIMA - e, RowsHome.centroDaFileira(1, 2, 540f, o, extras), 0.5f)
+    }
+
     @Test fun opacidadeDasOutras() {
         assertEquals(1f, RowsHome.alfaDaFileira(1, 1, o), 0f)
         assertEquals(0.4f, RowsHome.alfaDaFileira(2, 1, o), 0f)
