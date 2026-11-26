@@ -33,6 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">음소거</string>
     <string name="cel_ctrl_sem_tv">TV가 응답하지 않아요. 켜져 있고 같은 네트워크인가요?</string>
+    <string name="cel_ctrl_fora">인터넷으로 보냈어요: TV 네트워크 밖에 있어요.</string>
     <string name="cel_ctrl_cert_novo">TV의 보안 인증서가 새로 바뀌었어요. TV의 QR 코드를 다시 스캔하세요.</string>
     <string name="cel_ctrl_recusou">TV가 지금은 그렇게 하지 못했어요.</string>
     <string name="cel_ctrl_entrar">패널에서 TV PIN으로 한 번 로그인하면 리모컨이 작동해요.</string>

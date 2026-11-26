@@ -64,12 +64,34 @@ object ApiTv {
     fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta {
         val r = chamarUmaVez(tv, metodo, caminho, corpo)
         val ctx = app ?: return r
+        // Decisão A (26/11/2026): a TV não respondeu pela rede de casa (fora de casa)? Tecla e texto vão pelo relay.
+        if (r.codigo == 0) return pelaCaixa(ctx, tv, caminho, corpo) ?: r
         val chave = ChaveAparelho.ler(ctx, tv)
         if (deveReentrar(r.codigo, chave != null, caminho)) {
             return if (entrarComChave(ctx, tv, chave!!)) chamarUmaVez(tv, metodo, caminho, corpo) else r
         }
         if (devePedirChave(r.codigo, chave != null, caminho, Pareamento.chave(tv) in semChave)) pedirChave(ctx, tv)
+        if (deveParearRelay(r.codigo, RelayCelular.tv(ctx, tv) != null, caminho, Pareamento.chave(tv) in semRelay)) parearRelay(ctx, tv)
         return r
+    }
+
+    /** TVs que não aceitaram as chaves do relay neste processo (versão antiga, ou sessão que não é do dono). */
+    private val semRelay = java.util.Collections.synchronizedSet(HashSet<String>())
+
+    /** Depois de uma chamada que deu certo em casa, sem as chaves do relay desta TV: troca agora. Pura (RelayCelularTest). */
+    fun deveParearRelay(codigo: Int, temRelay: Boolean, caminho: String, jaRecusou: Boolean): Boolean =
+        codigo in 200..299 && !temRelay && !jaRecusou && !caminho.startsWith("/api/aparelho") && !caminho.startsWith("/api/relay")
+
+    private fun parearRelay(ctx: Context, tv: Pareamento.Tv) {
+        val pedido = RelayCelular.pedido(ctx) ?: return
+        val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido)
+        if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json)) semRelay += Pareamento.chave(tv)
+    }
+
+    /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
+    private fun pelaCaixa(ctx: Context, tv: Pareamento.Tv, caminho: String, corpo: JSONObject?): Resposta? {
+        val m = RelayCelular.mensagem(caminho, corpo, System.currentTimeMillis()) ?: return null
+        return if (RelayCelular.enviar(ctx, tv, m)) Resposta(202, JSONObject().put("ok", true).put("relay", true)) else null
     }
 
     private fun chamarUmaVez(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject?): Resposta =

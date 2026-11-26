@@ -139,6 +139,7 @@ class ControleActivity : Activity() {
 
     private fun tratar(codigo: Int) {
         when (codigo) {
+            202 -> situacao.text = getString(R.string.cel_ctrl_fora)   // foi pelo relay (fora de casa): ApiTv.pelaCaixa
             in 200..299 -> situacao.text = getString(R.string.cel_ctrl_dica)
             401 -> entrarPrimeiro()
             0 -> situacao.text = getString(R.string.cel_ctrl_sem_tv)

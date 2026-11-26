@@ -1051,6 +1051,13 @@ object PainelWeb {
             "/api/tela/foto" -> if (req.metodo == "GET") return fotoTela()
             "/api/tela/tecla" -> if (req.metodo == "POST") return tecla(req)
             "/api/tela/texto" -> if (req.metodo == "POST") return texto(req, ip)
+            // Decisão A (26/11/2026): o celular pareado troca as chaves do relay aqui, em casa, para controlar a TV de fora.
+            // Só o dono (rota fora das listas do PapeisPainel).
+            "/api/relay/parear" -> if (req.metodo == "POST") {
+                val r = br.paulo.tvlauncher.relay.RelayTv.parearPeloPainel(app, corpoJson(req)) ?: return erro(400, "chaves inválidas")
+                PainelArmazem.registrar(app, ip, "celular pareado para usar de fora de casa", "ok")
+                return json(200, r)
+            }
             "/api/tv/reiniciar" -> if (req.metodo == "POST") return reiniciarTv(token, ip)
             "/api/certificado/renovar" -> if (req.metodo == "POST") return renovarCertificado(req, token, ip)
             "/api/recado" -> if (req.metodo == "POST") return recado(req, ip)
