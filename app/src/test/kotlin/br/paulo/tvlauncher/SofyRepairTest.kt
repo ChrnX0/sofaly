@@ -104,6 +104,16 @@ class SofyRepairTest {
         assertTrue(Tool.entries.none { it.name.contains("WIPE") || it.name.contains("UNINSTALL") || it.name.contains("CLEAR_DATA") })
     }
 
+    @Test fun tunnelIsNotRestartedByOneCaseAfterAnother() {
+        // Teste de carga na Sala (26/11/2026): 23 reinícios do túnel em 1 h, um por caso de rede. O túnel é um só.
+        val c = open(Type.ACCESS_LOST, "tunnel")
+        assertEquals(Step.Run(Tool.RESTART_TUNNEL), SofyRepair.next(c, emptyMap(), env()))
+        val logo = SofyRepair.Env(t0, false, false, false, lastTunnelRestart = t0 - 5 * min)
+        assertTrue(SofyRepair.next(c, emptyMap(), logo) != Step.Run(Tool.RESTART_TUNNEL))
+        val depois = SofyRepair.Env(t0, false, false, false, lastTunnelRestart = t0 - SofyRepair.RESTART_TUNNEL_GAP_MS - min)
+        assertEquals(Step.Run(Tool.RESTART_TUNNEL), SofyRepair.next(c, emptyMap(), depois))
+    }
+
     @Test fun screenDefectIsCodeSoItIsOnlyReported() {
         val c = open(Type.SCREEN_BROKEN, "screen:previsao", n = 2)
         assertEquals(listOf(Tool.REPORT), drain(c, env(idle = true)))

@@ -120,6 +120,8 @@ object SofyRepair {
     const val VERIFY_AFTER_MS = 2 * 60_000L
     const val REBOOT_GAP_MS = 7 * DAY
     const val RESTART_LAUNCHER_GAP_MS = 6 * HOUR
+    /** O túnel é um só para a TV toda: casos diferentes não o reiniciam um atrás do outro (teste de carga, 26/11/2026: 23 vezes em 1 h). */
+    const val RESTART_TUNNEL_GAP_MS = 30 * 60_000L
 
     // ---------------------------------------------------------------- 1. sinal -> caso
 
@@ -245,7 +247,7 @@ object SofyRepair {
         /** Há chave/caminho para a IA da nuvem. */
         val aiAvailable: Boolean,
         /** Ferramentas rodadas na última hora (todos os casos) e quando foram o último reinício do launcher e da TV. */
-        val toolsLastHour: Int = 0, val lastLauncherRestart: Long = 0, val lastReboot: Long = 0,
+        val toolsLastHour: Int = 0, val lastLauncherRestart: Long = 0, val lastReboot: Long = 0, val lastTunnelRestart: Long = 0,
         /** Tentativas que NÃO consertaram na última hora (todos os casos) e a última ferramenta rodada: a pressão. */
         val failsLastHour: Int = 0, val lastRunAt: Long = 0,
         /** Ferramentas que esta TV não tem como rodar agora (ex.: sem dono, sem acessibilidade). */
@@ -328,6 +330,7 @@ object SofyRepair {
             if (t.heavy && c.count < 2) continue
             if (t == Tool.RESTART_LAUNCHER && e.now - e.lastLauncherRestart < RESTART_LAUNCHER_GAP_MS) continue
             if (t == Tool.REBOOT && e.now - e.lastReboot < REBOOT_GAP_MS) continue
+            if (t == Tool.RESTART_TUNNEL && e.now - e.lastTunnelRestart < RESTART_TUNNEL_GAP_MS) continue
             // Recuo próprio desta ferramenta neste caso.
             val fails = failsSinceFix(c, t)
             if (fails > 0) {
