@@ -135,10 +135,19 @@ object JogosTv {
     }
 
     /** Abre a tela do Android para parear Bluetooth (onde o controle aparece no modo de pareamento). */
-    fun abrirPareamento(ctx: Context): Boolean = listOf(
-        Intent("android.settings.BLUETOOTH_PAIRING_SETTINGS"),   // Google TV: "Parear controle ou acessório"
-        Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS),
-    ).any { i -> try { ctx.startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); true } catch (_: Exception) { false } }
+    fun abrirPareamento(ctx: Context): Boolean {
+        // Google TV: "Parear controle ou acessório" é a AddAccessoryActivity (a mesma do painel rápido). A ação
+        // BLUETOOTH_PAIRING_SETTINGS NÃO existe no Chromecast da Sala ("No activity found", conferido em 26/11/2026).
+        // Ela exige BLUETOOTH_CONNECT de quem abre: o Device Owner concede em silêncio.
+        val bt = android.Manifest.permission.BLUETOOTH_CONNECT
+        if (android.os.Build.VERSION.SDK_INT >= 31 && ctx.checkSelfPermission(bt) != android.content.pm.PackageManager.PERMISSION_GRANTED)
+            br.paulo.tvlauncher.privilege.PrivilegioDO.conceder(ctx, ctx.packageName, bt)
+        return listOf(
+            Intent().setClassName("com.android.tv.settings", "com.android.tv.settings.accessories.AddAccessoryActivity"),
+            Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS),
+            Intent(android.provider.Settings.ACTION_SETTINGS),
+        ).any { i -> try { ctx.startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); true } catch (_: Exception) { false } }
+    }
 
     // ---------------------------------------------------------------- modo jogo
 

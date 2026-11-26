@@ -68,8 +68,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         /** O [Item.abrir] de quem só informa ("nenhuma recente ainda"): nas Fileiras ele não pega o foco. */
         val NADA: () -> Unit = {}
         // Fileiras (dp): onde começam (abaixo do título e do cartão "Tocando agora"), o lado da caixa e o vão entre cartões.
-        private const val FIL_TOPO = 196
-        private const val FIL_LADO = 112
+        private const val FIL_TOPO = 216
+        private const val FIL_LADO = 124
         private const val FIL_VAO = 20
         private const val FIL_INFO_L = 430
         // Geometria da HomeCruz (dp numa tela de 960 x 540): o mesmo lugar da linha, da coluna e das prateleiras.
@@ -874,7 +874,8 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         }
         val rolagem = android.widget.ScrollView(ctx).apply {
             isVerticalScrollBarEnabled = false; isFillViewport = true
-            clipChildren = false; clipToPadding = false
+            // Recorta: a fileira que rola para cima some na borda, não passa por baixo do título e do "Tocando agora".
+            clipChildren = true; clipToPadding = true
             overScrollMode = View.OVER_SCROLL_NEVER
             isFocusable = false
             addView(lista, FrameLayout.LayoutParams(-1, -2))
@@ -965,7 +966,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             addView(capa, FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
             addView(icone, FrameLayout.LayoutParams(dpi(40), dpi(40), Gravity.CENTER))
         }
-        val nome = Estilo.texto(context, Estilo.Papel.CORPO).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setTextColor(Estilo.TEXTO_2) }
+        val nome = Estilo.texto(context, Estilo.Papel.CORPO).apply { maxLines = 3; ellipsize = TextUtils.TruncateAt.END; setTextColor(Estilo.TEXTO_2) }   // 3 linhas: nome de podcast inteiro
         val pid = prats[j].id
         val so = item.abrir === NADA && item.opcoes == null
         return LinearLayout(context).apply {
