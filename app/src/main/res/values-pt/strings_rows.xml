@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fileiras: a tela inicial clonada do Projectivy (26/11/2026, RowsHome). -->
+<resources>
+    <string name="bb_fileiras">Fileiras</string>
+    <string name="rw_tamanho">Tamanho dos cards</string>
+    <string name="rw_espaco">Espaço entre os cards</string>
+    <string name="rw_cantos">Cantos arredondados</string>
+    <string name="rw_foco_tamanho">Tamanho do card em foco</string>
+    <string name="rw_efeito">Efeito do card em foco</string>
+    <string name="rw_brilho_anim">Animação do brilho</string>
+    <string name="rw_nome_card">Mostrar o nome do card</string>
+    <string name="rw_titulo_fileira">Mostrar o nome das categorias</string>
+    <string name="rw_icone_fileira">Ícone antes do nome</string>
+    <string name="rw_espaco_fileiras">Espaço entre as fileiras</string>
+    <string name="rw_fixo">Foco da categoria parado</string>
+    <string name="rw_esconder_acima">Esconder fileiras acima</string>
+    <string name="rw_opacidade">Opacidade das outras fileiras</string>
+    <string name="rw_sombra">Sombra sobre o fundo</string>
+    <string name="rw_hora">Mostrar a hora</string>
+    <string name="rw_status">Mostrar Wi-Fi e engrenagem</string>
+    <string name="rw_auto">Automático</string>
+    <string name="rw_nenhum">Nenhum</string>
+    <string name="rw_xs">Muito pequeno</string>
+    <string name="rw_s">Pequeno</string>
+    <string name="rw_m">Médio</string>
+    <string name="rw_l">Grande</string>
+    <string name="rw_xl">Muito grande</string>
+    <string name="rw_igual">Igual</string>
+    <string name="rw_justo">Justo</string>
+    <string name="rw_normal">Normal</string>
+    <string name="rw_largo">Largo</string>
+    <string name="rw_mais_largo">Mais largo</string>
+    <string name="rw_reto">Retos</string>
+    <string name="rw_leve">Leves</string>
+    <string name="rw_suave">Suaves</string>
+    <string name="rw_redondo">Redondos</string>
+    <string name="rw_bem_redondo">Bem redondos</string>
+    <string name="rw_brilho">Brilho</string>
+    <string name="rw_sombra_proj">Sombra projetada</string>
+    <string name="rw_respirar">Respirar</string>
+    <string name="rw_esmaecer">Esmaecer</string>
+    <string name="rw_pulsar">Pulsar</string>
+    <string name="rw_reluzir">Reluzir</string>
+    <string name="rw_escondidas">Escondidas</string>
+    <string name="rw_fraca">Fraca</string>
+    <string name="rw_forte">Forte</string>
+</resources>

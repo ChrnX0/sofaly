@@ -17,8 +17,9 @@ import br.paulo.tvlauncher.settings.Extras
 object BottomBar {
     const val KEY = "home_bottom_bar"
     /** Os jeitos da tela inicial, na ordem gravada na pref. */
-    enum class Mode { CROSS, BAR, STRIP }
-    val DEFAULT = Mode.STRIP
+    enum class Mode { CROSS, BAR, STRIP, ROWS }
+    /** 26/11/2026 (Paulo: "quero um clone deles"): as Fileiras do Projectivy ([RowsHome]) viram o jeito de fábrica. */
+    val DEFAULT = Mode.ROWS
     fun mode(ctx: Context): Mode = Mode.entries.getOrNull(Extras.numero(ctx, KEY, DEFAULT.ordinal)) ?: DEFAULT
     fun setMode(ctx: Context, m: Mode) = Extras.definirNumero(ctx, KEY, m.ordinal)
     /** O próximo jeito (Ajuste fino: ◀ ▶ giram). */
@@ -27,6 +28,8 @@ object BottomBar {
     fun set(ctx: Context, on: Boolean) = setMode(ctx, if (on) Mode.BAR else Mode.CROSS)
     fun on(ctx: Context): Boolean = mode(ctx) == Mode.BAR
     fun strip(ctx: Context): Boolean = mode(ctx) == Mode.STRIP
+    /** As Fileiras ([RowsHome]): usam as teclas da barra única, com outro desenho. */
+    fun rows(ctx: Context): Boolean = mode(ctx) == Mode.ROWS
 
     /** A cor da categoria (a mesma das prateleiras de "Todos os apps"); Ferramentas fica com o âmbar. */
     fun cor(c: CruzLogica.Categoria?): Int = when (c) {

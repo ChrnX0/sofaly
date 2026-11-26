@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fileiras: a tela inicial clonada do Projectivy (26/11/2026, RowsHome). -->
+<resources>
+    <string name="bb_fileiras">Rows</string>
+    <string name="rw_tamanho">Card size</string>
+    <string name="rw_espaco">Card spacing</string>
+    <string name="rw_cantos">Rounded corners</string>
+    <string name="rw_foco_tamanho">Focused card size</string>
+    <string name="rw_efeito">Focused card effect</string>
+    <string name="rw_brilho_anim">Glow animation</string>
+    <string name="rw_nome_card">Show card title</string>
+    <string name="rw_titulo_fileira">Show category title</string>
+    <string name="rw_icone_fileira">Show icon before the title</string>
+    <string name="rw_espaco_fileiras">Vertical spacing</string>
+    <string name="rw_fixo">Keep focused category position fixed</string>
+    <string name="rw_esconder_acima">Hide rows above selection</string>
+    <string name="rw_opacidade">Unselected rows opacity</string>
+    <string name="rw_sombra">Wallpaper shadow</string>
+    <string name="rw_hora">Show clock</string>
+    <string name="rw_status">Show connectivity and settings</string>
+    <string name="rw_auto">Auto</string>
+    <string name="rw_nenhum">None</string>
+    <string name="rw_xs">Extra small</string>
+    <string name="rw_s">Small</string>
+    <string name="rw_m">Medium</string>
+    <string name="rw_l">Large</string>
+    <string name="rw_xl">Extra large</string>
+    <string name="rw_igual">Same</string>
+    <string name="rw_justo">Tight</string>
+    <string name="rw_normal">Normal</string>
+    <string name="rw_largo">Wide</string>
+    <string name="rw_mais_largo">Wider</string>
+    <string name="rw_reto">Square</string>
+    <string name="rw_leve">Slight</string>
+    <string name="rw_suave">Soft</string>
+    <string name="rw_redondo">Round</string>
+    <string name="rw_bem_redondo">Rounder</string>
+    <string name="rw_brilho">Glow</string>
+    <string name="rw_sombra_proj">Drop shadow</string>
+    <string name="rw_respirar">Breath</string>
+    <string name="rw_esmaecer">Fade</string>
+    <string name="rw_pulsar">Pulse</string>
+    <string name="rw_reluzir">Shine</string>
+    <string name="rw_escondidas">Hidden</string>
+    <string name="rw_fraca">Light</string>
+    <string name="rw_forte">Strong</string>
+</resources>

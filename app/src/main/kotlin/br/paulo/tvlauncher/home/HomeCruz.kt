@@ -212,7 +212,22 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Banner de TV de um item da barra única (só apps); quem usa responde na thread principal. */
     var bannerDe: ((Item, (Drawable?) -> Unit) -> Unit)?
         get() = strip.bannerDe
-        set(v) { strip.bannerDe = v }
+        set(v) { strip.bannerDe = v; rows.bannerDe = v }
+    /**
+     * "Fileiras" ([RowsHome], 26/11/2026, clone do Projectivy): uma fileira por categoria. Usa as teclas e o estado da
+     * barra única ([faixa] fica ligada junto); só o desenho muda ([RowsLayer]).
+     */
+    var fileiras = false
+        set(v) { if (field == v) return; field = v; aplicarModo(); posicionar(animar = false) }
+    var opcoesFileiras: RowsHome.Options
+        get() = rows.opcoes
+        set(v) { rows.opcoes = v; if (fileiras) posicionar(animar = false) }
+    /** Engrenagem da pílula do alto nas Fileiras (abre as Configurações). */
+    var aoEngrenagem: (() -> Unit)?
+        get() = rows.aoEngrenagem
+        set(v) { rows.aoEngrenagem = v }
+    /** A engrenagem das Fileiras, para o ▲ da 1ª fileira chegar nela. */
+    internal fun engrenagem(): View = rows.engrenagem
     /** Distância (dp) do pé da tela até o topo da linha do mundo, a cada mudança (camada dos widgets). */
     var aoMudarBase: ((Float) -> Unit)?
         get() = strip.aoMudarBase
@@ -228,6 +243,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private val viewsCat = ArrayList<View>()
     /** A camada da barra única ([faixa]); some nos outros jeitos. */
     private val strip: StripLayer
+    /** A camada das Fileiras ([fileiras]). */
+    private lateinit var rows: RowsLayer
     private val veu: View
     private val placa: View
     private val realce: View
@@ -392,6 +409,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         addView(nomeApp, LayoutParams(dpi(BARRA_PASSO_APPS.toInt() + 40), LayoutParams.WRAP_CONTENT))
         strip = StripLayer(ctx).apply { visibility = View.GONE }
         addView(strip, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
+        rows = RowsLayer(ctx).apply { visibility = View.GONE }
+        addView(rows, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
         setOnFocusChangeListener { _, tem -> posicionar(animar = false); anunciar(); atualizarDetalhe(); if (tem) dicaDepois() else esconderDica() }
     }
 
@@ -407,7 +426,8 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         for (v in viewsCat) v.visibility = cruzVis
         for (l in viewsItem) for (iv in l) iv.raiz.visibility = cruzVis
         if (::cabecalho.isInitialized) cabecalho.visibility = if (faixa) View.GONE else View.VISIBLE
-        strip.visibility = if (faixa) View.VISIBLE else View.GONE
+        strip.visibility = if (faixa && !fileiras) View.VISIBLE else View.GONE
+        if (::rows.isInitialized) rows.visibility = if (faixa && fileiras) View.VISIBLE else View.GONE
         if (faixa) { detalhe.animate().cancel(); detalhe.alpha = 0f }
     }
 
@@ -425,7 +445,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
             val antes = itemAtual()
             cats = novas
             for ((j, c) in novas.withIndex()) for ((i, it) in c.itens.withIndex()) preencher(viewsItem[j][i], it)
-            if (faixa) strip.atualizarTexto(cats, estado.cat)
+            if (faixa && !fileiras) strip.atualizarTexto(cats, estado.cat)
             // O item em foco mudou de texto ou ícone (canal novo, episódio novo): a arte e o TalkBack acompanham.
             val agora = itemAtual()
             if (agora != null && (antes?.nome != agora.nome || antes.sub != agora.sub || antes.icone !== agora.icone || antes.situacao != agora.situacao)) avisarMudanca()
@@ -555,7 +575,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     private fun teclaFaixa(t: CruzLogica.Tecla): Boolean {
         val sel = estado.sel.getOrElse(estado.cat) { 0 }
         val n = categoriaAtual()?.itens?.size ?: 0
-        val p = StripHome.passo(t, estado.cat, sel, n, categoriaAtual()?.let { strip.formato(it.cat).grade } ?: false)
+        val p = StripHome.passo(t, estado.cat, sel, n, !fileiras && (categoriaAtual()?.let { strip.formato(it.cat).grade } ?: false))
         if (p.subirTopo) { aoSubirTopo?.invoke(repeticao); return false }
         p.paraSel?.let { irParaFaixa(it); return true }
         val tecla = p.tecla
@@ -613,6 +633,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** O ícone do item escolhido "aperta" e volta: o toque foi entendido, no mesmo quadro. */
     private fun apertar() {
+        if (faixa && fileiras) { rows.apertar(estado.cat, estado.sel.getOrElse(estado.cat) { 0 }); return }
         if (faixa) { strip.apertar(estado.sel.getOrElse(estado.cat) { 0 }); return }
         val iv = viewAtual() ?: return
         if (semAnimacao()) return
@@ -629,7 +650,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
      * destaque por [NAO_ABRIU_MS], e o leitor de tela fala. Depois volta ao texto de antes.
      */
     fun naoAbriu() {
-        if (faixa) { context.getString(R.string.cruz_nao_abriu).let { strip.aviso(it, NAO_ABRIU_MS); announceForAccessibility(it) }; return }
+        if (faixa) { context.getString(R.string.cruz_nao_abriu).let { if (fileiras) rows.aviso(it, NAO_ABRIU_MS) else strip.aviso(it, NAO_ABRIU_MS); announceForAccessibility(it) }; return }
         val iv = viewAtual() ?: return
         val aviso = context.getString(R.string.cruz_nao_abriu)
         iv.sub.text = aviso
@@ -883,6 +904,12 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
 
     /** Põe cada view no lugar do estado atual (animado ou de uma vez). */
     private fun posicionar(animar: Boolean) {
+        if (faixa && fileiras) {
+            rows.nivel = if (semAnimacao()) MovimentoAdaptativo.Nivel.PARADO else nivel
+            rows.lembrar(estado.sel)
+            rows.mostrar(cats, estado.cat, estado.sel.getOrElse(estado.cat) { 0 }, hasFocus() || isFocused, animar)
+            return
+        }
         if (faixa) {
             strip.nivel = if (semAnimacao()) MovimentoAdaptativo.Nivel.PARADO else nivel
             strip.mostrar(cats, estado.cat, estado.sel.getOrElse(estado.cat) { 0 }, hasFocus() || isFocused, animar, direcaoFaixa)
@@ -1047,7 +1074,9 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
     /** Para o teste de tela da barra única: a linha do mundo, a descrição e os cards visíveis. */
     internal fun linhaDoMundo(): View = strip.linhaDoMundo()
     internal fun descricaoDoMundo(): TextView = strip.descricao()
-    internal fun cardsDaFaixa(): List<View> = strip.cardsVisiveis()
+    internal fun cardsDaFaixa(): List<View> = if (fileiras) rows.cardsVisiveis() else strip.cardsVisiveis()
+    /** Para o teste de tela das Fileiras: o nome grande do card em foco. */
+    internal fun nomeDoFoco(): TextView = rows.nomeDoFoco()
 
     /** Para o teste de tela: a linha de apps da barra está aberta. */
     internal fun appsAbertos(): Boolean = barra && naApps

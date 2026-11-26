@@ -120,7 +120,8 @@ class FineTuneActivity : Activity() {
         Ajuste(R.string.bb_titulo, { nomeJeito(br.paulo.tvlauncher.home.BottomBar.mode(this)) }) { passo ->
             nomeJeito(br.paulo.tvlauncher.home.BottomBar.next(this, passo)).also { window.decorView.post { recreate() } }
         },
-    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) ajustesFaixa() else emptyList()) + listOf(
+    ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) ajustesFaixa() else emptyList()) +
+        (if (br.paulo.tvlauncher.home.BottomBar.rows(this)) ajustesFileiras() else emptyList()) + listOf(
         // Continuar no topo de cada categoria (Paulo, 22/11/2026): desligado de fábrica (ContinueOption).
         Ajuste(R.string.co_titulo, { getString(if (br.paulo.tvlauncher.home.ContinueOption.on(this)) R.string.co_mostrar else R.string.co_esconder) }) { _ ->
             val on = !br.paulo.tvlauncher.home.ContinueOption.on(this)
@@ -199,7 +200,51 @@ class FineTuneActivity : Activity() {
         br.paulo.tvlauncher.home.BottomBar.Mode.CROSS -> R.string.bb_cruz
         br.paulo.tvlauncher.home.BottomBar.Mode.BAR -> R.string.bb_barra
         br.paulo.tvlauncher.home.BottomBar.Mode.STRIP -> R.string.bb_faixa
+        br.paulo.tvlauncher.home.BottomBar.Mode.ROWS -> R.string.bb_fileiras
     })
+
+    /**
+     * Opções das Fileiras (RowsHome; Paulo, 26/11/2026: "clone deles, com todas as opções"): as mesmas do Projectivy em
+     * Aparência > Cartões e Categorias, na mesma ordem. Cada ◀ ▶ grava; a HOME atrás se refaz na volta.
+     */
+    private fun ajustesFileiras(): List<Ajuste> {
+        val R2 = br.paulo.tvlauncher.home.RowsHome
+        fun o() = R2.options(this)
+        fun gira(key: String, atual: Int, total: Int, passo: Int) = R2.next(this, key, atual, total, passo)
+        fun nomes(vararg ids: Int) = ids.map { getString(it) }
+        val tam = nomes(R.string.rw_xs, R.string.rw_s, R.string.rw_m, R.string.rw_l, R.string.rw_xl)
+        val esp = nomes(R.string.rw_nenhum, R.string.rw_justo, R.string.rw_normal, R.string.rw_largo, R.string.rw_mais_largo)
+        val can = nomes(R.string.rw_reto, R.string.rw_leve, R.string.rw_suave, R.string.rw_redondo, R.string.rw_bem_redondo)
+        val foc = nomes(R.string.rw_igual, R.string.rw_s, R.string.rw_m, R.string.rw_l)
+        val efe = nomes(R.string.rw_nenhum, R.string.rw_brilho, R.string.rw_sombra_proj)
+        val ani = nomes(R.string.rw_nenhum, R.string.rw_respirar, R.string.rw_esmaecer, R.string.rw_pulsar, R.string.rw_reluzir)
+        val vao = listOf(getString(R.string.rw_auto)) + R2.Spacing.entries.drop(1).map { "${(it.pct * 100).toInt()}%" }
+        val opa = listOf(getString(R.string.rw_escondidas)) + R2.Dim.entries.drop(1).map { "${(it.alpha * 100).toInt()}%" }
+        val som = nomes(R.string.rw_nenhum, R.string.rw_fraca, R.string.rw_normal, R.string.rw_forte)
+        val simNao = nomes(R.string.st_sem, R.string.st_com)
+        fun enumA(t: Int, nomes: List<String>, key: String, atual: () -> Int) =
+            Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
+        fun simA(t: Int, key: String, atual: () -> Boolean) =
+            Ajuste(t, { simNao[if (atual()) 1 else 0] }) { p -> simNao[gira(key, if (atual()) 1 else 0, 2, p)] }
+        return listOf(
+            simA(R.string.rw_nome_card, R2.KEY_CARD_TITLE) { o().cardTitle },
+            enumA(R.string.rw_cantos, can, R2.KEY_CORNERS) { o().corners.ordinal },
+            enumA(R.string.rw_tamanho, tam, R2.KEY_SIZE) { o().size.ordinal },
+            enumA(R.string.rw_espaco, esp, R2.KEY_GAP) { o().gap.ordinal },
+            enumA(R.string.rw_foco_tamanho, foc, R2.KEY_FOCUS_SIZE) { o().focusSize.ordinal },
+            enumA(R.string.rw_efeito, efe, R2.KEY_EFFECT) { o().effect.ordinal },
+            enumA(R.string.rw_brilho_anim, ani, R2.KEY_GLOW_ANIM) { o().glowAnim.ordinal },
+            simA(R.string.rw_titulo_fileira, R2.KEY_ROW_TITLE) { o().rowTitle },
+            simA(R.string.rw_icone_fileira, R2.KEY_ROW_ICON) { o().rowIcon },
+            enumA(R.string.rw_espaco_fileiras, vao, R2.KEY_SPACING) { o().spacing.ordinal },
+            simA(R.string.rw_fixo, R2.KEY_FIXED) { o().fixed },
+            simA(R.string.rw_esconder_acima, R2.KEY_HIDE_ABOVE) { o().hideAbove },
+            enumA(R.string.rw_opacidade, opa, R2.KEY_DIM) { o().dim.ordinal },
+            enumA(R.string.rw_sombra, som, R2.KEY_SHADOW) { o().shadow.ordinal },
+            simA(R.string.rw_hora, R2.KEY_CLOCK) { o().clock },
+            simA(R.string.rw_status, R2.KEY_STATUS) { o().status },
+        )
+    }
 
     /**
      * Opções da barra única (StripHome; Paulo, 24/11/2026: "customizável pelo usuário, como no Projectivy"): descrição do

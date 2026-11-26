@@ -421,7 +421,8 @@ class MainActivity : Activity() {
         "${br.paulo.tvlauncher.home.AppChannels.mode(this)}|${br.paulo.tvlauncher.home.CrossRhythm.ler(this)}|${br.paulo.tvlauncher.home.WorldLabel.place(this)}|" +
         "${br.paulo.tvlauncher.home.AllAppsLayout.mode(this)}|${br.paulo.tvlauncher.home.ContinueOption.on(this)}|" +
         "${br.paulo.tvlauncher.home.WorldOptions.signature(this)}|${br.paulo.tvlauncher.home.BottomBar.mode(this)}|" +
-        br.paulo.tvlauncher.home.StripHome.options(this).signature() + "|" + br.paulo.tvlauncher.home.StripBackground.choice(this)   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        br.paulo.tvlauncher.home.StripHome.options(this).signature() + "|" + br.paulo.tvlauncher.home.StripBackground.choice(this) +   // ajuste fino (21/11/2026); Continuar e só ícone (23/11)
+        "|" + br.paulo.tvlauncher.home.RowsHome.options(this).signature()   // Fileiras (26/11/2026)
 
     override fun onResume() {
         super.onResume()
@@ -2094,7 +2095,11 @@ class MainActivity : Activity() {
         c.detalheEmCima = true   // 23/11/2026: os detalhes moram no canto de cima em todas as barras (Paulo)
         c.barra = br.paulo.tvlauncher.home.BottomBar.on(this)   // 23/11/2026: 2º jeito, categorias paradas embaixo
         // 24/11/2026: a barra única (mundo ▲ ▼, cards ◀ ▶), o jeito de fábrica; cards com a arte de TV de cada app.
-        c.faixa = br.paulo.tvlauncher.home.BottomBar.strip(this)
+        c.faixa = br.paulo.tvlauncher.home.BottomBar.strip(this) || br.paulo.tvlauncher.home.BottomBar.rows(this)
+        // 26/11/2026: as Fileiras do Projectivy (mesmas teclas da barra única, outro desenho e a pílula própria no alto).
+        c.fileiras = br.paulo.tvlauncher.home.BottomBar.rows(this)
+        c.opcoesFileiras = br.paulo.tvlauncher.home.RowsHome.options(this)
+        c.aoEngrenagem = { startActivity(Intent(this, ConfigLauncherActivity::class.java)) }
         c.opcoesFaixa = br.paulo.tvlauncher.home.StripHome.options(this)
         c.bannerDe = { item, pronto -> bannerDaFaixa(item, pronto) }
         c.aoMudar = { cat, item -> arteDoItem(item); vitrineDoItem(item); mundoNaIlha(cat) }
@@ -2105,12 +2110,14 @@ class MainActivity : Activity() {
             }
         c.aoSom = { som, cat -> if (homeNaFrente) SonsCruz.tocar(this, som, cat) }   // voltando de um app (HOME), sem som
         c.aoSubirTopo = { repeticao ->
+            if (c.fileiras) ui.post { c.engrenagem().apply { nextFocusDownId = c.id }.requestFocus() } else {
             // Só o ▲ que SAI da cruz para a barra arma a Central (▲ entre itens da cruz continua repetindo normalmente).
             // Visto na Sala (v464530): o foco só sai da cruz DEPOIS do dispatchKeyEvent, então o aviso vem daqui.
             // E só um ▲ NOVO no 1º item (repetição 0): segurar ▲ para subir a coluna chegava ao topo e abria a Central
             // sem querer (debug 20/11/2026).
             if (barraCruz == LayoutHome.BarraCruz.ILHA && repeticao == 0) ilhaCimaDaCruz = true
             ui.post { bolinhaPerfil?.requestFocus() }   // ▲ no 1º item: o perfil, 1º da barra
+            }
         }
         c.aoPasso = { t -> deslizarArte(t) }
         // Ajuste fino (CardStyle): brilho atrás do escolhido e tamanho da cruz, com o centro no cruzamento (não sai do lugar).
@@ -2138,6 +2145,8 @@ class MainActivity : Activity() {
      */
     private fun montarBarraCruz(raiz: FrameLayout, c: HomeCruz) {
         val topo = topoRaiz as? ViewGroup ?: return
+        // Fileiras (clone do Projectivy): a barra de cima sai; a pílula com Wi-Fi, engrenagem e hora é das Fileiras.
+        if (c.fileiras) { topo.visibility = View.GONE; return }
         // ▼ em qualquer item da barra volta para a cruz (ela ocupa a tela inteira: a busca de foco "para baixo" não a acha).
         fun descer(v: View) {
             if (v.isFocusable) v.nextFocusDownId = c.id
@@ -2198,6 +2207,7 @@ class MainActivity : Activity() {
 
     internal fun recolherBarra(recolher: Boolean, animar: Boolean = true) {
         val topo = topoRaiz as? ViewGroup ?: return
+        if (cruz?.fileiras == true) return
         if (recolher == barraRecolhida && animar) return
         barraRecolhida = recolher
         val d = if (animar) 220L else 0L
