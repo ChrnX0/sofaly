@@ -123,7 +123,8 @@ private const val TAG_MODO = "cfg3_modo"
 
 /**
  * Os 4 objetivos (onda D, 25/11/2026; ver [SettingsGoals]) em 2 x 2 botões, logo abaixo da busca. O ativo mostra "✓" e
- * o mesmo OK desfaz. Na barra única e no jeito cruz, o que não existe no jeito atual só não aparece na tela (as chaves
+ * o mesmo OK desfaz. Só o nome, sem símbolo (26/11/2026, Sala: "Aa", "◻", "☾" e um emoji colorido, quatro jeitos
+ * diferentes numa linha só; o protótipo aprovado tem pílulas só de texto). Na barra única e no jeito cruz, o que não existe no jeito atual só não aparece na tela (as chaves
  * ficam gravadas e valem se a pessoa mudar o jeito).
  */
 private fun ConfigLauncherActivity.objetivos(foco: Int) {
@@ -136,15 +137,9 @@ private fun ConfigLauncherActivity.objetivos(foco: Int) {
             SettingsGoals.Goal.ENERGY -> R.string.goal_energy
             SettingsGoals.Goal.KIDS -> R.string.goal_kids
         })
-        val icone = when (g) {
-            SettingsGoals.Goal.READ -> "Aa"
-            SettingsGoals.Goal.CLEAN -> "◻"
-            SettingsGoals.Goal.ENERGY -> "☾"
-            SettingsGoals.Goal.KIDS -> "☺"
-        }
         val b = Estilo.pilula(this).apply {
             // Duas linhas: no painel estreito (560 dp, 2 colunas) um nome longo em alemão não cabe numa.
-            addView(Estilo.texto(context, Estilo.Papel.CORPO, (if (g == ativo) "✓  " else "$icone  ") + nome).apply { maxLines = 2 })
+            addView(Estilo.texto(context, Estilo.Papel.CORPO, (if (g == ativo) "✓  " else "") + nome).apply { maxLines = 2 })
             contentDescription = if (g == ativo) getString(R.string.goal_desfazer, nome) else nome
             tag = "goal:" + g.name
             setOnClickListener {
@@ -177,7 +172,7 @@ private fun ConfigLauncherActivity.objetivos(foco: Int) {
 private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
     val lista = LinearLayout(this).apply {
         orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false
-        background = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO + 4, Estilo.BORDA)
+        // Sem cartão em volta (protótipo aprovado 26/11/2026): só as linhas e o fio fino entre elas, sobre o vidro.
         setPaddingRelative(0, dp(4), 0, dp(4))
     }
     var focar: View? = null

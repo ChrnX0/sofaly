@@ -65,34 +65,10 @@ internal object SidePanel {
             w.setWindowAnimations(android.R.style.Animation_Activity)   // o tema do painel tira a animação de janela
             return false
         }
-        w.setLayout(Estilo.dp(a, LARGURA_DP), ViewGroup.LayoutParams.MATCH_PARENT)
         w.setGravity(Gravity.END or Gravity.TOP)
         w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         w.setDimAmount(0f)   // o escurecer entra junto com o painel ([entrar])
-        val rtl = a.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
-        fun pintar(borrao: Boolean) { w.setBackgroundDrawable(degrade(rtl, borrao)) }
-        if (Build.VERSION.SDK_INT >= 31 && !semMovimento(a)) {
-            w.setBackgroundBlurRadius(Estilo.dp(a, BORRAO_DP))
-            pintar(runCatching { a.windowManager.isCrossWindowBlurEnabled }.getOrDefault(false))
-            // O sistema desliga o borrão sozinho (economia de bateria, túnel de vídeo): o vidro vira quase sólido na hora.
-            runCatching {
-                val ouvinte = java.util.function.Consumer<Boolean> { pintar(it) }
-                a.windowManager.addCrossWindowBlurEnabledListener(ouvinte)
-                a.application.registerActivityLifecycleCallbacks(object : android.app.Application.ActivityLifecycleCallbacks {
-                    override fun onActivityDestroyed(x: Activity) {
-                        if (x !== a) return
-                        runCatching { a.windowManager.removeCrossWindowBlurEnabledListener(ouvinte) }
-                        a.application.unregisterActivityLifecycleCallbacks(this)
-                    }
-                    override fun onActivityCreated(x: Activity, b: android.os.Bundle?) {}
-                    override fun onActivityStarted(x: Activity) {}
-                    override fun onActivityResumed(x: Activity) {}
-                    override fun onActivityPaused(x: Activity) {}
-                    override fun onActivityStopped(x: Activity) {}
-                    override fun onActivitySaveInstanceState(x: Activity, b: android.os.Bundle) {}
-                })
-            }
-        } else pintar(false)
+        esfumar(a, w, LARGURA_DP)
         return true
     }
 
@@ -102,17 +78,27 @@ internal object SidePanel {
      * por cima de qualquer quadro. Fora do vídeo: borra o que está atrás e escurece de leve, como o painel das Configurações.
      */
     fun vidroNoDialogo(ctx: android.content.Context, w: android.view.Window, larguraDp: Int, video: Boolean) {
-        w.setLayout(Estilo.dp(ctx, larguraDp), ViewGroup.LayoutParams.MATCH_PARENT)
         w.setGravity(Gravity.END or Gravity.TOP)
-        val wm = ctx.getSystemService(WindowManager::class.java)
-        // Sobre a HOME não borra: ela continua animando atrás de um diálogo (não pausa) e o borrão refeito a cada quadro
-        // atrasou 96% dos quadros na Sala (25/11/2026, medido no painel antes do congelar). Lá o vidro fica quase sólido.
-        val sobreHome = ctx is br.paulo.tvlauncher.MainActivity
-        val borra = !video && !sobreHome && Build.VERSION.SDK_INT >= 31 && runCatching { wm.isCrossWindowBlurEnabled }.getOrDefault(false)
-        if (borra) w.setBackgroundBlurRadius(Estilo.dp(ctx, BORRAO_DP))
-        w.setBackgroundDrawable(degrade(ctx.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL, borra))
+        esfumar(ctx, w, larguraDp)
         if (video) w.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         else { w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); w.setDimAmount(MENU_ESCURECE) }
+    }
+
+    /** A faixa de dentro onde o vidro some aos poucos, sem conteúdo (protótipo: máscara em degradê). */
+    const val ESFUMADO_DP = 200
+
+    /**
+     * Na Sala (26/11/2026, foto) o borrão do sistema cortava o painel numa linha reta: ele borra o retângulo inteiro da
+     * janela e não aceita máscara. Porquê: o protótipo aprovado some aos poucos para a tela de trás. Para quê: o painel
+     * parece pousado sobre a tela, não um bloco colado nela. Como: a janela cresce [ESFUMADO_DP] para dentro, sem borrão,
+     * com o degradê grafite indo de transparente a firme; o conteúdo fica com o recuo dessa faixa e mantém a largura
+     * [larguraDp]. Sem borrão também acaba o custo de refazê-lo a cada quadro (96% atrasados com a HOME animando atrás).
+     */
+    private fun esfumar(ctx: android.content.Context, w: android.view.Window, larguraDp: Int) {
+        w.setLayout(Estilo.dp(ctx, larguraDp + ESFUMADO_DP), ViewGroup.LayoutParams.MATCH_PARENT)
+        val rtl = ctx.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
+        w.setBackgroundDrawable(degrade(rtl, false))
+        w.decorView.findViewById<View>(android.R.id.content)?.setPaddingRelative(Estilo.dp(ctx, ESFUMADO_DP), 0, 0, 0)
     }
 
     /**
@@ -120,9 +106,9 @@ internal object SidePanel {
      * sem borda nem canto, mais leve do lado de dentro e firme do lado da borda da tela, para a HOME atrás respirar.
      * Com borrão do sistema a tinta é mais leve; sem ele, mais firme, para o texto não brigar com a imagem.
      */
-    fun degrade(rtl: Boolean, borrao: Boolean): GradientDrawable {
-        val cores = if (borrao) intArrayOf(Estilo.PAINEL_VIDRO_DENTRO, Estilo.PAINEL_VIDRO, Estilo.PAINEL_VIDRO_FORA)
-            else intArrayOf(Estilo.PAINEL_CHEIO_DENTRO, Estilo.PAINEL_CHEIO, Estilo.PAINEL_CHEIO)
+    fun degrade(rtl: Boolean, @Suppress("UNUSED_PARAMETER") borrao: Boolean = false): GradientDrawable {
+        val cores = intArrayOf(0x00141413, 0xA6141413.toInt(),
+            Estilo.PAINEL_CHEIO_DENTRO, Estilo.PAINEL_CHEIO)
         return GradientDrawable(if (rtl) GradientDrawable.Orientation.RIGHT_LEFT else GradientDrawable.Orientation.LEFT_RIGHT, cores)
     }
 

@@ -91,7 +91,7 @@ class CalendarioActivity : Activity() {
         tituloMes = Estilo.tituloTela(this, "")
         colunaMes.addView(tituloMes)
         colunaMes.addView(texto(18f, textoSuave).apply {
-            text = (if (contas.size > 1) getString(R.string.cal_todas_contas, contas.size) else contas.firstOrNull() ?: getString(R.string.cal_sem_conta)) + "\n" + getString(R.string.cal_dica)
+            text = (if (contas.size > 1) getString(R.string.cal_todas_contas, contas.size) else contas.firstOrNull() ?: getString(R.string.cal_sem_conta))
             setPaddingRelative(0, dp(4), 0, dp(18))
         })
         grade = GridLayout(this).apply { columnCount = 7 }
