@@ -288,6 +288,9 @@ object ComandosExtras {
             if (i.hasExtra("provider")) br.paulo.tvlauncher.observer.SofyAi.save(ctx, i.getStringExtra("provider"), i.getStringExtra("base"), i.getStringExtra("model"), i.getStringExtra("key"), slot, i.getStringExtra("model_review"))
             br.paulo.tvlauncher.observer.SofyAi.json(ctx).toString()
         }
+        // `screen_review [--es telas previsao,agenda]`: confere agora as telas (revisão da IA + segunda opinião), só com a TV parada.
+        "screen_review" -> br.paulo.tvlauncher.observer.SofyScreenCheckTv.agora(ctx,
+            i.getStringExtra("telas").orEmpty().split(',').map { it.trim() }.filter { it.isNotEmpty() })
         "sofy_ai_test" -> { val c = ctx.applicationContext; val slot = if (i.getBooleanExtra("backup", false)) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
             br.paulo.tvlauncher.Fundo.rodar("sofy-ia-teste") { android.util.Log.i("TvLauncher.SofyAi", "teste${if (slot.isEmpty()) "" else " (reserva)"}: " + br.paulo.tvlauncher.observer.SofyAi.test(c, slot)) }; "testando (veja o logcat TvLauncher.SofyAi)" }
         "community" -> {

@@ -31,7 +31,7 @@ that read sources find files with `CodeSource.file(name)`. Background work goes 
 - Release assets are `sofaly-launcher.apk` (armeabi-v7a) and `sofaly-launcher-arm64.apk` (package `tv.sofaly.launcher`),
   plus the bridge `one-tv-launcher*.apk` only when published with `bridge=true`. Old-package apps also accept the
   older `tv-launcher*.apk`.
-- **Publishing is separate from merging.** Merging to `main` builds nothing. A Release is created only by running the
+- **Publishing is separate from merging.** Merging to `main` only compiles and tests (no Release). A Release is created only by running the
   "Build e Release" workflow by hand on `main` (`workflow_dispatch`), which signs with the `ASSINATURA_*` secrets.
   That run executes the JVM tests first (a red test publishes nothing). Inputs: `canal=teste` publishes a prerelease
   that only TVs with `EXTRAS canal --es canal teste` install ("Promover para todos" workflow releases it to everyone);
@@ -41,12 +41,19 @@ that read sources find files with `CodeSource.file(name)`. Background work goes 
   `python3 scripts/readme.py`: the README feature list, "What changed", the Release notes and the CHANGELOG come from
   that file and from the website's feature list (`website/features.json` + `content/en.json`); the workflow refuses to
   publish when they are stale. README pictures: `node scripts/readme-images.js` (source `docs/readme/art.html`).
-  Pull requests only compile (and cost CI minutes): batch commits; use `[skip ci]` for text-only commits.
+  Pull requests compile + test (and cost CI minutes), but once the repo is PRIVATE (paid Actions) a DRAFT PR runs nothing (26/11/2026; while public, Actions are free and every PR runs, no limits — Paulo): CI runs
+  when the PR leaves draft, on each push after that and on push to `main`. Need CI on a draft? Add the label `run-ci`
+  (runs on every push while it is there) or run the workflow by hand on the branch. Changes only in `docs/`, `*.md` or
+  `website/` skip Build/Telas; `res/values*.xml` is code. Batch commits; `[skip ci]` only for pure .md/doc commits.
 - **Closed source (decided 15/11/2026).** The code repo becomes private; TVs keep reading the PUBLIC repo with the old name
   (`Config.ATUALIZACAO_REPO`). Repo variable `REPO_PUBLICO` + secret `PUBLICO_TOKEN` make "Build e Release" / "Promover"
   publish there, and the "Repo publico" workflow mirrors `site/`, `comunidade/`, `publico/`, screenshots and a code-free
   README to it (Pages, `volta.html`, raw `comunidade/` keep their URLs). Nothing else from this repo goes public.
 - The signing key and its password never go into git, issues or logs.
+- **No AI marks in new commits, PRs or branches** (Paulo, 26/11/2026; `.claude/settings.json` has
+  `includeCoAuthoredBy: false` and empty `attribution`): no `Co-Authored-By: Claude` or `Claude-Session` trailers, no
+  "Generated with Claude Code" footer in PRs, no `claude/` branch prefix where the tool lets you pick the name; PRs in the
+  name of the ChrnX0 account when possible. Never rewrite history or force-push to remove old marks.
 - No personal data in the repo (city, coordinates, IPs, names, account ids). Per-owner build values go in
   `pessoal.properties` (git-ignored; template `pessoal.properties.exemplo`) and reach the code via `BuildConfig`.
 - Before touching a real TV, check it is idle (`dumpsys power`, `topResumedActivity`): people may be watching.
