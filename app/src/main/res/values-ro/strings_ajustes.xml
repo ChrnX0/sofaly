@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Planul dvs.</string>
     <string name="pl_loja_indisponivel">Google Play nu a putut deschide achiziția. Verificați internetul și încercați din nou.</string>
     <string name="atu_pela_play">Actualizările vin din Google Play.</string>
+    <string name="cfg_sec_tema">Temă și fundal</string>
+    <string name="cfg_sec_leitura">Citire</string>
+    <string name="cfg_sec_inicio">Ecran de pornire</string>
 </resources>

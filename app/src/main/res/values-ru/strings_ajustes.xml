@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">Ваш тариф</string>
     <string name="pl_loja_indisponivel">Google Play не открыл покупку. Проверьте интернет и попробуйте снова.</string>
     <string name="atu_pela_play">Обновления приходят через Google Play.</string>
+    <string name="cfg_sec_tema">Тема и фон</string>
+    <string name="cfg_sec_leitura">Чтение</string>
+    <string name="cfg_sec_inicio">Главный экран</string>
 </resources>

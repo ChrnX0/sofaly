@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">Votre forfait</string>
     <string name="pl_loja_indisponivel">Google Play n’a pas pu ouvrir l’achat. Vérifiez internet et réessayez.</string>
     <string name="atu_pela_play">Les mises à jour arrivent par Google Play.</string>
+    <string name="cfg_sec_tema">Thème et fond</string>
+    <string name="cfg_sec_leitura">Lecture</string>
+    <string name="cfg_sec_inicio">Écran d’accueil</string>
 </resources>

@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Το πακέτο σας</string>
     <string name="pl_loja_indisponivel">Το Google Play δεν μπόρεσε να ανοίξει την αγορά. Ελέγξτε το internet και δοκιμάστε ξανά.</string>
     <string name="atu_pela_play">Οι ενημερώσεις έρχονται από το Google Play.</string>
+    <string name="cfg_sec_tema">Θέμα και φόντο</string>
+    <string name="cfg_sec_leitura">Ανάγνωση</string>
+    <string name="cfg_sec_inicio">Αρχική οθόνη</string>
 </resources>

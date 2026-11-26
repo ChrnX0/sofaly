@@ -41,6 +41,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
             startActivity(Intent(this, PluginsActivity::class.java))
         }
     }, lp())
+    secao(c, getString(R.string.cfg_sec_tema))
     lateinit var linhaTema: LinhaCfg
     linhaTema = linha(getString(R.string.cl_tema), getString(R.string.cfg_tema_det), valor = Tema.atual(this).nome) {
         Tema.proximo(this)
@@ -89,6 +90,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     }
     c.addView(linhaContraste, lp())
     }
+    secao(c, getString(R.string.cfg_sec_leitura))
     // Tamanho do texto (ideia 47, TamanhoTexto): vale em todas as telas do launcher; esta tela se refaz para mostrar.
     fun rotuloTamanho(v: Int) = getString(when (v) { 110 -> R.string.tt_grande; 120 -> R.string.tt_maior; else -> R.string.tt_normal })
     c.addView(linha(getString(R.string.tt_titulo), getString(R.string.tt_det), valor = rotuloTamanho(TamanhoTexto.atual(this))) {
@@ -101,6 +103,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
         reconstruirAoVoltar = true
         recreate()
     }, lp())
+    secao(c, getString(R.string.cfg_sec_inicio))
     // Tela inicial em cruz (17/11/2026), a única: ícones, apps, barra, arte, sons e a onda 3. A HOME se refaz ao voltar.
     fun rotuloIcones() = getString(LayoutHome.nomeIcones(LayoutHome.iconesCruz(this)))
     lateinit var linhaIcones: LinhaCfg

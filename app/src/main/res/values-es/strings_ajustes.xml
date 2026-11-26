@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">Tu plan</string>
     <string name="pl_loja_indisponivel">Google Play no abrió la compra. Revisa internet e inténtalo de nuevo.</string>
     <string name="atu_pela_play">Las actualizaciones llegan por Google Play.</string>
+    <string name="cfg_sec_tema">Tema y fondo</string>
+    <string name="cfg_sec_leitura">Lectura</string>
+    <string name="cfg_sec_inicio">Pantalla de inicio</string>
 </resources>

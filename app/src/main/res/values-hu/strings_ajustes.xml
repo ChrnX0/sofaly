@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Az Ön csomagja</string>
     <string name="pl_loja_indisponivel">A Google Play nem tudta megnyitni a vásárlást. Ellenőrizze az internetet, és próbálja újra.</string>
     <string name="atu_pela_play">A frissítések a Google Playről érkeznek.</string>
+    <string name="cfg_sec_tema">Téma és háttér</string>
+    <string name="cfg_sec_leitura">Olvasás</string>
+    <string name="cfg_sec_inicio">Kezdőképernyő</string>
 </resources>

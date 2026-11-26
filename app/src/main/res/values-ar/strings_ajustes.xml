@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">خطتك</string>
     <string name="pl_loja_indisponivel">تعذّر على Google Play فتح الشراء. تحقق من الإنترنت وحاول مرة أخرى.</string>
     <string name="atu_pela_play">تصل التحديثات عبر Google Play.</string>
+    <string name="cfg_sec_tema">السمة والخلفية</string>
+    <string name="cfg_sec_leitura">القراءة</string>
+    <string name="cfg_sec_inicio">الشاشة الرئيسية</string>
 </resources>
