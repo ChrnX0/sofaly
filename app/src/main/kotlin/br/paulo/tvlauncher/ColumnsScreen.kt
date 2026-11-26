@@ -73,7 +73,7 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
     private val infoCard = LinearLayout(a).apply {
         orientation = LinearLayout.VERTICAL
         setPaddingRelative(dp(Estilo.E3), dp(Estilo.E3 - 4), dp(Estilo.E3), dp(Estilo.E3))
-        background = Estilo.fundo(a, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
+        background = Estilo.caixa(a)
         addView(infoLabel); addView(infoHeadline); addView(infoBody)
         visibility = View.GONE
     }

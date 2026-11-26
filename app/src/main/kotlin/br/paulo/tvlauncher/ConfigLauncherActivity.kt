@@ -433,8 +433,8 @@ class ConfigLauncherActivity : Activity() {
         t.typeface = Estilo.fonte(if (foco || escolhido) 400 else 300)
         (t.compoundDrawablesRelative[0] as? IconeCruz)?.let { br.paulo.tvlauncher.settings.acenderIcone(this, it, foco) }
         t.background = when {
-            foco -> Estilo.fundoFocado(this, Estilo.RAIO_PILULA, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA) else null)
-            escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA)
+            foco -> Estilo.fundoFocado(this, Estilo.RAIO, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO) else null)
+            escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
             else -> null
         }
     }
@@ -1416,7 +1416,7 @@ class ConfigLauncherActivity : Activity() {
 
     internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable? = when {
         // Guiado (molde do Projectivy): sem fio entre as linhas; foco = pílula clara de ponta a ponta, sem borda.
-        guiado -> if (focado) Estilo.fundo(this, PILULA_GUIADA, Estilo.RAIO_PILULA) else null
+        guiado -> if (focado) Estilo.fundo(this, PILULA_GUIADA, Estilo.RAIO) else null
         focado -> Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this))
         else -> Estilo.fioBaixo(this)
     }
@@ -1528,7 +1528,7 @@ class ConfigLauncherActivity : Activity() {
             val focada = focada && Estilo.focoEscurece(context)   // no Fio e no Véu a chave fica como está
             trilho?.background = Estilo.fundo(context,
                 when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33121212; else -> 0x33FFFFFF },
-                Estilo.RAIO_PILULA)
+                Estilo.RAIO)
             bolinha?.background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL
                 setColor(if (sim) (if (focada) Estilo.FOCO else Estilo.FUNDO) else (if (focada) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO))

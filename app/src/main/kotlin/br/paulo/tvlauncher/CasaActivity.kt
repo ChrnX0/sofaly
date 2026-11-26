@@ -549,7 +549,7 @@ class CasaActivity : Activity() {
                 ligado -> Estilo.ACENTO
                 foco -> 0x14121212
                 else -> Estilo.SUPERFICIE_ALTA
-            }, Estilo.RAIO_PILULA)
+            }, Estilo.RAIO)
             icone.definirCor(when {
                 ligado && foco -> Estilo.FOCO
                 ligado || foco -> Estilo.TEXTO_NO_FOCO

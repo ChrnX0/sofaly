@@ -765,6 +765,11 @@ object PainelWeb {
             ConectorWindows.CAMINHO -> if (PainelDav.ligado(app)) return if (https) conectorWindows(req.cabecalho("accept-language")) else
                 Resposta(302, "text/plain; charset=utf-8", ByteArray(0),
                     mapOf("Location" to "https://${hostConector()}:${PainelTls.PORTA}${ConectorWindows.CAMINHO}", "Cache-Control" to "no-store"))
+            // A arte do fundo da TV (26/11/2026, Paulo: arte com véu em tudo, painel e celular inclusive): a mesma foto da
+            // HOME, atrás do painel. Livre como a página (é uma das 3 fotos de fábrica); "do tema" = 404 e fica o grafite.
+            "/arte.jpg" -> return br.paulo.tvlauncher.home.StripBackground.choice(app).asset?.let { a ->
+                Resposta(200, "image/jpeg", app.assets.open(a).use { it.readBytes() }, mapOf("Cache-Control" to "max-age=300"))
+            } ?: erro(404, "sem arte")
             "/certificado.crt" -> return arquivoCertificado()
             "/certificado.css" -> return Resposta(200, "text/css; charset=utf-8",
                 app.assets.open("painel/certificado.css").use { it.readBytes() })

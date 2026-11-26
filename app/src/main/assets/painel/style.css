@@ -16,6 +16,7 @@
 
 /* design-tokens:start (GERADO por scripts/design-tokens.py a partir de design/tokens.json; não edite à mão) */
 :root {
+  --arte-veu: 18,18,18;   /* véu da arte do fundo (o Noite); no claro, o papel */
   --t-night: #121212;
   --t-night-deep: #0b0b0b;
   --t-surface: #1e1e1e;
@@ -112,6 +113,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --fundo: var(--t-paper);
+    --arte-veu: 255,248,240;
     --superficie: #ffffff;
     --superficie2: rgba(20, 20, 19, .06);
     --superficie-hover: rgba(20, 20, 19, .10);
@@ -168,7 +170,9 @@ body {
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 500; font-feature-settings: "tnum";
   -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
   /* Luz suave em cima, como a arte atrás da HOME da TV. Fica parada ao rolar. */
-  background: radial-gradient(520px 520px at 0% -8%, var(--brilho), transparent 65%), var(--fundo);
+  /* Arte com véu (Paulo, 26/11/2026: "adotado em tudo", a opção B "Arte no alto"): a mesma foto da HOME da TV no alto,
+     escurecendo até o grafite onde ficam as caixas. Sem foto (fundo "do tema"), fica só o grafite. Parada ao rolar. */
+  background: linear-gradient(rgba(var(--arte-veu),.35), rgba(var(--arte-veu),.6) 22%, var(--fundo) 46%), url(/arte.jpg) top center / 100% auto no-repeat, var(--fundo);
   background-attachment: fixed;
 }
 button, input, select, textarea { font-family: inherit; }

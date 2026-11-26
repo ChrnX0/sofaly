@@ -99,7 +99,7 @@ class BuscaActivity : Activity() {
             setTextColor(Estilo.TEXTO); setHintTextColor(Estilo.TEXTO_3)
             textSize = 20f
             typeface = Estilo.fonte(500)
-            background = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA, Estilo.BORDA)
+            background = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
             setPaddingRelative(dp(22), dp(14), dp(22), dp(14))
             setOnEditorActionListener { _, acao, _ ->
                 // Buscar no teclado: fecha o teclado e o foco desce ao 1º resultado assim que ele aparecer. Antes o teclado

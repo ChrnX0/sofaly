@@ -48,7 +48,7 @@ internal fun ConfigLauncherActivity.mostrarBusca() {
         setSingleLine()
         inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
         setTextColor(Estilo.TEXTO); setHintTextColor(Estilo.TEXTO_3); textSize = 20f
-        background = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA, Estilo.BORDA)
+        background = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
         setPaddingRelative(dp(22), dp(14), dp(22), dp(14))
     }
     campoBusca = campo

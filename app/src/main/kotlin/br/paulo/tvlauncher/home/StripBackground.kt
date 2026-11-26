@@ -209,7 +209,7 @@ object GlassBackground {
      * O fundo de toda tela desde 26/11/2026 (Paulo aprovou a prévia "Arte com véu"): a foto nítida inteira sob um véu
      * Noite em degradê, mais leve no alto e firme embaixo, o mesmo das Fileiras. Null quando não há foto.
      */
-    fun veiled(ctx: Context): android.graphics.drawable.Drawable? = nitida(ctx)?.let { GlassDrawable(it, veu = true) }
+    fun veiled(ctx: Context): android.graphics.drawable.Drawable? = nitida(ctx)?.let { GlassDrawable(it, tudo = true) }
 
     /** A foto da barra em metade do tamanho (800 x 450, RGB 565: ~700 KB), guardada só a da escolha atual. */
     private fun nitida(ctx: Context): Bitmap? {
@@ -268,7 +268,7 @@ object GlassBackground {
 
 /** Desenha a foto borrada em "centerCrop" com filtro e o véu Noite por cima. Opaco. */
 class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = false, val barra: Boolean = false,
-                    private val veu: Boolean = false) : android.graphics.drawable.Drawable() {
+                    private val tudo: Boolean = false) : android.graphics.drawable.Drawable() {
     private val pinta = Paint(Paint.FILTER_BITMAP_FLAG)
     private val veu = Paint().apply { color = (GlassBackground.VEU shl 24) or (DesignTokens.NIGHT and 0xFFFFFF) }
     private val origem = Rect()
@@ -283,7 +283,7 @@ class GlassDrawable(private val foto: Bitmap, private val gaveta: Boolean = fals
         c.drawColor(DesignTokens.NIGHT)
         c.drawBitmap(foto, origem, destino, pinta)
         if (barra) { barra(c, h); return }
-        if (veu) { veuInteiro(c, h); return }
+        if (tudo) { veuInteiro(c, h); return }
         if (!gaveta) { c.drawRect(destino, veu); return }
         // Gaveta: véu de cima atrás da pílula (como na barra) e o painel Noite que sobe um pouco antes do conteúdo.
         val t = bounds.top.toFloat()
