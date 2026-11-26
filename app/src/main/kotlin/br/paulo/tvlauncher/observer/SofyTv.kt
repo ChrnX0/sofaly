@@ -4,6 +4,7 @@ import android.content.Context
 import android.media.AudioManager
 import android.util.Log
 import br.paulo.tvlauncher.AvisoTv
+import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.R
 import br.paulo.tvlauncher.family.Diario
 import java.util.Calendar
@@ -26,6 +27,7 @@ object SofyTv {
     @Synchronized fun present(ctx: Context) {
         val app = ctx.applicationContext
         val now = now(app)
+        runCatching { phone(app, now) }.onFailure { Log.w(TAG, "celular: $it") }   // antes da TV marcar o recado como visto
         val notes = runCatching { ObserverTv.notes(app) }.getOrDefault(emptyList()).filter { it.canAppear(now.at) }
         for (n in notes.reversed()) {   // do mais velho para o mais novo
             val d = SofyPolicy.decide(n, now)
@@ -41,6 +43,27 @@ object SofyTv {
             Log.i(TAG, "${n.typeKey}: ${d.place} ${d.expression} voz=${d.voice} (${d.why})")
             return   // uma por vez: a próxima espera a próxima olhada (e o teto)
         }
+    }
+
+    /**
+     * O grave e o "agi e você vai sentir" também vão ao celular ([SofyPolicy.toPhone], Brainstorm 26/11 item 4).
+     * Um recado vai uma vez só (ids em "phone_sent"); o toque abre a aba Sofy do painel. Sem celular inscrito ou com o
+     * tipo SOFY desligado nos Avisos, não faz nada. Fora da thread da tela (lê prefs; o envio em si é no fundo).
+     */
+    @Synchronized fun phone(ctx: Context, now: SofyPolicy.Now = now(ctx.applicationContext)) {
+        val app = ctx.applicationContext
+        if (!Avisos.podeAvisar(app, Avisos.Tipo.SOFY)) return
+        val p = app.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val sent = p.getString("phone_sent", "").orEmpty().split(',').filter { it.isNotEmpty() }
+        val sentAt = p.getString("phone_at", "").orEmpty().split(',').mapNotNull { it.toLongOrNull() }.filter { now.at - it < DAY_MS }
+        val notes = runCatching { ObserverTv.notes(app) }.getOrDefault(emptyList())
+        val n = notes.reversed().firstOrNull { it.id !in sent && SofyPolicy.toPhone(it, now, sentAt) } ?: return
+        val title = texto(app, n.titleKey, n.args) ?: return
+        val text = texto(app, n.textKey, n.args).orEmpty()
+        Avisos.enviar(app, Avisos.Tipo.SOFY, title, text)
+        p.edit().putString("phone_sent", (sent + n.id).takeLast(40).joinToString(","))
+            .putString("phone_at", (sentAt + now.at).joinToString(",")).apply()
+        Log.i(TAG, "${n.typeKey}: foi ao celular")
     }
 
     /** Uma linha da Sofy na Ilha da home: o título do recado, a cara dele e o id (para marcar visto). */

@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"テレビのストレージがいっぱいに",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"テレビで入力欄が開いている(タップしてスマホから入力)",
 "Despertador tocou na TV":"テレビでアラームが鳴った",
+"Alerta importante da Sofy":"Sofy からの重要なお知らせ",
 "Ouvir no celular":"スマホで聴く",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"テレビで最後に流れたラジオやポッドキャストを、同じところからここで続けます。",
 "Ouvir aqui":"ここで聴く",

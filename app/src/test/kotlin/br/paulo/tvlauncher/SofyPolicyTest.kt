@@ -136,4 +136,31 @@ class SofyPolicyTest {
         assertEquals(emptyList<String>(), SofyPolicy.morningNotes(l, now(minute = 14 * 60), minuto).map { it.id })
         assertEquals(emptyList<String>(), SofyPolicy.morningNotes(l, now(minute = 8 * 60, muted = mapOf("noite" to T + H, "desfez" to T + H)), minuto).map { it.id })
     }
+
+    // Brainstorm 26/11, item 4: o grave e o "agi e você vai sentir" também vão ao celular, com teto e fora da madrugada.
+    @Test fun criticalGoesToPhone() =
+        assertTrue(SofyPolicy.toPhone(note(Step.SUGGESTS, sev = Severity.CRITICAL), now(), emptyList()))
+
+    @Test fun feltActionGoesToPhone() =
+        assertTrue(SofyPolicy.toPhone(note(Step.ACTED_FELT), now(), emptyList()))
+
+    @Test fun warningSuggestionStaysOnTheTv() =
+        assertFalse(SofyPolicy.toPhone(note(Step.SUGGESTS), now(), emptyList()))
+
+    @Test fun observedOrQuestionNeverGoToPhone() {
+        assertFalse(SofyPolicy.toPhone(note(Step.OBSERVED, sev = Severity.CRITICAL), now(), emptyList()))
+        assertFalse(SofyPolicy.toPhone(note(Step.QUESTION, sev = Severity.CRITICAL), now(), emptyList()))
+    }
+
+    @Test fun phoneWaitsAtNightAndRespectsMuteAndBudget() {
+        val grave = note(Step.SUGGESTS, sev = Severity.CRITICAL)
+        assertFalse(SofyPolicy.toPhone(grave, now(minute = 2 * 60), emptyList()))
+        assertFalse(SofyPolicy.toPhone(grave, now(muted = mapOf("no_internet" to T + H)), emptyList()))
+        assertFalse(SofyPolicy.toPhone(grave, now(), listOf(T - 10 * 60_000L)))           // 1 na última hora
+        assertFalse(SofyPolicy.toPhone(grave, now(), listOf(T - 2 * H, T - 3 * H, T - 4 * H)))   // 3 no dia
+        assertTrue(SofyPolicy.toPhone(grave, now(), listOf(T - 2 * H)))
+    }
+
+    @Test fun expiredNoteDoesNotGoToPhone() =
+        assertFalse(SofyPolicy.toPhone(note(Step.ACTED_FELT).copy(expiresAt = T - 1), now(), emptyList()))
 }

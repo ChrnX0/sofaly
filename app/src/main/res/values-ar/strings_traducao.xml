@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">طلب أحدهم المساعدة على التلفزيون %1$s.</string>
     <string name="ms_avisei_falado">تم. أبلغتُ العائلة.</string>
     <string name="ms_avisei">أبلغتُ العائلة على هواتفهم.</string>
+    <string name="ms_ninguem_recebeu">لم يصل التنبيه إلى أي هاتف. اتصل بأحد من فضلك.</string>
     <string name="ms_voltar">العودة إلى ملء الشاشة</string>
     <string name="pv_bom_dia">صباح الخير!</string>
     <string name="pv_boa_tarde">مساء الخير!</string>

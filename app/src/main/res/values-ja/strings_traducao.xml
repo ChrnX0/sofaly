@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">TV %1$s で誰かが助けを求めています。</string>
     <string name="ms_avisei_falado">完了。家族に知らせました。</string>
     <string name="ms_avisei">家族のスマートフォンに知らせました。</string>
+    <string name="ms_ninguem_recebeu">どのスマートフォンにも届きませんでした。誰かに電話してください。</string>
     <string name="ms_voltar">通常の画面に戻る</string>
     <string name="pv_bom_dia">おはようございます！</string>
     <string name="pv_boa_tarde">こんにちは！</string>

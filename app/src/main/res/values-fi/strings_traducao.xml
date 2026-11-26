@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Joku pyysi apua TV:ssä %1$s.</string>
     <string name="ms_avisei_falado">Valmis. Ilmoitin perheelle.</string>
     <string name="ms_avisei">Ilmoitin perheelle heidän puhelimiinsa.</string>
+    <string name="ms_ninguem_recebeu">Mikään puhelin ei saanut ilmoitusta. Soita jollekulle.</string>
     <string name="ms_voltar">Takaisin täyteen näyttöön</string>
     <string name="pv_bom_dia">Hyvää huomenta!</string>
     <string name="pv_boa_tarde">Hyvää iltapäivää!</string>

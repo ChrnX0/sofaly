@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Noen ba om hjelp på TV-en %1$s.</string>
     <string name="ms_avisei_falado">Ferdig. Jeg ga familien beskjed.</string>
     <string name="ms_avisei">Jeg ga familien beskjed på telefonene deres.</string>
+    <string name="ms_ninguem_recebeu">Ingen telefon fikk varselet. Ring noen.</string>
     <string name="ms_voltar">Tilbake til full skjerm</string>
     <string name="pv_bom_dia">God morgen!</string>
     <string name="pv_boa_tarde">God ettermiddag!</string>

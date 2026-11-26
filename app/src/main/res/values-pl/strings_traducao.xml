@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">Ktoś wezwał pomoc przy telewizorze %1$s.</string>
     <string name="ms_avisei_falado">Gotowe. Powiadomiłem rodzinę.</string>
     <string name="ms_avisei">Powiadomiłem rodzinę na telefonach.</string>
+    <string name="ms_ninguem_recebeu">Żaden telefon nie dostał powiadomienia. Proszę do kogoś zadzwonić.</string>
     <string name="ms_voltar">Wróć do pełnego ekranu</string>
     <string name="pv_bom_dia">Dzień dobry!</string>
     <string name="pv_boa_tarde">Dzień dobry!</string>

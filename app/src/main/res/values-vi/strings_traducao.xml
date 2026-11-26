@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Có người cần giúp đỡ trên TV %1$s.</string>
     <string name="ms_avisei_falado">Xong. Tôi đã báo cho gia đình.</string>
     <string name="ms_avisei">Tôi đã báo cho gia đình trên điện thoại của họ.</string>
+    <string name="ms_ninguem_recebeu">Không điện thoại nào nhận được cảnh báo. Hãy gọi cho ai đó.</string>
     <string name="ms_voltar">Trở lại màn hình đầy đủ</string>
     <string name="pv_bom_dia">Chào buổi sáng!</string>
     <string name="pv_boa_tarde">Chào buổi chiều!</string>

@@ -73,6 +73,17 @@ object SofyPolicy {
 
     fun muted(typeKey: String, mutedUntil: Map<String, Long>, at: Long): Boolean = (mutedUntil[typeKey] ?: 0L) > at
 
+    /**
+     * Vai também ao celular de quem cuida? (Brainstorm 26/11, item 4: o grave nunca saía da TV.) Só o grave (CRITICAL)
+     * e o "agi e você vai sentir" (ACTED_FELT), ainda válido, de tipo não calado e fora da madrugada (de madrugada
+     * espera: o recado vale 6 h e sai de manhã se ainda for verdade). Pergunta e "só observou" ficam na TV.
+     * [sentAt] = quando os últimos foram ao celular: o mesmo teto das falas (1 por hora, 3 por dia).
+     */
+    fun toPhone(n: ObserverCore.Note, now: Now, sentAt: List<Long>): Boolean =
+        (n.severity == ObserverCore.Severity.CRITICAL || n.step == ObserverCore.Step.ACTED_FELT) &&
+            n.step != ObserverCore.Step.QUESTION && n.step != ObserverCore.Step.OBSERVED && n.expiresAt > now.at &&
+            !muted(n.typeKey, now.mutedUntil, now.at) && !night(now.minuteOfDay) && withinBudget(sentAt, now.at)
+
     fun decide(n: ObserverCore.Note, now: Now): Decision {
         val face = expressionFor(n)
         val budget = withinBudget(now.shownAt, now.at)

@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">有人在电视 %1$s 上求助。</string>
     <string name="ms_avisei_falado">好的。我已通知家人。</string>
     <string name="ms_avisei">我已通过手机通知家人。</string>
+    <string name="ms_ninguem_recebeu">没有手机收到提醒。请给家人打电话。</string>
     <string name="ms_voltar">返回完整界面</string>
     <string name="pv_bom_dia">早上好！</string>
     <string name="pv_boa_tarde">下午好！</string>

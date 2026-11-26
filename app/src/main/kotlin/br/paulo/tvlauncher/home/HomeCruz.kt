@@ -1224,6 +1224,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         val linhas = CruzLogica.partes(i.sub, CruzLogica.tirarDoItem(i.situacao)).let { listOf(it.principal) + it.detalhes }.filter { it.isNotEmpty() }.joinToString("\n")
         contentDescription = listOf(c.nome, i.nome, i.situacao?.let { it.rotulo + " " + it.texto }.orEmpty(), linhas, posicao.text.toString()).filter { it.isNotEmpty() }.joinToString(", ")
         if (isFocused) sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+        br.paulo.tvlauncher.input.VozFoco.anunciar(this)   // LER_FOCO: o foco não sai da cruz, então ela mesma avisa a voz
     }
 
     override fun onInitializeAccessibilityNodeInfo(info: AccessibilityNodeInfo) {

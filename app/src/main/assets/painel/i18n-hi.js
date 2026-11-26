@@ -17,6 +17,7 @@ traduzirPainelCom({T:{
 "Armazenamento da TV enchendo":"टीवी स्टोरेज भर रहा है",
 "Campo de texto aberto na TV (toque para digitar pelo celular)":"टीवी पर टेक्स्ट फ़ील्ड खुला है (फ़ोन से लिखने के लिए छुएँ)",
 "Despertador tocou na TV":"टीवी पर अलार्म बजा",
+"Alerta importante da Sofy":"Sofy की ज़रूरी चेतावनी",
 "Ouvir no celular":"फ़ोन पर सुनें",
 "Continua aqui a rádio ou o podcast que a TV tocou por último, do mesmo ponto.":"टीवी पर आख़िरी बार चला रेडियो या पॉडकास्ट यहीं उसी जगह से जारी रखता है।",
 "Ouvir aqui":"यहाँ सुनें",
