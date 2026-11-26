@@ -63,6 +63,27 @@ object SofyScreenCheckTv {
         return true
     }
 
+    /**
+     * Pelo adb, para teste (Paulo, 26/11/2026: "testar todos os modelos com força"): confere AGORA as telas pedidas
+     * (nomes de [TELAS]; vazio = todas), uma depois da outra, com a revisão da IA e a segunda opinião em cada uma.
+     * Mesmos freios da noite, menos a hora: só com a TV parada, e para se alguém acordar a TV.
+     */
+    fun agora(ctx: Context, nomes: List<String>): String {
+        val app = ctx.applicationContext
+        val s = AutorizaShizukuService.instancia ?: return "sem acessibilidade"
+        if (!paradaDeVerdade(app)) return "a TV está em uso: só com a tela apagada ou o protetor"
+        val lista = TELAS.filter { nomes.isEmpty() || it.first in nomes }
+        if (lista.isEmpty()) return "telas: " + TELAS.joinToString(",") { it.first }
+        Fundo.rodar("sofy-telas-agora") {
+            for ((nome, classe) in lista) {
+                if (!paradaDeVerdade(app)) { Log.i(TAG, "alguém acordou a TV: parei"); break }
+                runCatching { conferir(app, s, nome, classe) }.onFailure { Log.w(TAG, "$nome: $it") }
+            }
+            Log.i(TAG, "conferência pelo adb terminou")
+        }
+        return "conferindo ${lista.size} telas: " + lista.joinToString(",") { it.first }
+    }
+
     /** Tela apagada ou o nosso protetor na frente: ninguém está vendo. */
     private fun paradaDeVerdade(app: Context): Boolean {
         val pm = app.getSystemService(android.os.PowerManager::class.java)
