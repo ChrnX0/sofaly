@@ -116,4 +116,7 @@
     <string name="rw_ocioso_min">Idle after</string>
     <string name="rw_ocioso_opacidade">Home opacity when idle</string>
     <string name="rw_ocioso_hora">Big clock when idle</string>
+    <string name="rw_ao_ligar_espera">Wait before opening the start app</string>
+    <string name="rw_ao_ligar_acordar">Also open it when the TV wakes</string>
+    <string name="rw_seg">%1$d s</string>
 </resources>

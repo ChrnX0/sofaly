@@ -429,7 +429,7 @@ class MainActivity : Activity() {
         desligarPrevia()   // na frente de novo: o onResume abaixo já confere a aparência
         homeNaFrente = true
         // "Abrir ao ligar" (menu do card, bloco 4 do clone): na 1ª HOME depois de a TV ligar do zero, abre o app escolhido
-        br.paulo.tvlauncher.home.CardMenu.takeBootApp(this)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, 1500) }
+        br.paulo.tvlauncher.home.CardMenu.takeBootApp(this)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, br.paulo.tvlauncher.home.CardMenu.delayMs(this)) }
         // O host guarda UMA view por widget: só depois da tela de edição (que cria as dela) a HOME recria as suas.
         br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this)
         camadaWidgets?.let { if (br.paulo.tvlauncher.home.PluginWidgetsTv.editou) { br.paulo.tvlauncher.home.PluginWidgetsTv.editou = false; it.recriar() } else it.atualizar() }

@@ -111,6 +111,8 @@ internal fun MainActivity.vigiarTela() {
                         if (homeNaFrente) SplashOverlay.show(this@vigiarTela) else splashPendenteAte = agora + 3000L
                     }
                     abrirIlhaAoAcordar()
+                    // "Abrir ao ligar" também ao acordar do descanso (bloco 7: o "...e ao sair do standby" dele)
+                    if (CardMenu.onWake(ctx)) CardMenu.bootApp(ctx)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, CardMenu.delayMs(ctx)) }
                     if (homeNaFrente) { ui.removeCallbacks(tarefaQuemVe); ui.postDelayed(tarefaQuemVe, 1500) }
                 }
             }

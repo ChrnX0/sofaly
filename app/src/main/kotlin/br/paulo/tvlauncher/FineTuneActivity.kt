@@ -298,6 +298,10 @@ class FineTuneActivity : Activity() {
             numA(R.string.rw_ocioso_min, C3.AMBIENTE_MINUTOS.map { getString(R.string.rw_min, it) }, C3.CHAVE_AMBIENTE_MIN, 1),
             numA(R.string.rw_ocioso_opacidade, C3.AMBIENTE_ALFAS.map { "${(it * 100).toInt()}%" }, C3.CHAVE_AMBIENTE_ALFA, 0),
             numA(R.string.rw_ocioso_hora, simNao, C3.CHAVE_AMBIENTE_HORA, 1),
+            // "Abrir ao ligar" do menu do card (bloco 7)
+            numA(R.string.rw_ao_ligar_espera, br.paulo.tvlauncher.home.CardMenu.DELAYS_S.map { getString(R.string.rw_seg, it) },
+                br.paulo.tvlauncher.home.CardMenu.KEY_DELAY, 0),
+            numA(R.string.rw_ao_ligar_acordar, simNao, br.paulo.tvlauncher.home.CardMenu.KEY_WAKE, 0),
         )
     }
 

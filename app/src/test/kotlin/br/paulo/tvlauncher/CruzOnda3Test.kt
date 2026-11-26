@@ -47,4 +47,10 @@ class CruzOnda3Test {
         assertEquals(30 * 60_000L, CruzOnda3.ambienteMs(4))
         assertEquals(2 * 60_000L, CruzOnda3.ambienteMs(99))     // índice estranho = padrão
     }
+
+    @Test fun esperaDoAbrirAoLigar() {
+        assertEquals(1000L, br.paulo.tvlauncher.home.CardMenu.delayMs(0))
+        assertEquals(20_000L, br.paulo.tvlauncher.home.CardMenu.delayMs(4))
+        assertEquals(1000L, br.paulo.tvlauncher.home.CardMenu.delayMs(-1))
+    }
 }

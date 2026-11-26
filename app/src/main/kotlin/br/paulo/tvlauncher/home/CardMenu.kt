@@ -31,6 +31,14 @@ object CardMenu {
             .putString(KEY_APP, pkg).putInt(KEY_DONE, bootCount(ctx)).apply()
     }
 
+    // Ajustes do "Abrir ao ligar" (bloco 7): espera antes de abrir e abrir também ao acordar a TV. Em Extras.numero.
+    const val KEY_DELAY = "boot_app_delay"
+    const val KEY_WAKE = "boot_app_wake"
+    val DELAYS_S = listOf(1, 3, 5, 10, 20)
+    fun delayMs(ctx: Context) = delayMs(br.paulo.tvlauncher.settings.Extras.numero(ctx, KEY_DELAY, 0))
+    fun delayMs(i: Int) = DELAYS_S.getOrElse(i) { 1 } * 1000L
+    fun onWake(ctx: Context) = br.paulo.tvlauncher.settings.Extras.numero(ctx, KEY_WAKE, 0) == 1
+
     /** Número do boot (o Android conta cada vez que liga do zero); -1 se não der para ler. */
     private fun bootCount(ctx: Context): Int =
         runCatching { Settings.Global.getInt(ctx.contentResolver, Settings.Global.BOOT_COUNT) }.getOrDefault(-1)
