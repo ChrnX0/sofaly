@@ -165,7 +165,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         raiz.addView(painel, FrameLayout.LayoutParams(-1, -1))
         aviso = TextView(this).apply {
             textSize = 18f; setTextColor(papel); gravity = Gravity.CENTER
-            background = GradientDrawable().apply { cornerRadius = dp(16).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(16).toFloat(); setColor(0xD9141413.toInt()) }
             setPaddingRelative(dp(24), dp(16), dp(24), dp(16)); text = getString(R.string.series_carregando)
         }
         raiz.addView(aviso, FrameLayout.LayoutParams(-2, -2, Gravity.CENTER))
@@ -635,7 +635,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
                 c.etiqueta.setTextColor(if (novo) Estilo.FUNDO else if (marcado) ambar else papel)
                 (c.etiqueta.background as GradientDrawable).setColor(when (etq) {
                     EtiquetaSerie.Concluida -> verdeEtiqueta
-                    null -> 0xD9121528.toInt()
+                    null -> 0xD9141413.toInt()
                     else -> ambar
                 })
             }
@@ -660,12 +660,12 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         moldura.addView(capa, FrameLayout.LayoutParams(-1, -1))
         val estrela = TextView(this).apply {
             text = "★"; textSize = 15f; setTextColor(ambar); setPaddingRelative(dp(6), dp(1), dp(6), dp(2))
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9141413.toInt()) }
         }
         moldura.addView(estrela, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.END).apply { setMargins(0, dp(5), dp(5), 0) })
         val etiqueta = TextView(this).apply {
             textSize = Estilo.Leitura.DICA; typeface = fonteMedia; setTextColor(papel); setPaddingRelative(dp(7), dp(2), dp(7), dp(2))
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9141413.toInt()) }
             maxLines = 1; ellipsize = TextUtils.TruncateAt.END   // selo de uma linha: nunca cobre metade do pôster
         }
         moldura.addView(etiqueta, FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM or Gravity.START).apply { setMargins(dp(5), 0, 0, dp(5)) })
@@ -681,7 +681,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
         val selo = TextView(this).apply {
             text = getString(R.string.filmes_selo_leg); textSize = Estilo.Leitura.DICA; typeface = fonteMedia; setTextColor(papel)
             setPaddingRelative(dp(6), dp(1), dp(6), dp(2)); visibility = View.GONE
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9121528.toInt()) }
+            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(0xD9141413.toInt()) }
         }
         moldura.addView(selo, FrameLayout.LayoutParams(-2, -2, Gravity.TOP or Gravity.START).apply { setMargins(dp(5), dp(5), 0, 0) })
         col.addView(moldura, LinearLayout.LayoutParams(-1, dp(medidaGrade.alturaPoster)))

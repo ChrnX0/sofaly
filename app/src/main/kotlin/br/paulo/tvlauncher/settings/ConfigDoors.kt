@@ -209,11 +209,8 @@ private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
         setPaddingRelative(dp(Estilo.E2), dp(12), dp(Estilo.E2), dp(12))
         isFocusable = true; isClickable = true
         contentDescription = nome
-        addView(View(context).apply {
-            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
-                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
-            }
-        }, LinearLayout.LayoutParams(dp(36), dp(36)).apply { marginEnd = dp(14) })
+        val ic = iconeDoMenu(primeira.icone)
+        addView(View(context).apply { background = ic }, LinearLayout.LayoutParams(dp(28), dp(28)).apply { marginEnd = dp(16) })
         val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { maxLines = 2; typeface = Estilo.fonte(600) }
         val tFrase = Estilo.texto(context, Estilo.Papel.LEGENDA, getString(FRASES[p])).apply { setPaddingRelative(0, dp(2), 0, 0) }
         addView(LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; addView(tNome); addView(tFrase) },
@@ -226,6 +223,7 @@ private fun ConfigLauncherActivity.linhaDaPorta(p: Int): View {
             tNome.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tFrase.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
             tSeta.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_3)
+            acenderIcone(context, ic, f)
             v.animate().scaleX(if (f) Estilo.ESCALA_LINHA else 1f).scaleY(if (f) Estilo.ESCALA_LINHA else 1f).setDuration(Estilo.FOCO_MS).start()
             if (f) mostrarDicaDasPortas()
         }
@@ -246,11 +244,8 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
         background = normal
         val cabeca = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL }
         val lado = dp(40)
-        cabeca.addView(View(context).apply {
-            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
-                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
-            }
-        }, LinearLayout.LayoutParams(lado, lado).apply { marginEnd = dp(12) })
+        val ic = iconeDoMenu(primeira.icone)
+        cabeca.addView(View(context).apply { background = ic }, LinearLayout.LayoutParams(lado, lado).apply { marginEnd = dp(12) })
         val tNome = Estilo.texto(context, Estilo.Papel.CORPO, nome).apply { textSize = 22f; maxLines = 2 }
         cabeca.addView(tNome, LinearLayout.LayoutParams(0, WRAP, 1f))
         // Sem limite de linhas (24/11/2026): com maxLines = 2 e sem "…", a 3ª linha sumia calada em holandês e sueco.
@@ -260,6 +255,7 @@ private fun ConfigLauncherActivity.cartaoDaPorta(p: Int): View {
             v.background = if (foco) Estilo.fundoFocado(context, Estilo.RAIO + 4, Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO + 4, Estilo.BORDA)) else normal
             tNome.setTextColor(if (foco && Estilo.focoEscurece(context)) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tFrase.setTextColor(if (foco && Estilo.focoEscurece(context)) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO_2)
+            acenderIcone(context, ic, foco)
             v.animate().scaleX(if (foco) Estilo.ESCALA_CARD else 1f).scaleY(if (foco) Estilo.ESCALA_CARD else 1f).setDuration(Estilo.FOCO_MS).start()
             if (foco) mostrarDicaDasPortas()
         }
@@ -305,13 +301,11 @@ private fun ConfigLauncherActivity.cardDaPortaNaBarra(p: Int, emFoco: (String, S
         isFocusable = true; isClickable = true
         contentDescription = nome
         background = Estilo.vidro(context, BARRA_RAIO)
-        addView(View(context).apply {
-            background = IconeCruz(primeira.icone, IconeCruz.Estilo.AZULEJO).apply {
-                corAzulejo = primeira.area ?: ConfigLauncherActivity.AZULEJO_NEUTRO
-            }
-        }, android.widget.FrameLayout.LayoutParams(dp(BARRA_AZULEJO), dp(BARRA_AZULEJO), Gravity.CENTER))
+        val ic = iconeDoMenu(primeira.icone)
+        addView(View(context).apply { background = ic }, android.widget.FrameLayout.LayoutParams(dp(BARRA_AZULEJO), dp(BARRA_AZULEJO), Gravity.CENTER))
         setOnFocusChangeListener { v, f ->
             v.foreground = if (f) Estilo.fundoFocado(context, BARRA_RAIO) else null
+            acenderIcone(context, ic, f)
             v.animate().scaleX(if (f) Estilo.ESCALA_CARD else 1f).scaleY(if (f) Estilo.ESCALA_CARD else 1f).setDuration(Estilo.FOCO_MS).start()
             if (f) emFoco(nome, frase)
         }
@@ -413,4 +407,14 @@ internal fun ConfigLauncherActivity.recolherNoSimples(aba: Int, inicio: Int) {
         abasAbertas += aba
         recarregarAba()
     }, lp())
+}
+
+/**
+ * Ícone dos menus (padrão do protótipo aprovado, Paulo 26/11/2026: os azulejos coloridos deixavam a tela "grosseira"):
+ * o desenho da Linha em traço fino, creme apagado; acende em laranja com o foco ([acenderIcone]).
+ */
+internal fun iconeDoMenu(tipo: IconeCruz.Tipo): IconeCruz = IconeCruz(tipo, IconeCruz.Estilo.LINHA).apply { corFixa = Estilo.TEXTO_2 }
+
+internal fun acenderIcone(ctx: android.content.Context, ic: IconeCruz, foco: Boolean) {
+    ic.corFixa = when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(ctx) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.ACENTO }
 }

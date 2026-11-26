@@ -3,10 +3,10 @@ package br.paulo.onetv.celular
 
 /** Os tokens da marca, iguais na TV, no painel e no celular (o porquê de cada um está em design/tokens.json). */
 object DesignTokens {
-    /** Fundo da marca (Noite). Toda superfície escura começa aqui. */
-    const val NIGHT = 0xFF121528.toInt()
+    /** Fundo da marca: grafite neutro (Paulo, 26/11/2026: escuro nunca azulado). Toda superfície escura começa aqui. */
+    const val NIGHT = 0xFF141413.toInt()
     /** Pé do degradê do fundo e tela de descanso de madrugada: mais escuro para a sala ficar escura. */
-    const val NIGHT_DEEP = 0xFF0B0D18.toInt()
+    const val NIGHT_DEEP = 0xFF0B0B0A.toInt()
     /** Texto da marca (Creme). Nunca branco puro em bloco grande: cansa a vista. */
     const val CREAM = 0xFFFFF3E6.toInt()
     /** Fundo do tema claro (painel e celular no modo claro). */

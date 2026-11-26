@@ -203,10 +203,10 @@ class PodcastPlayerActivity : Activity() {
         raiz.addView(arte, FrameLayout.LayoutParams(-1, -1))
         // Véus: a capa desfocada dá a cor da tela, mas o texto e os botões ficam sempre legíveis.
         raiz.addView(View(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0x88121528.toInt(), 0xCC121528.toInt(), 0xE6121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0x88141413.toInt(), 0xCC141413.toInt(), 0xE6141413.toInt()))
         }, FrameLayout.LayoutParams(-1, -1))
         raiz.addView(View(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x00121528, 0x00121528, 0xF0121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x00141413, 0x00141413, 0xF0141413.toInt()))
         }, FrameLayout.LayoutParams(-1, -1))
 
         capa = CapaOuvir(this, 22f).apply { fonte(fonteForte); cobrir = true; elevation = dp(14f) }
@@ -256,7 +256,7 @@ class PodcastPlayerActivity : Activity() {
         painel = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false
             setPaddingRelative(dpi(MARGEM), dpi(14), dpi(MARGEM), dpi(22))
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xE6121528.toInt(), 0xFA121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xE6141413.toInt(), 0xFA141413.toInt()))
             addView(texto(18f, Estilo.TEXTO_2).apply { text = getString(R.string.pl_a_seguir) },
                 LinearLayout.LayoutParams(-1, -2))
             addView(fila, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dpi(10) })
@@ -603,7 +603,7 @@ class PodcastPlayerActivity : Activity() {
 
     private fun abrirPalco() {
         val p = palco ?: FrameLayout(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5121528.toInt(), 0xFA0E1020.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5141413.toInt(), 0xFA0E1020.toInt()))
             val col = LinearLayout(this@PodcastPlayerActivity).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_VERTICAL }
             val topo = texto(15f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f; tag = "topo" }
             col.addView(topo, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dpi(26) })
@@ -737,7 +737,7 @@ class PodcastPlayerActivity : Activity() {
         /** Onde começa cada capítulo (0..1): um corte fino no trilho. */
         var marcas = FloatArray(0)
             set(v) { if (!field.contentEquals(v)) { field = v; invalidate() } }
-        private val corte = Paint().apply { color = 0xFF121528.toInt() }
+        private val corte = Paint().apply { color = 0xFF141413.toInt() }
         private val trilho = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x40FFFFFF }
         private val cheio = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.ACENTO }
         private val pino = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.TEXTO }

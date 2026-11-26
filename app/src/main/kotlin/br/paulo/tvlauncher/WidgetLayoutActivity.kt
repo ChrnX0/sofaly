@@ -194,6 +194,6 @@ class WidgetLayoutActivity : Activity() {
         const val PEDIDO_NOVO = 0x5701
         const val PEDIDO_AJUSTE = 0x5702
         /** O véu sobre a HOME no modo de edição (a HOME aparece atrás, escurecida). */
-        const val VEU = 0xB30B0D18.toInt()
+        const val VEU = 0xB30B0B0A.toInt()
     }
 }

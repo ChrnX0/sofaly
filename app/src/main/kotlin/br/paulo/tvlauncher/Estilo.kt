@@ -57,15 +57,19 @@ object Estilo {
     /** Fio de borda das superfícies: branco a 8%. */
     val BORDA: Int get() = if (altoContraste) 0x8CFFFFFF.toInt() else 0x14FFFFFF
     /** Vidro (sobre imagem): tinta escura translúcida + fio claro. Igual à pílula da HOME que o dono aprovou. */
-    const val VIDRO_TINTA = 0x8C121528.toInt()
+    const val VIDRO_TINTA = 0x8C141413.toInt()
     const val VIDRO_BORDA = 0x38FFFFFF
     /**
      * Painel ao lado (A+B no estilo da E, Paulo, 25/11/2026): a tinta do painel de vidro das Configurações sobre a HOME
      * viva. Com o borrão do sistema por trás, 72% basta para ler; sem borrão (aparelho sem suporte, economia de bateria,
      * "Remover animações"), quase sólido, para o texto não brigar com a HOME.
      */
-    const val PAINEL_VIDRO = 0xB8121528.toInt()
-    const val PAINEL_CHEIO = 0xF2121528.toInt()
+    const val PAINEL_VIDRO = 0xB8141413.toInt()
+    const val PAINEL_CHEIO = 0xF2141413.toInt()
+    /** O degradê do painel ([br.paulo.tvlauncher.settings.SidePanel.degrade]): lado de dentro mais leve, borda da tela mais firme. */
+    const val PAINEL_VIDRO_DENTRO = 0x73141413
+    const val PAINEL_VIDRO_FORA = 0xD1141413.toInt()
+    const val PAINEL_CHEIO_DENTRO = 0xD9141413.toInt()
 
     /** Texto: principal, explicação (70%) e rótulo apagado (48%). Nunca branco puro em bloco grande: cansa a vista. */
     const val TEXTO = DesignTokens.CREAM
@@ -83,8 +87,8 @@ object Estilo {
      * (teste 100%, Sala, 23/11/2026: "Parar" do timer e ações da ficha invisíveis).
      */
     const val TEXTO_SOBRE_FOCO = DesignTokens.NIGHT
-    const val TEXTO_SOBRE_FOCO_2 = 0xA6121528.toInt()
-    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6121528.toInt()
+    const val TEXTO_SOBRE_FOCO_2 = 0xA6141413.toInt()
+    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6141413.toInt()
 
     /** O ÚNICO acento: "ligado", valor escolhido, progresso. Foco NÃO usa acento: foco é branco. */
     val ACENTO: Int get() = if (altoContraste) acentoAlto else acentoBase
@@ -245,8 +249,13 @@ object Estilo {
         br.paulo.tvlauncher.settings.FocusStyle.LINE ->
             if (base == null) traco(ctx) else android.graphics.drawable.LayerDrawable(arrayOf(base, traco(ctx)))
         // Anel laranja de 3 dp, como o da barra da HOME, sobre um véu laranja bem leve (o texto continua claro).
-        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, ANEL_TINTA, raioDp, ACENTO, ANEL_DP)
+        // Padrão do protótipo aprovado (Paulo, 26/11/2026): vidro claro com o anel laranja FINO; o véu laranja virava marrom.
+        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, FOCO_VIDRO, raioDp, ACENTO, ANEL_LINHA_DP)
     }
+
+    /** Vidro claro do foco de linha (branco a 10%) e a espessura do anel nas linhas (o card da HOME segue com [ANEL_DP]). */
+    const val FOCO_VIDRO = 0x1AFFFFFF
+    const val ANEL_LINHA_DP = 2
 
     /** O foco escurece o texto? Só no Quadro (texto escuro sobre branco); no Fio e no Véu o texto acende para o creme pleno. */
     fun focoEscurece(ctx: Context): Boolean = focoAtual(ctx) == br.paulo.tvlauncher.settings.FocusStyle.BOX
@@ -503,7 +512,9 @@ object Estilo {
         // Estudo global 20/11 (ideia 5): a barra de dicas ocupava a tela para sempre (Paulo já tinha tirado a de Filmes).
         // Por quê: depois de aprender as teclas, a dica é só ruído. Para quê: a tela fica com o que importa. Como: cada
         // tela mostra as dicas nas DICAS_VEZES primeiras aberturas e depois some (a ajuda continua em Configurações > Ajuda).
-        if (!dicaAindaAjuda(ctx)) visibility = View.GONE
+        // Paulo, 26/11/2026 (protótipo aprovado): "não precisa disso". A linha de teclas não aparece em tela nenhuma; as
+        // teclas continuam em Configurações > Ajuda. A peça fica para não mexer nos chamadores.
+        visibility = View.GONE
         for ((tecla, acao) in dicas) addView(LinearLayout(ctx).apply {
             // tecla + ação juntas: numa linha que não cabe, a dupla quebra inteira (nunca a tecla de um lado e a ação do outro)
             orientation = LinearLayout.HORIZONTAL

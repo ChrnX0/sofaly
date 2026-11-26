@@ -371,8 +371,7 @@ class ConfigLauncherActivity : Activity() {
         // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
         // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
         val lado = dp(28)
-        setCompoundDrawablesRelative(IconeCruz(aba.icone, IconeCruz.Estilo.AZULEJO).apply {
-            corAzulejo = aba.area ?: AZULEJO_NEUTRO
+        setCompoundDrawablesRelative(br.paulo.tvlauncher.settings.iconeDoMenu(aba.icone).apply {
             setBounds(0, 0, lado, lado)
         }, null, null, null)
         compoundDrawablePadding = dp(10)
@@ -398,6 +397,7 @@ class ConfigLauncherActivity : Activity() {
         // Régua 22/11/2026: o foco no jeito escolhido (Fio, Véu ou Quadro); só o Quadro escurece o texto.
         t.setTextColor(when { foco && Estilo.focoEscurece(this) -> Estilo.TEXTO_NO_FOCO; foco || escolhido -> Estilo.TEXTO; else -> Estilo.TEXTO_2 })
         t.typeface = Estilo.fonte(if (foco || escolhido) 400 else 300)
+        (t.compoundDrawablesRelative[0] as? IconeCruz)?.let { br.paulo.tvlauncher.settings.acenderIcone(this, it, foco) }
         t.background = when {
             foco -> Estilo.fundoFocado(this, Estilo.RAIO_PILULA, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA) else null)
             escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA)
@@ -1478,7 +1478,7 @@ class ConfigLauncherActivity : Activity() {
         private fun pintarChave(sim: Boolean) {
             val focada = focada && Estilo.focoEscurece(context)   // no Fio e no Véu a chave fica como está
             trilho?.background = Estilo.fundo(context,
-                when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33121528; else -> 0x33FFFFFF },
+                when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33141413; else -> 0x33FFFFFF },
                 Estilo.RAIO_PILULA)
             bolinha?.background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL

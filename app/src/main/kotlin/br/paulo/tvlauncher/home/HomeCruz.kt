@@ -300,7 +300,7 @@ class HomeCruz(ctx: Context, private val fonte: Typeface, private val fonteForte
         // Véu escuro atrás da coluna (contraste com qualquer tema ou foto): da esquerda até depois do texto, some antes
         // das categorias da direita. Uma camada só, parada.
         veu = View(ctx).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC121528.toInt(), 0x99121528.toInt(), 0x00121528))
+            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC141413.toInt(), 0x99141413.toInt(), 0x00141413))
         }
         addView(veu, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
         // Barra embaixo: a placa (vidro escuro de cantos redondos, largura toda) e o realce da categoria escolhida.

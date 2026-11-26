@@ -69,17 +69,8 @@ internal object SidePanel {
         w.setGravity(Gravity.END or Gravity.TOP)
         w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         w.setDimAmount(0f)   // o escurecer entra junto com o painel ([entrar])
-        val vidro = GradientDrawable().apply {
-            val r = Estilo.dp(a, RAIO_DP).toFloat()
-            // Cantos arredondados só do lado de dentro (o de fora encosta na borda da tela).
-            val rtl = a.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
-            cornerRadii = if (rtl) floatArrayOf(0f, 0f, r, r, r, r, 0f, 0f) else floatArrayOf(r, r, 0f, 0f, 0f, 0f, r, r)
-            setStroke(Estilo.dp(a, 1), Estilo.VIDRO_BORDA)
-        }
-        fun pintar(borrao: Boolean) {
-            vidro.setColor(if (borrao) Estilo.PAINEL_VIDRO else Estilo.PAINEL_CHEIO)
-            w.setBackgroundDrawable(vidro)
-        }
+        val rtl = a.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
+        fun pintar(borrao: Boolean) { w.setBackgroundDrawable(degrade(rtl, borrao)) }
         if (Build.VERSION.SDK_INT >= 31 && !semMovimento(a)) {
             w.setBackgroundBlurRadius(Estilo.dp(a, BORRAO_DP))
             pintar(runCatching { a.windowManager.isCrossWindowBlurEnabled }.getOrDefault(false))
@@ -113,22 +104,26 @@ internal object SidePanel {
     fun vidroNoDialogo(ctx: android.content.Context, w: android.view.Window, larguraDp: Int, video: Boolean) {
         w.setLayout(Estilo.dp(ctx, larguraDp), ViewGroup.LayoutParams.MATCH_PARENT)
         w.setGravity(Gravity.END or Gravity.TOP)
-        val vidro = GradientDrawable().apply {
-            val r = Estilo.dp(ctx, RAIO_DP).toFloat()
-            val rtl = ctx.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
-            cornerRadii = if (rtl) floatArrayOf(0f, 0f, r, r, r, r, 0f, 0f) else floatArrayOf(r, r, 0f, 0f, 0f, 0f, r, r)
-            setStroke(Estilo.dp(ctx, 1), Estilo.VIDRO_BORDA)
-        }
         val wm = ctx.getSystemService(WindowManager::class.java)
         // Sobre a HOME não borra: ela continua animando atrás de um diálogo (não pausa) e o borrão refeito a cada quadro
         // atrasou 96% dos quadros na Sala (25/11/2026, medido no painel antes do congelar). Lá o vidro fica quase sólido.
         val sobreHome = ctx is br.paulo.tvlauncher.MainActivity
         val borra = !video && !sobreHome && Build.VERSION.SDK_INT >= 31 && runCatching { wm.isCrossWindowBlurEnabled }.getOrDefault(false)
         if (borra) w.setBackgroundBlurRadius(Estilo.dp(ctx, BORRAO_DP))
-        vidro.setColor(if (borra) Estilo.PAINEL_VIDRO else Estilo.PAINEL_CHEIO)
-        w.setBackgroundDrawable(vidro)
+        w.setBackgroundDrawable(degrade(ctx.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL, borra))
         if (video) w.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         else { w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); w.setDimAmount(MENU_ESCURECE) }
+    }
+
+    /**
+     * O vidro do painel (protótipo aprovado, Paulo 26/11/2026: o bloco com moldura ficou "grosseiro"): um degradê grafite
+     * sem borda nem canto, mais leve do lado de dentro e firme do lado da borda da tela, para a HOME atrás respirar.
+     * Com borrão do sistema a tinta é mais leve; sem ele, mais firme, para o texto não brigar com a imagem.
+     */
+    fun degrade(rtl: Boolean, borrao: Boolean): GradientDrawable {
+        val cores = if (borrao) intArrayOf(Estilo.PAINEL_VIDRO_DENTRO, Estilo.PAINEL_VIDRO, Estilo.PAINEL_VIDRO_FORA)
+            else intArrayOf(Estilo.PAINEL_CHEIO_DENTRO, Estilo.PAINEL_CHEIO, Estilo.PAINEL_CHEIO)
+        return GradientDrawable(if (rtl) GradientDrawable.Orientation.RIGHT_LEFT else GradientDrawable.Orientation.LEFT_RIGHT, cores)
     }
 
     /** Quanto a tela atrás de um menu escurece (menos que as Configurações: o menu é rápido, a tela continua a mesma). */

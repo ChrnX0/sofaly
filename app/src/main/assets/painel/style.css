@@ -16,8 +16,8 @@
 
 /* design-tokens:start (GERADO por scripts/design-tokens.py a partir de design/tokens.json; não edite à mão) */
 :root {
-  --t-night: #121528;
-  --t-night-deep: #0b0d18;
+  --t-night: #141413;
+  --t-night-deep: #0b0b0a;
   --t-cream: #fff3e6;
   --t-paper: #fff8f0;
   --t-orange: #ff6a2b;
@@ -1094,10 +1094,10 @@ input[type=time]:focus-within, input[type=date]:focus-within { border-color: var
   }
 }
 @media (prefers-color-scheme: light) {
-  :root[data-contraste="alto"] { --borda: rgba(18, 21, 40, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
+  :root[data-contraste="alto"] { --borda: rgba(20, 20, 19, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
 }
 @media (prefers-color-scheme: light) and (prefers-contrast: more) {
-  :root { --borda: rgba(18, 21, 40, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
+  :root { --borda: rgba(20, 20, 19, .6); --borda-forte: var(--t-night); --acento: #8a2900; }
 }
 
 /* Ideia 11: abas embaixo do controle, no desenho das pílulas da barra de baixo (selecionado = pílula do foco). */

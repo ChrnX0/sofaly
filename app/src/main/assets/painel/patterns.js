@@ -13,10 +13,10 @@ const OBJETIVOS = [
 // Visual pronto: nome, foto (a mesma da TV, em cores) e a cor dos 3 cards da miniatura.
 const VISUAIS = [
   ['sofaly', 'Sofaly', 'linear-gradient(180deg,#3a5d78 0%,#1d3b3a 55%,#0f1b1a 100%)', 'rgba(25,28,48,.96)'],
-  ['night', 'Noite', 'linear-gradient(180deg,#0b1030 0%,#1a1f4a 60%,#0b0d18 100%)', 'rgba(18,21,40,.55)'],
+  ['night', 'Noite', 'linear-gradient(180deg,#0b1030 0%,#1a1f4a 60%,#0b0b0a 100%)', 'rgba(20, 20, 19,.55)'],
   ['mountain', 'Serra', 'linear-gradient(180deg,#9cb4c8 0%,#5f7d8e 50%,#2f3f3a 100%)', '#fff3e6'],
   ['easy', 'Fácil de ver', 'linear-gradient(180deg,#3a5d78 0%,#1d3b3a 55%,#0f1b1a 100%)', 'rgba(25,28,48,.96)'],
-  ['minimal', 'Mínimo', 'linear-gradient(180deg,#121528 0%,#121528 100%)', 'rgba(25,28,48,.96)'],
+  ['minimal', 'Mínimo', 'linear-gradient(180deg,#141413 0%,#141413 100%)', 'rgba(25,28,48,.96)'],
 ];
 const PEDIDOS = {
   text_bigger: 'Letra maior', text_smaller: 'Letra menor', goal_read: 'Ler melhor', goal_clean: 'Tela mais limpa',

@@ -32,7 +32,7 @@ class CameraBackground(ctx: Context, private val camera: String, private val emS
     private var falhasSeguidas = 0
 
     init {
-        background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xFF15182A.toInt(), 0xFF0B0D18.toInt()))
+        background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xFF171716.toInt(), 0xFF0B0B0A.toInt()))
         camadas.forEach { addView(it, LayoutParams(-1, -1)) }
         // Véu embaixo, onde ficam os nomes da cruz (o mesmo cuidado da Galeria).
         addView(View(ctx).apply {
