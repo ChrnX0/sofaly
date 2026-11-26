@@ -134,3 +134,25 @@ class SofyRulesTest {
         assertTrue(SofyRules.fromCommunity(null, 5, 0).isEmpty())
     }
 }
+
+/** Segunda opinião: só a regra com que a outra IA concorda entra na sombra. */
+class SofyRulesSecondTest {
+    private val a = Rule("ra", Kind.FORBIDDEN, "*", "\\bnull\\b", why = "placeholder")
+    private val b = Rule("rb", Kind.RANGE, "previsao", "(\\d+)\\s*%", min = 0.0, max = 100.0, why = "percent")
+
+    @Test fun ficaSoOQueAOutraConcordou() {
+        assertEquals(listOf(b), SofyRules.agreed("ok {\"keep\":[\"rb\",\"zz\"]}", listOf(a, b)))
+        assertEquals(listOf(a, b), SofyRules.agreed("{\"keep\":[\"ra\",\"rb\"]}", listOf(a, b)))
+    }
+
+    @Test fun semRespostaNenhumaEntra() {
+        assertTrue(SofyRules.agreed(null, listOf(a, b)).isEmpty())
+        assertTrue(SofyRules.agreed("não sei", listOf(a, b)).isEmpty())
+        assertTrue(SofyRules.agreed("{\"keep\":[]}", listOf(a, b)).isEmpty())
+    }
+
+    @Test fun perguntaLevaIdsEPadroes() {
+        val p = SofyRules.secondPrompt("previsao", listOf("Chance de chuva 40%"), listOf(a, b))
+        assertTrue(p.contains("id=ra") && p.contains("id=rb") && p.contains("max=100.0") && p.contains("Chance de chuva 40%"))
+    }
+}

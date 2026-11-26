@@ -44,4 +44,19 @@ class VitaisLocaisTest {
         val e = VitaisLocais.somarSaidas(VitaisLocais.Estado(), listOf(Saida(1, "2026-11-01", Tipo.QUEDA, true)))
         assertEquals(0, VitaisLocais.resumo(e, "2026-11-16", "2026-11-10").quedas)
     }
+
+    /** 25/11/2026: dia gravado antes de o relógio acertar (data da fábrica) não vira dia, nem na leitura nem nas saídas. */
+    @Test fun relogioAntesDoBuildNaoViraDia() {
+        val piso = "2026-11-20"
+        var e = VitaisLocais.abriu(VitaisLocais.Estado(), "2025-09-30", piso)
+        assertEquals(0, e.dias.size)
+        e = VitaisLocais.abriu(e, "2026-11-25", piso)
+        e = VitaisLocais.somarSaidas(e, listOf(Saida(5_000, "2025-09-30", Tipo.QUEDA, naTela = true)), piso)
+        assertEquals(listOf("2026-11-25"), e.dias.map { it.data })
+        assertEquals(0, e.dias.sumOf { it.quedas })
+        assertEquals(5_000L, e.ultimaSaida)   // vista: não volta a ser lida
+        val velho = """{"ultima":0,"dias":[{"d":"2025-09-30","a":1},{"d":"2026-11-24","a":2}]}"""
+        assertEquals(listOf("2026-11-24"), VitaisLocais.ler(velho, piso).dias.map { it.data })
+        assertEquals(2, VitaisLocais.ler(velho).dias.size)   // sem piso, como antes
+    }
 }

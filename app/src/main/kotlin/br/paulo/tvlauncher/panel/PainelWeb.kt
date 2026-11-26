@@ -974,11 +974,13 @@ object PainelWeb {
                     .put("cases", br.paulo.tvlauncher.observer.SofyRepairTv.reportJson(app).optJSONArray("cases")))
                 "POST" -> {
                     val o = try { JSONObject(req.corpoTexto()) } catch (e: Exception) { return erro(400, "JSON") }
-                    if (o.optBoolean("test")) return json(200, JSONObject().put("ok", br.paulo.tvlauncher.observer.SofyAi.test(app)))
+                    // {"backup":true,...} = a IA RESERVA (segunda chave; também dá a segunda opinião sobre regra nova).
+                    val slot = if (o.optBoolean("backup")) br.paulo.tvlauncher.observer.SofyAi.BACKUP else ""
+                    if (o.optBoolean("test")) return json(200, JSONObject().put("ok", br.paulo.tvlauncher.observer.SofyAi.test(app, slot)))
                     val pronto = br.paulo.tvlauncher.observer.SofyAi.save(app, o.optString("provider"), o.optString("base"), o.optString("model"),
-                        if (o.has("key")) o.optString("key") else null)
+                        if (o.has("key")) o.optString("key") else null, slot, if (o.has("model_review")) o.optString("model_review") else null)
                     if (o.has("budget_tokens")) br.paulo.tvlauncher.observer.SofyAi.setBudget(app, o.optLong("budget_tokens"))
-                    PainelArmazem.registrar(app, ip, "IA da Sofy", o.optString("provider").ifEmpty { "nenhuma" })
+                    PainelArmazem.registrar(app, ip, if (slot.isEmpty()) "IA da Sofy" else "IA reserva da Sofy", o.optString("provider").ifEmpty { "nenhuma" })
                     return json(200, JSONObject().put("ok", true).put("ready", pronto))
                 }
             }

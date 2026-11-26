@@ -111,6 +111,22 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 [Releases](../../releases).
 
 <!-- auto:changes -->
+- Sofy notices and fixes things on her own: she redoes the internal access when the TV forgets it, learns what is normal in your home, checks the screens at night and, with the owner AI key, asks the AI what she does not know yet; what she learns goes into the backup
+- Sofy checks that what a screen says is true: a holiday from another country, the same event twice, a weather icon that does not match the sentence, today high below the current temperature, numbers that make no sense
+- Calendar and screensaver show only the holidays of the TV country, once, in the TV language; long names get two lines
+- Rain likely now: the icon turns to rain too, the sentence says “It may rain any moment” and every rain % has the drop in front
+- Screensaver: 7 clock styles, 3 styles at the bottom (Strip, Live card, Stack) and 6 positions, in Settings › Screen and power; “Today” counts the current temperature
+- World icon motion: the icon flies in from the rail and plays a little scene; choose Little scene, Trail of light or Bounce and glow in Fine tuning
+- Shortcut cards with the icon beside the name, in White, Light glass or Dark glass, and icons with personality
+- Other screens follow the bar (Drawer, Glass or Bar), with ring focus and the clock in a pill at the top
+- Live widgets from other apps on the home screen, arranged with the remote
+- Extensions from other apps: new backgrounds, icons, cards and buttons, reviewed before they go in
+- Phone and TV: calibrate picture and sound from the phone, make the remote ring when it is lost, and use the phone microphone and camera on the TV
+- App language separate from the TV (System › Language); the TV speaks 12 more languages and the panel and website 27
+- Every button does something: 79 screens were tested by pressing OK on every item
+- Sturdier: the launcher no longer crashes when the screensaver restarts, and the home screen no longer pulls the focus from where you already went with the remote
+- A switched-off alarm says “Off” next to the time, and notices no longer cover the bottom cards
+- Moon worked out more precisely (phase and moonrise)
 - New default home screen, the single bar: ▲ and ▼ switch the world (Watch, Listen, Play…), ◀ and ▶ move through its apps and content in large cards, and the Ilha stays at the top
 - The Ilha warns when the sun is strong (UV 8 or more): “wear sunscreen”
 - Panel in other languages with no bits left in Portuguese: Wi-Fi tips, the page for the 140 known apps, the certificate step by step, the network drive page and the “The TV did not respond” screen

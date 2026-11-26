@@ -24,18 +24,28 @@ object VitaisLocais {
     /** Uma saída do processo já classificada pelo Android ([quando] é o timestamp do ApplicationExitInfo). */
     data class Saida(val quando: Long, val data: String, val tipo: Tipo, val naTela: Boolean)
 
+    /**
+     * 25/11/2026: a Sala mostrou um dia "2025-09-30", gravado logo depois de ligar, antes de o relógio acertar pela
+     * rede (a TV volta para a data da fábrica). Data antes de [piso] (o dia do build: o app não pode ter rodado antes de
+     * existir) é relógio errado e não vira dia. Vazio = sem piso.
+     */
+    fun dataValida(data: String, piso: String) = piso.isEmpty() || data >= piso
+
     private fun mudarDia(e: Estado, data: String, f: (Dia) -> Dia): Estado {
         val atual = e.dias.firstOrNull { it.data == data } ?: Dia(data)
         val novos = (e.dias.filter { it.data != data } + f(atual)).sortedBy { it.data }.takeLast(DIAS)
         return e.copy(dias = novos)
     }
 
-    fun abriu(e: Estado, data: String) = mudarDia(e, data) { it.copy(aberturas = it.aberturas + 1) }
+    fun abriu(e: Estado, data: String, piso: String = "") =
+        if (!dataValida(data, piso)) e else mudarDia(e, data) { it.copy(aberturas = it.aberturas + 1) }
 
     /** Soma as saídas que ainda não vimos (timestamp depois de [Estado.ultimaSaida]); a mesma lista lida duas vezes não conta em dobro. */
-    fun somarSaidas(e: Estado, saidas: List<Saida>): Estado {
+    fun somarSaidas(e: Estado, saidas: List<Saida>, piso: String = ""): Estado {
         var r = e
         for (s in saidas.filter { it.quando > e.ultimaSaida }.sortedBy { it.quando }) {
+            // Saída com relógio errado: marca como vista (não volta na próxima leitura), mas não vira dia.
+            if (!dataValida(s.data, piso)) { r = r.copy(ultimaSaida = maxOf(r.ultimaSaida, s.quando)); continue }
             r = mudarDia(r, s.data) { d ->
                 val p = if (s.naTela) d.percebidas + 1 else d.percebidas
                 if (s.tipo == Tipo.QUEDA) d.copy(quedas = d.quedas + 1, percebidas = p) else d.copy(travadas = d.travadas + 1, percebidas = p)
@@ -61,12 +71,12 @@ object VitaisLocais {
         e.dias.forEach { put(JSONObject().put("d", it.data).put("a", it.aberturas).put("q", it.quedas).put("t", it.travadas).put("p", it.percebidas)) }
     }).toString()
 
-    fun ler(t: String?): Estado = try {
+    fun ler(t: String?, piso: String = ""): Estado = try {
         val o = JSONObject(t ?: "{}")
         val a = o.optJSONArray("dias") ?: JSONArray()
         Estado((0 until a.length()).mapNotNull { i ->
             val d = a.optJSONObject(i) ?: return@mapNotNull null
-            val data = d.optString("d").takeIf { Regex("""\d{4}-\d\d-\d\d""").matches(it) } ?: return@mapNotNull null
+            val data = d.optString("d").takeIf { Regex("""\d{4}-\d\d-\d\d""").matches(it) && dataValida(it, piso) } ?: return@mapNotNull null
             Dia(data, d.optInt("a"), d.optInt("q"), d.optInt("t"), d.optInt("p"))
         }.sortedBy { it.data }.takeLast(DIAS), o.optLong("ultima"))
     } catch (_: Exception) { Estado() }

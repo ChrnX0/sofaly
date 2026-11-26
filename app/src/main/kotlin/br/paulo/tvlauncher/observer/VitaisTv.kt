@@ -21,8 +21,11 @@ object VitaisTv {
     private fun arquivo(ctx: Context) = File(ctx.filesDir, "vitais.json")
     private fun data(ms: Long) = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date(ms))
 
+    /** O dia do build (versionCode = minutos desde 01/01/2026, app/build.gradle.kts), menos 1 dia de folga de fuso. */
+    private val piso by lazy { data(1_767_225_600_000L + br.paulo.tvlauncher.BuildConfig.VERSION_CODE * 60_000L - 24L * 60 * 60 * 1000) }
+
     @Synchronized fun estado(ctx: Context): VitaisLocais.Estado =
-        VitaisLocais.ler(try { arquivo(ctx).takeIf { it.exists() }?.readText() } catch (_: Exception) { null })
+        VitaisLocais.ler(try { arquivo(ctx).takeIf { it.exists() }?.readText() } catch (_: Exception) { null }, piso)
 
     @Synchronized private fun gravar(ctx: Context, e: VitaisLocais.Estado) = try {
         val tmp = File(ctx.filesDir, "vitais.json.tmp")
@@ -32,7 +35,7 @@ object VitaisTv {
     /** No processo principal novo (LauncherApp), fora da thread da tela. */
     @Synchronized fun aoIniciar(ctx: Context) {
         val agora = System.currentTimeMillis()
-        val e = VitaisLocais.somarSaidas(VitaisLocais.abriu(estado(ctx), data(agora)), saidas(ctx))
+        val e = VitaisLocais.somarSaidas(VitaisLocais.abriu(estado(ctx), data(agora), piso), saidas(ctx), piso)
         gravar(ctx, e)
     }
 
