@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"TV yanıt vermedi",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"TV'nin prize takılı ve bu cihazla aynı ağda olduğunu kontrol edin. Ev dışında Tailscale açık olmalıdır.",
 "Tentar de novo":"Tekrar dene",
+"A TV está pedindo texto":"TV metin istiyor",
+"Digitar aqui":"Buraya yaz",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Henüz değil. Yükledikten sonra bu sayfaya dönün (her 3 saniyede bir kontrol eder).",
 "não reconhecido (abra o seu abaixo)":"tanınmadı (kendinizinkini aşağıda açın)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"TV bunu şu anda yapamadı. Birkaç saniye sonra tekrar deneyin; tekrarlarsa Kayıt sekmesine bakın.",

@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"La TV non ha risposto",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"Controlla che la TV sia collegata alla presa e alla stessa rete di questo dispositivo. Fuori casa, Tailscale deve essere attivo.",
 "Tentar de novo":"Riprova",
+"A TV está pedindo texto":"La TV chiede del testo",
+"Digitar aqui":"Scrivi qui",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Non ancora. Dopo l'installazione, torna a questa pagina (controlla ogni 3 secondi).",
 "não reconhecido (abra o seu abaixo)":"non riconosciuto (apri il tuo qui sotto)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"La TV non è riuscita a farlo adesso. Riprova tra qualche secondo; se si ripete, guarda la scheda Registro.",

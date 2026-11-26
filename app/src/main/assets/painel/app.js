@@ -193,8 +193,35 @@ async function atualizarEstado() {
   $('nomeAparelho').textContent = e.aparelho;
   document.title = e.aparelho;
   aplicarNaTela(e.naTela);
+  aplicarPedeTexto(e.pedeTexto);
   atualizarOutrasTvs().catch(() => {});
 }
+
+/**
+ * Item 7 (Brainstorm 26/11/2026): a TV abriu o teclado (busca, senha de Wi-Fi). No Controle, abre o Teclado e põe o
+ * cursor no campo; nas outras abas, mostra a faixa "A TV está pedindo texto · Digitar aqui". Vem do /api/estado e dos
+ * eventos ao vivo (ui.js), que levam o mesmo campo.
+ */
+let pediaTexto = false;
+function abrirTecladoDoControle() {
+  const aba = document.querySelector('.abas-controle [data-painel="pcTeclado"]');
+  if (aba && aba.getAttribute('aria-selected') !== 'true') aba.click();
+  const campo = $('campoTexto');
+  if (campo) campo.focus();
+}
+function aplicarPedeTexto(pede) {
+  const faixa = $('faixaPedeTexto');
+  if (!faixa) return;
+  pede = pede === true;
+  const noControle = !$('abaControle').hidden;
+  if (pede && !pediaTexto && noControle) abrirTecladoDoControle();
+  faixa.hidden = !pede || noControle;
+  pediaTexto = pede;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const b = $('btnPedeTexto');
+  if (b) b.addEventListener('click', () => { $('faixaPedeTexto').hidden = true; mudarAba('controle'); setTimeout(abrirTecladoDoControle, 50); });
+});
 
 /** Mostra "o que está na TV" no topo e no Início (vem do /api/estado e dos eventos ao vivo, ui.js). */
 function aplicarNaTela(naTela) {

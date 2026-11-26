@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">Cari lebih jauh</string>
     <string name="elv_bf_procurar_radio">Radio bernama “%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Radio dari seluruh dunia</string>
+    <string name="elv_bf_procurar_ajustes">“%1$s” di setelan</string>
+    <string name="elv_bf_procurar_ajustes_det">Opsi dan sakelar TV</string>
     <string name="elv_bf_procurar_rede">“%1$s” di file jaringan</string>
     <string name="elv_bf_procurar_rede_det">Di Jellyfin, Emby, atau Plex Anda</string>
     <string name="elv_aj_buscar">Cari di setelan</string>

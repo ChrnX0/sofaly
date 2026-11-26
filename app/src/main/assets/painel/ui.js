@@ -229,6 +229,7 @@ function ligarEventos() {
     try { d = JSON.parse(ev.data); } catch (e) { return; }
     const antes = ultimoEstado.naTela;
     aplicarNaTela(d.naTela);
+    if ('pedeTexto' in d) aplicarPedeTexto(d.pedeTexto);
     // Mudou o que está na tela: a foto do Controle e os "mais usados" do Início ficam velhos; atualiza já.
     if (antes && antes !== d.naTela) {
       if (!$('abaControle').hidden) atualizarFoto();

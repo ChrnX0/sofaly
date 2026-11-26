@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">搜索更多</string>
     <string name="elv_bf_procurar_radio">名为“%1$s”的电台</string>
     <string name="elv_bf_procurar_radio_det">全世界的电台</string>
+    <string name="elv_bf_procurar_ajustes">设置中的“%1$s”</string>
+    <string name="elv_bf_procurar_ajustes_det">电视的选项和开关</string>
     <string name="elv_bf_procurar_rede">网络文件中的“%1$s”</string>
     <string name="elv_bf_procurar_rede_det">在您的 Jellyfin、Emby 或 Plex 上</string>
     <string name="elv_aj_buscar">搜索设置</string>

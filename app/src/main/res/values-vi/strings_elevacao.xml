@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Tìm thêm</string>
     <string name="elv_bf_procurar_radio">Đài phát thanh tên “%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Đài từ khắp thế giới</string>
+    <string name="elv_bf_procurar_ajustes">“%1$s” trong cài đặt</string>
+    <string name="elv_bf_procurar_ajustes_det">Tùy chọn và công tắc của TV</string>
     <string name="elv_bf_procurar_rede">“%1$s” trong tệp trên mạng</string>
     <string name="elv_bf_procurar_rede_det">Trên Jellyfin, Emby hoặc Plex của bạn</string>
     <!-- 12.2 busca nos ajustes -->

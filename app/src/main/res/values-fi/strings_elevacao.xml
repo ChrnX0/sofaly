@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Etsi laajemmin</string>
     <string name="elv_bf_procurar_radio">Radioasemat nimeltä ”%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Asemia ympäri maailmaa</string>
+    <string name="elv_bf_procurar_ajustes">”%1$s” asetuksissa</string>
+    <string name="elv_bf_procurar_ajustes_det">Television valinnat ja kytkimet</string>
     <string name="elv_bf_procurar_rede">”%1$s” verkkotiedostoissasi</string>
     <string name="elv_bf_procurar_rede_det">Jellyfinissäsi, Embyssäsi tai Plexissäsi</string>
     <!-- 12.2 busca nos ajustes -->

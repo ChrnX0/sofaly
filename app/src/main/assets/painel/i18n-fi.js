@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"TV ei vastannut",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"Tarkista, että TV on kytketty ja samassa verkossa kuin tämä laite. Kodin ulkopuolella Tailscalen on oltava päällä.",
 "Tentar de novo":"Yritä uudelleen",
+"A TV está pedindo texto":"Televisio pyytää tekstiä",
+"Digitar aqui":"Kirjoita tässä",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Ei vielä. Asennuksen jälkeen palaa tälle sivulle (se tarkistaa 3 sekunnin välein).",
 "não reconhecido (abra o seu abaixo)":"ei tunnistettu (avaa omasi alta)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"TV ei voinut tehdä sitä juuri nyt. Yritä uudelleen muutaman sekunnin päästä; jos se toistuu, katso Loki-välilehti.",

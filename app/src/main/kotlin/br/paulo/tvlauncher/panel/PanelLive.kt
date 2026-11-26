@@ -87,7 +87,8 @@ internal fun PainelWeb.transmitirEventos(token: String?, saida: java.io.OutputSt
             }
         }
         desde = agora
-        val json = JSONObject().put("naTela", naTela).toString()
+        // pedeTexto (item 7, 26/11/2026): o painel abre o Teclado do Controle na hora em que a TV abre o teclado dela
+        val json = JSONObject().put("naTela", naTela).put("pedeTexto", br.paulo.tvlauncher.input.TecladoCelular.tecladoNaTela()).toString()
         if (json != enviado) {
             saida.write("event: estado\ndata: $json\n\n".toByteArray()); saida.flush()
             enviado = json; ultimaEscrita = agora

@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"TV không phản hồi",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"Kiểm tra xem TV có đang cắm điện và ở cùng mạng với thiết bị này không. Khi ra khỏi nhà, Tailscale phải được bật.",
 "Tentar de novo":"Thử lại",
+"A TV está pedindo texto":"TV đang yêu cầu nhập chữ",
+"Digitar aqui":"Nhập ở đây",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Chưa. Sau khi cài, hãy quay lại trang này (trang kiểm tra mỗi 3 giây).",
 "não reconhecido (abra o seu abaixo)":"không nhận ra (mở thiết bị của bạn bên dưới)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"TV không làm được việc đó lúc này. Thử lại sau vài giây; nếu lặp lại, hãy xem thẻ Nhật ký.",

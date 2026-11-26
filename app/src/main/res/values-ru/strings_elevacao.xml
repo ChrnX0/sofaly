@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">Искать дальше</string>
     <string name="elv_bf_procurar_radio">Радиостанции с названием «%1$s»</string>
     <string name="elv_bf_procurar_radio_det">Радио со всего мира</string>
+    <string name="elv_bf_procurar_ajustes">«%1$s» в настройках</string>
+    <string name="elv_bf_procurar_ajustes_det">Параметры и переключатели телевизора</string>
     <string name="elv_bf_procurar_rede">«%1$s» в сетевых файлах</string>
     <string name="elv_bf_procurar_rede_det">На вашем Jellyfin, Emby или Plex</string>
     <string name="elv_aj_buscar">Поиск в настройках</string>

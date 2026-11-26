@@ -61,6 +61,8 @@
     <string name="elv_bf_procurar">Caută mai departe</string>
     <string name="elv_bf_procurar_radio">Posturi de radio numite „%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Posturi din toată lumea</string>
+    <string name="elv_bf_procurar_ajustes">„%1$s” în setări</string>
+    <string name="elv_bf_procurar_ajustes_det">Opțiunile și comutatoarele televizorului</string>
     <string name="elv_bf_procurar_rede">„%1$s” în fișierele din rețea</string>
     <string name="elv_bf_procurar_rede_det">Pe Jellyfin, Emby sau Plex</string>
     <!-- 12.2 busca nos ajustes -->

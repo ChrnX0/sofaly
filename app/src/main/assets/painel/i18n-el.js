@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"Η τηλεόραση δεν απάντησε",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"Ελέγξτε ότι η τηλεόραση είναι στην πρίζα και στο ίδιο δίκτυο με αυτή τη συσκευή. Εκτός σπιτιού, το Tailscale πρέπει να είναι ενεργό.",
 "Tentar de novo":"Δοκιμάστε ξανά",
+"A TV está pedindo texto":"Η τηλεόραση ζητά κείμενο",
+"Digitar aqui":"Πληκτρολόγηση εδώ",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Όχι ακόμα. Μετά την εγκατάσταση, επιστρέψτε σε αυτή τη σελίδα (ελέγχει κάθε 3 δευτερόλεπτα).",
 "não reconhecido (abra o seu abaixo)":"δεν αναγνωρίστηκε (ανοίξτε τη δική σας παρακάτω)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"Η τηλεόραση δεν μπόρεσε να το κάνει αυτή τη στιγμή. Δοκιμάστε ξανά σε λίγα δευτερόλεπτα· αν επαναληφθεί, δείτε την καρτέλα Καταγραφή.",

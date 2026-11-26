@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"TV-ul nu a răspuns",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"Verificați că TV-ul e alimentat și în aceeași rețea cu acest dispozitiv. Departe de casă, Tailscale trebuie să fie pornit.",
 "Tentar de novo":"Încercați din nou",
+"A TV está pedindo texto":"Televizorul cere text",
+"Digitar aqui":"Scrie aici",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Încă nu. După instalare, reveniți la această pagină (verifică la fiecare 3 secunde).",
 "não reconhecido (abra o seu abaixo)":"nerecunoscut (deschideți-l pe al dumneavoastră mai jos)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"TV-ul nu a putut face asta acum. Încercați din nou peste câteva secunde; dacă se repetă, vedeți fila Jurnal.",

@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"TV tidak merespons",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"Pastikan TV tersambung ke listrik dan di jaringan yang sama dengan perangkat ini. Di luar rumah, Tailscale harus menyala.",
 "Tentar de novo":"Coba lagi",
+"A TV está pedindo texto":"TV meminta teks",
+"Digitar aqui":"Ketik di sini",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"Belum. Setelah memasang, kembali ke halaman ini (halaman memeriksa setiap 3 detik).",
 "não reconhecido (abra o seu abaixo)":"tidak dikenali (buka milik Anda di bawah)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"TV tidak bisa melakukannya sekarang. Coba lagi dalam beberapa detik; jika berulang, lihat tab Log.",

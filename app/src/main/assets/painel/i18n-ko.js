@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"TV가 응답하지 않았습니다",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"TV가 전원에 연결되어 있고 이 기기와 같은 네트워크에 있는지 확인하세요. 집 밖에서는 Tailscale이 켜져 있어야 합니다.",
 "Tentar de novo":"다시 시도",
+"A TV está pedindo texto":"TV가 텍스트를 요청하고 있어요",
+"Digitar aqui":"여기서 입력",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"아직 아닙니다. 설치한 뒤 이 페이지로 돌아오세요(3초마다 확인합니다).",
 "não reconhecido (abra o seu abaixo)":"인식되지 않음(아래에서 직접 여세요)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"TV가 지금은 그 작업을 하지 못했습니다. 몇 초 뒤 다시 시도하세요. 반복되면 기록 탭을 확인하세요.",

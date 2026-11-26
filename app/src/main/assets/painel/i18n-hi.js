@@ -2009,6 +2009,8 @@ traduzirPainelCom({T:{
 "A TV não respondeu":"टीवी ने जवाब नहीं दिया",
 "Confira se a TV está ligada na tomada e na mesma rede que este aparelho. Fora de casa, o Tailscale precisa estar ligado.":"जाँचें कि टीवी प्लग में लगा है और इसी डिवाइस वाले नेटवर्क पर है। घर से बाहर Tailscale चालू होना चाहिए।",
 "Tentar de novo":"फिर से कोशिश करें",
+"A TV está pedindo texto":"टीवी टेक्स्ट माँग रहा है",
+"Digitar aqui":"यहाँ लिखें",
 "Ainda não. Depois de instalar, volte para esta página (ela confere a cada 3 segundos).":"अभी नहीं। इंस्टॉल करने के बाद इस पेज पर लौटें (यह हर 3 सेकंड में जाँचता है)।",
 "não reconhecido (abra o seu abaixo)":"पहचाना नहीं गया (नीचे अपना खोलें)",
 "A TV não conseguiu fazer isso agora. Tente de novo em alguns segundos; se repetir, veja a aba Registro.":"टीवी अभी यह नहीं कर सका। कुछ सेकंड बाद फिर कोशिश करें; अगर दोहराए, तो लॉग टैब देखें।",
