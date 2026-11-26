@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Hizmet yok.",
 "fora do ar":"çalışmıyor",
 "o dia todo":"tüm gün",
+"pede Feito":"Tamam onayı ister",
+"só aviso":"yalnızca bildirim",
 "Disponível no plano Pro.":"Pro planında mevcut.",
 "texto ou dias inválidos":"geçersiz metin veya günler",
 "nome ou endereço inválidos (http ou https)":"geçersiz ad veya adres (http veya https)",

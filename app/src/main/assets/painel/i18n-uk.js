@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Немає сервісів.",
 "fora do ar":"не працює",
 "o dia todo":"увесь день",
+"pede Feito":"просить «Готово»",
+"só aviso":"лише нагадування",
 "Disponível no plano Pro.":"Доступно в плані Pro.",
 "texto ou dias inválidos":"неправильний текст або дні",
 "nome ou endereço inválidos (http ou https)":"неправильна назва або адреса (http або https)",

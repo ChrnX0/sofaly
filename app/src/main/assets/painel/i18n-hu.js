@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Nincs szolgáltatás.",
 "fora do ar":"leállt",
 "o dia todo":"egész nap",
+"pede Feito":"Kész gombot kér",
+"só aviso":"csak értesítés",
 "Disponível no plano Pro.":"A Pro csomagban érhető el.",
 "texto ou dias inválidos":"érvénytelen szöveg vagy napok",
 "nome ou endereço inválidos (http ou https)":"érvénytelen név vagy cím (http vagy https)",

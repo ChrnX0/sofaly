@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Tidak ada layanan.",
 "fora do ar":"mati",
 "o dia todo":"sepanjang hari",
+"pede Feito":"minta Selesai",
+"só aviso":"hanya pemberitahuan",
 "Disponível no plano Pro.":"Tersedia di paket Pro.",
 "texto ou dias inválidos":"teks atau hari tidak valid",
 "nome ou endereço inválidos (http ou https)":"nama atau alamat tidak valid (http atau https)",

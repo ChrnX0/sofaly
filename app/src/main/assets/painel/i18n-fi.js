@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Ei palveluita.",
 "fora do ar":"alhaalla",
 "o dia todo":"koko päivän",
+"pede Feito":"pyytää Valmis",
+"só aviso":"vain ilmoitus",
 "Disponível no plano Pro.":"Saatavilla Pro-tilauksessa.",
 "texto ou dias inválidos":"virheellinen teksti tai päivät",
 "nome ou endereço inválidos (http ou https)":"virheellinen nimi tai osoite (http tai https)",

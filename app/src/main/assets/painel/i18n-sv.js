@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Inga tjänster.",
 "fora do ar":"nere",
 "o dia todo":"hela dagen",
+"pede Feito":"ber om Klar",
+"só aviso":"bara avisering",
 "Disponível no plano Pro.":"Finns i Pro-abonnemanget.",
 "texto ou dias inválidos":"ogiltig text eller ogiltiga dagar",
 "nome ou endereço inválidos (http ou https)":"ogiltigt namn eller ogiltig adress (http eller https)",

@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"サービスはありません。",
 "fora do ar":"停止中",
 "o dia todo":"終日",
+"pede Feito":"「完了」を求める",
+"só aviso":"通知のみ",
 "Disponível no plano Pro.":"Proプランで利用できます。",
 "texto ou dias inválidos":"テキストまたは曜日が無効です",
 "nome ou endereço inválidos (http ou https)":"名前またはアドレスが無効です（httpまたはhttps）",

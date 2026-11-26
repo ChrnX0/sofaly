@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Žádné služby.",
 "fora do ar":"nefunguje",
 "o dia todo":"celý den",
+"pede Feito":"žádá Hotovo",
+"só aviso":"jen upozornění",
 "Disponível no plano Pro.":"K dispozici v tarifu Pro.",
 "texto ou dias inválidos":"neplatný text nebo dny",
 "nome ou endereço inválidos (http ou https)":"neplatný název nebo adresa (http nebo https)",

@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"कोई सेवा नहीं।",
 "fora do ar":"बंद",
 "o dia todo":"पूरा दिन",
+"pede Feito":"हो गया पूछता है",
+"só aviso":"सिर्फ़ सूचना",
 "Disponível no plano Pro.":"Pro प्लान में उपलब्ध।",
 "texto ou dias inválidos":"अमान्य टेक्स्ट या दिन",
 "nome ou endereço inválidos (http ou https)":"अमान्य नाम या पता (http या https)",

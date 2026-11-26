@@ -76,9 +76,13 @@
     const hoje = new Map((e.lembretesHoje || []).map((x) => [x.id + '@' + x.hora, x]));
     for (const l of e.lembretes) {
       const linha = document.createElement('div'); linha.className = 'linha-registro';
-      const h = hhmm(l.hora * 60 + l.minuto);
+      // Lista única (26/11/2026): hora -1 = o dia todo; feito false = só a pílula e o aviso (vem do cartão da tela inicial).
+      const h = l.hora < 0 ? '' : hhmm(l.hora * 60 + l.minuto);
       const situacao = hoje.get(l.id + '@' + h);
-      linha.appendChild(Object.assign(document.createElement('span'), { textContent: h + '  ' + l.texto }));
+      linha.appendChild(Object.assign(document.createElement('span'), { textContent: (h || '—') + '  ' + l.texto }));
+      const marca = (t) => { linha.append(' · '); linha.appendChild(Object.assign(document.createElement('span'), { textContent: t })); };
+      if (l.hora < 0) marca('o dia todo');
+      if (l.feito === false) marca('só aviso');
       // A situação em um nó só dela: o texto do lembrete é da família (não se traduz) e a situação é do painel (i18n).
       if (situacao) linha.appendChild(Object.assign(document.createElement('span'), { textContent: situacao.confirmado
         ? ' · feito às ' + new Date(situacao.confirmado).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })

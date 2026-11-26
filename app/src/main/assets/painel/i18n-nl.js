@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Geen diensten.",
 "fora do ar":"uitgevallen",
 "o dia todo":"hele dag",
+"pede Feito":"vraagt om Klaar",
+"só aviso":"alleen melding",
 "Disponível no plano Pro.":"Beschikbaar met het Pro-abonnement.",
 "texto ou dias inválidos":"ongeldige tekst of dagen",
 "nome ou endereço inválidos (http ou https)":"ongeldige naam of ongeldig adres (http of https)",

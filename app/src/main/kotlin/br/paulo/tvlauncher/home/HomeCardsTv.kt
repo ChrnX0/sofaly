@@ -5,7 +5,9 @@ import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Http
+import br.paulo.tvlauncher.CuidarDeLongeTv
 import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.family.CuidarDeLonge
 import br.paulo.tvlauncher.alarm.FeriadosTv
 import br.paulo.tvlauncher.family.ModoVisita
 import br.paulo.tvlauncher.settings.Extras
@@ -49,13 +51,20 @@ object HomeCardsTv {
     // ---------------------------------------------------------------- listas
 
     fun contagens(ctx: Context) = HomeCards.contagensDeJson(Extras.texto(ctx, CHAVE_CONTAGENS, "[]"))
-    fun lembretes(ctx: Context) = HomeCards.lembretesDeJson(Extras.texto(ctx, CHAVE_LEMBRETES, "[]"))
+    /**
+     * Os lembretes vistos como [HomeCards.LembreteCasa]. Desde 26/11/2026 moram na lista única do Cuidar de longe
+     * ([CuidarDeLongeTv.lembretes]); [CHAVE_LEMBRETES] é só a lista antiga, que a migração esvazia. [todos] false = só
+     * os sem "Feito" (os com Feito têm a tela grande deles, no CuidarDeLongeTv).
+     */
+    fun lembretes(ctx: Context, todos: Boolean = false): List<HomeCards.LembreteCasa> =
+        CuidarDeLongeTv.lembretes(ctx).filter { todos || !it.feito }.map { CuidarDeLonge.paraCasa(it) }
     fun servicos(ctx: Context) = HomeCards.servicosDeJson(Extras.texto(ctx, CHAVE_SERVICOS, "[]"))
 
     @Synchronized fun editarContagens(ctx: Context, f: (List<HomeCards.Contagem>) -> List<HomeCards.Contagem>) =
         f(contagens(ctx)).also { Extras.definirTexto(ctx, CHAVE_CONTAGENS, HomeCards.contagensJson(it).toString()) }
-    @Synchronized fun editarLembretes(ctx: Context, f: (List<HomeCards.LembreteCasa>) -> List<HomeCards.LembreteCasa>) =
-        f(lembretes(ctx)).also { Extras.definirTexto(ctx, CHAVE_LEMBRETES, HomeCards.lembretesJson(it).toString()) }
+    /** O cartão "Lembrete da casa" do painel edita só os sem Feito; os com Feito ficam como estão ([CuidarDeLonge.trocarDaCasa]). */
+    fun editarLembretes(ctx: Context, f: (List<HomeCards.LembreteCasa>) -> List<HomeCards.LembreteCasa>) =
+        CuidarDeLongeTv.editarLembretes(ctx) { CuidarDeLonge.trocarDaCasa(it, f(it.filterNot { l -> l.feito }.map { l -> CuidarDeLonge.paraCasa(l) })) }
     @Synchronized fun editarServicos(ctx: Context, f: (List<HomeCards.Servico>) -> List<HomeCards.Servico>) =
         f(servicos(ctx)).also { l ->
             Extras.definirTexto(ctx, CHAVE_SERVICOS, HomeCards.servicosJson(l).toString())
@@ -95,7 +104,8 @@ object HomeCardsTv {
 
     fun textosLembretes(ctx: Context): List<String> {
         if (!ligado(ctx, Extras.Chave.CARTAO_LEMBRETE_CASA)) return emptyList()
-        return HomeCards.lembretesDeHoje(lembretes(ctx), hoje()).map { l ->
+        // A pílula mostra a lista inteira de hoje, com e sem Feito: o "remédio às 20h" aparece desde cedo.
+        return HomeCards.lembretesDeHoje(lembretes(ctx, todos = true), hoje()).map { l ->
             ctx.getString(R.string.hc_hoje, l.texto) + (l.minuto?.let { " · %02d:%02d".format(Locale.ROOT, it / 60, it % 60) } ?: "")
         }
     }
@@ -211,7 +221,13 @@ object HomeCardsTv {
     fun json(ctx: Context): org.json.JSONObject = org.json.JSONObject()
         .put("permitido", Planos.permite(ctx, Planos.Recurso.CARTOES_HOME))
         .put("contagens", HomeCards.contagensJson(contagens(ctx)))
-        .put("lembretes", HomeCards.lembretesJson(lembretes(ctx)))
+        // A lista inteira; "feito" true = com Feito (apagar pede o PIN, no Cuidar de longe).
+        .put("lembretes", org.json.JSONArray().apply {
+            CuidarDeLongeTv.lembretes(ctx).forEach { l ->
+                val c = HomeCards.lembretesJson(listOf(CuidarDeLonge.paraCasa(l))).getJSONObject(0)
+                put(c.put("feito", l.feito))
+            }
+        })
         .put("servicos", HomeCards.servicosJson(servicos(ctx), falhasDe(ctx)))
         .put("moedas", org.json.JSONArray(moedas(ctx)))
         .put("moedaCasa", moedaDaCasa())

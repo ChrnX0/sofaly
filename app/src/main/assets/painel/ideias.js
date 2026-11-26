@@ -288,7 +288,8 @@ function linhaCartao(partes, aoTirar) {
   const linha = el('div', 'linha-registro');
   const t = el('span');
   partes.forEach((p, i) => { if (i) t.append(' · '); t.append(el('span', '', p)); });
-  linha.append(t, botao('Tirar', aoTirar));
+  linha.append(t);
+  if (aoTirar) linha.append(botao('Tirar', aoTirar));   // sem aoTirar: só se apaga em outro lugar (ex.: lembrete com Feito)
   return linha;
 }
 
@@ -304,10 +305,13 @@ function desenharCartoesHome(c) {
   if (!c.contagens.length) cont.append(el('p', 'aviso', 'Nenhuma contagem.'));
 
   const lem = $('itensLembreteCasa'); lem.replaceChildren();
+  // Lista única (26/11/2026): aparecem também os lembretes com "Feito" do Cuidar de longe. Esses não se apagam daqui
+  // (o cartão não pede PIN): ficam marcados e se apagam no Cuidar de longe.
   for (const x of c.lembretes) {
     const dias = DIAS_CURTOS.filter((_, i) => x.dias & (1 << i));
-    lem.append(linhaCartao([x.texto, ...dias, x.minuto !== undefined ? hhmmCartao(x.minuto) : 'o dia todo'],
-      () => mandarCartao({ tipo: 'lembrete', acao: 'remover', texto: x.texto })));
+    const partes = [x.texto, ...dias, x.minuto !== undefined ? hhmmCartao(x.minuto) : 'o dia todo'];
+    if (x.feito) partes.push('pede Feito');
+    lem.append(linhaCartao(partes, x.feito ? null : () => mandarCartao({ tipo: 'lembrete', acao: 'remover', texto: x.texto })));
   }
   if (!c.lembretes.length) lem.append(el('p', 'aviso', 'Nenhum lembrete da casa.'));
 

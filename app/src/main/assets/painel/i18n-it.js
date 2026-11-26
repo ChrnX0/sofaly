@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Nessun servizio.",
 "fora do ar":"non raggiungibile",
 "o dia todo":"tutto il giorno",
+"pede Feito":"chiede Fatto",
+"só aviso":"solo avviso",
 "Disponível no plano Pro.":"Disponibile nel piano Pro.",
 "texto ou dias inválidos":"testo o giorni non validi",
 "nome ou endereço inválidos (http ou https)":"nome o indirizzo non validi (http o https)",

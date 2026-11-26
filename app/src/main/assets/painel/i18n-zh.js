@@ -114,6 +114,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"没有服务。",
 "fora do ar":"已停止",
 "o dia todo":"全天",
+"pede Feito":"需要点“完成”",
+"só aviso":"仅提醒",
 "Disponível no plano Pro.":"Pro 套餐可用。",
 "texto ou dias inválidos":"文字或日期无效",
 "nome ou endereço inválidos (http ou https)":"名称或地址无效（http 或 https）",

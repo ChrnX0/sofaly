@@ -12,9 +12,12 @@ import android.os.SystemClock
 import android.util.Log
 import android.view.KeyEvent
 import br.paulo.tvlauncher.family.CuidarDeLonge
+import br.paulo.tvlauncher.home.HomeCards
+import br.paulo.tvlauncher.home.HomeCardsTv
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.panel.PainelArmazem
 import br.paulo.tvlauncher.panel.PainelControle
+import br.paulo.tvlauncher.settings.Extras
 import br.paulo.tvlauncher.settings.Planos
 import java.io.File
 import java.util.TimeZone
@@ -47,16 +50,70 @@ object CuidarDeLongeTv {
 
     fun config(ctx: Context): CuidarDeLonge.Config =
         CuidarDeLonge.limitar(CuidarDeLonge.deJson(prefs(ctx).getString("config", null)), BuildConfig.CUIDAR_FAMILIA, ExtrasPlugin.autorizado(ctx))
+            .copy(lembretes = lembretes(ctx))
 
     @Synchronized
     fun mudar(ctx: Context, f: (CuidarDeLonge.Config) -> CuidarDeLonge.Config): CuidarDeLonge.Config {
         val antes = config(ctx)
         val novo = f(antes)
-        prefs(ctx).edit().putString("config", CuidarDeLonge.paraJson(novo).toString()).commit()
+        // Os lembretes moram à parte, nas prefs "extras" (vão no backup); a configuração (com o consentimento) não vai.
+        gravarLembretes(ctx, novo.lembretes)
+        prefs(ctx).edit().putString("config", CuidarDeLonge.paraJson(novo.copy(lembretes = emptyList())).toString()).commit()
         ajudaLigada = Planos.permite(ctx, Planos.Recurso.CUIDAR_DE_LONGE) && CuidarDeLonge.ativo(novo, CuidarDeLonge.Aviso.AJUDA)
         teclaAjuda = novo.tecla.codigo
         agendar(ctx)
         return novo
+    }
+
+    // ---------------------------------------------------------------- a lista única de lembretes da casa (26/11/2026)
+
+    /**
+     * Onde mora a lista única: nas prefs "extras", que vão no backup completo (a configuração do Cuidar de longe não vai,
+     * por causa do consentimento; os lembretes são da casa e devem ir). Antes eram duas listas: a do Cuidar (dentro da
+     * "config") e a do lembrete da casa da pílula ([HomeCardsTv.CHAVE_LEMBRETES]). [migrar] junta as duas.
+     */
+    const val CHAVE_LEMBRETES = "house_reminders"
+
+    /** A lista única (com e sem Feito). Junta antes o que ainda estiver nas listas antigas (backup antigo restaurado, versão anterior). */
+    fun lembretes(ctx: Context): List<CuidarDeLonge.Lembrete> {
+        migrar(ctx)
+        return CuidarDeLonge.lembretesDeJson(runCatching { JSONArray(Extras.texto(ctx, CHAVE_LEMBRETES, "[]")) }.getOrNull())
+    }
+
+    @Synchronized
+    fun editarLembretes(ctx: Context, f: (List<CuidarDeLonge.Lembrete>) -> List<CuidarDeLonge.Lembrete>): List<CuidarDeLonge.Lembrete> {
+        val antes = lembretes(ctx)
+        val novo = f(antes)
+        gravarLembretes(ctx, novo)
+        // Lembrete com Feito apagado: as marcas do dia dele saem junto (o id pode voltar num lembrete novo).
+        val idsSairam = antes.filter { it.feito }.map { it.id }.toSet() - novo.filter { it.feito }.map { it.id }.toSet()
+        if (idsSairam.isNotEmpty()) mudarEstado(ctx) { e -> idsSairam.fold(e) { acc, id -> CuidarDeLonge.esquecerLembrete(acc, id) } }
+        agendar(ctx)
+        return novo
+    }
+
+    private fun gravarLembretes(ctx: Context, lista: List<CuidarDeLonge.Lembrete>) =
+        Extras.prefs(ctx).edit().putString(CHAVE_LEMBRETES, CuidarDeLonge.lembretesParaJson(lista).toString()).commit()
+
+    /**
+     * Junta as listas antigas na única e as esvazia. Roda toda vez que se lê (barato: duas leituras de prefs) porque um
+     * backup antigo restaurado traz de volta a lista do lembrete da casa. Primeiro os do Cuidar (mantêm o id, que as
+     * marcas do dia usam), depois os da pílula.
+     */
+    @Synchronized
+    private fun migrar(ctx: Context) {
+        val casaTexto = Extras.texto(ctx, HomeCardsTv.CHAVE_LEMBRETES, "[]")
+        val cfgTexto = prefs(ctx).getString("config", null)
+        val doCuidar = runCatching { JSONObject(cfgTexto ?: "{}").optJSONArray("lembretes") }.getOrNull()
+        val temCasa = casaTexto.isNotBlank() && casaTexto != "[]"
+        val temCuidar = doCuidar != null && doCuidar.length() > 0
+        if (!temCasa && !temCuidar) return
+        val atual = CuidarDeLonge.lembretesDeJson(runCatching { JSONArray(Extras.texto(ctx, CHAVE_LEMBRETES, "[]")) }.getOrNull())
+        val novos = CuidarDeLonge.lembretesDeJson(doCuidar) + HomeCards.lembretesDeJson(casaTexto).map { CuidarDeLonge.daCasa(it) }
+        gravarLembretes(ctx, CuidarDeLonge.juntar(atual, novos))
+        if (temCasa) Extras.prefs(ctx).edit().putString(HomeCardsTv.CHAVE_LEMBRETES, "[]").commit()
+        if (temCuidar) prefs(ctx).edit().putString("config", JSONObject(cfgTexto!!).put("lembretes", JSONArray()).toString()).commit()
+        Log.i(TAG, "lembretes: listas antigas juntadas na única (${novos.size})")
     }
 
     fun estado(ctx: Context): CuidarDeLonge.Estado = CuidarDeLonge.estadoDeJson(prefs(ctx).getString("estado", null))
@@ -64,7 +121,7 @@ object CuidarDeLongeTv {
     @Synchronized
     /** Remove o lembrete e as marcas do dia dele (o id pode voltar num lembrete novo: [CuidarDeLonge.esquecerLembrete]). */
     fun removerLembrete(ctx: Context, id: Int) {
-        mudar(ctx) { it.copy(lembretes = CuidarDeLonge.removerLembrete(it.lembretes, id)) }
+        editarLembretes(ctx) { CuidarDeLonge.removerLembrete(it, id) }
         mudarEstado(ctx) { CuidarDeLonge.esquecerLembrete(it, id) }
     }
 
@@ -340,7 +397,7 @@ object CuidarDeLongeTv {
         val agora = System.currentTimeMillis()
         val hoje = CuidarDeLonge.dia(agora, fuso)
         val lembretesHoje = JSONArray()
-        for (l in c.lembretes) for (m in CuidarDeLonge.ocorrencias(l, agora - 18 * 3_600_000L, agora, fuso)) {
+        for (l in c.lembretes.filter { it.feito }) for (m in CuidarDeLonge.ocorrencias(l, agora - 18 * 3_600_000L, agora, fuso)) {
             val k = CuidarDeLonge.chave(l, m, fuso)
             val mk = e.marca(k)
             lembretesHoje.put(JSONObject().put("id", l.id).put("hora", CuidarDeLonge.textoHora(m, fuso)).put("texto", l.texto)
