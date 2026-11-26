@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">Jemand hat am Fernseher %1$s um Hilfe gebeten.</string>
     <string name="ms_avisei_falado">Erledigt. Ich habe die Familie benachrichtigt.</string>
     <string name="ms_avisei">Ich habe die Familie auf ihren Handys benachrichtigt.</string>
+    <string name="ms_ninguem_recebeu">Kein Handy hat die Meldung bekommen. Bitte rufen Sie jemanden an.</string>
     <string name="ms_voltar">Zurück zum vollen Bildschirm</string>
     <string name="pv_bom_dia">Guten Morgen!</string>
     <string name="pv_boa_tarde">Guten Tag!</string>

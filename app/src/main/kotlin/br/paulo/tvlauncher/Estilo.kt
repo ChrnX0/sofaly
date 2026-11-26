@@ -57,19 +57,19 @@ object Estilo {
     /** Fio de borda das superfícies: branco a 8%. */
     val BORDA: Int get() = if (altoContraste) 0x8CFFFFFF.toInt() else 0x14FFFFFF
     /** Vidro (sobre imagem): tinta escura translúcida + fio claro. Igual à pílula da HOME que o dono aprovou. */
-    const val VIDRO_TINTA = 0x8C141413.toInt()
+    const val VIDRO_TINTA = 0x8C121212.toInt()
     const val VIDRO_BORDA = 0x38FFFFFF
     /**
      * Painel ao lado (A+B no estilo da E, Paulo, 25/11/2026): a tinta do painel de vidro das Configurações sobre a HOME
      * viva. Com o borrão do sistema por trás, 72% basta para ler; sem borrão (aparelho sem suporte, economia de bateria,
      * "Remover animações"), quase sólido, para o texto não brigar com a HOME.
      */
-    const val PAINEL_VIDRO = 0xB8141413.toInt()
-    const val PAINEL_CHEIO = 0xF2141413.toInt()
+    const val PAINEL_VIDRO = 0xB8121212.toInt()
+    const val PAINEL_CHEIO = 0xF2121212.toInt()
     /** O degradê do painel ([br.paulo.tvlauncher.settings.SidePanel.degrade]): lado de dentro mais leve, borda da tela mais firme. */
-    const val PAINEL_VIDRO_DENTRO = 0x73141413
-    const val PAINEL_VIDRO_FORA = 0xD1141413.toInt()
-    const val PAINEL_CHEIO_DENTRO = 0xD9141413.toInt()
+    const val PAINEL_VIDRO_DENTRO = 0x73121212
+    const val PAINEL_VIDRO_FORA = 0xD1121212.toInt()
+    const val PAINEL_CHEIO_DENTRO = 0xD9121212.toInt()
 
     /** Texto: principal, explicação (70%) e rótulo apagado (48%). Nunca branco puro em bloco grande: cansa a vista. */
     const val TEXTO = DesignTokens.CREAM
@@ -87,8 +87,8 @@ object Estilo {
      * (teste 100%, Sala, 23/11/2026: "Parar" do timer e ações da ficha invisíveis).
      */
     const val TEXTO_SOBRE_FOCO = DesignTokens.NIGHT
-    const val TEXTO_SOBRE_FOCO_2 = 0xA6141413.toInt()
-    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6141413.toInt()
+    const val TEXTO_SOBRE_FOCO_2 = 0xA6121212.toInt()
+    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6121212.toInt()
 
     /** O ÚNICO acento: "ligado", valor escolhido, progresso. Foco NÃO usa acento: foco é branco. */
     val ACENTO: Int get() = if (altoContraste) acentoAlto else acentoBase
@@ -1010,7 +1010,7 @@ object Estilo {
             // (19/11/2026, Sala): o ícone "Aplicativos" da cruz aparecia através de "Trocar ícone".
             background = GradientDrawable(if (rtl) GradientDrawable.Orientation.RIGHT_LEFT else GradientDrawable.Orientation.LEFT_RIGHT,
                 // 19/11/2026 (crítica de design): ainda vazava; agora fica quase opaco já do meio da tela para a direita.
-                intArrayOf(0x00000000, 0x40000000, 0xE6080A10.toInt(), 0xF5080A10.toInt(), 0xF5080A10.toInt()))
+                intArrayOf(0x00000000, 0x40000000, 0xE60B0B0B.toInt(), 0xF50B0B0B.toInt(), 0xF50B0B0B.toInt()))
             // com valores à direita o painel alarga: na TV (20/11/2026) "Volume parecido entre canais" quebrava em 2 linhas
             addView(painel, FrameLayout.LayoutParams(dp(ctx, if (valores.any { !it.isNullOrBlank() }) LISTA_LARGURA_VALORES else LISTA_LARGURA), ViewGroup.LayoutParams.MATCH_PARENT, Gravity.END))
         }

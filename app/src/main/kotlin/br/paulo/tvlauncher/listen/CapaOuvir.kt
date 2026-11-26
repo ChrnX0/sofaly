@@ -99,7 +99,7 @@ class CapaOuvir(ctx: Context, private val raioDp: Float = 14f) : ImageView(ctx) 
         val salvo = c.save()
         c.clipPath(canto)
         // Quadro: a cor do item escurecida (fundo neutro para qualquer logo) e as iniciais enquanto não há imagem.
-        fundo.color = misturar(cor, 0xFF171716.toInt(), 0.72f)
+        fundo.color = misturar(cor, 0xFF1E1E1E.toInt(), 0.72f)
         c.drawRect(0f, 0f, width.toFloat(), height.toFloat(), fundo)
         if (drawable == null && monograma.isNotEmpty()) {
             letra.color = misturar(cor, Color.WHITE, 0.35f)

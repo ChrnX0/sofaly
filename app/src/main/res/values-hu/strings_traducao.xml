@@ -110,6 +110,7 @@
     <string name="ms_alguem_pediu">Valaki segítséget kért a(z) %1$s TV-n.</string>
     <string name="ms_avisei_falado">Kész. Értesítettem a családot.</string>
     <string name="ms_avisei">Értesítettem a családot a telefonjukon.</string>
+    <string name="ms_ninguem_recebeu">Egy telefon sem kapta meg az értesítést. Kérem, hívjon fel valakit.</string>
     <string name="ms_voltar">Vissza a teljes képernyőre</string>
     <string name="pv_bom_dia">Jó reggelt!</string>
     <string name="pv_boa_tarde">Jó napot!</string>

@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">TV %1$s에서 누군가 도움을 요청했습니다.</string>
     <string name="ms_avisei_falado">완료. 가족에게 알렸습니다.</string>
     <string name="ms_avisei">가족의 휴대폰으로 알렸습니다.</string>
+    <string name="ms_ninguem_recebeu">어떤 휴대폰에도 알림이 가지 않았습니다. 누군가에게 전화해 주세요.</string>
     <string name="ms_voltar">전체 화면으로 돌아가기</string>
     <string name="pv_bom_dia">좋은 아침입니다!</string>
     <string name="pv_boa_tarde">좋은 오후입니다!</string>

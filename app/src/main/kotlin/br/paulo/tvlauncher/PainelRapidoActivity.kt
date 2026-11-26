@@ -132,13 +132,15 @@ class PainelRapidoActivity : Activity() {
         /** Hora: informação, não o assunto (o DISPLAY da HOME é 56 sp). */
         private const val HORA_SP = 28f
         /** Tile: altura fixa e tamanhos do nome e do detalhe. */
-        private const val TILE_DP = 54
-        private const val TILE_SP = 14f
-        private const val DETALHE_SP = 12f
+        // Brainstorm 26/11 (item 3, letras grandes para idosos): uma coluna, nome 18 sp e detalhe 16 sp. Em duas colunas
+        // sobravam ~74 dp por nome e a 18 sp "Bluetooth" já não cabia.
+        private const val TILE_DP = 64
+        private const val TILE_SP = 18f
+        private const val DETALHE_SP = 16f
         /** Botões redondos do cabeçalho e do Tocando agora. */
         private const val BOTAO_DP = 34
         /** Fundo do painel: azul-ardósia escuro e opaco, como o do Google (e próximo do FUNDO do launcher). */
-        private const val FUNDO_PAINEL = 0xFF171716.toInt()
+        private const val FUNDO_PAINEL = 0xFF1E1E1E.toInt()
         /** Ícone de tile desligado: o texto do sistema a 85%. */
         private const val ICONE_APAGADO = 0xD9FFF3E6.toInt()
     }
@@ -653,14 +655,9 @@ class PainelRapidoActivity : Activity() {
         }
         val grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false }
         botoesDePlugins(grade)
-        for ((i, linha) in PainelBlocos.linhas(visiveis).withIndex()) {
-            grade.addView(LinearLayout(this).apply {
-                orientation = LinearLayout.HORIZONTAL
-                clipChildren = false
-                for ((j, id) in linha.withIndex()) addView(porId.getValue(id).casca.also { blocosNaTela += it },
-                    LinearLayout.LayoutParams(0, dp(TILE_DP), 1f).apply { if (j > 0) marginStart = dp(Estilo.E1) })
-            }, LinearLayout.LayoutParams(-1, -2).apply { if (i > 0) topMargin = dp(Estilo.E1) })
-        }
+        for ((i, id) in PainelBlocos.linhas(visiveis).flatten().withIndex())   // uma coluna: um bloco por linha
+            grade.addView(porId.getValue(id).casca.also { blocosNaTela += it },
+                LinearLayout.LayoutParams(-1, dp(TILE_DP)).apply { if (i > 0) topMargin = dp(Estilo.E1) })
         return grade
     }
 
@@ -675,8 +672,7 @@ class PainelRapidoActivity : Activity() {
             if (lista.isEmpty()) return@execute
             ui.post {
                 if (isFinishing || isDestroyed) return@post
-                val linha = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
-                for ((j, par) in lista.withIndex()) {
+                for (par in lista) {
                     val (instalado, b) = par
                     lateinit var t: Tile
                     fun aplicar(n: br.paulo.tvlauncher.screensaver.PluginTile.Botao) {
@@ -692,18 +688,15 @@ class PainelRapidoActivity : Activity() {
                     }
                     aplicar(b)
                     blocosNaTela += t.casca
-                    linha.addView(t.casca, LinearLayout.LayoutParams(0, dp(TILE_DP), 1f).apply { if (j > 0) marginStart = dp(Estilo.E1) })
+                    grade.addView(t.casca, LinearLayout.LayoutParams(-1, dp(TILE_DP)).apply { topMargin = dp(Estilo.E1) })   // uma coluna
                 }
-                // Completa a linha com espaço vazio para o bloco ter a mesma largura dos outros (2 por linha, PainelBlocos.linhas).
-                repeat((2 - lista.size).coerceAtLeast(0)) { linha.addView(View(this), LinearLayout.LayoutParams(0, dp(TILE_DP), 1f).apply { marginStart = dp(Estilo.E1) }) }
-                grade.addView(linha, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E1) })
             }
         }
     }
 
     /**
-     * Um tile no molde do Google: ícone solto (18 dp) à esquerda; nome (14 sp) e, só quando diz algo, o detalhe (12 sp).
-     * Medido com a Nunito: sobram ~74 dp para o texto; "Bluetooth" tem 65 e "Amanhã 06:30" ~70.
+     * Um tile no molde do Google: ícone solto (18 dp) à esquerda; nome (18 sp) e, só quando diz algo, o detalhe (16 sp).
+     * Uma coluna (Brainstorm 26/11): o texto tem a largura toda do painel, ~200 dp.
      */
     private fun tile(tipoIcone: String, titulo: String, aoClicar: () -> Unit): Tile {
         val icone = IconeCard(this, tipoIcone)

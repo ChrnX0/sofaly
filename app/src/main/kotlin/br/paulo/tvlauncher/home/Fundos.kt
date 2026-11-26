@@ -181,7 +181,7 @@ internal object FundoEscuroPronto {
  */
 internal fun desenharFundoEscuro(c: Canvas, w: Float, h: Float, p: Paint, brilho: Int = World.NEUTRAL.glow) {
     p.shader = LinearGradient(0f, 0f, 0f, h,
-        intArrayOf(0xFF0E1317.toInt(), 0xFF0A0D10.toInt(), 0xFF07090B.toInt()), floatArrayOf(0f, 0.55f, 1f), Shader.TileMode.CLAMP)
+        intArrayOf(0xFF121212.toInt(), 0xFF0A0D10.toInt(), 0xFF07090B.toInt()), floatArrayOf(0f, 0.55f, 1f), Shader.TileMode.CLAMP)
     c.drawRect(0f, 0f, w, h, p)
     // brilho frio, atrás da hora e do clima
     // (o mundo da tela, World: Assistir quente, Ouvir turquesa, Jogar violeta; o neutro é o azul frio de sempre)

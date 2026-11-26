@@ -227,7 +227,7 @@ object BarraDesfazer {
             gravity = Gravity.CENTER_VERTICAL
             val d = Estilo.dp(activity, 16)
             setPaddingRelative(d * 2, d, d, d)
-            background = Estilo.fundo(activity, 0xF2141413.toInt(), Estilo.RAIO_PILULA, Estilo.VIDRO_BORDA)   // quase sólido: legível sobre qualquer tela
+            background = Estilo.fundo(activity, 0xF2121212.toInt(), Estilo.RAIO_PILULA, Estilo.VIDRO_BORDA)   // quase sólido: legível sobre qualquer tela
             addView(texto, LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
             addView(botao, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 marginStart = d

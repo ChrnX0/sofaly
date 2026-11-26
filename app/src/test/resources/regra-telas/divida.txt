@@ -71,7 +71,7 @@ CuidarTelaActivity.kt dicas 1
 CuidarTelaActivity.kt letra 1
 CuidarTelaActivity.kt titulo 1
 DesenhoHome.kt cor 1
-DesignTokens.kt cor 18
+DesignTokens.kt cor 20
 DiagnosticoActivity.kt dicas 1
 DiagnosticoActivity.kt letra 1
 DnsActivity.kt dicas 1

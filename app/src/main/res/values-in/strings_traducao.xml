@@ -98,6 +98,7 @@
     <string name="ms_alguem_pediu">Seseorang meminta bantuan di TV %1$s.</string>
     <string name="ms_avisei_falado">Selesai. Saya sudah memberi tahu keluarga.</string>
     <string name="ms_avisei">Saya memberi tahu keluarga di ponsel mereka.</string>
+    <string name="ms_ninguem_recebeu">Tidak ada ponsel yang menerima peringatan. Silakan telepon seseorang.</string>
     <string name="ms_voltar">Kembali ke layar penuh</string>
     <string name="pv_bom_dia">Selamat pagi!</string>
     <string name="pv_boa_tarde">Selamat siang!</string>

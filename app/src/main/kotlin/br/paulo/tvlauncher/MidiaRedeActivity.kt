@@ -792,7 +792,7 @@ class MidiaRedeActivity : Activity() {
         camada.removeAllViews()
         val cartao = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            background = Estilo.fundo(this@MidiaRedeActivity, 0xF2171716.toInt(), Estilo.RAIO, Estilo.VIDRO_BORDA)
+            background = Estilo.fundo(this@MidiaRedeActivity, 0xF21E1E1E.toInt(), Estilo.RAIO, Estilo.VIDRO_BORDA)
             setPaddingRelative(dp(Estilo.E3 + 4), dp(Estilo.E3), dp(Estilo.E3 + 4), dp(Estilo.E3))
         }
         conteudo(cartao)

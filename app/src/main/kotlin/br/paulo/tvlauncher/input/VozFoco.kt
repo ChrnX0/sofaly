@@ -42,7 +42,7 @@ object VozFoco {
         val ouvinte = ViewTreeObserver.OnGlobalFocusChangeListener { _, novo ->
             if (novo == null || !Extras.ligado(a, Extras.Chave.LER_FOCO)) return@OnGlobalFocusChangeListener
             pendente?.get()?.let { raiz.removeCallbacks(it) }
-            val r = Runnable { if (novo.isFocused) falar(a, textoDe(novo)) }
+            val r = Runnable { if (novo.isFocused) falar(textoDe(novo)) }
             pendente = WeakReference(r)
             raiz.postDelayed(r, ESPERA_MS)
         }
@@ -51,6 +51,20 @@ object VozFoco {
         telas.removeAll { it.get() == null }
         telas += WeakReference(raiz)
         ligar(a)
+    }
+
+    /**
+     * A view que muda o que diz SEM mudar o foco (a cruz da home: o foco fica nela e só o item muda por dentro) chama
+     * isto a cada troca. O ouvinte global não ouve essas trocas, e com LER_FOCO ligado a home ficava muda (Brainstorm
+     * 26/11, item 5). Mesma espera de [ESPERA_MS]: andar rápido pela cruz não vira enxurrada.
+     */
+    fun anunciar(v: View) {
+        if (!v.isFocused || !Extras.ligado(v.context, Extras.Chave.LER_FOCO)) return
+        val raiz = v.rootView ?: return
+        pendente?.get()?.let { raiz.removeCallbacks(it) }
+        val r = Runnable { if (v.isFocused) falar(textoDe(v)) }
+        pendente = WeakReference(r)
+        raiz.postDelayed(r, ESPERA_MS)
     }
 
     /** O que a view em foco diz: a descrição dela, ou os textos visíveis dentro dela (nome, detalhe, valor). */
@@ -79,7 +93,7 @@ object VozFoco {
         }
     }
 
-    private fun falar(a: Activity, frase: String) {
+    private fun falar(frase: String) {
         if (frase.isEmpty() || !pronta) return
         try { voz?.speak(frase, TextToSpeech.QUEUE_FLUSH, null, "foco") } catch (_: Exception) {}
     }

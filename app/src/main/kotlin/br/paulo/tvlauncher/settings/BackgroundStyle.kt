@@ -32,7 +32,7 @@ object BackgroundStyle {
     enum class Tint(val alpha: Float) { OFF(0f), SOFT(0.22f), STRONG(0.45f), SOLID(1f) }
     /** null = a cor de destaque escolhida (CardStyle). As outras são escuras de propósito: o texto é claro. Nunca rosa. */
     enum class TintColor(val argb: Int?) {
-        ACCENT(null), NIGHT(0xFF0E1A33.toInt()), FOREST(0xFF0F2A24.toInt()), EMBER(0xFF3A1A0C.toInt()), GRAPHITE(0xFF1B1E2E.toInt())
+        ACCENT(null), NIGHT(0xFF0E1A33.toInt()), FOREST(0xFF0F2A24.toInt()), EMBER(0xFF3A1A0C.toInt()), GRAPHITE(0xFF1E1E1E.toInt())
     }
     enum class Blur(val dp: Float) { OFF(0f), SOFT(10f), STRONG(24f) }
     enum class Fade(val ms: Long) { CUT(0L), SOFT(800L), SLOW(2000L) }
