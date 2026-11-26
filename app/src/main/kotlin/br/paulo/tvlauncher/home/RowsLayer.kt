@@ -71,6 +71,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     private var ultimo: (() -> Unit)? = null
     private var avisoAte = 0L
     private var nomeMostrado: String? = null
+    private lateinit var topoView: LinearLayout
 
     init {
         clipChildren = false; clipToPadding = false
@@ -122,7 +123,6 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         topoView = topo
         aplicarTopo()
     }
-    private lateinit var topoView: LinearLayout
 
     /** Pílula, hora e sombra seguem as opções. */
     private fun aplicarTopo() {

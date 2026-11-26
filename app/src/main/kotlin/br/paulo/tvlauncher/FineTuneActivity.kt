@@ -218,8 +218,8 @@ class FineTuneActivity : Activity() {
         val foc = nomes(R.string.rw_igual, R.string.rw_s, R.string.rw_m, R.string.rw_l)
         val efe = nomes(R.string.rw_nenhum, R.string.rw_brilho, R.string.rw_sombra_proj)
         val ani = nomes(R.string.rw_nenhum, R.string.rw_respirar, R.string.rw_esmaecer, R.string.rw_pulsar, R.string.rw_reluzir)
-        val vao = listOf(getString(R.string.rw_auto)) + R2.Spacing.entries.drop(1).map { "${(it.pct * 100).toInt()}%" }
-        val opa = listOf(getString(R.string.rw_escondidas)) + R2.Dim.entries.drop(1).map { "${(it.alpha * 100).toInt()}%" }
+        val vao = listOf(getString(R.string.rw_auto)) + br.paulo.tvlauncher.home.RowsHome.Spacing.entries.drop(1).map { "${(it.pct * 100).toInt()}%" }
+        val opa = listOf(getString(R.string.rw_escondidas)) + br.paulo.tvlauncher.home.RowsHome.Dim.entries.drop(1).map { "${(it.alpha * 100).toInt()}%" }
         val som = nomes(R.string.rw_nenhum, R.string.rw_fraca, R.string.rw_normal, R.string.rw_forte)
         val simNao = nomes(R.string.st_sem, R.string.st_com)
         fun enumA(t: Int, nomes: List<String>, key: String, atual: () -> Int) =
