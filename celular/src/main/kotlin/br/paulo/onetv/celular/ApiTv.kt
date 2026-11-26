@@ -32,7 +32,27 @@ object ApiTv {
     /** O controle nativo só existe com a TV pareada pelo QR (certificado fixado). Sem isso, o painel com o PIN. */
     fun podeUsar(tv: Pareamento.Tv): Boolean = tv.fp.isNotEmpty()
 
-    class Resposta(val codigo: Int, val json: JSONObject?)
+    class Resposta(val codigo: Int, val json: JSONObject?, val cookies: List<String> = emptyList())
+
+    @Volatile private var app: Context? = null
+
+    /** [CelularApp] chama ao abrir o processo: a chave de aparelho fica nas prefs e no Keystore. */
+    fun iniciar(ctx: Context) { app = ctx.applicationContext }
+
+    /** TVs que já recusaram dar a chave neste processo (painel antigo, sem https): não pede de novo a cada tecla. */
+    private val semChave = java.util.Collections.synchronizedSet(HashSet<String>())
+
+    /**
+     * Item 9 (Brainstorm 26/11): sessão caiu (401) e o app tem a chave desta TV? Troca a chave por uma sessão nova
+     * (sem PIN, sem elevação) e tenta UMA vez de novo. Chave recusada (403: revogada no painel) é esquecida; aí volta o
+     * caminho de sempre, o painel com o PIN. Pura (ChaveAparelhoTest).
+     */
+    fun deveReentrar(codigo: Int, temChave: Boolean, caminho: String): Boolean =
+        codigo == 401 && temChave && !caminho.startsWith("/api/aparelho")
+
+    /** Depois de uma chamada que deu certo, sem chave guardada: pede uma (só pelo https fixado, que é o único aqui). */
+    fun devePedirChave(codigo: Int, temChave: Boolean, caminho: String, jaRecusou: Boolean): Boolean =
+        codigo in 200..299 && !temChave && !jaRecusou && !caminho.startsWith("/api/aparelho")
 
     /**
      * A TV respondeu com OUTRO certificado (Brainstorm 26/11, item 18): renovado no painel, ou outro aparelho no IP.
@@ -41,7 +61,18 @@ object ApiTv {
     const val CERTIFICADO_TROCOU = -2
 
     /** Chamada bloqueante. Código 0 = não chegou na TV (desligada, fora de casa); [CERTIFICADO_TROCOU] = outro certificado. */
-    fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta =
+    fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta {
+        val r = chamarUmaVez(tv, metodo, caminho, corpo)
+        val ctx = app ?: return r
+        val chave = ChaveAparelho.ler(ctx, tv)
+        if (deveReentrar(r.codigo, chave != null, caminho)) {
+            return if (entrarComChave(ctx, tv, chave!!)) chamarUmaVez(tv, metodo, caminho, corpo) else r
+        }
+        if (devePedirChave(r.codigo, chave != null, caminho, Pareamento.chave(tv) in semChave)) pedirChave(ctx, tv)
+        return r
+    }
+
+    private fun chamarUmaVez(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject?): Resposta =
         conversar(tv, metodo, caminho, 8_000) { c ->
             if (metodo == "POST") {
                 c.setRequestProperty("Content-Type", "application/json")
@@ -49,6 +80,30 @@ object ApiTv {
                 c.outputStream.use { it.write((corpo ?: JSONObject()).toString().toByteArray()) }
             }
         }
+
+    /** Chave -> cookie de sessão novo, gravado no mesmo CookieManager do WebView (o painel também volta a abrir sem PIN). */
+    private fun entrarComChave(ctx: Context, tv: Pareamento.Tv, chave: String): Boolean {
+        val r = conversar(tv, "POST", "/api/aparelho/entrar", 8_000) { c ->
+            c.setRequestProperty("X-Aparelho", chave)
+            c.setRequestProperty("Content-Type", "application/json")
+            c.doOutput = true
+            c.outputStream.use { it.write("{}".toByteArray()) }
+        }
+        if (r.codigo == 403) { ChaveAparelho.esquecer(ctx, tv); return false }   // revogada: só o QR traz de volta
+        if (r.codigo != 200 || r.cookies.isEmpty()) return false
+        val base = "https://${tv.ip}:${Pareamento.PORTA_HTTPS}/"
+        val cm = CookieManager.getInstance()
+        r.cookies.forEach { cm.setCookie(base, it) }
+        cm.flush()
+        return true
+    }
+
+    private fun pedirChave(ctx: Context, tv: Pareamento.Tv) {
+        val r = chamarUmaVez(tv, "POST", "/api/aparelho/emitir", JSONObject().put("nome", android.os.Build.MODEL ?: ""))
+        val chave = r.json?.optString("chave")
+        if (r.codigo == 200 && ChaveAparelho.valida(chave)) ChaveAparelho.guardar(ctx, tv, chave!!)
+        else semChave += Pareamento.chave(tv)
+    }
 
     /**
      * Manda um arquivo para uma pasta da TV (Brainstorm 26/11, item 16), pela mesma rota do painel
@@ -106,7 +161,8 @@ object ApiTv {
             try {
                 val cod = c.responseCode
                 val txt = runCatching { (if (cod in 200..299) c.inputStream else c.errorStream)?.bufferedReader()?.use { it.readText() } }.getOrNull()
-                Resposta(cod, txt?.let { runCatching { JSONObject(it) }.getOrNull() })
+                val cookies = c.headerFields.entries.filter { it.key.equals("Set-Cookie", ignoreCase = true) }.flatMap { it.value }
+                Resposta(cod, txt?.let { runCatching { JSONObject(it) }.getOrNull() }, cookies)
             } finally { c.disconnect() }
         } catch (_: Exception) { Resposta(if (trocou) CERTIFICADO_TROCOU else 0, null) }
     }

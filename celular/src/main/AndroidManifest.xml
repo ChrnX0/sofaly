@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".CelularApp"
         android:label="@string/cel_nome"
         android:icon="@mipmap/ic_onetv"
         android:allowBackup="false"

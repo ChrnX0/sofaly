@@ -776,6 +776,8 @@ object PainelWeb {
             "/api/eventos" -> if (req.metodo == "GET") return eventos(token)
             "/api/entrar" -> if (req.metodo == "POST") return entrar(req, ip)
             "/api/entrar-qr" -> if (req.metodo == "POST") return entrarPeloQr(req, ip)
+            // Item 9 (Brainstorm 26/11): o app do celular troca a chave de aparelho por uma sessão (sem PIN, sem elevação).
+            "/api/aparelho/entrar" -> if (req.metodo == "POST") return entrarComAparelho(req, ip, https)
             "/api/convite/entrar" -> if (req.metodo == "POST") return entrarPorConvite(req, ip)   // elevação 18.1
             // Elevação 19.7 (TV nova): a chave pública e o envelope, livres de sessão mas só com a tela aberta na TV.
             // O segredo do envelope já foi conferido em antesDoCorpo.
@@ -810,6 +812,9 @@ object PainelWeb {
                 JSONArray().apply { convites().forEach { put(PapeisPainel.publico(it)) } }))
             "/api/papeis/convite" -> if (req.metodo == "POST") return criarConvite(req, token, ip, https, host)
             "/api/papeis/revogar" -> if (req.metodo == "POST") return revogarConvite(req, token, ip)
+            "/api/aparelhos" -> if (req.metodo == "GET") return listarAparelhos()
+            "/api/aparelho/emitir" -> if (req.metodo == "POST") return emitirAparelho(req, ip, https)
+            "/api/aparelhos/revogar" -> if (req.metodo == "POST") return revogarAparelho(req, ip)
         }
         // Cuidar de longe (ideias 77-79, PainelCuidar.kt). A foto do pedido de ajuda é imagem: sai daqui mesmo.
         if (req.caminho == "/api/cuidar/foto" && req.metodo == "GET") {
