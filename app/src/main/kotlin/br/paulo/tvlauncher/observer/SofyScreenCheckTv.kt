@@ -94,7 +94,15 @@ object SofyScreenCheckTv {
      * conferência não lia nada, em silêncio), lê as telas, volta para a home e apaga de novo. A IA só olha DEPOIS, com a
      * TV já apagada: a tela fica acesa o mínimo. Se alguém apertar uma tecla no meio, para e deixa a TV acesa para a pessoa.
      */
+    /** Uma rodada por vez: a da noite e a do adb não podem abrir telas ao mesmo tempo. */
+    private val emRodada = java.util.concurrent.atomic.AtomicBoolean(false)
+
     private fun rodada(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean = false) {
+        if (!emRodada.compareAndSet(false, true)) { Log.w(TAG, "outra conferência já está rodando: pulei"); return }
+        try { rodada0(app, s, lista, capture) } finally { emRodada.set(false) }
+    }
+
+    private fun rodada0(app: Context, s: AutorizaShizukuService, lista: List<Pair<String, Class<*>>>, capture: Boolean) {
         val pm = app.getSystemService(android.os.PowerManager::class.java)
         val acendi = pm?.isInteractive == false
         val inicio = android.os.SystemClock.elapsedRealtime()
