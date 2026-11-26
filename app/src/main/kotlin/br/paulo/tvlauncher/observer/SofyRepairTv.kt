@@ -248,7 +248,8 @@ object SofyRepairTv {
             failsLastHour = loadCases(app).sumOf { c -> c.tried.count { now - it.at < SofyRepair.HOUR && it.tool != Tool.REPORT && it.tool != Tool.ASK_AI &&
                 (it.result == SofyRepair.Result.NOT_FIXED || it.result == SofyRepair.Result.FAILED) } },
             lastRunAt = runs.maxOrNull() ?: 0L,
-            lastLauncherRestart = p.getLong("launcher_restart", 0L), lastReboot = p.getLong("reboot", 0L), unavailable = indisponiveis,
+            lastLauncherRestart = p.getLong("launcher_restart", 0L), lastReboot = p.getLong("reboot", 0L),
+            lastTunnelRestart = p.getLong("tunnel_restart", 0L), unavailable = indisponiveis,
         )
     }
 
@@ -381,7 +382,7 @@ object SofyRepairTv {
             Tool.RELIGHT_WIRELESS_DEBUG -> { Privilegio.religarDepuracaoSemFio(app); true }
             Tool.RECONNECT_SHELL -> { GuardiaoShizuku.garantir(app, "Sofy", mesmoSemFalta = true); GuardiaoShizuku.comando(app, "echo ok", 30_000)?.contains("ok") == true }
             Tool.REPAIR_SHELL -> if (AutoPairing.maybe(app, SaudeAcesso.shellDownMs(app))) true else null
-            Tool.RESTART_TUNNEL -> { TunelTailscale.reiniciar(); true }
+            Tool.RESTART_TUNNEL -> { prefs(app).edit().putLong("tunnel_restart", System.currentTimeMillis()).apply(); TunelTailscale.reiniciar(); true }
             Tool.REFRESH_DATA -> refreshers[c.subject]?.let { it(app); true } ?: false
             Tool.FREE_MEMORY -> PainelSaude.liberar(app) != null
             Tool.RESTART_APP -> pkg != null && pkg != app.packageName && (JanelaNaFrente.pacote != pkg || env(app, System.currentTimeMillis()).idle) &&
