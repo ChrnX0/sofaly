@@ -58,6 +58,16 @@ object RowsHome {
     const val KEY_SHADOW_H = "rows_shadow_h"        // até onde a sombra de baixo sobe: ShadowLength
     const val KEY_FOCUS_BG = "rows_focus_bg"        // a arte do card em foco vira o fundo (1 = sim; Projectivy: "Programa em foco")
     const val KEY_BG_EVERY = "rows_bg_every"        // troca a foto de fundo sozinha: BgEvery
+    // Barra de status, hora e letra (bloco 6): Aparência > Barra de status e Fonte do Projectivy
+    const val KEY_AUTOHIDE = "rows_autohide_top"    // a hora e a pílula somem fora da 1ª fileira (1 = sim; dele: "Ocultar ao rolar")
+    const val KEY_STATUS_COLOR = "rows_status_color" // cor dos ícones da pílula: IconColor
+    const val KEY_STATUS_BOX = "rows_status_box"    // fundo da pílula: StatusBox
+    const val KEY_STATUS_SIZE = "rows_status_size"  // tamanho dos ícones da pílula: IconSize
+    const val KEY_CLOCK_SIZE = "rows_clock_size"    // tamanho da hora: ClockSize
+    const val KEY_CLOCK_LINE2 = "rows_clock_line2"  // 2ª linha embaixo da hora: Line2
+    const val KEY_TEXT_SIZE = "rows_text_size"      // tamanho da letra dos títulos e do nome: TextSize
+    const val KEY_BOLD = "rows_bold"                // letra em negrito (1 = sim)
+    const val KEY_ITALIC = "rows_italic"            // letra em itálico (1 = sim)
 
     enum class Size(val k: Float) { XS(0.75f), S(0.875f), M(1f), L(1.15f), XL(1.3f) }
     enum class Gap(val dp: Float) { NONE(0f), TIGHT(4f), NORMAL(8f), WIDE(14f), WIDER(20f) }
@@ -94,6 +104,17 @@ object RowsHome {
     enum class ShadowLength(val pct: Float) { SHORT(0.35f), MEDIUM(0.55f), LONG(0.75f), FULL(1f) }
     /** Troca da foto de fundo (dele: "Frequência de atualização"), em minutos; 0 = nunca. */
     enum class BgEvery(val min: Int) { NEVER(0), M15(15), M30(30), M60(60), M180(180) }
+    /** Cor dos ícones da pílula (dele: "Cor dos ícones"). */
+    enum class IconColor { CREAM, WHITE, ACCENT }
+    /** Fundo da pílula (dele: "Cor do contêiner dos ícones"): vidro leve, escuro ou nenhum. */
+    enum class StatusBox { GLASS, DARK, NONE }
+    enum class IconSize(val dp: Float) { S(18f), M(22f), L(28f) }
+    /** Tamanho da hora (dele: "Tamanho da fonte do relógio"). */
+    enum class ClockSize(val sp: Float) { S(26f), M(32f), L(40f), XL(48f) }
+    /** 2ª linha do relógio (dele: "Formato do relógio, linha 2"): nada, data, dia da semana ou os dois. */
+    enum class Line2 { NONE, DATE, WEEKDAY, BOTH }
+    /** Tamanho da letra (dele: "Tamanho" da fonte). Sem degrau menor: nada na TV abaixo de 18 sp. */
+    enum class TextSize(val k: Float) { M(1f), L(1.15f), XL(1.3f) }
 
     data class Options(
         val size: Size = Size.M, val gap: Gap = Gap.NORMAL, val corners: Corners = Corners.SOFT,
@@ -107,6 +128,9 @@ object RowsHome {
         val start: Margin = Margin.DEFAULT, val end: EndMargin = EndMargin.NONE, val top: TopMargin = TopMargin.DEFAULT,
         val shadowTint: ShadowTint = ShadowTint.BLACK, val shadowW: ShadowLength = ShadowLength.FULL, val shadowH: ShadowLength = ShadowLength.FULL,
         val focusBg: Boolean = false, val bgEvery: BgEvery = BgEvery.NEVER,
+        val autohide: Boolean = false, val statusColor: IconColor = IconColor.CREAM, val statusBox: StatusBox = StatusBox.GLASS,
+        val statusSize: IconSize = IconSize.M, val clockSize: ClockSize = ClockSize.M, val clockLine2: Line2 = Line2.NONE,
+        val textSize: TextSize = TextSize.M, val bold: Boolean = false, val italic: Boolean = false,
     ) {
         /** Borda esquerda do card em foco e dos textos (o título e o nome ficam 16 dp para dentro, como nele). */
         val focoX get() = start.dp
@@ -119,8 +143,10 @@ object RowsHome {
         val cardH get() = Math.round(CARD_H * size.k).toFloat()
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
         fun signature() = listOf(size, gap, corners, focusSize, effect, glowAnim, spacing, dim, shadow, glowSize, glowColor, tvRatio,
-            mobileRatio, cardBg, iconTint, start, end, top, shadowTint, shadowW, shadowH).joinToString("") { it.ordinal.toString() } +
-            listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge, focusBg).joinToString("") { if (it) "1" else "0" }
+            mobileRatio, cardBg, iconTint, start, end, top, shadowTint, shadowW, shadowH, statusColor, statusBox, statusSize, clockSize,
+            clockLine2, textSize).joinToString("") { it.ordinal.toString() } +
+            listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge, focusBg, autohide, bold,
+                italic).joinToString("") { if (it) "1" else "0" }
     }
 
     val DEFAULT = Options()
@@ -146,8 +172,23 @@ object RowsHome {
             shadowTint = ler(KEY_SHADOW_TINT, ShadowTint.entries, d.shadowTint), shadowW = ler(KEY_SHADOW_W, ShadowLength.entries, d.shadowW),
             shadowH = ler(KEY_SHADOW_H, ShadowLength.entries, d.shadowH), focusBg = sim(KEY_FOCUS_BG, d.focusBg),
             bgEvery = ler(KEY_BG_EVERY, BgEvery.entries, d.bgEvery),
+            autohide = sim(KEY_AUTOHIDE, d.autohide), statusColor = ler(KEY_STATUS_COLOR, IconColor.entries, d.statusColor),
+            statusBox = ler(KEY_STATUS_BOX, StatusBox.entries, d.statusBox), statusSize = ler(KEY_STATUS_SIZE, IconSize.entries, d.statusSize),
+            clockSize = ler(KEY_CLOCK_SIZE, ClockSize.entries, d.clockSize), clockLine2 = ler(KEY_CLOCK_LINE2, Line2.entries, d.clockLine2),
+            textSize = ler(KEY_TEXT_SIZE, TextSize.entries, d.textSize), bold = sim(KEY_BOLD, d.bold), italic = sim(KEY_ITALIC, d.italic),
         )
     }
+
+    /** Padrão de data da 2ª linha do relógio (o Android localiza a ordem e os nomes); null = sem 2ª linha. */
+    fun line2Skeleton(l: Line2): String? = when (l) {
+        Line2.NONE -> null
+        Line2.DATE -> "dMMMM"
+        Line2.WEEKDAY -> "EEEE"
+        Line2.BOTH -> "EEEEdMMMM"
+    }
+
+    /** A hora e a pílula aparecem? Com "ocultar ao rolar", só na 1ª fileira (como o dele). */
+    fun topoVisivel(o: Options, cat: Int) = !o.autohide || cat == 0
 
     /** Gira uma opção ([passo] +1/-1) e devolve o índice novo (sim/não = 2 valores). */
     fun next(ctx: Context, key: String, atual: Int, total: Int, passo: Int): Int =

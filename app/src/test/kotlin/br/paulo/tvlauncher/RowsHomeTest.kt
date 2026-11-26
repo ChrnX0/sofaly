@@ -69,7 +69,24 @@ class RowsHomeTest {
         val base = o.signature()
         listOf(o.copy(size = RowsHome.Size.L), o.copy(cardTitle = false), o.copy(status = false), o.copy(glowAnim = RowsHome.GlowAnim.PULSE),
             o.copy(shadowTint = RowsHome.ShadowTint.GRAPHITE), o.copy(shadowW = RowsHome.ShadowLength.SHORT), o.copy(shadowH = RowsHome.ShadowLength.LONG),
-            o.copy(focusBg = true))
+            o.copy(focusBg = true), o.copy(autohide = true), o.copy(statusColor = RowsHome.IconColor.ACCENT),
+            o.copy(statusBox = RowsHome.StatusBox.NONE), o.copy(statusSize = RowsHome.IconSize.L), o.copy(clockSize = RowsHome.ClockSize.XL),
+            o.copy(clockLine2 = RowsHome.Line2.DATE), o.copy(textSize = RowsHome.TextSize.L), o.copy(bold = true), o.copy(italic = true))
             .forEach { assertTrue(it.signature() != base) }
+    }
+
+    @Test fun topoSomeForaDaPrimeiraFileiraSoComOcultar() {
+        assertTrue(RowsHome.topoVisivel(o, 3))
+        val oculta = o.copy(autohide = true)
+        assertTrue(RowsHome.topoVisivel(oculta, 0))
+        assertTrue(!RowsHome.topoVisivel(oculta, 1))
+    }
+
+    @Test fun segundaLinhaDaHora() {
+        assertEquals(null, RowsHome.line2Skeleton(RowsHome.Line2.NONE))
+        assertEquals("EEEE", RowsHome.line2Skeleton(RowsHome.Line2.WEEKDAY))
+        assertTrue(RowsHome.line2Skeleton(RowsHome.Line2.BOTH)!!.contains("EEEE"))
+        // a letra nunca encolhe abaixo do padrão (18 sp mínimo na TV)
+        assertTrue(RowsHome.TextSize.entries.all { it.k >= 1f })
     }
 }

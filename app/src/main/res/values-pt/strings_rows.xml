@@ -92,4 +92,18 @@
     <string name="rw_media">Média</string>
     <string name="rw_longa">Longa</string>
     <string name="rw_tela_toda">Tela toda</string>
+    <string name="rw_ocultar_topo">Esconder hora e status ao rolar</string>
+    <string name="rw_status_cor">Cor dos ícones de status</string>
+    <string name="rw_status_fundo">Fundo dos ícones de status</string>
+    <string name="rw_status_tam">Tamanho dos ícones de status</string>
+    <string name="rw_hora_tam">Tamanho da hora</string>
+    <string name="rw_hora_linha2">Segunda linha da hora</string>
+    <string name="rw_letra_tam">Tamanho da letra</string>
+    <string name="rw_negrito">Letra em negrito</string>
+    <string name="rw_italico">Letra em itálico</string>
+    <string name="rw_vidro">Vidro</string>
+    <string name="rw_escuro">Escuro</string>
+    <string name="rw_data">Data</string>
+    <string name="rw_dia_semana">Dia da semana</string>
+    <string name="rw_data_e_dia">Dia e data</string>
 </resources>

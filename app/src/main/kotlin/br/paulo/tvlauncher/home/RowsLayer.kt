@@ -56,6 +56,8 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     /** A engrenagem da pílula: focável (▲ na 1ª fileira chega nela; ▼ volta para as fileiras). */
     val engrenagem = ImageView(ctx)
     private val hora = TextClock(ctx)
+    /** 2ª linha do relógio (bloco 6): data, dia da semana ou os dois. */
+    private val data = TextClock(ctx)
     private val nome = TextView(ctx)
 
     private class Card(val item: HomeCruz.Item, val raiz: FrameLayout, val banner: ImageView, val icone: ImageView,
@@ -109,7 +111,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         engrenagem.setPaddingRelative(dpi(2f), dpi(2f), dpi(2f), dpi(2f))
         engrenagem.setOnFocusChangeListener { v, tem ->
             ((v.background as GradientDrawable)).setColor(if (tem) DesignTokens.CREAM else 0)
-            (engrenagem.drawable as? IconeCruz)?.corFixa = if (tem) DesignTokens.NIGHT else DesignTokens.CREAM
+            (engrenagem.drawable as? IconeCruz)?.corFixa = if (tem) DesignTokens.NIGHT else corDoIcone
             engrenagem.invalidate()
             v.animate().scaleX(if (tem) 1.15f else 1f).scaleY(if (tem) 1.15f else 1f).setDuration(RowsHome.MS_TITULO).start()
         }
@@ -125,8 +127,18 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             includeFontPadding = false
             setShadowLayer(dp(8f), 0f, dp(1f), 0x80000000.toInt())
         }
-        topo.addView(hora, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { marginStart = dpi(12f) })
-        addView(topo, LayoutParams(LayoutParams.WRAP_CONTENT, dpi(48f), Gravity.TOP or Gravity.END).apply {
+        data.apply {
+            Estilo.letraMostrador(this, RowsHome.TITULO_SP)
+            typeface = Fontes.nunito(ctx, 400)
+            setTextColor(DesignTokens.CREAM)
+            includeFontPadding = false; gravity = Gravity.END
+            setShadowLayer(dp(6f), 0f, dp(1f), 0x80000000.toInt())
+        }
+        val relogio = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.END }
+        relogio.addView(hora, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        relogio.addView(data, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { topMargin = dpi(2f) })
+        topo.addView(relogio, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply { marginStart = dpi(12f) })
+        addView(topo, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END).apply {
             topMargin = dpi(RowsHome.TOPO - 24f); marginEnd = dpi(RowsHome.DIREITA)
         })
         topoView = topo
@@ -138,6 +150,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         if (!::topoView.isInitialized) return
         pilula.visibility = if (opcoes.status) View.VISIBLE else View.GONE
         hora.visibility = if (opcoes.clock) View.VISIBLE else View.GONE
+        aplicarStatusEHora()
         val a = (opcoes.shadow.alpha * 255).toInt()
         // cor e comprimento da sombra (bloco 5): a cor sem o alfa, o alfa da opacidade escolhida
         val rgb = (if (opcoes.shadowTint == RowsHome.ShadowTint.GRAPHITE) DesignTokens.NIGHT else DesignTokens.NIGHT_DEEP) and 0xFFFFFF
@@ -149,6 +162,43 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         sombraEsq.visibility = if (a > 0) View.VISIBLE else View.GONE
         sombraBaixo.visibility = sombraEsq.visibility
     }
+
+    /** Bloco 6: cor, fundo e tamanho dos ícones da pílula; tamanho, formato, cor e 2ª linha da hora; letra do nome. */
+    private fun aplicarStatusEHora() {
+        val o = opcoes
+        val corIcone = when (o.statusColor) { RowsHome.IconColor.CREAM -> DesignTokens.CREAM; RowsHome.IconColor.WHITE -> DesignTokens.FOCUS; RowsHome.IconColor.ACCENT -> Estilo.ACENTO }
+        wifi.setImageDrawable(WifiGlyph(corIcone))
+        if (!engrenagem.isFocused) (engrenagem.drawable as? IconeCruz)?.corFixa = corIcone
+        corDoIcone = corIcone
+        (pilula.background as? GradientDrawable)?.setColor(when (o.statusBox) {
+            RowsHome.StatusBox.GLASS -> 0x33000000
+            RowsHome.StatusBox.DARK -> (0xCC shl 24) or (DesignTokens.NIGHT_DEEP and 0xFFFFFF)
+            RowsHome.StatusBox.NONE -> 0
+        })
+        val ic = dpi(o.statusSize.dp)
+        (wifi.layoutParams as? LinearLayout.LayoutParams)?.let { it.width = ic; it.height = ic; wifi.layoutParams = it }
+        (engrenagem.layoutParams as? LinearLayout.LayoutParams)?.let { it.width = ic + dpi(4f); it.height = ic + dpi(4f); engrenagem.layoutParams = it }
+        val padrao = br.paulo.tvlauncher.settings.ClockStyle.pattern(context)
+        hora.format12Hour = padrao; hora.format24Hour = padrao
+        hora.setTextColor(br.paulo.tvlauncher.settings.ClockStyle.color(context).argb ?: 0xE6FFFFFF.toInt())
+        Estilo.letraMostrador(hora, o.clockSize.sp)
+        val esqueleto = RowsHome.line2Skeleton(o.clockLine2)
+        if (esqueleto != null && o.clock) {
+            val p = android.text.format.DateFormat.getBestDateTimePattern(java.util.Locale.getDefault(), esqueleto)
+            data.format12Hour = p; data.format24Hour = p; data.visibility = View.VISIBLE
+        } else data.visibility = View.GONE
+        Estilo.letraMostrador(nome, RowsHome.NOME_SP * o.textSize.k)
+        nome.typeface = letra(500)
+    }
+
+    /** A letra das Fileiras com negrito e itálico do bloco 6 (a família é a da opção "Letra" do sistema). */
+    private fun letra(peso: Int): android.graphics.Typeface {
+        val base = Fontes.nunito(context, if (opcoes.bold) 700 else peso)
+        return if (opcoes.italic) android.graphics.Typeface.create(base, android.graphics.Typeface.ITALIC) else base
+    }
+
+    /** A cor dos ícones da pílula fora do foco (a engrenagem volta para ela). */
+    private var corDoIcone = DesignTokens.CREAM
 
     override fun onSizeChanged(w: Int, h: Int, ow: Int, oh: Int) {
         super.onSizeChanged(w, h, ow, oh)
@@ -171,6 +221,11 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         if (ids != idsDesenhados) { refazer(cats, o); idsDesenhados = ids; nomeMostrado = null }
         val anima = animar && !semAnimacao()
         wifi.alpha = if (conectado()) 1f else 0.35f
+        // bloco 6: "ocultar ao rolar" (a hora e a pílula só na 1ª fileira)
+        if (::topoView.isInitialized) {
+            val alvo = if (RowsHome.topoVisivel(o, cat)) 1f else 0f
+            if (topoView.alpha != alvo) { if (anima) topoView.animate().alpha(alvo).setDuration(RowsHome.MS).start() else topoView.alpha = alvo }
+        }
         val alt = altura(); val larg = largura()
         val semMenu = hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto
         // grades (bloco 3): a altura a mais de cada fileira empurra as de baixo
@@ -326,13 +381,13 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     private fun refazer(cats: List<HomeCruz.Categoria>, o: RowsHome.Options) {
         for (f in fileiras) { removeView(f.titulo); for (k in f.cards) { k.raiz.animate().cancel(); removeView(k.raiz) } }
         fileiras.clear()
-        val fonte = Fontes.nunito(context, 500)
+        val fonte = letra(500)
         for (c in cats) {
             val titulo = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; alpha = 0f }
             if (o.rowIcon) titulo.addView(ImageView(context).apply { setImageDrawable(WorldGlyph(c.cat, DesignTokens.CREAM, 2.2f)) },
                 LinearLayout.LayoutParams(dpi(RowsHome.ICONE_TITULO), dpi(RowsHome.ICONE_TITULO)).apply { marginEnd = dpi(10f) })
             titulo.addView(TextView(context).apply {
-                Estilo.letraMostrador(this, RowsHome.TITULO_SP); typeface = fonte
+                Estilo.letraMostrador(this, RowsHome.TITULO_SP * o.textSize.k); typeface = fonte
                 setTextColor(DesignTokens.CREAM); includeFontPadding = false; maxLines = 1; text = c.nome
                 setShadowLayer(dp(6f), 0f, dp(1f), 0x99000000.toInt())
             }, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))

@@ -92,4 +92,18 @@
     <string name="rw_media">Medium</string>
     <string name="rw_longa">Long</string>
     <string name="rw_tela_toda">Full screen</string>
+    <string name="rw_ocultar_topo">Hide clock and status when scrolling</string>
+    <string name="rw_status_cor">Status icons color</string>
+    <string name="rw_status_fundo">Status icons container</string>
+    <string name="rw_status_tam">Status icons size</string>
+    <string name="rw_hora_tam">Clock size</string>
+    <string name="rw_hora_linha2">Clock second line</string>
+    <string name="rw_letra_tam">Text size</string>
+    <string name="rw_negrito">Bold text</string>
+    <string name="rw_italico">Italic text</string>
+    <string name="rw_vidro">Glass</string>
+    <string name="rw_escuro">Dark</string>
+    <string name="rw_data">Date</string>
+    <string name="rw_dia_semana">Weekday</string>
+    <string name="rw_data_e_dia">Weekday and date</string>
 </resources>

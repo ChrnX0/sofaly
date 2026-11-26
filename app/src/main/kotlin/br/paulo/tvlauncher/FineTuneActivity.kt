@@ -269,6 +269,16 @@ class FineTuneActivity : Activity() {
             enumA(R.string.rw_sombra_cor, nomes(R.string.rw_preto, R.string.rw_grafite), R2.KEY_SHADOW_TINT) { o().shadowTint.ordinal },
             enumA(R.string.rw_sombra_larg, comp, R2.KEY_SHADOW_W) { o().shadowW.ordinal },
             enumA(R.string.rw_sombra_alt, comp, R2.KEY_SHADOW_H) { o().shadowH.ordinal },
+            // Barra de status, hora e letra (bloco 6)
+            simA(R.string.rw_ocultar_topo, R2.KEY_AUTOHIDE) { o().autohide },
+            enumA(R.string.rw_status_cor, nomes(R.string.rw_creme, R.string.rw_branco, R.string.rw_destaque), R2.KEY_STATUS_COLOR) { o().statusColor.ordinal },
+            enumA(R.string.rw_status_fundo, nomes(R.string.rw_vidro, R.string.rw_escuro, R.string.rw_nenhum), R2.KEY_STATUS_BOX) { o().statusBox.ordinal },
+            enumA(R.string.rw_status_tam, nomes(R.string.rw_s, R.string.rw_m, R.string.rw_l), R2.KEY_STATUS_SIZE) { o().statusSize.ordinal },
+            enumA(R.string.rw_hora_tam, nomes(R.string.rw_s, R.string.rw_m, R.string.rw_l, R.string.rw_xl), R2.KEY_CLOCK_SIZE) { o().clockSize.ordinal },
+            enumA(R.string.rw_hora_linha2, nomes(R.string.rw_nenhum, R.string.rw_data, R.string.rw_dia_semana, R.string.rw_data_e_dia), R2.KEY_CLOCK_LINE2) { o().clockLine2.ordinal },
+            enumA(R.string.rw_letra_tam, nomes(R.string.rw_m, R.string.rw_l, R.string.rw_xl), R2.KEY_TEXT_SIZE) { o().textSize.ordinal },
+            simA(R.string.rw_negrito, R2.KEY_BOLD) { o().bold },
+            simA(R.string.rw_italico, R2.KEY_ITALIC) { o().italic },
         )
     }
 
