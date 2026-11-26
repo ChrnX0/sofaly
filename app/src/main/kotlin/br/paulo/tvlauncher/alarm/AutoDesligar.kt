@@ -115,6 +115,12 @@ object AutoDesligar {
     /** Há quanto tempo ninguém aperta tecla (controle, painel, MCP). Usado também pelo reparo do Wi-Fi. */
     fun semTeclaMs(): Long = SystemClock.elapsedRealtime() - ultima
 
+    /** Até quando a TV não pode desligar sozinha (elapsedRealtime): a Sofy conferindo as telas (SofyScreenCheckTv). */
+    @Volatile private var seguradaAte = 0L
+
+    /** Segura o desligamento por [ms] (a tarefa que pediu solta antes com segurar(0)). */
+    fun segurar(ms: Long) { seguradaAte = if (ms <= 0) 0L else SystemClock.elapsedRealtime() + ms }
+
     /** Alguém mexeu (tecla do controle ou do painel). Barato: só a hora. */
     fun atividade() {
         ultima = SystemClock.elapsedRealtime()
@@ -150,6 +156,7 @@ object AutoDesligar {
         val min = minutos(a)
         if (min == 0 || !telaAcesa(a)) return
         val agora = SystemClock.elapsedRealtime()
+        if (agora < seguradaAte) { principal.postDelayed(verificar, seguradaAte - agora + 1000); return }
         if (tocando(a)) ultimaMidia = agora   // filme ainda passando = TV em uso (até o teto, ver AutoDesligarRegra)
         val faltam = AutoDesligarRegra.prazo(ultima, ultimaMidia, min) - agora
         if (faltam > AVISO_S * 1000L + 1000) { reagendar(); return }   // alguém mexeu ou algo tocou enquanto dormíamos

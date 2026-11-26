@@ -19,7 +19,8 @@ import java.util.Calendar
  * Freios (a TV é da casa, não bancada): só com a tela APAGADA ou o nosso protetor na frente, só na madrugada da casa,
  * só com a acessibilidade de pé (é ela que lê), uma rodada por noite, e volta para a home no fim. Com a tela apagada a
  * árvore vem vazia, então ela acende a tela (e a TV pelo HDMI) por uns 15 s e apaga de novo (Paulo, 26/11/2026).
- * Se alguém apertar uma tecla no meio, para na hora e deixa a TV acesa.
+ * Durante a rodada segura a tela acesa (sem protetor por cima e sem o "desligar sem uso"). Se alguém apertar uma
+ * tecla no meio, para na hora e deixa a TV acesa.
  */
 object SofyScreenCheckTv {
     private const val TAG = "TvLauncher.SofyTelas"
@@ -97,7 +98,14 @@ object SofyScreenCheckTv {
         val acendi = pm?.isInteractive == false
         val inicio = android.os.SystemClock.elapsedRealtime()
         if (acendi && !acender(app, pm)) { Log.w(TAG, "não consegui acender a tela: telas não conferidas"); return }
-        fun mexeram() = br.paulo.tvlauncher.Rotinas.teclaEm() > inicio || (!acendi && !paradaDeVerdade(app))
+        // Só tecla do controle conta como "alguém chegou": abrir a nossa tela por cima do protetor já o fecha.
+        fun mexeram() = br.paulo.tvlauncher.Rotinas.teclaEm() > inicio
+        // Segura a TV acesa até o fim (Paulo, 26/11/2026): nem o protetor por cima, nem o "desligar sem uso" no meio.
+        @Suppress("DEPRECATION")
+        val acesa = runCatching { pm?.newWakeLock(android.os.PowerManager.SCREEN_DIM_WAKE_LOCK, "tvlauncher:sofy-telas") }.getOrNull()
+        val prazo = lista.size * (ESPERA_MS + 3_000L) + 60_000L
+        runCatching { acesa?.acquire(prazo) }
+        br.paulo.tvlauncher.alarm.AutoDesligar.segurar(prazo)
         val lidas = ArrayList<SofyScreenCheck.Tela>()
         var parei = false
         try {
@@ -109,6 +117,8 @@ object SofyScreenCheckTv {
         } finally {
             voltar(s)
             parei = parei || mexeram()
+            br.paulo.tvlauncher.alarm.AutoDesligar.segurar(0)
+            runCatching { if (acesa?.isHeld == true) acesa.release() }
             if (acendi && !parei) br.paulo.tvlauncher.Rotinas.desligar(app)
         }
         Log.i(TAG, "li ${lidas.size} de ${lista.size} telas" + (if (acendi) " (acendi a tela)" else "") + (if (parei) "; alguém mexeu: parei" else ""))
