@@ -22,6 +22,9 @@
 //   POST   /v1/community/lessons   pública: lições da Sofy de uma casa (opt-in na TV), só pacote+versão+tipo (src/community.js)
 //   GET    /v1/community/lessons   pública: as lições vistas em 5+ casas nos últimos 14 dias
 //   GET    /v1/updates/hold        pública: versões que as TVs não devem instalar (src/updates.js, variável UPDATES_HOLD)
+//   POST   /v1/report              assinada: relato de problema, guardado em particular (src/reports.js)
+//   GET    /v1/reports             só com o REPORTS_TOKEN: a fila de relatos, para a Sofy virar issue sem dado pessoal
+// As rotas públicas aceitam a assinatura sem exigir: com ela, a cota do dia é por aparelho (src/quota.js).
 import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { pluginsBody } from './plugins.js';
@@ -32,10 +35,14 @@ import { handleTranscribe } from './transcribe.js';
 import { handleCommunity } from './community.js';
 import { handleHold } from './updates.js';
 import { healthBody } from './health.js';
+import { identify, quotaFor } from './quota.js';
+import { handleReportPost, handleReportList } from './reports.js';
 import { BASE_PATH as PD_BASE, handlePublicDomain } from './publicdomain.js';
 export { Mailbox } from './mailbox.js';
 export { Pairing } from './pairing.js';
 export { Community } from './communityStore.js';
+export { Quota } from './quotaStore.js';
+export { Reports } from './reportsStore.js';
 
 const json = (obj, status = 200) => new Response(JSON.stringify(obj), {
   status, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' },
@@ -65,20 +72,32 @@ export default {
 
     if (path.startsWith(`${PD_BASE}/`) && req.method === 'GET') return handlePublicDomain(path);
 
+    const ip = req.headers.get('cf-connecting-ip') ?? '';
+    // Cota do dia (item 23): por aparelho quando o pedido vem assinado, e sempre pela rede.
+    // Preguiçosa: a assinatura só é conferida quando o pedido vai gastar (fora do cache).
+    const quota = async (body) => {
+      let id;
+      return async (bucket) => quotaFor(env, id === undefined ? (id = await identify(req, body)) : id, ip)(bucket);
+    };
+
     const podcasts = path.match(/^\/v1\/podcasts\/(search|trending)$/);
-    if (podcasts && req.method === 'GET') return handlePodcasts(podcasts[1], url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
+    if (podcasts && req.method === 'GET') return handlePodcasts(podcasts[1], url, env, { ip, take: await quota() });
 
     const ia = path.match(/^\/v1\/(transcribe|summary)$/);
-    if (ia && req.method === 'POST') return handleTranscribe(ia[1], req, url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
-
-    if (path === '/v1/community/lessons') return handleCommunity(req, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
-
-    if (path === '/v1/weather/open' && req.method === 'GET') {
-      return handleWeatherOpen(url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
+    if (ia && req.method === 'POST') {
+      const body = new Uint8Array(await req.clone().arrayBuffer());
+      return handleTranscribe(ia[1], req, url, env, { ip, take: await quota(body) });
     }
-    if (path === '/v1/weather' && req.method === 'GET') {
-      return handleWeather(url, env, { ip: req.headers.get('cf-connecting-ip') ?? '' });
+
+    if (path === '/v1/community/lessons') {
+      const body = req.method === 'POST' ? new Uint8Array(await req.clone().arrayBuffer()) : undefined;
+      return handleCommunity(req, env, { ip, take: await quota(body) });
     }
+
+    if (path === '/v1/weather/open' && req.method === 'GET') return handleWeatherOpen(url, env, { ip, take: await quota() });
+    if (path === '/v1/weather' && req.method === 'GET') return handleWeather(url, env, { ip, take: await quota() });
+
+    if (path === '/v1/reports' && req.method === 'GET') return handleReportList(req, url, env);
 
     const publicTxt = path.match(/^\/v1\/dns\/txt\/([a-z2-7]{20})$/);
     if (publicTxt && req.method === 'GET') {
@@ -92,6 +111,11 @@ export default {
       method: req.method, path, headers: req.headers, body, nowSec: Math.floor(Date.now() / 1000),
     });
     if (who.error) return json({ error: who.error }, 401);
+
+    if (path === '/v1/report' && req.method === 'POST') {
+      if (!(await quotaFor(env, who.id, ip)('report'))) return json({ error: 'rate limited' }, 429);
+      return handleReportPost(body, env, who.id);
+    }
 
     const envelope = path.match(/^\/v1\/envelope\/([a-z2-7]{20})$/);
     if (envelope && req.method === 'POST') {

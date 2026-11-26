@@ -44,6 +44,7 @@ object SofyCommunityTv {
         val code = try {
             c.connectTimeout = 8_000; c.readTimeout = 8_000; c.requestMethod = "POST"; c.doOutput = true
             c.setRequestProperty("User-Agent", Http.USER_AGENT); c.setRequestProperty("Content-Type", "application/json")
+            br.paulo.tvlauncher.relay.RelayTv.assinar(c, body)   // cota do dia por TV (item 23)
             c.setFixedLengthStreamingMode(body.size)
             c.outputStream.use { it.write(body) }
             c.responseCode

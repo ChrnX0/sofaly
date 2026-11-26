@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Rapporter et problem</string>
-    <string name="rel_linha_det">En QR-kode åpner skjemaet på telefonen, med de tekniske detaljene allerede fylt ut</string>
-    <string name="rel_texto">Rett telefonkameraet mot koden. Skriv hva som skjedde og send. Navnet, kontoen, nettverket og byen din tas ikke med.</string>
+    <string name="rel_linha_det">Skriv hva som skjedde, og send det privat til Sofaly</string>
+    <string name="rel_texto">Skriv hva som skjedde (tastaturets mikrofon fungerer også), og send. Det går privat til Sofaly, aldri til en offentlig side. Navn, konto, nettverk og by blir ikke med.</string>
     <string name="rel_vai_junto">Hva som sendes med</string>
     <string name="rel_l_oque">Hva som skjedde</string>
     <string name="rel_l_versao">Versjon</string>
     <string name="rel_l_uso">Modus</string>
     <string name="rel_l_quedas">Krasj / frysinger (7 dager)</string>
     <string name="rel_l_erro">Siste feil</string>
+    <string name="rel_escreva">Hva skjedde? (valgfritt)</string>
+    <string name="rel_enviar">Send til Sofaly</string>
+    <string name="rel_enviando">Sender…</string>
+    <string name="rel_enviado">Sendt. Takk!</string>
+    <string name="rel_cota">Denne TV-en har allerede sendt 5 rapporter i dag. Prøv igjen i morgen.</string>
+    <string name="rel_falhou">Kunne ikke sende nå. Sjekk internett og prøv igjen.</string>
+    <string name="rel_email">Eller på e-post: Pek telefonkameraet mot koden.</string>
 </resources>

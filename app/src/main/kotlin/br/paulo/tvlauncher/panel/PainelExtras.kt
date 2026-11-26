@@ -125,8 +125,16 @@ object PainelExtras {
         val get = metodo == "GET"; val post = metodo == "POST"
         return when {
             get && rota == "estado" -> ok(estado(app))
-            // Erros do launcher sem dado pessoal (ErrosFiltrados), para o botão "Relatar no GitHub" da aba Saúde (11/11/2026).
+            // Erros do launcher sem dado pessoal (ErrosFiltrados), para o bloco "Erros do launcher" da aba Saúde (11/11/2026).
             get && rota == "erros" -> ok(ErrosFiltrados.json(app, 5))
+            // Item 6 (Brainstorm 26/11): o relato vai assinado para o api.sofaly.tv, em particular (antes: issue pública).
+            post && rota == "erros/relatar" -> when (br.paulo.tvlauncher.RelatarProblema.enviar(app,
+                br.paulo.tvlauncher.RelatarProblema.envioErros(br.paulo.tvlauncher.RelatarProblema.dados(app), ErrosFiltrados.json(app, 5),
+                    corpo?.optString("texto").orEmpty()))) {
+                br.paulo.tvlauncher.RelatarProblema.Resultado.ENVIADO -> ok(JSONObject().put("ok", true))
+                br.paulo.tvlauncher.RelatarProblema.Resultado.COTA -> erro(429, "esta TV já mandou 5 relatos hoje")
+                br.paulo.tvlauncher.RelatarProblema.Resultado.FALHOU -> erro(502, "não deu para enviar agora")
+            }
             // Caixa de comando sem IA (ideia 10): frase -> uma ação do catálogo fechado (CaixaComandoTv).
             post && rota == "comando" -> CaixaComandoTv.executar(app, corpo?.optString("frase"), ip)
             post && rota == "chave" -> {

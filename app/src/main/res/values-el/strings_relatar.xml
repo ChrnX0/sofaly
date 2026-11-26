@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Αναφορά προβλήματος</string>
-    <string name="rel_linha_det">Ένας κωδικός QR ανοίγει τη φόρμα στο κινητό, με τα τεχνικά στοιχεία ήδη συμπληρωμένα</string>
-    <string name="rel_texto">Στρέψτε την κάμερα του κινητού στον κωδικό. Γράψτε τι συνέβη και στείλτε. Το όνομα, ο λογαριασμός, το δίκτυο και η πόλη σας δεν περιλαμβάνονται.</string>
+    <string name="rel_linha_det">Γράψε τι συνέβη και στείλ\' το ιδιωτικά στη Sofaly</string>
+    <string name="rel_texto">Γράψε τι συνέβη (λειτουργεί και το μικρόφωνο του πληκτρολογίου) και στείλε. Πηγαίνει ιδιωτικά στη Sofaly, ποτέ σε δημόσια σελίδα. Το όνομα, ο λογαριασμός, το δίκτυο και η πόλη σου δεν περιλαμβάνονται.</string>
     <string name="rel_vai_junto">Τι στέλνεται μαζί</string>
     <string name="rel_l_oque">Τι συνέβη</string>
     <string name="rel_l_versao">Έκδοση</string>
     <string name="rel_l_uso">Τρόπος</string>
     <string name="rel_l_quedas">Καταρρεύσεις / παγώματα (7 ημέρες)</string>
     <string name="rel_l_erro">Τελευταίο σφάλμα</string>
+    <string name="rel_escreva">Τι συνέβη; (προαιρετικό)</string>
+    <string name="rel_enviar">Αποστολή στη Sofaly</string>
+    <string name="rel_enviando">Αποστολή…</string>
+    <string name="rel_enviado">Στάλθηκε. Ευχαριστούμε!</string>
+    <string name="rel_cota">Αυτή η τηλεόραση έστειλε ήδη 5 αναφορές σήμερα. Δοκίμασε αύριο.</string>
+    <string name="rel_falhou">Δεν ήταν δυνατή η αποστολή τώρα. Έλεγξε το ίντερνετ και δοκίμασε ξανά.</string>
+    <string name="rel_email">Ή με e-mail: στρέψε την κάμερα του κινητού στον κωδικό.</string>
 </resources>
