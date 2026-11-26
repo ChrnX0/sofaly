@@ -9,8 +9,23 @@
 name: Telas
 
 on:
+  # Mesma economia do "Build e Release" (26/11/2026): rascunho não roda; roda ao sair do rascunho, a cada push depois,
+  # no push para a main e com a etiqueta "run-ci" no rascunho. Também à mão (Run workflow) em qualquer branch.
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
     paths:
+      - 'app/src/main/kotlin/**/*Activity.kt'
+      - 'app/src/main/kotlin/**/Estilo.kt'
+      - 'app/src/main/kotlin/**/Home.kt'
+      - 'app/src/main/kotlin/**/DesenhoHome.kt'
+      - 'app/src/main/res/**'
+      - '!app/src/main/res/values*/strings_versoes.xml'   # O que mudou / Conferir na TV: não é tela desenhada aqui
+      - 'app/src/test/telas/**'
+      - 'app/src/test/kotlin/br/paulo/tvlauncher/telas/**'
+      - '.github/workflows/telas.yml'
+  push:
+    branches: [main]
+    paths:   # a mesma lista do pull_request
       - 'app/src/main/kotlin/**/*Activity.kt'
       - 'app/src/main/kotlin/**/Estilo.kt'
       - 'app/src/main/kotlin/**/Home.kt'
@@ -25,12 +40,16 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: telas-${{ github.ref }}
-  cancel-in-progress: true   # push novo no mesmo PR: a execução antiga não vale mais
-
 jobs:
   telas:
+    if: >-
+      github.event_name != 'pull_request' ||
+      (github.event.action != 'labeled' || github.event.label.name == 'run-ci') &&
+      (!github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'run-ci'))
+    # No job (não no workflow): execução pulada não entra no grupo, então não cancela uma de verdade.
+    concurrency:
+      group: telas-${{ github.ref }}
+      cancel-in-progress: true   # push novo no mesmo PR (ou na main): a execução antiga não vale mais
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
