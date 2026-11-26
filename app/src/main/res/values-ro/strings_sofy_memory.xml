@@ -7,13 +7,13 @@
     <string name="smem_uso">Când e folosit televizorul</string>
     <string name="smem_uso_det">Ore din zi învățate: %1$d</string>
     <string name="smem_rede">Rețeaua normală a casei</string>
-    <string name="smem_rede_det">Valori normale pentru %1$d semnale de rețea</string>
+    <string name="smem_rede_det">Semnale de rețea cu valoare normală: %1$d</string>
     <string name="smem_pessoas">Obiceiurile fiecăruia</string>
-    <string name="smem_pessoas_det">Obiceiurile a %1$d profiluri</string>
+    <string name="smem_pessoas_det">Profiluri cu obiceiuri: %1$d</string>
     <string name="smem_casa">Ziua normală a casei</string>
-    <string name="smem_casa_det">%1$d zile de istoric</string>
+    <string name="smem_casa_det">Zile de istoric: %1$d</string>
     <string name="smem_regras">Reguli descoperite de ea</string>
-    <string name="smem_regras_det">%1$d reguli verifică ecranele</string>
+    <string name="smem_regras_det">Reguli care verifică ecranele: %1$d</string>
     <string name="smem_vazio">Nimic învățat încă</string>
     <string name="smem_tudo">Uită tot</string>
     <string name="smem_tudo_det">Sofy o ia de la zero</string>
