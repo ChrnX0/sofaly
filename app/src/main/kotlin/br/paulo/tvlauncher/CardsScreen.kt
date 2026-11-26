@@ -80,7 +80,9 @@ class CardsScreen(private val a: Activity, titulo: String, subtitulo: String? = 
     private fun closeLine() {
         val l = line ?: return
         repeat(if (inLine in 1 until columns) columns - inLine else 0) {
-            l.addView(View(a), LinearLayout.LayoutParams(0, 1, 1f).apply { marginStart = dp(Estilo.E2 - 4) })
+            // Altura MATCH_PARENT como os cartões: uma vaga com altura fixa faz o LinearLayout medir a fileira por ela
+            // (allFillParent=false) e espreme os cartões a 0 px (TelasTest, Placar com 7 cartões).
+            l.addView(View(a), LinearLayout.LayoutParams(0, -1, 1f).apply { marginStart = dp(Estilo.E2 - 4) })
         }
         line = null; inLine = 0
     }
