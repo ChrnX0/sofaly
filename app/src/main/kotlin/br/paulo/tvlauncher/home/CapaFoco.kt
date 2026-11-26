@@ -49,6 +49,12 @@ class CapaFoco(ctx: Context) : View(ctx) {
      * Tema Galeria (dono, 10/11/2026: "no tema galeria aquele glow tem que sumir"): a pintura já é o fundo; a capa por
      * cima dela brigava com a obra. Desligada, ela nunca aparece.
      */
+    /**
+     * Fileiras com "Arte do card em foco no fundo" (clone do Projectivy, 26/11/2026): a capa cobre a tela inteira, sem
+     * as máscaras do canto; quem escurece a arte para as fileiras serem lidas é a sombra das próprias Fileiras.
+     */
+    var telaCheia = false
+
     var desligada = false
         set(v) { field = v; if (v) { animate().cancel(); alpha = 0f } }
 
@@ -101,9 +107,10 @@ class CapaFoco(ctx: Context) : View(ctx) {
         invalidate()
         animate().cancel()
         if (imagem == null && cores == null) { animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); return }
-        if (!TesteHome.capaAnima) { alpha = OPACIDADE; return }   // só para medir (gancho HOME_TESTE)
+        val opaca = if (telaCheia) 1f else OPACIDADE
+        if (!TesteHome.capaAnima) { alpha = opaca; return }   // só para medir (gancho HOME_TESTE)
         alpha = 0.3f
-        animate().alpha(OPACIDADE).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(br.paulo.tvlauncher.Estilo.curva()).start()
+        animate().alpha(opaca).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(br.paulo.tvlauncher.Estilo.curva()).start()
     }
 
     fun esconder() = mostrar(null, null)
@@ -135,6 +142,7 @@ class CapaFoco(ctx: Context) : View(ctx) {
             }
             else -> return
         }
+        if (telaCheia) return
         // Máscara: transparente na borda esquerda (até ~55% da largura) e embaixo: some ANTES da faixa de 9 dias (a capa
         // tem 330 dp e a faixa começa em 252: 252/330 = 76%; visto na Sala, 06/11, o banner ainda passava atrás dos dias).
         // Arte: some mais cedo pela esquerda (45%) e só no último terço de baixo (o teste aprovado pelo dono, 12/11/2026).

@@ -1054,7 +1054,10 @@ class MainActivity : Activity() {
             // de fundo escurecida, a perda de nitidez não aparece). A ampliação parte do canto de cima à direita.
             // Esboço do dono (06/11 noite): de volta ao alto à direita, atrás do topo e do destaque, sumindo antes dos apps.
             // 12/11/2026: 600 x 400 dp (era 680 x 330), o tamanho da arte de filme/série aprovada no teste do dono.
-            addView(capa, FrameLayout.LayoutParams(dp(300), dp(200), Gravity.TOP or Gravity.END))
+            // Fileiras com a arte do foco no fundo: a capa cobre a tela inteira (metade da resolução, ampliada 2x como sempre)
+            if (focoNoFundo) capa.telaCheia = true
+            addView(capa, if (focoNoFundo) FrameLayout.LayoutParams(resources.displayMetrics.widthPixels / 2, resources.displayMetrics.heightPixels / 2, Gravity.TOP or Gravity.END)
+                else FrameLayout.LayoutParams(dp(300), dp(200), Gravity.TOP or Gravity.END))
             capa.escalaBase = 2f
             capa.addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.pivotX = v.width.toFloat(); v.pivotY = 0f }
             addView(raiz, FrameLayout.LayoutParams(MATCH, MATCH))
