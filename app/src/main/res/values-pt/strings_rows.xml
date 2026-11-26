@@ -106,4 +106,10 @@
     <string name="rw_data">Data</string>
     <string name="rw_dia_semana">Dia da semana</string>
     <string name="rw_data_e_dia">Dia e data</string>
+    <string name="rw_tema">Tema</string>
+    <string name="rw_tema_padrao">Padrão</string>
+    <string name="rw_tema_cinema">Cinema</string>
+    <string name="rw_tema_vitrine">Vitrine</string>
+    <string name="rw_tema_minimo">Mínimo</string>
+    <string name="rw_personalizado">Personalizado</string>
 </resources>

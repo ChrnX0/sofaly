@@ -230,7 +230,15 @@ class FineTuneActivity : Activity() {
             Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
         fun simA(t: Int, key: String, atual: () -> Boolean) =
             Ajuste(t, { simNao[if (atual()) 1 else 0] }) { p -> simNao[gira(key, if (atual()) 1 else 0, 2, p)] }
+        // Tema pronto (bloco 6): ◀ ▶ aplica o anterior/próximo; mexeu em qualquer opção = "Personalizado"
+        val temas = nomes(R.string.rw_tema_padrao, R.string.rw_tema_cinema, R.string.rw_tema_vitrine, R.string.rw_tema_minimo)
+        val tema = Ajuste(R.string.rw_tema, { R2.preset(o())?.let { temas[it.ordinal] } ?: getString(R.string.rw_personalizado) }) { p ->
+            val atual = R2.preset(o())?.ordinal ?: if (p > 0) -1 else 0
+            val novo = R2.Preset.entries[Math.floorMod(atual + p, R2.Preset.entries.size)]
+            R2.apply(this, novo); temas[novo.ordinal]
+        }
         return listOf(
+            tema,
             simA(R.string.rw_nome_card, R2.KEY_CARD_TITLE) { o().cardTitle },
             enumA(R.string.rw_cantos, can, R2.KEY_CORNERS) { o().corners.ordinal },
             enumA(R.string.rw_tamanho, tam, R2.KEY_SIZE) { o().size.ordinal },

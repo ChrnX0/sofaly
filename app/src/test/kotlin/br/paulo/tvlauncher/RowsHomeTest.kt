@@ -89,4 +89,14 @@ class RowsHomeTest {
         // a letra nunca encolhe abaixo do padrão (18 sp mínimo na TV)
         assertTrue(RowsHome.TextSize.entries.all { it.k >= 1f })
     }
+
+    @Test fun temasSaoDiferentesEReconhecidos() {
+        val vs = RowsHome.Preset.entries.map { RowsHome.valores(it.o) }
+        assertEquals(vs.size, vs.toSet().size)
+        RowsHome.Preset.entries.forEach { assertEquals(it, RowsHome.preset(it.o)) }
+        assertEquals(null, RowsHome.preset(o.copy(italic = true)))
+        // toda chave do Options entra no tema (senão aplicar deixaria opção velha para trás)
+        assertEquals(RowsHome.Options::class.java.declaredFields.count { !java.lang.reflect.Modifier.isStatic(it.modifiers) },
+            RowsHome.valores(o).size)
+    }
 }

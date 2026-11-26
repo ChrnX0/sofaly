@@ -106,4 +106,10 @@
     <string name="rw_data">Date</string>
     <string name="rw_dia_semana">Weekday</string>
     <string name="rw_data_e_dia">Weekday and date</string>
+    <string name="rw_tema">Theme</string>
+    <string name="rw_tema_padrao">Standard</string>
+    <string name="rw_tema_cinema">Cinema</string>
+    <string name="rw_tema_vitrine">Showcase</string>
+    <string name="rw_tema_minimo">Minimal</string>
+    <string name="rw_personalizado">Custom</string>
 </resources>

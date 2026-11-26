@@ -179,6 +179,49 @@ object RowsHome {
         )
     }
 
+    /** Cada opção gravada (chave -> índice). É o que um tema escreve e o que diz se o tema atual ainda é ele. */
+    fun valores(o: Options): Map<String, Int> {
+        fun b(v: Boolean) = if (v) 1 else 0
+        return mapOf(
+            KEY_SIZE to o.size.ordinal, KEY_GAP to o.gap.ordinal, KEY_CORNERS to o.corners.ordinal, KEY_FOCUS_SIZE to o.focusSize.ordinal,
+            KEY_EFFECT to o.effect.ordinal, KEY_GLOW_ANIM to o.glowAnim.ordinal, KEY_CARD_TITLE to b(o.cardTitle), KEY_ROW_TITLE to b(o.rowTitle),
+            KEY_ROW_ICON to b(o.rowIcon), KEY_SPACING to o.spacing.ordinal, KEY_FIXED to b(o.fixed), KEY_HIDE_ABOVE to b(o.hideAbove),
+            KEY_DIM to o.dim.ordinal, KEY_SHADOW to o.shadow.ordinal, KEY_CLOCK to b(o.clock), KEY_STATUS to b(o.status), KEY_ZOOM to b(o.zoom),
+            KEY_GLOW_SIZE to o.glowSize.ordinal, KEY_GLOW_COLOR to o.glowColor.ordinal, KEY_RIPPLE to b(o.ripple),
+            KEY_TV_RATIO to o.tvRatio.ordinal, KEY_MOBILE_RATIO to o.mobileRatio.ordinal, KEY_CARD_BG to o.cardBg.ordinal,
+            KEY_ICON_TINT to o.iconTint.ordinal, KEY_PROGRESS to b(o.progress), KEY_BADGE to b(o.badge), KEY_START to o.start.ordinal,
+            KEY_END to o.end.ordinal, KEY_TOP to o.top.ordinal, KEY_SHADOW_TINT to o.shadowTint.ordinal, KEY_SHADOW_W to o.shadowW.ordinal,
+            KEY_SHADOW_H to o.shadowH.ordinal, KEY_FOCUS_BG to b(o.focusBg), KEY_BG_EVERY to o.bgEvery.ordinal, KEY_AUTOHIDE to b(o.autohide),
+            KEY_STATUS_COLOR to o.statusColor.ordinal, KEY_STATUS_BOX to o.statusBox.ordinal, KEY_STATUS_SIZE to o.statusSize.ordinal,
+            KEY_CLOCK_SIZE to o.clockSize.ordinal, KEY_CLOCK_LINE2 to o.clockLine2.ordinal, KEY_TEXT_SIZE to o.textSize.ordinal,
+            KEY_BOLD to b(o.bold), KEY_ITALIC to b(o.italic),
+        )
+    }
+
+    /**
+     * Temas prontos (o "Aplicar tema" dele, com nomes e combinações nossos; Paulo, 26/11/2026: nada de nome deles).
+     * Aplicar um tema grava TODAS as opções acima; o fundo (foto) não muda.
+     */
+    enum class Preset(val o: Options) {
+        /** As opções de fábrica. */
+        STANDARD(DEFAULT),
+        /** A arte do que está em foco ocupa a tela; só a fileira em foco aparece, maior. */
+        CINEMA(DEFAULT.copy(focusBg = true, hideAbove = true, dim = Dim.FAINT, size = Size.L, shadow = Shadow.STRONG, autohide = true,
+            clockLine2 = Line2.WEEKDAY)),
+        /** Muitos cards pequenos e redondos, com folga entre eles. */
+        SHOWCASE(DEFAULT.copy(size = Size.S, gap = Gap.WIDE, corners = Corners.ROUNDER, focusSize = FocusSize.SMALL, spacing = Spacing.P28,
+            dim = Dim.HALF)),
+        /** Mínimo: uma fileira só, mais baixa, com a hora grande e a data. */
+        MINIMAL(DEFAULT.copy(hideAbove = true, dim = Dim.HIDDEN, top = TopMargin.DOWN2, clockSize = ClockSize.XL, clockLine2 = Line2.BOTH,
+            shadow = Shadow.LIGHT)),
+    }
+
+    /** O tema que bate com as opções gravadas, ou null (o usuário mexeu: "Personalizado"). */
+    fun preset(o: Options): Preset? = valores(o).let { v -> Preset.entries.firstOrNull { valores(it.o) == v } }
+
+    /** Grava todas as opções do tema [p]. */
+    fun apply(ctx: Context, p: Preset) = valores(p.o).forEach { (k, v) -> Extras.definirNumero(ctx, k, v) }
+
     /** Padrão de data da 2ª linha do relógio (o Android localiza a ordem e os nomes); null = sem 2ª linha. */
     fun line2Skeleton(l: Line2): String? = when (l) {
         Line2.NONE -> null
