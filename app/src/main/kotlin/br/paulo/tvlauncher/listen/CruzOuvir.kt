@@ -880,7 +880,10 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             isFocusable = false
             addView(lista, FrameLayout.LayoutParams(-1, -2))
         }
-        addView(rolagem, indexOfChild(cartao), LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT).apply { topMargin = dpi(FIL_TOPO) })
+        // Moldura que recorta: a CruzOuvir não recorta os filhos (a cruz desenha fora dos lugares), então quem rola para
+        // cima passaria por baixo do título. Com a moldura (clipChildren), a rolagem some na borda de cima.
+        val moldura = FrameLayout(ctx).apply { clipChildren = true; addView(rolagem, FrameLayout.LayoutParams(-1, -1)) }
+        addView(moldura, indexOfChild(cartao), LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT).apply { topMargin = dpi(FIL_TOPO) })
         filRolagem = rolagem; filLista = lista; filInfoNome = nome; filInfoSub = sub
     }
 
