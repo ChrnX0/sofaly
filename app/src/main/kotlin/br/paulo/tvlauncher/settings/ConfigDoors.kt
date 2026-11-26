@@ -180,7 +180,7 @@ private fun ConfigLauncherActivity.portasEmLista(portas: List<Int>, foco: Int) {
     }
     var focar: View? = null
     portas.forEachIndexed { n, p ->
-        if (n > 0) lista.addView(View(this).apply { setBackgroundColor(Estilo.BORDA) },
+        if (n > 0 && !guiado) lista.addView(View(this).apply { setBackgroundColor(Estilo.BORDA) },   // guiado: sem fio, como no Projectivy
             LinearLayout.LayoutParams(MATCH, dp(1)).apply { marginStart = dp(Estilo.E2 + 36 + 14); marginEnd = dp(Estilo.E2) })
         val l = linhaDaPorta(p)
         lista.addView(l, LinearLayout.LayoutParams(MATCH, WRAP))
