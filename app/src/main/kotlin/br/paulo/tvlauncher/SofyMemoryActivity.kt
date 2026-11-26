@@ -35,7 +35,7 @@ class SofyMemoryActivity : Activity() {
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.smem_titulo), getString(R.string.smem_sub), dicas = false)
+        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.smem_titulo), getString(R.string.smem_sub))
         lista = coluna
         setContentView(raiz)
         montar(focar = 0)

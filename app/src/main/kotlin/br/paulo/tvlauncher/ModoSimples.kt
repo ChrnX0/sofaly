@@ -152,7 +152,7 @@ class ModoSimplesActivity : Activity() {
         itens.forEachIndexed { i, t ->
             if (i > 0) faixa.addView(View(this).apply { setBackgroundColor(Estilo.TEXTO_3) }, LinearLayout.LayoutParams(dp(2), dp(28)).apply { marginStart = dp(20); marginEnd = dp(20) })
             faixa.addView(Estilo.texto(this, Estilo.Papel.CORPO, t).apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f); maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
+                maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
             }, LinearLayout.LayoutParams(-2, -2).apply { weight = if (i == itens.lastIndex) 1f else 0f })
         }
         faixa.visibility = if (itens.isEmpty()) View.GONE else View.VISIBLE
