@@ -579,7 +579,8 @@ class MainActivity : Activity() {
                 if (r != android.view.PixelCopy.SUCCESS || !previaLigada || congelada != null || isDestroyed) { bmp.recycle(); return@request }
                 val foto = ImageView(this).apply { setImageBitmap(bmp); scaleType = ImageView.ScaleType.FIT_XY; isFocusable = false }
                 val xy = IntArray(2); raiz.getLocationInWindow(xy)
-                raiz.addView(foto, FrameLayout.LayoutParams(w, h).apply { leftMargin = -xy[0]; topMargin = -xy[1] })
+                raiz.addView(foto, FrameLayout.LayoutParams(w, h))
+                foto.translationX = -xy[0].toFloat(); foto.translationY = -xy[1].toFloat()   // posição exata na janela (a foto é da janela inteira, vale em RTL)
                 alvo.visibility = View.INVISIBLE
                 congelada = foto
             }, ui)

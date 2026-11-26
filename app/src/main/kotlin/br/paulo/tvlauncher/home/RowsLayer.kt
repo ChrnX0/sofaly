@@ -99,14 +99,14 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         addView(nome, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
         // pílula do alto: Wi-Fi e engrenagem num vidro escuro; a hora ao lado, grande e fina
         pilula.background = GradientDrawable().apply { cornerRadius = dp(20f); setColor(0x33000000) }
-        pilula.setPadding(dpi(10f), dpi(6f), dpi(10f), dpi(6f))
+        pilula.setPaddingRelative(dpi(10f), dpi(6f), dpi(10f), dpi(6f))
         wifi.setImageDrawable(WifiGlyph(DesignTokens.CREAM))
         pilula.addView(wifi, LinearLayout.LayoutParams(dpi(22f), dpi(22f)))
         engrenagem.setImageDrawable(IconeCruz(IconeCruz.Tipo.CONFIG, IconeCruz.Estilo.LINHA).apply { corFixa = DesignTokens.CREAM })
         engrenagem.isFocusable = true
         engrenagem.contentDescription = ctx.getString(br.paulo.tvlauncher.R.string.cfg_titulo)
         engrenagem.background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(0) }
-        engrenagem.setPadding(dpi(2f), dpi(2f), dpi(2f), dpi(2f))
+        engrenagem.setPaddingRelative(dpi(2f), dpi(2f), dpi(2f), dpi(2f))
         engrenagem.setOnFocusChangeListener { v, tem ->
             ((v.background as GradientDrawable)).setColor(if (tem) DesignTokens.CREAM else 0)
             (engrenagem.drawable as? IconeCruz)?.corFixa = if (tem) DesignTokens.NIGHT else DesignTokens.CREAM

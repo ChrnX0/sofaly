@@ -47,6 +47,7 @@ object BackupCompleto {
     /** Preferências que vão inteiras, além das do backup comum (BackupConfig.ARQUIVOS). */
     internal val PREFS_EXTRAS = listOf("player", "painel_seguro", "mcp_seguro", "unifi_seguro", "tunel_seguro",
         "extras", "cenas", "casa_ha", "modo_visita", "aviso_chuva", "aviso_temperatura", "clima",
+        "launch_on_boot",   // "Abrir ao ligar" do menu do card (CardMenu, 26/11/2026)
         "jogos",   // card Jogos (14/11/2026): grupos escolhidos, IP e app do PC
         "dicas_vistas",   // 20/11/2026: quem já aprendeu as teclas não precisa rever as dicas na TV nova
         "busca_recentes",   // 20/11/2026: as últimas buscas da pessoa (6 no máximo) viajam junto
