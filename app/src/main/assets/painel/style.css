@@ -1432,4 +1432,4 @@ body.com-visor { overflow: hidden; }
 .visual.escolhido .mini { box-shadow: 0 0 0 3px var(--acento); }
 .visual.escolhido .t { color: var(--acento); }
 @media (prefers-reduced-motion: reduce) { .objetivo, .visual .mini { transition: none; } }
-@media (max-width: 420px) { .objetivos { grid-template-columns: 1fr; } }
+@media (max-width: 420px) { .objetivos { gap: 8px; } .objetivo { padding: 10px 12px; gap: 10px; font-size: 16px; } .objetivo .ic { width: 30px; height: 30px; } }
