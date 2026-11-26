@@ -424,6 +424,7 @@
     <string name="atu_ok">updated</string>
     <string name="atu_falhou">install failed (%1$d): %2$s</string>
     <string name="atu_ruim">version %1$d crashed on this TV right after installing: will not install it again</string>
+    <string name="atu_segurada">version %1$d is on hold (it had problems on other TVs): waiting for the next one</string>
     <string name="vig_aviso_titulo">Update paused</string>
     <string name="vig_pausada">version %1$d crashed twice right after installing · automatic update waits for the next one</string>
     <string name="vig_pausada_tela">version %1$d crashed twice right after installing · \"%2$s\" stays off until the next one</string>

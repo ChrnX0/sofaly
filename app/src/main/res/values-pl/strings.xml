@@ -365,6 +365,7 @@
     <string name="atu_ok">zaktualizowano</string>
     <string name="atu_falhou">instalacja nieudana (%1$d): %2$s</string>
     <string name="atu_ruim">wersja %1$d uległa awarii na tym telewizorze tuż po instalacji: nie zostanie zainstalowana ponownie</string>
+    <string name="atu_segurada">wersja %1$d jest wstrzymana (problemy na innych telewizorach): czekam na następną</string>
     <string name="vig_aviso_titulo">Aktualizacja wstrzymana</string>
     <string name="vig_pausada">wersja %1$d dwa razy uległa awarii tuż po instalacji · automatyczna aktualizacja czeka na następną</string>
     <string name="vig_pausada_tela">wersja %1$d dwa razy uległa awarii tuż po instalacji · „%2$s” pozostaje wyłączone do następnej</string>

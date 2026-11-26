@@ -424,6 +424,7 @@
     <string name="atu_ok">đã cập nhật</string>
     <string name="atu_falhou">cài đặt thất bại (%1$d): %2$s</string>
     <string name="atu_ruim">phiên bản %1$d bị lỗi trên TV này ngay sau khi cài: sẽ không cài lại</string>
+    <string name="atu_segurada">phiên bản %1$d đang bị giữ lại (lỗi trên TV khác): chờ bản tiếp theo</string>
     <string name="vig_aviso_titulo">Đã tạm dừng cập nhật</string>
     <string name="vig_pausada">phiên bản %1$d bị lỗi hai lần ngay sau khi cài · cập nhật tự động sẽ đợi bản tiếp theo</string>
     <string name="vig_pausada_tela">phiên bản %1$d bị lỗi hai lần ngay sau khi cài · \"%2$s\" sẽ tắt cho đến bản tiếp theo</string>

@@ -424,6 +424,7 @@
     <string name="atu_ok">อัปเดตแล้ว</string>
     <string name="atu_falhou">ติดตั้งไม่สำเร็จ (%1$d): %2$s</string>
     <string name="atu_ruim">เวอร์ชัน %1$d ขัดข้องบนทีวีนี้ทันทีหลังติดตั้ง: จะไม่ติดตั้งอีก</string>
+    <string name="atu_segurada">เวอร์ชัน %1$d ถูกระงับไว้ (มีปัญหาในทีวีเครื่องอื่น): รอเวอร์ชันถัดไป</string>
     <string name="vig_aviso_titulo">หยุดอัปเดตชั่วคราว</string>
     <string name="vig_pausada">เวอร์ชัน %1$d ขัดข้องสองครั้งทันทีหลังติดตั้ง · การอัปเดตอัตโนมัติจะรอเวอร์ชันถัดไป</string>
     <string name="vig_pausada_tela">เวอร์ชัน %1$d ขัดข้องสองครั้งทันทีหลังติดตั้ง · \"%2$s\" จะปิดไว้จนถึงเวอร์ชันถัดไป</string>

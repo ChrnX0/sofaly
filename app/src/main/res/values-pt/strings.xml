@@ -426,6 +426,7 @@
     <string name="atu_ok">atualizado</string>
     <string name="atu_falhou">instalação falhou (%1$d): %2$s</string>
     <string name="atu_ruim">a versão %1$d caiu nesta TV logo depois de instalar: não instalo de novo</string>
+    <string name="atu_segurada">a versão %1$d está segurada (deu problema em outras TVs): espero a próxima</string>
     <string name="vig_aviso_titulo">Atualização pausada</string>
     <string name="vig_pausada">a versão %1$d caiu 2 vezes logo depois de instalar · a atualização automática espera a próxima</string>
     <string name="vig_pausada_tela">a versão %1$d caiu 2 vezes logo depois de instalar · \"%2$s\" fica desligada até a próxima</string>

@@ -424,6 +424,7 @@
     <string name="atu_ok">aktualizováno</string>
     <string name="atu_falhou">instalace selhala (%1$d): %2$s</string>
     <string name="atu_ruim">verze %1$d na tomto televizoru spadla hned po instalaci: znovu se nenainstaluje</string>
+    <string name="atu_segurada">verze %1$d je pozastavena (problémy na jiných televizích): čekám na další</string>
     <string name="vig_aviso_titulo">Aktualizace pozastavena</string>
     <string name="vig_pausada">verze %1$d dvakrát spadla hned po instalaci · automatická aktualizace čeká na další</string>
     <string name="vig_pausada_tela">verze %1$d dvakrát spadla hned po instalaci · \"%2$s\" zůstane vypnuto do další</string>

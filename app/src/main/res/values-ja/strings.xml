@@ -365,6 +365,7 @@
     <string name="atu_ok">アップデート完了</string>
     <string name="atu_falhou">インストールに失敗しました（%1$d）: %2$s</string>
     <string name="atu_ruim">バージョン %1$d はインストール直後にこの TV でクラッシュしました。再度インストールしません</string>
+    <string name="atu_segurada">バージョン %1$d は保留中です(他のテレビで問題が発生):次を待ちます</string>
     <string name="vig_aviso_titulo">アップデートを一時停止</string>
     <string name="vig_pausada">バージョン %1$d がインストール直後に 2 回クラッシュしました · 自動アップデートは次のバージョンを待ちます</string>
     <string name="vig_pausada_tela">バージョン %1$d がインストール直後に 2 回クラッシュしました · 「%2$s」は次のバージョンまでオフです</string>

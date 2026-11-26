@@ -424,6 +424,7 @@
     <string name="atu_ok">uppdaterad</string>
     <string name="atu_falhou">installationen misslyckades (%1$d): %2$s</string>
     <string name="atu_ruim">version %1$d kraschade på den här tv:n direkt efter installationen: installeras inte igen</string>
+    <string name="atu_segurada">version %1$d hålls tillbaka (problem på andra tv-apparater): väntar på nästa</string>
     <string name="vig_aviso_titulo">Uppdatering pausad</string>
     <string name="vig_pausada">version %1$d kraschade två gånger direkt efter installationen · den automatiska uppdateringen väntar på nästa</string>
     <string name="vig_pausada_tela">version %1$d kraschade två gånger direkt efter installationen · \"%2$s\" är av till nästa</string>

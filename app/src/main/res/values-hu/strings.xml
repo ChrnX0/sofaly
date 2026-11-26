@@ -424,6 +424,7 @@
     <string name="atu_ok">frissítve</string>
     <string name="atu_falhou">a telepítés sikertelen (%1$d): %2$s</string>
     <string name="atu_ruim">a(z) %1$d verzió közvetlenül a telepítés után összeomlott ezen a TV-n: nem telepíti újra</string>
+    <string name="atu_segurada">a(z) %1$d verzió visszatartva (gond volt más tévéken): várom a következőt</string>
     <string name="vig_aviso_titulo">Frissítés szüneteltetve</string>
     <string name="vig_pausada">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · az automatikus frissítés a következőre vár</string>
     <string name="vig_pausada_tela">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · a \"%2$s\" kikapcsolva marad a következőig</string>

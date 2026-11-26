@@ -365,6 +365,7 @@
     <string name="atu_ok">已更新</string>
     <string name="atu_falhou">安装失败（%1$d）：%2$s</string>
     <string name="atu_ruim">版本 %1$d 安装后立即在此电视上崩溃：不会再次安装</string>
+    <string name="atu_segurada">版本 %1$d 已暂缓(在其他电视上出了问题):等待下一个版本</string>
     <string name="vig_aviso_titulo">更新已暂停</string>
     <string name="vig_pausada">版本 %1$d 安装后立即崩溃了两次 · 自动更新将等待下一个版本</string>
     <string name="vig_pausada_tela">版本 %1$d 安装后立即崩溃了两次 · “%2$s”在下一个版本前保持关闭</string>

@@ -365,6 +365,7 @@
     <string name="atu_ok">actualizado</string>
     <string name="atu_falhou">la instalación falló (%1$d): %2$s</string>
     <string name="atu_ruim">la versión %1$d se cerró en esta TV justo después de instalarse: no se volverá a instalar</string>
+    <string name="atu_segurada">la versión %1$d está retenida (falló en otras TV): espero la siguiente</string>
     <string name="vig_aviso_titulo">Actualización en pausa</string>
     <string name="vig_pausada">la versión %1$d se cerró dos veces justo después de instalarse · la actualización automática espera la siguiente</string>
     <string name="vig_pausada_tela">la versión %1$d se cerró dos veces justo después de instalarse · \"%2$s\" queda desactivada hasta la siguiente</string>

@@ -424,6 +424,7 @@
     <string name="atu_ok">bijgewerkt</string>
     <string name="atu_falhou">installatie mislukt (%1$d): %2$s</string>
     <string name="atu_ruim">versie %1$d crashte op deze tv direct na de installatie: wordt niet opnieuw geïnstalleerd</string>
+    <string name="atu_segurada">versie %1$d wordt tegengehouden (problemen op andere tv’s): ik wacht op de volgende</string>
     <string name="vig_aviso_titulo">Update gepauzeerd</string>
     <string name="vig_pausada">versie %1$d crashte twee keer direct na de installatie · de automatische update wacht op de volgende</string>
     <string name="vig_pausada_tela">versie %1$d crashte twee keer direct na de installatie · \"%2$s\" blijft uit tot de volgende</string>

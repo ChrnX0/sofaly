@@ -181,6 +181,8 @@ object Atualizador {
         // nunca é instalada de novo (nem baixa: não adianta).
         VigiaAtualizacao.aoVerRelease(app, codigo)
         if (!VigiaAtualizacao.podeInstalar(app, codigo)) { prefs(app).edit().remove(PENDENTE).apply(); return txt(R.string.atu_ruim, codigo) }
+        // Versão segurada pelo servidor (item 22): caiu em outras TVs. Sem resposta do servidor, segue como antes.
+        if (VersoesSeguradas.segurada(codigo)) { prefs(app).edit().remove(PENDENTE).apply(); return txt(R.string.atu_segurada, codigo) }
 
         // Baixa o APK da MESMA arquitetura em que este launcher está rodando: o processo de um app de 32 bits é de 32 bits
         // mesmo num aparelho de 64 (o Android escolhe pela lib nativa do APK instalado). Assim a Sala (32) segue no de 32,

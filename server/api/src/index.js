@@ -21,6 +21,7 @@
 //   GET    /v1/weather/open        pública: previsão do Básico, consenso de 4 modelos abertos, ?lat=&lon= (src/weatherOpen.js)
 //   POST   /v1/community/lessons   pública: lições da Sofy de uma casa (opt-in na TV), só pacote+versão+tipo (src/community.js)
 //   GET    /v1/community/lessons   pública: as lições vistas em 5+ casas nos últimos 14 dias
+//   GET    /v1/updates/hold        pública: versões que as TVs não devem instalar (src/updates.js, variável UPDATES_HOLD)
 import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { pluginsBody } from './plugins.js';
@@ -29,6 +30,7 @@ import { handleWeather } from './weather.js';
 import { handleWeatherOpen } from './weatherOpen.js';
 import { handleTranscribe } from './transcribe.js';
 import { handleCommunity } from './community.js';
+import { handleHold } from './updates.js';
 import { BASE_PATH as PD_BASE, handlePublicDomain } from './publicdomain.js';
 export { Mailbox } from './mailbox.js';
 export { Pairing } from './pairing.js';
@@ -46,6 +48,7 @@ export default {
     // Chave de desligar tudo (variável DISABLED=1 no painel da Cloudflare): o app segue funcionando em casa.
     if (env.DISABLED === '1') return json({ error: 'api disabled' }, 503);
     if (path === '/v1/health') return json({ ok: true });
+    if (path === '/v1/updates/hold' && req.method === 'GET') return handleHold(env);
     if (path === '/v1/addons/recommended' && req.method === 'GET') {
       // Igual para todos e muda raramente: a borda da Cloudflare pode guardar 1 h.
       return new Response(JSON.stringify(recommendedBody()), {

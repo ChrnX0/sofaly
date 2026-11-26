@@ -365,6 +365,7 @@
     <string name="atu_ok">güncellendi</string>
     <string name="atu_falhou">yükleme başarısız (%1$d): %2$s</string>
     <string name="atu_ruim">%1$d sürümü bu TV’de yüklendikten hemen sonra çöktü: yeniden yüklenmeyecek</string>
+    <string name="atu_segurada">%1$d sürümü bekletiliyor (başka TV\'lerde sorun çıktı): bir sonrakini bekliyorum</string>
     <string name="vig_aviso_titulo">Güncelleme duraklatıldı</string>
     <string name="vig_pausada">%1$d sürümü yüklendikten hemen sonra iki kez çöktü · otomatik güncelleme bir sonrakini bekliyor</string>
     <string name="vig_pausada_tela">%1$d sürümü yüklendikten hemen sonra iki kez çöktü · «%2$s» bir sonrakine kadar kapalı kalır</string>

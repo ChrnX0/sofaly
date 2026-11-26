@@ -365,6 +365,7 @@
     <string name="atu_ok">업데이트됨</string>
     <string name="atu_falhou">설치 실패(%1$d): %2$s</string>
     <string name="atu_ruim">버전 %1$d이(가) 설치 직후 이 TV에서 비정상 종료됨: 다시 설치하지 않음</string>
+    <string name="atu_segurada">버전 %1$d은(는) 보류 중입니다(다른 TV에서 문제 발생): 다음 버전을 기다립니다</string>
     <string name="vig_aviso_titulo">업데이트 일시 중지됨</string>
     <string name="vig_pausada">버전 %1$d이(가) 설치 직후 두 번 비정상 종료됨 · 자동 업데이트는 다음 버전을 기다림</string>
     <string name="vig_pausada_tela">버전 %1$d이(가) 설치 직후 두 번 비정상 종료됨 · ‘%2$s’은(는) 다음 버전까지 꺼져 있음</string>

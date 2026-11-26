@@ -29,9 +29,9 @@ import java.util.WeakHashMap
  * Guarda tudo num arquivo próprio (filesDir/vigia-atualizacao.txt), com trava de arquivo: o player roda em outro
  * processo (:player) e também pode cair, e os dois processos leem e gravam o mesmo estado.
  *
- * O que conta como queda: só exceção Java/Kotlin não tratada (passa pelo tratador do RegistroErros). Travamento (ANR),
- * queda de código nativo e processo morto pelo sistema (memória) NÃO contam: o Android encerra o processo sem chamar
- * o tratador.
+ * O que conta como queda: exceção Java/Kotlin não tratada (passa pelo tratador do RegistroErros) e, desde o item 22 do
+ * Brainstorm (26/11/2026), o que o Android guarda das saídas do processo, lido na abertura seguinte ([saidas]):
+ * travamento (ANR), queda de código nativo e morte por falta de memória com o launcher na frente.
  */
 object VigiaAtualizacao {
     private const val TAG = "TvLauncher.Vigia"
@@ -102,7 +102,13 @@ object VigiaAtualizacao {
         // Só no processo principal: o :player gravaria o registro do painel (SharedPreferences) de outro processo, e o
         // cache das prefs do principal apagaria a linha; e lá o AvisoTv nunca tem a acessibilidade.
         if (!processoPrincipal(ctx)) return
-        val e = mexer(ctx) { val n = VigiaRegras.aoIniciar(it, versao(), System.currentTimeMillis()); n to n } ?: return
+        val saidas = saidas(ctx)
+        val e = mexer(ctx) {
+            val n = VigiaRegras.aoIniciar(it, versao(), System.currentTimeMillis())
+            val q = VigiaRegras.aoSair(n, versao(), saidas)
+            if (q.marcouRuim) Log.e(TAG, "versão ${versao()} travou/caiu ${VigiaRegras.QUEDAS_PARA_RUIM} vezes (saídas do Android): marcada ruim")
+            q.estado to q.estado
+        } ?: return
         if (e.vigiando == versao()) Log.i(TAG, "vigiando a versão ${versao()}")
         if (e.avisoPendente || e.registroPendente) {
             // O aviso precisa do serviço de acessibilidade, que liga uns segundos depois do launcher: tenta algumas vezes.
@@ -112,6 +118,26 @@ object VigiaAtualizacao {
                     try { Thread.sleep(10_000) } catch (_: InterruptedException) { break }
                 }
             }
+        }
+    }
+
+    /**
+     * Saídas do processo que o tratador de quedas não vê (ApplicationExitInfo, Android 11+). Memória só conta com o
+     * launcher na frente (importância de primeiro plano): no fundo, morrer por memória é o normal do Android.
+     */
+    private fun saidas(ctx: Context): List<Pair<Long, VigiaRegras.Saida>> {
+        if (Build.VERSION.SDK_INT < 30) return emptyList()
+        val am = ctx.getSystemService(android.app.ActivityManager::class.java) ?: return emptyList()
+        val l = try { am.getHistoricalProcessExitReasons(ctx.packageName, 0, 0) } catch (e: Exception) { return emptyList() }
+        return l.mapNotNull { i ->
+            val tipo = when (i.reason) {
+                android.app.ApplicationExitInfo.REASON_ANR -> VigiaRegras.Saida.TRAVADA
+                android.app.ApplicationExitInfo.REASON_CRASH_NATIVE -> VigiaRegras.Saida.NATIVA
+                android.app.ApplicationExitInfo.REASON_LOW_MEMORY ->
+                    if (i.importance <= android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) VigiaRegras.Saida.MEMORIA else return@mapNotNull null
+                else -> return@mapNotNull null
+            }
+            i.timestamp to tipo
         }
     }
 

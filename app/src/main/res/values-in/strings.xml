@@ -365,6 +365,7 @@
     <string name="atu_ok">diperbarui</string>
     <string name="atu_falhou">pemasangan gagal (%1$d): %2$s</string>
     <string name="atu_ruim">versi %1$d crash di TV ini tepat setelah dipasang: tidak akan dipasang lagi</string>
+    <string name="atu_segurada">versi %1$d ditahan (bermasalah di TV lain): menunggu versi berikutnya</string>
     <string name="vig_aviso_titulo">Pembaruan dijeda</string>
     <string name="vig_pausada">versi %1$d crash dua kali tepat setelah dipasang · pembaruan otomatis menunggu versi berikutnya</string>
     <string name="vig_pausada_tela">versi %1$d crash dua kali tepat setelah dipasang · “%2$s” tetap nonaktif sampai versi berikutnya</string>

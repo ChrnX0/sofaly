@@ -424,6 +424,7 @@
     <string name="atu_ok">actualizat</string>
     <string name="atu_falhou">instalarea a eșuat (%1$d): %2$s</string>
     <string name="atu_ruim">versiunea %1$d s-a blocat pe acest TV imediat după instalare: nu va fi instalată din nou</string>
+    <string name="atu_segurada">versiunea %1$d este reținută (probleme pe alte televizoare): aștept următoarea</string>
     <string name="vig_aviso_titulo">Actualizare în pauză</string>
     <string name="vig_pausada">versiunea %1$d s-a blocat de două ori imediat după instalare · actualizarea automată așteaptă următoarea</string>
     <string name="vig_pausada_tela">versiunea %1$d s-a blocat de două ori imediat după instalare · \"%2$s\" rămâne dezactivat până la următoarea</string>

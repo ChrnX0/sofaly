@@ -365,6 +365,7 @@
     <string name="atu_ok">अपडेट हो गया</string>
     <string name="atu_falhou">इंस्टॉल विफल (%1$d): %2$s</string>
     <string name="atu_ruim">वर्शन %1$d इंस्टॉल के तुरंत बाद इस TV पर क्रैश हुआ: इसे फिर इंस्टॉल नहीं करेगा</string>
+    <string name="atu_segurada">संस्करण %1$d रोका गया है (दूसरे टीवी पर दिक्कत आई): अगले का इंतज़ार</string>
     <string name="vig_aviso_titulo">अपडेट रुका</string>
     <string name="vig_pausada">वर्शन %1$d इंस्टॉल के तुरंत बाद दो बार क्रैश हुआ · अपने-आप अपडेट अगले वर्शन की प्रतीक्षा करेगा</string>
     <string name="vig_pausada_tela">वर्शन %1$d इंस्टॉल के तुरंत बाद दो बार क्रैश हुआ · “%2$s” अगले वर्शन तक बंद रहेगा</string>

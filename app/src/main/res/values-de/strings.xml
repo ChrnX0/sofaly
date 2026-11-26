@@ -365,6 +365,7 @@
     <string name="atu_ok">aktualisiert</string>
     <string name="atu_falhou">Installation fehlgeschlagen (%1$d): %2$s</string>
     <string name="atu_ruim">Version %1$d ist auf diesem Fernseher direkt nach der Installation abgestürzt: wird nicht erneut installiert</string>
+    <string name="atu_segurada">Version %1$d ist zurückgehalten (Probleme auf anderen Fernsehern): ich warte auf die nächste</string>
     <string name="vig_aviso_titulo">Update pausiert</string>
     <string name="vig_pausada">Version %1$d ist zweimal direkt nach der Installation abgestürzt · das automatische Update wartet auf die nächste</string>
     <string name="vig_pausada_tela">Version %1$d ist zweimal direkt nach der Installation abgestürzt · \"%2$s\" bleibt bis zur nächsten aus</string>

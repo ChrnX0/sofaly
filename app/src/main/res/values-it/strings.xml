@@ -365,6 +365,7 @@
     <string name="atu_ok">aggiornato</string>
     <string name="atu_falhou">installazione non riuscita (%1$d): %2$s</string>
     <string name="atu_ruim">la versione %1$d si è bloccata su questa TV subito dopo l’installazione: non verrà reinstallata</string>
+    <string name="atu_segurada">la versione %1$d è sospesa (problemi su altre TV): aspetto la prossima</string>
     <string name="vig_aviso_titulo">Aggiornamento in pausa</string>
     <string name="vig_pausada">la versione %1$d si è bloccata due volte subito dopo l’installazione · l’aggiornamento automatico aspetta la prossima</string>
     <string name="vig_pausada_tela">la versione %1$d si è bloccata due volte subito dopo l’installazione · «%2$s» resta disattivato fino alla prossima</string>

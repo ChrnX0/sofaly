@@ -365,6 +365,7 @@
     <string name="atu_ok">mise à jour faite</string>
     <string name="atu_falhou">échec de l’installation (%1$d) : %2$s</string>
     <string name="atu_ruim">la version %1$d a planté sur cette TV juste après l’installation : elle ne sera pas réinstallée</string>
+    <string name="atu_segurada">la version %1$d est suspendue (problèmes sur d’autres TV) : j’attends la suivante</string>
     <string name="vig_aviso_titulo">Mise à jour suspendue</string>
     <string name="vig_pausada">la version %1$d a planté deux fois juste après l’installation · la mise à jour automatique attend la suivante</string>
     <string name="vig_pausada_tela">la version %1$d a planté deux fois juste après l’installation · « %2$s » reste désactivé jusqu’à la suivante</string>
