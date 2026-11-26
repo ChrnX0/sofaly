@@ -53,4 +53,10 @@ class CruzOnda3Test {
         assertEquals(20_000L, br.paulo.tvlauncher.home.CardMenu.delayMs(4))
         assertEquals(1000L, br.paulo.tvlauncher.home.CardMenu.delayMs(-1))
     }
+
+    @Test fun voltarDuasVezes() {
+        assertTrue(CruzOnda3.voltarDuplo(1000, 1400))
+        assertFalse(CruzOnda3.voltarDuplo(1000, 1700))   // devagar demais: são dois Voltar soltos
+        assertFalse(CruzOnda3.voltarDuplo(0, 300))       // o 1º Voltar
+    }
 }

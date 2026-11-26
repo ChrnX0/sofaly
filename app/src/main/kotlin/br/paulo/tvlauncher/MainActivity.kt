@@ -2606,6 +2606,8 @@ class MainActivity : Activity() {
 
     // ---- "Quem está vendo?" ao ligar a TV
     internal var vigiaTela: android.content.BroadcastReceiver? = null
+    /** Quando foi o último Voltar na HOME (Voltar duplo = protetor de tela). */
+    internal var ultimoVoltar = 0L
     internal var apagouEm = 0L
     internal var acendeuEm = 0L
     internal var dormiuMs = 0L
@@ -2742,6 +2744,7 @@ class MainActivity : Activity() {
         // não tira o foco de onde a pessoa foi (25/11/2026, TodoBotaoFazAlgoTest: "Buscar" perdia o foco para a cruz).
         if (event.action == KeyEvent.ACTION_DOWN) focoInicialNaTv = false
         if (teclaDoAmbiente(event)) return true
+        if (voltarDuplo(event)) return true   // Voltar duas vezes = protetor de tela (bloco 7 do clone)
         // Voltar no "Todos os apps" volta para a cruz (na cruz, Voltar não faz nada).
         // Com uma pasta aberta, Voltar fecha só a pasta (as prateleiras voltam com o foco nela).
         if (todosAbertos && event.keyCode == KeyEvent.KEYCODE_BACK) {

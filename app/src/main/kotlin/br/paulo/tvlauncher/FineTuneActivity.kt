@@ -243,8 +243,18 @@ class FineTuneActivity : Activity() {
             val novo = br.paulo.tvlauncher.home.RowsHome.Preset.entries[Math.floorMod(atual + p, br.paulo.tvlauncher.home.RowsHome.Preset.entries.size)]
             R2.apply(this, novo); temas[novo.ordinal]
         }
+        // Exportar e importar o tema (bloco 6): um arquivo em Download, que o PC/celular vê pela unidade de rede
+        fun arquivoTema() = java.io.File(android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS), R2.THEME_FILE)
+        val exportar = Ajuste(R.string.rw_tema_exportar, { R2.THEME_FILE }) { _ ->
+            runCatching { arquivoTema().writeText(R2.toJson(o())) }.fold({ getString(R.string.rw_tema_salvo) }, { getString(R.string.rw_tema_falhou) })
+        }
+        val importar = Ajuste(R.string.rw_tema_importar, { R2.THEME_FILE }) { _ ->
+            val v = runCatching { R2.fromJson(arquivoTema().readText()) }.getOrNull()
+            if (v.isNullOrEmpty()) getString(R.string.rw_tema_falhou)
+            else { v.forEach { (k, n) -> br.paulo.tvlauncher.settings.Extras.definirNumero(this, k, n) }; getString(R.string.rw_tema_aplicado) }
+        }
         return listOf(
-            tema,
+            tema, exportar, importar,
             simA(R.string.rw_nome_card, R2.KEY_CARD_TITLE) { o().cardTitle },
             enumA(R.string.rw_cantos, can, R2.KEY_CORNERS) { o().corners.ordinal },
             enumA(R.string.rw_tamanho, tam, R2.KEY_SIZE) { o().size.ordinal },
@@ -279,6 +289,8 @@ class FineTuneActivity : Activity() {
             // Fundo (bloco 5): a foto, a sombra por cima e a troca sozinha
             Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },
             simA(R.string.rw_fundo_foco, R2.KEY_FOCUS_BG) { o().focusBg },
+            enumA(R.string.rw_fundo_modo, nomes(R.string.rw_recortar, R.string.rw_caber, R.string.rw_caber_borrado, R.string.rw_esticar, R.string.rw_borrar), R2.KEY_BG_MODE) { o().bgMode.ordinal },
+            simA(R.string.rw_fundo_dinamico, R2.KEY_BG_DYNAMIC) { o().bgDynamic },
             enumA(R.string.rw_trocar_fundo, listOf(getString(R.string.rw_nunca)) + br.paulo.tvlauncher.home.RowsHome.BgEvery.entries.drop(1).map { if (it.min < 60) getString(R.string.rw_min, it.min) else getString(R.string.rw_horas, it.min / 60) }, R2.KEY_BG_EVERY) { o().bgEvery.ordinal },
             enumA(R.string.rw_sombra_cor, nomes(R.string.rw_preto, R.string.rw_grafite), R2.KEY_SHADOW_TINT) { o().shadowTint.ordinal },
             enumA(R.string.rw_sombra_larg, comp, R2.KEY_SHADOW_W) { o().shadowW.ordinal },
@@ -298,6 +310,7 @@ class FineTuneActivity : Activity() {
             numA(R.string.rw_ocioso_min, C3.AMBIENTE_MINUTOS.map { getString(R.string.rw_min, it) }, C3.CHAVE_AMBIENTE_MIN, 1),
             numA(R.string.rw_ocioso_opacidade, C3.AMBIENTE_ALFAS.map { "${(it * 100).toInt()}%" }, C3.CHAVE_AMBIENTE_ALFA, 0),
             numA(R.string.rw_ocioso_hora, simNao, C3.CHAVE_AMBIENTE_HORA, 1),
+            numA(R.string.rw_voltar2, simNao, C3.CHAVE_VOLTAR2, 0),
             // "Abrir ao ligar" do menu do card (bloco 7)
             numA(R.string.rw_ao_ligar_espera, br.paulo.tvlauncher.home.CardMenu.DELAYS_S.map { getString(R.string.rw_seg, it) },
                 br.paulo.tvlauncher.home.CardMenu.KEY_DELAY, 0),

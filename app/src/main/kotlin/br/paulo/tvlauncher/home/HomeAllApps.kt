@@ -457,6 +457,12 @@ internal fun MainActivity.mudarSobDemanda(pacote: String, ligar: Boolean) {
 internal fun MainActivity.avisarOculto() = AvisoTv.rapido(this, getString(R.string.oc_aviso_titulo), getString(R.string.oc_aviso))
 
 internal fun MainActivity.abrir(pacote: String) {
+    // Controle parental do card (menu do card): app travado só abre com o PIN da TV
+    if (CardMenu.isLocked(this, pacote)) { br.paulo.tvlauncher.family.PinNaTela.pedir(this, getString(R.string.rw_travado)) { abrirSemTrava(pacote) }; return }
+    abrirSemTrava(pacote)
+}
+
+private fun MainActivity.abrirSemTrava(pacote: String) {
     // Receita por app (Sofy, ideia 11): app que aperta a memória ganha a memória dos parados antes. Não atrasa a abertura.
     runCatching { br.paulo.tvlauncher.observer.AppProfileTv.beforeOpen(this, pacote) }
     if (todosAbertos) cruz?.marcarAberto("app:$pacote")   // voltando, o foco da cruz fica neste app (não em "Todos os apps")

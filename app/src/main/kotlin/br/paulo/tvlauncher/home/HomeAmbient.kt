@@ -178,3 +178,22 @@ internal fun MainActivity.contagemGrade(): Pair<Int, Int> {
     val escondidos = if (visita) 0 else apps.count { it.pacote in ocultos }
     return apps.count { it.pacote !in ocultos } to escondidos
 }
+
+/**
+ * Voltar duas vezes na HOME (bloco 7): abre o protetor de tela do sistema (o nosso ProtetorTela) pelo shell próprio;
+ * sem shell, entra no modo ambiente da HOME. O 1º Voltar segue o caminho normal (não é engolido).
+ */
+internal fun MainActivity.voltarDuplo(e: KeyEvent): Boolean {
+    if (e.keyCode != KeyEvent.KEYCODE_BACK || e.action != KeyEvent.ACTION_DOWN || e.repeatCount > 0) return false
+    if (!CruzOnda3.voltar2(this) || todosAbertos || menuAberto?.isShowing == true) return false
+    val agora = android.os.SystemClock.uptimeMillis()
+    val duplo = CruzOnda3.voltarDuplo(ultimoVoltar, agora)
+    ultimoVoltar = if (duplo) 0L else agora
+    if (!duplo) return false
+    engolirTecla = KeyEvent.KEYCODE_BACK
+    br.paulo.tvlauncher.Fundo.rodar("voltar-duplo") {
+        val r = br.paulo.tvlauncher.privilege.GuardiaoShizuku.comando(this, "cmd dreams start-dreaming", 5_000)
+        if (r == null) ui.post { if (!isDestroyed) entrarAmbiente() }
+    }
+    return true
+}

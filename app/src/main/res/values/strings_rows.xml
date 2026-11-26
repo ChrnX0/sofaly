@@ -119,4 +119,24 @@
     <string name="rw_ao_ligar_espera">Wait before opening the start app</string>
     <string name="rw_ao_ligar_acordar">Also open it when the TV wakes</string>
     <string name="rw_seg">%1$d s</string>
+    <string name="rw_tocar">Play</string>
+    <string name="rw_pausar">Pause</string>
+    <string name="rw_proxima">Next</string>
+    <string name="rw_anterior">Previous</string>
+    <string name="rw_travar">Lock with PIN</string>
+    <string name="rw_destravar">Unlock</string>
+    <string name="rw_travado">This app is locked</string>
+    <string name="rw_tema_exportar">Export theme</string>
+    <string name="rw_tema_importar">Import theme</string>
+    <string name="rw_tema_salvo">Saved in Download</string>
+    <string name="rw_tema_aplicado">Theme applied</string>
+    <string name="rw_tema_falhou">Could not do it</string>
+    <string name="rw_fundo_modo">Wallpaper display mode</string>
+    <string name="rw_recortar">Crop</string>
+    <string name="rw_caber">Fit</string>
+    <string name="rw_caber_borrado">Fit + blurred background</string>
+    <string name="rw_esticar">Stretch</string>
+    <string name="rw_borrar">Blur</string>
+    <string name="rw_fundo_dinamico">Dynamic colors</string>
+    <string name="rw_voltar2">Press BACK twice for the screensaver</string>
 </resources>

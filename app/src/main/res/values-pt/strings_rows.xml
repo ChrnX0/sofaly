@@ -119,4 +119,24 @@
     <string name="rw_ao_ligar_espera">Espera para abrir o app ao ligar</string>
     <string name="rw_ao_ligar_acordar">Abrir também ao acordar a TV</string>
     <string name="rw_seg">%1$d s</string>
+    <string name="rw_tocar">Tocar</string>
+    <string name="rw_pausar">Pausar</string>
+    <string name="rw_proxima">Próxima</string>
+    <string name="rw_anterior">Anterior</string>
+    <string name="rw_travar">Travar com PIN</string>
+    <string name="rw_destravar">Destravar</string>
+    <string name="rw_travado">Este app está travado</string>
+    <string name="rw_tema_exportar">Exportar tema</string>
+    <string name="rw_tema_importar">Importar tema</string>
+    <string name="rw_tema_salvo">Salvo em Download</string>
+    <string name="rw_tema_aplicado">Tema aplicado</string>
+    <string name="rw_tema_falhou">Não deu certo</string>
+    <string name="rw_fundo_modo">Modo de exibição do fundo</string>
+    <string name="rw_recortar">Recortar</string>
+    <string name="rw_caber">Caber</string>
+    <string name="rw_caber_borrado">Caber + fundo borrado</string>
+    <string name="rw_esticar">Esticar</string>
+    <string name="rw_borrar">Borrar</string>
+    <string name="rw_fundo_dinamico">Cores dinâmicas</string>
+    <string name="rw_voltar2">Voltar 2 vezes abre o descanso</string>
 </resources>

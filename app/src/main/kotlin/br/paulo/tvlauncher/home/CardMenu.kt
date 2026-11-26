@@ -11,6 +11,8 @@ import android.util.Log
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.MainActivity
 import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.TocandoAgoraTv
+import br.paulo.tvlauncher.family.PinNaTela
 
 /**
  * Bloco 4 do clone do Projectivy (26/11/2026): o que faltava no menu do card (segurar OK num app). O menu dele tem Abrir,
@@ -29,6 +31,15 @@ object CardMenu {
     fun setBootApp(ctx: Context, pkg: String?) {
         ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
             .putString(KEY_APP, pkg).putInt(KEY_DONE, bootCount(ctx)).apply()
+    }
+
+    // Controle parental do card (bloco 7, o "Parental control" dele): apps que só abrem com o PIN da TV.
+    private const val LOCKS = "card_lock"
+    fun locked(ctx: Context): Set<String> = ctx.getSharedPreferences(LOCKS, Context.MODE_PRIVATE).getStringSet("apps", null).orEmpty()
+    fun isLocked(ctx: Context, pkg: String) = pkg in locked(ctx)
+    fun setLocked(ctx: Context, pkg: String, on: Boolean) {
+        val novo = locked(ctx).toMutableSet().apply { if (on) add(pkg) else remove(pkg) }
+        ctx.getSharedPreferences(LOCKS, Context.MODE_PRIVATE).edit().putStringSet("apps", novo).apply()
     }
 
     // Ajustes do "Abrir ao ligar" (bloco 7): espera antes de abrir e abrir também ao acordar a TV. Em Extras.numero.
@@ -79,7 +90,21 @@ internal fun MainActivity.opcoesDoCard(pacote: String): Pair<List<MainActivity.O
             if (!CardMenu.openShortcut(this, atalhos[i])) cruz?.naoAbriu()
         }
     }
+    // Mídia (bloco 7): com o app tocando algo, o menu dele controla a reprodução sem abrir o app
+    TocandoAgoraTv.controlador(this, pacote)?.let { mc ->
+        val tocando = mc.playbackState?.state == android.media.session.PlaybackState.STATE_PLAYING
+        primeiras += MainActivity.Opcao(getString(if (tocando) R.string.rw_pausar else R.string.rw_tocar)) {
+            runCatching { if (tocando) mc.transportControls.pause() else mc.transportControls.play() }
+        }
+        primeiras += MainActivity.Opcao(getString(R.string.rw_proxima)) { runCatching { mc.transportControls.skipToNext() } }
+        primeiras += MainActivity.Opcao(getString(R.string.rw_anterior)) { runCatching { mc.transportControls.skipToPrevious() } }
+    }
     val ultimas = mutableListOf<MainActivity.Opcao>()
+    // Controle parental (bloco 7): travar pede o PIN (senão uma criança destrava); destravar também
+    val travado = CardMenu.isLocked(this, pacote)
+    ultimas += MainActivity.Opcao(getString(if (travado) R.string.rw_destravar else R.string.rw_travar)) {
+        PinNaTela.pedir(this, getString(if (travado) R.string.rw_destravar else R.string.rw_travar)) { CardMenu.setLocked(this, pacote, !travado) }
+    }
     val noBoot = CardMenu.bootApp(this) == pacote
     ultimas += MainActivity.Opcao(getString(if (noBoot) R.string.rw_ao_ligar_tirar else R.string.rw_ao_ligar)) {
         CardMenu.setBootApp(this, if (noBoot) null else pacote)

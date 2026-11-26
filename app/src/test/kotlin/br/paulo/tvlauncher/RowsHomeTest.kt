@@ -99,4 +99,18 @@ class RowsHomeTest {
         assertEquals(RowsHome.Options::class.java.declaredFields.count { !java.lang.reflect.Modifier.isStatic(it.modifiers) },
             RowsHome.valores(o).size)
     }
+
+    @Test fun temaExportadoVoltaIgualEImportarFiltraLixo() {
+        val c = RowsHome.Preset.CINEMA.o
+        assertEquals(RowsHome.valores(c), RowsHome.fromJson(RowsHome.toJson(c)))
+        assertEquals(null, RowsHome.fromJson("{}"))
+        assertEquals(null, RowsHome.fromJson("isso não é json"))
+        val sujo = RowsHome.fromJson("""{"sofaly_rows_theme":1,"rows_card_size":99,"rows_bold":1,"outra":3}""")
+        assertEquals(mapOf(RowsHome.KEY_BOLD to 1), sujo)
+    }
+
+    @Test fun veuDinamicoEscuro() {
+        val v = RowsHome.dynamicVeil(255, 255, 255)
+        assertTrue((v shr 16 and 0xFF) < 100 && (v and 0xFF) < 100)   // nunca claro: o texto creme por cima continua legível
+    }
 }

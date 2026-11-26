@@ -36,6 +36,13 @@ object CruzOnda3 {
     fun ambienteAlfa(ctx: Context) = AMBIENTE_ALFAS.getOrElse(Extras.numero(ctx, CHAVE_AMBIENTE_ALFA, 0)) { 0f }
     fun ambienteHora(ctx: Context) = Extras.numero(ctx, CHAVE_AMBIENTE_HORA, 1) != 0
 
+    /** Voltar duas vezes na HOME abre o protetor de tela (o "Modo ambiente com Voltar duplo" dele). 0 = desligado. */
+    const val CHAVE_VOLTAR2 = "cruz_voltar2"
+    const val VOLTAR2_MS = 600L
+    fun voltar2(ctx: Context) = Extras.numero(ctx, CHAVE_VOLTAR2, 0) == 1
+    /** Regra pura: o 2º Voltar conta se veio a tempo depois do 1º. */
+    fun voltarDuplo(antes: Long, agora: Long) = antes > 0 && agora - antes in 1..VOLTAR2_MS
+
     /** A cruz some (e volta) neste tempo: devagar, para não assustar quem está olhando. */
     const val AMBIENTE_FADE_MS = 1000L
     const val VOLTA_MS = 250L

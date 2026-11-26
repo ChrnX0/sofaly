@@ -58,6 +58,8 @@ object RowsHome {
     const val KEY_SHADOW_H = "rows_shadow_h"        // até onde a sombra de baixo sobe: ShadowLength
     const val KEY_FOCUS_BG = "rows_focus_bg"        // a arte do card em foco vira o fundo (1 = sim; Projectivy: "Programa em foco")
     const val KEY_BG_EVERY = "rows_bg_every"        // troca a foto de fundo sozinha: BgEvery
+    const val KEY_BG_MODE = "rows_bg_mode"          // como a foto ocupa a tela: BgMode (o "Modo de exibição" dele)
+    const val KEY_BG_DYNAMIC = "rows_bg_dynamic"    // véu na cor da foto (1 = sim; o "Cores dinâmicas" dele)
     // Barra de status, hora e letra (bloco 6): Aparência > Barra de status e Fonte do Projectivy
     const val KEY_AUTOHIDE = "rows_autohide_top"    // a hora e a pílula somem fora da 1ª fileira (1 = sim; dele: "Ocultar ao rolar")
     const val KEY_STATUS_COLOR = "rows_status_color" // cor dos ícones da pílula: IconColor
@@ -68,6 +70,9 @@ object RowsHome {
     const val KEY_TEXT_SIZE = "rows_text_size"      // tamanho da letra dos títulos e do nome: TextSize
     const val KEY_BOLD = "rows_bold"                // letra em negrito (1 = sim)
     const val KEY_ITALIC = "rows_italic"            // letra em itálico (1 = sim)
+
+    /** Nome do arquivo do tema exportado (em Download). */
+    const val THEME_FILE = "sofaly-rows-theme.json"
 
     enum class Size(val k: Float) { XS(0.75f), S(0.875f), M(1f), L(1.15f), XL(1.3f) }
     enum class Gap(val dp: Float) { NONE(0f), TIGHT(4f), NORMAL(8f), WIDE(14f), WIDER(20f) }
@@ -103,6 +108,8 @@ object RowsHome {
     /** Comprimento da sombra (dele: horizontal e vertical), em fração da tela. */
     enum class ShadowLength(val pct: Float) { SHORT(0.35f), MEDIUM(0.55f), LONG(0.75f), FULL(1f) }
     /** Troca da foto de fundo (dele: "Frequência de atualização"), em minutos; 0 = nunca. */
+    /** Recortar (enche a tela), Caber (inteira, com faixas), Caber com fundo borrado, Esticar, Borrar. */
+    enum class BgMode { CROP, FIT, FIT_BLUR, STRETCH, BLUR }
     enum class BgEvery(val min: Int) { NEVER(0), M15(15), M30(30), M60(60), M180(180) }
     /** Cor dos ícones da pílula (dele: "Cor dos ícones"). */
     enum class IconColor { CREAM, WHITE, ACCENT }
@@ -128,6 +135,7 @@ object RowsHome {
         val start: Margin = Margin.DEFAULT, val end: EndMargin = EndMargin.NONE, val top: TopMargin = TopMargin.DEFAULT,
         val shadowTint: ShadowTint = ShadowTint.BLACK, val shadowW: ShadowLength = ShadowLength.FULL, val shadowH: ShadowLength = ShadowLength.FULL,
         val focusBg: Boolean = false, val bgEvery: BgEvery = BgEvery.NEVER,
+        val bgMode: BgMode = BgMode.CROP, val bgDynamic: Boolean = false,
         val autohide: Boolean = false, val statusColor: IconColor = IconColor.CREAM, val statusBox: StatusBox = StatusBox.GLASS,
         val statusSize: IconSize = IconSize.M, val clockSize: ClockSize = ClockSize.M, val clockLine2: Line2 = Line2.NONE,
         val textSize: TextSize = TextSize.M, val bold: Boolean = false, val italic: Boolean = false,
@@ -144,9 +152,9 @@ object RowsHome {
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
         fun signature() = listOf(size, gap, corners, focusSize, effect, glowAnim, spacing, dim, shadow, glowSize, glowColor, tvRatio,
             mobileRatio, cardBg, iconTint, start, end, top, shadowTint, shadowW, shadowH, statusColor, statusBox, statusSize, clockSize,
-            clockLine2, textSize).joinToString("") { it.ordinal.toString() } +
+            clockLine2, textSize, bgMode).joinToString("") { it.ordinal.toString() } +
             listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge, focusBg, autohide, bold,
-                italic).joinToString("") { if (it) "1" else "0" }
+                italic, bgDynamic).joinToString("") { if (it) "1" else "0" }
     }
 
     val DEFAULT = Options()
@@ -172,6 +180,7 @@ object RowsHome {
             shadowTint = ler(KEY_SHADOW_TINT, ShadowTint.entries, d.shadowTint), shadowW = ler(KEY_SHADOW_W, ShadowLength.entries, d.shadowW),
             shadowH = ler(KEY_SHADOW_H, ShadowLength.entries, d.shadowH), focusBg = sim(KEY_FOCUS_BG, d.focusBg),
             bgEvery = ler(KEY_BG_EVERY, BgEvery.entries, d.bgEvery),
+            bgMode = ler(KEY_BG_MODE, BgMode.entries, d.bgMode), bgDynamic = sim(KEY_BG_DYNAMIC, d.bgDynamic),
             autohide = sim(KEY_AUTOHIDE, d.autohide), statusColor = ler(KEY_STATUS_COLOR, IconColor.entries, d.statusColor),
             statusBox = ler(KEY_STATUS_BOX, StatusBox.entries, d.statusBox), statusSize = ler(KEY_STATUS_SIZE, IconSize.entries, d.statusSize),
             clockSize = ler(KEY_CLOCK_SIZE, ClockSize.entries, d.clockSize), clockLine2 = ler(KEY_CLOCK_LINE2, Line2.entries, d.clockLine2),
@@ -191,7 +200,7 @@ object RowsHome {
             KEY_TV_RATIO to o.tvRatio.ordinal, KEY_MOBILE_RATIO to o.mobileRatio.ordinal, KEY_CARD_BG to o.cardBg.ordinal,
             KEY_ICON_TINT to o.iconTint.ordinal, KEY_PROGRESS to b(o.progress), KEY_BADGE to b(o.badge), KEY_START to o.start.ordinal,
             KEY_END to o.end.ordinal, KEY_TOP to o.top.ordinal, KEY_SHADOW_TINT to o.shadowTint.ordinal, KEY_SHADOW_W to o.shadowW.ordinal,
-            KEY_SHADOW_H to o.shadowH.ordinal, KEY_FOCUS_BG to b(o.focusBg), KEY_BG_EVERY to o.bgEvery.ordinal, KEY_AUTOHIDE to b(o.autohide),
+            KEY_SHADOW_H to o.shadowH.ordinal, KEY_FOCUS_BG to b(o.focusBg), KEY_BG_EVERY to o.bgEvery.ordinal, KEY_BG_MODE to o.bgMode.ordinal, KEY_BG_DYNAMIC to b(o.bgDynamic), KEY_AUTOHIDE to b(o.autohide),
             KEY_STATUS_COLOR to o.statusColor.ordinal, KEY_STATUS_BOX to o.statusBox.ordinal, KEY_STATUS_SIZE to o.statusSize.ordinal,
             KEY_CLOCK_SIZE to o.clockSize.ordinal, KEY_CLOCK_LINE2 to o.clockLine2.ordinal, KEY_TEXT_SIZE to o.textSize.ordinal,
             KEY_BOLD to b(o.bold), KEY_ITALIC to b(o.italic),
@@ -214,6 +223,45 @@ object RowsHome {
         /** Mínimo: uma fileira só, mais baixa, com a hora grande e a data. */
         MINIMAL(DEFAULT.copy(hideAbove = true, dim = Dim.HIDDEN, top = TopMargin.DOWN2, clockSize = ClockSize.XL, clockLine2 = Line2.BOTH,
             shadow = Shadow.LIGHT)),
+    }
+
+    /** Exportar tema (o "Exportar" dele): todas as opções num JSON pequeno, com marca e versão. */
+    fun toJson(o: Options): String = org.json.JSONObject().apply {
+        put("sofaly_rows_theme", 1)
+        valores(o).forEach { (k, v) -> put(k, v) }
+    }.toString(2)
+
+    /** Importar tema: só as chaves que existem e índices válidos (o resto fica como está); null = não é um tema nosso. */
+    fun fromJson(texto: String): Map<String, Int>? = runCatching {
+        val j = org.json.JSONObject(texto)
+        if (j.optInt("sofaly_rows_theme", 0) != 1) return null
+        val limites = limites()
+        limites.keys.filter { j.has(it) }.mapNotNull { k -> j.optInt(k, -1).takeIf { it in 0 until limites.getValue(k) }?.let { k to it } }.toMap()
+    }.getOrNull()
+
+    /** Quantos valores cada chave aceita (o maior índice + 1), tirado das próprias enums. */
+    private fun limites(): Map<String, Int> {
+        val d = DEFAULT
+        val sim = 2
+        return valores(d).mapValues { (k, _) -> when (k) {
+            KEY_SIZE -> Size.entries.size; KEY_GAP -> Gap.entries.size; KEY_CORNERS -> Corners.entries.size
+            KEY_FOCUS_SIZE -> FocusSize.entries.size; KEY_EFFECT -> Effect.entries.size; KEY_GLOW_ANIM -> GlowAnim.entries.size
+            KEY_SPACING -> Spacing.entries.size; KEY_DIM -> Dim.entries.size; KEY_SHADOW -> Shadow.entries.size
+            KEY_GLOW_SIZE -> GlowSize.entries.size; KEY_GLOW_COLOR -> GlowColor.entries.size
+            KEY_TV_RATIO, KEY_MOBILE_RATIO -> Ratio.entries.size; KEY_CARD_BG -> CardBg.entries.size; KEY_ICON_TINT -> IconTint.entries.size
+            KEY_START -> Margin.entries.size; KEY_END -> EndMargin.entries.size; KEY_TOP -> TopMargin.entries.size
+            KEY_SHADOW_TINT -> ShadowTint.entries.size; KEY_SHADOW_W, KEY_SHADOW_H -> ShadowLength.entries.size
+            KEY_BG_EVERY -> BgEvery.entries.size; KEY_BG_MODE -> BgMode.entries.size; KEY_STATUS_COLOR -> IconColor.entries.size; KEY_STATUS_BOX -> StatusBox.entries.size
+            KEY_STATUS_SIZE -> IconSize.entries.size; KEY_CLOCK_SIZE -> ClockSize.entries.size; KEY_CLOCK_LINE2 -> Line2.entries.size
+            KEY_TEXT_SIZE -> TextSize.entries.size
+            else -> sim
+        } }
+    }
+
+    /** Cores dinâmicas: a cor média da foto, escura (luminância baixa) para o texto creme continuar legível. */
+    fun dynamicVeil(r: Int, g: Int, b: Int): Int {
+        val k = 0.35f
+        return (0xFF shl 24) or ((r * k).toInt() shl 16) or ((g * k).toInt() shl 8) or (b * k).toInt()
     }
 
     /** O tema que bate com as opções gravadas, ou null (o usuário mexeu: "Personalizado"). */
