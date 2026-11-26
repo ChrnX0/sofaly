@@ -105,6 +105,35 @@ internal object SidePanel {
         return true
     }
 
+    /**
+     * O mesmo vidro numa janela de diálogo (menus, 25/11/2026: "os menus no mesmo vidro"). Usado pelo [Estilo.lista].
+     * [video] = tem vídeo tocando atrás (player): o vídeo não borra nem escurece, e o vidro fica quase sólido para ler
+     * por cima de qualquer quadro. Fora do vídeo: borra o que está atrás e escurece de leve, como o painel das Configurações.
+     */
+    fun vidroNoDialogo(ctx: android.content.Context, w: android.view.Window, larguraDp: Int, video: Boolean) {
+        w.setLayout(Estilo.dp(ctx, larguraDp), ViewGroup.LayoutParams.MATCH_PARENT)
+        w.setGravity(Gravity.END or Gravity.TOP)
+        val vidro = GradientDrawable().apply {
+            val r = Estilo.dp(ctx, RAIO_DP).toFloat()
+            val rtl = ctx.resources.configuration.layoutDirection == View.LAYOUT_DIRECTION_RTL
+            cornerRadii = if (rtl) floatArrayOf(0f, 0f, r, r, r, r, 0f, 0f) else floatArrayOf(r, r, 0f, 0f, 0f, 0f, r, r)
+            setStroke(Estilo.dp(ctx, 1), Estilo.VIDRO_BORDA)
+        }
+        val wm = ctx.getSystemService(WindowManager::class.java)
+        // Sobre a HOME não borra: ela continua animando atrás de um diálogo (não pausa) e o borrão refeito a cada quadro
+        // atrasou 96% dos quadros na Sala (25/11/2026, medido no painel antes do congelar). Lá o vidro fica quase sólido.
+        val sobreHome = ctx is br.paulo.tvlauncher.MainActivity
+        val borra = !video && !sobreHome && Build.VERSION.SDK_INT >= 31 && runCatching { wm.isCrossWindowBlurEnabled }.getOrDefault(false)
+        if (borra) w.setBackgroundBlurRadius(Estilo.dp(ctx, BORRAO_DP))
+        vidro.setColor(if (borra) Estilo.PAINEL_VIDRO else Estilo.PAINEL_CHEIO)
+        w.setBackgroundDrawable(vidro)
+        if (video) w.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        else { w.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); w.setDimAmount(MENU_ESCURECE) }
+    }
+
+    /** Quanto a tela atrás de um menu escurece (menos que as Configurações: o menu é rápido, a tela continua a mesma). */
+    const val MENU_ESCURECE = 0.3f
+
     private var animDim: ValueAnimator? = null
 
     /** A HOME atrás: nítida ([previa] = true, porta "Tela inicial") ou um pouco escura (as outras portas). */

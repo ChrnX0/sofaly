@@ -958,6 +958,16 @@ object Estilo {
             // com valores à direita o painel alarga: na TV (20/11/2026) "Volume parecido entre canais" quebrava em 2 linhas
             addView(painel, FrameLayout.LayoutParams(dp(ctx, if (valores.any { !it.isNullOrBlank() }) LISTA_LARGURA_VALORES else LISTA_LARGURA), ViewGroup.LayoutParams.MATCH_PARENT, Gravity.END))
         }
+        // Jeito "Painel ao lado" (25/11/2026, menus no mesmo vidro das Configurações): a janela vira o próprio painel de
+        // vidro à direita (borrando a tela atrás; no player o vídeo fica nítido) e o véu em degradê sai.
+        val vidro = br.paulo.tvlauncher.home.ScreenStyle.panel(ctx)
+        val noVideo = ctx.javaClass.name.contains(".player.")
+        val larguraPainel = if (valores.any { !it.isNullOrBlank() }) LISTA_LARGURA_VALORES else LISTA_LARGURA
+        if (vidro) {
+            raiz.background = null
+            painel.setPaddingRelative(dp(ctx, 28), dp(ctx, 44), dp(ctx, 28), dp(ctx, if (noVideo) 96 else 40))
+            (painel.layoutParams as FrameLayout.LayoutParams).width = ViewGroup.LayoutParams.MATCH_PARENT
+        }
         d.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
         d.setContentView(raiz)
         d.window?.apply {
@@ -965,6 +975,7 @@ object Estilo {
             clearFlags(android.view.WindowManager.LayoutParams.FLAG_DIM_BEHIND)
             setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             setWindowAnimations(0)   // a entrada é nossa (abaixo); a do sistema somava um "pulo" cinza
+            if (vidro) br.paulo.tvlauncher.settings.SidePanel.vidroNoDialogo(ctx, this, larguraPainel + 28, noVideo)
         }
         // focoNaMarcada: numa escolha única o foco começa na opção atual; numa lista de liga/desliga (opções do player)
         // começa no topo, senão o foco caía no meio da lista, no primeiro efeito ligado (visto na Sala, 17/11/2026).
