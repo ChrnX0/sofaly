@@ -63,4 +63,11 @@
     <string name="rw_preto">Preto</string>
     <string name="rw_creme">Creme</string>
     <string name="rw_poster">Pôster de filme</string>
+    <string name="rw_margem_inicio">Margem do início</string>
+    <string name="rw_margem_fim">Margem do fim</string>
+    <string name="rw_margem_topo">Altura das fileiras na tela</string>
+    <string name="rw_mais_alto">Mais alto</string>
+    <string name="rw_alto">Alto</string>
+    <string name="rw_baixo">Baixo</string>
+    <string name="rw_mais_baixo">Mais baixo</string>
 </resources>

@@ -255,6 +255,10 @@ class FineTuneActivity : Activity() {
             enumA(R.string.rw_prop_tv, prop, R2.KEY_TV_RATIO) { o().tvRatio.ordinal },
             enumA(R.string.rw_prop_cel, prop, R2.KEY_MOBILE_RATIO) { o().mobileRatio.ordinal },
             enumA(R.string.rw_tinta, nomes(R.string.rw_creme, R.string.rw_preto, R.string.rw_destaque), R2.KEY_ICON_TINT) { o().iconTint.ordinal },
+            // Categorias (bloco 3): margens das fileiras
+            enumA(R.string.rw_margem_inicio, nomes(R.string.rw_justo, R.string.rw_s, R.string.rw_normal, R.string.rw_largo, R.string.rw_mais_largo), R2.KEY_START) { o().start.ordinal },
+            enumA(R.string.rw_margem_fim, nomes(R.string.rw_nenhum, R.string.rw_s, R.string.rw_m, R.string.rw_l), R2.KEY_END) { o().end.ordinal },
+            enumA(R.string.rw_margem_topo, nomes(R.string.rw_mais_alto, R.string.rw_alto, R.string.rw_normal, R.string.rw_baixo, R.string.rw_mais_baixo), R2.KEY_TOP) { o().top.ordinal },
         )
     }
 

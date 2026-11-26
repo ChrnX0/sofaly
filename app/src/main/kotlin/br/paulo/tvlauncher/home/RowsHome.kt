@@ -48,6 +48,9 @@ object RowsHome {
     const val KEY_CARD_BG = "rows_card_bg"          // cor de fundo dos cards sem arte: CardBg
     const val KEY_ICON_TINT = "rows_icon_tint"      // cor dos ícones de um tom só (os nossos): IconTint
     const val KEY_PROGRESS = "rows_progress"        // barra de progresso no card (1 = sim)
+    const val KEY_START = "rows_start_margin"       // margem da esquerda (onde o foco fica preso): Margin
+    const val KEY_END = "rows_end_margin"           // margem da direita (os cards somem antes dela): EndMargin
+    const val KEY_TOP = "rows_top_margin"           // sobe ou desce a fileira em foco: TopMargin
     const val KEY_BADGE = "rows_badge"              // selo no card com novidade (1 = sim)
 
     enum class Size(val k: Float) { XS(0.75f), S(0.875f), M(1f), L(1.15f), XL(1.3f) }
@@ -72,6 +75,12 @@ object RowsHome {
     /** Tinta dos ícones de um tom só (dele: "Cor de ícone personalizado, para ícones monocromáticos"). */
     enum class IconTint { CREAM, BLACK, ACCENT }
     /** Sombra sobre o fundo (Projectivy: comprimento e opacidade da sombra horizontal e vertical). */
+    /** Margens (Projectivy: Margem inicial / final / superior). Esquerda: onde o card em foco fica preso. */
+    enum class Margin(val dp: Float) { TIGHT(16f), SMALL(28f), DEFAULT(40f), WIDE(56f), WIDER(80f) }
+    /** Direita: os cards somem antes dela (0 = vão até a borda, como o dele). */
+    enum class EndMargin(val dp: Float) { NONE(0f), SMALL(24f), MEDIUM(48f), LARGE(96f) }
+    /** Em cima: desloca a fileira em foco (negativo = sobe). */
+    enum class TopMargin(val dp: Float) { UP2(-48f), UP(-24f), DEFAULT(0f), DOWN(24f), DOWN2(48f) }
     enum class Shadow(val alpha: Float) { NONE(0f), LIGHT(0.45f), DEFAULT(0.7f), STRONG(0.9f) }
 
     data class Options(
@@ -83,7 +92,11 @@ object RowsHome {
         val zoom: Boolean = true, val glowSize: GlowSize = GlowSize.NORMAL, val glowColor: GlowColor = GlowColor.DYNAMIC,
         val ripple: Boolean = true, val tvRatio: Ratio = Ratio.R16_9, val mobileRatio: Ratio = Ratio.R1_1,
         val cardBg: CardBg = CardBg.AUTO, val iconTint: IconTint = IconTint.CREAM, val progress: Boolean = true, val badge: Boolean = true,
+        val start: Margin = Margin.DEFAULT, val end: EndMargin = EndMargin.NONE, val top: TopMargin = TopMargin.DEFAULT,
     ) {
+        /** Borda esquerda do card em foco e dos textos (o título e o nome ficam 16 dp para dentro, como nele). */
+        val focoX get() = start.dp
+        val textoX get() = start.dp + (TEXTO_X - FOCO_X)
         /** Quanto o card em foco cresce (sem o zoom, nada). */
         val focoK get() = if (zoom) focusSize.k else 1f
         /** Largura de um card com a proporção [r] (a altura é a do tamanho escolhido). */
@@ -92,7 +105,7 @@ object RowsHome {
         val cardH get() = Math.round(CARD_H * size.k).toFloat()
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
         fun signature() = listOf(size, gap, corners, focusSize, effect, glowAnim, spacing, dim, shadow, glowSize, glowColor, tvRatio,
-            mobileRatio, cardBg, iconTint).joinToString("") { it.ordinal.toString() } +
+            mobileRatio, cardBg, iconTint, start, end, top).joinToString("") { it.ordinal.toString() } +
             listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge).joinToString("") { if (it) "1" else "0" }
     }
 
@@ -115,6 +128,7 @@ object RowsHome {
             tvRatio = ler(KEY_TV_RATIO, Ratio.entries, d.tvRatio), mobileRatio = ler(KEY_MOBILE_RATIO, Ratio.entries, d.mobileRatio),
             cardBg = ler(KEY_CARD_BG, CardBg.entries, d.cardBg), iconTint = ler(KEY_ICON_TINT, IconTint.entries, d.iconTint),
             progress = sim(KEY_PROGRESS, d.progress), badge = sim(KEY_BADGE, d.badge),
+            start = ler(KEY_START, Margin.entries, d.start), end = ler(KEY_END, EndMargin.entries, d.end), top = ler(KEY_TOP, TopMargin.entries, d.top),
         )
     }
 
@@ -149,7 +163,7 @@ object RowsHome {
      * parado, a fileira em foco fica sempre na mesma altura; sem ele, as fileiras não andam até a escolhida sair da tela.
      */
     fun centroDaFileira(linha: Int, foco: Int, altura: Float, o: Options): Float {
-        val base = altura * FOCO_Y
+        val base = altura * FOCO_Y + o.top.dp
         val baixo = if (o.spacing == Spacing.AUTO) PASSO_BAIXO else altura * o.spacing.pct
         val cima = if (o.spacing == Spacing.AUTO) PASSO_CIMA else baixo * (PASSO_CIMA / PASSO_BAIXO)
         // Solto: a 1ª fileira começa logo abaixo da hora e a escolhida desce até a altura do foco parado; dali, as
@@ -180,10 +194,10 @@ object RowsHome {
         val r = FloatArray(n)
         if (n == 0) return r
         val s = sel.coerceIn(0, n - 1)
-        r[s] = FOCO_X
-        var x = FOCO_X + larguras[s] * (if (focada) o.focoK else 1f) + vao
+        r[s] = o.focoX
+        var x = o.focoX + larguras[s] * (if (focada) o.focoK else 1f) + vao
         for (i in s + 1 until n) { r[i] = x; x += larguras[i] + vao }
-        x = FOCO_X
+        x = o.focoX
         for (i in s - 1 downTo 0) { x -= larguras[i] + vao; r[i] = x }
         return r
     }
@@ -192,5 +206,6 @@ object RowsHome {
     fun xs(n: Int, sel: Int, o: Options, focada: Boolean) = xs(List(n) { o.cardW }, sel, o, focada)
 
     /** O card em [x] com largura [w] aparece numa tela de [largura] dp (folga de um card de cada lado, para entrar deslizando). */
-    fun visivel(x: Float, w: Float, o: Options, largura: Float): Boolean = x + w * o.focoK > -w && x < largura + w
+    fun visivel(x: Float, w: Float, o: Options, largura: Float): Boolean =
+        x + w * o.focoK > -w && (if (o.end == EndMargin.NONE) x < largura + w else x + w <= largura - o.end.dp)
 }

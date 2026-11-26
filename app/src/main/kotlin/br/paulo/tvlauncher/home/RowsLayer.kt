@@ -59,12 +59,17 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     private val nome = TextView(ctx)
 
     private class Card(val item: HomeCruz.Item, val raiz: FrameLayout, val banner: ImageView, val icone: ImageView,
-                       val fundo: GradientDrawable, val cor: Int, val onda: View) {
+                       val fundo: GradientDrawable, val cor: Int, val onda: View, val o: RowsHome.Options) {
         var pediu = false
         /** Largura (dp): a proporção de app de TV; vira a de celular quando o app não tem banner. */
         var w = 0f
     }
-    private class Fileira(val cat: HomeCruz.Categoria, val titulo: LinearLayout, val cards: List<Card>)
+    /** [o] = as opções da fileira: as gerais com o tamanho de cards do mundo, quando ele tem um (menu do mundo). */
+    private class Fileira(val cat: HomeCruz.Categoria, val titulo: LinearLayout, val cards: List<Card>, val o: RowsHome.Options)
+
+    /** As opções da fileira do mundo [c]: o tamanho próprio do mundo vence o geral (Projectivy: tamanho por categoria). */
+    private fun opcoesDe(c: HomeCruz.Categoria, o: RowsHome.Options): RowsHome.Options =
+        WorldOptions.of(context, c.cat).size?.let { RowsHome.Size.entries.getOrNull(it) }?.let { o.copy(size = it) } ?: o
     private val fileiras = ArrayList<Fileira>()
     private var idsDesenhados: List<String> = emptyList()
     private val anel = View(ctx)
@@ -153,7 +158,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
     fun mostrar(cats: List<HomeCruz.Categoria>, cat: Int, sel: Int, focada: Boolean, animar: Boolean) {
         ultimo = { mostrar(cats, cat, sel, focada, false) }
         val o = opcoes
-        val ids = cats.flatMap { c -> listOf("#" + c.cat.id + c.nome) + c.itens.map { it.id } }
+        val ids = cats.flatMap { c -> listOf("#" + c.cat.id + c.nome + "/" + WorldOptions.of(context, c.cat).size) + c.itens.map { it.id } }
         if (ids != idsDesenhados) { refazer(cats, o); idsDesenhados = ids; nomeMostrado = null }
         val anima = animar && !semAnimacao()
         wifi.alpha = if (conectado()) 1f else 0.35f
@@ -161,24 +166,25 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         val semMenu = hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto
         for ((j, f) in fileiras.withIndex()) {
             val cy = RowsHome.centroDaFileira(j, cat, alt, o)
+            val fo = f.o
             val alfa = RowsHome.alfaDaFileira(j, cat, o)
-            val naTela = cy > -o.cardH * 2 && cy < alt + o.cardH * 2
+            val naTela = cy > -fo.cardH * 2 && cy < alt + fo.cardH * 2
             val emFoco = j == cat
             val s = if (emFoco) sel else (f.cards.size.let { n -> lembrado(j, n) })
-            val xs = RowsHome.xs(f.cards.map { it.w }, s, o, emFoco)
+            val xs = RowsHome.xs(f.cards.map { it.w }, s, fo, emFoco)
             // título: centro 72 dp acima do centro dos cards
             val th = if (f.titulo.height == 0) dp(12f) else f.titulo.height / 2f
             val ty = dp(cy - RowsHome.TITULO_ACIMA) - th
             val tAlfa = if (!o.rowTitle || !naTela) 0f else if (emFoco) 1f else alfa
-            mover(f.titulo, dp(RowsHome.TEXTO_X), ty, tAlfa, 1f, anima)
+            mover(f.titulo, dp(o.textoX), ty, tAlfa, 1f, anima)
             for ((i, k) in f.cards.withIndex()) {
                 val escolhido = emFoco && i == s
                 val k1 = if (escolhido) o.focoK else 1f
-                val vis = naTela && RowsHome.visivel(xs[i], k.w, o, larg) && xs[i] + k.w * k1 > 0f
+                val vis = naTela && RowsHome.visivel(xs[i], k.w, fo, larg) && xs[i] + k.w * k1 > 0f
                 val a = if (!vis) 0f else if (emFoco) 1f else alfa
-                k.raiz.pivotX = 0f; k.raiz.pivotY = dp(o.cardH) / 2f
+                k.raiz.pivotX = 0f; k.raiz.pivotY = dp(fo.cardH) / 2f
                 k.raiz.elevation = dp(if (escolhido) (if (o.effect == RowsHome.Effect.SHADOW) 16f else 8f) else 2f)
-                mover(k.raiz, dp(xs[i]), dp(cy - o.cardH / 2f), a, k1, anima)
+                mover(k.raiz, dp(xs[i]), dp(cy - fo.cardH / 2f), a, k1, anima)
                 if (vis || (naTela && kotlin.math.abs(i - s) < 8)) pedirBanner(k)
             }
         }
@@ -201,14 +207,14 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             }
         }
         nome.visibility = if (o.cardTitle) View.VISIBLE else View.INVISIBLE
-        nome.maxWidth = dpi(larg - RowsHome.TEXTO_X * 2)
+        nome.maxWidth = dpi(larg - o.textoX * 2)
         val nh = if (nome.height > 0) nome.height / 2f else dp(RowsHome.NOME_SP * 0.6f)
         // posição direto (sem animate(): ele cancelaria o esmaecer do texto que acabou de começar)
-        nome.translationX = dp(RowsHome.TEXTO_X); nome.translationY = dp(cyF + RowsHome.NOME_ABAIXO) - nh
+        nome.translationX = dp(o.textoX); nome.translationY = dp(cyF + RowsHome.NOME_ABAIXO) - nh
         // brilho em volta do card em foco
         if (card != null) {
             val k1 = o.focoK
-            val w = card.w * k1; val h = o.cardH * k1
+            val w = card.w * k1; val h = card.o.cardH * k1
             val b = o.glowSize.dp
             val lp = anel.layoutParams
             if (lp.width != dpi(w + 2 * b) || lp.height != dpi(h + 2 * b)) { lp.width = dpi(w + 2 * b); lp.height = dpi(h + 2 * b); anel.layoutParams = lp }
@@ -222,7 +228,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             })
             anel.elevation = dp(20f)
             val ligado = focada && semMenu && o.effect == RowsHome.Effect.GLOW
-            mover(anel, dp(RowsHome.FOCO_X - b), dp(cyF - h / 2f - b), if (ligado) 1f else 0f, 1f, anima)
+            mover(anel, dp(o.focoX - b), dp(cyF - h / 2f - b), if (ligado) 1f else 0f, 1f, anima)
             animarBrilho(if (ligado) o.glowAnim else RowsHome.GlowAnim.NONE)
         } else anel.alpha = 0f
     }
@@ -313,8 +319,9 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
                 setShadowLayer(dp(6f), 0f, dp(1f), 0x99000000.toInt())
             }, LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
             addView(titulo, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
-            val cards = c.itens.map { item -> criarCard(item, o) }
-            fileiras += Fileira(c, titulo, cards)
+            val fo = opcoesDe(c, o)
+            val cards = c.itens.map { item -> criarCard(item, fo) }
+            fileiras += Fileira(c, titulo, cards, fo)
         }
         // o brilho e o nome ficam por cima dos cards
         bringChildToFront(anel); bringChildToFront(nome)
@@ -370,7 +377,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         }
         raiz.addView(onda, LayoutParams(dpi(w), dpi(w), Gravity.CENTER))
         addView(raiz, indexOfChild(anel), LayoutParams(dpi(w), dpi(o.cardH)))
-        return Card(item, raiz, banner, ic, fundo, cor, onda).also { it.w = w }
+        return Card(item, raiz, banner, ic, fundo, cor, onda, o).also { it.w = w }
     }
 
     private fun pedirBanner(k: Card) {
@@ -380,7 +387,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         f(k.item) { d ->
             if (d == null) {
                 // sem banner = app de celular: o card fica na proporção deles (1:1 de fábrica) e a fileira se refaz
-                val w = opcoes.largura(opcoes.mobileRatio)
+                val w = k.o.largura(k.o.mobileRatio)
                 if (w != k.w) { k.w = w; k.raiz.layoutParams = k.raiz.layoutParams.apply { width = dpi(w) }; post { ultimo?.invoke() } }
                 return@f
             }

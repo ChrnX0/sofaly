@@ -18,8 +18,12 @@ import org.json.JSONObject
 object WorldOptions {
     private const val PREFS = "world_options"
 
-    /** USAGE = como sempre foi (mais aberto primeiro); AZ = pelo nome; MANUAL = a ordem que a pessoa arrumou. */
-    enum class Sort(val id: String) { USAGE("usage"), AZ("az"), MANUAL("manual") }
+    /**
+     * USAGE = como sempre foi (mais usados primeiro); AZ = pelo nome; MANUAL = a ordem que a pessoa arrumou;
+     * LAST = o aberto por último primeiro; RANDOM = embaralhado (a mesma ordem o dia todo, para o foco não pular).
+     * As 5 ordens do Projectivy (26/11/2026: Personalizada, Alfabética, Mais usados, Últimos usados, Aleatória).
+     */
+    enum class Sort(val id: String) { USAGE("usage"), AZ("az"), MANUAL("manual"), LAST("last"), RANDOM("random") }
 
     /** O que se guarda de um mundo. [name] null = o nome de fábrica, no idioma da TV. */
     data class Options(
@@ -31,6 +35,8 @@ object WorldOptions {
         val iconOnly: Boolean = false,
         /** Jeito dos cards deste mundo na barra única (número de [StripHome.Format]); null = segue o do Ajuste fino. */
         val cards: Int? = null,
+        /** Tamanho dos cards deste mundo nas Fileiras (número de [RowsHome.Size]); null = segue o do Ajuste fino. */
+        val size: Int? = null,
     )
 
     private fun p(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -57,6 +63,7 @@ object WorldOptions {
                 hidden = o.optBoolean("hidden", false),
                 iconOnly = o.optBoolean("iconOnly", false),
                 cards = if (o.has("cards")) o.optInt("cards", -1).takeIf { it >= 0 } else null,
+                size = if (o.has("size")) o.optInt("size", -1).takeIf { it >= 0 } else null,
             )
         }.getOrDefault(Options())   // JSON estragado = como era, nunca derruba a HOME
 
@@ -67,6 +74,7 @@ object WorldOptions {
             if (o.hidden) put("hidden", true)
             if (o.iconOnly) put("iconOnly", true)
             o.cards?.let { put("cards", it) }
+            o.size?.let { put("size", it) }
         }.toString()
 
         /**
@@ -76,8 +84,18 @@ object WorldOptions {
          * aparece no fim, não some).
          */
         fun arrange(ids: List<String>, sort: Sort, names: Map<String, String> = emptyMap(),
-                    manual: List<String> = emptyList(), pinned: Collection<String> = emptyList()): List<String> = when (sort) {
+                    manual: List<String> = emptyList(), pinned: Collection<String> = emptyList(),
+                    lastUsed: Map<String, Long> = emptyMap(), seed: Long = 0L): List<String> = when (sort) {
             Sort.USAGE -> ids
+            Sort.LAST -> {
+                // fixados no topo; depois do aberto mais recente ao mais antigo; nunca aberto fica na ordem de uso, no fim
+                val (top, rest) = ids.partition { it in pinned }
+                top + rest.withIndex().sortedWith(compareByDescending<IndexedValue<String>> { lastUsed[it.value] ?: 0L }.thenBy { it.index }).map { it.value }
+            }
+            Sort.RANDOM -> {
+                val (top, rest) = ids.partition { it in pinned }
+                top + rest.sorted().shuffled(java.util.Random(seed))
+            }
             Sort.AZ -> {
                 val (top, rest) = ids.partition { it in pinned }
                 top + rest.sortedWith(compareBy<String>({ key(names[it] ?: it) }, { it }))

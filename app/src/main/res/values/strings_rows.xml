@@ -63,4 +63,11 @@
     <string name="rw_preto">Black</string>
     <string name="rw_creme">Cream</string>
     <string name="rw_poster">Movie poster</string>
+    <string name="rw_margem_inicio">Start margin</string>
+    <string name="rw_margem_fim">End margin</string>
+    <string name="rw_margem_topo">Rows height on screen</string>
+    <string name="rw_mais_alto">Higher</string>
+    <string name="rw_alto">High</string>
+    <string name="rw_baixo">Low</string>
+    <string name="rw_mais_baixo">Lower</string>
 </resources>
