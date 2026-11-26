@@ -44,4 +44,8 @@
     <string name="ra_favoritada">Додано до улюблених</string>
     <string name="ra_desfavoritada">Вилучено з улюблених</string>
     <string name="ra_falhou">Ця станція зараз не грає. Спробуйте іншу.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Дошка родини</string>
+    <string name="mur_ilha_um">Записка · %1$s</string>
+    <string name="mur_ilha_varios">Записок: %1$d · %2$s</string>
 </resources>

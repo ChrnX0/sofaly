@@ -43,4 +43,8 @@
     <string name="ra_favoritada">Přidáno do oblíbených</string>
     <string name="ra_desfavoritada">Odebráno z oblíbených</string>
     <string name="ra_falhou">Tato stanice teď nehraje. Zkuste jinou.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Rodinná nástěnka</string>
+    <string name="mur_ilha_um">Vzkaz · %1$s</string>
+    <string name="mur_ilha_varios">Vzkazy: %1$d · %2$s</string>
 </resources>

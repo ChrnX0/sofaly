@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Προστέθηκε στα αγαπημένα</string>
     <string name="ra_desfavoritada">Αφαιρέθηκε από τα αγαπημένα</string>
     <string name="ra_falhou">Αυτός ο σταθμός δεν παίζει τώρα. Δοκιμάστε άλλον.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Πίνακας οικογένειας</string>
+    <string name="mur_ilha_um">Μήνυμα · %1$s</string>
+    <string name="mur_ilha_varios">%1$d μηνύματα · %2$s</string>
 </resources>

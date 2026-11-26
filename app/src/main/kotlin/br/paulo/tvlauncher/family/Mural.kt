@@ -98,9 +98,29 @@ object Mural {
         return Conteudo(lista("compras", MAX_COMPRAS), recados, lidos)
     }
 
+    /**
+     * Brainstorm item 10 (26/11/2026): recado da família não some. "Ana: Dentista quinta" vira ("Ana", "Dentista quinta");
+     * sem ":" o texto inteiro é o título. Pura (IdeiasTresTest).
+     */
+    fun partes(recado: String): Pair<String, String> {
+        val i = recado.indexOf(": ")
+        return if (i in 1..24) recado.substring(0, i).trim() to recado.substring(i + 2).trim() else recado to ""
+    }
+
+    /** A linha da Ilha: o recado não lido mais novo; com mais de um, quantos são. Null = nada novo. Pura. */
+    fun linhaIlha(c: Conteudo, um: (String) -> String, varios: (Int, String) -> String): String? {
+        val n = c.naoLidos
+        val ultimo = n.lastOrNull() ?: return null
+        return if (n.size == 1) um(ultimo) else varios(n.size, ultimo)
+    }
+
     // ---- na TV
 
     fun ler(ctx: Context): Conteudo = deJson(Extras.texto(ctx, CHAVE))
+
+    /** Os recados que a TV mostra agora (descanso e Ilha): vazio com o mural desligado ou em modo visita. */
+    fun visiveis(ctx: Context): Conteudo =
+        if (Extras.ligado(ctx, Extras.Chave.MURAL) && !ModoVisita.ativo(ctx)) ler(ctx) else Conteudo()
 
     @Synchronized
     fun editar(ctx: Context, mudar: (Conteudo) -> Conteudo): Conteudo {

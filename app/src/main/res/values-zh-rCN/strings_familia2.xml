@@ -41,4 +41,8 @@
     <plurals name="an_anos">
         <item quantity="other">满 %d 岁</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">家庭留言板</string>
+    <string name="mur_ilha_um">留言 · %1$s</string>
+    <string name="mur_ilha_varios">%1$d 条留言 · %2$s</string>
 </resources>

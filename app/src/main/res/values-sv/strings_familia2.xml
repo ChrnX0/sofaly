@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Tillagd i favoriter</string>
     <string name="ra_desfavoritada">Borttagen från favoriter</string>
     <string name="ra_falhou">Den här stationen spelar inte nu. Prova en annan.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Familjens anslagstavla</string>
+    <string name="mur_ilha_um">Meddelande · %1$s</string>
+    <string name="mur_ilha_varios">%1$d meddelanden · %2$s</string>
 </resources>

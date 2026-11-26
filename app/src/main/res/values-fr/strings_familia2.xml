@@ -43,4 +43,8 @@
         <item quantity="other">fête ses %d ans</item>
         <item quantity="many">fête ses %d ans</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Tableau de la famille</string>
+    <string name="mur_ilha_um">Message · %1$s</string>
+    <string name="mur_ilha_varios">%1$d messages · %2$s</string>
 </resources>

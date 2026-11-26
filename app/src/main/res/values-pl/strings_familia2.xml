@@ -44,4 +44,8 @@
         <item quantity="many">kończy %d lat</item>
         <item quantity="other">kończy %d lat</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Tablica rodziny</string>
+    <string name="mur_ilha_um">Wiadomość · %1$s</string>
+    <string name="mur_ilha_varios">Wiadomości: %1$d · %2$s</string>
 </resources>

@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Toegevoegd aan favorieten</string>
     <string name="ra_desfavoritada">Verwijderd uit favorieten</string>
     <string name="ra_falhou">Deze zender speelt nu niet. Probeer een andere.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Familiebord</string>
+    <string name="mur_ilha_um">Bericht · %1$s</string>
+    <string name="mur_ilha_varios">%1$d berichten · %2$s</string>
 </resources>

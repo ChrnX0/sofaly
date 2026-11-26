@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Added to favorites</string>
     <string name="ra_desfavoritada">Removed from favorites</string>
     <string name="ra_falhou">This station isn\'t playing now. Try another.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Family board</string>
+    <string name="mur_ilha_um">Message · %1$s</string>
+    <string name="mur_ilha_varios">%1$d messages · %2$s</string>
 </resources>

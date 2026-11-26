@@ -2322,6 +2322,8 @@ class MainActivity : Activity() {
     @Volatile internal var ilhaCeu: Pair<String, br.paulo.tvlauncher.weather.NightSky.Kind>? = null
     /** Recado da Sofy na Ilha e o resumo da manhã dela (lidos fora da tela em [lerFontesIlha]). */
     @Volatile internal var ilhaSofy: br.paulo.tvlauncher.observer.SofyTv.IslandLine? = null
+    /** Recado não lido do mural para a Ilha (Brainstorm item 10). */
+    @Volatile internal var ilhaRecado: String? = null
     @Volatile internal var ilhaSofyManha: br.paulo.tvlauncher.observer.SofyTv.IslandLine? = null
     @Volatile internal var ilhaIndicadores: Set<BarraIlha.Indicador> = emptySet()
     internal var ilhaTrilhoMostrado: BarraIlha.Trilho? = null

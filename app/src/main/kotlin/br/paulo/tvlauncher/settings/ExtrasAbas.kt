@@ -15,6 +15,8 @@ object ExtrasAbas {
     val MAPA: Map<String, Aba> = linkedMapOf(
         // Controle parental: o que segura a criança.
         "HORA_DORMIR" to Aba.PARENTAL, "TEMPO_TELA" to Aba.PARENTAL, "PIN_HOME" to Aba.PARENTAL,
+        // Família (26/11/2026): o mural mora com o resto da família, não em Energia.
+        "MURAL" to Aba.PARENTAL,
         // Aparência: o que muda o que se vê e ouve nas telas do launcher.
         "COR_DO_FUNDO" to Aba.APARENCIA, "MODO_SIMPLES" to Aba.APARENCIA, "SOM_NAVEGACAO" to Aba.APARENCIA, "LER_FOCO" to Aba.APARENCIA,
         "TOCANDO_AGORA" to Aba.APARENCIA, "AGENDA_TODAS" to Aba.APARENCIA, "HOJE_NA_TV" to Aba.APARENCIA,
@@ -24,7 +26,7 @@ object ExtrasAbas {
         "CARTAO_LEMBRETE_CASA" to Aba.APARENCIA, "CARTAO_SERVICO" to Aba.APARENCIA, "CARTAO_LUA" to Aba.APARENCIA,
         // Tela e energia: noite, protetor e desligar.
         "FILTRO_NOTURNO" to Aba.ENERGIA, "SONO_SUAVE" to Aba.ENERGIA, "PRESENCA" to Aba.ENERGIA,
-        "MURAL" to Aba.ENERGIA, "RETROSPECTIVA" to Aba.ENERGIA, "RETROSPECTIVA_ANO" to Aba.ENERGIA, "ENTRADAS_TV" to Aba.APARENCIA, "MODO_LEVE" to Aba.ENERGIA, "MODO_JOGO" to Aba.ENERGIA, "NAO_PERTURBE" to Aba.ENERGIA, "ABERTURA_PRONTA" to Aba.SISTEMA,
+        "RETROSPECTIVA" to Aba.ENERGIA, "RETROSPECTIVA_ANO" to Aba.ENERGIA, "ENTRADAS_TV" to Aba.APARENCIA, "MODO_LEVE" to Aba.ENERGIA, "MODO_JOGO" to Aba.ENERGIA, "NAO_PERTURBE" to Aba.ENERGIA, "ABERTURA_PRONTA" to Aba.SISTEMA,
         // Rede.
         "DIARIO_DNS" to Aba.REDE,
         // Acesso remoto: o que deixa algo de fora agir na TV.

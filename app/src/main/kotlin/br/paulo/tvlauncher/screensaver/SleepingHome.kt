@@ -246,7 +246,8 @@ class SleepingHome(private val ctx: Context) {
             val agenda = lerAgenda()
             val rs = lerResumos()
             val c = lerCeu()
-            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; ceu = c; preencher(f) } }
+            val rc = lerRecados()
+            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; ceu = c; recados = rc; preencher(f) } }
         }
         ui.postDelayed(escurecer, ESCURECER_MS)
         ui.postDelayed(deslocar, DESLOCAR_MS)
@@ -278,6 +279,15 @@ class SleepingHome(private val ctx: Context) {
     private fun lerResumos(): List<Triple<String, String, String>> = listOfNotNull(
         runCatching { br.paulo.tvlauncher.Retrospectiva.cartao(ctx) }.getOrNull(),
         runCatching { br.paulo.tvlauncher.family.RetrospectivaAno.cartao(ctx) }.getOrNull())
+
+    /**
+     * Recados da família não lidos (Brainstorm item 10, 26/11/2026): o README promete o mural no descanso e ele não
+     * aparecia. Viram a PRIMEIRA linha da faixa (quem passa pela sala vê "Ana: Dentista quinta") até alguém marcar
+     * como lido no painel rápido. Mural desligado ou modo visita: nada.
+     */
+    private var recados: List<String> = emptyList()
+    private fun lerRecados(): List<String> =
+        runCatching { br.paulo.tvlauncher.family.Mural.visiveis(ctx).naoLidos.takeLast(3).reversed() }.getOrDefault(emptyList())
 
     private fun lerAgenda(): List<Triple<String, String, String>> {
         val agora = System.currentTimeMillis()
@@ -372,6 +382,9 @@ class SleepingHome(private val ctx: Context) {
                 ui.postDelayed(viradaDoCeu, (e.start - br.paulo.tvlauncher.weather.NightSky.DESCANSO_ANTES_MS - agoraMs).coerceAtLeast(1_000L))
             }
         }
+        if (recados.isNotEmpty()) l += Linha(ctx.getString(R.string.mur_descanso), linhaItens(recados.map { r ->
+            br.paulo.tvlauncher.family.Mural.partes(r).let { (quem, texto) -> Triple("", quem, texto) }
+        }))
         if (fr != null) l += Linha("resumo", linhaResumo(ForecastText.frase(ctx, fr), when {
             chovendo || fr.tipo in setOf(DicasClima.TipoFrase.CHUVA_AS, DicasClima.TipoFrase.CHUVA_AGORA) -> SofyPolicy.Expression.WORRIED
             fr.tipo == DicasClima.TipoFrase.CALOR || fr.tipo == DicasClima.TipoFrase.FRIO -> SofyPolicy.Expression.SURPRISED
@@ -632,7 +645,8 @@ class SleepingHome(private val ctx: Context) {
                 val ag = lerAgenda()
                 val rs = lerResumos()
                 val c = lerCeu()
-                ui.post { if (!solto) { agenda = ag; resumos = rs; ceu = c; preencher(f) } }
+                val rc = lerRecados()
+                ui.post { if (!solto) { agenda = ag; resumos = rs; ceu = c; recados = rc; preencher(f) } }
             }
             ui.postDelayed(this, ATUALIZAR_MS)
         }
