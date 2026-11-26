@@ -1038,7 +1038,9 @@ class MainActivity : Activity() {
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = { (fundo as? FundoVivo)?.proximo() ?: false }
         // Sem fundo preto aqui (nem na janela, ver onCreate): o fundo vivo já cobre a tela inteira e é opaco. Cada camada
         // de tela cheia a mais é a GPU pintando 1920x1080 de novo A CADA QUADRO (medido: 3 camadas, 22 ms por quadro).
-        capa = CapaFoco(this).apply { desligada = tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || (fotoDaBarra != null && !(br.paulo.tvlauncher.home.BottomBar.rows(this@MainActivity) && br.paulo.tvlauncher.home.RowsHome.options(this@MainActivity).focusBg)) || !LayoutHome.arteCruz(this@MainActivity) }   // Fileiras com "Fundo do card em foco" (bloco 5): a arte do foco vira o fundo   // Galeria: a obra é o fundo, sem brilho por cima
+        val focoNoFundo = fotoDaBarra != null && br.paulo.tvlauncher.home.BottomBar.rows(this) && br.paulo.tvlauncher.home.RowsHome.options(this).focusBg
+        // Fileiras com "Arte do card em foco no fundo" (bloco 5): a capa liga mesmo com Meu fundo/Galeria, porque nas Fileiras o fundo é a foto delas
+        capa = CapaFoco(this).apply { desligada = if (focoNoFundo) false else tema == Tema.GALERIA || tema == Tema.MEU || tema == Tema.PLUGIN || fotoDaBarra != null || !LayoutHome.arteCruz(this@MainActivity) }   // Fileiras com "Fundo do card em foco" (bloco 5): a arte do foco vira o fundo   // Galeria: a obra é o fundo, sem brilho por cima
         montarCruz(raiz)
         conteudo = raiz
         return FrameLayout(this).apply {

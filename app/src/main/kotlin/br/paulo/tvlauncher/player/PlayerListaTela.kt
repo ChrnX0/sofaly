@@ -449,9 +449,7 @@ class PlayerListaTela(
         // espaço num só pé (RodapeFicha): nada aparece cortado, e a dica encolhe antes de os programas sumirem.
         detSeguir = RodapeFicha(act).apply {
             vao(dp(12))
-            porDica(PlayerBar.teclasEmLinhas(act.getString(R.string.player_lista_teclas)).split("\n").map { linha ->
-                TextView(act).apply { text = linha; textSize = Estilo.Leitura.DICA; setTextColor(apagado); setLineSpacing(0f, 1.2f) }
-            })
+            // Paulo, 26/11/2026: sem dica de teclas na ficha do canal (as teclas ficam em Configurações > Ajuda)
         }
         col.addView(detSeguir, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(12) })
         return col

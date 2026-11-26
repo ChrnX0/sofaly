@@ -465,7 +465,7 @@ class RadioActivity : Activity() {
             maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
         }
         val sub = TextView(this).apply { setTextColor(Estilo.TEXTO_2); textSize = 20f; gravity = Gravity.CENTER; maxLines = 1 }
-        val dica = TextView(this).apply { setTextColor(0x99FFFFFF.toInt()); textSize = 18f; gravity = Gravity.CENTER; text = getString(R.string.ra_globo_dica) }
+        val dica = TextView(this).apply { setTextColor(0x99FFFFFF.toInt()); textSize = 18f; gravity = Gravity.CENTER; text = getString(R.string.ra_globo_dica); visibility = View.GONE }   // Paulo, 26/11/2026: dicas de teclas saem
         val v = GloboRadiosView(this, l, GloboLogica.centroDoPais(l, pais), aoTocar = { r -> tocar(r) }, aoFechar = { fecharGlobo() })
         v.aoMirar = { r ->
             nome.text = r?.nome ?: getString(R.string.ra_globo_mar)
