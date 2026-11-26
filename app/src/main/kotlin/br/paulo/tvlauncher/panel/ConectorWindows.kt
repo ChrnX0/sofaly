@@ -30,8 +30,8 @@ object ConectorWindows {
         val titulo = t("title Sofaly - unidade de rede", "title Sofaly - network drive")
         val sim = t("echo O Windows vai perguntar se pode fazer alteracoes. Responda SIM.", "echo Windows will ask if it can make changes. Answer YES.")
         val semWebClient = t("echo Nao consegui ligar o servico WebClient do Windows. Nada foi mapeado.", "echo Could not start the Windows WebClient service. Nothing was mapped.")
-        val usuario = t("${x.usuario}", "echo User name: type  tv")
-        val senha = t("${x.senha}", "echo Password: the TV panel PIN ^(it stays hidden while you type^)")
+        val usuario = t("echo Usuario: digite  tv", "echo User name: type  tv")
+        val senha = t("echo Senha:   o PIN do painel da TV ^(nao aparece enquanto digita^)", "echo Password: the TV panel PIN ^(it stays hidden while you type^)")
         val naoMapeou = t("echo Nao mapeou. Confira o PIN e se a chave \"Unidade de rede\" esta ligada na TV.", "echo Not mapped. Check the PIN and that \"Network drive\" is on in the TV.")
     }
 
