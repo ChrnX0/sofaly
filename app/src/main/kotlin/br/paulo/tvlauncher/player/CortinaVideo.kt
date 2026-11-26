@@ -76,7 +76,7 @@ object CortinaVideo {
     /** Esmaece e tira a cortina da tela (o primeiro quadro chegou, ou não vai chegar: música, erro). */
     fun tirar(v: View) {
         (v.tag as? ValueAnimator)?.cancel()
-        v.animate().alpha(0f).setDuration(SUMIR_MS).setInterpolator(DecelerateInterpolator())
+        v.animate().alpha(0f).setDuration(SUMIR_MS).setInterpolator(br.paulo.tvlauncher.Estilo.curva())
             .withEndAction { (v.parent as? android.view.ViewGroup)?.removeView(v) }.start()
     }
 }

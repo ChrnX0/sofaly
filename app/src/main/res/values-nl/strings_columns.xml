@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Nu</string>
+    <string name="col_filter_on">Filter nu aan</string>
+    <string name="col_filter_off">Nachtfilter staat uit</string>
+    <string name="col_filter_at">Gaat aan om %1$s</string>
+    <string name="col_filter_body">Maakt het scherm van %1$s tot %2$s warmer en donkerder, op %3$d%% sterkte.</string>
+    <string name="col_sleep_off">Bedtijd staat uit</string>
+    <string name="col_sleep_now">Nu bedtijd</string>
+    <string name="col_sleep_at">Begint om %1$s</string>
+    <string name="col_sleep_body">Van %1$s tot %2$s openen alleen toegestane apps en blijft het volume op hoogstens %3$d%%.</string>
+    <string name="col_screen_off">Schermtijd staat uit</string>
+    <string name="col_screen_left">Nog %1$s vandaag</string>
+    <string name="col_screen_body">Als de tijd van vandaag op is, gaat de tv terug naar het startscherm.</string>
+    <string name="col_screen_daily">Tijd per dag</string>
+    <string name="col_changes">Wat verandert</string>
+</resources>

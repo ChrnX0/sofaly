@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">แพ็กเกจของคุณ</string>
     <string name="pl_loja_indisponivel">Google Play เปิดการซื้อไม่ได้ ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง</string>
     <string name="atu_pela_play">การอัปเดตมาจาก Google Play</string>
+    <string name="cfg_sec_tema">ธีมและพื้นหลัง</string>
+    <string name="cfg_sec_leitura">การอ่าน</string>
+    <string name="cfg_sec_inicio">หน้าจอหลัก</string>
 </resources>

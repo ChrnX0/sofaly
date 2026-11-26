@@ -402,7 +402,11 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
             if (!AppChannels.abrir(this, cartoes[i])) cruz?.naoAbriu()
         }
     })
-    opcoes += opcoesDeOrdem(pacote)   // Subir/Descer quando o mundo está "Do meu jeito" (WorldOptions)
+    // Bloco 4 do clone (26/11/2026): Abrir e Atalhos no topo; nas Fileiras e na barra, Reordenar com ◀ ▶ (como no dele)
+    val (primeiras, ultimas) = opcoesDoCard(pacote)
+    opcoes.addAll(0, primeiras)
+    if (!todosAbertos && (BottomBar.rows(this) || BottomBar.strip(this))) opcoes += Opcao(getString(R.string.rw_reordenar)) { reordenarNoMundo(pacote) }
+    else opcoes += opcoesDeOrdem(pacote)   // Subir/Descer quando o mundo está "Do meu jeito" (WorldOptions)
     opcoes += Opcao(getString(R.string.cruz_mover)) { moverAppCruz(pacote) }
     opcoes += Opcao(getString(R.string.wp_trocar_icone)) { trocarIconeCruz(pacote) }
     opcoes += Opcao(getString(R.string.wo_renomear_app)) {
@@ -425,6 +429,7 @@ internal fun MainActivity.menuAppCruz(pacote: String) {
         opcoes += Opcao(getString(R.string.home_liberar_arquivos)) { liberarArquivos(pacote) }
     AppStorage.atualizarEmFundo(this)
     val desinstala = PainelApps.podeDesinstalar(this, pacote)
+    opcoes += ultimas   // Abrir ao ligar, Detalhes
     if (!todosAbertos) opcaoDoMundo()?.let { opcoes += it }   // "Opções de <mundo>" (HomeWorldMenu)
     if (desinstala) opcoes += Opcao(getString(R.string.home_desinstalar)) { confirmarDesinstalar(pacote) }
     val titulo = AppNames.name(this, pacote, nomeDe(pacote)) + if (PainelApps.eSistema(this, pacote)) getString(R.string.home_app_sistema) else ""
@@ -452,6 +457,12 @@ internal fun MainActivity.mudarSobDemanda(pacote: String, ligar: Boolean) {
 internal fun MainActivity.avisarOculto() = AvisoTv.rapido(this, getString(R.string.oc_aviso_titulo), getString(R.string.oc_aviso))
 
 internal fun MainActivity.abrir(pacote: String) {
+    // Controle parental do card (menu do card): app travado só abre com o PIN da TV
+    if (CardMenu.isLocked(this, pacote)) { br.paulo.tvlauncher.family.PinNaTela.pedir(this, getString(R.string.rw_travado)) { abrirSemTrava(pacote) }; return }
+    abrirSemTrava(pacote)
+}
+
+private fun MainActivity.abrirSemTrava(pacote: String) {
     // Receita por app (Sofy, ideia 11): app que aperta a memória ganha a memória dos parados antes. Não atrasa a abertura.
     runCatching { br.paulo.tvlauncher.observer.AppProfileTv.beforeOpen(this, pacote) }
     if (todosAbertos) cruz?.marcarAberto("app:$pacote")   // voltando, o foco da cruz fica neste app (não em "Todos os apps")

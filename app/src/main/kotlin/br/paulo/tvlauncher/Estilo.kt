@@ -57,8 +57,19 @@ object Estilo {
     /** Fio de borda das superfícies: branco a 8%. */
     val BORDA: Int get() = if (altoContraste) 0x8CFFFFFF.toInt() else 0x14FFFFFF
     /** Vidro (sobre imagem): tinta escura translúcida + fio claro. Igual à pílula da HOME que o dono aprovou. */
-    const val VIDRO_TINTA = 0x8C121528.toInt()
+    const val VIDRO_TINTA = 0x8C141413.toInt()
     const val VIDRO_BORDA = 0x38FFFFFF
+    /**
+     * Painel ao lado (A+B no estilo da E, Paulo, 25/11/2026): a tinta do painel de vidro das Configurações sobre a HOME
+     * viva. Com o borrão do sistema por trás, 72% basta para ler; sem borrão (aparelho sem suporte, economia de bateria,
+     * "Remover animações"), quase sólido, para o texto não brigar com a HOME.
+     */
+    const val PAINEL_VIDRO = 0xB8141413.toInt()
+    const val PAINEL_CHEIO = 0xF2141413.toInt()
+    /** O degradê do painel ([br.paulo.tvlauncher.settings.SidePanel.degrade]): lado de dentro mais leve, borda da tela mais firme. */
+    const val PAINEL_VIDRO_DENTRO = 0x73141413
+    const val PAINEL_VIDRO_FORA = 0xD1141413.toInt()
+    const val PAINEL_CHEIO_DENTRO = 0xD9141413.toInt()
 
     /** Texto: principal, explicação (70%) e rótulo apagado (48%). Nunca branco puro em bloco grande: cansa a vista. */
     const val TEXTO = DesignTokens.CREAM
@@ -76,8 +87,8 @@ object Estilo {
      * (teste 100%, Sala, 23/11/2026: "Parar" do timer e ações da ficha invisíveis).
      */
     const val TEXTO_SOBRE_FOCO = DesignTokens.NIGHT
-    const val TEXTO_SOBRE_FOCO_2 = 0xA6121528.toInt()
-    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6121528.toInt()
+    const val TEXTO_SOBRE_FOCO_2 = 0xA6141413.toInt()
+    val TEXTO_NO_FOCO_2: Int get() = if (!focoBranco) TEXTO_2 else if (altoContraste) DesignTokens.NIGHT else 0xA6141413.toInt()
 
     /** O ÚNICO acento: "ligado", valor escolhido, progresso. Foco NÃO usa acento: foco é branco. */
     val ACENTO: Int get() = if (altoContraste) acentoAlto else acentoBase
@@ -174,6 +185,8 @@ object Estilo {
     const val FOCO_MS = DesignTokens.MS_QUICK
     const val TRANSICAO_MS = DesignTokens.MS_FAST
     private val desacelera = DesignTokens.EASE_OUT.let { PathInterpolator(it[0], it[1], it[2], it[3]) }
+    /** A curva única do padrão (design/tokens.json motion.easeOut): todo abrir, fechar e deslizar. Nova a cada chamada (ValueAnimator guarda estado). */
+    fun curva(): android.view.animation.Interpolator = DesignTokens.EASE_OUT.let { PathInterpolator(it[0], it[1], it[2], it[3]) }
 
     /** Quanto cresce o que ganha foco: card 8%, linha de lista 2%. */
     const val ESCALA_CARD = 1.05f   // era 1,08 (régua 22/11/2026: nada "pula" na tela)
@@ -238,8 +251,13 @@ object Estilo {
         br.paulo.tvlauncher.settings.FocusStyle.LINE ->
             if (base == null) traco(ctx) else android.graphics.drawable.LayerDrawable(arrayOf(base, traco(ctx)))
         // Anel laranja de 3 dp, como o da barra da HOME, sobre um véu laranja bem leve (o texto continua claro).
-        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, ANEL_TINTA, raioDp, ACENTO, ANEL_DP)
+        // Padrão do protótipo aprovado (Paulo, 26/11/2026): vidro claro com o anel laranja FINO; o véu laranja virava marrom.
+        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, FOCO_VIDRO, raioDp, ACENTO, ANEL_LINHA_DP)
     }
+
+    /** Vidro claro do foco de linha (branco a 10%) e a espessura do anel nas linhas (o card da HOME segue com [ANEL_DP]). */
+    const val FOCO_VIDRO = 0x1AFFFFFF
+    const val ANEL_LINHA_DP = 2
 
     /** O foco escurece o texto? Só no Quadro (texto escuro sobre branco); no Fio e no Véu o texto acende para o creme pleno. */
     fun focoEscurece(ctx: Context): Boolean = focoAtual(ctx) == br.paulo.tvlauncher.settings.FocusStyle.BOX
@@ -496,7 +514,9 @@ object Estilo {
         // Estudo global 20/11 (ideia 5): a barra de dicas ocupava a tela para sempre (Paulo já tinha tirado a de Filmes).
         // Por quê: depois de aprender as teclas, a dica é só ruído. Para quê: a tela fica com o que importa. Como: cada
         // tela mostra as dicas nas DICAS_VEZES primeiras aberturas e depois some (a ajuda continua em Configurações > Ajuda).
-        if (!dicaAindaAjuda(ctx)) visibility = View.GONE
+        // Paulo, 26/11/2026 (protótipo aprovado): "não precisa disso". A linha de teclas não aparece em tela nenhuma; as
+        // teclas continuam em Configurações > Ajuda. A peça fica para não mexer nos chamadores.
+        visibility = View.GONE
         for ((tecla, acao) in dicas) addView(LinearLayout(ctx).apply {
             // tecla + ação juntas: numa linha que não cabe, a dupla quebra inteira (nunca a tecla de um lado e a ação do outro)
             orientation = LinearLayout.HORIZONTAL
@@ -738,12 +758,52 @@ object Estilo {
     /** Escurecido atrás de um diálogo: a tela de trás fica visível mas não compete. */
     const val VEU = 0xB3000000.toInt()
     /** Cartão de diálogo: quase opaco (lê-se por cima de qualquer coisa), com o fio do vidro. */
-    const val CARTAO = 0xF5191C30.toInt()
+    const val CARTAO = 0xF51C1C1A.toInt()
 
     /**
      * Põe [tela] (um [dialogo], já com o véu) numa janela [d] de tela cheia, sem título e sem o fundo do tema. As
      * cópias destas 5 linhas em cada diálogo viraram esta função (refatoração 21/11/2026).
      */
+    /**
+     * A pergunta do jeito Guiado, medida no Projectivy (Sala, 26/11/2026): uma faixa embaixo com 230 dp de altura e 20 dp
+     * de margem; ícone de 72 dp, título fino e o texto à esquerda; os botões de 250 x 47 dp empilhados à direita, o
+     * primeiro (o seguro) já com o foco. A tela atrás fica à vista em cima, escurecida.
+     */
+    private fun faixaDeBaixo(ctx: Context, sobre: String?, titulo: CharSequence, mensagem: CharSequence?, botoes: List<TextView>,
+                             icone: Drawable?): FrameLayout {
+        val cartao = LinearLayout(ctx).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            clipChildren = false; clipToPadding = false
+            minimumHeight = dp(ctx, 230)
+            setPaddingRelative(dp(ctx, E3 + 8), dp(ctx, E3), dp(ctx, E3 + 8), dp(ctx, E3))
+            background = fundo(ctx, CARTAO, RAIO, VIDRO_BORDA)
+            if (icone != null) addView(android.widget.ImageView(ctx).apply { setImageDrawable(icone) },
+                LinearLayout.LayoutParams(dp(ctx, 72), dp(ctx, 72)).apply { marginEnd = dp(ctx, E3) })
+            addView(LinearLayout(ctx).apply {
+                orientation = LinearLayout.VERTICAL
+                if (sobre != null) addView(texto(ctx, Papel.SECAO, sobre), LinearLayout.LayoutParams(-2, -2).apply { bottomMargin = dp(ctx, E1) })
+                addView(texto(ctx, Papel.TITULO, titulo).apply { textSize = 24f; typeface = fonte(300) })
+                if (!mensagem.isNullOrEmpty()) addView(texto(ctx, Papel.LEGENDA, mensagem).apply {
+                    textSize = 18f; setLineSpacing(0f, 1.25f)
+                }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(ctx, E1) })
+            }, LinearLayout.LayoutParams(0, -2, 1f))
+            addView(LinearLayout(ctx).apply {
+                orientation = LinearLayout.VERTICAL
+                clipChildren = false
+                botoes.forEachIndexed { i, b ->
+                    b.gravity = Gravity.CENTER; b.minHeight = dp(ctx, 47)
+                    addView(b, LinearLayout.LayoutParams(dp(ctx, 250), -2).apply { if (i > 0) topMargin = dp(ctx, E1) })
+                }
+            }, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(ctx, E3) })
+        }
+        return FrameLayout(ctx).apply {
+            setBackgroundColor(VEU)
+            val m = dp(ctx, 20)
+            addView(cartao, FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM).apply { setMargins(m, m, m, m) })
+        }
+    }
+
     fun vestir(d: android.app.Dialog, tela: View) {
         d.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
         d.setContentView(tela)
@@ -760,7 +820,10 @@ object Estilo {
      * O primeiro botão da lista é o seguro (Cancelar/Negar) e fica à esquerda; quem chama dá o foco nele.
      */
     fun dialogo(ctx: Context, sobre: String?, titulo: CharSequence, mensagem: CharSequence?, botoes: List<TextView>,
-                icone: Drawable? = null, larguraDp: Int = 640): FrameLayout {
+                icone: Drawable? = null, larguraDp: Int = 640, faixa: Boolean = true): FrameLayout {
+        // Guiado (molde do Projectivy, 26/11/2026): a pergunta curta vira a faixa de baixo dele. Quem monta um cartão
+        // próprio por cima (sinopse larga, QR) passa [faixa] = false ou uma largura maior e fica com o cartão do meio.
+        if (faixa && larguraDp <= 640 && br.paulo.tvlauncher.home.ScreenStyle.guided(ctx)) return faixaDeBaixo(ctx, sobre, titulo, mensagem, botoes, icone)
         val cartao = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER_HORIZONTAL
@@ -774,7 +837,7 @@ object Estilo {
                 LinearLayout.LayoutParams(-2, -2).apply { bottomMargin = dp(ctx, E1) })
             addView(texto(ctx, Papel.TITULO, titulo).apply { textSize = 24f; gravity = Gravity.CENTER })
             if (!mensagem.isNullOrEmpty()) addView(texto(ctx, Papel.LEGENDA, mensagem).apply {
-                textSize = 16f; gravity = Gravity.CENTER; setLineSpacing(0f, 1.25f)
+                textSize = 18f; gravity = Gravity.CENTER; setLineSpacing(0f, 1.25f)
             }, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(ctx, E2) })
             addView(LinearLayout(ctx).apply {
                 orientation = LinearLayout.HORIZONTAL
@@ -816,7 +879,7 @@ object Estilo {
         val media = fonte(500)
         val sombra = 0x99000000.toInt()
         val anima = android.provider.Settings.Global.getFloat(ctx.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
-        val suave = DecelerateInterpolator(1.6f)
+        val suave = curva()
         val nomeLista = titulo.toString()   // régua: sem maiúsculas
         // Cabeçalho só com o nome da lista (crítica de design 19/11/2026: o "3 de 14" ao lado era ruído; o foco já diz onde se está).
         val cabecalho = TextView(ctx).apply {
@@ -951,6 +1014,17 @@ object Estilo {
             // com valores à direita o painel alarga: na TV (20/11/2026) "Volume parecido entre canais" quebrava em 2 linhas
             addView(painel, FrameLayout.LayoutParams(dp(ctx, if (valores.any { !it.isNullOrBlank() }) LISTA_LARGURA_VALORES else LISTA_LARGURA), ViewGroup.LayoutParams.MATCH_PARENT, Gravity.END))
         }
+        // Jeito "Painel ao lado" (25/11/2026, menus no mesmo vidro das Configurações): a janela vira o próprio painel de
+        // vidro à direita (borrando a tela atrás; no player o vídeo fica nítido) e o véu em degradê sai.
+        // Guiado (molde do Projectivy, 26/11/2026): os menus também abrem no painel lateral dele, por cima da tela.
+        val vidro = br.paulo.tvlauncher.home.ScreenStyle.panel(ctx) || br.paulo.tvlauncher.home.ScreenStyle.guided(ctx)
+        val noVideo = ctx.javaClass.name.contains(".player.")
+        val larguraPainel = if (valores.any { !it.isNullOrBlank() }) LISTA_LARGURA_VALORES else LISTA_LARGURA
+        if (vidro) {
+            raiz.background = null
+            painel.setPaddingRelative(dp(ctx, 28), dp(ctx, 44), dp(ctx, 28), dp(ctx, if (noVideo) 96 else 40))
+            (painel.layoutParams as FrameLayout.LayoutParams).width = ViewGroup.LayoutParams.MATCH_PARENT
+        }
         d.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
         d.setContentView(raiz)
         d.window?.apply {
@@ -958,6 +1032,7 @@ object Estilo {
             clearFlags(android.view.WindowManager.LayoutParams.FLAG_DIM_BEHIND)
             setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
             setWindowAnimations(0)   // a entrada é nossa (abaixo); a do sistema somava um "pulo" cinza
+            if (vidro) br.paulo.tvlauncher.settings.SidePanel.vidroNoDialogo(ctx, this, larguraPainel + 28, noVideo)
         }
         // focoNaMarcada: numa escolha única o foco começa na opção atual; numa lista de liga/desliga (opções do player)
         // começa no topo, senão o foco caía no meio da lista, no primeiro efeito ligado (visto na Sala, 17/11/2026).
@@ -1018,8 +1093,8 @@ object Estilo {
     const val LISTA_FONTE_MARCA = 20f
     /** Dicas do pé: 16 sp, o mínimo da casa (idosos); as do Rádio usam 14 na tecla. */
     const val LISTA_FONTE_DICA = 18f   // régua 22/11/2026: mínimo 18 sp
-    const val LISTA_FOCO_MS = 180L
-    const val LISTA_ENTRAR_MS = 260L
+    const val LISTA_FOCO_MS = DesignTokens.MS_QUICK   // era 180 (padrão único, 26/11/2026)
+    const val LISTA_ENTRAR_MS = DesignTokens.MS_FAST   // era 260
     /** Cada linha chega este tanto depois da vizinha (a "onda" da cruz é 16 ms por passo). */
     const val LISTA_ONDA_MS = 18L
     const val LISTA_ONDA_MAX_MS = 120L

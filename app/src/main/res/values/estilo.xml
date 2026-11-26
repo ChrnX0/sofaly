@@ -14,6 +14,17 @@
     <style name="One.Translucido" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:fontFamily">@font/nunito</item>
     </style>
+    <!-- Painel ao lado (25/11/2026): as Configurações abrem translúcidas, por cima da HOME viva. Sem a animação de janela
+         do sistema: o painel entra e sai sozinho (SidePanel.kt). Quando o jeito escolhido não é o painel, a tela vira
+         opaca na hora (Activity.setTranslucent(false)). -->
+    <style name="One.Painel" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:colorAccent">@color/one_acento</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
     <color name="one_fundo">#FF0E1020</color>
     <color name="one_acento">#FFFF6A2B</color>
 </resources>

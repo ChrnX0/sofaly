@@ -40,56 +40,67 @@ class ExtrasActivity : Activity() {
             R.string.extras_diario_apagar)
     }
     private lateinit var coluna: LinearLayout
+    private lateinit var tela: ColumnsScreen
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return   // modo seguro: tela que derrubou esta versão (VigiaAtualizacao)
-        // Molde de tela do sistema de design: fundo e margem da HOME, título padrão.
-        val (raiz, col) = Estilo.telaLista(this, getString(R.string.extras_titulo))
-        coluna = col
-        setContentView(raiz)
+        // Molde das telas de ajuste em três colunas (Paulo, 26/11/2026): seções à esquerda, ajustes com o valor à
+        // direita no meio e, à direita, o que o ajuste faz agora. Antes: uma coluna só esticada nos 960 dp.
+        tela = ColumnsScreen(this, getString(R.string.extras_titulo))
         montar()
+        setContentView(tela.root)
+        atualizarTextos()
+        // Vindo da busca: foco (e rolagem) na linha procurada; seção (ex.: "Hora de dormir") = a 1ª linha dela.
+        val foco = intent?.getStringExtra(EXTRA_FOCO)
+        tela.start(foco?.let { f -> linhas.firstOrNull { it.rotulo().startsWith(f) }?.view ?: tela.firstRowOf(f) })
     }
 
     override fun onResume() { super.onResume(); atualizarTextos() }
 
-    private val linhas = mutableListOf<Pair<TextView, () -> String>>()
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (!tela.back()) @Suppress("DEPRECATION") super.onBackPressed()
+    }
+
+    /** Linha dos ajustes: a linha, o rótulo e o valor à direita, e de onde vem o texto de cada um. */
+    private class Linha(val view: android.view.View, val label: TextView, val value: TextView, val rotulo: () -> String, val valor: () -> String?)
+    private val linhas = mutableListOf<Linha>()
 
     private fun montar() {
         // As chaves liga/desliga moraram aqui até 14/11/2026; agora cada uma está na aba dela das Configurações (ideia 46,
         // ExtrasAbas). Aqui ficam os ajustes finos e as ferramentas.
         // Agrupado em seções (crítica de design 19/11/2026): antes eram 20 linhas iguais com "Hora de dormir:" repetido.
-        secao(R.string.pb_filtro)
+        secao(R.string.pb_filtro) { infoFiltro() }
         numero(R.string.extras_filtro_inicio, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO, 30, 0, 24 * 60 - 30, hora = true)
         numero(R.string.extras_filtro_fim, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM, 30, 0, 24 * 60 - 30, hora = true)
         numero(R.string.extras_filtro_forca, FiltroNoturno.CHAVE_FORCA, FiltroNoturno.PADRAO_FORCA, 5, 5, 100, hora = false)
-        secao(R.string.dormir_titulo)
+        secao(R.string.dormir_titulo) { infoDormir() }
         // Hora de dormir por dia: a linha "dia" escolhe o que as duas de baixo editam (todos = o padrão; um dia = só ele).
-        linhaDormir({ getString(R.string.dormir_dia) + ": " + textoDia() }, 1, protegida = false) { delta ->
+        linhaDormir({ getString(R.string.dormir_dia) }, { textoDia() }, 1, protegida = false) { delta ->
             diaSel = Math.floorMod(diaSel + 1 + delta, 8) - 1   // -1 (todos), 0 (dom) .. 6 (sáb)
         }
-        linhaDormir({ "${getString(R.string.dormir_inicio)}: ${hhmm(janelaSel().inicio)}" }, 30) { d -> mudarJanela(d, 0) }
-        linhaDormir({ "${getString(R.string.dormir_fim)}: ${hhmm(janelaSel().fim)}" }, 30) { d -> mudarJanela(0, d) }
-        linhaDormir({ getString(R.string.dormir_voltar_padrao) }, 0) { _ ->
+        linhaDormir({ getString(R.string.dormir_inicio) }, { hhmm(janelaSel().inicio) }, 30) { d -> mudarJanela(d, 0) }
+        linhaDormir({ getString(R.string.dormir_fim) }, { hhmm(janelaSel().fim) }, 30) { d -> mudarJanela(0, d) }
+        linhaDormir({ getString(R.string.dormir_voltar_padrao) }, { null }, 0) { _ ->
             if (diaSel >= 0) HoraDormirTv.definirDias(this, HoraDormirTv.dias(this).toMutableList().also { it[diaSel] = null })
             // Com "todos" já é o padrão: diz isso em vez de não fazer nada (TodoBotaoFazAlgoTest, 25/11/2026).
             else aviso(getString(R.string.dormir_dia) + ": " + textoDia())
         }
-        linhaDormir({ "${getString(R.string.dormir_teto)}: ${Extras.numero(this, HoraDormir.CHAVE_TETO, HoraDormir.PADRAO_TETO)}%" }, 5) { d ->
+        linhaDormir({ getString(R.string.dormir_teto) }, { "${Extras.numero(this, HoraDormir.CHAVE_TETO, HoraDormir.PADRAO_TETO)}%" }, 5) { d ->
             val v = Math.floorMod(Extras.numero(this, HoraDormir.CHAVE_TETO, HoraDormir.PADRAO_TETO) + d, 105)   // 0..100, dá a volta
             Extras.definirNumero(this, HoraDormir.CHAVE_TETO, v)
         }
-        secao(R.string.tela_titulo)
+        secao(R.string.tela_titulo) { infoTela() }
         // Tempo de tela por dia (ideia 33): a cota (OK = +30 min; ← →) e "mais 30 min hoje". Mudar pede o PIN com a chave ligada.
-        linhaTela({ getString(R.string.tela_cota_linha, TempoTela.texto(TempoTelaTv.cota(this) * 60_000L, getString(R.string.tela_h), getString(R.string.tela_min)),
-            TempoTela.texto(TempoTelaTv.restanteMs(this), getString(R.string.tela_h), getString(R.string.tela_min))) }) { d ->
+        linhaTela({ getString(R.string.col_screen_daily) }, { TempoTela.texto(TempoTelaTv.cota(this) * 60_000L, getString(R.string.tela_h), getString(R.string.tela_min)) }) { d ->
             TempoTelaTv.definirCota(this, TempoTela.proximaCota(TempoTelaTv.cota(this), d * TempoTela.PASSO_COTA))
         }
-        linhaTela({ getString(R.string.tela_mais, TempoTela.EXTRA_MIN) }, setas = false) { _ ->
+        linhaTela({ getString(R.string.tela_mais, TempoTela.EXTRA_MIN) }, { null }, setas = false) { _ ->
             TempoTelaTv.darMais(this); aviso(getString(R.string.tela_mais_ok, TempoTela.EXTRA_MIN))
         }
         secao(R.string.cfg2_sec_ferramentas)
-        linha({ getString(R.string.extras_caches) + " (" + getString(R.string.extras_livre, Caches.livreTexto()) + ")" }) {
+        linha({ getString(R.string.extras_caches) }, { getString(R.string.extras_livre, Caches.livreTexto()) }) {
             emSegundoPlano { Caches.limpar(it).textoTv(it) }
         }
         linha({ getString(R.string.extras_consumo) }) { emSegundoPlano(dialogo = R.string.extras_consumo) { ConsumoRedeTv.texto(it, 7) } }   // o rótulo diz "7 dias": antes media 1
@@ -98,10 +109,10 @@ class ExtrasActivity : Activity() {
         linha({ getString(R.string.extras_teclas) }) { startActivity(Intent(this, TesteTeclasActivity::class.java)) }
         linha({ getString(R.string.extras_calibracao) }) { startActivity(Intent(this, CalibracaoActivity::class.java)) }
         linha({ getString(R.string.casa_titulo) }) { startActivity(Intent(this, CasaActivity::class.java)) }
-        linha({ getString(R.string.extras_acordar_pc) + AcordarPc.macGuardado(this).let { if (it.isEmpty()) "" else " ($it)" } }) {
+        linha({ getString(R.string.extras_acordar_pc) }, { AcordarPc.macGuardado(this).ifEmpty { null } }) {
             acordarPc()
         }
-        linha({ getString(R.string.extras_diario_ver) + DiarioDns.erro(this).let { if (it.isEmpty()) "" else " — $it" } }) {
+        linha({ getString(R.string.extras_diario_ver) }, { DiarioDns.erro(this).ifEmpty { null } }) {
             verDiario()
         }
         linha({ getString(R.string.extras_diario_apagar) }) {
@@ -112,29 +123,54 @@ class ExtrasActivity : Activity() {
         linha({ if (ExtrasDO.atualizacaoPendente(this) != null) getString(R.string.extras_ota_pendente) else getString(R.string.extras_ota_nenhuma) }) {
             aviso(if (ExtrasDO.atualizacaoPendente(this) != null) getString(R.string.extras_ota_pendente) else getString(R.string.extras_ota_nenhuma))
         }
-        // Vindo da busca: foco (e rolagem) na linha procurada; seção (ex.: "Hora de dormir") = a 1ª linha depois dela.
-        val foco = intent?.getStringExtra(EXTRA_FOCO)
-        val alvo = foco?.let { f -> linhas.firstOrNull { it.second().startsWith(f) }?.first ?: secaoAlvo(f) }
-        (alvo ?: linhas.firstOrNull()?.first)?.requestFocus()
-    }
-
-    /** A primeira linha logo abaixo da seção de título [titulo] (ou null). */
-    private fun secaoAlvo(titulo: String): TextView? {
-        val i = (0 until coluna.childCount).firstOrNull { (coluna.getChildAt(it) as? TextView)?.text?.toString()?.equals(titulo, true) == true } ?: return null
-        return (i + 1 until coluna.childCount).asSequence().map { coluna.getChildAt(it) }.filterIsInstance<TextView>()
-            .firstOrNull { v -> linhas.any { it.first === v } }
     }
 
 
     /** Rótulo de seção do sistema de design (o mesmo das Configurações). */
-    private fun secao(texto: Int) = coluna.addView(Estilo.secao(this, getString(texto)))
+    private fun secao(texto: Int, info: (() -> ColumnsScreen.Info?)? = null) { coluna = tela.section(getString(texto), info) }
 
-    private fun linha(texto: () -> String, ao: () -> Unit): TextView {
-        // A linha padrão do sistema de design (a mesma das Configurações).
-        val t = Estilo.linhaTexto(this).apply { setOnClickListener { ao(); atualizarTextos() } }
-        coluna.addView(t, Estilo.lpLinha(this))
-        linhas += t to texto
-        return t
+    private fun linha(rotulo: () -> String, valor: () -> String? = { null }, ao: () -> Unit): android.view.View {
+        // A linha das Configurações: rótulo à esquerda, valor à direita.
+        val (v, label, value) = tela.valueRow()
+        v.setOnClickListener { ao(); atualizarTextos() }
+        coluna.addView(v, tela.lpRow())
+        linhas += Linha(v, label, value, rotulo, valor)
+        return v
+    }
+
+    private fun agoraMin(): Int = java.util.Calendar.getInstance().let { it.get(java.util.Calendar.HOUR_OF_DAY) * 60 + it.get(java.util.Calendar.MINUTE) }
+
+    /** Coluna da direita do filtro noturno: ligado agora, ou a que horas liga; e o que ele faz. */
+    private fun infoFiltro(): ColumnsScreen.Info {
+        val ini = Extras.numero(this, FiltroNoturno.CHAVE_INICIO, FiltroNoturno.PADRAO_INICIO)
+        val fim = Extras.numero(this, FiltroNoturno.CHAVE_FIM, FiltroNoturno.PADRAO_FIM)
+        val forca = Extras.numero(this, FiltroNoturno.CHAVE_FORCA, FiltroNoturno.PADRAO_FORCA)
+        val agora = when {
+            !Extras.ligado(this, Extras.Chave.FILTRO_NOTURNO) -> getString(R.string.col_filter_off)
+            FiltroNoturno.dentro(agoraMin(), ini, fim) -> getString(R.string.col_filter_on)
+            else -> getString(R.string.col_filter_at, hhmm(ini))
+        }
+        return ColumnsScreen.Info(getString(R.string.col_now), agora, getString(R.string.col_filter_body, hhmm(ini), hhmm(fim), forca))
+    }
+
+    /** Hora de dormir: o estado de hoje e o que vale na janela do dia em edição. */
+    private fun infoDormir(): ColumnsScreen.Info {
+        val hoje = HoraDormir.doDia(java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_WEEK) - 1, HoraDormirTv.dias(this), padraoDormir())
+        val agora = when {
+            !Extras.ligado(this, Extras.Chave.HORA_DORMIR) -> getString(R.string.col_sleep_off)
+            HoraDormir.dentro(agoraMin(), hoje.inicio, hoje.fim) -> getString(R.string.col_sleep_now)
+            else -> getString(R.string.col_sleep_at, hhmm(hoje.inicio))
+        }
+        val j = janelaSel()
+        val teto = Extras.numero(this, HoraDormir.CHAVE_TETO, HoraDormir.PADRAO_TETO)
+        return ColumnsScreen.Info(getString(R.string.col_now), agora, getString(R.string.col_sleep_body, hhmm(j.inicio), hhmm(j.fim), teto))
+    }
+
+    /** Tempo de tela: quanto falta hoje e o que acontece quando acaba. */
+    private fun infoTela(): ColumnsScreen.Info {
+        val agora = if (!Extras.ligado(this, Extras.Chave.TEMPO_TELA)) getString(R.string.col_screen_off)
+            else getString(R.string.col_screen_left, TempoTela.texto(TempoTelaTv.restanteMs(this), getString(R.string.tela_h), getString(R.string.tela_min)))
+        return ColumnsScreen.Info(getString(R.string.col_now), agora, getString(R.string.col_screen_body))
     }
 
     private fun numero(rotulo: Int, chave: String, padrao: Int, passo: Int, min: Int, max: Int, hora: Boolean) {
@@ -146,7 +182,7 @@ class ExtrasActivity : Activity() {
             FiltroNoturno.avaliar()
             atualizarTextos()
         }
-        val t = linha({ "${getString(rotulo)}: ${if (hora) hhmm(valor()) else "${valor()}%"}" }) { mudar(passo) }
+        val t = linha({ getString(rotulo) }, { if (hora) hhmm(valor()) else "${valor()}%" }) { mudar(passo) }
         t.setOnKeyListener { _, code, e ->
             if (e.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
             when (code) {
@@ -183,14 +219,14 @@ class ExtrasActivity : Activity() {
      * Linha da hora de dormir: OK = [passo] para a frente; ← → = para trás/para a frente. Com a hora de dormir ligada,
      * mudar pede o PIN (senão a criança adianta o fim); escolher o dia ([protegida] = false) não muda nada e não pede.
      */
-    private fun linhaDormir(texto: () -> String, passo: Int, protegida: Boolean = true, aplicar: (Int) -> Unit) {
+    private fun linhaDormir(texto: () -> String, valor: () -> String?, passo: Int, protegida: Boolean = true, aplicar: (Int) -> Unit) {
         fun mudar(delta: Int) {
             val fazer = { aplicar(delta); atualizarTextos() }
             if (protegida && Extras.ligado(this, Extras.Chave.HORA_DORMIR) && PainelArmazem.temPin(this))
                 PinTv.pedir(this, getString(R.string.dormir_pin), familia = true) { certo -> if (certo) fazer() }
             else fazer()
         }
-        val t = linha(texto) { mudar(passo) }
+        val t = linha(texto, valor) { mudar(passo) }
         t.setOnKeyListener { _, code, e ->
             if (e.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
             when (code) {
@@ -202,14 +238,14 @@ class ExtrasActivity : Activity() {
     }
 
     /** Linha do tempo de tela: com a chave ligada, mudar pede o PIN (das crianças ou do painel). [aplicar] recebe +1 ou -1. */
-    private fun linhaTela(texto: () -> String, setas: Boolean = true, aplicar: (Int) -> Unit) {
+    private fun linhaTela(texto: () -> String, valor: () -> String?, setas: Boolean = true, aplicar: (Int) -> Unit) {
         fun mudar(d: Int) {
             val fazer = { aplicar(d); atualizarTextos() }
             if (Extras.ligado(this, Extras.Chave.TEMPO_TELA) && PainelArmazem.temPin(this))
                 PinTv.pedir(this, getString(R.string.tela_pin), familia = true) { certo -> if (certo) fazer() }
             else fazer()
         }
-        val t = linha(texto) { mudar(1) }
+        val t = linha(texto, valor) { mudar(1) }
         if (setas) t.setOnKeyListener { _, code, e ->
             if (e.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
             when (code) {
@@ -270,5 +306,13 @@ class ExtrasActivity : Activity() {
     /** Aviso padrão (a pílula do sistema de design) em vez do Toast do Android. */
     private fun aviso(texto: String) = AvisoTv.rapido(this, getString(R.string.extras_titulo), texto)
 
-    private fun atualizarTextos() { for ((t, f) in linhas) t.text = f() }
+    private fun atualizarTextos() {
+        for (l in linhas) {
+            l.label.text = l.rotulo()
+            val v = l.valor()
+            l.value.text = v ?: ""
+            l.value.visibility = if (v.isNullOrEmpty()) android.view.View.GONE else android.view.View.VISIBLE
+        }
+        if (::tela.isInitialized) tela.refresh()
+    }
 }

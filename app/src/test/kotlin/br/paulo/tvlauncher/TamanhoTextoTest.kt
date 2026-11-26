@@ -8,7 +8,9 @@ class TamanhoTextoTest {
     @Test fun ciclaEDaAVolta() {
         assertEquals(110, TamanhoTexto.proximo(100))
         assertEquals(120, TamanhoTexto.proximo(110))
-        assertEquals(100, TamanhoTexto.proximo(120))
+        assertEquals(80, TamanhoTexto.proximo(120))   // dá a volta pela letra menor (26/11/2026)
+        assertEquals(90, TamanhoTexto.proximo(80))
+        assertEquals(100, TamanhoTexto.proximo(90))
     }
 
     @Test fun valorEstranhoVoltaAoNormal() {

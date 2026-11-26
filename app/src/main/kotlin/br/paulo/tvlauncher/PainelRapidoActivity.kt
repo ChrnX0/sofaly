@@ -138,7 +138,7 @@ class PainelRapidoActivity : Activity() {
         /** Botões redondos do cabeçalho e do Tocando agora. */
         private const val BOTAO_DP = 34
         /** Fundo do painel: azul-ardósia escuro e opaco, como o do Google (e próximo do FUNDO do launcher). */
-        private const val FUNDO_PAINEL = 0xFF151C25.toInt()
+        private const val FUNDO_PAINEL = 0xFF171716.toInt()
         /** Ícone de tile desligado: o texto do sistema a 85%. */
         private const val ICONE_APAGADO = 0xD9FFF3E6.toInt()
     }
@@ -269,7 +269,7 @@ class PainelRapidoActivity : Activity() {
         // Entra deslizando da direita, como o do Google.
         painel.translationX = dp(Estilo.E3).toFloat()
         painel.alpha = 0f
-        painel.animate().translationX(0f).alpha(1f).setDuration(Estilo.TRANSICAO_MS).setInterpolator(DecelerateInterpolator()).start()
+        painel.animate().translationX(0f).alpha(1f).setDuration(Estilo.TRANSICAO_MS).setInterpolator(Estilo.curva()).start()
         painel.post { (blocosNaTela.firstOrNull() ?: tWifi.casca).requestFocus() }   // ideia 42: o 1º bloco escolhido
 
         // O ouvinte de notificações costuma estar ligado (o protetor usa). Se não estiver, liga pelo shell, fora da tela.
@@ -484,8 +484,9 @@ class PainelRapidoActivity : Activity() {
                 PerfilCriancaTv.alternarMarca(this@PainelRapidoActivity, conta, ativa) { mostrarCrianca() }
             }
             setOnFocusChangeListener { v, foco ->
-                v.background = Estilo.fundo(this@PainelRapidoActivity, if (foco) Estilo.FOCO else Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
-                (v as TextView).setTextColor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO_2)
+                // Foco do padrão único (26/11/2026): o jeito escolhido (Anel por padrão), não um branco próprio.
+                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO_PILULA, Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)) else Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+                (v as TextView).setTextColor(when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(this@PainelRapidoActivity) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.TEXTO })
             }
             visibility = if (contas.isEmpty()) View.GONE else View.VISIBLE
         }
@@ -897,8 +898,9 @@ class PainelRapidoActivity : Activity() {
                 AvisoTv.limparHistorico(this@PainelRapidoActivity)
             }
             setOnFocusChangeListener { v, foco ->
-                v.background = Estilo.fundo(this@PainelRapidoActivity, if (foco) Estilo.FOCO else Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
-                (v as TextView).setTextColor(if (foco) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO_2)
+                // Foco do padrão único (26/11/2026): o jeito escolhido (Anel por padrão), não um branco próprio.
+                v.background = if (foco) Estilo.fundoFocado(this@PainelRapidoActivity, Estilo.RAIO_PILULA, Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)) else Estilo.fundo(this@PainelRapidoActivity, Estilo.SUPERFICIE, Estilo.RAIO_PILULA)
+                (v as TextView).setTextColor(when { !foco -> Estilo.TEXTO_2; Estilo.focoEscurece(this@PainelRapidoActivity) -> Estilo.TEXTO_NO_FOCO; else -> Estilo.TEXTO })
             }
         }
         return limpar

@@ -135,7 +135,7 @@ class IconPickerActivity : Activity() {
             background = Estilo.fundo(context, Estilo.alfa(0xFFFFFFFF.toInt(), 0x14))
             addView(ImageView(context).apply { scaleType = ImageView.ScaleType.FIT_CENTER }, LinearLayout.LayoutParams(dp(ICONE), dp(ICONE)))
             addView(TextView(context).apply {
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f); typeface = Fontes.nunito(500); setTextColor(Estilo.TEXTO)
+                setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); typeface = Fontes.nunito(500); setTextColor(Estilo.TEXTO)
                 maxLines = 2; gravity = Gravity.CENTER; ellipsize = android.text.TextUtils.TruncateAt.END
                 setPaddingRelative(0, dp(8), 0, 0)
             }, LinearLayout.LayoutParams(-1, -2))

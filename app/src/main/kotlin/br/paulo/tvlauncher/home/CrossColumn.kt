@@ -279,7 +279,7 @@ class TimeWheel(ctx: Context, private val maximo: Int) : FrameLayout(ctx) {
             val passo = alturaNumero() * 0.9f
             pilha.animate().cancel()
             pilha.translationY = -passo * de   // subiu: a pilha desce do lugar do número de cima
-            pilha.animate().translationY(0f).setDuration(Estilo.LISTA_FOCO_MS).setInterpolator(android.view.animation.DecelerateInterpolator(1.6f)).start()
+            pilha.animate().translationY(0f).setDuration(Estilo.LISTA_FOCO_MS).setInterpolator(Estilo.curva()).start()
         }
     }
 

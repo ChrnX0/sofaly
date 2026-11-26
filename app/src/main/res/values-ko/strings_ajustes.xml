@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">내 요금제</string>
     <string name="pl_loja_indisponivel">Google Play에서 구매를 열지 못했습니다. 인터넷을 확인하고 다시 시도하세요.</string>
     <string name="atu_pela_play">업데이트는 Google Play에서 받습니다.</string>
+    <string name="cfg_sec_tema">테마 및 배경</string>
+    <string name="cfg_sec_leitura">읽기</string>
+    <string name="cfg_sec_inicio">홈 화면</string>
 </resources>

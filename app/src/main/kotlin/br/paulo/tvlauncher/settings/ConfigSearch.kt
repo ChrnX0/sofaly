@@ -69,6 +69,8 @@ internal fun ConfigLauncherActivity.mostrarBusca() {
             }
             return
         }
+        // Pedido (onda E, 25/11/2026): "deixa a letra maior" vira um botão que já faz, acima da lista do que achou.
+        SettingsIntents.entender(termo, SettingsIntents.modelos(getString(R.string.si_frases)))?.let { pedido(resultados, it) }
         val achados = BuscaAjustes.procurar(indiceDosAjustes(), termo, BuscaAjustes.grupos(getString(R.string.elv_aj_sinonimos)))
         if (achados.isEmpty()) { resultados.addView(info(getString(R.string.elv_aj_nada, termo), getString(R.string.elv_aj_nada_det)), lp()); return }
         achados.forEach { e ->
@@ -137,3 +139,33 @@ internal fun ConfigLauncherActivity.lembrarRecente(aba: Int, titulo: String) {
     val l = BuscaAjustes.lembrar(BuscaAjustes.ler(prefsBusca.getString("recentes", null)), aba, titulo, System.currentTimeMillis())
     prefsBusca.edit().putString("recentes", BuscaAjustes.texto(l)).apply()
 }
+
+/** Como estava antes do pedido feito pela busca ("Desfazer" volta a ela). Só enquanto a tela está aberta. */
+private var desfazerPedido: (() -> Unit)? = null
+private var pedidoFeito: SettingsIntents.Action? = null
+
+private fun ConfigLauncherActivity.nomePedido(a: SettingsIntents.Action): String = getString(when (a) {
+    SettingsIntents.Action.TEXT_BIGGER -> R.string.si_maior
+    SettingsIntents.Action.TEXT_SMALLER -> R.string.si_menor
+    SettingsIntents.Action.GOAL_READ -> R.string.goal_read
+    SettingsIntents.Action.GOAL_CLEAN -> R.string.goal_clean
+    SettingsIntents.Action.GOAL_ENERGY -> R.string.goal_energy
+    SettingsIntents.Action.LOOK_SOFALY -> R.string.hl_sofaly
+    SettingsIntents.Action.LOOK_NIGHT -> R.string.hl_night
+    SettingsIntents.Action.LOOK_MOUNTAIN -> R.string.hl_mountain
+    SettingsIntents.Action.LOOK_MINIMAL -> R.string.hl_minimal
+})
+
+/** A linha "Fazer agora" (ou "Desfazer", se já foi feito nesta visita) no topo dos resultados. */
+private fun ConfigLauncherActivity.pedido(resultados: LinearLayout, a: SettingsIntents.Action) {
+    val nome = nomePedido(a)
+    val feito = pedidoFeito == a && desfazerPedido != null
+    resultados.addView(linha(getString(if (feito) R.string.si_desfazer else R.string.si_fazer, nome), getString(R.string.si_fazer_det), seta = true) {
+        if (feito) { desfazerPedido?.invoke(); desfazerPedido = null; pedidoFeito = null; aviso(getString(R.string.goal_desfeito, nome)) }
+        else { desfazerPedido = SettingsIntents.fazer(this, a); pedidoFeito = a; aviso(getString(R.string.goal_feito, nome)) }
+        // A letra muda a própria tela: refaz (a busca some; a pessoa vê o resultado já maior). O resto redesenha a lista.
+        if (a == SettingsIntents.Action.TEXT_BIGGER || a == SettingsIntents.Action.TEXT_SMALLER || a == SettingsIntents.Action.GOAL_READ) recreate()
+        else campoBusca?.let { it.text = it.text }
+    }, 0, lp())
+}
+

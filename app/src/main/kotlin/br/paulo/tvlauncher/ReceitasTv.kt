@@ -156,24 +156,30 @@ class ReceitasActivity : Activity() {
     private var naLista = true
 
     private fun escolher() {
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.rec_titulo), getString(R.string.rec_subtitulo))
+        // Molde das telas de ajuste (Paulo, 26/11/2026): as receitas no meio e, à direita, o que cada uma muda nesta TV
+        // (antes só se via depois do OK). Uma seção só: sem trilho.
+        val tela = ColumnsScreen(this, getString(R.string.rec_titulo), getString(R.string.rec_subtitulo))
+        val coluna = tela.section(getString(R.string.rec_titulo))
         val ativa = ReceitasTv.ativa(this)
-        var primeira: android.view.View? = null
         for (r in Receitas.Receita.values()) {
             val linha = Estilo.linhaOpcao(this, ReceitasTv.nome(this, r), ReceitasTv.explicacao(this, r),
                 if (r == ativa) Estilo.valor(this, "✓", seta = false) else null).apply {
                 setOnClickListener { confirmar(r) }
             }
-            coluna.addView(linha, Estilo.lpLinha(this))
-            if (primeira == null) primeira = linha
+            coluna.addView(linha, tela.lpRow())
+            tela.describe(linha) {
+                val m = ReceitasTv.mudancas(this, r)
+                ColumnsScreen.Info(getString(R.string.col_changes), null,
+                    if (m.isEmpty()) getString(R.string.rec_ja_esta) else m.joinToString("\n") { (a, v) -> "• " + ReceitasTv.linha(this, a, v) })
+            }
         }
         if (ReceitasTv.temDesfazer(this)) coluna.addView(Estilo.linhaOpcao(this, getString(R.string.rec_desfazer),
             getString(R.string.rec_desfazer_det, ativa?.let { ReceitasTv.nome(this, it) } ?: "")).apply {
             setOnClickListener { desfazer() }
-        }, Estilo.lpLinha(this))
-        setContentView(raiz)
+        }, tela.lpRow())
+        setContentView(tela.root)
         naLista = true
-        primeira?.requestFocus()
+        tela.start()
     }
 
     /** Antes de aplicar: o que muda e os avisos. Nada muda = já está assim. */

@@ -115,7 +115,7 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
             val esc = minOf(b.width(), b.height()) / 24f
             c.translate((b.width() - 24f * esc) / 2f, (b.height() - 24f * esc) / 2f)
             c.scale(esc, esc)
-            corTraco = corLinha(tipo)
+            corTraco = corFixa ?: corLinha(tipo)
             fase = faseAgora()
             linhaFina(c)
             if (fase >= 0f) linhaViva(c, fase)
@@ -161,6 +161,13 @@ class IconeCruz(val tipo: Tipo, val estilo: Estilo = Estilo.OBJETO) : Drawable()
 
     /** Cor do azulejo quando o lugar pede outra que não a do tipo (a aba das Configurações usa a cor da área dela). */
     var corAzulejo: Int? = null
+
+    /**
+     * Linha numa cor só (padrão dos menus, Paulo 26/11/2026: "grosseira" com azulejos coloridos): traço creme apagado
+     * parado e laranja no foco. Null = a cor própria do tipo ([corLinha]).
+     */
+    var corFixa: Int? = null
+        set(v) { field = v; invalidateSelf() }
 
     /**
      * O quadrado arredondado na cor do tipo (raio de 28%, o "squircle" das referências) e, dentro, o desenho da Linha

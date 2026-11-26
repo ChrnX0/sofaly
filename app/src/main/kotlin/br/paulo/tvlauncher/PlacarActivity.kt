@@ -3,20 +3,13 @@ package br.paulo.tvlauncher
 import android.app.Activity
 import android.os.Bundle
 import android.text.format.DateUtils
-import android.util.TypedValue
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import android.widget.TextView
 import br.paulo.tvlauncher.observer.Falhas
 import br.paulo.tvlauncher.observer.FalhasTv
 import br.paulo.tvlauncher.observer.MedidasTv
 import br.paulo.tvlauncher.observer.Placar
 import br.paulo.tvlauncher.observer.VitaisLocais
 import br.paulo.tvlauncher.observer.VitaisTv
-import br.paulo.tvlauncher.settings.Fontes
 import java.text.DecimalFormatSymbols
 import java.util.Locale
 
@@ -34,23 +27,14 @@ class PlacarActivity : Activity() {
         fun decimal(): Char = DecimalFormatSymbols.getInstance(Locale.getDefault()).decimalSeparator
     }
 
-    private lateinit var lista: LinearLayout
+    private lateinit var tela: CardsScreen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val raiz = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            background = Estilo.fundoTela(context)
-            setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL))
-        }
-        raiz.addView(Estilo.tituloTela(this, getString(R.string.elv_placar_titulo)))
-        raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.elv_placar_sub)).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f); setPaddingRelative(0, dp(6), 0, 0)
-        })
-        lista = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false }
-        raiz.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(lista) },
-            LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(14) })
-        setContentView(raiz)
+        // Tela de LEITURA em cartões (Paulo, 26/11/2026, "B na leitura"): os 7 pilares lado a lado, número grande,
+        // tudo de uma vez sem rolar. Antes: uma coluna de linhas esticada nos 960 dp.
+        tela = CardsScreen(this, getString(R.string.elv_placar_titulo), getString(R.string.elv_placar_sub))
+        setContentView(tela.root)
         // Sete arquivos de poucos centésimos de KB: ler na hora custa menos que um quadro e a tela já abre completa.
         val linhas = runCatching { MedidasTv.linhas(this) }.getOrElse { Placar.linhas(Placar.Entradas()) }
         val quedas = runCatching { VitaisTv.resumo30(this) }.getOrNull()
@@ -91,76 +75,52 @@ class PlacarActivity : Activity() {
     }
 
     private fun desenhar(linhas: List<Placar.Linha>, quedas: VitaisLocais.Resumo?, falhas: List<Falhas.Tipo> = emptyList()) {
-        lista.removeAllViews()
+        tela.clear()
         var primeira: View? = null
         if (falhas.isNotEmpty()) {
-            lista.addView(Estilo.secao(this, getString(R.string.elv_f_titulo)).apply { setPaddingRelative(dp(4), 0, 0, dp(8)) })
+            // Elevação 2.3: o que precisa de atenção vem antes dos pilares, um cartão largo por falha, com o conserto.
+            tela.group(getString(R.string.elv_f_titulo))
             for (f in falhas) {
-                val l = linha(FalhasTv.frase(this, f), FalhasTv.causa(this, f), "▶  " + FalhasTv.botao(this, f), false, falha = true)
-                l.setOnClickListener { FalhasTv.consertar(this, f) }
-                lista.addView(l, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dp(8) })
-                if (primeira == null) primeira = l
+                val c = tela.card(wide = true)
+                tela.name(c, FalhasTv.frase(this, f))
+                tela.caption(c, FalhasTv.causa(this, f))
+                tela.caption(c, "▶  " + FalhasTv.botao(this, f), Estilo.ATENCAO)
+                c.setOnClickListener { FalhasTv.consertar(this, f) }
+                if (primeira == null) primeira = c
             }
-            lista.addView(Estilo.secao(this, getString(R.string.elv_placar_titulo)).apply { setPaddingRelative(dp(4), dp(12), 0, dp(8)) })
+            tela.group(getString(R.string.elv_placar_titulo))
         }
-        linhas.forEachIndexed { i, l ->
-            val medida = when {
-                l.numero == null -> getString(R.string.elv_nao_medido)
-                else -> {
-                    val alvo = l.alvo?.let { getString(R.string.elv_alvo, numero(it)) }.orEmpty()
-                    val agora = System.currentTimeMillis()
-                    val quando = l.medidoEm?.let {
-                        if (agora - it < DateUtils.MINUTE_IN_MILLIS) getString(R.string.elv_agora)
-                        else DateUtils.getRelativeTimeSpanString(it, agora, DateUtils.MINUTE_IN_MILLIS)
-                    }
-                    listOfNotNull(numero(l.numero), alvo, quando?.toString()).joinToString("  ·  ")
+        val agora = System.currentTimeMillis()
+        for (l in linhas) {
+            val c = tela.card()
+            tela.name(c, nome(l.pilar))
+            if (l.numero == null) tela.caption(c, getString(R.string.elv_nao_medido))
+            else {
+                tela.number(c, numero(l.numero))
+                l.alvo?.let { tela.caption(c, getString(R.string.elv_alvo, numero(it))) }
+                l.medidoEm?.let {
+                    tela.caption(c, if (agora - it < DateUtils.MINUTE_IN_MILLIS) getString(R.string.elv_agora)
+                        else DateUtils.getRelativeTimeSpanString(it, agora, DateUtils.MINUTE_IN_MILLIS).toString())
                 }
             }
-            var detalhe = promessa(l.pilar)
             if (l.pilar == Placar.Pilar.LIGA && quedas != null) {
                 val n = quedas.quedas + quedas.travadas
-                detalhe += "\n" + if (n == 0) getString(R.string.elv_sem_quedas, VitaisLocais.DIAS)
-                    else resources.getQuantityString(R.plurals.elv_quedas, n, n, VitaisLocais.DIAS)
+                tela.caption(c, if (n == 0) getString(R.string.elv_sem_quedas, VitaisLocais.DIAS)
+                    else resources.getQuantityString(R.plurals.elv_quedas, n, n, VitaisLocais.DIAS))
             }
-            val linha = linha("${i + 1}. ${nome(l.pilar)}", detalhe, medida, l.dentro)
-            lista.addView(linha, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dp(8) })
-            if (i == 0 && primeira == null) primeira = linha
+            tela.spacer(c)
+            // Nunca só pela cor: sinal e palavra (✓ dentro do alvo, ! fora, — sem medida).
+            val (sinal, palavra, cor) = when (l.dentro) {
+                true -> Triple("✓", getString(R.string.elv_dentro), Estilo.ACENTO)
+                false -> Triple("!", getString(R.string.elv_fora), Estilo.ATENCAO)
+                null -> Triple("—", "", Estilo.TEXTO_3)
+            }
+            tela.caption(c, if (palavra.isEmpty()) sinal else "$sinal  $palavra", cor).apply { typeface = Estilo.fonte(700) }
+            // OK no cartão: a promessa do pilar (o que o número quer dizer), num aviso curto.
+            c.setOnClickListener { AvisoTv.rapido(this, nome(l.pilar), promessa(l.pilar)) }
+            if (primeira == null) primeira = c
         }
-        primeira?.let { v -> v.requestFocus(); v.post { v.requestFocus() } }
+        tela.start(primeira)
     }
 
-    /** Linha focável (a lista rola pelo foco); sinal + palavra à direita, nunca só a cor. */
-    private fun linha(titulo: String, detalhe: String, medida: String, dentro: Boolean?, falha: Boolean = false): View {
-        val (sinal, palavra, cor) = when (dentro) {
-            true -> Triple("✓", getString(R.string.elv_dentro), Estilo.ACENTO)
-            false -> Triple("!", if (falha) "" else getString(R.string.elv_fora), Estilo.ATENCAO)
-            null -> Triple("—", "", Estilo.TEXTO_3)
-        }
-        val tTitulo = Estilo.texto(this, Estilo.Papel.CORPO, titulo).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f) }
-        val tDetalhe = Estilo.texto(this, Estilo.Papel.LEGENDA, detalhe).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f); setPaddingRelative(0, dp(4), 0, 0) }
-        val tMedida = Estilo.texto(this, Estilo.Papel.CORPO, medida).apply { setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); setPaddingRelative(0, dp(6), 0, 0) }
-        val tSinal = TextView(this).apply {
-            text = if (palavra.isEmpty()) sinal else "$sinal  $palavra"
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f); typeface = Fontes.nunito(700); setTextColor(cor); gravity = Gravity.END
-        }
-        return LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            setPaddingRelative(dp(Estilo.E3), dp(14), dp(Estilo.E3), dp(14))
-            isFocusable = true
-            background = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
-            addView(LinearLayout(context).apply { orientation = LinearLayout.VERTICAL; addView(tTitulo); addView(tDetalhe); addView(tMedida) },
-                LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f))
-            addView(tSinal, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { marginStart = dp(16) })
-            setOnFocusChangeListener { v, foco ->
-                v.background = if (foco) Estilo.fundo(context, Estilo.FOCO, Estilo.RAIO) else Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
-                val claro = if (foco) Estilo.FUNDO else Estilo.TEXTO
-                tTitulo.setTextColor(claro); tMedida.setTextColor(claro)
-                tDetalhe.setTextColor(if (foco) Estilo.FUNDO else Estilo.TEXTO_2)
-                tSinal.setTextColor(if (foco) Estilo.FUNDO else cor)
-            }
-        }
-    }
-
-    private fun dp(v: Int) = (v * resources.displayMetrics.density + 0.5f).toInt()
 }

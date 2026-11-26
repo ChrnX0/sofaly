@@ -28,6 +28,23 @@ class WorldOptionsTest {
     @Test fun aMaoComAppNovoNoFimEAppSumido() =
         assertEquals(listOf("globo", "yt", "nf", "prime"), Rules.arrange(uso, Sort.MANUAL, manual = listOf("globo", "apagado", "yt")))
 
+    @Test fun ultimosUsadosPrimeiroComFixadoNoTopo() =
+        assertEquals(listOf("yt", "globo", "nf", "prime"),
+            Rules.arrange(uso, Sort.LAST, pinned = setOf("yt"), lastUsed = mapOf("globo" to 30L, "nf" to 20L, "yt" to 1L)))
+
+    @Test fun aleatoriaMesmaOrdemNoMesmoDia() {
+        val a = Rules.arrange(uso, Sort.RANDOM, pinned = setOf("nf"), seed = 20_000L)
+        assertEquals(a, Rules.arrange(uso.reversed(), Sort.RANDOM, pinned = setOf("nf"), seed = 20_000L))   // não depende da ordem de entrada
+        assertEquals("nf", a.first())
+        assertEquals(uso.toSet(), a.toSet())
+    }
+
+    @Test fun tamanhoPorCategoriaGuarda() {
+        val o = Options(size = 3)
+        assertEquals(3, Rules.read(Rules.write(o)).size)
+        assertNull(Rules.read("""{"sort":"usage"}""").size)
+    }
+
     @Test fun moverNasPontas() {
         assertEquals(listOf("b", "a", "c"), Rules.move(listOf("a", "b", "c"), "b", -1))
         assertEquals(listOf("a", "b", "c"), Rules.move(listOf("a", "b", "c"), "a", -1))

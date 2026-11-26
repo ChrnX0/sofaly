@@ -519,6 +519,7 @@
         <activity
             android:name=".ConfigLauncherActivity"
             android:exported="false"
+            android:theme="@style/One.Painel"
             android:label="@string/lbl_config" />
         <!-- Controle parental: escolher os canais bloqueados (só pelas Configurações, depois do PIN). -->
         <activity

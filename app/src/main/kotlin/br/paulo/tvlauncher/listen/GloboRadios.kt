@@ -77,7 +77,7 @@ class GloboRadiosView(ctx: Context, private val radios: List<Radios.Radio>, inic
     private val pEsfera = Paint(Paint.ANTI_ALIAS_FLAG)
     private val pts = FloatArray(comLugar.size * 2)
 
-    init { isFocusable = true; isFocusableInTouchMode = true; setBackgroundColor(0xF20B0D1A.toInt()) }
+    init { isFocusable = true; isFocusableInTouchMode = true; setBackgroundColor(0xF20C0C0B.toInt()) }
 
     override fun onSizeChanged(w: Int, h: Int, ow: Int, oh: Int) {
         val r = raio(); val cx = w / 2f; val cy = h / 2f

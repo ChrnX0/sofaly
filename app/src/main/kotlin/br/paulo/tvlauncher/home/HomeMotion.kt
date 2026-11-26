@@ -198,7 +198,8 @@ internal fun MainActivity.atualizarCruz() {
     // Arruma os ids de um mundo pela ordem que a pessoa escolheu (uso = como sempre; A–Z; à mão).
     fun arrumar(k: CruzLogica.Categoria, ids: List<String>, nomes: Map<String, String>, fixos: Collection<String>): List<String> {
         val o = WorldOptions.of(this, k)
-        return WorldOptions.Rules.arrange(ids, o.sort, nomes, o.manual, fixos)
+        // Aleatória: a mesma ordem o dia todo (semente = o dia), senão o foco pularia a cada redesenho da HOME
+        return WorldOptions.Rules.arrange(ids, o.sort, nomes, o.manual, fixos, ultimoUso, System.currentTimeMillis() / 86_400_000L)
     }
     fun nomeApp(id: String, original: String) = AppNames.name(this, id, original)
 

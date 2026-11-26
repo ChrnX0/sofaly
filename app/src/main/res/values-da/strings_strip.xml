@@ -44,6 +44,9 @@
     <string name="st_telas_gaveta">Skuffe</string>
     <string name="st_telas_vidro">Glas</string>
     <string name="st_telas_barra">Bjælke</string>
+    <string name="st_telas_painel">Sidepanel</string>
+    <string name="st_telas_guiada">Guidet</string>
+    <string name="gl_root_desc">Alt om dette tv, et trin ad gangen.</string>
     <string name="st_proprios">Genvejskort</string>
     <string name="st_proprios_branco">Hvid</string>
     <string name="st_proprios_vidro">Lyst glas</string>

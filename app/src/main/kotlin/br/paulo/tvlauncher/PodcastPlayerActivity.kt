@@ -203,16 +203,16 @@ class PodcastPlayerActivity : Activity() {
         raiz.addView(arte, FrameLayout.LayoutParams(-1, -1))
         // Véus: a capa desfocada dá a cor da tela, mas o texto e os botões ficam sempre legíveis.
         raiz.addView(View(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0x88121528.toInt(), 0xCC121528.toInt(), 0xE6121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0x88141413.toInt(), 0xCC141413.toInt(), 0xE6141413.toInt()))
         }, FrameLayout.LayoutParams(-1, -1))
         raiz.addView(View(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x00121528, 0x00121528, 0xF0121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x00141413, 0x00141413, 0xF0141413.toInt()))
         }, FrameLayout.LayoutParams(-1, -1))
 
         capa = CapaOuvir(this, 22f).apply { fonte(fonteForte); cobrir = true; elevation = dp(14f) }
         raiz.addView(capa, FrameLayout.LayoutParams(dpi(CAPA), dpi(CAPA)).apply { marginStart = dpi(MARGEM); topMargin = dpi(TOPO) })
 
-        rotulo = texto(15f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f }
+        rotulo = texto(18f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f }
         podcast = texto(FONTE_PODCAST, HomeCruz.COR_SUB, forte = true)
         titulo = texto(FONTE_TITULO, Estilo.TEXTO, forte = true, linhas = 2).apply { setLineSpacing(dp(3f), 1f) }
         info = texto(FONTE_INFO, HomeCruz.COR_SUB)
@@ -256,7 +256,7 @@ class PodcastPlayerActivity : Activity() {
         painel = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false
             setPaddingRelative(dpi(MARGEM), dpi(14), dpi(MARGEM), dpi(22))
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xE6121528.toInt(), 0xFA121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xE6141413.toInt(), 0xFA141413.toInt()))
             addView(texto(18f, Estilo.TEXTO_2).apply { text = getString(R.string.pl_a_seguir) },
                 LinearLayout.LayoutParams(-1, -2))
             addView(fila, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dpi(10) })
@@ -296,7 +296,7 @@ class PodcastPlayerActivity : Activity() {
         if (arte.tag != endereco) {
             arte.tag = endereco
             if (endereco.isEmpty()) arte.setImageDrawable(null) else PlayerLogos.carregar(this, endereco, arte, CruzOuvir.ARTE_LADO)
-            arte.animate().alpha(if (endereco.isEmpty()) 0f else 0.55f).setDuration(500).start()
+            arte.animate().alpha(if (endereco.isEmpty()) 0f else 0.55f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_SLOW).start()
         }
 
         vistas[Acao.ALTERNAR]?.icone(if (pausado) IconeOuvir.Tipo.CONTINUAR else IconeOuvir.Tipo.PAUSAR)
@@ -412,7 +412,7 @@ class PodcastPlayerActivity : Activity() {
         }
         addView(c, LinearLayout.LayoutParams(dpi(SEGUIR_CAPA), dpi(SEGUIR_CAPA)))
         val t = texto(18f, Estilo.TEXTO, forte = true, linhas = 2)
-        val d = texto(15f, HomeCruz.COR_SUB)
+        val d = texto(18f, HomeCruz.COR_SUB)
         addView(LinearLayout(this@PodcastPlayerActivity).apply {
             orientation = LinearLayout.VERTICAL
             addView(t, LinearLayout.LayoutParams(-1, -2))
@@ -424,7 +424,7 @@ class PodcastPlayerActivity : Activity() {
             x.dataMs.takeIf { it > 0 }?.let { dataCurta(it) },
             x.duracaoS.takeIf { it > 0 }?.let { getString(R.string.pod_minutos, maxOf(1, (it + 59) / 60)) },
         ).joinToString(" · "), d, larguraTexto, 1)
-        background = GradientDrawable().apply { cornerRadius = dp(16f); setColor(0x00000000) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO.toFloat()); setColor(0x00000000) }
     }
 
     /** "13 de nov." / "Nov 13": dia e mês na ordem da língua, sem o ano. */
@@ -603,9 +603,9 @@ class PodcastPlayerActivity : Activity() {
 
     private fun abrirPalco() {
         val p = palco ?: FrameLayout(this).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5121528.toInt(), 0xFA0E1020.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5141413.toInt(), 0xFA0E0E0D.toInt()))
             val col = LinearLayout(this@PodcastPlayerActivity).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_VERTICAL }
-            val topo = texto(15f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f; tag = "topo" }
+            val topo = texto(18f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f; tag = "topo" }
             col.addView(topo, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dpi(26) })
             linhasPalco.clear()
             // 0 = anterior, 1 = agora, 2 e 3 = próximas.
@@ -622,14 +622,14 @@ class PodcastPlayerActivity : Activity() {
             palco = this
         }
         achados = emptyList(); noAchado = -1; palcoVisto = -2
-        p.visibility = View.VISIBLE; p.alpha = 0f; p.animate().alpha(1f).setDuration(220).start()
+        p.visibility = View.VISIBLE; p.alpha = 0f; p.animate().alpha(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).start()
         desenharPalco()
         ui.removeCallbacks(relogio); ui.post(relogio)
     }
 
     private fun fecharPalco() {
         val p = palco ?: return
-        p.animate().alpha(0f).setDuration(160).withEndAction { p.visibility = View.GONE }.start()
+        p.animate().alpha(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).withEndAction { p.visibility = View.GONE }.start()
         p.visibility = View.GONE
         desenharFoco(true)
     }
@@ -658,7 +658,7 @@ class PodcastPlayerActivity : Activity() {
         palcoVisto = i
         fun frase(k: Int): String = l.getOrNull(k)?.let { x -> if (x.quem.isNotEmpty() && (k == 0 || l[k - 1].quem != x.quem)) x.quem + ": " + x.texto else x.texto }.orEmpty()
         linhasPalco.getOrNull(0)?.text = frase(i - 1)
-        linhasPalco.getOrNull(1)?.let { tv -> tv.text = if (i < 0) "…" else frase(i); tv.translationY = dp(10f); tv.animate().translationY(0f).setDuration(180).start() }
+        linhasPalco.getOrNull(1)?.let { tv -> tv.text = if (i < 0) "…" else frase(i); tv.translationY = dp(10f); tv.animate().translationY(0f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start() }
         linhasPalco.getOrNull(2)?.text = frase(i + 1)
         linhasPalco.getOrNull(3)?.text = frase(i + 2)
         val raiz = window.decorView.findFocus()
@@ -737,7 +737,7 @@ class PodcastPlayerActivity : Activity() {
         /** Onde começa cada capítulo (0..1): um corte fino no trilho. */
         var marcas = FloatArray(0)
             set(v) { if (!field.contentEquals(v)) { field = v; invalidate() } }
-        private val corte = Paint().apply { color = 0xFF121528.toInt() }
+        private val corte = Paint().apply { color = 0xFF141413.toInt() }
         private val trilho = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x40FFFFFF }
         private val cheio = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.ACENTO }
         private val pino = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.TEXTO }
@@ -758,14 +758,14 @@ class PodcastPlayerActivity : Activity() {
         private var ic: IconeOuvir? = null
         private var escrita: String? = null
         var focado = false
-            set(v) { if (field != v) { field = v; animate().scaleX(if (v) 1.12f else 1f).scaleY(if (v) 1.12f else 1f).setDuration(140).start(); invalidate() } }
+            set(v) { if (field != v) { field = v; animate().scaleX(if (v) 1.12f else 1f).scaleY(if (v) 1.12f else 1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_QUICK).start(); invalidate() } }
         var ligado = true
             set(v) { if (field != v) { field = v; invalidate() } }
         private val fundo = Paint(Paint.ANTI_ALIAS_FLAG)
         private val letra = Paint(Paint.ANTI_ALIAS_FLAG).apply { textAlign = Paint.Align.CENTER; typeface = fonteForte }
         private val ponto = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Estilo.ACENTO }
         // O ícone do botão grande vai escuro sobre o laranja (o traço Linha claro sumia nele).
-        private val escuro = android.graphics.PorterDuffColorFilter(0xFF14161F.toInt(), android.graphics.PorterDuff.Mode.SRC_IN)
+        private val escuro = android.graphics.PorterDuffColorFilter(0xFF161615.toInt(), android.graphics.PorterDuff.Mode.SRC_IN)
 
         init { importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO }
 
@@ -791,7 +791,7 @@ class PodcastPlayerActivity : Activity() {
                 it.draw(cv)
             }
             escrita?.let {
-                letra.color = if (focado) 0xFF14161F.toInt() else Estilo.TEXTO; letra.textSize = h * 0.3f
+                letra.color = if (focado) 0xFF161615.toInt() else Estilo.TEXTO; letra.textSize = h * 0.3f
                 cv.drawText(it, w / 2, h / 2 - (letra.descent() + letra.ascent()) / 2, letra)
             }
             // Ligado (pular silêncios, timer): um ponto laranja embaixo, como o ponto do item escolhido da cruz.

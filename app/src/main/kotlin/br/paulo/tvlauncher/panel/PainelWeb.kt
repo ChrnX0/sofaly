@@ -1252,6 +1252,7 @@ object PainelWeb {
         "/navigation.js" to ("navigation.js" to "text/javascript; charset=utf-8"),   // índice da página e aba Tudo
         "/shortcuts.js" to ("shortcuts.js" to "text/javascript; charset=utf-8"),   // Seus atalhos, "Conversa com" e Desfazer
         "/sofy-page.js" to ("sofy-page.js" to "text/javascript; charset=utf-8"),   // aba Sofy: recados, porquê e Desfazer
+        "/patterns.js" to ("patterns.js" to "text/javascript; charset=utf-8"),   // os mesmos padrões da TV: objetivos, visuais prontos, pedido
         "/arquivos.js" to ("arquivos.js" to "text/javascript; charset=utf-8"),   // prévia e organizar arquivos
         "/controle.js" to ("controle.js" to "text/javascript; charset=utf-8"),   // digitar ao vivo e touchpad
         "/chave.js" to ("chave.js" to "text/javascript; charset=utf-8"),   // ideia 99: entrar com a digital

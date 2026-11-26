@@ -28,6 +28,7 @@ import br.paulo.tvlauncher.weather.LocalClima
 /** Aba Aparência das Configurações. Saiu da ConfigLauncherActivity na refatoração de 21/11/2026. */
 
 internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
+    linhaVisuaisProntos(c)   // visuais prontos PRIMEIRO (onda B, 25/11/2026); só na barra única
     if (VindoDoProjectivyActivity.instalado(this)) c.addView(linha(getString(R.string.vp_titulo), getString(R.string.vp_cfg_det), seta = true) {
         reconstruirAoVoltar = true
         startActivity(Intent(this, VindoDoProjectivyActivity::class.java))
@@ -40,6 +41,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
             startActivity(Intent(this, PluginsActivity::class.java))
         }
     }, lp())
+    secao(c, getString(R.string.cfg_sec_tema))
     lateinit var linhaTema: LinhaCfg
     linhaTema = linha(getString(R.string.cl_tema), getString(R.string.cfg_tema_det), valor = Tema.atual(this).nome) {
         Tema.proximo(this)
@@ -88,8 +90,9 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     }
     c.addView(linhaContraste, lp())
     }
+    secao(c, getString(R.string.cfg_sec_leitura))
     // Tamanho do texto (ideia 47, TamanhoTexto): vale em todas as telas do launcher; esta tela se refaz para mostrar.
-    fun rotuloTamanho(v: Int) = getString(when (v) { 110 -> R.string.tt_grande; 120 -> R.string.tt_maior; else -> R.string.tt_normal })
+    fun rotuloTamanho(v: Int) = if (v < 100) "$v%" else getString(when (v) { 110 -> R.string.tt_grande; 120 -> R.string.tt_maior; else -> R.string.tt_normal })
     c.addView(linha(getString(R.string.tt_titulo), getString(R.string.tt_det), valor = rotuloTamanho(TamanhoTexto.atual(this))) {
         TamanhoTexto.definir(this, TamanhoTexto.proximo(TamanhoTexto.atual(this)))
         recreate()
@@ -100,6 +103,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
         reconstruirAoVoltar = true
         recreate()
     }, lp())
+    secao(c, getString(R.string.cfg_sec_inicio))
     // Tela inicial em cruz (17/11/2026), a única: ícones, apps, barra, arte, sons e a onda 3. A HOME se refaz ao voltar.
     fun rotuloIcones() = getString(LayoutHome.nomeIcones(LayoutHome.iconesCruz(this)))
     lateinit var linhaIcones: LinhaCfg
@@ -174,8 +178,9 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     }
     c.addView(linhaPacote, lp())
     // Visuais prontos (revisão dos degraus, 1b, 17/11/2026): cada OK aplica o próximo da lista (VisualCodigo.PRONTOS).
+    // Na barra única quem faz este papel são os visuais prontos do topo (ConfigLooksRow): uma lista só, não duas.
     fun rotuloPronto() = VisualCodigo.prontoAtual(VisualCodigoTv.atual(this))?.let { nomePronto(it.id) } ?: getString(R.string.vpr_meu)
-    c.addView(linha(getString(R.string.vpr_titulo), getString(R.string.vpr_det), valor = rotuloPronto()) {
+    if (!br.paulo.tvlauncher.home.BottomBar.strip(this)) c.addView(linha(getString(R.string.vpr_titulo), getString(R.string.vpr_det), valor = rotuloPronto()) {
         val p = VisualCodigo.proximoPronto(VisualCodigoTv.atual(this))
         VisualCodigoTv.aplicar(this, VisualCodigo.codificar(p.visual))
         recreate()   // tema e tamanho do texto mudam a própria tela de Configurações

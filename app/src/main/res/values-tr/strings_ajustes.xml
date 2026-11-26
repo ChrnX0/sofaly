@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">Planınız</string>
     <string name="pl_loja_indisponivel">Google Play satın almayı açamadı. İnterneti kontrol edip tekrar deneyin.</string>
     <string name="atu_pela_play">Güncellemeler Google Play üzerinden gelir.</string>
+    <string name="cfg_sec_tema">Tema ve arka plan</string>
+    <string name="cfg_sec_leitura">Okuma</string>
+    <string name="cfg_sec_inicio">Ana ekran</string>
 </resources>

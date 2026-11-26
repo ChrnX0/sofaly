@@ -135,7 +135,7 @@ class ColunaCategorias(
         })
         // O bloco fixo de ações numa caixa própria, um pouco mais clara que o fundo (o esboço aprovado).
         addView(acoes.apply {
-            background = GradientDrawable().apply { cornerRadius = dp(14).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
             setPaddingRelative(dp(4), dp(4), dp(4), dp(4)); clipToPadding = false
         }, LinearLayout.LayoutParams(-1, 0))
         addView(tituloListas)
@@ -315,7 +315,7 @@ class ColunaCategorias(
         // Selo do serviço (listas de fora): fundo claro, letra escura, pequeno.
         val etiqueta = TextView(act).apply {
             textSize = Estilo.Leitura.DICA * escala; typeface = Fontes.nunito(700); setTextColor(Estilo.FUNDO); setPaddingRelative(dp(6), dp(1), dp(6), dp(1))
-            background = GradientDrawable().apply { cornerRadius = dp(6).toFloat(); setColor(COR_ETIQUETA) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(COR_ETIQUETA) }
             visibility = View.GONE
         }
         linha.addView(etiqueta, LinearLayout.LayoutParams(-2, -2).apply { marginEnd = dp(10) })
@@ -326,7 +326,7 @@ class ColunaCategorias(
         // "+12": títulos novos desde a última visita, numa pílula verde (esboço direita-filmes.png).
         val novos = TextView(act).apply {
             textSize = Estilo.Leitura.DICA; typeface = Fontes.nunito(700); setTextColor(Estilo.FUNDO); setPaddingRelative(dp(6), dp(1), dp(6), dp(1))
-            background = GradientDrawable().apply { cornerRadius = dp(8).toFloat(); setColor(COR_NOVOS) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(COR_NOVOS) }
         }
         linha.addView(novos, LinearLayout.LayoutParams(-2, -2).apply { marginStart = dp(6) })
         // Folga entre o nome cortado e o número (12/11: "Reality show / Program…" encostava no 304).
@@ -376,7 +376,7 @@ class ColunaCategorias(
         divider = null; isVerticalScrollBarEnabled = false; itemsCanFocus = false; isFocusable = true
         choiceMode = AbsListView.CHOICE_MODE_NONE; cacheColorHint = Color.TRANSPARENT; setDrawSelectorOnTop(false)
         // A moldura branca do foco só na lista que tem o foco (é o que diz em que lugar da coluna a pessoa está).
-        val moldura = GradientDrawable().apply { cornerRadius = dp(10).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), Estilo.FOCO) }
+        val moldura = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), Estilo.FOCO) }
         val nenhuma = ColorDrawable(Color.TRANSPARENT)
         selector = nenhuma
         setOnFocusChangeListener { _, tem ->

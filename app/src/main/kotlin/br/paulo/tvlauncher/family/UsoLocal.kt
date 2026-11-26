@@ -19,6 +19,9 @@ object UsoLocal {
         p.edit().putString("mapa", UsoLocalRegras.somar(p.getString("mapa", null), nome, System.currentTimeMillis())).apply()
     }
 
+    /** Quantas vezes cada nome foi contado (nome -> vezes). */
+    fun vezes(ctx: Context): Map<String, Int> = UsoLocalRegras.itens(prefs(ctx).getString("mapa", null)).associate { it.nome to it.vezes }
+
     fun contarTela(a: Activity) = runCatching { contar(a, "tela:" + UsoLocalRegras.nomeDaTela(a.javaClass.name)) }
 
     /** Telas contadas por nome de classe -> nome na tela (teste na TV 15/11/2026: aparecia "Main (tela)", "Dream"). */

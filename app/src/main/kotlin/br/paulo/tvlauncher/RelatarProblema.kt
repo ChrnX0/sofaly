@@ -96,7 +96,7 @@ class RelatarProblemaActivity : Activity() {
         texto.addView(Estilo.texto(this, Estilo.Papel.TITULO, getString(R.string.rel_vai_junto)),
             LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(20) })
         // O que vai junto, sem o cabeçalho em branco para a pessoa escrever.
-        texto.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, RelatarProblema.corpo(d, r).substringAfter("---\n").trim()).apply { textSize = 17f },
+        texto.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, RelatarProblema.corpo(d, r).substringAfter("---\n").trim()).apply { textSize = 18f },
             LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(6) })
         val ok = Estilo.linhaOpcao(this, getString(R.string.fp_fechar)).apply { setOnClickListener { finish() } }   // era "Começar" (texto das boas-vindas do hóspede)
         texto.addView(ok, LinearLayout.LayoutParams(dp(220), -2).apply { topMargin = dp(20) })

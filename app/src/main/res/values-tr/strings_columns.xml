@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Şimdi</string>
+    <string name="col_filter_on">Filtre şu an açık</string>
+    <string name="col_filter_off">Gece filtresi kapalı</string>
+    <string name="col_filter_at">%1$s\'de açılır</string>
+    <string name="col_filter_body">Ekranı %1$s ile %2$s arasında %%%3$d güçle ısıtır ve karartır.</string>
+    <string name="col_sleep_off">Uyku saati kapalı</string>
+    <string name="col_sleep_now">Şimdi uyku saati</string>
+    <string name="col_sleep_at">%1$s\'de başlar</string>
+    <string name="col_sleep_body">%1$s ile %2$s arasında yalnızca izin verilen uygulamalar açılır ve ses %%%3$d\'yi geçmez.</string>
+    <string name="col_screen_off">Ekran süresi kapalı</string>
+    <string name="col_screen_left">Bugün %1$s kaldı</string>
+    <string name="col_screen_body">Günün süresi bitince TV ana ekrana döner.</string>
+    <string name="col_screen_daily">Günlük süre</string>
+    <string name="col_changes">Neler değişir</string>
+</resources>

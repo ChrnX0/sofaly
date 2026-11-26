@@ -197,10 +197,10 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         addView(arte, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
         // Véus: escurece a arte em cima e embaixo, e mais à esquerda (o texto da coluna fica sempre legível).
         addView(View(ctx).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x66121528, 0x22121528, 0xAA121528.toInt()))
+            background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0x66141413, 0x22141413, 0xAA141413.toInt()))
         }, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
         addView(View(ctx).apply {
-            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC121528.toInt(), 0x99121528.toInt(), 0x00121528))
+            background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(0xCC141413.toInt(), 0x99141413.toInt(), 0x00141413))
         }, LayoutParams(dpi(600), LayoutParams.MATCH_PARENT))
 
         titulo = TextView(ctx).apply {

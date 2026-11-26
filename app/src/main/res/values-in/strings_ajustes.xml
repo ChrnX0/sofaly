@@ -107,4 +107,7 @@
     <string name="pl_seu_plano">Paket Anda</string>
     <string name="pl_loja_indisponivel">Google Play tidak dapat membuka pembelian. Periksa internet dan coba lagi.</string>
     <string name="atu_pela_play">Pembaruan datang dari Google Play.</string>
+    <string name="cfg_sec_tema">Tema dan latar</string>
+    <string name="cfg_sec_leitura">Membaca</string>
+    <string name="cfg_sec_inicio">Layar utama</string>
 </resources>

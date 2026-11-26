@@ -51,9 +51,12 @@ object Moldura {
 
     private fun colocar(a: Activity) {
         if (a.javaClass.simpleName !in TELAS || a.isFinishing) return
+        // Painel ao lado: a HOME de verdade fica à vista atrás, com a hora dela; a moldura no painel seria repetição.
+        // Guiado: a coluna da esquerda já diz onde se está e a lista sobe até o alto; a hora em cima só atrapalharia.
+        if (a.javaClass.simpleName == "ConfigLauncherActivity" && (ScreenStyle.panel(a) || ScreenStyle.guided(a))) return
         val conteudo = a.findViewById<ViewGroup>(android.R.id.content) as? FrameLayout ?: return
         if (conteudo.childCount == 0 || conteudo.findViewWithTag<android.view.View>(MARCA) != null) return
-        if (BottomBar.strip(a) && ScreenStyle.of(a) == ScreenStyle.DRAWER) gaveta(a, conteudo)
+        if (BottomBar.strip(a) && ScreenStyle.drawer(a)) gaveta(a, conteudo)
         if (BottomBar.strip(a)) cabecalho(a, conteudo)
         if (BottomBar.strip(a)) {
             // Barra única: a pílula da hora no alto, no centro, como na barra (coerência das telas, 24/11/2026).
@@ -128,7 +131,7 @@ object Moldura {
         // Antes ela parava antes da pílula e, com "Configurações", sobrava tão pouco que até o nome saía cortado
         // ("Tela inicial ..", Sala, 25/11/2026).
         val faixa: ViewGroup
-        if (ScreenStyle.of(a) == ScreenStyle.DRAWER) {
+        if (ScreenStyle.drawer(a)) {
             faixa = LinearLayout(a).apply {
                 orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
                 addView(titulo, LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -223,7 +226,7 @@ object Moldura {
         isFocusable = false
         importantForAccessibility = android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
         background = android.graphics.drawable.GradientDrawable().apply {
-            cornerRadius = Estilo.dp(a, PILULA_ALTURA / 2).toFloat(); setColor(0xBF0A0C14.toInt())
+            cornerRadius = Estilo.dp(a, PILULA_ALTURA / 2).toFloat(); setColor(0xBF0B0B0A.toInt())
         }
         setPaddingRelative(Estilo.dp(a, 16), 0, Estilo.dp(a, 18), 0)
         addView(android.view.View(a).apply {

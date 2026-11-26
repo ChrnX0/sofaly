@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Your plan</string>
     <string name="pl_loja_indisponivel">Google Play could not open the purchase. Check the internet and try again.</string>
     <string name="atu_pela_play">Updates come from Google Play.</string>
+    <string name="cfg_sec_tema">Theme and background</string>
+    <string name="cfg_sec_leitura">Reading</string>
+    <string name="cfg_sec_inicio">Home screen</string>
 </resources>

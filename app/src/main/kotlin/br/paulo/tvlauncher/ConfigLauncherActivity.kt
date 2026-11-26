@@ -72,8 +72,11 @@ import br.paulo.tvlauncher.settings.lembrarRecente
 import br.paulo.tvlauncher.settings.mostrarBusca
 import br.paulo.tvlauncher.settings.pedirPinParental
 import br.paulo.tvlauncher.settings.voltarAoMenu
+import br.paulo.tvlauncher.settings.SidePanel
+import br.paulo.tvlauncher.settings.PortasConfig
 import br.paulo.tvlauncher.settings.menuDaPorta
 import br.paulo.tvlauncher.settings.mostrarPortas
+import br.paulo.tvlauncher.settings.guiaDaAba
 import br.paulo.tvlauncher.settings.naGrade
 import br.paulo.tvlauncher.settings.recolherNoSimples
 import br.paulo.tvlauncher.weather.LocalClima
@@ -151,6 +154,15 @@ class ConfigLauncherActivity : Activity() {
     }
 
     internal var abaAtual = 0
+    /** Painel ao lado (ScreenStyle.PANEL, 25/11/2026): a tela é um vidro à direita por cima da HOME viva ([SidePanel]). */
+    internal var painel = false
+    /** A janela é mesmo o vidro ao lado da HOME (só no jeito PANEL); [painel] também vale no GUIADO (lista estreita). */
+    internal var janelaPainel = false
+    /** Jeito GUIADO (ScreenStyle.GUIDED, 26/11/2026, molde do Projectivy): explicação à esquerda, lista estreita à direita. */
+    internal var guiado = false
+    internal var guia: br.paulo.tvlauncher.settings.GuidedPane? = null
+    /** O que segura o menu das abas (no painel, uma fileira em cima que some quando a porta tem uma aba só). */
+    internal lateinit var caixaMenu: View
     private var naGradeAoAbrir = false
     internal var abaMontada = -1   // qual aba está desenhada no conteúdo agora
     // Elevação 12.2: busca nos ajustes. [indexando] = a aba sendo montada só para o índice (-1 = montagem de verdade).
@@ -169,6 +181,8 @@ class ConfigLauncherActivity : Activity() {
     internal lateinit var rolagem: ScrollView
     internal lateinit var dica: FrameLayout
     internal val itensMenu = ArrayList<TextView>()
+    /** Como estava a cara da HOME antes do 1º visual pronto desta visita ("Como estava" volta a ela; ConfigLooksRow). */
+    internal var fotoVisuais: Map<String, Int?>? = null
     internal var reconstruirAoVoltar = false   // voltou de outra tela (Android, canais bloqueados): redesenha a aba
     internal var pinValidoAte = 0L
     private var liberadoHospede = false   // modo hóspede: o PIN já foi acertado nesta visita às Configurações
@@ -178,6 +192,10 @@ class ConfigLauncherActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        guiado = br.paulo.tvlauncher.home.ScreenStyle.guided(this)
+        janelaPainel = SidePanel.janela(this, br.paulo.tvlauncher.home.ScreenStyle.panel(this))
+        // O GUIADO usa a mesma lista estreita do painel (abas numa fileira em cima, ◀▶ mudam o valor), em tela cheia.
+        painel = janelaPainel || guiado
         // Elevação 2.11: toda mudança feita aqui vira um passo com "Desfazer" por 10 s (Desfazer.kt).
         VigiaDesfazer.ligar(this, getString(R.string.desf_rot_config), mostrarBarra = false) { if (::conteudo.isInitialized) recarregarAba() }
         abaAtual = (savedInstanceState?.getInt(EXTRA_ABA) ?: intent.getIntExtra(EXTRA_ABA, 0)).coerceIn(0, abas.size - 1)
@@ -205,7 +223,9 @@ class ConfigLauncherActivity : Activity() {
     private var linhaSalva = -1
 
     private fun abrirTela() {
-        setContentView(montarTela())
+        val tela = montarTela()
+        setContentView(tela)
+        if (janelaPainel) SidePanel.entrar(this, tela, previa = !naGradeAoAbrir && PortasConfig.daAba(abaAtual) == 0)
         mostrarAba(abaAtual)
         // Sem aba pedida (abriu pelo painel rápido ou pela cruz): começa nas seis portas. Com aba (atalho de outra tela, ou a
         // tela recriada dentro de uma porta): abre direto na porta dela.
@@ -228,6 +248,19 @@ class ConfigLauncherActivity : Activity() {
         estado.putBoolean(ESTADO_LIBERADO, liberadoHospede)
         if (::grade.isInitialized) estado.putBoolean(ESTADO_GRADE, naGrade)
     }
+
+    private var saindo = false
+
+    /** Painel: sai deslizando em 150 ms antes de fechar (sem a animação de janela do sistema, que cortava o vidro). */
+    override fun finish() {
+        val raiz = (findViewById<ViewGroup>(android.R.id.content))?.getChildAt(0)
+        if (!janelaPainel || saindo || raiz == null || !raiz.isAttachedToWindow) { super.finish(); semAnimacaoDeJanela(); return }
+        saindo = true
+        SidePanel.sair(this, raiz) { super.finish(); semAnimacaoDeJanela() }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun semAnimacaoDeJanela() { if (janelaPainel) overridePendingTransition(0, 0) }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -263,40 +296,56 @@ class ConfigLauncherActivity : Activity() {
             orientation = LinearLayout.VERTICAL
             background = Estilo.fundoTela(context)   // o grafite da HOME (sistema de design)
             setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL - 7))   // a mesma margem da HOME
+            // Painel ao lado: o vidro é o fundo da própria janela (SidePanel); aqui só a margem de dentro dele.
+            if (painel) { background = null; val m = dp(SidePanel.MARGEM_DP); setPaddingRelative(m, m, m, dp(Estilo.E2)) }
+            // Guiado: a lista começa no alto (o foco parado fica a 39% da tela) e encosta na margem da direita.
+            if (guiado) setPaddingRelative(0, dp(Estilo.MARGEM_VERTICAL), dp(Estilo.MARGEM_LATERAL), dp(Estilo.E2))
             // A pílula com foco cresce 2% e passa um pouco da margem: sem isto a borda esquerda dela saía cortada (TV, 10/11/2026).
             clipChildren = false; clipToPadding = false
         }
-        raiz.addView(Estilo.tituloTela(this, getString(R.string.cfg_titulo)))
+        if (!guiado) raiz.addView(Estilo.tituloTela(this, getString(R.string.cfg_titulo)))   // no guiado o título mora na explicação
 
-        colunas = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
+        colunas = LinearLayout(this).apply { orientation = if (painel) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL; clipChildren = false }
+        if (painel) {
+            // Painel: as abas da porta numa fileira em cima (Ajustes do tvOS); com uma aba só, a fileira some (menuDaPorta).
+            menu = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false; setPaddingRelative(dp(4), dp(6), dp(4), dp(6)) }
+            menu.addView(itemDaBusca(), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E1) })
+            abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E1) }) }
+            caixaMenu = android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; clipChildren = false; clipToPadding = false; addView(menu) }
+            colunas.addView(caixaMenu, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E1) })
+            mostrarAbasDoUso()
+        } else {
         menu = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false; setPaddingRelative(0, dp(4), 0, dp(4)) }
         menu.addView(itemDaBusca(), LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(10) })
         abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(4) }) }
-        mostrarAbasDoUso()
-        colunas.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(menu)
+        caixaMenu = ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(menu)
             // Igual ao conteúdo: corta embaixo (a última aba não passa por cima da barra de dicas; achado do teste de tela,
             // ideia 96) e deixa 16 dp dos lados para a pílula com foco crescer.
-            addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) } },
-            LinearLayout.LayoutParams(dp(270), MATCH))
+            addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) } }
+        mostrarAbasDoUso()
+        colunas.addView(caixaMenu, LinearLayout.LayoutParams(dp(270), MATCH))
         // Sem linha separando menu e conteúdo (nenhuma outra tela tem): o espaço já separa as duas colunas.
         colunas.addView(View(this), LinearLayout.LayoutParams(dp(Estilo.E3 + 8), MATCH))
+        }
         conteudo = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             clipChildren = false; clipToPadding = false
             setPaddingRelative(dp(12), dp(4), dp(24), dp(24))
+            if (painel) setPaddingRelative(dp(4), dp(4), dp(4), dp(Estilo.E3))
         }
-        rolagem = ScrollView(this).apply {
+        // Guiado: foco parado na mesma altura (FixedFocusScrollView), a lista corre por baixo dele.
+        rolagem = (if (guiado) br.paulo.tvlauncher.FixedFocusScrollView(this) else ScrollView(this)).apply {
             isVerticalScrollBarEnabled = false; clipChildren = false; isSmoothScrollingEnabled = true; addView(conteudo)
             // Corta em cima e embaixo (o conteúdo não passa por cima do título nem da barra de dicas), mas deixa 16 dp de folga
             // dos lados para a linha com foco crescer sem ser cortada. A raiz não corta mais na margem (ver acima).
             addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ -> v.clipBounds = android.graphics.Rect(-dp(16), 0, v.width + dp(16), v.height) }
         }
-        colunas.addView(rolagem, LinearLayout.LayoutParams(0, MATCH, 1f))
-        raiz.addView(colunas, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(18) })
+        colunas.addView(rolagem, if (painel) LinearLayout.LayoutParams(MATCH, 0, 1f) else LinearLayout.LayoutParams(0, MATCH, 1f))
+        raiz.addView(colunas, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(if (painel) Estilo.E2 else 18) })
         // As seis portas (23/11/2026, ConfigDoors.kt): no mesmo lugar do menu + conteúdo, uma tela de cada vez.
         grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false; visibility = View.GONE
             setPaddingRelative(dp(8), dp(4), dp(8), 0) }
-        raiz.addView(grade, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(18) })
+        raiz.addView(grade, LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(if (painel) Estilo.E2 else 18) })
 
         // Dica fixa das teclas (mesmo jeito das dicas do player: 11sp, cor apagada). Muda com o lado em foco.
         // Barra de dicas do controle (componente padrão do sistema de design). Muda com o lado em foco.
@@ -307,9 +356,19 @@ class ConfigLauncherActivity : Activity() {
         rodape.addView(dica, LinearLayout.LayoutParams(0, WRAP, 1f))
         rodape.addView(SofalyWordmark(this, dp(26).toFloat()).apply { setPaddingRelative(0, dp(12), 0, 0) },
             LinearLayout.LayoutParams(WRAP, WRAP).apply { marginStart = dp(Estilo.E3) })
-        raiz.addView(rodape, LinearLayout.LayoutParams(MATCH, WRAP))
         mostrarDica(noMenu = true)
-        return raiz
+        if (!guiado) { raiz.addView(rodape, LinearLayout.LayoutParams(MATCH, WRAP)); guia = null; return raiz }
+        // Guiado: [explicação | lista]. A barra de dicas e a marca descem para a coluna larga (na lista estreita apertavam).
+        val g = br.paulo.tvlauncher.settings.GuidedPane(this)
+        g.rodape.addView(rodape, LinearLayout.LayoutParams(MATCH, WRAP))
+        guia = g
+        return LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            background = Estilo.fundoTela(context)
+            clipChildren = false; clipToPadding = false
+            addView(g, LinearLayout.LayoutParams(0, MATCH, 1f))
+            addView(raiz, LinearLayout.LayoutParams(dp(br.paulo.tvlauncher.settings.GuidedPane.LISTA_DP + Estilo.MARGEM_LATERAL), MATCH))
+        }
     }
 
     /** Uso "Simples"/"Para quem cuida" (UsoTv, degrau 2): as abas técnicas somem do menu (a aberta agora fica). */
@@ -334,8 +393,7 @@ class ConfigLauncherActivity : Activity() {
         // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
         // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
         val lado = dp(28)
-        setCompoundDrawablesRelative(IconeCruz(aba.icone, IconeCruz.Estilo.AZULEJO).apply {
-            corAzulejo = aba.area ?: AZULEJO_NEUTRO
+        setCompoundDrawablesRelative(br.paulo.tvlauncher.settings.iconeDoMenu(aba.icone).apply {
             setBounds(0, 0, lado, lado)
         }, null, null, null)
         compoundDrawablePadding = dp(10)
@@ -361,6 +419,7 @@ class ConfigLauncherActivity : Activity() {
         // Régua 22/11/2026: o foco no jeito escolhido (Fio, Véu ou Quadro); só o Quadro escurece o texto.
         t.setTextColor(when { foco && Estilo.focoEscurece(this) -> Estilo.TEXTO_NO_FOCO; foco || escolhido -> Estilo.TEXTO; else -> Estilo.TEXTO_2 })
         t.typeface = Estilo.fonte(if (foco || escolhido) 400 else 300)
+        (t.compoundDrawablesRelative[0] as? IconeCruz)?.let { br.paulo.tvlauncher.settings.acenderIcone(this, it, foco) }
         t.background = when {
             foco -> Estilo.fundoFocado(this, Estilo.RAIO_PILULA, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA) else null)
             escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA)
@@ -375,13 +434,16 @@ class ConfigLauncherActivity : Activity() {
         conteudo.removeAllViews()
         rolagem.scrollTo(0, 0)
         val aba = abas[i]
+        if (guiado) { if (indexando < 0) guiaDaAba(i) }   // título e explicação vão para a coluna da esquerda
+        else {
         conteudo.addView(Estilo.texto(this, Estilo.Papel.TITULO, aba.titulo).apply { textSize = 24f; setPaddingRelative(dp(8), dp(4), 0, 0) })   // menor que o título da tela (crítica 19/11/2026)
         conteudo.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, aba.explica).apply { setPaddingRelative(dp(8), dp(6), 0, dp(12)) })
+        }
         secoesDaAba.clear()
         aba.montar(conteudo)
         // Modo Simples (23/11/2026): até 8 linhas e "Mais ajustes"; sem índice nem "Conversa com", que são para quem explora.
         if (UsoTv.atual(this) == UsoTv.SIMPLES) recolherNoSimples(i, 2)
-        else { montarConversas(i); montarIndice() }
+        else { montarConversas(i); if (!painel) montarIndice() }   // no painel estreito o índice em pílulas não cabe
         // Ajuda por QR (degrau 2): no fim de cada aba, o assunto do manual dela, com o QR para ler no celular.
         AjudaQr.topicoDaAba(i)?.let { id ->
             val n = Manual.TOPICOS.indexOf(id)
@@ -390,7 +452,11 @@ class ConfigLauncherActivity : Activity() {
                 startActivity(Intent(this, AjudaActivity::class.java).putExtra(AjudaActivity.EXTRA_TOPICO, n))
             }, LinearLayout.LayoutParams(MATCH, WRAP).apply { topMargin = dp(16); bottomMargin = dp(8) })
         }
+        if (painel && indexando < 0 && !recarregando) SidePanel.escalonar(this, conteudo)
     }
+
+    /** Redesenho no lugar (uma opção mudou): as linhas não entram de novo uma a uma, só na troca de aba. */
+    private var recarregando = false
 
     /** Redesenha a aba atual no lugar (depois de voltar de outra tela ou de mudar algo que mexe em várias linhas). */
     internal fun recarregarAba() {
@@ -403,7 +469,8 @@ class ConfigLauncherActivity : Activity() {
         val indice = antes.indexOfFirst { it === focado || (focado != null && ehAncestral(it, focado)) }
         val tinhaFocoNoConteudo = focado != null
         if (tinhaFocoNoConteudo) itensMenu[abaAtual].requestFocus()
-        mostrarAba(abaAtual)
+        recarregando = true
+        try { mostrarAba(abaAtual) } finally { recarregando = false }
         if (tinhaFocoNoConteudo) conteudo.post {
             val depois = focaveis(conteudo)
             (depois.getOrNull(indice) ?: depois.firstOrNull())?.requestFocus()
@@ -444,6 +511,11 @@ class ConfigLauncherActivity : Activity() {
 
     internal fun mostrarDica(noMenu: Boolean) {
         dica.removeAllViews()
+        if (painel) {   // painel: abas em cima (◀▶), opções embaixo; ◀▶ também mudam o valor da linha
+            dica.addView(if (noMenu) Estilo.barraDicas(this, "◀▶" to getString(R.string.cl_dica_aba), "▼ OK" to getString(R.string.cl_dica_entrar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_voltar))
+                else Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_escolher), "◀▶ OK" to getString(R.string.cl_dica_mudar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_voltar)))
+            return
+        }
         dica.addView(if (noMenu) Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_aba), "▶ OK" to getString(R.string.cl_dica_entrar), getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_sair))
             else Estilo.barraDicas(this, "▲▼" to getString(R.string.cl_dica_escolher), "OK" to getString(R.string.cl_dica_mudar), "◀ " + getString(R.string.cl_tecla_voltar) to getString(R.string.cl_dica_voltar)))
     }
@@ -461,7 +533,8 @@ class ConfigLauncherActivity : Activity() {
     override fun dispatchKeyEvent(e: KeyEvent): Boolean {
         if (!::conteudo.isInitialized) return super.dispatchKeyEvent(e)   // modo hóspede: ainda esperando o PIN
         if (e.keyCode == KeyEvent.KEYCODE_BACK && e.action == KeyEvent.ACTION_UP && engoliuVoltar) { engoliuVoltar = false; return true }
-        if (e.action == KeyEvent.ACTION_DOWN) {
+        if (painel && e.action == KeyEvent.ACTION_DOWN) teclaNoPainel(e)?.let { return it }
+        if (!painel && e.action == KeyEvent.ACTION_DOWN) {
             val foco = currentFocus
             val noConteudo = foco != null && foco.dentroDe(conteudo)
             val noMenu = foco != null && foco.dentroDe(menu)
@@ -489,6 +562,39 @@ class ConfigLauncherActivity : Activity() {
             }
         }
         return super.dispatchKeyEvent(e)
+    }
+
+    /**
+     * Teclas no painel ao lado: as abas ficam numa fileira em cima, então ▼ entra nas opções e ▲ na 1ª opção volta às
+     * abas; VOLTAR volta às portas. Numa linha de valor, ▶ passa para o próximo (como o OK) e ◀ volta um, quando a linha
+     * sabe voltar; numa chave, ◀ desliga e ▶ liga. null = a tecla segue o caminho normal.
+     */
+    private fun teclaNoPainel(e: KeyEvent): Boolean? {
+        val foco = currentFocus ?: return null
+        val noConteudo = foco.dentroDe(conteudo)
+        val noMenu = foco.dentroDe(menu)
+        val comAbas = caixaMenu.visibility == View.VISIBLE
+        when (Rtl.tecla(e.keyCode, window.decorView)) {
+            KeyEvent.KEYCODE_BACK -> if (noConteudo || noMenu) { engoliuVoltar = true; mostrarPortas(); return true }
+            KeyEvent.KEYCODE_DPAD_DOWN -> {
+                if (noMenu) { if (foco === itemBusca) campoBusca?.requestFocus() else entrarNoConteudo(); return true }
+                if (noConteudo) {
+                    if (foco is android.widget.EditText) focaveis(conteudo).firstOrNull { it !is android.widget.EditText }?.let { it.requestFocus(); return true }
+                    val prox = foco.focusSearch(View.FOCUS_DOWN)
+                    if (prox == null || !prox.dentroDe(conteudo)) { rolagem.smoothScrollBy(0, dp(240)); return true }
+                }
+            }
+            KeyEvent.KEYCODE_DPAD_UP -> if (noConteudo) {
+                val prox = foco.focusSearch(View.FOCUS_UP)
+                if (prox == null || !prox.dentroDe(conteudo)) {
+                    if (comAbas) voltarAoMenu() else rolagem.smoothScrollBy(0, -dp(240))
+                    return true
+                }
+            } else if (noMenu) return true   // acima das abas só tem o título
+            KeyEvent.KEYCODE_DPAD_RIGHT -> if (noConteudo && foco is LinhaCfg && foco.mudaComSeta(direita = true)) return true
+            KeyEvent.KEYCODE_DPAD_LEFT -> if (noConteudo && foco is LinhaCfg) { foco.mudaComSeta(direita = false); return true }
+        }
+        return null
     }
 
     // ================================================================ aba: Conta
@@ -1148,8 +1254,10 @@ class ConfigLauncherActivity : Activity() {
      *  - [seta]: "›", para o que abre outra tela ou faz uma ação.
      */
     internal fun linha(titulo: String, detalhe: String, chave: Boolean? = null, valor: String? = null, seta: Boolean = false,
-                      aoClicar: () -> Unit): LinhaCfg =
+                      anterior: (() -> Unit)? = null, aoClicar: () -> Unit): LinhaCfg =
         LinhaCfg(this, focavel = true).apply {
+            this.anterior = anterior
+            chaveUso = "opcao:$titulo"
             if (indexando >= 0) indiceMontando += BuscaAjustes.Entrada(indexando, titulo, detalhe)
             montarLinha(titulo, detalhe)
             if (chave != null) ligado(chave)
@@ -1178,10 +1286,10 @@ class ConfigLauncherActivity : Activity() {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         setPaddingRelative(0, dp(6), 0, dp(6))
-        addView(texto(16f, textoSuave, fonteMedia).apply { text = rotulo }, LinearLayout.LayoutParams(dp(230), WRAP))
+        addView(texto(18f, textoSuave, fonteMedia).apply { text = rotulo }, LinearLayout.LayoutParams(dp(230), WRAP))
         // Sem corte (24/11/2026): com "…" depois de 3 linhas, a explicação do PIN da Família sumia pela metade em francês,
         // húngaro, russo e ucraniano. O valor quebra quantas linhas precisar.
-        addView(texto(16f, cor ?: textoClaro, fonteMedia).apply { text = valor },
+        addView(texto(18f, cor ?: textoClaro, fonteMedia).apply { text = valor },
             LinearLayout.LayoutParams(0, WRAP, 1f))
     }
 
@@ -1292,8 +1400,14 @@ class ConfigLauncherActivity : Activity() {
 
     /** Superfície das linhas e cartões (sistema de design): repouso = branco 6% com fio; foco = branco sólido. */
     // Régua 22/11/2026: a linha não tem caixa (um fio embaixo separa); o foco segue Ajuste fino > Foco.
-    internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable =
-        if (focado) Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this)) else Estilo.fioBaixo(this)
+    private val PILULA_GUIADA = 0x2EFFFFFF
+
+    internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable? = when {
+        // Guiado (molde do Projectivy): sem fio entre as linhas; foco = pílula clara de ponta a ponta, sem borda.
+        guiado -> if (focado) Estilo.fundo(this, PILULA_GUIADA, Estilo.RAIO_PILULA) else null
+        focado -> Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this))
+        else -> Estilo.fioBaixo(this)
+    }
 
     /**
      * A linha das Configurações: [título / detalhe] à esquerda e um acessório à direita (chave, valor ou seta).
@@ -1312,12 +1426,33 @@ class ConfigLauncherActivity : Activity() {
         private var trilho: View? = null
         private var bolinha: View? = null
         private var tValor: TextView? = null
+        /** Guiado: o valor escolhido na 2ª linha, embaixo do nome ("Escuro", "5 min"), como no Projectivy. */
+        private val tValorBaixo = Estilo.texto(ctx, Estilo.Papel.CORPO).apply {
+            maxLines = 1; ellipsize = TextUtils.TruncateAt.MIDDLE; visibility = View.GONE; setPaddingRelative(0, dp(2), 0, 0)
+        }
+        /** ◀ numa linha de valor: volta um passo (quem monta a linha diz como; sem isto, ◀ não muda nada). */
+        var anterior: (() -> Unit)? = null
+        /** O nome com que o UsoLocal conta esta linha ("opcao:<título>"); o modo Simples mostra as mais usadas. */
+        var chaveUso: String? = null
+
+        /**
+         * Painel ao lado: ◀▶ mudam a linha sem entrar nela. Chave: ▶ liga, ◀ desliga. Valor: ▶ = próximo (o mesmo do OK),
+         * ◀ = [anterior]. Devolve se mudou algo.
+         */
+        fun mudaComSeta(direita: Boolean): Boolean {
+            val lig = ligadoAgora
+            return when {
+                lig != null -> if (lig != direita) { performClick(); true } else false
+                tValor != null -> if (direita) { performClick(); true } else anterior?.let { it(); true } ?: false
+                else -> false
+            }
+        }
 
         init {
             orientation = HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             setPaddingRelative(dp(Estilo.E3), dp(14), dp(Estilo.E3), dp(14))
-            val textos = LinearLayout(ctx).apply { orientation = VERTICAL; addView(tTitulo); addView(tDetalhe) }
+            val textos = LinearLayout(ctx).apply { orientation = VERTICAL; addView(tTitulo); addView(tValorBaixo); addView(tDetalhe) }
             addView(textos, LayoutParams(0, WRAP, 1f))
             addView(direita, LayoutParams(WRAP, WRAP).apply { marginStart = dp(16) })
             if (focavel) {
@@ -1328,8 +1463,9 @@ class ConfigLauncherActivity : Activity() {
                     focada = temFoco
                     v.background = vidro(temFoco)
                     pintarTextos()
-                    v.animate().scaleX(if (temFoco) Estilo.ESCALA_LINHA else 1f).scaleY(if (temFoco) Estilo.ESCALA_LINHA else 1f)
-                        .setDuration(Estilo.FOCO_MS).start()
+                    // Guiado: a pílula não cresce (no Projectivy só a faixa clara aparece; a linha fica parada no lugar).
+                    val escala = if (temFoco && !guiado) Estilo.ESCALA_LINHA else 1f
+                    v.animate().scaleX(escala).scaleY(escala).setDuration(Estilo.FOCO_MS).start()
                     if (temFoco) mostrarDica(noMenu = false)
                 }
             }
@@ -1347,7 +1483,8 @@ class ConfigLauncherActivity : Activity() {
 
         /** Foco = linha branca: os textos escurecem (o valor também; laranja ficou só para marca, foco e progresso). */
         private fun pintarTextos() {
-            val escura = focada && Estilo.focoEscurece(context)   // só o Quadro (fundo branco) escurece o texto
+            val escura = focada && !guiado && Estilo.focoEscurece(context)   // só o Quadro (fundo branco) escurece o texto
+            tValorBaixo.setTextColor(if (guiado) Estilo.ACENTO else Estilo.TEXTO_2)
             tTitulo.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO)
             tDetalhe.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)
             tValor?.setTextColor(if (escura) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2)   // valor sem laranja (crítica de design 19/11/2026)
@@ -1378,7 +1515,7 @@ class ConfigLauncherActivity : Activity() {
         private fun pintarChave(sim: Boolean) {
             val focada = focada && Estilo.focoEscurece(context)   // no Fio e no Véu a chave fica como está
             trilho?.background = Estilo.fundo(context,
-                when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33121528; else -> 0x33FFFFFF },
+                when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33141413; else -> 0x33FFFFFF },
                 Estilo.RAIO_PILULA)
             bolinha?.background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL
@@ -1391,7 +1528,7 @@ class ConfigLauncherActivity : Activity() {
             // Uma linha só e largura com teto: um valor longo (ex.: nome de arquivo do "Meu fundo") espremia o título
             // em "Meu…" (visto na Sala, 17/11/2026). MIDDLE guarda o começo, a extensão e o "›".
             val t = tValor ?: Estilo.texto(context, Estilo.Papel.CORPO).apply {
-                setSingleLine(true); ellipsize = TextUtils.TruncateAt.MIDDLE; maxWidth = dp(360)
+                setSingleLine(true); ellipsize = TextUtils.TruncateAt.MIDDLE; maxWidth = dp(if (painel) 220 else 360)
             }.also {
                 direita.removeAllViews()
                 // WRAP explícito: o padrão do FrameLayout é MATCH_PARENT, e aí o TextView refaz o texto novo na largura
@@ -1399,14 +1536,18 @@ class ConfigLauncherActivity : Activity() {
                 direita.addView(it, FrameLayout.LayoutParams(WRAP, WRAP, Gravity.CENTER_VERTICAL or Gravity.END))
                 tValor = it
             }
-            t.text = "$v  ›"
+            if (guiado) {   // ▾ = abre uma lista de opções; o valor desce para baixo do nome
+                tValorBaixo.text = v; tValorBaixo.visibility = View.VISIBLE
+                t.text = "▾"
+            } else t.text = "$v  ›"
             pintarTextos()
         }
 
         fun seta() {
             direita.removeAllViews()
             // A mesma seta do valor ("Escuro  ›"): antes era uma seta fina no tamanho de título, de outro desenho.
-            direita.addView(Estilo.texto(context, Estilo.Papel.CORPO, "›").also { tSeta = it })
+            // Guiado: ▸ = abre outra página (o sinal do Projectivy); nos outros jeitos, a seta fina de sempre.
+            direita.addView(Estilo.texto(context, Estilo.Papel.CORPO, if (guiado) "▸" else "›").also { tSeta = it })
             pintarTextos()
         }
     }
@@ -1424,7 +1565,7 @@ class ConfigLauncherActivity : Activity() {
         val qr = android.widget.ImageView(this).apply {
             setImageBitmap(runCatching { QrCodigo.bitmap(link, dp(280)) }.getOrNull())
         }
-        val tela = Estilo.dialogo(this, null, getString(R.string.vq_titulo), getString(R.string.vq_texto), listOf(fechar))
+        val tela = Estilo.dialogo(this, null, getString(R.string.vq_titulo), getString(R.string.vq_texto), listOf(fechar), faixa = false)
         // o QR entra no cartão antes do título (o cartão é o 1º filho do véu)
         (tela.getChildAt(0) as android.widget.LinearLayout).addView(qr, 0,
             android.widget.LinearLayout.LayoutParams(dp(280), dp(280)).apply { bottomMargin = dp(16) })

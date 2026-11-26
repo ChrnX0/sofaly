@@ -44,6 +44,9 @@
     <string name="st_telas_gaveta">Schublade</string>
     <string name="st_telas_vidro">Glas</string>
     <string name="st_telas_barra">Leiste</string>
+    <string name="st_telas_painel">Seitenpanel</string>
+    <string name="st_telas_guiada">Geführt</string>
+    <string name="gl_root_desc">Alles zu diesem Fernseher, Schritt für Schritt.</string>
     <string name="st_proprios">Verknüpfungskarten</string>
     <string name="st_proprios_branco">Weiß</string>
     <string name="st_proprios_vidro">Helles Glas</string>

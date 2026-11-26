@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Τώρα</string>
+    <string name="col_filter_on">Το φίλτρο είναι ενεργό τώρα</string>
+    <string name="col_filter_off">Το νυχτερινό φίλτρο είναι ανενεργό</string>
+    <string name="col_filter_at">Ενεργοποιείται στις %1$s</string>
+    <string name="col_filter_body">Κάνει την οθόνη πιο ζεστή και σκοτεινή από %1$s έως %2$s, με ένταση %3$d%%.</string>
+    <string name="col_sleep_off">Η ώρα ύπνου είναι ανενεργή</string>
+    <string name="col_sleep_now">Ώρα ύπνου τώρα</string>
+    <string name="col_sleep_at">Ξεκινά στις %1$s</string>
+    <string name="col_sleep_body">Από %1$s έως %2$s ανοίγουν μόνο οι επιτρεπόμενες εφαρμογές και η ένταση δεν ξεπερνά το %3$d%%.</string>
+    <string name="col_screen_off">Ο χρόνος οθόνης είναι ανενεργός</string>
+    <string name="col_screen_left">Απομένουν %1$s σήμερα</string>
+    <string name="col_screen_body">Όταν τελειώσει ο χρόνος της ημέρας, η τηλεόραση επιστρέφει στην αρχική οθόνη.</string>
+    <string name="col_screen_daily">Χρόνος ανά ημέρα</string>
+    <string name="col_changes">Τι αλλάζει</string>
+</resources>

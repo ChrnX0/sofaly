@@ -44,6 +44,9 @@
     <string name="st_telas_gaveta">Fiók</string>
     <string name="st_telas_vidro">Üveg</string>
     <string name="st_telas_barra">Sáv</string>
+    <string name="st_telas_painel">Oldalpanel</string>
+    <string name="st_telas_guiada">Vezetett</string>
+    <string name="gl_root_desc">Minden erről a tévéről, lépésről lépésre.</string>
     <string name="st_proprios">Parancsikon-kártyák</string>
     <string name="st_proprios_branco">Fehér</string>
     <string name="st_proprios_vidro">Világos üveg</string>

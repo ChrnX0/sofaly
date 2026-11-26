@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Coluna da direita das telas de ajuste (ColumnsScreen, 26/11/2026). -->
+<resources>
+    <string name="col_now">Nyt</string>
+    <string name="col_filter_on">Suodatin on päällä</string>
+    <string name="col_filter_off">Yösuodatin on pois</string>
+    <string name="col_filter_at">Menee päälle klo %1$s</string>
+    <string name="col_filter_body">Lämmittää ja himmentää näyttöä klo %1$s–%2$s, voimakkuus %3$d%%.</string>
+    <string name="col_sleep_off">Nukkumaanmenoaika on pois</string>
+    <string name="col_sleep_now">Nyt on nukkumaanmenoaika</string>
+    <string name="col_sleep_at">Alkaa klo %1$s</string>
+    <string name="col_sleep_body">Klo %1$s–%2$s aukeavat vain sallitut sovellukset ja äänenvoimakkuus on enintään %3$d%%.</string>
+    <string name="col_screen_off">Ruutuaika on pois</string>
+    <string name="col_screen_left">Tänään jäljellä %1$s</string>
+    <string name="col_screen_body">Kun päivän aika loppuu, TV palaa aloitusnäyttöön.</string>
+    <string name="col_screen_daily">Aika päivässä</string>
+    <string name="col_changes">Mikä muuttuu</string>
+</resources>

@@ -33,6 +33,9 @@
     <string name="st_telas_gaveta">Συρτάρι</string>
     <string name="st_telas_vidro">Γυαλί</string>
     <string name="st_telas_barra">Μπάρα</string>
+    <string name="st_telas_painel">Πλαϊνό πάνελ</string>
+    <string name="st_telas_guiada">Καθοδηγούμενη</string>
+    <string name="gl_root_desc">Όλα για αυτή την τηλεόραση, βήμα βήμα.</string>
     <string name="st_fundo">Φόντο</string>
     <string name="st_fundo_vale">Κοιλάδα</string>
     <string name="st_fundo_serra">Βουνά</string>

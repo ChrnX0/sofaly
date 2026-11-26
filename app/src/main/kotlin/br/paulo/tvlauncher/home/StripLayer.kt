@@ -125,7 +125,7 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         linha.addView(desc, LinearLayout.LayoutParams(-2, -2))
         icone.elevation = 0f
         addView(linha, LayoutParams(-2, dpi(StripHome.LINHA_A)))
-        placa.background = GradientDrawable().apply { setColor(0x8C141628.toInt()); setStroke(dpi(1f), 0x1FFFF3E6) }
+        placa.background = GradientDrawable().apply { setColor(0x8C151514.toInt()); setStroke(dpi(1f), 0x1FFFF3E6) }
         placa.visibility = View.GONE
         addView(placa, LayoutParams(0, 0))
         anel.outlineProvider = null
@@ -483,8 +483,8 @@ class StripLayer(ctx: Context) : FrameLayout(ctx) {
         if (semAnimacao()) return
         k.animate().cancel()
         k.pivotX = k.width / 2f; k.pivotY = k.height / 2f
-        k.animate().scaleX(0.94f).scaleY(0.94f).setDuration(70L).withEndAction {
-            k.animate().scaleX(1f).scaleY(1f).setDuration(210L).setInterpolator(android.view.animation.OvershootInterpolator(2f)).start()
+        k.animate().scaleX(0.94f).scaleY(0.94f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_MICRO).withEndAction {
+            k.animate().scaleX(1f).scaleY(1f).setDuration(br.paulo.tvlauncher.DesignTokens.MS_FAST).setInterpolator(android.view.animation.OvershootInterpolator(2f)).start()
         }.start()
     }
 

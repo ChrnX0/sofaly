@@ -113,4 +113,7 @@
     <string name="pl_seu_plano">Je abonnement</string>
     <string name="pl_loja_indisponivel">Google Play kon de aankoop niet openen. Controleer het internet en probeer het opnieuw.</string>
     <string name="atu_pela_play">Updates komen via Google Play.</string>
+    <string name="cfg_sec_tema">Thema en achtergrond</string>
+    <string name="cfg_sec_leitura">Lezen</string>
+    <string name="cfg_sec_inicio">Startscherm</string>
 </resources>

@@ -67,6 +67,30 @@ private fun MainActivity.escolherCards(cat: CruzLogica.Categoria) {
     }
 }
 
+/**
+ * Tamanho dos cards só deste mundo nas Fileiras (Projectivy: "Tamanho" de cada categoria, 26/11/2026): a 1ª linha volta
+ * a seguir o Ajuste fino; as outras fixam um tamanho aqui.
+ */
+private fun MainActivity.escolherTamanho(cat: CruzLogica.Categoria) {
+    val o = WorldOptions.of(this, cat)
+    val nomes = listOf(R.string.rw_xs, R.string.rw_s, R.string.rw_m, R.string.rw_l, R.string.rw_xl).map { getString(it) }
+    val geral = nomes.getOrElse(RowsHome.options(this).size.ordinal) { nomes[2] }
+    val rotulos = listOf<CharSequence>(getString(R.string.wo_cards_geral, geral)) + nomes
+    val marcada = o.size?.takeIf { it in nomes.indices }?.let { it + 1 } ?: 0
+    menuAberto = Estilo.lista(this, getString(R.string.rw_tamanho), rotulos, marcadas = listOf(marcada)) { i ->
+        WorldOptions.save(this, cat, o.copy(size = if (i == 0) null else i - 1)); atualizarAposMudanca(null)
+    }
+}
+
+/** Linhas de cards do mundo nas Fileiras (bloco 3): 1 = fileira comum; 2 ou 3 = grade (◀ ▶ andam por coluna). */
+private fun MainActivity.escolherLinhas(cat: CruzLogica.Categoria) {
+    val o = WorldOptions.of(this, cat)
+    val rotulos = (1..WorldOptions.MAX_LINES).map<Int, CharSequence> { if (it == 1) getString(R.string.rw_linhas_1) else getString(R.string.rw_linhas_n, it) }
+    menuAberto = Estilo.lista(this, getString(R.string.rw_linhas), rotulos, marcadas = listOf(o.lines - 1)) { i ->
+        WorldOptions.save(this, cat, o.copy(lines = i + 1)); atualizarAposMudanca(null)
+    }
+}
+
 internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
     if (TravaHome.precisaPin(this)) { TravaHome.comPin(this) { menuDoMundo(cat, nome) }; return }
     val o = WorldOptions.of(this, cat)
@@ -82,8 +106,11 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
         trocarIconeSofaly(WorldLabel.tipo(cat), nome, null, null)
     }
     if (BottomBar.strip(this)) opcoes += MainActivity.Opcao(getString(R.string.wo_cards)) { escolherCards(cat) }
+    if (BottomBar.rows(this)) opcoes += MainActivity.Opcao(getString(R.string.rw_tamanho)) { escolherTamanho(cat) }
+    if (BottomBar.rows(this)) opcoes += MainActivity.Opcao(getString(R.string.rw_linhas)) { escolherLinhas(cat) }
     // Só o ícone na linha (Paulo, 22/11/2026): o nome some da cruz e fica na pílula do topo quando a categoria tem o foco.
-    opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {
+    // Na barra única a cruz não aparece: a troca não mudaria nada e sai do menu (onda A, 25/11/2026).
+    if (!BottomBar.strip(this) && !BottomBar.rows(this)) opcoes += MainActivity.Opcao(getString(if (o.iconOnly) R.string.wo_com_nome else R.string.wo_so_icone)) {
         WorldOptions.save(this, cat, o.copy(iconOnly = !o.iconOnly)); atualizarAposMudanca(null)
     }
     if (WorldOptions.Rules.canHide(cat)) opcoes += MainActivity.Opcao(getString(R.string.wo_esconder)) {
@@ -106,7 +133,9 @@ internal fun MainActivity.menuDoMundo(cat: CruzLogica.Categoria, nome: String) {
 private fun MainActivity.escolherOrdem(cat: CruzLogica.Categoria, nome: String) {
     val o = WorldOptions.of(this, cat)
     val modos = WorldOptions.Sort.entries
-    val rotulos = listOf<CharSequence>(getString(R.string.wo_por_uso), getString(R.string.wo_az), getString(R.string.wo_a_mao))
+    // na ordem de WorldOptions.Sort (as duas últimas vieram do Projectivy, 26/11/2026)
+    val rotulos = listOf<CharSequence>(getString(R.string.wo_por_uso), getString(R.string.wo_az), getString(R.string.wo_a_mao),
+        getString(R.string.wo_ultimos), getString(R.string.wo_aleatorio))
     menuAberto = Estilo.lista(this, getString(R.string.wo_ordenar_de, nome), rotulos, marcadas = listOf(modos.indexOf(o.sort))) { i ->
         val novo = modos[i]
         if (novo == o.sort) return@lista

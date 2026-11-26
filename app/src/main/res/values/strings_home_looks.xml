@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Visuais prontos da barra única (HomeLooks, 25/11/2026). -->
+    <string name="hl_titulo">Ready-made looks</string>
+    <string name="hl_det">One OK changes everything together</string>
+    <string name="hl_sofaly">Sofaly</string>
+    <string name="hl_night">Night</string>
+    <string name="hl_mountain">Mountains</string>
+    <string name="hl_easy">Easy to see</string>
+    <string name="hl_minimal">Minimal</string>
+    <string name="hl_voltar">As it was</string>
+    <string name="hl_em_uso">%1$s, in use</string>
+</resources>

@@ -73,7 +73,7 @@ class CaixaTv(private val ctx: Context, @Suppress("UNUSED_PARAMETER") tema: Int 
                     super.onMeasure(w, MeasureSpec.makeMeasureSpec(teto, MeasureSpec.AT_MOST))
             }.apply {
                 isVerticalScrollBarEnabled = false
-                addView(Estilo.texto(ctx, Estilo.Papel.LEGENDA, it).apply { textSize = 16f; setLineSpacing(0f, 1.25f) })
+                addView(Estilo.texto(ctx, Estilo.Papel.LEGENDA, it).apply { textSize = 18f; setLineSpacing(0f, 1.25f) })
             }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(Estilo.E1 + 4) })
         }
         corpo?.let { v ->

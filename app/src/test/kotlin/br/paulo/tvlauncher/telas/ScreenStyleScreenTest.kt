@@ -51,6 +51,12 @@ class ScreenStyleScreenTest {
 
     @Test fun vidro() = conferir(ScreenStyle.GLASS)
 
+    /** Painel ao lado (padrão desde 25/11/2026): as Configurações num vidro à direita, sem menu de um item só. */
+    @Test fun painel() = conferir(ScreenStyle.PANEL)
+
+    /** Guiado (padrão desde 26/11/2026, molde do Projectivy): explicação à esquerda, lista estreita com foco parado. */
+    @Test fun guiado() = conferir(ScreenStyle.GUIDED)
+
     /** Barra: as Configurações viram a fileira de cards; as outras telas caem no Vidro. */
     @Test fun barra() = conferir(ScreenStyle.STRIP, telas + entradas)
 

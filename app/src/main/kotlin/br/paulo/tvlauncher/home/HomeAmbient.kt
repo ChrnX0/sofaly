@@ -24,7 +24,7 @@ private const val MATCH = android.view.ViewGroup.LayoutParams.MATCH_PARENT
 
 internal fun MainActivity.reagendarAmbiente() {
     ui.removeCallbacks(tarefaAmbiente)
-    if (cruz != null && homeNaFrente && CruzOnda3.ligado(this, CruzOnda3.CHAVE_AMBIENTE)) ui.postDelayed(tarefaAmbiente, CruzOnda3.AMBIENTE_MS)
+    if (cruz != null && homeNaFrente && CruzOnda3.ligado(this, CruzOnda3.CHAVE_AMBIENTE)) ui.postDelayed(tarefaAmbiente, CruzOnda3.ambienteMs(this))
 }
 
 internal fun MainActivity.tocandoAgora() = capsulaPronta && capsulaTocando.visibility == View.VISIBLE && barrasTocando.tocando
@@ -37,9 +37,11 @@ internal fun MainActivity.entrarAmbiente() {
     ambiente = true
     (fundo as? WallpaperPluginView)?.ocioso(true)
     val d = CruzOnda3.AMBIENTE_FADE_MS
-    c.animate().alpha(0f).setDuration(d).start()
-    topoRaiz?.animate()?.alpha(0f)?.setDuration(d)?.start()
+    val alfa = CruzOnda3.ambienteAlfa(this)
+    c.animate().alpha(alfa).setDuration(d).start()
+    topoRaiz?.animate()?.alpha(alfa)?.setDuration(d)?.start()
     relogioCruz?.animate()?.alpha(0f)?.setDuration(d)?.start()
+    if (!CruzOnda3.ambienteHora(this)) { c.announceForAccessibility(getString(R.string.cruz_ambiente)); return }
     // A hora grande no canto livre de baixo (a mesma da barra "Relógio grande"), com a data e o tempo.
     val r = relogioAmbiente ?: montarRelogioCruz().also { v ->
         v.alpha = 0f
@@ -87,9 +89,10 @@ internal fun MainActivity.deslizarArte(t: CruzLogica.Tecla) {
     if (x == 0 && y == 0) return
     val passo = CruzOnda3.PARALAXE_DP * resources.displayMetrics.density
     capa.animate().cancel()
+    capa.alpha = capa.alfaAlvo   // o cancel também parava o esmaecer da capa no meio
     capa.translationX = x * passo; capa.translationY = y * passo
     capa.animate().translationX(0f).translationY(0f).setDuration(CruzOnda3.PARALAXE_MS)
-        .setInterpolator(android.view.animation.DecelerateInterpolator(1.6f)).start()
+        .setInterpolator(Estilo.curva()).start()
 }
 
 internal fun MainActivity.vigiarTela() {
@@ -108,6 +111,8 @@ internal fun MainActivity.vigiarTela() {
                         if (homeNaFrente) SplashOverlay.show(this@vigiarTela) else splashPendenteAte = agora + 3000L
                     }
                     abrirIlhaAoAcordar()
+                    // "Abrir ao ligar" também ao acordar do descanso (bloco 7: o "...e ao sair do standby" dele)
+                    if (CardMenu.onWake(ctx)) CardMenu.bootApp(ctx)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, CardMenu.delayMs(ctx)) }
                     if (homeNaFrente) { ui.removeCallbacks(tarefaQuemVe); ui.postDelayed(tarefaQuemVe, 1500) }
                 }
             }
@@ -172,4 +177,23 @@ internal fun MainActivity.contagemGrade(): Pair<Int, Int> {
     val apps = instalados.filter { it.pacote !in daVisita }
     val escondidos = if (visita) 0 else apps.count { it.pacote in ocultos }
     return apps.count { it.pacote !in ocultos } to escondidos
+}
+
+/**
+ * Voltar duas vezes na HOME (bloco 7): abre o protetor de tela do sistema (o nosso ProtetorTela) pelo shell próprio;
+ * sem shell, entra no modo ambiente da HOME. O 1º Voltar segue o caminho normal (não é engolido).
+ */
+internal fun MainActivity.voltarDuplo(e: KeyEvent): Boolean {
+    if (e.keyCode != KeyEvent.KEYCODE_BACK || e.action != KeyEvent.ACTION_DOWN || e.repeatCount > 0) return false
+    if (!CruzOnda3.voltar2(this) || todosAbertos || menuAberto?.isShowing == true) return false
+    val agora = android.os.SystemClock.uptimeMillis()
+    val duplo = CruzOnda3.voltarDuplo(ultimoVoltar, agora)
+    ultimoVoltar = if (duplo) 0L else agora
+    if (!duplo) return false
+    engolirTecla = KeyEvent.KEYCODE_BACK
+    br.paulo.tvlauncher.Fundo.rodar("voltar-duplo") {
+        val r = br.paulo.tvlauncher.privilege.GuardiaoShizuku.comando(this, "cmd dreams start-dreaming", 5_000)
+        if (r == null) ui.post { if (!isDestroyed) entrarAmbiente() }
+    }
+    return true
 }

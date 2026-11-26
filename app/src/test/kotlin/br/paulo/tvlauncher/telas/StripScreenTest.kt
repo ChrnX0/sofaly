@@ -48,7 +48,8 @@ class StripScreenTest {
         val app = RuntimeEnvironment.getApplication()
         SplashOverlay.setEnabled(app, false)
         LayoutHome.definirBarraCruz(app, LayoutHome.BarraCruz.ILHA)
-        assertEquals("barra única é o jeito de fábrica", BottomBar.Mode.STRIP, BottomBar.mode(app))
+        // 26/11/2026: as Fileiras viraram o jeito de fábrica (RowsScreenTest); aqui a barra única é escolhida.
+        BottomBar.setMode(app, BottomBar.Mode.STRIP)
         System.setProperty("https.proxyHost", "127.0.0.1"); System.setProperty("https.proxyPort", "9")
         val a = Robolectric.buildActivity(MainActivity::class.java).setup().get()
         fun esperar() = repeat(6) { Thread.sleep(100); ShadowLooper.idleMainLooper(200, TimeUnit.MILLISECONDS) }
