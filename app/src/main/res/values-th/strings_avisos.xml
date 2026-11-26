@@ -13,4 +13,6 @@
     <string name="mural_riscar">ขีดฆ่า %1$s</string>
     <string name="ds_lento_titulo">Sofaly ช้าลง</string>
     <string name="ds_lento_texto">เวอร์ชัน %1$d: เฟรมที่ช้าใช้เวลา %2$d ms เดิมใช้ %3$d ms (+%4$d%%)</string>
+    <string name="cert_vence_titulo">ใบรับรองของแผงใกล้หมดอายุ</string>
+    <string name="cert_vence_texto">ใบรับรองความปลอดภัยของแผงทีวีจะหมดอายุในอีก %1$d วัน ต่ออายุได้ที่แผง (การเข้าถึงระยะไกล) แล้วติดตั้งใหม่ในอุปกรณ์</string>
 </resources>

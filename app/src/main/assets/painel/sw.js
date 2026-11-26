@@ -47,6 +47,7 @@ const ABA_DO_AVISO = {
   CHUVA: 'controle', ERRO_NOVO: 'sistema', DESEMPENHO: 'sistema', ARMAZENAMENTO: 'sistema', INTERNET_VOLTOU: 'avancado',
   VERSAO_NOVA: 'inicio', DIGITAR: 'controle',   // ideia 57: "Digitar na TV" abre o Controle
   SOFY: 'sofy',   // Brainstorm 26/11 item 4: o grave da Sofy abre a aba dela
+  CERTIFICADO: 'remoto',   // item 18: o cartão do certificado fica em Acesso remoto
   // Cuidar de longe: o pedido de ajuda (AJUDA, acima) abre o Controle com a foto; os outros, o cartão de configuração.
   LEMBRETE_CUIDAR: 'familia', TV_NAO_LIGOU: 'controle', CUIDAR: 'familia',   // painel v3: páginas = abas da TV
 };

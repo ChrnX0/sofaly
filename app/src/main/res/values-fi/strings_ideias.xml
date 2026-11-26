@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Näytä tämän päivän DNS-päiväkirja</string>
     <string name="extras_diario_apagar">Poista DNS-päiväkirja</string>
     <string name="extras_diario_apagado">Päiväkirja poistettu</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Kodin yö</string>
+    <string name="noite_casa_inicio">Yö alkaa</string>
+    <string name="noite_casa_fim">Yö päättyy</string>
+    <string name="noite_casa_corpo">Älä häiritse ja yösuodatin seuraavat tätä aikaa. Lasten nukkumaanmenoaika pysyy omanaan.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Älä häiritse seuraa tätä aikaa. Yösuodattimella on oma aika; aseta samat tunnit, niin se seuraa taas kodin yötä.</string>
 </resources>

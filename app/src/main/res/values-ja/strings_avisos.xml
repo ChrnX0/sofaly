@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s に線を引く</string>
     <string name="ds_lento_titulo">Sofaly が遅くなった</string>
     <string name="ds_lento_texto">バージョン %1$d: 遅いフレームが %2$d ms(以前は %3$d ms、+%4$d%%)。</string>
+    <string name="cert_vence_titulo">パネルの証明書がまもなく期限切れ</string>
+    <string name="cert_vence_texto">テレビのパネルのセキュリティ証明書は%1$d日後に期限が切れます。パネル（リモートアクセス）で更新し、各機器に再インストールしてください。</string>
 </resources>

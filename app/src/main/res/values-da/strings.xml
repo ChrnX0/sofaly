@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s fastgjort, men AFBRUDT (internettet fortsætter uden VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s forbundet, men Android godkendte ikke tunnelen</string>
     <string name="diag_vpn_ok">%1$s forbundet og virker</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv svarer: vejr, podcasts, transskription og resten virker</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv svarede ikke. Alt derhjemme virker stadig; vejr, podcastsøgning og plugins venter</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv er sat på pause for vedligeholdelse. Alt derhjemme virker stadig</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv svarer, men denne del er nede: %1$s</string>
+    <string name="diag_sofaly_clima">vejr</string>
+    <string name="diag_sofaly_podcasts">podcastsøgning</string>
+    <string name="diag_sofaly_ia">transskriptioner og resuméer</string>
+    <string name="diag_sofaly_comunidade">hjælp andre hjem</string>
+    <string name="diag_sofaly_celular">telefon uden for hjemmet</string>
     <string name="diag_r_sem_wifi">tv\'et har ingen wifi</string>
     <string name="diag_r_dns_fora">DNS svarer ikke: internettet ser ud til at være nede</string>
     <string name="diag_r_net_fora">internettet kommer ikke igennem (router eller udbyder)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">opdateret</string>
     <string name="atu_falhou">installationen mislykkedes (%1$d): %2$s</string>
     <string name="atu_ruim">version %1$d gik ned på dette tv lige efter installationen: installeres ikke igen</string>
+    <string name="atu_segurada">version %1$d er sat i bero (problemer på andre tv): venter på den næste</string>
     <string name="vig_aviso_titulo">Opdatering sat på pause</string>
     <string name="vig_pausada">version %1$d gik ned to gange lige efter installationen · den automatiske opdatering venter på den næste</string>
     <string name="vig_pausada_tela">version %1$d gik ned to gange lige efter installationen · \"%2$s\" er slået fra indtil den næste</string>

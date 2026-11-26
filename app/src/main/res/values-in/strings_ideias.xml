@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">Tampilkan buku harian DNS hari ini</string>
     <string name="extras_diario_apagar">Hapus buku harian DNS</string>
     <string name="extras_diario_apagado">Buku harian dihapus</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Malam rumah</string>
+    <string name="noite_casa_inicio">Malam mulai</string>
+    <string name="noite_casa_fim">Malam selesai</string>
+    <string name="noite_casa_corpo">Jangan ganggu dan filter malam mengikuti jam ini. Jam tidur anak punya jamnya sendiri.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Jangan ganggu mengikuti jam ini. Filter malam punya jam sendiri; pasang jam yang sama agar kembali mengikuti malam rumah.</string>
 </resources>

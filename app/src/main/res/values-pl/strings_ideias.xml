@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">Pokaż dzisiejszy dziennik DNS</string>
     <string name="extras_diario_apagar">Usuń dziennik DNS</string>
     <string name="extras_diario_apagado">Dziennik usunięty</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Noc w domu</string>
+    <string name="noite_casa_inicio">Noc zaczyna się</string>
+    <string name="noite_casa_fim">Noc kończy się</string>
+    <string name="noite_casa_corpo">Nie przeszkadzać i filtr nocny trzymają się tych godzin. Pora snu dzieci ma własne.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Nie przeszkadzać trzyma się tych godzin. Filtr nocny ma własne godziny; ustaw te same, by znów szedł za nocą w domu.</string>
 </resources>

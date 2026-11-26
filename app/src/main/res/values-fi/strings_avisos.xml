@@ -13,4 +13,6 @@
     <string name="mural_riscar">Yliviivaa %1$s</string>
     <string name="ds_lento_titulo">Sofaly hidastui</string>
     <string name="ds_lento_texto">Versio %1$d: hitaat kuvat vievät %2$d ms, ne veivät %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Paneelin varmenne vanhenee pian</string>
+    <string name="cert_vence_texto">TV-paneelin suojausvarmenne vanhenee %1$d päivän kuluttua. Uusi se paneelissa (Etäkäyttö) ja asenna se uudelleen laitteisiin.</string>
 </resources>

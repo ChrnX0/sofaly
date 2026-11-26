@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Mudo</string>
     <string name="cel_ctrl_sem_tv">A TV não respondeu. Ela está ligada e na mesma rede?</string>
+    <string name="cel_ctrl_cert_novo">A TV tem um certificado de segurança novo. Leia de novo o código QR da TV.</string>
     <string name="cel_ctrl_recusou">A TV não conseguiu fazer isso agora.</string>
     <string name="cel_ctrl_entrar">Entre uma vez com o PIN da TV no painel; depois o controle funciona.</string>
     <string name="cel_notif_canal">Controle da TV</string>
     <string name="cel_notif_texto">Pausar e volume sem abrir o app</string>
     <string name="cel_bloco">Controle da TV</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Enviar para %1$s</string>
+    <string name="cel_enviar_lendo">A ler o ficheiro…</string>
+    <string name="cel_enviar_nada">Não consegui ler esse ficheiro.</string>
+    <string name="cel_enviar_fechar">Fechar</string>
+    <string name="cel_enviar_n">%1$d ficheiros</string>
+    <string name="cel_enviar_mostrar">Mostrar na TV</string>
+    <string name="cel_enviar_tocar">Reproduzir na TV</string>
+    <string name="cel_enviar_guardar">Guardar na TV</string>
+    <string name="cel_enviar_mandando">A enviar… %1$d%%</string>
+    <string name="cel_enviar_pronto">Pronto. Está na TV.</string>
+    <string name="cel_enviar_sem_espaco">A TV não tem espaço livre suficiente.</string>
+    <string name="cel_enviar_tipo">A TV não abre este ficheiro.</string>
+    <string name="cel_enviar_de_novo">Tentar de novo</string>
+    <string name="cel_enviar_qr">Para enviar fotos e ficheiros, leia primeiro o código QR da TV.</string>
 </resources>

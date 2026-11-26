@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s doorstrepen</string>
     <string name="ds_lento_titulo">Sofaly is trager geworden</string>
     <string name="ds_lento_texto">Versie %1$d: trage frames duren %2$d ms, dat was %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Paneelcertificaat verloopt binnenkort</string>
+    <string name="cert_vence_texto">Het beveiligingscertificaat van het tv-paneel verloopt over %1$d dagen. Vernieuw het in het paneel (Toegang op afstand) en installeer het opnieuw op je apparaten.</string>
 </resources>

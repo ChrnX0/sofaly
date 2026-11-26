@@ -13,4 +13,6 @@
     <string name="mural_riscar">Cross out %1$s</string>
     <string name="ds_lento_titulo">Sofaly got slower</string>
     <string name="ds_lento_texto">Version %1$d: slow frames take %2$d ms, they took %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Panel certificate expires soon</string>
+    <string name="cert_vence_texto">The TV panel\'s security certificate expires in %1$d days. Renew it in the panel (Remote access) and install it again on your devices.</string>
 </resources>

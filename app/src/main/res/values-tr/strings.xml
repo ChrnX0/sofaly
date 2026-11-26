@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s sabitli ama BAĞLI DEĞİL (internet VPN olmadan çalışmaya devam eder)</string>
     <string name="diag_vpn_nao_validada">%1$s bağlı ama Android tüneli doğrulamadı</string>
     <string name="diag_vpn_ok">%1$s bağlı ve çalışıyor</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv yanıt veriyor: hava durumu, podcast\'ler, döküm ve diğerleri çalışıyor</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv yanıt vermedi. Evde her şey çalışmaya devam ediyor; hava durumu, podcast arama ve eklentiler bekliyor</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv bakım için duraklatıldı. Evde her şey çalışmaya devam ediyor</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv yanıt veriyor ama bu bölüm çalışmıyor: %1$s</string>
+    <string name="diag_sofaly_clima">hava durumu</string>
+    <string name="diag_sofaly_podcasts">podcast arama</string>
+    <string name="diag_sofaly_ia">döküm ve özetler</string>
+    <string name="diag_sofaly_comunidade">diğer evlere yardım</string>
+    <string name="diag_sofaly_celular">evden uzaktaki telefon</string>
     <string name="diag_r_sem_wifi">TV’nin Wi-Fi’si yok</string>
     <string name="diag_r_dns_fora">DNS yanıt vermiyor: internet kesik görünüyor</string>
     <string name="diag_r_net_fora">internet geçmiyor (yönlendirici veya sağlayıcı)</string>
@@ -365,6 +374,7 @@
     <string name="atu_ok">güncellendi</string>
     <string name="atu_falhou">yükleme başarısız (%1$d): %2$s</string>
     <string name="atu_ruim">%1$d sürümü bu TV’de yüklendikten hemen sonra çöktü: yeniden yüklenmeyecek</string>
+    <string name="atu_segurada">%1$d sürümü bekletiliyor (başka TV\'lerde sorun çıktı): bir sonrakini bekliyorum</string>
     <string name="vig_aviso_titulo">Güncelleme duraklatıldı</string>
     <string name="vig_pausada">%1$d sürümü yüklendikten hemen sonra iki kez çöktü · otomatik güncelleme bir sonrakini bekliyor</string>
     <string name="vig_pausada_tela">%1$d sürümü yüklendikten hemen sonra iki kez çöktü · «%2$s» bir sonrakine kadar kapalı kalır</string>

@@ -363,6 +363,15 @@
     <string name="diag_vpn_desc">%1$s fixada, mas DESCONECTADA (a internet segue sem VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s conectada, mas o Android não validou o túnel</string>
     <string name="diag_vpn_ok">%1$s conectada e funcionando</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv respondendo: clima, podcasts, transcrição e o resto funcionando</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv não respondeu. Tudo em casa segue funcionando; clima, busca de podcasts e plugins esperam</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv está pausado para manutenção. Tudo em casa segue funcionando</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv responde, mas esta parte está fora: %1$s</string>
+    <string name="diag_sofaly_clima">clima</string>
+    <string name="diag_sofaly_podcasts">busca de podcasts</string>
+    <string name="diag_sofaly_ia">transcrição e resumos</string>
+    <string name="diag_sofaly_comunidade">ajudar outras casas</string>
+    <string name="diag_sofaly_celular">celular fora de casa</string>
     <string name="diag_r_sem_wifi">a TV está sem Wi-Fi</string>
     <string name="diag_r_dns_fora">o DNS não responde: a internet parece fora</string>
     <string name="diag_r_net_fora">a internet não está chegando (roteador ou operadora)</string>
@@ -426,6 +435,7 @@
     <string name="atu_ok">atualizado</string>
     <string name="atu_falhou">instalação falhou (%1$d): %2$s</string>
     <string name="atu_ruim">a versão %1$d caiu nesta TV logo depois de instalar: não instalo de novo</string>
+    <string name="atu_segurada">a versão %1$d está segurada (deu problema em outras TVs): espero a próxima</string>
     <string name="vig_aviso_titulo">Atualização pausada</string>
     <string name="vig_pausada">a versão %1$d caiu 2 vezes logo depois de instalar · a atualização automática espera a próxima</string>
     <string name="vig_pausada_tela">a versão %1$d caiu 2 vezes logo depois de instalar · \"%2$s\" fica desligada até a próxima</string>

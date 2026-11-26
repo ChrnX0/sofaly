@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Εμφάνιση του σημερινού ημερολογίου DNS</string>
     <string name="extras_diario_apagar">Διαγραφή του ημερολογίου DNS</string>
     <string name="extras_diario_apagado">Το ημερολόγιο διαγράφηκε</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Νύχτα του σπιτιού</string>
+    <string name="noite_casa_inicio">Η νύχτα αρχίζει</string>
+    <string name="noite_casa_fim">Η νύχτα τελειώνει</string>
+    <string name="noite_casa_corpo">Το «Μην ενοχλείτε» και το νυχτερινό φίλτρο ακολουθούν αυτή την ώρα. Η ώρα ύπνου των παιδιών έχει τη δική της.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Το «Μην ενοχλείτε» ακολουθεί αυτή την ώρα. Το νυχτερινό φίλτρο έχει δική του ώρα· βάλτε τις ίδιες ώρες για να ακολουθεί ξανά τη νύχτα του σπιτιού.</string>
 </resources>

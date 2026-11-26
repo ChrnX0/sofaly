@@ -13,4 +13,6 @@
     <string name="mural_riscar">Διαγραφή του %1$s</string>
     <string name="ds_lento_titulo">Το Sofaly έγινε πιο αργό</string>
     <string name="ds_lento_texto">Έκδοση %1$d: τα αργά καρέ παίρνουν %2$d ms, έπαιρναν %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Το πιστοποιητικό του πίνακα λήγει σύντομα</string>
+    <string name="cert_vence_texto">Το πιστοποιητικό ασφαλείας του πίνακα της TV λήγει σε %1$d ημέρες. Ανανεώστε το στον πίνακα (Απομακρυσμένη πρόσβαση) και εγκαταστήστε το ξανά στις συσκευές.</string>
 </resources>

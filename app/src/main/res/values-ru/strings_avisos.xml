@@ -13,4 +13,6 @@
     <string name="mural_riscar">Вычеркнуть %1$s</string>
     <string name="ds_lento_titulo">Sofaly стал медленнее</string>
     <string name="ds_lento_texto">Версия %1$d: медленные кадры занимают %2$d мс, было %3$d мс (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Сертификат панели скоро истечёт</string>
+    <string name="cert_vence_texto">Сертификат безопасности панели ТВ истечёт через %1$d дн. Обновите его в панели (Удалённый доступ) и снова установите на устройства.</string>
 </resources>

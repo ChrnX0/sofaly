@@ -47,4 +47,10 @@
     <string name="extras_diario_ver">查看今天的 DNS 日志</string>
     <string name="extras_diario_apagar">删除 DNS 日志</string>
     <string name="extras_diario_apagado">日志已删除</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">家里的夜晚</string>
+    <string name="noite_casa_inicio">夜晚开始</string>
+    <string name="noite_casa_fim">夜晚结束</string>
+    <string name="noite_casa_corpo">勿扰和夜间滤镜都按这个时间。孩子的就寝时间单独设置。</string>
+    <string name="noite_casa_corpo_filtro_proprio">勿扰按这个时间。夜间滤镜有自己的时间；设成相同的时间即可重新跟随家里的夜晚。</string>
 </resources>

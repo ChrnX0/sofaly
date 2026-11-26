@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s fixat, dar DECONECTAT (internetul funcționează și fără VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s conectat, dar Android nu a validat tunelul</string>
     <string name="diag_vpn_ok">%1$s conectat și funcțional</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv răspunde: vremea, podcasturile, transcrierea și restul funcționează</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv nu a răspuns. Totul acasă funcționează în continuare; vremea, căutarea de podcasturi și pluginurile așteaptă</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv este în pauză pentru întreținere. Totul acasă funcționează în continuare</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv răspunde, dar această parte nu merge: %1$s</string>
+    <string name="diag_sofaly_clima">vremea</string>
+    <string name="diag_sofaly_podcasts">căutare de podcasturi</string>
+    <string name="diag_sofaly_ia">transcrieri și rezumate</string>
+    <string name="diag_sofaly_comunidade">ajută alte case</string>
+    <string name="diag_sofaly_celular">telefon în afara casei</string>
     <string name="diag_r_sem_wifi">TV-ul nu are Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS-ul nu răspunde: internetul pare căzut</string>
     <string name="diag_r_net_fora">internetul nu trece (router sau furnizor)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">actualizat</string>
     <string name="atu_falhou">instalarea a eșuat (%1$d): %2$s</string>
     <string name="atu_ruim">versiunea %1$d s-a blocat pe acest TV imediat după instalare: nu va fi instalată din nou</string>
+    <string name="atu_segurada">versiunea %1$d este reținută (probleme pe alte televizoare): aștept următoarea</string>
     <string name="vig_aviso_titulo">Actualizare în pauză</string>
     <string name="vig_pausada">versiunea %1$d s-a blocat de două ori imediat după instalare · actualizarea automată așteaptă următoarea</string>
     <string name="vig_pausada_tela">versiunea %1$d s-a blocat de două ori imediat după instalare · \"%2$s\" rămâne dezactivat până la următoarea</string>

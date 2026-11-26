@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.home.AppsEmDisco
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
@@ -1291,7 +1292,7 @@ class MainActivity : Activity() {
             // A categoria já vem no ResolveInfo: sem IPC na thread da tela depois (home-9).
             categorias[pkg] = ri.activityInfo.applicationInfo.category
             // APK novo (atualizado): a capa guardada pode ser a arte antiga; lê de novo (home-6).
-            if (cacheApps[pkg]?.first != null && cacheApps[pkg]?.first != chave) capas.remove(pkg)
+            if (cacheApps[pkg]?.first != null && cacheApps[pkg]?.first != chave) { capas.remove(pkg); iconeCruzApp.remove(pkg) }
             itens[pkg] = cacheApps[pkg]?.takeIf { it.first == chave }?.second ?: run {
                 // Só o ícone redondo fica guardado: o original (loadIcon) vira lixo logo depois de desenhado.
                 // Ícone trocado à mão ou do pacote de ícones (CustomIcons; pacote de outro desenvolvedor = plano Pro).
@@ -1360,6 +1361,8 @@ class MainActivity : Activity() {
         // 5 s tinha iconeRedondo na pilha da thread principal, no 1º onResume do processo). Só o desenho volta para ela.
         val t0 = android.os.SystemClock.elapsedRealtime()
         filaApps.execute {
+            // Abertura a frio (item 27, Brainstorm 26/11): desenha já com a lista guardada em disco e troca depois.
+            if (cacheApps.isEmpty()) runCatching { desenharDoDisco(t0) }
             val todos = carregarApps()   // cacheApps só é tocado nesta fila (uma thread)
             val doJogos = todos.filter { JogosTv.ehJogo(this, it.pacote) }
             // Uso recente também aqui fora (04/11/2026): antes rodava na thread da tela.
@@ -1372,6 +1375,7 @@ class MainActivity : Activity() {
             for (app in todos) prepararIconeCruz(app)
             iconeCruzApp.keys.retainAll(todos.map { it.pacote }.toSet())
             val t1 = android.os.SystemClock.elapsedRealtime()
+            filaApps.execute { runCatching { guardarNoDisco(todos, uso) } }   // depois do desenho, na mesma fila
             ui.post {
                 if (isDestroyed) return@post
                 instalados = todos
@@ -1394,6 +1398,49 @@ class MainActivity : Activity() {
             }
         }
     }
+    /**
+     * Item 27 (Brainstorm 26/11): na 1ª volta à HOME do processo, desenha com a lista do disco (AppsEmDisco) e semeia
+     * os caches com ela; o carregarApps logo depois reaproveita cada app cuja chave (APK) não mudou.
+     */
+    private fun desenharDoDisco(t0: Long) {
+        val (estilo, lidos) = AppsEmDisco.ler(this) ?: return
+        if (lidos.isEmpty()) return
+        val mesmoEstilo = estilo == estiloAppCruz.name
+        val itens = lidos.map { l ->
+            val r = l.registro
+            categorias[r.pacote] = r.categoria
+            if (!r.pacote.startsWith("entrada:")) JogosTv.primar(this, r.pacote, r.categoria)
+            if (r.doPacote) iconeDePacote += r.pacote
+            if (mesmoEstilo && l.cruz != null) iconeCruzApp[r.pacote] = estiloAppCruz to l.cruz
+            Item(r.pacote, r.nome, android.graphics.drawable.BitmapDrawable(resources, l.icone)).also { cacheApps[r.pacote] = r.chave to it }
+        }
+        val uso = lidos.filter { it.registro.uso > 0 }.associate { it.registro.pacote to it.registro.uso }
+        val t1 = android.os.SystemClock.elapsedRealtime()
+        ui.post {
+            if (isDestroyed || instalados.isNotEmpty()) return@post   // o carregamento de verdade já chegou
+            instalados = itens
+            ultimoUso = uso
+            visiveis = appsVisiveis(instalados)
+            atualizarCruz()
+            android.util.Log.i("TvLauncher.Apps", "preencherApps: do disco=${t1 - t0} ms (${itens.size} apps), desenhar=${android.os.SystemClock.elapsedRealtime() - t1} ms")
+        }
+    }
+
+    /** Assinatura do que está no disco (só nesta fila): grava de novo só quando muda algo. */
+    @Volatile private var assinaturaDisco: String? = null
+
+    private fun guardarNoDisco(todos: List<Item>, uso: Map<String, Long>) {
+        val regs = todos.mapNotNull { item ->
+            val chave = cacheApps[item.pacote]?.first ?: return@mapNotNull null
+            Triple(AppsEmDisco.Registro(item.pacote, item.nome, chave, categorias[item.pacote] ?: -1, item.pacote in iconeDePacote,
+                uso[item.pacote] ?: 0L), item.icone, iconeCruzApp[item.pacote]?.takeIf { it.first == estiloAppCruz }?.second)
+        }
+        val ass = AppsEmDisco.assinatura(regs.map { it.first }, estiloAppCruz.name, regs.filter { it.third != null }.map { it.first.pacote }.toSet())
+        if (ass == assinaturaDisco) return
+        AppsEmDisco.gravar(this, estiloAppCruz.name, regs)
+        assinaturaDisco = ass
+    }
+
     internal val filaApps = java.util.concurrent.Executors.newSingleThreadExecutor { r -> Thread(r, "Apps") }
     /** pacote -> último uso (ms), lido por preencherApps na filaApps. Só lido/escrito na thread da tela. */
     internal var ultimoUso: Map<String, Long> = emptyMap()

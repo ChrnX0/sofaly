@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Wycisz</string>
     <string name="cel_ctrl_sem_tv">Telewizor nie odpowiada. Czy jest włączony i w tej samej sieci?</string>
+    <string name="cel_ctrl_cert_novo">Telewizor ma nowy certyfikat bezpieczeństwa. Zeskanuj ponownie kod QR z telewizora.</string>
     <string name="cel_ctrl_recusou">Telewizor nie mógł teraz tego zrobić.</string>
     <string name="cel_ctrl_entrar">Zaloguj się raz PIN-em telewizora w panelu; potem pilot działa.</string>
     <string name="cel_notif_canal">Pilot TV</string>
     <string name="cel_notif_texto">Pauza i głośność bez otwierania aplikacji</string>
     <string name="cel_bloco">Pilot TV</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Wyślij do %1$s</string>
+    <string name="cel_enviar_lendo">Czytam plik…</string>
+    <string name="cel_enviar_nada">Nie udało się odczytać pliku.</string>
+    <string name="cel_enviar_fechar">Zamknij</string>
+    <string name="cel_enviar_n">Pliki: %1$d</string>
+    <string name="cel_enviar_mostrar">Pokaż na telewizorze</string>
+    <string name="cel_enviar_tocar">Odtwórz na telewizorze</string>
+    <string name="cel_enviar_guardar">Zapisz na telewizorze</string>
+    <string name="cel_enviar_mandando">Wysyłanie… %1$d%%</string>
+    <string name="cel_enviar_pronto">Gotowe. Jest na telewizorze.</string>
+    <string name="cel_enviar_sem_espaco">Telewizor nie ma dość wolnego miejsca.</string>
+    <string name="cel_enviar_tipo">Telewizor nie otworzy tego pliku.</string>
+    <string name="cel_enviar_de_novo">Spróbuj ponownie</string>
+    <string name="cel_enviar_qr">Aby wysyłać zdjęcia i pliki, najpierw zeskanuj kod QR z telewizora.</string>
 </resources>

@@ -13,4 +13,6 @@
     <string name="mural_riscar">Stryk %1$s</string>
     <string name="ds_lento_titulo">Sofaly blev långsammare</string>
     <string name="ds_lento_texto">Version %1$d: långsamma bildrutor tar %2$d ms, de tog %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Panelens certifikat går snart ut</string>
+    <string name="cert_vence_texto">TV-panelens säkerhetscertifikat går ut om %1$d dagar. Förnya det i panelen (Fjärråtkomst) och installera det igen på dina enheter.</string>
 </resources>

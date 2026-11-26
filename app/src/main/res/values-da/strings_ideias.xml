@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Vis dagens DNS-dagbog</string>
     <string name="extras_diario_apagar">Slet DNS-dagbogen</string>
     <string name="extras_diario_apagado">Dagbogen slettet</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Husets nat</string>
+    <string name="noite_casa_inicio">Natten starter</string>
+    <string name="noite_casa_fim">Natten slutter</string>
+    <string name="noite_casa_corpo">Forstyr ikke og natfilteret følger dette tidspunkt. Børnenes sengetid har sit eget.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Forstyr ikke følger dette tidspunkt. Natfilteret har sit eget; vælg de samme timer, så det igen følger husets nat.</string>
 </resources>

@@ -28,8 +28,9 @@ object FiltroNoturno {
     const val CHAVE_INICIO = "filtro_inicio_min"
     const val CHAVE_FIM = "filtro_fim_min"
     const val CHAVE_FORCA = "filtro_forca"   // 0..100
-    const val PADRAO_INICIO = 22 * 60
-    const val PADRAO_FIM = 6 * 60
+    /** Sem ajuste próprio, o filtro segue a noite da casa (Brainstorm 26/11, item 12; antes era 22h-6h fixo). */
+    fun inicio(ctx: android.content.Context): Int = Extras.numero(ctx, CHAVE_INICIO, br.paulo.tvlauncher.alarm.NoiteCasa.inicio(ctx))
+    fun fim(ctx: android.content.Context): Int = Extras.numero(ctx, CHAVE_FIM, br.paulo.tvlauncher.alarm.NoiteCasa.fim(ctx))
     const val PADRAO_FORCA = 35
     // Ligar/desligar na hora, pelo catálogo de ações (cena, Claude, voz; 14/11/2026, ideia 2): vale até a próxima virada
     // do horário (início ou fim da janela), no máximo [MAX_FORCADO_MIN]; depois o horário volta a mandar.
@@ -68,7 +69,7 @@ object FiltroNoturno {
     fun forcar(ctx: Context, ligado: Boolean): String? {
         val c = Calendar.getInstance()
         val minuto = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE)
-        val min = minutosAteVirar(minuto, Extras.numero(ctx, CHAVE_INICIO, PADRAO_INICIO), Extras.numero(ctx, CHAVE_FIM, PADRAO_FIM))
+        val min = minutosAteVirar(minuto, inicio(ctx), fim(ctx))
         ctx.getSharedPreferences(PREFS_FORCADO, Context.MODE_PRIVATE).edit()
             .putBoolean("ligado", ligado).putLong("ate", System.currentTimeMillis() + min * 60_000L).apply()
         if (servico == null) return txt(R.string.acao_filtro_sem_servico)
@@ -102,7 +103,7 @@ object FiltroNoturno {
         val c = Calendar.getInstance()
         val minuto = c.get(Calendar.HOUR_OF_DAY) * 60 + c.get(Calendar.MINUTE)
         val agendado = Extras.ligado(svc, Extras.Chave.FILTRO_NOTURNO) && dentro(minuto,
-            Extras.numero(svc, CHAVE_INICIO, PADRAO_INICIO), Extras.numero(svc, CHAVE_FIM, PADRAO_FIM))
+            inicio(svc), fim(svc))
         val f = svc.getSharedPreferences(PREFS_FORCADO, Context.MODE_PRIVATE)
         val ligar = deveLigar(agendado, if (f.contains("ligado")) f.getBoolean("ligado", false) else null, f.getLong("ate", 0), System.currentTimeMillis())
         // Modo jogo (card Jogos): com um jogo na frente a película sai e volta quando ele fecha (JogosTv.janela).

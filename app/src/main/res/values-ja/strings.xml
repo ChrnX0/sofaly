@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s を固定していますが切断中です（VPN なしでもインターネットは使えます）</string>
     <string name="diag_vpn_nao_validada">%1$s は接続済みですが、Android がトンネルを検証しませんでした</string>
     <string name="diag_vpn_ok">%1$s は接続済みで正常です</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv は応答中:天気、ポッドキャスト、文字起こしなどは動作しています</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv が応答しません。家の中の機能はそのまま使えます。天気、ポッドキャスト検索、プラグインは待機します</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv はメンテナンス中です。家の中の機能はそのまま使えます</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv は応答していますが、この部分が停止しています:%1$s</string>
+    <string name="diag_sofaly_clima">天気</string>
+    <string name="diag_sofaly_podcasts">ポッドキャスト検索</string>
+    <string name="diag_sofaly_ia">文字起こしと要約</string>
+    <string name="diag_sofaly_comunidade">ほかの家を手伝う</string>
+    <string name="diag_sofaly_celular">外出先のスマホ</string>
     <string name="diag_r_sem_wifi">TV が Wi-Fi に接続されていません</string>
     <string name="diag_r_dns_fora">DNS が応答しません: インターネットが停止しているようです</string>
     <string name="diag_r_net_fora">インターネットに通じていません（ルーターまたはプロバイダー）</string>
@@ -365,6 +374,7 @@
     <string name="atu_ok">アップデート完了</string>
     <string name="atu_falhou">インストールに失敗しました（%1$d）: %2$s</string>
     <string name="atu_ruim">バージョン %1$d はインストール直後にこの TV でクラッシュしました。再度インストールしません</string>
+    <string name="atu_segurada">バージョン %1$d は保留中です(他のテレビで問題が発生):次を待ちます</string>
     <string name="vig_aviso_titulo">アップデートを一時停止</string>
     <string name="vig_pausada">バージョン %1$d がインストール直後に 2 回クラッシュしました · 自動アップデートは次のバージョンを待ちます</string>
     <string name="vig_pausada_tela">バージョン %1$d がインストール直後に 2 回クラッシュしました · 「%2$s」は次のバージョンまでオフです</string>

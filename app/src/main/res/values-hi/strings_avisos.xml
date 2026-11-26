@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s काटें</string>
     <string name="ds_lento_titulo">Sofaly धीमा हो गया</string>
     <string name="ds_lento_texto">वर्शन %1$d: धीमे फ़्रेम अब %2$d ms लेते हैं, पहले %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">पैनल का प्रमाणपत्र जल्द खत्म होगा</string>
+    <string name="cert_vence_texto">टीवी पैनल का सुरक्षा प्रमाणपत्र %1$d दिनों में खत्म होगा। पैनल (रिमोट एक्सेस) में इसे नया करें और डिवाइसों पर फिर से इंस्टॉल करें।</string>
 </resources>

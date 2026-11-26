@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s rögzítve, de LEVÁLASZTVA (az internet VPN nélkül is működik)</string>
     <string name="diag_vpn_nao_validada">%1$s csatlakozva, de az Android nem ellenőrizte az alagutat</string>
     <string name="diag_vpn_ok">%1$s csatlakozva és működik</string>
+    <string name="diag_sofaly_ok">Az api.sofaly.tv válaszol: időjárás, podcastok, átirat és a többi működik</string>
+    <string name="diag_sofaly_sem">Az api.sofaly.tv nem válaszolt. Otthon minden működik tovább; az időjárás, a podcastkeresés és a bővítmények várnak</string>
+    <string name="diag_sofaly_desligado">Az api.sofaly.tv karbantartás miatt szünetel. Otthon minden működik tovább</string>
+    <string name="diag_sofaly_falta">Az api.sofaly.tv válaszol, de ez a rész nem működik: %1$s</string>
+    <string name="diag_sofaly_clima">időjárás</string>
+    <string name="diag_sofaly_podcasts">podcastkeresés</string>
+    <string name="diag_sofaly_ia">átiratok és összefoglalók</string>
+    <string name="diag_sofaly_comunidade">más otthonok segítése</string>
+    <string name="diag_sofaly_celular">telefon otthonon kívül</string>
     <string name="diag_r_sem_wifi">a TV-nek nincs Wi-Fi-je</string>
     <string name="diag_r_dns_fora">a DNS nem válaszol: úgy tűnik, nincs internet</string>
     <string name="diag_r_net_fora">az internet nem jut át (router vagy szolgáltató)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">frissítve</string>
     <string name="atu_falhou">a telepítés sikertelen (%1$d): %2$s</string>
     <string name="atu_ruim">a(z) %1$d verzió közvetlenül a telepítés után összeomlott ezen a TV-n: nem telepíti újra</string>
+    <string name="atu_segurada">a(z) %1$d verzió visszatartva (gond volt más tévéken): várom a következőt</string>
     <string name="vig_aviso_titulo">Frissítés szüneteltetve</string>
     <string name="vig_pausada">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · az automatikus frissítés a következőre vár</string>
     <string name="vig_pausada_tela">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · a \"%2$s\" kikapcsolva marad a következőig</string>

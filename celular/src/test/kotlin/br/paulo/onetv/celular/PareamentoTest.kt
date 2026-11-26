@@ -95,4 +95,20 @@ class PareamentoTest {
     @Test fun `volume do celular vira tecla da TV`() {
         assertEquals("volume+", Pareamento.teclaDoVolume(true)); assertEquals("volume-", Pareamento.teclaDoVolume(false))
     }
+
+    // Item 8 (Brainstorm 26/11): a TV que muda de IP é achada pelo id do mDNS, só se o certificado estiver fixado.
+    @Test fun `QR traz o id da TV`() {
+        val cod = "a".repeat(48)
+        assertEquals("1a2b3c4d", Pareamento.ler("http://192.168.1.50:8080/#qr=$cod&id=1A2B3C4D")!!.id)
+        assertEquals("", Pareamento.ler("http://192.168.1.50:8080/#qr=$cod&id=xyz")!!.id)
+    }
+
+    @Test fun `TV com certificado fixado segue para o IP novo`() {
+        val tv = Pareamento.Tv("Sala", "192.168.1.50", fp = "f".repeat(64), id = "1a2b3c4d")
+        assertEquals("192.168.1.77", Pareamento.seguir(listOf(tv), "1a2b3c4d", "192.168.1.77")!!.ip)
+        assertNull(Pareamento.seguir(listOf(tv), "1a2b3c4d", "192.168.1.50"))     // mesmo IP: nada muda
+        assertNull(Pareamento.seguir(listOf(tv), "99999999", "192.168.1.77"))     // outra TV
+        assertNull(Pareamento.seguir(listOf(tv), "1a2b3c4d", "8.8.8.8"))          // IP público nunca
+        assertNull(Pareamento.seguir(listOf(tv.copy(fp = "")), "1a2b3c4d", "192.168.1.77"))   // sem certificado: o IP é a prova
+    }
 }

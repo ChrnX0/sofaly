@@ -306,6 +306,15 @@
     <string name="diag_vpn_desc">%1$s fixé, mais DÉCONNECTÉ (internet continue sans VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s connecté, mais Android n’a pas validé le tunnel</string>
     <string name="diag_vpn_ok">%1$s connecté et fonctionnel</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv répond : météo, podcasts, transcription et le reste fonctionnent</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv n’a pas répondu. Tout fonctionne à la maison ; météo, recherche de podcasts et plugins attendent</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv est en pause pour maintenance. Tout fonctionne à la maison</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv répond, mais cette partie est en panne : %1$s</string>
+    <string name="diag_sofaly_clima">météo</string>
+    <string name="diag_sofaly_podcasts">recherche de podcasts</string>
+    <string name="diag_sofaly_ia">transcriptions et résumés</string>
+    <string name="diag_sofaly_comunidade">aider d’autres foyers</string>
+    <string name="diag_sofaly_celular">téléphone hors de la maison</string>
     <string name="diag_r_sem_wifi">la TV n’a pas de Wi-Fi</string>
     <string name="diag_r_dns_fora">le DNS ne répond pas : internet semble coupé</string>
     <string name="diag_r_net_fora">internet ne passe pas (routeur ou fournisseur)</string>
@@ -365,6 +374,7 @@
     <string name="atu_ok">mise à jour faite</string>
     <string name="atu_falhou">échec de l’installation (%1$d) : %2$s</string>
     <string name="atu_ruim">la version %1$d a planté sur cette TV juste après l’installation : elle ne sera pas réinstallée</string>
+    <string name="atu_segurada">la version %1$d est suspendue (problèmes sur d’autres TV) : j’attends la suivante</string>
     <string name="vig_aviso_titulo">Mise à jour suspendue</string>
     <string name="vig_pausada">la version %1$d a planté deux fois juste après l’installation · la mise à jour automatique attend la suivante</string>
     <string name="vig_pausada_tela">la version %1$d a planté deux fois juste après l’installation · « %2$s » reste désactivé jusqu’à la suivante</string>

@@ -46,4 +46,10 @@
     <string name="extras_diario_ver">Zobrazit dnešní deník DNS</string>
     <string name="extras_diario_apagar">Smazat deník DNS</string>
     <string name="extras_diario_apagado">Deník smazán</string>
+    <!-- Noite da casa (Brainstorm 26/11, item 12) -->
+    <string name="noite_casa_titulo">Noc v domě</string>
+    <string name="noite_casa_inicio">Noc začíná</string>
+    <string name="noite_casa_fim">Noc končí</string>
+    <string name="noite_casa_corpo">Nerušit a noční filtr se řídí tímto časem. Večerka dětí má vlastní.</string>
+    <string name="noite_casa_corpo_filtro_proprio">Nerušit se řídí tímto časem. Noční filtr má vlastní čas; nastavte stejné hodiny, aby se znovu řídil nocí v domě.</string>
 </resources>

@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Stumm</string>
     <string name="cel_ctrl_sem_tv">Der Fernseher antwortet nicht. Ist er an und im selben Netz?</string>
+    <string name="cel_ctrl_cert_novo">Der Fernseher hat ein neues Sicherheitszertifikat. Scanne den QR-Code am Fernseher erneut.</string>
     <string name="cel_ctrl_recusou">Der Fernseher konnte das gerade nicht.</string>
     <string name="cel_ctrl_entrar">Einmal mit der PIN des Fernsehers im Panel anmelden; dann geht die Fernbedienung.</string>
     <string name="cel_notif_canal">Fernbedienung</string>
     <string name="cel_notif_texto">Pause und Lautstärke, ohne die App zu öffnen</string>
     <string name="cel_bloco">Fernbedienung</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">An %1$s senden</string>
+    <string name="cel_enviar_lendo">Datei wird gelesen…</string>
+    <string name="cel_enviar_nada">Diese Datei konnte nicht gelesen werden.</string>
+    <string name="cel_enviar_fechar">Schließen</string>
+    <string name="cel_enviar_n">%1$d Dateien</string>
+    <string name="cel_enviar_mostrar">Auf dem Fernseher zeigen</string>
+    <string name="cel_enviar_tocar">Auf dem Fernseher abspielen</string>
+    <string name="cel_enviar_guardar">Auf dem Fernseher speichern</string>
+    <string name="cel_enviar_mandando">Wird gesendet… %1$d %%</string>
+    <string name="cel_enviar_pronto">Fertig. Es ist auf dem Fernseher.</string>
+    <string name="cel_enviar_sem_espaco">Der Fernseher hat nicht genug freien Speicher.</string>
+    <string name="cel_enviar_tipo">Der Fernseher kann diese Datei nicht öffnen.</string>
+    <string name="cel_enviar_de_novo">Erneut versuchen</string>
+    <string name="cel_enviar_qr">Um Fotos und Dateien zu senden, zuerst den QR-Code auf dem Fernseher scannen.</string>
 </resources>

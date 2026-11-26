@@ -361,6 +361,15 @@
     <string name="diag_vpn_desc">%1$s připnuta, ale ODPOJENA (internet funguje i bez VPN)</string>
     <string name="diag_vpn_nao_validada">%1$s připojena, ale Android tunel neověřil</string>
     <string name="diag_vpn_ok">%1$s připojena a funguje</string>
+    <string name="diag_sofaly_ok">api.sofaly.tv odpovídá: počasí, podcasty, přepis a ostatní fungují</string>
+    <string name="diag_sofaly_sem">api.sofaly.tv neodpověděl. Doma vše funguje dál; počasí, hledání podcastů a pluginy počkají</string>
+    <string name="diag_sofaly_desligado">api.sofaly.tv je pozastaven kvůli údržbě. Doma vše funguje dál</string>
+    <string name="diag_sofaly_falta">api.sofaly.tv odpovídá, ale tato část nefunguje: %1$s</string>
+    <string name="diag_sofaly_clima">počasí</string>
+    <string name="diag_sofaly_podcasts">hledání podcastů</string>
+    <string name="diag_sofaly_ia">přepisy a shrnutí</string>
+    <string name="diag_sofaly_comunidade">pomoc jiným domácnostem</string>
+    <string name="diag_sofaly_celular">telefon mimo domov</string>
     <string name="diag_r_sem_wifi">televizor nemá Wi-Fi</string>
     <string name="diag_r_dns_fora">DNS neodpovídá: zdá se, že internet nefunguje</string>
     <string name="diag_r_net_fora">internet neprochází (router nebo poskytovatel)</string>
@@ -424,6 +433,7 @@
     <string name="atu_ok">aktualizováno</string>
     <string name="atu_falhou">instalace selhala (%1$d): %2$s</string>
     <string name="atu_ruim">verze %1$d na tomto televizoru spadla hned po instalaci: znovu se nenainstaluje</string>
+    <string name="atu_segurada">verze %1$d je pozastavena (problémy na jiných televizích): čekám na další</string>
     <string name="vig_aviso_titulo">Aktualizace pozastavena</string>
     <string name="vig_pausada">verze %1$d dvakrát spadla hned po instalaci · automatická aktualizace čeká na další</string>
     <string name="vig_pausada_tela">verze %1$d dvakrát spadla hned po instalaci · \"%2$s\" zůstane vypnuto do další</string>

@@ -13,4 +13,6 @@
     <string name="mural_riscar">%1$s kihúzása</string>
     <string name="ds_lento_titulo">A Sofaly lelassult</string>
     <string name="ds_lento_texto">%1$d verzió: a lassú képkockák %2$d ms-ig tartanak, korábban %3$d ms-ig (+%4$d%%).</string>
+    <string name="cert_vence_titulo">A panel tanúsítványa hamarosan lejár</string>
+    <string name="cert_vence_texto">A TV-panel biztonsági tanúsítványa %1$d nap múlva lejár. Újítsd meg a panelen (Távoli elérés), és telepítsd újra az eszközökre.</string>
 </resources>

@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">म्यूट</string>
     <string name="cel_ctrl_sem_tv">टीवी ने जवाब नहीं दिया। क्या वह चालू है और उसी नेटवर्क पर है?</string>
+    <string name="cel_ctrl_cert_novo">टीवी का सुरक्षा प्रमाणपत्र नया है। टीवी का QR कोड फिर से स्कैन करें।</string>
     <string name="cel_ctrl_recusou">टीवी अभी यह नहीं कर सका।</string>
     <string name="cel_ctrl_entrar">पैनल में टीवी के PIN से एक बार लॉग इन करें; फिर रिमोट चलेगा।</string>
     <string name="cel_notif_canal">टीवी रिमोट</string>
     <string name="cel_notif_texto">ऐप खोले बिना रोकें और आवाज़ बदलें</string>
     <string name="cel_bloco">टीवी रिमोट</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">%1$s पर भेजें</string>
+    <string name="cel_enviar_lendo">फ़ाइल पढ़ी जा रही है…</string>
+    <string name="cel_enviar_nada">यह फ़ाइल पढ़ी नहीं जा सकी।</string>
+    <string name="cel_enviar_fechar">बंद करें</string>
+    <string name="cel_enviar_n">%1$d फ़ाइलें</string>
+    <string name="cel_enviar_mostrar">टीवी पर दिखाएँ</string>
+    <string name="cel_enviar_tocar">टीवी पर चलाएँ</string>
+    <string name="cel_enviar_guardar">टीवी में सहेजें</string>
+    <string name="cel_enviar_mandando">भेजा जा रहा है… %1$d%%</string>
+    <string name="cel_enviar_pronto">हो गया। टीवी पर है।</string>
+    <string name="cel_enviar_sem_espaco">टीवी में पर्याप्त खाली जगह नहीं है।</string>
+    <string name="cel_enviar_tipo">टीवी यह फ़ाइल नहीं खोल सकता।</string>
+    <string name="cel_enviar_de_novo">फिर कोशिश करें</string>
+    <string name="cel_enviar_qr">फ़ोटो और फ़ाइलें भेजने के लिए पहले टीवी का QR कोड स्कैन करें।</string>
 </resources>

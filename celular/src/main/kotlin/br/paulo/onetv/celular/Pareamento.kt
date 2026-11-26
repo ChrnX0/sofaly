@@ -45,13 +45,14 @@ object Pareamento {
     fun casas(l: List<Tv>): List<String> = l.map { it.casa }.distinct()
 
     /** O que veio no QR: a TV e o código de uso único para entrar sem PIN (ou criar o PIN, se [primeira]). */
-    data class Lido(val ip: String, val codigo: String, val primeira: Boolean, val fp: String, val ts: String, val ir: String)
+    data class Lido(val ip: String, val codigo: String, val primeira: Boolean, val fp: String, val ts: String, val ir: String, val id: String = "")
 
     // Sem zero à esquerda (17/11/2026): "01.1.2.3" passava como rede local, mas o WebView lê 01 como octal e abria
     // outro endereço (público) por http dentro do app.
     private val IPV4 = Regex("^(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}$")
     private val HEX48 = Regex("^[0-9a-f]{48}$")
     private val HEX64 = Regex("^[0-9a-f]{64}$")
+    private val ID_TV = Regex("^[0-9a-f]{8}$")
     private val NOME_TS = Regex("^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)*\\.ts\\.net$")
     private val IR = Regex("^[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)?$")
 
@@ -75,7 +76,24 @@ object Pareamento {
         val fp = campos["fp"]?.lowercase().orEmpty().takeIf { HEX64.matches(it) }.orEmpty()
         val ts = campos["ts"]?.lowercase().orEmpty().takeIf { NOME_TS.matches(it) }.orEmpty()
         val ir = campos["ir"].orEmpty().takeIf { IR.matches(it) }.orEmpty()
-        return Lido(ip, codigo, primeira, fp, ts, ir)
+        val id = campos["id"]?.lowercase().orEmpty().takeIf { ID_TV.matches(it) }.orEmpty()
+        return Lido(ip, codigo, primeira, fp, ts, ir, id)
+    }
+
+    /** O id curto que a TV anuncia no mDNS (TXT "id") e põe no QR: 8 hex. */
+    fun idValido(id: String?): String = id?.trim()?.lowercase().orEmpty().takeIf { ID_TV.matches(it) }.orEmpty()
+
+    /**
+     * Brainstorm 26/11, item 8: a TV mudou de IP (o roteador deu outro). O mDNS diz "TV [id] está em [ip]"; se uma TV
+     * salva tem esse id e outro IP, devolve ela com o IP novo (senão null). Seguro: o app só confia no certificado
+     * fixado no QR (fp), então um aparelho que finja o id no IP novo não passa da primeira chamada. Sem fp (TV só do
+     * painel com PIN), não segue: ali o IP é a única prova de quem é.
+     */
+    fun seguir(salvas: List<Tv>, id: String, ip: String): Tv? {
+        val i = idValido(id)
+        if (i.isEmpty() || !IPV4.matches(ip) || !privado(ip)) return null
+        val tv = salvas.firstOrNull { it.id == i } ?: return null
+        return if (tv.ip != ip && tv.fp.isNotEmpty()) tv.copy(ip = ip) else null
     }
 
     /** 10.x, 172.16-31.x, 192.168.x: o painel só atende a rede de casa. */

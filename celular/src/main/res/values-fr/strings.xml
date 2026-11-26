@@ -33,9 +33,25 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Muet</string>
     <string name="cel_ctrl_sem_tv">La TV n\'a pas répondu. Est-elle allumée et sur le même réseau ?</string>
+    <string name="cel_ctrl_cert_novo">La TV a un nouveau certificat de sécurité. Scannez à nouveau le QR code de la TV.</string>
     <string name="cel_ctrl_recusou">La TV n\'a pas pu le faire maintenant.</string>
     <string name="cel_ctrl_entrar">Connectez-vous une fois avec le PIN de la TV dans le panneau ; ensuite la télécommande marche.</string>
     <string name="cel_notif_canal">Télécommande</string>
     <string name="cel_notif_texto">Pause et volume sans ouvrir l\'app</string>
     <string name="cel_bloco">Télécommande</string>
+    <!-- Foto, vídeo e arquivo pelo Compartilhar (Brainstorm 26/11, item 16) -->
+    <string name="cel_enviar_titulo">Envoyer à %1$s</string>
+    <string name="cel_enviar_lendo">Lecture du fichier…</string>
+    <string name="cel_enviar_nada">Impossible de lire ce fichier.</string>
+    <string name="cel_enviar_fechar">Fermer</string>
+    <string name="cel_enviar_n">%1$d fichiers</string>
+    <string name="cel_enviar_mostrar">Afficher sur la TV</string>
+    <string name="cel_enviar_tocar">Lire sur la TV</string>
+    <string name="cel_enviar_guardar">Enregistrer sur la TV</string>
+    <string name="cel_enviar_mandando">Envoi… %1$d %%</string>
+    <string name="cel_enviar_pronto">C’est fait. C’est sur la TV.</string>
+    <string name="cel_enviar_sem_espaco">La TV n’a pas assez d’espace libre.</string>
+    <string name="cel_enviar_tipo">La TV ne peut pas ouvrir ce fichier.</string>
+    <string name="cel_enviar_de_novo">Réessayer</string>
+    <string name="cel_enviar_qr">Pour envoyer photos et fichiers, scannez d’abord le code QR de la TV.</string>
 </resources>

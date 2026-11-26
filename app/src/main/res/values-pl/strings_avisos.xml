@@ -13,4 +13,6 @@
     <string name="mural_riscar">Skreśl %1$s</string>
     <string name="ds_lento_titulo">Sofaly zwolnił</string>
     <string name="ds_lento_texto">Wersja %1$d: wolne klatki trwają %2$d ms, wcześniej %3$d ms (+%4$d%%).</string>
+    <string name="cert_vence_titulo">Certyfikat panelu wkrótce wygaśnie</string>
+    <string name="cert_vence_texto">Certyfikat bezpieczeństwa panelu TV wygaśnie za %1$d dni. Odnów go w panelu (Dostęp zdalny) i zainstaluj ponownie na urządzeniach.</string>
 </resources>
