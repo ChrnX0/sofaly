@@ -121,11 +121,25 @@ object ApiTv {
     }
 
     private fun pedirChave(ctx: Context, tv: Pareamento.Tv) {
+        val k = Pareamento.chave(tv)
+        val agora = System.currentTimeMillis()
+        if (agora - (ultimoPedido[k] ?: 0L) < ESPERA_PIN_MS) return
+        ultimoPedido[k] = agora
         val r = chamarUmaVez(tv, "POST", "/api/aparelho/emitir", JSONObject().put("nome", android.os.Build.MODEL ?: ""))
         val chave = r.json?.optString("chave")
-        if (r.codigo == 200 && ChaveAparelho.valida(chave)) ChaveAparelho.guardar(ctx, tv, chave!!)
-        else semChave += Pareamento.chave(tv)
+        if (r.codigo == 200 && ChaveAparelho.valida(chave) && ChaveAparelho.guardar(ctx, tv, chave!!)) return
+        if (!esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
     }
+
+    /**
+     * Revisor 26/11: a TV só dá a chave com a sessão elevada (PIN digitado no painel deste celular). Sem PIN ainda, o app
+     * não desiste: tenta de novo depois, no máximo a cada [ESPERA_PIN_MS]. Qualquer outra recusa vale para a sessão do app.
+     * Pura (ChaveAparelhoTest).
+     */
+    fun esperaPin(codigo: Int, precisaPin: Boolean): Boolean = codigo == 403 && precisaPin
+
+    private const val ESPERA_PIN_MS = 60_000L
+    private val ultimoPedido = java.util.concurrent.ConcurrentHashMap<String, Long>()
 
     /**
      * Manda um arquivo para uma pasta da TV (Brainstorm 26/11, item 16), pela mesma rota do painel

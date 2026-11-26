@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Se trimit doar tipul erorii și locul din cod, în privat către Sofaly, niciodată pe o pagină publică. Mesajul erorii, rețeaua, conturile și aplicațiile rămân pe televizor.",
 "Enviando…":"Se trimite…",
 "Enviado. Obrigado!":"Trimis. Mulțumim!",
+"esta TV já mandou 5 relatos hoje":"acest televizor a trimis deja 5 rapoarte azi",
+"não deu para enviar agora":"nu s-a putut trimite acum",
 "Ver":"Vedeți",
 "Ver ao vivo":"Urmăriți live",
 "Ver aparelhos do roteador":"Vedeți dispozitivele routerului",

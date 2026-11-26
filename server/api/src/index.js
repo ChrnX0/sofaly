@@ -31,7 +31,7 @@ import { pluginsBody } from './plugins.js';
 import { handlePodcasts } from './podcasts.js';
 import { handleWeather } from './weather.js';
 import { handleWeatherOpen } from './weatherOpen.js';
-import { handleTranscribe } from './transcribe.js';
+import { handleTranscribe, MAX_B64 } from './transcribe.js';
 import { handleCommunity } from './community.js';
 import { handleHold } from './updates.js';
 import { healthBody } from './health.js';
@@ -79,18 +79,25 @@ export default {
       let id;
       return async (bucket) => quotaFor(env, id === undefined ? (id = await identify(req, body)) : id, ip)(bucket);
     };
+    // O corpo só é copiado para conferir a assinatura quando há assinatura e o tamanho declarado cabe (revisor 26/11:
+    // copiar antes de olhar o tamanho gastava memória com qualquer corpo grande). Sem isso, conta como sem assinatura.
+    const signedBody = async (limit) => {
+      const n = Number(req.headers.get('content-length') ?? 0);
+      if (!req.headers.get('x-sofaly-signature') || !(n > 0) || n > limit) return undefined;
+      return new Uint8Array(await req.clone().arrayBuffer());
+    };
 
     const podcasts = path.match(/^\/v1\/podcasts\/(search|trending)$/);
     if (podcasts && req.method === 'GET') return handlePodcasts(podcasts[1], url, env, { ip, take: await quota() });
 
     const ia = path.match(/^\/v1\/(transcribe|summary)$/);
     if (ia && req.method === 'POST') {
-      const body = new Uint8Array(await req.clone().arrayBuffer());
+      const body = await signedBody(MAX_B64 + 4096);
       return handleTranscribe(ia[1], req, url, env, { ip, take: await quota(body) });
     }
 
     if (path === '/v1/community/lessons') {
-      const body = req.method === 'POST' ? new Uint8Array(await req.clone().arrayBuffer()) : undefined;
+      const body = req.method === 'POST' ? await signedBody(256 * 1024) : undefined;
       return handleCommunity(req, env, { ip, take: await quota(body) });
     }
 
@@ -113,8 +120,7 @@ export default {
     if (who.error) return json({ error: who.error }, 401);
 
     if (path === '/v1/report' && req.method === 'POST') {
-      if (!(await quotaFor(env, who.id, ip)('report'))) return json({ error: 'rate limited' }, 429);
-      return handleReportPost(body, env, who.id);
+      return handleReportPost(body, env, who.id, quotaFor(env, who.id, ip));
     }
 
     const envelope = path.match(/^\/v1\/envelope\/([a-z2-7]{20})$/);

@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Στέλνονται μόνο ο τύπος του σφάλματος και το σημείο του κώδικα, ιδιωτικά στη Sofaly, ποτέ σε δημόσια σελίδα. Το μήνυμα σφάλματος, το δίκτυο, οι λογαριασμοί και οι εφαρμογές μένουν στην τηλεόραση.",
 "Enviando…":"Αποστολή…",
 "Enviado. Obrigado!":"Στάλθηκε. Ευχαριστούμε!",
+"esta TV já mandou 5 relatos hoje":"αυτή η τηλεόραση έστειλε ήδη 5 αναφορές σήμερα",
+"não deu para enviar agora":"δεν ήταν δυνατή η αποστολή τώρα",
 "Ver":"Προβολή",
 "Ver ao vivo":"Ζωντανή προβολή",
 "Ver aparelhos do roteador":"Συσκευές του router",

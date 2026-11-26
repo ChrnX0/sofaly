@@ -1,7 +1,7 @@
 // Roda com: cd server/api && node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { scrub, cleanReport, cleanFrame, deviceTag, sameToken, MAX_TEXT, MAX_ERRORS, MAX_FRAMES } from '../src/reports.js';
+import { scrub, cleanReport, cleanFrame, deviceTag, sameToken, handleReportPost, MAX_TEXT, MAX_ERRORS, MAX_FRAMES } from '../src/reports.js';
 
 test('tira e-mail, link, IP, MAC, telefone e coordenada do texto livre', () => {
   const t = scrub('Sou fulano@exemplo.com.br, liguem 11 98765-4321. TV em 192.168.1.153 (aa:bb:cc:dd:ee:ff), ' +
@@ -54,4 +54,25 @@ test('token da fila', () => {
   assert.equal(sameToken('abc', 'abd'), false);
   assert.equal(sameToken('', ''), false);
   assert.equal(sameToken(undefined, 'abc'), false);
+});
+
+test('scrub mantém horas e versões, tira IPv6 e telefone', () => {
+  assert.equal(scrub('às 21:30:45 na 3.4.1 (475033)'), 'às 21:30:45 na 3.4.1 (475033)');
+  assert.equal(scrub('fe80::1 e 2001:db8:0:1'), '<ip> e <ip>');
+  assert.equal(scrub('ligue +55 11 98765-4321'), 'ligue <num>');
+});
+
+test('cleanFrame aceita quadros do R8 e Caused by', () => {
+  assert.equal(cleanFrame('at a.b.c(r8-map-id-abc123:12)'), 'a.b.c(r8-map-id-abc123:12)');
+  assert.equal(cleanFrame('at a.b.c(Unknown Source:4)'), 'a.b.c(Unknown Source:4)');
+  assert.equal(cleanFrame('at a.b.c(Native Method)'), 'a.b.c(Native Method)');
+  assert.equal(cleanFrame('Caused by: java.io.IOException: casa do Paulo'), 'Caused by: java.io.IOException');
+});
+
+test('relato inválido não gasta a cota', async () => {
+  let gastou = 0;
+  const env = { REPORTS: {} };
+  const r = await handleReportPost(new TextEncoder().encode('{"kind":"x"}'), env, 'id', async () => { gastou++; return true; });
+  assert.equal(r.status, 400);
+  assert.equal(gastou, 0);
 });

@@ -23,9 +23,9 @@ export function scrub(t) {
     .replace(/\b[a-z][a-z0-9+.-]*:\/\/[^\s<>"]+/gi, '<link>')
     .replace(/\b(?:[0-9a-f]{2}[:-]){5}[0-9a-f]{2}\b/gi, '<mac>')
     .replace(/\b(?:\d{1,3}\.){3}\d{1,3}\b/g, '<ip>')
-    .replace(/\b[0-9a-f]{1,4}(?::[0-9a-f]{0,4}){2,7}/gi, '<ip>')
+    .replace(/\b[0-9a-f]{1,4}(?::[0-9a-f]{0,4}){2,7}/gi, (m) => (/::|[a-f]/i.test(m) ? '<ip>' : m))
     .replace(/-?\d{1,3}\.\d{3,}/g, '<coord>')
-    .replace(/(?:\+?\d[\d ().-]{6,}\d)/g, '<num>')
+    .replace(/\+?\d[\d ()-]{7,}\d/g, (m) => (m.replace(/\D/g, '').length >= 9 ? '<num>' : m))
     .trim();
 }
 
@@ -34,7 +34,10 @@ const int = (v) => (Number.isSafeInteger(v) && v >= 0 && v < 1e12 ? v : 0);
 
 /** Um quadro da pilha: só "pacote.Classe.metodo(Arquivo.kt:12)" (sem mensagem de erro, que pode ter texto da casa). */
 export function cleanFrame(f) {
-  const m = /^\s*(?:at\s+)?([\w$.<>]+)(\([\w$.]*(?::\d+)?\))?\s*$/.exec(String(f ?? ''));
+  const t = String(f ?? '');
+  const causa = /^\s*Caused by:\s*([\w$.]+)/.exec(t);   // "Caused by: Tipo: mensagem" -> só o tipo
+  if (causa) return causa[1].length <= 200 ? `Caused by: ${causa[1]}` : null;
+  const m = /^\s*(?:at\s+)?([\w$.<>-]+)(\((?:[\w$.-]*|Unknown Source|Native Method)(?::\d+)?\))?\s*$/.exec(t);
   return m && m[1].length <= 200 ? m[1] + (m[2] ?? '') : null;
 }
 
@@ -82,12 +85,14 @@ const json = (obj, status = 200) => new Response(JSON.stringify(obj), {
 const store = (env) => env.REPORTS.get(env.REPORTS.idFromName('reports'));
 
 /** POST /v1/report, já com o id de quem assinou e a cota conferida em index.js. */
-export async function handleReportPost(body, env, id) {
+export async function handleReportPost(body, env, id, take = async () => true) {
   if (!env.REPORTS) return json({ error: 'unavailable' }, 503);
   if (body.byteLength > MAX_BODY) return json({ error: 'too large' }, 413);
   let o; try { o = JSON.parse(new TextDecoder().decode(body)); } catch { return json({ error: 'json' }, 400); }
   const r = cleanReport(o);
   if (!r) return json({ error: 'report' }, 400);
+  // A cota do dia só conta relato válido (revisor 26/11: um JSON errado gastava 1 dos 5).
+  if (!(await take('report'))) return json({ error: 'rate limited' }, 429);
   const tag = await deviceTag(id, env.REPORTS_SALT || 'sofaly-reports-v1');
   const saved = await store(env).add(tag, r, Date.now());
   return saved.ok ? json({ ok: true, n: saved.n }, 201) : json({ error: saved.error }, 503);

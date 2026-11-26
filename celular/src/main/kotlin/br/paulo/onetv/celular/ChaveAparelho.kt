@@ -52,14 +52,16 @@ object ChaveAparelho {
         String(c.doFinal(ct)).takeIf { valida(it) }
     }.getOrNull()
 
-    fun guardar(ctx: Context, tv: Pareamento.Tv, chave: String) {
-        if (!valida(chave)) return
+    /** Guarda e lê de volta. false = o Keystore deste celular falhou (o app para de pedir chave nesta sessão). */
+    fun guardar(ctx: Context, tv: Pareamento.Tv, chave: String): Boolean {
+        if (!valida(chave)) return false
         runCatching {
             val c = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.ENCRYPT_MODE, segredo()) }
             val ct = c.doFinal(chave.toByteArray())
             ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
-                .putString(Pareamento.chave(tv), Base64.encodeToString(juntar(c.iv, ct), Base64.NO_WRAP)).apply()
+                .putString(Pareamento.chave(tv), Base64.encodeToString(juntar(c.iv, ct), Base64.NO_WRAP)).commit()
         }
+        return ler(ctx, tv) == chave
     }
 
     fun esquecer(ctx: Context, tv: Pareamento.Tv) =

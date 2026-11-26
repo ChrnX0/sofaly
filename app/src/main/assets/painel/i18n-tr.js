@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Yalnızca hata türü ve koddaki yeri gönderilir, Sofaly'ye özel olarak, asla herkese açık bir sayfaya değil. Hata mesajı, ağ, hesaplar ve uygulamalar TV'de kalır.",
 "Enviando…":"Gönderiliyor…",
 "Enviado. Obrigado!":"Gönderildi. Teşekkürler!",
+"esta TV já mandou 5 relatos hoje":"bu TV bugün zaten 5 rapor gönderdi",
+"não deu para enviar agora":"şu anda gönderilemedi",
 "Ver":"Gör",
 "Ver ao vivo":"Canlı izle",
 "Ver aparelhos do roteador":"Router cihazlarını gör",

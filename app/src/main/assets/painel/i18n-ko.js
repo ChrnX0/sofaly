@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"오류 종류와 코드 위치만 Sofaly에 비공개로 보내며, 공개 페이지에는 올라가지 않아요. 오류 메시지, 네트워크, 계정, 앱은 TV에 남아요.",
 "Enviando…":"보내는 중…",
 "Enviado. Obrigado!":"보냈어요. 고마워요!",
+"esta TV já mandou 5 relatos hoje":"이 TV는 오늘 이미 보고서 5개를 보냈습니다",
+"não deu para enviar agora":"지금은 보낼 수 없습니다",
 "Ver":"보기",
 "Ver ao vivo":"실시간 보기",
 "Ver aparelhos do roteador":"공유기 기기 보기",

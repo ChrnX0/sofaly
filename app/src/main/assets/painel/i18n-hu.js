@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Csak a hiba típusa és a kód helye megy el, privát módon a Sofalyhoz, sosem nyilvános oldalra. A hibaüzenet, a hálózat, a fiókok és az alkalmazások a tévén maradnak.",
 "Enviando…":"Küldés…",
 "Enviado. Obrigado!":"Elküldve. Köszönjük!",
+"esta TV já mandou 5 relatos hoje":"ez a TV ma már 5 jelentést küldött",
+"não deu para enviar agora":"most nem sikerült elküldeni",
 "Ver":"Megtekintés",
 "Ver ao vivo":"Élő nézet",
 "Ver aparelhos do roteador":"Router eszközei",

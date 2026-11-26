@@ -71,4 +71,10 @@ class RelatarProblemaTest {
         assertEquals(0, RelatarProblema.codigoDe(null))
         assertEquals(0, RelatarProblema.codigoDe("abc"))
     }
+
+    @Test fun diaDoErroViraIso() {
+        assertEquals("2026-11-26", RelatarProblema.diaIso("26/11/2026"))
+        assertEquals("2026-11-26", RelatarProblema.diaIso("2026-11-26"))
+        assertEquals("", RelatarProblema.diaIso("ontem"))
+    }
 }

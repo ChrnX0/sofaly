@@ -21,6 +21,9 @@ export const DAILY = {
   report: 5,           // relatos de problema (src/reports.js)
 };
 export const NET_FACTOR = 10;
+// Pedido assinado: a rede ganha bem mais (revisor 26/11: atrás de CGNAT, muitas casas dividem um IP; o id já limita
+// cada TV, então a rede só segura quem fabrica ids).
+export const SIGNED_NET_FACTOR = 50;
 export const BUCKETS = new Set(Object.keys(DAILY));
 
 /** As chaves que pagam este pedido: o aparelho (se assinou) e a rede. */
@@ -30,9 +33,16 @@ export function keysFor(id, ip) {
   return keys;
 }
 
-export function limitFor(bucket, key) {
+export function limitFor(bucket, key, signed = false) {
   const base = DAILY[bucket] ?? 0;
-  return key.startsWith('net:') ? base * NET_FACTOR : base;
+  return key.startsWith('net:') ? base * (signed ? SIGNED_NET_FACTOR : NET_FACTOR) : base;
+}
+
+/** O nome do contador: a rede vira um hash com sal (o endereço não fica nem no nome do contador). */
+export async function keyName(key, salt = 'sofaly-quota-v1') {
+  if (!key.startsWith('net:')) return key;
+  const d = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${salt}|${key}`));
+  return 'net:' + [...new Uint8Array(d)].slice(0, 16).map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 export const utcDayMs = (now) => Math.floor(now / 86_400_000);
@@ -60,8 +70,8 @@ export function quotaFor(env, id, ip, now = () => Date.now()) {
     const day = utcDayMs(now());
     for (const key of keysFor(id, ip)) {
       try {
-        const stub = env.QUOTA.get(env.QUOTA.idFromName(key));
-        if (!(await stub.take(bucket, limitFor(bucket, key), day))) return false;
+        const stub = env.QUOTA.get(env.QUOTA.idFromName(await keyName(key, env.QUOTA_SALT)));
+        if (!(await stub.take(bucket, limitFor(bucket, key, !!id), day))) return false;
       } catch { /* contador fora do ar: não derruba o serviço (os limites por minuto continuam) */ }
     }
     return true;

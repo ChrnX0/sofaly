@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Bare feiltypen og stedet i koden sendes, privat til Sofaly, aldri til en offentlig side. Feilmeldingen, nettverket, kontoene og appene blir på TV-en.",
 "Enviando…":"Sender…",
 "Enviado. Obrigado!":"Sendt. Takk!",
+"esta TV já mandou 5 relatos hoje":"denne TV-en har allerede sendt 5 rapporter i dag",
+"não deu para enviar agora":"kunne ikke sende akkurat nå",
 "Ver":"Se",
 "Ver ao vivo":"Se direkte",
 "Ver aparelhos do roteador":"Se ruterens enheter",

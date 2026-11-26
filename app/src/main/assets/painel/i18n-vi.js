@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Chỉ loại lỗi và vị trí trong mã được gửi, riêng cho Sofaly, không bao giờ lên trang công khai. Nội dung lỗi, mạng, tài khoản và ứng dụng vẫn ở trên TV.",
 "Enviando…":"Đang gửi…",
 "Enviado. Obrigado!":"Đã gửi. Cảm ơn bạn!",
+"esta TV já mandou 5 relatos hoje":"TV này đã gửi 5 báo cáo hôm nay",
+"não deu para enviar agora":"không gửi được lúc này",
 "Ver":"Xem",
 "Ver ao vivo":"Xem trực tiếp",
 "Ver aparelhos do roteador":"Xem thiết bị của router",

@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"सिर्फ़ गड़बड़ी का प्रकार और कोड में उसकी जगह भेजी जाती है, निजी रूप से Sofaly को, कभी किसी सार्वजनिक पेज पर नहीं। गड़बड़ी का संदेश, नेटवर्क, खाते और ऐप टीवी पर ही रहते हैं।",
 "Enviando…":"भेजा जा रहा है…",
 "Enviado. Obrigado!":"भेज दिया गया। धन्यवाद!",
+"esta TV já mandou 5 relatos hoje":"इस टीवी ने आज पहले ही 5 रिपोर्ट भेज दी हैं",
+"não deu para enviar agora":"अभी भेजा नहीं जा सका",
 "Ver":"देखें",
 "Ver ao vivo":"लाइव देखें",
 "Ver aparelhos do roteador":"राउटर के डिवाइस देखें",

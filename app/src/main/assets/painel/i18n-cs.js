@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Posílá se jen typ chyby a místo v kódu, soukromě do Sofaly, nikdy na veřejnou stránku. Zpráva chyby, síť, účty a aplikace zůstávají v televizi.",
 "Enviando…":"Odesílání…",
 "Enviado. Obrigado!":"Odesláno. Děkujeme!",
+"esta TV já mandou 5 relatos hoje":"tato TV dnes už poslala 5 hlášení",
+"não deu para enviar agora":"teď se to nepodařilo odeslat",
 "Ver":"Zobrazit",
 "Ver ao vivo":"Sledovat živě",
 "Ver aparelhos do roteador":"Zobrazit zařízení routeru",

@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"Wysyłany jest tylko typ błędu i miejsce w kodzie, prywatnie do Sofaly, nigdy na publiczną stronę. Treść błędu, sieć, konta i aplikacje zostają na telewizorze.",
 "Enviando…":"Wysyłanie…",
 "Enviado. Obrigado!":"Wysłano. Dziękujemy!",
+"esta TV já mandou 5 relatos hoje":"ten telewizor wysłał już dziś 5 zgłoszeń",
+"não deu para enviar agora":"nie udało się teraz wysłać",
 "Ver":"Zobacz",
 "Ver ao vivo":"Oglądaj na żywo",
 "Ver aparelhos do roteador":"Zobacz urządzenia routera",

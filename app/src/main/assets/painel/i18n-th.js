@@ -962,6 +962,8 @@ traduzirPainelCom({T:{
 "Vai só o tipo do erro e o ponto do código onde ele aconteceu, em particular para a Sofaly, nunca para uma página pública. A mensagem do erro, a rede, as contas e os apps ficam na TV.":"ส่งเฉพาะชนิดของข้อผิดพลาดและตำแหน่งในโค้ด ถึง Sofaly แบบส่วนตัว ไม่ขึ้นหน้าสาธารณะ ข้อความข้อผิดพลาด เครือข่าย บัญชี และแอปยังอยู่ในทีวี",
 "Enviando…":"กำลังส่ง…",
 "Enviado. Obrigado!":"ส่งแล้ว ขอบคุณ!",
+"esta TV já mandou 5 relatos hoje":"ทีวีเครื่องนี้ส่งรายงานครบ 5 ครั้งแล้ววันนี้",
+"não deu para enviar agora":"ส่งไม่ได้ในตอนนี้",
 "Ver":"ดู",
 "Ver ao vivo":"ดูสด",
 "Ver aparelhos do roteador":"ดูอุปกรณ์ของเราเตอร์",

@@ -90,6 +90,14 @@ object RelatarProblema {
      * O relato do painel (Erros do launcher): os erros já filtrados da TV (ErrosFiltrados: tipo, dia, versão e só os
      * quadros da pilha, sem a mensagem). [erros] é o JSON de ErrosFiltrados.json.
      */
+    /** O dia do erro vem como "26/11/2026" (ErrosFiltrados); o servidor quer "2026-11-26". Outro formato: vazio. */
+    fun diaIso(d: String): String {
+        Regex("^\\d{4}-\\d{2}-\\d{2}$").find(d)?.let { return d }
+        val m = Regex("^(\\d{2})/(\\d{2})/(\\d{4})$").find(d) ?: return ""
+        val (dd, mm, aaaa) = m.destructured
+        return "$aaaa-$mm-$dd"
+    }
+
     fun envioErros(d: Dados, erros: JSONObject, texto: String = ""): JSONObject = envio(d, texto).put("kind", "errors")
         .put("errors", JSONArray().apply {
             val a = erros.optJSONArray("erros") ?: JSONArray()
@@ -97,7 +105,7 @@ object RelatarProblema {
                 val e = a.optJSONObject(i) ?: continue
                 val pilha = e.optJSONArray("pilha") ?: JSONArray()
                 put(JSONObject().put("type", e.optString("tipo").takeIf { Regex("^[A-Za-z_$][\\w$]*$").matches(it) } ?: "error")
-                    .put("day", e.optString("dia").takeIf { Regex("^\\d{4}-\\d{2}-\\d{2}$").matches(it) } ?: "")
+                    .put("day", diaIso(e.optString("dia")))
                     .put("version", codigoDe(e.optString("versao")))
                     .put("stack", JSONArray().apply { for (j in 0 until minOf(pilha.length(), 15)) put(pilha.optString(j)) }))
             }

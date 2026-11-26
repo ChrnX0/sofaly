@@ -1,7 +1,7 @@
 // Roda com: cd server/api && node --test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DAILY, NET_FACTOR, keysFor, limitFor, identify, quotaFor, utcDayMs } from '../src/quota.js';
+import { DAILY, NET_FACTOR, SIGNED_NET_FACTOR, keyName, keysFor, limitFor, identify, quotaFor, utcDayMs } from '../src/quota.js';
 import { signedText, idFromKey } from '../src/rules.js';
 
 const b64u = (bytes) => Buffer.from(bytes).toString('base64url');
@@ -78,15 +78,27 @@ test('criar ids novos não fura o teto da rede', async () => {
   const env = envFalso();
   const agora = () => Date.UTC(2026, 10, 26, 12);
   let ok = 0;
-  for (let i = 0; i < DAILY.report * NET_FACTOR + 20; i++) {
+  for (let i = 0; i < DAILY.report * SIGNED_NET_FACTOR + 20; i++) {
     const id = String(i).padStart(20, 'a').slice(-20);
     if (await quotaFor(env, id, '192.0.2.9', agora)('report')) ok++;
   }
-  assert.equal(ok, DAILY.report * NET_FACTOR);
+  assert.equal(ok, DAILY.report * SIGNED_NET_FACTOR);
 });
 
 test('sem o contador (testes, preview), sempre pode; contador com defeito não derruba', async () => {
   assert.equal(await quotaFor({}, null, '1.2.3.4')('weather'), true);
   const quebrado = { QUOTA: { idFromName: (k) => k, get: () => ({ take: async () => { throw new Error('fora'); } }) } };
   assert.equal(await quotaFor(quebrado, null, '1.2.3.4')('weather'), true);
+});
+
+test('rede de pedido assinado ganha mais (CGNAT)', () => {
+  assert.equal(limitFor('weather', 'net:x', true), DAILY.weather * SIGNED_NET_FACTOR);
+  assert.equal(limitFor('weather', 'net:x', false), DAILY.weather * NET_FACTOR);
+  assert.equal(limitFor('weather', 'id:x', true), DAILY.weather);
+});
+
+test('o contador da rede tem nome com hash, nunca o IP', async () => {
+  const n = await keyName('net:192.0.2.9');
+  assert.ok(n.startsWith('net:') && !n.includes('192'));
+  assert.equal(await keyName('id:abc'), 'id:abc');
 });

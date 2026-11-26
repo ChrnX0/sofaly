@@ -814,7 +814,10 @@ object PainelWeb {
             "/api/papeis/convite" -> if (req.metodo == "POST") return criarConvite(req, token, ip, https, host)
             "/api/papeis/revogar" -> if (req.metodo == "POST") return revogarConvite(req, token, ip)
             "/api/aparelhos" -> if (req.metodo == "GET") return listarAparelhos()
-            "/api/aparelho/emitir" -> if (req.metodo == "POST") return emitirAparelho(req, ip, https)
+            "/api/aparelho/emitir" -> if (req.metodo == "POST") {
+                if (!sessoes.elevada(token)) return precisaPin()
+                return emitirAparelho(req, ip, https)
+            }
             "/api/aparelhos/revogar" -> if (req.metodo == "POST") return revogarAparelho(req, ip)
         }
         // Cuidar de longe (ideias 77-79, PainelCuidar.kt). A foto do pedido de ajuda é imagem: sai daqui mesmo.
