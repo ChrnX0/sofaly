@@ -23,10 +23,13 @@ object SofyScreenCheck {
         val area get() = largura.coerceAtLeast(0).toLong() * altura.coerceAtLeast(0)
     }
 
-    data class Tela(val nome: String, val largura: Int, val altura: Int, val caixas: List<Caixa>, val temFoco: Boolean)
+    /** [confirmados] = os achados já conferidos em duas leituras (null = conferir agora). */
+    data class Tela(val nome: String, val largura: Int, val altura: Int, val caixas: List<Caixa>, val temFoco: Boolean,
+                    val confirmados: List<Achado>? = null)
 
     enum class Defeito { CORTADO, INVISIVEL, SOBREPOSTO, SEM_FOCO }
-    data class Achado(val defeito: Defeito, val onde: String)
+    /** [onde] = o começo do texto (compara duas leituras); [caixa] = onde ele estava e o tamanho da tela, para a issue. */
+    data class Achado(val defeito: Defeito, val onde: String, val caixa: String = "")
 
     /** Dois textos encostados não são defeito; só conta quando passa de 20% da área do menor. */
     const val SOBRA_MAX = 0.20
@@ -34,12 +37,13 @@ object SofyScreenCheck {
     const val FOLGA = 2
 
     fun conferir(t: Tela): List<Achado> {
+        t.confirmados?.let { return it }
         val achados = ArrayList<Achado>()
         val comTexto = t.caixas.filter { it.texto.isNotBlank() }
         for (c in comTexto) {
             if (c.largura <= 0 || c.altura <= 0) { achados += Achado(Defeito.INVISIVEL, rotulo(c)); continue }
             if (c.x1 < -FOLGA || c.y1 < -FOLGA || c.x2 > t.largura + FOLGA || c.y2 > t.altura + FOLGA)
-                achados += Achado(Defeito.CORTADO, rotulo(c))
+                achados += Achado(Defeito.CORTADO, rotulo(c), "[${c.x1},${c.y1}-${c.x2},${c.y2} em ${t.largura}x${t.altura}]")
         }
         val bons = comTexto.filter { it.largura > 0 && it.altura > 0 }
         for (i in bons.indices) for (j in i + 1 until bons.size) {
@@ -52,6 +56,13 @@ object SofyScreenCheck {
         return achados.distinct()
     }
 
+    /**
+     * Só o que aparece nas DUAS leituras da mesma tela (#518, 26/11/2026). Por quê: a tela que ainda carrega (Armazenamento
+     * lendo o pendrive, Previsão buscando os dados) não tem foco nem texto no lugar na primeira olhada; isso não é defeito.
+     */
+    fun confirmados(primeira: List<Achado>, segunda: List<Achado>): List<Achado> =
+        primeira.filter { a -> segunda.any { it.defeito == a.defeito && it.onde == a.onde } }
+
     private fun sobra(a: Caixa, b: Caixa): Long {
         val w = (minOf(a.x2, b.x2) - maxOf(a.x1, b.x1)).coerceAtLeast(0)
         val h = (minOf(a.y2, b.y2) - maxOf(a.y1, b.y1)).coerceAtLeast(0)
@@ -63,5 +74,5 @@ object SofyScreenCheck {
 
     /** Uma linha curta para a issue/o diário: "previsao: CORTADO Sexta-feira". */
     fun resumo(tela: String, achados: List<Achado>) =
-        if (achados.isEmpty()) "" else "$tela: " + achados.take(3).joinToString("; ") { "${it.defeito.name} ${it.onde}" }
+        if (achados.isEmpty()) "" else "$tela: " + achados.take(3).joinToString("; ") { "${it.defeito.name} ${it.onde}" + (if (it.caixa.isEmpty()) "" else " ${it.caixa}") }
 }

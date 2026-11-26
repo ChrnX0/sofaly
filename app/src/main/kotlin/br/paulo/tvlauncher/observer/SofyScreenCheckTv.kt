@@ -189,13 +189,30 @@ object SofyScreenCheckTv {
         return pm?.isInteractive == false || ProtetorTela.aberto()
     }
 
-    /** Abre a tela e lê o que ela mostra. null = não deu para ler (outra janela na frente). */
+    /**
+     * Abre a tela e lê o que ela mostra. null = não deu para ler (outra janela na frente).
+     * Confere a CLASSE da tela da frente, não só o pacote (#518, 26/11/2026): a HOME também é nossa, e quando a tela pedida
+     * demorava a abrir a leitura pegava a barra da HOME (relógio, clima e "Assistir, TV…" lidos como texto encavalado).
+     * Lê duas vezes e só fica o defeito que aparece nas duas: tela ainda carregando não é defeito.
+     */
     private fun ler(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
         app.startActivity(Intent(app, classe).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
         Thread.sleep(ESPERA_MS)
+        val primeira = lerAgora(app, s, nome, classe) ?: return null
+        val achados = SofyScreenCheck.conferir(primeira)
+        if (achados.isEmpty()) return primeira
+        Thread.sleep(ESPERA_MS)
+        val segunda = lerAgora(app, s, nome, classe) ?: return null
+        val ficam = SofyScreenCheck.confirmados(achados, SofyScreenCheck.conferir(segunda))
+        if (ficam.size < achados.size) Log.i(TAG, "$nome: ${achados.size - ficam.size} achado(s) sumiram na segunda leitura (tela carregando)")
+        return segunda.copy(confirmados = ficam)
+    }
+
+    private fun lerAgora(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
+        val frente = br.paulo.tvlauncher.privilege.JanelaNaFrente.classe
         val raiz = runCatching { s.rootInActiveWindow }.getOrNull()
-        if (raiz == null || raiz.packageName?.toString() != app.packageName) {
-            Log.w(TAG, "$nome: não deu para ler (janela ${raiz?.packageName ?: "nenhuma"})")
+        if (raiz == null || raiz.packageName?.toString() != app.packageName || frente != classe.name) {
+            Log.w(TAG, "$nome: não deu para ler (janela ${raiz?.packageName ?: "nenhuma"}, na frente $frente)")
             return null
         }
         return ler(raiz, nome)
@@ -251,6 +268,9 @@ object SofyScreenCheckTv {
         var foco = false
         fun andar(n: AccessibilityNodeInfo?, nivel: Int) {
             if (n == null || nivel > 25) return
+            // Fora da vista (item rolado para fora de uma lista) não conta: a caixa dele vem com tamanho zero e virava
+            // INVISIVEL ("DNS automático" no Diagnóstico, #518). O que a pessoa não vê também não se encavala.
+            if (!n.isVisibleToUser) return
             if (n.isFocusable) foco = true
             val t = (n.text ?: n.contentDescription)?.toString()
             // Só o nó folha: um ViewGroup repete o texto dos filhos e sobreporia tudo.
