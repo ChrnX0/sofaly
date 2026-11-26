@@ -2,7 +2,8 @@
 # As TVs com a chave pública baixam daqui sozinhas (Atualizador.kt).
 #
 # - Pull request: só compila, para conferir que o build passa. Nunca assina com a chave de verdade nem publica.
-# - Merge/push na main: NÃO compila nem publica (09/11/2026, pedido do dono). Antes, todo push na main virava Release e
+# - Merge/push na main: NÃO publica (09/11/2026, pedido do dono). Desde 26/11/2026 compila e testa (confere a main
+#   depois do merge; repo privado: PR em rascunho deixou de rodar, ver "on:"). Antes, todo push na main virava Release e
 #   ia direto para todas as TVs: um merge errado (ou uma conta invadida) chegava em todo mundo, com poder de Device Owner.
 #   Também economiza créditos do Actions.
 # - Publicar para todos = decisão à parte: Actions > "Build e Release" > "Run workflow" na main (workflow_dispatch).
@@ -32,8 +33,48 @@
 name: Build e Release
 
 on:
+  # Economia de minutos (26/11/2026), SÓ COM O REPO PRIVADO (público = Actions grátis = roda tudo): PR em RASCUNHO não roda. Roda quando o PR sai do rascunho
+  # (ready_for_review), em cada push depois disso, e no push para a main (o merge confere a main de verdade; não publica).
+  # Rascunho que precisa do teste pesado: etiqueta "run-ci" no PR (roda a cada push enquanto ela estiver lá) ou
+  # Actions > "Build e Release" > Run workflow na branch (fora da main só compila e testa; nunca publica).
+  # Mudança só de texto (docs/, *.md, website/) não roda. res/values*.xml é código: roda.
   pull_request:
-    paths-ignore: ['server/**', '.github/workflows/server.yml']   # o servidor tem o próprio teste
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
+    paths:
+      - '**'
+      - '!server/**'                     # o servidor tem o próprio teste (server.yml)
+      - '!.github/workflows/server.yml'
+      - '!docs/**'                       # só texto
+      - '!**/*.md'
+      - '!website/**'                    # site publica pelo Workers Builds
+      - '!comunidade/**'
+      - '!.claude/**'
+      # ...mas o passo "Página do GitHub em dia" (readme.py --check) lê estes: voltam a contar.
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - '.github/release-notes.md'
+      - 'website/features.json'
+      - 'website/content/en.json'
+      - 'website/content/home/en.json'
+      - 'website/home/build_home.py'
+  push:
+    branches: [main]
+    paths:   # a mesma lista do pull_request
+      - '**'
+      - '!server/**'                     # o servidor tem o próprio teste (server.yml)
+      - '!.github/workflows/server.yml'
+      - '!docs/**'                       # só texto
+      - '!**/*.md'
+      - '!website/**'                    # site publica pelo Workers Builds
+      - '!comunidade/**'
+      - '!.claude/**'
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - '.github/release-notes.md'
+      - 'website/features.json'
+      - 'website/content/en.json'
+      - 'website/content/home/en.json'
+      - 'website/home/build_home.py'
   workflow_dispatch:   # publicar: rodar à mão na main (ver o topo)
     inputs:
       canal:
@@ -55,12 +96,25 @@ permissions:
   contents: read
 
 concurrency:
-  group: release-${{ github.ref }}
-  # PR: o push novo cancela o anterior (economia). Publicar (main, à mão): nunca cancela no meio.
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  # Publicar (main, à mão) tem fila própria e nunca cancela no meio. PR e push na main ficam fora desta fila (grupo
+  # único por execução) e cancelam a execução antiga do mesmo PR/branch no nível do job (abaixo): assim uma execução
+  # pulada (rascunho, etiqueta que não é run-ci) nunca cancela uma de verdade.
+  group: ${{ github.event_name == 'workflow_dispatch' && format('release-{0}', github.ref) || format('ci-run-{0}', github.run_id) }}
+  cancel-in-progress: false
 
 jobs:
   build:
+    # Rascunho não roda (ver "on:"), salvo com a etiqueta run-ci. Etiqueta qualquer outra não dispara nada.
+    # Repo PÚBLICO (Actions grátis): roda tudo, sem trava (Paulo, 25/11/2026). A trava do rascunho só liga sozinha
+    # quando o repo fica privado (Actions cobrado).
+    if: >-
+      github.event_name != 'pull_request' ||
+      !github.event.repository.private ||
+      (github.event.action != 'labeled' || github.event.label.name == 'run-ci') &&
+      (!github.event.pull_request.draft || contains(github.event.pull_request.labels.*.name, 'run-ci'))
+    concurrency:
+      group: ${{ github.event_name == 'workflow_dispatch' && format('build-{0}', github.run_id) || format('ci-{0}', github.ref) }}
+      cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
     # 17/11/2026: a chave de assinatura e as chaves dos serviços ficam no Environment "publicar" (só main + aprovação do
     # Paulo), não nos segredos do repositório: um workflow alterado numa branch não consegue lê-las. PR = sem Environment.
     environment: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && 'publicar' || '' }}
