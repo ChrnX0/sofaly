@@ -234,7 +234,7 @@ class FineTuneActivity : Activity() {
         val temas = nomes(R.string.rw_tema_padrao, R.string.rw_tema_cinema, R.string.rw_tema_vitrine, R.string.rw_tema_minimo)
         val tema = Ajuste(R.string.rw_tema, { R2.preset(o())?.let { temas[it.ordinal] } ?: getString(R.string.rw_personalizado) }) { p ->
             val atual = R2.preset(o())?.ordinal ?: if (p > 0) -1 else 0
-            val novo = R2.Preset.entries[Math.floorMod(atual + p, R2.Preset.entries.size)]
+            val novo = br.paulo.tvlauncher.home.RowsHome.Preset.entries[Math.floorMod(atual + p, br.paulo.tvlauncher.home.RowsHome.Preset.entries.size)]
             R2.apply(this, novo); temas[novo.ordinal]
         }
         return listOf(
