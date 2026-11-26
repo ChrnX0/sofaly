@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"서비스가 없습니다.",
 "fora do ar":"중단됨",
 "o dia todo":"하루 종일",
+"pede Feito":"'완료' 확인 요청",
+"só aviso":"알림만",
 "Disponível no plano Pro.":"Pro 요금제에서 사용할 수 있습니다.",
 "texto ou dias inválidos":"텍스트 또는 요일이 잘못되었습니다",
 "nome ou endereço inválidos (http ou https)":"이름 또는 주소가 잘못되었습니다 (http 또는 https)",

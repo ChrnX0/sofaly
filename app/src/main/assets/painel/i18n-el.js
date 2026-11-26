@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Καμία υπηρεσία.",
 "fora do ar":"εκτός λειτουργίας",
 "o dia todo":"όλη μέρα",
+"pede Feito":"ζητά Έγινε",
+"só aviso":"μόνο ειδοποίηση",
 "Disponível no plano Pro.":"Διαθέσιμο στο πρόγραμμα Pro.",
 "texto ou dias inválidos":"μη έγκυρο κείμενο ή ημέρες",
 "nome ou endereço inválidos (http ou https)":"μη έγκυρο όνομα ή διεύθυνση (http ή https)",

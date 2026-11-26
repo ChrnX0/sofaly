@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Aucun service.",
 "fora do ar":"hors service",
 "o dia todo":"toute la journée",
+"pede Feito":"demande Fait",
+"só aviso":"rappel seul",
 "Disponível no plano Pro.":"Disponible avec le forfait Pro.",
 "texto ou dias inválidos":"texte ou jours invalides",
 "nome ou endereço inválidos (http ou https)":"nom ou adresse invalides (http ou https)",

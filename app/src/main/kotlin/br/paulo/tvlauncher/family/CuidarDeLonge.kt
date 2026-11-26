@@ -3,7 +3,9 @@ package br.paulo.tvlauncher.family
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.CuidarDeLongeTv
+import br.paulo.tvlauncher.alarm.Lembretes
 import br.paulo.tvlauncher.alarm.ProximoAlarme
+import br.paulo.tvlauncher.home.HomeCards
 import java.time.Instant
 import java.time.LocalDate
 import java.util.TimeZone
@@ -89,7 +91,8 @@ object CuidarDeLonge {
     const val PADRAO_PRAZO = 15
     val MARGENS = listOf(60, 120, 180, 240)
     const val PADRAO_MARGEM = 120
-    const val MAX_LEMBRETES = 12
+    /** Uma lista só para a casa (26/11/2026): os lembretes com "Feito" e os antigos "lembretes da casa" da pílula. */
+    const val MAX_LEMBRETES = 24
     const val MAX_TEXTO = 60
     const val MAX_NOME = 30
     const val TODO_DIA = 0b1111111
@@ -112,8 +115,17 @@ object CuidarDeLonge {
     const val AMOSTRAS = 14
     const val GUARDAR_DIAS = 28
 
-    data class Lembrete(val id: Int, val hora: Int, val minuto: Int, val dias: Int = TODO_DIA, val texto: String) {
-        val hhmm: String get() = "%02d:%02d".format(hora, minuto)
+    /**
+     * Um lembrete da casa. Desde 26/11/2026 é a ÚNICA lista de lembretes (antes havia esta e o "lembrete da casa" da
+     * pílula, em HomeCards, cadastrados em lugares diferentes do painel: o "remédio às 20h" ia parar no lugar errado e
+     * ninguém confirmava). [feito] true = tela grande com "Feito" (e aviso à família se ninguém confirmar, com o
+     * consentimento); false = só a pílula e o aviso na tela, como o antigo lembrete da casa. [hora] -1 = "o dia todo"
+     * (só a pílula; só vale sem [feito]). [dias]: bits de domingo (1) a sábado (64), como no despertador.
+     */
+    data class Lembrete(val id: Int, val hora: Int, val minuto: Int, val dias: Int = TODO_DIA, val texto: String,
+                        val feito: Boolean = true) {
+        val diaTodo: Boolean get() = hora < 0
+        val hhmm: String get() = if (diaTodo) "" else "%02d:%02d".format(hora, minuto)
     }
 
     data class Config(
@@ -175,13 +187,15 @@ object CuidarDeLonge {
     /** Grava (novo: id 0) um lembrete. Texto vazio ou lista cheia: a lista não muda. */
     fun salvarLembrete(lista: List<Lembrete>, l: Lembrete): List<Lembrete> {
         val texto = limparTexto(l.texto)
-        if (texto.isEmpty() || l.hora !in 0..23 || l.minuto !in 0..59) return lista
+        // "O dia todo" (hora -1) só existe sem o Feito: não há hora para mostrar a tela grande nem prazo para confirmar.
+        val diaTodo = !l.feito && l.hora < 0
+        if (texto.isEmpty() || (!diaTodo && (l.hora !in 0..23 || l.minuto !in 0..59))) return lista
         val dias = (l.dias and TODO_DIA).let { if (it == 0) TODO_DIA else it }
         val existe = l.id > 0 && lista.any { it.id == l.id }
         if (!existe && lista.size >= MAX_LEMBRETES) return lista
         // Id > 0 fica (editar, ou ler do arquivo sem renumerar: as marcas do dia usam o id); 0 = novo, o próximo livre.
         val id = if (l.id > 0) l.id else (lista.maxOfOrNull { it.id } ?: 0) + 1
-        val novo = Lembrete(id, l.hora, l.minuto, dias, texto)
+        val novo = if (diaTodo) Lembrete(id, -1, -1, dias, texto, feito = false) else Lembrete(id, l.hora, l.minuto, dias, texto, l.feito)
         return (lista.filterNot { it.id == id } + novo).sortedWith(compareBy({ it.hora }, { it.minuto }, { it.id }))
     }
 
@@ -211,21 +225,14 @@ object CuidarDeLonge {
         .put("tecla", c.tecla.name).put("prazo", c.prazoMin).put("margem", c.margemMin).put("horaFixa", c.horaFixa)
         .put("acender", c.acender)
         .put("lembretes", JSONArray().apply {
-            c.lembretes.forEach { put(JSONObject().put("id", it.id).put("hora", it.hora).put("minuto", it.minuto).put("dias", it.dias).put("texto", it.texto)) }
+            c.lembretes.forEach { put(lembreteJson(it)) }
         })
         .put("consentimento", c.consentimento).put("consentidoEm", c.consentidoEm)
 
     fun deJson(texto: String?): Config {
         val o = try { JSONObject(texto ?: return Config()) } catch (_: Exception) { return Config() }
         fun lista(k: String) = o.optJSONArray(k)?.let { a -> (0 until a.length()).map { a.optString(it) } }.orEmpty()
-        var lembretes = emptyList<Lembrete>()
-        o.optJSONArray("lembretes")?.let { a ->
-            for (i in 0 until a.length()) {
-                val x = a.optJSONObject(i) ?: continue
-                lembretes = salvarLembrete(lembretes, Lembrete(x.optInt("id"), x.optInt("hora", -1), x.optInt("minuto", -1),
-                    x.optInt("dias", TODO_DIA), x.optString("texto")))
-            }
-        }
+        val lembretes = lembretesDeJson(o.optJSONArray("lembretes"))
         val hf = o.optInt("horaFixa", -1)
         return Config(
             nome = limparNome(o.optString("nome")),
@@ -240,6 +247,63 @@ object CuidarDeLonge {
             consentimento = o.optString("consentimento"),
             consentidoEm = o.optLong("consentidoEm"),
         )
+    }
+
+    fun lembreteJson(l: Lembrete): JSONObject = JSONObject().put("id", l.id).put("hora", l.hora).put("minuto", l.minuto)
+        .put("dias", l.dias).put("texto", l.texto).put("feito", l.feito)
+
+    /** Lê uma lista gravada; o que não passa em [salvarLembrete] fica de fora. Sem "feito" = true (lista antiga do Cuidar). */
+    fun lembretesDeJson(a: JSONArray?): List<Lembrete> {
+        var lista = emptyList<Lembrete>()
+        if (a != null) for (i in 0 until a.length()) {
+            val x = a.optJSONObject(i) ?: continue
+            lista = salvarLembrete(lista, Lembrete(x.optInt("id"), x.optInt("hora", -1), x.optInt("minuto", -1),
+                x.optInt("dias", TODO_DIA), x.optString("texto"), x.optBoolean("feito", true)))
+        }
+        return lista
+    }
+
+    fun lembretesParaJson(lista: List<Lembrete>): JSONArray = JSONArray().apply { lista.forEach { put(lembreteJson(it)) } }
+
+    // ---------------------------------------------------------------- a lista única e o antigo "lembrete da casa"
+
+    /** Bits de segunda (1) a domingo (64), do HomeCards, para os de domingo (1) a sábado (64) daqui. */
+    fun diasDeSegunda(d: Int): Int = ((d shl 1) and 0b1111110) or ((d shr 6) and 1)
+    /** O contrário de [diasDeSegunda]. */
+    fun diasParaSegunda(d: Int): Int = ((d shr 1) and 0b0111111) or ((d and 1) shl 6)
+
+    /** Um antigo lembrete da casa (pílula) como lembrete da lista única: sem Feito, com ou sem hora. */
+    fun daCasa(l: HomeCards.LembreteCasa, id: Int = 0): Lembrete =
+        Lembrete(id, l.minuto?.div(60) ?: -1, l.minuto?.rem(60) ?: -1, diasDeSegunda(l.dias), l.texto, feito = false)
+
+    /** Para a pílula e o aviso da tela (HomeCardsTv), que continuam falando em [HomeCards.LembreteCasa]. */
+    fun paraCasa(l: Lembrete): HomeCards.LembreteCasa =
+        HomeCards.LembreteCasa(l.texto, diasParaSegunda(l.dias and TODO_DIA).let { if (it == 0) HomeCards.TODOS_OS_DIAS else it },
+            if (l.diaTodo) null else l.hora * 60 + l.minuto)
+
+    private fun mesmoTexto(a: String, b: String) = Lembretes.normalizar(a) == Lembretes.normalizar(b)
+
+    /**
+     * Junta [novos] em [lista] (a migração das duas listas antigas): o que já existe com o mesmo texto e a mesma hora
+     * não entra de novo. Id > 0 em [novos] é mantido (as marcas do dia do Cuidar usam o id).
+     */
+    fun juntar(lista: List<Lembrete>, novos: List<Lembrete>): List<Lembrete> = novos.fold(lista) { acc, l ->
+        if (acc.any { mesmoTexto(it.texto, l.texto) && it.hora == l.hora && it.minuto == l.minuto }) acc
+        else salvarLembrete(acc, if (acc.any { it.id == l.id }) l.copy(id = 0) else l)
+    }
+
+    /**
+     * O cartão "Lembrete da casa" do painel (sem PIN) editou a parte SEM Feito, vista como [HomeCards.LembreteCasa]:
+     * monta a lista única de novo. Os lembretes com Feito não mudam por aqui (apagar um deles pede o PIN, no Cuidar de
+     * longe). Quem continua com o mesmo texto mantém o id.
+     */
+    fun trocarDaCasa(lista: List<Lembrete>, casa: List<HomeCards.LembreteCasa>): List<Lembrete> {
+        val comFeito = lista.filter { it.feito }
+        val antigos = lista.filterNot { it.feito }
+        return casa.fold(comFeito) { acc, c ->
+            val id = antigos.firstOrNull { mesmoTexto(it.texto, c.texto) }?.id?.takeIf { i -> acc.none { it.id == i } } ?: 0
+            salvarLembrete(acc, daCasa(c, id))
+        }
     }
 
     // ---------------------------------------------------------------- estado (o que já aconteceu)
@@ -292,6 +356,7 @@ object CuidarDeLonge {
 
     /** As ocorrências de [l] em [de, ate] (de hoje e de ontem, que é o que importa aqui), da mais velha para a mais nova. */
     fun ocorrencias(l: Lembrete, de: Long, ate: Long, fuso: TimeZone): List<Long> {
+        if (l.diaTodo) return emptyList()   // sem hora: só a pílula, nada a mostrar nem a confirmar
         val hoje = dia(ate, fuso)
         val ontem = dia(data(hoje).minusDays(1).atStartOfDay(fuso.toZoneId()).toInstant().toEpochMilli(), fuso)
         return listOf(ontem, hoje).filter { ProximoAlarme.tocaNoDia(l.dias, diaDaSemana(it)) }
@@ -344,7 +409,8 @@ object CuidarDeLonge {
     fun devidos(c: Config, e: Estado, agora: Long, fuso: TimeZone, ligadaAgora: Boolean = false): List<Acao> {
         val r = ArrayList<Acao>()
         val prazo = c.prazoMin * 60_000L
-        for (l in c.lembretes) for (m in ocorrencias(l, agora - AVISAR_ATE_MS, agora, fuso)) {
+        // Só os com "Feito": os sem Feito (antigo lembrete da casa) são da pílula e do aviso da tela (HomeCardsTv).
+        for (l in c.lembretes.filter { it.feito }) for (m in ocorrencias(l, agora - AVISAR_ATE_MS, agora, fuso)) {
             val k = chave(l, m, fuso)
             val marca = e.marca(k)
             if (marca.mostrado == 0L && marca.confirmado == 0L && agora - m < MOSTRAR_ATE_MS) r += Acao.Mostrar(l, m, k)
@@ -369,7 +435,7 @@ object CuidarDeLonge {
     fun proximo(c: Config, e: Estado, agora: Long, fuso: TimeZone): Long? {
         val t = ArrayList<Long>()
         val prazo = c.prazoMin * 60_000L
-        for (l in c.lembretes) {
+        for (l in c.lembretes.filter { it.feito }) {
             ProximoAlarme.calcular(l.hora, l.minuto, l.dias, agora, fuso)?.let { t += it }
             if (ativo(c, Aviso.LEMBRETE)) for (m in ocorrencias(l, agora - AVISAR_ATE_MS, agora, fuso)) {
                 val marca = e.marca(chave(l, m, fuso))

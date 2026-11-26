@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Niciun serviciu.",
 "fora do ar":"căzut",
 "o dia todo":"toată ziua",
+"pede Feito":"cere Gata",
+"só aviso":"doar notificare",
 "Disponível no plano Pro.":"Disponibil în planul Pro.",
 "texto ou dias inválidos":"text sau zile nevalide",
 "nome ou endereço inválidos (http ou https)":"nume sau adresă nevalide (http sau https)",

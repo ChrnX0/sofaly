@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"ไม่มีบริการ",
 "fora do ar":"ล่ม",
 "o dia todo":"ทั้งวัน",
+"pede Feito":"ขอให้กด เสร็จแล้ว",
+"só aviso":"แจ้งเตือนอย่างเดียว",
 "Disponível no plano Pro.":"มีในแพ็กเกจ Pro",
 "texto ou dias inválidos":"ข้อความหรือวันไม่ถูกต้อง",
 "nome ou endereço inválidos (http ou https)":"ชื่อหรือที่อยู่ไม่ถูกต้อง (http หรือ https)",

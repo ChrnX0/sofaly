@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"لا توجد خدمات.",
 "fora do ar":"متوقفة",
 "o dia todo":"طوال اليوم",
+"pede Feito":"يطلب «تم»",
+"só aviso":"تنبيه فقط",
 "Disponível no plano Pro.":"متاح في خطة Pro.",
 "texto ou dias inválidos":"نص أو أيام غير صالحة",
 "nome ou endereço inválidos (http ou https)":"اسم أو عنوان غير صالح (http أو https)",

@@ -113,6 +113,8 @@ traduzirPainelCom({T:{
 "Nenhum serviço.":"Không có dịch vụ nào.",
 "fora do ar":"ngừng",
 "o dia todo":"cả ngày",
+"pede Feito":"cần bấm Xong",
+"só aviso":"chỉ nhắc",
 "Disponível no plano Pro.":"Có trong gói Pro.",
 "texto ou dias inválidos":"văn bản hoặc ngày không hợp lệ",
 "nome ou endereço inválidos (http ou https)":"tên hoặc địa chỉ không hợp lệ (http hoặc https)",
