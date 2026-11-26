@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Verder zoeken</string>
     <string name="elv_bf_procurar_radio">Radiozenders met de naam “%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Zenders van over de hele wereld</string>
+    <string name="elv_bf_procurar_ajustes">‘%1$s’ in de instellingen</string>
+    <string name="elv_bf_procurar_ajustes_det">Opties en schakelaars van de tv</string>
     <string name="elv_bf_procurar_rede">“%1$s” in je netwerkbestanden</string>
     <string name="elv_bf_procurar_rede_det">Op je Jellyfin, Emby of Plex</string>
     <!-- 12.2 busca nos ajustes -->

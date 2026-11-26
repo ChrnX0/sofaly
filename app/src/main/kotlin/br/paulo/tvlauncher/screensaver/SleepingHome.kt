@@ -246,7 +246,8 @@ class SleepingHome(private val ctx: Context) {
             val agenda = lerAgenda()
             val rs = lerResumos()
             val c = lerCeu()
-            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; ceu = c; preencher(f) } }
+            val rc = lerRecados()
+            ui.post { if (!solto) { this.agenda = agenda; resumos = rs; ceu = c; recados = rc; preencher(f) } }
         }
         ui.postDelayed(escurecer, ESCURECER_MS)
         ui.postDelayed(deslocar, DESLOCAR_MS)
@@ -278,6 +279,15 @@ class SleepingHome(private val ctx: Context) {
     private fun lerResumos(): List<Triple<String, String, String>> = listOfNotNull(
         runCatching { br.paulo.tvlauncher.Retrospectiva.cartao(ctx) }.getOrNull(),
         runCatching { br.paulo.tvlauncher.family.RetrospectivaAno.cartao(ctx) }.getOrNull())
+
+    /**
+     * Recados da família não lidos (Brainstorm item 10, 26/11/2026): o README promete o mural no descanso e ele não
+     * aparecia. Viram a PRIMEIRA linha da faixa (quem passa pela sala vê "Ana: Dentista quinta") até alguém marcar
+     * como lido no painel rápido. Mural desligado ou modo visita: nada.
+     */
+    private var recados: List<String> = emptyList()
+    private fun lerRecados(): List<String> =
+        runCatching { br.paulo.tvlauncher.family.Mural.visiveis(ctx).naoLidos.takeLast(3).reversed() }.getOrDefault(emptyList())
 
     private fun lerAgenda(): List<Triple<String, String, String>> {
         val agora = System.currentTimeMillis()
@@ -338,7 +348,7 @@ class SleepingHome(private val ctx: Context) {
         val dicaTopo = entrada?.let { "${ctx.getString(R.string.cl_d_guarda)}: ${ForecastText.dica(ctx, DicasClima.guardaChuva(it)).replaceFirstChar { c -> c.lowercase(ctx.resources.configuration.locales[0]) }}" }
         lugar.text = dicaTopo ?: ""; lugar.visibility = if (dicaTopo == null) View.GONE else View.VISIBLE
         if (tempAgora != null) {
-            if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.chave(codigo, eDia, chovendo || fr?.tipo == DicasClima.TipoFrase.CHUVA_AGORA)),
+            if (codigo != null) topoDireita.addView(IconesClima.imagem(ctx, IconesClima.comFaseDaLua(IconesClima.chave(codigo, eDia, chovendo || fr?.tipo == DicasClima.TipoFrase.CHUVA_AGORA), lat)),
                 LinearLayout.LayoutParams(dp(44), dp(44)))
             topoDireita.addView(texto(44f, Estilo.TEXTO, leve).apply { text = "$tempAgora°"; includeFontPadding = false },
                 LinearLayout.LayoutParams(-2, -2))   // sem isto a coluna vertical dá MATCH_PARENT e o texto fica da largura do ícone
@@ -372,6 +382,9 @@ class SleepingHome(private val ctx: Context) {
                 ui.postDelayed(viradaDoCeu, (e.start - br.paulo.tvlauncher.weather.NightSky.DESCANSO_ANTES_MS - agoraMs).coerceAtLeast(1_000L))
             }
         }
+        if (recados.isNotEmpty()) l += Linha(ctx.getString(R.string.mur_descanso), linhaItens(recados.map { r ->
+            br.paulo.tvlauncher.family.Mural.partes(r).let { (quem, texto) -> Triple("", quem, texto) }
+        }))
         if (fr != null) l += Linha("resumo", linhaResumo(ForecastText.frase(ctx, fr), when {
             chovendo || fr.tipo in setOf(DicasClima.TipoFrase.CHUVA_AS, DicasClima.TipoFrase.CHUVA_AGORA) -> SofyPolicy.Expression.WORRIED
             fr.tipo == DicasClima.TipoFrase.CALOR || fr.tipo == DicasClima.TipoFrase.FRIO -> SofyPolicy.Expression.SURPRISED
@@ -386,7 +399,9 @@ class SleepingHome(private val ctx: Context) {
             l += Linha(ctx.getString(R.string.sh_ar), linhaAr(f))
         }
         linhaSol(agoraMs, lat, lon)?.let { l += Linha(ctx.getString(R.string.pt_sol), it) }
-        l += Linha(ctx.getString(R.string.pt_lua), linhaLua(agoraMs, lat))
+        // A chave "Fase da lua" (CARTAO_LUA) vale aqui também, não só na Previsão (Brainstorm item 20).
+        if (br.paulo.tvlauncher.settings.Extras.ligado(ctx, br.paulo.tvlauncher.settings.Extras.Chave.CARTAO_LUA))
+            l += Linha(ctx.getString(R.string.pt_lua), linhaLua(agoraMs, lat))
         if (agenda.isNotEmpty()) l += Linha(ctx.getString(R.string.lbl_agenda), linhaItens(agenda))
         for ((titulo, a, b) in resumos) l += Linha(titulo, linhaBase().apply { addView(celula(titulo, a, b.ifEmpty { null }), LinearLayout.LayoutParams(0, -2, 1f)) })
         val nomeAntes = linhas.getOrNull(atual)?.nome
@@ -632,7 +647,8 @@ class SleepingHome(private val ctx: Context) {
                 val ag = lerAgenda()
                 val rs = lerResumos()
                 val c = lerCeu()
-                ui.post { if (!solto) { agenda = ag; resumos = rs; ceu = c; preencher(f) } }
+                val rc = lerRecados()
+                ui.post { if (!solto) { agenda = ag; resumos = rs; ceu = c; recados = rc; preencher(f) } }
             }
             ui.postDelayed(this, ATUALIZAR_MS)
         }

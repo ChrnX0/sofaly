@@ -16,7 +16,24 @@ import java.util.Base64
  */
 object ConectorWindows {
     const val CAMINHO = "/unidade/conectar.cmd"
-    const val ARQUIVO = "Conectar One TV.cmd"
+    /** O nome do arquivo baixado, na língua do navegador (Brainstorm 26/11/2026, item 17: era "Conectar One TV.cmd"). */
+    fun arquivo(pt: Boolean): String = if (pt) "Conectar Sofaly.cmd" else "Connect Sofaly.cmd"
+
+    /** [cabecalho] Accept-Language do navegador: o .cmd sai em português só quando a 1ª língua é pt. */
+    fun portugues(cabecalho: String?): Boolean =
+        cabecalho?.split(',')?.firstOrNull()?.trim()?.lowercase()?.startsWith("pt") ?: true
+
+    /** Os textos que a pessoa lê no .cmd, sem acentos (o cmd.exe usa a página de código antiga do Windows). */
+    private class Textos(val pt: Boolean) {
+        fun t(pt: String, en: String) = if (this.pt) pt else en
+        val cabeca = t("rem Sofaly - liga a TV como unidade de rede neste PC (duplo clique).", "rem Sofaly - connects the TV as a network drive on this PC (double click).")
+        val titulo = t("title Sofaly - unidade de rede", "title Sofaly - network drive")
+        val sim = t("echo O Windows vai perguntar se pode fazer alteracoes. Responda SIM.", "echo Windows will ask if it can make changes. Answer YES.")
+        val semWebClient = t("echo Nao consegui ligar o servico WebClient do Windows. Nada foi mapeado.", "echo Could not start the Windows WebClient service. Nothing was mapped.")
+        val usuario = t("echo Usuario: digite  tv", "echo User name: type  tv")
+        val senha = t("echo Senha:   o PIN do painel da TV ^(nao aparece enquanto digita^)", "echo Password: the TV panel PIN ^(it stays hidden while you type^)")
+        val naoMapeou = t("echo Nao mapeou. Confira o PIN e se a chave \"Unidade de rede\" esta ligada na TV.", "echo Not mapped. Check the PIN and that \"Network drive\" is on in the TV.")
+    }
 
     /** O miolo base64 do PEM, em linhas (sem as linhas BEGIN/END). */
     fun linhasDoPem(pem: String): List<String> =
@@ -48,7 +65,8 @@ object ConectorWindows {
             "(New-Object -ComObject Shell.Application).NameSpace(${d}d.Item(${d}i)+'\\').Self.Name=-join[char[]]($codigos)}}\" >nul 2>&1"
     }
 
-    fun script(host: String, porta: Int, pemCa: String, rotulo: String = ""): String? {
+    fun script(host: String, porta: Int, pemCa: String, rotulo: String = "", pt: Boolean = true): String? {
+        val x = Textos(pt)
         if (!hostValido(host) || porta !in 1..65535) return null
         val linhas = linhasDoPem(pemCa)
         // base64 puro: nada que o cmd.exe interprete (%, &, |, parênteses) pode entrar no arquivo.
@@ -57,10 +75,10 @@ object ConectorWindows {
         val linhaRotulo = if (rotulo.isBlank()) "rem (sem nome para a unidade)" else linhaDoRotulo(rotulo)
         val t = """
 @echo off
-rem One TV - liga a TV como unidade de rede neste PC (duplo clique).
+${x.cabeca}
 rem Faz 3 coisas: confia no certificado da TV, liga o servico WebClient do Windows e mapeia a unidade.
 setlocal
-title One TV - unidade de rede
+${x.titulo}
 set "TV=$host"
 set "PORTA=$porta"
 set "DIGITAL=$digital"
@@ -73,22 +91,22 @@ certutil -verifystore Root %DIGITAL% >nul 2>&1 || set "PRECISA=1"
 sc query WebClient | find "RUNNING" >nul || set "PRECISA=1"
 if "%PRECISA%"=="1" (
   echo.
-  echo O Windows vai perguntar se pode fazer alteracoes. Responda SIM.
+  ${x.sim}
   rem O caminho vai por variavel: um apostrofo no nome da pasta quebrava as aspas simples do PowerShell.
   set "EU=%~f0"
   powershell -NoProfile -Command "Start-Process -FilePath ${'$'}env:EU -ArgumentList 'admin' -Verb RunAs -Wait"
 )
 sc query WebClient | find "RUNNING" >nul || (
   echo.
-  echo Nao consegui ligar o servico WebClient do Windows. Nada foi mapeado.
+  ${x.semWebClient}
   pause
   exit /b 1
 )
 
 net use | find /i "%ALVO%" >nul && goto abrir
 echo.
-echo Usuario: digite  tv
-echo Senha:   o PIN do painel da TV ^(nao aparece enquanto digita^)
+${x.usuario}
+${x.senha}
 echo.
 rem A letra: S, de Sofaly; se estiver ocupada, Y; se nao, a que o Windows escolher.
 rem "if exist" ve disco e pendrive; o "net use" ve unidade de rede desconectada; sem administrador.
@@ -99,7 +117,7 @@ if not exist S:\ (net use 2>nul | find /i " S:" >nul || set "LETRA=S:")
 net use %LETRA% "%ALVO%" /savecred /persistent:yes
 if errorlevel 1 (
   echo.
-  echo Nao mapeou. Confira o PIN e se a chave "Unidade de rede" esta ligada na TV.
+  ${x.naoMapeou}
   pause
   exit /b 1
 )
@@ -110,7 +128,7 @@ exit /b 0
 
 :admin
 rem Parte de administrador: certificado (so vale para a TV), limite de 4 GB por arquivo e servico ligado.
-set "CRT=%TEMP%\onetv-ca-%RANDOM%.crt"
+set "CRT=%TEMP%\sofaly-ca-%RANDOM%.crt"
 (
   echo -----BEGIN CERTIFICATE-----
   for /f "tokens=2 delims=|" %%L in ('findstr /b "::|" "%~f0"') do echo %%L

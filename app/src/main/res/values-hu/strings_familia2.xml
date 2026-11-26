@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Hozzáadva a kedvencekhez</string>
     <string name="ra_desfavoritada">Eltávolítva a kedvencek közül</string>
     <string name="ra_falhou">Ez az állomás most nem szól. Próbáljon másikat.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Családi tábla</string>
+    <string name="mur_ilha_um">Üzenet · %1$s</string>
+    <string name="mur_ilha_varios">%1$d üzenet · %2$s</string>
 </resources>

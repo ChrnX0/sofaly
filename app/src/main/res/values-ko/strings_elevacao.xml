@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">더 찾아보기</string>
     <string name="elv_bf_procurar_radio">이름이 “%1$s”인 라디오</string>
     <string name="elv_bf_procurar_radio_det">전 세계 라디오</string>
+    <string name="elv_bf_procurar_ajustes">설정에서 “%1$s”</string>
+    <string name="elv_bf_procurar_ajustes_det">TV 옵션과 스위치</string>
     <string name="elv_bf_procurar_rede">네트워크 파일에서 “%1$s”</string>
     <string name="elv_bf_procurar_rede_det">내 Jellyfin, Emby 또는 Plex에서</string>
     <string name="elv_aj_buscar">설정 검색</string>

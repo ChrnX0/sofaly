@@ -72,6 +72,14 @@ object IconesClima {
         return PREFIXO + "3d/" + nome
     }
 
+    /**
+     * Noite limpa mostra a lua de HOJE em toda tela (Brainstorm item 20, 26/11/2026): a home já fazia isso
+     * (ClimaFontes.iconeDoClima), mas o descanso, o painel rápido e a Previsão mostravam sempre a lua crescente.
+     * Pura: troca só a chave da lua crescente; qualquer outro ícone passa igual.
+     */
+    fun comFaseDaLua(chave: String, lat: Double, agoraMs: Long = System.currentTimeMillis()): String =
+        if (chave == PREFIXO + "3d/crescent_moon") Lua.chaveIcone(agoraMs, lat) else chave
+
     /** A imagem da chave (lida do assets uma vez só). null se o arquivo faltar: quem chama cai no texto. */
     // synchronized: desde 04/11/2026 o ícone também é preparado fora da thread da tela (ver MainActivity.buscarClima).
     @Synchronized

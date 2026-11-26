@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">ค้นหาเพิ่มเติม</string>
     <string name="elv_bf_procurar_radio">สถานีวิทยุชื่อ “%1$s”</string>
     <string name="elv_bf_procurar_radio_det">สถานีจากทั่วโลก</string>
+    <string name="elv_bf_procurar_ajustes">“%1$s” ในการตั้งค่า</string>
+    <string name="elv_bf_procurar_ajustes_det">ตัวเลือกและสวิตช์ของทีวี</string>
     <string name="elv_bf_procurar_rede">“%1$s” ในไฟล์บนเครือข่ายของคุณ</string>
     <string name="elv_bf_procurar_rede_det">บน Jellyfin, Emby หรือ Plex ของคุณ</string>
     <!-- 12.2 busca nos ajustes -->

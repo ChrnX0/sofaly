@@ -103,6 +103,8 @@ private const val MATCH = ViewGroup.LayoutParams.MATCH_PARENT
 class ConfigLauncherActivity : Activity() {
     companion object {
         const val EXTRA_ABA = "aba"
+        /** Termo para abrir já na busca dos ajustes (vem da busca da TV, Brainstorm item 13, 26/11/2026). */
+        const val EXTRA_BUSCA = "busca"
         /** Azulejo das abas técnicas (Sistema, Ajuda, Avançado): cinza quente, sem cor de área. */
         const val AZULEJO_NEUTRO = 0xFFD9CFC2.toInt()   // índice da aba para abrir (ex.: o atalho "Conta" de outra tela)
         /** Índices das abas que outras telas abrem direto (a ordem mudou em 14/11/2026: use estes, não números). */
@@ -200,7 +202,8 @@ class ConfigLauncherActivity : Activity() {
         VigiaDesfazer.ligar(this, getString(R.string.desf_rot_config), mostrarBarra = false) { if (::conteudo.isInitialized) recarregarAba() }
         abaAtual = (savedInstanceState?.getInt(EXTRA_ABA) ?: intent.getIntExtra(EXTRA_ABA, 0)).coerceIn(0, abas.size - 1)
         linhaSalva = savedInstanceState?.getInt(ESTADO_LINHA, -1) ?: -1
-        naGradeAoAbrir = savedInstanceState?.getBoolean(ESTADO_GRADE) ?: !intent.hasExtra(EXTRA_ABA)
+        naGradeAoAbrir = savedInstanceState?.getBoolean(ESTADO_GRADE) ?: (!intent.hasExtra(EXTRA_ABA) && !intent.hasExtra(EXTRA_BUSCA))
+        if (savedInstanceState == null) buscaPedida = intent.getStringExtra(EXTRA_BUSCA)?.trim()?.takeIf { it.isNotEmpty() }
         // Modo hóspede (degrau 2): as Configurações só abrem com o PIN (o hóspede não desliga a limpeza nem mexe na TV).
         // "liberado" vem do estado salvo só quando a tela foi recriada com o PIN já certo (controle/teclado ligado, giro);
         // antes valia "savedInstanceState == null", e qualquer recriação abria sem PIN (achado de 17/11/2026).
@@ -222,11 +225,20 @@ class ConfigLauncherActivity : Activity() {
     /** Linha das opções que tinha o foco quando a tela se refez (alto contraste, tamanho do texto, visual pronto). */
     private var linhaSalva = -1
 
+    /** Termo vindo da busca da TV: abre a busca dos ajustes já com ele (uma vez; a tela recriada não repete). */
+    private var buscaPedida: String? = null
+
     private fun abrirTela() {
         val tela = montarTela()
         setContentView(tela)
         if (janelaPainel) SidePanel.entrar(this, tela, previa = !naGradeAoAbrir && PortasConfig.daAba(abaAtual) == 0)
         mostrarAba(abaAtual)
+        buscaPedida?.let { termo ->
+            buscaPedida = null
+            mostrarBusca()
+            campoBusca?.apply { setText(termo); setSelection(termo.length); post { requestFocus() } }
+            return
+        }
         // Sem aba pedida (abriu pelo painel rápido ou pela cruz): começa nas seis portas. Com aba (atalho de outra tela, ou a
         // tela recriada dentro de uma porta): abre direto na porta dela.
         if (naGradeAoAbrir) { mostrarAbasDoUso(); mostrarPortas(); return }

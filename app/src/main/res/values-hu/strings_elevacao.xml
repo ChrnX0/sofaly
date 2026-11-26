@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Keresés tovább</string>
     <string name="elv_bf_procurar_radio">„%1$s” nevű rádióállomások</string>
     <string name="elv_bf_procurar_radio_det">Állomások a világ minden tájáról</string>
+    <string name="elv_bf_procurar_ajustes">„%1$s” a beállításokban</string>
+    <string name="elv_bf_procurar_ajustes_det">A tévé lehetőségei és kapcsolói</string>
     <string name="elv_bf_procurar_rede">„%1$s” a hálózati fájljaiban</string>
     <string name="elv_bf_procurar_rede_det">A Jellyfinjén, Embyjén vagy Plexén</string>
     <!-- 12.2 busca nos ajustes -->

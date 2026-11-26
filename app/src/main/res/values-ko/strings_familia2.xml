@@ -41,4 +41,8 @@
     <plurals name="an_anos">
         <item quantity="other">%d세가 됨</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">가족 게시판</string>
+    <string name="mur_ilha_um">메시지 · %1$s</string>
+    <string name="mur_ilha_varios">메시지 %1$d개 · %2$s</string>
 </resources>

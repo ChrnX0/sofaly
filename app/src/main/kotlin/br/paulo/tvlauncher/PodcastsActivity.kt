@@ -47,6 +47,11 @@ import java.util.Locale
  * Quem toca é o [OuvirServico] (o som segue na HOME e no protetor). Dados: [Podcasts]; leitura do feed: [PodcastFeed].
  */
 class PodcastsActivity : Activity() {
+    companion object {
+        /** URL do feed para abrir direto (a busca da TV acha os podcasts seguidos, Brainstorm item 13, 26/11/2026). */
+        const val EXTRA_FEED = "feed"
+    }
+
     private lateinit var cruz: CruzOuvir
     private var assinaturas: List<Podcasts.Assinatura> = emptyList()
     private var feeds: Map<String, PodcastFeed.Feed> = emptyMap()
@@ -105,6 +110,13 @@ class PodcastsActivity : Activity() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
+    // singleTask: a busca pode chamar a tela que já está aberta; o feed pedido vem por aqui.
+    override fun onNewIntent(i: android.content.Intent) {
+        super.onNewIntent(i)
+        setIntent(i)
+        i.getStringExtra(EXTRA_FEED)?.let { if (leu) abrir(it) }
+    }
+
     override fun onDestroy() { ui.removeCallbacksAndMessages(null); OuvirServico.esquecer(mudou); super.onDestroy() }
 
     @Deprecated("Activity.onBackPressed")
@@ -144,7 +156,8 @@ class PodcastsActivity : Activity() {
                 if (isDestroyed) return@runOnUiThread
                 assinaturas = a; feeds = f; posicoes = p; protegido = prot; sugestoes = sug; leu = true
                 if (inicio) focarDepois = inicial()
-                montar()
+                val pedido = if (inicio) intent.getStringExtra(EXTRA_FEED) else null
+                if (pedido != null) abrir(pedido) else montar()
             }
             // Primeira vez com quase nada seguido: segue sozinho 4 sugeridos do idioma (rede: fora da fila).
             if (inicio && !PodcastStarter.jaFez(app)) Fundo.rodar("podcast") {

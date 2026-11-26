@@ -71,6 +71,12 @@ sealed class EtiquetaSerie {
 data class UltimoEpisodio(val episodioId: String, val temporada: Int, val numero: Int, val titulo: String, val extensao: String, val quando: Long)
 
 object Series {
+    /** A TV está em português? (Brainstorm 26/11/2026, item 20: "Episódio" saía em português em qualquer língua.) */
+    fun emPortugues(): Boolean = java.util.Locale.getDefault().language == "pt"
+
+    /** Nome do episódio quando o servidor não manda nenhum, na língua da TV. */
+    fun episodioSemNome(num: Int): String = if (emPortugues()) "Episódio $num" else "Episode $num"
+
     /**
      * Nome do episódio sem o que já está na tela (passada na TV, 12/11/2026): o servidor manda "Overgeared 2026 -
      * S01E07 - Episódio 7", e a barra do player mostrava "Overgeared 2026 · T1E7 · Overgeared 2026 - S01E07 - Episódio 7".
@@ -158,7 +164,7 @@ object Series {
                 val seg = numero(inf, "duration_secs")
                 lidos++
                 porTemporada.getOrPut(temporada) { ArrayList() } += Episodio(
-                    id, temporada, num, texto(o, "title").take(300).ifEmpty { "Episódio $num" }, Vod.extensaoSegura(texto(o, "container_extension")),
+                    id, temporada, num, texto(o, "title").take(300).ifEmpty { episodioSemNome(num) }, Vod.extensaoSegura(texto(o, "container_extension")),
                     texto(inf, "plot").take(800),
                     (seg?.let { (it / 60).toInt() } ?: Vod.duracaoTexto(texto(inf, "duration")))?.takeIf { it in 1..600 },
                 )

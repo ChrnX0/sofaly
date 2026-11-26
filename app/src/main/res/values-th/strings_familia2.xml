@@ -42,4 +42,8 @@
     <string name="ra_favoritada">เพิ่มในรายการโปรดแล้ว</string>
     <string name="ra_desfavoritada">นำออกจากรายการโปรดแล้ว</string>
     <string name="ra_falhou">สถานีนี้ไม่ได้ออกอากาศตอนนี้ ลองสถานีอื่น</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">กระดานครอบครัว</string>
+    <string name="mur_ilha_um">ข้อความ · %1$s</string>
+    <string name="mur_ilha_varios">%1$d ข้อความ · %2$s</string>
 </resources>

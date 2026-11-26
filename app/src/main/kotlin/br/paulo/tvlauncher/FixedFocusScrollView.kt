@@ -2,6 +2,8 @@ package br.paulo.tvlauncher
 
 import android.content.Context
 import android.graphics.Rect
+import android.view.FocusFinder
+import android.view.KeyEvent
 import android.view.View
 import android.widget.ScrollView
 
@@ -57,6 +59,23 @@ open class FixedFocusScrollView(ctx: Context, private val fraction: Float = FRAC
         val max = (getChildAt(0).height - height).coerceAtLeast(0)
         val quer = (rect.top - focusLine()).coerceIn(0, max)
         return quer - scrollY
+    }
+
+    /**
+     * Fim da lista (Sala, 26/11/2026: descer além de "Sistema" esvaziava as Configurações): sem próximo item na direção,
+     * o ScrollView comum rola uma "página" para dentro da folga e o item com foco sai da tela. Aqui a tecla segue para o
+     * Android, que procura foco fora da lista (para cima, as pílulas) ou fica onde está.
+     */
+    override fun executeKeyEvent(event: KeyEvent): Boolean {
+        val dir = when (event.keyCode) {
+            KeyEvent.KEYCODE_DPAD_DOWN -> View.FOCUS_DOWN
+            KeyEvent.KEYCODE_DPAD_UP -> View.FOCUS_UP
+            else -> return super.executeKeyEvent(event)
+        }
+        val atual = findFocus()
+        if (event.action == KeyEvent.ACTION_DOWN && atual != null && atual !== this &&
+            FocusFinder.getInstance().findNextFocus(this, atual, dir) == null) return false
+        return super.executeKeyEvent(event)
     }
 
     /** Põe [v] (um filho, em qualquer nível) na linha fixa. */

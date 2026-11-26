@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">さらに探す</string>
     <string name="elv_bf_procurar_radio">「%1$s」という名前のラジオ</string>
     <string name="elv_bf_procurar_radio_det">世界中のラジオ</string>
+    <string name="elv_bf_procurar_ajustes">設定で「%1$s」</string>
+    <string name="elv_bf_procurar_ajustes_det">テレビのオプションとスイッチ</string>
     <string name="elv_bf_procurar_rede">ネットワークのファイルで「%1$s」</string>
     <string name="elv_bf_procurar_rede_det">お使いのJellyfin、Emby、Plexで</string>
     <string name="elv_aj_buscar">設定を検索</string>

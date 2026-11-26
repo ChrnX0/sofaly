@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">ما تعرفه Sofy</string>
+    <string name="smem_sub">ما تعلّمته عن هذا البيت. OK تنسى عنصرًا؛ وتتعلّمه من جديد.</string>
+    <string name="smem_linha_det">ما تعلّمته، مع زر انسَ</string>
+    <string name="smem_uso">متى يُستخدم التلفزيون</string>
+    <string name="smem_uso_det">ساعات اليوم المتعلَّمة: %1$d</string>
+    <string name="smem_rede">الشبكة المعتادة لهذا البيت</string>
+    <string name="smem_rede_det">القيم المعتادة لـ %1$d من إشارات الشبكة</string>
+    <string name="smem_pessoas">عادات كل شخص</string>
+    <string name="smem_pessoas_det">عادات %1$d من الملفات</string>
+    <string name="smem_casa">اليوم المعتاد لهذا البيت</string>
+    <string name="smem_casa_det">أيام السجل: %1$d</string>
+    <string name="smem_regras">قواعد اكتشفتها</string>
+    <string name="smem_regras_det">قواعد تفحص الشاشات: %1$d</string>
+    <string name="smem_vazio">لم تتعلّم شيئًا بعد</string>
+    <string name="smem_tudo">انسَ كل شيء</string>
+    <string name="smem_tudo_det">تبدأ Sofy من الصفر</string>
+    <string name="smem_esqueceu">تم النسيان. تتعلّم Sofy من جديد.</string>
+    <string name="smem_pin">رمز PIN للنسيان</string>
+</resources>

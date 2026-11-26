@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Αναζήτηση παραπέρα</string>
     <string name="elv_bf_procurar_radio">Ραδιοφωνικοί σταθμοί με όνομα «%1$s»</string>
     <string name="elv_bf_procurar_radio_det">Σταθμοί από όλο τον κόσμο</string>
+    <string name="elv_bf_procurar_ajustes">«%1$s» στις ρυθμίσεις</string>
+    <string name="elv_bf_procurar_ajustes_det">Επιλογές και διακόπτες της τηλεόρασης</string>
     <string name="elv_bf_procurar_rede">«%1$s» στα αρχεία του δικτύου σας</string>
     <string name="elv_bf_procurar_rede_det">Στο Jellyfin, Emby ή Plex σας</string>
     <!-- 12.2 busca nos ajustes -->

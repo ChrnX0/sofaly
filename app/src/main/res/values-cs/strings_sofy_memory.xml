@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Co Sofy ví</string>
+    <string name="smem_sub">Co se naučila o této domácnosti. OK zapomene položku; učí se znovu.</string>
+    <string name="smem_linha_det">Co se naučila, se Zapomenout</string>
+    <string name="smem_uso">Kdy se televize používá</string>
+    <string name="smem_uso_det">Naučené hodiny dne: %1$d</string>
+    <string name="smem_rede">Normální síť této domácnosti</string>
+    <string name="smem_rede_det">Normální hodnoty síťových signálů: %1$d</string>
+    <string name="smem_pessoas">Zvyky každého</string>
+    <string name="smem_pessoas_det">Zvyky profilů: %1$d</string>
+    <string name="smem_casa">Normální den této domácnosti</string>
+    <string name="smem_casa_det">Dny historie: %1$d</string>
+    <string name="smem_regras">Pravidla, která objevila</string>
+    <string name="smem_regras_det">Pravidla kontrolující obrazovky: %1$d</string>
+    <string name="smem_vazio">Zatím nic</string>
+    <string name="smem_tudo">Zapomenout vše</string>
+    <string name="smem_tudo_det">Sofy začne od nuly</string>
+    <string name="smem_esqueceu">Zapomenuto. Sofy se učí znovu.</string>
+    <string name="smem_pin">PIN pro zapomenutí</string>
+</resources>

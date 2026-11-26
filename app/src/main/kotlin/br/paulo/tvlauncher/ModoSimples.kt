@@ -75,11 +75,15 @@ class ModoSimplesActivity : Activity() {
     private var voz: TextToSpeech? = null
     private var vozPronta = false
     private lateinit var grade: LinearLayout
+    /** Brainstorm item 19 (26/11/2026): faixa de cima com o tempo, o próximo despertador e o recado da família. */
+    private lateinit var faixa: LinearLayout
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
         val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.ms_ola), getString(R.string.ms_ola_det), dicas = false)
+        faixa = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; visibility = View.GONE }
+        coluna.addView(faixa, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(20) })
         grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false }
         coluna.addView(grade, LinearLayout.LayoutParams(-1, -2))
         setContentView(raiz)
@@ -101,7 +105,17 @@ class ModoSimplesActivity : Activity() {
             val temTv = PlayerArmazem.fontes(this).isNotEmpty()
             val pacotes = ModoSimples.escolher(ModoSimples.escolhidos(this), instalados.keys, ModoSimples.maisUsados(this),
                 ModoSimples.MAX - if (temTv) 1 else 0, Organizacao.ocultos(this))
-            runOnUiThread { if (!isDestroyed) montar(temTv, pacotes.map { it to (instalados[it] ?: it) }) }
+            // Cada card na cor do mundo dele (Assistir, Ouvir, Jogar, Apps), como na home; antes era tudo azul.
+            val escolhasCat = br.paulo.tvlauncher.home.CategoriaApps.escolhas(this)
+            val cores = pacotes.associateWith { p ->
+                val cat = runCatching {
+                    br.paulo.tvlauncher.home.CategoriaApps.destino(p, packageManager.getApplicationInfo(p, 0).category,
+                        br.paulo.tvlauncher.games.JogosTv.ehJogo(this, p), escolhasCat[p])
+                }.getOrDefault(br.paulo.tvlauncher.home.CruzLogica.Categoria.APLICATIVOS)
+                br.paulo.tvlauncher.home.BottomBar.cor(cat)
+            }
+            val itensFaixa = lerFaixa()
+            runOnUiThread { if (!isDestroyed) { montarFaixa(itensFaixa); montar(temTv, pacotes.map { Triple(it, instalados[it] ?: it, cores[it] ?: DesignTokens.WORLD_APPS) }) } }
         }
     }
 
@@ -119,13 +133,40 @@ class ModoSimplesActivity : Activity() {
 
     private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()
 
-    private fun montar(temTv: Boolean, apps: List<Pair<String, String>>) {
+    /** O que a faixa de cima diz (fora da thread da tela): tempo agora, despertador das próximas 24 h, recado não lido. */
+    private fun lerFaixa(): List<String> {
+        val l = ArrayList<String>(3)
+        runCatching { br.paulo.tvlauncher.weather.Forecast.topo(this).temp }.getOrNull()?.let { l += "${getString(R.string.pv_agora)}  $it°" }
+        runCatching { br.paulo.tvlauncher.alarm.Despertador.proximo(this) }.getOrNull()
+            ?.takeIf { it.second - System.currentTimeMillis() in 0..86_400_000L }
+            ?.let { l += "${getString(R.string.lbl_despertador)} · ${android.text.format.DateFormat.getTimeFormat(this).format(java.util.Date(it.second))}" }
+        runCatching {
+            br.paulo.tvlauncher.family.Mural.linhaIlha(br.paulo.tvlauncher.family.Mural.visiveis(this),
+                { getString(R.string.mur_ilha_um, it) }, { n, u -> getString(R.string.mur_ilha_varios, n, u) })
+        }.getOrNull()?.let { l += it }
+        return l
+    }
+
+    private fun montarFaixa(itens: List<String>) {
+        faixa.removeAllViews()
+        itens.forEachIndexed { i, t ->
+            if (i > 0) faixa.addView(View(this).apply { setBackgroundColor(Estilo.TEXTO_3) }, LinearLayout.LayoutParams(dp(2), dp(28)).apply { marginStart = dp(20); marginEnd = dp(20) })
+            faixa.addView(Estilo.texto(this, Estilo.Papel.CORPO, t).apply {
+                maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
+            }, LinearLayout.LayoutParams(-2, -2).apply { weight = if (i == itens.lastIndex) 1f else 0f })
+        }
+        faixa.visibility = if (itens.isEmpty()) View.GONE else View.VISIBLE
+        // Quem lê com dificuldade ouve a faixa ao abrir (o nome do card em foco vem logo depois).
+        faixa.contentDescription = itens.joinToString(". ")
+    }
+
+    private fun montar(temTv: Boolean, apps: List<Triple<String, String, Int>>) {
         grade.removeAllViews()
         val cards = ArrayList<View>()
-        if (temTv) cards += card("TV", null, 0xFFFF7A6E.toInt()) {
+        if (temTv) cards += card("TV", null, DesignTokens.WORLD_WATCH) {
             try { startActivity(Intent(this, PlayerActivity::class.java)) } catch (_: Exception) {}
         }
-        for ((pacote, nome) in apps) cards += card(nome, pacote, 0xFF6FA8FF.toInt()) {
+        for ((pacote, nome, cor) in apps) cards += card(nome, pacote, cor) {
             val i = packageManager.getLeanbackLaunchIntentForPackage(pacote) ?: packageManager.getLaunchIntentForPackage(pacote)
             if (i != null) try { startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (_: Exception) {}
         }

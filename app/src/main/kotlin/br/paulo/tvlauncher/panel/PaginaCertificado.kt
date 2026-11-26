@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher.panel
 
 import org.json.JSONObject
-import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
@@ -33,7 +32,7 @@ object PaginaCertificado {
         }
     }
 
-    fun preencher(modelo: String, estado: JSONObject, nome: String, agente: String? = null): String {
+    fun preencher(modelo: String, estado: JSONObject, nome: String, agente: String? = null, idioma: String? = null): String {
         val pronto = estado.optBoolean("pronto") && estado.optBoolean("ligado")
         val dias = estado.optLong("diasRestantes", Long.MAX_VALUE)
         val condicoes = mapOf(
@@ -48,7 +47,7 @@ object PaginaCertificado {
             html = bloco.replace(html) { if (vale) it.groupValues[1] else "" }
         }
         val validoAte = estado.optLong("validoAte", 0L).takeIf { it > 0 }
-            ?.let { SimpleDateFormat("dd/MM/yyyy", Locale.forLanguageTag("pt-BR")).format(Date(it)) } ?: ""
+            ?.let { java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM, localDoNavegador(idioma)).format(Date(it)) } ?: ""
         val valores = mapOf(
             "ENDERECO" to estado.optString("endereco", "https://$nome:${estado.optInt("porta", 8444)}/"),
             "ENDERECO_IP" to (if (estado.isNull("enderecoIp")) "" else estado.optString("enderecoIp", "")),
@@ -64,6 +63,11 @@ object PaginaCertificado {
         for ((k, v) in valores + porSistema) html = html.replace("{{$k}}", escapar(v))
         return html
     }
+
+    /** A 1ª língua do Accept-Language (Brainstorm 26/11/2026, item 17: a data saía sempre em pt-BR). Sem ela, pt-BR. */
+    fun localDoNavegador(idioma: String?): Locale =
+        idioma?.split(',')?.firstOrNull()?.substringBefore(';')?.trim()?.takeIf { it.isNotEmpty() && it != "*" }
+            ?.let { Locale.forLanguageTag(it) }?.takeIf { it.language.isNotEmpty() } ?: Locale.forLanguageTag("pt-BR")
 
     fun escapar(t: String): String = buildString(t.length) {
         for (ch in t) when (ch) {

@@ -18,4 +18,6 @@
     <string name="mtv_fila_cfg_det">ยังเหลือ %1$d แอปจากทีวีอีกเครื่องที่ต้องติดตั้ง</string>
     <string name="mtv_diario">นำมาจาก %1$s: คืนค่าการตั้งค่าแล้ว เหลือ %2$d แอปที่ต้องติดตั้ง</string>
     <string name="mtv_diario_enviado">ส่งไปที่ทีวีเครื่องใหม่: การตั้งค่าและ %1$d แอป</string>
+    <string name="bv_ja_usava">เคยใช้ Sofaly บนทีวีเครื่องอื่นไหม</string>
+    <string name="bv_backup_det">ข้อมูลสำรองที่เข้ารหัสกลับมาด้วยรหัสผ่านของข้อมูลสำรอง</string>
 </resources>

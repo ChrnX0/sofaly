@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Đã thêm vào yêu thích</string>
     <string name="ra_desfavoritada">Đã xóa khỏi yêu thích</string>
     <string name="ra_falhou">Đài này hiện không phát. Hãy thử đài khác.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Bảng gia đình</string>
+    <string name="mur_ilha_um">Lời nhắn · %1$s</string>
+    <string name="mur_ilha_varios">%1$d lời nhắn · %2$s</string>
 </resources>

@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Tilføjet til favoritter</string>
     <string name="ra_desfavoritada">Fjernet fra favoritter</string>
     <string name="ra_falhou">Denne station spiller ikke nu. Prøv en anden.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Familiens opslagstavle</string>
+    <string name="mur_ilha_um">Besked · %1$s</string>
+    <string name="mur_ilha_varios">%1$d beskeder · %2$s</string>
 </resources>

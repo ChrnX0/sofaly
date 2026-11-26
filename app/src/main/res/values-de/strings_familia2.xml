@@ -42,4 +42,8 @@
         <item quantity="one">wird %d</item>
         <item quantity="other">wird %d</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Familienpinnwand</string>
+    <string name="mur_ilha_um">Nachricht · %1$s</string>
+    <string name="mur_ilha_varios">%1$d Nachrichten · %2$s</string>
 </resources>

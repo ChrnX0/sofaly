@@ -377,9 +377,9 @@ object PainelWeb {
         else ChecagensPainel.hostPermitido(host, nomesPermitidos(), Config.PAINEL_PORTA) || ChecagensPainel.viaHttps(host, nomesHttps())
 
     /** Página do passo a passo (assets/painel/certificado.html), com os dados do certificado já preenchidos. */
-    private fun paginaCertificado(agente: String?): Resposta {
+    private fun paginaCertificado(agente: String?, idioma: String?): Resposta {
         val modelo = app.assets.open("painel/certificado.html").use { it.readBytes() }.toString(Charsets.UTF_8)
-        val html = PainelTls.estado(app, ipsDaRede(), ligadoTls()).let { PaginaCertificado.preencher(modelo, it, it.optString("nome"), agente) }
+        val html = PainelTls.estado(app, ipsDaRede(), ligadoTls()).let { PaginaCertificado.preencher(modelo, it, it.optString("nome"), agente, idioma) }
         return Resposta(200, "text/html; charset=utf-8", html.toByteArray())
     }
 
@@ -416,12 +416,13 @@ object PainelWeb {
      * O .cmd que deixa o Windows pronto e mapeia a unidade (ConectorWindows). Livre como o certificado: só leva o
      * endereço e o certificado público. Usa o IP quando ele está no certificado (nome sem ponto nem todo PC resolve).
      */
-    private fun conectorWindows(): Resposta {
+    private fun conectorWindows(idioma: String?): Resposta {
+        val pt = ConectorWindows.portugues(idioma)
         val pem = PainelTls.pemDaCa() ?: return erro(503, "o certificado ainda não foi gerado; tente em 1 minuto")
         val host = hostConector()
-        val texto = ConectorWindows.script(host, PainelTls.PORTA, pem, Ssdp.nomeNaUnidade(PainelVizinhos.nomeDaTv(app))) ?: return erro(503, "não consegui montar o conector")
+        val texto = ConectorWindows.script(host, PainelTls.PORTA, pem, Ssdp.nomeNaUnidade(PainelVizinhos.nomeDaTv(app)), pt) ?: return erro(503, "não consegui montar o conector")
         return Resposta(200, "application/octet-stream", texto.toByteArray(Charsets.US_ASCII),
-            mapOf("Content-Disposition" to "attachment; filename=\"${ConectorWindows.ARQUIVO}\"", "Cache-Control" to "no-store"))
+            mapOf("Content-Disposition" to "attachment; filename=\"${ConectorWindows.arquivo(pt)}\"", "Cache-Control" to "no-store"))
     }
 
     /** O endereço da TV no conector: o IP quando ele está no certificado (nome sem ponto nem todo PC resolve). */
@@ -745,7 +746,7 @@ object PainelWeb {
         // https na rede de casa (PainelTls): passo a passo, o arquivo para instalar e o estado. Livres como a página:
         // o certificado é público por natureza e é preciso baixá-lo ANTES de conseguir entrar pelo https.
         if (req.metodo == "GET") when (req.caminho) {
-            "/certificado" -> return paginaCertificado(req.cabecalho("user-agent"))
+            "/certificado" -> return paginaCertificado(req.cabecalho("user-agent"), req.cabecalho("accept-language"))
             // A TV na tela "Rede" do Windows (Ssdp/AnuncioUpnp): a descrição do aparelho e a página que o duplo clique
             // abre. Livres como a do certificado (não dizem nada além do endereço). Desde 18/11/2026 sempre que o
             // painel está ligado (o atalho "· painel" não depende mais da unidade de rede).
@@ -761,7 +762,7 @@ object PainelWeb {
             Ssdp.CAMINHO_MTP_SERVICO -> if (PainelDav.ligado(app)) return Resposta(200, "text/xml; charset=utf-8", Ssdp.SERVICO_MTP.toByteArray())
             // O .cmd roda como administrador e instala um certificado no Windows: só sai pela porta https (15/11/2026).
             // Pelo http, alguém no meio do caminho trocaria o certificado de dentro dele; lá, manda para o https.
-            ConectorWindows.CAMINHO -> if (PainelDav.ligado(app)) return if (https) conectorWindows() else
+            ConectorWindows.CAMINHO -> if (PainelDav.ligado(app)) return if (https) conectorWindows(req.cabecalho("accept-language")) else
                 Resposta(302, "text/plain; charset=utf-8", ByteArray(0),
                     mapOf("Location" to "https://${hostConector()}:${PainelTls.PORTA}${ConectorWindows.CAMINHO}", "Cache-Control" to "no-store"))
             "/certificado.crt" -> return arquivoCertificado()

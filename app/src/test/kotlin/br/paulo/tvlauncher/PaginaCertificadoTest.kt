@@ -4,6 +4,7 @@ import br.paulo.tvlauncher.panel.PaginaCertificado
 import br.paulo.tvlauncher.panel.PainelHttp
 import java.io.File
 import org.json.JSONObject
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -80,5 +81,15 @@ class PaginaCertificadoTest {
 
     @Test fun cspDeixaTestarOCadeado() {
         assertTrue(PainelHttp.CABECALHOS_SEGURANCA["Content-Security-Policy"]!!.contains("connect-src 'self' https://*:8444;"))
+    }
+
+    @Test fun dataNaLinguaDoNavegador() {
+        assertEquals("pt", PaginaCertificado.localDoNavegador(null).language)
+        assertEquals("en", PaginaCertificado.localDoNavegador("en-US,en;q=0.9").language)
+        assertEquals("pt", PaginaCertificado.localDoNavegador("*").language)
+        val en = PaginaCertificado.preencher("{{VALIDO_ATE}}", pronto(), "tv", null, "en-US")
+        val pt = PaginaCertificado.preencher("{{VALIDO_ATE}}", pronto(), "tv", null, "pt-BR")
+        assertTrue(en, en.contains("2029"))
+        assertFalse(en == pt)
     }
 }

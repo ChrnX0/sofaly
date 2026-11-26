@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Search further</string>
     <string name="elv_bf_procurar_radio">Radio stations named “%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Stations from all over the world</string>
+    <string name="elv_bf_procurar_ajustes">“%1$s” in Settings</string>
+    <string name="elv_bf_procurar_ajustes_det">Options and switches of the TV</string>
     <string name="elv_bf_procurar_rede">“%1$s” in your network files</string>
     <string name="elv_bf_procurar_rede_det">On your Jellyfin, Emby or Plex</string>
     <!-- 12.2 busca nos ajustes -->

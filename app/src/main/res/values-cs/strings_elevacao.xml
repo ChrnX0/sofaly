@@ -61,6 +61,8 @@
     <string name="elv_bf_procurar">Hledat dál</string>
     <string name="elv_bf_procurar_radio">Rozhlasové stanice s názvem „%1$s“</string>
     <string name="elv_bf_procurar_radio_det">Stanice z celého světa</string>
+    <string name="elv_bf_procurar_ajustes">„%1$s“ v nastavení</string>
+    <string name="elv_bf_procurar_ajustes_det">Možnosti a přepínače televize</string>
     <string name="elv_bf_procurar_rede">„%1$s“ ve vašich síťových souborech</string>
     <string name="elv_bf_procurar_rede_det">Na vašem Jellyfin, Emby nebo Plex</string>
     <!-- 12.2 busca nos ajustes -->

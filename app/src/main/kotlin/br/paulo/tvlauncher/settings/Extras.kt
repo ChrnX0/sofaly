@@ -44,8 +44,11 @@ object Extras {
         // Ideias de 12/11/2026 (brainstorm 3)
         /** Desligar suave: nos 5 min finais do timer de sono, tela escurece e volume desce aos poucos. */
         SONO_SUAVE(true),
-        /** Mural da família no protetor de tela (lista de compras, recados fixos, aniversários da agenda). */
-        MURAL(false),
+        /**
+         * Mural da família (lista de compras, recados fixos): no painel rápido, no descanso e na Ilha. Ligado por padrão
+         * desde 26/11/2026 (Brainstorm item 10: recado da família que ninguém vê não serve).
+         */
+        MURAL(true),
         /** Presença pelo roteador UniFi: todos os celulares saíram há 15 min e ninguém mexe no controle = TV dorme. */
         PRESENCA(false),
         /** "Hoje na TV" na tela Buscar (caixa vazia): o que passa agora e nas próximas 3 h nos canais que interessam. */

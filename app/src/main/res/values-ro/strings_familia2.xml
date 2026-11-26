@@ -43,4 +43,8 @@
     <string name="ra_favoritada">Adăugat la preferate</string>
     <string name="ra_desfavoritada">Eliminat din preferate</string>
     <string name="ra_falhou">Acest post nu emite acum. Încercați altul.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Panoul familiei</string>
+    <string name="mur_ilha_um">Mesaj · %1$s</string>
+    <string name="mur_ilha_varios">%1$d mesaje · %2$s</string>
 </resources>

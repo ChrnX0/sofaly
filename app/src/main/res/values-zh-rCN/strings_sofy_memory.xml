@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Sofy 知道什么</string>
+    <string name="smem_sub">她对这个家学到的内容。按 OK 忘记一项,她会从头再学。</string>
+    <string name="smem_linha_det">她学到的内容,可以忘记</string>
+    <string name="smem_uso">电视什么时候在用</string>
+    <string name="smem_uso_det">已学会一天中的 %1$d 个小时</string>
+    <string name="smem_rede">这个家平常的网络</string>
+    <string name="smem_rede_det">%1$d 个网络信号的平常数值</string>
+    <string name="smem_pessoas">每个人的习惯</string>
+    <string name="smem_pessoas_det">%1$d 个资料的习惯</string>
+    <string name="smem_casa">这个家平常的一天</string>
+    <string name="smem_casa_det">%1$d 天的记录</string>
+    <string name="smem_regras">她发现的规则</string>
+    <string name="smem_regras_det">%1$d 条规则在检查屏幕</string>
+    <string name="smem_vazio">还没学到</string>
+    <string name="smem_tudo">全部忘记</string>
+    <string name="smem_tudo_det">Sofy 从头开始</string>
+    <string name="smem_esqueceu">已忘记。Sofy 重新学习。</string>
+    <string name="smem_pin">忘记所需的 PIN</string>
+</resources>

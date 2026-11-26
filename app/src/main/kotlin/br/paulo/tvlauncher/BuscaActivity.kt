@@ -82,7 +82,9 @@ class BuscaActivity : Activity() {
                         val temServidorMidia: Boolean = false, val appsMapa: Map<String, String> = emptyMap(),
                         /** Elevação 7.1: o que a TV viu em pastas, servidores, nuvens e addons; e a versão preferida. */
                         val iBiblioteca: List<BuscaUnica.Indexado<BibliotecaUnica.Fonte>> = emptyList(),
-                        val preferida: Idioma.Versao = Idioma.Versao.DUBLADA)
+                        val preferida: Idioma.Versao = Idioma.Versao.DUBLADA,
+                        /** Brainstorm item 13 (26/11/2026): os podcasts seguidos também aparecem na busca. */
+                        val podcasts: List<br.paulo.tvlauncher.listen.Podcasts.Assinatura> = emptyList())
     @Volatile private var dados: Dados? = null
 
     override fun onCreate(b: Bundle?) {
@@ -153,7 +155,8 @@ class BuscaActivity : Activity() {
                 runCatching { PedidoIa.appsDaHome(this) }.getOrDefault(emptyMap()),
                 // Modo infantil: o que veio de pasta, servidor ou addon não tem classificação conferida, então não entra.
                 BuscaUnica.indexar(if (parental.infantil) emptyList() else runCatching { BibliotecaIndice.todas(this) }.getOrDefault(emptyList())) { it.titulo },
-                runCatching { Idioma.versaoDesejada(IdiomaPlayer.prefs(this).padrao) }.getOrDefault(Idioma.Versao.DUBLADA))
+                runCatching { Idioma.versaoDesejada(IdiomaPlayer.prefs(this).padrao) }.getOrDefault(Idioma.Versao.DUBLADA),
+                runCatching { br.paulo.tvlauncher.listen.Podcasts.assinaturas(this) }.getOrDefault(emptyList()))
                 .also { Log.i(TAG, "índice: ${canais.size} canais, ${filmes.size} filmes, ${series.size} séries, " +
                     "${it.titulos.size} títulos do guia em ${System.currentTimeMillis() - t0} ms") }
         } catch (e: Exception) {
@@ -338,7 +341,17 @@ class BuscaActivity : Activity() {
                 try { startActivity(Intent(this, AjudaActivity::class.java).putExtra(AjudaActivity.EXTRA_TOPICO, i)) } catch (_: Exception) {}
             }
         })
+        val pods = BuscaUnica.filtrar(d.podcasts, termo, max = 4, tolerante = tol) { it.titulo }
+        if (pods.isNotEmpty()) grupos += Grupo(getString(R.string.pod_meus), pods.map { a ->
+            Item(a.titulo, a.autor.ifBlank { getString(R.string.pod_titulo) }) {
+                try { startActivity(Intent(this, PodcastsActivity::class.java).putExtra(PodcastsActivity.EXTRA_FEED, a.url)) } catch (_: Exception) {}
+            }
+        })
         val maisLonge = ArrayList<Item>()
+        // Brainstorm item 13: o termo também procura nos ajustes (abre a busca das Configurações já com ele).
+        if (termo.length >= 3) maisLonge += Item(getString(R.string.elv_bf_procurar_ajustes, termo), getString(R.string.elv_bf_procurar_ajustes_det)) {
+            try { startActivity(Intent(this, ConfigLauncherActivity::class.java).putExtra(ConfigLauncherActivity.EXTRA_BUSCA, termo)) } catch (_: Exception) {}
+        }
         if (termo.length >= 3) maisLonge += Item(getString(R.string.elv_bf_procurar_radio, termo), getString(R.string.elv_bf_procurar_radio_det)) { abrirRadio(termo) }
         if (termo.length >= 2 && d.temServidorMidia) maisLonge += Item(getString(R.string.elv_bf_procurar_rede, termo), getString(R.string.elv_bf_procurar_rede_det)) {
             try { startActivity(Intent(this, MidiaRedeActivity::class.java).putExtra(MidiaRedeActivity.EXTRA_BUSCA, termo)) } catch (_: Exception) {}

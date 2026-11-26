@@ -90,7 +90,7 @@ object PainelDav {
         if (req.metodo == "OPTIONS") return PainelHttp.escrever(saida, 200, null, ByteArray(0), CABECALHOS + ("Allow" to DavLogica.METODOS))
         conferir(req.cabecalho("authorization"))?.let { r ->
             if (!req.chunked) req.descartarCorpo(LIMITE_XML)   // corpo pequeno: jogado fora, para o cliente ler o 401
-            val extras = if (r.codigo == 401) r.extras + ("WWW-Authenticate" to "Basic realm=\"One TV\", charset=\"UTF-8\"") else r.extras
+            val extras = if (r.codigo == 401) r.extras + ("WWW-Authenticate" to "Basic realm=\"Sofaly\", charset=\"UTF-8\"") else r.extras
             return texto(saida, req, r.codigo, r.texto, extras)
         }
         if (!amb.acesso()) return texto(saida, req, 503, "o launcher ainda não tem acesso à memória interna")

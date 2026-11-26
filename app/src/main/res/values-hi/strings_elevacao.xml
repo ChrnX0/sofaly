@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">और दूर खोजें</string>
     <string name="elv_bf_procurar_radio">“%1$s” नाम के रेडियो</string>
     <string name="elv_bf_procurar_radio_det">दुनिया भर के रेडियो</string>
+    <string name="elv_bf_procurar_ajustes">सेटिंग में “%1$s”</string>
+    <string name="elv_bf_procurar_ajustes_det">टीवी के विकल्प और स्विच</string>
     <string name="elv_bf_procurar_rede">नेटवर्क फ़ाइलों में “%1$s”</string>
     <string name="elv_bf_procurar_rede_det">आपके Jellyfin, Emby या Plex पर</string>
     <string name="elv_aj_buscar">सेटिंग्स में खोजें</string>

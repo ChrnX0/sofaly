@@ -42,4 +42,8 @@
         <item quantity="one">%d yaşına giriyor</item>
         <item quantity="other">%d yaşına giriyor</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Aile panosu</string>
+    <string name="mur_ilha_um">Mesaj · %1$s</string>
+    <string name="mur_ilha_varios">%1$d mesaj · %2$s</string>
 </resources>

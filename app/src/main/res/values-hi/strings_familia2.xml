@@ -42,4 +42,8 @@
         <item quantity="one">%d वर्ष का होगा</item>
         <item quantity="other">%d वर्ष का होगा</item>
     </plurals>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">परिवार का बोर्ड</string>
+    <string name="mur_ilha_um">संदेश · %1$s</string>
+    <string name="mur_ilha_varios">%1$d संदेश · %2$s</string>
 </resources>

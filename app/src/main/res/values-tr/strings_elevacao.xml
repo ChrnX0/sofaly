@@ -56,6 +56,8 @@
     <string name="elv_bf_procurar">Daha uzağa bak</string>
     <string name="elv_bf_procurar_radio">“%1$s” adlı radyolar</string>
     <string name="elv_bf_procurar_radio_det">Dünyanın her yerinden radyolar</string>
+    <string name="elv_bf_procurar_ajustes">Ayarlarda “%1$s”</string>
+    <string name="elv_bf_procurar_ajustes_det">TV’nin seçenekleri ve anahtarları</string>
     <string name="elv_bf_procurar_rede">Ağ dosyalarınızda “%1$s”</string>
     <string name="elv_bf_procurar_rede_det">Jellyfin, Emby veya Plex\'inizde</string>
     <string name="elv_aj_buscar">Ayarlarda ara</string>

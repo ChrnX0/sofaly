@@ -23,10 +23,19 @@ async function chamar(metodo, caminho, corpo, corpoCru) {
   }
   let resp;
   const fim = ocupado();
+  // Tempo limite (item 15): sem ele, a barra de carregando girava para sempre quando a TV saía da rede.
+  // Leitura: 8 s; ação com corpo (envio, backup): 60 s.
+  const corte = new AbortController();
+  const relogio = setTimeout(() => corte.abort(), metodo === 'GET' ? 8000 : 60000);
+  opcoes.signal = corte.signal;
   try {
     resp = await fetch(caminho, opcoes);
+    clearTimeout(relogio);
+    tvRespondeu();
   } catch (e) {
+    clearTimeout(relogio);
     fim();
+    tvNaoRespondeu();
     // O navegador só diz "Failed to fetch"/"Load failed": a porta está fechada ou a TV saiu da rede.
     throw new Error('Não consegui falar com a TV. Confira se ela está ligada e se o painel está ligado nas Configurações do launcher.');
   }
@@ -41,6 +50,38 @@ async function chamar(metodo, caminho, corpo, corpoCru) {
   if (!resp.ok) { const e = new Error(erroAmigavel(resp.status, dados.erro)); e.dados = dados; e.tecnico = dados.erro; e.status = resp.status; throw e; }
   return dados;
 }
+
+/**
+ * Faixa "A TV não respondeu" (item 15): aparece na 2ª falha seguida e tenta sozinha a cada 10 s. Qualquer resposta da
+ * TV (até 401) prova que ela voltou e esconde a faixa.
+ */
+let falhasSeguidas = 0;
+let relogioSemTv = null;
+function tvRespondeu() {
+  falhasSeguidas = 0;
+  const f = $('faixaSemTv');
+  if (f) f.hidden = true;
+  clearInterval(relogioSemTv); relogioSemTv = null;
+}
+function tvNaoRespondeu() {
+  if (++falhasSeguidas < 2) return;
+  const f = $('faixaSemTv');
+  if (f) f.hidden = false;
+  if (!relogioSemTv) relogioSemTv = setInterval(tentarTvDeNovo, 10000);
+}
+async function tentarTvDeNovo() {
+  const corte = new AbortController();
+  const relogio = setTimeout(() => corte.abort(), 5000);
+  try {
+    await fetch('/api/estado', { headers: { 'X-Painel': '1' }, credentials: 'same-origin', cache: 'no-store', signal: corte.signal });
+    tvRespondeu();
+  } catch (e) { /* continua fora do ar */ }
+  clearTimeout(relogio);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const b = $('btnSemTvTentar');
+  if (b) b.addEventListener('click', tentarTvDeNovo);
+});
 
 /**
  * Barra fina de "carregando" no topo. Só aparece se o pedido passar de 350 ms (pedido rápido não pisca nada).
@@ -152,8 +193,35 @@ async function atualizarEstado() {
   $('nomeAparelho').textContent = e.aparelho;
   document.title = e.aparelho;
   aplicarNaTela(e.naTela);
+  aplicarPedeTexto(e.pedeTexto);
   atualizarOutrasTvs().catch(() => {});
 }
+
+/**
+ * Item 7 (Brainstorm 26/11/2026): a TV abriu o teclado (busca, senha de Wi-Fi). No Controle, abre o Teclado e põe o
+ * cursor no campo; nas outras abas, mostra a faixa "A TV está pedindo texto · Digitar aqui". Vem do /api/estado e dos
+ * eventos ao vivo (ui.js), que levam o mesmo campo.
+ */
+let pediaTexto = false;
+function abrirTecladoDoControle() {
+  const aba = document.querySelector('.abas-controle [data-painel="pcTeclado"]');
+  if (aba && aba.getAttribute('aria-selected') !== 'true') aba.click();
+  const campo = $('campoTexto');
+  if (campo) campo.focus();
+}
+function aplicarPedeTexto(pede) {
+  const faixa = $('faixaPedeTexto');
+  if (!faixa) return;
+  pede = pede === true;
+  const noControle = !$('abaControle').hidden;
+  if (pede && !pediaTexto && noControle) abrirTecladoDoControle();
+  faixa.hidden = !pede || noControle;
+  pediaTexto = pede;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const b = $('btnPedeTexto');
+  if (b) b.addEventListener('click', () => { $('faixaPedeTexto').hidden = true; mudarAba('controle'); setTimeout(abrirTecladoDoControle, 50); });
+});
 
 /** Mostra "o que está na TV" no topo e no Início (vem do /api/estado e dos eventos ao vivo, ui.js). */
 function aplicarNaTela(naTela) {
@@ -3251,3 +3319,17 @@ async function sofyIa() {
     $('sofyConsertos').hidden = !casos.length;
   } catch (e) { /* fica como está */ }
 }
+
+// Item 20: cartão "Use pelo app" só no Chrome do Android (não no WebView do próprio app, que tem "; wv)").
+document.addEventListener('DOMContentLoaded', () => {
+  const c = $('cartaoApp'); if (!c) return;
+  const ua = navigator.userAgent || '';
+  let dispensou = false;
+  try { dispensou = localStorage.getItem('cartaoAppFora') === '1'; } catch (e) { /* sem armazenamento */ }
+  if (!/Android/i.test(ua) || /; wv\)/.test(ua) || dispensou) return;
+  c.hidden = false;
+  $('dispensarApp').addEventListener('click', () => {
+    c.hidden = true;
+    try { localStorage.setItem('cartaoAppFora', '1'); } catch (e) { /* tanto faz */ }
+  });
+});

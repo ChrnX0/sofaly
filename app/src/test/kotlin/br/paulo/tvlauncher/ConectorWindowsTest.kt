@@ -73,4 +73,20 @@ class ConectorWindowsTest {
         assertNull(ConectorWindows.script("tv", 8444, "-----BEGIN CERTIFICATE-----\nAAAA & calc\n-----END CERTIFICATE-----"))
         assertNull(ConectorWindows.script("tv", 8444, ""))
     }
+
+    @Test fun marcaSofalyELinguaDoNavegador() {
+        val pt = ConectorWindows.script("192.168.1.50", 8444, pem)!!
+        val en = ConectorWindows.script("192.168.1.50", 8444, pem, pt = false)!!
+        for (s in listOf(pt, en)) {
+            assertFalse("One TV" in s)
+            assertTrue("title Sofaly" in s)
+            assertTrue("o .cmd só aceita ASCII", s.all { it.code < 128 })
+        }
+        assertTrue("Responda SIM" in pt && "Answer YES" in en)
+        assertFalse("Responda" in en)
+        assertEquals("Connect Sofaly.cmd", ConectorWindows.arquivo(false))
+        assertTrue(ConectorWindows.portugues("pt-BR,pt;q=0.9,en;q=0.8"))
+        assertTrue(ConectorWindows.portugues(null))
+        assertFalse(ConectorWindows.portugues("en-US,en;q=0.9,pt;q=0.5"))
+    }
 }

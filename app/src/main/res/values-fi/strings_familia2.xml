@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Lisätty suosikkeihin</string>
     <string name="ra_desfavoritada">Poistettu suosikeista</string>
     <string name="ra_falhou">Tämä asema ei soi nyt. Kokeile toista.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Perheen ilmoitustaulu</string>
+    <string name="mur_ilha_um">Viesti · %1$s</string>
+    <string name="mur_ilha_varios">%1$d viestiä · %2$s</string>
 </resources>

@@ -60,6 +60,8 @@
     <string name="elv_bf_procurar">Sök vidare</string>
     <string name="elv_bf_procurar_radio">Radiostationer som heter ”%1$s”</string>
     <string name="elv_bf_procurar_radio_det">Stationer från hela världen</string>
+    <string name="elv_bf_procurar_ajustes">”%1$s” i inställningarna</string>
+    <string name="elv_bf_procurar_ajustes_det">Tv:ns val och reglage</string>
     <string name="elv_bf_procurar_rede">”%1$s” i dina nätverksfiler</string>
     <string name="elv_bf_procurar_rede_det">På din Jellyfin, Emby eller Plex</string>
     <!-- 12.2 busca nos ajustes -->

@@ -198,6 +198,11 @@ internal fun MainActivity.lerFontesIlha() {
     // A Sofy (24/11/2026): o recado dela para a home e, de manhã, o que ela viu e fez de madrugada.
     ilhaSofy = runCatching { br.paulo.tvlauncher.observer.SofyTv.islandLine(this) }.getOrNull()
     ilhaSofyManha = runCatching { br.paulo.tvlauncher.observer.SofyTv.morningLine(this) }.getOrNull()
+    // Recado da família não lido (Brainstorm item 10): fica na Ilha até alguém marcar como lido no painel rápido.
+    ilhaRecado = runCatching {
+        br.paulo.tvlauncher.family.Mural.linhaIlha(br.paulo.tvlauncher.family.Mural.visiveis(this),
+            { getString(R.string.mur_ilha_um, it) }, { n, u -> getString(R.string.mur_ilha_varios, n, u) })
+    }.getOrNull()
     val ind = HashSet<BarraIlha.Indicador>()
     if (runCatching { Gravacoes.resumoParaHome(this) }.getOrNull() != null) ind += BarraIlha.Indicador.GRAVANDO   // grava no ":player"
     if (runCatching { NaoPerturbeTv.motivoAgora(this) }.getOrNull() != null) ind += BarraIlha.Indicador.NAO_PERTURBE
@@ -276,6 +281,7 @@ internal fun MainActivity.atualizarIlha() {
         ceu = ilhaCeu?.first,
         // O clima renova a cada 15 min; um aviso de mais de 90 min (TV sem rede) já não vale.
         sofy = ilhaSofy?.text,
+        recado = ilhaRecado,
         sol = ilhaUv?.takeIf { agora - it.second < 90 * 60_000L }?.let { getString(R.string.ilha_uv, it.first) },
     ))
     pintarTrilho(BarraIlha.trilho(ilhaIndicadores))
@@ -365,7 +371,7 @@ internal fun MainActivity.aplicarIlha() {
             BarraIlha.Tipo.JOGO, BarraIlha.Tipo.LEMBRETE -> IconeApp(IconeApp.Tipo.TV)
             BarraIlha.Tipo.AGENDA -> IconeLinha(IconeLinha.Tipo.CALENDARIO)
             BarraIlha.Tipo.SERVICO_FORA -> IconeApp(IconeApp.Tipo.SEM_REDE, Estilo.ATENCAO)
-            BarraIlha.Tipo.LEMBRETE_CASA -> IconeLinha(IconeLinha.Tipo.RECADO)
+            BarraIlha.Tipo.LEMBRETE_CASA, BarraIlha.Tipo.RECADO -> IconeLinha(IconeLinha.Tipo.RECADO)
             BarraIlha.Tipo.CONTAGEM -> IconeLinha(IconeLinha.Tipo.CALENDARIO)
             BarraIlha.Tipo.SOL -> IconeLinha(IconeLinha.Tipo.SOL)
             // A Sofy fala com o próprio rosto (a cara do recado), parado na pose final: na Ilha nada se mexe sozinho.

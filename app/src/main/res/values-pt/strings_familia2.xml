@@ -42,4 +42,8 @@
     <string name="ra_favoritada">Entrou nas favoritas</string>
     <string name="ra_desfavoritada">Saiu das favoritas</string>
     <string name="ra_falhou">Esta rádio não está tocando agora. Tente outra.</string>
+    <!-- Brainstorm item 10 (26/11/2026): recado da família no descanso e na Ilha -->
+    <string name="mur_descanso">Recados da família</string>
+    <string name="mur_ilha_um">Recado · %1$s</string>
+    <string name="mur_ilha_varios">%1$d recados · %2$s</string>
 </resources>

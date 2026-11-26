@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Sofy neler biliyor</string>
+    <string name="smem_sub">Bu ev hakkında öğrendikleri. OK bir öğeyi unutur; yeniden öğrenir.</string>
+    <string name="smem_linha_det">Öğrendikleri, Unut ile</string>
+    <string name="smem_uso">TV ne zaman kullanılıyor</string>
+    <string name="smem_uso_det">Öğrenilen saat: %1$d</string>
+    <string name="smem_rede">Bu evin normal ağı</string>
+    <string name="smem_rede_det">%1$d ağ sinyalinin normal değerleri</string>
+    <string name="smem_pessoas">Herkesin alışkanlıkları</string>
+    <string name="smem_pessoas_det">%1$d profilin alışkanlıkları</string>
+    <string name="smem_casa">Bu evin normal günü</string>
+    <string name="smem_casa_det">%1$d günlük geçmiş</string>
+    <string name="smem_regras">Keşfettiği kurallar</string>
+    <string name="smem_regras_det">Ekranları denetleyen %1$d kural</string>
+    <string name="smem_vazio">Henüz bir şey yok</string>
+    <string name="smem_tudo">Hepsini unut</string>
+    <string name="smem_tudo_det">Sofy sıfırdan başlar</string>
+    <string name="smem_esqueceu">Unutuldu. Sofy yeniden öğreniyor.</string>
+    <string name="smem_pin">Unutmak için PIN</string>
+</resources>

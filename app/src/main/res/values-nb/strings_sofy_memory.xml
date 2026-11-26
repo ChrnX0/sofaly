@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
+<resources>
+    <string name="smem_titulo">Hva Sofy vet</string>
+    <string name="smem_sub">Hva hun har lært om hjemmet. OK glemmer ett punkt; hun lærer det på nytt.</string>
+    <string name="smem_linha_det">Hva hun har lært, med Glem</string>
+    <string name="smem_uso">Når TV-en brukes</string>
+    <string name="smem_uso_det">Lærte timer av døgnet: %1$d</string>
+    <string name="smem_rede">Hjemmets normale nettverk</string>
+    <string name="smem_rede_det">Nettverkssignaler med normalverdi: %1$d</string>
+    <string name="smem_pessoas">Hver persons vaner</string>
+    <string name="smem_pessoas_det">Profiler med vaner: %1$d</string>
+    <string name="smem_casa">Hjemmets normale dag</string>
+    <string name="smem_casa_det">Dager med historikk: %1$d</string>
+    <string name="smem_regras">Regler hun har funnet</string>
+    <string name="smem_regras_det">Regler som sjekker skjermene: %1$d</string>
+    <string name="smem_vazio">Ingenting lært ennå</string>
+    <string name="smem_tudo">Glem alt</string>
+    <string name="smem_tudo_det">Sofy starter på nytt</string>
+    <string name="smem_esqueceu">Glemt. Sofy lærer igjen.</string>
+    <string name="smem_pin">PIN for å glemme</string>
+</resources>
