@@ -80,4 +80,16 @@
     <string name="rw_ao_ligar">Abrir ao ligar a TV</string>
     <string name="rw_ao_ligar_tirar">Abrir ao ligar a TV ✓ (desligar)</string>
     <string name="rw_detalhes">Detalhes do app</string>
+    <string name="rw_fundo_foco">Arte do card em foco no fundo</string>
+    <string name="rw_trocar_fundo">Trocar o fundo a cada</string>
+    <string name="rw_nunca">Nunca</string>
+    <string name="rw_min">%1$d min</string>
+    <string name="rw_horas">%1$d h</string>
+    <string name="rw_sombra_cor">Cor da sombra</string>
+    <string name="rw_sombra_larg">Comprimento da sombra do lado</string>
+    <string name="rw_sombra_alt">Comprimento da sombra de baixo</string>
+    <string name="rw_curta">Curta</string>
+    <string name="rw_media">Média</string>
+    <string name="rw_longa">Longa</string>
+    <string name="rw_tela_toda">Tela toda</string>
 </resources>

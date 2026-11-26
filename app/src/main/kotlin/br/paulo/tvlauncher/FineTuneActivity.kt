@@ -223,6 +223,9 @@ class FineTuneActivity : Activity() {
         val som = nomes(R.string.rw_nenhum, R.string.rw_fraca, R.string.rw_normal, R.string.rw_forte)
         val simNao = nomes(R.string.st_sem, R.string.st_com)
         val prop = listOf("16/9", "4/3", "3/2", "1/1", "2/3", getString(R.string.rw_poster))
+        val comp = nomes(R.string.rw_curta, R.string.rw_media, R.string.rw_longa, R.string.rw_tela_toda)
+        val B = br.paulo.tvlauncher.home.StripBackground
+        val fundos = listOf(R.string.st_fundo_vale, R.string.st_fundo_serra, R.string.st_fundo_noite, R.string.st_fundo_tema)
         fun enumA(t: Int, nomes: List<String>, key: String, atual: () -> Int) =
             Ajuste(t, { nomes[atual()] }) { p -> nomes[gira(key, atual(), nomes.size, p)] }
         fun simA(t: Int, key: String, atual: () -> Boolean) =
@@ -259,6 +262,13 @@ class FineTuneActivity : Activity() {
             enumA(R.string.rw_margem_inicio, nomes(R.string.rw_justo, R.string.rw_s, R.string.rw_normal, R.string.rw_largo, R.string.rw_mais_largo), R2.KEY_START) { o().start.ordinal },
             enumA(R.string.rw_margem_fim, nomes(R.string.rw_nenhum, R.string.rw_s, R.string.rw_m, R.string.rw_l), R2.KEY_END) { o().end.ordinal },
             enumA(R.string.rw_margem_topo, nomes(R.string.rw_mais_alto, R.string.rw_alto, R.string.rw_normal, R.string.rw_baixo, R.string.rw_mais_baixo), R2.KEY_TOP) { o().top.ordinal },
+            // Fundo (bloco 5): a foto, a sombra por cima e a troca sozinha
+            Ajuste(R.string.st_fundo, { getString(fundos[B.choice(this).ordinal]) }) { p -> getString(fundos[B.next(this, p).ordinal]) },
+            simA(R.string.rw_fundo_foco, R2.KEY_FOCUS_BG) { o().focusBg },
+            enumA(R.string.rw_trocar_fundo, listOf(getString(R.string.rw_nunca)) + br.paulo.tvlauncher.home.RowsHome.BgEvery.entries.drop(1).map { if (it.min < 60) getString(R.string.rw_min, it.min) else getString(R.string.rw_horas, it.min / 60) }, R2.KEY_BG_EVERY) { o().bgEvery.ordinal },
+            enumA(R.string.rw_sombra_cor, nomes(R.string.rw_preto, R.string.rw_grafite), R2.KEY_SHADOW_TINT) { o().shadowTint.ordinal },
+            enumA(R.string.rw_sombra_larg, comp, R2.KEY_SHADOW_W) { o().shadowW.ordinal },
+            enumA(R.string.rw_sombra_alt, comp, R2.KEY_SHADOW_H) { o().shadowH.ordinal },
         )
     }
 

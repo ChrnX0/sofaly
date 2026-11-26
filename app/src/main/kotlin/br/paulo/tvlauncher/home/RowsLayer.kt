@@ -139,14 +139,20 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         pilula.visibility = if (opcoes.status) View.VISIBLE else View.GONE
         hora.visibility = if (opcoes.clock) View.VISIBLE else View.GONE
         val a = (opcoes.shadow.alpha * 255).toInt()
-        sombraEsq.background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(a shl 24, (a * 0.45f).toInt() shl 24, 0))
-        sombraBaixo.background = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(a shl 24, (a * 0.35f).toInt() shl 24, 0))
+        // cor e comprimento da sombra (bloco 5): a cor sem o alfa, o alfa da opacidade escolhida
+        val rgb = (if (opcoes.shadowTint == RowsHome.ShadowTint.GRAPHITE) DesignTokens.NIGHT else DesignTokens.NIGHT_DEEP) and 0xFFFFFF
+        fun cor(alfa: Int) = (alfa shl 24) or rgb
+        sombraEsq.background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(cor(a), cor((a * 0.45f).toInt()), cor(0)))
+        sombraBaixo.background = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(cor(a), cor((a * 0.35f).toInt()), cor(0)))
+        (sombraEsq.layoutParams as? LayoutParams)?.let { it.width = if (opcoes.shadowW == RowsHome.ShadowLength.FULL) LayoutParams.MATCH_PARENT else (width * opcoes.shadowW.pct).toInt().coerceAtLeast(1); sombraEsq.layoutParams = it }
+        (sombraBaixo.layoutParams as? LayoutParams)?.let { it.height = if (opcoes.shadowH == RowsHome.ShadowLength.FULL) LayoutParams.MATCH_PARENT else (height * opcoes.shadowH.pct).toInt().coerceAtLeast(1); it.gravity = Gravity.BOTTOM; sombraBaixo.layoutParams = it }
         sombraEsq.visibility = if (a > 0) View.VISIBLE else View.GONE
         sombraBaixo.visibility = sombraEsq.visibility
     }
 
     override fun onSizeChanged(w: Int, h: Int, ow: Int, oh: Int) {
         super.onSizeChanged(w, h, ow, oh)
+        if (w != ow || h != oh) post { aplicarTopo() }   // a sombra mede em fração da tela
         if (w > 0 && h > 0 && (w != ow || h != oh)) post { ultimo?.invoke() }
     }
 

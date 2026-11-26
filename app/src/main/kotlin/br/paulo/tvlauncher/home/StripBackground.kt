@@ -47,7 +47,26 @@ object StripBackground {
 class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
                       private val emSegundoPlano: (() -> Unit) -> Unit) : View(ctx), FundoVivo {
     private var foto: Bitmap? = null
+    /** A foto de antes, que some aos poucos quando a nova chega (troca com esmaecer, bloco 5). */
+    private var anterior: Bitmap? = null
+    private var mistura = 1f
     private val pinta = Paint(Paint.FILTER_BITMAP_FLAG)
+    private val pintaNova = Paint(Paint.FILTER_BITMAP_FLAG)
+    /** Troca sozinha (Fileiras: "Trocar o fundo a cada"): a próxima das três fotos a cada N minutos. */
+    private val trocar = object : Runnable {
+        override fun run() {
+            val min = trocaMin()
+            if (min <= 0) return
+            proximo()
+            postDelayed(this, min * 60_000L)
+        }
+    }
+    private fun trocaMin(): Int = if (BottomBar.rows(context)) RowsHome.options(context).bgEvery.min else 0
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        trocaMin().takeIf { it > 0 }?.let { postDelayed(trocar, it * 60_000L) }
+    }
+    override fun onDetachedFromWindow() { removeCallbacks(trocar); super.onDetachedFromWindow() }
     private val veu = Paint()
     private val origem = Rect()
     private val destino = RectF()
@@ -58,7 +77,18 @@ class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
         val asset = escolha.asset ?: return
         emSegundoPlano {
             val b = runCatching { context.assets.open(asset).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inPreferredConfig = Bitmap.Config.RGB_565 }) } }.getOrNull()
-            post { foto = b; invalidate() }
+            post {
+                // a primeira entra direto; as outras esmaecem por cima da de antes (600 ms)
+                if (foto == null || b == null) { foto = b; invalidate(); return@post }
+                anterior = foto; foto = b; mistura = 0f
+                android.animation.ValueAnimator.ofFloat(0f, 1f).apply {
+                    duration = TROCA_MS
+                    addUpdateListener { mistura = it.animatedValue as Float; invalidate() }
+                    addListener(object : android.animation.AnimatorListenerAdapter() {
+                        override fun onAnimationEnd(a: android.animation.Animator) { anterior = null; mistura = 1f; invalidate() }
+                    })
+                }.start()
+            }
         }
     }
 
@@ -71,18 +101,26 @@ class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
         return true
     }
 
+    /** centerCrop da foto [img] na tela inteira. */
+    private fun recortar(c: Canvas, img: Bitmap, w: Float, h: Float, p: Paint) {
+        val escala = maxOf(w / img.width, h / img.height)
+        val vw = (w / escala).toInt(); val vh = (h / escala).toInt()
+        val x0 = (img.width - vw) / 2; val y0 = (img.height - vh) / 2
+        origem.set(x0, y0, x0 + vw, y0 + vh); destino.set(0f, 0f, w, h)
+        c.drawBitmap(img, origem, destino, p)
+    }
+
+    private companion object { const val TROCA_MS = 600L }
+
     private fun noite(alfa: Int) = (alfa shl 24) or (DesignTokens.NIGHT and 0xFFFFFF)
 
     override fun onDraw(c: Canvas) {
         val w = width.toFloat(); val h = height.toFloat()
         c.drawColor(DesignTokens.NIGHT)
         val img = foto ?: return
-        // centerCrop
-        val escala = maxOf(w / img.width, h / img.height)
-        val vw = (w / escala).toInt(); val vh = (h / escala).toInt()
-        val x0 = (img.width - vw) / 2; val y0 = (img.height - vh) / 2
-        origem.set(x0, y0, x0 + vw, y0 + vh); destino.set(0f, 0f, w, h)
-        c.drawBitmap(img, origem, destino, pinta)
+        anterior?.let { recortar(c, it, w, h, pinta) }
+        pintaNova.alpha = (mistura * 255).toInt()
+        recortar(c, img, w, h, if (anterior != null) pintaNova else pinta)
         // Véu de cima (atrás da Ilha) e de baixo (atrás da linha do mundo, que começa a 76% da altura, e dos cards).
         veu.shader = LinearGradient(0f, 0f, 0f, h * 0.28f, noite(0x8C), noite(0), Shader.TileMode.CLAMP)
         c.drawRect(0f, 0f, w, h * 0.28f, veu)

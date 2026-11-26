@@ -67,7 +67,9 @@ class RowsHomeTest {
 
     @Test fun assinaturaMudaComCadaOpcao() {
         val base = o.signature()
-        listOf(o.copy(size = RowsHome.Size.L), o.copy(cardTitle = false), o.copy(status = false), o.copy(glowAnim = RowsHome.GlowAnim.PULSE))
+        listOf(o.copy(size = RowsHome.Size.L), o.copy(cardTitle = false), o.copy(status = false), o.copy(glowAnim = RowsHome.GlowAnim.PULSE),
+            o.copy(shadowTint = RowsHome.ShadowTint.GRAPHITE), o.copy(shadowW = RowsHome.ShadowLength.SHORT), o.copy(shadowH = RowsHome.ShadowLength.LONG),
+            o.copy(focusBg = true))
             .forEach { assertTrue(it.signature() != base) }
     }
 }

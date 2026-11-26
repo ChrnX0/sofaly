@@ -52,6 +52,12 @@ object RowsHome {
     const val KEY_END = "rows_end_margin"           // margem da direita (os cards somem antes dela): EndMargin
     const val KEY_TOP = "rows_top_margin"           // sobe ou desce a fileira em foco: TopMargin
     const val KEY_BADGE = "rows_badge"              // selo no card com novidade (1 = sim)
+    // Fundo (bloco 5): sombra por cima do fundo e o fundo em si
+    const val KEY_SHADOW_TINT = "rows_shadow_tint"  // cor da sombra: ShadowTint
+    const val KEY_SHADOW_W = "rows_shadow_w"        // até onde a sombra da esquerda vai: ShadowLength
+    const val KEY_SHADOW_H = "rows_shadow_h"        // até onde a sombra de baixo sobe: ShadowLength
+    const val KEY_FOCUS_BG = "rows_focus_bg"        // a arte do card em foco vira o fundo (1 = sim; Projectivy: "Programa em foco")
+    const val KEY_BG_EVERY = "rows_bg_every"        // troca a foto de fundo sozinha: BgEvery
 
     enum class Size(val k: Float) { XS(0.75f), S(0.875f), M(1f), L(1.15f), XL(1.3f) }
     enum class Gap(val dp: Float) { NONE(0f), TIGHT(4f), NORMAL(8f), WIDE(14f), WIDER(20f) }
@@ -82,6 +88,12 @@ object RowsHome {
     /** Em cima: desloca a fileira em foco (negativo = sobe). */
     enum class TopMargin(val dp: Float) { UP2(-48f), UP(-24f), DEFAULT(0f), DOWN(24f), DOWN2(48f) }
     enum class Shadow(val alpha: Float) { NONE(0f), LIGHT(0.45f), DEFAULT(0.7f), STRONG(0.9f) }
+    /** Cor da sombra (dele: "Tonalidade da sombra"). Nunca azulada nem marrom: preto ou grafite. */
+    enum class ShadowTint { BLACK, GRAPHITE }
+    /** Comprimento da sombra (dele: horizontal e vertical), em fração da tela. */
+    enum class ShadowLength(val pct: Float) { SHORT(0.35f), MEDIUM(0.55f), LONG(0.75f), FULL(1f) }
+    /** Troca da foto de fundo (dele: "Frequência de atualização"), em minutos; 0 = nunca. */
+    enum class BgEvery(val min: Int) { NEVER(0), M15(15), M30(30), M60(60), M180(180) }
 
     data class Options(
         val size: Size = Size.M, val gap: Gap = Gap.NORMAL, val corners: Corners = Corners.SOFT,
@@ -93,6 +105,8 @@ object RowsHome {
         val ripple: Boolean = true, val tvRatio: Ratio = Ratio.R16_9, val mobileRatio: Ratio = Ratio.R1_1,
         val cardBg: CardBg = CardBg.AUTO, val iconTint: IconTint = IconTint.CREAM, val progress: Boolean = true, val badge: Boolean = true,
         val start: Margin = Margin.DEFAULT, val end: EndMargin = EndMargin.NONE, val top: TopMargin = TopMargin.DEFAULT,
+        val shadowTint: ShadowTint = ShadowTint.BLACK, val shadowW: ShadowLength = ShadowLength.FULL, val shadowH: ShadowLength = ShadowLength.FULL,
+        val focusBg: Boolean = false, val bgEvery: BgEvery = BgEvery.NEVER,
     ) {
         /** Borda esquerda do card em foco e dos textos (o título e o nome ficam 16 dp para dentro, como nele). */
         val focoX get() = start.dp
@@ -105,8 +119,8 @@ object RowsHome {
         val cardH get() = Math.round(CARD_H * size.k).toFloat()
         /** Muda o desenho da HOME: entra na assinatura que a refaz. */
         fun signature() = listOf(size, gap, corners, focusSize, effect, glowAnim, spacing, dim, shadow, glowSize, glowColor, tvRatio,
-            mobileRatio, cardBg, iconTint, start, end, top).joinToString("") { it.ordinal.toString() } +
-            listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge).joinToString("") { if (it) "1" else "0" }
+            mobileRatio, cardBg, iconTint, start, end, top, shadowTint, shadowW, shadowH).joinToString("") { it.ordinal.toString() } +
+            listOf(cardTitle, rowTitle, rowIcon, fixed, hideAbove, clock, status, zoom, ripple, progress, badge, focusBg).joinToString("") { if (it) "1" else "0" }
     }
 
     val DEFAULT = Options()
@@ -129,6 +143,9 @@ object RowsHome {
             cardBg = ler(KEY_CARD_BG, CardBg.entries, d.cardBg), iconTint = ler(KEY_ICON_TINT, IconTint.entries, d.iconTint),
             progress = sim(KEY_PROGRESS, d.progress), badge = sim(KEY_BADGE, d.badge),
             start = ler(KEY_START, Margin.entries, d.start), end = ler(KEY_END, EndMargin.entries, d.end), top = ler(KEY_TOP, TopMargin.entries, d.top),
+            shadowTint = ler(KEY_SHADOW_TINT, ShadowTint.entries, d.shadowTint), shadowW = ler(KEY_SHADOW_W, ShadowLength.entries, d.shadowW),
+            shadowH = ler(KEY_SHADOW_H, ShadowLength.entries, d.shadowH), focusBg = sim(KEY_FOCUS_BG, d.focusBg),
+            bgEvery = ler(KEY_BG_EVERY, BgEvery.entries, d.bgEvery),
         )
     }
 
