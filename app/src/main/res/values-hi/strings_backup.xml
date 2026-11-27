@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">आख़िरी</string>
     <string name="bkn_nunca">कभी नहीं</string>
     <string name="bkn_pin">बैकअप बदलने के लिए PIN</string>
+    <string name="bk_motivo_senha">पासवर्ड सही नहीं है।</string>
+    <string name="bk_motivo_invalido">यह फ़ाइल Sofaly बैकअप नहीं है, या ख़राब है।</string>
+    <string name="bk_motivo_ler">पढ़ा नहीं जा सका (नेटवर्क या स्टोरेज)।</string>
 </resources>

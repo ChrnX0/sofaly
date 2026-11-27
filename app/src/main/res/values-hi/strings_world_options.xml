@@ -30,4 +30,6 @@
     <string name="bb_titulo">होम स्क्रीन का रूप</string>
     <string name="bb_cruz">क्रॉस</string>
     <string name="bb_barra">नीचे की पट्टी</string>
+    <string name="wo_ultimos">हाल में इस्तेमाल किए पहले</string>
+    <string name="wo_aleatorio">कोई भी क्रम (हर दिन बदलता है)</string>
 </resources>

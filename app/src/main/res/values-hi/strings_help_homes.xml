@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">दूसरे घरों की मदद</string>
+    <string name="hoh_question">दूसरे घरों की मदद करें?</string>
+    <string name="hoh_line">जब मैं यहाँ कुछ ठीक करता हूँ, तो दूसरे Sofaly को बताता हूँ कि कैसा रहा। आप कौन हैं, यह बताए बिना।</string>
+    <string name="hoh_yes">हाँ, मदद करना है</string>
+    <string name="hoh_not_now">अभी नहीं</string>
+    <string name="hoh_how">यह कैसे काम करता है?</string>
+    <string name="hoh_how_title">यह कैसे काम करता है</string>
+    <string name="hoh_how_line">अगर किसी दूसरे घर में वही चीज़ ख़राब हो, तो वहाँ का Sofaly पहले से जानता है कि क्या करना है।</string>
+    <string name="hoh_goes">क्या भेजा जाता है</string>
+    <string-array name="hoh_goes_list">
+        <item>टीवी का मॉडल और Sofaly का वर्ज़न</item>
+        <item>क्या ख़राब हुआ, श्रेणियों में</item>
+        <item>किससे ठीक हुआ और क्या काम किया</item>
+        <item>मेमोरी और नेटवर्क, स्तरों में (अच्छा या कमज़ोर)</item>
+    </string-array>
+    <string name="hoh_never">क्या कभी नहीं जाता</string>
+    <string-array name="hoh_never_list">
+        <item>आपका नाम और आपके नेटवर्क का नाम</item>
+        <item>आप क्या और कब देखते हैं</item>
+        <item>आपके ऐप और आप क्या लिखते हैं</item>
+        <item>फ़ोटो, आवाज़, पता और IP</item>
+    </string-array>
+    <string name="hoh_back_here">दूसरे Sofaly जो सीखते हैं, वह यहाँ लौटता है। इसे कभी भी सेटिंग्स, Sofy क्या जानती है में बदल सकते हैं।</string>
+    <string name="hoh_thanks">धन्यवाद! आपका Sofaly अब दूसरे घरों की मदद कर रहा है।</string>
+    <string name="hoh_state_on">चालू: दिन में एक बार यह टीवी बताता है कि सुधार कैसे रहे</string>
+    <string name="hoh_state_off">बंद: इस टीवी से कुछ भी साझा नहीं होता</string>
+    <string name="hoh_stop">मदद बंद करें</string>
+    <string name="hoh_stop_det">यह टीवी साझा करना बंद करता है। दूसरे घरों ने जो सीखा, वह मिलता रहेगा।</string>
+    <string name="hoh_start">मदद शुरू करें</string>
+    <string name="hoh_start_det">देखें क्या जाता है और क्या कभी नहीं जाता, फिर चुनें</string>
+    <string name="hoh_today">आज क्या जाएगा, देखें</string>
+    <string name="hoh_today_det">यह टीवी जो पैकेट भेजेगा, हर फ़ील्ड के साथ</string>
+    <string name="hoh_today_sub">सर्वर पर ठीक यही जाता है। घर का कोड हर दिन बदलता है।</string>
+    <string name="hoh_forget">जो भेजा, उसे भूल जाएँ</string>
+    <string name="hoh_forget_det">इस टीवी का कोड बदलता है। जो भेजा गया वह अब इससे जोड़ा नहीं जा सकता और 30 दिनों में मिट जाता है।</string>
+    <string name="hoh_forgot">हो गया। अब से नया कोड; जो भेजा गया वह 30 दिनों में मिट जाएगा।</string>
+    <string name="hoh_row_det">वह दूसरे घरों के साथ क्या साझा करती है, और इसे कैसे बंद करें</string>
+</resources>
