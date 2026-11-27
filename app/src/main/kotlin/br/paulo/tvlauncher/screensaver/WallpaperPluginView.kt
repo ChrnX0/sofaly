@@ -1,5 +1,7 @@
 package br.paulo.tvlauncher.screensaver
 
+import br.paulo.tvlauncher.recreateOnce
+
 import br.paulo.tvlauncher.Fundo
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -104,7 +106,7 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
                 // O plugin escolhido sumiu (desinstalado, sem o serviço, assinatura trocada): esquece a escolha e a HOME
                 // se refaz com o tema normal, em vez de ficar no fundo liso desta view para sempre.
                 WallpaperPlugins.esquecer(app)
-                post { (context as? android.app.Activity)?.takeIf { !it.isFinishing }?.recreate() }
+                post { (context as? android.app.Activity)?.takeIf { !it.isFinishing }?.recreateOnce() }
                 return@emSegundoPlano
             }
             provider = p

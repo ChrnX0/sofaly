@@ -86,7 +86,7 @@ class CuidarTelaActivity : Activity() {
         // Ajuda/consentimento passam na frente: o lembrete da tela volta depois, em vez de sumir.
         if (CuidarDeLonge.esperaNaFila(modo, modo)) pendentes.addFirst(intent)
         setIntent(novo)
-        recreate()
+        recreateOnce()
     }
 
     // Com a pergunta do consentimento na tela, o shell do Claude não roda (não pode imitar o "Aceito" do morador).

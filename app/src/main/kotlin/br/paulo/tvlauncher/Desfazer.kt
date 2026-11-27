@@ -140,7 +140,7 @@ class VigiaDesfazer private constructor(
          * a cada troca (Paulo, 20/11/2026; Material "snackbar não rouba o foco", WCAG 3.2.2 "mudar um ajuste não muda o contexto").
          */
         fun ligar(activity: Activity, rotulo: String, categorias: Set<Categoria>? = null, mostrarBarra: Boolean = true,
-                  aoDesfazer: () -> Unit = { activity.recreate() }): VigiaDesfazer {
+                  aoDesfazer: () -> Unit = { activity.recreateOnce() }): VigiaDesfazer {
             val v = VigiaDesfazer(activity, rotulo, categorias, aoDesfazer, mostrarBarra)
             activity.application.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
                 override fun onActivityResumed(a: Activity) { if (a === activity) v.iniciar() }
