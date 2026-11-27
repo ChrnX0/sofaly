@@ -1502,7 +1502,16 @@ class VodActivity : Activity() {
         else String.format(Locale.ROOT, "%d:%02d", s / 60, s % 60)
     }
 
-    internal fun mostrarAviso(t: String) { aviso.text = t; aviso.visibility = View.VISIBLE }
+    internal fun mostrarAviso(t: String) {
+        aviso.text = t; aviso.visibility = View.VISIBLE
+        // Com a cortina de abertura na tela, o título dela fica no meio: o aviso vai para o alto para não cobrir o título
+        // (auditoria de 27/11/2026: "A conexão caiu..." em cima de "Férias em família").
+        (aviso.layoutParams as? FrameLayout.LayoutParams)?.let { lp ->
+            val g = if (cortina != null) Gravity.TOP or Gravity.CENTER_HORIZONTAL else Gravity.CENTER
+            val topo = if (cortina != null) dp(48) else 0
+            if (lp.gravity != g || lp.topMargin != topo) { lp.gravity = g; lp.topMargin = topo; aviso.layoutParams = lp }
+        }
+    }
     private fun tirarCortina() { cortina?.let { CortinaVideo.tirar(it) }; cortina = null }
     internal fun esconderAviso() { aviso.visibility = View.GONE }
 
