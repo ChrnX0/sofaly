@@ -1,5 +1,7 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
+
 /**
  * Frases traduzidas para os `object` que não recebem um Context (IconesClima, Lua...). Usa o Context do app, guardado
  * em [LauncherApp.instancia] logo que o processo do launcher abre. O idioma vem do aparelho: inglês é o padrão

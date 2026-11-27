@@ -13,7 +13,7 @@ import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Gravacoes
 import br.paulo.tvlauncher.LembretesTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Rtl
 import br.paulo.tvlauncher.alarm.Lembretes
 import br.paulo.tvlauncher.settings.Fontes

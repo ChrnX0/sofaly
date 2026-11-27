@@ -3,7 +3,7 @@ package br.paulo.tvlauncher.family
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.player.PlayerArmazem
 import br.paulo.tvlauncher.settings.Extras
 import java.io.File

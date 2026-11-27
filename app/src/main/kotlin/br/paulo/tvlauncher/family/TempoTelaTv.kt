@@ -8,7 +8,7 @@ import android.os.PowerManager
 import android.os.SystemClock
 import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.AvisoTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.HoraDormirTv
 import br.paulo.tvlauncher.alarm.NaoPerturbe
 import br.paulo.tvlauncher.privilege.JanelaNaFrente

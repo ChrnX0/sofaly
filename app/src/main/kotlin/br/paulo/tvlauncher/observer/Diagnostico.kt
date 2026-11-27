@@ -10,7 +10,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.DropBoxManager
 import android.os.SystemClock
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.network.Dns
 import br.paulo.tvlauncher.network.Rede
 import br.paulo.tvlauncher.privilege.PrivilegioDO

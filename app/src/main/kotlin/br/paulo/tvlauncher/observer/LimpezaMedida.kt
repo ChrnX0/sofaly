@@ -7,7 +7,7 @@ import android.util.Log
 import br.paulo.tvlauncher.AntesDepois
 import br.paulo.tvlauncher.ConfigLauncherActivity
 import br.paulo.tvlauncher.PlacarActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.privilege.Debloat
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
 

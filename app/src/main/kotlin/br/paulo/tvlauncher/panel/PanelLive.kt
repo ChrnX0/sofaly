@@ -10,7 +10,7 @@ import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.BoasVindasActivity
 import br.paulo.tvlauncher.ConfirmacoesTv
 import br.paulo.tvlauncher.PainelApps
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.mcp.ChaveAcesso
 import br.paulo.tvlauncher.panel.PainelWeb.Resposta
 import br.paulo.tvlauncher.player.Idioma

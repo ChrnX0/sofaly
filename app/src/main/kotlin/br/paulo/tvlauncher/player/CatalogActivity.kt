@@ -17,7 +17,7 @@ import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.ModoSimples
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VigiaAtualizacao
 import br.paulo.tvlauncher.family.Perfil
 import br.paulo.tvlauncher.input.SegurarOk

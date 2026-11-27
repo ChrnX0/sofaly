@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.Manifest
 import android.accounts.Account
 import android.app.Activity

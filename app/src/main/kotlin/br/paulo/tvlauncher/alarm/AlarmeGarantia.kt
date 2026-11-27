@@ -11,7 +11,7 @@ import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.network.LgNetcast
 import br.paulo.tvlauncher.network.VolumeLg
 import br.paulo.tvlauncher.observer.MedidasTv

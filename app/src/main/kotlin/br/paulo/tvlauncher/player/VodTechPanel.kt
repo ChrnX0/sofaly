@@ -9,7 +9,7 @@ import androidx.media3.common.TrackSelectionOverride
 import androidx.media3.common.Tracks
 import androidx.media3.exoplayer.ExoPlayer
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VodActivity
 import br.paulo.tvlauncher.VodActivity.Companion.EXTRA_FONTE
 import br.paulo.tvlauncher.VodActivity.Companion.EXTRA_PROXIMO_EP

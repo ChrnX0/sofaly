@@ -13,7 +13,7 @@ import br.paulo.tvlauncher.AppIdentity
 import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.ManutencaoNoturna
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.SaudeAvisoActivity
 import br.paulo.tvlauncher.mcp.McpServidor
 import br.paulo.tvlauncher.mcp.TunelTailscale

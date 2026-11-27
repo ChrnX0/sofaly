@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.content.ComponentName
 import android.content.Context
 import android.media.MediaMetadata

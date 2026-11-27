@@ -8,7 +8,7 @@ import android.view.KeyEvent
 import android.widget.FrameLayout
 import androidx.test.platform.app.InstrumentationRegistry
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.CruzLogica
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.listen.CapaOuvir

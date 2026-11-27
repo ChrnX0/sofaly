@@ -10,7 +10,7 @@ import br.paulo.tvlauncher.BackupNoturno
 import br.paulo.tvlauncher.BackupNoturnoActivity
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.ConfigLauncherActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.player.PlayerArmazem
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
 import br.paulo.tvlauncher.privilege.SaudeAcesso

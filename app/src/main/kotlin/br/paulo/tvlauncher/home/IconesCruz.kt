@@ -11,7 +11,7 @@ import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import br.paulo.tvlauncher.DesignTokens
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Ícones da tela inicial em cruz (17/11/2026): objeto ou símbolo SOLTO, sem card nem círculo atrás (pedido do dono).

@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.player.Programa
 import br.paulo.tvlauncher.player.Xmltv
 import br.paulo.tvlauncher.player.Xtream

@@ -10,7 +10,7 @@ import android.view.Window
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.CompatibilidadeTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.home.MovimentoAdaptativo
 import org.json.JSONObject

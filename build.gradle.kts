@@ -9,7 +9,7 @@ plugins {
 // Configuração comum dos módulos do Shizuku (na origem isto ficava no build.gradle raiz do repositório deles).
 // Sem NDK desde 15/11/2026: a parte nativa (librish.so, o terminal "rish") ficou de fora; o servidor não precisa dela.
 subprojects {
-    if (path == ":app" || path == ":celular" || path == ":core") return@subprojects
+    if (path == ":app" || path == ":celular" || path == ":core" || path == ":resources") return@subprojects
     plugins.withId("com.android.library") {
         extensions.configure<com.android.build.gradle.LibraryExtension> {
             compileSdk = 36

@@ -9,7 +9,7 @@ import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.Gatilhos
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.IconeLinha
 import java.util.Calendar
 import java.util.concurrent.Executors

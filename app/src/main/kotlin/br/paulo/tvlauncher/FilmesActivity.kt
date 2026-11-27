@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle

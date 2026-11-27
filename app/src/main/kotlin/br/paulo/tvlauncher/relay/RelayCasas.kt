@@ -160,8 +160,8 @@ object RelayCasas {
         RelayTv.ajustar(ctx)
         Log.i(TAG, "casa conectada pelo celular: ${c.id}")
         br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: ${de.nome}", "outra casa conectada: ${c.nome}", "ok")
-        br.paulo.tvlauncher.AvisoTv.rapido(ctx, ctx.getString(br.paulo.tvlauncher.R.string.casas_titulo),
-            ctx.getString(br.paulo.tvlauncher.R.string.casas_pelo_celular, c.nome, de.nome), 8)
+        br.paulo.tvlauncher.AvisoTv.rapido(ctx, ctx.getString(br.paulo.tvlauncher.resources.R.string.casas_titulo),
+            ctx.getString(br.paulo.tvlauncher.resources.R.string.casas_pelo_celular, c.nome, de.nome), 8)
     }
 
     fun remover(ctx: Context, id: String) { if (casas(ctx).any { it.id == id }) RelayTv.esquecer(ctx, id) }

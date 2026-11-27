@@ -5,7 +5,7 @@ import android.util.Log
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.screensaver.WidgetsTempo
 import java.util.Date
 

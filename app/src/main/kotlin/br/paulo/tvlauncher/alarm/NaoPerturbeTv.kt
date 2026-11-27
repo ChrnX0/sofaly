@@ -3,7 +3,7 @@ package br.paulo.tvlauncher.alarm
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.AvisoTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VodActivity
 import br.paulo.tvlauncher.family.ModoVisita
 import br.paulo.tvlauncher.privilege.JanelaNaFrente

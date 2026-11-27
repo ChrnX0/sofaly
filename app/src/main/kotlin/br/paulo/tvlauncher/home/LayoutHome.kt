@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.home
 
 import android.content.Context
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.settings.Extras
 
 /**

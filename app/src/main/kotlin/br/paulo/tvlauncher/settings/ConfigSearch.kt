@@ -12,7 +12,7 @@ import br.paulo.tvlauncher.ConfigLauncherActivity
 import br.paulo.tvlauncher.ConfigLauncherActivity.Companion.BUSCA
 import br.paulo.tvlauncher.ConfigLauncherActivity.Companion.TAG
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 private const val WRAP = ViewGroup.LayoutParams.WRAP_CONTENT
 private const val MATCH = ViewGroup.LayoutParams.MATCH_PARENT

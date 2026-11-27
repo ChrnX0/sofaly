@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Base64
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.ConfirmacoesTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.TextoTela
 import br.paulo.tvlauncher.VigiaAtualizacao
 import br.paulo.tvlauncher.network.CasaHA

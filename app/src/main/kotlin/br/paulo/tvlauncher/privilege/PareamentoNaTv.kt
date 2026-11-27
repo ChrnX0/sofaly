@@ -25,7 +25,7 @@ import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.PlayPolicy
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.CuidarDeLonge
 import br.paulo.tvlauncher.input.SegurarOk
 import java.net.NetworkInterface

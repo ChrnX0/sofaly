@@ -5,7 +5,7 @@ import android.app.ApplicationExitInfo
 import android.content.Context
 import android.os.Build
 import android.util.Log
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date

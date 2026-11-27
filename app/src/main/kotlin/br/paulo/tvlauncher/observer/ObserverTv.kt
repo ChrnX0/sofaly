@@ -6,7 +6,7 @@ import android.os.SystemClock
 import android.util.Log
 import br.paulo.tvlauncher.ComunidadeApps
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Rotinas
 import br.paulo.tvlauncher.family.Diario
 import br.paulo.tvlauncher.player.OnDemand

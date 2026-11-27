@@ -6,7 +6,7 @@ import br.paulo.tvlauncher.AdminReceiver
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Virar Device Owner pela própria TV, sem PC e sem apagar a conta Google (13/11/2026, ideia do dono: "o jeito do Hail").

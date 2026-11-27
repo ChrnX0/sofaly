@@ -1,6 +1,6 @@
 package br.paulo.tvlauncher.screensaver
 
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.player.LojaCurada
 import org.json.JSONObject
 

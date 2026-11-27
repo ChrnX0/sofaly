@@ -1,7 +1,7 @@
 package br.paulo.tvlauncher.weather
 
 import br.paulo.tvlauncher.LauncherApp
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.txt
 import kotlin.math.PI
 import kotlin.math.cos

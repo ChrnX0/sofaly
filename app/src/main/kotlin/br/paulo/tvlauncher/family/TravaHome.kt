@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.panel.PainelArmazem
 import br.paulo.tvlauncher.panel.conferirPin
 import br.paulo.tvlauncher.panel.precisaPin
