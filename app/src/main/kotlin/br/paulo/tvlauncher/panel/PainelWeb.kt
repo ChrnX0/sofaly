@@ -194,7 +194,7 @@ object PainelWeb {
     }
 
     @Volatile private var iniciando = false
-    private var geracao = 0   // cada iniciar() ganha um número; uma thread de bind antiga não mexe no estado da nova
+    @Volatile private var geracao = 0   // cada iniciar() ganha um número; uma thread de bind antiga não mexe no estado da nova
 
     fun ligado(): Boolean = servidor?.isClosed == false
 
@@ -307,15 +307,30 @@ object PainelWeb {
                 rede = redes().entries.minByOrNull { it.key }
             }
             val e = PainelTls.garantir(app, rede?.key, rede?.value ?: 24) ?: return@rodar
+            cuidarCertificadoPublico(minha)
             abrirTls(minha, e)
         }
+    }
+
+    /**
+     * Item 26 (opção A): pede e renova o certificado público `*.<id>.lan.sofaly.tv` enquanto o painel está ligado,
+     * agora e a cada [PublicCertificate.CICLO_MS]. Laço sem fim, por isso Thread própria (regra do Fundo). O certificado
+     * novo vale no próximo aperto de mão: a porta não precisa reabrir.
+     */
+    private fun cuidarCertificadoPublico(minha: Int) {
+        Thread({
+            while (geracao == minha) {
+                runCatching { PublicCertificate.cuidar(app) }.onFailure { Log.w(TAG, "certificado público: $it") }
+                try { Thread.sleep(PublicCertificate.CICLO_MS) } catch (_: InterruptedException) { return@Thread }
+            }
+        }, "Painel-cert-publico").apply { priority = Thread.MIN_PRIORITY; isDaemon = true }.start()
     }
 
     /** Abre a porta https com este certificado e fica no accept() até parar() ou uma renovação fechar a porta. */
     private fun abrirTls(minha: Int, e: CertificadoX509.Emissao) {
         var s: javax.net.ssl.SSLServerSocket? = null
         for (vez in 1..3) {   // logo depois de renovar, a porta velha pode demorar um instante para soltar
-            val novo = PainelTls.contexto(e).serverSocketFactory.createServerSocket() as javax.net.ssl.SSLServerSocket
+            val novo = PainelTls.contexto(app, e).serverSocketFactory.createServerSocket() as javax.net.ssl.SSLServerSocket
             try {
                 novo.reuseAddress = true
                 novo.enabledProtocols = PainelTls.protocolos(novo.supportedProtocols)
@@ -379,7 +394,9 @@ object PainelWeb {
     }
 
     /** Nomes aceitos no Host da porta https: os do certificado e os IPs da TV (sempre com :8444). */
-    private fun nomesTls(): Set<String> = PainelTls.nomesNoCertificado() + ipsDaRede()
+    private fun nomesTls(): Set<String> = ipsDaRede().let { ips ->
+        PainelTls.nomesNoCertificado() + ips + PublicCertRules.nomes(PublicCertificate.id(app), ips)   // item 26: <ip>.<id>.lan.sofaly.tv
+    }
 
     /** O Host vale para a porta por onde o pedido chegou? */
     private fun hostOk(host: String?, https: Boolean): Boolean =

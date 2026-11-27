@@ -90,6 +90,7 @@ declare -A FONTES=(
   [GoogleHomeTrimTest]="GoogleHomeTrim"
   [StorageModeRulesTest]="StorageModeRules"
   [AcmeClientTest]="AcmeClient CertificadoX509"
+  [PublicCertRulesTest]="PublicCertRules AcmeClient CertificadoX509"
 )
 
 falhou=0

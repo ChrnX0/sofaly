@@ -37,7 +37,9 @@ const cadeado = (() => {
   async function testar(e) {
     e = e || await estado();
     if (!e.pronto || !e.ligado) return null;
-    for (const origem of [e.endereco, e.enderecoIp]) {
+    // Item 26: o endereço público (certificado do Let's Encrypt) vem primeiro: abre sem instalar nada. Se o roteador
+    // bloqueia o nome (DNS rebinding), ele falha aqui e valem o nome e o IP de antes.
+    for (const origem of [e.enderecoPublico, e.endereco, e.enderecoIp]) {
       if (origem && await confia(origem)) return origem.replace(/\/$/, '');
     }
     return null;
