@@ -31,7 +31,7 @@ values-ko=3
 
 values-nb=236
 
-values-nl=236
+values-nl=3
 
 values-pl=3
 

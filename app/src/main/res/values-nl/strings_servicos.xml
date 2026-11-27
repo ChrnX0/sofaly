@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl-beoordeling</string>
     <string name="sv_simkl_convite_det">Je account verbinden</string>
+    <string name="legenda_muitas">Nu te veel ondertitelzoekopdrachten. Probeer het over een minuut opnieuw.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles weigerde het account. Controleer het in Instellingen.</string>
+    <string name="legenda_fora">De ondertiteldienst ligt eruit. Probeer het later opnieuw.</string>
 </resources>
