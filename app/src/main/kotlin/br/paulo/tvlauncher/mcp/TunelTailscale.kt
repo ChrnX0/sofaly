@@ -86,7 +86,8 @@ object TunelTailscale {
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun binario(ctx: Context) = File(ctx.applicationInfo.nativeLibraryDir, "libtsnet.so")
+    /** Lida na hora (Parts.nativeLibDir): com o túnel como parte instalada depois, a pasta do processo é a velha. */
+    fun binario(ctx: Context) = File(br.paulo.tvlauncher.parts.Parts.nativeLibDir(ctx), "libtsnet.so")
     internal fun pastaEstado(ctx: Context) = File(ctx.filesDir, "tunel")
 
     /** O endereço público (ex.: sofaly-sala.tail1234.ts.net), ou null antes do 1º login. */
