@@ -16,255 +16,85 @@
     <string name="ver_respondido_sim">answered “yes”</string>
     <string name="ver_respondido_nao">answered “no”</string>
     <string-array name="novidades">
-        <item>Sofy notices and fixes things on her own: she redoes the internal access when the TV forgets it, learns what is normal in your home, checks the screens at night and, with the owner AI key, asks the AI what she does not know yet; what she learns goes into the backup</item>
-        <item>Sofy checks that what a screen says is true: a holiday from another country, the same event twice, a weather icon that does not match the sentence, today high below the current temperature, numbers that make no sense</item>
-        <item>Calendar and screensaver show only the holidays of the TV country, once, in the TV language; long names get two lines</item>
-        <item>Rain likely now: the icon turns to rain too, the sentence says “It may rain any moment” and every rain % has the drop in front</item>
-        <item>Screensaver: 7 clock styles, 3 styles at the bottom (Strip, Live card, Stack) and 6 positions, in Settings › Screen and power; “Today” counts the current temperature</item>
-        <item>World icon motion: the icon flies in from the rail and plays a little scene; choose Little scene, Trail of light or Bounce and glow in Fine tuning</item>
-        <item>Shortcut cards with the icon beside the name, in White, Light glass or Dark glass, and icons with personality</item>
-        <item>Other screens follow the bar (Drawer, Glass or Bar), with ring focus and the clock in a pill at the top</item>
-        <item>Live widgets from other apps on the home screen, arranged with the remote</item>
-        <item>Extensions from other apps: new backgrounds, icons, cards and buttons, reviewed before they go in</item>
-        <item>Phone and TV: calibrate picture and sound from the phone, make the remote ring when it is lost, and use the phone microphone and camera on the TV</item>
-        <item>App language separate from the TV (System › Language); the TV speaks 12 more languages and the panel and website 27</item>
-        <item>Every button does something: 79 screens were tested by pressing OK on every item</item>
-        <item>Sturdier: the launcher no longer crashes when the screensaver restarts, and the home screen no longer pulls the focus from where you already went with the remote</item>
-        <item>A switched-off alarm says “Off” next to the time, and notices no longer cover the bottom cards</item>
-        <item>Moon worked out more precisely (phase and moonrise)</item>
-        <item>New default home screen, the single bar: ▲ and ▼ switch the world (Watch, Listen, Play…), ◀ and ▶ move through its apps and content in large cards, and the Ilha stays at the top</item>
-        <item>The Ilha warns when the sun is strong (UV 8 or more): “wear sunscreen”</item>
-        <item>Panel in other languages with no bits left in Portuguese: Wi-Fi tips, the page for the 140 known apps, the certificate step by step, the network drive page and the “The TV did not respond” screen</item>
-        <item>Rain chance with finer numbers: each weather model now counts by how much rain it expects and by how often it was right, and in Settings › Appearance you choose numbers, words (Low, Medium, High) or both</item>
-        <item>Better weather: the chance of rain is now the vote of 4 weather models (ECMWF, GFS, ICON and ECMWF\'s AI model); in a 60-day test in 30 cities it was right more often than any of them alone</item>
-        <item>Web panel with the Sofaly look: each area has its color on the icon, the Home page shows Sofy\'s notes, what is on the TV now and the worlds as doors, and nothing went missing</item>
-        <item>Panel: a star on any block or switch adds it to “Your shortcuts” on the Home page, “Works with” links related blocks, and a change offers Undo</item>
-        <item>Panel: new Sofy tab (today\'s notes, why she did it, Undo for frozen apps) and Apps with Frozen and Hidden shelves (Hidden asks for the PIN)</item>
-        <item>TV Settings like the panel: long tabs have an “On this page” index at the top, and “Works with” pills take you to the related group</item>
-        <item>Alarm clock: when the LG wakes up still on yesterday\'s loud volume, the alarm no longer starts loud</item>
-        <item>Series: “Next episode” shows up when the credits start, “Skip recap” works like “Skip intro”, the bar says when the video ends, and ⏮ (or ▼ › Subtitles) replays the last 10 s with subtitles</item>
-        <item>LG TV volume from the panel and the assistant: the volume and mute keys now really change the sound (they went to the HDMI output, which stays locked at maximum)</item>
-        <item>Your phone becomes a remote: in the Sofaly phone app, tap the TV to swipe, tap and type; volume and ⏯ also in the notification and the quick settings tile</item>
-        <item>Alarm rang on the TV: the phone with the panel installed gets a notice</item>
-        <item>In the panel on a computer, drag a video, song or photo onto the page and watch it on the TV</item>
-        <item>A screensaver that follows the day: in the morning it shows the day\'s summary, at night it gets softer and late at night it turns dark and warm, without the logo</item>
-        <item>Search: you can speak instead of typing, and your last searches come first</item>
-        <item>Empty screens show the mascot, what happened and what to do; a film with no poster gets its own colour instead of grey</item>
-        <item>Remote hints at the bottom go away after you have seen them 3 times on each screen</item>
-        <item>Text of at least 15 in the top bar and badges; the podcast player reads the focused button aloud</item>
-        <item>Panel: 48 px buttons on phones, the chosen filter marked with the orange bar, stronger contrast for faint text</item>
-        <item>Podcasts and radio: holding OK no longer pauses and resumes on its own, the PLAY and PAUSE keys do only what they say, and the remote\'s volume works inside the podcast player</item>
-        <item>Movies and Series: switching between dubbed and subtitled continues from where you were; titles without a synopsis no longer show the word “null”</item>
-        <item>Home (HA): the TV only talks to the Home Assistant it already knows; the podcast sleep timer no longer turns the radio off</item>
-        <item>An update installed while the TV sleeps is now optimised that same night (before, the new version ran slower all the next day, until the screen turned off again)</item>
-        <item>Movies and Series open faster: joining the dubbed and subtitled copies of each title now takes a fraction of the time (on big lists it kept the TV busy for over a minute after opening)</item>
-        <item>Home screen: moving along the cross is lighter, because the faded items no longer need an extra drawing pass on every frame</item>
-        <item>Reading the focused item aloud (Extras): closed screens no longer stay stuck in memory</item>
-        <item>Player (movies, series, files and live TV): the ▼ menu is simpler. The first screen has Audio, Subtitles, Watch dubbed/subtitled, Picture and sound, More options; the current value shows on the right, › opens the next list, ✓ only marks what is chosen, and BACK goes to the list above</item>
-        <item>Movies and Series: no more key hints along the bottom, so the posters get the space; the poster shows only the progress bar (the time left is in the box at the top), and labels never take two lines</item>
-        <item>Settings: turning on high contrast (or changing the text size or a ready-made look) keeps the focus on the same option, and changing an option no longer shows the “Undo” notice that took the focus away (undo stays in System › Recent changes)</item>
-        <item>New app name on the TV (tv.sofaly.launcher): settings, add-ons, plugins and the panel move over by themselves, with no reset</item>
-        <item>One colour system: orange only marks the brand, the focus and progress; secondary text in soft white; every world keeps its own colour and drawing in every top-bar style</item>
-        <item>Movies and Series get the same blue background as the home screen; “On the network” is now “From the computer”, with a folder icon</item>
-        <item>High contrast for real: solid black background, columns at full strength; app menu with “Uninstall” set apart at the end; Diagnostics without the repeated summary; Home (HA) offline shows “Try again”</item>
-        <item>Screens on one standard: Radio, Games, Alarm, Movies and Series titles in the same size and place; the remote hints look the same on every screen; empty Movies and Series show “Add a list”; menus without the “1 of 5”</item>
-        <item>Clearer text: “Season 1, episode 2”, “Continue from 19 min” on the movie page, Extras in sections, the Scoreboard without a repeated line</item>
-        <item>Errors with a way out: without network, the phone and move-from-another-TV screens show “Try again”; so does the Forecast with no data; in Diagnostics, a failing Wi-Fi opens Wi-Fi settings</item>
-        <item>Help: the QR moved out of the clock corner to beside the text; an app’s menu covers the home screen behind it better</item>
-        <item>The LG now turns off together when the Chromecast falls asleep on its own after sitting idle (it refused the HDMI turn-off command)</item>
-        <item>All apps: the same header as the Radio and Games screens, with “In the grid: X · hidden: Y”; wallpaper plugins no longer show as apps</item>
-        <item>Radio, Podcasts and Games: the list name sits right above the first item; the “Live” card leaves when the focused station is the one playing</item>
-        <item>Bigger letters (nothing below 15) in settings, footer keys, the corner date and lists</item>
-        <item>Phone and computer panel with the colours and fonts of the sofaly.tv website</item>
-        <item>The new-device-on-network alert no longer repeats for the same phone; the focused button in the podcast player is clearly visible</item>
-        <item>Series: the same two full rows of posters as Movies, with a SUB badge; the box at the top is one line (no plot) and lines up with the box on the left; long titles are shortened so the rating and year always show</item>
-        <item>Movies and Series: your Trakt and MDBList lists now scroll with the categories, in alphabetical order; in Movies you can also pick a list in the Filter</item>
-        <item>Movies: two full rows of posters fit on screen (6 per row on a typical TV); the title shows large at the top, and subtitled-only copies get a SUB badge</item>
-        <item>Movies: dubbed and subtitled copies of the same film now show as one card (the details page has both versions)</item>
-        <item>Movie and series details now come from Trakt: plot in your language, director, cast, trailer and the next episode</item>
-        <item>Weather: forecast from MET Norway; the city or postal code is found on the TV itself, no outside service</item>
-        <item>Simkl: connect your own account to see the community rating; the details page invites you to connect</item>
-        <item>Top bar (Ilha): up to 3 things take turns, small status icons next to the clock, and the dot turns amber or red when something needs attention</item>
-        <item>What just arrived (doorbell, reminder, appointment, alarm) grows under the pill for a few seconds; hold ▲ to open the quick panel</item>
-        <item>TV in Continue: “On air” no longer disappears when the TV goes all day without opening the player (the home screen fetches the guide by itself)</item>
-        <item>Continue: each item says what it is (TV, Series, Movie, Radio, Podcast, Game or the app), like the other categories; the title is below and the rest in the corner</item>
-        <item>Alarm clock: the sound always starts low and rises slowly, over at least a minute and a half, even with “Ring: direct”, so it never starts at full volume</item>
+        <item>Home in rows: each category in a row of large cards, the focused row moves to the top and the art of the focused card fills the background, under a dark veil</item>
+        <item>Row fine-tuning: ready themes (Default, Cinema, Showcase, Minimal), export and import your theme, 2 or 3 lines per category, status bar, clock and text size</item>
+        <item>Row background: the focused art, changing on its own with a fade, colours taken from the art and an adjustable shadow</item>
+        <item>Card menu: open, app shortcuts, reorder, lock with PIN, media controls, open at power on and details</item>
+        <item>Open at power on: an app opens by itself when the TV turns on or wakes up, after a wait you choose</item>
+        <item>Idle mode: after a while, the home dims and shows a large clock (time and opacity adjustable); going back twice can open the screensaver</item>
+        <item>One standard on every screen: art under a dark veil, boxes instead of pills and lines, a cream focus border with an orange icon, graphite background with no blue</item>
+        <item>Radio, Podcasts and Games in rows of cards; covers without a photo in graphite with the initial</item>
+        <item>Panel on the phone and the computer follows the TV: graphite boxes, cream focus and orange only on what is active</item>
+        <item>Texts no longer teach keys: remote hints left every screen, in every language (the keys are in Help)</item>
+        <item>Control from outside the home: the paired phone controls the TV over the internet through the Sofaly server, encrypted end to end</item>
+        <item>Other homes: link two TVs with a code (or from the phone) and check the numbers on both; Continue on another TV and Watch together reach those homes</item>
+        <item>Help other homes: with your yes (asked once, at the end of the welcome), Sofy sends the Sofy network only what the consent screen lists and gets signed recipes, which for now only check</item>
+        <item>Sofy alerts your phone when the TV needs you, and the phone gets back into the panel without asking for the PIN again</item>
+        <item>Share to TV: send a link, video or photo from the phone straight to the TV</item>
+        <item>House night, freeze watch and server health: the TV notices when something freezes or slows down and says so in the panel</item>
+        <item>The welcome offers to bring data from another TV or a backup; new “What Sofy knows” screen, with Forget</item>
+        <item>Moon phase everywhere: a clear night shows today\'s moon on the sleeping home, the quick panel and the forecast</item>
+        <item>House reminders in one list, and family messages stay in view; simple mode gets a strip at the top</item>
+        <item>TV search finds settings and the podcasts you follow; the panel shows when the TV asks for text</item>
+        <item>Report a problem privately, straight to Sofaly</item>
+        <item>Health: the full-disk forecast is no longer scared by a large app just installed; measuring app launch always returns to Settings</item>
+        <item>Sturdier: the home no longer crashes when apps finish loading after it was recreated, and a channel list that fails says so instead of loading halfway</item>
+        <item>USB drive: formatting is blocked when the backup cannot read every folder</item>
+        <item>Contrast, text size and colours checked by a test on every screen; licences in English; cards that are not cut</item>
+        <item>The app and panel complete in more languages: missing texts translated in 26 languages</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
-        <item>sofy_conserta</item>
-        <item>feriados_pais</item>
-        <item>chuva_icone</item>
-        <item>gota_porcento</item>
-        <item>descanso_jeitos</item>
-        <item>hoje_agora</item>
-        <item>animacao_mundo</item>
-        <item>cards_atalho</item>
-        <item>widgets_vivos</item>
-        <item>descanso_recomeca</item>
-        <item>foco_comeco</item>
-        <item>lingua_app</item>
-        <item>barra_unica</item>
-        <item>aviso_uv</item>
-        <item>painel_traduzido</item>
-        <item>chance_palavras</item>
-        <item>chuva_consenso</item>
-        <item>painel_sofaly</item>
-        <item>painel_atalhos</item>
-        <item>painel_aba_sofy</item>
-        <item>cfg_indice</item>
-        <item>player_creditos</item>
-        <item>descanso_hora</item>
-        <item>busca_voz</item>
-        <item>estado_vazio</item>
-        <item>dicas_somem</item>
-        <item>celular_controle</item>
-        <item>arrastar_ver</item>
-        <item>podcast_teclas</item>
-        <item>trocar_versao</item>
-        <item>alarme_subida</item>
-        <item>filmes_rapido</item>
-        <item>cruz_leve</item>
-        <item>menu_player</item>
-        <item>pacote_novo</item>
-        <item>cores_sistema</item>
-        <item>do_computador</item>
-        <item>alto_contraste</item>
-        <item>telas_padrao</item>
-        <item>textos_claros</item>
-        <item>erro_tentar</item>
-        <item>ajuda_qr</item>
-        <item>lg_desliga_junto</item>
-        <item>som_despertador</item>
-        <item>todos_apps_cabecalho</item>
-        <item>radio_sem_vao</item>
-        <item>letra_ajustes</item>
-        <item>series_duas_fileiras</item>
-        <item>listas_fora_rolam</item>
-        <item>filmes_duas_fileiras</item>
-        <item>filmes_um_por_filme</item>
-        <item>ficha_trakt</item>
-        <item>serie_trakt</item>
-        <item>previsao_met</item>
-        <item>cidade_offline</item>
-        <item>ilha_fila</item>
-        <item>ilha_central</item>
+        <item>fileiras_home</item>
+        <item>temas_prontos</item>
+        <item>menu_cartao</item>
+        <item>abrir_ao_ligar</item>
+        <item>modo_ocioso</item>
+        <item>padrao_telas</item>
+        <item>sem_dicas</item>
+        <item>painel_padrao</item>
+        <item>relay_fora</item>
+        <item>ajudar_casas</item>
+        <item>rede_sofys</item>
+        <item>o_que_sofy_sabe</item>
+        <item>lua_noite</item>
+        <item>busca_ajustes</item>
+        <item>disco_previsao</item>
+        <item>linguas</item>
     </string-array>
     <string-array name="roteiro_titulos">
-        <item>Sofy fixes</item>
-        <item>Holidays of the country</item>
-        <item>Rain icon</item>
-        <item>Drop by the %</item>
-        <item>Screensaver styles</item>
-        <item>Today and now</item>
-        <item>World icon motion</item>
-        <item>Shortcut cards</item>
-        <item>Live widgets</item>
-        <item>Screensaver restarts</item>
-        <item>Focus at start</item>
-        <item>App language</item>
-        <item>Single bar</item>
-        <item>UV warning</item>
-        <item>Translated panel</item>
-        <item>Rain chance as words</item>
-        <item>Rain by consensus</item>
-        <item>Panel with Sofaly look</item>
-        <item>Panel shortcuts</item>
-        <item>Sofy tab</item>
-        <item>Settings index</item>
-        <item>Next episode in the credits</item>
-        <item>Screensaver by the hour</item>
-        <item>Speak to search</item>
-        <item>Empty screen</item>
-        <item>Hints that go away</item>
-        <item>Phone remote</item>
-        <item>Drag and watch</item>
-        <item>Podcast keys</item>
-        <item>Switch version</item>
-        <item>Alarm: rise</item>
-        <item>Movies open fast</item>
-        <item>Smooth home screen</item>
-        <item>Player menu</item>
-        <item>Everything still there</item>
-        <item>Colour system</item>
-        <item>From the computer</item>
-        <item>High contrast</item>
-        <item>Screens on one standard</item>
-        <item>Clear text</item>
-        <item>Try again</item>
-        <item>Help QR</item>
-        <item>LG turns off too</item>
-        <item>Alarm sound</item>
-        <item>All apps</item>
-        <item>Radio without gap</item>
-        <item>Settings letters</item>
-        <item>Series posters</item>
-        <item>Lists in the column</item>
-        <item>Two rows of posters</item>
-        <item>One card per movie</item>
-        <item>Movie details</item>
-        <item>Series details</item>
-        <item>Forecast</item>
-        <item>City</item>
-        <item>Top bar queue</item>
-        <item>Hold ▲</item>
+        <item>Rows</item>
+        <item>Ready themes</item>
+        <item>Card menu</item>
+        <item>Open at power on</item>
+        <item>Idle mode</item>
+        <item>Screen standard</item>
+        <item>No key hints</item>
+        <item>Panel standard</item>
+        <item>Control from outside</item>
+        <item>Help other homes</item>
+        <item>Sofy network</item>
+        <item>What Sofy knows</item>
+        <item>Today\'s moon</item>
+        <item>Search finds settings</item>
+        <item>Disk forecast</item>
+        <item>Other languages</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>In the panel, Sofy tab: are there fixes she made on her own today, with the reason, and none of them repeating in a loop?</item>
-        <item>On the screensaver and in Calendar, are there only holidays of your country, none of them twice?</item>
-        <item>When the sentence says “It may rain any moment”, is the icon on the home screen, Weather and screensaver a rain icon?</item>
-        <item>In the Forecast and on the screensaver, does every rain % for hours and days have the blue drop in front?</item>
-        <item>In Settings › Screen and power, set the clock style to Ring and the position to Bottom right: does the screensaver change with nothing cut off?</item>
-        <item>On the screensaver, in the days strip, is the “Today” high never below the current temperature?</item>
-        <item>Switch worlds with ▲ ▼: does the icon fly in from the rail and play its little scene, without stutter?</item>
-        <item>In Fine tuning › Shortcut cards, switch to Dark glass: do the cards show the icon beside the name with nothing turning brown?</item>
-        <item>Add a widget from another app to the home screen with the remote: does it show live, and can you move and remove it?</item>
-        <item>Let the screensaver come on, wake the TV and let it come back twice: does the home screen never restart on its own?</item>
-        <item>Right after the TV turns on, press ▲ to go to the top bar before the apps show up: does the focus stay where you went?</item>
-        <item>In System › Language, pick another language: do the Sofaly screens change while the TV screens stay as they were?</item>
-        <item>Press HOME: is the home screen the bar at the bottom, with ▲ and ▼ switching the world and ◀ and ▶ moving through the cards, with nothing cut at the edge of the TV?</item>
-        <item>On a strong-sun day (UV 8 or more), did the Ilha show the whole “wear sunscreen” without cutting it?</item>
-        <item>Open the panel on a phone set to another language and tap an app in Apps: is its page (what it is, risk of hiding it) fully translated?</item>
-        <item>In Settings › Appearance, change “Rain chance” to “Both”: do the Forecast hours and days show “Medium 45%” and similar, without cut-off text?</item>
-        <item>Open the Forecast (Weather): do the days show a chance of rain and, at the bottom, the credit “ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON”?</item>
-        <item>Open the panel on the computer: does the Home page show Sofy\'s band, “Now on the TV” and the colored doors, and is every old block still in the sidebar?</item>
-        <item>In the panel, tap the star on a block: does it show up in “Your shortcuts” on the Home page, and does turning a switch offer Undo?</item>
-        <item>In the panel, open the Sofy tab: are today\'s notes there with “See where”, and do Apps show the Frozen and Hidden shelves (Hidden asking for the PIN)?</item>
-        <item>In TV Settings › Remote access, does “On this page” show the groups at the top, and does OK on one jump to it?</item>
-        <item>In a series episode, when the credits started, did “Next episode” appear and did OK start the next one?</item>
-        <item>Let the screensaver come up at night: does it get softer, and late at night dark and without the logo?</item>
-        <item>Open Search: is the first item Speak, with your past searches right below it?</item>
-        <item>Open the Forecast without internet: does the sofa show up with a title, the explanation and Try again?</item>
-        <item>Open Radio four times: on the fourth, is the hints strip at the bottom gone?</item>
-        <item>In the Sofaly phone app, tap the TV: does the remote open, does swiping move the focus on the TV and does volume work from the notification?</item>
-        <item>In the panel on a computer, drag a video onto the Control tab: does it start playing on the TV?</item>
-        <item>With a podcast playing, hold OK for 2 seconds: does it pause just once (no pausing and resuming over and over), and does the remote\'s volume change the sound?</item>
-        <item>In a movie with both versions, watch a bit and switch to the other through ▼: does the other version start from the same point?</item>
-        <item>When editing an alarm, do the sound rise options say “Rises over 1½ min” and “Rises over 2 min” (none says “1 min”)?</item>
-        <item>Open Movies, then Series: do the posters show in a few seconds, and does moving through them stay smooth in the first minute (no long pauses)?</item>
-        <item>On the home screen, move left and right along the cross a few times: do the items glide without stutter, and do the faded neighbours look the same as before?</item>
-        <item>In a movie, does ▼ show a short menu (Audio, Subtitles, Picture and sound, More options) with the current value on the right, and does BACK inside a list go back to the one above?</item>
-        <item>After the move to the new app name, are your home screen, add-ons, plugins, profiles and the panel PIN the same as before?</item>
-        <item>On the home screen and in Settings, is orange only on the focus and the logo, with values in soft white (not orange)?</item>
-        <item>In Movies, is the background blue like the home screen, and does the old “On the network” item now say “From the computer” with a folder?</item>
-        <item>Turn on high contrast in Settings: is the background black and are the columns easy to read? In an app’s menu, is “Uninstall” set apart at the bottom?</item>
-        <item>Open Alarm, Radio and Movies: is the title the same size in the same corner, and do the footer hints look the same (key in a pill + what it does)?</item>
-        <item>For a series in Continue, does the home screen say “Season 1, episode 2” (not “T1 E2”), and a half-watched movie show “Continue · from N min” on its page?</item>
-        <item>Open the Forecast with no internet (or wait for the source to fail): does a focused “Try again” button appear?</item>
-        <item>In Help, is the QR beside the text, away from the clock, with the title at the same height as other screens?</item>
-        <item>Leave the TV idle until the Chromecast falls asleep: does the LG turn off too (if it was on the Chromecast input)?</item>
-        <item>On an alarm, does the sound start very low and take more than a minute to reach normal volume?</item>
-        <item>In Apps › All apps, does the title show the count beside it, with no Projectivy plugin in the grid?</item>
-        <item>In Radio, does “RECENT” sit right above the first station, and does the “Live” card leave with the focus on the playing station?</item>
-        <item>In Settings, are the corner date and the footer keys (OK, BACK) bigger and easy to read?</item>
-        <item>In Series › All, do two full rows of posters show, and is the box at the top at the same height as the box on the left?</item>
-        <item>In Movies, do the MDBList lists scroll with the categories in alphabetical order, and does Filter › List show only the movies of that list?</item>
-        <item>In Movies › All, do two full rows of posters show, with no row cut off at the bottom?</item>
-        <item>In Movies › All, does a movie with a dubbed and a subtitled copy appear only once, with the other version in its details page?</item>
-        <item>Open a movie in Movies: does the details page show the plot in your language, the director and the cast?</item>
-        <item>Open a series that is still airing: does the details page show the plot, the seasons and the next episode?</item>
-        <item>Does the Forecast screen open with today, the hours and the coming days?</item>
-        <item>In Settings, typing your city (or postal code) finds it and the weather keeps working?</item>
-        <item>With something playing and a timer on, does the pill at the top switch between them every few seconds, showing 1/2 and 2/2?</item>
-        <item>On the home screen, holding ▲ opens the quick panel, and a short ▲ just opens the top bar?</item>
+        <item>On the home, the focused row moves to the top, the card art fills the background under a dark veil and no name is cut?</item>
+        <item>In Fine-tuning, switch to the Cinema theme and back to Default: the screen changes and comes back the same?</item>
+        <item>Hold a card of an app: the menu shows Open, Shortcuts, Reorder, Lock with PIN and Details, and a locked app asks for the PIN?</item>
+        <item>Choose an app in Open at power on, turn the TV off and on: it opens by itself after the wait?</item>
+        <item>Leave the home alone: it dims and shows a large clock, and any key brings everything back?</item>
+        <item>Open Settings, Radio and Movies: all have the art under a veil, boxes instead of pills and a cream focus border?</item>
+        <item>Go through Radio, a player and Settings: no text teaches a key (like “OK switches”)?</item>
+        <item>Open the panel on the phone: graphite boxes, cream focus and orange only on what is active, nothing bluish?</item>
+        <item>With the phone off the home Wi-Fi, open the Sofaly app: it finds the TV and changes the volume?</item>
+        <item>Open Help other homes from Sofy\'s Memory: focus starts on “Not now”, the mascot jumps once and Stop asks for the PIN?</item>
+        <item>Turn on Help other homes, wait for the daily packet and check the shadow log for a send answered with 200; then turn it off again?</item>
+        <item>Open What Sofy knows: the counts read right (no “1 profiles”) and Forget asks for confirmation?</item>
+        <item>On a clear night, the sleeping home and the quick panel show the moon in today\'s phase?</item>
+        <item>In the TV search, look for “volume”: the setting appears and opens in the right place?</item>
+        <item>In the panel, Health does not say the disk fills in a few days when the free space is steady?</item>
+        <item>Set the TV to Spanish: Settings and the panel appear fully in Spanish, with no English bits?</item>
     </string-array>
 </resources>
