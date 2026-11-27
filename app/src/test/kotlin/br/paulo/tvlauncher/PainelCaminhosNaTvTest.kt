@@ -83,4 +83,12 @@ class PainelCaminhosNaTvTest {
             }
         }
     }
+
+    /** Caminhos que mudaram com as portas e não podem voltar em nenhum texto (painel, servidor, ferramentas da IA). */
+    @Test fun nenhumCaminhoVelhoNasFontes() {
+        val velhos = listOf("Configurações › Sistema › Confirmações", "Configurações › Sistema › Shell)", "Configurações do launcher >")
+        val achados = listOf(File(raiz, "app/src/main/kotlin"), painel).flatMap { d -> d.walkTopDown().filter { it.isFile && it.extension in setOf("kt", "js", "html") && !it.name.startsWith("i18n-") }.toList() }
+            .flatMap { f -> f.readLines().withIndex().filter { (_, l) -> velhos.any { it in l } && !l.trimStart().startsWith("//") && !l.trimStart().startsWith("*") }.map { "${f.name}:${it.index + 1}" } }
+        assertEquals("caminho velho na TV", emptyList<String>(), achados)
+    }
 }

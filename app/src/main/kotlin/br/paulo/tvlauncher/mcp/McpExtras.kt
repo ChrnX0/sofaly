@@ -68,7 +68,7 @@ object McpExtras {
                 if (!ConfirmacoesTv.permitir(ctx, acaoConf, txt(R.string.cf_casa, acao, id.take(80)), "internet"))
                     throw McpProtocolo.ErroFerramenta(
                         if (ConfirmacoesTv.modo(ctx, acaoConf) == Confirmacoes.Modo.BLOQUEAR)
-                            "ações pela IA bloqueadas nas Confirmações da TV (Configurações › Sistema › Confirmações)"
+                            "ações pela IA bloqueadas nas Confirmações da TV (Configurações › Sistema › Avançado › Confirmações)"
                         else "a TV negou, ou ninguém respondeu em 60 s")
             }
             val r = CasaHA.acionar(ctx, id, acao)

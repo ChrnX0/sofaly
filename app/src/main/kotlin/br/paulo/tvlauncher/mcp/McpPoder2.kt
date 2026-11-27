@@ -117,7 +117,7 @@ object McpPoder2 {
     private fun exigir(app: Context, acao: Confirmacoes.Acao, oQue: String) {
         if (ConfirmacoesTv.permitir(app, acao, oQue, "internet")) return
         erro(if (ConfirmacoesTv.modo(app, acao) == Confirmacoes.Modo.BLOQUEAR)
-            "\"${acao.titulo}\" está bloqueado nas Confirmações da TV (Configurações › Sistema › Confirmações)"
+            "\"${acao.titulo}\" está bloqueado nas Confirmações da TV (Configurações › Sistema › Avançado › Confirmações)"
         else "a TV negou, ou ninguém respondeu em 60 s")
     }
 
