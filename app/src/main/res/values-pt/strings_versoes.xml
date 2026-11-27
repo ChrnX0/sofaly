@@ -13,196 +13,68 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
-        <item>A Sofy percebe e conserta sozinha: refaz o acesso interno quando a TV o esquece, aprende o normal da sua casa, confere as telas de madrugada e, com a chave de IA do dono, pergunta à IA o que ainda não sabe; o que ela aprende vai no backup</item>
-        <item>A Sofy confere se o que a tela diz é verdade: feriado de outro país, o mesmo evento duas vezes, ícone de tempo que não bate com a frase, máxima de hoje abaixo da temperatura de agora, números sem sentido</item>
-        <item>Agenda e descanso mostram só os feriados do país da TV, uma vez só, na língua da TV; nomes longos ganham duas linhas</item>
-        <item>Chuva provável agora: o ícone também vira chuva, a frase diz “Pode chover a qualquer momento” e cada % de chuva tem a gota na frente</item>
-        <item>Descanso: 7 jeitos da hora, 3 jeitos de embaixo (Faixa, Cartão vivo, Pilha) e 6 lugares, em Configurações › Tela e energia; o “Hoje” conta a temperatura de agora</item>
-        <item>Animação do mundo: o ícone voa do trilho e ganha uma pequena cena; escolha Pequena cena, Traço de luz ou Pulo e acende no Ajuste fino</item>
-        <item>Cards de atalho com o ícone ao lado do nome, em Branco, Vidro claro ou Vidro escuro, e ícones com personalidade</item>
-        <item>Jeito das telas: as outras telas seguem a barra (Gaveta, Vidro ou Barra), com o foco em anel e a hora numa pílula no alto</item>
-        <item>Widgets de outros apps vivos na tela inicial, que você arruma pelo controle</item>
-        <item>Extensões de outros apps: fundos, ícones, cartões e botões novos, revisados antes de entrar</item>
-        <item>Celular e TV: calibre imagem e som pelo celular, faça o controle tocar quando sumir e use o microfone e a câmera do celular na TV</item>
-        <item>Língua do app separada da TV (Sistema › Língua); a TV fala mais 12 línguas e o painel e o site, 27</item>
-        <item>Todo botão faz alguma coisa: 79 telas foram testadas apertando OK em cada item</item>
-        <item>Mais firme: o launcher não cai mais quando o descanso recomeça, e a tela inicial não tira o foco de onde você já foi com o controle</item>
-        <item>Despertador desligado diz “Desligado” ao lado da hora, e os avisos não cobrem mais os cards de baixo</item>
-        <item>Lua calculada com mais precisão (fase e nascer da lua)</item>
-        <item>Tela inicial nova de fábrica, a barra única: ▲ e ▼ trocam o mundo (Assistir, Ouvir, Jogar…), ◀ e ▶ andam pelos apps e conteúdos dele em cartões grandes, e a Ilha continua no alto</item>
-        <item>A Ilha avisa quando o sol está forte (UV 8 ou mais): “use protetor solar”</item>
-        <item>Painel em outras línguas sem pedaços em português: as dicas do Wi-Fi, a ficha dos 140 apps conhecidos, o passo a passo do certificado, a página da unidade de rede e a tela “A TV não respondeu”</item>
-        <item>Chance de chuva mais fina: cada modelo do tempo agora vale pela quantidade de chuva que prevê e pelo quanto acertou, e em Configurações › Aparência você escolhe número, palavra (Baixa, Média, Alta) ou os dois</item>
-        <item>Clima mais certo: a chance de chuva agora é o voto de 4 modelos do tempo (ECMWF, GFS, ICON e o modelo de IA do ECMWF); num teste de 60 dias em 30 cidades ela acertou mais do que qualquer um sozinho</item>
-        <item>Painel web com a cara da Sofaly: cada área tem a sua cor no ícone, a Início mostra os recados da Sofy, o que está na TV agora e os mundos como portas, e nada sumiu</item>
-        <item>Painel: a estrela em qualquer bloco ou chave põe em “Seus atalhos” na Início, “Conversa com” liga os blocos parentes, e uma mudança oferece Desfazer</item>
-        <item>Painel: aba Sofy nova (recados de hoje, o porquê, Desfazer para app congelado) e Apps com as prateleiras Congelados e Escondidos (Escondidos pede o PIN)</item>
-        <item>Configurações da TV iguais ao painel: abas longas têm o índice “Nesta página” no alto, e as pílulas “Conversa com” levam ao grupo parente</item>
-        <item>Despertador: quando a LG acorda ainda no volume alto de ontem, o alarme não começa mais alto</item>
-        <item>Séries: “Próximo episódio” aparece quando começam os créditos, “Pular resumo” funciona como o “Pular abertura”, a barra diz a hora em que o vídeo termina e ⏮ (ou ▼ › Legenda) repete os últimos 10 s com legenda</item>
-        <item>Volume da TV LG pelo painel e pelo assistente: as teclas de volume e mudo agora mudam o som de verdade (iam para a saída HDMI, que fica travada no máximo)</item>
-        <item>Celular vira controle: no app Sofaly do celular, toque na TV para deslizar, tocar e digitar; volume e ⏯ também na notificação e no bloco de atalhos</item>
-        <item>Despertador tocou na TV: o celular com o painel instalado recebe um aviso</item>
-        <item>No painel do computador, arraste um vídeo, uma música ou uma foto para a página e veja na TV</item>
-        <item>Tela de descanso que acompanha o dia: de manhã mostra o resumo do dia, à noite fica mais suave e de madrugada fica escura e quente, sem o logo</item>
-        <item>Busca: dá para falar em vez de digitar, e as últimas buscas aparecem primeiro</item>
-        <item>Telas vazias mostram o mascote, o que aconteceu e o que fazer; filme sem capa ganha uma cor própria em vez do cinza</item>
-        <item>As dicas do rodapé somem depois de vistas 3 vezes em cada tela (você já aprendeu)</item>
-        <item>Letras de pelo menos 15 na barra de cima e nos selos; o player de podcast lê em voz alta o botão em foco</item>
-        <item>Painel: botões de 48 px no celular, filtro escolhido com a barra laranja e mais contraste no texto fraco</item>
-        <item>Podcasts e rádio: segurar OK não pausa e volta sozinho, as teclas PLAY e PAUSA fazem só o que dizem, e o volume do controle funciona dentro do player de podcast</item>
-        <item>Filmes e Séries: trocar entre dublado e legendado continua do ponto onde você estava; títulos sem sinopse não mostram mais a palavra “null”</item>
-        <item>Casa (HA): a TV só conversa com o Home Assistant que ela já conhece; o timer de dormir do podcast não desliga mais a rádio</item>
-        <item>Uma atualização instalada com a TV dormindo agora é otimizada na mesma noite (antes a versão nova rodava mais lenta o dia seguinte inteiro, até a tela apagar de novo)</item>
-        <item>Filmes e Séries abrem mais rápido: juntar as cópias dublada e legendada de cada título agora leva uma fração do tempo (em listas grandes isso deixava a TV ocupada por mais de um minuto depois de abrir)</item>
-        <item>Tela inicial: andar pela cruz ficou mais leve, porque os itens apagados não precisam mais de uma passada extra de desenho a cada quadro</item>
-        <item>Ler em voz alta o item em foco (Extras): as telas fechadas não ficam mais presas na memória</item>
-        <item>Player (filmes, séries, arquivos e TV ao vivo): o menu do ▼ ficou simples. A primeira tela tem Áudio, Legenda, Assistir dublado/legendado, Imagem e som e Mais opções; o valor de agora aparece à direita, › abre a próxima lista, ✓ só marca o que está escolhido e VOLTAR volta à lista de cima</item>
-        <item>Filmes e Séries: sem a faixa de dicas embaixo, os pôsteres ganham o espaço; no pôster fica só a barra de progresso (o tempo que falta aparece na caixa de cima), e nenhum selo ocupa duas linhas</item>
-        <item>Configurações: ligar o alto contraste (ou trocar o tamanho do texto ou o visual pronto) mantém o foco na mesma opção, e trocar uma opção não mostra mais o aviso “Desfazer” que tirava o foco (desfazer continua em Sistema › Mudanças recentes)</item>
-        <item>Novo nome do app na TV (tv.sofaly.launcher): ajustes, add-ons, plugins e o painel passam sozinhos, sem reset</item>
-        <item>Um sistema de cores: o laranja só marca a marca, o foco e o progresso; texto secundário em branco suave; cada mundo tem a sua cor e o seu desenho em todos os estilos da barra</item>
-        <item>Filmes e Séries ganham o mesmo fundo azul da tela inicial; “Na rede” virou “Do computador”, com ícone de pasta</item>
-        <item>Alto contraste de verdade: fundo preto, colunas com força total; menu do app com “Desinstalar” separado no fim; Diagnóstico sem o resumo repetido; Casa (HA) fora do ar mostra “Tentar de novo”</item>
-        <item>Telas no mesmo padrão: títulos de Rádio, Jogos, Despertador, Filmes e Séries no mesmo tamanho e lugar; as dicas do controle iguais em todas as telas; Filmes e Séries vazios mostram “Adicionar lista”; menus sem o “1 de 5”</item>
-        <item>Textos mais claros: “falta 1 min”, “Temporada 1, episódio 2”, “Continuar de 19 min” na ficha, Extras em seções, Placar sem frase repetida</item>
-        <item>Erros com saída: sem rede, a tela do celular e a de trazer de outra TV mostram “Tentar de novo”; a Previsão sem dados também; no Diagnóstico, o Wi-Fi com falha abre o Wi-Fi</item>
-        <item>Ajuda: o QR saiu do canto do relógio e fica ao lado do texto; o menu de um app cobre melhor a tela inicial atrás dele</item>
-        <item>A LG agora desliga junto quando o Chromecast dorme sozinho por ficar parado (ela recusava o comando de desligar do HDMI)</item>
-        <item>Todos os apps: o mesmo cabeçalho das telas Rádio e Jogos, com “Na grade: X · ocultos: Y”; plugin de fundo não aparece mais como app</item>
-        <item>Rádio, Podcasts e Jogos: o nome da lista fica junto do primeiro item; o cartão “Ao vivo” sai quando a rádio em foco é a que toca</item>
-        <item>Letras maiores (nada abaixo de 15) nos ajustes, nas teclas do rodapé, na data do canto e nas listas</item>
-        <item>Painel no celular e no computador com as cores e as letras do site sofaly.tv</item>
-        <item>Aviso de aparelho novo na rede não se repete para o mesmo celular; o botão em foco no player de podcast ficou bem visível</item>
-        <item>Séries: as mesmas duas fileiras inteiras de pôsteres de Filmes, com selo LEG; a caixa de cima tem uma linha só (sem sinopse) e fica na altura da caixa da esquerda; título longo é encurtado para a nota e o ano sempre aparecerem</item>
-        <item>Filmes e Séries: as listas do Trakt e do MDBList agora rolam junto com as categorias, em ordem alfabética; em Filmes dá para escolher a lista também no Filtro</item>
-        <item>Filmes: cabem duas fileiras inteiras de pôsteres (6 por fileira na TV comum); o título aparece grande no topo e a cópia só legendada ganha o selo LEG</item>
-        <item>Filmes: a cópia dublada e a legendada do mesmo filme agora aparecem num cartão só (a ficha tem as duas versões)</item>
-        <item>As fichas de filmes e séries agora vêm do Trakt: sinopse em português, direção, elenco, trailer e o próximo episódio</item>
-        <item>Tempo: previsão do MET Norway; a cidade ou o CEP são achados na própria TV, sem serviço de fora</item>
-        <item>Simkl: conecte a sua conta para ver a nota da comunidade; a ficha convida a conectar</item>
-        <item>Barra de cima (Ilha): até 3 coisas se revezam, ícones de estado ao lado da hora, e o ponto fica âmbar ou vermelho quando algo pede atenção</item>
-        <item>O que acabou de chegar (campainha, lembrete, compromisso, despertador) aparece embaixo da pílula por alguns segundos; segure ▲ para abrir o painel rápido</item>
-        <item>TV no Continuar: o “No ar” não some mais quando a TV passa o dia sem abrir o player (a tela inicial busca o guia sozinha)</item>
-        <item>Continuar: cada item diz o que é (TV, Série, Filme, Rádio, Podcast, Jogo ou o app), como nas outras categorias; o título vem embaixo e o resto no canto</item>
-        <item>Despertador: o som sempre começa baixo e sobe devagar, por pelo menos 1 minuto e meio, mesmo com “Toque: direto”, para nunca começar no volume cheio</item>
+        <item>Logo nova: o ícone com “Sofa” em branco e “ly” em laranja, sobre a tela grafite</item>
+        <item>Tela inicial em fileiras: cada categoria numa fileira de cartões grandes, a fileira em foco sobe para o alto e a arte do cartão em foco cobre o fundo, com um véu escuro por cima</item>
+        <item>Ajuste fino das fileiras: temas prontos (Padrão, Cinema, Vitrine, Mínimo), exportar e importar o seu tema, 2 ou 3 linhas por categoria, barra de status, tamanho da hora e das letras</item>
+        <item>Fundo das fileiras: a arte do foco, troca sozinha com esmaecer, cores tiradas da arte e sombra ajustável</item>
+        <item>Menu do cartão: abrir, atalhos do app, reordenar, travar com PIN, controles de mídia, abrir ao ligar e detalhes</item>
+        <item>Abrir ao ligar: um app abre sozinho quando a TV liga ou acorda, com uma espera que você escolhe</item>
+        <item>Modo ocioso: parada um tempo, a tela inicial escurece e mostra a hora grande (tempo e opacidade ajustáveis); voltar duas vezes pode abrir o descanso</item>
+        <item>Um padrão só em todas as telas: arte com véu escuro no fundo, caixas no lugar de pílulas e fios, foco com borda creme e ícone laranja, fundo grafite sem azul</item>
+        <item>Rádio, Podcasts e Jogos em fileiras de cartões; capas sem foto em grafite com a inicial</item>
+        <item>Painel no celular e no computador no mesmo padrão da TV: caixas grafite, foco creme e o laranja só no que está ativo</item>
+        <item>Os textos não ensinam mais teclas: as dicas de controle saíram de todas as telas, em todas as línguas (as teclas ficam em Ajuda)</item>
+        <item>Controle de fora de casa: o celular pareado comanda a TV pela internet, pelo servidor da Sofaly, com tudo cifrado de ponta a ponta</item>
+        <item>Outras casas: ligue duas TVs com um código (ou pelo celular) e confira os números nas duas; Continuar em outra TV e Assistir junto chegam a essas casas</item>
+        <item>Ajudar outras casas: com o seu sim (perguntado uma vez, no fim das boas-vindas), a Sofy manda à rede de Sofys só o que a tela de consentimento lista e recebe receitas assinadas, que por enquanto só conferem</item>
+        <item>A Sofy avisa no celular quando a TV precisa de você, e o celular volta ao painel sem pedir o PIN de novo</item>
+        <item>Compartilhar com a TV: mande um link, vídeo ou foto do celular direto para a TV</item>
+        <item>Noite da casa, vigia de travamentos e saúde do servidor: a TV percebe quando algo trava ou fica lento e conta no painel</item>
+        <item>Boas-vindas oferecem trazer os dados de outra TV ou de um backup; nova tela “O que a Sofy sabe”, com Esquecer</item>
+        <item>Fase da lua em todo lugar: noite limpa mostra a lua de hoje na tela inicial dormindo, no painel rápido e na previsão</item>
+        <item>Lembretes da casa numa lista só, e os recados da família ficam à vista; o modo simples ganha uma faixa no alto</item>
+        <item>Busca da TV acha ajustes e podcasts que você segue; o painel mostra quando a TV pede um texto</item>
+        <item>Relatar um problema em particular, direto para a Sofaly</item>
+        <item>Saúde: a previsão de disco cheio não se assusta mais com um app grande recém-instalado; a medida de abertura dos apps sempre volta às Configurações</item>
+        <item>Mais firme: a tela inicial não cai quando os apps carregam depois de ela ser recriada, e uma lista de canais que falha avisa em vez de ficar pela metade</item>
+        <item>Pen drive: a formatação fica bloqueada quando o backup não consegue ler todas as pastas</item>
+        <item>Contraste, letras e cores conferidos por teste em todas as telas; licenças em inglês; cartões que não cortam</item>
+        <item>O app e o painel completos em mais línguas: os textos que faltavam foram traduzidos em 26 línguas</item>
     </string-array>
     <string-array name="roteiro_titulos">
-        <item>Sofy conserta</item>
-        <item>Feriados do país</item>
-        <item>Ícone de chuva</item>
-        <item>Gota no %</item>
-        <item>Jeitos do descanso</item>
-        <item>Hoje com agora</item>
-        <item>Animação do mundo</item>
-        <item>Cards de atalho</item>
-        <item>Widgets vivos</item>
-        <item>Descanso recomeça</item>
-        <item>Foco ao abrir</item>
-        <item>Língua do app</item>
-        <item>Barra única</item>
-        <item>Aviso de UV</item>
-        <item>Painel traduzido</item>
-        <item>Chance em palavras</item>
-        <item>Chuva por consenso</item>
-        <item>Painel com a Sofaly</item>
-        <item>Atalhos do painel</item>
-        <item>Aba Sofy</item>
-        <item>Índice dos ajustes</item>
-        <item>Próximo episódio nos créditos</item>
-        <item>Descanso pela hora</item>
-        <item>Falar na busca</item>
-        <item>Tela vazia</item>
-        <item>Dicas que somem</item>
-        <item>Celular controle</item>
-        <item>Arrastar e ver</item>
-        <item>Teclas do podcast</item>
-        <item>Trocar a versão</item>
-        <item>Despertador: subida</item>
-        <item>Filmes abrem rápido</item>
-        <item>Tela inicial leve</item>
-        <item>Menu do player</item>
-        <item>Tudo no lugar</item>
-        <item>Sistema de cores</item>
-        <item>Do computador</item>
-        <item>Alto contraste</item>
-        <item>Telas no mesmo padrão</item>
-        <item>Textos claros</item>
-        <item>Tentar de novo</item>
-        <item>QR da Ajuda</item>
-        <item>LG desliga junto</item>
-        <item>Som do despertador</item>
-        <item>Todos os apps</item>
-        <item>Rádio sem vão</item>
-        <item>Letra dos ajustes</item>
-        <item>Pôsteres de Séries</item>
-        <item>Listas na coluna</item>
-        <item>Duas fileiras de pôsteres</item>
-        <item>Um cartão por filme</item>
-        <item>Ficha do filme</item>
-        <item>Ficha da série</item>
-        <item>Previsão</item>
-        <item>Cidade</item>
-        <item>Fila da barra</item>
-        <item>Segurar ▲</item>
+        <item>Fileiras</item>
+        <item>Temas prontos</item>
+        <item>Menu do cartão</item>
+        <item>Abrir ao ligar</item>
+        <item>Modo ocioso</item>
+        <item>Padrão das telas</item>
+        <item>Sem dicas de teclas</item>
+        <item>Painel no padrão</item>
+        <item>Controle de fora</item>
+        <item>Ajudar outras casas</item>
+        <item>Rede de Sofys</item>
+        <item>O que a Sofy sabe</item>
+        <item>Lua de hoje</item>
+        <item>Busca acha ajustes</item>
+        <item>Previsão do disco</item>
+        <item>Outras línguas</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>No painel, aba Sofy: aparecem consertos que ela fez sozinha hoje, com o porquê, e nenhum deles repetiu em laço?</item>
-        <item>No descanso e na Agenda, aparecem só feriados do Brasil (nenhum Thanksgiving ou Black Friday), e nenhum duas vezes?</item>
-        <item>Quando a frase diz “Pode chover a qualquer momento”, o ícone da tela inicial, do Clima e do descanso é de chuva?</item>
-        <item>Na Previsão e no descanso, cada % de chuva das horas e dos dias tem a gota azul na frente?</item>
-        <item>Em Configurações › Tela e energia, troque o Jeito da hora para Anel e o Lugar para Embaixo, à direita: o descanso muda e nada fica cortado?</item>
-        <item>No descanso, na faixa dos dias, a máxima de “Hoje” nunca fica abaixo da temperatura de agora?</item>
-        <item>Troque de mundo com ▲ ▼: o ícone voa do trilho e faz a pequena cena, sem engasgar?</item>
-        <item>Em Ajuste fino › Cards de atalho, troque para Vidro escuro: os cards mostram o ícone ao lado do nome e nada fica marrom?</item>
-        <item>Ponha um widget de outro app na tela inicial pelo controle: ele aparece vivo e dá para mover e tirar?</item>
-        <item>Deixe o descanso aparecer, acorde a TV e deixe ele voltar duas vezes: a tela inicial nunca reinicia sozinha?</item>
-        <item>Logo depois de a TV ligar, aperte ▲ para ir à barra de cima antes de os apps aparecerem: o foco fica onde você foi?</item>
-        <item>Em Sistema › Língua, escolha outra língua: as telas da Sofaly mudam e as da TV continuam como estavam?</item>
-        <item>Aperte HOME: a tela inicial é a barra embaixo; ▲ e ▼ trocam o mundo e ◀ e ▶ andam pelos cartões, sem nada cortado na borda da TV?</item>
-        <item>Num dia de sol forte (UV 8 ou mais), a Ilha mostrou “use protetor solar” inteiro, sem cortar?</item>
-        <item>Abra o painel num celular em inglês e toque num app em Apps: a ficha (o que é, risco ao esconder) aparece toda em inglês?</item>
-        <item>Em Configurações › Aparência, mude “Chance de chuva” para “Os dois”: as horas e os dias da Previsão mostram “Média 45%” e parecidos, sem texto cortado?</item>
-        <item>Abra a Previsão (Clima): a chance de chuva dos dias aparece e, embaixo, o crédito “ECMWF (CC BY 4.0) · NOAA GFS · DWD ICON”?</item>
-        <item>Abra o painel no computador: a Início mostra a faixa da Sofy, “Agora na TV” e as portas coloridas, e todo bloco antigo continua na barra lateral?</item>
-        <item>No painel, toque na estrela de um bloco: ele aparece em “Seus atalhos” na Início, e mudar uma chave oferece Desfazer?</item>
-        <item>No painel, abra a aba Sofy: os recados de hoje aparecem com “Ver onde”, e os Apps mostram as prateleiras Congelados e Escondidos (Escondidos pede o PIN)?</item>
-        <item>Nas Configurações da TV › Acesso remoto, “Nesta página” mostra os grupos no alto, e OK num deles leva até ele?</item>
-        <item>Num episódio de série, quando os créditos começaram, apareceu “Próximo episódio” e o OK começou o próximo?</item>
-        <item>Deixe o descanso aparecer à noite: a tela fica mais suave e, de madrugada, escura e sem o logo?</item>
-        <item>Abra a Busca: o primeiro item é Falar, e as buscas que você fez aparecem logo embaixo?</item>
-        <item>Abra a Previsão sem internet: aparece o sofá com um título, a explicação e Tentar de novo?</item>
-        <item>Abra o Rádio quatro vezes: na quarta, a faixa de dicas do rodapé não aparece mais?</item>
-        <item>No app Sofaly do celular, toque na TV: abre o controle, deslizar move o foco na TV e o volume funciona pela notificação?</item>
-        <item>No painel no computador, arraste um vídeo para a aba Controle: ele começa a tocar na TV?</item>
-        <item>Num podcast tocando, segure OK por 2 segundos: o player pausa uma vez só (não fica pausando e voltando), e o volume do controle muda o som?</item>
-        <item>Num filme com as duas versões, assista um pouco e troque para a outra pelo ▼: a outra versão começa do mesmo ponto?</item>
-        <item>Ao editar um despertador, as opções de subida do som dizem “Sobe em 1 min e meio” e “Sobe em 2 min” (nenhuma diz “1 min”)?</item>
-        <item>Abra Filmes e depois Séries: os pôsteres aparecem em poucos segundos, e andar por eles continua liso no primeiro minuto (sem pausas longas)?</item>
-        <item>Na tela inicial, ande para os lados pela cruz algumas vezes: os itens deslizam sem engasgar, e os vizinhos apagados estão iguais a antes?</item>
-        <item>Num filme, o ▼ mostra um menu curto (Áudio, Legenda, Imagem e som, Mais opções) com o valor de agora à direita, e VOLTAR dentro de uma lista volta para a de cima?</item>
-        <item>Depois da troca para o novo nome do app, a tela inicial, os add-ons, os plugins, os perfis e o PIN do painel continuam como antes?</item>
-        <item>Na tela inicial e nas Configurações, o laranja aparece só no foco e na marca, com os valores em branco suave (não laranja)?</item>
-        <item>Em Filmes, o fundo é azul como o da tela inicial, e o antigo “Na rede” agora diz “Do computador” com uma pasta?</item>
-        <item>Ligue o alto contraste nas Configurações: o fundo fica preto e as colunas fáceis de ler? No menu de um app, “Desinstalar” fica separado embaixo?</item>
-        <item>Abra Despertador, Rádio e Filmes: o título está no mesmo tamanho e no mesmo canto, e as dicas do rodapé têm o mesmo desenho (tecla numa pílula + o que faz)?</item>
-        <item>Numa série em Continuar, a tela inicial diz “Temporada 1, episódio 2” (não “T1 E2”), e um filme pela metade mostra “Continuar · de N min” na ficha?</item>
-        <item>Abra a Previsão sem internet (ou espere a fonte falhar): aparece o botão “Tentar de novo” com o foco nele?</item>
-        <item>Em Ajuda, o QR fica ao lado do texto, longe do relógio, e o título fica na mesma altura das outras telas?</item>
-        <item>Deixe a TV parada até o Chromecast dormir sozinho: a LG apaga junto (se estava na entrada do Chromecast)?</item>
-        <item>Num despertador, o som começa bem baixo e leva mais de um minuto para chegar ao volume normal?</item>
-        <item>Em Aplicativos › Todos os apps, o título tem a conta ao lado e o plugin do Projectivy não aparece na grade?</item>
-        <item>Em Rádio, o nome “RECENTES” fica logo acima da primeira rádio, e com o foco na rádio que toca o cartão “Ao vivo” some?</item>
-        <item>Nas Configurações, a data do canto e as teclas do rodapé (OK, VOLTAR) estão maiores e fáceis de ler?</item>
-        <item>Em Séries › Todas, aparecem duas fileiras inteiras de pôsteres, e a caixa de cima fica na mesma altura da caixa da esquerda?</item>
-        <item>Em Filmes, as listas do MDBList rolam junto com as categorias em ordem alfabética, e Filtro › Lista mostra só os filmes dela?</item>
-        <item>Em Filmes › Todos, aparecem duas fileiras inteiras de pôsteres, sem fileira cortada embaixo?</item>
-        <item>Em Filmes › Todos, um filme com cópia dublada e legendada aparece uma vez só, com a outra versão na ficha?</item>
-        <item>Abra um filme em Filmes: a ficha mostra a sinopse em português, a direção e o elenco?</item>
-        <item>Abra uma série que ainda está no ar: a ficha mostra a sinopse, as temporadas e o próximo episódio?</item>
-        <item>A tela de Previsão abre com hoje, as horas e os próximos dias?</item>
-        <item>Nos Ajustes, digitar a sua cidade (ou o CEP) acha o lugar e o tempo continua funcionando?</item>
-        <item>Com algo tocando e um timer ligado, a pílula de cima alterna entre os dois a cada poucos segundos, mostrando 1/2 e 2/2?</item>
-        <item>Na tela inicial, segurar ▲ abre o painel rápido, e um ▲ curto só abre a barra de cima?</item>
+        <item>Na tela inicial, a fileira em foco sobe para o alto, a arte do cartão cobre o fundo com véu escuro e nenhum nome fica cortado?</item>
+        <item>No Ajuste fino, troque para o tema Cinema e depois volte para Padrão: a tela muda e volta igual?</item>
+        <item>Segure o cartão de um app: o menu mostra Abrir, Atalhos, Reordenar, Travar com PIN e Detalhes, e travar pede o PIN ao abrir?</item>
+        <item>Escolha um app em Abrir ao ligar, desligue e ligue a TV: ele abre sozinho depois da espera?</item>
+        <item>Deixe a tela inicial parada: ela escurece e mostra a hora grande, e qualquer tecla traz tudo de volta?</item>
+        <item>Abra Configurações, Rádio e Filmes: todos têm a arte com véu no fundo, caixas no lugar de pílulas e o foco com borda creme?</item>
+        <item>Passe por Rádio, um player e as Configurações: nenhum texto ensina tecla (como “OK troca”)?</item>
+        <item>Abra o painel no celular: caixas grafite, foco creme e o laranja só no que está ativo, sem cor azulada?</item>
+        <item>Com o celular fora do Wi-Fi de casa, abra o app Sofaly: ele acha a TV e muda o volume?</item>
+        <item>Abra Ajudar outras casas pela Memória do Sofy: o foco começa em “Agora não”, o mascote pula uma vez e Parar pede o PIN?</item>
+        <item>Ligue Ajudar outras casas, espere o pacote do dia e confira no log da sombra um envio com resposta 200; depois desligue de novo?</item>
+        <item>Abra O que a Sofy sabe: as contagens aparecem certas (nada de “1 perfis”) e Esquecer pede confirmação?</item>
+        <item>Numa noite limpa, a tela inicial dormindo e o painel rápido mostram a lua com a fase de hoje?</item>
+        <item>Na busca da TV, procure “volume”: aparece o ajuste e ele abre no lugar certo?</item>
+        <item>No painel, a Saúde não diz que o disco enche em poucos dias quando o espaço livre está parado?</item>
+        <item>Ponha a TV em espanhol: as Configurações e o painel aparecem inteiros em espanhol, sem pedaços em inglês?</item>
     </string-array>
 </resources>
