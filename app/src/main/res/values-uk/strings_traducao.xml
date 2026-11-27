@@ -180,8 +180,8 @@
     <string name="bu_motivo_time">Моя команда</string>
     <string name="bu_motivo_favorito">Улюблений канал</string>
     <string name="bu_motivo_assistiu">Ви дивилися</string>
-    <string name="bc_categorias">КАТЕГОРІЇ</string>
-    <string name="bc_canais">КАНАЛИ</string>
+    <string name="bc_categorias">Категорії</string>
+    <string name="bc_canais">Канали</string>
     <string name="bc_carregando">завантаження каналів…</string>
     <string name="bc_categoria_bloqueada">уся категорія \"%1$s\" заблокована: розблокуйте її в лівій колонці</string>
     <string name="bc_filme">Фільм · %1$s</string>
@@ -295,8 +295,8 @@
     <string name="ad_vai_desligar">Телевізор вимкнеться через %1$d с</string>
     <string name="home_busca_voz">Голосовий пошук</string>
     <string name="pg_aviso_as">Нагадування о %1$s: %2$s</string>
-    <string name="at_timer">ТАЙМЕР</string>
-    <string name="at_despertador">БУДИЛЬНИК</string>
+    <string name="at_timer">Таймер</string>
+    <string name="at_despertador">Будильник</string>
     <string name="vod_vazio_texto">Фільми й серіали беруться з вашого списку для ТБ. Додайте його в Налаштування, Обліковий запис.</string>
     <string name="vod_adicionar_lista">Додати список</string>
     <string name="uso_recomendado">Рекомендовано</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (ru) de values/strings_coluna.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="coluna_listas">СПИСКИ</string>
+    <string name="coluna_listas">Списки</string>
     <string name="coluna_novos">+%1$s</string>
     <string name="coluna_filtro">Фильтр</string>
     <string name="coluna_esportes">Спорт</string>

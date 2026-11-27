@@ -443,7 +443,7 @@
     <string name="player_pin_espere">Zu viele falsche PINs. Versuche es in %d Min. erneut.</string>
     <string name="infantil_titulo">Kinderkategorien</string>
     <string name="infantil_carregando">Kategorien werden geladen …</string>
-    <string name="infantil_coluna_itens">WAS DRIN IST</string>
+    <string name="infantil_coluna_itens">Was drin ist</string>
     <string name="infantil_so_categoria">markiere die ganze Kategorie in der linken Spalte</string>
     <string name="infantil_vazio">keine Kategorien: füge unter Einstellungen › TV und Filme ein Konto hinzu und lade die Sender neu</string>
     <string name="infantil_limite">eine Erwachsenenkategorie kann keine Kinderkategorie sein</string>
@@ -464,7 +464,7 @@
     <string name="player_sem_favoritos">Noch keine Favoriten.</string>
     <string name="player_categoria_vazia">Keine Sender in dieser Kategorie.</string>
     <string name="player_sem_guia">Kein Programmführer für diesen Sender.</string>
-    <string name="player_depois">SPÄTER</string>
+    <string name="player_depois">Später</string>
     <string name="player_favorito_pos">★ %1$s zu den Favoriten hinzugefügt</string>
     <string name="player_favorito_tirou">%1$s aus den Favoriten entfernt</string>
     <string name="player_favoritos_cheio">Es gibt schon 500 Favoriten: entferne zuerst einen.</string>

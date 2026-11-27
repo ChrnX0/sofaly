@@ -168,8 +168,8 @@
     <string name="bu_motivo_time">Csapatom</string>
     <string name="bu_motivo_favorito">Kedvenc csatorna</string>
     <string name="bu_motivo_assistiu">Megnézte</string>
-    <string name="bc_categorias">KATEGÓRIÁK</string>
-    <string name="bc_canais">CSATORNÁK</string>
+    <string name="bc_categorias">Kategóriák</string>
+    <string name="bc_canais">Csatornák</string>
     <string name="bc_carregando">csatornák betöltése…</string>
     <string name="bc_categoria_bloqueada">a teljes \"%1$s\" kategória le van tiltva: oldja fel a bal oszlopban</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -281,8 +281,8 @@
     <string name="ad_vai_desligar">A TV %1$d mp múlva kikapcsol</string>
     <string name="home_busca_voz">Hangalapú keresés</string>
     <string name="pg_aviso_as">Emlékeztető %1$s-kor: %2$s</string>
-    <string name="at_timer">IDŐZÍTŐ</string>
-    <string name="at_despertador">ÉBRESZTŐ</string>
+    <string name="at_timer">Időzítő</string>
+    <string name="at_despertador">Ébresztő</string>
     <string name="vod_vazio_texto">A filmek és sorozatok a TV-listájából származnak. Adjon hozzá egyet a Beállítások, Fiók menüben.</string>
     <string name="vod_adicionar_lista">Lista hozzáadása</string>
     <string name="uso_recomendado">Ajánlott</string>

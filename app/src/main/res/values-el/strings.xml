@@ -507,7 +507,7 @@
     <string name="player_pin_espere">Πάρα πολλά λάθος PIN. Δοκιμάστε ξανά σε %d λεπ.</string>
     <string name="infantil_titulo">Παιδικές κατηγορίες</string>
     <string name="infantil_carregando">φόρτωση κατηγοριών…</string>
-    <string name="infantil_coluna_itens">ΤΙ ΠΕΡΙΕΧΕΙ</string>
+    <string name="infantil_coluna_itens">Τι περιέχει</string>
     <string name="infantil_so_categoria">σημειώστε όλη την κατηγορία στην αριστερή στήλη</string>
     <string name="infantil_vazio">χωρίς κατηγορίες: προσθέστε λογαριασμό στις Ρυθμίσεις › TV και ταινίες και φορτώστε ξανά τα κανάλια</string>
     <string name="infantil_limite">μια κατηγορία ενηλίκων δεν μπορεί να είναι παιδική</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">Κανένα αγαπημένο ακόμα.</string>
     <string name="player_categoria_vazia">Κανένα κανάλι σε αυτή την κατηγορία.</string>
     <string name="player_sem_guia">Χωρίς οδηγό προγράμματος για αυτό το κανάλι.</string>
-    <string name="player_depois">ΑΡΓΟΤΕΡΑ</string>
+    <string name="player_depois">Αργότερα</string>
     <string name="player_favorito_pos">★ Το %1$s προστέθηκε στα αγαπημένα</string>
     <string name="player_favorito_tirou">Το %1$s αφαιρέθηκε από τα αγαπημένα</string>
     <string name="player_favoritos_cheio">Υπάρχουν ήδη 500 αγαπημένα: αφαιρέστε πρώτα ένα.</string>

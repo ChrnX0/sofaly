@@ -174,8 +174,8 @@
     <string name="bu_motivo_time">Echipa mea</string>
     <string name="bu_motivo_favorito">Canal preferat</string>
     <string name="bu_motivo_assistiu">Ați vizionat</string>
-    <string name="bc_categorias">CATEGORII</string>
-    <string name="bc_canais">CANALE</string>
+    <string name="bc_categorias">Categorii</string>
+    <string name="bc_canais">Canale</string>
     <string name="bc_carregando">se încarcă canalele…</string>
     <string name="bc_categoria_bloqueada">toată categoria \"%1$s\" este blocată: deblocați-o în coloana din stânga</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -288,8 +288,8 @@
     <string name="ad_vai_desligar">TV-ul se va opri în %1$d s</string>
     <string name="home_busca_voz">Căutare vocală</string>
     <string name="pg_aviso_as">Memento la %1$s: %2$s</string>
-    <string name="at_timer">TEMPORIZATOR</string>
-    <string name="at_despertador">ALARMĂ</string>
+    <string name="at_timer">Temporizator</string>
+    <string name="at_despertador">Alarmă</string>
     <string name="vod_vazio_texto">Filmele și serialele vin din lista dvs. TV. Adăugați una în Setări, Cont.</string>
     <string name="vod_adicionar_lista">Adaugă o listă</string>
     <string name="uso_recomendado">Recomandat</string>

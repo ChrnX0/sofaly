@@ -507,7 +507,7 @@
     <string name="player_pin_espere">Too many wrong PINs. Try again in %d min.</string>
     <string name="infantil_titulo">Kids categories</string>
     <string name="infantil_carregando">loading categories…</string>
-    <string name="infantil_coluna_itens">WHAT IS IN IT</string>
+    <string name="infantil_coluna_itens">What is in it</string>
     <string name="infantil_so_categoria">mark the whole category in the left column</string>
     <string name="infantil_vazio">no categories: add an account in Settings › TV and movies and reload the channels</string>
     <string name="infantil_limite">an adult category cannot be a kids category</string>
@@ -528,7 +528,7 @@
     <string name="player_sem_favoritos">No favorites yet.</string>
     <string name="player_categoria_vazia">No channels in this category.</string>
     <string name="player_sem_guia">No program guide for this channel.</string>
-    <string name="player_depois">LATER</string>
+    <string name="player_depois">Later</string>
     <string name="player_favorito_pos">★ %1$s added to favorites</string>
     <string name="player_favorito_tirou">%1$s removed from favorites</string>
     <string name="player_favoritos_cheio">There are already 500 favorites: remove one first.</string>

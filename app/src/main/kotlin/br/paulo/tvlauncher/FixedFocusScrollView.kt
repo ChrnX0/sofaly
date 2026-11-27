@@ -78,6 +78,28 @@ open class FixedFocusScrollView(ctx: Context, private val fraction: Float = FRAC
         return super.executeKeyEvent(event)
     }
 
+    /**
+     * Seta para cima/baixo DENTRO da lista: nunca rola "uma página" (Sala, 27/11/2026, Casa e rede: no último item, ▼
+     * subia a lista inteira e "Ajuda desta aba" ia parar embaixo das pílulas, cortado). O ScrollView comum rola uma
+     * página quando o próximo item está longe ou não aparece; aqui o foco só pula para o próximo item visível (e a linha
+     * fixa leva a lista junto) ou fica onde está.
+     */
+    override fun arrowScroll(direction: Int): Boolean {
+        val atual = findFocus() ?: return super.arrowScroll(direction)
+        val prox = FocusFinder.getInstance().findNextFocus(this, atual, direction)
+        if (prox != null && prox.isShown && prox.width > 0 && prox.height > 0) { prox.requestFocus(direction); return true }
+        // Sem próximo item de verdade: rola só o texto que ainda falta ver (um quadro de "Como funciona" no fim), nunca
+        // a folga que esta lista põe embaixo e em cima para a linha fixa.
+        val filho = getChildAt(0) ?: return true
+        val folgaBaixo = (filho.paddingBottom - baseBottom.coerceAtLeast(0)).coerceAtLeast(0)
+        val folgaCima = (filho.paddingTop - baseTop.coerceAtLeast(0)).coerceAtLeast(0)
+        val passo = height / 2
+        val d = if (direction == View.FOCUS_DOWN) minOf(passo, filho.height - folgaBaixo - (scrollY + height)).coerceAtLeast(0)
+            else -minOf(passo, scrollY - folgaCima).coerceAtLeast(0)
+        if (d != 0) smoothScrollBy(0, d)
+        return true
+    }
+
     /** Põe [v] (um filho, em qualquer nível) na linha fixa. */
     fun centrar(v: View, animar: Boolean = true) {
         val r = Rect(); v.getDrawingRect(r)

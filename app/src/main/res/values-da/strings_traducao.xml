@@ -168,8 +168,8 @@
     <string name="bu_motivo_time">Mit hold</string>
     <string name="bu_motivo_favorito">Favoritkanal</string>
     <string name="bu_motivo_assistiu">Du så</string>
-    <string name="bc_categorias">KATEGORIER</string>
-    <string name="bc_canais">KANALER</string>
+    <string name="bc_categorias">Kategorier</string>
+    <string name="bc_canais">Kanaler</string>
     <string name="bc_carregando">indlæser kanaler…</string>
     <string name="bc_categoria_bloqueada">hele kategorien \"%1$s\" er blokeret: fjern blokeringen i venstre kolonne</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -281,8 +281,8 @@
     <string name="ad_vai_desligar">Tv\'et slukker om %1$d s</string>
     <string name="home_busca_voz">Stemmesøgning</string>
     <string name="pg_aviso_as">Påmindelse kl. %1$s: %2$s</string>
-    <string name="at_timer">TIMER</string>
-    <string name="at_despertador">ALARM</string>
+    <string name="at_timer">Timer</string>
+    <string name="at_despertador">Alarm</string>
     <string name="vod_vazio_texto">Film og serier kommer fra din tv-liste. Tilføj en i Indstillinger, Konto.</string>
     <string name="vod_adicionar_lista">Tilføj en liste</string>
     <string name="uso_recomendado">Anbefalet</string>

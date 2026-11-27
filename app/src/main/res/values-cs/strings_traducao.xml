@@ -174,8 +174,8 @@
     <string name="bu_motivo_time">Můj tým</string>
     <string name="bu_motivo_favorito">Oblíbený kanál</string>
     <string name="bu_motivo_assistiu">Sledovali jste</string>
-    <string name="bc_categorias">KATEGORIE</string>
-    <string name="bc_canais">KANÁLY</string>
+    <string name="bc_categorias">Kategorie</string>
+    <string name="bc_canais">Kanály</string>
     <string name="bc_carregando">načítají se kanály…</string>
     <string name="bc_categoria_bloqueada">celá kategorie \"%1$s\" je blokovaná: odblokujte ji v levém sloupci</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -288,8 +288,8 @@
     <string name="ad_vai_desligar">Televizor se vypne za %1$d s</string>
     <string name="home_busca_voz">Hlasové vyhledávání</string>
     <string name="pg_aviso_as">Připomínka v %1$s: %2$s</string>
-    <string name="at_timer">ČASOVAČ</string>
-    <string name="at_despertador">BUDÍK</string>
+    <string name="at_timer">Časovač</string>
+    <string name="at_despertador">Budík</string>
     <string name="vod_vazio_texto">Filmy a seriály pocházejí z TV seznamu. Přidejte ho v Nastavení, Účet.</string>
     <string name="vod_adicionar_lista">Přidat seznam</string>
     <string name="uso_recomendado">Doporučeno</string>

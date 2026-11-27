@@ -144,8 +144,8 @@
     <string name="bu_motivo_time">Моя команда</string>
     <string name="bu_motivo_favorito">Избранный канал</string>
     <string name="bu_motivo_assistiu">Вы смотрели</string>
-    <string name="bc_categorias">КАТЕГОРИИ</string>
-    <string name="bc_canais">КАНАЛЫ</string>
+    <string name="bc_categorias">Категории</string>
+    <string name="bc_canais">Каналы</string>
     <string name="bc_carregando">загрузка каналов…</string>
     <string name="bc_categoria_bloqueada">вся категория «%1$s» заблокирована: разблокируйте её в левой колонке</string>
     <string name="bc_filme">Фильм · %1$s</string>
@@ -253,8 +253,8 @@
     <string name="ad_vai_desligar">ТВ выключится через %1$d с</string>
     <string name="home_busca_voz">Голосовой поиск</string>
     <string name="pg_aviso_as">Напоминание в %1$s: %2$s</string>
-    <string name="at_timer">ТАЙМЕР</string>
-    <string name="at_despertador">БУДИЛЬНИК</string>
+    <string name="at_timer">Таймер</string>
+    <string name="at_despertador">Будильник</string>
     <plurals name="dur_horas">
         <item quantity="one">%d час</item>
         <item quantity="few">%d часа</item>

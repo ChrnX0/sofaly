@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Coluna esquerda e filtro único do player (TV, Filmes, Séries), 14/11/2026. -->
 <resources>
-    <string name="coluna_listas">СПИСКИ</string>
+    <string name="coluna_listas">Списки</string>
     <string name="coluna_novos">+%1$s</string>
     <string name="coluna_filtro">Фільтр</string>
     <string name="coluna_esportes">Спорт</string>

@@ -168,8 +168,8 @@
     <string name="bu_motivo_time">Mijn team</string>
     <string name="bu_motivo_favorito">Favoriete zender</string>
     <string name="bu_motivo_assistiu">Je keek</string>
-    <string name="bc_categorias">CATEGORIEËN</string>
-    <string name="bc_canais">ZENDERS</string>
+    <string name="bc_categorias">Categorieën</string>
+    <string name="bc_canais">Zenders</string>
     <string name="bc_carregando">zenders laden…</string>
     <string name="bc_categoria_bloqueada">de hele categorie \"%1$s\" is geblokkeerd: deblokkeer hem in de linkerkolom</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -281,8 +281,8 @@
     <string name="ad_vai_desligar">De tv gaat over %1$d s uit</string>
     <string name="home_busca_voz">Gesproken zoeken</string>
     <string name="pg_aviso_as">Herinnering om %1$s: %2$s</string>
-    <string name="at_timer">TIMER</string>
-    <string name="at_despertador">WEKKER</string>
+    <string name="at_timer">Timer</string>
+    <string name="at_despertador">Wekker</string>
     <string name="vod_vazio_texto">Films en series komen uit je tv-lijst. Voeg er een toe in Instellingen, Account.</string>
     <string name="vod_adicionar_lista">Een lijst toevoegen</string>
     <string name="uso_recomendado">Aanbevolen</string>

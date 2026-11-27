@@ -49,4 +49,27 @@ class FixedFocusEndTest {
         assertTrue(itens.last().isFocused)
         assertEquals(View.VISIBLE, itens.last().visibility)
     }
+
+    /**
+     * Sala, 27/11/2026 (Casa e rede): depois do último item havia uma peça focável sem tamanho; o ScrollView comum rolava
+     * "uma página" para alcançá-la e o último item subia para baixo das pílulas. Agora BAIXO não rola para a folga.
+     */
+    @Test fun focavelSemTamanhoNoFimNaoRolaAPagina() {
+        val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+        val lista = LinearLayout(a).apply { orientation = LinearLayout.VERTICAL }
+        val itens = (1..4).map { n -> TextView(a).apply { text = "Item $n"; isFocusable = true; minHeight = 140 } }
+        itens.forEach { lista.addView(it, LinearLayout.LayoutParams(-1, -2)) }
+        lista.addView(View(a).apply { isFocusable = true }, LinearLayout.LayoutParams(-1, 0))
+        val rolagem = FixedFocusScrollView(a).apply { addView(lista) }
+        a.setContentView(rolagem, android.view.ViewGroup.LayoutParams(-1, 600))
+        ShadowLooper.idleMainLooper()
+
+        itens.last().requestFocus()
+        ShadowLooper.idleMainLooper()
+        val antes = rolagem.scrollY
+        rolagem.executeKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DPAD_DOWN))
+        ShadowLooper.idleMainLooper()
+        assertEquals("a lista não rola para a folga", antes, rolagem.scrollY)
+        assertTrue(itens.last().isFocused)
+    }
 }

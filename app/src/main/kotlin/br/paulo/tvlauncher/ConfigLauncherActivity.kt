@@ -1291,7 +1291,7 @@ class ConfigLauncherActivity : Activity() {
         }
 
     /** Uma linha só informativa, sem foco nem clique (para ler, não para apertar OK). */
-    internal fun info(titulo: String, detalhe: String, maxLinhas: Int = 3): LinhaCfg =
+    internal fun info(titulo: String, detalhe: String, maxLinhas: Int = Int.MAX_VALUE): LinhaCfg =
         LinhaCfg(this, focavel = false).apply { montarLinha(titulo, detalhe, maxLinhas) }
 
     /** Cartão de vidro que agrupa linhas de "rótulo: valor" (dados da conta, sobre). */
@@ -1306,11 +1306,13 @@ class ConfigLauncherActivity : Activity() {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         setPaddingRelative(0, dp(6), 0, dp(6))
-        addView(texto(18f, textoSuave, fonteMedia).apply { text = rotulo }, LinearLayout.LayoutParams(dp(230), WRAP))
+        // Rótulo e valor dividem a largura (passada da Sala 27/11: com o rótulo fixo em 230 dp, na coluna estreita do jeito
+        // guiado sobravam ~100 dp para o valor e "28/04/2027 · faltam 152 dias" quebrava em 3 linhas e era cortado).
+        addView(texto(18f, textoSuave, fonteMedia).apply { text = rotulo }, LinearLayout.LayoutParams(0, WRAP, 0.42f).apply { marginEnd = dp(12) })
         // Sem corte (24/11/2026): com "…" depois de 3 linhas, a explicação do PIN da Família sumia pela metade em francês,
         // húngaro, russo e ucraniano. O valor quebra quantas linhas precisar.
         addView(texto(18f, cor ?: textoClaro, fonteMedia).apply { text = valor },
-            LinearLayout.LayoutParams(0, WRAP, 1f))
+            LinearLayout.LayoutParams(0, WRAP, 0.58f))
     }
 
     internal fun secao(c: LinearLayout, titulo: String) {
@@ -1436,8 +1438,10 @@ class ConfigLauncherActivity : Activity() {
     internal inner class LinhaCfg(ctx: Context, focavel: Boolean) : LinearLayout(ctx) {
         // 2 linhas: título longo ("Travar Forçar parada…") cortava no meio (teste 100%, 23/11/2026)
         private val tTitulo = Estilo.texto(ctx, Estilo.Papel.CORPO).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END }
+        // Sem "…" (passada da Sala 27/11: "A tel…", "O PIN d…" e "O…" escondiam o fim da explicação em 3 abas): a
+        // explicação quebra quantas linhas precisar, como o valor do quadro da conta (regra de 24/11).
         private val tDetalhe = Estilo.texto(ctx, Estilo.Papel.LEGENDA).apply {
-            maxLines = 3; ellipsize = TextUtils.TruncateAt.END; setPaddingRelative(0, dp(4), 0, 0)
+            setPaddingRelative(0, dp(4), 0, 0)
         }
         private var tSeta: TextView? = null
         private var focada = false
@@ -1492,7 +1496,7 @@ class ConfigLauncherActivity : Activity() {
         }
 
         // 3 linhas: com a letra maior (18/11/2026) a explicação não pode cortar
-        fun montarLinha(titulo: String, detalhe: String, maxLinhas: Int = 3) {
+        fun montarLinha(titulo: String, detalhe: String, maxLinhas: Int = Int.MAX_VALUE) {
             tTitulo.text = titulo
             tDetalhe.text = detalhe
             tDetalhe.maxLines = maxLinhas

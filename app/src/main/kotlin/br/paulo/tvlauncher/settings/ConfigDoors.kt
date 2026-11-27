@@ -515,5 +515,5 @@ internal fun ConfigLauncherActivity.guiaDaAba(i: Int) {
     val aba = abas.getOrNull(i) ?: return
     val porta = nomeDaPorta(PortasConfig.daAba(i))
     val trilha = getString(R.string.cfg_titulo) + if (porta != aba.titulo) "  ›  $porta" else ""
-    guia?.mostrar(trilha, aba.titulo, aba.explica, aba.icone)
+    guia?.mostrar(trilha, aba.titulo, aba.explica, aba.icone, ICONES_PORTA.getOrNull(PortasConfig.daAba(i)))
 }

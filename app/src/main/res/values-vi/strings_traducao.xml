@@ -168,8 +168,8 @@
     <string name="bu_motivo_time">Đội của tôi</string>
     <string name="bu_motivo_favorito">Kênh yêu thích</string>
     <string name="bu_motivo_assistiu">Bạn đã xem</string>
-    <string name="bc_categorias">DANH MỤC</string>
-    <string name="bc_canais">KÊNH</string>
+    <string name="bc_categorias">Danh mục</string>
+    <string name="bc_canais">Kênh</string>
     <string name="bc_carregando">đang tải kênh…</string>
     <string name="bc_categoria_bloqueada">cả danh mục \"%1$s\" bị chặn: bỏ chặn ở cột bên trái</string>
     <string name="bc_filme">Phim · %1$s</string>
@@ -281,8 +281,8 @@
     <string name="ad_vai_desligar">TV sẽ tắt sau %1$d giây</string>
     <string name="home_busca_voz">Tìm kiếm bằng giọng nói</string>
     <string name="pg_aviso_as">Nhắc nhở lúc %1$s: %2$s</string>
-    <string name="at_timer">HẸN GIỜ</string>
-    <string name="at_despertador">BÁO THỨC</string>
+    <string name="at_timer">Hẹn giờ</string>
+    <string name="at_despertador">Báo thức</string>
     <string name="vod_vazio_texto">Phim và phim bộ lấy từ danh sách TV của bạn. Thêm danh sách trong Cài đặt, Tài khoản.</string>
     <string name="vod_adicionar_lista">Thêm danh sách</string>
     <string name="uso_recomendado">Đề xuất</string>

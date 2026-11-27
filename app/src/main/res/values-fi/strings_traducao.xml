@@ -168,8 +168,8 @@
     <string name="bu_motivo_time">Joukkueeni</string>
     <string name="bu_motivo_favorito">Suosikkikanava</string>
     <string name="bu_motivo_assistiu">Katsoit</string>
-    <string name="bc_categorias">LUOKAT</string>
-    <string name="bc_canais">KANAVAT</string>
+    <string name="bc_categorias">Luokat</string>
+    <string name="bc_canais">Kanavat</string>
     <string name="bc_carregando">ladataan kanavia…</string>
     <string name="bc_categoria_bloqueada">koko luokka \"%1$s\" on estetty: poista esto vasemmasta sarakkeesta</string>
     <string name="bc_filme">Elokuva · %1$s</string>
@@ -281,8 +281,8 @@
     <string name="ad_vai_desligar">TV sammuu %1$d s:n kuluttua</string>
     <string name="home_busca_voz">Puhehaku</string>
     <string name="pg_aviso_as">Muistutus klo %1$s: %2$s</string>
-    <string name="at_timer">AJASTIN</string>
-    <string name="at_despertador">HERÄTYS</string>
+    <string name="at_timer">Ajastin</string>
+    <string name="at_despertador">Herätys</string>
     <string name="vod_vazio_texto">Elokuvat ja sarjat tulevat TV-listaltasi. Lisää sellainen kohdassa Asetukset, Tili.</string>
     <string name="vod_adicionar_lista">Lisää lista</string>
     <string name="uso_recomendado">Suositellut</string>

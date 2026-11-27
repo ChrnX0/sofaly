@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Tradução (pl) de values/strings_coluna.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
-    <string name="coluna_listas">LISTY</string>
+    <string name="coluna_listas">Listy</string>
     <string name="coluna_novos">+%1$s</string>
     <string name="coluna_filtro">Filtr</string>
     <string name="coluna_esportes">Sport</string>

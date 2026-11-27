@@ -508,7 +508,7 @@
     <string name="player_pin_espere">Prea multe PIN-uri greșite. Încercați din nou peste %d min.</string>
     <string name="infantil_titulo">Categorii pentru copii</string>
     <string name="infantil_carregando">se încarcă categoriile…</string>
-    <string name="infantil_coluna_itens">CE CONȚINE</string>
+    <string name="infantil_coluna_itens">Ce conține</string>
     <string name="infantil_so_categoria">marcați întreaga categorie în coloana din stânga</string>
     <string name="infantil_vazio">fără categorii: adăugați un cont în Setări › TV și filme și reîncărcați canalele</string>
     <string name="infantil_limite">o categorie pentru adulți nu poate fi pentru copii</string>
@@ -529,7 +529,7 @@
     <string name="player_sem_favoritos">Încă nu există favorite.</string>
     <string name="player_categoria_vazia">Niciun canal în această categorie.</string>
     <string name="player_sem_guia">Fără ghid TV pentru acest canal.</string>
-    <string name="player_depois">MAI TÂRZIU</string>
+    <string name="player_depois">Mai târziu</string>
     <string name="player_favorito_pos">★ %1$s adăugat la favorite</string>
     <string name="player_favorito_tirou">%1$s eliminat din favorite</string>
     <string name="player_favoritos_cheio">Există deja 500 de favorite: eliminați unul mai întâi.</string>

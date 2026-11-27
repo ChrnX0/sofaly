@@ -144,8 +144,8 @@
     <string name="bu_motivo_time">Mein Team</string>
     <string name="bu_motivo_favorito">Lieblingssender</string>
     <string name="bu_motivo_assistiu">Du hast gesehen</string>
-    <string name="bc_categorias">KATEGORIEN</string>
-    <string name="bc_canais">SENDER</string>
+    <string name="bc_categorias">Kategorien</string>
+    <string name="bc_canais">Sender</string>
     <string name="bc_carregando">Sender werden geladen …</string>
     <string name="bc_categoria_bloqueada">die ganze Kategorie „%1$s“ ist gesperrt: entsperre sie in der linken Spalte</string>
     <string name="bc_filme">Film · %1$s</string>
@@ -253,8 +253,8 @@
     <string name="ad_vai_desligar">Der Fernseher schaltet sich in %1$d s aus</string>
     <string name="home_busca_voz">Sprachsuche</string>
     <string name="pg_aviso_as">Erinnerung um %1$s: %2$s</string>
-    <string name="at_timer">TIMER</string>
-    <string name="at_despertador">WECKER</string>
+    <string name="at_timer">Timer</string>
+    <string name="at_despertador">Wecker</string>
     <plurals name="dur_horas">
         <item quantity="one">%d Stunde</item>
         <item quantity="other">%d Stunden</item>

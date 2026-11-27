@@ -212,7 +212,7 @@ class PodcastPlayerActivity : Activity() {
         capa = CapaOuvir(this, 22f).apply { fonte(fonteForte); cobrir = true; elevation = dp(14f) }
         raiz.addView(capa, FrameLayout.LayoutParams(dpi(CAPA), dpi(CAPA)).apply { marginStart = dpi(MARGEM); topMargin = dpi(TOPO) })
 
-        rotulo = texto(18f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f }
+        rotulo = texto(18f, Estilo.TEXTO_2, forte = true)
         podcast = texto(FONTE_PODCAST, HomeCruz.COR_SUB, forte = true)
         titulo = texto(FONTE_TITULO, Estilo.TEXTO, forte = true, linhas = 2).apply { setLineSpacing(dp(3f), 1f) }
         info = texto(FONTE_INFO, HomeCruz.COR_SUB)
@@ -604,7 +604,7 @@ class PodcastPlayerActivity : Activity() {
         val p = palco ?: FrameLayout(this).apply {
             background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(0xF5121212.toInt(), 0xFA0E0E0D.toInt()))
             val col = LinearLayout(this@PodcastPlayerActivity).apply { orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_VERTICAL }
-            val topo = texto(18f, Estilo.TEXTO_2, forte = true).apply { letterSpacing = 0.16f; tag = "topo" }
+            val topo = texto(18f, Estilo.TEXTO_2, forte = true).apply { tag = "topo" }
             col.addView(topo, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dpi(26) })
             linhasPalco.clear()
             // 0 = anterior, 1 = agora, 2 e 3 = próximas.

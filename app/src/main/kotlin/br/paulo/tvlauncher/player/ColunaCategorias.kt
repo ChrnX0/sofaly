@@ -101,7 +101,7 @@ class ColunaCategorias(
     private val rola get() = listas[2]
     private val textoListas = TextView(act).apply {
         text = act.getString(R.string.coluna_listas); textSize = Estilo.Leitura.ROTULO; typeface = Fontes.nunito(600)
-        letterSpacing = 0.12f; setTextColor(apagado); setPaddingRelative(dp(14), dp(14), dp(10), dp(4))
+        setTextColor(apagado); setPaddingRelative(dp(14), dp(14), dp(10), dp(4))
     }
     /**
      * Botões redondos ao lado de "LISTAS" (TV, 18/11/2026, pedido do Paulo: "assim como no TV, com os ícones na frente"):
