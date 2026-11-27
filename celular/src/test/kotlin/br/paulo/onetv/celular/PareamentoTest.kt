@@ -111,4 +111,30 @@ class PareamentoTest {
         assertNull(Pareamento.seguir(listOf(tv), "1a2b3c4d", "8.8.8.8"))          // IP público nunca
         assertNull(Pareamento.seguir(listOf(tv.copy(fp = "")), "1a2b3c4d", "192.168.1.77"))   // sem certificado: o IP é a prova
     }
+
+    // Caça 27/11: a TV pareada pelo QR ficava "TV" (o mDNS não tinha achado antes) e a achada mostrava o id no nome.
+    @Test fun `nome anunciado sem o id e sem o (2) do Android`() {
+        assertEquals("Sala de estar", Pareamento.nomeAnunciado("Sala de estar 1a2b3c4d", null, "1a2b3c4d"))
+        assertEquals("Sala de estar", Pareamento.nomeAnunciado("Sala de estar 1a2b3c4d (2)", null, "1a2b3c4d"))
+        assertEquals("Quarto", Pareamento.nomeAnunciado("Sala 1a2b3c4d", "Quarto", "1a2b3c4d"))   // o TXT ganha
+        assertEquals("TV velha", Pareamento.nomeAnunciado("TV velha", null, ""))
+        assertEquals("", Pareamento.nomeAnunciado(null, " \n ", ""))
+    }
+
+    @Test fun `nome limpo tira controle, junta espacos e corta em 40`() {
+        assertEquals("Sala de estar", Pareamento.nomeLimpo("  Sala\u0000 de\t\testar \n"))
+        assertEquals(40, Pareamento.nomeLimpo("x".repeat(80)).length)
+        assertEquals("", Pareamento.nomeLimpo(null))
+    }
+
+    @Test fun `renomear troca so a mesma TV, no mesmo lugar`() {
+        val a = Pareamento.Tv("TV", "192.168.1.153", fp, id = "1a2b3c4d")
+        val b = Pareamento.Tv("Quarto", "192.168.1.60", fp, id = "99999999")
+        val nova = Pareamento.renomear(listOf(b, a), a, "Sala de estar")!!
+        assertEquals(listOf("Quarto", "Sala de estar"), nova.map { it.nome })   // ordem mantida
+        assertEquals(a.copy(nome = "Sala de estar"), nova[1])                    // só o nome muda
+        assertNull(Pareamento.renomear(nova, a, "Sala de estar"))                // já igual: nada a gravar
+        assertNull(Pareamento.renomear(nova, a, "  "))                           // vazio nunca apaga o nome
+        assertNull(Pareamento.renomear(listOf(b), a, "Sala"))                    // TV não salva
+    }
 }
