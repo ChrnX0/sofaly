@@ -207,7 +207,7 @@ def page_home(L):
 
     # Top bar (brand, menu, language) instead of the preview note
     ui = C["ui"]
-    brand = f'<a class="brand" href="{L.url("index")}" aria-label="Sofaly">{B.LOGO.replace("var(--logo-screen)", "#241913")}<span>sofa<i>ly</i></span></a>'
+    brand = f'<a class="brand" href="{L.url("index")}" aria-label="Sofaly">{B.LOGO.replace("var(--logo-screen)", "#241913")}<span>Sofa<i>ly</i></span></a>'
     opts = "".join(f'<option value="{L.url("index", c)}"{" selected" if c == L.code else ""} data-code="{c}">{e(L.langs[c]["label"])}</option>'
                    for c in L.langs)
     lang = f'<label class="lang"><span class="sr">Idioma</span>{ico("globe")}<select id="lang">{opts}</select></label>'

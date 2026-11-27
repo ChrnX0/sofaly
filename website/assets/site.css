@@ -4,14 +4,14 @@
 :root {
   color-scheme: dark;
   --bg: #121212; --bg2: #222222; --card: #1E1E1E; --line: #ffffff1a; --text: #FFF3E6; --soft: #C8C8C8;
-  --accent: #FF6A2B; --accent-ink: #121212; --logo-screen: #1C2140; --shadow: 0 20px 60px #0007;
+  --accent: #FF6A2B; --accent-ink: #121212; --logo-screen: #1E1E1E; --wordmark: #FFFFFF; --shadow: 0 20px 60px #0007;
   --r: 22px; --wrap: 72rem;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
     color-scheme: light;
     --bg: #FFF8F0; --bg2: #FFEFE0; --card: #ffffff; --line: #1212121a; --text: #121212; --soft: #4B4B4B;
-    --accent: #CE3D00; --accent-ink: #ffffff; --logo-screen: #1C2140; --shadow: 0 20px 50px #1212121f;
+    --accent: #CE3D00; --accent-ink: #ffffff; --logo-screen: #1E1E1E; --wordmark: #121212; --shadow: 0 20px 50px #1212121f;
   }
 }
 * { box-sizing: border-box; }
@@ -41,7 +41,7 @@ a { color: var(--accent); }
 .top-in { display: flex; align-items: center; gap: 1rem; min-height: 4.2rem; flex-wrap: wrap; }
 .brand { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; color: var(--text); }
 .logo-mark { width: 2.4rem; height: auto; }
-.wordmark { font: 700 1.7rem/1 Nunito, sans-serif; letter-spacing: -.02em; }
+.wordmark { font: 700 1.7rem/1 Nunito, sans-serif; letter-spacing: -.02em; color: var(--wordmark); }
 .wordmark b { color: var(--accent); font-weight: 700; }
 .menu { display: flex; gap: .2rem; margin-inline-start: auto; flex-wrap: wrap; }
 .menu a { color: var(--text); text-decoration: none; font-weight: 600; font-size: .95rem; padding: .45rem .75rem; border-radius: 999px; }

@@ -6,7 +6,7 @@
 
 const Sofy = (() => {
   const NS = 'http://www.w3.org/2000/svg';
-  const LARANJA = '#FF6A2B', CREME = '#FFF3E6', TELA = '#1C2140', LARANJA_CLARO = '#CE3D00';
+  const LARANJA = '#FF6A2B', CREME = '#FFF3E6', TELA = '#1E1E1E', LARANJA_CLARO = '#CE3D00';
   let dados = null, pedido = null;
 
   /** Os movimentos e a chave da voz, lidos uma vez da TV. */

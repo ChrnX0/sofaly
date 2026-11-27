@@ -18,7 +18,8 @@ import br.paulo.tvlauncher.settings.Fontes
 /**
  * A logo Sofaly (18/11/2026, Paulo: "em algum lugar do sistema deveria aparecer a nossa logo"). Desenho da marca fechada
  * em 16/11/2026 (artifact "Marca Sofaly", caminho C2): a TV-sofá (tela com moldura grossa, antenas "orelha de coelho",
- * braços e pezinhos de sofá) e o nome "sofaly" em Nunito 600, em que o "o" é a própria TV-sofá e o "ly" vai na cor do sofá.
+ * braços e pezinhos de sofá) e, ao lado dela, o nome "Sofa" em branco e "ly" no laranja do sofá (Paulo, 27/11/2026:
+ * "icone, Sofa em branco, ly no laranja do icone"; antes a TV-sofá ficava no lugar do "o").
  *
  * Desenhada em código, a partir do mesmo SVG da marca (quadro 120 x 112): nítida em qualquer tamanho e sem PNG.
  * Onde aparece: a abertura ao ligar ([SplashOverlay]), o topo das Configurações, a tela "Sobre a Sofaly"
@@ -28,7 +29,8 @@ object SofalyLogo {
     /** Cores da marca: laranja do sofá (fundo escuro), o mesmo mais escuro (fundo claro), creme do texto e o miolo da tela. */
     const val ORANGE = DesignTokens.ORANGE   // uma fonte só: design/tokens.json
     const val CREAM = 0xFFFFF3E6.toInt()
-    const val SCREEN = 0xFF1C2140.toInt()
+    const val SCREEN = 0xFF1E1E1E.toInt()   // grafite (27/11/2026, opção B): o azul-noite antigo fugia da regra do escuro sem azul
+    const val WHITE = 0xFFFFFFFF.toInt()   // o "Sofa" do nome
 
     /** Quadro do símbolo (o SVG vai de y = -10 a 102; aqui já somado 10). */
     const val W = 120f
@@ -99,9 +101,9 @@ class SofalySymbol(private val alphaFactor: Float = 1f) : Drawable() {
 }
 
 /**
- * O nome "sofaly" desenhado como na marca: "s", a TV-sofá no lugar do "o", "fa" em creme e "ly" em laranja.
- * [textSizePx]: o tamanho da letra. A largura e a altura saem do texto (wrap_content). Medidas do SVG da marca: a TV
- * tem 1,75 x-height de altura, 1,766 de largura, desce 0,046 abaixo da linha de base e tem 0,058 em / 0,008 em de folga.
+ * A logo inteira: a TV-sofá à esquerda e o nome "Sofa" (branco) + "ly" (laranja) ao lado, em Nunito.
+ * [textSizePx]: o tamanho da letra. A largura e a altura saem do conjunto (wrap_content). A TV tem 1,45 vez a altura da
+ * maiúscula, com os pés na linha de base, e fica a 0,22 em do texto.
  */
 class SofalyWordmark(ctx: Context, textSizePx: Float, private val dim: Float = 1f) : View(ctx) {
     private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -110,30 +112,27 @@ class SofalyWordmark(ctx: Context, textSizePx: Float, private val dim: Float = 1
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG)
     private val stroke = Paint(Paint.ANTI_ALIAS_FLAG)
     private val path = Path()
-    private val xHeight: Float
     private val symW: Float
     private val symH: Float
-    private val gapBefore = 0.058f * textSizePx
-    private val gapAfter = 0.008f * textSizePx
-    private val wS: Float
-    private val wFa: Float
+    private val gap = 0.22f * textSizePx       // espaço entre a TV e o "S"
+    private val wSofa: Float
     private val wLy: Float
     private val ascent: Float
     private val descent: Float
 
     init {
         val b = Rect()
-        text.getTextBounds("x", 0, 1, b)
-        xHeight = b.height().toFloat().takeIf { it > 0f } ?: (textSizePx * 0.5f)
-        symH = 1.75f * xHeight
-        symW = 1.766f * xHeight
-        wS = text.measureText("s"); wFa = text.measureText("fa"); wLy = text.measureText("ly")
-        ascent = -text.fontMetrics.ascent; descent = text.fontMetrics.descent
+        text.getTextBounds("S", 0, 1, b)
+        val capH = b.height().toFloat().takeIf { it > 0f } ?: (textSizePx * 0.7f)
+        symH = 1.45f * capH                         // um pouco mais alta que a maiúscula: a TV se lê como ícone
+        symW = symH * SofalyLogo.W / SofalyLogo.H
+        wSofa = text.measureText("Sofa"); wLy = text.measureText("ly")
+        ascent = maxOf(-text.fontMetrics.ascent, symH); descent = text.fontMetrics.descent
         contentDescription = "Sofaly"
         importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_YES
     }
 
-    private val totalW get() = wS + gapBefore + symW + gapAfter + wFa + wLy
+    private val totalW get() = symW + gap + wSofa + wLy
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val w = Math.ceil(totalW.toDouble()).toInt() + paddingLeft + paddingRight
@@ -145,19 +144,17 @@ class SofalyWordmark(ctx: Context, textSizePx: Float, private val dim: Float = 1
         val a = (dim.coerceIn(0f, 1f) * 255).toInt()
         val base = paddingTop + ascent
         var x = paddingLeft + ((width - paddingLeft - paddingRight) - totalW).coerceAtLeast(0f) / 2f
-        text.color = SofalyLogo.CREAM; text.alpha = a
-        c.drawText("s", x, base, text); x += wS + gapBefore
-        // A TV-sofá no lugar do "o": o quadro do SVG da palavra começa em x = 3,5 (113 de largura útil).
+        // A TV-sofá com os pés na linha de base do texto.
         val esc = symH / SofalyLogo.H
         c.save()
-        c.translate(x - 3.5f * esc, base + 0.046f * xHeight - symH)
+        c.translate(x, base - symH)
         c.scale(esc, esc)
         SofalyLogo.drawSymbol(c, fill, stroke, path, dim)
         c.restore()
-        x += symW + gapAfter
-        text.color = SofalyLogo.CREAM; text.alpha = a
-        c.drawText("fa", x, base, text); x += wFa
-        // "ly" na cor do sofá: a palavra se lê so-fa-ly (decisão de 16/11/2026).
+        x += symW + gap
+        text.color = SofalyLogo.WHITE; text.alpha = a
+        c.drawText("Sofa", x, base, text); x += wSofa
+        // "ly" no laranja do sofá: a palavra se lê So-fa-ly (decisão de 16/11/2026).
         text.color = SofalyLogo.ORANGE; text.alpha = a
         c.drawText("ly", x, base, text)
     }
