@@ -51,8 +51,8 @@ class LauncherApp : Application() {
     override fun onCreate() {
         super.onCreate()
         instancia = this
-        // Módulo :weather (refatoração G): textos traduzidos e a assinatura do relay, que moram no app.
-        br.paulo.tvlauncher.weather.WeatherHost.app = this
+        AppContext.app = this   // txt/txtN e os módulos de área (refatoração G)
+        // Módulo :weather: a assinatura do relay e a fonte pelo plano moram no app.
         br.paulo.tvlauncher.weather.WeatherHost.sign = { c -> br.paulo.tvlauncher.relay.RelayTv.assinar(c) }
         br.paulo.tvlauncher.weather.WeatherHost.kind = { c -> br.paulo.tvlauncher.weather.DataSources.weather(c) }
         // O processo ":dhizuku_usuario" roda código de OUTRO app (UserService do Dhizuku): uma exceção dele não pode

@@ -2,18 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.resources.R
 
-/**
- * Frases traduzidas para os `object` que não recebem um Context (IconesClima, Lua...). Usa o Context do app, guardado
- * em [LauncherApp.instancia] logo que o processo do launcher abre. O idioma vem do aparelho: inglês é o padrão
- * (res/values), português fica em res/values-pt (vale para pt-BR e pt-PT).
- */
-// Sem argumentos, NÃO passa pelo String.format: "Barras de cor 75%" derrubava o launcher ao abrir a Calibração
-// (UnknownFormatConversionException no onDraw, Sala 16/11/2026). getString(id, *vazio) formata mesmo assim.
-fun txt(id: Int, vararg args: Any): String =
-    if (args.isEmpty()) LauncherApp.instancia.getString(id) else LauncherApp.instancia.getString(id, *args)
-
-/** Plural traduzido (res/values/plurals): "1 minute" / "5 minutes", "1 minuto" / "5 minutos". */
-fun txtN(id: Int, n: Int): String = LauncherApp.instancia.resources.getQuantityString(id, n, n)
+// txt e txtN moram no :core (AppContext.kt) desde a refatoração G: os módulos de área também usam.
 
 /** "10 minutos", "1 hora e 30 minutos", "45 segundos", no idioma da TV. Para avisos e confirmações na tela. */
 fun duracaoFalada(segundos: Int): String {
