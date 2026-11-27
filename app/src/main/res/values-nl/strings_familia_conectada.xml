@@ -5,7 +5,7 @@
     <string name="famc_det">Kinderen en kleinkinderen sturen foto\'s en berichtjes naar deze tv met een link, zonder account</string>
     <string name="famc_ligado">Aan</string>
     <string name="famc_texto">Scan de code met je telefoon en stuur de link naar de familie (WhatsApp, e-mail). Wie de link heeft, kan foto\'s en berichtjes sturen: ze verschijnen meteen op het scherm, berichtjes blijven op het bord in het snelpaneel en foto\'s komen bij de foto\'s van de schermbeveiliging. Er gaat niets via onze servers.</string>
-    <string name="famc_sem_tunel">Dit gebruikt toegang van buitenshuis (Tailscale), die nog niet is ingesteld op deze tv. Stel het in bij Instellingen › Huis en netwerk › Toegang op afstand en kom dan hier terug.</string>
+    <string name="famc_sem_tunel">Dit gebruikt toegang van buitenshuis (Tailscale), die nog niet is ingesteld op deze tv. Stel het in bij Instellingen › Huis en toegang op afstand › Toegang op afstand en kom dan hier terug.</string>
     <string name="famc_trocar">Nieuwe link</string>
     <string name="famc_trocar_det">De oude link werkt meteen niet meer</string>
     <string name="famc_desligar">Uitzetten</string>

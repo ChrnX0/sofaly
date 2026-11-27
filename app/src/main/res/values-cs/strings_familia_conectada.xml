@@ -5,7 +5,7 @@
     <string name="famc_det">Děti a vnoučata posílají na tento televizor fotky a vzkazy odkazem, bez účtu</string>
     <string name="famc_ligado">Zapnuto</string>
     <string name="famc_texto">Naskenujte kód telefonem a pošlete odkaz rodině (WhatsApp, e-mail). Kdo má odkaz, může posílat fotky a vzkazy: hned se objeví na obrazovce, vzkazy zůstanou na nástěnce v rychlém panelu a fotky se přidají k fotkám spořiče. Nic neprochází našimi servery.</string>
-    <string name="famc_sem_tunel">Používá přístup mimo domov (Tailscale), který na tomto televizoru zatím není nastavený. Nastavte ho v Nastavení › Domácnost a síť › Vzdálený přístup a vraťte se sem.</string>
+    <string name="famc_sem_tunel">Používá přístup mimo domov (Tailscale), který na tomto televizoru zatím není nastavený. Nastavte ho v Nastavení › Domácnost a vzdálený přístup › Vzdálený přístup a vraťte se sem.</string>
     <string name="famc_trocar">Nový odkaz</string>
     <string name="famc_trocar_det">Starý odkaz hned přestane fungovat</string>
     <string name="famc_desligar">Vypnout</string>

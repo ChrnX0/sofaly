@@ -3,12 +3,12 @@
 <resources>
     <string name="saude_titulo">Akses jarak jauh berhenti</string>
     <string name="saude_texto_shell">Akses TV ke dirinya sendiri terputus %1$d mnt lalu (panel, Claude, dan perbaikan otomatis berhenti). Tekan Pasangkan lagi atau buka Setelan › Sistem › Lanjutan › Pasangkan tanpa PC.</string>
-    <string name="saude_texto_tunel">Claude lewat internet sedang offline. Tekan Hubungkan untuk melihat yang kurang, atau buka Setelan › Rumah dan jaringan › Akses jarak jauh.</string>
+    <string name="saude_texto_tunel">Claude lewat internet sedang offline. Tekan Hubungkan untuk melihat yang kurang, atau buka Setelan › Rumah dan akses jarak jauh › Akses jarak jauh.</string>
     <string name="saude_parear">Pasangkan lagi</string>
     <string name="saude_conectar">Hubungkan</string>
     <string name="saude_depois">Jangan sekarang</string>
     <string name="saude_acao_shell">Pasangkan lagi: Setelan › Sistem › Lanjutan › Pasangkan tanpa PC</string>
-    <string name="saude_acao_tunel">Hubungkan lagi: Setelan › Rumah dan jaringan › Akses jarak jauh › Hubungkan</string>
+    <string name="saude_acao_tunel">Hubungkan lagi: Setelan › Rumah dan akses jarak jauh › Akses jarak jauh › Hubungkan</string>
     <string name="mnt_titulo">Pemeliharaan malam</string>
     <string name="mnt_consertei">Diperbaiki:</string>
     <string name="mnt_falhou">Tidak bisa diperbaiki:</string>

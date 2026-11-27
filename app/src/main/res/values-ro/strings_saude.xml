@@ -2,12 +2,12 @@
 <resources>
     <string name="saude_titulo">Accesul la distanță s-a oprit</string>
     <string name="saude_texto_shell">Accesul TV-ului la el însuși a căzut acum %1$d min (panoul, Claude și reparațiile automate se opresc). Apăsați Asociază din nou sau mergeți la Setări › Sistem › Avansat › Asociere fără PC.</string>
-    <string name="saude_texto_tunel">Claude prin internet este offline. Apăsați Conectare pentru a vedea ce lipsește sau mergeți la Setări › Casă și rețea › Acces la distanță.</string>
+    <string name="saude_texto_tunel">Claude prin internet este offline. Apăsați Conectare pentru a vedea ce lipsește sau mergeți la Setări › Casă și acces la distanță › Acces la distanță.</string>
     <string name="saude_parear">Asociază din nou</string>
     <string name="saude_conectar">Conectare</string>
     <string name="saude_depois">Nu acum</string>
     <string name="saude_acao_shell">Asociați din nou: Setări › Sistem › Avansat › Asociere fără PC</string>
-    <string name="saude_acao_tunel">Conectați din nou: Setări › Casă și rețea › Acces la distanță › Conectare</string>
+    <string name="saude_acao_tunel">Conectați din nou: Setări › Casă și acces la distanță › Acces la distanță › Conectare</string>
     <string name="mnt_titulo">Întreținere de noapte</string>
     <string name="mnt_consertei">Reparat:</string>
     <string name="mnt_falhou">Nu s-a putut repara:</string>

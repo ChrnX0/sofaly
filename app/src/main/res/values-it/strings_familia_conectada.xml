@@ -5,7 +5,7 @@
     <string name="famc_det">Figli e nipoti mandano foto e messaggi a questa TV con un link, senza account</string>
     <string name="famc_ligado">Attivo</string>
     <string name="famc_texto">Inquadra il codice con il telefono e manda il link alla famiglia (WhatsApp, e-mail). Chi ha il link manda foto e messaggi: compaiono subito sullo schermo, i messaggi restano nella bacheca del pannello rapido e le foto si aggiungono a quelle del salvaschermo. Niente passa dai nostri server.</string>
-    <string name="famc_sem_tunel">Usa l’accesso da fuori casa (Tailscale), non ancora configurato su questa TV. Configuralo in Impostazioni › Casa e rete › Accesso remoto e torna qui.</string>
+    <string name="famc_sem_tunel">Usa l’accesso da fuori casa (Tailscale), non ancora configurato su questa TV. Configuralo in Impostazioni › Casa e accesso remoto › Accesso remoto e torna qui.</string>
     <string name="famc_trocar">Nuovo link</string>
     <string name="famc_trocar_det">Il vecchio link smette subito di funzionare</string>
     <string name="famc_desligar">Disattiva</string>
