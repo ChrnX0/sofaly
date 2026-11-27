@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema único do app (o mesmo de antes); existe para o values-v35 poder ajustar o Android 15. -->
+    <style name="Tema" parent="@android:style/Theme.Material.NoActionBar" />
+</resources>

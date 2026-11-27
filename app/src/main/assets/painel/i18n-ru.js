@@ -1,5 +1,8 @@
 // Painel em ru (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"у этого устройства больше нет доступа",
+"noite da casa":"ночь дома",
+"celular pareado para usar de fora de casa":"телефон подключён для использования вне дома",
 "Plugins":"Плагины",
 "Botão de outro app":"Кнопка другого приложения",
 "Nenhum botão ligado":"Нет включённых кнопок",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Готово: звук этого ТВ отстаёт на $1 мс на выходе $2. «Звук в наушники» уже использует это число."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Текущий выход: $1. Измеренная задержка: $2 мс. «Звук в наушники» уже использует это число."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Текущий выход: $1. Ещё не измерено: «Звук в наушники» использует $2 мс, значение по умолчанию."],
+["^celular pareado: (.+)$","телефон подключён: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","вход с подключённого телефона ($1)"],
+["^acesso revogado: (.+)$","доступ отозван: $1"],
+["^acesso de fora de casa revogado: (.+)$","доступ вне дома отозван: $1"],
 ]});

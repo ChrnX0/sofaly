@@ -1,5 +1,8 @@
 // Painel em sv (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"den här enheten har inte längre åtkomst",
+"noite da casa":"natt hemma",
+"celular pareado para usar de fora de casa":"telefon parkopplad för användning hemifrån",
 "Plugins":"Plugin",
 "Botão de outro app":"Knapp från en annan app",
 "Nenhum botão ligado":"Ingen knapp påslagen",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Klart: ljudet från den här TV:n släpar $1 ms på utgången $2. Ljud i hörlurar använder redan siffran."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Aktuell utgång: $1. Uppmätt fördröjning: $2 ms. Ljud i hörlurar använder redan siffran."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Aktuell utgång: $1. Inte uppmätt ännu: Ljud i hörlurar använder $2 ms, ett standardvärde."],
+["^celular pareado: (.+)$","telefon parkopplad: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","inloggning från parkopplad telefon ($1)"],
+["^acesso revogado: (.+)$","åtkomst återkallad: $1"],
+["^acesso de fora de casa revogado: (.+)$","åtkomst hemifrån återkallad: $1"],
 ]});

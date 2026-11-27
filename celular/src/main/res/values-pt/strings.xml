@@ -32,7 +32,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Mudo</string>
     <string name="cel_ctrl_sem_tv">A TV não respondeu. Ela está ligada e na mesma rede?</string>
-    <string name="cel_ctrl_fora">Enviado pela internet: você está fora da rede da TV.</string>
+    <string name="cel_ctrl_fora">Enviado pela internet.</string>
     <string name="cel_ctrl_cert_novo">A TV tem um certificado de segurança novo. Leia o QR da TV de novo.</string>
     <string name="cel_ctrl_recusou">A TV não conseguiu fazer isso agora.</string>
     <string name="cel_ctrl_entrar">Entre uma vez com o PIN da TV no painel; depois o controle funciona.</string>

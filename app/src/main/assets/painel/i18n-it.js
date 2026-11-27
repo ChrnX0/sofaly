@@ -1,5 +1,8 @@
 // Painel em it (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"questo dispositivo non ha più accesso",
+"noite da casa":"notte in casa",
+"celular pareado para usar de fora de casa":"telefono associato per l'uso fuori casa",
 "Plugins":"Plugin",
 "Botão de outro app":"Pulsante di un'altra app",
 "Nenhum botão ligado":"Nessun pulsante attivo",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Fatto: l'audio di questa TV è in ritardo di $1 ms sull'uscita $2. Audio nelle cuffie usa già questo numero."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Uscita attuale: $1. Ritardo misurato: $2 ms. Audio nelle cuffie usa già questo numero."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Uscita attuale: $1. Non ancora misurato: Audio nelle cuffie usa $2 ms, un valore predefinito."],
+["^celular pareado: (.+)$","telefono associato: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","accesso dal telefono associato ($1)"],
+["^acesso revogado: (.+)$","accesso revocato: $1"],
+["^acesso de fora de casa revogado: (.+)$","accesso fuori casa revocato: $1"],
 ]});

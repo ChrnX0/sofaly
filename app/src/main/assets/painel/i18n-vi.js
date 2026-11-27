@@ -1,5 +1,8 @@
 // Painel em vi (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"thiết bị này không còn quyền truy cập",
+"noite da casa":"đêm trong nhà",
+"celular pareado para usar de fora de casa":"điện thoại đã ghép để dùng khi ra ngoài",
 "Plugins":"Plugin",
 "Botão de outro app":"Nút từ ứng dụng khác",
 "Nenhum botão ligado":"Không có nút nào bật",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Xong: âm thanh của TV này trễ $1 ms ở đầu ra $2. Nghe bằng tai nghe đã dùng con số này."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Đầu ra hiện tại: $1. Độ trễ đo được: $2 ms. Nghe bằng tai nghe đã dùng con số này."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Đầu ra hiện tại: $1. Chưa đo: Nghe bằng tai nghe dùng $2 ms, giá trị mặc định."],
+["^celular pareado: (.+)$","đã ghép điện thoại: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","đăng nhập từ điện thoại đã ghép ($1)"],
+["^acesso revogado: (.+)$","đã thu hồi quyền: $1"],
+["^acesso de fora de casa revogado: (.+)$","đã thu hồi quyền ngoài nhà: $1"],
 ]});

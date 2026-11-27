@@ -1,5 +1,8 @@
 // Painel em nl (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"dit apparaat heeft geen toegang meer",
+"noite da casa":"nacht in huis",
+"celular pareado para usar de fora de casa":"telefoon gekoppeld voor gebruik buitenshuis",
 "Plugins":"Plug-ins",
 "Botão de outro app":"Knop van een andere app",
 "Nenhum botão ligado":"Geen knop aangezet",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Klaar: het geluid van deze tv loopt $1 ms achter op uitgang $2. Geluid op een koptelefoon gebruikt dit getal al."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Huidige uitgang: $1. Gemeten vertraging: $2 ms. Geluid op een koptelefoon gebruikt dit getal al."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Huidige uitgang: $1. Nog niet gemeten: Geluid op een koptelefoon gebruikt $2 ms, een standaardwaarde."],
+["^celular pareado: (.+)$","telefoon gekoppeld: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","aanmelden via gekoppelde telefoon ($1)"],
+["^acesso revogado: (.+)$","toegang ingetrokken: $1"],
+["^acesso de fora de casa revogado: (.+)$","toegang buitenshuis ingetrokken: $1"],
 ]});

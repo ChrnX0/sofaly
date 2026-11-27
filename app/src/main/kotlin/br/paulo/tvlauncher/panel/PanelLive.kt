@@ -209,10 +209,17 @@ private fun PainelWeb.guardarAparelhos(l: List<AparelhosPareados.Aparelho>) {
 internal fun PainelWeb.emitirAparelho(req: Requisicao, ip: String, https: Boolean): Resposta {
     if (!https) return erro(403, "só pelo https com o certificado da TV")
     val nome = corpoJson(req)?.optString("nome")
-    val (chave, id) = synchronized(travaAparelhos) {
-        val (lista, chave) = AparelhosPareados.emitir(aparelhos(), nome, System.currentTimeMillis())
+    val (chave, id, saiu) = synchronized(travaAparelhos) {
+        val antes = aparelhos()
+        val (lista, chave) = AparelhosPareados.emitir(antes, nome, System.currentTimeMillis())
         guardarAparelhos(lista)
-        chave to lista.last().id
+        Triple(chave, lista.last().id, antes.filter { a -> lista.none { it.id == a.id } })
+    }
+    // Passou de MAX: o mais antigo sai de verdade (sessões e relay também) e fica no Registro (revisor 26/11).
+    for (a in saiu) {
+        sessoes.encerrarAparelho(a.id)
+        br.paulo.tvlauncher.relay.RelayTv.esquecerDoAparelho(app, a.id)
+        PainelArmazem.registrar(app, ip, "acesso revogado: ${a.nome}", "ok")
     }
     PainelArmazem.registrar(app, ip, "celular pareado: ${AparelhosPareados.nomeLimpo(nome)}", "ok")
     return json(200, JSONObject().put("chave", chave).put("id", id))
@@ -242,7 +249,15 @@ internal fun PainelWeb.listarAparelhos(): Resposta {
 internal fun PainelWeb.aparelhoDoCabecalho(req: Requisicao): String? =
     AparelhosPareados.conferir(aparelhos(), req.cabecalho("x-aparelho"))?.id
 
-/** Revogar não tem volta para o celular (precisa ler o QR de novo), mas não apaga nada da casa: não pede o PIN. */
+/** PIN novo: nenhum celular pareado continua entrando sem ele (chaves de aparelho e celulares do relay). */
+internal fun PainelWeb.revogarTodosAparelhos(manter: String? = null) {
+    val ids = synchronized(travaAparelhos) { aparelhos().map { it.id }.also { guardarAparelhos(emptyList()) } }
+    ids.forEach { sessoes.encerrarAparelho(it, exceto = manter) }   // quem trocou o PIN não cai da página
+    val relay = br.paulo.tvlauncher.relay.RelayTv
+    relay.pareados(app).filterNot { it.tv }.forEach { relay.esquecer(app, it.id) }
+}
+
+/** Revogar não tem volta para o celular (precisa ler o QR de novo). Pede o PIN (rota em PainelWeb). */
 internal fun PainelWeb.revogarAparelho(req: Requisicao, ip: String): Resposta {
     val id = corpoJson(req)?.optString("id").orEmpty()
     // Celular só de fora de casa (linha "relay:<id>"): sai da lista do relay; as teclas dele param de valer na hora.

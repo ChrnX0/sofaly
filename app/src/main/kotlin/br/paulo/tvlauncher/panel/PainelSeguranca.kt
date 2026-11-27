@@ -186,7 +186,11 @@ class Sessoes(private val relogio: () -> Long, private val maximoSessoes: Int = 
     @Synchronized fun encerrarConvidados() { mapa.values.removeAll { it.papel != PapeisPainel.Papel.DONO } }
 
     /** Celular revogado no painel (item 9): as sessões que ele abriu com a chave caem na hora, não só a próxima entrada. */
-    @Synchronized fun encerrarAparelho(id: String) { mapa.values.removeAll { it.aparelho == id } }
+    /** Encerra as sessões abertas com a chave do celular [id], menos a de [exceto] (quem pediu, se for o caso). */
+    @Synchronized fun encerrarAparelho(id: String, exceto: String? = null) {
+        val minha = exceto?.let { chave(it) }
+        mapa.entries.removeAll { it.value.aparelho == id && it.key != minha }
+    }
 
     @Synchronized fun encerrar(token: String?) { if (token != null) mapa.remove(chave(token)) }
 

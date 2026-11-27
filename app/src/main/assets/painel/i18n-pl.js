@@ -1,5 +1,8 @@
 // Painel em pl (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"to urządzenie nie ma już dostępu",
+"noite da casa":"noc w domu",
+"celular pareado para usar de fora de casa":"telefon sparowany do użytku poza domem",
 "Plugins":"Wtyczki",
 "Botão de outro app":"Przycisk innej aplikacji",
 "Nenhum botão ligado":"Żaden przycisk nie jest włączony",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Gotowe: dźwięk tego telewizora spóźnia się o $1 ms na wyjściu $2. Dźwięk w słuchawkach już używa tej liczby."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Obecne wyjście: $1. Zmierzone opóźnienie: $2 ms. Dźwięk w słuchawkach już używa tej liczby."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Obecne wyjście: $1. Jeszcze nie zmierzono: Dźwięk w słuchawkach używa $2 ms, wartości domyślnej."],
+["^celular pareado: (.+)$","telefon sparowany: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","logowanie ze sparowanego telefonu ($1)"],
+["^acesso revogado: (.+)$","dostęp cofnięty: $1"],
+["^acesso de fora de casa revogado: (.+)$","dostęp spoza domu cofnięty: $1"],
 ]});

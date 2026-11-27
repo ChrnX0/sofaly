@@ -1,5 +1,8 @@
 // Painel em ja (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"このデバイスはもうアクセスできません",
+"noite da casa":"家の夜",
+"celular pareado para usar de fora de casa":"外出先で使うためにペアリングしたスマホ",
 "Plugins":"プラグイン",
 "Botão de outro app":"他のアプリのボタン",
 "Nenhum botão ligado":"オンのボタンはありません",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","完了: このテレビの音は出力 $2 で $1 ms 遅れます。「イヤホンで聞く」はもうこの数値を使っています。"],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","現在の出力: $1。測定した遅れ: $2 ms。「イヤホンで聞く」はもうこの数値を使っています。"],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","現在の出力: $1。まだ測っていません: 「イヤホンで聞く」は標準値の $2 ms を使っています。"],
+["^celular pareado: (.+)$","スマホをペアリング: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","ペアリングしたスマホからログイン ($1)"],
+["^acesso revogado: (.+)$","アクセスを取り消し: $1"],
+["^acesso de fora de casa revogado: (.+)$","外出先からのアクセスを取り消し: $1"],
 ]});

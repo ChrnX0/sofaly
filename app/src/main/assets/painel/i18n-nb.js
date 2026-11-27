@@ -1,5 +1,8 @@
 // Painel em nb (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"denne enheten har ikke lenger tilgang",
+"noite da casa":"natt hjemme",
+"celular pareado para usar de fora de casa":"telefon paret for bruk utenfor hjemmet",
 "Plugins":"Plugins",
 "Botão de outro app":"Knapp fra en annen app",
 "Nenhum botão ligado":"Ingen knapp slått på",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Ferdig: lyden fra denne TV-en er $1 ms forsinket på utgangen $2. Lyd i hodetelefoner bruker allerede tallet."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Gjeldende utgang: $1. Målt forsinkelse: $2 ms. Lyd i hodetelefoner bruker allerede tallet."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Gjeldende utgang: $1. Ikke målt ennå: Lyd i hodetelefoner bruker $2 ms, en standardverdi."],
+["^celular pareado: (.+)$","telefon paret: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","innlogging fra paret telefon ($1)"],
+["^acesso revogado: (.+)$","tilgang tilbakekalt: $1"],
+["^acesso de fora de casa revogado: (.+)$","tilgang utenfor hjemmet tilbakekalt: $1"],
 ]});

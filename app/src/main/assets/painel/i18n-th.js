@@ -1,5 +1,8 @@
 // Painel em th (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"อุปกรณ์นี้ไม่มีสิทธิ์เข้าถึงแล้ว",
+"noite da casa":"กลางคืนในบ้าน",
+"celular pareado para usar de fora de casa":"จับคู่โทรศัพท์ไว้ใช้นอกบ้าน",
 "Plugins":"ปลั๊กอิน",
 "Botão de outro app":"ปุ่มจากแอปอื่น",
 "Nenhum botão ligado":"ไม่มีปุ่มที่เปิดอยู่",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","เรียบร้อย: เสียงของทีวีนี้ช้า $1 มิลลิวินาทีที่ช่อง $2 เสียงผ่านหูฟังใช้ตัวเลขนี้แล้ว"],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","ช่องเสียงตอนนี้: $1 ความล่าช้าที่วัดได้: $2 มิลลิวินาที เสียงผ่านหูฟังใช้ตัวเลขนี้แล้ว"],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","ช่องเสียงตอนนี้: $1 ยังไม่ได้วัด: เสียงผ่านหูฟังใช้ $2 มิลลิวินาที ซึ่งเป็นค่าเริ่มต้น"],
+["^celular pareado: (.+)$","จับคู่โทรศัพท์แล้ว: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","เข้าจากโทรศัพท์ที่จับคู่ ($1)"],
+["^acesso revogado: (.+)$","เพิกถอนสิทธิ์แล้ว: $1"],
+["^acesso de fora de casa revogado: (.+)$","เพิกถอนสิทธิ์นอกบ้านแล้ว: $1"],
 ]});

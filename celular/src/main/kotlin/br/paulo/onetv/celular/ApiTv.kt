@@ -26,6 +26,9 @@ object ApiTv {
     fun ultima(ctx: Context): Pareamento.Tv? =
         Tvs.porChave(ctx, ctx.getSharedPreferences("controle", Context.MODE_PRIVATE).getString("ultima", null))
 
+    fun esquecerUltima(ctx: Context) =
+        ctx.getSharedPreferences("controle", Context.MODE_PRIVATE).edit().remove("ultima").apply()
+
     fun lembrar(ctx: Context, tv: Pareamento.Tv) =
         ctx.getSharedPreferences("controle", Context.MODE_PRIVATE).edit().putString("ultima", Pareamento.chave(tv)).apply()
 
@@ -38,6 +41,21 @@ object ApiTv {
 
     /** [CelularApp] chama ao abrir o processo: a chave de aparelho fica nas prefs e no Keystore. */
     fun iniciar(ctx: Context) { app = ctx.applicationContext }
+
+    /** Até quando a TV conta como "fora de casa" (o IP de casa não respondeu e o relay entregou). */
+    private val foraAte = java.util.concurrent.ConcurrentHashMap<String, Long>()
+    private const val FORA_MS = 30_000L
+    private fun foraDeCasa(tv: Pareamento.Tv) = (foraAte[Pareamento.chave(tv)] ?: 0L) > System.currentTimeMillis()
+
+    /**
+     * Sessão caiu e a TV disse "logado: false" num 200 (o /api/estado não dá 401): troca a chave de aparelho, se houver,
+     * por uma sessão nova. true = entrou sem PIN (revisor 26/11: o controle e o painel pediam o PIN mesmo com a chave).
+     */
+    fun reentrar(tv: Pareamento.Tv): Boolean {
+        val ctx = app ?: return false
+        val chave = ChaveAparelho.ler(ctx, tv) ?: return false
+        return entrarComChave(ctx, tv, chave)
+    }
 
     /** TVs que já recusaram dar a chave neste processo (painel antigo, sem https): não pede de novo a cada tecla. */
     private val semChave = java.util.Collections.synchronizedSet(HashSet<String>())
@@ -62,10 +80,17 @@ object ApiTv {
 
     /** Chamada bloqueante. Código 0 = não chegou na TV (desligada, fora de casa); [CERTIFICADO_TROCOU] = outro certificado. */
     fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta {
+        // Fora de casa há pouco (revisor 26/11): tecla e texto vão direto pelo relay, sem esperar 4 s pelo IP de casa.
+        app?.let { ctx -> if (foraDeCasa(tv)) pelaCaixa(ctx, tv, caminho, corpo)?.let { return it } }
         val r = chamarUmaVez(tv, metodo, caminho, corpo)
         val ctx = app ?: return r
         // Decisão A (26/11/2026): a TV não respondeu pela rede de casa (fora de casa)? Tecla e texto vão pelo relay.
-        if (r.codigo == 0) return pelaCaixa(ctx, tv, caminho, corpo) ?: r
+        if (r.codigo == 0) {
+            val viaRelay = pelaCaixa(ctx, tv, caminho, corpo)
+            if (viaRelay != null) foraAte[Pareamento.chave(tv)] = System.currentTimeMillis() + FORA_MS
+            return viaRelay ?: r
+        }
+        foraAte.remove(Pareamento.chave(tv))
         val chave = ChaveAparelho.ler(ctx, tv)
         if (deveReentrar(r.codigo, chave != null, caminho)) {
             return if (entrarComChave(ctx, tv, chave!!)) chamarUmaVez(tv, metodo, caminho, corpo) else r
@@ -92,7 +117,7 @@ object ApiTv {
         // revogar lá corta o acesso de fora também.
         val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido, ChaveAparelho.ler(ctx, tv)?.let { mapOf("X-Aparelho" to it) } ?: emptyMap())
         if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json))
-            semRelay[Pareamento.chave(tv)] = if (esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
+            semRelay[Pareamento.chave(tv)] = if (r.codigo == 0 || esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
     }
 
     /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
@@ -123,17 +148,21 @@ object ApiTv {
         if (r.codigo == 403) { ChaveAparelho.esquecer(ctx, tv); return false }   // revogada: só o QR traz de volta
         if (r.codigo != 200 || r.cookies.isEmpty()) return false
         val base = "https://${tv.ip}:${Pareamento.PORTA_HTTPS}/"
-        val cm = CookieManager.getInstance()
-        r.cookies.forEach { cm.setCookie(base, it) }
-        cm.flush()
-        return true
+        // WebView atualizando ou ausente lança aqui; sem o try derrubava o app pela thread de fundo.
+        return runCatching {
+            val cm = CookieManager.getInstance()
+            r.cookies.forEach { cm.setCookie(base, it) }
+            cm.flush()
+        }.isSuccess
     }
 
     private fun pedirChave(ctx: Context, tv: Pareamento.Tv) {
         val k = Pareamento.chave(tv)
         val agora = System.currentTimeMillis()
-        if (agora - (ultimoPedido[k] ?: 0L) < ESPERA_PIN_MS) return
-        ultimoPedido[k] = agora
+        // Atômico: a pergunta de estado e uma tecla ao mesmo tempo emitiam duas chaves (uma ficava órfã na TV).
+        var minha = false
+        ultimoPedido.compute(k) { _, antes -> if (agora - (antes ?: 0L) < ESPERA_PIN_MS) antes else { minha = true; agora } }
+        if (!minha) return
         val r = chamarUmaVez(tv, "POST", "/api/aparelho/emitir", JSONObject().put("nome", android.os.Build.MODEL ?: ""))
         val chave = r.json?.optString("chave")
         if (r.codigo == 200 && ChaveAparelho.valida(chave) && ChaveAparelho.guardar(ctx, tv, chave!!)) {
@@ -142,7 +171,8 @@ object ApiTv {
             RelayCelular.esquecer(ctx, tv)
             return
         }
-        if (!esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
+        // Código 0 (rede caiu no meio) = tenta depois, não é recusa.
+        if (r.codigo != 0 && !esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
     }
 
     /**
@@ -222,4 +252,8 @@ object ApiTv {
     fun estado(tv: Pareamento.Tv): Resposta = chamar(tv, "GET", "/api/estado")
 
     fun emSegundoPlano(bloco: () -> Unit) = Thread(bloco, "ApiTv").start()
+
+    /** Teclas e texto numa fila só (revisor 26/11): uma Thread por tecla deixava "baixo, baixo, direita" chegar trocado. */
+    private val fila = java.util.concurrent.Executors.newSingleThreadExecutor { Thread(it, "ApiTv-teclas") }
+    fun emOrdem(bloco: () -> Unit) { fila.execute(bloco) }
 }

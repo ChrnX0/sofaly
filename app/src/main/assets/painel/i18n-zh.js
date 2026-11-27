@@ -1,5 +1,8 @@
 // Painel em zh (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"此设备已无访问权限",
+"noite da casa":"家中夜间",
+"celular pareado para usar de fora de casa":"已配对、可在外使用的手机",
 "Plugins":"插件",
 "Botão de outro app":"其他应用的按钮",
 "Nenhum botão ligado":"没有已开启的按钮",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","好了：这台电视在 $2 输出上声音延迟 $1 毫秒。“用耳机听”已经在用这个数值。"],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","当前输出：$1。测得延迟：$2 毫秒。“用耳机听”已经在用这个数值。"],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","当前输出：$1。尚未测量：“用耳机听”使用默认值 $2 毫秒。"],
+["^celular pareado: (.+)$","已配对手机：$1"],
+["^entrar pelo celular pareado \\((.+)\\)$","从已配对手机登录（$1）"],
+["^acesso revogado: (.+)$","已撤销访问：$1"],
+["^acesso de fora de casa revogado: (.+)$","已撤销外出访问：$1"],
 ]});

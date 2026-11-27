@@ -33,7 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Mute</string>
     <string name="cel_ctrl_sem_tv">The TV didn\'t answer. Is it on and on the same network?</string>
-    <string name="cel_ctrl_fora">Sent over the internet: you\'re away from the TV\'s network.</string>
+    <string name="cel_ctrl_fora">Sent over the internet.</string>
     <string name="cel_ctrl_cert_novo">The TV has a new security certificate. Scan the QR code on the TV again.</string>
     <string name="cel_ctrl_recusou">The TV couldn\'t do that now.</string>
     <string name="cel_ctrl_entrar">Sign in once with the TV PIN in the panel; then the remote works.</string>

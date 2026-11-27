@@ -1,5 +1,8 @@
 // Painel em id (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"perangkat ini tidak punya akses lagi",
+"noite da casa":"malam di rumah",
+"celular pareado para usar de fora de casa":"ponsel dipasangkan untuk dipakai di luar rumah",
 "Plugins":"Plugin",
 "Botão de outro app":"Tombol dari aplikasi lain",
 "Nenhum botão ligado":"Tidak ada tombol yang aktif",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Selesai: suara TV ini terlambat $1 ms di keluaran $2. Suara di headset sudah memakai angka ini."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Keluaran saat ini: $1. Keterlambatan terukur: $2 ms. Suara di headset sudah memakai angka ini."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Keluaran saat ini: $1. Belum diukur: Suara di headset memakai $2 ms, nilai bawaan."],
+["^celular pareado: (.+)$","ponsel dipasangkan: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","masuk dari ponsel yang dipasangkan ($1)"],
+["^acesso revogado: (.+)$","akses dicabut: $1"],
+["^acesso de fora de casa revogado: (.+)$","akses dari luar rumah dicabut: $1"],
 ]});

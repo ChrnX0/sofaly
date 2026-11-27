@@ -1,5 +1,8 @@
 // Painel em hi (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"इस डिवाइस के पास अब पहुँच नहीं है",
+"noite da casa":"घर की रात",
+"celular pareado para usar de fora de casa":"घर से बाहर इस्तेमाल के लिए जोड़ा गया फ़ोन",
 "Plugins":"प्लगइन",
 "Botão de outro app":"दूसरे ऐप का बटन",
 "Nenhum botão ligado":"कोई बटन चालू नहीं",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","हो गया: इस टीवी की आवाज़ $2 आउटपुट पर $1 ms देर से आती है। हेडफ़ोन में आवाज़ अब यही संख्या इस्तेमाल करती है।"],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","अभी का आउटपुट: $1। मापी गई देरी: $2 ms। हेडफ़ोन में आवाज़ अब यही संख्या इस्तेमाल करती है।"],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","अभी का आउटपुट: $1। अभी मापा नहीं गया: हेडफ़ोन में आवाज़ $2 ms इस्तेमाल करती है, एक डिफ़ॉल्ट मान।"],
+["^celular pareado: (.+)$","फ़ोन जोड़ा गया: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","जोड़े गए फ़ोन से प्रवेश ($1)"],
+["^acesso revogado: (.+)$","पहुँच हटाई गई: $1"],
+["^acesso de fora de casa revogado: (.+)$","घर से बाहर की पहुँच हटाई गई: $1"],
 ]});

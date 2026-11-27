@@ -1,5 +1,8 @@
 // Painel em ar (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"لم يعد لهذا الجهاز وصول",
+"noite da casa":"ليل المنزل",
+"celular pareado para usar de fora de casa":"هاتف مقترن للاستخدام خارج المنزل",
 "Plugins":"الإضافات",
 "Botão de outro app":"زر من تطبيق آخر",
 "Nenhum botão ligado":"لا يوجد زر مفعّل",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","تم: صوت هذا التلفاز يتأخر $1 ملّي ثانية على المخرج $2. «الصوت في السماعة» يستخدم هذا الرقم الآن."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","المخرج الحالي: $1. التأخير المقاس: $2 ملّي ثانية. «الصوت في السماعة» يستخدم هذا الرقم الآن."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","المخرج الحالي: $1. لم يُقَس بعد: «الصوت في السماعة» يستخدم $2 ملّي ثانية، وهي قيمة افتراضية."],
+["^celular pareado: (.+)$","تم إقران الهاتف: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","دخول من الهاتف المقترن ($1)"],
+["^acesso revogado: (.+)$","أُلغي الوصول: $1"],
+["^acesso de fora de casa revogado: (.+)$","أُلغي الوصول من خارج المنزل: $1"],
 ]});

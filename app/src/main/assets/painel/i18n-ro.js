@@ -1,5 +1,8 @@
 // Painel em ro (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"acest dispozitiv nu mai are acces",
+"noite da casa":"noaptea în casă",
+"celular pareado para usar de fora de casa":"telefon asociat pentru folosire în afara casei",
 "Plugins":"Pluginuri",
 "Botão de outro app":"Buton din altă aplicație",
 "Nenhum botão ligado":"Niciun buton activat",
@@ -2486,4 +2489,8 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Gata: sunetul acestui televizor întârzie $1 ms pe ieșirea $2. Sunet în căști folosește deja acest număr."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Ieșirea actuală: $1. Întârziere măsurată: $2 ms. Sunet în căști folosește deja acest număr."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Ieșirea actuală: $1. Încă nemăsurat: Sunet în căști folosește $2 ms, o valoare implicită."],
+["^celular pareado: (.+)$","telefon asociat: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","intrare de pe telefonul asociat ($1)"],
+["^acesso revogado: (.+)$","acces revocat: $1"],
+["^acesso de fora de casa revogado: (.+)$","acces din afara casei revocat: $1"],
 ]});
