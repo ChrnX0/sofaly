@@ -20,8 +20,19 @@ object SofyCommunityTv {
     const val KEY_SHARE = "sofy_community_share"
     private const val GAP_MS = 20 * 3_600_000L
 
+    /**
+     * Consentimento da rede de Sofys (#541), à parte: só quem disse "Sim" na tela do sofáTV (HelpOtherHomesActivity),
+     * que lista o que vai e o que nunca sai, manda o pacote da frota. Ligar pelo painel (cujo texto promete só o nome e
+     * a versão dos apps que travaram) ou pelo adb liga só as fichas. Desligar, por qualquer lado, desliga os dois.
+     */
+    const val KEY_FLEET = "sofy_fleet_consent"
+
     fun sharing(ctx: Context) = Extras.numero(ctx, KEY_SHARE, 0) == 1
-    fun setSharing(ctx: Context, on: Boolean) = Extras.definirNumero(ctx, KEY_SHARE, if (on) 1 else 0)
+    fun fleetConsent(ctx: Context) = sharing(ctx) && Extras.numero(ctx, KEY_FLEET, 0) == 1
+    fun setSharing(ctx: Context, on: Boolean, fleet: Boolean = false) {
+        Extras.definirNumero(ctx, KEY_SHARE, if (on) 1 else 0)
+        if (!on || fleet) Extras.definirNumero(ctx, KEY_FLEET, if (on && fleet) 1 else 0)
+    }
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(ObserverTv.PREFS, Context.MODE_PRIVATE)
 

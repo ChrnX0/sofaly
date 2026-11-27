@@ -28,7 +28,6 @@ object SofyFleet {
     val BEFORE = setOf("app_updated", "sofaly_updated", "system_updated", "rebooted", "network_changed", "setting_changed",
         "memory_low", "plugin_changed", "backup_restored", "other")
 
-    private val PKG = Regex("^[A-Za-z][A-Za-z0-9_]*(\\.[A-Za-z0-9_]+)+$")
     private val NAME = Regex("^[a-z0-9_.]{1,60}$")
     private val BUS_KEY = Regex("^([a-z]+)\\.([a-z0-9_]+)")
 
@@ -48,31 +47,26 @@ object SofyFleet {
 
     private fun deviceText(s: String) = s.filter { it.isLetterOrDigit() && it.code < 128 || it in " ._+-" }.trim().take(40).ifEmpty { "unknown" }
 
-    fun ramBucket(mb: Long) = when { mb < 1024 -> "lt1"; mb < 2048 -> "1-2"; mb < 3072 -> "2-3"; mb < 4096 -> "3-4"; mb < 8192 -> "4-8"; else -> "8+" }
-    fun diskBucket(gb: Long) = when { gb < 4 -> "lt4"; gb < 8 -> "4-8"; gb < 16 -> "8-16"; gb < 32 -> "16-32"; else -> "32+" }
-    fun uptimeBucket(ms: Long) = when { ms < 3_600_000L -> "lt1h"; ms < 86_400_000L -> "1-24h"; ms < 7 * 86_400_000L -> "1-7d"; else -> "7d+" }
-    fun period(hour: Int) = when (hour) { in 0..5 -> "night"; in 6..11 -> "morning"; in 12..17 -> "afternoon"; else -> "evening" }
     fun net(n: String) = if (n in setOf("wifi", "ethernet", "none")) n else "other"
 
+    /** Só o modelo (#541: "O modelo da TV" é o que o consentimento promete). Versão do Android, RAM e disco ficam. */
     fun device(d: Device): JSONObject = JSONObject()
         .put("maker", deviceText(d.maker)).put("model", deviceText(d.model))
         .put("platform", if (d.googleTv) "googletv" else if (d.androidTv) "androidtv" else "other")
-        .put("sdk", d.sdk.coerceIn(21, 60)).put("abi", if (d.is64) "64" else "32")
-        .put("ram", ramBucket(d.ramMb)).put("disk", diskBucket(d.diskGb))
+        .put("abi", if (d.is64) "64" else "32")
 
     /** Onde: a parte do assunto antes de ":" ("app:com.x" -> app). */
     fun area(subject: String): String = subject.substringBefore(':').let { if (it in AREAS) it else "other" }
 
-    /** O alvo: o pacote (área app) ou um nome do nosso código. Qualquer outra coisa fica vazia. */
+    /**
+     * O alvo: um nome do nosso código (feature:mcp, perm:...). O pacote de um app NÃO sai (#541: "Seus apps" está em
+     * "O que nunca sai"); o caso de app vai só como categoria. Qualquer outra coisa fica vazia.
+     */
     fun target(subject: String): String {
         if (!subject.contains(':')) return ""
         val a = area(subject)
-        val rest = subject.substringAfter(':')
-        return when {
-            a == "app" -> if (PKG.matches(rest) && rest.length <= 150) rest else ""
-            a == "other" -> ""
-            else -> rest.lowercase().let { if (NAME.matches(it)) it else "" }
-        }
+        if (a == "app" || a == "other") return ""
+        return subject.substringAfter(':').lowercase().let { if (NAME.matches(it)) it else "" }
     }
 
     /** O que mudou antes, pela CHAVE do evento do barramento ("fonte.tipo"); o detalhe do evento nunca é lido. */
@@ -113,22 +107,21 @@ object SofyFleet {
     }
 
     /** Um caso vira linha. Caso de teste (posto pelo adb) nunca vai. */
-    fun case(c: SofyRepair.Case, s: State, relapse: String = "none"): JSONObject? {
+    fun case(c: SofyRepair.Case, s: State): JSONObject? {
         if (SofyRepair.isTest(c)) return null
         val b = before(c.context)
         return JSONObject()
             .put("type", c.type.name).put("area", area(c.subject)).put("target", target(c.subject))
-            .put("cause", cause(c, b, s.memoryLow)).put("before", JSONArray(b))
-            .put("state", JSONObject().put("uptime", uptimeBucket(s.uptimeMs)).put("memory", if (s.memoryLow) "low" else "ok")
-                .put("net", net(s.net)).put("period", period(s.hour)))
+            // #541: só o que o consentimento promete. O que mudou antes só serve para a categoria da causa (fica aqui);
+            // tempo ligada, hora do dia, recaída e contagem não saem.
+            .put("cause", cause(c, b, s.memoryLow))
+            .put("state", JSONObject().put("memory", if (s.memoryLow) "low" else "ok").put("net", net(s.net)))
             .put("tries", JSONArray().apply {
                 c.tried.takeLast(MAX_TRIES).forEach {
                     put(JSONObject().put("tool", it.tool.name).put("by", if (it.tool in c.aiPlan) "ai" else "rule").put("result", result(it.result)))
                 }
             })
             .put("outcome", when (c.state) { SofyRepair.State.FIXED -> "fixed"; SofyRepair.State.GIVEN_UP -> "gave_up"; else -> "open" })
-            .put("relapse", if (relapse in setOf("none", "24h", "7d")) relapse else "none")
-            .put("count", c.count.coerceIn(1, 9999))
     }
 
     /** O pacote do dia inteiro. [states] = o estado de cada caso (pela chave); sem estado, o [fallback]. */

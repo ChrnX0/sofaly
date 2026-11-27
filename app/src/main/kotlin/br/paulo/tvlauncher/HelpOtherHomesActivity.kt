@@ -114,7 +114,7 @@ class HelpOtherHomesActivity : Activity() {
     private fun agoraNao() = botao(R.string.hoh_not_now) { escolher(false) }
 
     private fun escolher(on: Boolean) {
-        SofyCommunityTv.setSharing(this, on)
+        SofyCommunityTv.setSharing(this, on, fleet = on)   // #541: só esta tela, com a lista do que vai, dá o consentimento da frota
         PainelArmazem.registrar(this, "tv", getString(R.string.hoh_title_short), if (on) "ligado" else "desligado")
         if (on) AvisoTv.rapido(applicationContext, getString(R.string.hoh_title_short), getString(R.string.hoh_thanks))
         finish()
