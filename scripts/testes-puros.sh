@@ -2,7 +2,7 @@
 # Roda os testes JVM que NÃO dependem do Android, sem SDK e sem Gradle (ex.: na nuvem, sem o PC de build). 09/11/2026.
 # Baixa uma vez o compilador Kotlin (mesma versão do projeto) e os jars de teste para $CACHE e compila cada teste
 # só com os arquivos de que ele precisa (compilar todos os "puros" juntos falha: alguns usam o Config, que é Android).
-# Uso: bash scripts/testes-puros.sh          (da raiz do repo)
+# Uso: bash scripts/testes-puros.sh [NomeDoTeste]   (da raiz do repo; sem nome, roda todos)
 set -euo pipefail
 RAIZ="$(cd "$(dirname "$0")/.." && pwd)"
 CACHE="${CACHE:-$HOME/.cache/tv-launcher-testes}"
@@ -89,11 +89,13 @@ declare -A FONTES=(
   [OnDemandTest]="OnDemand"
   [GoogleHomeTrimTest]="GoogleHomeTrim"
   [StorageModeRulesTest]="StorageModeRules"
+  [AcmeClientTest]="AcmeClient CertificadoX509"
 )
 
 falhou=0
 cd "$RAIZ/app"   # o PainelHtmlTest lê src/main/assets com caminho relativo, como no Gradle
 for teste in "${!FONTES[@]}"; do
+  [ -n "${1:-}" ] && [ "$teste" != "$1" ] && continue   # "bash scripts/testes-puros.sh AcmeClientTest" roda só um
   saida="$CACHE/out-$teste"; rm -rf "$saida"
   # Desde a refatoração de 21/11/2026 os fontes moram em subpacotes (observer/, home/...): acha cada um pelo nome.
   arquivos=("$T/$teste.kt"); for f in ${FONTES[$teste]}; do arquivos+=("$(find "$M" -name "$f.kt" | head -1)"); done
