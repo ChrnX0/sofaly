@@ -57,6 +57,10 @@ kotlin {
 dependencies {
     // Leitor de QR (ZXing, Apache-2.0): funciona sem os serviços do Google.
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+    // O leitor chama androidx.core (ContextCompat/ActivityCompat, para a permissão da câmera), mas o POM do 4.3.0 não
+    // declara essa dependência: sem esta linha o R8 deixava a referência solta e o app FECHAVA ao tocar em "Ler o QR
+    // da TV" (NoClassDefFoundError; v475825, Paulo 27/11/2026). ZxingDependenciaTest confere que ela continua aqui.
+    implementation("androidx.core:core:1.16.0")
     // Relay do api.sofaly.tv (26/11/2026): Ed25519/X25519/HKDF da relay-core (mesma versão do app da TV).
     implementation("org.bouncycastle:bcprov-jdk15to18:1.81")
     testImplementation("junit:junit:4.13.2")
