@@ -77,7 +77,7 @@ FIRST = {"care": ("TV nova em 2 minutos", "Comprou outra TV? Leia um QR e tudo p
 # "watch" had tela-*-home (the old cross home screen): it waits for the final Rows screen (Paulo 27/11/2026).
 SHOT = {"home": "configuracoes", "listen": "radio", "play": "jogos", "house": "despertador",
         "family": "boas-vindas", "phone": "entrar-celular", "care": "mudar-tv", "everyone": "ajuda"}
-LS = 'stroke="#C7A98E" stroke-width="2.4" fill="none" stroke-linejoin="round" stroke-linecap="round"'
+LS = 'stroke="#C7C7C7" stroke-width="2.4" fill="none" stroke-linejoin="round" stroke-linecap="round"'
 LO = 'stroke="#FF8A55"'
 ILL = {
     "apps": f'<svg viewBox="0 0 480 270"><g {LS}><path d="M90 200 H390"/><path d="M110 200 V90 M370 200 V90 M90 90 H390"/>'
@@ -228,7 +228,7 @@ def page_home(L):
     parts = s.split('<div class="fig rv">')
     for k, c in zip(range(1, 4), ["#FF8A55", "#F5C04A", "#3CC6B4"]):
         x, y = parts[k].split("</svg>", 1)
-        parts[k] = x.replace('stroke="#C7A98E"', f'stroke="{c}"').replace('stroke="#FF8A55"', 'stroke="#FFF3E6"') + "</svg>" + y
+        parts[k] = x.replace('stroke="#C7C7C7"', f'stroke="{c}"').replace('stroke="#FF8A55"', 'stroke="#FFF3E6"') + "</svg>" + y
 
     s = '<div class="fig rv">'.join(parts)
 
@@ -238,7 +238,7 @@ def page_home(L):
                   for k, c, _ in B.SHOW)
     doc = (f'<!doctype html><html lang="{e(D["lang"])}"{" dir=rtl" if D.get("dir") == "rtl" else ""}><head><meta charset="utf-8">'
            f'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap">'
-           f'<link rel="stylesheet" href="{pre}assets/site.css"><style>html,body{{margin:0;background:#0b0d18;overflow:hidden}}'
+           f'<link rel="stylesheet" href="{pre}assets/site.css"><style>html,body{{margin:0;background:#121212;overflow:hidden}}'
            f'.screen{{width:100vw;height:100vh;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none}}.scr:not(.on){{display:none!important}}</style></head>'
            f'<body><div class="screen">{scr}</div><script>window.mostrar=function(k){{document.querySelectorAll(".scr").forEach(function(s){{s.classList.toggle("on",s.dataset.k===k)}})}};mostrar("forecast");</script></body></html>')
     ifr = f'<iframe class="shot on" id="velha" title="Sofaly" tabindex="-1" aria-hidden="true" srcdoc="{e(doc, quote=True)}"></iframe>'
@@ -246,7 +246,7 @@ def page_home(L):
     assert s.count('<div class="screen" id="screen">\n') == 1
     s = s.replace('<div class="screen" id="screen">\n', '<div class="screen" id="screen">\n    ' + ifr + '\n', 1)
     s = s.replace(".shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}",
-                  ".shot{position:absolute;left:0;top:0;width:1280px;height:720px;border:0;opacity:0;pointer-events:none;transform-origin:0 0;transform:scale(calc(100cqw / 1280px));transition:opacity .45s ease;background:#0b0d18}")
+                  ".shot{position:absolute;left:0;top:0;width:1280px;height:720px;border:0;opacity:0;pointer-events:none;transform-origin:0 0;transform:scale(calc(100cqw / 1280px));transition:opacity .45s ease;background:#121212}")
     s = s.replace(" const scr=document.getElementById('screen');\n",
                   " const scr=document.getElementById('screen');\n new ResizeObserver(()=>{const v=document.getElementById('velha');if(v&&!CSS.supports('width','1cqw'))v.style.transform='scale('+scr.clientWidth/1280+')'}).observe(scr);\n", 1)
     SH = C["show"]["screens"]
@@ -275,7 +275,7 @@ def page_home(L):
     s = re.sub(r"^<title>.*?</title>\s*<meta name=\"claude:viewport-fit-sides\"[^>]*>\s*", "", s, flags=re.S)
     hd = B.head(L, "index", D["home"]["title"], D["home"]["description"])
     hd = re.sub(r'<link rel="stylesheet" href="[^"]*assets/site.css">\n<script src="[^"]*assets/site.js" defer></script>\n', "", hd)
-    hd = hd.replace('<meta name="theme-color" content="#141413">', '<meta name="theme-color" content="#17110D">')
+    hd = hd.replace('<meta name="theme-color" content="#141413">', '<meta name="theme-color" content="#171717">')
     hd = hd.replace("</head>\n<body>\n", "")
     s = hd + s.replace("<style>", "<style>", 1)
     s = s.replace("<style>", "</head>\n<body>\n" if False else "<style>", 1)
