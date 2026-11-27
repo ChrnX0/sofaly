@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy ज़ोर से बोलती है",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"वह टीवी पर जो दिखाती है उसे पढ़कर सुनाती है। TalkBack चालू हो तो TalkBack पढ़ता है।",
 "Ajudar outras casas":"दूसरे घरों की मदद करें",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"दिन में एक बार, सिर्फ़ उन ऐप का नाम और वर्शन जो यहाँ क्रैश हुए, बिना यह बताए कि कौन-सा घर। दूसरे घरों ने जो देखा, वह पाना हमेशा चालू रहता है।",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"दिन में एक बार, सिर्फ़ उन ऐप का नाम और वर्शन जो यहाँ क्रैश हुए या धीमे हुए, और वे नियम जिनसे Sofaly स्क्रीन जाँचता है, बिना यह बताए कि कौन-सा घर। दूसरे घरों ने जो देखा, वह पाना हमेशा चालू रहता है।",
 "IA da Sofy":"Sofy का AI",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"जब Sofy कोई चीज़ अकेले ठीक नहीं कर पाती, तो वह आपके चुने हुए AI से पूछती है। AI को केवल समस्या का पर्चा मिलता है, कुछ भी निजी नहीं, और वह केवल उन्हीं सुधारों में से चुन सकता है जो Sofy पहले से कर सकती है।",
 "Provedor":"प्रदाता",
