@@ -5,6 +5,7 @@ import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import br.paulo.tvlauncher.relay.RelayCrypto
 import br.paulo.tvlauncher.relay.RelayEnvelope
+import br.paulo.tvlauncher.relay.RelayHouses
 import br.paulo.tvlauncher.relay.RelayPairing
 import java.net.HttpURLConnection
 import java.net.URL
@@ -124,5 +125,16 @@ object RelayCelular {
         "/api/tela/tecla" -> corpo?.optString("tecla")?.takeIf { it.isNotEmpty() }?.let { RelayPairing.tecla(it, agora) }
         "/api/tela/texto" -> corpo?.optString("texto")?.takeIf { it.isNotEmpty() }?.let { RelayPairing.texto(it, agora) }
         else -> null
+    }
+
+    /**
+     * Atalho pelo celular para o Assistir junto entre casas: a mensagem que vai para a TV [a] apresenta a [b] e vice-versa.
+     * Null se for a mesma TV. Puro (RelayCelularTest).
+     */
+    fun apresentar(a: TvRelay, nomeA: String, b: TvRelay, nomeB: String, agora: Long): Pair<RelayEnvelope.Mensagem, RelayEnvelope.Mensagem>? {
+        if (a.id == b.id) return null
+        val paraA = RelayHouses.casa(b.id, b.x, nomeB, agora) ?: return null
+        val paraB = RelayHouses.casa(a.id, a.x, nomeA, agora) ?: return null
+        return paraA to paraB
     }
 }

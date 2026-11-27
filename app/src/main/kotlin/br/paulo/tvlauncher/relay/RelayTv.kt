@@ -208,6 +208,13 @@ object RelayTv {
         // TV de outra casa: só Sessão junto. Nunca tecla nem texto (e um celular nunca manda Sessão junto).
         if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
         val nome = quem?.nome ?: a.remetente
+        // Atalho pelo celular: o celular do dono apresenta a TV de outra casa (Assistir junto). Só de celular pareado.
+        if (quem != null && a.mensagem.tipo == RelayHouses.CASA) {
+            if (!br.paulo.tvlauncher.panel.PainelArmazem.podeLigar(ctx)) {
+                br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "painel desligado")
+            } else RelayCasas.doCelular(ctx, quem, a.mensagem)
+            return
+        }
         val c = RelayPairing.comando(a.mensagem)
         // Painel desligado = nada de fora mexe na TV (o relay é outra porta para o mesmo controle do painel).
         if (c != null && !br.paulo.tvlauncher.panel.PainelArmazem.podeLigar(ctx)) {

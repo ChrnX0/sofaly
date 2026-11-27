@@ -54,4 +54,9 @@
     <string name="cel_enviar_tipo">A TV não abre esse arquivo.</string>
     <string name="cel_enviar_de_novo">Tentar de novo</string>
     <string name="cel_enviar_qr">Para mandar fotos e arquivos, leia antes o QR da TV.</string>
+    <string name="cel_juntar_tvs">Ligar duas TVs para Assistir junto</string>
+    <string name="cel_juntar_ligar">Ligar</string>
+    <string name="cel_juntar_duas">Escolha exatamente duas TVs.</string>
+    <string name="cel_juntar_pronto">%1$s e %2$s estão ligadas. O Assistir junto já mostra a outra TV em cada casa.</string>
+    <string name="cel_juntar_falhou">Não deu para ligar %1$s e %2$s. Confira a internet e tente de novo.</string>
 </resources>

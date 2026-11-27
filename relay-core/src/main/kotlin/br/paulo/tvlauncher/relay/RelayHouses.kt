@@ -85,4 +85,29 @@ object RelayHouses {
         if (corpo.toString().length > MAX_CORPO) return null
         return caminho to corpo
     }
+
+    // ---------------------------------------------------------------- atalho pelo celular
+
+    /**
+     * Atalho pelo celular (Paulo 26/11/2026, "os dois"): o celular do dono, pareado pelo relay com as duas TVs (cada uma
+     * em sua casa, com o PIN), manda a cada uma o id e a chave X25519 da outra, dentro do envelope cifrado. Não precisa
+     * de código nem dos 4 números: o celular já tem as chaves certas das duas, recebidas na rede de casa de cada uma.
+     */
+    const val CASA = "house"
+    data class Casa(val id: String, val xPub: ByteArray, val nome: String)
+
+    fun casa(id: String, xPub: ByteArray, nome: String, agora: Long): RelayEnvelope.Mensagem? {
+        if (!RelayCrypto.ID_RE.matches(id) || xPub.size != 32) return null
+        return RelayEnvelope.Mensagem(RelayEnvelope.novoId(), agora, CASA,
+            JSONObject().put("id", id).put("x", RelayCrypto.b64url(xPub)).put("name", limparNome(nome)))
+    }
+
+    fun lerCasa(m: RelayEnvelope.Mensagem): Casa? {
+        if (m.tipo != CASA) return null
+        val id = m.dados.optString("id").takeIf { RelayCrypto.ID_RE.matches(it) } ?: return null
+        val x = runCatching { RelayCrypto.deB64url(m.dados.optString("x")) }.getOrNull()?.takeIf { it.size == 32 } ?: return null
+        return Casa(id, x, limparNome(m.dados.optString("name")))
+    }
+
+    private fun limparNome(n: String?) = (n ?: "").replace(Regex("\\p{Cntrl}"), "").trim().take(40).ifEmpty { "TV" }
 }

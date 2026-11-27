@@ -17,6 +17,8 @@
     <string name="casas_conectando">Linking…</string>
     <string name="casas_conectar">Link</string>
     <string name="casas_chegou">%1$s typed the code</string>
+    <string name="casas_confirmou">%1$s confirmed. Check the numbers here too</string>
+    <string name="casas_pelo_celular">%1$s is connected for Watch together (added by %2$s)</string>
     <string name="casas_conferir_titulo">Link with %1$s?</string>
     <string name="casas_conferir_texto">Check by phone that the other TV shows the same numbers:\n\n%1$s\n\nIf they are different, cancel.</string>
     <string name="casas_pronto">Linked with %1$s. Both TVs show these numbers. To watch together, open a title and choose Watch together.</string>

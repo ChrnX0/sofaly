@@ -120,7 +120,9 @@ object ApiTv {
             c.doOutput = true
             c.outputStream.use { it.write("{}".toByteArray()) }
         }
-        if (r.codigo == 403) { ChaveAparelho.esquecer(ctx, tv); return false }   // revogada: só o QR traz de volta
+        // Revogada: só o QR traz de volta. As chaves do relay desta TV também saem (a TV já esqueceu este celular), então
+        // fora de casa o app para de dizer "enviado pela internet" para uma TV que descarta tudo.
+        if (r.codigo == 403) { ChaveAparelho.esquecer(ctx, tv); RelayCelular.esquecer(ctx, tv); return false }
         if (r.codigo != 200 || r.cookies.isEmpty()) return false
         val base = "https://${tv.ip}:${Pareamento.PORTA_HTTPS}/"
         val cm = CookieManager.getInstance()

@@ -76,4 +76,19 @@ class RelayHousesTest {
         assertNull(H.lerJunto(RelayEnvelope.Mensagem("abcdefgh", 5, "junto", JSONObject().put("path", "/x").put("body", JSONObject()))))
         assertNotNull(H.junto("/junto/convite", null, 5))
     }
+
+    @Test fun celularApresentaUmaTvAOutra() {
+        val m = H.casa(b.id, b.xPub, "Casa\u0007 da Vó", 7)!!
+        val c = H.lerCasa(m)!!
+        assertEquals(b.id, c.id); assertEquals("Casa da Vó", c.nome); assertTrue(c.xPub.contentEquals(b.xPub))
+        assertNull(H.casa("curto", b.xPub, "x", 7))
+        assertNull(H.casa(b.id, ByteArray(31), "x", 7))
+        // Outro tipo, id ruim ou chave ruim: não é apresentação de casa.
+        assertNull(H.lerCasa(RelayEnvelope.Mensagem("abcdefgh", 5, "key", m.dados)))
+        assertNull(H.lerCasa(RelayEnvelope.Mensagem("abcdefgh", 5, H.CASA, JSONObject(m.dados.toString()).put("id", "x"))))
+        assertNull(H.lerCasa(RelayEnvelope.Mensagem("abcdefgh", 5, H.CASA, JSONObject(m.dados.toString()).put("x", "AAAA"))))
+        // A junto não aceita esse tipo, e a casa não aceita junto.
+        assertNull(H.lerJunto(m))
+        assertNull(H.lerCasa(H.junto("/junto/convite", null, 5)!!))
+    }
 }
