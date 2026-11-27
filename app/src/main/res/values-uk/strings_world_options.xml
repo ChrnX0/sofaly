@@ -30,4 +30,6 @@
     <string name="bb_titulo">Вигляд головного екрана</string>
     <string name="bb_cruz">Хрест</string>
     <string name="bb_barra">Нижня панель</string>
+    <string name="wo_ultimos">Спочатку нещодавні</string>
+    <string name="wo_aleatorio">Будь-який порядок (змінюється щодня)</string>
 </resources>

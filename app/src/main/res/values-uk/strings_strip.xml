@@ -45,4 +45,18 @@
     <string name="st_anim_cena">Маленька сцена</string>
     <string name="st_anim_luz">Світловий слід</string>
     <string name="st_anim_pulo">Стрибок і сяйво</string>
+    <string name="st_telas">Інші екрани</string>
+    <string name="st_telas_gaveta">Шухляда</string>
+    <string name="st_telas_vidro">Скло</string>
+    <string name="st_telas_barra">Панель</string>
+    <string name="st_telas_painel">Бічна панель</string>
+    <string name="st_telas_guiada">З підказками</string>
+    <string name="gl_root_desc">Усе про цей телевізор, крок за кроком.</string>
+    <string name="st_proprios">Картки ярликів</string>
+    <string name="st_proprios_branco">Білі</string>
+    <string name="st_proprios_vidro">Світле скло</string>
+    <string name="st_proprios_escuro">Темне скло</string>
+    <string name="st_personalidade">Значки карток</string>
+    <string name="st_pers_cor">Власний колір</string>
+    <string name="st_pers_brilho">Кольорове сяйво</string>
 </resources>

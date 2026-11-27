@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=більші літери|збільш літери|більший текст|збільш текст|більший шрифт|збільш шрифт;TEXT_SMALLER=менші літери|зменш літери|менший текст|зменш текст|менший шрифт|зменш шрифт;GOAL_READ=читати краще|важко читати|погано бачу;GOAL_CLEAN=чистіший екран|простий екран;GOAL_ENERGY=економити енергію|економія енергії|менше електрики;LOOK_SOFALY=вигляд sofaly|звичайний вигляд;LOOK_NIGHT=нічний вигляд|темне небо;LOOK_MOUNTAIN=гірський вигляд;LOOK_MINIMAL=мінімалістичний вигляд</string>
+    <string name="si_fazer">Зробити зараз: %1$s</string>
+    <string name="si_desfazer">Скасувати: %1$s</string>
+    <string name="si_fazer_det">Змінюється одразу.</string>
+    <string name="si_maior">Більші літери</string>
+    <string name="si_menor">Менші літери</string>
+</resources>

@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Остання</string>
     <string name="bkn_nunca">ніколи</string>
     <string name="bkn_pin">PIN для зміни резервної копії</string>
+    <string name="bk_motivo_senha">Пароль неправильний.</string>
+    <string name="bk_motivo_invalido">Цей файл не є резервною копією Sofaly або пошкоджений.</string>
+    <string name="bk_motivo_ler">Не вдалося прочитати (мережа або сховище).</string>
 </resources>
