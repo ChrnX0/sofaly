@@ -171,8 +171,9 @@ class TodoBotaoFazAlgoTest {
                     val ate = System.currentTimeMillis() + 5000
                     while (a.focoInicialNaTv && System.currentTimeMillis() < ate) { Thread.sleep(50); esperar(50) }
                 }
-                var v = clicaveis(a).filter { nome(it) == alvo }.getOrNull(n - 1)
-                if (v == null) { runCatching { ctl.pause().stop().destroy() }; continue }   // item que só aparece às vezes
+                val achado = clicaveis(a).filter { nome(it) == alvo }.getOrNull(n - 1)
+                if (achado == null) { runCatching { ctl.pause().stop().destroy() }; continue }   // item que só aparece às vezes
+                var v: View = achado
                 v.requestFocus(); esperar(100)
                 // #602: a tela pode se refazer no meio (o Rádio refaz os itens quando a resposta da internet chega, com
                 // atraso diferente a cada CI). Item que saiu da janela não é defeito: pega o novo, pelo nome, e tenta de novo.
