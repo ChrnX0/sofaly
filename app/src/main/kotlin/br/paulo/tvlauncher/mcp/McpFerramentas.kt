@@ -145,7 +145,7 @@ class McpFerramentas(ctx: Context) : McpProtocolo.Ferramentas, McpProtocolo.ComC
         if (!ConfirmacoesTv.permitir(app, Confirmacoes.Acao.MCP_SHELL, McpPoderRegras.textoPerguntaShell(cmd, rotulo = txt(R.string.cf_shell), naoMostrados = txt(R.string.cf_shell_cortado)), "internet"))
             throw McpProtocolo.ErroFerramenta(
                 if (ConfirmacoesTv.modo(app, Confirmacoes.Acao.MCP_SHELL) == Confirmacoes.Modo.BLOQUEAR)
-                    "o shell pela IA está bloqueado nas Confirmações da TV (Configurações › Sistema › Confirmações)"
+                    "o shell pela IA está bloqueado nas Confirmações da TV (Configurações › Sistema › Avançado › Confirmações)"
                 else "a TV negou o comando, ou ninguém respondeu em 60 s")
         PainelArmazem.registrar(app, "internet", "shell MCP", cmd.take(300))
         val saida = GuardiaoShizuku.comando(app, cmd, limite)
