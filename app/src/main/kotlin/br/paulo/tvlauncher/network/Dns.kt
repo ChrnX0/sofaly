@@ -123,8 +123,9 @@ object Dns {
         val e = atual(ctx)
         val host = e.host ?: return
         if (nomeDe(ctx, host) != null) return
-        // Endereços "<código>.d.adguard-dns.com" são os perfis pessoais do AdGuard DNS: damos um nome legível.
-        val nome = if (host.endsWith(".d.adguard-dns.com")) ctx.getString(R.string.dns_adguard_pessoal) else ctx.getString(R.string.dns_personalizado, host.substringBefore('.'))
+        // Endereços "<código>.d.adguard-dns.com" (ou "<código>.adguard-dns.com", o formato da API em 27/11/2026) são os
+        // perfis pessoais do AdGuard DNS: damos um nome legível. Os públicos (dns., family.) já estão nos PRESETS.
+        val nome = if (host.endsWith(".adguard-dns.com", ignoreCase = true))ctx.getString(R.string.dns_adguard_pessoal) else ctx.getString(R.string.dns_personalizado, host.substringBefore('.'))
         salvar(ctx, Servidor(nome, host))
     }
 

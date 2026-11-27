@@ -47,6 +47,7 @@ object BackupCompleto {
 
     /** Preferências que vão inteiras, além das do backup comum (BackupConfig.ARQUIVOS). */
     internal val PREFS_EXTRAS = listOf("player", "painel_seguro", "mcp_seguro", "unifi_seguro", "tunel_seguro",
+        "adguard_seguro",   // conta AdGuard DNS (27/11/2026): ids do servidor/aparelho da TV e a Família no DNS
         "extras", "cenas", "casa_ha", "modo_visita", "aviso_chuva", "aviso_temperatura", "clima",
         "launch_on_boot",   // "Abrir ao ligar" do menu do card (CardMenu, 26/11/2026)
         "card_lock",   // controle parental do menu do card (CardMenu, 26/11/2026): apps que pedem o PIN
@@ -184,6 +185,7 @@ object BackupCompleto {
         val segredos = JSONObject()
             .put("iptv", JSONArray(PlayerDados.fontesParaJson(PlayerArmazem.fontes(app))))
         UnifiArmazem.chave(app)?.let { segredos.put("unifi", it) }
+        br.paulo.tvlauncher.network.AdGuardStore.chave(app)?.let { segredos.put("adguard", it) }
         TunelTailscale.chave(app)?.let { segredos.put("tailscale", it) }
         CasaHA.tokenParaBackup(app)?.let { segredos.put("casa_ha", it) }
         ServicosContas.paraBackup(app)?.let { segredos.put("servicos", it) }   // contas dos serviços de filmes e séries
@@ -246,6 +248,9 @@ object BackupCompleto {
         val unifi = segredos.optString("unifi").ifEmpty { null }?.let {
             Unifi.chaveValida(it) ?: throw IllegalArgumentException("chave do UniFi inválida no backup")
         }
+        val adguard = segredos.optString("adguard").ifEmpty { null }?.let {
+            br.paulo.tvlauncher.network.AdGuardDns.chaveValida(it) ?: throw IllegalArgumentException("chave do AdGuard inválida no backup")
+        }
         val tailscale = segredos.optString("tailscale").ifEmpty { null }
         if (tailscale != null && !TunelTailscale.chaveValida(tailscale)) throw IllegalArgumentException("chave do Tailscale inválida no backup")
         val tokenCasa = segredos.optString("casa_ha").ifEmpty { null }
@@ -296,6 +301,7 @@ object BackupCompleto {
             n = BackupConfig.aplicar(app, comuns) + BackupConfig.aplicar(app, extras)
             if (!PlayerArmazem.substituirContas(app, iptv)) throw IllegalStateException("não consegui gravar as contas de TV ao vivo")
             if (unifi != null && !UnifiArmazem.definirChave(app, unifi)) throw IllegalStateException("não consegui gravar a chave do UniFi")
+            if (adguard != null && !br.paulo.tvlauncher.network.AdGuardStore.definirChave(app, adguard)) throw IllegalStateException("não consegui gravar a chave do AdGuard")
             if (tailscale != null && !TunelTailscale.definirChave(app, tailscale)) throw IllegalStateException("não consegui gravar a chave do Tailscale")
             if (servicos != null && !ServicosContas.restaurarDoBackup(app, servicos)) throw IllegalStateException("não consegui gravar as contas dos serviços de filmes")
             if (tokenCasa != null && !CasaHA.definirToken(app, tokenCasa)) throw IllegalStateException("não consegui gravar o token do Home Assistant")
@@ -329,6 +335,7 @@ object BackupCompleto {
         val app = ctx.applicationContext
         val s = JSONObject().put("iptv", JSONArray(PlayerDados.fontesParaJson(PlayerArmazem.fontes(app))))
         UnifiArmazem.chave(app)?.let { s.put("unifi", it) }
+        br.paulo.tvlauncher.network.AdGuardStore.chave(app)?.let { s.put("adguard", it) }
         TunelTailscale.chave(app)?.let { s.put("tailscale", it) }
         CasaHA.tokenParaBackup(app)?.let { s.put("casa_ha", it) }
         ServicosContas.paraBackup(app)?.let { s.put("servicos", it) }
@@ -353,6 +360,7 @@ object BackupCompleto {
         }
         passo("iptv") { PlayerArmazem.substituirContas(app, PlayerDados.fontesDeJson(s.optJSONArray("iptv")?.toString())) }
         s.optString("unifi").ifEmpty { null }?.let { passo("unifi") { UnifiArmazem.definirChave(app, it) } }
+        s.optString("adguard").ifEmpty { null }?.let { passo("adguard") { br.paulo.tvlauncher.network.AdGuardStore.definirChave(app, it) } }
         s.optString("tailscale").ifEmpty { null }?.let { passo("tailscale") { TunelTailscale.definirChave(app, it) } }
         s.optString("casa_ha").ifEmpty { null }?.let { passo("casa_ha") { CasaHA.definirToken(app, it) } }
         s.optString("servicos").ifEmpty { null }?.let { passo("servicos") { ServicosContas.restaurarDoBackup(app, it) } }

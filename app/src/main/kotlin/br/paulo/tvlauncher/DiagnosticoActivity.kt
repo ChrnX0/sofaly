@@ -152,6 +152,15 @@ class DiagnosticoActivity : Activity() {
         rodar(2, dns) { Diagnostico.dns(this) }
         rodar(3, vpn) { Diagnostico.vpn(this) }
         rodar(4, sofaly) { Diagnostico.servico(this) }
+        // Conta AdGuard DNS do dono ligada (27/11/2026): consultas e bloqueios das últimas 24 h no servidor da TV.
+        if (br.paulo.tvlauncher.network.AdGuardStore.ligada(this)) {
+            val adguard = info("AdGuard DNS", getString(R.string.diag_verificando)).also { adicionar(it) }
+            rodar(5, adguard) {
+                val r = br.paulo.tvlauncher.network.AdGuardTv.resumo(applicationContext)
+                if (r == null) Diagnostico.Item("AdGuard DNS", "—", 1)
+                else Diagnostico.Item("AdGuard DNS", getString(R.string.diag_adguard, r.consultas, r.bloqueadas, r.porcentoBloqueado), 0)
+            }
+        }
 
         secao(getString(R.string.diag_apps))
         val carregando = info(getString(R.string.diag_lendo), "…").also { adicionar(it) }

@@ -935,6 +935,7 @@ AS\\Movies）。</string>
     <string name="ief_s_roteador_mudo" formatted="true">ルーター：応答なし</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">ルーター：未確認</string>
     <string name="ief_s_historico" formatted="true">履歴：24 時間で %1$d 回測定</string>
+    <string name="diag_adguard" formatted="true">直近 24 時間：%1$d 件のクエリ、%2$d 件をブロック（%3$d%%）</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google から今は応答がありません。もう一度お試しください</string>
     <string name="lg_negado">Google でログインが拒否されました</string>

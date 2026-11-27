@@ -964,6 +964,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: nu a răspuns</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: neverificat</string>
     <string name="ief_s_historico" formatted="true">istoric: %1$d măsurători în 24 h</string>
+    <string name="diag_adguard" formatted="true">Ultimele 24 h: %1$d interogări, %2$d blocate (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google nu a răspuns acum; încercați din nou</string>
     <string name="lg_negado">conectarea a fost refuzată pe Google</string>

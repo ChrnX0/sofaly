@@ -944,6 +944,7 @@ AS\\Фильмы).</string>
     <string name="ief_s_roteador_mudo" formatted="true">роутер: не ответил</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">роутер: не опрошен</string>
     <string name="ief_s_historico" formatted="true">история: %1$d измерений за 24 ч</string>
+    <string name="diag_adguard" formatted="true">За 24 ч: %1$d запросов, %2$d заблокировано (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google сейчас не ответил; попробуйте ещё раз</string>
     <string name="lg_negado">вход отклонён в Google</string>

@@ -935,6 +935,7 @@ AS\\Film).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: tidak menjawab</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: tidak diperiksa</string>
     <string name="ief_s_historico" formatted="true">riwayat: %1$d pengukuran dalam 24 jam</string>
+    <string name="diag_adguard" formatted="true">24 jam terakhir: %1$d kueri, %2$d diblokir (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google tidak menjawab sekarang; coba lagi</string>
     <string name="lg_negado">login ditolak di Google</string>

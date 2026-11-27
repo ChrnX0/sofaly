@@ -938,6 +938,7 @@ AS\\Movies)।</string>
     <string name="ief_s_roteador_mudo" formatted="true">राउटर: जवाब नहीं</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">राउटर: नहीं पूछा</string>
     <string name="ief_s_historico" formatted="true">इतिहास: 24 घंटे में %1$d माप</string>
+    <string name="diag_adguard" formatted="true">पिछले 24 घंटे: %1$d क्वेरी, %2$d रोकी गईं (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google ने अभी जवाब नहीं दिया; फिर कोशिश करें</string>
     <string name="lg_negado">Google पर लॉगिन अस्वीकार हुआ</string>

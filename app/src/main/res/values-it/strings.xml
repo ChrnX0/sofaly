@@ -941,6 +941,7 @@ AS\\Film).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: nessuna risposta</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: non consultato</string>
     <string name="ief_s_historico" formatted="true">cronologia: %1$d misure in 24 h</string>
+    <string name="diag_adguard" formatted="true">Ultime 24 h: %1$d richieste, %2$d bloccate (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google non ha risposto ora; riprova</string>
     <string name="lg_negado">l’accesso è stato negato su Google</string>
