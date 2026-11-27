@@ -189,12 +189,12 @@ class TeclasActivity : Activity() {
         l.titulo = t
         val foco = isFocused
         val sb = SpannableStringBuilder(t)
-        sb.setSpan(AbsoluteSizeSpan(dp(17), false), 0, sb.length, 0)
+        sb.setSpan(AbsoluteSizeSpan(dp(20), false), 0, sb.length, 0)
         sb.setSpan(ForegroundColorSpan(if (foco) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO), 0, sb.length, 0)
         if (l.detalhe.isNotEmpty()) {
             val ini = sb.length
             sb.append("\n").append(l.detalhe)
-            sb.setSpan(AbsoluteSizeSpan(dp(13), false), ini, sb.length, 0)
+            sb.setSpan(AbsoluteSizeSpan(dp(18), false), ini, sb.length, 0)
             sb.setSpan(ForegroundColorSpan(if (foco) Estilo.TEXTO_NO_FOCO_2 else Estilo.TEXTO_2), ini, sb.length, 0)
         }
         text = sb

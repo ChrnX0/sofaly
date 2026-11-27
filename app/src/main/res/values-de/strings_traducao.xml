@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">kein Backup-Passwort (in den Einstellungen festlegen)</string>
     <string name="bn_montar">konnte das Backup nicht erstellen (%1$s)</string>
     <string name="bn_gravar">konnte nicht auf dem Fernseher speichern (%1$s)</string>
-    <string name="cal_sem_permissao">Keine Kalenderberechtigung (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Kein Zugriff auf den Kalender dieses Fernsehers.</string>
     <string name="bv_claude">Mit Claude nutzen (optional)</string>
     <string name="bv_claude_det">Claude, ChatGPT oder Codex prüfen den Fernseher und fordern Aktionen an, von überall. Schritt für Schritt mit QR-Code.</string>
     <string name="cb_cinza">Graustufen</string>

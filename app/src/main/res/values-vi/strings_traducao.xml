@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">chưa có mật khẩu sao lưu (đặt trong Cài đặt)</string>
     <string name="bn_montar">không tạo được bản sao lưu (%1$s)</string>
     <string name="bn_gravar">không lưu được trên TV (%1$s)</string>
-    <string name="cal_sem_permissao">Không có quyền truy cập lịch (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Không truy cập được lịch của TV này.</string>
     <string name="bv_claude">Dùng với Claude (không bắt buộc)</string>
     <string name="bv_claude_det">Claude, ChatGPT hoặc Codex kiểm tra TV và yêu cầu hành động, từ bất kỳ đâu. Từng bước với mã QR.</string>
     <string name="cb_cinza">Các bậc xám</string>

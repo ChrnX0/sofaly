@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">백업 비밀번호 없음(설정에서 설정하세요)</string>
     <string name="bn_montar">백업을 만들 수 없음(%1$s)</string>
     <string name="bn_gravar">TV에 저장할 수 없음(%1$s)</string>
-    <string name="cal_sem_permissao">캘린더 권한 없음(pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">이 TV의 캘린더에 접근할 수 없습니다.</string>
     <string name="bv_claude">Claude와 함께 사용(선택 사항)</string>
     <string name="bv_claude_det">Claude, ChatGPT 또는 Codex가 어디서나 TV를 확인하고 동작을 요청합니다. QR 코드로 단계별 설정.</string>
     <string name="cb_cinza">회색 단계</string>

@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">sin contraseña de copia (defínela en Ajustes)</string>
     <string name="bn_montar">no se pudo armar la copia (%1$s)</string>
     <string name="bn_gravar">no se pudo guardar en la TV (%1$s)</string>
-    <string name="cal_sem_permissao">Sin permiso de calendario (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Sin acceso al calendario de esta TV.</string>
     <string name="bv_claude">Usar con Claude (opcional)</string>
     <string name="bv_claude_det">Claude, ChatGPT o Codex consultan la TV y piden acciones, desde cualquier lugar. Paso a paso con un código QR.</string>
     <string name="cb_cinza">Escala de grises</string>

@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">バックアップのパスワードがありません（設定で設定してください）</string>
     <string name="bn_montar">バックアップを作成できませんでした（%1$s）</string>
     <string name="bn_gravar">TV に保存できませんでした（%1$s）</string>
-    <string name="cal_sem_permissao">カレンダーの権限がありません（pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR）</string>
+    <string name="cal_sem_permissao">このテレビのカレンダーにアクセスできません。</string>
     <string name="bv_claude">Claude で使う（任意）</string>
     <string name="bv_claude_det">Claude、ChatGPT、Codex がどこからでも TV を確認し、操作をリクエストします。QR コードで手順どおりに。</string>
     <string name="cb_cinza">グレーの段階</string>

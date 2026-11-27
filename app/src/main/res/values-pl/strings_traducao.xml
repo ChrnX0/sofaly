@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">brak hasła kopii (ustaw je w Ustawieniach)</string>
     <string name="bn_montar">nie udało się utworzyć kopii (%1$s)</string>
     <string name="bn_gravar">nie udało się zapisać na telewizorze (%1$s)</string>
-    <string name="cal_sem_permissao">Brak uprawnienia do kalendarza (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Brak dostępu do kalendarza tego telewizora.</string>
     <string name="bv_claude">Używaj z Claude (opcjonalnie)</string>
     <string name="bv_claude_det">Claude, ChatGPT lub Codex sprawdzają telewizor i zlecają działania z dowolnego miejsca. Krok po kroku z kodem QR.</string>
     <string name="cb_cinza">Skala szarości</string>

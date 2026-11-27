@@ -145,7 +145,7 @@ class FamiliaConectadaActivity : Activity() {
         col.addView(Estilo.texto(this, Estilo.Papel.CORPO, getString(if (link != null) R.string.famc_texto else R.string.famc_sem_tunel)).apply { textSize = 20f },
             LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(16) })
         val pronto = Estilo.linhaOpcao(this, getString(R.string.fp_fechar)).apply { setOnClickListener { finish() } }   // era "Começar"
-        col.addView(pronto, LinearLayout.LayoutParams(dp(300), -2).apply { topMargin = dp(20) })
+        col.addView(pronto, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(20) })
         // Degrau 4: recado em vídeo. Opt-in de quem mora aqui (desligado de fábrica) e a lista dos que chegaram.
         col.addView(Estilo.linhaOpcao(this, getString(R.string.vid_aceitar), getString(R.string.vid_aceitar_det),
             Estilo.valor(this, getString(if (RecadoVideo.aceita(this)) R.string.rec_ligado else R.string.rec_desligado), seta = false)).apply {
@@ -154,11 +154,11 @@ class FamiliaConectadaActivity : Activity() {
                 if (!RecadoVideo.aceita(a) && !PlanosTv.pedir(a, Planos.Recurso.RECADO_VIDEO)) return@setOnClickListener   // ligar: Pro
                 RecadoVideo.definirAceita(a, !RecadoVideo.aceita(a)); recreate()
             }
-        }, LinearLayout.LayoutParams(dp(300), -2).apply { topMargin = dp(8) })
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         if (RecadoVideo.lista(this).isNotEmpty()) col.addView(Estilo.linhaOpcao(this, getString(R.string.vid_lista),
             getString(R.string.vid_quantos, RecadoVideo.lista(this).size)).apply {
             setOnClickListener { startActivity(android.content.Intent(this@FamiliaConectadaActivity, RecadoVideoActivity::class.java)) }
-        }, LinearLayout.LayoutParams(dp(300), -2).apply { topMargin = dp(8) })
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         // Degrau 4: as TVs da mesma conta conversam (Sessão junto, Continuar em outra TV). Opt-in, desligado de fábrica.
         col.addView(Estilo.linhaOpcao(this, getString(R.string.junto_tvs), getString(R.string.junto_tvs_det),
             Estilo.valor(this, getString(if (EntreTvs.ligado(this)) R.string.rec_ligado else R.string.rec_desligado), seta = false)).apply {
@@ -168,14 +168,17 @@ class FamiliaConectadaActivity : Activity() {
                 if (!EntreTvs.ligado(a) && !PlanosTv.pedir(a, Planos.Recurso.CONTINUAR_OUTRA_TV)) return@setOnClickListener
                 EntreTvs.definir(a, !EntreTvs.ligado(a)); recreate()
             }
-        }, LinearLayout.LayoutParams(dp(300), -2).apply { topMargin = dp(8) })
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         col.addView(Estilo.linhaOpcao(this, getString(R.string.famc_trocar), getString(R.string.famc_trocar_det)).apply {
             setOnClickListener { FamiliaConectada.novoLink(this@FamiliaConectadaActivity); recreate() }
-        }, LinearLayout.LayoutParams(dp(300), -2).apply { topMargin = dp(8) })
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         col.addView(Estilo.linhaOpcao(this, getString(R.string.famc_desligar)).apply {
             setOnClickListener { FamiliaConectada.desligar(this@FamiliaConectadaActivity); finish() }
-        }, LinearLayout.LayoutParams(dp(300), -2).apply { topMargin = dp(8) })
-        raiz.addView(col, LinearLayout.LayoutParams(0, -2, 1f))
+        }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
+        // Auditoria de telas (27/11/2026): os cartões tinham 300 dp e cortavam o texto ("junto e passar…"), e a coluna
+        // passava da altura da tela. Agora ocupam a largura da coluna e a coluna rola.
+        val rolagem = android.widget.ScrollView(this).apply { isVerticalScrollBarEnabled = false; addView(col) }
+        raiz.addView(rolagem, LinearLayout.LayoutParams(0, -1, 1f))
         if (link != null) {
             val lado = (resources.displayMetrics.heightPixels * 0.55f).toInt()
             raiz.addView(ImageView(this).apply { setImageBitmap(QrCodigo.bitmap(link, lado)) },

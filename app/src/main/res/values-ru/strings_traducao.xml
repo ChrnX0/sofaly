@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">нет пароля копии (задайте его в Настройках)</string>
     <string name="bn_montar">не удалось собрать копию (%1$s)</string>
     <string name="bn_gravar">не удалось сохранить на ТВ (%1$s)</string>
-    <string name="cal_sem_permissao">Нет разрешения на календарь (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Нет доступа к календарю этого телевизора.</string>
     <string name="bv_claude">Использовать с Claude (необязательно)</string>
     <string name="bv_claude_det">Claude, ChatGPT или Codex проверяют ТВ и просят действия откуда угодно. Пошагово с QR-кодом.</string>
     <string name="cb_cinza">Градации серого</string>

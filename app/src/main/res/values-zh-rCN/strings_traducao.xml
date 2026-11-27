@@ -240,7 +240,7 @@
     <string name="bn_sem_senha">没有备份密码（请在设置中设置）</string>
     <string name="bn_montar">无法创建备份（%1$s）</string>
     <string name="bn_gravar">无法保存到电视（%1$s）</string>
-    <string name="cal_sem_permissao">没有日历权限（pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR）</string>
+    <string name="cal_sem_permissao">无法访问这台电视的日历。</string>
     <string name="bv_claude">与 Claude 一起使用（可选）</string>
     <string name="bv_claude_det">Claude、ChatGPT 或 Codex 可随时随地查看电视并请求操作。通过二维码逐步设置。</string>
     <string name="cb_cinza">灰阶</string>

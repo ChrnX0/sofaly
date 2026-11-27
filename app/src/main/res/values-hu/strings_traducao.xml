@@ -268,7 +268,7 @@
     <string name="bn_sem_senha">nincs mentési jelszó (állítsa be a Beállításokban)</string>
     <string name="bn_montar">nem sikerült létrehozni a mentést (%1$s)</string>
     <string name="bn_gravar">nem sikerült menteni a TV-re (%1$s)</string>
-    <string name="cal_sem_permissao">Nincs naptárengedély (pm grant br.paulo.tvlauncher android.permission.READ_CALENDAR)</string>
+    <string name="cal_sem_permissao">Nincs hozzáférés a tévé naptárához.</string>
     <string name="bv_claude">Használat a Claude-dal (nem kötelező)</string>
     <string name="bv_claude_det">A Claude, a ChatGPT vagy a Codex ellenőrzi a TV-t és műveleteket kér, bárhonnan. Lépésről lépésre QR-kóddal.</string>
     <string name="cb_cinza">Szürkeárnyalatok</string>
