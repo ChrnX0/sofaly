@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">Última</string>
     <string name="bkn_nunca">nunca</string>
     <string name="bkn_pin">PIN para cambiar la copia</string>
+    <string name="bk_motivo_senha">La contraseña no es correcta.</string>
+    <string name="bk_motivo_invalido">Este archivo no es una copia de Sofaly o está dañado.</string>
+    <string name="bk_motivo_ler">No se pudo leer (red o almacenamiento).</string>
 </resources>
