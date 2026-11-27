@@ -2,12 +2,12 @@
 <resources>
     <string name="saude_titulo">Fjernadgang stoppet</string>
     <string name="saude_texto_shell">Tv\'ets adgang til sig selv faldt ud for %1$d min siden (panelet, Claude og automatiske rettelser stopper). Tryk på Par igen, eller gå til Indstillinger › System › Avanceret › Par uden pc.</string>
-    <string name="saude_texto_tunel">Claude over internettet er offline. Tryk på Forbind for at se, hvad der mangler, eller gå til Indstillinger › Hjem og netværk › Fjernadgang.</string>
+    <string name="saude_texto_tunel">Claude over internettet er offline. Tryk på Forbind for at se, hvad der mangler, eller gå til Indstillinger › Hjem og fjernadgang › Fjernadgang.</string>
     <string name="saude_parear">Par igen</string>
     <string name="saude_conectar">Forbind</string>
     <string name="saude_depois">Ikke nu</string>
     <string name="saude_acao_shell">Par igen: Indstillinger › System › Avanceret › Par uden pc</string>
-    <string name="saude_acao_tunel">Forbind igen: Indstillinger › Hjem og netværk › Fjernadgang › Forbind</string>
+    <string name="saude_acao_tunel">Forbind igen: Indstillinger › Hjem og fjernadgang › Fjernadgang › Forbind</string>
     <string name="mnt_titulo">Natlig vedligeholdelse</string>
     <string name="mnt_consertei">Rettet:</string>
     <string name="mnt_falhou">Kunne ikke rette:</string>

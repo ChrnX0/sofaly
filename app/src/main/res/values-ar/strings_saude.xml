@@ -3,12 +3,12 @@
 <resources>
     <string name="saude_titulo">توقف الوصول عن بُعد</string>
     <string name="saude_texto_shell">انقطع وصول التلفزيون إلى نفسه منذ %1$d د (اللوحة وClaude والإصلاحات التلقائية متوقفة). اضغط أعد الإقران أو انتقل إلى الإعدادات › النظام › متقدم › الإقران بدون كمبيوتر.</string>
-    <string name="saude_texto_tunel">Claude عبر الإنترنت غير متصل. اضغط اتصال لترى ما ينقص، أو انتقل إلى الإعدادات › المنزل والشبكة › الوصول عن بُعد.</string>
+    <string name="saude_texto_tunel">Claude عبر الإنترنت غير متصل. اضغط اتصال لترى ما ينقص، أو انتقل إلى الإعدادات › المنزل والوصول عن بُعد › الوصول عن بُعد.</string>
     <string name="saude_parear">أعد الإقران</string>
     <string name="saude_conectar">اتصال</string>
     <string name="saude_depois">ليس الآن</string>
     <string name="saude_acao_shell">أعد الإقران: الإعدادات › النظام › متقدم › الإقران بدون كمبيوتر</string>
-    <string name="saude_acao_tunel">أعد الاتصال: الإعدادات › المنزل والشبكة › الوصول عن بُعد › اتصال</string>
+    <string name="saude_acao_tunel">أعد الاتصال: الإعدادات › المنزل والوصول عن بُعد › الوصول عن بُعد › اتصال</string>
     <string name="mnt_titulo">الصيانة الليلية</string>
     <string name="mnt_consertei">تم إصلاح:</string>
     <string name="mnt_falhou">تعذّر إصلاح:</string>

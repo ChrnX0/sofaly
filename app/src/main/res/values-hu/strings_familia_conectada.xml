@@ -5,7 +5,7 @@
     <string name="famc_det">A gyerekek és unokák fotókat és üzeneteket küldhetnek erre a TV-re egy linkkel, fiók nélkül</string>
     <string name="famc_ligado">Be</string>
     <string name="famc_texto">Olvassa be a kódot a telefonjával, és küldje el a linket a családnak (WhatsApp, e-mail). Akinél ott a link, fotókat és üzeneteket küldhet: azonnal megjelennek a képernyőn, az üzenetek a gyorspanel tábláján maradnak, a fotók pedig a képernyővédő fotói közé kerülnek. Semmi sem megy át a szervereinken.</string>
-    <string name="famc_sem_tunel">Ez az otthonon kívüli hozzáférést (Tailscale) használja, ami ezen a TV-n még nincs beállítva. Állítsa be a Beállítások › Otthon és hálózat › Távoli hozzáférés menüben, aztán jöjjön vissza ide.</string>
+    <string name="famc_sem_tunel">Ez az otthonon kívüli hozzáférést (Tailscale) használja, ami ezen a TV-n még nincs beállítva. Állítsa be a Beállítások › Otthon és távoli hozzáférés › Távoli hozzáférés menüben, aztán jöjjön vissza ide.</string>
     <string name="famc_trocar">Új link</string>
     <string name="famc_trocar_det">A régi link azonnal megszűnik működni</string>
     <string name="famc_desligar">Kikapcsolás</string>

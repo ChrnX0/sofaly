@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Σπίτι και δίκτυο</string>
+    <string name="cfg3_porta_casa_rede">Σπίτι και απομακρυσμένη πρόσβαση</string>
     <string name="cfg3_mais_ajustes">Περισσότερες ρυθμίσεις</string>
     <string name="cfg3_mais_ajustes_det">Κρυφές για συντομία: %1$d</string>
     <string name="cfg3_modo">Τρόπος: %1$s</string>

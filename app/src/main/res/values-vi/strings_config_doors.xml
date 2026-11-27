@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Nhà và mạng</string>
+    <string name="cfg3_porta_casa_rede">Nhà và truy cập từ xa</string>
     <string name="cfg3_mais_ajustes">Thêm cài đặt</string>
     <string name="cfg3_mais_ajustes_det">Ẩn bớt cho gọn: %1$d</string>
     <string name="cfg3_modo">Chế độ: %1$s</string>

@@ -2,12 +2,12 @@
 <resources>
     <string name="saude_titulo">การเข้าถึงระยะไกลหยุดทำงาน</string>
     <string name="saude_texto_shell">การเข้าถึงตัวเองของทีวีหลุดไปเมื่อ %1$d นาทีที่แล้ว (แผงควบคุม Claude และการแก้ไขอัตโนมัติจะหยุด) กด จับคู่อีกครั้ง หรือไปที่ การตั้งค่า › ระบบ › ขั้นสูง › จับคู่โดยไม่ใช้คอมพิวเตอร์</string>
-    <string name="saude_texto_tunel">Claude ผ่านอินเทอร์เน็ตออฟไลน์ กด เชื่อมต่อ เพื่อดูว่าขาดอะไร หรือไปที่ การตั้งค่า › บ้านและเครือข่าย › การเข้าถึงระยะไกล</string>
+    <string name="saude_texto_tunel">Claude ผ่านอินเทอร์เน็ตออฟไลน์ กด เชื่อมต่อ เพื่อดูว่าขาดอะไร หรือไปที่ การตั้งค่า › บ้านและการเข้าถึงระยะไกล › การเข้าถึงระยะไกล</string>
     <string name="saude_parear">จับคู่อีกครั้ง</string>
     <string name="saude_conectar">เชื่อมต่อ</string>
     <string name="saude_depois">ไม่ใช่ตอนนี้</string>
     <string name="saude_acao_shell">จับคู่อีกครั้ง: การตั้งค่า › ระบบ › ขั้นสูง › จับคู่โดยไม่ใช้คอมพิวเตอร์</string>
-    <string name="saude_acao_tunel">เชื่อมต่ออีกครั้ง: การตั้งค่า › บ้านและเครือข่าย › การเข้าถึงระยะไกล › เชื่อมต่อ</string>
+    <string name="saude_acao_tunel">เชื่อมต่ออีกครั้ง: การตั้งค่า › บ้านและการเข้าถึงระยะไกล › การเข้าถึงระยะไกล › เชื่อมต่อ</string>
     <string name="mnt_titulo">การบำรุงรักษาตอนกลางคืน</string>
     <string name="mnt_consertei">แก้ไขแล้ว:</string>
     <string name="mnt_falhou">แก้ไขไม่ได้:</string>

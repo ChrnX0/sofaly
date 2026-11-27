@@ -2,12 +2,12 @@
 <resources>
     <string name="saude_titulo">Truy cập từ xa đã ngừng</string>
     <string name="saude_texto_shell">Quyền truy cập của TV vào chính nó đã mất %1$d phút trước (bảng điều khiển, Claude và tự sửa lỗi ngừng hoạt động). Nhấn Ghép nối lại hoặc vào Cài đặt › Hệ thống › Nâng cao › Ghép nối không cần PC.</string>
-    <string name="saude_texto_tunel">Claude qua internet đang ngoại tuyến. Nhấn Kết nối để xem còn thiếu gì, hoặc vào Cài đặt › Nhà và mạng › Truy cập từ xa.</string>
+    <string name="saude_texto_tunel">Claude qua internet đang ngoại tuyến. Nhấn Kết nối để xem còn thiếu gì, hoặc vào Cài đặt › Nhà và truy cập từ xa › Truy cập từ xa.</string>
     <string name="saude_parear">Ghép nối lại</string>
     <string name="saude_conectar">Kết nối</string>
     <string name="saude_depois">Để sau</string>
     <string name="saude_acao_shell">Ghép nối lại: Cài đặt › Hệ thống › Nâng cao › Ghép nối không cần PC</string>
-    <string name="saude_acao_tunel">Kết nối lại: Cài đặt › Nhà và mạng › Truy cập từ xa › Kết nối</string>
+    <string name="saude_acao_tunel">Kết nối lại: Cài đặt › Nhà và truy cập từ xa › Truy cập từ xa › Kết nối</string>
     <string name="mnt_titulo">Bảo trì ban đêm</string>
     <string name="mnt_consertei">Đã sửa:</string>
     <string name="mnt_falhou">Không sửa được:</string>

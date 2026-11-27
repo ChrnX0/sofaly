@@ -2,12 +2,12 @@
 <resources>
     <string name="saude_titulo">Віддалений доступ зупинено</string>
     <string name="saude_texto_shell">Доступ телевізора до самого себе зник %1$d хв тому (панель, Claude й автоматичні виправлення зупиняються). Натисніть Сполучити знову або перейдіть у Налаштування › Система › Додатково › Сполучення без ПК.</string>
-    <string name="saude_texto_tunel">Claude через інтернет офлайн. Натисніть Підключити, щоб побачити, чого бракує, або перейдіть у Налаштування › Дім і мережа › Віддалений доступ.</string>
+    <string name="saude_texto_tunel">Claude через інтернет офлайн. Натисніть Підключити, щоб побачити, чого бракує, або перейдіть у Налаштування › Дім і віддалений доступ › Віддалений доступ.</string>
     <string name="saude_parear">Сполучити знову</string>
     <string name="saude_conectar">Підключити</string>
     <string name="saude_depois">Не зараз</string>
     <string name="saude_acao_shell">Сполучити знову: Налаштування › Система › Додатково › Сполучення без ПК</string>
-    <string name="saude_acao_tunel">Підключити знову: Налаштування › Дім і мережа › Віддалений доступ › Підключити</string>
+    <string name="saude_acao_tunel">Підключити знову: Налаштування › Дім і віддалений доступ › Віддалений доступ › Підключити</string>
     <string name="mnt_titulo">Нічне обслуговування</string>
     <string name="mnt_consertei">Виправлено:</string>
     <string name="mnt_falhou">Не вдалося виправити:</string>
