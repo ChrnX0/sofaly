@@ -21,7 +21,7 @@
         <item>Nome Sofaly em tudo: o app do celular baixa como sofaly-phone.apk e o certificado do painel como sofaly-panel.crt</item>
         <item>Filme aberto: o atraso da legenda e os ajustes do player feitos nas Configurações não apagam mais um ao outro</item>
         <item>Configurações: “Casa e rede” agora se chama “Casa e acesso remoto”</item>
-        <item>A Sofy confere as telas lendo o app que está na frente e, quando não consegue ler uma, diz por quê</item>
+        <item>O Sofaly confere as telas lendo o app que está na frente e, quando não consegue ler uma, diz por quê</item>
         <item>Textos que juntavam palavras ganharam o espaço que faltava, como no Diagnóstico da internet</item>
     </string-array>
     <string-array name="roteiro_titulos">

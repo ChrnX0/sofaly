@@ -119,7 +119,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - Sofaly name everywhere: the phone app downloads as sofaly-phone.apk and the panel certificate as sofaly-panel.crt
 - With a film open, the subtitle delay and the player settings changed in Settings no longer erase each other
 - Settings: “Home and network” is now “Home and remote access”
-- Sofy checks the screens by reading the app in front and, when she cannot read one, says why
+- Sofaly checks the screens by reading the app in front and, when it cannot read one, says why
 - Texts that ran words together got the missing space, as in Internet diagnostics
 <!-- /auto:changes -->
 
