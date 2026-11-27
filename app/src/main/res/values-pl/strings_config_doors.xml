@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Dom i sieć</string>
+    <string name="cfg3_porta_casa_rede">Dom i dostęp zdalny</string>
     <string name="cfg3_mais_ajustes">Więcej ustawień</string>
     <string name="cfg3_mais_ajustes_det">Ukryte dla zwięzłości: %1$d</string>
     <string name="cfg3_modo">Tryb: %1$s</string>

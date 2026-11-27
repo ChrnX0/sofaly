@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Hjem og netværk</string>
+    <string name="cfg3_porta_casa_rede">Hjem og fjernadgang</string>
     <string name="cfg3_mais_ajustes">Flere indstillinger</string>
     <string name="cfg3_mais_ajustes_det">Skjult for at holde det kort: %1$d</string>
     <string name="cfg3_modo">Tilstand: %1$s</string>

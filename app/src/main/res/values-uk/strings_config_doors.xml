@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Дім і мережа</string>
+    <string name="cfg3_porta_casa_rede">Дім і віддалений доступ</string>
     <string name="cfg3_mais_ajustes">Більше налаштувань</string>
     <string name="cfg3_mais_ajustes_det">Приховано для стислості: %1$d</string>
     <string name="cfg3_modo">Режим: %1$s</string>

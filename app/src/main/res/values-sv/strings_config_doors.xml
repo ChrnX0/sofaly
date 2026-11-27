@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Hem och nätverk</string>
+    <string name="cfg3_porta_casa_rede">Hem och fjärråtkomst</string>
     <string name="cfg3_mais_ajustes">Fler inställningar</string>
     <string name="cfg3_mais_ajustes_det">Dolda för att hålla det kort: %1$d</string>
     <string name="cfg3_modo">Läge: %1$s</string>

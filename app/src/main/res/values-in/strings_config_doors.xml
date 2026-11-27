@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Rumah dan jaringan</string>
+    <string name="cfg3_porta_casa_rede">Rumah dan akses jarak jauh</string>
     <string name="cfg3_mais_ajustes">Setelan lainnya</string>
     <string name="cfg3_mais_ajustes_det">Disembunyikan agar ringkas: %1$d</string>
     <string name="cfg3_modo">Mode: %1$s</string>
