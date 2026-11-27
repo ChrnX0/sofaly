@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ver_novidades">Vad som ändrats</string>
+    <string name="ver_novidades_det">%1$d ändringar i version %2$s</string>
+    <string name="ver_novidades_sobre">Version %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Kontrollera på tv:n</string>
+    <string name="ver_conferir_det">%1$d av %2$d kontrollerade med fjärrkontrollen</string>
+    <string name="ver_conferir_sub">Version %1$s · %2$d punkter</string>
+    <string name="ver_conferido">%1$d av %2$d kontrollerade</string>
+    <string name="ver_sim">Ja</string>
+    <string name="ver_nao">Nej</string>
+    <string name="ver_respondido_sim">svarade ”ja”</string>
+    <string name="ver_respondido_nao">svarade ”nej”</string>
+</resources>
