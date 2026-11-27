@@ -17,6 +17,10 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.view.Gravity
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.Toast
 
 /**
@@ -40,6 +44,8 @@ class PainelActivity : Activity() {
     private lateinit var web: WebView
     private lateinit var tv: Pareamento.Tv
     private var tentouFora = false
+    /** Aviso próprio quando a TV não responde (no lugar da página de erro do WebView). */
+    private lateinit var semTv: View
     /** Quem espera a resposta do seletor de arquivos aberto pela página (no máximo um por vez). */
     private var escolha: ValueCallback<Array<Uri>>? = null
     private val pedidoArquivo = 41
@@ -73,7 +79,17 @@ class PainelActivity : Activity() {
             }
         }
         CookieManager.getInstance().setAcceptCookie(true)
-        setContentView(web)
+        // Caça 27/11/2026: sem a TV (desligada, outra rede), o WebView mostrava a própria página de erro: "Webpage not
+        // available", o endereço do Tailscale (onetv-...) e "net::ERR_NAME_NOT_RESOLVED". Agora vai um aviso do app.
+        semTv = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER; visibility = View.GONE
+            setBackgroundColor(Visual.FUNDO)
+            val m = Visual.dp(this@PainelActivity, 24); setPadding(m, m, m, m)
+            addView(Visual.texto(this@PainelActivity, getString(R.string.cel_ctrl_sem_tv), 20f).apply { gravity = Gravity.CENTER },
+                LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = m })
+            addView(Visual.botao(this@PainelActivity, getString(R.string.cel_enviar_de_novo)) { tentarDeNovo() }, LinearLayout.LayoutParams(-1, -2))
+        }
+        setContentView(FrameLayout(this).apply { addView(web, -1, -1); addView(semTv, -1, -1) })
         val endereco = primeiroEndereco()
         // Sessão caída e chave de aparelho guardada: entra sem PIN antes de abrir (revisor 26/11).
         if (tv.fp.isNotEmpty() && !endereco.startsWith("http://")) ApiTv.emSegundoPlano {
@@ -97,6 +113,13 @@ class PainelActivity : Activity() {
             "?titulo=" + Uri.encode(titulo) + "&texto=" + Uri.encode(if (url.isNotEmpty()) "" else texto) + "&url=" + Uri.encode(url)
         }
         return base + consulta + fragmento
+    }
+
+    /** "Tentar de novo" do aviso: casa primeiro, de novo, e o Tailscale depois. */
+    private fun tentarDeNovo() {
+        semTv.visibility = View.GONE
+        tentouFora = false
+        web.loadUrl(primeiroEndereco())
     }
 
     private fun daTv(u: Uri): Boolean = Pareamento.daTv(tv, u.scheme, u.host, if (u.port == -1 && u.scheme == "https") 443 else if (u.port == -1) 80 else u.port)
@@ -169,10 +192,15 @@ class PainelActivity : Activity() {
         override fun onPageFinished(view: WebView, url: String?) { view.evaluateJavascript(Baixar.JS_NOME, null) }
 
         override fun onReceivedError(view: WebView, req: WebResourceRequest, erro: WebResourceError) {
-            if (!req.isForMainFrame || tentouFora) return
-            val fora = Pareamento.enderecoFora(tv) ?: return
-            tentouFora = true
-            view.loadUrl(fora)   // fora de casa: o https do Tailscale (o celular precisa estar na conta Tailscale)
+            if (!req.isForMainFrame) return
+            val fora = Pareamento.enderecoFora(tv)
+            if (!tentouFora && fora != null) {
+                tentouFora = true
+                view.loadUrl(fora)   // fora de casa: o https do Tailscale (o celular precisa estar na conta Tailscale)
+                return
+            }
+            view.stopLoading()
+            semTv.visibility = View.VISIBLE
         }
     }
 }
