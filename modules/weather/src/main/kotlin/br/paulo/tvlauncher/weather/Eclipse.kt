@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher.weather
 
-import br.paulo.tvlauncher.Config
 import java.time.Instant
 import kotlin.math.PI
 import kotlin.math.abs
@@ -37,7 +36,7 @@ object Eclipse {
     private const val RAZAO_LUA_SOL = 1.0
 
     fun estado(agoraMs: Long): Estado? {
-        val e = Config.ECLIPSES_SOLARES.firstOrNull { agoraMs in it.inicioMs..it.fimMs } ?: return null
+        val e = WeatherConfig.ECLIPSES_SOLARES.firstOrNull { agoraMs in it.inicioMs..it.fimMs } ?: return null
         val rl = RAZAO_LUA_SOL
         val dMin = 1 + rl - 2 * e.magnitude                       // distância dos centros no máximo
         val sMax = sqrt((1 + rl) * (1 + rl) - dMin * dMin)        // quanto a lua anda, de cada lado do máximo, entre os contatos

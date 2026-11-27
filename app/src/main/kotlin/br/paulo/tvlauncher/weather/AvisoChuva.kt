@@ -112,7 +112,7 @@ object AvisoChuva {
         val ponto = Localizacao.atual(app) { Http.getText(it) } ?: throw IllegalStateException("sem localização")
         val url = "https://api.open-meteo.com/v1/forecast?latitude=${ponto.lat}&longitude=${ponto.lon}" +
             "&hourly=precipitation_probability&forecast_hours=${HORAS_A_FRENTE + 2}&timezone=auto&models=${MODELOS.joinToString(",")}"
-        val met = if (DataSources.weather(app) != DataSources.Weather.OPEN_METEO)
+        val met = if (DataSources.weather(app) != WeatherSource.Kind.OPEN_METEO)
             DataSources.forecast(app, ponto.lat, ponto.lon, desdeAgora = true, dias = 2) ?: throw IllegalStateException("sem resposta") else null
         val h = met?.getJSONObject("hourly")
             ?: JSONObject(Http.getText(url) ?: throw IllegalStateException("sem resposta")).getJSONObject("hourly")
@@ -133,17 +133,7 @@ object AvisoChuva {
     // ---------------------------------------------------------------- lógica pura (testada em AvisoChuvaTest)
 
     /** Mediana hora a hora de vários modelos; hora sem nenhum valor = 0. Média dos dois do meio quando o número é par. */
-    fun mediana(porModelo: List<List<Int?>>): List<Int> {
-        val n = porModelo.maxOfOrNull { it.size } ?: 0
-        return (0 until n).map { i ->
-            val v = porModelo.mapNotNull { it.getOrNull(i) }.sorted()
-            when {
-                v.isEmpty() -> 0
-                v.size % 2 == 1 -> v[v.size / 2]
-                else -> (v[v.size / 2 - 1] + v[v.size / 2]) / 2
-            }
-        }
-    }
+    fun mediana(porModelo: List<List<Int?>>): List<Int> = WeatherSource.mediana(porModelo)   // mora no :weather (a HOME usa a mesma)
 
     /**
      * [horas] no formato da Open-Meteo ("2026-11-05T14:00"), [chances] alinhadas com elas, [agora] = "2026-11-05T14"

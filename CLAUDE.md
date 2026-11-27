@@ -11,7 +11,12 @@ search); manifest components, JNI classes and the core (Fundo, Estilo, Prefs, Ht
 with no R/BuildConfig lives in `:core` (`core/src/main/kotlin`, same packages); resources are compiled by `:resources`
 (the folder stays `app/src/main/res`), so R is `br.paulo.tvlauncher.resources.R` (import it, also in root-package files). `:resources` also generates
 `br.paulo.tvlauncher.BuildConfig` (same name and constants as before; fields and `-Pplay` logic in `resources/build.gradle.kts`,
-the versionCode once in the root `build.gradle.kts`); `:app` no longer generates its own. Tests
+the versionCode once in the root `build.gradle.kts`); `:app` no longer generates its own. Area modules live in `modules/<area>`
+(English folder names, same packages). First one: `:weather` (`modules/weather`: weather sources, forecast, sky, moon,
+location; the warning screens stay in `:app`). It cannot see `:app`: what it needs from the app (Context, relay signing,
+the plan's weather source) comes through `WeatherHost`, filled in `LauncherApp.onCreate`; its settings are
+`WeatherConfig` (`Config` keeps the old names pointing there). Don't make module classes `internal` if `:app` or its
+tests use them. Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.
 Every bitmap is created through `br.paulo.tvlauncher.image.Images` (in `:core`; origin = area/file), never `BitmapFactory`/
