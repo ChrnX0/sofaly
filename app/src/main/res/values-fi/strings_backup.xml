@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Viimeisin</string>
     <string name="bkn_nunca">ei koskaan</string>
     <string name="bkn_pin">PIN varmuuskopion muuttamiseen</string>
+    <string name="bk_motivo_senha">Salasana ei ole oikein.</string>
+    <string name="bk_motivo_invalido">Tämä tiedosto ei ole Sofaly-varmuuskopio, tai se on vioittunut.</string>
+    <string name="bk_motivo_ler">Lukeminen ei onnistunut (verkko tai tallennustila).</string>
 </resources>
