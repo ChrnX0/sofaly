@@ -27,7 +27,7 @@ values-it=3
 
 values-ja=3
 
-values-ko=224
+values-ko=3
 
 values-nb=236
 

@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">마지막</string>
     <string name="bkn_nunca">없음</string>
     <string name="bkn_pin">백업 변경 시 PIN</string>
+    <string name="bk_motivo_senha">비밀번호가 맞지 않습니다.</string>
+    <string name="bk_motivo_invalido">이 파일은 Sofaly 백업이 아니거나 손상되었습니다.</string>
+    <string name="bk_motivo_ler">읽을 수 없습니다(네트워크 또는 저장소).</string>
 </resources>
