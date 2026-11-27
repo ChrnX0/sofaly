@@ -14,8 +14,19 @@ const pacote = (o = {}) => ({ v: 1, code: '0123456789abcdef', app: 474900, devic
 test('aceita o pacote certo', () => {
   const p = cleanPacket(pacote());
   assert.equal(p.cases.length, 1);
-  assert.equal(p.cases[0].target, 'com.app.x');
+  assert.equal(p.cases[0].target, '');   // #541: o pacote do app é conferido, mas não fica guardado
   assert.deepEqual(cleanPacket(pacote({ cases: [] })).cases, []);
+});
+
+test('#541: o pacote novo (só o que o consentimento promete) passa e nada a mais fica guardado', () => {
+  const novo = { type: 'CRASH', area: 'app', target: '', cause: 'update', state: { memory: 'ok', net: 'wifi' },
+    tries: [{ tool: 'CLEAR_APP_CACHE', by: 'rule', result: 'fixed' }], outcome: 'fixed' };
+  const p = cleanPacket(pacote({ device: { maker: 'Google', model: 'Chromecast HD', platform: 'googletv', abi: '32' }, cases: [novo] }));
+  assert.deepEqual(p.device, { maker: 'Google', model: 'Chromecast HD', platform: 'googletv', abi: '32' });
+  assert.deepEqual(p.cases[0], novo);
+  // O antigo ainda passa (TVs sem a atualização), mas guarda só os mesmos campos.
+  assert.deepEqual(Object.keys(cleanPacket(pacote()).cases[0]).sort(), Object.keys(novo).sort());
+  assert.deepEqual(Object.keys(cleanPacket(pacote()).device).sort(), ['abi', 'maker', 'model', 'platform']);
 });
 
 test('qualquer campo a mais recusa o pacote inteiro (nada passa calado)', () => {

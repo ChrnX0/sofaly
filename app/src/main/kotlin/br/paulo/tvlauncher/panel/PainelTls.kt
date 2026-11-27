@@ -125,9 +125,15 @@ object PainelTls {
         null
     }
 
-    /** O contexto TLS do servidor: só TLS 1.2 e 1.3 (ver [protocolos]), a chave e a cadeia (servidor + CA). */
-    fun contexto(e: CertificadoX509.Emissao): SSLContext = SSLContext.getInstance("TLS").apply {
-        init(arrayOf(CertificadoX509.ChaveFixa(e.chaveServidor, arrayOf(e.servidor, e.ca))), null, null)
+    /**
+     * O contexto TLS do servidor: só TLS 1.2 e 1.3 (ver [protocolos]). Dois certificados, escolhidos pelo nome pedido
+     * (SNI, [PublicCertRules.PorNome]): `<ip>.<id>.lan.sofaly.tv` recebe o público ([PublicCertificate], item 26),
+     * qualquer outro nome ou IP recebe o desta TV (servidor + CA), como antes.
+     */
+    fun contexto(ctx: Context, e: CertificadoX509.Emissao): SSLContext = SSLContext.getInstance("TLS").apply {
+        val app = ctx.applicationContext
+        val propria = PublicCertRules.Par(e.chaveServidor, arrayOf(e.servidor, e.ca))
+        init(arrayOf(PublicCertRules.PorNome({ propria }, { PublicCertificate.par(app) }, { PublicCertificate.sufixo(app) })), null, null)
     }
 
     /** Dos protocolos que o aparelho tem, só os atuais. */
@@ -155,6 +161,9 @@ object PainelTls {
             .put("validoAte", e.servidor.notAfter.time)
             .put("diasRestantes", diasRestantes)
             .put("nomeNoCertificado", nomeConfig in noCert)
+            // Item 26: com o certificado público, o 1º endereço que o cadeado.js testa (abre sem instalar nada). Sem ele,
+            // ou com o roteador bloqueando o nome, fica null e valem os de antes.
+            .put("enderecoPublico", ips.sorted().firstNotNullOfOrNull { PublicCertificate.endereco(ctx, it) } ?: JSONObject.NULL)
     }
 
     fun pemDaCa(): String? = atual?.let { CertificadoX509.pem(it.ca) }
@@ -232,13 +241,13 @@ object PainelTls {
         }
     }
 
-    private fun cifrar(claro: ByteArray): ByteArray {
+    internal fun cifrar(claro: ByteArray): ByteArray {
         val c = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.ENCRYPT_MODE, chaveDoKeystore()) }
         val iv = c.iv
         return byteArrayOf(iv.size.toByte()) + iv + c.doFinal(claro)
     }
 
-    private fun decifrar(b: ByteArray): ByteArray {
+    internal fun decifrar(b: ByteArray): ByteArray {
         val n = b[0].toInt()
         require(n in 12..16 && b.size > 1 + n) { "arquivo curto" }
         val c = Cipher.getInstance("AES/GCM/NoPadding")

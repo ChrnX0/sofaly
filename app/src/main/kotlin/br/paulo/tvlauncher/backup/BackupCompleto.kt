@@ -78,6 +78,7 @@ object BackupCompleto {
           // plugins: o OK vale para o certificado desta TV
         "wallpaper_plugins",   // plugins de fundo (18/11/2026): o OK também é por certificado desta TV
         "plugin_tiles",   // botões de outros apps (24/11/2026): OK por certificado desta TV, como "plugins"
+        "sofy_recipes",   // receitas da rede de Sofys (27/11/2026): lista baixada e placar da sombra desta TV (refaz sozinho)
         "sofy_fleet",   // rede de Sofys (27/11/2026): quando mandou e o estado de cada caso, desta TV só (o segredo fica em noBackupFilesDir)
         "extension_health", "plugin_catalog", "plugin_widgets",   // 24/11/2026: placar de saúde dos plugins e vitrine baixada (refaz sozinho)
         "icon_pack_frozen",   // pacotes que NÓS congelamos nesta TV (na outra o pacote nem está congelado)
@@ -137,6 +138,9 @@ object BackupCompleto {
         // "painel_tls" (#34): só o nome do certificado https desta TV (ex.: tv-sala). O certificado não vai no backup, e
         // restaurar em outra TV daria a ela o nome da primeira; cada TV escolhe o seu no painel.
         "painel_tls",
+        // "painel_tls_publico" (item 26, 27/11/2026): tentativas e espera do certificado *.<id>.lan.sofaly.tv DESTA TV
+        // (o nome leva o id do relay dela; o certificado e as chaves ficam em noBackupFilesDir).
+        "painel_tls_publico",
         // "volume_lg" (ideia 49): IP e código de pareamento da LG desta casa. Em outra TV/casa apontaria para a LG errada;
         // parear de novo leva um minuto (ComandosExtras lg_*).
         "volume_lg",

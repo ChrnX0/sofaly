@@ -44,28 +44,30 @@ class SofyFleetTest {
     @Test fun soCamposPermitidos() {
         val p = pacote(casoCheio())
         assertEquals(setOf("v", "code", "app", "device", "cases"), p.chaves())
-        assertEquals(setOf("maker", "model", "platform", "sdk", "abi", "ram", "disk"), p.getJSONObject("device").chaves())
+        // #541: só o que a tela do consentimento promete (modelo, o que quebrou em categorias, o que consertou,
+        // memória e rede em faixas).
+        assertEquals(setOf("maker", "model", "platform", "abi"), p.getJSONObject("device").chaves())
         val c = p.getJSONArray("cases").getJSONObject(0)
-        assertEquals(setOf("type", "area", "target", "cause", "before", "state", "tries", "outcome", "relapse", "count"), c.chaves())
-        assertEquals(setOf("uptime", "memory", "net", "period"), c.getJSONObject("state").chaves())
+        assertEquals(setOf("type", "area", "target", "cause", "state", "tries", "outcome"), c.chaves())
+        assertEquals(setOf("memory", "net"), c.getJSONObject("state").chaves())
         assertEquals(setOf("tool", "by", "result"), c.getJSONArray("tries").getJSONObject(0).chaves())
     }
 
     @Test fun oCasoVemCertoEmFaixas() {
         val c = pacote(casoCheio()).getJSONArray("cases").getJSONObject(0)
-        assertEquals("app", c.getString("area")); assertEquals("com.globo.play", c.getString("target"))
-        assertEquals(listOf("app_updated", "network_changed", "other"), (0 until c.getJSONArray("before").length()).map { c.getJSONArray("before").getString(it) })
-        assertEquals("evening", c.getJSONObject("state").getString("period"))
-        assertEquals("1-24h", c.getJSONObject("state").getString("uptime"))
+        assertEquals("app", c.getString("area")); assertEquals("", c.getString("target"))   // #541: "Seus apps" nunca sai
+        assertEquals("network", c.getString("cause"))                                        // só a categoria da causa
+        assertEquals("ok", c.getJSONObject("state").getString("memory"))
         assertEquals("ai", c.getJSONArray("tries").getJSONObject(0).getString("by"))
         assertEquals("fixed", c.getString("outcome"))
         val d = pacote().getJSONObject("device")
-        assertEquals("1-2", d.getString("ram")); assertEquals("4-8", d.getString("disk")); assertEquals("32", d.getString("abi"))
+        assertEquals("32", d.getString("abi"))
         assertEquals("googletv", d.getString("platform"))
     }
 
     @Test fun alvoSoPacoteOuNomeDoCodigo() {
         assertEquals("mcp", SofyFleet.target("feature:mcp"))
+        assertEquals("", SofyFleet.target("app:com.globo.play"))   // #541
         assertEquals("", SofyFleet.target("feature:Sala da Ana"))
         assertEquals("", SofyFleet.target("app:rm -rf"))
         assertEquals("", SofyFleet.target("shell"))
@@ -108,9 +110,8 @@ class SofyFleetTest {
         // Os valores que o pacote usa estão todos nas listas do servidor.
         val c = pacote(casoCheio()).getJSONArray("cases").getJSONObject(0)
         assertTrue(c.getString("cause") in set("CAUSES"))
-        val b: JSONArray = c.getJSONArray("before"); for (i in 0 until b.length()) assertTrue(b.getString(i) in set("BEFORE"))
         val d: JSONObject = pacote().getJSONObject("device")
-        assertTrue(d.getString("ram") in set("RAM")); assertTrue(d.getString("disk") in set("DISK"))
+        assertTrue(d.getString("platform") in set("PLATFORM")); assertTrue(d.getString("abi") in set("ABI"))
     }
 }
 
