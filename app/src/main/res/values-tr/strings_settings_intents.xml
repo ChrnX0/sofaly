@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=yazı büyük|yazıyı büyüt|daha büyük yazı|harfleri büyüt|yazı tipi büyük;TEXT_SMALLER=yazı küçük|yazıyı küçült|daha küçük yazı|harfleri küçült|yazı tipi küçük;GOAL_READ=daha iyi oku|okumak zor|iyi göremiyorum|zor görüyorum;GOAL_CLEAN=sade ekran|temiz ekran|daha az şey|basit ekran;GOAL_ENERGY=daha az enerji|enerji tasarrufu|elektrik tasarrufu|az elektrik;LOOK_SOFALY=sofaly görünüm|varsayılan görünüm;LOOK_NIGHT=gece görünüm|karanlık gökyüzü;LOOK_MOUNTAIN=dağ görünüm|dağlar görünüm;LOOK_MINIMAL=sade görünüm|minimal görünüm</string>
+    <string name="si_fazer">Şimdi yap: %1$s</string>
+    <string name="si_desfazer">Geri al: %1$s</string>
+    <string name="si_fazer_det">Hemen değişir.</string>
+    <string name="si_maior">Daha büyük yazı</string>
+    <string name="si_menor">Daha küçük yazı</string>
+</resources>
