@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Hodnocení Simkl</string>
     <string name="sv_simkl_convite_det">Připojit účet</string>
+    <string name="legenda_muitas">Právě teď je příliš mnoho hledání titulků. Zkuste to za minutu.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles odmítl účet. Zkontrolujte ho v Nastavení.</string>
+    <string name="legenda_fora">Služba titulků nefunguje. Zkuste to později.</string>
 </resources>

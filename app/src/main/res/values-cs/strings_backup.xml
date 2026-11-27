@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Poslední</string>
     <string name="bkn_nunca">nikdy</string>
     <string name="bkn_pin">PIN pro změnu zálohy</string>
+    <string name="bk_motivo_senha">Heslo není správné.</string>
+    <string name="bk_motivo_invalido">Tento soubor není záloha Sofaly, nebo je poškozený.</string>
+    <string name="bk_motivo_ler">Nelze přečíst (síť nebo úložiště).</string>
 </resources>
