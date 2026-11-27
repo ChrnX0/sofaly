@@ -51,3 +51,14 @@ test('corpo trocado, caminho trocado ou relógio fora = recusado', async () => {
   assert.ok((await verifySignature({ ...base, nowSec: 1000 + LIMITS.clockSkewSec + 1 })).error);
   assert.ok((await verifySignature({ ...base, headers: new Headers() })).error);
 });
+
+test('parseJson: sempre um objeto (null, número e texto não derrubam a rota com 500)', async () => {
+  const { parseJson } = await import('../src/rules.js');
+  const b = (s) => new TextEncoder().encode(s);
+  assert.deepEqual(parseJson(b('null')), {});
+  assert.deepEqual(parseJson(b('7')), {});
+  assert.deepEqual(parseJson(b('"x"')), {});
+  assert.deepEqual(parseJson(b('{oops')), {});
+  assert.equal(parseJson(b('{"value":"abc"}')).value, 'abc');
+  assert.deepEqual(parseJson(b('{"ids":["a"]}')).ids, ['a']);
+});
