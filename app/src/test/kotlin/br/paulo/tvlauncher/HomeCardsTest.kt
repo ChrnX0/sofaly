@@ -116,4 +116,12 @@ class HomeCardsTest {
         assertEquals("1,2 mi", HomeCards.valorCurto(1_234_567.0, br, "mil", "mi"))
         assertEquals("150", HomeCards.valorCurto(150.4, br, "mil", "mi"))
     }
+
+    /** #559: TV sem internet não acusa todos os serviços. */
+    @Test fun rodadaSemInternetNaoConta() {
+        assertTrue(HomeCards.rodadaConta(listOf(true, false), redeValidada = true))
+        assertTrue(HomeCards.rodadaConta(listOf(false), redeValidada = true))   // um só: conta
+        assertFalse(HomeCards.rodadaConta(listOf(false, false), redeValidada = true))
+        assertFalse(HomeCards.rodadaConta(listOf(true, true), redeValidada = false))
+    }
 }

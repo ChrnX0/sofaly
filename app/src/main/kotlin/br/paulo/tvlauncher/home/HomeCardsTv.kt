@@ -147,14 +147,20 @@ object HomeCardsTv {
         if (!forcar && agora - p.getLong("servicos_em", 0) < TESTE_SERVICOS_MS) return false
         p.edit().putLong("servicos_em", agora).apply()
         val antes = HomeCards.foraDoAr(lista, falhasDe(ctx))
+        val oks = lista.map { HomeCards.respondeu(codigoHttp(it.url)) }
+        if (!HomeCards.rodadaConta(oks, redeValidada(ctx))) return false   // a TV é que está sem internet (#559)
         val e = p.edit()
-        for (s in lista) {
-            val ok = HomeCards.respondeu(codigoHttp(s.url))
-            e.putInt("falhas:" + s.nome, HomeCards.falhas(p.getInt("falhas:" + s.nome, 0), ok))
-        }
+        lista.forEachIndexed { i, s -> e.putInt("falhas:" + s.nome, HomeCards.falhas(p.getInt("falhas:" + s.nome, 0), oks[i])) }
         e.commit()
         return HomeCards.foraDoAr(lista, falhasDe(ctx)) != antes
     }
+
+    /** A rede ativa tem internet de verdade (validada pelo Android)? Sem como saber, conta como sim. */
+    private fun redeValidada(ctx: Context): Boolean = runCatching {
+        val cm = ctx.getSystemService(Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+        val caps = cm.getNetworkCapabilities(cm.activeNetwork) ?: return false
+        caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+    }.getOrDefault(true)
 
     /** O código HTTP do endereço, ou null (sem resposta, certificado recusado, tempo esgotado). Nunca afrouxa o TLS. */
     private fun codigoHttp(url: String): Int? = runCatching {
