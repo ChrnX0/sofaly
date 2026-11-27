@@ -6,7 +6,7 @@ import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.LauncherApp
 import br.paulo.tvlauncher.LembretesTv
 import br.paulo.tvlauncher.Presenca
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Retrospectiva
 import br.paulo.tvlauncher.observer.RegistroErros
 import br.paulo.tvlauncher.txt

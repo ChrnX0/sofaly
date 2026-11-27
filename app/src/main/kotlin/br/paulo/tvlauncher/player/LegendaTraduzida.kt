@@ -3,7 +3,7 @@ package br.paulo.tvlauncher.player
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import com.google.android.gms.tasks.Tasks
 import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage

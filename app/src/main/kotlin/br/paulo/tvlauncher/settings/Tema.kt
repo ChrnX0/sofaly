@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Typeface
 import br.paulo.tvlauncher.LauncherApp
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.FundoMeuDados
 import br.paulo.tvlauncher.screensaver.WallpaperPlugins
 import br.paulo.tvlauncher.txt

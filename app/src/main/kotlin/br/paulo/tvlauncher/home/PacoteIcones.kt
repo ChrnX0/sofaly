@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.util.Xml
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.screensaver.PluginCatalog
 import br.paulo.tvlauncher.settings.Planos
 import org.xmlpull.v1.XmlPullParser

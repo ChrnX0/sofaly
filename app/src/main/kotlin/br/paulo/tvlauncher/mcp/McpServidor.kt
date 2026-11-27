@@ -9,7 +9,7 @@ import br.paulo.tvlauncher.ContinuarOutraTv
 import br.paulo.tvlauncher.FamiliaConectada
 import br.paulo.tvlauncher.JsonSeguro
 import br.paulo.tvlauncher.LoginGoogle
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.RecadoVideo
 import br.paulo.tvlauncher.SessaoJunto
 import br.paulo.tvlauncher.network.EntreTvs

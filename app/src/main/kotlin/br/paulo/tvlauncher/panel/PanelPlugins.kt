@@ -5,7 +5,7 @@ import android.content.pm.PackageManager
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.PluginTilesTv
 import br.paulo.tvlauncher.PluginsTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.PacoteIcones
 import br.paulo.tvlauncher.player.LojaCurada
 import br.paulo.tvlauncher.screensaver.PluginCartao

@@ -22,7 +22,7 @@ import br.paulo.tvlauncher.MainActivity.Companion.ILHA_PONTO_CALMO
 import br.paulo.tvlauncher.MainActivity.Companion.ILHA_TEXTO_MAX
 import br.paulo.tvlauncher.MainActivity.Companion.ILHA_VERMELHO
 import br.paulo.tvlauncher.MainActivity.Companion.TOPO_PALCO
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.Agenda
 import br.paulo.tvlauncher.alarm.NaoPerturbeTv
 import br.paulo.tvlauncher.family.ModoVisita

@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.Http
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.backup.DriveBackup
 import br.paulo.tvlauncher.backup.DriveRegras
 import br.paulo.tvlauncher.backup.Nuvem

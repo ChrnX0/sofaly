@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.Http
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.ModoVisita
 import br.paulo.tvlauncher.family.Perfil
 import br.paulo.tvlauncher.family.PerfilCriancaTv

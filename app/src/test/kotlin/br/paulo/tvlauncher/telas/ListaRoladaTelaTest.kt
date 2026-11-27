@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

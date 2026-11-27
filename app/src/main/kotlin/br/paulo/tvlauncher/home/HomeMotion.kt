@@ -17,7 +17,7 @@ import br.paulo.tvlauncher.MainActivity.Item
 import br.paulo.tvlauncher.MidiaRedeActivity
 import br.paulo.tvlauncher.PluginsTv
 import br.paulo.tvlauncher.PodcastsActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.RadioActivity
 import br.paulo.tvlauncher.SeriesActivity
 import br.paulo.tvlauncher.games.JogosTv

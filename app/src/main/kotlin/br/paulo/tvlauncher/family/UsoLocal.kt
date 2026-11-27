@@ -5,7 +5,7 @@ import android.content.Context
 import android.widget.LinearLayout
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Ideia 67: guarda o uso (UsoLocalRegras) nas prefs "uso_local", fora de todo backup e do painel web.

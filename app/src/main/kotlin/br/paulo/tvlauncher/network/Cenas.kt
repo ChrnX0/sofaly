@@ -1,7 +1,7 @@
 package br.paulo.tvlauncher.network
 
 import android.content.Context
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.mcp.ComandosIa
 import br.paulo.tvlauncher.mcp.PedidoIa
 import java.security.MessageDigest

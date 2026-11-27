@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.AppsEmDisco
 import android.app.Activity
 import android.app.AlertDialog

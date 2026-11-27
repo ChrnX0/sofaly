@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.accessibility.AccessibilityEvent
 import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.Avisos
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Ideia 57 (14/11/2026): teclado do celular chamado pela TV. Quando um campo de texto ganha o foco na TV (busca do

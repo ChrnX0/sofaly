@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.mcp
 
 import android.content.Context
 import br.paulo.tvlauncher.ConfirmacoesTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.panel.PainelArmazem
 import br.paulo.tvlauncher.player.CanalBusca
 import br.paulo.tvlauncher.privilege.Confirmacoes

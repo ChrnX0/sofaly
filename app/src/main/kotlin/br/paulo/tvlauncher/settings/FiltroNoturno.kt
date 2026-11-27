@@ -8,7 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.WindowManager
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.games.JogosTv
 import br.paulo.tvlauncher.txt
 import java.util.Calendar

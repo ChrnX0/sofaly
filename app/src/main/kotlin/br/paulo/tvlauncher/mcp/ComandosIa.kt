@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.mcp
 
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Desligamento
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Timer
 import br.paulo.tvlauncher.alarm.Despertador
 import br.paulo.tvlauncher.family.ModoVisita

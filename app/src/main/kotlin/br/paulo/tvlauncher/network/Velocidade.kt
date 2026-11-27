@@ -1,6 +1,6 @@
 package br.paulo.tvlauncher.network
 
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.txt
 import java.net.HttpURLConnection
 import java.net.URL

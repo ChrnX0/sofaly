@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.player
 
 import android.content.Context
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.panel.entrar
 import java.io.File
 import java.net.HttpURLConnection

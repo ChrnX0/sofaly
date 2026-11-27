@@ -7,7 +7,7 @@ import android.os.Environment
 import android.os.storage.StorageManager
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.network.Rede
 import br.paulo.tvlauncher.panel.PainelArquivos

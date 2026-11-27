@@ -9,7 +9,7 @@ import br.paulo.tvlauncher.HomeSeguraActivity
 import br.paulo.tvlauncher.MainActivity
 import br.paulo.tvlauncher.ModoSimples
 import br.paulo.tvlauncher.ModoSimplesActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.PinNaTela
 
 /**

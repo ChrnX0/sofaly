@@ -15,7 +15,7 @@ import androidx.media3.common.C
 import androidx.media3.common.audio.AudioProcessor
 import androidx.media3.common.audio.BaseAudioProcessor
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.network.Cenas
 import br.paulo.tvlauncher.panel.QrCodigo
 import br.paulo.tvlauncher.settings.Fontes

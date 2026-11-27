@@ -4,7 +4,7 @@ import android.content.Context
 import android.widget.FrameLayout
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Proporção da imagem e velocidade (11/11/2026, ideias vistas no 1 Play). Vale para a TV ao vivo e para filmes/séries.

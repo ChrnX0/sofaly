@@ -7,7 +7,9 @@ Code comments and identifiers are in Brazilian Portuguese (the Android app); **n
 and `values-pt/` (Portuguese); the app follows the TV's system language. Read `README.md` first for the feature list.
 Code layout (21/11/2026 refactor): sources live in subpackages by area under `br/paulo/tvlauncher/` (home, player,
 listen, panel, mcp, weather, alarm, screensaver, privilege, network, backup, observer, family, games, settings, input,
-search); manifest components, JNI classes and the core (Fundo, Estilo, Prefs, Http...) stay in the root package. Tests
+search); manifest components, JNI classes and the core (Fundo, Estilo, Prefs, Http...) stay in the root package. Modules (G refactor, 27/11/2026): pure logic
+with no R/BuildConfig lives in `:core` (`core/src/main/kotlin`, same packages); resources are compiled by `:resources`
+(the folder stays `app/src/main/res`), so R is `br.paulo.tvlauncher.resources.R` (import it, also in root-package files). Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.
 

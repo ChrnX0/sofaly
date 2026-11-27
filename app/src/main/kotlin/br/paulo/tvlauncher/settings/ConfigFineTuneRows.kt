@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.settings
 
 import android.widget.LinearLayout
 import br.paulo.tvlauncher.ConfigLauncherActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * "Ajuste fino" na aba Aparência: uma linha só, que abre o Ajuste fino com a HOME à vista.

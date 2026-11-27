@@ -3,7 +3,7 @@ package br.paulo.tvlauncher.player
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VodActivity
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.mcp.ComandosIa

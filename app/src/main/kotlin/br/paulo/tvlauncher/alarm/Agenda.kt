@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.provider.CalendarContract
 import android.util.Log
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.ModoVisita
 import br.paulo.tvlauncher.family.Perfil
 import br.paulo.tvlauncher.panel.eventos

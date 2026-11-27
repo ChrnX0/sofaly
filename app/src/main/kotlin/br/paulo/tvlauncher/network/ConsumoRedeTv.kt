@@ -1,6 +1,6 @@
 package br.paulo.tvlauncher.network
 
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import android.app.usage.NetworkStats
 import android.app.usage.NetworkStatsManager
 import android.content.Context

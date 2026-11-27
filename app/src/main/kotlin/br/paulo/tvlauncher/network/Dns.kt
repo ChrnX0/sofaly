@@ -4,7 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.os.SystemClock
 import android.provider.Settings
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.player.salvar
 import java.net.UnknownHostException
 

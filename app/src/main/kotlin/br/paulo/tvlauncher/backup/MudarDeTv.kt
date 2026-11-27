@@ -7,7 +7,7 @@ import android.util.Log
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.FilaAppsActivity
 import br.paulo.tvlauncher.PainelApps
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Diario
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.panel.PainelVizinhos

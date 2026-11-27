@@ -106,7 +106,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         pilula.addView(wifi, LinearLayout.LayoutParams(dpi(22f), dpi(22f)))
         engrenagem.setImageDrawable(IconeCruz(IconeCruz.Tipo.CONFIG, IconeCruz.Estilo.LINHA).apply { corFixa = DesignTokens.CREAM })
         engrenagem.isFocusable = true
-        engrenagem.contentDescription = ctx.getString(br.paulo.tvlauncher.R.string.cfg_titulo)
+        engrenagem.contentDescription = ctx.getString(br.paulo.tvlauncher.resources.R.string.cfg_titulo)
         engrenagem.background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(0) }
         engrenagem.setPaddingRelative(dpi(2f), dpi(2f), dpi(2f), dpi(2f))
         engrenagem.setOnFocusChangeListener { v, tem ->

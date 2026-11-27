@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager

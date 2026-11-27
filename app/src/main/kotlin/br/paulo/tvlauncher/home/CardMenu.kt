@@ -11,7 +11,7 @@ import android.provider.Settings
 import android.util.Log
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.MainActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.TocandoAgoraTv
 import br.paulo.tvlauncher.family.PinNaTela
 

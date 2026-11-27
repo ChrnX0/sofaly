@@ -9,7 +9,7 @@ import android.net.wifi.WifiManager
 import android.os.SystemClock
 import android.util.Log
 import br.paulo.tvlauncher.Avisos
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.AutoDesligar
 import br.paulo.tvlauncher.observer.ObserverCore
 import br.paulo.tvlauncher.observer.ObserverTv

@@ -35,6 +35,7 @@ rootProject.name = "one-tv-launcher"
 include(":app")
 // Refatoração G (27/11/2026): lógica pura sem tela, R nem BuildConfig (ver core/build.gradle.kts).
 include(":core")
+include(":resources")   // refatoração G: recursos do app (a pasta continua em app/src/main/res)
 include(":celular")   // ideia 101: app de celular (casca fina do painel)
 include(":extras")    // plugin Sofaly Extras (16/11/2026): app separado do site, ver extras/build.gradle.kts
 

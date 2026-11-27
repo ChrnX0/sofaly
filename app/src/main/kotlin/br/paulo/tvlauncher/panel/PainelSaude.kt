@@ -7,7 +7,7 @@ import android.os.PowerManager
 import android.os.StatFs
 import android.os.SystemClock
 import br.paulo.tvlauncher.Avisos
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.network.HistoricoRede
 import br.paulo.tvlauncher.observer.TendenciaDisco
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku

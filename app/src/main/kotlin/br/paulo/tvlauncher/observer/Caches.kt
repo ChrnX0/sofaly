@@ -3,7 +3,7 @@ package br.paulo.tvlauncher.observer
 import android.content.Context
 import android.os.Environment
 import android.os.StatFs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.ConsumoRede
 import br.paulo.tvlauncher.privilege.GuardiaoShizuku
 

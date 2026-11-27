@@ -15,7 +15,7 @@ import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Gatilhos
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VodActivity
 import br.paulo.tvlauncher.VodActivity.Companion.ATRASOS
 import br.paulo.tvlauncher.VodActivity.Companion.EXTRA_LEG_ANO

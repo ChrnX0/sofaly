@@ -12,7 +12,7 @@ import android.widget.TextView
 import br.paulo.tvlauncher.ConfigLauncherActivity
 import br.paulo.tvlauncher.ConfigLauncherActivity.Companion.BUSCA
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.UsoTv
 import br.paulo.tvlauncher.home.GlassDrawable
 import br.paulo.tvlauncher.home.IconeCruz

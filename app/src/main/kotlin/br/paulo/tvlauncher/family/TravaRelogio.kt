@@ -12,7 +12,7 @@ import br.paulo.tvlauncher.AdminReceiver
 import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.HoraMudouReceiver
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.HoraDormirTv
 import br.paulo.tvlauncher.panel.PainelExtras
 import br.paulo.tvlauncher.privilege.ExtrasDO

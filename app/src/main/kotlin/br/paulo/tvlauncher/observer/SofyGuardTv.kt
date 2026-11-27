@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.KeyEvent
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Diario
 import org.json.JSONObject
 

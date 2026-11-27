@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.backup.folder
 import android.content.Context
 import br.paulo.tvlauncher.panel.PastaGravavel

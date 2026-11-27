@@ -1,7 +1,7 @@
 package br.paulo.tvlauncher.alarm
 
 import android.content.Context
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.ModoVisita
 import br.paulo.tvlauncher.settings.Extras
 import java.util.Calendar

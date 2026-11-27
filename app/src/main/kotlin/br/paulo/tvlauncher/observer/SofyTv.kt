@@ -5,7 +5,7 @@ import android.media.AudioManager
 import android.util.Log
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Avisos
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Diario
 import java.util.Calendar
 import org.json.JSONObject
@@ -97,7 +97,7 @@ object SofyTv {
         val l = SofyPolicy.morningNotes(notes, now) { at -> Calendar.getInstance().apply { timeInMillis = at }.let { it.get(Calendar.HOUR_OF_DAY) * 60 + it.get(Calendar.MINUTE) } }
         val titles = l.mapNotNull { n -> texto(app, n.titleKey, n.args)?.let { n.id to it } }
         if (titles.isEmpty()) return null
-        return IslandLine(app.getString(br.paulo.tvlauncher.R.string.sofy_while_away, titles.joinToString("  ·  ") { it.second }),
+        return IslandLine(app.getString(br.paulo.tvlauncher.resources.R.string.sofy_while_away, titles.joinToString("  ·  ") { it.second }),
             SofyPolicy.Expression.HAPPY, titles.map { it.first })
     }
 
