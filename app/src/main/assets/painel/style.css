@@ -675,7 +675,7 @@ input[type=file] { font-size: 17px; }  /* < 16px o iPhone dá zoom ao tocar */
 .recado-opcoes label { display: inline-flex; gap: 8px; align-items: center; }
 .recado-opcoes button { margin-left: auto; }
 .recado-opcoes button[type=submit], .recado > .recado-opcoes > button:last-child { background: var(--selecao); color: var(--selecao-texto); border-color: transparent; border-radius: var(--pilula); padding: 0 20px;
-  min-height: 44px; }  /* sem classe ficava com 22px de altura (pente fino 19/11: alvo de toque) */
+  min-height: 44px; font-size: inherit; font-weight: 600; }  /* auditoria 27/11: sem isto a letra ficava com os 13 px do navegador. Sem classe ficava com 22px de altura (pente fino 19/11: alvo de toque) */
 #formClima .recado-opcoes button[type=submit] { margin-left: 0; }
 .recado-opcoes .botao-secundario { border-radius: var(--pilula); }
 
