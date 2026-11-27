@@ -55,3 +55,7 @@
 -keep class br.paulo.tvlauncher.FfNativo { native <methods>; }
 -keep interface br.paulo.tvlauncher.LeitorNativo { *; }
 -keepclassmembers class * implements br.paulo.tvlauncher.LeitorNativo { int ler(long, byte[], int); long tamanho(); }
+
+# Refatoração G (27/11/2026): o motor de tradução de legenda é achado por nome (SubtitleEngines.CLASS), para poder morar
+# numa parte baixada depois. Sem isto o R8 apaga/renomeia o objeto e a tradução some.
+-keep class br.paulo.tvlauncher.player.MlKitSubtitles { public static ** INSTANCE; *; }
