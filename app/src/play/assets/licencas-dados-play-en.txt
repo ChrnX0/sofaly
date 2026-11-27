@@ -1,0 +1,20 @@
+— Data —
+
+Weather forecast: Data from MET Norway (https://api.met.no), under CC BY 4.0. On the Pro plan: Powered by WeatherAPI.com
+  (https://www.weatherapi.com).
+Airport observation (METAR): Aviation Weather Center, NOAA (US public domain).
+Cities and time zones: GeoNames (https://www.geonames.org), under CC BY 4.0. The city search runs on the TV.
+Movie and series details, posters, cast, age ratings and ratings: Trakt (https://trakt.tv).
+  Sofaly uses Trakt but is not endorsed or certified by Trakt. Community rating: Simkl (https://simkl.com), with the
+  person's own account.
+Subtitles: Subtitles provided by OpenSubtitles.com (https://www.opensubtitles.com), with the person's own account.
+  Each subtitle stays only on the TV that asked for it.
+Episode intros (skip intro): IntroDB (https://introdb.app), a community database.
+Background artworks: The Metropolitan Museum of Art, Open Access (CC0).
+Radio stations: Radio Browser (https://www.radio-browser.info).
+Address from the Brazilian postal code (CEP): ViaCEP (https://viacep.com.br).
+Real sky and screensaver: GOES satellite clouds (NOAA, US public domain) through NASA GIBS
+  (https://earthdata.nasa.gov/gibs); Natural Earth map (https://www.naturalearthdata.com, public domain);
+  Space Station orbit (NORAD TLE) through CelesTrak (https://celestrak.org).
+"Earth seen from space" screensaver: photos taken by the Space Station astronauts, NASA (https://images.nasa.gov;
+  no copyright in the US, credit to NASA; NASA does not support or endorse this app).
