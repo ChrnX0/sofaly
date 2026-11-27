@@ -1256,7 +1256,7 @@ class MainActivity : Activity() {
         /** As fichas de fichas-apps.json para a frase do destaque (ideia 13). Lidas uma vez, na filaApps; null até lá. */
         @Volatile var fichasHome: Map<String, FrasesApps.Ficha>? = null
         const val CARTAO_TRANCA = "aa:lock"            // o cartão "N escondidos · PIN" (nenhum pacote tem esse nome)
-        const val COR_CONGELADOS = 0xFF9CC8E8.toInt()  // gelo
+        val COR_CONGELADOS: Int get() = Estilo.TEXTO_2   // neutro (era azul-gelo; 27/11/2026 só a paleta)
         const val COR_ESCONDIDOS = 0xFF9A9AA6.toInt()  // neutro: não é mundo nenhum
         const val DIAS_PARADO = 60                      // dica do Observador: sem abrir há 60 dias
     }

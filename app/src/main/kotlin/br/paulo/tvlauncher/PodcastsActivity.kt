@@ -224,7 +224,7 @@ class PodcastsActivity : Activity() {
         return CruzOuvir.Prateleira("tocando", getString(R.string.ouv_prat_tocando), IconeOuvir.Tipo.TOCANDO, listOf(
             // O player em tela cheia (capa grande, barra de tempo, timer para dormir, "A seguir").
             CruzOuvir.Item("abrir", getString(R.string.pl_abrir), CruzLogica.linhas(e.ep.titulo, getString(R.string.pl_abrir_det)),
-                capa = capaDe(e.feed, e.ep).ifEmpty { e.capaPodcast }, cor = IconeOuvir.cor(IconeOuvir.Tipo.PODCAST),
+                capa = capaDe(e.feed, e.ep).ifEmpty { e.capaPodcast }, cor = Estilo.GRAFITE_QUADRO,
                 monograma = CapaOuvir.iniciais(e.podcast), cobrir = true, abrir = { PodcastPlayerActivity.abrir(this, OuvirServico.instancia?.episodio) }),
             CruzOuvir.Item("pausar", getString(if (s.pausado) R.string.ouv_continuar else R.string.ouv_pausar),
                 CruzLogica.linhas(e.ep.titulo, e.podcast), if (s.pausado) IconeOuvir.Tipo.CONTINUAR else IconeOuvir.Tipo.PAUSAR,
@@ -256,7 +256,7 @@ class PodcastsActivity : Activity() {
         val s = OuvirServico.instancia ?: return null
         val e = s.episodio ?: return null
         val (prog, tempo) = progressoTempo(s)
-        return CruzOuvir.Tocando(e.ep.titulo, e.podcast, capaDe(e.feed, e.ep).ifEmpty { e.capaPodcast }, IconeOuvir.cor(IconeOuvir.Tipo.PODCAST),
+        return CruzOuvir.Tocando(e.ep.titulo, e.podcast, capaDe(e.feed, e.ep).ifEmpty { e.capaPodcast }, Estilo.GRAFITE_QUADRO,
             CapaOuvir.iniciais(e.podcast), cobrir = true, progresso = prog, tempo = tempo, pausado = s.pausado)
     }
 
@@ -317,7 +317,7 @@ class PodcastsActivity : Activity() {
         return CruzOuvir.Item("$prefixo${Podcasts.chave(feed, ep.guid)}", ep.titulo,
             CruzLogica.linhas(if (comPodcast) nome else null, CruzLogica.juntar(quando(ep.dataMs), estado, if (ep.video) getString(R.string.pod_video) else null),
                 resumo(ep.resumo)),
-            capa = capaDe(feed, ep), cor = IconeOuvir.cor(IconeOuvir.Tipo.PODCAST), monograma = CapaOuvir.iniciais(nome), cobrir = true,
+            capa = capaDe(feed, ep), cor = Estilo.GRAFITE_QUADRO, monograma = CapaOuvir.iniciais(nome), cobrir = true,
             progresso = prog, abrir = { tocar(feed, ep) }, opcoes = { menuEpisodio(feed, ep) })
     }
 
@@ -355,7 +355,7 @@ class PodcastsActivity : Activity() {
                     val temas = PodcastAssuntos.de(r.categorias.ifEmpty { feeds[r.url]?.categorias.orEmpty() })
                     CruzOuvir.Item("busca:${r.url}", r.titulo,
                         CruzLogica.linhas(linhaAssuntos(temas), CruzLogica.juntar(r.autor.ifEmpty { null }, if (seguido) "✓ " + getString(R.string.ouv_seguindo) else null)),
-                        capa = r.capa, cor = IconeOuvir.cor(IconeOuvir.Tipo.PODCAST), monograma = CapaOuvir.iniciais(r.titulo), cobrir = true,
+                        capa = r.capa, cor = Estilo.GRAFITE_QUADRO, monograma = CapaOuvir.iniciais(r.titulo), cobrir = true,
                         abrir = { if (seguido) abrir(r.url) else adicionar(r.url) },
                         opcoes = temas.takeIf { it.isNotEmpty() }?.let { { menuParecidos(r.titulo, temas, seguido, r.url) } })
                 })
@@ -373,7 +373,7 @@ class PodcastsActivity : Activity() {
                 CruzOuvir.Item("pod:${a.url}", a.titulo,
                     CruzLogica.linhas(linhaAssuntos(PodcastAssuntos.de(f?.categorias.orEmpty())), a.autor.ifEmpty { f?.autor },
                         CruzLogica.juntar(ultimo, if (n > 0) getString(R.string.ouv_n_episodios, n) else null)),
-                    capa = a.capa.ifEmpty { f?.capa.orEmpty() }, cor = IconeOuvir.cor(IconeOuvir.Tipo.PODCAST), monograma = CapaOuvir.iniciais(a.titulo),
+                    capa = a.capa.ifEmpty { f?.capa.orEmpty() }, cor = Estilo.GRAFITE_QUADRO, monograma = CapaOuvir.iniciais(a.titulo),
                     cobrir = true, abrir = { abrir(a.url) }, opcoes = { menuPodcast(a) })
             })
         // Os que vêm no app (18/11/2026): OK segue e abre o podcast, como um resultado de busca.
@@ -381,7 +381,7 @@ class PodcastsActivity : Activity() {
         if (sug.isNotEmpty()) l += CruzOuvir.Prateleira("sugestoes", getString(R.string.pod_sugestoes), IconeOuvir.Tipo.EM_ALTA,
             sug.map { s ->
                 CruzOuvir.Item("sug:${s.url}", s.titulo, CruzLogica.linhas(s.autor, getString(R.string.pod_sugestao_seguir)),
-                    capa = s.capa, cor = IconeOuvir.cor(IconeOuvir.Tipo.PODCAST), monograma = CapaOuvir.iniciais(s.titulo), cobrir = true,
+                    capa = s.capa, cor = Estilo.GRAFITE_QUADRO, monograma = CapaOuvir.iniciais(s.titulo), cobrir = true,
                     abrir = { adicionar(s.url) })
             })
         prateleiraAssuntos()?.let { l += it }
@@ -412,7 +412,7 @@ class PodcastsActivity : Activity() {
         val sobre = ArrayList<CruzOuvir.Item>()
         val descricao = f?.descricao?.replace(Regex("\\s+"), " ")?.trim().orEmpty()
         sobre += CruzOuvir.Item("sobre", nome, CruzLogica.linhas(a?.autor?.ifEmpty { null } ?: f?.autor, descricao.take(220)),
-            capa = a?.capa?.ifEmpty { null } ?: f?.capa.orEmpty(), cor = IconeOuvir.cor(IconeOuvir.Tipo.PODCAST), monograma = CapaOuvir.iniciais(nome), cobrir = true)
+            capa = a?.capa?.ifEmpty { null } ?: f?.capa.orEmpty(), cor = Estilo.GRAFITE_QUADRO, monograma = CapaOuvir.iniciais(nome), cobrir = true)
         if (a != null) sobre += CruzOuvir.Item("remover", getString(R.string.pod_remover), getString(R.string.ouv_remover_det), IconeOuvir.Tipo.SAIR,
             abrir = { remover(a) })
         l += CruzOuvir.Prateleira("sobre", getString(R.string.ouv_sobre), IconeOuvir.Tipo.MEUS, sobre)

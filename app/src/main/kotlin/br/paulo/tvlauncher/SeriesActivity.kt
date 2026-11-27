@@ -634,7 +634,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
                 val marcado = etq == null && proximoCurto(s) != null
                 c.etiqueta.setTextColor(if (novo) Estilo.FUNDO else if (marcado) ambar else papel)
                 (c.etiqueta.background as GradientDrawable).setColor(when (etq) {
-                    EtiquetaSerie.Concluida -> verdeEtiqueta
+                    EtiquetaSerie.Concluida -> corConcluida
                     null -> 0xD9121212.toInt()
                     else -> ambar
                 })

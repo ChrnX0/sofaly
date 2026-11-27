@@ -49,7 +49,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
     class Item(
         val id: String, val nome: String, val sub: String,
         val icone: IconeOuvir.Tipo? = null,
-        val capa: String = "", val cor: Int = IconeOuvir.cor(IconeOuvir.Tipo.RADIO), val monograma: String = "",
+        val capa: String = "", val cor: Int = Estilo.GRAFITE_QUADRO, val monograma: String = "",
         val cobrir: Boolean = false, val progresso: Float? = null,
         val abrir: () -> Unit = NADA, val opcoes: (() -> Unit)? = null,
         /** Imagem já pronta (ícone de um app, na tela Jogos): fica no lugar da [capa] baixada. */

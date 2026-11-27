@@ -561,7 +561,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
             if (pct == null) c.etiqueta.visibility = View.GONE else {
                 c.etiqueta.visibility = View.VISIBLE
                 c.etiqueta.text = when (pct) { 100 -> getString(R.string.filmes_assistido); else -> BarraTempo.faltam(this@FilmesActivity, BarraTempo.duracao(pos!!.duracao - pos.ms)) }
-                (c.etiqueta.background as GradientDrawable).setColor(if (pct == 100) verdeEtiqueta else 0xD9121212.toInt())
+                (c.etiqueta.background as GradientDrawable).setColor(if (pct == 100) corConcluida else 0xD9121212.toInt())
             }
             c.estrela.visibility = if (f.chave in interesses) View.VISIBLE else View.GONE
             (c.capa as? CapaCartao)?.semente = Idioma.semMarca(f.nome)   // capa gerada quando não há pôster (ideia 8)

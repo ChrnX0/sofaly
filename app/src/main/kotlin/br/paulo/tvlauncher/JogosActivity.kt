@@ -244,7 +244,7 @@ class JogosActivity : Activity() {
             val doConsole = retro.filter { it.console == console }
             val ordem = doConsole.filter { it.caminho in recentes }.sortedByDescending { retroUltima[it.caminho] } +
                 doConsole.filter { it.caminho !in recentes }
-            val cor = CORES_CONSOLE[console.ordinal % CORES_CONSOLE.size]
+            val cor = Estilo.corCapa(console.name)   // capa desenhada do console: grafite e laranja
             val itens = ordem.map { j ->
                 val sub = listOfNotNull(
                     retroUltima[j.caminho]?.let { quando -> val agora = System.currentTimeMillis()
@@ -288,7 +288,7 @@ class JogosActivity : Activity() {
         for ((i, k) in c.withIndex()) {
             val fraca = k.bateria != null && k.bateria < 20
             val sub = getString(if (fraca) R.string.jogos_controle_carregar else R.string.jogos_controle_pronto) + (k.bateria?.let { " · $it%" } ?: "")
-            itens += CruzOuvir.Item("controle:$i:${k.nome}", k.nome, sub, cor = CORES_JOGADOR[i % CORES_JOGADOR.size],
+            itens += CruzOuvir.Item("controle:$i:${k.nome}", k.nome, sub, cor = Estilo.corCapa("jogador${i + 1}"),
                 monograma = "${i + 1}", abrir = { parear() })
         }
         itens += CruzOuvir.Item("parear", getString(R.string.jogos_parear_um),
@@ -718,12 +718,8 @@ class JogosActivity : Activity() {
         private const val P_SOFA = "sofa"
         private const val P_TURMA = "turma"
         private const val P_OPCOES = "opcoes"
-        /** O violeta do Jogar na cruz ([IconeCruz.corLinha]). */
-        private const val COR_JOGAR = 0xFF8E92FA.toInt()
-        private val CORES_JOGADOR = intArrayOf(DesignTokens.WORLD_PLAY, 0xFF3D7BFF.toInt(), 0xFF2FA866.toInt(), 0xFFC98A12.toInt())
-        /** Cor da capa desenhada de cada console (nenhum rosa). */
-        private val CORES_CONSOLE = intArrayOf(0xFFE04A3A.toInt(), 0xFF7C6CF2.toInt(), 0xFF2FA866.toInt(), 0xFF8FB82B.toInt(),
-            0xFF3D7BFF.toInt(), 0xFF5B4BC4.toInt(), 0xFFC98A12.toInt(), 0xFF1F6FD1.toInt())
+        /** O quadro sem foto (grafite): o violeta do Jogar saiu com o padrão único (27/11/2026, só a paleta). */
+        private const val COR_JOGAR = Estilo.GRAFITE_QUADRO
         // Avatares: tons claros, nenhum rosado (o dono detesta rosa).
     }
 }
