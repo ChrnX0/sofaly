@@ -30,4 +30,6 @@
     <string name="bb_titulo">Aspectul ecranului principal</string>
     <string name="bb_cruz">Cruce</string>
     <string name="bb_barra">Bară jos</string>
+    <string name="wo_ultimos">Cele folosite recent primele</string>
+    <string name="wo_aleatorio">Orice ordine (se schimbă zilnic)</string>
 </resources>
