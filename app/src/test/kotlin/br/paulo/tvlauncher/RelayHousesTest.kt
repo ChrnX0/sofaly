@@ -68,7 +68,8 @@ class RelayHousesTest {
             assertEquals(c, H.lerJunto(m)!!.first)
         }
         assertNull(H.junto("/junto/$t/estado", null, 5))          // a conferência de volta não passa pelo relay
-        assertNull(H.junto("/continuar", null, 5))
+        assertEquals("/continuar", H.lerJunto(H.junto("/continuar", JSONObject().put("titulo", "x"), 5)!!)!!.first)   // Continuar em outra TV
+        assertNull(H.junto("/continuar/0123456789abcdef0123456789abcdef/estado", null, 5))   // o conferir de volta não passa
         assertNull(H.junto("/api/tela/tecla", null, 5))
         assertNull(H.junto("/junto/convite", JSONObject().put("x", "y".repeat(5000)), 5))
         // Mensagem de outro tipo (tecla de celular) não é Sessão junto.

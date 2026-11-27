@@ -333,12 +333,12 @@ class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Bool
     fun sair() = local("sair")
 
     /** "Enviar para outra TV" (ContinuarOutraTv): escolhe a TV e manda título, posição e, se for da rede da casa, o endereço. */
-    fun enviarPara(titulo: String, tvs: List<String>, posMs: Long, url: String?) {
+    fun enviarPara(titulo: String, tvs: List<Pair<String, String>>, posMs: Long, url: String?) {
         if (!PlanosTv.pedir(a, Planos.Recurso.CONTINUAR_OUTRA_TV)) return   // plano: Pro
         val chave = chaveLocal ?: run { android.widget.Toast.makeText(a, a.getString(R.string.junto_sem_titulo), android.widget.Toast.LENGTH_LONG).show(); return }
         if (tvs.isEmpty()) { Estilo.lista(a, a.getString(R.string.cont_titulo), listOf(a.getString(R.string.junto_sem_tvs))) {}; return }
-        Estilo.lista(a, a.getString(R.string.cont_escolher), tvs.map(JuntoRegras::nomeBonito)) { i ->
-            ContinuarOutraTv.enviarDoPlayer(a, tvs[i], titulo, chave, posMs, url)
+        Estilo.lista(a, a.getString(R.string.cont_escolher), tvs.map { it.second }) { i ->
+            ContinuarOutraTv.enviarDoPlayer(a, tvs[i].first, titulo, chave, posMs, url)
         }
     }
 
