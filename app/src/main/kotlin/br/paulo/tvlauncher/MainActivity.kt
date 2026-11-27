@@ -1221,7 +1221,9 @@ class MainActivity : Activity() {
         @Volatile var homeFriaMedida = false   // placar (elevação 2.1): a HOME "fria" é medida uma vez por processo
         /** A abertura com a logo do boot já foi decidida neste processo (recriar a HOME não mostra de novo). */
         @Volatile var splashBootDecidido = false
-        internal val cacheApps = HashMap<String, Pair<String, Item>>()
+        // Concorrente: cada MainActivity tem a sua filaApps, e depois de um recriar() a fila da velha ainda termina a
+        // carga em curso enquanto a da nova já lê/grava aqui (caçada 27/11/2026).
+        internal val cacheApps = java.util.concurrent.ConcurrentHashMap<String, Pair<String, Item>>()
         /** Apps cujo ícone veio de um pacote de ícones (ou foi trocado à mão): no modo banner da cruz, o ícone vence o banner. */
         val iconeDePacote: MutableSet<String> = java.util.concurrent.ConcurrentHashMap.newKeySet()
         // Topo C3 (12/11/2026): cápsulas de 52 dp em 24 (até 76). Ordem pedida pelo dono (12/11 tarde): nome do card em foco
@@ -1369,7 +1371,7 @@ class MainActivity : Activity() {
         filaApps.execute {
             // Abertura a frio (item 27, Brainstorm 26/11): desenha já com a lista guardada em disco e troca depois.
             if (cacheApps.isEmpty()) runCatching { desenharDoDisco(t0) }
-            val todos = carregarApps()   // cacheApps só é tocado nesta fila (uma thread)
+            val todos = carregarApps()   // cacheApps é compartilhado com a fila de uma HOME recriada: ConcurrentHashMap
             val doJogos = todos.filter { JogosTv.ehJogo(this, it.pacote) }
             // Uso recente também aqui fora (04/11/2026): antes rodava na thread da tela.
             val uso = if (Config.ORDENAR_POR_USO_RECENTE) Uso.ultimoUso(this) else emptyMap()
@@ -1381,7 +1383,10 @@ class MainActivity : Activity() {
             for (app in todos) prepararIconeCruz(app)
             iconeCruzApp.keys.retainAll(todos.map { it.pacote }.toSet())
             val t1 = android.os.SystemClock.elapsedRealtime()
-            filaApps.execute { runCatching { guardarNoDisco(todos, uso) } }   // depois do desenho, na mesma fila
+            // Depois do desenho, na mesma fila. Se a HOME já foi destruída (recriar() no meio da carga), a fila está
+            // fechada e execute() jogaria RejectedExecutionException nesta thread, derrubando o processo: grava aqui mesmo.
+            try { filaApps.execute { runCatching { guardarNoDisco(todos, uso) } } }
+            catch (_: java.util.concurrent.RejectedExecutionException) { runCatching { guardarNoDisco(todos, uso) } }
             ui.post {
                 if (isDestroyed) return@post
                 instalados = todos
