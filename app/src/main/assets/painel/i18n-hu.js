@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","belépés párosított telefonról ($1)"],
 ["^acesso revogado: (.+)$","hozzáférés visszavonva: $1"],
 ["^acesso de fora de casa revogado: (.+)$","otthonon kívüli hozzáférés visszavonva: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","a visszaállítás nem sikerült a tévén ($1), és nem minden lett a régi: töltsd le a korábbi másolatot a Biztonsági mentésben"],
 ]});

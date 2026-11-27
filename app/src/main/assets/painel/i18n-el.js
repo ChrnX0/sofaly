@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","σύνδεση από συζευγμένο κινητό ($1)"],
 ["^acesso revogado: (.+)$","η πρόσβαση ανακλήθηκε: $1"],
 ["^acesso de fora de casa revogado: (.+)$","η πρόσβαση εκτός σπιτιού ανακλήθηκε: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","η επαναφορά απέτυχε στην τηλεόραση ($1) και δεν επανήλθαν όλα όπως ήταν: κατεβάστε το προηγούμενο αντίγραφο στο Αντίγραφο ασφαλείας"],
 ]});

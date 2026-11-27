@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","inloggning från parkopplad telefon ($1)"],
 ["^acesso revogado: (.+)$","åtkomst återkallad: $1"],
 ["^acesso de fora de casa revogado: (.+)$","åtkomst hemifrån återkallad: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","återställningen misslyckades på TV:n ($1) och allt blev inte som förut: ladda ner den tidigare kopian under Säkerhetskopia"],
 ]});

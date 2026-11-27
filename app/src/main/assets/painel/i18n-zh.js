@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","从已配对手机登录（$1）"],
 ["^acesso revogado: (.+)$","已撤销访问：$1"],
 ["^acesso de fora de casa revogado: (.+)$","已撤销外出访问：$1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","电视上的恢复失败（$1），并非所有内容都已还原：请在“备份”中下载之前的副本"],
 ]});

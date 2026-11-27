@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","जोड़े गए फ़ोन से प्रवेश ($1)"],
 ["^acesso revogado: (.+)$","पहुँच हटाई गई: $1"],
 ["^acesso de fora de casa revogado: (.+)$","घर से बाहर की पहुँच हटाई गई: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","टीवी पर रीस्टोर विफल रहा ($1) और सब कुछ पहले जैसा नहीं हुआ: बैकअप में पिछली कॉपी डाउनलोड करें"],
 ]});

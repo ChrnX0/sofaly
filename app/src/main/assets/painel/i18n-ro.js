@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","intrare de pe telefonul asociat ($1)"],
 ["^acesso revogado: (.+)$","acces revocat: $1"],
 ["^acesso de fora de casa revogado: (.+)$","acces din afara casei revocat: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","restaurarea a eșuat pe televizor ($1) și nu totul a revenit cum era: descărcați copia anterioară din Backup"],
 ]});

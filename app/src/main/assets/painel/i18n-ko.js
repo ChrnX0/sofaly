@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","페어링한 휴대폰으로 로그인 ($1)"],
 ["^acesso revogado: (.+)$","접근 취소됨: $1"],
 ["^acesso de fora de casa revogado: (.+)$","외출 중 접근 취소됨: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","TV에서 복원에 실패했고 ($1) 모두 원래대로 돌아가지 않았어요: 백업에서 이전 사본을 내려받으세요"],
 ]});

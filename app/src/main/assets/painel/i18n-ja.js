@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","ペアリングしたスマホからログイン ($1)"],
 ["^acesso revogado: (.+)$","アクセスを取り消し: $1"],
 ["^acesso de fora de casa revogado: (.+)$","外出先からのアクセスを取り消し: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","テレビでの復元に失敗し ($1)、すべてが元に戻ったわけではありません。バックアップで以前のコピーをダウンロードしてください"],
 ]});

@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","masuk dari ponsel yang dipasangkan ($1)"],
 ["^acesso revogado: (.+)$","akses dicabut: $1"],
 ["^acesso de fora de casa revogado: (.+)$","akses dari luar rumah dicabut: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","pemulihan di TV gagal ($1) dan tidak semuanya kembali seperti semula: unduh salinan sebelumnya di Cadangan"],
 ]});

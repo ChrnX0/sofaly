@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","connexion depuis le téléphone associé ($1)"],
 ["^acesso revogado: (.+)$","accès révoqué : $1"],
 ["^acesso de fora de casa revogado: (.+)$","accès hors de la maison révoqué : $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","la restauration a échoué sur la TV ($1) et tout n'est pas revenu comme avant : téléchargez la copie précédente dans Sauvegarde"],
 ]});

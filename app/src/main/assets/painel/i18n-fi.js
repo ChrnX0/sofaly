@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","kirjautuminen yhdistetyllä puhelimella ($1)"],
 ["^acesso revogado: (.+)$","pääsy peruttu: $1"],
 ["^acesso de fora de casa revogado: (.+)$","pääsy kodin ulkopuolelta peruttu: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","palautus epäonnistui televisiossa ($1) eikä kaikki palannut ennalleen: lataa aiempi kopio kohdasta Varmuuskopio"],
 ]});

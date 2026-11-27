@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","вхід з під'єднаного телефона ($1)"],
 ["^acesso revogado: (.+)$","доступ відкликано: $1"],
 ["^acesso de fora de casa revogado: (.+)$","доступ поза домом відкликано: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","відновлення на телевізорі не вдалося ($1), і не все повернулося як було: завантажте попередню копію в розділі «Резервна копія»"],
 ]});

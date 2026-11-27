@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","đăng nhập từ điện thoại đã ghép ($1)"],
 ["^acesso revogado: (.+)$","đã thu hồi quyền: $1"],
 ["^acesso de fora de casa revogado: (.+)$","đã thu hồi quyền ngoài nhà: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","khôi phục trên TV không thành công ($1) và không phải mọi thứ đều trở lại như cũ: hãy tải bản sao trước đó trong Sao lưu"],
 ]});

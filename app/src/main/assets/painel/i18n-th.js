@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","เข้าจากโทรศัพท์ที่จับคู่ ($1)"],
 ["^acesso revogado: (.+)$","เพิกถอนสิทธิ์แล้ว: $1"],
 ["^acesso de fora de casa revogado: (.+)$","เพิกถอนสิทธิ์นอกบ้านแล้ว: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","การกู้คืนบนทีวีล้มเหลว ($1) และไม่ได้กลับเป็นเหมือนเดิมทั้งหมด: ดาวน์โหลดสำเนาก่อนหน้าในส่วนสำรองข้อมูล"],
 ]});

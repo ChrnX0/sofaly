@@ -21,7 +21,7 @@ that read sources find files with `CodeSource.file(name)`. Background work goes 
 - **Old package `br.paulo.tvlauncher` = only the bridge build** (`-Plegacy`, Release input `bridge=true`, assets
   `one-tv-launcher*.apk`). A TV still on it installs the bridge, which installs `tv.sofaly.launcher` (same key), copies
   all data to it and hands it the Device Owner (`PackageMigration.kt`; the old app ends hidden, not uninstalled).
-  adb: `EXTRAS --es o migration` (state), `migration_start` (old app), `migration_rollback` (new app: owner goes back).
+  adb: `EXTRAS --es o migration` (state), `migration_start` (old app; after a done or rolled-back migration it refuses unless `--ez forcar true`), `migration_rollback` (new app: owner goes back).
   `migration_remove_legacy` (new app) uninstalls the old one and removes the way back: only when Paulo asks.
 - **Never uninstall the launcher or clear its data on a TV** (the old package after a migration: see above), and never
   run `dpm remove-active-admin`, `MASTER_CLEAR`, `wipe` or `reboot recovery`. If `adb install -r` fails because of the

@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","eşlenen telefondan giriş ($1)"],
 ["^acesso revogado: (.+)$","erişim iptal edildi: $1"],
 ["^acesso de fora de casa revogado: (.+)$","ev dışı erişim iptal edildi: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","geri yükleme TV'de başarısız oldu ($1) ve her şey eski haline dönmedi: önceki kopyayı Yedek bölümünden indirin"],
 ]});

@@ -116,6 +116,9 @@ object BackupNoturno {
     }
 
     /** A senha em claro, só para trancar o backup. Null sem senha ou se o Keystore perdeu a chave. Nunca vai para o log. */
+    /** Só para a troca de pacote (PackageMigration): a senha aberta vai ao app novo, que tranca com o Keystore dele. */
+    internal fun senhaParaMigracao(ctx: Context): String? = senha(ctx)
+
     private fun senha(ctx: Context): String? {
         val p = prefs(ctx)
         val dados = p.getString("senha_dados", null) ?: return null

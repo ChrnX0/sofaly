@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","Anmeldung über gekoppeltes Handy ($1)"],
 ["^acesso revogado: (.+)$","Zugriff entzogen: $1"],
 ["^acesso de fora de casa revogado: (.+)$","Zugriff von unterwegs entzogen: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","die Wiederherstellung ist auf dem Fernseher fehlgeschlagen ($1) und nicht alles ist wie vorher: laden Sie die frühere Kopie unter Sicherung herunter"],
 ]});

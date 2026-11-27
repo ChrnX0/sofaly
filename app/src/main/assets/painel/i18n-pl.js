@@ -2493,4 +2493,5 @@ traduzirPainelCom({T:{
 ["^entrar pelo celular pareado \\((.+)\\)$","logowanie ze sparowanego telefonu ($1)"],
 ["^acesso revogado: (.+)$","dostęp cofnięty: $1"],
 ["^acesso de fora de casa revogado: (.+)$","dostęp spoza domu cofnięty: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","przywracanie nie powiodło się na telewizorze ($1) i nie wszystko wróciło do poprzedniego stanu: pobierz wcześniejszą kopię w Kopii zapasowej"],
 ]});
