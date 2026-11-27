@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>طراز التلفاز وإصدار Sofaly</item>
         <item>ما تعطّل، حسب الفئات</item>
+        <item>اسم وإصدار التطبيقات التي تعطّلت أو أبطأت</item>
         <item>ما أصلحه وهل نجح</item>
         <item>الذاكرة والشبكة على شكل مستويات (جيدة أو ضعيفة)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>اسمك واسم شبكتك</item>
         <item>ما تشاهده ومتى</item>
-        <item>تطبيقاتك وما تكتبه</item>
-        <item>الصور والصوت والعنوان وعنوان IP</item>
+        <item>قائمة تطبيقاتك وما تكتبه</item>
+        <item>الصور والصوت والعنوان (لا يُحفظ عنوان IP)</item>
     </string-array>
     <string name="hoh_back_here">ما تتعلّمه أجهزة Sofaly الأخرى يعود إلى هنا. يمكنك تغيير ذلك في أي وقت من الإعدادات، ما تعرفه Sofy.</string>
     <string name="hoh_thanks">شكرًا! Sofaly لديك يساعد الآن بيوتًا أخرى.</string>

@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>Television malli ja Sofalyn versio</item>
         <item>Mikä hajosi, luokittain</item>
+        <item>Kaatuneiden tai hidastuneiden sovellusten nimi ja versio</item>
         <item>Mikä sen korjasi ja toimiko se</item>
         <item>Muisti ja verkko, tasoina (hyvä tai heikko)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>Nimesi ja verkkosi nimi</item>
         <item>Mitä ja milloin katsot</item>
-        <item>Sovelluksesi ja mitä kirjoitat</item>
-        <item>Kuvat, ääni, osoite ja IP</item>
+        <item>Sovellustesi luettelo ja mitä kirjoitat</item>
+        <item>Kuvat, ääni ja osoite (IP-osoitettasi ei tallenneta)</item>
     </string-array>
     <string name="hoh_back_here">Mitä muut Sofalyt oppivat, palaa tänne. Muuta milloin tahansa: Asetukset, Mitä Sofy tietää.</string>
     <string name="hoh_thanks">Kiitos! Sofalysi auttaa nyt muita koteja.</string>

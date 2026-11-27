@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>Model televize a verze Sofaly</item>
         <item>Co se pokazilo, podle kategorií</item>
+        <item>Název a verze aplikací, které spadly nebo se zpomalily</item>
         <item>Co to opravilo a jestli to fungovalo</item>
         <item>Paměť a síť, ve stupních (dobrá nebo slabá)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>Vaše jméno a název vaší sítě</item>
         <item>Co a kdy sledujete</item>
-        <item>Vaše aplikace a co píšete</item>
-        <item>Fotky, hlas, adresa a IP</item>
+        <item>Seznam vašich aplikací a co píšete</item>
+        <item>Fotky, hlas a adresa (IP se neukládá)</item>
     </string-array>
     <string name="hoh_back_here">Co se naučí ostatní Sofaly, se vrací sem. Změnit to můžete kdykoli v Nastavení, Co Sofy ví.</string>
     <string name="hoh_thanks">Děkujeme! Vaše Sofaly teď pomáhá jiným domácnostem.</string>
