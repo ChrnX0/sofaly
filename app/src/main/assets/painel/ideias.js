@@ -20,6 +20,20 @@ function botao(texto, fazer) {
 
 const ideias = (metodo, rota, corpo) => chamar(metodo, '/api/extras/ideias/' + rota, corpo);
 
+/**
+ * Faz [fazer] e, se falhar, mostra o motivo logo abaixo da lista [caixaId] (antes o erro sumia calado: #558).
+ * O aviso fica num <p> irmão da lista, que o redesenho (replaceChildren) não apaga; some no próximo acerto.
+ */
+async function tentar(caixaId, fazer) {
+  const caixa = $(caixaId);
+  let aviso = caixa.nextElementSibling;
+  if (!aviso || !aviso.classList.contains('falha-ideia')) {
+    aviso = el('p', 'aviso falha-ideia'); aviso.hidden = true; aviso.setAttribute('role', 'alert');
+    caixa.after(aviso);
+  }
+  try { await fazer(); mostrar(aviso, ''); } catch (e) { mostrar(aviso, textoErro(e)); }
+}
+
 async function carregarIdeias() {
   try {
     const e = await ideias('GET', 'estado');
@@ -138,10 +152,10 @@ function desenharMural(m) {
       const lido = lista_ === 'recados' && (m.lidos || []).includes(t);
       linha.append(el('span', '', lido ? '✓ ' + t + ' (lido)' : t));
       if (lista_ === 'recados') linha.append(botao(lido ? 'Não lido' : 'Lido', async () => {
-        try { desenharMural(await ideias('POST', 'mural', { lista: lista_, acao: lido ? 'nao_lido' : 'lido', texto: t })); } catch (_) {}
+        await tentar('itensMural', async () => desenharMural(await ideias('POST', 'mural', { lista: lista_, acao: lido ? 'nao_lido' : 'lido', texto: t })));
       }));
       linha.append(botao('Tirar', async () => {
-        try { desenharMural(await ideias('POST', 'mural', { lista: lista_, acao: 'remover', texto: t })); } catch (_) {}
+        await tentar('itensMural', async () => desenharMural(await ideias('POST', 'mural', { lista: lista_, acao: 'remover', texto: t })));
       }));
       lista.append(linha);
     }
@@ -153,10 +167,10 @@ $('formMural').addEventListener('submit', async (ev) => {
   ev.preventDefault();
   const texto = $('textoMural').value.trim();
   if (!texto) return;
-  try {
+  await tentar('itensMural', async () => {
     desenharMural(await ideias('POST', 'mural', { lista: $('listaMural').value, acao: 'adicionar', texto }));
     $('textoMural').value = '';
-  } catch (_) {}
+  });
 });
 
 // ---------- podcasts (Ouvir parte 2, 17/11/2026) ----------
@@ -167,7 +181,7 @@ function desenharPodcasts(lista) {
   lista.forEach((p) => {
     const linha = el('div', 'linha-registro');
     linha.append(el('span', '', p.titulo + (p.autor ? ' · ' + p.autor : '')), botao('Deixar de seguir', async () => {
-      try { desenharPodcasts((await ideias('POST', 'podcasts', { acao: 'remover', url: p.url })).lista); } catch (_) {}
+      await tentar('itensPodcasts', async () => desenharPodcasts((await ideias('POST', 'podcasts', { acao: 'remover', url: p.url })).lista));
     }));
     caixa.append(linha);
   });
@@ -218,7 +232,7 @@ function desenharRadios(lista) {
   lista.forEach((r, i) => {
     const linha = el('div', 'linha-registro');
     linha.append(el('span', '', (i < 9 ? (i + 1) + '  ' : '') + r.nome), botao('Tirar', async () => {
-      try { desenharRadios((await ideias('POST', 'radios', { acao: 'remover', id: r.id })).lista); } catch (_) {}
+      await tentar('itensRadios', async () => desenharRadios((await ideias('POST', 'radios', { acao: 'remover', id: r.id })).lista));
     }));
     caixa.append(linha);
   });
@@ -247,7 +261,7 @@ function desenharAniversarios(lista) {
     const linha = el('div', 'linha-registro');
     const data = String(p.dia).padStart(2, '0') + ' ' + MESES[p.mes - 1] + (p.ano ? ' ' + p.ano : '');
     linha.append(el('span', '', p.nome + ' · ' + data), botao('Tirar', async () => {
-      try { desenharAniversarios((await ideias('POST', 'aniversarios', { acao: 'remover', nome: p.nome })).lista); } catch (_) {}
+      await tentar('itensAniversarios', async () => desenharAniversarios((await ideias('POST', 'aniversarios', { acao: 'remover', nome: p.nome })).lista));
     }));
     caixa.append(linha);
   }
