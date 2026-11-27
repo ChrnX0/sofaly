@@ -69,8 +69,15 @@ object PictureMath {
         return k1 to k2
     }
 
-    /** Corte até 1% é invisível (borda do painel); acima disso perde legenda e placar na borda. */
-    const val OVERSCAN_OK = 0.01
+    /**
+     * Corte até 2% fica dentro do erro da foto (1 ponto da foto de 320 px = ~0,4% da tela, mais a perspectiva do celular
+     * torto). Overscan de verdade corta 2,5 a 5% de cada lado. Antes era 1% e um celular inclinado já virava "cortando"
+     * (Sala, 25/11/2026: l=1,4 t=0 r=1,1 b=3,7, que é perspectiva e brilho estourado, não corte).
+     */
+    const val OVERSCAN_OK = 0.02
+
+    /** Corte de verdade é parecido nos dois lados de cada eixo; diferença maior que isso = foto torta, não corte. */
+    const val OVERSCAN_ASYMMETRY = 0.025
 
     enum class Verdict { GOOD, ADJUST, UNSURE }
 
@@ -99,6 +106,8 @@ object PictureMath {
 
     fun judgeOverscan(o: Overscan?): Result = when {
         o == null -> Result(Verdict.UNSURE, Advice.KEEP, "no_frame")
+        o.worst > OVERSCAN_OK && (kotlin.math.abs(o.left - o.right) > OVERSCAN_ASYMMETRY ||
+            kotlin.math.abs(o.top - o.bottom) > OVERSCAN_ASYMMETRY) -> Result(Verdict.UNSURE, Advice.KEEP, "tilted " + fmtOverscan(o))
         o.worst <= OVERSCAN_OK -> Result(Verdict.GOOD, Advice.KEEP, fmtOverscan(o))
         else -> Result(Verdict.ADJUST, Advice.TURN_ON_JUST_SCAN, fmtOverscan(o))
     }
