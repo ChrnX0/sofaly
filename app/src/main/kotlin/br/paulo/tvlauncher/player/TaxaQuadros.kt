@@ -37,10 +37,9 @@ object TaxaQuadros {
             .firstOrNull()?.takeIf { it.id != atual.id }
     }
 
-    // ---- preferência: ligada por padrão. MODE_MULTI_PROCESS: Configurações (processo principal) x player (:player).
+    // ---- preferência: ligada por padrão. Configurações (processo principal) x player (:player): CrossProcessPrefs.kt.
 
-    @Suppress("DEPRECATION")
-    private fun prefs(ctx: Context) = ctx.getSharedPreferences(PlayerAcessivel.PREFS, Context.MODE_MULTI_PROCESS)
+    private fun prefs(ctx: Context) = ctx.getSharedPreferences(PlayerAcessivel.PREFS, Context.MODE_PRIVATE)
     fun ligada(ctx: Context) = prefs(ctx).getBoolean(CHAVE, true)
     fun definir(ctx: Context, v: Boolean) = prefs(ctx).edit().putBoolean(CHAVE, v).apply()
     fun alternar(ctx: Context): Boolean = (!ligada(ctx)).also { definir(ctx, it) }

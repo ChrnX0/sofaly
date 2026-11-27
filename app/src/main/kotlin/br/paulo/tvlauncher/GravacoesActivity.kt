@@ -25,6 +25,8 @@ import java.util.Locale
  * Roda no ":player": lê a gravação em andamento (Gravacoes.atual) do mesmo processo do serviço.
  */
 class GravacoesActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object { private const val CODIGO_TOCAR = 7 }
 
     private lateinit var coluna: LinearLayout

@@ -10,15 +10,15 @@ import android.content.Context
  *    segundo idioma inglês: filme coreano sem legenda em português liga a legenda em inglês).
  *  - Contagem do próximo episódio ajustável (antes fixa em 10 s), com "não começar sozinho".
  *
- * Moram no prefs "player" com MODE_MULTI_PROCESS, como a [TaxaQuadros]: as Configurações gravam no processo da HOME e as
- * telas de Filmes/Séries leem no ":player". As escolhas puras (opções válidas, o que mostrar) ficam em [ConfortoRegras].
+ * Moram no prefs "player", como a [TaxaQuadros]: as Configurações gravam no processo da HOME e as telas de Filmes/Séries
+ * leem no ":player" pelo dono (CrossProcessPrefs.kt). As escolhas puras (opções válidas, o que mostrar) ficam em [ConfortoRegras].
  */
 object Conforto {
     private const val SPOILER = "sem_spoiler"
     private const val SEGUNDO = "segundo_idioma"
     private const val CONTAGEM = "contagem_proximo_s"
 
-    private fun prefs(ctx: Context) = ctx.getSharedPreferences(PlayerAcessivel.PREFS, Context.MODE_MULTI_PROCESS)
+    private fun prefs(ctx: Context) = ctx.getSharedPreferences(PlayerAcessivel.PREFS, Context.MODE_PRIVATE)
 
     fun semSpoiler(ctx: Context): Boolean = prefs(ctx).getBoolean(SPOILER, false)
     fun alternarSpoiler(ctx: Context): Boolean = (!semSpoiler(ctx)).also { prefs(ctx).edit().putBoolean(SPOILER, it).apply() }

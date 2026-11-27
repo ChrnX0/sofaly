@@ -19,6 +19,8 @@ import br.paulo.tvlauncher.settings.Manual
  * ▲ ▼ rolam. Os assuntos e as regras estão em [Manual]; os textos, em res/values(-pt)/strings_ajuda.xml.
  */
 class AjudaActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         const val EXTRA_TOPICO = "topico"   // índice em Manual.TOPICOS
 

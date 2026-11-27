@@ -79,6 +79,8 @@ import java.util.concurrent.atomic.AtomicBoolean
  * Processo ":player", como o resto do player.
  */
 class MidiaRedeActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     /** De onde vêm as pastas de um nível. */
     private sealed class Origem {
         class Dlna(val s: Upnp.Servidor) : Origem()

@@ -25,6 +25,9 @@ import br.paulo.tvlauncher.settings.TamanhoTexto
  * acessibilidade, painel) fique gravado. Mantenha leve: tudo aqui atrasa a abertura da HOME.
  */
 class LauncherApp : Application() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt); no principal, o de sempre. */
+    override fun getSharedPreferences(name: String?, mode: Int): android.content.SharedPreferences =
+        CrossProcessPrefs.prefs(this, name ?: "null", { super.getSharedPreferences(name, mode) })
     companion object {
         /** O app, para as frases traduzidas de quem não tem Context (Textos.kt). Vale desde o onCreate do processo. */
         lateinit var instancia: LauncherApp
@@ -66,7 +69,7 @@ class LauncherApp : Application() {
             override fun onActivityStarted(a: android.app.Activity) = Estilo.tirarCorDaJanelaSeCoberta(a)   // Estilo.kt
             // Ideia 47 (TamanhoTexto.kt): o tamanho do texto escolhido, antes do onCreate de cada tela (Android 10+).
             override fun onActivityPreCreated(a: android.app.Activity, salvo: android.os.Bundle?) {
-                CrossProcessPrefs.refresh(a)   // no :player, antes de ler qualquer ajuste: o que as Configurações mudaram (CrossProcessPrefs.kt)
+                CrossProcessPrefs.refresh()   // no :player, antes de ler qualquer ajuste: busca de novo no dono (CrossProcessPrefs.kt)
                 TamanhoTexto.aplicar(a)
                 AltoContraste.aplicar(a)   // elevação 16.3
                 br.paulo.tvlauncher.settings.CardStyle.aplicar(a)   // cor de destaque e cantos (Ajuste fino)

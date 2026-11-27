@@ -940,6 +940,8 @@
         <!-- Hora ou fuso mudou (acerto pela rede, horário de verão): reagenda despertadores e rotinas (auditoria 10/11/2026).
              TIME_SET e TIMEZONE_CHANGED estão na lista de exceções: chegam a um receiver declarado no manifesto. -->
         <!-- Plugin Extras (app separado, ExtrasPlugin.kt): só responde ao pacote tv.sofaly.extras autorizado pelo dono. -->
+        <!-- Dono das preferências: o :player lê e grava por ele (CrossProcessPrefs.kt). Sem android:process = processo principal. -->
+        <provider android:name=".PrefsProvider" android:authorities="${applicationId}.prefs" android:exported="false" />
         <provider android:name=".ExtrasProvider" android:authorities="${applicationId}.extras" android:exported="true" />
         <receiver android:name=".HoraMudouReceiver" android:exported="false">
             <intent-filter>

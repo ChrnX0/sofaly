@@ -47,6 +47,8 @@ import java.util.Locale
  * Quem toca é o [OuvirServico] (o som segue na HOME e no protetor). Dados: [Podcasts]; leitura do feed: [PodcastFeed].
  */
 class PodcastsActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         /** URL do feed para abrir direto (a busca da TV acha os podcasts seguidos, Brainstorm item 13, 26/11/2026). */
         const val EXTRA_FEED = "feed"

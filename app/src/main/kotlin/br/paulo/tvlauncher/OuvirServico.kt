@@ -63,6 +63,8 @@ import java.util.concurrent.CopyOnWriteArraySet
  * - a rádio cai: tenta de novo [RETENTATIVAS] vezes (3 s entre elas), depois avisa e para.
  */
 class OuvirServico : Service() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         private const val TAG = "TvLauncher.Ouvir"
         private const val CANAL = "ouvir"
@@ -232,7 +234,7 @@ class OuvirServico : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         ultimoInicio = startId
         instancia = this
-        CrossProcessPrefs.refresh(this)   // o serviço vive no :player: ajustes mudados nas Configurações
+        CrossProcessPrefs.refresh()   // o serviço vive no :player: busca de novo os ajustes (o principal pode ter reiniciado)
         // startForegroundService exige startForeground logo: primeiro a notificação, depois o resto.
         val r = intent?.takeIf { it.action == ACAO_RADIO }?.getStringExtra(EXTRA_RADIO)?.let { Radios.deJson(it).firstOrNull() }
         val e = intent?.takeIf { it.action == ACAO_EPISODIO }?.getStringExtra(EXTRA_EP)?.let { EpisodioTocando.deJson(it) }
@@ -953,7 +955,8 @@ class OuvirServico : Service() {
  * notificação. Roda no ":player"; sem som tocando, o serviço não existe e nada acontece. Não exportado.
  */
 class OuvirComandoReceiver : BroadcastReceiver() {
-    override fun onReceive(ctx: Context, i: Intent) {
+    override fun onReceive(raw: Context, i: Intent) {
+        val ctx = CrossProcessPrefs.wrap(raw)   // :player: ajustes pelo dono (CrossProcessPrefs.kt)
         if (i.action != OuvirEstado.ACAO_COMANDO) return
         val s = OuvirServico.instancia ?: return
         when (i.getStringExtra(OuvirEstado.EXTRA_O)) {

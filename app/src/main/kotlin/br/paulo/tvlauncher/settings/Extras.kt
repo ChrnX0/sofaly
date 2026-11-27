@@ -99,10 +99,8 @@ object Extras {
         CARTAO_LUA(true),
     }
 
-    /** [ligado] relido do disco: para o processo :player, que não vê na hora o que a tela de Configurações mudou. */
-    @Suppress("DEPRECATION")
-    fun ligadoAgora(ctx: Context, c: Chave): Boolean =
-        ctx.getSharedPreferences(ARQUIVO, Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS).getBoolean(c.name, c.padrao)
+    /** O mesmo que [ligado]. No :player o valor já vem do dono, no processo principal (CrossProcessPrefs.kt). */
+    fun ligadoAgora(ctx: Context, c: Chave): Boolean = ligado(ctx, c)
 
     /**
      * Chaves que só mudam com o PIN: segurança (OTA, travas, PIN da HOME), privacidade (diário de DNS, ver a tela) e a
@@ -136,16 +134,11 @@ object Extras {
     fun texto(ctx: Context, chave: String, padrao: String = ""): String = prefs(ctx).getString(chave, padrao) ?: padrao
     fun definirTexto(ctx: Context, chave: String, valor: String) { prefs(ctx).edit().putString(chave, valor).apply() }
     /**
-     * No processo :player (Rádio, Podcasts, Gravações e os players) o número é relido do disco: a pref em cache daquele
-     * processo não vê o que a HOME mudou (jeito das telas, barra, foco), e a tela seguia com o jeito antigo até o
-     * processo morrer (Sala, 25/11/2026: Podcasts igual nos 3 jeitos). No processo principal fica o cache (lido a cada desenho).
+     * No processo :player (Rádio, Podcasts, Gravações e os players) o valor vem do dono, no processo principal
+     * (CrossProcessPrefs.kt): antes a cópia daquele processo não via o que a HOME mudou (jeito das telas, barra, foco)
+     * até o processo morrer (Sala, 25/11/2026: Podcasts igual nos 3 jeitos).
      */
-    @Suppress("DEPRECATION")
-    fun numero(ctx: Context, chave: String, padrao: Int): Int =
-        (if (noPlayer) ctx.getSharedPreferences(ARQUIVO, Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS) else prefs(ctx)).getInt(chave, padrao)
-    private val noPlayer: Boolean by lazy {
-        runCatching { android.app.Application.getProcessName() }.getOrNull()?.endsWith(":player") == true
-    }
+    fun numero(ctx: Context, chave: String, padrao: Int): Int = prefs(ctx).getInt(chave, padrao)
     fun definirNumero(ctx: Context, chave: String, valor: Int) { prefs(ctx).edit().putInt(chave, valor).apply() }
     /** Tira a chave (volta a valer o padrão de quem lê). */
     fun apagar(ctx: Context, chave: String) { prefs(ctx).edit().remove(chave).apply() }

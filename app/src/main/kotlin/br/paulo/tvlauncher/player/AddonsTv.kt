@@ -13,8 +13,8 @@ import java.net.URL
  * um addon pela rede e as perguntas que as telas fazem (catálogo, ficha, fontes). Tudo aqui bloqueia: chamar fora da
  * thread da tela.
  *
- * A lista fica no prefs "addons" (vai no backup completo: é configuração), com MODE_MULTI_PROCESS porque o painel grava
- * no processo da HOME e a tela Addons lê no ":player". O aceite dos termos ("quem instala responde pelo conteúdo") fica
+ * A lista fica no prefs "addons" (vai no backup completo: é configuração). O painel grava no processo da HOME e a tela
+ * Addons lê no ":player" pelo dono (CrossProcessPrefs.kt). O aceite dos termos ("quem instala responde pelo conteúdo") fica
  * no mesmo prefs e também viaja no backup: foi o dono quem aceitou.
  */
 object AddonsTv {
@@ -24,7 +24,7 @@ object AddonsTv {
     private const val TEMPO_MS = 12_000
     private const val MAX_BYTES = 3_000_000
 
-    private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_MULTI_PROCESS)
+    private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
     fun instalados(ctx: Context): List<AddonsProtocolo.Instalado> = AddonsProtocolo.deJson(prefs(ctx).getString(LISTA, null))
 

@@ -101,6 +101,8 @@ import java.util.Locale
  */
 @androidx.annotation.OptIn(markerClass = [UnstableApi::class])
 class PlayerActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         /** Elevação 20.4: o cronômetro da instalação só é conferido uma vez por processo (o arquivo decide o resto). */
         @Volatile private var instalacaoConferida = false
