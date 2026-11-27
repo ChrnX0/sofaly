@@ -26,7 +26,7 @@
   },
   "home": {
     "title": "Sofaly · Dein Fernseher, wieder einfach",
-    "description": "Sofaly ist der Startbildschirm für Google TV und Android TV: alles geordnet in einem Kreuz (Ansehen, Hören, Spielen, Apps), große Schrift und keine Werbung.",
+    "description": "Sofaly ist der Startbildschirm für Google TV und Android TV: alles geordnet in Reihen (Ansehen, Hören, Spielen, Apps), große Schrift und keine Werbung.",
     "eyebrow": "Startbildschirm für Google TV und Android TV",
     "h1": "Dein Fernseher, wieder einfach.",
     "lead": "Sofaly ersetzt den Startbildschirm deines Fernsehers durch ein aufgeräumtes Kreuz: Ansehen, Hören, Spielen und Apps, in großer Schrift und ohne Werbung. Dazu kümmert sie sich ums Zuhause, weckt dich und spricht mit deinem Handy.",
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "Das Kreuz",
+      "Der Startbildschirm",
       "Ein aufgeräumter Bildschirm, den jeder versteht und der sich nach dir richtet."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "Das Kreuz",
-      "Weiter, Ansehen, Hören, Spielen und Apps in einer Reihe. Die gewählte Welt wird groß, ihr Inhalt direkt darunter.",
-      "◀ ▶ wechseln die Welt, ▲ ▼ gehen durch die Spalte, OK öffnet."
+      "Die Reihen",
+      "Weiter, Ansehen, Hören, Spielen und Apps, jedes in seiner eigenen Reihe, eine unter der anderen. Alles im Blick, in großer Schrift.",
+      "Das ist der Startbildschirm: Er erscheint, wenn Sie HOME drücken."
     ],
     "continue": [
       "Weiter",
       "Ein Ort, um zurückzukehren: die Folge, der Sender, der Podcast oder die letzte App.",
-      "Das erste Element im Kreuz."
+      "Eine Reihe auf dem Startbildschirm."
     ],
     "topbar": [
       "Obere Leiste",
@@ -348,7 +348,7 @@
     "card-match": [
       "Nächstes Spiel Ihres Teams",
       "Wann und gegen wen Ihr Team als Nächstes spielt, auf einer Karte im Startbildschirm.",
-      "Im Eintrag TV des Kreuzes. Einstellungen › Darstellung."
+      "Auf dem Startbildschirm. Einstellungen › Darstellung."
     ],
     "plugin-cards": [
       "Karten anderer Apps",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Deine Favoriten vorne",
       "Apps zeigt die 8 meistgeöffneten, „Alle Apps“ den Rest in einem Raster.",
-      "Apps, im Kreuz."
+      "In der Reihe Apps."
     ],
     "apps-organize": [
       "Nach deiner Art",
@@ -780,7 +780,7 @@
     "basic_who": "Für alle auf dem Sofa",
     "pro_who": "Für alle, die sich um den Fernseher kümmern",
     "ultra_who": "Für Zuhause und Familie",
-    "basic_text": "Das Kreuz, der Player, Hören, Spielen, der Wecker, der Bildschirmschoner und alle Bedienungshilfen.",
+    "basic_text": "Der Startbildschirm in Reihen, der Player, Hören, Spielen, der Wecker, der Bildschirmschoner und alle Bedienungshilfen.",
     "pro_text": "Alles aus Basic, dazu das Handy, Automationen, das vernetzte Zuhause, Nachrichten aus der Ferne, fertige Karten für den Startbildschirm und volle Personalisierung.",
     "ultra_text": "Alles aus Pro plus Wetter aus drei Modellen, vollständige Filmseiten, automatische Untertitel, mehrere Zuhause und gemeinsames Schauen.",
     "includes": "Enthält",

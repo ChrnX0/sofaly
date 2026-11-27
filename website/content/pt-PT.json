@@ -26,7 +26,7 @@
   },
   "home": {
     "title": "Sofaly · Sua TV, simples de novo",
-    "description": "Sofaly é o ecrã inicial para Google TV e Android TV: tudo organizado numa cruz (Ver, Ouvir, Jogar, Aplicações), letra grande e nenhuma publicidade.",
+    "description": "Sofaly é o ecrã inicial para Google TV e Android TV: tudo organizado em filas (Ver, Ouvir, Jogar, Aplicações), letra grande e nenhuma publicidade.",
     "eyebrow": "Ecrã inicial para Google TV e Android TV",
     "h1": "Sua TV, simples de novo.",
     "lead": "A Sofaly troca o ecrã inicial da sua TV por uma cruz organizada: Ver, Ouvir, Jogar e Aplicações, com letra grande e nenhuma publicidade. E ainda cuida da casa, acorda-o e conversa com o seu telemóvel.",
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "O ecrã em cruz",
+      "O ecrã inicial",
       "Um ecrã organizada que qualquer um entende, e que se ajeita à sua maneira."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "A cruz",
-      "Continuar, Ver, Ouvir, Jogar e Aplicações numa linha. O mundo escolhido fica grande, com o que tem dentro logo abaixo.",
-      "◀ ▶ trocam de mundo, ▲ ▼ descem pela coluna, OK abre."
+      "As filas",
+      "Continuar, Ver, Ouvir, Jogar e Aplicações, cada um na sua fila, uma por baixo da outra. Tudo à vista e com letra grande.",
+      "É o ecrã inicial: aparece ao carregar em HOME."
     ],
     "continue": [
       "Continuar",
       "Um lugar só para voltar ao que estava a fazer: o episódio, a rádio, o podcast ou a última app.",
-      "É o primeiro item da cruz."
+      "Uma fila do ecrã inicial."
     ],
     "topbar": [
       "Barra do topo",
@@ -348,7 +348,7 @@
     "card-match": [
       "Próximo jogo da sua equipa",
       "Quando e contra quem a sua equipa volta a jogar, num cartão no ecrã inicial.",
-      "No item TV da cruz. Definições › Aparência."
+      "No ecrã inicial. Definições › Aparência."
     ],
     "plugin-cards": [
       "Cartões de outras apps",
@@ -463,7 +463,7 @@
     "apps-top": [
       "As que mais usa à frente",
       "Aplicações mostra as 8 apps que mais abre, e “Todas as apps” traz o resto numa grelha.",
-      "Aplicações, na cruz."
+      "Na fila Aplicações."
     ],
     "apps-organize": [
       "À sua maneira",
@@ -780,7 +780,7 @@
     "basic_who": "Para quem está no sofá",
     "pro_who": "Para quem cuida da TV",
     "ultra_who": "Para a casa e a família",
-    "basic_text": "O ecrã em cruz, o player, o Ouvir, o Jogar, o despertador, o protetor e toda a acessibilidade.",
+    "basic_text": "O ecrã inicial em filas, o player, o Ouvir, o Jogar, o despertador, o protetor e toda a acessibilidade.",
     "pro_text": "Tudo do Básico, mais o telemóvel, as automações, a casa ligada, as mensagens de longe, os cartões prontos do ecrã inicial e a personalização completa.",
     "ultra_text": "Tudo do Pro, mais o clima em três modelos, fichas completas, legenda automática, várias casas e assistir junto.",
     "includes": "Inclui",

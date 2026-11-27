@@ -26,7 +26,7 @@
   },
   "home": {
     "title": "Sofaly · TV Anda, sederhana lagi",
-    "description": "Sofaly adalah layar utama untuk Google TV dan Android TV: semuanya tertata dalam bentuk salib (Tonton, Dengar, Main, Aplikasi), huruf besar, dan tanpa iklan.",
+    "description": "Sofaly adalah layar utama untuk Google TV dan Android TV: semuanya tertata dalam baris (Tonton, Dengar, Main, Aplikasi), huruf besar, dan tanpa iklan.",
     "eyebrow": "Layar utama untuk Google TV dan Android TV",
     "h1": "TV Anda, sederhana lagi.",
     "lead": "Sofaly mengganti layar utama TV Anda dengan salib yang rapi: Tonton, Dengar, Main, dan Aplikasi, dengan huruf besar dan tanpa iklan. Ia juga menjaga rumah, membangunkan Anda, dan berbicara dengan ponsel Anda.",
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "Salib",
+      "Layar utama",
       "Layar rapi yang dipahami siapa pun, diatur sesuai keinginan Anda."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "Salib",
-      "Lanjutkan, Tonton, Dengar, Main, dan Aplikasi dalam satu baris. Dunia yang dipilih membesar, dengan isinya tepat di bawah.",
-      "◀ ▶ ganti dunia, ▲ ▼ turun di kolom, OK membuka."
+      "Baris-baris",
+      "Lanjutkan, Tonton, Dengar, Main, dan Aplikasi, masing-masing di barisnya sendiri, satu di bawah yang lain. Semua terlihat, dengan huruf besar.",
+      "Ini layar utamanya: muncul saat Anda menekan HOME."
     ],
     "continue": [
       "Lanjutkan",
       "Satu tempat untuk kembali ke yang sedang Anda lakukan: episode, stasiun, podcast, atau aplikasi terakhir.",
-      "Item pertama di salib."
+      "Salah satu baris di layar utama."
     ],
     "topbar": [
       "Bilah atas",
@@ -348,7 +348,7 @@
     "card-match": [
       "Laga berikutnya tim Anda",
       "Kapan dan melawan siapa tim Anda bertanding lagi, di kartu layar utama.",
-      "Di item TV pada salib. Setelan › Tampilan."
+      "Di layar utama. Setelan › Tampilan."
     ],
     "plugin-cards": [
       "Kartu dari aplikasi lain",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Favorit di depan",
       "Aplikasi menampilkan 8 aplikasi yang paling sering Anda buka, dan “Semua aplikasi” membawa sisanya dalam kisi.",
-      "Aplikasi, di salib."
+      "Di baris Aplikasi."
     ],
     "apps-organize": [
       "Sesuka Anda",
@@ -780,7 +780,7 @@
     "basic_who": "Untuk yang duduk di sofa",
     "pro_who": "Untuk yang mengurus TV",
     "ultra_who": "Untuk rumah dan keluarga",
-    "basic_text": "Layar utama salib, pemutar, Dengar, Main, alarm, screensaver, dan semua aksesibilitas.",
+    "basic_text": "Layar utama berbaris, pemutar, Dengar, Main, alarm, screensaver, dan semua aksesibilitas.",
     "pro_text": "Semua di Basic, plus ponsel, otomatisasi, rumah pintar, pesan dari jauh, kartu siap pakai di layar utama, dan personalisasi penuh.",
     "ultra_text": "Semua di Pro, plus cuaca dari tiga model, halaman film lengkap, subtitel otomatis, beberapa rumah, dan nonton bareng.",
     "includes": "Termasuk",

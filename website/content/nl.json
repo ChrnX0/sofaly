@@ -26,7 +26,7 @@
   },
   "home": {
     "title": "Sofaly · Je tv, weer eenvoudig",
-    "description": "Sofaly is het startscherm voor Google TV en Android TV: alles geordend in een kruis (Kijken, Luisteren, Spelen, Apps), grote tekst en geen advertenties.",
+    "description": "Sofaly is het startscherm voor Google TV en Android TV: alles geordend in rijen (Kijken, Luisteren, Spelen, Apps), grote tekst en geen advertenties.",
     "eyebrow": "Startscherm voor Google TV en Android TV",
     "h1": "Je tv, weer eenvoudig.",
     "lead": "Sofaly vervangt het startscherm van je tv door een overzichtelijk kruis: Kijken, Luisteren, Spelen en Apps, in grote tekst en zonder advertenties. Het let ook op het huis, maakt je wakker en praat met je telefoon.",
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "Het kruis",
+      "Het startscherm",
       "Een overzichtelijk scherm dat iedereen begrijpt, ingedeeld zoals jij wilt."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "Het kruis",
-      "Verder kijken, Kijken, Luisteren, Spelen en Apps op één rij. De wereld die je kiest wordt groot, met de inhoud er direct onder.",
-      "◀ ▶ wisselen van wereld, ▲ ▼ omlaag door de kolom, OK opent."
+      "De rijen",
+      "Verder kijken, Kijken, Luisteren, Spelen en Apps, elk in een eigen rij, de een onder de ander. Alles in beeld, in grote tekst.",
+      "Het is het startscherm: het verschijnt als je op HOME drukt."
     ],
     "continue": [
       "Verder kijken",
       "Eén plek om terug te gaan naar waar je mee bezig was: de aflevering, de zender, de podcast of de laatste app.",
-      "Het is het eerste item van het kruis."
+      "Een rij op het startscherm."
     ],
     "topbar": [
       "Bovenste balk",
@@ -348,7 +348,7 @@
     "card-match": [
       "De volgende wedstrijd van je team",
       "Wanneer en tegen wie je team de volgende keer speelt, op een kaart op het startscherm.",
-      "In het tv-item van het kruis. Instellingen › Uiterlijk."
+      "Op het startscherm. Instellingen › Uiterlijk."
     ],
     "plugin-cards": [
       "Kaarten van andere apps",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Je favorieten vooraan",
       "Apps toont de 8 apps die je het meest opent, en “Alle apps” toont de rest in een raster.",
-      "Apps, in het kruis."
+      "In de rij Apps."
     ],
     "apps-organize": [
       "Op jouw manier",
@@ -780,7 +780,7 @@
     "basic_who": "Voor wie op de bank zit",
     "pro_who": "Voor wie voor de tv zorgt",
     "ultra_who": "Voor het huis en het gezin",
-    "basic_text": "Het startscherm in een kruis, de speler, Luisteren, Spelen, de wekker, de schermbeveiliging en alle toegankelijkheid.",
+    "basic_text": "Het startscherm in rijen, de speler, Luisteren, Spelen, de wekker, de schermbeveiliging en alle toegankelijkheid.",
     "pro_text": "Alles uit Basic, plus de telefoon, automatiseringen, het slimme huis, berichten van ver weg, kant-en-klare kaarten voor het startscherm en volledige personalisatie.",
     "ultra_text": "Alles uit Pro, plus weer uit drie modellen, volledige filmpagina's, automatische ondertitels, meerdere huizen en samen kijken.",
     "includes": "Inbegrepen",
