@@ -25,10 +25,10 @@
     "of": "de"
   },
   "home": {
-    "title": "Sofaly · Tu TV, simple otra vez",
+    "title": "Sofaly · Momentos acogedores en tu TV",
     "description": "Sofaly es la pantalla de inicio para Google TV y Android TV: todo ordenado en filas (Ver, Escuchar, Jugar, Aplicaciones), letra grande y nada de anuncios.",
     "eyebrow": "Pantalla de inicio para Google TV y Android TV",
-    "h1": "Tu TV, simple otra vez.",
+    "h1": "Momentos acogedores en tu TV.",
     "lead": "Sofaly cambia la pantalla de inicio de tu TV por una cruz ordenada: Ver, Escuchar, Jugar y Aplicaciones, con letra grande y sin anuncios. Además cuida la casa, te despierta y habla con tu móvil.",
     "hero_note": "Sin cuenta, sin anuncios, sin rastrear lo que ves.",
     "cross_title": "Una pantalla, cuatro caminos",
@@ -219,7 +219,7 @@
         "Basta con elegir otra vez la pantalla de Google como inicio en los ajustes de la TV. No se borra nada tuyo."
       ]
     ],
-    "final_title": "Tu TV, simple otra vez.",
+    "final_title": "Momentos acogedores en tu TV.",
     "final_text": "Instálala, pulsa HOME y toda la casa la entiende."
   },
   "features_page": {

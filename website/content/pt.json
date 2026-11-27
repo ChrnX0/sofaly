@@ -25,10 +25,10 @@
     "of": "de"
   },
   "home": {
-    "title": "Sofaly · Sua TV, simples de novo",
+    "title": "Sofaly · Aconchego na sua TV",
     "description": "Sofaly é a tela inicial para Google TV e Android TV: tudo organizado em fileiras (Assistir, Ouvir, Jogar, Aplicativos), letra grande e nenhuma propaganda.",
     "eyebrow": "Tela inicial para Google TV e Android TV",
-    "h1": "Sua TV, simples de novo.",
+    "h1": "Aconchego na sua TV.",
     "lead": "A Sofaly troca a tela inicial da sua TV por uma cruz organizada: Assistir, Ouvir, Jogar e Aplicativos, com letra grande e nenhuma propaganda. E ainda cuida da casa, acorda você e conversa com o seu celular.",
     "hero_note": "Sem conta, sem propaganda, sem rastrear o que você assiste.",
     "cross_title": "Uma tela, quatro caminhos",
@@ -219,7 +219,7 @@
         "É só escolher a tela do Google como inicial de novo nas configurações da TV. Nada seu é apagado."
       ]
     ],
-    "final_title": "Sua TV, simples de novo.",
+    "final_title": "Aconchego na sua TV.",
     "final_text": "Instale, aperte HOME e a casa inteira entende."
   },
   "features_page": {

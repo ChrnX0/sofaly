@@ -25,10 +25,10 @@
     "of": "din"
   },
   "home": {
-    "title": "Sofaly · Televizorul tău, din nou simplu",
+    "title": "Sofaly · Momente plăcute la televizorul tău",
     "description": "Sofaly este ecranul principal pentru Google TV și Android TV: totul organizat pe rânduri (Vizionare, Ascultare, Joc, Aplicații), text mare și fără reclame.",
     "eyebrow": "Ecran principal pentru Google TV și Android TV",
-    "h1": "Televizorul tău, din nou simplu.",
+    "h1": "Momente plăcute la televizorul tău.",
     "lead": "Sofaly înlocuiește ecranul principal al televizorului cu o cruce ordonată: Vizionare, Ascultare, Joc și Aplicații, cu text mare și fără reclame. În plus, are grijă de casă, te trezește dimineața și vorbește cu telefonul tău.",
     "hero_note": "Fără cont, fără reclame, fără urmărirea a ceea ce vizionezi.",
     "cross_title": "Un singur ecran, patru direcții",
@@ -219,7 +219,7 @@
         "Alege din nou ecranul principal Google în setările televizorului. Nu se șterge nimic din ce e al tău."
       ]
     ],
-    "final_title": "Televizorul tău, din nou simplu.",
+    "final_title": "Momente plăcute la televizorul tău.",
     "final_text": "Instalează-l, apasă HOME și toată casa se descurcă."
   },
   "features_page": {

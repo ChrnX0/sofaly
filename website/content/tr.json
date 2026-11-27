@@ -25,10 +25,10 @@
     "of": "/"
   },
   "home": {
-    "title": "Sofaly · Televizyonunuz yeniden basit",
+    "title": "Sofaly · Televizyonunuzda keyifli anlar",
     "description": "Sofaly, Google TV ve Android TV için ana ekrandır: her şey sıralar halinde (İzle, Dinle, Oyna, Uygulamalar), büyük yazı ve hiç reklam yok.",
     "eyebrow": "Google TV ve Android TV için ana ekran",
-    "h1": "Televizyonunuz yeniden basit.",
+    "h1": "Televizyonunuzda keyifli anlar.",
     "lead": "Sofaly, televizyonunuzun ana ekranını düzenli bir haçla değiştirir: İzle, Dinle, Oyna ve Uygulamalar, büyük yazıyla ve reklamsız. Üstelik evi gözetir, sizi uyandırır ve telefonunuzla konuşur.",
     "hero_note": "Hesap yok, reklam yok, ne izlediğinizin takibi yok.",
     "cross_title": "Tek ekran, dört yol",
@@ -219,7 +219,7 @@
         "Televizyonun ayarlarından Google'ın ana ekranını yeniden seçmeniz yeterli. Sizin hiçbir şeyiniz silinmez."
       ]
     ],
-    "final_title": "Televizyonunuz yeniden basit.",
+    "final_title": "Televizyonunuzda keyifli anlar.",
     "final_text": "Kurun, HOME'a basın ve tüm ev anlasın."
   },
   "features_page": {

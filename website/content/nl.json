@@ -25,10 +25,10 @@
     "of": "van"
   },
   "home": {
-    "title": "Sofaly · Je tv, weer eenvoudig",
+    "title": "Sofaly · Gezellige tijd op je tv",
     "description": "Sofaly is het startscherm voor Google TV en Android TV: alles geordend in rijen (Kijken, Luisteren, Spelen, Apps), grote tekst en geen advertenties.",
     "eyebrow": "Startscherm voor Google TV en Android TV",
-    "h1": "Je tv, weer eenvoudig.",
+    "h1": "Gezellige tijd op je tv.",
     "lead": "Sofaly vervangt het startscherm van je tv door een overzichtelijk kruis: Kijken, Luisteren, Spelen en Apps, in grote tekst en zonder advertenties. Het let ook op het huis, maakt je wakker en praat met je telefoon.",
     "hero_note": "Geen account, geen advertenties, niemand die bijhoudt wat je kijkt.",
     "cross_title": "Eén scherm, vier richtingen",
@@ -219,7 +219,7 @@
         "Kies gewoon weer het startscherm van Google in de instellingen van de tv. Er wordt niets van je verwijderd."
       ]
     ],
-    "final_title": "Je tv, weer eenvoudig.",
+    "final_title": "Gezellige tijd op je tv.",
     "final_text": "Installeer het, druk op HOME en het hele huis snapt het."
   },
   "features_page": {
