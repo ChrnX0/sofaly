@@ -121,11 +121,20 @@ class SubmenusTelasTest {
             if (v.visibility != View.VISIBLE || v.alpha == 0f) return
             val vis = Rect()
             val aparece = v.width > 0 && v.height > 0 && v.getGlobalVisibleRect(vis)
-            if (aparece && v.isFocusable && (v !is ViewGroup || v.descendantFocusability == ViewGroup.FOCUS_BLOCK_DESCENDANTS)) out += v
+            // Um alvo = algo que pega foco e não tem filho que pegue (cartão com textos dentro conta como um).
+            if (aparece && v.isFocusable && (v !is ViewGroup || v.descendantFocusability == ViewGroup.FOCUS_BLOCK_DESCENDANTS || !temFilhoFocavel(v))) out += v
             if (v is ViewGroup) for (i in 0 until v.childCount) andar(v.getChildAt(i))
         }
         andar(a.window.decorView)
         return out
+    }
+
+    private fun temFilhoFocavel(g: ViewGroup): Boolean {
+        for (i in 0 until g.childCount) {
+            val c = g.getChildAt(i)
+            if (c.visibility == View.VISIBLE && (c.isFocusable || (c is ViewGroup && temFilhoFocavel(c)))) return true
+        }
+        return false
     }
 
     private fun rotulo(v: View): String {
