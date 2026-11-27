@@ -125,7 +125,8 @@ class BoasVindasActivity : Activity() {
         raiz.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; isFocusable = false; addView(lista) }, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f).apply { topMargin = dp(16) })
 
         val faltam = Recursos.perigosasFaltando(this)
-        val comecar = linha(getString(R.string.bv_comecar), getString(R.string.bv_comecar_det)) { finish() }
+        // Rede de Sofys (27/11/2026): ao começar, a pergunta "Vamos ajudar outras casas?" uma vez só (opt-in).
+        val comecar = linha(getString(R.string.bv_comecar), getString(R.string.bv_comecar_det)) { HelpOtherHomesActivity.askOnce(this); finish() }
         // Ideia 97 (14/11/2026): sem PIN, a primeira linha (e a que já vem com o foco) é configurar tudo pelo celular.
         if (!PainelArmazem.temPin(this)) lista.addView(linha(getString(R.string.pc_titulo), getString(R.string.pc_linha_det)) {
             abrir(Intent(this, EntrarPeloQrActivity::class.java))

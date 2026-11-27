@@ -497,6 +497,11 @@
             android:name=".SofyMemoryActivity"
             android:exported="false"
             android:label="@string/smem_titulo" />
+        <!-- Ajudar outras casas (rede de Sofys, passo 3; HelpOtherHomesActivity.kt) -->
+        <activity
+            android:name=".HelpOtherHomesActivity"
+            android:exported="false"
+            android:label="@string/hoh_title_short" />
         <activity
             android:name=".RelatarProblemaActivity"
             android:exported="false"
