@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=större text|text större|större bokstäver|större typsnitt|förstora texten;TEXT_SMALLER=mindre text|text mindre|mindre bokstäver|mindre typsnitt|förminska texten;GOAL_READ=läs bättre|svårt att läsa|ser inte bra;GOAL_CLEAN=renare skärm|enkel skärm;GOAL_ENERGY=spara energi|spara ström|mindre ström;LOOK_SOFALY=sofaly utseende|normalt utseende;LOOK_NIGHT=natt utseende|mörk himmel;LOOK_MOUNTAIN=berg utseende;LOOK_MINIMAL=minimalistiskt utseende</string>
+    <string name="si_fazer">Gör det nu: %1$s</string>
+    <string name="si_desfazer">Ångra: %1$s</string>
+    <string name="si_fazer_det">Ändras direkt.</string>
+    <string name="si_maior">Större text</string>
+    <string name="si_menor">Mindre text</string>
+</resources>

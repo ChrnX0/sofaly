@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Läs bättre</string>
+    <string name="goal_clean">Renare skärm</string>
+    <string name="goal_energy">Spara energi</string>
+    <string name="goal_kids">Skydda barnen</string>
+    <string name="goal_desfazer">%1$s, på.</string>
+    <string name="goal_feito">%1$s: klart.</string>
+    <string name="goal_desfeito">%1$s: ångrat</string>
+</resources>
