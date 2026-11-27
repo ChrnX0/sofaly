@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hl_titulo">مظاهر جاهزة</string>
+    <string name="hl_sofaly">Sofaly</string>
+    <string name="hl_night">الليل</string>
+    <string name="hl_mountain">الجبال</string>
+    <string name="hl_easy">سهل الرؤية</string>
+    <string name="hl_minimal">بسيط</string>
+    <string name="hl_voltar">كما كان</string>
+    <string name="hl_em_uso">%1$s، قيد الاستخدام</string>
+</resources>

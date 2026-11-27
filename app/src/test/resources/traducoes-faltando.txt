@@ -1,6 +1,6 @@
 # Teto de textos sem tradução por língua (TraducoesFaltandoTest). Só pode baixar.
 # Contado em 27/11/2026.
-values-ar=224
+values-ar=3
 values-cs=236
 values-da=236
 values-de=3

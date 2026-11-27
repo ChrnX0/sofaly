@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">الأخيرة</string>
     <string name="bkn_nunca">أبدًا</string>
     <string name="bkn_pin">PIN لتغيير النسخ الاحتياطي</string>
+    <string name="bk_motivo_senha">كلمة المرور غير صحيحة.</string>
+    <string name="bk_motivo_invalido">هذا الملف ليس نسخة احتياطية من Sofaly أو أنه تالف.</string>
+    <string name="bk_motivo_ler">تعذّرت قراءته (الشبكة أو التخزين).</string>
 </resources>
