@@ -33,7 +33,7 @@ values-nb=236
 
 values-nl=236
 
-values-pl=224
+values-pl=3
 
 values-pt=0
 
