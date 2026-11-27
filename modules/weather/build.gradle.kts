@@ -8,6 +8,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.serialization")   // JSON tipado (MetModels)
 }
 
 android {
@@ -30,4 +31,5 @@ dependencies {
     implementation(project(":resources"))   // R (textos, ícones) e BuildConfig (coordenadas padrão, PLAY)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
     implementation("androidx.annotation:annotation:1.9.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")   // JSON tipado (MetModels; refatoração G)
 }

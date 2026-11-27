@@ -4,6 +4,8 @@ plugins {
     id("com.android.application") version "8.13.2" apply false
     id("com.android.library") version "8.13.2" apply false
     id("org.jetbrains.kotlin.android") version "2.2.21" apply false
+    // JSON tipado (refatoração G, 27/11/2026): modelos @Serializable no lugar de JSONObject, módulo por módulo.
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.2.21" apply false
 }
 
 // versionCode do app (04/11/2026): minutos desde 01/01/2026 na hora do build, para sempre crescer; `-PversionCode=N`

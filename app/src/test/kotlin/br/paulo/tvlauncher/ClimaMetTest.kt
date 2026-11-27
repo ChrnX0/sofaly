@@ -2,6 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.alarm.FaixaDias
 import br.paulo.tvlauncher.weather.ClimaMet
+import br.paulo.tvlauncher.weather.MetJson
 import java.util.TimeZone
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
@@ -10,9 +11,21 @@ import org.junit.Test
 
 /** ClimaMet: a resposta real do MET Norway (Brasília, 16/11/2026 19:00 UTC) vira o formato da Open-Meteo que o resto lê. */
 class ClimaMetTest {
-    private val met = JSONObject(javaClass.getResource("/clima/met-brasilia.json")!!.readText())
+    private val met = MetJson.parse(javaClass.getResource("/clima/met-brasilia.json")!!.readText())
     private val fuso = TimeZone.getTimeZone("America/Sao_Paulo")
     private val agora = 1794855600000L + 30 * 60_000L   // 16/11/2026 19:30 UTC = 16:30 em Brasília
+
+    /**
+     * JSON tipado (refatoração G, 27/11/2026): a saída do conversor é IGUAL à do conversor antigo (JSONObject), gravada em
+     * met-brasilia-ouro-*.json antes da troca. Mudou o formato de propósito? Regrave os arquivos e diga no PR por quê.
+     */
+    @Test fun mesmaSaidaDoConversorAntigo() {
+        for ((nome, args) in mapOf("agora-c" to Triple(true, false, 9), "meianoite-c" to Triple(false, false, 9), "agora-f" to Triple(true, true, 2))) {
+            val ouro = javaClass.getResource("/clima/met-brasilia-ouro-$nome.json")!!.readText()
+            val novo = ClimaMet.converter(met, agora, fuso, -15.79, -47.88, args.third, args.first, args.second)
+            assertEquals("saída mudou: $nome", ouro, novo.toString(1))   // mesma ordem de chaves (o conversor monta igual)
+        }
+    }
 
     @Test fun simbolosViramCodigosWmo() {
         assertEquals(0, ClimaMet.codigoWmo("clearsky_day"))
