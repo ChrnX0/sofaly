@@ -12,7 +12,7 @@ import br.paulo.tvlauncher.resources.R
 object RainChance {
     enum class Modo { NUMERO, PALAVRA, AMBOS }
 
-    private const val CHAVE = "chance_modo"
+    const val CHAVE = "chance_modo"   // público: WeatherPrefs.CHOICES precisa da mesma chave (RainChanceChaveTest)
 
     fun modo(ctx: Context): Modo = ctx.getSharedPreferences(Prefs.CLIMA, Context.MODE_PRIVATE).getString(CHAVE, null)
         ?.let { s -> Modo.entries.firstOrNull { it.name == s } } ?: Modo.NUMERO

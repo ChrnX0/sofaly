@@ -39,9 +39,11 @@ object SettingsJournal {
     }
 
     fun tracked(key: String) = !STATE.containsMatchIn(key)
+    /** Nas prefs "clima" só a escolha da pessoa: o resto é cache da previsão, gravado a cada 5 min (WeatherPrefs). */
+    fun trackedIn(file: String, key: String) = file != "clima" || br.paulo.tvlauncher.weather.WeatherPrefs.isChoice(key)
 
     fun record(list: List<Change>, c: Change): List<Change> =
-        if (c.old == c.new || !tracked(c.key)) list else (list + c).takeLast(MAX)
+        if (c.old == c.new || !tracked(c.key) || !trackedIn(c.file, c.key)) list else (list + c).takeLast(MAX)
 
     /** A mudança a desfazer para um defeito que começou em [firstAt]: a mais recente na janela, que não seja ruído. */
     fun candidate(list: List<Change>, firstAt: Long): Change? {
