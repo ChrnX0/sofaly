@@ -103,4 +103,26 @@ class DesfazerRegrasTest {
         assertEquals("id59", lista.first().id)
         assertTrue(DesfazerRegras.podar(lista, t0 + 8 * 86_400_000L).isEmpty())
     }
+
+    // 27/11/2026: o cache da previsão que a HOME grava em "clima" a cada 5 min não é mudança de ninguém.
+    @Test fun cacheDoClimaNaoEntraEscolhaEntra() {
+        val antes = mapOf<String, Any?>("temp" to 25, "max" to 30, "linha" to "Sol", "horas" to "[]", "lat" to -10f, "chance_modo" to "AUTO")
+        val depois = mapOf<String, Any?>("temp" to 27, "max" to 31, "linha" to "Nublado", "horas" to "[1]", "lat" to -11f, "chance_modo" to "AUTO")
+        assertTrue(DesfazerRegras.diferencas("clima", antes, depois).isEmpty())
+        val escolha = DesfazerRegras.diferencas("clima", antes, depois + ("chance_modo" to "SEMPRE"))
+        assertEquals(listOf("chance_modo"), escolha.map { it.chave })
+        assertEquals(Categoria.AJUSTE, DesfazerRegras.categoria("clima", br.paulo.tvlauncher.weather.RainChance.CHAVE))
+        assertNull(DesfazerRegras.categoria("clima", "temp"))
+        assertNull(DesfazerRegras.categoria("clima@filho", "chuva"))
+    }
+
+    @Test fun diarioDaSofyIgnoraCacheDoClima() {
+        val j = br.paulo.tvlauncher.observer.SettingsJournal
+        val l1 = j.record(emptyList(), br.paulo.tvlauncher.observer.SettingsJournal.Change("clima", "temp", "25", "27", 1L))
+        assertTrue("cache do clima entrou no diário da Sofy", l1.isEmpty())
+        val l2 = j.record(l1, br.paulo.tvlauncher.observer.SettingsJournal.Change("clima", br.paulo.tvlauncher.weather.RainChance.CHAVE, "AUTO", "SEMPRE", 2L))
+        assertEquals(1, l2.size)
+        val l3 = j.record(l2, br.paulo.tvlauncher.observer.SettingsJournal.Change("launcher", "tema", "escuro", "claro", 3L))
+        assertEquals(2, l3.size)   // as outras prefs continuam como antes
+    }
 }
