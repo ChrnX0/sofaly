@@ -52,6 +52,8 @@ object Atualizador {
     private const val RECUSADA = "recusada"             // Release recusado (chave, pacote, versão, ilegível): não baixa de novo
     private const val RECUSADA_TEXTO = "recusada_texto" // o motivo, para mostrar sem baixar de novo
     private const val INSTALANDO = "instalando"         // código entregue ao PackageInstaller (o Resultado não sabe qual é)
+    private const val POR_PARTES = "por_partes"         // o INSTALANDO foi por partes (base + partes), não o APK cheio
+    private const val PARTES_FALHOU = "partes_falhou"   // código cuja instalação por partes falhou: este vai pelo APK cheio
     private const val FALHOU_CODIGO = "falhou_codigo"   // instalação que falhou: qual código e quantas vezes
     private const val FALHOU_N = "falhou_n"
     private const val MAX_FALHAS = 3
@@ -261,12 +263,13 @@ object Atualizador {
     }
 
     /** Conferido: instala agora, ou deixa pendente (verificação sem instalar, ou tela acesa na automática). */
-    private fun instalarSeDer(app: Context, arquivos: List<File>, codigo: Long, meu: Long, instalar: Boolean, soComTelaApagada: Boolean): String {
+    private fun instalarSeDer(app: Context, arquivos: List<File>, codigo: Long, meu: Long, instalar: Boolean, soComTelaApagada: Boolean,
+                              porPartes: Boolean = false): String {
         if (!instalar) { prefs(app).edit().putLong(PENDENTE, codigo).apply(); return txt(R.string.atu_disponivel, codigo, meu) }
         // A tela foi conferida só ANTES do download; se alguém ligou a TV nesse meio-tempo, não reinicia o launcher na
         // frente da pessoa: fica pendente (Configurações > Instalar agora, ou a próxima volta com a tela apagada).
         if (soComTelaApagada && telaAcesa(app)) { prefs(app).edit().putLong(PENDENTE, codigo).apply(); return txt(R.string.atu_disponivel, codigo, meu) }
-        prefs(app).edit().putLong(INSTALANDO, codigo).apply()
+        prefs(app).edit().putLong(INSTALANDO, codigo).putBoolean(POR_PARTES, porPartes).apply()
         instalarApks(app, arquivos)
         return txt(R.string.atu_instalando, codigo, meu)
     }
@@ -280,6 +283,9 @@ object Atualizador {
      */
     private fun atualizarPorPartes(app: Context, links: Map<String, String>, codigo: Long, meu: Long, instalar: Boolean,
                                    soComTelaApagada: Boolean): String? {
+        // A instalação por partes deste código já falhou uma vez: tenta o APK cheio (que sempre funcionou) em vez de
+        // repetir a mesma falha até o limite.
+        if (prefs(app).getLong(PARTES_FALHOU, 0L) == codigo) return null
         val urlIndice = links[PartsPlan.INDEX] ?: return null
         val indice = PartsPlan.parse(baixarTexto(urlIndice))?.takeIf { it.versionCode == codigo } ?: return null
         val partes = PartsPlan.keep(Parts.splits(app), PartsInstall.inUse(app))
@@ -295,7 +301,7 @@ object Atualizador {
             }
             conferir(app, arquivos.first(), codigo)?.let { return it }
             Log.i(TAG, "v$codigo por partes: ${plano.joinToString { it.name }}")
-            return instalarSeDer(app, arquivos, codigo, meu, instalar, soComTelaApagada)
+            return instalarSeDer(app, arquivos, codigo, meu, instalar, soComTelaApagada, porPartes = true)
         } finally {
             pasta.deleteRecursively()   // a sessão já copiou os bytes antes do commit
         }
@@ -439,6 +445,8 @@ object Atualizador {
                 // Conta as falhas do código que estava instalando ([MAX_FALHAS] = para de tentar este código).
                 val p = prefs(ctx); val c = p.getLong(INSTALANDO, 0L)
                 if (c > 0) p.edit().putLong(FALHOU_CODIGO, c).putInt(FALHOU_N, if (p.getLong(FALHOU_CODIGO, 0L) == c) p.getInt(FALHOU_N, 0) + 1 else 1).apply()
+                // Falhou por partes: a próxima tentativa deste código vai pelo APK cheio (atualizarPorPartes devolve null).
+                if (c > 0 && p.getBoolean(POR_PARTES, false)) p.edit().putLong(PARTES_FALHOU, c).apply()
             }
             anotar(ctx, if (status == PackageInstaller.STATUS_SUCCESS) txt(R.string.atu_ok) else txt(R.string.atu_falhou, status, msg.toString()))
             // Troca de pacote: o app novo acabou de entrar (este processo não foi trocado: é outro pacote). Agora a
