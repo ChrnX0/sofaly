@@ -598,7 +598,8 @@
   let ligandoMic = false;
   async function ligarMic() {
     const status = $('statusCelularMic'), botao = $('btnMicTv');
-    if (mic) { pararMic(); return; }
+    // Desligado pela pessoa: o aviso "Microfone ligado" não pode ficar na tela (teste de ponta a ponta, 27/11/2026).
+    if (mic) { pararMic(); mostrar(status, ''); return; }
     if (ligandoMic) return;
     ligandoMic = true;
     try {
@@ -649,7 +650,7 @@
     .catch(() => { throw new Error('Não consegui abrir a câmera. Confira se o navegador tem permissão para usá-la.'); });
   async function ligarCam() {
     const status = $('statusCelularCam');
-    if (cam) { pararCam(); return; }
+    if (cam) { pararCam(); mostrar(status, ''); return; }   // idem: some o "Ao vivo na TV"
     if (ligandoCam) return;
     ligandoCam = true;
     try {
