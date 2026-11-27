@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>Kiểu TV và phiên bản Sofaly</item>
         <item>Cái gì hỏng, theo nhóm</item>
+        <item>Tên và phiên bản các ứng dụng bị treo hoặc chậm đi</item>
         <item>Cái gì đã sửa và có hiệu quả không</item>
         <item>Bộ nhớ và mạng, theo mức (tốt hoặc yếu)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>Tên bạn và tên mạng của bạn</item>
         <item>Bạn xem gì và khi nào</item>
-        <item>Ứng dụng của bạn và những gì bạn gõ</item>
-        <item>Ảnh, giọng nói, địa chỉ và IP</item>
+        <item>Danh sách ứng dụng của bạn và những gì bạn gõ</item>
+        <item>Ảnh, giọng nói và địa chỉ (IP không được lưu)</item>
     </string-array>
     <string name="hoh_back_here">Những gì các Sofaly khác học được sẽ quay về đây. Đổi bất cứ lúc nào trong Cài đặt, Sofy biết gì.</string>
     <string name="hoh_thanks">Cảm ơn! Sofaly của bạn giờ đang giúp các nhà khác.</string>

@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>テレビの機種とSofalyのバージョン</item>
         <item>壊れたもの（カテゴリー別）</item>
+        <item>落ちた・遅くなったアプリの名前とバージョン</item>
         <item>何で直したか、うまくいったか</item>
         <item>メモリとネットワークの目安（良い・弱い）</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>あなたの名前とネットワーク名</item>
         <item>何をいつ見ているか</item>
-        <item>あなたのアプリと入力した内容</item>
-        <item>写真、声、住所、IP</item>
+        <item>あなたのアプリの一覧と入力した内容</item>
+        <item>写真、声、住所（IPは保存されません）</item>
     </string-array>
     <string name="hoh_back_here">ほかのSofalyが学んだことはここに戻ってきます。設定の「Sofyが知っていること」でいつでも変えられます。</string>
     <string name="hoh_thanks">ありがとう！あなたのSofalyがほかの家を手伝い始めました。</string>

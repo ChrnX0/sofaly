@@ -13,6 +13,7 @@
     <string-array name="hoh_goes_list">
         <item>O modelo da TV e a versão do Sofaly</item>
         <item>O que quebrou, em categorias</item>
+        <item>Nome e versão dos apps que travaram ou ficaram lentos</item>
         <item>O que consertou e se deu certo</item>
         <item>Memória e rede em faixas (boa ou fraca)</item>
     </string-array>
@@ -20,8 +21,8 @@
     <string-array name="hoh_never_list">
         <item>Seu nome e o nome da sua rede</item>
         <item>O que você assiste e quando</item>
-        <item>Seus apps e o que você digita</item>
-        <item>Fotos, voz, endereço e IP</item>
+        <item>A lista dos seus apps e o que você digita</item>
+        <item>Fotos, voz e endereço (o IP não fica guardado)</item>
     </string-array>
     <string name="hoh_back_here">O que os outros Sofalys aprendem volta para cá. Dá para mudar quando quiser em Configurações, O que a Sofy sabe.</string>
     <string name="hoh_thanks">Obrigado! Seu Sofaly agora ajuda outras casas.</string>

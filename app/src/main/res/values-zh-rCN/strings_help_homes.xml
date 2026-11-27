@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>电视型号和 Sofaly 版本</item>
         <item>坏了什么（按类别）</item>
+        <item>崩溃或变慢的应用的名称和版本</item>
         <item>用什么修好，是否成功</item>
         <item>内存和网络的大致情况（好或弱）</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>你的名字和网络名称</item>
         <item>你看什么、什么时候看</item>
-        <item>你的应用和你输入的内容</item>
-        <item>照片、声音、地址和 IP</item>
+        <item>你的应用列表和你输入的内容</item>
+        <item>照片、声音和地址（不保存 IP）</item>
     </string-array>
     <string name="hoh_back_here">其他 Sofaly 学到的东西会回到这里。随时可以在 设置 &gt; Sofy 知道什么 中更改。</string>
     <string name="hoh_thanks">谢谢！你的 Sofaly 现在正在帮助其他家庭。</string>
