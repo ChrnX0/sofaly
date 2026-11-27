@@ -69,10 +69,9 @@ object Desfazer {
         val todos = lista(ctx)
         val passo = todos.firstOrNull { it.id == id && !it.desfeito } ?: return null
         val cache = HashMap<String, SharedPreferences>()
-        // MULTI_PROCESS relê do disco: o processo :player grava em "player" e "catalogo_pasta", e o cache velho deste
-        // processo, gravado inteiro no commit, apagava o que o player tinha acabado de salvar (rodada 15).
-        @Suppress("DEPRECATION")
-        fun sp(nome: String) = cache.getOrPut(nome) { ctx.getSharedPreferences(nome, Context.MODE_PRIVATE or Context.MODE_MULTI_PROCESS) }
+        // O :player grava em "player" e "catalogo_pasta" PELO processo principal (CrossProcessPrefs.kt): o cache daqui é o
+        // dono e está sempre certo. Antes (rodada 15) o cache velho, gravado inteiro no commit, apagava o que o player salvou.
+        fun sp(nome: String) = cache.getOrPut(nome) { ctx.getSharedPreferences(nome, Context.MODE_PRIVATE) }
         val (voltam, ficaram) = DesfazerRegras.planoDesfazer(passo) { p, k -> sp(p).all[k] }
         desfezEm = System.currentTimeMillis()
         voltam.groupBy { it.prefs }.forEach { (nome, ms) ->

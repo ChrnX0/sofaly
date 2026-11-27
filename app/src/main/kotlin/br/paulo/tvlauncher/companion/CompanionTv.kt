@@ -106,11 +106,10 @@ object CompanionTv {
     }
 
     /**
-     * MODE_MULTI_PROCESS: o painel grava no processo principal e o Som no fone lê no processo :player; sem isso, um
-     * player já aberto continuaria com o atraso velho (achado do revisor, 24/11/2026). Mesmo padrão do EfeitosSom.
+     * O painel grava no processo principal e o Som no fone lê no :player pelo dono (CrossProcessPrefs.kt): um player já
+     * aberto vê o atraso novo (achado do revisor, 24/11/2026). Mesmo padrão do EfeitosSom.
      */
-    @Suppress("DEPRECATION")
-    internal fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_MULTI_PROCESS)
+    internal fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 }
 
 /** Regras puras do [CompanionTv] (CompanionRulesTest). */

@@ -129,6 +129,8 @@ import java.util.Locale
  */
 @androidx.annotation.OptIn(markerClass = [UnstableApi::class])
 class VodActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         /** Códigos ISO 639-2 que não dizem idioma: indefinido, vários, sem fala, outros. */
         private val SEM_IDIOMA = setOf("und", "mul", "zxx", "mis")

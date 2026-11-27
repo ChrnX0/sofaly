@@ -32,6 +32,8 @@ import br.paulo.tvlauncher.settings.Fontes
  * [kind] ("filmes"/"series") monta as chaves já gravadas nas TVs ("ordem_filmes", "ultima_series_<perfil>"...): não mudar.
  */
 abstract class CatalogActivity<T>(protected val kind: String, protected val isSeries: Boolean) : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(br.paulo.tvlauncher.CrossProcessPrefs.wrap(base))
     protected companion object {
         const val MIN_PULAR = 30   // grade menor que isso se anda no controle mesmo
         const val ESPERA_EXTERNO_MS = 400L   // quanto a ficha do servidor espera pela de fora (com MDBList/Simkl ligados ela vem 150-400 ms depois, medido 16/11)

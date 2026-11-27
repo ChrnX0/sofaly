@@ -45,6 +45,8 @@ import java.util.Locale
  * Quem toca é o [OuvirServico] (17/11/2026): sair da tela NÃO para o som, a não ser que o dono escolha o jeito antigo.
  */
 class RadioActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         private const val ESCURECER_MS = 3 * 60_000L
         /** Elevação 3.11: aberta pela busca da HOME já procurando este nome. */

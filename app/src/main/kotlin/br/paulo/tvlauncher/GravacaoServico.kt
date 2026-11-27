@@ -197,12 +197,15 @@ object Gravacoes {
 /** O alarme de uma gravação agendada. Roda no ":player" (manifest). */
 class GravacaoReceiver : BroadcastReceiver() {
     companion object { const val ACAO_HORA = "br.paulo.tvlauncher.gravacao.HORA" }
-    override fun onReceive(ctx: Context, intent: Intent) {
+    override fun onReceive(raw: Context, intent: Intent) {
+        val ctx = CrossProcessPrefs.wrap(raw)   // :player: ajustes pelo dono (CrossProcessPrefs.kt)
         if (intent.action == ACAO_HORA) Gravacoes.armar(ctx)
     }
 }
 
 class GravacaoServico : Service() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         const val ACAO_AGORA = "br.paulo.tvlauncher.gravacao.AGORA"
         const val ACAO_AGENDADA = "br.paulo.tvlauncher.gravacao.AGENDADA"

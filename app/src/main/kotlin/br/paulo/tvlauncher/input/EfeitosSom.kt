@@ -81,11 +81,10 @@ class EfeitosSom {
         } catch (_: Exception) { false }
 
         /**
-         * As chaves de PlayerAcessivel. MODE_MULTI_PROCESS: as Configurações gravam no processo principal e o player roda
-         * no processo :player; sem isso, um player já aberto continuaria com o valor velho guardado na memória.
+         * As chaves de PlayerAcessivel. As Configurações gravam no processo principal e o player roda no :player, que lê
+         * e grava pelo dono (CrossProcessPrefs.kt): um player já aberto vê o valor novo.
          */
-        @Suppress("DEPRECATION")
-        private fun prefs(ctx: Context) = ctx.getSharedPreferences(PlayerAcessivel.PREFS, Context.MODE_MULTI_PROCESS)
+        private fun prefs(ctx: Context) = ctx.getSharedPreferences(PlayerAcessivel.PREFS, Context.MODE_PRIVATE)
         fun ligado(ctx: Context, chave: String) = prefs(ctx).getBoolean(chave, false)
         /** Inverte a chave e devolve o valor novo. */
         fun alternar(ctx: Context, chave: String): Boolean = (!ligado(ctx, chave)).also { prefs(ctx).edit().putBoolean(chave, it).apply() }

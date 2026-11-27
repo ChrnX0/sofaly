@@ -55,6 +55,8 @@ import java.util.Date
  * 2 = A seguir (◀ ▶ trocam, OK toca). ⏪ ⏩ ⏯ do controle valem em qualquer andar. Mesmo processo do som (":player").
  */
 class PodcastPlayerActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
 
     companion object {
         private const val EXTRA_EP = "ep"

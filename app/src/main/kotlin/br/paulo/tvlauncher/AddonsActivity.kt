@@ -57,6 +57,8 @@ import java.util.concurrent.Executors
  * ("bingeGroup") quando o addon diz qual é. Processo ":player".
  */
 class AddonsActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     private class Secao(val nome: String)
     private class Linha(val icone: IconeMidia.Tipo, val titulo: String, val sub: String?, val alvo: Any)
 

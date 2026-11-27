@@ -28,6 +28,8 @@ import br.paulo.tvlauncher.search.BuscaUnica
  * Filmes ou Séries já buscando o nome. Abre da ficha (botão Elenco) e do menu ▼ do player.
  */
 class ElencoActivity : Activity() {
+    /** No :player, ajustes pelo dono do processo principal (CrossProcessPrefs.kt). */
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(CrossProcessPrefs.wrap(base))
     companion object {
         private const val EXTRA_TMDB = "tmdb"
         private const val EXTRA_SERIE = "serie"
