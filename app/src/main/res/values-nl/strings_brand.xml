@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Sofaly logo (18/11/2026): splash when the TV turns on, top of Settings, About Sofaly and the screensaver corner. -->
 <resources>
-    <string name="brand_slogan">Je tv, weer eenvoudig.</string>
+    <string name="brand_slogan">Gezellige tijd op je tv.</string>
     <string name="brand_about">Over Sofaly</string>
     <string name="brand_about_det">Versie, wat er veranderde en licenties</string>
     <string name="brand_splash">Logo als de tv aangaat</string>
