@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">TV tidak bisa membuka file ini.</string>
     <string name="cel_enviar_de_novo">Coba lagi</string>
     <string name="cel_enviar_qr">Untuk mengirim foto dan file, pindai dulu kode QR di TV.</string>
+    <string name="cel_fora_link">Gunakan di luar rumah</string>
+    <string name="cel_fora_titulo">Gunakan di luar rumah?</string>
+    <string name="cel_fora_explica">Masukkan PIN TV sekali. Setelah itu ponsel ini mengontrol TV lewat internet saat Anda di luar, semuanya terenkripsi.</string>
+    <string name="cel_fora_pin">PIN TV</string>
+    <string name="cel_fora_pin_formato">PIN terdiri dari 6 sampai 12 angka.</string>
+    <string name="cel_fora_conferindo">Memeriksa…</string>
+    <string name="cel_fora_ativar">Aktifkan</string>
+    <string name="cel_fora_agora_nao">Nanti saja</string>
+    <string name="cel_fora_pin_errado">PIN salah. Coba lagi.</string>
+    <string name="cel_fora_esperar">Terlalu banyak percobaan. Tunggu %1$d dtk lalu coba lagi.</string>
+    <string name="cel_fora_falhou">Tidak berhasil. Coba lagi di rumah dengan TV menyala.</string>
+    <string name="cel_fora_pronto">Selesai. Ponsel ini kini juga mengontrol TV dari luar rumah.</string>
 </resources>

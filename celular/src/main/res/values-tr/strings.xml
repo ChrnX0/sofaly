@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">TV bu dosyayı açamıyor.</string>
     <string name="cel_enviar_de_novo">Tekrar dene</string>
     <string name="cel_enviar_qr">Fotoğraf ve dosya göndermek için önce TV\'deki QR kodunu okutun.</string>
+    <string name="cel_fora_link">Evin dışında kullan</string>
+    <string name="cel_fora_titulo">Evin dışında kullanılsın mı?</string>
+    <string name="cel_fora_explica">TV PIN\'ini bir kez girin. Sonra bu telefon, dışarıdayken TV\'yi internet üzerinden kontrol eder; her şey şifrelidir.</string>
+    <string name="cel_fora_pin">TV PIN\'i</string>
+    <string name="cel_fora_pin_formato">PIN 6 ile 12 rakamdan oluşur.</string>
+    <string name="cel_fora_conferindo">Kontrol ediliyor…</string>
+    <string name="cel_fora_ativar">Aç</string>
+    <string name="cel_fora_agora_nao">Şimdi değil</string>
+    <string name="cel_fora_pin_errado">Yanlış PIN. Tekrar deneyin.</string>
+    <string name="cel_fora_esperar">Çok fazla deneme. %1$d sn bekleyip tekrar deneyin.</string>
+    <string name="cel_fora_falhou">Olmadı. Evde, TV açıkken tekrar deneyin.</string>
+    <string name="cel_fora_pronto">Tamam. Bu telefon artık TV\'yi evin dışından da kontrol ediyor.</string>
 </resources>

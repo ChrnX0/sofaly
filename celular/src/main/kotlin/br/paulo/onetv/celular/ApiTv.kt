@@ -123,6 +123,53 @@ object ApiTv {
             semRelay[Pareamento.chave(tv)] = if (r.codigo <= 0 || esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
     }
 
+    /**
+     * "Usar fora de casa?" (27/11/2026). Por quê: quem entrou só pelo QR tem sessão sem PIN, e a TV só dá a chave de
+     * aparelho e as chaves do relay com o PIN digitado há pouco; nada pedia esse PIN, e o celular nunca ficava pronto
+     * para fora de casa. Para quê: o controle pergunta uma vez e pede o PIN ali mesmo. Como: o PIN vai para o mesmo
+     * /api/confirmar do painel (eleva a sessão por 5 min); na hora pede a chave e troca as chaves do relay.
+     */
+    enum class Fora { ATIVADO, PIN_ERRADO, ESPERAR, SEM_SESSAO, SEM_TV, RECUSOU }
+
+    /** Oferece só em casa (a TV respondeu pelo https agora, não pelo relay), com o QR lido e sem as chaves do relay. Pura. */
+    fun deveOferecerFora(codigo: Int, podeUsar: Boolean, temRelay: Boolean): Boolean =
+        codigo in 200..299 && codigo != 202 && podeUsar && !temRelay
+
+    /**
+     * A resposta do /api/confirmar vira o que a tela diz. 401 COM "restantes" é PIN errado; 401 sem é sessão vencida
+     * (a TV responde "entre com o PIN" antes de olhar o PIN). Pura (ForaDeCasaTest).
+     */
+    fun foraPeloPin(codigo: Int, json: JSONObject?): Fora = when {
+        codigo == 200 -> Fora.ATIVADO
+        codigo == 401 && json?.has("restantes") == true -> Fora.PIN_ERRADO
+        codigo == 401 -> Fora.SEM_SESSAO
+        codigo == 429 -> Fora.ESPERAR
+        codigo == 0 || codigo == DEMOROU || codigo == CERTIFICADO_TROCOU -> Fora.SEM_TV
+        else -> Fora.RECUSOU
+    }
+
+    /** PIN da TV no formato do painel (pinValido em app.js): 6 a 12 algarismos. Pura. */
+    fun pinValido(pin: String): Boolean = Regex("[0-9]{6,12}").matches(pin)
+
+    /**
+     * Bloqueante. Nunca repete o PIN sozinho (cada PIN errado conta no bloqueio da TV): só entra de novo pela chave de
+     * aparelho quando a sessão venceu, e aí confere o PIN uma vez. [esperarSeg] recebe a espera da TV no 429.
+     */
+    fun ativarForaDeCasa(ctx: Context, tv: Pareamento.Tv, pin: String, esperarSeg: (Int) -> Unit = {}): Fora {
+        val corpo = JSONObject().put("pin", pin)
+        var r = chamarUmaVez(tv, "POST", "/api/confirmar", corpo)
+        if (foraPeloPin(r.codigo, r.json) == Fora.SEM_SESSAO && reentrar(tv)) r = chamarUmaVez(tv, "POST", "/api/confirmar", corpo)
+        val f = foraPeloPin(r.codigo, r.json)
+        if (f == Fora.ESPERAR) esperarSeg(r.json?.optInt("esperarSeg", 0) ?: 0)
+        if (f != Fora.ATIVADO) return f
+        val k = Pareamento.chave(tv)
+        ultimoPedido.remove(k); semChave.remove(k); semRelay.remove(k)
+        // Sem chave ainda: pede agora (a sessão está elevada). Com chave nova, pedirChave esquece as chaves velhas do relay.
+        if (ChaveAparelho.ler(ctx, tv) == null) pedirChave(ctx, tv)
+        if (RelayCelular.tv(ctx, tv) == null) parearRelay(ctx, tv)
+        return if (RelayCelular.tv(ctx, tv) != null) Fora.ATIVADO else Fora.RECUSOU
+    }
+
     /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
     private fun pelaCaixa(ctx: Context, tv: Pareamento.Tv, caminho: String, corpo: JSONObject?): Resposta? {
         val m = RelayCelular.mensagem(caminho, corpo, System.currentTimeMillis()) ?: return null

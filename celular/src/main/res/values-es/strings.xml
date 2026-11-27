@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">La TV no puede abrir este archivo.</string>
     <string name="cel_enviar_de_novo">Intentar de nuevo</string>
     <string name="cel_enviar_qr">Para enviar fotos y archivos, primero escanea el código QR de la TV.</string>
+    <string name="cel_fora_link">Usar fuera de casa</string>
+    <string name="cel_fora_titulo">¿Usar fuera de casa?</string>
+    <string name="cel_fora_explica">Escribe el PIN de la TV una vez. Después este móvil controla la TV por internet cuando estés fuera, todo cifrado.</string>
+    <string name="cel_fora_pin">PIN de la TV</string>
+    <string name="cel_fora_pin_formato">El PIN tiene de 6 a 12 cifras.</string>
+    <string name="cel_fora_conferindo">Comprobando…</string>
+    <string name="cel_fora_ativar">Activar</string>
+    <string name="cel_fora_agora_nao">Ahora no</string>
+    <string name="cel_fora_pin_errado">PIN incorrecto. Inténtalo de nuevo.</string>
+    <string name="cel_fora_esperar">Demasiados intentos. Espera %1$d s y vuelve a intentarlo.</string>
+    <string name="cel_fora_falhou">No funcionó. Inténtalo de nuevo en casa, con la TV encendida.</string>
+    <string name="cel_fora_pronto">Listo. Este móvil ya controla la TV también fuera de casa.</string>
 </resources>

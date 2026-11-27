@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">电视无法打开此文件。</string>
     <string name="cel_enviar_de_novo">重试</string>
     <string name="cel_enviar_qr">要发送照片和文件，请先扫描电视上的二维码。</string>
+    <string name="cel_fora_link">在外使用</string>
+    <string name="cel_fora_titulo">要在外使用吗？</string>
+    <string name="cel_fora_explica">输入一次电视的 PIN。之后你不在家时，这部手机也能通过互联网控制电视，全程加密。</string>
+    <string name="cel_fora_pin">电视 PIN</string>
+    <string name="cel_fora_pin_formato">PIN 为 6 到 12 位数字。</string>
+    <string name="cel_fora_conferindo">正在核对…</string>
+    <string name="cel_fora_ativar">开启</string>
+    <string name="cel_fora_agora_nao">以后再说</string>
+    <string name="cel_fora_pin_errado">PIN 错误，请重试。</string>
+    <string name="cel_fora_esperar">尝试次数过多。请等待 %1$d 秒后重试。</string>
+    <string name="cel_fora_falhou">没有成功。请在家里、电视开机时重试。</string>
+    <string name="cel_fora_pronto">完成。这部手机现在在外面也能控制电视。</string>
 </resources>

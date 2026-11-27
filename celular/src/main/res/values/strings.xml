@@ -60,4 +60,16 @@
     <string name="cel_juntar_duas">Choose exactly two TVs.</string>
     <string name="cel_juntar_pronto">%1$s and %2$s are connected. Watch together now shows the other TV in each home.</string>
     <string name="cel_juntar_falhou">Could not connect %1$s and %2$s. Check the internet and try again.</string>
+    <string name="cel_fora_link">Use away from home</string>
+    <string name="cel_fora_titulo">Use away from home?</string>
+    <string name="cel_fora_explica">Type the TV PIN once. Then this phone controls the TV over the internet when you are out, encrypted end to end.</string>
+    <string name="cel_fora_pin">TV PIN</string>
+    <string name="cel_fora_pin_formato">The PIN has 6 to 12 digits.</string>
+    <string name="cel_fora_conferindo">Checking…</string>
+    <string name="cel_fora_ativar">Turn on</string>
+    <string name="cel_fora_agora_nao">Not now</string>
+    <string name="cel_fora_pin_errado">Wrong PIN. Try again.</string>
+    <string name="cel_fora_esperar">Too many tries. Wait %1$d s and try again.</string>
+    <string name="cel_fora_falhou">It didn\'t work. Try again at home, with the TV on.</string>
+    <string name="cel_fora_pronto">Done. This phone now controls the TV from away too.</string>
 </resources>

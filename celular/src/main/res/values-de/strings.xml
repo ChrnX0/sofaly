@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">Der Fernseher kann diese Datei nicht öffnen.</string>
     <string name="cel_enviar_de_novo">Erneut versuchen</string>
     <string name="cel_enviar_qr">Um Fotos und Dateien zu senden, zuerst den QR-Code auf dem Fernseher scannen.</string>
+    <string name="cel_fora_link">Unterwegs nutzen</string>
+    <string name="cel_fora_titulo">Unterwegs nutzen?</string>
+    <string name="cel_fora_explica">Gib einmal die PIN des Fernsehers ein. Danach steuert dieses Handy den Fernseher übers Internet, wenn du unterwegs bist – durchgehend verschlüsselt.</string>
+    <string name="cel_fora_pin">PIN des Fernsehers</string>
+    <string name="cel_fora_pin_formato">Die PIN hat 6 bis 12 Ziffern.</string>
+    <string name="cel_fora_conferindo">Wird geprüft…</string>
+    <string name="cel_fora_ativar">Einschalten</string>
+    <string name="cel_fora_agora_nao">Jetzt nicht</string>
+    <string name="cel_fora_pin_errado">Falsche PIN. Versuch es noch einmal.</string>
+    <string name="cel_fora_esperar">Zu viele Versuche. Warte %1$d s und versuch es erneut.</string>
+    <string name="cel_fora_falhou">Das hat nicht geklappt. Versuch es zu Hause bei eingeschaltetem Fernseher noch einmal.</string>
+    <string name="cel_fora_pronto">Fertig. Dieses Handy steuert den Fernseher jetzt auch von unterwegs.</string>
 </resources>

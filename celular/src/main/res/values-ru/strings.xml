@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">ТВ не может открыть этот файл.</string>
     <string name="cel_enviar_de_novo">Повторить</string>
     <string name="cel_enviar_qr">Чтобы отправлять фото и файлы, сначала отсканируйте QR-код на ТВ.</string>
+    <string name="cel_fora_link">Использовать вне дома</string>
+    <string name="cel_fora_titulo">Использовать вне дома?</string>
+    <string name="cel_fora_explica">Введите PIN телевизора один раз. Потом этот телефон будет управлять телевизором через интернет, когда вас нет дома, всё зашифровано.</string>
+    <string name="cel_fora_pin">PIN телевизора</string>
+    <string name="cel_fora_pin_formato">PIN состоит из 6–12 цифр.</string>
+    <string name="cel_fora_conferindo">Проверка…</string>
+    <string name="cel_fora_ativar">Включить</string>
+    <string name="cel_fora_agora_nao">Не сейчас</string>
+    <string name="cel_fora_pin_errado">Неверный PIN. Попробуйте ещё раз.</string>
+    <string name="cel_fora_esperar">Слишком много попыток. Подождите %1$d с и попробуйте снова.</string>
+    <string name="cel_fora_falhou">Не получилось. Попробуйте ещё раз дома при включённом телевизоре.</string>
+    <string name="cel_fora_pronto">Готово. Теперь этот телефон управляет телевизором и вне дома.</string>
 </resources>
