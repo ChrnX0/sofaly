@@ -324,7 +324,7 @@ class JogosActivity : Activity() {
                     getString(R.string.turma_chamado), icone = IconeOuvir.Tipo.CONTROLE, abrir = { chamarTurma(escolhido?.nome) })
                 val gente = t.salas.flatMap { it.membros } + t.outros
                 for ((i, m) in gente.withIndex()) itens += CruzOuvir.Item("membro:$i:" + m.nome, m.nome, statusMembro(m), capa = m.avatar.orEmpty(),
-                    cobrir = true, cor = CORES_AVATAR[Math.floorMod(m.nome.hashCode(), CORES_AVATAR.size)],
+                    cobrir = true, cor = Estilo.corCapa(m.nome),
                     monograma = m.nome.take(1).uppercase(), abrir = { m.canalVoz?.let { id -> t.salas.firstOrNull { it.id == id } }?.let { mostrarQrGrande(it, servidor) } })
                 if (gente.isEmpty()) itens += CruzOuvir.Item("ninguem", getString(R.string.turma_ninguem), "", icone = IconeOuvir.Tipo.TURMA)
                 else if (t.online > gente.size) itens += CruzOuvir.Item("mais_online", getString(R.string.turma_mais_online, t.online - gente.size),
@@ -725,6 +725,5 @@ class JogosActivity : Activity() {
         private val CORES_CONSOLE = intArrayOf(0xFFE04A3A.toInt(), 0xFF7C6CF2.toInt(), 0xFF2FA866.toInt(), 0xFF8FB82B.toInt(),
             0xFF3D7BFF.toInt(), 0xFF5B4BC4.toInt(), 0xFFC98A12.toInt(), 0xFF1F6FD1.toInt())
         // Avatares: tons claros, nenhum rosado (o dono detesta rosa).
-        private val CORES_AVATAR = intArrayOf(0xFFFFB37A.toInt(), 0xFF9CC8FF.toInt(), 0xFFA8E6B8.toInt(), 0xFFF5DFA0.toInt(), 0xFF8FE0D0.toInt(), 0xFFC7D3E0.toInt())
     }
 }

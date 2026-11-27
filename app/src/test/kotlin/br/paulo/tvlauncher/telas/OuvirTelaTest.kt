@@ -99,6 +99,11 @@ class OuvirTelaTest {
         assertEquals(listOf("fav:4"), opcoes)
         andar(android.view.View.FOCUS_DOWN)   // Recentes só avisa: pula para Gêneros
         assertEquals("gen:Sertanejo", cruz.itemAtual()?.id)
+        // A tecla de verdade não pode ser comida pela rolagem (ela rolava uma página com "Perto" carregando no meio):
+        // sem ninguém tratar, o Android anda o foco pelo focusSearch acima.
+        for (k in listOf(KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_DPAD_DOWN))
+            assertTrue("▲▼ chegam ao focusSearch", !cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, k)))
+        assertEquals("a tecla não mexeu no foco sozinha", "gen:Sertanejo", cruz.itemAtual()?.id)
         andar(android.view.View.FOCUS_UP)
         assertEquals("volta ao cartão lembrado", "fav:4", cruz.itemAtual()?.id)
         repeat(10) { andar(android.view.View.FOCUS_RIGHT) }

@@ -56,9 +56,7 @@ class RadioActivity : Activity() {
             ctx.getSharedPreferences(PREFS, MODE_PRIVATE).getBoolean(CHAVE_CONTINUAR, true)
 
         /** Cores das rádios sem logo (as iniciais ficam sobre uma delas, sempre a mesma para a mesma rádio). */
-        private val CORES = intArrayOf(0xFF45C2B1.toInt(), 0xFF7FB2FF.toInt(), 0xFFF2B84B.toInt(), 0xFF8E92FA.toInt(),
-            0xFF9CD27E.toInt(), 0xFFF59E5B.toInt(), 0xFF6FC3B2.toInt(), 0xFFE6C46A.toInt())
-        fun corDe(chave: String): Int = CORES[(chave.hashCode() and 0x7FFFFFFF) % CORES.size]
+        fun corDe(chave: String): Int = Estilo.corCapa(chave)   // só a paleta (27/11/2026)
     }
 
     private val ui = Handler(Looper.getMainLooper())

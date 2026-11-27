@@ -28,7 +28,7 @@ class CapaOuvir(ctx: Context, private val raioDp: Float = 14f) : ImageView(ctx) 
 
     var icone: Drawable? = null
         set(v) { field?.callback = null; field = v; v?.callback = this; invalidate() }
-    var cor: Int = 0xFF45C2B1.toInt()
+    var cor: Int = 0xFF2E2C2A.toInt()   // grafite (sem cor de mundo)
         set(v) { field = v; invalidate() }
     var monograma: String = ""
         set(v) { field = v; invalidate() }

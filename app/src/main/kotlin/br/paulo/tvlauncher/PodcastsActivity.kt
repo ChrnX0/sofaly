@@ -568,11 +568,8 @@ class PodcastsActivity : Activity() {
         })
     }
 
-    /** Uma cor por assunto, da mesma família das capas (estável: vem do id). */
-    private fun corAssunto(a: PodcastAssuntos.Assunto): Int {
-        val cores = intArrayOf(0xFF7FB2FF.toInt(), 0xFF45C2B1.toInt(), 0xFF8E92FA.toInt(), 0xFFE6C46A.toInt(), 0xFF9CD27E.toInt(), 0xFF8FB4F0.toInt())
-        return cores[a.ordinal % cores.size]
-    }
+    /** Uma cor por assunto: grafite com um toque de laranja, estável pelo id (só a paleta, 27/11/2026). */
+    private fun corAssunto(a: PodcastAssuntos.Assunto): Int = Estilo.corCapa(a.name)
 
     /**
      * Abre a lista de um assunto na prateleira de resultados: primeiro os seus daquele tema (✓), depois o Em alta do

@@ -269,6 +269,21 @@ object Estilo {
     const val CAIXA = 0x61464644
     fun caixa(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, CAIXA, raioDp, if (altoContraste) BORDA else 0)
 
+    /**
+     * A cor da capa de quem não tem foto (filme, rádio, gênero, assunto, pessoa): grafite neutro com um toque do laranja,
+     * mais ou menos forte conforme a [semente] (o mesmo nome dá sempre o mesmo tom). Só a paleta, nunca roxo, verde ou
+     * rosa (Paulo, 27/11/2026: as capas coloridas por título destoavam do padrão). Puro.
+     */
+    fun corCapa(semente: String): Int {
+        val n = Math.floorMod(semente.lowercase().filter { it.isLetterOrDigit() }.hashCode(), TONS_CAPA)
+        val t = 0.06f + n * 0.05f   // 6% a 26% de laranja
+        val a = GRAFITE_CAPA; val b = ACENTO
+        fun c(sh: Int) = ((a shr sh and 0xFF) + (((b shr sh and 0xFF) - (a shr sh and 0xFF)) * t)).toInt().coerceIn(0, 255)
+        return (0xFF shl 24) or (c(16) shl 16) or (c(8) shl 8) or c(0)
+    }
+    private const val GRAFITE_CAPA = 0xFF2E2C2A.toInt()
+    private const val TONS_CAPA = 5
+
     /** O cartão em foco no padrão das Fileiras (Paulo aprovou a prévia, 26/11/2026): caixa mais clara e quase opaca. */
     const val FOCO_CARTAO = 0xF53E3D3A.toInt()
 

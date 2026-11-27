@@ -875,7 +875,14 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             // Embaixo, uma tela de folga: até a última fileira sobe para o lugar fixo do foco (o alto da área).
             setPaddingRelative(dpi(Estilo.MARGEM_LATERAL), dpi(8), 0, dpi(400))
         }
-        val rolagem = android.widget.ScrollView(ctx).apply {
+        // ▲ ▼ ficam com o [focusSearch] daqui (fileira lembrada, pula a que só informa). O ScrollView comum tratava a tecla
+        // sozinho (FocusFinder dentro dele) e, com a fileira de cima longe da tela (ex.: "Perto" carregando no meio),
+        // rolava uma página em vez de andar o foco (visto na Sala, 26/11/2026).
+        val rolagem = object : android.widget.ScrollView(ctx) {
+            override fun executeKeyEvent(event: KeyEvent): Boolean =
+                if (event.keyCode == KeyEvent.KEYCODE_DPAD_UP || event.keyCode == KeyEvent.KEYCODE_DPAD_DOWN) false
+                else super.executeKeyEvent(event)
+        }.apply {
             isVerticalScrollBarEnabled = false; isFillViewport = true
             // Recorta: a fileira que rola para cima some na borda, não passa por baixo do título e do "Tocando agora".
             clipChildren = true; clipToPadding = true
