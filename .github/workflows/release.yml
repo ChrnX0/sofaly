@@ -235,11 +235,16 @@ jobs:
         id: info
         run: |
           NOME=sofaly-launcher
-          # App de celular: nome que NÃO começa com one-tv-launcher (o Atualizador da TV nunca o pega por engano).
+          # App de celular (pacote tv.sofaly.phone): sofaly-phone.apk (27/11/2026, Paulo: nada de "one-tv" no que o
+          # público vê). Nome que NÃO começa com sofaly-launcher: o Atualizador da TV nunca o pega por engano.
+          # TRANSIÇÃO: o painel das TVs já instaladas (até a v475825) liga para .../latest/download/one-tv-celular.apk;
+          # a mesma cópia sai também com esse nome até essas TVs se atualizarem (ReleaseNamesTest só aceita este nome velho).
           CEL=celular/build/outputs/apk/release/celular-release.apk
           if [ -f "$CEL" ]; then
-            cp "$CEL" publicar/one-tv-celular.apk
-            (cd publicar && sha256sum one-tv-celular.apk | cut -d' ' -f1 > one-tv-celular.apk.sha256)
+            cp "$CEL" publicar/sofaly-phone.apk
+            (cd publicar && sha256sum sofaly-phone.apk | cut -d' ' -f1 > sofaly-phone.apk.sha256)
+            cp publicar/sofaly-phone.apk publicar/one-tv-celular.apk
+            cp publicar/sofaly-phone.apk.sha256 publicar/one-tv-celular.apk.sha256
           fi
           AAPT=$(ls "$ANDROID_HOME"/build-tools/36.0.0/aapt2)
           CODIGO=$("$AAPT" dump badging publicar/$NOME.apk | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p")
@@ -254,6 +259,7 @@ jobs:
             # Pacote e versão certos em cada arquivo: o app nunca sai com o nome antigo, nem a ponte com o novo.
             PKG=$("$AAPT" dump badging "publicar/$APK" | sed -n "s/^package: name='\([^']*\)'.*/\1/p")
             VC=$("$AAPT" dump badging "publicar/$APK" | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p")
+            # Só a ponte (bridge=true) pode ter o pacote antigo br.paulo.*: nenhum app público com o nome do Paulo.
             case "$APK" in one-tv-launcher*) ESPERADO=br.paulo.tvlauncher ;; *) ESPERADO=tv.sofaly.launcher ;; esac
             if [ "$PKG" != "$ESPERADO" ]; then echo "::error::$APK é $PKG, esperado $ESPERADO"; exit 1; fi
             if [ "$VC" != "$CODIGO" ]; then echo "::error::$APK versionCode $VC, esperado $CODIGO"; exit 1; fi
@@ -265,6 +271,14 @@ jobs:
             (cd publicar && sha256sum "$APK" | cut -d' ' -f1 > "$APK.sha256")
             echo "$APK  versionCode=$CODIGO  tamanho=$(stat -c%s "publicar/$APK") bytes  sha256=$(cat "publicar/$APK.sha256")"
           done
+          # App do celular: pacote tv.sofaly.phone e a mesma versão (sem libs nativas, fora do laço acima).
+          if [ -f publicar/sofaly-phone.apk ]; then
+            PKG=$("$AAPT" dump badging publicar/sofaly-phone.apk | sed -n "s/^package: name='\([^']*\)'.*/\1/p")
+            VC=$("$AAPT" dump badging publicar/sofaly-phone.apk | sed -n "s/.*versionCode='\([0-9]*\)'.*/\1/p")
+            if [ "$PKG" != "tv.sofaly.phone" ]; then echo "::error::sofaly-phone.apk é $PKG, esperado tv.sofaly.phone"; exit 1; fi
+            if [ "$VC" != "$CODIGO" ]; then echo "::error::sofaly-phone.apk versionCode $VC, esperado $CODIGO"; exit 1; fi
+            cmp -s publicar/sofaly-phone.apk publicar/one-tv-celular.apk || { echo "::error::one-tv-celular.apk difere de sofaly-phone.apk"; exit 1; }
+          fi
           echo "codigo=$CODIGO" >> "$GITHUB_OUTPUT"
           echo "nome=$NOME" >> "$GITHUB_OUTPUT"
           # Commit compilado de verdade (na republicação não é o GITHUB_SHA).
@@ -313,7 +327,9 @@ jobs:
           if [ "$CANAL" = "teste" ]; then MARCA=--prerelease; else MARCA=--latest; fi
           # O commit só existe no repo do código: no repo público a tag nasce no main dele (o número vem da tag).
           if [ "$DESTINO" = "$GITHUB_REPOSITORY" ]; then ALVO_TAG="--target $COMMIT"; else ALVO_TAG=""; fi
-          EXTRA=""; [ -f one-tv-celular.apk ] && EXTRA="one-tv-celular.apk one-tv-celular.apk.sha256"
+          EXTRA=""; [ -f sofaly-phone.apk ] && EXTRA="sofaly-phone.apk sofaly-phone.apk.sha256"
+          # Transição (ver "Versão e SHA-256"): o mesmo app do celular com o nome que os painéis antigos ainda pedem.
+          [ -f one-tv-celular.apk ] && EXTRA="$EXTRA one-tv-celular.apk one-tv-celular.apk.sha256"
           # Ponte (só com bridge=true): as TVs ainda em br.paulo.tvlauncher instalam a ponte e passam para o app novo.
           [ -f one-tv-launcher.apk ] && EXTRA="$EXTRA one-tv-launcher.apk one-tv-launcher.apk.sha256 one-tv-launcher-arm64.apk one-tv-launcher-arm64.apk.sha256"
           [ -f leveza.json ] && EXTRA="$EXTRA leveza.json"
@@ -321,6 +337,6 @@ jobs:
             "$NOME.apk" "$NOME.apk.sha256" \
             "$NOME-arm64.apk" "$NOME-arm64.apk.sha256" $EXTRA \
             --repo "$DESTINO" \
-            --title "One TV Launcher 1.0 (build $V)" \
+            --title "Sofaly 1.0 (build $V)" \
             --notes-file notas.md \
             $ALVO_TAG

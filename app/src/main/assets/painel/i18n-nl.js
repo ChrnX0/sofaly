@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (telefoon of tablet)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Open de Instellingen van de telefoon en typ in de zoekbalk bovenaan \"certificaat\".",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Tik op \"Certificaat installeren\" (of \"Een certificaat installeren\") en kies \"CA-certificaat\". Er verschijnt een waarschuwing: tik op \"Toch installeren\".",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Kies one-tv-painel.crt in de map Downloads. Android vraagt om de pincode, het patroon of de vingerafdruk van de schermvergrendeling (als de telefoon er geen heeft, vraagt hij je er een te maken).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Kies sofaly-panel.crt in de map Downloads. Android vraagt om de pincode, het patroon of de vingerafdruk van de schermvergrendeling (als de telefoon er geen heeft, vraagt hij je er een te maken).",
 "Volte para esta página no Chrome.":"Kom terug naar deze pagina in Chrome.",
 "iPhone ou iPad":"iPhone of iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Open deze pagina in Safari, tik op \"Certificaat downloaden\" en daarna op \"Sta toe\".",

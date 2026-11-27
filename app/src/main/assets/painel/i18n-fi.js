@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (puhelin tai tabletti)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Avaa puhelimen Asetukset ja kirjoita yläosan hakuun \"varmenne\".",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Napauta \"Asenna varmenne\" ja valitse \"CA-varmenne\". Näkyviin tulee varoitus: napauta \"Asenna silti\".",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Valitse one-tv-painel.crt Lataukset-kansiosta. Android kysyy näytön lukituksen PIN-koodia, kuviota tai sormenjälkeä (jos puhelimessa ei ole sellaista, se pyytää luomaan sen).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Valitse sofaly-panel.crt Lataukset-kansiosta. Android kysyy näytön lukituksen PIN-koodia, kuviota tai sormenjälkeä (jos puhelimessa ei ole sellaista, se pyytää luomaan sen).",
 "Volte para esta página no Chrome.":"Palaa tälle sivulle Chromessa.",
 "iPhone ou iPad":"iPhone tai iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Avaa tämä sivu Safarissa, napauta \"Lataa varmenne\" ja sitten \"Salli\".",

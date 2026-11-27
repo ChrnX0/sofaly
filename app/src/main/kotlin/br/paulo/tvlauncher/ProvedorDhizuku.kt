@@ -54,7 +54,7 @@ class ServicoDhizuku(ctx: Context, admin: ComponentName, client: IDhizukuClient?
         val (v, nome) = FiltroDpm.veredito(binder, code, data, mContext.packageName, total)
         if (v != RegrasDono.Veredito.PASSA) {
             DonoEmprestado.negado(mContext, uid, "${nome ?: "código $code"} (${v.name.lowercase()})")
-            throw SecurityException("One TV: ${nome ?: "this call"} is not allowed for borrowed Device Owner")
+            throw SecurityException("Sofaly: ${nome ?: "this call"} is not allowed for borrowed Device Owner")
         }
         return super.onRemoteTransact(binder, code, data, reply, flags)
     }

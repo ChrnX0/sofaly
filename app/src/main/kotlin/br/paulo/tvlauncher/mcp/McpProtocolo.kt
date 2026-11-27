@@ -17,7 +17,7 @@ import org.json.JSONObject
 object McpProtocolo {
     /** Versões da spec que conhecemos, da mais nova para a mais antiga. */
     val VERSOES = listOf("2025-11-25", "2025-06-18")   // 2025-03-26 saiu: ela exige lotes JSON-RPC, que não tratamos (auditoria 10/11/2026)
-    const val NOME = "onetv"
+    const val NOME = "sofaly"   // o nome do produto (27/11/2026); antes "onetv"
 
     interface Ferramentas {
         /** A lista de ferramentas: cada uma com name, description e inputSchema (JSON Schema). */

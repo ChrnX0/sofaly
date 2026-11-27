@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (κινητό ή tablet)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Ανοίξτε τις Ρυθμίσεις του κινητού και, στην αναζήτηση στην κορυφή, πληκτρολογήστε «πιστοποιητικό».",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Πατήστε «Εγκατάσταση πιστοποιητικού» και επιλέξτε «Πιστοποιητικό CA». Εμφανίζεται μια προειδοποίηση: πατήστε «Εγκατάσταση ούτως ή άλλως».",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Επιλέξτε το one-tv-painel.crt στον φάκελο Λήψεις. Το Android ζητά το PIN, το μοτίβο ή το δακτυλικό αποτύπωμα κλειδώματος οθόνης (αν το κινητό δεν έχει, σας ζητά να δημιουργήσετε).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Επιλέξτε το sofaly-panel.crt στον φάκελο Λήψεις. Το Android ζητά το PIN, το μοτίβο ή το δακτυλικό αποτύπωμα κλειδώματος οθόνης (αν το κινητό δεν έχει, σας ζητά να δημιουργήσετε).",
 "Volte para esta página no Chrome.":"Επιστρέψτε σε αυτή τη σελίδα στο Chrome.",
 "iPhone ou iPad":"iPhone ή iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Ανοίξτε αυτή τη σελίδα στο Safari, πατήστε «Λήψη πιστοποιητικού» και μετά «Αποδοχή».",
