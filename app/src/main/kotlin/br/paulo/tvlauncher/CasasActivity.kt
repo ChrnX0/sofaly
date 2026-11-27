@@ -100,7 +100,7 @@ class CasasActivity : Activity() {
         val f = RelayCasas.fim
         val c = RelayCasas.codigo
         when {
-            p != null -> { codigoGrande.text = p.numeros; estado.text = getString(R.string.casas_chegou, p.pedido.nome); perguntar(p) }
+            p != null -> { codigoGrande.text = p.numeros; estado.text = getString(if (p.devolver) R.string.casas_chegou else R.string.casas_confirmou, p.pedido.nome); perguntar(p) }
             f != null && !f.erro -> {
                 codigoGrande.text = f.numeros ?: ""
                 estado.text = getString(R.string.casas_pronto, f.nome ?: "")

@@ -55,4 +55,9 @@
     <string name="cel_enviar_tipo">The TV can\'t open this file.</string>
     <string name="cel_enviar_de_novo">Try again</string>
     <string name="cel_enviar_qr">To send photos and files, scan the QR code on the TV first.</string>
+    <string name="cel_juntar_tvs">Connect two TVs for Watch together</string>
+    <string name="cel_juntar_ligar">Connect</string>
+    <string name="cel_juntar_duas">Choose exactly two TVs.</string>
+    <string name="cel_juntar_pronto">%1$s and %2$s are connected. Watch together now shows the other TV in each home.</string>
+    <string name="cel_juntar_falhou">Could not connect %1$s and %2$s. Check the internet and try again.</string>
 </resources>

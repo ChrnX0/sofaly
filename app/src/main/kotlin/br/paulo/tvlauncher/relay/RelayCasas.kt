@@ -11,8 +11,8 @@ import org.json.JSONObject
  * números de conferência, a lista fechada da Sessão junto) está em [RelayHouses]; a tela é a [CasasActivity].
  *
  * Quem MOSTRA o código ([abrirCodigo]) é quem confirma: quando a apresentação da outra TV chega, a tela pergunta com os
- * 4 números; no OK ([confirmar]) as duas se guardam. Quem DIGITA o código ([usarCodigo]) só guarda a outra quando a
- * apresentação dela chega de volta, e isso só acontece depois do OK de lá.
+ * 4 números; no OK ([confirmar]) guarda a outra e manda a apresentação daqui. Quem DIGITA o código ([usarCodigo]) recebe
+ * essa apresentação, mostra os MESMOS 4 números e só guarda a outra no OK daqui também (as duas casas conferem).
  *
  * Estado em memória de propósito: um pareamento que o launcher perdeu no meio (reinício) só recomeça com código novo.
  */
@@ -20,9 +20,15 @@ object RelayCasas {
     private const val TAG = "TvLauncher.Casas"
     /** O código vale 10 min no servidor (LIMITS.pairingTtlSec); aqui a espera é a mesma. */
     const val VALIDADE_MS = 10 * 60_000L
+    /** A apresentação mandada pelo celular (atalho) vale um dia: a outra TV pode estar desligada quando o celular manda. */
+    const val CELULAR_ATE_MS = 24 * 60 * 60_000L
 
-    /** A outra TV chegou e espera o OK daqui (lado que mostrou o código). */
-    data class Pendente(val pedido: RelayPairing.Pedido, val numeros: String)
+    /**
+     * A outra TV chegou e espera o OK daqui, com os 4 números na tela. [devolver] true = lado que mostrou o código (no OK
+     * manda a apresentação daqui); false = lado que digitou (a outra já confirmou; no OK só guarda). Revisão 27/11/2026:
+     * os números são conferidos nos DOIS lados, não só em quem mostrou o código.
+     */
+    data class Pendente(val pedido: RelayPairing.Pedido, val numeros: String, val devolver: Boolean = true)
     /** Terminou: [nome] da outra casa e os números para conferir; [erro] quando não deu. */
     data class Fim(val nome: String?, val numeros: String?, val erro: Boolean)
 
@@ -87,12 +93,12 @@ object RelayCasas {
         val agora = System.currentTimeMillis()
         val numeros = RelayHouses.conferencia(eu.xPub, p.xPub)
         when {
-            // B: a TV do código confirmou do lado de lá.
-            esperando == p.id && agora < esperandoAte -> {
-                guardar(ctx, p)
+            // B: a TV do código confirmou do lado de lá. Aqui também se confere os números antes de guardar.
+            esperando == p.id && agora < esperandoAte && pendente == null -> {
                 esperando = null
-                fim = Fim(p.nome, numeros, erro = false)
+                pendente = Pendente(p, numeros, devolver = false)
                 avisar()
+                if (aoMudar == null) abrirTela(ctx)
             }
             // A: alguém digitou o nosso código. Uma vez só (o servidor também apaga o código).
             codigo != null && agora < codigoAte && pendente == null -> {
@@ -110,6 +116,12 @@ object RelayCasas {
     fun confirmar(ctx: Context): Boolean {
         val p = pendente ?: return false
         pendente = null
+        if (!p.devolver) {   // B: a outra TV já guardou esta; só falta guardar a outra aqui
+            guardar(ctx, p.pedido)
+            fim = Fim(p.pedido.nome, p.numeros, erro = false)
+            avisar()
+            return true
+        }
         val corpo = minha(ctx) ?: return false
         val ok = runCatching { RelayTv.pedir(ctx, "POST", "/v1/envelope/${p.pedido.id}", corpo).codigo == 201 }.getOrDefault(false)
         if (ok) guardar(ctx, p.pedido)
@@ -124,6 +136,32 @@ object RelayCasas {
         RelayTv.parear(ctx, RelayTv.Pareado(p.id, p.xPub, p.nome, tv = true))
         RelayTv.ajustar(ctx)
         Log.i(TAG, "casa conectada: ${p.id}")
+    }
+
+    /**
+     * O celular [de] (pareado com o PIN) apresentou a TV de outra casa ([RelayHouses.lerCasa]). Guarda e avisa na tela.
+     * Vale por [CELULAR_ATE_MS] (a TV desligada recebe quando ligar, no mesmo dia). Nunca vira "casa" um celular pareado
+     * nem esta própria TV.
+     */
+    fun doCelular(ctx: Context, de: RelayTv.Pareado, m: RelayEnvelope.Mensagem) {
+        val c = RelayHouses.lerCasa(m) ?: return
+        val agora = System.currentTimeMillis()
+        val motivo = when {
+            agora - m.t > CELULAR_ATE_MS -> "chegou atrasado"
+            c.id == RelayTv.identidade(ctx)?.id -> "é esta TV"
+            RelayTv.pareados(ctx).any { it.id == c.id && !it.tv } -> "é um celular"
+            else -> null
+        }
+        if (motivo != null) {
+            br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: ${de.nome}", "outra casa ignorada", motivo)
+            return
+        }
+        RelayTv.parear(ctx, RelayTv.Pareado(c.id, c.xPub, c.nome, tv = true))
+        RelayTv.ajustar(ctx)
+        Log.i(TAG, "casa conectada pelo celular: ${c.id}")
+        br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: ${de.nome}", "outra casa conectada: ${c.nome}", "ok")
+        br.paulo.tvlauncher.AvisoTv.rapido(ctx, ctx.getString(br.paulo.tvlauncher.R.string.casas_titulo),
+            ctx.getString(br.paulo.tvlauncher.R.string.casas_pelo_celular, c.nome, de.nome), 8)
     }
 
     fun remover(ctx: Context, id: String) { if (casas(ctx).any { it.id == id }) RelayTv.esquecer(ctx, id) }

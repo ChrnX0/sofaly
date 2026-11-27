@@ -16,6 +16,8 @@
     <string name="casas_conectando">Ligando…</string>
     <string name="casas_conectar">Ligar</string>
     <string name="casas_chegou">%1$s digitou o código</string>
+    <string name="casas_confirmou">%1$s confirmou. Confira os números aqui também</string>
+    <string name="casas_pelo_celular">%1$s está conectada para Assistir junto (pelo celular %2$s)</string>
     <string name="casas_conferir_titulo">Ligar com %1$s?</string>
     <string name="casas_conferir_texto">Confira pelo telefone se a outra TV mostra os mesmos números:\n\n%1$s\n\nSe forem diferentes, cancele.</string>
     <string name="casas_pronto">Ligada com %1$s. As duas TVs mostram estes números. Para assistir junto, abra um título e escolha Assistir junto.</string>

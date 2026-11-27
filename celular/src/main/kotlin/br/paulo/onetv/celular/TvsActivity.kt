@@ -75,6 +75,10 @@ class TvsActivity : Activity() {
                 getString(if (tv.fp.isNotEmpty()) R.string.cel_pareada_segura else R.string.cel_pareada_http, tv.ip),
                 { abrir(tv) }, { esquecer(tv) }))
         }
+        // Duas TVs (de casas diferentes) que este celular já alcança pela internet: liga uma à outra para o Assistir junto.
+        val comRelay = salvas.filter { RelayCelular.tv(this, it) != null }
+        if (comRelay.size >= 2) lista.addView(Visual.botao(this, getString(R.string.cel_juntar_tvs), primario = false) { juntarTvs(comRelay) },
+            LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8); bottomMargin = dp(10) })
         val novas = achadas.filterKeys { ip -> salvas.none { it.ip == ip } }
         if (novas.isNotEmpty()) {
             lista.addView(Visual.texto(this, getString(R.string.cel_na_rede), 15f, Visual.TEXTO_2).apply { setPadding(0, dp(18), 0, dp(6)) })
@@ -98,6 +102,31 @@ class TvsActivity : Activity() {
         if (segurar != null) setOnLongClickListener { segurar(); true }
         layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dp(10) }
     }
+
+    /** Escolhe 2 TVs e manda a cada uma a chave da outra (cifrado, pelo api.sofaly.tv). */
+    private fun juntarTvs(tvs: List<Pareamento.Tv>) {
+        val marcadas = BooleanArray(tvs.size)
+        AlertDialog.Builder(this).setTitle(R.string.cel_juntar_tvs)
+            .setMultiChoiceItems(tvs.map { it.nome.ifEmpty { it.ip } }.toTypedArray(), marcadas) { _, i, v -> marcadas[i] = v }
+            .setPositiveButton(R.string.cel_juntar_ligar) { _, _ ->
+                val escolha = tvs.filterIndexed { i, _ -> marcadas[i] }
+                if (escolha.size != 2) { avisar(getString(R.string.cel_juntar_duas)); return@setPositiveButton }
+                val (a, b) = escolha
+                val app = applicationContext
+                Thread {
+                    val ra = RelayCelular.tv(app, a); val rb = RelayCelular.tv(app, b)
+                    val m = if (ra != null && rb != null) RelayCelular.apresentar(ra, a.nome, rb, b.nome, System.currentTimeMillis()) else null
+                    val ok = m != null && RelayCelular.enviar(app, a, m.first) && RelayCelular.enviar(app, b, m.second)
+                    runOnUiThread {
+                        if (!isDestroyed) avisar(getString(if (ok) R.string.cel_juntar_pronto else R.string.cel_juntar_falhou,
+                            a.nome.ifEmpty { a.ip }, b.nome.ifEmpty { b.ip }))
+                    }
+                }.start()
+            }
+            .setNegativeButton(android.R.string.cancel, null).show()
+    }
+
+    private fun avisar(t: String) = AlertDialog.Builder(this).setMessage(t).setPositiveButton(android.R.string.ok, null).show()
 
     private fun esquecer(tv: Pareamento.Tv) {
         AlertDialog.Builder(this).setTitle(tv.nome.ifEmpty { tv.ip }).setMessage(R.string.cel_esquecer_explica)
