@@ -4,13 +4,7 @@ import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.resources.R
-import com.google.android.gms.tasks.Tasks
-import com.google.mlkit.common.model.DownloadConditions
-import com.google.mlkit.nl.translate.TranslateLanguage
-import com.google.mlkit.nl.translate.Translation
-import com.google.mlkit.nl.translate.TranslatorOptions
 import java.io.File
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -26,9 +20,9 @@ object LegendaTraduzida {
     private const val ESPERA_MODELO_S = 120L
     private const val ESPERA_FALA_S = 20L
 
-    /** O ML Kit traduz de inglês para o idioma da TV? (Inglês para inglês não faz sentido.) */
+    /** O motor ([SubtitleEngines]) traduz de inglês para o idioma da TV? (Inglês para inglês não faz sentido.) */
     fun suporta(idiomaTv: String): Boolean =
-        idiomaTv != TraducaoLegenda.ORIGEM && TranslateLanguage.fromLanguageTag(idiomaTv) != null
+        idiomaTv != TraducaoLegenda.ORIGEM && SubtitleEngines.provider?.supports(idiomaTv) == true
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(Prefs.PLAYER, Context.MODE_PRIVATE)
 
@@ -61,21 +55,20 @@ object LegendaTraduzida {
      */
     fun traduzir(ctx: Context, chave: String, srt: String, para: String, posicaoMs: Long, parar: AtomicBoolean,
                  aoPrimeiro: (File) -> Unit, aoFim: (File) -> Unit): Result<Unit> = runCatching {
-        val alvo = TranslateLanguage.fromLanguageTag(para) ?: error("idioma sem tradutor: $para")
+        val motor = SubtitleEngines.provider ?: error("sem tradutor")
+        if (!motor.supports(para)) error("idioma sem tradutor: $para")
         val falas = TraducaoLegenda.ler(srt)
         if (falas.isEmpty()) error(ctx.getString(R.string.legenda_invalida))
-        val tradutor = Translation.getClient(TranslatorOptions.Builder()
-            .setSourceLanguage(TranslateLanguage.ENGLISH).setTargetLanguage(alvo).build())
-        try {
+        motor.open(ctx, TraducaoLegenda.ORIGEM, para).use { tradutor ->
             val t0 = System.currentTimeMillis()
-            Tasks.await(tradutor.downloadModelIfNeeded(DownloadConditions.Builder().build()), ESPERA_MODELO_S, TimeUnit.SECONDS)
+            tradutor.prepare(ESPERA_MODELO_S)
             val (primeiro, resto) = TraducaoLegenda.ordem(falas, posicaoMs)
             val feitas = HashMap<Int, String>(falas.size * 2)
             fun lote(indices: List<Int>): Boolean {
                 for (i in indices) {
                     if (parar.get()) return false
                     val partes = TraducaoLegenda.paraTraduzir(falas[i].texto).map { p ->
-                        Tasks.await(tradutor.translate(p), ESPERA_FALA_S, TimeUnit.SECONDS)
+                        tradutor.translate(p, ESPERA_FALA_S)
                     }
                     feitas[i] = TraducaoLegenda.montar(partes)
                 }
@@ -90,8 +83,6 @@ object LegendaTraduzida {
             marcar(ctx, chave, parcial = false)
             Log.i(TAG, "${falas.size} falas em ${System.currentTimeMillis() - t0} ms")
             aoFim(f)
-        } finally {
-            tradutor.close()
         }
     }
 }
