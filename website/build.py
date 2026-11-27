@@ -157,7 +157,7 @@ def head(L, page, title, description):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<meta name="theme-color" content="#121528">
+<meta name="theme-color" content="#141413">
 <link rel="canonical" href="{L.abs_url(page)}">
 {alts}
 <link rel="alternate" hreflang="x-default" href="{L.abs_url(page, DEFAULT)}">
