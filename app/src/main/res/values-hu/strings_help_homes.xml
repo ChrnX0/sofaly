@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Segíts más otthonoknak</string>
+    <string name="hoh_question">Segítesz más otthonoknak?</string>
+    <string name="hoh_line">Amikor itt kijavítok valamit, elmondom a többi Sofalynak, hogyan sikerült. Anélkül, hogy elárulnám, ki vagy.</string>
+    <string name="hoh_yes">Igen, segíteni akarok</string>
+    <string name="hoh_not_now">Most nem</string>
+    <string name="hoh_how">Hogyan működik?</string>
+    <string name="hoh_how_title">Hogyan működik</string>
+    <string name="hoh_how_line">Ha ugyanaz romlik el egy másik otthonban, az ottani Sofaly már tudja, mit kell tenni.</string>
+    <string name="hoh_goes">Mi kerül elküldésre</string>
+    <string-array name="hoh_goes_list">
+        <item>A tévé típusa és a Sofaly verziója</item>
+        <item>Mi romlott el, kategóriánként</item>
+        <item>Mi javította meg, és működött-e</item>
+        <item>Memória és hálózat, szintekben (jó vagy gyenge)</item>
+    </string-array>
+    <string name="hoh_never">Mi nem kerül soha elküldésre</string>
+    <string-array name="hoh_never_list">
+        <item>A neved és a hálózatod neve</item>
+        <item>Mit és mikor nézel</item>
+        <item>Az alkalmazásaid és amit beírsz</item>
+        <item>Fotók, hang, cím és IP</item>
+    </string-array>
+    <string name="hoh_back_here">Amit a többi Sofaly megtanul, visszajön ide. Bármikor módosíthatod: Beállítások, Amit Sofy tud.</string>
+    <string name="hoh_thanks">Köszönjük! A Sofalyd most már más otthonoknak is segít.</string>
+    <string name="hoh_state_on">Be: ez a tévé naponta egyszer elmondja, hogyan sikerültek a javítások</string>
+    <string name="hoh_state_off">Ki: erről a tévéről semmi sincs megosztva</string>
+    <string name="hoh_stop">Segítség leállítása</string>
+    <string name="hoh_stop_det">Ez a tévé abbahagyja a megosztást. Amit más otthonok tanultak, továbbra is ideér.</string>
+    <string name="hoh_start">Segítség indítása</string>
+    <string name="hoh_start_det">Nézd meg, mi megy el és mi soha, aztán dönts</string>
+    <string name="hoh_today">Nézd meg, mi megy ma</string>
+    <string name="hoh_today_det">A csomag, amit ez a tévé küldene, minden mezővel</string>
+    <string name="hoh_today_sub">Pontosan ez jut el a szerverre. Az otthon kódja naponta változik.</string>
+    <string name="hoh_forget">Az elküldöttek elfelejtése</string>
+    <string name="hoh_forget_det">A tévé kódja megváltozik. Az elküldöttek többé nem köthetők hozzá, és 30 napon belül törlődnek.</string>
+    <string name="hoh_forgot">Kész. Mostantól új kód; az elküldöttek 30 napon belül törlődnek.</string>
+    <string name="hoh_row_det">Mit oszt meg más otthonokkal, és hogyan kapcsold ki</string>
+</resources>

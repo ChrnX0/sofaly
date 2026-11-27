@@ -30,4 +30,6 @@
     <string name="bb_titulo">Kezdőképernyő elrendezése</string>
     <string name="bb_cruz">Kereszt</string>
     <string name="bb_barra">Alsó sáv</string>
+    <string name="wo_ultimos">Legutóbb használtak elöl</string>
+    <string name="wo_aleatorio">Bármilyen sorrend (naponta változik)</string>
 </resources>

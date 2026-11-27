@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=nagyobb betű|nagyobb betűk|nagyobb szöveg|betű nagyobb|nagyítsd a betűt;TEXT_SMALLER=kisebb betű|kisebb betűk|kisebb szöveg|betű kisebb|kicsinyítsd a betűt;GOAL_READ=jobb olvashatóság|nehéz olvasni|nem látom jól;GOAL_CLEAN=tiszta képernyő|egyszerű képernyő;GOAL_ENERGY=energiatakarékosság|energia spórolás|kevesebb áram;LOOK_SOFALY=sofaly megjelenés|normál megjelenés;LOOK_NIGHT=éjszakai megjelenés|sötét ég;LOOK_MOUNTAIN=hegyi megjelenés;LOOK_MINIMAL=minimalista megjelenés</string>
+    <string name="si_fazer">Csináld most: %1$s</string>
+    <string name="si_desfazer">Visszavonás: %1$s</string>
+    <string name="si_fazer_det">Azonnal megváltozik.</string>
+    <string name="si_maior">Nagyobb betű</string>
+    <string name="si_menor">Kisebb betű</string>
+</resources>

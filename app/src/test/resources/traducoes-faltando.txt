@@ -19,7 +19,7 @@ values-fr=3
 
 values-hi=3
 
-values-hu=224
+values-hu=3
 
 values-in=3
 

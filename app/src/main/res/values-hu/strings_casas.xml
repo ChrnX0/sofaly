@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Más otthonok</string>
+    <string name="casas_texto">Kösd össze ezt a tévét egy rokon tévéjével, és nézzetek együtt távolról. Csak a lejátszás, a szünet és a reakciók mennek át, titkosítva. Senkinek sem kell fiók.</string>
+    <string name="casas_mostrar">Kód megjelenítése</string>
+    <string name="casas_mostrar_det">A másik otthon beírja a saját tévéjén</string>
+    <string name="casas_digitar">Kód beírása</string>
+    <string name="casas_digitar_det">A másik tévén látható kód</string>
+    <string name="casas_conectadas">Összekötött otthonok</string>
+    <string name="casas_remover_det">Együtt nézés · eltávolítás</string>
+    <string name="casas_remover_titulo">Eltávolítod: %1$s?</string>
+    <string name="casas_remover">Eltávolítás</string>
+    <string name="casas_pedindo">Kód kérése…</string>
+    <string name="casas_codigo_det">Olvasd fel ezt a kódot a másik otthonnak. Az ő tévéjükön: Beállítások, Család, Más otthonok, Kód beírása. 10 percig érvényes, egyszer használható.</string>
+    <string name="casas_esperando">Várakozás a másik tévé megerősítésére…</string>
+    <string name="casas_conectando">Csatlakozás…</string>
+    <string name="casas_conectar">Csatlakozás</string>
+    <string name="casas_chegou">%1$s beírta a kódot</string>
+    <string name="casas_confirmou">%1$s megerősítette. Itt is egyeztesd a számokat</string>
+    <string name="casas_pelo_celular">%1$s csatlakozott az együtt nézéshez (hozzáadta: %2$s)</string>
+    <string name="casas_conferir_titulo">Csatlakozol ehhez: %1$s?</string>
+    <string name="casas_conferir_texto">Telefonon ellenőrizd, hogy a másik tévé ugyanezeket a számokat mutatja:\n\n%1$s\n\nHa eltérnek, szakítsd meg.</string>
+    <string name="casas_pronto">Összekötve: %1$s. Mindkét tévé ezeket a számokat mutatja. Együtt nézéshez nyiss meg egy címet, és válaszd az Együtt nézés lehetőséget.</string>
+    <string name="casas_falhou">Nem sikerült. Ellenőrizd az internetet, és próbáld újra egy új kóddal.</string>
+    <string name="casas_sem_rede">A Sofaly szolgáltatás nem válaszol. Ellenőrizd az internetet.</string>
+    <string name="casas_codigo_errado">Ez a kód nem működött. 8 betűből és számból áll, és 10 percig érvényes.</string>
+    <string name="casas_menu">Más otthonok</string>
+    <string name="casas_menu_det">Együtt nézés egy távol élő rokon tévéjével</string>
+</resources>
