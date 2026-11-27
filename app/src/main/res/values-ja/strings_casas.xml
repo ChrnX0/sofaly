@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">ほかの家</string>
+    <string name="casas_texto">このテレビを家族のテレビとつないで、離れていても一緒に見られます。送られるのは再生・一時停止・リアクションだけで、暗号化されます。アカウントは不要です。</string>
+    <string name="casas_mostrar">コードを表示</string>
+    <string name="casas_mostrar_det">相手の家がそのテレビで入力します</string>
+    <string name="casas_digitar">コードを入力</string>
+    <string name="casas_digitar_det">相手のテレビに表示されているコード</string>
+    <string name="casas_conectadas">つないだ家</string>
+    <string name="casas_remover_det">一緒に見る · 削除</string>
+    <string name="casas_remover_titulo">%1$sを削除しますか？</string>
+    <string name="casas_remover">削除</string>
+    <string name="casas_pedindo">コードを取得中…</string>
+    <string name="casas_codigo_det">このコードを相手の家に伝えてください。相手のテレビで：設定、家族、ほかの家、コードを入力。有効なのは10分間、1回だけです。</string>
+    <string name="casas_esperando">相手のテレビの確認を待っています…</string>
+    <string name="casas_conectando">接続中…</string>
+    <string name="casas_conectar">つなぐ</string>
+    <string name="casas_chegou">%1$sがコードを入力しました</string>
+    <string name="casas_confirmou">%1$sが確認しました。こちらでも数字を確かめてください</string>
+    <string name="casas_pelo_celular">%1$sは「一緒に見る」でつながっています（%2$sが追加）</string>
+    <string name="casas_conferir_titulo">%1$sとつなぎますか？</string>
+    <string name="casas_conferir_texto">相手のテレビに同じ数字が出ているか、電話で確かめてください：\n\n%1$s\n\n違っていたらキャンセルしてください。</string>
+    <string name="casas_pronto">%1$sとつながりました。両方のテレビにこの数字が出ています。一緒に見るには、作品を開いて「一緒に見る」を選びます。</string>
+    <string name="casas_falhou">うまくいきませんでした。インターネットを確認して、新しいコードで試してください。</string>
+    <string name="casas_sem_rede">Sofalyのサービスが応答しません。インターネットを確認してください。</string>
+    <string name="casas_codigo_errado">そのコードは使えませんでした。英数字8文字で、有効なのは10分間です。</string>
+    <string name="casas_menu">ほかの家</string>
+    <string name="casas_menu_det">遠くの家族のテレビと一緒に見る</string>
+</resources>
