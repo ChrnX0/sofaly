@@ -129,10 +129,10 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 **119 features in 12 areas**, the same list as [sofaly.tv](https://sofaly.tv/#mundos). Open an area to see each one and where to find it on the TV.
 
 <details>
-<summary><b>The cross</b> · A tidy screen anyone understands, arranged the way you like. (19)</summary>
+<summary><b>The home screen</b> · A tidy screen anyone understands, arranged the way you like. (19)</summary>
 
-- **The cross.** Continue, Watch, Listen, Play and Apps in one row. The world you pick grows big, with what's inside right below it. <sub>◀ ▶ switch worlds, ▲ ▼ go down the column, OK opens.</sub>
-- **Continue.** One place to get back to what you were doing: the episode, the station, the podcast or the last app. <sub>It's the first item of the cross.</sub>
+- **The rows.** Continue, Watch, Listen, Play and Apps, each in its own row, one below the other. Everything in view, in large text. <sub>It's the home screen: it shows up when you press HOME.</sub>
+- **Continue.** One place to get back to what you were doing: the episode, the station, the podcast or the last app. <sub>A row on the home screen.</sub>
 - **Top bar.** Search, voice, the weather in one line and the clock, always in the same place. It folds away while you browse so the screen can breathe. <sub>Go up to it with ▲.</sub>
 - **Google keeps working.** The Google Assistant, Gemini, search and your Google account work as before. Sofaly changes the home screen, not your TV. <sub>Use the microphone button as always.</sub>
 - **Quick panel.** Wi-Fi, Bluetooth, sleep timer, sound output, alarm, profiles, notifications and the shopping list, from any app. <sub>Hold BACK.</sub>
@@ -146,9 +146,9 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - **House reminder.** A note that comes back on the weekdays you choose: recycling day, medicine, a class. <sub>In the pill at the top of the screen. Settings › Appearance.</sub>
 - **Your service's status.** The TV checks an address you give it and shows whether it's up: the home server, the shop's website. <sub>In the pill at the top of the screen. Settings › Appearance.</sub>
 - **Today's rates.** Currencies, bitcoin and ether at today's value, from open official sources. <sub>Next to the weather, in the top bar. Settings › Appearance.</sub>
-- **Your team's next match.** When and against whom your team plays next, on a card on the home screen. <sub>In the TV item of the cross. Settings › Appearance.</sub>
+- **Your team's next match.** When and against whom your team plays next, on a card on the home screen. <sub>On the home screen. Settings › Appearance.</sub>
 - **Cards from other apps.** Besides Sofaly's own cards, partner apps put theirs on the home screen: the delivery order, the bus, the notice from the building. <sub>Cards show at the end of Watch.</sub>
-- **The Island at the top of the screen.** Notices take turns in a pill at the top: no internet, reminder, calendar and alarm. What matters grows for 5 seconds with “▲ to open”, the Home doorbell shows up right away and, when you turn on the TV, a summary of what happened appears. Hold ▲ at the top of the cross to open the Hub. <sub>Home screen, at the top.</sub>
+- **The Island at the top of the screen.** Notices take turns in a pill at the top: no internet, reminder, calendar and alarm. What matters grows for 5 seconds with “▲ to open”, the Home doorbell shows up right away and, when you turn on the TV, a summary of what happened appears. <sub>Home screen, at the top.</sub>
 - **The right suggestion at the right time.** No artificial intelligence: from the week's use, the TV suggests what makes sense at that hour. <sub>Home screen.</sub>
 
 </details>
@@ -199,7 +199,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 <details>
 <summary><b>Apps</b> · Your apps in an order that makes sense. (3)</summary>
 
-- **Your favorites up front.** Apps shows the 8 apps you open most, and “All apps” brings the rest in a grid. <sub>Apps, on the cross.</sub>
+- **Your favorites up front.** Apps shows the 8 apps you open most, and “All apps” brings the rest in a grid. <sub>In the Apps row.</sub>
 - **Your way.** Move, stack or hide any app. Factory apps you don't use step out of the way. <sub>Hold OK on an app.</sub>
 - **Free Netflix and YouTube buttons.** The remote's app buttons open any app you want. Press to open, hold 3 seconds to change it. <sub>Works with the original remote.</sub>
 
