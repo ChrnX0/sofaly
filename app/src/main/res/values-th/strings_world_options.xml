@@ -30,4 +30,6 @@
     <string name="bb_titulo">รูปแบบหน้าจอหลัก</string>
     <string name="bb_cruz">กากบาท</string>
     <string name="bb_barra">แถบด้านล่าง</string>
+    <string name="wo_ultimos">ที่ใช้ล่าสุดก่อน</string>
+    <string name="wo_aleatorio">ลำดับใดก็ได้ (เปลี่ยนทุกวัน)</string>
 </resources>

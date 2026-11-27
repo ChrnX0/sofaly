@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">บ้านอื่นๆ</string>
+    <string name="casas_texto">เชื่อมทีวีเครื่องนี้กับทีวีของญาติเพื่อดูด้วยกันแม้อยู่ไกล ส่งไปเฉพาะการเล่น หยุดชั่วคราว และรีแอคชัน แบบเข้ารหัส ไม่มีใครต้องมีบัญชี</string>
+    <string name="casas_mostrar">แสดงรหัส</string>
+    <string name="casas_mostrar_det">อีกบ้านพิมพ์รหัสบนทีวีของเขา</string>
+    <string name="casas_digitar">พิมพ์รหัส</string>
+    <string name="casas_digitar_det">รหัสที่แสดงบนทีวีอีกเครื่อง</string>
+    <string name="casas_conectadas">บ้านที่เชื่อมแล้ว</string>
+    <string name="casas_remover_det">ดูด้วยกัน · ลบ</string>
+    <string name="casas_remover_titulo">ลบ %1$s ไหม</string>
+    <string name="casas_remover">ลบ</string>
+    <string name="casas_pedindo">กำลังขอรหัส…</string>
+    <string name="casas_codigo_det">อ่านรหัสนี้ให้อีกบ้านฟัง บนทีวีของเขา: การตั้งค่า ครอบครัว บ้านอื่นๆ พิมพ์รหัส ใช้ได้ 10 นาทีและครั้งเดียว</string>
+    <string name="casas_esperando">กำลังรอทีวีอีกเครื่องยืนยัน…</string>
+    <string name="casas_conectando">กำลังเชื่อมต่อ…</string>
+    <string name="casas_conectar">เชื่อมต่อ</string>
+    <string name="casas_chegou">%1$s พิมพ์รหัสแล้ว</string>
+    <string name="casas_confirmou">%1$s ยืนยันแล้ว เทียบตัวเลขที่นี่ด้วย</string>
+    <string name="casas_pelo_celular">%1$s เชื่อมต่อเพื่อดูด้วยกัน (เพิ่มโดย %2$s)</string>
+    <string name="casas_conferir_titulo">เชื่อมต่อกับ %1$s ไหม</string>
+    <string name="casas_conferir_texto">โทรยืนยันว่าทีวีอีกเครื่องแสดงตัวเลขเดียวกัน:\n\n%1$s\n\nถ้าไม่ตรงกัน ให้ยกเลิก</string>
+    <string name="casas_pronto">เชื่อมต่อกับ %1$s แล้ว ทีวีทั้งสองเครื่องแสดงตัวเลขนี้ หากต้องการดูด้วยกัน ให้เปิดรายการแล้วเลือก ดูด้วยกัน</string>
+    <string name="casas_falhou">ไม่สำเร็จ ตรวจสอบอินเทอร์เน็ตแล้วลองใหม่ด้วยรหัสใหม่</string>
+    <string name="casas_sem_rede">บริการ Sofaly ไม่ตอบสนอง ตรวจสอบอินเทอร์เน็ต</string>
+    <string name="casas_codigo_errado">รหัสนี้ใช้ไม่ได้ รหัสมีตัวอักษรและตัวเลข 8 ตัว และใช้ได้ 10 นาที</string>
+    <string name="casas_menu">บ้านอื่นๆ</string>
+    <string name="casas_menu_det">ดูด้วยกันกับทีวีของญาติที่อยู่ไกล</string>
+</resources>

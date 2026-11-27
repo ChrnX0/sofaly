@@ -44,4 +44,18 @@
     <string name="st_anim_cena">ฉากเล็ก ๆ</string>
     <string name="st_anim_luz">เส้นแสง</string>
     <string name="st_anim_pulo">เด้งและเรืองแสง</string>
+    <string name="st_telas">หน้าจออื่นๆ</string>
+    <string name="st_telas_gaveta">ลิ้นชัก</string>
+    <string name="st_telas_vidro">กระจก</string>
+    <string name="st_telas_barra">แถบ</string>
+    <string name="st_telas_painel">แผงด้านข้าง</string>
+    <string name="st_telas_guiada">แบบมีคำแนะนำ</string>
+    <string name="gl_root_desc">ทุกอย่างเกี่ยวกับทีวีเครื่องนี้ ทีละขั้น</string>
+    <string name="st_proprios">การ์ดทางลัด</string>
+    <string name="st_proprios_branco">ขาว</string>
+    <string name="st_proprios_vidro">กระจกสว่าง</string>
+    <string name="st_proprios_escuro">กระจกเข้ม</string>
+    <string name="st_personalidade">ไอคอนการ์ด</string>
+    <string name="st_pers_cor">สีของตัวเอง</string>
+    <string name="st_pers_brilho">แสงเรืองสี</string>
 </resources>
