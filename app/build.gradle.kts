@@ -249,6 +249,7 @@ tasks.withType<Test>().configureEach {
     systemProperty("telas.atualizar", project.hasProperty("telasAtualizar").toString())
     systemProperty("telas.todas", project.hasProperty("telasTodas").toString())   // as 26 línguas (24/11/2026)
     systemProperty("telas.auditoria", project.hasProperty("auditoria").toString())
+    systemProperty("telas.comdados", project.hasProperty("comDados").toString())   // telas que só abrem com dados (TelasComDadosTest)
 }
 
 // Túnel para a internet (opção E, 05/11/2026): o programa Go em tunel/ (Tailscale embutido, tsnet) compilado para ARM
