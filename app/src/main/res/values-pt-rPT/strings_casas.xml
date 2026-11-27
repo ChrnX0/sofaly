@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Outras casas</string>
+    <string name="casas_texto">Ligue esta TV à TV de um familiar para verem em conjunto, mesmo longe. Só passam play, pausa e reações, cifrados. Ninguém precisa de criar conta.</string>
+    <string name="casas_mostrar">Mostrar um código</string>
+    <string name="casas_mostrar_det">A outra casa escreve na TV dela</string>
+    <string name="casas_digitar">Escrever um código</string>
+    <string name="casas_digitar_det">O código que a outra TV está a mostrar</string>
+    <string name="casas_conectadas">Casas ligadas</string>
+    <string name="casas_remover_det">Ver em conjunto · Remover</string>
+    <string name="casas_remover_titulo">Remover %1$s?</string>
+    <string name="casas_remover">Remover</string>
+    <string name="casas_pedindo">A pedir um código…</string>
+    <string name="casas_codigo_det">Leia este código para a outra casa. Na TV de lá: Definições, Família, Outras casas, Escrever um código. Vale 10 minutos e uma vez só.</string>
+    <string name="casas_esperando">À espera que a outra TV confirme…</string>
+    <string name="casas_conectando">A ligar…</string>
+    <string name="casas_conectar">Ligar</string>
+    <string name="casas_chegou">%1$s escreveu o código</string>
+    <string name="casas_confirmou">%1$s confirmou. Verifique os números aqui também</string>
+    <string name="casas_pelo_celular">%1$s está conectada para Ver em conjunto (pelo telemóvel %2$s)</string>
+    <string name="casas_conferir_titulo">Ligar com %1$s?</string>
+    <string name="casas_conferir_texto">Verifique pelo telefone se a outra TV mostra os mesmos números:\n\n%1$s\n\nSe forem diferentes, cancele.</string>
+    <string name="casas_pronto">Ligada com %1$s. As duas TVs mostram estes números. Para ver em conjunto, abra um título e escolha Ver em conjunto.</string>
+    <string name="casas_falhou">Não funcionou. Verifique a internet e tente com um código novo.</string>
+    <string name="casas_sem_rede">O serviço do Sofaly não respondeu. Verifique a internet.</string>
+    <string name="casas_codigo_errado">Esse código não funcionou. Tem 8 letras e números e vale 10 minutos.</string>
+    <string name="casas_menu">Outras casas</string>
+    <string name="casas_menu_det">Ver em conjunto com a TV de um parente longe</string>
+</resources>
