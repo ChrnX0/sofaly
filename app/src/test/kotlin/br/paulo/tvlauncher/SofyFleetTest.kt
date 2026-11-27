@@ -87,6 +87,20 @@ class SofyFleetTest {
         assertNotEquals(a, SofyFleet.dayCode("outra-tv".toByteArray(), 20_000))
     }
 
+    /** #542: o segundo pacote do mesmo dia UTC apagaria o primeiro no servidor; e nada fica sem ir entre dois envios. */
+    @Test fun umEnvioPorDiaUtcSemBuraco() {
+        val dia = 86_400_000L; val h = 3_600_000L
+        val ok = 100 * dia + 30 * 60_000L                                   // 00:30 UTC do dia 100
+        assertFalse(SofyFleet.shouldSend(100 * dia + 20 * h + 30 * 60_000L, ok, ok))   // 20:30 do mesmo dia: não
+        assertTrue(SofyFleet.shouldSend(101 * dia + 5 * 60_000L, ok, ok))   // 00:05 do dia seguinte: sim
+        assertTrue(SofyFleet.shouldSend(5 * h, 0L, 0L))                     // nunca mandou
+        assertFalse(SofyFleet.shouldSend(101 * dia, ok, 101 * dia - 10 * 60_000L))      // tentou há 10 min: espera
+        // A janela começa no último envio aceito: os casos entre 00:30 e 20:30 do dia 99 não se perdem.
+        assertEquals(ok, SofyFleet.since(101 * dia, ok))
+        assertEquals(10 * dia - 24 * h, SofyFleet.since(10 * dia, 0L))      // sem envio: 24 h
+        assertEquals(200 * dia - 24 * h, SofyFleet.since(200 * dia, ok))   // envio velho demais: 24 h
+    }
+
     @Test fun aparelhoSoComCaracteresSimples() {
         val d = SofyFleet.device(tv.copy(maker = "Xiaomi™ <b>", model = ""))
         assertTrue(Regex("^[A-Za-z0-9 ._+-]{1,40}$").matches(d.getString("maker")))

@@ -32,6 +32,21 @@ object SofyFleet {
     private val NAME = Regex("^[a-z0-9_.]{1,60}$")
     private val BUS_KEY = Regex("^([a-z]+)\\.([a-z0-9_]+)")
 
+    private const val DAY_MS = 86_400_000L
+    private const val WINDOW_MS = 24 * 3_600_000L
+    private const val MAX_WINDOW_MS = 48 * 3_600_000L
+    const val RETRY_MS = 3_600_000L
+
+    /**
+     * Hora de mandar? No máximo um envio que deu certo por dia UTC (#542): o servidor guarda um pacote por casa por dia
+     * e o segundo do mesmo dia apagaria o primeiro. [okAt] = último envio aceito; [triedAt] = última tentativa.
+     */
+    fun shouldSend(now: Long, okAt: Long, triedAt: Long): Boolean =
+        (okAt <= 0L || now / DAY_MS != okAt / DAY_MS) && now - triedAt >= RETRY_MS
+
+    /** Desde quando vão os casos: desde o último envio aceito (até 48 h para trás); sem envio recente, 24 h. */
+    fun since(now: Long, okAt: Long): Long = if (okAt in (now - MAX_WINDOW_MS)..now) okAt else now - WINDOW_MS
+
     /** O aparelho, como o Android conta ([maker]/[model] = Build.MANUFACTURER/Build.MODEL, de fábrica). */
     data class Device(val maker: String, val model: String, val googleTv: Boolean, val androidTv: Boolean, val sdk: Int,
                       val is64: Boolean, val ramMb: Long, val diskGb: Long)
