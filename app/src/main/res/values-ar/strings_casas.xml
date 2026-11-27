@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">بيوت أخرى</string>
+    <string name="casas_texto">اربط هذا التلفاز بتلفاز أحد أقاربك لتشاهدا معًا ولو من بعيد. لا يُرسل إلا التشغيل والإيقاف المؤقت والتفاعلات، وكلها مشفّرة. لا يحتاج أحد إلى حساب.</string>
+    <string name="casas_mostrar">عرض رمز</string>
+    <string name="casas_mostrar_det">يكتبه البيت الآخر على تلفازه</string>
+    <string name="casas_digitar">كتابة رمز</string>
+    <string name="casas_digitar_det">الرمز الظاهر على التلفاز الآخر</string>
+    <string name="casas_conectadas">البيوت المرتبطة</string>
+    <string name="casas_remover_det">المشاهدة معًا · إزالة</string>
+    <string name="casas_remover_titulo">إزالة %1$s؟</string>
+    <string name="casas_remover">إزالة</string>
+    <string name="casas_pedindo">جارٍ طلب رمز…</string>
+    <string name="casas_codigo_det">اقرأ هذا الرمز للبيت الآخر. على تلفازهم: الإعدادات، العائلة، بيوت أخرى، كتابة رمز. صالح لمدة 10 دقائق ولمرة واحدة.</string>
+    <string name="casas_esperando">في انتظار تأكيد التلفاز الآخر…</string>
+    <string name="casas_conectando">جارٍ الربط…</string>
+    <string name="casas_conectar">ربط</string>
+    <string name="casas_chegou">كتب %1$s الرمز</string>
+    <string name="casas_confirmou">أكّد %1$s. تحقّق من الأرقام هنا أيضًا</string>
+    <string name="casas_pelo_celular">%1$s مرتبط للمشاهدة معًا (أضافه %2$s)</string>
+    <string name="casas_conferir_titulo">الربط مع %1$s؟</string>
+    <string name="casas_conferir_texto">تأكّدا بالهاتف أن التلفاز الآخر يعرض الأرقام نفسها:\n\n%1$s\n\nإذا كانت مختلفة، فألغِ.</string>
+    <string name="casas_pronto">تم الربط مع %1$s. يعرض التلفازان هذه الأرقام. للمشاهدة معًا، افتح عنوانًا واختر المشاهدة معًا.</string>
+    <string name="casas_falhou">لم ينجح ذلك. تحقّق من الإنترنت وجرّب رمزًا جديدًا.</string>
+    <string name="casas_sem_rede">خدمة Sofaly لا تستجيب. تحقّق من الإنترنت.</string>
+    <string name="casas_codigo_errado">هذا الرمز لم ينجح. يتكوّن من 8 أحرف وأرقام وصالح لمدة 10 دقائق.</string>
+    <string name="casas_menu">بيوت أخرى</string>
+    <string name="casas_menu_det">المشاهدة معًا مع تلفاز قريب بعيد</string>
+</resources>

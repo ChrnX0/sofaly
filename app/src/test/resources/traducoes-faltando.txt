@@ -1,7 +1,7 @@
 # Teto de textos sem tradução por língua (TraducoesFaltandoTest). Só pode baixar.
 # Contado em 27/11/2026.
 # Uma linha em branco entre as línguas: assim PRs de línguas vizinhas não entram em conflito.
-values-ar=224
+values-ar=3
 
 values-cs=236
 
