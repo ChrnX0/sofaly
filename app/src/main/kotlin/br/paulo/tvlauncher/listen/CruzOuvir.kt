@@ -977,7 +977,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
         val icone = ImageView(context).apply { scaleType = ImageView.ScaleType.FIT_CENTER }
         val caixaV = FrameLayout(context).apply {
             background = Estilo.caixa(context)
-            setPadding(dpi(4), dpi(4), dpi(4), dpi(4))   // a borda creme do foco aparece em volta da capa
+            setPaddingRelative(dpi(4), dpi(4), dpi(4), dpi(4))   // a borda creme do foco aparece em volta da capa
             addView(capa, FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT))
             addView(icone, FrameLayout.LayoutParams(dpi(40), dpi(40), Gravity.CENTER))
         }
