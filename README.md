@@ -111,6 +111,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 [Releases](../../releases).
 
 <!-- auto:changes -->
+- New logo: the icon with “Sofa” in white and “ly” in orange, on the graphite screen
 - Home in rows: each category in a row of large cards, the focused row moves to the top and the art of the focused card fills the background, under a dark veil
 - Row fine-tuning: ready themes (Default, Cinema, Showcase, Minimal), export and import your theme, 2 or 3 lines per category, status bar, clock and text size
 - Row background: the focused art, changing on its own with a fade, colours taken from the art and an adjustable shadow

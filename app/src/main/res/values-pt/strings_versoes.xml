@@ -13,6 +13,7 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
+        <item>Logo nova: o ícone com “Sofa” em branco e “ly” em laranja, sobre a tela grafite</item>
         <item>Tela inicial em fileiras: cada categoria numa fileira de cartões grandes, a fileira em foco sobe para o alto e a arte do cartão em foco cobre o fundo, com um véu escuro por cima</item>
         <item>Ajuste fino das fileiras: temas prontos (Padrão, Cinema, Vitrine, Mínimo), exportar e importar o seu tema, 2 ou 3 linhas por categoria, barra de status, tamanho da hora e das letras</item>
         <item>Fundo das fileiras: a arte do foco, troca sozinha com esmaecer, cores tiradas da arte e sombra ajustável</item>
