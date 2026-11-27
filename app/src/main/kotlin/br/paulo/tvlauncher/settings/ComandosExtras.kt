@@ -265,6 +265,8 @@ object ComandosExtras {
         // Cuidar de longe (ideias 77-79): estado, rodar o relógio agora, abrir a pergunta de consentimento, teste de envio.
         "cuidar" -> CuidarDeLongeTv.texto(ctx)
         "relay" -> br.paulo.tvlauncher.relay.RelayTv.texto(ctx)   // id do relay e teste da caixa postal (api.sofaly.tv)
+        "casas" -> "casas=" + br.paulo.tvlauncher.relay.RelayCasas.casas(ctx).joinToString { "${it.nome} (${it.id})" } +
+            " andamento=${br.paulo.tvlauncher.relay.RelayCasas.emAndamento()} junto=${br.paulo.tvlauncher.SessaoJunto.texto()}"
         "relay_esquecer" -> i.getStringExtra("id")?.let { br.paulo.tvlauncher.relay.RelayTv.esquecer(ctx, it); "esquecido" } ?: "falta --es id <id>"
         "cuidar_rodar" -> { val app = ctx.applicationContext; Fundo.rodar("cuidar-adb") { CuidarDeLongeTv.rodar(app) }; "rodando; ver depois com cuidar" }
         "cuidar_perguntar" -> CuidarDeLongeTv.pedirConsentimento(ctx)?.let { "falta: ${it.name}" } ?: "pergunta aberta na TV"

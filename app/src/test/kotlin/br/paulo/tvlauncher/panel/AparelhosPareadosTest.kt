@@ -70,4 +70,28 @@ class AparelhosPareadosTest {
         assertFalse(p.has("h")); assertFalse(p.has("hash"))
         assertEquals(5, p.getLong("criado"))
     }
+
+    // ------------------------------------------------ acesso de fora de casa (relay) na mesma lista
+
+    private fun ap(id: String, uso: Long) = AparelhosPareados.Aparelho(id, "h$id", "Cel $id", 1, uso)
+
+    @Test fun relayLigadoFicaNaLinhaDoCelular() {
+        val l = A.listaDoPainel(listOf(ap("a1", 10), ap("b2", 20)), listOf(AparelhosPareados.DeFora("relayid1", "Pixel", "a1")))
+        assertEquals(2, l.length())                       // nenhuma linha a mais: o mesmo celular
+        assertEquals("b2", l.getJSONObject(0).getString("id"))   // mais recente primeiro, como antes
+        assertFalse(l.getJSONObject(0).getBoolean("fora"))
+        assertTrue(l.getJSONObject(1).getBoolean("fora"))
+    }
+
+    @Test fun relaySemCelularViraLinhaPropriaComBotao() {
+        // Pareou sem chave de aparelho, ou a linha dele já saiu (revogada ou passou de MAX): não pode sumir da tela.
+        val l = A.listaDoPainel(listOf(ap("a1", 10)), listOf(AparelhosPareados.DeFora("semlink", "Moto\u0007", null), AparelhosPareados.DeFora("orfao", "", "zz")))
+        assertEquals(3, l.length())
+        assertFalse(l.getJSONObject(0).getBoolean("fora"))
+        val s = l.getJSONObject(1)
+        assertEquals(A.PREFIXO_RELAY + "semlink", s.getString("id"))
+        assertEquals("Moto", s.getString("nome"))         // nome limpo, como o do painel
+        assertTrue(s.getBoolean("fora")); assertFalse(s.has("uso"))
+        assertEquals("Celular", l.getJSONObject(2).getString("nome"))
+    }
 }

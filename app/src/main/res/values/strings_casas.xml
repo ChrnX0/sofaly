@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Other homes (CasasActivity, RelayCasas): link to a TV in another home to watch together, without Tailscale. -->
+    <string name="casas_titulo">Other homes</string>
+    <string name="casas_texto">Link this TV to a relative\'s TV to watch together, even far away. Only play, pause and reactions travel, encrypted. Nobody needs an account.</string>
+    <string name="casas_mostrar">Show a code</string>
+    <string name="casas_mostrar_det">The other home types it on their TV</string>
+    <string name="casas_digitar">Type a code</string>
+    <string name="casas_digitar_det">The code the other TV is showing</string>
+    <string name="casas_conectadas">Linked homes</string>
+    <string name="casas_remover_det">Watch together · Remove</string>
+    <string name="casas_remover_titulo">Remove %1$s?</string>
+    <string name="casas_remover">Remove</string>
+    <string name="casas_pedindo">Getting a code…</string>
+    <string name="casas_codigo_det">Read this code to the other home. On their TV: Settings, Family, Other homes, Type a code. It works for 10 minutes, once.</string>
+    <string name="casas_esperando">Waiting for the other TV to confirm…</string>
+    <string name="casas_conectando">Linking…</string>
+    <string name="casas_conectar">Link</string>
+    <string name="casas_chegou">%1$s typed the code</string>
+    <string name="casas_conferir_titulo">Link with %1$s?</string>
+    <string name="casas_conferir_texto">Check by phone that the other TV shows the same numbers:\n\n%1$s\n\nIf they are different, cancel.</string>
+    <string name="casas_pronto">Linked with %1$s. Both TVs show these numbers. To watch together, open a title and choose Watch together.</string>
+    <string name="casas_falhou">It didn\'t work. Check the internet and try a new code.</string>
+    <string name="casas_sem_rede">No answer from the Sofaly service. Check the internet.</string>
+    <string name="casas_codigo_errado">That code didn\'t work. It has 8 letters and numbers and lasts 10 minutes.</string>
+    <string name="casas_menu">Other homes</string>
+    <string name="casas_menu_det">Watch together with a relative\'s TV far away</string>
+</resources>

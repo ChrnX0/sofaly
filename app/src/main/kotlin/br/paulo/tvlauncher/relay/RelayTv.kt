@@ -81,30 +81,43 @@ object RelayTv {
 
     // ---------------------------------------------------------------- aparelhos pareados
 
-    data class Pareado(val id: String, val xPub: ByteArray, val nome: String)
+    /**
+     * Um celular que pode mandar teclas e texto de fora de casa. [aparelho] = o id do mesmo celular em "Celulares com
+     * acesso" do painel (AparelhosPareados), quando ele pareou com a chave de aparelho: revogar lá revoga aqui também.
+     */
+    data class Pareado(val id: String, val xPub: ByteArray, val nome: String, val aparelho: String? = null,
+                       /** Uma TV de outra casa (RelayCasas: só Sessão junto), não um celular (só teclas e texto). */
+                       val tv: Boolean = false)
 
     fun pareados(ctx: Context): List<Pareado> {
         val a = runCatching { JSONArray(prefs(ctx).getString("pareados", "[]")) }.getOrNull() ?: return emptyList()
         return (0 until a.length()).mapNotNull { i ->
             val o = a.optJSONObject(i) ?: return@mapNotNull null
             val id = o.optString("id"); val x = runCatching { RelayCrypto.deB64(o.optString("x")) }.getOrNull()
-            if (!RelayCrypto.ID_RE.matches(id) || x?.size != 32) null else Pareado(id, x, o.optString("nome"))
+            if (!RelayCrypto.ID_RE.matches(id) || x?.size != 32) null
+            else Pareado(id, x, o.optString("nome"), o.optString("aparelho").ifEmpty { null }, o.optBoolean("tv"))
         }
     }
 
-    @Synchronized fun parear(ctx: Context, p: Pareado) {
-        val lista = pareados(ctx).filterNot { it.id == p.id } + p
+    private fun guardar(ctx: Context, lista: List<Pareado>) {
         prefs(ctx).edit().putString("pareados", JSONArray().apply {
-            for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome))
+            for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome)
+                .apply { q.aparelho?.let { put("aparelho", it) }; if (q.tv) put("tv", true) })
         }.toString()).apply()
     }
 
-    @Synchronized fun esquecer(ctx: Context, id: String) {
-        val lista = pareados(ctx).filterNot { it.id == id }
-        prefs(ctx).edit().putString("pareados", JSONArray().apply {
-            for (q in lista) put(JSONObject().put("id", q.id).put("x", RelayCrypto.b64(q.xPub)).put("nome", q.nome))
-        }.toString()).apply()
+    @Synchronized fun parear(ctx: Context, p: Pareado) = guardar(ctx, pareados(ctx).filterNot { it.id == p.id } + p)
+
+    /** true = havia esse celular. */
+    @Synchronized fun esquecer(ctx: Context, id: String): Boolean {
+        val antes = pareados(ctx)
+        guardar(ctx, antes.filterNot { it.id == id })
+        return antes.any { it.id == id }
     }
+
+    /** O celular [aparelho] foi revogado no painel: sai daqui também. */
+    @Synchronized fun esquecerDoAparelho(ctx: Context, aparelho: String) =
+        guardar(ctx, pareados(ctx).filterNot { it.aparelho == aparelho })
 
     // ---------------------------------------------------------------- servidor (fora da thread da tela)
 
@@ -172,6 +185,7 @@ object RelayTv {
         val agora = System.currentTimeMillis()
         var n = 0
         for (e in lista) {
+            if (RelayCasas.chegou(ctx, e.de, e.dados)) continue   // apresentação de outra TV (código de 8 letras)
             if (!RelayEnvelope.remetenteConfere(e)) { Log.w(TAG, "envelope ${e.caixaId}: remetente não confere"); continue }
             val a = RelayEnvelope.abrir(eu.id, eu.x, e.dados, agora) { chaves[it] }
             if (a == null) { Log.w(TAG, "envelope ${e.caixaId} de ${e.de}: não abriu"); continue }
@@ -190,8 +204,20 @@ object RelayTv {
 
     /** O que fazer com um comando de fora. Mesma porta do painel: as mesmas travas (pergunta na tela, texto válido). */
     fun tratar(ctx: Context, a: RelayEnvelope.Aberto) {
-        val nome = pareados(ctx).firstOrNull { it.id == a.remetente }?.nome ?: a.remetente
+        val quem = pareados(ctx).firstOrNull { it.id == a.remetente }
+        // TV de outra casa: só Sessão junto. Nunca tecla nem texto (e um celular nunca manda Sessão junto).
+        if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
+        val nome = quem?.nome ?: a.remetente
         val c = RelayPairing.comando(a.mensagem)
+        // Painel desligado = nada de fora mexe na TV (o relay é outra porta para o mesmo controle do painel).
+        if (c != null && !br.paulo.tvlauncher.panel.PainelArmazem.podeLigar(ctx)) {
+            br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "painel desligado")
+            return
+        }
+        if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis())) {
+            br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "chegou atrasado (TV estava desligada)")
+            return
+        }
         val motivo = when (c) {
             is RelayPairing.Comando.Tecla -> br.paulo.tvlauncher.panel.PainelControle.tecla(ctx, c.nome)
             is RelayPairing.Comando.Texto -> br.paulo.tvlauncher.panel.PainelControle.digitar(ctx, c.texto)
@@ -212,13 +238,16 @@ object RelayTv {
      */
     @Synchronized fun ajustar(ctx: Context) {
         val app = ctx.applicationContext
-        if (pareados(app).isEmpty() || escutando?.isAlive == true) return
+        if (!precisaEscutar(app) || escutando?.isAlive == true) return
         escutando = Thread({ laco(app) }, "RelayEscuta").apply { isDaemon = true; start() }
     }
 
+    /** Há quem possa mandar algo: aparelho pareado, ou um pareamento por código em andamento (RelayCasas). */
+    private fun precisaEscutar(app: Context) = pareados(app).isNotEmpty() || RelayCasas.emAndamento()
+
     private fun laco(app: Context) {
         var espera = 5_000L
-        while (pareados(app).isNotEmpty()) {
+        while (precisaEscutar(app)) {
             val eu = identidade(app) ?: return
             try {
                 val ws = RelaySocket.conectar(SERVIDOR.removePrefix("https://"), eu.ed, Http.USER_AGENT, System.currentTimeMillis() / 1000)
@@ -245,6 +274,7 @@ object RelayTv {
         val r = RelayEnvelope.lerPendentes("{\"envelopes\":[$msg]}").firstOrNull() ?: return null
         synchronized(this) {
             if (!vistosCarregados) { vistos.carregar(prefs(app).getString("vistos", null)); vistosCarregados = true }
+            if (RelayCasas.chegou(app, r.de, r.dados)) return r.caixaId
             if (!RelayEnvelope.remetenteConfere(r)) return r.caixaId
             val chaves = pareados(app).associate { it.id to it.xPub }
             val agora = System.currentTimeMillis()
@@ -257,10 +287,10 @@ object RelayTv {
     }
 
     /** Pedido do painel (POST /api/relay/parear, só o dono): guarda o celular e devolve as chaves da TV. */
-    fun parearPeloPainel(ctx: Context, corpo: JSONObject?): JSONObject? {
+    fun parearPeloPainel(ctx: Context, corpo: JSONObject?, aparelho: String?): JSONObject? {
         val p = RelayPairing.lerPedido(corpo) ?: return null
         val eu = identidade(ctx) ?: return null
-        parear(ctx, Pareado(p.id, p.xPub, p.nome))
+        parear(ctx, Pareado(p.id, p.xPub, p.nome, aparelho))
         ajustar(ctx)
         return RelayPairing.resposta(eu.id, eu.xPub)
     }

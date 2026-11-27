@@ -5,6 +5,7 @@ import br.paulo.tvlauncher.relay.RelayEnvelope
 import br.paulo.tvlauncher.relay.RelayPairing
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -52,5 +53,12 @@ class RelayPairingTest {
     @Test fun respostaLevaAChaveDaTv() {
         val r = RelayPairing.resposta("abcdefghijklmnopqrst", ByteArray(32) { 1 })
         assertTrue(RelayCrypto.deB64url(r.getString("x")).all { it == 1.toByte() })
+    }
+
+    @Test fun teclaAtrasadaNaoVale() {
+        val agora = 10_000_000L
+        assertTrue(RelayPairing.naHora(RelayPairing.tecla("HOME", agora - 5_000), agora))
+        assertTrue(RelayPairing.naHora(RelayPairing.tecla("HOME", agora + 30_000), agora))   // relógio do celular adiantado
+        assertFalse(RelayPairing.naHora(RelayPairing.tecla("HOME", agora - RelayPairing.ATRASO_MAX_MS - 1), agora))
     }
 }

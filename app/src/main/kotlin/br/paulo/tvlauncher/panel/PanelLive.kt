@@ -233,12 +233,26 @@ internal fun PainelWeb.entrarComAparelho(req: Requisicao, ip: String, https: Boo
     return json(200, JSONObject().put("ok", true), cookieSessao(token))
 }
 
-internal fun PainelWeb.listarAparelhos(): Resposta =
-    json(200, JSONObject().put("aparelhos", JSONArray().apply { aparelhos().sortedByDescending { it.ultimoUso }.forEach { put(AparelhosPareados.publico(it)) } }))
+internal fun PainelWeb.listarAparelhos(): Resposta {
+    val fora = br.paulo.tvlauncher.relay.RelayTv.pareados(app).filterNot { it.tv }.map { AparelhosPareados.DeFora(it.id, it.nome, it.aparelho) }
+    return json(200, JSONObject().put("aparelhos", AparelhosPareados.listaDoPainel(aparelhos(), fora)))
+}
+
+/** O id (em "Celulares com acesso") do celular que mandou a chave de aparelho em X-Aparelho, ou null. Não marca uso. */
+internal fun PainelWeb.aparelhoDoCabecalho(req: Requisicao): String? =
+    AparelhosPareados.conferir(aparelhos(), req.cabecalho("x-aparelho"))?.id
 
 /** Revogar não tem volta para o celular (precisa ler o QR de novo), mas não apaga nada da casa: não pede o PIN. */
 internal fun PainelWeb.revogarAparelho(req: Requisicao, ip: String): Resposta {
     val id = corpoJson(req)?.optString("id").orEmpty()
+    // Celular só de fora de casa (linha "relay:<id>"): sai da lista do relay; as teclas dele param de valer na hora.
+    if (id.startsWith(AparelhosPareados.PREFIXO_RELAY)) {
+        val rid = id.removePrefix(AparelhosPareados.PREFIXO_RELAY)
+        val nome = br.paulo.tvlauncher.relay.RelayTv.pareados(app).firstOrNull { it.id == rid && !it.tv }?.nome
+        if (nome == null || !br.paulo.tvlauncher.relay.RelayTv.esquecer(app, rid)) return erro(404, "esse aparelho já não tem acesso")
+        PainelArmazem.registrar(app, ip, "acesso de fora de casa revogado: $nome", "ok")
+        return json(200, JSONObject().put("ok", true))
+    }
     val nome = synchronized(travaAparelhos) {
         val lista = aparelhos()
         val a = lista.firstOrNull { it.id == id } ?: return erro(404, "esse aparelho já não tem acesso")
@@ -246,6 +260,7 @@ internal fun PainelWeb.revogarAparelho(req: Requisicao, ip: String): Resposta {
         a.nome
     }
     sessoes.encerrarAparelho(id)
+    br.paulo.tvlauncher.relay.RelayTv.esquecerDoAparelho(app, id)   // o mesmo celular também perde o acesso de fora
     PainelArmazem.registrar(app, ip, "acesso revogado: $nome", "ok")
     return json(200, JSONObject().put("ok", true))
 }

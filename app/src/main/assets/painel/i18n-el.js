@@ -162,6 +162,7 @@ traduzirPainelCom({T:{
 "O app Sofaly do celular entra no painel sem pedir o PIN. Revogue o celular que se perdeu ou foi vendido: para voltar, ele precisa ler o QR da TV de novo.":"Η εφαρμογή Sofaly του κινητού ανοίγει τον πίνακα χωρίς να ζητά PIN. Ανακάλεσε ένα κινητό που χάθηκε ή πουλήθηκε: για να επιστρέψει, πρέπει να σαρώσει ξανά το QR της τηλεόρασης.",
 "Nenhum celular com acesso.":"Κανένα κινητό με πρόσβαση.",
 "Último uso":"Τελευταία χρήση",
+"Controla a TV de fora de casa":"Ελέγχει την τηλεόραση εκτός σπιτιού",
 "Revogar o acesso deste celular?":"Ανάκληση πρόσβασης αυτού του κινητού;",
 "Ele sai do painel e só volta lendo o QR da TV.":"Βγαίνει από τον πίνακα και επιστρέφει μόνο σαρώνοντας το QR της τηλεόρασης.",
 "Quem entrou por convite sai do painel agora.":"Όποιος μπήκε με πρόσκληση βγαίνει από τον πίνακα τώρα.",

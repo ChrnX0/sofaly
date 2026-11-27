@@ -162,6 +162,7 @@ traduzirPainelCom({T:{
 "O app Sofaly do celular entra no painel sem pedir o PIN. Revogue o celular que se perdeu ou foi vendido: para voltar, ele precisa ler o QR da TV de novo.":"Ứng dụng Sofaly trên điện thoại mở bảng điều khiển mà không hỏi mã PIN. Thu hồi điện thoại bị mất hoặc đã bán: để quay lại, nó phải quét lại mã QR của TV.",
 "Nenhum celular com acesso.":"Không có điện thoại nào có quyền truy cập.",
 "Último uso":"Lần dùng cuối",
+"Controla a TV de fora de casa":"Điều khiển TV khi ở ngoài nhà",
 "Revogar o acesso deste celular?":"Thu hồi quyền truy cập của điện thoại này?",
 "Ele sai do painel e só volta lendo o QR da TV.":"Nó rời bảng điều khiển và chỉ quay lại khi quét mã QR của TV.",
 "Quem entrou por convite sai do painel agora.":"Người vào bằng lời mời sẽ rời bảng điều khiển ngay.",

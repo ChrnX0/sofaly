@@ -1057,7 +1057,11 @@ object PainelWeb {
             // Decisão A (26/11/2026): o celular pareado troca as chaves do relay aqui, em casa, para controlar a TV de fora.
             // Só o dono (rota fora das listas do PapeisPainel).
             "/api/relay/parear" -> if (req.metodo == "POST") {
-                val r = br.paulo.tvlauncher.relay.RelayTv.parearPeloPainel(app, corpoJson(req)) ?: return erro(400, "chaves inválidas")
+                // Acesso de fora é permanente: só com o PIN. A chave de aparelho (X-Aparelho) já prova o PIN (emitir pede
+                // sessão elevada); sem ela, a sessão tem que estar elevada (quem só leu o QR não ganha acesso de fora).
+                val aparelho = aparelhoDoCabecalho(req)
+                if (aparelho == null && !sessoes.elevada(token)) return precisaPin()
+                val r = br.paulo.tvlauncher.relay.RelayTv.parearPeloPainel(app, corpoJson(req), aparelho) ?: return erro(400, "chaves inválidas")
                 PainelArmazem.registrar(app, ip, "celular pareado para usar de fora de casa", "ok")
                 return json(200, r)
             }

@@ -71,12 +71,16 @@ object ApiTv {
             return if (entrarComChave(ctx, tv, chave!!)) chamarUmaVez(tv, metodo, caminho, corpo) else r
         }
         if (devePedirChave(r.codigo, chave != null, caminho, Pareamento.chave(tv) in semChave)) pedirChave(ctx, tv)
-        if (deveParearRelay(r.codigo, RelayCelular.tv(ctx, tv) != null, caminho, Pareamento.chave(tv) in semRelay)) parearRelay(ctx, tv)
+        if (deveParearRelay(r.codigo, RelayCelular.tv(ctx, tv) != null, caminho, recusouRelay(tv))) parearRelay(ctx, tv)
         return r
     }
 
-    /** TVs que não aceitaram as chaves do relay neste processo (versão antiga, ou sessão que não é do dono). */
-    private val semRelay = java.util.Collections.synchronizedSet(HashSet<String>())
+    /**
+     * TVs que não aceitaram as chaves do relay: até quando não tentar de novo. Pediu o PIN (403) = de novo em 60 s, até
+     * o PIN ser digitado no painel; outra recusa (versão antiga, chaves inválidas) = não neste processo.
+     */
+    private val semRelay = java.util.concurrent.ConcurrentHashMap<String, Long>()
+    private fun recusouRelay(tv: Pareamento.Tv) = (semRelay[Pareamento.chave(tv)] ?: 0L) > System.currentTimeMillis()
 
     /** Depois de uma chamada que deu certo em casa, sem as chaves do relay desta TV: troca agora. Pura (RelayCelularTest). */
     fun deveParearRelay(codigo: Int, temRelay: Boolean, caminho: String, jaRecusou: Boolean): Boolean =
@@ -84,8 +88,11 @@ object ApiTv {
 
     private fun parearRelay(ctx: Context, tv: Pareamento.Tv) {
         val pedido = RelayCelular.pedido(ctx) ?: return
-        val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido)
-        if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json)) semRelay += Pareamento.chave(tv)
+        // Com a chave de aparelho (se já tiver), a TV liga este pareamento à linha do celular em "Celulares com acesso":
+        // revogar lá corta o acesso de fora também.
+        val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido, ChaveAparelho.ler(ctx, tv)?.let { mapOf("X-Aparelho" to it) } ?: emptyMap())
+        if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json))
+            semRelay[Pareamento.chave(tv)] = if (esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
     }
 
     /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
@@ -94,8 +101,10 @@ object ApiTv {
         return if (RelayCelular.enviar(ctx, tv, m)) Resposta(202, JSONObject().put("ok", true).put("relay", true)) else null
     }
 
-    private fun chamarUmaVez(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject?): Resposta =
+    private fun chamarUmaVez(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject?,
+                             cabecalhos: Map<String, String> = emptyMap()): Resposta =
         conversar(tv, metodo, caminho, 8_000) { c ->
+            cabecalhos.forEach { (k, v) -> c.setRequestProperty(k, v) }
             if (metodo == "POST") {
                 c.setRequestProperty("Content-Type", "application/json")
                 c.doOutput = true
@@ -127,7 +136,12 @@ object ApiTv {
         ultimoPedido[k] = agora
         val r = chamarUmaVez(tv, "POST", "/api/aparelho/emitir", JSONObject().put("nome", android.os.Build.MODEL ?: ""))
         val chave = r.json?.optString("chave")
-        if (r.codigo == 200 && ChaveAparelho.valida(chave) && ChaveAparelho.guardar(ctx, tv, chave!!)) return
+        if (r.codigo == 200 && ChaveAparelho.valida(chave) && ChaveAparelho.guardar(ctx, tv, chave!!)) {
+            // Chave nova (primeira vez, ou depois de revogado e lido o QR de novo): troca as chaves do relay de novo, já
+            // ligadas a ela, para que "Revogar" no painel corte também o acesso de fora deste celular.
+            RelayCelular.esquecer(ctx, tv)
+            return
+        }
         if (!esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
     }
 
