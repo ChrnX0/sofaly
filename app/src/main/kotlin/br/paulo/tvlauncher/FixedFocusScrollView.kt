@@ -16,8 +16,9 @@ import android.widget.ScrollView
  * Para quê: as listas de ajuste (Configurações, telas em colunas) leem como as dele.
  * Como: o ScrollView pede ao Android "quanto rolar para mostrar o filho em foco"
  * ([computeScrollDeltaToGetChildRectOnScreen]); aqui a resposta é "o bastante para o topo dele cair na linha fixa".
- * Para a 1ª e a última linha também chegarem lá, o conteúdo ganha folga em cima e embaixo do tamanho certo (mantendo o
- * recuo que ele já tinha). Nada muda para quem usa o ScrollView: é só trocar a classe.
+ * A lista começa no ALTO (Paulo, 27/11/2026: "lista começa no alto"; antes a 1ª linha já nascia na linha fixa e deixava
+ * um vazio grande embaixo do título): o foco desce até a linha fixa e dali em diante fica parado. Para a última linha
+ * também chegar lá, o conteúdo ganha folga embaixo (mantendo o recuo que ele já tinha). Nada muda para quem usa o ScrollView: é só trocar a classe.
  *
  * [fraction] = a altura da linha fixa, como fração da altura da TELA (não da lista), igual ao Projectivy.
  */
@@ -44,7 +45,7 @@ open class FixedFocusScrollView(ctx: Context, private val fraction: Float = FRAC
         if (filho != null && height > 0) {
             if (baseTop < 0) { baseTop = filho.paddingTop; baseBottom = filho.paddingBottom }
             val linha = focusLine()
-            val cima = baseTop + linha
+            val cima = baseTop
             val baixo = baseBottom + (height - linha)
             if (filho.paddingTop != cima || filho.paddingBottom != baixo) {
                 filho.setPaddingRelative(filho.paddingStart, cima, filho.paddingEnd, baixo)
