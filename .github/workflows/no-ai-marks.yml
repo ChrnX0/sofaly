@@ -1,0 +1,51 @@
+# Nenhuma marca de IA em commit, merge ou PR (regra do Paulo; 27/11/2026). Dois pontos de checagem:
+# - PR: os commits do PR (o squash padrão do GitHub transforma um commit de autor "Claude" em "Co-authored-by: Claude").
+# - push na main: o commit que entrou (pega o squash feito sem mensagem explícita). Falha = X vermelho no commit da main.
+# Só git, ~10 s por execução.
+name: Sem marca de IA
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: no-ai-marks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Commits novos do PR
+        if: github.event_name == 'pull_request'
+        env:
+          ACAO: ${{ github.event.action }}
+          ANTES: ${{ github.event.before }}
+          CABECA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # Só o que este push trouxe e ainda não está na main: as branches das threads são longas e guardam commits
+          # antigos já mesclados por squash (com marca, de antes desta checagem), que não voltam para a main.
+          git fetch -q origin main
+          if [ "$ACAO" = "synchronize" ] && [ -n "$ANTES" ] && git cat-file -e "$ANTES^{commit}" 2>/dev/null; then
+            scripts/no-ai-marks.sh "$CABECA" --not "$ANTES" origin/main
+          else
+            scripts/no-ai-marks.sh "$CABECA" --not "$CABECA~1" origin/main   # PR aberto agora: o commit da ponta
+          fi
+      - name: Commits que entraram na main
+        if: github.event_name == 'push'
+        env:
+          ANTES: ${{ github.event.before }}
+          DEPOIS: ${{ github.event.after }}
+        run: |
+          # Push que cria a branch (before = 0000...) não acontece na main; por garantia olha só o último commit.
+          if printf '%s' "$ANTES" | grep -qE '^0+$'; then scripts/no-ai-marks.sh "$DEPOIS~1..$DEPOIS"
+          else scripts/no-ai-marks.sh "$ANTES..$DEPOIS"; fi
