@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Rozmrazeno. Funguje jako dřív.</string>
     <string name="sob_demanda_falhou">Teď se to nepodařilo změnit. Zkuste to za chvíli znovu.</string>
     <string name="home_desinstalar">Odinstalovat</string>
-    <string name="home_app_sistema"> (systémová aplikace)</string>
+    <string name="home_app_sistema">" (systémová aplikace)"</string>
     <string name="home_desinstalar_titulo">Odinstalovat %1$s?</string>
     <string name="home_desinstalar_aviso">Aplikace a její data z televizoru zmizí. Nelze to vrátit: pro obnovení ji znovu nainstalujte z Obchodu Play.</string>
     <string name="home_cancelar">Zrušit</string>
@@ -903,17 +903,17 @@
     <string name="ief_sem_wifi" formatted="true">Televizor nemá Wi-Fi%1$s. Zkontrolujte, že je router zapnutý, nebo zda se nezměnil název či heslo sítě.</string>
     <string name="ief_roteador_sem_modem" formatted="true">router ztratil spojení s modemem poskytovatele</string>
     <string name="ief_roteador_ve_fora" formatted="true">router také vidí internet jako nefunkční</string>
-    <string name="ief_ha" formatted="true"> (před %1$s)</string>
+    <string name="ief_ha" formatted="true">" (před %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi je v pořádku, ale internet poskytovatele vypadl%1$s; %2$s%3$s. Není to televizorem: počkejte na poskytovatele nebo restartujte modem.</string>
     <string name="ief_vpn_travada" formatted="true">Router má internet, ale televizor se nedostane ven%1$s: VPN se pravděpodobně zasekla. Vypnutí a zapnutí VPN to obvykle vyřeší.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Router má internet, ale televizor se k němu nedostane%1$s: problém je mezi televizorem a routerem%2$s Opětovné připojení televizoru k Wi-Fi to obvykle vyřeší.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (signál Wi-Fi je slabý, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (signál Wi-Fi je slabý, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">Televizor je na Wi-Fi, ale neodpovídá router ani internet%1$s: router možná zamrzl. Vypnutí a zapnutí routeru to obvykle vyřeší.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi je v pořádku, ale internet neprochází%1$s; pravděpodobně jde o poskytovatele nebo router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (příčinou může být i zapnutá VPN).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (příčinou může být i zapnutá VPN)."</string>
     <string name="ief_dns" formatted="true">Internet funguje, ale DNS%1$s neodpovídá%2$s: aplikace nenajdou své servery. Přepnutí DNS na Automaticky to vyřeší.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet a DNS odpovídají, ale testovací stránka Googlu %1$s: něco po cestě (VPN, blokování DNS nebo síť vyžadující přihlášení) ji blokuje.</string>
     <string name="ief_nao_abriu" formatted="true">se neotevřela</string>
     <string name="ief_codigo_diferente" formatted="true">odpověděla jinak (kód %1$d)</string>
@@ -925,9 +925,9 @@
     <string name="ief_lenta_http" formatted="true">otevření testovací stránky trvalo %1$.1f s</string>
     <string name="ief_queda_recente" formatted="true">Internet je teď v pořádku; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Vše v pořádku: Wi-Fi, internet i DNS odpovídají.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Žádné výpadky za posledních 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Žádné zaznamenané výpadky (televizor měřil jen část posledních 24 h).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Router hlásí problém s internetem, ale televizor normálně prohlíží.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Žádné výpadky za posledních 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Žádné zaznamenané výpadky (televizor měřil jen část posledních 24 h)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Router hlásí problém s internetem, ale televizor normálně prohlíží.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS selhalo</string>
     <string name="ief_caiu_internet" formatted="true">internet vypadl</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (pak televizor přestal měřit; nelze zjistit, kdy se vrátil)</string>

@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Pe telefon, deschideți %1$s (sau îndreptați camera spre codul din dreapta).\n2. Conectați-vă la %2$s și tastați codul:</string>
     <string name="sv_espera">Acest ecran continuă singur. ÎNAPOI anulează.</string>
     <string name="sv_ok">Gata: %1$s este conectat%2$s.</string>
-    <string name="sv_ok_como"> ca %1$s</string>
+    <string name="sv_ok_como">" ca %1$s"</string>
     <string name="sv_falhou">Nu a funcționat: %1$s</string>
     <string name="sv_motivo_venceu">codul a expirat. Încercați din nou.</string>
     <string name="sv_motivo_recusado">accesul a fost refuzat pe telefon.</string>

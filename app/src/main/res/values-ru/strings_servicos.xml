@@ -19,7 +19,7 @@
     <string name="sv_passos">1. На телефоне откройте %1$s (или наведите камеру на код справа).\n2. Войдите в %2$s и введите код:</string>
     <string name="sv_espera">Экран продолжит сам. НАЗАД отменяет.</string>
     <string name="sv_ok">Готово: %1$s подключён%2$s.</string>
-    <string name="sv_ok_como"> как %1$s</string>
+    <string name="sv_ok_como">" как %1$s"</string>
     <string name="sv_falhou">Не получилось: %1$s</string>
     <string name="sv_motivo_venceu">срок кода истёк. Попробуйте снова.</string>
     <string name="sv_motivo_recusado">доступ отклонён на телефоне.</string>

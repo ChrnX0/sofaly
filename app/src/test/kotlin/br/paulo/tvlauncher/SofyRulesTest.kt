@@ -155,4 +155,12 @@ class SofyRulesSecondTest {
         val p = SofyRules.secondPrompt("previsao", listOf("Chance de chuva 40%"), listOf(a, b))
         assertTrue(p.contains("id=ra") && p.contains("id=rb") && p.contains("max=100.0") && p.contains("Chance de chuva 40%"))
     }
+
+    @Test fun textoLongoCortadoPorNosLevaMarca() {
+        val longo = "Está tudo ok: " + "x".repeat(SofyRules.TEXT_MAX) + " roteador: vê a internet ok"
+        val p = SofyRules.prompt("diagnostico", listOf(longo, "Curto"), emptyList())
+        assertTrue(p.contains("x [cut]\n") && !p.contains("roteador: v"))
+        assertTrue(p.contains("- Curto\n") && !p.contains("Curto [cut]"))
+        assertTrue(SofyRules.SYSTEM.contains("[cut]"))
+    }
 }

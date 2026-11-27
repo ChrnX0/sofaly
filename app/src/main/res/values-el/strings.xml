@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Ξεπαγωμένη. Λειτουργεί όπως πριν.</string>
     <string name="sob_demanda_falhou">Δεν ήταν δυνατή η αλλαγή τώρα. Δοκιμάστε ξανά σε λίγο.</string>
     <string name="home_desinstalar">Απεγκατάσταση</string>
-    <string name="home_app_sistema"> (εφαρμογή συστήματος)</string>
+    <string name="home_app_sistema">" (εφαρμογή συστήματος)"</string>
     <string name="home_desinstalar_titulo">Απεγκατάσταση του %1$s;</string>
     <string name="home_desinstalar_aviso">Η εφαρμογή και τα δεδομένα της φεύγουν από την τηλεόραση. Δεν αναιρείται: για να την επαναφέρετε, εγκαταστήστε την ξανά από το Play Store.</string>
     <string name="home_cancelar">Άκυρο</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">Η τηλεόραση δεν έχει Wi-Fi%1$s. Ελέγξτε ότι ο router είναι ανοιχτός, ή αν άλλαξε το όνομα ή ο κωδικός του δικτύου.</string>
     <string name="ief_roteador_sem_modem" formatted="true">ο router έχασε τη σύνδεση με το μόντεμ του παρόχου</string>
     <string name="ief_roteador_ve_fora" formatted="true">και ο router βλέπει το internet πεσμένο</string>
-    <string name="ief_ha" formatted="true"> (πριν από %1$s)</string>
+    <string name="ief_ha" formatted="true">" (πριν από %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">Το Wi-Fi είναι εντάξει, αλλά το internet του παρόχου έπεσε%1$s· %2$s%3$s. Δεν φταίει η τηλεόραση: περιμένετε τον πάροχο ή επανεκκινήστε το μόντεμ.</string>
     <string name="ief_vpn_travada" formatted="true">Ο router έχει internet, αλλά η τηλεόραση δεν περνά%1$s: το VPN μάλλον κόλλησε. Συνήθως διορθώνεται απενεργοποιώντας και ενεργοποιώντας το VPN.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Ο router έχει internet, αλλά η τηλεόραση δεν το φτάνει%1$s: το πρόβλημα είναι ανάμεσα στην τηλεόραση και τον router%2$s Η επανασύνδεση της τηλεόρασης στο Wi-Fi συνήθως το διορθώνει.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (το σήμα Wi-Fi είναι αδύναμο, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (το σήμα Wi-Fi είναι αδύναμο, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">Η τηλεόραση είναι στο Wi-Fi, αλλά ούτε ο router ούτε το internet απαντούν%1$s: ο router ίσως κόλλησε. Συνήθως διορθώνεται κλείνοντας και ανοίγοντας τον router.</string>
     <string name="ief_sem_internet" formatted="true">Το Wi-Fi είναι εντάξει, αλλά το internet δεν περνά%1$s· μάλλον φταίει ο πάροχος ή ο router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (μπορεί να φταίει και το ενεργό VPN).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (μπορεί να φταίει και το ενεργό VPN)."</string>
     <string name="ief_dns" formatted="true">Το internet λειτουργεί, αλλά το DNS%1$s δεν απαντά%2$s: οι εφαρμογές δεν βρίσκουν τους διακομιστές τους. Η αλλαγή του DNS σε Αυτόματο το διορθώνει.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Το internet και το DNS απαντούν, αλλά η δοκιμαστική σελίδα της Google %1$s: κάτι στη διαδρομή (VPN, αποκλεισμός DNS ή δίκτυο που ζητά σύνδεση) τη μπλοκάρει.</string>
     <string name="ief_nao_abriu" formatted="true">δεν άνοιξε</string>
     <string name="ief_codigo_diferente" formatted="true">απάντησε διαφορετικά (κωδικός %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">η δοκιμαστική σελίδα χρειάστηκε %1$.1f δ. για να ανοίξει</string>
     <string name="ief_queda_recente" formatted="true">Το internet είναι εντάξει τώρα· %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Όλα καλά: Wi-Fi, internet και DNS απαντούν.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Καμία διακοπή τις τελευταίες 24 ώ.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Καμία καταγεγραμμένη διακοπή (η τηλεόραση μέτρησε μόνο μέρος των τελευταίων 24 ώ.).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Ο router αναφέρει πρόβλημα internet, αλλά η τηλεόραση περιηγείται κανονικά.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Καμία διακοπή τις τελευταίες 24 ώ."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Καμία καταγεγραμμένη διακοπή (η τηλεόραση μέτρησε μόνο μέρος των τελευταίων 24 ώ.)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Ο router αναφέρει πρόβλημα internet, αλλά η τηλεόραση περιηγείται κανονικά.)"</string>
     <string name="ief_caiu_dns" formatted="true">το DNS απέτυχε</string>
     <string name="ief_caiu_internet" formatted="true">το internet έπεσε</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (μετά η τηλεόραση σταμάτησε να μετρά· δεν μπορούμε να ξέρουμε πότε επανήλθε)</string>

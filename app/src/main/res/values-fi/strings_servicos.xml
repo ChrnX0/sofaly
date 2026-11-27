@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Avaa puhelimellasi %1$s (tai osoita kameralla oikealla olevaa koodia).\n2. Kirjaudu palveluun %2$s ja kirjoita koodi:</string>
     <string name="sv_espera">Tämä näyttö jatkaa itsestään. TAKAISIN peruuttaa.</string>
     <string name="sv_ok">Valmis: %1$s on yhdistetty%2$s.</string>
-    <string name="sv_ok_como"> käyttäjänä %1$s</string>
+    <string name="sv_ok_como">" käyttäjänä %1$s"</string>
     <string name="sv_falhou">Se ei onnistunut: %1$s</string>
     <string name="sv_motivo_venceu">koodi vanheni. Yritä uudelleen.</string>
     <string name="sv_motivo_recusado">käyttö evättiin puhelimessa.</string>

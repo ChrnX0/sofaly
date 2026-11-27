@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Öffne auf dem Handy %1$s (oder richte die Kamera auf den Code rechts).\n2. Melde dich bei %2$s an und gib den Code ein:</string>
     <string name="sv_espera">Dieser Bildschirm geht von selbst weiter. ZURÜCK bricht ab.</string>
     <string name="sv_ok">Fertig: %1$s ist verbunden%2$s.</string>
-    <string name="sv_ok_como"> als %1$s</string>
+    <string name="sv_ok_como">" als %1$s"</string>
     <string name="sv_falhou">Hat nicht geklappt: %1$s</string>
     <string name="sv_motivo_venceu">der Code ist abgelaufen. Versuch es erneut.</string>
     <string name="sv_motivo_recusado">der Zugriff wurde am Handy abgelehnt.</string>

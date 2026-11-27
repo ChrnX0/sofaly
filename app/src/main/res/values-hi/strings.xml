@@ -120,7 +120,7 @@
     <string name="sob_demanda_desligado">अनफ़्रीज़ हो गया। पहले जैसा काम करेगा।</string>
     <string name="sob_demanda_falhou">अभी बदलाव नहीं हो सका। थोड़ी देर में फिर कोशिश करें।</string>
     <string name="home_desinstalar">अनइंस्टॉल करें</string>
-    <string name="home_app_sistema"> (सिस्टम ऐप)</string>
+    <string name="home_app_sistema">" (सिस्टम ऐप)"</string>
     <string name="home_desinstalar_titulo">%1$s अनइंस्टॉल करें?</string>
     <string name="home_desinstalar_aviso">ऐप और उसका डेटा TV से हट जाएगा। इसे वापस नहीं किया जा सकता: दोबारा पाने के लिए Play Store से फिर इंस्टॉल करें।</string>
     <string name="home_cancelar">रद्द करें</string>
@@ -877,17 +877,17 @@ AS\\Movies)।</string>
     <string name="ief_sem_wifi" formatted="true">टीवी पर Wi-Fi नहीं है%1$s। देखें कि राउटर चालू है या नेटवर्क का नाम या पासवर्ड बदला तो नहीं।</string>
     <string name="ief_roteador_sem_modem" formatted="true">राउटर का प्रदाता के मॉडेम से संपर्क टूट गया</string>
     <string name="ief_roteador_ve_fora" formatted="true">राउटर को भी इंटरनेट बंद दिख रहा है</string>
-    <string name="ief_ha" formatted="true"> (%1$s से)</string>
+    <string name="ief_ha" formatted="true">" (%1$s से)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi ठीक है, पर प्रदाता का इंटरनेट बंद हो गया%1$s; %2$s%3$s। टीवी की गलती नहीं: प्रदाता का इंतज़ार करें या मॉडेम दोबारा चालू करें।</string>
     <string name="ief_vpn_travada" formatted="true">राउटर पर इंटरनेट है, पर टीवी तक नहीं पहुँच रहा%1$s: शायद VPN अटका है। VPN बंद करके चालू करने से आमतौर पर ठीक हो जाता है।</string>
     <string name="ief_entre_tv_roteador" formatted="true">राउटर पर इंटरनेट है, पर टीवी उस तक नहीं पहुँच रहा%1$s: समस्या टीवी और राउटर के बीच है%2$s टीवी को Wi-Fi से दोबारा जोड़ने पर आमतौर पर ठीक हो जाता है।</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi सिग्नल कमज़ोर है, %1$d dBm)।</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (Wi-Fi सिग्नल कमज़ोर है, %1$d dBm)।"</string>
     <string name="ief_ponto" formatted="true">।</string>
     <string name="ief_roteador_travado" formatted="true">टीवी Wi-Fi पर है, पर न राउटर जवाब दे रहा है न इंटरनेट%1$s: राउटर अटक गया हो सकता है। उसे बंद करके चालू करने से आमतौर पर ठीक हो जाता है।</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi ठीक है, पर इंटरनेट नहीं पहुँच रहा%1$s; शायद प्रदाता या राउटर की वजह से%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (चालू VPN भी वजह हो सकता है)।</string>
+    <string name="ief_vpn_culpada" formatted="true">" (चालू VPN भी वजह हो सकता है)।"</string>
     <string name="ief_dns" formatted="true">इंटरनेट पहुँच रहा है, पर DNS%1$s जवाब नहीं दे रहा%2$s: ऐप्स अपने सर्वर नहीं ढूँढ पा रहे। DNS को स्वचालित करने से ठीक हो जाता है।</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">इंटरनेट और DNS जवाब दे रहे हैं, पर Google का टेस्ट पेज %1$s: रास्ते में कुछ (VPN, DNS ब्लॉक या लॉगिन माँगने वाला नेटवर्क) रोक रहा है।</string>
     <string name="ief_nao_abriu" formatted="true">नहीं खुला</string>
     <string name="ief_codigo_diferente" formatted="true">अलग जवाब आया (कोड %1$d)</string>
@@ -899,9 +899,9 @@ AS\\Movies)।</string>
     <string name="ief_lenta_http" formatted="true">टेस्ट पेज खुलने में %1$.1f सेकंड लगे</string>
     <string name="ief_queda_recente" formatted="true">इंटरनेट अभी ठीक है; %1$s।</string>
     <string name="ief_tudo_ok" formatted="true">सब ठीक है: Wi-Fi, इंटरनेट और DNS जवाब दे रहे हैं।%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> पिछले 24 घंटे में कोई रुकावट नहीं।</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> कोई रुकावट दर्ज नहीं (टीवी ने पिछले 24 घंटे का सिर्फ़ कुछ हिस्सा मापा)।</string>
-    <string name="ief_roteador_avisa" formatted="true"> (राउटर इंटरनेट में समस्या बता रहा है, पर टीवी सामान्य रूप से चल रहा है।)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" पिछले 24 घंटे में कोई रुकावट नहीं।"</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" कोई रुकावट दर्ज नहीं (टीवी ने पिछले 24 घंटे का सिर्फ़ कुछ हिस्सा मापा)।"</string>
+    <string name="ief_roteador_avisa" formatted="true">" (राउटर इंटरनेट में समस्या बता रहा है, पर टीवी सामान्य रूप से चल रहा है।)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS विफल रहा</string>
     <string name="ief_caiu_internet" formatted="true">इंटरनेट बंद हुआ</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (फिर टीवी ने मापना बंद कर दिया; पता नहीं कब लौटा)</string>

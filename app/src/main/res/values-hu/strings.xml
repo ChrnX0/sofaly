@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Feloldva. Úgy működik, mint korábban.</string>
     <string name="sob_demanda_falhou">Most nem sikerült módosítani. Próbálja újra egy pillanat múlva.</string>
     <string name="home_desinstalar">Eltávolítás</string>
-    <string name="home_app_sistema"> (rendszeralkalmazás)</string>
+    <string name="home_app_sistema">" (rendszeralkalmazás)"</string>
     <string name="home_desinstalar_titulo">Eltávolítja: %1$s?</string>
     <string name="home_desinstalar_aviso">Az alkalmazás és az adatai lekerülnek a TV-ről. Ez nem vonható vissza: a visszaszerzéshez telepítse újra a Play Áruházból.</string>
     <string name="home_cancelar">Mégse</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">A TV-nek nincs Wi-Fi-je%1$s. Ellenőrizze, hogy a router be van-e kapcsolva, vagy nem változott-e a hálózat neve vagy jelszava.</string>
     <string name="ief_roteador_sem_modem" formatted="true">a router elvesztette a kapcsolatot a szolgáltató modemjével</string>
     <string name="ief_roteador_ve_fora" formatted="true">a router is úgy látja, hogy nincs internet</string>
-    <string name="ief_ha" formatted="true"> (%1$s ezelőtt)</string>
+    <string name="ief_ha" formatted="true">" (%1$s ezelőtt)"</string>
     <string name="ief_provedor_caiu" formatted="true">A Wi-Fi rendben van, de a szolgáltató internetje leállt%1$s; %2$s%3$s. Nem a TV a hibás: várjon a szolgáltatóra, vagy indítsa újra a modemet.</string>
     <string name="ief_vpn_travada" formatted="true">A routeren van internet, de a TV nem jut át%1$s: valószínűleg a VPN akadt el. A VPN ki- és bekapcsolása általában megoldja.</string>
     <string name="ief_entre_tv_roteador" formatted="true">A routeren van internet, de a TV nem éri el%1$s: a probléma a TV és a router között van%2$s A TV újracsatlakoztatása a Wi-Fi-hez általában megoldja.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (a Wi-Fi-jel gyenge, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (a Wi-Fi-jel gyenge, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">A TV a Wi-Fi-n van, de sem a router, sem az internet nem válaszol%1$s: a router lefagyhatott. A router ki- és bekapcsolása általában megoldja.</string>
     <string name="ief_sem_internet" formatted="true">A Wi-Fi rendben van, de az internet nem jut át%1$s; valószínűleg a szolgáltató vagy a router a hibás%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (a bekapcsolt VPN is lehet az ok).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (a bekapcsolt VPN is lehet az ok)."</string>
     <string name="ief_dns" formatted="true">Az internet működik, de a DNS%1$s nem válaszol%2$s: az alkalmazások nem találják a szervereiket. A DNS Automatikusra állítása megoldja.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Az internet és a DNS válaszol, de a Google tesztoldala %1$s: valami útközben (VPN, DNS-szűrés vagy bejelentkezést kérő hálózat) blokkolja.</string>
     <string name="ief_nao_abriu" formatted="true">nem nyílt meg</string>
     <string name="ief_codigo_diferente" formatted="true">másképp válaszolt (kód: %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">a tesztoldal %1$.1f mp alatt nyílt meg</string>
     <string name="ief_queda_recente" formatted="true">Az internet most rendben van; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Minden rendben: a Wi-Fi, az internet és a DNS válaszol.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Az elmúlt 24 órában nem volt kiesés.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Nincs rögzített kiesés (a TV az elmúlt 24 órának csak egy részében mért).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (A router internetproblémát jelez, de a TV normálisan böngészik.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Az elmúlt 24 órában nem volt kiesés."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Nincs rögzített kiesés (a TV az elmúlt 24 órának csak egy részében mért)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (A router internetproblémát jelez, de a TV normálisan böngészik.)"</string>
     <string name="ief_caiu_dns" formatted="true">A DNS hibázott</string>
     <string name="ief_caiu_internet" formatted="true">az internet leállt</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (aztán a TV abbahagyta a mérést; nem tudni, mikor jött vissza)</string>

@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">ปลดการตรึงแล้ว ใช้งานได้เหมือนเดิม</string>
     <string name="sob_demanda_falhou">เปลี่ยนไม่ได้ในตอนนี้ โปรดลองอีกครั้งในอีกสักครู่</string>
     <string name="home_desinstalar">ถอนการติดตั้ง</string>
-    <string name="home_app_sistema"> (แอประบบ)</string>
+    <string name="home_app_sistema">" (แอประบบ)"</string>
     <string name="home_desinstalar_titulo">ถอนการติดตั้ง %1$s ไหม</string>
     <string name="home_desinstalar_aviso">แอปและข้อมูลของแอปจะถูกลบออกจากทีวี ย้อนกลับไม่ได้: หากต้องการคืน ให้ติดตั้งใหม่จาก Play Store</string>
     <string name="home_cancelar">ยกเลิก</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">ทีวีไม่มี Wi-Fi%1$s ตรวจสอบว่าเราเตอร์เปิดอยู่ หรือชื่อเครือข่ายหรือรหัสผ่านเปลี่ยนไปหรือไม่</string>
     <string name="ief_roteador_sem_modem" formatted="true">เราเตอร์ขาดการเชื่อมต่อกับโมเด็มของผู้ให้บริการ</string>
     <string name="ief_roteador_ve_fora" formatted="true">เราเตอร์ก็เห็นว่าอินเทอร์เน็ตล่มเช่นกัน</string>
-    <string name="ief_ha" formatted="true"> (เมื่อ %1$s ที่แล้ว)</string>
+    <string name="ief_ha" formatted="true">" (เมื่อ %1$s ที่แล้ว)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi ปกติ แต่อินเทอร์เน็ตของผู้ให้บริการล่ม%1$s; %2$s%3$s ไม่ใช่ปัญหาของทีวี: รอผู้ให้บริการหรือรีสตาร์ทโมเด็ม</string>
     <string name="ief_vpn_travada" formatted="true">เราเตอร์มีอินเทอร์เน็ต แต่ทีวีส่งผ่านไม่ได้%1$s: VPN อาจค้างอยู่ ปิดแล้วเปิด VPN ใหม่มักแก้ได้</string>
     <string name="ief_entre_tv_roteador" formatted="true">เราเตอร์มีอินเทอร์เน็ต แต่ทีวีเข้าถึงไม่ได้%1$s: ปัญหาอยู่ระหว่างทีวีกับเราเตอร์%2$s เชื่อมต่อทีวีกับ Wi-Fi ใหม่มักแก้ได้</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (สัญญาณ Wi-Fi อ่อน %1$d dBm)</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (สัญญาณ Wi-Fi อ่อน %1$d dBm)"</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">ทีวีเชื่อมต่อ Wi-Fi แล้ว แต่ทั้งเราเตอร์และอินเทอร์เน็ตไม่ตอบสนอง%1$s: เราเตอร์อาจค้าง ปิดแล้วเปิดเราเตอร์ใหม่มักแก้ได้</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi ปกติ แต่อินเทอร์เน็ตส่งผ่านไม่ได้%1$s อาจเป็นที่ผู้ให้บริการหรือเราเตอร์%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (การเปิด VPN ไว้อาจเป็นสาเหตุด้วย)</string>
+    <string name="ief_vpn_culpada" formatted="true">" (การเปิด VPN ไว้อาจเป็นสาเหตุด้วย)"</string>
     <string name="ief_dns" formatted="true">อินเทอร์เน็ตใช้ได้ แต่ DNS%1$s ไม่ตอบสนอง%2$s: แอปหาเซิร์ฟเวอร์ของตัวเองไม่เจอ เปลี่ยน DNS เป็นอัตโนมัติจะแก้ได้</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">อินเทอร์เน็ตและ DNS ตอบสนอง แต่หน้าทดสอบของ Google %1$s: มีบางอย่างระหว่างทาง (VPN, การบล็อก DNS หรือเครือข่ายที่ต้องเข้าสู่ระบบ) กำลังบล็อกอยู่</string>
     <string name="ief_nao_abriu" formatted="true">เปิดไม่ขึ้น</string>
     <string name="ief_codigo_diferente" formatted="true">ตอบกลับต่างไป (รหัส %1$d)</string>
@@ -918,13 +918,13 @@
     <string name="ief_lenta" formatted="true">อินเทอร์เน็ตใช้ได้ แต่ช้า: %1$s%2$s</string>
     <string name="ief_lenta_sinal" formatted="true">สัญญาณ Wi-Fi อ่อน (%1$d dBm) ย้ายเราเตอร์ให้ใกล้ขึ้นหรือใช้สายจะช่วยได้</string>
     <string name="ief_lenta_tcp" formatted="true">อินเทอร์เน็ตใช้เวลา %1$d ms ในการตอบสนอง%2$s</string>
-    <string name="ief_lenta_roteador_igual" formatted="true"> และเราเตอร์ก็เห็นเหมือนกัน: เป็นที่ผู้ให้บริการ</string>
+    <string name="ief_lenta_roteador_igual" formatted="true">" และเราเตอร์ก็เห็นเหมือนกัน: เป็นที่ผู้ให้บริการ"</string>
     <string name="ief_lenta_http" formatted="true">หน้าทดสอบใช้เวลา %1$.1f วินาทีในการเปิด</string>
     <string name="ief_queda_recente" formatted="true">ตอนนี้อินเทอร์เน็ตปกติแล้ว %1$s</string>
     <string name="ief_tudo_ok" formatted="true">ทุกอย่างปกติ: Wi-Fi อินเทอร์เน็ต และ DNS ตอบสนอง%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> ไม่มีการหลุดใน 24 ชม. ที่ผ่านมา</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> ไม่มีการหลุดที่บันทึกไว้ (ทีวีวัดได้เพียงบางส่วนของ 24 ชม. ที่ผ่านมา)</string>
-    <string name="ief_roteador_avisa" formatted="true"> (เราเตอร์รายงานปัญหาอินเทอร์เน็ต แต่ทีวีใช้งานได้ปกติ)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" ไม่มีการหลุดใน 24 ชม. ที่ผ่านมา"</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" ไม่มีการหลุดที่บันทึกไว้ (ทีวีวัดได้เพียงบางส่วนของ 24 ชม. ที่ผ่านมา)"</string>
+    <string name="ief_roteador_avisa" formatted="true">" (เราเตอร์รายงานปัญหาอินเทอร์เน็ต แต่ทีวีใช้งานได้ปกติ)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS ล้มเหลว</string>
     <string name="ief_caiu_internet" formatted="true">อินเทอร์เน็ตล่ม</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (จากนั้นทีวีหยุดวัดผล จึงไม่ทราบว่ากลับมาเมื่อไร)</string>

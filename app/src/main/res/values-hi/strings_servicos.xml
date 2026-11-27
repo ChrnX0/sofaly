@@ -19,7 +19,7 @@
     <string name="sv_passos">1. फ़ोन पर %1$s खोलें (या कैमरा दाईं ओर के कोड पर रखें)।\n2. %2$s में साइन इन करें और कोड टाइप करें:</string>
     <string name="sv_espera">यह स्क्रीन अपने-आप आगे बढ़ती है। BACK से रद्द।</string>
     <string name="sv_ok">हो गया: %1$s कनेक्ट है%2$s।</string>
-    <string name="sv_ok_como"> (%1$s के रूप में)</string>
+    <string name="sv_ok_como">" (%1$s के रूप में)"</string>
     <string name="sv_falhou">काम नहीं हुआ: %1$s</string>
     <string name="sv_motivo_venceu">कोड की अवधि ख़त्म। फिर कोशिश करें।</string>
     <string name="sv_motivo_recusado">फ़ोन पर पहुँच से मना किया गया।</string>

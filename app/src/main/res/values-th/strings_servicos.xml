@@ -19,7 +19,7 @@
     <string name="sv_passos">1. บนโทรศัพท์ เปิด %1$s (หรือส่องกล้องไปที่รหัสทางขวา)\n2. ลงชื่อเข้าใช้ %2$s แล้วพิมพ์รหัส:</string>
     <string name="sv_espera">หน้าจอนี้จะดำเนินการต่อเอง BACK เพื่อยกเลิก</string>
     <string name="sv_ok">เรียบร้อย: เชื่อมต่อ %1$s แล้ว%2$s</string>
-    <string name="sv_ok_como"> ในชื่อ %1$s</string>
+    <string name="sv_ok_como">" ในชื่อ %1$s"</string>
     <string name="sv_falhou">ไม่สำเร็จ: %1$s</string>
     <string name="sv_motivo_venceu">รหัสหมดอายุแล้ว ลองอีกครั้ง</string>
     <string name="sv_motivo_recusado">การเข้าถึงถูกปฏิเสธบนโทรศัพท์</string>

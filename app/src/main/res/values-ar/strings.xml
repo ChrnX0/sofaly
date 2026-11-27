@@ -120,7 +120,7 @@
     <string name="sob_demanda_desligado">أُلغي التجميد. يعمل كما كان.</string>
     <string name="sob_demanda_falhou">تعذّر التغيير الآن. حاول مرة أخرى بعد قليل.</string>
     <string name="home_desinstalar">إلغاء التثبيت</string>
-    <string name="home_app_sistema"> (تطبيق نظام)</string>
+    <string name="home_app_sistema">" (تطبيق نظام)"</string>
     <string name="home_desinstalar_titulo">إلغاء تثبيت %1$s؟</string>
     <string name="home_desinstalar_aviso">يُحذف التطبيق وبياناته من التلفزيون. لا يمكن التراجع: لاستعادته، ثبّته مجددًا من Play Store.</string>
     <string name="home_cancelar">إلغاء</string>
@@ -889,17 +889,17 @@ AS\\Movies).</string>
     <string name="ief_sem_wifi" formatted="true">التلفاز غير متصل بشبكة Wi-Fi%1$s. تأكد من أن الراوتر يعمل أو أن اسم الشبكة أو كلمة مرورها لم يتغيرا.</string>
     <string name="ief_roteador_sem_modem" formatted="true">فقد الراوتر الاتصال بمودم مزوّد الخدمة</string>
     <string name="ief_roteador_ve_fora" formatted="true">والراوتر أيضًا يرى الإنترنت منقطعًا</string>
-    <string name="ief_ha" formatted="true"> (منذ %1$s)</string>
+    <string name="ief_ha" formatted="true">" (منذ %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">شبكة Wi-Fi سليمة، لكن إنترنت مزوّد الخدمة انقطع%1$s؛ %2$s%3$s. المشكلة ليست في التلفاز: انتظر مزوّد الخدمة أو أعد تشغيل المودم.</string>
     <string name="ief_vpn_travada" formatted="true">الراوتر متصل بالإنترنت، لكن التلفاز لا يصل إليه%1$s: يبدو أن الـVPN عالق. إيقاف الـVPN وتشغيله يحل المشكلة عادةً.</string>
     <string name="ief_entre_tv_roteador" formatted="true">الراوتر متصل بالإنترنت، لكن التلفاز لا يصل إليه%1$s: المشكلة بين التلفاز والراوتر%2$s إعادة توصيل التلفاز بشبكة Wi-Fi تحل المشكلة عادةً.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (إشارة Wi-Fi ضعيفة، %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (إشارة Wi-Fi ضعيفة، %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">التلفاز على شبكة Wi-Fi، لكن لا الراوتر ولا الإنترنت يستجيبان%1$s: ربما تجمّد الراوتر. إيقافه وتشغيله يحل المشكلة عادةً.</string>
     <string name="ief_sem_internet" formatted="true">شبكة Wi-Fi سليمة، لكن الإنترنت لا يصل%1$s؛ غالبًا السبب مزوّد الخدمة أو الراوتر%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (وقد يكون الـVPN المشغّل هو السبب أيضًا).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (وقد يكون الـVPN المشغّل هو السبب أيضًا)."</string>
     <string name="ief_dns" formatted="true">الإنترنت يصل، لكن خادم DNS%1$s لا يستجيب%2$s: التطبيقات لا تجد خوادمها. تحويل DNS إلى تلقائي يحل المشكلة.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">الإنترنت وDNS يستجيبان، لكن صفحة اختبار Google %1$s: شيء ما في الطريق (VPN أو حظر DNS أو شبكة تطلب تسجيل الدخول) يحجبها.</string>
     <string name="ief_nao_abriu" formatted="true">لم تفتح</string>
     <string name="ief_codigo_diferente" formatted="true">ردّت بشكل مختلف (الرمز %1$d)</string>
@@ -911,9 +911,9 @@ AS\\Movies).</string>
     <string name="ief_lenta_http" formatted="true">استغرقت صفحة الاختبار %1$.1f ث لتفتح</string>
     <string name="ief_queda_recente" formatted="true">الإنترنت سليم الآن؛ %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">كل شيء على ما يرام: Wi-Fi والإنترنت وDNS تستجيب.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> لا انقطاعات في آخر 24 ساعة.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> لم يُسجَّل أي انقطاع (قاس التلفاز جزءًا فقط من آخر 24 ساعة).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (الراوتر يبلّغ عن مشكلة في الإنترنت، لكن التلفاز يتصفح بشكل طبيعي.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" لا انقطاعات في آخر 24 ساعة."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" لم يُسجَّل أي انقطاع (قاس التلفاز جزءًا فقط من آخر 24 ساعة)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (الراوتر يبلّغ عن مشكلة في الإنترنت، لكن التلفاز يتصفح بشكل طبيعي.)"</string>
     <string name="ief_caiu_dns" formatted="true">فشل DNS</string>
     <string name="ief_caiu_internet" formatted="true">انقطع الإنترنت</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (ثم توقف التلفاز عن القياس؛ لا يمكن معرفة متى عاد)</string>

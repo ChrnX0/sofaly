@@ -19,7 +19,7 @@
     <string name="sv_passos">1. En tu teléfono, abre %1$s (o apunta la cámara al código de la derecha).\n2. Inicia sesión en %2$s y escribe el código:</string>
     <string name="sv_espera">Esta pantalla sigue sola. ATRÁS cancela.</string>
     <string name="sv_ok">Listo: %1$s está conectado%2$s.</string>
-    <string name="sv_ok_como"> como %1$s</string>
+    <string name="sv_ok_como">" como %1$s"</string>
     <string name="sv_falhou">No funcionó: %1$s</string>
     <string name="sv_motivo_venceu">el código venció. Inténtalo de nuevo.</string>
     <string name="sv_motivo_recusado">se denegó el acceso en el teléfono.</string>

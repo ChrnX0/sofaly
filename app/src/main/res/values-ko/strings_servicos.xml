@@ -19,7 +19,7 @@
     <string name="sv_passos">1. 휴대폰에서 %1$s을(를) 여세요(또는 카메라로 오른쪽 코드를 스캔).\n2. %2$s에 로그인하고 코드를 입력하세요:</string>
     <string name="sv_espera">이 화면은 자동으로 진행됩니다. 뒤로를 누르면 취소.</string>
     <string name="sv_ok">완료: %1$s이(가) 연결되었습니다%2$s.</string>
-    <string name="sv_ok_como"> (%1$s 계정)</string>
+    <string name="sv_ok_como">" (%1$s 계정)"</string>
     <string name="sv_falhou">실패: %1$s</string>
     <string name="sv_motivo_venceu">코드가 만료되었습니다. 다시 시도하세요.</string>
     <string name="sv_motivo_recusado">휴대폰에서 액세스가 거부되었습니다.</string>

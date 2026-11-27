@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Unfrozen. It works as before.</string>
     <string name="sob_demanda_falhou">Could not change it now. Try again in a moment.</string>
     <string name="home_desinstalar">Uninstall</string>
-    <string name="home_app_sistema"> (system app)</string>
+    <string name="home_app_sistema">" (system app)"</string>
     <string name="home_desinstalar_titulo">Uninstall %1$s?</string>
     <string name="home_desinstalar_aviso">The app and its data leave the TV. This cannot be undone: to get it back, install it again from the Play Store.</string>
     <string name="home_cancelar">Cancel</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">The TV has no Wi-Fi%1$s. Check that the router is on, or whether the network name or password changed.</string>
     <string name="ief_roteador_sem_modem" formatted="true">the router lost its link to the provider’s modem</string>
     <string name="ief_roteador_ve_fora" formatted="true">the router also sees the internet down</string>
-    <string name="ief_ha" formatted="true"> (%1$s ago)</string>
+    <string name="ief_ha" formatted="true">" (%1$s ago)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi is fine, but the provider’s internet went down%1$s; %2$s%3$s. It is not the TV: wait for the provider or restart the modem.</string>
     <string name="ief_vpn_travada" formatted="true">The router has internet, but the TV can’t get through%1$s: the VPN is probably stuck. Turning the VPN off and on usually fixes it.</string>
     <string name="ief_entre_tv_roteador" formatted="true">The router has internet, but the TV can’t reach it%1$s: the problem is between the TV and the router%2$s Reconnecting the TV to Wi-Fi usually fixes it.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (the Wi-Fi signal is weak, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (the Wi-Fi signal is weak, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">The TV is on Wi-Fi, but neither the router nor the internet answers%1$s: the router may be frozen. Turning the router off and on usually fixes it.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi is fine, but the internet doesn’t get through%1$s; it is probably the provider or the router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (the VPN being on may also be the cause).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (the VPN being on may also be the cause)."</string>
     <string name="ief_dns" formatted="true">The internet works, but the DNS%1$s doesn’t answer%2$s: apps can’t find their servers. Switching DNS to Automatic fixes it.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">The internet and DNS answer, but Google’s test page %1$s: something on the way (VPN, DNS blocking or a network asking for a login) is blocking it.</string>
     <string name="ief_nao_abriu" formatted="true">didn’t open</string>
     <string name="ief_codigo_diferente" formatted="true">answered differently (code %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">the test page took %1$.1f s to open</string>
     <string name="ief_queda_recente" formatted="true">The internet is fine now; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">All good: Wi-Fi, internet and DNS answer.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> No drops in the last 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> No drops recorded (the TV measured only part of the last 24 h).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (The router reports an internet problem, but the TV browses normally.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" No drops in the last 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" No drops recorded (the TV measured only part of the last 24 h)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (The router reports an internet problem, but the TV browses normally.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS failed</string>
     <string name="ief_caiu_internet" formatted="true">the internet went down</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (then the TV stopped measuring; there is no way to know when it came back)</string>

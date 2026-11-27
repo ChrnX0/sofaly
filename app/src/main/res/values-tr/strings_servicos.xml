@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Telefonunuzda %1$s adresini açın (veya kamerayı sağdaki koda tutun).\n2. %2$s’de oturum açın ve kodu yazın:</string>
     <string name="sv_espera">Bu ekran kendiliğinden devam eder. GERİ iptal eder.</string>
     <string name="sv_ok">Tamam: %1$s bağlandı%2$s.</string>
-    <string name="sv_ok_como"> (%1$s olarak)</string>
+    <string name="sv_ok_como">" (%1$s olarak)"</string>
     <string name="sv_falhou">Olmadı: %1$s</string>
     <string name="sv_motivo_venceu">kodun süresi doldu. Yeniden deneyin.</string>
     <string name="sv_motivo_recusado">telefonda erişim reddedildi.</string>

@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Sul telefono apri %1$s (o inquadra con la fotocamera il codice a destra).\n2. Accedi a %2$s e digita il codice:</string>
     <string name="sv_espera">Questa schermata prosegue da sola. INDIETRO annulla.</string>
     <string name="sv_ok">Fatto: %1$s è connesso%2$s.</string>
-    <string name="sv_ok_como"> come %1$s</string>
+    <string name="sv_ok_como">" come %1$s"</string>
     <string name="sv_falhou">Non ha funzionato: %1$s</string>
     <string name="sv_motivo_venceu">il codice è scaduto. Riprova.</string>
     <string name="sv_motivo_recusado">l’accesso è stato negato sul telefono.</string>
