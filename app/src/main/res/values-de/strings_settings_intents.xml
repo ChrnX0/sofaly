@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=groessere schrift|schrift groesser|text groesser|groesserer text|schrift vergroessern|text vergroessern;TEXT_SMALLER=kleinere schrift|schrift kleiner|text kleiner|kleinerer text|schrift verkleinern|text verkleinern;GOAL_READ=besser lesen|schwer zu lesen|schlecht lesbar|sehe schlecht;GOAL_CLEAN=aufgeraeumter bildschirm|sauberer bildschirm|weniger kram|einfacher bildschirm;GOAL_ENERGY=weniger energie|energie sparen|strom sparen|weniger strom;LOOK_SOFALY=sofaly look|standard look;LOOK_NIGHT=nacht look|dunkler himmel;LOOK_MOUNTAIN=berg look|berge look;LOOK_MINIMAL=minimal look|minimalistisch</string>
+    <string name="si_fazer">Jetzt machen: %1$s</string>
+    <string name="si_desfazer">Rückgängig: %1$s</string>
+    <string name="si_fazer_det">Ändert es sofort.</string>
+    <string name="si_maior">Größerer Text</string>
+    <string name="si_menor">Kleinerer Text</string>
+</resources>
