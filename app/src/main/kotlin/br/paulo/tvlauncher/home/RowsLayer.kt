@@ -227,6 +227,10 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             if (topoView.alpha != alvo) { if (anima) topoView.animate().alpha(alvo).setDuration(RowsHome.MS).start() else topoView.alpha = alvo }
         }
         val alt = altura(); val larg = largura()
+        // Com a hora e a pílula à mostra, nada das fileiras de cima passa por baixo delas (Sala, 26/11/2026: com a
+        // fileira Jogar em foco, os cards de Assistir apareciam atrás do relógio). Em dp, até o fim da pílula.
+        val topoFim = if (::topoView.isInitialized && RowsHome.topoVisivel(o, cat) && topoView.height > 0)
+            (topoView.y + topoView.height) / dm.density else 0f
         val semMenu = hasWindowFocus() || br.paulo.tvlauncher.FineTuneActivity.aberto
         // grades (bloco 3): a altura a mais de cada fileira empurra as de baixo
         val extras = FloatArray(fileiras.size) { RowsHome.extraDaGrade(fileiras[it].cards.size, fileiras[it].linhas, fileiras[it].o) }
@@ -242,13 +246,14 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             // título: centro 72 dp acima do centro dos cards
             val th = if (f.titulo.height == 0) dp(12f) else f.titulo.height / 2f
             val ty = dp(cy - RowsHome.TITULO_ACIMA) - th
-            val tAlfa = if (!o.rowTitle || !naTela) 0f else if (emFoco) 1f else alfa
+            val tAlfa = if (!o.rowTitle || !naTela || (!emFoco && ty / dm.density < topoFim)) 0f else if (emFoco) 1f else alfa
             mover(f.titulo, dp(o.textoX), ty, tAlfa, 1f, anima)
             for ((i, k) in f.cards.withIndex()) {
                 val escolhido = emFoco && i == s
                 val k1 = if (escolhido) o.focoK else 1f
                 val vis = naTela && RowsHome.visivel(xs[i], k.w, fo, larg) && xs[i] + k.w * k1 > 0f
-                val a = if (!vis) 0f else if (emFoco) 1f else alfa
+                val sobTopo = !emFoco && cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f < topoFim
+                val a = if (!vis || sobTopo) 0f else if (emFoco) 1f else alfa
                 k.raiz.pivotX = 0f; k.raiz.pivotY = dp(fo.cardH) / 2f
                 k.raiz.elevation = dp(if (escolhido) (if (o.effect == RowsHome.Effect.SHADOW) 16f else 8f) else 2f)
                 mover(k.raiz, dp(xs[i]), dp(cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f), a, k1, anima)
