@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Помогать другим домам</string>
+    <string name="hoh_question">Поможем другим домам?</string>
+    <string name="hoh_line">Когда я что-то чиню здесь, я рассказываю другим Sofaly, как всё прошло. Не говоря, кто вы.</string>
+    <string name="hoh_yes">Да, хочу помочь</string>
+    <string name="hoh_not_now">Не сейчас</string>
+    <string name="hoh_how">Как это работает?</string>
+    <string name="hoh_how_title">Как это работает</string>
+    <string name="hoh_how_line">Если то же самое сломается в другом доме, его Sofaly уже будет знать, что делать.</string>
+    <string name="hoh_goes">Что отправляется</string>
+    <string-array name="hoh_goes_list">
+        <item>Модель телевизора и версия Sofaly</item>
+        <item>Что сломалось, по категориям</item>
+        <item>Что помогло и сработало ли</item>
+        <item>Память и сеть по уровням (хорошая или слабая)</item>
+    </string-array>
+    <string name="hoh_never">Что никогда не уходит</string>
+    <string-array name="hoh_never_list">
+        <item>Ваше имя и название вашей сети</item>
+        <item>Что вы смотрите и когда</item>
+        <item>Ваши приложения и то, что вы вводите</item>
+        <item>Фото, голос, адрес и IP</item>
+    </string-array>
+    <string name="hoh_back_here">То, что узнают другие Sofaly, возвращается сюда. Это можно изменить в любой момент: Настройки, Что знает Sofy.</string>
+    <string name="hoh_thanks">Спасибо! Ваш Sofaly теперь помогает другим домам.</string>
+    <string name="hoh_state_on">Вкл.: раз в день этот телевизор сообщает, как прошли его починки</string>
+    <string name="hoh_state_off">Выкл.: этот телевизор ничем не делится</string>
+    <string name="hoh_stop">Перестать помогать</string>
+    <string name="hoh_stop_det">Этот телевизор перестанет делиться. Он по-прежнему получает то, что узнали другие дома.</string>
+    <string name="hoh_start">Начать помогать</string>
+    <string name="hoh_start_det">Посмотрите, что отправляется и что никогда не уходит, и решите</string>
+    <string name="hoh_today">Что уйдёт сегодня</string>
+    <string name="hoh_today_det">Точный пакет, который отправил бы этот телевизор, поле за полем</string>
+    <string name="hoh_today_sub">Ровно то, что уходит на сервер. Код дома меняется каждый день.</string>
+    <string name="hoh_forget">Забыть то, что уже отправлено</string>
+    <string name="hoh_forget_det">Меняет код этого телевизора. Отправленное больше нельзя связать с ним, и оно удаляется в течение 30 дней.</string>
+    <string name="hoh_forgot">Готово. С этого момента новый код; отправленное удалится в течение 30 дней.</string>
+    <string name="hoh_row_det">Чем она делится с другими домами и как это выключить</string>
+</resources>

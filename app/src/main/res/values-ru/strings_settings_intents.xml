@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=шрифт больше|крупнее шрифт|увеличить шрифт|текст больше|увеличить текст|крупный шрифт;TEXT_SMALLER=шрифт меньше|мельче шрифт|уменьшить шрифт|текст меньше|уменьшить текст;GOAL_READ=читать легче|трудно читать|плохо вижу|плохо видно;GOAL_CLEAN=чистый экран|чище экран|меньше всего|простой экран|проще экран;GOAL_ENERGY=меньше энергии|экономить энергию|экономия энергии|меньше тратить;LOOK_SOFALY=стиль sofaly|обычный стиль;LOOK_NIGHT=стиль ночь|тёмное небо;LOOK_MOUNTAIN=стиль горы|горный стиль;LOOK_MINIMAL=стиль минимум|минималистичный стиль</string>
+    <string name="si_fazer">Сделать сейчас: %1$s</string>
+    <string name="si_desfazer">Отменить: %1$s</string>
+    <string name="si_fazer_det">Меняется сразу.</string>
+    <string name="si_maior">Текст крупнее</string>
+    <string name="si_menor">Текст мельче</string>
+</resources>
