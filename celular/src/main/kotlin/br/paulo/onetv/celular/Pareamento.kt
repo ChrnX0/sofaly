@@ -85,7 +85,7 @@ object Pareamento {
      * (o app mostra o IP). Vem do próprio aparelho (Configurações > Sistema > Sobre > Nome), via mDNS ou /api/estado.
      */
     fun nomeLimpo(bruto: String?): String =
-        (bruto ?: "").filter { !it.isISOControl() }.replace(Regex("\\s+"), " ").trim().take(40).trim()
+        (bruto ?: "").replace(Regex("\\s+"), " ").filter { !it.isISOControl() }.trim().take(40).trim()   // tab/quebra viram espaço antes
 
     /**
      * O nome que a TV anuncia na rede. O TXT "nome" é o certo; o nome do serviço leva o id junto ("Sala 1a2b3c4d", às
