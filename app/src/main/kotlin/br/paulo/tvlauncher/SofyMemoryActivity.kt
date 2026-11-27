@@ -2,8 +2,7 @@ package br.paulo.tvlauncher
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.view.View
 import br.paulo.tvlauncher.family.PinTv
 import br.paulo.tvlauncher.observer.ObserverTv
 import br.paulo.tvlauncher.observer.SofyHabitsTv
@@ -19,7 +18,10 @@ import br.paulo.tvlauncher.panel.PainelArmazem
  * Referência visual: Pi, "Saved memories" com Esquecer (Mobbin), no mesmo molde das listas das Configurações.
  */
 class SofyMemoryActivity : Activity() {
-    private lateinit var lista: LinearLayout
+    // Molde das telas de ajuste (ColumnsScreen, Paulo 26/11/2026; passada da Sala 27/11/2026: esta ainda era a coluna
+    // única esticada). Uma seção só: o trilho some; no meio cada memória com o quanto ela sabe à direita e, na coluna
+    // da direita, o que aquele número quer dizer.
+    private val linhas = mutableListOf<View>()
 
     /** Uma memória: título, o que ela sabe agora e como esquecer. */
     private class Memoria(val titulo: Int, val det: Int, val vazio: Int, val quanto: (Activity) -> Int, val esquecer: (Activity) -> Unit)
@@ -35,27 +37,27 @@ class SofyMemoryActivity : Activity() {
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.smem_titulo), getString(R.string.smem_sub))
-        lista = coluna
-        setContentView(raiz)
         montar(focar = 0)
     }
 
-    /** Os números são lidos na hora (cada um é uma leitura curta de prefs já carregadas). */
+    /** Os números são lidos na hora (cada um é uma leitura curta de prefs já carregadas). Refaz a tela inteira. */
     private fun montar(focar: Int) {
-        lista.removeAllViews()
-        val linhas = memorias.map { m ->
+        val t = ColumnsScreen(this, getString(R.string.smem_titulo), getString(R.string.smem_sub))
+        val lista = t.section(getString(R.string.smem_titulo))
+        linhas.clear()
+        memorias.forEachIndexed { i, m ->
             val n = m.quanto(this)
-            linha(getString(m.titulo), if (n > 0) getString(m.det, n) else getString(m.vazio)) { esquecer(listOf(m), memorias.indexOf(m)) }
+            linha(t, lista, getString(m.titulo), n.toString(),
+                if (n > 0) getString(m.det, n) else getString(m.vazio)) { esquecer(listOf(m), i) }
         }
-        linhas.forEach { lista.addView(it) }
-        lista.addView(linha(getString(R.string.smem_tudo), getString(R.string.smem_tudo_det)) { esquecer(memorias, memorias.size) })
+        linha(t, lista, getString(R.string.smem_tudo), null, getString(R.string.smem_tudo_det)) { esquecer(memorias, memorias.size) }
         // Rede de Sofys (27/11/2026): o que ela compartilha com outras casas fica junto do que ela sabe, com o desligar.
-        lista.addView(linha(getString(R.string.hoh_title_short), getString(R.string.hoh_row_det)) {
+        linha(t, lista, getString(R.string.hoh_title_short), null, getString(R.string.hoh_row_det)) {
             startActivity(android.content.Intent(this, HelpOtherHomesActivity::class.java)
                 .putExtra(HelpOtherHomesActivity.EXTRA_MODE, HelpOtherHomesActivity.MODE_SETTINGS))
-        })
-        lista.getChildAt(focar.coerceIn(0, lista.childCount - 1))?.requestFocus()
+        }
+        setContentView(t.root)
+        t.start(linhas.getOrNull(focar.coerceIn(0, linhas.size - 1)))
     }
 
     private fun esquecer(quais: List<Memoria>, linha: Int) {
@@ -68,9 +70,11 @@ class SofyMemoryActivity : Activity() {
         else feito()
     }
 
-    private fun linha(titulo: String, detalhe: String, aoClicar: () -> Unit) = Estilo.linhaOpcao(this, titulo, detalhe).apply {
-        setOnClickListener { aoClicar() }
-        layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            .apply { bottomMargin = (8 * resources.displayMetrics.density).toInt() }
+    /** [valor] = o número à direita da linha (0 = nada aprendido ainda; null nas linhas de ação); [explica] vai para a coluna da direita. */
+    private fun linha(t: ColumnsScreen, lista: android.widget.LinearLayout, titulo: String, valor: String?, explica: String, aoClicar: () -> Unit) {
+        val l = Estilo.linhaOpcao(this, titulo, null, valor?.let { Estilo.valor(this, it, seta = false) }).apply { setOnClickListener { aoClicar() } }
+        t.describe(l) { ColumnsScreen.Info(null, titulo, explica) }
+        lista.addView(l, t.lpRow())
+        linhas += l
     }
 }
