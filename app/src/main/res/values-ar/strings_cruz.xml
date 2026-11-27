@@ -50,7 +50,6 @@
     <string name="cruz_dormir">النوم بعد 30 دقيقة</string>
     <string name="cruz_dormir_sub">تخفت الشاشة ببطء ثم يُطفأ التلفزيون</string>
     <string name="cruz_desliga_as">يُطفأ الساعة %1$s</string>
-    <string name="cruz_dormir_cancelar">OK للإلغاء</string>
     <string name="cruz_linha">أساسي</string>
     <string name="cruz_azulejo">مربعات</string>
     <string name="cruz_mover">نقل إلى…</string>

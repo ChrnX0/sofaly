@@ -46,7 +46,7 @@
 
     <string name="ext_off_health">Вимкнено: перестав відповідати. Увімкніть знову, якщо хочете.</string>
     <string name="ext_secao_botoes">Кнопки швидкої панелі</string>
-    <string name="ext_nenhum_botao">Поки немає кнопок з інших застосунків. Деякі застосунки додають кнопку ввімк./вимк. на швидку панель (утримуйте НАЗАД).</string>
+    <string name="ext_nenhum_botao">Поки немає кнопок з інших застосунків. Деякі застосунки додають кнопку ввімк./вимк. на швидку панель.</string>
     <string name="ext_off_blocked">Вимкнено Sofaly: цей плагін має відому проблему.</string>
     <string name="ext_secao_widgets">Віджети з інших застосунків</string>
     <string name="ext_widget_nenhum">Поки жоден застосунок на цьому телевізорі не має віджета.</string>

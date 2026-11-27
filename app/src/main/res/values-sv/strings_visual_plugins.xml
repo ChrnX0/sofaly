@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">15 000 tunna linjeikoner (gjorda för telefoner, fungerar här)</string>
     <string name="ext_off_health">Avstängd: den slutade svara. Slå på den igen om du vill.</string>
     <string name="ext_secao_botoes">Knappar i snabbpanelen</string>
-    <string name="ext_nenhum_botao">Inga knappar från andra appar än. Vissa appar lägger till en på/av-knapp i snabbpanelen (håll in BAKÅT).</string>
+    <string name="ext_nenhum_botao">Inga knappar från andra appar än. Vissa appar lägger till en på/av-knapp i snabbpanelen.</string>
     <string name="ext_off_blocked">Avstängt av Sofaly: det här tillägget har ett känt problem.</string>
     <string name="ext_secao_widgets">Widgetar från andra appar</string>
     <string name="ext_widget_nenhum">Ingen app på den här tv:n har en widget än.</string>

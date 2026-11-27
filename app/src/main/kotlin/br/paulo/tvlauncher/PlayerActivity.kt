@@ -822,7 +822,7 @@ class PlayerActivity : Activity() {
     private fun montarInfo(): View {
         // B9 (20/11/2026): a mesma peça dos filmes e séries (PlayerBar). Aqui entram número e logo do canal no começo da
         // linha e, à direita, "● AO VIVO" (vermelho, como na HOME) e "faltam X min · hora".
-        val b = PlayerBar.montar(this, getString(R.string.player_teclas))
+        val b = PlayerBar.montar(this, "")
         info = b.raiz.apply { visibility = View.GONE }
         val linha = b.linha
         infoNumero = TextView(this).apply {
@@ -904,7 +904,6 @@ class PlayerActivity : Activity() {
         // Pausado, a linha dizia "OK lista de canais", mas o OK continua (visto na Sala, 17/11/2026).
         // No passado (TV de volta) as teclas já vão na linha de baixo (tvv_teclas): a linha fixa some.
         infoTeclas.visibility = View.GONE   // Paulo, 26/11/2026: dicas de teclas saem dos players
-        infoTeclas.text = br.paulo.tvlauncher.player.PlayerBar.juntarTeclas(getString(if (pausa.pausado) R.string.player_teclas_pausa else R.string.player_teclas))
         if (previa == null) arquivo?.let { a -> infoDoArquivo(c, a, hora); return }
         vivo.text = "● " + getString(R.string.player_ao_vivo)
         vivo.setTextColor(Estilo.ERRO)

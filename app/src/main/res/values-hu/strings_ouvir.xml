@@ -48,7 +48,6 @@
     <string name="pod_em_alta">Népszerű az Ön országában</string>
     <string name="pod_atribuicao">Keresés: Podcast Index</string>
     <string name="pod_sugestoes">Javaslatok</string>
-    <string name="pod_sugestao_seguir">OK a követéshez</string>
     <string name="pod_sugeridos_seguidos">A javasolt podcastok hozzáadva a Podcastjaimhoz</string>
     <string name="pod_busca_nada">Nem található podcast.</string>
     <string name="pod_busca_cota">A podcastkeresés ma pihen. Holnap visszajön.</string>

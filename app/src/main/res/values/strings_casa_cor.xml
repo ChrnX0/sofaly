@@ -2,8 +2,8 @@
 <!-- Ideia 50 do estudo (14/11/2026): cor e temperatura da luz na tela Casa (▲ ▼ no ajuste da luz). -->
 <resources>
     <string name="casa_dica_brilho_cor">brightness and color</string>
-    <string name="casa_brilho_ajuste_cor">Brightness %1$d%% · ◀ ▶ · color ▲ ▼</string>
-    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_brilho_ajuste_cor">Brightness %1$d%%</string>
+    <string name="casa_cor_ajuste">%1$s</string>
     <string name="casa_cor_quente">Warm white</string>
     <string name="casa_cor_neutra">Neutral white</string>
     <string name="casa_cor_fria">Cool white</string>

@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">A kedvencek a távirányító 1–9 gombjaival is szólnak</string>
     <string name="ouv_tecla">A távirányító %d gombja</string>
     <string name="ouv_ao_sair">Kilépéskor</string>
-    <string name="ouv_ao_sair_continua">A kezdőképernyőn tovább szól\nA távirányító ▶❙❙ gombja bármely képernyőről szünetelteti</string>
+    <string name="ouv_ao_sair_continua">A kezdőképernyőn tovább szól</string>
     <string name="ouv_ao_sair_para">Leáll, amikor kilép erről a képernyőről</string>
     <string name="ouv_recentes">Legutóbbiak</string>
     <string name="ouv_sem_favoritas">Még nincsenek kedvencek</string>
-    <string name="ouv_sem_favoritas_det">Tartsa nyomva az OK-t egy állomáson, hogy itt maradjon</string>
     <string name="ouv_sem_recentes">Itt még nincs semmi</string>
     <string name="ouv_sem_recentes_det">A lejátszott állomások itt jelennek meg</string>
     <string name="ouv_paises">Országok</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Élő</string>
     <string name="ouv_dica_pular">átugrás</string>
     <string name="ouv_voltar">Vissza 15 mp</string>
-    <string name="ouv_voltar_det">A távirányító ◀◀ gombjával is</string>
     <string name="ouv_avancar">Előre 30 mp</string>
-    <string name="ouv_avancar_det">A távirányító ▶▶ gombjával is</string>
     <string name="ouv_velocidade_det">%s · a hang megtartja a hangmagasságát</string>
     <string name="ouv_parar_pod_det">Ahol abbahagyta, az mentve van későbbre</string>
     <string name="ouv_seguindo">Követve</string>

@@ -2,25 +2,20 @@
 <!-- Protetor: variações de cada elemento (17/11/2026). -->
 <resources>
     <string name="pv2_est_avisos">Styl upozornění</string>
-    <string name="pv2_est_avisos_det">jak se zobrazují zprávy a připomínky · OK mění</string>
     <string name="pv2_av_cartoes">Skleněné karty</string>
     <string name="pv2_av_lista">Seznam bez rámečku</string>
     <string name="pv2_av_um">Po jednom</string>
     <string name="pv2_est_textos">Styl pozdravu a data</string>
-    <string name="pv2_est_textos_det">OK mění</string>
     <string name="pv2_tx_moderno">Moderní</string>
     <string name="pv2_tx_serifa">Patkové</string>
     <string name="pv2_tx_maiusculas">Prostrkané verzálky</string>
     <string name="pv2_est_linhas">Styl řádku počasí</string>
-    <string name="pv2_est_linhas_det">věta o počasí a zajímavost · OK mění</string>
     <string name="pv2_ln_icones">S ikonami</string>
     <string name="pv2_ln_vidro">Na tmavém skle</string>
     <string name="pv2_ln_texto">Jen text</string>
     <string name="pv2_est_credito">Styl popisku fotky</string>
-    <string name="pv2_est_credito_det">OK mění</string>
     <string name="pv2_cr_etiqueta">Štítek</string>
     <string name="pv2_cr_discreto">Nenápadný</string>
     <string name="cl_widget_linha">Jeden řádek</string>
     <string name="cl_widget_grande">Velký</string>
-    <string name="pv2_widget_det">pět stylů · OK mění</string>
 </resources>

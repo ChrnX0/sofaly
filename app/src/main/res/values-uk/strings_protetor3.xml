@@ -2,25 +2,20 @@
 <!-- Protetor: variações de cada elemento (17/11/2026). -->
 <resources>
     <string name="pv2_est_avisos">Стиль повідомлень</string>
-    <string name="pv2_est_avisos_det">як з\'являються повідомлення й нагадування · OK змінює</string>
     <string name="pv2_av_cartoes">Скляні картки</string>
     <string name="pv2_av_lista">Список без рамки</string>
     <string name="pv2_av_um">По одному</string>
     <string name="pv2_est_textos">Стиль привітання й дати</string>
-    <string name="pv2_est_textos_det">OK змінює</string>
     <string name="pv2_tx_moderno">Сучасний</string>
     <string name="pv2_tx_serifa">Із засічками</string>
     <string name="pv2_tx_maiusculas">Розріджені великі літери</string>
     <string name="pv2_est_linhas">Стиль рядка погоди</string>
-    <string name="pv2_est_linhas_det">фраза про погоду й цікавий факт · OK змінює</string>
     <string name="pv2_ln_icones">З іконками</string>
     <string name="pv2_ln_vidro">На темному склі</string>
     <string name="pv2_ln_texto">Лише текст</string>
     <string name="pv2_est_credito">Стиль підпису фото</string>
-    <string name="pv2_est_credito_det">OK змінює</string>
     <string name="pv2_cr_etiqueta">Ярлик</string>
     <string name="pv2_cr_discreto">Непомітний</string>
     <string name="cl_widget_linha">Один рядок</string>
     <string name="cl_widget_grande">Великий</string>
-    <string name="pv2_widget_det">п\'ять стилів · OK змінює</string>
 </resources>

@@ -44,9 +44,8 @@
     <string name="elv_leg_embaixo">en bas</string>
     <string name="elv_leg_em_cima">en haut</string>
     <string name="elv_bf_fazer">Faire</string>
-    <string name="elv_bf_ok_faz">OK le fait maintenant</string>
     <string name="elv_bf_wifi">Afficher le Wi-Fi des invités</string>
-    <string name="elv_bf_wifi_configurar">Pas encore configuré : OK ouvre les Paramètres (Invités)</string>
+    <string name="elv_bf_wifi_configurar">Pas encore configuré</string>
     <string name="elv_bf_letra_maior">Texte plus grand (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Texte plus petit (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Déjà à cette taille</string>
@@ -118,6 +117,5 @@
     <string name="elv_ss_noite">c\'est après le coucher du soleil</string>
     <string name="elv_ss_dia_util">c\'est un jour ouvré</string>
     <string name="elv_ss_perfil">le profil est %1$s</string>
-    <string name="elv_ss_det">◀ ▶ changent la condition</string>
     <string name="extras_ABERTURA_PRONTA">Passer le générique (IntroDB) : sur les épisodes, la TV demande au service communautaire IntroDB où est le générique (elle envoie l\'épisode, jamais votre compte) ; désactivé, seulement les génériques que vous avez marqués</string>
 </resources>

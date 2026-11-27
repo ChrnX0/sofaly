@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Met zorg wijzigen, volgens de fiche</string>
     <string name="aa_risk_essential">Essentieel voor de tv: niet bevriezen</string>
     <string name="aa_tip_idle">Al %1$d dagen niet geopend. Bevriezen maakt geheugen vrij en kan ongedaan worden gemaakt.</string>
-    <string name="aa_hint_app">OK opent · OK ingedrukt houden om te verplaatsen, verbergen, bevriezen of verwijderen</string>
-    <string name="aa_hint_frozen">OK ontdooit en opent</string>
-    <string name="aa_hint_lock">OK vraagt om de pincode en toont hier de verborgen apps</string>
     <string name="aa_open">Openen</string>
     <string name="aa_freeze">Bevriezen</string>
     <string name="aa_freezing">%1$s bevriezen…</string>

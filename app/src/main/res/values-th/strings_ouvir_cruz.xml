@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">รายการโปรดยังเล่นได้ด้วยปุ่ม 1 ถึง 9 บนรีโมต</string>
     <string name="ouv_tecla">ปุ่ม %d บนรีโมต</string>
     <string name="ouv_ao_sair">เมื่อออก</string>
-    <string name="ouv_ao_sair_continua">เล่นต่อบนหน้าจอหลัก\n▶❙❙ บนรีโมตหยุดชั่วคราวได้จากทุกหน้าจอ</string>
+    <string name="ouv_ao_sair_continua">เล่นต่อบนหน้าจอหลัก</string>
     <string name="ouv_ao_sair_para">หยุดเมื่อคุณออกจากหน้าจอนี้</string>
     <string name="ouv_recentes">ล่าสุด</string>
     <string name="ouv_sem_favoritas">ยังไม่มีรายการโปรด</string>
-    <string name="ouv_sem_favoritas_det">กด OK ค้างที่สถานีเพื่อเก็บไว้ที่นี่</string>
     <string name="ouv_sem_recentes">ยังไม่มีอะไรที่นี่</string>
     <string name="ouv_sem_recentes_det">สถานีที่คุณเล่นจะแสดงที่นี่</string>
     <string name="ouv_paises">ประเทศ</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">สด</string>
     <string name="ouv_dica_pular">ข้าม</string>
     <string name="ouv_voltar">ย้อนกลับ 15 วินาที</string>
-    <string name="ouv_voltar_det">หรือ ◀◀ บนรีโมต</string>
     <string name="ouv_avancar">ไปข้างหน้า 30 วินาที</string>
-    <string name="ouv_avancar_det">หรือ ▶▶ บนรีโมต</string>
     <string name="ouv_velocidade_det">%s · เสียงพูดคงระดับเสียงเดิม</string>
     <string name="ouv_parar_pod_det">จุดที่คุณหยุดจะถูกบันทึกไว้ภายหลัง</string>
     <string name="ouv_seguindo">กำลังติดตาม</string>

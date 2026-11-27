@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ver_novidades">Що нового</string>
-    <string name="ver_novidades_det">%1$d змін у версії %2$s · OK, щоб прочитати</string>
+    <string name="ver_novidades_det">%1$d змін у версії %2$s</string>
     <string name="ver_novidades_sobre">Версія %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Перевірити на телевізорі</string>
-    <string name="ver_conferir_det">Перевірено пультом: %1$d з %2$d · OK, щоб почати</string>
-    <string name="ver_conferir_sub">Версія %1$s · пунктів: %2$d · OK на пункті, щоб відповісти</string>
+    <string name="ver_conferir_det">Перевірено пультом: %1$d з %2$d</string>
+    <string name="ver_conferir_sub">Версія %1$s · пунктів: %2$d</string>
     <string name="ver_conferido">Перевірено: %1$d з %2$d</string>
     <string name="ver_sim">Так</string>
     <string name="ver_nao">Ні</string>

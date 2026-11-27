@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Live tv pauzeren</string>
     <string name="pausa_continuar">Hervatten</string>
     <string name="pausa_ao_vivo">Terug naar live</string>
-    <string name="pausa_selo">⏸ GEPAUZEERD · OK hervat</string>
-    <string name="pausa_atrasado_min">%1$d MIN ACHTER · ▶ live</string>
-    <string name="pausa_atrasado_seg">%1$d S ACHTER · ▶ live</string>
+    <string name="pausa_selo">⏸ GEPAUZEERD</string>
+    <string name="pausa_atrasado_min">%1$d MIN ACHTER</string>
+    <string name="pausa_atrasado_seg">%1$d S ACHTER</string>
     <string name="pausa_voltou">Langer gepauzeerd dan het geheugen vasthoudt: terug naar live</string>
 </resources>

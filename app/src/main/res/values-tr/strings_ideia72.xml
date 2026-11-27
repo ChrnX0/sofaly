@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s şimdi: %2$s (%3$s’e kadar)</string>
     <string name="l72_guia_nada_agora">%1$s: şu an yayın akışında bir şey yok</string>
     <string name="l72_guia_depois">Sonraki: %1$s (%2$s)</string>
-    <string name="l75_pilula">Şimdi çalıyor: %1$s, %2$s. OK duraklatır veya sürdürür; uygulamayı açmak için OK’yi basılı tutun</string>
+    <string name="l75_pilula">Şimdi çalıyor: %1$s, %2$s.</string>
 </resources>

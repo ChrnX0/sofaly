@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Para quem é esta TV?</string>
-    <string name="rec_subtitulo">Um OK deixa a TV pronta. Dá para desfazer quando quiser.</string>
+    <string name="rec_subtitulo">Dá para desfazer quando quiser.</string>
     <string name="rec_vo">TV da vó</string>
     <string name="rec_vo_det">Cartões grandes com o nome falado, letra maior e o botão Pedir ajuda.</string>
     <string name="rec_criancas">TV das crianças</string>

@@ -30,5 +30,4 @@
     <string name="bb_titulo">Disposizione della home</string>
     <string name="bb_cruz">Croce</string>
     <string name="bb_barra">Barra in basso</string>
-    <string name="bb_det">Categorie a croce, o fisse in basso con le app sopra (▲)</string>
 </resources>

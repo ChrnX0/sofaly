@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Sæt live-tv på pause</string>
     <string name="pausa_continuar">Genoptag</string>
     <string name="pausa_ao_vivo">Tilbage til live</string>
-    <string name="pausa_selo">⏸ PÅ PAUSE · OK genoptager</string>
-    <string name="pausa_atrasado_min">%1$d MIN EFTER · ▶ live</string>
-    <string name="pausa_atrasado_seg">%1$d S EFTER · ▶ live</string>
+    <string name="pausa_selo">⏸ PÅ PAUSE</string>
+    <string name="pausa_atrasado_min">%1$d MIN EFTER</string>
+    <string name="pausa_atrasado_seg">%1$d S EFTER</string>
     <string name="pausa_voltou">På pause længere end hukommelsen rækker: tilbage til live</string>
 </resources>

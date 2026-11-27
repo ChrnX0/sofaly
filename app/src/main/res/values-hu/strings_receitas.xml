@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Kinek szól ez a TV?</string>
-    <string name="rec_subtitulo">Egy OK beállítja a TV-t. Bármikor visszavonhatja.</string>
+    <string name="rec_subtitulo">Bármikor visszavonhatja.</string>
     <string name="rec_vo">A nagymama TV-je</string>
     <string name="rec_vo_det">Nagy kártyák felolvasott nevekkel, nagyobb szöveg és Segítség gomb.</string>
     <string name="rec_criancas">A gyerekek TV-je</string>

@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: hiện không có gì trong lịch phát sóng</string>
     <string name="l72_guia_depois">Tiếp theo: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Đang phát: %1$s, %2$s. OK để tạm dừng hoặc tiếp tục; giữ OK để mở ứng dụng</string>
+    <string name="l75_pilula">Đang phát: %1$s, %2$s.</string>
 </resources>

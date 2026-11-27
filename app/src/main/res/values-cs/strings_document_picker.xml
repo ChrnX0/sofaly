@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Otevírá se…</string>
     <string name="dp_erro">Toto místo se nepodařilo otevřít. Zkontrolujte, že je připojené, a zkuste to znovu.</string>
     <string name="dp_arquivos">Soubory v této složce: %1$d</string>
-    <string name="dp_dicas">OK: otevřít · ZPĚT: zpět</string>
     <string name="dp_diario">%1$s dostal(a) z výběru %2$s</string>
     <string name="dp_sem_nome">bez názvu</string>
 </resources>

@@ -2,25 +2,20 @@
 <!-- Protetor: variações de cada elemento (17/11/2026). -->
 <resources>
     <string name="pv2_est_avisos">Στυλ ειδοποιήσεων</string>
-    <string name="pv2_est_avisos_det">πώς εμφανίζονται μηνύματα και υπενθυμίσεις · OK αλλάζει</string>
     <string name="pv2_av_cartoes">Γυάλινες κάρτες</string>
     <string name="pv2_av_lista">Λίστα χωρίς πλαίσιο</string>
     <string name="pv2_av_um">Μία κάθε φορά</string>
     <string name="pv2_est_textos">Στυλ χαιρετισμού και ημερομηνίας</string>
-    <string name="pv2_est_textos_det">OK αλλάζει</string>
     <string name="pv2_tx_moderno">Μοντέρνο</string>
     <string name="pv2_tx_serifa">Serif</string>
     <string name="pv2_tx_maiusculas">Αραιά κεφαλαία</string>
     <string name="pv2_est_linhas">Στυλ γραμμής καιρού</string>
-    <string name="pv2_est_linhas_det">η φράση καιρού και η περιέργεια · OK αλλάζει</string>
     <string name="pv2_ln_icones">Με εικονίδια</string>
     <string name="pv2_ln_vidro">Σε σκούρο γυαλί</string>
     <string name="pv2_ln_texto">Μόνο κείμενο</string>
     <string name="pv2_est_credito">Στυλ πίστωσης φωτογραφίας</string>
-    <string name="pv2_est_credito_det">OK αλλάζει</string>
     <string name="pv2_cr_etiqueta">Ετικέτα</string>
     <string name="pv2_cr_discreto">Διακριτικό</string>
     <string name="cl_widget_linha">Μία γραμμή</string>
     <string name="cl_widget_grande">Μεγάλο</string>
-    <string name="pv2_widget_det">πέντε στυλ · OK αλλάζει</string>
 </resources>

@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Tạm dừng TV trực tiếp</string>
     <string name="pausa_continuar">Tiếp tục</string>
     <string name="pausa_ao_vivo">Về trực tiếp</string>
-    <string name="pausa_selo">⏸ ĐÃ TẠM DỪNG · OK để tiếp tục</string>
-    <string name="pausa_atrasado_min">CHẬM %1$d PHÚT · ▶ trực tiếp</string>
-    <string name="pausa_atrasado_seg">CHẬM %1$d GIÂY · ▶ trực tiếp</string>
+    <string name="pausa_selo">⏸ ĐÃ TẠM DỪNG</string>
+    <string name="pausa_atrasado_min">CHẬM %1$d PHÚT</string>
+    <string name="pausa_atrasado_seg">CHẬM %1$d GIÂY</string>
     <string name="pausa_voltou">Tạm dừng lâu hơn bộ nhớ chứa được: quay về trực tiếp</string>
 </resources>

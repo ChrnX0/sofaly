@@ -48,9 +48,8 @@
     <string name="elv_leg_em_cima">nahoře</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Udělat</string>
-    <string name="elv_bf_ok_faz">OK to udělá hned</string>
     <string name="elv_bf_wifi">Zobrazit Wi-Fi pro hosty</string>
-    <string name="elv_bf_wifi_configurar">Zatím nenastaveno: OK otevře Nastavení (Návštěvy)</string>
+    <string name="elv_bf_wifi_configurar">Zatím nenastaveno</string>
     <string name="elv_bf_letra_maior">Větší text (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Menší text (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Už má tuto velikost</string>
@@ -126,6 +125,5 @@
     <string name="elv_ss_noite">po západu slunce</string>
     <string name="elv_ss_dia_util">je všední den</string>
     <string name="elv_ss_perfil">profil je %1$s</string>
-    <string name="elv_ss_det">◀ ▶ mění podmínku</string>
     <string name="extras_ABERTURA_PRONTA">Přeskočit znělku (IntroDB): u dílů se televizor zeptá komunitní služby IntroDB, kde je úvodní znělka (posílá jen, který díl, nikdy váš účet); vypnuto, jen znělky, které jste označili</string>
 </resources>

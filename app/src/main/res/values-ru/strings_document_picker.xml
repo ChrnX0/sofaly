@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Открытие…</string>
     <string name="dp_erro">Не удалось открыть это место. Проверьте подключение и попробуйте снова.</string>
     <string name="dp_arquivos">Файлов в этой папке: %1$d</string>
-    <string name="dp_dicas">OK: открыть · НАЗАД: вернуться</string>
     <string name="dp_diario">%1$s получил %2$s через выбор файлов</string>
     <string name="dp_sem_nome">без имени</string>
 </resources>

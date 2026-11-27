@@ -610,7 +610,7 @@ class CasaActivity : Activity() {
     }
 
     private fun rotuloEstadoAntigo(dominio: String, estado: String, brilho: Int?): String = when {
-        dominio == "scene" || dominio == "script" -> getString(R.string.casa_rodar)
+        dominio == "scene" || dominio == "script" -> ""
         dominio == "cover" -> getString(if (estado == "closed" || estado == "closing") R.string.casa_fechada else R.string.casa_aberta)
         estado == "on" && brilho != null -> getString(R.string.casa_ligado_pct, brilho)
         estado == "on" -> getString(R.string.casa_ligado)

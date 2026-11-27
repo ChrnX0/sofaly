@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Mark the opening start first</string>
     <string name="abertura_invalida">That doesn’t look like an opening: it must last 10 s to 5 min and start in the first 15 min</string>
     <string name="abertura_apagada">Opening mark deleted</string>
-    <string name="abertura_pular">Skip opening · OK</string>
+    <string name="abertura_pular">Skip opening</string>
 </resources>

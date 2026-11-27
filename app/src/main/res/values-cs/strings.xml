@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Rutiny</string>
     <string name="cfg_sec_atualizacao">Aktualizace</string>
     <string name="cfg_atualizar">Zkontrolovat novou verzi</string>
-    <string name="cfg_atualizar_det">Verze %1$s · %2$s · OK zkontroluje nyní</string>
+    <string name="cfg_atualizar_det">Verze %1$s · %2$s</string>
     <string name="cfg_procurando">kontroluje se GitHub…</string>
     <string name="cfg_instalar">Nainstalovat verzi %1$d nyní</string>
-    <string name="cfg_instalar_det">Launcher se zavře a za pár sekund se sám vrátí · OK nainstaluje</string>
+    <string name="cfg_instalar_det">Launcher se zavře a za pár sekund se sám vrátí</string>
     <string name="cfg_instalando">stahování a kontrola…</string>
     <string name="cfg_sec_rede">Síť</string>
     <string name="cfg_dns">Soukromé DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Co běží — %1$s</string>
     <string name="cfg_ligado">zapnuto</string>
     <string name="cfg_so_pc">" · jen s počítačem (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK se pokusí zapnout"</string>
     <string name="cfg_perm_fixas">Pevná oprávnění udělena</string>
     <string name="cfg_shell_estado">Vlastní shell</string>
     <string name="cfg_shell_pareado">spárováno: launcher se sám znovu připojuje přes Bezdrátové ladění</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Služba tlačítek</string>
     <string name="rec_teclas_sem">bez toho: HOME může otevřít launcher Google a tlačítka Netflix/YouTube nejsou přemapována</string>
     <string name="rec_tudo">vše zapnuto</string>
-    <string name="rec_faltam">chybí %1$d z %2$d funkcí · OK na položce se ji pokusí zapnout</string>
+    <string name="rec_faltam">chybí %1$d z %2$d funkcí</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Vítejte</string>
     <string name="bv_texto">Domovská obrazovka, hodiny, počasí, budík a spořič obrazovky už fungují. Zbytek zapněte zde, pokud chcete (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · vypnuto"</string>
     <string name="rot_nova">Nová rutina</string>
     <string name="rot_editar">Upravit rutinu</string>
-    <string name="rot_editor_det">OK mění každý řádek · ZPĚT odejde bez uložení</string>
     <string name="rot_hora">Čas: %1$s</string>
     <string name="rot_dias">Dny: %1$s</string>
     <string name="rot_acao">Akce: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Jen pokud se ho nikdo nedotkl po dobu: %1$s</string>
     <string name="rot_ligada">Zapnuto</string>
     <string name="rot_desligada">Vypnuto</string>
-    <string name="rot_hora_det">◀ ▶ 5 minut · OK +1 hodina</string>
-    <string name="rot_dias_det">OK: každý den, Po až Pá, víkend, jednou</string>
-    <string name="rot_ok_muda">OK mění</string>
-    <string name="rot_app_det">OK nebo ▶ další · ◀ předchozí</string>
     <string name="rot_ocioso_det">Nepřeruší někoho, kdo se dívá</string>
-    <string name="rot_ativa_det">OK zapne/vypne tuto rutinu</string>
     <string name="rot_salvar">Uložit</string>
     <string name="rot_escolha_app">Vyberte aplikaci</string>
     <string name="rot_apagar">Smazat tuto rutinu</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Připojit</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">žádný účet Google</string>
-    <string name="cal_dica">◀ ▶ změní měsíc</string>
     <string name="cal_30">Příštích 30 dní</string>
     <string name="cal_nenhuma_conta">Na televizoru není žádný účet Google</string>
     <string name="cal_nada">Nic naplánováno (nebo se kalendář ještě synchronizuje)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">východ slunce %1$s</string>
     <string name="fd_por">západ slunce %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: použít   ·   podržet OK na jednom z vašich serverů: odebrat   ·   Zpět: konec</string>
     <string name="dns_auto">Automaticky</string>
     <string name="dns_auto_det">Použije DNS routeru a šifruje, když to přijme (výchozí v Androidu)</string>
     <string name="dns_desl">Vypnuto</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">verze %1$d: připraveno přesunout tento televizor do nové aplikace (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">instaluje se nová aplikace (%1$d); pak převezme tento televizor se všemi nastaveními</string>
     <string name="atu_disponivel">verze %1$d připravena k instalaci (nainstalováno %2$d)</string>
-    <string name="atu_trocou">verze se od poslední kontroly změnila · OK zkontroluje znovu</string>
+    <string name="atu_trocou">verze se od poslední kontroly změnila</string>
     <string name="atu_instalando">instaluje se %1$d (nainstalováno %2$d)</string>
     <string name="atu_ok">aktualizováno</string>
     <string name="atu_falhou">instalace selhala (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">verze %1$d dvakrát spadla hned po instalaci · \"%2$s\" zůstane vypnuto do další</string>
     <string name="vig_tela_bloqueada">Tato obrazovka je vypnutá do další aktualizace (shodila launcher)</string>
     <string name="cfg_vig_liberar">Nouzový režim</string>
-    <string name="cfg_vig_liberar_det">" · OK ji znovu zapne"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Hlasové vyhledávání se na tomto televizoru neotevřelo</string>
     <string name="home_alarme_hoje">dnes</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Načítá se video…</string>
     <string name="player_sem_canais">Zatím nebyl přidán žádný seznam kanálů.</string>
     <string name="player_tentando">Na kanálu %1$d není signál. Zkouší se znovu…</string>
-    <string name="player_sem_sinal">Kanál %1$d neodpověděl. Vyberte jiný pomocí ▲ ▼ nebo OK.</string>
+    <string name="player_sem_sinal">Kanál %1$d neodpověděl.</string>
     <string name="player_canal_nao_existe">Kanál %1$d neexistuje.</string>
     <string name="player_ao_vivo">ŽIVĚ</string>
     <string name="player_a_seguir">další: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanál · OK seznam kanálů · podržet OK 2 s: oblíbený · ◀ předchozí kanál · ▶ ▶ možnosti · ZPĚT konec</string>
-    <string name="player_teclas_pausa">▶❙❙ nebo OK pokračovat · ▶ možnosti (zpět na živé) · ▲ ▼ kanál · ZPĚT konec</string>
     <string name="player_cat_busca">Hledat: %1$s</string>
     <string name="player_acao_buscar">Hledat</string>
     <string name="player_acao_filtros">Filtry</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s přidáno do seznamu ke zhlédnutí</string>
     <string name="filmes_interesse_tirou">%1$s odebráno ze seznamu ke zhlédnutí</string>
     <string name="filmes_interesses_cheio">Seznam ke zhlédnutí už má 500 titulů: nejprve jeden odeberte.</string>
-    <string name="filmes_interesses_vazio">Podržte OK 2 sekundy na plakátu, abyste ho sem přidali (a znovu pro odebrání).</string>
     <string name="filmes_assistido">Zhlédnuto</string>
     <string name="filmes_selo_leg">TIT</string>
     <string name="vod_sem_conta">Účet tohoto videa už neexistuje.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Zvuk</string>
     <string name="vod_legenda">Titulky</string>
     <string name="vod_faixas">Zvuk a titulky</string>
-    <string name="vod_teclas">OK pauza · ◀ 10 s · ▶ 30 s (podržte pro zrychlení) · ▼ zvuk, titulky a obraz · ⏮ ⏭ kapitoly · ZPĚT konec</string>
     <string name="series_titulo">Seriály</string>
     <string name="series_carregando">Načítají se seriály…</string>
     <string name="series_vazio">Zatím žádné seriály</string>
@@ -503,7 +489,6 @@
     </plurals>
     <string name="player_acao_guia">Programový průvodce</string>
     <string name="player_sem_guia_curto">Žádný programový průvodce</string>
-    <string name="player_grade_teclas">OK přehrát · ◀ ▶ pořad · ▲ ▼ kanál</string>
     <string name="player_busca_dica">Název kanálu nebo pořadu</string>
     <string name="player_busca_nada">Pro „%1$s“ nebylo nic nalezeno.</string>
     <string name="player_filtro_qualquer">Libovolná</string>
@@ -524,7 +509,6 @@
     <string name="infantil_titulo">Dětské kategorie</string>
     <string name="infantil_carregando">načítají se kategorie…</string>
     <string name="infantil_coluna_itens">CO OBSAHUJE</string>
-    <string name="infantil_dica">OK označí nebo zruší označení kategorie jako dětské · platí pro Živou TV, Filmy a Seriály · ZPĚT odejde (už uloženo)</string>
     <string name="infantil_so_categoria">označte celou kategorii v levém sloupci</string>
     <string name="infantil_vazio">žádné kategorie: přidejte účet v Nastavení › TV a filmy a znovu načtěte kanály</string>
     <string name="infantil_limite">kategorie pro dospělé nemůže být dětská</string>
@@ -542,11 +526,10 @@
     <string name="player_cat_favoritos">Oblíbené</string>
     <string name="player_cat_recentes">Nedávné</string>
     <string name="player_cat_outros">Ostatní</string>
-    <string name="player_sem_favoritos">Zatím žádné oblíbené. Podržte OK 2 s na kanálu, abyste ho sem přidali.</string>
+    <string name="player_sem_favoritos">Zatím žádné oblíbené.</string>
     <string name="player_categoria_vazia">V této kategorii nejsou žádné kanály.</string>
     <string name="player_sem_guia">Pro tento kanál není programový průvodce.</string>
     <string name="player_depois">POZDĚJI</string>
-    <string name="player_lista_teclas">OK přehrát · podržet OK 2 s: oblíbený nebo odebrat · podržet OK na kategorii: skrýt · ◀ kategorie</string>
     <string name="player_favorito_pos">★ %1$s přidán do oblíbených</string>
     <string name="player_favorito_tirou">%1$s odebrán z oblíbených</string>
     <string name="player_favoritos_cheio">Oblíbených je už 500: nejprve jeden odeberte.</string>
@@ -719,7 +702,6 @@
     <string name="tvv_vazio">Tento kanál zatím nemá uložené pořady.</string>
     <string name="tvv_voltou">Zpět na živé</string>
     <string name="tvv_selo">ZPĚTNĚ</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK možnosti · ZPĚT živě</string>
     <string name="tvv_pausar">Pozastavit</string>
     <string name="tvv_continuar">Pokračovat</string>
     <string name="tvv_ao_vivo">Zpět na živé</string>
@@ -737,7 +719,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Filmy a seriály</string>
     <string name="idioma_titulo">Preferovaný zvuk</string>
-    <string name="idioma_det">Originál s titulky v jazyce televizoru, nebo dabing do něj. Každý film a seriál si pamatuje změnu provedenou v přehrávači (▼)</string>
+    <string name="idioma_det">Originál s titulky v jazyce televizoru, nebo dabing do něj. Každý film a seriál si pamatuje změnu provedenou v přehrávači</string>
     <string name="idioma_original">Originál s titulky</string>
     <string name="idioma_dublado">Dabing</string>
     <string name="idioma_legendado">S titulky</string>
@@ -851,8 +833,8 @@
     <string name="st_titulo">USB disk a úložiště</string>
     <string name="st_explica">Vyberte, jak televizor používá USB disk. Málo místa? Může se stát úložištěm televizoru pro náročné aplikace.</string>
     <string name="st_linha_det">Použít USB disk jako úložiště televizoru</string>
-    <string name="st_sem_shell">Vyžaduje vlastní shell televizoru (Nastavení › Systém › Pokročilé). OK zkusí znovu.</string>
-    <string name="st_sem_pen">Není připojen žádný USB disk. Připojte ho a stiskněte OK.</string>
+    <string name="st_sem_shell">Vyžaduje vlastní shell televizoru (Nastavení › Systém › Pokročilé).</string>
+    <string name="st_sem_pen">Není připojen žádný USB disk.</string>
     <string name="st_tv_livre">Úložiště televizoru: volno %1$s z %2$s</string>
     <string name="st_pen">USB disk · %1$s · %2$s</string>
     <string name="st_modo_comum">Běžný USB disk</string>
@@ -866,14 +848,13 @@
     <string name="st_motivo_grande">polovina pro aplikace, polovina pro nahrávky a soubory</string>
     <string name="st_motivo_apertada">televizor je téměř plný</string>
     <string name="st_medido">zapisuje %1$s MB/s</string>
-    <string name="st_medir_dica">OK změří jeho rychlost</string>
     <string name="st_usar_comum">Použít jako běžný USB disk</string>
-    <string name="st_usar_misto">Použít jako smíšený: %1$d%% běžný  ◀ ▶</string>
+    <string name="st_usar_misto">Použít jako smíšený: %1$d%% běžný</string>
     <string name="st_usar_tv">Použít jako úložiště televizoru</string>
     <string name="st_apps">Aplikace na USB disku</string>
     <string name="st_apps_det">Vyberte aplikace k přesunu (největší první)</string>
     <string name="st_apps_nenhum">Žádnou aplikaci nelze přesunout.</string>
-    <string name="st_apps_rodape">OK přesune aplikaci; ✓ = už na USB disku</string>
+    <string name="st_apps_rodape">✓ = už na USB disku</string>
     <string name="st_compartilhado">Fotky a soubory: %1$s</string>
     <string name="st_na_tv">v televizoru</string>
     <string name="st_no_pen">na USB disku</string>
@@ -898,7 +879,7 @@
     <string name="st_voltar_comum">Zpět na běžný USB disk (aplikace se vrátí do televizoru)</string>
     <string name="st_trazendo">Vrací se %1$s do televizoru…</string>
     <string name="st_sumiram">USB disk je odpojený: %1$s jsou skryté, dokud se nevrátí.</string>
-    <string name="st_sugestao">Úložiště televizoru je téměř plné. Přesuňte %1$s (%2$s) na USB disk: podržte OK na aplikaci.</string>
+    <string name="st_sugestao">Úložiště televizoru je téměř plné. Přesuňte %1$s (%2$s) na USB disk</string>
     <string name="st_medindo">Měří se rychlost disku, aby se doporučilo nejlepší použití…</string>
     <string name="st_lento_titulo">Disk je příliš pomalý</string>
     <string name="st_lento_bloqueado">Tento disk zapisuje %1$s MB/s. Aby se stal úložištěm televizoru, potřebuje alespoň %2$d MB/s: pod tím aplikace zamrzají a televizor se nemusí spustit. Použijte ho jako běžný disk.</string>

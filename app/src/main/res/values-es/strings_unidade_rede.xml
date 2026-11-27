@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">“%1$s” quiere ver y copiar los archivos del almacenamiento de la TV por la red de casa. ¿Permitir esta computadora?</string>
     <string name="mtp_pcs">Computadoras permitidas</string>
     <string name="mtp_pcs_nenhum">Ninguna aún. La TV pregunta en pantalla cuando una computadora pide los archivos.</string>
-    <string name="mtp_pcs_lista">%1$s · OK olvida todas (cada una vuelve a preguntar)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Computadoras olvidadas</string>
     <string name="ur_atalho_nome">Abrir el panel de la TV</string>
     <string name="ssdp_painel">panel</string>

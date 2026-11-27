@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Розклади</string>
     <string name="cfg_sec_atualizacao">Оновлення</string>
     <string name="cfg_atualizar">Перевірити нову версію</string>
-    <string name="cfg_atualizar_det">Версія %1$s · %2$s · OK перевіряє зараз</string>
+    <string name="cfg_atualizar_det">Версія %1$s · %2$s</string>
     <string name="cfg_procurando">перевірка GitHub…</string>
     <string name="cfg_instalar">Установити версію %1$d зараз</string>
-    <string name="cfg_instalar_det">Лаунчер закриється й повернеться сам за кілька секунд · OK установлює</string>
+    <string name="cfg_instalar_det">Лаунчер закриється й повернеться сам за кілька секунд</string>
     <string name="cfg_instalando">завантаження й перевірка…</string>
     <string name="cfg_sec_rede">Мережа</string>
     <string name="cfg_dns">Приватний DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Що ввімкнено — %1$s</string>
     <string name="cfg_ligado">увімк.</string>
     <string name="cfg_so_pc">" · лише з комп\'ютера (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK намагається ввімкнути"</string>
     <string name="cfg_perm_fixas">Надано постійні дозволи</string>
     <string name="cfg_shell_estado">Власна оболонка</string>
     <string name="cfg_shell_pareado">сполучено: лаунчер сам перепідключається через бездротове налагодження</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Служба клавіш</string>
     <string name="rec_teclas_sem">без цього: HOME може відкрити лаунчер Google, а клавіші Netflix/YouTube не перепризначаються</string>
     <string name="rec_tudo">усе ввімкнено</string>
-    <string name="rec_faltam">Бракує %1$d з %2$d функцій · OK на пункті намагається ввімкнути</string>
+    <string name="rec_faltam">Бракує %1$d з %2$d функцій</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Ласкаво просимо</string>
     <string name="bv_texto">Головний екран, годинник, погода, будильник і заставка вже працюють. Решту ввімкніть тут, якщо хочете (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · вимк."</string>
     <string name="rot_nova">Новий розклад</string>
     <string name="rot_editar">Редагувати розклад</string>
-    <string name="rot_editor_det">OK змінює кожен рядок · НАЗАД виходить без збереження</string>
     <string name="rot_hora">Час: %1$s</string>
     <string name="rot_dias">Дні: %1$s</string>
     <string name="rot_acao">Дія: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Лише якщо ніхто не торкався протягом: %1$s</string>
     <string name="rot_ligada">Увімк.</string>
     <string name="rot_desligada">Вимк.</string>
-    <string name="rot_hora_det">◀ ▶ 5 хвилин · OK +1 година</string>
-    <string name="rot_dias_det">OK: щодня, пн–пт, вихідні, один раз</string>
-    <string name="rot_ok_muda">OK змінює</string>
-    <string name="rot_app_det">OK або ▶ далі · ◀ назад</string>
     <string name="rot_ocioso_det">Не перериває того, хто дивиться</string>
-    <string name="rot_ativa_det">OK вмикає/вимикає цей розклад</string>
     <string name="rot_salvar">Зберегти</string>
     <string name="rot_escolha_app">Виберіть застосунок</string>
     <string name="rot_apagar">Видалити цей розклад</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Підключити</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">немає облікового запису Google</string>
-    <string name="cal_dica">◀ ▶ змінити місяць</string>
     <string name="cal_30">Наступні 30 днів</string>
     <string name="cal_nenhuma_conta">На телевізорі немає облікового запису Google</string>
     <string name="cal_nada">Нічого не заплановано (або календар ще синхронізується)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">схід %1$s</string>
     <string name="fd_por">захід %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: використати   ·   утримуйте OK на одному з ваших серверів: видалити   ·   Назад: вихід</string>
     <string name="dns_auto">Автоматично</string>
     <string name="dns_auto_det">Використовує DNS роутера й шифрує, коли він це підтримує (типово для Android)</string>
     <string name="dns_desl">Вимк.</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">версія %1$d: готово перевести цей телевізор на новий застосунок (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">встановлюється новий застосунок (%1$d); потім він бере цей телевізор з усіма налаштуваннями</string>
     <string name="atu_disponivel">версія %1$d готова до встановлення (встановлено %2$d)</string>
-    <string name="atu_trocou">версія змінилася після останньої перевірки · OK перевіряє знову</string>
+    <string name="atu_trocou">версія змінилася після останньої перевірки</string>
     <string name="atu_instalando">встановлюється %1$d (встановлено %2$d)</string>
     <string name="atu_ok">оновлено</string>
     <string name="atu_falhou">встановлення не вдалося (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">версія %1$d двічі аварійно завершилася одразу після встановлення · \"%2$s\" вимкнено до наступної</string>
     <string name="vig_tela_bloqueada">Цей екран вимкнено до наступного оновлення (він спричинив збій лаунчера)</string>
     <string name="cfg_vig_liberar">Безпечний режим</string>
-    <string name="cfg_vig_liberar_det">" · OK вмикає знову"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Голосовий пошук не відкрився на цьому телевізорі</string>
     <string name="home_alarme_hoje">сьогодні</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Завантаження відео…</string>
     <string name="player_sem_canais">Список каналів ще не додано.</string>
     <string name="player_tentando">Немає сигналу на каналі %1$d. Повторна спроба…</string>
-    <string name="player_sem_sinal">Канал %1$d не відповів. Виберіть інший кнопками ▲ ▼ або OK.</string>
+    <string name="player_sem_sinal">Канал %1$d не відповів.</string>
     <string name="player_canal_nao_existe">Каналу %1$d немає.</string>
     <string name="player_ao_vivo">НАЖИВО</string>
     <string name="player_a_seguir">далі: %1$s</string>
-    <string name="player_teclas">▲ ▼ канал · OK список каналів · утримуйте OK 2 с: улюблений · ◀ попередній канал · ▶ ▶ параметри · НАЗАД вихід</string>
-    <string name="player_teclas_pausa">▶❙❙ або OK продовжити · ▶ параметри (назад до прямого ефіру) · ▲ ▼ канал · НАЗАД вихід</string>
     <string name="player_cat_busca">Пошук: %1$s</string>
     <string name="player_acao_buscar">Пошук</string>
     <string name="player_acao_filtros">Фільтри</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s додано до «Переглянути пізніше»</string>
     <string name="filmes_interesse_tirou">%1$s вилучено з «Переглянути пізніше»</string>
     <string name="filmes_interesses_cheio">У «Переглянути пізніше» вже 500 назв: спершу вилучіть одну.</string>
-    <string name="filmes_interesses_vazio">Утримуйте OK 2 секунди на постері, щоб додати його сюди (і ще раз, щоб вилучити).</string>
     <string name="filmes_assistido">Переглянуто</string>
     <string name="filmes_selo_leg">СУБ</string>
     <string name="vod_sem_conta">Обліковий запис цього відео більше не існує.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Аудіо</string>
     <string name="vod_legenda">Субтитри</string>
     <string name="vod_faixas">Аудіо й субтитри</string>
-    <string name="vod_teclas">OK пауза · ◀ 10 с · ▶ 30 с (утримуйте для швидшого) · ▼ аудіо, субтитри й зображення · ⏮ ⏭ розділи · НАЗАД вихід</string>
     <string name="series_titulo">Серіали</string>
     <string name="series_carregando">Завантаження серіалів…</string>
     <string name="series_vazio">Серіалів ще немає</string>
@@ -504,7 +490,6 @@
     </plurals>
     <string name="player_acao_guia">Телепрограма</string>
     <string name="player_sem_guia_curto">Немає телепрограми</string>
-    <string name="player_grade_teclas">OK дивитися · ◀ ▶ програма · ▲ ▼ канал</string>
     <string name="player_busca_dica">Назва каналу або програми</string>
     <string name="player_busca_nada">Нічого не знайдено за запитом «%1$s».</string>
     <string name="player_filtro_qualquer">Будь-яка</string>
@@ -525,7 +510,6 @@
     <string name="infantil_titulo">Дитячі категорії</string>
     <string name="infantil_carregando">завантаження категорій…</string>
     <string name="infantil_coluna_itens">ЩО ВСЕРЕДИНІ</string>
-    <string name="infantil_dica">OK позначає категорію як дитячу або знімає позначку · діє для ТБ наживо, Фільмів і Серіалів · НАЗАД виходить (уже збережено)</string>
     <string name="infantil_so_categoria">позначте всю категорію в лівій колонці</string>
     <string name="infantil_vazio">немає категорій: додайте обліковий запис у Налаштування › ТБ і фільми й перезавантажте канали</string>
     <string name="infantil_limite">категорія для дорослих не може бути дитячою</string>
@@ -543,11 +527,10 @@
     <string name="player_cat_favoritos">Улюблені</string>
     <string name="player_cat_recentes">Нещодавні</string>
     <string name="player_cat_outros">Інше</string>
-    <string name="player_sem_favoritos">Улюблених ще немає. Утримуйте OK 2 с на каналі, щоб додати його сюди.</string>
+    <string name="player_sem_favoritos">Улюблених ще немає.</string>
     <string name="player_categoria_vazia">У цій категорії немає каналів.</string>
     <string name="player_sem_guia">Немає телепрограми для цього каналу.</string>
     <string name="player_depois">ПІЗНІШЕ</string>
-    <string name="player_lista_teclas">OK дивитися · утримуйте OK 2 с: улюблений або вилучити · утримуйте OK на категорії: приховати · ◀ категорії</string>
     <string name="player_favorito_pos">★ %1$s додано до улюблених</string>
     <string name="player_favorito_tirou">%1$s вилучено з улюблених</string>
     <string name="player_favoritos_cheio">Уже є 500 улюблених: спершу вилучіть один.</string>
@@ -722,7 +705,6 @@
     <string name="tvv_vazio">Для цього каналу ще немає збережених програм.</string>
     <string name="tvv_voltou">Назад до прямого ефіру</string>
     <string name="tvv_selo">АРХІВ</string>
-    <string name="tvv_teclas">◀ ▶ 30 с · OK параметри · НАЗАД прямий ефір</string>
     <string name="tvv_pausar">Пауза</string>
     <string name="tvv_continuar">Продовжити</string>
     <string name="tvv_ao_vivo">Назад до прямого ефіру</string>
@@ -740,7 +722,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Фільми й серіали</string>
     <string name="idioma_titulo">Бажане аудіо</string>
-    <string name="idioma_det">Оригінал із субтитрами мовою телевізора або дубляж цією мовою. Кожен фільм і серіал пам\'ятає зміну, зроблену в плеєрі (▼)</string>
+    <string name="idioma_det">Оригінал із субтитрами мовою телевізора або дубляж цією мовою. Кожен фільм і серіал пам\'ятає зміну, зроблену в плеєрі</string>
     <string name="idioma_original">Оригінал із субтитрами</string>
     <string name="idioma_dublado">Дубляж</string>
     <string name="idioma_legendado">Із субтитрами</string>
@@ -854,8 +836,8 @@
     <string name="st_titulo">USB-накопичувач і сховище</string>
     <string name="st_explica">Виберіть, як телевізор використовує USB-накопичувач. Мало місця? Він може стати сховищем телевізора для важких застосунків.</string>
     <string name="st_linha_det">Використовувати USB-накопичувач як сховище телевізора</string>
-    <string name="st_sem_shell">Потрібна власна оболонка телевізора (Налаштування › Система › Додатково). OK, щоб спробувати ще раз.</string>
-    <string name="st_sem_pen">USB-накопичувач не підключено. Підключіть його й натисніть OK.</string>
+    <string name="st_sem_shell">Потрібна власна оболонка телевізора (Налаштування › Система › Додатково).</string>
+    <string name="st_sem_pen">USB-накопичувач не підключено.</string>
     <string name="st_tv_livre">Сховище телевізора: вільно %1$s з %2$s</string>
     <string name="st_pen">USB-накопичувач · %1$s · %2$s</string>
     <string name="st_modo_comum">Звичайний USB-накопичувач</string>
@@ -869,14 +851,13 @@
     <string name="st_motivo_grande">половина для застосунків, половина для записів і файлів</string>
     <string name="st_motivo_apertada">телевізор майже заповнений</string>
     <string name="st_medido">записує зі швидкістю %1$s МБ/с</string>
-    <string name="st_medir_dica">OK вимірює його швидкість</string>
     <string name="st_usar_comum">Використовувати як звичайний USB-накопичувач</string>
-    <string name="st_usar_misto">Використовувати змішано: %1$d%% звичайний  ◀ ▶</string>
+    <string name="st_usar_misto">Використовувати змішано: %1$d%% звичайний</string>
     <string name="st_usar_tv">Використовувати як сховище телевізора</string>
     <string name="st_apps">Застосунки на USB-накопичувачі</string>
     <string name="st_apps_det">Виберіть застосунки для перенесення (найбільші першими)</string>
     <string name="st_apps_nenhum">Жоден застосунок не можна перенести.</string>
-    <string name="st_apps_rodape">OK переносить застосунок; ✓ = уже на USB-накопичувачі</string>
+    <string name="st_apps_rodape">✓ = уже на USB-накопичувачі</string>
     <string name="st_compartilhado">Фото й файли: %1$s</string>
     <string name="st_na_tv">на телевізорі</string>
     <string name="st_no_pen">на USB-накопичувачі</string>
@@ -901,7 +882,7 @@
     <string name="st_voltar_comum">Назад до звичайного USB-накопичувача (застосунки повертаються на телевізор)</string>
     <string name="st_trazendo">Повернення %1$s на телевізор…</string>
     <string name="st_sumiram">USB-накопичувач відключено: %1$s приховано, доки його не повернуть.</string>
-    <string name="st_sugestao">Сховище телевізора майже заповнене. Перенесіть %1$s (%2$s) на USB-накопичувач: утримуйте OK на застосунку.</string>
+    <string name="st_sugestao">Сховище телевізора майже заповнене. Перенесіть %1$s (%2$s) на USB-накопичувач</string>
     <string name="st_medindo">Вимірювання швидкості накопичувача, щоб порадити найкраще використання…</string>
     <string name="st_lento_titulo">Накопичувач надто повільний</string>
     <string name="st_lento_bloqueado">Цей накопичувач записує зі швидкістю %1$s МБ/с. Щоб стати сховищем телевізора, потрібно щонайменше %2$d МБ/с: нижче застосунки зависають, а телевізор може не запуститися. Використовуйте його як звичайний накопичувач.</string>

@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Membuka…</string>
     <string name="dp_erro">Tempat ini tidak dapat dibuka. Pastikan terhubung lalu coba lagi.</string>
     <string name="dp_arquivos">File di folder ini: %1$d</string>
-    <string name="dp_dicas">OK: buka · KEMBALI: kembali</string>
     <string name="dp_diario">%1$s menerima %2$s dari pemilih</string>
     <string name="dp_sem_nome">tanpa nama</string>
 </resources>

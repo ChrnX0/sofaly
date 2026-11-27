@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Screensaver remote keys (idea 28) -->
-    <string name="pt_dica_dispensar">Az OK elveti · ◀ ▶ mozgatás</string>
-    <string name="pt_dica_pausar">Az OK szünetel vagy folytat · ◀ ▶ mozgatás</string>
-    <string name="pt_dica_andar">◀ ▶ mozgatás · a többi gomb bezár</string>
     <!-- Screensaver photos from a network folder (idea 27) -->
     <string name="rede_fotos_usar">Ezek a fotók legyenek a képernyővédőn</string>
     <string name="rede_fotos_parar">Ezek a fotók ne legyenek többé a képernyővédőn</string>
@@ -20,6 +17,6 @@
     <string name="rede_buscar_explica">Filmek, sorozatok, epizódok és zene ezen a szerveren.</string>
     <string name="rede_buscar_campo">Név</string>
     <string name="rede_buscar_curto">Írjon be legalább 2 betűt.</string>
-    <string name="rede_proximo_em">Következik: %1$s %2$d mp múlva · az OK most elindítja · más gomb megszakítja</string>
+    <string name="rede_proximo_em">Következik: %1$s %2$d mp múlva</string>
     <string name="rede_ainda_assistindo">Még nézi? Az OK elindítja ezt: %1$s</string>
 </resources>

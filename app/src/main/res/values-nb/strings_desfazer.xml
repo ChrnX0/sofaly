@@ -15,7 +15,7 @@
     <string name="desf_barra">Endret: %1$s</string>
     <string name="desf_botao">Angre</string>
     <string name="desf_tela">Nylige endringer</string>
-    <string name="desf_tela_det">Hva som ble endret de siste 7 dagene. OK på én setter den tilbake som den var.</string>
+    <string name="desf_tela_det">Hva som ble endret de siste 7 dagene.</string>
     <string name="desf_tela_vazia">Ingen endringer de siste 7 dagene.</string>
     <string name="desf_ja_desfeita">angret</string>
     <string name="desf_rot_config">Innstillinger</string>

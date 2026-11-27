@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Изменить виджеты главного экрана</string>
-    <string name="wdg_det">Живые виджеты других приложений на главном экране. Стрелки перемещают, OK показывает параметры.</string>
-    <string name="wdg_vazio">На главном экране пока нет виджетов. OK добавит.</string>
+    <string name="wdg_det">Живые виджеты других приложений на главном экране.</string>
+    <string name="wdg_vazio">На главном экране пока нет виджетов.</string>
     <string name="wdg_estado_mover">Перемещение: %1$s</string>
     <string name="wdg_estado_tamanho">Размер: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Переместить</string>

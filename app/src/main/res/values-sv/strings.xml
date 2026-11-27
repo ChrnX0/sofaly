@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Rutiner</string>
     <string name="cfg_sec_atualizacao">Uppdateringar</string>
     <string name="cfg_atualizar">Sök efter ny version</string>
-    <string name="cfg_atualizar_det">Version %1$s · %2$s · OK kontrollerar nu</string>
+    <string name="cfg_atualizar_det">Version %1$s · %2$s</string>
     <string name="cfg_procurando">kontrollerar GitHub…</string>
     <string name="cfg_instalar">Installera version %1$d nu</string>
-    <string name="cfg_instalar_det">Launchern stängs och kommer tillbaka av sig själv om några sekunder · OK installerar</string>
+    <string name="cfg_instalar_det">Launchern stängs och kommer tillbaka av sig själv om några sekunder</string>
     <string name="cfg_instalando">laddar ner och kontrollerar…</string>
     <string name="cfg_sec_rede">Nätverk</string>
     <string name="cfg_dns">Privat DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Vad som är på — %1$s</string>
     <string name="cfg_ligado">på</string>
     <string name="cfg_so_pc">" · bara med en dator (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK försöker slå på"</string>
     <string name="cfg_perm_fixas">Fasta behörigheter beviljade</string>
     <string name="cfg_shell_estado">Eget skal</string>
     <string name="cfg_shell_pareado">kopplad: launchern återansluter själv via trådlös felsökning</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Knapptjänst</string>
     <string name="rec_teclas_sem">utan det: HOME kan öppna Googles launcher och Netflix-/YouTube-knapparna ändras inte</string>
     <string name="rec_tudo">allt på</string>
-    <string name="rec_faltam">%1$d av %2$d funktioner saknas · OK på ett objekt försöker slå på det</string>
+    <string name="rec_faltam">%1$d av %2$d funktioner saknas</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Välkommen</string>
     <string name="bv_texto">Startskärmen, klockan, vädret, väckarklockan och skärmsläckaren fungerar redan. Slå på resten här om du vill (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · av"</string>
     <string name="rot_nova">Ny rutin</string>
     <string name="rot_editar">Redigera rutin</string>
-    <string name="rot_editor_det">OK ändrar varje rad · TILLBAKA lämnar utan att spara</string>
     <string name="rot_hora">Tid: %1$s</string>
     <string name="rot_dias">Dagar: %1$s</string>
     <string name="rot_acao">Åtgärd: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Bara om ingen rört den på: %1$s</string>
     <string name="rot_ligada">På</string>
     <string name="rot_desligada">Av</string>
-    <string name="rot_hora_det">◀ ▶ 5 minuter · OK +1 timme</string>
-    <string name="rot_dias_det">OK: varje dag, mån–fre, helg, en gång</string>
-    <string name="rot_ok_muda">OK ändrar</string>
-    <string name="rot_app_det">OK eller ▶ nästa · ◀ föregående</string>
     <string name="rot_ocioso_det">Stör inte någon som tittar</string>
-    <string name="rot_ativa_det">OK slår på/av den här rutinen</string>
     <string name="rot_salvar">Spara</string>
     <string name="rot_escolha_app">Välj appen</string>
     <string name="rot_apagar">Ta bort den här rutinen</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Anslut</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">inget Google-konto</string>
-    <string name="cal_dica">◀ ▶ byt månad</string>
     <string name="cal_30">Kommande 30 dagar</string>
     <string name="cal_nenhuma_conta">Inget Google-konto på tv:n</string>
     <string name="cal_nada">Inget inplanerat (eller så synkroniseras kalendern fortfarande)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">soluppgång %1$s</string>
     <string name="fd_por">solnedgång %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: använd   ·   håll OK på en av dina servrar: ta bort   ·   Tillbaka: avsluta</string>
     <string name="dns_auto">Automatiskt</string>
     <string name="dns_auto_det">Använder routerns DNS och krypterar när den tillåter det (Androids standard)</string>
     <string name="dns_desl">Av</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">version %1$d: redo att flytta den här tv:n till den nya appen (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">installerar den nya appen (%1$d); den tar sedan över den här tv:n med alla inställningar</string>
     <string name="atu_disponivel">version %1$d redo att installera (installerad %2$d)</string>
-    <string name="atu_trocou">versionen har ändrats sedan senaste kontrollen · OK kontrollerar igen</string>
+    <string name="atu_trocou">versionen har ändrats sedan senaste kontrollen</string>
     <string name="atu_instalando">installerar %1$d (installerad %2$d)</string>
     <string name="atu_ok">uppdaterad</string>
     <string name="atu_falhou">installationen misslyckades (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">version %1$d kraschade två gånger direkt efter installationen · \"%2$s\" är av till nästa</string>
     <string name="vig_tela_bloqueada">Den här skärmen är av till nästa uppdatering (den fick launchern att krascha)</string>
     <string name="cfg_vig_liberar">Felsäkert läge</string>
-    <string name="cfg_vig_liberar_det">" · OK slår på den igen"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Röstsökning öppnades inte på den här tv:n</string>
     <string name="home_alarme_hoje">i dag</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Laddar video…</string>
     <string name="player_sem_canais">Ingen kanallista tillagd än.</string>
     <string name="player_tentando">Ingen signal på kanal %1$d. Försöker igen…</string>
-    <string name="player_sem_sinal">Kanal %1$d svarade inte. Välj en annan med ▲ ▼ eller OK.</string>
+    <string name="player_sem_sinal">Kanal %1$d svarade inte.</string>
     <string name="player_canal_nao_existe">Det finns ingen kanal %1$d.</string>
     <string name="player_ao_vivo">DIREKT</string>
     <string name="player_a_seguir">nästa: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanal · OK kanallista · håll OK 2 s: favorit · ◀ föregående kanal · ▶ ▶ alternativ · TILLBAKA avsluta</string>
-    <string name="player_teclas_pausa">▶❙❙ eller OK fortsätt · ▶ alternativ (tillbaka till direkt) · ▲ ▼ kanal · TILLBAKA avsluta</string>
     <string name="player_cat_busca">Sök: %1$s</string>
     <string name="player_acao_buscar">Sök</string>
     <string name="player_acao_filtros">Filter</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s lades till i bevakningslistan</string>
     <string name="filmes_interesse_tirou">%1$s togs bort från bevakningslistan</string>
     <string name="filmes_interesses_cheio">Bevakningslistan har redan 500 titlar: ta bort en först.</string>
-    <string name="filmes_interesses_vazio">Håll OK i 2 sekunder på en affisch för att lägga till den här (och igen för att ta bort den).</string>
     <string name="filmes_assistido">Sedda</string>
     <string name="filmes_selo_leg">TXT</string>
     <string name="vod_sem_conta">Kontot för den här videon finns inte längre.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Ljud</string>
     <string name="vod_legenda">Undertexter</string>
     <string name="vod_faixas">Ljud och undertexter</string>
-    <string name="vod_teclas">OK paus · ◀ 10 s · ▶ 30 s (håll för att gå snabbare) · ▼ ljud, undertexter och bild · ⏮ ⏭ kapitel · TILLBAKA avsluta</string>
     <string name="series_titulo">Serier</string>
     <string name="series_carregando">Laddar serier…</string>
     <string name="series_vazio">Inga serier än</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Programguide</string>
     <string name="player_sem_guia_curto">Ingen programguide</string>
-    <string name="player_grade_teclas">OK titta · ◀ ▶ program · ▲ ▼ kanal</string>
     <string name="player_busca_dica">Kanal- eller programnamn</string>
     <string name="player_busca_nada">Inget hittades för ”%1$s”.</string>
     <string name="player_filtro_qualquer">Alla</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Barnkategorier</string>
     <string name="infantil_carregando">laddar kategorier…</string>
     <string name="infantil_coluna_itens">VAD SOM FINNS I DEN</string>
-    <string name="infantil_dica">OK markerar eller avmarkerar kategorin som barn · gäller Direkt-tv, Filmer och Serier · TILLBAKA lämnar (redan sparat)</string>
     <string name="infantil_so_categoria">markera hela kategorin i vänstra kolumnen</string>
     <string name="infantil_vazio">inga kategorier: lägg till ett konto i Inställningar › Tv och filmer och ladda om kanalerna</string>
     <string name="infantil_limite">en vuxenkategori kan inte vara en barnkategori</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Favoriter</string>
     <string name="player_cat_recentes">Senaste</string>
     <string name="player_cat_outros">Övrigt</string>
-    <string name="player_sem_favoritos">Inga favoriter än. Håll OK i 2 s på en kanal för att lägga till den här.</string>
+    <string name="player_sem_favoritos">Inga favoriter än.</string>
     <string name="player_categoria_vazia">Inga kanaler i den här kategorin.</string>
     <string name="player_sem_guia">Ingen programguide för den här kanalen.</string>
     <string name="player_depois">SENARE</string>
-    <string name="player_lista_teclas">OK titta · håll OK 2 s: favorit eller ta bort · håll OK på en kategori: dölj · ◀ kategorier</string>
     <string name="player_favorito_pos">★ %1$s lades till i favoriter</string>
     <string name="player_favorito_tirou">%1$s togs bort från favoriter</string>
     <string name="player_favoritos_cheio">Det finns redan 500 favoriter: ta bort en först.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Den här kanalen har inga sparade program än.</string>
     <string name="tvv_voltou">Tillbaka till direkt</string>
     <string name="tvv_selo">CATCH-UP</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK alternativ · TILLBAKA direkt</string>
     <string name="tvv_pausar">Pausa</string>
     <string name="tvv_continuar">Fortsätt</string>
     <string name="tvv_ao_vivo">Tillbaka till direkt</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Filmer och serier</string>
     <string name="idioma_titulo">Föredraget ljud</string>
-    <string name="idioma_det">Original med undertexter på tv:ns språk, eller dubbat till det. Varje film och serie minns ändringen som gjordes i spelaren (▼)</string>
+    <string name="idioma_det">Original med undertexter på tv:ns språk, eller dubbat till det. Varje film och serie minns ändringen som gjordes i spelaren</string>
     <string name="idioma_original">Original med undertexter</string>
     <string name="idioma_dublado">Dubbat</string>
     <string name="idioma_legendado">Textat</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">USB-minne och lagring</string>
     <string name="st_explica">Välj hur tv:n använder ett USB-minne. Ont om utrymme? Det kan bli tv-lagring för tunga appar.</string>
     <string name="st_linha_det">Använd ett USB-minne som tv-lagring</string>
-    <string name="st_sem_shell">Kräver tv:ns eget skal (Inställningar › System › Avancerat). OK för att försöka igen.</string>
-    <string name="st_sem_pen">Inget USB-minne anslutet. Anslut ett och tryck på OK.</string>
+    <string name="st_sem_shell">Kräver tv:ns eget skal (Inställningar › System › Avancerat).</string>
+    <string name="st_sem_pen">Inget USB-minne anslutet.</string>
     <string name="st_tv_livre">Tv-lagring: %1$s ledigt av %2$s</string>
     <string name="st_pen">USB-minne · %1$s · %2$s</string>
     <string name="st_modo_comum">Vanligt USB-minne</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">hälften för appar, hälften för inspelningar och filer</string>
     <string name="st_motivo_apertada">tv:n är nästan full</string>
     <string name="st_medido">skriver %1$s MB/s</string>
-    <string name="st_medir_dica">OK mäter dess hastighet</string>
     <string name="st_usar_comum">Använd som vanligt USB-minne</string>
-    <string name="st_usar_misto">Använd som blandat: %1$d%% vanligt  ◀ ▶</string>
+    <string name="st_usar_misto">Använd som blandat: %1$d%% vanligt</string>
     <string name="st_usar_tv">Använd som tv-lagring</string>
     <string name="st_apps">Appar på USB-minnet</string>
     <string name="st_apps_det">Välj appar att flytta (största först)</string>
     <string name="st_apps_nenhum">Ingen app kan flyttas.</string>
-    <string name="st_apps_rodape">OK flyttar appen; ✓ = redan på USB-minnet</string>
+    <string name="st_apps_rodape">✓ = redan på USB-minnet</string>
     <string name="st_compartilhado">Foton och filer: %1$s</string>
     <string name="st_na_tv">på tv:n</string>
     <string name="st_no_pen">på USB-minnet</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Tillbaka till vanligt USB-minne (apparna kommer tillbaka till tv:n)</string>
     <string name="st_trazendo">Flyttar tillbaka %1$s till tv:n…</string>
     <string name="st_sumiram">USB-minnet är urkopplat: %1$s är dolda tills det är tillbaka.</string>
-    <string name="st_sugestao">Tv-lagringen är nästan full. Flytta %1$s (%2$s) till USB-minnet: håll OK på appen.</string>
+    <string name="st_sugestao">Tv-lagringen är nästan full. Flytta %1$s (%2$s) till USB-minnet</string>
     <string name="st_medindo">Mäter minnets hastighet för att rekommendera bästa användning…</string>
     <string name="st_lento_titulo">Minnet är för långsamt</string>
     <string name="st_lento_bloqueado">Det här minnet skriver %1$s MB/s. För att bli tv-lagring behöver det minst %2$d MB/s: under det fryser appar och tv:n kanske inte startar. Använd det som vanligt minne.</string>

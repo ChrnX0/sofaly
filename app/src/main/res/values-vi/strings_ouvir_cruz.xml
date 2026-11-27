@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Đài yêu thích cũng phát được bằng phím 1 đến 9 trên điều khiển</string>
     <string name="ouv_tecla">Phím %d trên điều khiển</string>
     <string name="ouv_ao_sair">Khi rời đi</string>
-    <string name="ouv_ao_sair_continua">Tiếp tục phát trên màn hình chính\n▶❙❙ trên điều khiển để tạm dừng từ bất kỳ màn hình nào</string>
+    <string name="ouv_ao_sair_continua">Tiếp tục phát trên màn hình chính</string>
     <string name="ouv_ao_sair_para">Dừng khi bạn rời màn hình này</string>
     <string name="ouv_recentes">Gần đây</string>
     <string name="ouv_sem_favoritas">Chưa có đài yêu thích</string>
-    <string name="ouv_sem_favoritas_det">Giữ OK trên một đài để lưu ở đây</string>
     <string name="ouv_sem_recentes">Chưa có gì ở đây</string>
     <string name="ouv_sem_recentes_det">Các đài bạn nghe sẽ hiện ở đây</string>
     <string name="ouv_paises">Quốc gia</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Trực tiếp</string>
     <string name="ouv_dica_pular">bỏ qua</string>
     <string name="ouv_voltar">Lùi 15 giây</string>
-    <string name="ouv_voltar_det">Cũng là ◀◀ trên điều khiển</string>
     <string name="ouv_avancar">Tới 30 giây</string>
-    <string name="ouv_avancar_det">Cũng là ▶▶ trên điều khiển</string>
     <string name="ouv_velocidade_det">%s · giọng nói giữ nguyên cao độ</string>
     <string name="ouv_parar_pod_det">Chỗ bạn dừng được lưu lại cho lần sau</string>
     <string name="ouv_seguindo">Đang theo dõi</string>

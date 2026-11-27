@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Odotetaan vahvistustasi puhelimella…</string>
     <string name="rede_nuvem_salvando">Kirjaudutaan…</string>
     <string name="rede_nuvem_recusado">Palvelu kieltäytyi. Tarkista sovelluksen tunnus ja yritä uudelleen.</string>
-    <string name="rede_erro_nuvem_login">Tämän tilin käyttöoikeus vanheni tai poistettiin. Poista tili (pidä OK) ja kirjaudu uudelleen.</string>
+    <string name="rede_erro_nuvem_login">Tämän tilin käyttöoikeus vanheni tai poistettiin. Poista tili ja kirjaudu uudelleen.</string>
     <string name="rede_od_titulo">OneDrive: sovelluksesi Microsoftilla</string>
     <string name="rede_od_explica">Kerran, tietokoneella: entra.microsoft.com › App registrations › New registration. Tilityypeistä valitse se, joka sisältää henkilökohtaiset Microsoft-tilit. Ota sitten kohdassa Authentication käyttöön ”Allow public client flows”. Kopioi ”Application (client) ID” ja kirjoita se tähän (voit kirjoittaa puhelimesta, paneelissa).</string>
     <string name="rede_od_id">Application (client) ID</string>

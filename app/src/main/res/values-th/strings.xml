@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">กิจวัตร</string>
     <string name="cfg_sec_atualizacao">อัปเดต</string>
     <string name="cfg_atualizar">ตรวจหาเวอร์ชันใหม่</string>
-    <string name="cfg_atualizar_det">เวอร์ชัน %1$s · %2$s · OK เพื่อตรวจตอนนี้</string>
+    <string name="cfg_atualizar_det">เวอร์ชัน %1$s · %2$s</string>
     <string name="cfg_procurando">กำลังตรวจสอบ GitHub…</string>
     <string name="cfg_instalar">ติดตั้งเวอร์ชัน %1$d ตอนนี้</string>
-    <string name="cfg_instalar_det">Launcher จะปิดและกลับมาเองในไม่กี่วินาที · OK เพื่อติดตั้ง</string>
+    <string name="cfg_instalar_det">Launcher จะปิดและกลับมาเองในไม่กี่วินาที</string>
     <string name="cfg_instalando">กำลังดาวน์โหลดและตรวจสอบ…</string>
     <string name="cfg_sec_rede">เครือข่าย</string>
     <string name="cfg_dns">DNS ส่วนตัว</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">สิ่งที่เปิดอยู่ — %1$s</string>
     <string name="cfg_ligado">เปิด</string>
     <string name="cfg_so_pc">" · ต้องใช้คอมพิวเตอร์เท่านั้น (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK เพื่อลองเปิด"</string>
     <string name="cfg_perm_fixas">ให้สิทธิ์ถาวรแล้ว</string>
     <string name="cfg_shell_estado">เชลล์ของตัวเอง</string>
     <string name="cfg_shell_pareado">จับคู่แล้ว: Launcher จะเชื่อมต่อใหม่เองผ่านการแก้ไขข้อบกพร่องแบบไร้สาย</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">บริการปุ่ม</string>
     <string name="rec_teclas_sem">ถ้าไม่มี: HOME อาจเปิด Launcher ของ Google และปุ่ม Netflix/YouTube จะไม่ถูกตั้งใหม่</string>
     <string name="rec_tudo">เปิดครบทุกอย่าง</string>
-    <string name="rec_faltam">ขาด %1$d จาก %2$d ฟีเจอร์ · OK ที่รายการเพื่อลองเปิด</string>
+    <string name="rec_faltam">ขาด %1$d จาก %2$d ฟีเจอร์</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">ยินดีต้อนรับ</string>
     <string name="bv_texto">หน้าจอหลัก นาฬิกา สภาพอากาศ นาฬิกาปลุก และโปรแกรมรักษาหน้าจอใช้งานได้แล้ว เปิดส่วนที่เหลือได้ที่นี่ถ้าต้องการ (%1$s)</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · ปิด"</string>
     <string name="rot_nova">กิจวัตรใหม่</string>
     <string name="rot_editar">แก้ไขกิจวัตร</string>
-    <string name="rot_editor_det">OK เปลี่ยนแต่ละบรรทัด · BACK ออกโดยไม่บันทึก</string>
     <string name="rot_hora">เวลา: %1$s</string>
     <string name="rot_dias">วัน: %1$s</string>
     <string name="rot_acao">การทำงาน: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">เฉพาะเมื่อไม่มีใครแตะเป็นเวลา: %1$s</string>
     <string name="rot_ligada">เปิด</string>
     <string name="rot_desligada">ปิด</string>
-    <string name="rot_hora_det">◀ ▶ 5 นาที · OK +1 ชั่วโมง</string>
-    <string name="rot_dias_det">OK: ทุกวัน, จันทร์ถึงศุกร์, สุดสัปดาห์, ครั้งเดียว</string>
-    <string name="rot_ok_muda">OK เพื่อเปลี่ยน</string>
-    <string name="rot_app_det">OK หรือ ▶ ถัดไป · ◀ ก่อนหน้า</string>
     <string name="rot_ocioso_det">ไม่รบกวนคนที่กำลังดูอยู่</string>
-    <string name="rot_ativa_det">OK เพื่อเปิด/ปิดกิจวัตรนี้</string>
     <string name="rot_salvar">บันทึก</string>
     <string name="rot_escolha_app">เลือกแอป</string>
     <string name="rot_apagar">ลบกิจวัตรนี้</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">เชื่อมต่อ</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">ไม่มีบัญชี Google</string>
-    <string name="cal_dica">◀ ▶ เปลี่ยนเดือน</string>
     <string name="cal_30">30 วันข้างหน้า</string>
     <string name="cal_nenhuma_conta">ไม่มีบัญชี Google บนทีวี</string>
     <string name="cal_nada">ไม่มีนัดหมาย (หรือปฏิทินยังซิงค์อยู่)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">พระอาทิตย์ขึ้น %1$s</string>
     <string name="fd_por">พระอาทิตย์ตก %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: ใช้   ·   กด OK ค้างที่เซิร์ฟเวอร์ของคุณ: ลบ   ·   กลับ: ออก</string>
     <string name="dns_auto">อัตโนมัติ</string>
     <string name="dns_auto_det">ใช้ DNS ของเราเตอร์และเข้ารหัสเมื่อรองรับ (ค่าเริ่มต้นของ Android)</string>
     <string name="dns_desl">ปิด</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">เวอร์ชัน %1$d: พร้อมย้ายทีวีนี้ไปยังแอปใหม่ (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">กำลังติดตั้งแอปใหม่ (%1$d) จากนั้นแอปใหม่จะดูแลทีวีนี้พร้อมการตั้งค่าทั้งหมด</string>
     <string name="atu_disponivel">เวอร์ชัน %1$d พร้อมติดตั้ง (ติดตั้งอยู่ %2$d)</string>
-    <string name="atu_trocou">เวอร์ชันเปลี่ยนไปตั้งแต่ตรวจครั้งล่าสุด · OK เพื่อตรวจอีกครั้ง</string>
+    <string name="atu_trocou">เวอร์ชันเปลี่ยนไปตั้งแต่ตรวจครั้งล่าสุด</string>
     <string name="atu_instalando">กำลังติดตั้ง %1$d (ติดตั้งอยู่ %2$d)</string>
     <string name="atu_ok">อัปเดตแล้ว</string>
     <string name="atu_falhou">ติดตั้งไม่สำเร็จ (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">เวอร์ชัน %1$d ขัดข้องสองครั้งทันทีหลังติดตั้ง · \"%2$s\" จะปิดไว้จนถึงเวอร์ชันถัดไป</string>
     <string name="vig_tela_bloqueada">หน้าจอนี้ปิดไว้จนถึงการอัปเดตครั้งถัดไป (ทำให้ Launcher ขัดข้อง)</string>
     <string name="cfg_vig_liberar">เซฟโหมด</string>
-    <string name="cfg_vig_liberar_det">" · OK เพื่อเปิดอีกครั้ง"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">การค้นหาด้วยเสียงไม่เปิดบนทีวีนี้</string>
     <string name="home_alarme_hoje">วันนี้</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">กำลังโหลดวิดีโอ…</string>
     <string name="player_sem_canais">ยังไม่ได้เพิ่มรายการช่อง</string>
     <string name="player_tentando">ไม่มีสัญญาณที่ช่อง %1$d กำลังลองอีกครั้ง…</string>
-    <string name="player_sem_sinal">ช่อง %1$d ไม่ตอบสนอง เลือกช่องอื่นด้วย ▲ ▼ หรือ OK</string>
+    <string name="player_sem_sinal">ช่อง %1$d ไม่ตอบสนอง</string>
     <string name="player_canal_nao_existe">ไม่มีช่อง %1$d</string>
     <string name="player_ao_vivo">สด</string>
     <string name="player_a_seguir">ถัดไป: %1$s</string>
-    <string name="player_teclas">▲ ▼ ช่อง · OK รายการช่อง · กด OK ค้าง 2 วินาที: รายการโปรด · ◀ ช่องก่อนหน้า · ▶ ▶ ตัวเลือก · BACK ออก</string>
-    <string name="player_teclas_pausa">▶❙❙ หรือ OK เล่นต่อ · ▶ ตัวเลือก (กลับไปที่สด) · ▲ ▼ ช่อง · BACK ออก</string>
     <string name="player_cat_busca">ค้นหา: %1$s</string>
     <string name="player_acao_buscar">ค้นหา</string>
     <string name="player_acao_filtros">ตัวกรอง</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ เพิ่ม %1$s ลงในรายการที่จะดูแล้ว</string>
     <string name="filmes_interesse_tirou">นำ %1$s ออกจากรายการที่จะดูแล้ว</string>
     <string name="filmes_interesses_cheio">รายการที่จะดูมีครบ 500 เรื่องแล้ว: นำออกหนึ่งเรื่องก่อน</string>
-    <string name="filmes_interesses_vazio">กด OK ค้าง 2 วินาทีที่โปสเตอร์เพื่อเพิ่มที่นี่ (กดอีกครั้งเพื่อนำออก)</string>
     <string name="filmes_assistido">ดูแล้ว</string>
     <string name="filmes_selo_leg">ซับ</string>
     <string name="vod_sem_conta">บัญชีของวิดีโอนี้ไม่มีอยู่แล้ว</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">เสียง</string>
     <string name="vod_legenda">คำบรรยาย</string>
     <string name="vod_faixas">เสียงและคำบรรยาย</string>
-    <string name="vod_teclas">OK หยุดชั่วคราว · ◀ 10 วินาที · ▶ 30 วินาที (กดค้างเพื่อเร็วขึ้น) · ▼ เสียง คำบรรยาย และภาพ · ⏮ ⏭ ตอนย่อย · BACK ออก</string>
     <string name="series_titulo">ซีรีส์</string>
     <string name="series_carregando">กำลังโหลดซีรีส์…</string>
     <string name="series_vazio">ยังไม่มีซีรีส์</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">ผังรายการ</string>
     <string name="player_sem_guia_curto">ไม่มีผังรายการ</string>
-    <string name="player_grade_teclas">OK ดู · ◀ ▶ รายการ · ▲ ▼ ช่อง</string>
     <string name="player_busca_dica">ชื่อช่องหรือรายการ</string>
     <string name="player_busca_nada">ไม่พบผลลัพธ์สำหรับ “%1$s”</string>
     <string name="player_filtro_qualquer">ทั้งหมด</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">หมวดหมู่สำหรับเด็ก</string>
     <string name="infantil_carregando">กำลังโหลดหมวดหมู่…</string>
     <string name="infantil_coluna_itens">มีอะไรอยู่ข้างใน</string>
-    <string name="infantil_dica">OK เพื่อทำเครื่องหมายหรือยกเลิกหมวดหมู่สำหรับเด็ก · ใช้กับทีวีสด ภาพยนตร์ และซีรีส์ · BACK ออก (บันทึกแล้ว)</string>
     <string name="infantil_so_categoria">ทำเครื่องหมายทั้งหมวดหมู่ในคอลัมน์ซ้าย</string>
     <string name="infantil_vazio">ไม่มีหมวดหมู่: เพิ่มบัญชีใน การตั้งค่า › ทีวีและภาพยนตร์ แล้วโหลดช่องใหม่</string>
     <string name="infantil_limite">หมวดหมู่ผู้ใหญ่ไม่สามารถเป็นหมวดหมู่สำหรับเด็ก</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">รายการโปรด</string>
     <string name="player_cat_recentes">ล่าสุด</string>
     <string name="player_cat_outros">อื่นๆ</string>
-    <string name="player_sem_favoritos">ยังไม่มีรายการโปรด กด OK ค้าง 2 วินาทีที่ช่องเพื่อเพิ่มที่นี่</string>
+    <string name="player_sem_favoritos">ยังไม่มีรายการโปรด</string>
     <string name="player_categoria_vazia">ไม่มีช่องในหมวดหมู่นี้</string>
     <string name="player_sem_guia">ไม่มีผังรายการของช่องนี้</string>
     <string name="player_depois">ถัดไป</string>
-    <string name="player_lista_teclas">OK ดู · กด OK ค้าง 2 วินาที: รายการโปรดหรือนำออก · กด OK ค้างที่หมวดหมู่: ซ่อน · ◀ หมวดหมู่</string>
     <string name="player_favorito_pos">★ เพิ่ม %1$s ลงในรายการโปรดแล้ว</string>
     <string name="player_favorito_tirou">นำ %1$s ออกจากรายการโปรดแล้ว</string>
     <string name="player_favoritos_cheio">มีรายการโปรดครบ 500 รายการแล้ว: นำออกหนึ่งรายการก่อน</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">ช่องนี้ยังไม่มีรายการที่บันทึกไว้</string>
     <string name="tvv_voltou">กลับไปที่สด</string>
     <string name="tvv_selo">ดูย้อนหลัง</string>
-    <string name="tvv_teclas">◀ ▶ 30 วินาที · OK ตัวเลือก · BACK สด</string>
     <string name="tvv_pausar">หยุดชั่วคราว</string>
     <string name="tvv_continuar">เล่นต่อ</string>
     <string name="tvv_ao_vivo">กลับไปที่สด</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">ภาพยนตร์และซีรีส์</string>
     <string name="idioma_titulo">เสียงที่ต้องการ</string>
-    <string name="idioma_det">เสียงต้นฉบับพร้อมคำบรรยายในภาษาของทีวี หรือพากย์เป็นภาษานั้น ภาพยนตร์และซีรีส์แต่ละเรื่องจะจำการเปลี่ยนที่ทำในเครื่องเล่น (▼)</string>
+    <string name="idioma_det">เสียงต้นฉบับพร้อมคำบรรยายในภาษาของทีวี หรือพากย์เป็นภาษานั้น ภาพยนตร์และซีรีส์แต่ละเรื่องจะจำการเปลี่ยนที่ทำในเครื่องเล่น</string>
     <string name="idioma_original">ต้นฉบับพร้อมคำบรรยาย</string>
     <string name="idioma_dublado">พากย์</string>
     <string name="idioma_legendado">ซับไตเติล</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">ไดรฟ์ USB และที่เก็บข้อมูล</string>
     <string name="st_explica">เลือกวิธีที่ทีวีใช้ไดรฟ์ USB พื้นที่เหลือน้อยไหม ไดรฟ์สามารถเป็นที่เก็บข้อมูลของทีวีสำหรับแอปขนาดใหญ่ได้</string>
     <string name="st_linha_det">ใช้ไดรฟ์ USB เป็นที่เก็บข้อมูลของทีวี</string>
-    <string name="st_sem_shell">ต้องใช้เชลล์ของทีวีเอง (การตั้งค่า › ระบบ › ขั้นสูง) OK เพื่อลองอีกครั้ง</string>
-    <string name="st_sem_pen">ไม่ได้เชื่อมต่อไดรฟ์ USB เสียบไดรฟ์แล้วกด OK</string>
+    <string name="st_sem_shell">ต้องใช้เชลล์ของทีวีเอง (การตั้งค่า › ระบบ › ขั้นสูง)</string>
+    <string name="st_sem_pen">ไม่ได้เชื่อมต่อไดรฟ์ USB</string>
     <string name="st_tv_livre">ที่เก็บข้อมูลทีวี: ว่าง %1$s จาก %2$s</string>
     <string name="st_pen">ไดรฟ์ USB · %1$s · %2$s</string>
     <string name="st_modo_comum">ไดรฟ์ USB ทั่วไป</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">ครึ่งหนึ่งสำหรับแอป อีกครึ่งสำหรับการบันทึกและไฟล์</string>
     <string name="st_motivo_apertada">ทีวีเกือบเต็มแล้ว</string>
     <string name="st_medido">เขียนที่ %1$s MB/s</string>
-    <string name="st_medir_dica">OK เพื่อวัดความเร็ว</string>
     <string name="st_usar_comum">ใช้เป็นไดรฟ์ USB ทั่วไป</string>
-    <string name="st_usar_misto">ใช้แบบผสม: ทั่วไป %1$d%%  ◀ ▶</string>
+    <string name="st_usar_misto">ใช้แบบผสม: ทั่วไป %1$d%%</string>
     <string name="st_usar_tv">ใช้เป็นที่เก็บข้อมูลทีวี</string>
     <string name="st_apps">แอปในไดรฟ์ USB</string>
     <string name="st_apps_det">เลือกแอปที่จะย้าย (ใหญ่สุดก่อน)</string>
     <string name="st_apps_nenhum">ไม่มีแอปที่ย้ายได้</string>
-    <string name="st_apps_rodape">OK เพื่อย้ายแอป · ✓ = อยู่ในไดรฟ์ USB แล้ว</string>
+    <string name="st_apps_rodape">✓ = อยู่ในไดรฟ์ USB แล้ว</string>
     <string name="st_compartilhado">รูปภาพและไฟล์: %1$s</string>
     <string name="st_na_tv">ในทีวี</string>
     <string name="st_no_pen">ในไดรฟ์ USB</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">กลับไปเป็นไดรฟ์ USB ทั่วไป (แอปกลับมาที่ทีวี)</string>
     <string name="st_trazendo">กำลังนำ %1$s กลับมาที่ทีวี…</string>
     <string name="st_sumiram">ไดรฟ์ USB ถูกถอดออก: %1$s ถูกซ่อนจนกว่าจะเสียบกลับ</string>
-    <string name="st_sugestao">ที่เก็บข้อมูลทีวีเกือบเต็ม ย้าย %1$s (%2$s) ไปที่ไดรฟ์ USB: กด OK ค้างที่แอป</string>
+    <string name="st_sugestao">ที่เก็บข้อมูลทีวีเกือบเต็ม ย้าย %1$s (%2$s) ไปที่ไดรฟ์ USB</string>
     <string name="st_medindo">กำลังวัดความเร็วของไดรฟ์เพื่อแนะนำวิธีใช้ที่ดีที่สุด…</string>
     <string name="st_lento_titulo">ไดรฟ์ช้าเกินไป</string>
     <string name="st_lento_bloqueado">ไดรฟ์นี้เขียนที่ %1$s MB/s หากจะเป็นที่เก็บข้อมูลทีวีต้องได้อย่างน้อย %2$d MB/s ถ้าต่ำกว่านั้นแอปจะค้างและทีวีอาจเปิดไม่ขึ้น ใช้เป็นไดรฟ์ทั่วไปแทน</string>

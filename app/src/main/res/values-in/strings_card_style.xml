@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Penyesuaian halus</string>
-    <string name="ft_dica">OK atau ▶ ◀ mengubah · KEMBALI menutup</string>
     <string name="ft_abrir">Sesuaikan sambil melihat layar utama</string>
     <string name="ft_abrir_det">Font, jam, warna sorotan, sudut, cahaya, dan ukuran, langsung</string>
     <string name="cs_destaque">Warna sorotan</string>

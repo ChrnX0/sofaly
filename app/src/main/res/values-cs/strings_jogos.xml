@@ -28,7 +28,7 @@
     <string name="jogos_parear_falhou">Tento televizor neotevřel nastavení Bluetooth. Otevřete Nastavení, Ovladače a příslušenství.</string>
     <string name="jogos_baixar">Získat hry</string>
     <string name="jogos_escolher">Vybrat aplikace</string>
-    <string name="jogos_escolher_sub">Které aplikace žijí v Hrát. OK přepíná mezi Hrát a Aplikace.</string>
+    <string name="jogos_escolher_sub">Které aplikace žijí v Hrát.</string>
     <string name="jogos_no_card">v Hrát</string>
     <string name="jogos_na_linha">v Aplikacích</string>
     <string name="jogos_grupo_nuvem">V cloudu</string>

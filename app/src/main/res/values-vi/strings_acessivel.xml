@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Đã bật giọng nói rõ hơn</string>
     <string name="acess_voz_desligado">Đã tắt giọng nói rõ hơn</string>
     <string name="acess_config_titulo">Âm thanh và phụ đề</string>
-    <string name="acess_config_texto">Dành cho người nhìn hoặc nghe kém. Cũng có trong menu ▼ của trình phát.</string>
+    <string name="acess_config_texto">Dành cho người nhìn hoặc nghe kém.</string>
 </resources>

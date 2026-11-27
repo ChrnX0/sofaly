@@ -529,7 +529,7 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
      */
     override fun mostrarFocado(s: Serie?) {
         tela.removeCallbacks(lerFichaRapida)
-        if (s == null) { painelInfo.mostrarFoco(if (chave == INTERESSES) getString(R.string.filmes_interesses_vazio) else ""); return }
+        if (s == null) { painelInfo.mostrarFoco(""); return }
         val info = fichasRapidas[s.chave]
         painelInfo.mostrarFoco(Estilo.infoFoco(Idioma.tituloCurto(Vod.nomeTela(Idioma.semMarca(s.nome), s.ano)), notaRapida[s.chave] ?: s.nota, listOfNotNull(
             s.ano?.toString(),

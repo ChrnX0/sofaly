@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Off until the person who lives there agrees on the TV.</string>
     <string name="uso_cartoes">Big cards on the home screen</string>
     <string name="uso_cartoes_det">A few big apps, names read aloud and a \"Get help\" button. Turning it off asks for the PIN.</string>
-    <string name="uso_trocar_det">Now: %1$s. OK to choose again.</string>
+    <string name="uso_trocar_det">Now: %1$s.</string>
 </resources>

@@ -22,7 +22,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Säsonger: %d</string>
     <string name="elv_cat_procurando">Letar efter affischen…</string>
-    <string name="elv_cat_nada">Inget hittades på TMDB. Håll OK för att skriva rätt namn.</string>
+    <string name="elv_cat_nada">Inget hittades på TMDB.</string>
     <string name="elv_cat_corrigir_titulo">Rätta: %s</string>
     <string name="elv_cat_corrigir_explica">Fel affisch eller handling? Be om nästa resultat, eller skriv rätt namn och år. Ett tomt namn går tillbaka till automatiskt.</string>
     <string name="elv_cat_nao_e">Inte den här</string>

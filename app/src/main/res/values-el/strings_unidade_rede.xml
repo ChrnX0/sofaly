@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">Ο «%1$s» θέλει να δει και να αντιγράψει τα αρχεία στην αποθήκευση της τηλεόρασης μέσω του οικιακού δικτύου. Να επιτραπεί αυτός ο υπολογιστής;</string>
     <string name="mtp_pcs">Επιτρεπόμενοι υπολογιστές</string>
     <string name="mtp_pcs_nenhum">Κανένας ακόμα. Η τηλεόραση ρωτά στην οθόνη όταν ένας υπολογιστής ζητά τα αρχεία.</string>
-    <string name="mtp_pcs_lista">%1$s · OK τους ξεχνά όλους (ο καθένας ρωτά ξανά)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Οι υπολογιστές ξεχάστηκαν</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Άνοιγμα του πίνακα της τηλεόρασης</string>

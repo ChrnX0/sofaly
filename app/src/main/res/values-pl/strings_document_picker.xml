@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Otwieranie…</string>
     <string name="dp_erro">Nie udało się otworzyć tego miejsca. Sprawdź połączenie i spróbuj ponownie.</string>
     <string name="dp_arquivos">Pliki w tym folderze: %1$d</string>
-    <string name="dp_dicas">OK: otwórz · WSTECZ: wróć</string>
     <string name="dp_diario">%1$s otrzymał %2$s z wyboru plików</string>
     <string name="dp_sem_nome">bez nazwy</string>
 </resources>

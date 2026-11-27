@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">%1$s 지난 이야기</string>
     <string name="anteriormente_assistir">%1$s 보기</string>
     <string name="anteriormente_pular_sempre">다시 표시 안 함</string>
-    <string name="anteriormente_desligado">지난 이야기가 꺼졌습니다. 다시 켜려면: 에피소드에서 OK를 길게 누르세요.</string>
+    <string name="anteriormente_desligado">지난 이야기가 꺼졌습니다.</string>
     <string name="anteriormente_ligar">‘지난 이야기’ 요약 표시</string>
     <string name="idade_titulo">어린이 모드 최대 연령</string>
     <string name="idade_det">이 연령까지 등급이 매겨진 영화와 시리즈는 모든 카테고리에서 표시됩니다(TMDB 등급). 등급이 없는 작품은 어린이 카테고리에만 표시됩니다.</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">다른 곳: %1$s(JustWatch)</string>
     <string name="onde_fora">내 목록에 없음 · %1$s에서 시청 가능</string>
     <string name="onde_grupo">다른 곳(JustWatch)</string>
-    <string name="legenda_auto_pronta">자막이 자동으로 다운로드됨(이 파일용) · ▼로 변경</string>
-    <string name="legenda_auto_pronta_nome">자막이 자동으로 다운로드됨 · ▼로 변경하거나 지연 조정</string>
+    <string name="legenda_auto_pronta">자막이 자동으로 다운로드됨(이 파일용)</string>
+    <string name="legenda_auto_pronta_nome">자막이 자동으로 다운로드됨</string>
     <string name="legenda_trad_rotulo">자동 번역</string>
     <string name="legenda_trad_traduzindo">내 언어의 자막이 없습니다: TV에서 영어 자막을 번역하는 중…</string>
     <string name="legenda_trad_parcial">TV에서 번역한 자막(자동 번역). 나머지도 계속 번역 중입니다.</string>

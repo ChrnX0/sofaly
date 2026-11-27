@@ -242,8 +242,8 @@ class OuvirTelaTest {
                 CruzOuvir.Item("abrir", a.getString(R.string.pl_abrir), CruzLogica.linhas("Os vulcões do Pacífico", a.getString(R.string.pl_abrir_det)),
                     cor = azul, monograma = CapaOuvir.iniciais("Café com Ciência"), cobrir = true),
                 CruzOuvir.Item("pausar", a.getString(R.string.ouv_pausar), CruzLogica.linhas("Os vulcões do Pacífico", "Café com Ciência"), IconeOuvir.Tipo.PAUSAR),
-                CruzOuvir.Item("voltar", a.getString(R.string.ouv_voltar), a.getString(R.string.ouv_voltar_det), IconeOuvir.Tipo.VOLTAR),
-                CruzOuvir.Item("avancar", a.getString(R.string.ouv_avancar), a.getString(R.string.ouv_avancar_det), IconeOuvir.Tipo.AVANCAR),
+                CruzOuvir.Item("voltar", a.getString(R.string.ouv_voltar), "", IconeOuvir.Tipo.VOLTAR),
+                CruzOuvir.Item("avancar", a.getString(R.string.ouv_avancar), "", IconeOuvir.Tipo.AVANCAR),
                 CruzOuvir.Item("velocidade", a.getString(R.string.pod_velocidade), a.getString(R.string.ouv_velocidade_det, "1,2x"), IconeOuvir.Tipo.VELOCIDADE),
                 CruzOuvir.Item("parar", a.getString(R.string.ra_parar), a.getString(R.string.ouv_parar_pod_det), IconeOuvir.Tipo.PARAR))),
             CruzOuvir.Prateleira("continuar", a.getString(R.string.pod_continuar), IconeOuvir.Tipo.CONTINUAR, listOf(

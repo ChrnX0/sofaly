@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">先にオープニングの開始を設定してください</string>
     <string name="abertura_invalida">オープニングではないようです: 長さは 10 秒〜5 分で、最初の 15 分以内に始まる必要があります</string>
     <string name="abertura_apagada">オープニングのマークを削除しました</string>
-    <string name="abertura_pular">オープニングをスキップ · OK</string>
+    <string name="abertura_pular">オープニングをスキップ</string>
 </resources>

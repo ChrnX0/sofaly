@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Tilanteet</string>
     <string name="pr_cenas">Tilanteet</string>
     <string name="cenas_titulo">Tilanteet</string>
-    <string name="cenas_det">OK suorittaa tilanteen. Luo ja muokkaa niitä verkkopaneelissa › Koti ja automaatiot › Tilanteet.</string>
+    <string name="cenas_det">Luo ja muokkaa niitä verkkopaneelissa › Koti ja automaatiot › Tilanteet.</string>
     <string name="cenas_vazio">Ei vielä tilanteita. Luo yksi verkkopaneelissa › Koti ja automaatiot › Tilanteet.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d toiminto</item>

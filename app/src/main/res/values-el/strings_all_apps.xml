@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Αλλάξτε με προσοχή, λέει το φύλλο της</string>
     <string name="aa_risk_essential">Απαραίτητη για την τηλεόραση: μην την παγώσετε</string>
     <string name="aa_tip_idle">Δεν άνοιξε εδώ και %1$d ημέρες. Το πάγωμα ελευθερώνει μνήμη και αναιρείται.</string>
-    <string name="aa_hint_app">OK ανοίγει · κράτημα OK για μετακίνηση, απόκρυψη, πάγωμα ή απεγκατάσταση</string>
-    <string name="aa_hint_frozen">OK ξεπαγώνει και ανοίγει</string>
-    <string name="aa_hint_lock">OK ζητά το PIN και δείχνει εδώ τις κρυφές εφαρμογές</string>
     <string name="aa_open">Άνοιγμα</string>
     <string name="aa_freeze">Πάγωμα</string>
     <string name="aa_freezing">Πάγωμα του %1$s…</string>

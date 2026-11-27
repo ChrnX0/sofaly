@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Tập trước của %1$s</string>
     <string name="anteriormente_assistir">Xem %1$s</string>
     <string name="anteriormente_pular_sempre">Không bao giờ hiện</string>
-    <string name="anteriormente_desligado">Đã tắt tóm tắt tập trước. Để bật lại: giữ OK trên một tập.</string>
+    <string name="anteriormente_desligado">Đã tắt tóm tắt tập trước.</string>
     <string name="anteriormente_ligar">Hiện tóm tắt “Tập trước”</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Độ tuổi tối đa ở chế độ trẻ em</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Không có trong danh sách của bạn · có trên %1$s</string>
     <string name="onde_grupo">Nơi khác (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Phụ đề được tải tự động (làm cho tệp này) · ▼ để đổi</string>
-    <string name="legenda_auto_pronta_nome">Phụ đề được tải tự động · ▼ để đổi hoặc chỉnh độ trễ</string>
+    <string name="legenda_auto_pronta">Phụ đề được tải tự động (làm cho tệp này)</string>
+    <string name="legenda_auto_pronta_nome">Phụ đề được tải tự động</string>
     <string name="legenda_trad_rotulo">Dịch tự động</string>
     <string name="legenda_trad_traduzindo">Không có phụ đề theo ngôn ngữ của bạn: đang dịch phụ đề tiếng Anh trên TV…</string>
     <string name="legenda_trad_parcial">Phụ đề được dịch trên TV (dịch tự động). Phần còn lại vẫn đang dịch.</string>

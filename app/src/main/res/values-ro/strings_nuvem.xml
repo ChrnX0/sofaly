@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Se așteaptă confirmarea pe telefon…</string>
     <string name="rede_nuvem_salvando">Se conectează…</string>
     <string name="rede_nuvem_recusado">Serviciul a refuzat. Verificați id-ul aplicației și încercați din nou.</string>
-    <string name="rede_erro_nuvem_login">Permisiunea acestui cont a expirat sau a fost eliminată. Eliminați contul (țineți OK) și conectați-vă din nou.</string>
+    <string name="rede_erro_nuvem_login">Permisiunea acestui cont a expirat sau a fost eliminată. Eliminați contul și conectați-vă din nou.</string>
     <string name="rede_od_titulo">OneDrive: aplicația dvs. la Microsoft</string>
     <string name="rede_od_explica">O dată, pe un computer: entra.microsoft.com › App registrations › New registration. La tipurile de cont, alegeți-l pe cel care include conturi Microsoft personale. Apoi, la Authentication, activați „Allow public client flows”. Copiați „Application (client) ID” și tastați-l aici (puteți tasta de pe telefon, în panou).</string>
     <string name="rede_od_id">Application (client) ID</string>

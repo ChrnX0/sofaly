@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">세부 조정</string>
-    <string name="ft_dica">OK 또는 ▶ ◀ 변경 · 뒤로 닫기</string>
     <string name="ft_abrir">홈 화면을 보면서 조정</string>
     <string name="ft_abrir_det">글꼴, 시계, 강조 색, 모서리, 빛, 크기를 실시간으로</string>
     <string name="cs_destaque">강조 색</string>

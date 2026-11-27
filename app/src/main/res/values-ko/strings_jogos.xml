@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">이 TV에서 블루투스 설정이 열리지 않았습니다. 설정, 리모컨 및 액세서리를 여세요.</string>
     <string name="jogos_baixar">게임 받기</string>
     <string name="jogos_escolher">앱 선택</string>
-    <string name="jogos_escolher_sub">플레이에 넣을 앱. OK로 플레이와 앱 사이를 전환합니다.</string>
+    <string name="jogos_escolher_sub">플레이에 넣을 앱.</string>
     <string name="jogos_no_card">플레이에</string>
     <string name="jogos_na_linha">앱에</string>
     <string name="jogos_grupo_nuvem">클라우드</string>

@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">joka viikko</string>
     <string name="grv_cancelar_pergunta">Peruutetaanko ohjelman \"%1$s\" tallennus?</string>
     <string name="grv_gravadas">Tallennetut</string>
-    <string name="grv_vazio">Mitään ei ole vielä tallennettu. Soittimessa ▶▶ › Tallenna; oppaassa OK tulevassa ohjelmassa.</string>
+    <string name="grv_vazio">Mitään ei ole vielä tallennettu.</string>
     <string name="grv_vazio_sem_destino">Liitä USB-asema keskittimeen nähdäksesi ja tehdäksesi tallenteita.</string>
     <string name="grv_partes">%1$d osaa</string>
     <string name="grv_parte">osa %1$d / %2$d</string>

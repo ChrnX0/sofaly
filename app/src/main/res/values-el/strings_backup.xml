@@ -6,8 +6,8 @@
     <string name="bkn_desligado">ανενεργό</string>
     <string name="bkn_sem_senha">ανενεργό · ορίστε πρώτα τον κωδικό του αντιγράφου</string>
     <string name="bkn_senha">Κωδικός αντιγράφου</string>
-    <string name="bkn_senha_ok">ορίστηκε · OK αλλάζει</string>
-    <string name="bkn_senha_falta">δεν ορίστηκε · OK ορίζει</string>
+    <string name="bkn_senha_ok">ορίστηκε</string>
+    <string name="bkn_senha_falta">δεν ορίστηκε</string>
     <string name="bkn_senha_nova">Κωδικός αντιγράφου (8 ή περισσότεροι χαρακτήρες)</string>
     <string name="bkn_senha_repetir">Πληκτρολογήστε ξανά τον κωδικό</string>
     <string name="bkn_senha_curta">Ο κωδικός χρειάζεται 8 έως 128 χαρακτήρες.</string>

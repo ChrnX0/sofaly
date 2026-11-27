@@ -92,7 +92,6 @@
     <string name="lb_lembrete">알림</string>
     <string name="lb_quando_em">%1$s, %2$s에서.</string>
     <string name="ms_ola">안녕하세요!</string>
-    <string name="ms_ola_det">화살표로 선택하고 OK를 누르세요.</string>
     <string name="ms_pedir_ajuda">도움 요청</string>
     <string name="ms_pedido_ajuda">도움 요청</string>
     <string name="ms_alguem_pediu">TV %1$s에서 누군가 도움을 요청했습니다.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">카테고리</string>
     <string name="bc_canais">채널</string>
     <string name="bc_carregando">채널 로드 중…</string>
-    <string name="bc_dica">OK로 차단 또는 해제 · 카테고리에서 OK는 전체에 적용 · ◀ ▶ 카테고리와 채널 · 뒤로 나가기(이미 저장됨)</string>
     <string name="bc_categoria_bloqueada">카테고리 ‘%1$s’ 전체가 차단됨: 왼쪽 열에서 해제하세요</string>
     <string name="bc_filme">영화 · %1$s</string>
     <string name="bc_serie">시리즈 · %1$s</string>

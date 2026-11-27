@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Açılıyor…</string>
     <string name="dp_erro">Bu konum açılamadı. Bağlı olduğunu kontrol edip tekrar deneyin.</string>
     <string name="dp_arquivos">Bu klasördeki dosyalar: %1$d</string>
-    <string name="dp_dicas">OK: aç · GERİ: geri dön</string>
     <string name="dp_diario">%1$s seçiciden %2$s aldı</string>
     <string name="dp_sem_nome">adsız</string>
 </resources>

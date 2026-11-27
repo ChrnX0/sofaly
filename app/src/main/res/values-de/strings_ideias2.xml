@@ -41,13 +41,12 @@
     <string name="casa_desligado">Aus</string>
     <string name="casa_aberta">Offen</string>
     <string name="casa_fechada">Geschlossen</string>
-    <string name="casa_rodar">OK zum Ausführen</string>
     <string name="casa_indisponivel">Nicht verfügbar</string>
     <string name="casa_sem_config_titulo">Verbinde dein Zuhause</string>
     <string name="casa_dica_acionar">ein- oder ausschalten</string>
     <string name="casa_erro">Home Assistant hat nicht geantwortet: %1$s</string>
     <string name="casa_ligado_pct">An · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Helligkeit %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Helligkeit %1$d%%</string>
     <string name="casa_dica_brilho">Helligkeit</string>
     <string name="casa_tecla_segurar_ok">OK HALTEN</string>
     <string name="ca_liberado">%1$s freigegeben. Jetzt frei: %2$s.</string>

@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Következik</string>
     <string name="pl_dormir">Elalváskapcsoló</string>
     <string name="pl_dormir_min">%1$d perc múlva</string>
-    <string name="pl_barra_dica">◀ ▶ 10 mp léptetés · nyomva tartva gyorsabb</string>
     <string name="pl_abrir">Lejátszó megnyitása</string>
     <string name="pl_abrir_det">Teljes képernyő, azzal, ami következik</string>
 </resources>

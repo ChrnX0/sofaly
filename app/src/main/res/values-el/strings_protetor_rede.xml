@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Screensaver remote keys (idea 28) -->
-    <string name="pt_dica_dispensar">OK απορρίπτει · ◀ ▶ κίνηση</string>
-    <string name="pt_dica_pausar">OK παύση ή συνέχεια · ◀ ▶ κίνηση</string>
-    <string name="pt_dica_andar">◀ ▶ κίνηση · τα άλλα κουμπιά κλείνουν</string>
     <!-- Screensaver photos from a network folder (idea 27) -->
     <string name="rede_fotos_usar">Χρήση αυτών των φωτογραφιών στην προφύλαξη</string>
     <string name="rede_fotos_parar">Διακοπή χρήσης αυτών των φωτογραφιών στην προφύλαξη</string>
@@ -20,6 +17,6 @@
     <string name="rede_buscar_explica">Ταινίες, σειρές, επεισόδια και μουσική σε αυτόν τον διακομιστή.</string>
     <string name="rede_buscar_campo">Όνομα</string>
     <string name="rede_buscar_curto">Πληκτρολογήστε τουλάχιστον 2 γράμματα.</string>
-    <string name="rede_proximo_em">Επόμενο: %1$s σε %2$d δ. · OK ξεκινά τώρα · άλλο κουμπί ακυρώνει</string>
+    <string name="rede_proximo_em">Επόμενο: %1$s σε %2$d δ.</string>
     <string name="rede_ainda_assistindo">Βλέπετε ακόμα; Το OK ξεκινά το %1$s</string>
 </resources>

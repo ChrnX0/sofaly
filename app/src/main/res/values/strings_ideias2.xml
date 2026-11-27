@@ -41,13 +41,12 @@
     <string name="casa_desligado">Off</string>
     <string name="casa_aberta">Open</string>
     <string name="casa_fechada">Closed</string>
-    <string name="casa_rodar">OK to run</string>
     <string name="casa_indisponivel">Unavailable</string>
     <string name="casa_sem_config_titulo">Connect your home</string>
     <string name="casa_dica_acionar">turn on or off</string>
     <string name="casa_erro">Home Assistant did not answer: %1$s</string>
     <string name="casa_ligado_pct">On · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Brightness %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Brightness %1$d%%</string>
     <string name="casa_dica_brilho">brightness</string>
     <string name="casa_tecla_segurar_ok">HOLD OK</string>
     <string name="ca_liberado">Freed %1$s. Free now: %2$s.</string>

@@ -10,8 +10,7 @@
     <string name="tp_frio_texto">Bis zu %d° heute Nacht · Zieh dich warm an</string>
     <string name="tp_cfg">Hitze- und Kältewarnung</string>
     <string name="tp_cfg_det">Eine Karte über jeder App, wenn es heute %1$d° erreicht oder heute Nacht auf %2$d° fällt</string>
-    <string name="mu_ok_lido">OK markiert als gelesen</string>
-    <string name="mu_ok_nao_lido">Gelesen · OK markiert als ungelesen</string>
+    <string name="mu_ok_nao_lido">Gelesen</string>
     <string name="mu_lido_desc">Nachricht, gelesen: %s. OK markiert als ungelesen.</string>
     <string name="mu_nao_lido_desc">Nachricht: %s. OK markiert als gelesen.</string>
     <string name="mu_apagar">Nachricht löschen: %s</string>

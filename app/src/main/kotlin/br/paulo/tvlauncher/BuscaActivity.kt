@@ -192,8 +192,8 @@ class BuscaActivity : Activity() {
         } ?: return null
         f.local?.let { l ->
             return when (l) {
-                BuscaFaz.Local.WIFI_VISITA -> Item(getString(R.string.elv_bf_wifi), getString(
-                    if (WifiVisita.configurado(this)) R.string.elv_bf_ok_faz else R.string.elv_bf_wifi_configurar)) {
+                BuscaFaz.Local.WIFI_VISITA -> Item(getString(R.string.elv_bf_wifi), 
+                    if (WifiVisita.configurado(this)) "" else getString(R.string.elv_bf_wifi_configurar)) {
                     if (WifiVisita.configurado(this)) WifiVisita.mostrarQr(this)
                     else startActivity(Intent(this, ConfigLauncherActivity::class.java))
                 }
@@ -202,7 +202,7 @@ class BuscaActivity : Activity() {
                     val i = TamanhoTexto.OPCOES.indexOf(atual).coerceAtLeast(0)
                     val novo = TamanhoTexto.OPCOES[(if (l == BuscaFaz.Local.LETRA_MAIOR) i + 1 else i - 1).coerceIn(0, TamanhoTexto.OPCOES.lastIndex)]
                     Item(getString(if (l == BuscaFaz.Local.LETRA_MAIOR) R.string.elv_bf_letra_maior else R.string.elv_bf_letra_menor, novo),
-                        getString(if (novo == atual) R.string.elv_bf_letra_limite else R.string.elv_bf_ok_faz)) {
+                        if (novo == atual) getString(R.string.elv_bf_letra_limite) else "") {
                         if (novo != atual) { TamanhoTexto.definir(this, novo); recreate() }
                     }
                 }
@@ -214,17 +214,17 @@ class BuscaActivity : Activity() {
                         BuscaFaz.Local.PROBLEMA_LENTA -> SofyAnswersTv.Problem.SLOW
                         else -> SofyAnswersTv.Problem.REMOTE
                     }
-                    Item(SofyAnswersTv.title(this, p), getString(R.string.elv_bf_ok_faz)) { SofyAnswersTv.check(this, p); finish() }
+                    Item(SofyAnswersTv.title(this, p), "") { SofyAnswersTv.check(this, p); finish() }
                 }
                 // Ideia 49: "o que você fez hoje".
-                BuscaFaz.Local.SOFY_HOJE -> Item(getString(R.string.sofy_today_title), getString(R.string.elv_bf_ok_faz)) {
+                BuscaFaz.Local.SOFY_HOJE -> Item(getString(R.string.sofy_today_title), "") {
                     SofyAnswersTv.showToday(this); finish()
                 }
             }
         }
         val p = f.pedido ?: return null
         val texto = CaixaComandoTv.entendido(applicationContext, p, d.appsMapa)
-        return Item(texto, getString(R.string.elv_bf_ok_faz)) {
+        return Item(texto, "") {
             PedidoIa.propor(applicationContext, termo, ORIGEM, p.json())
             if (p.tipo != "volume" && p.tipo != "midia") finish()   // volume/mídia: a pessoa pode querer de novo
         }

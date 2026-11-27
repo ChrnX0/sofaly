@@ -15,7 +15,7 @@
     <string name="desf_barra">Modifié : %1$s</string>
     <string name="desf_botao">Annuler</string>
     <string name="desf_tela">Modifications récentes</string>
-    <string name="desf_tela_det">Ce qui a été modifié ces 7 derniers jours. OK sur l\'une la remet comme avant.</string>
+    <string name="desf_tela_det">Ce qui a été modifié ces 7 derniers jours.</string>
     <string name="desf_tela_vazia">Aucune modification ces 7 derniers jours.</string>
     <string name="desf_ja_desfeita">annulée</string>
     <string name="desf_rot_config">Paramètres</string>

@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Härnäst</string>
     <string name="pl_dormir">Insomningstimer</string>
     <string name="pl_dormir_min">Om %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ flytta 10 s · håll för att gå snabbare</string>
     <string name="pl_abrir">Öppna spelaren</string>
     <string name="pl_abrir_det">Helskärm, med det som spelas härnäst</string>
 </resources>

@@ -22,7 +22,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Kausia: %d</string>
     <string name="elv_cat_procurando">Etsitään julistetta…</string>
-    <string name="elv_cat_nada">TMDB:stä ei löytynyt mitään. Pidä OK pohjassa kirjoittaaksesi oikean nimen.</string>
+    <string name="elv_cat_nada">TMDB:stä ei löytynyt mitään.</string>
     <string name="elv_cat_corrigir_titulo">Korjaa: %s</string>
     <string name="elv_cat_corrigir_explica">Väärä juliste tai juoni? Pyydä seuraava tulos tai kirjoita oikea nimi ja vuosi. Tyhjä nimi palaa automaattiseen.</string>
     <string name="elv_cat_nao_e">Ei tämä</string>

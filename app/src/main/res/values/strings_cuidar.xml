@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">You can wait.</string>
     <string name="cuidar_nao_avisado">Could not notify %1$s</string>
     <string name="cuidar_sem_aparelho">No phone is set to receive. Check Settings › Family › Care from afar.</string>
-    <string name="cuidar_sem_internet">Check the internet and try again (hold the button for 3 seconds).</string>
+    <string name="cuidar_sem_internet">Check the internet and try again.</string>
     <string name="cuidar_lembrete_sobre">Reminder · %1$s</string>
     <string name="cuidar_lembrete_explica">Press OK when it is done.</string>
     <string name="cuidar_lembrete_explica_aviso">Press OK when it is done. Without it in %1$d minutes, %2$s gets a notice.</string>

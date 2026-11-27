@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Aiemmin sarjassa %1$s</string>
     <string name="anteriormente_assistir">Katso %1$s</string>
     <string name="anteriormente_pular_sempre">Älä näytä koskaan</string>
-    <string name="anteriormente_desligado">Kertaukset kytketty pois. Kytkeäksesi ne taas päälle: pidä OK pohjassa jaksossa.</string>
+    <string name="anteriormente_desligado">Kertaukset kytketty pois.</string>
     <string name="anteriormente_ligar">Näytä ”Aiemmin sarjassa” -kertaukset</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Enimmäisikä lapsitilassa</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Ei listallasi · palvelussa %1$s</string>
     <string name="onde_grupo">Muualla (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Tekstitys ladattu automaattisesti (tehty tälle tiedostolle) · ▼ vaihtaa</string>
-    <string name="legenda_auto_pronta_nome">Tekstitys ladattu automaattisesti · ▼ vaihtaa tai säätää viivettä</string>
+    <string name="legenda_auto_pronta">Tekstitys ladattu automaattisesti (tehty tälle tiedostolle)</string>
+    <string name="legenda_auto_pronta_nome">Tekstitys ladattu automaattisesti</string>
     <string name="legenda_trad_rotulo">Automaattinen käännös</string>
     <string name="legenda_trad_traduzindo">Ei tekstitystä kielelläsi: käännetään englanninkielistä TV:ssä…</string>
     <string name="legenda_trad_parcial">Tekstitys käännetty TV:ssä (automaattinen käännös). Loput kääntyvät edelleen.</string>

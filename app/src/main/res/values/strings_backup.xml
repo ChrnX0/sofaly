@@ -6,8 +6,8 @@
     <string name="bkn_desligado">off</string>
     <string name="bkn_sem_senha">off · set the backup password first</string>
     <string name="bkn_senha">Backup password</string>
-    <string name="bkn_senha_ok">set · OK changes</string>
-    <string name="bkn_senha_falta">not set · OK sets</string>
+    <string name="bkn_senha_ok">set</string>
+    <string name="bkn_senha_falta">not set</string>
     <string name="bkn_senha_nova">Backup password (8 or more characters)</string>
     <string name="bkn_senha_repetir">Type the password again</string>
     <string name="bkn_senha_curta">The password needs 8 to 128 characters.</string>

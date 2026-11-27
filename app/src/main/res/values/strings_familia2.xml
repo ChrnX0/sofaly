@@ -14,8 +14,7 @@
     <string name="tp_frio_texto">Down to %d° tonight · Dress warmly</string>
     <string name="tp_cfg">Heat and cold alert</string>
     <string name="tp_cfg_det">A card over any app when today reaches %1$d° or tonight drops to %2$d°</string>
-    <string name="mu_ok_lido">OK marks as read</string>
-    <string name="mu_ok_nao_lido">Read · OK marks as unread</string>
+    <string name="mu_ok_nao_lido">Read</string>
     <string name="mu_lido_desc">Message, read: %s. OK marks as unread.</string>
     <string name="mu_nao_lido_desc">Message: %s. OK marks as read.</string>
     <string name="mu_apagar">Delete message: %s</string>

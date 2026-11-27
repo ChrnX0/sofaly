@@ -6,8 +6,8 @@
     <string name="bkn_desligado">av</string>
     <string name="bkn_sem_senha">av · ange lösenordet för säkerhetskopian först</string>
     <string name="bkn_senha">Lösenord för säkerhetskopia</string>
-    <string name="bkn_senha_ok">angivet · OK ändrar</string>
-    <string name="bkn_senha_falta">inte angivet · OK anger</string>
+    <string name="bkn_senha_ok">angivet</string>
+    <string name="bkn_senha_falta">inte angivet</string>
     <string name="bkn_senha_nova">Lösenord för säkerhetskopia (8 tecken eller fler)</string>
     <string name="bkn_senha_repetir">Skriv lösenordet igen</string>
     <string name="bkn_senha_curta">Lösenordet behöver 8 till 128 tecken.</string>

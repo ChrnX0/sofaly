@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Menunggu Anda mengonfirmasi di ponsel…</string>
     <string name="rede_nuvem_salvando">Masuk…</string>
     <string name="rede_nuvem_recusado">Layanan menolak. Periksa id aplikasi lalu coba lagi.</string>
-    <string name="rede_erro_nuvem_login">Izin akun ini kedaluwarsa atau dicabut. Hapus akun (tahan OK) lalu masuk lagi.</string>
+    <string name="rede_erro_nuvem_login">Izin akun ini kedaluwarsa atau dicabut. Hapus akun lalu masuk lagi.</string>
     <string name="rede_od_titulo">OneDrive: aplikasi Anda di Microsoft</string>
     <string name="rede_od_explica">Sekali saja, di komputer: entra.microsoft.com › App registrations › New registration. Untuk jenis akun, pilih yang mencakup akun Microsoft pribadi. Lalu, di Authentication, aktifkan “Allow public client flows”. Salin “Application (client) ID” dan ketik di sini (Anda bisa mengetik dari ponsel, di panel).</string>
     <string name="rede_od_id">Application (client) ID</string>

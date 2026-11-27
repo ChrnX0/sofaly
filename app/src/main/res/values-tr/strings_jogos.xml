@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Bu TV Bluetooth ayarlarını açmadı. Ayarlar, Kumandalar ve aksesuarlar’ı açın.</string>
     <string name="jogos_baixar">Oyun edin</string>
     <string name="jogos_escolher">Uygulama seç</string>
-    <string name="jogos_escolher_sub">Oyna’da hangi uygulamalar bulunur. OK, Oyna ile Uygulamalar arasında geçiş yapar.</string>
+    <string name="jogos_escolher_sub">Oyna’da hangi uygulamalar bulunur.</string>
     <string name="jogos_no_card">Oyna’da</string>
     <string name="jogos_na_linha">Uygulamalar’da</string>
     <string name="jogos_grupo_nuvem">Bulutta</string>

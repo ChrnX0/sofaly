@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">TV này dành cho ai?</string>
-    <string name="rec_subtitulo">Một lần OK là thiết lập xong TV. Bạn có thể hoàn tác bất cứ lúc nào.</string>
+    <string name="rec_subtitulo">Bạn có thể hoàn tác bất cứ lúc nào.</string>
     <string name="rec_vo">TV của bà</string>
     <string name="rec_vo_det">Thẻ lớn có đọc to tên, chữ lớn hơn và nút Nhờ giúp đỡ.</string>
     <string name="rec_criancas">TV của trẻ em</string>

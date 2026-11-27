@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Fondo del salvapantallas</string>
-    <string name="pv2_fundo_det">el del tema, o fotos reales de la Tierra vista desde el espacio · OK cambia</string>
     <string name="pv2_fundo_tema">Del tema</string>
     <string name="pv2_fundo_terra">La Tierra desde el espacio</string>
     <string name="pv2_relogio">Reloj del salvapantallas</string>
-    <string name="pv2_relogio_det">seis estilos · OK cambia</string>
     <string name="pv2_rel_fino">Fino</string>
     <string name="pv2_rel_editorial">Editorial</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">En palabras</string>
     <string name="pv2_rel_empilhado">Apilado</string>
     <string name="pv2_posicao">Lugar del reloj</string>
-    <string name="pv2_posicao_det">OK cambia</string>
     <string name="pv2_pos_alto">Arriba a la izquierda</string>
     <string name="pv2_pos_baixo">Abajo a la izquierda</string>
     <string name="pv2_pos_centro">En el centro</string>
     <string name="pv2_tamanho">Tamaño del reloj</string>
-    <string name="pv2_tamanho_det">los números grandes se leen mejor de lejos · OK cambia</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Grande</string>
     <string name="pv2_mostrar">Qué muestra el salvapantallas</string>
-    <string name="pv2_mostrar_det">\"Solo la hora\": cualquier tecla del control muestra el resto 15 s · OK cambia</string>
     <string name="pv2_mostrar_so">Solo la hora</string>
     <string name="pv2_mostrar_vez">De vez en cuando</string>
     <string name="pv2_mostrar_sempre">Todo</string>
     <string name="pv2_elementos">En el salvapantallas</string>
-    <string name="pv2_el_det">aparece en el salvapantallas · OK activa o desactiva</string>
     <string name="pv2_el_saudacao">Saludo</string>
     <string name="pv2_el_data">Fecha</string>
     <string name="pv2_el_linha_dia">Línea del día</string>

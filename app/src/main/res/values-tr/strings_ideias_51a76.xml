@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Sıfırla</string>
     <string name="l51_digitar_titulo">TV’de yaz</string>
     <string name="l51_digitar_texto">%1$s içinde bir metin kutusu açık. Buradan yazmak için dokunun.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">oda %1$s</string>
     <string name="casa_movimento">Hareket</string>
     <string name="casa_sem_movimento">Hareket yok</string>

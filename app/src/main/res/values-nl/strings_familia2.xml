@@ -14,8 +14,7 @@
     <string name="tp_frio_texto">Tot %d° vannacht · Kleed je warm aan</string>
     <string name="tp_cfg">Waarschuwing voor hitte en kou</string>
     <string name="tp_cfg_det">Een kaart boven elke app als het vandaag %1$d° wordt of vannacht naar %2$d° zakt</string>
-    <string name="mu_ok_lido">OK markeert als gelezen</string>
-    <string name="mu_ok_nao_lido">Gelezen · OK markeert als ongelezen</string>
+    <string name="mu_ok_nao_lido">Gelezen</string>
     <string name="mu_lido_desc">Bericht, gelezen: %s. OK markeert als ongelezen.</string>
     <string name="mu_nao_lido_desc">Bericht: %s. OK markeert als gelezen.</string>
     <string name="mu_apagar">Bericht verwijderen: %s</string>

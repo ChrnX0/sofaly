@@ -15,7 +15,7 @@
     <string name="desf_barra">Změněno: %1$s</string>
     <string name="desf_botao">Vrátit</string>
     <string name="desf_tela">Nedávné změny</string>
-    <string name="desf_tela_det">Co se změnilo za posledních 7 dní. OK na položce ji vrátí do původního stavu.</string>
+    <string name="desf_tela_det">Co se změnilo za posledních 7 dní.</string>
     <string name="desf_tela_vazia">Žádné změny za posledních 7 dní.</string>
     <string name="desf_ja_desfeita">vráceno</string>
     <string name="desf_rot_config">Nastavení</string>

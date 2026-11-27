@@ -41,13 +41,12 @@
     <string name="casa_desligado">关</string>
     <string name="casa_aberta">打开</string>
     <string name="casa_fechada">关闭</string>
-    <string name="casa_rodar">按 OK 运行</string>
     <string name="casa_indisponivel">不可用</string>
     <string name="casa_sem_config_titulo">连接你的家</string>
     <string name="casa_dica_acionar">开或关</string>
     <string name="casa_erro">Home Assistant 无响应：%1$s</string>
     <string name="casa_ligado_pct">开 · %1$d%%</string>
-    <string name="casa_brilho_ajuste">亮度 %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">亮度 %1$d%%</string>
     <string name="casa_dica_brilho">亮度</string>
     <string name="casa_tecla_segurar_ok">长按 OK</string>
     <string name="ca_liberado">已释放 %1$s。当前可用:%2$s。</string>

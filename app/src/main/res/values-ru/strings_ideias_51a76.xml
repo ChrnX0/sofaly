@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Сбросить</string>
     <string name="l51_digitar_titulo">Ввод на ТВ</string>
     <string name="l51_digitar_texto">В %1$s открыто поле ввода. Нажмите, чтобы печатать отсюда.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">в комнате %1$s</string>
     <string name="casa_movimento">Движение</string>
     <string name="casa_sem_movimento">Нет движения</string>

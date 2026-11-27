@@ -15,7 +15,7 @@
     <string name="desf_barra">変更：%1$s</string>
     <string name="desf_botao">元に戻す</string>
     <string name="desf_tela">最近の変更</string>
-    <string name="desf_tela_det">過去 7 日間の変更。選んで OK で前の状態に戻ります。</string>
+    <string name="desf_tela_det">過去 7 日間の変更。</string>
     <string name="desf_tela_vazia">過去 7 日間の変更はありません。</string>
     <string name="desf_ja_desfeita">元に戻し済み</string>
     <string name="desf_rot_config">設定</string>

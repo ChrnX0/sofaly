@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Měňte opatrně, říká jeho karta</string>
     <string name="aa_risk_essential">Nezbytné pro televizor: nezmrazujte</string>
     <string name="aa_tip_idle">Neotevřeno %1$d dní. Zmrazení uvolní paměť a lze ho vrátit.</string>
-    <string name="aa_hint_app">OK otevře · podržte OK pro přesun, skrytí, zmrazení nebo odinstalaci</string>
-    <string name="aa_hint_frozen">OK rozmrazí a otevře</string>
-    <string name="aa_hint_lock">OK požádá o PIN a ukáže zde skryté aplikace</string>
     <string name="aa_open">Otevřít</string>
     <string name="aa_freeze">Zmrazit</string>
     <string name="aa_freezing">Zmrazuje se %1$s…</string>

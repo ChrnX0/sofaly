@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Routines</string>
     <string name="cfg_sec_atualizacao">Updates</string>
     <string name="cfg_atualizar">Zoeken naar een nieuwe versie</string>
-    <string name="cfg_atualizar_det">Versie %1$s · %2$s · OK controleert nu</string>
+    <string name="cfg_atualizar_det">Versie %1$s · %2$s</string>
     <string name="cfg_procurando">GitHub controleren…</string>
     <string name="cfg_instalar">Versie %1$d nu installeren</string>
-    <string name="cfg_instalar_det">De launcher sluit en komt binnen enkele seconden vanzelf terug · OK installeert</string>
+    <string name="cfg_instalar_det">De launcher sluit en komt binnen enkele seconden vanzelf terug</string>
     <string name="cfg_instalando">downloaden en controleren…</string>
     <string name="cfg_sec_rede">Netwerk</string>
     <string name="cfg_dns">Privé-DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Wat er aan staat — %1$s</string>
     <string name="cfg_ligado">aan</string>
     <string name="cfg_so_pc">" · alleen met een computer (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK probeert aan te zetten"</string>
     <string name="cfg_perm_fixas">Vaste rechten verleend</string>
     <string name="cfg_shell_estado">Eigen shell</string>
     <string name="cfg_shell_pareado">gekoppeld: de launcher maakt zelf opnieuw verbinding via draadloze foutopsporing</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Toetsenservice</string>
     <string name="rec_teclas_sem">zonder dit: HOME kan de Google-launcher openen en de Netflix-/YouTube-toetsen worden niet omgezet</string>
     <string name="rec_tudo">alles aan</string>
-    <string name="rec_faltam">%1$d van %2$d functies ontbreken · OK op een item probeert het aan te zetten</string>
+    <string name="rec_faltam">%1$d van %2$d functies ontbreken</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Welkom</string>
     <string name="bv_texto">Het startscherm, de klok, het weer, de wekker en de schermbeveiliging werken al. Zet hier de rest aan als je wilt (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · uit"</string>
     <string name="rot_nova">Nieuwe routine</string>
     <string name="rot_editar">Routine bewerken</string>
-    <string name="rot_editor_det">OK wijzigt elke regel · TERUG gaat weg zonder opslaan</string>
     <string name="rot_hora">Tijd: %1$s</string>
     <string name="rot_dias">Dagen: %1$s</string>
     <string name="rot_acao">Actie: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Alleen als niemand hem heeft aangeraakt gedurende: %1$s</string>
     <string name="rot_ligada">Aan</string>
     <string name="rot_desligada">Uit</string>
-    <string name="rot_hora_det">◀ ▶ 5 minuten · OK +1 uur</string>
-    <string name="rot_dias_det">OK: elke dag, ma t/m vr, weekend, één keer</string>
-    <string name="rot_ok_muda">OK wijzigt</string>
-    <string name="rot_app_det">OK of ▶ volgende · ◀ vorige</string>
     <string name="rot_ocioso_det">Onderbreekt niemand die kijkt</string>
-    <string name="rot_ativa_det">OK zet deze routine aan/uit</string>
     <string name="rot_salvar">Opslaan</string>
     <string name="rot_escolha_app">Kies de app</string>
     <string name="rot_apagar">Deze routine verwijderen</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Verbinden</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">geen Google-account</string>
-    <string name="cal_dica">◀ ▶ maand wijzigen</string>
     <string name="cal_30">Komende 30 dagen</string>
     <string name="cal_nenhuma_conta">Geen Google-account op de tv</string>
     <string name="cal_nada">Niets gepland (of de agenda wordt nog gesynchroniseerd)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">zonsopkomst %1$s</string>
     <string name="fd_por">zonsondergang %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: gebruiken   ·   OK ingedrukt houden op een van je servers: verwijderen   ·   Terug: afsluiten</string>
     <string name="dns_auto">Automatisch</string>
     <string name="dns_auto_det">Gebruikt de DNS van de router en versleutelt als die dat accepteert (Android-standaard)</string>
     <string name="dns_desl">Uit</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">versie %1$d: klaar om deze tv naar de nieuwe app te verhuizen (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">de nieuwe app (%1$d) wordt geïnstalleerd; daarna neemt hij deze tv over met alle instellingen</string>
     <string name="atu_disponivel">versie %1$d klaar om te installeren (geïnstalleerd %2$d)</string>
-    <string name="atu_trocou">de versie is veranderd sinds de laatste controle · OK controleert opnieuw</string>
+    <string name="atu_trocou">de versie is veranderd sinds de laatste controle</string>
     <string name="atu_instalando">%1$d installeren (geïnstalleerd %2$d)</string>
     <string name="atu_ok">bijgewerkt</string>
     <string name="atu_falhou">installatie mislukt (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">versie %1$d crashte twee keer direct na de installatie · \"%2$s\" blijft uit tot de volgende</string>
     <string name="vig_tela_bloqueada">Dit scherm staat uit tot de volgende update (het liet de launcher crashen)</string>
     <string name="cfg_vig_liberar">Veilige modus</string>
-    <string name="cfg_vig_liberar_det">" · OK zet het weer aan"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Gesproken zoeken ging niet open op deze tv</string>
     <string name="home_alarme_hoje">vandaag</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Video laden…</string>
     <string name="player_sem_canais">Nog geen zenderlijst toegevoegd.</string>
     <string name="player_tentando">Geen signaal op zender %1$d. Opnieuw proberen…</string>
-    <string name="player_sem_sinal">Zender %1$d reageerde niet. Kies een andere met ▲ ▼ of OK.</string>
+    <string name="player_sem_sinal">Zender %1$d reageerde niet.</string>
     <string name="player_canal_nao_existe">Er is geen zender %1$d.</string>
     <string name="player_ao_vivo">LIVE</string>
     <string name="player_a_seguir">hierna: %1$s</string>
-    <string name="player_teclas">▲ ▼ zender · OK zenderlijst · OK 2 s ingedrukt: favoriet · ◀ vorige zender · ▶ ▶ opties · TERUG afsluiten</string>
-    <string name="player_teclas_pausa">▶❙❙ of OK hervatten · ▶ opties (terug naar live) · ▲ ▼ zender · TERUG afsluiten</string>
     <string name="player_cat_busca">Zoeken: %1$s</string>
     <string name="player_acao_buscar">Zoeken</string>
     <string name="player_acao_filtros">Filters</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s toegevoegd aan de kijklijst</string>
     <string name="filmes_interesse_tirou">%1$s verwijderd uit de kijklijst</string>
     <string name="filmes_interesses_cheio">De kijklijst heeft al 500 titels: verwijder er eerst een.</string>
-    <string name="filmes_interesses_vazio">Houd OK 2 seconden ingedrukt op een poster om hem hier toe te voegen (en nog eens om hem te verwijderen).</string>
     <string name="filmes_assistido">Gezien</string>
     <string name="filmes_selo_leg">ONDERT.</string>
     <string name="vod_sem_conta">Het account van deze video bestaat niet meer.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Audio</string>
     <string name="vod_legenda">Ondertiteling</string>
     <string name="vod_faixas">Audio en ondertiteling</string>
-    <string name="vod_teclas">OK pauze · ◀ 10 s · ▶ 30 s (ingedrukt houden voor sneller) · ▼ audio, ondertiteling en beeld · ⏮ ⏭ hoofdstukken · TERUG afsluiten</string>
     <string name="series_titulo">Series</string>
     <string name="series_carregando">Series laden…</string>
     <string name="series_vazio">Nog geen series</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Tv-gids</string>
     <string name="player_sem_guia_curto">Geen tv-gids</string>
-    <string name="player_grade_teclas">OK kijken · ◀ ▶ programma · ▲ ▼ zender</string>
     <string name="player_busca_dica">Naam van zender of programma</string>
     <string name="player_busca_nada">Niets gevonden voor “%1$s”.</string>
     <string name="player_filtro_qualquer">Alle</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Kindercategorieën</string>
     <string name="infantil_carregando">categorieën laden…</string>
     <string name="infantil_coluna_itens">WAT ERIN ZIT</string>
-    <string name="infantil_dica">OK markeert of demarkeert de categorie als kinder · geldt voor Live tv, Films en Series · TERUG verlaat (al opgeslagen)</string>
     <string name="infantil_so_categoria">markeer de hele categorie in de linkerkolom</string>
     <string name="infantil_vazio">geen categorieën: voeg een account toe in Instellingen › Tv en films en laad de zenders opnieuw</string>
     <string name="infantil_limite">een volwassenencategorie kan geen kindercategorie zijn</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Favorieten</string>
     <string name="player_cat_recentes">Recent</string>
     <string name="player_cat_outros">Overig</string>
-    <string name="player_sem_favoritos">Nog geen favorieten. Houd OK 2 s ingedrukt op een zender om hem hier toe te voegen.</string>
+    <string name="player_sem_favoritos">Nog geen favorieten.</string>
     <string name="player_categoria_vazia">Geen zenders in deze categorie.</string>
     <string name="player_sem_guia">Geen tv-gids voor deze zender.</string>
     <string name="player_depois">LATER</string>
-    <string name="player_lista_teclas">OK kijken · OK 2 s ingedrukt: favoriet of verwijderen · OK ingedrukt op een categorie: verbergen · ◀ categorieën</string>
     <string name="player_favorito_pos">★ %1$s toegevoegd aan favorieten</string>
     <string name="player_favorito_tirou">%1$s verwijderd uit favorieten</string>
     <string name="player_favoritos_cheio">Er zijn al 500 favorieten: verwijder er eerst een.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Deze zender heeft nog geen opgeslagen programma\'s.</string>
     <string name="tvv_voltou">Terug naar live</string>
     <string name="tvv_selo">TERUGKIJKEN</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK opties · TERUG live</string>
     <string name="tvv_pausar">Pauze</string>
     <string name="tvv_continuar">Hervatten</string>
     <string name="tvv_ao_vivo">Terug naar live</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Films en series</string>
     <string name="idioma_titulo">Voorkeursaudio</string>
-    <string name="idioma_det">Origineel met ondertiteling in de taal van de tv, of daarin nagesynchroniseerd. Elke film en serie onthoudt de wijziging in de speler (▼)</string>
+    <string name="idioma_det">Origineel met ondertiteling in de taal van de tv, of daarin nagesynchroniseerd. Elke film en serie onthoudt de wijziging in de speler</string>
     <string name="idioma_original">Origineel met ondertiteling</string>
     <string name="idioma_dublado">Nagesynchroniseerd</string>
     <string name="idioma_legendado">Ondertiteld</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">Usb-stick en opslag</string>
     <string name="st_explica">Kies hoe de tv een usb-stick gebruikt. Weinig ruimte? Hij kan tv-opslag worden voor zware apps.</string>
     <string name="st_linha_det">Een usb-stick als tv-opslag gebruiken</string>
-    <string name="st_sem_shell">Vereist de eigen shell van de tv (Instellingen › Systeem › Geavanceerd). OK om opnieuw te proberen.</string>
-    <string name="st_sem_pen">Geen usb-stick aangesloten. Sluit er een aan en druk op OK.</string>
+    <string name="st_sem_shell">Vereist de eigen shell van de tv (Instellingen › Systeem › Geavanceerd).</string>
+    <string name="st_sem_pen">Geen usb-stick aangesloten.</string>
     <string name="st_tv_livre">Tv-opslag: %1$s vrij van %2$s</string>
     <string name="st_pen">Usb-stick · %1$s · %2$s</string>
     <string name="st_modo_comum">Gewone usb-stick</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">half voor apps, half voor opnames en bestanden</string>
     <string name="st_motivo_apertada">de tv is bijna vol</string>
     <string name="st_medido">schrijft met %1$s MB/s</string>
-    <string name="st_medir_dica">OK meet de snelheid</string>
     <string name="st_usar_comum">Gebruiken als gewone usb-stick</string>
-    <string name="st_usar_misto">Gebruiken als gemengd: %1$d%% gewoon  ◀ ▶</string>
+    <string name="st_usar_misto">Gebruiken als gemengd: %1$d%% gewoon</string>
     <string name="st_usar_tv">Gebruiken als tv-opslag</string>
     <string name="st_apps">Apps op de usb-stick</string>
     <string name="st_apps_det">Kies apps om te verplaatsen (grootste eerst)</string>
     <string name="st_apps_nenhum">Geen enkele app kan worden verplaatst.</string>
-    <string name="st_apps_rodape">OK verplaatst de app; ✓ = staat al op de usb-stick</string>
+    <string name="st_apps_rodape">✓ = staat al op de usb-stick</string>
     <string name="st_compartilhado">Foto\'s en bestanden: %1$s</string>
     <string name="st_na_tv">op de tv</string>
     <string name="st_no_pen">op de usb-stick</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Terug naar gewone usb-stick (apps komen terug naar de tv)</string>
     <string name="st_trazendo">%1$s terug naar de tv halen…</string>
     <string name="st_sumiram">De usb-stick is eruit: %1$s zijn verborgen tot hij terug is.</string>
-    <string name="st_sugestao">De tv-opslag is bijna vol. Verplaats %1$s (%2$s) naar de usb-stick: houd OK ingedrukt op de app.</string>
+    <string name="st_sugestao">De tv-opslag is bijna vol. Verplaats %1$s (%2$s) naar de usb-stick</string>
     <string name="st_medindo">De snelheid van de stick meten om het beste gebruik aan te raden…</string>
     <string name="st_lento_titulo">Stick te traag</string>
     <string name="st_lento_bloqueado">Deze stick schrijft met %1$s MB/s. Om tv-opslag te worden is minstens %2$d MB/s nodig: daaronder bevriezen apps en start de tv misschien niet. Gebruik hem als gewone stick.</string>

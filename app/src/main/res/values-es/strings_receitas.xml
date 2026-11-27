@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">¿Para quién es esta TV?</string>
-    <string name="rec_subtitulo">Un OK deja la TV lista. Puedes deshacerlo cuando quieras.</string>
+    <string name="rec_subtitulo">Puedes deshacerlo cuando quieras.</string>
     <string name="rec_vo">TV de la abuela</string>
     <string name="rec_vo_det">Tarjetas grandes con el nombre en voz alta, letra más grande y el botón Pedir ayuda.</string>
     <string name="rec_criancas">TV de los niños</string>

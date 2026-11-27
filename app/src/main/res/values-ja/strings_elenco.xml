@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">前回までの %1$s</string>
     <string name="anteriormente_assistir">%1$s を見る</string>
     <string name="anteriormente_pular_sempre">表示しない</string>
-    <string name="anteriormente_desligado">あらすじをオフにしました。再びオンにするには: エピソードで OK を長押し。</string>
+    <string name="anteriormente_desligado">あらすじをオフにしました。</string>
     <string name="anteriormente_ligar">「前回までの」あらすじを表示</string>
     <string name="idade_titulo">キッズモードの年齢上限</string>
     <string name="idade_det">この年齢までのレーティングの映画とシリーズは、どのカテゴリからでも表示されます（TMDB のレーティング）。レーティングのないものは子ども向けカテゴリのみ。</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">こちらでも: %1$s（JustWatch）</string>
     <string name="onde_fora">リストにはありません · %1$s で配信</string>
     <string name="onde_grupo">他の配信先（JustWatch）</string>
-    <string name="legenda_auto_pronta">字幕を自動でダウンロードしました（このファイル用）· ▼ で変更</string>
-    <string name="legenda_auto_pronta_nome">字幕を自動でダウンロードしました · ▼ で変更または遅延を調整</string>
+    <string name="legenda_auto_pronta">字幕を自動でダウンロードしました（このファイル用）</string>
+    <string name="legenda_auto_pronta_nome">字幕を自動でダウンロードしました</string>
     <string name="legenda_trad_rotulo">自動翻訳</string>
     <string name="legenda_trad_traduzindo">お使いの言語の字幕がありません: 英語の字幕を TV で翻訳しています…</string>
     <string name="legenda_trad_parcial">字幕を TV で翻訳しました（自動翻訳）。残りも翻訳を続けています。</string>

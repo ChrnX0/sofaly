@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
 <resources>
-    <string name="seg_pular_resumo">Összefoglaló átugrása · OK</string>
-    <string name="seg_proximo">Következő epizód · OK</string>
-    <string name="seg_proximo_em">Következő epizód %1$d mp múlva · OK</string>
+    <string name="seg_pular_resumo">Összefoglaló átugrása</string>
+    <string name="seg_proximo">Következő epizód</string>
+    <string name="seg_proximo_em">Következő epizód %1$d mp múlva</string>
     <string name="seg_termina">vége: %1$s</string>
     <string name="seg_repetir">Mit mondtak?</string>
     <string name="seg_repetir_info">Vissza 10 mp felirattal</string>

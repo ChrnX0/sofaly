@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s（%2$d）</string>
     <string name="elv_cat_n_temporadas">シーズン数: %d</string>
     <string name="elv_cat_procurando">ポスターを探しています…</string>
-    <string name="elv_cat_nada">TMDB で見つかりませんでした。OK 長押しで正しい名前を入力。</string>
+    <string name="elv_cat_nada">TMDB で見つかりませんでした。</string>
     <string name="elv_cat_corrigir_titulo">修正: %s</string>
     <string name="elv_cat_corrigir_explica">ポスターやあらすじが違う？次の候補にするか、正しい名前と年を入力してください。空にすると自動に戻ります。</string>
     <string name="elv_cat_nao_e">これではない</string>

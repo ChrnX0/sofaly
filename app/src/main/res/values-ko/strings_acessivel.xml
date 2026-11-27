@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">더 선명한 음성 켜짐</string>
     <string name="acess_voz_desligado">더 선명한 음성 꺼짐</string>
     <string name="acess_config_titulo">소리 및 자막</string>
-    <string name="acess_config_texto">잘 보이지 않거나 잘 들리지 않는 분을 위해. 플레이어의 ▼ 메뉴에도 있습니다.</string>
+    <string name="acess_config_texto">잘 보이지 않거나 잘 들리지 않는 분을 위해.</string>
 </resources>

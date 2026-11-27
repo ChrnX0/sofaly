@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">لمن هذا التلفاز؟</string>
-    <string name="rec_subtitulo">ضغطة OK واحدة تجهّز التلفاز. يمكنك التراجع متى شئت.</string>
+    <string name="rec_subtitulo">يمكنك التراجع متى شئت.</string>
     <string name="rec_vo">تلفاز الجدة</string>
     <string name="rec_vo_det">بطاقات كبيرة تُنطق أسماؤها، وخط أكبر، وزر طلب المساعدة.</string>
     <string name="rec_criancas">تلفاز الأطفال</string>

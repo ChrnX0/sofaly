@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Screensaver remote keys (idea 28) -->
-    <string name="pt_dica_dispensar">OK zavře · ◀ ▶ posun</string>
-    <string name="pt_dica_pausar">OK pozastaví nebo spustí · ◀ ▶ posun</string>
-    <string name="pt_dica_andar">◀ ▶ posun · ostatní tlačítka zavřou</string>
     <!-- Screensaver photos from a network folder (idea 27) -->
     <string name="rede_fotos_usar">Použít tyto fotky ve spořiči</string>
     <string name="rede_fotos_parar">Přestat používat tyto fotky ve spořiči</string>
@@ -21,6 +18,6 @@
     <string name="rede_buscar_explica">Filmy, seriály, díly a hudba na tomto serveru.</string>
     <string name="rede_buscar_campo">Název</string>
     <string name="rede_buscar_curto">Napište alespoň 2 písmena.</string>
-    <string name="rede_proximo_em">Další: %1$s za %2$d s · OK spustí hned · jiné tlačítko zruší</string>
+    <string name="rede_proximo_em">Další: %1$s za %2$d s</string>
     <string name="rede_ainda_assistindo">Stále se díváte? OK spustí %1$s</string>
 </resources>

@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">ไอคอนเส้นบาง 15,000 แบบ (ทำมาสำหรับโทรศัพท์ ใช้ที่นี่ได้)</string>
     <string name="ext_off_health">ปิดแล้ว: หยุดตอบสนอง เปิดอีกครั้งได้ถ้าต้องการ</string>
     <string name="ext_secao_botoes">ปุ่มแผงด่วน</string>
-    <string name="ext_nenhum_botao">ยังไม่มีปุ่มจากแอปอื่น บางแอปเพิ่มปุ่มเปิด/ปิดในแผงด่วน (กด BACK ค้าง)</string>
+    <string name="ext_nenhum_botao">ยังไม่มีปุ่มจากแอปอื่น บางแอปเพิ่มปุ่มเปิด/ปิดในแผงด่วน</string>
     <string name="ext_off_blocked">Sofaly ปิดไว้: ปลั๊กอินนี้มีปัญหาที่ทราบอยู่</string>
     <string name="ext_secao_widgets">วิดเจ็ตจากแอปอื่น</string>
     <string name="ext_widget_nenhum">ยังไม่มีแอปบนทีวีนี้ที่มีวิดเจ็ต</string>

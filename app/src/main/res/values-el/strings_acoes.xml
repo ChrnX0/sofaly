@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Σκηνές</string>
     <string name="pr_cenas">Σκηνές</string>
     <string name="cenas_titulo">Σκηνές</string>
-    <string name="cenas_det">OK εκτελεί τη σκηνή. Δημιουργήστε και επεξεργαστείτε τες στον πίνακα web › Σπίτι και αυτοματισμοί › Σκηνές.</string>
+    <string name="cenas_det">Δημιουργήστε και επεξεργαστείτε τες στον πίνακα web › Σπίτι και αυτοματισμοί › Σκηνές.</string>
     <string name="cenas_vazio">Καμία σκηνή ακόμα. Δημιουργήστε μία στον πίνακα web › Σπίτι και αυτοματισμοί › Σκηνές.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d ενέργεια</item>

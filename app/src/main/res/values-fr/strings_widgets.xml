@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Modifier les widgets</string>
-    <string name="wdg_det">Widgets en direct d\'autres apps sur l\'écran d\'accueil. Les flèches déplacent, OK affiche les options.</string>
-    <string name="wdg_vazio">Aucun widget sur l\'accueil. OK en ajoute un.</string>
+    <string name="wdg_det">Widgets en direct d\'autres apps sur l\'écran d\'accueil.</string>
+    <string name="wdg_vazio">Aucun widget sur l\'accueil.</string>
     <string name="wdg_estado_mover">Déplacement : %1$s</string>
     <string name="wdg_estado_tamanho">Taille : %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Déplacer</string>

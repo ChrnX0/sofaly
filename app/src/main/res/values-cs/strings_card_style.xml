@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Jemné doladění</string>
-    <string name="ft_dica">OK nebo ▶ ◀ mění · ZPĚT zavře</string>
     <string name="ft_abrir">Upravte při pohledu na domovskou obrazovku</string>
     <string name="ft_abrir_det">Písmo, hodiny, barva zvýraznění, rohy, záře a velikost, živě</string>
     <string name="cs_destaque">Barva zvýraznění</string>

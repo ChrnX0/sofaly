@@ -30,9 +30,6 @@
     <string name="aa_risk_care">À manier avec soin, d’après sa fiche</string>
     <string name="aa_risk_essential">Essentielle à la TV : ne pas geler</string>
     <string name="aa_tip_idle">Pas ouverte depuis %1$d jours. La geler libère de la mémoire et peut s’annuler.</string>
-    <string name="aa_hint_app">OK ouvre · maintenez OK pour déplacer, masquer, geler ou désinstaller</string>
-    <string name="aa_hint_frozen">OK la dégèle et l’ouvre</string>
-    <string name="aa_hint_lock">OK demande le code PIN et affiche ici les apps masquées</string>
     <string name="aa_open">Ouvrir</string>
     <string name="aa_freeze">Geler</string>
     <string name="aa_freezing">Gel de %1$s…</string>

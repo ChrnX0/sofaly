@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">يمكنك الانتظار.</string>
     <string name="cuidar_nao_avisado">تعذّر تنبيه %1$s</string>
     <string name="cuidar_sem_aparelho">لا يوجد هاتف مُعدّ للتلقي. راجع الإعدادات › العائلة › الرعاية عن بُعد.</string>
-    <string name="cuidar_sem_internet">تحقق من الإنترنت وحاول مرة أخرى (اضغط مطولًا على الزر 3 ثوانٍ).</string>
+    <string name="cuidar_sem_internet">تحقق من الإنترنت وحاول مرة أخرى.</string>
     <string name="cuidar_lembrete_sobre">تذكير · %1$s</string>
     <string name="cuidar_lembrete_explica">اضغط OK عند الانتهاء.</string>
     <string name="cuidar_lembrete_explica_aviso">اضغط OK عند الانتهاء. وإلا فخلال %1$d دقيقة يتلقى %2$s تنبيهًا.</string>

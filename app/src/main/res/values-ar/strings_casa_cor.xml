@@ -2,8 +2,8 @@
 <!-- Tradução (ar) de values/strings_casa_cor.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
     <string name="casa_dica_brilho_cor">السطوع واللون</string>
-    <string name="casa_brilho_ajuste_cor">السطوع %1$d%% · ◀ ▶ · اللون ▲ ▼</string>
-    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_brilho_ajuste_cor">السطوع %1$d%%</string>
+    <string name="casa_cor_ajuste">%1$s</string>
     <string name="casa_cor_quente">أبيض دافئ</string>
     <string name="casa_cor_neutra">أبيض محايد</string>
     <string name="casa_cor_fria">أبيض بارد</string>

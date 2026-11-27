@@ -6,9 +6,8 @@
     <string name="vid_onde">To watch: Settings › Family › Family videos.</string>
     <string name="vid_depois">Later</string>
     <string name="vid_assistir">Watch</string>
-    <string name="vid_ok_para_assistir">Press OK to watch.</string>
     <string name="vid_lista">Family videos</string>
-    <string name="vid_lista_det">Sent through the family link. Each one stays 30 days. Hold OK to delete.</string>
+    <string name="vid_lista_det">Sent through the family link. Each one stays 30 days.</string>
     <string name="vid_nenhum">No videos yet.</string>
     <string name="vid_apagar">Delete video</string>
     <string name="vid_aceitar">Accept videos</string>

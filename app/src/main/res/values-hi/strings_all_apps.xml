@@ -30,9 +30,6 @@
     <string name="aa_risk_care">इसके कार्ड के अनुसार सावधानी से</string>
     <string name="aa_risk_essential">टीवी के लिए ज़रूरी: फ़्रीज़ न करें</string>
     <string name="aa_tip_idle">%1$d दिन से नहीं खोला। फ़्रीज़ करने से मेमोरी खाली होती है और इसे वापस किया जा सकता है।</string>
-    <string name="aa_hint_app">OK खोलता है · ले जाने, छिपाने, फ़्रीज़ या अनइंस्टॉल के लिए OK दबाए रखें</string>
-    <string name="aa_hint_frozen">OK अनफ़्रीज़ करके खोलता है</string>
-    <string name="aa_hint_lock">OK PIN माँगता है और छिपे ऐप यहीं दिखाता है</string>
     <string name="aa_open">खोलें</string>
     <string name="aa_freeze">फ़्रीज़ करें</string>
     <string name="aa_freezing">%1$s फ़्रीज़ हो रहा है…</string>

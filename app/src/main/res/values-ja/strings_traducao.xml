@@ -92,7 +92,6 @@
     <string name="lb_lembrete">お知らせ</string>
     <string name="lb_quando_em">%1$s、%2$s で。</string>
     <string name="ms_ola">こんにちは！</string>
-    <string name="ms_ola_det">矢印で選んで OK を押してください。</string>
     <string name="ms_pedir_ajuda">助けを呼ぶ</string>
     <string name="ms_pedido_ajuda">助けの依頼</string>
     <string name="ms_alguem_pediu">TV %1$s で誰かが助けを求めています。</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">カテゴリ</string>
     <string name="bc_canais">チャンネル</string>
     <string name="bc_carregando">チャンネルを読み込み中…</string>
-    <string name="bc_dica">OK でブロック/解除 · カテゴリで OK を押すと全体に適用 · ◀ ▶ カテゴリとチャンネル · 戻るで終了（保存済み）</string>
     <string name="bc_categoria_bloqueada">カテゴリ「%1$s」全体がブロックされています: 左の列で解除してください</string>
     <string name="bc_filme">映画 · %1$s</string>
     <string name="bc_serie">シリーズ · %1$s</string>

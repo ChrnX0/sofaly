@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Vem är den här tv:n till?</string>
-    <string name="rec_subtitulo">Ett OK konfigurerar tv:n. Du kan ångra det när som helst.</string>
+    <string name="rec_subtitulo">Du kan ångra det när som helst.</string>
     <string name="rec_vo">Mormors tv</string>
     <string name="rec_vo_det">Stora kort med namn som läses upp, större text och en knapp för Få hjälp.</string>
     <string name="rec_criancas">Barnens tv</string>

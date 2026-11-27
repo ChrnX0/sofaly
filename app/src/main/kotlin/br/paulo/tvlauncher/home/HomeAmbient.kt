@@ -154,7 +154,7 @@ internal fun MainActivity.itemDormir(sempre: Boolean = false): HomeCruz.Item? {
     val ic = icCruz("c:dormir", IconeCruz.Tipo.DORMIR)
     return if (marcado != null) HomeCruz.Item("c:dormir",
         getString(R.string.cruz_desliga_as, android.text.format.DateFormat.getTimeFormat(this).format(java.util.Date(marcado))),
-        getString(R.string.cruz_dormir_cancelar), ic, { Desligamento.cancelar(this); atualizarCruz() })
+        "", ic, { Desligamento.cancelar(this); atualizarCruz() })
     else HomeCruz.Item("c:dormir", getString(R.string.cruz_dormir), getString(R.string.cruz_dormir_sub), ic, {
         Desligamento.agendar(this, CruzOnda3.DORMIR_MIN); atualizarCruz()
     })

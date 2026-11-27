@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ver_novidades">Újdonságok</string>
-    <string name="ver_novidades_det">%1$d változás a(z) %2$s verzióban · OK az olvasáshoz</string>
+    <string name="ver_novidades_det">%1$d változás a(z) %2$s verzióban</string>
     <string name="ver_novidades_sobre">%1$s verzió</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Ellenőrzés a TV-n</string>
-    <string name="ver_conferir_det">%1$d / %2$d ellenőrizve a távirányítóval · OK az indításhoz</string>
-    <string name="ver_conferir_sub">%1$s verzió · %2$d elem · OK egy elemen a válaszhoz</string>
+    <string name="ver_conferir_det">%1$d / %2$d ellenőrizve a távirányítóval</string>
+    <string name="ver_conferir_sub">%1$s verzió · %2$d elem</string>
     <string name="ver_conferido">%1$d / %2$d ellenőrizve</string>
     <string name="ver_sim">Igen</string>
     <string name="ver_nao">Nem</string>

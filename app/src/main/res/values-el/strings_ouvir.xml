@@ -48,7 +48,6 @@
     <string name="pod_em_alta">Δημοφιλή στη χώρα σας</string>
     <string name="pod_atribuicao">Αναζήτηση: Podcast Index</string>
     <string name="pod_sugestoes">Προτάσεις</string>
-    <string name="pod_sugestao_seguir">OK για παρακολούθηση</string>
     <string name="pod_sugeridos_seguidos">Τα προτεινόμενα podcast προστέθηκαν στα Τα podcast μου</string>
     <string name="pod_busca_nada">Δεν βρέθηκε podcast.</string>
     <string name="pod_busca_cota">Η αναζήτηση podcast ξεκουράζεται για σήμερα. Επιστρέφει αύριο.</string>

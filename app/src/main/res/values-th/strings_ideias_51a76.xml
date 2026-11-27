@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">พิมพ์บนทีวี</string>
     <string name="l51_digitar_texto">มีช่องข้อความเปิดอยู่ใน %1$s แตะเพื่อพิมพ์จากที่นี่</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">ห้อง %1$s</string>
     <string name="casa_movimento">มีการเคลื่อนไหว</string>
     <string name="casa_sem_movimento">ไม่มีการเคลื่อนไหว</string>

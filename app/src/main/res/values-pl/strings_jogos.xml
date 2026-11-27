@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Ten telewizor nie otworzył ustawień Bluetooth. Otwórz Ustawienia, Piloty i akcesoria.</string>
     <string name="jogos_baixar">Pobierz gry</string>
     <string name="jogos_escolher">Wybierz aplikacje</string>
-    <string name="jogos_escolher_sub">Które aplikacje są w Graj. OK przełącza między Graj a Aplikacjami.</string>
+    <string name="jogos_escolher_sub">Które aplikacje są w Graj.</string>
     <string name="jogos_no_card">w Graj</string>
     <string name="jogos_na_linha">w Aplikacjach</string>
     <string name="jogos_grupo_nuvem">W chmurze</string>

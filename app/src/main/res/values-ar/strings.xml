@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">الروتينات</string>
     <string name="cfg_sec_atualizacao">التحديثات</string>
     <string name="cfg_atualizar">البحث عن إصدار جديد</string>
-    <string name="cfg_atualizar_det">الإصدار %1$s · %2$s · OK يبحث الآن</string>
+    <string name="cfg_atualizar_det">الإصدار %1$s · %2$s</string>
     <string name="cfg_procurando">جارٍ فحص GitHub…</string>
     <string name="cfg_instalar">تثبيت الإصدار %1$d الآن</string>
-    <string name="cfg_instalar_det">يُغلق المشغّل ويعود وحده خلال ثوانٍ · OK يثبّت</string>
+    <string name="cfg_instalar_det">يُغلق المشغّل ويعود وحده خلال ثوانٍ</string>
     <string name="cfg_instalando">جارٍ التنزيل والتحقق…</string>
     <string name="cfg_sec_rede">الشبكة</string>
     <string name="cfg_dns">DNS خاص</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">ما هو مفعّل — %1$s</string>
     <string name="cfg_ligado">مفعّل</string>
     <string name="cfg_so_pc">" · فقط بكمبيوتر (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK يحاول التفعيل"</string>
     <string name="cfg_perm_fixas">أذونات ثابتة ممنوحة</string>
     <string name="cfg_shell_estado">الصدفة الخاصة</string>
     <string name="cfg_shell_pareado">مقترن: المشغّل يعيد الاتصال وحده عبر تصحيح الأخطاء اللاسلكي</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">خدمة الأزرار</string>
     <string name="rec_teclas_sem">بدونها: قد يفتح HOME مشغّل Google ولا يُعاد تعيين زرّي Netflix/YouTube</string>
     <string name="rec_tudo">كل شيء مفعّل</string>
-    <string name="rec_faltam">%1$d من %2$d ميزات غير مفعّلة · OK على عنصر يحاول تفعيله</string>
+    <string name="rec_faltam">%1$d من %2$d ميزات غير مفعّلة</string>
     <string name="bv_titulo">مرحبًا</string>
     <string name="bv_texto">الشاشة الرئيسية والساعة والطقس والمنبّه وشاشة التوقف تعمل بالفعل. فعّل الباقي هنا إن أردت (%1$s).</string>
     <string name="bv_comecar">ابدأ</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · متوقف"</string>
     <string name="rot_nova">روتين جديد</string>
     <string name="rot_editar">تعديل الروتين</string>
-    <string name="rot_editor_det">OK يغيّر كل سطر · BACK يخرج دون حفظ</string>
     <string name="rot_hora">الوقت: %1$s</string>
     <string name="rot_dias">الأيام: %1$s</string>
     <string name="rot_acao">الإجراء: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">فقط إذا لم يلمسه أحد لمدة: %1$s</string>
     <string name="rot_ligada">مفعّل</string>
     <string name="rot_desligada">متوقف</string>
-    <string name="rot_hora_det">◀ ▶ 5 دقائق · OK +ساعة</string>
-    <string name="rot_dias_det">OK: كل يوم، من الاثنين إلى الجمعة، عطلة نهاية الأسبوع، مرة واحدة</string>
-    <string name="rot_ok_muda">OK يغيّر</string>
-    <string name="rot_app_det">OK أو ▶ التالي · ◀ السابق</string>
     <string name="rot_ocioso_det">لا يقاطع من يشاهد</string>
-    <string name="rot_ativa_det">OK يفعّل/يوقف هذا الروتين</string>
     <string name="rot_salvar">حفظ</string>
     <string name="rot_escolha_app">اختر التطبيق</string>
     <string name="rot_apagar">حذف هذا الروتين</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">جارٍ التحميل…</string>
     <string name="pp_conectar">اتصال</string>
     <string name="cal_sem_conta">لا يوجد حساب Google</string>
-    <string name="cal_dica">◀ ▶ تغيير الشهر</string>
     <string name="cal_30">الأيام الـ30 القادمة</string>
     <string name="cal_nenhuma_conta">لا يوجد حساب Google على التلفزيون</string>
     <string name="cal_nada">لا شيء مجدول (أو التقويم ما زال يُزامن)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">زر %1$s يفتح:</string>
     <string name="fd_nascer">الشروق %1$s</string>
     <string name="fd_por">الغروب %1$s</string>
-    <string name="dns_dica">OK: استخدام   ·   اضغط مطولًا على OK على أحد خوادمك: إزالة   ·   Back: خروج</string>
     <string name="dns_auto">تلقائي</string>
     <string name="dns_auto_det">يستخدم DNS الراوتر ويشفّر عندما يقبل (الافتراضي في Android)</string>
     <string name="dns_desl">متوقف</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">الإصدار %1$d: إصدار APK (%2$d) لا يطابق الوسم</string>
     <string name="atu_chave">في GitHub الإصدار %1$d، لكنه موقّع بمفتاح آخر لا يقبله هذا التلفزيون: هذا التلفزيون يُحدَّث من كمبيوتر</string>
     <string name="atu_disponivel">الإصدار %1$d جاهز للتثبيت (المثبّت %2$d)</string>
-    <string name="atu_trocou">تغيّر الإصدار منذ آخر فحص · OK يفحص مجددًا</string>
+    <string name="atu_trocou">تغيّر الإصدار منذ آخر فحص</string>
     <string name="atu_instalando">جارٍ تثبيت %1$d (المثبّت %2$d)</string>
     <string name="atu_ok">محدّث</string>
     <string name="atu_falhou">فشل التثبيت (%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">الإصدار %1$d تعطّل مرتين بعد التثبيت مباشرة · “%2$s” تبقى متوقفة حتى الإصدار التالي</string>
     <string name="vig_tela_bloqueada">هذه الشاشة متوقفة حتى التحديث التالي (تسببت في تعطّل المشغّل)</string>
     <string name="cfg_vig_liberar">الوضع الآمن</string>
-    <string name="cfg_vig_liberar_det">" · OK يعيد تفعيلها"</string>
     <string name="home_voz_indisponivel">البحث الصوتي لم يُفتح على هذا التلفزيون</string>
     <string name="home_alarme_hoje">اليوم</string>
     <string name="home_alarme_amanha">غدًا</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">جارٍ تحميل الفيديو…</string>
     <string name="player_sem_canais">لم تُضف أي قائمة قنوات بعد.</string>
     <string name="player_tentando">لا إشارة على القناة %1$d. جارٍ المحاولة مجددًا…</string>
-    <string name="player_sem_sinal">القناة %1$d لم تستجب. اختر أخرى بـ▲ ▼ أو OK.</string>
+    <string name="player_sem_sinal">القناة %1$d لم تستجب.</string>
     <string name="player_canal_nao_existe">لا توجد قناة %1$d.</string>
     <string name="player_ao_vivo">مباشر</string>
     <string name="player_a_seguir">التالي: %1$s</string>
-    <string name="player_teclas">▲ ▼ القناة · OK قائمة القنوات · اضغط OK ثانيتين: مفضلة · ◀ القناة السابقة · ▶ ▶ خيارات · BACK خروج</string>
-    <string name="player_teclas_pausa">▶❙❙ أو OK متابعة · ▶ خيارات (العودة للبث المباشر) · ▲ ▼ القناة · BACK خروج</string>
     <string name="player_cat_busca">بحث: %1$s</string>
     <string name="player_acao_buscar">بحث</string>
     <string name="player_acao_filtros">عوامل التصفية</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ أُضيف %1$s إلى قائمة المشاهدة</string>
     <string name="filmes_interesse_tirou">أُزيل %1$s من قائمة المشاهدة</string>
     <string name="filmes_interesses_cheio">قائمة المشاهدة تضم 500 عنوان بالفعل: أزل واحدًا أولًا.</string>
-    <string name="filmes_interesses_vazio">اضغط OK ثانيتين على ملصق لإضافته هنا (ومرة أخرى لإزالته).</string>
     <string name="filmes_assistido">تمت مشاهدته</string>
     <string name="filmes_selo_leg">مترجم</string>
     <string name="vod_sem_conta">حساب هذا الفيديو لم يعد موجودًا.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">الصوت</string>
     <string name="vod_legenda">الترجمة</string>
     <string name="vod_faixas">الصوت والترجمة</string>
-    <string name="vod_teclas">OK إيقاف مؤقت · ◀ 10 ث · ▶ 30 ث (اضغط مطولًا للإسراع) · ▼ الصوت والترجمة والصورة · ⏮ ⏭ الفصول · BACK خروج</string>
     <string name="series_titulo">مسلسلات</string>
     <string name="series_carregando">جارٍ تحميل المسلسلات…</string>
     <string name="series_vazio">لا توجد مسلسلات بعد</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">الموسم %1$d</string>
     <string name="player_acao_guia">دليل البرامج</string>
     <string name="player_sem_guia_curto">لا يوجد دليل برامج</string>
-    <string name="player_grade_teclas">OK شاهد · ◀ ▶ البرنامج · ▲ ▼ القناة</string>
     <string name="player_busca_dica">اسم القناة أو البرنامج</string>
     <string name="player_busca_nada">لم يُعثر على شيء لـ“%1$s”.</string>
     <string name="player_filtro_qualquer">الكل</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">فئات الأطفال</string>
     <string name="infantil_carregando">جارٍ تحميل الفئات…</string>
     <string name="infantil_coluna_itens">ما تحتويه</string>
-    <string name="infantil_dica">OK يحدد الفئة للأطفال أو يلغي تحديدها · تُطبَّق على التلفزيون المباشر والأفلام والمسلسلات · BACK يخرج (محفوظ بالفعل)</string>
     <string name="infantil_so_categoria">حدّد الفئة بالكامل في العمود الأيسر</string>
     <string name="infantil_vazio">لا فئات: أضف حسابًا في الإعدادات › التلفزيون والأفلام وأعد تحميل القنوات</string>
     <string name="infantil_limite">لا يمكن أن تكون فئة البالغين فئة للأطفال</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">المفضلة</string>
     <string name="player_cat_recentes">الأخيرة</string>
     <string name="player_cat_outros">أخرى</string>
-    <string name="player_sem_favoritos">لا مفضلة بعد. اضغط OK ثانيتين على قناة لإضافتها هنا.</string>
+    <string name="player_sem_favoritos">لا مفضلة بعد.</string>
     <string name="player_categoria_vazia">لا قنوات في هذه الفئة.</string>
     <string name="player_sem_guia">لا يوجد دليل برامج لهذه القناة.</string>
     <string name="player_depois">لاحقًا</string>
-    <string name="player_lista_teclas">OK شاهد · اضغط OK ثانيتين: مفضلة أو إزالة · اضغط مطولًا على OK على فئة: إخفاء · ◀ الفئات</string>
     <string name="player_favorito_pos">★ أُضيفت %1$s إلى المفضلة</string>
     <string name="player_favorito_tirou">أُزيلت %1$s من المفضلة</string>
     <string name="player_favoritos_cheio">توجد 500 مفضلة بالفعل: أزل واحدة أولًا.</string>
@@ -642,7 +625,6 @@ AS\\Movies).</string>
     <string name="tvv_vazio">هذه القناة ليس لديها برامج محفوظة بعد.</string>
     <string name="tvv_voltou">العودة إلى البث المباشر</string>
     <string name="tvv_selo">إعادة المشاهدة</string>
-    <string name="tvv_teclas">◀ ▶ 30 ث · OK خيارات · BACK مباشر</string>
     <string name="tvv_pausar">إيقاف مؤقت</string>
     <string name="tvv_continuar">استئناف</string>
     <string name="tvv_ao_vivo">العودة إلى البث المباشر</string>
@@ -659,7 +641,7 @@ AS\\Movies).</string>
     <string name="series_nao_visto">وضع علامة غير مُشاهَد</string>
     <string name="idioma_secao">أفلام ومسلسلات</string>
     <string name="idioma_titulo">الصوت المفضل</string>
-    <string name="idioma_det">الأصلي مع ترجمة بلغة التلفزيون، أو مدبلج بها. كل فيلم ومسلسل يتذكر التغيير الذي أُجري في المشغّل (▼)</string>
+    <string name="idioma_det">الأصلي مع ترجمة بلغة التلفزيون، أو مدبلج بها. كل فيلم ومسلسل يتذكر التغيير الذي أُجري في المشغّل</string>
     <string name="idioma_original">الأصلي مع ترجمة</string>
     <string name="idioma_dublado">مدبلج</string>
     <string name="idioma_legendado">مترجم</string>
@@ -822,8 +804,8 @@ AS\\Movies).</string>
     <string name="st_titulo">ذاكرة USB والتخزين</string>
     <string name="st_explica">اختر كيف يستخدم التلفزيون ذاكرة USB. المساحة قليلة؟ يمكن أن تصبح تخزينًا للتلفزيون للتطبيقات الكبيرة.</string>
     <string name="st_linha_det">استخدام ذاكرة USB كتخزين للتلفزيون</string>
-    <string name="st_sem_shell">يحتاج إلى الصدفة الخاصة بالتلفزيون (الإعدادات › النظام › متقدم). OK للمحاولة مجددًا.</string>
-    <string name="st_sem_pen">لا توجد ذاكرة USB. وصّل واحدة واضغط OK.</string>
+    <string name="st_sem_shell">يحتاج إلى الصدفة الخاصة بالتلفزيون (الإعدادات › النظام › متقدم).</string>
+    <string name="st_sem_pen">لا توجد ذاكرة USB.</string>
     <string name="st_tv_livre">تخزين التلفزيون: %1$s متاحة من %2$s</string>
     <string name="st_pen">ذاكرة USB · %1$s · %2$s</string>
     <string name="st_modo_comum">ذاكرة USB عادية</string>
@@ -837,14 +819,13 @@ AS\\Movies).</string>
     <string name="st_motivo_grande">النصف للتطبيقات والنصف للتسجيلات والملفات</string>
     <string name="st_motivo_apertada">التلفزيون ممتلئ تقريبًا</string>
     <string name="st_medido">تكتب بسرعة %1$s م.ب/ث</string>
-    <string name="st_medir_dica">OK يقيس السرعة</string>
     <string name="st_usar_comum">استخدامها كذاكرة USB عادية</string>
-    <string name="st_usar_misto">استخدام مختلط: %1$d%% عادي  ◀ ▶</string>
+    <string name="st_usar_misto">استخدام مختلط: %1$d%% عادي</string>
     <string name="st_usar_tv">استخدامها كتخزين للتلفزيون</string>
     <string name="st_apps">التطبيقات على ذاكرة USB</string>
     <string name="st_apps_det">اختر تطبيقات لنقلها (الأكبر أولًا)</string>
     <string name="st_apps_nenhum">لا يمكن نقل أي تطبيق.</string>
-    <string name="st_apps_rodape">OK ينقل التطبيق؛ ✓ = موجود على الذاكرة</string>
+    <string name="st_apps_rodape">✓ = موجود على الذاكرة</string>
     <string name="st_compartilhado">الصور والملفات: %1$s</string>
     <string name="st_na_tv">على التلفزيون</string>
     <string name="st_no_pen">على ذاكرة USB</string>
@@ -869,7 +850,7 @@ AS\\Movies).</string>
     <string name="st_voltar_comum">العودة إلى ذاكرة USB عادية (تعود التطبيقات إلى التلفزيون)</string>
     <string name="st_trazendo">جارٍ إعادة %1$s إلى التلفزيون…</string>
     <string name="st_sumiram">أُزيلت ذاكرة USB: %1$s مخفية حتى تعود.</string>
-    <string name="st_sugestao">تخزين التلفزيون ممتلئ تقريبًا. انقل %1$s (%2$s) إلى ذاكرة USB: اضغط مطولًا على OK فوق التطبيق.</string>
+    <string name="st_sugestao">تخزين التلفزيون ممتلئ تقريبًا. انقل %1$s (%2$s) إلى ذاكرة USB</string>
     <string name="st_medindo">جارٍ قياس سرعة الذاكرة لاقتراح أفضل استخدام…</string>
     <string name="st_lento_titulo">الذاكرة بطيئة جدًا</string>
     <string name="st_lento_bloqueado">تكتب هذه الذاكرة بسرعة %1$s ميجابايت/ث. لتصبح ذاكرة للتلفاز تحتاج إلى %2$d ميجابايت/ث على الأقل: دون ذلك تتجمد التطبيقات وقد لا يعمل التلفاز. استخدمها كذاكرة عادية.</string>
@@ -887,12 +868,12 @@ AS\\Movies).</string>
     <string name="aviso_sync_texto">لا يوجد حساب %1$s على هذا التلفاز. اربطه من الإعدادات › التلفاز والأفلام.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">ما الجديد</string>
-    <string name="ver_novidades_det">%1$d تغييرات في الإصدار %2$s · اضغط OK للقراءة</string>
+    <string name="ver_novidades_det">%1$d تغييرات في الإصدار %2$s</string>
     <string name="ver_novidades_sobre">الإصدار %1$s</string>
     <string name="ver_ok">موافق</string>
     <string name="ver_conferir">التحقق على التلفاز</string>
-    <string name="ver_conferir_det">تم التحقق من %1$d من %2$d بجهاز التحكم · اضغط OK للبدء</string>
-    <string name="ver_conferir_sub">الإصدار %1$s · %2$d عناصر · اضغط OK على عنصر للإجابة</string>
+    <string name="ver_conferir_det">تم التحقق من %1$d من %2$d بجهاز التحكم</string>
+    <string name="ver_conferir_sub">الإصدار %1$s · %2$d عناصر</string>
     <string name="ver_conferido">تم التحقق من %1$d من %2$d</string>
     <string name="ver_sim">نعم</string>
     <string name="ver_nao">لا</string>

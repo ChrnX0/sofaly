@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Suara lebih jelas aktif</string>
     <string name="acess_voz_desligado">Suara lebih jelas nonaktif</string>
     <string name="acess_config_titulo">Suara dan subtitle</string>
-    <string name="acess_config_texto">Untuk yang kurang jelas melihat atau mendengar. Juga ada di menu ▼ pemutar.</string>
+    <string name="acess_config_texto">Untuk yang kurang jelas melihat atau mendengar.</string>
 </resources>

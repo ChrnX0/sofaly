@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">Расписание</string>
     <string name="cfg_sec_atualizacao">Обновления</string>
     <string name="cfg_atualizar">Проверить новую версию</string>
-    <string name="cfg_atualizar_det">Версия %1$s · %2$s · OK проверить сейчас</string>
+    <string name="cfg_atualizar_det">Версия %1$s · %2$s</string>
     <string name="cfg_procurando">проверка на GitHub…</string>
     <string name="cfg_instalar">Установить версию %1$d сейчас</string>
-    <string name="cfg_instalar_det">Лаунчер закроется и сам вернётся через несколько секунд · OK установить</string>
+    <string name="cfg_instalar_det">Лаунчер закроется и сам вернётся через несколько секунд</string>
     <string name="cfg_instalando">загрузка и проверка…</string>
     <string name="cfg_sec_rede">Сеть</string>
     <string name="cfg_dns">Частный DNS</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">Что включено — %1$s</string>
     <string name="cfg_ligado">включено</string>
     <string name="cfg_so_pc">" · только с компьютера (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK пробует включить"</string>
     <string name="cfg_perm_fixas">Выданы постоянные разрешения</string>
     <string name="cfg_shell_estado">Встроенная оболочка</string>
     <string name="cfg_shell_pareado">сопряжена: лаунчер сам переподключается через отладку по Wi-Fi</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">Служба кнопок</string>
     <string name="rec_teclas_sem">без него: HOME может открыть лаунчер Google, а кнопки Netflix/YouTube не переназначаются</string>
     <string name="rec_tudo">всё включено</string>
-    <string name="rec_faltam">не хватает %1$d из %2$d функций · OK на пункте пробует включить</string>
+    <string name="rec_faltam">не хватает %1$d из %2$d функций</string>
     <string name="bv_titulo">Добро пожаловать</string>
     <string name="bv_texto">Главный экран, часы, погода, будильник и заставка уже работают. Остальное можно включить здесь (%1$s).</string>
     <string name="bv_comecar">Начать</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · выключено"</string>
     <string name="rot_nova">Новое расписание</string>
     <string name="rot_editar">Изменить расписание</string>
-    <string name="rot_editor_det">OK меняет строку · НАЗАД выходит без сохранения</string>
     <string name="rot_hora">Время: %1$s</string>
     <string name="rot_dias">Дни: %1$s</string>
     <string name="rot_acao">Действие: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">Только если никто не трогал ТВ: %1$s</string>
     <string name="rot_ligada">Включено</string>
     <string name="rot_desligada">Выключено</string>
-    <string name="rot_hora_det">◀ ▶ 5 минут · OK +1 час</string>
-    <string name="rot_dias_det">OK: каждый день, пн–пт, выходные, один раз</string>
-    <string name="rot_ok_muda">OK меняет</string>
-    <string name="rot_app_det">OK или ▶ следующее · ◀ предыдущее</string>
     <string name="rot_ocioso_det">Не мешает тому, кто смотрит</string>
-    <string name="rot_ativa_det">OK включает/выключает это расписание</string>
     <string name="rot_salvar">Сохранить</string>
     <string name="rot_escolha_app">Выберите приложение</string>
     <string name="rot_apagar">Удалить это расписание</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">Загрузка…</string>
     <string name="pp_conectar">Подключить</string>
     <string name="cal_sem_conta">нет аккаунта Google</string>
-    <string name="cal_dica">◀ ▶ меняют месяц</string>
     <string name="cal_30">Следующие 30 дней</string>
     <string name="cal_nenhuma_conta">На ТВ нет аккаунта Google</string>
     <string name="cal_nada">Ничего не запланировано (или календарь ещё синхронизируется)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">Кнопка %1$s открывает:</string>
     <string name="fd_nascer">восход %1$s</string>
     <string name="fd_por">закат %1$s</string>
-    <string name="dns_dica">OK: использовать   ·   удерживайте OK на своём сервере: удалить   ·   Назад: выйти</string>
     <string name="dns_auto">Автоматически</string>
     <string name="dns_auto_det">DNS роутера с шифрованием, если он его поддерживает (стандарт Android)</string>
     <string name="dns_desl">Выключено</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">Выпуск %1$d: версия APK (%2$d) не совпадает с тегом</string>
     <string name="atu_chave">На GitHub есть версия %1$d, но она подписана другим ключом, который этот ТВ не принимает: этот ТВ обновляется с ПК</string>
     <string name="atu_disponivel">версия %1$d готова к установке (установлена %2$d)</string>
-    <string name="atu_trocou">версия изменилась после последней проверки · OK проверить снова</string>
+    <string name="atu_trocou">версия изменилась после последней проверки</string>
     <string name="atu_instalando">установка %1$d (установлена %2$d)</string>
     <string name="atu_ok">обновлено</string>
     <string name="atu_falhou">установка не удалась (%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">версия %1$d дважды падала сразу после установки · «%2$s» отключено до следующей</string>
     <string name="vig_tela_bloqueada">Этот экран отключён до следующего обновления (он ронял лаунчер)</string>
     <string name="cfg_vig_liberar">Безопасный режим</string>
-    <string name="cfg_vig_liberar_det">" · OK включает снова"</string>
     <string name="home_voz_indisponivel">Голосовой поиск не открылся на этом ТВ</string>
     <string name="home_alarme_hoje">сегодня</string>
     <string name="home_alarme_amanha">завтра</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">Загрузка видео…</string>
     <string name="player_sem_canais">Список каналов ещё не добавлен.</string>
     <string name="player_tentando">Нет сигнала на канале %1$d. Пробую снова…</string>
-    <string name="player_sem_sinal">Канал %1$d не ответил. Выберите другой кнопками ▲ ▼ или OK.</string>
+    <string name="player_sem_sinal">Канал %1$d не ответил.</string>
     <string name="player_canal_nao_existe">Канала %1$d нет.</string>
     <string name="player_ao_vivo">ЭФИР</string>
     <string name="player_a_seguir">далее: %1$s</string>
-    <string name="player_teclas">▲ ▼ канал · OK список каналов · удерживайте OK 2 с: избранное · ◀ предыдущий канал · ▶ ▶ параметры · НАЗАД выход</string>
-    <string name="player_teclas_pausa">▶❙❙ или OK продолжить · ▶ параметры (вернуться в эфир) · ▲ ▼ канал · НАЗАД выход</string>
     <string name="player_cat_busca">Поиск: %1$s</string>
     <string name="player_acao_buscar">Поиск</string>
     <string name="player_acao_filtros">Фильтры</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s добавлено в «Хочу посмотреть»</string>
     <string name="filmes_interesse_tirou">%1$s убрано из «Хочу посмотреть»</string>
     <string name="filmes_interesses_cheio">В «Хочу посмотреть» уже 500 названий: сначала уберите одно.</string>
-    <string name="filmes_interesses_vazio">Удерживайте OK 2 секунды на постере, чтобы добавить его сюда (и снова — чтобы убрать).</string>
     <string name="filmes_assistido">Просмотрено</string>
     <string name="filmes_selo_leg">СУБ</string>
     <string name="vod_sem_conta">Аккаунта этого видео больше нет.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">Звук</string>
     <string name="vod_legenda">Субтитры</string>
     <string name="vod_faixas">Звук и субтитры</string>
-    <string name="vod_teclas">OK пауза · ◀ 10 с · ▶ 30 с (удерживайте для ускорения) · ▼ звук, субтитры и изображение · ⏮ ⏭ главы · НАЗАД выход</string>
     <string name="series_titulo">Сериалы</string>
     <string name="series_carregando">Загрузка сериалов…</string>
     <string name="series_vazio">Сериалов пока нет</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">Сезон %1$d</string>
     <string name="player_acao_guia">Телепрограмма</string>
     <string name="player_sem_guia_curto">Нет телепрограммы</string>
-    <string name="player_grade_teclas">OK смотреть · ◀ ▶ передача · ▲ ▼ канал</string>
     <string name="player_busca_dica">Название канала или передачи</string>
     <string name="player_busca_nada">По запросу «%1$s» ничего не найдено.</string>
     <string name="player_filtro_qualquer">Любое</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">Детские категории</string>
     <string name="infantil_carregando">загрузка категорий…</string>
     <string name="infantil_coluna_itens">ЧТО ВНУТРИ</string>
-    <string name="infantil_dica">OK отмечает или снимает отметку детской категории · действует для ТВ, Фильмов и Сериалов · НАЗАД выход (уже сохранено)</string>
     <string name="infantil_so_categoria">отмечайте всю категорию в левой колонке</string>
     <string name="infantil_vazio">нет категорий: добавьте аккаунт в Настройки › ТВ и фильмы и перезагрузите каналы</string>
     <string name="infantil_limite">взрослая категория не может быть детской</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">Избранное</string>
     <string name="player_cat_recentes">Недавние</string>
     <string name="player_cat_outros">Другие</string>
-    <string name="player_sem_favoritos">Избранного пока нет. Удерживайте OK 2 с на канале, чтобы добавить его сюда.</string>
+    <string name="player_sem_favoritos">Избранного пока нет.</string>
     <string name="player_categoria_vazia">В этой категории нет каналов.</string>
     <string name="player_sem_guia">Для этого канала нет телепрограммы.</string>
     <string name="player_depois">ДАЛЕЕ</string>
-    <string name="player_lista_teclas">OK смотреть · удерживайте OK 2 с: в избранное или убрать · удерживайте OK на категории: скрыть · ◀ категории</string>
     <string name="player_favorito_pos">★ %1$s добавлен в избранное</string>
     <string name="player_favorito_tirou">%1$s убран из избранного</string>
     <string name="player_favoritos_cheio">В избранном уже 500 каналов: сначала уберите один.</string>
@@ -642,7 +625,6 @@ AS\\Фильмы).</string>
     <string name="tvv_vazio">У этого канала пока нет сохранённых передач.</string>
     <string name="tvv_voltou">Вернулись в эфир</string>
     <string name="tvv_selo">АРХИВ</string>
-    <string name="tvv_teclas">◀ ▶ 30 с · OK параметры · НАЗАД эфир</string>
     <string name="tvv_pausar">Пауза</string>
     <string name="tvv_continuar">Продолжить</string>
     <string name="tvv_ao_vivo">Вернуться в эфир</string>
@@ -659,7 +641,7 @@ AS\\Фильмы).</string>
     <string name="series_nao_visto">Отметить непросмотренным</string>
     <string name="idioma_secao">Фильмы и сериалы</string>
     <string name="idioma_titulo">Предпочтительный звук</string>
-    <string name="idioma_det">Оригинал с субтитрами на языке ТВ или дубляж на нём. Каждый фильм и сериал запоминает изменение, сделанное в плеере (▼)</string>
+    <string name="idioma_det">Оригинал с субтитрами на языке ТВ или дубляж на нём. Каждый фильм и сериал запоминает изменение, сделанное в плеере</string>
     <string name="idioma_original">Оригинал с субтитрами</string>
     <string name="idioma_dublado">Дубляж</string>
     <string name="idioma_legendado">С субтитрами</string>
@@ -816,8 +798,8 @@ AS\\Фильмы).</string>
     <string name="st_titulo">Флешка и память</string>
     <string name="st_explica">Выберите, как ТВ использует флешку. Мало места? Она может стать памятью ТВ для тяжёлых приложений.</string>
     <string name="st_linha_det">Использовать флешку как память ТВ</string>
-    <string name="st_sem_shell">Нужна собственная оболочка ТВ (Настройки › Система › Расширенные). OK — повторить.</string>
-    <string name="st_sem_pen">Флешка не подключена. Подключите её и нажмите OK.</string>
+    <string name="st_sem_shell">Нужна собственная оболочка ТВ (Настройки › Система › Расширенные).</string>
+    <string name="st_sem_pen">Флешка не подключена.</string>
     <string name="st_tv_livre">Память ТВ: свободно %1$s из %2$s</string>
     <string name="st_pen">Флешка · %1$s · %2$s</string>
     <string name="st_modo_comum">Обычная флешка</string>
@@ -831,14 +813,13 @@ AS\\Фильмы).</string>
     <string name="st_motivo_grande">половина под приложения, половина под записи и файлы</string>
     <string name="st_motivo_apertada">память ТВ почти заполнена</string>
     <string name="st_medido">запись %1$s МБ/с</string>
-    <string name="st_medir_dica">OK — измерить скорость</string>
     <string name="st_usar_comum">Использовать как обычную флешку</string>
-    <string name="st_usar_misto">Смешанный режим: %1$d%% обычная  ◀ ▶</string>
+    <string name="st_usar_misto">Смешанный режим: %1$d%% обычная</string>
     <string name="st_usar_tv">Использовать как память ТВ</string>
     <string name="st_apps">Приложения на флешке</string>
     <string name="st_apps_det">Выбрать приложения для переноса (сначала крупные)</string>
     <string name="st_apps_nenhum">Нет приложений для переноса.</string>
-    <string name="st_apps_rodape">OK переносит приложение; ✓ = уже на флешке</string>
+    <string name="st_apps_rodape">✓ = уже на флешке</string>
     <string name="st_compartilhado">Фото и файлы: %1$s</string>
     <string name="st_na_tv">на ТВ</string>
     <string name="st_no_pen">на флешке</string>
@@ -863,7 +844,7 @@ AS\\Фильмы).</string>
     <string name="st_voltar_comum">Снова обычная флешка (приложения вернутся на ТВ)</string>
     <string name="st_trazendo">Возвращаем %1$s на ТВ…</string>
     <string name="st_sumiram">Флешка отключена: %1$s скрыты, пока она не вернётся.</string>
-    <string name="st_sugestao">Память ТВ почти заполнена. Перенесите %1$s (%2$s) на флешку: удерживайте OK на приложении.</string>
+    <string name="st_sugestao">Память ТВ почти заполнена. Перенесите %1$s (%2$s) на флешку</string>
     <string name="st_medindo">Измеряю скорость флешки, чтобы посоветовать лучший вариант…</string>
     <string name="st_lento_titulo">Флешка слишком медленная</string>
     <string name="st_lento_bloqueado">Эта флешка пишет со скоростью %1$s МБ/с. Чтобы стать памятью ТВ, нужно не меньше %2$d МБ/с: иначе приложения зависают, а ТВ может не включиться. Используйте её как обычную флешку.</string>
@@ -881,12 +862,12 @@ AS\\Фильмы).</string>
     <string name="aviso_sync_texto">На этом телевизоре нет аккаунта %1$s. Подключите его в Настройки › ТВ и фильмы.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">Что нового</string>
-    <string name="ver_novidades_det">Изменений в версии %2$s: %1$d · OK, чтобы прочитать</string>
+    <string name="ver_novidades_det">Изменений в версии %2$s: %1$d</string>
     <string name="ver_novidades_sobre">Версия %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Проверить на телевизоре</string>
-    <string name="ver_conferir_det">Проверено пультом: %1$d из %2$d · OK, чтобы начать</string>
-    <string name="ver_conferir_sub">Версия %1$s · пунктов: %2$d · OK на пункте, чтобы ответить</string>
+    <string name="ver_conferir_det">Проверено пультом: %1$d из %2$d</string>
+    <string name="ver_conferir_sub">Версия %1$s · пунктов: %2$d</string>
     <string name="ver_conferido">Проверено: %1$d из %2$d</string>
     <string name="ver_sim">Да</string>
     <string name="ver_nao">Нет</string>

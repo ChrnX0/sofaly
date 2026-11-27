@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">15.000 de pictograme cu linie subțire (făcute pentru telefoane, funcționează aici)</string>
     <string name="ext_off_health">Oprit: a încetat să răspundă. Pornește-l din nou dacă vrei.</string>
     <string name="ext_secao_botoes">Butoanele panoului rapid</string>
-    <string name="ext_nenhum_botao">Încă nu există butoane din alte aplicații. Unele aplicații adaugă un buton pornit/oprit în panoul rapid (ține apăsat ÎNAPOI).</string>
+    <string name="ext_nenhum_botao">Încă nu există butoane din alte aplicații. Unele aplicații adaugă un buton pornit/oprit în panoul rapid.</string>
     <string name="ext_off_blocked">Oprit de Sofaly: acest plugin are o problemă cunoscută.</string>
     <string name="ext_secao_widgets">Widgeturi din alte aplicații</string>
     <string name="ext_widget_nenhum">Încă nicio aplicație de pe acest televizor nu are widget.</string>

@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s अभी: %2$s (%3$s तक)</string>
     <string name="l72_guia_nada_agora">%1$s: गाइड में अभी कुछ नहीं</string>
     <string name="l72_guia_depois">अगला: %1$s (%2$s)</string>
-    <string name="l75_pilula">अभी चल रहा: %1$s, %2$s। OK रोकता या जारी रखता है; ऐप खोलने के लिए OK दबाए रखें</string>
+    <string name="l75_pilula">अभी चल रहा: %1$s, %2$s।</string>
 </resources>

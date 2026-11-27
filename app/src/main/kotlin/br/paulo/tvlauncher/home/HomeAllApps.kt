@@ -252,8 +252,7 @@ internal fun MainActivity.infoTodos(card: AllAppsScreen.Card): AllAppsScreen.Inf
             canais.mapNotNull { cd -> listOf(cd.titulo, cd.canal).firstOrNull { it.isNotBlank() } }.forEach { linhas += "· $it" }
         }
     }
-    val ajuda = getString(if (card.kind == AllAppsScreen.Kind.FROZEN) R.string.aa_hint_frozen else R.string.aa_hint_app)
-    return AllAppsScreen.Info(card.name, linhas, dica, ajuda)
+    return AllAppsScreen.Info(card.name, linhas, dica, "")   // sem linha de teclas (Paulo, 26/11/2026)
 }
 
 internal fun MainActivity.podeCongelar() = PlayPolicy.allowed(PlayPolicy.Power.FREEZE_APPS, BuildConfig.PLAY)

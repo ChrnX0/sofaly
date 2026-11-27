@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Tydeligere stemmer slået til</string>
     <string name="acess_voz_desligado">Tydeligere stemmer slået fra</string>
     <string name="acess_config_titulo">Lyd og undertekster</string>
-    <string name="acess_config_texto">Til dem, der ser eller hører dårligere. Også i menuen ▼ i afspilleren.</string>
+    <string name="acess_config_texto">Til dem, der ser eller hører dårligere.</string>
 </resources>

@@ -41,13 +41,12 @@
     <string name="casa_desligado">Вимк.</string>
     <string name="casa_aberta">Відчинено</string>
     <string name="casa_fechada">Зачинено</string>
-    <string name="casa_rodar">OK, щоб запустити</string>
     <string name="casa_indisponivel">Недоступно</string>
     <string name="casa_sem_config_titulo">Підключіть свій дім</string>
     <string name="casa_dica_acionar">увімкнути або вимкнути</string>
     <string name="casa_erro">Home Assistant не відповів: %1$s</string>
     <string name="casa_ligado_pct">Увімк. · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Яскравість %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Яскравість %1$d%%</string>
     <string name="casa_dica_brilho">яскравість</string>
     <string name="casa_tecla_segurar_ok">УТРИМУЙТЕ OK</string>
     <string name="ca_liberado">Звільнено %1$s. Вільно зараз: %2$s.</string>

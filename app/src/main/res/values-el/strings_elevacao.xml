@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">πάνω</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Κάν’ το</string>
-    <string name="elv_bf_ok_faz">Το OK το κάνει τώρα</string>
     <string name="elv_bf_wifi">Εμφάνιση του Wi-Fi επισκεπτών</string>
-    <string name="elv_bf_wifi_configurar">Δεν έχει ρυθμιστεί ακόμα: το OK ανοίγει τις Ρυθμίσεις (Επισκέψεις)</string>
+    <string name="elv_bf_wifi_configurar">Δεν έχει ρυθμιστεί ακόμα</string>
     <string name="elv_bf_letra_maior">Μεγαλύτερο κείμενο (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Μικρότερο κείμενο (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Είναι ήδη σε αυτό το μέγεθος</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">μετά τη δύση του ηλίου</string>
     <string name="elv_ss_dia_util">είναι καθημερινή</string>
     <string name="elv_ss_perfil">το προφίλ είναι %1$s</string>
-    <string name="elv_ss_det">◀ ▶ αλλαγή συνθήκης</string>
     <string name="extras_ABERTURA_PRONTA">Παράλειψη εισαγωγής (IntroDB): στα επεισόδια, η τηλεόραση ρωτά την κοινοτική υπηρεσία IntroDB πού είναι η εισαγωγή (στέλνει ποιο επεισόδιο, ποτέ τον λογαριασμό σας)· ανενεργό, μόνο εισαγωγές που σημειώσατε εσείς</string>
 </resources>

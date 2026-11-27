@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">잠시 기다려 주세요.</string>
     <string name="cuidar_nao_avisado">%1$s 님에게 알리지 못했습니다</string>
     <string name="cuidar_sem_aparelho">받도록 설정된 휴대폰이 없습니다. 설정 › 가족 › 멀리서 돌보기를 확인하세요.</string>
-    <string name="cuidar_sem_internet">인터넷을 확인하고 다시 시도하세요(버튼을 3초간 누르기).</string>
+    <string name="cuidar_sem_internet">인터넷을 확인하고 다시 시도하세요.</string>
     <string name="cuidar_lembrete_sobre">알림 · %1$s</string>
     <string name="cuidar_lembrete_explica">다 하면 OK를 누르세요.</string>
     <string name="cuidar_lembrete_explica_aviso">다 하면 OK를 누르세요. %1$d분 안에 누르지 않으면 %2$s 님에게 알림이 갑니다.</string>

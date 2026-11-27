@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">„%1$s” chce przeglądać i kopiować pliki z pamięci telewizora przez sieć domową. Zezwolić temu komputerowi?</string>
     <string name="mtp_pcs">Dozwolone komputery</string>
     <string name="mtp_pcs_nenhum">Jeszcze brak. Telewizor pyta na ekranie, gdy komputer prosi o pliki.</string>
-    <string name="mtp_pcs_lista">%1$s · OK zapomina wszystkie (każdy zapyta ponownie)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Komputery zapomniane</string>
     <string name="ur_atalho_nome">Otwórz panel telewizora</string>
     <string name="ssdp_painel">panel</string>

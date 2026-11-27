@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Amit Sofy tud</string>
-    <string name="smem_sub">Amit erről az otthonról megtanult. Az OK egy elemet elfelejt; újratanulja.</string>
+    <string name="smem_sub">Amit erről az otthonról megtanult.</string>
     <string name="smem_linha_det">Amit megtanult, Elfelejtés gombbal</string>
     <string name="smem_uso">Mikor használják a tévét</string>
     <string name="smem_uso_det">Megtanult órák: %1$d</string>

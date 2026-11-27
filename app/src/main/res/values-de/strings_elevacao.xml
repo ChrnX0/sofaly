@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">unten</string>
     <string name="elv_leg_em_cima">oben</string>
     <string name="elv_bf_fazer">Ausführen</string>
-    <string name="elv_bf_ok_faz">OK führt es jetzt aus</string>
     <string name="elv_bf_wifi">Gäste-WLAN anzeigen</string>
-    <string name="elv_bf_wifi_configurar">Noch nicht eingerichtet: OK öffnet die Einstellungen (Besuch)</string>
+    <string name="elv_bf_wifi_configurar">Noch nicht eingerichtet</string>
     <string name="elv_bf_letra_maior">Größere Schrift (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Kleinere Schrift (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Schon in dieser Größe</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">es nach Sonnenuntergang ist</string>
     <string name="elv_ss_dia_util">es ein Werktag ist</string>
     <string name="elv_ss_perfil">das Profil %1$s ist</string>
-    <string name="elv_ss_det">◀ ▶ ändern die Bedingung</string>
     <string name="extras_ABERTURA_PRONTA">Intro überspringen (IntroDB): bei Episoden fragt der Fernseher den Community-Dienst IntroDB, wo das Intro ist (er sendet die Episode, nie Ihr Konto); aus: nur von Ihnen markierte Intros</string>
 </resources>

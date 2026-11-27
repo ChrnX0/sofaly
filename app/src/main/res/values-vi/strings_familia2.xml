@@ -14,8 +14,7 @@
     <string name="tp_frio_texto">Xuống đến %d° tối nay · Hãy mặc ấm</string>
     <string name="tp_cfg">Cảnh báo nóng và lạnh</string>
     <string name="tp_cfg_det">Một thẻ hiện trên mọi ứng dụng khi hôm nay đạt %1$d° hoặc tối nay xuống %2$d°</string>
-    <string name="mu_ok_lido">OK để đánh dấu đã đọc</string>
-    <string name="mu_ok_nao_lido">Đã đọc · OK để đánh dấu chưa đọc</string>
+    <string name="mu_ok_nao_lido">Đã đọc</string>
     <string name="mu_lido_desc">Tin nhắn, đã đọc: %s. OK để đánh dấu chưa đọc.</string>
     <string name="mu_nao_lido_desc">Tin nhắn: %s. OK để đánh dấu đã đọc.</string>
     <string name="mu_apagar">Xóa tin nhắn: %s</string>

@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Finomhangolás</string>
-    <string name="ft_dica">OK vagy ▶ ◀ módosít · a VISSZA bezár</string>
     <string name="ft_abrir">Állítsa be, miközben látja a kezdőképernyőt</string>
     <string name="ft_abrir_det">Betűtípus, óra, kiemelőszín, sarkok, ragyogás és méret, élőben</string>
     <string name="cs_destaque">Kiemelőszín</string>

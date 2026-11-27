@@ -3,7 +3,7 @@
 <resources>
     <string name="famc_titulo">Aile bağlantısı</string>
     <string name="famc_det">Çocuklar ve torunlar bir bağlantıyla bu TV’ye fotoğraf ve not gönderir, hesap gerekmez</string>
-    <string name="famc_ligado">Açık: OK, tekrar paylaşmak için QR kodunu gösterir</string>
+    <string name="famc_ligado">Açık</string>
     <string name="famc_texto">Kodu telefonla okutun ve bağlantıyı aileye gönderin (WhatsApp, e-posta). Bağlantısı olan fotoğraf ve not gönderir: hemen ekranda görünür, notlar hızlı paneldeki panoda kalır, fotoğraflar ekran koruyucu fotoğraflarına eklenir. Hiçbir şey bizim sunucularımızdan geçmez.</string>
     <string name="famc_sem_tunel">Bu, evin dışından erişimi (Tailscale) kullanır; bu TV’de henüz kurulmadı. Ayarlar › Ev ve ağ › Uzaktan erişim bölümünden kurup buraya dönün.</string>
     <string name="famc_trocar">Yeni bağlantı</string>

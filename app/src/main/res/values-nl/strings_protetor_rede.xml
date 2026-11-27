@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Screensaver remote keys (idea 28) -->
-    <string name="pt_dica_dispensar">OK sluit · ◀ ▶ verschuiven</string>
-    <string name="pt_dica_pausar">OK pauzeert of hervat · ◀ ▶ verschuiven</string>
-    <string name="pt_dica_andar">◀ ▶ verschuiven · andere toetsen sluiten</string>
     <!-- Screensaver photos from a network folder (idea 27) -->
     <string name="rede_fotos_usar">Deze foto\'s in de schermbeveiliging gebruiken</string>
     <string name="rede_fotos_parar">Deze foto\'s niet meer in de schermbeveiliging gebruiken</string>
@@ -20,6 +17,6 @@
     <string name="rede_buscar_explica">Films, series, afleveringen en muziek op deze server.</string>
     <string name="rede_buscar_campo">Naam</string>
     <string name="rede_buscar_curto">Typ minstens 2 letters.</string>
-    <string name="rede_proximo_em">Hierna: %1$s over %2$d s · OK start nu · elke andere toets annuleert</string>
+    <string name="rede_proximo_em">Hierna: %1$s over %2$d s</string>
     <string name="rede_ainda_assistindo">Kijk je nog? OK start %1$s</string>
 </resources>

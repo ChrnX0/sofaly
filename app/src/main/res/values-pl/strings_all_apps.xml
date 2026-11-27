@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Ostrożnie według karty</string>
     <string name="aa_risk_essential">Niezbędna dla telewizora: nie zamrażaj</string>
     <string name="aa_tip_idle">Nieotwierana od %1$d dni. Zamrożenie zwalnia pamięć i można je cofnąć.</string>
-    <string name="aa_hint_app">OK otwiera · przytrzymaj OK, aby przenieść, ukryć, zamrozić lub odinstalować</string>
-    <string name="aa_hint_frozen">OK odmraża i otwiera</string>
-    <string name="aa_hint_lock">OK prosi o PIN i pokazuje tu ukryte aplikacje</string>
     <string name="aa_open">Otwórz</string>
     <string name="aa_freeze">Zamroź</string>
     <string name="aa_freezing">Zamrażanie: %1$s…</string>

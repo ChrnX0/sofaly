@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Для кого цей телевізор?</string>
-    <string name="rec_subtitulo">Одне OK налаштовує телевізор. Скасувати можна будь-коли.</string>
+    <string name="rec_subtitulo">Скасувати можна будь-коли.</string>
     <string name="rec_vo">Телевізор для бабусі</string>
     <string name="rec_vo_det">Великі картки з назвами вголос, більший текст і кнопка Отримати допомогу.</string>
     <string name="rec_criancas">Дитячий телевізор</string>

@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Czekam na potwierdzenie na telefonie…</string>
     <string name="rede_nuvem_salvando">Logowanie…</string>
     <string name="rede_nuvem_recusado">Serwis odmówił. Sprawdź identyfikator aplikacji i spróbuj ponownie.</string>
-    <string name="rede_erro_nuvem_login">Uprawnienie tego konta wygasło lub zostało usunięte. Usuń konto (przytrzymaj OK) i zaloguj się ponownie.</string>
+    <string name="rede_erro_nuvem_login">Uprawnienie tego konta wygasło lub zostało usunięte. Usuń konto i zaloguj się ponownie.</string>
     <string name="rede_od_titulo">OneDrive: Twoja aplikacja w Microsoft</string>
     <string name="rede_od_explica">Raz, na komputerze: entra.microsoft.com › Rejestracje aplikacji › Nowa rejestracja. Jako typ kont wybierz ten, który obejmuje osobiste konta Microsoft. Potem w Uwierzytelnianiu włącz „Zezwalaj na przepływy klientów publicznych”. Skopiuj „Identyfikator aplikacji (klienta)” i wpisz go tutaj (możesz pisać z telefonu, w panelu).</string>
     <string name="rede_od_id">Identyfikator aplikacji (klienta)</string>

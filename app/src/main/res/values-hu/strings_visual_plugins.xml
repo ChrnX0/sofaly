@@ -49,6 +49,6 @@
     <string name="ext_widget_falhou">Ezt a widgetet nem sikerült hozzáadni.</string>
     <string name="ext_off_health">Kikapcsolva: nem válaszolt. Ha szeretné, kapcsolja be újra.</string>
     <string name="ext_secao_botoes">Gyorspanel gombjai</string>
-    <string name="ext_nenhum_botao">Még nincsenek gombok más alkalmazásokból. Egyes alkalmazások be/ki gombot adnak a gyorspanelhez (tartsa lenyomva a VISSZA gombot).</string>
+    <string name="ext_nenhum_botao">Még nincsenek gombok más alkalmazásokból. Egyes alkalmazások be/ki gombot adnak a gyorspanelhez.</string>
     <string name="ext_off_blocked">A Sofaly kikapcsolta: ennek a bővítménynek ismert hibája van.</string>
 </resources>

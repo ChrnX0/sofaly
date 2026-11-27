@@ -29,7 +29,7 @@
     <string name="lbl_cenas">Сцены</string>
     <string name="pr_cenas">Сцены</string>
     <string name="cenas_titulo">Сцены</string>
-    <string name="cenas_det">OK запускает сцену. Создавайте и меняйте их в веб-панели › Дом и автоматизация › Сцены.</string>
+    <string name="cenas_det">Создавайте и меняйте их в веб-панели › Дом и автоматизация › Сцены.</string>
     <string name="cenas_vazio">Сцен пока нет. Создайте сцену в веб-панели › Дом и автоматизация › Сцены.</string>
     <string name="tec_titulo">Кнопки пульта</string>
     <string name="tec_det">Netflix и YouTube работают на любом экране; цветные кнопки и цифры — только на главном.</string>

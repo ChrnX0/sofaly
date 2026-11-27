@@ -7,8 +7,8 @@
     <string name="bkn_desligado">desactivada</string>
     <string name="bkn_sem_senha">desactivada · define primero la contraseña de la copia</string>
     <string name="bkn_senha">Contraseña de la copia</string>
-    <string name="bkn_senha_ok">definida · OK la cambia</string>
-    <string name="bkn_senha_falta">sin definir · OK la define</string>
+    <string name="bkn_senha_ok">definida</string>
+    <string name="bkn_senha_falta">sin definir</string>
     <string name="bkn_senha_nova">Contraseña de la copia (8 caracteres o más)</string>
     <string name="bkn_senha_repetir">Escribe la contraseña otra vez</string>
     <string name="bkn_senha_curta">La contraseña necesita de 8 a 128 caracteres.</string>

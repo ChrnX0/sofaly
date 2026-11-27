@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Hintergrund des Bildschirmschoners</string>
-    <string name="pv2_fundo_det">der des Designs oder echte Fotos der Erde aus dem All · OK ändert</string>
     <string name="pv2_fundo_tema">Vom Design</string>
     <string name="pv2_fundo_terra">Die Erde aus dem All</string>
     <string name="pv2_relogio">Uhr des Bildschirmschoners</string>
-    <string name="pv2_relogio_det">sechs Stile · OK ändert</string>
     <string name="pv2_rel_fino">Schmal</string>
     <string name="pv2_rel_editorial">Editorial</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">In Worten</string>
     <string name="pv2_rel_empilhado">Gestapelt</string>
     <string name="pv2_posicao">Position der Uhr</string>
-    <string name="pv2_posicao_det">OK ändert</string>
     <string name="pv2_pos_alto">Oben links</string>
     <string name="pv2_pos_baixo">Unten links</string>
     <string name="pv2_pos_centro">In der Mitte</string>
     <string name="pv2_tamanho">Größe der Uhr</string>
-    <string name="pv2_tamanho_det">große Ziffern lassen sich aus der Ferne besser lesen · OK ändert</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Groß</string>
     <string name="pv2_mostrar">Was der Bildschirmschoner zeigt</string>
-    <string name="pv2_mostrar_det">„Nur die Uhrzeit“: jede Taste der Fernbedienung zeigt den Rest 15 s lang · OK ändert</string>
     <string name="pv2_mostrar_so">Nur die Uhrzeit</string>
     <string name="pv2_mostrar_vez">Ab und zu</string>
     <string name="pv2_mostrar_sempre">Alles</string>
     <string name="pv2_elementos">Auf dem Bildschirmschoner</string>
-    <string name="pv2_el_det">erscheint auf dem Bildschirmschoner · OK ein oder aus</string>
     <string name="pv2_el_saudacao">Begrüßung</string>
     <string name="pv2_el_data">Datum</string>
     <string name="pv2_el_linha_dia">Tageslichtlinie</string>

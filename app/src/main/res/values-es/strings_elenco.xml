@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">Anteriormente en %1$s</string>
     <string name="anteriormente_assistir">Ver %1$s</string>
     <string name="anteriormente_pular_sempre">No mostrar nunca</string>
-    <string name="anteriormente_desligado">Resúmenes desactivados. Para activarlos de nuevo: mantén OK en un episodio.</string>
+    <string name="anteriormente_desligado">Resúmenes desactivados.</string>
     <string name="anteriormente_ligar">Mostrar los resúmenes “Anteriormente”</string>
     <string name="idade_titulo">Edad máxima en modo infantil</string>
     <string name="idade_det">Las películas y series clasificadas hasta esta edad aparecen desde cualquier categoría (clasificación de TMDB). Las sin clasificación, solo en categorías infantiles.</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">También en: %1$s (JustWatch)</string>
     <string name="onde_fora">No está en tu lista · en %1$s</string>
     <string name="onde_grupo">En otros lugares (JustWatch)</string>
-    <string name="legenda_auto_pronta">Subtítulos descargados automáticamente (hechos para este archivo) · ▼ para cambiar</string>
-    <string name="legenda_auto_pronta_nome">Subtítulos descargados automáticamente · ▼ para cambiar o ajustar el retraso</string>
+    <string name="legenda_auto_pronta">Subtítulos descargados automáticamente (hechos para este archivo)</string>
+    <string name="legenda_auto_pronta_nome">Subtítulos descargados automáticamente</string>
     <string name="legenda_trad_rotulo">Traducción automática</string>
     <string name="legenda_trad_traduzindo">No hay subtítulos en tu idioma: traduciendo los de inglés en la TV…</string>
     <string name="legenda_trad_parcial">Subtítulos traducidos en la TV (traducción automática). El resto se sigue traduciendo.</string>

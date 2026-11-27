@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Muuta varoen, sanoo sen tietokortti</string>
     <string name="aa_risk_essential">Välttämätön TV:lle: älä jäädytä</string>
     <string name="aa_tip_idle">Ei avattu %1$d päivään. Jäädyttäminen vapauttaa muistia ja on peruttavissa.</string>
-    <string name="aa_hint_app">OK avaa · pidä OK siirtääksesi, piilottaaksesi, jäädyttääksesi tai poistaaksesi</string>
-    <string name="aa_hint_frozen">OK sulattaa ja avaa</string>
-    <string name="aa_hint_lock">OK kysyy PIN-koodia ja näyttää piilotetut sovellukset täällä</string>
     <string name="aa_open">Avaa</string>
     <string name="aa_freeze">Jäädytä</string>
     <string name="aa_freezing">Jäädytetään %1$s…</string>

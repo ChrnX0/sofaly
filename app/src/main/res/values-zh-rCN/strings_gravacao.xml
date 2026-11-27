@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">每周</string>
     <string name="grv_cancelar_pergunta">取消“%1$s”的录制？</string>
     <string name="grv_gravadas">已录制</string>
-    <string name="grv_vazio">还没有录制内容。在播放器中 ▶▶ › 录制；在节目指南中，在未来的节目上按 OK。</string>
+    <string name="grv_vazio">还没有录制内容。</string>
     <string name="grv_vazio_sem_destino">请将 U 盘插入集线器以查看和进行录制。</string>
     <string name="grv_partes">%1$d 部分</string>
     <string name="grv_parte">第 %1$d 部分，共 %2$d 部分</string>

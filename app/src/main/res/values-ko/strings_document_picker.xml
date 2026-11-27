@@ -14,7 +14,6 @@
     <string name="dp_abrindo">여는 중…</string>
     <string name="dp_erro">이 위치를 열 수 없습니다. 연결되어 있는지 확인하고 다시 시도하세요.</string>
     <string name="dp_arquivos">이 폴더의 파일: %1$d</string>
-    <string name="dp_dicas">OK: 열기 · 뒤로: 돌아가기</string>
     <string name="dp_diario">%1$s이(가) 선택기에서 %2$s을(를) 받음</string>
     <string name="dp_sem_nome">이름 없음</string>
 </resources>

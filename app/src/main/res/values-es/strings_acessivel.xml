@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Voces más claras activadas</string>
     <string name="acess_voz_desligado">Voces más claras desactivadas</string>
     <string name="acess_config_titulo">Sonido y subtítulos</string>
-    <string name="acess_config_texto">Para quien ve u oye menos. También en el menú ▼ del reproductor.</string>
+    <string name="acess_config_texto">Para quien ve u oye menos.</string>
 </resources>

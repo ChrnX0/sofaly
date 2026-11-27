@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">スマートフォンでの確認を待っています…</string>
     <string name="rede_nuvem_salvando">ログイン中…</string>
     <string name="rede_nuvem_recusado">サービスに拒否されました。アプリ ID を確認して、もう一度お試しください。</string>
-    <string name="rede_erro_nuvem_login">このアカウントの許可は期限切れか、削除されました。アカウントを削除し（OK 長押し）、もう一度ログインしてください。</string>
+    <string name="rede_erro_nuvem_login">このアカウントの許可は期限切れか、削除されました。アカウントを削除し、もう一度ログインしてください。</string>
     <string name="rede_od_titulo">OneDrive: Microsoft でのあなたのアプリ</string>
     <string name="rede_od_explica">一度だけ、パソコンで: entra.microsoft.com › アプリの登録 › 新規登録。アカウントの種類は個人用 Microsoft アカウントを含むものを選びます。次に「認証」で「パブリック クライアント フローを許可する」をオンにします。「アプリケーション (クライアント) ID」をコピーしてここに入力してください（パネルからスマートフォンで入力できます）。</string>
     <string name="rede_od_id">アプリケーション (クライアント) ID</string>

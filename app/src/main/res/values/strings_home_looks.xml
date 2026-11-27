@@ -2,7 +2,6 @@
 <resources>
     <!-- Visuais prontos da barra única (HomeLooks, 25/11/2026). -->
     <string name="hl_titulo">Ready-made looks</string>
-    <string name="hl_det">One OK changes everything together</string>
     <string name="hl_sofaly">Sofaly</string>
     <string name="hl_night">Night</string>
     <string name="hl_mountain">Mountains</string>

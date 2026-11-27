@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Najpierw oznacz początek czołówki</string>
     <string name="abertura_invalida">To nie wygląda na czołówkę: musi trwać od 10 s do 5 min i zaczynać się w pierwszych 15 min</string>
     <string name="abertura_apagada">Oznaczenie czołówki usunięte</string>
-    <string name="abertura_pular">Pomiń czołówkę · OK</string>
+    <string name="abertura_pular">Pomiń czołówkę</string>
 </resources>

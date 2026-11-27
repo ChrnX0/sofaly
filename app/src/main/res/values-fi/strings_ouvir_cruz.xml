@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Suosikit soivat myös kaukosäätimen näppäimillä 1–9</string>
     <string name="ouv_tecla">Kaukosäätimen näppäin %d</string>
     <string name="ouv_ao_sair">Poistuttaessa</string>
-    <string name="ouv_ao_sair_continua">Jatkaa soimista aloitusnäytössä\n▶❙❙ kaukosäätimessä tauottaa sen mistä tahansa näytöstä</string>
+    <string name="ouv_ao_sair_continua">Jatkaa soimista aloitusnäytössä</string>
     <string name="ouv_ao_sair_para">Pysähtyy, kun poistut tältä näytöltä</string>
     <string name="ouv_recentes">Viimeisimmät</string>
     <string name="ouv_sem_favoritas">Ei vielä suosikkeja</string>
-    <string name="ouv_sem_favoritas_det">Pidä OK pohjassa asemalla säilyttääksesi sen täällä</string>
     <string name="ouv_sem_recentes">Täällä ei ole vielä mitään</string>
     <string name="ouv_sem_recentes_det">Toistamasi asemat näkyvät täällä</string>
     <string name="ouv_paises">Maat</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Suora</string>
     <string name="ouv_dica_pular">ohita</string>
     <string name="ouv_voltar">Takaisin 15 s</string>
-    <string name="ouv_voltar_det">Myös ◀◀ kaukosäätimessä</string>
     <string name="ouv_avancar">Eteenpäin 30 s</string>
-    <string name="ouv_avancar_det">Myös ▶▶ kaukosäätimessä</string>
     <string name="ouv_velocidade_det">%s · ääni säilyttää korkeutensa</string>
     <string name="ouv_parar_pod_det">Kohta, johon jäit, tallennetaan myöhempää varten</string>
     <string name="ouv_seguindo">Seuratut</string>

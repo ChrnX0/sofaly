@@ -2756,12 +2756,12 @@ class MainActivity : Activity() {
 
         override fun focused(card: AllAppsScreen.Card) {
             if (card.kind == AllAppsScreen.Kind.LOCK) {
-                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, emptyList(), null, getString(R.string.aa_hint_lock)))
+                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, emptyList(), null, ""))
                 return
             }
             if (card.kind == AllAppsScreen.Kind.FOLDER || card.kind == AllAppsScreen.Kind.NEW_FOLDER) {
                 val n = br.paulo.tvlauncher.home.AppFolders.all(this@MainActivity).firstOrNull { it.id == card.pkg }?.apps?.size
-                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, listOfNotNull(n?.let { getString(R.string.cruz_apps_n, it) }), null, getString(R.string.aa_hint_folder)))
+                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, listOfNotNull(n?.let { getString(R.string.cruz_apps_n, it) }), null, ""))
                 return
             }
             Fundo.rodar("TodosInfo") {

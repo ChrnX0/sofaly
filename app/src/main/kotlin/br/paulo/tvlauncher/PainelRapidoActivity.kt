@@ -1057,8 +1057,7 @@ class PainelRapidoActivity : Activity() {
             setPaddingRelative(dp(Estilo.E2 - 4), dp(Estilo.E1 + 4), dp(Estilo.E2 - 4), dp(Estilo.E1 + 4))
             background = Estilo.superficie(this@PainelRapidoActivity, false)
             addView(texto)
-            addView(Estilo.texto(this@PainelRapidoActivity, Estilo.Papel.LEGENDA,
-                getString(if (lido) R.string.mu_ok_nao_lido else R.string.mu_ok_lido)))
+            if (lido) addView(Estilo.texto(this@PainelRapidoActivity, Estilo.Papel.LEGENDA, getString(R.string.mu_ok_nao_lido)))   // "Lido" (sem a dica do OK)
             contentDescription = getString(if (lido) R.string.mu_lido_desc else R.string.mu_nao_lido_desc, recado)
             setOnFocusChangeListener { v, foco ->
                 Estilo.focarLinha(v, foco)

@@ -620,7 +620,7 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
         tela.removeCallbacks(lerFichaRapida)
         if (f == null) {
             painel.mostrarFoco(when {
-                chave == INTERESSES -> getString(R.string.filmes_interesses_vazio)
+                chave == INTERESSES -> ""
                 filtro.ativo -> getString(R.string.filmes_filtro_vazio)
                 else -> ""
             }); return

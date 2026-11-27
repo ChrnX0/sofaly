@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Esperando que confirmes en tu teléfono…</string>
     <string name="rede_nuvem_salvando">Iniciando sesión…</string>
     <string name="rede_nuvem_recusado">El servicio se negó. Revisa el id de la app e inténtalo de nuevo.</string>
-    <string name="rede_erro_nuvem_login">El permiso de esta cuenta venció o se quitó. Quita la cuenta (mantén OK) e inicia sesión de nuevo.</string>
+    <string name="rede_erro_nuvem_login">El permiso de esta cuenta venció o se quitó. Quita la cuenta e inicia sesión de nuevo.</string>
     <string name="rede_od_titulo">OneDrive: tu app en Microsoft</string>
     <string name="rede_od_explica">Una vez, en una computadora: entra.microsoft.com › Registros de aplicaciones › Nuevo registro. En tipos de cuenta, elige el que incluye cuentas personales de Microsoft. Luego, en Autenticación, activa “Permitir flujos de clientes públicos”. Copia el “Id. de aplicación (cliente)” y escríbelo aquí (puedes escribir desde el teléfono, en el panel).</string>
     <string name="rede_od_id">Id. de aplicación (cliente)</string>

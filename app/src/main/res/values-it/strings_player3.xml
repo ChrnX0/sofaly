@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Segna prima l’inizio della sigla</string>
     <string name="abertura_invalida">Non sembra una sigla: deve durare da 10 s a 5 min e iniziare nei primi 15 min</string>
     <string name="abertura_apagada">Segno della sigla eliminato</string>
-    <string name="abertura_pular">Salta sigla · OK</string>
+    <string name="abertura_pular">Salta sigla</string>
 </resources>

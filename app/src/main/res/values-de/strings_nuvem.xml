@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Warte auf deine Bestätigung am Handy …</string>
     <string name="rede_nuvem_salvando">Anmeldung läuft …</string>
     <string name="rede_nuvem_recusado">Der Dienst hat abgelehnt. Prüfe die App-ID und versuch es erneut.</string>
-    <string name="rede_erro_nuvem_login">Die Berechtigung dieses Kontos ist abgelaufen oder wurde entfernt. Entferne das Konto (OK halten) und melde dich erneut an.</string>
+    <string name="rede_erro_nuvem_login">Die Berechtigung dieses Kontos ist abgelaufen oder wurde entfernt. Entferne das Konto und melde dich erneut an.</string>
     <string name="rede_od_titulo">OneDrive: deine App bei Microsoft</string>
     <string name="rede_od_explica">Einmal, auf einem Computer: entra.microsoft.com › App registrations › New registration. Wähle bei den Kontotypen den, der persönliche Microsoft-Konten einschließt. Schalte dann unter Authentication „Allow public client flows“ ein. Kopiere die „Application (client) ID“ und gib sie hier ein (du kannst vom Handy aus im Panel tippen).</string>
     <string name="rede_od_id">Application (client) ID</string>

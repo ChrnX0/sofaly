@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">A seguir</string>
     <string name="pl_dormir">Temporizador para dormir</string>
     <string name="pl_dormir_min">Daqui a %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ andam 10 s · mantenha premido para ir mais depressa</string>
     <string name="pl_abrir">Abrir o leitor</string>
     <string name="pl_abrir_det">Ecrã inteiro, com o que toca a seguir</string>
 </resources>

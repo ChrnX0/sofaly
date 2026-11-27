@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Näytönsäästäjän tausta</string>
-    <string name="pv2_fundo_det">teeman oma tai oikeita kuvia Maasta avaruudesta nähtynä · OK muuttaa</string>
     <string name="pv2_fundo_tema">Teeman oma</string>
     <string name="pv2_fundo_terra">Maa avaruudesta</string>
     <string name="pv2_relogio">Näytönsäästäjän kello</string>
-    <string name="pv2_relogio_det">kuusi tyyliä · OK muuttaa</string>
     <string name="pv2_rel_fino">Ohut</string>
     <string name="pv2_rel_editorial">Toimituksellinen</string>
     <string name="pv2_rel_monumental">Monumentaalinen</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Sanoin</string>
     <string name="pv2_rel_empilhado">Pinottu</string>
     <string name="pv2_posicao">Kellon sijainti</string>
-    <string name="pv2_posicao_det">OK muuttaa</string>
     <string name="pv2_pos_alto">Ylhäällä vasemmalla</string>
     <string name="pv2_pos_baixo">Alhaalla vasemmalla</string>
     <string name="pv2_pos_centro">Keskellä</string>
     <string name="pv2_tamanho">Kellon koko</string>
-    <string name="pv2_tamanho_det">isot numerot on helpompi lukea kaukaa · OK muuttaa</string>
     <string name="pv2_tam_normal">Normaali</string>
     <string name="pv2_tam_grande">Suuri</string>
     <string name="pv2_mostrar">Mitä näytönsäästäjä näyttää</string>
-    <string name="pv2_mostrar_det">\"Vain aika\": mikä tahansa kaukosäätimen näppäin näyttää loput 15 s ajan · OK muuttaa</string>
     <string name="pv2_mostrar_so">Vain aika</string>
     <string name="pv2_mostrar_vez">Silloin tällöin</string>
     <string name="pv2_mostrar_sempre">Kaikki</string>
     <string name="pv2_elementos">Näytönsäästäjässä</string>
-    <string name="pv2_el_det">näkyy näytönsäästäjässä · OK kytkee päälle tai pois</string>
     <string name="pv2_el_saudacao">Tervehdys</string>
     <string name="pv2_el_data">Päivämäärä</string>
     <string name="pv2_el_linha_dia">Päivänvalon viiva</string>

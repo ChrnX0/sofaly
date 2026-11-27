@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Edit widget layar utama</string>
-    <string name="wdg_det">Widget langsung dari aplikasi lain di layar utama. Panah memindahkan, OK menampilkan opsi.</string>
-    <string name="wdg_vazio">Belum ada widget di layar utama. OK menambahkan satu.</string>
+    <string name="wdg_det">Widget langsung dari aplikasi lain di layar utama.</string>
+    <string name="wdg_vazio">Belum ada widget di layar utama.</string>
     <string name="wdg_estado_mover">Memindahkan: %1$s</string>
     <string name="wdg_estado_tamanho">Ukuran: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Pindahkan</string>

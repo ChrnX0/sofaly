@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">हर हफ़्ते</string>
     <string name="grv_cancelar_pergunta">“%1$s” की रिकॉर्डिंग रद्द करें?</string>
     <string name="grv_gravadas">रिकॉर्ड की गईं</string>
-    <string name="grv_vazio">अभी कुछ रिकॉर्ड नहीं। प्लेयर में ▶▶ › रिकॉर्ड करें; गाइड में आने वाले शो पर OK।</string>
+    <string name="grv_vazio">अभी कुछ रिकॉर्ड नहीं।</string>
     <string name="grv_vazio_sem_destino">रिकॉर्डिंग देखने और बनाने के लिए हब में USB ड्राइव लगाएँ।</string>
     <string name="grv_partes">%1$d भाग</string>
     <string name="grv_parte">%2$d में से भाग %1$d</string>

@@ -49,6 +49,6 @@
     <string name="ext_widget_falhou">Tento widget se nepodařilo přidat.</string>
     <string name="ext_off_health">Vypnuto: přestal odpovídat. Pokud chcete, zapněte ho znovu.</string>
     <string name="ext_secao_botoes">Tlačítka rychlého panelu</string>
-    <string name="ext_nenhum_botao">Zatím žádná tlačítka z jiných aplikací. Některé aplikace přidávají tlačítko zap/vyp do rychlého panelu (podržte ZPĚT).</string>
+    <string name="ext_nenhum_botao">Zatím žádná tlačítka z jiných aplikací. Některé aplikace přidávají tlačítko zap/vyp do rychlého panelu.</string>
     <string name="ext_off_blocked">Vypnuto Sofaly: tento plugin má známý problém.</string>
 </resources>

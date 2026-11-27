@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Esta TV no abrió los ajustes de Bluetooth. Abre Ajustes, Controles remotos y accesorios.</string>
     <string name="jogos_baixar">Conseguir juegos</string>
     <string name="jogos_escolher">Elegir apps</string>
-    <string name="jogos_escolher_sub">Qué apps viven en Jugar. OK alterna entre Jugar y Aplicaciones.</string>
+    <string name="jogos_escolher_sub">Qué apps viven en Jugar.</string>
     <string name="jogos_no_card">en Jugar</string>
     <string name="jogos_na_linha">en Aplicaciones</string>
     <string name="jogos_grupo_nuvem">En la nube</string>

@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Várakozás a telefonon történő megerősítésre…</string>
     <string name="rede_nuvem_salvando">Bejelentkezés…</string>
     <string name="rede_nuvem_recusado">A szolgáltatás elutasította. Ellenőrizze az alkalmazásazonosítót, és próbálja újra.</string>
-    <string name="rede_erro_nuvem_login">Ennek a fióknak az engedélye lejárt vagy visszavonták. Távolítsa el a fiókot (OK nyomva), és jelentkezzen be újra.</string>
+    <string name="rede_erro_nuvem_login">Ennek a fióknak az engedélye lejárt vagy visszavonták. Távolítsa el a fiókot, és jelentkezzen be újra.</string>
     <string name="rede_od_titulo">OneDrive: az Ön alkalmazása a Microsoftnál</string>
     <string name="rede_od_explica">Egyszer, számítógépen: entra.microsoft.com › App registrations › New registration. A fióktípusoknál válassza azt, amely tartalmazza a személyes Microsoft-fiókokat. Aztán az Authentication alatt kapcsolja be az „Allow public client flows” lehetőséget. Másolja ki az „Application (client) ID” értéket, és írja be ide (a telefonjáról is gépelhet, a panelen).</string>
     <string name="rede_od_id">Application (client) ID</string>

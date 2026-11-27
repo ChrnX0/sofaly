@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Pode esperar.</string>
     <string name="cuidar_nao_avisado">Não consegui avisar %1$s</string>
     <string name="cuidar_sem_aparelho">Nenhum telemóvel está escolhido para receber. Veja Definições › Família › Cuidar de longe.</string>
-    <string name="cuidar_sem_internet">Confira a internet e tente de novo (segure a tecla por 3 segundos).</string>
+    <string name="cuidar_sem_internet">Confira a internet e tente de novo.</string>
     <string name="cuidar_lembrete_sobre">Lembrete · %1$s</string>
     <string name="cuidar_lembrete_explica">Prima OK quando fizer.</string>
     <string name="cuidar_lembrete_explica_aviso">Prima OK quando fizer. Sem isso em %1$d minutos, %2$s recebe um aviso.</string>

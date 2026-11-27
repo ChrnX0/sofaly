@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Gépelés a TV-n</string>
     <string name="l51_digitar_texto">Szövegmező van nyitva itt: %1$s. Koppintson, hogy innen gépeljen.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">%1$s helyiség</string>
     <string name="casa_movimento">Mozgás</string>
     <string name="casa_sem_movimento">Nincs mozgás</string>

@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Точне налаштування</string>
-    <string name="ft_dica">OK або ▶ ◀ змінюють · НАЗАД закриває</string>
     <string name="ft_abrir">Налаштовуйте, бачачи головний екран</string>
     <string name="ft_abrir_det">Шрифт, годинник, колір виділення, кути, світіння й розмір, наживо</string>
     <string name="cs_destaque">Колір виділення</string>

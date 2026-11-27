@@ -10,8 +10,7 @@
     <string name="tp_frio_texto">आज रात %d° तक · गर्म कपड़े पहनें</string>
     <string name="tp_cfg">गर्मी और ठंड की सूचना</string>
     <string name="tp_cfg_det">आज %1$d° तक पहुँचने या आज रात %2$d° तक गिरने पर किसी भी ऐप के ऊपर कार्ड</string>
-    <string name="mu_ok_lido">OK से पढ़ा चिह्नित करें</string>
-    <string name="mu_ok_nao_lido">पढ़ा · OK से न पढ़ा चिह्नित करें</string>
+    <string name="mu_ok_nao_lido">पढ़ा</string>
     <string name="mu_lido_desc">संदेश, पढ़ा: %s। OK से न पढ़ा चिह्नित करें।</string>
     <string name="mu_nao_lido_desc">संदेश: %s। OK से पढ़ा चिह्नित करें।</string>
     <string name="mu_apagar">संदेश हटाएँ: %s</string>

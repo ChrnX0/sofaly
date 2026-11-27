@@ -161,7 +161,7 @@ internal fun ConfigLauncherActivity.abaSistema(c: LinearLayout) {
     // Atualização vigiada (VigiaAtualizacao.kt): só aparece se uma versão caiu logo depois de instalar.
     VigiaAtualizacao.textoPausa(this)?.let { pausa ->
         lateinit var linhaSeguro: LinhaCfg
-        linhaSeguro = linha(getString(R.string.cfg_vig_liberar), pausa + getString(R.string.cfg_vig_liberar_det), seta = true) {
+        linhaSeguro = linha(getString(R.string.cfg_vig_liberar), pausa, seta = true) {
             VigiaAtualizacao.liberar(this)
             linhaSeguro.visibility = View.GONE
         }
@@ -424,7 +424,7 @@ internal fun ConfigLauncherActivity.abaAvancado(c: LinearLayout) {
     for (r in Recursos.listar(this)) {
         val detalhe = if (r.ativo) getString(R.string.cfg_ligado) else r.sem + when (r.pedir) {
             null -> getString(R.string.cfg_so_pc)
-            else -> getString(R.string.cfg_tenta_ligar)
+            else -> ""
         }
         c.addView(if (r.ativo || r.pedir == null) info((if (r.ativo) "✓ " else "✗ ") + r.nome, detalhe)
             else linha("✗ " + r.nome, detalhe, seta = true) { ligarRecurso(r) }, lp())

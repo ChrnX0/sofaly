@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">15 mil ícones de traço fino (feitos para celular, servem aqui)</string>
     <string name="ext_off_health">Desligado: parou de responder. Ligue de novo se quiser.</string>
     <string name="ext_secao_botoes">Botões do painel rápido</string>
-    <string name="ext_nenhum_botao">Nenhum botão de outro app ainda. Alguns apps põem um botão de ligar e desligar no painel rápido (segure VOLTAR).</string>
+    <string name="ext_nenhum_botao">Nenhum botão de outro app ainda. Alguns apps põem um botão de ligar e desligar no painel rápido.</string>
     <string name="ext_off_blocked">Desligado pela Sofaly: este plugin tem um problema conhecido.</string>
     <string name="ext_secao_widgets">Widgets de outros apps</string>
     <string name="ext_widget_nenhum">Nenhum app desta TV tem widget ainda.</string>

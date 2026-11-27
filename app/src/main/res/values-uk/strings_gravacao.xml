@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">щотижня</string>
     <string name="grv_cancelar_pergunta">Скасувати запис \"%1$s\"?</string>
     <string name="grv_gravadas">Записано</string>
-    <string name="grv_vazio">Ще нічого не записано. У плеєрі ▶▶ › Записати; у телепрограмі OK на майбутній передачі.</string>
+    <string name="grv_vazio">Ще нічого не записано.</string>
     <string name="grv_vazio_sem_destino">Підключіть USB-накопичувач до хаба, щоб бачити й робити записи.</string>
     <string name="grv_partes">Частин: %1$d</string>
     <string name="grv_parte">частина %1$d з %2$d</string>

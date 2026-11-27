@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">इस TV ने Bluetooth सेटिंग्स नहीं खोलीं। सेटिंग्स, रिमोट और एक्सेसरी खोलें।</string>
     <string name="jogos_baixar">गेम पाएँ</string>
     <string name="jogos_escolher">ऐप चुनें</string>
-    <string name="jogos_escolher_sub">कौन से ऐप खेलें में रहें। OK खेलें और ऐप्स के बीच बदलता है।</string>
+    <string name="jogos_escolher_sub">कौन से ऐप खेलें में रहें।</string>
     <string name="jogos_no_card">खेलें में</string>
     <string name="jogos_na_linha">ऐप्स में</string>
     <string name="jogos_grupo_nuvem">क्लाउड में</string>

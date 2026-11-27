@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Mitä Sofy tietää</string>
-    <string name="smem_sub">Mitä hän on oppinut kodista. OK unohtaa kohdan; hän oppii sen alusta.</string>
+    <string name="smem_sub">Mitä hän on oppinut kodista.</string>
     <string name="smem_linha_det">Mitä hän on oppinut, ja Unohda</string>
     <string name="smem_uso">Milloin tv on käytössä</string>
     <string name="smem_uso_det">%1$d vuorokauden tuntia opittu</string>

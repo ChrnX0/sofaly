@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Sıradaki</string>
     <string name="pl_dormir">Uyku zamanlayıcısı</string>
     <string name="pl_dormir_min">%1$d dk sonra</string>
-    <string name="pl_barra_dica">◀ ▶ 10 sn kaydırır · daha hızlı için basılı tutun</string>
     <string name="pl_abrir">Oynatıcıyı aç</string>
     <string name="pl_abrir_det">Tam ekran, sıradakilerle birlikte</string>
 </resources>

@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Hienosäätö</string>
-    <string name="ft_dica">OK tai ▶ ◀ muuttaa · TAKAISIN sulkee</string>
     <string name="ft_abrir">Säädä aloitusnäyttöä katsellen</string>
     <string name="ft_abrir_det">Fontti, kello, korostusväri, kulmat, hehku ja koko, suorana</string>
     <string name="cs_destaque">Korostusväri</string>

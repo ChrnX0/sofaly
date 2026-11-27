@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">„%1$s” szeretné megtekinteni és másolni a TV tárhelyén lévő fájlokat az otthoni hálózaton át. Engedélyezi ezt a számítógépet?</string>
     <string name="mtp_pcs">Engedélyezett számítógépek</string>
     <string name="mtp_pcs_nenhum">Még egy sincs. A TV a képernyőn kérdez, amikor egy számítógép kéri a fájlokat.</string>
-    <string name="mtp_pcs_lista">%1$s · az OK mindet elfelejti (mindegyik újra kérdez)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">A számítógépek elfelejtve</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">A TV paneljének megnyitása</string>

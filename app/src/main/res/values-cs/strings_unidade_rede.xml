@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">„%1$s“ chce přes domácí síť vidět a kopírovat soubory v úložišti televizoru. Povolit tento počítač?</string>
     <string name="mtp_pcs">Povolené počítače</string>
     <string name="mtp_pcs_nenhum">Zatím žádné. Televizor se zeptá na obrazovce, když počítač požádá o soubory.</string>
-    <string name="mtp_pcs_lista">%1$s · OK zapomene všechny (každý se zeptá znovu)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Počítače zapomenuty</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Otevřít panel televizoru</string>

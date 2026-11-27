@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">スクリーンセーバーの背景</string>
-    <string name="pv2_fundo_det">テーマの背景、または宇宙から見た地球の実写写真 · OK で変更</string>
     <string name="pv2_fundo_tema">テーマに合わせる</string>
     <string name="pv2_fundo_terra">宇宙から見た地球</string>
     <string name="pv2_relogio">スクリーンセーバーの時計</string>
-    <string name="pv2_relogio_det">6 つのスタイル · OK で変更</string>
     <string name="pv2_rel_fino">細字</string>
     <string name="pv2_rel_editorial">エディトリアル</string>
     <string name="pv2_rel_monumental">大きな数字</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">ことばで</string>
     <string name="pv2_rel_empilhado">2 段</string>
     <string name="pv2_posicao">時計の位置</string>
-    <string name="pv2_posicao_det">OK で変更</string>
     <string name="pv2_pos_alto">左上</string>
     <string name="pv2_pos_baixo">左下</string>
     <string name="pv2_pos_centro">中央</string>
     <string name="pv2_tamanho">時計の大きさ</string>
-    <string name="pv2_tamanho_det">大きな数字は離れても読みやすい · OK で変更</string>
     <string name="pv2_tam_normal">標準</string>
     <string name="pv2_tam_grande">大</string>
     <string name="pv2_mostrar">スクリーンセーバーに表示する内容</string>
-    <string name="pv2_mostrar_det">「時刻だけ」: リモコンのボタンを押すと 15 秒間ほかの情報も表示 · OK で変更</string>
     <string name="pv2_mostrar_so">時刻だけ</string>
     <string name="pv2_mostrar_vez">ときどき</string>
     <string name="pv2_mostrar_sempre">すべて</string>
     <string name="pv2_elementos">スクリーンセーバーに表示</string>
-    <string name="pv2_el_det">スクリーンセーバーに表示 · OK でオン/オフ</string>
     <string name="pv2_el_saudacao">あいさつ</string>
     <string name="pv2_el_data">日付</string>
     <string name="pv2_el_linha_dia">日中の進み具合</string>

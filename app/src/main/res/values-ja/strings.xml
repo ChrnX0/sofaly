@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">ルーティン</string>
     <string name="cfg_sec_atualizacao">アップデート</string>
     <string name="cfg_atualizar">新しいバージョンを確認</string>
-    <string name="cfg_atualizar_det">バージョン %1$s · %2$s · OK で今すぐ確認</string>
+    <string name="cfg_atualizar_det">バージョン %1$s · %2$s</string>
     <string name="cfg_procurando">GitHub を確認中…</string>
     <string name="cfg_instalar">バージョン %1$d を今すぐインストール</string>
-    <string name="cfg_instalar_det">ランチャーが閉じて数秒で自動的に戻ります · OK でインストール</string>
+    <string name="cfg_instalar_det">ランチャーが閉じて数秒で自動的に戻ります</string>
     <string name="cfg_instalando">ダウンロードして確認中…</string>
     <string name="cfg_sec_rede">ネットワーク</string>
     <string name="cfg_dns">プライベート DNS</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">オンになっている機能 — %1$s</string>
     <string name="cfg_ligado">オン</string>
     <string name="cfg_so_pc">" · パソコン（adb）が必要"</string>
-    <string name="cfg_tenta_ligar">" · OK でオンを試す"</string>
     <string name="cfg_perm_fixas">固定権限を付与済み</string>
     <string name="cfg_shell_estado">専用シェル</string>
     <string name="cfg_shell_pareado">ペアリング済み: ランチャーがワイヤレスデバッグで自動的に再接続します</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">キーサービス</string>
     <string name="rec_teclas_sem">これがないと: HOME で Google のランチャーが開くことがあり、Netflix/YouTube キーが割り当て変更されません</string>
     <string name="rec_tudo">すべてオン</string>
-    <string name="rec_faltam">%2$d 個中 %1$d 個の機能がオフです · 項目で OK を押すとオンを試します</string>
+    <string name="rec_faltam">%2$d 個中 %1$d 個の機能がオフです</string>
     <string name="bv_titulo">ようこそ</string>
     <string name="bv_texto">ホーム画面、時計、天気、アラーム、スクリーンセーバーはすでに使えます。必要ならその他の機能をここでオンにしてください（%1$s）。</string>
     <string name="bv_comecar">始める</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · オフ"</string>
     <string name="rot_nova">新しいルーティン</string>
     <string name="rot_editar">ルーティンを編集</string>
-    <string name="rot_editor_det">OK で各行を変更 · 戻るで保存せずに終了</string>
     <string name="rot_hora">時刻: %1$s</string>
     <string name="rot_dias">曜日: %1$s</string>
     <string name="rot_acao">動作: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">誰も操作していない時間がこれ以上のときだけ: %1$s</string>
     <string name="rot_ligada">オン</string>
     <string name="rot_desligada">オフ</string>
-    <string name="rot_hora_det">◀ ▶ 5 分 · OK +1 時間</string>
-    <string name="rot_dias_det">OK: 毎日、月〜金、週末、1 回のみ</string>
-    <string name="rot_ok_muda">OK で変更</string>
-    <string name="rot_app_det">OK または ▶ 次へ · ◀ 前へ</string>
     <string name="rot_ocioso_det">視聴中の人を邪魔しません</string>
-    <string name="rot_ativa_det">OK でこのルーティンをオン/オフ</string>
     <string name="rot_salvar">保存</string>
     <string name="rot_escolha_app">アプリを選択</string>
     <string name="rot_apagar">このルーティンを削除</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">読み込み中…</string>
     <string name="pp_conectar">接続</string>
     <string name="cal_sem_conta">Google アカウントなし</string>
-    <string name="cal_dica">◀ ▶ 月を変更</string>
     <string name="cal_30">今後 30 日間</string>
     <string name="cal_nenhuma_conta">TV に Google アカウントがありません</string>
     <string name="cal_nada">予定はありません（またはカレンダーを同期中）</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">%1$s ボタンで開くもの:</string>
     <string name="fd_nascer">日の出 %1$s</string>
     <string name="fd_por">日の入り %1$s</string>
-    <string name="dns_dica">OK: 使用   ·   自分のサーバーで OK 長押し: 削除   ·   戻る: 終了</string>
     <string name="dns_auto">自動</string>
     <string name="dns_auto_det">ルーターの DNS を使い、対応していれば暗号化します（Android の標準）</string>
     <string name="dns_desl">オフ</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">リリース %1$d: APK のバージョン（%2$d）がタグと一致しません</string>
     <string name="atu_chave">GitHub にバージョン %1$d がありますが、この TV が受け付けない別の鍵で署名されています。この TV は PC からアップデートします</string>
     <string name="atu_disponivel">バージョン %1$d をインストールできます（インストール済み %2$d）</string>
-    <string name="atu_trocou">前回の確認からバージョンが変わりました · OK でもう一度確認</string>
+    <string name="atu_trocou">前回の確認からバージョンが変わりました</string>
     <string name="atu_instalando">%1$d をインストール中（インストール済み %2$d）</string>
     <string name="atu_ok">アップデート完了</string>
     <string name="atu_falhou">インストールに失敗しました（%1$d）: %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">バージョン %1$d がインストール直後に 2 回クラッシュしました · 「%2$s」は次のバージョンまでオフです</string>
     <string name="vig_tela_bloqueada">この画面は次のアップデートまでオフです（ランチャーをクラッシュさせました）</string>
     <string name="cfg_vig_liberar">セーフモード</string>
-    <string name="cfg_vig_liberar_det">" · OK で再びオン"</string>
     <string name="home_voz_indisponivel">この TV では音声検索が開きませんでした</string>
     <string name="home_alarme_hoje">今日</string>
     <string name="home_alarme_amanha">明日</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">動画を読み込み中…</string>
     <string name="player_sem_canais">チャンネルリストがまだ追加されていません。</string>
     <string name="player_tentando">チャンネル %1$d に信号がありません。再試行中…</string>
-    <string name="player_sem_sinal">チャンネル %1$d が応答しませんでした。▲ ▼ または OK で別のチャンネルを選んでください。</string>
+    <string name="player_sem_sinal">チャンネル %1$d が応答しませんでした。</string>
     <string name="player_canal_nao_existe">チャンネル %1$d はありません。</string>
     <string name="player_ao_vivo">ライブ</string>
     <string name="player_a_seguir">次: %1$s</string>
-    <string name="player_teclas">▲ ▼ チャンネル · OK チャンネルリスト · OK を 2 秒長押し: お気に入り · ◀ 前のチャンネル · ▶ ▶ オプション · 戻る 終了</string>
-    <string name="player_teclas_pausa">▶❙❙ または OK 再開 · ▶ オプション（ライブに戻る） · ▲ ▼ チャンネル · 戻る 終了</string>
     <string name="player_cat_busca">検索: %1$s</string>
     <string name="player_acao_buscar">検索</string>
     <string name="player_acao_filtros">フィルター</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s をウォッチリストに追加しました</string>
     <string name="filmes_interesse_tirou">%1$s をウォッチリストから削除しました</string>
     <string name="filmes_interesses_cheio">ウォッチリストはすでに 500 作品です。先に 1 つ削除してください。</string>
-    <string name="filmes_interesses_vazio">ポスターで OK を 2 秒長押しするとここに追加されます（もう一度で削除）。</string>
     <string name="filmes_assistido">視聴済み</string>
     <string name="filmes_selo_leg">字幕</string>
     <string name="vod_sem_conta">この動画のアカウントはもう存在しません。</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">音声</string>
     <string name="vod_legenda">字幕</string>
     <string name="vod_faixas">音声と字幕</string>
-    <string name="vod_teclas">OK 一時停止 · ◀ 10 秒 · ▶ 30 秒（長押しで高速）· ▼ 音声、字幕、映像 · ⏮ ⏭ チャプター · 戻る 終了</string>
     <string name="series_titulo">シリーズ</string>
     <string name="series_carregando">シリーズを読み込み中…</string>
     <string name="series_vazio">シリーズはまだありません</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">シーズン %1$d</string>
     <string name="player_acao_guia">番組表</string>
     <string name="player_sem_guia_curto">番組表なし</string>
-    <string name="player_grade_teclas">OK 視聴 · ◀ ▶ 番組 · ▲ ▼ チャンネル</string>
     <string name="player_busca_dica">チャンネル名または番組名</string>
     <string name="player_busca_nada">「%1$s」は見つかりませんでした。</string>
     <string name="player_filtro_qualquer">すべて</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">子ども向けカテゴリ</string>
     <string name="infantil_carregando">カテゴリを読み込み中…</string>
     <string name="infantil_coluna_itens">内容</string>
-    <string name="infantil_dica">OK でカテゴリを子ども向けに設定/解除 · ライブ TV、映画、シリーズに適用 · 戻るで終了（保存済み）</string>
     <string name="infantil_so_categoria">左の列でカテゴリ全体を選んでください</string>
     <string name="infantil_vazio">カテゴリがありません: 設定 › TV と映画 でアカウントを追加し、チャンネルを再読み込みしてください</string>
     <string name="infantil_limite">成人向けカテゴリは子ども向けにできません</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">お気に入り</string>
     <string name="player_cat_recentes">最近</string>
     <string name="player_cat_outros">その他</string>
-    <string name="player_sem_favoritos">お気に入りはまだありません。チャンネルで OK を 2 秒長押しするとここに追加されます。</string>
+    <string name="player_sem_favoritos">お気に入りはまだありません。</string>
     <string name="player_categoria_vazia">このカテゴリにチャンネルはありません。</string>
     <string name="player_sem_guia">このチャンネルの番組表はありません。</string>
     <string name="player_depois">この後</string>
-    <string name="player_lista_teclas">OK 視聴 · OK を 2 秒長押し: お気に入りに追加/削除 · カテゴリで OK 長押し: 非表示 · ◀ カテゴリ</string>
     <string name="player_favorito_pos">★ %1$s をお気に入りに追加しました</string>
     <string name="player_favorito_tirou">%1$s をお気に入りから削除しました</string>
     <string name="player_favoritos_cheio">お気に入りはすでに 500 件です。先に 1 つ削除してください。</string>
@@ -642,7 +625,6 @@ AS\\Movies）。</string>
     <string name="tvv_vazio">このチャンネルにはまだ保存された番組がありません。</string>
     <string name="tvv_voltou">ライブに戻りました</string>
     <string name="tvv_selo">見逃し配信</string>
-    <string name="tvv_teclas">◀ ▶ 30 秒 · OK オプション · 戻る ライブ</string>
     <string name="tvv_pausar">一時停止</string>
     <string name="tvv_continuar">再開</string>
     <string name="tvv_ao_vivo">ライブに戻る</string>
@@ -659,7 +641,7 @@ AS\\Movies）。</string>
     <string name="series_nao_visto">未視聴にする</string>
     <string name="idioma_secao">映画とシリーズ</string>
     <string name="idioma_titulo">優先する音声</string>
-    <string name="idioma_det">TV の言語の字幕付きオリジナル、またはその言語の吹き替え。プレーヤー（▼）で変更した内容は映画・シリーズごとに記憶されます</string>
+    <string name="idioma_det">TV の言語の字幕付きオリジナル、またはその言語の吹き替え。プレーヤーで変更した内容は映画・シリーズごとに記憶されます</string>
     <string name="idioma_original">字幕付きオリジナル</string>
     <string name="idioma_dublado">吹き替え</string>
     <string name="idioma_legendado">字幕</string>
@@ -807,8 +789,8 @@ AS\\Movies）。</string>
     <string name="st_titulo">USB メモリとストレージ</string>
     <string name="st_explica">TV で USB メモリをどう使うか選びます。容量不足なら、重いアプリ用の TV ストレージにできます。</string>
     <string name="st_linha_det">USB メモリを TV のストレージにする</string>
-    <string name="st_sem_shell">TV 内蔵のシェルが必要です（設定 › システム › 詳細）。OK で再試行。</string>
-    <string name="st_sem_pen">USB メモリがありません。差し込んで OK を押してください。</string>
+    <string name="st_sem_shell">TV 内蔵のシェルが必要です（設定 › システム › 詳細）。</string>
+    <string name="st_sem_pen">USB メモリがありません。</string>
     <string name="st_tv_livre">TV のストレージ: %2$s 中 %1$s 空き</string>
     <string name="st_pen">USB メモリ · %1$s · %2$s</string>
     <string name="st_modo_comum">通常の USB メモリ</string>
@@ -822,14 +804,13 @@ AS\\Movies）。</string>
     <string name="st_motivo_grande">半分はアプリ、半分は録画とファイル</string>
     <string name="st_motivo_apertada">TV がほぼいっぱいです</string>
     <string name="st_medido">書き込み %1$s MB/s</string>
-    <string name="st_medir_dica">OK で速度を測定</string>
     <string name="st_usar_comum">通常の USB メモリとして使う</string>
-    <string name="st_usar_misto">混在で使う: 通常 %1$d%%  ◀ ▶</string>
+    <string name="st_usar_misto">混在で使う: 通常 %1$d%%</string>
     <string name="st_usar_tv">TV のストレージとして使う</string>
     <string name="st_apps">USB メモリ上のアプリ</string>
     <string name="st_apps_det">移動するアプリを選ぶ（大きい順）</string>
     <string name="st_apps_nenhum">移動できるアプリはありません。</string>
-    <string name="st_apps_rodape">OK でアプリを移動。✓ = すでにメモリ上</string>
+    <string name="st_apps_rodape">✓ = すでにメモリ上</string>
     <string name="st_compartilhado">写真とファイル: %1$s</string>
     <string name="st_na_tv">TV</string>
     <string name="st_no_pen">USB メモリ</string>
@@ -854,7 +835,7 @@ AS\\Movies）。</string>
     <string name="st_voltar_comum">通常の USB メモリに戻す（アプリは TV に戻ります）</string>
     <string name="st_trazendo">%1$s を TV に戻しています…</string>
     <string name="st_sumiram">USB メモリが外れました: 戻すまで %1$s は表示されません。</string>
-    <string name="st_sugestao">TV のストレージがほぼいっぱいです。%1$s（%2$s）を USB メモリに移しましょう: アプリで OK を長押し。</string>
+    <string name="st_sugestao">TV のストレージがほぼいっぱいです。%1$s（%2$s）を USB メモリに移しましょう</string>
     <string name="st_medindo">最適な使い方を提案するため、USBメモリの速度を測定中…</string>
     <string name="st_lento_titulo">USBメモリが遅すぎます</string>
     <string name="st_lento_bloqueado">このUSBメモリの書き込みは%1$s MB/秒です。テレビのストレージにするには%2$d MB/秒以上が必要です。それ未満ではアプリが固まり、テレビが起動しないことがあります。通常のUSBメモリとして使ってください。</string>
@@ -872,12 +853,12 @@ AS\\Movies）。</string>
     <string name="aviso_sync_texto">このテレビに%1$sのアカウントはありません。設定 › テレビと映画で接続してください。</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">新機能</string>
-    <string name="ver_novidades_det">バージョン %2$s の変更 %1$d 件 · OK で読む</string>
+    <string name="ver_novidades_det">バージョン %2$s の変更 %1$d 件</string>
     <string name="ver_novidades_sobre">バージョン %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">テレビで確認</string>
-    <string name="ver_conferir_det">リモコンで %2$d 件中 %1$d 件を確認 · OK で開始</string>
-    <string name="ver_conferir_sub">バージョン %1$s · %2$d 項目 · 項目で OK を押して回答</string>
+    <string name="ver_conferir_det">リモコンで %2$d 件中 %1$d 件を確認</string>
+    <string name="ver_conferir_sub">バージョン %1$s · %2$d 項目</string>
     <string name="ver_conferido">%2$d 件中 %1$d 件を確認</string>
     <string name="ver_sim">はい</string>
     <string name="ver_nao">いいえ</string>

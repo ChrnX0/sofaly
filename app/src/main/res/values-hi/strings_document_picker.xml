@@ -14,7 +14,6 @@
     <string name="dp_abrindo">खुल रहा है…</string>
     <string name="dp_erro">यह जगह नहीं खुल सकी। जाँचें कि यह जुड़ी है और फिर कोशिश करें।</string>
     <string name="dp_arquivos">इस फ़ोल्डर में फ़ाइलें: %1$d</string>
-    <string name="dp_dicas">OK: खोलें · BACK: वापस</string>
     <string name="dp_diario">%1$s को चुनने वाले से %2$s मिला</string>
     <string name="dp_sem_nome">बिना नाम</string>
 </resources>

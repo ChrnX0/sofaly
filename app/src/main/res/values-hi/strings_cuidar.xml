@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">आप इंतज़ार कर सकते हैं।</string>
     <string name="cuidar_nao_avisado">%1$s को सूचना नहीं दी जा सकी</string>
     <string name="cuidar_sem_aparelho">पाने के लिए कोई फ़ोन सेट नहीं है। सेटिंग्स › परिवार › दूर से देखभाल देखें।</string>
-    <string name="cuidar_sem_internet">इंटरनेट जांचें और फिर कोशिश करें (बटन 3 सेकंड दबाए रखें)।</string>
+    <string name="cuidar_sem_internet">इंटरनेट जांचें और फिर कोशिश करें।</string>
     <string name="cuidar_lembrete_sobre">रिमाइंडर · %1$s</string>
     <string name="cuidar_lembrete_explica">काम हो जाने पर OK दबाएं।</string>
     <string name="cuidar_lembrete_explica_aviso">काम हो जाने पर OK दबाएं। नहीं तो %1$d मिनट में %2$s को सूचना मिलेगी।</string>

@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">Tämä TV ei avannut Bluetooth-asetuksia. Avaa Asetukset, Kaukosäätimet ja lisävarusteet.</string>
     <string name="jogos_baixar">Hanki pelejä</string>
     <string name="jogos_escolher">Valitse sovellukset</string>
-    <string name="jogos_escolher_sub">Mitkä sovellukset asuvat Pelaa-luokassa. OK vaihtaa Pelaa- ja Sovellukset-luokan välillä.</string>
+    <string name="jogos_escolher_sub">Mitkä sovellukset asuvat Pelaa-luokassa.</string>
     <string name="jogos_no_card">Pelaa-luokassa</string>
     <string name="jogos_na_linha">Sovelluksissa</string>
     <string name="jogos_grupo_nuvem">Pilvessä</string>

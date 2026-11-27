@@ -2,25 +2,20 @@
 <!-- Protetor: variações de cada elemento (17/11/2026). -->
 <resources>
     <string name="pv2_est_avisos">Stilul anunțurilor</string>
-    <string name="pv2_est_avisos_det">cum apar mesajele și mementourile · OK schimbă</string>
     <string name="pv2_av_cartoes">Carduri de sticlă</string>
     <string name="pv2_av_lista">Listă fără cadru</string>
     <string name="pv2_av_um">Câte unul</string>
     <string name="pv2_est_textos">Stilul salutului și al datei</string>
-    <string name="pv2_est_textos_det">OK schimbă</string>
     <string name="pv2_tx_moderno">Modern</string>
     <string name="pv2_tx_serifa">Serif</string>
     <string name="pv2_tx_maiusculas">Majuscule spațiate</string>
     <string name="pv2_est_linhas">Stilul liniei meteo</string>
-    <string name="pv2_est_linhas_det">fraza despre vreme și curiozitatea · OK schimbă</string>
     <string name="pv2_ln_icones">Cu pictograme</string>
     <string name="pv2_ln_vidro">Pe sticlă întunecată</string>
     <string name="pv2_ln_texto">Doar text</string>
     <string name="pv2_est_credito">Stilul creditului foto</string>
-    <string name="pv2_est_credito_det">OK schimbă</string>
     <string name="pv2_cr_etiqueta">Etichetă</string>
     <string name="pv2_cr_discreto">Discret</string>
     <string name="cl_widget_linha">Un singur rând</string>
     <string name="cl_widget_grande">Mare</string>
-    <string name="pv2_widget_det">cinci stiluri · OK schimbă</string>
 </resources>

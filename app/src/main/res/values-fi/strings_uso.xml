@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Pois, kunnes siellä asuva henkilö hyväksyy sen TV:ssä.</string>
     <string name="uso_cartoes">Isot kortit aloitusnäytössä</string>
     <string name="uso_cartoes_det">Muutama iso sovellus, nimet luettuna ääneen ja \"Pyydä apua\" -painike. Pois kytkeminen kysyy PIN-koodia.</string>
-    <string name="uso_trocar_det">Nyt: %1$s. OK valitsee uudelleen.</string>
+    <string name="uso_trocar_det">Nyt: %1$s.</string>
 </resources>

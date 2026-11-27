@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Sofy が知っていること</string>
-    <string name="smem_sub">この家について学んだこと。OK で1項目を忘れ、最初から学び直します。</string>
+    <string name="smem_sub">この家について学んだこと。</string>
     <string name="smem_linha_det">学んだことと「忘れる」</string>
     <string name="smem_uso">テレビを使う時間</string>
     <string name="smem_uso_det">1日のうち %1$d 時間を学習</string>

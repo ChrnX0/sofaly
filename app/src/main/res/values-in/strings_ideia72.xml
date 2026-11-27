@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s sekarang: %2$s (sampai %3$s)</string>
     <string name="l72_guia_nada_agora">%1$s: tidak ada di panduan saat ini</string>
     <string name="l72_guia_depois">Berikutnya: %1$s (%2$s)</string>
-    <string name="l75_pilula">Sedang diputar: %1$s, %2$s. OK menjeda atau melanjutkan; tahan OK untuk membuka aplikasi</string>
+    <string name="l75_pilula">Sedang diputar: %1$s, %2$s.</string>
 </resources>

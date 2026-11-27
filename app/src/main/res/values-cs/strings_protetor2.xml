@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Pozadí spořiče</string>
-    <string name="pv2_fundo_det">podle motivu, nebo skutečné fotky Země z vesmíru · OK mění</string>
     <string name="pv2_fundo_tema">Podle motivu</string>
     <string name="pv2_fundo_terra">Země z vesmíru</string>
     <string name="pv2_relogio">Hodiny spořiče</string>
-    <string name="pv2_relogio_det">šest stylů · OK mění</string>
     <string name="pv2_rel_fino">Tenké</string>
     <string name="pv2_rel_editorial">Redakční</string>
     <string name="pv2_rel_monumental">Monumentální</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Slovy</string>
     <string name="pv2_rel_empilhado">Na sobě</string>
     <string name="pv2_posicao">Umístění hodin</string>
-    <string name="pv2_posicao_det">OK mění</string>
     <string name="pv2_pos_alto">Vlevo nahoře</string>
     <string name="pv2_pos_baixo">Vlevo dole</string>
     <string name="pv2_pos_centro">Uprostřed</string>
     <string name="pv2_tamanho">Velikost hodin</string>
-    <string name="pv2_tamanho_det">velké číslice se zdálky čtou snáz · OK mění</string>
     <string name="pv2_tam_normal">Normální</string>
     <string name="pv2_tam_grande">Velké</string>
     <string name="pv2_mostrar">Co spořič ukazuje</string>
-    <string name="pv2_mostrar_det">\"Jen čas\": libovolné tlačítko ovladače ukáže zbytek na 15 s · OK mění</string>
     <string name="pv2_mostrar_so">Jen čas</string>
     <string name="pv2_mostrar_vez">Občas</string>
     <string name="pv2_mostrar_sempre">Vše</string>
     <string name="pv2_elementos">Ve spořiči</string>
-    <string name="pv2_el_det">zobrazeno ve spořiči · OK zapíná nebo vypíná</string>
     <string name="pv2_el_saudacao">Pozdrav</string>
     <string name="pv2_el_data">Datum</string>
     <string name="pv2_el_linha_dia">Čára denního světla</string>

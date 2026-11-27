@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Можно подождать.</string>
     <string name="cuidar_nao_avisado">Не удалось уведомить: %1$s</string>
     <string name="cuidar_sem_aparelho">Ни один телефон не настроен на получение. Проверьте Настройки › Семья › Забота на расстоянии.</string>
-    <string name="cuidar_sem_internet">Проверьте интернет и попробуйте снова (удерживайте кнопку 3 секунды).</string>
+    <string name="cuidar_sem_internet">Проверьте интернет и попробуйте снова.</string>
     <string name="cuidar_lembrete_sobre">Напоминание · %1$s</string>
     <string name="cuidar_lembrete_explica">Нажмите OK, когда будет сделано.</string>
     <string name="cuidar_lembrete_explica_aviso">Нажмите OK, когда будет сделано. Иначе через %1$d минут %2$s получит уведомление.</string>

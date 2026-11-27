@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Urmează</string>
     <string name="pl_dormir">Temporizator de oprire</string>
     <string name="pl_dormir_min">În %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ mută 10 s · țineți pentru mai repede</string>
     <string name="pl_abrir">Deschide playerul</string>
     <string name="pl_abrir_det">Ecran complet, cu ce urmează</string>
 </resources>

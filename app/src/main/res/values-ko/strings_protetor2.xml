@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">화면 보호기 배경</string>
-    <string name="pv2_fundo_det">테마 배경 또는 우주에서 본 지구의 실제 사진 · OK로 변경</string>
     <string name="pv2_fundo_tema">테마 따라가기</string>
     <string name="pv2_fundo_terra">우주에서 본 지구</string>
     <string name="pv2_relogio">화면 보호기 시계</string>
-    <string name="pv2_relogio_det">6가지 스타일 · OK로 변경</string>
     <string name="pv2_rel_fino">가는 글꼴</string>
     <string name="pv2_rel_editorial">에디토리얼</string>
     <string name="pv2_rel_monumental">큰 숫자</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">글로</string>
     <string name="pv2_rel_empilhado">두 줄</string>
     <string name="pv2_posicao">시계 위치</string>
-    <string name="pv2_posicao_det">OK로 변경</string>
     <string name="pv2_pos_alto">왼쪽 위</string>
     <string name="pv2_pos_baixo">왼쪽 아래</string>
     <string name="pv2_pos_centro">가운데</string>
     <string name="pv2_tamanho">시계 크기</string>
-    <string name="pv2_tamanho_det">큰 숫자는 멀리서도 읽기 쉬워요 · OK로 변경</string>
     <string name="pv2_tam_normal">보통</string>
     <string name="pv2_tam_grande">크게</string>
     <string name="pv2_mostrar">화면 보호기에 보이는 것</string>
-    <string name="pv2_mostrar_det">\"시간만\": 리모컨 버튼을 누르면 나머지가 15초 동안 보여요 · OK로 변경</string>
     <string name="pv2_mostrar_so">시간만</string>
     <string name="pv2_mostrar_vez">가끔</string>
     <string name="pv2_mostrar_sempre">모두</string>
     <string name="pv2_elementos">화면 보호기에 표시</string>
-    <string name="pv2_el_det">화면 보호기에 표시 · OK로 켜기/끄기</string>
     <string name="pv2_el_saudacao">인사말</string>
     <string name="pv2_el_data">날짜</string>
     <string name="pv2_el_linha_dia">낮 진행 선</string>

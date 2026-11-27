@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">top</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Do it</string>
-    <string name="elv_bf_ok_faz">OK does it now</string>
     <string name="elv_bf_wifi">Show the guest Wi-Fi</string>
-    <string name="elv_bf_wifi_configurar">Not set up yet: OK opens Settings (Visits)</string>
+    <string name="elv_bf_wifi_configurar">Not set up yet</string>
     <string name="elv_bf_letra_maior">Bigger text (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Smaller text (%1$d%%)</string>
     <string name="elv_bf_letra_limite">It is already at this size</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">after sunset</string>
     <string name="elv_ss_dia_util">it is a weekday</string>
     <string name="elv_ss_perfil">the profile is %1$s</string>
-    <string name="elv_ss_det">◀ ▶ change the condition</string>
     <string name="extras_ABERTURA_PRONTA">Skip intro (IntroDB): on episodes, the TV asks the community IntroDB service where the opening is (it sends which episode, never your account); off, only intros you marked</string>
 </resources>

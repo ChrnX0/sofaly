@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">毎週</string>
     <string name="grv_cancelar_pergunta">「%1$s」の録画をキャンセルしますか？</string>
     <string name="grv_gravadas">録画済み</string>
-    <string name="grv_vazio">まだ録画はありません。プレーヤーで ▶▶ › 録画、番組表でこれからの番組の OK。</string>
+    <string name="grv_vazio">まだ録画はありません。</string>
     <string name="grv_vazio_sem_destino">録画を見たり作ったりするには、ハブに USB メモリを接続してください。</string>
     <string name="grv_partes">%1$d パート</string>
     <string name="grv_parte">パート %1$d / %2$d</string>

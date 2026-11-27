@@ -229,9 +229,9 @@ class PodcastsActivity : Activity() {
             CruzOuvir.Item("pausar", getString(if (s.pausado) R.string.ouv_continuar else R.string.ouv_pausar),
                 CruzLogica.linhas(e.ep.titulo, e.podcast), if (s.pausado) IconeOuvir.Tipo.CONTINUAR else IconeOuvir.Tipo.PAUSAR,
                 abrir = { OuvirServico.instancia?.alternar() }),
-            CruzOuvir.Item("voltar", getString(R.string.ouv_voltar), getString(R.string.ouv_voltar_det), IconeOuvir.Tipo.VOLTAR,
+            CruzOuvir.Item("voltar", getString(R.string.ouv_voltar), "", IconeOuvir.Tipo.VOLTAR,
                 abrir = { OuvirServico.instancia?.pular(-OuvirServico.VOLTAR_MS); atualizarTempo() }),
-            CruzOuvir.Item("avancar", getString(R.string.ouv_avancar), getString(R.string.ouv_avancar_det), IconeOuvir.Tipo.AVANCAR,
+            CruzOuvir.Item("avancar", getString(R.string.ouv_avancar), "", IconeOuvir.Tipo.AVANCAR,
                 abrir = { OuvirServico.instancia?.pular(OuvirServico.AVANCAR_MS); atualizarTempo() }),
             CruzOuvir.Item("velocidade", getString(R.string.pod_velocidade), getString(R.string.ouv_velocidade_det, rotuloVelocidade(v)),
                 IconeOuvir.Tipo.VELOCIDADE, abrir = { escolherVelocidade() }),
@@ -380,7 +380,7 @@ class PodcastsActivity : Activity() {
         val sug = sugestoesVisiveis()
         if (sug.isNotEmpty()) l += CruzOuvir.Prateleira("sugestoes", getString(R.string.pod_sugestoes), IconeOuvir.Tipo.EM_ALTA,
             sug.map { s ->
-                CruzOuvir.Item("sug:${s.url}", s.titulo, CruzLogica.linhas(s.autor, getString(R.string.pod_sugestao_seguir)),
+                CruzOuvir.Item("sug:${s.url}", s.titulo, CruzLogica.linhas(s.autor),
                     capa = s.capa, cor = Estilo.GRAFITE_QUADRO, monograma = CapaOuvir.iniciais(s.titulo), cobrir = true,
                     abrir = { adicionar(s.url) })
             })
@@ -509,7 +509,7 @@ class PodcastsActivity : Activity() {
     /** Segurar OK num resultado: abrir (ou seguir) e os parecidos pelos assuntos dele. */
     private fun menuParecidos(titulo: String, temas: List<PodcastAssuntos.Assunto>, seguido: Boolean, url: String) {
         val t = temas.take(2)
-        Estilo.lista(this, titulo, listOf(getString(if (seguido) R.string.pod_abrir else R.string.pod_sugestao_seguir)) +
+        Estilo.lista(this, titulo, listOf(getString(if (seguido) R.string.pod_abrir else R.string.pod_adicionar)) +
             t.map { getString(R.string.pod_parecidos, nomeAssunto(it)) }) { i ->
             if (i == 0) { if (seguido) abrir(url) else adicionar(url) } else abrirAssunto(t[i - 1])
         }

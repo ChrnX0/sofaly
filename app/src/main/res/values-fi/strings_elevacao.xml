@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">ylhäällä</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Tee se</string>
-    <string name="elv_bf_ok_faz">OK tekee sen nyt</string>
     <string name="elv_bf_wifi">Näytä vieraiden Wi-Fi</string>
-    <string name="elv_bf_wifi_configurar">Ei vielä määritetty: OK avaa Asetukset (Vierailut)</string>
+    <string name="elv_bf_wifi_configurar">Ei vielä määritetty</string>
     <string name="elv_bf_letra_maior">Isompi teksti (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Pienempi teksti (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Se on jo tämän kokoinen</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">auringonlaskun jälkeen</string>
     <string name="elv_ss_dia_util">on arkipäivä</string>
     <string name="elv_ss_perfil">profiili on %1$s</string>
-    <string name="elv_ss_det">◀ ▶ vaihtavat ehtoa</string>
     <string name="extras_ABERTURA_PRONTA">Ohita alkutunnus (IntroDB): jaksoissa TV kysyy yhteisön IntroDB-palvelulta, missä alkutunnus on (se lähettää vain, mikä jakso on kyseessä, ei koskaan tiliäsi); pois päältä vain itse merkitsemäsi alkutunnukset</string>
 </resources>

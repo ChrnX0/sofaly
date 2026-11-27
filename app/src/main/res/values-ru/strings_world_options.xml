@@ -30,5 +30,4 @@
     <string name="bb_titulo">Вид главного экрана</string>
     <string name="bb_cruz">Крест</string>
     <string name="bb_barra">Панель внизу</string>
-    <string name="bb_det">Категории крестом или внизу, а приложения над ними (▲)</string>
 </resources>

@@ -44,9 +44,8 @@
     <string name="elv_leg_embaixo">em baixo</string>
     <string name="elv_leg_em_cima">em cima</string>
     <string name="elv_bf_fazer">Fazer</string>
-    <string name="elv_bf_ok_faz">OK faz já</string>
     <string name="elv_bf_wifi">Mostrar o Wi-Fi das visitas</string>
-    <string name="elv_bf_wifi_configurar">Ainda não configurado: OK abre as Definições (Visitas)</string>
+    <string name="elv_bf_wifi_configurar">Ainda não configurado</string>
     <string name="elv_bf_letra_maior">Letra maior (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Letra menor (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Já está neste tamanho</string>
@@ -118,6 +117,5 @@
     <string name="elv_ss_noite">for depois do pôr do sol</string>
     <string name="elv_ss_dia_util">for dia útil</string>
     <string name="elv_ss_perfil">o perfil for %1$s</string>
-    <string name="elv_ss_det">◀ ▶ trocam a condição</string>
     <string name="extras_ABERTURA_PRONTA">Saltar genérico (IntroDB): nos episódios, a TV pergunta ao serviço comunitário IntroDB onde fica o genérico (envia qual episódio, nunca a sua conta); desligado, só os genéricos que marcou</string>
 </resources>

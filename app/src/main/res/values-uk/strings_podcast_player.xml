@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Далі</string>
     <string name="pl_dormir">Таймер сну</string>
     <string name="pl_dormir_min">Через %1$d хв</string>
-    <string name="pl_barra_dica">◀ ▶ на 10 с · утримуйте для швидшого</string>
     <string name="pl_abrir">Відкрити плеєр</string>
     <string name="pl_abrir_det">На весь екран, з тим, що грає далі</string>
 </resources>

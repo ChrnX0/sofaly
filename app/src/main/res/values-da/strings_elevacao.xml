@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">øverst</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Gør det</string>
-    <string name="elv_bf_ok_faz">OK gør det nu</string>
     <string name="elv_bf_wifi">Vis gæste-wifi</string>
-    <string name="elv_bf_wifi_configurar">Ikke opsat endnu: OK åbner Indstillinger (Besøg)</string>
+    <string name="elv_bf_wifi_configurar">Ikke opsat endnu</string>
     <string name="elv_bf_letra_maior">Større tekst (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Mindre tekst (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Den har allerede denne størrelse</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">efter solnedgang</string>
     <string name="elv_ss_dia_util">det er en hverdag</string>
     <string name="elv_ss_perfil">profilen er %1$s</string>
-    <string name="elv_ss_det">◀ ▶ ændrer betingelsen</string>
     <string name="extras_ABERTURA_PRONTA">Spring intro over (IntroDB): på afsnit spørger tv\'et fællesskabstjenesten IntroDB, hvor introen er (det sender hvilket afsnit, aldrig din konto); fra, kun introer du har markeret</string>
 </resources>

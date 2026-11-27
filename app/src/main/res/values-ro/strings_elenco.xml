@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Anterior în %1$s</string>
     <string name="anteriormente_assistir">Vizionează %1$s</string>
     <string name="anteriormente_pular_sempre">Nu arăta niciodată</string>
-    <string name="anteriormente_desligado">Rezumatele sunt dezactivate. Pentru a le activa din nou: țineți OK pe un episod.</string>
+    <string name="anteriormente_desligado">Rezumatele sunt dezactivate.</string>
     <string name="anteriormente_ligar">Afișează rezumatele „Anterior în”</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Vârsta maximă în modul copii</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Nu e în lista dvs. · pe %1$s</string>
     <string name="onde_grupo">În altă parte (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Subtitrări descărcate automat (făcute pentru acest fișier) · ▼ pentru a schimba</string>
-    <string name="legenda_auto_pronta_nome">Subtitrări descărcate automat · ▼ pentru a schimba sau a ajusta întârzierea</string>
+    <string name="legenda_auto_pronta">Subtitrări descărcate automat (făcute pentru acest fișier)</string>
+    <string name="legenda_auto_pronta_nome">Subtitrări descărcate automat</string>
     <string name="legenda_trad_rotulo">Traducere automată</string>
     <string name="legenda_trad_traduzindo">Nu există subtitrări în limba dvs.: se traduc pe TV cele în engleză…</string>
     <string name="legenda_trad_parcial">Subtitrări traduse pe TV (traducere automată). Restul continuă să se traducă.</string>

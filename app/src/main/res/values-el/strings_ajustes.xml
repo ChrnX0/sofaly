@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">Διεύθυνση και κλειδί API του router UniFi, στον πίνακα web</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Πλακίδια γρήγορου πίνακα</string>
-    <string name="pb_subtitulo">OK εμφανίζει ή κρύβει · ◀ ▶ αλλαγή σειράς</string>
-    <string name="pb_cfg_det">Επιλέξτε ποια πλακίδια δείχνει ο γρήγορος πίνακας (κράτημα ΠΙΣΩ) και με ποια σειρά</string>
+    <string name="pb_cfg_det">Επιλέξτε ποια πλακίδια δείχνει ο γρήγορος πίνακας και με ποια σειρά</string>
     <string name="pb_mostrado">εμφανίζεται</string>
     <string name="pb_escondido">κρυφό</string>
     <string name="pb_padrao">Επιστροφή στα τυπικά πλακίδια</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Εργαλεία</string>
     <string name="cfg2_sec_ocultos_sistema">Εφαρμογές συστήματος κρυμμένες από τον launcher</string>
     <string name="cfg2_apps_visita_det">Επιλέξτε ποιες εφαρμογές εξαφανίζονται όσο είναι ενεργή η λειτουργία επισκέπτη</string>
-    <string name="cfg2_apps_visita_sub">OK εναλλάσσει · αυτές εξαφανίζονται όσο είναι ενεργή η λειτουργία επισκέπτη</string>
+    <string name="cfg2_apps_visita_sub">αυτές εξαφανίζονται όσο είναι ενεργή η λειτουργία επισκέπτη</string>
     <string name="cfg2_some_visita">κρυφή για επισκέπτες</string>
     <string name="cfg2_fica_visita">μένει</string>
     <string name="cfg2_casa_det">Φώτα, πρίζες και σκηνές από Google Home ή Home Assistant</string>
     <string name="oc_titulo">Κρυφές εφαρμογές</string>
-    <string name="oc_subtitulo">OK εμφανίζει ή κρύβει μια εφαρμογή στην αρχική οθόνη · οι κρυφές πρώτες</string>
-    <string name="oc_nenhum">Καμία κρυφή εφαρμογή · OK για επιλογή</string>
-    <string name="oc_quantos">Κρυφές: %1$d · OK για να εμφανιστούν ξανά</string>
+    <string name="oc_subtitulo">οι κρυφές πρώτες</string>
+    <string name="oc_nenhum">Καμία κρυφή εφαρμογή</string>
+    <string name="oc_quantos">Κρυφές: %1$d</string>
     <string name="oc_oculto">κρυφή</string>
     <string name="oc_aparece">στην αρχική οθόνη</string>
     <string name="oc_aviso_titulo">Η εφαρμογή κρύφτηκε</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Μεγάλο</string>
     <string name="tt_maior">Μεγαλύτερο</string>
     <string name="pi_titulo">Πακέτο εικονιδίων</string>
-    <string name="pi_det">Αλλαγή εικονιδίων εφαρμογών σε ενσωματωμένο στυλ (Symbol, Duotone) ή σε εγκατεστημένο πακέτο εικονιδίων. Το OK επιλέγει το επόμενο.</string>
+    <string name="pi_det">Αλλαγή εικονιδίων εφαρμογών σε ενσωματωμένο στυλ (Symbol, Duotone) ή σε εγκατεστημένο πακέτο εικονιδίων.</string>
     <string name="pi_det_vazio">Κανένα πακέτο εικονιδίων εγκατεστημένο. Πάρτε ένα από το Play Store και θα εμφανιστεί εδώ.</string>
     <string name="pi_nenhum">Κανένα</string>
     <string name="fm_titulo">Το φόντο μου</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">Κανένα (πίσω στο Σκοτεινό)</string>
     <string name="fm_brilho">Φωτεινότητα φόντου</string>
     <string name="fm_contraste">Αντίθεση φόντου</string>
-    <string name="fm_ajuste_det">Ισχύει για Το φόντο μου. Το OK αλλάζει το βήμα.</string>
+    <string name="fm_ajuste_det">Ισχύει για Το φόντο μου.</string>
     <string name="vp_titulo">Έρχεστε από το Projectivy;</string>
     <string name="vp_texto">Τέσσερα βήματα φέρνουν τη διαμόρφωσή σας σε περίπου ένα λεπτό. Καθένα μπορεί να γίνει αργότερα στις Ρυθμίσεις.</string>
     <string name="vp_cfg_det">Μεταφορά κρυφών εφαρμογών, πακέτου εικονιδίων και φόντου από το Projectivy.</string>
     <string name="vp_1">1. Κρυφές εφαρμογές</string>
-    <string name="vp_1_det">Σημειώστε τις εφαρμογές που είχατε κρυφές. Για αλλαγή σειράς, κρατήστε OK σε μια εφαρμογή στην αρχική οθόνη.</string>
+    <string name="vp_1_det">Σημειώστε τις εφαρμογές που είχατε κρυφές.</string>
     <string name="vp_2">2. Πακέτο εικονιδίων</string>
     <string name="vp_2_det">Τα ίδια πακέτα εικονιδίων που χρησιμοποιεί το Projectivy λειτουργούν εδώ.</string>
     <string name="vp_3">3. Φόντο</string>

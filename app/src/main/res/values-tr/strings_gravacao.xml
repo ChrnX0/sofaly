@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">her hafta</string>
     <string name="grv_cancelar_pergunta">«%1$s» kaydı iptal edilsin mi?</string>
     <string name="grv_gravadas">Kaydedilenler</string>
-    <string name="grv_vazio">Henüz kayıt yok. Oynatıcıda ▶▶ › Kaydet; yayın akışında gelecekteki bir programda OK.</string>
+    <string name="grv_vazio">Henüz kayıt yok.</string>
     <string name="grv_vazio_sem_destino">Kayıtları görmek ve yapmak için hub’a bir USB bellek takın.</string>
     <string name="grv_partes">%1$d parça</string>
     <string name="grv_parte">parça %1$d / %2$d</string>

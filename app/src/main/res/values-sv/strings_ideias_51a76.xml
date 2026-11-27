@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Skriv på tv:n</string>
     <string name="l51_digitar_texto">En textruta är öppen i %1$s. Tryck för att skriva härifrån.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">rum %1$s</string>
     <string name="casa_movimento">Rörelse</string>
     <string name="casa_sem_movimento">Ingen rörelse</string>

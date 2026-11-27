@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Az előző részek tartalmából: %1$s</string>
     <string name="anteriormente_assistir">%1$s megnézése</string>
     <string name="anteriormente_pular_sempre">Soha ne mutassa</string>
-    <string name="anteriormente_desligado">Összefoglalók kikapcsolva. Újbóli bekapcsolás: OK nyomva egy epizódon.</string>
+    <string name="anteriormente_desligado">Összefoglalók kikapcsolva.</string>
     <string name="anteriormente_ligar">„Az előző részek tartalmából” összefoglalók megjelenítése</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Maximális életkor gyerekmódban</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Nincs a listájában · itt: %1$s</string>
     <string name="onde_grupo">Máshol (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Automatikusan letöltött felirat (ehhez a fájlhoz készült) · ▼ a módosításhoz</string>
-    <string name="legenda_auto_pronta_nome">Automatikusan letöltött felirat · ▼ a módosításhoz vagy a késleltetés beállításához</string>
+    <string name="legenda_auto_pronta">Automatikusan letöltött felirat (ehhez a fájlhoz készült)</string>
+    <string name="legenda_auto_pronta_nome">Automatikusan letöltött felirat</string>
     <string name="legenda_trad_rotulo">Automatikus fordítás</string>
     <string name="legenda_trad_traduzindo">Nincs felirat az Ön nyelvén: az angol fordítása a TV-n…</string>
     <string name="legenda_trad_parcial">Feliratok lefordítva a TV-n (automatikus fordítás). A többi fordítása folytatódik.</string>

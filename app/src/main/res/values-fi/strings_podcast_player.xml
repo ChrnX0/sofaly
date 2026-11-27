@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Seuraavaksi</string>
     <string name="pl_dormir">Uniajastin</string>
     <string name="pl_dormir_min">%1$d min kuluttua</string>
-    <string name="pl_barra_dica">◀ ▶ siirtävät 10 s · pidä nopeuttaaksesi</string>
     <string name="pl_abrir">Avaa soitin</string>
     <string name="pl_abrir_det">Koko näyttö, ja mitä soi seuraavaksi</string>
 </resources>

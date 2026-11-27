@@ -41,13 +41,12 @@
     <string name="casa_desligado">बंद</string>
     <string name="casa_aberta">खुला</string>
     <string name="casa_fechada">बंद</string>
-    <string name="casa_rodar">चलाने के लिए OK</string>
     <string name="casa_indisponivel">उपलब्ध नहीं</string>
     <string name="casa_sem_config_titulo">अपना घर जोड़ें</string>
     <string name="casa_dica_acionar">चालू या बंद</string>
     <string name="casa_erro">Home Assistant ने जवाब नहीं दिया: %1$s</string>
     <string name="casa_ligado_pct">चालू · %1$d%%</string>
-    <string name="casa_brilho_ajuste">चमक %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">चमक %1$d%%</string>
     <string name="casa_dica_brilho">चमक</string>
     <string name="casa_tecla_segurar_ok">OK दबाए रखें</string>
     <string name="ca_liberado">%1$s खाली हुआ। अभी खाली: %2$s।</string>

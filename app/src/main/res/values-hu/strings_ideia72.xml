@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: most nincs semmi a műsorújságban</string>
     <string name="l72_guia_depois">Következik: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Most szól: %1$s, %2$s. Az OK szünetel vagy folytat; OK nyomva az alkalmazás megnyitása</string>
+    <string name="l75_pilula">Most szól: %1$s, %2$s.</string>
 </resources>

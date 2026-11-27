@@ -15,7 +15,7 @@
     <string name="desf_barra">已更改：%1$s</string>
     <string name="desf_botao">撤销</string>
     <string name="desf_tela">最近的更改</string>
-    <string name="desf_tela_det">过去 7 天的更改。在某一项上按 OK 即恢复原样。</string>
+    <string name="desf_tela_det">过去 7 天的更改。</string>
     <string name="desf_tela_vazia">过去 7 天没有更改。</string>
     <string name="desf_ja_desfeita">已撤销</string>
     <string name="desf_rot_config">设置</string>

@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">リセット</string>
     <string name="l51_digitar_titulo">TV に入力</string>
     <string name="l51_digitar_texto">%1$s でテキスト入力欄が開いています。タップするとここから入力できます。</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">室温 %1$s</string>
     <string name="casa_movimento">動きあり</string>
     <string name="casa_sem_movimento">動きなし</string>

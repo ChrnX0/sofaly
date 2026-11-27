@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Voor wie is deze tv?</string>
-    <string name="rec_subtitulo">Eén OK stelt de tv in. Je kunt het altijd ongedaan maken.</string>
+    <string name="rec_subtitulo">Je kunt het altijd ongedaan maken.</string>
     <string name="rec_vo">Tv van oma</string>
     <string name="rec_vo_det">Grote kaarten met namen die hardop worden voorgelezen, grotere tekst en een knop Hulp vragen.</string>
     <string name="rec_criancas">Kinder-tv</string>

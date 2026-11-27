@@ -48,7 +48,6 @@
     <string name="pod_em_alta">Populaires dans votre pays</string>
     <string name="pod_atribuicao">Recherche : Podcast Index</string>
     <string name="pod_sugestoes">Suggestions</string>
-    <string name="pod_sugestao_seguir">OK pour suivre</string>
     <string name="pod_sugeridos_seguidos">Podcasts suggérés ajoutés à Mes podcasts</string>
     <string name="pod_busca_nada">Aucun podcast trouvé.</string>
     <string name="pod_busca_cota">La recherche de podcasts se repose pour aujourd\'hui. Elle revient demain.</string>

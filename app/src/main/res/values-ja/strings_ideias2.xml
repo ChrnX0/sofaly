@@ -41,13 +41,12 @@
     <string name="casa_desligado">オフ</string>
     <string name="casa_aberta">開</string>
     <string name="casa_fechada">閉</string>
-    <string name="casa_rodar">OK で実行</string>
     <string name="casa_indisponivel">利用不可</string>
     <string name="casa_sem_config_titulo">ホームを接続</string>
     <string name="casa_dica_acionar">オン/オフ</string>
     <string name="casa_erro">Home Assistant が応答しませんでした: %1$s</string>
     <string name="casa_ligado_pct">オン · %1$d%%</string>
-    <string name="casa_brilho_ajuste">明るさ %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">明るさ %1$d%%</string>
     <string name="casa_dica_brilho">明るさ</string>
     <string name="casa_tecla_segurar_ok">OK 長押し</string>
     <string name="ca_liberado">%1$s を解放しました。現在の空き: %2$s。</string>

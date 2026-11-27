@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">시즌: %d</string>
     <string name="elv_cat_procurando">포스터를 찾는 중…</string>
-    <string name="elv_cat_nada">TMDB에서 찾지 못했습니다. OK를 길게 눌러 올바른 이름을 입력하세요.</string>
+    <string name="elv_cat_nada">TMDB에서 찾지 못했습니다.</string>
     <string name="elv_cat_corrigir_titulo">수정: %s</string>
     <string name="elv_cat_corrigir_explica">포스터나 줄거리가 틀렸나요? 다음 결과를 요청하거나 올바른 이름과 연도를 입력하세요. 이름을 비우면 자동으로 돌아갑니다.</string>
     <string name="elv_cat_nao_e">이게 아님</string>

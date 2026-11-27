@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">”%1$s” vill se och kopiera filerna i tv:ns lagring via hemnätverket. Tillåta den här datorn?</string>
     <string name="mtp_pcs">Tillåtna datorer</string>
     <string name="mtp_pcs_nenhum">Inga än. Tv:n frågar på skärmen när en dator begär filerna.</string>
-    <string name="mtp_pcs_lista">%1$s · OK glömmer alla (var och en frågar igen)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Datorerna glömda</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Öppna tv-panelen</string>

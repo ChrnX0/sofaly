@@ -41,13 +41,12 @@
     <string name="casa_desligado">Vypnuto</string>
     <string name="casa_aberta">Otevřeno</string>
     <string name="casa_fechada">Zavřeno</string>
-    <string name="casa_rodar">OK pro spuštění</string>
     <string name="casa_indisponivel">Nedostupné</string>
     <string name="casa_sem_config_titulo">Připojte svou domácnost</string>
     <string name="casa_dica_acionar">zapnout nebo vypnout</string>
     <string name="casa_erro">Home Assistant neodpověděl: %1$s</string>
     <string name="casa_ligado_pct">Zapnuto · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Jas %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Jas %1$d%%</string>
     <string name="casa_dica_brilho">jas</string>
     <string name="casa_tecla_segurar_ok">PODRŽTE OK</string>
     <string name="ca_liberado">Uvolněno %1$s. Nyní volno: %2$s.</string>

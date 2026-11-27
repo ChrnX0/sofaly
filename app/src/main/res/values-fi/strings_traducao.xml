@@ -104,7 +104,6 @@
     <string name="lb_lembrete">Muistutus</string>
     <string name="lb_quando_em">%1$s, kanavalla %2$s.</string>
     <string name="ms_ola">Hei!</string>
-    <string name="ms_ola_det">Valitse nuolilla ja paina OK.</string>
     <string name="ms_pedir_ajuda">Pyydä apua</string>
     <string name="ms_pedido_ajuda">Avunpyyntö</string>
     <string name="ms_alguem_pediu">Joku pyysi apua TV:ssä %1$s.</string>
@@ -172,7 +171,6 @@
     <string name="bc_categorias">LUOKAT</string>
     <string name="bc_canais">KANAVAT</string>
     <string name="bc_carregando">ladataan kanavia…</string>
-    <string name="bc_dica">OK estää tai poistaa eston · OK luokassa koskee koko luokkaa · ◀ ▶ luokat ja kanavat · TAKAISIN poistuu (jo tallennettu)</string>
     <string name="bc_categoria_bloqueada">koko luokka \"%1$s\" on estetty: poista esto vasemmasta sarakkeesta</string>
     <string name="bc_filme">Elokuva · %1$s</string>
     <string name="bc_serie">Sarja · %1$s</string>

@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">रीसेट करें</string>
     <string name="l51_digitar_titulo">TV पर टाइप करें</string>
     <string name="l51_digitar_texto">%1$s में एक टेक्स्ट बॉक्स खुला है। यहाँ से टाइप करने के लिए टैप करें।</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">कमरा %1$s</string>
     <string name="casa_movimento">हलचल</string>
     <string name="casa_sem_movimento">कोई हलचल नहीं</string>

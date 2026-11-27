@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Finjustering</string>
-    <string name="ft_dica">OK eller ▶ ◀ ændrer · TILBAGE lukker</string>
     <string name="ft_abrir">Juster, mens du ser startskærmen</string>
     <string name="ft_abrir_det">Skrifttype, ur, fremhævningsfarve, hjørner, glød og størrelse, live</string>
     <string name="cs_destaque">Fremhævningsfarve</string>

@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">ทีวีนี้สำหรับใคร</string>
-    <string name="rec_subtitulo">กด OK ครั้งเดียวเพื่อตั้งค่าทีวี ยกเลิกได้ทุกเมื่อ</string>
+    <string name="rec_subtitulo">ยกเลิกได้ทุกเมื่อ</string>
     <string name="rec_vo">ทีวีของคุณยาย</string>
     <string name="rec_vo_det">การ์ดใหญ่ อ่านชื่อออกเสียง ตัวอักษรใหญ่ขึ้น และปุ่มขอความช่วยเหลือ</string>
     <string name="rec_criancas">ทีวีของเด็ก</string>

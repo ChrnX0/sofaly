@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Tydligare röster på</string>
     <string name="acess_voz_desligado">Tydligare röster av</string>
     <string name="acess_config_titulo">Ljud och undertexter</string>
-    <string name="acess_config_texto">För den som ser eller hör sämre. Finns även i menyn ▼ i spelaren.</string>
+    <string name="acess_config_texto">För den som ser eller hör sämre.</string>
 </resources>

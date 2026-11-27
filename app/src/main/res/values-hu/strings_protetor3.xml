@@ -2,25 +2,20 @@
 <!-- Protetor: variações de cada elemento (17/11/2026). -->
 <resources>
     <string name="pv2_est_avisos">Értesítések stílusa</string>
-    <string name="pv2_est_avisos_det">hogyan jelennek meg az üzenetek és emlékeztetők · az OK módosítja</string>
     <string name="pv2_av_cartoes">Üvegkártyák</string>
     <string name="pv2_av_lista">Lista keret nélkül</string>
     <string name="pv2_av_um">Egyszerre egy</string>
     <string name="pv2_est_textos">Köszöntés és dátum stílusa</string>
-    <string name="pv2_est_textos_det">Az OK módosítja</string>
     <string name="pv2_tx_moderno">Modern</string>
     <string name="pv2_tx_serifa">Talpas</string>
     <string name="pv2_tx_maiusculas">Ritkított nagybetűk</string>
     <string name="pv2_est_linhas">Időjárássáv stílusa</string>
-    <string name="pv2_est_linhas_det">az időjárás-mondat és az érdekesség · az OK módosítja</string>
     <string name="pv2_ln_icones">Ikonokkal</string>
     <string name="pv2_ln_vidro">Sötét üvegen</string>
     <string name="pv2_ln_texto">Csak szöveg</string>
     <string name="pv2_est_credito">Fotóforrás stílusa</string>
-    <string name="pv2_est_credito_det">Az OK módosítja</string>
     <string name="pv2_cr_etiqueta">Címke</string>
     <string name="pv2_cr_discreto">Diszkrét</string>
     <string name="cl_widget_linha">Egy sor</string>
     <string name="cl_widget_grande">Nagy</string>
-    <string name="pv2_widget_det">öt stílus · az OK módosítja</string>
 </resources>

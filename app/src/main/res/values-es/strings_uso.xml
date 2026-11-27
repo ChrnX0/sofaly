@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Apagado hasta que quien vive ahí lo acepte en la TV.</string>
     <string name="uso_cartoes">Tarjetas grandes en la pantalla de inicio</string>
     <string name="uso_cartoes_det">Pocas apps grandes, nombre leído en voz alta y botón \"Pedir ayuda\". Para apagarlo, pide el PIN.</string>
-    <string name="uso_trocar_det">Ahora: %1$s. OK para elegir de nuevo.</string>
+    <string name="uso_trocar_det">Ahora: %1$s.</string>
 </resources>

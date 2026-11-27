@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Latar screensaver</string>
-    <string name="pv2_fundo_det">latar tema, atau foto asli Bumi dari luar angkasa · OK mengubah</string>
     <string name="pv2_fundo_tema">Dari tema</string>
     <string name="pv2_fundo_terra">Bumi dari luar angkasa</string>
     <string name="pv2_relogio">Jam screensaver</string>
-    <string name="pv2_relogio_det">enam gaya · OK mengubah</string>
     <string name="pv2_rel_fino">Tipis</string>
     <string name="pv2_rel_editorial">Editorial</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Dengan kata</string>
     <string name="pv2_rel_empilhado">Bertumpuk</string>
     <string name="pv2_posicao">Posisi jam</string>
-    <string name="pv2_posicao_det">OK mengubah</string>
     <string name="pv2_pos_alto">Kiri atas</string>
     <string name="pv2_pos_baixo">Kiri bawah</string>
     <string name="pv2_pos_centro">Di tengah</string>
     <string name="pv2_tamanho">Ukuran jam</string>
-    <string name="pv2_tamanho_det">angka besar lebih mudah dibaca dari jauh · OK mengubah</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Besar</string>
     <string name="pv2_mostrar">Yang ditampilkan screensaver</string>
-    <string name="pv2_mostrar_det">\"Hanya jam\": tombol remote apa pun menampilkan sisanya selama 15 dtk · OK mengubah</string>
     <string name="pv2_mostrar_so">Hanya jam</string>
     <string name="pv2_mostrar_vez">Sesekali</string>
     <string name="pv2_mostrar_sempre">Semuanya</string>
     <string name="pv2_elementos">Di screensaver</string>
-    <string name="pv2_el_det">tampil di screensaver · OK menyalakan atau mematikan</string>
     <string name="pv2_el_saudacao">Sapaan</string>
     <string name="pv2_el_data">Tanggal</string>
     <string name="pv2_el_linha_dia">Garis siang</string>

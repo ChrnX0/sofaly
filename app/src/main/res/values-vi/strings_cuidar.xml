@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Bạn có thể chờ.</string>
     <string name="cuidar_nao_avisado">Không báo được cho %1$s</string>
     <string name="cuidar_sem_aparelho">Chưa có điện thoại nào được đặt để nhận. Hãy kiểm tra Cài đặt › Gia đình › Chăm sóc từ xa.</string>
-    <string name="cuidar_sem_internet">Hãy kiểm tra internet và thử lại (giữ nút 3 giây).</string>
+    <string name="cuidar_sem_internet">Hãy kiểm tra internet và thử lại.</string>
     <string name="cuidar_lembrete_sobre">Nhắc nhở · %1$s</string>
     <string name="cuidar_lembrete_explica">Nhấn OK khi đã xong.</string>
     <string name="cuidar_lembrete_explica_aviso">Nhấn OK khi đã xong. Nếu không trong %1$d phút, %2$s sẽ nhận thông báo.</string>

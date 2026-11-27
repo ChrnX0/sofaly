@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">Этот ТВ не открыл настройки Bluetooth. Откройте Настройки, Пульты и аксессуары.</string>
     <string name="jogos_baixar">Скачать игры</string>
     <string name="jogos_escolher">Выбрать приложения</string>
-    <string name="jogos_escolher_sub">Какие приложения живут в «Играть». OK переключает между «Играть» и «Приложениями».</string>
+    <string name="jogos_escolher_sub">Какие приложения живут в «Играть».</string>
     <string name="jogos_no_card">в «Играть»</string>
     <string name="jogos_na_linha">в «Приложениях»</string>
     <string name="jogos_grupo_nuvem">В облаке</string>

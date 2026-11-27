@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Hãy đánh dấu bắt đầu mở đầu trước</string>
     <string name="abertura_invalida">Có vẻ không phải đoạn mở đầu: phải dài từ 10 giây đến 5 phút và bắt đầu trong 15 phút đầu</string>
     <string name="abertura_apagada">Đã xóa đánh dấu mở đầu</string>
-    <string name="abertura_pular">Bỏ qua mở đầu · OK</string>
+    <string name="abertura_pular">Bỏ qua mở đầu</string>
 </resources>

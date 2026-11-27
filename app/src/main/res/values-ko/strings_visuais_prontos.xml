@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">추천 스타일</string>
-    <string name="vpr_det">OK를 누를 때마다 다음 스타일로 바뀝니다: 테마, 글자, 배경 색를 함께</string>
     <string name="vpr_meu">내 설정</string>
     <string name="vpr_classico">클래식</string>
     <string name="vpr_leitura">쉽게 읽기</string>

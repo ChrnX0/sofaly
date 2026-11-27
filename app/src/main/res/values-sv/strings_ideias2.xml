@@ -41,13 +41,12 @@
     <string name="casa_desligado">Av</string>
     <string name="casa_aberta">Öppen</string>
     <string name="casa_fechada">Stängd</string>
-    <string name="casa_rodar">OK för att köra</string>
     <string name="casa_indisponivel">Inte tillgänglig</string>
     <string name="casa_sem_config_titulo">Anslut ditt hem</string>
     <string name="casa_dica_acionar">slå på eller av</string>
     <string name="casa_erro">Home Assistant svarade inte: %1$s</string>
     <string name="casa_ligado_pct">På · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Ljusstyrka %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Ljusstyrka %1$d%%</string>
     <string name="casa_dica_brilho">ljusstyrka</string>
     <string name="casa_tecla_segurar_ok">HÅLL OK</string>
     <string name="ca_liberado">Frigjorde %1$s. Ledigt nu: %2$s.</string>

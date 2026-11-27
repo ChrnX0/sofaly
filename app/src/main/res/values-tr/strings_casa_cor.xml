@@ -2,8 +2,8 @@
 <!-- Tradução (tr) de values/strings_casa_cor.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
     <string name="casa_dica_brilho_cor">parlaklık ve renk</string>
-    <string name="casa_brilho_ajuste_cor">Parlaklık %%%1$d · ◀ ▶ · renk ▲ ▼</string>
-    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_brilho_ajuste_cor">Parlaklık %%%1$d</string>
+    <string name="casa_cor_ajuste">%1$s</string>
     <string name="casa_cor_quente">Sıcak beyaz</string>
     <string name="casa_cor_neutra">Nötr beyaz</string>
     <string name="casa_cor_fria">Soğuk beyaz</string>

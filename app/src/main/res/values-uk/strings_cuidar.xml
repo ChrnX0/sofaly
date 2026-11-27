@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Можете зачекати.</string>
     <string name="cuidar_nao_avisado">Не вдалося сповістити %1$s</string>
     <string name="cuidar_sem_aparelho">Жоден телефон не налаштовано на отримання. Перевірте Налаштування › Сім\'я › Турбота на відстані.</string>
-    <string name="cuidar_sem_internet">Перевірте інтернет і спробуйте ще раз (утримуйте кнопку 3 секунди).</string>
+    <string name="cuidar_sem_internet">Перевірте інтернет і спробуйте ще раз.</string>
     <string name="cuidar_lembrete_sobre">Нагадування · %1$s</string>
     <string name="cuidar_lembrete_explica">Натисніть OK, коли буде зроблено.</string>
     <string name="cuidar_lembrete_explica_aviso">Натисніть OK, коли буде зроблено. Якщо ні — за %1$d хв %2$s отримає сповіщення.</string>

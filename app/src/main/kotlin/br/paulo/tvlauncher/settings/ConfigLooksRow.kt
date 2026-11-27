@@ -26,7 +26,6 @@ import br.paulo.tvlauncher.home.StripHome
 internal fun ConfigLauncherActivity.linhaVisuaisProntos(c: LinearLayout) {
     if (!br.paulo.tvlauncher.home.BottomBar.strip(this)) return
     c.addView(Estilo.texto(this, Estilo.Papel.SECAO, getString(R.string.hl_titulo)), lp())
-    c.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.hl_det)), lp())
     val fila = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false
         setPaddingRelative(dp(4), dp(8), dp(4), dp(8)) }
     val rolagem = HorizontalScrollView(this).apply {

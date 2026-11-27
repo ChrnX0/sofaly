@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Typen op de tv</string>
     <string name="l51_digitar_texto">Er staat een tekstvak open in %1$s. Tik om vanaf hier te typen.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">kamer %1$s</string>
     <string name="casa_movimento">Beweging</string>
     <string name="casa_sem_movimento">Geen beweging</string>

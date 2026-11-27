@@ -6,9 +6,8 @@
     <string name="vid_onde">Katsoaksesi: Asetukset › Perhe › Perheen videot.</string>
     <string name="vid_depois">Myöhemmin</string>
     <string name="vid_assistir">Katso</string>
-    <string name="vid_ok_para_assistir">Paina OK katsoaksesi.</string>
     <string name="vid_lista">Perheen videot</string>
-    <string name="vid_lista_det">Lähetetty perhelinkin kautta. Kukin säilyy 30 päivää. Pidä OK pohjassa poistaaksesi.</string>
+    <string name="vid_lista_det">Lähetetty perhelinkin kautta. Kukin säilyy 30 päivää.</string>
     <string name="vid_nenhum">Ei vielä videoita.</string>
     <string name="vid_apagar">Poista video</string>
     <string name="vid_aceitar">Hyväksy videot</string>

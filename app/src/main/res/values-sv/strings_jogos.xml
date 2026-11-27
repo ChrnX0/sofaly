@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">Den här tv:n öppnade inte Bluetooth-inställningarna. Öppna Inställningar, Fjärrkontroller och tillbehör.</string>
     <string name="jogos_baixar">Skaffa spel</string>
     <string name="jogos_escolher">Välj appar</string>
-    <string name="jogos_escolher_sub">Vilka appar som finns i Spela. OK växlar mellan Spela och Appar.</string>
+    <string name="jogos_escolher_sub">Vilka appar som finns i Spela.</string>
     <string name="jogos_no_card">i Spela</string>
     <string name="jogos_na_linha">i Appar</string>
     <string name="jogos_grupo_nuvem">I molnet</string>

@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Πιο καθαρές φωνές ενεργές</string>
     <string name="acess_voz_desligado">Πιο καθαρές φωνές ανενεργές</string>
     <string name="acess_config_titulo">Ήχος και υπότιτλοι</string>
-    <string name="acess_config_texto">Για όποιον βλέπει ή ακούει λιγότερο καλά. Επίσης στο μενού ▼ του προγράμματος αναπαραγωγής.</string>
+    <string name="acess_config_texto">Για όποιον βλέπει ή ακούει λιγότερο καλά.</string>
 </resources>

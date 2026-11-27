@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Zurücksetzen</string>
     <string name="l51_digitar_titulo">Auf dem Fernseher tippen</string>
     <string name="l51_digitar_texto">In %1$s ist ein Textfeld offen. Tippe, um von hier aus zu schreiben.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">Raum %1$s</string>
     <string name="casa_movimento">Bewegung</string>
     <string name="casa_sem_movimento">Keine Bewegung</string>

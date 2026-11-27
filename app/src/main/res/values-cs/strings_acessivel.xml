@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Zřetelnější hlasy zapnuty</string>
     <string name="acess_voz_desligado">Zřetelnější hlasy vypnuty</string>
     <string name="acess_config_titulo">Zvuk a titulky</string>
-    <string name="acess_config_texto">Pro ty, kdo hůře vidí nebo slyší. Také v nabídce ▼ přehrávače.</string>
+    <string name="acess_config_texto">Pro ty, kdo hůře vidí nebo slyší.</string>
 </resources>

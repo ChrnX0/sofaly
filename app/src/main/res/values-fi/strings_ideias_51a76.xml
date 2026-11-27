@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Kirjoita TV:hen</string>
     <string name="l51_digitar_texto">Tekstikenttä on auki sovelluksessa %1$s. Napauta kirjoittaaksesi täältä.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">huone %1$s</string>
     <string name="casa_movimento">Liikettä</string>
     <string name="casa_sem_movimento">Ei liikettä</string>

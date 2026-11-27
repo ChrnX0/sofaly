@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Ce știe Sofy</string>
-    <string name="smem_sub">Ce a învățat despre această casă. OK uită un element; îl învață din nou.</string>
+    <string name="smem_sub">Ce a învățat despre această casă.</string>
     <string name="smem_linha_det">Ce a învățat, cu Uită</string>
     <string name="smem_uso">Când e folosit televizorul</string>
     <string name="smem_uso_det">Ore din zi învățate: %1$d</string>

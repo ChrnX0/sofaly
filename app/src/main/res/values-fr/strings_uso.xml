@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Désactivé tant que la personne qui vit là n\'a pas accepté sur la TV.</string>
     <string name="uso_cartoes">Grandes cartes sur l\'écran d\'accueil</string>
     <string name="uso_cartoes_det">Quelques grandes applis, nom lu à voix haute et bouton \"Demander de l\'aide\". Pour désactiver, le PIN est demandé.</string>
-    <string name="uso_trocar_det">Actuellement : %1$s. OK pour choisir à nouveau.</string>
+    <string name="uso_trocar_det">Actuellement : %1$s.</string>
 </resources>

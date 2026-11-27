@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">chaque semaine</string>
     <string name="grv_cancelar_pergunta">Annuler l’enregistrement de « %1$s » ?</string>
     <string name="grv_gravadas">Enregistrés</string>
-    <string name="grv_vazio">Rien d’enregistré pour l’instant. Dans le lecteur, ▶▶ › Enregistrer ; dans le guide, OK sur un programme à venir.</string>
+    <string name="grv_vazio">Rien d’enregistré pour l’instant.</string>
     <string name="grv_vazio_sem_destino">Branchez une clé USB sur le hub pour voir et faire des enregistrements.</string>
     <string name="grv_partes">%1$d parties</string>
     <string name="grv_parte">partie %1$d sur %2$d</string>

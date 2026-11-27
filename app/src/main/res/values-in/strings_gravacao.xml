@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">setiap minggu</string>
     <string name="grv_cancelar_pergunta">Batalkan rekaman \"%1$s\"?</string>
     <string name="grv_gravadas">Terekam</string>
-    <string name="grv_vazio">Belum ada rekaman. Di pemutar, ▶▶ › Rekam; di panduan, OK pada acara yang akan datang.</string>
+    <string name="grv_vazio">Belum ada rekaman.</string>
     <string name="grv_vazio_sem_destino">Colokkan flashdisk ke hub untuk melihat dan membuat rekaman.</string>
     <string name="grv_partes">%1$d bagian</string>
     <string name="grv_parte">bagian %1$d dari %2$d</string>

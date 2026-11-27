@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Tandai awal pembuka dulu</string>
     <string name="abertura_invalida">Itu tidak tampak seperti pembuka: harus berdurasi 10 dtk sampai 5 mnt dan dimulai di 15 mnt pertama</string>
     <string name="abertura_apagada">Tanda pembuka dihapus</string>
-    <string name="abertura_pular">Lewati pembuka · OK</string>
+    <string name="abertura_pular">Lewati pembuka</string>
 </resources>

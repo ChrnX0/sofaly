@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Regolazione fine</string>
-    <string name="ft_dica">OK o ▶ ◀ cambia · INDIETRO chiude</string>
     <string name="ft_abrir">Regola vedendo la schermata Home</string>
     <string name="ft_abrir_det">Carattere, ora, colore di risalto, angoli, bagliore e dimensione, dal vivo</string>
     <string name="cs_destaque">Colore di risalto</string>

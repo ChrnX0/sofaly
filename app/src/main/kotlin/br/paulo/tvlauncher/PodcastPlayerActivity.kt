@@ -357,7 +357,6 @@ class PodcastPlayerActivity : Activity() {
                 s?.texto?.isNotEmpty() == true -> ""
                 s?.textoCarregando == true -> " · " + getString(R.string.tx_carregando)
                 s?.textoErro == "cota" -> " · " + getString(R.string.tx_cota)
-                s?.podeGerarTexto() == true -> " · " + getString(R.string.tx_gerar)
                 else -> " · " + getString(R.string.tx_nao_tem)
             }
         }

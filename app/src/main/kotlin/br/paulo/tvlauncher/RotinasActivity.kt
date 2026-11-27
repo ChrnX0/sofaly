@@ -64,14 +64,14 @@ class RotinasActivity : Activity() {
         @Suppress("DEPRECATION") super.onBackPressed()
     }
 
-    private fun tela(titulo: String, subtitulo: String): Pair<View, LinearLayout> {
+    private fun tela(titulo: String, subtitulo: String? = null): Pair<View, LinearLayout> {
         val raiz = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             background = Estilo.fundoTela(context)   // o grafite da HOME (sistema de design)
             setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL))
         }
         raiz.addView(Estilo.tituloTela(this, titulo))
-        raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, subtitulo), LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(4) })
+        if (subtitulo != null) raiz.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, subtitulo), LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(4) })
         val lista = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(8), dp(4), dp(8), dp(4)); clipChildren = false; clipToPadding = false }
         raiz.addView(ScrollView(this).apply { isVerticalScrollBarEnabled = false; clipChildren = false; addView(lista) },
             LinearLayout.LayoutParams(MATCH, 0, 1f).apply { topMargin = dp(16) })
@@ -100,7 +100,7 @@ class RotinasActivity : Activity() {
         val apps = packageManager.queryIntentActivities(Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LEANBACK_LAUNCHER), 0)
             .map { it.activityInfo.packageName }.distinct().filter { it != packageName }
             .sortedBy { (Rotinas.rotuloApp(this, it) ?: it).lowercase() }
-        val (raiz, lista) = tela(if (original == null) getString(R.string.rot_nova) else getString(R.string.rot_editar), getString(R.string.rot_editor_det))
+        val (raiz, lista) = tela(if (original == null) getString(R.string.rot_nova) else getString(R.string.rot_editar))   // sem a linha de teclas (Paulo, 26/11/2026: dicas de teclas saem de tudo)
 
         lateinit var lHora: TextView; lateinit var lDias: TextView; lateinit var lAcao: TextView
         lateinit var lApp: TextView; lateinit var lOcioso: TextView; lateinit var lAtiva: TextView; lateinit var lCena: TextView
@@ -127,7 +127,7 @@ class RotinasActivity : Activity() {
             r = r.copy(pacote = apps[((if (i < 0) -1 else i) + passo + apps.size) % apps.size])
         }
 
-        lHora = linha("", getString(R.string.rot_hora_det)) { mudarMinutos(60); redesenhar() }
+        lHora = linha("", "") { mudarMinutos(60); redesenhar() }
         lHora.setOnKeyListener { _, k, e ->
             if (e.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
             when (k) {
@@ -136,17 +136,17 @@ class RotinasActivity : Activity() {
                 else -> false
             }
         }
-        lDias = linha("", getString(R.string.rot_dias_det)) {
+        lDias = linha("", "") {
             r = r.copy(dias = DIAS[(DIAS.indexOf(r.dias) + 1) % DIAS.size]); redesenhar()
         }
-        lAcao = linha("", getString(R.string.rot_ok_muda)) {
+        lAcao = linha("", "") {
             val a = Rotinas.Acao.values()
             r = r.copy(acao = a[(r.acao.ordinal + 1) % a.size])
             if (r.acao == Rotinas.Acao.ABRIR && r.pacote.isBlank()) mudarApp(1)
             if (r.acao == Rotinas.Acao.CENA && r.cena.isBlank()) r = r.copy(cena = Cenas.girar(cenas, "", 1, comNenhuma = false))
             redesenhar()
         }
-        lCena = linha("", if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else getString(R.string.rot_app_det)) {
+        lCena = linha("", if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else "") {
             r = r.copy(cena = Cenas.girar(cenas, r.cena, 1, comNenhuma = false)); redesenhar()
         }
         lCena.setOnKeyListener { _, k, e ->
@@ -157,7 +157,7 @@ class RotinasActivity : Activity() {
                 else -> false
             }
         }
-        lApp = linha("", getString(R.string.rot_app_det)) { mudarApp(1); redesenhar() }
+        lApp = linha("", "") { mudarApp(1); redesenhar() }
         lApp.setOnKeyListener { _, k, e ->
             if (e.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
             when (k) {
@@ -170,7 +170,7 @@ class RotinasActivity : Activity() {
             val o = Rotinas.OCIOSO_OPCOES
             r = r.copy(ocioso = o[(o.indexOf(r.ocioso) + 1) % o.size]); redesenhar()
         }
-        lAtiva = linha("", getString(R.string.rot_ativa_det)) { r = r.copy(ativa = !r.ativa); redesenhar() }
+        lAtiva = linha("", "") { r = r.copy(ativa = !r.ativa); redesenhar() }
         for (v in listOf(lHora, lDias, lAcao, lApp, lCena, lOcioso, lAtiva)) adicionar(lista, v)
         adicionar(lista, linha(getString(R.string.rot_salvar), "") {
             if (r.acao == Rotinas.Acao.ABRIR && r.pacote.isBlank()) { AvisoTv.rapido(this, getString(R.string.cfg_rotinas), getString(R.string.rot_escolha_app), 4); return@linha }

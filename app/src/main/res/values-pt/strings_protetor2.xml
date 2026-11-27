@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Fundo do protetor</string>
-    <string name="pv2_fundo_det">o do tema, ou fotos reais da Terra vista do espaço · OK muda</string>
     <string name="pv2_fundo_tema">Do tema</string>
     <string name="pv2_fundo_terra">A Terra vista do espaço</string>
     <string name="pv2_relogio">Relógio do protetor</string>
-    <string name="pv2_relogio_det">seis estilos · OK muda</string>
     <string name="pv2_rel_fino">Fino</string>
     <string name="pv2_rel_editorial">Editorial</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Por extenso</string>
     <string name="pv2_rel_empilhado">Empilhado</string>
     <string name="pv2_posicao">Lugar do relógio</string>
-    <string name="pv2_posicao_det">OK muda</string>
     <string name="pv2_pos_alto">Em cima à esquerda</string>
     <string name="pv2_pos_baixo">Embaixo à esquerda</string>
     <string name="pv2_pos_centro">No centro</string>
     <string name="pv2_tamanho">Tamanho do relógio</string>
-    <string name="pv2_tamanho_det">número grande é mais fácil de ler de longe · OK muda</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Grande</string>
     <string name="pv2_mostrar">O que o protetor mostra</string>
-    <string name="pv2_mostrar_det">\"Só a hora\": qualquer tecla do controle mostra o resto por 15 s · OK muda</string>
     <string name="pv2_mostrar_so">Só a hora</string>
     <string name="pv2_mostrar_vez">De vez em quando</string>
     <string name="pv2_mostrar_sempre">Tudo</string>
     <string name="pv2_elementos">No protetor de tela</string>
-    <string name="pv2_el_det">aparece no protetor · OK liga ou desliga</string>
     <string name="pv2_el_saudacao">Saudação</string>
     <string name="pv2_el_data">Data</string>
     <string name="pv2_el_linha_dia">Linha do dia</string>

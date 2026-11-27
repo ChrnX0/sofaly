@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Fond de l’économiseur d’écran</string>
-    <string name="pv2_fundo_det">celui du thème, ou de vraies photos de la Terre vue de l’espace · OK change</string>
     <string name="pv2_fundo_tema">Du thème</string>
     <string name="pv2_fundo_terra">La Terre vue de l’espace</string>
     <string name="pv2_relogio">Horloge de l’économiseur d’écran</string>
-    <string name="pv2_relogio_det">six styles · OK change</string>
     <string name="pv2_rel_fino">Fin</string>
     <string name="pv2_rel_editorial">Éditorial</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">En toutes lettres</string>
     <string name="pv2_rel_empilhado">Empilé</string>
     <string name="pv2_posicao">Position de l’horloge</string>
-    <string name="pv2_posicao_det">OK change</string>
     <string name="pv2_pos_alto">En haut à gauche</string>
     <string name="pv2_pos_baixo">En bas à gauche</string>
     <string name="pv2_pos_centro">Au centre</string>
     <string name="pv2_tamanho">Taille de l’horloge</string>
-    <string name="pv2_tamanho_det">les grands chiffres se lisent mieux de loin · OK change</string>
     <string name="pv2_tam_normal">Normale</string>
     <string name="pv2_tam_grande">Grande</string>
     <string name="pv2_mostrar">Ce que montre l’économiseur d’écran</string>
-    <string name="pv2_mostrar_det">« L’heure seule » : une touche de la télécommande montre le reste pendant 15 s · OK change</string>
     <string name="pv2_mostrar_so">L’heure seule</string>
     <string name="pv2_mostrar_vez">De temps en temps</string>
     <string name="pv2_mostrar_sempre">Tout</string>
     <string name="pv2_elementos">Sur l’économiseur d’écran</string>
-    <string name="pv2_el_det">affiché sur l’économiseur d’écran · OK active ou désactive</string>
     <string name="pv2_el_saudacao">Salutation</string>
     <string name="pv2_el_data">Date</string>
     <string name="pv2_el_linha_dia">Ligne du jour</string>

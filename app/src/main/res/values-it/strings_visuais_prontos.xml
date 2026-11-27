@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Stili pronti</string>
-    <string name="vpr_det">Ogni OK passa allo stile successivo: tema, testo e colore dello sfondo insieme</string>
     <string name="vpr_meu">Il tuo stile</string>
     <string name="vpr_classico">Classico</string>
     <string name="vpr_leitura">Lettura facile</string>

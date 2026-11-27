@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Улюблені також грають клавішами 1–9 на пульті</string>
     <string name="ouv_tecla">Клавіша %d на пульті</string>
     <string name="ouv_ao_sair">Під час виходу</string>
-    <string name="ouv_ao_sair_continua">Продовжує грати на головному екрані\n▶❙❙ на пульті ставить на паузу з будь-якого екрана</string>
+    <string name="ouv_ao_sair_continua">Продовжує грати на головному екрані</string>
     <string name="ouv_ao_sair_para">Зупиняється, коли ви виходите з цього екрана</string>
     <string name="ouv_recentes">Нещодавні</string>
     <string name="ouv_sem_favoritas">Улюблених ще немає</string>
-    <string name="ouv_sem_favoritas_det">Утримуйте OK на станції, щоб зберегти її тут</string>
     <string name="ouv_sem_recentes">Тут поки нічого немає</string>
     <string name="ouv_sem_recentes_det">Станції, які ви слухаєте, з\'являються тут</string>
     <string name="ouv_paises">Країни</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Наживо</string>
     <string name="ouv_dica_pular">пропустити</string>
     <string name="ouv_voltar">Назад 15 с</string>
-    <string name="ouv_voltar_det">Також ◀◀ на пульті</string>
     <string name="ouv_avancar">Уперед 30 с</string>
-    <string name="ouv_avancar_det">Також ▶▶ на пульті</string>
     <string name="ouv_velocidade_det">%s · голос зберігає висоту</string>
     <string name="ouv_parar_pod_det">Місце зупинки збережено на потім</string>
     <string name="ouv_seguindo">Підписки</string>

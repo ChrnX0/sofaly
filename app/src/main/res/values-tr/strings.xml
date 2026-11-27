@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">Rutinler</string>
     <string name="cfg_sec_atualizacao">Güncellemeler</string>
     <string name="cfg_atualizar">Yeni sürümü denetle</string>
-    <string name="cfg_atualizar_det">Sürüm %1$s · %2$s · OK şimdi denetler</string>
+    <string name="cfg_atualizar_det">Sürüm %1$s · %2$s</string>
     <string name="cfg_procurando">GitHub denetleniyor…</string>
     <string name="cfg_instalar">%1$d sürümünü şimdi yükle</string>
-    <string name="cfg_instalar_det">Launcher kapanır ve birkaç saniyede kendiliğinden geri gelir · OK yükler</string>
+    <string name="cfg_instalar_det">Launcher kapanır ve birkaç saniyede kendiliğinden geri gelir</string>
     <string name="cfg_instalando">indiriliyor ve denetleniyor…</string>
     <string name="cfg_sec_rede">Ağ</string>
     <string name="cfg_dns">Özel DNS</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">Neler açık — %1$s</string>
     <string name="cfg_ligado">açık</string>
     <string name="cfg_so_pc">" · yalnızca bilgisayarla (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK açmayı dener"</string>
     <string name="cfg_perm_fixas">Verilen sabit izinler</string>
     <string name="cfg_shell_estado">Kendi kabuğu</string>
     <string name="cfg_shell_pareado">eşleştirildi: launcher Kablosuz hata ayıklama üzerinden kendiliğinden yeniden bağlanır</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">Tuş hizmeti</string>
     <string name="rec_teclas_sem">olmadan: HOME Google launcher’ı açabilir ve Netflix/YouTube tuşları yeniden atanmaz</string>
     <string name="rec_tudo">her şey açık</string>
-    <string name="rec_faltam">%2$d özellikten %1$d tanesi eksik · bir öğede OK açmayı dener</string>
+    <string name="rec_faltam">%2$d özellikten %1$d tanesi eksik</string>
     <string name="bv_titulo">Hoş geldiniz</string>
     <string name="bv_texto">Ana ekran, saat, hava durumu, alarm ve ekran koruyucu zaten çalışıyor. İsterseniz gerisini buradan açın (%1$s).</string>
     <string name="bv_comecar">Başla</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · kapalı"</string>
     <string name="rot_nova">Yeni rutin</string>
     <string name="rot_editar">Rutini düzenle</string>
-    <string name="rot_editor_det">OK her satırı değiştirir · GERİ kaydetmeden çıkar</string>
     <string name="rot_hora">Saat: %1$s</string>
     <string name="rot_dias">Günler: %1$s</string>
     <string name="rot_acao">Eylem: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">Yalnızca şu süre kimse dokunmadıysa: %1$s</string>
     <string name="rot_ligada">Açık</string>
     <string name="rot_desligada">Kapalı</string>
-    <string name="rot_hora_det">◀ ▶ 5 dakika · OK +1 saat</string>
-    <string name="rot_dias_det">OK: her gün, Pzt–Cum, hafta sonu, bir kez</string>
-    <string name="rot_ok_muda">OK değiştirir</string>
-    <string name="rot_app_det">OK veya ▶ sonraki · ◀ önceki</string>
     <string name="rot_ocioso_det">İzleyen birini bölmez</string>
-    <string name="rot_ativa_det">OK bu rutini açar/kapatır</string>
     <string name="rot_salvar">Kaydet</string>
     <string name="rot_escolha_app">Uygulamayı seçin</string>
     <string name="rot_apagar">Bu rutini sil</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">Yükleniyor…</string>
     <string name="pp_conectar">Bağlan</string>
     <string name="cal_sem_conta">Google hesabı yok</string>
-    <string name="cal_dica">◀ ▶ ayı değiştir</string>
     <string name="cal_30">Önümüzdeki 30 gün</string>
     <string name="cal_nenhuma_conta">TV’de Google hesabı yok</string>
     <string name="cal_nada">Planlanmış bir şey yok (veya takvim hâlâ eşitleniyor)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">%1$s tuşu şunu açar:</string>
     <string name="fd_nascer">gün doğumu %1$s</string>
     <string name="fd_por">gün batımı %1$s</string>
-    <string name="dns_dica">OK: kullan   ·   kendi sunucularınızdan birinde OK’yi basılı tutun: kaldır   ·   Geri: çık</string>
     <string name="dns_auto">Otomatik</string>
     <string name="dns_auto_det">Yönlendiricinin DNS’ini kullanır ve kabul ederse şifreler (Android varsayılanı)</string>
     <string name="dns_desl">Kapalı</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">%1$d sürümü: APK sürümü (%2$d) etiketle eşleşmiyor</string>
     <string name="atu_chave">GitHub’da %1$d sürümü var ama bu TV’nin kabul etmediği başka bir anahtarla imzalanmış: bu TV bilgisayardan güncellenir</string>
     <string name="atu_disponivel">%1$d sürümü yüklemeye hazır (yüklü %2$d)</string>
-    <string name="atu_trocou">son denetimden beri sürüm değişti · OK yeniden denetler</string>
+    <string name="atu_trocou">son denetimden beri sürüm değişti</string>
     <string name="atu_instalando">%1$d yükleniyor (yüklü %2$d)</string>
     <string name="atu_ok">güncellendi</string>
     <string name="atu_falhou">yükleme başarısız (%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">%1$d sürümü yüklendikten hemen sonra iki kez çöktü · «%2$s» bir sonrakine kadar kapalı kalır</string>
     <string name="vig_tela_bloqueada">Bu ekran bir sonraki güncellemeye kadar kapalı (launcher’ı çökertti)</string>
     <string name="cfg_vig_liberar">Güvenli mod</string>
-    <string name="cfg_vig_liberar_det">" · OK yeniden açar"</string>
     <string name="home_voz_indisponivel">Sesli arama bu TV’de açılmadı</string>
     <string name="home_alarme_hoje">bugün</string>
     <string name="home_alarme_amanha">yarın</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">Video yükleniyor…</string>
     <string name="player_sem_canais">Henüz kanal listesi eklenmedi.</string>
     <string name="player_tentando">%1$d kanalında sinyal yok. Yeniden deneniyor…</string>
-    <string name="player_sem_sinal">%1$d kanalı yanıt vermedi. ▲ ▼ veya OK ile başka birini seçin.</string>
+    <string name="player_sem_sinal">%1$d kanalı yanıt vermedi.</string>
     <string name="player_canal_nao_existe">%1$d kanalı yok.</string>
     <string name="player_ao_vivo">CANLI</string>
     <string name="player_a_seguir">sonraki: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanal · OK kanal listesi · OK 2 sn basılı: favori · ◀ önceki kanal · ▶ ▶ seçenekler · GERİ çık</string>
-    <string name="player_teclas_pausa">▶❙❙ veya OK devam · ▶ seçenekler (canlıya dön) · ▲ ▼ kanal · GERİ çık</string>
     <string name="player_cat_busca">Ara: %1$s</string>
     <string name="player_acao_buscar">Ara</string>
     <string name="player_acao_filtros">Filtreler</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s izleme listesine eklendi</string>
     <string name="filmes_interesse_tirou">%1$s izleme listesinden çıkarıldı</string>
     <string name="filmes_interesses_cheio">İzleme listesinde zaten 500 yapım var: önce birini çıkarın.</string>
-    <string name="filmes_interesses_vazio">Buraya eklemek için bir afişte OK’yi 2 saniye basılı tutun (çıkarmak için yine).</string>
     <string name="filmes_assistido">İzlendi</string>
     <string name="filmes_selo_leg">ALT</string>
     <string name="vod_sem_conta">Bu videonun hesabı artık yok.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">Ses</string>
     <string name="vod_legenda">Altyazı</string>
     <string name="vod_faixas">Ses ve altyazı</string>
-    <string name="vod_teclas">OK duraklat · ◀ 10 sn · ▶ 30 sn (hızlı için basılı tutun) · ▼ ses, altyazı ve görüntü · ⏮ ⏭ bölümler · GERİ çık</string>
     <string name="series_titulo">Diziler</string>
     <string name="series_carregando">Diziler yükleniyor…</string>
     <string name="series_vazio">Henüz dizi yok</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">%1$d. sezon</string>
     <string name="player_acao_guia">Yayın akışı</string>
     <string name="player_sem_guia_curto">Yayın akışı yok</string>
-    <string name="player_grade_teclas">OK izle · ◀ ▶ program · ▲ ▼ kanal</string>
     <string name="player_busca_dica">Kanal veya program adı</string>
     <string name="player_busca_nada">«%1$s» için bir şey bulunamadı.</string>
     <string name="player_filtro_qualquer">Herhangi</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">Çocuk kategorileri</string>
     <string name="infantil_carregando">kategoriler yükleniyor…</string>
     <string name="infantil_coluna_itens">İÇİNDEKİLER</string>
-    <string name="infantil_dica">OK kategoriyi çocuk için işaretler veya kaldırır · Canlı TV, Filmler ve Diziler için geçerli · GERİ çıkar (zaten kaydedildi)</string>
     <string name="infantil_so_categoria">sol sütunda tüm kategoriyi işaretleyin</string>
     <string name="infantil_vazio">kategori yok: Ayarlar › TV ve filmler içinde hesap ekleyin ve kanalları yeniden yükleyin</string>
     <string name="infantil_limite">yetişkin kategorisi çocuk kategorisi olamaz</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">Favoriler</string>
     <string name="player_cat_recentes">Son izlenenler</string>
     <string name="player_cat_outros">Diğer</string>
-    <string name="player_sem_favoritos">Henüz favori yok. Buraya eklemek için bir kanalda OK’yi 2 sn basılı tutun.</string>
+    <string name="player_sem_favoritos">Henüz favori yok.</string>
     <string name="player_categoria_vazia">Bu kategoride kanal yok.</string>
     <string name="player_sem_guia">Bu kanal için yayın akışı yok.</string>
     <string name="player_depois">SONRA</string>
-    <string name="player_lista_teclas">OK izle · OK 2 sn basılı: favori ekle veya çıkar · kategoride OK basılı: gizle · ◀ kategoriler</string>
     <string name="player_favorito_pos">★ %1$s favorilere eklendi</string>
     <string name="player_favorito_tirou">%1$s favorilerden çıkarıldı</string>
     <string name="player_favoritos_cheio">Zaten 500 favori var: önce birini çıkarın.</string>
@@ -642,7 +625,6 @@ AS\\Filmler).</string>
     <string name="tvv_vazio">Bu kanalda henüz kayıtlı program yok.</string>
     <string name="tvv_voltou">Canlıya dönüldü</string>
     <string name="tvv_selo">GERİYE DÖNÜK</string>
-    <string name="tvv_teclas">◀ ▶ 30 sn · OK seçenekler · GERİ canlı</string>
     <string name="tvv_pausar">Duraklat</string>
     <string name="tvv_continuar">Devam et</string>
     <string name="tvv_ao_vivo">Canlıya dön</string>
@@ -659,7 +641,7 @@ AS\\Filmler).</string>
     <string name="series_nao_visto">İzlenmedi olarak işaretle</string>
     <string name="idioma_secao">Filmler ve diziler</string>
     <string name="idioma_titulo">Tercih edilen ses</string>
-    <string name="idioma_det">TV dilinde altyazılı orijinal veya bu dilde dublaj. Her film ve dizi oynatıcıda (▼) yapılan değişikliği hatırlar</string>
+    <string name="idioma_det">TV dilinde altyazılı orijinal veya bu dilde dublaj. Her film ve dizi oynatıcıda yapılan değişikliği hatırlar</string>
     <string name="idioma_original">Altyazılı orijinal</string>
     <string name="idioma_dublado">Dublaj</string>
     <string name="idioma_legendado">Altyazılı</string>
@@ -810,8 +792,8 @@ AS\\Filmler).</string>
     <string name="st_titulo">USB bellek ve depolama</string>
     <string name="st_explica">TV\'nin USB belleği nasıl kullanacağını seçin. Yer mi az? Ağır uygulamalar için TV belleği olabilir.</string>
     <string name="st_linha_det">USB belleği TV depolaması olarak kullan</string>
-    <string name="st_sem_shell">TV\'nin kendi kabuğu gerekli (Ayarlar › Sistem › Gelişmiş). Tekrar denemek için OK.</string>
-    <string name="st_sem_pen">USB bellek takılı değil. Birini takıp OK\'a basın.</string>
+    <string name="st_sem_shell">TV\'nin kendi kabuğu gerekli (Ayarlar › Sistem › Gelişmiş).</string>
+    <string name="st_sem_pen">USB bellek takılı değil.</string>
     <string name="st_tv_livre">TV belleği: %2$s içinde %1$s boş</string>
     <string name="st_pen">USB bellek · %1$s · %2$s</string>
     <string name="st_modo_comum">Normal USB bellek</string>
@@ -825,14 +807,13 @@ AS\\Filmler).</string>
     <string name="st_motivo_grande">yarısı uygulamalar, yarısı kayıtlar ve dosyalar için</string>
     <string name="st_motivo_apertada">TV neredeyse dolu</string>
     <string name="st_medido">%1$s MB/sn yazıyor</string>
-    <string name="st_medir_dica">OK hızını ölçer</string>
     <string name="st_usar_comum">Normal USB bellek olarak kullan</string>
-    <string name="st_usar_misto">Karma kullan: %%%1$d normal  ◀ ▶</string>
+    <string name="st_usar_misto">Karma kullan: %%%1$d normal</string>
     <string name="st_usar_tv">TV belleği olarak kullan</string>
     <string name="st_apps">USB bellekteki uygulamalar</string>
     <string name="st_apps_det">Taşınacak uygulamaları seç (önce büyükler)</string>
     <string name="st_apps_nenhum">Taşınabilecek uygulama yok.</string>
-    <string name="st_apps_rodape">OK uygulamayı taşır; ✓ = zaten bellekte</string>
+    <string name="st_apps_rodape">✓ = zaten bellekte</string>
     <string name="st_compartilhado">Fotoğraflar ve dosyalar: %1$s</string>
     <string name="st_na_tv">TV\'de</string>
     <string name="st_no_pen">USB bellekte</string>
@@ -857,7 +838,7 @@ AS\\Filmler).</string>
     <string name="st_voltar_comum">Normal USB belleğe dön (uygulamalar TV\'ye döner)</string>
     <string name="st_trazendo">%1$s TV\'ye geri alınıyor…</string>
     <string name="st_sumiram">USB bellek çıkarıldı: %1$s geri takılana kadar gizli.</string>
-    <string name="st_sugestao">TV belleği neredeyse dolu. %1$s (%2$s) uygulamasını USB belleğe taşıyın: uygulamada OK\'a basılı tutun.</string>
+    <string name="st_sugestao">TV belleği neredeyse dolu. %1$s (%2$s) uygulamasını USB belleğe taşıyın</string>
     <string name="st_medindo">En iyi kullanımı önermek için USB belleğin hızı ölçülüyor…</string>
     <string name="st_lento_titulo">USB bellek çok yavaş</string>
     <string name="st_lento_bloqueado">Bu bellek %1$s MB/sn yazıyor. TV belleği olmak için en az %2$d MB/sn gerekir: altında uygulamalar takılır ve TV açılmayabilir. Normal USB bellek olarak kullanın.</string>
@@ -875,12 +856,12 @@ AS\\Filmler).</string>
     <string name="aviso_sync_texto">Bu TV\'de %1$s hesabı yok. Ayarlar › TV ve filmler\'den bağlayın.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">Yenilikler</string>
-    <string name="ver_novidades_det">%2$s sürümünde %1$d değişiklik · Okumak için OK</string>
+    <string name="ver_novidades_det">%2$s sürümünde %1$d değişiklik</string>
     <string name="ver_novidades_sobre">Sürüm %1$s</string>
     <string name="ver_ok">Tamam</string>
     <string name="ver_conferir">TV\'de kontrol et</string>
-    <string name="ver_conferir_det">Kumandayla %2$d öğeden %1$d tanesi kontrol edildi · Başlamak için OK</string>
-    <string name="ver_conferir_sub">Sürüm %1$s · %2$d öğe · Yanıtlamak için bir öğede OK</string>
+    <string name="ver_conferir_det">Kumandayla %2$d öğeden %1$d tanesi kontrol edildi</string>
+    <string name="ver_conferir_sub">Sürüm %1$s · %2$d öğe</string>
     <string name="ver_conferido">%2$d öğeden %1$d tanesi kontrol edildi</string>
     <string name="ver_sim">Evet</string>
     <string name="ver_nao">Hayır</string>

@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">“%1$s” wil de bestanden in de opslag van de tv zien en kopiëren via het thuisnetwerk. Deze computer toestaan?</string>
     <string name="mtp_pcs">Toegestane computers</string>
     <string name="mtp_pcs_nenhum">Nog geen. De tv vraagt het op het scherm als een computer om de bestanden vraagt.</string>
-    <string name="mtp_pcs_lista">%1$s · OK vergeet ze allemaal (elke computer vraagt het opnieuw)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Computers vergeten</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Het tv-paneel openen</string>

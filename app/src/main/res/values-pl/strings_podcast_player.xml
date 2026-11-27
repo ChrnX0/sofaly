@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Następne</string>
     <string name="pl_dormir">Wyłącznik czasowy</string>
     <string name="pl_dormir_min">Za %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ przesuwają o 10 s · przytrzymaj, by szybciej</string>
     <string name="pl_abrir">Otwórz odtwarzacz</string>
     <string name="pl_abrir_det">Pełny ekran z tym, co dalej</string>
 </resources>

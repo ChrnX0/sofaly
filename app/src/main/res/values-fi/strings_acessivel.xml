@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Selkeämmät äänet päällä</string>
     <string name="acess_voz_desligado">Selkeämmät äänet pois</string>
     <string name="acess_config_titulo">Ääni ja tekstitys</string>
-    <string name="acess_config_texto">Niille, jotka näkevät tai kuulevat heikommin. Myös soittimen ▼-valikossa.</string>
+    <string name="acess_config_texto">Niille, jotka näkevät tai kuulevat heikommin.</string>
 </resources>

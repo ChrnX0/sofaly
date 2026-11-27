@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Hình nền trình bảo vệ màn hình</string>
-    <string name="pv2_fundo_det">của giao diện, hoặc ảnh thật của Trái Đất nhìn từ vũ trụ · OK để đổi</string>
     <string name="pv2_fundo_tema">Của giao diện</string>
     <string name="pv2_fundo_terra">Trái Đất từ vũ trụ</string>
     <string name="pv2_relogio">Đồng hồ trình bảo vệ màn hình</string>
-    <string name="pv2_relogio_det">sáu kiểu · OK để đổi</string>
     <string name="pv2_rel_fino">Mảnh</string>
     <string name="pv2_rel_editorial">Tạp chí</string>
     <string name="pv2_rel_monumental">Đồ sộ</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Bằng chữ</string>
     <string name="pv2_rel_empilhado">Xếp chồng</string>
     <string name="pv2_posicao">Vị trí đồng hồ</string>
-    <string name="pv2_posicao_det">OK để đổi</string>
     <string name="pv2_pos_alto">Trên cùng bên trái</string>
     <string name="pv2_pos_baixo">Dưới cùng bên trái</string>
     <string name="pv2_pos_centro">Giữa</string>
     <string name="pv2_tamanho">Cỡ đồng hồ</string>
-    <string name="pv2_tamanho_det">số lớn dễ đọc hơn từ xa · OK để đổi</string>
     <string name="pv2_tam_normal">Bình thường</string>
     <string name="pv2_tam_grande">Lớn</string>
     <string name="pv2_mostrar">Trình bảo vệ màn hình hiện gì</string>
-    <string name="pv2_mostrar_det">\"Chỉ giờ\": nhấn phím bất kỳ trên điều khiển để hiện phần còn lại trong 15 giây · OK để đổi</string>
     <string name="pv2_mostrar_so">Chỉ giờ</string>
     <string name="pv2_mostrar_vez">Thỉnh thoảng</string>
     <string name="pv2_mostrar_sempre">Mọi thứ</string>
     <string name="pv2_elementos">Trên trình bảo vệ màn hình</string>
-    <string name="pv2_el_det">hiện trên trình bảo vệ màn hình · OK để bật hoặc tắt</string>
     <string name="pv2_el_saudacao">Lời chào</string>
     <string name="pv2_el_data">Ngày</string>
     <string name="pv2_el_linha_dia">Đường ánh sáng ban ngày</string>

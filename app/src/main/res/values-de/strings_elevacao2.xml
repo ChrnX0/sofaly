@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Staffeln: %d</string>
     <string name="elv_cat_procurando">Poster wird gesucht…</string>
-    <string name="elv_cat_nada">Nichts bei TMDB gefunden. OK gedrückt halten, um den richtigen Namen einzugeben.</string>
+    <string name="elv_cat_nada">Nichts bei TMDB gefunden.</string>
     <string name="elv_cat_corrigir_titulo">Korrigieren: %s</string>
     <string name="elv_cat_corrigir_explica">Falsches Poster oder falscher Inhalt? Das nächste Ergebnis anfordern oder den richtigen Namen und das Jahr eingeben. Ein leerer Name schaltet zurück auf automatisch.</string>
     <string name="elv_cat_nao_e">Nicht dieser</string>

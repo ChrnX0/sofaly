@@ -812,7 +812,7 @@ class ConfigLauncherActivity : Activity() {
         }
         c.addView(linhaSaida, lp())
         lateinit var linhaHora: LinhaCfg
-        linhaHora = linha(getString(R.string.hos_hora), getString(R.string.hos_hora_det), valor = "%02d:00".format(ModoHospede.hora(this))) {
+        linhaHora = linha(getString(R.string.hos_hora), "", valor = "%02d:00".format(ModoHospede.hora(this))) {
             ModoHospede.proximaHora(this)
             linhaHora.valor("%02d:00".format(ModoHospede.hora(this))); linhaSaida.valor(ModoHospede.textoSaida(this))
         }
@@ -1045,7 +1045,7 @@ class ConfigLauncherActivity : Activity() {
         }
         c.addView(linhaShell, lp())
         lateinit var linhaLogins: LinhaCfg
-        linhaLogins = linha(getString(R.string.cl_logins), getString(R.string.cl_logins_det), valor = getString(R.string.cl_ativos, McpServidor.logins(this))) {
+        linhaLogins = linha(getString(R.string.cl_logins), "", valor = getString(R.string.cl_ativos, McpServidor.logins(this))) {
             McpServidor.revogar(this)
             linhaLogins.valor(getString(R.string.cl_ativos, McpServidor.logins(this))); linhaLogins.detalhe(getString(R.string.cl_revogados))
         }

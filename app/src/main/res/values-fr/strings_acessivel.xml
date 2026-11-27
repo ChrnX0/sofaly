@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Voix plus claires activées</string>
     <string name="acess_voz_desligado">Voix plus claires désactivées</string>
     <string name="acess_config_titulo">Son et sous-titres</string>
-    <string name="acess_config_texto">Pour ceux qui voient ou entendent moins bien. Aussi dans le menu ▼ du lecteur.</string>
+    <string name="acess_config_texto">Pour ceux qui voient ou entendent moins bien.</string>
 </resources>

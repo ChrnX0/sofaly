@@ -7,8 +7,8 @@
     <string name="bkn_desligado">désactivée</string>
     <string name="bkn_sem_senha">désactivée · définissez d’abord le mot de passe de sauvegarde</string>
     <string name="bkn_senha">Mot de passe de sauvegarde</string>
-    <string name="bkn_senha_ok">défini · OK change</string>
-    <string name="bkn_senha_falta">non défini · OK définit</string>
+    <string name="bkn_senha_ok">défini</string>
+    <string name="bkn_senha_falta">non défini</string>
     <string name="bkn_senha_nova">Mot de passe de sauvegarde (8 caractères ou plus)</string>
     <string name="bkn_senha_repetir">Saisissez à nouveau le mot de passe</string>
     <string name="bkn_senha_curta">Le mot de passe doit avoir de 8 à 128 caractères.</string>

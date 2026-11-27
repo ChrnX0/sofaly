@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">каждую неделю</string>
     <string name="grv_cancelar_pergunta">Отменить запись «%1$s»?</string>
     <string name="grv_gravadas">Записанные</string>
-    <string name="grv_vazio">Записей пока нет. В плеере: ▶▶ › Записать; в программе: OK на будущей передаче.</string>
+    <string name="grv_vazio">Записей пока нет.</string>
     <string name="grv_vazio_sem_destino">Подключите флешку к хабу, чтобы видеть и делать записи.</string>
     <string name="grv_partes">частей: %1$d</string>
     <string name="grv_parte">часть %1$d из %2$d</string>

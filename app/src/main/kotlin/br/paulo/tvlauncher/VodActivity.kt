@@ -1398,7 +1398,7 @@ class VodActivity : Activity() {
 
     private fun montarBarra(t: String): View {
         // B9: a mesma peça da TV ao vivo (PlayerBar). Título em cima, tempo e "termina às" embaixo dele, PAUSADO à direita.
-        val b = PlayerBar.montar(this, getString(R.string.vod_teclas))
+        val b = PlayerBar.montar(this, "")
         barra = b.raiz; titulo = b.titulo; tempo = b.detalhe; estadoBarra = b.estado; progresso = b.progresso
         titulo.text = t
         estadoBarra.setTextColor(Estilo.ATENCAO)

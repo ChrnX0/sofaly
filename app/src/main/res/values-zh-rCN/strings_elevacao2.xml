@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s（%2$d）</string>
     <string name="elv_cat_n_temporadas">季数：%d</string>
     <string name="elv_cat_procurando">正在查找海报…</string>
-    <string name="elv_cat_nada">TMDB 上没找到。长按 OK 输入正确名称。</string>
+    <string name="elv_cat_nada">TMDB 上没找到。</string>
     <string name="elv_cat_corrigir_titulo">更正：%s</string>
     <string name="elv_cat_corrigir_explica">海报或简介不对？换下一个结果，或输入正确的名称和年份。名称留空即恢复自动。</string>
     <string name="elv_cat_nao_e">不是这个</string>
