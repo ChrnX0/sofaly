@@ -52,3 +52,21 @@ test('ordem pela taxa de conserto, no máximo 3, e nada fora da lista fechada', 
   assert.ok(!r.tools.includes('REBOOT'));   // 2 de 4 = 50%, abaixo de MIN_RATE
   assert.equal(recipeOf({ ...g, type: 'HACK' }, 5), null);
 });
+
+test('assina a lista: a assinatura confere com a chave pública e sem chave sai null', async () => {
+  const { signText, handleRecipes } = await import('../src/recipes.js');
+  const kp = await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify']);
+  const pk = Buffer.from(await crypto.subtle.exportKey('pkcs8', kp.privateKey)).toString('base64');
+  const fleet = { recipes: async () => ({ day: 20000, recipes: [{ id: 'x' }] }) };
+  const env = { FLEET: { idFromName: () => 'id', get: () => fleet }, RECIPES_SIGNING_KEY: pk };
+  const body = await (await handleRecipes(env)).json();
+  assert.equal(body.v, 1);
+  assert.deepEqual(JSON.parse(body.data), { day: 20000, recipes: [{ id: 'x' }] });
+  const ok = await crypto.subtle.verify({ name: 'ECDSA', hash: 'SHA-256' }, kp.publicKey,
+    Buffer.from(body.sig, 'base64'), new TextEncoder().encode(body.data));
+  assert.equal(ok, true);
+  assert.equal(Buffer.from(body.sig, 'base64').length, 64);
+  assert.equal(await signText('x', undefined), null);
+  const semChave = await (await handleRecipes({ FLEET: env.FLEET })).json();
+  assert.equal(semChave.sig, null);
+});

@@ -22,7 +22,7 @@ import java.util.Calendar
 /**
  * A parte Android da rede de Sofys ([SofyFleet], servidor em server/api/src/fleet.js). Uma vez por dia, só com
  * "Ajudar outras casas" ligado (a MESMA chave das fichas comunitárias, Paulo 27/11/2026: um switch só), manda o
- * pacote do dia: o aparelho em faixas e os casos de conserto das últimas 24 h, só com campos de listas fechadas.
+ * pacote do dia: o aparelho em faixas e os casos de conserto desde o último envio aceito (no máximo um por dia UTC, #542), só com campos de listas fechadas.
  *
  * O segredo do código do dia fica em noBackupFilesDir (fora do backup): uma TV restaurada de outra nunca tem o mesmo
  * código. O estado da TV de cada caso (memória, rede, tempo ligada, período) é guardado em faixas na hora em que o caso
@@ -31,8 +31,6 @@ import java.util.Calendar
 object SofyFleetTv {
     const val URL_CASES = "https://api.sofaly.tv/v1/community/cases"
     private const val PREFS = "sofy_fleet"
-    private const val GAP_MS = 20 * 3_600_000L
-    private const val WINDOW_MS = 24 * 3_600_000L
     private const val MAX_STATES = 60
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
@@ -42,20 +40,25 @@ object SofyFleetTv {
         val app = ctx.applicationContext
         if (!SofyCommunityTv.fleetConsent(app)) return   // #541: o consentimento dado na tela que lista o que vai
         val p = prefs(app)
-        if (now - p.getLong("sent_at", 0L) < GAP_MS) return
-        p.edit().putLong("sent_at", now).apply()
-        send(app, now)
+        val okAt = okAt(p)
+        if (!SofyFleet.shouldSend(now, okAt, p.getLong("tried_at", 0L))) return
+        p.edit().putLong("tried_at", now).apply()
+        if (send(app, now)) p.edit().putLong("ok_at", now).apply()
     }
 
     /** O pacote que iria hoje (também para a tela "O que a Sofy compartilha", que mostra exatamente isto). */
     fun today(ctx: Context, now: Long = System.currentTimeMillis()): JSONObject {
         val app = ctx.applicationContext
-        val cases = SofyRepairTv.cases(app).filter { now - it.lastAt < WINDOW_MS }
+        val since = SofyFleet.since(now, okAt(prefs(app)))
+        val cases = SofyRepairTv.cases(app).filter { it.lastAt > since && it.lastAt <= now }
         return SofyFleet.packet(SofyFleet.dayCode(secret(app), now / 86_400_000L), BuildConfig.VERSION_CODE.toLong(),
             device(app), cases, states(app), state(app, now))
     }
 
-    private fun send(app: Context, now: Long) {
+    /** Último envio aceito. "sent_at" é o nome antigo (antes do #542 gravado mesmo quando falhava). */
+    private fun okAt(p: android.content.SharedPreferences) = p.getLong("ok_at", p.getLong("sent_at", 0L))
+
+    private fun send(app: Context, now: Long): Boolean {
         val packet = today(app, now)
         val body = packet.toString().toByteArray()
         val c = URL(URL_CASES).openConnection() as HttpURLConnection
@@ -70,6 +73,7 @@ object SofyFleetTv {
         val n = packet.optJSONArray("cases")?.length() ?: 0
         SofyBusTv.emit(app, SofyBus.Source.SOFY, "fleet_sent", ok = code == 200, detail = "$n casos")
         ObserverTv.logShadow(app, "fleet_sent", "$n casos, http $code")
+        return code == 200
     }
 
     /** Guarda o estado da TV (em faixas, depois) na hora em que um caso abre. */
