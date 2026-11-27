@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Η Sofy μιλά φωναχτά",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Διαβάζει ό,τι δείχνει στην τηλεόραση. Με το TalkBack ενεργό, το διαβάζει το TalkBack.",
 "Ajudar outras casas":"Βοήθεια σε άλλα σπίτια",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Μία φορά την ημέρα, μόνο το όνομα και η έκδοση των εφαρμογών που κόλλησαν εδώ, χωρίς να λέει από ποιο σπίτι. Η λήψη όσων είδαν άλλα σπίτια είναι πάντα ενεργή.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Μία φορά την ημέρα, μόνο το όνομα και η έκδοση των εφαρμογών που κόλλησαν ή έγιναν αργές εδώ, και οι κανόνες με τους οποίους το Sofaly ελέγχει τις οθόνες, χωρίς να λέει από ποιο σπίτι. Η λήψη όσων είδαν άλλα σπίτια είναι πάντα ενεργή.",
 "IA da Sofy":"Τεχνητή νοημοσύνη της Sofy",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Όταν η Sofy δεν μπορεί να διορθώσει κάτι μόνη της, ρωτά μια τεχνητή νοημοσύνη που επιλέγετε εσείς. Αυτή λαμβάνει μόνο το δελτίο του προβλήματος, χωρίς τίποτα προσωπικό, και μπορεί να επιλέξει μόνο από τις επιδιορθώσεις που η Sofy ήδη ξέρει να κάνει.",
 "Provedor":"Πάροχος",

@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy pratar högt",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Hon läser upp det hon visar på tv:n. Med TalkBack på läser TalkBack det.",
 "Ajudar outras casas":"Hjälp andra hem",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"En gång om dagen bara namn och version på appar som kraschat här, utan att säga vilket hem. Att ta emot det andra hem har sett är alltid på.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"En gång om dagen bara namn och version på appar som kraschat eller blivit långsamma här, och reglerna Sofaly använder för att kontrollera skärmarna, utan att säga vilket hem. Att ta emot det andra hem har sett är alltid på.",
 "IA da Sofy":"Sofys AI",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"När Sofy inte kan laga något själv frågar hon en AI som du väljer. AI:n får bara problembladet, utan något personligt, och kan bara välja bland de lagningar Sofy redan kan göra.",
 "Provedor":"Leverantör",

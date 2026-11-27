@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy berbicara dengan suara",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Ia membacakan apa yang ditampilkan di TV. Jika TalkBack aktif, TalkBack yang membaca.",
 "Ajudar outras casas":"Bantu rumah lain",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Sekali sehari, hanya nama dan versi aplikasi yang macet di sini, tanpa menyebut rumah mana. Menerima yang dilihat rumah lain selalu aktif.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Sekali sehari, hanya nama dan versi aplikasi yang macet atau melambat di sini, serta aturan yang dipakai Sofaly untuk memeriksa layar, tanpa menyebut rumah mana. Menerima yang dilihat rumah lain selalu aktif.",
 "IA da Sofy":"AI Sofy",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Saat Sofy tidak bisa memperbaiki sesuatu sendiri, ia bertanya kepada AI yang Anda pilih. AI hanya menerima lembar masalah, tanpa hal pribadi, dan hanya bisa memilih dari perbaikan yang sudah bisa dilakukan Sofy.",
 "Provedor":"Penyedia",

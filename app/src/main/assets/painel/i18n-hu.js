@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy hangosan beszél",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Felolvassa, amit a TV-n mutat. Bekapcsolt TalkBack esetén a TalkBack olvassa fel.",
 "Ajudar outras casas":"Más otthonok segítése",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Naponta egyszer csak az itt összeomlott alkalmazások neve és verziója, anélkül, hogy kiderülne, melyik otthonból. Amit más otthonok láttak, annak fogadása mindig be van kapcsolva.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Naponta egyszer csak az itt összeomlott vagy lelassult alkalmazások neve és verziója, valamint a szabályok, amelyekkel a Sofaly a képernyőket ellenőrzi, anélkül, hogy kiderülne, melyik otthonból. Amit más otthonok láttak, annak fogadása mindig be van kapcsolva.",
 "IA da Sofy":"Sofy mesterséges intelligenciája",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Ha Sofy valamit nem tud egyedül megjavítani, megkérdez egy Ön által választott MI-t. Az MI csak a probléma adatlapját kapja meg, semmi személyeset, és csak azok közül a javítások közül választhat, amelyeket Sofy már el tud végezni.",
 "Provedor":"Szolgáltató",
