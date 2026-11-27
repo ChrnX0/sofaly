@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="si_frases">TEXT_BIGGER=wieksza czcionka|wiekszy tekst|powieksz tekst|powieksz czcionke|wieksze litery;TEXT_SMALLER=mniejsza czcionka|mniejszy tekst|zmniejsz tekst|zmniejsz czcionke|mniejsze litery;GOAL_READ=lepiej czytac|trudno czytac|slabo widze|zle widze;GOAL_CLEAN=czysty ekran|czystszy ekran|mniej rzeczy|prosty ekran;GOAL_ENERGY=mniej energii|oszczedzac energie|oszczedzanie energii|mniej pradu;LOOK_SOFALY=wyglad sofaly|domyslny wyglad;LOOK_NIGHT=wyglad noc|ciemne niebo;LOOK_MOUNTAIN=wyglad gory|gorski wyglad;LOOK_MINIMAL=wyglad minimalny|minimalistyczny wyglad</string>
+    <string name="si_frases">TEXT_BIGGER=wieksza czcionka|wiekszy tekst|powieksz tekst|powieksz czcionke|wieksze litery;TEXT_SMALLER=mniejsza czcionka|mniejszy tekst|zmniejsz tekst|zmniejsz czcionke|mniejsze litery;GOAL_READ=lepiej czytac|trudno czytac|słabo widze|zle widze;GOAL_CLEAN=czysty ekran|czystszy ekran|mniej rzeczy|prosty ekran;GOAL_ENERGY=mniej energii|oszczedzac energie|oszczedzanie energii|mniej pradu;LOOK_SOFALY=wyglad sofaly|domyslny wyglad;LOOK_NIGHT=wyglad noc|ciemne niebo;LOOK_MOUNTAIN=wyglad gory|gorski wyglad;LOOK_MINIMAL=wyglad minimalny|minimalistyczny wyglad</string>
     <string name="si_fazer">Zrób teraz: %1$s</string>
     <string name="si_desfazer">Cofnij: %1$s</string>
     <string name="si_fazer_det">Zmienia od razu.</string>
