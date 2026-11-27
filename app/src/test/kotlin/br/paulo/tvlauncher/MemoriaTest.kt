@@ -18,4 +18,9 @@ class MemoriaTest {
         assertFalse(Memoria.soltarCapasDaHome(TRIM_MEMORY_RUNNING_CRITICAL, homeNaFrente = true))
         assertTrue(Memoria.soltarCapasDaHome(TRIM_MEMORY_RUNNING_CRITICAL, homeNaFrente = false))
     }
+    @Test fun gpuUsaOsNumerosQueOHwuiReconhece() {
+        // O HWUI compara com igualdade: 60 ou 80 aqui não soltariam nada (CacheManager::trimMemory).
+        org.junit.Assert.assertEquals(20, Memoria.GPU_HOME_ESCONDIDA)
+        org.junit.Assert.assertEquals(40, Memoria.GPU_TELA_APAGADA)
+    }
 }

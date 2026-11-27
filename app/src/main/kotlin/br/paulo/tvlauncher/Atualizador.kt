@@ -11,6 +11,9 @@ import android.content.pm.PackageManager
 import android.os.PowerManager
 import android.util.Log
 import br.paulo.tvlauncher.panel.confirmar
+import br.paulo.tvlauncher.parts.Parts
+import br.paulo.tvlauncher.parts.PartsInstall
+import br.paulo.tvlauncher.parts.PartsPlan
 import br.paulo.tvlauncher.player.CanalAtualizacao
 import br.paulo.tvlauncher.privilege.Confirmacoes
 import java.io.File
@@ -49,6 +52,8 @@ object Atualizador {
     private const val RECUSADA = "recusada"             // Release recusado (chave, pacote, versão, ilegível): não baixa de novo
     private const val RECUSADA_TEXTO = "recusada_texto" // o motivo, para mostrar sem baixar de novo
     private const val INSTALANDO = "instalando"         // código entregue ao PackageInstaller (o Resultado não sabe qual é)
+    private const val POR_PARTES = "por_partes"         // o INSTALANDO foi por partes (base + partes), não o APK cheio
+    private const val PARTES_FALHOU = "partes_falhou"   // código cuja instalação por partes falhou: este vai pelo APK cheio
     private const val FALHOU_CODIGO = "falhou_codigo"   // instalação que falhou: qual código e quantas vezes
     private const val FALHOU_N = "falhou_n"
     private const val MAX_FALHAS = 3
@@ -202,6 +207,12 @@ object Atualizador {
             val a = assets!!.getJSONObject(i)
             links[a.optString("name")] = a.optString("browser_download_url")
         }
+        // Partes sob demanda (refatoração G, 27/11/2026): base + só as partes em uso, em vez do APK cheio. Por enquanto
+        // só no canal de teste (a prova na Sala vem antes das outras TVs). Release sem parts.json, índice estranho ou
+        // plano incompleto: segue o APK cheio, como sempre.
+        if (app.packageName != AppIdentity.LEGACY_PACKAGE && PartsInstall.enabled(canalTeste(app))) {
+            atualizarPorPartes(app, links, codigo, meu, instalar, soComTelaApagada)?.let { return it }
+        }
         val nomeApk = nomes.firstOrNull { links[it] != null && links["$it.sha256"] != null }
             ?: return txt(R.string.atu_sem_apk, codigo)
         val urlApk = links.getValue(nomeApk)
@@ -216,35 +227,83 @@ object Atualizador {
 
             // Confere o APK baixado (ConferenciaApk, com teste JVM): mesmo pacote, versão igual à da tag e MAIOR que a
             // instalada (lida de novo: o PC pode ter instalado outra durante o download), mesma chave, não marcada ruim.
-            val novo = app.packageManager.getPackageArchiveInfo(arquivo.path, PackageManager.GET_SIGNING_CERTIFICATES)
-            val atual = instalado(app)
-            val conferido = ConferenciaApk.conferir(
-                legivel = novo != null, pacoteApk = novo?.packageName, pacoteMeu = app.packageName,
-                codigoApk = novo?.longVersionCode ?: 0L, codigoTag = codigo, codigoInstalado = atual.longVersionCode,
-                mesmaChave = novo != null && mesmaChave(atual, novo), podeInstalar = VigiaAtualizacao.podeInstalar(app, codigo),
-            )
-            when (conferido) {
-                ConferenciaApk.Resultado.OK -> {}
-                // O SHA conferiu: o arquivo é o publicado. Estes não mudam baixando de novo, então ficam recusados.
-                ConferenciaApk.Resultado.ILEGIVEL -> return recusar(app, codigo, txt(R.string.atu_ilegivel, codigo))
-                ConferenciaApk.Resultado.PACOTE -> return recusar(app, codigo, txt(R.string.atu_pacote, codigo, novo?.packageName.toString()))
-                ConferenciaApk.Resultado.VERSAO_TAG -> return recusar(app, codigo, txt(R.string.atu_versao, codigo, novo?.longVersionCode ?: 0L))
-                ConferenciaApk.Resultado.NAO_E_MAIOR -> { prefs(app).edit().remove(PENDENTE).apply(); return txt(R.string.atu_em_dia, atual.longVersionCode, codigo) }
-                ConferenciaApk.Resultado.RUIM -> { prefs(app).edit().remove(PENDENTE).apply(); return txt(R.string.atu_ruim, codigo) }
-                ConferenciaApk.Resultado.CHAVE -> return recusar(app, codigo, txt(R.string.atu_chave, codigo))
-            }
-
-            if (!instalar) { prefs(app).edit().putLong(PENDENTE, codigo).apply(); return txt(R.string.atu_disponivel, codigo, meu) }
-            // A tela foi conferida só ANTES do download; se alguém ligou a TV nesse meio-tempo, não reinicia o launcher na
-            // frente da pessoa: fica pendente (Configurações > Instalar agora, ou a próxima volta com a tela apagada).
-            if (soComTelaApagada && telaAcesa(app)) { prefs(app).edit().putLong(PENDENTE, codigo).apply(); return txt(R.string.atu_disponivel, codigo, meu) }
-            prefs(app).edit().putLong(INSTALANDO, codigo).apply()
-            instalarApk(app, arquivo)
-            return txt(R.string.atu_instalando, codigo, meu)
+            conferir(app, arquivo, codigo)?.let { return it }
+            return instalarSeDer(app, listOf(arquivo), codigo, meu, instalar, soComTelaApagada)
         } finally {
             // Sempre: a sessão já copiou os bytes antes do commit. Antes ficava no cache depois do sucesso (o processo
             // morre antes do Resultado), e o Resultado podia apagar o download de uma verificação seguinte no meio.
             arquivo.delete()
+        }
+    }
+
+    /**
+     * Confere o APK baixado (ConferenciaApk, com teste JVM): mesmo pacote, versão igual à da tag e MAIOR que a instalada
+     * (lida de novo: o PC pode ter instalado outra durante o download), mesma chave, não marcada ruim. Null = pode instalar;
+     * senão, o texto do motivo. Na atualização por partes, [arquivo] é a base (part-base.apk): o Android lê o pacote, a
+     * versão e a chave dela como de um APK cheio, e recusa na instalação qualquer parte com outra chave ou versão.
+     */
+    private fun conferir(app: Context, arquivo: File, codigo: Long): String? {
+        val novo = app.packageManager.getPackageArchiveInfo(arquivo.path, PackageManager.GET_SIGNING_CERTIFICATES)
+        val atual = instalado(app)
+        val conferido = ConferenciaApk.conferir(
+            legivel = novo != null, pacoteApk = novo?.packageName, pacoteMeu = app.packageName,
+            codigoApk = novo?.longVersionCode ?: 0L, codigoTag = codigo, codigoInstalado = atual.longVersionCode,
+            mesmaChave = novo != null && mesmaChave(atual, novo), podeInstalar = VigiaAtualizacao.podeInstalar(app, codigo),
+        )
+        return when (conferido) {
+            ConferenciaApk.Resultado.OK -> null
+            // O SHA conferiu: o arquivo é o publicado. Estes não mudam baixando de novo, então ficam recusados.
+            ConferenciaApk.Resultado.ILEGIVEL -> recusar(app, codigo, txt(R.string.atu_ilegivel, codigo))
+            ConferenciaApk.Resultado.PACOTE -> recusar(app, codigo, txt(R.string.atu_pacote, codigo, novo?.packageName.toString()))
+            ConferenciaApk.Resultado.VERSAO_TAG -> recusar(app, codigo, txt(R.string.atu_versao, codigo, novo?.longVersionCode ?: 0L))
+            ConferenciaApk.Resultado.NAO_E_MAIOR -> { prefs(app).edit().remove(PENDENTE).apply(); txt(R.string.atu_em_dia, atual.longVersionCode, codigo) }
+            ConferenciaApk.Resultado.RUIM -> { prefs(app).edit().remove(PENDENTE).apply(); txt(R.string.atu_ruim, codigo) }
+            ConferenciaApk.Resultado.CHAVE -> recusar(app, codigo, txt(R.string.atu_chave, codigo))
+        }
+    }
+
+    /** Conferido: instala agora, ou deixa pendente (verificação sem instalar, ou tela acesa na automática). */
+    private fun instalarSeDer(app: Context, arquivos: List<File>, codigo: Long, meu: Long, instalar: Boolean, soComTelaApagada: Boolean,
+                              porPartes: Boolean = false): String {
+        if (!instalar) { prefs(app).edit().putLong(PENDENTE, codigo).apply(); return txt(R.string.atu_disponivel, codigo, meu) }
+        // A tela foi conferida só ANTES do download; se alguém ligou a TV nesse meio-tempo, não reinicia o launcher na
+        // frente da pessoa: fica pendente (Configurações > Instalar agora, ou a próxima volta com a tela apagada).
+        if (soComTelaApagada && telaAcesa(app)) { prefs(app).edit().putLong(PENDENTE, codigo).apply(); return txt(R.string.atu_disponivel, codigo, meu) }
+        prefs(app).edit().putLong(INSTALANDO, codigo).putBoolean(POR_PARTES, porPartes).apply()
+        instalarApks(app, arquivos)
+        return txt(R.string.atu_instalando, codigo, meu)
+    }
+
+    /**
+     * Atualização por partes: baixa o parts.json do Release, escolhe a base e as partes que esta TV usa (as já instaladas
+     * e as em uso, PartsPlan.keep), baixa cada uma conferindo tamanho e SHA-256 do índice, confere a base como o APK cheio
+     * e instala tudo numa sessão só (MODE_FULL_INSTALL: troca o APK cheio ou as partes de antes de uma vez).
+     * Null = este Release não serve para partes (sem índice, índice estranho, de outra versão ou faltando arquivo): o
+     * chamador segue com o APK cheio.
+     */
+    private fun atualizarPorPartes(app: Context, links: Map<String, String>, codigo: Long, meu: Long, instalar: Boolean,
+                                   soComTelaApagada: Boolean): String? {
+        // A instalação por partes deste código já falhou uma vez: tenta o APK cheio (que sempre funcionou) em vez de
+        // repetir a mesma falha até o limite.
+        if (prefs(app).getLong(PARTES_FALHOU, 0L) == codigo) return null
+        val urlIndice = links[PartsPlan.INDEX] ?: return null
+        val indice = PartsPlan.parse(baixarTexto(urlIndice))?.takeIf { it.versionCode == codigo } ?: return null
+        val partes = PartsPlan.keep(Parts.splits(app), PartsInstall.inUse(app))
+        val plano = PartsPlan.files(indice, PartsPlan.abi(android.os.Process.is64Bit()), partes) ?: return null
+        if (plano.any { links[it.name] == null }) return null
+        val pasta = File(app.cacheDir, "partes-atualizacao").apply { deleteRecursively(); mkdirs() }
+        try {
+            val arquivos = plano.map { f ->
+                File(pasta, f.name).also { destino ->
+                    baixarArquivo(links.getValue(f.name), destino)
+                    if (destino.length() != f.size || sha256(destino) != f.sha256) return txt(R.string.atu_sha, codigo)
+                }
+            }
+            conferir(app, arquivos.first(), codigo)?.let { return it }
+            Log.i(TAG, "v$codigo por partes: ${plano.joinToString { it.name }}")
+            return instalarSeDer(app, arquivos, codigo, meu, instalar, soComTelaApagada, porPartes = true)
+        } finally {
+            pasta.deleteRecursively()   // a sessão já copiou os bytes antes do commit
         }
     }
 
@@ -291,7 +350,7 @@ object Atualizador {
         return texto
     }
 
-    private fun instalado(app: Context): PackageInfo =
+    internal fun instalado(app: Context): PackageInfo =
         app.packageManager.getPackageInfo(app.packageName, PackageManager.GET_SIGNING_CERTIFICATES)
 
     /** Mesma chave = o conjunto de certificados de quem assinou é igual. Sem signingInfo, recusa. */
@@ -303,21 +362,28 @@ object Atualizador {
 
     private fun telaAcesa(app: Context) = app.getSystemService(PowerManager::class.java)?.isInteractive ?: true
 
-    private fun instalarApk(app: Context, arquivo: File) {
+    private fun instalarApk(app: Context, arquivo: File) = instalarApks(app, listOf(arquivo))
+
+    /** Um APK cheio, ou a base + as partes (uma sessão só: o Android troca tudo junto ou nada). */
+    private fun instalarApks(app: Context, arquivos: List<File>) {
         val instalador = app.packageManager.packageInstaller
         // Sessões nossas que sobraram (processo morto no meio da cópia, openSession que lançou): o Android só as expira
         // depois de dias, com os bytes ocupando espaço.
         for (velha in instalador.mySessions) runCatching { instalador.abandonSession(velha.sessionId) }
         val params = PackageInstaller.SessionParams(PackageInstaller.SessionParams.MODE_FULL_INSTALL).apply {
             setAppPackageName(app.packageName)
-            setSize(arquivo.length())
+            setSize(arquivos.sumOf { it.length() })
         }
         val id = instalador.createSession(params)
         instalador.openSession(id).use { sessao ->
             try {
-                sessao.openWrite("launcher", 0, arquivo.length()).use { saida ->
-                    arquivo.inputStream().use { it.copyTo(saida) }
-                    sessao.fsync(saida)
+                for (arquivo in arquivos) {
+                    // Um nome por arquivo na sessão ("launcher" no APK cheio, como antes).
+                    val nome = if (arquivos.size == 1) "launcher" else arquivo.name
+                    sessao.openWrite(nome, 0, arquivo.length()).use { saida ->
+                        arquivo.inputStream().use { it.copyTo(saida) }
+                        sessao.fsync(saida)
+                    }
                 }
             } catch (e: Exception) {
                 // Erro ao copiar (ex.: disco cheio): o close() do use não desfaz a sessão; sem o abandon() ela ficava
@@ -340,7 +406,7 @@ object Atualizador {
         setRequestProperty("Accept", "application/vnd.github+json")
     }
 
-    private fun baixarTexto(url: String): String {
+    internal fun baixarTexto(url: String): String {
         val c = conexao(url)
         try {
             if (c.responseCode != 200) throw java.io.IOException("HTTP ${c.responseCode} em $url")
@@ -348,7 +414,7 @@ object Atualizador {
         } finally { c.disconnect() }
     }
 
-    private fun baixarArquivo(url: String, destino: File) {
+    internal fun baixarArquivo(url: String, destino: File) {
         val c = conexao(url)
         try {
             if (c.responseCode != 200) throw java.io.IOException("HTTP ${c.responseCode} em $url")
@@ -356,7 +422,7 @@ object Atualizador {
         } finally { c.disconnect() }
     }
 
-    private fun sha256(f: File): String {
+    internal fun sha256(f: File): String {
         val md = MessageDigest.getInstance("SHA-256")
         f.inputStream().use { e -> val b = ByteArray(64 * 1024); while (true) { val n = e.read(b); if (n < 0) break; md.update(b, 0, n) } }
         return md.digest().joinToString("") { "%02x".format(it) }
@@ -379,6 +445,8 @@ object Atualizador {
                 // Conta as falhas do código que estava instalando ([MAX_FALHAS] = para de tentar este código).
                 val p = prefs(ctx); val c = p.getLong(INSTALANDO, 0L)
                 if (c > 0) p.edit().putLong(FALHOU_CODIGO, c).putInt(FALHOU_N, if (p.getLong(FALHOU_CODIGO, 0L) == c) p.getInt(FALHOU_N, 0) + 1 else 1).apply()
+                // Falhou por partes: a próxima tentativa deste código vai pelo APK cheio (atualizarPorPartes devolve null).
+                if (c > 0 && p.getBoolean(POR_PARTES, false)) p.edit().putLong(PARTES_FALHOU, c).apply()
             }
             anotar(ctx, if (status == PackageInstaller.STATUS_SUCCESS) txt(R.string.atu_ok) else txt(R.string.atu_falhou, status, msg.toString()))
             // Troca de pacote: o app novo acabou de entrar (este processo não foi trocado: é outro pacote). Agora a

@@ -86,7 +86,8 @@ object TunelTailscale {
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun binario(ctx: Context) = File(ctx.applicationInfo.nativeLibraryDir, "libtsnet.so")
+    /** Lida na hora (Parts.nativeLibDir): com o túnel como parte instalada depois, a pasta do processo é a velha. */
+    fun binario(ctx: Context) = File(br.paulo.tvlauncher.parts.Parts.nativeLibDir(ctx), "libtsnet.so")
     internal fun pastaEstado(ctx: Context) = File(ctx.filesDir, "tunel")
 
     /** O endereço público (ex.: sofaly-sala.tail1234.ts.net), ou null antes do 1º login. */
@@ -138,6 +139,8 @@ object TunelTailscale {
     @Synchronized fun ajustar(ctx: Context) {
         val app = ctx.applicationContext
         querRodando = McpServidor.precisaServidor(app) && binario(app).exists()
+        // Instalado em partes e sem a do túnel: pede (PartInstallResult chama este ajustar de novo quando ela entrar).
+        if (McpServidor.precisaServidor(app) && !binario(app).exists()) br.paulo.tvlauncher.parts.PartsInstall.request(app, br.paulo.tvlauncher.parts.Parts.TUNNEL)
         if (querRodando && vigia?.isAlive != true) {
             vigia = Thread({ vigiar(app) }, "Tunel-vigia").apply { isDaemon = true; start() }
         } else if (!querRodando) {

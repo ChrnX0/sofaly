@@ -684,6 +684,8 @@ class MainActivity : Activity() {
     override fun onStop() {
         super.onStop()
         desligarPrevia()   // coberta por uma tela opaca: a prévia não serve, o onResume confere na volta
+        // HOME fora da tela: o aviso UI_HIDDEN que o Android nunca manda a este processo (GpuTrim, etapa 4b da G).
+        if (!isChangingConfigurations) br.paulo.tvlauncher.home.GpuTrim.soltar(Memoria.GPU_HOME_ESCONDIDA, "home parada")
     }
 
     /** O gancho do adb (TesteHome). Guardado para soltar no onDestroy: senão segura a HOME destruída na memória (#560). */
