@@ -92,7 +92,7 @@ object NuvemBackup {
             else JSONObject(ok(r)).getString("id")
         }
         val itens = Nuvem.lerListaBox(ok(Nuvem.get(Nuvem.boxItens(idPasta, 0), Nuvem.acesso(c)))).first.filter { !it.item.pasta }
-        val fronteira = "onetv" + RetornoNuvem.novoNumero()
+        val fronteira = "sofaly" + RetornoNuvem.novoNumero()
         val existente = itens.firstOrNull { it.item.nome == nome }
         // Mesmo nome (2ª vez no dia): versão nova do mesmo arquivo; senão, arquivo novo na pasta.
         val (url, atributos) = if (existente != null) "$BOX_ENVIO/${existente.id}/content" to JSONObject().put("name", nome).toString()

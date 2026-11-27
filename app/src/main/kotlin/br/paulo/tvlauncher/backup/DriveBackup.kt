@@ -93,7 +93,7 @@ object DriveBackup {
     fun enviar(ctx: Context, nome: String, bytes: ByteArray) {
         val token = acesso(ctx)
         val pasta = pastaId(ctx, token)
-        val fronteira = "onetv" + ByteArray(12).also { aleatorio.nextBytes(it) }.joinToString("") { "%02x".format(it) }
+        val fronteira = "sofaly" + ByteArray(12).also { aleatorio.nextBytes(it) }.joinToString("") { "%02x".format(it) }
         val (codigo, _) = pedir("POST", "${DriveRegras.UPLOAD}?uploadType=multipart&fields=id", token,
             DriveRegras.corpoMultipart(fronteira, nome, pasta, bytes), "multipart/related; boundary=$fronteira")
         if (codigo !in 200..299) throw IllegalStateException("o Drive recusou o envio ($codigo)")
