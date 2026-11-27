@@ -79,6 +79,7 @@ declare -A FONTES=(
   [SofyBusTest]="SofyBus"
   [SofyBenchTest]="SofyBench SofyRules SofyAi SofyRepair SofyBus"
   [SofyFleetTest]="SofyFleet SofyRepair SofyBus"
+  [SofyRecipesTest]="SofyRecipes SofyFleet SofyRepair SofyBus"
   [SofySelfCheckTest]="SofySelfCheck"
   [DropCauseTest]="DropCause"
   [ControllerBatteryTest]="ControllerBattery"

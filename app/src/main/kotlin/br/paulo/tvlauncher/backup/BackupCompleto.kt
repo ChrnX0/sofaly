@@ -78,6 +78,7 @@ object BackupCompleto {
           // plugins: o OK vale para o certificado desta TV
         "wallpaper_plugins",   // plugins de fundo (18/11/2026): o OK também é por certificado desta TV
         "plugin_tiles",   // botões de outros apps (24/11/2026): OK por certificado desta TV, como "plugins"
+        "sofy_recipes",   // receitas da rede de Sofys (27/11/2026): lista baixada e placar da sombra desta TV (refaz sozinho)
         "sofy_fleet",   // rede de Sofys (27/11/2026): quando mandou e o estado de cada caso, desta TV só (o segredo fica em noBackupFilesDir)
         "extension_health", "plugin_catalog", "plugin_widgets",   // 24/11/2026: placar de saúde dos plugins e vitrine baixada (refaz sozinho)
         "icon_pack_frozen",   // pacotes que NÓS congelamos nesta TV (na outra o pacote nem está congelado)
