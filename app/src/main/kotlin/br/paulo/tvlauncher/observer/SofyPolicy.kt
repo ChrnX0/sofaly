@@ -32,7 +32,7 @@ object SofyPolicy {
      */
     enum class Expression(val eyes: String, val mouth: String = "") {
         HAPPY("^ ^"), ATTENTIVE("o o"), SURPRISED("O O", "o"), QUESTION("? ?"), FIXING("> <"), CROSS("\\ /"),
-        DELIGHTED("* *"), SAD("T T"), WORRIED("; ;"), CONFUSED("@ @"), SUSPICIOUS("= ="), WINK("^ -"), SLEEPING("- -"),
+        DELIGHTED("* *"), SAD("T T"), WORRIED("; ;"), CONFUSED("@ @"), SUSPICIOUS("= ="), WINK("^ -"), SLEEPING("- -"), WAVE("o o"),
     }
 
     const val PER_HOUR = 1
