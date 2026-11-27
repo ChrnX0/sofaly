@@ -112,6 +112,42 @@ class OuvirTelaTest {
         a.finish()
     }
 
+    /**
+     * #602: o Rádio refaz as fileiras quando a resposta da internet chega (Perto de você, do país). Quem estava com o foco
+     * num cartão (aqui "Jazz", em Gêneros) continua nele: o mesmo item, num cartão novo que está na janela.
+     */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun fileirasRefeitasMantemOFoco() {
+        val (a, cruz) = montar(br.paulo.tvlauncher.home.BottomBar.Mode.ROWS)
+        fun r(id: String, nome: String) = CruzOuvir.Item(id, nome, "", monograma = CapaOuvir.iniciais(nome), abrir = {})
+        val fav = CruzOuvir.Prateleira("fav", "Favoritas", IconeOuvir.Tipo.FAVORITAS, (1..3).map { r("fav:$it", "Rádio $it") })
+        val gen = CruzOuvir.Prateleira("generos", "Gêneros", IconeOuvir.Tipo.GENEROS, listOf("Sertanejo", "Mpb", "Jazz", "Funk").map { r("gen:$it", it) })
+        cruz.definir(listOf(fav, gen))
+        cruz.requestFocus()
+        ShadowLooper.idleMainLooper(2, TimeUnit.SECONDS)
+        fun foco() = a.window.decorView.findFocus()
+        fun andar(dir: Int) { foco()!!.focusSearch(dir)?.requestFocus(); ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS) }
+        andar(android.view.View.FOCUS_DOWN)
+        repeat(2) { andar(android.view.View.FOCUS_RIGHT) }
+        assertEquals("gen:Jazz", cruz.itemAtual()?.id)
+        val antes = foco()
+        // A resposta chega: entram "Perto de você" (acima de Gêneros) e o país; as fileiras são refeitas.
+        val perto = CruzOuvir.Prateleira("perto", "Perto", IconeOuvir.Tipo.FAVORITAS, (1..5).map { r("perto:$it", "Perto $it") })
+        cruz.definir(listOf(fav, perto, gen))
+        ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS)
+        val depois = foco()
+        assertTrue("o cartão antigo saiu da janela (a tela foi refeita de fato)", antes != null && !antes.isAttachedToWindow)
+        assertTrue("o foco está num cartão na janela", depois != null && depois.isAttachedToWindow && depois !== cruz)
+        assertEquals("o foco fica no mesmo item", "gen:Jazz", cruz.itemAtual()?.id)
+        fun textos(v: android.view.View): List<String> = when (v) {
+            is android.widget.TextView -> listOf(v.text.toString())
+            is android.view.ViewGroup -> (0 until v.childCount).flatMap { textos(v.getChildAt(it)) }
+            else -> emptyList()
+        }
+        assertTrue("o cartão em foco é o Jazz: ${textos(depois!!)}", "Jazz" in textos(depois))
+        a.finish()
+    }
+
     /** Prévia do gesto de cada ícone (uma linha por ícone: o estático e 7 quadros da passada). */
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
     @Test fun icones() {
