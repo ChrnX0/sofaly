@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">คะแนน Simkl</string>
     <string name="sv_simkl_convite_det">เชื่อมต่อบัญชีของคุณ</string>
+    <string name="legenda_muitas">ตอนนี้มีการค้นหาคำบรรยายมากเกินไป ลองใหม่ในอีกหนึ่งนาที</string>
+    <string name="legenda_conta_recusada">OpenSubtitles ปฏิเสธบัญชี ตรวจสอบได้ในการตั้งค่า</string>
+    <string name="legenda_fora">บริการคำบรรยายใช้งานไม่ได้ ลองใหม่ภายหลัง</string>
 </resources>

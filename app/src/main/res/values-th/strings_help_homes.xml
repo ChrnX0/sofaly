@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">ช่วยบ้านอื่นๆ</string>
+    <string name="hoh_question">มาช่วยบ้านอื่นๆ กันไหม</string>
+    <string name="hoh_line">เมื่อฉันแก้ไขอะไรที่นี่ ฉันจะบอก Sofaly อื่นๆ ว่าผลเป็นอย่างไร โดยไม่บอกว่าคุณเป็นใคร</string>
+    <string name="hoh_yes">ใช่ อยากช่วย</string>
+    <string name="hoh_not_now">ไว้ทีหลัง</string>
+    <string name="hoh_how">ทำงานอย่างไร</string>
+    <string name="hoh_how_title">ทำงานอย่างไร</string>
+    <string name="hoh_how_line">ถ้าสิ่งเดียวกันเสียที่บ้านอื่น Sofaly ที่นั่นจะรู้อยู่แล้วว่าต้องทำอะไร</string>
+    <string name="hoh_goes">สิ่งที่ส่งไป</string>
+    <string-array name="hoh_goes_list">
+        <item>รุ่นทีวีและเวอร์ชันของ Sofaly</item>
+        <item>อะไรเสีย แยกตามหมวด</item>
+        <item>อะไรแก้ได้ และได้ผลไหม</item>
+        <item>หน่วยความจำและเครือข่าย เป็นระดับ (ดีหรืออ่อน)</item>
+    </string-array>
+    <string name="hoh_never">สิ่งที่ไม่ส่งไปเลย</string>
+    <string-array name="hoh_never_list">
+        <item>ชื่อของคุณและชื่อเครือข่ายของคุณ</item>
+        <item>คุณดูอะไรและเมื่อไร</item>
+        <item>แอปของคุณและสิ่งที่คุณพิมพ์</item>
+        <item>รูปภาพ เสียง ที่อยู่ และ IP</item>
+    </string-array>
+    <string name="hoh_back_here">สิ่งที่ Sofaly อื่นๆ เรียนรู้จะกลับมาที่นี่ เปลี่ยนได้ทุกเมื่อใน การตั้งค่า สิ่งที่ Sofy รู้</string>
+    <string name="hoh_thanks">ขอบคุณ! ตอนนี้ Sofaly ของคุณช่วยบ้านอื่นๆ แล้ว</string>
+    <string name="hoh_state_on">เปิด: วันละครั้ง ทีวีเครื่องนี้จะบอกว่าการแก้ไขเป็นอย่างไร</string>
+    <string name="hoh_state_off">ปิด: ไม่มีการแชร์อะไรจากทีวีเครื่องนี้</string>
+    <string name="hoh_stop">หยุดช่วย</string>
+    <string name="hoh_stop_det">ทีวีเครื่องนี้จะหยุดแชร์ สิ่งที่บ้านอื่นๆ เรียนรู้ยังคงมาถึงที่นี่</string>
+    <string name="hoh_start">เริ่มช่วย</string>
+    <string name="hoh_start_det">ดูว่าอะไรส่งไปและอะไรไม่ส่งเลย แล้วค่อยเลือก</string>
+    <string name="hoh_today">ดูสิ่งที่จะส่งวันนี้</string>
+    <string name="hoh_today_det">แพ็กเกจที่ทีวีเครื่องนี้จะส่ง ทุกช่อง</string>
+    <string name="hoh_today_sub">นี่คือสิ่งที่ไปถึงเซิร์ฟเวอร์จริงๆ รหัสบ้านเปลี่ยนทุกวัน</string>
+    <string name="hoh_forget">ลืมสิ่งที่ส่งไปแล้ว</string>
+    <string name="hoh_forget_det">รหัสของทีวีเครื่องนี้จะเปลี่ยน สิ่งที่ส่งไปแล้วจะเชื่อมกับเครื่องนี้ไม่ได้อีก และจะถูกลบภายใน 30 วัน</string>
+    <string name="hoh_forgot">เสร็จแล้ว ใช้รหัสใหม่ตั้งแต่ตอนนี้ สิ่งที่ส่งไปแล้วจะถูกลบภายใน 30 วัน</string>
+    <string name="hoh_row_det">สิ่งที่แชร์กับบ้านอื่นๆ และวิธีปิด</string>
+</resources>

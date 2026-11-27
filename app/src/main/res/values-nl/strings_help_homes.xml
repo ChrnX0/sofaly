@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Andere huizen helpen</string>
+    <string name="hoh_question">Zullen we andere huizen helpen?</string>
+    <string name="hoh_line">Als ik hier iets repareer, vertel ik de andere Sofaly\'s hoe het ging. Zonder te zeggen wie je bent.</string>
+    <string name="hoh_yes">Ja, ik wil helpen</string>
+    <string name="hoh_not_now">Nu niet</string>
+    <string name="hoh_how">Hoe werkt het?</string>
+    <string name="hoh_how_title">Zo werkt het</string>
+    <string name="hoh_how_line">Als hetzelfde in een ander huis kapotgaat, weet die Sofaly al wat te doen.</string>
+    <string name="hoh_goes">Wat er gaat</string>
+    <string-array name="hoh_goes_list">
+        <item>Het tv-model en de Sofaly-versie</item>
+        <item>Wat er kapotging, in categorieën</item>
+        <item>Wat het oploste en of het werkte</item>
+        <item>Geheugen en netwerk in niveaus (goed of zwak)</item>
+    </string-array>
+    <string name="hoh_never">Wat er nooit uitgaat</string>
+    <string-array name="hoh_never_list">
+        <item>Je naam en de naam van je netwerk</item>
+        <item>Wat je kijkt en wanneer</item>
+        <item>Je apps en wat je typt</item>
+        <item>Foto\'s, stem, adres en IP</item>
+    </string-array>
+    <string name="hoh_back_here">Wat de andere Sofaly\'s leren, komt hier terug. Je kunt dit altijd wijzigen via Instellingen, Wat Sofy weet.</string>
+    <string name="hoh_thanks">Bedankt! Je Sofaly helpt nu andere huizen.</string>
+    <string name="hoh_state_on">Aan: één keer per dag deelt deze tv hoe de reparaties gingen</string>
+    <string name="hoh_state_off">Uit: deze tv deelt niets</string>
+    <string name="hoh_stop">Stoppen met helpen</string>
+    <string name="hoh_stop_det">Deze tv stopt met delen. Hij blijft ontvangen wat andere huizen leerden.</string>
+    <string name="hoh_start">Beginnen met helpen</string>
+    <string name="hoh_start_det">Bekijk wat er gaat en wat nooit uitgaat, en kies dan</string>
+    <string name="hoh_today">Bekijk wat er vandaag gaat</string>
+    <string name="hoh_today_det">Het exacte pakket dat deze tv zou sturen, veld voor veld</string>
+    <string name="hoh_today_sub">Precies wat naar de server gaat. De huiscode verandert elke dag.</string>
+    <string name="hoh_forget">Vergeten wat ik al stuurde</string>
+    <string name="hoh_forget_det">Verandert de code van deze tv. Wat al gestuurd is, kan er niet meer aan gekoppeld worden en wordt binnen 30 dagen gewist.</string>
+    <string name="hoh_forgot">Klaar. Vanaf nu een nieuwe code; wat gestuurd is, wordt binnen 30 dagen gewist.</string>
+    <string name="hoh_row_det">Wat ze met andere huizen deelt, en hoe je het uitzet</string>
+</resources>

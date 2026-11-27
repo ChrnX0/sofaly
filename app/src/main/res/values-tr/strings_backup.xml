@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">Son</string>
     <string name="bkn_nunca">hiç</string>
     <string name="bkn_pin">Yedeği değiştirmek için PIN</string>
+    <string name="bk_motivo_senha">Şifre doğru değil.</string>
+    <string name="bk_motivo_invalido">Bu dosya bir Sofaly yedeği değil ya da bozuk.</string>
+    <string name="bk_motivo_ler">Okunamadı (ağ veya depolama).</string>
 </resources>

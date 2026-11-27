@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Baca lebih jelas</string>
+    <string name="goal_clean">Layar bersih</string>
+    <string name="goal_energy">Hemat energi</string>
+    <string name="goal_kids">Lindungi anak-anak</string>
+    <string name="goal_desfazer">%1$s, aktif.</string>
+    <string name="goal_feito">%1$s: selesai.</string>
+    <string name="goal_desfeito">%1$s: dibatalkan</string>
+</resources>

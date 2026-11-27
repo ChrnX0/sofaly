@@ -30,4 +30,6 @@
     <string name="bb_titulo">Rozvržení domovské obrazovky</string>
     <string name="bb_cruz">Kříž</string>
     <string name="bb_barra">Spodní lišta</string>
+    <string name="wo_ultimos">Naposledy použité první</string>
+    <string name="wo_aleatorio">Libovolné pořadí (mění se každý den)</string>
 </resources>

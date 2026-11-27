@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Ultima</string>
     <string name="bkn_nunca">niciodată</string>
     <string name="bkn_pin">PIN pentru a schimba copia de siguranță</string>
+    <string name="bk_motivo_senha">Parola nu este corectă.</string>
+    <string name="bk_motivo_invalido">Acest fișier nu este o copie de rezervă Sofaly sau este deteriorat.</string>
+    <string name="bk_motivo_ler">Nu s-a putut citi (rețea sau stocare).</string>
 </resources>

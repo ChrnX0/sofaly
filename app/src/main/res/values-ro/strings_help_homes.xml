@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Ajută alte case</string>
+    <string name="hoh_question">Ajuți alte case?</string>
+    <string name="hoh_line">Când repar ceva aici, le spun altor Sofaly cum a mers. Fără să spun cine ești.</string>
+    <string name="hoh_yes">Da, vreau să ajut</string>
+    <string name="hoh_not_now">Nu acum</string>
+    <string name="hoh_how">Cum funcționează?</string>
+    <string name="hoh_how_title">Cum funcționează</string>
+    <string name="hoh_how_line">Dacă același lucru se strică în altă casă, Sofaly de acolo știe deja ce să facă.</string>
+    <string name="hoh_goes">Ce se trimite</string>
+    <string-array name="hoh_goes_list">
+        <item>Modelul televizorului și versiunea Sofaly</item>
+        <item>Ce s-a stricat, pe categorii</item>
+        <item>Ce a reparat și dacă a funcționat</item>
+        <item>Memoria și rețeaua, pe niveluri (bun sau slab)</item>
+    </string-array>
+    <string name="hoh_never">Ce nu se trimite niciodată</string>
+    <string-array name="hoh_never_list">
+        <item>Numele tău și numele rețelei tale</item>
+        <item>Ce și când te uiți</item>
+        <item>Aplicațiile tale și ce scrii</item>
+        <item>Fotografii, voce, adresă și IP</item>
+    </string-array>
+    <string name="hoh_back_here">Ce învață alte Sofaly se întoarce aici. Schimbă oricând în Setări, Ce știe Sofy.</string>
+    <string name="hoh_thanks">Mulțumim! Sofaly al tău ajută acum alte case.</string>
+    <string name="hoh_state_on">Activat: o dată pe zi acest televizor spune cum au mers reparațiile</string>
+    <string name="hoh_state_off">Dezactivat: nimic nu este partajat de pe acest televizor</string>
+    <string name="hoh_stop">Oprește ajutorul</string>
+    <string name="hoh_stop_det">Acest televizor nu mai partajează. Ce au învățat alte case ajunge în continuare aici.</string>
+    <string name="hoh_start">Începe să ajuți</string>
+    <string name="hoh_start_det">Vezi ce se trimite și ce niciodată, apoi alege</string>
+    <string name="hoh_today">Vezi ce pleacă azi</string>
+    <string name="hoh_today_det">Pachetul pe care l-ar trimite acest televizor, câmp cu câmp</string>
+    <string name="hoh_today_sub">Exact asta ajunge la server. Codul casei se schimbă în fiecare zi.</string>
+    <string name="hoh_forget">Uită ce s-a trimis</string>
+    <string name="hoh_forget_det">Codul acestui televizor se schimbă. Ce s-a trimis nu mai poate fi legat de el și se șterge în 30 de zile.</string>
+    <string name="hoh_forgot">Gata. Cod nou de acum; ce s-a trimis se șterge în 30 de zile.</string>
+    <string name="hoh_row_det">Ce partajează cu alte case și cum să o dezactivezi</string>
+</resources>

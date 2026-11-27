@@ -30,4 +30,6 @@
     <string name="bb_titulo">Διάταξη αρχικής οθόνης</string>
     <string name="bb_cruz">Σταυρός</string>
     <string name="bb_barra">Κάτω μπάρα</string>
+    <string name="wo_ultimos">Πρώτα τα πρόσφατα</string>
+    <string name="wo_aleatorio">Οποιαδήποτε σειρά (αλλάζει κάθε μέρα)</string>
 </resources>

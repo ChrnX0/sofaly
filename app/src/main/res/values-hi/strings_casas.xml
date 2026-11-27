@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">दूसरे घर</string>
+    <string name="casas_texto">इस टीवी को किसी रिश्तेदार के टीवी से जोड़ें और दूर रहकर भी साथ देखें। सिर्फ़ चलाना, रोकना और प्रतिक्रियाएँ जाती हैं, एन्क्रिप्टेड। किसी को खाते की ज़रूरत नहीं।</string>
+    <string name="casas_mostrar">कोड दिखाएँ</string>
+    <string name="casas_mostrar_det">दूसरा घर इसे अपने टीवी पर लिखता है</string>
+    <string name="casas_digitar">कोड लिखें</string>
+    <string name="casas_digitar_det">दूसरे टीवी पर दिख रहा कोड</string>
+    <string name="casas_conectadas">जुड़े हुए घर</string>
+    <string name="casas_remover_det">साथ देखें · हटाएँ</string>
+    <string name="casas_remover_titulo">%1$s हटाएँ?</string>
+    <string name="casas_remover">हटाएँ</string>
+    <string name="casas_pedindo">कोड ले रहे हैं…</string>
+    <string name="casas_codigo_det">यह कोड दूसरे घर को पढ़कर सुनाएँ। उनके टीवी पर: सेटिंग्स, परिवार, दूसरे घर, कोड लिखें। यह 10 मिनट और एक बार के लिए है।</string>
+    <string name="casas_esperando">दूसरे टीवी की पुष्टि का इंतज़ार…</string>
+    <string name="casas_conectando">जोड़ रहे हैं…</string>
+    <string name="casas_conectar">जोड़ें</string>
+    <string name="casas_chegou">%1$s ने कोड लिखा</string>
+    <string name="casas_confirmou">%1$s ने पुष्टि की। यहाँ भी अंक मिलाएँ</string>
+    <string name="casas_pelo_celular">%1$s साथ देखने के लिए जुड़ा है (%2$s ने जोड़ा)</string>
+    <string name="casas_conferir_titulo">%1$s से जोड़ें?</string>
+    <string name="casas_conferir_texto">फ़ोन पर पक्का करें कि दूसरे टीवी पर वही अंक दिख रहे हैं:\n\n%1$s\n\nअलग हों तो रद्द करें।</string>
+    <string name="casas_pronto">%1$s से जुड़ गया। दोनों टीवी ये अंक दिखा रहे हैं। साथ देखने के लिए कोई शीर्षक खोलें और साथ देखें चुनें।</string>
+    <string name="casas_falhou">नहीं हो पाया। इंटरनेट जाँचें और नए कोड से फिर कोशिश करें।</string>
+    <string name="casas_sem_rede">Sofaly सेवा जवाब नहीं दे रही। इंटरनेट जाँचें।</string>
+    <string name="casas_codigo_errado">यह कोड नहीं चला। इसमें 8 अक्षर और अंक होते हैं और यह 10 मिनट चलता है।</string>
+    <string name="casas_menu">दूसरे घर</string>
+    <string name="casas_menu_det">दूर रहने वाले रिश्तेदार के टीवी के साथ देखें</string>
+</resources>

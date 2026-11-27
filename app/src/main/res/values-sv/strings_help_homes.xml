@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Hjälp andra hem</string>
+    <string name="hoh_question">Ska vi hjälpa andra hem?</string>
+    <string name="hoh_line">När jag fixar något här berättar jag för de andra Sofaly hur det gick. Utan att säga vem du är.</string>
+    <string name="hoh_yes">Ja, jag vill hjälpa</string>
+    <string name="hoh_not_now">Inte nu</string>
+    <string name="hoh_how">Hur fungerar det?</string>
+    <string name="hoh_how_title">Så fungerar det</string>
+    <string name="hoh_how_line">Om samma sak går sönder i ett annat hem vet Sofaly där redan vad som ska göras.</string>
+    <string name="hoh_goes">Vad som skickas</string>
+    <string-array name="hoh_goes_list">
+        <item>Tv-modell och Sofaly-version</item>
+        <item>Vad som gick sönder, i kategorier</item>
+        <item>Vad som löste det och om det fungerade</item>
+        <item>Minne och nätverk, i nivåer (bra eller svagt)</item>
+    </string-array>
+    <string name="hoh_never">Vad som aldrig skickas</string>
+    <string-array name="hoh_never_list">
+        <item>Ditt namn och namnet på ditt nätverk</item>
+        <item>Vad och när du tittar</item>
+        <item>Dina appar och vad du skriver</item>
+        <item>Foton, röst, adress och IP</item>
+    </string-array>
+    <string name="hoh_back_here">Det de andra Sofaly lär sig kommer tillbaka hit. Ändra när som helst i Inställningar, Vad Sofy vet.</string>
+    <string name="hoh_thanks">Tack! Din Sofaly hjälper nu andra hem.</string>
+    <string name="hoh_state_on">På: en gång om dagen berättar den här tv:n hur lagningarna gick</string>
+    <string name="hoh_state_off">Av: inget delas från den här tv:n</string>
+    <string name="hoh_stop">Sluta hjälpa</string>
+    <string name="hoh_stop_det">Den här tv:n slutar dela. Det andra hem har lärt sig kommer fortfarande hit.</string>
+    <string name="hoh_start">Börja hjälpa</string>
+    <string name="hoh_start_det">Se vad som skickas och vad som aldrig skickas, och välj sedan</string>
+    <string name="hoh_today">Se vad som skickas i dag</string>
+    <string name="hoh_today_det">Paketet som den här tv:n skulle skicka, fält för fält</string>
+    <string name="hoh_today_sub">Exakt detta når servern. Hemmets kod byts varje dag.</string>
+    <string name="hoh_forget">Glöm det som skickats</string>
+    <string name="hoh_forget_det">Den här tv:ns kod byts. Det som skickats kan inte längre kopplas till den och raderas inom 30 dagar.</string>
+    <string name="hoh_forgot">Klart. Ny kod från och med nu; det som skickats raderas inom 30 dagar.</string>
+    <string name="hoh_row_det">Vad den delar med andra hem, och hur du stänger av det</string>
+</resources>

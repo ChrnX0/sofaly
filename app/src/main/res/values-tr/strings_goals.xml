@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Daha iyi oku</string>
+    <string name="goal_clean">Daha sade ekran</string>
+    <string name="goal_energy">Enerji tasarrufu</string>
+    <string name="goal_kids">Çocukları koru</string>
+    <string name="goal_desfazer">%1$s, açık.</string>
+    <string name="goal_feito">%1$s: tamam.</string>
+    <string name="goal_desfeito">%1$s: geri alındı</string>
+</resources>

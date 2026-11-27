@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Seneste</string>
     <string name="bkn_nunca">aldrig</string>
     <string name="bkn_pin">PIN-kode for at ændre sikkerhedskopieringen</string>
+    <string name="bk_motivo_senha">Adgangskoden er forkert.</string>
+    <string name="bk_motivo_invalido">Denne fil er ikke en Sofaly-sikkerhedskopi, eller den er beskadiget.</string>
+    <string name="bk_motivo_ler">Kunne ikke læses (netværk eller lager).</string>
 </resources>

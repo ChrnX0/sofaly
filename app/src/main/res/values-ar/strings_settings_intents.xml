@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=خط أكبر|نص أكبر|كبر الخط|تكبير الخط|تكبير النص;TEXT_SMALLER=خط أصغر|نص أصغر|صغر الخط|تصغير الخط|تصغير النص;GOAL_READ=قراءة أوضح|صعب القراءة|لا أرى جيدا;GOAL_CLEAN=شاشة أبسط|شاشة نظيفة|شاشة بسيطة;GOAL_ENERGY=توفير الطاقة|طاقة أقل|توفير الكهرباء;LOOK_SOFALY=مظهر sofaly|المظهر الافتراضي;LOOK_NIGHT=مظهر الليل|سماء داكنة;LOOK_MOUNTAIN=مظهر الجبال;LOOK_MINIMAL=مظهر بسيط</string>
+    <string name="si_fazer">افعلها الآن: %1$s</string>
+    <string name="si_desfazer">تراجع: %1$s</string>
+    <string name="si_fazer_det">يتغيّر فورًا.</string>
+    <string name="si_maior">نص أكبر</string>
+    <string name="si_menor">نص أصغر</string>
+</resources>

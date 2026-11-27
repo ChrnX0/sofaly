@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hl_titulo">Valmiit ulkoasut</string>
+    <string name="hl_sofaly">Sofaly</string>
+    <string name="hl_night">Yö</string>
+    <string name="hl_mountain">Vuoret</string>
+    <string name="hl_easy">Helppo nähdä</string>
+    <string name="hl_minimal">Minimalistinen</string>
+    <string name="hl_voltar">Kuten ennen</string>
+    <string name="hl_em_uso">%1$s, käytössä</string>
+</resources>

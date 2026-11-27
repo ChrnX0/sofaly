@@ -30,4 +30,6 @@
     <string name="bb_titulo">Aloitusnäytön asettelu</string>
     <string name="bb_cruz">Risti</string>
     <string name="bb_barra">Alapalkki</string>
+    <string name="wo_ultimos">Viimeksi käytetyt ensin</string>
+    <string name="wo_aleatorio">Mikä tahansa järjestys (vaihtuu päivittäin)</string>
 </resources>

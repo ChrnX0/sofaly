@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Auta muita koteja</string>
+    <string name="hoh_question">Autetaanko muita koteja?</string>
+    <string name="hoh_line">Kun korjaan täällä jotain, kerron muille Sofalyille, miten kävi. Kertomatta, kuka olet.</string>
+    <string name="hoh_yes">Kyllä, haluan auttaa</string>
+    <string name="hoh_not_now">Ei nyt</string>
+    <string name="hoh_how">Miten se toimii?</string>
+    <string name="hoh_how_title">Miten se toimii</string>
+    <string name="hoh_how_line">Jos sama asia hajoaa toisessa kodissa, siellä oleva Sofaly tietää jo, mitä tehdä.</string>
+    <string name="hoh_goes">Mitä lähetetään</string>
+    <string-array name="hoh_goes_list">
+        <item>Television malli ja Sofalyn versio</item>
+        <item>Mikä hajosi, luokittain</item>
+        <item>Mikä sen korjasi ja toimiko se</item>
+        <item>Muisti ja verkko, tasoina (hyvä tai heikko)</item>
+    </string-array>
+    <string name="hoh_never">Mitä ei koskaan lähetetä</string>
+    <string-array name="hoh_never_list">
+        <item>Nimesi ja verkkosi nimi</item>
+        <item>Mitä ja milloin katsot</item>
+        <item>Sovelluksesi ja mitä kirjoitat</item>
+        <item>Kuvat, ääni, osoite ja IP</item>
+    </string-array>
+    <string name="hoh_back_here">Mitä muut Sofalyt oppivat, palaa tänne. Muuta milloin tahansa: Asetukset, Mitä Sofy tietää.</string>
+    <string name="hoh_thanks">Kiitos! Sofalysi auttaa nyt muita koteja.</string>
+    <string name="hoh_state_on">Päällä: kerran päivässä tämä televisio kertoo, miten korjaukset onnistuivat</string>
+    <string name="hoh_state_off">Pois: tästä televisiosta ei jaeta mitään</string>
+    <string name="hoh_stop">Lopeta auttaminen</string>
+    <string name="hoh_stop_det">Tämä televisio lopettaa jakamisen. Mitä muut kodit ovat oppineet, tulee edelleen tänne.</string>
+    <string name="hoh_start">Aloita auttaminen</string>
+    <string name="hoh_start_det">Katso, mitä lähetetään ja mitä ei koskaan, ja valitse sitten</string>
+    <string name="hoh_today">Katso, mitä tänään lähtee</string>
+    <string name="hoh_today_det">Paketti, jonka tämä televisio lähettäisi, kenttä kentältä</string>
+    <string name="hoh_today_sub">Juuri tämä saapuu palvelimelle. Kodin koodi vaihtuu joka päivä.</string>
+    <string name="hoh_forget">Unohda lähetetyt</string>
+    <string name="hoh_forget_det">Tämän television koodi vaihtuu. Lähetettyä ei voi enää yhdistää siihen, ja se poistetaan 30 päivässä.</string>
+    <string name="hoh_forgot">Valmis. Uusi koodi tästä lähtien; lähetetyt poistetaan 30 päivässä.</string>
+    <string name="hoh_row_det">Mitä se jakaa muiden kotien kanssa ja miten sen saa pois päältä</string>
+</resources>

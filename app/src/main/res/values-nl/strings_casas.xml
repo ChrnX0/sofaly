@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Andere huizen</string>
+    <string name="casas_texto">Koppel deze tv aan de tv van familie om samen te kijken, ook van ver. Alleen afspelen, pauze en reacties gaan over, versleuteld. Niemand heeft een account nodig.</string>
+    <string name="casas_mostrar">Code tonen</string>
+    <string name="casas_mostrar_det">Het andere huis typt hem op hun tv</string>
+    <string name="casas_digitar">Code typen</string>
+    <string name="casas_digitar_det">De code die de andere tv toont</string>
+    <string name="casas_conectadas">Gekoppelde huizen</string>
+    <string name="casas_remover_det">Samen kijken · Verwijderen</string>
+    <string name="casas_remover_titulo">%1$s verwijderen?</string>
+    <string name="casas_remover">Verwijderen</string>
+    <string name="casas_pedindo">Code ophalen…</string>
+    <string name="casas_codigo_det">Lees deze code voor aan het andere huis. Op hun tv: Instellingen, Familie, Andere huizen, Code typen. Hij werkt 10 minuten en één keer.</string>
+    <string name="casas_esperando">Wachten tot de andere tv bevestigt…</string>
+    <string name="casas_conectando">Koppelen…</string>
+    <string name="casas_conectar">Koppelen</string>
+    <string name="casas_chegou">%1$s heeft de code getypt</string>
+    <string name="casas_confirmou">%1$s heeft bevestigd. Controleer de cijfers hier ook</string>
+    <string name="casas_pelo_celular">%1$s is gekoppeld voor Samen kijken (toegevoegd door %2$s)</string>
+    <string name="casas_conferir_titulo">Koppelen met %1$s?</string>
+    <string name="casas_conferir_texto">Controleer telefonisch of de andere tv dezelfde cijfers toont:\n\n%1$s\n\nZijn ze anders, annuleer dan.</string>
+    <string name="casas_pronto">Gekoppeld met %1$s. Beide tv\'s tonen deze cijfers. Om samen te kijken, open een titel en kies Samen kijken.</string>
+    <string name="casas_falhou">Het lukte niet. Controleer het internet en probeer een nieuwe code.</string>
+    <string name="casas_sem_rede">De Sofaly-dienst reageert niet. Controleer het internet.</string>
+    <string name="casas_codigo_errado">Die code werkte niet. Hij heeft 8 letters en cijfers en is 10 minuten geldig.</string>
+    <string name="casas_menu">Andere huizen</string>
+    <string name="casas_menu_det">Samen kijken met de tv van familie ver weg</string>
+</resources>

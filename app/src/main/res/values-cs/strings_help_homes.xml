@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Pomáhat jiným domácnostem</string>
+    <string name="hoh_question">Pomůžeme jiným domácnostem?</string>
+    <string name="hoh_line">Když tu něco opravím, řeknu ostatním Sofaly, jak to dopadlo. Aniž bych prozradil, kdo jste.</string>
+    <string name="hoh_yes">Ano, chci pomáhat</string>
+    <string name="hoh_not_now">Teď ne</string>
+    <string name="hoh_how">Jak to funguje?</string>
+    <string name="hoh_how_title">Jak to funguje</string>
+    <string name="hoh_how_line">Když se stejná věc pokazí v jiné domácnosti, tamní Sofaly už ví, co dělat.</string>
+    <string name="hoh_goes">Co se posílá</string>
+    <string-array name="hoh_goes_list">
+        <item>Model televize a verze Sofaly</item>
+        <item>Co se pokazilo, podle kategorií</item>
+        <item>Co to opravilo a jestli to fungovalo</item>
+        <item>Paměť a síť, ve stupních (dobrá nebo slabá)</item>
+    </string-array>
+    <string name="hoh_never">Co se nikdy neposílá</string>
+    <string-array name="hoh_never_list">
+        <item>Vaše jméno a název vaší sítě</item>
+        <item>Co a kdy sledujete</item>
+        <item>Vaše aplikace a co píšete</item>
+        <item>Fotky, hlas, adresa a IP</item>
+    </string-array>
+    <string name="hoh_back_here">Co se naučí ostatní Sofaly, se vrací sem. Změnit to můžete kdykoli v Nastavení, Co Sofy ví.</string>
+    <string name="hoh_thanks">Děkujeme! Vaše Sofaly teď pomáhá jiným domácnostem.</string>
+    <string name="hoh_state_on">Zapnuto: jednou denně tato televize řekne, jak dopadly opravy</string>
+    <string name="hoh_state_off">Vypnuto: z této televize se nic nesdílí</string>
+    <string name="hoh_stop">Přestat pomáhat</string>
+    <string name="hoh_stop_det">Tato televize přestane sdílet. Co se naučily jiné domácnosti, sem dál přichází.</string>
+    <string name="hoh_start">Začít pomáhat</string>
+    <string name="hoh_start_det">Podívejte se, co se posílá a co nikdy, a pak se rozhodněte</string>
+    <string name="hoh_today">Co se dnes pošle</string>
+    <string name="hoh_today_det">Balíček, který by tato televize poslala, pole po poli</string>
+    <string name="hoh_today_sub">Přesně tohle dorazí na server. Kód domácnosti se mění každý den.</string>
+    <string name="hoh_forget">Zapomenout odeslané</string>
+    <string name="hoh_forget_det">Kód této televize se změní. Odeslané už s ní nepůjde spojit a do 30 dnů se smaže.</string>
+    <string name="hoh_forgot">Hotovo. Od teď nový kód; odeslané se do 30 dnů smaže.</string>
+    <string name="hoh_row_det">Co sdílí s jinými domácnostmi a jak to vypnout</string>
+</resources>

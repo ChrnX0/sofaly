@@ -30,4 +30,6 @@
     <string name="bb_titulo">Układ ekranu głównego</string>
     <string name="bb_cruz">Krzyż</string>
     <string name="bb_barra">Pasek na dole</string>
+    <string name="wo_ultimos">Ostatnio używane najpierw</string>
+    <string name="wo_aleatorio">Losowo (zmienia się codziennie)</string>
 </resources>

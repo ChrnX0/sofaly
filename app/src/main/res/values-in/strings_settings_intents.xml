@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=huruf lebih besar|perbesar huruf|teks lebih besar|perbesar teks|font lebih besar;TEXT_SMALLER=huruf lebih kecil|perkecil huruf|teks lebih kecil|perkecil teks|font lebih kecil;GOAL_READ=baca lebih jelas|susah membaca|tidak terlihat jelas;GOAL_CLEAN=layar bersih|layar sederhana;GOAL_ENERGY=hemat energi|hemat listrik|kurangi listrik;LOOK_SOFALY=tampilan sofaly|tampilan biasa;LOOK_NIGHT=tampilan malam|langit gelap;LOOK_MOUNTAIN=tampilan gunung;LOOK_MINIMAL=tampilan minimalis</string>
+    <string name="si_fazer">Lakukan sekarang: %1$s</string>
+    <string name="si_desfazer">Batalkan: %1$s</string>
+    <string name="si_fazer_det">Langsung berubah.</string>
+    <string name="si_maior">Huruf lebih besar</string>
+    <string name="si_menor">Huruf lebih kecil</string>
+</resources>

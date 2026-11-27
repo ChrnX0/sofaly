@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Άλλα σπίτια</string>
+    <string name="casas_texto">Συνδέστε αυτή την τηλεόραση με την τηλεόραση ενός συγγενή για να βλέπετε μαζί από μακριά. Στέλνονται μόνο αναπαραγωγή, παύση και αντιδράσεις, κρυπτογραφημένα. Κανείς δεν χρειάζεται λογαριασμό.</string>
+    <string name="casas_mostrar">Εμφάνιση κωδικού</string>
+    <string name="casas_mostrar_det">Το άλλο σπίτι τον πληκτρολογεί στη δική του τηλεόραση</string>
+    <string name="casas_digitar">Πληκτρολόγηση κωδικού</string>
+    <string name="casas_digitar_det">Ο κωδικός που φαίνεται στην άλλη τηλεόραση</string>
+    <string name="casas_conectadas">Συνδεδεμένα σπίτια</string>
+    <string name="casas_remover_det">Παρακολούθηση μαζί · αφαίρεση</string>
+    <string name="casas_remover_titulo">Αφαίρεση %1$s;</string>
+    <string name="casas_remover">Αφαίρεση</string>
+    <string name="casas_pedindo">Ζητείται κωδικός…</string>
+    <string name="casas_codigo_det">Διαβάστε αυτόν τον κωδικό στο άλλο σπίτι. Στη δική τους τηλεόραση: Ρυθμίσεις, Οικογένεια, Άλλα σπίτια, Πληκτρολόγηση κωδικού. Ισχύει 10 λεπτά και μία φορά.</string>
+    <string name="casas_esperando">Αναμονή επιβεβαίωσης από την άλλη τηλεόραση…</string>
+    <string name="casas_conectando">Σύνδεση…</string>
+    <string name="casas_conectar">Σύνδεση</string>
+    <string name="casas_chegou">Το %1$s πληκτρολόγησε τον κωδικό</string>
+    <string name="casas_confirmou">Το %1$s επιβεβαίωσε. Ελέγξτε τους αριθμούς και εδώ</string>
+    <string name="casas_pelo_celular">Το %1$s συνδέθηκε για παρακολούθηση μαζί (το πρόσθεσε: %2$s)</string>
+    <string name="casas_conferir_titulo">Σύνδεση με %1$s;</string>
+    <string name="casas_conferir_texto">Βεβαιωθείτε στο τηλέφωνο ότι η άλλη τηλεόραση δείχνει τους ίδιους αριθμούς:\n\n%1$s\n\nΑν διαφέρουν, ακυρώστε.</string>
+    <string name="casas_pronto">Συνδέθηκε με %1$s. Και οι δύο τηλεοράσεις δείχνουν αυτούς τους αριθμούς. Για να δείτε μαζί, ανοίξτε έναν τίτλο και επιλέξτε Παρακολούθηση μαζί.</string>
+    <string name="casas_falhou">Δεν πέτυχε. Ελέγξτε το ίντερνετ και δοκιμάστε ξανά με νέο κωδικό.</string>
+    <string name="casas_sem_rede">Η υπηρεσία Sofaly δεν απαντά. Ελέγξτε το ίντερνετ.</string>
+    <string name="casas_codigo_errado">Αυτός ο κωδικός δεν λειτούργησε. Έχει 8 γράμματα και αριθμούς και ισχύει 10 λεπτά.</string>
+    <string name="casas_menu">Άλλα σπίτια</string>
+    <string name="casas_menu_det">Παρακολούθηση μαζί με την τηλεόραση ενός συγγενή που μένει μακριά</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">مساعدة بيوت أخرى</string>
+    <string name="hoh_question">هل نساعد بيوتًا أخرى؟</string>
+    <string name="hoh_line">عندما أصلح شيئًا هنا، أخبر أجهزة Sofaly الأخرى كيف جرى الأمر. من دون أن أقول من أنت.</string>
+    <string name="hoh_yes">نعم، أريد المساعدة</string>
+    <string name="hoh_not_now">ليس الآن</string>
+    <string name="hoh_how">كيف يعمل هذا؟</string>
+    <string name="hoh_how_title">كيف يعمل</string>
+    <string name="hoh_how_line">إذا تعطّل الشيء نفسه في بيت آخر، فإن Sofaly هناك يعرف مسبقًا ما يجب فعله.</string>
+    <string name="hoh_goes">ما يُرسل</string>
+    <string-array name="hoh_goes_list">
+        <item>طراز التلفاز وإصدار Sofaly</item>
+        <item>ما تعطّل، حسب الفئات</item>
+        <item>ما أصلحه وهل نجح</item>
+        <item>الذاكرة والشبكة على شكل مستويات (جيدة أو ضعيفة)</item>
+    </string-array>
+    <string name="hoh_never">ما لا يُرسل أبدًا</string>
+    <string-array name="hoh_never_list">
+        <item>اسمك واسم شبكتك</item>
+        <item>ما تشاهده ومتى</item>
+        <item>تطبيقاتك وما تكتبه</item>
+        <item>الصور والصوت والعنوان وعنوان IP</item>
+    </string-array>
+    <string name="hoh_back_here">ما تتعلّمه أجهزة Sofaly الأخرى يعود إلى هنا. يمكنك تغيير ذلك في أي وقت من الإعدادات، ما تعرفه Sofy.</string>
+    <string name="hoh_thanks">شكرًا! Sofaly لديك يساعد الآن بيوتًا أخرى.</string>
+    <string name="hoh_state_on">مفعّل: مرة يوميًا يشارك هذا التلفاز نتائج إصلاحاته</string>
+    <string name="hoh_state_off">متوقف: لا يُشارك شيء من هذا التلفاز</string>
+    <string name="hoh_stop">التوقف عن المساعدة</string>
+    <string name="hoh_stop_det">يتوقف هذا التلفاز عن المشاركة. ويظل يتلقّى ما تعلّمته البيوت الأخرى.</string>
+    <string name="hoh_start">بدء المساعدة</string>
+    <string name="hoh_start_det">اطّلع على ما يُرسل وما لا يُرسل أبدًا، ثم اختر</string>
+    <string name="hoh_today">عرض ما سيُرسل اليوم</string>
+    <string name="hoh_today_det">الحزمة كما سيرسلها هذا التلفاز بالضبط، حقلًا حقلًا</string>
+    <string name="hoh_today_sub">هذا بالضبط ما يذهب إلى الخادم. رمز البيت يتغيّر كل يوم.</string>
+    <string name="hoh_forget">نسيان ما أرسلته</string>
+    <string name="hoh_forget_det">يغيّر رمز هذا التلفاز. لا يعود من الممكن ربط ما أُرسل به، ويُحذف خلال 30 يومًا.</string>
+    <string name="hoh_forgot">تم. رمز جديد من الآن؛ ما أُرسل يُحذف خلال 30 يومًا.</string>
+    <string name="hoh_row_det">ما تشاركه مع البيوت الأخرى وكيفية إيقافه</string>
+</resources>

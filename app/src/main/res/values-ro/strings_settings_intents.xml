@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=litere mai mari|litera mai mare|text mai mare|font mai mare|mareste literele;TEXT_SMALLER=litere mai mici|litera mai mica|text mai mic|font mai mic|micsoreaza literele;GOAL_READ=citeste mai bine|greu de citit|nu vad bine;GOAL_CLEAN=ecran curat|ecran simplu;GOAL_ENERGY=economiseste energie|economie de energie|mai putin curent;LOOK_SOFALY=aspect sofaly|aspect normal;LOOK_NIGHT=aspect de noapte|cer intunecat;LOOK_MOUNTAIN=aspect de munte;LOOK_MINIMAL=aspect minimalist</string>
+    <string name="si_fazer">Fă acum: %1$s</string>
+    <string name="si_desfazer">Anulează: %1$s</string>
+    <string name="si_fazer_det">Se schimbă imediat.</string>
+    <string name="si_maior">Litere mai mari</string>
+    <string name="si_menor">Litere mai mici</string>
+</resources>

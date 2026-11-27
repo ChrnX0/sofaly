@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Andra hem</string>
+    <string name="casas_texto">Koppla ihop den här tv:n med en släktings tv och titta tillsammans på avstånd. Bara spela, paus och reaktioner skickas, krypterat. Ingen behöver något konto.</string>
+    <string name="casas_mostrar">Visa kod</string>
+    <string name="casas_mostrar_det">Det andra hemmet skriver in den på sin tv</string>
+    <string name="casas_digitar">Skriv kod</string>
+    <string name="casas_digitar_det">Koden som visas på den andra tv:n</string>
+    <string name="casas_conectadas">Anslutna hem</string>
+    <string name="casas_remover_det">Titta tillsammans · ta bort</string>
+    <string name="casas_remover_titulo">Ta bort %1$s?</string>
+    <string name="casas_remover">Ta bort</string>
+    <string name="casas_pedindo">Hämtar kod…</string>
+    <string name="casas_codigo_det">Läs upp koden för det andra hemmet. På deras tv: Inställningar, Familj, Andra hem, Skriv kod. Den gäller i 10 minuter och en gång.</string>
+    <string name="casas_esperando">Väntar på att den andra tv:n bekräftar…</string>
+    <string name="casas_conectando">Ansluter…</string>
+    <string name="casas_conectar">Anslut</string>
+    <string name="casas_chegou">%1$s skrev in koden</string>
+    <string name="casas_confirmou">%1$s har bekräftat. Jämför siffrorna här också</string>
+    <string name="casas_pelo_celular">%1$s är ansluten för att titta tillsammans (tillagd av %2$s)</string>
+    <string name="casas_conferir_titulo">Ansluta till %1$s?</string>
+    <string name="casas_conferir_texto">Bekräfta i telefon att den andra tv:n visar samma siffror:\n\n%1$s\n\nOm de skiljer sig, avbryt.</string>
+    <string name="casas_pronto">Ansluten till %1$s. Båda tv-apparaterna visar dessa siffror. För att titta tillsammans, öppna en titel och välj Titta tillsammans.</string>
+    <string name="casas_falhou">Det gick inte. Kontrollera internet och försök igen med en ny kod.</string>
+    <string name="casas_sem_rede">Sofaly-tjänsten svarar inte. Kontrollera internet.</string>
+    <string name="casas_codigo_errado">Koden fungerade inte. Den har 8 bokstäver och siffror och gäller i 10 minuter.</string>
+    <string name="casas_menu">Andra hem</string>
+    <string name="casas_menu_det">Titta tillsammans med tv:n hos en släkting som bor långt bort</string>
+</resources>

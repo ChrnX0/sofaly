@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Lần cuối</string>
     <string name="bkn_nunca">chưa bao giờ</string>
     <string name="bkn_pin">PIN để thay đổi sao lưu</string>
+    <string name="bk_motivo_senha">Mật khẩu không đúng.</string>
+    <string name="bk_motivo_invalido">Tệp này không phải bản sao lưu Sofaly hoặc đã bị hỏng.</string>
+    <string name="bk_motivo_ler">Không đọc được (mạng hoặc bộ nhớ).</string>
 </resources>

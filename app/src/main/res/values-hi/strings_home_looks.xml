@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hl_titulo">तैयार लुक</string>
+    <string name="hl_sofaly">Sofaly</string>
+    <string name="hl_night">रात</string>
+    <string name="hl_mountain">पहाड़</string>
+    <string name="hl_easy">देखने में आसान</string>
+    <string name="hl_minimal">सादा</string>
+    <string name="hl_voltar">पहले जैसा</string>
+    <string name="hl_em_uso">%1$s, इस्तेमाल में</string>
+</resources>

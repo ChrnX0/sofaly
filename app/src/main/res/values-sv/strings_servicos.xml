@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl-betyg</string>
     <string name="sv_simkl_convite_det">Anslut ditt konto</string>
+    <string name="legenda_muitas">För många undertextsökningar just nu. Försök igen om en minut.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles nekade kontot. Kontrollera det i Inställningar.</string>
+    <string name="legenda_fora">Undertexttjänsten är nere. Försök igen senare.</string>
 </resources>

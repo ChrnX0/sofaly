@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Nhà khác</string>
+    <string name="casas_texto">Kết nối TV này với TV của người thân để xem cùng nhau dù ở xa. Chỉ phát, tạm dừng và cảm xúc được gửi đi, có mã hóa. Không ai cần tài khoản.</string>
+    <string name="casas_mostrar">Hiện mã</string>
+    <string name="casas_mostrar_det">Nhà kia nhập mã trên TV của họ</string>
+    <string name="casas_digitar">Nhập mã</string>
+    <string name="casas_digitar_det">Mã hiện trên TV kia</string>
+    <string name="casas_conectadas">Nhà đã kết nối</string>
+    <string name="casas_remover_det">Xem cùng nhau · xóa</string>
+    <string name="casas_remover_titulo">Xóa %1$s?</string>
+    <string name="casas_remover">Xóa</string>
+    <string name="casas_pedindo">Đang lấy mã…</string>
+    <string name="casas_codigo_det">Đọc mã này cho nhà kia. Trên TV của họ: Cài đặt, Gia đình, Nhà khác, Nhập mã. Mã có hiệu lực 10 phút và một lần.</string>
+    <string name="casas_esperando">Đang chờ TV kia xác nhận…</string>
+    <string name="casas_conectando">Đang kết nối…</string>
+    <string name="casas_conectar">Kết nối</string>
+    <string name="casas_chegou">%1$s đã nhập mã</string>
+    <string name="casas_confirmou">%1$s đã xác nhận. Hãy so các số ở đây nữa</string>
+    <string name="casas_pelo_celular">%1$s đã kết nối để xem cùng nhau (do %2$s thêm)</string>
+    <string name="casas_conferir_titulo">Kết nối với %1$s?</string>
+    <string name="casas_conferir_texto">Gọi điện để chắc rằng TV kia hiện cùng các số:\n\n%1$s\n\nNếu khác nhau, hãy hủy.</string>
+    <string name="casas_pronto">Đã kết nối với %1$s. Cả hai TV đều hiện các số này. Để xem cùng nhau, hãy mở một nội dung và chọn Xem cùng nhau.</string>
+    <string name="casas_falhou">Không được. Kiểm tra internet và thử lại với mã mới.</string>
+    <string name="casas_sem_rede">Dịch vụ Sofaly không phản hồi. Kiểm tra internet.</string>
+    <string name="casas_codigo_errado">Mã này không dùng được. Mã có 8 chữ và số, hiệu lực 10 phút.</string>
+    <string name="casas_menu">Nhà khác</string>
+    <string name="casas_menu_det">Xem cùng nhau với TV của người thân ở xa</string>
+</resources>

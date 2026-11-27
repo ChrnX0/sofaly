@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Інші домівки</string>
+    <string name="casas_texto">З\'єднайте цей телевізор із телевізором родича, щоб дивитися разом навіть здалеку. Передаються лише відтворення, пауза й реакції, у зашифрованому вигляді. Обліковий запис нікому не потрібен.</string>
+    <string name="casas_mostrar">Показати код</string>
+    <string name="casas_mostrar_det">Інша домівка вводить його на своєму телевізорі</string>
+    <string name="casas_digitar">Ввести код</string>
+    <string name="casas_digitar_det">Код, показаний на іншому телевізорі</string>
+    <string name="casas_conectadas">Під\'єднані домівки</string>
+    <string name="casas_remover_det">Дивитися разом · видалити</string>
+    <string name="casas_remover_titulo">Видалити %1$s?</string>
+    <string name="casas_remover">Видалити</string>
+    <string name="casas_pedindo">Запитуємо код…</string>
+    <string name="casas_codigo_det">Прочитайте цей код іншій домівці. На їхньому телевізорі: Налаштування, Сім\'я, Інші домівки, Ввести код. Він дійсний 10 хвилин і один раз.</string>
+    <string name="casas_esperando">Чекаємо підтвердження від іншого телевізора…</string>
+    <string name="casas_conectando">З\'єднуємо…</string>
+    <string name="casas_conectar">З\'єднати</string>
+    <string name="casas_chegou">%1$s ввів код</string>
+    <string name="casas_confirmou">%1$s підтвердив. Звірте цифри й тут</string>
+    <string name="casas_pelo_celular">%1$s під\'єднано для спільного перегляду (додав %2$s)</string>
+    <string name="casas_conferir_titulo">З\'єднатися з %1$s?</string>
+    <string name="casas_conferir_texto">Переконайтеся телефоном, що інший телевізор показує ті самі цифри:\n\n%1$s\n\nЯкщо вони відрізняються, скасуйте.</string>
+    <string name="casas_pronto">З\'єднано з %1$s. Обидва телевізори показують ці цифри. Щоб дивитися разом, відкрийте назву й виберіть «Дивитися разом».</string>
+    <string name="casas_falhou">Не вдалося. Перевірте інтернет і спробуйте ще раз з новим кодом.</string>
+    <string name="casas_sem_rede">Служба Sofaly не відповідає. Перевірте інтернет.</string>
+    <string name="casas_codigo_errado">Цей код не спрацював. Він має 8 літер і цифр і дійсний 10 хвилин.</string>
+    <string name="casas_menu">Інші домівки</string>
+    <string name="casas_menu_det">Дивіться разом із телевізором родича, який живе далеко</string>
+</resources>
