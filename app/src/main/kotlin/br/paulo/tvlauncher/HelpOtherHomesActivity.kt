@@ -12,8 +12,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import br.paulo.tvlauncher.family.PinTv
-import br.paulo.tvlauncher.home.SofalySymbol
 import br.paulo.tvlauncher.observer.SofyCommunityTv
+import br.paulo.tvlauncher.observer.SofyDrawable
+import br.paulo.tvlauncher.observer.SofyMotion
+import br.paulo.tvlauncher.observer.SofyPolicy
 import br.paulo.tvlauncher.observer.SofyFleetTv
 import br.paulo.tvlauncher.panel.PainelArmazem
 
@@ -27,8 +29,13 @@ import br.paulo.tvlauncher.panel.PainelArmazem
  * Skype e Duolingo ABC (o mascote falando).
  *
  * Regras de consentimento: "Sim" e "Agora não" do mesmo tamanho, o foco começa em "Agora não" (ninguém aceita sem
- * querer) e o mesmo lugar desliga ([MODE_SETTINGS], em "O que a Sofy sabe"). O sofáTV dá um pulinho só ao abrir e fica
- * parado; com as animações desligadas no Android ele nem pula (regra do mascote: nada em laço, reduzir = parado).
+ * querer) e o mesmo lugar desliga ([MODE_SETTINGS], em "O que a Sofy sabe").
+ *
+ * O sofáTV é a Sofy ([SofyDrawable], 27/11/2026): ao abrir, um pulinho atento; no "Sim", alegria; no "Agora não", um
+ * tchauzinho simpático (nunca triste nem cobrando, para não pesar na escolha). Cada gesto toca uma vez (até 1,5 s) e a tela
+ * fecha no fim dele. Referências do Mobbin: Duolingo (mascote calmo ao lado do pedido de contatos), Tolan (o "oi" com a
+ * mão); o contrário do Fetch (mãozinha apontando para "Permitir"). Animações desligadas, alto contraste ou movimento
+ * PARADO: ela fica na pose final e a tela fecha na hora.
  */
 class HelpOtherHomesActivity : Activity() {
     companion object {
@@ -81,20 +88,18 @@ class HelpOtherHomesActivity : Activity() {
         setPaddingRelative(dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL + 9), dp(Estilo.MARGEM_LATERAL), dp(Estilo.MARGEM_VERTICAL))
     }
 
-    /** O sofáTV (o mesmo desenho do logo). [pular]: um pulinho de 0,6 s ao abrir, só se o Android anima. */
+    /** A Sofy da pergunta: guardada para reagir ao "Sim" e ao "Agora não". */
+    private var sofy: SofyDrawable? = null
+    private var saindo = false
+
+    /** O sofáTV com rosto (a Sofy). [pular]: o pulinho atento ao abrir; sem ele, já na pose parada. */
     private fun mascote(larguraDp: Int, pular: Boolean) = ImageView(this).apply {
-        setImageDrawable(SofalySymbol())
+        val d = SofyDrawable(this@HelpOtherHomesActivity, SofyPolicy.Expression.ATTENTIVE)
+        sofy = d
+        setImageDrawable(d)
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
-        layoutParams = LinearLayout.LayoutParams(dp(larguraDp), dp(larguraDp * 90 / 96)).apply { gravity = Gravity.CENTER_HORIZONTAL }
-        val anima = android.provider.Settings.Global.getFloat(contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
-        if (pular && anima) post {
-            pivotY = height.toFloat()
-            animate().translationY(-height * 0.08f).scaleY(1.02f).setStartDelay(400).setDuration(180).withEndAction {
-                animate().translationY(0f).scaleY(0.98f).setStartDelay(0).setDuration(160).withEndAction {
-                    animate().scaleY(1f).setDuration(120).start()
-                }.start()
-            }.start()
-        }
+        layoutParams = LinearLayout.LayoutParams(dp(larguraDp), dp(larguraDp * 132 / 164)).apply { gravity = Gravity.CENTER_HORIZONTAL }
+        if (pular) postDelayed({ d.start() }, 400)
     }
 
     private fun titulo(t: String) = Estilo.texto(this, Estilo.Papel.TITULO, t).apply { gravity = Gravity.CENTER }
@@ -114,10 +119,20 @@ class HelpOtherHomesActivity : Activity() {
     private fun agoraNao() = botao(R.string.hoh_not_now) { escolher(false) }
 
     private fun escolher(on: Boolean) {
+        if (saindo) return
+        saindo = true
         SofyCommunityTv.setSharing(this, on, fleet = on)   // #541: só esta tela, com a lista do que vai, dá o consentimento da frota
         PainelArmazem.registrar(this, "tv", getString(R.string.hoh_title_short), if (on) "ligado" else "desligado")
-        if (on) AvisoTv.rapido(applicationContext, getString(R.string.hoh_title_short), getString(R.string.hoh_thanks))
-        finish()
+        val fim = {
+            if (on) AvisoTv.rapido(applicationContext, getString(R.string.hoh_title_short), getString(R.string.hoh_thanks))
+            finish()
+        }
+        // A Sofy reage e a tela fecha no fim do gesto; sem movimento (ou fora da pergunta), fecha na hora.
+        val d = sofy?.takeIf { tela == View0.ASK } ?: return fim()
+        d.expression = if (on) SofyPolicy.Expression.HAPPY else SofyPolicy.Expression.WAVE
+        d.start()
+        if (!d.isRunning) return fim()
+        window.decorView.postDelayed({ if (!isFinishing) fim() }, SofyMotion.clip(d.expression).lengthMs + 150)
     }
 
     // ------------------------------------------------------------------ tela 1: a pergunta
