@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Fra, indtil den, der bor der, siger ja på tv\'et.</string>
     <string name="uso_cartoes">Store kort på startskærmen</string>
     <string name="uso_cartoes_det">Nogle få store apps, navne læst højt og en knap \"Få hjælp\". At slå det fra kræver PIN-koden.</string>
-    <string name="uso_trocar_det">Nu: %1$s. OK for at vælge igen.</string>
+    <string name="uso_trocar_det">Nu: %1$s.</string>
 </resources>

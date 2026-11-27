@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Da modificare con cautela, secondo la scheda</string>
     <string name="aa_risk_essential">Essenziale per la TV: non congelarla</string>
     <string name="aa_tip_idle">Non aperta da %1$d giorni. Congelarla libera memoria e si può annullare.</string>
-    <string name="aa_hint_app">OK apre · tieni premuto OK per spostare, nascondere, congelare o disinstallare</string>
-    <string name="aa_hint_frozen">OK la scongela e la apre</string>
-    <string name="aa_hint_lock">OK chiede il PIN e mostra qui le app nascoste</string>
     <string name="aa_open">Apri</string>
     <string name="aa_freeze">Congela</string>
     <string name="aa_freezing">Congelamento di %1$s…</string>

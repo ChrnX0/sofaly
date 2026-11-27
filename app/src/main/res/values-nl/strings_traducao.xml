@@ -104,7 +104,6 @@
     <string name="lb_lembrete">Herinnering</string>
     <string name="lb_quando_em">%1$s, op %2$s.</string>
     <string name="ms_ola">Hallo!</string>
-    <string name="ms_ola_det">Kies met de pijlen en druk op OK.</string>
     <string name="ms_pedir_ajuda">Hulp vragen</string>
     <string name="ms_pedido_ajuda">Hulpvraag</string>
     <string name="ms_alguem_pediu">Iemand vroeg om hulp op de tv %1$s.</string>
@@ -172,7 +171,6 @@
     <string name="bc_categorias">CATEGORIEËN</string>
     <string name="bc_canais">ZENDERS</string>
     <string name="bc_carregando">zenders laden…</string>
-    <string name="bc_dica">OK blokkeert of deblokkeert · OK op een categorie geldt voor de hele categorie · ◀ ▶ categorieën en zenders · TERUG verlaat (al opgeslagen)</string>
     <string name="bc_categoria_bloqueada">de hele categorie \"%1$s\" is geblokkeerd: deblokkeer hem in de linkerkolom</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serie · %1$s</string>

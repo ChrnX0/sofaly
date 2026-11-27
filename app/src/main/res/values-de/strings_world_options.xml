@@ -30,5 +30,4 @@
     <string name="bb_titulo">Startbildschirm-Layout</string>
     <string name="bb_cruz">Kreuz</string>
     <string name="bb_barra">Leiste unten</string>
-    <string name="bb_det">Kategorien als Kreuz oder fest unten, mit den Apps darüber (▲)</string>
 </resources>

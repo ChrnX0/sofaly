@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Για ποιον είναι αυτή η τηλεόραση;</string>
-    <string name="rec_subtitulo">Ένα OK ρυθμίζει την τηλεόραση. Μπορείτε να το αναιρέσετε οποτεδήποτε.</string>
+    <string name="rec_subtitulo">Μπορείτε να το αναιρέσετε οποτεδήποτε.</string>
     <string name="rec_vo">Η τηλεόραση της γιαγιάς</string>
     <string name="rec_vo_det">Μεγάλες κάρτες με ονόματα που διαβάζονται φωναχτά, μεγαλύτερο κείμενο και κουμπί Βοήθεια.</string>
     <string name="rec_criancas">Η τηλεόραση των παιδιών</string>

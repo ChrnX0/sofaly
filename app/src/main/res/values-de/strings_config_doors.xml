@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Bildschirmschoner, Schlaf, Wecker</string>
     <string name="cfg3_porta_4_det">Zuhause, Handy und Panel</string>
     <string name="cfg3_porta_5_det">Updates, Backup und Hilfe</string>
+    <string name="cfg4_fila_portas">Einstellungen</string>
 </resources>

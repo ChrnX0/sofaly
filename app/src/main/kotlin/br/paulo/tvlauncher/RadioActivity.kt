@@ -56,9 +56,7 @@ class RadioActivity : Activity() {
             ctx.getSharedPreferences(PREFS, MODE_PRIVATE).getBoolean(CHAVE_CONTINUAR, true)
 
         /** Cores das rádios sem logo (as iniciais ficam sobre uma delas, sempre a mesma para a mesma rádio). */
-        private val CORES = intArrayOf(0xFF45C2B1.toInt(), 0xFF7FB2FF.toInt(), 0xFFF2B84B.toInt(), 0xFF8E92FA.toInt(),
-            0xFF9CD27E.toInt(), 0xFFF59E5B.toInt(), 0xFF6FC3B2.toInt(), 0xFFE6C46A.toInt())
-        fun corDe(chave: String): Int = CORES[(chave.hashCode() and 0x7FFFFFFF) % CORES.size]
+        fun corDe(chave: String): Int = Estilo.corCapa(chave)   // só a paleta (27/11/2026)
     }
 
     private val ui = Handler(Looper.getMainLooper())
@@ -333,7 +331,7 @@ class RadioActivity : Activity() {
                 else lista.map { itemRadio("res:", it) })
         }
         l += CruzOuvir.Prateleira("fav", getString(R.string.ra_favoritas), IconeOuvir.Tipo.FAVORITAS,
-            if (favoritas.isEmpty()) listOf(aviso("fav:vazio", getString(R.string.ouv_sem_favoritas), getString(R.string.ouv_sem_favoritas_det), IconeOuvir.Tipo.FAVORITAS))
+            if (favoritas.isEmpty()) listOf(aviso("fav:vazio", getString(R.string.ouv_sem_favoritas), "", IconeOuvir.Tipo.FAVORITAS))
             else favoritas.mapIndexed { i, x -> itemRadio("fav:", x, numero = if (i < 9) i + 1 else null) })
         l += CruzOuvir.Prateleira("rec", getString(R.string.ouv_recentes), IconeOuvir.Tipo.RECENTES,
             if (recentes.isEmpty()) listOf(aviso("rec:vazio", getString(R.string.ouv_sem_recentes), getString(R.string.ouv_sem_recentes_det), IconeOuvir.Tipo.RECENTES))
@@ -465,7 +463,7 @@ class RadioActivity : Activity() {
             maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END
         }
         val sub = TextView(this).apply { setTextColor(Estilo.TEXTO_2); textSize = 20f; gravity = Gravity.CENTER; maxLines = 1 }
-        val dica = TextView(this).apply { setTextColor(0x99FFFFFF.toInt()); textSize = 18f; gravity = Gravity.CENTER; text = getString(R.string.ra_globo_dica); visibility = View.GONE }   // Paulo, 26/11/2026: dicas de teclas saem
+        val dica = TextView(this).apply { setTextColor(0x99FFFFFF.toInt()); textSize = 18f; gravity = Gravity.CENTER; visibility = View.GONE }   // Paulo, 26/11/2026: dicas de teclas saem
         val v = GloboRadiosView(this, l, GloboLogica.centroDoPais(l, pais), aoTocar = { r -> tocar(r) }, aoFechar = { fecharGlobo() })
         v.aoMirar = { r ->
             nome.text = r?.nome ?: getString(R.string.ra_globo_mar)

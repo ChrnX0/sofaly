@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Orada yaşayan kişi TV\'de kabul edene kadar kapalı.</string>
     <string name="uso_cartoes">Ana ekranda büyük kartlar</string>
     <string name="uso_cartoes_det">Birkaç büyük uygulama, adı sesli okunur ve \"Yardım iste\" düğmesi. Kapatmak PIN ister.</string>
-    <string name="uso_trocar_det">Şu an: %1$s. Yeniden seçmek için OK.</string>
+    <string name="uso_trocar_det">Şu an: %1$s.</string>
 </resources>

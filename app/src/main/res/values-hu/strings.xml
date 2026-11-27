@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Rutinok</string>
     <string name="cfg_sec_atualizacao">Frissítések</string>
     <string name="cfg_atualizar">Új verzió keresése</string>
-    <string name="cfg_atualizar_det">Verzió: %1$s · %2$s · az OK most ellenőriz</string>
+    <string name="cfg_atualizar_det">Verzió: %1$s · %2$s</string>
     <string name="cfg_procurando">a GitHub ellenőrzése…</string>
     <string name="cfg_instalar">A(z) %1$d verzió telepítése most</string>
-    <string name="cfg_instalar_det">A launcher bezárul, és néhány másodperc múlva magától visszajön · az OK telepít</string>
+    <string name="cfg_instalar_det">A launcher bezárul, és néhány másodperc múlva magától visszajön</string>
     <string name="cfg_instalando">letöltés és ellenőrzés…</string>
     <string name="cfg_sec_rede">Hálózat</string>
     <string name="cfg_dns">Privát DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Mi van bekapcsolva — %1$s</string>
     <string name="cfg_ligado">be</string>
     <string name="cfg_so_pc">" · csak számítógéppel (adb)"</string>
-    <string name="cfg_tenta_ligar">" · az OK megpróbálja bekapcsolni"</string>
     <string name="cfg_perm_fixas">Megadott fix engedélyek</string>
     <string name="cfg_shell_estado">Saját shell</string>
     <string name="cfg_shell_pareado">párosítva: a launcher magától újracsatlakozik a Vezeték nélküli hibakeresésen át</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Gombszolgáltatás</string>
     <string name="rec_teclas_sem">nélküle: a HOME megnyithatja a Google launcherét, és a Netflix/YouTube gombok nincsenek átállítva</string>
     <string name="rec_tudo">minden be van kapcsolva</string>
-    <string name="rec_faltam">%2$d funkcióból %1$d hiányzik · az OK egy elemen megpróbálja bekapcsolni</string>
+    <string name="rec_faltam">%2$d funkcióból %1$d hiányzik</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Üdvözöljük</string>
     <string name="bv_texto">A kezdőképernyő, az óra, az időjárás, az ébresztő és a képernyővédő már működik. A többit itt kapcsolhatja be, ha szeretné (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · ki"</string>
     <string name="rot_nova">Új rutin</string>
     <string name="rot_editar">Rutin szerkesztése</string>
-    <string name="rot_editor_det">Az OK minden sort módosít · a VISSZA mentés nélkül kilép</string>
     <string name="rot_hora">Időpont: %1$s</string>
     <string name="rot_dias">Napok: %1$s</string>
     <string name="rot_acao">Művelet: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Csak ha senki nem nyúlt hozzá ennyi ideje: %1$s</string>
     <string name="rot_ligada">Be</string>
     <string name="rot_desligada">Ki</string>
-    <string name="rot_hora_det">◀ ▶ 5 perc · OK +1 óra</string>
-    <string name="rot_dias_det">OK: minden nap, hétfőtől péntekig, hétvégén, egyszer</string>
-    <string name="rot_ok_muda">Az OK módosít</string>
-    <string name="rot_app_det">OK vagy ▶ következő · ◀ előző</string>
     <string name="rot_ocioso_det">Nem zavarja azt, aki éppen néz</string>
-    <string name="rot_ativa_det">Az OK be- vagy kikapcsolja ezt a rutint</string>
     <string name="rot_salvar">Mentés</string>
     <string name="rot_escolha_app">Alkalmazás kiválasztása</string>
     <string name="rot_apagar">A rutin törlése</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Csatlakozás</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">nincs Google-fiók</string>
-    <string name="cal_dica">◀ ▶ hónap váltása</string>
     <string name="cal_30">A következő 30 nap</string>
     <string name="cal_nenhuma_conta">Nincs Google-fiók a TV-n</string>
     <string name="cal_nada">Nincs semmi beütemezve (vagy a naptár még szinkronizál)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">napkelte %1$s</string>
     <string name="fd_por">napnyugta %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: használat   ·   OK nyomva tartása egy saját szerveren: eltávolítás   ·   Vissza: kilépés</string>
     <string name="dns_auto">Automatikus</string>
     <string name="dns_auto_det">A router DNS-ét használja, és titkosít, ha az elfogadja (Android alapértelmezés)</string>
     <string name="dns_desl">Ki</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">%1$d verzió: kész arra, hogy ezt a TV-t átvigye az új alkalmazásra (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">az új alkalmazás (%1$d) telepítése; utána minden beállítással átveszi ezt a TV-t</string>
     <string name="atu_disponivel">a(z) %1$d verzió telepítésre kész (telepítve %2$d)</string>
-    <string name="atu_trocou">a verzió megváltozott a legutóbbi ellenőrzés óta · az OK újra ellenőriz</string>
+    <string name="atu_trocou">a verzió megváltozott a legutóbbi ellenőrzés óta</string>
     <string name="atu_instalando">%1$d telepítése (telepítve %2$d)</string>
     <string name="atu_ok">frissítve</string>
     <string name="atu_falhou">a telepítés sikertelen (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">a(z) %1$d verzió kétszer összeomlott közvetlenül a telepítés után · a \"%2$s\" kikapcsolva marad a következőig</string>
     <string name="vig_tela_bloqueada">Ez a képernyő ki van kapcsolva a következő frissítésig (összeomlasztotta a launchert)</string>
     <string name="cfg_vig_liberar">Csökkentett mód</string>
-    <string name="cfg_vig_liberar_det">" · az OK visszakapcsolja"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">A hangalapú keresés nem nyílt meg ezen a TV-n</string>
     <string name="home_alarme_hoje">ma</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Videó betöltése…</string>
     <string name="player_sem_canais">Még nincs csatornalista hozzáadva.</string>
     <string name="player_tentando">Nincs jel a(z) %1$d csatornán. Újrapróbálás…</string>
-    <string name="player_sem_sinal">A(z) %1$d csatorna nem válaszolt. Válasszon másikat a ▲ ▼ vagy az OK gombbal.</string>
+    <string name="player_sem_sinal">A(z) %1$d csatorna nem válaszolt.</string>
     <string name="player_canal_nao_existe">Nincs %1$d csatorna.</string>
     <string name="player_ao_vivo">ÉLŐ</string>
     <string name="player_a_seguir">következik: %1$s</string>
-    <string name="player_teclas">▲ ▼ csatorna · OK csatornalista · OK 2 mp-ig: kedvenc · ◀ előző csatorna · ▶ ▶ beállítások · VISSZA kilépés</string>
-    <string name="player_teclas_pausa">▶❙❙ vagy OK folytatás · ▶ beállítások (vissza élőbe) · ▲ ▼ csatorna · VISSZA kilépés</string>
     <string name="player_cat_busca">Keresés: %1$s</string>
     <string name="player_acao_buscar">Keresés</string>
     <string name="player_acao_filtros">Szűrők</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s hozzáadva a megnézendőkhöz</string>
     <string name="filmes_interesse_tirou">%1$s eltávolítva a megnézendők közül</string>
     <string name="filmes_interesses_cheio">A megnézendők listáján már 500 cím van: előbb távolítson el egyet.</string>
-    <string name="filmes_interesses_vazio">Tartsa nyomva az OK-t 2 másodpercig egy poszteren, hogy ide kerüljön (és újra, hogy eltávolítsa).</string>
     <string name="filmes_assistido">Megnézve</string>
     <string name="filmes_selo_leg">FELIRAT</string>
     <string name="vod_sem_conta">Ennek a videónak a fiókja már nem létezik.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Hang</string>
     <string name="vod_legenda">Feliratok</string>
     <string name="vod_faixas">Hang és feliratok</string>
-    <string name="vod_teclas">OK szünet · ◀ 10 mp · ▶ 30 mp (nyomva tartva gyorsabb) · ▼ hang, feliratok és kép · ⏮ ⏭ fejezetek · VISSZA kilépés</string>
     <string name="series_titulo">Sorozatok</string>
     <string name="series_carregando">Sorozatok betöltése…</string>
     <string name="series_vazio">Még nincsenek sorozatok</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Műsorújság</string>
     <string name="player_sem_guia_curto">Nincs műsorújság</string>
-    <string name="player_grade_teclas">OK lejátszás · ◀ ▶ műsor · ▲ ▼ csatorna</string>
     <string name="player_busca_dica">Csatorna vagy műsor neve</string>
     <string name="player_busca_nada">Nincs találat erre: „%1$s”.</string>
     <string name="player_filtro_qualquer">Bármelyik</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Gyerekkategóriák</string>
     <string name="infantil_carregando">kategóriák betöltése…</string>
     <string name="infantil_coluna_itens">MI VAN BENNE</string>
-    <string name="infantil_dica">Az OK gyerekkategóriának jelöli vagy visszavonja · érvényes az Élő TV-re, a Filmekre és a Sorozatokra · a VISSZA kilép (már mentve)</string>
     <string name="infantil_so_categoria">a teljes kategória jelölése a bal oszlopban</string>
     <string name="infantil_vazio">nincsenek kategóriák: adjon hozzá fiókot a Beállítások › TV és filmek menüben, és töltse be újra a csatornákat</string>
     <string name="infantil_limite">felnőtt kategória nem lehet gyerekkategória</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Kedvencek</string>
     <string name="player_cat_recentes">Legutóbbiak</string>
     <string name="player_cat_outros">Egyéb</string>
-    <string name="player_sem_favoritos">Még nincsenek kedvencek. Tartsa nyomva az OK-t 2 mp-ig egy csatornán, hogy ide kerüljön.</string>
+    <string name="player_sem_favoritos">Még nincsenek kedvencek.</string>
     <string name="player_categoria_vazia">Ebben a kategóriában nincsenek csatornák.</string>
     <string name="player_sem_guia">Ehhez a csatornához nincs műsorújság.</string>
     <string name="player_depois">KÉSŐBB</string>
-    <string name="player_lista_teclas">OK lejátszás · OK 2 mp-ig: kedvenc vagy eltávolítás · OK nyomva egy kategórián: elrejtés · ◀ kategóriák</string>
     <string name="player_favorito_pos">★ %1$s hozzáadva a kedvencekhez</string>
     <string name="player_favorito_tirou">%1$s eltávolítva a kedvencek közül</string>
     <string name="player_favoritos_cheio">Már 500 kedvenc van: előbb távolítson el egyet.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Ennek a csatornának még nincsenek mentett műsorai.</string>
     <string name="tvv_voltou">Vissza élőbe</string>
     <string name="tvv_selo">VISSZANÉZÉS</string>
-    <string name="tvv_teclas">◀ ▶ 30 mp · OK beállítások · VISSZA élő</string>
     <string name="tvv_pausar">Szünet</string>
     <string name="tvv_continuar">Folytatás</string>
     <string name="tvv_ao_vivo">Vissza élőbe</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Filmek és sorozatok</string>
     <string name="idioma_titulo">Előnyben részesített hang</string>
-    <string name="idioma_det">Eredeti nyelven a TV nyelvén írt felirattal, vagy a TV nyelvére szinkronizálva. Minden film és sorozat megjegyzi a lejátszóban (▼) végzett módosítást</string>
+    <string name="idioma_det">Eredeti nyelven a TV nyelvén írt felirattal, vagy a TV nyelvére szinkronizálva. Minden film és sorozat megjegyzi a lejátszóban végzett módosítást</string>
     <string name="idioma_original">Eredeti felirattal</string>
     <string name="idioma_dublado">Szinkronizált</string>
     <string name="idioma_legendado">Feliratos</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">USB-meghajtó és tárhely</string>
     <string name="st_explica">Válassza ki, hogyan használja a TV az USB-meghajtót. Kevés a hely? TV-tárhely lehet a nagy alkalmazásoknak.</string>
     <string name="st_linha_det">USB-meghajtó használata TV-tárhelyként</string>
-    <string name="st_sem_shell">A TV saját shellje szükséges (Beállítások › Rendszer › Haladó). Az OK újrapróbálja.</string>
-    <string name="st_sem_pen">Nincs USB-meghajtó csatlakoztatva. Dugjon be egyet, és nyomja meg az OK-t.</string>
+    <string name="st_sem_shell">A TV saját shellje szükséges (Beállítások › Rendszer › Haladó).</string>
+    <string name="st_sem_pen">Nincs USB-meghajtó csatlakoztatva.</string>
     <string name="st_tv_livre">TV-tárhely: %1$s szabad ennyiből: %2$s</string>
     <string name="st_pen">USB-meghajtó · %1$s · %2$s</string>
     <string name="st_modo_comum">Hagyományos USB-meghajtó</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">fele az alkalmazásoknak, fele a felvételeknek és fájloknak</string>
     <string name="st_motivo_apertada">a TV majdnem megtelt</string>
     <string name="st_medido">%1$s MB/s-mal ír</string>
-    <string name="st_medir_dica">az OK megméri a sebességét</string>
     <string name="st_usar_comum">Használat hagyományos USB-meghajtóként</string>
-    <string name="st_usar_misto">Vegyes használat: %1$d%% hagyományos  ◀ ▶</string>
+    <string name="st_usar_misto">Vegyes használat: %1$d%% hagyományos</string>
     <string name="st_usar_tv">Használat TV-tárhelyként</string>
     <string name="st_apps">Alkalmazások az USB-meghajtón</string>
     <string name="st_apps_det">Áthelyezendő alkalmazások kiválasztása (a legnagyobbak elöl)</string>
     <string name="st_apps_nenhum">Egyik alkalmazás sem helyezhető át.</string>
-    <string name="st_apps_rodape">Az OK áthelyezi az alkalmazást; ✓ = már az USB-meghajtón van</string>
+    <string name="st_apps_rodape">✓ = már az USB-meghajtón van</string>
     <string name="st_compartilhado">Fotók és fájlok: %1$s</string>
     <string name="st_na_tv">a TV-n</string>
     <string name="st_no_pen">az USB-meghajtón</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Vissza hagyományos USB-meghajtóra (az alkalmazások visszakerülnek a TV-re)</string>
     <string name="st_trazendo">%1$s visszahozása a TV-re…</string>
     <string name="st_sumiram">Az USB-meghajtó ki van húzva: %1$s rejtve marad, amíg vissza nem kerül.</string>
-    <string name="st_sugestao">A TV-tárhely majdnem megtelt. Helyezze át ezt: %1$s (%2$s) az USB-meghajtóra: tartsa nyomva az OK-t az alkalmazáson.</string>
+    <string name="st_sugestao">A TV-tárhely majdnem megtelt. Helyezze át ezt: %1$s (%2$s) az USB-meghajtóra</string>
     <string name="st_medindo">A meghajtó sebességének mérése a legjobb felhasználás ajánlásához…</string>
     <string name="st_lento_titulo">Túl lassú meghajtó</string>
     <string name="st_lento_bloqueado">Ez a meghajtó %1$s MB/s-mal ír. TV-tárhelyként legalább %2$d MB/s kell: ez alatt az alkalmazások lefagynak, és a TV esetleg el sem indul. Használja hagyományos meghajtóként.</string>

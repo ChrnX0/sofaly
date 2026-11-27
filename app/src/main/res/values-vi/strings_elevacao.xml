@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">trên</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Thực hiện</string>
-    <string name="elv_bf_ok_faz">OK để làm ngay</string>
     <string name="elv_bf_wifi">Hiện Wi-Fi cho khách</string>
-    <string name="elv_bf_wifi_configurar">Chưa thiết lập: OK để mở Cài đặt (Khách)</string>
+    <string name="elv_bf_wifi_configurar">Chưa thiết lập</string>
     <string name="elv_bf_letra_maior">Chữ lớn hơn (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Chữ nhỏ hơn (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Đã ở cỡ này rồi</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">sau khi mặt trời lặn</string>
     <string name="elv_ss_dia_util">là ngày trong tuần</string>
     <string name="elv_ss_perfil">hồ sơ là %1$s</string>
-    <string name="elv_ss_det">◀ ▶ đổi điều kiện</string>
     <string name="extras_ABERTURA_PRONTA">Bỏ qua mở đầu (IntroDB): với các tập phim, TV hỏi dịch vụ cộng đồng IntroDB xem đoạn mở đầu ở đâu (nó gửi tên tập, không bao giờ gửi tài khoản của bạn); khi tắt, chỉ dùng các đoạn mở đầu bạn đã đánh dấu</string>
 </resources>

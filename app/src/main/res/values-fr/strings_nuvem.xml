@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">En attente de votre confirmation sur le téléphone…</string>
     <string name="rede_nuvem_salvando">Connexion…</string>
     <string name="rede_nuvem_recusado">Le service a refusé. Vérifiez l’ID de l’app et réessayez.</string>
-    <string name="rede_erro_nuvem_login">L’autorisation de ce compte a expiré ou a été retirée. Retirez le compte (maintenir OK) et reconnectez-vous.</string>
+    <string name="rede_erro_nuvem_login">L’autorisation de ce compte a expiré ou a été retirée. Retirez le compte et reconnectez-vous.</string>
     <string name="rede_od_titulo">OneDrive : votre app chez Microsoft</string>
     <string name="rede_od_explica">Une fois, sur un ordinateur : entra.microsoft.com › App registrations › New registration. Pour les types de comptes, choisissez celui qui inclut les comptes Microsoft personnels. Puis, dans Authentication, activez « Allow public client flows ». Copiez l’« Application (client) ID » et saisissez-le ici (vous pouvez taper depuis le téléphone, dans le panneau).</string>
     <string name="rede_od_id">Application (client) ID</string>

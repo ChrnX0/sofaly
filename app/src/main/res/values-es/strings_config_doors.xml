@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">Protector, sueño, despertar</string>
     <string name="cfg3_porta_4_det">Casa, móvil y panel</string>
     <string name="cfg3_porta_5_det">Actualizar, copia y ayuda</string>
+    <string name="cfg4_fila_portas">Ajustes</string>
 </resources>

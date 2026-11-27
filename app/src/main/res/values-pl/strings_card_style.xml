@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Dostrajanie</string>
-    <string name="ft_dica">OK lub ▶ ◀ zmienia · WSTECZ zamyka</string>
     <string name="ft_abrir">Dostosuj, widząc ekran główny</string>
     <string name="ft_abrir_det">Czcionka, zegar, kolor akcentu, rogi, poświata i rozmiar, na żywo</string>
     <string name="cs_destaque">Kolor akcentu</string>

@@ -41,13 +41,12 @@
     <string name="casa_desligado">ปิด</string>
     <string name="casa_aberta">เปิดอยู่</string>
     <string name="casa_fechada">ปิดอยู่</string>
-    <string name="casa_rodar">OK เพื่อเรียกใช้</string>
     <string name="casa_indisponivel">ไม่พร้อมใช้งาน</string>
     <string name="casa_sem_config_titulo">เชื่อมต่อบ้านของคุณ</string>
     <string name="casa_dica_acionar">เปิดหรือปิด</string>
     <string name="casa_erro">Home Assistant ไม่ตอบสนอง: %1$s</string>
     <string name="casa_ligado_pct">เปิด · %1$d%%</string>
-    <string name="casa_brilho_ajuste">ความสว่าง %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">ความสว่าง %1$d%%</string>
     <string name="casa_dica_brilho">ความสว่าง</string>
     <string name="casa_tecla_segurar_ok">กด OK ค้าง</string>
     <string name="ca_liberado">คืนพื้นที่ %1$s ว่างตอนนี้: %2$s</string>

@@ -15,7 +15,7 @@
     <string name="desf_barra">Mudou: %1$s</string>
     <string name="desf_botao">Desfazer</string>
     <string name="desf_tela">Mudanças recentes</string>
-    <string name="desf_tela_det">O que foi mudado nos últimos 7 dias. OK numa delas volta ao que era.</string>
+    <string name="desf_tela_det">O que foi mudado nos últimos 7 dias.</string>
     <string name="desf_tela_vazia">Nenhuma mudança nos últimos 7 dias.</string>
     <string name="desf_ja_desfeita">desfeita</string>
     <string name="desf_rot_config">Configurações</string>

@@ -867,7 +867,7 @@ class MidiaRedeActivity : Activity() {
         hint = f.dica; setText(f.inicial)
         setHintTextColor(Estilo.TEXTO_3)
         setPaddingRelative(dp(Estilo.E2), dp(12), dp(Estilo.E2), dp(12))
-        val normal = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO_PEQUENO + 4, Estilo.BORDA)
+        val normal = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO_PEQUENO + 4)
         val focado = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PEQUENO + 4, Estilo.FOCO, 2)
         background = normal
         setOnFocusChangeListener { v, foco -> v.background = if (foco) focado else normal }

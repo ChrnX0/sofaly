@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Thay đổi cẩn thận, theo thông tin của nó</string>
     <string name="aa_risk_essential">Thiết yếu cho TV: không đóng băng</string>
     <string name="aa_tip_idle">Không mở trong %1$d ngày. Đóng băng giúp giải phóng bộ nhớ và có thể hoàn tác.</string>
-    <string name="aa_hint_app">OK để mở · giữ OK để di chuyển, ẩn, đóng băng hoặc gỡ cài đặt</string>
-    <string name="aa_hint_frozen">OK để bỏ đóng băng và mở</string>
-    <string name="aa_hint_lock">OK để hỏi PIN và hiện ứng dụng đã ẩn ở đây</string>
     <string name="aa_open">Mở</string>
     <string name="aa_freeze">Đóng băng</string>
     <string name="aa_freezing">Đang đóng băng %1$s…</string>

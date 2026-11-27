@@ -433,8 +433,8 @@ class ConfigLauncherActivity : Activity() {
         t.typeface = Estilo.fonte(if (foco || escolhido) 400 else 300)
         (t.compoundDrawablesRelative[0] as? IconeCruz)?.let { br.paulo.tvlauncher.settings.acenderIcone(this, it, foco) }
         t.background = when {
-            foco -> Estilo.fundoFocado(this, Estilo.RAIO_PILULA, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA) else null)
-            escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA)
+            foco -> Estilo.fundoFocado(this, Estilo.RAIO, if (escolhido) Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO) else null)
+            escolhido -> Estilo.fundo(this, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
             else -> null
         }
     }
@@ -812,7 +812,7 @@ class ConfigLauncherActivity : Activity() {
         }
         c.addView(linhaSaida, lp())
         lateinit var linhaHora: LinhaCfg
-        linhaHora = linha(getString(R.string.hos_hora), getString(R.string.hos_hora_det), valor = "%02d:00".format(ModoHospede.hora(this))) {
+        linhaHora = linha(getString(R.string.hos_hora), "", valor = "%02d:00".format(ModoHospede.hora(this))) {
             ModoHospede.proximaHora(this)
             linhaHora.valor("%02d:00".format(ModoHospede.hora(this))); linhaSaida.valor(ModoHospede.textoSaida(this))
         }
@@ -1045,7 +1045,7 @@ class ConfigLauncherActivity : Activity() {
         }
         c.addView(linhaShell, lp())
         lateinit var linhaLogins: LinhaCfg
-        linhaLogins = linha(getString(R.string.cl_logins), getString(R.string.cl_logins_det), valor = getString(R.string.cl_ativos, McpServidor.logins(this))) {
+        linhaLogins = linha(getString(R.string.cl_logins), "", valor = getString(R.string.cl_ativos, McpServidor.logins(this))) {
             McpServidor.revogar(this)
             linhaLogins.valor(getString(R.string.cl_ativos, McpServidor.logins(this))); linhaLogins.detalhe(getString(R.string.cl_revogados))
         }
@@ -1420,11 +1420,11 @@ class ConfigLauncherActivity : Activity() {
 
     /** Superfície das linhas e cartões (sistema de design): repouso = branco 6% com fio; foco = branco sólido. */
     // Régua 22/11/2026: a linha não tem caixa (um fio embaixo separa); o foco segue Ajuste fino > Foco.
-    private val PILULA_GUIADA = 0x2EFFFFFF
 
     internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable? = when {
         // Guiado (molde do Projectivy): sem fio entre as linhas; foco = pílula clara de ponta a ponta, sem borda.
-        guiado -> if (focado) Estilo.fundo(this, PILULA_GUIADA, Estilo.RAIO_PILULA) else null
+        // Padrão único (Paulo, 26/11/2026: "sem exceção"): o foco é a caixa clara com a borda creme de todas as telas.
+        guiado -> if (focado) Estilo.fundoFocado(this, Estilo.RAIO) else null
         focado -> Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this))
         else -> Estilo.fioBaixo(this)
     }
@@ -1536,7 +1536,7 @@ class ConfigLauncherActivity : Activity() {
             val focada = focada && Estilo.focoEscurece(context)   // no Fio e no Véu a chave fica como está
             trilho?.background = Estilo.fundo(context,
                 when { sim && focada -> Estilo.ACENTO_NO_FOCO; sim -> Estilo.ACENTO; focada -> 0x33121212; else -> 0x33FFFFFF },
-                Estilo.RAIO_PILULA)
+                Estilo.RAIO)
             bolinha?.background = GradientDrawable().apply {
                 shape = GradientDrawable.OVAL
                 setColor(if (sim) (if (focada) Estilo.FOCO else Estilo.FUNDO) else (if (focada) Estilo.TEXTO_NO_FOCO else Estilo.TEXTO))

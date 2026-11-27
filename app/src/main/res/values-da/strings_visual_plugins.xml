@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">15.000 tynde stregikoner (lavet til telefoner, virker her)</string>
     <string name="ext_off_health">Slået fra: den holdt op med at svare. Slå den til igen, hvis du vil.</string>
     <string name="ext_secao_botoes">Knapper i hurtigpanelet</string>
-    <string name="ext_nenhum_botao">Ingen knapper fra andre apps endnu. Nogle apps tilføjer en tænd/sluk-knap til hurtigpanelet (hold TILBAGE nede).</string>
+    <string name="ext_nenhum_botao">Ingen knapper fra andre apps endnu. Nogle apps tilføjer en tænd/sluk-knap til hurtigpanelet.</string>
     <string name="ext_off_blocked">Slået fra af Sofaly: dette plugin har et kendt problem.</string>
     <string name="ext_secao_widgets">Widgets fra andre apps</string>
     <string name="ext_widget_nenhum">Ingen app på dette tv har en widget endnu.</string>

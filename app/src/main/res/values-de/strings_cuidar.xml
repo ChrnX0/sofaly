@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Du kannst warten.</string>
     <string name="cuidar_nao_avisado">%1$s konnte nicht benachrichtigt werden</string>
     <string name="cuidar_sem_aparelho">Kein Handy ist zum Empfang eingerichtet. Prüfe Einstellungen › Familie › Aus der Ferne kümmern.</string>
-    <string name="cuidar_sem_internet">Prüfe das Internet und versuche es erneut (Taste 3 Sekunden halten).</string>
+    <string name="cuidar_sem_internet">Prüfe das Internet und versuche es erneut.</string>
     <string name="cuidar_lembrete_sobre">Erinnerung · %1$s</string>
     <string name="cuidar_lembrete_explica">Drücke OK, wenn es erledigt ist.</string>
     <string name="cuidar_lembrete_explica_aviso">Drücke OK, wenn es erledigt ist. Sonst bekommt %2$s in %1$d Minuten einen Hinweis.</string>

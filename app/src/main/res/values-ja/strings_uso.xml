@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">住んでいる人がテレビで同意するまでオフです。</string>
     <string name="uso_cartoes">ホーム画面に大きなカード</string>
     <string name="uso_cartoes_det">大きなアプリを少しだけ、名前を読み上げ、「助けを呼ぶ」ボタン付き。オフにするにはPINが必要です。</string>
-    <string name="uso_trocar_det">現在：%1$s。OKで選び直します。</string>
+    <string name="uso_trocar_det">現在：%1$s。</string>
 </resources>

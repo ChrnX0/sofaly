@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Önce jenerik başlangıcını işaretleyin</string>
     <string name="abertura_invalida">Bu bir jenerik gibi görünmüyor: 10 sn ile 5 dk sürmeli ve ilk 15 dakikada başlamalı</string>
     <string name="abertura_apagada">Jenerik işareti silindi</string>
-    <string name="abertura_pular">Jeneriği atla · OK</string>
+    <string name="abertura_pular">Jeneriği atla</string>
 </resources>

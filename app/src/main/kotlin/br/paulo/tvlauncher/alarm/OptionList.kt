@@ -14,7 +14,7 @@ import br.paulo.tvlauncher.settings.Fontes
 /**
  * Lista de opções do editor de alarme (21/11/2026, mistura das propostas A e B que o Paulo escolheu): uma linha por opção,
  * o NOME em cinza numa coluna fixa e o VALOR em branco ao lado, todas sempre à vista (nada rola nem some). A linha em
- * foco ganha o fundo claro e a barrinha laranja à esquerda. A explicação da opção em foco NÃO fica aqui: quem usa a
+ * foco ganha a caixa clara com a borda creme (o foco de todo o sistema, 26/11/2026). A explicação da opção em foco NÃO fica aqui: quem usa a
  * lista mostra [Item.info] num lugar fixo (ver [aoMudar]).
  *
  * Por que não a CrossColumn (a coluna da cruz): nela as opções longe do foco encolhem e apagam, e na foto do Paulo
@@ -80,14 +80,14 @@ class OptionList(ctx: Context) : LinearLayout(ctx) {
         for ((i, l) in linhas.withIndex()) {
             val foco = i == escolhido && ativa
             l.raiz.background = if (foco) fundoFoco() else null
-            l.barra.visibility = if (foco) VISIBLE else INVISIBLE
+            l.barra.visibility = INVISIBLE   // padrão único (26/11/2026): o foco é a caixa com borda creme, sem a barrinha
             l.valor.typeface = Fontes.nunito(if (foco) 800 else 700)
             l.valor.alpha = if (i == escolhido || ativa) 1f else 0.85f
         }
         aoMudar(itens.getOrNull(escolhido))
     }
 
-    private fun fundoFoco() = GradientDrawable().apply { setColor(Estilo.SUPERFICIE_ALTA); cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO.toFloat()) }
+    private fun fundoFoco() = Estilo.fundoFocado(context, Estilo.RAIO_PEQUENO, Estilo.caixa(context, Estilo.RAIO_PEQUENO))
 
     private fun criarLinha(): Linha {
         val barra = View(context).apply { background = GradientDrawable().apply { setColor(Estilo.ACENTO); cornerRadius = dp(2f) } }

@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">لم يفتح هذا التلفزيون إعدادات Bluetooth. افتح الإعدادات، أجهزة التحكم والملحقات.</string>
     <string name="jogos_baixar">الحصول على ألعاب</string>
     <string name="jogos_escolher">اختيار التطبيقات</string>
-    <string name="jogos_escolher_sub">أي التطبيقات تعيش في لعب. OK ينقل بين لعب والتطبيقات.</string>
+    <string name="jogos_escolher_sub">أي التطبيقات تعيش في لعب.</string>
     <string name="jogos_no_card">في لعب</string>
     <string name="jogos_na_linha">في التطبيقات</string>
     <string name="jogos_grupo_nuvem">في السحابة</string>

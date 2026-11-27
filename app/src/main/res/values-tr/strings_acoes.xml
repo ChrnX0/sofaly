@@ -29,7 +29,7 @@
     <string name="lbl_cenas">Sahneler</string>
     <string name="pr_cenas">Sahneler</string>
     <string name="cenas_titulo">Sahneler</string>
-    <string name="cenas_det">OK sahneyi çalıştırır. Web paneli › Ev ve otomasyonlar › Sahneler’de oluşturun ve düzenleyin.</string>
+    <string name="cenas_det">Web paneli › Ev ve otomasyonlar › Sahneler’de oluşturun ve düzenleyin.</string>
     <string name="cenas_vazio">Henüz sahne yok. Web paneli › Ev ve otomasyonlar › Sahneler’de bir tane oluşturun.</string>
     <string name="tec_titulo">Kumanda tuşları</string>
     <string name="tec_det">Netflix ve YouTube her ekranda çalışır; renkli tuşlar ve rakamlar yalnızca ana ekranda.</string>

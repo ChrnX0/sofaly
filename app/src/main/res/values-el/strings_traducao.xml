@@ -104,7 +104,6 @@
     <string name="lb_lembrete">Υπενθύμιση</string>
     <string name="lb_quando_em">%1$s, στο %2$s.</string>
     <string name="ms_ola">Γεια!</string>
-    <string name="ms_ola_det">Επιλέξτε με τα βέλη και πατήστε OK.</string>
     <string name="ms_pedir_ajuda">Ζητήστε βοήθεια</string>
     <string name="ms_pedido_ajuda">Αίτημα βοήθειας</string>
     <string name="ms_alguem_pediu">Κάποιος ζήτησε βοήθεια στην τηλεόραση %1$s.</string>
@@ -172,7 +171,6 @@
     <string name="bc_categorias">ΚΑΤΗΓΟΡΙΕΣ</string>
     <string name="bc_canais">ΚΑΝΑΛΙΑ</string>
     <string name="bc_carregando">φόρτωση καναλιών…</string>
-    <string name="bc_dica">OK αποκλείει ή ξεκλειδώνει · OK σε κατηγορία ισχύει για όλη · ◀ ▶ κατηγορίες και κανάλια · ΠΙΣΩ φεύγει (ήδη αποθηκευμένο)</string>
     <string name="bc_categoria_bloqueada">όλη η κατηγορία \"%1$s\" είναι αποκλεισμένη: ξεκλειδώστε τη στην αριστερή στήλη</string>
     <string name="bc_filme">Ταινία · %1$s</string>
     <string name="bc_serie">Σειρά · %1$s</string>

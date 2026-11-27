@@ -84,6 +84,43 @@ class IconeCard(ctx: Context, private val tipo: String) : View(ctx) {
             "dns" -> escudo(c, w, h)
             "pausar" -> { c.drawLine(w * 0.36f, h * 0.22f, w * 0.36f, h * 0.78f, tinta); c.drawLine(w * 0.64f, h * 0.22f, w * 0.64f, h * 0.78f, tinta) }
             "tocar" -> { caminho.reset(); caminho.moveTo(w * 0.30f, h * 0.18f); caminho.lineTo(w * 0.82f, h * 0.5f); caminho.lineTo(w * 0.30f, h * 0.82f); caminho.close(); c.drawPath(caminho, tinta) }
+            // Configurações em cartões (26/11/2026): busca, modo, letra, tela limpa, energia e crianças, mais as 6 portas.
+            "buscar" -> { c.drawCircle(w * 0.44f, h * 0.44f, w * 0.30f, tinta); c.drawLine(w * 0.66f, h * 0.66f, w * 0.90f, h * 0.90f, tinta) }
+            "modo" -> { c.drawLine(w * 0.12f, h * 0.26f, w * 0.88f, h * 0.26f, tinta); c.drawLine(w * 0.12f, h * 0.50f, w * 0.70f, h * 0.50f, tinta); c.drawLine(w * 0.12f, h * 0.74f, w * 0.50f, h * 0.74f, tinta) }
+            "letra" -> {
+                caminho.reset(); caminho.moveTo(w * 0.20f, h * 0.74f); caminho.lineTo(w * 0.5f, h * 0.08f); caminho.lineTo(w * 0.80f, h * 0.74f)
+                caminho.moveTo(w * 0.32f, h * 0.50f); caminho.lineTo(w * 0.68f, h * 0.50f); c.drawPath(caminho, tinta)
+                c.drawLine(w * 0.10f, h * 0.92f, w * 0.90f, h * 0.92f, tinta)
+            }
+            "tela" -> {
+                caixa.set(w * 0.06f, h * 0.14f, w * 0.94f, h * 0.70f); c.drawRoundRect(caixa, w * 0.08f, w * 0.08f, tinta)
+                c.drawLine(w * 0.34f, h * 0.88f, w * 0.66f, h * 0.88f, tinta)
+            }
+            "energia" -> {
+                caminho.reset(); caminho.moveTo(w * 0.58f, h * 0.04f); caminho.lineTo(w * 0.18f, h * 0.56f); caminho.lineTo(w * 0.48f, h * 0.56f)
+                caminho.lineTo(w * 0.42f, h * 0.96f); caminho.lineTo(w * 0.82f, h * 0.44f); caminho.lineTo(w * 0.52f, h * 0.44f); caminho.close()
+                c.drawPath(caminho, tinta)
+            }
+            "criancas", "familia" -> {
+                c.drawCircle(w * 0.36f, h * 0.30f, w * 0.14f, tinta)
+                caixa.set(w * 0.10f, h * 0.56f, w * 0.62f, h * 1.10f); c.drawArc(caixa, 180f, 180f, false, tinta)
+                c.drawCircle(w * 0.72f, h * 0.42f, w * 0.10f, tinta)
+                caixa.set(w * 0.54f, h * 0.62f, w * 0.92f, h * 1.02f); c.drawArc(caixa, 200f, 140f, false, tinta)
+            }
+            "grade" -> for (x in listOf(0.10f, 0.56f)) for (y in listOf(0.10f, 0.56f)) {
+                caixa.set(w * x, h * y, w * (x + 0.34f), h * (y + 0.34f)); c.drawRoundRect(caixa, w * 0.08f, w * 0.08f, tinta)
+            }
+            "tv" -> {
+                caixa.set(w * 0.06f, h * 0.30f, w * 0.94f, h * 0.88f); c.drawRoundRect(caixa, w * 0.10f, w * 0.10f, tinta)
+                c.drawLine(w * 0.32f, h * 0.08f, w * 0.5f, h * 0.28f, tinta); c.drawLine(w * 0.68f, h * 0.08f, w * 0.5f, h * 0.28f, tinta)
+            }
+            "lua" -> {
+                caminho.reset(); caminho.moveTo(w * 0.62f, h * 0.08f)
+                caminho.cubicTo(w * 0.20f, h * 0.10f, w * 0.06f, h * 0.60f, w * 0.34f, h * 0.84f)
+                caminho.cubicTo(w * 0.56f, h * 1.00f, w * 0.86f, h * 0.88f, w * 0.94f, h * 0.62f)
+                caminho.cubicTo(w * 0.62f, h * 0.70f, w * 0.40f, h * 0.36f, w * 0.62f, h * 0.08f)
+                c.drawPath(caminho, tinta)
+            }
             "proxima" -> {
                 caminho.reset(); caminho.moveTo(w * 0.22f, h * 0.20f); caminho.lineTo(w * 0.64f, h * 0.5f); caminho.lineTo(w * 0.22f, h * 0.80f); caminho.close()
                 c.drawPath(caminho, tinta); c.drawLine(w * 0.78f, h * 0.20f, w * 0.78f, h * 0.80f, tinta)

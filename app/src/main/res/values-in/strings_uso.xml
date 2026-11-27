@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Mati sampai orang yang tinggal di sana setuju di TV.</string>
     <string name="uso_cartoes">Kartu besar di layar beranda</string>
     <string name="uso_cartoes_det">Sedikit aplikasi besar, nama dibacakan, dan tombol \"Minta bantuan\". Mematikannya meminta PIN.</string>
-    <string name="uso_trocar_det">Sekarang: %1$s. OK untuk memilih lagi.</string>
+    <string name="uso_trocar_det">Sekarang: %1$s.</string>
 </resources>

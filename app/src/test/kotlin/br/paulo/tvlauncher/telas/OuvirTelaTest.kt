@@ -53,6 +53,65 @@ class OuvirTelaTest {
     @Config(qualifiers = "en-w960dp-h540dp-land-television-xhdpi")
     @Test fun podcastsEn() = podcasts("en")
 
+    /**
+     * Nas Fileiras (26/11/2026, padrão único): a mesma tela vira uma fileira de cartões por prateleira. ▼ desce de fileira
+     * e volta ao cartão lembrado; ◀ ▶ andam na fileira; a prateleira só de aviso ("nenhuma recente") não pega foco;
+     * OK toca, OK segurado abre as opções.
+     */
+    @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
+    @Test fun fileirasRadioPt() = fileirasRadio("pt")
+
+    @Config(qualifiers = "en-w960dp-h540dp-land-television-xhdpi")
+    @Test fun fileirasRadioEn() = fileirasRadio("en")
+
+    private fun fileirasRadio(lingua: String) {
+        val (a, cruz) = montar(br.paulo.tvlauncher.home.BottomBar.Mode.ROWS)
+        val tocados = ArrayList<String>(); val opcoes = ArrayList<String>()
+        fun r(id: String, nome: String, sub: String) =
+            CruzOuvir.Item(id, nome, sub, monograma = CapaOuvir.iniciais(nome), abrir = { tocados += id }, opcoes = { opcoes += id })
+        cruz.definirTitulo(a.getString(R.string.ra_coluna))
+        cruz.definir(listOf(
+            CruzOuvir.Prateleira("tocando", a.getString(R.string.ouv_prat_tocando), IconeOuvir.Tipo.TOCANDO, listOf(
+                CruzOuvir.Item("pausar", a.getString(R.string.ouv_pausar), CruzLogica.linhas("Rádio Mar Azul FM", "Tom Jobim - Wave"), IconeOuvir.Tipo.PAUSAR, abrir = { tocados += "pausar" }),
+                CruzOuvir.Item("parar", a.getString(R.string.ra_parar), a.getString(R.string.ra_parar_det), IconeOuvir.Tipo.PARAR, abrir = { tocados += "parar" }))),
+            CruzOuvir.Prateleira("fav", a.getString(R.string.ra_favoritas), IconeOuvir.Tipo.FAVORITAS, (1..8).map { r("fav:$it", "Rádio Favorita $it", "Brasil · 128 kbps") }),
+            CruzOuvir.Prateleira("rec", a.getString(R.string.ouv_recentes), IconeOuvir.Tipo.RECENTES, listOf(
+                CruzOuvir.Item("rec:vazio", a.getString(R.string.ouv_sem_recentes), a.getString(R.string.ouv_sem_recentes_det), IconeOuvir.Tipo.RECENTES))),
+            CruzOuvir.Prateleira("generos", a.getString(R.string.ra_generos), IconeOuvir.Tipo.GENEROS, listOf("Sertanejo", "Mpb", "Jazz").map {
+                r("gen:$it", it, "") }),
+        ))
+        cruz.requestFocus()
+        ShadowLooper.idleMainLooper(2, TimeUnit.SECONDS)
+        fun foco() = a.window.decorView.findFocus()
+        fun andar(dir: Int) { foco()!!.focusSearch(dir)?.requestFocus(); ShadowLooper.idleMainLooper(1, TimeUnit.SECONDS) }
+        assertEquals("abre no 1º cartão", "pausar", cruz.itemAtual()?.id)
+        assertTrue("o foco está num cartão da tela", foco() != null && foco() !== cruz)
+        val problemas = mutableListOf<String>()
+        problemas += MedirTela.medir(a, "fileiras-radio", "ouvir-fileiras-$lingua-1", 14f, cartao = true)
+        andar(android.view.View.FOCUS_DOWN)
+        assertEquals("fav:1", cruz.itemAtual()?.id)
+        repeat(3) { andar(android.view.View.FOCUS_RIGHT) }
+        assertEquals("fav:4", cruz.itemAtual()?.id)
+        problemas += MedirTela.medir(a, "fileiras-radio-fav", "ouvir-fileiras-$lingua-2-favoritas", 14f, cartao = true)
+        foco()!!.performClick()
+        assertEquals(listOf("fav:4"), tocados)
+        foco()!!.performLongClick()
+        assertEquals(listOf("fav:4"), opcoes)
+        andar(android.view.View.FOCUS_DOWN)   // Recentes só avisa: pula para Gêneros
+        assertEquals("gen:Sertanejo", cruz.itemAtual()?.id)
+        // A tecla de verdade não pode ser comida pela rolagem (ela rolava uma página com "Perto" carregando no meio):
+        // sem ninguém tratar, o Android anda o foco pelo focusSearch acima.
+        for (k in listOf(KeyEvent.KEYCODE_DPAD_UP, KeyEvent.KEYCODE_DPAD_DOWN))
+            assertTrue("▲▼ chegam ao focusSearch", !cruz.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN, k)))
+        assertEquals("a tecla não mexeu no foco sozinha", "gen:Sertanejo", cruz.itemAtual()?.id)
+        andar(android.view.View.FOCUS_UP)
+        assertEquals("volta ao cartão lembrado", "fav:4", cruz.itemAtual()?.id)
+        repeat(10) { andar(android.view.View.FOCUS_RIGHT) }
+        assertEquals("a fileira não dá a volta", "fav:8", cruz.itemAtual()?.id)
+        assertTrue("sem problema de tela: $problemas", problemas.isEmpty())
+        a.finish()
+    }
+
     /** Prévia do gesto de cada ícone (uma linha por ícone: o estático e 7 quadros da passada). */
     @Config(qualifiers = "pt-w960dp-h540dp-land-television-xhdpi")
     @Test fun icones() {
@@ -78,9 +137,11 @@ class OuvirTelaTest {
         assertTrue("clipToOutline com ícone apaga o ícone na TV", !capa.clipToOutline)
     }
 
-    private fun montar(): Pair<Activity, CruzOuvir> {
+    private fun montar(modo: br.paulo.tvlauncher.home.BottomBar.Mode = br.paulo.tvlauncher.home.BottomBar.Mode.CROSS): Pair<Activity, CruzOuvir> {
         InstrumentationRegistry.getInstrumentation().setInTouchMode(false)
         val a = Robolectric.buildActivity(Activity::class.java).setup().get()
+        // A cruz só existe com a HOME em cruz; nas Fileiras (o jeito de fábrica) a mesma tela vira fileiras ([fileirasRadio]).
+        br.paulo.tvlauncher.home.BottomBar.setMode(a, modo)
         val raiz = FrameLayout(a).apply { background = Estilo.fundoTela(a) }
         a.setContentView(raiz)
         val cruz = CruzOuvir(a, Typeface.DEFAULT, Typeface.DEFAULT_BOLD)
@@ -181,8 +242,8 @@ class OuvirTelaTest {
                 CruzOuvir.Item("abrir", a.getString(R.string.pl_abrir), CruzLogica.linhas("Os vulcões do Pacífico", a.getString(R.string.pl_abrir_det)),
                     cor = azul, monograma = CapaOuvir.iniciais("Café com Ciência"), cobrir = true),
                 CruzOuvir.Item("pausar", a.getString(R.string.ouv_pausar), CruzLogica.linhas("Os vulcões do Pacífico", "Café com Ciência"), IconeOuvir.Tipo.PAUSAR),
-                CruzOuvir.Item("voltar", a.getString(R.string.ouv_voltar), a.getString(R.string.ouv_voltar_det), IconeOuvir.Tipo.VOLTAR),
-                CruzOuvir.Item("avancar", a.getString(R.string.ouv_avancar), a.getString(R.string.ouv_avancar_det), IconeOuvir.Tipo.AVANCAR),
+                CruzOuvir.Item("voltar", a.getString(R.string.ouv_voltar), "", IconeOuvir.Tipo.VOLTAR),
+                CruzOuvir.Item("avancar", a.getString(R.string.ouv_avancar), "", IconeOuvir.Tipo.AVANCAR),
                 CruzOuvir.Item("velocidade", a.getString(R.string.pod_velocidade), a.getString(R.string.ouv_velocidade_det, "1,2x"), IconeOuvir.Tipo.VELOCIDADE),
                 CruzOuvir.Item("parar", a.getString(R.string.ra_parar), a.getString(R.string.ouv_parar_pod_det), IconeOuvir.Tipo.PARAR))),
             CruzOuvir.Prateleira("continuar", a.getString(R.string.pod_continuar), IconeOuvir.Tipo.CONTINUAR, listOf(

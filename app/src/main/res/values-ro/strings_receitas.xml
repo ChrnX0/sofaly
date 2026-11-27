@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Pentru cine este acest TV?</string>
-    <string name="rec_subtitulo">Un singur OK configurează TV-ul. Puteți anula oricând.</string>
+    <string name="rec_subtitulo">Puteți anula oricând.</string>
     <string name="rec_vo">TV-ul bunicii</string>
     <string name="rec_vo_det">Carduri mari cu nume citite cu voce tare, text mai mare și un buton Cere ajutor.</string>
     <string name="rec_criancas">TV-ul copiilor</string>

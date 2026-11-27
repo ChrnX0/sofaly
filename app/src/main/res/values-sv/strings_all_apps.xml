@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Ändra försiktigt, enligt dess blad</string>
     <string name="aa_risk_essential">Nödvändig för tv:n: frys inte</string>
     <string name="aa_tip_idle">Inte öppnad på %1$d dagar. Att frysa frigör minne och kan ångras.</string>
-    <string name="aa_hint_app">OK öppnar · håll OK för att flytta, dölja, frysa eller avinstallera</string>
-    <string name="aa_hint_frozen">OK tinar och öppnar</string>
-    <string name="aa_hint_lock">OK frågar efter PIN-koden och visar de dolda apparna här</string>
     <string name="aa_open">Öppna</string>
     <string name="aa_freeze">Frys</string>
     <string name="aa_freezing">Fryser %1$s…</string>

@@ -92,7 +92,6 @@
     <string name="lb_lembrete">Rappel</string>
     <string name="lb_quando_em">%1$s, sur %2$s.</string>
     <string name="ms_ola">Bonjour !</string>
-    <string name="ms_ola_det">Choisissez avec les flèches et appuyez sur OK.</string>
     <string name="ms_pedir_ajuda">Demander de l’aide</string>
     <string name="ms_pedido_ajuda">Demande d’aide</string>
     <string name="ms_alguem_pediu">Quelqu’un a demandé de l’aide sur la TV %1$s.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">CATÉGORIES</string>
     <string name="bc_canais">CHAÎNES</string>
     <string name="bc_carregando">chargement des chaînes…</string>
-    <string name="bc_dica">OK bloque ou débloque · OK sur une catégorie s’applique à toute la catégorie · ◀ ▶ catégories et chaînes · RETOUR quitte (déjà enregistré)</string>
     <string name="bc_categoria_bloqueada">toute la catégorie « %1$s » est bloquée : débloquez-la dans la colonne de gauche</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Série · %1$s</string>

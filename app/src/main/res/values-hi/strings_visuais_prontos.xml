@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">तैयार लुक</string>
-    <string name="vpr_det">हर OK अगले लुक पर ले जाता है: थीम, टेक्स्ट और बैकग्राउंड का रंग एक साथ</string>
     <string name="vpr_meu">आपकी सेटिंग</string>
     <string name="vpr_classico">क्लासिक</string>
     <string name="vpr_leitura">आसान पढ़ाई</string>

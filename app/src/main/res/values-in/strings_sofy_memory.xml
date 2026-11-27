@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Yang Sofy ketahui</string>
-    <string name="smem_sub">Yang ia pelajari tentang rumah ini. OK melupakan satu item; ia belajar lagi.</string>
+    <string name="smem_sub">Yang ia pelajari tentang rumah ini.</string>
     <string name="smem_linha_det">Yang ia pelajari, dengan Lupakan</string>
     <string name="smem_uso">Kapan TV dipakai</string>
     <string name="smem_uso_det">%1$d jam dalam sehari dipelajari</string>

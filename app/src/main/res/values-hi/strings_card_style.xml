@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">बारीक समायोजन</string>
-    <string name="ft_dica">OK या ▶ ◀ बदलें · BACK बंद करें</string>
     <string name="ft_abrir">होम स्क्रीन देखते हुए समायोजित करें</string>
     <string name="ft_abrir_det">फ़ॉन्ट, घड़ी, हाइलाइट रंग, कोने, चमक और आकार, लाइव</string>
     <string name="cs_destaque">हाइलाइट रंग</string>

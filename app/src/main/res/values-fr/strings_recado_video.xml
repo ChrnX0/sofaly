@@ -6,9 +6,8 @@
     <string name="vid_onde">Pour regarder : Réglages › Famille › Vidéos de la famille.</string>
     <string name="vid_depois">Plus tard</string>
     <string name="vid_assistir">Regarder</string>
-    <string name="vid_ok_para_assistir">Appuyez sur OK pour regarder.</string>
     <string name="vid_lista">Vidéos de la famille</string>
-    <string name="vid_lista_det">Envoyées par le lien de la famille. Chacune reste 30 jours. Maintenez OK pour supprimer.</string>
+    <string name="vid_lista_det">Envoyées par le lien de la famille. Chacune reste 30 jours.</string>
     <string name="vid_nenhum">Pas encore de vidéo.</string>
     <string name="vid_apagar">Supprimer la vidéo</string>
     <string name="vid_aceitar">Accepter les vidéos</string>

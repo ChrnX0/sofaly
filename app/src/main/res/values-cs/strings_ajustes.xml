@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">Adresa routeru UniFi a klíč API ve webovém panelu</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Dlaždice rychlého panelu</string>
-    <string name="pb_subtitulo">OK zobrazí nebo skryje · ◀ ▶ mění pořadí</string>
-    <string name="pb_cfg_det">Vyberte, které dlaždice rychlý panel (podržte ZPĚT) zobrazí a v jakém pořadí</string>
+    <string name="pb_cfg_det">Vyberte, které dlaždice rychlý panel zobrazí a v jakém pořadí</string>
     <string name="pb_mostrado">zobrazeno</string>
     <string name="pb_escondido">skryto</string>
     <string name="pb_padrao">Zpět na výchozí dlaždice</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Nástroje</string>
     <string name="cfg2_sec_ocultos_sistema">Systémové aplikace skryté launcherem</string>
     <string name="cfg2_apps_visita_det">Vyberte, které aplikace zmizí, když je zapnutý režim pro hosty</string>
-    <string name="cfg2_apps_visita_sub">OK přepíná · tyto zmizí, když je zapnutý režim pro hosty</string>
+    <string name="cfg2_apps_visita_sub">tyto zmizí, když je zapnutý režim pro hosty</string>
     <string name="cfg2_some_visita">skryto pro hosty</string>
     <string name="cfg2_fica_visita">zůstává</string>
     <string name="cfg2_casa_det">Světla, zásuvky a scény z Google Home nebo Home Assistantu</string>
     <string name="oc_titulo">Skryté aplikace</string>
-    <string name="oc_subtitulo">OK zobrazí nebo skryje aplikaci na domovské obrazovce · skryté jsou první</string>
-    <string name="oc_nenhum">Žádné skryté aplikace · OK pro výběr</string>
-    <string name="oc_quantos">Skryto: %1$d · OK je znovu zobrazí</string>
+    <string name="oc_subtitulo">skryté jsou první</string>
+    <string name="oc_nenhum">Žádné skryté aplikace</string>
+    <string name="oc_quantos">Skryto: %1$d</string>
     <string name="oc_oculto">skryto</string>
     <string name="oc_aparece">na domovské obrazovce</string>
     <string name="oc_aviso_titulo">Aplikace skryta</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Velký</string>
     <string name="tt_maior">Větší</string>
     <string name="pi_titulo">Balíček ikon</string>
-    <string name="pi_det">Vyměňte ikony aplikací za vestavěný styl (Symbol, Dvoubarevný) nebo nainstalovaný balíček ikon. OK vybere další.</string>
+    <string name="pi_det">Vyměňte ikony aplikací za vestavěný styl (Symbol, Dvoubarevný) nebo nainstalovaný balíček ikon.</string>
     <string name="pi_det_vazio">Není nainstalovaný žádný balíček ikon. Stáhněte nějaký z Obchodu Play a objeví se zde.</string>
     <string name="pi_nenhum">Žádný</string>
     <string name="fm_titulo">Moje pozadí</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">Žádné (zpět na Tmavý)</string>
     <string name="fm_brilho">Jas pozadí</string>
     <string name="fm_contraste">Kontrast pozadí</string>
-    <string name="fm_ajuste_det">Platí pro Moje pozadí. OK mění krok.</string>
+    <string name="fm_ajuste_det">Platí pro Moje pozadí.</string>
     <string name="vp_titulo">Přecházíte z Projectivy?</string>
     <string name="vp_texto">Čtyři kroky převedou vaše nastavení asi za minutu. Každý lze udělat později v Nastavení.</string>
     <string name="vp_cfg_det">Převést skryté aplikace, balíček ikon a pozadí z Projectivy.</string>
     <string name="vp_1">1. Skryté aplikace</string>
-    <string name="vp_1_det">Označte aplikace, které jste měli skryté. Pro změnu pořadí podržte OK na aplikaci na domovské obrazovce.</string>
+    <string name="vp_1_det">Označte aplikace, které jste měli skryté.</string>
     <string name="vp_2">2. Balíček ikon</string>
     <string name="vp_2_det">Fungují zde stejné balíčky ikon, jaké používá Projectivy.</string>
     <string name="vp_3">3. Pozadí</string>

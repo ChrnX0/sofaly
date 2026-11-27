@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">altta</string>
     <string name="elv_leg_em_cima">üstte</string>
     <string name="elv_bf_fazer">Yap</string>
-    <string name="elv_bf_ok_faz">OK şimdi yapar</string>
     <string name="elv_bf_wifi">Misafir Wi-Fi\'ını göster</string>
-    <string name="elv_bf_wifi_configurar">Henüz ayarlanmadı: OK Ayarlar\'ı açar (Misafirler)</string>
+    <string name="elv_bf_wifi_configurar">Henüz ayarlanmadı</string>
     <string name="elv_bf_letra_maior">Daha büyük yazı (%%%1$d)</string>
     <string name="elv_bf_letra_menor">Daha küçük yazı (%%%1$d)</string>
     <string name="elv_bf_letra_limite">Zaten bu boyutta</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">gün batımından sonraysa</string>
     <string name="elv_ss_dia_util">iş günüyse</string>
     <string name="elv_ss_perfil">profil %1$s ise</string>
-    <string name="elv_ss_det">◀ ▶ koşulu değiştirir</string>
     <string name="extras_ABERTURA_PRONTA">Jeneriği atla (IntroDB): bölümlerde TV, topluluk hizmeti IntroDB\'ye jeneriğin yerini sorar (yalnızca bölümü gönderir, hesabınızı asla); kapalıyken yalnızca sizin işaretledikleriniz</string>
 </resources>

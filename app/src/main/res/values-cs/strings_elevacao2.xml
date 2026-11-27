@@ -22,7 +22,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Řady: %d</string>
     <string name="elv_cat_procurando">Hledá se plakát…</string>
-    <string name="elv_cat_nada">V TMDB nic nenalezeno. Podržte OK a napište správný název.</string>
+    <string name="elv_cat_nada">V TMDB nic nenalezeno.</string>
     <string name="elv_cat_corrigir_titulo">Opravit: %s</string>
     <string name="elv_cat_corrigir_explica">Špatný plakát nebo obsah? Požádejte o další výsledek, nebo napište správný název a rok. Prázdný název se vrátí k automatice.</string>
     <string name="elv_cat_nao_e">Tohle ne</string>

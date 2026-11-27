@@ -47,7 +47,7 @@ class PainelCatalogo(private val act: Activity) {
     /** A faixa da ficha rápida: caixa um pouco mais clara que o fundo, como o bloco de ações da coluna. */
     val faixa: View = LinearLayout(act).apply {
         orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(18), dp(10), dp(18), dp(11))
-        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
+        background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE) }
         addView(info)
     }
 
@@ -82,7 +82,7 @@ class PainelCatalogo(private val act: Activity) {
                 text = t; textSize = PILULA_SP; typeface = Fontes.nunito(600); maxLines = 1
                 setTextColor(if (destaque) Estilo.FUNDO else Estilo.TEXTO)
                 setPaddingRelative(dp(14), dp(5), dp(14), dp(6))
-                background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(if (destaque) Estilo.ATENCAO else Estilo.SUPERFICIE_ALTA) }
+                background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(if (destaque) Estilo.ATENCAO else Estilo.CAIXA) }   // caixa, não pílula
             }, LinearLayout.LayoutParams(-2, -2).apply { marginEnd = dp(8) })
         }
     }
@@ -112,18 +112,18 @@ class PainelCatalogo(private val act: Activity) {
                 TextView(act).apply {
                     text = letra.toString(); textSize = LETRA_SP; typeface = Fontes.nunito(700); gravity = Gravity.CENTER
                     isFocusable = true; isClickable = true
-                    val normal = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA) }
-                    val foco = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.FOCO) }
+                    val normal = Estilo.caixa(act, Estilo.RAIO_PEQUENO)
+                    val foco = Estilo.fundoFocado(act, Estilo.RAIO_PEQUENO, normal)
                     background = normal; setTextColor(Estilo.TEXTO)
-                    // Foco = branco com letra escura (o mesmo contraste das opções das outras janelas).
-                    setOnFocusChangeListener { _, tem -> background = if (tem) foco else normal; setTextColor(if (tem) Estilo.FUNDO else Estilo.TEXTO) }
+                    // Foco no padrão único: caixa clara com borda creme e a letra laranja (como o ícone em foco).
+                    setOnFocusChangeListener { _, tem -> background = if (tem) foco else normal; setTextColor(if (tem) Estilo.corIconeNoFoco(act) else Estilo.TEXTO) }
                     setOnClickListener { d.dismiss(); aoEscolher(letra) }
                 }.also { grade.addView(it, android.widget.GridLayout.LayoutParams().apply { width = dp(LADO_DP); height = dp(LADO_DP); setMargins(dp(5), dp(5), dp(5), dp(5)) }) }
             }
             val cartao = LinearLayout(act).apply {
                 orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER_HORIZONTAL
                 setPaddingRelative(dp(28), dp(24), dp(28), dp(28))
-                background = Estilo.fundo(act, Estilo.CARTAO, Estilo.RAIO, Estilo.VIDRO_BORDA)
+                background = Estilo.fundo(act, Estilo.CARTAO, Estilo.RAIO)   // sem contorno
                 addView(TextView(act).apply { text = act.getString(R.string.coluna_letra_titulo); textSize = TITULO_SP; typeface = Fontes.nunito(700); setTextColor(Estilo.TEXTO) },
                     LinearLayout.LayoutParams(-2, -2).apply { bottomMargin = dp(16) })
                 addView(grade)

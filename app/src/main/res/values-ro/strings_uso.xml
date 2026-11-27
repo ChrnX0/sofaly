@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Dezactivat până când persoana care locuiește acolo este de acord pe TV.</string>
     <string name="uso_cartoes">Carduri mari pe ecranul principal</string>
     <string name="uso_cartoes_det">Câteva aplicații mari, nume citite cu voce tare și un buton \"Cere ajutor\". Dezactivarea cere PIN-ul.</string>
-    <string name="uso_trocar_det">Acum: %1$s. OK pentru a alege din nou.</string>
+    <string name="uso_trocar_det">Acum: %1$s.</string>
 </resources>

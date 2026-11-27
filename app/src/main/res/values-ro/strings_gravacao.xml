@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">în fiecare săptămână</string>
     <string name="grv_cancelar_pergunta">Anulați înregistrarea \"%1$s\"?</string>
     <string name="grv_gravadas">Înregistrate</string>
-    <string name="grv_vazio">Nimic înregistrat încă. În player, ▶▶ › Înregistrează; în ghid, OK pe o emisiune viitoare.</string>
+    <string name="grv_vazio">Nimic înregistrat încă.</string>
     <string name="grv_vazio_sem_destino">Introduceți un stick USB în hub pentru a vedea și face înregistrări.</string>
     <string name="grv_partes">%1$d părți</string>
     <string name="grv_parte">partea %1$d din %2$d</string>

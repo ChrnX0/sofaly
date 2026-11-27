@@ -7,8 +7,8 @@
     <string name="bkn_desligado">aus</string>
     <string name="bkn_sem_senha">aus · lege zuerst das Backup-Passwort fest</string>
     <string name="bkn_senha">Backup-Passwort</string>
-    <string name="bkn_senha_ok">festgelegt · OK ändert</string>
-    <string name="bkn_senha_falta">nicht festgelegt · OK legt fest</string>
+    <string name="bkn_senha_ok">festgelegt</string>
+    <string name="bkn_senha_falta">nicht festgelegt</string>
     <string name="bkn_senha_nova">Backup-Passwort (8 oder mehr Zeichen)</string>
     <string name="bkn_senha_repetir">Passwort erneut eingeben</string>
     <string name="bkn_senha_curta">Das Passwort braucht 8 bis 128 Zeichen.</string>

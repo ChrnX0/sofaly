@@ -6,8 +6,8 @@
     <string name="bkn_desligado">pois</string>
     <string name="bkn_sem_senha">pois · aseta ensin varmuuskopion salasana</string>
     <string name="bkn_senha">Varmuuskopion salasana</string>
-    <string name="bkn_senha_ok">asetettu · OK muuttaa</string>
-    <string name="bkn_senha_falta">ei asetettu · OK asettaa</string>
+    <string name="bkn_senha_ok">asetettu</string>
+    <string name="bkn_senha_falta">ei asetettu</string>
     <string name="bkn_senha_nova">Varmuuskopion salasana (vähintään 8 merkkiä)</string>
     <string name="bkn_senha_repetir">Kirjoita salasana uudelleen</string>
     <string name="bkn_senha_curta">Salasanassa on oltava 8–128 merkkiä.</string>

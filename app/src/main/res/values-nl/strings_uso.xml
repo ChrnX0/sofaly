@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Uit tot de bewoner op de tv akkoord gaat.</string>
     <string name="uso_cartoes">Grote kaarten op het startscherm</string>
     <string name="uso_cartoes_det">Een paar grote apps, namen die hardop worden voorgelezen en een knop \"Hulp vragen\". Uitzetten vraagt om de pincode.</string>
-    <string name="uso_trocar_det">Nu: %1$s. OK om opnieuw te kiezen.</string>
+    <string name="uso_trocar_det">Nu: %1$s.</string>
 </resources>

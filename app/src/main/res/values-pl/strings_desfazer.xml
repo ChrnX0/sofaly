@@ -15,7 +15,7 @@
     <string name="desf_barra">Zmieniono: %1$s</string>
     <string name="desf_botao">Cofnij</string>
     <string name="desf_tela">Ostatnie zmiany</string>
-    <string name="desf_tela_det">Co zmieniono w ciągu ostatnich 7 dni. OK na jednej przywraca poprzedni stan.</string>
+    <string name="desf_tela_det">Co zmieniono w ciągu ostatnich 7 dni.</string>
     <string name="desf_tela_vazia">Brak zmian w ciągu ostatnich 7 dni.</string>
     <string name="desf_ja_desfeita">cofnięta</string>
     <string name="desf_rot_config">Ustawienia</string>

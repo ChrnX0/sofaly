@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">15.000 biểu tượng nét mảnh (làm cho điện thoại, dùng được ở đây)</string>
     <string name="ext_off_health">Đã tắt: nó ngừng phản hồi. Bật lại nếu muốn.</string>
     <string name="ext_secao_botoes">Nút trong bảng nhanh</string>
-    <string name="ext_nenhum_botao">Chưa có nút từ ứng dụng khác. Một số ứng dụng thêm nút bật/tắt vào bảng nhanh (giữ BACK).</string>
+    <string name="ext_nenhum_botao">Chưa có nút từ ứng dụng khác. Một số ứng dụng thêm nút bật/tắt vào bảng nhanh.</string>
     <string name="ext_off_blocked">Đã bị Sofaly tắt: plugin này có lỗi đã biết.</string>
     <string name="ext_secao_widgets">Widget từ ứng dụng khác</string>
     <string name="ext_widget_nenhum">Chưa có ứng dụng nào trên TV này có widget.</string>

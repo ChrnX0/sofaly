@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Hvem er dette tv til?</string>
-    <string name="rec_subtitulo">Ét OK opsætter tv\'et. Du kan fortryde det når som helst.</string>
+    <string name="rec_subtitulo">Du kan fortryde det når som helst.</string>
     <string name="rec_vo">Mormors tv</string>
     <string name="rec_vo_det">Store kort med navne læst højt, større tekst og en knap til at få hjælp.</string>
     <string name="rec_criancas">Børnenes tv</string>

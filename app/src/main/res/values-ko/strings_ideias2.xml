@@ -41,13 +41,12 @@
     <string name="casa_desligado">꺼짐</string>
     <string name="casa_aberta">열림</string>
     <string name="casa_fechada">닫힘</string>
-    <string name="casa_rodar">OK로 실행</string>
     <string name="casa_indisponivel">사용할 수 없음</string>
     <string name="casa_sem_config_titulo">집 연결하기</string>
     <string name="casa_dica_acionar">켜기 또는 끄기</string>
     <string name="casa_erro">Home Assistant가 응답하지 않음: %1$s</string>
     <string name="casa_ligado_pct">켜짐 · %1$d%%</string>
-    <string name="casa_brilho_ajuste">밝기 %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">밝기 %1$d%%</string>
     <string name="casa_dica_brilho">밝기</string>
     <string name="casa_tecla_segurar_ok">OK 길게</string>
     <string name="ca_liberado">%1$s 확보됨. 현재 여유 공간: %2$s.</string>

@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s teraz: %2$s (do %3$s)</string>
     <string name="l72_guia_nada_agora">%1$s: teraz nic w programie</string>
     <string name="l72_guia_depois">Następnie: %1$s (%2$s)</string>
-    <string name="l75_pilula">Teraz odtwarzane: %1$s, %2$s. OK wstrzymuje lub wznawia; przytrzymaj OK, by otworzyć aplikację</string>
+    <string name="l75_pilula">Teraz odtwarzane: %1$s, %2$s.</string>
 </resources>

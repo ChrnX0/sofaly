@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Screensaver remote keys (idea 28) -->
-    <string name="pt_dica_dispensar">OK stänger · ◀ ▶ flytta</string>
-    <string name="pt_dica_pausar">OK pausar eller fortsätter · ◀ ▶ flytta</string>
-    <string name="pt_dica_andar">◀ ▶ flytta · andra knappar stänger</string>
     <!-- Screensaver photos from a network folder (idea 27) -->
     <string name="rede_fotos_usar">Använd de här fotona i skärmsläckaren</string>
     <string name="rede_fotos_parar">Sluta använda de här fotona i skärmsläckaren</string>
@@ -20,6 +17,6 @@
     <string name="rede_buscar_explica">Filmer, program, avsnitt och musik på den här servern.</string>
     <string name="rede_buscar_campo">Namn</string>
     <string name="rede_buscar_curto">Skriv minst 2 bokstäver.</string>
-    <string name="rede_proximo_em">Nästa: %1$s om %2$d s · OK startar nu · andra knappar avbryter</string>
+    <string name="rede_proximo_em">Nästa: %1$s om %2$d s</string>
     <string name="rede_ainda_assistindo">Tittar du fortfarande? OK startar %1$s</string>
 </resources>

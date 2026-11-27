@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Skärmsläckarens bakgrund</string>
-    <string name="pv2_fundo_det">temats, eller riktiga foton av jorden sedd från rymden · OK ändrar</string>
     <string name="pv2_fundo_tema">Temats</string>
     <string name="pv2_fundo_terra">Jorden från rymden</string>
     <string name="pv2_relogio">Skärmsläckarens klocka</string>
-    <string name="pv2_relogio_det">sex stilar · OK ändrar</string>
     <string name="pv2_rel_fino">Tunn</string>
     <string name="pv2_rel_editorial">Redaktionell</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">I ord</string>
     <string name="pv2_rel_empilhado">Staplad</string>
     <string name="pv2_posicao">Klockans position</string>
-    <string name="pv2_posicao_det">OK ändrar</string>
     <string name="pv2_pos_alto">Uppe till vänster</string>
     <string name="pv2_pos_baixo">Nere till vänster</string>
     <string name="pv2_pos_centro">Mitten</string>
     <string name="pv2_tamanho">Klockans storlek</string>
-    <string name="pv2_tamanho_det">stora siffror är lättare att läsa på avstånd · OK ändrar</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Stor</string>
     <string name="pv2_mostrar">Vad skärmsläckaren visar</string>
-    <string name="pv2_mostrar_det">\"Bara tiden\": valfri knapp på fjärrkontrollen visar resten i 15 s · OK ändrar</string>
     <string name="pv2_mostrar_so">Bara tiden</string>
     <string name="pv2_mostrar_vez">Då och då</string>
     <string name="pv2_mostrar_sempre">Allt</string>
     <string name="pv2_elementos">På skärmsläckaren</string>
-    <string name="pv2_el_det">visas på skärmsläckaren · OK slår på eller av</string>
     <string name="pv2_el_saudacao">Hälsning</string>
     <string name="pv2_el_data">Datum</string>
     <string name="pv2_el_linha_dia">Dagsljuslinje</string>

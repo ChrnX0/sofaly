@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Élő TV szüneteltetése</string>
     <string name="pausa_continuar">Folytatás</string>
     <string name="pausa_ao_vivo">Vissza élőbe</string>
-    <string name="pausa_selo">⏸ SZÜNETEL · az OK folytatja</string>
-    <string name="pausa_atrasado_min">%1$d PERC LEMARADÁS · ▶ élő</string>
-    <string name="pausa_atrasado_seg">%1$d MP LEMARADÁS · ▶ élő</string>
+    <string name="pausa_selo">⏸ SZÜNETEL</string>
+    <string name="pausa_atrasado_min">%1$d PERC LEMARADÁS</string>
+    <string name="pausa_atrasado_seg">%1$d MP LEMARADÁS</string>
     <string name="pausa_voltou">A szünet hosszabb volt, mint amennyit a memória tárol: vissza élőbe</string>
 </resources>

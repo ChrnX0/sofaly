@@ -30,5 +30,4 @@
     <string name="bb_titulo">ホーム画面の形</string>
     <string name="bb_cruz">クロス</string>
     <string name="bb_barra">下のバー</string>
-    <string name="bb_det">カテゴリをクロスに、または下に固定してアプリをその上に (▲)</string>
 </resources>

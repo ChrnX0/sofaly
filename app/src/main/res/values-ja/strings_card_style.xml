@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">微調整</string>
-    <string name="ft_dica">OK または ▶ ◀ で変更 · 戻るで閉じる</string>
     <string name="ft_abrir">ホーム画面を見ながら調整</string>
     <string name="ft_abrir_det">フォント、時計、アクセント色、角、光彩、サイズをその場で</string>
     <string name="cs_destaque">アクセント色</string>

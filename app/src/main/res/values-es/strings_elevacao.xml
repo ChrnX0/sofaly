@@ -44,9 +44,8 @@
     <string name="elv_leg_embaixo">abajo</string>
     <string name="elv_leg_em_cima">arriba</string>
     <string name="elv_bf_fazer">Hacer</string>
-    <string name="elv_bf_ok_faz">OK lo hace ahora</string>
     <string name="elv_bf_wifi">Mostrar el Wi-Fi de las visitas</string>
-    <string name="elv_bf_wifi_configurar">Aún no configurado: OK abre los Ajustes (Visitas)</string>
+    <string name="elv_bf_wifi_configurar">Aún no configurado</string>
     <string name="elv_bf_letra_maior">Letra más grande (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Letra más pequeña (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Ya está en este tamaño</string>
@@ -118,6 +117,5 @@
     <string name="elv_ss_noite">es después del atardecer</string>
     <string name="elv_ss_dia_util">es día laborable</string>
     <string name="elv_ss_perfil">el perfil es %1$s</string>
-    <string name="elv_ss_det">◀ ▶ cambian la condición</string>
     <string name="extras_ABERTURA_PRONTA">Saltar intro (IntroDB): en los episodios, la TV pregunta al servicio comunitario IntroDB dónde está la apertura (envía qué episodio, nunca tu cuenta); apagado, solo las aperturas que marcaste</string>
 </resources>

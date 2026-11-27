@@ -41,13 +41,12 @@
     <string name="casa_desligado">Выкл</string>
     <string name="casa_aberta">Открыто</string>
     <string name="casa_fechada">Закрыто</string>
-    <string name="casa_rodar">OK — запустить</string>
     <string name="casa_indisponivel">Недоступно</string>
     <string name="casa_sem_config_titulo">Подключите свой дом</string>
     <string name="casa_dica_acionar">вкл. или выкл.</string>
     <string name="casa_erro">Home Assistant не ответил: %1$s</string>
     <string name="casa_ligado_pct">Вкл · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Яркость %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Яркость %1$d%%</string>
     <string name="casa_dica_brilho">яркость</string>
     <string name="casa_tecla_segurar_ok">УДЕРЖИВАЙТЕ OK</string>
     <string name="ca_liberado">Освобождено %1$s. Свободно сейчас: %2$s.</string>

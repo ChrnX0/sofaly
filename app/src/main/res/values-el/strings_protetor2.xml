@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Φόντο προφύλαξης</string>
-    <string name="pv2_fundo_det">του θέματος, ή πραγματικές φωτογραφίες της Γης από το διάστημα · OK αλλάζει</string>
     <string name="pv2_fundo_tema">Του θέματος</string>
     <string name="pv2_fundo_terra">Η Γη από το διάστημα</string>
     <string name="pv2_relogio">Ρολόι προφύλαξης</string>
-    <string name="pv2_relogio_det">έξι στυλ · OK αλλάζει</string>
     <string name="pv2_rel_fino">Λεπτό</string>
     <string name="pv2_rel_editorial">Εκδοτικό</string>
     <string name="pv2_rel_monumental">Μνημειώδες</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Με λέξεις</string>
     <string name="pv2_rel_empilhado">Στοιβαγμένο</string>
     <string name="pv2_posicao">Θέση ρολογιού</string>
-    <string name="pv2_posicao_det">OK αλλάζει</string>
     <string name="pv2_pos_alto">Πάνω αριστερά</string>
     <string name="pv2_pos_baixo">Κάτω αριστερά</string>
     <string name="pv2_pos_centro">Κέντρο</string>
     <string name="pv2_tamanho">Μέγεθος ρολογιού</string>
-    <string name="pv2_tamanho_det">οι μεγάλοι αριθμοί διαβάζονται πιο εύκολα από μακριά · OK αλλάζει</string>
     <string name="pv2_tam_normal">Κανονικό</string>
     <string name="pv2_tam_grande">Μεγάλο</string>
     <string name="pv2_mostrar">Τι δείχνει η προφύλαξη οθόνης</string>
-    <string name="pv2_mostrar_det">\"Μόνο η ώρα\": οποιοδήποτε κουμπί δείχνει τα υπόλοιπα για 15 δ. · OK αλλάζει</string>
     <string name="pv2_mostrar_so">Μόνο η ώρα</string>
     <string name="pv2_mostrar_vez">Πού και πού</string>
     <string name="pv2_mostrar_sempre">Όλα</string>
     <string name="pv2_elementos">Στην προφύλαξη οθόνης</string>
-    <string name="pv2_el_det">εμφανίζεται στην προφύλαξη οθόνης · OK ενεργοποιεί ή απενεργοποιεί</string>
     <string name="pv2_el_saudacao">Χαιρετισμός</string>
     <string name="pv2_el_data">Ημερομηνία</string>
     <string name="pv2_el_linha_dia">Γραμμή φωτός ημέρας</string>

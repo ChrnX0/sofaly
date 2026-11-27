@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Фон заставки</string>
-    <string name="pv2_fundo_det">фон темы или настоящие фото Земли из космоса · OK меняет</string>
     <string name="pv2_fundo_tema">Как в теме</string>
     <string name="pv2_fundo_terra">Земля из космоса</string>
     <string name="pv2_relogio">Часы заставки</string>
-    <string name="pv2_relogio_det">шесть стилей · OK меняет</string>
     <string name="pv2_rel_fino">Тонкие</string>
     <string name="pv2_rel_editorial">Журнальные</string>
     <string name="pv2_rel_monumental">Крупные</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">Словами</string>
     <string name="pv2_rel_empilhado">Столбиком</string>
     <string name="pv2_posicao">Место часов</string>
-    <string name="pv2_posicao_det">OK меняет</string>
     <string name="pv2_pos_alto">Вверху слева</string>
     <string name="pv2_pos_baixo">Внизу слева</string>
     <string name="pv2_pos_centro">По центру</string>
     <string name="pv2_tamanho">Размер часов</string>
-    <string name="pv2_tamanho_det">крупные цифры легче читать издалека · OK меняет</string>
     <string name="pv2_tam_normal">Обычный</string>
     <string name="pv2_tam_grande">Большой</string>
     <string name="pv2_mostrar">Что показывает заставка</string>
-    <string name="pv2_mostrar_det">«Только время»: любая кнопка пульта показывает остальное на 15 с · OK меняет</string>
     <string name="pv2_mostrar_so">Только время</string>
     <string name="pv2_mostrar_vez">Время от времени</string>
     <string name="pv2_mostrar_sempre">Всё</string>
     <string name="pv2_elementos">На заставке</string>
-    <string name="pv2_el_det">показывается на заставке · OK включает или выключает</string>
     <string name="pv2_el_saudacao">Приветствие</string>
     <string name="pv2_el_data">Дата</string>
     <string name="pv2_el_linha_dia">Линия дня</string>

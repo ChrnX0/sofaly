@@ -48,9 +48,8 @@
     <string name="elv_leg_em_cima">sus</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Fă-o</string>
-    <string name="elv_bf_ok_faz">OK o face acum</string>
     <string name="elv_bf_wifi">Arată Wi-Fi-ul pentru invitați</string>
-    <string name="elv_bf_wifi_configurar">Încă neconfigurat: OK deschide Setări (Vizite)</string>
+    <string name="elv_bf_wifi_configurar">Încă neconfigurat</string>
     <string name="elv_bf_letra_maior">Text mai mare (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Text mai mic (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Este deja la această mărime</string>
@@ -126,6 +125,5 @@
     <string name="elv_ss_noite">după apus</string>
     <string name="elv_ss_dia_util">e zi lucrătoare</string>
     <string name="elv_ss_perfil">profilul este %1$s</string>
-    <string name="elv_ss_det">◀ ▶ schimbă condiția</string>
     <string name="extras_ABERTURA_PRONTA">Sari peste intro (IntroDB): la episoade, TV-ul întreabă serviciul comunitar IntroDB unde e deschiderea (trimite ce episod, niciodată contul dvs.); dezactivat, doar introurile marcate de dvs.</string>
 </resources>

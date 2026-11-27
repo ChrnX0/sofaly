@@ -30,9 +30,6 @@
     <string name="aa_risk_care">카드 기준 주의</string>
     <string name="aa_risk_essential">TV에 꼭 필요: 동결하지 마세요</string>
     <string name="aa_tip_idle">%1$d일 동안 열지 않았습니다. 동결하면 메모리가 확보되고 되돌릴 수 있습니다.</string>
-    <string name="aa_hint_app">OK로 열기 · OK를 길게 눌러 이동, 숨기기, 동결, 제거</string>
-    <string name="aa_hint_frozen">OK로 동결 해제 후 열기</string>
-    <string name="aa_hint_lock">OK로 PIN을 입력하면 숨긴 앱이 여기에 표시됨</string>
     <string name="aa_open">열기</string>
     <string name="aa_freeze">동결</string>
     <string name="aa_freezing">%1$s 동결 중…</string>

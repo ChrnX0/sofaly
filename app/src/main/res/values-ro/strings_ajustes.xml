@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">Adresa și cheia API a routerului UniFi, în panoul web</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Plăcile panoului rapid</string>
-    <string name="pb_subtitulo">OK afișează sau ascunde · ◀ ▶ schimbă ordinea</string>
-    <string name="pb_cfg_det">Alegeți ce plăci arată panoul rapid (țineți ÎNAPOI) și în ce ordine</string>
+    <string name="pb_cfg_det">Alegeți ce plăci arată panoul rapid și în ce ordine</string>
     <string name="pb_mostrado">afișată</string>
     <string name="pb_escondido">ascunsă</string>
     <string name="pb_padrao">Înapoi la plăcile standard</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Instrumente</string>
     <string name="cfg2_sec_ocultos_sistema">Aplicații de sistem ascunse de launcher</string>
     <string name="cfg2_apps_visita_det">Alegeți ce aplicații dispar cât timp modul invitat e activ</string>
-    <string name="cfg2_apps_visita_sub">OK comută · acestea dispar cât timp modul invitat e activ</string>
+    <string name="cfg2_apps_visita_sub">acestea dispar cât timp modul invitat e activ</string>
     <string name="cfg2_some_visita">ascunsă pentru invitați</string>
     <string name="cfg2_fica_visita">rămâne</string>
     <string name="cfg2_casa_det">Lumini, prize și scene din Google Home sau Home Assistant</string>
     <string name="oc_titulo">Aplicații ascunse</string>
-    <string name="oc_subtitulo">OK afișează sau ascunde o aplicație pe ecranul principal · cele ascunse sunt primele</string>
-    <string name="oc_nenhum">Nicio aplicație ascunsă · OK pentru a alege</string>
-    <string name="oc_quantos">Ascunse: %1$d · OK pentru a le afișa din nou</string>
+    <string name="oc_subtitulo">cele ascunse sunt primele</string>
+    <string name="oc_nenhum">Nicio aplicație ascunsă</string>
+    <string name="oc_quantos">Ascunse: %1$d</string>
     <string name="oc_oculto">ascunsă</string>
     <string name="oc_aparece">pe ecranul principal</string>
     <string name="oc_aviso_titulo">Aplicație ascunsă</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Mare</string>
     <string name="tt_maior">Mai mare</string>
     <string name="pi_titulo">Pachet de pictograme</string>
-    <string name="pi_det">Înlocuiți pictogramele aplicațiilor cu un stil integrat (Simbol, Bicolor) sau cu un pachet instalat. OK alege următorul.</string>
+    <string name="pi_det">Înlocuiți pictogramele aplicațiilor cu un stil integrat (Simbol, Bicolor) sau cu un pachet instalat.</string>
     <string name="pi_det_vazio">Niciun pachet de pictograme instalat. Luați unul din Magazin Play și va apărea aici.</string>
     <string name="pi_nenhum">Niciunul</string>
     <string name="fm_titulo">Fundalul meu</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">Niciunul (înapoi la Întunecat)</string>
     <string name="fm_brilho">Luminozitatea fundalului</string>
     <string name="fm_contraste">Contrastul fundalului</string>
-    <string name="fm_ajuste_det">Se aplică la Fundalul meu. OK schimbă treapta.</string>
+    <string name="fm_ajuste_det">Se aplică la Fundalul meu.</string>
     <string name="vp_titulo">Veniți de la Projectivy?</string>
     <string name="vp_texto">Patru pași vă aduc configurația în aproximativ un minut. Fiecare poate fi făcut mai târziu în Setări.</string>
     <string name="vp_cfg_det">Aduceți aplicațiile ascunse, pachetul de pictograme și fundalul din Projectivy.</string>
     <string name="vp_1">1. Aplicații ascunse</string>
-    <string name="vp_1_det">Marcați aplicațiile pe care le aveați ascunse. Pentru a reordona, țineți OK pe o aplicație de pe ecranul principal.</string>
+    <string name="vp_1_det">Marcați aplicațiile pe care le aveați ascunse.</string>
     <string name="vp_2">2. Pachet de pictograme</string>
     <string name="vp_2_det">Aceleași pachete de pictograme pe care le folosește Projectivy funcționează aici.</string>
     <string name="vp_3">3. Fundal</string>

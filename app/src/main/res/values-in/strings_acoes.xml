@@ -29,7 +29,7 @@
     <string name="lbl_cenas">Adegan</string>
     <string name="pr_cenas">Adegan</string>
     <string name="cenas_titulo">Adegan</string>
-    <string name="cenas_det">OK menjalankan adegan. Buat dan edit di panel web › Rumah dan otomatisasi › Adegan.</string>
+    <string name="cenas_det">Buat dan edit di panel web › Rumah dan otomatisasi › Adegan.</string>
     <string name="cenas_vazio">Belum ada adegan. Buat di panel web › Rumah dan otomatisasi › Adegan.</string>
     <string name="tec_titulo">Tombol remote</string>
     <string name="tec_det">Netflix dan YouTube berfungsi di layar mana pun; tombol berwarna dan angka hanya di layar utama.</string>

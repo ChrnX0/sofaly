@@ -135,7 +135,7 @@ class ColunaCategorias(
         })
         // O bloco fixo de ações numa caixa própria, um pouco mais clara que o fundo (o esboço aprovado).
         addView(acoes.apply {
-            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
+            background = Estilo.caixa(act)
             setPaddingRelative(dp(4), dp(4), dp(4), dp(4)); clipToPadding = false
         }, LinearLayout.LayoutParams(-1, 0))
         addView(tituloListas)
@@ -208,11 +208,14 @@ class ColunaCategorias(
     }
 
     private fun botao(l: Linha, k: Int, total: Int, parada: Int): FrameLayout {
-        val fundoNormal = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.SUPERFICIE); setStroke(dp(1), Estilo.BORDA) }
-        val fundoFoco = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(Estilo.FOCO) }
+        // Padrão das Fileiras (26/11/2026): caixa de vidro sem contorno (caixa, não bola: "caixas nas coisas");
+        // foco = caixa mais clara, anel creme e ícone laranja.
+        val raio = dp(Estilo.RAIO_PEQUENO).toFloat()
+        val fundoNormal = GradientDrawable().apply { cornerRadius = raio; setColor(Estilo.CAIXA) }
+        val fundoFoco = GradientDrawable().apply { cornerRadius = raio; setColor(Estilo.FOCO_CARTAO); setStroke(dp(Estilo.ANEL_DP), Estilo.TEXTO) }
         val corIcone = corBotao(l)
         val img = ImageView(act).apply { setImageDrawable(iconeBotao(l, corIcone)); tag = corIcone }
-        val focado = ImageView(act).apply { setImageDrawable(iconeBotao(l, Estilo.FUNDO)); visibility = View.GONE }
+        val focado = ImageView(act).apply { setImageDrawable(iconeBotao(l, Estilo.ACENTO)); visibility = View.GONE }
         val lado = dp((22 * escala).toInt())
         return FrameLayout(act).apply {
             isFocusable = true; isClickable = true; contentDescription = l.nome; background = fundoNormal
@@ -323,7 +326,7 @@ class ColunaCategorias(
         // "Animes/Donghuas -…"; agora "Animes/Don…Dublado" e "Animes/Don…Legendado" se distinguem.
         val nome = TextView(act).apply { textSize = Estilo.Leitura.CATEGORIA * escala; typeface = fonteMedia; isSingleLine = true; ellipsize = TextUtils.TruncateAt.MIDDLE }
         linha.addView(nome, LinearLayout.LayoutParams(0, -2, 1f))
-        // "+12": títulos novos desde a última visita, numa pílula verde (esboço direita-filmes.png).
+        // "+12": títulos novos desde a última visita, numa caixinha laranja (a cor de destaque; o verde-água fugia da paleta).
         val novos = TextView(act).apply {
             textSize = Estilo.Leitura.DICA; typeface = Fontes.nunito(700); setTextColor(Estilo.FUNDO); setPaddingRelative(dp(6), dp(1), dp(6), dp(1))
             background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(COR_NOVOS) }
@@ -376,7 +379,7 @@ class ColunaCategorias(
         divider = null; isVerticalScrollBarEnabled = false; itemsCanFocus = false; isFocusable = true
         choiceMode = AbsListView.CHOICE_MODE_NONE; cacheColorHint = Color.TRANSPARENT; setDrawSelectorOnTop(false)
         // A moldura branca do foco só na lista que tem o foco (é o que diz em que lugar da coluna a pessoa está).
-        val moldura = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), Estilo.FOCO) }
+        val moldura = Estilo.fundo(act, Estilo.FOCO_CARTAO, Estilo.RAIO_PEQUENO, Estilo.TEXTO, Estilo.ANEL_DP)
         val nenhuma = ColorDrawable(Color.TRANSPARENT)
         selector = nenhuma
         setOnFocusChangeListener { _, tem ->
@@ -436,7 +439,7 @@ class ColunaCategorias(
 
     private companion object {
         const val ESPERA_MS = 180L
-        const val COR_NOVOS = 0xFF5FD3B0.toInt()   // o verde-água dos ícones no esboço
+        val COR_NOVOS get() = br.paulo.tvlauncher.Estilo.ACENTO   // padrão único: laranja da marca (Paulo, 26/11/2026)
         const val COR_ETIQUETA = 0xFFCFD6E0.toInt()   // selo das listas de fora: cinza claro (cores de marca ficam fora)
         // Ícones em repouso no tom do texto secundário (era verde-água): a cor fica só para a escolhida, como na cruz.
         const val COR_ICONE = 0xB3FFF3E6.toInt()

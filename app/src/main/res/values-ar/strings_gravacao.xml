@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">كل أسبوع</string>
     <string name="grv_cancelar_pergunta">إلغاء تسجيل \"%1$s\"؟</string>
     <string name="grv_gravadas">مسجَّل</string>
-    <string name="grv_vazio">لا تسجيلات بعد. في المشغّل، ▶▶ › تسجيل؛ وفي الدليل، OK على برنامج قادم.</string>
+    <string name="grv_vazio">لا تسجيلات بعد.</string>
     <string name="grv_vazio_sem_destino">صِل ذاكرة USB بالموزّع لرؤية التسجيلات وإجرائها.</string>
     <string name="grv_partes">%1$d أجزاء</string>
     <string name="grv_parte">الجزء %1$d من %2$d</string>

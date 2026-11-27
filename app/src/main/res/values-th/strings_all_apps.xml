@@ -30,9 +30,6 @@
     <string name="aa_risk_care">เปลี่ยนอย่างระมัดระวัง ตามข้อมูลของแอป</string>
     <string name="aa_risk_essential">จำเป็นต่อทีวี: ห้ามตรึง</string>
     <string name="aa_tip_idle">ไม่ได้เปิดมา %1$d วัน การตรึงช่วยคืนหน่วยความจำและยกเลิกได้</string>
-    <string name="aa_hint_app">OK เพื่อเปิด · กด OK ค้างเพื่อย้าย ซ่อน ตรึง หรือถอนการติดตั้ง</string>
-    <string name="aa_hint_frozen">OK เพื่อปลดการตรึงและเปิด</string>
-    <string name="aa_hint_lock">OK เพื่อขอ PIN และแสดงแอปที่ซ่อนที่นี่</string>
     <string name="aa_open">เปิด</string>
     <string name="aa_freeze">ตรึง</string>
     <string name="aa_freezing">กำลังตรึง %1$s…</string>

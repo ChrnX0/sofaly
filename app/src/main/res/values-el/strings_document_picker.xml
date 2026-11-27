@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Άνοιγμα…</string>
     <string name="dp_erro">Δεν ήταν δυνατό το άνοιγμα αυτού του σημείου. Ελέγξτε ότι είναι συνδεδεμένο και δοκιμάστε ξανά.</string>
     <string name="dp_arquivos">Αρχεία σε αυτόν τον φάκελο: %1$d</string>
-    <string name="dp_dicas">OK: άνοιγμα · ΠΙΣΩ: επιστροφή</string>
     <string name="dp_diario">Το %1$s έλαβε %2$s από τον επιλογέα</string>
     <string name="dp_sem_nome">χωρίς τίτλο</string>
 </resources>

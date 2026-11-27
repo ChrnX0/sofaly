@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">TV ini tidak membuka setelan Bluetooth. Buka Setelan, Remote dan aksesori.</string>
     <string name="jogos_baixar">Dapatkan game</string>
     <string name="jogos_escolher">Pilih aplikasi</string>
-    <string name="jogos_escolher_sub">Aplikasi mana yang ada di Main. OK memindahkan antara Main dan Aplikasi.</string>
+    <string name="jogos_escolher_sub">Aplikasi mana yang ada di Main.</string>
     <string name="jogos_no_card">di Main</string>
     <string name="jogos_na_linha">di Aplikasi</string>
     <string name="jogos_grupo_nuvem">Di cloud</string>

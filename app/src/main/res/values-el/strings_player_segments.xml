@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Players, proposta C, etapa 1 (20/11/2026): resumo, créditos, "termina às", "o que foi dito?". -->
 <resources>
-    <string name="seg_pular_resumo">Παράλειψη σύνοψης · OK</string>
-    <string name="seg_proximo">Επόμενο επεισόδιο · OK</string>
-    <string name="seg_proximo_em">Επόμενο επεισόδιο σε %1$d · OK</string>
+    <string name="seg_pular_resumo">Παράλειψη σύνοψης</string>
+    <string name="seg_proximo">Επόμενο επεισόδιο</string>
+    <string name="seg_proximo_em">Επόμενο επεισόδιο σε %1$d</string>
     <string name="seg_termina">τελειώνει στις %1$s</string>
     <string name="seg_repetir">Τι είπαν;</string>
     <string name="seg_repetir_info">Πίσω 10 δ. με υπότιτλους</string>

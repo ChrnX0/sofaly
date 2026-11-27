@@ -67,8 +67,6 @@ class DocumentPickerActivity : Activity() {
     private fun montar(lugar: String?, linhas: (LinearLayout) -> View?) {
         val (raiz, coluna) = Estilo.telaLista(this, titulo(), subtitulo(lugar), dicas = false)
         val foco = linhas(coluna)
-        (raiz as LinearLayout).addView(Estilo.dicasDeTexto(this, getString(R.string.dp_dicas)),
-            LinearLayout.LayoutParams(-2, -2).apply { bottomMargin = Estilo.dp(this@DocumentPickerActivity, Estilo.MARGEM_VERTICAL) })
         setContentView(raiz)
         (foco ?: coluna.getChildAt(0))?.requestFocus()
     }

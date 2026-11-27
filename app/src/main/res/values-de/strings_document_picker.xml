@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Wird geöffnet…</string>
     <string name="dp_erro">Dieser Ort ließ sich nicht öffnen. Prüfe die Verbindung und versuche es erneut.</string>
     <string name="dp_arquivos">Dateien in diesem Ordner: %1$d</string>
-    <string name="dp_dicas">OK: öffnen · ZURÜCK: zurück</string>
     <string name="dp_diario">%1$s hat %2$s über die Auswahl erhalten</string>
     <string name="dp_sem_nome">unbenannt</string>
 </resources>

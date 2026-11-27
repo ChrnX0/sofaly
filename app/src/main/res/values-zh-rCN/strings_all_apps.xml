@@ -30,9 +30,6 @@
     <string name="aa_risk_care">按资料卡：改动要小心</string>
     <string name="aa_risk_essential">电视必需：请勿冻结</string>
     <string name="aa_tip_idle">已 %1$d 天没打开。冻结可释放内存，也可撤销。</string>
-    <string name="aa_hint_app">OK 打开 · 长按 OK 可移动、隐藏、冻结或卸载</string>
-    <string name="aa_hint_frozen">OK 解冻并打开</string>
-    <string name="aa_hint_lock">OK 输入 PIN 后在这里显示隐藏的应用</string>
     <string name="aa_open">打开</string>
     <string name="aa_freeze">冻结</string>
     <string name="aa_freezing">正在冻结 %1$s…</string>

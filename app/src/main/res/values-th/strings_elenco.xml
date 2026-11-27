@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">ตอนที่แล้วของ %1$s</string>
     <string name="anteriormente_assistir">ดู %1$s</string>
     <string name="anteriormente_pular_sempre">ไม่ต้องแสดงอีก</string>
-    <string name="anteriormente_desligado">ปิดการสรุปแล้ว หากต้องการเปิดอีกครั้ง: กด OK ค้างที่ตอน</string>
+    <string name="anteriormente_desligado">ปิดการสรุปแล้ว</string>
     <string name="anteriormente_ligar">แสดงสรุป “ตอนที่แล้ว”</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">อายุสูงสุดในโหมดเด็ก</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">ไม่อยู่ในรายการของคุณ · มีใน %1$s</string>
     <string name="onde_grupo">ที่อื่น (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">ดาวน์โหลดคำบรรยายอัตโนมัติแล้ว (ทำมาสำหรับไฟล์นี้) · ▼ เพื่อเปลี่ยน</string>
-    <string name="legenda_auto_pronta_nome">ดาวน์โหลดคำบรรยายอัตโนมัติแล้ว · ▼ เพื่อเปลี่ยนหรือปรับการหน่วงเวลา</string>
+    <string name="legenda_auto_pronta">ดาวน์โหลดคำบรรยายอัตโนมัติแล้ว (ทำมาสำหรับไฟล์นี้)</string>
+    <string name="legenda_auto_pronta_nome">ดาวน์โหลดคำบรรยายอัตโนมัติแล้ว</string>
     <string name="legenda_trad_rotulo">แปลอัตโนมัติ</string>
     <string name="legenda_trad_traduzindo">ไม่มีคำบรรยายในภาษาของคุณ: กำลังแปลคำบรรยายภาษาอังกฤษบนทีวี…</string>
     <string name="legenda_trad_parcial">คำบรรยายแปลบนทีวีแล้ว (แปลอัตโนมัติ) ส่วนที่เหลือกำลังแปลต่อ</string>

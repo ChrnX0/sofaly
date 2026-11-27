@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">minden héten</string>
     <string name="grv_cancelar_pergunta">Törli \"%1$s\" felvételét?</string>
     <string name="grv_gravadas">Rögzítve</string>
-    <string name="grv_vazio">Még nincs felvétel. A lejátszóban ▶▶ › Felvétel; a műsorújságban OK egy jövőbeli műsoron.</string>
+    <string name="grv_vazio">Még nincs felvétel.</string>
     <string name="grv_vazio_sem_destino">Dugjon USB-meghajtót az elosztóba a felvételek megtekintéséhez és készítéséhez.</string>
     <string name="grv_partes">%1$d rész</string>
     <string name="grv_parte">%2$d/%1$d. rész</string>

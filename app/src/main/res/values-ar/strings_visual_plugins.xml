@@ -45,7 +45,7 @@
     <string name="wp_d_arcticons">15 ألف أيقونة بخط رفيع (للهاتف، وتعمل هنا)</string>
     <string name="ext_off_health">تم الإيقاف: توقف عن الاستجابة. شغّله مجددًا إذا أردت.</string>
     <string name="ext_secao_botoes">أزرار اللوحة السريعة</string>
-    <string name="ext_nenhum_botao">لا توجد أزرار من تطبيقات أخرى بعد. تضيف بعض التطبيقات زر تشغيل وإيقاف إلى اللوحة السريعة (اضغط مطولًا على رجوع).</string>
+    <string name="ext_nenhum_botao">لا توجد أزرار من تطبيقات أخرى بعد. تضيف بعض التطبيقات زر تشغيل وإيقاف إلى اللوحة السريعة.</string>
     <string name="ext_off_blocked">أوقفته Sofaly: لهذه الإضافة مشكلة معروفة.</string>
     <string name="ext_secao_widgets">أدوات من تطبيقات أخرى</string>
     <string name="ext_widget_nenhum">لا يوجد بعد تطبيق على هذا التلفاز لديه أداة.</string>

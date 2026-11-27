@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Čeká se na vaše potvrzení v telefonu…</string>
     <string name="rede_nuvem_salvando">Přihlašuje se…</string>
     <string name="rede_nuvem_recusado">Služba odmítla. Zkontrolujte ID aplikace a zkuste to znovu.</string>
-    <string name="rede_erro_nuvem_login">Oprávnění tohoto účtu vypršelo nebo bylo odebráno. Odeberte účet (podržte OK) a přihlaste se znovu.</string>
+    <string name="rede_erro_nuvem_login">Oprávnění tohoto účtu vypršelo nebo bylo odebráno. Odeberte účet a přihlaste se znovu.</string>
     <string name="rede_od_titulo">OneDrive: vaše aplikace u Microsoftu</string>
     <string name="rede_od_explica">Jednou, na počítači: entra.microsoft.com › App registrations › New registration. U typů účtů vyberte ten, který zahrnuje osobní účty Microsoft. Pak v Authentication zapněte „Allow public client flows“. Zkopírujte „Application (client) ID“ a napište ho sem (můžete psát z telefonu, v panelu).</string>
     <string name="rede_od_id">Application (client) ID</string>

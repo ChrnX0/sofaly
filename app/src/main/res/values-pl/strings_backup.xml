@@ -7,8 +7,8 @@
     <string name="bkn_desligado">wył.</string>
     <string name="bkn_sem_senha">wył. · najpierw ustaw hasło kopii</string>
     <string name="bkn_senha">Hasło kopii</string>
-    <string name="bkn_senha_ok">ustawione · OK zmienia</string>
-    <string name="bkn_senha_falta">nieustawione · OK ustawia</string>
+    <string name="bkn_senha_ok">ustawione</string>
+    <string name="bkn_senha_falta">nieustawione</string>
     <string name="bkn_senha_nova">Hasło kopii (8 lub więcej znaków)</string>
     <string name="bkn_senha_repetir">Wpisz hasło ponownie</string>
     <string name="bkn_senha_curta">Hasło musi mieć od 8 do 128 znaków.</string>

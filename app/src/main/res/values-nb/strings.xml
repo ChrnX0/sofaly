@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Rutiner</string>
     <string name="cfg_sec_atualizacao">Oppdateringer</string>
     <string name="cfg_atualizar">Se etter ny versjon</string>
-    <string name="cfg_atualizar_det">Versjon %1$s · %2$s · OK sjekker nå</string>
+    <string name="cfg_atualizar_det">Versjon %1$s · %2$s</string>
     <string name="cfg_procurando">sjekker GitHub…</string>
     <string name="cfg_instalar">Installer versjon %1$d nå</string>
-    <string name="cfg_instalar_det">Launcheren lukkes og kommer tilbake av seg selv om noen sekunder · OK installerer</string>
+    <string name="cfg_instalar_det">Launcheren lukkes og kommer tilbake av seg selv om noen sekunder</string>
     <string name="cfg_instalando">laster ned og sjekker…</string>
     <string name="cfg_sec_rede">Nettverk</string>
     <string name="cfg_dns">Privat DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Hva som er på – %1$s</string>
     <string name="cfg_ligado">på</string>
     <string name="cfg_so_pc">" · bare med en datamaskin (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK prøver å slå på"</string>
     <string name="cfg_perm_fixas">Faste tillatelser gitt</string>
     <string name="cfg_shell_estado">Eget skall</string>
     <string name="cfg_shell_pareado">paret: launcheren kobler til igjen av seg selv via trådløs feilsøking</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Tastetjeneste</string>
     <string name="rec_teclas_sem">uten den: HOME kan åpne Google-launcheren og Netflix/YouTube-tastene tilordnes ikke på nytt</string>
     <string name="rec_tudo">alt er på</string>
-    <string name="rec_faltam">%1$d av %2$d funksjoner mangler · OK på et element prøver å slå det på</string>
+    <string name="rec_faltam">%1$d av %2$d funksjoner mangler</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Velkommen</string>
     <string name="bv_texto">Startskjermen, klokken, været, alarmen og skjermspareren virker allerede. Slå på resten her hvis du vil (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · av"</string>
     <string name="rot_nova">Ny rutine</string>
     <string name="rot_editar">Rediger rutine</string>
-    <string name="rot_editor_det">OK endrer hver linje · TILBAKE går ut uten å lagre</string>
     <string name="rot_hora">Tid: %1$s</string>
     <string name="rot_dias">Dager: %1$s</string>
     <string name="rot_acao">Handling: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Bare hvis ingen har rørt den på: %1$s</string>
     <string name="rot_ligada">På</string>
     <string name="rot_desligada">Av</string>
-    <string name="rot_hora_det">◀ ▶ 5 minutter · OK +1 time</string>
-    <string name="rot_dias_det">OK: hver dag, man til fre, helg, én gang</string>
-    <string name="rot_ok_muda">OK endrer</string>
-    <string name="rot_app_det">OK eller ▶ neste · ◀ forrige</string>
     <string name="rot_ocioso_det">Avbryter ikke noen som ser på</string>
-    <string name="rot_ativa_det">OK slår denne rutinen på/av</string>
     <string name="rot_salvar">Lagre</string>
     <string name="rot_escolha_app">Velg appen</string>
     <string name="rot_apagar">Slett denne rutinen</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Koble til</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">ingen Google-konto</string>
-    <string name="cal_dica">◀ ▶ bytt måned</string>
     <string name="cal_30">Neste 30 dager</string>
     <string name="cal_nenhuma_conta">Ingen Google-konto på TV-en</string>
     <string name="cal_nada">Ingenting planlagt (eller kalenderen synkroniserer fortsatt)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">soloppgang %1$s</string>
     <string name="fd_por">solnedgang %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: bruk   ·   hold OK på en av serverne dine: fjern   ·   Tilbake: avslutt</string>
     <string name="dns_auto">Automatisk</string>
     <string name="dns_auto_det">Bruker ruterens DNS og krypterer når den godtar det (Android-standard)</string>
     <string name="dns_desl">Av</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">versjon %1$d: klar til å flytte denne TV-en til den nye appen (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">installerer den nye appen (%1$d); den tar deretter over denne TV-en med alle innstillinger</string>
     <string name="atu_disponivel">versjon %1$d klar til installering (installert %2$d)</string>
-    <string name="atu_trocou">versjonen er endret siden forrige sjekk · OK sjekker igjen</string>
+    <string name="atu_trocou">versjonen er endret siden forrige sjekk</string>
     <string name="atu_instalando">installerer %1$d (installert %2$d)</string>
     <string name="atu_ok">oppdatert</string>
     <string name="atu_falhou">installering mislyktes (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">versjon %1$d krasjet to ganger rett etter installering · \"%2$s\" forblir av til den neste</string>
     <string name="vig_tela_bloqueada">Denne skjermen er av til neste oppdatering (den krasjet launcheren)</string>
     <string name="cfg_vig_liberar">Sikker modus</string>
-    <string name="cfg_vig_liberar_det">" · OK slår den på igjen"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Talesøk åpnet ikke på denne TV-en</string>
     <string name="home_alarme_hoje">i dag</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Laster inn video…</string>
     <string name="player_sem_canais">Ingen kanalliste lagt til ennå.</string>
     <string name="player_tentando">Ingen signal på kanal %1$d. Prøver igjen…</string>
-    <string name="player_sem_sinal">Kanal %1$d svarte ikke. Velg en annen med ▲ ▼ eller OK.</string>
+    <string name="player_sem_sinal">Kanal %1$d svarte ikke.</string>
     <string name="player_canal_nao_existe">Det finnes ingen kanal %1$d.</string>
     <string name="player_ao_vivo">DIREKTE</string>
     <string name="player_a_seguir">neste: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanal · OK kanalliste · hold OK 2 s: favoritt · ◀ forrige kanal · ▶ ▶ alternativer · TILBAKE avslutt</string>
-    <string name="player_teclas_pausa">▶❙❙ eller OK fortsett · ▶ alternativer (tilbake til direkte) · ▲ ▼ kanal · TILBAKE avslutt</string>
     <string name="player_cat_busca">Søk: %1$s</string>
     <string name="player_acao_buscar">Søk</string>
     <string name="player_acao_filtros">Filtre</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s lagt til i Se senere</string>
     <string name="filmes_interesse_tirou">%1$s fjernet fra Se senere</string>
     <string name="filmes_interesses_cheio">Se senere har allerede 500 titler: fjern én først.</string>
-    <string name="filmes_interesses_vazio">Hold OK i 2 sekunder på en plakat for å legge den til her (og igjen for å fjerne den).</string>
     <string name="filmes_assistido">Sett</string>
     <string name="filmes_selo_leg">TEKST</string>
     <string name="vod_sem_conta">Kontoen til denne videoen finnes ikke lenger.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Lyd</string>
     <string name="vod_legenda">Undertekster</string>
     <string name="vod_faixas">Lyd og undertekster</string>
-    <string name="vod_teclas">OK pause · ◀ 10 s · ▶ 30 s (hold for å gå raskere) · ▼ lyd, undertekster og bilde · ⏮ ⏭ kapitler · TILBAKE avslutt</string>
     <string name="series_titulo">Serier</string>
     <string name="series_carregando">Laster inn serier…</string>
     <string name="series_vazio">Ingen serier ennå</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Programguide</string>
     <string name="player_sem_guia_curto">Ingen programguide</string>
-    <string name="player_grade_teclas">OK se · ◀ ▶ program · ▲ ▼ kanal</string>
     <string name="player_busca_dica">Kanal- eller programnavn</string>
     <string name="player_busca_nada">Ingenting funnet for «%1$s».</string>
     <string name="player_filtro_qualquer">Alle</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Barnekategorier</string>
     <string name="infantil_carregando">laster inn kategorier…</string>
     <string name="infantil_coluna_itens">HVA DEN INNEHOLDER</string>
-    <string name="infantil_dica">OK merker eller fjerner merkingen av kategorien som barn · gjelder direkte-TV, Filmer og Serier · TILBAKE går ut (allerede lagret)</string>
     <string name="infantil_so_categoria">merk hele kategorien i venstre kolonne</string>
     <string name="infantil_vazio">ingen kategorier: legg til en konto i Innstillinger › TV og filmer og last inn kanalene på nytt</string>
     <string name="infantil_limite">en voksenkategori kan ikke være en barnekategori</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Favoritter</string>
     <string name="player_cat_recentes">Nylige</string>
     <string name="player_cat_outros">Annet</string>
-    <string name="player_sem_favoritos">Ingen favoritter ennå. Hold OK i 2 s på en kanal for å legge den til her.</string>
+    <string name="player_sem_favoritos">Ingen favoritter ennå.</string>
     <string name="player_categoria_vazia">Ingen kanaler i denne kategorien.</string>
     <string name="player_sem_guia">Ingen programguide for denne kanalen.</string>
     <string name="player_depois">SENERE</string>
-    <string name="player_lista_teclas">OK se · hold OK 2 s: favoritt eller fjern · hold OK på en kategori: skjul · ◀ kategorier</string>
     <string name="player_favorito_pos">★ %1$s lagt til i favoritter</string>
     <string name="player_favorito_tirou">%1$s fjernet fra favoritter</string>
     <string name="player_favoritos_cheio">Det er allerede 500 favoritter: fjern én først.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Denne kanalen har ingen lagrede programmer ennå.</string>
     <string name="tvv_voltou">Tilbake til direkte</string>
     <string name="tvv_selo">CATCH-UP</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK alternativer · TILBAKE direkte</string>
     <string name="tvv_pausar">Pause</string>
     <string name="tvv_continuar">Fortsett</string>
     <string name="tvv_ao_vivo">Tilbake til direkte</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Filmer og serier</string>
     <string name="idioma_titulo">Foretrukket lyd</string>
-    <string name="idioma_det">Original med undertekster på TV-ens språk, eller dubbet til det. Hver film og serie husker endringen gjort i avspilleren (▼)</string>
+    <string name="idioma_det">Original med undertekster på TV-ens språk, eller dubbet til det. Hver film og serie husker endringen gjort i avspilleren</string>
     <string name="idioma_original">Original med undertekster</string>
     <string name="idioma_dublado">Dubbet</string>
     <string name="idioma_legendado">Med undertekster</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">USB-stasjon og lagring</string>
     <string name="st_explica">Velg hvordan TV-en bruker en USB-stasjon. Lite plass? Den kan bli TV-lagring for tunge apper.</string>
     <string name="st_linha_det">Bruk en USB-stasjon som TV-lagring</string>
-    <string name="st_sem_shell">Krever TV-ens eget skall (Innstillinger › System › Avansert). OK for å prøve igjen.</string>
-    <string name="st_sem_pen">Ingen USB-stasjon tilkoblet. Koble til én og trykk OK.</string>
+    <string name="st_sem_shell">Krever TV-ens eget skall (Innstillinger › System › Avansert).</string>
+    <string name="st_sem_pen">Ingen USB-stasjon tilkoblet.</string>
     <string name="st_tv_livre">TV-lagring: %1$s ledig av %2$s</string>
     <string name="st_pen">USB-stasjon · %1$s · %2$s</string>
     <string name="st_modo_comum">Vanlig USB-stasjon</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">halvparten til apper, halvparten til opptak og filer</string>
     <string name="st_motivo_apertada">TV-en er nesten full</string>
     <string name="st_medido">skriver med %1$s MB/s</string>
-    <string name="st_medir_dica">OK måler hastigheten</string>
     <string name="st_usar_comum">Bruk som vanlig USB-stasjon</string>
-    <string name="st_usar_misto">Bruk som blandet: %1$d%% vanlig  ◀ ▶</string>
+    <string name="st_usar_misto">Bruk som blandet: %1$d%% vanlig</string>
     <string name="st_usar_tv">Bruk som TV-lagring</string>
     <string name="st_apps">Apper på USB-stasjonen</string>
     <string name="st_apps_det">Velg apper som skal flyttes (største først)</string>
     <string name="st_apps_nenhum">Ingen app kan flyttes.</string>
-    <string name="st_apps_rodape">OK flytter appen; ✓ = allerede på USB-stasjonen</string>
+    <string name="st_apps_rodape">✓ = allerede på USB-stasjonen</string>
     <string name="st_compartilhado">Bilder og filer: %1$s</string>
     <string name="st_na_tv">på TV-en</string>
     <string name="st_no_pen">på USB-stasjonen</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Tilbake til vanlig USB-stasjon (apper kommer tilbake til TV-en)</string>
     <string name="st_trazendo">Henter %1$s tilbake til TV-en…</string>
     <string name="st_sumiram">USB-stasjonen er fjernet: %1$s er skjult til den er tilbake.</string>
-    <string name="st_sugestao">TV-lagringen er nesten full. Flytt %1$s (%2$s) til USB-stasjonen: hold OK på appen.</string>
+    <string name="st_sugestao">TV-lagringen er nesten full. Flytt %1$s (%2$s) til USB-stasjonen</string>
     <string name="st_medindo">Måler stasjonens hastighet for å anbefale den beste bruken…</string>
     <string name="st_lento_titulo">Stasjonen er for treg</string>
     <string name="st_lento_bloqueado">Denne stasjonen skriver med %1$s MB/s. For å bli TV-lagring trenger den minst %2$d MB/s: under det fryser apper og TV-en starter kanskje ikke. Bruk den som en vanlig stasjon.</string>

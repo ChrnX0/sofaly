@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Feinabstimmung</string>
-    <string name="ft_dica">OK oder ▶ ◀ ändert · ZURÜCK schließt</string>
     <string name="ft_abrir">Mit Blick auf den Startbildschirm anpassen</string>
     <string name="ft_abrir_det">Schrift, Uhr, Akzentfarbe, Ecken, Leuchten und Größe, live</string>
     <string name="cs_destaque">Akzentfarbe</string>

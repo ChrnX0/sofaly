@@ -51,7 +51,7 @@
     <string name="l51_digitar_titulo">Psát na televizoru</string>
     <string name="l51_digitar_texto">V %1$s je otevřené textové pole. Klepněte pro psaní odsud.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">místnost %1$s</string>
     <string name="casa_movimento">Pohyb</string>
     <string name="casa_sem_movimento">Bez pohybu</string>

@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Öppnar…</string>
     <string name="dp_erro">Kunde inte öppna den här platsen. Kontrollera att den är ansluten och försök igen.</string>
     <string name="dp_arquivos">Filer i den här mappen: %1$d</string>
-    <string name="dp_dicas">OK: öppna · TILLBAKA: gå tillbaka</string>
     <string name="dp_diario">%1$s tog emot %2$s från väljaren</string>
     <string name="dp_sem_nome">namnlös</string>
 </resources>

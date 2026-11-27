@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Rutiinit</string>
     <string name="cfg_sec_atualizacao">Päivitykset</string>
     <string name="cfg_atualizar">Tarkista uusi versio</string>
-    <string name="cfg_atualizar_det">Versio %1$s · %2$s · OK tarkistaa nyt</string>
+    <string name="cfg_atualizar_det">Versio %1$s · %2$s</string>
     <string name="cfg_procurando">tarkistetaan GitHubia…</string>
     <string name="cfg_instalar">Asenna versio %1$d nyt</string>
-    <string name="cfg_instalar_det">Launcher sulkeutuu ja palaa itsestään muutamassa sekunnissa · OK asentaa</string>
+    <string name="cfg_instalar_det">Launcher sulkeutuu ja palaa itsestään muutamassa sekunnissa</string>
     <string name="cfg_instalando">ladataan ja tarkistetaan…</string>
     <string name="cfg_sec_rede">Verkko</string>
     <string name="cfg_dns">Yksityinen DNS</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Mitä on päällä – %1$s</string>
     <string name="cfg_ligado">päällä</string>
     <string name="cfg_so_pc">" · vain tietokoneella (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK yrittää kytkeä päälle"</string>
     <string name="cfg_perm_fixas">Kiinteät käyttöoikeudet myönnetty</string>
     <string name="cfg_shell_estado">Oma komentotulkki</string>
     <string name="cfg_shell_pareado">paritettu: launcher yhdistää itse uudelleen langattoman virheenkorjauksen kautta</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Näppäinpalvelu</string>
     <string name="rec_teclas_sem">ilman sitä: HOME voi avata Googlen launcherin eikä Netflix-/YouTube-näppäimiä määritetä uudelleen</string>
     <string name="rec_tudo">kaikki päällä</string>
-    <string name="rec_faltam">%1$d / %2$d ominaisuutta puuttuu · OK kohteessa yrittää kytkeä sen päälle</string>
+    <string name="rec_faltam">%1$d / %2$d ominaisuutta puuttuu</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Tervetuloa</string>
     <string name="bv_texto">Aloitusnäyttö, kello, sää, herätys ja näytönsäästäjä toimivat jo. Kytke loput päälle täällä, jos haluat (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · pois"</string>
     <string name="rot_nova">Uusi rutiini</string>
     <string name="rot_editar">Muokkaa rutiinia</string>
-    <string name="rot_editor_det">OK muuttaa kutakin riviä · TAKAISIN poistuu tallentamatta</string>
     <string name="rot_hora">Aika: %1$s</string>
     <string name="rot_dias">Päivät: %1$s</string>
     <string name="rot_acao">Toiminto: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Vain jos kukaan ei koskenut siihen: %1$s</string>
     <string name="rot_ligada">Päällä</string>
     <string name="rot_desligada">Pois</string>
-    <string name="rot_hora_det">◀ ▶ 5 minuuttia · OK +1 tunti</string>
-    <string name="rot_dias_det">OK: joka päivä, ma–pe, viikonloppu, kerran</string>
-    <string name="rot_ok_muda">OK muuttaa</string>
-    <string name="rot_app_det">OK tai ▶ seuraava · ◀ edellinen</string>
     <string name="rot_ocioso_det">Ei keskeytä katselijaa</string>
-    <string name="rot_ativa_det">OK kytkee tämän rutiinin päälle/pois</string>
     <string name="rot_salvar">Tallenna</string>
     <string name="rot_escolha_app">Valitse sovellus</string>
     <string name="rot_apagar">Poista tämä rutiini</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Yhdistä</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">ei Google-tiliä</string>
-    <string name="cal_dica">◀ ▶ vaihda kuukautta</string>
     <string name="cal_30">Seuraavat 30 päivää</string>
     <string name="cal_nenhuma_conta">TV:ssä ei ole Google-tiliä</string>
     <string name="cal_nada">Ei mitään suunniteltua (tai kalenteri synkronoidaan vielä)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">auringonnousu %1$s</string>
     <string name="fd_por">auringonlasku %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: käytä   ·   pidä OK pohjassa omassa palvelimessa: poista   ·   Takaisin: poistu</string>
     <string name="dns_auto">Automaattinen</string>
     <string name="dns_auto_det">Käyttää reitittimen DNS:ää ja salaa, kun se hyväksyy (Androidin oletus)</string>
     <string name="dns_desl">Pois</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">versio %1$d: valmis siirtämään tämän TV:n uuteen sovellukseen (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">asennetaan uusi sovellus (%1$d); se ottaa sitten tämän TV:n hallintaansa kaikkine asetuksineen</string>
     <string name="atu_disponivel">versio %1$d valmis asennettavaksi (asennettu %2$d)</string>
-    <string name="atu_trocou">versio muuttui viime tarkistuksen jälkeen · OK tarkistaa uudelleen</string>
+    <string name="atu_trocou">versio muuttui viime tarkistuksen jälkeen</string>
     <string name="atu_instalando">asennetaan %1$d (asennettu %2$d)</string>
     <string name="atu_ok">päivitetty</string>
     <string name="atu_falhou">asennus epäonnistui (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">versio %1$d kaatui kahdesti heti asennuksen jälkeen · ”%2$s” pysyy pois päältä seuraavaan asti</string>
     <string name="vig_tela_bloqueada">Tämä näyttö on pois päältä seuraavaan päivitykseen asti (se kaatoi launcherin)</string>
     <string name="cfg_vig_liberar">Vikasietotila</string>
-    <string name="cfg_vig_liberar_det">" · OK kytkee sen takaisin päälle"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Puhehaku ei avautunut tällä TV:llä</string>
     <string name="home_alarme_hoje">tänään</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Ladataan videota…</string>
     <string name="player_sem_canais">Kanavaluetteloa ei ole vielä lisätty.</string>
     <string name="player_tentando">Ei signaalia kanavalla %1$d. Yritetään uudelleen…</string>
-    <string name="player_sem_sinal">Kanava %1$d ei vastannut. Valitse toinen ▲ ▼ tai OK.</string>
+    <string name="player_sem_sinal">Kanava %1$d ei vastannut.</string>
     <string name="player_canal_nao_existe">Kanavaa %1$d ei ole.</string>
     <string name="player_ao_vivo">SUORA</string>
     <string name="player_a_seguir">seuraava: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanava · OK kanavaluettelo · pidä OK 2 s: suosikki · ◀ edellinen kanava · ▶ ▶ valinnat · TAKAISIN poistu</string>
-    <string name="player_teclas_pausa">▶❙❙ tai OK jatka · ▶ valinnat (takaisin suoraan) · ▲ ▼ kanava · TAKAISIN poistu</string>
     <string name="player_cat_busca">Haku: %1$s</string>
     <string name="player_acao_buscar">Haku</string>
     <string name="player_acao_filtros">Suodattimet</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s lisätty katselulistalle</string>
     <string name="filmes_interesse_tirou">%1$s poistettu katselulistalta</string>
     <string name="filmes_interesses_cheio">Katselulistalla on jo 500 nimikettä: poista yksi ensin.</string>
-    <string name="filmes_interesses_vazio">Pidä OK pohjassa 2 sekuntia julisteessa lisätäksesi sen tänne (ja uudelleen poistaaksesi).</string>
     <string name="filmes_assistido">Katsottu</string>
     <string name="filmes_selo_leg">TEKST.</string>
     <string name="vod_sem_conta">Tämän videon tiliä ei ole enää olemassa.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Ääni</string>
     <string name="vod_legenda">Tekstitys</string>
     <string name="vod_faixas">Ääni ja tekstitys</string>
-    <string name="vod_teclas">OK tauko · ◀ 10 s · ▶ 30 s (pidä pohjassa nopeammin) · ▼ ääni, tekstitys ja kuva · ⏮ ⏭ kappaleet · TAKAISIN poistu</string>
     <string name="series_titulo">Sarjat</string>
     <string name="series_carregando">Ladataan sarjoja…</string>
     <string name="series_vazio">Ei vielä sarjoja</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Ohjelmaopas</string>
     <string name="player_sem_guia_curto">Ei ohjelmaopasta</string>
-    <string name="player_grade_teclas">OK katso · ◀ ▶ ohjelma · ▲ ▼ kanava</string>
     <string name="player_busca_dica">Kanavan tai ohjelman nimi</string>
     <string name="player_busca_nada">Haulla ”%1$s” ei löytynyt mitään.</string>
     <string name="player_filtro_qualquer">Mikä tahansa</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Lasten luokat</string>
     <string name="infantil_carregando">ladataan luokkia…</string>
     <string name="infantil_coluna_itens">MITÄ SIINÄ ON</string>
-    <string name="infantil_dica">OK merkitsee luokan lasten luokaksi tai poistaa merkinnän · koskee suoraa TV:tä, Elokuvia ja Sarjoja · TAKAISIN poistuu (jo tallennettu)</string>
     <string name="infantil_so_categoria">merkitse koko luokka vasemmassa sarakkeessa</string>
     <string name="infantil_vazio">ei luokkia: lisää tili kohdassa Asetukset › TV ja elokuvat ja lataa kanavat uudelleen</string>
     <string name="infantil_limite">aikuisten luokka ei voi olla lasten luokka</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Suosikit</string>
     <string name="player_cat_recentes">Viimeisimmät</string>
     <string name="player_cat_outros">Muut</string>
-    <string name="player_sem_favoritos">Ei vielä suosikkeja. Pidä OK pohjassa 2 s kanavalla lisätäksesi sen tänne.</string>
+    <string name="player_sem_favoritos">Ei vielä suosikkeja.</string>
     <string name="player_categoria_vazia">Tässä luokassa ei ole kanavia.</string>
     <string name="player_sem_guia">Tälle kanavalle ei ole ohjelmaopasta.</string>
     <string name="player_depois">MYÖHEMMIN</string>
-    <string name="player_lista_teclas">OK katso · pidä OK 2 s: suosikki tai poista · pidä OK luokassa: piilota · ◀ luokat</string>
     <string name="player_favorito_pos">★ %1$s lisätty suosikkeihin</string>
     <string name="player_favorito_tirou">%1$s poistettu suosikeista</string>
     <string name="player_favoritos_cheio">Suosikkeja on jo 500: poista yksi ensin.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Tällä kanavalla ei ole vielä tallennettuja ohjelmia.</string>
     <string name="tvv_voltou">Takaisin suoraan</string>
     <string name="tvv_selo">CATCH-UP</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK valinnat · TAKAISIN suora</string>
     <string name="tvv_pausar">Tauko</string>
     <string name="tvv_continuar">Jatka</string>
     <string name="tvv_ao_vivo">Takaisin suoraan</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Elokuvat ja sarjat</string>
     <string name="idioma_titulo">Ensisijainen ääni</string>
-    <string name="idioma_det">Alkuperäinen ääni TV:n kielisellä tekstityksellä tai sille dubattuna. Jokainen elokuva ja sarja muistaa soittimessa tehdyn muutoksen (▼)</string>
+    <string name="idioma_det">Alkuperäinen ääni TV:n kielisellä tekstityksellä tai sille dubattuna. Jokainen elokuva ja sarja muistaa soittimessa tehdyn muutoksen</string>
     <string name="idioma_original">Alkuperäinen tekstityksellä</string>
     <string name="idioma_dublado">Dubattu</string>
     <string name="idioma_legendado">Tekstitetty</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">USB-asema ja tallennustila</string>
     <string name="st_explica">Valitse, miten TV käyttää USB-asemaa. Tila vähissä? Siitä voi tulla TV:n tallennustilaa raskaille sovelluksille.</string>
     <string name="st_linha_det">Käytä USB-asemaa TV:n tallennustilana</string>
-    <string name="st_sem_shell">Vaatii TV:n oman komentotulkin (Asetukset › Järjestelmä › Lisäasetukset). OK yrittää uudelleen.</string>
-    <string name="st_sem_pen">USB-asemaa ei ole liitetty. Liitä yksi ja paina OK.</string>
+    <string name="st_sem_shell">Vaatii TV:n oman komentotulkin (Asetukset › Järjestelmä › Lisäasetukset).</string>
+    <string name="st_sem_pen">USB-asemaa ei ole liitetty.</string>
     <string name="st_tv_livre">TV:n tallennustila: %1$s vapaana / %2$s</string>
     <string name="st_pen">USB-asema · %1$s · %2$s</string>
     <string name="st_modo_comum">Tavallinen USB-asema</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">puolet sovelluksille, puolet tallenteille ja tiedostoille</string>
     <string name="st_motivo_apertada">TV on melkein täynnä</string>
     <string name="st_medido">kirjoittaa %1$s Mt/s</string>
-    <string name="st_medir_dica">OK mittaa nopeuden</string>
     <string name="st_usar_comum">Käytä tavallisena USB-asemana</string>
-    <string name="st_usar_misto">Käytä yhdistelmänä: %1$d%% tavallinen  ◀ ▶</string>
+    <string name="st_usar_misto">Käytä yhdistelmänä: %1$d%% tavallinen</string>
     <string name="st_usar_tv">Käytä TV:n tallennustilana</string>
     <string name="st_apps">Sovellukset USB-asemalla</string>
     <string name="st_apps_det">Valitse siirrettävät sovellukset (suurimmat ensin)</string>
     <string name="st_apps_nenhum">Mitään sovellusta ei voi siirtää.</string>
-    <string name="st_apps_rodape">OK siirtää sovelluksen; ✓ = jo USB-asemalla</string>
+    <string name="st_apps_rodape">✓ = jo USB-asemalla</string>
     <string name="st_compartilhado">Kuvat ja tiedostot: %1$s</string>
     <string name="st_na_tv">TV:ssä</string>
     <string name="st_no_pen">USB-asemalla</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Takaisin tavalliseksi USB-asemaksi (sovellukset palaavat TV:hen)</string>
     <string name="st_trazendo">Tuodaan %1$s takaisin TV:hen…</string>
     <string name="st_sumiram">USB-asema on irrotettu: %1$s ovat piilossa, kunnes se palaa.</string>
-    <string name="st_sugestao">TV:n tallennustila on melkein täynnä. Siirrä %1$s (%2$s) USB-asemalle: pidä OK pohjassa sovelluksessa.</string>
+    <string name="st_sugestao">TV:n tallennustila on melkein täynnä. Siirrä %1$s (%2$s) USB-asemalle</string>
     <string name="st_medindo">Mitataan aseman nopeutta parhaan käytön suosittelemiseksi…</string>
     <string name="st_lento_titulo">Asema liian hidas</string>
     <string name="st_lento_bloqueado">Tämä asema kirjoittaa %1$s Mt/s. Tullakseen TV:n tallennustilaksi se tarvitsee vähintään %2$d Mt/s: sitä hitaammalla sovellukset jumiutuvat eikä TV ehkä käynnisty. Käytä sitä tavallisena asemana.</string>

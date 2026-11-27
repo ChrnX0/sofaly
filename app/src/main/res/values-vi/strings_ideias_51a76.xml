@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Gõ trên TV</string>
     <string name="l51_digitar_texto">Một ô nhập văn bản đang mở trong %1$s. Chạm để gõ từ đây.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">phòng %1$s</string>
     <string name="casa_movimento">Có chuyển động</string>
     <string name="casa_sem_movimento">Không có chuyển động</string>

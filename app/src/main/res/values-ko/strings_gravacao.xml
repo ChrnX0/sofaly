@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">매주</string>
     <string name="grv_cancelar_pergunta">‘%1$s’ 녹화를 취소할까요?</string>
     <string name="grv_gravadas">녹화됨</string>
-    <string name="grv_vazio">아직 녹화된 것이 없습니다. 플레이어에서 ▶▶ › 녹화, 편성표에서 예정된 프로그램에 OK.</string>
+    <string name="grv_vazio">아직 녹화된 것이 없습니다.</string>
     <string name="grv_vazio_sem_destino">녹화를 보고 만들려면 허브에 USB 드라이브를 연결하세요.</string>
     <string name="grv_partes">%1$d개 부분</string>
     <string name="grv_parte">%2$d개 중 %1$d번째 부분</string>

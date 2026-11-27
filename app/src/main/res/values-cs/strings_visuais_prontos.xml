@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Hotové vzhledy</string>
-    <string name="vpr_det">Každé OK přepne na další vzhled: motiv, text a barvu pozadí najednou</string>
     <string name="vpr_meu">Vlastní</string>
     <string name="vpr_classico">Klasický</string>
     <string name="vpr_leitura">Snadné čtení</string>

@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Edytuj widżety ekranu głównego</string>
-    <string name="wdg_det">Aktywne widżety innych aplikacji na ekranie głównym. Strzałki przesuwają, OK pokazuje opcje.</string>
-    <string name="wdg_vazio">Na ekranie głównym nie ma jeszcze widżetu. OK dodaje jeden.</string>
+    <string name="wdg_det">Aktywne widżety innych aplikacji na ekranie głównym.</string>
+    <string name="wdg_vazio">Na ekranie głównym nie ma jeszcze widżetu.</string>
     <string name="wdg_estado_mover">Przesuwanie: %1$s</string>
     <string name="wdg_estado_tamanho">Rozmiar: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Przesuń</string>

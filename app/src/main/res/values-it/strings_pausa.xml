@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Metti in pausa la diretta</string>
     <string name="pausa_continuar">Riprendi</string>
     <string name="pausa_ao_vivo">Torna alla diretta</string>
-    <string name="pausa_selo">⏸ IN PAUSA · OK riprende</string>
-    <string name="pausa_atrasado_min">%1$d MIN INDIETRO · ▶ diretta</string>
-    <string name="pausa_atrasado_seg">%1$d S INDIETRO · ▶ diretta</string>
+    <string name="pausa_selo">⏸ IN PAUSA</string>
+    <string name="pausa_atrasado_min">%1$d MIN INDIETRO</string>
+    <string name="pausa_atrasado_seg">%1$d S INDIETRO</string>
     <string name="pausa_voltou">In pausa più a lungo di quanto tiene la memoria: tornato alla diretta</string>
 </resources>

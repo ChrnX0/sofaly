@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">साफ़ आवाज़ें चालू</string>
     <string name="acess_voz_desligado">साफ़ आवाज़ें बंद</string>
     <string name="acess_config_titulo">आवाज़ और सबटाइटल</string>
-    <string name="acess_config_texto">कम देखने या सुनने वालों के लिए। प्लेयर के ▼ मेनू में भी।</string>
+    <string name="acess_config_texto">कम देखने या सुनने वालों के लिए।</string>
 </resources>

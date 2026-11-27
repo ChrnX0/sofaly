@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">Hierna</string>
     <string name="pl_dormir">Slaaptimer</string>
     <string name="pl_dormir_min">Over %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ 10 s verschuiven · ingedrukt houden voor sneller</string>
     <string name="pl_abrir">Speler openen</string>
     <string name="pl_abrir_det">Volledig scherm, met wat er hierna speelt</string>
 </resources>

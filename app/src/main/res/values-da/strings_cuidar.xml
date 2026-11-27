@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Du kan vente.</string>
     <string name="cuidar_nao_avisado">Kunne ikke give %1$s besked</string>
     <string name="cuidar_sem_aparelho">Ingen telefon er indstillet til at modtage. Tjek Indstillinger › Familie › Omsorg på afstand.</string>
-    <string name="cuidar_sem_internet">Tjek internettet, og prøv igen (hold knappen i 3 sekunder).</string>
+    <string name="cuidar_sem_internet">Tjek internettet, og prøv igen.</string>
     <string name="cuidar_lembrete_sobre">Påmindelse · %1$s</string>
     <string name="cuidar_lembrete_explica">Tryk på OK, når det er gjort.</string>
     <string name="cuidar_lembrete_explica_aviso">Tryk på OK, når det er gjort. Uden det inden for %1$d minutter får %2$s en besked.</string>

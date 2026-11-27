@@ -104,7 +104,6 @@
     <string name="lb_lembrete">Påminnelse</string>
     <string name="lb_quando_em">%1$s, på %2$s.</string>
     <string name="ms_ola">Hei!</string>
-    <string name="ms_ola_det">Velg med pilene og trykk OK.</string>
     <string name="ms_pedir_ajuda">Be om hjelp</string>
     <string name="ms_pedido_ajuda">Hjelpeforespørsel</string>
     <string name="ms_alguem_pediu">Noen ba om hjelp på TV-en %1$s.</string>
@@ -172,7 +171,6 @@
     <string name="bc_categorias">KATEGORIER</string>
     <string name="bc_canais">KANALER</string>
     <string name="bc_carregando">laster inn kanaler…</string>
-    <string name="bc_dica">OK blokkerer eller fjerner blokkering · OK på en kategori gjelder hele den · ◀ ▶ kategorier og kanaler · TILBAKE går ut (allerede lagret)</string>
     <string name="bc_categoria_bloqueada">hele kategorien \"%1$s\" er blokkert: fjern blokkeringen i venstre kolonne</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Serie · %1$s</string>

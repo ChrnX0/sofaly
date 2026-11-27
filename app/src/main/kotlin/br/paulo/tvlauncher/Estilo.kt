@@ -252,8 +252,42 @@ object Estilo {
             if (base == null) traco(ctx) else android.graphics.drawable.LayerDrawable(arrayOf(base, traco(ctx)))
         // Anel laranja de 3 dp, como o da barra da HOME, sobre um véu laranja bem leve (o texto continua claro).
         // Padrão do protótipo aprovado (Paulo, 26/11/2026): vidro claro com o anel laranja FINO; o véu laranja virava marrom.
-        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, FOCO_VIDRO, raioDp, ACENTO, ANEL_LINHA_DP)
+        // Padrão das Fileiras (prévia aprovada 26/11/2026): caixa mais clara com borda creme de 3 dp; o ícone fica laranja
+        // ([corIconeNoFoco]). Era vidro claro com anel laranja fino.
+        br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, FOCO_CARTAO, raioDp, TEXTO, ANEL_DP)
     }
+
+    /** A cor do ícone de linha no item em foco: laranja no padrão das Fileiras (Paulo, 26/11/2026), senão a do texto. */
+    fun corIconeNoFoco(ctx: Context): Int =
+        if (focoAtual(ctx) == br.paulo.tvlauncher.settings.FocusStyle.RING) ACENTO else if (focoEscurece(ctx)) TEXTO_NO_FOCO else TEXTO
+
+    /**
+     * Caixa (Paulo, 26/11/2026: "o painel web ficou bom pq tem caixas nas coisas"; pílulas com contorno e linhas soltas
+     * saíram): todo item de lista, botão e pílula é uma caixa cheia de vidro, sem contorno, como os cartões das Fileiras.
+     * No alto contraste a caixa ganha o fio claro, para a borda não depender só do tom.
+     */
+    const val CAIXA = 0x61464644
+    fun caixa(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, CAIXA, raioDp, if (altoContraste) BORDA else 0)
+
+    /**
+     * A cor da capa de quem não tem foto (filme, rádio, gênero, assunto, pessoa): grafite neutro com um toque do laranja,
+     * mais ou menos forte conforme a [semente] (o mesmo nome dá sempre o mesmo tom). Só a paleta, nunca roxo, verde ou
+     * rosa (Paulo, 27/11/2026: as capas coloridas por título destoavam do padrão). Puro.
+     */
+    fun corCapa(semente: String): Int {
+        val n = Math.floorMod(semente.lowercase().filter { it.isLetterOrDigit() }.hashCode(), TONS_CAPA)
+        val t = 0.06f + n * 0.05f   // 6% a 26% de laranja
+        val a = GRAFITE_CAPA; val b = ACENTO
+        fun c(sh: Int) = ((a shr sh and 0xFF) + (((b shr sh and 0xFF) - (a shr sh and 0xFF)) * t)).toInt().coerceIn(0, 255)
+        return (0xFF shl 24) or (c(16) shl 16) or (c(8) shl 8) or c(0)
+    }
+    private const val GRAFITE_CAPA = 0xFF2E2C2A.toInt()
+    /** O quadro da capa sem foto nas Fileiras do Ouvir (a CapaOuvir escurece 72% por cima): grafite quente. */
+    const val GRAFITE_QUADRO = 0xFF77736D.toInt()
+    private const val TONS_CAPA = 5
+
+    /** O cartão em foco no padrão das Fileiras (Paulo aprovou a prévia, 26/11/2026): caixa mais clara e quase opaca. */
+    const val FOCO_CARTAO = 0xF53E3D3A.toInt()
 
     /** Vidro claro do foco de linha (branco a 10%) e a espessura do anel nas linhas (o card da HOME segue com [ANEL_DP]). */
     const val FOCO_VIDRO = 0x1AFFFFFF
@@ -323,7 +357,8 @@ object Estilo {
         }
 
     /** Vidro sem desfoque (o desfoque de verdade só existe em janela; ver [AvisoTv]): tinta escura + fio claro. */
-    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, VIDRO_TINTA, raioDp, VIDRO_BORDA)
+    /** Vidro escuro, sem contorno (padrão único, 26/11/2026: caixa cheia, sem fio); o fio só no alto contraste. */
+    fun vidro(ctx: Context, raioDp: Int = RAIO): GradientDrawable = fundo(ctx, VIDRO_TINTA, raioDp, if (altoContraste) VIDRO_BORDA else 0)
 
     // ------------------------------------------------------------------ foco (UMA regra no app inteiro)
 
@@ -339,7 +374,7 @@ object Estilo {
                 br.paulo.tvlauncher.settings.FocusStyle.BOX -> fundo(ctx, 0, RAIO + 3, FOCO, 3)
                 br.paulo.tvlauncher.settings.FocusStyle.VEIL -> fundo(ctx, VEU_TINTA, RAIO + 1, VEU_BORDA)
                 br.paulo.tvlauncher.settings.FocusStyle.LINE -> traco(ctx)
-                br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, 0, RAIO + ANEL_DP, ACENTO, ANEL_DP)
+                br.paulo.tvlauncher.settings.FocusStyle.RING -> fundo(ctx, 0, RAIO + ANEL_DP, TEXTO, ANEL_DP)
             }
             view.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
                 .translationZ(if (foco && jeito == br.paulo.tvlauncher.settings.FocusStyle.BOX) dp(ctx, 8).toFloat() else 0f)
@@ -353,8 +388,8 @@ object Estilo {
      */
     fun focoLinha(v: View, vararg textos: Pair<TextView, Papel>) {
         val ctx = v.context
-        // Régua 22/11/2026: a opção não tem caixa; um fio embaixo separa uma da outra.
-        val normal = fioBaixo(ctx)
+        // 26/11/2026 (Paulo): cada opção é uma caixa cheia, como no painel web (era só um fio embaixo, régua de 22/11).
+        val normal = caixa(ctx)
         v.background = normal
         v.setOnFocusChangeListener { view, foco ->
             view.background = if (foco) fundoFocado(ctx, RAIO, normal) else normal
@@ -426,23 +461,91 @@ object Estilo {
     /** [vidro] = false: sem fundo próprio (pílula dentro de uma cápsula de vidro, como no topo da HOME); o foco é o mesmo. */
     fun pilula(ctx: Context, icone: Drawable? = null, focavel: Boolean = true, vidro: Boolean = true): LinearLayout = LinearLayout(ctx).apply {
         orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.CENTER_VERTICAL
-        setPaddingRelative(dp(ctx, 12), 0, dp(ctx, 14), 0)
-        minimumHeight = dp(ctx, 32)
+        // Caixa compacta com o conteúdo no centro (Paulo, 26/11/2026: as pílulas esticadas "dão uma sensação ruim").
+        gravity = Gravity.CENTER
+        setPaddingRelative(dp(ctx, 14), 0, dp(ctx, 14), 0)
+        minimumHeight = dp(ctx, 40)
         if (icone != null) addView(ImageView(ctx).apply { setImageDrawable(icone) },
             LinearLayout.LayoutParams(dp(ctx, 20), dp(ctx, 20)).apply { marginEnd = dp(ctx, 8) })
-        val normal = if (vidro) vidro(ctx, RAIO_PILULA) else null
+        val normal = if (vidro) caixa(ctx) else null
         background = normal
         if (focavel) {
             isFocusable = true
             isClickable = true
             setOnFocusChangeListener { v, foco ->
-                v.background = if (foco) fundoFocado(ctx, RAIO_PILULA, normal) else normal
-                tingir(v as ViewGroup, if (foco) (if (focoEscurece(ctx)) TEXTO_NO_FOCO else TEXTO) else null)
+                v.background = if (foco) fundoFocado(ctx, RAIO, normal) else normal
+                tingir(v as ViewGroup, if (foco) (if (focoEscurece(ctx)) TEXTO_NO_FOCO else TEXTO) else null,
+                    if (foco) corIconeNoFoco(ctx) else null)
                 v.animate().scaleX(if (foco) ESCALA_LINHA else 1f).scaleY(if (foco) ESCALA_LINHA else 1f)
                     .setDuration(FOCO_MS).setInterpolator(desacelera).start()
             }
         }
+    }
+
+    /**
+     * Cartão (Paulo aprovou a prévia "Arte com véu", 26/11/2026): a peça das Fileiras fora da HOME. Uma caixa de vidro
+     * com o ícone no centro e, embaixo dela, o nome; o [detalhe] aparece só no cartão em foco. Foco = caixa mais clara,
+     * borda creme e ícone laranja ([fundoFocado], [corIconeNoFoco]). Use em fileiras de até 6 ([filaDeCartoes]).
+     * [icone] = um tipo do [br.paulo.tvlauncher.home.IconeCard] ("wifi", "buscar", "grade"...).
+     */
+    fun cartao(ctx: Context, icone: String, nome: CharSequence, detalhe: CharSequence? = null, alturaDp: Int = CARTAO_ALTURA,
+               aoClicar: (() -> Unit)? = null): LinearLayout {
+        val desenho = br.paulo.tvlauncher.home.IconeCard(ctx, icone).apply { definirCor(TEXTO_2) }
+        val caixaV = FrameLayout(ctx).apply {
+            background = caixa(ctx)
+            addView(desenho, FrameLayout.LayoutParams(dp(ctx, 28), dp(ctx, 28), Gravity.CENTER))
+        }
+        val tNome = texto(ctx, Papel.CORPO, nome).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END; setTextColor(TEXTO_2) }   // 2 linhas: nada cortado (6 por fileira)
+        val tDet = detalhe?.let { texto(ctx, Papel.LEGENDA, it).apply { maxLines = 4; ellipsize = TextUtils.TruncateAt.END; visibility = View.INVISIBLE } }
+        return LinearLayout(ctx).apply {
+            orientation = LinearLayout.VERTICAL
+            clipChildren = false; clipToPadding = false
+            isFocusable = true; isClickable = true
+            contentDescription = if (detalhe != null) "$nome. $detalhe" else nome
+            addView(caixaV, LinearLayout.LayoutParams(-1, dp(ctx, alturaDp)))
+            addView(tNome, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(ctx, 10) })
+            if (tDet != null) addView(tDet, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(ctx, 2) })
+            if (aoClicar != null) setOnClickListener { aoClicar() }
+            setOnFocusChangeListener { _, foco ->
+                focarCartao(caixaV, tNome, foco)
+                desenho.definirCor(if (foco) corIconeNoFoco(ctx) else TEXTO_2)
+                tDet?.visibility = if (foco) View.VISIBLE else View.INVISIBLE
+            }
+        }
+    }
+
+    /**
+     * O foco do [cartao] para quem monta a própria caixa (capa de rádio, de podcast, ícone de jogo): o MESMO desenho,
+     * num lugar só. Caixa mais clara com borda creme, nome em creme cheio e a caixa cresce um pouco; o ícone, quem
+     * chama pinta com [corIconeNoFoco].
+     */
+    fun focarCartao(caixaV: View, nome: TextView?, foco: Boolean) {
+        val ctx = caixaV.context
+        caixaV.background = if (foco) fundoFocado(ctx, RAIO, caixa(ctx)) else caixa(ctx)
+        nome?.setTextColor(if (foco) TEXTO else TEXTO_2)
+        caixaV.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
+            .setDuration(FOCO_MS).setInterpolator(desacelera).start()
+    }
+
+    /** Altura da caixa do [cartao] (dp): a dos cartões das Fileiras no tamanho médio. */
+    const val CARTAO_ALTURA = 72
+
+    /** Uma fileira de [cartao]s do mesmo tamanho, com [E2] entre eles; [colunas] fixa a largura (sobra vazio no fim). */
+    fun filaDeCartoes(ctx: Context, cartoes: List<View>, colunas: Int = cartoes.size): LinearLayout = LinearLayout(ctx).apply {
+        orientation = LinearLayout.HORIZONTAL
+        clipChildren = false; clipToPadding = false
+        for (i in 0 until maxOf(colunas, cartoes.size)) {
+            val v = cartoes.getOrNull(i) ?: View(ctx)
+            addView(v, LinearLayout.LayoutParams(0, -2, 1f).apply { if (i > 0) marginStart = dp(ctx, E2) })
+        }
+    }
+
+    /** Nome de fileira no padrão das Fileiras: ícone pequeno + nome em CORPO, apagado (o "Configurações", "Ajustes"). */
+    fun cabecaDeFila(ctx: Context, icone: String, nome: CharSequence): LinearLayout = LinearLayout(ctx).apply {
+        orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL
+        addView(br.paulo.tvlauncher.home.IconeCard(ctx, icone).apply { definirCor(TEXTO_2) },
+            LinearLayout.LayoutParams(dp(ctx, 18), dp(ctx, 18)).apply { marginEnd = dp(ctx, 10) })
+        addView(texto(ctx, Papel.CORPO, nome).apply { setTextColor(TEXTO_2) })
     }
 
     /** Cor de texto que escurece sozinha com o foco (para botões com fundo StateListDrawable: foco = branco). */
@@ -451,7 +554,7 @@ object Estilo {
 
     /** Superfície de linha/botão de lista: repouso = branco 6% com fio; foco = branco sólido (use com [focarLinha]). */
     fun superficie(ctx: Context, focado: Boolean): Drawable {
-        val normal = fundo(ctx, SUPERFICIE, RAIO, BORDA)
+        val normal = caixa(ctx)
         return if (focado) fundoFocado(ctx, RAIO, normal) else normal
     }
 
@@ -462,7 +565,7 @@ object Estilo {
     fun focarLinha(v: View, foco: Boolean) {
         v.background = superficie(v.context, foco)
         val cor = if (focoEscurece(v.context)) TEXTO_NO_FOCO else TEXTO
-        if (v is ViewGroup) tingir(v, if (foco) cor else null)
+        if (v is ViewGroup) tingir(v, if (foco) cor else null, if (foco) corIconeNoFoco(v.context) else null)
         else if (v is TextView) {
             if (v.getTag(R.id.estilo_cor_normal) == null) v.setTag(R.id.estilo_cor_normal, v.currentTextColor)
             v.setTextColor(if (foco) cor else v.getTag(R.id.estilo_cor_normal) as Int)
@@ -470,7 +573,7 @@ object Estilo {
     }
 
     /** Pinta textos e ícones de dentro de [g] com [cor]; null = volta cada um à cor que tinha. */
-    private fun tingir(g: ViewGroup, cor: Int?) {
+    private fun tingir(g: ViewGroup, cor: Int?, icone: Int? = cor) {
         for (i in 0 until g.childCount) when (val f = g.getChildAt(i)) {
             is TextView -> {
                 if (f.getTag(R.id.estilo_cor_normal) == null) f.setTag(R.id.estilo_cor_normal, f.currentTextColor)
@@ -478,9 +581,9 @@ object Estilo {
             }
             // Só ícone de linha muda de cor; ilustração (o sol 3D do clima) fica como está.
             is ImageView -> if (f.drawable is IconeLinha || f.drawable is IconeApp) {
-                if (cor != null) f.setColorFilter(cor) else f.clearColorFilter()
+                if (icone != null) f.setColorFilter(icone) else f.clearColorFilter()
             }
-            is ViewGroup -> tingir(f, cor)
+            is ViewGroup -> tingir(f, cor, icone)
         }
     }
 
@@ -490,10 +593,11 @@ object Estilo {
         setPaddingRelative(dp(ctx, E3), dp(ctx, 10), dp(ctx, E3), dp(ctx, 10))
         isFocusable = true
         isClickable = true
-        val normal = fundo(ctx, if (primario) SUPERFICIE_ALTA else SUPERFICIE, RAIO_PILULA, BORDA)
+        // Caixa, não pílula (26/11/2026): o primário um tom mais claro que o secundário.
+        val normal = if (primario) fundo(ctx, SUPERFICIE_ALTA, RAIO, if (altoContraste) BORDA else 0) else caixa(ctx)
         background = normal
         setOnFocusChangeListener { v, foco ->
-            v.background = if (foco) fundoFocado(ctx, RAIO_PILULA, normal) else normal
+            v.background = if (foco) fundoFocado(ctx, RAIO, normal) else normal
             (v as TextView).setTextColor(TEXTO)
             pintarFocado(v, foco, TEXTO_NO_FOCO)
             v.animate().scaleX(if (foco) ESCALA_CARD else 1f).scaleY(if (foco) ESCALA_CARD else 1f)
@@ -629,8 +733,12 @@ object Estilo {
     fun fundoTela(ctx: Context): Drawable =
         // Alto contraste (crítica de design 19/11/2026): fundo chapado preto, sem brilho nem degradê atrás do texto.
         // Com a barra única, a foto da barra borrada (GlassBackground, coerência das telas 24/11/2026); senão o grafite.
+        // Desde 26/11/2026 (Paulo: "a arte com véu escuro era para ser adotada em tudo"): a foto do fundo da HOME, nítida,
+        // sob um véu que escurece até o Noite embaixo, em toda tela e em qualquer HOME. O Vidro (foto borrada) segue para
+        // quem o escolheu no Jeito das telas; sem foto (fundo "do tema"), o grafite.
         if (altoContraste) android.graphics.drawable.ColorDrawable(0xFF000000.toInt())
-        else br.paulo.tvlauncher.home.GlassBackground.of(ctx) ?: FundoGrafite(World.of(ctx))
+        else (if (br.paulo.tvlauncher.home.ScreenStyle.of(ctx) == br.paulo.tvlauncher.home.ScreenStyle.GLASS) br.paulo.tvlauncher.home.GlassBackground.of(ctx) else null)
+            ?: br.paulo.tvlauncher.home.GlassBackground.veiled(ctx) ?: FundoGrafite(World.of(ctx))
 
     /**
      * Fundo das telas de ENTRADA (Configurações, Rádio, Podcasts, Jogos): no jeito Barra (ScreenStyle.STRIP) é a foto
@@ -715,10 +823,10 @@ object Estilo {
         setPaddingRelative(dp(ctx, 20), dp(ctx, 14), dp(ctx, 20), dp(ctx, 14))
         // Régua 22/11/2026, como a linha das Configurações: sem caixa, um fio embaixo; o foco segue Ajuste fino > Foco
         // (teste 100%, 23/11/2026: Extras e as telas desta linha ainda tinham a caixa antiga).
-        background = fioBaixo(ctx)
+        background = caixa(ctx)
         setOnFocusChangeListener { v, foco ->
             focarLinha(v, foco)
-            v.background = if (foco) fundoFocado(v.context, RAIO, fioBaixo(v.context)) else fioBaixo(v.context)
+            v.background = if (foco) fundoFocado(v.context, RAIO, caixa(v.context)) else caixa(v.context)
             v.animate().scaleX(if (foco) ESCALA_LINHA else 1f).scaleY(if (foco) ESCALA_LINHA else 1f).setDuration(FOCO_MS).start()
         }
     }

@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Für wen ist dieser Fernseher?</string>
-    <string name="rec_subtitulo">Ein OK richtet den Fernseher ein. Du kannst es jederzeit rückgängig machen.</string>
+    <string name="rec_subtitulo">Du kannst es jederzeit rückgängig machen.</string>
     <string name="rec_vo">Omas Fernseher</string>
     <string name="rec_vo_det">Große Karten mit vorgelesenen Namen, größere Schrift und eine Hilfe-Taste.</string>
     <string name="rec_criancas">Kinderfernseher</string>

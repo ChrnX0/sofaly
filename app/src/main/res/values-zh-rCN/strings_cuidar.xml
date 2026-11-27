@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">请稍候。</string>
     <string name="cuidar_nao_avisado">无法通知 %1$s</string>
     <string name="cuidar_sem_aparelho">没有设置接收的手机。请检查 设置 › 家庭 › 远程关照。</string>
-    <string name="cuidar_sem_internet">请检查网络后重试（按住按键 3 秒）。</string>
+    <string name="cuidar_sem_internet">请检查网络后重试。</string>
     <string name="cuidar_lembrete_sobre">提醒 · %1$s</string>
     <string name="cuidar_lembrete_explica">完成后请按 OK。</string>
     <string name="cuidar_lembrete_explica_aviso">完成后请按 OK。%1$d 分钟内没按，%2$s 会收到提醒。</string>

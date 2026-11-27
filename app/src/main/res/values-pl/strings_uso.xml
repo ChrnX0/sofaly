@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Wyłączone, dopóki mieszkająca tam osoba nie zgodzi się na telewizorze.</string>
     <string name="uso_cartoes">Duże karty na ekranie głównym</string>
     <string name="uso_cartoes_det">Kilka dużych aplikacji, nazwa czytana na głos i przycisk \"Poproś o pomoc\". Wyłączenie wymaga PIN-u.</string>
-    <string name="uso_trocar_det">Teraz: %1$s. OK, aby wybrać ponownie.</string>
+    <string name="uso_trocar_det">Teraz: %1$s.</string>
 </resources>

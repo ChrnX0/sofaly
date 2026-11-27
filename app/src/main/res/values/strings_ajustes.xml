@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">UniFi router address and API key, in the web panel</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Quick panel tiles</string>
-    <string name="pb_subtitulo">OK shows or hides · ◀ ▶ change the order</string>
-    <string name="pb_cfg_det">Choose which tiles the quick panel (hold BACK) shows, and in what order</string>
+    <string name="pb_cfg_det">Choose which tiles the quick panel shows, and in what order</string>
     <string name="pb_mostrado">shown</string>
     <string name="pb_escondido">hidden</string>
     <string name="pb_padrao">Back to the standard tiles</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Tools</string>
     <string name="cfg2_sec_ocultos_sistema">System apps hidden by the launcher</string>
     <string name="cfg2_apps_visita_det">Choose which apps disappear while guest mode is on</string>
-    <string name="cfg2_apps_visita_sub">OK switches · these disappear while guest mode is on</string>
+    <string name="cfg2_apps_visita_sub">these disappear while guest mode is on</string>
     <string name="cfg2_some_visita">hidden for guests</string>
     <string name="cfg2_fica_visita">stays</string>
     <string name="cfg2_casa_det">Lights, plugs and scenes from Google Home or Home Assistant</string>
     <string name="oc_titulo">Hidden apps</string>
-    <string name="oc_subtitulo">OK shows or hides an app on the home screen · hidden ones come first</string>
-    <string name="oc_nenhum">No hidden apps · OK to choose</string>
-    <string name="oc_quantos">Hidden: %1$d · OK to show them again</string>
+    <string name="oc_subtitulo">hidden ones come first</string>
+    <string name="oc_nenhum">No hidden apps</string>
+    <string name="oc_quantos">Hidden: %1$d</string>
     <string name="oc_oculto">hidden</string>
     <string name="oc_aparece">on the home screen</string>
     <string name="oc_aviso_titulo">App hidden</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Large</string>
     <string name="tt_maior">Larger</string>
     <string name="pi_titulo">Icon pack</string>
-    <string name="pi_det">Swap app icons for a built-in style (Symbol, Duotone) or an installed icon pack. OK picks the next one.</string>
+    <string name="pi_det">Swap app icons for a built-in style (Symbol, Duotone) or an installed icon pack.</string>
     <string name="pi_det_vazio">No icon pack installed. Get one from the Play Store and it shows up here.</string>
     <string name="pi_nenhum">None</string>
     <string name="fm_titulo">My background</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">None (back to Dark)</string>
     <string name="fm_brilho">Background brightness</string>
     <string name="fm_contraste">Background contrast</string>
-    <string name="fm_ajuste_det">Applies to My background. OK changes the step.</string>
+    <string name="fm_ajuste_det">Applies to My background.</string>
     <string name="vp_titulo">Coming from Projectivy?</string>
     <string name="vp_texto">Four steps bring your setup over in about a minute. Each one can be done later in Settings.</string>
     <string name="vp_cfg_det">Bring hidden apps, icon pack and background over from Projectivy.</string>
     <string name="vp_1">1. Hidden apps</string>
-    <string name="vp_1_det">Mark the apps you had hidden. To reorder, hold OK on an app on the home screen.</string>
+    <string name="vp_1_det">Mark the apps you had hidden.</string>
     <string name="vp_2">2. Icon pack</string>
     <string name="vp_2_det">The same icon packs Projectivy uses work here.</string>
     <string name="vp_3">3. Background</string>

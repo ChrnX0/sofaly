@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">«%1$s» хоче бачити й копіювати файли зі сховища телевізора через домашню мережу. Дозволити цей комп\'ютер?</string>
     <string name="mtp_pcs">Дозволені комп\'ютери</string>
     <string name="mtp_pcs_nenhum">Поки жодного. Телевізор питає на екрані, коли комп\'ютер запитує файли.</string>
-    <string name="mtp_pcs_lista">%1$s · OK забуває всі (кожен запитає знову)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Комп\'ютери забуто</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Відкрити панель телевізора</string>

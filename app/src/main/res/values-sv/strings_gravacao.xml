@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">varje vecka</string>
     <string name="grv_cancelar_pergunta">Avbryta inspelningen av \"%1$s\"?</string>
     <string name="grv_gravadas">Inspelade</string>
-    <string name="grv_vazio">Inget inspelat än. I spelaren, ▶▶ › Spela in; i guiden, OK på ett kommande program.</string>
+    <string name="grv_vazio">Inget inspelat än.</string>
     <string name="grv_vazio_sem_destino">Anslut ett USB-minne till hubben för att se och göra inspelningar.</string>
     <string name="grv_partes">%1$d delar</string>
     <string name="grv_parte">del %1$d av %2$d</string>

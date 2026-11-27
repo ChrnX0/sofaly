@@ -29,7 +29,7 @@
     <string name="lbl_cenas">场景</string>
     <string name="pr_cenas">场景</string>
     <string name="cenas_titulo">场景</string>
-    <string name="cenas_det">按 OK 运行场景。在网页面板 › 家居和自动化 › 场景中创建和编辑。</string>
+    <string name="cenas_det">在网页面板 › 家居和自动化 › 场景中创建和编辑。</string>
     <string name="cenas_vazio">还没有场景。请在网页面板 › 家居和自动化 › 场景中创建。</string>
     <string name="tec_titulo">遥控器按钮</string>
     <string name="tec_det">Netflix 和 YouTube 在任何界面都有效；彩色键和数字键仅在主屏幕有效。</string>

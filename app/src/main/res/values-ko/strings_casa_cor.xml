@@ -2,8 +2,8 @@
 <!-- Tradução (ko) de values/strings_casa_cor.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
     <string name="casa_dica_brilho_cor">밝기 및 색상</string>
-    <string name="casa_brilho_ajuste_cor">밝기 %1$d%% · ◀ ▶ · 색상 ▲ ▼</string>
-    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_brilho_ajuste_cor">밝기 %1$d%%</string>
+    <string name="casa_cor_ajuste">%1$s</string>
     <string name="casa_cor_quente">따뜻한 흰색</string>
     <string name="casa_cor_neutra">중간 흰색</string>
     <string name="casa_cor_fria">차가운 흰색</string>

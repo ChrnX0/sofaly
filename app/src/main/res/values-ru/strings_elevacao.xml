@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">внизу</string>
     <string name="elv_leg_em_cima">вверху</string>
     <string name="elv_bf_fazer">Сделать</string>
-    <string name="elv_bf_ok_faz">OK — сделать сейчас</string>
     <string name="elv_bf_wifi">Показать гостевой Wi-Fi</string>
-    <string name="elv_bf_wifi_configurar">Ещё не настроено: OK открывает Настройки (Гости)</string>
+    <string name="elv_bf_wifi_configurar">Ещё не настроено</string>
     <string name="elv_bf_letra_maior">Крупнее текст (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Мельче текст (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Уже этот размер</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">уже после заката</string>
     <string name="elv_ss_dia_util">сегодня рабочий день</string>
     <string name="elv_ss_perfil">профиль — %1$s</string>
-    <string name="elv_ss_det">◀ ▶ меняют условие</string>
     <string name="extras_ABERTURA_PRONTA">Пропуск заставки (IntroDB): в сериалах ТВ спрашивает у сообщества IntroDB, где заставка (отправляется только эпизод, не ваш аккаунт); выключено — только отмеченные вами заставки</string>
 </resources>

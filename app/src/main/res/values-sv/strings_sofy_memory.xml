@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">Vad Sofy vet</string>
-    <string name="smem_sub">Vad hon har lärt sig om hemmet. OK glömmer en sak; hon lär sig om.</string>
+    <string name="smem_sub">Vad hon har lärt sig om hemmet.</string>
     <string name="smem_linha_det">Vad hon har lärt sig, med Glöm</string>
     <string name="smem_uso">När tv:n används</string>
     <string name="smem_uso_det">Inlärda timmar av dygnet: %1$d</string>

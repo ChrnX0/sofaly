@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Můžete počkat.</string>
     <string name="cuidar_nao_avisado">Nepodařilo se upozornit: %1$s</string>
     <string name="cuidar_sem_aparelho">Žádný telefon není nastaven k příjmu. Zkontrolujte Nastavení › Rodina › Péče na dálku.</string>
-    <string name="cuidar_sem_internet">Zkontrolujte internet a zkuste to znovu (podržte tlačítko 3 sekundy).</string>
+    <string name="cuidar_sem_internet">Zkontrolujte internet a zkuste to znovu.</string>
     <string name="cuidar_lembrete_sobre">Připomenutí · %1$s</string>
     <string name="cuidar_lembrete_explica">Stiskněte OK, až to bude hotové.</string>
     <string name="cuidar_lembrete_explica_aviso">Stiskněte OK, až to bude hotové. Bez toho do %1$d minut dostane %2$s upozornění.</string>

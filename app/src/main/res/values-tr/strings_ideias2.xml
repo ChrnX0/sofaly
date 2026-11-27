@@ -41,13 +41,12 @@
     <string name="casa_desligado">Kapalı</string>
     <string name="casa_aberta">Açık</string>
     <string name="casa_fechada">Kapalı</string>
-    <string name="casa_rodar">Çalıştırmak için OK</string>
     <string name="casa_indisponivel">Kullanılamıyor</string>
     <string name="casa_sem_config_titulo">Evinizi bağlayın</string>
     <string name="casa_dica_acionar">aç veya kapat</string>
     <string name="casa_erro">Home Assistant yanıt vermedi: %1$s</string>
     <string name="casa_ligado_pct">Açık · %%%1$d</string>
-    <string name="casa_brilho_ajuste">Parlaklık %%%1$d · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Parlaklık %%%1$d</string>
     <string name="casa_dica_brilho">parlaklık</string>
     <string name="casa_tecla_segurar_ok">OK’Yİ BASILI TUT</string>
     <string name="ca_liberado">%1$s boşaltıldı. Şu an boş: %2$s.</string>

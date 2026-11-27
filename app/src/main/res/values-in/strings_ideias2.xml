@@ -41,13 +41,12 @@
     <string name="casa_desligado">Mati</string>
     <string name="casa_aberta">Terbuka</string>
     <string name="casa_fechada">Tertutup</string>
-    <string name="casa_rodar">OK untuk menjalankan</string>
     <string name="casa_indisponivel">Tidak tersedia</string>
     <string name="casa_sem_config_titulo">Hubungkan rumah Anda</string>
     <string name="casa_dica_acionar">nyalakan atau matikan</string>
     <string name="casa_erro">Home Assistant tidak menjawab: %1$s</string>
     <string name="casa_ligado_pct">Menyala · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Kecerahan %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Kecerahan %1$d%%</string>
     <string name="casa_dica_brilho">kecerahan</string>
     <string name="casa_tecla_segurar_ok">TAHAN OK</string>
     <string name="ca_liberado">%1$s dibebaskan. Kosong sekarang: %2$s.</string>

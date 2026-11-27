@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">现成外观</string>
-    <string name="vpr_det">每按一次 OK 切换到下一个外观：主题、文字和背景颜色一起变</string>
     <string name="vpr_meu">你的设置</string>
     <string name="vpr_classico">经典</string>
     <string name="vpr_leitura">易读</string>

@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">“%1$s”이(가) 홈 네트워크를 통해 TV 저장소의 파일을 보고 복사하려고 합니다. 이 컴퓨터를 허용할까요?</string>
     <string name="mtp_pcs">허용된 컴퓨터</string>
     <string name="mtp_pcs_nenhum">아직 없습니다. 컴퓨터가 파일을 요청하면 TV가 화면에서 묻습니다.</string>
-    <string name="mtp_pcs_lista">%1$s · OK로 모두 잊기(각 컴퓨터가 다시 묻게 됨)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">컴퓨터를 잊었습니다</string>
     <string name="ur_atalho_nome">TV 패널 열기</string>
     <string name="ssdp_painel">패널</string>

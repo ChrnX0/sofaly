@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">المواسم: %d</string>
     <string name="elv_cat_procurando">جارٍ البحث عن الملصق…</string>
-    <string name="elv_cat_nada">لم يُعثر على شيء في TMDB. اضغط مطولًا على OK لكتابة الاسم الصحيح.</string>
+    <string name="elv_cat_nada">لم يُعثر على شيء في TMDB.</string>
     <string name="elv_cat_corrigir_titulo">تصحيح: %s</string>
     <string name="elv_cat_corrigir_explica">الملصق أو الملخص خطأ؟ اطلب النتيجة التالية أو اكتب الاسم والسنة الصحيحين. الاسم الفارغ يعيد الوضع التلقائي.</string>
     <string name="elv_cat_nao_e">ليس هذا</string>

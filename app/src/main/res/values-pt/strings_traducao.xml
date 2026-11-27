@@ -107,7 +107,6 @@
     <string name="lb_lembrete">Lembrete</string>
     <string name="lb_quando_em">%1$s, em %2$s.</string>
     <string name="ms_ola">Olá!</string>
-    <string name="ms_ola_det">Escolha com as setas e aperte OK.</string>
     <string name="ms_pedir_ajuda">Pedir ajuda</string>
     <string name="ms_pedido_ajuda">Pedido de ajuda</string>
     <string name="ms_alguem_pediu">Alguém pediu ajuda na TV %1$s.</string>
@@ -178,7 +177,6 @@
     <string name="bc_categorias">CATEGORIAS</string>
     <string name="bc_canais">CANAIS</string>
     <string name="bc_carregando">carregando os canais…</string>
-    <string name="bc_dica">OK bloqueia ou libera · OK na categoria vale para ela inteira · ◀ ▶ categorias e canais · VOLTAR sai (já está salvo)</string>
     <string name="bc_categoria_bloqueada">a categoria \"%1$s\" inteira está bloqueada: libere na coluna da esquerda</string>
     <string name="bc_filme">Filme · %1$s</string>
     <string name="bc_serie">Série · %1$s</string>

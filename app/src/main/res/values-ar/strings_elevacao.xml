@@ -43,9 +43,8 @@
     <string name="elv_leg_embaixo">أسفل</string>
     <string name="elv_leg_em_cima">أعلى</string>
     <string name="elv_bf_fazer">تنفيذ</string>
-    <string name="elv_bf_ok_faz">OK ينفّذ الآن</string>
     <string name="elv_bf_wifi">عرض شبكة Wi-Fi للضيوف</string>
-    <string name="elv_bf_wifi_configurar">لم يُضبط بعد: OK يفتح الإعدادات (الضيوف)</string>
+    <string name="elv_bf_wifi_configurar">لم يُضبط بعد</string>
     <string name="elv_bf_letra_maior">خط أكبر (%1$d%%)</string>
     <string name="elv_bf_letra_menor">خط أصغر (%1$d%%)</string>
     <string name="elv_bf_letra_limite">بهذا الحجم بالفعل</string>
@@ -114,6 +113,5 @@
     <string name="elv_ss_noite">كان بعد غروب الشمس</string>
     <string name="elv_ss_dia_util">كان يوم عمل</string>
     <string name="elv_ss_perfil">كان الملف الشخصي %1$s</string>
-    <string name="elv_ss_det">◀ ▶ لتغيير الشرط</string>
     <string name="extras_ABERTURA_PRONTA">تخطي المقدمة (IntroDB): في الحلقات يسأل التلفاز خدمة IntroDB المجتمعية عن موضع المقدمة (يرسل الحلقة فقط، لا حسابك أبدًا)؛ عند الإيقاف: المقدمات التي حددتها أنت فقط</string>
 </resources>

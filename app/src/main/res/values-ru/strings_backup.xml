@@ -7,8 +7,8 @@
     <string name="bkn_desligado">выкл</string>
     <string name="bkn_sem_senha">выкл · сначала задайте пароль копии</string>
     <string name="bkn_senha">Пароль копии</string>
-    <string name="bkn_senha_ok">задан · OK меняет</string>
-    <string name="bkn_senha_falta">не задан · OK задаёт</string>
+    <string name="bkn_senha_ok">задан</string>
+    <string name="bkn_senha_falta">не задан</string>
     <string name="bkn_senha_nova">Пароль копии (8 символов или больше)</string>
     <string name="bkn_senha_repetir">Введите пароль ещё раз</string>
     <string name="bkn_senha_curta">Пароль должен содержать от 8 до 128 символов.</string>

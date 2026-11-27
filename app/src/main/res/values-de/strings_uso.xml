@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Aus, bis die Person, die dort wohnt, am Fernseher zustimmt.</string>
     <string name="uso_cartoes">Große Karten auf dem Startbildschirm</string>
     <string name="uso_cartoes_det">Wenige große Apps, Namen werden vorgelesen, Taste \"Hilfe holen\". Ausschalten verlangt die PIN.</string>
-    <string name="uso_trocar_det">Jetzt: %1$s. OK, um neu zu wählen.</string>
+    <string name="uso_trocar_det">Jetzt: %1$s.</string>
 </resources>

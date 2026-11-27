@@ -104,7 +104,6 @@
     <string name="lb_lembrete">Emlékeztető</string>
     <string name="lb_quando_em">%1$s, ezen: %2$s.</string>
     <string name="ms_ola">Szia!</string>
-    <string name="ms_ola_det">Válasszon a nyilakkal, és nyomja meg az OK-t.</string>
     <string name="ms_pedir_ajuda">Segítség kérése</string>
     <string name="ms_pedido_ajuda">Segítségkérés</string>
     <string name="ms_alguem_pediu">Valaki segítséget kért a(z) %1$s TV-n.</string>
@@ -172,7 +171,6 @@
     <string name="bc_categorias">KATEGÓRIÁK</string>
     <string name="bc_canais">CSATORNÁK</string>
     <string name="bc_carregando">csatornák betöltése…</string>
-    <string name="bc_dica">Az OK letilt vagy felold · OK egy kategórián az egészre érvényes · ◀ ▶ kategóriák és csatornák · a VISSZA kilép (már mentve)</string>
     <string name="bc_categoria_bloqueada">a teljes \"%1$s\" kategória le van tiltva: oldja fel a bal oszlopban</string>
     <string name="bc_filme">Film · %1$s</string>
     <string name="bc_serie">Sorozat · %1$s</string>

@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">พื้นหลังโปรแกรมรักษาหน้าจอ</string>
-    <string name="pv2_fundo_det">ของธีม หรือภาพจริงของโลกจากอวกาศ · OK เพื่อเปลี่ยน</string>
     <string name="pv2_fundo_tema">ของธีม</string>
     <string name="pv2_fundo_terra">โลกจากอวกาศ</string>
     <string name="pv2_relogio">นาฬิกาโปรแกรมรักษาหน้าจอ</string>
-    <string name="pv2_relogio_det">หกรูปแบบ · OK เพื่อเปลี่ยน</string>
     <string name="pv2_rel_fino">บาง</string>
     <string name="pv2_rel_editorial">บรรณาธิการ</string>
     <string name="pv2_rel_monumental">อลังการ</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">เป็นคำ</string>
     <string name="pv2_rel_empilhado">ซ้อนกัน</string>
     <string name="pv2_posicao">ตำแหน่งนาฬิกา</string>
-    <string name="pv2_posicao_det">OK เพื่อเปลี่ยน</string>
     <string name="pv2_pos_alto">ซ้ายบน</string>
     <string name="pv2_pos_baixo">ซ้ายล่าง</string>
     <string name="pv2_pos_centro">กึ่งกลาง</string>
     <string name="pv2_tamanho">ขนาดนาฬิกา</string>
-    <string name="pv2_tamanho_det">ตัวเลขใหญ่อ่านง่ายกว่าจากระยะไกล · OK เพื่อเปลี่ยน</string>
     <string name="pv2_tam_normal">ปกติ</string>
     <string name="pv2_tam_grande">ใหญ่</string>
     <string name="pv2_mostrar">สิ่งที่โปรแกรมรักษาหน้าจอแสดง</string>
-    <string name="pv2_mostrar_det">\"เฉพาะเวลา\": ปุ่มใดบนรีโมตจะแสดงส่วนที่เหลือ 15 วินาที · OK เพื่อเปลี่ยน</string>
     <string name="pv2_mostrar_so">เฉพาะเวลา</string>
     <string name="pv2_mostrar_vez">เป็นครั้งคราว</string>
     <string name="pv2_mostrar_sempre">ทุกอย่าง</string>
     <string name="pv2_elementos">บนโปรแกรมรักษาหน้าจอ</string>
-    <string name="pv2_el_det">แสดงบนโปรแกรมรักษาหน้าจอ · OK เพื่อเปิดหรือปิด</string>
     <string name="pv2_el_saudacao">คำทักทาย</string>
     <string name="pv2_el_data">วันที่</string>
     <string name="pv2_el_linha_dia">เส้นแสงกลางวัน</string>

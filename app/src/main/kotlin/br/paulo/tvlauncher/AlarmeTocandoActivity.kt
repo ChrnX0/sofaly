@@ -428,8 +428,8 @@ class AlarmeTocandoActivity : Activity() {
         setPaddingRelative(dp(18), dp(16), dp(18), dp(16))
         isFocusable = true
         isClickable = true
-        val normal = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PILULA, Estilo.BORDA)
-        val focado = Estilo.fundo(context, Estilo.FOCO, Estilo.RAIO_PILULA)
+        val normal = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
+        val focado = Estilo.fundo(context, Estilo.FOCO, Estilo.RAIO)
         background = normal
         setOnClickListener { aoClicar() }
         setOnFocusChangeListener { v, f ->

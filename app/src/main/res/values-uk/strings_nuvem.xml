@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Очікування вашого підтвердження на телефоні…</string>
     <string name="rede_nuvem_salvando">Вхід…</string>
     <string name="rede_nuvem_recusado">Сервіс відмовив. Перевірте id застосунку й спробуйте ще раз.</string>
-    <string name="rede_erro_nuvem_login">Дозвіл цього облікового запису закінчився або його вилучено. Вилучіть обліковий запис (утримуйте OK) і ввійдіть знову.</string>
+    <string name="rede_erro_nuvem_login">Дозвіл цього облікового запису закінчився або його вилучено. Вилучіть обліковий запис і ввійдіть знову.</string>
     <string name="rede_od_titulo">OneDrive: ваш застосунок у Microsoft</string>
     <string name="rede_od_explica">Один раз, на комп\'ютері: entra.microsoft.com › App registrations › New registration. У типах облікових записів виберіть той, що включає особисті облікові записи Microsoft. Потім у Authentication увімкніть «Allow public client flows». Скопіюйте «Application (client) ID» і введіть його тут (можна вводити з телефона, у панелі).</string>
     <string name="rede_od_id">Application (client) ID</string>

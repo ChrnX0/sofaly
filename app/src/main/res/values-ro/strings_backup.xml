@@ -6,8 +6,8 @@
     <string name="bkn_desligado">dezactivată</string>
     <string name="bkn_sem_senha">dezactivată · setați mai întâi parola copiei</string>
     <string name="bkn_senha">Parola copiei</string>
-    <string name="bkn_senha_ok">setată · OK o schimbă</string>
-    <string name="bkn_senha_falta">nesetată · OK o setează</string>
+    <string name="bkn_senha_ok">setată</string>
+    <string name="bkn_senha_falta">nesetată</string>
     <string name="bkn_senha_nova">Parola copiei (8 sau mai multe caractere)</string>
     <string name="bkn_senha_repetir">Tastați parola din nou</string>
     <string name="bkn_senha_curta">Parola trebuie să aibă între 8 și 128 de caractere.</string>

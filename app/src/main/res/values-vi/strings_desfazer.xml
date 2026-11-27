@@ -15,7 +15,7 @@
     <string name="desf_barra">Đã đổi: %1$s</string>
     <string name="desf_botao">Hoàn tác</string>
     <string name="desf_tela">Thay đổi gần đây</string>
-    <string name="desf_tela_det">Những gì đã thay đổi trong 7 ngày qua. OK trên một mục để đưa nó về như cũ.</string>
+    <string name="desf_tela_det">Những gì đã thay đổi trong 7 ngày qua.</string>
     <string name="desf_tela_vazia">Không có thay đổi trong 7 ngày qua.</string>
     <string name="desf_ja_desfeita">đã hoàn tác</string>
     <string name="desf_rot_config">Cài đặt</string>

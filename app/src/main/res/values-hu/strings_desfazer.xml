@@ -15,7 +15,7 @@
     <string name="desf_barra">Módosítva: %1$s</string>
     <string name="desf_botao">Visszavonás</string>
     <string name="desf_tela">Legutóbbi módosítások</string>
-    <string name="desf_tela_det">Mi változott az elmúlt 7 napban. Az OK egyiken visszaállítja, ahogy volt.</string>
+    <string name="desf_tela_det">Mi változott az elmúlt 7 napban.</string>
     <string name="desf_tela_vazia">Az elmúlt 7 napban nem volt módosítás.</string>
     <string name="desf_ja_desfeita">visszavonva</string>
     <string name="desf_rot_config">Beállítások</string>

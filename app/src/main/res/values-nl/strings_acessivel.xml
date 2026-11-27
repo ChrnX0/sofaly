@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">Duidelijkere stemmen aan</string>
     <string name="acess_voz_desligado">Duidelijkere stemmen uit</string>
     <string name="acess_config_titulo">Geluid en ondertiteling</string>
-    <string name="acess_config_texto">Voor wie minder goed ziet of hoort. Ook in het ▼-menu van de speler.</string>
+    <string name="acess_config_texto">Voor wie minder goed ziet of hoort.</string>
 </resources>

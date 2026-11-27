@@ -41,13 +41,12 @@
     <string name="casa_desligado">Tắt</string>
     <string name="casa_aberta">Mở</string>
     <string name="casa_fechada">Đóng</string>
-    <string name="casa_rodar">OK để chạy</string>
     <string name="casa_indisponivel">Không khả dụng</string>
     <string name="casa_sem_config_titulo">Kết nối ngôi nhà của bạn</string>
     <string name="casa_dica_acionar">bật hoặc tắt</string>
     <string name="casa_erro">Home Assistant không phản hồi: %1$s</string>
     <string name="casa_ligado_pct">Bật · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Độ sáng %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Độ sáng %1$d%%</string>
     <string name="casa_dica_brilho">độ sáng</string>
     <string name="casa_tecla_segurar_ok">GIỮ OK</string>
     <string name="ca_liberado">Đã giải phóng %1$s. Hiện còn trống: %2$s.</string>

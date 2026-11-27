@@ -41,13 +41,12 @@
     <string name="casa_desligado">Slukket</string>
     <string name="casa_aberta">Åben</string>
     <string name="casa_fechada">Lukket</string>
-    <string name="casa_rodar">OK for at køre</string>
     <string name="casa_indisponivel">Ikke tilgængelig</string>
     <string name="casa_sem_config_titulo">Forbind dit hjem</string>
     <string name="casa_dica_acionar">tænd eller sluk</string>
     <string name="casa_erro">Home Assistant svarede ikke: %1$s</string>
     <string name="casa_ligado_pct">Tændt · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Lysstyrke %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Lysstyrke %1$d%%</string>
     <string name="casa_dica_brilho">lysstyrke</string>
     <string name="casa_tecla_segurar_ok">HOLD OK</string>
     <string name="ca_liberado">Frigjorde %1$s. Ledigt nu: %2$s.</string>

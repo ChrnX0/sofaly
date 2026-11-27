@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Thói quen</string>
     <string name="cfg_sec_atualizacao">Cập nhật</string>
     <string name="cfg_atualizar">Kiểm tra phiên bản mới</string>
-    <string name="cfg_atualizar_det">Phiên bản %1$s · %2$s · OK để kiểm tra ngay</string>
+    <string name="cfg_atualizar_det">Phiên bản %1$s · %2$s</string>
     <string name="cfg_procurando">đang kiểm tra GitHub…</string>
     <string name="cfg_instalar">Cài phiên bản %1$d ngay</string>
-    <string name="cfg_instalar_det">Launcher sẽ đóng và tự mở lại sau vài giây · OK để cài</string>
+    <string name="cfg_instalar_det">Launcher sẽ đóng và tự mở lại sau vài giây</string>
     <string name="cfg_instalando">đang tải và kiểm tra…</string>
     <string name="cfg_sec_rede">Mạng</string>
     <string name="cfg_dns">DNS riêng tư</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Những gì đang bật — %1$s</string>
     <string name="cfg_ligado">bật</string>
     <string name="cfg_so_pc">" · chỉ với máy tính (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK để thử bật"</string>
     <string name="cfg_perm_fixas">Đã cấp quyền cố định</string>
     <string name="cfg_shell_estado">Shell riêng</string>
     <string name="cfg_shell_pareado">đã ghép nối: launcher tự kết nối lại qua Gỡ lỗi không dây</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Dịch vụ phím</string>
     <string name="rec_teclas_sem">thiếu nó: HOME có thể mở launcher của Google và phím Netflix/YouTube không được gán lại</string>
     <string name="rec_tudo">mọi thứ đều bật</string>
-    <string name="rec_faltam">Thiếu %1$d trên %2$d tính năng · OK trên một mục để thử bật</string>
+    <string name="rec_faltam">Thiếu %1$d trên %2$d tính năng</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Chào mừng</string>
     <string name="bv_texto">Màn hình chính, đồng hồ, thời tiết, báo thức và trình bảo vệ màn hình đã hoạt động. Bật phần còn lại ở đây nếu muốn (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · tắt"</string>
     <string name="rot_nova">Thói quen mới</string>
     <string name="rot_editar">Sửa thói quen</string>
-    <string name="rot_editor_det">OK để đổi từng dòng · BACK để thoát không lưu</string>
     <string name="rot_hora">Giờ: %1$s</string>
     <string name="rot_dias">Ngày: %1$s</string>
     <string name="rot_acao">Hành động: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Chỉ khi không ai chạm vào trong: %1$s</string>
     <string name="rot_ligada">Bật</string>
     <string name="rot_desligada">Tắt</string>
-    <string name="rot_hora_det">◀ ▶ 5 phút · OK +1 giờ</string>
-    <string name="rot_dias_det">OK: mỗi ngày, T2 đến T6, cuối tuần, một lần</string>
-    <string name="rot_ok_muda">OK để đổi</string>
-    <string name="rot_app_det">OK hoặc ▶ tiếp · ◀ trước</string>
     <string name="rot_ocioso_det">Không làm phiền người đang xem</string>
-    <string name="rot_ativa_det">OK để bật/tắt thói quen này</string>
     <string name="rot_salvar">Lưu</string>
     <string name="rot_escolha_app">Chọn ứng dụng</string>
     <string name="rot_apagar">Xóa thói quen này</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Kết nối</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">không có tài khoản Google</string>
-    <string name="cal_dica">◀ ▶ đổi tháng</string>
     <string name="cal_30">30 ngày tới</string>
     <string name="cal_nenhuma_conta">Không có tài khoản Google trên TV</string>
     <string name="cal_nada">Không có lịch hẹn (hoặc lịch vẫn đang đồng bộ)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">mặt trời mọc %1$s</string>
     <string name="fd_por">mặt trời lặn %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: dùng   ·   giữ OK trên một máy chủ của bạn: xóa   ·   Back: thoát</string>
     <string name="dns_auto">Tự động</string>
     <string name="dns_auto_det">Dùng DNS của router và mã hóa khi được hỗ trợ (mặc định của Android)</string>
     <string name="dns_desl">Tắt</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">phiên bản %1$d: sẵn sàng chuyển TV này sang ứng dụng mới (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">đang cài ứng dụng mới (%1$d); sau đó nó sẽ tiếp quản TV này với mọi cài đặt</string>
     <string name="atu_disponivel">phiên bản %1$d sẵn sàng để cài (đã cài %2$d)</string>
-    <string name="atu_trocou">phiên bản đã thay đổi từ lần kiểm tra trước · OK để kiểm tra lại</string>
+    <string name="atu_trocou">phiên bản đã thay đổi từ lần kiểm tra trước</string>
     <string name="atu_instalando">đang cài %1$d (đã cài %2$d)</string>
     <string name="atu_ok">đã cập nhật</string>
     <string name="atu_falhou">cài đặt thất bại (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">phiên bản %1$d bị lỗi hai lần ngay sau khi cài · \"%2$s\" sẽ tắt cho đến bản tiếp theo</string>
     <string name="vig_tela_bloqueada">Màn hình này tắt cho đến bản cập nhật tiếp theo (nó làm launcher bị lỗi)</string>
     <string name="cfg_vig_liberar">Chế độ an toàn</string>
-    <string name="cfg_vig_liberar_det">" · OK để bật lại"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Tìm kiếm bằng giọng nói không mở được trên TV này</string>
     <string name="home_alarme_hoje">hôm nay</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Đang tải video…</string>
     <string name="player_sem_canais">Chưa thêm danh sách kênh nào.</string>
     <string name="player_tentando">Không có tín hiệu trên kênh %1$d. Đang thử lại…</string>
-    <string name="player_sem_sinal">Kênh %1$d không phản hồi. Chọn kênh khác bằng ▲ ▼ hoặc OK.</string>
+    <string name="player_sem_sinal">Kênh %1$d không phản hồi.</string>
     <string name="player_canal_nao_existe">Không có kênh %1$d.</string>
     <string name="player_ao_vivo">TRỰC TIẾP</string>
     <string name="player_a_seguir">tiếp theo: %1$s</string>
-    <string name="player_teclas">▲ ▼ kênh · OK danh sách kênh · giữ OK 2 giây: yêu thích · ◀ kênh trước · ▶ ▶ tùy chọn · BACK thoát</string>
-    <string name="player_teclas_pausa">▶❙❙ hoặc OK tiếp tục · ▶ tùy chọn (về trực tiếp) · ▲ ▼ kênh · BACK thoát</string>
     <string name="player_cat_busca">Tìm kiếm: %1$s</string>
     <string name="player_acao_buscar">Tìm kiếm</string>
     <string name="player_acao_filtros">Bộ lọc</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ Đã thêm %1$s vào danh sách xem</string>
     <string name="filmes_interesse_tirou">Đã xóa %1$s khỏi danh sách xem</string>
     <string name="filmes_interesses_cheio">Danh sách xem đã có 500 mục: hãy xóa bớt một mục trước.</string>
-    <string name="filmes_interesses_vazio">Giữ OK 2 giây trên một áp phích để thêm vào đây (giữ lại lần nữa để xóa).</string>
     <string name="filmes_assistido">Đã xem</string>
     <string name="filmes_selo_leg">PHỤ ĐỀ</string>
     <string name="vod_sem_conta">Tài khoản của video này không còn tồn tại.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Âm thanh</string>
     <string name="vod_legenda">Phụ đề</string>
     <string name="vod_faixas">Âm thanh và phụ đề</string>
-    <string name="vod_teclas">OK tạm dừng · ◀ 10 giây · ▶ 30 giây (giữ để tua nhanh hơn) · ▼ âm thanh, phụ đề và hình ảnh · ⏮ ⏭ chương · BACK thoát</string>
     <string name="series_titulo">Phim bộ</string>
     <string name="series_carregando">Đang tải phim bộ…</string>
     <string name="series_vazio">Chưa có phim bộ</string>
@@ -502,7 +488,6 @@
     </plurals>
     <string name="player_acao_guia">Lịch phát sóng</string>
     <string name="player_sem_guia_curto">Không có lịch phát sóng</string>
-    <string name="player_grade_teclas">OK xem · ◀ ▶ chương trình · ▲ ▼ kênh</string>
     <string name="player_busca_dica">Tên kênh hoặc chương trình</string>
     <string name="player_busca_nada">Không tìm thấy gì cho “%1$s”.</string>
     <string name="player_filtro_qualquer">Bất kỳ</string>
@@ -523,7 +508,6 @@
     <string name="infantil_titulo">Danh mục trẻ em</string>
     <string name="infantil_carregando">đang tải danh mục…</string>
     <string name="infantil_coluna_itens">BÊN TRONG CÓ GÌ</string>
-    <string name="infantil_dica">OK để đánh dấu hoặc bỏ đánh dấu danh mục trẻ em · áp dụng cho TV trực tiếp, Phim và Phim bộ · BACK thoát (đã lưu)</string>
     <string name="infantil_so_categoria">đánh dấu cả danh mục ở cột bên trái</string>
     <string name="infantil_vazio">không có danh mục: thêm tài khoản trong Cài đặt › TV và phim rồi tải lại kênh</string>
     <string name="infantil_limite">danh mục người lớn không thể là danh mục trẻ em</string>
@@ -541,11 +525,10 @@
     <string name="player_cat_favoritos">Yêu thích</string>
     <string name="player_cat_recentes">Gần đây</string>
     <string name="player_cat_outros">Khác</string>
-    <string name="player_sem_favoritos">Chưa có mục yêu thích. Giữ OK 2 giây trên một kênh để thêm vào đây.</string>
+    <string name="player_sem_favoritos">Chưa có mục yêu thích.</string>
     <string name="player_categoria_vazia">Không có kênh trong danh mục này.</string>
     <string name="player_sem_guia">Không có lịch phát sóng cho kênh này.</string>
     <string name="player_depois">SAU ĐÓ</string>
-    <string name="player_lista_teclas">OK xem · giữ OK 2 giây: yêu thích hoặc xóa · giữ OK trên danh mục: ẩn · ◀ danh mục</string>
     <string name="player_favorito_pos">★ Đã thêm %1$s vào yêu thích</string>
     <string name="player_favorito_tirou">Đã xóa %1$s khỏi yêu thích</string>
     <string name="player_favoritos_cheio">Đã có 500 mục yêu thích: hãy xóa bớt một mục trước.</string>
@@ -716,7 +699,6 @@
     <string name="tvv_vazio">Kênh này chưa có chương trình nào được lưu.</string>
     <string name="tvv_voltou">Về trực tiếp</string>
     <string name="tvv_selo">XEM LẠI</string>
-    <string name="tvv_teclas">◀ ▶ 30 giây · OK tùy chọn · BACK trực tiếp</string>
     <string name="tvv_pausar">Tạm dừng</string>
     <string name="tvv_continuar">Tiếp tục</string>
     <string name="tvv_ao_vivo">Về trực tiếp</string>
@@ -734,7 +716,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Phim và phim bộ</string>
     <string name="idioma_titulo">Âm thanh ưu tiên</string>
-    <string name="idioma_det">Bản gốc có phụ đề theo ngôn ngữ của TV, hoặc lồng tiếng theo ngôn ngữ đó. Mỗi phim và phim bộ ghi nhớ thay đổi bạn làm trong trình phát (▼)</string>
+    <string name="idioma_det">Bản gốc có phụ đề theo ngôn ngữ của TV, hoặc lồng tiếng theo ngôn ngữ đó. Mỗi phim và phim bộ ghi nhớ thay đổi bạn làm trong trình phát</string>
     <string name="idioma_original">Bản gốc có phụ đề</string>
     <string name="idioma_dublado">Lồng tiếng</string>
     <string name="idioma_legendado">Phụ đề</string>
@@ -848,8 +830,8 @@
     <string name="st_titulo">Ổ USB và bộ nhớ</string>
     <string name="st_explica">Chọn cách TV dùng ổ USB. Thiếu dung lượng? Nó có thể làm bộ nhớ TV cho các ứng dụng nặng.</string>
     <string name="st_linha_det">Dùng ổ USB làm bộ nhớ TV</string>
-    <string name="st_sem_shell">Cần shell riêng của TV (Cài đặt › Hệ thống › Nâng cao). OK để thử lại.</string>
-    <string name="st_sem_pen">Chưa cắm ổ USB. Hãy cắm vào và nhấn OK.</string>
+    <string name="st_sem_shell">Cần shell riêng của TV (Cài đặt › Hệ thống › Nâng cao).</string>
+    <string name="st_sem_pen">Chưa cắm ổ USB.</string>
     <string name="st_tv_livre">Bộ nhớ TV: trống %1$s trên %2$s</string>
     <string name="st_pen">Ổ USB · %1$s · %2$s</string>
     <string name="st_modo_comum">Ổ USB thông thường</string>
@@ -863,14 +845,13 @@
     <string name="st_motivo_grande">một nửa cho ứng dụng, một nửa cho bản ghi và tệp</string>
     <string name="st_motivo_apertada">TV gần đầy</string>
     <string name="st_medido">ghi ở %1$s MB/s</string>
-    <string name="st_medir_dica">OK để đo tốc độ</string>
     <string name="st_usar_comum">Dùng làm ổ USB thông thường</string>
-    <string name="st_usar_misto">Dùng kết hợp: %1$d%% thông thường  ◀ ▶</string>
+    <string name="st_usar_misto">Dùng kết hợp: %1$d%% thông thường</string>
     <string name="st_usar_tv">Dùng làm bộ nhớ TV</string>
     <string name="st_apps">Ứng dụng trên ổ USB</string>
     <string name="st_apps_det">Chọn ứng dụng để chuyển (lớn nhất trước)</string>
     <string name="st_apps_nenhum">Không ứng dụng nào chuyển được.</string>
-    <string name="st_apps_rodape">OK để chuyển ứng dụng; ✓ = đã ở trên ổ USB</string>
+    <string name="st_apps_rodape">✓ = đã ở trên ổ USB</string>
     <string name="st_compartilhado">Ảnh và tệp: %1$s</string>
     <string name="st_na_tv">trên TV</string>
     <string name="st_no_pen">trên ổ USB</string>
@@ -895,7 +876,7 @@
     <string name="st_voltar_comum">Trở lại ổ USB thông thường (ứng dụng quay về TV)</string>
     <string name="st_trazendo">Đang đưa %1$s về TV…</string>
     <string name="st_sumiram">Ổ USB đã bị rút: %1$s bị ẩn cho đến khi cắm lại.</string>
-    <string name="st_sugestao">Bộ nhớ TV gần đầy. Chuyển %1$s (%2$s) sang ổ USB: giữ OK trên ứng dụng.</string>
+    <string name="st_sugestao">Bộ nhớ TV gần đầy. Chuyển %1$s (%2$s) sang ổ USB</string>
     <string name="st_medindo">Đang đo tốc độ ổ để đề xuất cách dùng tốt nhất…</string>
     <string name="st_lento_titulo">Ổ quá chậm</string>
     <string name="st_lento_bloqueado">Ổ này ghi ở %1$s MB/s. Để làm bộ nhớ TV cần ít nhất %2$d MB/s: chậm hơn thì ứng dụng bị treo và TV có thể không khởi động. Hãy dùng làm ổ thông thường.</string>

@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">ทำเครื่องหมายจุดเริ่มช่วงเปิดเรื่องก่อน</string>
     <string name="abertura_invalida">ดูไม่เหมือนช่วงเปิดเรื่อง: ต้องยาว 10 วินาทีถึง 5 นาที และเริ่มใน 15 นาทีแรก</string>
     <string name="abertura_apagada">ลบเครื่องหมายช่วงเปิดเรื่องแล้ว</string>
-    <string name="abertura_pular">ข้ามช่วงเปิดเรื่อง · OK</string>
+    <string name="abertura_pular">ข้ามช่วงเปิดเรื่อง</string>
 </resources>

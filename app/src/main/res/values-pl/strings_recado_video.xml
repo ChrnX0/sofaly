@@ -6,9 +6,8 @@
     <string name="vid_onde">Aby obejrzeć: Ustawienia › Rodzina › Filmy rodziny.</string>
     <string name="vid_depois">Później</string>
     <string name="vid_assistir">Obejrzyj</string>
-    <string name="vid_ok_para_assistir">Naciśnij OK, aby obejrzeć.</string>
     <string name="vid_lista">Filmy rodziny</string>
-    <string name="vid_lista_det">Wysłane przez link rodziny. Każdy zostaje 30 dni. Przytrzymaj OK, aby usunąć.</string>
+    <string name="vid_lista_det">Wysłane przez link rodziny. Każdy zostaje 30 dni.</string>
     <string name="vid_nenhum">Nie ma jeszcze filmów.</string>
     <string name="vid_apagar">Usuń film</string>
     <string name="vid_aceitar">Przyjmuj filmy</string>

@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Markiere zuerst den Vorspannbeginn</string>
     <string name="abertura_invalida">Das sieht nicht wie ein Vorspann aus: er muss 10 s bis 5 Min. dauern und in den ersten 15 Min. beginnen</string>
     <string name="abertura_apagada">Vorspannmarke gelöscht</string>
-    <string name="abertura_pular">Vorspann überspringen · OK</string>
+    <string name="abertura_pular">Vorspann überspringen</string>
 </resources>

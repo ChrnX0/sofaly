@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">เสียงพูดชัดขึ้น เปิด</string>
     <string name="acess_voz_desligado">เสียงพูดชัดขึ้น ปิด</string>
     <string name="acess_config_titulo">เสียงและคำบรรยาย</string>
-    <string name="acess_config_texto">สำหรับผู้ที่มองเห็นหรือได้ยินไม่ชัด มีในเมนู ▼ ของเครื่องเล่นด้วย</string>
+    <string name="acess_config_texto">สำหรับผู้ที่มองเห็นหรือได้ยินไม่ชัด</string>
 </resources>

@@ -17,7 +17,7 @@
     <string name="jogos_parear_falhou">此电视没有打开蓝牙设置。请打开 设置、遥控器和配件。</string>
     <string name="jogos_baixar">获取游戏</string>
     <string name="jogos_escolher">选择应用</string>
-    <string name="jogos_escolher_sub">哪些应用放在“游戏”中。按 OK 在“游戏”和“应用”之间切换。</string>
+    <string name="jogos_escolher_sub">哪些应用放在“游戏”中。</string>
     <string name="jogos_no_card">在“游戏”中</string>
     <string name="jogos_na_linha">在“应用”中</string>
     <string name="jogos_grupo_nuvem">云端</string>

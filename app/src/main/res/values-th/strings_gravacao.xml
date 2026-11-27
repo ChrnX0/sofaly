@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">ทุกสัปดาห์</string>
     <string name="grv_cancelar_pergunta">ยกเลิกการบันทึก \"%1$s\" ไหม</string>
     <string name="grv_gravadas">บันทึกแล้ว</string>
-    <string name="grv_vazio">ยังไม่มีการบันทึก ในเครื่องเล่น ▶▶ › บันทึก ในผังรายการ OK ที่รายการในอนาคต</string>
+    <string name="grv_vazio">ยังไม่มีการบันทึก</string>
     <string name="grv_vazio_sem_destino">เสียบไดรฟ์ USB เข้ากับฮับเพื่อดูและบันทึก</string>
     <string name="grv_partes">%1$d ส่วน</string>
     <string name="grv_parte">ส่วนที่ %1$d จาก %2$d</string>

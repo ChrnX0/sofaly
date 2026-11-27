@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Ajustare fină</string>
-    <string name="ft_dica">OK sau ▶ ◀ schimbă · ÎNAPOI închide</string>
     <string name="ft_abrir">Ajustați văzând ecranul principal</string>
     <string name="ft_abrir_det">Font, ceas, culoare de evidențiere, colțuri, strălucire și mărime, în timp real</string>
     <string name="cs_destaque">Culoare de evidențiere</string>

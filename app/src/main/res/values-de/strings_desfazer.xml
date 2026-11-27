@@ -15,7 +15,7 @@
     <string name="desf_barra">Geändert: %1$s</string>
     <string name="desf_botao">Rückgängig</string>
     <string name="desf_tela">Letzte Änderungen</string>
-    <string name="desf_tela_det">Was in den letzten 7 Tagen geändert wurde. OK auf einer stellt den alten Zustand her.</string>
+    <string name="desf_tela_det">Was in den letzten 7 Tagen geändert wurde.</string>
     <string name="desf_tela_vazia">Keine Änderungen in den letzten 7 Tagen.</string>
     <string name="desf_ja_desfeita">rückgängig gemacht</string>
     <string name="desf_rot_config">Einstellungen</string>

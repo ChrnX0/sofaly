@@ -10,8 +10,7 @@
     <string name="tp_frio_texto">Hasta %d° esta noche · Abrígate</string>
     <string name="tp_cfg">Alerta de calor y frío</string>
     <string name="tp_cfg_det">Una tarjeta sobre cualquier app cuando hoy llega a %1$d° o esta noche baja a %2$d°</string>
-    <string name="mu_ok_lido">OK marca como leído</string>
-    <string name="mu_ok_nao_lido">Leído · OK marca como no leído</string>
+    <string name="mu_ok_nao_lido">Leído</string>
     <string name="mu_lido_desc">Mensaje, leído: %s. OK marca como no leído.</string>
     <string name="mu_nao_lido_desc">Mensaje: %s. OK marca como leído.</string>
     <string name="mu_apagar">Borrar mensaje: %s</string>

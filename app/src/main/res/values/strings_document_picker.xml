@@ -14,7 +14,6 @@
     <string name="dp_abrindo">Opening…</string>
     <string name="dp_erro">Couldn\'t open this place. Check that it is connected and try again.</string>
     <string name="dp_arquivos">Files in this folder: %1$d</string>
-    <string name="dp_dicas">OK: open · BACK: go back</string>
     <string name="dp_diario">%1$s received %2$s from the picker</string>
     <string name="dp_sem_nome">untitled</string>
 </resources>

@@ -818,7 +818,7 @@ class MainActivity : Activity() {
             gravity = Gravity.CENTER_VERTICAL
             clipChildren = false
             clipToPadding = false
-            background = Estilo.vidro(this@MainActivity, Estilo.RAIO_PILULA)
+            background = Estilo.vidro(this@MainActivity, Estilo.RAIO)   // caixa, não pílula (26/11/2026)
             setPaddingRelative(dp(8), 0, dp(8), 0)
         }
         fun lpPilula() = LinearLayout.LayoutParams(WRAP, alturaPilula).apply { marginEnd = dp(2) }
@@ -1262,7 +1262,7 @@ class MainActivity : Activity() {
         /** As fichas de fichas-apps.json para a frase do destaque (ideia 13). Lidas uma vez, na filaApps; null até lá. */
         @Volatile var fichasHome: Map<String, FrasesApps.Ficha>? = null
         const val CARTAO_TRANCA = "aa:lock"            // o cartão "N escondidos · PIN" (nenhum pacote tem esse nome)
-        const val COR_CONGELADOS = 0xFF9CC8E8.toInt()  // gelo
+        val COR_CONGELADOS: Int get() = Estilo.TEXTO_2   // neutro (era azul-gelo; 27/11/2026 só a paleta)
         const val COR_ESCONDIDOS = 0xFF9A9AA6.toInt()  // neutro: não é mundo nenhum
         const val DIAS_PARADO = 60                      // dica do Observador: sem abrir há 60 dias
     }
@@ -2756,12 +2756,12 @@ class MainActivity : Activity() {
 
         override fun focused(card: AllAppsScreen.Card) {
             if (card.kind == AllAppsScreen.Kind.LOCK) {
-                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, emptyList(), null, getString(R.string.aa_hint_lock)))
+                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, emptyList(), null, ""))
                 return
             }
             if (card.kind == AllAppsScreen.Kind.FOLDER || card.kind == AllAppsScreen.Kind.NEW_FOLDER) {
                 val n = br.paulo.tvlauncher.home.AppFolders.all(this@MainActivity).firstOrNull { it.id == card.pkg }?.apps?.size
-                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, listOfNotNull(n?.let { getString(R.string.cruz_apps_n, it) }), null, getString(R.string.aa_hint_folder)))
+                telaTodos?.showInfo(card, AllAppsScreen.Info(card.name, listOfNotNull(n?.let { getString(R.string.cruz_apps_n, it) }), null, ""))
                 return
             }
             Fundo.rodar("TodosInfo") {

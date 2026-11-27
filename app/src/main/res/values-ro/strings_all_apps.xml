@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Schimbați cu grijă, spune fișa ei</string>
     <string name="aa_risk_essential">Esențială pentru TV: nu o înghețați</string>
     <string name="aa_tip_idle">Nedeschisă de %1$d zile. Înghețarea eliberează memorie și poate fi anulată.</string>
-    <string name="aa_hint_app">OK deschide · țineți OK pentru a muta, ascunde, îngheța sau dezinstala</string>
-    <string name="aa_hint_frozen">OK dezgheață și deschide</string>
-    <string name="aa_hint_lock">OK cere PIN-ul și arată aici aplicațiile ascunse</string>
     <string name="aa_open">Deschide</string>
     <string name="aa_freeze">Îngheață</string>
     <string name="aa_freezing">Se îngheață %1$s…</string>

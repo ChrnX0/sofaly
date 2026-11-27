@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Favoriter spelas också med knapparna 1 till 9 på fjärrkontrollen</string>
     <string name="ouv_tecla">Knapp %d på fjärrkontrollen</string>
     <string name="ouv_ao_sair">När du lämnar</string>
-    <string name="ouv_ao_sair_continua">Fortsätter spela på startskärmen\n▶❙❙ på fjärrkontrollen pausar den från vilken skärm som helst</string>
+    <string name="ouv_ao_sair_continua">Fortsätter spela på startskärmen</string>
     <string name="ouv_ao_sair_para">Stoppar när du lämnar den här skärmen</string>
     <string name="ouv_recentes">Senaste</string>
     <string name="ouv_sem_favoritas">Inga favoriter än</string>
-    <string name="ouv_sem_favoritas_det">Håll OK på en station för att behålla den här</string>
     <string name="ouv_sem_recentes">Inget här än</string>
     <string name="ouv_sem_recentes_det">Stationerna du spelar visas här</string>
     <string name="ouv_paises">Länder</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Direkt</string>
     <string name="ouv_dica_pular">hoppa över</string>
     <string name="ouv_voltar">Tillbaka 15 s</string>
-    <string name="ouv_voltar_det">Även ◀◀ på fjärrkontrollen</string>
     <string name="ouv_avancar">Framåt 30 s</string>
-    <string name="ouv_avancar_det">Även ▶▶ på fjärrkontrollen</string>
     <string name="ouv_velocidade_det">%s · rösten behåller sin tonhöjd</string>
     <string name="ouv_parar_pod_det">Var du stannade sparas till senare</string>
     <string name="ouv_seguindo">Följer</string>

@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">“%1$s” ต้องการดูและคัดลอกไฟล์ในที่เก็บข้อมูลทีวีผ่านเครือข่ายในบ้าน อนุญาตคอมพิวเตอร์นี้ไหม</string>
     <string name="mtp_pcs">คอมพิวเตอร์ที่อนุญาต</string>
     <string name="mtp_pcs_nenhum">ยังไม่มี ทีวีจะถามบนหน้าจอเมื่อคอมพิวเตอร์ขอเข้าถึงไฟล์</string>
-    <string name="mtp_pcs_lista">%1$s · OK เพื่อลืมทั้งหมด (แต่ละเครื่องจะถามอีกครั้ง)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">ลืมคอมพิวเตอร์แล้ว</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">เปิดแผงควบคุมทีวี</string>

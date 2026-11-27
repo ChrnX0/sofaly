@@ -14,7 +14,6 @@
     <string name="dp_abrindo">開いています…</string>
     <string name="dp_erro">この場所を開けませんでした。接続を確認して、もう一度お試しください。</string>
     <string name="dp_arquivos">このフォルダのファイル: %1$d</string>
-    <string name="dp_dicas">OK: 開く · 戻る: 戻る</string>
     <string name="dp_diario">%1$s が選択画面から %2$s を受け取りました</string>
     <string name="dp_sem_nome">名前なし</string>
 </resources>

@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">Адреса й ключ API роутера UniFi, у вебпанелі</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Плитки швидкої панелі</string>
-    <string name="pb_subtitulo">OK показує або приховує · ◀ ▶ змінюють порядок</string>
-    <string name="pb_cfg_det">Виберіть, які плитки показує швидка панель (утримуйте НАЗАД) і в якому порядку</string>
+    <string name="pb_cfg_det">Виберіть, які плитки показує швидка панель і в якому порядку</string>
     <string name="pb_mostrado">показано</string>
     <string name="pb_escondido">приховано</string>
     <string name="pb_padrao">Повернути стандартні плитки</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Інструменти</string>
     <string name="cfg2_sec_ocultos_sistema">Системні застосунки, приховані лаунчером</string>
     <string name="cfg2_apps_visita_det">Виберіть, які застосунки зникають, поки ввімкнено гостьовий режим</string>
-    <string name="cfg2_apps_visita_sub">OK перемикає · ці зникають, поки ввімкнено гостьовий режим</string>
+    <string name="cfg2_apps_visita_sub">ці зникають, поки ввімкнено гостьовий режим</string>
     <string name="cfg2_some_visita">приховано для гостей</string>
     <string name="cfg2_fica_visita">лишається</string>
     <string name="cfg2_casa_det">Світло, розетки й сцени з Google Home або Home Assistant</string>
     <string name="oc_titulo">Приховані застосунки</string>
-    <string name="oc_subtitulo">OK показує або приховує застосунок на головному екрані · приховані йдуть першими</string>
-    <string name="oc_nenhum">Немає прихованих застосунків · OK, щоб вибрати</string>
-    <string name="oc_quantos">Приховано: %1$d · OK, щоб показати знову</string>
+    <string name="oc_subtitulo">приховані йдуть першими</string>
+    <string name="oc_nenhum">Немає прихованих застосунків</string>
+    <string name="oc_quantos">Приховано: %1$d</string>
     <string name="oc_oculto">приховано</string>
     <string name="oc_aparece">на головному екрані</string>
     <string name="oc_aviso_titulo">Застосунок приховано</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Великий</string>
     <string name="tt_maior">Більший</string>
     <string name="pi_titulo">Набір значків</string>
-    <string name="pi_det">Замініть значки застосунків вбудованим стилем (Символ, Двоколірний) або встановленим набором значків. OK вибирає наступний.</string>
+    <string name="pi_det">Замініть значки застосунків вбудованим стилем (Символ, Двоколірний) або встановленим набором значків.</string>
     <string name="pi_det_vazio">Набір значків не встановлено. Отримайте його в Play Маркеті, і він з\'явиться тут.</string>
     <string name="pi_nenhum">Немає</string>
     <string name="fm_titulo">Мій фон</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">Немає (назад до Темної)</string>
     <string name="fm_brilho">Яскравість фону</string>
     <string name="fm_contraste">Контраст фону</string>
-    <string name="fm_ajuste_det">Застосовується до Мого фону. OK змінює крок.</string>
+    <string name="fm_ajuste_det">Застосовується до Мого фону.</string>
     <string name="vp_titulo">Переходите з Projectivy?</string>
     <string name="vp_texto">Чотири кроки перенесуть ваші налаштування приблизно за хвилину. Кожен можна зробити пізніше в Налаштуваннях.</string>
     <string name="vp_cfg_det">Перенесіть приховані застосунки, набір значків і фон з Projectivy.</string>
     <string name="vp_1">1. Приховані застосунки</string>
-    <string name="vp_1_det">Позначте застосунки, які у вас були приховані. Щоб змінити порядок, утримуйте OK на застосунку на головному екрані.</string>
+    <string name="vp_1_det">Позначте застосунки, які у вас були приховані.</string>
     <string name="vp_2">2. Набір значків</string>
     <string name="vp_2_det">Тут працюють ті самі набори значків, що й у Projectivy.</string>
     <string name="vp_3">3. Фон</string>

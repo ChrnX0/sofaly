@@ -41,13 +41,12 @@
     <string name="casa_desligado">Uit</string>
     <string name="casa_aberta">Open</string>
     <string name="casa_fechada">Dicht</string>
-    <string name="casa_rodar">OK om uit te voeren</string>
     <string name="casa_indisponivel">Niet beschikbaar</string>
     <string name="casa_sem_config_titulo">Je huis verbinden</string>
     <string name="casa_dica_acionar">aan- of uitzetten</string>
     <string name="casa_erro">Home Assistant antwoordde niet: %1$s</string>
     <string name="casa_ligado_pct">Aan · %1$d%%</string>
-    <string name="casa_brilho_ajuste">Helderheid %1$d%% · ◀ ▶</string>
+    <string name="casa_brilho_ajuste">Helderheid %1$d%%</string>
     <string name="casa_dica_brilho">helderheid</string>
     <string name="casa_tecla_segurar_ok">OK INGEDRUKT HOUDEN</string>
     <string name="ca_liberado">%1$s vrijgemaakt. Nu vrij: %2$s.</string>

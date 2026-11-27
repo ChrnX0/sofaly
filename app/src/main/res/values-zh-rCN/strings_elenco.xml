@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">%1$s 前情提要</string>
     <string name="anteriormente_assistir">观看 %1$s</string>
     <string name="anteriormente_pular_sempre">不再显示</string>
-    <string name="anteriormente_desligado">已关闭前情提要。如需重新开启：在某一集上长按 OK。</string>
+    <string name="anteriormente_desligado">已关闭前情提要。</string>
     <string name="anteriormente_ligar">显示“前情提要”</string>
     <string name="idade_titulo">儿童模式年龄上限</string>
     <string name="idade_det">分级不超过此年龄的电影和剧集会在任何类别中显示（TMDB 分级）。无分级的只出现在儿童类别中。</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">也可在：%1$s（JustWatch）</string>
     <string name="onde_fora">不在你的清单中 · 在 %1$s 上</string>
     <string name="onde_grupo">其他平台（JustWatch）</string>
-    <string name="legenda_auto_pronta">已自动下载字幕（为此文件制作）· 按 ▼ 更改</string>
-    <string name="legenda_auto_pronta_nome">已自动下载字幕 · 按 ▼ 更改或调整延迟</string>
+    <string name="legenda_auto_pronta">已自动下载字幕（为此文件制作）</string>
+    <string name="legenda_auto_pronta_nome">已自动下载字幕</string>
     <string name="legenda_trad_rotulo">自动翻译</string>
     <string name="legenda_trad_traduzindo">没有你的语言的字幕：正在电视上翻译英文字幕…</string>
     <string name="legenda_trad_parcial">字幕已在电视上翻译（自动翻译）。其余部分继续翻译中。</string>

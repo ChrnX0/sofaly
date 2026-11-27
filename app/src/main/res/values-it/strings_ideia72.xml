@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s ora: %2$s (fino alle %3$s)</string>
     <string name="l72_guia_nada_agora">%1$s: niente nella guida ora</string>
     <string name="l72_guia_depois">Dopo: %1$s (%2$s)</string>
-    <string name="l75_pilula">In riproduzione: %1$s, %2$s. OK mette in pausa o riprende; tieni premuto OK per aprire l’app</string>
+    <string name="l75_pilula">In riproduzione: %1$s, %2$s.</string>
 </resources>

@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">휴대폰에서 확인하기를 기다리는 중…</string>
     <string name="rede_nuvem_salvando">로그인 중…</string>
     <string name="rede_nuvem_recusado">서비스가 거부했습니다. 앱 ID를 확인하고 다시 시도하세요.</string>
-    <string name="rede_erro_nuvem_login">이 계정의 권한이 만료되었거나 삭제되었습니다. 계정을 삭제하고(OK 길게) 다시 로그인하세요.</string>
+    <string name="rede_erro_nuvem_login">이 계정의 권한이 만료되었거나 삭제되었습니다. 계정을 삭제하고 다시 로그인하세요.</string>
     <string name="rede_od_titulo">OneDrive: Microsoft의 내 앱</string>
     <string name="rede_od_explica">컴퓨터에서 한 번만: entra.microsoft.com › 앱 등록 › 새 등록. 계정 유형은 개인 Microsoft 계정이 포함된 항목을 선택하세요. 그런 다음 인증에서 ‘공용 클라이언트 흐름 허용’을 켜세요. ‘애플리케이션(클라이언트) ID’를 복사하여 여기에 입력하세요(패널에서 휴대폰으로 입력 가능).</string>
     <string name="rede_od_id">애플리케이션(클라이언트) ID</string>

@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: v průvodci teď nic není</string>
     <string name="l72_guia_depois">Dále: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Právě hraje: %1$s, %2$s. OK pozastaví nebo pokračuje; podržte OK pro otevření aplikace</string>
+    <string name="l75_pilula">Právě hraje: %1$s, %2$s.</string>
 </resources>

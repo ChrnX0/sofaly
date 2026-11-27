@@ -52,7 +52,7 @@
     <string name="l51_digitar_titulo">Введення на телевізорі</string>
     <string name="l51_digitar_texto">У %1$s відкрито текстове поле. Торкніться, щоб вводити звідси.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">кімната %1$s</string>
     <string name="casa_movimento">Рух</string>
     <string name="casa_sem_movimento">Немає руху</string>

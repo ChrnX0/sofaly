@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">”%1$s” haluaa nähdä ja kopioida TV:n tallennustilan tiedostoja kotiverkon kautta. Sallitaanko tämä tietokone?</string>
     <string name="mtp_pcs">Sallitut tietokoneet</string>
     <string name="mtp_pcs_nenhum">Ei vielä yhtään. TV kysyy näytöllä, kun tietokone pyytää tiedostoja.</string>
-    <string name="mtp_pcs_lista">%1$s · OK unohtaa kaikki (kukin kysyy uudelleen)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Tietokoneet unohdettu</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Avaa TV-paneeli</string>

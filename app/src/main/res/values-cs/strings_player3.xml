@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Nejprve označte začátek znělky</string>
     <string name="abertura_invalida">To nevypadá jako znělka: musí trvat 10 s až 5 min a začínat v prvních 15 min</string>
     <string name="abertura_apagada">Označení znělky smazáno</string>
-    <string name="abertura_pular">Přeskočit znělku · OK</string>
+    <string name="abertura_pular">Přeskočit znělku</string>
 </resources>

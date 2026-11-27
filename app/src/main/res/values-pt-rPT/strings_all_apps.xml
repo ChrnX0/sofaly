@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Mexa com cuidado, segundo a ficha</string>
     <string name="aa_risk_essential">Essencial para a TV: não congele</string>
     <string name="aa_tip_idle">Não abre há %1$d dias. Congelar liberta memória e pode ser desfeito.</string>
-    <string name="aa_hint_app">OK abre · mantenha OK premido para mover, esconder, congelar ou desinstalar</string>
-    <string name="aa_hint_frozen">OK descongela e abre</string>
-    <string name="aa_hint_lock">OK pede o PIN e mostra os escondidos aqui</string>
     <string name="aa_open">Abrir</string>
     <string name="aa_freeze">Congelar</string>
     <string name="aa_freezing">A congelar %1$s…</string>

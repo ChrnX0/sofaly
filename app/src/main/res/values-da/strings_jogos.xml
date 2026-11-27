@@ -26,7 +26,7 @@
     <string name="jogos_parear_falhou">Dette tv åbnede ikke Bluetooth-indstillingerne. Åbn Indstillinger, Fjernbetjeninger og tilbehør.</string>
     <string name="jogos_baixar">Hent spil</string>
     <string name="jogos_escolher">Vælg apps</string>
-    <string name="jogos_escolher_sub">Hvilke apps bor i Spil. OK skifter mellem Spil og Apps.</string>
+    <string name="jogos_escolher_sub">Hvilke apps bor i Spil.</string>
     <string name="jogos_no_card">i Spil</string>
     <string name="jogos_na_linha">i Apps</string>
     <string name="jogos_grupo_nuvem">I skyen</string>

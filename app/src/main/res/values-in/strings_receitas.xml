@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">TV ini untuk siapa?</string>
-    <string name="rec_subtitulo">Satu OK dan TV siap. Bisa dibatalkan kapan saja.</string>
+    <string name="rec_subtitulo">Bisa dibatalkan kapan saja.</string>
     <string name="rec_vo">TV Nenek</string>
     <string name="rec_vo_det">Kartu besar dengan nama dibacakan, teks lebih besar, dan tombol Minta bantuan.</string>
     <string name="rec_criancas">TV Anak-anak</string>

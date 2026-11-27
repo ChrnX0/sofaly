@@ -30,5 +30,4 @@
     <string name="bb_titulo">主屏幕样式</string>
     <string name="bb_cruz">十字</string>
     <string name="bb_barra">底部栏</string>
-    <string name="bb_det">分类呈十字排列，或固定在底部、应用在上方 (▲)</string>
 </resources>

@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">في الحلقات السابقة من %1$s</string>
     <string name="anteriormente_assistir">شاهد %1$s</string>
     <string name="anteriormente_pular_sempre">لا تُظهر أبدًا</string>
-    <string name="anteriormente_desligado">أُوقفت الملخصات. لتفعيلها مجددًا: اضغط مطولًا على OK على حلقة.</string>
+    <string name="anteriormente_desligado">أُوقفت الملخصات.</string>
     <string name="anteriormente_ligar">إظهار ملخصات “في الحلقات السابقة”</string>
     <string name="idade_titulo">العمر الأقصى في وضع الأطفال</string>
     <string name="idade_det">الأفلام والمسلسلات المصنّفة حتى هذا العمر تظهر من أي فئة (تصنيف TMDB). وغير المصنّفة فقط في فئات الأطفال.</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">متوفر أيضًا على: %1$s (JustWatch)</string>
     <string name="onde_fora">ليس في قائمتك · على %1$s</string>
     <string name="onde_grupo">في مكان آخر (JustWatch)</string>
-    <string name="legenda_auto_pronta">ترجمة نُزّلت تلقائيًا (معدّة لهذا الملف) · ▼ للتغيير</string>
-    <string name="legenda_auto_pronta_nome">ترجمة نُزّلت تلقائيًا · ▼ للتغيير أو ضبط التأخير</string>
+    <string name="legenda_auto_pronta">ترجمة نُزّلت تلقائيًا (معدّة لهذا الملف)</string>
+    <string name="legenda_auto_pronta_nome">ترجمة نُزّلت تلقائيًا</string>
     <string name="legenda_trad_rotulo">ترجمة آلية</string>
     <string name="legenda_trad_traduzindo">لا ترجمة بلغتك: جارٍ ترجمة الإنجليزية على التلفزيون…</string>
     <string name="legenda_trad_parcial">ترجمة مترجمة على التلفزيون (ترجمة آلية). الباقي يُترجم تباعًا.</string>

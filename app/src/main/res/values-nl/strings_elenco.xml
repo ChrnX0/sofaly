@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Eerder in %1$s</string>
     <string name="anteriormente_assistir">%1$s kijken</string>
     <string name="anteriormente_pular_sempre">Nooit tonen</string>
-    <string name="anteriormente_desligado">Samenvattingen uitgezet. Om ze weer aan te zetten: houd OK ingedrukt op een aflevering.</string>
+    <string name="anteriormente_desligado">Samenvattingen uitgezet.</string>
     <string name="anteriormente_ligar">Samenvattingen “Eerder in” tonen</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Maximumleeftijd in kindermodus</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Niet in je lijst · op %1$s</string>
     <string name="onde_grupo">Elders (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Ondertiteling automatisch gedownload (gemaakt voor dit bestand) · ▼ om te wijzigen</string>
-    <string name="legenda_auto_pronta_nome">Ondertiteling automatisch gedownload · ▼ om te wijzigen of de vertraging aan te passen</string>
+    <string name="legenda_auto_pronta">Ondertiteling automatisch gedownload (gemaakt voor dit bestand)</string>
+    <string name="legenda_auto_pronta_nome">Ondertiteling automatisch gedownload</string>
     <string name="legenda_trad_rotulo">Automatische vertaling</string>
     <string name="legenda_trad_traduzindo">Geen ondertiteling in je taal: de Engelse wordt op de tv vertaald…</string>
     <string name="legenda_trad_parcial">Ondertiteling vertaald op de tv (automatische vertaling). De rest wordt verder vertaald.</string>

@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Pausar o ao vivo</string>
     <string name="pausa_continuar">Continuar</string>
     <string name="pausa_ao_vivo">Voltar ao vivo</string>
-    <string name="pausa_selo">⏸ PAUSADO · OK continua</string>
-    <string name="pausa_atrasado_min">ATRASADO %1$d MIN · ▶ ao vivo</string>
-    <string name="pausa_atrasado_seg">ATRASADO %1$d S · ▶ ao vivo</string>
+    <string name="pausa_selo">⏸ PAUSADO</string>
+    <string name="pausa_atrasado_min">ATRASADO %1$d MIN</string>
+    <string name="pausa_atrasado_seg">ATRASADO %1$d S</string>
     <string name="pausa_voltou">A pausa passou do que cabe na memória: voltou à transmissão ao vivo</string>
 </resources>

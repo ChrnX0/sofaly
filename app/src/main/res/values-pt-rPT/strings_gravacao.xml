@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">toda semana</string>
     <string name="grv_cancelar_pergunta">Cancelar a gravação de \"%1$s\"?</string>
     <string name="grv_gravadas">Gravadas</string>
-    <string name="grv_vazio">Nada gravado ainda. No player, ▶▶ › Gravar; no guia, OK num programa que vai começar.</string>
+    <string name="grv_vazio">Nada gravado ainda.</string>
     <string name="grv_vazio_sem_destino">Ligue um pendrive no hub para ver e fazer gravações.</string>
     <string name="grv_partes">%1$d partes</string>
     <string name="grv_parte">parte %1$d de %2$d</string>

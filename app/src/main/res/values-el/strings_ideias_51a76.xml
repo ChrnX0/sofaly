@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Πληκτρολόγηση στην τηλεόραση</string>
     <string name="l51_digitar_texto">Ένα πεδίο κειμένου είναι ανοιχτό στο %1$s. Πατήστε για να γράψετε από εδώ.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">δωμάτιο %1$s</string>
     <string name="casa_movimento">Κίνηση</string>
     <string name="casa_sem_movimento">Καμία κίνηση</string>

@@ -16,10 +16,10 @@
     <string name="cfg_rotinas">Rutine</string>
     <string name="cfg_sec_atualizacao">Actualizări</string>
     <string name="cfg_atualizar">Caută o versiune nouă</string>
-    <string name="cfg_atualizar_det">Versiunea %1$s · %2$s · OK verifică acum</string>
+    <string name="cfg_atualizar_det">Versiunea %1$s · %2$s</string>
     <string name="cfg_procurando">se verifică GitHub…</string>
     <string name="cfg_instalar">Instalează acum versiunea %1$d</string>
-    <string name="cfg_instalar_det">Launcherul se închide și revine singur în câteva secunde · OK instalează</string>
+    <string name="cfg_instalar_det">Launcherul se închide și revine singur în câteva secunde</string>
     <string name="cfg_instalando">se descarcă și se verifică…</string>
     <string name="cfg_sec_rede">Rețea</string>
     <string name="cfg_dns">DNS privat</string>
@@ -31,7 +31,6 @@
     <string name="cfg_sec_ligado">Ce este activat — %1$s</string>
     <string name="cfg_ligado">activat</string>
     <string name="cfg_so_pc">" · doar cu un computer (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK încearcă să activeze"</string>
     <string name="cfg_perm_fixas">Permisiuni fixe acordate</string>
     <string name="cfg_shell_estado">Shell propriu</string>
     <string name="cfg_shell_pareado">asociat: launcherul se reconectează singur prin Depanarea wireless</string>
@@ -67,7 +66,7 @@
     <string name="rec_teclas">Serviciul de taste</string>
     <string name="rec_teclas_sem">fără el: HOME poate deschide launcherul Google, iar tastele Netflix/YouTube nu sunt reconfigurate</string>
     <string name="rec_tudo">totul activat</string>
-    <string name="rec_faltam">lipsesc %1$d din %2$d funcții · OK pe un element încearcă să-l activeze</string>
+    <string name="rec_faltam">lipsesc %1$d din %2$d funcții</string>
     <!-- BoasVindasActivity.kt -->
     <string name="bv_titulo">Bun venit</string>
     <string name="bv_texto">Ecranul principal, ceasul, vremea, alarma și screensaverul funcționează deja. Activați restul aici dacă doriți (%1$s).</string>
@@ -96,7 +95,6 @@
     <string name="rot_desligada_sufixo">" · dezactivată"</string>
     <string name="rot_nova">Rutină nouă</string>
     <string name="rot_editar">Editează rutina</string>
-    <string name="rot_editor_det">OK schimbă fiecare rând · ÎNAPOI iese fără a salva</string>
     <string name="rot_hora">Ora: %1$s</string>
     <string name="rot_dias">Zile: %1$s</string>
     <string name="rot_acao">Acțiune: %1$s</string>
@@ -105,12 +103,7 @@
     <string name="rot_ocioso">Doar dacă nimeni nu l-a atins de: %1$s</string>
     <string name="rot_ligada">Activat</string>
     <string name="rot_desligada">Dezactivat</string>
-    <string name="rot_hora_det">◀ ▶ 5 minute · OK +1 oră</string>
-    <string name="rot_dias_det">OK: în fiecare zi, luni–vineri, weekend, o dată</string>
-    <string name="rot_ok_muda">OK schimbă</string>
-    <string name="rot_app_det">OK sau ▶ următorul · ◀ anteriorul</string>
     <string name="rot_ocioso_det">Nu întrerupe pe cine se uită</string>
-    <string name="rot_ativa_det">OK activează/dezactivează această rutină</string>
     <string name="rot_salvar">Salvează</string>
     <string name="rot_escolha_app">Alegeți aplicația</string>
     <string name="rot_apagar">Șterge această rutină</string>
@@ -188,7 +181,6 @@
     <string name="pp_conectar">Conectează</string>
     <!-- CalendarioActivity.kt -->
     <string name="cal_sem_conta">niciun cont Google</string>
-    <string name="cal_dica">◀ ▶ schimbă luna</string>
     <string name="cal_30">Următoarele 30 de zile</string>
     <string name="cal_nenhuma_conta">Niciun cont Google pe TV</string>
     <string name="cal_nada">Nimic programat (sau calendarul încă se sincronizează)</string>
@@ -309,7 +301,6 @@
     <string name="fd_nascer">răsărit %1$s</string>
     <string name="fd_por">apus %1$s</string>
     <!-- DnsActivity.kt -->
-    <string name="dns_dica">OK: folosește   ·   țineți OK pe unul din serverele dvs.: elimină   ·   Înapoi: ieșire</string>
     <string name="dns_auto">Automat</string>
     <string name="dns_auto_det">Folosește DNS-ul routerului și criptează când acesta acceptă (implicit Android)</string>
     <string name="dns_desl">Dezactivat</string>
@@ -428,7 +419,7 @@
     <string name="atu_migracao_disponivel">versiunea %1$d: gata să mute acest TV în noua aplicație (tv.sofaly.launcher)</string>
     <string name="atu_migracao_instalando">se instalează noua aplicație (%1$d); apoi preia acest TV cu toate setările</string>
     <string name="atu_disponivel">versiunea %1$d e gata de instalare (instalată %2$d)</string>
-    <string name="atu_trocou">versiunea s-a schimbat de la ultima verificare · OK verifică din nou</string>
+    <string name="atu_trocou">versiunea s-a schimbat de la ultima verificare</string>
     <string name="atu_instalando">se instalează %1$d (instalată %2$d)</string>
     <string name="atu_ok">actualizat</string>
     <string name="atu_falhou">instalarea a eșuat (%1$d): %2$s</string>
@@ -439,7 +430,6 @@
     <string name="vig_pausada_tela">versiunea %1$d s-a blocat de două ori imediat după instalare · \"%2$s\" rămâne dezactivat până la următoarea</string>
     <string name="vig_tela_bloqueada">Acest ecran e dezactivat până la următoarea actualizare (a blocat launcherul)</string>
     <string name="cfg_vig_liberar">Mod sigur</string>
-    <string name="cfg_vig_liberar_det">" · OK îl reactivează"</string>
     <!-- Universal player (06/11/2026) -->
     <string name="home_voz_indisponivel">Căutarea vocală nu s-a deschis pe acest TV</string>
     <string name="home_alarme_hoje">azi</string>
@@ -449,12 +439,10 @@
     <string name="vod_carregando">Se încarcă videoclipul…</string>
     <string name="player_sem_canais">Nu a fost adăugată încă nicio listă de canale.</string>
     <string name="player_tentando">Fără semnal pe canalul %1$d. Se reîncearcă…</string>
-    <string name="player_sem_sinal">Canalul %1$d nu a răspuns. Alegeți altul cu ▲ ▼ sau OK.</string>
+    <string name="player_sem_sinal">Canalul %1$d nu a răspuns.</string>
     <string name="player_canal_nao_existe">Nu există canalul %1$d.</string>
     <string name="player_ao_vivo">LIVE</string>
     <string name="player_a_seguir">urmează: %1$s</string>
-    <string name="player_teclas">▲ ▼ canal · OK lista de canale · țineți OK 2 s: favorit · ◀ canalul anterior · ▶ ▶ opțiuni · ÎNAPOI ieșire</string>
-    <string name="player_teclas_pausa">▶❙❙ sau OK reia · ▶ opțiuni (înapoi la live) · ▲ ▼ canal · ÎNAPOI ieșire</string>
     <string name="player_cat_busca">Căutare: %1$s</string>
     <string name="player_acao_buscar">Căutare</string>
     <string name="player_acao_filtros">Filtre</string>
@@ -478,7 +466,6 @@
     <string name="filmes_interesse_pos">★ %1$s adăugat la De văzut</string>
     <string name="filmes_interesse_tirou">%1$s eliminat din De văzut</string>
     <string name="filmes_interesses_cheio">Lista De văzut are deja 500 de titluri: eliminați unul mai întâi.</string>
-    <string name="filmes_interesses_vazio">Țineți OK apăsat 2 secunde pe un poster pentru a-l adăuga aici (și din nou pentru a-l elimina).</string>
     <string name="filmes_assistido">Văzute</string>
     <string name="filmes_selo_leg">SUB</string>
     <string name="vod_sem_conta">Contul acestui videoclip nu mai există.</string>
@@ -487,7 +474,6 @@
     <string name="vod_audio">Audio</string>
     <string name="vod_legenda">Subtitrări</string>
     <string name="vod_faixas">Audio și subtitrări</string>
-    <string name="vod_teclas">OK pauză · ◀ 10 s · ▶ 30 s (țineți pentru mai rapid) · ▼ audio, subtitrări și imagine · ⏮ ⏭ capitole · ÎNAPOI ieșire</string>
     <string name="series_titulo">Seriale</string>
     <string name="series_carregando">Se încarcă serialele…</string>
     <string name="series_vazio">Încă nu există seriale</string>
@@ -503,7 +489,6 @@
     </plurals>
     <string name="player_acao_guia">Ghid TV</string>
     <string name="player_sem_guia_curto">Fără ghid TV</string>
-    <string name="player_grade_teclas">OK vizionează · ◀ ▶ program · ▲ ▼ canal</string>
     <string name="player_busca_dica">Numele canalului sau al programului</string>
     <string name="player_busca_nada">Nimic găsit pentru „%1$s”.</string>
     <string name="player_filtro_qualquer">Oricare</string>
@@ -524,7 +509,6 @@
     <string name="infantil_titulo">Categorii pentru copii</string>
     <string name="infantil_carregando">se încarcă categoriile…</string>
     <string name="infantil_coluna_itens">CE CONȚINE</string>
-    <string name="infantil_dica">OK marchează sau demarchează categoria pentru copii · se aplică la TV live, Filme și Seriale · ÎNAPOI iese (deja salvat)</string>
     <string name="infantil_so_categoria">marcați întreaga categorie în coloana din stânga</string>
     <string name="infantil_vazio">fără categorii: adăugați un cont în Setări › TV și filme și reîncărcați canalele</string>
     <string name="infantil_limite">o categorie pentru adulți nu poate fi pentru copii</string>
@@ -542,11 +526,10 @@
     <string name="player_cat_favoritos">Favorite</string>
     <string name="player_cat_recentes">Recente</string>
     <string name="player_cat_outros">Altele</string>
-    <string name="player_sem_favoritos">Încă nu există favorite. Țineți OK 2 s pe un canal pentru a-l adăuga aici.</string>
+    <string name="player_sem_favoritos">Încă nu există favorite.</string>
     <string name="player_categoria_vazia">Niciun canal în această categorie.</string>
     <string name="player_sem_guia">Fără ghid TV pentru acest canal.</string>
     <string name="player_depois">MAI TÂRZIU</string>
-    <string name="player_lista_teclas">OK vizionează · țineți OK 2 s: favorit sau elimină · țineți OK pe o categorie: ascunde · ◀ categorii</string>
     <string name="player_favorito_pos">★ %1$s adăugat la favorite</string>
     <string name="player_favorito_tirou">%1$s eliminat din favorite</string>
     <string name="player_favoritos_cheio">Există deja 500 de favorite: eliminați unul mai întâi.</string>
@@ -719,7 +702,6 @@
     <string name="tvv_vazio">Acest canal nu are încă programe salvate.</string>
     <string name="tvv_voltou">Înapoi la live</string>
     <string name="tvv_selo">CATCH-UP</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK opțiuni · ÎNAPOI live</string>
     <string name="tvv_pausar">Pauză</string>
     <string name="tvv_continuar">Reia</string>
     <string name="tvv_ao_vivo">Înapoi la live</string>
@@ -737,7 +719,7 @@
     <!-- Original or dubbed audio in movies and series (Idioma, 11/11/2026) -->
     <string name="idioma_secao">Filme și seriale</string>
     <string name="idioma_titulo">Audio preferat</string>
-    <string name="idioma_det">Original cu subtitrări în limba TV-ului sau dublat în ea. Fiecare film și serial reține schimbarea făcută în player (▼)</string>
+    <string name="idioma_det">Original cu subtitrări în limba TV-ului sau dublat în ea. Fiecare film și serial reține schimbarea făcută în player</string>
     <string name="idioma_original">Original cu subtitrări</string>
     <string name="idioma_dublado">Dublat</string>
     <string name="idioma_legendado">Subtitrat</string>
@@ -851,8 +833,8 @@
     <string name="st_titulo">Stick USB și stocare</string>
     <string name="st_explica">Alegeți cum folosește TV-ul un stick USB. Spațiu puțin? Poate deveni stocare TV pentru aplicațiile mari.</string>
     <string name="st_linha_det">Folosește un stick USB ca stocare TV</string>
-    <string name="st_sem_shell">Necesită shellul propriu al TV-ului (Setări › Sistem › Avansat). OK pentru a reîncerca.</string>
-    <string name="st_sem_pen">Niciun stick USB conectat. Introduceți unul și apăsați OK.</string>
+    <string name="st_sem_shell">Necesită shellul propriu al TV-ului (Setări › Sistem › Avansat).</string>
+    <string name="st_sem_pen">Niciun stick USB conectat.</string>
     <string name="st_tv_livre">Stocare TV: %1$s libere din %2$s</string>
     <string name="st_pen">Stick USB · %1$s · %2$s</string>
     <string name="st_modo_comum">Stick USB obișnuit</string>
@@ -866,14 +848,13 @@
     <string name="st_motivo_grande">jumătate pentru aplicații, jumătate pentru înregistrări și fișiere</string>
     <string name="st_motivo_apertada">TV-ul este aproape plin</string>
     <string name="st_medido">scrie cu %1$s MB/s</string>
-    <string name="st_medir_dica">OK îi măsoară viteza</string>
     <string name="st_usar_comum">Folosește ca stick USB obișnuit</string>
-    <string name="st_usar_misto">Folosește mixt: %1$d%% obișnuit  ◀ ▶</string>
+    <string name="st_usar_misto">Folosește mixt: %1$d%% obișnuit</string>
     <string name="st_usar_tv">Folosește ca stocare TV</string>
     <string name="st_apps">Aplicații pe stickul USB</string>
     <string name="st_apps_det">Alegeți aplicațiile de mutat (cele mai mari primele)</string>
     <string name="st_apps_nenhum">Nicio aplicație nu poate fi mutată.</string>
-    <string name="st_apps_rodape">OK mută aplicația; ✓ = deja pe stickul USB</string>
+    <string name="st_apps_rodape">✓ = deja pe stickul USB</string>
     <string name="st_compartilhado">Fotografii și fișiere: %1$s</string>
     <string name="st_na_tv">pe TV</string>
     <string name="st_no_pen">pe stickul USB</string>
@@ -898,7 +879,7 @@
     <string name="st_voltar_comum">Înapoi la stick USB obișnuit (aplicațiile revin pe TV)</string>
     <string name="st_trazendo">Se aduce %1$s înapoi pe TV…</string>
     <string name="st_sumiram">Stickul USB e scos: %1$s sunt ascunse până revine.</string>
-    <string name="st_sugestao">Stocarea TV e aproape plină. Mutați %1$s (%2$s) pe stickul USB: țineți OK pe aplicație.</string>
+    <string name="st_sugestao">Stocarea TV e aproape plină. Mutați %1$s (%2$s) pe stickul USB</string>
     <string name="st_medindo">Se măsoară viteza stickului pentru a recomanda cea mai bună utilizare…</string>
     <string name="st_lento_titulo">Stick prea lent</string>
     <string name="st_lento_bloqueado">Acest stick scrie cu %1$s MB/s. Pentru a deveni stocare TV are nevoie de cel puțin %2$d MB/s: sub aceasta aplicațiile îngheață, iar TV-ul s-ar putea să nu pornească. Folosiți-l ca stick obișnuit.</string>

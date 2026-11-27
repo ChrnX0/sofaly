@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Modifica widget della home</string>
-    <string name="wdg_det">Widget dal vivo di altre app nella schermata Home. Le frecce li spostano, OK mostra le opzioni.</string>
-    <string name="wdg_vazio">Nessun widget nella Home. OK ne aggiunge uno.</string>
+    <string name="wdg_det">Widget dal vivo di altre app nella schermata Home.</string>
+    <string name="wdg_vazio">Nessun widget nella Home.</string>
     <string name="wdg_estado_mover">Spostamento: %1$s</string>
     <string name="wdg_estado_tamanho">Dimensione: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Sposta</string>

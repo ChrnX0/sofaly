@@ -6,8 +6,8 @@
     <string name="bkn_desligado">вимк.</string>
     <string name="bkn_sem_senha">вимк. · спершу задайте пароль копії</string>
     <string name="bkn_senha">Пароль копії</string>
-    <string name="bkn_senha_ok">задано · OK змінює</string>
-    <string name="bkn_senha_falta">не задано · OK задає</string>
+    <string name="bkn_senha_ok">задано</string>
+    <string name="bkn_senha_falta">не задано</string>
     <string name="bkn_senha_nova">Пароль копії (8 або більше символів)</string>
     <string name="bkn_senha_repetir">Введіть пароль ще раз</string>
     <string name="bkn_senha_curta">Пароль має містити від 8 до 128 символів.</string>

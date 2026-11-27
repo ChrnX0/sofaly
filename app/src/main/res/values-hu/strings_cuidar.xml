@@ -78,7 +78,7 @@
     <string name="cuidar_pode_esperar">Várhat.</string>
     <string name="cuidar_nao_avisado">Nem sikerült értesíteni: %1$s</string>
     <string name="cuidar_sem_aparelho">Egy telefon sincs beállítva fogadásra. Ellenőrizze: Beállítások › Család › Gondoskodás távolról.</string>
-    <string name="cuidar_sem_internet">Ellenőrizze az internetet, és próbálja újra (tartsa nyomva a gombot 3 másodpercig).</string>
+    <string name="cuidar_sem_internet">Ellenőrizze az internetet, és próbálja újra.</string>
     <string name="cuidar_lembrete_sobre">Emlékeztető · %1$s</string>
     <string name="cuidar_lembrete_explica">Nyomja meg az OK-t, ha kész.</string>
     <string name="cuidar_lembrete_explica_aviso">Nyomja meg az OK-t, ha kész. Ha %1$d percen belül nem, %2$s értesítést kap.</string>

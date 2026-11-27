@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Pune pauză la TV live</string>
     <string name="pausa_continuar">Reia</string>
     <string name="pausa_ao_vivo">Înapoi la live</string>
-    <string name="pausa_selo">⏸ ÎN PAUZĂ · OK reia</string>
-    <string name="pausa_atrasado_min">%1$d MIN ÎN URMĂ · ▶ live</string>
-    <string name="pausa_atrasado_seg">%1$d S ÎN URMĂ · ▶ live</string>
+    <string name="pausa_selo">⏸ ÎN PAUZĂ</string>
+    <string name="pausa_atrasado_min">%1$d MIN ÎN URMĂ</string>
+    <string name="pausa_atrasado_seg">%1$d S ÎN URMĂ</string>
     <string name="pausa_voltou">Pauză mai lungă decât poate reține memoria: înapoi la live</string>
 </resources>

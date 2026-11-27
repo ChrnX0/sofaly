@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">ที่อยู่และคีย์ API ของเราเตอร์ UniFi ในแผงควบคุมเว็บ</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">ไทล์แผงด่วน</string>
-    <string name="pb_subtitulo">OK แสดงหรือซ่อน · ◀ ▶ เปลี่ยนลำดับ</string>
-    <string name="pb_cfg_det">เลือกไทล์ที่แผงด่วน (กด BACK ค้าง) แสดง และเรียงลำดับอย่างไร</string>
+    <string name="pb_cfg_det">เลือกไทล์ที่แผงด่วน แสดง และเรียงลำดับอย่างไร</string>
     <string name="pb_mostrado">แสดง</string>
     <string name="pb_escondido">ซ่อน</string>
     <string name="pb_padrao">กลับไปใช้ไทล์มาตรฐาน</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">เครื่องมือ</string>
     <string name="cfg2_sec_ocultos_sistema">แอประบบที่ Launcher ซ่อนไว้</string>
     <string name="cfg2_apps_visita_det">เลือกแอปที่จะหายไประหว่างที่เปิดโหมดผู้เยี่ยมชม</string>
-    <string name="cfg2_apps_visita_sub">OK เพื่อสลับ · แอปเหล่านี้จะหายไประหว่างที่เปิดโหมดผู้เยี่ยมชม</string>
+    <string name="cfg2_apps_visita_sub">แอปเหล่านี้จะหายไประหว่างที่เปิดโหมดผู้เยี่ยมชม</string>
     <string name="cfg2_some_visita">ซ่อนจากผู้เยี่ยมชม</string>
     <string name="cfg2_fica_visita">คงไว้</string>
     <string name="cfg2_casa_det">ไฟ ปลั๊ก และฉากจาก Google Home หรือ Home Assistant</string>
     <string name="oc_titulo">แอปที่ซ่อน</string>
-    <string name="oc_subtitulo">OK แสดงหรือซ่อนแอปบนหน้าจอหลัก · แอปที่ซ่อนจะอยู่ก่อน</string>
-    <string name="oc_nenhum">ไม่มีแอปที่ซ่อน · OK เพื่อเลือก</string>
-    <string name="oc_quantos">ซ่อนอยู่: %1$d · OK เพื่อแสดงอีกครั้ง</string>
+    <string name="oc_subtitulo">แอปที่ซ่อนจะอยู่ก่อน</string>
+    <string name="oc_nenhum">ไม่มีแอปที่ซ่อน</string>
+    <string name="oc_quantos">ซ่อนอยู่: %1$d</string>
     <string name="oc_oculto">ซ่อน</string>
     <string name="oc_aparece">บนหน้าจอหลัก</string>
     <string name="oc_aviso_titulo">ซ่อนแอปแล้ว</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">ใหญ่</string>
     <string name="tt_maior">ใหญ่ขึ้น</string>
     <string name="pi_titulo">ชุดไอคอน</string>
-    <string name="pi_det">เปลี่ยนไอคอนแอปเป็นสไตล์ในตัว (Symbol, Duotone) หรือชุดไอคอนที่ติดตั้งไว้ OK เพื่อเลือกถัดไป</string>
+    <string name="pi_det">เปลี่ยนไอคอนแอปเป็นสไตล์ในตัว (Symbol</string>
     <string name="pi_det_vazio">ไม่มีชุดไอคอนที่ติดตั้งไว้ ดาวน์โหลดจาก Play Store แล้วจะแสดงที่นี่</string>
     <string name="pi_nenhum">ไม่มี</string>
     <string name="fm_titulo">พื้นหลังของฉัน</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">ไม่มี (กลับไปใช้แบบมืด)</string>
     <string name="fm_brilho">ความสว่างพื้นหลัง</string>
     <string name="fm_contraste">คอนทราสต์พื้นหลัง</string>
-    <string name="fm_ajuste_det">ใช้กับพื้นหลังของฉัน OK เพื่อเปลี่ยนระดับ</string>
+    <string name="fm_ajuste_det">ใช้กับพื้นหลังของฉัน</string>
     <string name="vp_titulo">ย้ายมาจาก Projectivy ใช่ไหม</string>
     <string name="vp_texto">สี่ขั้นตอนจะย้ายการตั้งค่าของคุณมาในประมาณหนึ่งนาที แต่ละขั้นตอนทำภายหลังในการตั้งค่าได้</string>
     <string name="vp_cfg_det">นำแอปที่ซ่อน ชุดไอคอน และพื้นหลังมาจาก Projectivy</string>
     <string name="vp_1">1. แอปที่ซ่อน</string>
-    <string name="vp_1_det">ทำเครื่องหมายแอปที่คุณเคยซ่อนไว้ หากต้องการจัดลำดับใหม่ ให้กด OK ค้างที่แอปบนหน้าจอหลัก</string>
+    <string name="vp_1_det">ทำเครื่องหมายแอปที่คุณเคยซ่อนไว้</string>
     <string name="vp_2">2. ชุดไอคอน</string>
     <string name="vp_2_det">ชุดไอคอนเดียวกับที่ Projectivy ใช้ ใช้ที่นี่ได้</string>
     <string name="vp_3">3. พื้นหลัง</string>

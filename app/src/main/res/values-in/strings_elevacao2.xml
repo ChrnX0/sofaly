@@ -18,7 +18,7 @@
     <string name="elv_cat_filme_ano">%1$s (%2$d)</string>
     <string name="elv_cat_n_temporadas">Musim: %d</string>
     <string name="elv_cat_procurando">Mencari poster…</string>
-    <string name="elv_cat_nada">Tidak ada di TMDB. Tahan OK untuk menulis nama yang benar.</string>
+    <string name="elv_cat_nada">Tidak ada di TMDB.</string>
     <string name="elv_cat_corrigir_titulo">Perbaiki: %s</string>
     <string name="elv_cat_corrigir_explica">Poster atau sinopsis salah? Minta hasil berikutnya, atau tulis nama dan tahun yang benar. Nama kosong kembali ke otomatis.</string>
     <string name="elv_cat_nao_e">Bukan yang ini</string>

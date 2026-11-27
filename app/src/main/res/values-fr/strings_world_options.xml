@@ -30,5 +30,4 @@
     <string name="bb_titulo">Disposition de l\'accueil</string>
     <string name="bb_cruz">Croix</string>
     <string name="bb_barra">Barre en bas</string>
-    <string name="bb_det">Catégories en croix, ou fixes en bas avec les applis au-dessus (▲)</string>
 </resources>

@@ -92,7 +92,6 @@
     <string name="lb_lembrete">تذكير</string>
     <string name="lb_quando_em">%1$s، على %2$s.</string>
     <string name="ms_ola">مرحبًا!</string>
-    <string name="ms_ola_det">اختر بالأسهم واضغط OK.</string>
     <string name="ms_pedir_ajuda">اطلب المساعدة</string>
     <string name="ms_pedido_ajuda">طلب مساعدة</string>
     <string name="ms_alguem_pediu">طلب أحدهم المساعدة على التلفزيون %1$s.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">الفئات</string>
     <string name="bc_canais">القنوات</string>
     <string name="bc_carregando">جارٍ تحميل القنوات…</string>
-    <string name="bc_dica">OK يحظر أو يلغي الحظر · OK على فئة يُطبَّق عليها كلها · ◀ ▶ الفئات والقنوات · BACK يخرج (محفوظ بالفعل)</string>
     <string name="bc_categoria_bloqueada">الفئة \"%1$s\" كلها محظورة: ألغِ حظرها في العمود الأيسر</string>
     <string name="bc_filme">فيلم · %1$s</string>
     <string name="bc_serie">مسلسل · %1$s</string>

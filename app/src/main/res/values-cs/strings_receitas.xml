@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Pro koho je tento televizor?</string>
-    <string name="rec_subtitulo">Jedno OK nastaví televizor. Kdykoli to můžete vrátit.</string>
+    <string name="rec_subtitulo">Kdykoli to můžete vrátit.</string>
     <string name="rec_vo">Televizor pro babičku</string>
     <string name="rec_vo_det">Velké karty se jmény čtenými nahlas, větší text a tlačítko Získat pomoc.</string>
     <string name="rec_criancas">Televizor pro děti</string>

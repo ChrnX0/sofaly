@@ -47,9 +47,8 @@
     <string name="elv_leg_em_cima">fent</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Csináld</string>
-    <string name="elv_bf_ok_faz">Az OK most megcsinálja</string>
     <string name="elv_bf_wifi">Vendég Wi-Fi megjelenítése</string>
-    <string name="elv_bf_wifi_configurar">Még nincs beállítva: az OK megnyitja a Beállításokat (Látogatások)</string>
+    <string name="elv_bf_wifi_configurar">Még nincs beállítva</string>
     <string name="elv_bf_letra_maior">Nagyobb szöveg (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Kisebb szöveg (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Már ekkora</string>
@@ -122,6 +121,5 @@
     <string name="elv_ss_noite">napnyugta után</string>
     <string name="elv_ss_dia_util">hétköznap van</string>
     <string name="elv_ss_perfil">a profil: %1$s</string>
-    <string name="elv_ss_det">◀ ▶ a feltétel módosítása</string>
     <string name="extras_ABERTURA_PRONTA">Főcím átugrása (IntroDB): epizódoknál a TV megkérdezi a közösségi IntroDB szolgáltatást, hol van a főcím (azt küldi el, melyik epizód, a fiókját soha); kikapcsolva csak az Ön által megjelölt főcímek</string>
 </resources>

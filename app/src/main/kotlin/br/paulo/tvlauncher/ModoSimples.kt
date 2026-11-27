@@ -82,7 +82,7 @@ class ModoSimplesActivity : Activity() {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
         br.paulo.tvlauncher.home.TravaCartaoTv.doIntent(intent)?.let { p -> window.decorView.post { abrirApp(p) } }
-        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.ms_ola), getString(R.string.ms_ola_det), dicas = false)
+        val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.ms_ola), null, dicas = false)
         faixa = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; visibility = View.GONE }
         coluna.addView(faixa, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(20) })
         grade = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; clipChildren = false; clipToPadding = false }

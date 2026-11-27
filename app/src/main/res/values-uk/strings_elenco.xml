@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Раніше в %1$s</string>
     <string name="anteriormente_assistir">Дивитися %1$s</string>
     <string name="anteriormente_pular_sempre">Ніколи не показувати</string>
-    <string name="anteriormente_desligado">Перекази вимкнено. Щоб увімкнути знову: утримуйте OK на серії.</string>
+    <string name="anteriormente_desligado">Перекази вимкнено.</string>
     <string name="anteriormente_ligar">Показувати перекази «Раніше в»</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Максимальний вік у дитячому режимі</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Немає у вашому списку · на %1$s</string>
     <string name="onde_grupo">Деінде (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Субтитри завантажено автоматично (зроблено для цього файлу) · ▼, щоб змінити</string>
-    <string name="legenda_auto_pronta_nome">Субтитри завантажено автоматично · ▼, щоб змінити або налаштувати затримку</string>
+    <string name="legenda_auto_pronta">Субтитри завантажено автоматично (зроблено для цього файлу)</string>
+    <string name="legenda_auto_pronta_nome">Субтитри завантажено автоматично</string>
     <string name="legenda_trad_rotulo">Автоматичний переклад</string>
     <string name="legenda_trad_traduzindo">Немає субтитрів вашою мовою: перекладаються англійські на телевізорі…</string>
     <string name="legenda_trad_parcial">Субтитри перекладено на телевізорі (автоматичний переклад). Решта продовжує перекладатися.</string>

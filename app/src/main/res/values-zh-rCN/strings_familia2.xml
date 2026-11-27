@@ -10,8 +10,7 @@
     <string name="tp_frio_texto">今晚最低 %d° · 注意保暖</string>
     <string name="tp_cfg">高温和严寒提醒</string>
     <string name="tp_cfg_det">今天达到 %1$d° 或今晚降到 %2$d° 时，在任何应用上方显示卡片</string>
-    <string name="mu_ok_lido">按 OK 标为已读</string>
-    <string name="mu_ok_nao_lido">已读 · 按 OK 标为未读</string>
+    <string name="mu_ok_nao_lido">已读</string>
     <string name="mu_lido_desc">留言，已读：%s。按 OK 标为未读。</string>
     <string name="mu_nao_lido_desc">留言：%s。按 OK 标为已读。</string>
     <string name="mu_apagar">删除留言：%s</string>

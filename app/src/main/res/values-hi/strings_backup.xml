@@ -7,8 +7,8 @@
     <string name="bkn_desligado">बंद</string>
     <string name="bkn_sem_senha">बंद · पहले बैकअप पासवर्ड सेट करें</string>
     <string name="bkn_senha">बैकअप पासवर्ड</string>
-    <string name="bkn_senha_ok">सेट · OK से बदलें</string>
-    <string name="bkn_senha_falta">सेट नहीं · OK से सेट करें</string>
+    <string name="bkn_senha_ok">सेट</string>
+    <string name="bkn_senha_falta">सेट नहीं</string>
     <string name="bkn_senha_nova">बैकअप पासवर्ड (8 या ज़्यादा अक्षर)</string>
     <string name="bkn_senha_repetir">पासवर्ड फिर टाइप करें</string>
     <string name="bkn_senha_curta">पासवर्ड में 8 से 128 अक्षर चाहिए।</string>

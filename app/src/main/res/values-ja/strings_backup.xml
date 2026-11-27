@@ -7,8 +7,8 @@
     <string name="bkn_desligado">オフ</string>
     <string name="bkn_sem_senha">オフ · 先にバックアップのパスワードを設定してください</string>
     <string name="bkn_senha">バックアップのパスワード</string>
-    <string name="bkn_senha_ok">設定済み · OK で変更</string>
-    <string name="bkn_senha_falta">未設定 · OK で設定</string>
+    <string name="bkn_senha_ok">設定済み</string>
+    <string name="bkn_senha_falta">未設定</string>
     <string name="bkn_senha_nova">バックアップのパスワード（8 文字以上）</string>
     <string name="bkn_senha_repetir">パスワードをもう一度入力</string>
     <string name="bkn_senha_curta">パスワードは 8〜128 文字にしてください。</string>

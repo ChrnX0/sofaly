@@ -6,9 +6,8 @@
     <string name="vid_onde">Ke zhlédnutí: Nastavení › Rodina › Rodinná videa.</string>
     <string name="vid_depois">Později</string>
     <string name="vid_assistir">Přehrát</string>
-    <string name="vid_ok_para_assistir">Pro přehrání stiskněte OK.</string>
     <string name="vid_lista">Rodinná videa</string>
-    <string name="vid_lista_det">Odesláno přes rodinné propojení. Každé zůstává 30 dní. Podržením OK smažete.</string>
+    <string name="vid_lista_det">Odesláno přes rodinné propojení. Každé zůstává 30 dní.</string>
     <string name="vid_nenhum">Zatím žádná videa.</string>
     <string name="vid_apagar">Smazat video</string>
     <string name="vid_aceitar">Přijímat videa</string>

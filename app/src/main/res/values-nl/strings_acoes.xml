@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Scènes</string>
     <string name="pr_cenas">Scènes</string>
     <string name="cenas_titulo">Scènes</string>
-    <string name="cenas_det">OK voert de scène uit. Maak en bewerk ze in het webpaneel › Huis en automatiseringen › Scènes.</string>
+    <string name="cenas_det">Maak en bewerk ze in het webpaneel › Huis en automatiseringen › Scènes.</string>
     <string name="cenas_vazio">Nog geen scènes. Maak er een in het webpaneel › Huis en automatiseringen › Scènes.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d actie</item>

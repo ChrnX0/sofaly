@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">Előbb jelölje meg a főcím kezdetét</string>
     <string name="abertura_invalida">Ez nem tűnik főcímnek: 10 mp és 5 perc közötti hosszúnak kell lennie, és az első 15 percben kell kezdődnie</string>
     <string name="abertura_apagada">Főcímjelölés törölve</string>
-    <string name="abertura_pular">Főcím átugrása · OK</string>
+    <string name="abertura_pular">Főcím átugrása</string>
 </resources>

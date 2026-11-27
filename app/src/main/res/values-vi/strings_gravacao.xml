@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">mỗi tuần</string>
     <string name="grv_cancelar_pergunta">Hủy việc ghi \"%1$s\"?</string>
     <string name="grv_gravadas">Đã ghi</string>
-    <string name="grv_vazio">Chưa ghi gì. Trong trình phát, ▶▶ › Ghi; trong lịch phát sóng, OK trên chương trình sắp chiếu.</string>
+    <string name="grv_vazio">Chưa ghi gì.</string>
     <string name="grv_vazio_sem_destino">Cắm ổ USB vào hub để xem và ghi hình.</string>
     <string name="grv_partes">%1$d phần</string>
     <string name="grv_parte">phần %1$d trên %2$d</string>

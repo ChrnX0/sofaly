@@ -14,8 +14,7 @@
     <string name="tp_frio_texto">Ως %d° απόψε · Ντυθείτε ζεστά</string>
     <string name="tp_cfg">Ειδοποίηση ζέστης και κρύου</string>
     <string name="tp_cfg_det">Μια κάρτα πάνω από κάθε εφαρμογή όταν σήμερα φτάνει τους %1$d° ή απόψε πέφτει στους %2$d°</string>
-    <string name="mu_ok_lido">Το OK σημειώνει ως αναγνωσμένο</string>
-    <string name="mu_ok_nao_lido">Αναγνωσμένο · το OK σημειώνει ως μη αναγνωσμένο</string>
+    <string name="mu_ok_nao_lido">Αναγνωσμένο</string>
     <string name="mu_lido_desc">Μήνυμα, αναγνωσμένο: %s. Το OK σημειώνει ως μη αναγνωσμένο.</string>
     <string name="mu_nao_lido_desc">Μήνυμα: %s. Το OK σημειώνει ως αναγνωσμένο.</string>
     <string name="mu_apagar">Διαγραφή μηνύματος: %s</string>

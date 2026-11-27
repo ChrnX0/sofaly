@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Av tills den som bor där godkänner det på tv:n.</string>
     <string name="uso_cartoes">Stora kort på startskärmen</string>
     <string name="uso_cartoes_det">Några stora appar, namn som läses upp och en knapp \"Få hjälp\". Att stänga av det kräver PIN-koden.</string>
-    <string name="uso_trocar_det">Nu: %1$s. OK för att välja igen.</string>
+    <string name="uso_trocar_det">Nu: %1$s.</string>
 </resources>

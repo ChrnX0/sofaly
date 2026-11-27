@@ -15,7 +15,7 @@
     <string name="desf_barra">बदला: %1$s</string>
     <string name="desf_botao">पूर्ववत करें</string>
     <string name="desf_tela">हाल के बदलाव</string>
-    <string name="desf_tela_det">पिछले 7 दिनों में जो बदला। किसी पर OK दबाने से वह पहले जैसा हो जाता है।</string>
+    <string name="desf_tela_det">पिछले 7 दिनों में जो बदला।</string>
     <string name="desf_tela_vazia">पिछले 7 दिनों में कोई बदलाव नहीं।</string>
     <string name="desf_ja_desfeita">पूर्ववत</string>
     <string name="desf_rot_config">सेटिंग्स</string>

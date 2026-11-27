@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">إعادة تعيين</string>
     <string name="l51_digitar_titulo">اكتب على التلفزيون</string>
     <string name="l51_digitar_texto">مربع نص مفتوح في %1$s. انقر للكتابة من هنا.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">الغرفة %1$s</string>
     <string name="casa_movimento">حركة</string>
     <string name="casa_sem_movimento">لا حركة</string>

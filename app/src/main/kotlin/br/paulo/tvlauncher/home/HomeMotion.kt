@@ -89,9 +89,8 @@ internal fun MainActivity.arteDoItem(item: HomeCruz.Item) {
         else -> {
             capaPedida = null
             val cor = when (cruz?.categoriaAtual()?.cat) {
-                CruzLogica.Categoria.OUVIR -> 0xFF2C6E68.toInt()
-                CruzLogica.Categoria.JOGAR -> 0xFF3A3F9E.toInt()
-                CruzLogica.Categoria.APLICATIVOS -> 0xFF3A3640.toInt()
+                // Grafite (as cores de mundo, turquesa e violeta, saíram: 27/11/2026, só a paleta).
+                CruzLogica.Categoria.OUVIR, CruzLogica.Categoria.JOGAR, CruzLogica.Categoria.APLICATIVOS -> Estilo.GRAFITE_QUADRO
                 else -> 0xFF8A4A2A.toInt()
             }
             capa.mostrar(null, intArrayOf(Estilo.matiz(cor, 0.6f), Estilo.matiz(cor, 0.35f)))

@@ -430,7 +430,7 @@ class PlayerListaTela(
     private fun montarDetalhe(): View {
         val col = LinearLayout(act).apply {
             orientation = LinearLayout.VERTICAL
-            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.alfa(Estilo.FUNDO, 0xCC)); setStroke(dp(1), Estilo.SUPERFICIE_ALTA) }
+            background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.alfa(Estilo.FUNDO, 0xCC)) }
             setPaddingRelative(dp(18), dp(18), dp(18), dp(16))
         }
         detLogo = ImageView(act).apply { scaleType = ImageView.ScaleType.FIT_START }
@@ -515,7 +515,7 @@ class PlayerListaTela(
         isFocusable = true
         choiceMode = AbsListView.CHOICE_MODE_NONE
         // A moldura branca do foco (só aparece na lista que tem o foco: é o que diz ao usuário em que coluna está).
-        PlayerFoco.molduraSoComFoco(this, GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO_PEQUENO).toFloat(); setColor(Estilo.SUPERFICIE_ALTA); setStroke(dp(2), Estilo.FOCO) })
+        PlayerFoco.molduraSoComFoco(this, Estilo.fundo(act, Estilo.FOCO_CARTAO, Estilo.RAIO_PEQUENO, Estilo.TEXTO, Estilo.ANEL_DP))
         setDrawSelectorOnTop(false)
         cacheColorHint = 0
     }

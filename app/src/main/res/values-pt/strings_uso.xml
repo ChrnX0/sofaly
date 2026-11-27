@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Desligado até quem mora aí aceitar na TV.</string>
     <string name="uso_cartoes">Cartões grandes na tela inicial</string>
     <string name="uso_cartoes_det">Poucos apps grandes, nome falado e botão \"Pedir ajuda\". Para desligar, pede o PIN.</string>
-    <string name="uso_trocar_det">Agora: %1$s. OK para escolher de novo.</string>
+    <string name="uso_trocar_det">Agora: %1$s.</string>
 </resources>

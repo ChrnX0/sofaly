@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">co tydzień</string>
     <string name="grv_cancelar_pergunta">Anulować nagrywanie „%1$s”?</string>
     <string name="grv_gravadas">Nagrane</string>
-    <string name="grv_vazio">Jeszcze nic nie nagrano. W odtwarzaczu ▶▶ › Nagraj; w programie OK na przyszłej audycji.</string>
+    <string name="grv_vazio">Jeszcze nic nie nagrano.</string>
     <string name="grv_vazio_sem_destino">Podłącz pendrive do huba, by widzieć i robić nagrania.</string>
     <string name="grv_partes">części: %1$d</string>
     <string name="grv_parte">część %1$d z %2$d</string>

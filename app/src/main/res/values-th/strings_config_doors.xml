@@ -11,4 +11,5 @@
     <string name="cfg3_porta_3_det">โปรแกรมรักษาหน้าจอ การปิด การปลุก</string>
     <string name="cfg3_porta_4_det">บ้าน โทรศัพท์ และแผงควบคุม</string>
     <string name="cfg3_porta_5_det">การอัปเดต การสำรองข้อมูล และความช่วยเหลือ</string>
+    <string name="cfg4_fila_portas">การตั้งค่า</string>
 </resources>

@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">このテレビは誰が使いますか？</string>
-    <string name="rec_subtitulo">OKひとつでテレビの準備ができます。いつでも元に戻せます。</string>
+    <string name="rec_subtitulo">いつでも元に戻せます。</string>
     <string name="rec_vo">おばあちゃんのテレビ</string>
     <string name="rec_vo_det">名前を読み上げる大きなカード、大きな文字、「助けを呼ぶ」ボタン。</string>
     <string name="rec_criancas">子どものテレビ</string>

@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Bu TV kimin için?</string>
-    <string name="rec_subtitulo">Tek bir OK ile TV hazır. İstediğin zaman geri alabilirsin.</string>
+    <string name="rec_subtitulo">İstediğin zaman geri alabilirsin.</string>
     <string name="rec_vo">Büyükanne TV\'si</string>
     <string name="rec_vo_det">Adı sesli okunan büyük kartlar, daha büyük yazı ve Yardım iste düğmesi.</string>
     <string name="rec_criancas">Çocukların TV\'si</string>

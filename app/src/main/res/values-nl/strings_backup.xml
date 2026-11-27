@@ -6,8 +6,8 @@
     <string name="bkn_desligado">uit</string>
     <string name="bkn_sem_senha">uit · stel eerst het back-upwachtwoord in</string>
     <string name="bkn_senha">Back-upwachtwoord</string>
-    <string name="bkn_senha_ok">ingesteld · OK wijzigt</string>
-    <string name="bkn_senha_falta">niet ingesteld · OK stelt in</string>
+    <string name="bkn_senha_ok">ingesteld</string>
+    <string name="bkn_senha_falta">niet ingesteld</string>
     <string name="bkn_senha_nova">Back-upwachtwoord (8 of meer tekens)</string>
     <string name="bkn_senha_repetir">Typ het wachtwoord nog eens</string>
     <string name="bkn_senha_curta">Het wachtwoord moet 8 tot 128 tekens hebben.</string>

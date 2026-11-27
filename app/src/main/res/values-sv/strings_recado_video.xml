@@ -6,9 +6,8 @@
     <string name="vid_onde">För att titta: Inställningar › Familj › Familjevideor.</string>
     <string name="vid_depois">Senare</string>
     <string name="vid_assistir">Titta</string>
-    <string name="vid_ok_para_assistir">Tryck på OK för att titta.</string>
     <string name="vid_lista">Familjevideor</string>
-    <string name="vid_lista_det">Skickade via familjelänken. Var och en stannar i 30 dagar. Håll OK för att ta bort.</string>
+    <string name="vid_lista_det">Skickade via familjelänken. Var och en stannar i 30 dagar.</string>
     <string name="vid_nenhum">Inga videor än.</string>
     <string name="vid_apagar">Ta bort video</string>
     <string name="vid_aceitar">Ta emot videor</string>

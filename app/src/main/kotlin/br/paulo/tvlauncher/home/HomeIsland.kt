@@ -316,7 +316,7 @@ internal fun MainActivity.crescerIlha(e: BarraIlha.Evento) {
     // Sem nada para abrir e com o texto inteiro já na pílula, a 2ª pílula só repetia a 1ª (foto da Sala 24/11/2026:
     // "Oftalmo Yoshi · 14:00" duas vezes). Ela fica para o texto cortado (…) e para o "▲ para abrir".
     if (!abre && !ilhaCortada(e.texto)) return
-    crescerIlhaTexto(if (abre) "${e.texto}  ·  ${getString(R.string.ilha_dica_abrir)}" else e.texto, e.atencao)
+    crescerIlhaTexto(e.texto, e.atencao)
 }
 
 /**

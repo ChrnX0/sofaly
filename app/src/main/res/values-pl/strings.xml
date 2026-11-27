@@ -15,10 +15,10 @@
     <string name="cfg_rotinas">Harmonogramy</string>
     <string name="cfg_sec_atualizacao">Aktualizacje</string>
     <string name="cfg_atualizar">Sprawdź nową wersję</string>
-    <string name="cfg_atualizar_det">Wersja %1$s · %2$s · OK sprawdza teraz</string>
+    <string name="cfg_atualizar_det">Wersja %1$s · %2$s</string>
     <string name="cfg_procurando">sprawdzanie GitHub…</string>
     <string name="cfg_instalar">Zainstaluj teraz wersję %1$d</string>
-    <string name="cfg_instalar_det">Launcher zamknie się i sam wróci za kilka sekund · OK instaluje</string>
+    <string name="cfg_instalar_det">Launcher zamknie się i sam wróci za kilka sekund</string>
     <string name="cfg_instalando">pobieranie i sprawdzanie…</string>
     <string name="cfg_sec_rede">Sieć</string>
     <string name="cfg_dns">Prywatny DNS</string>
@@ -30,7 +30,6 @@
     <string name="cfg_sec_ligado">Co jest włączone — %1$s</string>
     <string name="cfg_ligado">wł.</string>
     <string name="cfg_so_pc">" · tylko z komputerem (adb)"</string>
-    <string name="cfg_tenta_ligar">" · OK próbuje włączyć"</string>
     <string name="cfg_perm_fixas">Przyznane stałe uprawnienia</string>
     <string name="cfg_shell_estado">Własna powłoka</string>
     <string name="cfg_shell_pareado">sparowano: launcher sam łączy się ponownie przez debugowanie bezprzewodowe</string>
@@ -65,7 +64,7 @@
     <string name="rec_teclas">Usługa przycisków</string>
     <string name="rec_teclas_sem">bez tego: HOME może otworzyć launcher Google, a przyciski Netflix/YouTube nie są przypisane na nowo</string>
     <string name="rec_tudo">wszystko włączone</string>
-    <string name="rec_faltam">brakuje %1$d z %2$d funkcji · OK na pozycji próbuje ją włączyć</string>
+    <string name="rec_faltam">brakuje %1$d z %2$d funkcji</string>
     <string name="bv_titulo">Witaj</string>
     <string name="bv_texto">Ekran główny, zegar, pogoda, budzik i wygaszacz już działają. Resztę włącz tutaj, jeśli chcesz (%1$s).</string>
     <string name="bv_comecar">Zacznij</string>
@@ -90,7 +89,6 @@
     <string name="rot_desligada_sufixo">" · wył."</string>
     <string name="rot_nova">Nowy harmonogram</string>
     <string name="rot_editar">Edytuj harmonogram</string>
-    <string name="rot_editor_det">OK zmienia każdy wiersz · WSTECZ wychodzi bez zapisywania</string>
     <string name="rot_hora">Godzina: %1$s</string>
     <string name="rot_dias">Dni: %1$s</string>
     <string name="rot_acao">Działanie: %1$s</string>
@@ -99,12 +97,7 @@
     <string name="rot_ocioso">Tylko jeśli nikt go nie dotykał przez: %1$s</string>
     <string name="rot_ligada">Wł.</string>
     <string name="rot_desligada">Wył.</string>
-    <string name="rot_hora_det">◀ ▶ 5 minut · OK +1 godzina</string>
-    <string name="rot_dias_det">OK: codziennie, pon.–pt., weekend, raz</string>
-    <string name="rot_ok_muda">OK zmienia</string>
-    <string name="rot_app_det">OK lub ▶ następna · ◀ poprzednia</string>
     <string name="rot_ocioso_det">Nie przerywa komuś, kto ogląda</string>
-    <string name="rot_ativa_det">OK włącza/wyłącza ten harmonogram</string>
     <string name="rot_salvar">Zapisz</string>
     <string name="rot_escolha_app">Wybierz aplikację</string>
     <string name="rot_apagar">Usuń ten harmonogram</string>
@@ -167,7 +160,6 @@
     <string name="pp_carregando">Ładowanie…</string>
     <string name="pp_conectar">Połącz</string>
     <string name="cal_sem_conta">brak konta Google</string>
-    <string name="cal_dica">◀ ▶ zmień miesiąc</string>
     <string name="cal_30">Najbliższe 30 dni</string>
     <string name="cal_nenhuma_conta">Brak konta Google na telewizorze</string>
     <string name="cal_nada">Nic nie zaplanowano (lub kalendarz jeszcze się synchronizuje)</string>
@@ -256,7 +248,6 @@
     <string name="esc_botao">Przycisk %1$s otwiera:</string>
     <string name="fd_nascer">wschód %1$s</string>
     <string name="fd_por">zachód %1$s</string>
-    <string name="dns_dica">OK: użyj   ·   przytrzymaj OK na swoim serwerze: usuń   ·   Wstecz: wyjdź</string>
     <string name="dns_auto">Automatyczny</string>
     <string name="dns_auto_det">Używa DNS routera i szyfruje, gdy ten to obsługuje (domyślne w Androidzie)</string>
     <string name="dns_desl">Wył.</string>
@@ -369,7 +360,7 @@
     <string name="atu_versao">Wydanie %1$d: wersja APK (%2$d) nie zgadza się z tagiem</string>
     <string name="atu_chave">GitHub ma wersję %1$d, ale podpisaną innym kluczem, którego ten telewizor nie przyjmuje: ten telewizor aktualizuje się z komputera</string>
     <string name="atu_disponivel">wersja %1$d gotowa do instalacji (zainstalowana %2$d)</string>
-    <string name="atu_trocou">wersja zmieniła się od ostatniego sprawdzenia · OK sprawdza ponownie</string>
+    <string name="atu_trocou">wersja zmieniła się od ostatniego sprawdzenia</string>
     <string name="atu_instalando">instalowanie %1$d (zainstalowana %2$d)</string>
     <string name="atu_ok">zaktualizowano</string>
     <string name="atu_falhou">instalacja nieudana (%1$d): %2$s</string>
@@ -380,7 +371,6 @@
     <string name="vig_pausada_tela">wersja %1$d dwa razy uległa awarii tuż po instalacji · „%2$s” pozostaje wyłączone do następnej</string>
     <string name="vig_tela_bloqueada">Ten ekran jest wyłączony do następnej aktualizacji (spowodował awarię launchera)</string>
     <string name="cfg_vig_liberar">Tryb bezpieczny</string>
-    <string name="cfg_vig_liberar_det">" · OK włącza go z powrotem"</string>
     <string name="home_voz_indisponivel">Wyszukiwanie głosowe nie otworzyło się na tym telewizorze</string>
     <string name="home_alarme_hoje">dziś</string>
     <string name="home_alarme_amanha">jutro</string>
@@ -389,12 +379,10 @@
     <string name="vod_carregando">Wczytywanie wideo…</string>
     <string name="player_sem_canais">Nie dodano jeszcze listy kanałów.</string>
     <string name="player_tentando">Brak sygnału na kanale %1$d. Ponawianie…</string>
-    <string name="player_sem_sinal">Kanał %1$d nie odpowiedział. Wybierz inny przez ▲ ▼ lub OK.</string>
+    <string name="player_sem_sinal">Kanał %1$d nie odpowiedział.</string>
     <string name="player_canal_nao_existe">Nie ma kanału %1$d.</string>
     <string name="player_ao_vivo">NA ŻYWO</string>
     <string name="player_a_seguir">następnie: %1$s</string>
-    <string name="player_teclas">▲ ▼ kanał · OK lista kanałów · przytrzymaj OK 2 s: ulubiony · ◀ poprzedni kanał · ▶ ▶ opcje · WSTECZ wyjście</string>
-    <string name="player_teclas_pausa">▶❙❙ lub OK wznów · ▶ opcje (powrót na żywo) · ▲ ▼ kanał · WSTECZ wyjście</string>
     <string name="player_cat_busca">Szukaj: %1$s</string>
     <string name="player_acao_buscar">Szukaj</string>
     <string name="player_acao_filtros">Filtry</string>
@@ -418,7 +406,6 @@
     <string name="filmes_interesse_pos">★ %1$s dodano do obejrzenia</string>
     <string name="filmes_interesse_tirou">%1$s usunięto z listy do obejrzenia</string>
     <string name="filmes_interesses_cheio">Lista do obejrzenia ma już 500 tytułów: najpierw usuń jeden.</string>
-    <string name="filmes_interesses_vazio">Przytrzymaj OK przez 2 sekundy na plakacie, by go tu dodać (i ponownie, by usunąć).</string>
     <string name="filmes_assistido">Obejrzany</string>
     <string name="filmes_selo_leg">NAP</string>
     <string name="vod_sem_conta">Konto tego wideo już nie istnieje.</string>
@@ -427,7 +414,6 @@
     <string name="vod_audio">Dźwięk</string>
     <string name="vod_legenda">Napisy</string>
     <string name="vod_faixas">Dźwięk i napisy</string>
-    <string name="vod_teclas">OK pauza · ◀ 10 s · ▶ 30 s (przytrzymaj, by szybciej) · ▼ dźwięk, napisy i obraz · ⏮ ⏭ rozdziały · WSTECZ wyjście</string>
     <string name="series_titulo">Seriale</string>
     <string name="series_carregando">Ładowanie seriali…</string>
     <string name="series_vazio">Brak seriali</string>
@@ -438,7 +424,6 @@
     <string name="series_temporada">Sezon %1$d</string>
     <string name="player_acao_guia">Program TV</string>
     <string name="player_sem_guia_curto">Brak programu TV</string>
-    <string name="player_grade_teclas">OK oglądaj · ◀ ▶ audycja · ▲ ▼ kanał</string>
     <string name="player_busca_dica">Nazwa kanału lub audycji</string>
     <string name="player_busca_nada">Nic nie znaleziono dla „%1$s”.</string>
     <string name="player_filtro_qualquer">Dowolna</string>
@@ -459,7 +444,6 @@
     <string name="infantil_titulo">Kategorie dla dzieci</string>
     <string name="infantil_carregando">ładowanie kategorii…</string>
     <string name="infantil_coluna_itens">CO ZAWIERA</string>
-    <string name="infantil_dica">OK oznacza lub odznacza kategorię jako dziecięcą · dotyczy Telewizji na żywo, Filmów i Seriali · WSTECZ wychodzi (już zapisane)</string>
     <string name="infantil_so_categoria">oznacz całą kategorię w lewej kolumnie</string>
     <string name="infantil_vazio">brak kategorii: dodaj konto w Ustawienia › TV i filmy i wczytaj kanały ponownie</string>
     <string name="infantil_limite">kategoria dla dorosłych nie może być dziecięca</string>
@@ -477,11 +461,10 @@
     <string name="player_cat_favoritos">Ulubione</string>
     <string name="player_cat_recentes">Ostatnie</string>
     <string name="player_cat_outros">Inne</string>
-    <string name="player_sem_favoritos">Brak ulubionych. Przytrzymaj OK przez 2 s na kanale, by go tu dodać.</string>
+    <string name="player_sem_favoritos">Brak ulubionych.</string>
     <string name="player_categoria_vazia">Brak kanałów w tej kategorii.</string>
     <string name="player_sem_guia">Brak programu TV dla tego kanału.</string>
     <string name="player_depois">PÓŹNIEJ</string>
-    <string name="player_lista_teclas">OK oglądaj · przytrzymaj OK 2 s: ulubiony lub usuń · przytrzymaj OK na kategorii: ukryj · ◀ kategorie</string>
     <string name="player_favorito_pos">★ %1$s dodano do ulubionych</string>
     <string name="player_favorito_tirou">%1$s usunięto z ulubionych</string>
     <string name="player_favoritos_cheio">Jest już 500 ulubionych: najpierw usuń jeden.</string>
@@ -642,7 +625,6 @@ AS\\Filmy).</string>
     <string name="tvv_vazio">Ten kanał nie ma jeszcze zapisanych audycji.</string>
     <string name="tvv_voltou">Powrót na żywo</string>
     <string name="tvv_selo">ARCHIWUM</string>
-    <string name="tvv_teclas">◀ ▶ 30 s · OK opcje · WSTECZ na żywo</string>
     <string name="tvv_pausar">Wstrzymaj</string>
     <string name="tvv_continuar">Wznów</string>
     <string name="tvv_ao_vivo">Powrót na żywo</string>
@@ -659,7 +641,7 @@ AS\\Filmy).</string>
     <string name="series_nao_visto">Oznacz jako nieobejrzane</string>
     <string name="idioma_secao">Filmy i seriale</string>
     <string name="idioma_titulo">Preferowany dźwięk</string>
-    <string name="idioma_det">Oryginał z napisami w języku telewizora lub dubbing w tym języku. Każdy film i serial pamięta zmianę zrobioną w odtwarzaczu (▼)</string>
+    <string name="idioma_det">Oryginał z napisami w języku telewizora lub dubbing w tym języku. Każdy film i serial pamięta zmianę zrobioną w odtwarzaczu</string>
     <string name="idioma_original">Oryginał z napisami</string>
     <string name="idioma_dublado">Dubbing</string>
     <string name="idioma_legendado">Z napisami</string>
@@ -816,8 +798,8 @@ AS\\Filmy).</string>
     <string name="st_titulo">Pendrive i pamięć</string>
     <string name="st_explica">Wybierz, jak telewizor używa pendrive\'a. Brak miejsca? Może stać się pamięcią telewizora na duże aplikacje.</string>
     <string name="st_linha_det">Użyj pendrive\'a jako pamięci telewizora</string>
-    <string name="st_sem_shell">Wymaga własnej powłoki telewizora (Ustawienia › System › Zaawansowane). OK, aby spróbować ponownie.</string>
-    <string name="st_sem_pen">Brak pendrive\'a. Podłącz go i naciśnij OK.</string>
+    <string name="st_sem_shell">Wymaga własnej powłoki telewizora (Ustawienia › System › Zaawansowane).</string>
+    <string name="st_sem_pen">Brak pendrive\'a.</string>
     <string name="st_tv_livre">Pamięć telewizora: %1$s wolne z %2$s</string>
     <string name="st_pen">Pendrive · %1$s · %2$s</string>
     <string name="st_modo_comum">Zwykły pendrive</string>
@@ -831,14 +813,13 @@ AS\\Filmy).</string>
     <string name="st_motivo_grande">pół na aplikacje, pół na nagrania i pliki</string>
     <string name="st_motivo_apertada">telewizor jest prawie pełny</string>
     <string name="st_medido">zapisuje z prędkością %1$s MB/s</string>
-    <string name="st_medir_dica">OK mierzy prędkość</string>
     <string name="st_usar_comum">Użyj jako zwykłego pendrive\'a</string>
-    <string name="st_usar_misto">Użyj jako mieszany: %1$d%% zwykły  ◀ ▶</string>
+    <string name="st_usar_misto">Użyj jako mieszany: %1$d%% zwykły</string>
     <string name="st_usar_tv">Użyj jako pamięci telewizora</string>
     <string name="st_apps">Aplikacje na pendrivie</string>
     <string name="st_apps_det">Wybierz aplikacje do przeniesienia (największe najpierw)</string>
     <string name="st_apps_nenhum">Żadnej aplikacji nie można przenieść.</string>
-    <string name="st_apps_rodape">OK przenosi aplikację; ✓ = już na pendrivie</string>
+    <string name="st_apps_rodape">✓ = już na pendrivie</string>
     <string name="st_compartilhado">Zdjęcia i pliki: %1$s</string>
     <string name="st_na_tv">w telewizorze</string>
     <string name="st_no_pen">na pendrivie</string>
@@ -863,7 +844,7 @@ AS\\Filmy).</string>
     <string name="st_voltar_comum">Wróć do zwykłego pendrive\'a (aplikacje wracają do telewizora)</string>
     <string name="st_trazendo">Przywracanie %1$s do telewizora…</string>
     <string name="st_sumiram">Pendrive odłączony: %1$s są ukryte, dopóki nie wróci.</string>
-    <string name="st_sugestao">Pamięć telewizora prawie pełna. Przenieś %1$s (%2$s) na pendrive: przytrzymaj OK na aplikacji.</string>
+    <string name="st_sugestao">Pamięć telewizora prawie pełna. Przenieś %1$s (%2$s) na pendrive</string>
     <string name="st_medindo">Mierzę szybkość pendrive\'a, żeby polecić najlepsze użycie…</string>
     <string name="st_lento_titulo">Pendrive za wolny</string>
     <string name="st_lento_bloqueado">Ten pendrive zapisuje %1$s MB/s. Aby stać się pamięcią TV, potrzebuje co najmniej %2$d MB/s: poniżej aplikacje się zacinają, a TV może się nie uruchomić. Używaj go jako zwykłego pendrive\'a.</string>
@@ -881,12 +862,12 @@ AS\\Filmy).</string>
     <string name="aviso_sync_texto">Na tym telewizorze nie ma konta %1$s. Połącz je w Ustawienia › TV i filmy.</string>
     <!-- Rótulos de "O que mudou" / "Conferir na TV" e da troca de pacote (revisão de lógica, 24/11/2026) -->
     <string name="ver_novidades">Co nowego</string>
-    <string name="ver_novidades_det">%1$d zmian w wersji %2$s · OK, aby przeczytać</string>
+    <string name="ver_novidades_det">%1$d zmian w wersji %2$s</string>
     <string name="ver_novidades_sobre">Wersja %1$s</string>
     <string name="ver_ok">OK</string>
     <string name="ver_conferir">Sprawdź na telewizorze</string>
-    <string name="ver_conferir_det">Sprawdzono pilotem %1$d z %2$d · OK, aby zacząć</string>
-    <string name="ver_conferir_sub">Wersja %1$s · %2$d pozycji · OK na pozycji, aby odpowiedzieć</string>
+    <string name="ver_conferir_det">Sprawdzono pilotem %1$d z %2$d</string>
+    <string name="ver_conferir_sub">Wersja %1$s · %2$d pozycji</string>
     <string name="ver_conferido">Sprawdzono %1$d z %2$d</string>
     <string name="ver_sim">Tak</string>
     <string name="ver_nao">Nie</string>

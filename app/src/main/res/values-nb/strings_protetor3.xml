@@ -2,25 +2,20 @@
 <!-- Protetor: variações de cada elemento (17/11/2026). -->
 <resources>
     <string name="pv2_est_avisos">Meldingenes stil</string>
-    <string name="pv2_est_avisos_det">hvordan meldinger og påminnelser vises · OK endrer</string>
     <string name="pv2_av_cartoes">Glasskort</string>
     <string name="pv2_av_lista">Liste uten boks</string>
     <string name="pv2_av_um">Én om gangen</string>
     <string name="pv2_est_textos">Stil for hilsen og dato</string>
-    <string name="pv2_est_textos_det">OK endrer</string>
     <string name="pv2_tx_moderno">Moderne</string>
     <string name="pv2_tx_serifa">Serif</string>
     <string name="pv2_tx_maiusculas">Sperrede versaler</string>
     <string name="pv2_est_linhas">Værlinjens stil</string>
-    <string name="pv2_est_linhas_det">værsetningen og den morsomme faktaen · OK endrer</string>
     <string name="pv2_ln_icones">Med ikoner</string>
     <string name="pv2_ln_vidro">På mørkt glass</string>
     <string name="pv2_ln_texto">Bare tekst</string>
     <string name="pv2_est_credito">Bildekredittens stil</string>
-    <string name="pv2_est_credito_det">OK endrer</string>
     <string name="pv2_cr_etiqueta">Etikett</string>
     <string name="pv2_cr_discreto">Diskret</string>
     <string name="cl_widget_linha">Én linje</string>
     <string name="cl_widget_grande">Stor</string>
-    <string name="pv2_widget_det">fem stiler · OK endrer</string>
 </resources>

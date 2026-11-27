@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Change with care, says its sheet</string>
     <string name="aa_risk_essential">Essential to the TV: do not freeze</string>
     <string name="aa_tip_idle">Not opened in %1$d days. Freezing frees memory and can be undone.</string>
-    <string name="aa_hint_app">OK opens · hold OK to move, hide, freeze or uninstall</string>
-    <string name="aa_hint_frozen">OK unfreezes and opens</string>
-    <string name="aa_hint_lock">OK asks for the PIN and shows the hidden apps here</string>
     <string name="aa_open">Open</string>
     <string name="aa_freeze">Freeze</string>
     <string name="aa_freezing">Freezing %1$s…</string>

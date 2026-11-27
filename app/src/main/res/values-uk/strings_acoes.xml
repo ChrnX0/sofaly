@@ -31,7 +31,7 @@
     <string name="lbl_cenas">Сцени</string>
     <string name="pr_cenas">Сцени</string>
     <string name="cenas_titulo">Сцени</string>
-    <string name="cenas_det">OK запускає сцену. Створюйте й редагуйте їх у вебпанелі › Дім і автоматизації › Сцени.</string>
+    <string name="cenas_det">Створюйте й редагуйте їх у вебпанелі › Дім і автоматизації › Сцени.</string>
     <string name="cenas_vazio">Сцен ще немає. Створіть одну у вебпанелі › Дім і автоматизації › Сцени.</string>
     <plurals name="cenas_acoes">
         <item quantity="one">%d дія</item>

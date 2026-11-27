@@ -50,7 +50,7 @@
     <string name="l51_digitar_titulo">Type on the TV</string>
     <string name="l51_digitar_texto">A text box is open in %1$s. Tap to type from here.</string>
     <!-- Ideia 51: sensores e ar-condicionado na tela Casa -->
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">room %1$s</string>
     <string name="casa_movimento">Motion</string>
     <string name="casa_sem_movimento">No motion</string>

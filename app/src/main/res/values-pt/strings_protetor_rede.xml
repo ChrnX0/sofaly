@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Teclas do controle no protetor (ideia 28) -->
-    <string name="pt_dica_dispensar">OK dispensa · ◀ ▶ andam</string>
-    <string name="pt_dica_pausar">OK pausa ou retoma · ◀ ▶ andam</string>
-    <string name="pt_dica_andar">◀ ▶ andam · outra tecla fecha</string>
     <!-- Fotos do protetor vindas de uma pasta da rede (ideia 27) -->
     <string name="rede_fotos_usar">Usar estas fotos no protetor de tela</string>
     <string name="rede_fotos_parar">Parar de usar estas fotos no protetor</string>
@@ -21,6 +18,6 @@
     <string name="rede_buscar_explica">Filmes, séries, episódios e músicas deste servidor.</string>
     <string name="rede_buscar_campo">Nome</string>
     <string name="rede_buscar_curto">Digite pelo menos 2 letras.</string>
-    <string name="rede_proximo_em">Próximo: %1$s em %2$d s · OK começa agora · outra tecla cancela</string>
+    <string name="rede_proximo_em">Próximo: %1$s em %2$d s</string>
     <string name="rede_ainda_assistindo">Ainda está assistindo? OK começa %1$s</string>
 </resources>

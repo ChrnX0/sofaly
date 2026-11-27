@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Ajuste fino</string>
-    <string name="ft_dica">OK ou ▶ ◀ muda · VOLTAR fecha</string>
     <string name="ft_abrir">Ajustar a ver o ecrã inicial</string>
     <string name="ft_abrir_det">Letra, hora, cor de destaque, cantos, brilho e tamanho, ao vivo</string>
     <string name="cs_destaque">Cor de destaque</string>

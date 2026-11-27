@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Kikapcsolva, amíg az ott élő személy bele nem egyezik a TV-n.</string>
     <string name="uso_cartoes">Nagy kártyák a kezdőképernyőn</string>
     <string name="uso_cartoes_det">Kevés nagy alkalmazás, felolvasott nevek és \"Segítség\" gomb. A kikapcsolás PIN-t kér.</string>
-    <string name="uso_trocar_det">Most: %1$s. OK az új választáshoz.</string>
+    <string name="uso_trocar_det">Most: %1$s.</string>
 </resources>

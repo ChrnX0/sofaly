@@ -2,8 +2,8 @@
 <!-- Tradução (pl) de values/strings_casa_cor.xml. Gerado a partir do inglês; os nomes seguem iguais. -->
 <resources>
     <string name="casa_dica_brilho_cor">jasność i kolor</string>
-    <string name="casa_brilho_ajuste_cor">Jasność %1$d%% · ◀ ▶ · kolor ▲ ▼</string>
-    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_brilho_ajuste_cor">Jasność %1$d%%</string>
+    <string name="casa_cor_ajuste">%1$s</string>
     <string name="casa_cor_quente">Ciepła biel</string>
     <string name="casa_cor_neutra">Neutralna biel</string>
     <string name="casa_cor_fria">Zimna biel</string>

@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">cada semana</string>
     <string name="grv_cancelar_pergunta">¿Cancelar la grabación de \"%1$s\"?</string>
     <string name="grv_gravadas">Grabadas</string>
-    <string name="grv_vazio">Aún no hay nada grabado. En el reproductor, ▶▶ › Grabar; en la guía, OK en un programa futuro.</string>
+    <string name="grv_vazio">Aún no hay nada grabado.</string>
     <string name="grv_vazio_sem_destino">Conecta una memoria USB al hub para ver y hacer grabaciones.</string>
     <string name="grv_partes">%1$d partes</string>
     <string name="grv_parte">parte %1$d de %2$d</string>

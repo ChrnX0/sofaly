@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Для кого этот телевизор?</string>
-    <string name="rec_subtitulo">Одно нажатие OK — и телевизор готов. Отменить можно в любой момент.</string>
+    <string name="rec_subtitulo">Отменить можно в любой момент.</string>
     <string name="rec_vo">Телевизор для бабушки</string>
     <string name="rec_vo_det">Большие карточки с озвученными названиями, крупный текст и кнопка «Позвать на помощь».</string>
     <string name="rec_criancas">Телевизор для детей</string>

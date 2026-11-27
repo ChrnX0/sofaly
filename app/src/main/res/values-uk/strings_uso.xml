@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Вимкнено, доки мешканець не погодиться на телевізорі.</string>
     <string name="uso_cartoes">Великі картки на головному екрані</string>
     <string name="uso_cartoes_det">Кілька великих застосунків, назви вголос і кнопка \"Отримати допомогу\". Вимкнення просить PIN.</string>
-    <string name="uso_trocar_det">Зараз: %1$s. OK, щоб вибрати знову.</string>
+    <string name="uso_trocar_det">Зараз: %1$s.</string>
 </resources>

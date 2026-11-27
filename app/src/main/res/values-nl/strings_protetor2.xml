@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Achtergrond van de schermbeveiliging</string>
-    <string name="pv2_fundo_det">die van het thema, of echte foto\'s van de aarde vanuit de ruimte · OK wijzigt</string>
     <string name="pv2_fundo_tema">Van het thema</string>
     <string name="pv2_fundo_terra">De aarde vanuit de ruimte</string>
     <string name="pv2_relogio">Klok van de schermbeveiliging</string>
-    <string name="pv2_relogio_det">zes stijlen · OK wijzigt</string>
     <string name="pv2_rel_fino">Dun</string>
     <string name="pv2_rel_editorial">Redactioneel</string>
     <string name="pv2_rel_monumental">Monumentaal</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">In woorden</string>
     <string name="pv2_rel_empilhado">Gestapeld</string>
     <string name="pv2_posicao">Positie van de klok</string>
-    <string name="pv2_posicao_det">OK wijzigt</string>
     <string name="pv2_pos_alto">Linksboven</string>
     <string name="pv2_pos_baixo">Linksonder</string>
     <string name="pv2_pos_centro">Midden</string>
     <string name="pv2_tamanho">Grootte van de klok</string>
-    <string name="pv2_tamanho_det">grote cijfers zijn van ver makkelijker te lezen · OK wijzigt</string>
     <string name="pv2_tam_normal">Normaal</string>
     <string name="pv2_tam_grande">Groot</string>
     <string name="pv2_mostrar">Wat de schermbeveiliging toont</string>
-    <string name="pv2_mostrar_det">\"Alleen de tijd\": elke toets op de afstandsbediening toont de rest 15 s · OK wijzigt</string>
     <string name="pv2_mostrar_so">Alleen de tijd</string>
     <string name="pv2_mostrar_vez">Af en toe</string>
     <string name="pv2_mostrar_sempre">Alles</string>
     <string name="pv2_elementos">Op de schermbeveiliging</string>
-    <string name="pv2_el_det">getoond op de schermbeveiliging · OK zet aan of uit</string>
     <string name="pv2_el_saudacao">Begroeting</string>
     <string name="pv2_el_data">Datum</string>
     <string name="pv2_el_linha_dia">Daglichtlijn</string>

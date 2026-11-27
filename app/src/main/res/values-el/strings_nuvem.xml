@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Αναμονή για επιβεβαίωση στο κινητό σας…</string>
     <string name="rede_nuvem_salvando">Σύνδεση…</string>
     <string name="rede_nuvem_recusado">Η υπηρεσία αρνήθηκε. Ελέγξτε το αναγνωριστικό εφαρμογής και δοκιμάστε ξανά.</string>
-    <string name="rede_erro_nuvem_login">Η άδεια αυτού του λογαριασμού έληξε ή αφαιρέθηκε. Αφαιρέστε τον λογαριασμό (κρατήστε OK) και συνδεθείτε ξανά.</string>
+    <string name="rede_erro_nuvem_login">Η άδεια αυτού του λογαριασμού έληξε ή αφαιρέθηκε. Αφαιρέστε τον λογαριασμό και συνδεθείτε ξανά.</string>
     <string name="rede_od_titulo">OneDrive: η εφαρμογή σας στη Microsoft</string>
     <string name="rede_od_explica">Μία φορά, σε υπολογιστή: entra.microsoft.com › App registrations › New registration. Στους τύπους λογαριασμού, επιλέξτε αυτόν που περιλαμβάνει προσωπικούς λογαριασμούς Microsoft. Μετά, στο Authentication, ενεργοποιήστε το “Allow public client flows”. Αντιγράψτε το “Application (client) ID” και πληκτρολογήστε το εδώ (μπορείτε να γράψετε από το κινητό, στον πίνακα).</string>
     <string name="rede_od_id">Application (client) ID</string>

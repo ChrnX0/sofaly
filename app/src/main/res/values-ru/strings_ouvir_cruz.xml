@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Избранные также включаются кнопками 1–9 на пульте</string>
     <string name="ouv_tecla">Кнопка %d на пульте</string>
     <string name="ouv_ao_sair">При выходе</string>
-    <string name="ouv_ao_sair_continua">Играет дальше на главном экране\n▶❙❙ на пульте ставит на паузу с любого экрана</string>
+    <string name="ouv_ao_sair_continua">Играет дальше на главном экране</string>
     <string name="ouv_ao_sair_para">Останавливается, когда вы уходите с экрана</string>
     <string name="ouv_recentes">Недавние</string>
     <string name="ouv_sem_favoritas">Избранного пока нет</string>
-    <string name="ouv_sem_favoritas_det">Удерживайте OK на станции, чтобы сохранить её здесь</string>
     <string name="ouv_sem_recentes">Пока пусто</string>
     <string name="ouv_sem_recentes_det">Здесь появятся станции, которые вы слушали</string>
     <string name="ouv_paises">Страны</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Эфир</string>
     <string name="ouv_dica_pular">перемотка</string>
     <string name="ouv_voltar">Назад 15 с</string>
-    <string name="ouv_voltar_det">Также ◀◀ на пульте</string>
     <string name="ouv_avancar">Вперёд 30 с</string>
-    <string name="ouv_avancar_det">Также ▶▶ на пульте</string>
     <string name="ouv_velocidade_det">%s · голос не меняет тон</string>
     <string name="ouv_parar_pod_det">Место остановки сохраняется</string>
     <string name="ouv_seguindo">Подписка</string>

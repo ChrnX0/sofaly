@@ -6,9 +6,8 @@
     <string name="vid_onde">Om te kijken: Instellingen › Gezin › Familievideo\'s.</string>
     <string name="vid_depois">Later</string>
     <string name="vid_assistir">Kijken</string>
-    <string name="vid_ok_para_assistir">Druk op OK om te kijken.</string>
     <string name="vid_lista">Familievideo\'s</string>
-    <string name="vid_lista_det">Verstuurd via de familielink. Elke video blijft 30 dagen. Houd OK ingedrukt om te verwijderen.</string>
+    <string name="vid_lista_det">Verstuurd via de familielink. Elke video blijft 30 dagen.</string>
     <string name="vid_nenhum">Nog geen video\'s.</string>
     <string name="vid_apagar">Video verwijderen</string>
     <string name="vid_aceitar">Video\'s accepteren</string>

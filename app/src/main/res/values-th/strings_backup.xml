@@ -6,8 +6,8 @@
     <string name="bkn_desligado">ปิด</string>
     <string name="bkn_sem_senha">ปิด · ตั้งรหัสผ่านสำรองข้อมูลก่อน</string>
     <string name="bkn_senha">รหัสผ่านสำรองข้อมูล</string>
-    <string name="bkn_senha_ok">ตั้งแล้ว · OK เพื่อเปลี่ยน</string>
-    <string name="bkn_senha_falta">ยังไม่ได้ตั้ง · OK เพื่อตั้ง</string>
+    <string name="bkn_senha_ok">ตั้งแล้ว</string>
+    <string name="bkn_senha_falta">ยังไม่ได้ตั้ง</string>
     <string name="bkn_senha_nova">รหัสผ่านสำรองข้อมูล (8 ตัวอักษรขึ้นไป)</string>
     <string name="bkn_senha_repetir">พิมพ์รหัสผ่านอีกครั้ง</string>
     <string name="bkn_senha_curta">รหัสผ่านต้องมี 8 ถึง 128 ตัวอักษร</string>

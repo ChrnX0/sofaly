@@ -34,5 +34,5 @@
     <string name="l72_guia_agora">%1$s で放送中: %2$s（%3$s まで）</string>
     <string name="l72_guia_nada_agora">%1$s: 現在、番組表に何もありません</string>
     <string name="l72_guia_depois">次: %1$s（%2$s）</string>
-    <string name="l75_pilula">再生中: %1$s、%2$s。OK で一時停止/再開、OK 長押しでアプリを開きます</string>
+    <string name="l75_pilula">再生中: %1$s、%2$s。</string>
 </resources>

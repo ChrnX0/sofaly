@@ -11,11 +11,10 @@
     <string name="ouv_favoritar_det">Favoriten starten auch mit den Tasten 1 bis 9 der Fernbedienung</string>
     <string name="ouv_tecla">Taste %d der Fernbedienung</string>
     <string name="ouv_ao_sair">Beim Verlassen</string>
-    <string name="ouv_ao_sair_continua">Spielt auf dem Startbildschirm weiter\n▶❙❙ auf der Fernbedienung pausiert überall</string>
+    <string name="ouv_ao_sair_continua">Spielt auf dem Startbildschirm weiter</string>
     <string name="ouv_ao_sair_para">Stoppt, wenn du diesen Bildschirm verlässt</string>
     <string name="ouv_recentes">Zuletzt</string>
     <string name="ouv_sem_favoritas">Noch keine Favoriten</string>
-    <string name="ouv_sem_favoritas_det">Halte OK auf einem Sender, um ihn hier zu speichern</string>
     <string name="ouv_sem_recentes">Noch nichts hier</string>
     <string name="ouv_sem_recentes_det">Gehörte Sender erscheinen hier</string>
     <string name="ouv_paises">Länder</string>
@@ -23,9 +22,7 @@
     <string name="ouv_ao_vivo">Live</string>
     <string name="ouv_dica_pular">springen</string>
     <string name="ouv_voltar">15 s zurück</string>
-    <string name="ouv_voltar_det">Auch ◀◀ auf der Fernbedienung</string>
     <string name="ouv_avancar">30 s vor</string>
-    <string name="ouv_avancar_det">Auch ▶▶ auf der Fernbedienung</string>
     <string name="ouv_velocidade_det">%s · die Stimme behält ihre Tonhöhe</string>
     <string name="ouv_parar_pod_det">Die Stelle wird gemerkt</string>
     <string name="ouv_seguindo">Abonniert</string>

@@ -18,8 +18,7 @@
     <string name="qrd_roteador_det">Adres en API-sleutel van de UniFi-router, in het webpaneel</string>
     <!-- Ideia 42: blocos do painel rápido -->
     <string name="pb_titulo">Tegels van het snelpaneel</string>
-    <string name="pb_subtitulo">OK toont of verbergt · ◀ ▶ wijzigen de volgorde</string>
-    <string name="pb_cfg_det">Kies welke tegels het snelpaneel (TERUG ingedrukt houden) toont, en in welke volgorde</string>
+    <string name="pb_cfg_det">Kies welke tegels het snelpaneel toont, en in welke volgorde</string>
     <string name="pb_mostrado">getoond</string>
     <string name="pb_escondido">verborgen</string>
     <string name="pb_padrao">Terug naar de standaardtegels</string>
@@ -42,14 +41,14 @@
     <string name="cfg2_sec_ferramentas">Gereedschap</string>
     <string name="cfg2_sec_ocultos_sistema">Systeemapps verborgen door de launcher</string>
     <string name="cfg2_apps_visita_det">Kies welke apps verdwijnen zolang de gastmodus aan staat</string>
-    <string name="cfg2_apps_visita_sub">OK wisselt · deze verdwijnen zolang de gastmodus aan staat</string>
+    <string name="cfg2_apps_visita_sub">deze verdwijnen zolang de gastmodus aan staat</string>
     <string name="cfg2_some_visita">verborgen voor gasten</string>
     <string name="cfg2_fica_visita">blijft</string>
     <string name="cfg2_casa_det">Lampen, stekkers en scènes uit Google Home of Home Assistant</string>
     <string name="oc_titulo">Verborgen apps</string>
-    <string name="oc_subtitulo">OK toont of verbergt een app op het startscherm · verborgen apps staan eerst</string>
-    <string name="oc_nenhum">Geen verborgen apps · OK om te kiezen</string>
-    <string name="oc_quantos">Verborgen: %1$d · OK om ze weer te tonen</string>
+    <string name="oc_subtitulo">verborgen apps staan eerst</string>
+    <string name="oc_nenhum">Geen verborgen apps</string>
+    <string name="oc_quantos">Verborgen: %1$d</string>
     <string name="oc_oculto">verborgen</string>
     <string name="oc_aparece">op het startscherm</string>
     <string name="oc_aviso_titulo">App verborgen</string>
@@ -72,7 +71,7 @@
     <string name="tt_grande">Groot</string>
     <string name="tt_maior">Groter</string>
     <string name="pi_titulo">Pictogrammenpakket</string>
-    <string name="pi_det">Vervang app-pictogrammen door een ingebouwde stijl (Symbool, Duotoon) of een geïnstalleerd pictogrammenpakket. OK kiest het volgende.</string>
+    <string name="pi_det">Vervang app-pictogrammen door een ingebouwde stijl (Symbool, Duotoon) of een geïnstalleerd pictogrammenpakket.</string>
     <string name="pi_det_vazio">Geen pictogrammenpakket geïnstalleerd. Haal er een uit de Play Store en het verschijnt hier.</string>
     <string name="pi_nenhum">Geen</string>
     <string name="fm_titulo">Mijn achtergrond</string>
@@ -81,12 +80,12 @@
     <string name="fm_nenhum">Geen (terug naar Donker)</string>
     <string name="fm_brilho">Helderheid van de achtergrond</string>
     <string name="fm_contraste">Contrast van de achtergrond</string>
-    <string name="fm_ajuste_det">Geldt voor Mijn achtergrond. OK wijzigt de stap.</string>
+    <string name="fm_ajuste_det">Geldt voor Mijn achtergrond.</string>
     <string name="vp_titulo">Kom je van Projectivy?</string>
     <string name="vp_texto">In vier stappen haal je je instellingen in ongeveer een minuut over. Elke stap kan later in Instellingen.</string>
     <string name="vp_cfg_det">Verborgen apps, pictogrammenpakket en achtergrond overnemen van Projectivy.</string>
     <string name="vp_1">1. Verborgen apps</string>
-    <string name="vp_1_det">Markeer de apps die je had verborgen. Om de volgorde te wijzigen, houd OK ingedrukt op een app op het startscherm.</string>
+    <string name="vp_1_det">Markeer de apps die je had verborgen.</string>
     <string name="vp_2">2. Pictogrammenpakket</string>
     <string name="vp_2_det">Dezelfde pictogrammenpakketten die Projectivy gebruikt, werken hier.</string>
     <string name="vp_3">3. Achtergrond</string>

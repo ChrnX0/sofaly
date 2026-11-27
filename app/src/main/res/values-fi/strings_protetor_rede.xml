@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Screensaver remote keys (idea 28) -->
-    <string name="pt_dica_dispensar">OK hylkää · ◀ ▶ siirtävät</string>
-    <string name="pt_dica_pausar">OK tauottaa tai jatkaa · ◀ ▶ siirtävät</string>
-    <string name="pt_dica_andar">◀ ▶ siirtävät · muut näppäimet sulkevat</string>
     <!-- Screensaver photos from a network folder (idea 27) -->
     <string name="rede_fotos_usar">Käytä näitä kuvia näytönsäästäjässä</string>
     <string name="rede_fotos_parar">Lopeta näiden kuvien käyttö näytönsäästäjässä</string>
@@ -20,6 +17,6 @@
     <string name="rede_buscar_explica">Elokuvat, sarjat, jaksot ja musiikki tällä palvelimella.</string>
     <string name="rede_buscar_campo">Nimi</string>
     <string name="rede_buscar_curto">Kirjoita vähintään 2 kirjainta.</string>
-    <string name="rede_proximo_em">Seuraavaksi: %1$s %2$d s:n päästä · OK aloittaa nyt · mikä tahansa muu näppäin peruuttaa</string>
+    <string name="rede_proximo_em">Seuraavaksi: %1$s %2$d s:n päästä</string>
     <string name="rede_ainda_assistindo">Katsotko vielä? OK aloittaa %1$s</string>
 </resources>

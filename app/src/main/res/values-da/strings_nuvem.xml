@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Venter på, at du bekræfter på din telefon…</string>
     <string name="rede_nuvem_salvando">Logger ind…</string>
     <string name="rede_nuvem_recusado">Tjenesten afviste. Tjek app-id\'et, og prøv igen.</string>
-    <string name="rede_erro_nuvem_login">Denne kontos tilladelse er udløbet eller fjernet. Fjern kontoen (hold OK), og log ind igen.</string>
+    <string name="rede_erro_nuvem_login">Denne kontos tilladelse er udløbet eller fjernet. Fjern kontoen, og log ind igen.</string>
     <string name="rede_od_titulo">OneDrive: din app hos Microsoft</string>
     <string name="rede_od_explica">Én gang, på en computer: entra.microsoft.com › App registrations › New registration. Ved kontotyper, vælg den, der omfatter personlige Microsoft-konti. Derefter, under Authentication, slå “Allow public client flows” til. Kopier “Application (client) ID”, og skriv det her (du kan skrive fra din telefon, i panelet).</string>
     <string name="rede_od_id">Application (client) ID</string>

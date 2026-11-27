@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Λεπτή ρύθμιση</string>
-    <string name="ft_dica">OK ή ▶ ◀ αλλάζει · ΠΙΣΩ κλείνει</string>
     <string name="ft_abrir">Ρύθμιση βλέποντας την αρχική οθόνη</string>
     <string name="ft_abrir_det">Γραμματοσειρά, ρολόι, χρώμα έμφασης, γωνίες, λάμψη και μέγεθος, ζωντανά</string>
     <string name="cs_destaque">Χρώμα έμφασης</string>

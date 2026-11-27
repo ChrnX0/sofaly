@@ -2,7 +2,6 @@
 <!-- Ajuste fino com prévia (FineTuneActivity, CardStyle), 21/11/2026 -->
 <resources>
     <string name="ft_titulo">Тонкая настройка</string>
-    <string name="ft_dica">OK или ▶ ◀ меняет · НАЗАД закрывает</string>
     <string name="ft_abrir">Настроить, глядя на главный экран</string>
     <string name="ft_abrir_det">Шрифт, часы, цвет акцента, углы, свечение и размер — сразу</string>
     <string name="cs_destaque">Цвет акцента</string>

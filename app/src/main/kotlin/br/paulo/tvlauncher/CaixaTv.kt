@@ -117,7 +117,7 @@ class CaixaTv(private val ctx: Context, @Suppress("UNUSED_PARAMETER") tema: Int 
     /** Campos de texto no padrão das Configurações: superfície escura, fio claro e borda branca no foco. */
     private fun estilizarCampos(v: View) {
         if (v is EditText) {
-            val normal = Estilo.fundo(ctx, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PEQUENO, Estilo.BORDA)
+            val normal = Estilo.fundo(ctx, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PEQUENO)
             val focado = Estilo.fundo(ctx, Estilo.SUPERFICIE_ALTA, Estilo.RAIO_PEQUENO, Estilo.FOCO, 2)
             v.background = if (v.isFocused) focado else normal
             v.setTextColor(Estilo.TEXTO)

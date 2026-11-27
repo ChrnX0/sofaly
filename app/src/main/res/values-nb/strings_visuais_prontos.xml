@@ -2,7 +2,6 @@
 <!-- Visuais prontos (revisão dos degraus, 1b, 17/11/2026): VisualCodigo.PRONTOS. -->
 <resources>
     <string name="vpr_titulo">Ferdige utseender</string>
-    <string name="vpr_det">Hvert OK bytter til neste utseende: tema, tekst og bakgrunnsfarge sammen</string>
     <string name="vpr_meu">Ditt eget</string>
     <string name="vpr_classico">Klassisk</string>
     <string name="vpr_leitura">Lett lesing</string>

@@ -66,7 +66,7 @@ class CardsScreen(private val a: Activity, titulo: String, subtitulo: String? = 
             isFocusable = true; isClickable = true
             minimumHeight = dp(MIN_DP)
             setPaddingRelative(dp(Estilo.E2 + 2), dp(Estilo.E2), dp(Estilo.E2 + 2), dp(Estilo.E2))
-            background = Estilo.fundo(a, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
+            background = Estilo.caixa(a)
             Estilo.focoCard(this)
         }
         l.addView(c, LinearLayout.LayoutParams(0, -1, 1f).apply { if (inLine > 0) marginStart = dp(Estilo.E2 - 4) })

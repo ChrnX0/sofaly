@@ -96,7 +96,7 @@ class AutomacoesActivity : Activity() {
                 if (tinha != (gatilhos[e] != null)) desenhar()   // a linha "só se" aparece ou some (o foco volta a esta)
                 else v.titulo(texto())
             }
-            v = linha("evento:${e.chave}", texto(), getString(if (cenas.isEmpty()) R.string.rot_cena_sem else R.string.rot_app_det)) { girar(1) }
+            v = linha("evento:${e.chave}", texto(), if (cenas.isEmpty()) getString(R.string.rot_cena_sem) else "") { girar(1) }
             v.setOnKeyListener { _, k, ev ->
                 if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
                 when (k) {
@@ -120,7 +120,7 @@ class AutomacoesActivity : Activity() {
                     Gatilhos.salvarSoSe(this, m)
                     w.titulo("    " + textoSoSe(novo))
                 }
-                w = linha("soSe:${e.chave}", "    " + textoSoSe(Gatilhos.soSe(this)[e].orEmpty()), getString(R.string.elv_ss_det)) { girarSoSe(1) }
+                w = linha("soSe:${e.chave}", "    " + textoSoSe(Gatilhos.soSe(this)[e].orEmpty()), "") { girarSoSe(1) }
                 w.setOnKeyListener { _, k, ev ->
                     if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
                     when (k) {

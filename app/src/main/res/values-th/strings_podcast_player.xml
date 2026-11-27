@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">ถัดไป</string>
     <string name="pl_dormir">ตั้งเวลาปิด</string>
     <string name="pl_dormir_min">ในอีก %1$d นาที</string>
-    <string name="pl_barra_dica">◀ ▶ เลื่อน 10 วินาที · กดค้างเพื่อเร็วขึ้น</string>
     <string name="pl_abrir">เปิดเครื่องเล่น</string>
     <string name="pl_abrir_det">เต็มหน้าจอ พร้อมรายการที่จะเล่นถัดไป</string>
 </resources>

@@ -6,7 +6,6 @@
     <string name="pl_a_seguir">À suivre</string>
     <string name="pl_dormir">Minuterie de sommeil</string>
     <string name="pl_dormir_min">Dans %1$d min</string>
-    <string name="pl_barra_dica">◀ ▶ avancent de 10 s · maintenez pour aller plus vite</string>
     <string name="pl_abrir">Ouvrir le lecteur</string>
     <string name="pl_abrir_det">Plein écran, avec la suite</string>
 </resources>

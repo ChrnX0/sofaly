@@ -2,8 +2,8 @@
 <!-- Ideia 50 do estudo (14/11/2026): cor e temperatura da luz na tela Casa (▲ ▼ no ajuste da luz). -->
 <resources>
     <string name="casa_dica_brilho_cor">ljusstyrka och färg</string>
-    <string name="casa_brilho_ajuste_cor">Ljusstyrka %1$d%% · ◀ ▶ · färg ▲ ▼</string>
-    <string name="casa_cor_ajuste">%1$s · ▲ ▼</string>
+    <string name="casa_brilho_ajuste_cor">Ljusstyrka %1$d%%</string>
+    <string name="casa_cor_ajuste">%1$s</string>
     <string name="casa_cor_quente">Varmvit</string>
     <string name="casa_cor_neutra">Neutral vit</string>
     <string name="casa_cor_fria">Kallvit</string>

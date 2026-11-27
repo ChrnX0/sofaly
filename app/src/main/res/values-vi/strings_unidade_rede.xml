@@ -11,7 +11,7 @@
     <string name="mtp_pergunta">“%1$s” muốn xem và sao chép tệp trong bộ nhớ TV qua mạng gia đình. Cho phép máy tính này?</string>
     <string name="mtp_pcs">Máy tính được phép</string>
     <string name="mtp_pcs_nenhum">Chưa có. TV sẽ hỏi trên màn hình khi một máy tính yêu cầu tệp.</string>
-    <string name="mtp_pcs_lista">%1$s · OK để quên tất cả (mỗi máy sẽ hỏi lại)</string>
+    <string name="mtp_pcs_lista">%1$s</string>
     <string name="mtp_pcs_esquecidos">Đã quên các máy tính</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Mở bảng điều khiển TV</string>

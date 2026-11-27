@@ -9,5 +9,5 @@
     <string name="abertura_falta_inicio">حدّد بداية المقدمة أولًا</string>
     <string name="abertura_invalida">لا يبدو هذا مقدمة: يجب أن تدوم من 10 ث إلى 5 د وتبدأ في أول 15 د</string>
     <string name="abertura_apagada">حُذفت علامة المقدمة</string>
-    <string name="abertura_pular">تخطي المقدمة · OK</string>
+    <string name="abertura_pular">تخطي المقدمة</string>
 </resources>

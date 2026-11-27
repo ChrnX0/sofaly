@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: зараз нічого в телепрограмі</string>
     <string name="l72_guia_depois">Далі: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Зараз відтворюється: %1$s, %2$s. OK ставить на паузу або продовжує; утримуйте OK, щоб відкрити застосунок</string>
+    <string name="l75_pilula">Зараз відтворюється: %1$s, %2$s.</string>
 </resources>

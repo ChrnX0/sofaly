@@ -30,9 +30,6 @@
     <string name="aa_risk_care">Óvatosan módosítandó, a leírása szerint</string>
     <string name="aa_risk_essential">A TV-hez nélkülözhetetlen: ne fagyassza le</string>
     <string name="aa_tip_idle">%1$d napja nem volt megnyitva. A fagyasztás memóriát szabadít fel, és visszavonható.</string>
-    <string name="aa_hint_app">Az OK megnyit · OK nyomva: áthelyezés, elrejtés, fagyasztás vagy eltávolítás</string>
-    <string name="aa_hint_frozen">Az OK feloldja és megnyitja</string>
-    <string name="aa_hint_lock">Az OK PIN-t kér, és itt megmutatja a rejtett alkalmazásokat</string>
     <string name="aa_open">Megnyitás</string>
     <string name="aa_freeze">Fagyasztás</string>
     <string name="aa_freezing">%1$s fagyasztása…</string>

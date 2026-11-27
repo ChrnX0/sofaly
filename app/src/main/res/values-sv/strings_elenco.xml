@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Tidigare i %1$s</string>
     <string name="anteriormente_assistir">Titta på %1$s</string>
     <string name="anteriormente_pular_sempre">Visa aldrig</string>
-    <string name="anteriormente_desligado">Sammanfattningar avstängda. För att slå på dem igen: håll OK på ett avsnitt.</string>
+    <string name="anteriormente_desligado">Sammanfattningar avstängda.</string>
     <string name="anteriormente_ligar">Visa sammanfattningar ”Tidigare i”</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Högsta ålder i barnläge</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Inte i din lista · på %1$s</string>
     <string name="onde_grupo">På annat håll (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Undertexter nedladdade automatiskt (gjorda för den här filen) · ▼ för att byta</string>
-    <string name="legenda_auto_pronta_nome">Undertexter nedladdade automatiskt · ▼ för att byta eller justera fördröjningen</string>
+    <string name="legenda_auto_pronta">Undertexter nedladdade automatiskt (gjorda för den här filen)</string>
+    <string name="legenda_auto_pronta_nome">Undertexter nedladdade automatiskt</string>
     <string name="legenda_trad_rotulo">Automatisk översättning</string>
     <string name="legenda_trad_traduzindo">Inga undertexter på ditt språk: översätter de engelska på tv:n…</string>
     <string name="legenda_trad_parcial">Undertexter översatta på tv:n (automatisk översättning). Resten fortsätter att översättas.</string>

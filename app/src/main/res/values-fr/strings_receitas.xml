@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Pour qui est cette télé ?</string>
-    <string name="rec_subtitulo">Un OK et la télé est prête. Vous pouvez annuler à tout moment.</string>
+    <string name="rec_subtitulo">Vous pouvez annuler à tout moment.</string>
     <string name="rec_vo">La télé de mamie</string>
     <string name="rec_vo_det">Grandes cartes avec le nom lu à voix haute, texte plus grand et un bouton Demander de l\'aide.</string>
     <string name="rec_criancas">La télé des enfants</string>

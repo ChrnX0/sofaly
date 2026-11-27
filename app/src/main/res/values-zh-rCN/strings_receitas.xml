@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">这台电视给谁用？</string>
-    <string name="rec_subtitulo">按一次 OK 就能设好电视，随时可以撤销。</string>
+    <string name="rec_subtitulo">随时可以撤销。</string>
     <string name="rec_vo">奶奶的电视</string>
     <string name="rec_vo_det">大卡片并朗读名称，字更大，还有“求助”按钮。</string>
     <string name="rec_criancas">孩子的电视</string>

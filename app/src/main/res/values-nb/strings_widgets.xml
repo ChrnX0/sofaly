@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Rediger moduler på startskjermen</string>
-    <string name="wdg_det">Levende moduler fra andre apper på startskjermen. Pilene flytter, OK viser valg.</string>
-    <string name="wdg_vazio">Ingen modul på startskjermen ennå. OK legger til en.</string>
+    <string name="wdg_det">Levende moduler fra andre apper på startskjermen.</string>
+    <string name="wdg_vazio">Ingen modul på startskjermen ennå.</string>
     <string name="wdg_estado_mover">Flytter: %1$s</string>
     <string name="wdg_estado_tamanho">Størrelse: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Flytt</string>

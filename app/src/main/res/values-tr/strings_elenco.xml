@@ -15,7 +15,7 @@
     <string name="anteriormente_titulo">%1$s – önceki bölümlerde</string>
     <string name="anteriormente_assistir">%1$s izle</string>
     <string name="anteriormente_pular_sempre">Asla gösterme</string>
-    <string name="anteriormente_desligado">Özetler kapatıldı. Yeniden açmak için: bir bölümde OK’yi basılı tutun.</string>
+    <string name="anteriormente_desligado">Özetler kapatıldı.</string>
     <string name="anteriormente_ligar">«Önceki bölümlerde» özetlerini göster</string>
     <string name="idade_titulo">Çocuk modunda en yüksek yaş</string>
     <string name="idade_det">Bu yaşa kadar sınıflandırılan filmler ve diziler her kategoriden görünür (TMDB sınıflandırması). Sınıflandırmasızlar yalnızca çocuk kategorilerinde.</string>
@@ -25,8 +25,8 @@
     <string name="onde_tambem_em">Ayrıca: %1$s (JustWatch)</string>
     <string name="onde_fora">Listenizde yok · %1$s’de</string>
     <string name="onde_grupo">Başka yerlerde (JustWatch)</string>
-    <string name="legenda_auto_pronta">Altyazı otomatik indirildi (bu dosya için yapılmış) · değiştirmek için ▼</string>
-    <string name="legenda_auto_pronta_nome">Altyazı otomatik indirildi · değiştirmek veya gecikmeyi ayarlamak için ▼</string>
+    <string name="legenda_auto_pronta">Altyazı otomatik indirildi (bu dosya için yapılmış)</string>
+    <string name="legenda_auto_pronta_nome">Altyazı otomatik indirildi</string>
     <string name="legenda_trad_rotulo">Otomatik çeviri</string>
     <string name="legenda_trad_traduzindo">Dilinizde altyazı yok: İngilizce olanlar TV’de çevriliyor…</string>
     <string name="legenda_trad_parcial">Altyazılar TV’de çevrildi (otomatik çeviri). Gerisi çevrilmeye devam ediyor.</string>

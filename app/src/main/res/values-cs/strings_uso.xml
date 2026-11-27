@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Vypnuto, dokud s tím člověk, který tam bydlí, nesouhlasí na televizoru.</string>
     <string name="uso_cartoes">Velké karty na domovské obrazovce</string>
     <string name="uso_cartoes_det">Pár velkých aplikací, jména čtená nahlas a tlačítko \"Získat pomoc\". Vypnutí vyžaduje PIN.</string>
-    <string name="uso_trocar_det">Teď: %1$s. OK pro novou volbu.</string>
+    <string name="uso_trocar_det">Teď: %1$s.</string>
 </resources>

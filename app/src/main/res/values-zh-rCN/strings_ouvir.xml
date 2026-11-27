@@ -48,7 +48,6 @@
     <string name="pod_em_alta">你所在国家的热门</string>
     <string name="pod_atribuicao">搜索：Podcast Index</string>
     <string name="pod_sugestoes">推荐</string>
-    <string name="pod_sugestao_seguir">按 OK 订阅</string>
     <string name="pod_sugeridos_seguidos">已将推荐播客添加到我的播客</string>
     <string name="pod_busca_nada">未找到播客。</string>
     <string name="pod_busca_cota">播客搜索今天休息，明天恢复。</string>

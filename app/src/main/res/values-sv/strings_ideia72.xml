@@ -36,5 +36,5 @@
     <string name="l72_guia_nada_agora">%1$s: inget i guiden nu</string>
     <string name="l72_guia_depois">Nästa: %1$s (%2$s)</string>
     <!-- Ideia 75: a pílula Tocando agora da HOME (acessibilidade e MCP acham pelo nome). -->
-    <string name="l75_pilula">Spelas nu: %1$s, %2$s. OK pausar eller fortsätter; håll OK för att öppna appen</string>
+    <string name="l75_pilula">Spelas nu: %1$s, %2$s.</string>
 </resources>

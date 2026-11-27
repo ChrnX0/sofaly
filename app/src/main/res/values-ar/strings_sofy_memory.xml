@@ -2,7 +2,7 @@
 <!-- O que a Sofy sabe (Brainstorm item 28, 26/11/2026, SofyMemoryActivity) -->
 <resources>
     <string name="smem_titulo">ما تعرفه Sofy</string>
-    <string name="smem_sub">ما تعلّمته عن هذا البيت. OK تنسى عنصرًا؛ وتتعلّمه من جديد.</string>
+    <string name="smem_sub">ما تعلّمته عن هذا البيت.</string>
     <string name="smem_linha_det">ما تعلّمته، مع زر انسَ</string>
     <string name="smem_uso">متى يُستخدم التلفزيون</string>
     <string name="smem_uso_det">ساعات اليوم المتعلَّمة: %1$d</string>

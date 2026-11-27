@@ -7,8 +7,8 @@
     <string name="bkn_desligado">nonaktif</string>
     <string name="bkn_sem_senha">nonaktif · atur kata sandi cadangan dulu</string>
     <string name="bkn_senha">Kata sandi cadangan</string>
-    <string name="bkn_senha_ok">diatur · OK mengubah</string>
-    <string name="bkn_senha_falta">belum diatur · OK mengatur</string>
+    <string name="bkn_senha_ok">diatur</string>
+    <string name="bkn_senha_falta">belum diatur</string>
     <string name="bkn_senha_nova">Kata sandi cadangan (8 karakter atau lebih)</string>
     <string name="bkn_senha_repetir">Ketik kata sandi lagi</string>
     <string name="bkn_senha_curta">Kata sandi harus 8 sampai 128 karakter.</string>

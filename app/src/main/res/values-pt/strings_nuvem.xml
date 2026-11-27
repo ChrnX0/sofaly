@@ -8,7 +8,7 @@
     <string name="rede_nuvem_esperando">Esperando você confirmar no celular…</string>
     <string name="rede_nuvem_salvando">Entrando…</string>
     <string name="rede_nuvem_recusado">O serviço recusou. Confira o id do app e tente de novo.</string>
-    <string name="rede_erro_nuvem_login">A permissão desta conta venceu ou foi tirada. Remova a conta (OK segurado) e entre de novo.</string>
+    <string name="rede_erro_nuvem_login">A permissão desta conta venceu ou foi tirada. Remova a conta e entre de novo.</string>
     <string name="rede_od_titulo">OneDrive: o seu app na Microsoft</string>
     <string name="rede_od_explica">Uma vez só, no computador: entra.microsoft.com › Registros de aplicativo › Novo registro. Em tipos de conta, escolha a que inclui contas pessoais da Microsoft. Depois, em Autenticação, ligue “Permitir fluxos de cliente público”. Copie o “ID do aplicativo (cliente)” e digite aqui (dá para digitar pelo celular, no painel).</string>
     <string name="rede_od_id">ID do aplicativo (cliente)</string>

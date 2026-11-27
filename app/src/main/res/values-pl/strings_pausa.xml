@@ -4,8 +4,8 @@
     <string name="pausa_pausar">Wstrzymaj telewizję na żywo</string>
     <string name="pausa_continuar">Wznów</string>
     <string name="pausa_ao_vivo">Powrót na żywo</string>
-    <string name="pausa_selo">⏸ WSTRZYMANO · OK wznawia</string>
-    <string name="pausa_atrasado_min">%1$d MIN OPÓŹNIENIA · ▶ na żywo</string>
-    <string name="pausa_atrasado_seg">%1$d S OPÓŹNIENIA · ▶ na żywo</string>
+    <string name="pausa_selo">⏸ WSTRZYMANO</string>
+    <string name="pausa_atrasado_min">%1$d MIN OPÓŹNIENIA</string>
+    <string name="pausa_atrasado_seg">%1$d S OPÓŹNIENIA</string>
     <string name="pausa_voltou">Pauza dłuższa, niż mieści pamięć: powrót na żywo</string>
 </resources>

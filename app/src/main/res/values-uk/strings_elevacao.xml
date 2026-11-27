@@ -49,9 +49,8 @@
     <string name="elv_leg_em_cima">угорі</string>
     <!-- 3.11 busca que faz -->
     <string name="elv_bf_fazer">Виконати</string>
-    <string name="elv_bf_ok_faz">OK виконує зараз</string>
     <string name="elv_bf_wifi">Показати Wi-Fi для гостей</string>
-    <string name="elv_bf_wifi_configurar">Ще не налаштовано: OK відкриває Налаштування (Візити)</string>
+    <string name="elv_bf_wifi_configurar">Ще не налаштовано</string>
     <string name="elv_bf_letra_maior">Більший текст (%1$d%%)</string>
     <string name="elv_bf_letra_menor">Менший текст (%1$d%%)</string>
     <string name="elv_bf_letra_limite">Він уже такого розміру</string>
@@ -130,6 +129,5 @@
     <string name="elv_ss_noite">після заходу сонця</string>
     <string name="elv_ss_dia_util">будній день</string>
     <string name="elv_ss_perfil">профіль — %1$s</string>
-    <string name="elv_ss_det">◀ ▶ змінюють умову</string>
     <string name="extras_ABERTURA_PRONTA">Пропуск заставки (IntroDB): для серій телевізор запитує спільнотний сервіс IntroDB, де заставка (надсилає, яка серія, ніколи ваш обліковий запис); вимкнено — лише заставки, позначені вами</string>
 </resources>

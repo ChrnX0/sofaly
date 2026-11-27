@@ -92,7 +92,6 @@
     <string name="lb_lembrete">Напоминание</string>
     <string name="lb_quando_em">%1$s, на %2$s.</string>
     <string name="ms_ola">Здравствуйте!</string>
-    <string name="ms_ola_det">Выберите стрелками и нажмите OK.</string>
     <string name="ms_pedir_ajuda">Позвать на помощь</string>
     <string name="ms_pedido_ajuda">Просьба о помощи</string>
     <string name="ms_alguem_pediu">Кто-то позвал на помощь у ТВ %1$s.</string>
@@ -148,7 +147,6 @@
     <string name="bc_categorias">КАТЕГОРИИ</string>
     <string name="bc_canais">КАНАЛЫ</string>
     <string name="bc_carregando">загрузка каналов…</string>
-    <string name="bc_dica">OK блокирует или разблокирует · OK на категории — для всей · ◀ ▶ категории и каналы · НАЗАД выход (уже сохранено)</string>
     <string name="bc_categoria_bloqueada">вся категория «%1$s» заблокирована: разблокируйте её в левой колонке</string>
     <string name="bc_filme">Фильм · %1$s</string>
     <string name="bc_serie">Сериал · %1$s</string>

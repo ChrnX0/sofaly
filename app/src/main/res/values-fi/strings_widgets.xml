@@ -2,8 +2,8 @@
 <!-- Modo de edição dos widgets da HOME (WidgetLayoutActivity, 24/11/2026). -->
 <resources>
     <string name="wdg_titulo">Muokkaa aloitusnäytön widgettejä</string>
-    <string name="wdg_det">Muiden sovellusten eläviä widgettejä aloitusnäytöllä. Nuolet siirtävät, OK näyttää valinnat.</string>
-    <string name="wdg_vazio">Aloitusnäytöllä ei ole vielä widgettiä. OK lisää yhden.</string>
+    <string name="wdg_det">Muiden sovellusten eläviä widgettejä aloitusnäytöllä.</string>
+    <string name="wdg_vazio">Aloitusnäytöllä ei ole vielä widgettiä.</string>
     <string name="wdg_estado_mover">Siirretään: %1$s</string>
     <string name="wdg_estado_tamanho">Koko: %1$s · %2$d × %3$d</string>
     <string name="wdg_mover">Siirrä</string>

@@ -10,5 +10,5 @@
     <string name="acess_voz_ligado">人声更清晰已开启</string>
     <string name="acess_voz_desligado">人声更清晰已关闭</string>
     <string name="acess_config_titulo">声音和字幕</string>
-    <string name="acess_config_texto">为视力或听力较弱的人准备。播放器的 ▼ 菜单中也有。</string>
+    <string name="acess_config_texto">为视力或听力较弱的人准备。</string>
 </resources>

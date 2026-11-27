@@ -10,8 +10,7 @@
     <string name="tp_frio_texto">오늘 밤 최저 %d° · 따뜻하게 입으세요</string>
     <string name="tp_cfg">더위 및 추위 알림</string>
     <string name="tp_cfg_det">오늘 %1$d°에 도달하거나 오늘 밤 %2$d°까지 내려가면 모든 앱 위에 카드 표시</string>
-    <string name="mu_ok_lido">OK로 읽음 표시</string>
-    <string name="mu_ok_nao_lido">읽음 · OK로 읽지 않음 표시</string>
+    <string name="mu_ok_nao_lido">읽음</string>
     <string name="mu_lido_desc">메시지, 읽음: %s. OK로 읽지 않음 표시.</string>
     <string name="mu_nao_lido_desc">메시지: %s. OK로 읽음 표시.</string>
     <string name="mu_apagar">메시지 삭제: %s</string>

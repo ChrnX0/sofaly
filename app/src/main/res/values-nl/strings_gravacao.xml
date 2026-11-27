@@ -51,7 +51,7 @@
     <string name="grv_toda_semana">elke week</string>
     <string name="grv_cancelar_pergunta">De opname van \"%1$s\" annuleren?</string>
     <string name="grv_gravadas">Opgenomen</string>
-    <string name="grv_vazio">Nog niets opgenomen. In de speler: ▶▶ › Opnemen; in de gids: OK op een toekomstig programma.</string>
+    <string name="grv_vazio">Nog niets opgenomen.</string>
     <string name="grv_vazio_sem_destino">Sluit een usb-stick aan op de hub om opnames te zien en te maken.</string>
     <string name="grv_partes">%1$d delen</string>
     <string name="grv_parte">deel %1$d van %2$d</string>

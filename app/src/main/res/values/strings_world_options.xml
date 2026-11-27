@@ -30,7 +30,6 @@
     <string name="bb_titulo">Home layout</string>
     <string name="bb_cruz">Cross</string>
     <string name="bb_barra">Bottom bar</string>
-    <string name="bb_det">Categories in a cross, or fixed at the bottom with the apps above (▲)</string>
     <string name="wo_ultimos">Last used first</string>
     <string name="wo_aleatorio">Random (changes every day)</string>
 </resources>

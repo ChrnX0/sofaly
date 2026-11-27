@@ -2,11 +2,9 @@
 <!-- Protetor v2 (17/11/2026): Configurações do protetor e legendas das fotos da Terra (NASA). -->
 <resources>
     <string name="pv2_fundo">Screensaver background</string>
-    <string name="pv2_fundo_det">the theme\'s, or real photos of Earth seen from space · OK changes</string>
     <string name="pv2_fundo_tema">Theme\'s</string>
     <string name="pv2_fundo_terra">Earth from space</string>
     <string name="pv2_relogio">Screensaver clock</string>
-    <string name="pv2_relogio_det">six styles · OK changes</string>
     <string name="pv2_rel_fino">Thin</string>
     <string name="pv2_rel_editorial">Editorial</string>
     <string name="pv2_rel_monumental">Monumental</string>
@@ -14,21 +12,17 @@
     <string name="pv2_rel_extenso">In words</string>
     <string name="pv2_rel_empilhado">Stacked</string>
     <string name="pv2_posicao">Clock position</string>
-    <string name="pv2_posicao_det">OK changes</string>
     <string name="pv2_pos_alto">Top left</string>
     <string name="pv2_pos_baixo">Bottom left</string>
     <string name="pv2_pos_centro">Center</string>
     <string name="pv2_tamanho">Clock size</string>
-    <string name="pv2_tamanho_det">large numbers are easier to read from far away · OK changes</string>
     <string name="pv2_tam_normal">Normal</string>
     <string name="pv2_tam_grande">Large</string>
     <string name="pv2_mostrar">What the screensaver shows</string>
-    <string name="pv2_mostrar_det">\"Only the time\": any remote key shows the rest for 15 s · OK changes</string>
     <string name="pv2_mostrar_so">Only the time</string>
     <string name="pv2_mostrar_vez">Now and then</string>
     <string name="pv2_mostrar_sempre">Everything</string>
     <string name="pv2_elementos">On the screensaver</string>
-    <string name="pv2_el_det">shown on the screensaver · OK turns on or off</string>
     <string name="pv2_el_saudacao">Greeting</string>
     <string name="pv2_el_data">Date</string>
     <string name="pv2_el_linha_dia">Daylight line</string>

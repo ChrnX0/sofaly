@@ -41,7 +41,7 @@
     <string name="l51_uso_zerar">Wyzeruj</string>
     <string name="l51_digitar_titulo">Pisz na telewizorze</string>
     <string name="l51_digitar_texto">W %1$s jest otwarte pole tekstowe. Stuknij, by pisać stąd.</string>
-    <string name="casa_temp_ajuste">%1$s · ◀ ▶</string>
+    <string name="casa_temp_ajuste">%1$s</string>
     <string name="casa_ambiente">w pomieszczeniu %1$s</string>
     <string name="casa_movimento">Ruch</string>
     <string name="casa_sem_movimento">Brak ruchu</string>

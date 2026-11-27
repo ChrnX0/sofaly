@@ -2,7 +2,7 @@
 <!-- Receitas prontas (degrau 4, 17/11/2026). Gerado por gerar.py; tradução por IA, sem revisão de nativo. -->
 <resources>
     <string name="rec_titulo">Per chi è questa TV?</string>
-    <string name="rec_subtitulo">Un OK e la TV è pronta. Puoi annullare quando vuoi.</string>
+    <string name="rec_subtitulo">Puoi annullare quando vuoi.</string>
     <string name="rec_vo">La TV della nonna</string>
     <string name="rec_vo_det">Schede grandi con il nome letto ad alta voce, testo più grande e il pulsante Chiedi aiuto.</string>
     <string name="rec_criancas">La TV dei bambini</string>

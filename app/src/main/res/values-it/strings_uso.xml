@@ -15,5 +15,5 @@
     <string name="uso_cuidar_longe_det">Spento finché chi abita lì non accetta sulla TV.</string>
     <string name="uso_cartoes">Schede grandi nella schermata iniziale</string>
     <string name="uso_cartoes_det">Poche app grandi, nome letto ad alta voce e pulsante \"Chiedi aiuto\". Per spegnerlo serve il PIN.</string>
-    <string name="uso_trocar_det">Ora: %1$s. OK per scegliere di nuovo.</string>
+    <string name="uso_trocar_det">Ora: %1$s.</string>
 </resources>

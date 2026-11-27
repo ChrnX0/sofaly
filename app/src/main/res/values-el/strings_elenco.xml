@@ -16,7 +16,7 @@
     <string name="anteriormente_titulo">Προηγουμένως στο %1$s</string>
     <string name="anteriormente_assistir">Προβολή %1$s</string>
     <string name="anteriormente_pular_sempre">Να μην εμφανίζεται ποτέ</string>
-    <string name="anteriormente_desligado">Οι συνόψεις απενεργοποιήθηκαν. Για να ενεργοποιηθούν ξανά: κρατήστε OK σε ένα επεισόδιο.</string>
+    <string name="anteriormente_desligado">Οι συνόψεις απενεργοποιήθηκαν.</string>
     <string name="anteriormente_ligar">Εμφάνιση συνόψεων «Προηγουμένως»</string>
     <!-- Ideia 91: idade máxima no modo infantil (Classificacao) -->
     <string name="idade_titulo">Μέγιστη ηλικία στην παιδική λειτουργία</string>
@@ -29,8 +29,8 @@
     <string name="onde_fora">Όχι στη λίστα σας · στο %1$s</string>
     <string name="onde_grupo">Αλλού (JustWatch)</string>
     <!-- Ideia 89: legenda automática -->
-    <string name="legenda_auto_pronta">Υπότιτλοι κατέβηκαν αυτόματα (φτιαγμένοι για αυτό το αρχείο) · ▼ για αλλαγή</string>
-    <string name="legenda_auto_pronta_nome">Υπότιτλοι κατέβηκαν αυτόματα · ▼ για αλλαγή ή ρύθμιση καθυστέρησης</string>
+    <string name="legenda_auto_pronta">Υπότιτλοι κατέβηκαν αυτόματα (φτιαγμένοι για αυτό το αρχείο)</string>
+    <string name="legenda_auto_pronta_nome">Υπότιτλοι κατέβηκαν αυτόματα</string>
     <string name="legenda_trad_rotulo">Αυτόματη μετάφραση</string>
     <string name="legenda_trad_traduzindo">Δεν υπάρχουν υπότιτλοι στη γλώσσα σας: μετάφραση των αγγλικών στην τηλεόραση…</string>
     <string name="legenda_trad_parcial">Υπότιτλοι μεταφρασμένοι στην τηλεόραση (αυτόματη μετάφραση). Τα υπόλοιπα συνεχίζουν να μεταφράζονται.</string>
