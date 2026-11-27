@@ -34,7 +34,6 @@ enum class FocusStyle {
          * Porquê: na Sala (22/11) o painel rápido pintava o título focado de escuro sobre o Fio (fundo escuro) e ele sumia.
          */
         @Volatile var atual: FocusStyle = RING
-            internal set
 
         fun ler(ctx: Context): FocusStyle = deNumero(Extras.numero(ctx, KEY, -1)).also { atual = it }
 

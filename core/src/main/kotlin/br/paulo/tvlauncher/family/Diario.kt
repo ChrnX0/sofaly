@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Http
-import br.paulo.tvlauncher.player.item
 import java.net.HttpURLConnection
 import java.net.URL
 import org.json.JSONArray

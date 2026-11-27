@@ -208,7 +208,7 @@ class Sgp4(linha1: String, linha2: String) {
         private fun mod2pi(x: Double): Double { val r = x % (2 * PI); return if (r < 0) r + 2 * PI else r }
 
         /** " 12345-3" -> 0.12345e-3 (formato do TLE, sem o ponto e com o expoente colado). */
-        internal fun expoente(campo: String): Double {
+        fun expoente(campo: String): Double {
             val s = campo.trim()
             if (s.isEmpty()) return 0.0
             val sinal = if (s.startsWith("-")) -1.0 else 1.0
@@ -219,7 +219,7 @@ class Sgp4(linha1: String, linha2: String) {
         }
 
         /** 1º de janeiro do [ano], 00:00 UTC, em ms (calendário gregoriano). */
-        internal fun msDoAno(ano: Int): Long {
+        fun msDoAno(ano: Int): Long {
             val y = ano - 1
             val diasAte = 365L * (ano - 1970) + (y / 4 - 1969 / 4) - (y / 100 - 1969 / 100) + (y / 400 - 1969 / 400)
             return diasAte * 86_400_000L

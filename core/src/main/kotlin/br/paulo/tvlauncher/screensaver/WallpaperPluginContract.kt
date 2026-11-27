@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher.screensaver
 
-import br.paulo.tvlauncher.player.item
 
 /**
  * Plugins de FUNDO compatíveis com o ecossistema que já existe para TV (18/11/2026, thread "Plugins visuais").

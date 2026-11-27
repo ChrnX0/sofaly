@@ -11,9 +11,8 @@ import java.io.File
  */
 class ReflexaoPropriaTest {
     @Test fun nenhumMetodoNossoPorNome() {
-        val raiz = listOf("src/main/kotlin", "app/src/main/kotlin").map(::File).first { it.isDirectory }
         val ruim = Regex("""Class\.forName\("br\.paulo\.tvlauncher\.[^"]*"\)[^\n]*|\.methods\.first\s*\{\s*it\.name\s*==""")
-        val achados = raiz.walk().filter { it.extension == "kt" }.flatMap { f ->
+        val achados = CodeSource.all().flatMap { f ->
             f.readLines().withIndex().filter { ruim.containsMatchIn(it.value) }.map { "${f.name}:${it.index + 1}" }
         }.toList()
         assertEquals("reflexão em código nosso (o R8 renomeia)", emptyList<String>(), achados)
