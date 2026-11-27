@@ -641,6 +641,7 @@ object ObserverTv {
         runCatching { SofyGuardTv.daily(app, now) }.onFailure { Log.w(TAG, "guarda: $it") }   // ideias 46 e 48
         runCatching { SofyShareTv.daily(app, now) }.onFailure { Log.w(TAG, "lições entre TVs: $it") }   // ideia 40
         runCatching { SofyCommunityTv.daily(app, now) }.onFailure { Log.w(TAG, "fichas comunitárias: $it") }   // ideia 41
+        runCatching { SofyFleetTv.daily(app, now) }.onFailure { Log.w(TAG, "rede de Sofys: $it") }   // B+, 27/11/2026
         runCatching { SofyNormsTv.daily(app, now) }.onFailure { Log.w(TAG, "padrões da casa: $it") }   // plano D, passo 2
     }
 
