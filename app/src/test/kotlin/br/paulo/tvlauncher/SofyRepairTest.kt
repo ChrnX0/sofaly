@@ -290,6 +290,29 @@ class SofyScreenCheckTest {
         org.junit.Assert.assertTrue(S.conferir(tela(foco = false)).isEmpty())
     }
 
+    // #620: o SEM_FOCO diz de que janela veio a árvore lida (Despertador tem foco; acusar sem foco aponta para a janela errada).
+    @org.junit.Test fun semFocoDizAJanelaLida() {
+        val t = br.paulo.tvlauncher.observer.SofyScreenCheck.Tela("despertador", 1920, 1080, listOf(cx("Despertador", 40, 40, 300, 100)),
+            false, janela = "FrameLayout AlarmesActivity · 14 nós")
+        val a = S.conferir(t).single()
+        org.junit.Assert.assertEquals("[FrameLayout AlarmesActivity · 14 nós]", a.caixa)
+        org.junit.Assert.assertEquals("despertador: SEM_FOCO despertador [FrameLayout AlarmesActivity · 14 nós]", S.resumo("despertador", listOf(a)))
+        // sem a janela (leitura antiga) fica como antes
+        org.junit.Assert.assertEquals("", S.conferir(tela(cx("Hoje", 40, 40, 300, 100), foco = false)).single().caixa)
+    }
+
+    // #621: o placar diz por que cada tela não foi lida, curto e com limite.
+    @org.junit.Test fun placarComMotivos() {
+        org.junit.Assert.assertEquals("conferência de telas: li 3 de 3", S.placar(3, 3, emptyList()))
+        org.junit.Assert.assertEquals("conferência de telas: li 1 de 3 (previsao: não ficou na frente (MainActivity); agenda: erro IllegalStateException)",
+            S.placar(1, 3, listOf("previsao: não ficou na frente (MainActivity)", "agenda: erro IllegalStateException")))
+        val muitos = (1..9).map { "tela$it: janela nenhuma, na frente nada" }
+        val p = S.placar(0, 9, muitos)
+        org.junit.Assert.assertTrue(p, p.endsWith("; +3)"))
+        org.junit.Assert.assertEquals(S.MOTIVOS_MAX, Regex("janela nenhuma").findAll(p).count())
+        org.junit.Assert.assertTrue("motivo longo é cortado", S.placar(0, 1, listOf("x".repeat(300))).length < 160)
+    }
+
     // #518: tela ainda carregando (sem foco na 1ª olhada) não é defeito; só fica o que se repete na 2ª leitura.
     @org.junit.Test fun soFicaOQueApareceNasDuasLeituras() {
         val carregando = S.conferir(tela(cx("Carregando", 40, 40, 300, 100), foco = false))
