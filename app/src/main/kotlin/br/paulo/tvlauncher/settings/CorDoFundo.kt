@@ -2,6 +2,7 @@ package br.paulo.tvlauncher.settings
 
 import android.content.Context
 import android.graphics.Bitmap
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Cor de destaque que segue o fundo (10/11/2026, ideia K; li no Projectivy: "Adaptive Colors: the interface adapts its
@@ -19,7 +20,7 @@ object CorDoFundo {
 
     /** Chamado pelo tema Galeria quando a pintura do dia carrega (fora da thread da tela). */
     fun guardar(ctx: Context, bmp: Bitmap) {
-        val pequeno = Bitmap.createScaledBitmap(bmp, 24, 24, true)
+        val pequeno = Images.scaled("settings/CorDoFundo", bmp, 24, 24, true)
         val px = IntArray(24 * 24); pequeno.getPixels(px, 0, 24, 0, 0, 24, 24)
         if (pequeno !== bmp) pequeno.recycle()
         val cor = escolher(px) ?: return

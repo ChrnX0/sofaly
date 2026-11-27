@@ -2,7 +2,6 @@ package br.paulo.tvlauncher.home
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -11,6 +10,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
+import br.paulo.tvlauncher.image.Images
 
 /**
  * A lista de apps da HOME guardada em disco (Brainstorm 26/11/2026, item 27).
@@ -81,8 +81,8 @@ object AppsEmDisco {
         if (!f.isFile) return null
         val ind = lerIndice(f.readText(), BuildConfig.VERSION_CODE, ctx.resources.displayMetrics.density) ?: return null
         val lidos = ind.apps.mapIndexedNotNull { n, r ->
-            val ic = BitmapFactory.decodeFile(File(dir, "$n.i.png").path) ?: return@mapIndexedNotNull null
-            Lido(r, ic, BitmapFactory.decodeFile(File(dir, "$n.c.png").path))
+            val ic = Images.decodeFile("home/AppsEmDisco", File(dir, "$n.i.png").path) ?: return@mapIndexedNotNull null
+            Lido(r, ic, Images.decodeFile("home/AppsEmDisco", File(dir, "$n.c.png").path))
         }
         ind.estilo to lidos
     }.getOrNull()
@@ -113,6 +113,6 @@ object AppsEmDisco {
         (d as? BitmapDrawable)?.bitmap?.takeIf { !it.isRecycled }?.let { return it }
         val l = d.intrinsicWidth.takeIf { it > 0 } ?: 192
         val a = d.intrinsicHeight.takeIf { it > 0 } ?: 192
-        return Bitmap.createBitmap(l, a, Bitmap.Config.ARGB_8888).also { d.setBounds(0, 0, l, a); d.draw(Canvas(it)) }
+        return Images.create("home/AppsEmDisco", l, a, Bitmap.Config.ARGB_8888).also { d.setBounds(0, 0, l, a); d.draw(Canvas(it)) }
     }
 }

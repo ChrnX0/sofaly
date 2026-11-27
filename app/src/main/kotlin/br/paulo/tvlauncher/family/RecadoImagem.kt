@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.weather.AvisoRegras
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Recado com foto (10/11/2026, ideia M; li no PiPup, https://github.com/rogro82/pipup: "Exposes an HTTP endpoint to
@@ -42,9 +43,9 @@ object RecadoImagem {
     fun decodificar(b: ByteArray): Bitmap? {
         if (b.size > MAX_BYTES || tipo(b) == null) return null
         val limites = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeByteArray(b, 0, b.size, limites)
+        Images.decodeByteArray("family/RecadoImagem", b, 0, b.size, limites)
         if (limites.outWidth <= 0 || limites.outHeight <= 0) return null
-        return BitmapFactory.decodeByteArray(b, 0, b.size, BitmapFactory.Options().apply {
+        return Images.decodeByteArray("family/RecadoImagem", b, 0, b.size, BitmapFactory.Options().apply {
             inSampleSize = amostra(limites.outWidth, limites.outHeight)
         })
     }

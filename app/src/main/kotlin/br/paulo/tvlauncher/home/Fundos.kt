@@ -42,6 +42,7 @@ import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
 import org.json.JSONObject
+import br.paulo.tvlauncher.image.Images
 
 /** O que os fundos vivos precisam saber do mundo. [codigo] = código WMO do clima (-1 = ainda não chegou). */
 data class EstadoCeu(val agoraMs: Long, val lat: Double, val lon: Double, val codigo: Int, val chovendo: Boolean)
@@ -160,7 +161,7 @@ internal object FundoEscuroPronto {
         val chave = (lw.toLong() shl 34) or (lh.toLong() shl 2) or mundo.ordinal.toLong()
         prontas[chave]?.let { return it }
         if (prontas.size >= 5) prontas.clear()   // tamanhos estranhos (janelas parciais) não acumulam
-        val b = Bitmap.createBitmap(lw, lh, Bitmap.Config.ARGB_8888)
+        val b = Images.create("home/Fundos", lw, lh, Bitmap.Config.ARGB_8888)
         desenharFundoEscuro(Canvas(b), lw.toFloat(), lh.toFloat(), Paint(Paint.ANTI_ALIAS_FLAG), mundo.glow)
         prontas[chave] = b
         return b
@@ -318,7 +319,7 @@ class FundoGaleria(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Uni
             // Decodifica fora da thread da tela (revisão 04/11): é um JPEG de 1920 px.
             baixando = true
             emSegundoPlano {
-                val bmp = BitmapFactory.decodeFile(arquivo.path)?.let { BordaEscura.aparar(it) }   // sem a moldura escura da foto
+                val bmp = Images.decodeFile("home/Fundos", arquivo.path)?.let { BordaEscura.aparar(it) }   // sem a moldura escura da foto
                 if (bmp == null) arquivo.delete()   // arquivo estragado: apaga, e o próximo atualizar() baixa de novo
                 if (bmp != null) CorDoFundo.guardar(context, bmp)   // cor de destaque que segue a pintura (CorDoFundo.kt)
                 post { baixando = false; if (bmp != null) { mostrar(bmp); diaCarregado = dia; aoTrocarImagem?.invoke(bmp) } }
@@ -371,13 +372,13 @@ class FundoGaleria(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Uni
         }
         // Lê só o tamanho, escolhe a redução (potência de 2) que ainda deixa >= 1920 de largura, e lê de verdade.
         val limites = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeFile(bruto.path, limites)
+        Images.decodeFile("home/Fundos", bruto.path, limites)
         var amostra = 1
         while (limites.outWidth / (amostra * 2) >= 1920) amostra *= 2
-        val lido = BitmapFactory.decodeFile(bruto.path, BitmapFactory.Options().apply { inSampleSize = amostra })
+        val lido = Images.decodeFile("home/Fundos", bruto.path, BitmapFactory.Options().apply { inSampleSize = amostra })!!
         // A amostra em potência de 2 ainda deixava até ~3839 px de largura (~29 MB de bitmap num aparelho 32 bits com
         // pouca RAM — revisão de 04/11/2026). Reduz para exatamente 1920 de largura (a tela é 1920x1080).
-        val bmp = if (lido.width > 1920) Bitmap.createScaledBitmap(lido, 1920, lido.height * 1920 / lido.width, true).also { lido.recycle() } else lido
+        val bmp = if (lido.width > 1920) Images.scaled("home/Fundos", lido, 1920, lido.height * 1920 / lido.width, true).also { lido.recycle() } else lido
         bruto.delete()
         context.filesDir.listFiles { f -> f.name.startsWith("galeria-") }?.forEach { it.delete() }   // guarda só a do dia
         // Grava num .tmp e só então renomeia (auditoria 10/11): se o processo morrer no meio, não sobra um JPEG cortado

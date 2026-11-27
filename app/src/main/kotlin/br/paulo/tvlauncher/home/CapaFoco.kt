@@ -18,6 +18,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.TesteHome
+import br.paulo.tvlauncher.image.Images
 
 /**
  * "Fundo do foco" da HOME recomendada (esboço V3Final, 06/11/2026): a "capa" de quem está em foco aparece no alto, à
@@ -182,7 +183,7 @@ class CapaFoco(ctx: Context) : View(ctx) {
             if (d is BitmapDrawable && d.bitmap != null) return d.bitmap
             val w = d.intrinsicWidth.takeIf { it > 0 } ?: larguraPadrao
             val h = d.intrinsicHeight.takeIf { it > 0 } ?: alturaPadrao
-            val b = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+            val b = Images.create("home/CapaFoco", w, h, Bitmap.Config.ARGB_8888)
             val c = Canvas(b)
             d.setBounds(0, 0, w, h)
             d.draw(c)
@@ -201,7 +202,7 @@ class CapaFoco(ctx: Context) : View(ctx) {
             val esc = minOf(1f, maxL.toFloat() / w0, maxA.toFloat() / h0)   // só reduz, nunca aumenta
             val w = maxOf(1, (w0 * esc).toInt()); val h = maxOf(1, (h0 * esc).toInt())
             val alfa = orig?.hasAlpha() ?: true
-            val b = Bitmap.createBitmap(w, h, if (alfa) Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565)
+            val b = Images.create("home/CapaFoco", w, h, if (alfa) Bitmap.Config.ARGB_8888 else Bitmap.Config.RGB_565)
             // Desenha uma CÓPIA do Drawable: setBounds muda o original, que pode estar na tela.
             val copia = d.constantState?.newDrawable()?.mutate() ?: d
             copia.setBounds(0, 0, w, h)
@@ -213,7 +214,7 @@ class CapaFoco(ctx: Context) : View(ctx) {
         fun corDoIcone(icone: Drawable): IntArray {
             // Uma CÓPIA do ícone: desenhar muda os limites (setBounds) do Drawable, e o original está na tela, noutra thread.
             val copia = icone.constantState?.newDrawable()?.mutate() ?: icone
-            val p = Bitmap.createScaledBitmap(bitmap(copia, 48, 48), 1, 1, true).getPixel(0, 0)
+            val p = Images.scaled("home/CapaFoco", bitmap(copia, 48, 48), 1, 1, true).getPixel(0, 0)
             val base = Color.rgb(Color.red(p), Color.green(p), Color.blue(p))
             val escura = Color.rgb(Color.red(p) / 3, Color.green(p) / 3, Color.blue(p) / 3)
             return intArrayOf(base, escura)

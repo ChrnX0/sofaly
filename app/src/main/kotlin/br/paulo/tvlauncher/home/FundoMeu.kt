@@ -16,6 +16,7 @@ import br.paulo.tvlauncher.panel.PainelArquivos
 import br.paulo.tvlauncher.settings.CorDoFundo
 import br.paulo.tvlauncher.settings.Tema
 import java.io.File
+import br.paulo.tvlauncher.image.Images
 
 /**
  * O fundo do tema "Meu fundo" ([Tema.MEU], [FundoMeuRegras]): foto, GIF ou vídeo escolhido pela pessoa.
@@ -63,17 +64,17 @@ class FundoMeu(ctx: Context, private val emSegundoPlano: (() -> Unit) -> Unit, e
                 if (tipo == FundoMeuRegras.Tipo.ANIMADA) {
                     // Cor do foco: o 1º quadro, já pequeno (antes o GIF não guardava cor e a borda ficava com a da Galeria).
                     runCatching {
-                        BitmapFactory.decodeFile(f.path, BitmapFactory.Options().apply { inSampleSize = 8 })
+                        Images.decodeFile("home/FundoMeu", f.path, BitmapFactory.Options().apply { inSampleSize = 8 })
                             ?.let { CorDoFundo.guardar(app, it); it.recycle() }
                     }
                     // Reduzido ao tamanho da tela, como a foto: um GIF 4K inteiro não cabe na HOME de uma TV de 32 bits.
-                    ImageDecoder.decodeDrawable(ImageDecoder.createSource(f)) { dec, info, _ ->
+                    Images.decodeDrawable("home/FundoMeu", ImageDecoder.createSource(f)) { dec, info, _ ->
                         dec.setTargetSampleSize(FundoMeuRegras.amostragem(info.size.width, info.size.height, dm.widthPixels, dm.heightPixels))
                     }
                 } else {
                     val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-                    BitmapFactory.decodeFile(f.path, o)
-                    val bmp = BitmapFactory.decodeFile(f.path, BitmapFactory.Options().apply {
+                    Images.decodeFile("home/FundoMeu", f.path, o)
+                    val bmp = Images.decodeFile("home/FundoMeu", f.path, BitmapFactory.Options().apply {
                         inSampleSize = FundoMeuRegras.amostragem(o.outWidth, o.outHeight, dm.widthPixels, dm.heightPixels)
                     })
                     bmp?.let { runCatching { CorDoFundo.guardar(app, it) } }

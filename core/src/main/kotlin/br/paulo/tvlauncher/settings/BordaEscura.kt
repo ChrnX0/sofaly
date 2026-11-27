@@ -35,6 +35,6 @@ object BordaEscura {
         bmp.getPixels(px, 0, w, 0, 0, w, h)
         val (e, t, d, b) = limites(px, w, h)
         if (e == 0 && t == 0 && d == w && b == h) return bmp
-        return android.graphics.Bitmap.createBitmap(bmp, e, t, d - e, b - t).also { if (it !== bmp) bmp.recycle() }
+        return br.paulo.tvlauncher.image.Images.create("settings/BordaEscura", bmp, e, t, d - e, b - t).also { if (it !== bmp) bmp.recycle() }
     }
 }

@@ -13,6 +13,7 @@ import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.settings.Fontes
 import java.io.File
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Perfis do launcher = as contas Google que estão na TV. O perfil ATIVO é só do launcher: muda a bolinha do topo,
@@ -177,19 +178,19 @@ object Perfil {
         return try {
             // 1º lê só o tamanho; 2º decodifica já reduzido (poupa RAM numa foto grande).
             val limites = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-            BitmapFactory.decodeFile(arquivo.path, limites)
+            Images.decodeFile("family/Perfil", arquivo.path, limites)
             var amostra = 1
             while (limites.outWidth / (amostra * 2) >= lado * 2 && limites.outHeight / (amostra * 2) >= lado * 2) {
                 amostra *= 2
             }
-            val original = BitmapFactory.decodeFile(arquivo.path, BitmapFactory.Options().apply { inSampleSize = amostra })
+            val original = Images.decodeFile("family/Perfil", arquivo.path, BitmapFactory.Options().apply { inSampleSize = amostra })
                 ?: return null
             // Recorta o quadrado central e ajusta ao tamanho do botão. O recorte redondo é feito pela View.
             val menor = minOf(original.width, original.height)
-            val quadrado = Bitmap.createBitmap(
+            val quadrado = Images.create("family/Perfil", 
                 original, (original.width - menor) / 2, (original.height - menor) / 2, menor, menor
             )
-            Bitmap.createScaledBitmap(quadrado, lado, lado, true)
+            Images.scaled("family/Perfil", quadrado, lado, lado, true)
         } catch (e: Exception) {
             Log.w(TAG, "foto invalida: $e")
             null
@@ -197,7 +198,7 @@ object Perfil {
     }
 
     private fun desenharInicial(letra: String, lado: Int): Bitmap {
-        val bitmap = Bitmap.createBitmap(lado, lado, Bitmap.Config.ARGB_8888)
+        val bitmap = Images.create("family/Perfil", lado, lado, Bitmap.Config.ARGB_8888)
         val tela = Canvas(bitmap)
         val tinta = Paint(Paint.ANTI_ALIAS_FLAG)
         // Grafite com um toque de laranja pela letra (era verde/azul/roxo; 27/11/2026 só a paleta).

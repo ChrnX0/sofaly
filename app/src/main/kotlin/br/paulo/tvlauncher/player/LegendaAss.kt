@@ -25,6 +25,7 @@ import br.paulo.tvlauncher.FfNativo
 import java.io.File
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Contas puras da legenda ASS (15/11/2026), com teste (AssLogicaTest).
@@ -263,7 +264,7 @@ class AssRenderer(ctx: Context, private val saida: TextOutput, looperSaida: Loop
 
     private fun publicar(tempoUs: Long) {
         val b = buffer ?: return
-        val img = imagens[proxima] ?: Bitmap.createBitmap(larg, alt, Bitmap.Config.ARGB_8888).also { imagens[proxima] = it }
+        val img = imagens[proxima] ?: Images.create("player/LegendaAss", larg, alt, Bitmap.Config.ARGB_8888).also { imagens[proxima] = it }
         proxima = (proxima + 1) % BUFFERS
         b.rewind()
         img.copyPixelsFromBuffer(b)

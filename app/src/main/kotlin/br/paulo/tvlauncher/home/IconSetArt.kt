@@ -2,8 +2,8 @@ package br.paulo.tvlauncher.home
 
 import android.content.res.AssetManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.util.LruCache
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Arte pronta dos conjuntos de ícones da cruz (21/11/2026: Vintage, Joia, Fotorrealista e Vintage 2.0).
@@ -69,7 +69,7 @@ object IconSetArt {
         cache.get(chave)?.let { return it }
         if (chave in faltando) return null
         val am = assets ?: return null
-        val bmp = runCatching { am.open(chave).use { BitmapFactory.decodeStream(it) } }.getOrNull()
+        val bmp = runCatching { am.open(chave).use { Images.decodeStream("home/IconSetArt", it) } }.getOrNull()
         if (bmp == null) { faltando += chave; return null }
         cache.put(chave, bmp)
         return bmp

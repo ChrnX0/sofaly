@@ -18,6 +18,7 @@ import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.settings.Extras
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Cartões dos apps na cruz (21/11/2026, itens 3 e 4 do plano para passar o Projectivy).
@@ -122,11 +123,11 @@ object AppChannels {
                 } else app.contentResolver.openInputStream(android.net.Uri.parse(uri))?.use { Http.readLimited(it, 3_000_000, false) }
                 val b = bytes ?: return@rodar
                 val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-                BitmapFactory.decodeByteArray(b, 0, b.size, o)
+                Images.decodeByteArray("home/AppChannels", b, 0, b.size, o)
                 if (o.outWidth <= 0) return@rodar
                 var amostra = 1
                 while (o.outWidth / (amostra * 2) >= larguraPx) amostra *= 2
-                val bmp = BitmapFactory.decodeByteArray(b, 0, b.size, BitmapFactory.Options().apply { inSampleSize = amostra }) ?: return@rodar
+                val bmp = Images.decodeByteArray("home/AppChannels", b, 0, b.size, BitmapFactory.Options().apply { inSampleSize = amostra }) ?: return@rodar
                 cache.put(uri, bmp)
                 pronta(bmp)
             } catch (e: Exception) {

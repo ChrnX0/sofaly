@@ -153,6 +153,7 @@ import br.paulo.tvlauncher.weather.LocalClima
 import br.paulo.tvlauncher.weather.Localizacao
 import java.util.Locale
 import java.util.concurrent.Executors
+import br.paulo.tvlauncher.image.Images
 
 private const val WRAP = ViewGroup.LayoutParams.WRAP_CONTENT
 private const val MATCH = ViewGroup.LayoutParams.MATCH_PARENT
@@ -580,7 +581,7 @@ class MainActivity : Activity() {
         val alvo = raiz.getChildAt(0) ?: return
         val w = window.decorView.width; val h = window.decorView.height
         if (w <= 0 || h <= 0 || temSurfaceView(alvo)) return
-        val bmp = runCatching { android.graphics.Bitmap.createBitmap(w, h, android.graphics.Bitmap.Config.ARGB_8888) }.getOrNull() ?: return
+        val bmp = runCatching { Images.create("MainActivity", w, h, android.graphics.Bitmap.Config.ARGB_8888) }.getOrNull() ?: return
         runCatching {
             android.view.PixelCopy.request(window, bmp, { r ->
                 if (r != android.view.PixelCopy.SUCCESS || !previaLigada || congelada != null || isDestroyed) { bmp.recycle(); return@request }
@@ -2093,7 +2094,7 @@ class MainActivity : Activity() {
             when (estiloAppCruz) {
                 LayoutHome.IconeAppCruz.BANNER -> {
                     val a = l * 9 / 16
-                    val out = Bitmap.createBitmap(l, a, Bitmap.Config.ARGB_8888)
+                    val out = Images.create("MainActivity", l, a, Bitmap.Config.ARGB_8888)
                     val c = android.graphics.Canvas(out)
                     val raio = 10f * d
                     val forma = android.graphics.Path().apply { addRoundRect(android.graphics.RectF(0f, 0f, l.toFloat(), a.toFloat()), raio, raio, android.graphics.Path.Direction.CW) }
@@ -2132,7 +2133,7 @@ class MainActivity : Activity() {
                     val traco = DesenhoHome.iconeTraco(resources, item.icone, duotom = false)
                     val t = (HomeCruz.ICONE_A * d).toInt()
                     if (traco == null) redondo(item.icone, t)
-                    else Bitmap.createBitmap(t, t, Bitmap.Config.ARGB_8888).also { traco.setBounds(0, 0, t, t); traco.draw(android.graphics.Canvas(it)) }
+                    else Images.create("MainActivity", t, t, Bitmap.Config.ARGB_8888).also { traco.setBounds(0, 0, t, t); traco.draw(android.graphics.Canvas(it)) }
                 }
             }
         }.getOrNull()
@@ -2141,7 +2142,7 @@ class MainActivity : Activity() {
 
     /** O ícone (já do tamanho cheio, DesenhoHome.iconeRedondo) recortado em círculo de [t] px. */
     private fun redondo(icone: Drawable, t: Int): Bitmap {
-        val out = Bitmap.createBitmap(t, t, Bitmap.Config.ARGB_8888)
+        val out = Images.create("MainActivity", t, t, Bitmap.Config.ARGB_8888)
         val c = android.graphics.Canvas(out)
         c.clipPath(android.graphics.Path().apply { addCircle(t / 2f, t / 2f, t / 2f, android.graphics.Path.Direction.CW) })
         icone.constantState?.newDrawable(resources)?.let { it.setBounds(0, 0, t, t); it.draw(c) }
@@ -2497,7 +2498,7 @@ class MainActivity : Activity() {
 
     /** A capa da música/episódio com cantos arredondados (como os ícones), num bitmap nosso. */
     private fun capaArredondada(b: android.graphics.Bitmap): Drawable {
-        val out = android.graphics.Bitmap.createBitmap(b.width, b.height, android.graphics.Bitmap.Config.ARGB_8888)
+        val out = Images.create("MainActivity", b.width, b.height, android.graphics.Bitmap.Config.ARGB_8888)
         val c = android.graphics.Canvas(out)
         val raio = minOf(b.width, b.height) * 0.12f
         val p = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)

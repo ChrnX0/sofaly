@@ -23,6 +23,7 @@ import br.paulo.tvlauncher.settings.Tema
 import java.security.MessageDigest
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Plugins de terceiros na HOME (degrau 3, 16/11/2026). O contrato e as regras puras estão em [PluginCartao]; aqui é a
@@ -164,12 +165,12 @@ object PluginsTv {
         val f = leitor.submit<android.graphics.Bitmap?> {
             val uri = Uri.parse(u)
             val o = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
-            ctx.contentResolver.openInputStream(uri)?.use { android.graphics.BitmapFactory.decodeStream(it, null, o) }
+            ctx.contentResolver.openInputStream(uri)?.use { Images.decodeStream("PluginsTv", it, null, o) }
             if (o.outWidth <= 0 || o.outHeight <= 0 || o.outWidth > 4096 || o.outHeight > 4096) return@submit null
             var amostra = 1
             while (maxOf(o.outWidth, o.outHeight) / (amostra * 2) >= 256) amostra *= 2
             ctx.contentResolver.openInputStream(uri)?.use {
-                android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = amostra })
+                Images.decodeStream("PluginsTv", it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = amostra })
             }
         }
         val b = runCatching { f.get(PRAZO_MS, TimeUnit.MILLISECONDS) }.getOrElse { f.cancel(true); null } ?: return null

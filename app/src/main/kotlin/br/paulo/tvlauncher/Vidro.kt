@@ -11,6 +11,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.Shader
 import android.widget.FrameLayout
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Fonte do "vidro fosco" (glassmorphism) do protetor: uma cópia pequena e desfocada da pintura, mais a conta que diz
@@ -34,16 +35,16 @@ class FonteVidro {
         val larg = 120
         val alt = (original.height * larg / original.width.toFloat()).toInt().coerceAtLeast(1)
         // Reduz em dois passos (1/4 e depois o resto) com filtro: reduzir direto pula pixels e cria serrilhado.
-        val meio = Bitmap.createScaledBitmap(original, (original.width / 4).coerceAtLeast(larg), (original.height / 4).coerceAtLeast(alt), true)
-        val pequeno = Bitmap.createScaledBitmap(meio, larg, alt, true)
+        val meio = Images.scaled("Vidro", original, (original.width / 4).coerceAtLeast(larg), (original.height / 4).coerceAtLeast(alt), true)
+        val pequeno = Images.scaled("Vidro", meio, larg, alt, true)
         if (meio != original && meio != pequeno) meio.recycle()
         val px = IntArray(larg * alt)
         pequeno.getPixels(px, 0, larg, 0, 0, larg, alt)
         repeat(3) { caixa(px, larg, alt, 3) }   // 3 passadas de média em caixa ≈ desfoque gaussiano
         // Saturação +40 % (como o "saturate(140%)" do CSS): o vidro fica com a cor viva da pintura, não acinzentado.
-        val saida = Bitmap.createBitmap(larg, alt, Bitmap.Config.ARGB_8888)
+        val saida = Images.create("Vidro", larg, alt, Bitmap.Config.ARGB_8888)
         val cm = ColorMatrix().apply { setSaturation(1.4f) }
-        val temp = Bitmap.createBitmap(px, larg, alt, Bitmap.Config.ARGB_8888)
+        val temp = Images.create("Vidro", px, larg, alt, Bitmap.Config.ARGB_8888)
         Canvas(saida).drawBitmap(temp, 0f, 0f, Paint().apply { colorFilter = ColorMatrixColorFilter(cm) })
         temp.recycle(); if (pequeno != original) pequeno.recycle()
         fator = original.width / larg.toFloat()

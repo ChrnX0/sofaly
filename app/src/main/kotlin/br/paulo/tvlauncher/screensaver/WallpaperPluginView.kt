@@ -43,6 +43,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.security.MessageDigest
 import kotlin.random.Random
+import br.paulo.tvlauncher.image.Images
 
 /**
  * O fundo do tema "Plugin de fundo" ([Tema.PLUGIN]): mostra o que o plugin escolhido manda ([WallpaperPlugins]).
@@ -295,15 +296,15 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
         val f = arquivoDe(item.uri) ?: return null
         val w = dm.widthPixels; val h = dm.heightPixels
         if (item.type == WallpaperPluginContract.ANIMATED_DRAWABLE || f.name.endsWith(".gif")) {
-            val d = ImageDecoder.decodeDrawable(ImageDecoder.createSource(f)) { dec, info, _ ->
+            val d = Images.decodeDrawable("screensaver/WallpaperPluginView", ImageDecoder.createSource(f)) { dec, info, _ ->
                 dec.setTargetSampleSize(FundoMeuRegras.amostragem(info.size.width, info.size.height, w, h))
             }
             return d
         }
         val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeFile(f.path, o)
+        Images.decodeFile("screensaver/WallpaperPluginView", f.path, o)
         if (o.outWidth <= 0) return null
-        var bmp = BitmapFactory.decodeFile(f.path, BitmapFactory.Options().apply {
+        var bmp = Images.decodeFile("screensaver/WallpaperPluginView", f.path, BitmapFactory.Options().apply {
             inSampleSize = FundoMeuRegras.amostragem(o.outWidth, o.outHeight, w, h)
         }) ?: return null
         runCatching { CorDoFundo.guardar(app, bmp) }   // a cor de destaque acompanha o fundo, como no Meu fundo
@@ -321,15 +322,15 @@ class WallpaperPluginView(ctx: Context, @Suppress("UNUSED_PARAMETER") filaDaHome
      */
     private fun desfocar(src: Bitmap, w: Int, h: Int, soltar: Boolean): Bitmap {
         val pw = (w / 24).coerceAtLeast(8); val ph = (h / 24).coerceAtLeast(8)
-        val pequeno = Bitmap.createBitmap(pw, ph, Bitmap.Config.ARGB_8888)
+        val pequeno = Images.create("screensaver/WallpaperPluginView", pw, ph, Bitmap.Config.ARGB_8888)
         val esc = maxOf(pw.toFloat() / src.width, ph.toFloat() / src.height)
         val sw = src.width * esc; val sh = src.height * esc
         Canvas(pequeno).drawBitmap(src, null, RectF((pw - sw) / 2, (ph - sh) / 2, (pw + sw) / 2, (ph + sh) / 2), Paint(Paint.FILTER_BITMAP_FLAG))
-        val grande = Bitmap.createScaledBitmap(pequeno, w, h, true)
+        val grande = Images.scaled("screensaver/WallpaperPluginView", pequeno, w, h, true)
         pequeno.recycle()
         if (soltar) src.recycle()
         // createScaledBitmap pode devolver um bitmap imutável: a versão "encaixada" ainda desenha por cima.
-        return if (grande.isMutable) grande else grande.copy(Bitmap.Config.ARGB_8888, true).also { grande.recycle() }
+        return if (grande.isMutable) grande else Images.copy("screensaver/WallpaperPluginView", grande, Bitmap.Config.ARGB_8888, true)!!.also { grande.recycle() }
     }
 
     /** A imagem inteira no centro, sobre ela mesma desfocada cobrindo a tela. */

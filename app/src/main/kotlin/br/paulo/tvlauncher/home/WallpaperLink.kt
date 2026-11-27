@@ -7,6 +7,7 @@ import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 import java.security.MessageDigest
+import br.paulo.tvlauncher.image.Images
 
 /**
  * "Meu fundo" por link (24/11/2026, extensões, proposta B): baixa a FOTO de um link https (VisualCodigo.fundoLink já
@@ -59,7 +60,7 @@ object WallpaperLink {
                         }
                     } }
                     val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-                    BitmapFactory.decodeFile(parcial.path, o)
+                    Images.decodeFile("home/WallpaperLink", parcial.path, o)
                     if (o.outWidth <= 0 || o.outHeight <= 0) return "o link não é uma foto"
                     // O fundo anterior só sai DEPOIS do novo estar guardado (o Meu fundo ainda pode usá-lo).
                     if (!parcial.renameTo(destino)) return "não consegui guardar"

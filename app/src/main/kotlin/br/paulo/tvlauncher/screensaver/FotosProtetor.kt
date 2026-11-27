@@ -8,6 +8,7 @@ import android.media.ExifInterface
 import br.paulo.tvlauncher.Config
 import java.io.File
 import java.io.InputStream
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Fotos do protetor de tela (05/11/2026, fila longa do brainstorm). As fotos chegam pelo painel no navegador (aba
@@ -56,7 +57,7 @@ object FotosProtetor {
         try {
             tmp.outputStream().use { saida -> corpo.copyTo(saida) }
             val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-            BitmapFactory.decodeFile(tmp.path, o)
+            Images.decodeFile("screensaver/FotosProtetor", tmp.path, o)
             if (o.outWidth <= 0 || o.outHeight <= 0) return "o arquivo não é uma imagem que a TV consiga abrir"
             // Mesmo nome não apaga a foto que já está lá (duas "IMG_0001.jpg" de celulares diferentes): ganha "-2".
             // Escolher o nome e renomear juntos, sob trava: dois envios com o mesmo nome não pegam o mesmo "livre".
@@ -114,10 +115,10 @@ object FotosProtetor {
             ExifInterface(f.path).getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
         } catch (e: Exception) { ExifInterface.ORIENTATION_NORMAL }   // PNG/sem EXIF: segue normal
         val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeFile(f.path, o)
+        Images.decodeFile("screensaver/FotosProtetor", f.path, o)
         // Deitada: a medida que vai para a largura da tela é a altura do arquivo.
         val (lf, af) = if (deitada(orientacao)) o.outHeight to o.outWidth else o.outWidth to o.outHeight
-        val bmp = BitmapFactory.decodeFile(f.path, BitmapFactory.Options().apply {
+        val bmp = Images.decodeFile("screensaver/FotosProtetor", f.path, BitmapFactory.Options().apply {
             inSampleSize = reducao(lf, af, largura, altura)
             inPreferredConfig = Bitmap.Config.RGB_565
         })
@@ -126,7 +127,7 @@ object FotosProtetor {
         else {
             // Mesma ordem da ExifInterface do AndroidX: gira primeiro, espelha depois.
             val m = Matrix().apply { postRotate(g.toFloat()); if (espelha(orientacao)) postScale(-1f, 1f) }
-            val girada = Bitmap.createBitmap(bmp, 0, 0, bmp.width, bmp.height, m, true)
+            val girada = Images.create("screensaver/FotosProtetor", bmp, 0, 0, bmp.width, bmp.height, m, true)
             if (girada !== bmp) bmp.recycle()   // libera a deitada: a TV tem pouca RAM
             girada
         }

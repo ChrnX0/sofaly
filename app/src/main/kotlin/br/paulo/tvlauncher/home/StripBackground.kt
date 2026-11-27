@@ -12,6 +12,7 @@ import android.graphics.Shader
 import android.view.View
 import br.paulo.tvlauncher.DesignTokens
 import br.paulo.tvlauncher.settings.Extras
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Fundo da barra única (Paulo, 24/11/2026: "coloca os 3 planos de fundo que você me mostrou, adota o Vale como padrão").
@@ -82,14 +83,14 @@ class PhotoBackground(ctx: Context, private var escolha: StripBackground.Choice,
     private fun carregar() {
         val asset = escolha.asset ?: return
         emSegundoPlano {
-            val b = runCatching { context.assets.open(asset).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inPreferredConfig = Bitmap.Config.RGB_565 }) } }.getOrNull()
-            val pequena = b?.let { runCatching { Bitmap.createScaledBitmap(it, maxOf(1, it.width / 8), maxOf(1, it.height / 8), true) }.getOrNull() }
+            val b = runCatching { context.assets.open(asset).use { Images.decodeStream("home/StripBackground", it, null, BitmapFactory.Options().apply { inPreferredConfig = Bitmap.Config.RGB_565 }) } }.getOrNull()
+            val pequena = b?.let { runCatching { Images.scaled("home/StripBackground", it, maxOf(1, it.width / 8), maxOf(1, it.height / 8), true) }.getOrNull() }
             val media = pequena?.let { corMediaDe(it) } ?: DesignTokens.NIGHT
             val borr = pequena?.let { p ->
                 val w = p.width; val h = p.height
                 val px = IntArray(w * h); p.getPixels(px, 0, w, 0, 0, w, h)
                 repeat(3) { GlassBackground.caixa(px, w, h, 4) }
-                Bitmap.createBitmap(px, w, h, Bitmap.Config.ARGB_8888)
+                Images.create("home/StripBackground", px, w, h, Bitmap.Config.ARGB_8888)
             }
             post {
                 borrada = borr; corMedia = media
@@ -218,7 +219,7 @@ object GlassBackground {
         return synchronized(nitidas) {
             nitidas[escolha] ?: runCatching {
                 ctx.assets.open(asset).use {
-                    BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = 2; inPreferredConfig = Bitmap.Config.RGB_565 })
+                    Images.decodeStream("home/StripBackground", it, null, BitmapFactory.Options().apply { inSampleSize = 2; inPreferredConfig = Bitmap.Config.RGB_565 })
                 }
             }.getOrNull()?.also { nitidas.clear(); nitidas[escolha] = it }
         }
@@ -232,7 +233,7 @@ object GlassBackground {
         val bmp = synchronized(cache) {
             cache[escolha] ?: runCatching {
                 ctx.assets.open(asset).use {
-                    BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = REDUCAO })
+                    Images.decodeStream("home/StripBackground", it, null, BitmapFactory.Options().apply { inSampleSize = REDUCAO })
                 }
             }.getOrNull()?.let { borrar(it) }?.also { cache[escolha] = it }
         } ?: return null
@@ -244,7 +245,7 @@ object GlassBackground {
         val w = b.width; val h = b.height
         val px = IntArray(w * h); b.getPixels(px, 0, w, 0, 0, w, h)
         repeat(PASSADAS) { caixa(px, w, h, RAIO) }
-        return Bitmap.createBitmap(px, w, h, Bitmap.Config.ARGB_8888).also { if (it !== b) b.recycle() }
+        return Images.create("home/StripBackground", px, w, h, Bitmap.Config.ARGB_8888).also { if (it !== b) b.recycle() }
     }
 
     /** Uma passada de caixa (horizontal e depois vertical) com borda presa. Puro sobre o vetor: testável. */

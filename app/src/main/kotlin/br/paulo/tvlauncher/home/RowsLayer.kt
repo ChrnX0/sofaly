@@ -22,6 +22,7 @@ import android.widget.TextView
 import br.paulo.tvlauncher.DesignTokens
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.settings.Fontes
+import br.paulo.tvlauncher.image.Images
 
 /**
  * O desenho das "Fileiras" ([RowsHome], clone do Projectivy): uma fileira por categoria, o card em foco preso à
@@ -489,7 +490,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
 
     /** O fundo do card de um app sem banner: a cor média do ícone, escurecida (o logo numa placa da marca). */
     private fun fundoDoIcone(d: Drawable): Int = try {
-        val b = Bitmap.createBitmap(8, 8, Bitmap.Config.ARGB_8888)
+        val b = Images.create("home/RowsLayer", 8, 8, Bitmap.Config.ARGB_8888)
         val cv = Canvas(b)
         val antes = d.bounds
         d.setBounds(0, 0, 8, 8); d.draw(cv); d.bounds = antes
