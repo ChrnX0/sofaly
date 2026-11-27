@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Siste</string>
     <string name="bkn_nunca">aldri</string>
     <string name="bkn_pin">PIN-kode for å endre sikkerhetskopien</string>
+    <string name="bk_motivo_senha">Passordet er feil.</string>
+    <string name="bk_motivo_invalido">Denne filen er ikke en Sofaly-sikkerhetskopi, eller den er skadet.</string>
+    <string name="bk_motivo_ler">Kunne ikke leses (nettverk eller lagring).</string>
 </resources>
