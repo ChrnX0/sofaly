@@ -14,6 +14,7 @@ export function services(env) {
     ai: has(env.AI),
     community: has(env.COMMUNITY) && has(env.COMMUNITY_SALT),
     mailbox: has(env.MAILBOX) && has(env.PAIRING),
+    fleet: has(env.FLEET),
   };
 }
 
