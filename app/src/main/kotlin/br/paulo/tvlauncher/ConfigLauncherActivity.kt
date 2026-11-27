@@ -324,7 +324,10 @@ class ConfigLauncherActivity : Activity() {
             menu = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false; setPaddingRelative(dp(4), dp(6), dp(4), dp(6)) }
             menu.addView(itemDaBusca(), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E1) })
             abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E1) }) }
-            caixaMenu = android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; clipChildren = false; clipToPadding = false; addView(menu) }
+            // Esmaecer nas pontas (Sala, 27/11/2026): "Acesso remoto" aparecia cortado seco na borda e parecia defeito; o
+            // esmaecido diz "tem mais aba para o lado", como as fileiras do Google TV.
+            caixaMenu = android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
+                isHorizontalFadingEdgeEnabled = true; setFadingEdgeLength(dp(56)); addView(menu) }
             colunas.addView(caixaMenu, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E1) })
             mostrarAbasDoUso()
         } else {
@@ -399,15 +402,17 @@ class ConfigLauncherActivity : Activity() {
     private fun itemMenu(i: Int, aba: Aba): TextView = TextView(this).apply {
         text = aba.titulo
         Estilo.aplicar(this, Estilo.Papel.CORPO)
-        setPaddingRelative(dp(20), dp(11), dp(20), dp(11))
+        // No painel as abas ficam lado a lado: 16 dp dos lados (eram 20) para duas abas caberem na coluna (Sala, 27/11/2026).
+        val lado = if (painel) dp(16) else dp(20)
+        setPaddingRelative(lado, dp(11), lado, dp(11))
         // 2 linhas (23/11/2026): com o azulejo antes do nome, "Home and automations" não cabia numa linha em inglês.
         maxLines = 2; ellipsize = TextUtils.TruncateAt.END
         isFocusable = true; isClickable = true
         // Azulejo da aba (23/11/2026, caminho B; antes um ponto da cor da área): o mesmo quadrado colorido da cruz, com
         // o desenho do assunto. A cor continua sendo a da área (a mesma do painel web); aba técnica fica no cinza quente.
-        val lado = dp(28)
+        val icone = dp(28)
         setCompoundDrawablesRelative(br.paulo.tvlauncher.settings.iconeDoMenu(aba.icone).apply {
-            setBounds(0, 0, lado, lado)
+            setBounds(0, 0, icone, icone)
         }, null, null, null)
         compoundDrawablePadding = dp(10)
         pintarItemMenu(this, foco = false, escolhido = i == abaAtual)
