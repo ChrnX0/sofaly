@@ -353,7 +353,8 @@ class RadioActivity : Activity() {
         }
         l += CruzOuvir.Prateleira("generos", getString(R.string.ra_generos), IconeOuvir.Tipo.GENEROS, Radios.GENEROS.map { g ->
             val nome = g.replaceFirstChar { it.titlecase(Locale.getDefault()) }
-            CruzOuvir.Item("gen:$g", nome, "", cor = corDe(g), monograma = CapaOuvir.iniciais(nome),
+            // Ícone do gênero e não as iniciais ("SE", "MP"): letras soltas pareciam fora do padrão (passada da Sala 27/11).
+            CruzOuvir.Item("gen:$g", nome, "", icone = IconeOuvir.Tipo.GENEROS,
                 abrir = { buscar(nome) { Radios.urlGenero(it, g) } })
         })
         paises?.takeIf { it.isNotEmpty() }?.let { ps ->

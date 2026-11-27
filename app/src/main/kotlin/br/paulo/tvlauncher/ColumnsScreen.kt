@@ -162,6 +162,9 @@ class ColumnsScreen(private val a: Activity, titulo: String, subtitulo: String? 
         val first = focus ?: if (single) sections.firstOrNull()?.let { firstRow(it) } else sections.firstOrNull()?.rail
         first?.requestFocus()
         first?.post { if (!first.isFocused) first.requestFocus() }
+        // O foco às vezes já está na 1ª linha antes do ouvinte acima existir: sem "mudança", a coluna da direita ficava
+        // vazia ao abrir (Conferir na TV, Sala 27/11/2026). Mostra a explicação do item em foco de qualquer jeito.
+        root.post { onFocus(root.findFocus()) }
     }
 
     /** VOLTAR: dos ajustes volta ao trilho (true = tratado); no trilho, ou sem trilho, a tela fecha (false). */

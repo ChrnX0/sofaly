@@ -32,7 +32,8 @@ class FineTuneActivity : Activity() {
     private val curva = PathInterpolator(0.22f, 1f, 0.36f, 1f)
 
     /** Uma linha: título e o valor atual; [trocar] recebe +1/-1 e devolve o nome do novo valor. */
-    private class Ajuste(val titulo: Int, val valor: () -> String, val trocar: (Int) -> String)
+    /** [acao] = linha que faz algo ao apertar OK (exportar/importar): o valor sai sem as setas ‹ ›, que diriam "troque com ◀ ▶". */
+    private class Ajuste(val titulo: Int, val valor: () -> String, val acao: Boolean = false, val trocar: (Int) -> String)
 
     override fun onCreate(salvo: Bundle?) {
         super.onCreate(salvo)
@@ -80,7 +81,7 @@ class FineTuneActivity : Activity() {
             // Valor longo ("Caber + fundo borrado") quebra em 2 linhas e não esmaga o título (Sala, 26/11/2026)
             maxWidth = (170 * resources.displayMetrics.density).toInt(); gravity = Gravity.END
         }
-        fun mostrar(t: String) { valor.text = "‹  $t  ›" }
+        fun mostrar(t: String) { valor.text = if (a.acao) t else "‹  $t  ›" }
         mostrar(a.valor())
         releituras += a to { mostrar(a.valor()) }
         fun trocar(p: Int) { mostrar(a.trocar(p)); releituras.forEach { (outro, reler) -> if (outro !== a) reler() } }
@@ -88,6 +89,7 @@ class FineTuneActivity : Activity() {
             setOnClickListener { trocar(1) }
             setOnKeyListener { _, code, ev ->
                 if (ev.action != KeyEvent.ACTION_DOWN) return@setOnKeyListener false
+                if (a.acao) return@setOnKeyListener false   // ◀ ▶ numa ação não exporta nem importa sem querer
                 when (code) {
                     KeyEvent.KEYCODE_DPAD_RIGHT -> { trocar(1); true }
                     KeyEvent.KEYCODE_DPAD_LEFT -> { trocar(-1); true }
@@ -252,10 +254,11 @@ class FineTuneActivity : Activity() {
         }
         // Exportar e importar o tema (bloco 6): um arquivo em Download, que o PC/celular vê pela unidade de rede
         fun arquivoTema() = java.io.File(android.os.Environment.getExternalStoragePublicDirectory(android.os.Environment.DIRECTORY_DOWNLOADS), R2.THEME_FILE)
-        val exportar = Ajuste(R.string.rw_tema_exportar, { R2.THEME_FILE }) { _ ->
+        // O valor diz ONDE fica o arquivo (a pasta Download), não o nome técnico dele (passada da Sala, 27/11/2026).
+        val exportar = Ajuste(R.string.rw_tema_exportar, { PASTA_TEMA }, acao = true) { _ ->
             runCatching { arquivoTema().writeText(R2.toJson(o())) }.fold({ getString(R.string.rw_tema_salvo) }, { getString(R.string.rw_tema_falhou) })
         }
-        val importar = Ajuste(R.string.rw_tema_importar, { R2.THEME_FILE }) { _ ->
+        val importar = Ajuste(R.string.rw_tema_importar, { PASTA_TEMA }, acao = true) { _ ->
             val v = runCatching { R2.fromJson(arquivoTema().readText()) }.getOrNull()
             if (v.isNullOrEmpty()) getString(R.string.rw_tema_falhou)
             else { v.forEach { (k, n) -> br.paulo.tvlauncher.settings.Extras.definirNumero(this, k, n) }; getString(R.string.rw_tema_aplicado) }
@@ -478,6 +481,8 @@ class FineTuneActivity : Activity() {
     }
 
     companion object {
+        /** A pasta onde o tema exportado fica (Environment.DIRECTORY_DOWNLOADS; o mesmo nome em todo Android). */
+        const val PASTA_TEMA = "Download"
         /** O painel está na tela: a HOME atrás mostra o ponto e o brilho do escolhido mesmo sem o foco da janela. */
         @Volatile var aberto = false
         const val LARGURA = 400       // dp: a cruz (coluna em 225 dp) fica toda à vista à esquerda

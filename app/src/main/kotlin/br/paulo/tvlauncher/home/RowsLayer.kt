@@ -251,7 +251,9 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             for ((i, k) in f.cards.withIndex()) {
                 val escolhido = emFoco && i == s
                 val k1 = if (escolhido) o.focoK else 1f
-                val vis = naTela && RowsHome.visivel(xs[i], k.w, fo, larg) && xs[i] + k.w * k1 > 0f
+                // Card que já passou (à esquerda do lugar do foco) some em vez de ficar cortado na borda (passada da Sala,
+                // 27/11/2026: na fileira Ferramentas sobrava um pedaço de card colado à esquerda).
+                val vis = naTela && RowsHome.visivel(xs[i], k.w, fo, larg) && xs[i] + k.w * k1 > 0f && !RowsHome.passou(xs[i], fo)
                 val sobTopo = !emFoco && cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f < topoFim
                 val a = if (!vis || sobTopo) 0f else if (emFoco) 1f else alfa
                 k.raiz.pivotX = 0f; k.raiz.pivotY = dp(fo.cardH) / 2f

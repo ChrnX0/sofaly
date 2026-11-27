@@ -113,4 +113,11 @@ class RowsHomeTest {
         val v = RowsHome.dynamicVeil(255, 255, 255)
         assertTrue((v shr 16 and 0xFF) < 100 && (v and 0xFF) < 100)   // nunca claro: o texto creme por cima continua legível
     }
+
+    /** Sala, 27/11/2026: fileira rolada deixava um pedaço do card anterior colado na borda esquerda. */
+    @Test fun cardQuePassouNaoAparece() {
+        val xs = RowsHome.xs(6, 2, o, focada = false)
+        assertTrue(RowsHome.passou(xs[1], o))
+        assertTrue(!RowsHome.passou(xs[2], o) && !RowsHome.passou(xs[3], o))
+    }
 }
