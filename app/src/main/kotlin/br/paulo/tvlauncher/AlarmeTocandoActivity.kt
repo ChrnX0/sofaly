@@ -422,24 +422,13 @@ class AlarmeTocandoActivity : Activity() {
 
     // Botão em pílula, como os botões do resto do sistema (Estilo.botao), só que maior: aqui é a única coisa na tela e
     // tem de ser lido de longe, meio dormindo. Foco = pílula branca com texto escuro e cresce um pouco.
-    private fun botao(rotulo: String, aoClicar: () -> Unit) = Estilo.texto(this, Estilo.Papel.CORPO, rotulo).apply {
+    // Foco no padrão único (Estilo.botao: caixa clara com borda creme e texto laranja). Antes o botão em foco virava
+    // uma caixa branca chapada, o único assim no sistema (passada da Sala, 27/11/2026).
+    private fun botao(rotulo: String, aoClicar: () -> Unit) = Estilo.botao(this, rotulo).apply {
         textSize = 20f
-        gravity = Gravity.CENTER
         setPaddingRelative(dp(18), dp(16), dp(18), dp(16))
-        isFocusable = true
-        isClickable = true
-        val normal = Estilo.fundo(context, Estilo.SUPERFICIE_ALTA, Estilo.RAIO)
-        val focado = Estilo.fundo(context, Estilo.FOCO, Estilo.RAIO)
-        background = normal
         setOnClickListener { aoClicar() }
-        setOnFocusChangeListener { v, f ->
-            v.background = if (f) focado else normal
-            (v as TextView).setTextColor(if (f) Estilo.TEXTO_SOBRE_FOCO else Estilo.TEXTO)
-            v.typeface = Estilo.fonte(if (f) 600 else 500)
-            v.animate().scaleX(if (f) 1.06f else 1f).scaleY(if (f) 1.06f else 1f).setDuration(Estilo.FOCO_MS).start()
-        }
     }
-
 
     private fun texto(sp: Float, cor: Int) = TextView(this).apply {
         setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)

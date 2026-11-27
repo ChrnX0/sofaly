@@ -128,6 +128,11 @@ class PrevisaoActivity : Activity() {
             addView(seta, FrameLayout.LayoutParams(-1, -2, Gravity.BOTTOM).apply { bottomMargin = dp(14) })
             addView(pontos, FrameLayout.LayoutParams(dp(24), -2, Gravity.END or Gravity.CENTER_VERTICAL).apply { marginEnd = dp(12) })
         }
+        // A arte da HOME sob o véu grafite, como em toda tela (Paulo, 26/11/2026: "véu sobre a arte em tudo"; passada da
+        // Sala 27/11/2026: a previsão era a única num fundo liso). Sem foto escolhida (fundo do tema), fica o fundo vivo.
+        if (!Estilo.altoContraste) br.paulo.tvlauncher.home.GlassBackground.veiled(this)?.let { arte ->
+            raiz.background = arte; fundoVivo.visibility = View.GONE
+        }
         setContentView(raiz)
         // "Carregando" fica com o foco (sem destaque): na TV não existe tela sem foco, senão o controle "não anda" (teste de telas).
         val carregando = texto(18f, textoSuave).apply { text = getString(R.string.pv_carregando); setPaddingRelative(dp(Grade.MARGEM), dp(40), 0, 0)
