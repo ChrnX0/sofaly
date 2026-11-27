@@ -80,6 +80,34 @@ object Pareamento {
         return Lido(ip, codigo, primeira, fp, ts, ir, id)
     }
 
+    /**
+     * Nome da TV como o app guarda e mostra: sem caracteres de controle, espaços juntos, até 40 letras. "" = sem nome
+     * (o app mostra o IP). Vem do próprio aparelho (Configurações > Sistema > Sobre > Nome), via mDNS ou /api/estado.
+     */
+    fun nomeLimpo(bruto: String?): String =
+        (bruto ?: "").filter { !it.isISOControl() }.replace(Regex("\\s+"), " ").trim().take(40).trim()
+
+    /**
+     * O nome que a TV anuncia na rede. O TXT "nome" é o certo; o nome do serviço leva o id junto ("Sala 1a2b3c4d", às
+     * vezes com " (2)" do Android), por isso só serve de reserva e sem esses pedaços (caça 27/11: aparecia o id na lista).
+     */
+    fun nomeAnunciado(servico: String?, txtNome: String?, id: String): String {
+        nomeLimpo(txtNome).takeIf { it.isNotEmpty() }?.let { return it }
+        var s = nomeLimpo(servico).replace(Regex(" \\(\\d+\\)$"), "")
+        if (id.isNotEmpty()) s = s.removeSuffix(" $id")
+        return s.trim()
+    }
+
+    /**
+     * A TV disse o próprio nome (mDNS pelo id ou /api/estado): troca na lista, no mesmo lugar. Caça 27/11: pareada pelo
+     * QR antes de o mDNS achar, ela ficava "TV" para sempre. Null = nada a mudar (nome vazio, igual ou TV não salva).
+     */
+    fun renomear(lista: List<Tv>, tv: Tv, nome: String?): List<Tv>? {
+        val n = nomeLimpo(nome)
+        if (n.isEmpty() || lista.none { mesma(it, tv) && it.nome != n }) return null
+        return lista.map { if (mesma(it, tv)) it.copy(nome = n) else it }
+    }
+
     /** O id curto que a TV anuncia no mDNS (TXT "id") e põe no QR: 8 hex. */
     fun idValido(id: String?): String = id?.trim()?.lowercase().orEmpty().takeIf { ID_TV.matches(it) }.orEmpty()
 

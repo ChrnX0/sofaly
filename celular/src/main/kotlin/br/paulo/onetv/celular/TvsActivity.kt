@@ -271,10 +271,13 @@ class TvsActivity : Activity() {
                             ?.hostAddress ?: return
                         if (!Pareamento.privado(ip)) return
                         val id = Pareamento.idValido(s.attributes["id"]?.let { String(it, Charsets.UTF_8) })
+                        val nome = Pareamento.nomeAnunciado(s.serviceName, s.attributes["nome"]?.let { String(it, Charsets.UTF_8) }, id)
                         ui.post {
                             // Item 8: TV salva que mudou de IP segue sozinha, sem ler o QR de novo.
                             Pareamento.seguir(Tvs.lista(this@TvsActivity), id, ip)?.let { Tvs.guardar(this@TvsActivity, it) }
-                            if (id.isEmpty() || Tvs.lista(this@TvsActivity).none { it.id == id }) achadas[ip] = s.serviceName
+                            // Caça 27/11: a salva com o mesmo id passa a ter o nome que a TV anuncia (não fica "TV").
+                            Tvs.lista(this@TvsActivity).firstOrNull { id.isNotEmpty() && it.id == id }?.let { Tvs.renomear(this@TvsActivity, it, nome) }
+                            if (id.isEmpty() || Tvs.lista(this@TvsActivity).none { it.id == id }) achadas[ip] = nome.ifEmpty { ip }
                             desenhar()
                         }
                     }
