@@ -51,8 +51,11 @@ object SofyAiRules {
     fun preferred(p: Provider, t: Task): List<String> = when (p) {
         Provider.CLAUDE -> when (t) {
             Task.REPAIR -> listOf("claude-haiku-5-5", "claude-haiku-4-5")
-            Task.REVIEW -> listOf("claude-sonnet-5-5", "claude-sonnet-5", "claude-sonnet-4-6", "claude-opus-5-5")
-            Task.SECOND -> listOf("claude-opus-5-5", "claude-opus-5", "claude-opus-4-8", "claude-sonnet-5-5")
+            // Banco de prova de 27/11/2026: na revisão o Haiku achou todos os defeitos plantados, não deu alarme em tela
+            // limpa e escreveu menos regra que dispara em texto certo (7%, Sonnet 19%), a 1/12 do preço. Na segunda
+            // opinião o Fable acertou 30 de 30 (é uma pergunta por noite, o preço pesa pouco).
+            Task.REVIEW -> listOf("claude-haiku-5-5", "claude-sonnet-5-5", "claude-sonnet-5", "claude-sonnet-4-6", "claude-opus-5-5")
+            Task.SECOND -> listOf("claude-fable-5-2", "claude-opus-5-5", "claude-opus-5", "claude-opus-4-8", "claude-sonnet-5-5")
         }
         Provider.OPENAI -> when (t) { Task.REPAIR -> listOf("gpt-4o-mini"); else -> listOf("gpt-4o") }
         else -> listOf(if (t == Task.REPAIR) p.model else p.review).filter { it.isNotEmpty() }
@@ -74,6 +77,27 @@ object SofyAiRules {
             ?: if (s.ownModel) s.model else pick(s.provider, Task.REVIEW, available) ?: s.provider.review.ifEmpty { s.model }
         return s.copy(model = m)
     }
+
+    /**
+     * Escalada do conserto (banco de prova de 27/11/2026): o Haiku acerta a 1ª ferramenta em 69% dos casos; nos de
+     * julgamento (relatar em vez de mexer, causa escondida no contexto) só o Fable acertou, e com effort baixo ele custa
+     * menos da metade sem perder acerto. Então: a 1ª pergunta de um caso vai ao modelo do conserto; se o caso volta a
+     * pedir a IA (o plano anterior não resolveu), pergunta ao Fable com effort baixo. Só quando o dono não escolheu modelo.
+     */
+    val ESCALATE_MODELS = listOf("claude-fable-5-2", "claude-opus-5-5")
+    const val ESCALATE_EFFORT = "low"
+
+    fun escalate(c: SofyRepair.Case) = c.tried.any { it.tool == SofyRepair.Tool.ASK_AI }
+
+    fun forEscalation(s: Settings, available: Set<String> = emptySet()): Settings? {
+        if (s.provider != Provider.CLAUDE || s.ownModel) return null
+        val m = if (available.isEmpty()) ESCALATE_MODELS.first()
+            else ESCALATE_MODELS.firstOrNull { m -> available.any { it == m || it.startsWith("$m-") } } ?: return null
+        return s.copy(model = m)
+    }
+
+    /** O effort de uma pergunta de conserto: baixo só na escalada. */
+    fun repairEffort(s: Settings): String? = if (s.model in ESCALATE_MODELS) ESCALATE_EFFORT else null
 
     /** O do conserto: o do dono; senão o mais indicado que a chave alcança. */
     fun forRepair(s: Settings, available: Set<String> = emptySet()): Settings =

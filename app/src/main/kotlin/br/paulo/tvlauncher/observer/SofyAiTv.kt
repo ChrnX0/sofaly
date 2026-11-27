@@ -181,13 +181,16 @@ object SofyAi {
         }
         lastHttp = 0
         runCatching { refreshModels(app) }
-        val ordem = chain(app, SofyAiRules.Task.REPAIR)
+        val base = chain(app, SofyAiRules.Task.REPAIR)
+        // O caso já pediu a IA e não resolveu: sobe para o modelo mais capaz (effort baixo); a fila normal fica de reserva.
+        val subir = if (SofyAiRules.escalate(c)) settings(app)?.let { SofyAiRules.forEscalation(it, available(app, "")) } else null
+        val ordem = listOfNotNull(subir) + base
         if (ordem.isEmpty()) { note("sem configuração utilizável (chave ilegível?)"); return emptyList() }
         val n = askedToday(app)
         val gasto = monthTokens(app); val teto = budget(app)
         if (!SofyAiRules.withinBudget(gasto, teto)) { note("teto do mês: $gasto de $teto tokens"); return emptyList() }
         prefs(app).edit().putLong("asked_day", System.currentTimeMillis() / 86_400_000L).putInt("asked", n + 1).apply()
-        val r = call(app, ordem) { SofyAiRules.body(it, c) }
+        val r = call(app, ordem) { SofyAiRules.withEffort(it, SofyAiRules.body(it, c), SofyAiRules.repairEffort(it)) }
         val (tools, cause) = runCatching { SofyAiRules.plan(r.text) }.getOrElse { note("erro ao ler a resposta: ${it.javaClass.simpleName}"); return emptyList() }
         // O que a última pergunta deu (Revisão, Sala 25/11: ask_ai falhou 3 vezes sem uma linha dizendo por quê). Sem a chave.
         val res = when {
