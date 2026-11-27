@@ -25,7 +25,7 @@
         <item>O que vai</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>No app do celular, toque em Ler o QR da TV e leia o QR de Configurações › Casa e rede › Acesso remoto › Entrar pelo celular: o painel abre, e a tecla Início do controle leva a TV à tela inicial?</item>
+        <item>No app do celular, toque em Ler o QR da TV e leia o QR de Configurações › Casa e acesso remoto › Acesso remoto › Entrar pelo celular: o painel abre, e a tecla Início do controle leva a TV à tela inicial?</item>
         <item>Abra Ajudar outras casas e Como funciona: “O que vai” lista o nome e a versão dos apps que travaram, e “Ver o que vai hoje” mostra duas partes?</item>
     </string-array>
 </resources>

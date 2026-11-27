@@ -32,7 +32,7 @@
         <item>What goes</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>In the phone app, tap Read the TV\'s QR code and read the QR in Settings › Home and network › Remote access › Sign in from your phone: does the panel open, and does the remote\'s Home key take the TV to the home screen?</item>
+        <item>In the phone app, tap Read the TV\'s QR code and read the QR in Settings › Home and remote access › Remote access › Sign in from your phone: does the panel open, and does the remote\'s Home key take the TV to the home screen?</item>
         <item>Open Help other homes and How it works: does “What goes” list the name and version of apps that crashed, and does “See what goes today” show two parts?</item>
     </string-array>
 </resources>
