@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl-értékelés</string>
     <string name="sv_simkl_convite_det">Csatlakoztassa a fiókját</string>
+    <string name="legenda_muitas">Most túl sok a feliratkeresés. Próbáld újra egy perc múlva.</string>
+    <string name="legenda_conta_recusada">Az OpenSubtitles elutasította a fiókot. Ellenőrizd a Beállításokban.</string>
+    <string name="legenda_fora">A feliratszolgáltatás nem elérhető. Próbáld később.</string>
 </resources>

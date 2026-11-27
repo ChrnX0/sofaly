@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Utolsó</string>
     <string name="bkn_nunca">soha</string>
     <string name="bkn_pin">PIN a mentés módosításához</string>
+    <string name="bk_motivo_senha">A jelszó nem jó.</string>
+    <string name="bk_motivo_invalido">Ez a fájl nem Sofaly-mentés, vagy sérült.</string>
+    <string name="bk_motivo_ler">Nem olvasható (hálózat vagy tárhely).</string>
 </resources>
