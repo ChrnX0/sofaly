@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Túl lassú meghajtó</string>
     <string name="st_lento_bloqueado">Ez a meghajtó %1$s MB/s-mal ír. TV-tárhelyként legalább %2$d MB/s kell: ez alatt az alkalmazások lefagynak, és a TV esetleg el sem indul. Használja hagyományos meghajtóként.</string>
     <string name="st_aviso_boot">Hagyja véglegesen bedugva: ha meghibásodik vagy kihúzzák, a TV esetleg nem indul el, amíg ki nem húzza.</string>
+    <string name="st_ilegivel_titulo">Nem olvasható minden a pendrive-on</string>
+    <string name="st_ilegivel">Néhány mappa nem nyílt meg, így a másolatból fájlok maradnának ki. A formázás itt le van tiltva, hogy ne vesszenek el. Előbb másold le a pendrive-ot a számítógéppel.</string>
     <string name="home_grande_titulo">Áthelyezi: %1$s?</string>
     <string name="home_grande_aviso">%1$s %2$s helyet foglal. Lassú meghajtón az áthelyezés 10 percnél is tovább tarthat, és már lefagyasztott egy TV-t félúton. Csak akkor folytassa, ha senki sem néz.</string>
     <string name="home_liberar_arquivos">USB-meghajtók és fájlok megnyitásának engedélyezése</string>

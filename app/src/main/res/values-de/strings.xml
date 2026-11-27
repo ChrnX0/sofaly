@@ -843,6 +843,8 @@ AS\\Filme).</string>
     <string name="st_lento_titulo">USB-Stick zu langsam</string>
     <string name="st_lento_bloqueado">Dieser Stick schreibt mit %1$s MB/s. Als TV-Speicher braucht er mindestens %2$d MB/s: darunter hängen Apps und der Fernseher startet eventuell nicht. Nutze ihn als normalen Stick.</string>
     <string name="st_aviso_boot">Lass ihn immer eingesteckt: fällt er aus oder wird er entfernt, startet der Fernseher eventuell erst, wenn du ihn abziehst.</string>
+    <string name="st_ilegivel_titulo">Der USB-Stick lässt sich nicht ganz lesen</string>
+    <string name="st_ilegivel">Einige Ordner ließen sich nicht öffnen, eine Kopie würde Dateien auslassen. Das Formatieren ist hier gesperrt, damit nichts verloren geht. Kopiere den Stick zuerst mit dem PC.</string>
     <string name="home_grande_titulo">%1$s verschieben?</string>
     <string name="home_grande_aviso">%1$s belegt %2$s. Auf einem langsamen Stick kann das über 10 Minuten dauern und hat schon einen Fernseher mittendrin abstürzen lassen. Nur weitermachen, wenn niemand schaut.</string>
     <string name="home_liberar_arquivos">USB-Sticks und Dateien öffnen lassen</string>

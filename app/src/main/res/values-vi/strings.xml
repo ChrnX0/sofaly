@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Ổ quá chậm</string>
     <string name="st_lento_bloqueado">Ổ này ghi ở %1$s MB/s. Để làm bộ nhớ TV cần ít nhất %2$d MB/s: chậm hơn thì ứng dụng bị treo và TV có thể không khởi động. Hãy dùng làm ổ thông thường.</string>
     <string name="st_aviso_boot">Luôn cắm ổ: nếu ổ hỏng hoặc bị rút, TV có thể không khởi động cho đến khi bạn rút nó ra.</string>
+    <string name="st_ilegivel_titulo">Không đọc được toàn bộ USB</string>
+    <string name="st_ilegivel">Một số thư mục không mở được nên bản sao sẽ thiếu tệp. Việc định dạng bị chặn ở đây để không mất dữ liệu. Hãy sao chép USB bằng máy tính trước.</string>
     <string name="home_grande_titulo">Chuyển %1$s?</string>
     <string name="home_grande_aviso">%1$s chiếm %2$s. Trên ổ chậm, việc chuyển có thể mất hơn 10 phút và đã từng làm TV bị lỗi giữa chừng. Chỉ tiếp tục khi không ai đang xem.</string>
     <string name="home_liberar_arquivos">Cho phép mở ổ USB và tệp</string>

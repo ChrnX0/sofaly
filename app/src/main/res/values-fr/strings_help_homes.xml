@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Aider d\'autres foyers</string>
+    <string name="hoh_question">On aide d\'autres foyers ?</string>
+    <string name="hoh_line">Quand je répare quelque chose ici, je dis aux autres Sofaly comment ça s\'est passé. Sans dire qui vous êtes.</string>
+    <string name="hoh_yes">Oui, je veux aider</string>
+    <string name="hoh_not_now">Pas maintenant</string>
+    <string name="hoh_how">Comment ça marche ?</string>
+    <string name="hoh_how_title">Comment ça marche</string>
+    <string name="hoh_how_line">Si la même chose casse dans un autre foyer, son Sofaly sait déjà quoi faire.</string>
+    <string name="hoh_goes">Ce qui part</string>
+    <string-array name="hoh_goes_list">
+        <item>Le modèle de la TV et la version de Sofaly</item>
+        <item>Ce qui a cassé, par catégories</item>
+        <item>Ce qui a réparé, et si ça a marché</item>
+        <item>Mémoire et réseau par niveaux (bon ou faible)</item>
+    </string-array>
+    <string name="hoh_never">Ce qui ne part jamais</string>
+    <string-array name="hoh_never_list">
+        <item>Votre nom et celui de votre réseau</item>
+        <item>Ce que vous regardez, et quand</item>
+        <item>Vos apps et ce que vous tapez</item>
+        <item>Photos, voix, adresse et IP</item>
+    </string-array>
+    <string name="hoh_back_here">Ce que les autres Sofaly apprennent revient ici. Modifiable à tout moment dans Paramètres, Ce que Sofy sait.</string>
+    <string name="hoh_thanks">Merci ! Votre Sofaly aide maintenant d\'autres foyers.</string>
+    <string name="hoh_state_on">Activé : une fois par jour, cette TV partage le résultat de ses réparations</string>
+    <string name="hoh_state_off">Désactivé : rien de cette TV n\'est partagé</string>
+    <string name="hoh_stop">Arrêter d\'aider</string>
+    <string name="hoh_stop_det">Cette TV arrête de partager. Elle reçoit toujours ce que les autres foyers ont appris.</string>
+    <string name="hoh_start">Commencer à aider</string>
+    <string name="hoh_start_det">Voyez ce qui part et ce qui ne part jamais, puis choisissez</string>
+    <string name="hoh_today">Voir ce qui part aujourd\'hui</string>
+    <string name="hoh_today_det">Le paquet exact que cette TV enverrait, champ par champ</string>
+    <string name="hoh_today_sub">Exactement ce qui va au serveur. Le code du foyer change chaque jour.</string>
+    <string name="hoh_forget">Oublier ce que j\'ai déjà envoyé</string>
+    <string name="hoh_forget_det">Change le code de cette TV. Ce qui a été envoyé ne peut plus lui être lié et est effacé sous 30 jours.</string>
+    <string name="hoh_forgot">C\'est fait. Nouveau code dès maintenant ; ce qui a été envoyé est effacé sous 30 jours.</string>
+    <string name="hoh_row_det">Ce qu\'elle partage avec d\'autres foyers, et comment le désactiver</string>
+</resources>

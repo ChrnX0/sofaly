@@ -855,6 +855,8 @@ AS\\Movies).</string>
     <string name="st_lento_titulo">الذاكرة بطيئة جدًا</string>
     <string name="st_lento_bloqueado">تكتب هذه الذاكرة بسرعة %1$s ميجابايت/ث. لتصبح ذاكرة للتلفاز تحتاج إلى %2$d ميجابايت/ث على الأقل: دون ذلك تتجمد التطبيقات وقد لا يعمل التلفاز. استخدمها كذاكرة عادية.</string>
     <string name="st_aviso_boot">اتركها موصولة دائمًا: إذا تعطلت أو نُزعت فقد لا يعمل التلفاز حتى تفصلها.</string>
+    <string name="st_ilegivel_titulo">تعذّرت قراءة كل ما في ذاكرة USB</string>
+    <string name="st_ilegivel">تعذّر فتح بعض المجلدات، لذا ستُغفل النسخة بعض الملفات. التهيئة محظورة هنا حتى لا تضيع. انسخ الذاكرة بالكمبيوتر أولاً.</string>
     <string name="home_grande_titulo">نقل %1$s؟</string>
     <string name="home_grande_aviso">يشغل %1$s مساحة %2$s. على ذاكرة بطيئة قد يتجاوز النقل 10 دقائق وقد أوقف تلفازًا في منتصفه. تابع فقط إذا لم يكن أحد يشاهد.</string>
     <string name="home_liberar_arquivos">السماح بفتح ذاكرات USB والملفات</string>

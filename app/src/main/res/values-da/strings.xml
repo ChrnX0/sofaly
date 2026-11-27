@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Drevet er for langsomt</string>
     <string name="st_lento_bloqueado">Dette drev skriver %1$s MB/s. For at blive tv-lager skal det have mindst %2$d MB/s: under det fryser apps, og tv\'et starter måske ikke. Brug det som almindeligt drev.</string>
     <string name="st_aviso_boot">Lad det sidde i for altid: hvis det svigter eller fjernes, starter tv\'et måske ikke, før du tager det ud.</string>
+    <string name="st_ilegivel_titulo">Kan ikke læse alt på USB-drevet</string>
+    <string name="st_ilegivel">Nogle mapper kunne ikke åbnes, så en kopi ville udelade filer. Formatering er spærret her for at beskytte dem. Kopiér drevet med pc\'en først.</string>
     <string name="home_grande_titulo">Flytte %1$s?</string>
     <string name="home_grande_aviso">%1$s fylder %2$s. På et langsomt drev kan flytningen tage mere end 10 minutter og har fået et tv til at gå ned halvvejs. Fortsæt kun, mens ingen ser tv.</string>
     <string name="home_liberar_arquivos">Lad den åbne USB-drev og filer</string>

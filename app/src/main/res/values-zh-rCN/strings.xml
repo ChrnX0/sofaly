@@ -840,6 +840,8 @@ AS\\Movies）。</string>
     <string name="st_lento_titulo">U盘太慢</string>
     <string name="st_lento_bloqueado">此U盘写入速度为 %1$s MB/s。要作为电视存储，至少需要 %2$d MB/s：低于此值应用会卡顿，电视可能无法启动。请将它用作普通U盘。</string>
     <string name="st_aviso_boot">请一直插着：如果它损坏或被拔出，在拔下之前电视可能无法启动。</string>
+    <string name="st_ilegivel_titulo">无法读取U盘中的全部内容</string>
+    <string name="st_ilegivel">有些文件夹打不开，复制会漏掉文件。为避免丢失，这里不能格式化。请先用电脑复制U盘。</string>
     <string name="home_grande_titulo">移动 %1$s？</string>
     <string name="home_grande_aviso">%1$s 占用 %2$s。在慢速U盘上移动可能超过 10 分钟，曾导致电视中途死机。请仅在无人观看时继续。</string>
     <string name="home_liberar_arquivos">允许打开U盘和文件</string>

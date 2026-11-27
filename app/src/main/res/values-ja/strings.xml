@@ -840,6 +840,8 @@ AS\\Movies）。</string>
     <string name="st_lento_titulo">USBメモリが遅すぎます</string>
     <string name="st_lento_bloqueado">このUSBメモリの書き込みは%1$s MB/秒です。テレビのストレージにするには%2$d MB/秒以上が必要です。それ未満ではアプリが固まり、テレビが起動しないことがあります。通常のUSBメモリとして使ってください。</string>
     <string name="st_aviso_boot">常に挿したままにしてください。故障したり抜かれたりすると、外すまでテレビが起動しないことがあります。</string>
+    <string name="st_ilegivel_titulo">USBドライブの一部を読み取れません</string>
+    <string name="st_ilegivel">開けないフォルダーがあるため、コピーではファイルが漏れます。失わないよう、ここでのフォーマットは止めています。先にPCでドライブをコピーしてください。</string>
     <string name="home_grande_titulo">%1$sを移動しますか？</string>
     <string name="home_grande_aviso">%1$sは%2$sあります。遅いUSBメモリでは移動に10分以上かかり、途中でテレビが固まったことがあります。誰も見ていないときだけ続けてください。</string>
     <string name="home_liberar_arquivos">USBメモリとファイルを開けるようにする</string>

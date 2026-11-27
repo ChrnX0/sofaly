@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Autres foyers</string>
+    <string name="casas_texto">Reliez cette TV à celle d\'un proche pour regarder ensemble, même de loin. Seuls lecture, pause et réactions circulent, chiffrés. Personne n\'a besoin de compte.</string>
+    <string name="casas_mostrar">Afficher un code</string>
+    <string name="casas_mostrar_det">L\'autre foyer le saisit sur sa TV</string>
+    <string name="casas_digitar">Saisir un code</string>
+    <string name="casas_digitar_det">Le code affiché par l\'autre TV</string>
+    <string name="casas_conectadas">Foyers reliés</string>
+    <string name="casas_remover_det">Regarder ensemble · Retirer</string>
+    <string name="casas_remover_titulo">Retirer %1$s ?</string>
+    <string name="casas_remover">Retirer</string>
+    <string name="casas_pedindo">Demande d\'un code…</string>
+    <string name="casas_codigo_det">Lisez ce code à l\'autre foyer. Sur sa TV : Paramètres, Famille, Autres foyers, Saisir un code. Il vaut 10 minutes, une seule fois.</string>
+    <string name="casas_esperando">En attente de la confirmation de l\'autre TV…</string>
+    <string name="casas_conectando">Liaison…</string>
+    <string name="casas_conectar">Relier</string>
+    <string name="casas_chegou">%1$s a saisi le code</string>
+    <string name="casas_confirmou">%1$s a confirmé. Vérifiez aussi les chiffres ici</string>
+    <string name="casas_pelo_celular">%1$s est reliée pour Regarder ensemble (ajoutée par %2$s)</string>
+    <string name="casas_conferir_titulo">Relier avec %1$s ?</string>
+    <string name="casas_conferir_texto">Vérifiez par téléphone que l\'autre TV affiche les mêmes chiffres :\n\n%1$s\n\nS\'ils diffèrent, annulez.</string>
+    <string name="casas_pronto">Reliée avec %1$s. Les deux TV affichent ces chiffres. Pour regarder ensemble, ouvrez un titre et choisissez Regarder ensemble.</string>
+    <string name="casas_falhou">Ça n\'a pas marché. Vérifiez internet et essayez un nouveau code.</string>
+    <string name="casas_sem_rede">Le service Sofaly ne répond pas. Vérifiez internet.</string>
+    <string name="casas_codigo_errado">Ce code n\'a pas marché. Il a 8 lettres et chiffres et dure 10 minutes.</string>
+    <string name="casas_menu">Autres foyers</string>
+    <string name="casas_menu_det">Regarder ensemble avec la TV d\'un proche au loin</string>
+</resources>
