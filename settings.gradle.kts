@@ -31,7 +31,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "one-tv-launcher"
+rootProject.name = "sofaly"
 include(":app")
 // Refatoração G (27/11/2026): lógica pura sem tela, R nem BuildConfig (ver core/build.gradle.kts).
 include(":core")

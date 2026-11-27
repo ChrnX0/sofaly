@@ -6,7 +6,7 @@ import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
 
 /**
- * Os textos do app que ensinam onde fica o QR na TV ("Configurações › Casa e rede › Acesso remoto › Entrar pelo
+ * Os textos do app que ensinam onde fica o QR na TV ("Configurações › Casa e acesso remoto › Acesso remoto › Entrar pelo
  * celular") têm de ser os nomes que a TV mostra, em cada língua. Na v475825 o app dizia "Configurações › Acesso remoto",
  * mas a aba fica dentro de "Casa e rede" e o Paulo não achou (27/11/2026). Este teste monta o caminho com os textos da
  * própria TV (app/src/main/res) e exige que ele apareça nos três textos do celular.

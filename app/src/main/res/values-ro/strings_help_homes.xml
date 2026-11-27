@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>Modelul televizorului și versiunea Sofaly</item>
         <item>Ce s-a stricat, pe categorii</item>
+        <item>Numele și versiunea aplicațiilor care s-au blocat sau au încetinit</item>
         <item>Ce a reparat și dacă a funcționat</item>
         <item>Memoria și rețeaua, pe niveluri (bun sau slab)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>Numele tău și numele rețelei tale</item>
         <item>Ce și când te uiți</item>
-        <item>Aplicațiile tale și ce scrii</item>
-        <item>Fotografii, voce, adresă și IP</item>
+        <item>Lista aplicațiilor tale și ce scrii</item>
+        <item>Fotografii, voce și adresă (IP-ul nu este păstrat)</item>
     </string-array>
     <string name="hoh_back_here">Ce învață alte Sofaly se întoarce aici. Schimbă oricând în Setări, Ce știe Sofy.</string>
     <string name="hoh_thanks">Mulțumim! Sofaly al tău ajută acum alte case.</string>

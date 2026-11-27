@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>A tévé típusa és a Sofaly verziója</item>
         <item>Mi romlott el, kategóriánként</item>
+        <item>Az összeomlott vagy lelassult alkalmazások neve és verziója</item>
         <item>Mi javította meg, és működött-e</item>
         <item>Memória és hálózat, szintekben (jó vagy gyenge)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>A neved és a hálózatod neve</item>
         <item>Mit és mikor nézel</item>
-        <item>Az alkalmazásaid és amit beírsz</item>
-        <item>Fotók, hang, cím és IP</item>
+        <item>Az alkalmazásaid listája és amit beírsz</item>
+        <item>Fotók, hang és cím (az IP-címedet nem tároljuk)</item>
     </string-array>
     <string name="hoh_back_here">Amit a többi Sofaly megtanul, visszajön ide. Bármikor módosíthatod: Beállítások, Amit Sofy tud.</string>
     <string name="hoh_thanks">Köszönjük! A Sofalyd most már más otthonoknak is segít.</string>
