@@ -59,8 +59,11 @@ const intIn = (v, lo, hi) => Number.isSafeInteger(v) && v >= lo && v <= hi;
 function cleanDevice(d) {
   if (!onlyKeys(d, ['maker', 'model', 'platform', 'sdk', 'abi', 'ram', 'disk'])) return null;
   if (!DEVICE_TEXT.test(d.maker ?? '') || !DEVICE_TEXT.test(d.model ?? '')) return null;
-  if (!PLATFORM.has(d.platform) || !intIn(d.sdk, 21, 60) || !ABI.has(d.abi) || !RAM.has(d.ram) || !DISK.has(d.disk)) return null;
-  return { maker: d.maker, model: d.model, platform: d.platform, sdk: d.sdk, abi: d.abi, ram: d.ram, disk: d.disk };
+  if (!PLATFORM.has(d.platform) || !ABI.has(d.abi)) return null;
+  // sdk, ram e disk saíram do pacote da TV (#541: o texto do consentimento não os promete); os pacotes antigos ainda os têm.
+  if ((d.sdk !== undefined && !intIn(d.sdk, 21, 60)) || (d.ram !== undefined && !RAM.has(d.ram))
+    || (d.disk !== undefined && !DISK.has(d.disk))) return null;
+  return { maker: d.maker, model: d.model, platform: d.platform, abi: d.abi };
 }
 
 function cleanTry(t) {
@@ -70,27 +73,26 @@ function cleanTry(t) {
 
 function cleanCase(c) {
   if (!onlyKeys(c, ['type', 'area', 'target', 'cause', 'before', 'state', 'tries', 'outcome', 'relapse', 'count'])) return null;
-  if (!TYPES.has(c.type) || !AREAS.has(c.area) || !CAUSES.has(c.cause) || !OUTCOMES.has(c.outcome) || !RELAPSE.has(c.relapse)) return null;
+  // #541: before, relapse, count e state.uptime/period saíram do pacote da TV; os antigos ainda chegam com eles e
+  // são conferidos, mas não guardados. O pacote de um app (target) também não vai mais: o servidor só o aceita.
+  if (!TYPES.has(c.type) || !AREAS.has(c.area) || !CAUSES.has(c.cause) || !OUTCOMES.has(c.outcome)) return null;
+  if (c.relapse !== undefined && !RELAPSE.has(c.relapse)) return null;
   // O alvo: pacote do app (área "app") ou um nome do nosso código. Nada mais.
   let target = '';
   if (c.target !== undefined && c.target !== '') {
     if (typeof c.target !== 'string' || c.target.length > 150) return null;
     if (c.area === 'app' ? !PKG.test(c.target) : !NAME.test(c.target)) return null;
-    target = c.target;
+    target = c.area === 'app' ? '' : c.target;   // #541: o pacote de um app não fica guardado
   }
-  if (!Array.isArray(c.before) || c.before.length > MAX_BEFORE || !c.before.every((b) => BEFORE.has(b))) return null;
+  if (c.before !== undefined && (!Array.isArray(c.before) || c.before.length > MAX_BEFORE || !c.before.every((b) => BEFORE.has(b)))) return null;
   const s = c.state;
-  if (!onlyKeys(s, ['uptime', 'memory', 'net', 'period']) || !UPTIME.has(s.uptime) || !MEMORY.has(s.memory) || !NET.has(s.net)
-    || !PERIOD.has(s.period)) return null;
+  if (!onlyKeys(s, ['uptime', 'memory', 'net', 'period']) || !MEMORY.has(s.memory) || !NET.has(s.net)
+    || (s.uptime !== undefined && !UPTIME.has(s.uptime)) || (s.period !== undefined && !PERIOD.has(s.period))) return null;
   if (!Array.isArray(c.tries) || c.tries.length > MAX_TRIES) return null;
   const tries = c.tries.map(cleanTry);
   if (tries.includes(null)) return null;
-  if (!intIn(c.count, 1, 9999)) return null;
-  return {
-    type: c.type, area: c.area, target, cause: c.cause, before: [...new Set(c.before)].sort(),
-    state: { uptime: s.uptime, memory: s.memory, net: s.net, period: s.period },
-    tries, outcome: c.outcome, relapse: c.relapse, count: c.count,
-  };
+  if (c.count !== undefined && !intIn(c.count, 1, 9999)) return null;
+  return { type: c.type, area: c.area, target, cause: c.cause, state: { memory: s.memory, net: s.net }, tries, outcome: c.outcome };
 }
 
 /** O pacote do dia conferido, ou null (400). Puro: fleet.test.js. */
@@ -157,13 +159,10 @@ export function summarize(rows, k) {
     }
     const dev = {};
     for (const [d, l] of devices) { const name = daily(l) >= k ? d : 'other'; dev[name] = (dev[name] ?? 0) + l.length; }
-    const before = {};
-    for (const r of list) for (const b of r.c.before) before[b] = (before[b] ?? 0) + 1;
     out.push({
       type, area, target, cause, homes, cases: list.length,
       fixed: list.filter((r) => r.c.outcome === 'fixed').length,
-      relapsed: list.filter((r) => r.c.relapse !== 'none').length,
-      tools, devices: dev, before,
+      tools, devices: dev,
       apps: [...new Set(list.map((r) => r.app))].sort((a, b) => b - a).slice(0, 5),
     });
   }

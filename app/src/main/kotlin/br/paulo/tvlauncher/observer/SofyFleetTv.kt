@@ -38,7 +38,7 @@ object SofyFleetTv {
     /** Pelo autoexame diário. Rede: chamar fora da tela. */
     fun daily(ctx: Context, now: Long) {
         val app = ctx.applicationContext
-        if (!SofyCommunityTv.sharing(app)) return
+        if (!SofyCommunityTv.fleetConsent(app)) return   // #541: o consentimento dado na tela que lista o que vai
         val p = prefs(app)
         val okAt = okAt(p)
         if (!SofyFleet.shouldSend(now, okAt, p.getLong("tried_at", 0L))) return
