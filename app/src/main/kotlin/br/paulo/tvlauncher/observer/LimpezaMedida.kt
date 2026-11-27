@@ -59,18 +59,29 @@ object LimpezaMedida {
         val app = ctx.applicationContext
         val livre = memoriaLivreMb(app)
         val tempos = LinkedHashMap<String, Long>()
+        var abriuAlgum = false
         for (p in maisUsados(app)) {
             val comp = componente(app, p) ?: continue
             // force-stop: o tempo "a frio" é o que a limpeza muda (app quente abre da memória, igual antes e depois).
+            abriuAlgum = true
             val saida = GuardiaoShizuku.comando(app, "am force-stop $p; am start -W -n $comp", 15_000)
             AntesDepois.tempoDoAmStart(saida)?.let { tempos[p] = it }
-            if (saida == null) break   // sem shell: não adianta tentar os outros
+            if (saida == null) break   // sem shell ou o app não avisou que abriu: não adianta tentar os outros
         }
-        if (tempos.isNotEmpty()) {
-            // Devolve a tela a quem pediu (as Configurações), por cima do último app aberto.
-            GuardiaoShizuku.comando(app, "am start -f 0x20000 -n ${app.packageName}/${ConfigLauncherActivity::class.java.name}", 5_000)
-        }
+        // Devolve a tela a quem pediu (as Configurações), por cima do último app aberto. Antes só voltava quando algum
+        // tempo foi medido: na Sala (27/11/2026) o PS Remote Play abriu, o "am start -W" passou dos 15 s sem resposta e a
+        // TV ficou parada no app. Agora volta sempre que algum app foi aberto, e sem shell abre a tela pelo próprio app.
+        if (abriuAlgum) voltarParaConfig(app)
         return AntesDepois.Medida(livre, tempos, System.currentTimeMillis())
+    }
+
+    private fun voltarParaConfig(app: Context) {
+        val comp = "${app.packageName}/${ConfigLauncherActivity::class.java.name}"
+        if (GuardiaoShizuku.comando(app, "am start -f 0x20000 -n $comp", 5_000) != null) return
+        try {
+            app.startActivity(android.content.Intent(app, ConfigLauncherActivity::class.java)
+                .addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK or android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT))
+        } catch (e: Exception) { Log.w(TAG, "não voltou para as Configurações: $e") }
     }
 
     fun medirAntes(ctx: Context): AntesDepois.Medida =
