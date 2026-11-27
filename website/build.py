@@ -33,7 +33,7 @@ PAGES = ["index", "features", "plans", "developers"]
 
 # Line icons (24x24, drawn with a 2px rounded stroke, like the icons on the TV).
 ICONS = {
-    "cross": '<path d="M9 4h6v5h5v6h-5v5H9v-5H4V9h5z"/>',
+    "rows": '<rect x="3.5" y="4.5" width="17" height="4" rx="2"/><rect x="3.5" y="10" width="17" height="4" rx="2"/><rect x="3.5" y="15.5" width="17" height="4" rx="2"/>',
     "replay": '<path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v5h5"/><path d="M10 9l5 3-5 3z"/>',
     "search": '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
     "panel": '<rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',
