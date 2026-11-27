@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher.home
 
+import br.paulo.tvlauncher.AvisoTv
 import android.content.Context
 import android.content.Intent
 import android.content.pm.LauncherApps
@@ -106,7 +107,14 @@ internal fun MainActivity.opcoesDoCard(pacote: String): Pair<List<MainActivity.O
     // Controle parental (bloco 7): travar pede o PIN (senão uma criança destrava); destravar também
     val travado = CardMenu.isLocked(this, pacote)
     ultimas += MainActivity.Opcao(getString(if (travado) R.string.rw_destravar else R.string.rw_travar)) {
-        PinNaTela.pedir(this, getString(if (travado) R.string.rw_destravar else R.string.rw_travar)) { CardMenu.setLocked(this, pacote, !travado) }
+        PinNaTela.pedir(this, getString(if (travado) R.string.rw_destravar else R.string.rw_travar)) {
+            CardMenu.setLocked(this, pacote, !travado)
+            // A trava de fora da home (busca, Google, outro launcher) depende do serviço de acessibilidade. Sem ele, a
+            // trava vale só daqui: diz isso em vez de deixar a pessoa achar que o app está trancado (revisor 26/11).
+            if (!travado && br.paulo.tvlauncher.AutorizaShizukuService.instancia == null)
+                AvisoTv.mostrar(this, getString(R.string.rw_travar), getString(R.string.rw_travar_sem_acesso), 10, som = false,
+                    guardarSeApagada = false, historico = false)
+        }
     }
     val noBoot = CardMenu.bootApp(this) == pacote
     ultimas += MainActivity.Opcao(getString(if (noBoot) R.string.rw_ao_ligar_tirar else R.string.rw_ao_ligar)) {

@@ -15,4 +15,5 @@
     <string name="mtp_pcs_esquecidos">Tietokoneet unohdettu</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Avaa TV-paneeli</string>
+    <string name="ssdp_painel">paneeli</string>
 </resources>

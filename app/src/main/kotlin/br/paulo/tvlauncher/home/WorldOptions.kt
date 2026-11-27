@@ -44,7 +44,14 @@ object WorldOptions {
 
     private fun p(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun of(ctx: Context, world: CruzLogica.Categoria): Options = Rules.read(p(ctx).getString(world.id, null))
+    /** Última leitura de cada mundo: o desenho da cruz pede as opções muitas vezes por tela; só relê o JSON se mudou. */
+    private val lidas = java.util.concurrent.ConcurrentHashMap<String, Pair<String?, Options>>()
+
+    fun of(ctx: Context, world: CruzLogica.Categoria): Options {
+        val cru = p(ctx).getString(world.id, null)
+        lidas[world.id]?.let { (antes, o) -> if (antes == cru) return o }
+        return Rules.read(cru).also { lidas[world.id] = cru to it }
+    }
 
     fun save(ctx: Context, world: CruzLogica.Categoria, o: Options) {
         p(ctx).edit().apply { if (o == Options()) remove(world.id) else putString(world.id, Rules.write(o)) }.apply()

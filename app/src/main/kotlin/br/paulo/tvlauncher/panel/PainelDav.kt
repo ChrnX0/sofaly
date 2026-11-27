@@ -454,8 +454,7 @@ object AnuncioDav {
         }
         try { m.registerService(info, android.net.nsd.NsdManager.PROTOCOL_DNS_SD, r); registro = r }
         catch (e: Exception) { Log.w(TAG, "mDNS indisponível: $e") }
-        MtpNaRede.ligar(app)     // e em "Este Computador", como um celular (MTP pela rede)
-        AnuncioUpnp.mostrarMtp(true, app)   // o anúncio SSDP que leva o Windows até ele
+        MtpNaRede.ligar(app)     // e em "Este Computador", como um celular (MTP pela rede); anuncia o SSDP se a porta abriu
     }
 
     @Synchronized fun desligar() {

@@ -105,7 +105,16 @@ object MtpNaRede {
     @Synchronized private fun ligarJa(ctx: Context) {
         if (servico != null) return
         val app = ctx.applicationContext
-        val ss = try { ServerSocket(PtpIp.PORTA, 16) } catch (e: Exception) { Log.w(TAG, "porta ${PtpIp.PORTA} ocupada: $e"); return }
+        val ss = try { ServerSocket(PtpIp.PORTA, 16) } catch (e: Exception) {
+            // Revisor 26/11: antes desistia calado e o SSDP anunciava um MTP sem servidor ("Este Computador" mostrava a
+            // TV, mas nunca abria). Agora não anuncia e tenta a porta de novo em 1 min, enquanto a chave estiver ligada.
+            Log.w(TAG, "porta ${PtpIp.PORTA} ocupada: $e (tento de novo em 1 min)")
+            val app = ctx.applicationContext
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                if (querLigado) Thread({ synchronized(this) { if (querLigado) ligarJa(app) } }, "Mtp-porta").start()
+            }, 60_000L)
+            return
+        }
         val id = PainelVizinhos.idDaTv(app)
         val u = UUID.fromString(Ssdp.uuidMtp(id))
         val guid = ByteBuffer.allocate(16).putLong(u.mostSignificantBits).putLong(u.leastSignificantBits).array()
@@ -119,6 +128,7 @@ object MtpNaRede {
             registro = { Log.i(TAG, it) })
         MtpSessao.lenta = { Log.i(TAG, it) }   // só operações demoradas: poucas linhas, sem nomes de arquivo
         servico = s
+        AnuncioUpnp.mostrarMtp(true, app)   // só com o servidor no ar: é o que leva o Windows até ele
         Thread({
             // Sem a permissão de "todos os arquivos" o Android esconde as pastas: pede ao nosso shell antes de servir.
             try { PainelArquivos.garantirAcesso(app) } catch (e: Exception) { Log.w(TAG, "acesso aos arquivos: $e") }

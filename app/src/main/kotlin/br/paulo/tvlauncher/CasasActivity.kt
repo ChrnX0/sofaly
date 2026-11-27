@@ -33,7 +33,7 @@ class CasasActivity : Activity() {
         override fun run() {
             if (!RelayCasas.emAndamento()) return
             val app = applicationContext
-            Fundo.rodar("casas-caixa") { RelayTv.receber(app) { RelayTv.tratar(app, it) } }
+            Fundo.rodar("casas-caixa") { RelayTv.receber(app) { a, chegou -> RelayTv.tratar(app, a, chegou) } }
             vigia.postDelayed(this, 4_000)
         }
     }

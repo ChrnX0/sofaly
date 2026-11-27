@@ -357,6 +357,17 @@ object BackupCompleto {
     }
 
     /** Volta preferências, arquivos e (se foi mexido) a pasta do túnel ao retrato tirado antes de restaurar. */
+    /**
+     * O motivo de uma falha de backup/restauração em palavras da TV, na língua dela (revisor 26/11: a mensagem da
+     * exceção, em português fixo, ia direto para a tela).
+     */
+    fun motivoNaTela(ctx: Context, e: Throwable): String = when (e) {
+        is CofreBackup.SenhaErrada -> ctx.getString(br.paulo.tvlauncher.R.string.bk_motivo_senha)
+        is IllegalArgumentException -> ctx.getString(br.paulo.tvlauncher.R.string.bk_motivo_invalido)
+        is java.io.IOException -> ctx.getString(br.paulo.tvlauncher.R.string.bk_motivo_ler)
+        else -> e.javaClass.simpleName
+    }
+
     /** A restauração falhou e o desfazer também não voltou tudo: o painel não pode dizer "nada mudou". */
     class DesfazerIncompleto(causa: Exception) : IllegalStateException("desfazer incompleto", causa)
 

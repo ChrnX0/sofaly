@@ -34,7 +34,12 @@ object RelayPairing {
      * ser executada quando ela ligar (horas depois, com alguém vendo outra coisa). Passou disto, descarta.
      */
     const val ATRASO_MAX_MS = 60_000L
-    fun naHora(m: RelayEnvelope.Mensagem, agora: Long): Boolean = agora - m.t <= ATRASO_MAX_MS
+    /**
+     * [chegouSeg] = a hora (s) em que o SERVIDOR pôs o envelope na caixa (campo "created"). Com ela a conta não depende
+     * do relógio do celular (revisor 26/11: celular 2 min atrasado tinha toda tecla descartada). Sem ela, a do celular.
+     */
+    fun naHora(m: RelayEnvelope.Mensagem, agora: Long, chegouSeg: Long = 0L): Boolean =
+        agora - (if (chegouSeg > 0) chegouSeg * 1000 else m.t) <= ATRASO_MAX_MS
 
     fun resposta(tvId: String, tvX: ByteArray): JSONObject = JSONObject().put("id", tvId).put("x", RelayCrypto.b64url(tvX))
 

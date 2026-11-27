@@ -74,6 +74,7 @@ object AnuncioUpnp {
             ipAchado = PainelWeb.ipsDaRede().minOrNull()
         }
         val ip: String = ipAchado
+        runCatching { br.paulo.tvlauncher.mcp.TunelTailscale.conferirIp(app) }   // TV que ligou antes do Wi-Fi
         var trocouIp = false
         // Até dois aparelhos: o atalho para o painel (Basic, sempre) e a TV como dispositivo portátil (MTP pela rede,
         // só com a unidade de rede ligada).
@@ -178,6 +179,7 @@ object AnuncioUpnp {
             synchronized(this) { if (thread === eu) thread = null }
         }
         // Recomeça com o IP novo (o "saí" acima foi com o endereço velho, que o Windows ainda tem guardado).
+        if (trocouIp) runCatching { br.paulo.tvlauncher.mcp.TunelTailscale.conferirIp(app) }
         if (trocouIp && PainelWeb.ligado()) { Log.i(TAG, "IP mudou: anunciando de novo"); ligar(app) }
     }
 }

@@ -23,4 +23,8 @@
     <string name="bkn_ultimo">Last</string>
     <string name="bkn_nunca">never</string>
     <string name="bkn_pin">PIN to change the backup</string>
+    <!-- Reason shown on the TV when a restore or "move to a new TV" fails (BackupCompleto.motivoNaTela). -->
+    <string name="bk_motivo_senha">The password is not right.</string>
+    <string name="bk_motivo_invalido">This file is not a Sofaly backup, or it is damaged.</string>
+    <string name="bk_motivo_ler">Could not read it (network or storage).</string>
 </resources>
