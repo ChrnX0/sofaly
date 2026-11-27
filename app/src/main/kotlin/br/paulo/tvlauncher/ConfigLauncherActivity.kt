@@ -1617,7 +1617,10 @@ internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
         super.onMeasure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), alturaSpec)
         val soma = measuredWidth
         if (soma <= limite) { super.onMeasure(larguraSpec, alturaSpec); return }
-        for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = 0; weight = 1f }
+        // Não cabe: cada aba fica com a fatia proporcional ao que queria. Partes iguais quebravam a aba de nome
+        // longo no meio da palavra ("auto/mações"), enquanto a curta sobrava.
+        val desejo = IntArray(childCount) { getChildAt(it).measuredWidth }
+        for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = 0; weight = desejo[i].toFloat() }
         super.onMeasure(MeasureSpec.makeMeasureSpec(limite, MeasureSpec.EXACTLY), alturaSpec)
     }
 }
