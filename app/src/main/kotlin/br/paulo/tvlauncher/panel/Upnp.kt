@@ -1,6 +1,5 @@
 package br.paulo.tvlauncher.panel
 
-import br.paulo.tvlauncher.player.item
 import java.io.ByteArrayInputStream
 import java.io.InputStream
 import java.net.DatagramPacket

@@ -72,7 +72,7 @@ object AppLanguage {
     }
 
     /** Próxima conta: +1 se a anterior foi há menos de [REPEAT_WINDOW_MS]; senão recomeça em 1. */
-    internal fun nextRepeat(n: Int, lastAt: Long, now: Long): Int =
+    fun nextRepeat(n: Int, lastAt: Long, now: Long): Int =
         if (n > 0 && now - lastAt in 0..REPEAT_WINDOW_MS) (n + 1).coerceAtMost(REPEATS_TO_UNLOCK) else 1
 
     /**

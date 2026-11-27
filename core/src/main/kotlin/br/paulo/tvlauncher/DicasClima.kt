@@ -12,7 +12,7 @@ package br.paulo.tvlauncher
  * Ideia tirada do AccuWeather (índices do dia a dia) e do Google Weather (resumo em uma frase), sem IA: a mesma entrada
  * dá sempre a mesma frase. Pura (sem Android), testada em DicasClimaTest. Os textos ficam na tela (strings cl_*).
  */
-internal object DicasClima {
+object DicasClima {
     /** Chuva que conta como "vai chover" (mesmo limiar do [AvisoChuva]). */
     const val CHUVA = 50
     /** Abaixo disto, a hora é seca (para varal, sair e "deve parar"). */
@@ -41,7 +41,7 @@ internal object DicasClima {
      * até o fim desse dia claro: às 0h37 as 12 h acabavam às 12h37 e uma chuva de 72% às 13h dava "Guarda-chuva: não
      * precisa" com a HOME dizendo "Chuva 72% em 13 h" (teste 100%, 5ª rodada, 24/11/2026).
      */
-    internal fun proximas(e: Entrada, n: Int = 12): List<Hora> {
+    fun proximas(e: Entrada, n: Int = 12): List<Hora> {
         val sol = proximoSolDeHoje(e) ?: return e.horas.take(n)
         return e.horas.take(maxOf(n, sol.last + 1))
     }
