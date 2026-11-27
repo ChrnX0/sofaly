@@ -30,4 +30,6 @@
     <string name="bb_titulo">Bố cục màn hình chính</string>
     <string name="bb_cruz">Chữ thập</string>
     <string name="bb_barra">Thanh dưới cùng</string>
+    <string name="wo_ultimos">Dùng gần đây trước</string>
+    <string name="wo_aleatorio">Thứ tự bất kỳ (đổi mỗi ngày)</string>
 </resources>

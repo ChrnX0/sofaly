@@ -44,4 +44,18 @@
     <string name="st_anim_cena">Cảnh nhỏ</string>
     <string name="st_anim_luz">Vệt sáng</string>
     <string name="st_anim_pulo">Nảy và sáng</string>
+    <string name="st_telas">Các màn hình khác</string>
+    <string name="st_telas_gaveta">Ngăn kéo</string>
+    <string name="st_telas_vidro">Kính</string>
+    <string name="st_telas_barra">Thanh</string>
+    <string name="st_telas_painel">Bảng bên</string>
+    <string name="st_telas_guiada">Có hướng dẫn</string>
+    <string name="gl_root_desc">Mọi thứ về TV này, từng bước một.</string>
+    <string name="st_proprios">Thẻ lối tắt</string>
+    <string name="st_proprios_branco">Trắng</string>
+    <string name="st_proprios_vidro">Kính sáng</string>
+    <string name="st_proprios_escuro">Kính tối</string>
+    <string name="st_personalidade">Biểu tượng thẻ</string>
+    <string name="st_pers_cor">Màu riêng</string>
+    <string name="st_pers_brilho">Ánh màu</string>
 </resources>

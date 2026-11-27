@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Đọc dễ hơn</string>
+    <string name="goal_clean">Màn hình gọn hơn</string>
+    <string name="goal_energy">Tiết kiệm điện</string>
+    <string name="goal_kids">Bảo vệ trẻ em</string>
+    <string name="goal_desfazer">%1$s, đang bật.</string>
+    <string name="goal_feito">%1$s: xong.</string>
+    <string name="goal_desfeito">%1$s: đã hoàn tác</string>
+</resources>

@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Đánh giá Simkl</string>
     <string name="sv_simkl_convite_det">Kết nối tài khoản</string>
+    <string name="legenda_muitas">Hiện có quá nhiều lượt tìm phụ đề. Thử lại sau một phút.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles đã từ chối tài khoản. Kiểm tra trong Cài đặt.</string>
+    <string name="legenda_fora">Dịch vụ phụ đề đang ngừng. Thử lại sau.</string>
 </resources>
