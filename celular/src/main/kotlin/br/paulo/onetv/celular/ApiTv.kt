@@ -265,6 +265,17 @@ object ApiTv {
     }
 
     /** O que todas as chamadas têm em comum: certificado fixado, cookie do painel e os cabeçalhos de um POST. */
+    /**
+     * Cabeçalhos e corpo ANTES de conectar. Depois do connect() o HttpURLConnection recusa setRequestProperty e
+     * setDoOutput ("Already connected"); com a ordem ao contrário todo POST do app (teclas do controle, texto, PIN do
+     * "Usar fora de casa", chave do aparelho, envio de arquivo) caía no catch e virava "A TV não respondeu"
+     * (achado no emulador, 27/11/2026). No POST o outputStream já conecta; no GET quem conecta é o connect().
+     */
+    internal fun <C : HttpURLConnection> prepararEConectar(c: C, escrever: (C) -> Unit) {
+        escrever(c)
+        c.connect()
+    }
+
     private fun conversar(tv: Pareamento.Tv, metodo: String, caminho: String, espera: Int,
                           escrever: (HttpsURLConnection) -> Unit): Resposta {
         if (!podeUsar(tv)) return Resposta(0, null)
@@ -290,8 +301,7 @@ object ApiTv {
             c.requestMethod = metodo
             CookieManager.getInstance().getCookie("$base/")?.let { c.setRequestProperty("Cookie", it) }
             if (metodo == "POST") { c.setRequestProperty("Origin", base); c.setRequestProperty("X-Painel", "1") }
-            c.connect(); conectou = true
-            escrever(c)
+            prepararEConectar(c, escrever); conectou = true
             try {
                 val cod = c.responseCode
                 val txt = runCatching { (if (cod in 200..299) c.inputStream else c.errorStream)?.bufferedReader()?.use { it.readText() } }.getOrNull()

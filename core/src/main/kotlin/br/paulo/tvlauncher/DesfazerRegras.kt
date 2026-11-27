@@ -66,6 +66,8 @@ object DesfazerRegras {
         if (SEGREDO.containsMatchIn(chave) || PASSAGEIRO.containsMatchIn(k)) return null
         return when {
             base == "launcher" && k == CHAVE_DEBLOAT -> null
+            // "clima" é quase todo cache da previsão que a HOME grava sozinha: só a escolha da pessoa entra (WeatherPrefs).
+            base == "clima" && !br.paulo.tvlauncher.weather.WeatherPrefs.isChoice(k) -> null
             base == "launcher" && k in CHAVES_ORGANIZACAO -> Categoria.ORGANIZACAO
             base in PREFS_AUTOMACAO -> Categoria.AUTOMACAO
             base in PREFS_AJUSTE -> Categoria.AJUSTE
