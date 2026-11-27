@@ -26,4 +26,4 @@ values-th=251
 values-tr=224
 values-uk=239
 values-vi=251
-values-zh-rCN=224
+values-zh-rCN=3
