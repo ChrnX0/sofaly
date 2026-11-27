@@ -31,10 +31,10 @@ class CapaOuvir(ctx: Context, private val raioDp: Float = 14f) : ImageView(ctx) 
     var cor: Int = 0xFF45C2B1.toInt()
         set(v) { field = v; invalidate() }
     var monograma: String = ""
+        set(v) { field = v; invalidate() }
     /** Cor das iniciais no lugar da cor do item (o cartão em foco pinta de laranja, como o ícone). Null = a do item. */
     var corLetra: Int? = null
         set(v) { if (field != v) { field = v; invalidate() } }
-        set(v) { field = v; invalidate() }
     var progresso: Float? = null
         set(v) { field = v?.coerceIn(0f, 1f); invalidate() }
     var cobrir: Boolean = false
