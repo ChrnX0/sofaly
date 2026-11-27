@@ -16,7 +16,7 @@ class SofyRecipesTest {
         .put("match", JSONObject().put("type", type).put("area", area).put("target", target).put("cause", cause))
         .put("tools", JSONArray(tools)).put("evidence", JSONObject().put("homes", 3).put("cases", 5)).put("day", 1)
 
-    private fun resposta(vararg r: JSONObject) = JSONObject().put("v", 1).put("day", 1).put("recipes", JSONArray(r.toList()))
+    private fun resposta(vararg r: JSONObject) = JSONObject().put("day", 1).put("recipes", JSONArray(r.toList()))
 
     private fun caso(fixedBy: SofyRepair.Tool?, state: SofyRepair.State = SofyRepair.State.FIXED, detail: String = "") = SofyRepair.Case(
         key = "CRASH:app:com.app.x", type = SofyRepair.Type.CRASH, subject = "app:com.app.x", needs = emptySet(),
@@ -48,10 +48,35 @@ class SofyRecipesTest {
         assertEquals(1, SofyRecipes.parse(resposta(receita(type = "X"), receita())).size)
     }
 
-    @Test fun versaoErradaOuLixoNaoLeNada() {
-        assertEquals(0, SofyRecipes.parse(resposta(receita()).put("v", 2)).size)
+    @Test fun lixoNaoLeNada() {
         assertEquals(0, SofyRecipes.parse(null).size)
-        assertEquals(0, SofyRecipes.parse(JSONObject().put("v", 1)).size)
+        assertEquals(0, SofyRecipes.parse(JSONObject().put("day", 1)).size)
+    }
+
+    // Vetor feito no Node com uma chave de TESTE (não é a real), no mesmo formato do Worker: R||S em base64.
+    private val chaveTeste = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEaSelq8iEFbtDP1lU5HjtjOgNU3vHDoUMboDHJLIJ8zBH/2Cpo58gG4qFPphWL1xv2zKu44LzH7OWNFkLXmgWng=="
+    private val dado = "{\"day\":20000,\"recipes\":[]}"
+    private val assinatura = "0a+58ei4T6sGCINllebugq3YF/xR/0JMjz6ye4a/iRV0wyLxeDuGtHnGH3SrnLbnM6DrNSqYJVXBNxYw6MGi5A=="
+    private val hoje = 20_001L * 86_400_000L
+    private fun envelope(data: String = dado, sig: Any? = assinatura, v: Int = 1) =
+        JSONObject().put("v", v).put("data", data).put("sig", sig ?: JSONObject.NULL)
+
+    @Test fun abreSoComAssinaturaCerta() {
+        assertEquals(20000L, SofyRecipes.open(envelope(), hoje, chaveTeste)?.optLong("day"))
+        assertNull(SofyRecipes.open(envelope(data = dado.replace("20000", "20001")), hoje, chaveTeste))   // texto mexido
+        assertNull(SofyRecipes.open(envelope(sig = null), hoje, chaveTeste))                              // sem chave no servidor
+        assertNull(SofyRecipes.open(envelope(), hoje))                                                    // outra chave (a real)
+        assertNull(SofyRecipes.open(envelope(v = 2), hoje, chaveTeste))
+        assertNull(SofyRecipes.open(envelope(), hoje + 10 * 86_400_000L, chaveTeste))                     // velha demais
+        assertNull(SofyRecipes.open(null, hoje, chaveTeste))
+    }
+
+    @Test fun derDaAssinaturaCrua() {
+        val raw = ByteArray(64).also { it[0] = 0x80.toByte(); it[32] = 0; it[33] = 0x01 }
+        val der = SofyRecipes.rawToDer(raw)
+        assertEquals(0x30, der[0].toInt())
+        assertEquals(33, der[3].toInt())   // R com bit alto ganha um zero na frente
+        assertEquals(31, der[3 + 33 + 2].toInt())   // S perde o zero do começo
     }
 
     @Test fun sombraAcertoEErro() {

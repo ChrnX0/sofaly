@@ -56,11 +56,29 @@ export function deriveRecipes(groups, now) {
 const json = (body, status = 200, extra = {}) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', ...extra } });
 
-/** GET /v1/community/recipes (pública, igual para todos): a lista da última noite. A borda guarda 1 h. */
+// Assinatura (ECDSA P-256 + SHA-256): a TV só aceita a lista com a assinatura certa, com a chave pública que leva no app
+// (SofyRecipes.PUBLIC_KEY). A privada é o segredo RECIPES_SIGNING_KEY (PKCS8 em base64), nunca vai para o git. Sem ele
+// a lista sai sem assinatura e as TVs a recusam: nada quebra, só não chega.
+const b64 = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf)));
+const unb64 = (s) => Uint8Array.from(atob(s.trim()), (ch) => ch.charCodeAt(0));
+
+/** Assina o texto exato que a TV confere. Devolve a assinatura crua (R||S, 64 bytes) em base64, ou null sem chave. */
+export async function signText(text, keyB64) {
+  if (!keyB64) return null;
+  const key = await crypto.subtle.importKey('pkcs8', unb64(keyB64), { name: 'ECDSA', namedCurve: 'P-256' }, false, ['sign']);
+  return b64(await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, key, new TextEncoder().encode(text)));
+}
+
+/**
+ * GET /v1/community/recipes (pública, igual para todos): a lista da última noite. `data` é o texto JSON assinado
+ * ({day, recipes}); a TV confere `sig` sobre esse texto antes de ler. A borda guarda 1 h.
+ */
 export async function handleRecipes(env) {
   if (!env.FLEET) return json({ error: 'unavailable' }, 503);
   const r = await env.FLEET.get(env.FLEET.idFromName('fleet')).recipes();
-  return json({ v: RECIPES_VERSION, ...r }, 200, { 'cache-control': 'public, max-age=3600' });
+  const data = JSON.stringify({ day: r.day ?? null, recipes: r.recipes ?? [] });
+  const sig = await signText(data, env.RECIPES_SIGNING_KEY).catch(() => null);
+  return json({ v: RECIPES_VERSION, data, sig }, 200, { 'cache-control': 'public, max-age=3600' });
 }
 
 /** A noite (cron): o Fleet refaz o resumo e grava as receitas. */

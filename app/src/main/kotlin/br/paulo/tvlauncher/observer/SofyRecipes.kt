@@ -27,9 +27,54 @@ object SofyRecipes {
 
     enum class Verdict { HIT, MISS }
 
-    /** Lê a resposta do servidor. Receita com qualquer campo fora das listas daqui é descartada, sem aviso. */
+    /**
+     * A chave pública das receitas (ECDSA P-256, SPKI em base64). A privada é o segredo RECIPES_SIGNING_KEY do Worker
+     * (cópias só nos arquivos do Paulo, nunca no git). Trocar de chave = trocar aqui e lançar versão nova.
+     */
+    const val PUBLIC_KEY = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEV6qUDkEbBqF412fRzFl0TwJh7PpH4z89xSeYwJ9te+RSXZkksymkti7ajAeeRZQHMs6zndoeOZ4gK4jsYyWB+w=="
+    /** Lista mais velha que isto (em dias) é recusada: ninguém reenvia uma lista antiga assinada para sempre. */
+    const val MAX_AGE_DAYS = 7
+    private const val DAY_MS = 86_400_000L
+
+    /**
+     * Abre a resposta do servidor: `{v, data, sig}`, onde `data` é o texto JSON ({day, recipes}) e `sig` a assinatura
+     * crua (R||S, 64 bytes, base64) sobre esse texto exato. Sem assinatura certa, versão certa ou lista recente: null.
+     */
+    fun open(o: JSONObject?, now: Long, key: String = PUBLIC_KEY): JSONObject? {
+        if (o == null || o.optInt("v") != VERSION) return null
+        val data = o.optString("data").takeIf { it.isNotEmpty() } ?: return null
+        val sig = o.optString("sig").takeIf { it.isNotEmpty() && it != "null" } ?: return null
+        val ok = runCatching {
+            val pub = java.security.KeyFactory.getInstance("EC")
+                .generatePublic(java.security.spec.X509EncodedKeySpec(java.util.Base64.getDecoder().decode(key)))
+            java.security.Signature.getInstance("SHA256withECDSA").run {
+                initVerify(pub); update(data.toByteArray(Charsets.UTF_8)); verify(rawToDer(java.util.Base64.getDecoder().decode(sig)))
+            }
+        }.getOrDefault(false)
+        if (!ok) return null
+        val inner = runCatching { JSONObject(data) }.getOrNull() ?: return null
+        val day = inner.optLong("day", -1L)
+        if (day < 0 || now / DAY_MS - day > MAX_AGE_DAYS) return null
+        return inner
+    }
+
+    /** Assinatura crua R||S (o que a WebCrypto devolve) -> DER (o que o Java confere). */
+    fun rawToDer(raw: ByteArray): ByteArray {
+        require(raw.size == 64) { "assinatura crua deve ter 64 bytes" }
+        fun inteiro(b: ByteArray): ByteArray {
+            var i = 0
+            while (i < b.size - 1 && b[i] == 0.toByte()) i++
+            val t = b.copyOfRange(i, b.size)
+            return if (t[0] < 0) byteArrayOf(0) + t else t
+        }
+        val r = inteiro(raw.copyOfRange(0, 32)); val s = inteiro(raw.copyOfRange(32, 64))
+        val corpo = byteArrayOf(2, r.size.toByte()) + r + byteArrayOf(2, s.size.toByte()) + s
+        return byteArrayOf(0x30, corpo.size.toByte()) + corpo
+    }
+
+    /** Lê a lista já aberta por [open]. Receita com qualquer campo fora das listas daqui é descartada, sem aviso. */
     fun parse(o: JSONObject?): List<Recipe> {
-        if (o == null || o.optInt("v") != VERSION) return emptyList()
+        if (o == null) return emptyList()
         val a = o.optJSONArray("recipes") ?: return emptyList()
         return (0 until minOf(a.length(), MAX_RECIPES)).mapNotNull { i -> runCatching { one(a.getJSONObject(i)) }.getOrNull() }
     }
