@@ -101,6 +101,13 @@ object PlayerCarga {
         return if (cache.exists()) PlayerDados.canaisDeJson(cache.readText(), fonte) else emptyList()
     }
 
+    /** As categorias do Xtream; resposta que não é uma lista JSON (página de erro com 200) também conta como falha. */
+    private fun categoriasOuFalha(url: String): List<Xtream.Categoria> {
+        val texto = baixarTexto(url, 5L * 1024 * 1024)
+        org.json.JSONArray(texto)   // joga JSONException se não for uma lista
+        return Xtream.lerCategorias(texto)
+    }
+
     private fun baixarCanais(ctx: Context, fonte: FonteTv): List<Canal> {
         // Lista M3U lida linha a linha direto da rede: o texto inteiro (até 30 MB, o dobro na memória) nunca é montado.
         val principal: Xtream.Conta = fonte.xtream
@@ -123,7 +130,9 @@ object PlayerCarga {
         if (situacao == null) throw (falha as? IOException ?: IOException("o servidor não respondeu como Xtream"))
         PlayerArmazem.definirVencimento(ctx, fonte.id, fonte.nome, situacao.expiraEm)   // pílula "vence em N dias" da HOME
         if (!situacao.ativa) throw IOException("conta ${situacao.status.ifEmpty { "recusada" }}")
-        val categorias = runCatching { Xtream.lerCategorias(baixarTexto(Xtream.urlCategoriasAoVivo(conta), 5L * 1024 * 1024)) }.getOrDefault(emptyList())
+        // Sem as categorias nada aqui é escondido (adulto, grupos ocultos, controle parental só olham o nome do grupo)
+        // e a lista sem grupos ficaria 12 h como "fresca". Falhou: a carga inteira falha e fica a lista guardada.
+        val categorias = categoriasOuFalha(Xtream.urlCategoriasAoVivo(conta))
         return abrir(Xtream.urlCanaisAoVivo(conta), MAX_FLUXO).use { Xtream.lerCanais(JsonEmFluxo.objetos(it.reader()), conta, categorias) }
     }
 
@@ -241,7 +250,7 @@ object PlayerCarga {
         val fresco = cache.exists() && System.currentTimeMillis() - cache.lastModified() < VALIDADE_LISTA
         if (fresco && !forcar) lerGuardado(cache) { Vod.filmesDeJson(it, fonte.id) }.takeIf { it.isNotEmpty() }?.let { return@flatMap it }
         val baixados = runCatching {
-            val cats = runCatching { Xtream.lerCategorias(baixarTexto(Vod.urlCategoriasFilmes(conta), 5L * 1024 * 1024)) }.getOrDefault(emptyList())
+            val cats = categoriasOuFalha(Vod.urlCategoriasFilmes(conta))   // falhou: fica a guardada
             abrir(Vod.urlFilmes(conta), MAX_FLUXO).use { Vod.lerFilmes(JsonEmFluxo.objetos(it.reader()), fonte.id, cats) }
         }.onFailure { Log.w(TAG, "filmes de ${fonte.servidorVisivel}: ${it.javaClass.simpleName}") }.getOrNull()
         if (!baixados.isNullOrEmpty()) {
@@ -304,7 +313,7 @@ object PlayerCarga {
         val fresco = cache.exists() && System.currentTimeMillis() - cache.lastModified() < VALIDADE_LISTA
         if (fresco && !forcar) lerGuardado(cache) { Series.seriesDeJson(it, fonte.id) }.takeIf { it.isNotEmpty() }?.let { return@flatMap it }
         val baixadas = runCatching {
-            val cats = runCatching { Xtream.lerCategorias(baixarTexto(Series.urlCategorias(conta), 5L * 1024 * 1024)) }.getOrDefault(emptyList())
+            val cats = categoriasOuFalha(Series.urlCategorias(conta))   // falhou: fica a guardada
             abrir(Series.urlSeries(conta), MAX_FLUXO).use { Series.lerSeries(JsonEmFluxo.objetos(it.reader()), fonte.id, cats) }
         }.onFailure { Log.w(TAG, "séries de ${fonte.servidorVisivel}: ${it.javaClass.simpleName}") }.getOrNull()
         if (!baixadas.isNullOrEmpty()) {
