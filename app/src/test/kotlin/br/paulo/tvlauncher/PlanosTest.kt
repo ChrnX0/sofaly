@@ -40,7 +40,7 @@ class PlanosTest {
 
     /** Toda função paga dos degraus 3 e 4 que já existe na TV tem a trava ligada em algum lugar do código. */
     @Test fun travasLigadas() {
-        val codigo = File("src/main/kotlin/br/paulo/tvlauncher").walkTopDown().filter { it.isFile && it.name.endsWith(".kt") && it.name != "Planos.kt" }
+        val codigo = CodeSource.all().filter { it.name != "Planos.kt" }
             .joinToString("\n") { it.readText() }
         for (r in listOf(Recurso.FAMILIA_LINK, Recurso.RECADO_VIDEO, Recurso.SOM_NO_FONE, Recurso.CONTINUAR_OUTRA_TV,
             Recurso.PLUGINS, Recurso.SESSAO_JUNTO))

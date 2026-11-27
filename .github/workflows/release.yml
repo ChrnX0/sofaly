@@ -191,7 +191,7 @@ jobs:
       - name: Testes JVM
         run: |
           chmod +x gradlew
-          ./gradlew :app:testReleaseUnitTest --no-daemon --stacktrace
+          ./gradlew :app:testReleaseUnitTest :core:testReleaseUnitTest --no-daemon --stacktrace   # :core = refatoração G
 
       - name: Compilar o release
         env:

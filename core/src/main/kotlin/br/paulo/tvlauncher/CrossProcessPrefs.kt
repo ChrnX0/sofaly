@@ -58,7 +58,7 @@ object CrossProcessPrefs {
     }
 
     /** Só para testes: esquece as instâncias remotas. */
-    internal fun resetForTest() = remotos.clear()
+    fun resetForTest() = remotos.clear()
 
     private class Wrapped(base: Context) : ContextWrapper(base) {
         override fun getSharedPreferences(name: String?, mode: Int): SharedPreferences {

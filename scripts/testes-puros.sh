@@ -9,6 +9,7 @@ CACHE="${CACHE:-$HOME/.cache/tv-launcher-testes}"
 KOTLIN=2.2.20
 MAVEN=https://maven-central.storage-download.googleapis.com/maven2   # espelho: o Maven Central às vezes dá 429
 M="$RAIZ/app/src/main/kotlin/br/paulo/tvlauncher"
+MC="$RAIZ/core/src/main/kotlin/br/paulo/tvlauncher"   # módulo :core (refatoração G, 27/11/2026): lógica pura
 T="$RAIZ/app/src/test/kotlin/br/paulo/tvlauncher"
 
 mkdir -p "$CACHE"
@@ -102,7 +103,7 @@ for teste in "${!FONTES[@]}"; do
   [ -n "${1:-}" ] && [ "$teste" != "$1" ] && continue   # "bash scripts/testes-puros.sh AcmeClientTest" roda só um
   saida="$CACHE/out-$teste"; rm -rf "$saida"
   # Desde a refatoração de 21/11/2026 os fontes moram em subpacotes (observer/, home/...): acha cada um pelo nome.
-  arquivos=("$T/$teste.kt"); for f in ${FONTES[$teste]}; do arquivos+=("$(find "$M" -name "$f.kt" | head -1)"); done
+  arquivos=("$T/$teste.kt"); for f in ${FONTES[$teste]}; do arquivos+=("$(find "$M" "$MC" -name "$f.kt" | head -1)"); done
   "$CACHE/kotlinc/bin/kotlinc" "${arquivos[@]}" -cp "$CP" -d "$saida" -nowarn 2>&1 | grep -v JAVA_TOOL_OPTIONS || true
   if java -cp "$saida:$CP:$CACHE/kotlinc/lib/kotlin-stdlib.jar" org.junit.runner.JUnitCore "br.paulo.tvlauncher.$teste" > "$saida.log" 2>&1; then
     echo "ok     $teste: $(grep -E '^OK' "$saida.log")"

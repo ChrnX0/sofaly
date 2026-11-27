@@ -187,6 +187,8 @@ kotlin {
 // Antes eram zero dependências, de propósito (APK menor, menos RAM na TV). Até 03/11/2026 tinha a API do Shizuku
 // aqui (app Shizuku desinstalado, dependência removida); hoje só o shell próprio:
 dependencies {
+    // Refatoração G: a lógica pura mora no módulo :core (mesmos pacotes e nomes de classe; nada muda na TV).
+    implementation(project(":core"))
     // Shell proprio MARCO 2: cliente ADB embutido (pareamento + TLS + shell). Licenca Apache-2.0 (opcao da dupla).
     implementation("com.github.MuntashirAkon:libadb-android:3.1.1")
     implementation("com.github.MuntashirAkon:sun-security-android:1.1")

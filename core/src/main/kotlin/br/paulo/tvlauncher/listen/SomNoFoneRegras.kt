@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher.listen
 
 import br.paulo.tvlauncher.network.LgNetcast
-import br.paulo.tvlauncher.player.item
 
 /**
  * Som no fone (degrau 4, item 4, 17/11/2026): o som do NOSSO player vai para até 4 celulares da casa, cada um no seu
