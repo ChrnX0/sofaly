@@ -33,17 +33,19 @@ class SincronizarActivity : Activity() {
     private val ui = Handler(Looper.getMainLooper())
     private val rede = java.util.concurrent.Executors.newSingleThreadExecutor()
     private lateinit var servico: Servico
-    private lateinit var raiz: View
+    // Molde das telas de ajuste (ColumnsScreen; passada da Sala 27/11/2026: esta ainda era a coluna única esticada).
+    // Uma seção só (o trilho some): as opções no meio, o que cada uma faz na coluna da direita. Cada desenho refaz a tela.
+    private var tela: ColumnsScreen? = null
     private lateinit var lista: LinearLayout
+    private var alvo: View? = null
     private var naEscolha = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         servico = Servico.de(intent.getStringExtra(EXTRA).orEmpty())?.takeIf { it == Servico.TRAKT || it == Servico.SIMKL || it == Servico.MDBLIST }
             ?: run { finish(); return }
-        val (r, c) = Estilo.telaLista(this, servico.nome, "")
-        raiz = r; lista = c
-        setContentView(raiz)
+        nova(null)
+        mostrar()
         desenhar()
     }
 
@@ -57,11 +59,25 @@ class SincronizarActivity : Activity() {
         if (v is android.view.ViewGroup) for (i in 0 until v.childCount) ampliar(v.getChildAt(i))
     }
 
-    private fun linha(titulo: String, det: String?, direita: View?, foco: Boolean = false, aoOk: () -> Unit): View =
-        Estilo.linhaOpcao(this, titulo, det, direita).also { v ->
+    /** Começa uma tela nova (o subtítulo muda com a conta e a última sincronização); [mostrar] a põe na tela. */
+    private fun nova(sub: String?) {
+        tela = ColumnsScreen(this, servico.nome, sub).also { lista = it.section(servico.nome) }
+        alvo = null
+    }
+
+    private fun mostrar() {
+        val t = tela ?: return
+        setContentView(t.root)
+        t.start(alvo)
+    }
+
+    /** [naLinha]: o detalhe é estado (fica embaixo do título); senão é explicação e vai para a coluna da direita. */
+    private fun linha(titulo: String, det: String?, direita: View?, foco: Boolean = false, naLinha: Boolean = false, aoOk: () -> Unit): View =
+        Estilo.linhaOpcao(this, titulo, if (naLinha) det else null, direita).also { v ->
             ampliar(v); v.setOnClickListener { aoOk() }
-            lista.addView(v, Estilo.lpLinha(this))
-            if (foco) v.requestFocus()
+            if (!naLinha && !det.isNullOrEmpty()) tela?.describe(v) { ColumnsScreen.Info(null, titulo, det) }
+            lista.addView(v, tela?.lpRow() ?: Estilo.lpLinha(this))
+            if (foco) alvo = v
         }
 
     private fun desenhar(focar: Int = 0) {
@@ -79,12 +95,11 @@ class SincronizarActivity : Activity() {
                 if (conta == null) {   // a conta saiu (ou nunca entrou): diz o que falta em vez de fechar calada
                     AvisoTv.rapido(this, getString(R.string.aviso_sync_titulo), getString(R.string.aviso_sync_texto, servico.nome)); finish(); return@post
                 }
-                lista.removeAllViews()
                 val nome = conta.usuario.ifBlank { servico.nome }
                 val sub = if (servico == Servico.MDBLIST) getString(R.string.sync_sub_mdblist, nome) else getString(R.string.sync_sub, nome) + " " +
                     (if (ultima > 0) getString(R.string.sync_ultima, DateUtils.getRelativeTimeSpanString(ultima, System.currentTimeMillis(), DateUtils.MINUTE_IN_MILLIS))
                     else getString(R.string.sync_nunca))
-                lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, sub).apply { textSize = Estilo.Leitura.SINOPSE })
+                nova(sub)
                 val parado = when { bloqueado -> getString(R.string.sync_bloqueado); outroPerfil -> getString(R.string.sync_outro_perfil); else -> aviso }
                 if (parado != null) lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, parado).apply {
                     textSize = Estilo.Leitura.AVISO; setTextColor(Estilo.ATENCAO); setPaddingRelative(0, dp(8), 0, 0)
@@ -104,7 +119,7 @@ class SincronizarActivity : Activity() {
                 }
                 if (servico != Servico.SIMKL) {
                     val det = if (listas.isEmpty()) getString(R.string.sync_listas_nenhuma) else getString(R.string.sync_listas_n, listas.size, listas.joinToString(", ") { it.nome })
-                    linha(getString(R.string.sync_listas), det, Estilo.valor(this, "", seta = true), proxima()) { escolherListas() }
+                    linha(getString(R.string.sync_listas), det, Estilo.valor(this, "", seta = true), proxima(), naLinha = true) { escolherListas() }
                 }
                 if (servico != Servico.MDBLIST) {
                     val idx = i
@@ -116,6 +131,7 @@ class SincronizarActivity : Activity() {
                 if (fonte != 0) lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(fonte)).apply {
                     textSize = Estilo.Leitura.ITEM_DETALHE; setPaddingRelative(0, dp(16), 0, 0)
                 })
+                mostrar()
             }
         }
     }
@@ -167,10 +183,10 @@ class SincronizarActivity : Activity() {
 
     private fun escolherListas() {
         naEscolha = true
-        lista.removeAllViews()
-        lista.addView(Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.sync_listas_sub, SincronizarFilmes.MAX_LISTAS)).apply { textSize = Estilo.Leitura.SINOPSE })
+        nova(getString(R.string.sync_listas_sub, SincronizarFilmes.MAX_LISTAS))
         val carregando = Estilo.texto(this, Estilo.Papel.LEGENDA, getString(R.string.sync_listas_carregando)).apply { textSize = Estilo.Leitura.AVISO; setPaddingRelative(0, dp(16), 0, 0) }
         lista.addView(carregando)
+        mostrar()
         rede.execute {
             val disponiveis = ServicosSync.listasDisponiveis(this)
             ui.post {
@@ -188,9 +204,11 @@ class SincronizarActivity : Activity() {
                     val marca = Estilo.valor(this, if (escolhidas.any { it.chave == l.chave }) "✓" else "", seta = false)
                     val det = (if (l.servico == "trakt") "Trakt" else "MDBList") + " · " + getString(R.string.sync_lista_itens, l.total) +
                         (if (l.dono.isNotBlank()) " · ${l.dono}" else "")
-                    linha(l.nome, det, marca, primeira) { alternar(l, escolhidas, marca) }
+                    linha(l.nome, det, marca, primeira, naLinha = true) { alternar(l, escolhidas, marca) }
                     primeira = false
                 }
+                // A tela já está montada (com o "carregando"): só leva o foco à 1ª lista.
+                alvo?.requestFocus(); tela?.refresh()
             }
         }
     }
