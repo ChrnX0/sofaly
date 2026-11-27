@@ -220,6 +220,7 @@ class HelpOtherHomesActivity : Activity() {
                 .put(SofyFleetTv.URL_CASES, SofyFleetTv.today(this))
                 .put(SofyCommunityTv.URL_LESSONS, SofyCommunityTv.todayBody(this) ?: org.json.JSONObject())
                 .toString(2)
+                .replace("\\/", "/")   // o JSONObject do Android escreve "https:\/\/api..."; na tela fica o endereço como se lê
         }.getOrDefault("{}")
         val t = Estilo.texto(this, Estilo.Papel.LEGENDA, texto).apply {
             typeface = Typeface.MONOSPACE; isFocusable = true; setTextIsSelectable(false)
