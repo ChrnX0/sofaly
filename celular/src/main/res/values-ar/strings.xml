@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">محاولات كثيرة. انتظر %1$d ث ثم حاول مرة أخرى.</string>
     <string name="cel_fora_falhou">لم ينجح ذلك. حاول مرة أخرى في المنزل والتلفزيون قيد التشغيل.</string>
     <string name="cel_fora_pronto">تم. أصبح هذا الهاتف يتحكم في التلفزيون من خارج المنزل أيضًا.</string>
+    <string name="cel_camera_negada">يحتاج التطبيق إلى الكاميرا فقط لقراءة الرمز على شاشة التلفزيون.</string>
+    <string name="cel_camera_bloqueada">الكاميرا محظورة لهذا التطبيق. افتح إعدادات التطبيق واسمح بالكاميرا.</string>
+    <string name="cel_abrir_ajustes">فتح الإعدادات</string>
 </resources>

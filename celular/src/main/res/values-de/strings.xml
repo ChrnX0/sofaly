@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">Zu viele Versuche. Warte %1$d s und versuch es erneut.</string>
     <string name="cel_fora_falhou">Das hat nicht geklappt. Versuch es zu Hause bei eingeschaltetem Fernseher noch einmal.</string>
     <string name="cel_fora_pronto">Fertig. Dieses Handy steuert den Fernseher jetzt auch von unterwegs.</string>
+    <string name="cel_camera_negada">Die App braucht die Kamera nur, um den Code auf dem Fernseher zu lesen.</string>
+    <string name="cel_camera_bloqueada">Die Kamera ist für diese App gesperrt. Öffne die App-Einstellungen und erlaube die Kamera.</string>
+    <string name="cel_abrir_ajustes">Einstellungen öffnen</string>
 </resources>

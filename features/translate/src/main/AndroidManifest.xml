@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Baixada sob demanda (quem liga a tradução de legenda). fusing: entra inteira no APK único, se um dia houver. -->
+    <dist:module dist:title="@string/part_translate_title">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+        <dist:fusing dist:include="true" />
+    </dist:module>
+    <application android:hasCode="true">
+        <!-- O Gradle junta o manifesto desta parte ao da BASE, mas as classes ficam AQUI. O que o Android cria sozinho
+             quando o processo abre (provider e inicializadores do androidx.startup) e mora nesta parte derrubaria o
+             launcher numa TV sem ela (ClassNotFoundException a cada abertura; achado em 27/11/2026 no manifesto da base).
+             Por isso saem: o ML Kit é iniciado na mão em MlKitSubtitles.open (MlKit.initialize), e emoji2 e
+             lifecycle-process (que vêm com o appcompat do ML Kit) não são usados pelo launcher. scripts/check-parts.py
+             confere que toda classe que a base manda criar está na base. -->
+        <provider
+            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+            android:authorities="${applicationId}.mlkitinitprovider"
+            tools:node="remove" />
+        <!-- Sem nenhum inicializador, o provider do androidx.startup desta parte seria uma cópia vazia do da base (mesma
+             autoridade). A base mantém o dela, com o ProfileInstallerInitializer (perfil de desempenho da HOME). -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
+    </application>
+</manifest>

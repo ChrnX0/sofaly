@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
+    <!-- Baixada sob demanda (quem liga o acesso pela internet). Só a lib nativa, sem código. -->
+    <dist:module dist:title="@string/part_tunnel_title">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+        <dist:fusing dist:include="true" />
+    </dist:module>
+    <application android:hasCode="false" />
+</manifest>
