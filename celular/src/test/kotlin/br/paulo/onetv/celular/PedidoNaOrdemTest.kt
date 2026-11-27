@@ -1,40 +1,63 @@
 package br.paulo.onetv.celular
 
-import com.sun.net.httpserver.HttpServer
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import java.io.BufferedInputStream
 import java.net.HttpURLConnection
-import java.net.InetSocketAddress
+import java.net.InetAddress
+import java.net.ServerSocket
 import java.net.URL
+import kotlin.concurrent.thread
 
 /**
  * Todo POST do app passa por [ApiTv.prepararEConectar]. Até 27/11/2026 o app conectava antes de pôr os cabeçalhos e o
  * corpo: o HttpURLConnection recusava ("Already connected") e o controle nativo, o PIN do "Usar fora de casa" e o envio
- * de arquivos diziam "A TV não respondeu" com a TV ali. Aqui um servidor HTTP de verdade (o do próprio JDK) confere
- * que o pedido chega com cabeçalho e corpo.
+ * de arquivos diziam "A TV não respondeu" com a TV ali. Aqui um servidor HTTP mínimo num ServerSocket de verdade confere
+ * que o pedido chega com cabeçalho e corpo. (ServerSocket, e não o HttpServer do JDK: o teste do módulo Android compila
+ * contra o android.jar, que não tem com.sun.net.httpserver.)
  */
 class PedidoNaOrdemTest {
-    private lateinit var servidor: HttpServer
-    private var recebido = ""
-    private var cabecalho: String? = null
+    private lateinit var servidor: ServerSocket
+    @Volatile private var recebido = ""
+    @Volatile private var cabecalho: String? = null
 
+    /** Atende uma conexão: lê as linhas do cabeçalho, o corpo pelo Content-Length e responde 200 {"ok":true}. */
     @Before fun subir() {
-        servidor = HttpServer.create(InetSocketAddress("127.0.0.1", 0), 0)
-        servidor.createContext("/api/tela/tecla") { t ->
-            recebido = t.requestBody.readBytes().decodeToString()
-            cabecalho = t.requestHeaders.getFirst("X-Painel")
-            val r = """{"ok":true}""".toByteArray()
-            t.sendResponseHeaders(200, r.size.toLong()); t.responseBody.use { it.write(r) }
+        servidor = ServerSocket(0, 1, InetAddress.getByName("127.0.0.1"))
+        thread(isDaemon = true) {
+            runCatching {
+                servidor.accept().use { s ->
+                    val ent = BufferedInputStream(s.getInputStream())
+                    fun linha(): String {
+                        val b = StringBuilder()
+                        while (true) { val c = ent.read(); if (c < 0 || c == '\n'.code) break; if (c != '\r'.code) b.append(c.toChar()) }
+                        return b.toString()
+                    }
+                    linha() // "POST /api/tela/tecla HTTP/1.1"
+                    var tamanho = 0
+                    while (true) {
+                        val l = linha(); if (l.isEmpty()) break
+                        val (nome, valor) = l.split(":", limit = 2).map { it.trim() }
+                        if (nome.equals("Content-Length", true)) tamanho = valor.toInt()
+                        if (nome.equals("X-Painel", true)) cabecalho = valor
+                    }
+                    recebido = String(ByteArray(tamanho).also { var lido = 0; while (lido < tamanho) lido += ent.read(it, lido, tamanho - lido) })
+                    val r = """{"ok":true}"""
+                    s.getOutputStream().write("HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nContent-Length: ${r.length}\r\nConnection: close\r\n\r\n$r".toByteArray())
+                    s.getOutputStream().flush()
+                }
+            }
         }
-        servidor.start()
     }
 
-    @After fun descer() = servidor.stop(0)
+    @After fun descer() = servidor.close()
+
+    private fun conexao() = URL("http://127.0.0.1:${servidor.localPort}/api/tela/tecla").openConnection() as HttpURLConnection
 
     @Test fun postChegaComCabecalhoECorpo() {
-        val c = URL("http://127.0.0.1:${servidor.address.port}/api/tela/tecla").openConnection() as HttpURLConnection
+        val c = conexao()
         c.requestMethod = "POST"
         c.setRequestProperty("X-Painel", "1")
         ApiTv.prepararEConectar(c) { x ->
@@ -48,7 +71,7 @@ class PedidoNaOrdemTest {
     }
 
     @Test fun getTambemConecta() {
-        val c = URL("http://127.0.0.1:${servidor.address.port}/api/tela/tecla").openConnection() as HttpURLConnection
+        val c = conexao()
         ApiTv.prepararEConectar(c) { }
         assertEquals(200, c.responseCode)
     }
