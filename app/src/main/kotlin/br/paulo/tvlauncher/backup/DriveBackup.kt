@@ -43,6 +43,12 @@ object DriveBackup {
             .putString("drive_token_iv", iv).remove("drive_pasta").remove("drive_pasta_gravacoes").commit()
     } catch (e: Exception) { Log.w(TAG, "não consegui cifrar o token: ${e.javaClass.simpleName}"); false }
 
+    /** Só para a troca de pacote: e-mail e refresh token abertos (o Keystore do app antigo não abre no novo). */
+    internal fun contaParaMigracao(ctx: Context): Pair<String, String>? {
+        val email = prefs(ctx).getString("drive_email", null) ?: return null
+        return refresh(ctx)?.let { email to it }
+    }
+
     private fun refresh(ctx: Context): String? {
         val p = prefs(ctx)
         val dados = p.getString("drive_token_dados", null) ?: return null

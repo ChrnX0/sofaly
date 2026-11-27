@@ -2,6 +2,7 @@ package br.paulo.tvlauncher.backup
 
 import android.content.Context
 import android.util.Log
+import br.paulo.tvlauncher.BackupNoturno
 import br.paulo.tvlauncher.RecuperacaoTv
 import br.paulo.tvlauncher.Rotinas
 import br.paulo.tvlauncher.Timer
@@ -218,7 +219,7 @@ object BackupCompleto {
         if (envelope.length > LIMITE_BYTES * 2) throw IllegalArgumentException("arquivo grande demais")
         val claro = CofreBackup.abrir(envelope, senha)
         if (claro.length > LIMITE_BYTES || !ChecagensPainel.jsonRaso(claro)) throw IllegalArgumentException("conteúdo grande ou aninhado demais")
-        val o = runCatching { JSONObject(claro) }.getOrNull() ?: throw IllegalArgumentException("conteúdo ilegível")
+        val o = runCatching { JSONObject(BackupConfig.doPacoteDeHoje(app, claro)) }.getOrNull() ?: throw IllegalArgumentException("conteúdo ilegível")
         if (o.optInt("versao") != 3) throw IllegalArgumentException("versão de backup desconhecida")
         if (o.optString("pacote") != app.packageName) throw IllegalArgumentException("backup de outro app")
         val prefs = o.optJSONObject("preferencias") ?: throw IllegalArgumentException("sem preferências")
@@ -264,6 +265,7 @@ object BackupCompleto {
         // Chave de recuperação: a desta TV vale mais que a do backup. Senão restaurar um backup velho trazia de volta uma
         // chave trocada por ter vazado (ou apagava a atual, se o backup era de antes dela). Só adota a do backup sem chave aqui.
         if (RecuperacaoTv.publica(app) != null) extras.remove(RecuperacaoTv.PREFS)
+        manterAcessoDaTv(app, extras)
 
         // Retrato: as preferências (com as chaves do Keystore, que nesta mesma instalação continuam valendo) e os arquivos.
         val prefsAntes = JSONObject()
@@ -300,7 +302,7 @@ object BackupCompleto {
             }
         } catch (e: Exception) {
             Log.w(TAG, "restaurar falhou no meio, voltando ao retrato de antes: $e")
-            desfazer(app, prefsAntes, arquivosAntes, if (trocaTunel) tunelAntigo else null)
+            if (!desfazer(app, prefsAntes, arquivosAntes, if (trocaTunel) tunelAntigo else null)) throw DesfazerIncompleto(e)
             throw e
         }
         // Daqui em diante a restauração já valeu: o túnel de antes só é apagado agora, e os agendamentos ficam FORA do
@@ -324,6 +326,12 @@ object BackupCompleto {
         TunelTailscale.chave(app)?.let { s.put("tailscale", it) }
         CasaHA.tokenParaBackup(app)?.let { s.put("casa_ha", it) }
         ServicosContas.paraBackup(app)?.let { s.put("servicos", it) }
+        // Revisor 26/11: sem estes, o backup noturno do app novo não abria a senha, se desligava sozinho e esquecia o Drive.
+        BackupNoturno.senhaParaMigracao(app)?.let { s.put("noturno_senha", it) }
+        // Só se já existe: não cria identidade no antigo só para migrar.
+        if (app.getSharedPreferences("relay", Context.MODE_PRIVATE).contains("chaves"))
+            br.paulo.tvlauncher.relay.RelayTv.paraMigracao(app)?.let { s.put("relay", it) }
+        DriveBackup.contaParaMigracao(app)?.let { (email, refresh) -> s.put("drive_email", email).put("drive_refresh", refresh) }
         return s
     }
 
@@ -342,17 +350,53 @@ object BackupCompleto {
         s.optString("tailscale").ifEmpty { null }?.let { passo("tailscale") { TunelTailscale.definirChave(app, it) } }
         s.optString("casa_ha").ifEmpty { null }?.let { passo("casa_ha") { CasaHA.definirToken(app, it) } }
         s.optString("servicos").ifEmpty { null }?.let { passo("servicos") { ServicosContas.restaurarDoBackup(app, it) } }
+        s.optString("noturno_senha").ifEmpty { null }?.let { passo("backup noturno") { BackupNoturno.definirSenha(app, it) } }
+        s.optString("relay").ifEmpty { null }?.let { passo("relay") { br.paulo.tvlauncher.relay.RelayTv.deMigracao(app, it) } }
+        val email = s.optString("drive_email"); val refresh = s.optString("drive_refresh")
+        if (email.isNotEmpty() && refresh.isNotEmpty()) passo("drive") { DriveBackup.guardarConta(app, email, refresh) }
     }
 
     /** Volta preferências, arquivos e (se foi mexido) a pasta do túnel ao retrato tirado antes de restaurar. */
-    private fun desfazer(app: Context, prefsAntes: JSONObject, arquivosAntes: Map<File, ByteArray?>, tunelAntigo: File?) {
-        try { BackupConfig.aplicar(app, prefsAntes) } catch (e: Exception) { Log.w(TAG, "desfazer preferências: $e") }
-        for ((f, b) in arquivosAntes) try { if (b == null) f.delete() else f.writeBytes(b) } catch (e: Exception) { Log.w(TAG, "desfazer ${f.name}: $e") }
+    /** A restauração falhou e o desfazer também não voltou tudo: o painel não pode dizer "nada mudou". */
+    class DesfazerIncompleto(causa: Exception) : IllegalStateException("desfazer incompleto", causa)
+
+    /** true = voltou tudo como estava. false = algum arquivo não voltou (quem chama não pode dizer "nada mudou"). */
+    private fun desfazer(app: Context, prefsAntes: JSONObject, arquivosAntes: Map<File, ByteArray?>, tunelAntigo: File?): Boolean {
+        var inteiro = true
+        // Um arquivo por vez (revisor 26/11): o primeiro commit que falhava (disco cheio) parava o desfazer dos outros.
+        for (nome in prefsAntes.keys()) try { BackupConfig.aplicar(app, JSONObject().put(nome, prefsAntes.getJSONObject(nome))) }
+            catch (e: Exception) { inteiro = false; Log.w(TAG, "desfazer preferências $nome: $e") }
+        for ((f, b) in arquivosAntes) try { if (b == null) f.delete() else f.writeBytes(b) } catch (e: Exception) { inteiro = false; Log.w(TAG, "desfazer ${f.name}: $e") }
         if (tunelAntigo != null) {
             val pasta = TunelTailscale.pastaEstado(app)
             if (tunelAntigo.exists()) { pasta.deleteRecursively(); if (!tunelAntigo.renameTo(pasta)) Log.w(TAG, "desfazer: o túnel de antes não voltou") }
             TunelTailscale.ajustar(app)   // religa o túnel (se o MCP estiver ligado), como estava
         }
+        return inteiro
+    }
+
+    /**
+     * O acesso que vale é o de hoje (revisor 26/11), pela mesma regra da chave de recuperação e de "painel_aparelhos":
+     * restaurar a cópia de antes de trocar o PIN (vazado), revogar a chave de um celular ou derrubar um conector MCP
+     * trazia tudo de volta; e uma cópia sem PIN apagava o PIN de hoje (e com ele o controle parental). Se a TV já tem
+     * algum desses, ficam exatamente os dela; o do backup só entra numa TV que não tem nenhum (nova ou zerada).
+     */
+    internal val ACESSO_DA_TV = mapOf(
+        "painel_seguro" to setOf("pin_resumo", "pin_sal", "pin_iteracoes", "fam_resumo", "fam_sal", "fam_iteracoes", "chaves_acesso"),
+        "mcp_seguro" to setOf("estado"))
+
+    internal fun manterAcessoDaTv(app: Context, extras: JSONObject) {
+        for ((nome, chaves) in ACESSO_DA_TV) {
+            val doBackup = extras.optJSONObject(nome) ?: continue
+            val hoje = BackupConfig.exportarArquivo(app.getSharedPreferences(nome, Context.MODE_PRIVATE))
+            mesclarAcesso(doBackup, hoje, chaves)
+        }
+    }
+
+    /** Puro (BackupAcessoTest): [doBackup] fica com as [chaves] de [hoje] quando [hoje] tem alguma delas. */
+    internal fun mesclarAcesso(doBackup: JSONObject, hoje: JSONObject, chaves: Set<String>) {
+        if (chaves.none { hoje.has(it) }) return
+        for (k in chaves) { doBackup.remove(k); hoje.optJSONObject(k)?.let { doBackup.put(k, it) } }
     }
 
     /** Só confere que cada item tem um tipo conhecido e um valor daquele tipo (mesmo formato do BackupConfig). */

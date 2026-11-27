@@ -1,5 +1,8 @@
 // Painel em el (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"αυτή η συσκευή δεν έχει πλέον πρόσβαση",
+"noite da casa":"νύχτα στο σπίτι",
+"celular pareado para usar de fora de casa":"κινητό συζευγμένο για χρήση εκτός σπιτιού",
 "Plugins":"Πρόσθετα",
 "Botão de outro app":"Κουμπί από άλλη εφαρμογή",
 "Nenhum botão ligado":"Κανένα κουμπί ενεργό",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Έτοιμο: ο ήχος αυτής της TV καθυστερεί $1 ms στην έξοδο $2. Ο Ήχος στα ακουστικά ήδη χρησιμοποιεί αυτόν τον αριθμό."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Τρέχουσα έξοδος: $1. Μετρημένη καθυστέρηση: $2 ms. Ο Ήχος στα ακουστικά ήδη χρησιμοποιεί αυτόν τον αριθμό."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Τρέχουσα έξοδος: $1. Δεν έχει μετρηθεί: ο Ήχος στα ακουστικά χρησιμοποιεί $2 ms, προεπιλεγμένη τιμή."],
+["^celular pareado: (.+)$","κινητό συζευγμένο: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","σύνδεση από συζευγμένο κινητό ($1)"],
+["^acesso revogado: (.+)$","η πρόσβαση ανακλήθηκε: $1"],
+["^acesso de fora de casa revogado: (.+)$","η πρόσβαση εκτός σπιτιού ανακλήθηκε: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","η επαναφορά απέτυχε στην τηλεόραση ($1) και δεν επανήλθαν όλα όπως ήταν: κατεβάστε το προηγούμενο αντίγραφο στο Αντίγραφο ασφαλείας"],
 ]});

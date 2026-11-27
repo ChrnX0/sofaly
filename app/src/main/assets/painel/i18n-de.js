@@ -1,5 +1,8 @@
 // Painel em de (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"dieses Gerät hat keinen Zugriff mehr",
+"noite da casa":"Nacht im Haus",
+"celular pareado para usar de fora de casa":"Handy für unterwegs gekoppelt",
 "Plugins":"Plugins",
 "Botão de outro app":"Taste einer anderen App",
 "Nenhum botão ligado":"Keine Taste eingeschaltet",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Fertig: Der Ton dieses Fernsehers ist am Ausgang $2 um $1 ms verzögert. Ton über Kopfhörer nutzt diesen Wert bereits."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Aktueller Ausgang: $1. Gemessene Verzögerung: $2 ms. Ton über Kopfhörer nutzt diesen Wert bereits."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Aktueller Ausgang: $1. Noch nicht gemessen: Ton über Kopfhörer nutzt $2 ms, einen Standardwert."],
+["^celular pareado: (.+)$","Handy gekoppelt: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","Anmeldung über gekoppeltes Handy ($1)"],
+["^acesso revogado: (.+)$","Zugriff entzogen: $1"],
+["^acesso de fora de casa revogado: (.+)$","Zugriff von unterwegs entzogen: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","die Wiederherstellung ist auf dem Fernseher fehlgeschlagen ($1) und nicht alles ist wie vorher: laden Sie die frühere Kopie unter Sicherung herunter"],
 ]});

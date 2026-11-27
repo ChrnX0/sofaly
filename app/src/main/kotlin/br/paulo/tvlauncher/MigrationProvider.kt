@@ -40,7 +40,7 @@ class MigrationProvider : ContentProvider() {
             method == PackageMigration.METHOD_SECRETS && role == PackageMigration.Role.SOURCE ->
                 limpo { PackageMigration.exportSecrets(ctx) }
             method == PackageMigration.METHOD_IMPORT && role == PackageMigration.Role.TARGET ->
-                limpo { PackageMigration.importFromLegacy(ctx) }
+                limpo { PackageMigration.importFromLegacy(ctx, forcar = extras?.getBoolean(PackageMigration.EXTRA_FORCE) == true) }
             else -> null
         }
     }

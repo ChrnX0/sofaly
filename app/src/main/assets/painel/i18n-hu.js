@@ -1,5 +1,8 @@
 // Painel em hu (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"ennek az eszköznek már nincs hozzáférése",
+"noite da casa":"otthoni éjszaka",
+"celular pareado para usar de fora de casa":"telefon párosítva otthonon kívüli használatra",
 "Plugins":"Bővítmények",
 "Botão de outro app":"Gomb egy másik alkalmazásból",
 "Nenhum botão ligado":"Nincs bekapcsolt gomb",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Kész: ennek a tévének a hangja $1 ms-ot késik a(z) $2 kimeneten. A Hang fejhallgatón már ezt a számot használja."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Jelenlegi kimenet: $1. Mért késés: $2 ms. A Hang fejhallgatón már ezt a számot használja."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Jelenlegi kimenet: $1. Még nincs mérve: a Hang fejhallgatón $2 ms-os alapértéket használ."],
+["^celular pareado: (.+)$","telefon párosítva: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","belépés párosított telefonról ($1)"],
+["^acesso revogado: (.+)$","hozzáférés visszavonva: $1"],
+["^acesso de fora de casa revogado: (.+)$","otthonon kívüli hozzáférés visszavonva: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","a visszaállítás nem sikerült a tévén ($1), és nem minden lett a régi: töltsd le a korábbi másolatot a Biztonsági mentésben"],
 ]});

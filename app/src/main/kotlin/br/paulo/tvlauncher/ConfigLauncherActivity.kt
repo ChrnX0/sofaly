@@ -1135,7 +1135,7 @@ class ConfigLauncherActivity : Activity() {
                     ui.post {
                         if (isDestroyed) return@post
                         PainelArmazem.definirLigado(this, true)
-                        PainelWeb.recomecar(this)
+                        PainelWeb.pinTrocado(this)
                         pinValidoAte = System.currentTimeMillis() + PIN_VALE_MS
                         avisar(getString(R.string.cl_pin_definido))
                         aoGravar()

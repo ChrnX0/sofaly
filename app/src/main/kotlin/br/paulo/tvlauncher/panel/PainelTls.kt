@@ -75,7 +75,17 @@ object PainelTls {
      */
     @Synchronized fun garantir(ctx: Context, ip: String?, prefixo: Int): CertificadoX509.Emissao? {
         val agora = System.currentTimeMillis()
-        val e = atual ?: carregar(ctx)
+        val e = atual ?: try { carregar(ctx).also { falhasLeitura(ctx, 0) } } catch (x: Ilegivel) {
+            val n = falhasLeitura(ctx, -1) + 1
+            falhasLeitura(ctx, n)
+            if (n < FALHAS_PARA_EMITIR) {
+                Log.w(TAG, "certificado guardado não abriu ($n de $FALHAS_PARA_EMITIR): https desligado nesta subida, sem trocar a CA: ${x.cause}")
+                return null
+            }
+            Log.w(TAG, "certificado guardado ilegível $n vezes seguidas: emitindo outro")
+            falhasLeitura(ctx, 0)
+            null
+        }
         if (e != null && e.servidor.notAfter.time > agora) { atual = e; avisarVencimento(ctx, e, agora); return e }
         if (e != null) Log.i(TAG, "certificado vencido: emitindo outro")
         return emitir(ctx, ip, prefixo)
@@ -164,8 +174,19 @@ object PainelTls {
             else CertificadoX509.Emissao(CertificadoX509.ler(ca.readBytes()), servidor, pk)
         }
     } catch (e: Exception) {
-        Log.w(TAG, "certificado guardado ilegível, vou emitir outro: $e")
-        null
+        // Revisor 26/11: um soluço do Keystore aqui emitia CA nova, e todo celular e computador tinha de reinstalar.
+        // Quem decide se emite é o garantir, depois de algumas subidas seguidas sem conseguir ler.
+        throw Ilegivel(e)
+    }
+
+    private class Ilegivel(causa: Exception) : Exception(causa)
+    private const val FALHAS_PARA_EMITIR = 3
+
+    /** [n] >= 0 grava; -1 só lê. Contagem das subidas seguidas em que o certificado guardado não abriu. */
+    private fun falhasLeitura(ctx: Context, n: Int): Int {
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        if (n >= 0) p.edit().putInt("falhas_leitura", n).apply()
+        return p.getInt("falhas_leitura", 0)
     }
 
     /** Assina e confere um texto qualquer: a chave privada [pk] é a do certificado? */

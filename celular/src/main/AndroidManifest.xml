@@ -7,7 +7,6 @@
     <!-- Controle na notificação e na tela bloqueada (estudo global 20/11, ideia 16). Pedida só ao abrir o controle. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Vibração em cada tecla do controle nativo (ideia 14). -->
-    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".CelularApp"
@@ -15,7 +14,7 @@
         android:icon="@mipmap/ic_onetv"
         android:allowBackup="false"
         android:networkSecurityConfig="@xml/rede"
-        android:theme="@android:style/Theme.Material.NoActionBar"
+        android:theme="@style/Tema"
         android:supportsRtl="true">
         <activity android:name=".TvsActivity" android:exported="true" android:launchMode="singleTop">
             <intent-filter>

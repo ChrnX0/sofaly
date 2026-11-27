@@ -1,5 +1,8 @@
 // Painel em fi (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"tällä laitteella ei ole enää pääsyä",
+"noite da casa":"kodin yö",
+"celular pareado para usar de fora de casa":"puhelin yhdistetty käyttöön kodin ulkopuolelta",
 "Plugins":"Laajennukset",
 "Botão de outro app":"Toisen sovelluksen painike",
 "Nenhum botão ligado":"Yhtään painiketta ei ole päällä",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Valmis: tämän TV:n ääni viivästyy $1 ms lähdössä $2. Ääni kuulokkeisiin käyttää jo tätä lukua."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Nykyinen lähtö: $1. Mitattu viive: $2 ms. Ääni kuulokkeisiin käyttää jo tätä lukua."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Nykyinen lähtö: $1. Ei vielä mitattu: Ääni kuulokkeisiin käyttää $2 ms:n oletusarvoa."],
+["^celular pareado: (.+)$","puhelin yhdistetty: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","kirjautuminen yhdistetyllä puhelimella ($1)"],
+["^acesso revogado: (.+)$","pääsy peruttu: $1"],
+["^acesso de fora de casa revogado: (.+)$","pääsy kodin ulkopuolelta peruttu: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","palautus epäonnistui televisiossa ($1) eikä kaikki palannut ennalleen: lataa aiempi kopio kohdasta Varmuuskopio"],
 ]});
