@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Laatste</string>
     <string name="bkn_nunca">nooit</string>
     <string name="bkn_pin">Pincode om de back-up te wijzigen</string>
+    <string name="bk_motivo_senha">Het wachtwoord klopt niet.</string>
+    <string name="bk_motivo_invalido">Dit bestand is geen Sofaly-back-up of het is beschadigd.</string>
+    <string name="bk_motivo_ler">Kon het niet lezen (netwerk of opslag).</string>
 </resources>

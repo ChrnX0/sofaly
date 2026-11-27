@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ver_novidades">Wat er veranderde</string>
+    <string name="ver_novidades_det">%1$d wijzigingen in versie %2$s</string>
+    <string name="ver_novidades_sobre">Versie %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Controleren op de tv</string>
+    <string name="ver_conferir_det">%1$d van %2$d gecontroleerd met de afstandsbediening</string>
+    <string name="ver_conferir_sub">Versie %1$s · %2$d punten</string>
+    <string name="ver_conferido">%1$d van %2$d gecontroleerd</string>
+    <string name="ver_sim">Ja</string>
+    <string name="ver_nao">Nee</string>
+    <string name="ver_respondido_sim">geantwoord “ja”</string>
+    <string name="ver_respondido_nao">geantwoord “nee”</string>
+</resources>

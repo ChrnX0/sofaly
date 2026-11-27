@@ -30,4 +30,6 @@
     <string name="bb_titulo">Indeling van het startscherm</string>
     <string name="bb_cruz">Kruis</string>
     <string name="bb_barra">Balk onderaan</string>
+    <string name="wo_ultimos">Laatst gebruikt eerst</string>
+    <string name="wo_aleatorio">Willekeurig (wisselt elke dag)</string>
 </resources>

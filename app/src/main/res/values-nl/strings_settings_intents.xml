@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=grotere letters|letters groter|tekst groter|grotere tekst|lettertype groter;TEXT_SMALLER=kleinere letters|letters kleiner|tekst kleiner|kleinere tekst|lettertype kleiner;GOAL_READ=beter lezen|moeilijk lezen|slecht zien|zie slecht;GOAL_CLEAN=rustiger scherm|schoon scherm|minder rommel|eenvoudig scherm;GOAL_ENERGY=minder energie|energie besparen|stroom besparen|minder stroom;LOOK_SOFALY=sofaly look|standaard look;LOOK_NIGHT=nacht look|donkere lucht;LOOK_MOUNTAIN=bergen look|berg look;LOOK_MINIMAL=minimale look|minimalistische look</string>
+    <string name="si_fazer">Nu doen: %1$s</string>
+    <string name="si_desfazer">Ongedaan maken: %1$s</string>
+    <string name="si_fazer_det">Verandert meteen.</string>
+    <string name="si_maior">Grotere tekst</string>
+    <string name="si_menor">Kleinere tekst</string>
+</resources>
