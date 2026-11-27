@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=बड़े अक्षर|अक्षर बड़े|टेक्स्ट बड़ा|फ़ॉन्ट बड़ा;TEXT_SMALLER=छोटे अक्षर|अक्षर छोटे|टेक्स्ट छोटा|फ़ॉन्ट छोटा;GOAL_READ=बेहतर पढ़ें|पढ़ना मुश्किल|ठीक से नहीं दिखता;GOAL_CLEAN=साफ़ स्क्रीन|सादी स्क्रीन;GOAL_ENERGY=बिजली बचाएँ|कम बिजली|ऊर्जा बचाएँ;LOOK_SOFALY=sofaly लुक|सामान्य लुक;LOOK_NIGHT=रात लुक|अँधेरा आसमान;LOOK_MOUNTAIN=पहाड़ लुक;LOOK_MINIMAL=सादा लुक</string>
+    <string name="si_fazer">अभी करें: %1$s</string>
+    <string name="si_desfazer">वापस लें: %1$s</string>
+    <string name="si_fazer_det">तुरंत बदल जाता है।</string>
+    <string name="si_maior">बड़े अक्षर</string>
+    <string name="si_menor">छोटे अक्षर</string>
+</resources>

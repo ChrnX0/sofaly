@@ -59,4 +59,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl रेटिंग</string>
     <string name="sv_simkl_convite_det">अपना खाता जोड़ें</string>
+    <string name="legenda_muitas">अभी सबटाइटल की बहुत ज़्यादा खोजें हैं। एक मिनट बाद फिर कोशिश करें।</string>
+    <string name="legenda_conta_recusada">OpenSubtitles ने खाता अस्वीकार किया। इसे सेटिंग्स में जाँचें।</string>
+    <string name="legenda_fora">सबटाइटल सेवा बंद है। बाद में कोशिश करें।</string>
 </resources>

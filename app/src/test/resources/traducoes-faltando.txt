@@ -17,7 +17,7 @@ values-fi=236
 
 values-fr=3
 
-values-hi=224
+values-hi=3
 
 values-hu=224
 
