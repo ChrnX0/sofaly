@@ -178,7 +178,11 @@ object BackupConfig {
         } catch (e: Exception) {
             // Falhou no meio (um arquivo gravou e outro não): volta tudo ao estado de antes, para não ficar misturado.
             Log.w(TAG, "restaurar falhou no meio, voltando ao anterior: $e")
-            try { aplicar(ctx, JSONObject(anterior).getJSONObject("arquivos")) } catch (e2: Exception) { Log.w(TAG, "e voltar também falhou: $e2") }
+            try { aplicar(ctx, JSONObject(anterior).getJSONObject("arquivos")) } catch (e2: Exception) {
+                // Não dá para dizer "as de antes foram mantidas" (#557): o painel avisa e aponta a cópia de antes.
+                Log.w(TAG, "e voltar também falhou: $e2")
+                throw BackupCompleto.DesfazerIncompleto(e)
+            }
             throw e
         }
     }
