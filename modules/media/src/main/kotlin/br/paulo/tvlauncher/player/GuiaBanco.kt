@@ -25,7 +25,7 @@ object GuiaBanco {
      * Grava um guia novo num arquivo temporário. Uso: [lote] por tentativa de download, [concluir] no fim.
      * Um lote que dá erro (rede caiu no meio) é desfeito inteiro: assim a nova tentativa não duplica programas.
      */
-    class Gravador internal constructor(private val db: SQLiteDatabase) {
+    class Gravador constructor(private val db: SQLiteDatabase) {
         private val insere: SQLiteStatement =
             db.compileStatement("INSERT INTO programa(canal, inicio, fim, titulo, descricao, categoria) VALUES (?,?,?,?,?,?)")
 

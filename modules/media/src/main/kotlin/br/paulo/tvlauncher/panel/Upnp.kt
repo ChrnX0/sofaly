@@ -202,7 +202,7 @@ object Upnp {
      * comentário grande antes do DOCTYPE (ou o XML em UTF-16, com um byte zero entre as letras) passava. Agora olha o
      * arquivo inteiro (já limitado a MAX_BYTES) e ignora os bytes zero, assim "<!DOCTYPE" em UTF-16/UTF-32 também aparece.
      */
-    internal fun semDoctype(xml: ByteArray, texto: String = semZeros(xml)): ByteArray {
+    fun semDoctype(xml: ByteArray, texto: String = semZeros(xml)): ByteArray {
         require(!texto.contains("<!DOCTYPE", ignoreCase = true) && !texto.contains("<!ENTITY", ignoreCase = true)) { "DOCTYPE recusado" }
         return xml
     }
@@ -212,7 +212,7 @@ object Upnp {
      * elementos um dentro do outro estouravam a pilha (StackOverflowError) no textContent, e o leitor de XML do Android
      * monta a árvore de forma recursiva. Recusa antes de ler, com o mesmo IllegalArgumentException do DOCTYPE.
      */
-    internal fun conferirXml(xml: ByteArray): ByteArray {
+    fun conferirXml(xml: ByteArray): ByteArray {
         val texto = semZeros(xml)
         semDoctype(xml, texto)
         require(niveis(texto) <= MAX_NIVEIS) { "XML fundo demais" }
@@ -234,7 +234,7 @@ object Upnp {
      * desconta "</"; pula comentário, CDATA, "<?" e "<!". Aspas dentro da tag não confundem (um ">" no valor de um
      * atributo é permitido). Para assim que passa do teto: não precisa olhar o resto.
      */
-    internal fun niveis(t: String): Int {
+    fun niveis(t: String): Int {
         var nivel = 0
         var maior = 0
         var i = 0

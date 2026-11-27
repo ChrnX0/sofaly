@@ -6,10 +6,8 @@ import android.os.Looper
 import android.util.Log
 import android.util.Xml
 import br.paulo.tvlauncher.JsonEmFluxo
-import br.paulo.tvlauncher.LembretesTv
 import br.paulo.tvlauncher.TvDeVolta
 import br.paulo.tvlauncher.games.MeuTimeAdiante
-import br.paulo.tvlauncher.home.abrir
 import java.io.File
 import java.io.FilterInputStream
 import java.io.IOException
@@ -463,7 +461,7 @@ object PlayerCarga {
             val comPrograma = HashSet<String>()
             val fontes = PlayerArmazem.fontes(ctx)
             // "Meu time" com alcance de dias (ideia 16): além da janela, só as partidas que casam com as palavras.
-            val palavras = LembretesTv.palavrasParaGuia(ctx)
+            val palavras = MediaHost.guideWords(ctx)
             val adiante = palavras.takeIf { it.isNotEmpty() }?.let { MeuTimeAdiante.Coletor(it, agora) }
             val alem = if (adiante != null) agora + MeuTimeAdiante.JANELA_MS else Long.MIN_VALUE
             val aoLerAlem: ((Programa) -> Unit)? = adiante?.let { c -> { p -> c.oferecer(p.guiaId, p.inicio, p.fim, p.titulo) } }
@@ -526,7 +524,7 @@ object PlayerCarga {
             for (fim in listOf("-journal", "-wal", "-shm")) File(arquivo.path + fim).delete()
             if (tmp.renameTo(arquivo)) {
                 GuiaBanco.apagar(tmp)
-                LembretesTv.varrerDepois(ctx)   // guia novo: os lembretes do "Meu time" se refazem com ele
+                MediaHost.onGuideUpdated(ctx)   // guia novo: os lembretes do "Meu time" se refazem com ele
                 abrirGuia(arquivo, guardar)?.let { return it }
             }
         }
@@ -546,7 +544,7 @@ object PlayerCarga {
      * Trocar o nome é tudo ou nada: ou fica o arquivo antigo inteiro, ou o novo inteiro.
      */
     /** Devolve se gravou (18/11/2026: antes engolia a falha, e quem chamava dizia "salvo" com o disco cheio). */
-    internal fun gravarAtomico(arquivo: File, texto: String): Boolean {
+    fun gravarAtomico(arquivo: File, texto: String): Boolean {
         // Nome temporário único (dois processos gravando o mesmo arquivo não disputam o mesmo .tmp) e fsync antes de
         // trocar (queda de energia logo depois não deixa o arquivo vazio).
         val tmp = File(arquivo.path + ".tmp-" + java.util.UUID.randomUUID().toString().take(8))

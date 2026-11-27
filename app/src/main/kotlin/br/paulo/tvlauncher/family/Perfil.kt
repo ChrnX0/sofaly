@@ -75,8 +75,7 @@ object Perfil {
      * gravando os favoritos no perfil antigo depois da troca. O arquivo é relido a cada uso (alguns bytes; o
      * PlayerArmazem já lê o favoritos.json do disco a cada vez), então não há cache para invalidar entre processos.
      */
-    fun chaveDados(contexto: Context): String =
-        PerfilDados.lerChave(runCatching { File(contexto.filesDir, PerfilDados.ARQUIVO_ATIVO).readText() }.getOrNull())
+    fun chaveDados(contexto: Context): String = PerfilDados.chaveAtiva(contexto)
 
     @Volatile private var chaveGravada: String? = null
 

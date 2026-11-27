@@ -3,7 +3,6 @@ package br.paulo.tvlauncher.player
 import android.content.Context
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.resources.R
-import br.paulo.tvlauncher.panel.entrar
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -125,7 +124,7 @@ object LegendaBaixar {
     fun textoDoCodigo(codigo: Int): Int = when (codigo) { 429 -> 1; 401, 403 -> 2; in 500..599 -> 3; else -> 0 }
 
     /** [idioma]: o da TV (ideia 25); a ideia 90 pede a inglesa para traduzir. */
-    fun buscar(ctx: Context, b: LegendaExterna.Busca, idioma: String = IdiomaPlayer.idiomaDaTv()): Result<List<LegendaExterna.Candidata>> = runCatching {
+    fun buscar(ctx: Context, b: LegendaExterna.Busca, idioma: String = Idioma.idiomaDaTv(java.util.Locale.getDefault().language)): Result<List<LegendaExterna.Candidata>> = runCatching {
         val conta = contaEmUso(ctx) ?: throw Falha(ctx.getString(R.string.legenda_sem_conta))
         // 18/11/2026: id TMDB primeiro, depois nome + ano, depois só o nome (LegendaExterna.buscas). Para na primeira
         // que acha; erro numa delas não esconde o resultado das outras, só aparece se nenhuma der certo.

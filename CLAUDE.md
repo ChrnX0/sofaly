@@ -13,9 +13,11 @@ with no R/BuildConfig lives in `:core` (`core/src/main/kotlin`, same packages); 
 `br.paulo.tvlauncher.BuildConfig` (same name and constants as before; fields and `-Pplay` logic in `resources/build.gradle.kts`,
 the versionCode once in the root `build.gradle.kts`); `:app` no longer generates its own. Area modules live in `modules/<area>`
 (English folder names, same packages). First one: `:weather` (`modules/weather`: weather sources, forecast, sky, moon,
-location; the warning screens stay in `:app`). It cannot see `:app`: what it needs from the app (Context, relay signing,
-the plan's weather source) comes through `WeatherHost`, filled in `LauncherApp.onCreate`; its settings are
-`WeatherConfig` (`Config` keeps the old names pointing there). Don't make module classes `internal` if `:app` or its
+location; the warning screens stay in `:app`). It cannot see `:app`: what it needs from the app (relay signing,
+the plan's weather source) comes through `WeatherHost`, filled in `LauncherApp.onCreate` (any module gets the app Context from `AppContext` and translated text from `txt`, both in `:core`); its settings are
+`WeatherConfig` (`Config` keeps the old names pointing there). Second: `:media` (`modules/media`: the player's data, i.e. Xtream/M3U/Plex/
+Jellyfin catalogs, cache loading, guide, external info and subtitles, service accounts, parental rules; no screens and
+no media3), with `MediaHost` for what lives in the app (TMDB/Simkl plan gates, "Meu time" guide words, Simkl library). Don't make module classes `internal` if `:app` or its
 tests use them. Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.

@@ -647,8 +647,9 @@ class FuzzParsersTest {
         val primeiroArquivo = lista.indexOfFirst { !it.pasta }
         if (primeiroArquivo >= 0) assertTrue("pasta depois de arquivo", lista.drop(primeiroArquivo).none { it.pasta })
         for (e in lista) {
-            if (!e.pasta) assertTrue("url: ${e.url}", e.url!!.startsWith("http://") || e.url.startsWith("https://"))
-            assertTrue("capa: ${e.capa}", e.capa == null || e.capa.startsWith("http"))
+            val url = e.url; val capa = e.capa   // cópias locais: Upnp.Entrada mora no módulo :media
+            if (!e.pasta) assertTrue("url: $url", url!!.startsWith("http://") || url.startsWith("https://"))
+            assertTrue("capa: $capa", capa == null || capa.startsWith("http"))
         }
     }
 

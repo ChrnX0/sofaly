@@ -1,6 +1,8 @@
 package br.paulo.tvlauncher.weather
 
+import br.paulo.tvlauncher.AppContext
 import br.paulo.tvlauncher.resources.R
+import br.paulo.tvlauncher.txt
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -18,7 +20,7 @@ object Lua {
     private const val LUA_NOVA_REFERENCIA_MS = 947_182_440_000L   // 2000-01-06 18:14 UTC
 
     // Os nomes das fases ficam em res/values/strings.xml ("fases_lua"), traduzidos pelo idioma da TV.
-    private val NOMES get() = WeatherHost.app.resources.getStringArray(R.array.fases_lua)
+    private val NOMES get() = AppContext.app.resources.getStringArray(R.array.fases_lua)
 
     // Emojis na ordem das fases, como vistos do hemisfério norte (iluminada à direita enquanto cresce).
     private val EMOJIS = arrayOf("🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘")
@@ -115,9 +117,9 @@ object Lua {
         val fase = indiceDaFase(idade)
         val falarDaCheia = when (fase) { 4 -> false; 0 -> true; else -> diasParaCheia <= diasParaNova }
         val proxima = if (falarDaCheia) {
-            WeatherHost.txt(R.string.lua_cheia_em, diasNoCalendario(agoraMs, diasParaCheia))
+            txt(R.string.lua_cheia_em, diasNoCalendario(agoraMs, diasParaCheia))
         } else {
-            WeatherHost.txt(R.string.lua_nova_em, diasNoCalendario(agoraMs, diasParaNova))
+            txt(R.string.lua_nova_em, diasNoCalendario(agoraMs, diasParaNova))
         }
         return "${emoji(agoraMs, latitude)}  ${NOMES[indiceDaFase(idade)]}  ·  $iluminada%  ·  $proxima"
     }

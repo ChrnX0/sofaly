@@ -74,7 +74,7 @@ object TraktDetails {
      * Texto do campo, "" se faltar OU vier null. No Android, optString de um `null` do JSON devolve a palavra "null"
      * (o org.json dos testes devolve ""): o Trakt manda "overview": null nas traduções e a ficha mostrava "null" (20/11/2026).
      */
-    internal fun txt(o: JSONObject?, campo: String): String =
+    fun txt(o: JSONObject?, campo: String): String =
         if (o == null || o.isNull(campo)) "" else o.optString(campo)
 
     fun traktDe(o: JSONObject?): Int? = o?.optJSONObject("ids")?.optInt("trakt")?.takeIf { it > 0 }
