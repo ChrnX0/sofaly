@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">推荐</string>
     <string name="pod_sugestao_seguir">按 OK 订阅</string>
     <string name="pod_sugeridos_seguidos">已将推荐播客添加到我的播客</string>
+    <string name="pod_busca_nada">未找到播客。</string>
+    <string name="pod_busca_cota">播客搜索今天休息，明天恢复。</string>
+    <string name="pod_busca_fora">播客搜索没有响应，请稍后再试。</string>
+    <string name="pod_busca_rede">没有网络，请检查电视的连接。</string>
+    <string name="tx_falhou_det">无法生成本集的文字，请稍后再试。</string>
 </resources>

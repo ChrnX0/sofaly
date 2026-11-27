@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">اقتراحات</string>
     <string name="pod_sugestao_seguir">اضغط OK للمتابعة</string>
     <string name="pod_sugeridos_seguidos">تمت إضافة البودكاست المقترحة إلى البودكاست الخاص بي</string>
+    <string name="pod_busca_nada">لم يتم العثور على بودكاست.</string>
+    <string name="pod_busca_cota">البحث عن البودكاست في استراحة اليوم. يعود غدًا.</string>
+    <string name="pod_busca_fora">البحث عن البودكاست لا يستجيب. حاول لاحقًا.</string>
+    <string name="pod_busca_rede">لا يوجد إنترنت. تحقق من اتصال التلفاز.</string>
+    <string name="tx_falhou_det">تعذّر إنشاء نص هذه الحلقة. حاول لاحقًا.</string>
 </resources>

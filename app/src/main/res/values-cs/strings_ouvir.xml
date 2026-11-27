@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Návrhy</string>
     <string name="pod_sugestao_seguir">OK pro sledování</string>
     <string name="pod_sugeridos_seguidos">Navrhované podcasty přidány do Moje podcasty</string>
+    <string name="pod_busca_nada">Žádný podcast nenalezen.</string>
+    <string name="pod_busca_cota">Hledání podcastů dnes odpočívá. Zítra bude zpět.</string>
+    <string name="pod_busca_fora">Hledání podcastů neodpovídá. Zkuste to později.</string>
+    <string name="pod_busca_rede">Bez internetu. Zkontrolujte připojení televize.</string>
+    <string name="tx_falhou_det">Text této epizody se nepodařilo vytvořit. Zkuste to později.</string>
 </resources>

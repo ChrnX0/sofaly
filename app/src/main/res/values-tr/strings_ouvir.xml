@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Öneriler</string>
     <string name="pod_sugestao_seguir">Takip için OK</string>
     <string name="pod_sugeridos_seguidos">Önerilen podcast\'ler Podcast\'lerim\'e eklendi</string>
+    <string name="pod_busca_nada">Podcast bulunamadı.</string>
+    <string name="pod_busca_cota">Podcast araması bugün dinleniyor. Yarın geri gelir.</string>
+    <string name="pod_busca_fora">Podcast araması yanıt vermiyor. Daha sonra deneyin.</string>
+    <string name="pod_busca_rede">İnternet yok. TV\'nin bağlantısını kontrol edin.</string>
+    <string name="tx_falhou_det">Bu bölümün metni oluşturulamadı. Daha sonra deneyin.</string>
 </resources>

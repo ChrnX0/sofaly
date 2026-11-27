@@ -424,7 +424,8 @@ class OuvirServico : Service() {
         Fundo.rodar("transcricao-nuvem") {
             var erro = ""
             var g = TranscricaoNuvem.carregar(app, e.feed, guid)
-            val total = g?.total?.takeIf { it > 0 } ?: TranscricaoNuvem.tamanho(e.ep.url)
+            // Servidor do podcast que não responde lançava aqui e "gerando" ficava para sempre (revisor 26/11).
+            val total = g?.total?.takeIf { it > 0 } ?: runCatching { TranscricaoNuvem.tamanho(e.ep.url) }.getOrDefault(-1L)
             if (total <= 0 || dur <= 0) erro = "falhou"
             else {
                 var feitos = g?.feitos.orEmpty()
@@ -450,7 +451,13 @@ class OuvirServico : Service() {
                     ui.post { if (episodio?.ep?.guid == guid) { texto = agora; textoGerado = true; publicar() } }
                 }
             }
-            ui.post { if (episodio?.ep?.guid == guid) { textoGerando = false; textoErro = erro; publicar() } }
+            ui.post {
+                if (episodio?.ep?.guid == guid) {
+                    textoGerando = false; textoErro = erro; publicar()
+                    // A falha dizia nada: o palco fechava e o botão voltava a "gerar" (revisor 26/11).
+                    if (erro == "falhou") AvisoTv.rapido(app, app.getString(R.string.tx_titulo), app.getString(R.string.tx_falhou_det), 6)
+                }
+            }
         }
     }
 

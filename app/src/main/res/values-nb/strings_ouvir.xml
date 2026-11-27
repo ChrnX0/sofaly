@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Forslag</string>
     <string name="pod_sugestao_seguir">OK for å følge</string>
     <string name="pod_sugeridos_seguidos">Foreslåtte podkaster lagt til i Mine podkaster</string>
+    <string name="pod_busca_nada">Fant ingen podkast.</string>
+    <string name="pod_busca_cota">Podkastsøket hviler i dag. Det er tilbake i morgen.</string>
+    <string name="pod_busca_fora">Podkastsøket svarer ikke. Prøv igjen senere.</string>
+    <string name="pod_busca_rede">Ingen internett. Sjekk TV-ens tilkobling.</string>
+    <string name="tx_falhou_det">Kunne ikke lage teksten til denne episoden. Prøv igjen senere.</string>
 </resources>

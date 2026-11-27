@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">คำแนะนำ</string>
     <string name="pod_sugestao_seguir">OK เพื่อติดตาม</string>
     <string name="pod_sugeridos_seguidos">เพิ่มพอดแคสต์ที่แนะนำในพอดแคสต์ของฉันแล้ว</string>
+    <string name="pod_busca_nada">ไม่พบพอดแคสต์</string>
+    <string name="pod_busca_cota">การค้นหาพอดแคสต์พักวันนี้ กลับมาพรุ่งนี้</string>
+    <string name="pod_busca_fora">การค้นหาพอดแคสต์ไม่ตอบสนอง ลองใหม่ภายหลัง</string>
+    <string name="pod_busca_rede">ไม่มีอินเทอร์เน็ต ตรวจสอบการเชื่อมต่อของทีวี</string>
+    <string name="tx_falhou_det">สร้างข้อความของตอนนี้ไม่ได้ ลองใหม่ภายหลัง</string>
 </resources>

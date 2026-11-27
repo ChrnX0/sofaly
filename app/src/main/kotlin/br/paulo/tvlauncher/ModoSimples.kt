@@ -81,6 +81,7 @@ class ModoSimplesActivity : Activity() {
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
+        br.paulo.tvlauncher.home.TravaCartaoTv.doIntent(intent)?.let { p -> window.decorView.post { abrirApp(p) } }
         val (raiz, coluna) = Estilo.telaLista(this, getString(R.string.ms_ola), getString(R.string.ms_ola_det), dicas = false)
         faixa = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; visibility = View.GONE }
         coluna.addView(faixa, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(20) })
@@ -160,16 +161,28 @@ class ModoSimplesActivity : Activity() {
         faixa.contentDescription = itens.joinToString(". ")
     }
 
+    /** Abre o app; travado por PIN no menu do cartão, pede o PIN aqui mesmo (revisor 26/11). */
+    private fun abrirApp(pacote: String) {
+        val abrir = {
+            val i = packageManager.getLeanbackLaunchIntentForPackage(pacote) ?: packageManager.getLaunchIntentForPackage(pacote)
+            if (i != null) try { startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (_: Exception) {}
+        }
+        if (br.paulo.tvlauncher.home.TravaCartaoTv.travado(this, pacote)) br.paulo.tvlauncher.home.TravaCartaoTv.pedirEAbrir(this, pacote, abrir)
+        else abrir()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        br.paulo.tvlauncher.home.TravaCartaoTv.doIntent(intent)?.let { abrirApp(it) }
+    }
+
     private fun montar(temTv: Boolean, apps: List<Triple<String, String, Int>>) {
         grade.removeAllViews()
         val cards = ArrayList<View>()
         if (temTv) cards += card("TV", null, DesignTokens.WORLD_WATCH) {
             try { startActivity(Intent(this, PlayerActivity::class.java)) } catch (_: Exception) {}
         }
-        for ((pacote, nome, cor) in apps) cards += card(nome, pacote, cor) {
-            val i = packageManager.getLeanbackLaunchIntentForPackage(pacote) ?: packageManager.getLaunchIntentForPackage(pacote)
-            if (i != null) try { startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) } catch (_: Exception) {}
-        }
+        for ((pacote, nome, cor) in apps) cards += card(nome, pacote, cor) { abrirApp(pacote) }
         // Só aparece quando há como avisar (Brainstorm 26/11, item 1): sem celular inscrito o card prometia ajuda que não
         // vinha. E só diz "avisei" depois que pelo menos um celular aceitou o aviso; senão manda ligar para alguém.
         if (Avisos.podeAvisar(this, Avisos.Tipo.AJUDA)) cards += card(getString(R.string.ms_pedir_ajuda), null, Estilo.ATENCAO) {
