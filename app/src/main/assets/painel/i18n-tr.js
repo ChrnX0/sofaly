@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy sesli konuşur",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"TV'de gösterdiğini sesli okur. TalkBack açıksa TalkBack okur.",
 "Ajudar outras casas":"Diğer evlere yardım et",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Günde bir kez, yalnızca burada çöken uygulamaların adı ve sürümü, hangi evden olduğu söylenmeden. Diğer evlerin gördüklerini almak her zaman açık.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Günde bir kez, yalnızca burada çöken ya da yavaşlayan uygulamaların adı ve sürümü ile Sofaly'nin ekranları kontrol etmek için kullandığı kurallar, hangi evden olduğu söylenmeden. Diğer evlerin gördüklerini almak her zaman açık.",
 "IA da Sofy":"Sofy'nin yapay zekâsı",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Sofy bir şeyi kendi başına düzeltemediğinde, sizin seçtiğiniz bir yapay zekâya sorar. Yapay zekâ yalnızca sorun fişini alır, kişisel hiçbir şey almaz ve yalnızca Sofy'nin zaten yapabildiği onarımlar arasından seçebilir.",
 "Provedor":"Sağlayıcı",

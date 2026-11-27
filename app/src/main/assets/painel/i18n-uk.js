@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy говорить уголос",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Вона читає те, що показує на телевізорі. Якщо ввімкнено TalkBack, читає TalkBack.",
 "Ajudar outras casas":"Допомагати іншим домівкам",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Раз на день лише назва й версія застосунків, що зависли тут, без зазначення, з якої домівки. Отримання того, що бачили інші домівки, завжди ввімкнене.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Раз на день лише назва й версія застосунків, що зависли або сповільнилися тут, і правила, за якими Sofaly перевіряє екрани, без зазначення, з якої домівки. Отримання того, що бачили інші домівки, завжди ввімкнене.",
 "IA da Sofy":"ШІ Софі",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Коли Софі не може щось полагодити сама, вона питає ШІ, який ви оберете. ШІ отримує лише картку проблеми, без нічого особистого, і може обирати лише з виправлень, які Софі вже вміє робити.",
 "Provedor":"Постачальник",

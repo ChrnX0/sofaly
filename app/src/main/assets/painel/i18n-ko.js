@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy가 소리 내어 말해요",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"TV에 보여 주는 내용을 읽어 줘요. TalkBack이 켜져 있으면 TalkBack이 읽어요.",
 "Ajudar outras casas":"다른 집 돕기",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"하루 한 번, 여기서 멈춘 앱의 이름과 버전만 어느 집인지 밝히지 않고 보내요. 다른 집이 본 내용을 받는 건 항상 켜져 있어요.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"하루 한 번, 여기서 멈추거나 느려진 앱의 이름과 버전, 그리고 Sofaly가 화면을 확인할 때 쓰는 규칙만 어느 집인지 밝히지 않고 보내요. 다른 집이 본 내용을 받는 건 항상 켜져 있어요.",
 "IA da Sofy":"Sofy의 AI",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Sofy가 혼자 고치지 못하면 사용자가 선택한 AI에게 묻습니다. AI는 문제 기록만 받으며 개인적인 내용은 받지 않고, Sofy가 이미 할 수 있는 수리 중에서만 고를 수 있습니다.",
 "Provedor":"제공업체",

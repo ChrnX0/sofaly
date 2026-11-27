@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy mluví nahlas",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Čte, co ukazuje na TV. Se zapnutým TalkBackem to čte TalkBack.",
 "Ajudar outras casas":"Pomáhat jiným domácnostem",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Jednou denně jen název a verze aplikací, které tu spadly, bez uvedení domácnosti. Přijímání toho, co viděly jiné domácnosti, je vždy zapnuté.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"Jednou denně jen název a verze aplikací, které tu spadly nebo zpomalily, a pravidla, podle kterých Sofaly kontroluje obrazovky, bez uvedení domácnosti. Přijímání toho, co viděly jiné domácnosti, je vždy zapnuté.",
 "IA da Sofy":"Umělá inteligence Sofy",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Když Sofy nedokáže něco opravit sama, zeptá se umělé inteligence, kterou si vyberete. Ta dostane jen záznam o problému, bez čehokoli osobního, a může vybírat jen z oprav, které Sofy už umí.",
 "Provedor":"Poskytovatel",
