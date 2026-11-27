@@ -19,7 +19,9 @@ api.sofaly.tv request signing from `RelaySign.sign(c)`, all in `:core`); its set
 `WeatherConfig` (`Config` keeps the old names pointing there). Second: `:media` (`modules/media`: the player's data, i.e. Xtream/M3U/Plex/
 Jellyfin catalogs, cache loading, guide, external info and subtitles, service accounts, parental rules; no screens and
 no media3), with `MediaHost` for what lives in the app (TMDB/Simkl plan gates, "Meu time" guide words, Simkl library). Third: `:listen` (`modules/listen`: radios,
-podcast feeds/search/topics, "Meu jornal", transcription; players, the media3 radio delay and the screens stay in `:app`). Don't make module classes `internal` if `:app` or its
+podcast feeds/search/topics, "Meu jornal", transcription; players, the media3 radio delay and the screens stay in `:app`). Typed JSON (G, 27/11/2026): new parsers of external APIs use
+`@Serializable` models with kotlinx.serialization (first: `MetModels.kt`/`MetJson` for MET Norway in `:weather`); convert an
+old `JSONObject` parser only with a golden test that proves the same output (`ClimaMetTest.mesmaSaidaDoConversorAntigo`). Don't make module classes `internal` if `:app` or its
 tests use them. Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.

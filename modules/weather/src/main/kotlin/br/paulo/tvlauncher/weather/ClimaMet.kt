@@ -52,7 +52,7 @@ object ClimaMet {
     fun previsao(lat: Double, lon: Double, desdeAgora: Boolean, dias: Int = FaixaDias.DIAS): JSONObject? {
         val corpo = buscar(lat, lon) ?: return null
         return try {
-            converter(JSONObject(corpo), System.currentTimeMillis(), TimeZone.getDefault(), lat, lon, dias, desdeAgora, WeatherConfig.USAR_FAHRENHEIT)
+            converter(MetJson.parse(corpo), System.currentTimeMillis(), TimeZone.getDefault(), lat, lon, dias, desdeAgora, WeatherConfig.USAR_FAHRENHEIT)
         } catch (e: Exception) {
             Log.w(TAG, "MET em formato estranho: ${e.javaClass.simpleName}")
             null
@@ -158,29 +158,27 @@ object ClimaMet {
         else -> 10000.0
     }
 
-    private class Passo(val ms: Long, val inst: JSONObject, val simbolo: String?, val mm: Double, val horas: Int)
+    private class Passo(val ms: Long, val inst: MetDetails, val simbolo: String?, val mm: Double, val horas: Int)
 
     /**
      * Resposta do MET -> JSON no formato da Open-Meteo (current, hourly, daily), na hora local de [fuso].
-     * [agoraMs] e [fuso] vêm de fora para o teste ser determinístico.
+     * [agoraMs] e [fuso] vêm de fora para o teste ser determinístico. [met] já tipado ([MetJson.parse], 27/11/2026).
      */
-    fun converter(met: JSONObject, agoraMs: Long, fuso: TimeZone, lat: Double, lon: Double, dias: Int,
+    fun converter(met: MetResponse, agoraMs: Long, fuso: TimeZone, lat: Double, lon: Double, dias: Int,
                   desdeAgora: Boolean, fahrenheit: Boolean): JSONObject {
         val utc = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US).apply { timeZone = TimeZone.getTimeZone("UTC") }
         val local = SimpleDateFormat("yyyy-MM-dd'T'HH:mm", Locale.US).apply { timeZone = fuso }
         val soDia = SimpleDateFormat("yyyy-MM-dd", Locale.US).apply { timeZone = fuso }
         fun t(c: Double) = if (fahrenheit) c * 9 / 5 + 32 else c
 
-        val serie = met.getJSONObject("properties").getJSONArray("timeseries")
-        val passos = (0 until serie.length()).mapNotNull { i ->
-            val o = serie.getJSONObject(i)
-            val ms = utc.parse(o.getString("time"))?.time ?: return@mapNotNull null
-            val d = o.getJSONObject("data")
-            val inst = d.getJSONObject("instant").getJSONObject("details")
-            val n1 = d.optJSONObject("next_1_hours"); val n6 = d.optJSONObject("next_6_hours")
-            val bloco = n1 ?: n6
-            Passo(ms, inst, bloco?.optJSONObject("summary")?.optString("symbol_code"),
-                bloco?.optJSONObject("details")?.optDouble("precipitation_amount", 0.0) ?: 0.0, if (n1 != null) 1 else 6)
+        val serie = met.properties.timeseries
+        val passos = serie.mapNotNull { o ->
+            val ms = utc.parse(o.time)?.time ?: return@mapNotNull null
+            val n1 = o.data.next1Hours
+            val bloco = n1 ?: o.data.next6Hours
+            // Com bloco e sem símbolo, "" (o optString de antes): o codigoWmo trata igual a null.
+            Passo(ms, o.data.instant.details, bloco?.summary?.let { it.symbolCode.orEmpty() },
+                bloco?.details?.precipitationAmount ?: 0.0, if (n1 != null) 1 else 6)
         }.sortedBy { it.ms }
         require(passos.isNotEmpty()) { "MET sem horas" }
 
@@ -215,7 +213,7 @@ object ClimaMet {
             val mmHora = p.mm / p.horas
             val chance = chances[idx++]
             val dataLocal = soDia.format(java.util.Date(ms))
-            val temp = p.inst.optDouble("air_temperature")
+            val temp = p.inst.airTemperature ?: Double.NaN
             val a = porDia.getOrPut(dataLocal) { Acum() }
             if (porDia.size > dias) break
             if (!temp.isNaN()) { a.max = if (a.max.isNaN()) temp else maxOf(a.max, temp); a.min = if (a.min.isNaN()) temp else minOf(a.min, temp) }
@@ -226,21 +224,20 @@ object ClimaMet {
             if (ms >= inicio && hTempo.length() < total) {
                 hTempo.put(local.format(java.util.Date(ms)))
                 hTemp.put(t(temp)); hChance.put(chance); hCod.put(cod)
-                hVento.put(p.inst.optDouble("wind_speed", 0.0) * 3.6)   // m/s -> km/h (a unidade da Open-Meteo)
-                hVis.put(visibilidade(p.inst.optDouble("fog_area_fraction")))
-                hOrv.put(t(p.inst.optDouble("dew_point_temperature", temp)))
-                hUv.put(p.inst.optDouble("ultraviolet_index_clear_sky", 0.0))
+                hVento.put((p.inst.windSpeed ?: 0.0) * 3.6)   // m/s -> km/h (a unidade da Open-Meteo)
+                hVis.put(visibilidade(p.inst.fogAreaFraction ?: Double.NaN))
+                hOrv.put(t(p.inst.dewPointTemperature ?: temp))
+                hUv.put(p.inst.ultravioletIndexClearSky ?: 0.0)
             }
             ms += 3_600_000L
         }
         // Máxima/mínima dos blocos de 6 h (o MET manda o extremo do período, que as temperaturas pontuais podem perder).
-        for (i in 0 until serie.length()) {
-            val o = serie.getJSONObject(i)
-            val det = o.getJSONObject("data").optJSONObject("next_6_hours")?.optJSONObject("details") ?: continue
-            val inicioBloco = utc.parse(o.getString("time"))?.time ?: continue
+        for (o in serie) {
+            val det = o.data.next6Hours?.details ?: continue
+            val inicioBloco = utc.parse(o.time)?.time ?: continue
             val a = porDia[soDia.format(java.util.Date(inicioBloco + 3 * 3_600_000L))] ?: continue
-            det.optDouble("air_temperature_max").takeIf { !it.isNaN() }?.let { a.max = if (a.max.isNaN()) it else maxOf(a.max, it) }
-            det.optDouble("air_temperature_min").takeIf { !it.isNaN() }?.let { a.min = if (a.min.isNaN()) it else minOf(a.min, it) }
+            det.airTemperatureMax?.takeIf { !it.isNaN() }?.let { a.max = if (a.max.isNaN()) it else maxOf(a.max, it) }
+            det.airTemperatureMin?.takeIf { !it.isNaN() }?.let { a.min = if (a.min.isNaN()) it else minOf(a.min, it) }
         }
 
         val dTempo = JSONArray(); val dMax = JSONArray(); val dMin = JSONArray(); val dCod = JSONArray(); val dChance = JSONArray()
@@ -261,17 +258,18 @@ object ClimaMet {
 
         val agora = passoEm(horaAgora)
         val i = agora.inst
+        val tempAgora = i.airTemperature ?: throw IllegalStateException("MET sem temperatura agora")   // o getDouble de antes
         val codAgora = codigoWmo(agora.simbolo)
         val current = JSONObject()
             .put("time", local.format(java.util.Date(horaAgora)))
-            .put("temperature_2m", t(i.getDouble("air_temperature")))
-            .put("apparent_temperature", t(i.optDouble("apparent_air_temperature", i.getDouble("air_temperature"))))
-            .put("relative_humidity_2m", Math.round(i.optDouble("relative_humidity", 0.0)).toInt())
+            .put("temperature_2m", t(tempAgora))
+            .put("apparent_temperature", t(i.apparentAirTemperature ?: tempAgora))
+            .put("relative_humidity_2m", Math.round(i.relativeHumidity ?: 0.0).toInt())
             .put("weather_code", codAgora)
             .put("precipitation", agora.mm / agora.horas)
-            .put("pressure_msl", i.optDouble("air_pressure_at_sea_level", 1013.0))
-            .put("wind_speed_10m", i.optDouble("wind_speed", 0.0) * 3.6)
-            .put("wind_direction_10m", Math.round(i.optDouble("wind_from_direction", 0.0)).toInt())
+            .put("pressure_msl", i.airPressureAtSeaLevel ?: 1013.0)
+            .put("wind_speed_10m", (i.windSpeed ?: 0.0) * 3.6)
+            .put("wind_direction_10m", Math.round(i.windFromDirection ?: 0.0).toInt())
             .put("is_day", if (Astronomia.alturaSol(agoraMs, lat, lon) > 0) 1 else 0)
         return JSONObject()
             .put("current", current)
