@@ -100,7 +100,10 @@ class CalendarioActivity : Activity() {
 
         // Coluna dos eventos: colunas 7-12.
         val colunaEventos = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        colunaEventos.addView(Estilo.secao(this, getString(R.string.cal_30)).apply { setPaddingRelative(0, dp(12), 0, dp(4)) })
+        colunaEventos.addView(Estilo.secao(this, getString(R.string.cal_30)).apply {
+            setPaddingRelative(0, dp(12), 0, dp(4))
+            setTextColor(textoClaro)   // fica no alto, onde o véu sobre a arte é mais leve: o creme suave dava 4:1 (padrão 4,5)
+        })
         aviso = texto(18f, textoSuave).apply { setPaddingRelative(0, dp(8), 0, 0) }
         colunaEventos.addView(aviso)
         listaEventos = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
@@ -216,7 +219,7 @@ class CalendarioActivity : Activity() {
         }
         for (d in 1..c.getActualMaximum(Calendar.DAY_OF_MONTH)) {
             val eHoje = hoje.get(Calendar.YEAR) == c.get(Calendar.YEAR) && hoje.get(Calendar.DAY_OF_YEAR) == c.get(Calendar.DAY_OF_YEAR)
-            grade.addView(celula(d.toString(), if (eHoje) Estilo.TEXTO_NO_FOCO else textoClaro, eHoje, d in diasComEvento, lado))
+            grade.addView(celula(d.toString(), if (eHoje) DesignTokens.NIGHT else textoClaro, eHoje, d in diasComEvento, lado))   // grafite no laranja: 6,9:1 (o creme dava 2,6:1)
             c.add(Calendar.DAY_OF_MONTH, 1)
         }
     }

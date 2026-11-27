@@ -1,2 +1,5 @@
 # Exceções do padrão visual das telas da TV (AuditoriaTelasTest). Uma regex por linha, aplicada a
 # "<idioma>/<Tela>: <achado>". O comentário de cima diz o motivo. Sem motivo, não entra.
+# BluetoothValidationActivity não é nossa: vem de uma biblioteca no manifesto juntado e só mostra o nome do app num
+# título de 14 sp com o tema da biblioteca. Não temos o código dela para mudar a cor.
+/BluetoothValidationActivity: CONTRASTE
