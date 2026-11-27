@@ -12,11 +12,14 @@ import android.content.Context
  * acento laranja) não muda. As cores são as mesmas da HOME, mais escuras para não brigar com o texto.
  */
 enum class World(val glow: Int) {
-    /** Configurações, Casa e o resto: o brilho frio de sempre. */
-    NEUTRAL(0x4A7388),
-    // Assistir usa o azul da cruz (crítica de design 19/11/2026, decisão 4): o brilho marrom-alaranjado de Filmes e
-    // Séries saiu; o laranja fica só para marca, foco e progresso (decisão 1). O mundo continua existindo para o futuro.
-    WATCH(0x4A7388),
+    /**
+     * Configurações, Casa e o resto: um brilho de grafite neutro. Era um azul-aço (0x4A7388) que deixava o fundo escuro
+     * azulado; regra do Paulo (26/11/2026): escuro é grafite neutro, NUNCA azulado.
+     */
+    NEUTRAL(0x5A5753),
+    // Assistir segue o neutro (crítica de design 19/11/2026, decisão 4: o laranja fica só para marca, foco e progresso;
+    // depois, 26/11, o azul também saiu pela regra do escuro sem azul). O mundo continua existindo para o futuro.
+    WATCH(0x5A5753),
     LISTEN(0x2A9A8E),
     PLAY(0x5257C8);
 
