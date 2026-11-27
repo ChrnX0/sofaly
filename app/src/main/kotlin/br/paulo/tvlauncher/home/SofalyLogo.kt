@@ -30,7 +30,7 @@ object SofalyLogo {
     const val ORANGE = DesignTokens.ORANGE   // uma fonte só: design/tokens.json
     const val CREAM = 0xFFFFF3E6.toInt()
     const val SCREEN = 0xFF1E1E1E.toInt()   // grafite (27/11/2026, opção B): o azul-noite antigo fugia da regra do escuro sem azul
-    const val WHITE = 0xFFFFFFFF.toInt()   // o "Sofa" do nome
+    const val WHITE = android.graphics.Color.WHITE   // o "Sofa" do nome
 
     /** Quadro do símbolo (o SVG vai de y = -10 a 102; aqui já somado 10). */
     const val W = 120f
