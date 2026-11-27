@@ -275,7 +275,7 @@ def page_home(L):
     s = re.sub(r"^<title>.*?</title>\s*<meta name=\"claude:viewport-fit-sides\"[^>]*>\s*", "", s, flags=re.S)
     hd = B.head(L, "index", D["home"]["title"], D["home"]["description"])
     hd = re.sub(r'<link rel="stylesheet" href="[^"]*assets/site.css">\n<script src="[^"]*assets/site.js" defer></script>\n', "", hd)
-    hd = hd.replace('<meta name="theme-color" content="#121528">', '<meta name="theme-color" content="#17110D">')
+    hd = hd.replace('<meta name="theme-color" content="#141413">', '<meta name="theme-color" content="#17110D">')
     hd = hd.replace("</head>\n<body>\n", "")
     s = hd + s.replace("<style>", "<style>", 1)
     s = s.replace("<style>", "</head>\n<body>\n" if False else "<style>", 1)
