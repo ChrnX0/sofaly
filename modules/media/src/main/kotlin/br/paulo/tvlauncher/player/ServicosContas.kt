@@ -4,11 +4,8 @@ import br.paulo.tvlauncher.Fundo
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.BuildConfig
-import br.paulo.tvlauncher.ServicosFilmesActivity
-import br.paulo.tvlauncher.panel.entrar
 import br.paulo.tvlauncher.player.ServicosFilmes.Espera
 import br.paulo.tvlauncher.player.ServicosFilmes.Servico
-import br.paulo.tvlauncher.weather.DataSources
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -96,7 +93,7 @@ object ServicosContas {
         return when {
             // O TMDB não tem conta da pessoa: basta a chave do app, o contrato e o plano (DataSources). Sem isso as fichas
             // vêm do Trakt e a linha some (não diz "ativo" nem mostra a atribuição de uma fonte que não está em uso).
-            s == Servico.TMDB -> Estado(s, if (DataSources.tmdb(ctx)) Situacao.CONECTADO else Situacao.INDISPONIVEL)
+            s == Servico.TMDB -> Estado(s, if (MediaHost.tmdb(ctx)) Situacao.CONECTADO else Situacao.INDISPONIVEL)
             s == Servico.OPENSUBTITLES -> Estado(s, if (c != null && c.usuario.isNotBlank()) Situacao.CONECTADO else Situacao.DESLIGADO, c?.usuario.orEmpty())
             c != null -> Estado(s, Situacao.CONECTADO, c.usuario)
             else -> Estado(s, Situacao.DESLIGADO)
@@ -211,7 +208,7 @@ object ServicosContas {
         if (s == Servico.OPENSUBTITLES) LegendaBaixar.esquecerToken()
         definir(ctx, s, null)
         // A nota do Simkl só aparece com a conta conectada (licença; InfoExternaCache.noturnoSimkl).
-        if (s == Servico.SIMKL && !DataSources.simklSemLogin(ctx)) runCatching { InfoExternaCache.esquecerSimkl(ctx) }
+        if (s == Servico.SIMKL && !MediaHost.simklSemLogin(ctx)) runCatching { InfoExternaCache.esquecerSimkl(ctx) }
     }
 
     /** A chave do MDBList da pessoa (opcional). Null = não conectou. */

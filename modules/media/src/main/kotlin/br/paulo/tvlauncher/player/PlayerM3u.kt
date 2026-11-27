@@ -115,7 +115,7 @@ object M3u {
      * Separa os atributos (chave="valor") e o nome que vem depois da última vírgula FORA das aspas.
      * Ex.: `#EXTINF:-1 tvg-name="A, B" group-title="X",Nome do canal` -> ({tvg-name=A, B, group-title=X}, "Nome do canal")
      */
-    internal fun lerExtinf(linha: String): Pair<Map<String, String>, String> {
+    fun lerExtinf(linha: String): Pair<Map<String, String>, String> {
         val corpo = linha.substringAfter(':', "")
         val attrs = HashMap<String, String>()
         var i = 0
@@ -150,7 +150,7 @@ object M3u {
         return n
     }
 
-    internal fun desduplicarIds(canais: List<Canal>): List<Canal> {
+    fun desduplicarIds(canais: List<Canal>): List<Canal> {
         // Id pelo nome + categoria repetido (HD/SD, reserva): desempata pelo resumo da URL sem segredo, não pela posição,
         // senão a lista mudar de ordem passaria o favorito e o bloqueio para o outro canal. tvg-id repetido segue com
         // "#2", "#3" como antes de 10/11 (favoritos antigos usam esse id).

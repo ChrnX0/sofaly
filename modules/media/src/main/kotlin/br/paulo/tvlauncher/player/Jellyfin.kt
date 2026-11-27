@@ -2,7 +2,6 @@ package br.paulo.tvlauncher.player
 
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.panel.Upnp
-import br.paulo.tvlauncher.panel.entrar
 import java.io.InputStream
 import java.net.DatagramPacket
 import java.net.DatagramSocket

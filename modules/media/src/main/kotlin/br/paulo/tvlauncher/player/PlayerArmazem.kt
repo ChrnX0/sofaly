@@ -9,7 +9,6 @@ import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.PlayPolicy
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.family.ControleParental
-import br.paulo.tvlauncher.family.Perfil
 import br.paulo.tvlauncher.family.PerfilDados
 import java.io.File
 import java.security.KeyStore
@@ -36,7 +35,7 @@ object PlayerArmazem {
     private const val APELIDO = "player_fontes"
 
     // internal: o backup completo guarda uma cópia para desfazer, se a restauração falhar no meio
-    internal fun arquivoContas(ctx: Context) = File(pasta(ctx), "contas.json")
+    fun arquivoContas(ctx: Context) = File(pasta(ctx), "contas.json")
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(Prefs.PLAYER, Context.MODE_PRIVATE)
 
     fun pasta(ctx: Context): File = File(ctx.filesDir, "player").apply { mkdirs() }
@@ -293,13 +292,13 @@ object PlayerArmazem {
     private fun lerDoPerfil(ctx: Context, base: String): String? {
         require(base in PerfilDados.ARQUIVOS_POR_PERFIL)
         val pasta = pasta(ctx)
-        return lerArquivo(ctx, PerfilDados.nomeLeitura(base, Perfil.chaveDados(ctx)) { File(pasta, it).exists() })
+        return lerArquivo(ctx, PerfilDados.nomeLeitura(base, PerfilDados.chaveAtiva(ctx)) { File(pasta, it).exists() })
     }
 
     /** Grava sempre no arquivo do perfil ativo; o compartilhado nunca é apagado nem sobrescrito por um perfil. */
     private fun gravarNoPerfil(ctx: Context, base: String, texto: String) {
         require(base in PerfilDados.ARQUIVOS_POR_PERFIL)
-        gravarArquivo(ctx, PerfilDados.nomeEscrita(base, Perfil.chaveDados(ctx)), texto)
+        gravarArquivo(ctx, PerfilDados.nomeEscrita(base, PerfilDados.chaveAtiva(ctx)), texto)
     }
 
     /** Escrita atômica: grava ao lado e troca o nome (TV desligada no meio deixa o arquivo antigo inteiro). */
@@ -363,13 +362,13 @@ object PlayerArmazem {
         return gerador.generateKey()
     }
 
-    internal fun cifrar(texto: String): Pair<String, String> {
+    fun cifrar(texto: String): Pair<String, String> {
         val c = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.ENCRYPT_MODE, chave()) }
         return Base64.encodeToString(c.doFinal(texto.toByteArray(Charsets.UTF_8)), Base64.NO_WRAP) to
             Base64.encodeToString(c.iv, Base64.NO_WRAP)
     }
 
-    internal fun decifrar(dados: String, iv: String): String {
+    fun decifrar(dados: String, iv: String): String {
         val c = Cipher.getInstance("AES/GCM/NoPadding")
         c.init(Cipher.DECRYPT_MODE, chave(), GCMParameterSpec(128, Base64.decode(iv, Base64.NO_WRAP)))
         return String(c.doFinal(Base64.decode(dados, Base64.NO_WRAP)), Charsets.UTF_8)

@@ -263,9 +263,9 @@ object Idioma {
     // (IdiomaRapidoTest compara com as expressões em milhares de nomes).
 
     /** Tudo o que o \s das expressões pode ser (no Android, o \s é o White_Space do Unicode, que inclui o U+0085). */
-    internal fun espaco(c: Char) = c.isWhitespace() || c == '\u0085'
+    fun espaco(c: Char) = c.isWhitespace() || c == '\u0085'
 
-    internal fun espacosSeguidos(s: String): Boolean {
+    fun espacosSeguidos(s: String): Boolean {
         for (i in 1 until s.length) if (espaco(s[i]) && espaco(s[i - 1])) return true
         return false
     }

@@ -496,7 +496,8 @@ object ServicosSync {
         var mudou = false
         for (p in pausas) {
             val id = p.item.ids.tmdb ?: continue
-            val k = if (p.ep == null) "$id" else "$id:${p.ep.temporada}x${p.ep.numero}"
+            val ep = p.ep   // cópia local: SincronizarFilmes mora no módulo :media
+            val k = if (ep == null) "$id" else "$id:${ep.temporada}x${ep.numero}"
             guardar.put(k, JSONObject().put("p", p.progresso.toDouble()).put("q", p.quandoMs))
             if (tipo != Tipo.FILME) continue
             val ch = ind.porId[id] ?: continue

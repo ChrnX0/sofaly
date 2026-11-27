@@ -55,6 +55,12 @@ class LauncherApp : Application() {
         // Módulo :weather: a assinatura do relay e a fonte pelo plano moram no app.
         br.paulo.tvlauncher.weather.WeatherHost.sign = { c -> br.paulo.tvlauncher.relay.RelayTv.assinar(c) }
         br.paulo.tvlauncher.weather.WeatherHost.kind = { c -> br.paulo.tvlauncher.weather.DataSources.weather(c) }
+        // Módulo :media: fichas pelo TMDB conforme contrato, plano e chave (DataSources, no app).
+        br.paulo.tvlauncher.player.MediaHost.tmdb = { c -> br.paulo.tvlauncher.weather.DataSources.tmdb(c) }
+        br.paulo.tvlauncher.player.MediaHost.simklSemLogin = { c -> br.paulo.tvlauncher.weather.DataSources.simklSemLogin(c) }
+        br.paulo.tvlauncher.player.MediaHost.guideWords = { c -> LembretesTv.palavrasParaGuia(c) }
+        br.paulo.tvlauncher.player.MediaHost.onGuideUpdated = { c -> LembretesTv.varrerDepois(c) }
+        br.paulo.tvlauncher.player.MediaHost.simklLibraryIds = { c -> br.paulo.tvlauncher.player.ServicosSync.idsSimklDaBiblioteca(c) }
         // O processo ":dhizuku_usuario" roda código de OUTRO app (UserService do Dhizuku): uma exceção dele não pode
         // contar como queda do launcher (RegistroErros/VigiaAtualizacao marcariam a versão como ruim), e nada da tela
         // do launcher precisa existir lá.

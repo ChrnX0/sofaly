@@ -3,9 +3,8 @@ package br.paulo.tvlauncher.player
 import android.content.Context
 import android.util.Log
 import br.paulo.tvlauncher.BuildConfig
-import br.paulo.tvlauncher.LauncherApp
+import br.paulo.tvlauncher.AppContext
 import br.paulo.tvlauncher.player.InfoExterna.Guardado
-import br.paulo.tvlauncher.weather.DataSources
 import java.io.File
 import org.json.JSONObject
 
@@ -39,7 +38,7 @@ object InfoExternaCache {
 
     private fun chaves() = ServicosContas.chavesApp()
     /** TMDB (pago): só com contrato, a chave no build e o plano Pro ([DataSources.tmdb], 19/11/2026). */
-    fun temTmdb(): Boolean = runCatching { DataSources.tmdb(LauncherApp.instancia) }.getOrDefault(false)
+    fun temTmdb(): Boolean = runCatching { MediaHost.tmdb(AppContext.app) }.getOrDefault(false)
     /** Ficha de fora de algum jeito: TMDB (Pro) ou Trakt (Básico, grátis). */
     fun temFicha(): Boolean = temTmdb() || chaves().traktId.isNotBlank()
     private fun agente() = ServicosFilmes.agente(BuildConfig.VERSION_CODE)
@@ -451,14 +450,14 @@ object InfoExternaCache {
         // Sem a conta Simkl da pessoa e sem a licença: nenhum pedido, e some a nota que tiver ficado (de antes de
         // 17/11/2026 ou de quem saiu). Com a licença (Pro), sem conta pede só com a chave do app.
         val token = ServicosContas.conta(app, ServicosFilmes.Servico.SIMKL)?.acesso?.takeIf { it.isNotBlank() }
-        if (token == null && !DataSources.simklSemLogin(app)) { esquecerSimkl(app); return -1 }
+        if (token == null && !MediaHost.simklSemLogin(app)) { esquecerSimkl(app); return -1 }
         val agora = System.currentTimeMillis()
         val fila = filaDaNoite(app, MAX_SIMKL_POR_NOITE) { agora - (it?.simklEm ?: 0) in 0 until InfoExterna.SIMKL_VALIDADE_MS } ?: return -1
         val versao = BuildConfig.VERSION_CODE
         val cab = ServicosFilmes.simklCabecalhos(cliente, versao, token)
         // Ids já sabidos (catálogo + biblioteca da pessoa): o /redirect é busca ao vivo sem cache no Simkl e os ids não
         // mudam, então só pergunta por título nunca visto, e uma vez por id TMDB (não uma por versão). 18/11/2026.
-        val conhecidos = InfoExterna.simklConhecidos(simklDoCatalogo(app), runCatching { ServicosSync.idsSimklDaBiblioteca(app) }.getOrDefault(emptyMap()))
+        val conhecidos = InfoExterna.simklConhecidos(simklDoCatalogo(app), runCatching { MediaHost.simklLibraryIds(app) }.getOrDefault(emptyMap()))
         val semSimkl = HashSet<String>()
         // Depois os arquivos prontos (sem limite, sem token): quem estiver neles já sai com id e nota, sem pergunta.
         val prontos = if (fila.isEmpty()) emptyMap() else arquivosSimkl(cliente, versao)

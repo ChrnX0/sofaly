@@ -590,13 +590,14 @@ class MidiaRedeActivity : Activity() {
         capaPedida = chave
         fichaCapa.visibility = if (chave == null) View.GONE else View.VISIBLE
         if (chave == null) return
+        val capa = e.capa ?: return   // cópia local: Upnp.Entrada mora no módulo :media (sem smart cast entre módulos)
         cacheCapas.get(chave)?.let { fichaCapa.setImageBitmap(it); return }
         fichaCapa.setImageDrawable(null)
         val origem = nivel.origem
         if (capas.isShutdown) return
         capas.execute {
             if (capaPedida != chave) return@execute   // o foco já andou: não baixa
-            val bmp = runCatching { baixarCapa(origem, e.capa) }.getOrNull()
+            val bmp = runCatching { baixarCapa(origem, capa) }.getOrNull()
             tela.post {
                 if (isDestroyed || bmp == null) return@post
                 cacheCapas.put(chave, bmp)
@@ -704,7 +705,7 @@ class MidiaRedeActivity : Activity() {
             is Upnp.Entrada -> when {
                 e.pasta -> entrar(nivel.origem ?: return, e.id, tituloEntrada(e))
                 e.tipo == Upnp.Tipo.FOTO -> mostrarFoto(nivel.origem, e)
-                e.url != null -> tocar(pos, e, e.url)
+                e.url != null -> tocar(pos, e, e.url!!)   // url é val de Upnp.Entrada (módulo :media): checado na linha
             }
         }
     }

@@ -95,7 +95,7 @@ object FilmesFiltro {
         return filmes.filter { f ->
             (c.genero == null || generoDe.getOrPut(f.grupo) { c.genero in generosDoGrupo(f.grupo) }) &&
                 (c.ano == null || f.ano == c.ano) &&
-                (c.decada == null || (f.ano != null && f.ano / 10 * 10 == c.decada)) &&
+                (c.decada == null || f.ano?.let { it / 10 * 10 == c.decada } == true) &&
                 (c.notaMin == null || ((notasFora[f.chave] ?: f.nota)?.let { it >= c.notaMin } == true)) &&   // nota de fora (Trakt) quando houver
                 (!c.naoVistos || !Vod.assistido(posicoes[f.chave])) &&
                 (naLista == null || f.chave in naLista)

@@ -38,6 +38,10 @@ object PerfilDados {
     fun chaveDoPerfil(conta: String?, visita: Boolean): String = if (visita) "" else sanitizar(conta)
 
     /** Relê a chave gravada no [ARQUIVO_ATIVO] (arquivo mexido à mão não vira nome de arquivo estranho). */
+    /** A chave do perfil ativo dos dados, lida do arquivo [ARQUIVO_ATIVO] (o mesmo que Perfil.chaveDados lia). */
+    fun chaveAtiva(ctx: android.content.Context): String =
+        lerChave(runCatching { java.io.File(ctx.filesDir, ARQUIVO_ATIVO).readText() }.getOrNull())
+
     fun lerChave(texto: String?): String {
         val t = texto?.trim().orEmpty()
         return if (VALIDA.matches(t)) sanitizar(t) else ""
