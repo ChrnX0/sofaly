@@ -58,7 +58,7 @@ object PainelConfig {
             .put("visualPronto", br.paulo.tvlauncher.home.HomeLooks.atual(app)?.name?.lowercase() ?: JSONObject.NULL)
             .put("visualVoltar", fotoVisual != null)
             .put("objetivo", br.paulo.tvlauncher.settings.SettingsGoals.ativo(app)?.name?.lowercase() ?: JSONObject.NULL)
-            .put("pedidoFrases", app.getString(br.paulo.tvlauncher.R.string.si_frases))
+            .put("pedidoFrases", app.getString(br.paulo.tvlauncher.resources.R.string.si_frases))
             .put("pedidoFeito", pedidoFeito?.name?.lowercase() ?: JSONObject.NULL)
             .put("altoContraste", AltoContraste.ligado(app))
             .put("avisoChuva", AvisoChuva.ligado(app))
@@ -134,7 +134,7 @@ object PainelConfig {
                     val frase = (v as? String)?.take(200) ?: return Resultado.Erro("valor inválido")
                     // O painel já entende a frase sozinho (pedidoFrases) e manda o nome da ação; uma frase também serve.
                     val a = SettingsIntents.Action.entries.firstOrNull { it.name.equals(frase, ignoreCase = true) }
-                        ?: SettingsIntents.entender(frase, SettingsIntents.modelos(app.getString(br.paulo.tvlauncher.R.string.si_frases)))
+                        ?: SettingsIntents.entender(frase, SettingsIntents.modelos(app.getString(br.paulo.tvlauncher.resources.R.string.si_frases)))
                         ?: return Resultado.Erro("não entendi o pedido")
                     desfazerPedido = SettingsIntents.fazer(app, a); pedidoFeito = a; registrar("pedido: ${a.name.lowercase()}")
                 }

@@ -9,7 +9,7 @@ import br.paulo.tvlauncher.ConfigLauncherActivity.Companion.PIN_VALE_MS
 import br.paulo.tvlauncher.ConfigLauncherActivity.LinhaCfg
 import br.paulo.tvlauncher.ConfirmacoesTv
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Classificacao
 import br.paulo.tvlauncher.family.ControleParental
 import br.paulo.tvlauncher.family.PinFamilia

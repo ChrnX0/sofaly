@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Typeface

@@ -9,7 +9,7 @@ import br.paulo.tvlauncher.DesfazerRegras
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Gatilhos
 import br.paulo.tvlauncher.Presenca
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Retrospectiva
 import br.paulo.tvlauncher.TocandoAgoraTv
 import br.paulo.tvlauncher.alarm.HoraDormir

@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver

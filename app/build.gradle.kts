@@ -189,6 +189,8 @@ kotlin {
 dependencies {
     // Refatoração G: a lógica pura mora no módulo :core (mesmos pacotes e nomes de classe; nada muda na TV).
     implementation(project(":core"))
+    // Etapa 3: os recursos (R) moram no :resources; a pasta continua em src/main/res, mas quem a compila é ele.
+    implementation(project(":resources"))
     // Shell proprio MARCO 2: cliente ADB embutido (pareamento + TLS + shell). Licenca Apache-2.0 (opcao da dupla).
     implementation("com.github.MuntashirAkon:libadb-android:3.1.1")
     implementation("com.github.MuntashirAkon:sun-security-android:1.1")
@@ -315,6 +317,9 @@ val compilarTunel = tasks.register("compilarTunel") {
 android.sourceSets["main"].jniLibs.srcDir(pastaTunel)
 // Player: FFmpeg, libass e a cola nativa, já compilados (nativo/compilar.sh). O build do app não precisa do NDK.
 android.sourceSets["main"].jniLibs.srcDir(rootProject.file("nativo/libs"))
+// Refatoração G, etapa 3: src/main/res é compilada pelo módulo :resources (R = br.paulo.tvlauncher.resources.R).
+// Se o app também a lesse, cada recurso entraria duas vezes.
+android.sourceSets["main"].res.setSrcDirs(emptyList<File>())
 // Relay do api.sofaly.tv (26/11/2026): a parte pura (criptografia, envelopes, WebSocket) mora em relay-core/ e é
 // compilada junto no app da TV e no app do celular, para os dois lados nunca divergirem.
 android.sourceSets["main"].java.srcDir(rootProject.file("relay-core/src/main/kotlin"))

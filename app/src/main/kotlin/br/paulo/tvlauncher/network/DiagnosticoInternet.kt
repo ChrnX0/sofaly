@@ -1,7 +1,7 @@
 package br.paulo.tvlauncher.network
 
 import android.content.Context
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.SystemClock

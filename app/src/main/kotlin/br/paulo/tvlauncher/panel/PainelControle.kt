@@ -19,7 +19,7 @@ import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.PainelApps
 import br.paulo.tvlauncher.PlayPolicy
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.AutoDesligar
 import br.paulo.tvlauncher.home.Home
 import br.paulo.tvlauncher.input.DigitarNaTv

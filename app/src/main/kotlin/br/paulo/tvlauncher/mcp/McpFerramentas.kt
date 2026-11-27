@@ -8,7 +8,7 @@ import br.paulo.tvlauncher.ConfirmacoesTv
 import br.paulo.tvlauncher.CuidarDeLongeTv
 import br.paulo.tvlauncher.PlayPolicy
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.Agenda
 import br.paulo.tvlauncher.home.BarraIlha
 import br.paulo.tvlauncher.network.DiagnosticoInternet

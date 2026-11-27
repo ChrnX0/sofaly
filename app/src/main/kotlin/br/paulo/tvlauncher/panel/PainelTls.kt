@@ -102,7 +102,7 @@ object PainelTls {
         p.edit().putLong("aviso_vencimento", agora).apply()
         runCatching {
             br.paulo.tvlauncher.Avisos.enviar(ctx, br.paulo.tvlauncher.Avisos.Tipo.CERTIFICADO,
-                ctx.getString(br.paulo.tvlauncher.R.string.cert_vence_titulo), ctx.getString(br.paulo.tvlauncher.R.string.cert_vence_texto, dias))
+                ctx.getString(br.paulo.tvlauncher.resources.R.string.cert_vence_titulo), ctx.getString(br.paulo.tvlauncher.resources.R.string.cert_vence_texto, dias))
         }
     }
 

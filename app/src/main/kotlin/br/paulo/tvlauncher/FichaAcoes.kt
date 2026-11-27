@@ -1,5 +1,6 @@
 package br.paulo.tvlauncher
 
+import br.paulo.tvlauncher.resources.R
 import android.app.Dialog
 import android.content.Context
 import android.content.res.ColorStateList

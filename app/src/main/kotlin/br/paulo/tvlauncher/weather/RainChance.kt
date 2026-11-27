@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.weather
 
 import android.content.Context
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Como a chance de chuva aparece (24/11/2026, Paulo: "palavras e/ou %"): só o número ("37%"), só a palavra ("Média")

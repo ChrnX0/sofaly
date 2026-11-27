@@ -1,7 +1,7 @@
 package br.paulo.tvlauncher.panel
 
 import android.content.Context
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.player.AddonsProtocolo
 import br.paulo.tvlauncher.player.AddonsTv
 import br.paulo.tvlauncher.player.RecommendedAddons

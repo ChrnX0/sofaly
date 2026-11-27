@@ -25,7 +25,7 @@ import br.paulo.tvlauncher.MainActivity.Item
 import br.paulo.tvlauncher.MainActivity.Opcao
 import br.paulo.tvlauncher.PainelApps
 import br.paulo.tvlauncher.PlayPolicy
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.ModoVisita
 import br.paulo.tvlauncher.family.PinTv
 import br.paulo.tvlauncher.family.TravaHome

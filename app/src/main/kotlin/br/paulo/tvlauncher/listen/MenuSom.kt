@@ -4,7 +4,7 @@ import android.app.Activity
 import android.os.SystemClock
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.OuvirServico
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import java.util.Locale
 
 /**

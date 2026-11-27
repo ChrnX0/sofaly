@@ -11,7 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.PinNaTela
 import br.paulo.tvlauncher.panel.PainelWeb
 import br.paulo.tvlauncher.panel.QrCodigo

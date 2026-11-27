@@ -8,7 +8,7 @@ import android.view.ViewTreeObserver
 import android.widget.TextView
 import br.paulo.tvlauncher.LauncherApp
 import br.paulo.tvlauncher.ModoSimplesActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.settings.Extras
 import java.lang.ref.WeakReference
 import java.util.Locale

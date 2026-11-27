@@ -8,7 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import br.paulo.tvlauncher.ConhecerProActivity
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * A parte de tela das travas de plano (revisão dos degraus, T2, 17/11/2026). Quem vai abrir uma função paga pergunta

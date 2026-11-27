@@ -12,7 +12,7 @@ import android.provider.Settings
 import android.util.Log
 import br.paulo.tvlauncher.ConfirmacoesTv
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.backup.folder
 import br.paulo.tvlauncher.network.CastigoIp
 import java.net.ServerSocket

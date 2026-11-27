@@ -12,7 +12,7 @@ import android.view.accessibility.AccessibilityNodeInfo
 import br.paulo.tvlauncher.AutorizaShizukuService
 import br.paulo.tvlauncher.ConfirmacoesTv
 import br.paulo.tvlauncher.OuvinteNotificacoes
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Rotinas
 import br.paulo.tvlauncher.TocandoAgoraTv
 import br.paulo.tvlauncher.alarm.AutoDesligar

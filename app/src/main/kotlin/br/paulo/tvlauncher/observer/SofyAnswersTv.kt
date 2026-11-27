@@ -5,7 +5,7 @@ import android.content.Context
 import android.media.AudioManager
 import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Fundo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.panel.PainelSaude
 import org.json.JSONArray
 import org.json.JSONObject

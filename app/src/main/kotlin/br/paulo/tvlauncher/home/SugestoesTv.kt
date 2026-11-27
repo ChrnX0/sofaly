@@ -14,7 +14,7 @@ import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.CaixaTv
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Rotinas
 import br.paulo.tvlauncher.alarm.AutoDesligar
 import br.paulo.tvlauncher.alarm.Despertador

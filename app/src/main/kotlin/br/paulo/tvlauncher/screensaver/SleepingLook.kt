@@ -43,10 +43,10 @@ object SleepingLook {
 
 /** Os nomes na tela de cada opção, na ordem dos enums (Configurações e testes). */
 object SleepingLookNomes {
-    val CLOCK = listOf(br.paulo.tvlauncher.R.string.slk_c_thin, br.paulo.tvlauncher.R.string.slk_c_split, br.paulo.tvlauncher.R.string.slk_c_stacked,
-        br.paulo.tvlauncher.R.string.slk_c_minute, br.paulo.tvlauncher.R.string.slk_c_ring, br.paulo.tvlauncher.R.string.slk_c_ruler,
-        br.paulo.tvlauncher.R.string.slk_c_phrase)
-    val CARD = listOf(br.paulo.tvlauncher.R.string.slk_k_line, br.paulo.tvlauncher.R.string.slk_k_card, br.paulo.tvlauncher.R.string.slk_k_stack)
-    val PLACE = listOf(br.paulo.tvlauncher.R.string.slk_p_ts, br.paulo.tvlauncher.R.string.slk_p_tc, br.paulo.tvlauncher.R.string.slk_p_te,
-        br.paulo.tvlauncher.R.string.slk_p_bs, br.paulo.tvlauncher.R.string.slk_p_bc, br.paulo.tvlauncher.R.string.slk_p_be)
+    val CLOCK = listOf(br.paulo.tvlauncher.resources.R.string.slk_c_thin, br.paulo.tvlauncher.resources.R.string.slk_c_split, br.paulo.tvlauncher.resources.R.string.slk_c_stacked,
+        br.paulo.tvlauncher.resources.R.string.slk_c_minute, br.paulo.tvlauncher.resources.R.string.slk_c_ring, br.paulo.tvlauncher.resources.R.string.slk_c_ruler,
+        br.paulo.tvlauncher.resources.R.string.slk_c_phrase)
+    val CARD = listOf(br.paulo.tvlauncher.resources.R.string.slk_k_line, br.paulo.tvlauncher.resources.R.string.slk_k_card, br.paulo.tvlauncher.resources.R.string.slk_k_stack)
+    val PLACE = listOf(br.paulo.tvlauncher.resources.R.string.slk_p_ts, br.paulo.tvlauncher.resources.R.string.slk_p_tc, br.paulo.tvlauncher.resources.R.string.slk_p_te,
+        br.paulo.tvlauncher.resources.R.string.slk_p_bs, br.paulo.tvlauncher.resources.R.string.slk_p_bc, br.paulo.tvlauncher.resources.R.string.slk_p_be)
 }

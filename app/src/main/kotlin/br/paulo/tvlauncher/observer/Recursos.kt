@@ -8,7 +8,7 @@ import android.content.pm.PackageManager
 import android.os.Process
 import android.provider.Settings
 import br.paulo.tvlauncher.AutorizaShizukuService
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.privilege.PrivilegioDO
 import br.paulo.tvlauncher.privilege.SaudeAcesso
 

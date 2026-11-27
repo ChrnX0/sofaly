@@ -14,7 +14,7 @@ import br.paulo.tvlauncher.ConfigLauncherActivity.LinhaCfg
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.FotoPerfilActivity
 import br.paulo.tvlauncher.PlayPolicy
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.ServicosFilmesActivity
 import br.paulo.tvlauncher.VodActivity
 import br.paulo.tvlauncher.input.EfeitosSom

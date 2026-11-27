@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.FichaAcoes
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith

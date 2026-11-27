@@ -7,7 +7,7 @@ import android.graphics.RectF
 import android.os.SystemClock
 import android.view.View
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * Ideia 75 (14/11/2026): as três barrinhas da pílula "Tocando agora". Mexem só enquanto toca; pausado, ficam baixas e

@@ -23,7 +23,7 @@ import br.paulo.tvlauncher.MainActivity
 import br.paulo.tvlauncher.PluginTilesTv
 import br.paulo.tvlauncher.PrevisaoActivity
 import br.paulo.tvlauncher.ProtetorTela
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Timer
 import br.paulo.tvlauncher.alarm.Despertador
 import br.paulo.tvlauncher.family.ModoVisita

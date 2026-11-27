@@ -13,7 +13,7 @@ import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.MainActivity
 import br.paulo.tvlauncher.PainelRapidoActivity
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.privilege.JanelaNaFrente
 
 /**

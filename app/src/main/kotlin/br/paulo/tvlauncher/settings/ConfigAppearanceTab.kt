@@ -10,7 +10,7 @@ import br.paulo.tvlauncher.ConfigLauncherActivity.LinhaCfg
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.PainelBlocosActivity
 import br.paulo.tvlauncher.PluginsActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.VindoDoProjectivyActivity
 import br.paulo.tvlauncher.home.CruzOnda3
 import br.paulo.tvlauncher.home.FundoMeuDados

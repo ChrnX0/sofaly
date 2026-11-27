@@ -5,7 +5,7 @@ import br.paulo.tvlauncher.AvisoTv
 import br.paulo.tvlauncher.Avisos
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.CuidarDeLongeTv
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.NaoPerturbe
 import br.paulo.tvlauncher.family.CuidarDeLonge
 import br.paulo.tvlauncher.family.Recado

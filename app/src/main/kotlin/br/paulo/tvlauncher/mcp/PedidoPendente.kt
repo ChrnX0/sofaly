@@ -10,7 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import br.paulo.tvlauncher.ConfirmarIaActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.abrir
 import br.paulo.tvlauncher.privilege.PrivilegioDO
 

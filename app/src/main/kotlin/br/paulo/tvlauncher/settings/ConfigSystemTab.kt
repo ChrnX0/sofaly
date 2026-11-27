@@ -23,7 +23,7 @@ import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.LicencasActivity
 import br.paulo.tvlauncher.PlacarActivity
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.ReceberTvActivity
 import br.paulo.tvlauncher.ReceitasActivity
 import br.paulo.tvlauncher.RelatarProblemaActivity

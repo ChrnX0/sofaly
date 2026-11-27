@@ -22,7 +22,7 @@ import br.paulo.tvlauncher.DicasClima
 import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.Fundo
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.alarm.Agenda
 import br.paulo.tvlauncher.alarm.Despertador
 import br.paulo.tvlauncher.home.MovimentoAdaptativo

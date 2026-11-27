@@ -1,6 +1,6 @@
 package br.paulo.tvlauncher.player
 
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.mcp.ComandosIa
 import br.paulo.tvlauncher.txt
 import java.io.Reader

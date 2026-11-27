@@ -367,9 +367,9 @@ object BackupCompleto {
      * exceção, em português fixo, ia direto para a tela).
      */
     fun motivoNaTela(ctx: Context, e: Throwable): String = when (e) {
-        is CofreBackup.SenhaErrada -> ctx.getString(br.paulo.tvlauncher.R.string.bk_motivo_senha)
-        is IllegalArgumentException -> ctx.getString(br.paulo.tvlauncher.R.string.bk_motivo_invalido)
-        is java.io.IOException -> ctx.getString(br.paulo.tvlauncher.R.string.bk_motivo_ler)
+        is CofreBackup.SenhaErrada -> ctx.getString(br.paulo.tvlauncher.resources.R.string.bk_motivo_senha)
+        is IllegalArgumentException -> ctx.getString(br.paulo.tvlauncher.resources.R.string.bk_motivo_invalido)
+        is java.io.IOException -> ctx.getString(br.paulo.tvlauncher.resources.R.string.bk_motivo_ler)
         else -> e.javaClass.simpleName
     }
 

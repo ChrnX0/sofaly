@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import br.paulo.tvlauncher.BuildConfig
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * "O que mudou nesta versão" (14/11/2026, ideia 45). Só em Configurações > Sistema > Esta versão: decisão de não

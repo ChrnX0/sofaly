@@ -16,7 +16,7 @@ import android.widget.TextClock
 import android.widget.TextView
 import br.paulo.tvlauncher.DesignTokens
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.weather.ForecastData
 import java.util.Date
 import kotlin.math.cos

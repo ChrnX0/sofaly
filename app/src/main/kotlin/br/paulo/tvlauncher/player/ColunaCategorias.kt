@@ -22,7 +22,7 @@ import android.widget.ListView
 import android.widget.TextView
 import br.paulo.tvlauncher.ConfigLauncherActivity
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Rtl
 import br.paulo.tvlauncher.home.IconeMidia
 import br.paulo.tvlauncher.settings.Fontes

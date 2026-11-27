@@ -3,7 +3,7 @@ package br.paulo.tvlauncher.input
 import android.content.Context
 import android.view.KeyEvent
 import br.paulo.tvlauncher.Prefs
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.network.Cenas
 import org.json.JSONObject
 

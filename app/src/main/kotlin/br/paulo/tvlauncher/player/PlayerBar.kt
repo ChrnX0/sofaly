@@ -9,7 +9,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 
 /**
  * A barra de baixo dos players (proposta C, B9, 20/11/2026): filmes, séries e TV ao vivo com a MESMA peça. Antes cada

@@ -7,7 +7,7 @@ import br.paulo.tvlauncher.ConfigLauncherActivity
 import br.paulo.tvlauncher.ConfigLauncherActivity.LinhaCfg
 import br.paulo.tvlauncher.EntradasTv
 import br.paulo.tvlauncher.Estilo
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.Perfil
 import br.paulo.tvlauncher.home.StartupApp
 import br.paulo.tvlauncher.network.Cenas

@@ -7,7 +7,7 @@ import android.content.Context
 import android.os.Build
 import android.util.Log
 import br.paulo.tvlauncher.AdminReceiver
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.family.TravaRelogio
 import br.paulo.tvlauncher.network.DiarioDns
 import br.paulo.tvlauncher.settings.Extras

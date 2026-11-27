@@ -21,7 +21,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.Http
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.Vidro
 import br.paulo.tvlauncher.screensaver.WallpaperPluginView
 import br.paulo.tvlauncher.settings.BordaEscura

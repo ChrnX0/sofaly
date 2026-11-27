@@ -2,7 +2,7 @@ package br.paulo.tvlauncher.panel
 
 import br.paulo.tvlauncher.ConectarClaudeActivity
 import br.paulo.tvlauncher.LoginGoogle
-import br.paulo.tvlauncher.R
+import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.mcp.AtalhosTunel
 import br.paulo.tvlauncher.mcp.McpServidor
 import br.paulo.tvlauncher.mcp.TunelTailscale
