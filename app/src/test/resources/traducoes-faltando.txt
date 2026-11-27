@@ -45,7 +45,7 @@ values-ru=3
 
 values-sv=236
 
-values-th=251
+values-th=3
 
 values-tr=224
 

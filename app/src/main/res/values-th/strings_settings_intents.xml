@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=ตัวอักษร ใหญ่ขึ้น|ตัวหนังสือ ใหญ่ขึ้น|ขยาย ตัวอักษร|ตัวใหญ่ขึ้น;TEXT_SMALLER=ตัวอักษร เล็กลง|ตัวหนังสือ เล็กลง|ย่อ ตัวอักษร|ตัวเล็กลง;GOAL_READ=อ่านง่ายขึ้น|อ่าน ยาก|มอง ไม่ชัด;GOAL_CLEAN=หน้าจอสะอาดตา|หน้าจอ เรียบง่าย;GOAL_ENERGY=ประหยัดพลังงาน|ประหยัด ไฟ;LOOK_SOFALY=ลุค sofaly|ลุค ปกติ;LOOK_NIGHT=ลุค กลางคืน|ท้องฟ้า มืด;LOOK_MOUNTAIN=ลุค ภูเขา;LOOK_MINIMAL=ลุค มินิมอล</string>
+    <string name="si_fazer">ทำเลย: %1$s</string>
+    <string name="si_desfazer">ยกเลิก: %1$s</string>
+    <string name="si_fazer_det">เปลี่ยนทันที</string>
+    <string name="si_maior">ตัวอักษรใหญ่ขึ้น</string>
+    <string name="si_menor">ตัวอักษรเล็กลง</string>
+</resources>

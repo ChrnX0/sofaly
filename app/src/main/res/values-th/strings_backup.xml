@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">ล่าสุด</string>
     <string name="bkn_nunca">ไม่เคย</string>
     <string name="bkn_pin">PIN เพื่อเปลี่ยนการสำรองข้อมูล</string>
+    <string name="bk_motivo_senha">รหัสผ่านไม่ถูกต้อง</string>
+    <string name="bk_motivo_invalido">ไฟล์นี้ไม่ใช่ข้อมูลสำรองของ Sofaly หรือไฟล์เสียหาย</string>
+    <string name="bk_motivo_ler">อ่านไม่ได้ (เครือข่ายหรือพื้นที่เก็บข้อมูล)</string>
 </resources>

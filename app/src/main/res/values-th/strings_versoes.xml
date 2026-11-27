@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ver_novidades">มีอะไรเปลี่ยน</string>
+    <string name="ver_novidades_det">%1$d การเปลี่ยนแปลงในเวอร์ชัน %2$s</string>
+    <string name="ver_novidades_sobre">เวอร์ชัน %1$s</string>
+    <string name="ver_ok">ตกลง</string>
+    <string name="ver_conferir">ตรวจบนทีวี</string>
+    <string name="ver_conferir_det">ตรวจด้วยรีโมตแล้ว %1$d จาก %2$d</string>
+    <string name="ver_conferir_sub">เวอร์ชัน %1$s · %2$d รายการ</string>
+    <string name="ver_conferido">ตรวจแล้ว %1$d จาก %2$d</string>
+    <string name="ver_sim">ใช่</string>
+    <string name="ver_nao">ไม่</string>
+    <string name="ver_respondido_sim">ตอบว่า “ใช่”</string>
+    <string name="ver_respondido_nao">ตอบว่า “ไม่”</string>
+</resources>
