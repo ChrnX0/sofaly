@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=chữ to hơn|chữ lớn hơn|phóng to chữ|tăng cỡ chữ;TEXT_SMALLER=chữ nhỏ hơn|thu nhỏ chữ|giảm cỡ chữ;GOAL_READ=đọc dễ hơn|khó đọc|nhìn không rõ;GOAL_CLEAN=màn hình gọn hơn|màn hình đơn giản;GOAL_ENERGY=tiết kiệm điện|tiết kiệm năng lượng|bớt tốn điện;LOOK_SOFALY=giao diện sofaly|giao diện bình thường;LOOK_NIGHT=giao diện đêm|bầu trời tối;LOOK_MOUNTAIN=giao diện núi;LOOK_MINIMAL=giao diện tối giản</string>
+    <string name="si_fazer">Làm ngay: %1$s</string>
+    <string name="si_desfazer">Hoàn tác: %1$s</string>
+    <string name="si_fazer_det">Thay đổi ngay.</string>
+    <string name="si_maior">Chữ to hơn</string>
+    <string name="si_menor">Chữ nhỏ hơn</string>
+</resources>

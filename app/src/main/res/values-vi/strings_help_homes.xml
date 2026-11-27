@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Giúp các nhà khác</string>
+    <string name="hoh_question">Cùng giúp các nhà khác nhé?</string>
+    <string name="hoh_line">Khi tôi sửa gì đó ở đây, tôi kể cho các Sofaly khác biết kết quả. Mà không nói bạn là ai.</string>
+    <string name="hoh_yes">Có, tôi muốn giúp</string>
+    <string name="hoh_not_now">Để sau</string>
+    <string name="hoh_how">Hoạt động thế nào?</string>
+    <string name="hoh_how_title">Cách hoạt động</string>
+    <string name="hoh_how_line">Nếu cùng thứ đó hỏng ở nhà khác, Sofaly ở đó đã biết phải làm gì.</string>
+    <string name="hoh_goes">Những gì được gửi</string>
+    <string-array name="hoh_goes_list">
+        <item>Kiểu TV và phiên bản Sofaly</item>
+        <item>Cái gì hỏng, theo nhóm</item>
+        <item>Cái gì đã sửa và có hiệu quả không</item>
+        <item>Bộ nhớ và mạng, theo mức (tốt hoặc yếu)</item>
+    </string-array>
+    <string name="hoh_never">Những gì không bao giờ gửi</string>
+    <string-array name="hoh_never_list">
+        <item>Tên bạn và tên mạng của bạn</item>
+        <item>Bạn xem gì và khi nào</item>
+        <item>Ứng dụng của bạn và những gì bạn gõ</item>
+        <item>Ảnh, giọng nói, địa chỉ và IP</item>
+    </string-array>
+    <string name="hoh_back_here">Những gì các Sofaly khác học được sẽ quay về đây. Đổi bất cứ lúc nào trong Cài đặt, Sofy biết gì.</string>
+    <string name="hoh_thanks">Cảm ơn! Sofaly của bạn giờ đang giúp các nhà khác.</string>
+    <string name="hoh_state_on">Bật: mỗi ngày một lần, TV này cho biết các lần sửa ra sao</string>
+    <string name="hoh_state_off">Tắt: không có gì được chia sẻ từ TV này</string>
+    <string name="hoh_stop">Ngừng giúp</string>
+    <string name="hoh_stop_det">TV này ngừng chia sẻ. Những gì các nhà khác học được vẫn đến đây.</string>
+    <string name="hoh_start">Bắt đầu giúp</string>
+    <string name="hoh_start_det">Xem những gì được gửi và những gì không bao giờ, rồi chọn</string>
+    <string name="hoh_today">Xem hôm nay gửi gì</string>
+    <string name="hoh_today_det">Gói mà TV này sẽ gửi, từng trường một</string>
+    <string name="hoh_today_sub">Đây chính xác là những gì đến máy chủ. Mã của nhà đổi mỗi ngày.</string>
+    <string name="hoh_forget">Quên những gì đã gửi</string>
+    <string name="hoh_forget_det">Mã của TV này sẽ đổi. Những gì đã gửi không còn liên kết được với TV và bị xóa trong 30 ngày.</string>
+    <string name="hoh_forgot">Xong. Từ giờ dùng mã mới; những gì đã gửi bị xóa trong 30 ngày.</string>
+    <string name="hoh_row_det">Những gì chia sẻ với các nhà khác, và cách tắt</string>
+</resources>
