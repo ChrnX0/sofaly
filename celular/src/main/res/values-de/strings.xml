@@ -33,6 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Stumm</string>
     <string name="cel_ctrl_sem_tv">Der Fernseher antwortet nicht. Ist er an und im selben Netz?</string>
+    <string name="cel_ctrl_fora">Über das Internet gesendet.</string>
     <string name="cel_ctrl_cert_novo">Der Fernseher hat ein neues Sicherheitszertifikat. Scanne den QR-Code am Fernseher erneut.</string>
     <string name="cel_ctrl_recusou">Der Fernseher konnte das gerade nicht.</string>
     <string name="cel_ctrl_entrar">Einmal mit der PIN des Fernsehers im Panel anmelden; dann geht die Fernbedienung.</string>

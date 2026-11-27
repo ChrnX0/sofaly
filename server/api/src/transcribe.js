@@ -71,9 +71,10 @@ async function allowed(limiter, key) {
 
 const quotaError = (e) => /quota|limit|neuron|429|capacity/i.test(String(e?.message ?? e));
 
-export async function handleTranscribe(kind, req, url, env, { ip }) {
+export async function handleTranscribe(kind, req, url, env, { ip, take = async () => true }) {
   if (!env.AI) return reply({ error: 'unavailable' }, 503);
   if (!(await allowed(env.TRANSCRIBE_IP_LIMITER, `ip:${ip}`))) return reply({ error: 'rate limited' }, 429);
+  if (!(await take(kind))) return reply({ error: 'quota' }, 429);   // cota do dia por aparelho e por rede (src/quota.js)
   const lang = cleanLang(url.searchParams.get('lang'));
   const size = Number(req.headers.get('content-length') ?? 0);
   if (kind === 'transcribe') {

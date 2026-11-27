@@ -229,6 +229,16 @@ object PainelWeb {
         sessoes.encerrarOutras(token)
         senhasDav.limpar()
         synchronized(travaPin) { tentativas?.zerar() }
+        revogarTodosAparelhos(manter = token)
+    }
+
+    /**
+     * PIN trocado na TV (Config ou adb): recomeça como [recomecar] e tira o acesso dos celulares pareados (chave e
+     * relay). Revisor 26/11: quem troca o PIN espera fechar a porta, e a chave de aparelho não vence nunca.
+     */
+    @Synchronized fun pinTrocado(ctx: Context) {
+        recomecar(ctx)
+        revogarTodosAparelhos()
     }
 
     /** Abre a porta numa thread própria (abrir socket na thread da tela é proibido no Android) e fica no accept(). */
@@ -389,7 +399,7 @@ object PainelWeb {
      */
     private fun descricaoUpnp(host: String?): Resposta {
         val pagina = "http://${host ?: (ipsDaRede().minOrNull() + ":" + Config.PAINEL_PORTA)}/"
-        val xml = Ssdp.descricao(Ssdp.nomeVisivel(PainelVizinhos.nomeDaTv(app)), Ssdp.uuid(PainelVizinhos.idDaTv(app)), pagina)
+        val xml = Ssdp.descricao(Ssdp.nomeVisivel(PainelVizinhos.nomeDaTv(app), app.getString(br.paulo.tvlauncher.R.string.ssdp_painel)), Ssdp.uuid(PainelVizinhos.idDaTv(app)), pagina)
         return Resposta(200, "text/xml; charset=utf-8", xml.toByteArray())
     }
 
@@ -819,8 +829,16 @@ object PainelWeb {
             "/api/papeis/convite" -> if (req.metodo == "POST") return criarConvite(req, token, ip, https, host)
             "/api/papeis/revogar" -> if (req.metodo == "POST") return revogarConvite(req, token, ip)
             "/api/aparelhos" -> if (req.metodo == "GET") return listarAparelhos()
-            "/api/aparelho/emitir" -> if (req.metodo == "POST") return emitirAparelho(req, ip, https)
-            "/api/aparelhos/revogar" -> if (req.metodo == "POST") return revogarAparelho(req, ip)
+            "/api/aparelho/emitir" -> if (req.metodo == "POST") {
+                if (!sessoes.elevada(token)) return precisaPin()
+                return emitirAparelho(req, ip, https)
+            }
+            // Pede o PIN (revisor 26/11): é a única ação sobre o acesso permanente; sem isso uma sessão aberta com a chave
+            // de um celular revogava todos os outros.
+            "/api/aparelhos/revogar" -> if (req.metodo == "POST") {
+                if (!sessoes.elevada(token)) return precisaPin()
+                return revogarAparelho(req, ip)
+            }
         }
         // Cuidar de longe (ideias 77-79, PainelCuidar.kt). A foto do pedido de ajuda é imagem: sai daqui mesmo.
         if (req.caminho == "/api/cuidar/foto" && req.metodo == "GET") {
@@ -1056,6 +1074,17 @@ object PainelWeb {
             "/api/tela/foto" -> if (req.metodo == "GET") return fotoTela()
             "/api/tela/tecla" -> if (req.metodo == "POST") return tecla(req)
             "/api/tela/texto" -> if (req.metodo == "POST") return texto(req, ip)
+            // Decisão A (26/11/2026): o celular pareado troca as chaves do relay aqui, em casa, para controlar a TV de fora.
+            // Só o dono (rota fora das listas do PapeisPainel).
+            "/api/relay/parear" -> if (req.metodo == "POST") {
+                // Acesso de fora é permanente: só com o PIN. A chave de aparelho (X-Aparelho) já prova o PIN (emitir pede
+                // sessão elevada); sem ela, a sessão tem que estar elevada (quem só leu o QR não ganha acesso de fora).
+                val aparelho = aparelhoDoCabecalho(req)
+                if (aparelho == null && !sessoes.elevada(token)) return precisaPin()
+                val r = br.paulo.tvlauncher.relay.RelayTv.parearPeloPainel(app, corpoJson(req), aparelho) ?: return erro(400, "chaves inválidas")
+                PainelArmazem.registrar(app, ip, "celular pareado para usar de fora de casa", "ok")
+                return json(200, r)
+            }
             "/api/tv/reiniciar" -> if (req.metodo == "POST") return reiniciarTv(token, ip)
             "/api/certificado/renovar" -> if (req.metodo == "POST") return renovarCertificado(req, token, ip)
             "/api/recado" -> if (req.metodo == "POST") return recado(req, ip)
@@ -1545,7 +1574,7 @@ object PainelWeb {
         val url = android.net.Uri.fromFile(f).toString()
         if (!Pastas.arquivoLocalPermitido(url)) return erro(403, "esse lugar não pode ser tocado")
         AutoDesligar.atividade()
-        VodActivity.abrirUrlEm(app, url, f.nameWithoutExtension, 0L)
+        VodActivity.abrirUrlEm(app, url, f.nameWithoutExtension, -1L)   // -1 = continua de onde parou (revisor 26/11)
         PainelArmazem.registrar(app, ip, "tocar na TV ${f.name.take(80)}", "ok")
         return json(200, JSONObject().put("ok", true))
     }

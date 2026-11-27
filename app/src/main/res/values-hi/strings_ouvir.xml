@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">सुझाव</string>
     <string name="pod_sugestao_seguir">फ़ॉलो करने के लिए OK</string>
     <string name="pod_sugeridos_seguidos">सुझाए गए पॉडकास्ट मेरे पॉडकास्ट में जोड़े गए</string>
+    <string name="pod_busca_nada">कोई पॉडकास्ट नहीं मिला।</string>
+    <string name="pod_busca_cota">पॉडकास्ट खोज आज आराम कर रही है। कल लौटेगी।</string>
+    <string name="pod_busca_fora">पॉडकास्ट खोज जवाब नहीं दे रही। बाद में कोशिश करें।</string>
+    <string name="pod_busca_rede">इंटरनेट नहीं है। टीवी का कनेक्शन जाँचें।</string>
+    <string name="tx_falhou_det">इस एपिसोड का टेक्स्ट नहीं बन सका। बाद में कोशिश करें।</string>
 </resources>

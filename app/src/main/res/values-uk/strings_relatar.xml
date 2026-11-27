@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Повідомити про проблему</string>
-    <string name="rel_linha_det">QR-код відкриває форму на телефоні, з уже заповненими технічними даними</string>
-    <string name="rel_texto">Наведіть камеру телефона на код. Напишіть, що сталося, і надішліть. Ваше ім\'я, обліковий запис, мережа й місто не додаються.</string>
+    <string name="rel_linha_det">Напишіть, що сталося, і надішліть у Sofaly приватно</string>
+    <string name="rel_texto">Напишіть, що сталося (мікрофон клавіатури теж працює), і надішліть. Повідомлення йде в Sofaly приватно, а не на публічну сторінку. Ім\'я, обліковий запис, мережа та місто не передаються.</string>
     <string name="rel_vai_junto">Що додається</string>
     <string name="rel_l_oque">Що сталося</string>
     <string name="rel_l_versao">Версія</string>
     <string name="rel_l_uso">Режим</string>
     <string name="rel_l_quedas">Збої / зависання (7 днів)</string>
     <string name="rel_l_erro">Остання помилка</string>
+    <string name="rel_escreva">Що сталося? (необов\'язково)</string>
+    <string name="rel_enviar">Надіслати в Sofaly</string>
+    <string name="rel_enviando">Надсилання…</string>
+    <string name="rel_enviado">Надіслано. Дякуємо!</string>
+    <string name="rel_cota">Цей телевізор уже надіслав 5 повідомлень сьогодні. Спробуйте завтра.</string>
+    <string name="rel_falhou">Зараз не вдалося надіслати. Перевірте інтернет і спробуйте ще раз.</string>
+    <string name="rel_email">Або e-mail: наведіть камеру телефона на код.</string>
 </resources>

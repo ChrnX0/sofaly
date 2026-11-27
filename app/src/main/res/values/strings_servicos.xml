@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl rating</string>
     <string name="sv_simkl_convite_det">Connect your account</string>
+    <string name="legenda_muitas">Too many subtitle searches right now. Try again in a minute.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles refused the account. Check it in Settings.</string>
+    <string name="legenda_fora">The subtitle service is down. Try again later.</string>
 </resources>

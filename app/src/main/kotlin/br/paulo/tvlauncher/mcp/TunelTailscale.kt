@@ -86,6 +86,20 @@ object TunelTailscale {
     @Volatile private var reinicioPedido = false
     fun rodando(): Boolean = processo?.isAlive == true
 
+    /** O IP de casa que o túnel recebeu ao subir (o programa só lê TUNEL_PAINEL no início). */
+    @Volatile private var ipPainel: String? = null
+
+    /**
+     * Revisor 26/11: depois de o roteador trocar o IP da TV (ou de a TV ligar antes do Wi-Fi), o painel pela rede
+     * Tailscale apontava para o endereço velho até reiniciar o launcher. O AnuncioUpnp confere o IP a cada minuto e
+     * chama isto; mudou, o túnel sobe de novo com o IP certo.
+     */
+    fun conferirIp(ctx: Context) {
+        if (!rodando() || !redeLigada(ctx.applicationContext)) return
+        val agora = ipDaRede() ?: return
+        if (agora != ipPainel) { Log.i(TAG, "IP de casa mudou: reiniciando o túnel"); reiniciar() }
+    }
+
     /** Já entrou no Tailscale alguma vez (estado salvo) ou tem chave esperando o 1º login. Sem isso o login é pelo QR. */
     fun configurado(ctx: Context): Boolean = temChave(ctx) || File(pastaEstado(ctx), "tailscaled.state").exists()
 
@@ -157,7 +171,8 @@ object TunelTailscale {
         PonteTunel.garantir()?.let { env["HTTPS_PROXY"] = it; env["https_proxy"] = it; env["NO_PROXY"] = "127.0.0.1,localhost" }
         chave(app)?.let { env["TS_AUTHKEY"] = it }   // só existe até o 1º login dar certo
         if (redeLigada(app)) {
-            ipDaRede()?.let { env["TUNEL_PAINEL"] = "$it:${Config.PAINEL_PORTA}" }
+            ipPainel = ipDaRede()
+            ipPainel?.let { env["TUNEL_PAINEL"] = "$it:${Config.PAINEL_PORTA}" }
             AtalhosTunel.ler(atalhos(app))?.takeIf { it.isNotEmpty() }?.let { env["TUNEL_ATALHOS"] = AtalhosTunel.paraAmbiente(it) }
         }
         // Degrau 4: Sessão junto / Continuar em outra TV precisam só da lista de TVs da conta (sem o painel na rede).

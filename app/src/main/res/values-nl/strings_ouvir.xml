@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Suggesties</string>
     <string name="pod_sugestao_seguir">OK om te volgen</string>
     <string name="pod_sugeridos_seguidos">Voorgestelde podcasts toegevoegd aan Mijn podcasts</string>
+    <string name="pod_busca_nada">Geen podcast gevonden.</string>
+    <string name="pod_busca_cota">Het zoeken naar podcasts rust voor vandaag. Morgen weer.</string>
+    <string name="pod_busca_fora">Het zoeken naar podcasts reageert niet. Probeer het later.</string>
+    <string name="pod_busca_rede">Geen internet. Controleer de verbinding van de tv.</string>
+    <string name="tx_falhou_det">De tekst van deze aflevering kon niet worden gemaakt. Probeer het later.</string>
 </resources>

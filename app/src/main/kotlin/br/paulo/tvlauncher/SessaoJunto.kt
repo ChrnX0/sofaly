@@ -51,9 +51,10 @@ object SessaoJunto {
     /** Player pediu "Assistir junto" com [host]. Bloqueia (rede): fora da thread da tela. Devolve null ou o erro. */
     fun convidar(ctx: Context, host: String, titulo: String, chave: String): String? {
         val app = ctx.applicationContext
-        val eu = EntreTvs.meuHost(app) ?: return "sem_tunel"
+        // Casa do relay: o "de" do convite nem é lido lá (vale quem o envelope prova que mandou).
+        val eu = if (br.paulo.tvlauncher.relay.RelayCasas.idDoHost(host) != null) "relay" else EntreTvs.meuHost(app) ?: return "sem_tunel"
         if (JuntoRegras.tipoDaChave(chave) == null) return "titulo"
-        if (EntreTvs.outras(app).none { it.host == host }) return "tv"
+        if (EntreTvs.paraJunto(app).none { it.host == host }) return "tv"
         val s = Sessao(Cenas.gerarToken(), host, titulo, chave, anfitriao = true, criada = System.currentTimeMillis())
         atual = s
         val r = EntreTvs.chamar(app, host, "/junto/convite",
@@ -80,15 +81,41 @@ object SessaoJunto {
         // Confere de volta: a TV que diz ter mandado tem mesmo este convite?
         val volta = EntreTvs.chamar(app, c.de, "/junto/${c.token}/estado")
         if (volta.codigo != 200 || volta.json?.optBoolean("ok") != true) return 403 to JSONObject().put("erro", "conferir")
+        mostrarConvite(app, c)
+        return 200 to JSONObject().put("ok", true)
+    }
+
+    private fun mostrarConvite(app: Context, c: JuntoRegras.Convite) {
         convitePendente = c
         try {
             app.startActivity(Intent(app, SessaoJuntoActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .putExtra(SessaoJuntoActivity.EXTRA_MODO, SessaoJuntoActivity.MODO_CONVITE))
         } catch (_: Exception) {
-            AvisoTv.mostrar(app, app.getString(R.string.junto_convite_titulo, JuntoRegras.nomeBonito(c.de)), c.titulo, 30,
+            AvisoTv.mostrar(app, app.getString(R.string.junto_convite_titulo, EntreTvs.nome(app, c.de)), c.titulo, 30,
                 som = true, guardarSeApagada = false)
         }
-        return 200 to JSONObject().put("ok", true)
+    }
+
+    /**
+     * Chegou pelo relay ([br.paulo.tvlauncher.relay.RelayCasas], já aberto e conferido: [de] é a casa que mandou).
+     * Mesmas regras das rotas do túnel, menos a conferência de volta (o envelope cifrado já prova quem mandou) e a
+     * chave "TVs da família" (a casa foi ligada de propósito, pelo código).
+     */
+    fun doRelay(ctx: Context, de: String, caminho: String, corpo: JSONObject) {
+        val app = ctx.applicationContext
+        if (caminho == "/junto/convite") {
+            val agora = System.currentTimeMillis()
+            synchronized(convitesHora) {
+                val (pode, nova) = JuntoRegras.contarConvite(convitesHora, agora)
+                convitesHora.clear(); convitesHora.addAll(nova)
+                if (!pode) return
+            }
+            val c = JuntoRegras.conviteDeJson(corpo.put("de", "relay"), agora)?.copy(de = de) ?: return
+            mostrarConvite(app, c)
+            return
+        }
+        val partes = caminho.split('/')   // "", "junto", token, acao
+        if (partes.size == 4) receberEvento(app, partes[2], partes[3], corpo, de)
     }
 
     fun convitePendente(): JuntoRegras.Convite? = convitePendente?.takeIf { System.currentTimeMillis() - it.quando < JuntoRegras.CONVITE_MS }
@@ -113,13 +140,14 @@ object SessaoJunto {
     }
 
     /** POST /junto/<token>/evento e /sair vindos da outra TV. */
-    fun receberEvento(ctx: Context, token: String, acao: String, corpo: JSONObject?): Pair<Int, JSONObject> {
+    fun receberEvento(ctx: Context, token: String, acao: String, corpo: JSONObject?, de: String? = null): Pair<Int, JSONObject> {
         val app = ctx.applicationContext
         val s = atual?.takeIf { java.security.MessageDigest.isEqual(it.token.toByteArray(), token.toByteArray()) }
+            ?.takeIf { de == null || it.par == de }   // pelo relay: só a casa da sessão
             ?: return 404 to JSONObject().put("erro", "não existe")
         if (acao == "sair") {
             encerrar(app, avisarOutra = false)
-            AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_saiu, JuntoRegras.nomeBonito(s.par)))
+            AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_saiu, EntreTvs.nome(app, s.par)))
             return 200 to JSONObject().put("ok", true)
         }
         val e = JuntoRegras.eventoDeJson(corpo) ?: return 400 to JSONObject().put("erro", "evento")
@@ -128,9 +156,9 @@ object SessaoJunto {
         if (e.chave != null && e.chave != s.chave && JuntoRegras.valeNaSessao(s.chave, e.chave)) s.chave = e.chave
         if (!s.aceita) {
             s.aceita = true
-            AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_entrou, JuntoRegras.nomeBonito(s.par)))
+            AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_entrou, EntreTvs.nome(app, s.par)))
         }
-        e.reacao?.let { AvisoTv.rapido(app, JuntoRegras.nomeBonito(s.par), it, 4) }
+        e.reacao?.let { AvisoTv.rapido(app, EntreTvs.nome(app, s.par), it, 4) }
         avisarPlayer(app, s, e)
         return 200 to JSONObject().put("ok", true)
     }
@@ -140,7 +168,7 @@ object SessaoJunto {
     /** Principal -> player: o estado da sessão e, se houver, o evento que chegou. */
     private fun avisarPlayer(app: Context, s: Sessao?, e: JuntoRegras.Evento?) {
         val i = Intent(ACAO_REMOTO).setPackage(app.packageName)
-            .putExtra("ativa", s != null).putExtra("chave", s?.chave).putExtra("par", s?.par?.let(JuntoRegras::nomeBonito))
+            .putExtra("ativa", s != null).putExtra("chave", s?.chave).putExtra("par", s?.par?.let { EntreTvs.nome(app, it) })
         if (e != null) i.putExtra("evento", JuntoRegras.eventoParaJson(e).toString())
         app.sendBroadcast(i)
     }
@@ -152,7 +180,7 @@ object SessaoJunto {
             "consultar" -> Fundo.rodar("junto-consultar") { avisarPlayer(app, vigente(app), null) }
             "convidar" -> Fundo.rodar("junto-convite") {
                 val erro = convidar(app, i.getStringExtra("host") ?: "", i.getStringExtra("titulo") ?: "", i.getStringExtra("chave") ?: "")
-                val nome = JuntoRegras.nomeBonito(i.getStringExtra("host") ?: "")
+                val nome = EntreTvs.nome(app, i.getStringExtra("host") ?: "")
                 AvisoTv.rapido(app, app.getString(R.string.junto_titulo),
                     if (erro == null) app.getString(R.string.junto_convidou, nome) else app.getString(R.string.junto_falhou, nome))
             }
@@ -179,7 +207,7 @@ object SessaoJunto {
         val s = atual ?: return null
         if (!JuntoRegras.parada(s.ultimo, System.currentTimeMillis())) return s
         encerrar(app, avisarOutra = true)
-        AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_saiu, JuntoRegras.nomeBonito(s.par)))
+        AvisoTv.rapido(app, app.getString(R.string.junto_titulo), app.getString(R.string.junto_saiu, EntreTvs.nome(app, s.par)))
         return null
     }
 
@@ -323,7 +351,7 @@ class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Bool
      * O menu "Assistir junto" do player: sem sessão, a lista das TVs da conta (para convidar); com sessão, reações e
      * "Sair". As TVs vêm por [tvs] (o processo do player não tem a lista do túnel: ela vem do principal no broadcast).
      */
-    fun menu(titulo: String, tvs: List<String>) {
+    fun menu(titulo: String, tvs: List<Pair<String, String>>) {
         if (chaveLocal == null) { android.widget.Toast.makeText(a, a.getString(R.string.junto_sem_titulo), android.widget.Toast.LENGTH_LONG).show(); return }
         if (ativa) {
             val itens = JuntoRegras.REACOES + a.getString(R.string.junto_sair)
@@ -339,7 +367,7 @@ class JuntoNoPlayer(private val a: Activity, private val aplicar: (tocando: Bool
             Estilo.lista(a, a.getString(R.string.junto_titulo), listOf(a.getString(R.string.junto_sem_tvs))) {}
             return
         }
-        Estilo.lista(a, a.getString(R.string.junto_escolher), tvs.map(JuntoRegras::nomeBonito)) { i -> convidar(tvs[i], titulo) }
+        Estilo.lista(a, a.getString(R.string.junto_escolher), tvs.map { it.second }) { i -> convidar(tvs[i].first, titulo) }
     }
 }
 
@@ -357,7 +385,7 @@ class SessaoJuntoActivity : Activity() {
         super.onCreate(b)
         if (VigiaAtualizacao.fechada(this)) return
         val c = SessaoJunto.convitePendente() ?: run { finish(); return }
-        val nome = JuntoRegras.nomeBonito(c.de)
+        val nome = EntreTvs.nome(this, c.de)
         val canal = JuntoRegras.tipoDaChave(c.chave) == JuntoRegras.Tipo.CANAL
         val agoraNao = Estilo.botao(this, getString(R.string.junto_agora_nao), primario = false).apply {
             setOnClickListener { SessaoJunto.recusar(); finish() }
@@ -383,9 +411,16 @@ class JuntoTvsProvider : android.content.ContentProvider() {
     override fun onCreate() = true
     override fun call(method: String, arg: String?, extras: Bundle?): Bundle? {
         val ctx = context ?: return null
-        if (method != "tvs") return null
-        val l = EntreTvs.outras(ctx).filter { it.online }.map { it.host }
-        return Bundle().apply { putString("tvs", JSONArray(l).toString()) }
+        return when (method) {
+            "tvs" -> Bundle().apply { putString("tvs", JSONArray(EntreTvs.outras(ctx).filter { it.online }.map { it.host }).toString()) }
+            // Assistir junto: também as casas do relay, já com o nome para mostrar (o player não lê a lista delas).
+            "junto" -> Bundle().apply {
+                putString("tvs", JSONArray().apply {
+                    EntreTvs.paraJunto(ctx).filter { it.online }.forEach { put(JSONObject().put("host", it.host).put("nome", EntreTvs.nome(ctx, it.host))) }
+                }.toString())
+            }
+            else -> null
+        }
     }
     override fun query(u: android.net.Uri, p: Array<out String>?, s: String?, a: Array<out String>?, o: String?) = null
     override fun getType(u: android.net.Uri): String? = null
@@ -400,6 +435,13 @@ class JuntoTvsProvider : android.content.ContentProvider() {
             val b = ctx.contentResolver.call(android.net.Uri.parse("content://${autoridade(ctx)}"), "tvs", null, null)
             val a = JSONArray(b?.getString("tvs") ?: "[]")
             (0 until a.length()).map { a.getString(it) }
+        } catch (_: Exception) { emptyList() }
+
+        /** Do processo do player: (host, nome) de quem pode assistir junto, contando as casas do relay. */
+        fun junto(ctx: Context): List<Pair<String, String>> = try {
+            val b = ctx.contentResolver.call(android.net.Uri.parse("content://${autoridade(ctx)}"), "junto", null, null)
+            val a = JSONArray(b?.getString("tvs") ?: "[]")
+            (0 until a.length()).mapNotNull { a.optJSONObject(it) }.map { it.optString("host") to it.optString("nome") }
         } catch (_: Exception) { emptyList() }
     }
 }

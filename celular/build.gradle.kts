@@ -57,6 +57,11 @@ kotlin {
 dependencies {
     // Leitor de QR (ZXing, Apache-2.0): funciona sem os serviços do Google.
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+    // Relay do api.sofaly.tv (26/11/2026): Ed25519/X25519/HKDF da relay-core (mesma versão do app da TV).
+    implementation("org.bouncycastle:bcprov-jdk15to18:1.81")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20260814")
 }
+
+// Relay (26/11/2026): a mesma parte pura que o app da TV usa (relay-core/), compilada aqui também.
+android.sourceSets["main"].java.srcDir(rootProject.file("relay-core/src/main/kotlin"))

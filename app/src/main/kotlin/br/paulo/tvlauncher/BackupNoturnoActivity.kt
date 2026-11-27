@@ -146,7 +146,7 @@ class BackupNoturnoActivity : Activity() {
             runOnUiThread {
                 if (isDestroyed) return@runOnUiThread
                 rodando = false; atualizar()
-                val copias = r.getOrElse { mostrar(getString(R.string.drv_falhou, it.message ?: it.javaClass.simpleName)); return@runOnUiThread }
+                val copias = r.getOrElse { mostrar(getString(R.string.drv_falhou, br.paulo.tvlauncher.backup.BackupCompleto.motivoNaTela(this, it))); return@runOnUiThread }
                 if (copias.isEmpty()) { mostrar(getString(R.string.drv_nenhuma)); return@runOnUiThread }
                 // Uma linha por cópia (a mais nova em cima), dentro da caixa padrão da TV.
                 val lista = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
@@ -173,7 +173,7 @@ class BackupNoturnoActivity : Activity() {
                     PainelArmazem.registrar(app, "TV", "restaurar do Google Drive ${c.nome}", "ok, $n chaves")
                     null
                 } catch (e: CofreBackup.SenhaErrada) { getString(R.string.drv_senha_errada) }
-                catch (e: Exception) { getString(R.string.drv_falhou, e.message ?: e.javaClass.simpleName) }
+                catch (e: Exception) { getString(R.string.drv_falhou, br.paulo.tvlauncher.backup.BackupCompleto.motivoNaTela(this, e)) }
                 runOnUiThread {
                     if (isDestroyed) return@runOnUiThread
                     rodando = false; atualizar()

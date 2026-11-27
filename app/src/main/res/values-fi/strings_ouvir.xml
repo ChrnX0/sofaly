@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Ehdotuksia</string>
     <string name="pod_sugestao_seguir">OK seuraa</string>
     <string name="pod_sugeridos_seguidos">Ehdotetut podcastit lisätty kohtaan Omat podcastini</string>
+    <string name="pod_busca_nada">Podcastia ei löytynyt.</string>
+    <string name="pod_busca_cota">Podcast-haku lepää tänään. Se palaa huomenna.</string>
+    <string name="pod_busca_fora">Podcast-haku ei vastaa. Yritä myöhemmin.</string>
+    <string name="pod_busca_rede">Ei internetiä. Tarkista TV:n yhteys.</string>
+    <string name="tx_falhou_det">Jakson tekstiä ei voitu luoda. Yritä myöhemmin.</string>
 </resources>

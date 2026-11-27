@@ -15,4 +15,5 @@
     <string name="mtp_pcs_esquecidos">Οι υπολογιστές ξεχάστηκαν</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Άνοιγμα του πίνακα της τηλεόρασης</string>
+    <string name="ssdp_painel">πίνακας</string>
 </resources>

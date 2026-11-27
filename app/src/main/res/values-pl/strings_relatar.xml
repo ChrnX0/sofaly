@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Zgłoś problem</string>
-    <string name="rel_linha_det">Kod QR otwiera formularz w telefonie z wypełnionymi danymi technicznymi</string>
-    <string name="rel_texto">Skieruj aparat telefonu na kod. Opisz, co się stało, i wyślij. Imię, konto, sieć i miasto nie są dołączane.</string>
+    <string name="rel_linha_det">Napisz, co się stało, i wyślij prywatnie do Sofaly</string>
+    <string name="rel_texto">Napisz, co się stało (mikrofon klawiatury też działa), i wyślij. Trafia prywatnie do Sofaly, nigdy na publiczną stronę. Imię, konto, sieć i miasto nie są dołączane.</string>
     <string name="rel_vai_junto">Co zostanie dołączone</string>
     <string name="rel_l_oque">Co się stało</string>
     <string name="rel_l_versao">Wersja</string>
     <string name="rel_l_uso">Tryb</string>
     <string name="rel_l_quedas">Awarie / zawieszenia (7 dni)</string>
     <string name="rel_l_erro">Ostatni błąd</string>
+    <string name="rel_escreva">Co się stało? (opcjonalnie)</string>
+    <string name="rel_enviar">Wyślij do Sofaly</string>
+    <string name="rel_enviando">Wysyłanie…</string>
+    <string name="rel_enviado">Wysłano. Dziękujemy!</string>
+    <string name="rel_cota">Ten telewizor wysłał już dziś 5 zgłoszeń. Spróbuj jutro.</string>
+    <string name="rel_falhou">Nie udało się teraz wysłać. Sprawdź internet i spróbuj ponownie.</string>
+    <string name="rel_email">Albo e-mailem: skieruj aparat telefonu na kod.</string>
 </resources>

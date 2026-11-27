@@ -15,4 +15,6 @@
     <string name="mtp_pcs_esquecidos">Computers forgotten</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Open the TV panel</string>
+    <!-- Suffix after the TV name in Windows Network (Ssdp.nomeVisivel): double click opens the web panel. Up to 10 letters. -->
+    <string name="ssdp_painel">panel</string>
 </resources>

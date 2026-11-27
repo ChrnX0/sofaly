@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Propozycje</string>
     <string name="pod_sugestao_seguir">OK, aby obserwować</string>
     <string name="pod_sugeridos_seguidos">Proponowane podcasty dodane do Moich podcastów</string>
+    <string name="pod_busca_nada">Nie znaleziono podcastu.</string>
+    <string name="pod_busca_cota">Wyszukiwanie podcastów odpoczywa dziś. Wróci jutro.</string>
+    <string name="pod_busca_fora">Wyszukiwanie podcastów nie odpowiada. Spróbuj później.</string>
+    <string name="pod_busca_rede">Brak internetu. Sprawdź połączenie telewizora.</string>
+    <string name="tx_falhou_det">Nie udało się utworzyć tekstu tego odcinka. Spróbuj później.</string>
 </resources>

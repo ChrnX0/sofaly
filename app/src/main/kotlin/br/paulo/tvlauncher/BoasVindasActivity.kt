@@ -101,7 +101,9 @@ class BoasVindasActivity : Activity() {
         lista.addView(linha(getString(R.string.mtv_titulo), getString(R.string.mtv_cfg_det)) {
             abrir(Intent(this, ReceberTvActivity::class.java))
         })
-        lista.addView(linha(getString(R.string.drv_restaurar), getString(R.string.bv_backup_det)) {
+        // Só com o login do Google configurado (revisor 26/11): numa TV zerada o id OAuth ainda não existe, e a linha
+        // levava a uma tela que só dizia "precisa da conta". Aí sobra "Trazer de outra TV" (ou restaurar pelo painel).
+        if (LoginGoogle.configurado(this)) lista.addView(linha(getString(R.string.drv_restaurar), getString(R.string.bv_backup_det)) {
             abrir(Intent(this, BackupNoturnoActivity::class.java))
         })
         setContentView(raiz)

@@ -980,7 +980,7 @@ class PlayerActivity : Activity() {
             }
             menu += PlayerMenu.abre(getString(R.string.fone_menu), getString(if (SomNoFone.ligado) R.string.pm_ligado else R.string.pm_desligado)) { SomNoFone.janela(this) }
             if (EntreTvs.ligado(this)) {
-                menu += PlayerMenu.acao(getString(R.string.junto_menu)) { junto?.menu(c.nome, JuntoTvsProvider.tvs(this)) }
+                menu += PlayerMenu.acao(getString(R.string.junto_menu)) { junto?.menu(c.nome, JuntoTvsProvider.junto(this)) }
                 menu += PlayerMenu.acao(getString(R.string.cont_menu)) { junto?.enviarPara(c.nome, JuntoTvsProvider.tvs(this), 0L, null) }
             }
             menu

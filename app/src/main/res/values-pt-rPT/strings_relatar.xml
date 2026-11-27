@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Comunicar um problema</string>
-    <string name="rel_linha_det">Um QR abre o formulário no telemóvel, com os dados técnicos já preenchidos</string>
-    <string name="rel_texto">Aponte a câmara do telemóvel para o código. Escreva o que aconteceu e envie. O seu nome, conta, rede e cidade não seguem junto.</string>
+    <string name="rel_linha_det">Escreva o que aconteceu e envie em privado para a Sofaly</string>
+    <string name="rel_texto">Escreva o que aconteceu (o microfone do teclado também funciona) e envie. Segue em privado para a Sofaly, nunca para uma página pública. O seu nome, conta, rede e cidade não seguem junto.</string>
     <string name="rel_vai_junto">O que segue junto</string>
     <string name="rel_l_oque">O que aconteceu</string>
     <string name="rel_l_versao">Versão</string>
     <string name="rel_l_uso">Modo</string>
     <string name="rel_l_quedas">Falhas / bloqueios (7 dias)</string>
     <string name="rel_l_erro">Último erro</string>
+    <string name="rel_escreva">O que aconteceu? (opcional)</string>
+    <string name="rel_enviar">Enviar para a Sofaly</string>
+    <string name="rel_enviando">A enviar…</string>
+    <string name="rel_enviado">Enviado. Obrigado!</string>
+    <string name="rel_cota">Esta TV já enviou 5 relatos hoje. Tente novamente amanhã.</string>
+    <string name="rel_falhou">Não foi possível enviar agora. Verifique a internet e tente novamente.</string>
+    <string name="rel_email">Ou por e-mail: aponte a câmara do telemóvel para o código.</string>
 </resources>

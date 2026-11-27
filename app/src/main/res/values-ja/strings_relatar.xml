@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">問題を報告</string>
-    <string name="rel_linha_det">QRコードでスマホにフォームが開き、技術情報は入力済みです</string>
-    <string name="rel_texto">スマホのカメラをコードに向けてください。何が起きたかを書いて送信します。名前、アカウント、ネットワーク、都市は含まれません。</string>
+    <string name="rel_linha_det">起きたことを書いて、Sofaly に非公開で送ります</string>
+    <string name="rel_texto">起きたことを書いて送信してください（キーボードのマイクも使えます）。内容は Sofaly だけに届き、公開ページには載りません。名前、アカウント、ネットワーク、地域は送られません。</string>
     <string name="rel_vai_junto">一緒に送られる内容</string>
     <string name="rel_l_oque">起きたこと</string>
     <string name="rel_l_versao">バージョン</string>
     <string name="rel_l_uso">モード</string>
     <string name="rel_l_quedas">クラッシュ / フリーズ（7日）</string>
     <string name="rel_l_erro">最後のエラー</string>
+    <string name="rel_escreva">何が起きましたか？（任意）</string>
+    <string name="rel_enviar">Sofaly に送る</string>
+    <string name="rel_enviando">送信中…</string>
+    <string name="rel_enviado">送信しました。ありがとうございます！</string>
+    <string name="rel_cota">このテレビは今日すでに 5 件送信しました。明日もう一度お試しください。</string>
+    <string name="rel_falhou">今は送信できません。インターネットを確認してもう一度お試しください。</string>
+    <string name="rel_email">メールでも送れます：スマホのカメラでコードを読み取ってください。</string>
 </resources>

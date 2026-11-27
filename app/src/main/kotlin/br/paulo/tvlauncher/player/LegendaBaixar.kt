@@ -107,6 +107,23 @@ object LegendaBaixar {
         }
     }
 
+    /**
+     * A frase para a pessoa, no idioma da TV (revisor 26/11: 429, 401 e 503 mostravam o texto cru do OpenSubtitles, em
+     * inglês). O texto da API só vai para o log.
+     */
+    private fun mensagem(ctx: Context, codigo: Int, corpo: String?): String {
+        LegendaExterna.lerErro(corpo)?.let { android.util.Log.i("TvLauncher.Legenda", "OpenSubtitles $codigo: ${it.take(200)}") }
+        return ctx.getString(when (textoDoCodigo(codigo)) {
+            1 -> R.string.legenda_muitas
+            2 -> R.string.legenda_conta_recusada
+            3 -> R.string.legenda_fora
+            else -> R.string.legenda_erro
+        })
+    }
+
+    /** Pura (LegendaBaixarTest): 1 = muitas buscas, 2 = conta recusada, 3 = serviço fora, 0 = outro erro. */
+    fun textoDoCodigo(codigo: Int): Int = when (codigo) { 429 -> 1; 401, 403 -> 2; in 500..599 -> 3; else -> 0 }
+
     /** [idioma]: o da TV (ideia 25); a ideia 90 pede a inglesa para traduzir. */
     fun buscar(ctx: Context, b: LegendaExterna.Busca, idioma: String = IdiomaPlayer.idiomaDaTv()): Result<List<LegendaExterna.Candidata>> = runCatching {
         val conta = contaEmUso(ctx) ?: throw Falha(ctx.getString(R.string.legenda_sem_conta))
@@ -115,7 +132,7 @@ object LegendaBaixar {
         var erro: Falha? = null
         for (url in LegendaExterna.buscas(b, idioma)) {
             val r = runCatching { pedir(url, conta) }.getOrElse { erro = erro ?: Falha(ctx.getString(R.string.legenda_erro)); continue }
-            if (r.codigo !in 200..299) { erro = erro ?: Falha(LegendaExterna.lerErro(r.corpo) ?: ctx.getString(R.string.legenda_erro)); continue }
+            if (r.codigo !in 200..299) { erro = erro ?: Falha(mensagem(ctx, r.codigo, r.corpo)); continue }
             val lista = LegendaExterna.lerBusca(r.corpo, idioma)
             if (lista.isNotEmpty()) return@runCatching lista
         }
@@ -131,7 +148,7 @@ object LegendaBaixar {
         if (r.codigo == 401) token = null
         // Limite do dia (406 na doc; a mensagem fala em "allowed ... subtitles"): frase clara no idioma da TV.
         if (LegendaExterna.acabouLimite(r.codigo, r.corpo)) throw Falha(ctx.getString(R.string.sv_limite_dia))
-        if (r.codigo !in 200..299) throw Falha(LegendaExterna.lerErro(r.corpo) ?: ctx.getString(R.string.legenda_erro))
+        if (r.codigo !in 200..299) throw Falha(mensagem(ctx, r.codigo, r.corpo))
         val link = LegendaExterna.lerDownload(r.corpo) ?: error("resposta sem link")
         val conexao = URL(link).openConnection() as HttpURLConnection
         val bytes = try {
@@ -232,10 +249,12 @@ object LegendaBaixar {
     fun automatica(ctx: Context, chaveVideo: String, url: String?, b: LegendaExterna.Busca): Result<Pair<File, Boolean>> = runCatching {
         val hash = url?.let { runCatching { hashDoVideo(it) }.getOrNull() }
         val lista = buscar(ctx, b.copy(hash = hash)).getOrThrow()
-        // A marca dos 7 dias só depois que o OpenSubtitles respondeu: sem internet ou sem conta a tentativa não gastou
-        // nada, e antes a TV que abria um filme offline ficava uma semana sem legenda automática para ele.
-        ctx.getSharedPreferences(Prefs.PLAYER, Context.MODE_PRIVATE).edit().putLong("legauto2:$chaveVideo", System.currentTimeMillis()).apply()
-        val c = LegendaExterna.escolherAuto(lista) ?: throw Falha(ctx.getString(R.string.legenda_nenhuma))
-        baixar(ctx, chaveVideo, c).getOrThrow() to c.bateHash
+        // A marca dos 7 dias só quando a tentativa decidiu algo: nenhuma legenda boa, ou baixou. Sem internet, sem conta
+        // ou com o limite do dia (renova em 24 h) não marca: antes o filme ficava uma semana sem legenda (revisor 26/11).
+        fun marcar() = ctx.getSharedPreferences(Prefs.PLAYER, Context.MODE_PRIVATE).edit().putLong("legauto2:$chaveVideo", System.currentTimeMillis()).apply()
+        val c = LegendaExterna.escolherAuto(lista) ?: run { marcar(); throw Falha(ctx.getString(R.string.legenda_nenhuma)) }
+        val f = baixar(ctx, chaveVideo, c).getOrThrow()
+        marcar()
+        f to c.bateHash
     }
 }

@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">รายงานปัญหา</string>
-    <string name="rel_linha_det">คิวอาร์โค้ดจะเปิดแบบฟอร์มบนโทรศัพท์ พร้อมกรอกรายละเอียดทางเทคนิคไว้แล้ว</string>
-    <string name="rel_texto">ส่องกล้องโทรศัพท์ไปที่รหัส เขียนสิ่งที่เกิดขึ้นแล้วส่ง ไม่มีชื่อ บัญชี เครือข่าย และเมืองของคุณรวมอยู่</string>
+    <string name="rel_linha_det">เขียนสิ่งที่เกิดขึ้นแล้วส่งถึง Sofaly แบบส่วนตัว</string>
+    <string name="rel_texto">เขียนสิ่งที่เกิดขึ้น (ใช้ไมโครโฟนของแป้นพิมพ์ได้) แล้วส่ง รายงานจะส่งถึง Sofaly แบบส่วนตัว ไม่ขึ้นหน้าสาธารณะ ชื่อ บัญชี เครือข่าย และเมืองของคุณจะไม่ถูกส่งไปด้วย</string>
     <string name="rel_vai_junto">สิ่งที่ส่งไปด้วย</string>
     <string name="rel_l_oque">สิ่งที่เกิดขึ้น</string>
     <string name="rel_l_versao">เวอร์ชัน</string>
     <string name="rel_l_uso">โหมด</string>
     <string name="rel_l_quedas">ขัดข้อง / ค้าง (7 วัน)</string>
     <string name="rel_l_erro">ข้อผิดพลาดล่าสุด</string>
+    <string name="rel_escreva">เกิดอะไรขึ้น (ไม่บังคับ)</string>
+    <string name="rel_enviar">ส่งถึง Sofaly</string>
+    <string name="rel_enviando">กำลังส่ง…</string>
+    <string name="rel_enviado">ส่งแล้ว ขอบคุณ!</string>
+    <string name="rel_cota">ทีวีเครื่องนี้ส่งรายงานครบ 5 ครั้งแล้ววันนี้ ลองใหม่พรุ่งนี้</string>
+    <string name="rel_falhou">ส่งไม่ได้ในขณะนี้ ตรวจสอบอินเทอร์เน็ตแล้วลองอีกครั้ง</string>
+    <string name="rel_email">หรือทางอีเมล: หันกล้องโทรศัพท์ไปที่รหัส</string>
 </resources>

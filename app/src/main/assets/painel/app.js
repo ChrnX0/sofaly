@@ -24,9 +24,11 @@ async function chamar(metodo, caminho, corpo, corpoCru) {
   let resp;
   const fim = ocupado();
   // Tempo limite (item 15): sem ele, a barra de carregando girava para sempre quando a TV saía da rede.
-  // Leitura: 8 s; ação com corpo (envio, backup): 60 s.
+  // Leitura: 8 s; ação com corpo (envio, backup): 60 s. Leituras que esperam outro serviço de propósito (o shell
+  // religando na Saúde, o Google Drive, o roteador) ganham 45 s (revisor 26/11: acusavam "TV não respondeu").
   const corte = new AbortController();
-  const relogio = setTimeout(() => corte.abort(), metodo === 'GET' ? 8000 : 60000);
+  const lenta = /^\/api\/(saude|backup\/drive|roteador)/.test(caminho);
+  const relogio = setTimeout(() => corte.abort(), metodo !== 'GET' ? 60000 : (lenta ? 45000 : 8000));
   opcoes.signal = corte.signal;
   try {
     resp = await fetch(caminho, opcoes);
@@ -35,6 +37,8 @@ async function chamar(metodo, caminho, corpo, corpoCru) {
   } catch (e) {
     clearTimeout(relogio);
     fim();
+    // Tempo esgotado não é "TV fora": ela pode estar só ocupada. Não conta para a faixa.
+    if (e && e.name === 'AbortError') throw new Error('pedido demorou demais');
     tvNaoRespondeu();
     // O navegador só diz "Failed to fetch"/"Load failed": a porta está fechada ou a TV saiu da rede.
     throw new Error('Não consegui falar com a TV. Confira se ela está ligada e se o painel está ligado nas Configurações do launcher.');
@@ -145,6 +149,7 @@ function mostrarEntrar(aviso) {
   mostrar($('avisoEntrar'), aviso || '');
   $('telaPainel').hidden = true;
   $('telaEntrar').hidden = false;
+  const faixaTexto = $('faixaPedeTexto'); if (faixaTexto) faixaTexto.hidden = true;   // na tela de entrar não vale
   $('campoPin').value = '';
   $('campoPin').focus();
 }
@@ -364,6 +369,8 @@ function mudarAba(nome, historico = true) {
   if (historico && location.hash !== '#' + nome) history.pushState(null, '', '#' + nome);
   const cartao = ancora && nome === ancora[0] ? $(ancora[1]) : null;
   if (cartao) requestAnimationFrame(() => cartao.scrollIntoView({ block: 'start' })); else window.scrollTo(0, 0);
+  // A faixa "A TV está pedindo texto" some ao entrar no Controle e volta ao sair (revisor 26/11).
+  aplicarPedeTexto(pediaTexto);
 }
 // Um ouvinte só, no documento: vale também para os botões criados depois (a tela "Mais", os atalhos do Início).
 document.addEventListener('click', (ev) => {
@@ -890,8 +897,16 @@ async function carregarCelulares() {
     const linha = document.createElement('div'); linha.className = 'linha-registro';
     const t = document.createElement('strong'); t.textContent = a.nome;   // textContent: o nome vem do celular, nunca vira HTML
     const d = document.createElement('span');
-    const rot = document.createElement('span'); rot.textContent = 'Último uso';
-    d.append(rot, ': ' + new Date(a.uso).toLocaleString(undefined, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }));
+    if (a.uso) {
+      const rot = document.createElement('span'); rot.textContent = 'Último uso';
+      d.append(rot, ': ' + new Date(a.uso).toLocaleString(undefined, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }));
+    }
+    // Relay do api.sofaly.tv (decisão A): Revogar também corta as teclas e o texto que este celular manda de fora.
+    if (a.fora) {
+      const f = document.createElement('span'); f.textContent = 'Controla a TV de fora de casa';
+      if (a.uso) d.append(' · ');
+      d.append(f);
+    }
     const b = document.createElement('button'); b.type = 'button'; b.className = 'botao-secundario'; b.textContent = 'Revogar';
     b.addEventListener('click', async () => {
       const ok = await confirmar('Revogar o acesso deste celular?', 'Ele sai do painel e só volta lendo o QR da TV.', 'Revogar',
@@ -1693,42 +1708,36 @@ function desenharAcesso(a) {
   }
 }
 
-// ---------- erros do launcher -> issue no GitHub (ErrosFiltrados.kt, 11/11/2026) ----------
-// A TV não guarda token do GitHub: o link abre a página de issue nova com o texto pronto, e quem envia é a pessoa.
-
-const REPO_ISSUES = 'https://github.com/ChrnX0/sofaly/issues/new';
-const MAX_URL_ISSUE = 7000;   // o GitHub recusa endereços muito longos; corta erros inteiros, nunca no meio
-
-/** Texto da issue a partir da resposta de /api/extras/erros. Só campos já filtrados na TV. */
-function textoIssue(r, limite = MAX_URL_ISSUE) {
-  let corpo = `Relatado pelo painel da TV.\n\n- Versão: ${r.versao_atual}\n- Erros nesta versão: ${r.erros_nesta_versao}` +
-    ` (de ${r.total_guardados} guardados)\n`;
-  let incluidos = 0;
-  for (const e of r.erros || []) {
-    const bloco = `\n### ${e.tipo || 'erro'} (${e.dia || 'sem data'}, versão ${e.versao || '?'})\n\n\`\`\`\n` +
-      (e.pilha || []).slice(0, 15).join('\n') + '\n\`\`\`\n';
-    if (encodeURIComponent(corpo + bloco).length > limite) break;
-    corpo += bloco; incluidos++;
-  }
-  const primeiro = (r.erros || [])[0];
-  const titulo = `Erro na TV: ${primeiro ? (primeiro.tipo || 'erro') : 'sem erros'} (${r.versao_atual})`;
-  return { titulo, corpo, incluidos };
-}
+// ---------- erros do launcher -> relato particular para a Sofaly (11/11/2026; item 6 do Brainstorm 26/11/2026) ----------
+// Antes abria uma issue no repositório público do GitHub. Agora a TV manda o relato assinado para o api.sofaly.tv
+// (PainelExtras "erros/relatar"), que guarda em particular; a Sofy transforma em issue só o que é técnico.
+// O que já foi mandado (contagem dos erros no momento do envio): voltar à aba Saúde não reabilita o mesmo relato,
+// que gastaria a cota de 5 por dia (revisor 26/11). Erro novo muda a contagem e libera o botão.
+let relatoEnviado = null;
+let relatoAtual = null;
+$('btnRelatarErros').addEventListener('click', async () => {
+  const b = $('btnRelatarErros');
+  b.disabled = true;
+  mostrar($('statusRelatar'), 'Enviando…');
+  try { await chamar('POST', '/api/extras/erros/relatar', {}); relatoEnviado = relatoAtual; mostrar($('statusRelatar'), 'Enviado. Obrigado!'); }
+  catch (e) { mostrar($('statusRelatar'), textoErro(e)); b.disabled = false; }
+});
 
 async function carregarErros() {
   const resumo = $('resumoErros');
-  const link = $('linkRelatar');
+  const botao = $('btnRelatarErros');
   try {
     const r = await chamar('GET', '/api/extras/erros');
     const n = (r.erros || []).length;
-    if (n === 0) { resumo.textContent = 'Nenhum erro guardado.'; link.hidden = true; return; }
+    if (n === 0) { resumo.textContent = 'Nenhum erro guardado.'; botao.hidden = true; return; }
     resumo.textContent = r.erros_nesta_versao > 0
       ? `${r.erros_nesta_versao} erro(s) nesta versão, ${r.total_guardados} guardados no total.`
       : `Nenhum erro nesta versão. ${r.total_guardados} guardado(s) de versões anteriores.`;
-    const t = textoIssue(r);
-    link.href = `${REPO_ISSUES}?${new URLSearchParams({ title: t.titulo, body: t.corpo })}`;
-    link.hidden = t.incluidos === 0;
-  } catch (e) { resumo.textContent = textoErro(e); link.hidden = true; }
+    relatoAtual = `${r.erros_nesta_versao}/${r.total_guardados}`;
+    const jaFoi = relatoAtual === relatoEnviado;
+    botao.hidden = false; botao.disabled = jaFoi;
+    if (!jaFoi) mostrar($('statusRelatar'), '');
+  } catch (e) { resumo.textContent = textoErro(e); botao.hidden = true; }
 }
 
 // ---------- Observador (ObserverTv.kt, fase 1: só observa e anota) ----------
@@ -2008,7 +2017,7 @@ async function carregarRegistro() {
       linha.className = 'linha-registro';
       const quando = document.createElement('span');
       quando.className = 'quando';
-      quando.textContent = new Date(i.quando).toLocaleString('pt-BR') + ' · ' + i.ip;
+      quando.textContent = new Date(i.quando).toLocaleString(undefined) + ' · ' + i.ip;
       const oque = document.createElement('span');
       oque.textContent = `${i.acao}: ${i.resultado}`;
       linha.append(quando, oque);

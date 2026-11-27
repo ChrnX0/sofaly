@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Förslag</string>
     <string name="pod_sugestao_seguir">OK för att följa</string>
     <string name="pod_sugeridos_seguidos">Föreslagna poddar har lagts till i Mina poddar</string>
+    <string name="pod_busca_nada">Ingen podd hittades.</string>
+    <string name="pod_busca_cota">Poddsökningen vilar för i dag. Den är tillbaka i morgon.</string>
+    <string name="pod_busca_fora">Poddsökningen svarar inte. Försök igen senare.</string>
+    <string name="pod_busca_rede">Inget internet. Kontrollera tv:ns anslutning.</string>
+    <string name="tx_falhou_det">Det gick inte att skapa texten för avsnittet. Försök igen senare.</string>
 </resources>

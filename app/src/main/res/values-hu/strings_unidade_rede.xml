@@ -15,4 +15,5 @@
     <string name="mtp_pcs_esquecidos">A számítógépek elfelejtve</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">A TV paneljének megnyitása</string>
+    <string name="ssdp_painel">panel</string>
 </resources>

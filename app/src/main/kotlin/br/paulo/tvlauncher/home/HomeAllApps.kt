@@ -458,7 +458,7 @@ internal fun MainActivity.avisarOculto() = AvisoTv.rapido(this, getString(R.stri
 
 internal fun MainActivity.abrir(pacote: String) {
     // Controle parental do card (menu do card): app travado só abre com o PIN da TV
-    if (CardMenu.isLocked(this, pacote)) { br.paulo.tvlauncher.family.PinNaTela.pedir(this, getString(R.string.rw_travado)) { abrirSemTrava(pacote) }; return }
+    if (CardMenu.isLocked(this, pacote)) { TravaCartaoTv.pedirEAbrir(this, pacote) { abrirSemTrava(pacote) }; return }
     abrirSemTrava(pacote)
 }
 

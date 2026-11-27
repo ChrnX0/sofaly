@@ -99,7 +99,7 @@ export function shapeFeeds(data, lang = '', max = MAX) {
 }
 
 /** Atende /v1/podcasts/search e /v1/podcasts/trending. `fetchFn` e `cache` entram por parâmetro para os testes. */
-export async function handlePodcasts(kind, url, env, { fetchFn = fetch, cache = globalThis.caches?.default, nowSec, ip = '' } = {}) {
+export async function handlePodcasts(kind, url, env, { fetchFn = fetch, cache = globalThis.caches?.default, nowSec, ip = '', take = async () => true } = {}) {
   const key = env.PODCASTINDEX_API_KEY;
   const secret = env.PODCASTINDEX_API_SECRET;
   if (!key || !secret) return reply({ error: 'podcasts not configured' }, 503, 0);
@@ -115,6 +115,7 @@ export async function handlePodcasts(kind, url, env, { fetchFn = fetch, cache = 
   const hit = cache ? await cache.match(cacheKey) : null;
   if (hit) return hit;
 
+  if (!(await take('podcasts'))) return reply({ error: 'daily quota' }, 429, 0);   // src/quota.js
   if (!(await allowed(env.PODCASTS_UPSTREAM_LIMITER, 'upstream', false))) return reply({ error: 'rate limited' }, 429, 0);
   let res;
   try {

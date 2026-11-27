@@ -59,8 +59,11 @@ class ControleActivity : Activity() {
             requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 7)
     }
 
-    override fun onResume() { super.onResume(); ui.post(perguntar); ControleNotificacao.mostrar(this, tv) }
-    override fun onPause() { ui.removeCallbacks(perguntar); super.onPause() }
+    // Só pergunta com a tela na frente (revisor 26/11: a resposta atrasada reagendava com o app fechado, e cada volta
+    // somava outra cadeia de perguntas).
+    private var ativo = false
+    override fun onResume() { super.onResume(); ativo = true; abriuPainel = false; ui.removeCallbacks(perguntar); ui.post(perguntar); ControleNotificacao.mostrar(this, tv) }
+    override fun onPause() { ativo = false; ui.removeCallbacks(perguntar); super.onPause() }
 
     private fun dp(v: Int) = Visual.dp(this, v)
 
@@ -81,6 +84,8 @@ class ControleActivity : Activity() {
         addView(situacao)
         addView(areaDeslizar(), LinearLayout.LayoutParams(-1, 0, 1f))
         campo = EditText(context).apply {
+            // A TV descarta texto acima de 500 caracteres (RelayPairing.comando): o campo nem deixa passar disso.
+            filters = arrayOf(android.text.InputFilter.LengthFilter(500))
             visibility = View.GONE; hint = getString(R.string.cel_ctrl_digite); setSingleLine()
             setTextColor(Visual.TEXTO); setHintTextColor(Visual.TEXTO_2); textSize = 18f
             background = Visual.cartao(context); setPadding(dp(16), dp(14), dp(16), dp(14))
@@ -94,8 +99,10 @@ class ControleActivity : Activity() {
             fun lp() = LinearLayout.LayoutParams(0, -2, 1f).apply { marginEnd = dp(8) }
             addView(Visual.botao(context, getString(R.string.cel_ctrl_voltar), primario = false) { tecla("voltar") }, lp())
             addView(Visual.botao(context, getString(R.string.cel_ctrl_inicio), primario = false) { tecla("inicio") }, lp())
-            addView(Visual.botao(context, "⏯") { tecla("play") }, lp())
-            addView(Visual.botao(context, "⌨", primario = false) { mostrarTeclado(!tecladoAberto) },
+            // Símbolos sem texto: o leitor de tela precisa do nome (revisor 26/11).
+            addView(Visual.botao(context, "⏯") { tecla("play") }.apply { contentDescription = getString(R.string.cel_ctrl_play) }, lp())
+            addView(Visual.botao(context, "⌨", primario = false) { mostrarTeclado(!tecladoAberto) }
+                .apply { contentDescription = getString(R.string.cel_ctrl_digite) },
                 LinearLayout.LayoutParams(0, -2, 1f))
         }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(12) })
         addView(LinearLayout(context).apply {
@@ -131,7 +138,7 @@ class ControleActivity : Activity() {
     /** Uma tecla: vibra na hora (resposta do dedo) e manda em segundo plano; erro aparece na linha de situação. */
     private fun tecla(nome: String, origem: View? = null) {
         (origem ?: window.decorView).performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-        ApiTv.emSegundoPlano {
+        ApiTv.emOrdem {
             val r = ApiTv.tecla(tv, nome)
             ui.post { tratar(r.codigo) }
         }
@@ -139,9 +146,10 @@ class ControleActivity : Activity() {
 
     private fun tratar(codigo: Int) {
         when (codigo) {
+            202 -> situacao.text = getString(R.string.cel_ctrl_fora)   // foi pelo relay (fora de casa): ApiTv.pelaCaixa
             in 200..299 -> situacao.text = getString(R.string.cel_ctrl_dica)
             401 -> entrarPrimeiro()
-            0 -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
+            0, ApiTv.DEMOROU -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
             ApiTv.CERTIFICADO_TROCOU -> situacao.text = getString(R.string.cel_ctrl_cert_novo)
             else -> situacao.text = getString(R.string.cel_ctrl_recusou)
         }
@@ -168,9 +176,10 @@ class ControleActivity : Activity() {
         val t = campo.text.toString()
         if (t.isEmpty()) return
         campo.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
-        ApiTv.emSegundoPlano {
+        ApiTv.emOrdem {
             val r = ApiTv.texto(tv, t)
-            ui.post { tratar(r.codigo); if (r.codigo in 200..299) { campo.setText(""); ApiTv.emSegundoPlano { ApiTv.tecla(tv, "entrar") } } }
+            if (r.codigo in 200..299) ApiTv.tecla(tv, "entrar")
+            ui.post { tratar(r.codigo); if (r.codigo in 200..299) campo.setText("") }
         }
     }
 
@@ -180,9 +189,12 @@ class ControleActivity : Activity() {
         override fun run() {
             ApiTv.emSegundoPlano {
                 val r = ApiTv.estado(tv)
+                // Sessão caiu: com a chave de aparelho, entra de novo sem PIN antes de abrir o painel.
+                val semSessao = r.codigo == 200 && r.json?.optBoolean("logado") == false
+                val voltou = semSessao && ApiTv.reentrar(tv)
                 ui.post {
-                    if (isFinishing) return@post
-                    if (r.codigo == 200 && r.json?.optBoolean("logado") == false) { entrarPrimeiro(); return@post }
+                    if (isFinishing || !ativo) return@post
+                    if (semSessao && !voltou) { entrarPrimeiro(); return@post }
                     val pede = r.json?.optBoolean("pedeTexto") == true
                     if (pede && !pediaAntes) { window.decorView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS); mostrarTeclado(true) }
                     if (!pede && pediaAntes && campo.text.isEmpty()) mostrarTeclado(false)

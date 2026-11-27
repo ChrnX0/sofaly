@@ -99,7 +99,7 @@ const json = (obj, status = 200, cache = 'no-store') => new Response(JSON.string
   status, headers: { 'content-type': 'application/json', 'cache-control': cache },
 });
 
-export async function handleCommunity(req, env, { ip }) {
+export async function handleCommunity(req, env, { ip, take = async () => true }) {
   const stub = env.COMMUNITY.get(env.COMMUNITY.idFromName('lessons'));
   if (req.method === 'GET') {
     // Igual para todos: a borda guarda 1 h (uma leitura do Durable Object por hora por borda).
@@ -117,6 +117,7 @@ export async function handleCommunity(req, env, { ip }) {
     const { success } = await env.COMMUNITY_IP_LIMITER.limit({ key: ip || 'none' });
     if (!success) return json({ error: 'slow down' }, 429);
   }
+  if (!(await take('community'))) return json({ error: 'slow down' }, 429);   // por dia (src/quota.js)
   // Corpo grande recusado antes de ler (o tamanho declarado), e conferido de novo depois de ler.
   if (Number(req.headers.get('content-length') || 0) > 8 * 1024) return json({ error: 'too large' }, 413);
   const text = await req.text();

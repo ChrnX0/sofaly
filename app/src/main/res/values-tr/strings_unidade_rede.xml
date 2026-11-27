@@ -14,4 +14,5 @@
     <string name="mtp_pcs_lista">%1$s · OK hepsini unutur (her biri yeniden sorar)</string>
     <string name="mtp_pcs_esquecidos">Bilgisayarlar unutuldu</string>
     <string name="ur_atalho_nome">TV panelini aç</string>
+    <string name="ssdp_painel">panel</string>
 </resources>

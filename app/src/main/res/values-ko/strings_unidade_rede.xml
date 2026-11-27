@@ -14,4 +14,5 @@
     <string name="mtp_pcs_lista">%1$s · OK로 모두 잊기(각 컴퓨터가 다시 묻게 됨)</string>
     <string name="mtp_pcs_esquecidos">컴퓨터를 잊었습니다</string>
     <string name="ur_atalho_nome">TV 패널 열기</string>
+    <string name="ssdp_painel">패널</string>
 </resources>

@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Problem melden</string>
-    <string name="rel_linha_det">Ein QR-Code öffnet das Formular auf dem Handy, technische Daten schon ausgefüllt</string>
-    <string name="rel_texto">Richte die Handykamera auf den Code. Beschreibe, was passiert ist, und sende es. Name, Konto, Netzwerk und Stadt werden nicht mitgeschickt.</string>
+    <string name="rel_linha_det">Schreibe, was passiert ist, und sende es privat an Sofaly</string>
+    <string name="rel_texto">Schreibe, was passiert ist (das Mikrofon der Tastatur geht auch), und sende es. Es geht privat an Sofaly, nie auf eine öffentliche Seite. Name, Konto, Netzwerk und Stadt werden nicht mitgeschickt.</string>
     <string name="rel_vai_junto">Was mitgeschickt wird</string>
     <string name="rel_l_oque">Was ist passiert</string>
     <string name="rel_l_versao">Version</string>
     <string name="rel_l_uso">Modus</string>
     <string name="rel_l_quedas">Abstürze / Hänger (7 Tage)</string>
     <string name="rel_l_erro">Letzter Fehler</string>
+    <string name="rel_escreva">Was ist passiert? (optional)</string>
+    <string name="rel_enviar">An Sofaly senden</string>
+    <string name="rel_enviando">Wird gesendet…</string>
+    <string name="rel_enviado">Gesendet. Danke!</string>
+    <string name="rel_cota">Dieser Fernseher hat heute schon 5 Berichte gesendet. Versuche es morgen wieder.</string>
+    <string name="rel_falhou">Senden gerade nicht möglich. Prüfe das Internet und versuche es erneut.</string>
+    <string name="rel_email">Oder per E-Mail: Richte die Handykamera auf den Code.</string>
 </resources>

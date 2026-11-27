@@ -75,6 +75,10 @@ class TvsActivity : Activity() {
                 getString(if (tv.fp.isNotEmpty()) R.string.cel_pareada_segura else R.string.cel_pareada_http, tv.ip),
                 { abrir(tv) }, { esquecer(tv) }))
         }
+        // Duas TVs (de casas diferentes) que este celular já alcança pela internet: liga uma à outra para o Assistir junto.
+        val comRelay = salvas.filter { RelayCelular.tv(this, it) != null }
+        if (comRelay.size >= 2) lista.addView(Visual.botao(this, getString(R.string.cel_juntar_tvs), primario = false) { juntarTvs(comRelay) },
+            LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8); bottomMargin = dp(10) })
         val novas = achadas.filterKeys { ip -> salvas.none { it.ip == ip } }
         if (novas.isNotEmpty()) {
             lista.addView(Visual.texto(this, getString(R.string.cel_na_rede), 15f, Visual.TEXTO_2).apply { setPadding(0, dp(18), 0, dp(6)) })
@@ -98,6 +102,31 @@ class TvsActivity : Activity() {
         if (segurar != null) setOnLongClickListener { segurar(); true }
         layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = dp(10) }
     }
+
+    /** Escolhe 2 TVs e manda a cada uma a chave da outra (cifrado, pelo api.sofaly.tv). */
+    private fun juntarTvs(tvs: List<Pareamento.Tv>) {
+        val marcadas = BooleanArray(tvs.size)
+        AlertDialog.Builder(this).setTitle(R.string.cel_juntar_tvs)
+            .setMultiChoiceItems(tvs.map { it.nome.ifEmpty { it.ip } }.toTypedArray(), marcadas) { _, i, v -> marcadas[i] = v }
+            .setPositiveButton(R.string.cel_juntar_ligar) { _, _ ->
+                val escolha = tvs.filterIndexed { i, _ -> marcadas[i] }
+                if (escolha.size != 2) { avisar(getString(R.string.cel_juntar_duas)); return@setPositiveButton }
+                val (a, b) = escolha
+                val app = applicationContext
+                Thread {
+                    val ra = RelayCelular.tv(app, a); val rb = RelayCelular.tv(app, b)
+                    val m = if (ra != null && rb != null) RelayCelular.apresentar(ra, a.nome, rb, b.nome, System.currentTimeMillis()) else null
+                    val ok = m != null && RelayCelular.enviar(app, a, m.first) && RelayCelular.enviar(app, b, m.second)
+                    runOnUiThread {
+                        if (!isDestroyed) avisar(getString(if (ok) R.string.cel_juntar_pronto else R.string.cel_juntar_falhou,
+                            a.nome.ifEmpty { a.ip }, b.nome.ifEmpty { b.ip }))
+                    }
+                }.start()
+            }
+            .setNegativeButton(android.R.string.cancel, null).show()
+    }
+
+    private fun avisar(t: String) = AlertDialog.Builder(this).setMessage(t).setPositiveButton(android.R.string.ok, null).show()
 
     private fun esquecer(tv: Pareamento.Tv) {
         AlertDialog.Builder(this).setTitle(tv.nome.ifEmpty { tv.ip }).setMessage(R.string.cel_esquecer_explica)
@@ -131,7 +160,9 @@ class TvsActivity : Activity() {
         compartilhado?.let { c ->
             i.putExtra(PainelActivity.EXTRA_TITULO, c.getStringExtra(Intent.EXTRA_SUBJECT).orEmpty())
             i.putExtra(PainelActivity.EXTRA_TEXTO, c.getStringExtra(Intent.EXTRA_TEXT).orEmpty())
-            compartilhado = null
+            // Arquivo compartilhado sem TV pareada (revisor 26/11): o QR leva ao painel para entrar com o PIN e o arquivo
+            // se perdia. Fica guardado; ao voltar desta tela, tocar na TV manda pela tela de envio.
+            if (arquivos.isEmpty()) compartilhado = null
         }
         startActivity(i)
     }
@@ -208,11 +239,34 @@ class TvsActivity : Activity() {
             override fun onStartDiscoveryFailed(t: String, e: Int) {}
             override fun onStopDiscoveryFailed(t: String, e: Int) {}
             override fun onServiceLost(s: NsdServiceInfo) {}
-            override fun onServiceFound(s: NsdServiceInfo) {
-                @Suppress("DEPRECATION")
-                m.resolveService(s, object : NsdManager.ResolveListener {
-                    override fun onResolveFailed(s: NsdServiceInfo, e: Int) {}
+            override fun onServiceFound(s: NsdServiceInfo) { ui.post { resolverEmFila(m, s) } }
+        }
+        try { m.discoverServices(TIPO_MDNS, NsdManager.PROTOCOL_DNS_SD, b); busca = b } catch (_: Exception) {}
+    }
+
+    /**
+     * Uma resolução por vez (revisor 26/11): até o Android 13 a segunda resolveService ao mesmo tempo falha com
+     * FAILURE_ALREADY_ACTIVE, e com duas TVs na rede só uma aparecia. Roda na thread da tela (a fila é dela).
+     */
+    private val filaResolver = ArrayDeque<NsdServiceInfo>()
+    private var resolvendo = false
+
+    private fun resolverEmFila(m: NsdManager, s: NsdServiceInfo) {
+        if (filaResolver.none { it.serviceName == s.serviceName }) filaResolver.addLast(s)
+        if (resolvendo) return
+        val prox = filaResolver.removeFirstOrNull() ?: return
+        resolvendo = true
+        fun proximo() = ui.post {
+            resolvendo = false
+            val n = filaResolver.removeFirstOrNull() ?: return@post
+            if (!isFinishing) resolverEmFila(m, n)
+        }
+        try {
+            @Suppress("DEPRECATION")
+            m.resolveService(prox, object : NsdManager.ResolveListener {
+                    override fun onResolveFailed(s: NsdServiceInfo, e: Int) { proximo() }
                     override fun onServiceResolved(s: NsdServiceInfo) {
+                        proximo()
                         val ip = (if (Build.VERSION.SDK_INT >= 34) s.hostAddresses.firstOrNull { it is Inet4Address } else @Suppress("DEPRECATION") s.host)
                             ?.hostAddress ?: return
                         if (!Pareamento.privado(ip)) return
@@ -225,9 +279,7 @@ class TvsActivity : Activity() {
                         }
                     }
                 })
-            }
-        }
-        try { m.discoverServices(TIPO_MDNS, NsdManager.PROTOCOL_DNS_SD, b); busca = b } catch (_: Exception) {}
+        } catch (_: Exception) { proximo() }
     }
 
     private fun parar() {

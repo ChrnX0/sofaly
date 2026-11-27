@@ -124,6 +124,8 @@
     <string name="rw_proxima">Next</string>
     <string name="rw_anterior">Previous</string>
     <string name="rw_travar">Lock with PIN</string>
+    <!-- Shown after locking an app when the accessibility service is off (CardMenu): the lock then only works from the home. -->
+    <string name="rw_travar_sem_acesso">Locked on the home screen. To also lock it from search and other places, turn on the Sofaly accessibility service.</string>
     <string name="rw_destravar">Unlock</string>
     <string name="rw_travado">This app is locked</string>
     <string name="rw_tema_exportar">Export theme</string>

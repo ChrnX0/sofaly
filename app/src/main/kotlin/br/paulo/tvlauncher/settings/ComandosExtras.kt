@@ -264,6 +264,10 @@ object ComandosExtras {
         // Tela inicial em cruz (17/11/2026): saída de emergência para a HOME antiga até a Cruz passar no aceite na TV.
         // Cuidar de longe (ideias 77-79): estado, rodar o relógio agora, abrir a pergunta de consentimento, teste de envio.
         "cuidar" -> CuidarDeLongeTv.texto(ctx)
+        "relay" -> br.paulo.tvlauncher.relay.RelayTv.texto(ctx)   // id do relay e teste da caixa postal (api.sofaly.tv)
+        "casas" -> "casas=" + br.paulo.tvlauncher.relay.RelayCasas.casas(ctx).joinToString { "${it.nome} (${it.id})" } +
+            " andamento=${br.paulo.tvlauncher.relay.RelayCasas.emAndamento()} junto=${br.paulo.tvlauncher.SessaoJunto.texto()}"
+        "relay_esquecer" -> i.getStringExtra("id")?.let { br.paulo.tvlauncher.relay.RelayTv.esquecer(ctx, it); "esquecido" } ?: "falta --es id <id>"
         "cuidar_rodar" -> { val app = ctx.applicationContext; Fundo.rodar("cuidar-adb") { CuidarDeLongeTv.rodar(app) }; "rodando; ver depois com cuidar" }
         "cuidar_perguntar" -> CuidarDeLongeTv.pedirConsentimento(ctx)?.let { "falta: ${it.name}" } ?: "pergunta aberta na TV"
         "cuidar_desligar" -> { CuidarDeLongeTv.retirar(ctx, "adb"); "consentimento retirado" }
@@ -407,7 +411,7 @@ object ComandosExtras {
         "baseline_undo" -> { val app = ctx.applicationContext; Fundo.rodar("baseline-adb") { br.paulo.tvlauncher.privilege.FactoryBaseline.desfazerRestauracao(app, "adb") }; "started (see: baseline)" }
         "debloat_catalog" -> br.paulo.tvlauncher.privilege.Debloat.relatorio(ctx)
         "migration" -> PackageMigration.status(ctx)
-        "migration_start" -> { val app = ctx.applicationContext; Fundo.rodar("migracao") { PackageMigration.note(app, PackageMigration.start(app, manual = true)) }; "started (see: migration)" }
+        "migration_start" -> { val app = ctx.applicationContext; Fundo.rodar("migracao") { PackageMigration.note(app, PackageMigration.start(app, manual = true, forcar = i.getBooleanExtra("forcar", false))) }; "started (see: migration)" }
         "migration_rollback" -> { val app = ctx.applicationContext; Fundo.rodar("migracao-volta") { PackageMigration.note(app, PackageMigration.rollback(app)) }; "started (see: migration)" }
         "migration_remove_legacy" -> PackageMigration.removeLegacy(ctx)
         "migration_auto" -> { PackageMigration.setAuto(ctx, i.getBooleanExtra("ligado", false)); PackageMigration.status(ctx) }

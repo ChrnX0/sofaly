@@ -33,6 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Bisu</string>
     <string name="cel_ctrl_sem_tv">TV tidak menjawab. Apakah menyala dan di jaringan yang sama?</string>
+    <string name="cel_ctrl_fora">Dikirim lewat internet.</string>
     <string name="cel_ctrl_cert_novo">TV punya sertifikat keamanan baru. Pindai lagi kode QR di TV.</string>
     <string name="cel_ctrl_recusou">TV tidak bisa melakukannya sekarang.</string>
     <string name="cel_ctrl_entrar">Masuk sekali dengan PIN TV di panel; lalu remote berfungsi.</string>

@@ -266,6 +266,7 @@ object PainelDav {
         val fluxo: InputStream = if (req.chunked) DavLogica.LeitorChunked(entrada) else req.fluxoCorpo()
         val parcial = File.createTempFile(".${alvo.name.take(40)}.", ".parcial", pasta)
         var total = 0L
+        var antigoApagado = false
         try {
             FileOutputStream(parcial).use { out ->
                 val buf = ByteArray(64 * 1024)
@@ -285,6 +286,7 @@ object PainelDav {
             // rename() já substitui de uma vez; apagar antes perdia o antigo se o rename falhasse.
             if (!parcial.renameTo(alvo)) {
                 if (existia && !alvo.delete()) throw PainelArquivos.Erro(409, "não consegui substituir o arquivo")
+                antigoApagado = existia
                 if (!parcial.renameTo(alvo)) throw PainelArquivos.Erro(500, "não consegui dar o nome final ao arquivo")
             }
             amb.avisar(alvo)
@@ -292,7 +294,8 @@ object PainelDav {
             if (total > 0) amb.registrar(ip, "unidade de rede: enviar ${alvo.name.take(80)} (${total / 1024} KB)")
             PainelHttp.escrever(saida, if (existia) 204 else 201, null, ByteArray(0), CABECALHOS)
         } catch (e: Exception) {
-            parcial.delete()
+            // O antigo já saiu e o novo não ganhou o nome: o .parcial é a única cópia que sobrou (revisor 26/11).
+            if (!antigoApagado) parcial.delete()
             if (e is PainelArquivos.Erro) throw e
             throw if (e is IOException) e else IOException(e)
         }
@@ -343,7 +346,9 @@ object PainelDav {
             // MOVE de pasta do sistema seria recusado pelo mover() DEPOIS de apagar o destino: confere antes.
             if (movendo && !rel.contains('/') && origem.isDirectory && ChecagensPainel.pastaPadraoTopo(rel))
                 throw PainelArquivos.Erro(403, "a pasta \"$rel\" é do sistema e fica onde está")
-            PainelArquivos.apagar(dest, amb::avisar)
+            // Arquivo sobre arquivo na cópia: não apaga antes; a cópia grava num temporário e o rename substitui no fim
+            // (revisor 26/11: disco cheio no meio deixava o destino apagado e um arquivo truncado com o nome certo).
+            if (movendo || origem.isDirectory || alvo.isDirectory) PainelArquivos.apagar(dest, amb::avisar)
         }
         return Destino(dest, existia)
     }
@@ -380,8 +385,12 @@ object PainelDav {
             if (!para.exists() && !para.mkdir()) throw PainelArquivos.Erro(500, "o Android não deixou criar a pasta")
             if (!soAPasta) (de.listFiles() ?: emptyArray()).forEach { copiarTudo(it, File(para, it.name)) }
         } else {
-            FileInputStream(de).use { i -> FileOutputStream(para).use { o -> i.copyTo(o, 64 * 1024); o.fd.sync() } }
-            para.setLastModified(de.lastModified())
+            val tmp = File.createTempFile(".${para.name.take(40)}.", ".parcial", para.parentFile)
+            try {
+                FileInputStream(de).use { i -> FileOutputStream(tmp).use { o -> i.copyTo(o, 64 * 1024); o.fd.sync() } }
+                tmp.setLastModified(de.lastModified())
+                if (!tmp.renameTo(para)) throw PainelArquivos.Erro(500, "não consegui dar o nome final ao arquivo")
+            } catch (e: Exception) { tmp.delete(); throw e }
         }
     }
 
@@ -445,8 +454,7 @@ object AnuncioDav {
         }
         try { m.registerService(info, android.net.nsd.NsdManager.PROTOCOL_DNS_SD, r); registro = r }
         catch (e: Exception) { Log.w(TAG, "mDNS indisponível: $e") }
-        MtpNaRede.ligar(app)     // e em "Este Computador", como um celular (MTP pela rede)
-        AnuncioUpnp.mostrarMtp(true, app)   // o anúncio SSDP que leva o Windows até ele
+        MtpNaRede.ligar(app)     // e em "Este Computador", como um celular (MTP pela rede); anuncia o SSDP se a porta abriu
     }
 
     @Synchronized fun desligar() {

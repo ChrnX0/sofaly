@@ -14,4 +14,5 @@
     <string name="mtp_pcs_lista">%1$s · OK zapomina wszystkie (każdy zapyta ponownie)</string>
     <string name="mtp_pcs_esquecidos">Komputery zapomniane</string>
     <string name="ur_atalho_nome">Otwórz panel telewizora</string>
+    <string name="ssdp_painel">panel</string>
 </resources>

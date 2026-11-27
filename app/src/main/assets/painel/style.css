@@ -1461,3 +1461,7 @@ body.com-visor { overflow: hidden; }
 .faixa-pedetexto .faixa-texto strong { font-weight: 800; }
 .cartao-app { border: 2px solid var(--t-orange); }
 .cartao-app .botao-primario { text-decoration: none; display: inline-flex; align-items: center; }
+/* Celular: a barra de abas fica no pé; a faixa sobe para ficar acima dela, sem cobrir a navegação (revisor 26/11). */
+@media (max-width: 899px) { .faixa-pedetexto { bottom: calc(var(--barra-baixo) + env(safe-area-inset-bottom)); } }
+/* "Use pelo app": só o dono pareia o app do celular; convidado e família não veem o cartão (revisor 26/11). */
+body:not([data-papel="dono"]) #cartaoApp { display: none !important; }

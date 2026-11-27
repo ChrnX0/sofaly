@@ -35,6 +35,16 @@ class_name = "Pairing"
 name = "COMMUNITY"
 class_name = "Community"
 
+# Cota do dia por aparelho e por rede (src/quota.js, item 23): um Durable Object por chave.
+[[durable_objects.bindings]]
+name = "QUOTA"
+class_name = "Quota"
+
+# Relatos de problema, guardados em particular (src/reports.js, item 6).
+[[durable_objects.bindings]]
+name = "REPORTS"
+class_name = "Reports"
+
 # SQLite nos Durable Objects: único tipo aceito no plano grátis.
 [[migrations]]
 tag = "v1"
@@ -43,6 +53,10 @@ new_sqlite_classes = ["Mailbox", "Pairing"]
 [[migrations]]
 tag = "v2"
 new_sqlite_classes = ["Community"]
+
+[[migrations]]
+tag = "v3"
+new_sqlite_classes = ["Quota", "Reports"]
 
 # Limites da previsão do tempo (src/weather.js). Rate Limiting dos Workers: contadores por borda, period 10 ou 60 s.
 # Por IP: uma TV pede no máximo umas poucas vezes por hora; 30/min sobra para uma casa com várias TVs atrás do mesmo IP.

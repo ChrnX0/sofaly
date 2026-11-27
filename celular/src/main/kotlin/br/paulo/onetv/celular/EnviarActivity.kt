@@ -70,7 +70,8 @@ class EnviarActivity : Activity() {
         raiz.addView(barra, LinearLayout.LayoutParams(-1, dp(12)))
         botoes = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(0, dp(20), 0, 0) }
         raiz.addView(botoes)
-        setContentView(raiz)
+        // Fonte grande do sistema: a tela rola em vez de cortar os botões (revisor 26/11).
+        setContentView(android.widget.ScrollView(this).apply { isFillViewport = true; addView(raiz) })
 
         ApiTv.emSegundoPlano {
             val lidos = uris.mapNotNull { ler(it) }
@@ -129,12 +130,15 @@ class EnviarActivity : Activity() {
         }
         val pasta = Compartilhar.PASTA_TOCAR
         val existentes = conteudo(pasta) ?: return ultimoCodigo
-        // O mesmo nome já na TV = o mesmo vídeo mandado de novo: toca o que já está lá (igual ao painel).
-        if (item.nome !in existentes) {
-            val r = mandar(item, pasta, item.nome, 0, 1)
+        // Mesmo nome E mesmo tamanho já na TV = o mesmo vídeo mandado de novo: toca o que já está lá (igual ao painel).
+        // Mesmo nome com outro tamanho é outro vídeo (revisor 26/11): vai com um nome livre, sem tocar o errado.
+        val mesmo = item.nome in existentes && tamanhos[item.nome] == item.tamanho
+        val nome = if (mesmo || item.nome !in existentes) item.nome else Compartilhar.nomeLivre(item.nome, existentes)
+        if (!mesmo) {
+            val r = mandar(item, pasta, nome, 0, 1)
             if (r !in 200..299) return r
         }
-        return ApiTv.chamar(tv, "POST", "/api/arquivos/tocar", JSONObject().put("caminho", "$pasta/${item.nome}")).codigo
+        return ApiTv.chamar(tv, "POST", "/api/arquivos/tocar", JSONObject().put("caminho", "$pasta/$nome")).codigo
     }
 
     private fun guardar(): Int {
@@ -155,13 +159,18 @@ class EnviarActivity : Activity() {
     private var livre = Long.MAX_VALUE
 
     /** Nomes que já estão na pasta (cria a pasta se faltar). Null = a TV não respondeu ([ultimoCodigo] diz por quê). */
+    /** Tamanho de cada arquivo da última pasta lida (para saber se o "mesmo nome" é mesmo o mesmo arquivo). */
+    @Volatile private var tamanhos: Map<String, Long> = emptyMap()
+
     private fun conteudo(pasta: String): Set<String>? {
         ApiTv.chamar(tv, "POST", "/api/arquivos/pasta", JSONObject().put("pasta", "").put("nome", pasta))   // 409 = já existe
         val r = ApiTv.chamar(tv, "GET", "/api/arquivos?caminho=" + Uri.encode(pasta))
         if (r.codigo !in 200..299) { ultimoCodigo = r.codigo; return null }
         livre = r.json?.optLong("livre", Long.MAX_VALUE) ?: Long.MAX_VALUE
         val lista = r.json?.optJSONArray("itens") ?: return emptySet()
-        return (0 until lista.length()).mapNotNull { lista.optJSONObject(it)?.optString("nome") }.toSet()
+        val itens = (0 until lista.length()).mapNotNull { lista.optJSONObject(it) }
+        tamanhos = itens.associate { it.optString("nome") to it.optLong("tamanho", -1L) }
+        return itens.map { it.optString("nome") }.toSet()
     }
 
     private fun mandar(item: Item, pasta: String, nome: String, indice: Int, total: Int): Int {

@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Sorun bildir</string>
-    <string name="rel_linha_det">QR kod, teknik bilgileri doldurulmuş formu telefonda açar</string>
-    <string name="rel_texto">Telefon kamerasını koda tutun. Ne olduğunu yazıp gönderin. Adınız, hesabınız, ağınız ve şehriniz eklenmez.</string>
+    <string name="rel_linha_det">Ne olduğunu yazın ve Sofaly\'ye özel olarak gönderin</string>
+    <string name="rel_texto">Ne olduğunu yazın (klavyenin mikrofonu da çalışır) ve gönderin. Sofaly\'ye özel olarak gider, asla herkese açık bir sayfaya gitmez. Adınız, hesabınız, ağınız ve şehriniz eklenmez.</string>
     <string name="rel_vai_junto">Neler eklenir</string>
     <string name="rel_l_oque">Ne oldu</string>
     <string name="rel_l_versao">Sürüm</string>
     <string name="rel_l_uso">Mod</string>
     <string name="rel_l_quedas">Çökme / donma (7 gün)</string>
     <string name="rel_l_erro">Son hata</string>
+    <string name="rel_escreva">Ne oldu? (isteğe bağlı)</string>
+    <string name="rel_enviar">Sofaly\'ye gönder</string>
+    <string name="rel_enviando">Gönderiliyor…</string>
+    <string name="rel_enviado">Gönderildi. Teşekkürler!</string>
+    <string name="rel_cota">Bu TV bugün zaten 5 rapor gönderdi. Yarın tekrar deneyin.</string>
+    <string name="rel_falhou">Şu anda gönderilemedi. İnterneti kontrol edip tekrar deneyin.</string>
+    <string name="rel_email">Ya da e-postayla: telefon kamerasını koda tutun.</string>
 </resources>

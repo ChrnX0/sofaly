@@ -2,12 +2,19 @@
 <!-- Relatar um problema pelo celular (degrau 3, RelatarProblema.kt). -->
 <resources>
     <string name="rel_titulo">Nahlásit problém</string>
-    <string name="rel_linha_det">QR kód otevře formulář v telefonu s již vyplněnými technickými údaji</string>
-    <string name="rel_texto">Namiřte fotoaparát telefonu na kód. Napište, co se stalo, a odešlete. Vaše jméno, účet, síť a město se nepřikládají.</string>
+    <string name="rel_linha_det">Napište, co se stalo, a pošlete to soukromě Sofaly</string>
+    <string name="rel_texto">Napište, co se stalo (funguje i mikrofon klávesnice), a odešlete. Jde soukromě do Sofaly, nikdy na veřejnou stránku. Jméno, účet, síť a město se neposílají.</string>
     <string name="rel_vai_junto">Co se přikládá</string>
     <string name="rel_l_oque">Co se stalo</string>
     <string name="rel_l_versao">Verze</string>
     <string name="rel_l_uso">Režim</string>
     <string name="rel_l_quedas">Pády / zamrznutí (7 dní)</string>
     <string name="rel_l_erro">Poslední chyba</string>
+    <string name="rel_escreva">Co se stalo? (nepovinné)</string>
+    <string name="rel_enviar">Odeslat do Sofaly</string>
+    <string name="rel_enviando">Odesílání…</string>
+    <string name="rel_enviado">Odesláno. Děkujeme!</string>
+    <string name="rel_cota">Tato televize dnes už poslala 5 hlášení. Zkuste to zítra.</string>
+    <string name="rel_falhou">Teď se to nepodařilo odeslat. Zkontrolujte internet a zkuste to znovu.</string>
+    <string name="rel_email">Nebo e-mailem: namiřte fotoaparát telefonu na kód.</string>
 </resources>

@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Nota do Simkl</string>
     <string name="sv_simkl_convite_det">Conecte sua conta</string>
+    <string name="legenda_muitas">Muitas buscas de legenda agora. Tente de novo em um minuto.</string>
+    <string name="legenda_conta_recusada">O OpenSubtitles recusou a conta. Confira nas Configurações.</string>
+    <string name="legenda_fora">O serviço de legendas está fora do ar. Tente mais tarde.</string>
 </resources>
