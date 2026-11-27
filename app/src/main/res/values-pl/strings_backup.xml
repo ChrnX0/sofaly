@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">Ostatnia</string>
     <string name="bkn_nunca">nigdy</string>
     <string name="bkn_pin">PIN do zmiany kopii</string>
+    <string name="bk_motivo_senha">Hasło jest nieprawidłowe.</string>
+    <string name="bk_motivo_invalido">Ten plik nie jest kopią zapasową Sofaly albo jest uszkodzony.</string>
+    <string name="bk_motivo_ler">Nie udało się odczytać (sieć lub pamięć).</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Lepiej czytać</string>
+    <string name="goal_clean">Czystszy ekran</string>
+    <string name="goal_energy">Oszczędzać energię</string>
+    <string name="goal_kids">Chronić dzieci</string>
+    <string name="goal_desfazer">%1$s, włączone.</string>
+    <string name="goal_feito">%1$s: gotowe.</string>
+    <string name="goal_desfeito">%1$s: cofnięte</string>
+</resources>
