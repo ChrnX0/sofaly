@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Diğer evlere yardım et</string>
+    <string name="hoh_question">Diğer evlere yardım edelim mi?</string>
+    <string name="hoh_line">Burada bir şeyi düzelttiğimde, nasıl gittiğini diğer Sofaly\'lere anlatırım. Kim olduğunuzu söylemeden.</string>
+    <string name="hoh_yes">Evet, yardım etmek istiyorum</string>
+    <string name="hoh_not_now">Şimdi değil</string>
+    <string name="hoh_how">Nasıl çalışır?</string>
+    <string name="hoh_how_title">Nasıl çalışır</string>
+    <string name="hoh_how_line">Aynı şey başka bir evde bozulursa, oradaki Sofaly ne yapacağını zaten bilir.</string>
+    <string name="hoh_goes">Gidenler</string>
+    <string-array name="hoh_goes_list">
+        <item>TV modeli ve Sofaly sürümü</item>
+        <item>Neyin bozulduğu, kategoriler halinde</item>
+        <item>Neyin düzelttiği ve işe yarayıp yaramadığı</item>
+        <item>Bellek ve ağ, seviyeler halinde (iyi veya zayıf)</item>
+    </string-array>
+    <string name="hoh_never">Asla gitmeyenler</string>
+    <string-array name="hoh_never_list">
+        <item>Adınız ve ağınızın adı</item>
+        <item>Ne izlediğiniz ve ne zaman</item>
+        <item>Uygulamalarınız ve yazdıklarınız</item>
+        <item>Fotoğraflar, ses, adres ve IP</item>
+    </string-array>
+    <string name="hoh_back_here">Diğer Sofaly\'lerin öğrendikleri buraya geri gelir. Bunu istediğiniz zaman Ayarlar, Sofy\'nin bildikleri bölümünden değiştirebilirsiniz.</string>
+    <string name="hoh_thanks">Teşekkürler! Sofaly\'niz artık diğer evlere yardım ediyor.</string>
+    <string name="hoh_state_on">Açık: bu TV günde bir kez onarımların nasıl gittiğini paylaşır</string>
+    <string name="hoh_state_off">Kapalı: bu TV\'den hiçbir şey paylaşılmaz</string>
+    <string name="hoh_stop">Yardımı durdur</string>
+    <string name="hoh_stop_det">Bu TV paylaşmayı bırakır. Diğer evlerin öğrendiklerini almaya devam eder.</string>
+    <string name="hoh_start">Yardıma başla</string>
+    <string name="hoh_start_det">Neyin gittiğine ve neyin asla gitmediğine bakın, sonra seçin</string>
+    <string name="hoh_today">Bugün gidecekleri gör</string>
+    <string name="hoh_today_det">Bu TV\'nin göndereceği paketin tamamı, alan alan</string>
+    <string name="hoh_today_sub">Sunucuya giden tam olarak bu. Ev kodu her gün değişir.</string>
+    <string name="hoh_forget">Gönderdiklerimi unut</string>
+    <string name="hoh_forget_det">Bu TV\'nin kodunu değiştirir. Gönderilenler artık bu TV ile ilişkilendirilemez ve 30 gün içinde silinir.</string>
+    <string name="hoh_forgot">Tamam. Bundan sonra yeni bir kod; gönderilenler 30 gün içinde silinir.</string>
+    <string name="hoh_row_det">Diğer evlerle neyi paylaştığı ve nasıl kapatılacağı</string>
+</resources>

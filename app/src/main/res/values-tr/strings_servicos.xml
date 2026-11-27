@@ -59,4 +59,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl puanı</string>
     <string name="sv_simkl_convite_det">Hesabınızı bağlayın</string>
+    <string name="legenda_muitas">Şu an çok fazla altyazı araması var. Bir dakika sonra tekrar deneyin.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles hesabı reddetti. Ayarlar\'dan kontrol edin.</string>
+    <string name="legenda_fora">Altyazı hizmeti çalışmıyor. Daha sonra tekrar deneyin.</string>
 </resources>

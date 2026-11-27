@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Diğer evler</string>
+    <string name="casas_texto">Uzakta olsa bile birlikte izlemek için bu TV\'yi bir yakınınızın TV\'sine bağlayın. Yalnızca oynat, duraklat ve tepkiler şifreli olarak gider. Kimsenin hesaba ihtiyacı yok.</string>
+    <string name="casas_mostrar">Kod göster</string>
+    <string name="casas_mostrar_det">Diğer ev kendi TV\'sine yazar</string>
+    <string name="casas_digitar">Kod yaz</string>
+    <string name="casas_digitar_det">Diğer TV\'nin gösterdiği kod</string>
+    <string name="casas_conectadas">Bağlı evler</string>
+    <string name="casas_remover_det">Birlikte izle · Kaldır</string>
+    <string name="casas_remover_titulo">%1$s kaldırılsın mı?</string>
+    <string name="casas_remover">Kaldır</string>
+    <string name="casas_pedindo">Kod alınıyor…</string>
+    <string name="casas_codigo_det">Bu kodu diğer eve okuyun. Onların TV\'sinde: Ayarlar, Aile, Diğer evler, Kod yaz. 10 dakika ve tek bir kez geçerlidir.</string>
+    <string name="casas_esperando">Diğer TV\'nin onaylaması bekleniyor…</string>
+    <string name="casas_conectando">Bağlanıyor…</string>
+    <string name="casas_conectar">Bağla</string>
+    <string name="casas_chegou">%1$s kodu yazdı</string>
+    <string name="casas_confirmou">%1$s onayladı. Rakamları burada da kontrol edin</string>
+    <string name="casas_pelo_celular">%1$s Birlikte izle için bağlı (%2$s ekledi)</string>
+    <string name="casas_conferir_titulo">%1$s ile bağlansın mı?</string>
+    <string name="casas_conferir_texto">Diğer TV\'nin aynı rakamları gösterdiğini telefonla kontrol edin:\n\n%1$s\n\nFarklıysa iptal edin.</string>
+    <string name="casas_pronto">%1$s ile bağlandı. İki TV de bu rakamları gösteriyor. Birlikte izlemek için bir yapım açıp Birlikte izle\'yi seçin.</string>
+    <string name="casas_falhou">Olmadı. İnterneti kontrol edip yeni bir kodla deneyin.</string>
+    <string name="casas_sem_rede">Sofaly hizmeti yanıt vermiyor. İnterneti kontrol edin.</string>
+    <string name="casas_codigo_errado">Bu kod işe yaramadı. 8 harf ve rakamdan oluşur, 10 dakika geçerlidir.</string>
+    <string name="casas_menu">Diğer evler</string>
+    <string name="casas_menu_det">Uzaktaki bir yakınınızın TV\'siyle birlikte izleyin</string>
+</resources>
