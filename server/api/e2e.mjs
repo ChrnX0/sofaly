@@ -66,6 +66,21 @@ assert.equal((await tv.pedir('PUT', '/v1/dns/txt', JSON.stringify({ value: valor
 const txt = await (await fetch(`${BASE}/v1/dns/txt/${tv.id}`)).json();
 assert.deepEqual(txt.values, [valor]);
 
+// 4b. #607: com a lista declarada, um estranho ocupa no máximo 10 lugares; o celular conhecido continua entrando.
+assert.equal((await tv.pedir('PUT', '/v1/inbox/allow', JSON.stringify({ ids: [celular.id] }))).status, 200);
+const estranho = await novoAparelho();
+for (let i = 0; i < 10; i++) assert.equal((await estranho.pedir('POST', `/v1/envelope/${tv.id}`, `lixo-${i}`)).status, 201);
+assert.equal((await estranho.pedir('POST', `/v1/envelope/${tv.id}`, 'lixo-11')).status, 429, 'estranho além do limite');
+const outro = await novoAparelho();
+assert.equal((await outro.pedir('POST', `/v1/envelope/${tv.id}`, 'lixo')).status, 429, 'chave nova também conta como estranho');
+assert.equal((await celular.pedir('POST', `/v1/envelope/${tv.id}`, 'tecla')).status, 201, 'o celular pareado não é barrado');
+assert.equal((await tv.pedir('PUT', '/v1/inbox/allow', JSON.stringify({ ids: ['X'] }))).status, 400);
+// Pareamento por código: quem usou o código vira conhecido mesmo com a parte de estranhos cheia.
+const { corpo: { code: codigo2 } } = await tv.pedir('POST', '/v1/pairing');
+const celular2 = await novoAparelho();
+assert.equal((await celular2.pedir('POST', `/v1/pairing/${codigo2}`, 'ola')).status, 200);
+assert.equal((await celular2.pedir('POST', `/v1/envelope/${tv.id}`, 'tecla2')).status, 201);
+
 // 5. Sem assinatura = recusado.
 assert.equal((await fetch(`${BASE}/v1/envelope/${tv.id}`, { method: 'POST', body: 'x' })).status, 401);
 

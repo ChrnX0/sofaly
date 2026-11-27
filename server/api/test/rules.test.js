@@ -62,3 +62,22 @@ test('parseJson: sempre um objeto (null, número e texto não derrubam a rota co
   assert.equal(parseJson(b('{"value":"abc"}')).value, 'abc');
   assert.deepEqual(parseJson(b('{"ids":["a"]}')).ids, ['a']);
 });
+
+test('#607 allowList: só ids válidos, sem repetir, até o limite', async () => {
+  const { allowList, LIMITS } = await import('../src/rules.js');
+  const a = 'a'.repeat(20), b = 'b'.repeat(20);
+  assert.deepEqual(allowList({ ids: [a, b, a] }), [a, b]);
+  assert.deepEqual(allowList({ ids: [] }), []);
+  assert.equal(allowList({ ids: ['X'.repeat(20)] }), null);
+  assert.equal(allowList({ ids: [7] }), null);
+  assert.equal(allowList({}), null);
+  assert.equal(allowList({ ids: Array(LIMITS.allowedPerInbox + 1).fill(a) }), null);
+});
+
+test('#607 acceptsSender: sem lista vale o de antes; com lista, estranho só até o limite', async () => {
+  const { acceptsSender, LIMITS } = await import('../src/rules.js');
+  assert.equal(acceptsSender({ listSet: false, known: false, strangerPending: 999 }), true);
+  assert.equal(acceptsSender({ listSet: true, known: true, strangerPending: 999 }), true);
+  assert.equal(acceptsSender({ listSet: true, known: false, strangerPending: LIMITS.strangerPending - 1 }), true);
+  assert.equal(acceptsSender({ listSet: true, known: false, strangerPending: LIMITS.strangerPending }), false);
+});

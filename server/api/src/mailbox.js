@@ -2,7 +2,7 @@
 // Cada id de aparelho tem a sua: a Cloudflare cria perto do primeiro pedido (a casa da pessoa) e guarda num SQLite
 // só dela. Os envelopes são opacos (cifrados no aparelho); aqui só se guarda quem mandou, quando e até quando vale.
 import { DurableObject } from 'cloudflare:workers';
-import { LIMITS, utcDay, TXT_RE } from './rules.js';
+import { LIMITS, utcDay, TXT_RE, acceptsSender } from './rules.js';
 
 const now = () => Math.floor(Date.now() / 1000);
 
@@ -13,7 +13,9 @@ export class Mailbox extends DurableObject {
     // Tabelas criadas na 1ª vez. "limits" conta envios por remetente por dia (contra abuso).
     this.sql.exec(`CREATE TABLE IF NOT EXISTS envelopes (id TEXT PRIMARY KEY, sender TEXT, created INTEGER, expires INTEGER, data BLOB);
       CREATE TABLE IF NOT EXISTS limits (sender TEXT, day INTEGER, n INTEGER, PRIMARY KEY (sender, day));
-      CREATE TABLE IF NOT EXISTS txt (value TEXT PRIMARY KEY, expires INTEGER);`);
+      CREATE TABLE IF NOT EXISTS txt (value TEXT PRIMARY KEY, expires INTEGER);
+      CREATE TABLE IF NOT EXISTS allowed (id TEXT PRIMARY KEY);
+      CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT);`);
   }
 
   // Guarda um envelope e, se o aparelho estiver conectado, entrega na hora.
@@ -22,6 +24,9 @@ export class Mailbox extends DurableObject {
     if (data.byteLength > LIMITS.envelopeBytes) return { error: 'too large', status: 413 };
     const n = this.sql.exec('SELECT COUNT(*) AS n FROM envelopes').one().n;
     if (n >= LIMITS.envelopesPerInbox) return { error: 'inbox full', status: 507 };
+    // #607: o id de uma TV é público (nome do certificado). Quem o dono não declarou ocupa no máximo
+    // LIMITS.strangerPending lugares: lotar a caixa com chaves novas não barra mais o celular pareado.
+    if (!this.accepts(sender)) return { error: 'inbox busy', status: 429 };
     const day = utcDay(t);
     const used = this.sql.exec('SELECT n FROM limits WHERE sender = ? AND day = ?', sender, day).toArray()[0]?.n ?? 0;
     if (used >= LIMITS.sendsPerDayPerSender) return { error: 'daily limit', status: 429 };
@@ -34,6 +39,28 @@ export class Mailbox extends DurableObject {
     await this.scheduleCleanup(expires);
     for (const ws of this.ctx.getWebSockets()) ws.send(this.message({ id, sender, created: t, data }));
     return { id };
+  }
+
+  accepts(sender) {
+    const listSet = this.sql.exec("SELECT COUNT(*) AS n FROM meta WHERE k = 'allow'").one().n > 0;
+    if (!listSet) return true;
+    const known = this.sql.exec('SELECT COUNT(*) AS n FROM allowed WHERE id = ?', sender).one().n > 0;
+    const strangerPending = known ? 0 : this.sql.exec(
+      'SELECT COUNT(*) AS n FROM envelopes WHERE expires > ? AND sender NOT IN (SELECT id FROM allowed)', now()).one().n;
+    return acceptsSender({ listSet, known, strangerPending });
+  }
+
+  // O dono declara quem conhece (os aparelhos pareados). Troca a lista inteira; a partir daí vale o limite de estranhos.
+  setAllowed(ids) {
+    this.sql.exec('DELETE FROM allowed');
+    for (const id of ids) this.sql.exec('INSERT OR IGNORE INTO allowed VALUES (?)', id);
+    this.sql.exec("INSERT OR REPLACE INTO meta VALUES ('allow', '1')");
+  }
+
+  // Pareamento por código (o servidor viu o código certo): o remetente passa a ser conhecido desta caixa.
+  allow(id) {
+    if (this.sql.exec('SELECT COUNT(*) AS n FROM allowed').one().n >= LIMITS.allowedPerInbox) return;
+    this.sql.exec('INSERT OR IGNORE INTO allowed VALUES (?)', id);
   }
 
   // Lista o que espera entrega (para quem não usa WebSocket).
