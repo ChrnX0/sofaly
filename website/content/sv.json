@@ -25,10 +25,10 @@
     "of": "av"
   },
   "home": {
-    "title": "Sofaly · Din tv, enkel igen",
+    "title": "Sofaly · Mysig tid med din tv",
     "description": "Sofaly är startskärmen för Google TV och Android TV: allt ordnat i rader (Titta, Lyssna, Spela, Appar), stor text och inga annonser.",
     "eyebrow": "Startskärm för Google TV och Android TV",
-    "h1": "Din tv, enkel igen.",
+    "h1": "Mysig tid med din tv.",
     "lead": "Sofaly ersätter tv:ns startskärm med ett städat kors: Titta, Lyssna, Spela och Appar, i stor text och utan annonser. Den håller också koll på hemmet, väcker dig och pratar med din mobil.",
     "hero_note": "Inget konto, inga annonser, ingen spårning av vad du tittar på.",
     "cross_title": "En skärm, fyra vägar",
@@ -219,7 +219,7 @@
         "Välj bara Googles startskärm igen i tv:ns inställningar. Inget av ditt raderas."
       ]
     ],
-    "final_title": "Din tv, enkel igen.",
+    "final_title": "Mysig tid med din tv.",
     "final_text": "Installera, tryck på HOME och hela hemmet förstår."
   },
   "features_page": {

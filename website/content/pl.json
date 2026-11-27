@@ -25,10 +25,10 @@
     "of": "z"
   },
   "home": {
-    "title": "Sofaly · Twój telewizor znów prosty",
+    "title": "Sofaly · Przytulny czas przy telewizorze",
     "description": "Sofaly to ekran główny dla Google TV i Android TV: wszystko ułożone w rzędy (Oglądaj, Słuchaj, Graj, Aplikacje), duże litery i zero reklam.",
     "eyebrow": "Ekran główny dla Google TV i Android TV",
-    "h1": "Twój telewizor znów prosty.",
+    "h1": "Przytulny czas przy telewizorze.",
     "lead": "Sofaly zastępuje ekran główny telewizora uporządkowanym krzyżem: Oglądaj, Słuchaj, Graj i Aplikacje, dużymi literami i bez reklam. A do tego dba o dom, budzi Cię i rozmawia z telefonem.",
     "hero_note": "Bez konta, bez reklam, bez śledzenia tego, co oglądasz.",
     "cross_title": "Jeden ekran, cztery drogi",
@@ -219,7 +219,7 @@
         "Wystarczy znowu wybrać ekran Google w ustawieniach telewizora. Nic Twojego nie zostanie usunięte."
       ]
     ],
-    "final_title": "Twój telewizor znów prosty.",
+    "final_title": "Przytulny czas przy telewizorze.",
     "final_text": "Zainstaluj, naciśnij HOME i cały dom zrozumie."
   },
   "features_page": {

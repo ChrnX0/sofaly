@@ -25,10 +25,10 @@
     "of": "of"
   },
   "home": {
-    "title": "Sofaly · Your TV, simple again",
+    "title": "Sofaly · Cozy time on your TV",
     "description": "Sofaly is the home screen for Google TV and Android TV: everything organized in rows (Watch, Listen, Play, Apps), large text and no ads.",
     "eyebrow": "Home screen for Google TV and Android TV",
-    "h1": "Your TV, simple again.",
+    "h1": "Cozy time on your TV.",
     "lead": "Sofaly replaces your TV's home screen with a tidy cross: Watch, Listen, Play and Apps, in large text and with no ads. It also looks after the house, wakes you up and talks to your phone.",
     "hero_note": "No account, no ads, no tracking of what you watch.",
     "cross_title": "One screen, four ways to go",
@@ -219,7 +219,7 @@
         "Just pick Google's home screen again in the TV's settings. Nothing of yours is deleted."
       ]
     ],
-    "final_title": "Your TV, simple again.",
+    "final_title": "Cozy time on your TV.",
     "final_text": "Install it, press HOME and the whole house gets it."
   },
   "features_page": {
