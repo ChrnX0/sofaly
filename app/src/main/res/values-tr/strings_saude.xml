@@ -3,12 +3,12 @@
 <resources>
     <string name="saude_titulo">Uzaktan erişim durdu</string>
     <string name="saude_texto_shell">TV’nin kendine erişimi %1$d dk önce koptu (panel, Claude ve otomatik onarımlar durur). Yeniden eşleştir’e basın veya Ayarlar › Sistem › Gelişmiş › Bilgisayarsız eşleştir’e gidin.</string>
-    <string name="saude_texto_tunel">İnternet üzerinden Claude çevrimdışı. Neyin eksik olduğunu görmek için Bağlan’a basın veya Ayarlar › Ev ve ağ › Uzaktan erişim’e gidin.</string>
+    <string name="saude_texto_tunel">İnternet üzerinden Claude çevrimdışı. Neyin eksik olduğunu görmek için Bağlan’a basın veya Ayarlar › Ev ve uzaktan erişim › Uzaktan erişim’e gidin.</string>
     <string name="saude_parear">Yeniden eşleştir</string>
     <string name="saude_conectar">Bağlan</string>
     <string name="saude_depois">Şimdi değil</string>
     <string name="saude_acao_shell">Yeniden eşleştir: Ayarlar › Sistem › Gelişmiş › Bilgisayarsız eşleştir</string>
-    <string name="saude_acao_tunel">Yeniden bağlan: Ayarlar › Ev ve ağ › Uzaktan erişim › Bağlan</string>
+    <string name="saude_acao_tunel">Yeniden bağlan: Ayarlar › Ev ve uzaktan erişim › Uzaktan erişim › Bağlan</string>
     <string name="mnt_titulo">Gece bakımı</string>
     <string name="mnt_consertei">Düzeltildi:</string>
     <string name="mnt_falhou">Düzeltilemedi:</string>

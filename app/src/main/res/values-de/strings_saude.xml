@@ -3,12 +3,12 @@
 <resources>
     <string name="saude_titulo">Fernzugriff gestoppt</string>
     <string name="saude_texto_shell">Der Zugriff des Fernsehers auf sich selbst ist vor %1$d Min. ausgefallen (Panel, Claude und automatische Reparaturen stoppen). Drücke Erneut koppeln oder geh zu Einstellungen › System › Erweitert › Ohne PC koppeln.</string>
-    <string name="saude_texto_tunel">Claude über das Internet ist offline. Drücke Verbinden, um zu sehen, was fehlt, oder geh zu Einstellungen › Zuhause und Netzwerk › Fernzugriff.</string>
+    <string name="saude_texto_tunel">Claude über das Internet ist offline. Drücke Verbinden, um zu sehen, was fehlt, oder geh zu Einstellungen › Zuhause und Fernzugriff › Fernzugriff.</string>
     <string name="saude_parear">Erneut koppeln</string>
     <string name="saude_conectar">Verbinden</string>
     <string name="saude_depois">Nicht jetzt</string>
     <string name="saude_acao_shell">Erneut koppeln: Einstellungen › System › Erweitert › Ohne PC koppeln</string>
-    <string name="saude_acao_tunel">Erneut verbinden: Einstellungen › Zuhause und Netzwerk › Fernzugriff › Verbinden</string>
+    <string name="saude_acao_tunel">Erneut verbinden: Einstellungen › Zuhause und Fernzugriff › Fernzugriff › Verbinden</string>
     <string name="mnt_titulo">Nächtliche Wartung</string>
     <string name="mnt_consertei">Repariert:</string>
     <string name="mnt_falhou">Nicht repariert:</string>

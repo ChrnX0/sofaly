@@ -3,12 +3,12 @@
 <resources>
     <string name="saude_titulo">Accesso remoto interrotto</string>
     <string name="saude_texto_shell">L’accesso della TV a se stessa è caduto %1$d min fa (pannello, Claude e correzioni automatiche si fermano). Premi Abbina di nuovo o vai in Impostazioni › Sistema › Avanzate › Abbina senza PC.</string>
-    <string name="saude_texto_tunel">Claude via internet non è in linea. Premi Connetti per vedere cosa manca, o vai in Impostazioni › Casa e rete › Accesso remoto.</string>
+    <string name="saude_texto_tunel">Claude via internet non è in linea. Premi Connetti per vedere cosa manca, o vai in Impostazioni › Casa e accesso remoto › Accesso remoto.</string>
     <string name="saude_parear">Abbina di nuovo</string>
     <string name="saude_conectar">Connetti</string>
     <string name="saude_depois">Non ora</string>
     <string name="saude_acao_shell">Abbina di nuovo: Impostazioni › Sistema › Avanzate › Abbina senza PC</string>
-    <string name="saude_acao_tunel">Connetti di nuovo: Impostazioni › Casa e rete › Accesso remoto › Connetti</string>
+    <string name="saude_acao_tunel">Connetti di nuovo: Impostazioni › Casa e accesso remoto › Accesso remoto › Connetti</string>
     <string name="mnt_titulo">Manutenzione notturna</string>
     <string name="mnt_consertei">Sistemato:</string>
     <string name="mnt_falhou">Impossibile sistemare:</string>

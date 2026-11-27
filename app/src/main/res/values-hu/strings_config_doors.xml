@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- As seis portas das Configurações (23/11/2026, ConfigDoors.kt). -->
 <resources>
-    <string name="cfg3_porta_casa_rede">Otthon és hálózat</string>
+    <string name="cfg3_porta_casa_rede">Otthon és távoli hozzáférés</string>
     <string name="cfg3_mais_ajustes">További beállítások</string>
     <string name="cfg3_mais_ajustes_det">A rövidség kedvéért rejtve: %1$d</string>
     <string name="cfg3_modo">Mód: %1$s</string>

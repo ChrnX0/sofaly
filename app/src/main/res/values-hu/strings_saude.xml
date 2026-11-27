@@ -2,12 +2,12 @@
 <resources>
     <string name="saude_titulo">A távoli hozzáférés leállt</string>
     <string name="saude_texto_shell">A TV önmagához való hozzáférése %1$d perce megszakadt (a panel, a Claude és az automatikus javítások leállnak). Nyomja meg az Új párosítást, vagy menjen a Beállítások › Rendszer › Haladó › Párosítás számítógép nélkül menübe.</string>
-    <string name="saude_texto_tunel">A Claude az interneten keresztül offline. Nyomja meg a Csatlakozást, hogy lássa, mi hiányzik, vagy menjen a Beállítások › Otthon és hálózat › Távoli hozzáférés menübe.</string>
+    <string name="saude_texto_tunel">A Claude az interneten keresztül offline. Nyomja meg a Csatlakozást, hogy lássa, mi hiányzik, vagy menjen a Beállítások › Otthon és távoli hozzáférés › Távoli hozzáférés menübe.</string>
     <string name="saude_parear">Új párosítás</string>
     <string name="saude_conectar">Csatlakozás</string>
     <string name="saude_depois">Most nem</string>
     <string name="saude_acao_shell">Új párosítás: Beállítások › Rendszer › Haladó › Párosítás számítógép nélkül</string>
-    <string name="saude_acao_tunel">Új csatlakozás: Beállítások › Otthon és hálózat › Távoli hozzáférés › Csatlakozás</string>
+    <string name="saude_acao_tunel">Új csatlakozás: Beállítások › Otthon és távoli hozzáférés › Távoli hozzáférés › Csatlakozás</string>
     <string name="mnt_titulo">Éjszakai karbantartás</string>
     <string name="mnt_consertei">Javítva:</string>
     <string name="mnt_falhou">Nincs javítva:</string>
