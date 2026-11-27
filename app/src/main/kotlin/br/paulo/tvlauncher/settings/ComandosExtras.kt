@@ -267,6 +267,9 @@ object ComandosExtras {
         "relay" -> br.paulo.tvlauncher.relay.RelayTv.texto(ctx)   // id do relay e teste da caixa postal (api.sofaly.tv)
         "casas" -> "casas=" + br.paulo.tvlauncher.relay.RelayCasas.casas(ctx).joinToString { "${it.nome} (${it.id})" } +
             " andamento=${br.paulo.tvlauncher.relay.RelayCasas.emAndamento()} junto=${br.paulo.tvlauncher.SessaoJunto.texto()}"
+        "cert_publico" -> br.paulo.tvlauncher.panel.PublicCertificate.texto(ctx)   // item 26: certificado *.<id>.lan.sofaly.tv
+        "cert_publico_agora" -> { val app = ctx.applicationContext; Fundo.rodar("cert-publico-adb") { br.paulo.tvlauncher.panel.PublicCertificate.cuidar(app, forcar = true) }; "pedindo; ver depois com cert_publico" }
+        "cert_publico_teste" -> { br.paulo.tvlauncher.panel.PublicCertificate.usarTeste(ctx, i.getBooleanExtra("ligado", true)); "staging do Let's Encrypt=${i.getBooleanExtra("ligado", true)}" }
         "relay_esquecer" -> i.getStringExtra("id")?.let { br.paulo.tvlauncher.relay.RelayTv.esquecer(ctx, it); "esquecido" } ?: "falta --es id <id>"
         "cuidar_rodar" -> { val app = ctx.applicationContext; Fundo.rodar("cuidar-adb") { CuidarDeLongeTv.rodar(app) }; "rodando; ver depois com cuidar" }
         "cuidar_perguntar" -> CuidarDeLongeTv.pedirConsentimento(ctx)?.let { "falta: ${it.name}" } ?: "pergunta aberta na TV"
