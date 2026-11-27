@@ -25,9 +25,21 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Commits do PR
+      - name: Commits novos do PR
         if: github.event_name == 'pull_request'
-        run: scripts/no-ai-marks.sh "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+        env:
+          ACAO: ${{ github.event.action }}
+          ANTES: ${{ github.event.before }}
+          CABECA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # Só o que este push trouxe e ainda não está na main: as branches das threads são longas e guardam commits
+          # antigos já mesclados por squash (com marca, de antes desta checagem), que não voltam para a main.
+          git fetch -q origin main
+          if [ "$ACAO" = "synchronize" ] && [ -n "$ANTES" ] && git cat-file -e "$ANTES^{commit}" 2>/dev/null; then
+            scripts/no-ai-marks.sh "$CABECA" --not "$ANTES" origin/main
+          else
+            scripts/no-ai-marks.sh "$CABECA" --not "$CABECA~1" origin/main   # PR aberto agora: o commit da ponta
+          fi
       - name: Commits que entraram na main
         if: github.event_name == 'push'
         env:
