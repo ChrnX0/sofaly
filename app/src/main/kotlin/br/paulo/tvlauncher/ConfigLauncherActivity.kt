@@ -321,13 +321,12 @@ class ConfigLauncherActivity : Activity() {
         colunas = LinearLayout(this).apply { orientation = if (painel) LinearLayout.VERTICAL else LinearLayout.HORIZONTAL; clipChildren = false }
         if (painel) {
             // Painel: as abas da porta numa fileira em cima (Ajustes do tvOS); com uma aba só, a fileira some (menuDaPorta).
-            menu = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false; setPaddingRelative(dp(4), dp(6), dp(4), dp(6)) }
+            // Sem rolagem para o lado (Sala, 27/11/2026): "Acesso remoto" ficava cortado seco na borda e parecia defeito.
+            // As abas ficam compactas quando cabem; quando não cabem, dividem a largura e o nome quebra em 2 linhas.
+            menu = AbasQueCabem(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false; clipToPadding = false; setPaddingRelative(dp(4), dp(6), dp(4), dp(6)) }
             menu.addView(itemDaBusca(), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E1) })
             abas.forEachIndexed { i, aba -> menu.addView(itemMenu(i, aba), LinearLayout.LayoutParams(WRAP, WRAP).apply { marginEnd = dp(Estilo.E1) }) }
-            // Esmaecer nas pontas (Sala, 27/11/2026): "Acesso remoto" aparecia cortado seco na borda e parecia defeito; o
-            // esmaecido diz "tem mais aba para o lado", como as fileiras do Google TV.
-            caixaMenu = android.widget.HorizontalScrollView(this).apply { isHorizontalScrollBarEnabled = false; clipChildren = false; clipToPadding = false
-                isHorizontalFadingEdgeEnabled = true; setFadingEdgeLength(dp(56)); addView(menu) }
+            caixaMenu = menu
             colunas.addView(caixaMenu, LinearLayout.LayoutParams(MATCH, WRAP).apply { bottomMargin = dp(Estilo.E1) })
             mostrarAbasDoUso()
         } else {
@@ -402,9 +401,7 @@ class ConfigLauncherActivity : Activity() {
     private fun itemMenu(i: Int, aba: Aba): TextView = TextView(this).apply {
         text = aba.titulo
         Estilo.aplicar(this, Estilo.Papel.CORPO)
-        // No painel as abas ficam lado a lado: 16 dp dos lados (eram 20) para duas abas caberem na coluna (Sala, 27/11/2026).
-        val lado = if (painel) dp(16) else dp(20)
-        setPaddingRelative(lado, dp(11), lado, dp(11))
+        setPaddingRelative(dp(20), dp(11), dp(20), dp(11))
         // 2 linhas (23/11/2026): com o azulejo antes do nome, "Home and automations" não cabia numa linha em inglês.
         maxLines = 2; ellipsize = TextUtils.TruncateAt.END
         isFocusable = true; isClickable = true
@@ -1602,5 +1599,28 @@ class ConfigLauncherActivity : Activity() {
         Estilo.vestir(d, tela)
         d.show()
         fechar.requestFocus()
+    }
+}
+
+
+/**
+ * Fileira de abas que nunca passa da largura: mede as abas do tamanho delas; se a soma não cabe, divide a largura
+ * entre as visíveis (peso 1) e o nome quebra em até 2 linhas (maxLines do itemMenu). Cabendo, ficam compactas,
+ * sem esticar (regra "caixas compactas, não pílulas esticadas", 26/11/2026).
+ */
+internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
+    override fun onMeasure(larguraSpec: Int, alturaSpec: Int) {
+        for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = LayoutParams.WRAP_CONTENT; weight = 0f }
+        super.onMeasure(larguraSpec, alturaSpec)
+        val limite = MeasureSpec.getSize(larguraSpec)
+        if (MeasureSpec.getMode(larguraSpec) == MeasureSpec.UNSPECIFIED) return
+        var soma = paddingStart + paddingEnd
+        for (i in 0 until childCount) getChildAt(i).takeIf { it.visibility != GONE }?.let {
+            val lp = it.layoutParams as LayoutParams
+            soma += it.measuredWidth + lp.marginStart + lp.marginEnd
+        }
+        if (soma <= limite) return
+        for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = 0; weight = 1f }
+        super.onMeasure(MeasureSpec.makeMeasureSpec(limite, MeasureSpec.EXACTLY), alturaSpec)
     }
 }
