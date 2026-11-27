@@ -386,7 +386,7 @@ class MainActivity : Activity() {
         window.decorView.viewTreeObserver.addOnGlobalFocusChangeListener { _, novo ->
             if (novo != null && novo !== bolinhaPerfil) voltarAoPerfil = false
         }
-        TesteHome.aplicar = { ui.post { if (!isDestroyed) aplicarTeste() } }
+        TesteHome.aplicar = aplicarTesteHome
         aplicarTeste()
         // Foco no topo (hora, pílulas, perfil): a capa fica com o último card em foco, para o meio da tela
         // não ficar vazio (visto na Sala, 06/11); a legenda apaga (ver posicionarDestaque). Só o card "Ocultos" os apaga (ver mostrarCapa).
@@ -684,7 +684,11 @@ class MainActivity : Activity() {
         desligarPrevia()   // coberta por uma tela opaca: a prévia não serve, o onResume confere na volta
     }
 
+    /** O gancho do adb (TesteHome). Guardado para soltar no onDestroy: senão segura a HOME destruída na memória (#560). */
+    private val aplicarTesteHome: () -> Unit = { ui.post { if (!isDestroyed) aplicarTeste() } }
+
     override fun onDestroy() {
+        if (TesteHome.aplicar === aplicarTesteHome) TesteHome.aplicar = null
         desligarPrevia()
         br.paulo.tvlauncher.settings.Extras.parar(this, ouvinteAjuste)
         br.paulo.tvlauncher.settings.BackgroundStyle.proximoFundo = null
