@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>Model TV dan versi Sofaly</item>
         <item>Apa yang rusak, per kategori</item>
+        <item>Nama dan versi aplikasi yang macet atau melambat</item>
         <item>Apa yang memperbaikinya dan apakah berhasil</item>
         <item>Memori dan jaringan, dalam tingkat (baik atau lemah)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>Nama Anda dan nama jaringan Anda</item>
         <item>Apa dan kapan Anda menonton</item>
-        <item>Aplikasi Anda dan apa yang Anda ketik</item>
-        <item>Foto, suara, alamat, dan IP</item>
+        <item>Daftar aplikasi Anda dan apa yang Anda ketik</item>
+        <item>Foto, suara, dan alamat (IP Anda tidak disimpan)</item>
     </string-array>
     <string name="hoh_back_here">Yang dipelajari Sofaly lain kembali ke sini. Ubah kapan saja di Setelan, Yang Sofy ketahui.</string>
     <string name="hoh_thanks">Terima kasih! Sofaly Anda kini membantu rumah lain.</string>

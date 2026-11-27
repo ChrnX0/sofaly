@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>टीवी का मॉडल और Sofaly का वर्ज़न</item>
         <item>क्या ख़राब हुआ, श्रेणियों में</item>
+        <item>जो ऐप क्रैश हुए या धीमे हुए, उनका नाम और वर्ज़न</item>
         <item>किससे ठीक हुआ और क्या काम किया</item>
         <item>मेमोरी और नेटवर्क, स्तरों में (अच्छा या कमज़ोर)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>आपका नाम और आपके नेटवर्क का नाम</item>
         <item>आप क्या और कब देखते हैं</item>
-        <item>आपके ऐप और आप क्या लिखते हैं</item>
-        <item>फ़ोटो, आवाज़, पता और IP</item>
+        <item>आपके ऐप की सूची और आप क्या लिखते हैं</item>
+        <item>फ़ोटो, आवाज़ और पता (आपका IP रखा नहीं जाता)</item>
     </string-array>
     <string name="hoh_back_here">दूसरे Sofaly जो सीखते हैं, वह यहाँ लौटता है। इसे कभी भी सेटिंग्स, Sofy क्या जानती है में बदल सकते हैं।</string>
     <string name="hoh_thanks">धन्यवाद! आपका Sofaly अब दूसरे घरों की मदद कर रहा है।</string>

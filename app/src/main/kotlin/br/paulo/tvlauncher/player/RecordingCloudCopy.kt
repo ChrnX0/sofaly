@@ -313,7 +313,7 @@ object RecordingCloudCopy {
         val pasta = pastaBox(c)
         if (total < CloudCopyRules.BOX_MINIMO_PARTES) {
             val bytes = e.readBytes()
-            val fronteira = "onetv" + RetornoNuvem.novoNumero()
+            val fronteira = "sofaly" + RetornoNuvem.novoNumero()
             val corpo = NuvemBackup.corpoBox(fronteira, JSONObject().put("name", nome).put("parent", JSONObject().put("id", pasta)).toString(), nome, bytes)
             val r = http("$BOX_UP/content", "POST", mapOf("Authorization" to "Bearer ${Nuvem.acesso(c)}",
                 "Content-Type" to "multipart/form-data; boundary=$fronteira"), corpo)

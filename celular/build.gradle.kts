@@ -20,8 +20,11 @@ android {
         applicationId = "tv.sofaly.phone"
         minSdk = 29          // SslCertificate.getX509Certificate (fixar o certificado da TV) é do Android 10
         targetSdk = 35
-        // Mesmo relógio do launcher (app/build.gradle.kts): cresce a cada compilação.
-        versionCode = ((System.currentTimeMillis() - 1_767_225_600_000L) / 60_000L).toInt()
+        // Mesmo relógio do launcher (app/build.gradle.kts): cresce a cada compilação. No Release vem pronto em
+        // `-PversionCode=N`, o MESMO número do launcher: calcular aqui de novo dava 1 minuto a mais quando o relógio virava
+        // entre o `date` do release.yml e a configuração do Gradle, e a conferência do Release parava (27/11/2026).
+        versionCode = (project.findProperty("versionCode") as String?)?.toInt()
+            ?: ((System.currentTimeMillis() - 1_767_225_600_000L) / 60_000L).toInt()
         versionName = "1.0"
     }
 

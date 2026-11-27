@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>รุ่นทีวีและเวอร์ชันของ Sofaly</item>
         <item>อะไรเสีย แยกตามหมวด</item>
+        <item>ชื่อและเวอร์ชันของแอปที่ค้างหรือช้าลง</item>
         <item>อะไรแก้ได้ และได้ผลไหม</item>
         <item>หน่วยความจำและเครือข่าย เป็นระดับ (ดีหรืออ่อน)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>ชื่อของคุณและชื่อเครือข่ายของคุณ</item>
         <item>คุณดูอะไรและเมื่อไร</item>
-        <item>แอปของคุณและสิ่งที่คุณพิมพ์</item>
-        <item>รูปภาพ เสียง ที่อยู่ และ IP</item>
+        <item>รายการแอปของคุณและสิ่งที่คุณพิมพ์</item>
+        <item>รูปภาพ เสียง และที่อยู่ (ไม่เก็บ IP)</item>
     </string-array>
     <string name="hoh_back_here">สิ่งที่ Sofaly อื่นๆ เรียนรู้จะกลับมาที่นี่ เปลี่ยนได้ทุกเมื่อใน การตั้งค่า สิ่งที่ Sofy รู้</string>
     <string name="hoh_thanks">ขอบคุณ! ตอนนี้ Sofaly ของคุณช่วยบ้านอื่นๆ แล้ว</string>

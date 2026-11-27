@@ -46,11 +46,23 @@ object SofyCommunityTv {
         receive(app, now)
     }
 
-    private fun send(app: Context) {
+    /**
+     * O corpo que iria hoje para [URL_LESSONS] (null = nada a mandar). Também aparece em "Ver o que vai hoje"
+     * (HelpOtherHomesActivity), ao lado do pacote da frota: a tela mostra tudo o que este switch manda.
+     */
+    fun todayBody(ctx: Context): JSONObject? {
+        val app = ctx.applicationContext
         val lessons = SofyShare.lessons(AppProfileTv.allCards(app), System.currentTimeMillis())
         val rules = SofyRules.communityRules(SofyRulesTv.rules(app))
-        if (lessons.isEmpty() && rules.length() == 0) return
-        val body = SofyShare.communityBody(lessons).apply { if (rules.length() > 0) put("rules", rules) }.toString().toByteArray()
+        if (lessons.isEmpty() && rules.length() == 0) return null
+        return SofyShare.communityBody(lessons).apply { if (rules.length() > 0) put("rules", rules) }
+    }
+
+    private fun send(app: Context) {
+        val obj = todayBody(app) ?: return
+        val lessons = obj.optJSONArray("lessons")?.length() ?: 0
+        val rules = obj.optJSONArray("rules")?.length() ?: 0
+        val body = obj.toString().toByteArray()
         val c = URL(URL_LESSONS).openConnection() as HttpURLConnection
         val code = try {
             c.connectTimeout = 8_000; c.readTimeout = 8_000; c.requestMethod = "POST"; c.doOutput = true
@@ -60,7 +72,7 @@ object SofyCommunityTv {
             c.outputStream.use { it.write(body) }
             c.responseCode
         } catch (e: Exception) { 0 } finally { c.disconnect() }
-        SofyBusTv.emit(app, SofyBus.Source.SOFY, "community_sent", ok = code == 200, detail = "${lessons.size} lições, ${rules.length()} regras")
+        SofyBusTv.emit(app, SofyBus.Source.SOFY, "community_sent", ok = code == 200, detail = "$lessons lições, $rules regras")
     }
 
     private fun receive(app: Context, now: Long) {

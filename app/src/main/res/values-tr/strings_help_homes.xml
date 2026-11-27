@@ -12,6 +12,7 @@
     <string-array name="hoh_goes_list">
         <item>TV modeli ve Sofaly sürümü</item>
         <item>Neyin bozulduğu, kategoriler halinde</item>
+        <item>Çöken veya yavaşlayan uygulamaların adı ve sürümü</item>
         <item>Neyin düzelttiği ve işe yarayıp yaramadığı</item>
         <item>Bellek ve ağ, seviyeler halinde (iyi veya zayıf)</item>
     </string-array>
@@ -19,8 +20,8 @@
     <string-array name="hoh_never_list">
         <item>Adınız ve ağınızın adı</item>
         <item>Ne izlediğiniz ve ne zaman</item>
-        <item>Uygulamalarınız ve yazdıklarınız</item>
-        <item>Fotoğraflar, ses, adres ve IP</item>
+        <item>Uygulama listeniz ve yazdıklarınız</item>
+        <item>Fotoğraflar, ses ve adres (IP adresiniz saklanmaz)</item>
     </string-array>
     <string name="hoh_back_here">Diğer Sofaly\'lerin öğrendikleri buraya geri gelir. Bunu istediğiniz zaman Ayarlar, Sofy\'nin bildikleri bölümünden değiştirebilirsiniz.</string>
     <string name="hoh_thanks">Teşekkürler! Sofaly\'niz artık diğer evlere yardım ediyor.</string>

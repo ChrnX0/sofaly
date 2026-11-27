@@ -214,7 +214,13 @@ class HelpOtherHomesActivity : Activity() {
 
     private fun today() {
         val (raiz, lista) = Estilo.telaLista(this, getString(R.string.hoh_today), getString(R.string.hoh_today_sub))
-        val texto = runCatching { SofyFleetTv.today(this).toString(2) }.getOrDefault("{}")
+        // As duas coisas que o switch manda, cada uma com o endereço para onde vai (a tela promete "exatamente o que vai").
+        val texto = runCatching {
+            org.json.JSONObject()
+                .put(SofyFleetTv.URL_CASES, SofyFleetTv.today(this))
+                .put(SofyCommunityTv.URL_LESSONS, SofyCommunityTv.todayBody(this) ?: org.json.JSONObject())
+                .toString(2)
+        }.getOrDefault("{}")
         val t = Estilo.texto(this, Estilo.Papel.LEGENDA, texto).apply {
             typeface = Typeface.MONOSPACE; isFocusable = true; setTextIsSelectable(false)
             background = Estilo.fundo(context, Estilo.SUPERFICIE, Estilo.RAIO, Estilo.BORDA)
