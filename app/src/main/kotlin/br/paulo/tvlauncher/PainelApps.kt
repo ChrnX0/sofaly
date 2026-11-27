@@ -342,7 +342,7 @@ object PainelApps {
             }
             val total = copias.sumOf { it.second.length() }
             val criada = GuardiaoShizuku.comando(ctx, "pm install-create -r -S $total")
-                ?: return "o shell do launcher não está ligado (Configurações › Sistema › Shell)"
+                ?: return "o shell do launcher não está ligado (Configurações › Sistema › Avançado › Shell do launcher)"
             val sessao = Regex("\\[(\\d+)]").find(criada)?.groupValues?.get(1) ?: return "o Android recusou: ${criada.trim().take(120)}"
             for ((i, par) in copias.withIndex()) {
                 val (nomeParte, arq) = par

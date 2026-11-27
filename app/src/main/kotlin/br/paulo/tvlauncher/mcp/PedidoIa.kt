@@ -136,7 +136,7 @@ object PedidoIa {
                 val modo = Confirmacoes.comProtetor(ConfirmacoesTv.modo(app, Confirmacoes.Acao.MCP_ACOES), ProtetorTela.aberto(), origem,
                     plano.acoes.any { it is ComandosIa.Acao.AbrirApp || it is ComandosIa.Acao.AbrirTela })
                 if (modo == Confirmacoes.Modo.BLOQUEAR) {
-                    falhar("bloqueado na TV (Configurações › Sistema › Confirmações)")
+                    falhar("bloqueado na TV (Configurações › Sistema › Avançado › Confirmações)")
                     try { PainelArmazem.registrar(app, origem, "confirmação: ações da IA", "bloqueado nas Confirmações") } catch (_: Exception) {}
                     // Pela voz ninguém lê o ver_pedido: diz na TV que não fez.
                     if (naFrente(origem)) ui.post { CanalTv.avisar(app, app.getString(R.string.pi_bloqueado)) }
