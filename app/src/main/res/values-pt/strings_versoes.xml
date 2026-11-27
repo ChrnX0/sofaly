@@ -18,17 +18,23 @@
         <item>Painel: desligar o microfone ou a câmera do celular também tira o aviso “Microfone ligado” ou “Ao vivo na TV”</item>
         <item>Qualidade do ar: “Perigosa” aparece em vermelho de alerta</item>
         <item>Canal de teste: a atualização vem em partes, a TV baixa menos, e a tela inicial solta a memória de gráficos enquanto outro app está aberto ou a tela está apagada</item>
+        <item>AdGuard DNS: no painel (Roteador), cole a sua chave do AdGuard e a TV ganha um servidor próprio “Sofaly · nome da TV”, DNS particular e controle dos pais (hora de dormir, serviços bloqueados, YouTube e busca seguros); as últimas 24 horas aparecem no painel e no Diagnóstico</item>
+        <item>Automações: cada evento mostra o valor embaixo do nome, e as abas dos ajustes esmaecem na borda</item>
+        <item>App do celular: TV fora do ar mostra um aviso claro no app, em vez da página de erro do navegador</item>
+        <item>Assistente: quando uma ação é bloqueada, ele aponta para Sistema › Avançado › Confirmações</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Câmera do celular</item>
         <item>Endereços</item>
         <item>Microfone do painel</item>
         <item>Legenda e ajustes</item>
+        <item>AdGuard DNS</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>No app do celular, toque em Ler o QR da TV e responda Não permitir à pergunta da câmera: o app oferece Tentar de novo, na língua do celular?</item>
         <item>Abra Ajudar outras casas › Ver o que vai hoje: os endereços aparecem como https://api.sofaly.tv/v1/…, sem barras invertidas?</item>
         <item>No painel pelo celular, ligue e depois desligue o microfone: o aviso “Microfone ligado” some?</item>
         <item>Com um filme aberto, ligue a legenda, mude o atraso da legenda e, nas Configurações, um ajuste do player; reabra o filme: os dois ficaram?</item>
+        <item>No painel, abra Roteador › AdGuard DNS, cole a chave e toque em Ligar a TV ao AdGuard: Configurações › Rede › DNS particular mostra “AdGuard (pessoal)” e o Diagnóstico mostra a linha do AdGuard?</item>
     </string-array>
 </resources>
