@@ -38,7 +38,7 @@ the same weather and photos as the home screen; the phone gets the alarm the TV 
 
 | Part | Why it exists | What you get | How it connects |
 |---|---|---|---|
-| **TV home** | Google's home puts ads first. | *The cross*: Continue, Watch, Listen, Play and Apps in one row, with what's inside right below. | Everything else feeds it: settings, weather, photos, reminders. |
+| **TV home** | Google's home puts ads first. | *Rows*: Continue, Watch, Listen, Play and Apps, one row below the other, in large text. | Everything else feeds it: settings, weather, photos, reminders. |
 | **Screensaver** | An idle TV is a black rectangle. | Clock, weather, your photos and the family board. In the morning a summary of the day, late at night dark and warm. | Uses the home screen's weather, photos and reminders. |
 | **Web panel** | Settings with a remote are slow. | Every TV setting from a computer or phone browser, the live screen, files, backups. PIN-protected, home network only. | Same settings as the TV. A change shows up on the TV at once, with Undo. |
 | **Phone app** | The remote is always lost. | Remote with touch and typing, volume keys, *Share to TV*, a notice when the TV alarm rings. | Finds the TVs at home and opens the panel with a pinned certificate. |
@@ -48,7 +48,7 @@ the same weather and photos as the home screen; the phone gets the alarm the TV 
 
 <table>
   <tr>
-    <td width="50%"><img src="website/assets/home/tela-en-home.webp" alt="Home screen: the cross with Continue, Watch, Listen, Play and Apps"><br><sub><b>The cross.</b> Pick a world with ◀ ▶; what's inside opens right below.</sub></td>
+    <td width="50%"><img src="website/assets/home/tela-en-entrar-celular.webp" alt="Sign in with the phone"><br><sub><b>Your phone.</b> Point the camera at the QR and the phone becomes the remote.</sub></td>
     <td width="50%"><img src="website/assets/home/tela-en-radio.webp" alt="Radio and podcasts"><br><sub><b>Listen.</b> Radio and podcasts with the same care as video.</sub></td>
   </tr>
   <tr>
