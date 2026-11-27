@@ -41,6 +41,8 @@ include(":weather")
 project(":weather").projectDir = file("modules/weather")
 include(":media")
 project(":media").projectDir = file("modules/media")
+include(":listen")
+project(":listen").projectDir = file("modules/listen")
 include(":celular")   // ideia 101: app de celular (casca fina do painel)
 include(":extras")    // plugin Sofaly Extras (16/11/2026): app separado do site, ver extras/build.gradle.kts
 // Refatoração G (27/11/2026): partes baixadas sob demanda. Só no build com partes (-Psplits); no build de sempre o app
