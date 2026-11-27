@@ -846,6 +846,8 @@ AS\\Films).</string>
     <string name="st_lento_titulo">Clé USB trop lente</string>
     <string name="st_lento_bloqueado">Cette clé écrit à %1$s Mo/s. Pour devenir mémoire de la TV il faut au moins %2$d Mo/s : en dessous les apps se figent et la TV peut ne plus démarrer. Utilisez-la comme clé normale.</string>
     <string name="st_aviso_boot">Laissez-la toujours branchée : si elle tombe en panne ou est retirée, la TV peut ne plus démarrer tant qu\'elle n\'est pas débranchée.</string>
+    <string name="st_ilegivel_titulo">Impossible de tout lire sur la clé USB</string>
+    <string name="st_ilegivel">Certains dossiers ne s\'ouvrent pas : la copie laisserait des fichiers de côté. Le formatage est bloqué ici pour ne pas les perdre. Copiez d\'abord la clé avec le PC.</string>
     <string name="home_grande_titulo">Déplacer %1$s ?</string>
     <string name="home_grande_aviso">%1$s occupe %2$s. Sur une clé lente le transfert peut dépasser 10 minutes et a déjà bloqué une TV en cours de route. Continuez seulement si personne ne regarde.</string>
     <string name="home_liberar_arquivos">Autoriser l\'accès aux clés USB et fichiers</string>

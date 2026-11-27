@@ -846,6 +846,8 @@ AS\\Filmes).</string>
     <string name="st_lento_titulo">Pen demasiado lenta</string>
     <string name="st_lento_bloqueado">Esta pen grava a %1$s MB/s. Para ser memória da TV precisa de pelo menos %2$d MB/s: abaixo disso as apps bloqueiam e a TV pode não arrancar. Use-a como pen normal.</string>
     <string name="st_aviso_boot">Deixe-a sempre ligada: se falhar ou for retirada, a TV pode não arrancar até a desligar.</string>
+    <string name="st_ilegivel_titulo">Não foi possível ler tudo da pen USB</string>
+    <string name="st_ilegivel">Algumas pastas não abriram, por isso a cópia deixaria ficheiros de fora. A formatação fica bloqueada aqui para não os perder. Copie a pen pelo PC primeiro.</string>
     <string name="home_grande_titulo">Mover %1$s?</string>
     <string name="home_grande_aviso">%1$s ocupa %2$s. Numa pen lenta a mudança pode passar de 10 minutos e já bloqueou uma TV a meio. Só continue sem ninguém a ver.</string>
     <string name="home_liberar_arquivos">Permitir abrir pens e ficheiros</string>

@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Drive too slow</string>
     <string name="st_lento_bloqueado">This drive writes at %1$s MB/s. To become TV storage it needs at least %2$d MB/s: below that apps freeze and the TV may not start. Use it as a regular drive.</string>
     <string name="st_aviso_boot">Keep it plugged in for good: if it fails or is removed, the TV may not start until you unplug it.</string>
+    <string name="st_ilegivel_titulo">Can\'t read everything on the USB drive</string>
+    <string name="st_ilegivel">Some folders could not be opened, so a copy would leave files out. Formatting is blocked here to keep them safe. Copy the drive using the PC first.</string>
     <string name="home_grande_titulo">Move %1$s?</string>
     <string name="home_grande_aviso">%1$s takes %2$s. On a slow drive the move can take more than 10 minutes and has crashed a TV halfway. Only go on while nobody is watching.</string>
     <string name="home_liberar_arquivos">Let it open USB drives and files</string>

@@ -849,6 +849,8 @@ AS\\Filmy).</string>
     <string name="st_lento_titulo">Pendrive za wolny</string>
     <string name="st_lento_bloqueado">Ten pendrive zapisuje %1$s MB/s. Aby stać się pamięcią TV, potrzebuje co najmniej %2$d MB/s: poniżej aplikacje się zacinają, a TV może się nie uruchomić. Używaj go jako zwykłego pendrive\'a.</string>
     <string name="st_aviso_boot">Zostaw go zawsze podłączonego: jeśli się zepsuje lub zostanie wyjęty, TV może się nie uruchomić, dopóki go nie odłączysz.</string>
+    <string name="st_ilegivel_titulo">Nie można odczytać całego pendrive\'a</string>
+    <string name="st_ilegivel">Niektórych folderów nie udało się otworzyć, więc kopia pominęłaby pliki. Formatowanie jest tu zablokowane, żeby ich nie stracić. Najpierw skopiuj pendrive\'a na komputerze.</string>
     <string name="home_grande_titulo">Przenieść %1$s?</string>
     <string name="home_grande_aviso">%1$s zajmuje %2$s. Na wolnym pendrivie przenoszenie może trwać ponad 10 minut i już raz zawiesiło TV w połowie. Kontynuuj tylko, gdy nikt nie ogląda.</string>
     <string name="home_liberar_arquivos">Pozwól otwierać pendrive\'y i pliki</string>

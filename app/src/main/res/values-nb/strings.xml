@@ -881,6 +881,8 @@
     <string name="st_lento_titulo">Stasjonen er for treg</string>
     <string name="st_lento_bloqueado">Denne stasjonen skriver med %1$s MB/s. For å bli TV-lagring trenger den minst %2$d MB/s: under det fryser apper og TV-en starter kanskje ikke. Bruk den som en vanlig stasjon.</string>
     <string name="st_aviso_boot">La den stå tilkoblet for godt: hvis den svikter eller fjernes, starter kanskje ikke TV-en før du kobler den fra.</string>
+    <string name="st_ilegivel_titulo">Kan ikke lese alt på USB-minnet</string>
+    <string name="st_ilegivel">Noen mapper kunne ikke åpnes, så en kopi ville utelate filer. Formatering er sperret her for å ta vare på dem. Kopier minnet med PC-en først.</string>
     <string name="home_grande_titulo">Flytte %1$s?</string>
     <string name="home_grande_aviso">%1$s tar %2$s. På en treg stasjon kan flyttingen ta mer enn 10 minutter og har fått en TV til å krasje halvveis. Fortsett bare mens ingen ser på.</string>
     <string name="home_liberar_arquivos">La den åpne USB-stasjoner og filer</string>

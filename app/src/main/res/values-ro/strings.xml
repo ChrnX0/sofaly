@@ -884,6 +884,8 @@
     <string name="st_lento_titulo">Stick prea lent</string>
     <string name="st_lento_bloqueado">Acest stick scrie cu %1$s MB/s. Pentru a deveni stocare TV are nevoie de cel puțin %2$d MB/s: sub aceasta aplicațiile îngheață, iar TV-ul s-ar putea să nu pornească. Folosiți-l ca stick obișnuit.</string>
     <string name="st_aviso_boot">Lăsați-l conectat definitiv: dacă se defectează sau e scos, TV-ul s-ar putea să nu pornească până nu îl scoateți.</string>
+    <string name="st_ilegivel_titulo">Nu se poate citi tot stick-ul USB</string>
+    <string name="st_ilegivel">Unele foldere nu s-au deschis, deci copia ar lăsa fișiere pe dinafară. Formatarea este blocată aici ca să nu le pierzi. Copiază mai întâi stick-ul cu PC-ul.</string>
     <string name="home_grande_titulo">Mutați %1$s?</string>
     <string name="home_grande_aviso">%1$s ocupă %2$s. Pe un stick lent mutarea poate dura peste 10 minute și a blocat un TV la jumătate. Continuați doar când nu se uită nimeni.</string>
     <string name="home_liberar_arquivos">Permite deschiderea stickurilor USB și a fișierelor</string>
