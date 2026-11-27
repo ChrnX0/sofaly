@@ -78,6 +78,7 @@ declare -A FONTES=(
   [AppProfileTest]="AppProfile"
   [SofyBusTest]="SofyBus"
   [SofyBenchTest]="SofyBench SofyRules SofyAi SofyRepair SofyBus"
+  [SofyAiChainTest]="SofyAi SofyRepair SofyBus"
   [SofyFleetTest]="SofyFleet SofyRepair SofyBus"
   [SofyRecipesTest]="SofyRecipes SofyFleet SofyRepair SofyBus"
   [SofySelfCheckTest]="SofySelfCheck"
