@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=letra maior|aumenta letra|aumentar letra|letra grande|texto maior|aumenta texto|aumentar texto|fonte maior;TEXT_SMALLER=letra menor|diminui letra|diminuir letra|texto menor|diminuir texto|fonte menor;GOAL_READ=ler melhor|dificil ler|vejo mal|nao vejo bem;GOAL_CLEAN=ecra limpo|ecra mais limpo|tela limpa|menos coisas|ecra simples|ecra mais simples;GOAL_ENERGY=menos energia|gastar menos|poupar energia|economia energia;LOOK_SOFALY=visual sofaly|visual padrao;LOOK_NIGHT=visual noite|ceu escuro;LOOK_MOUNTAIN=visual serra|visual montanha;LOOK_MINIMAL=visual minimo|visual minimalista</string>
+    <string name="si_fazer">Fazer agora: %1$s</string>
+    <string name="si_desfazer">Desfazer: %1$s</string>
+    <string name="si_fazer_det">Muda na hora.</string>
+    <string name="si_maior">Letra maior</string>
+    <string name="si_menor">Letra menor</string>
+</resources>

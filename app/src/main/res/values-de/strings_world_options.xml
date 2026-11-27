@@ -30,4 +30,6 @@
     <string name="bb_titulo">Startbildschirm-Layout</string>
     <string name="bb_cruz">Kreuz</string>
     <string name="bb_barra">Leiste unten</string>
+    <string name="wo_ultimos">Zuletzt benutzte zuerst</string>
+    <string name="wo_aleatorio">Zufällig (wechselt täglich)</string>
 </resources>

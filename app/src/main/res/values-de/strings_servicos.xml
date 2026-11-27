@@ -59,4 +59,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl-Bewertung</string>
     <string name="sv_simkl_convite_det">Konto verbinden</string>
+    <string name="legenda_muitas">Gerade zu viele Untertitelsuchen. Versuche es in einer Minute erneut.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles hat das Konto abgelehnt. Prüfe es in den Einstellungen.</string>
+    <string name="legenda_fora">Der Untertiteldienst ist ausgefallen. Versuche es später erneut.</string>
 </resources>

@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">Letztes</string>
     <string name="bkn_nunca">nie</string>
     <string name="bkn_pin">PIN zum Ändern des Backups</string>
+    <string name="bk_motivo_senha">Das Passwort ist falsch.</string>
+    <string name="bk_motivo_invalido">Diese Datei ist keine Sofaly-Sicherung oder sie ist beschädigt.</string>
+    <string name="bk_motivo_ler">Konnte nicht gelesen werden (Netzwerk oder Speicher).</string>
 </resources>
