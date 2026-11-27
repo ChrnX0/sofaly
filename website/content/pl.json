@@ -25,10 +25,10 @@
     "of": "z"
   },
   "home": {
-    "title": "Sofaly · Twój telewizor znów prosty",
-    "description": "Sofaly to ekran główny dla Google TV i Android TV: wszystko ułożone w krzyż (Oglądaj, Słuchaj, Graj, Aplikacje), duże litery i zero reklam.",
+    "title": "Sofaly · Przytulny czas przy telewizorze",
+    "description": "Sofaly to ekran główny dla Google TV i Android TV: wszystko ułożone w rzędy (Oglądaj, Słuchaj, Graj, Aplikacje), duże litery i zero reklam.",
     "eyebrow": "Ekran główny dla Google TV i Android TV",
-    "h1": "Twój telewizor znów prosty.",
+    "h1": "Przytulny czas przy telewizorze.",
     "lead": "Sofaly zastępuje ekran główny telewizora uporządkowanym krzyżem: Oglądaj, Słuchaj, Graj i Aplikacje, dużymi literami i bez reklam. A do tego dba o dom, budzi Cię i rozmawia z telefonem.",
     "hero_note": "Bez konta, bez reklam, bez śledzenia tego, co oglądasz.",
     "cross_title": "Jeden ekran, cztery drogi",
@@ -219,7 +219,7 @@
         "Wystarczy znowu wybrać ekran Google w ustawieniach telewizora. Nic Twojego nie zostanie usunięte."
       ]
     ],
-    "final_title": "Twój telewizor znów prosty.",
+    "final_title": "Przytulny czas przy telewizorze.",
     "final_text": "Zainstaluj, naciśnij HOME i cały dom zrozumie."
   },
   "features_page": {
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "Krzyż",
+      "Ekran główny",
       "Uporządkowany ekran, który każdy rozumie, ułożony tak, jak lubisz."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "Krzyż",
-      "Kontynuuj, Oglądaj, Słuchaj, Graj i Aplikacje w jednym rzędzie. Wybrany świat robi się duży, a jego zawartość jest tuż pod nim.",
-      "◀ ▶ zmieniają świat, ▲ ▼ schodzą w kolumnę, OK otwiera."
+      "Rzędy",
+      "Kontynuuj, Oglądaj, Słuchaj, Graj i Aplikacje, każde w swoim rzędzie, jeden pod drugim. Wszystko na widoku, dużymi literami.",
+      "To ekran główny: pojawia się po naciśnięciu HOME."
     ],
     "continue": [
       "Kontynuuj",
       "Jedno miejsce, by wrócić do tego, co robiłeś: odcinka, stacji, podcastu lub ostatniej aplikacji.",
-      "To pierwszy element krzyża."
+      "Jeden z rzędów ekranu głównego."
     ],
     "topbar": [
       "Górny pasek",
@@ -348,7 +348,7 @@
     "card-match": [
       "Następny mecz Twojej drużyny",
       "Kiedy i z kim Twoja drużyna gra następny mecz, na karcie ekranu głównego.",
-      "W pozycji TV na krzyżu. Ustawienia › Wygląd."
+      "Na ekranie głównym. Ustawienia › Wygląd."
     ],
     "plugin-cards": [
       "Karty z innych aplikacji",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Ulubione na wierzchu",
       "Aplikacje pokazują 8 najczęściej otwieranych, a „Wszystkie aplikacje” resztę w siatce.",
-      "Aplikacje, na krzyżu."
+      "W rzędzie Aplikacje."
     ],
     "apps-organize": [
       "Po Twojemu",
@@ -780,7 +780,7 @@
     "basic_who": "Dla tych na kanapie",
     "pro_who": "Dla tego, kto dba o telewizor",
     "ultra_who": "Dla domu i rodziny",
-    "basic_text": "Ekran w kształcie krzyża, odtwarzacz, Słuchaj, Graj, budzik, wygaszacz i wszystkie ułatwienia dostępu.",
+    "basic_text": "Ekran główny w rzędach, odtwarzacz, Słuchaj, Graj, budzik, wygaszacz i wszystkie ułatwienia dostępu.",
     "pro_text": "Wszystko z Basic oraz telefon, automatyzacje, inteligentny dom, wiadomości z daleka, gotowe karty ekranu głównego i pełna personalizacja.",
     "ultra_text": "Wszystko z Pro oraz pogoda z trzech modeli, pełne strony filmów, automatyczne napisy, kilka domów i wspólne oglądanie.",
     "includes": "Zawiera",

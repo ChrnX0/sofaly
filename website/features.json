@@ -4,12 +4,12 @@
     {
       "id": "home",
       "color": "#FF6A2B",
-      "icon": "cross",
+      "icon": "rows",
       "features": [
         [
           "cross",
           "basic",
-          "cross"
+          "rows"
         ],
         [
           "continue",

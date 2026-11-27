@@ -25,10 +25,10 @@
     "of": "sur"
   },
   "home": {
-    "title": "Sofaly · Votre TV, simple à nouveau",
-    "description": "Sofaly est l'écran d'accueil pour Google TV et Android TV : tout est rangé en croix (Regarder, Écouter, Jouer, Applications), en gros caractères et sans publicité.",
+    "title": "Sofaly · Des moments douillets devant votre télé",
+    "description": "Sofaly est l'écran d'accueil pour Google TV et Android TV : tout est rangé en rangées (Regarder, Écouter, Jouer, Applications), en gros caractères et sans publicité.",
     "eyebrow": "Écran d'accueil pour Google TV et Android TV",
-    "h1": "Votre TV, simple à nouveau.",
+    "h1": "Des moments douillets devant votre télé.",
     "lead": "Sofaly remplace l'écran d'accueil de votre TV par une croix bien rangée : Regarder, Écouter, Jouer et Applications, en gros caractères et sans publicité. Elle veille aussi sur la maison, vous réveille et parle avec votre téléphone.",
     "hero_note": "Sans compte, sans publicité, sans suivre ce que vous regardez.",
     "cross_title": "Un écran, quatre chemins",
@@ -219,7 +219,7 @@
         "Choisissez de nouveau l'écran de Google comme accueil dans les réglages de la TV. Rien n'est effacé."
       ]
     ],
-    "final_title": "Votre TV, simple à nouveau.",
+    "final_title": "Des moments douillets devant votre télé.",
     "final_text": "Installez-la, appuyez sur HOME et toute la maison comprend."
   },
   "features_page": {
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "La croix",
+      "L'écran d'accueil",
       "Un écran bien rangé que tout le monde comprend, et qui s'arrange à votre goût."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "La croix",
-      "Reprendre, Regarder, Écouter, Jouer et Applications sur une ligne. Le monde choisi s'agrandit, avec son contenu juste en dessous.",
-      "◀ ▶ changent de monde, ▲ ▼ descendent la colonne, OK ouvre."
+      "Les rangées",
+      "Reprendre, Regarder, Écouter, Jouer et Applications, chacun dans sa rangée, l'une sous l'autre. Tout est visible, en gros caractères.",
+      "C'est l'écran d'accueil : il apparaît quand vous appuyez sur HOME."
     ],
     "continue": [
       "Reprendre",
       "Un seul endroit pour revenir à ce que vous faisiez : l'épisode, la radio, le podcast ou la dernière appli.",
-      "C'est le premier élément de la croix."
+      "Une rangée de l'écran d'accueil."
     ],
     "topbar": [
       "Barre du haut",
@@ -348,7 +348,7 @@
     "card-match": [
       "Prochain match de votre équipe",
       "Quand et contre qui votre équipe rejoue, sur une carte de l'écran d'accueil.",
-      "Dans l'élément TV de la croix. Paramètres › Apparence."
+      "Sur l'écran d'accueil. Paramètres › Apparence."
     ],
     "plugin-cards": [
       "Cartes d'autres applis",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Vos préférées devant",
       "Applications montre les 8 que vous ouvrez le plus, et « Toutes les applis » affiche le reste en grille.",
-      "Applications, sur la croix."
+      "Dans la rangée Applications."
     ],
     "apps-organize": [
       "À votre façon",
@@ -780,7 +780,7 @@
     "basic_who": "Pour qui est sur le canapé",
     "pro_who": "Pour qui s'occupe de la TV",
     "ultra_who": "Pour la maison et la famille",
-    "basic_text": "La croix, le lecteur, Écouter, Jouer, le réveil, l'économiseur et toute l'accessibilité.",
+    "basic_text": "L'écran d'accueil en rangées, le lecteur, Écouter, Jouer, le réveil, l'économiseur et toute l'accessibilité.",
     "pro_text": "Tout Basic, plus le téléphone, les automatisations, la maison connectée, les messages de loin, les cartes prêtes de l'écran d'accueil et la personnalisation complète.",
     "ultra_text": "Tout le Pro, plus la météo à trois modèles, les fiches complètes, les sous-titres automatiques, plusieurs maisons et regarder ensemble.",
     "includes": "Comprend",

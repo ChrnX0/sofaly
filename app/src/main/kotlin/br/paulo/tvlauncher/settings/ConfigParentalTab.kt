@@ -28,9 +28,8 @@ import br.paulo.tvlauncher.privilege.ShizukuEmbutido
 
 internal fun ConfigLauncherActivity.abaParental(c: LinearLayout) {
     if (!PainelArmazem.temPin(this)) {
-        c.addView(cartao().apply {
-            addView(valor(getString(R.string.cl_precisa_pin), getString(R.string.cl_precisa_pin_det)))
-        }, lp())
+        // Aviso, não "rótulo: valor": o valor() espremia a explicação numa coluna estreita (foto do teste de telas, 27/11/2026).
+        c.addView(info(getString(R.string.cl_precisa_pin), getString(R.string.cl_precisa_pin_det)), lp())
         c.addView(linha(getString(R.string.cl_definir_pin), getString(R.string.cl_definir_pin_det, PinSeguro.MIN_DIGITOS, PinSeguro.MAX_DIGITOS), seta = true) {
             definirNovoPin(null) { recarregarAba() }
         }, lp())

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="onetv_icone_fundo">#121212</color>
+    <!-- Leitor de QR (ZXing): sobrescreve as cores da biblioteca. Fora do quadrado, grafite neutro (nunca azulado);
+         os pontinhos que o leitor acha no código, no laranja da marca em vez do amarelo padrão. -->
+    <color name="zxing_viewfinder_mask">#B3121212</color>
+    <color name="zxing_possible_result_points">#C0FF6A2B</color>
 </resources>

@@ -105,8 +105,13 @@ class DiagnosticoActivity : Activity() {
     private fun verificar() {
         val g = ++geracao
         lista.removeAllViews()
-        val refazer = linha(getString(R.string.diag_refazer), getString(R.string.diag_refazer_det), -1) { verificar() }
-        adicionar(refazer)
+        // Botão compacto, não uma caixa da largura da tela (passada das telas 27/11/2026; Paulo, 26/11: esticado "dá uma
+        // sensação ruim"). A explicação fica para quem usa leitor de tela.
+        val refazer = Estilo.botao(this, getString(R.string.diag_refazer)).apply {
+            contentDescription = getString(R.string.diag_refazer) + ". " + getString(R.string.diag_refazer_det)
+            setOnClickListener { verificar() }
+        }
+        lista.addView(refazer, LinearLayout.LayoutParams(WRAP, WRAP).apply { bottomMargin = dp(8); marginStart = dp(4) })
         refazer.requestFocus()
 
         secao(getString(R.string.cfg_sec_rede))

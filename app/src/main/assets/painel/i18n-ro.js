@@ -1547,7 +1547,7 @@ traduzirPainelCom({T:{
 "Sofy fala em voz alta":"Sofy vorbește cu voce tare",
 "Ela lê o que mostra na TV. Com o TalkBack ligado, quem lê é ele.":"Citește ce arată pe TV. Cu TalkBack pornit, citește TalkBack.",
 "Ajudar outras casas":"Ajută alte case",
-"Uma vez por dia, só o nome e a versão dos apps que travaram aqui, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"O dată pe zi, doar numele și versiunea aplicațiilor care s-au blocat aici, fără a spune din ce casă. Primirea a ceea ce au văzut alte case este mereu pornită.",
+"Uma vez por dia, só o nome e a versão dos apps que travaram ou ficaram lentos aqui e as regras que o Sofaly usa para conferir as telas, sem dizer de qual casa. Receber o que outras casas viram fica sempre ligado.":"O dată pe zi, doar numele și versiunea aplicațiilor care s-au blocat sau au devenit lente aici, și regulile pe care Sofaly le folosește pentru a verifica ecranele, fără a spune din ce casă. Primirea a ceea ce au văzut alte case este mereu pornită.",
 "IA da Sofy":"IA lui Sofy",
 "Quando a Sofy não consegue consertar algo sozinha, ela pergunta a uma IA que você escolhe. A IA recebe só a ficha do problema, sem nada pessoal, e só pode escolher entre os consertos que a Sofy já sabe fazer.":"Când Sofy nu reușește să repare ceva singură, întreabă o IA pe care o alegi tu. IA primește doar fișa problemei, fără nimic personal, și poate alege doar dintre reparațiile pe care Sofy știe deja să le facă.",
 "Provedor":"Furnizor",

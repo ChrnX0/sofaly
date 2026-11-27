@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/readme/banner.png" alt="Sofaly: your TV, simple again. The Sofaly home screen on a TV." width="100%">
+  <img src="docs/readme/banner.png" alt="Sofaly: cozy time on your TV. The Sofaly home screen on a TV." width="100%">
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@ the same weather and photos as the home screen; the phone gets the alarm the TV 
 
 | Part | Why it exists | What you get | How it connects |
 |---|---|---|---|
-| **TV home** | Google's home puts ads first. | *The cross*: Continue, Watch, Listen, Play and Apps in one row, with what's inside right below. | Everything else feeds it: settings, weather, photos, reminders. |
+| **TV home** | Google's home puts ads first. | *Rows*: Continue, Watch, Listen, Play and Apps, one row below the other, in large text. | Everything else feeds it: settings, weather, photos, reminders. |
 | **Screensaver** | An idle TV is a black rectangle. | Clock, weather, your photos and the family board. In the morning a summary of the day, late at night dark and warm. | Uses the home screen's weather, photos and reminders. |
 | **Web panel** | Settings with a remote are slow. | Every TV setting from a computer or phone browser, the live screen, files, backups. PIN-protected, home network only. | Same settings as the TV. A change shows up on the TV at once, with Undo. |
 | **Phone app** | The remote is always lost. | Remote with touch and typing, volume keys, *Share to TV*, a notice when the TV alarm rings. | Finds the TVs at home and opens the panel with a pinned certificate. |
@@ -48,7 +48,7 @@ the same weather and photos as the home screen; the phone gets the alarm the TV 
 
 <table>
   <tr>
-    <td width="50%"><img src="website/assets/home/tela-en-home.webp" alt="Home screen: the cross with Continue, Watch, Listen, Play and Apps"><br><sub><b>The cross.</b> Pick a world with ◀ ▶; what's inside opens right below.</sub></td>
+    <td width="50%"><img src="website/assets/home/tela-en-entrar-celular.webp" alt="Sign in with the phone"><br><sub><b>Your phone.</b> Point the camera at the QR and the phone becomes the remote.</sub></td>
     <td width="50%"><img src="website/assets/home/tela-en-radio.webp" alt="Radio and podcasts"><br><sub><b>Listen.</b> Radio and podcasts with the same care as video.</sub></td>
   </tr>
   <tr>
@@ -111,6 +111,13 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 [Releases](../../releases).
 
 <!-- auto:changes -->
+- Phone app: the QR reader stands upright with a square window and orange corners, instead of the wide barcode reader
+- Phone app: a paired TV shows its own name, not “TV” or a code
+- Phone as a helper: the camera picture keeps the TV's shape, the phone microphone cuts out less, and “Find the remote” lists only real remotes and remembers when each was last used
+- The panel icon on the phone, the browser tab, the TV in Windows' Network and the website use the graphite logo, without the old navy blue
+- Panel: the “Help other homes” switch now says that slow apps and the screen-check rules go too
+- New tagline on the About screen and at startup: “Cozy time on your TV.”
+- Automations also use three columns, the Family PIN notice is an info line, and Internet diagnostics has a compact button to check again
 - Phone app: reading the TV's QR code no longer closes it, the path to the QR on the TV is right, and the remote and “Use away from home?” respond again
 - Help other homes: the screen now says that the name and version of apps that crashed also go, and “See what goes today” shows all of it
 - The settings screens that were still one stretched column now use three columns; the forecast shows its art under the dark veil
@@ -129,10 +136,10 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 **119 features in 12 areas**, the same list as [sofaly.tv](https://sofaly.tv/#mundos). Open an area to see each one and where to find it on the TV.
 
 <details>
-<summary><b>The cross</b> · A tidy screen anyone understands, arranged the way you like. (19)</summary>
+<summary><b>The home screen</b> · A tidy screen anyone understands, arranged the way you like. (19)</summary>
 
-- **The cross.** Continue, Watch, Listen, Play and Apps in one row. The world you pick grows big, with what's inside right below it. <sub>◀ ▶ switch worlds, ▲ ▼ go down the column, OK opens.</sub>
-- **Continue.** One place to get back to what you were doing: the episode, the station, the podcast or the last app. <sub>It's the first item of the cross.</sub>
+- **The rows.** Continue, Watch, Listen, Play and Apps, each in its own row, one below the other. Everything in view, in large text. <sub>It's the home screen: it shows up when you press HOME.</sub>
+- **Continue.** One place to get back to what you were doing: the episode, the station, the podcast or the last app. <sub>A row on the home screen.</sub>
 - **Top bar.** Search, voice, the weather in one line and the clock, always in the same place. It folds away while you browse so the screen can breathe. <sub>Go up to it with ▲.</sub>
 - **Google keeps working.** The Google Assistant, Gemini, search and your Google account work as before. Sofaly changes the home screen, not your TV. <sub>Use the microphone button as always.</sub>
 - **Quick panel.** Wi-Fi, Bluetooth, sleep timer, sound output, alarm, profiles, notifications and the shopping list, from any app. <sub>Hold BACK.</sub>
@@ -146,9 +153,9 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 - **House reminder.** A note that comes back on the weekdays you choose: recycling day, medicine, a class. <sub>In the pill at the top of the screen. Settings › Appearance.</sub>
 - **Your service's status.** The TV checks an address you give it and shows whether it's up: the home server, the shop's website. <sub>In the pill at the top of the screen. Settings › Appearance.</sub>
 - **Today's rates.** Currencies, bitcoin and ether at today's value, from open official sources. <sub>Next to the weather, in the top bar. Settings › Appearance.</sub>
-- **Your team's next match.** When and against whom your team plays next, on a card on the home screen. <sub>In the TV item of the cross. Settings › Appearance.</sub>
+- **Your team's next match.** When and against whom your team plays next, on a card on the home screen. <sub>On the home screen. Settings › Appearance.</sub>
 - **Cards from other apps.** Besides Sofaly's own cards, partner apps put theirs on the home screen: the delivery order, the bus, the notice from the building. <sub>Cards show at the end of Watch.</sub>
-- **The Island at the top of the screen.** Notices take turns in a pill at the top: no internet, reminder, calendar and alarm. What matters grows for 5 seconds with “▲ to open”, the Home doorbell shows up right away and, when you turn on the TV, a summary of what happened appears. Hold ▲ at the top of the cross to open the Hub. <sub>Home screen, at the top.</sub>
+- **The Island at the top of the screen.** Notices take turns in a pill at the top: no internet, reminder, calendar and alarm. What matters grows for 5 seconds with “▲ to open”, the Home doorbell shows up right away and, when you turn on the TV, a summary of what happened appears. <sub>Home screen, at the top.</sub>
 - **The right suggestion at the right time.** No artificial intelligence: from the week's use, the TV suggests what makes sense at that hour. <sub>Home screen.</sub>
 
 </details>
@@ -199,7 +206,7 @@ The same list the TV shows in *Settings → System → What changed*. Older vers
 <details>
 <summary><b>Apps</b> · Your apps in an order that makes sense. (3)</summary>
 
-- **Your favorites up front.** Apps shows the 8 apps you open most, and “All apps” brings the rest in a grid. <sub>Apps, on the cross.</sub>
+- **Your favorites up front.** Apps shows the 8 apps you open most, and “All apps” brings the rest in a grid. <sub>In the Apps row.</sub>
 - **Your way.** Move, stack or hide any app. Factory apps you don't use step out of the way. <sub>Hold OK on an app.</sub>
 - **Free Netflix and YouTube buttons.** The remote's app buttons open any app you want. Press to open, hold 3 seconds to change it. <sub>Works with the original remote.</sub>
 

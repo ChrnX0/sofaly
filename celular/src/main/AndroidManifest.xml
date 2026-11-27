@@ -50,6 +50,11 @@
             android:label="@string/cel_bloco" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter><action android:name="android.service.quicksettings.action.QS_TILE" /></intent-filter>
         </service>
+        <!-- Leitor do QR da TV (QrScannerActivity.kt): em pé, janela quadrada. Mesmos atributos da CaptureActivity do ZXing,
+             menos a orientação (lá é sensorLandscape, que deitava a tela e parecia leitor de código de barras). -->
+        <activity android:name=".QrScannerActivity" android:exported="false"
+            android:screenOrientation="portrait" android:clearTaskOnLaunch="true" android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme" android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".PainelActivity" android:exported="false"
             android:configChanges="orientation|screenSize|keyboardHidden|uiMode" />
     </application>
