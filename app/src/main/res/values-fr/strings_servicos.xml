@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Sur votre téléphone, ouvrez %1$s (ou pointez l’appareil photo vers le code à droite).\n2. Connectez-vous à %2$s et saisissez le code :</string>
     <string name="sv_espera">Cet écran continue tout seul. RETOUR annule.</string>
     <string name="sv_ok">C’est fait : %1$s est connecté%2$s.</string>
-    <string name="sv_ok_como"> en tant que %1$s</string>
+    <string name="sv_ok_como">" en tant que %1$s"</string>
     <string name="sv_falhou">Ça n’a pas marché : %1$s</string>
     <string name="sv_motivo_venceu">le code a expiré. Réessayez.</string>
     <string name="sv_motivo_recusado">l’accès a été refusé sur le téléphone.</string>

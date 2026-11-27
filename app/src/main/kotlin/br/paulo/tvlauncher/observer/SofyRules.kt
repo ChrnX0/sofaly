@@ -48,12 +48,14 @@ object SofyRules {
         "group holding a number>\",\"min\":n,\"max\":n,\"why\":\"...\"} = every captured number stays within min..max. Patterns: " +
         "short, no nested quantifiers, must NOT match any text shown now unless that text is a defect you list. Prefer screen \"*\" " +
         "for rules that hold everywhere. Answer ONLY with JSON {\"defects\":[\"short sentence\"],\"rules\":[...]} (at most 3 rules, " +
-        "empty arrays are fine). No other text."
+        "empty arrays are fine). A text ending in \"[cut]\" was shortened by us, not by the app: never report it as cut. No other text."
 
     fun prompt(screen: String, texts: List<String>, rules: List<Rule>): String = buildString {
         append("Screen: ").append(screen).append('\n')
         append("Texts (one per line):\n")
-        texts.map { it.replace('\n', ' ').take(TEXT_MAX) }.distinct().take(80).forEach { append("- ").append(it).append('\n') }
+        // Texto longo cortado AQUI ganha "[cut]" (27/11/2026): sem a marca, 2 dos 4 modelos acusaram "linha cortada no fim"
+        // no Diagnóstico da Sala, e o corte era nosso.
+        texts.map { it.replace('\n', ' ').let { t -> if (t.length > TEXT_MAX) t.take(TEXT_MAX) + " [cut]" else t } }.distinct().take(80).forEach { append("- ").append(it).append('\n') }
         val known = rules.filter { it.state != State.DROPPED }
         if (known.isNotEmpty()) { append("Rules already kept (do not repeat):\n"); known.forEach { append("- ").append(it.kind).append(' ').append(it.pattern).append('\n') } }
         val dropped = rules.filter { it.state == State.DROPPED }
@@ -153,7 +155,9 @@ object SofyRules {
     fun secondPrompt(screen: String, texts: List<String>, candidates: List<Rule>): String = buildString {
         append("Screen: ").append(screen).append('\n')
         append("Texts (one per line):\n")
-        texts.map { it.replace('\n', ' ').take(TEXT_MAX) }.distinct().take(80).forEach { append("- ").append(it).append('\n') }
+        // Texto longo cortado AQUI ganha "[cut]" (27/11/2026): sem a marca, 2 dos 4 modelos acusaram "linha cortada no fim"
+        // no Diagnóstico da Sala, e o corte era nosso.
+        texts.map { it.replace('\n', ' ').let { t -> if (t.length > TEXT_MAX) t.take(TEXT_MAX) + " [cut]" else t } }.distinct().take(80).forEach { append("- ").append(it).append('\n') }
         append("Proposed rules:\n")
         candidates.forEach { r -> append("- id=").append(r.id).append(' ').append(r.kind).append(' ').append(r.pattern)
             if (r.kind == Kind.RANGE) append(" min=").append(r.min).append(" max=").append(r.max)

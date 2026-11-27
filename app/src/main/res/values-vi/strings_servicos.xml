@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Trên điện thoại, mở %1$s (hoặc hướng camera vào mã bên phải).\n2. Đăng nhập %2$s và nhập mã:</string>
     <string name="sv_espera">Màn hình này sẽ tự tiếp tục. BACK để hủy.</string>
     <string name="sv_ok">Xong: %1$s đã kết nối%2$s.</string>
-    <string name="sv_ok_como"> với tên %1$s</string>
+    <string name="sv_ok_como">" với tên %1$s"</string>
     <string name="sv_falhou">Không thành công: %1$s</string>
     <string name="sv_motivo_venceu">mã đã hết hạn. Hãy thử lại.</string>
     <string name="sv_motivo_recusado">quyền truy cập bị từ chối trên điện thoại.</string>

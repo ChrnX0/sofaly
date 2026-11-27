@@ -19,7 +19,7 @@
     <string name="sv_passos">1. На телефоні відкрийте %1$s (або наведіть камеру на код праворуч).\n2. Увійдіть у %2$s і введіть код:</string>
     <string name="sv_espera">Цей екран продовжить сам. НАЗАД скасовує.</string>
     <string name="sv_ok">Готово: %1$s підключено%2$s.</string>
-    <string name="sv_ok_como"> як %1$s</string>
+    <string name="sv_ok_como">" як %1$s"</string>
     <string name="sv_falhou">Не вдалося: %1$s</string>
     <string name="sv_motivo_venceu">термін дії коду минув. Спробуйте ще раз.</string>
     <string name="sv_motivo_recusado">доступ відхилено на телефоні.</string>

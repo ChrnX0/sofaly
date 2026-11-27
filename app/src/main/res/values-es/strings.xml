@@ -120,7 +120,7 @@
     <string name="sob_demanda_desligado">Descongelada. Funciona como antes.</string>
     <string name="sob_demanda_falhou">No se pudo cambiar ahora. Inténtalo de nuevo en un momento.</string>
     <string name="home_desinstalar">Desinstalar</string>
-    <string name="home_app_sistema"> (app del sistema)</string>
+    <string name="home_app_sistema">" (app del sistema)"</string>
     <string name="home_desinstalar_titulo">¿Desinstalar %1$s?</string>
     <string name="home_desinstalar_aviso">La app y sus datos salen de la TV. No se puede deshacer: para recuperarla, instálala de nuevo desde Play Store.</string>
     <string name="home_cancelar">Cancelar</string>
@@ -880,17 +880,17 @@ AS\\Peliculas).</string>
     <string name="ief_sem_wifi" formatted="true">La TV no tiene Wi-Fi%1$s. Comprueba que el router esté encendido o si cambiaron el nombre o la contraseña de la red.</string>
     <string name="ief_roteador_sem_modem" formatted="true">el router perdió la conexión con el módem del proveedor</string>
     <string name="ief_roteador_ve_fora" formatted="true">el router también ve internet caído</string>
-    <string name="ief_ha" formatted="true"> (hace %1$s)</string>
+    <string name="ief_ha" formatted="true">" (hace %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">El Wi-Fi está bien, pero internet del proveedor se cayó%1$s; %2$s%3$s. No es la TV: hay que esperar al proveedor o reiniciar el módem.</string>
     <string name="ief_vpn_travada" formatted="true">El router tiene internet, pero la TV no pasa%1$s: la VPN debe estar bloqueada. Apagar y encender la VPN suele resolverlo.</string>
     <string name="ief_entre_tv_roteador" formatted="true">El router tiene internet, pero la TV no llega%1$s: el problema está entre la TV y el router%2$s Volver a conectar la TV al Wi-Fi suele resolverlo.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (la señal Wi-Fi es débil, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (la señal Wi-Fi es débil, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">La TV está en el Wi-Fi, pero ni el router ni internet responden%1$s: el router puede estar colgado. Apagarlo y encenderlo suele resolverlo.</string>
     <string name="ief_sem_internet" formatted="true">El Wi-Fi está bien, pero internet no llega%1$s; debe ser el proveedor o el router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (la VPN encendida también puede ser la causa).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (la VPN encendida también puede ser la causa)."</string>
     <string name="ief_dns" formatted="true">Internet llega, pero el DNS%1$s no responde%2$s: las apps no encuentran sus servidores. Cambiar el DNS a Automático lo resuelve.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet y el DNS responden, pero la página de prueba de Google %1$s: algo en el camino (VPN, bloqueo del DNS o una red que pide inicio de sesión) la está bloqueando.</string>
     <string name="ief_nao_abriu" formatted="true">no abrió</string>
     <string name="ief_codigo_diferente" formatted="true">respondió distinto (código %1$d)</string>
@@ -902,9 +902,9 @@ AS\\Peliculas).</string>
     <string name="ief_lenta_http" formatted="true">la página de prueba tardó %1$.1f s en abrir</string>
     <string name="ief_queda_recente" formatted="true">Internet está bien ahora; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Todo bien: Wi-Fi, internet y DNS responden.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Sin caídas en las últimas 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Ninguna caída registrada (la TV midió solo parte de las últimas 24 h).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (El router avisa de un problema en internet, pero la TV navega normal.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Sin caídas en las últimas 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Ninguna caída registrada (la TV midió solo parte de las últimas 24 h)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (El router avisa de un problema en internet, pero la TV navega normal.)"</string>
     <string name="ief_caiu_dns" formatted="true">el DNS falló</string>
     <string name="ief_caiu_internet" formatted="true">internet se cayó</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (después la TV dejó de medir; no se sabe cuándo volvió)</string>

@@ -19,7 +19,7 @@
     <string name="sv_passos">1. A telefonján nyissa meg ezt: %1$s (vagy irányítsa a kamerát a jobb oldali kódra).\n2. Jelentkezzen be ide: %2$s, és írja be a kódot:</string>
     <string name="sv_espera">Ez a képernyő magától folytatódik. A VISSZA megszakítja.</string>
     <string name="sv_ok">Kész: %1$s csatlakoztatva%2$s.</string>
-    <string name="sv_ok_como"> mint %1$s</string>
+    <string name="sv_ok_como">" mint %1$s"</string>
     <string name="sv_falhou">Nem sikerült: %1$s</string>
     <string name="sv_motivo_venceu">a kód lejárt. Próbálja újra.</string>
     <string name="sv_motivo_recusado">a hozzáférést a telefonon elutasították.</string>

@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Di ponsel, buka %1$s (atau arahkan kamera ke kode di kanan).\n2. Masuk ke %2$s dan ketik kodenya:</string>
     <string name="sv_espera">Layar ini berlanjut sendiri. BACK membatalkan.</string>
     <string name="sv_ok">Selesai: %1$s terhubung%2$s.</string>
-    <string name="sv_ok_como"> sebagai %1$s</string>
+    <string name="sv_ok_como">" sebagai %1$s"</string>
     <string name="sv_falhou">Tidak berhasil: %1$s</string>
     <string name="sv_motivo_venceu">kode kedaluwarsa. Coba lagi.</string>
     <string name="sv_motivo_recusado">akses ditolak di ponsel.</string>

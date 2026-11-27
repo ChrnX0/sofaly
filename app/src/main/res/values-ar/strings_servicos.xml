@@ -19,7 +19,7 @@
     <string name="sv_passos">1. على هاتفك، افتح %1$s (أو وجّه الكاميرا إلى الرمز على اليمين).\n2. سجّل الدخول إلى %2$s واكتب الرمز:</string>
     <string name="sv_espera">تستمر هذه الشاشة وحدها. BACK يلغي.</string>
     <string name="sv_ok">تم: %1$s متصل%2$s.</string>
-    <string name="sv_ok_como"> باسم %1$s</string>
+    <string name="sv_ok_como">" باسم %1$s"</string>
     <string name="sv_falhou">لم ينجح: %1$s</string>
     <string name="sv_motivo_venceu">انتهت صلاحية الرمز. حاول مجددًا.</string>
     <string name="sv_motivo_recusado">رُفض الوصول على الهاتف.</string>

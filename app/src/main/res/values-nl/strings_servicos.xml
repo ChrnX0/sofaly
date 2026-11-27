@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Open op je telefoon %1$s (of richt de camera op de code rechts).\n2. Log in bij %2$s en typ de code:</string>
     <string name="sv_espera">Dit scherm gaat vanzelf verder. TERUG annuleert.</string>
     <string name="sv_ok">Klaar: %1$s is verbonden%2$s.</string>
-    <string name="sv_ok_como"> als %1$s</string>
+    <string name="sv_ok_como">" als %1$s"</string>
     <string name="sv_falhou">Het lukte niet: %1$s</string>
     <string name="sv_motivo_venceu">de code is verlopen. Probeer het opnieuw.</string>
     <string name="sv_motivo_recusado">de toegang werd op de telefoon geweigerd.</string>

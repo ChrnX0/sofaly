@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Розморожено. Працює як раніше.</string>
     <string name="sob_demanda_falhou">Зараз не вдалося змінити. Спробуйте ще раз за мить.</string>
     <string name="home_desinstalar">Видалити</string>
-    <string name="home_app_sistema"> (системний застосунок)</string>
+    <string name="home_app_sistema">" (системний застосунок)"</string>
     <string name="home_desinstalar_titulo">Видалити %1$s?</string>
     <string name="home_desinstalar_aviso">Застосунок і його дані зникнуть з телевізора. Це не можна скасувати: щоб повернути, установіть його знову з Play Маркету.</string>
     <string name="home_cancelar">Скасувати</string>
@@ -906,17 +906,17 @@
     <string name="ief_sem_wifi" formatted="true">У телевізора немає Wi-Fi%1$s. Перевірте, чи увімкнений роутер, або чи не змінилися назва мережі чи пароль.</string>
     <string name="ief_roteador_sem_modem" formatted="true">роутер втратив зв\'язок із модемом провайдера</string>
     <string name="ief_roteador_ve_fora" formatted="true">роутер теж бачить, що інтернету немає</string>
-    <string name="ief_ha" formatted="true"> (%1$s тому)</string>
+    <string name="ief_ha" formatted="true">" (%1$s тому)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi у порядку, але інтернет провайдера впав%1$s; %2$s%3$s. Справа не в телевізорі: зачекайте на провайдера або перезапустіть модем.</string>
     <string name="ief_vpn_travada" formatted="true">У роутера є інтернет, але телевізор не може пройти%1$s: імовірно, завис VPN. Вимкнення й увімкнення VPN зазвичай допомагає.</string>
     <string name="ief_entre_tv_roteador" formatted="true">У роутера є інтернет, але телевізор не може до нього дістатися%1$s: проблема між телевізором і роутером%2$s Повторне підключення телевізора до Wi-Fi зазвичай допомагає.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (сигнал Wi-Fi слабкий, %1$d дБм).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (сигнал Wi-Fi слабкий, %1$d дБм)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">Телевізор у Wi-Fi, але не відповідають ні роутер, ні інтернет%1$s: роутер міг зависнути. Вимкнення й увімкнення роутера зазвичай допомагає.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi у порядку, але інтернет не проходить%1$s; імовірно, це провайдер або роутер%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (причиною також може бути ввімкнений VPN).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (причиною також може бути ввімкнений VPN)."</string>
     <string name="ief_dns" formatted="true">Інтернет працює, але DNS%1$s не відповідає%2$s: застосунки не знаходять свої сервери. Перемикання DNS на Автоматично допомагає.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Інтернет і DNS відповідають, але тестова сторінка Google %1$s: щось на шляху (VPN, блокування DNS або мережа, що вимагає входу) її блокує.</string>
     <string name="ief_nao_abriu" formatted="true">не відкрилася</string>
     <string name="ief_codigo_diferente" formatted="true">відповіла інакше (код %1$d)</string>
@@ -928,9 +928,9 @@
     <string name="ief_lenta_http" formatted="true">тестова сторінка відкривалася %1$.1f с</string>
     <string name="ief_queda_recente" formatted="true">Зараз інтернет у порядку; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Усе добре: Wi-Fi, інтернет і DNS відповідають.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Жодних обривів за останні 24 год.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Обривів не зафіксовано (телевізор вимірював лише частину останніх 24 год).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Роутер повідомляє про проблему з інтернетом, але телевізор працює в мережі нормально.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Жодних обривів за останні 24 год."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Обривів не зафіксовано (телевізор вимірював лише частину останніх 24 год)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Роутер повідомляє про проблему з інтернетом, але телевізор працює в мережі нормально.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS не спрацював</string>
     <string name="ief_caiu_internet" formatted="true">інтернет зник</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (потім телевізор перестав вимірювати; невідомо, коли він повернувся)</string>
