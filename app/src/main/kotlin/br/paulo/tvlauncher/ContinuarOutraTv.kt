@@ -40,9 +40,12 @@ object ContinuarOutraTv {
         val app = ctx.applicationContext
         val host = i.getStringExtra("host") ?: return
         // Casa do relay: quem recebe usa o remetente que o envelope prova, não este "de".
-        val eu = (if (RelayCasas.idDoHost(host) != null) RelayTv.identidade(app)?.id?.let(RelayCasas::host) else EntreTvs.meuHost(app)) ?: return
+        val pelaInternet = RelayCasas.idDoHost(host) != null
+        val eu = (if (pelaInternet) RelayTv.identidade(app)?.id?.let(RelayCasas::host) else EntreTvs.meuHost(app)) ?: return
+        // Outra casa (#543): o endereço do vídeo fica aqui. Ele aponta para a rede desta casa (ou leva token do
+        // servidor de mídia) e lá nem toca; a outra TV abre pelo título/chave, como um canal.
         val c = JuntoRegras.Continuar(i.getStringExtra("titulo").orEmpty(), i.getStringExtra("chave") ?: return,
-            i.getLongExtra("pos", 0), i.getStringExtra("url"), eu, br.paulo.tvlauncher.network.Cenas.gerarToken())
+            i.getLongExtra("pos", 0), if (pelaInternet) null else i.getStringExtra("url"), eu, br.paulo.tvlauncher.network.Cenas.gerarToken())
         synchronized(enviados) {
             val agora = System.currentTimeMillis()
             enviados.entries.removeAll { agora - it.value > 5 * 60_000L }
@@ -67,7 +70,9 @@ object ContinuarOutraTv {
         // Pelo relay o "de" do corpo não vale (o remetente é o do envelope); um nome curto qualquer passa na validação.
         val lido = JuntoRegras.continuarDeJson(if (deRelay != null) JSONObject((corpo ?: JSONObject()).toString()).put("de", "relay") else corpo)
             ?: return 400 to JSONObject().put("erro", "pedido")
-        val c = if (deRelay != null) lido.copy(de = deRelay) else lido
+        // Pelo relay o endereço do vídeo é descartado (#543): seria da rede da outra casa, e abrir um endereço que
+        // veio da internet é justamente o que a conferência de volta impede no caminho da rede local.
+        val c = if (deRelay != null) lido.copy(de = deRelay, url = null) else lido
         if (deRelay == null && EntreTvs.outras(app).none { it.host == c.de }) return 403 to JSONObject().put("erro", "tv")
         synchronized(recebidosHora) {
             val (pode, nova) = JuntoRegras.contarConvite(recebidosHora, System.currentTimeMillis())
