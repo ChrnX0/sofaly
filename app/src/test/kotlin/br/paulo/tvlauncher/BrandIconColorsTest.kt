@@ -42,6 +42,23 @@ class BrandIconColorsTest {
             assertTrue("$caminho ainda tem azul-marinho", "#121528" !in svg && "#1C2140" !in svg.uppercase())
         }
     }
+
+    /**
+     * Caça 27/11/2026: a home do site desenhava a logo do cabeçalho, do rodapé e do "Instalar" com a tela marrom
+     * #241913 (cor fixa em build_home.py), enquanto o favicon e as outras páginas já eram grafite #1E1E1E.
+     */
+    @Test fun logoDoSiteComTelaGrafite() {
+        val tela = Regex("""<svg class="logo-mark[^>]*>.*?<rect [^>]*fill="([^"]+)"""")
+        val paginas = File(raiz, "site").walkTopDown().filter { it.isFile && it.name.endsWith(".html") }.toList()
+        var logos = 0
+        for (p in paginas) for (m in tela.findAll(p.readText())) {
+            logos++
+            val cor = m.groupValues[1]
+            assertTrue("${p.relativeTo(raiz)}: tela da logo $cor (deve ser #1E1E1E); rode python3 website/build.py",
+                cor.equals("#1E1E1E", ignoreCase = true) || cor == "var(--logo-screen)")
+        }
+        assertTrue("o teste precisa achar as logos do site", logos > 50)
+    }
 }
 
 /**

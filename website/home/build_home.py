@@ -196,7 +196,7 @@ def page_home(L):
 </div></section>
 {dev}<section class="sec" id="planos"><div class="wrap duo"><h2><small>Planos</small>{e(h['plans_title'])}</h2><div><p>{e(h['plans_text'])}</p><p class="mini">Os preços saem quando o app chegar à Google Play.</p></div></div></section>
 <section class="sec" id="duvidas"><div class="wrap duo"><h2><small>Dúvidas</small>Perguntas de sofá</h2><div class="faq">{faq}</div></div></section>
-<section class="sec fim" id="instalar"><div class="wrap"><h2>{e(h['final_title'])}</h2><p>{e(h['final_text'])}</p><div class="ctabox">{B.LOGO.replace('class="logo-mark"', 'class="logo-mark espera"').replace('var(--logo-screen)', '#241913')}<span class="cta">{e(C['ui']['cta_get'])}</span></div>
+<section class="sec fim" id="instalar"><div class="wrap"><h2>{e(h['final_title'])}</h2><p>{e(h['final_text'])}</p><div class="ctabox">{B.LOGO.replace('class="logo-mark"', 'class="logo-mark espera"').replace('var(--logo-screen)', '#1E1E1E')}<span class="cta">{e(C['ui']['cta_get'])}</span></div>
 <div class="dl rv"><p><span>No app Downloader da TV, digite o código</span> <b class="code">6566820</b></p><p class="ou"><span>Ou baixe o APK em</span> <a href="https://sofaly.tv/download">sofaly.tv/download</a></p></div></div></section>
 '''
     a = s.index('<section class="sec"><div class="wrap">\n <div class="duo">')
@@ -208,7 +208,7 @@ def page_home(L):
 
     # Top bar (brand, menu, language) instead of the preview note
     ui = C["ui"]
-    brand = f'<a class="brand" href="{L.url("index")}" aria-label="Sofaly">{B.LOGO.replace("var(--logo-screen)", "#241913")}<span>Sofa<i>ly</i></span></a>'
+    brand = f'<a class="brand" href="{L.url("index")}" aria-label="Sofaly">{B.LOGO.replace("var(--logo-screen)", "#1E1E1E")}<span>Sofa<i>ly</i></span></a>'
     opts = "".join(f'<option value="{L.url("index", c)}"{" selected" if c == L.code else ""} data-code="{c}">{e(L.langs[c]["label"])}</option>'
                    for c in L.langs)
     lang = f'<label class="lang"><span class="sr">Idioma</span>{ico("globe")}<select id="lang">{opts}</select></label>'

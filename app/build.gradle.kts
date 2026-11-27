@@ -303,6 +303,9 @@ dependencies { bundletool("com.android.tools.build:bundletool:1.18.1") }
 if (comPartes) {
     val pastaPartes = layout.buildDirectory.dir("outputs/parts")
     val conjunto = layout.buildDirectory.file("outputs/parts/all.apks")
+    val apagarSenhas = tasks.register<Delete>("deletePartApkSetPasswords") {
+        delete(layout.buildDirectory.file("tmp/buildPartApkSet/ks"), layout.buildDirectory.file("tmp/buildPartApkSet/key"))
+    }
     val montarConjunto = tasks.register<JavaExec>("buildPartApkSet") {
         dependsOn("bundleRelease")
         classpath = bundletool
@@ -313,10 +316,20 @@ if (comPartes) {
         doFirst {
             conjunto.get().asFile.delete()
             val ks = System.getenv("ASSINATURA_ARQUIVO")?.takeIf { it.isNotBlank() }
+            // O bundletool 1.18.1 só aceita "pass:" ou "file:" (o "env:" derrubou o Release de 27/11/2026). "pass:" poria a
+            // senha na linha de comando (o Gradle a mostra com --info), então ela vai num arquivo só do dono, apagado pelo finalizador abaixo.
+            fun senhaEmArquivo(nome: String, variavel: String): String {
+                val f = File(temporaryDir, nome)
+                f.delete(); f.createNewFile()
+                f.setReadable(false, false); f.setReadable(true, true); f.setWritable(false, false); f.setWritable(true, true)
+                f.writeText(System.getenv(variavel)?.trim() ?: "")   // trim: igual à signingConfig acima
+                return "file:${f.absolutePath}"
+            }
             val chave = if (ks != null) listOf("--ks=$ks",
-                "--ks-pass=env:ASSINATURA_SENHA",
+                "--ks-pass=" + senhaEmArquivo("ks", "ASSINATURA_SENHA"),
                 "--ks-key-alias=" + (System.getenv("ASSINATURA_ALIAS")?.trim()?.takeIf { it.isNotBlank() } ?: "androiddebugkey"),
-                "--key-pass=env:" + (if (System.getenv("ASSINATURA_SENHA_CHAVE").isNullOrBlank()) "ASSINATURA_SENHA" else "ASSINATURA_SENHA_CHAVE"))
+                "--key-pass=" + senhaEmArquivo("key",
+                    if (System.getenv("ASSINATURA_SENHA_CHAVE").isNullOrBlank()) "ASSINATURA_SENHA" else "ASSINATURA_SENHA_CHAVE"))
             // Sem a chave real (PR): a mesma chave de debug com que o AGP acabou de assinar o .aab. O caminho vem da
             // configuração "debug" do AGP (no runner do GitHub não é ~/.android, e o PR #639 caiu nisso).
             else android.signingConfigs.getByName("debug").let { d ->
@@ -327,6 +340,8 @@ if (comPartes) {
             val aapt2 = android.sdkDirectory.resolve("build-tools/${android.buildToolsVersion}/aapt2")
             args = listOf("build-apks", "--bundle=${aab.get().asFile}", "--output=${conjunto.get().asFile}", "--aapt2=$aapt2") + chave
         }
+        // Apaga os arquivos de senha também quando o bundletool falha: um finalizador roda mesmo se a task cair.
+        finalizedBy(apagarSenhas)
     }
     val abis = mapOf("armeabi-v7a" to 34, "arm64-v8a" to 34)
     val extrair = abis.keys.map { abi ->
