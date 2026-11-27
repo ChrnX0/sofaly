@@ -20,6 +20,7 @@ class SemDicaDeTeclaTest {
         // Status "ok" (rede ok) e o "Ok Google" do assistente, não a tecla.
         "diag_r_ok" to "status", "diag_r_vpn" to "status", "jogos_chip_ok" to "status", "ief_s_ok" to "status",
         "ief_s_ok_em" to "status", "dl_para_nao" to "Ok Google",
+        "cl_v_amanha_sim" to "\"明日はOK\" = sim (ja)", "jogos_controle_pronto" to "\"準備OK\" = pronto (ja)",
         // ▶ é o desenho de tocar no botão, não dica.
         "filmes_assistir" to "ícone de tocar", "series_assistir" to "ícone de tocar", "series_continuar_curto" to "ícone de tocar",
         // O passo é a própria tarefa: sem ele a pessoa não consegue terminar (confirmar, parear, medir, chegar a uma tela).
