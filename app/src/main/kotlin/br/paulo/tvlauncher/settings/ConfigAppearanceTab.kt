@@ -1,5 +1,7 @@
 package br.paulo.tvlauncher.settings
 
+import br.paulo.tvlauncher.recreateOnce
+
 import android.content.Intent
 import android.widget.LinearLayout
 import br.paulo.tvlauncher.AppsEscolhaActivity
@@ -95,13 +97,13 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     fun rotuloTamanho(v: Int) = if (v < 100) "$v%" else getString(when (v) { 110 -> R.string.tt_grande; 120 -> R.string.tt_maior; else -> R.string.tt_normal })
     c.addView(linha(getString(R.string.tt_titulo), getString(R.string.tt_det), valor = rotuloTamanho(TamanhoTexto.atual(this))) {
         TamanhoTexto.definir(this, TamanhoTexto.proximo(TamanhoTexto.atual(this)))
-        recreate()
+        recreateOnce()
     }, lp())
     // Alto contraste (elevação 16.3): texto e bordas a 7:1 ou mais; esta tela se refaz para mostrar.
     c.addView(linha(getString(R.string.elv_ac_titulo), getString(R.string.elv_ac_det), chave = AltoContraste.ligado(this)) {
         AltoContraste.definir(this, !AltoContraste.ligado(this))
         reconstruirAoVoltar = true
-        recreate()
+        recreateOnce()
     }, lp())
     secao(c, getString(R.string.cfg_sec_inicio))
     // Tela inicial em cruz (17/11/2026), a única: ícones, apps, barra, arte, sons e a onda 3. A HOME se refaz ao voltar.
@@ -183,7 +185,7 @@ internal fun ConfigLauncherActivity.abaAparencia(c: LinearLayout) {
     if (!br.paulo.tvlauncher.home.BottomBar.strip(this)) c.addView(linha(getString(R.string.vpr_titulo), "", valor = rotuloPronto()) {
         val p = VisualCodigo.proximoPronto(VisualCodigoTv.atual(this))
         VisualCodigoTv.aplicar(this, VisualCodigo.codificar(p.visual))
-        recreate()   // tema e tamanho do texto mudam a própria tela de Configurações
+        recreateOnce()   // tema e tamanho do texto mudam a própria tela de Configurações
     }, lp())
     // Tema por QR (degrau 1, 15/11/2026): mostra o código do visual desta TV num QR; o celular abre a página pública.
     c.addView(linha(getString(R.string.vq_titulo), getString(R.string.vq_det), seta = true) { mostrarQrVisual() }, lp())

@@ -59,4 +59,16 @@
     <string name="cel_juntar_duas">Escolha exatamente duas TVs.</string>
     <string name="cel_juntar_pronto">%1$s e %2$s estão ligadas. O Assistir junto já mostra a outra TV em cada casa.</string>
     <string name="cel_juntar_falhou">Não deu para ligar %1$s e %2$s. Confira a internet e tente de novo.</string>
+    <string name="cel_fora_link">Usar fora de casa</string>
+    <string name="cel_fora_titulo">Usar fora de casa?</string>
+    <string name="cel_fora_explica">Digite o PIN da TV uma vez. Depois este celular controla a TV pela internet quando você estiver fora, com tudo cifrado.</string>
+    <string name="cel_fora_pin">PIN da TV</string>
+    <string name="cel_fora_pin_formato">O PIN tem de 6 a 12 números.</string>
+    <string name="cel_fora_conferindo">Conferindo…</string>
+    <string name="cel_fora_ativar">Ativar</string>
+    <string name="cel_fora_agora_nao">Agora não</string>
+    <string name="cel_fora_pin_errado">PIN errado. Tente de novo.</string>
+    <string name="cel_fora_esperar">Muitas tentativas. Espere %1$d s e tente de novo.</string>
+    <string name="cel_fora_falhou">Não deu certo. Tente de novo em casa, com a TV ligada.</string>
+    <string name="cel_fora_pronto">Pronto. Este celular agora controla a TV também de fora de casa.</string>
 </resources>

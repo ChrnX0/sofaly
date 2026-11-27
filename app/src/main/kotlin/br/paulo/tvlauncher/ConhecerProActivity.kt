@@ -55,7 +55,7 @@ class ConhecerProActivity : Activity() {
                 cartao.setOnFocusChangeListener { v, f -> v.scaleX = if (f) 1.04f else 1f; v.scaleY = v.scaleX }
                 cartao.setOnClickListener {
                     if (plano == atual) return@setOnClickListener
-                    if (!CobrancaPlay.comprar(this, produto) { recreate() })
+                    if (!CobrancaPlay.comprar(this, produto) { recreateOnce() })
                         android.widget.Toast.makeText(this, R.string.pl_loja_indisponivel, android.widget.Toast.LENGTH_LONG).show()
                 }
             } else if (plano == atual && Planos.VENDA_ATIVA) {
@@ -66,7 +66,7 @@ class ConhecerProActivity : Activity() {
         }
         // Os preços chegam da Play um pouco depois de abrir: redesenha uma vez quando chegarem.
         if (Planos.VENDA_ATIVA && CobrancaPlay.preco(CobrancaPlay.PRODUTO_PRO) == null && savedInstanceState == null)
-            CobrancaPlay.atualizar(this) { runOnUiThread { if (!isFinishing && CobrancaPlay.preco(CobrancaPlay.PRODUTO_PRO) != null) recreate() } }
+            CobrancaPlay.atualizar(this) { runOnUiThread { if (!isFinishing && CobrancaPlay.preco(CobrancaPlay.PRODUTO_PRO) != null) recreateOnce() } }
         // QR para a página dos planos: só no APK do site. Na Play a compra é dentro do app (a loja proíbe mandar pagar fora).
         if (!Planos.VENDA_ATIVA) linha.addView(LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL

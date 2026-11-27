@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">Telewizor nie otworzy tego pliku.</string>
     <string name="cel_enviar_de_novo">Spróbuj ponownie</string>
     <string name="cel_enviar_qr">Aby wysyłać zdjęcia i pliki, najpierw zeskanuj kod QR z telewizora.</string>
+    <string name="cel_fora_link">Używaj poza domem</string>
+    <string name="cel_fora_titulo">Używać poza domem?</string>
+    <string name="cel_fora_explica">Wpisz raz PIN telewizora. Potem ten telefon steruje telewizorem przez internet, gdy jesteś poza domem, wszystko szyfrowane.</string>
+    <string name="cel_fora_pin">PIN telewizora</string>
+    <string name="cel_fora_pin_formato">PIN ma od 6 do 12 cyfr.</string>
+    <string name="cel_fora_conferindo">Sprawdzanie…</string>
+    <string name="cel_fora_ativar">Włącz</string>
+    <string name="cel_fora_agora_nao">Nie teraz</string>
+    <string name="cel_fora_pin_errado">Zły PIN. Spróbuj ponownie.</string>
+    <string name="cel_fora_esperar">Za dużo prób. Odczekaj %1$d s i spróbuj ponownie.</string>
+    <string name="cel_fora_falhou">Nie udało się. Spróbuj ponownie w domu, przy włączonym telewizorze.</string>
+    <string name="cel_fora_pronto">Gotowe. Ten telefon steruje telewizorem także poza domem.</string>
 </resources>

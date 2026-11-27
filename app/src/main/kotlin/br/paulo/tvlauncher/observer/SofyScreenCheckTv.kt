@@ -123,11 +123,14 @@ object SofyScreenCheckTv {
         runCatching { acesa?.acquire(prazo) }
         br.paulo.tvlauncher.alarm.AutoDesligar.segurar(prazo)
         val lidas = ArrayList<SofyScreenCheck.Tela>()
+        val motivos = ArrayList<String>()   // por que cada tela não foi lida (#621)
         var parei = false
         try {
             for ((nome, classe) in lista) {
                 if (mexeram()) { parei = true; break }
-                runCatching { ler(app, s, nome, classe) }.onFailure { Log.w(TAG, "$nome: $it") }.getOrNull()?.let { lidas += it }
+                runCatching { ler(app, s, nome, classe, motivos) }
+                    .onFailure { Log.w(TAG, "$nome: $it"); motivos += "$nome: erro ${it.javaClass.simpleName}" }
+                    .getOrNull()?.let { lidas += it }
                 voltar(s)
             }
         } finally {
@@ -140,7 +143,7 @@ object SofyScreenCheckTv {
             if (acendi && !parei) br.paulo.tvlauncher.Rotinas.desligar(app)
         }
         Log.i(TAG, "li ${lidas.size} de ${lista.size} telas" + (if (acendi) " (acendi a tela)" else "") + (if (parei) "; alguém mexeu: parei" else ""))
-        if (lidas.size < lista.size && !parei) ObserverTv.logShadow(app, "self_defect", "conferência de telas: li ${lidas.size} de ${lista.size}")
+        if (lidas.size < lista.size && !parei) ObserverTv.logShadow(app, "self_defect", SofyScreenCheck.placar(lidas.size, lista.size, motivos))
         // Banco de prova (SofyBench): só guarda os textos para todos os modelos lerem a mesma tela; não analisa nem grava regra.
         if (capture) { for (t in lidas) SofyBenchTv.capture(t.nome, t.caixas.map { it.texto }); return }
         for (t in lidas) runCatching { analisar(app, t) }.onFailure { Log.w(TAG, "${t.nome}: $it") }
@@ -199,29 +202,34 @@ object SofyScreenCheckTv {
      * demorava a abrir a leitura pegava a barra da HOME (relógio, clima e "Assistir, TV…" lidos como texto encavalado).
      * Lê duas vezes e só fica o defeito que aparece nas duas: tela ainda carregando não é defeito.
      */
-    private fun ler(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
+    private fun ler(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>,
+                    motivos: MutableList<String>): SofyScreenCheck.Tela? {
         // Espera a tela pedida ficar NA FRENTE antes de contar o tempo de carregar (27/11/2026: a 1ª rodada real leu 2
         // e a 2ª 3 de 10, porque o HOME do Google, que tem prioridade, vinha por cima e a nossa HOME voltava atrás dele).
         if (!abrirEsperando(app, classe)) {
-            Log.w(TAG, "$nome: a tela não ficou na frente (na frente ${br.paulo.tvlauncher.privilege.JanelaNaFrente.classe})")
+            val frente = br.paulo.tvlauncher.privilege.JanelaNaFrente.classe
+            Log.w(TAG, "$nome: a tela não ficou na frente (na frente $frente)")
+            motivos += "$nome: não ficou na frente (${curto(frente)})"
             return null
         }
         Thread.sleep(ESPERA_MS)
-        val primeira = lerAgora(app, s, nome, classe) ?: return null
+        val primeira = lerAgora(app, s, nome, classe, motivos) ?: return null
         val achados = SofyScreenCheck.conferir(primeira)
         if (achados.isEmpty()) return primeira
         Thread.sleep(ESPERA_MS)
-        val segunda = lerAgora(app, s, nome, classe) ?: return null
+        val segunda = lerAgora(app, s, nome, classe, motivos) ?: return null
         val ficam = SofyScreenCheck.confirmados(achados, SofyScreenCheck.conferir(segunda))
         if (ficam.size < achados.size) Log.i(TAG, "$nome: ${achados.size - ficam.size} achado(s) sumiram na segunda leitura (tela carregando)")
         return segunda.copy(confirmados = ficam)
     }
 
-    private fun lerAgora(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
+    private fun lerAgora(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>,
+                         motivos: MutableList<String>): SofyScreenCheck.Tela? {
         val frente = br.paulo.tvlauncher.privilege.JanelaNaFrente.classe
         val raiz = raizDoApp(s, app.packageName)
         if (raiz == null || raiz.packageName?.toString() != app.packageName || frente != classe.name) {
             Log.w(TAG, "$nome: não deu para ler (janela ${raiz?.packageName ?: "nenhuma"}, na frente $frente)")
+            motivos += "$nome: janela ${raiz?.packageName ?: "nenhuma"}, na frente ${curto(frente)}"
             return null
         }
         return ler(raiz, nome)
@@ -316,13 +324,18 @@ object SofyScreenCheckTv {
         esperarFrente(FRENTE_MS) { it == home }
     }
 
+    /** O nome curto de uma classe (sem o pacote), para o diário. */
+    private fun curto(classe: String?) = classe?.substringAfterLast('.') ?: "nada"
+
     /** Lê a árvore: cada nó com texto vira uma caixa; guarda se existe algo focável. */
     private fun ler(raiz: AccessibilityNodeInfo, nome: String): SofyScreenCheck.Tela {
         val tudo = Rect().also { raiz.getBoundsInScreen(it) }
         val caixas = ArrayList<SofyScreenCheck.Caixa>()
         var foco = false
+        var nos = 0
         fun andar(n: AccessibilityNodeInfo?, nivel: Int) {
             if (n == null || nivel > 25) return
+            nos++
             // Fora da vista (item rolado para fora de uma lista) não conta: a caixa dele vem com tamanho zero e virava
             // INVISIVEL ("DNS automático" no Diagnóstico, #518). O que a pessoa não vê também não se encavala.
             if (!n.isVisibleToUser) return
@@ -336,6 +349,10 @@ object SofyScreenCheckTv {
             for (k in 0 until n.childCount) andar(runCatching { n.getChild(k) }.getOrNull(), nivel + 1)
         }
         andar(raiz, 0)
-        return SofyScreenCheck.Tela(nome, tudo.width(), tudo.height(), caixas, foco)
+        // De onde veio a árvore (#620): a classe da raiz, o título da janela e quantos nós. Um SEM_FOCO numa tela que tem
+        // foco (o Despertador) aponta para a janela errada lida, não para a tela.
+        val titulo = runCatching { raiz.window?.title?.toString() }.getOrNull().orEmpty().substringAfterLast('/').substringAfterLast('.')
+        val janela = listOf(curto(raiz.className?.toString()), titulo).filter { it.isNotEmpty() && it != "nada" }.distinct().joinToString(" ") + " · $nos nós"
+        return SofyScreenCheck.Tela(nome, tudo.width(), tudo.height(), caixas, foco, janela = janela)
     }
 }

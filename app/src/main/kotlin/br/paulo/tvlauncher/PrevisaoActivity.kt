@@ -222,7 +222,7 @@ class PrevisaoActivity : Activity() {
         palco.removeAllViews(); paginas.clear()
         if (d == null) {
             // Erro com saída (crítica de design 19/11/2026) e com o mascote no meio da tela (estudo global 20/11, ideia 6).
-            val tentar = Estilo.botao(this, getString(R.string.tentar_de_novo)).apply { setOnClickListener { recreate() } }
+            val tentar = Estilo.botao(this, getString(R.string.tentar_de_novo)).apply { setOnClickListener { recreateOnce() } }
             palco.addView(Estilo.estadoVazio(this, null, getString(R.string.pv_sem_titulo), getString(R.string.pv_sem), tentar),
                 FrameLayout.LayoutParams(-1, -2, Gravity.CENTER_VERTICAL))
             if (!tentar.requestFocus()) tentar.post { tentar.requestFocus() }   // na 1ª passada o botão pode ainda não estar medido

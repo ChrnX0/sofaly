@@ -654,7 +654,7 @@ class MainActivity : Activity() {
      * segundo derruba o app em removeViewImmediate (IllegalArgumentException "not attached", Sala v471041, 23/11/2026).
      */
     private var recriando = false
-    private fun recriar() { if (recriando || isFinishing || isDestroyed) return; recriando = true; recreate() }
+    private fun recriar() { if (recriando || isFinishing || isDestroyed) return; recriando = true; recreateOnce() }
 
     private val refazerAjuste = Runnable { if (!isDestroyed && assinaturaDoLayout() != assinaturaLayout) recriar() }
     private val ouvinteAjuste = android.content.SharedPreferences.OnSharedPreferenceChangeListener { _, _ ->

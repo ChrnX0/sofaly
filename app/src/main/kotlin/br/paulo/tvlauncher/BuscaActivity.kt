@@ -203,7 +203,7 @@ class BuscaActivity : Activity() {
                     val novo = TamanhoTexto.OPCOES[(if (l == BuscaFaz.Local.LETRA_MAIOR) i + 1 else i - 1).coerceIn(0, TamanhoTexto.OPCOES.lastIndex)]
                     Item(getString(if (l == BuscaFaz.Local.LETRA_MAIOR) R.string.elv_bf_letra_maior else R.string.elv_bf_letra_menor, novo),
                         if (novo == atual) getString(R.string.elv_bf_letra_limite) else "") {
-                        if (novo != atual) { TamanhoTexto.definir(this, novo); recreate() }
+                        if (novo != atual) { TamanhoTexto.definir(this, novo); recreateOnce() }
                     }
                 }
                 // Sofy, ideia 44: o problema em palavras vira uma checagem (a resposta vem num aviso).

@@ -1,5 +1,7 @@
 package br.paulo.tvlauncher.settings
 
+import br.paulo.tvlauncher.recreateOnce
+
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -164,7 +166,7 @@ private fun ConfigLauncherActivity.pedido(resultados: LinearLayout, a: SettingsI
         if (feito) { desfazerPedido?.invoke(); desfazerPedido = null; pedidoFeito = null; aviso(getString(R.string.goal_desfeito, nome)) }
         else { desfazerPedido = SettingsIntents.fazer(this, a); pedidoFeito = a; aviso(getString(R.string.goal_feito, nome)) }
         // A letra muda a própria tela: refaz (a busca some; a pessoa vê o resultado já maior). O resto redesenha a lista.
-        if (a == SettingsIntents.Action.TEXT_BIGGER || a == SettingsIntents.Action.TEXT_SMALLER || a == SettingsIntents.Action.GOAL_READ) recreate()
+        if (a == SettingsIntents.Action.TEXT_BIGGER || a == SettingsIntents.Action.TEXT_SMALLER || a == SettingsIntents.Action.GOAL_READ) recreateOnce()
         else campoBusca?.let { it.text = it.text }
     }, 0, lp())
 }

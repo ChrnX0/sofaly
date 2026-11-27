@@ -81,7 +81,7 @@ class CenasActivity : Activity() {
     private fun criar(m: CenasProntas.Modelo, nome: String, canal: String?) {
         val r = Cenas.criar(this, nome, CenasProntas.acoes(m, canal), Cenas.appsInstalados(this))
         if (r.startsWith("erro:")) { android.widget.Toast.makeText(this, r.removePrefix("erro:").trim(), android.widget.Toast.LENGTH_LONG).show(); return }
-        recreate()
+        recreateOnce()
     }
 
     private fun linha(titulo: String, detalhe: String, aoClicar: () -> Unit): TextView = TextView(this).apply {

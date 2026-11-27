@@ -127,7 +127,7 @@ class FineTuneActivity : Activity() {
         // Jeito da tela inicial (BottomBar): barra única (padrão desde 24/11/2026), cruz ou barra embaixo. A lista de
         // ajustes muda com o jeito (as opções dos cards só valem na barra única): recria o painel.
         Ajuste(R.string.bb_titulo, { nomeJeito(br.paulo.tvlauncher.home.BottomBar.mode(this)) }) { passo ->
-            nomeJeito(br.paulo.tvlauncher.home.BottomBar.next(this, passo)).also { window.decorView.post { recreate() } }
+            nomeJeito(br.paulo.tvlauncher.home.BottomBar.next(this, passo)).also { window.decorView.post { recreateOnce() } }
         },
     ) + (if (br.paulo.tvlauncher.home.BottomBar.strip(this)) ajustesFaixa() else emptyList()) +
         (if (br.paulo.tvlauncher.home.BottomBar.rows(this)) ajustesFileiras() else emptyList()) + listOf(
@@ -384,7 +384,7 @@ class FineTuneActivity : Activity() {
                 val nomes = listOf(getString(R.string.bg_nenhuma)) + cams.map { it.nome }
                 Estilo.lista(this, getString(R.string.bg_camera), nomes, marcadas = listOf(ids.indexOf(BackgroundStyle.camera(this)).coerceAtLeast(0))) { i ->
                     BackgroundStyle.setCamera(this, ids[i])
-                    recreate()
+                    recreateOnce()
                 }
             }
         }
@@ -443,7 +443,7 @@ class FineTuneActivity : Activity() {
         val i = Math.floorMod(fontes.indexOfFirst { it.id == FontChoice.currentId(this) } + passo, fontes.size)
         FontChoice.choose(this, fontes[i].id) { ok ->
             if (isDestroyed) return@choose
-            if (ok) recreate() else AvisoTv.rapido(this, getString(R.string.ft_titulo), getString(R.string.fc_falhou), 4)
+            if (ok) recreateOnce() else AvisoTv.rapido(this, getString(R.string.ft_titulo), getString(R.string.fc_falhou), 4)
         }
         return if (FontChoice.ready(this, fontes[i])) fontes[i].name else getString(R.string.fc_baixando)
     }

@@ -152,7 +152,7 @@ class FamiliaConectadaActivity : Activity() {
             setOnClickListener {
                 val a = this@FamiliaConectadaActivity
                 if (!RecadoVideo.aceita(a) && !PlanosTv.pedir(a, Planos.Recurso.RECADO_VIDEO)) return@setOnClickListener   // ligar: Pro
-                RecadoVideo.definirAceita(a, !RecadoVideo.aceita(a)); recreate()
+                RecadoVideo.definirAceita(a, !RecadoVideo.aceita(a)); recreateOnce()
             }
         }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         if (RecadoVideo.lista(this).isNotEmpty()) col.addView(Estilo.linhaOpcao(this, getString(R.string.vid_lista),
@@ -166,11 +166,11 @@ class FamiliaConectadaActivity : Activity() {
                 val a = this@FamiliaConectadaActivity
                 // Ligar as TVs da família pede ao menos o Pro (Continuar em outra TV); o convite da sessão junto pede o Ultra.
                 if (!EntreTvs.ligado(a) && !PlanosTv.pedir(a, Planos.Recurso.CONTINUAR_OUTRA_TV)) return@setOnClickListener
-                EntreTvs.definir(a, !EntreTvs.ligado(a)); recreate()
+                EntreTvs.definir(a, !EntreTvs.ligado(a)); recreateOnce()
             }
         }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         col.addView(Estilo.linhaOpcao(this, getString(R.string.famc_trocar), getString(R.string.famc_trocar_det)).apply {
-            setOnClickListener { FamiliaConectada.novoLink(this@FamiliaConectadaActivity); recreate() }
+            setOnClickListener { FamiliaConectada.novoLink(this@FamiliaConectadaActivity); recreateOnce() }
         }, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
         col.addView(Estilo.linhaOpcao(this, getString(R.string.famc_desligar)).apply {
             setOnClickListener { FamiliaConectada.desligar(this@FamiliaConectadaActivity); finish() }
