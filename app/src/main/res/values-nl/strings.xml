@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: antwoordde niet</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: niet gecontroleerd</string>
     <string name="ief_s_historico" formatted="true">geschiedenis: %1$d metingen in 24 u</string>
+    <string name="diag_adguard" formatted="true">Laatste 24 u: %1$d verzoeken, %2$d geblokkeerd (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google antwoordde nu niet; probeer het opnieuw</string>
     <string name="lg_negado">het inloggen werd geweigerd bij Google</string>

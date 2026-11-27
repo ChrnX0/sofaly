@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: nem válaszolt</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: nincs ellenőrizve</string>
     <string name="ief_s_historico" formatted="true">előzmények: %1$d mérés 24 óra alatt</string>
+    <string name="diag_adguard" formatted="true">Utolsó 24 óra: %1$d lekérdezés, %2$d tiltva (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">A Google most nem válaszolt; próbálja újra</string>
     <string name="lg_negado">a bejelentkezést a Google-on elutasították</string>

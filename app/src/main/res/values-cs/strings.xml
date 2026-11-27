@@ -964,6 +964,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: neodpověděl</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: nezkontrolováno</string>
     <string name="ief_s_historico" formatted="true">historie: %1$d měření za 24 h</string>
+    <string name="diag_adguard" formatted="true">Posledních 24 h: %1$d dotazů, %2$d blokováno (%3$d %%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google teď neodpověděl; zkuste to znovu</string>
     <string name="lg_negado">přihlášení bylo v Googlu zamítnuto</string>

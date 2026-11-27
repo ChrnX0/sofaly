@@ -935,6 +935,7 @@ AS\\Movies）。</string>
     <string name="ief_s_roteador_mudo" formatted="true">路由器：无响应</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">路由器：未查询</string>
     <string name="ief_s_historico" formatted="true">记录：24 小时内测量 %1$d 次</string>
+    <string name="diag_adguard" formatted="true">最近 24 小时：%1$d 次查询，%2$d 次被拦截（%3$d%%）</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google 暂时没有响应；请重试</string>
     <string name="lg_negado">登录在 Google 被拒绝</string>

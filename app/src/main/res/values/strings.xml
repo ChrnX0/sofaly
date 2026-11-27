@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: didn’t answer</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: not checked</string>
     <string name="ief_s_historico" formatted="true">history: %1$d measurements in 24 h</string>
+    <string name="diag_adguard" formatted="true">Last 24 h: %1$d queries, %2$d blocked (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google did not answer right now; try again</string>
     <string name="lg_negado">the sign-in was denied on Google</string>

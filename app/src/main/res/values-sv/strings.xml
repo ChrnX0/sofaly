@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: svarade inte</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: inte kontrollerad</string>
     <string name="ief_s_historico" formatted="true">historik: %1$d mätningar på 24 h</string>
+    <string name="diag_adguard" formatted="true">Senaste 24 h: %1$d förfrågningar, %2$d blockerade (%3$d %%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google svarade inte just nu; försök igen</string>
     <string name="lg_negado">inloggningen nekades hos Google</string>

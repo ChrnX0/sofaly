@@ -941,6 +941,7 @@ AS\\Peliculas).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: no respondió</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: no consultado</string>
     <string name="ief_s_historico" formatted="true">historial: %1$d mediciones en 24 h</string>
+    <string name="diag_adguard" formatted="true">Últimas 24 h: %1$d consultas, %2$d bloqueadas (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google no respondió ahora; inténtalo de nuevo</string>
     <string name="lg_negado">el inicio de sesión fue rechazado en Google</string>

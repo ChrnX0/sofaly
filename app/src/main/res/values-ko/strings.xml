@@ -935,6 +935,7 @@ AS\\Movies).</string>
     <string name="ief_s_roteador_mudo" formatted="true">공유기: 응답 없음</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">공유기: 확인 안 함</string>
     <string name="ief_s_historico" formatted="true">기록: 24시간 동안 %1$d회 측정</string>
+    <string name="diag_adguard" formatted="true">최근 24시간: 쿼리 %1$d건, 차단 %2$d건(%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google이 지금 응답하지 않습니다. 다시 시도하세요</string>
     <string name="lg_negado">Google에서 로그인이 거부되었습니다</string>

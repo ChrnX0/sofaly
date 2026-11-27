@@ -938,6 +938,7 @@ AS\\Filme).</string>
     <string name="ief_s_roteador_mudo" formatted="true">Router: keine Antwort</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">Router: nicht abgefragt</string>
     <string name="ief_s_historico" formatted="true">Verlauf: %1$d Messungen in 24 h</string>
+    <string name="diag_adguard" formatted="true">Letzte 24 h: %1$d Anfragen, %2$d gesperrt (%3$d %%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google hat gerade nicht geantwortet; bitte erneut versuchen</string>
     <string name="lg_negado">die Anmeldung wurde bei Google abgelehnt</string>
