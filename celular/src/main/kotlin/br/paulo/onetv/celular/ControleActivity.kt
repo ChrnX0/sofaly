@@ -42,6 +42,8 @@ class ControleActivity : Activity() {
     private val ui = Handler(Looper.getMainLooper())
     private lateinit var tv: Pareamento.Tv
     private lateinit var situacao: TextView
+    /** "Usar fora de casa": só aparece em casa, enquanto este celular não tem as chaves do relay desta TV. */
+    private lateinit var fora: TextView
     private lateinit var campo: EditText
     private var tecladoAberto = false
     private var abriuPainel = false
@@ -82,6 +84,12 @@ class ControleActivity : Activity() {
         })
         situacao = Visual.texto(context, getString(R.string.cel_ctrl_dica), 15f, Visual.TEXTO_2).apply { setPadding(0, dp(4), 0, dp(12)) }
         addView(situacao)
+        fora = Visual.texto(context, getString(R.string.cel_fora_link), 16f, Visual.TEXTO).apply {
+            paintFlags = paintFlags or android.graphics.Paint.UNDERLINE_TEXT_FLAG
+            minHeight = dp(48); gravity = Gravity.CENTER_VERTICAL; visibility = View.GONE
+            isClickable = true; setOnClickListener { perguntarFora() }
+        }
+        addView(fora)
         addView(areaDeslizar(), LinearLayout.LayoutParams(-1, 0, 1f))
         campo = EditText(context).apply {
             // A TV descarta texto acima de 500 caracteres (RelayPairing.comando): o campo nem deixa passar disso.
@@ -147,12 +155,27 @@ class ControleActivity : Activity() {
     private fun tratar(codigo: Int) {
         when (codigo) {
             202 -> situacao.text = getString(R.string.cel_ctrl_fora)   // foi pelo relay (fora de casa): ApiTv.pelaCaixa
-            in 200..299 -> situacao.text = getString(R.string.cel_ctrl_dica)
+            in 200..299 -> { situacao.text = getString(R.string.cel_ctrl_dica); oferecerFora(codigo) }
             401 -> entrarPrimeiro()
             0, ApiTv.DEMOROU -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
             ApiTv.CERTIFICADO_TROCOU -> situacao.text = getString(R.string.cel_ctrl_cert_novo)
             else -> situacao.text = getString(R.string.cel_ctrl_recusou)
         }
+    }
+
+    /**
+     * Em casa e sem as chaves do relay: mostra o link e, na primeira vez com esta TV, já pergunta (27/11/2026). Antes o
+     * PIN que libera o uso pela internet só era pedido se a pessoa achasse sozinha algo no painel que pedisse o PIN.
+     */
+    private fun oferecerFora(codigo: Int) {
+        val oferecer = ApiTv.deveOferecerFora(codigo, ApiTv.podeUsar(tv), RelayCelular.tv(this, tv) != null)
+        fora.visibility = if (oferecer) View.VISIBLE else View.GONE
+        if (oferecer && !ForaDeCasa.jaPerguntou(this, tv)) perguntarFora()
+    }
+
+    private fun perguntarFora() = ForaDeCasa.perguntar(this, tv) {
+        fora.visibility = View.GONE
+        situacao.text = getString(R.string.cel_fora_pronto)
     }
 
     /** Sem sessão (nunca entrou ou passou 30 min sem uso): o painel abre para o PIN, e o controle volta a valer. */
@@ -195,6 +218,7 @@ class ControleActivity : Activity() {
                 ui.post {
                     if (isFinishing || !ativo) return@post
                     if (semSessao && !voltou) { entrarPrimeiro(); return@post }
+                    if (!semSessao) oferecerFora(r.codigo)
                     val pede = r.json?.optBoolean("pedeTexto") == true
                     if (pede && !pediaAntes) { window.decorView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS); mostrarTeclado(true) }
                     if (!pede && pediaAntes && campo.text.isEmpty()) mostrarTeclado(false)

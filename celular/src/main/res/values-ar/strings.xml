@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">لا يستطيع التلفزيون فتح هذا الملف.</string>
     <string name="cel_enviar_de_novo">إعادة المحاولة</string>
     <string name="cel_enviar_qr">لإرسال الصور والملفات، امسح رمز QR على التلفزيون أولاً.</string>
+    <string name="cel_fora_link">الاستخدام خارج المنزل</string>
+    <string name="cel_fora_titulo">الاستخدام خارج المنزل؟</string>
+    <string name="cel_fora_explica">أدخل رمز PIN للتلفزيون مرة واحدة. بعدها يتحكم هذا الهاتف في التلفزيون عبر الإنترنت وأنت خارج المنزل، وكل شيء مشفّر.</string>
+    <string name="cel_fora_pin">رمز PIN للتلفزيون</string>
+    <string name="cel_fora_pin_formato">يتكون رمز PIN من 6 إلى 12 رقمًا.</string>
+    <string name="cel_fora_conferindo">جارٍ التحقق…</string>
+    <string name="cel_fora_ativar">تفعيل</string>
+    <string name="cel_fora_agora_nao">ليس الآن</string>
+    <string name="cel_fora_pin_errado">رمز PIN خاطئ. حاول مرة أخرى.</string>
+    <string name="cel_fora_esperar">محاولات كثيرة. انتظر %1$d ث ثم حاول مرة أخرى.</string>
+    <string name="cel_fora_falhou">لم ينجح ذلك. حاول مرة أخرى في المنزل والتلفزيون قيد التشغيل.</string>
+    <string name="cel_fora_pronto">تم. أصبح هذا الهاتف يتحكم في التلفزيون من خارج المنزل أيضًا.</string>
 </resources>

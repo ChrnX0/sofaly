@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">टीवी यह फ़ाइल नहीं खोल सकता।</string>
     <string name="cel_enviar_de_novo">फिर कोशिश करें</string>
     <string name="cel_enviar_qr">फ़ोटो और फ़ाइलें भेजने के लिए पहले टीवी का QR कोड स्कैन करें।</string>
+    <string name="cel_fora_link">घर से बाहर इस्तेमाल करें</string>
+    <string name="cel_fora_titulo">घर से बाहर इस्तेमाल करें?</string>
+    <string name="cel_fora_explica">टीवी का PIN एक बार डालें। फिर बाहर होने पर यह फ़ोन इंटरनेट से टीवी चलाएगा, सब कुछ एन्क्रिप्टेड।</string>
+    <string name="cel_fora_pin">टीवी का PIN</string>
+    <string name="cel_fora_pin_formato">PIN में 6 से 12 अंक होते हैं।</string>
+    <string name="cel_fora_conferindo">जाँच हो रही है…</string>
+    <string name="cel_fora_ativar">चालू करें</string>
+    <string name="cel_fora_agora_nao">अभी नहीं</string>
+    <string name="cel_fora_pin_errado">गलत PIN. फिर से कोशिश करें।</string>
+    <string name="cel_fora_esperar">बहुत ज़्यादा कोशिशें। %1$d सेकंड रुककर फिर कोशिश करें।</string>
+    <string name="cel_fora_falhou">यह नहीं हुआ। घर पर, टीवी चालू रखकर फिर कोशिश करें।</string>
+    <string name="cel_fora_pronto">हो गया। अब यह फ़ोन घर से बाहर भी टीवी चलाता है।</string>
 </resources>

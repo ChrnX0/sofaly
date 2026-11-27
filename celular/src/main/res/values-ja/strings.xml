@@ -55,4 +55,16 @@
     <string name="cel_enviar_tipo">テレビはこのファイルを開けません。</string>
     <string name="cel_enviar_de_novo">もう一度</string>
     <string name="cel_enviar_qr">写真やファイルを送るには、先にテレビの QR コードを読み取ってください。</string>
+    <string name="cel_fora_link">外出先で使う</string>
+    <string name="cel_fora_titulo">外出先で使いますか？</string>
+    <string name="cel_fora_explica">テレビのPINを一度入力してください。以降、外出中もこのスマホからインターネット経由でテレビを操作できます（すべて暗号化）。</string>
+    <string name="cel_fora_pin">テレビのPIN</string>
+    <string name="cel_fora_pin_formato">PINは6〜12桁の数字です。</string>
+    <string name="cel_fora_conferindo">確認中…</string>
+    <string name="cel_fora_ativar">オンにする</string>
+    <string name="cel_fora_agora_nao">後で</string>
+    <string name="cel_fora_pin_errado">PINが違います。もう一度お試しください。</string>
+    <string name="cel_fora_esperar">試行回数が多すぎます。%1$d秒待ってからもう一度お試しください。</string>
+    <string name="cel_fora_falhou">うまくいきませんでした。自宅でテレビの電源を入れてもう一度お試しください。</string>
+    <string name="cel_fora_pronto">完了しました。このスマホで外出先からもテレビを操作できます。</string>
 </resources>
