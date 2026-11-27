@@ -1221,6 +1221,8 @@ class MainActivity : Activity() {
         @Volatile var homeFriaMedida = false   // placar (elevação 2.1): a HOME "fria" é medida uma vez por processo
         /** A abertura com a logo do boot já foi decidida neste processo (recriar a HOME não mostra de novo). */
         @Volatile var splashBootDecidido = false
+        /** Último veredito de [ultimoLiberado] (#554): chave (canal + arquivos do player) -> pode aparecer. */
+        @Volatile private var liberadoMemo: Pair<String, Boolean>? = null
         internal val cacheApps = HashMap<String, Pair<String, Item>>()
         /** Apps cujo ícone veio de um pacote de ícones (ou foi trocado à mão): no modo banner da cruz, o ícone vence o banner. */
         val iconeDePacote: MutableSet<String> = java.util.concurrent.ConcurrentHashMap.newKeySet()
@@ -1839,9 +1841,16 @@ class MainActivity : Activity() {
     private fun ultimoLiberado(u: PlayerArmazem.Ultimo): Boolean {
         val parental = PlayerArmazem.parental(this)
         if (!parental.ativo) return true
+        // Ler e montar a lista inteira (dezenas de milhares de canais) a cada volta à HOME pesava na TV de 32 bits (#554).
+        // O veredito só muda quando muda o canal ou um arquivo do player (listas, parental, grupos): guarda o último.
+        val chave = u.id + "|" + (java.io.File(filesDir, "player").listFiles().orEmpty()
+            .filter { it.isFile && it.name != "ultimo.json" }.sortedBy { it.name }
+            .joinToString(",") { "${it.name}:${it.length()}:${it.lastModified()}" })
+        liberadoMemo?.let { (k, v) -> if (k == chave) return v }
         val canais = runCatching { PlayerCarga.canaisDoCache(this) }.getOrDefault(emptyList())
         val ocultas = PlayerFiltro.ocultasEfetivas(canais, PlayerArmazem.gruposEscondidos(this), PlayerArmazem.gruposLiberados(this))
         return PlayerFiltro.ultimoPodeAparecer(u.id, canais.firstOrNull { it.id == u.id }, ocultas, parental)
+            .also { liberadoMemo = chave to it }
     }
 
     /** O que preencherContinuar leu (TV, Séries/Filmes, último canal) chega à cruz, na thread da tela. */
