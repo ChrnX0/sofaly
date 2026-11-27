@@ -78,6 +78,9 @@ object ApiTv {
      */
     const val CERTIFICADO_TROCOU = -2
 
+    /** A TV aceitou a conexão mas não respondeu a tempo: talvez tenha feito. Não reenvia pelo relay. */
+    const val DEMOROU = -3
+
     /** Chamada bloqueante. Código 0 = não chegou na TV (desligada, fora de casa); [CERTIFICADO_TROCOU] = outro certificado. */
     fun chamar(tv: Pareamento.Tv, metodo: String, caminho: String, corpo: JSONObject? = null): Resposta {
         // Fora de casa há pouco (revisor 26/11): tecla e texto vão direto pelo relay, sem esperar 4 s pelo IP de casa.
@@ -117,7 +120,7 @@ object ApiTv {
         // revogar lá corta o acesso de fora também.
         val r = chamarUmaVez(tv, "POST", "/api/relay/parear", pedido, ChaveAparelho.ler(ctx, tv)?.let { mapOf("X-Aparelho" to it) } ?: emptyMap())
         if (r.codigo != 200 || !RelayCelular.guardar(ctx, tv, r.json))
-            semRelay[Pareamento.chave(tv)] = if (r.codigo == 0 || esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
+            semRelay[Pareamento.chave(tv)] = if (r.codigo <= 0 || esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) System.currentTimeMillis() + ESPERA_PIN_MS else Long.MAX_VALUE
     }
 
     /** Tecla ou texto pelo api.sofaly.tv. 202 = entregue ao servidor (a TV recebe na hora se estiver ligada). */
@@ -172,7 +175,7 @@ object ApiTv {
             return
         }
         // Código 0 (rede caiu no meio) = tenta depois, não é recusa.
-        if (r.codigo != 0 && !esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
+        if (r.codigo > 0 && !esperaPin(r.codigo, r.json?.optBoolean("precisaPin") == true)) semChave += k
     }
 
     /**
@@ -218,6 +221,7 @@ object ApiTv {
         if (!podeUsar(tv)) return Resposta(0, null)
         val base = "https://${tv.ip}:${Pareamento.PORTA_HTTPS}"
         var trocou = false
+        var conectou = false
         return try {
             val c = URL(base + caminho).openConnection() as HttpsURLConnection
             val fixo = object : X509TrustManager {
@@ -237,6 +241,7 @@ object ApiTv {
             c.requestMethod = metodo
             CookieManager.getInstance().getCookie("$base/")?.let { c.setRequestProperty("Cookie", it) }
             if (metodo == "POST") { c.setRequestProperty("Origin", base); c.setRequestProperty("X-Painel", "1") }
+            c.connect(); conectou = true
             escrever(c)
             try {
                 val cod = c.responseCode
@@ -244,7 +249,11 @@ object ApiTv {
                 val cookies = c.headerFields.entries.filter { it.key.equals("Set-Cookie", ignoreCase = true) }.flatMap { it.value }
                 Resposta(cod, txt?.let { runCatching { JSONObject(it) }.getOrNull() }, cookies)
             } finally { c.disconnect() }
-        } catch (_: Exception) { Resposta(if (trocou) CERTIFICADO_TROCOU else 0, null) }
+        } catch (_: Exception) {
+            // Conectou e depois parou (tempo de leitura): a TV pode ter feito. Não é 0, senão o relay mandava de novo e a
+            // tecla saía em dobro (revisor 26/11).
+            Resposta(if (trocou) CERTIFICADO_TROCOU else if (conectou) DEMOROU else 0, null)
+        }
     }
 
     fun tecla(tv: Pareamento.Tv, nome: String): Resposta = chamar(tv, "POST", "/api/tela/tecla", JSONObject().put("tecla", nome))

@@ -69,6 +69,22 @@ object RelayTv {
         return i
     }
 
+    /**
+     * Troca de pacote (revisor 26/11): a identidade vai aberta ao app novo (pelo provider de assinatura, nunca a outro
+     * app), que a tranca com o Keystore dele. Sem isso a cópia das prefs trazia a versão trancada pelo Keystore do
+     * antigo, que não abre no novo, e o relay (controle de fora, Assistir junto, cota assinada) morria de vez.
+     */
+    internal fun paraMigracao(ctx: Context): String? = identidade(ctx)?.let { RelayCrypto.b64(it.ed + it.x) }
+
+    @Synchronized internal fun deMigracao(ctx: Context, b64: String): Boolean {
+        val b = runCatching { RelayCrypto.deB64(b64) }.getOrNull()?.takeIf { it.size == 64 } ?: return false
+        val c = Cipher.getInstance("AES/GCM/NoPadding"); c.init(Cipher.ENCRYPT_MODE, chave())
+        val ok = prefs(ctx).edit().putString("chaves", RelayCrypto.b64(c.doFinal(b)))
+            .putString("chaves_iv", RelayCrypto.b64(c.iv)).commit()
+        if (ok) cache = Identidade(b.copyOfRange(0, 32), b.copyOfRange(32, 64))
+        return ok
+    }
+
     private fun chave(): SecretKey {
         val ks = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
         (ks.getEntry(APELIDO, null) as? KeyStore.SecretKeyEntry)?.let { return it.secretKey }
@@ -256,7 +272,13 @@ object RelayTv {
                 ws.tempoDeLeitura(50_000)   // sem nada em 50 s: manda ping (o Cloudflare derruba conexão parada em ~100 s)
                 try {
                     while (true) {
-                        val msg = try { ws.receber() } catch (_: java.net.SocketTimeoutException) { ws.ping(); continue } ?: break
+                        val msg = try { ws.receber() } catch (_: java.net.SocketTimeoutException) {
+                            // Revisor 26/11: depois de a internet cair e voltar (NAT novo) o socket fica "ligado" sem
+                            // receber nada por até meia hora, e os comandos vencem na caixa. Sem nem o pong do último
+                            // ping (~90 s em silêncio), fecha e reconecta.
+                            if (System.currentTimeMillis() - ws.ultimoQuadro > 90_000L) { Log.w(TAG, "escuta sem resposta: reconectando"); break }
+                            ws.ping(); continue
+                        } ?: break
                         processar(app, eu, msg)?.let { id -> ws.enviar(JSONObject().put("ack", JSONArray().put(id)).toString()) }
                     }
                 } finally { ws.fechar(); conectado = false }

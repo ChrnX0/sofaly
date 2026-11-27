@@ -328,6 +328,9 @@ object BackupCompleto {
         ServicosContas.paraBackup(app)?.let { s.put("servicos", it) }
         // Revisor 26/11: sem estes, o backup noturno do app novo não abria a senha, se desligava sozinho e esquecia o Drive.
         BackupNoturno.senhaParaMigracao(app)?.let { s.put("noturno_senha", it) }
+        // Só se já existe: não cria identidade no antigo só para migrar.
+        if (app.getSharedPreferences("relay", Context.MODE_PRIVATE).contains("chaves"))
+            br.paulo.tvlauncher.relay.RelayTv.paraMigracao(app)?.let { s.put("relay", it) }
         DriveBackup.contaParaMigracao(app)?.let { (email, refresh) -> s.put("drive_email", email).put("drive_refresh", refresh) }
         return s
     }
@@ -348,6 +351,7 @@ object BackupCompleto {
         s.optString("casa_ha").ifEmpty { null }?.let { passo("casa_ha") { CasaHA.definirToken(app, it) } }
         s.optString("servicos").ifEmpty { null }?.let { passo("servicos") { ServicosContas.restaurarDoBackup(app, it) } }
         s.optString("noturno_senha").ifEmpty { null }?.let { passo("backup noturno") { BackupNoturno.definirSenha(app, it) } }
+        s.optString("relay").ifEmpty { null }?.let { passo("relay") { br.paulo.tvlauncher.relay.RelayTv.deMigracao(app, it) } }
         val email = s.optString("drive_email"); val refresh = s.optString("drive_refresh")
         if (email.isNotEmpty() && refresh.isNotEmpty()) passo("drive") { DriveBackup.guardarConta(app, email, refresh) }
     }

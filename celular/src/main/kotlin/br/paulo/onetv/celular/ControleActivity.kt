@@ -147,7 +147,7 @@ class ControleActivity : Activity() {
             202 -> situacao.text = getString(R.string.cel_ctrl_fora)   // foi pelo relay (fora de casa): ApiTv.pelaCaixa
             in 200..299 -> situacao.text = getString(R.string.cel_ctrl_dica)
             401 -> entrarPrimeiro()
-            0 -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
+            0, ApiTv.DEMOROU -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
             ApiTv.CERTIFICADO_TROCOU -> situacao.text = getString(R.string.cel_ctrl_cert_novo)
             else -> situacao.text = getString(R.string.cel_ctrl_recusou)
         }
