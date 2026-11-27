@@ -1412,11 +1412,11 @@ class ConfigLauncherActivity : Activity() {
 
     /** Superfície das linhas e cartões (sistema de design): repouso = branco 6% com fio; foco = branco sólido. */
     // Régua 22/11/2026: a linha não tem caixa (um fio embaixo separa); o foco segue Ajuste fino > Foco.
-    private val PILULA_GUIADA = 0x2EFFFFFF
 
     internal fun vidro(focado: Boolean): android.graphics.drawable.Drawable? = when {
         // Guiado (molde do Projectivy): sem fio entre as linhas; foco = pílula clara de ponta a ponta, sem borda.
-        guiado -> if (focado) Estilo.fundo(this, PILULA_GUIADA, Estilo.RAIO) else null
+        // Padrão único (Paulo, 26/11/2026: "sem exceção"): o foco é a caixa clara com a borda creme de todas as telas.
+        guiado -> if (focado) Estilo.fundoFocado(this, Estilo.RAIO) else null
         focado -> Estilo.fundoFocado(this, Estilo.RAIO, Estilo.fioBaixo(this))
         else -> Estilo.fioBaixo(this)
     }
