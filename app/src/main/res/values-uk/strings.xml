@@ -967,6 +967,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">роутер: не відповів</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">роутер: не перевірено</string>
     <string name="ief_s_historico" formatted="true">історія: %1$d вимірювань за 24 год</string>
+    <string name="diag_adguard" formatted="true">За 24 год: %1$d запитів, %2$d заблоковано (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google зараз не відповів; спробуйте ще раз</string>
     <string name="lg_negado">у вході відмовлено в Google</string>

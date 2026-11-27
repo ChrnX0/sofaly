@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">reititin: ei vastannut</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">reititin: ei tarkistettu</string>
     <string name="ief_s_historico" formatted="true">historia: %1$d mittausta 24 tunnissa</string>
+    <string name="diag_adguard" formatted="true">Viimeiset 24 h: %1$d kyselyä, %2$d estetty (%3$d %%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google ei vastannut juuri nyt; yritä uudelleen</string>
     <string name="lg_negado">kirjautuminen hylättiin Googlessa</string>

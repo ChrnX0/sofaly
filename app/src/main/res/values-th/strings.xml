@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">เราเตอร์: ไม่ตอบสนอง</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">เราเตอร์: ไม่ได้ตรวจสอบ</string>
     <string name="ief_s_historico" formatted="true">ประวัติ: วัด %1$d ครั้งใน 24 ชม.</string>
+    <string name="diag_adguard" formatted="true">24 ชม. ล่าสุด: %1$d คำขอ ถูกบล็อก %2$d (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google ไม่ตอบสนองในตอนนี้ โปรดลองอีกครั้ง</string>
     <string name="lg_negado">Google ปฏิเสธการลงชื่อเข้าใช้</string>

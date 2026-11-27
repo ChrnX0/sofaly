@@ -944,6 +944,7 @@ AS\\Filmy).</string>
     <string name="ief_s_roteador_mudo" formatted="true">router: brak odpowiedzi</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: nie sprawdzony</string>
     <string name="ief_s_historico" formatted="true">historia: %1$d pomiarów w 24 h</string>
+    <string name="diag_adguard" formatted="true">Ostatnie 24 h: %1$d zapytań, %2$d zablokowanych (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google teraz nie odpowiedział; spróbuj ponownie</string>
     <string name="lg_negado">logowanie zostało odrzucone w Google</string>

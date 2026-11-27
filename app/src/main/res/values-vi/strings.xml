@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: không phản hồi</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: chưa kiểm tra</string>
     <string name="ief_s_historico" formatted="true">lịch sử: %1$d lần đo trong 24 giờ</string>
+    <string name="diag_adguard" formatted="true">24 giờ qua: %1$d truy vấn, %2$d bị chặn (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google hiện không phản hồi; hãy thử lại</string>
     <string name="lg_negado">việc đăng nhập bị Google từ chối</string>

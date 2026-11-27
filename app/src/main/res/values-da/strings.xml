@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: svarede ikke</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: ikke tjekket</string>
     <string name="ief_s_historico" formatted="true">historik: %1$d målinger på 24 t</string>
+    <string name="diag_adguard" formatted="true">Seneste 24 t: %1$d forespørgsler, %2$d blokeret (%3$d %%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Google svarede ikke lige nu; prøv igen</string>
     <string name="lg_negado">login blev afvist hos Google</string>

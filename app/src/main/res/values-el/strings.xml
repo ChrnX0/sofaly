@@ -961,6 +961,7 @@
     <string name="ief_s_roteador_mudo" formatted="true">router: δεν απάντησε</string>
     <string name="ief_s_roteador_nao_consultado" formatted="true">router: δεν ελέγχθηκε</string>
     <string name="ief_s_historico" formatted="true">ιστορικό: %1$d μετρήσεις σε 24 ώ.</string>
+    <string name="diag_adguard" formatted="true">Τελευταίες 24 ώρες: %1$d ερωτήματα, %2$d αποκλεισμένα (%3$d%%)</string>
     <!-- Mensagens do login Google na TV (LoginGoogle.textoNaTv) -->
     <string name="lg_sem_resposta">Η Google δεν απάντησε τώρα· δοκιμάστε ξανά</string>
     <string name="lg_negado">η σύνδεση απορρίφθηκε στη Google</string>
