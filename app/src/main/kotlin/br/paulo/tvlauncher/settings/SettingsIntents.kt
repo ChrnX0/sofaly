@@ -18,7 +18,8 @@ object SettingsIntents {
 
     fun normalizar(t: String): String =
         Normalizer.normalize(t.lowercase(), Normalizer.Form.NFD).replace(Regex("\\p{M}+"), "")
-            .replace(Regex("[^a-z0-9 ]+"), " ").replace(Regex("\\s+"), " ").trim()
+            // Letras de qualquer escrita (russo, grego, árabe...), não só a-z (#550).
+            .replace(Regex("[^\\p{L}\\p{N} ]+"), " ").replace(Regex("\\s+"), " ").trim()
 
     /** "TEXT_BIGGER=letra maior|aumenta letra;GOAL_CLEAN=tela limpa" -> ação -> modelos (já normalizados, em palavras). */
     fun modelos(frases: String): Map<Action, List<Set<String>>> = frases.split(';').mapNotNull { par ->
