@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Bantu rumah lain</string>
+    <string name="hoh_question">Bantu rumah lain?</string>
+    <string name="hoh_line">Saat saya memperbaiki sesuatu di sini, saya memberi tahu Sofaly lain hasilnya. Tanpa memberi tahu siapa Anda.</string>
+    <string name="hoh_yes">Ya, saya mau membantu</string>
+    <string name="hoh_not_now">Nanti saja</string>
+    <string name="hoh_how">Bagaimana cara kerjanya?</string>
+    <string name="hoh_how_title">Cara kerjanya</string>
+    <string name="hoh_how_line">Jika hal yang sama rusak di rumah lain, Sofaly di sana sudah tahu apa yang harus dilakukan.</string>
+    <string name="hoh_goes">Yang dikirim</string>
+    <string-array name="hoh_goes_list">
+        <item>Model TV dan versi Sofaly</item>
+        <item>Apa yang rusak, per kategori</item>
+        <item>Apa yang memperbaikinya dan apakah berhasil</item>
+        <item>Memori dan jaringan, dalam tingkat (baik atau lemah)</item>
+    </string-array>
+    <string name="hoh_never">Yang tidak pernah dikirim</string>
+    <string-array name="hoh_never_list">
+        <item>Nama Anda dan nama jaringan Anda</item>
+        <item>Apa dan kapan Anda menonton</item>
+        <item>Aplikasi Anda dan apa yang Anda ketik</item>
+        <item>Foto, suara, alamat, dan IP</item>
+    </string-array>
+    <string name="hoh_back_here">Yang dipelajari Sofaly lain kembali ke sini. Ubah kapan saja di Setelan, Yang Sofy ketahui.</string>
+    <string name="hoh_thanks">Terima kasih! Sofaly Anda kini membantu rumah lain.</string>
+    <string name="hoh_state_on">Aktif: sekali sehari TV ini memberi tahu hasil perbaikan</string>
+    <string name="hoh_state_off">Nonaktif: tidak ada yang dibagikan dari TV ini</string>
+    <string name="hoh_stop">Berhenti membantu</string>
+    <string name="hoh_stop_det">TV ini berhenti berbagi. Yang dipelajari rumah lain tetap sampai ke sini.</string>
+    <string name="hoh_start">Mulai membantu</string>
+    <string name="hoh_start_det">Lihat apa yang dikirim dan apa yang tidak pernah, lalu pilih</string>
+    <string name="hoh_today">Lihat apa yang dikirim hari ini</string>
+    <string name="hoh_today_det">Paket yang akan dikirim TV ini, setiap kolomnya</string>
+    <string name="hoh_today_sub">Inilah yang sampai ke server. Kode rumah berganti setiap hari.</string>
+    <string name="hoh_forget">Lupakan yang sudah dikirim</string>
+    <string name="hoh_forget_det">Kode TV ini berganti. Yang sudah dikirim tidak bisa lagi dikaitkan dengannya dan terhapus dalam 30 hari.</string>
+    <string name="hoh_forgot">Selesai. Kode baru mulai sekarang; yang sudah dikirim terhapus dalam 30 hari.</string>
+    <string name="hoh_row_det">Apa yang ia bagikan dengan rumah lain, dan cara mematikannya</string>
+</resources>

@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">Terakhir</string>
     <string name="bkn_nunca">belum pernah</string>
     <string name="bkn_pin">PIN untuk mengubah cadangan</string>
+    <string name="bk_motivo_senha">Kata sandinya salah.</string>
+    <string name="bk_motivo_invalido">File ini bukan cadangan Sofaly, atau rusak.</string>
+    <string name="bk_motivo_ler">Tidak dapat dibaca (jaringan atau penyimpanan).</string>
 </resources>

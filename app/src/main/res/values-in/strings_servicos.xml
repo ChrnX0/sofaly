@@ -59,4 +59,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Rating Simkl</string>
     <string name="sv_simkl_convite_det">Hubungkan akun Anda</string>
+    <string name="legenda_muitas">Terlalu banyak pencarian subtitle saat ini. Coba lagi sebentar lagi.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles menolak akun. Periksa di Setelan.</string>
+    <string name="legenda_fora">Layanan subtitle sedang tidak aktif. Coba lagi nanti.</string>
 </resources>

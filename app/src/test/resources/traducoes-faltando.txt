@@ -21,7 +21,7 @@ values-hi=3
 
 values-hu=224
 
-values-in=224
+values-in=3
 
 values-it=3
 
