@@ -991,6 +991,7 @@ class CruzOuvir(ctx: Context, private val fonte: Typeface, private val fonteFort
             setOnFocusChangeListener { _, foco ->
                 Estilo.focarCartao(caixaV, nome, foco)
                 pintarIcone(icone, foco)
+                capa.corLetra = if (foco) Estilo.corIconeNoFoco(context) else null   // iniciais laranja no foco, como o ícone
                 if (!foco) return@setOnFocusChangeListener
                 rolarPara(j)
                 val trocouFila = cat != j

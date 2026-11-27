@@ -252,6 +252,11 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
                 k.raiz.pivotX = 0f; k.raiz.pivotY = dp(fo.cardH) / 2f
                 k.raiz.elevation = dp(if (escolhido) (if (o.effect == RowsHome.Effect.SHADOW) 16f else 8f) else 2f)
                 mover(k.raiz, dp(xs[i]), dp(cy + f.linhaDe(i) * passoLinha - fo.cardH / 2f), a, k1, anima)
+                // ícone dos itens nossos: laranja no card em foco (Paulo, 26/11/2026), a tinta escolhida fora dele
+                (k.icone.drawable as? IconeCruz)?.let { d ->
+                    val c = if (escolhido && semMenu) Estilo.corIconeNoFoco(context) else k.icone.tag as? Int
+                    if (c != null && d.corFixa != c) d.corFixa = c
+                }
                 if (vis || (naTela && kotlin.math.abs(i - s) < 8)) pedirBanner(k)
             }
         }
@@ -430,6 +435,7 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
             // os itens nossos (TV, Séries, Configurações...) em traço creme sobre o grafite, como os atalhos dele
             setImageDrawable(if (conteudo) null else (item.icone as? IconeCruz)?.let { c -> IconeCruz(c.tipo, IconeCruz.Estilo.LINHA).apply { corFixa = tinta } } ?: item.icone)
         }
+        ic.tag = tinta   // a cor de volta quando o card perde o foco
         raiz.addView(ic, LayoutParams(dpi(lado), dpi(lado), Gravity.CENTER))
         if (conteudo) { banner.setImageDrawable(item.icone); banner.visibility = View.VISIBLE }
         val w = o.largura(o.tvRatio)

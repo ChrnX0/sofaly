@@ -31,6 +31,9 @@ class CapaOuvir(ctx: Context, private val raioDp: Float = 14f) : ImageView(ctx) 
     var cor: Int = 0xFF45C2B1.toInt()
         set(v) { field = v; invalidate() }
     var monograma: String = ""
+    /** Cor das iniciais no lugar da cor do item (o cartão em foco pinta de laranja, como o ícone). Null = a do item. */
+    var corLetra: Int? = null
+        set(v) { if (field != v) { field = v; invalidate() } }
         set(v) { field = v; invalidate() }
     var progresso: Float? = null
         set(v) { field = v?.coerceIn(0f, 1f); invalidate() }
@@ -102,7 +105,7 @@ class CapaOuvir(ctx: Context, private val raioDp: Float = 14f) : ImageView(ctx) 
         fundo.color = misturar(cor, 0xFF1E1E1E.toInt(), 0.72f)
         c.drawRect(0f, 0f, width.toFloat(), height.toFloat(), fundo)
         if (drawable == null && monograma.isNotEmpty()) {
-            letra.color = misturar(cor, Color.WHITE, 0.35f)
+            letra.color = corLetra ?: misturar(cor, Color.WHITE, 0.35f)
             letra.textSize = height * (if (monograma.codePointCount(0, monograma.length) <= 2 && monograma.any { Character.isSurrogate(it) }) 0.5f else 0.38f)
             val y = height / 2f - (letra.descent() + letra.ascent()) / 2f
             c.drawText(monograma, width / 2f, y, letra)
