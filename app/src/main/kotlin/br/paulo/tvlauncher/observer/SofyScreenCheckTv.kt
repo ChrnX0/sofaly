@@ -45,6 +45,10 @@ object SofyScreenCheckTv {
         "sobre" to br.paulo.tvlauncher.AboutActivity::class.java,
     )
     private const val ESPERA_MS = 2_500L
+    /** Quanto esperar uma tela aberta (ou a nossa HOME) aparecer na frente. */
+    private const val FRENTE_MS = 6_000L
+    /** Quanto esperar o VOLTAR trazer a nossa HOME antes de apertar o HOME do sistema. */
+    private const val VOLTAR_MS = 2_500L
 
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
@@ -115,7 +119,7 @@ object SofyScreenCheckTv {
         // Segura a TV acesa até o fim (Paulo, 26/11/2026): nem o protetor por cima, nem o "desligar sem uso" no meio.
         @Suppress("DEPRECATION")
         val acesa = runCatching { pm?.newWakeLock(android.os.PowerManager.SCREEN_DIM_WAKE_LOCK, "tvlauncher:sofy-telas") }.getOrNull()
-        val prazo = lista.size * (ESPERA_MS + 3_000L) + 60_000L
+        val prazo = lista.size * (2 * ESPERA_MS + 2 * FRENTE_MS + VOLTAR_MS + 4_000L) + 60_000L
         runCatching { acesa?.acquire(prazo) }
         br.paulo.tvlauncher.alarm.AutoDesligar.segurar(prazo)
         val lidas = ArrayList<SofyScreenCheck.Tela>()
@@ -196,7 +200,12 @@ object SofyScreenCheckTv {
      * Lê duas vezes e só fica o defeito que aparece nas duas: tela ainda carregando não é defeito.
      */
     private fun ler(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
-        app.startActivity(Intent(app, classe).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        // Espera a tela pedida ficar NA FRENTE antes de contar o tempo de carregar (27/11/2026: a 1ª rodada real leu 2
+        // e a 2ª 3 de 10, porque o HOME do Google, que tem prioridade, vinha por cima e a nossa HOME voltava atrás dele).
+        if (!abrirEsperando(app, classe)) {
+            Log.w(TAG, "$nome: a tela não ficou na frente (na frente ${br.paulo.tvlauncher.privilege.JanelaNaFrente.classe})")
+            return null
+        }
         Thread.sleep(ESPERA_MS)
         val primeira = lerAgora(app, s, nome, classe) ?: return null
         val achados = SofyScreenCheck.conferir(primeira)
@@ -256,9 +265,43 @@ object SofyScreenCheckTv {
         }
     }
 
+    /**
+     * Abre a tela e espera ela ser a da frente (até [FRENTE_MS]); se outra janela tomou a frente, abre de novo uma vez.
+     * Esperar o sinal da frente, e não um tempo fixo, é o que separa "a tela abriu" de "a HOME ainda estava voltando".
+     */
+    private fun abrirEsperando(app: Context, classe: Class<*>): Boolean {
+        repeat(2) {
+            app.startActivity(Intent(app, classe).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            if (esperarFrente(FRENTE_MS) { it == classe.name }) {
+                // Fica na frente por meio segundo? (a nossa HOME voltando atrasada ainda pode passar por cima)
+                Thread.sleep(500)
+                if (br.paulo.tvlauncher.privilege.JanelaNaFrente.classe == classe.name) return true
+            }
+        }
+        return false
+    }
+
+    /** Espera até [ms] a tela da frente cumprir [ok] (olha a cada 200 ms). */
+    private fun esperarFrente(ms: Long, ok: (String?) -> Boolean): Boolean {
+        val fim = System.currentTimeMillis() + ms
+        while (System.currentTimeMillis() < fim) {
+            if (ok(br.paulo.tvlauncher.privilege.JanelaNaFrente.classe)) return true
+            Thread.sleep(200)
+        }
+        return ok(br.paulo.tvlauncher.privilege.JanelaNaFrente.classe)
+    }
+
+    /**
+     * Fecha a tela lida com VOLTAR (volta para a nossa HOME que está atrás) em vez do HOME do sistema: o HOME chamava o
+     * HOME do Google (prioridade 2) e a nossa só voltava segundos depois, por cima da próxima tela aberta. HOME do
+     * sistema só se o VOLTAR não bastou.
+     */
     private fun voltar(s: AutorizaShizukuService) {
-        runCatching { s.performGlobalAction(AccessibilityNodeInfo.ACTION_DISMISS) }
+        val home = br.paulo.tvlauncher.MainActivity::class.java.name
+        runCatching { s.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_BACK) }
+        if (esperarFrente(VOLTAR_MS) { it == home }) return
         runCatching { s.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_HOME) }
+        esperarFrente(FRENTE_MS) { it == home }
     }
 
     /** Lê a árvore: cada nó com texto vira uma caixa; guarda se existe algo focável. */
