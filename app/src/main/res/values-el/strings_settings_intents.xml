@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=μεγαλύτερα γράμματα|γράμματα μεγαλύτερα|μεγαλύτερο κείμενο|μεγάλωσε τα γράμματα;TEXT_SMALLER=μικρότερα γράμματα|γράμματα μικρότερα|μικρότερο κείμενο|μίκρυνε τα γράμματα;GOAL_READ=καλύτερη ανάγνωση|δύσκολο να διαβάσω|δεν βλέπω καλά;GOAL_CLEAN=καθαρότερη οθόνη|απλή οθόνη;GOAL_ENERGY=εξοικονόμηση ενέργειας|λιγότερο ρεύμα|οικονομία ρεύματος;LOOK_SOFALY=εμφάνιση sofaly|κανονική εμφάνιση;LOOK_NIGHT=νυχτερινή εμφάνιση|σκοτεινός ουρανός;LOOK_MOUNTAIN=εμφάνιση βουνού;LOOK_MINIMAL=μινιμαλιστική εμφάνιση</string>
+    <string name="si_fazer">Κάν\' το τώρα: %1$s</string>
+    <string name="si_desfazer">Αναίρεση: %1$s</string>
+    <string name="si_fazer_det">Αλλάζει αμέσως.</string>
+    <string name="si_maior">Μεγαλύτερα γράμματα</string>
+    <string name="si_menor">Μικρότερα γράμματα</string>
+</resources>

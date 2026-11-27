@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Βοήθεια σε άλλα σπίτια</string>
+    <string name="hoh_question">Να βοηθήσουμε άλλα σπίτια;</string>
+    <string name="hoh_line">Όταν διορθώνω κάτι εδώ, λέω στα άλλα Sofaly πώς πήγε. Χωρίς να πω ποιος είστε.</string>
+    <string name="hoh_yes">Ναι, θέλω να βοηθήσω</string>
+    <string name="hoh_not_now">Όχι τώρα</string>
+    <string name="hoh_how">Πώς λειτουργεί;</string>
+    <string name="hoh_how_title">Πώς λειτουργεί</string>
+    <string name="hoh_how_line">Αν το ίδιο πράγμα χαλάσει σε άλλο σπίτι, το Sofaly εκεί ξέρει ήδη τι να κάνει.</string>
+    <string name="hoh_goes">Τι στέλνεται</string>
+    <string-array name="hoh_goes_list">
+        <item>Μοντέλο τηλεόρασης και έκδοση Sofaly</item>
+        <item>Τι χάλασε, ανά κατηγορία</item>
+        <item>Τι το διόρθωσε και αν λειτούργησε</item>
+        <item>Μνήμη και δίκτυο, σε επίπεδα (καλό ή αδύναμο)</item>
+    </string-array>
+    <string name="hoh_never">Τι δεν στέλνεται ποτέ</string>
+    <string-array name="hoh_never_list">
+        <item>Το όνομά σας και το όνομα του δικτύου σας</item>
+        <item>Τι και πότε βλέπετε</item>
+        <item>Οι εφαρμογές σας και ό,τι γράφετε</item>
+        <item>Φωτογραφίες, φωνή, διεύθυνση και IP</item>
+    </string-array>
+    <string name="hoh_back_here">Ό,τι μαθαίνουν τα άλλα Sofaly επιστρέφει εδώ. Αλλάξτε το όποτε θέλετε στις Ρυθμίσεις, Τι ξέρει η Sofy.</string>
+    <string name="hoh_thanks">Ευχαριστούμε! Το Sofaly σας βοηθά πλέον άλλα σπίτια.</string>
+    <string name="hoh_state_on">Ενεργό: μία φορά την ημέρα αυτή η τηλεόραση λέει πώς πήγαν οι διορθώσεις</string>
+    <string name="hoh_state_off">Ανενεργό: τίποτα δεν μοιράζεται από αυτή την τηλεόραση</string>
+    <string name="hoh_stop">Διακοπή βοήθειας</string>
+    <string name="hoh_stop_det">Αυτή η τηλεόραση σταματά να μοιράζεται. Ό,τι έμαθαν άλλα σπίτια συνεχίζει να φτάνει εδώ.</string>
+    <string name="hoh_start">Έναρξη βοήθειας</string>
+    <string name="hoh_start_det">Δείτε τι στέλνεται και τι ποτέ, και μετά διαλέξτε</string>
+    <string name="hoh_today">Τι στέλνεται σήμερα</string>
+    <string name="hoh_today_det">Το πακέτο που θα έστελνε αυτή η τηλεόραση, πεδίο προς πεδίο</string>
+    <string name="hoh_today_sub">Ακριβώς αυτό φτάνει στον διακομιστή. Ο κωδικός του σπιτιού αλλάζει κάθε μέρα.</string>
+    <string name="hoh_forget">Ξεχάστε ό,τι στάλθηκε</string>
+    <string name="hoh_forget_det">Ο κωδικός αυτής της τηλεόρασης αλλάζει. Ό,τι στάλθηκε δεν μπορεί πια να συνδεθεί με αυτήν και διαγράφεται σε 30 ημέρες.</string>
+    <string name="hoh_forgot">Έγινε. Νέος κωδικός από τώρα· ό,τι στάλθηκε διαγράφεται σε 30 ημέρες.</string>
+    <string name="hoh_row_det">Τι μοιράζεται με άλλα σπίτια και πώς να το απενεργοποιήσετε</string>
+</resources>

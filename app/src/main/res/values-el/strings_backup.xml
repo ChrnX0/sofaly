@@ -23,4 +23,7 @@
     <string name="bkn_ultimo">Τελευταίο</string>
     <string name="bkn_nunca">ποτέ</string>
     <string name="bkn_pin">PIN για αλλαγή του αντιγράφου</string>
+    <string name="bk_motivo_senha">Ο κωδικός δεν είναι σωστός.</string>
+    <string name="bk_motivo_invalido">Αυτό το αρχείο δεν είναι αντίγραφο ασφαλείας Sofaly ή είναι κατεστραμμένο.</string>
+    <string name="bk_motivo_ler">Δεν ήταν δυνατή η ανάγνωση (δίκτυο ή αποθήκευση).</string>
 </resources>

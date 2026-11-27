@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Βαθμολογία Simkl</string>
     <string name="sv_simkl_convite_det">Συνδέστε τον λογαριασμό σας</string>
+    <string name="legenda_muitas">Πάρα πολλές αναζητήσεις υποτίτλων αυτή τη στιγμή. Δοκιμάστε ξανά σε ένα λεπτό.</string>
+    <string name="legenda_conta_recusada">Το OpenSubtitles απέρριψε τον λογαριασμό. Ελέγξτε τον στις Ρυθμίσεις.</string>
+    <string name="legenda_fora">Η υπηρεσία υποτίτλων δεν λειτουργεί. Δοκιμάστε αργότερα.</string>
 </resources>
