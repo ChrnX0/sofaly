@@ -86,7 +86,7 @@
   --atencao-fundo: rgba(255, 194, 102, .12);
   --alerta: #ffd27a;
   --alerta-fundo: rgba(255, 210, 122, .12);
-  --selecao: rgba(255, 106, 43, .32);
+  --trecho: rgba(255, 106, 43, .32);             /* texto marcado com o mouse (::selection) */
   /* Cor quer dizer ÁREA (estudo do painel 20/11/2026, regra 10): só no ícone, nunca no texto ou no fundo. Cada cor diz
      que parte da casa a página mexe, igual nas Configurações da TV. Mesma luminosidade dos mundos da cruz; ícone >= 3:1. */
   /* 27/11/2026 (padrão único da TV): as cores de área saíram; ícone creme na caixa grafite, laranja no foco. */
@@ -153,7 +153,9 @@
     --atencao-fundo: rgba(138, 90, 0, .10);
     --alerta: #8a5a00;
     --alerta-fundo: rgba(138, 90, 0, .1);
-    --selecao: rgba(206, 61, 0, .22);
+    /* Auditoria 27/11/2026: esta linha se chamava --selecao e passava por cima da de cima, deixando o botão principal
+       e a aba escolhida com letra creme em laranja-claro (quase ilegível no tema claro). Agora só pinta o texto marcado. */
+    --trecho: rgba(206, 61, 0, .22);
     --area-assistir: var(--texto);
     --area-apps: var(--texto);
     --area-conectado: var(--texto);
@@ -193,7 +195,7 @@ h3 { font-size: 17px; font-weight: 700; }
    progresso e marca, como na TV; assim, quando algo fica laranja, quer dizer alguma coisa. */
 a { color: var(--texto); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--borda-forte); }
 a:hover { text-decoration-color: currentColor; }
-::selection { background: var(--selecao); }
+::selection { background: var(--trecho); }
 :focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
 
 /* Ícones de linha (sprite no index.html) */
