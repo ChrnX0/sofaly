@@ -17,6 +17,11 @@ object Tvs {
             (ctx.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager).cancel(ControleNotificacao.ID)
         }
     }
+    /** A TV disse o próprio nome ([Pareamento.renomear]): atualiza a lista sem mudar a ordem. */
+    fun renomear(ctx: Context, tv: Pareamento.Tv, nome: String?) {
+        val nova = Pareamento.renomear(lista(ctx), tv, nome) ?: return
+        prefs(ctx).edit().putString("lista", Pareamento.paraJson(nova)).apply()
+    }
     fun porChave(ctx: Context, chave: String?): Pareamento.Tv? = lista(ctx).firstOrNull { Pareamento.chave(it) == chave }
     fun porIp(ctx: Context, ip: String?): Pareamento.Tv? = lista(ctx).firstOrNull { it.ip == ip }
 }

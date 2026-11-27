@@ -215,6 +215,7 @@ class ControleActivity : Activity() {
                 // Sessão caiu: com a chave de aparelho, entra de novo sem PIN antes de abrir o painel.
                 val semSessao = r.codigo == 200 && r.json?.optBoolean("logado") == false
                 val voltou = semSessao && ApiTv.reentrar(tv)
+                if (r.codigo == 200) r.json?.optString("aparelho")?.let { Tvs.renomear(applicationContext, tv, it) }   // caça 27/11
                 ui.post {
                     if (isFinishing || !ativo) return@post
                     if (semSessao && !voltou) { entrarPrimeiro(); return@post }
