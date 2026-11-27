@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Saran</string>
     <string name="pod_sugestao_seguir">OK untuk mengikuti</string>
     <string name="pod_sugeridos_seguidos">Podcast saran ditambahkan ke Podcast saya</string>
+    <string name="pod_busca_nada">Podcast tidak ditemukan.</string>
+    <string name="pod_busca_cota">Pencarian podcast istirahat hari ini. Kembali besok.</string>
+    <string name="pod_busca_fora">Pencarian podcast tidak merespons. Coba lagi nanti.</string>
+    <string name="pod_busca_rede">Tidak ada internet. Periksa koneksi TV.</string>
+    <string name="tx_falhou_det">Teks episode ini tidak bisa dibuat. Coba lagi nanti.</string>
 </resources>

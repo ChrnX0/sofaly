@@ -347,13 +347,16 @@ class RowsLayer(ctx: Context) : FrameLayout(ctx) {
         }
     }
 
+    private val fimDoAviso = Runnable { avisoAte = 0L; nome.setTextColor(DesignTokens.CREAM); nomeMostrado = null; ultimo?.invoke() }
+
     /** "Não deu para abrir": vira o nome do foco por uns segundos, na cor de destaque. */
     fun aviso(texto: String, ms: Long) {
         avisoAte = System.currentTimeMillis() + ms
         nome.animate().cancel(); nome.alpha = 1f
         nome.text = texto
         nome.setTextColor(Estilo.ACENTO)
-        postDelayed({ avisoAte = 0L; nome.setTextColor(DesignTokens.CREAM); nomeMostrado = null; ultimo?.invoke() }, ms)
+        removeCallbacks(fimDoAviso)   // dois avisos seguidos: o 1º não apaga o 2º no meio
+        postDelayed(fimDoAviso, ms)
     }
 
     /** Tira o aviso já (o reordenar terminou): o nome do card volta. */

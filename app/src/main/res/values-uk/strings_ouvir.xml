@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Пропозиції</string>
     <string name="pod_sugestao_seguir">OK, щоб підписатися</string>
     <string name="pod_sugeridos_seguidos">Запропоновані подкасти додано до Моїх подкастів</string>
+    <string name="pod_busca_nada">Подкастів не знайдено.</string>
+    <string name="pod_busca_cota">Пошук подкастів відпочиває до завтра.</string>
+    <string name="pod_busca_fora">Пошук подкастів не відповідає. Спробуйте пізніше.</string>
+    <string name="pod_busca_rede">Немає інтернету. Перевірте підключення телевізора.</string>
+    <string name="tx_falhou_det">Не вдалося створити текст цього випуску. Спробуйте пізніше.</string>
 </resources>

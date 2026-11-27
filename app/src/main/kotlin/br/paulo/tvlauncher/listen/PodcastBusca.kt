@@ -57,9 +57,24 @@ object PodcastBusca {
     fun emAlta(idioma: String, assunto: PodcastAssuntos.Assunto? = null): List<Resultado> =
         if (!disponivel()) emptyList() else ler(get(urlEmAlta(SERVIDOR, idioma, assunto)))
 
+    /** Por que a última busca voltou vazia (revisor 26/11: cota, servidor fora e sem rede diziam "nenhuma rádio"). */
+    enum class Falha { NENHUMA, COTA, FORA, REDE }
+    @Volatile var ultimaFalha = Falha.NENHUMA
+        private set
+
+    /** Código HTTP -> motivo. Pura (PodcastBuscaTest). */
+    fun falhaDe(codigo: Int): Falha = when (codigo) { 200 -> Falha.NENHUMA; 429 -> Falha.COTA; else -> Falha.FORA }
+
     // Assinado pela TV (item 23 do Brainstorm 26/11): a cota do dia no servidor é desta TV, não da rede toda.
-    private fun get(u: String): String? = try {
-        Http.getText(u, readMs = 12_000, maxBytes = 1_000_000, cut = true,
-            headers = br.paulo.tvlauncher.relay.RelayTv.assinatura("GET", java.net.URL(u).path))
-    } catch (e: java.io.IOException) { null }
+    private fun get(u: String): String? {
+        val c = try { java.net.URL(u).openConnection() as java.net.HttpURLConnection } catch (e: Exception) { ultimaFalha = Falha.REDE; return null }
+        return try {
+            c.connectTimeout = 8_000; c.readTimeout = 12_000
+            c.setRequestProperty("User-Agent", Http.USER_AGENT)
+            for ((k, v) in br.paulo.tvlauncher.relay.RelayTv.assinatura("GET", java.net.URL(u).path)) c.setRequestProperty(k, v)
+            ultimaFalha = falhaDe(c.responseCode)
+            if (ultimaFalha != Falha.NENHUMA) null
+            else c.inputStream.use { Http.readLimited(it, 1_000_000, true) }?.toString(Charsets.UTF_8)
+        } catch (e: java.io.IOException) { ultimaFalha = Falha.REDE; null } finally { c.disconnect() }
+    }
 }

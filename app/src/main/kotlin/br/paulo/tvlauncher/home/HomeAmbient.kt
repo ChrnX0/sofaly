@@ -101,7 +101,7 @@ internal fun MainActivity.vigiarTela() {
         override fun onReceive(ctx: android.content.Context, i: Intent) {
             val agora = android.os.SystemClock.elapsedRealtime()
             when (i.action) {
-                Intent.ACTION_SCREEN_OFF -> { apagouEm = agora; sairAmbiente(animar = false) }
+                Intent.ACTION_SCREEN_OFF -> { apagouEm = agora; sairAmbiente(animar = false); TravaCartaoTv.telaApagou() }
                 Intent.ACTION_SCREEN_ON -> {
                     acendeuEm = agora
                     dormiuMs = if (apagouEm > 0) agora - apagouEm else 0L
@@ -112,7 +112,8 @@ internal fun MainActivity.vigiarTela() {
                     }
                     abrirIlhaAoAcordar()
                     // "Abrir ao ligar" também ao acordar do descanso (bloco 7: o "...e ao sair do standby" dele)
-                    if (CardMenu.onWake(ctx)) CardMenu.bootApp(ctx)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, CardMenu.delayMs(ctx)) }
+                    // Só com a HOME na frente (revisor 26/11): acordar por Cast, despertador ou com um app aberto não cobre o que está lá.
+                    if (CardMenu.onWake(ctx)) CardMenu.bootApp(ctx)?.let { p -> ui.postDelayed({ if (!isDestroyed && homeNaFrente) abrir(p) }, CardMenu.delayMs(ctx)) }
                     if (homeNaFrente) { ui.removeCallbacks(tarefaQuemVe); ui.postDelayed(tarefaQuemVe, 1500) }
                 }
             }
