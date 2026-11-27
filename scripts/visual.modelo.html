@@ -7,8 +7,8 @@
 /* Visuais (degrau 1 "tema por QR" + revisão 1b, 17/11/2026). GERADO por scripts/gerar-visual.py a partir de
    VisualCodigo.PRONTOS: não edite os cartões à mão (VisualCodigoTest confere que os códigos batem com o app).
    Só ajustes entram num código: tema, texto, cor do fundo. Nunca foto, nome, conta ou rede. */
-:root{--marca:#CE3D00;--cartao:rgba(127,127,127,.08)}
-@media (prefers-color-scheme:dark){:root{--marca:#FF6A2B}}
+:root{--marca:#CE3D00;--tinta-marca:#fff;--cartao:rgba(127,127,127,.08)}
+@media (prefers-color-scheme:dark){:root{--marca:#FF6A2B;--tinta-marca:#121212}}
 [hidden]{display:none!important}
 a{color:var(--marca)}
 .idioma{float:right;font-size:.95rem}
@@ -18,7 +18,7 @@ body{font-size:18px}
 .cartao h2{margin:0 0 .3rem;font-size:1.25rem}
 .muda{margin:0 0 .6rem;padding-left:1.1rem;color:var(--suave);font-size:.95rem}
 .qr{width:7rem;height:7rem;background:#fff;border-radius:.4rem;padding:.25rem;box-sizing:border-box}
-button{font:inherit;font-weight:600;border:0;border-radius:2rem;padding:.55rem 1.1rem;background:var(--marca);color:#fff;cursor:pointer}
+button{font:inherit;font-weight:600;border:0;border-radius:2rem;padding:.55rem 1.1rem;background:var(--marca);color:var(--tinta-marca);cursor:pointer}
 button:focus-visible{outline:3px solid var(--texto);outline-offset:2px}
 #recebido{border:2px solid var(--marca);border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:2rem}
 #recebido h2{margin-top:0}
