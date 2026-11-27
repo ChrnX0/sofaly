@@ -42,6 +42,15 @@ class TendenciaDiscoTest {
         assertEquals(0, TendenciaDisco.diasAteEncher(serie(10, 300 * mb, 10 * mb), hoje, total))
     }
 
+    @Test fun umAppGrandeInstaladoNaoViraTendencia() {
+        // Sala, 27/11/2026: disco parado, mas um app de 900 MB entrou no meio da janela. A reta dizia "enche em 18 dias".
+        val l = (0 until 14).map { d -> TendenciaDisco.Ponto(hoje.minusDays(d.toLong()), if (d < 7) gb else gb + 900 * mb) }.reversed()
+        assertNull(TendenciaDisco.diasAteEncher(l, hoje, total))
+        // E quem cresce todo dia continua aparecendo mesmo com o degrau no meio: 30 MB/dia, 1 GB livre -> 20 dias.
+        val l2 = (0 until 14).map { d -> TendenciaDisco.Ponto(hoje.minusDays(d.toLong()), gb + d * 30 * mb + (if (d >= 7) 900 * mb else 0)) }.reversed()
+        assertEquals(20, TendenciaDisco.diasAteEncher(l2, hoje, total))
+    }
+
     @Test fun registrarTrocaOMesmoDiaEJogaForaOVelho() {
         var l = serie(70, gb, mb)
         l = TendenciaDisco.registrar(l, hoje, 5L)

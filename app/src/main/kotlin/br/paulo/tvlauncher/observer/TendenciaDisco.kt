@@ -7,7 +7,7 @@ import java.time.LocalDate
  * de espaço livre por dia ([GUARDAR_DIAS] dias) e calculamos quando o armazenamento enche, para avisar antes
  * ("o armazenamento enche em umas 3 semanas"). Sem Android: testado no PC em TendenciaDiscoTest.
  *
- * Conta: reta de mínimos quadrados sobre os últimos [JANELA_DIAS] dias (livre x dia). Só vale com [MIN_PONTOS]
+ * Conta: mediana das quedas por dia nos últimos [JANELA_DIAS] dias (ver [diasAteEncher]). Só vale com [MIN_PONTOS]
  * medidas espalhadas por pelo menos [MIN_ESPALHADO] dias; reta subindo ou plana = não enche. "Cheio" = livre abaixo
  * da [reserva] (o Android começa a falhar instalações e o cache dos apps some antes de chegar a zero).
  * Formato guardado (prefs, string): `aaaa-mm-dd:livreBytes,` repetido.
@@ -38,19 +38,26 @@ object TendenciaDisco {
     fun registrar(l: List<Ponto>, hoje: LocalDate, livre: Long): List<Ponto> =
         (l.filter { it.dia != hoje && it.dia > hoje.minusDays(GUARDAR_DIAS.toLong()) } + Ponto(hoje, livre)).sortedBy { it.dia }
 
-    /** Dias até o livre chegar à reserva, contados de [hoje]. null = não enche no horizonte, ou faltam medidas. */
+    /**
+     * Dias até o livre chegar à reserva, contados de [hoje]. null = não enche no horizonte, ou faltam medidas.
+     *
+     * A queda por dia é a MEDIANA das quedas entre uma medida e a seguinte (27/11/2026). Antes era a reta de mínimos
+     * quadrados, e um degrau só (instalar um app grande) virava tendência: na Sala o RetroArch (900 MB) entrou em 14/11
+     * e a Saúde passou a dizer "enche em 18 dias" com o disco parado depois disso. A mediana ignora um ou dois degraus e
+     * continua pegando o que cresce todo dia (log, cache, gravações).
+     */
     fun diasAteEncher(l: List<Ponto>, hoje: LocalDate, total: Long): Int? {
-        val janela = l.filter { it.dia > hoje.minusDays(JANELA_DIAS.toLong()) && it.dia <= hoje }
+        val janela = l.filter { it.dia > hoje.minusDays(JANELA_DIAS.toLong()) && it.dia <= hoje }.sortedBy { it.dia }
         if (janela.size < MIN_PONTOS) return null
-        val x = janela.map { (it.dia.toEpochDay() - hoje.toEpochDay()).toDouble() }
-        val y = janela.map { it.livre.toDouble() }
-        if (x.max() - x.min() < MIN_ESPALHADO) return null
-        val mx = x.average(); val my = y.average()
-        val den = x.sumOf { (it - mx) * (it - mx) }
-        if (den == 0.0) return null
-        val inclinacao = x.indices.sumOf { (x[it] - mx) * (y[it] - my) } / den   // bytes por dia
+        if (janela.last().dia.toEpochDay() - janela.first().dia.toEpochDay() < MIN_ESPALHADO) return null
+        val porDia = janela.zipWithNext { a, b ->
+            (b.livre - a.livre).toDouble() / (b.dia.toEpochDay() - a.dia.toEpochDay()).coerceAtLeast(1)
+        }.sorted()
+        val meio = porDia.size / 2
+        val inclinacao = if (porDia.size % 2 == 1) porDia[meio] else (porDia[meio - 1] + porDia[meio]) / 2   // bytes por dia
         if (inclinacao >= 0) return null
-        val livreHoje = my - inclinacao * mx   // valor da reta em x = 0 (hoje)
+        val ultimo = janela.last()
+        val livreHoje = ultimo.livre + inclinacao * (hoje.toEpochDay() - ultimo.dia.toEpochDay())
         val dias = (livreHoje - reserva(total)) / -inclinacao
         if (dias.isNaN()) return null
         return dias.toInt().coerceAtLeast(0).takeIf { it <= MAX_DIAS }

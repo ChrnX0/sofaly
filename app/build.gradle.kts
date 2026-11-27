@@ -267,6 +267,12 @@ tasks.withType<Test>().configureEach {
         // 25/11/2026: com -PtelasTodas o TodoBotaoFazAlgoTest abre as 79 telas na mesma JVM e o padrão de 512 MB acabava;
         // o executor morria com "exit value 1" sem relatório. Com 3 GB passa (127 testes); o ubuntu-latest tem 16 GB.
         maxHeapSize = "3g"
+        // 27/11/2026: o CicloDeVidaTelaTest falhou uma vez no CI do #537 e o log só dizia "AssertionError at linha 128",
+        // sem a lista de telas que deram problema. Com a mensagem inteira no log, a próxima falha já diz qual tela foi.
+        testLogging {
+            events("failed")
+            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        }
     }
     systemProperty("telas.atualizar", project.hasProperty("telasAtualizar").toString())
     systemProperty("telas.todas", project.hasProperty("telasTodas").toString())   // as 26 línguas (24/11/2026)
