@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Altre case</string>
+    <string name="casas_texto">Collega questa TV a quella di un parente per guardare insieme, anche da lontano. Viaggiano solo play, pausa e reazioni, cifrati. Nessuno ha bisogno di un account.</string>
+    <string name="casas_mostrar">Mostra un codice</string>
+    <string name="casas_mostrar_det">L\'altra casa lo digita sulla sua TV</string>
+    <string name="casas_digitar">Digita un codice</string>
+    <string name="casas_digitar_det">Il codice che mostra l\'altra TV</string>
+    <string name="casas_conectadas">Case collegate</string>
+    <string name="casas_remover_det">Guarda insieme · Rimuovi</string>
+    <string name="casas_remover_titulo">Rimuovere %1$s?</string>
+    <string name="casas_remover">Rimuovi</string>
+    <string name="casas_pedindo">Richiesta del codice…</string>
+    <string name="casas_codigo_det">Leggi questo codice all\'altra casa. Sulla loro TV: Impostazioni, Famiglia, Altre case, Digita un codice. Vale 10 minuti, una sola volta.</string>
+    <string name="casas_esperando">In attesa della conferma dell\'altra TV…</string>
+    <string name="casas_conectando">Collegamento…</string>
+    <string name="casas_conectar">Collega</string>
+    <string name="casas_chegou">%1$s ha digitato il codice</string>
+    <string name="casas_confirmou">%1$s ha confermato. Controlla i numeri anche qui</string>
+    <string name="casas_pelo_celular">%1$s è collegata per Guarda insieme (aggiunta da %2$s)</string>
+    <string name="casas_conferir_titulo">Collegare con %1$s?</string>
+    <string name="casas_conferir_texto">Controllate al telefono che l\'altra TV mostri gli stessi numeri:\n\n%1$s\n\nSe sono diversi, annulla.</string>
+    <string name="casas_pronto">Collegata con %1$s. Entrambe le TV mostrano questi numeri. Per guardare insieme, apri un titolo e scegli Guarda insieme.</string>
+    <string name="casas_falhou">Non ha funzionato. Controlla internet e prova un nuovo codice.</string>
+    <string name="casas_sem_rede">Il servizio Sofaly non risponde. Controlla internet.</string>
+    <string name="casas_codigo_errado">Quel codice non ha funzionato. Ha 8 lettere e numeri e dura 10 minuti.</string>
+    <string name="casas_menu">Altre case</string>
+    <string name="casas_menu_det">Guarda insieme con la TV di un parente lontano</string>
+</resources>
