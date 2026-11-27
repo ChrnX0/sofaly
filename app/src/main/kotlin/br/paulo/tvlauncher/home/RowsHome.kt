@@ -376,6 +376,9 @@ object RowsHome {
     /** Fileira de [n] cards iguais (teste e quem não tem as larguras). */
     fun xs(n: Int, sel: Int, o: Options, focada: Boolean) = xs(List(n) { o.cardW }, sel, o, focada)
 
+    /** O card em [x] ficou antes do lugar do foco (fileira rolada): não aparece, para não sobrar um pedaço na borda. */
+    fun passou(x: Float, o: Options): Boolean = x < o.focoX - 0.5f
+
     /** O card em [x] com largura [w] aparece numa tela de [largura] dp (folga de um card de cada lado, para entrar deslizando). */
     fun visivel(x: Float, w: Float, o: Options, largura: Float): Boolean =
         x + w * o.focoK > -w && (if (o.end == EndMargin.NONE) x < largura + w else x + w <= largura - o.end.dp)
