@@ -52,8 +52,8 @@ class McpTextos(val en: Boolean) {
     val useGoogleTexto get() = t("Este login é pela conta Google. Abra o endereço de novo.", "This sign-in uses the Google account. Open the address again.")
     val naoDeu get() = t("Não deu", "It did not work")
     val desligado get() = t("Desligado", "Turned off")
-    val desligadoTexto get() = t("O acesso pela internet foi desligado. Religue nas Configurações do launcher, na TV.",
-        "Internet access was turned off. Turn it back on in the launcher Settings, on the TV.")
+    val desligadoTexto get() = t("O acesso pela internet foi desligado. Religue na TV, em Configurações › Casa e acesso remoto › Acesso remoto.",
+        "Internet access was turned off. Turn it back on on the TV, in Settings › Home and remote access › Remote access.")
     val pinDemaisTexto get() = t("PIN errado demais. O acesso pela internet foi desligado; religue na TV.",
         "Too many wrong PINs. Internet access was turned off; turn it back on on the TV.")
     fun espere(s: Long) = t("Muitas tentativas erradas. Espere $s s.", "Too many wrong attempts. Wait $s s.")

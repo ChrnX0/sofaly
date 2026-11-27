@@ -110,7 +110,7 @@ internal fun PainelWeb.conferirPin(req: Requisicao, ip: String, acao: String): R
         val ctl = controle()
         // Painel desligado (por erros ou nas Configurações) ou contador esgotado: não confere mais nada, nem os
         // pedidos que já estavam na fila quando a porta fechou.
-        if (ctl.esgotado() || !PainelArmazem.podeLigar(app)) return erro(403, "painel desligado. Religue nas Configurações do launcher, na TV.")
+        if (ctl.esgotado() || !PainelArmazem.podeLigar(app)) return erro(403, "painel desligado. Religue na TV, em Configurações › Casa e acesso remoto › Acesso remoto.")
         val espera = ctl.esperaMs()
         if (espera > 0) return erro(429, "muitas tentativas erradas; espere ${(espera + 999) / 1000} s") { put("esperarSeg", (espera + 999) / 1000) }
         if (PainelArmazem.conferirPin(app, pin)) { ctl.registrarSucesso(); return null }
@@ -119,7 +119,7 @@ internal fun PainelWeb.conferirPin(req: Requisicao, ip: String, acao: String): R
         return when (val r = ctl.registrarFalha()) {
             is ControleTentativas.Resultado.Errou -> erro(401, "PIN errado") { put("restantes", r.restantes) }
             is ControleTentativas.Resultado.Bloqueou -> erro(429, "PIN errado; bloqueado por ${r.ms / 60_000} min") { put("esperarSeg", r.ms / 1000) }
-            ControleTentativas.Resultado.Desligar -> { desligarPorErros(ip); erro(403, "PIN errado demais: o painel foi desligado. Religue nas Configurações do launcher, na TV.") }
+            ControleTentativas.Resultado.Desligar -> { desligarPorErros(ip); erro(403, "PIN errado demais: o painel foi desligado. Religue na TV, em Configurações › Casa e acesso remoto › Acesso remoto.") }
         }
     }
 }
@@ -134,7 +134,7 @@ internal fun PainelWeb.conferirSenhaDav(cabecalho: String?, ip: String): PainelD
     if (senhasDav.certo(chave)) return null
     synchronized(travaPin) {
         val ctl = controle()
-        if (ctl.esgotado() || !PainelArmazem.podeLigar(app)) return PainelDav.Recusa(403, "painel desligado. Religue nas Configurações do launcher, na TV.")
+        if (ctl.esgotado() || !PainelArmazem.podeLigar(app)) return PainelDav.Recusa(403, "painel desligado. Religue na TV, em Configurações › Casa e acesso remoto › Acesso remoto.")
         val espera = ctl.esperaMs()
         if (espera > 0) return PainelDav.Recusa(429, "muitas tentativas erradas; espere ${(espera + 999) / 1000} s",
             mapOf("Retry-After" to ((espera + 999) / 1000).toString()))
@@ -461,4 +461,4 @@ internal fun PainelWeb.entrarPorConvite(req: Requisicao, ip: String): Resposta {
 internal fun PainelWeb.confirmarNaTv(a: Confirmacoes.Acao, oQue: String, ip: String): Resposta? =
     if (ConfirmacoesTv.permitir(app, a, oQue, txt(R.string.cf_quem_painel, ip))) null
     else erro(403, if (ConfirmacoesTv.modo(app, a) == Confirmacoes.Modo.BLOQUEAR)
-        "bloqueado na TV (Configurações › Sistema › Confirmações)" else "negado na TV, ou ninguém respondeu em 60 s") { put("negadoNaTv", true) }
+        "bloqueado na TV (Configurações › Sistema › Avançado › Confirmações)" else "negado na TV, ou ninguém respondeu em 60 s") { put("negadoNaTv", true) }

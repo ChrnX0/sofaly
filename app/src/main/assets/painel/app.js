@@ -41,7 +41,7 @@ async function chamar(metodo, caminho, corpo, corpoCru) {
     if (e && e.name === 'AbortError') throw new Error('pedido demorou demais');
     tvNaoRespondeu();
     // O navegador só diz "Failed to fetch"/"Load failed": a porta está fechada ou a TV saiu da rede.
-    throw new Error('Não consegui falar com a TV. Confira se ela está ligada e se o painel está ligado nas Configurações do launcher.');
+    throw new Error('Não consegui falar com a TV. Confira se ela está ligada e se o painel está ligado na TV, em Configurações › Casa e acesso remoto › Acesso remoto.');
   }
   const dados = await resp.json().catch(() => ({}));
   fim();
