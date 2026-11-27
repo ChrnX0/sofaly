@@ -1,6 +1,6 @@
 **Sofaly** · build {BUILD} · commit {COMMIT}
 
-Your TV, simple again: an ad-free home for Google TV and Android TV. The full tour is on [sofaly.tv](https://sofaly.tv)
+Cozy time on your TV: an ad-free home for Google TV and Android TV. The full tour is on [sofaly.tv](https://sofaly.tv)
 and in the [README](https://github.com/ChrnX0/sofaly#readme).
 
 ### What changed
