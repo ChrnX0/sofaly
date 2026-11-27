@@ -2,7 +2,6 @@ package br.paulo.tvlauncher.weather
 
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.resources.R
@@ -11,7 +10,7 @@ import java.util.Date
 
 /**
  * O lado Android do [NightSky]: lê o lugar e a previsão hora a hora que a HOME guardou (prefs "clima"), a órbita da
- * Estação ([EstacaoEspacial]) e os eclipses do lugar ([Config.ECLIPSES_SOLARES]), e guarda a resposta por
+ * Estação ([EstacaoEspacial]) e os eclipses do lugar ([WeatherConfig.ECLIPSES_SOLARES]), e guarda a resposta por
  * [GUARDAR_MS] (a Ilha pergunta a cada minuto; a conta da Estação varre 13 h em passos de 20 s). Fora da thread da tela.
  * Textos no idioma da TV, com as mesmas frases que o protetor antigo usava (strings_ceu_tempo.xml).
  */
@@ -22,12 +21,12 @@ object NightSkyTv {
     fun hoje(ctx: Context, agora: Long = System.currentTimeMillis()): NightSky.Event? {
         guardado?.let { (em, e) -> if (agora - em < GUARDAR_MS) return e?.takeIf { it.end > agora } }
         val c = ctx.getSharedPreferences(Prefs.CLIMA, Context.MODE_PRIVATE)
-        val lat = c.getFloat("lat", Config.LATITUDE.toFloat()).toDouble()
-        val lon = c.getFloat("lon", Config.LONGITUDE.toFloat()).toDouble()
+        val lat = c.getFloat("lat", WeatherConfig.LATITUDE.toFloat()).toDouble()
+        val lon = c.getFloat("lon", WeatherConfig.LONGITUDE.toFloat()).toDouble()
         val horas = WidgetsTempo.lerHoras(c.getString("horas", "").orEmpty())
         // Sem previsão não há como saber se o céu está limpo: nem baixa a órbita.
         val e = if (horas.isEmpty()) null else runCatching {
-            NightSky.hoje(agora, lat, lon, horas, EstacaoEspacial.proxima(ctx, agora, lat, lon), Config.ECLIPSES_SOLARES)
+            NightSky.hoje(agora, lat, lon, horas, EstacaoEspacial.proxima(ctx, agora, lat, lon), WeatherConfig.ECLIPSES_SOLARES)
         }.getOrNull()
         guardado = agora to e
         return e

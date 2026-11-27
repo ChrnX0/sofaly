@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher.weather
 
 import android.util.Log
-import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.alarm.FaixaDias
 import java.net.HttpURLConnection
 import java.net.URL
@@ -45,14 +44,14 @@ object WeatherApiSource {
     fun emPausa(agora: Long = System.currentTimeMillis()) = agora < pausaAte
 
     /** Só para o teste de telas (ver [ClimaMet.esquecerCache]). */
-    internal fun esquecerCache() { guardado = null }
+    fun esquecerCache() { guardado = null }
 
     /** Previsão do ponto no formato da Open-Meteo, ou null (sem servidor, sem chave, resposta estranha). Fora da thread da tela. */
     fun previsao(lat: Double, lon: Double, desdeAgora: Boolean, dias: Int = FaixaDias.DIAS): JSONObject? {
         if (emPausa()) return null
         val corpo = buscar(lat, lon, dias) ?: return null
         return try {
-            converter(JSONObject(corpo), System.currentTimeMillis(), lat, lon, dias, desdeAgora, Config.USAR_FAHRENHEIT)
+            converter(JSONObject(corpo), System.currentTimeMillis(), lat, lon, dias, desdeAgora, WeatherConfig.USAR_FAHRENHEIT)
         } catch (e: Exception) {
             Log.w(TAG, "formato estranho: ${e.javaClass.simpleName}")
             null
@@ -70,7 +69,7 @@ object WeatherApiSource {
         return try {
             c.connectTimeout = 8000; c.readTimeout = 8000
             c.setRequestProperty("User-Agent", ClimaMet.AGENTE)
-            br.paulo.tvlauncher.relay.RelayTv.assinar(c)   // cota do dia por TV (item 23)
+            WeatherHost.sign(c)   // cota do dia por TV (item 23)
             if (c.responseCode == 200) {
                 c.inputStream.bufferedReader().use { it.readText() }.also { guardado = Guardado(chave, it, agora) }
             } else {

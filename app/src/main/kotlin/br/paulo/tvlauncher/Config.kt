@@ -2,6 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.player.item
 import br.paulo.tvlauncher.weather.EclipseSolar
+import br.paulo.tvlauncher.weather.WeatherConfig
 
 /**
  * Tudo que você pode querer mudar fica neste arquivo.
@@ -12,18 +13,19 @@ object Config {
     //     repositório é público (05/11/2026): vêm do pessoal.properties da raiz do repo (fora do git), pela classe
     //     BuildConfig que o Gradle gera. Sem o arquivo: sem cidade, coordenadas 0/0, Celsius, estação automática.
     //     Para mudar: edite o pessoal.properties (modelo em pessoal.properties.exemplo) e recompile.
-    val LATITUDE: Double = BuildConfig.LATITUDE
-    val LONGITUDE: Double = BuildConfig.LONGITUDE
-    val USAR_FAHRENHEIT: Boolean = BuildConfig.USAR_FAHRENHEIT
+    //     Desde a refatoração G (27/11/2026) estes valores moram no módulo :weather (WeatherConfig); aqui só apontam para lá.
+    val LATITUDE: Double = WeatherConfig.LATITUDE
+    val LONGITUDE: Double = WeatherConfig.LONGITUDE
+    val USAR_FAHRENHEIT: Boolean = WeatherConfig.USAR_FAHRENHEIT
     // A localização de verdade vem da própria TV (Wi-Fi do Android, depois IP; ver Localizacao.kt). LATITUDE/LONGITUDE
     // acima só valem se as duas falharem. A estação de medição (aeroporto) é escolhida sozinha: a mais perto.
     // Para FIXAR uma, ponha o código ICAO em estacao_metar no pessoal.properties; vazio = automático.
-    val ESTACAO_METAR: String = BuildConfig.ESTACAO_METAR
+    val ESTACAO_METAR: String = WeatherConfig.ESTACAO_METAR
     // Minutos depois do PÔR do sol real (calculado por Astronomia.nascerEPor, não o "is_day" da Open-Meteo) em que
     // o ícone ainda considera "dia". A Open-Meteo marca noite no instante exato do pôr, sem contar o crepúsculo
     // civil (a claridade que sobra no céu depois). Flagrado em 03/11/2026 às 18:38: pôr às 18:24, ícone já de lua,
     // mas a foto da varanda mostrava céu claramente ainda claro. Ajuste este número se ainda trocar cedo/tarde demais.
-    const val MARGEM_CREPUSCULO_MIN = 20
+    const val MARGEM_CREPUSCULO_MIN = WeatherConfig.MARGEM_CREPUSCULO_MIN
 
     // --- Quais apps aparecem: os instalados por você + estes pacotes de sistema (a Play Store).
     val SEMPRE_MOSTRAR = listOf("com.android.vending")
@@ -140,14 +142,7 @@ object Config {
     //     pessoal.properties (chave eclipses; formato e exemplo em pessoal.properties.exemplo). Fonte sugerida:
     //     timeanddate.com/eclipse/in/<país>/<cidade>. Sem a chave (ou com ela vazia), nunca aparece eclipse.
     //     Cada eclipse: 1º contato, máximo, último contato (UTC, ISO-8601) e a magnitude (fração do diâmetro coberta).
-    val ECLIPSES_SOLARES: List<EclipseSolar> = eclipsesDe(BuildConfig.ECLIPSES)
-
-    /** "ini,max,fim,mag; ini,max,fim,mag" -> lista. Um item malformado é ignorado (não derruba o launcher). */
-    internal fun eclipsesDe(texto: String): List<EclipseSolar> = texto.split(';').mapNotNull { item ->
-        val c = item.split(',').map { it.trim() }
-        if (c.size != 4) return@mapNotNull null
-        try { EclipseSolar(c[0], c[1], c[2], c[3].toDouble()) } catch (e: Exception) { null }
-    }
+    val ECLIPSES_SOLARES: List<EclipseSolar> = WeatherConfig.ECLIPSES_SOLARES
 
     // --- Qualidade da rede: o ícone de Wi-Fi do menu do perfil fica verde, amarelo ou vermelho conforme
     //     estes limites. A cor segue a PIOR das três medidas (sinal, latência, velocidade do enlace).

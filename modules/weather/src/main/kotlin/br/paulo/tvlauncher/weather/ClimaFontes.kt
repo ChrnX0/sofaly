@@ -2,7 +2,6 @@ package br.paulo.tvlauncher.weather
 
 import android.content.Context
 import android.util.Log
-import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.DicasClima
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
@@ -34,7 +33,7 @@ object ClimaFontes {
     fun buscar(ctx: Context): Resultado? {
         // Onde estamos: Wi-Fi do Android (±dezenas de m) > IP > Config.kt. Ver Localizacao.kt.
         val ponto = Localizacao.atual(ctx) { Http.getText(it) } ?: return null
-        val unidade = if (Config.USAR_FAHRENHEIT) "&temperature_unit=fahrenheit" else ""
+        val unidade = if (WeatherConfig.USAR_FAHRENHEIT) "&temperature_unit=fahrenheit" else ""
         // Previsao (minima/maxima, chance de chuva, ceu) do modelo da Open-Meteo, no ponto exato.
         val url = "https://api.open-meteo.com/v1/forecast" +
             "?latitude=${ponto.lat}&longitude=${ponto.lon}" +
@@ -43,8 +42,8 @@ object ClimaFontes {
             "&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max,sunrise,sunset" +
             "&timezone=auto&forecast_days=${FaixaDias.DIAS}$unidade"
         // Fonte pelo plano e pela licença (DataSources, 19/11/2026): MET Norway no Básico, WeatherAPI no Pro, Open-Meteo paga no Ultra.
-        val openMeteo = DataSources.weather(ctx) == DataSources.Weather.OPEN_METEO
-        val json = if (!openMeteo) DataSources.forecast(ctx, ponto.lat, ponto.lon, desdeAgora = true) ?: return null
+        val openMeteo = WeatherSource.kind(ctx) == WeatherSource.Kind.OPEN_METEO
+        val json = if (!openMeteo) WeatherSource.forecast(ctx, ponto.lat, ponto.lon, desdeAgora = true) ?: return null
             else JSONObject(Http.getText(url) ?: return null)
         val atual = json.getJSONObject("current")
         val dia = json.getJSONObject("daily")
@@ -86,7 +85,7 @@ object ClimaFontes {
         // Dia/noite calculado AQUI, nao pelo "is_day" da Open-Meteo: ele vira noite no instante exato do por do
         // sol, sem o crepusculo civil (a claridade que sobra no ceu por uns 20 min depois). Flagrado em 03/11
         // as 18:38 (por as 18:24, icone ja de lua, ceu da varanda ainda claro). Usa o nascer/por REAL do lugar
-        // (Astronomia.nascerEPor) com margem so no por (Config.MARGEM_CREPUSCULO_MIN); cai no is_day da API
+        // (Astronomia.nascerEPor) com margem so no por (WeatherConfig.MARGEM_CREPUSCULO_MIN); cai no is_day da API
         // se o calculo falhar (nao deve, exceto perto dos polos).
         val agoraMs = System.currentTimeMillis()
         val eDia = Astronomia.eDia(agoraMs, ponto.lat, ponto.lon, atual.optInt("is_day", 1) == 1)
@@ -156,7 +155,7 @@ object ClimaFontes {
      * Com timezone=auto as horas vêm no fuso do LUGAR; lidas no fuso da TV (configurada à mão, local tirado do IP)
      * andavam horas. Sem o campo (ou desconhecido): o da TV.
      */
-    internal fun fusoDe(json: JSONObject): java.util.TimeZone {
+    fun fusoDe(json: JSONObject): java.util.TimeZone {
         val id = json.optString("timezone")
         if (id.isEmpty()) return java.util.TimeZone.getDefault()
         val z = java.util.TimeZone.getTimeZone(id)
@@ -164,7 +163,7 @@ object ClimaFontes {
     }
 
     /** "2026-11-12T18:00" do fuso [de] para o mesmo instante no fuso da TV (quem lê, WidgetsTempo.lerHoras, usa o da TV). */
-    internal fun paraFusoDaTv(t: String, de: java.util.TimeZone, tv: java.util.TimeZone = java.util.TimeZone.getDefault()): String {
+    fun paraFusoDaTv(t: String, de: java.util.TimeZone, tv: java.util.TimeZone = java.util.TimeZone.getDefault()): String {
         if (de.id == tv.id) return t
         val f = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm", java.util.Locale.US)
         val ms = runCatching { f.apply { timeZone = de }.parse(t)?.time }.getOrNull() ?: return t
@@ -175,7 +174,7 @@ object ClimaFontes {
      * As horas de agora em diante no formato das regras do Clima ([DicasClima.Entrada]), só com a chance de chuva (o que a
      * pílula usa). Dia/noite pelo nascer e pôr do sol do "daily" quando vêm; sem eles, 6h às 17h59 (e agora = [eDiaAgora]).
      */
-    internal fun entradaDaChuva(json: JSONObject, agora: String, horasData: List<String>, horasChuva: List<Int>, eDiaAgora: Boolean): DicasClima.Entrada {
+    fun entradaDaChuva(json: JSONObject, agora: String, horasData: List<String>, horasChuva: List<Int>, eDiaAgora: Boolean): DicasClima.Entrada {
         val horaAgora = agora.take(13); val hoje = agora.take(10)
         val d = json.optJSONObject("daily")
         val dias = d?.optJSONArray("time"); val nasc = d?.optJSONArray("sunrise"); val por = d?.optJSONArray("sunset")
@@ -209,7 +208,7 @@ object ClimaFontes {
 
     /**
      * Ícone do clima. De noite, céu limpo mostra a lua na fase de hoje (com nuvens, o ícone lua+nuvem); chuva, neblina etc.
-     * mantêm o próprio ícone. [lat] do lugar real, não Config.LATITUDE: o desenho da fase depende do hemisfério.
+     * mantêm o próprio ícone. [lat] do lugar real, não WeatherConfig.LATITUDE: o desenho da fase depende do hemisfério.
      */
     fun iconeDoClima(codigo: Int, eDia: Boolean, chovendo: Boolean, lat: Double): String {
         if (!eDia && codigo == 0 && !chovendo) return Lua.chaveIcone(System.currentTimeMillis(), lat)
@@ -247,12 +246,12 @@ object ClimaFontes {
         if (arrays.isEmpty()) throw IllegalStateException("sem modelos")
         val datas = (0 until tempo.length()).map { tempo.getString(it) }
         fun valores(a: org.json.JSONArray, n: Int) = (0 until n).map { i -> if (i < a.length() && !a.isNull(i)) a.optInt(i, -1).takeIf { it >= 0 } else null }
-        // A mesma conta do aviso de chuva (AvisoChuva.mediana), para a HOME e o aviso nunca discordarem.
+        // A mesma conta do aviso de chuva (WeatherSource.mediana), para a HOME e o aviso nunca discordarem.
         val porModelo = arrays.map { valores(it, tempo.length()) }
         val d = json.optJSONObject("daily")
         fun porDia(campo: String) = d?.let { dj -> modelos.mapNotNull { dj.optJSONArray("${campo}_$it") }.map { valores(it, it.length()) } }
-            ?.takeIf { it.isNotEmpty() }?.let { AvisoChuva.mediana(it) }
-        ChuvaModelos(datas, AvisoChuva.mediana(porModelo),
+            ?.takeIf { it.isNotEmpty() }?.let { WeatherSource.mediana(it) }
+        ChuvaModelos(datas, WeatherSource.mediana(porModelo),
             FaixaDias.chanceDoDia(porDia("precipitation_probability_max"), porDia("precipitation_probability_mean")))
     } catch (e: Exception) {
         Log.w("TvLauncher.Local", "chuva multi-modelo falhou: ${e.javaClass.simpleName}")
@@ -269,12 +268,12 @@ object ClimaFontes {
     /**
      * Ultimo boletim METAR (todo aeroporto publica, em geral a cada hora) da estacao MAIS PERTO de [ponto] num raio
      * de ~65 km, com boletim de no maximo 90 min. Em geral e o aeroporto da cidade ou o mais proximo (METAR existe em
-     * quase todo aeroporto; estacoes meteorologicas automaticas nem sempre). Config.ESTACAO_METAR fixa uma estacao.
+     * quase todo aeroporto; estacoes meteorologicas automaticas nem sempre). WeatherConfig.ESTACAO_METAR fixa uma estacao.
      * null se nao houver estacao valida ou a busca falhar: ai fica o modelo. Chamar fora da thread da tela.
      */
     private fun medidaAeroporto(ponto: Localizacao.Ponto): Medida? {
         return try {
-            val filtro = if (Config.ESTACAO_METAR.isNotEmpty()) "ids=${Config.ESTACAO_METAR}"
+            val filtro = if (WeatherConfig.ESTACAO_METAR.isNotEmpty()) "ids=${WeatherConfig.ESTACAO_METAR}"
                 // A API recusa (erro 400) coordenadas com muitas casas decimais: vao com 2 (~1 km, sobra para uma caixa de 130 km).
                 else "bbox=" + listOf(ponto.lat - 0.6, ponto.lon - 0.6, ponto.lat + 0.6, ponto.lon + 0.6)
                     .joinToString(",") { String.format(java.util.Locale.US, "%.2f", it) }
@@ -293,7 +292,7 @@ object ClimaFontes {
                 val vapor = { t: Double -> Math.exp(17.625 * t / (243.04 + t)) }
                 Math.round(100 * vapor(orvalho) / vapor(celsius)).toInt().coerceIn(0, 100)
             } else null
-            val temp = Math.round(if (Config.USAR_FAHRENHEIT) celsius * 9 / 5 + 32 else celsius).toInt()
+            val temp = Math.round(if (WeatherConfig.USAR_FAHRENHEIT) celsius * 9 / 5 + 32 else celsius).toInt()
             // Tempo presente do METAR (ex.: "-RA" chuva fraca, "SHRA" pancada, "TSRA" trovoada, "DZ" garoa, "BR"/"FG" nevoa).
             val fenomeno = Metar.fenomeno(boletim.optString("wxString", ""))   // sem os grupos "VC" (vizinhança): ver Metar.kt
             // Nebulosidade: a camada mais cheia. CAVOK/sem camadas = nada abaixo de 1500 m; nuvens altas podem existir,
@@ -315,5 +314,5 @@ object ClimaFontes {
     }
 
     /** " - Chuva 72% em 13 h" -> "Chuva 72% em 13 h" (o formato com a condição do céu vazia). */
-    internal fun semCeu(t: String) = t.trimStart(' ', '-', '–', '—')
+    fun semCeu(t: String) = t.trimStart(' ', '-', '–', '—')
 }

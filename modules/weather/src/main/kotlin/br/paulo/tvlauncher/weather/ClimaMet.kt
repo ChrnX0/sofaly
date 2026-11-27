@@ -1,7 +1,6 @@
 package br.paulo.tvlauncher.weather
 
 import android.util.Log
-import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.alarm.FaixaDias
 import java.net.HttpURLConnection
@@ -40,7 +39,7 @@ object ClimaMet {
     @Volatile private var guardado: Guardado? = null
 
     /** Só para o teste de telas: a Previsão medida sem a resposta que a HOME deixou na memória. */
-    internal fun esquecerCache() { guardado = null }
+    fun esquecerCache() { guardado = null }
 
     /** 4 casas (~11 m), o máximo que os termos aceitam; mais que isso eles recusam ou contam como pedidos diferentes. */
     fun coord(v: Double): String = String.format(Locale.US, "%.4f", v).trimEnd('0').trimEnd('.')
@@ -53,7 +52,7 @@ object ClimaMet {
     fun previsao(lat: Double, lon: Double, desdeAgora: Boolean, dias: Int = FaixaDias.DIAS): JSONObject? {
         val corpo = buscar(lat, lon) ?: return null
         return try {
-            converter(JSONObject(corpo), System.currentTimeMillis(), TimeZone.getDefault(), lat, lon, dias, desdeAgora, Config.USAR_FAHRENHEIT)
+            converter(JSONObject(corpo), System.currentTimeMillis(), TimeZone.getDefault(), lat, lon, dias, desdeAgora, WeatherConfig.USAR_FAHRENHEIT)
         } catch (e: Exception) {
             Log.w(TAG, "MET em formato estranho: ${e.javaClass.simpleName}")
             null

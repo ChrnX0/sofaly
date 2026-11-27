@@ -155,6 +155,7 @@ dependencies {
     implementation(project(":core"))
     // Etapa 3: os recursos (R) moram no :resources; a pasta continua em src/main/res, mas quem a compila é ele.
     implementation(project(":resources"))
+    implementation(project(":weather"))   // refatoração G, etapa 5: clima, previsão, céu e localização
     // Shell proprio MARCO 2: cliente ADB embutido (pareamento + TLS + shell). Licenca Apache-2.0 (opcao da dupla).
     implementation("com.github.MuntashirAkon:libadb-android:3.1.1")
     implementation("com.github.MuntashirAkon:sun-security-android:1.1")

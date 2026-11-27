@@ -2,7 +2,7 @@ package br.paulo.tvlauncher
 
 import br.paulo.tvlauncher.settings.Planos.Plano
 import br.paulo.tvlauncher.weather.DataSources
-import br.paulo.tvlauncher.weather.DataSources.Weather
+import br.paulo.tvlauncher.weather.WeatherSource.Kind as Weather
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

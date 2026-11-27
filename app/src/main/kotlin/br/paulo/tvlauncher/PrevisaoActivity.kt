@@ -394,15 +394,16 @@ class PrevisaoActivity : Activity() {
 
         val trio = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL; clipChildren = false }
         val ar = cartao(getString(R.string.pv_ar))
-        if (d.aqi != null) {
-            val (rot, cor) = rotuloAqi(d.aqi)
-            ar.contentDescription = "${getString(R.string.pv_ar)}: ${d.aqi}, $rot"
+        val aqi = d.aqi   // cópia local: ForecastData mora no módulo :weather (sem smart cast entre módulos)
+        if (aqi != null) {
+            val (rot, cor) = rotuloAqi(aqi)
+            ar.contentDescription = "${getString(R.string.pv_ar)}: $aqi, $rot"
             ar.addView(LinearLayout(this).apply {
                 orientation = LinearLayout.HORIZONTAL; gravity = Gravity.CENTER_VERTICAL; setPaddingRelative(0, dp(6), 0, dp(6))
-                addView(texto(44f, cor, fonteLeve).apply { text = "${d.aqi}"; includeFontPadding = false })
+                addView(texto(44f, cor, fonteLeve).apply { text = "$aqi"; includeFontPadding = false })
                 addView(texto(20f, Estilo.TEXTO, fonteMedia).apply { text = rot; setPaddingRelative(dp(12), 0, 0, 0) })
             })
-            ar.addView(BarraAqi(this, d.aqi), LinearLayout.LayoutParams(-1, dp(8)))
+            ar.addView(BarraAqi(this, aqi), LinearLayout.LayoutParams(-1, dp(8)))
         } else {
             ar.contentDescription = "${getString(R.string.pv_ar)}: ${getString(R.string.pv_sem_dados)}"
             ar.addView(texto(18f, textoSuave).apply { text = getString(R.string.pv_sem_dados); setPaddingRelative(0, dp(10), 0, 0) })
