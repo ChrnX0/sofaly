@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (điện thoại hoặc máy tính bảng)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Mở Cài đặt của điện thoại và, trong ô tìm kiếm ở trên cùng, gõ \"chứng chỉ\".",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Chạm \"Cài đặt chứng chỉ\" và chọn \"Chứng chỉ CA\". Một cảnh báo xuất hiện: chạm \"Vẫn cài đặt\".",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Chọn one-tv-painel.crt trong thư mục Tải xuống. Android hỏi PIN, hình mở khóa hoặc vân tay của màn hình khóa (nếu điện thoại chưa có, nó sẽ yêu cầu bạn tạo).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Chọn sofaly-panel.crt trong thư mục Tải xuống. Android hỏi PIN, hình mở khóa hoặc vân tay của màn hình khóa (nếu điện thoại chưa có, nó sẽ yêu cầu bạn tạo).",
 "Volte para esta página no Chrome.":"Quay lại trang này trong Chrome.",
 "iPhone ou iPad":"iPhone hoặc iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Mở trang này trong Safari, chạm \"Tải chứng chỉ\" rồi \"Cho phép\".",

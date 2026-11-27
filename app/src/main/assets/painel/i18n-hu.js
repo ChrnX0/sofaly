@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (telefon vagy táblagép)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Nyissa meg a telefon Beállításait, és a felső keresőbe írja be: „tanúsítvány”.",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Koppintson a „Tanúsítvány telepítése” lehetőségre, és válassza a „CA-tanúsítvány” opciót. Figyelmeztetés jelenik meg: koppintson a „Telepítés mégis” gombra.",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Válassza ki a one-tv-painel.crt fájlt a Letöltések mappában. Az Android kéri a képernyőzár PIN-kódját, mintáját vagy ujjlenyomatát (ha a telefonon nincs ilyen, létrehozását kéri).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Válassza ki a sofaly-panel.crt fájlt a Letöltések mappában. Az Android kéri a képernyőzár PIN-kódját, mintáját vagy ujjlenyomatát (ha a telefonon nincs ilyen, létrehozását kéri).",
 "Volte para esta página no Chrome.":"Térjen vissza erre az oldalra a Chrome-ban.",
 "iPhone ou iPad":"iPhone vagy iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Nyissa meg ezt az oldalt a Safariban, koppintson a „Tanúsítvány letöltése”, majd az „Engedélyezés” gombra.",

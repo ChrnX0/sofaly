@@ -2,7 +2,7 @@
 
 A small Node.js panel (port 9000) that manages the TVs of the house from a Windows PC over `adb`: apps, permissions,
 files and the screen. It came before the web panel that now lives inside the launcher (`app/src/main/assets/painel/`,
-port 8080) and is **not needed** to use One TV Launcher.
+port 8080) and is **not needed** to use Sofaly.
 
 ```bash
 cd chromecast-painel

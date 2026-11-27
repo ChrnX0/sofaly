@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (téléphone ou tablette)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Ouvrez les Paramètres du téléphone et, dans la recherche en haut, tapez \"certificat\".",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Touchez \"Installer un certificat\" (ou \"Installer des certificats\") et choisissez \"Certificat CA\". Un avertissement s'affiche : touchez \"Installer quand même\".",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Choisissez one-tv-painel.crt dans le dossier Téléchargements. Android demande le code, schéma ou empreinte de l'écran de verrouillage (s'il n'y en a pas, il demande d'en créer un).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Choisissez sofaly-panel.crt dans le dossier Téléchargements. Android demande le code, schéma ou empreinte de l'écran de verrouillage (s'il n'y en a pas, il demande d'en créer un).",
 "Volte para esta página no Chrome.":"Revenez sur cette page dans Chrome.",
 "iPhone ou iPad":"iPhone ou iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Ouvrez cette page dans Safari, touchez \"Télécharger le certificat\" puis \"Autoriser\".",

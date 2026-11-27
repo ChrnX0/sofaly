@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (telefon eller nettbrett)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Åpne telefonens Innstillinger og skriv «sertifikat» i søket øverst.",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Trykk på «Installer sertifikat» (eller «Installer et sertifikat») og velg «CA-sertifikat». Det vises en advarsel: trykk på «Installer likevel».",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Velg one-tv-painel.crt i Nedlastinger-mappen. Android ber om skjermlåsens PIN-kode, mønster eller fingeravtrykk (hvis telefonen ikke har noen, ber den deg opprette en).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Velg sofaly-panel.crt i Nedlastinger-mappen. Android ber om skjermlåsens PIN-kode, mønster eller fingeravtrykk (hvis telefonen ikke har noen, ber den deg opprette en).",
 "Volte para esta página no Chrome.":"Kom tilbake til denne siden i Chrome.",
 "iPhone ou iPad":"iPhone eller iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Åpne denne siden i Safari, trykk på «Last ned sertifikat» og deretter «Tillat».",

@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (ponsel atau tablet)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Buka Setelan ponsel dan, di pencarian atas, ketik \"sertifikat\".",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Ketuk \"Instal sertifikat\" (atau \"Instal sebuah sertifikat\") dan pilih \"Sertifikat CA\". Muncul peringatan: ketuk \"Tetap instal\".",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Pilih one-tv-painel.crt di folder Download. Android meminta PIN, pola, atau sidik jari kunci layar (jika ponsel belum punya, Anda diminta membuatnya).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Pilih sofaly-panel.crt di folder Download. Android meminta PIN, pola, atau sidik jari kunci layar (jika ponsel belum punya, Anda diminta membuatnya).",
 "Volte para esta página no Chrome.":"Kembali ke halaman ini di Chrome.",
 "iPhone ou iPad":"iPhone atau iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Buka halaman ini di Safari, ketuk \"Unduh sertifikat\" lalu \"Izinkan\".",
