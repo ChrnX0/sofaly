@@ -21,6 +21,8 @@
 //   GET    /v1/weather/open        pública: previsão do Básico, consenso de 4 modelos abertos, ?lat=&lon= (src/weatherOpen.js)
 //   POST   /v1/community/lessons   pública: lições da Sofy de uma casa (opt-in na TV), só pacote+versão+tipo (src/community.js)
 //   GET    /v1/community/lessons   pública: as lições vistas em 5+ casas nos últimos 14 dias
+//   POST   /v1/community/cases     pública: o pacote do dia da rede de Sofys (opt-in na TV), só campos fixos (src/fleet.js)
+//   GET    /v1/community/cases/summary  só com o REPORTS_TOKEN: os grupos de casos de [minHomes]+ casas, para a IA central
 //   GET    /v1/updates/hold        pública: versões que as TVs não devem instalar (src/updates.js, variável UPDATES_HOLD)
 //   POST   /v1/report              assinada: relato de problema, guardado em particular (src/reports.js)
 //   GET    /v1/reports             só com o REPORTS_TOKEN: a fila de relatos, para a Sofy virar issue sem dado pessoal
@@ -33,6 +35,7 @@ import { handleWeather } from './weather.js';
 import { handleWeatherOpen } from './weatherOpen.js';
 import { handleTranscribe, MAX_B64 } from './transcribe.js';
 import { handleCommunity } from './community.js';
+import { handleFleetPost, handleFleetSummary } from './fleet.js';
 import { handleHold } from './updates.js';
 import { healthBody } from './health.js';
 import { identify, quotaFor } from './quota.js';
@@ -41,6 +44,7 @@ import { BASE_PATH as PD_BASE, handlePublicDomain } from './publicdomain.js';
 export { Mailbox } from './mailbox.js';
 export { Pairing } from './pairing.js';
 export { Community } from './communityStore.js';
+export { Fleet } from './fleetStore.js';
 export { Quota } from './quotaStore.js';
 export { Reports } from './reportsStore.js';
 
@@ -100,6 +104,12 @@ export default {
       const body = req.method === 'POST' ? await signedBody(256 * 1024) : undefined;
       return handleCommunity(req, env, { ip, take: await quota(body) });
     }
+
+    if (path === '/v1/community/cases' && req.method === 'POST') {
+      const body = await signedBody(64 * 1024);
+      return handleFleetPost(req, env, { ip, take: await quota(body) });
+    }
+    if (path === '/v1/community/cases/summary' && req.method === 'GET') return handleFleetSummary(req, env);
 
     if (path === '/v1/weather/open' && req.method === 'GET') return handleWeatherOpen(url, env, { ip, take: await quota() });
     if (path === '/v1/weather' && req.method === 'GET') return handleWeather(url, env, { ip, take: await quota() });

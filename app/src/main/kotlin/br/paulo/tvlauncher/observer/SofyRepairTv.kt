@@ -157,8 +157,12 @@ object SofyRepairTv {
         if (novo) {
             Log.i(TAG, "caso: ${s.type} ${s.subject} ${s.detail}")
             ObserverTv.logShadow(app, "repair_case", "${s.type.name} ${s.subject} ${s.detail}".trim())
+            runCatching { SofyFleetTv.snapshot(app, SofyRepair.key(s.type, s.subject)) }   // rede de Sofys: estado em faixas
         }
     }
+
+    /** Os casos guardados (para a rede de Sofys, [SofyFleetTv]). */
+    fun cases(ctx: Context): List<SofyRepair.Case> = loadCases(ctx)
 
     private fun loadCases(ctx: Context): List<SofyRepair.Case> = runCatching {
         val a = JSONArray(prefs(ctx).getString("cases", "[]"))

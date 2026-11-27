@@ -19,6 +19,7 @@ export const DAILY = {
   summary: 40,         // resumos de episódio (Workers AI)
   community: 4,        // fichas comunitárias (a TV manda 1x por dia)
   report: 5,           // relatos de problema (src/reports.js)
+  fleet: 4,            // pacote do dia da rede de Sofys (src/fleet.js; a TV manda 1x por dia)
 };
 export const NET_FACTOR = 10;
 // Pedido assinado: a rede ganha bem mais (revisor 26/11: atrás de CGNAT, muitas casas dividem um IP; o id já limita

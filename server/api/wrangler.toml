@@ -43,6 +43,11 @@ class_name = "Quota"
 name = "REPORTS"
 class_name = "Reports"
 
+# A rede de Sofys (src/fleet.js): o banco de casos de todas as casas que ligaram "Ajudar outras casas".
+[[durable_objects.bindings]]
+name = "FLEET"
+class_name = "Fleet"
+
 # SQLite nos Durable Objects: único tipo aceito no plano grátis.
 [[migrations]]
 tag = "v1"
@@ -55,6 +60,10 @@ new_sqlite_classes = ["Community"]
 [[migrations]]
 tag = "v3"
 new_sqlite_classes = ["Quota", "Reports"]
+
+[[migrations]]
+tag = "v4"
+new_sqlite_classes = ["Fleet"]
 
 # Limites da previsão do tempo (src/weather.js). Rate Limiting dos Workers: contadores por borda, period 10 ou 60 s.
 # Por IP: uma TV pede no máximo umas poucas vezes por hora; 30/min sobra para uma casa com várias TVs atrás do mesmo IP.
