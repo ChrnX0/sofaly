@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution">
+    <!-- Baixada sob demanda (quem liga a tradução de legenda). fusing: entra inteira no APK único, se um dia houver. -->
+    <dist:module dist:title="@string/part_translate_title">
+        <dist:delivery>
+            <dist:on-demand />
+        </dist:delivery>
+        <dist:fusing dist:include="true" />
+    </dist:module>
+    <application android:hasCode="true" />
+</manifest>

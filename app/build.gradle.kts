@@ -28,6 +28,10 @@ fun pessoalTexto(chave: String, padrao: String = "") = textoJava(dadosPessoais.g
 // pessoal.properties; no GitHub Actions, das variáveis de ambiente que o release.yml preenche com os secrets de mesmo nome.
 // Sem a chave, o serviço some da tela do launcher.
 fun chaveApp(nome: String) = textoJava((System.getenv(nome) ?: pessoal.getProperty(nome.lowercase(), "")).trim())
+// Refatoração G (27/11/2026): `-Psplits` monta o app como base + partes baixadas sob demanda (features/translate e
+// features/tunnel), num .aab (bundleRelease) que o bundletool parte em APKs. Sem a propriedade, o build é o de sempre:
+// um APK por arquitetura com tudo dentro (o que as TVs atuais e o site baixam).
+val comPartes = project.hasProperty("splits")
 fun pessoalNumero(chave: String, padrao: Double) = (dadosPessoais.getProperty(chave)?.trim()?.toDoubleOrNull() ?: padrao).toString()
 
 android {
@@ -104,7 +108,8 @@ android {
     // com o mesmo versionCode. Só essas duas: x86 e as outras não entram (antes o conscrypt trazia 4 ABIs, ~7 MB à toa).
     splits {
         abi {
-            isEnable = true
+            // Com -Psplits quem parte por arquitetura é o .aab (bundle { abi } abaixo); os APKs por ABI daqui quebram as partes.
+            isEnable = !comPartes
             reset()
             include("armeabi-v7a", "arm64-v8a")
             isUniversalApk = false
@@ -177,6 +182,18 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+    if (comPartes) {
+        dynamicFeatures += setOf(":translate", ":tunnel")
+        // As mesmas duas arquiteturas dos APKs de sempre (algumas dependências trazem x86, que nenhuma TV nossa usa).
+        defaultConfig.ndk.abiFilters += setOf("armeabi-v7a", "arm64-v8a")
+        // Partes só por arquitetura: idioma e densidade ficam na base (a TV muda de idioma sem baixar nada).
+        bundle {
+            language { enableSplit = false }
+            density { enableSplit = false }
+            abi { enableSplit = true }
+        }
+    }
 }
 
 // Kotlin 2.2 trocou o bloco kotlinOptions { } (dentro de android) por este.
@@ -235,7 +252,8 @@ dependencies {
     // Sessão de mídia dos players (SessaoMidia.kt, 17/11/2026): o sistema, o Gemini e o MCP passam a ver o que toca.
     implementation("androidx.media3:media3-session:1.11.1")
     // Ideia 90: tradução de legenda NA TV (ML Kit, offline; modelo de ~30 MB baixado no primeiro uso). +~12 MB no APK.
-    implementation("com.google.mlkit:translate:17.0.3")
+    // Com -Psplits ele vai para a parte features/translate (baixada sob demanda), não para a base.
+    if (!comPartes) implementation("com.google.mlkit:translate:17.0.3")
     // Player completo (15/11/2026): FFmpeg (LGPL-2.1) e libass compilados por nós (nativo/compilar.sh), com cola própria
     // (nativo/cola + FfNativo.kt). Substitui a NextLib (GPL). As .so prontas ficam em nativo/libs (ver sourceSets abaixo).
     // Mídias da rede, etapa 2 (07/11/2026): pasta compartilhada SMB 2/3 (Windows, NAS). Apache-2.0. Traz bcprov e slf4j;
@@ -314,7 +332,10 @@ val compilarTunel = tasks.register("compilarTunel") {
         }
     }
 }
-android.sourceSets["main"].jniLibs.srcDir(pastaTunel)
+// Com -Psplits o túnel vai para a parte features/tunnel (baixada por quem liga o acesso pela internet).
+if (!comPartes) android.sourceSets["main"].jniLibs.srcDir(pastaTunel)
+// O motor de tradução (MlKitSubtitles) mora em features/translate; no build de sempre entra no app.
+if (!comPartes) android.sourceSets["main"].java.srcDir(rootProject.file("features/translate/src/main/kotlin"))
 // Player: FFmpeg, libass e a cola nativa, já compilados (nativo/compilar.sh). O build do app não precisa do NDK.
 android.sourceSets["main"].jniLibs.srcDir(rootProject.file("nativo/libs"))
 // Refatoração G, etapa 3: src/main/res é compilada pelo módulo :resources (R = br.paulo.tvlauncher.resources.R).
@@ -324,3 +345,52 @@ android.sourceSets["main"].res.setSrcDirs(emptyList<File>())
 // compilada junto no app da TV e no app do celular, para os dois lados nunca divergirem.
 android.sourceSets["main"].java.srcDir(rootProject.file("relay-core/src/main/kotlin"))
 tasks.named("preBuild") { dependsOn(compilarTunel) }
+
+// Refatoração G (27/11/2026): os APKs das partes, para o Atualizador (o site e a Play não usam isto).
+// `./gradlew :app:buildPartApks -Psplits` parte o .aab com o bundletool (a mesma versão que o AGP usa) e deixa, por
+// arquitetura, em build/outputs/parts/<abi>/: base-master.apk + base-<abi>.apk (o app) e translate-*/tunnel-* (as partes).
+// Assina com a chave do Release (ASSINATURA_*) quando existe, senão com a chave debug desta máquina, como o resto do build.
+val bundletool by configurations.creating
+dependencies { bundletool("com.android.tools.build:bundletool:1.18.1") }
+if (comPartes) {
+    val pastaPartes = layout.buildDirectory.dir("outputs/parts")
+    val conjunto = layout.buildDirectory.file("outputs/parts/all.apks")
+    val montarConjunto = tasks.register<JavaExec>("buildPartApkSet") {
+        dependsOn("bundleRelease")
+        classpath = bundletool
+        mainClass.set("com.android.tools.build.bundletool.BundleToolMain")
+        val aab = layout.buildDirectory.file("outputs/bundle/release/app-release.aab")
+        inputs.file(aab)
+        outputs.file(conjunto)
+        doFirst {
+            conjunto.get().asFile.delete()
+            val ks = System.getenv("ASSINATURA_ARQUIVO")?.takeIf { it.isNotBlank() }
+            val chave = if (ks != null) listOf("--ks=$ks",
+                "--ks-pass=env:ASSINATURA_SENHA",
+                "--ks-key-alias=" + (System.getenv("ASSINATURA_ALIAS")?.trim()?.takeIf { it.isNotBlank() } ?: "androiddebugkey"),
+                "--key-pass=env:" + (if (System.getenv("ASSINATURA_SENHA_CHAVE").isNullOrBlank()) "ASSINATURA_SENHA" else "ASSINATURA_SENHA_CHAVE"))
+            else listOf("--ks=${System.getProperty("user.home")}/.android/debug.keystore", "--ks-pass=pass:android",
+                "--ks-key-alias=androiddebugkey", "--key-pass=pass:android")
+            // O jar do bundletool no Maven não traz o aapt2: usa o do SDK (a versão de build-tools que o AGP usa).
+            val aapt2 = android.sdkDirectory.resolve("build-tools/${android.buildToolsVersion}/aapt2")
+            args = listOf("build-apks", "--bundle=${aab.get().asFile}", "--output=${conjunto.get().asFile}", "--aapt2=$aapt2") + chave
+        }
+    }
+    val abis = mapOf("armeabi-v7a" to 34, "arm64-v8a" to 34)
+    val extrair = abis.keys.map { abi ->
+        tasks.register<JavaExec>("extractPartApks-$abi") {
+            dependsOn(montarConjunto)
+            classpath = bundletool
+            mainClass.set("com.android.tools.build.bundletool.BundleToolMain")
+            val saida = pastaPartes.get().dir(abi).asFile
+            val spec = layout.buildDirectory.file("outputs/parts/spec-$abi.json").get().asFile
+            doFirst {
+                saida.deleteRecursively(); saida.mkdirs()
+                spec.writeText("""{"supportedAbis":["$abi"],"supportedLocales":["en"],"screenDensity":320,"sdkVersion":${abis[abi]}}""")
+                args = listOf("extract-apks", "--apks=${conjunto.get().asFile}", "--output-dir=$saida",
+                    "--device-spec=$spec", "--modules=_ALL_")
+            }
+        }
+    }
+    tasks.register("buildPartApks") { dependsOn(extrair) }
+}

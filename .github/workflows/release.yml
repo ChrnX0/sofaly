@@ -228,6 +228,13 @@ jobs:
           ./gradlew :app:assembleRelease $CEL -PversionCode=$CODIGO --no-daemon --stacktrace
           cp "$SAIDA/app-armeabi-v7a-release.apk" publicar/sofaly-launcher.apk
           cp "$SAIDA/app-arm64-v8a-release.apk" publicar/sofaly-launcher-arm64.apk
+          # Refatoração G (27/11/2026): o mesmo app como base + partes sob demanda (tradutor e túnel), com o MESMO
+          # versionCode. Por enquanto só compila e confere (o Atualizador ainda não instala partes; nada disto é publicado).
+          # Num "commit=" anterior às partes (sem features/), pula.
+          if [ -d features ]; then
+            ./gradlew :app:buildPartApks -Psplits -PversionCode=$CODIGO --no-daemon --stacktrace
+            python3 scripts/check-parts.py app/build/outputs/parts "$CODIGO"
+          fi
 
       # Dois APKs (splits em app/build.gradle.kts), com o mesmo versionCode. NOME é o nome dos arquivos do Release
       # (o app tv.sofaly.launcher procura sofaly-launcher*.apk; a ponte antiga, one-tv-launcher*.apk).
