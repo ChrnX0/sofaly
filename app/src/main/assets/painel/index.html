@@ -1513,6 +1513,35 @@
         <p id="infoConhecidos" class="aviso-curto"></p>
         <button type="button" class="link" id="btnEsquecerRoteador">Esquecer o roteador (apaga endereço, chave e lista)</button>
       </div>
+      <div id="cartaoAdGuard" class="cartao">
+        <h2>AdGuard DNS</h2>
+        <p class="aviso">Bloqueio de anúncios e controle dos pais na TV, pela sua conta AdGuard DNS. A TV cria um servidor só dela
+          ("Sofaly · nome da TV") e não mexe nos outros servidores da conta. A chave fica cifrada na TV.</p>
+        <form id="formAdGuard" class="form-roteador" autocomplete="off">
+          <label for="campoChaveAdGuard">Chave de API <span id="chaveAtualAdGuard" class="aviso-curto"></span></label>
+          <input id="campoChaveAdGuard" type="password" maxlength="256" autocomplete="off"
+                 placeholder="criada no AdGuard DNS, em Configurações → Chaves de API">
+          <button type="submit" class="botao-primario">Salvar</button>
+        </form>
+        <p id="estadoAdGuard" class="aviso"></p>
+        <button type="button" class="botao-secundario" id="btnLigarAdGuard" hidden>Ligar a TV ao AdGuard</button>
+        <p id="resumoAdGuard" class="aviso-curto"></p>
+        <ul id="dominiosAdGuard" class="dicas"></ul>
+        <div id="familiaAdGuard" hidden>
+          <h3>Controle dos pais no DNS</h3>
+          <label><input id="chkAdgFamilia" type="checkbox"> Ligado</label><br>
+          <label><input id="chkAdgDormir" type="checkbox"> Hora de dormir da Família também no DNS</label><br>
+          <label><input id="chkAdgYoutube" type="checkbox"> YouTube seguro</label><br>
+          <label><input id="chkAdgBusca" type="checkbox"> Busca segura</label><br>
+          <label><input id="chkAdgAdulto" type="checkbox"> Bloquear sites adultos</label>
+          <p class="aviso-curto">Serviços bloqueados</p>
+          <div id="servicosAdGuard" class="lista-registro"></div>
+          <button type="button" class="botao-secundario" id="btnServicosAdGuard">Mostrar a lista de serviços</button>
+          <button type="button" class="botao-primario" id="btnSalvarFamiliaAdGuard">Salvar o controle dos pais</button>
+        </div>
+        <p id="statusAdGuard" class="aviso" hidden></p>
+        <button type="button" class="link" id="btnEsquecerAdGuard" hidden>Desligar o AdGuard na TV (o DNS volta ao de antes)</button>
+      </div>
       <div id="cartaoWiFiDaTV" class="cartao">
         <div class="cabeca-modal">
           <h2>Wi-Fi da TV</h2>

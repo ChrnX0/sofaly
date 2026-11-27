@@ -69,6 +69,8 @@ class LauncherApp : Application() {
         VigiaAtualizacao.aoIniciar(this)
         VigiaAtualizacao.vigiarTelas(this)
         br.paulo.tvlauncher.home.GpuTrim.vigiar(this)   // etapa 4b da G: tela apagada há 30 s = GPU da HOME solta
+        // Conta AdGuard DNS (27/11/2026): hora de dormir mudou = leva para o DNS da TV. Só no processo principal.
+        if (android.os.Build.VERSION.SDK_INT < 28 || getProcessName() == packageName) br.paulo.tvlauncher.network.AdGuardTv.vigiarFamilia(this)
         br.paulo.tvlauncher.parts.PartsInstall.install(this)   // refatoração G: parte que falta é pedida quando a função precisa
         Moldura.instalar(this)   // a hora da HOME no mesmo lugar nas telas de lista (Moldura.kt)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {

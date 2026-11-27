@@ -278,7 +278,7 @@ const AO_ABRIR = {
   fotos: () => { carregarFotos(); carregarPerfis(); },
   rede: () => carregarRede(),
   claude: () => carregarMcp(),
-  roteador: () => carregarRoteador(),
+  roteador: () => { carregarRoteador(); carregarAdGuard(); },
   registro: () => { carregarRegistro(); if (typeof carregarChaves === 'function') carregarChaves(); },   // + digital (chave.js)
   backup: () => { carregarCopias(); carregarNoturno(); acompanharDrive(); },
   config: () => carregarConfig(),
@@ -2102,6 +2102,105 @@ $('btnCarregarTv').addEventListener('click', async () => {
       (semCanal ? ` ${semCanal} conta(s) sem nenhum canal: confira o link, o usuário e a senha.` : ''));
   } catch (e) { mostrar($('statusTv'), textoErro(e)); }
   b.disabled = false;
+});
+
+// ---------- AdGuard DNS (conta do dono; AdGuardTv.kt) ----------
+
+let adgServicos = new Set();
+
+function desenharAdGuard(r) {
+  $('campoChaveAdGuard').value = '';
+  $('chaveAtualAdGuard').textContent = r.chave ? `(guardada: ${r.chave})` : '(nenhuma guardada)';
+  $('btnLigarAdGuard').hidden = !r.chave || (r.ligada && r.dnsAtivo);
+  $('btnEsquecerAdGuard').hidden = !r.chave;
+  $('familiaAdGuard').hidden = !r.ligada;
+  $('estadoAdGuard').textContent = !r.chave ? 'Sem chave.'
+    : !r.ligada ? 'Chave guardada. Falta ligar a TV.'
+    : r.dnsAtivo ? 'Ligada: o DNS da TV passa pelo AdGuard.'
+    : 'Ligada à conta, mas o DNS da TV não está no AdGuard agora.';
+  const f = r.familia;
+  $('chkAdgFamilia').checked = f.ligada;
+  $('chkAdgDormir').checked = f.dormir;
+  $('chkAdgYoutube').checked = f.youtubeSeguro;
+  $('chkAdgBusca').checked = f.buscaSegura;
+  $('chkAdgAdulto').checked = f.adulto;
+  adgServicos = new Set(f.servicos);
+  if (!$('servicosAdGuard').children.length) $('servicosAdGuard').textContent = f.servicos.join(', ');
+  if (r.sincronia && r.sincronia.resultado !== 'ok') mostrar($('statusAdGuard'), 'O controle dos pais não foi gravado no AdGuard da última vez.');
+}
+
+async function carregarResumoAdGuard() {
+  const lista = $('dominiosAdGuard');
+  try {
+    const r = await chamar('GET', '/api/adguard/stats');
+    $('resumoAdGuard').textContent = `Últimas 24 h: ${r.consultas} consultas, ${r.bloqueadas} bloqueadas (${r.porcento}%).`;
+    lista.replaceChildren(...r.dominios.map((d) => {
+      const li = document.createElement('li');
+      li.textContent = `${d.nome}: ${d.consultas}` + (d.bloqueadas ? ` (${d.bloqueadas} bloqueadas)` : '');
+      return li;
+    }));
+  } catch (e) { $('resumoAdGuard').textContent = textoErro(e); lista.replaceChildren(); }
+}
+
+async function carregarAdGuard() {
+  try {
+    const r = await chamar('GET', '/api/adguard');
+    desenharAdGuard(r);
+    if (r.ligada) carregarResumoAdGuard(); else { $('resumoAdGuard').textContent = ''; $('dominiosAdGuard').replaceChildren(); }
+  } catch (e) { mostrar($('statusAdGuard'), textoErro(e)); }
+}
+
+$('formAdGuard').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const chave = $('campoChaveAdGuard').value.trim();
+  if (!chave) return;
+  mostrar($('statusAdGuard'), 'Salvando…');
+  try {
+    desenharAdGuard(await chamar('POST', '/api/adguard/key', { chave }));
+    mostrar($('statusAdGuard'), 'Salvo.');
+  } catch (e) { mostrar($('statusAdGuard'), textoErro(e)); }
+});
+
+$('btnLigarAdGuard').addEventListener('click', async () => {
+  mostrar($('statusAdGuard'), 'Ligando… (até 30 s)');
+  try {
+    const r = await chamar('POST', '/api/adguard/connect');
+    desenharAdGuard(r);
+    mostrar($('statusAdGuard'), r.resolveu ? 'Salvo.' : 'O DNS do AdGuard não respondeu; a TV voltou ao DNS de antes.');
+    if (r.ligada) carregarResumoAdGuard();
+  } catch (e) { mostrar($('statusAdGuard'), textoErro(e)); }
+});
+
+$('btnServicosAdGuard').addEventListener('click', async () => {
+  const caixa = $('servicosAdGuard');
+  try {
+    const r = await chamar('GET', '/api/adguard/services');
+    caixa.replaceChildren(...r.servicos.map((s) => {
+      const l = document.createElement('label');
+      const c = document.createElement('input');
+      c.type = 'checkbox'; c.checked = adgServicos.has(s.id);
+      c.addEventListener('change', () => { if (c.checked) adgServicos.add(s.id); else adgServicos.delete(s.id); });
+      l.append(c, ' ', s.nome);
+      return l;
+    }));
+    $('btnServicosAdGuard').hidden = true;
+  } catch (e) { mostrar($('statusAdGuard'), textoErro(e)); }
+});
+
+$('btnSalvarFamiliaAdGuard').addEventListener('click', () => confirmar('Salvar o controle dos pais', '', 'Salvar', async () => {
+  const r = await chamar('POST', '/api/adguard/family', {
+    ligada: $('chkAdgFamilia').checked, dormir: $('chkAdgDormir').checked, youtubeSeguro: $('chkAdgYoutube').checked,
+    buscaSegura: $('chkAdgBusca').checked, adulto: $('chkAdgAdulto').checked, servicos: [...adgServicos],
+  });
+  desenharAdGuard(r);
+  mostrar($('statusAdGuard'), 'Salvo.');
+}, false));
+
+$('btnEsquecerAdGuard').addEventListener('click', async () => {
+  const r = await confirmar('Desligar o AdGuard na TV?',
+    'O DNS da TV volta ao de antes e a chave é apagada da TV. Na sua conta AdGuard nada muda: apague o servidor "Sofaly · …" no site, se quiser.',
+    'Desligar', () => chamar('POST', '/api/adguard/forget'));
+  if (r) { desenharAdGuard(r); $('resumoAdGuard').textContent = ''; $('dominiosAdGuard').replaceChildren(); }
 });
 
 // ---------- roteador UniFi (só leitura; UnifiCliente.kt) ----------

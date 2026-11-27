@@ -1232,6 +1232,13 @@ object PainelWeb {
             "/api/roteador/esquecer" -> if (req.metodo == "POST") return roteadorEsquecer(ip)
             "/api/roteador/wifi-tv" -> if (req.metodo == "GET") return roteadorWifiTv()
             "/api/roteador/reconectar" -> return if (req.metodo == "POST") roteadorReconectar(ip) else json(200, estadoReconectar())
+            "/api/adguard" -> if (req.metodo == "GET") return json(200, adguardEstado())
+            "/api/adguard/key" -> if (req.metodo == "POST") return adguardChave(req, ip)
+            "/api/adguard/connect" -> if (req.metodo == "POST") return adguardLigar(ip)
+            "/api/adguard/family" -> if (req.metodo == "POST") return adguardFamilia(req, token, ip)
+            "/api/adguard/services" -> if (req.metodo == "GET") return adguardServicos()
+            "/api/adguard/stats" -> if (req.metodo == "GET") return adguardResumo(req)
+            "/api/adguard/forget" -> if (req.metodo == "POST") return adguardEsquecer(token, ip)
         }
 
         // /api/apps/<pacote>/<ação>
