@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Đã bỏ đóng băng. Ứng dụng hoạt động như trước.</string>
     <string name="sob_demanda_falhou">Không thay đổi được lúc này. Hãy thử lại sau giây lát.</string>
     <string name="home_desinstalar">Gỡ cài đặt</string>
-    <string name="home_app_sistema"> (ứng dụng hệ thống)</string>
+    <string name="home_app_sistema">" (ứng dụng hệ thống)"</string>
     <string name="home_desinstalar_titulo">Gỡ cài đặt %1$s?</string>
     <string name="home_desinstalar_aviso">Ứng dụng và dữ liệu sẽ bị xóa khỏi TV. Không thể hoàn tác: muốn dùng lại, hãy cài lại từ Play Store.</string>
     <string name="home_cancelar">Hủy</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">TV không có Wi-Fi%1$s. Hãy kiểm tra router có đang bật không, hoặc tên mạng hay mật khẩu có thay đổi không.</string>
     <string name="ief_roteador_sem_modem" formatted="true">router mất kết nối với modem của nhà mạng</string>
     <string name="ief_roteador_ve_fora" formatted="true">router cũng thấy mất internet</string>
-    <string name="ief_ha" formatted="true"> (%1$s trước)</string>
+    <string name="ief_ha" formatted="true">" (%1$s trước)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi ổn, nhưng internet của nhà mạng bị mất%1$s; %2$s%3$s. Không phải do TV: hãy chờ nhà mạng hoặc khởi động lại modem.</string>
     <string name="ief_vpn_travada" formatted="true">Router có internet, nhưng TV không vào được%1$s: có thể VPN bị kẹt. Tắt rồi bật lại VPN thường sẽ khắc phục.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Router có internet, nhưng TV không kết nối được%1$s: lỗi nằm giữa TV và router%2$s Kết nối lại TV với Wi-Fi thường sẽ khắc phục.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (tín hiệu Wi-Fi yếu, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (tín hiệu Wi-Fi yếu, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">TV đã vào Wi-Fi, nhưng cả router lẫn internet đều không phản hồi%1$s: router có thể bị treo. Tắt rồi bật lại router thường sẽ khắc phục.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi ổn, nhưng internet không thông%1$s; có thể do nhà mạng hoặc router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (VPN đang bật cũng có thể là nguyên nhân).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (VPN đang bật cũng có thể là nguyên nhân)."</string>
     <string name="ief_dns" formatted="true">Internet hoạt động, nhưng DNS%1$s không phản hồi%2$s: ứng dụng không tìm thấy máy chủ. Chuyển DNS sang Tự động sẽ khắc phục.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet và DNS đều phản hồi, nhưng trang kiểm tra của Google %1$s: có gì đó trên đường đi (VPN, chặn DNS hoặc mạng yêu cầu đăng nhập) đang chặn nó.</string>
     <string name="ief_nao_abriu" formatted="true">không mở được</string>
     <string name="ief_codigo_diferente" formatted="true">phản hồi khác thường (mã %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">trang kiểm tra mất %1$.1f giây để mở</string>
     <string name="ief_queda_recente" formatted="true">Internet hiện đã ổn; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Mọi thứ đều tốt: Wi-Fi, internet và DNS đều phản hồi.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Không bị mất kết nối trong 24 giờ qua.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Không ghi nhận mất kết nối (TV chỉ đo một phần của 24 giờ qua).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Router báo lỗi internet, nhưng TV vẫn duyệt web bình thường.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Không bị mất kết nối trong 24 giờ qua."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Không ghi nhận mất kết nối (TV chỉ đo một phần của 24 giờ qua)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Router báo lỗi internet, nhưng TV vẫn duyệt web bình thường.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS bị lỗi</string>
     <string name="ief_caiu_internet" formatted="true">internet bị mất</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (sau đó TV ngừng đo; không biết khi nào có lại)</string>

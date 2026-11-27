@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Upptinad. Den fungerar som förut.</string>
     <string name="sob_demanda_falhou">Kunde inte ändra det nu. Försök igen om en stund.</string>
     <string name="home_desinstalar">Avinstallera</string>
-    <string name="home_app_sistema"> (systemapp)</string>
+    <string name="home_app_sistema">" (systemapp)"</string>
     <string name="home_desinstalar_titulo">Avinstallera %1$s?</string>
     <string name="home_desinstalar_aviso">Appen och dess data försvinner från tv:n. Det går inte att ångra: för att få tillbaka den installerar du den igen från Play Butik.</string>
     <string name="home_cancelar">Avbryt</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">Tv:n har inget wifi%1$s. Kontrollera att routern är på, eller om nätverksnamnet eller lösenordet har ändrats.</string>
     <string name="ief_roteador_sem_modem" formatted="true">routern tappade länken till leverantörens modem</string>
     <string name="ief_roteador_ve_fora" formatted="true">routern ser också att internet är nere</string>
-    <string name="ief_ha" formatted="true"> (för %1$s sedan)</string>
+    <string name="ief_ha" formatted="true">" (för %1$s sedan)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wifi fungerar, men leverantörens internet gick ner%1$s; %2$s%3$s. Det är inte tv:n: vänta på leverantören eller starta om modemet.</string>
     <string name="ief_vpn_travada" formatted="true">Routern har internet, men tv:n kommer inte fram%1$s: VPN har troligen fastnat. Att stänga av och slå på VPN brukar lösa det.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Routern har internet, men tv:n når den inte%1$s: problemet är mellan tv:n och routern%2$s Att ansluta tv:n till wifi igen brukar lösa det.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (wifi-signalen är svag, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (wifi-signalen är svag, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">Tv:n är på wifi, men varken routern eller internet svarar%1$s: routern kan ha frusit. Att stänga av och slå på routern brukar lösa det.</string>
     <string name="ief_sem_internet" formatted="true">Wifi fungerar, men internet kommer inte fram%1$s; det är troligen leverantören eller routern%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (att VPN är på kan också vara orsaken).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (att VPN är på kan också vara orsaken)."</string>
     <string name="ief_dns" formatted="true">Internet fungerar, men DNS%1$s svarar inte%2$s: appar hittar inte sina servrar. Att byta DNS till Automatiskt löser det.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet och DNS svarar, men Googles testsida %1$s: något på vägen (VPN, DNS-blockering eller ett nätverk som kräver inloggning) blockerar den.</string>
     <string name="ief_nao_abriu" formatted="true">öppnades inte</string>
     <string name="ief_codigo_diferente" formatted="true">svarade annorlunda (kod %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">testsidan tog %1$.1f s att öppna</string>
     <string name="ief_queda_recente" formatted="true">Internet fungerar nu; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Allt bra: wifi, internet och DNS svarar.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Inga avbrott de senaste 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Inga avbrott registrerade (tv:n mätte bara en del av de senaste 24 h).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Routern rapporterar ett internetproblem, men tv:n surfar normalt.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Inga avbrott de senaste 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Inga avbrott registrerade (tv:n mätte bara en del av de senaste 24 h)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Routern rapporterar ett internetproblem, men tv:n surfar normalt.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS misslyckades</string>
     <string name="ief_caiu_internet" formatted="true">internet gick ner</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (sedan slutade tv:n mäta; det går inte att veta när det kom tillbaka)</string>

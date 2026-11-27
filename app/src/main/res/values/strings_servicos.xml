@@ -19,7 +19,7 @@
     <string name="sv_passos">1. On your phone, open %1$s (or point the camera at the code on the right).\n2. Sign in to %2$s and type the code:</string>
     <string name="sv_espera">This screen continues by itself. BACK cancels.</string>
     <string name="sv_ok">Done: %1$s is connected%2$s.</string>
-    <string name="sv_ok_como"> as %1$s</string>
+    <string name="sv_ok_como">" as %1$s"</string>
     <string name="sv_falhou">It did not work: %1$s</string>
     <string name="sv_motivo_venceu">the code expired. Try again.</string>
     <string name="sv_motivo_recusado">access was denied on the phone.</string>

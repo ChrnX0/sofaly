@@ -114,7 +114,7 @@
     <string name="ag_agora">şimdi</string>
     <string name="ag_as_h">saat %1$d’de</string>
     <string name="ag_as_hm">saat %1$d:%2$02d’de</string>
-    <string name="ag_e_mais"> ve %1$d tane daha</string>
+    <string name="ag_e_mais">" ve %1$d tane daha"</string>
     <string name="ag_hoje">Bugün takvimde: %1$s.</string>
     <string name="ch_chuva">Yağmur</string>
     <string name="ch_chance">%2$s civarı %%%1$d olasılık</string>

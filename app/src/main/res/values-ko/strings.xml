@@ -120,7 +120,7 @@
     <string name="sob_demanda_desligado">정지를 해제했습니다. 전처럼 작동합니다.</string>
     <string name="sob_demanda_falhou">지금은 바꿀 수 없습니다. 잠시 후 다시 시도하세요.</string>
     <string name="home_desinstalar">제거</string>
-    <string name="home_app_sistema"> (시스템 앱)</string>
+    <string name="home_app_sistema">" (시스템 앱)"</string>
     <string name="home_desinstalar_titulo">%1$s을(를) 제거할까요?</string>
     <string name="home_desinstalar_aviso">앱과 데이터가 TV에서 삭제됩니다. 되돌릴 수 없으며, 다시 사용하려면 Play 스토어에서 다시 설치해야 합니다.</string>
     <string name="home_cancelar">취소</string>
@@ -874,17 +874,17 @@ AS\\Movies).</string>
     <string name="ief_sem_wifi" formatted="true">TV에 Wi-Fi가 연결되어 있지 않습니다%1$s. 공유기가 켜져 있는지, 네트워크 이름이나 비밀번호가 바뀌었는지 확인하세요.</string>
     <string name="ief_roteador_sem_modem" formatted="true">공유기가 통신사 모뎀과의 연결을 잃었습니다</string>
     <string name="ief_roteador_ve_fora" formatted="true">공유기도 인터넷이 끊긴 것으로 봅니다</string>
-    <string name="ief_ha" formatted="true"> (%1$s 전부터)</string>
+    <string name="ief_ha" formatted="true">" (%1$s 전부터)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi는 정상이지만 통신사 인터넷이 끊겼습니다%1$s. %2$s%3$s. TV 문제가 아닙니다. 통신사 복구를 기다리거나 모뎀을 다시 켜세요.</string>
     <string name="ief_vpn_travada" formatted="true">공유기에는 인터넷이 있지만 TV가 통과하지 못합니다%1$s. VPN이 멈춘 것 같습니다. VPN을 껐다 켜면 대개 해결됩니다.</string>
     <string name="ief_entre_tv_roteador" formatted="true">공유기에는 인터넷이 있지만 TV가 닿지 못합니다%1$s. 문제는 TV와 공유기 사이에 있습니다%2$s TV를 Wi-Fi에 다시 연결하면 대개 해결됩니다.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi 신호가 약함, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (Wi-Fi 신호가 약함, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">TV는 Wi-Fi에 있지만 공유기도 인터넷도 응답하지 않습니다%1$s. 공유기가 멈췄을 수 있습니다. 공유기를 껐다 켜면 대개 해결됩니다.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi는 정상이지만 인터넷이 들어오지 않습니다%1$s. 통신사나 공유기 문제로 보입니다%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (켜져 있는 VPN이 원인일 수도 있습니다).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (켜져 있는 VPN이 원인일 수도 있습니다)."</string>
     <string name="ief_dns" formatted="true">인터넷은 들어오지만 DNS%1$s가 응답하지 않습니다%2$s. 앱이 서버를 찾지 못합니다. DNS를 자동으로 바꾸면 해결됩니다.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">인터넷과 DNS는 응답하지만 Google 테스트 페이지가 %1$s. 중간의 무언가(VPN, DNS 차단, 로그인을 요구하는 네트워크)가 막고 있습니다.</string>
     <string name="ief_nao_abriu" formatted="true">열리지 않았습니다</string>
     <string name="ief_codigo_diferente" formatted="true">다르게 응답했습니다(코드 %1$d)</string>
@@ -896,9 +896,9 @@ AS\\Movies).</string>
     <string name="ief_lenta_http" formatted="true">테스트 페이지가 열리는 데 %1$.1f초 걸렸습니다</string>
     <string name="ief_queda_recente" formatted="true">인터넷은 지금 정상입니다. %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">모두 정상: Wi-Fi, 인터넷, DNS가 응답합니다.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> 최근 24시간 동안 끊김 없음.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> 기록된 끊김 없음(TV가 최근 24시간 중 일부만 측정했습니다).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (공유기가 인터넷 문제를 알리지만 TV는 정상적으로 사용 중입니다.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" 최근 24시간 동안 끊김 없음."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" 기록된 끊김 없음(TV가 최근 24시간 중 일부만 측정했습니다)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (공유기가 인터넷 문제를 알리지만 TV는 정상적으로 사용 중입니다.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS가 실패했습니다</string>
     <string name="ief_caiu_internet" formatted="true">인터넷이 끊겼습니다</string>
     <string name="ief_queda_sem_medir" formatted="true">%2$s %1$s (그 뒤 TV가 측정을 멈춰 언제 돌아왔는지 알 수 없습니다)</string>

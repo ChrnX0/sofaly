@@ -19,7 +19,7 @@
     <string name="sv_passos">1. V telefonu otevřete %1$s (nebo namiřte fotoaparát na kód vpravo).\n2. Přihlaste se k %2$s a zadejte kód:</string>
     <string name="sv_espera">Tato obrazovka pokračuje sama. ZPĚT ruší.</string>
     <string name="sv_ok">Hotovo: %1$s je připojen%2$s.</string>
-    <string name="sv_ok_como"> jako %1$s</string>
+    <string name="sv_ok_como">" jako %1$s"</string>
     <string name="sv_falhou">Nepovedlo se: %1$s</string>
     <string name="sv_motivo_venceu">kód vypršel. Zkuste to znovu.</string>
     <string name="sv_motivo_recusado">přístup byl v telefonu zamítnut.</string>

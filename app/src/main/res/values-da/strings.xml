@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Optøet. Den virker som før.</string>
     <string name="sob_demanda_falhou">Kunne ikke ændre det nu. Prøv igen om lidt.</string>
     <string name="home_desinstalar">Afinstaller</string>
-    <string name="home_app_sistema"> (systemapp)</string>
+    <string name="home_app_sistema">" (systemapp)"</string>
     <string name="home_desinstalar_titulo">Afinstallere %1$s?</string>
     <string name="home_desinstalar_aviso">Appen og dens data forsvinder fra tv\'et. Det kan ikke fortrydes: for at få den tilbage skal du installere den igen fra Play Butik.</string>
     <string name="home_cancelar">Annuller</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">Tv\'et har ingen wifi%1$s. Tjek, at routeren er tændt, eller om netværksnavnet eller adgangskoden er ændret.</string>
     <string name="ief_roteador_sem_modem" formatted="true">routeren mistede forbindelsen til udbyderens modem</string>
     <string name="ief_roteador_ve_fora" formatted="true">routeren ser også internettet nede</string>
-    <string name="ief_ha" formatted="true"> (for %1$s siden)</string>
+    <string name="ief_ha" formatted="true">" (for %1$s siden)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wifi er fint, men udbyderens internet gik ned%1$s; %2$s%3$s. Det er ikke tv\'et: vent på udbyderen, eller genstart modemmet.</string>
     <string name="ief_vpn_travada" formatted="true">Routeren har internet, men tv\'et kommer ikke igennem%1$s: VPN\'en sidder sandsynligvis fast. At slå VPN fra og til løser det som regel.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Routeren har internet, men tv\'et kan ikke nå den%1$s: problemet er mellem tv\'et og routeren%2$s At forbinde tv\'et til wifi igen løser det som regel.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (wifi-signalet er svagt, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (wifi-signalet er svagt, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">Tv\'et er på wifi, men hverken routeren eller internettet svarer%1$s: routeren kan være frosset. At slukke og tænde routeren løser det som regel.</string>
     <string name="ief_sem_internet" formatted="true">Wifi er fint, men internettet kommer ikke igennem%1$s; det er sandsynligvis udbyderen eller routeren%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (at VPN er slået til kan også være årsagen).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (at VPN er slået til kan også være årsagen)."</string>
     <string name="ief_dns" formatted="true">Internettet virker, men DNS%1$s svarer ikke%2$s: apps kan ikke finde deres servere. At skifte DNS til Automatisk løser det.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internettet og DNS svarer, men Googles testside %1$s: noget på vejen (VPN, DNS-blokering eller et netværk, der kræver login) blokerer den.</string>
     <string name="ief_nao_abriu" formatted="true">åbnede ikke</string>
     <string name="ief_codigo_diferente" formatted="true">svarede anderledes (kode %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">testsiden tog %1$.1f s om at åbne</string>
     <string name="ief_queda_recente" formatted="true">Internettet er fint nu; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Alt godt: wifi, internet og DNS svarer.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Ingen afbrydelser de seneste 24 t.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Ingen afbrydelser registreret (tv\'et målte kun en del af de seneste 24 t).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Routeren melder et internetproblem, men tv\'et surfer normalt.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Ingen afbrydelser de seneste 24 t."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Ingen afbrydelser registreret (tv\'et målte kun en del af de seneste 24 t)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Routeren melder et internetproblem, men tv\'et surfer normalt.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS fejlede</string>
     <string name="ief_caiu_internet" formatted="true">internettet gik ned</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (derefter holdt tv\'et op med at måle; man kan ikke vide, hvornår det kom tilbage)</string>

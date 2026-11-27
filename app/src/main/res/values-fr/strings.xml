@@ -120,7 +120,7 @@
     <string name="sob_demanda_desligado">Dégelée. Elle fonctionne comme avant.</string>
     <string name="sob_demanda_falhou">Impossible de changer maintenant. Réessayez dans un instant.</string>
     <string name="home_desinstalar">Désinstaller</string>
-    <string name="home_app_sistema"> (app système)</string>
+    <string name="home_app_sistema">" (app système)"</string>
     <string name="home_desinstalar_titulo">Désinstaller %1$s ?</string>
     <string name="home_desinstalar_aviso">L’app et ses données quittent la TV. C’est irréversible : pour la récupérer, réinstallez-la depuis le Play Store.</string>
     <string name="home_cancelar">Annuler</string>
@@ -880,17 +880,17 @@ AS\\Films).</string>
     <string name="ief_sem_wifi" formatted="true">La TV n’a pas de Wi-Fi%1$s. Vérifiez que le routeur est allumé ou si le nom ou le mot de passe du réseau a changé.</string>
     <string name="ief_roteador_sem_modem" formatted="true">le routeur a perdu la liaison avec le modem du fournisseur</string>
     <string name="ief_roteador_ve_fora" formatted="true">le routeur voit aussi Internet coupé</string>
-    <string name="ief_ha" formatted="true"> (depuis %1$s)</string>
+    <string name="ief_ha" formatted="true">" (depuis %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">Le Wi-Fi va bien, mais Internet du fournisseur est tombé%1$s ; %2$s%3$s. Ce n’est pas la TV : attendez le fournisseur ou redémarrez le modem.</string>
     <string name="ief_vpn_travada" formatted="true">Le routeur a Internet, mais la TV ne passe pas%1$s : le VPN est sans doute bloqué. Éteindre puis rallumer le VPN règle souvent le problème.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Le routeur a Internet, mais la TV ne l’atteint pas%1$s : le problème est entre la TV et le routeur%2$s Reconnecter la TV au Wi-Fi règle souvent le problème.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (le signal Wi-Fi est faible, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (le signal Wi-Fi est faible, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">La TV est sur le Wi-Fi, mais ni le routeur ni Internet ne répondent%1$s : le routeur est peut-être bloqué. L’éteindre puis le rallumer règle souvent le problème.</string>
     <string name="ief_sem_internet" formatted="true">Le Wi-Fi va bien, mais Internet n’arrive pas%1$s ; c’est sans doute le fournisseur ou le routeur%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (le VPN activé peut aussi en être la cause).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (le VPN activé peut aussi en être la cause)."</string>
     <string name="ief_dns" formatted="true">Internet arrive, mais le DNS%1$s ne répond pas%2$s : les applis ne trouvent pas leurs serveurs. Passer le DNS en Automatique règle le problème.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet et le DNS répondent, mais la page de test de Google %1$s : quelque chose sur le chemin (VPN, blocage DNS ou réseau demandant une connexion) la bloque.</string>
     <string name="ief_nao_abriu" formatted="true">ne s’est pas ouverte</string>
     <string name="ief_codigo_diferente" formatted="true">a répondu autrement (code %1$d)</string>
@@ -902,15 +902,15 @@ AS\\Films).</string>
     <string name="ief_lenta_http" formatted="true">la page de test a mis %1$.1f s à s’ouvrir</string>
     <string name="ief_queda_recente" formatted="true">Internet va bien maintenant ; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Tout va bien : Wi-Fi, Internet et DNS répondent.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Aucune coupure ces dernières 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Aucune coupure enregistrée (la TV n’a mesuré qu’une partie des dernières 24 h).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Le routeur signale un problème Internet, mais la TV navigue normalement.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Aucune coupure ces dernières 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Aucune coupure enregistrée (la TV n’a mesuré qu’une partie des dernières 24 h)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Le routeur signale un problème Internet, mais la TV navigue normalement.)"</string>
     <string name="ief_caiu_dns" formatted="true">le DNS a échoué</string>
     <string name="ief_caiu_internet" formatted="true">Internet est tombé</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (puis la TV a cessé de mesurer ; impossible de savoir quand il est revenu)</string>
-    <string name="ief_quedas_n" formatted="true"> ; %1$d coupures en 24 h</string>
+    <string name="ief_quedas_n" formatted="true">" ; %1$d coupures en 24 h"</string>
     <string name="ief_queda_voltou" formatted="true">%1$s %2$s et est revenu %3$s (%4$s)</string>
-    <string name="ief_quedas_total" formatted="true"> ; %1$d coupures en 24 h, %2$s sans Internet au total</string>
+    <string name="ief_quedas_total" formatted="true">" ; %1$d coupures en 24 h, %2$s sans Internet au total"</string>
     <string name="ief_quando_hoje" formatted="true">à %1$s</string>
     <string name="ief_quando_ontem" formatted="true">hier à %1$s</string>
     <string name="ief_quando_data" formatted="true">le %1$s à %2$s</string>

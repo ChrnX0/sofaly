@@ -120,7 +120,7 @@
     <string name="sob_demanda_desligado">Aufgetaut. Sie funktioniert wie vorher.</string>
     <string name="sob_demanda_falhou">Konnte gerade nicht geändert werden. Gleich noch einmal versuchen.</string>
     <string name="home_desinstalar">Deinstallieren</string>
-    <string name="home_app_sistema"> (System-App)</string>
+    <string name="home_app_sistema">" (System-App)"</string>
     <string name="home_desinstalar_titulo">%1$s deinstallieren?</string>
     <string name="home_desinstalar_aviso">Die App und ihre Daten werden vom Fernseher entfernt. Das lässt sich nicht rückgängig machen: Um sie zurückzubekommen, installiere sie erneut aus dem Play Store.</string>
     <string name="home_cancelar">Abbrechen</string>
@@ -877,17 +877,17 @@ AS\\Filme).</string>
     <string name="ief_sem_wifi" formatted="true">Der Fernseher hat kein WLAN%1$s. Prüfen Sie, ob der Router an ist oder ob sich Netzwerkname oder Passwort geändert haben.</string>
     <string name="ief_roteador_sem_modem" formatted="true">der Router hat die Verbindung zum Modem des Anbieters verloren</string>
     <string name="ief_roteador_ve_fora" formatted="true">auch der Router sieht das Internet als ausgefallen</string>
-    <string name="ief_ha" formatted="true"> (seit %1$s)</string>
+    <string name="ief_ha" formatted="true">" (seit %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">Das WLAN ist in Ordnung, aber das Internet des Anbieters ist ausgefallen%1$s; %2$s%3$s. Es liegt nicht am Fernseher: auf den Anbieter warten oder das Modem neu starten.</string>
     <string name="ief_vpn_travada" formatted="true">Der Router hat Internet, aber der Fernseher kommt nicht durch%1$s: das VPN hängt vermutlich. VPN aus- und wieder einschalten hilft meistens.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Der Router hat Internet, aber der Fernseher erreicht es nicht%1$s: das Problem liegt zwischen Fernseher und Router%2$s Den Fernseher neu mit dem WLAN verbinden hilft meistens.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (das WLAN-Signal ist schwach, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (das WLAN-Signal ist schwach, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">Der Fernseher ist im WLAN, aber weder Router noch Internet antworten%1$s: der Router hängt vielleicht. Router aus- und wieder einschalten hilft meistens.</string>
     <string name="ief_sem_internet" formatted="true">Das WLAN ist in Ordnung, aber das Internet kommt nicht an%1$s; vermutlich liegt es am Anbieter oder am Router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (auch das eingeschaltete VPN kann schuld sein).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (auch das eingeschaltete VPN kann schuld sein)."</string>
     <string name="ief_dns" formatted="true">Das Internet kommt an, aber der DNS%1$s antwortet nicht%2$s: Apps finden ihre Server nicht. DNS auf Automatisch stellen behebt es.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet und DNS antworten, aber die Testseite von Google %1$s: etwas auf dem Weg (VPN, DNS-Sperre oder ein Netz, das eine Anmeldung verlangt) blockiert.</string>
     <string name="ief_nao_abriu" formatted="true">öffnete sich nicht</string>
     <string name="ief_codigo_diferente" formatted="true">antwortete anders (Code %1$d)</string>
@@ -899,9 +899,9 @@ AS\\Filme).</string>
     <string name="ief_lenta_http" formatted="true">die Testseite brauchte %1$.1f s zum Öffnen</string>
     <string name="ief_queda_recente" formatted="true">Das Internet ist jetzt in Ordnung; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Alles in Ordnung: WLAN, Internet und DNS antworten.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Keine Ausfälle in den letzten 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Keine Ausfälle erfasst (der Fernseher hat nur einen Teil der letzten 24 h gemessen).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Der Router meldet ein Internetproblem, aber der Fernseher surft normal.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Keine Ausfälle in den letzten 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Keine Ausfälle erfasst (der Fernseher hat nur einen Teil der letzten 24 h gemessen)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Der Router meldet ein Internetproblem, aber der Fernseher surft normal.)"</string>
     <string name="ief_caiu_dns" formatted="true">der DNS ist ausgefallen</string>
     <string name="ief_caiu_internet" formatted="true">das Internet ist ausgefallen</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (danach hat der Fernseher nicht mehr gemessen; wann es zurückkam, ist unbekannt)</string>

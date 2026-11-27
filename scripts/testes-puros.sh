@@ -37,6 +37,7 @@ declare -A FONTES=(
   [McpAutorizacaoTest]="McpAutorizacao"
   [McpProtocoloTest]="McpProtocolo"
   [PainelHtmlTest]=""
+  [StringWhitespaceTest]=""
   [ConfirmacoesTest]="Confirmacoes"
   [CertificadoX509Test]="CertificadoX509"
   [PaginaCertificadoTest]="PaginaCertificado PainelHttp PainelSeguranca JsonSeguro"

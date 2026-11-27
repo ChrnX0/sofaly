@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Ontdooid. Hij werkt zoals voorheen.</string>
     <string name="sob_demanda_falhou">Kon het nu niet wijzigen. Probeer het zo meteen opnieuw.</string>
     <string name="home_desinstalar">Verwijderen</string>
-    <string name="home_app_sistema"> (systeemapp)</string>
+    <string name="home_app_sistema">" (systeemapp)"</string>
     <string name="home_desinstalar_titulo">%1$s verwijderen?</string>
     <string name="home_desinstalar_aviso">De app en zijn gegevens verdwijnen van de tv. Dit kan niet ongedaan worden gemaakt: om hem terug te krijgen, installeer je hem opnieuw via de Play Store.</string>
     <string name="home_cancelar">Annuleren</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">De tv heeft geen wifi%1$s. Controleer of de router aan staat, of de netwerknaam of het wachtwoord is veranderd.</string>
     <string name="ief_roteador_sem_modem" formatted="true">de router verloor de verbinding met het modem van de provider</string>
     <string name="ief_roteador_ve_fora" formatted="true">de router ziet het internet ook als plat</string>
-    <string name="ief_ha" formatted="true"> (%1$s geleden)</string>
+    <string name="ief_ha" formatted="true">" (%1$s geleden)"</string>
     <string name="ief_provedor_caiu" formatted="true">De wifi is in orde, maar het internet van de provider viel weg%1$s; %2$s%3$s. Het ligt niet aan de tv: wacht op de provider of herstart het modem.</string>
     <string name="ief_vpn_travada" formatted="true">De router heeft internet, maar de tv komt er niet door%1$s: de VPN zit waarschijnlijk vast. De VPN uit- en weer aanzetten lost het meestal op.</string>
     <string name="ief_entre_tv_roteador" formatted="true">De router heeft internet, maar de tv bereikt hem niet%1$s: het probleem zit tussen de tv en de router%2$s De tv opnieuw met wifi verbinden lost het meestal op.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (het wifisignaal is zwak, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (het wifisignaal is zwak, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">De tv zit op wifi, maar router noch internet antwoordt%1$s: de router is misschien vastgelopen. De router uit- en weer aanzetten lost het meestal op.</string>
     <string name="ief_sem_internet" formatted="true">De wifi is in orde, maar het internet komt niet door%1$s; het ligt waarschijnlijk aan de provider of de router%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (de VPN die aan staat kan ook de oorzaak zijn).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (de VPN die aan staat kan ook de oorzaak zijn)."</string>
     <string name="ief_dns" formatted="true">Het internet werkt, maar de DNS%1$s antwoordt niet%2$s: apps vinden hun servers niet. De DNS op Automatisch zetten lost het op.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Het internet en de DNS antwoorden, maar de testpagina van Google %1$s: iets onderweg (VPN, DNS-blokkering of een netwerk dat om een login vraagt) blokkeert het.</string>
     <string name="ief_nao_abriu" formatted="true">ging niet open</string>
     <string name="ief_codigo_diferente" formatted="true">antwoordde anders (code %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">de testpagina deed er %1$.1f s over om te openen</string>
     <string name="ief_queda_recente" formatted="true">Het internet is nu in orde; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Alles goed: wifi, internet en DNS antwoorden.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Geen onderbrekingen in de laatste 24 u.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Geen onderbrekingen geregistreerd (de tv mat maar een deel van de laatste 24 u).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (De router meldt een internetprobleem, maar de tv surft normaal.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Geen onderbrekingen in de laatste 24 u."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Geen onderbrekingen geregistreerd (de tv mat maar een deel van de laatste 24 u)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (De router meldt een internetprobleem, maar de tv surft normaal.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS faalde</string>
     <string name="ief_caiu_internet" formatted="true">het internet viel weg</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (daarna stopte de tv met meten; het is niet te weten wanneer het terugkwam)</string>

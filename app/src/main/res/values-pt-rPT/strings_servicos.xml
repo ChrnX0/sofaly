@@ -19,7 +19,7 @@
     <string name="sv_passos">1. No telemóvel, abra %1$s (ou aponte a câmara para o código à direita).\n2. Entre no %2$s e introduza o código:</string>
     <string name="sv_espera">Este ecrã continua sozinha. VOLTAR cancela.</string>
     <string name="sv_ok">Pronto: %1$s conectado%2$s.</string>
-    <string name="sv_ok_como"> como %1$s</string>
+    <string name="sv_ok_como">" como %1$s"</string>
     <string name="sv_falhou">Não deu certo: %1$s</string>
     <string name="sv_motivo_venceu">o código venceu. Tente de novo.</string>
     <string name="sv_motivo_recusado">o acesso foi recusado no telemóvel.</string>

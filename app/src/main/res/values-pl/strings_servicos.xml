@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Na telefonie otwórz %1$s (lub skieruj aparat na kod po prawej).\n2. Zaloguj się do %2$s i wpisz kod:</string>
     <string name="sv_espera">Ten ekran sam przejdzie dalej. WSTECZ anuluje.</string>
     <string name="sv_ok">Gotowe: %1$s jest połączony%2$s.</string>
-    <string name="sv_ok_como"> jako %1$s</string>
+    <string name="sv_ok_como">" jako %1$s"</string>
     <string name="sv_falhou">Nie zadziałało: %1$s</string>
     <string name="sv_motivo_venceu">kod wygasł. Spróbuj ponownie.</string>
     <string name="sv_motivo_recusado">odmówiono dostępu na telefonie.</string>

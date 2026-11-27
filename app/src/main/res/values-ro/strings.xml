@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Dezghețată. Funcționează ca înainte.</string>
     <string name="sob_demanda_falhou">Nu s-a putut schimba acum. Încercați din nou peste puțin timp.</string>
     <string name="home_desinstalar">Dezinstalează</string>
-    <string name="home_app_sistema"> (aplicație de sistem)</string>
+    <string name="home_app_sistema">" (aplicație de sistem)"</string>
     <string name="home_desinstalar_titulo">Dezinstalați %1$s?</string>
     <string name="home_desinstalar_aviso">Aplicația și datele ei dispar de pe TV. Acest lucru nu poate fi anulat: pentru a o recupera, instalați-o din nou din Magazin Play.</string>
     <string name="home_cancelar">Anulează</string>
@@ -903,17 +903,17 @@
     <string name="ief_sem_wifi" formatted="true">TV-ul nu are Wi-Fi%1$s. Verificați că routerul e pornit sau dacă s-a schimbat numele sau parola rețelei.</string>
     <string name="ief_roteador_sem_modem" formatted="true">routerul a pierdut legătura cu modemul furnizorului</string>
     <string name="ief_roteador_ve_fora" formatted="true">și routerul vede internetul căzut</string>
-    <string name="ief_ha" formatted="true"> (acum %1$s)</string>
+    <string name="ief_ha" formatted="true">" (acum %1$s)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi-ul e în regulă, dar internetul furnizorului a căzut%1$s; %2$s%3$s. Nu e TV-ul: așteptați furnizorul sau reporniți modemul.</string>
     <string name="ief_vpn_travada" formatted="true">Routerul are internet, dar TV-ul nu trece%1$s: probabil VPN-ul s-a blocat. De obicei ajută oprirea și pornirea VPN-ului.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Routerul are internet, dar TV-ul nu ajunge la el%1$s: problema e între TV și router%2$s De obicei ajută reconectarea TV-ului la Wi-Fi.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (semnalul Wi-Fi e slab, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (semnalul Wi-Fi e slab, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">TV-ul e pe Wi-Fi, dar nici routerul, nici internetul nu răspund%1$s: routerul s-ar putea să fie blocat. De obicei ajută oprirea și pornirea routerului.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi-ul e în regulă, dar internetul nu trece%1$s; probabil e furnizorul sau routerul%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (și VPN-ul activ poate fi cauza).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (și VPN-ul activ poate fi cauza)."</string>
     <string name="ief_dns" formatted="true">Internetul funcționează, dar DNS-ul%1$s nu răspunde%2$s: aplicațiile nu își găsesc serverele. Trecerea DNS-ului pe Automat rezolvă problema.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internetul și DNS-ul răspund, dar pagina de test Google %1$s: ceva pe drum (VPN, blocare DNS sau o rețea care cere autentificare) o blochează.</string>
     <string name="ief_nao_abriu" formatted="true">nu s-a deschis</string>
     <string name="ief_codigo_diferente" formatted="true">a răspuns diferit (cod %1$d)</string>
@@ -925,9 +925,9 @@
     <string name="ief_lenta_http" formatted="true">pagina de test s-a deschis în %1$.1f s</string>
     <string name="ief_queda_recente" formatted="true">Internetul e în regulă acum; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Totul e bine: Wi-Fi-ul, internetul și DNS-ul răspund.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Nicio cădere în ultimele 24 h.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Nicio cădere înregistrată (TV-ul a măsurat doar o parte din ultimele 24 h).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Routerul raportează o problemă de internet, dar TV-ul navighează normal.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Nicio cădere în ultimele 24 h."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Nicio cădere înregistrată (TV-ul a măsurat doar o parte din ultimele 24 h)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Routerul raportează o problemă de internet, dar TV-ul navighează normal.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS-ul a eșuat</string>
     <string name="ief_caiu_internet" formatted="true">internetul a căzut</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (apoi TV-ul a oprit măsurarea; nu se știe când a revenit)</string>

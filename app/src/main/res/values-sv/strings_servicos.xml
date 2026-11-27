@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Öppna %1$s på telefonen (eller rikta kameran mot koden till höger).\n2. Logga in på %2$s och skriv koden:</string>
     <string name="sv_espera">Den här skärmen fortsätter av sig själv. TILLBAKA avbryter.</string>
     <string name="sv_ok">Klart: %1$s är anslutet%2$s.</string>
-    <string name="sv_ok_como"> som %1$s</string>
+    <string name="sv_ok_como">" som %1$s"</string>
     <string name="sv_falhou">Det fungerade inte: %1$s</string>
     <string name="sv_motivo_venceu">koden har gått ut. Försök igen.</string>
     <string name="sv_motivo_recusado">åtkomst nekades på telefonen.</string>

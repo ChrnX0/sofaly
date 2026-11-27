@@ -19,7 +19,7 @@
     <string name="sv_passos">1. Στο κινητό, ανοίξτε το %1$s (ή στρέψτε την κάμερα στον κωδικό δεξιά).\n2. Συνδεθείτε στο %2$s και πληκτρολογήστε τον κωδικό:</string>
     <string name="sv_espera">Αυτή η οθόνη συνεχίζει μόνη της. Το ΠΙΣΩ ακυρώνει.</string>
     <string name="sv_ok">Έγινε: το %1$s συνδέθηκε%2$s.</string>
-    <string name="sv_ok_como"> ως %1$s</string>
+    <string name="sv_ok_como">" ως %1$s"</string>
     <string name="sv_falhou">Δεν πέτυχε: %1$s</string>
     <string name="sv_motivo_venceu">ο κωδικός έληξε. Δοκιμάστε ξανά.</string>
     <string name="sv_motivo_recusado">η πρόσβαση απορρίφθηκε στο κινητό.</string>

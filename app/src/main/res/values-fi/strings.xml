@@ -137,7 +137,7 @@
     <string name="sob_demanda_desligado">Sulatettu. Se toimii kuten ennenkin.</string>
     <string name="sob_demanda_falhou">Muutos ei onnistunut nyt. Yritä hetken kuluttua uudelleen.</string>
     <string name="home_desinstalar">Poista asennus</string>
-    <string name="home_app_sistema"> (järjestelmäsovellus)</string>
+    <string name="home_app_sistema">" (järjestelmäsovellus)"</string>
     <string name="home_desinstalar_titulo">Poistetaanko %1$s?</string>
     <string name="home_desinstalar_aviso">Sovellus ja sen tiedot poistuvat TV:stä. Tätä ei voi kumota: saadaksesi sen takaisin asenna se uudelleen Play Kaupasta.</string>
     <string name="home_cancelar">Peruuta</string>
@@ -900,17 +900,17 @@
     <string name="ief_sem_wifi" formatted="true">TV:llä ei ole Wi-Fiä%1$s. Tarkista, että reititin on päällä, tai onko verkon nimi tai salasana muuttunut.</string>
     <string name="ief_roteador_sem_modem" formatted="true">reititin menetti yhteyden palveluntarjoajan modeemiin</string>
     <string name="ief_roteador_ve_fora" formatted="true">myös reititin näkee internetin olevan alhaalla</string>
-    <string name="ief_ha" formatted="true"> (%1$s sitten)</string>
+    <string name="ief_ha" formatted="true">" (%1$s sitten)"</string>
     <string name="ief_provedor_caiu" formatted="true">Wi-Fi on kunnossa, mutta palveluntarjoajan internet katkesi%1$s; %2$s%3$s. Vika ei ole TV:ssä: odota palveluntarjoajaa tai käynnistä modeemi uudelleen.</string>
     <string name="ief_vpn_travada" formatted="true">Reitittimellä on internet, mutta TV ei pääse läpi%1$s: VPN on luultavasti jumissa. VPN:n sammuttaminen ja käynnistäminen yleensä korjaa sen.</string>
     <string name="ief_entre_tv_roteador" formatted="true">Reitittimellä on internet, mutta TV ei tavoita sitä%1$s: ongelma on TV:n ja reitittimen välillä%2$s TV:n yhdistäminen Wi-Fiin uudelleen yleensä korjaa sen.</string>
-    <string name="ief_sinal_fraco_entre" formatted="true"> (Wi-Fi-signaali on heikko, %1$d dBm).</string>
+    <string name="ief_sinal_fraco_entre" formatted="true">" (Wi-Fi-signaali on heikko, %1$d dBm)."</string>
     <string name="ief_ponto" formatted="true">.</string>
     <string name="ief_roteador_travado" formatted="true">TV on Wi-Fissä, mutta reititin tai internet ei vastaa%1$s: reititin saattaa olla jumissa. Reitittimen sammuttaminen ja käynnistäminen yleensä korjaa sen.</string>
     <string name="ief_sem_internet" formatted="true">Wi-Fi on kunnossa, mutta internet ei mene läpi%1$s; luultavasti syy on palveluntarjoajassa tai reitittimessä%2$s</string>
-    <string name="ief_vpn_culpada" formatted="true"> (myös päällä oleva VPN voi olla syy).</string>
+    <string name="ief_vpn_culpada" formatted="true">" (myös päällä oleva VPN voi olla syy)."</string>
     <string name="ief_dns" formatted="true">Internet toimii, mutta DNS%1$s ei vastaa%2$s: sovellukset eivät löydä palvelimiaan. DNS:n vaihtaminen Automaattiseksi korjaa sen.</string>
-    <string name="ief_entre_parenteses" formatted="true"> (%1$s)</string>
+    <string name="ief_entre_parenteses" formatted="true">" (%1$s)"</string>
     <string name="ief_bloqueio" formatted="true">Internet ja DNS vastaavat, mutta Googlen testisivu %1$s: jokin matkalla (VPN, DNS-esto tai kirjautumista vaativa verkko) estää sen.</string>
     <string name="ief_nao_abriu" formatted="true">ei avautunut</string>
     <string name="ief_codigo_diferente" formatted="true">vastasi eri tavalla (koodi %1$d)</string>
@@ -922,9 +922,9 @@
     <string name="ief_lenta_http" formatted="true">testisivun avaaminen kesti %1$.1f s</string>
     <string name="ief_queda_recente" formatted="true">Internet on nyt kunnossa; %1$s.</string>
     <string name="ief_tudo_ok" formatted="true">Kaikki hyvin: Wi-Fi, internet ja DNS vastaavat.%1$s%2$s</string>
-    <string name="ief_sem_quedas_24h" formatted="true"> Ei katkoksia viimeisten 24 tunnin aikana.</string>
-    <string name="ief_sem_quedas_parcial" formatted="true"> Ei tallennettuja katkoksia (TV mittasi vain osan viimeisistä 24 tunnista).</string>
-    <string name="ief_roteador_avisa" formatted="true"> (Reititin ilmoittaa internetongelmasta, mutta TV selaa normaalisti.)</string>
+    <string name="ief_sem_quedas_24h" formatted="true">" Ei katkoksia viimeisten 24 tunnin aikana."</string>
+    <string name="ief_sem_quedas_parcial" formatted="true">" Ei tallennettuja katkoksia (TV mittasi vain osan viimeisistä 24 tunnista)."</string>
+    <string name="ief_roteador_avisa" formatted="true">" (Reititin ilmoittaa internetongelmasta, mutta TV selaa normaalisti.)"</string>
     <string name="ief_caiu_dns" formatted="true">DNS epäonnistui</string>
     <string name="ief_caiu_internet" formatted="true">internet katkesi</string>
     <string name="ief_queda_sem_medir" formatted="true">%1$s %2$s (sitten TV lopetti mittaamisen; ei voi tietää, milloin se palasi)</string>

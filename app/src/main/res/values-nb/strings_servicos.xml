@@ -19,7 +19,7 @@
     <string name="sv_passos">1. På telefonen, åpne %1$s (eller rett kameraet mot koden til høyre).\n2. Logg inn på %2$s og skriv koden:</string>
     <string name="sv_espera">Denne skjermen fortsetter av seg selv. TILBAKE avbryter.</string>
     <string name="sv_ok">Ferdig: %1$s er tilkoblet%2$s.</string>
-    <string name="sv_ok_como"> som %1$s</string>
+    <string name="sv_ok_como">" som %1$s"</string>
     <string name="sv_falhou">Det virket ikke: %1$s</string>
     <string name="sv_motivo_venceu">koden er utløpt. Prøv igjen.</string>
     <string name="sv_motivo_recusado">tilgangen ble avvist på telefonen.</string>
