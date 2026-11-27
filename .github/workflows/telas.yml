@@ -84,7 +84,7 @@ jobs:
       - name: Desenhar e conferir as telas
         run: |
           chmod +x gradlew
-          ./gradlew :app:testReleaseUnitTest -Ptelas --no-daemon
+          ./gradlew :app:testReleaseUnitTest -Ptelas -Pauditoria --no-daemon   # -Pauditoria: contraste e letra de TODAS as telas (27/11/2026)
 
       - name: Resumo
         if: always()

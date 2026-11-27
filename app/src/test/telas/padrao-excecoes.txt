@@ -1,0 +1,2 @@
+# Exceções do padrão visual das telas da TV (AuditoriaTelasTest). Uma regex por linha, aplicada a
+# "<idioma>/<Tela>: <achado>". O comentário de cima diz o motivo. Sem motivo, não entra.

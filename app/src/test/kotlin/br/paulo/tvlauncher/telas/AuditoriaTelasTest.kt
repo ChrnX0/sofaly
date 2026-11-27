@@ -43,7 +43,10 @@ import org.robolectric.annotation.GraphicsMode
  *  - QUASE ALINHADO: dois textos cujas bordas esquerdas ficam a 1-3 dp uma da outra (parece erro, não intenção).
  *  - FOCO: elemento com foco menor que 32 dp de altura (alvo difícil de ver), e se alguém tem o foco ao abrir.
  *
- * Não quebra o build: grava app/build/telas/auditoria-<idioma>.json e .md. Roda só com -Ptelas -Pauditoria.
+ * Grava app/build/telas/auditoria-<idioma>.json e .md. Roda só com -Ptelas -Pauditoria (o CI das telas passa os dois).
+ * REPROVA (auditoria 27/11/2026, padrão visual do Paulo) só CONTRASTE e LETRA PEQUENA, menos o que estiver em
+ * app/src/test/telas/padrao-excecoes.txt com o motivo. As outras regras continuam só no relatório. O painel e o site
+ * têm a mesma checagem no navegador (scripts/padrao-visual.mjs).
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
@@ -74,6 +77,9 @@ class AuditoriaTelasTest {
         val tudo = JSONObject()
         val md = StringBuilder("# Auditoria de medidas ($idioma), ${atividades.size} telas no manifesto\n\n")
         val naoAbriu = mutableListOf<String>()
+        val reprovados = mutableListOf<String>()
+        val excecoes = File("src/test/telas/padrao-excecoes.txt").takeIf { it.exists() }?.readLines().orEmpty()
+            .map { it.trim() }.filter { it.isNotEmpty() && !it.startsWith("#") }.map { Regex(it) }
         for (nome in atividades) {
             val curto = nome.substringAfterLast('.')
             @Suppress("UNCHECKED_CAST")
@@ -88,11 +94,19 @@ class AuditoriaTelasTest {
             if (achados.length() == 0) md.append("- nada fora das regras\n")
             for (i in 0 until achados.length()) md.append("- ").append(achados.getString(i)).append('\n')
             md.append('\n')
+            for (i in 0 until achados.length()) {
+                val linha = "$idioma/$curto: " + achados.getString(i)
+                if ((linha.contains(": CONTRASTE ") || linha.contains(": LETRA PEQUENA ")) && excecoes.none { it.containsMatchIn(linha) })
+                    reprovados += linha
+            }
         }
         md.append("## Telas que não abriram sozinhas (precisam de dados de fora; conferir na TV)\n")
         for (n in naoAbriu) md.append("- ").append(n).append('\n')
         File(saida, "auditoria-$idioma.json").writeText(tudo.toString(1))
         File(saida, "auditoria-$idioma.md").writeText(md.toString())
+        org.junit.Assert.assertTrue("Fora do padrão visual (contraste WCAG AA ou letra < 14 sp). Corrija a tela ou, se for de " +
+            "propósito, ponha uma regex com o motivo em app/src/test/telas/padrao-excecoes.txt:\n" + reprovados.joinToString("\n"),
+            reprovados.isEmpty())
     }
 
     private fun medir(cls: Class<out Activity>, arquivo: String): JSONObject {

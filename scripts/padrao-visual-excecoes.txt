@@ -1,0 +1,2 @@
+# Exceções do padrão visual (scripts/padrao-visual.mjs). Uma por linha: tipo | onde (regex) | texto (regex).
+# Toda exceção diz o motivo no comentário de cima. Sem motivo, não entra.
