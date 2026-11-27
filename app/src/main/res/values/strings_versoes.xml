@@ -22,17 +22,27 @@
         <item>Movies, Radio, theme, rows and focus lists follow the same standard as the other screens</item>
         <item>Weather saved by the home no longer shows up as a change in Undo or in the TV\'s diary</item>
         <item>Sofaly name everywhere: the phone app downloads as sofaly-phone.apk and the panel certificate as sofaly-panel.crt</item>
+        <item>With a film open, the subtitle delay and the player settings changed in Settings no longer erase each other</item>
+        <item>Settings: “Home and network” is now “Home and remote access”</item>
+        <item>Sofy checks the screens by reading the app in front and, when she cannot read one, says why</item>
+        <item>Texts that ran words together got the missing space, as in Internet diagnostics</item>
     </string-array>
     <string-array name="roteiro_ids" translatable="false">
         <item>celular_le_qr</item>
         <item>ajudar_o_que_vai</item>
+        <item>legenda_ajustes</item>
+        <item>diagnostico_espacos</item>
     </string-array>
     <string-array name="roteiro_titulos">
         <item>Phone reads the QR</item>
         <item>What goes</item>
+        <item>Subtitles and settings</item>
+        <item>Spaces in texts</item>
     </string-array>
     <string-array name="roteiro_perguntas">
         <item>In the phone app, tap Read the TV\'s QR code and read the QR in Settings › Home and remote access › Remote access › Sign in from your phone: does the panel open, and does the remote\'s Home key take the TV to the home screen?</item>
         <item>Open Help other homes and How it works: does “What goes” list the name and version of apps that crashed, and does “See what goes today” show two parts?</item>
+        <item>With a film open, change the subtitle delay and, in Settings, a player setting; reopen the film: did both stick?</item>
+        <item>In Internet diagnostics, is there a space between sentences and before “(system app)” and “(5 min ago)”?</item>
     </string-array>
 </resources>
