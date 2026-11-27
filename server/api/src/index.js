@@ -28,7 +28,7 @@
 //   POST   /v1/report              assinada: relato de problema, guardado em particular (src/reports.js)
 //   GET    /v1/reports             só com o REPORTS_TOKEN: a fila de relatos, para a Sofy virar issue sem dado pessoal
 // As rotas públicas aceitam a assinatura sem exigir: com ela, a cota do dia é por aparelho (src/quota.js).
-import { verifySignature, ID_RE, CODE_RE, newCode } from './rules.js';
+import { verifySignature, ID_RE, CODE_RE, newCode, parseJson } from './rules.js';
 import { recommendedBody } from './addons.js';
 import { pluginsBody } from './plugins.js';
 import { handlePodcasts } from './podcasts.js';
@@ -198,7 +198,3 @@ function mailbox(env, id) {
   return env.MAILBOX.get(env.MAILBOX.idFromName(id));
 }
 const pairing = (env, code) => env.PAIRING.get(env.PAIRING.idFromName(code));
-
-function parseJson(body) {
-  try { return JSON.parse(new TextDecoder().decode(body)); } catch { return {}; }
-}

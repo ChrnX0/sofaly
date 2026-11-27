@@ -83,3 +83,12 @@ export const TXT_RE = /^[A-Za-z0-9_-]{43}$/;
 export function utcDay(nowSec) {
   return Math.floor(nowSec / 86400);
 }
+
+// Corpo JSON de uma rota assinada, sempre como objeto: "null" (ou um número, um texto) virava TypeError em
+// `.value`/`{ ids }` e a rota respondia 500 em vez de 400.
+export function parseJson(body /* Uint8Array */) {
+  try {
+    const v = JSON.parse(new TextDecoder().decode(body));
+    return v !== null && typeof v === 'object' ? v : {};
+  } catch { return {}; }
+}
