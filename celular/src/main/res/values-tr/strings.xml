@@ -33,7 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Sessiz</string>
     <string name="cel_ctrl_sem_tv">TV yanıt vermedi. Açık ve aynı ağda mı?</string>
-    <string name="cel_ctrl_fora">İnternet üzerinden gönderildi: TV\'nin ağının dışındasınız.</string>
+    <string name="cel_ctrl_fora">İnternet üzerinden gönderildi.</string>
     <string name="cel_ctrl_cert_novo">TV\'nin yeni bir güvenlik sertifikası var. TV\'deki QR kodunu tekrar okutun.</string>
     <string name="cel_ctrl_recusou">TV bunu şu an yapamadı.</string>
     <string name="cel_ctrl_entrar">Panelde TV PIN\'iyle bir kez gir; sonra kumanda çalışır.</string>

@@ -1,5 +1,8 @@
 // Painel em cs (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"toto zařízení už nemá přístup",
+"noite da casa":"noc doma",
+"celular pareado para usar de fora de casa":"telefon spárovaný pro použití mimo domov",
 "Plugins":"Pluginy",
 "Botão de outro app":"Tlačítko z jiné aplikace",
 "Nenhum botão ligado":"Žádné tlačítko není zapnuté",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Hotovo: zvuk této televize je na výstupu $2 zpožděn o $1 ms. Zvuk do sluchátek už toto číslo používá."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Aktuální výstup: $1. Naměřené zpoždění: $2 ms. Zvuk do sluchátek už toto číslo používá."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Aktuální výstup: $1. Zatím neměřeno: Zvuk do sluchátek používá $2 ms, výchozí hodnotu."],
+["^celular pareado: (.+)$","telefon spárován: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","přihlášení ze spárovaného telefonu ($1)"],
+["^acesso revogado: (.+)$","přístup odebrán: $1"],
+["^acesso de fora de casa revogado: (.+)$","přístup mimo domov odebrán: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","obnovení na televizi selhalo ($1) a ne vše se vrátilo do původního stavu: stáhněte dřívější kopii v Záloze"],
 ]});

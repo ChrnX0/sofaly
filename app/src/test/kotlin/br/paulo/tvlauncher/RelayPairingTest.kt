@@ -61,4 +61,11 @@ class RelayPairingTest {
         assertTrue(RelayPairing.naHora(RelayPairing.tecla("HOME", agora + 30_000), agora))   // relógio do celular adiantado
         assertFalse(RelayPairing.naHora(RelayPairing.tecla("HOME", agora - RelayPairing.ATRASO_MAX_MS - 1), agora))
     }
+
+    @Test fun horaDoServidorValeMaisQueORelogioDoCelular() {
+        val agora = 10_000_000L
+        val celularAtrasado = RelayPairing.tecla("HOME", agora - 120_000)   // celular 2 min atrasado
+        assertTrue(RelayPairing.naHora(celularAtrasado, agora, chegouSeg = (agora - 2_000) / 1000))
+        assertFalse(RelayPairing.naHora(RelayPairing.tecla("HOME", agora), agora, chegouSeg = (agora - 120_000) / 1000))   // ficou na caixa
+    }
 }

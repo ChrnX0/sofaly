@@ -1,5 +1,8 @@
 // Painel em en (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"this device no longer has access",
+"noite da casa":"home night",
+"celular pareado para usar de fora de casa":"phone paired for use away from home",
 "Plugins":"Plugins",
 "Botão de outro app":"Button from another app",
 "Nenhum botão ligado":"No button turned on",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Done: this TV's sound is $1 ms late on the $2 output. Sound on headphones already uses this number."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Current output: $1. Measured delay: $2 ms. Sound on headphones already uses this number."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Current output: $1. Not measured yet: Sound on headphones uses $2 ms, a default value."],
+["^celular pareado: (.+)$","phone paired: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","sign-in from paired phone ($1)"],
+["^acesso revogado: (.+)$","access revoked: $1"],
+["^acesso de fora de casa revogado: (.+)$","away-from-home access revoked: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","the restore failed on the TV ($1) and not everything went back as it was: download the earlier copy in Backup"],
 ]});

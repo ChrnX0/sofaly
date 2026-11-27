@@ -1,5 +1,8 @@
 // Painel em tr (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"bu cihazın artık erişimi yok",
+"noite da casa":"evde gece",
+"celular pareado para usar de fora de casa":"ev dışında kullanmak için eşlenen telefon",
 "Plugins":"Eklentiler",
 "Botão de outro app":"Başka uygulamanın düğmesi",
 "Nenhum botão ligado":"Açık düğme yok",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Tamam: bu TV'nin sesi $2 çıkışında $1 ms gecikiyor. Ses kulaklıkta bu sayıyı zaten kullanıyor."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Şu anki çıkış: $1. Ölçülen gecikme: $2 ms. Ses kulaklıkta bu sayıyı zaten kullanıyor."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Şu anki çıkış: $1. Henüz ölçülmedi: Ses kulaklıkta varsayılan değer olan $2 ms'yi kullanıyor."],
+["^celular pareado: (.+)$","telefon eşlendi: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","eşlenen telefondan giriş ($1)"],
+["^acesso revogado: (.+)$","erişim iptal edildi: $1"],
+["^acesso de fora de casa revogado: (.+)$","ev dışı erişim iptal edildi: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","geri yükleme TV'de başarısız oldu ($1) ve her şey eski haline dönmedi: önceki kopyayı Yedek bölümünden indirin"],
 ]});

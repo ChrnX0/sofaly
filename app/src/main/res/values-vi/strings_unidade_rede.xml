@@ -15,4 +15,5 @@
     <string name="mtp_pcs_esquecidos">Đã quên các máy tính</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Mở bảng điều khiển TV</string>
+    <string name="ssdp_painel">bảng</string>
 </resources>

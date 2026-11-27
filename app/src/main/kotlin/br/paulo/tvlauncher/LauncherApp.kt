@@ -56,6 +56,7 @@ class LauncherApp : Application() {
         // ler preferências antes da cópia (elas ficariam velhas na memória).
         if (android.os.Build.VERSION.SDK_INT >= 28 && getProcessName().endsWith(":migration")) return
         RegistroErros.instalar(this)
+        if (android.os.Build.VERSION.SDK_INT < 28 || getProcessName() == packageName) PackageMigration.retomarSeParou(this)
         // Atualização vigiada: anota a versão que abriu (versão nova = começa a vigiar) e liga o modo seguro, que não
         // deixa abrir a tela que derrubou uma versão ruim. Logo depois do RegistroErros: uma queda já conta.
         VigiaAtualizacao.aoIniciar(this)

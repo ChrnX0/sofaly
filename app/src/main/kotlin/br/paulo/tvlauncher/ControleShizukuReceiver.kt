@@ -105,7 +105,7 @@ open class ControleShizukuReceiver : BroadcastReceiver() {
                         try {
                             PainelArmazem.definirPin(ctx, pin)
                             PainelArmazem.definirLigado(ctx, true)
-                            PainelWeb.recomecar(ctx)
+                            PainelWeb.pinTrocado(ctx)
                             Thread.sleep(500)   // a porta abre numa thread à parte
                             pendente.resultData = "ok ligado=${PainelWeb.ligado()} endereco=${PainelWeb.endereco()}"
                         } finally { pendente.finish() }

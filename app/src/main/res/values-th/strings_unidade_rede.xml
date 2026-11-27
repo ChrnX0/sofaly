@@ -15,4 +15,5 @@
     <string name="mtp_pcs_esquecidos">ลืมคอมพิวเตอร์แล้ว</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">เปิดแผงควบคุมทีวี</string>
+    <string name="ssdp_painel">แผง</string>
 </resources>

@@ -103,11 +103,16 @@ class RelaySocket private constructor(private val sock: SSLSocket, private val e
         private fun ler(inp: InputStream): Int { val c = inp.read(); if (c < 0) throw IOException("fechou"); return c }
     }
 
+    /** Hora do último quadro recebido (pong incluído): conexão meio-aberta não recebe nada, nem o pong. */
+    @Volatile var ultimoQuadro: Long = System.currentTimeMillis()
+        private set
+
     /** Próxima mensagem de texto (responde ping sozinho). Null = conexão fechada. Timeout = SocketTimeoutException. */
     @Throws(IOException::class)
     fun receber(): String? {
         while (true) {
             val (op, d) = lerQuadro(entrada)
+            ultimoQuadro = System.currentTimeMillis()
             when (op) {
                 -1, 8 -> return null
                 1 -> return String(d, Charsets.UTF_8)

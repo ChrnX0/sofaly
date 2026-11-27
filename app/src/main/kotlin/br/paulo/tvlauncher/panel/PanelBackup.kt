@@ -232,6 +232,9 @@ internal fun PainelWeb.restaurarTexto(texto: String, token: String?, ip: String,
     } catch (e: IllegalArgumentException) {
         PainelArmazem.registrar(app, ip, acao, "recusado: ${e.message}")
         return erro(400, "backup recusado: ${e.message}")
+    } catch (e: br.paulo.tvlauncher.backup.BackupCompleto.DesfazerIncompleto) {
+        PainelArmazem.registrar(app, ip, acao, "falhou e não voltou tudo: ${e.cause}")
+        return erro(500, "a restauração falhou na TV (${e.cause?.javaClass?.simpleName}) e nem tudo voltou como estava: baixe a cópia de antes em Backup")
     } catch (e: Exception) {
         PainelArmazem.registrar(app, ip, acao, "falhou: $e")
         return erro(500, "a restauração falhou na TV (${e.javaClass.simpleName}); as configurações de antes foram mantidas")

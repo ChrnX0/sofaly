@@ -229,6 +229,16 @@ object PainelWeb {
         sessoes.encerrarOutras(token)
         senhasDav.limpar()
         synchronized(travaPin) { tentativas?.zerar() }
+        revogarTodosAparelhos(manter = token)
+    }
+
+    /**
+     * PIN trocado na TV (Config ou adb): recomeça como [recomecar] e tira o acesso dos celulares pareados (chave e
+     * relay). Revisor 26/11: quem troca o PIN espera fechar a porta, e a chave de aparelho não vence nunca.
+     */
+    @Synchronized fun pinTrocado(ctx: Context) {
+        recomecar(ctx)
+        revogarTodosAparelhos()
     }
 
     /** Abre a porta numa thread própria (abrir socket na thread da tela é proibido no Android) e fica no accept(). */
@@ -389,7 +399,7 @@ object PainelWeb {
      */
     private fun descricaoUpnp(host: String?): Resposta {
         val pagina = "http://${host ?: (ipsDaRede().minOrNull() + ":" + Config.PAINEL_PORTA)}/"
-        val xml = Ssdp.descricao(Ssdp.nomeVisivel(PainelVizinhos.nomeDaTv(app)), Ssdp.uuid(PainelVizinhos.idDaTv(app)), pagina)
+        val xml = Ssdp.descricao(Ssdp.nomeVisivel(PainelVizinhos.nomeDaTv(app), app.getString(br.paulo.tvlauncher.R.string.ssdp_painel)), Ssdp.uuid(PainelVizinhos.idDaTv(app)), pagina)
         return Resposta(200, "text/xml; charset=utf-8", xml.toByteArray())
     }
 
@@ -818,7 +828,12 @@ object PainelWeb {
                 if (!sessoes.elevada(token)) return precisaPin()
                 return emitirAparelho(req, ip, https)
             }
-            "/api/aparelhos/revogar" -> if (req.metodo == "POST") return revogarAparelho(req, ip)
+            // Pede o PIN (revisor 26/11): é a única ação sobre o acesso permanente; sem isso uma sessão aberta com a chave
+            // de um celular revogava todos os outros.
+            "/api/aparelhos/revogar" -> if (req.metodo == "POST") {
+                if (!sessoes.elevada(token)) return precisaPin()
+                return revogarAparelho(req, ip)
+            }
         }
         // Cuidar de longe (ideias 77-79, PainelCuidar.kt). A foto do pedido de ajuda é imagem: sai daqui mesmo.
         if (req.caminho == "/api/cuidar/foto" && req.metodo == "GET") {

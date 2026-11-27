@@ -33,7 +33,7 @@
     <string name="cel_ctrl_vol_mais">Vol +</string>
     <string name="cel_ctrl_mudo">Silencio</string>
     <string name="cel_ctrl_sem_tv">La TV no respondió. ¿Está encendida y en la misma red?</string>
-    <string name="cel_ctrl_fora">Enviado por internet: estás fuera de la red de la TV.</string>
+    <string name="cel_ctrl_fora">Enviado por internet.</string>
     <string name="cel_ctrl_cert_novo">La TV tiene un certificado de seguridad nuevo. Vuelve a escanear el QR de la TV.</string>
     <string name="cel_ctrl_recusou">La TV no pudo hacerlo ahora.</string>
     <string name="cel_ctrl_entrar">Entra una vez con el PIN de la TV en el panel; luego el control funciona.</string>

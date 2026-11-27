@@ -1,5 +1,8 @@
 // Painel em da (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"denne enhed har ikke længere adgang",
+"noite da casa":"nat i hjemmet",
+"celular pareado para usar de fora de casa":"telefon parret til brug uden for hjemmet",
 "Plugins":"Plugins",
 "Botão de outro app":"Knap fra en anden app",
 "Nenhum botão ligado":"Ingen knap slået til",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Færdig: lyden fra dette TV er $1 ms forsinket på udgangen $2. Lyd i høretelefoner bruger allerede tallet."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Aktuel udgang: $1. Målt forsinkelse: $2 ms. Lyd i høretelefoner bruger allerede tallet."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Aktuel udgang: $1. Ikke målt endnu: Lyd i høretelefoner bruger $2 ms, en standardværdi."],
+["^celular pareado: (.+)$","telefon parret: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","log ind fra parret telefon ($1)"],
+["^acesso revogado: (.+)$","adgang tilbagekaldt: $1"],
+["^acesso de fora de casa revogado: (.+)$","adgang uden for hjemmet tilbagekaldt: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","gendannelsen mislykkedes på tv'et ($1), og ikke alt kom tilbage som før: download den tidligere kopi under Backup"],
 ]});

@@ -45,8 +45,23 @@ object ChaveAparelho {
         }.generateKey()
     }
 
+    /**
+     * A TV ganhou id (ou nome Tailscale) depois de a chave ser guardada pelo "ip:casa|ip" antigo: a chave estava lá e o
+     * app pedia o PIN de novo (revisor 26/11). Acha pela chave antiga e passa para a nova.
+     */
+    private fun guardado(ctx: Context, tv: Pareamento.Tv): String? {
+        val p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val k = Pareamento.chave(tv)
+        p.getString(k, null)?.let { return it }
+        val antiga = "ip:${tv.casa}|${tv.ip}"
+        if (antiga == k) return null
+        val v = p.getString(antiga, null) ?: return null
+        p.edit().putString(k, v).remove(antiga).apply()
+        return v
+    }
+
     fun ler(ctx: Context, tv: Pareamento.Tv): String? = runCatching {
-        val b64 = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString(Pareamento.chave(tv), null) ?: return null
+        val b64 = guardado(ctx, tv) ?: return null
         val (iv, ct) = separar(Base64.decode(b64, Base64.NO_WRAP)) ?: return null
         val c = Cipher.getInstance("AES/GCM/NoPadding").apply { init(Cipher.DECRYPT_MODE, segredo(), GCMParameterSpec(128, iv)) }
         String(c.doFinal(ct)).takeIf { valida(it) }
@@ -65,5 +80,5 @@ object ChaveAparelho {
     }
 
     fun esquecer(ctx: Context, tv: Pareamento.Tv) =
-        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().remove(Pareamento.chave(tv)).apply()
+        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().remove(Pareamento.chave(tv)).remove("ip:${tv.casa}|${tv.ip}").apply()
 }

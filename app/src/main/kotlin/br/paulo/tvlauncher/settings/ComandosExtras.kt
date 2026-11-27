@@ -411,7 +411,7 @@ object ComandosExtras {
         "baseline_undo" -> { val app = ctx.applicationContext; Fundo.rodar("baseline-adb") { br.paulo.tvlauncher.privilege.FactoryBaseline.desfazerRestauracao(app, "adb") }; "started (see: baseline)" }
         "debloat_catalog" -> br.paulo.tvlauncher.privilege.Debloat.relatorio(ctx)
         "migration" -> PackageMigration.status(ctx)
-        "migration_start" -> { val app = ctx.applicationContext; Fundo.rodar("migracao") { PackageMigration.note(app, PackageMigration.start(app, manual = true)) }; "started (see: migration)" }
+        "migration_start" -> { val app = ctx.applicationContext; Fundo.rodar("migracao") { PackageMigration.note(app, PackageMigration.start(app, manual = true, forcar = i.getBooleanExtra("forcar", false))) }; "started (see: migration)" }
         "migration_rollback" -> { val app = ctx.applicationContext; Fundo.rodar("migracao-volta") { PackageMigration.note(app, PackageMigration.rollback(app)) }; "started (see: migration)" }
         "migration_remove_legacy" -> PackageMigration.removeLegacy(ctx)
         "migration_auto" -> { PackageMigration.setAuto(ctx, i.getBooleanExtra("ligado", false)); PackageMigration.status(ctx) }

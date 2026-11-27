@@ -1,5 +1,8 @@
 // Painel em uk (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"цей пристрій більше не має доступу",
+"noite da casa":"ніч удома",
+"celular pareado para usar de fora de casa":"телефон під'єднано для використання поза домом",
 "Plugins":"Плагіни",
 "Botão de outro app":"Кнопка з іншого застосунку",
 "Nenhum botão ligado":"Жодної кнопки не ввімкнено",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","Готово: звук цього ТБ відстає на $1 мс на виході $2. «Звук у навушниках» уже використовує це число."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","Поточний вихід: $1. Виміряна затримка: $2 мс. «Звук у навушниках» уже використовує це число."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","Поточний вихід: $1. Ще не виміряно: «Звук у навушниках» використовує $2 мс, типове значення."],
+["^celular pareado: (.+)$","телефон під'єднано: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","вхід з під'єднаного телефона ($1)"],
+["^acesso revogado: (.+)$","доступ відкликано: $1"],
+["^acesso de fora de casa revogado: (.+)$","доступ поза домом відкликано: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","відновлення на телевізорі не вдалося ($1), і не все повернулося як було: завантажте попередню копію в розділі «Резервна копія»"],
 ]});

@@ -3,6 +3,8 @@ package br.paulo.tvlauncher.backup
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import br.paulo.tvlauncher.AppIdentity
+import br.paulo.tvlauncher.PackageMigrationRules
 import br.paulo.tvlauncher.Rotinas
 import br.paulo.tvlauncher.Timer
 import br.paulo.tvlauncher.alarm.Despertador
@@ -147,9 +149,20 @@ object BackupConfig {
      * Depois reagenda os alarmes. Quem chama reinicia o launcher (várias telas leem as preferências só ao abrir).
      * Devolve quantas chaves restaurou; lança IllegalArgumentException se o backup for inválido (nada é alterado).
      */
+    /**
+     * Backup feito no pacote antigo (br.paulo.tvlauncher, antes da migração) restaurado no novo, ou vice-versa (revisor
+     * 26/11: dava "backup de outro app" depois de um reset). Os dois pacotes são nossos: troca o nome do pacote no texto
+     * aberto, do mesmo jeito que a migração faz com as prefs. Nomes de classe (br.paulo.tvlauncher.X) não mudam.
+     */
+    fun doPacoteDeHoje(ctx: Context, texto: String): String {
+        val pacote = runCatching { JSONObject(texto).optString("pacote") }.getOrNull() ?: return texto
+        if (pacote == ctx.packageName || !AppIdentity.ours(pacote)) return texto
+        return PackageMigrationRules.rewritePackage(texto, de = pacote, para = ctx.packageName)
+    }
+
     fun importar(ctx: Context, texto: String): Int {
         if (texto.length > LIMITE_BYTES || !ChecagensPainel.jsonRaso(texto)) throw IllegalArgumentException("arquivo grande ou aninhado demais")
-        val json = try { JSONObject(texto) } catch (e: org.json.JSONException) { throw IllegalArgumentException("não é um JSON válido") }
+        val json = try { JSONObject(doPacoteDeHoje(ctx, texto)) } catch (e: org.json.JSONException) { throw IllegalArgumentException("não é um JSON válido") }
         val arquivos = validar(ctx, json)
         val anterior = exportar(ctx)
         arquivoAnterior(ctx).writeText(anterior)   // o estado de agora, para desfazer

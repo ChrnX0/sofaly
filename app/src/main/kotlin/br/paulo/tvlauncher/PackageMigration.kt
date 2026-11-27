@@ -52,6 +52,7 @@ object PackageMigration {
     private const val FILES = "files"
     private const val BYTES = "bytes"
     const val METHOD_IMPORT = "import"
+    const val EXTRA_FORCE = "force"
     const val METHOD_SECRETS = "secrets"
     const val DATA_FILE = "data.zip"
     private const val MIN_FREE_BYTES = 200L * 1024 * 1024
@@ -125,7 +126,7 @@ object PackageMigration {
      * pelo adb/MCP: tira a pausa deixada por uma volta.
      */
     @Synchronized
-    fun start(ctx: Context, manual: Boolean = false): String {
+    fun start(ctx: Context, manual: Boolean = false, forcar: Boolean = false): String {
         val app = ctx.applicationContext
         if (role(app) != Role.SOURCE) return "not the legacy app (${app.packageName})"
         if (android.os.Build.VERSION.SDK_INT < 28) return "Android 9+ needed"
@@ -149,7 +150,8 @@ object PackageMigration {
 
         // 3. O novo copia tudo daqui (ele chama de volta o nosso MigrationProvider).
         val r = try {
-            app.contentResolver.call(Uri.parse("content://${authority(novo)}"), METHOD_IMPORT, app.packageName, null)
+            app.contentResolver.call(Uri.parse("content://${authority(novo)}"), METHOD_IMPORT, app.packageName,
+                Bundle().apply { putBoolean(EXTRA_FORCE, forcar) })
         } catch (e: Exception) { return fail(app, "import failed: ${e.javaClass.simpleName}: ${e.message}") }
         if (r?.getBoolean("ok") != true) return fail(app, "import failed: ${r?.getString("message") ?: "no answer"}")
         prefs(app).edit().putInt(FILES, r.getInt("files")).putLong(BYTES, r.getLong("bytes")).commit()
@@ -205,12 +207,20 @@ object PackageMigration {
      * Copia os dados do antigo para cá (chamado pelo provider, no processo ":migration" do novo). Recusa se este app já
      * é dono: uma segunda cópia apagaria o que mudou depois da migração.
      */
-    fun importFromLegacy(ctx: Context): Bundle {
+    fun importFromLegacy(ctx: Context, forcar: Boolean = false): Bundle {
         val app = ctx.applicationContext
         val r = Bundle()
         fun erro(msg: String): Bundle { mark(app, Step.FAILED, msg); r.putBoolean("ok", false); r.putString("message", msg); return r }
         if (role(app) != Role.TARGET) return erro("not the new app")
         if (PrivilegioDO.somosDonos(app)) return erro("already the device owner: refusing to overwrite data")
+        // Revisor 26/11: depois de uma migração concluída (e de um rollback), refazer apagaria tudo o que mudou no app
+        // novo desde então. Só com "migration_start --ez forcar true". Não marca FAILED: a etapa de antes fica.
+        val etapa = step(app)
+        if (!forcar && (etapa == Step.DONE || etapa == Step.ROLLED_BACK)) {
+            r.putBoolean("ok", false)
+            r.putString("message", "the new app was already used after a migration (step=$etapa): its data would be lost; run migration_start --ez forcar true to overwrite")
+            return r
+        }
         val antigo = AppIdentity.LEGACY_PACKAGE
         // O resto do app (tela, serviços) não pode estar rodando com as preferências antigas na memória.
         killOwnProcesses(app, includeSelf = false)
@@ -322,6 +332,24 @@ object PackageMigration {
         // Recomeço DEPOIS que o outro lado saiu (ele sai sozinho em 20 s). Na Sala (20/11/2026) o recomeço em 5 s achou as
         // portas 8080/8091 e o túnel ainda com o antigo: painel e MCP não subiram até um REINICIAR.
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({ killOwnProcesses(app, includeSelf = true) }, RESTART_AFTER_MS)
+    }
+
+    /**
+     * Revisor 26/11: a energia caiu entre o transferOwnership e o onTransferOwnershipComplete. O app novo já é dono, mas o
+     * antigo ficou com a HOME e a acessibilidade e a etapa parou em IMPORTED/TRANSFERRED (nem start nem removeLegacy
+     * andavam). Na subida do processo principal, 60 s depois (o aviso normal chega em milissegundos e reinicia em 25 s),
+     * se ainda estiver assim, termina o que faltou.
+     */
+    fun retomarSeParou(ctx: Context) {
+        val app = ctx.applicationContext
+        if (role(app) != Role.TARGET) return
+        android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            val etapa = step(app)
+            if ((etapa == Step.IMPORTED || etapa == Step.TRANSFERRED) && PrivilegioDO.somosDonos(app)) {
+                Log.w(TAG, "migration stopped at $etapa with us as owner: finishing it")
+                onOwnershipReceived(app, null)
+            }
+        }, 60_000L)
     }
 
     /** O recomeço do app que recebeu o dono: depois dos 20 s em que o outro lado ainda pode estar de pé. */

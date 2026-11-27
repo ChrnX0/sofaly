@@ -74,7 +74,13 @@ class PainelActivity : Activity() {
         }
         CookieManager.getInstance().setAcceptCookie(true)
         setContentView(web)
-        web.loadUrl(primeiroEndereco())
+        val endereco = primeiroEndereco()
+        // Sessão caída e chave de aparelho guardada: entra sem PIN antes de abrir (revisor 26/11).
+        if (tv.fp.isNotEmpty() && !endereco.startsWith("http://")) ApiTv.emSegundoPlano {
+            val r = ApiTv.estado(tv)
+            if (r.codigo == 200 && r.json?.optBoolean("logado") == false) ApiTv.reentrar(tv)
+            runOnUiThread { if (!isDestroyed) web.loadUrl(endereco) }
+        } else web.loadUrl(endereco)
     }
 
     /** Casa + o código do QR (entrar sem PIN) e, se veio de "Compartilhar", o que mandar (o painel pergunta antes). */

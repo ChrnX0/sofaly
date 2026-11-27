@@ -69,6 +69,22 @@ object RelayTv {
         return i
     }
 
+    /**
+     * Troca de pacote (revisor 26/11): a identidade vai aberta ao app novo (pelo provider de assinatura, nunca a outro
+     * app), que a tranca com o Keystore dele. Sem isso a cópia das prefs trazia a versão trancada pelo Keystore do
+     * antigo, que não abre no novo, e o relay (controle de fora, Assistir junto, cota assinada) morria de vez.
+     */
+    internal fun paraMigracao(ctx: Context): String? = identidade(ctx)?.let { RelayCrypto.b64(it.ed + it.x) }
+
+    @Synchronized internal fun deMigracao(ctx: Context, b64: String): Boolean {
+        val b = runCatching { RelayCrypto.deB64(b64) }.getOrNull()?.takeIf { it.size == 64 } ?: return false
+        val c = Cipher.getInstance("AES/GCM/NoPadding"); c.init(Cipher.ENCRYPT_MODE, chave())
+        val ok = prefs(ctx).edit().putString("chaves", RelayCrypto.b64(c.doFinal(b)))
+            .putString("chaves_iv", RelayCrypto.b64(c.iv)).commit()
+        if (ok) cache = Identidade(b.copyOfRange(0, 32), b.copyOfRange(32, 64))
+        return ok
+    }
+
     private fun chave(): SecretKey {
         val ks = KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
         (ks.getEntry(APELIDO, null) as? KeyStore.SecretKeyEntry)?.let { return it.secretKey }
@@ -174,7 +190,7 @@ object RelayTv {
      * Busca e processa a caixa postal. [tratar] recebe cada mensagem nova (aberta, de um pareado, não repetida).
      * Devolve quantas foram tratadas, ou -1 se não falou com o servidor.
      */
-    @Synchronized fun receber(ctx: Context, tratar: (RelayEnvelope.Aberto) -> Unit): Int {
+    @Synchronized fun receber(ctx: Context, tratar: (RelayEnvelope.Aberto, Long) -> Unit): Int {
         val eu = identidade(ctx) ?: return -1
         if (!vistosCarregados) { vistos.carregar(prefs(ctx).getString("vistos", null)); vistosCarregados = true }
         val r = runCatching { pedir(ctx, "GET", "/v1/inbox/pending") }.getOrNull() ?: return -1
@@ -190,7 +206,7 @@ object RelayTv {
             val a = RelayEnvelope.abrir(eu.id, eu.x, e.dados, agora) { chaves[it] }
             if (a == null) { Log.w(TAG, "envelope ${e.caixaId} de ${e.de}: não abriu"); continue }
             if (!vistos.primeiraVez(a.mensagem.id, a.mensagem.t, agora)) continue
-            runCatching { tratar(a) }.onFailure { Log.w(TAG, "tratar ${a.mensagem.tipo}: ${it.javaClass.simpleName}") }
+            runCatching { tratar(a, e.criado) }.onFailure { Log.w(TAG, "tratar ${a.mensagem.tipo}: ${it.javaClass.simpleName}") }
             n++
         }
         prefs(ctx).edit().putString("vistos", vistos.paraJson()).apply()
@@ -203,7 +219,7 @@ object RelayTv {
     // ---------------------------------------------------------------- escuta (WebSocket) e a lista fechada
 
     /** O que fazer com um comando de fora. Mesma porta do painel: as mesmas travas (pergunta na tela, texto válido). */
-    fun tratar(ctx: Context, a: RelayEnvelope.Aberto) {
+    fun tratar(ctx: Context, a: RelayEnvelope.Aberto, chegouSeg: Long = 0L) {
         val quem = pareados(ctx).firstOrNull { it.id == a.remetente }
         // TV de outra casa: só Sessão junto. Nunca tecla nem texto (e um celular nunca manda Sessão junto).
         if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
@@ -221,7 +237,7 @@ object RelayTv {
             br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "painel desligado")
             return
         }
-        if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis())) {
+        if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis(), chegouSeg)) {
             br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "chegou atrasado (TV estava desligada)")
             return
         }
@@ -263,7 +279,13 @@ object RelayTv {
                 ws.tempoDeLeitura(50_000)   // sem nada em 50 s: manda ping (o Cloudflare derruba conexão parada em ~100 s)
                 try {
                     while (true) {
-                        val msg = try { ws.receber() } catch (_: java.net.SocketTimeoutException) { ws.ping(); continue } ?: break
+                        val msg = try { ws.receber() } catch (_: java.net.SocketTimeoutException) {
+                            // Revisor 26/11: depois de a internet cair e voltar (NAT novo) o socket fica "ligado" sem
+                            // receber nada por até meia hora, e os comandos vencem na caixa. Sem nem o pong do último
+                            // ping (~90 s em silêncio), fecha e reconecta.
+                            if (System.currentTimeMillis() - ws.ultimoQuadro > 90_000L) { Log.w(TAG, "escuta sem resposta: reconectando"); break }
+                            ws.ping(); continue
+                        } ?: break
                         processar(app, eu, msg)?.let { id -> ws.enviar(JSONObject().put("ack", JSONArray().put(id)).toString()) }
                     }
                 } finally { ws.fechar(); conectado = false }
@@ -288,7 +310,7 @@ object RelayTv {
             val a = RelayEnvelope.abrir(eu.id, eu.x, r.dados, agora) { chaves[it] } ?: return r.caixaId
             if (!vistos.primeiraVez(a.mensagem.id, a.mensagem.t, agora)) return r.caixaId
             prefs(app).edit().putString("vistos", vistos.paraJson()).apply()
-            runCatching { tratar(app, a) }.onFailure { Log.w(TAG, "tratar: ${it.javaClass.simpleName}") }
+            runCatching { tratar(app, a, r.criado) }.onFailure { Log.w(TAG, "tratar: ${it.javaClass.simpleName}") }
         }
         return r.caixaId
     }

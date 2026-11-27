@@ -1,5 +1,8 @@
 // Painel em ko (gerado; veja i18n.js). Chave = texto em português da tela.
 traduzirPainelCom({T:{
+"esse aparelho já não tem acesso":"이 기기는 더 이상 접근할 수 없어요",
+"noite da casa":"집의 밤",
+"celular pareado para usar de fora de casa":"외출 중 사용을 위해 페어링한 휴대폰",
 "Plugins":"플러그인",
 "Botão de outro app":"다른 앱의 버튼",
 "Nenhum botão ligado":"켜진 버튼 없음",
@@ -2486,4 +2489,9 @@ traduzirPainelCom({T:{
 ["^Pronto: o som desta TV atrasa (\\d+) ms na saída (.+?)\\. O Som no fone já usa este número\\.$","완료: 이 TV 소리는 $2 출력에서 $1ms 늦습니다. '이어폰으로 듣기'가 이미 이 값을 씁니다."],
 ["^Saída de agora: (.+?)\\. Atraso medido: (\\d+) ms\\. O Som no fone já usa este número\\.$","현재 출력: $1. 측정한 지연: $2ms. '이어폰으로 듣기'가 이미 이 값을 씁니다."],
 ["^Saída de agora: (.+?)\\. Ainda não medido: o Som no fone usa (\\d+) ms, um valor padrão\\.$","현재 출력: $1. 아직 측정 안 함: '이어폰으로 듣기'가 기본값 $2ms를 씁니다."],
+["^celular pareado: (.+)$","휴대폰 페어링됨: $1"],
+["^entrar pelo celular pareado \\((.+)\\)$","페어링한 휴대폰으로 로그인 ($1)"],
+["^acesso revogado: (.+)$","접근 취소됨: $1"],
+["^acesso de fora de casa revogado: (.+)$","외출 중 접근 취소됨: $1"],
+["^a restauração falhou na TV \\((.+)\\) e nem tudo voltou como estava: baixe a cópia de antes em Backup$","TV에서 복원에 실패했고 ($1) 모두 원래대로 돌아가지 않았어요: 백업에서 이전 사본을 내려받으세요"],
 ]});

@@ -14,4 +14,5 @@
     <string name="mtp_pcs_lista">%1$s · OK 全部忘记（每台都会重新询问）</string>
     <string name="mtp_pcs_esquecidos">已忘记这些电脑</string>
     <string name="ur_atalho_nome">打开电视面板</string>
+    <string name="ssdp_painel">面板</string>
 </resources>

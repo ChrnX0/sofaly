@@ -124,6 +124,7 @@
     <string name="rw_proxima">Próxima</string>
     <string name="rw_anterior">Anterior</string>
     <string name="rw_travar">Travar com PIN</string>
+    <string name="rw_travar_sem_acesso">Travado na tela inicial. Para travar também pela busca e por outros lugares, ligue o serviço de acessibilidade da Sofaly.</string>
     <string name="rw_destravar">Destravar</string>
     <string name="rw_travado">Este app está travado</string>
     <string name="rw_tema_exportar">Exportar tema</string>
