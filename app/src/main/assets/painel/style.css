@@ -2,8 +2,9 @@
    no computador e nas Configurações da TV (Estilo.kt). Regras que valem nos três:
    - Fundo Noite escuro e superfícies translúcidas, sem bordas grossas; uma luz laranja no canto de cima.
    - Cores, letras, raios e tempos vêm de design/tokens.json (bloco design-tokens abaixo; estudo global 20/11/2026).
-   - Laranja = SÓ ligado, valor escolhido, progresso e marca (regra 1, igual à TV). Branco = foco, selecionado e botão
-     principal (no tema claro, a pílula Noite). Link = texto sublinhado. Verde-água só para "ok" (estado), nunca para ação.
+   - Laranja = SÓ ligado/ok, valor escolhido, progresso, marca e o ícone em foco (regra 1, igual à TV). Foco = anel creme
+     de 3 px; selecionado e botão principal = caixa um tom mais clara. Link = texto sublinhado. Sem cores de mundo
+     (verde-água, violeta, azul): padrão único da TV, 27/11/2026.
    - Só três raios: 8, 16 e pílula. Rótulo de seção em CAIXA ALTA espaçada. Manrope no texto e Nunito nos títulos, como o site (19/11/2026). Seis tamanhos: 34 / 26 / 20 / 17 / 15 / 13 px.
    - Linha de ajuste = ícone redondo + nome + valor ou interruptor. Ícones de linha em SVG (index.html, <symbol>).
    - Tema claro ou escuro conforme o celular/computador (prefers-color-scheme). Toda cor mora num token abaixo.
@@ -73,14 +74,14 @@
   --acento-texto: #1a0a02;                       /* texto em cima do laranja */
   --acento-hover: #ff8550;
   --acento-fundo: rgba(255, 106, 43, .15);
-  --foco: var(--t-focus);                        /* Branco = foco, selecionado e botão principal, igual à TV */
+  --foco: var(--t-cream);                        /* Anel creme de 3 px = foco, igual à borda creme do foco na TV (27/11/2026) */
   --foco-texto: var(--t-night);
   --foco-hover: #ffffff;
   --perigo: #ff8a80;
   --perigo-fundo: rgba(255, 138, 128, .12);
   --perigo-borda: rgba(255, 138, 128, .4);
-  --ok: #7fd6c2;
-  --ok-fundo: rgba(127, 214, 194, .16);
+  --ok: var(--acento);                           /* ligado/ok = laranja, como na TV (era verde-água; 27/11/2026 só a paleta) */
+  --ok-fundo: var(--acento-fundo);
   --atencao: #ffc266;                             /* âmbar = atenção (regra 10: vermelho é erro); só no alerta da Início */
   --atencao-fundo: rgba(255, 194, 102, .12);
   --alerta: #ffd27a;
@@ -88,10 +89,11 @@
   --selecao: rgba(255, 106, 43, .32);
   /* Cor quer dizer ÁREA (estudo do painel 20/11/2026, regra 10): só no ícone, nunca no texto ou no fundo. Cada cor diz
      que parte da casa a página mexe, igual nas Configurações da TV. Mesma luminosidade dos mundos da cruz; ícone >= 3:1. */
-  --area-assistir: var(--t-world-watch);   /* TV, filmes e rádio */
-  --area-apps: var(--t-world-apps);        /* Apps, Instalar apps, Tela inicial (é ela que arruma os apps na cruz) */
-  --area-conectado: var(--t-world-network);/* Arquivos, Acesso remoto, Casa: o que fala com outro aparelho */
-  --area-casa: var(--t-area-home);         /* Família, Tela e energia: a rotina da casa */
+  /* 27/11/2026 (padrão único da TV): as cores de área saíram; ícone creme na caixa grafite, laranja no foco. */
+  --area-assistir: var(--texto);
+  --area-apps: var(--texto);
+  --area-conectado: var(--texto);
+  --area-casa: var(--texto);
   --vidro-topo: rgba(20, 20, 19, .78);
   --vidro-barra: rgba(31, 31, 29, .94);
   --veu: rgba(8, 8, 7, .66);                    /* atrás de janela */
@@ -145,17 +147,17 @@
     --perigo: #b3261e;
     --perigo-fundo: rgba(179, 38, 30, .08);
     --perigo-borda: rgba(179, 38, 30, .4);
-    --ok: #1f7a66;
-    --ok-fundo: rgba(31, 122, 102, .12);
+    --ok: var(--acento);
+    --ok-fundo: var(--acento-fundo);
     --atencao: #8a5a00;
     --atencao-fundo: rgba(138, 90, 0, .10);
     --alerta: #8a5a00;
     --alerta-fundo: rgba(138, 90, 0, .1);
     --selecao: rgba(206, 61, 0, .22);
-    --area-assistir: #e04a0b;
-    --area-apps: #589735;
-    --area-conectado: #3f9785;
-    --area-casa: #298def;
+    --area-assistir: var(--texto);
+    --area-apps: var(--texto);
+    --area-conectado: var(--texto);
+    --area-casa: var(--texto);
     --vidro-topo: rgba(255, 248, 240, .82);
     --vidro-barra: rgba(255, 255, 255, .94);
     --veu: rgba(20, 20, 19, .45);
@@ -1293,10 +1295,10 @@ label[data-atalho] > .estrela { margin: -8px -8px -8px auto; }
 .toast-desfazer .link { margin-left: auto; font-weight: 800; min-height: 44px; }
 @media (prefers-reduced-motion: reduce) { .estrela { transition: none; } }
 /* A cor de cada porta vem por classe: a CSP do painel (style-src 'self') ignora style="..." no HTML. */
-.porta.mundo-watch { --cor: var(--t-world-watch); }
-.porta.mundo-listen { --cor: var(--t-world-listen); }
-.porta.mundo-play { --cor: var(--t-world-play); }
-.porta.mundo-apps { --cor: var(--t-world-apps); }
+.porta.mundo-watch { --cor: var(--acento); }
+.porta.mundo-listen { --cor: var(--acento); }
+.porta.mundo-play { --cor: var(--acento); }
+.porta.mundo-apps { --cor: var(--acento); }
 
 /* ---------------------------------------------------------------- Aba Sofy e prateleiras dos Apps (PR 5; sofy-page.js) */
 /* Na barra: o número de recados no canto do ícone, no laranja de "ligado e marca" (regra 1 do style.css). */
@@ -1351,22 +1353,20 @@ label[data-atalho] > .estrela { margin: -8px -8px -8px auto; }
    escuro por dentro); o painel tinha só o ícone colorido solto. Para quê: a mesma peça na TV, no painel e no celular, para
    reconhecer a área pela cor sem ler. Como: o fundo do .ic recebe a cor do mundo (as cores claras da TV também no tema
    claro, para o desenho escuro ler igual) e o desenho fica na tinta da noite; técnico fica no cinza quente. */
-:root { --azulejo-neutro: #d9cfc2; --azulejo-tinta: var(--t-night-deep); }
-.linha-hub .ic { border-radius: 13px; background: var(--azulejo-neutro); color: var(--azulejo-tinta); }
-.linha-hub[data-aba="tvfilmes"] .ic { background: var(--t-world-watch); color: var(--azulejo-tinta); }
-.linha-hub:is([data-aba="apps"], [data-aba="loja"], [data-aba="telainicial"]) .ic { background: var(--t-world-apps); color: var(--azulejo-tinta); }
-.linha-hub:is([data-aba="arquivos"], [data-aba="remoto"], [data-aba="casa"]) .ic { background: var(--t-world-network); color: var(--azulejo-tinta); }
-.linha-hub:is([data-aba="familia"], [data-aba="energia"]) .ic { background: var(--t-area-home); color: var(--azulejo-tinta); }
+:root { --azulejo-neutro: var(--superficie2); --azulejo-tinta: var(--texto); }
+/* 27/11/2026, padrão único da TV ("Véu sobre a arte"): o azulejo é a caixa de vidro grafite com o desenho creme, igual
+   aos cartões das Configurações da TV; a cor de mundo saiu. Ativo, foco e passar o mouse = desenho laranja (o ícone
+   em foco da TV). Referências: TV aprovada (Sala, 26/11) e Mobbin Plane / Dropbox Dash (ícones de uma cor só, item
+   escolhido numa caixa mais clara). */
+.linha-hub .ic { border-radius: 13px; background: var(--azulejo-neutro); color: var(--azulejo-tinta); transition: color var(--t-ms-quick); }
+:is(.aba, .linha-hub):is(:hover, :focus-visible) .ic, .aba.ativa .ic { color: var(--acento) !important; }
+.linha-hub:focus-visible { outline: 3px solid var(--foco); outline-offset: 0; background: var(--superficie-hover); }
 @media (min-width: 900px) {
-  .aba .ic { width: 30px; height: 30px; border-radius: 9px; background: var(--azulejo-neutro) !important; color: var(--azulejo-tinta) !important; }
+  .aba .ic { width: 30px; height: 30px; border-radius: 9px; background: var(--azulejo-neutro) !important; color: var(--azulejo-tinta); }
   .aba .ic svg.i { width: 18px; height: 18px; }
   .aba.sub .ic { width: 26px; height: 26px; border-radius: 8px; }
   .aba.sub .ic svg.i { width: 16px; height: 16px; }
-  .aba:is([data-aba="inicio"], [data-aba="natv"], [data-aba="tvfilmes"]) .ic { background: var(--t-world-watch) !important; }
-  .aba:is([data-aba="controle"], [data-aba="sofy"]) .ic { background: var(--t-world-continue) !important; }
-  .aba:is([data-aba="apps"], [data-aba="loja"], [data-aba="telainicial"]) .ic { background: var(--t-world-apps) !important; }
-  .aba:is([data-aba="arquivos"], [data-aba="remoto"], [data-aba="casa"]) .ic { background: var(--t-world-network) !important; }
-  .aba:is([data-aba="familia"], [data-aba="energia"]) .ic { background: var(--t-area-home) !important; }
+  .aba.ativa .ic { background: var(--selecao) !important; }
 }
 
 /* ---------- Celular e TV (companion.js, 24/11/2026) ----------
