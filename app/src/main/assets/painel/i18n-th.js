@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"หลังจากไม่มีใครกดรีโมตนานเท่านี้ ทีวีจะแสดงการแจ้งเตือน 60 วินาทีแล้วปิด ปุ่มใดก็ได้จะยกเลิก การดูหนังโดยไม่แตะรีโมตก็นับว่า \"ไม่ได้ใช้งาน\"",
 "Desenho da HOME nesta versão:":"การวาด HOME ในเวอร์ชันนี้:",
 "Desinstalar":"ถอนการติดตั้ง",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"ปิด: ทีวีเผยแพร่แค่ MCP เปิด: http://onetv-<TV name>:8080 หรือแบบมีแม่กุญแจ https://onetv-<TV name>.<your network>.ts.net:8443 จะเปิดแผงควบคุมนี้จากอุปกรณ์ใดก็ได้ในบัญชี Tailscale ด้วย PIN เดียวกัน ไม่ผ่านอินเทอร์เน็ตสาธารณะ",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"ปิด: ทีวีเผยแพร่แค่ MCP เปิด: http://sofaly-<TV name>:8080 หรือแบบมีแม่กุญแจ https://sofaly-<TV name>.<your network>.ts.net:8443 จะเปิดแผงควบคุมนี้จากอุปกรณ์ใดก็ได้ในบัญชี Tailscale ด้วย PIN เดียวกัน ไม่ผ่านอินเทอร์เน็ตสาธารณะ",
 "Desligado: defina a senha primeiro.":"ปิดอยู่: ตั้งรหัสผ่านก่อน",
 "Desligado: o login usa o PIN do painel.":"ปิดอยู่: การลงชื่อเข้าใช้ใช้ PIN ของแผงควบคุม",
 "Desligar":"ปิด",

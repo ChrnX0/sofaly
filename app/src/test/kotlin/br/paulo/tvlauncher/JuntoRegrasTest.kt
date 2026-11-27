@@ -34,6 +34,24 @@ class JuntoRegrasTest {
         assertEquals("Quarto dos pais", JuntoRegras.nomeBonito("onetv-quarto-dos-pais"))
     }
 
+    /** TV nova nasce "sofaly-", a de antes segue "onetv-" até a troca: as duas precisam se achar, nos dois sentidos. */
+    @Test fun tvsNovasEAntigasSeAcham() {
+        val pares = """[{"nome":"onetv-sala","online":true},{"nome":"sofaly-quarto","online":true},
+            {"nome":"sofaly-sala","online":true},{"nome":"sofalyx-pc","online":true},{"nome":"sofaly-","online":true}]"""
+        // Eu sou a Sala antiga: vejo o Quarto novo (e uma "sofaly-sala" que não sou eu).
+        assertEquals(listOf("sofaly-quarto", "sofaly-sala"), JuntoRegras.outrasTvs(pares, eu).map { it.host })
+        // Eu sou o Quarto novo: vejo a Sala antiga.
+        assertEquals(listOf("onetv-sala", "sofaly-sala"), JuntoRegras.outrasTvs(pares, "sofaly-quarto.tail1234.ts.net").map { it.host })
+        assertEquals("sofaly-quarto.tail1234.ts.net", JuntoRegras.enderecoDoPar(eu, "sofaly-quarto"))
+        assertEquals("onetv-sala.tail1234.ts.net", JuntoRegras.enderecoDoPar("sofaly-quarto.tail1234.ts.net", "onetv-sala"))
+        assertEquals("Quarto dos pais", JuntoRegras.nomeBonito("sofaly-quarto-dos-pais"))
+        // Convite de uma TV nova é aceito pela antiga (o "de" está na lista da conta).
+        val agora = 1_800_000_000_000L
+        val c = JuntoRegras.conviteDeJson(org.json.JSONObject().put("token", "0123456789abcdef0123456789abcdef")
+            .put("de", "sofaly-quarto.tail1234.ts.net").put("chave", "tmdb:filme:603").put("titulo", "Matrix").put("em", agora), agora)!!
+        assertTrue(JuntoRegras.aceitarConvite(c, JuntoRegras.outrasTvs(pares, eu), agora))
+    }
+
     @Test fun chavesCasamOMesmoTituloNasDuasCasas() {
         assertEquals("tmdb:filme:603", JuntoRegras.chaveVod(603, null, null, "x.mkv"))
         assertEquals("tmdb:serie:1399:s1e2", JuntoRegras.chaveVod(1399, 1, 2, null))

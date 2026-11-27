@@ -34,15 +34,46 @@ import javax.crypto.spec.GCMParameterSpec
  * Daí em diante o túnel usa o estado salvo na pasta tunel/ dos dados do app.
  *
  * Opção "rede Tailscale" (desligada por padrão, escolha do dono em 05/11/2026): o painel também abre pelos aparelhos da
- * conta Tailscale (http://onetv-sala:8080, nunca pela internet aberta) e o MCP lista esses aparelhos (só leitura).
+ * conta Tailscale (http://sofaly-sala:8080, nunca pela internet aberta) e o MCP lista esses aparelhos (só leitura).
  */
 object TunelTailscale {
     private const val TAG = "TvLauncher.Tunel"
     private const val PREFS = "tunel_seguro"     // fora do backup
     private const val APELIDO = "tailscale_chave"
-    /** Nome na rede Tailscale: "onetv-" + o nome do aparelho nas configurações da TV (NomeNo). */
+    private const val CHAVE_PREFIXO = "prefixo"
+    /**
+     * Nome na rede Tailscale: prefixo + o nome do aparelho nas configurações da TV (NomeNo). TV nova nasce "sofaly-";
+     * a que já tinha entrado no Tailscale segue "onetv-" (o endereço público, o conector MCP e as outras TVs dependem
+     * dele) até alguém pedir a troca ([trocarPrefixo]). A escolha fica gravada na 1ª vez e não muda sozinha.
+     */
     fun nomeNo(ctx: Context): String =
-        NomeNo.montar(runCatching { Settings.Global.getString(ctx.contentResolver, "device_name") }.getOrNull())
+        NomeNo.montar(runCatching { Settings.Global.getString(ctx.contentResolver, "device_name") }.getOrNull(), prefixo(ctx))
+
+    /** "sofaly" ou "onetv" (ver [nomeNo]). */
+    fun prefixo(ctx: Context): String {
+        val p = prefs(ctx)
+        val salvo = p.getString(CHAVE_PREFIXO, null)
+        val escolhido = NomeNo.prefixoPara(salvo, nome(ctx), File(pastaEstado(ctx), "tailscaled.state").exists())
+        if (salvo != escolhido) p.edit().putString(CHAVE_PREFIXO, escolhido).apply()
+        return escolhido
+    }
+
+    /**
+     * Troca o prefixo (só por adb: EXTRAS --es o tailscale_prefixo --es valor sofaly). O endereço público muda junto
+     * (onetv-sala... -> sofaly-sala...): fazer só no horário combinado com o Paulo, e trocar o conector MCP em seguida.
+     * O túnel sobe de novo com o nome novo; o endereço gravado fica o velho até o programa dizer o novo.
+     */
+    fun trocarPrefixo(ctx: Context, novo: String): String {
+        if (novo !in NomeNo.PREFIXOS) return "prefixo inválido: use ${NomeNo.PREFIXOS.joinToString(" ou ")}"
+        val antes = nomeNo(ctx)
+        prefs(ctx).edit().putString(CHAVE_PREFIXO, novo).apply()
+        if (prefixo(ctx) == NomeNo.prefixoDe(antes)) return "já era $antes"
+        reiniciar()
+        return "$antes -> ${nomeNo(ctx)}; túnel reiniciando (o endereço novo aparece em tailscale_prefixo depois do login)"
+    }
+
+    /** Para o adb: prefixo, nome que o túnel usa e o endereço que ele recebeu. */
+    fun estadoPrefixo(ctx: Context): String = "prefixo=${prefixo(ctx)} nome=${nomeNo(ctx)} endereco=${nome(ctx) ?: "-"}"
 
     @Volatile private var processo: Process? = null
     @Volatile private var querRodando = false
@@ -58,7 +89,7 @@ object TunelTailscale {
     fun binario(ctx: Context) = File(ctx.applicationInfo.nativeLibraryDir, "libtsnet.so")
     internal fun pastaEstado(ctx: Context) = File(ctx.filesDir, "tunel")
 
-    /** O endereço público (ex.: onetv-sala.tail1234.ts.net), ou null antes do 1º login. */
+    /** O endereço público (ex.: sofaly-sala.tail1234.ts.net), ou null antes do 1º login. */
     fun nome(ctx: Context): String? = prefs(ctx).getString("nome", null)
     fun ultimoErro(ctx: Context): String? = prefs(ctx).getString("erro", null)
     fun conta(ctx: Context): String? = prefs(ctx).getString("conta", null)

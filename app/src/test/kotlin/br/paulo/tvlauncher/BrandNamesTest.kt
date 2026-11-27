@@ -10,8 +10,8 @@ import java.io.File
  * voltar em algo que a pessoa vê, ou se um pacote público ou um arquivo do Release levar o nome do Paulo / "one-tv".
  *
  * Fica de fora de propósito, até o Paulo decidir: as pastas "OneTV-backup" e "OneTV-gravacoes" (trocar o nome deixaria
- * as cópias já feitas de fora da restauração) e o nome "onetv-<TV>" no Tailscale (outro nome = outro aparelho na conta,
- * e as outras TVs da casa param de achar esta). Nomes internos (pacote do código br.paulo.tvlauncher, ids de UPnP/MTP,
+ * as cópias já feitas de fora da restauração) e o nome "onetv-<TV>" das TVs que já estavam no Tailscale (TV nova nasce "sofaly-"; trocar muda o endereço
+ * público e o conector MCP, então é feito por adb no horário combinado: EXTRAS --es o tailscale_prefixo). Nomes internos (pacote do código br.paulo.tvlauncher, ids de UPnP/MTP,
  * travas de energia) não aparecem para ninguém e não entram aqui.
  */
 class BrandNamesTest {

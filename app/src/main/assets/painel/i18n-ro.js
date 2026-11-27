@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"După atâta timp fără ca cineva să apese telecomanda, TV-ul arată un aviz 60 s și se oprește. Orice buton anulează. Un film vizionat fără a atinge telecomanda contează și el ca „nefolosit”.",
 "Desenho da HOME nesta versão:":"Desenarea HOME în această versiune:",
 "Desinstalar":"Dezinstalați",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Oprit: TV-ul publică doar MCP. Pornit: http://onetv-<numele TV-ului>:8080 sau, cu lacăt, https://onetv-<numele TV-ului>.<rețeaua dumneavoastră>.ts.net:8443 deschide acest panou de pe orice dispozitiv din contul Tailscale, cu același PIN, niciodată pe internetul deschis.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Oprit: TV-ul publică doar MCP. Pornit: http://sofaly-<numele TV-ului>:8080 sau, cu lacăt, https://sofaly-<numele TV-ului>.<rețeaua dumneavoastră>.ts.net:8443 deschide acest panou de pe orice dispozitiv din contul Tailscale, cu același PIN, niciodată pe internetul deschis.",
 "Desligado: defina a senha primeiro.":"Oprit: setați mai întâi parola.",
 "Desligado: o login usa o PIN do painel.":"Oprit: conectarea folosește PIN-ul panoului.",
 "Desligar":"Opriți",

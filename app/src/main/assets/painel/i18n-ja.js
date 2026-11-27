@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"この時間リモコンが押されないと、テレビは60秒間警告を表示して電源を切ります。どのボタンでもキャンセルできます。リモコンに触れずに映画を見るのも「未使用」とみなされます。",
 "Desenho da HOME nesta versão:":"このバージョンのHOME描画:",
 "Desinstalar":"アンインストール",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"オフ:テレビはMCPのみ公開します。オン:http://onetv-<テレビ名>:8080、または鍵付きで https://onetv-<テレビ名>.<あなたのネットワーク>.ts.net:8443 で、Tailscaleアカウントの任意のデバイスから同じPINでこのパネルを開けます。オープンなインターネットからは決して開けません。",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"オフ:テレビはMCPのみ公開します。オン:http://sofaly-<テレビ名>:8080、または鍵付きで https://sofaly-<テレビ名>.<あなたのネットワーク>.ts.net:8443 で、Tailscaleアカウントの任意のデバイスから同じPINでこのパネルを開けます。オープンなインターネットからは決して開けません。",
 "Desligado: defina a senha primeiro.":"オフ:まずパスワードを設定してください。",
 "Desligado: o login usa o PIN do painel.":"オフ:ログインはパネルのPINを使います。",
 "Desligar":"オフにする",

@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Tras este tiempo sin que nadie pulse el mando, la TV muestra un aviso durante 60 s y se apaga. Cualquier botón lo cancela. Ver una película sin tocar el mando también cuenta como \"sin uso\".",
 "Desenho da HOME nesta versão:":"Dibujo de la HOME en esta versión:",
 "Desinstalar":"Desinstalar",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Desactivado: la TV solo publica el MCP. Activado: http://onetv-<nombre de la TV>:8080, o con candado https://onetv-<nombre de la TV>.<tu red>.ts.net:8443, abre este panel desde cualquier dispositivo de la cuenta de Tailscale, con el mismo PIN, nunca por internet abierto.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Desactivado: la TV solo publica el MCP. Activado: http://sofaly-<nombre de la TV>:8080, o con candado https://sofaly-<nombre de la TV>.<tu red>.ts.net:8443, abre este panel desde cualquier dispositivo de la cuenta de Tailscale, con el mismo PIN, nunca por internet abierto.",
 "Desligado: defina a senha primeiro.":"Desactivado: define antes la contraseña.",
 "Desligado: o login usa o PIN do painel.":"Desactivado: el inicio de sesión usa el PIN del panel.",
 "Desligar":"Apagar",

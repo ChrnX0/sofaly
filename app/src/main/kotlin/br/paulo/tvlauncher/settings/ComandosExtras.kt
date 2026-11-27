@@ -424,6 +424,9 @@ object ComandosExtras {
             "normal" -> { Atualizador.definirCanalTeste(ctx, false); "canal=normal" }
             else -> "canal=${if (Atualizador.canalTeste(ctx)) "teste" else "normal"} (mude com --es canal teste|normal)"
         }
+        "tailscale_prefixo" -> i.getStringExtra("valor")?.trim()?.lowercase()?.takeIf { it.isNotEmpty() }
+            ?.let { br.paulo.tvlauncher.mcp.TunelTailscale.trocarPrefixo(ctx, it) }
+            ?: br.paulo.tvlauncher.mcp.TunelTailscale.estadoPrefixo(ctx)
         "estado" -> Extras.Chave.values().joinToString("\n") { "${it.name}=${Extras.ligado(ctx, it)}" } +
             "\ndiario_dns_erro=${DiarioDns.erro(ctx)}" + "\nrelogio_travado=${TravaRelogio.travado(ctx)}" +
             "\ncanal=${if (Atualizador.canalTeste(ctx)) "teste" else "normal"}"

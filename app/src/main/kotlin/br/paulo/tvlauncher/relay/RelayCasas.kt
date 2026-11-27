@@ -174,7 +174,7 @@ object RelayCasas {
 
     // ---------------------------------------------------------------- Sessão junto pelo relay
 
-    /** Host que a Sessão junto usa para uma casa do relay (as do Tailscale são "onetv-<nome>"). */
+    /** Host que a Sessão junto usa para uma casa do relay (as do Tailscale são "sofaly-<nome>" ou "onetv-<nome>"). */
     const val PREFIXO = "relay:"
     fun host(id: String) = PREFIXO + id
     fun idDoHost(host: String): String? = host.removePrefix(PREFIXO).takeIf { host.startsWith(PREFIXO) && RelayCrypto.ID_RE.matches(it) }

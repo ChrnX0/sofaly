@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Bu süre boyunca kimse kumandaya basmazsa TV 60 sn uyarı gösterir ve kapanır. Herhangi bir tuş iptal eder. Kumandaya dokunmadan film izlemek de \"kullanılmıyor\" sayılır.",
 "Desenho da HOME nesta versão:":"Bu sürümde HOME çizimi:",
 "Desinstalar":"Kaldır",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Kapalı: TV yalnızca MCP'yi yayınlar. Açık: http://onetv-<TV adı>:8080 veya kilitle https://onetv-<TV adı>.<ağınız>.ts.net:8443, bu paneli Tailscale hesabındaki herhangi bir cihazdan aynı PIN'le açar, asla açık internetten değil.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Kapalı: TV yalnızca MCP'yi yayınlar. Açık: http://sofaly-<TV adı>:8080 veya kilitle https://sofaly-<TV adı>.<ağınız>.ts.net:8443, bu paneli Tailscale hesabındaki herhangi bir cihazdan aynı PIN'le açar, asla açık internetten değil.",
 "Desligado: defina a senha primeiro.":"Kapalı: önce şifreyi belirleyin.",
 "Desligado: o login usa o PIN do painel.":"Kapalı: giriş panel PIN'ini kullanır.",
 "Desligar":"Kapat",

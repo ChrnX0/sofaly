@@ -532,7 +532,7 @@ traduzirPainelCom({T:{
 "Depois desse tempo sem ninguém apertar o controle, a TV mostra um aviso por 60 s e desliga. Qualquer botão cancela. Assistir um filme sem tocar no controle também conta como \"sem uso\".":"Na deze tijd zonder dat iemand op de afstandsbediening drukt, toont de tv 60 s een melding en gaat uit. Elke knop annuleert. Een film kijken zonder de afstandsbediening aan te raken telt ook als \"niet in gebruik\".",
 "Desenho da HOME nesta versão:":"HOME-tekening in deze versie:",
 "Desinstalar":"Verwijderen",
-"Desligado: a TV só publica o MCP. Ligado: http://onetv-<nome da TV>:8080, ou com cadeado https://onetv-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Uit: de tv zet alleen de MCP online. Aan: http://onetv-<tv-naam>:8080, of met hangslot https://onetv-<tv-naam>.<je netwerk>.ts.net:8443, opent dit paneel vanaf elk apparaat in het Tailscale-account, met dezelfde pincode, nooit via het open internet.",
+"Desligado: a TV só publica o MCP. Ligado: http://sofaly-<nome da TV>:8080, ou com cadeado https://sofaly-<nome da TV>.<sua rede>.ts.net:8443, abre este painel de qualquer aparelho da conta Tailscale, com o mesmo PIN, nunca pela internet aberta.":"Uit: de tv zet alleen de MCP online. Aan: http://sofaly-<tv-naam>:8080, of met hangslot https://sofaly-<tv-naam>.<je netwerk>.ts.net:8443, opent dit paneel vanaf elk apparaat in het Tailscale-account, met dezelfde pincode, nooit via het open internet.",
 "Desligado: defina a senha primeiro.":"Uit: stel eerst het wachtwoord in.",
 "Desligado: o login usa o PIN do painel.":"Uit: inloggen gebruikt de pincode van het paneel.",
 "Desligar":"Uitzetten",

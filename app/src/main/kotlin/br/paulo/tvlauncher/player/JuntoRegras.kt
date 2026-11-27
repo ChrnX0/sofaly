@@ -9,7 +9,7 @@ import org.json.JSONObject
  * JuntoRegrasTest. Quem fala com a rede é o [EntreTvs]; quem cuida da sessão é o [SessaoJunto].
  *
  * Como as TVs se acham: pela lista de aparelhos da conta Tailscale (o túnel já a publica, TunelTailscale.pares) e
- * conversam pelo endereço público do túnel de cada uma (https://onetv-<nome>.<rede>.ts.net, o mesmo da família
+ * conversam pelo endereço público do túnel de cada uma (https://sofaly-<nome>.<rede>.ts.net, ou onetv-<nome> nas TVs de antes, o mesmo da família
  * conectada). Só comandos passam (título, posição, tocando/pausado, reação): NENHUM vídeo trafega, cada casa toca da
  * própria fonte. Liberado pelo Paulo em 17/11 ("nao vale" a regra de P2P aqui).
  */
@@ -33,20 +33,20 @@ object JuntoRegras {
 
     private val HOST = Regex("^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$")
 
-    /** "onetv-quarto" + o sufixo do meu nome ("onetv-sala.tail1234.ts.net") = "onetv-quarto.tail1234.ts.net". */
+    /** "sofaly-quarto" + o sufixo do meu nome ("onetv-sala.tail1234.ts.net") = "sofaly-quarto.tail1234.ts.net". */
     fun enderecoDoPar(meuNome: String?, parHost: String): String? {
         val sufixo = meuNome?.substringAfter('.', "")?.takeIf { it.endsWith(".ts.net") } ?: return null
         val h = parHost.lowercase()
         return if (HOST.matches(h)) "$h.$sufixo" else null
     }
 
-    /** O nome curto ("onetv-quarto") de um endereço completo. */
+    /** O nome curto ("sofaly-quarto") de um endereço completo. */
     fun hostCurto(nome: String?): String? = nome?.substringBefore('.')?.lowercase()?.takeIf { HOST.matches(it) }
 
     data class Tv(val host: String, val online: Boolean)
 
     /**
-     * As outras TVs da conta: aparelhos cujo nome começa com "onetv-" (TunelTailscale.nomeNo), menos esta. Lê o JSON
+     * As outras TVs da conta: aparelhos cujo nome começa com "sofaly-" ou "onetv-" (NomeNo.ehTv), menos esta. Lê o JSON
      * da linha PARES do túnel ([{"nome","so","online","ip"}]); qualquer coisa estranha é ignorada. Online primeiro.
      */
     fun outrasTvs(paresJson: String?, meuNome: String?): List<Tv> {
@@ -56,13 +56,13 @@ object JuntoRegras {
         return (0 until a.length()).mapNotNull { i ->
             val o = a.optJSONObject(i) ?: return@mapNotNull null
             val h = o.optString("nome").lowercase()
-            if (!h.startsWith("onetv-") || !HOST.matches(h) || h == eu) null else Tv(h, o.optBoolean("online"))
+            if (!br.paulo.tvlauncher.NomeNo.ehTv(h) || !HOST.matches(h) || h == eu) null else Tv(h, o.optBoolean("online"))
         }.distinctBy { it.host }.sortedWith(compareBy({ !it.online }, { it.host }))
     }
 
-    /** Nome para mostrar: "onetv-quarto-dos-pais" -> "Quarto dos pais". */
+    /** Nome para mostrar: "sofaly-quarto-dos-pais" (ou "onetv-...") -> "Quarto dos pais". */
     fun nomeBonito(host: String): String =
-        host.removePrefix("onetv-").replace('-', ' ').trim().replaceFirstChar { it.uppercase() }.ifEmpty { host }
+        br.paulo.tvlauncher.NomeNo.semPrefixo(host).replace('-', ' ').trim().replaceFirstChar { it.uppercase() }.ifEmpty { host }
 
     // ---------------------------------------------------------------- o que está tocando
 
