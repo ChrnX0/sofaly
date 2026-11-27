@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Оцінка Simkl</string>
     <string name="sv_simkl_convite_det">Підключіть свій обліковий запис</string>
+    <string name="legenda_muitas">Зараз забагато пошуків субтитрів. Спробуйте за хвилину.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles відхилив обліковий запис. Перевірте його в Налаштуваннях.</string>
+    <string name="legenda_fora">Служба субтитрів не працює. Спробуйте пізніше.</string>
 </resources>

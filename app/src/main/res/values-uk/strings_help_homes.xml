@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hoh_title_short">Допомагати іншим домівкам</string>
+    <string name="hoh_question">Допоможемо іншим домівкам?</string>
+    <string name="hoh_line">Коли я щось тут лагоджу, я розповідаю іншим Sofaly, як усе пройшло. Не кажучи, хто ви.</string>
+    <string name="hoh_yes">Так, хочу допомагати</string>
+    <string name="hoh_not_now">Не зараз</string>
+    <string name="hoh_how">Як це працює?</string>
+    <string name="hoh_how_title">Як це працює</string>
+    <string name="hoh_how_line">Якщо те саме зламається в іншій домівці, тамтешній Sofaly вже знатиме, що робити.</string>
+    <string name="hoh_goes">Що надсилається</string>
+    <string-array name="hoh_goes_list">
+        <item>Модель телевізора й версія Sofaly</item>
+        <item>Що зламалося, за категоріями</item>
+        <item>Що це виправило і чи спрацювало</item>
+        <item>Пам\'ять і мережа, рівнями (добре чи слабко)</item>
+    </string-array>
+    <string name="hoh_never">Що ніколи не надсилається</string>
+    <string-array name="hoh_never_list">
+        <item>Ваше ім\'я та назва вашої мережі</item>
+        <item>Що і коли ви дивитеся</item>
+        <item>Ваші застосунки і те, що ви пишете</item>
+        <item>Фото, голос, адреса та IP</item>
+    </string-array>
+    <string name="hoh_back_here">Те, чого навчаються інші Sofaly, повертається сюди. Змініть будь-коли в Налаштуваннях, «Що знає Sofy».</string>
+    <string name="hoh_thanks">Дякуємо! Ваш Sofaly тепер допомагає іншим домівкам.</string>
+    <string name="hoh_state_on">Увімкнено: раз на день цей телевізор розповідає, як пройшли виправлення</string>
+    <string name="hoh_state_off">Вимкнено: з цього телевізора нічого не надсилається</string>
+    <string name="hoh_stop">Припинити допомагати</string>
+    <string name="hoh_stop_det">Цей телевізор перестає ділитися. Те, чого навчилися інші домівки, і далі надходить сюди.</string>
+    <string name="hoh_start">Почати допомагати</string>
+    <string name="hoh_start_det">Подивіться, що надсилається і що ніколи, а тоді вирішуйте</string>
+    <string name="hoh_today">Що піде сьогодні</string>
+    <string name="hoh_today_det">Пакет, який надіслав би цей телевізор, поле за полем</string>
+    <string name="hoh_today_sub">Саме це потрапляє на сервер. Код домівки змінюється щодня.</string>
+    <string name="hoh_forget">Забути надіслане</string>
+    <string name="hoh_forget_det">Код цього телевізора змінюється. Надіслане більше не можна пов\'язати з ним, і воно видаляється протягом 30 днів.</string>
+    <string name="hoh_forgot">Готово. Відтепер новий код; надіслане видалиться протягом 30 днів.</string>
+    <string name="hoh_row_det">Чим вона ділиться з іншими домівками і як це вимкнути</string>
+</resources>

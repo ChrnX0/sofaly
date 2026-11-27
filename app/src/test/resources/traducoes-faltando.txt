@@ -49,7 +49,7 @@ values-th=251
 
 values-tr=224
 
-values-uk=239
+values-uk=3
 
 values-vi=251
 
