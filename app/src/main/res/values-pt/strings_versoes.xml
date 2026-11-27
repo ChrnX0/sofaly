@@ -13,36 +13,22 @@
     <string name="ver_respondido_sim">respondido “sim”</string>
     <string name="ver_respondido_nao">respondido “não”</string>
     <string-array name="novidades">
-        <item>App do celular: o leitor de QR fica em pé, com uma janela quadrada e cantos laranja, no lugar do leitor largo de código de barras</item>
-        <item>App do celular: a TV pareada aparece com o nome dela, e não mais “TV” ou um código</item>
-        <item>Celular como ajudante: a imagem da câmera mantém o formato da TV, o microfone do celular falha menos e “Achar o controle” lista só os controles de verdade e lembra quando cada um foi usado</item>
-        <item>O ícone do painel no celular, a aba do navegador, a TV na Rede do Windows e o site usam a logo grafite, sem o azul-marinho antigo</item>
-        <item>Painel: o interruptor “Ajudar outras casas” agora diz que os apps que ficaram lentos e as regras de conferir telas também vão</item>
-        <item>Slogan novo na tela Sobre e na abertura: “Aconchego na sua TV.”</item>
-        <item>Automações também em três colunas, o aviso do PIN da Família virou uma linha de informação e o Diagnóstico da internet ganhou um botão compacto para conferir de novo</item>
-        <item>App do celular: ler o QR da TV não fecha mais o app, o caminho até o QR na TV está certo, e o controle e o “Usar fora de casa?” voltam a responder</item>
-        <item>Ajudar outras casas: a tela conta que o nome e a versão dos apps que travaram também vão, e “Ver o que vai hoje” mostra tudo</item>
-        <item>As telas de ajuste que ainda eram uma coluna esticada agora têm três colunas; a previsão mostra a arte sob o véu escuro</item>
-        <item>Filmes, Rádio, tema, fileiras e listas de foco seguem o mesmo padrão das outras telas</item>
-        <item>O clima gravado pela tela inicial não aparece mais como mudança no Desfazer nem no diário da TV</item>
-        <item>Nome Sofaly em tudo: o app do celular baixa como sofaly-phone.apk e o certificado do painel como sofaly-panel.crt</item>
-        <item>Filme aberto: o atraso da legenda e os ajustes do player feitos nas Configurações não apagam mais um ao outro</item>
-        <item>Configurações: “Casa e rede” agora se chama “Casa e acesso remoto”</item>
-        <item>O Sofaly confere as telas lendo o app que está na frente e, quando não consegue ler uma, diz por quê</item>
-        <item>Textos que juntavam palavras ganharam o espaço que faltava, como no Diagnóstico da internet</item>
+        <item>App do celular: pede a câmera antes de abrir o leitor de QR; se você recusar, oferece Tentar de novo ou os ajustes do celular, na língua do aparelho</item>
+        <item>Ajudar outras casas: “Ver o que vai hoje” mostra cada endereço do servidor como se lê, sem barras invertidas</item>
+        <item>Painel: desligar o microfone ou a câmera do celular também tira o aviso “Microfone ligado” ou “Ao vivo na TV”</item>
+        <item>Qualidade do ar: “Perigosa” aparece em vermelho de alerta</item>
+        <item>Canal de teste: a atualização vem em partes, a TV baixa menos, e a tela inicial solta a memória de gráficos enquanto outro app está aberto ou a tela está apagada</item>
     </string-array>
     <string-array name="roteiro_titulos">
-        <item>Celular lê o QR</item>
-        <item>Nome da TV no celular</item>
-        <item>O que vai</item>
+        <item>Câmera do celular</item>
+        <item>Endereços</item>
+        <item>Microfone do painel</item>
         <item>Legenda e ajustes</item>
-        <item>Espaços nos textos</item>
     </string-array>
     <string-array name="roteiro_perguntas">
-        <item>No app do celular, toque em Ler o QR da TV (o leitor fica em pé, com uma janela quadrada) e leia o QR de Configurações › Casa e acesso remoto › Acesso remoto › Entrar pelo celular: o painel abre, e a tecla Início do controle leva a TV à tela inicial?</item>
-        <item>De volta à lista de TVs do app do celular, esta TV aparece com o nome dela, e não “TV” ou um código?</item>
-        <item>Abra Ajudar outras casas e Como funciona: “O que vai” lista o nome e a versão dos apps que travaram, e “Ver o que vai hoje” mostra duas partes?</item>
-        <item>Com um filme aberto, mude o atraso da legenda e, nas Configurações, um ajuste do player; reabra o filme: os dois ficaram?</item>
-        <item>No Diagnóstico da internet, “respondem. Sem quedas nas últimas 24 h” aparece com espaço, e há espaço antes de “(app do sistema)” e “(há 5 min)”?</item>
+        <item>No app do celular, toque em Ler o QR da TV e responda Não permitir à pergunta da câmera: o app oferece Tentar de novo, na língua do celular?</item>
+        <item>Abra Ajudar outras casas › Ver o que vai hoje: os endereços aparecem como https://api.sofaly.tv/v1/…, sem barras invertidas?</item>
+        <item>No painel pelo celular, ligue e depois desligue o microfone: o aviso “Microfone ligado” some?</item>
+        <item>Com um filme aberto, ligue a legenda, mude o atraso da legenda e, nas Configurações, um ajuste do player; reabra o filme: os dois ficaram?</item>
     </string-array>
 </resources>
