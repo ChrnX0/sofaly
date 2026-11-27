@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Ajudar outras casas" (rede de Sofys, passo 3): HelpOtherHomesActivity.kt. Opt-in, nunca ligado de fábrica. -->
+<resources>
+    <string name="hoh_title_short">Ajudar outras casas</string>
+    <string name="hoh_question">Vamos ajudar outras casas?</string>
+    <string name="hoh_line">Quando eu conserto algo aqui, conto como foi para os outros Sofalys. Sem dizer quem é você.</string>
+    <string name="hoh_yes">Sim, quero ajudar</string>
+    <string name="hoh_not_now">Agora não</string>
+    <string name="hoh_how">Como funciona?</string>
+    <string name="hoh_how_title">Como funciona</string>
+    <string name="hoh_how_line">Se a mesma coisa quebrar em outra casa, o Sofaly de lá já sabe o que fazer.</string>
+    <string name="hoh_goes">O que vai</string>
+    <string-array name="hoh_goes_list">
+        <item>O modelo da TV e a versão do Sofaly</item>
+        <item>O que quebrou, em categorias</item>
+        <item>O que consertou e se deu certo</item>
+        <item>Memória e rede em faixas (boa ou fraca)</item>
+    </string-array>
+    <string name="hoh_never">O que nunca sai</string>
+    <string-array name="hoh_never_list">
+        <item>Seu nome e o nome da sua rede</item>
+        <item>O que você assiste e quando</item>
+        <item>Seus apps e o que você digita</item>
+        <item>Fotos, voz, endereço e IP</item>
+    </string-array>
+    <string name="hoh_back_here">O que os outros Sofalys aprendem volta para cá. Dá para mudar quando quiser em Configurações, O que a Sofy sabe.</string>
+    <string name="hoh_thanks">Obrigado! Seu Sofaly agora ajuda outras casas.</string>
+    <string name="hoh_state_on">Ligado: uma vez por dia esta TV conta como foram os consertos</string>
+    <string name="hoh_state_off">Desligado: nada desta TV é compartilhado</string>
+    <string name="hoh_stop">Parar de ajudar</string>
+    <string name="hoh_stop_det">Esta TV para de contar. Ela continua recebendo o que as outras casas aprenderam.</string>
+    <string name="hoh_start">Começar a ajudar</string>
+    <string name="hoh_start_det">Veja o que vai e o que nunca sai, e escolha</string>
+    <string name="hoh_today">Ver o que vai hoje</string>
+    <string name="hoh_today_det">O pacote exato que esta TV mandaria, campo por campo</string>
+    <string name="hoh_today_sub">Exatamente o que vai ao servidor. O código da casa troca todo dia.</string>
+    <string name="hoh_forget">Esquecer o que já mandei</string>
+    <string name="hoh_forget_det">Troca o código desta TV. O que já foi não tem mais como ser ligado a ela e some em até 30 dias.</string>
+    <string name="hoh_forgot">Pronto. Código novo daqui em diante; o que já foi some em até 30 dias.</string>
+    <string name="hoh_row_det">O que ela compartilha com outras casas, e como desligar</string>
+</resources>

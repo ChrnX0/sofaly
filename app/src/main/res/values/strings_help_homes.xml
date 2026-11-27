@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Help other homes" (Sofy network, step 3): HelpOtherHomesActivity.kt. Opt-in, never on by default. -->
+<resources>
+    <string name="hoh_title_short">Help other homes</string>
+    <string name="hoh_question">Shall we help other homes?</string>
+    <string name="hoh_line">When I fix something here, I tell the other Sofalys how it went. Without saying who you are.</string>
+    <string name="hoh_yes">Yes, I want to help</string>
+    <string name="hoh_not_now">Not now</string>
+    <string name="hoh_how">How does it work?</string>
+    <string name="hoh_how_title">How it works</string>
+    <string name="hoh_how_line">If the same thing breaks in another home, its Sofaly already knows what to do.</string>
+    <string name="hoh_goes">What goes</string>
+    <string-array name="hoh_goes_list">
+        <item>The TV model and the Sofaly version</item>
+        <item>What broke, in categories</item>
+        <item>What fixed it, and whether it worked</item>
+        <item>Memory and network in ranges (good or weak)</item>
+    </string-array>
+    <string name="hoh_never">What never leaves</string>
+    <string-array name="hoh_never_list">
+        <item>Your name and your network\'s name</item>
+        <item>What you watch, and when</item>
+        <item>Your apps and what you type</item>
+        <item>Photos, voice, address and IP</item>
+    </string-array>
+    <string name="hoh_back_here">What the other Sofalys learn comes back here. You can change this anytime in Settings, What Sofy knows.</string>
+    <string name="hoh_thanks">Thank you! Your Sofaly is now helping other homes.</string>
+    <string name="hoh_state_on">On: once a day this TV shares how its fixes went</string>
+    <string name="hoh_state_off">Off: nothing from this TV is shared</string>
+    <string name="hoh_stop">Stop helping</string>
+    <string name="hoh_stop_det">This TV stops sharing. It keeps receiving what other homes learned.</string>
+    <string name="hoh_start">Start helping</string>
+    <string name="hoh_start_det">See what goes and what never leaves, then choose</string>
+    <string name="hoh_today">See what goes today</string>
+    <string name="hoh_today_det">The exact package this TV would send, field by field</string>
+    <string name="hoh_today_sub">Exactly what goes to the server. The home code changes every day.</string>
+    <string name="hoh_forget">Forget what I already sent</string>
+    <string name="hoh_forget_det">Changes this TV\'s code. What was sent can no longer be tied to it and is erased within 30 days.</string>
+    <string name="hoh_forgot">Done. A new code from now on; what was sent is erased within 30 days.</string>
+    <string name="hoh_row_det">What she shares with other homes, and how to turn it off</string>
+</resources>

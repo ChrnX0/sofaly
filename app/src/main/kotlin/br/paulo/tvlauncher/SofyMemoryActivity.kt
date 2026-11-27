@@ -50,6 +50,11 @@ class SofyMemoryActivity : Activity() {
         }
         linhas.forEach { lista.addView(it) }
         lista.addView(linha(getString(R.string.smem_tudo), getString(R.string.smem_tudo_det)) { esquecer(memorias, memorias.size) })
+        // Rede de Sofys (27/11/2026): o que ela compartilha com outras casas fica junto do que ela sabe, com o desligar.
+        lista.addView(linha(getString(R.string.hoh_title_short), getString(R.string.hoh_row_det)) {
+            startActivity(android.content.Intent(this, HelpOtherHomesActivity::class.java)
+                .putExtra(HelpOtherHomesActivity.EXTRA_MODE, HelpOtherHomesActivity.MODE_SETTINGS))
+        })
         lista.getChildAt(focar.coerceIn(0, lista.childCount - 1))?.requestFocus()
     }
 
