@@ -101,7 +101,7 @@ class AutorizaShizukuService : AccessibilityService() {
             Log.d("TvLauncher.Tecla", "tecla=${KeyEvent.keyCodeToString(e.keyCode)} (${e.keyCode}) scan=${e.scanCode} " +
                 "acao=${if (e.action == KeyEvent.ACTION_DOWN) "desce" else "sobe"} repete=${e.repeatCount}")
         TesteTeclas.registrar(e)   // testador de teclas: só grava se armado (máx. 2 min, só na memória)
-        br.paulo.tvlauncher.companion.FindRemote.touched(e)   // "achar o controle": a última vez que cada controle foi usado
+        br.paulo.tvlauncher.companion.FindRemote.touched(this, e)   // "achar o controle": a última vez que cada controle foi usado
         runCatching { br.paulo.tvlauncher.observer.SofyGuardTv.key(this, e) }   // Sofy: perdido / tecla presa (só conta)
         Rotinas.tecla()   // rotina "desligar se ninguém mexeu há N min" (só grava a hora; ver Rotinas.kt)
         // Desligar sozinha: toda tecla conta como "alguém está usando"; com o aviso na tela, a tecla só o cancela.

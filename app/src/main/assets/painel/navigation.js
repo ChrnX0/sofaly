@@ -47,6 +47,17 @@ function irAoBloco(cartao) {
   if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
 }
 
+/** Rola a fileira de atalhos (só na horizontal) até o chip [b] caber nela. Nunca mexe na rolagem da página. */
+function mostrarChip(b) {
+  const f = b.parentElement;
+  if (!f) return;
+  const pad = 16, esq = b.offsetLeft - f.offsetLeft, dir = esq + b.offsetWidth;
+  let alvo = f.scrollLeft;
+  if (esq - pad < f.scrollLeft) alvo = esq - pad;
+  else if (dir + pad > f.scrollLeft + f.clientWidth) alvo = dir + pad - f.clientWidth;
+  if (alvo !== f.scrollLeft) f.scrollTo({ left: Math.max(0, alvo), behavior: 'auto' });
+}
+
 function botaoDoIndice(cartao, classe) {
   const b = document.createElement('button');
   b.type = 'button';
@@ -98,7 +109,9 @@ function montarIndice() {
         const ativo = b.dataset.bloco === e.target.id;
         b.classList.toggle('atual', ativo);
         if (ativo) b.setAttribute('aria-current', 'location'); else b.removeAttribute('aria-current');
-        if (ativo && b.classList.contains('chip-indice')) b.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        // Só a fileira de atalhos anda de lado. Era scrollIntoView, que também rola a PÁGINA até a fileira (no alto):
+        // no celular, descer até o 2º bloco puxava a tela de volta para cima e prendia a pessoa no 1º (Paulo, 25/11/2026).
+        if (ativo && b.classList.contains('chip-indice')) mostrarChip(b);
       }
     }
   }, { rootMargin: '-20% 0px -65% 0px' });
