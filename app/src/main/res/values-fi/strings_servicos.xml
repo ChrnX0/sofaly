@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Simkl-arvosana</string>
     <string name="sv_simkl_convite_det">Yhdistä tilisi</string>
+    <string name="legenda_muitas">Liian monta tekstityshakua juuri nyt. Yritä minuutin päästä uudelleen.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles hylkäsi tilin. Tarkista se Asetuksista.</string>
+    <string name="legenda_fora">Tekstityspalvelu ei toimi. Yritä myöhemmin.</string>
 </resources>

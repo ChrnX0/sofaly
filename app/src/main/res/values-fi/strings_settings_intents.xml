@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=isompi teksti|isommat kirjaimet|suurempi teksti|suurenna tekstiä|isompi fontti;TEXT_SMALLER=pienempi teksti|pienemmät kirjaimet|pienennä tekstiä|pienempi fontti;GOAL_READ=lue paremmin|vaikea lukea|en näe hyvin;GOAL_CLEAN=siistimpi näyttö|yksinkertainen näyttö;GOAL_ENERGY=säästä energiaa|säästä sähköä|vähemmän sähköä;LOOK_SOFALY=sofaly ulkoasu|normaali ulkoasu;LOOK_NIGHT=yö ulkoasu|tumma taivas;LOOK_MOUNTAIN=vuori ulkoasu;LOOK_MINIMAL=minimalistinen ulkoasu</string>
+    <string name="si_fazer">Tee nyt: %1$s</string>
+    <string name="si_desfazer">Peru: %1$s</string>
+    <string name="si_fazer_det">Muuttuu heti.</string>
+    <string name="si_maior">Isompi teksti</string>
+    <string name="si_menor">Pienempi teksti</string>
+</resources>

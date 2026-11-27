@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Lue paremmin</string>
+    <string name="goal_clean">Siistimpi näyttö</string>
+    <string name="goal_energy">Säästä energiaa</string>
+    <string name="goal_kids">Suojaa lapset</string>
+    <string name="goal_desfazer">%1$s, päällä.</string>
+    <string name="goal_feito">%1$s: valmis.</string>
+    <string name="goal_desfeito">%1$s: peruttu</string>
+</resources>

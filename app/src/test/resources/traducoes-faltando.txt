@@ -13,7 +13,7 @@ values-el=3
 
 values-es=3
 
-values-fi=236
+values-fi=3
 
 values-fr=3
 

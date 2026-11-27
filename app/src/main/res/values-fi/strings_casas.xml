@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Muut kodit</string>
+    <string name="casas_texto">Yhdistä tämä televisio sukulaisen televisioon ja katsokaa yhdessä kaukaakin. Vain toisto, tauko ja reaktiot kulkevat, salattuina. Kukaan ei tarvitse tiliä.</string>
+    <string name="casas_mostrar">Näytä koodi</string>
+    <string name="casas_mostrar_det">Toinen koti kirjoittaa sen omaan televisioonsa</string>
+    <string name="casas_digitar">Kirjoita koodi</string>
+    <string name="casas_digitar_det">Toisessa televisiossa näkyvä koodi</string>
+    <string name="casas_conectadas">Yhdistetyt kodit</string>
+    <string name="casas_remover_det">Yhteiskatselu · poista</string>
+    <string name="casas_remover_titulo">Poistetaanko %1$s?</string>
+    <string name="casas_remover">Poista</string>
+    <string name="casas_pedindo">Pyydetään koodia…</string>
+    <string name="casas_codigo_det">Lue tämä koodi toiselle kodille. Heidän televisiossaan: Asetukset, Perhe, Muut kodit, Kirjoita koodi. Se on voimassa 10 minuuttia ja kerran.</string>
+    <string name="casas_esperando">Odotetaan toisen television vahvistusta…</string>
+    <string name="casas_conectando">Yhdistetään…</string>
+    <string name="casas_conectar">Yhdistä</string>
+    <string name="casas_chegou">%1$s kirjoitti koodin</string>
+    <string name="casas_confirmou">%1$s vahvisti. Vertaa numerot myös täällä</string>
+    <string name="casas_pelo_celular">%1$s yhdisti yhteiskatseluun (lisääjä: %2$s)</string>
+    <string name="casas_conferir_titulo">Yhdistetäänkö kohteeseen %1$s?</string>
+    <string name="casas_conferir_texto">Varmista puhelimessa, että toinen televisio näyttää samat numerot:\n\n%1$s\n\nJos ne eroavat, peru.</string>
+    <string name="casas_pronto">Yhdistetty: %1$s. Molemmat televisiot näyttävät nämä numerot. Katsoaksenne yhdessä avaa nimike ja valitse Katso yhdessä.</string>
+    <string name="casas_falhou">Ei onnistunut. Tarkista internet ja yritä uudelleen uudella koodilla.</string>
+    <string name="casas_sem_rede">Sofaly-palvelu ei vastaa. Tarkista internet.</string>
+    <string name="casas_codigo_errado">Koodi ei toiminut. Siinä on 8 kirjainta ja numeroa, ja se on voimassa 10 minuuttia.</string>
+    <string name="casas_menu">Muut kodit</string>
+    <string name="casas_menu_det">Katso yhdessä kaukana asuvan sukulaisen television kanssa</string>
+</resources>
