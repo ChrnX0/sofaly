@@ -287,6 +287,9 @@ object ComandosExtras {
             .apply { i.getStringExtra("arquivo")?.let { put("arquivo", br.paulo.tvlauncher.parts.Parts.readApk(ctx, it)) } }.toString()
         "partes_pedir" -> i.getStringExtra("parte").orEmpty().let { br.paulo.tvlauncher.parts.PartsInstall.request(ctx, it); "pedido: $it (veja em partes)" }
         "partes_local" -> br.paulo.tvlauncher.parts.PartsInstall.installLocal(ctx, java.io.File(i.getStringExtra("pasta").orEmpty()))
+        // Etapa 4b da G: `gpu` = último pedido de soltar GPU; `gpu_soltar --ei nivel 20|40` pede agora (teste).
+        "gpu" -> br.paulo.tvlauncher.home.GpuTrim.ultimo
+        "gpu_soltar" -> { br.paulo.tvlauncher.home.GpuTrim.soltar(i.getIntExtra("nivel", 20), "adb"); "pedido" }
         "leveza" -> LevezaTv.json(ctx).toString()   // degrau 2: memória e tempo da HOME (volte à HOME umas vezes antes)
         "observer" -> ObserverTv.report(ctx)
         "observer_notes" -> ObserverTv.notesRaw(ctx)   // diagnóstico só de leitura: a fila de recados como está no disco

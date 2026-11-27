@@ -64,6 +64,7 @@ class LauncherApp : Application() {
         // deixa abrir a tela que derrubou uma versão ruim. Logo depois do RegistroErros: uma queda já conta.
         VigiaAtualizacao.aoIniciar(this)
         VigiaAtualizacao.vigiarTelas(this)
+        br.paulo.tvlauncher.home.GpuTrim.vigiar(this)   // etapa 4b da G: tela apagada há 30 s = GPU da HOME solta
         br.paulo.tvlauncher.parts.PartsInstall.install(this)   // refatoração G: parte que falta é pedida quando a função precisa
         Moldura.instalar(this)   // a hora da HOME no mesmo lugar nas telas de lista (Moldura.kt)
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
