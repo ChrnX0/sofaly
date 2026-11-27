@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Tema único do app (o mesmo de antes); existe para o values-v35 poder ajustar o Android 15. -->
-    <style name="Tema" parent="@android:style/Theme.Material.NoActionBar" />
+    <style name="Tema" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:alertDialogTheme">@style/Dialogo</item>
+    </style>
+    <!-- Avisos (esquecer TV, juntar casas...) com as cores da marca: antes eram os do Android, cinza com botões
+         verde-azulados, e pareciam de outro app (auditoria 27/11/2026). Claro aqui; escuro em values-night. -->
+    <style name="Dialogo" parent="@android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorBackground">#FFFFF8F0</item>
+        <item name="android:colorAccent">#FF121212</item>
+        <item name="android:textColorPrimary">#FF121212</item>
+        <item name="android:textColorSecondary">#FF4D4C48</item>
+        <item name="android:buttonBarButtonStyle">@style/DialogoBotao</item>
+    </style>
+    <style name="DialogoBotao" parent="@android:style/Widget.Material.Button.Borderless.Colored">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">17sp</item>
+    </style>
 </resources>

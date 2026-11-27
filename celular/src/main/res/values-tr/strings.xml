@@ -23,7 +23,6 @@
     <string name="cel_baixado">İndirilenler\'e kaydedildi: %1$s</string>
     <string name="cel_baixar_falhou">Dosya kaydedilemedi. Tekrar deneyin.</string>
     <string name="cel_painel_completo">Tam panel</string>
-    <string name="cel_ctrl_dica">Gezinmek için kaydır, Tamam için dokun</string>
     <string name="cel_ctrl_area">Burada kaydır veya dokun</string>
     <string name="cel_ctrl_digite">Buraya yaz ve TV\'ye gönder</string>
     <string name="cel_ctrl_voltar">Geri</string>

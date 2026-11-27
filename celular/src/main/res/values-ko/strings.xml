@@ -23,7 +23,6 @@
     <string name="cel_baixado">다운로드에 저장됨: %1$s</string>
     <string name="cel_baixar_falhou">파일을 저장하지 못했습니다. 다시 시도하세요.</string>
     <string name="cel_painel_completo">전체 패널</string>
-    <string name="cel_ctrl_dica">밀어서 이동, 탭하면 확인</string>
     <string name="cel_ctrl_area">여기를 밀거나 탭하세요</string>
     <string name="cel_ctrl_digite">여기에 입력해 TV로 보내세요</string>
     <string name="cel_ctrl_voltar">뒤로</string>

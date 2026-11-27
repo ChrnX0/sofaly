@@ -82,7 +82,9 @@ class ControleActivity : Activity() {
                 isClickable = true; setOnClickListener { abrirPainel() }
             })
         })
-        situacao = Visual.texto(context, getString(R.string.cel_ctrl_dica), 15f, Visual.TEXTO_2).apply { setPadding(0, dp(4), 0, dp(12)) }
+        // Sem dica de gesto ("deslize para mover..."): dicas de controle saíram de tudo (Paulo, 26/11/2026). A linha fica
+        // só para o estado (fora de casa, sem TV, recusou).
+        situacao = Visual.texto(context, "", 15f, Visual.TEXTO_2).apply { setPadding(0, dp(4), 0, dp(12)) }
         addView(situacao)
         fora = Visual.texto(context, getString(R.string.cel_fora_link), 16f, Visual.TEXTO).apply {
             paintFlags = paintFlags or android.graphics.Paint.UNDERLINE_TEXT_FLAG
@@ -155,7 +157,7 @@ class ControleActivity : Activity() {
     private fun tratar(codigo: Int) {
         when (codigo) {
             202 -> situacao.text = getString(R.string.cel_ctrl_fora)   // foi pelo relay (fora de casa): ApiTv.pelaCaixa
-            in 200..299 -> { situacao.text = getString(R.string.cel_ctrl_dica); oferecerFora(codigo) }
+            in 200..299 -> { situacao.text = ""; oferecerFora(codigo) }
             401 -> entrarPrimeiro()
             0, ApiTv.DEMOROU -> situacao.text = getString(R.string.cel_ctrl_sem_tv)
             ApiTv.CERTIFICADO_TROCOU -> situacao.text = getString(R.string.cel_ctrl_cert_novo)
