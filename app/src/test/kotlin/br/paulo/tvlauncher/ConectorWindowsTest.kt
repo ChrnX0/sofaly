@@ -86,7 +86,7 @@ class ConectorWindowsTest {
         assertFalse("Responda" in en)
         assertEquals("Connect Sofaly.cmd", ConectorWindows.arquivo(false))
         assertTrue(ConectorWindows.portugues("pt-BR,pt;q=0.9,en;q=0.8"))
-        assertTrue(ConectorWindows.portugues(null))
+        assertEquals(java.util.Locale.getDefault().language == "pt", ConectorWindows.portugues(null))   // sem cabeçalho: a língua da TV
         assertFalse(ConectorWindows.portugues("en-US,en;q=0.9,pt;q=0.5"))
     }
 }

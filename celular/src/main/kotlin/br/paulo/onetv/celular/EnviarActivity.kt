@@ -70,7 +70,8 @@ class EnviarActivity : Activity() {
         raiz.addView(barra, LinearLayout.LayoutParams(-1, dp(12)))
         botoes = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding(0, dp(20), 0, 0) }
         raiz.addView(botoes)
-        setContentView(raiz)
+        // Fonte grande do sistema: a tela rola em vez de cortar os botões (revisor 26/11).
+        setContentView(android.widget.ScrollView(this).apply { isFillViewport = true; addView(raiz) })
 
         ApiTv.emSegundoPlano {
             val lidos = uris.mapNotNull { ler(it) }

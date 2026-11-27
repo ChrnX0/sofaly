@@ -15,4 +15,5 @@
     <string name="mtp_pcs_esquecidos">Datamaskiner glemt</string>
     <!-- File name of the shortcut to the web panel shown in the TV storage on the computer (no extension; PanelShortcut.kt). -->
     <string name="ur_atalho_nome">Åpne TV-panelet</string>
+    <string name="ssdp_painel">panel</string>
 </resources>

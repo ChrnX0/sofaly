@@ -84,6 +84,8 @@ class ControleActivity : Activity() {
         addView(situacao)
         addView(areaDeslizar(), LinearLayout.LayoutParams(-1, 0, 1f))
         campo = EditText(context).apply {
+            // A TV descarta texto acima de 500 caracteres (RelayPairing.comando): o campo nem deixa passar disso.
+            filters = arrayOf(android.text.InputFilter.LengthFilter(500))
             visibility = View.GONE; hint = getString(R.string.cel_ctrl_digite); setSingleLine()
             setTextColor(Visual.TEXTO); setHintTextColor(Visual.TEXTO_2); textSize = 18f
             background = Visual.cartao(context); setPadding(dp(16), dp(14), dp(16), dp(14))

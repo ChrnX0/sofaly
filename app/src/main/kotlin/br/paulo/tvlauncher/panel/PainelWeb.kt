@@ -399,7 +399,7 @@ object PainelWeb {
      */
     private fun descricaoUpnp(host: String?): Resposta {
         val pagina = "http://${host ?: (ipsDaRede().minOrNull() + ":" + Config.PAINEL_PORTA)}/"
-        val xml = Ssdp.descricao(Ssdp.nomeVisivel(PainelVizinhos.nomeDaTv(app)), Ssdp.uuid(PainelVizinhos.idDaTv(app)), pagina)
+        val xml = Ssdp.descricao(Ssdp.nomeVisivel(PainelVizinhos.nomeDaTv(app), app.getString(br.paulo.tvlauncher.R.string.ssdp_painel)), Ssdp.uuid(PainelVizinhos.idDaTv(app)), pagina)
         return Resposta(200, "text/xml; charset=utf-8", xml.toByteArray())
     }
 

@@ -106,7 +106,7 @@ object MudarDeTv {
             Diario.anotar(ctx, "tv", ctx.getString(R.string.mtv_diario, p.de.ifBlank { "?" }, fila.size), "ok")
             return p.de
         } catch (e: Exception) {
-            synchronized(this) { estado = Estado.ERRO; detalhe = e.message ?: e.javaClass.simpleName; par = null; recepcao = null }
+            synchronized(this) { estado = Estado.ERRO; detalhe = BackupCompleto.motivoNaTela(ctx, e); par = null; recepcao = null }
             runCatching { PainelWeb.ajustar(ctx) }   // a porta aberta só para receber fecha já
             throw e
         }

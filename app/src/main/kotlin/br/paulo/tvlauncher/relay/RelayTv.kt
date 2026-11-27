@@ -190,7 +190,7 @@ object RelayTv {
      * Busca e processa a caixa postal. [tratar] recebe cada mensagem nova (aberta, de um pareado, não repetida).
      * Devolve quantas foram tratadas, ou -1 se não falou com o servidor.
      */
-    @Synchronized fun receber(ctx: Context, tratar: (RelayEnvelope.Aberto) -> Unit): Int {
+    @Synchronized fun receber(ctx: Context, tratar: (RelayEnvelope.Aberto, Long) -> Unit): Int {
         val eu = identidade(ctx) ?: return -1
         if (!vistosCarregados) { vistos.carregar(prefs(ctx).getString("vistos", null)); vistosCarregados = true }
         val r = runCatching { pedir(ctx, "GET", "/v1/inbox/pending") }.getOrNull() ?: return -1
@@ -206,7 +206,7 @@ object RelayTv {
             val a = RelayEnvelope.abrir(eu.id, eu.x, e.dados, agora) { chaves[it] }
             if (a == null) { Log.w(TAG, "envelope ${e.caixaId} de ${e.de}: não abriu"); continue }
             if (!vistos.primeiraVez(a.mensagem.id, a.mensagem.t, agora)) continue
-            runCatching { tratar(a) }.onFailure { Log.w(TAG, "tratar ${a.mensagem.tipo}: ${it.javaClass.simpleName}") }
+            runCatching { tratar(a, e.criado) }.onFailure { Log.w(TAG, "tratar ${a.mensagem.tipo}: ${it.javaClass.simpleName}") }
             n++
         }
         prefs(ctx).edit().putString("vistos", vistos.paraJson()).apply()
@@ -219,7 +219,7 @@ object RelayTv {
     // ---------------------------------------------------------------- escuta (WebSocket) e a lista fechada
 
     /** O que fazer com um comando de fora. Mesma porta do painel: as mesmas travas (pergunta na tela, texto válido). */
-    fun tratar(ctx: Context, a: RelayEnvelope.Aberto) {
+    fun tratar(ctx: Context, a: RelayEnvelope.Aberto, chegouSeg: Long = 0L) {
         val quem = pareados(ctx).firstOrNull { it.id == a.remetente }
         // TV de outra casa: só Sessão junto. Nunca tecla nem texto (e um celular nunca manda Sessão junto).
         if (quem?.tv == true) { RelayCasas.receberJunto(ctx, quem, a.mensagem); return }
@@ -230,7 +230,7 @@ object RelayTv {
             br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "painel desligado")
             return
         }
-        if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis())) {
+        if (c != null && !RelayPairing.naHora(a.mensagem, System.currentTimeMillis(), chegouSeg)) {
             br.paulo.tvlauncher.panel.PainelArmazem.registrar(ctx, "fora de casa: $nome", "ignorado", "chegou atrasado (TV estava desligada)")
             return
         }
@@ -303,7 +303,7 @@ object RelayTv {
             val a = RelayEnvelope.abrir(eu.id, eu.x, r.dados, agora) { chaves[it] } ?: return r.caixaId
             if (!vistos.primeiraVez(a.mensagem.id, a.mensagem.t, agora)) return r.caixaId
             prefs(app).edit().putString("vistos", vistos.paraJson()).apply()
-            runCatching { tratar(app, a) }.onFailure { Log.w(TAG, "tratar: ${it.javaClass.simpleName}") }
+            runCatching { tratar(app, a, r.criado) }.onFailure { Log.w(TAG, "tratar: ${it.javaClass.simpleName}") }
         }
         return r.caixaId
     }

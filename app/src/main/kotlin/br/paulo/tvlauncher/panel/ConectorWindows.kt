@@ -21,7 +21,8 @@ object ConectorWindows {
 
     /** [cabecalho] Accept-Language do navegador: o .cmd sai em português só quando a 1ª língua é pt. */
     fun portugues(cabecalho: String?): Boolean =
-        cabecalho?.split(',')?.firstOrNull()?.trim()?.lowercase()?.startsWith("pt") ?: true
+        // Sem o cabeçalho: a língua da TV (antes era sempre pt, revisor 26/11).
+        cabecalho?.split(',')?.firstOrNull()?.trim()?.lowercase()?.startsWith("pt") ?: (java.util.Locale.getDefault().language == "pt")
 
     /** Os textos que a pessoa lê no .cmd, sem acentos (o cmd.exe usa a página de código antiga do Windows). */
     private class Textos(val pt: Boolean) {
