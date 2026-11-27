@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=větší písmo|písmo větší|větší text|zvětšit písmo|zvětši písmo;TEXT_SMALLER=menší písmo|písmo menší|menší text|zmenšit písmo|zmenši písmo;GOAL_READ=lépe číst|špatně se čte|špatně vidím;GOAL_CLEAN=čistá obrazovka|jednoduchá obrazovka;GOAL_ENERGY=šetřit energii|úspora energie|méně elektřiny;LOOK_SOFALY=vzhled sofaly|normální vzhled;LOOK_NIGHT=noční vzhled|tmavá obloha;LOOK_MOUNTAIN=horský vzhled;LOOK_MINIMAL=minimalistický vzhled</string>
+    <string name="si_fazer">Udělat teď: %1$s</string>
+    <string name="si_desfazer">Vrátit: %1$s</string>
+    <string name="si_fazer_det">Změní se hned.</string>
+    <string name="si_maior">Větší písmo</string>
+    <string name="si_menor">Menší písmo</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="goal_read">Lépe číst</string>
+    <string name="goal_clean">Čistá obrazovka</string>
+    <string name="goal_energy">Šetřit energii</string>
+    <string name="goal_kids">Chránit děti</string>
+    <string name="goal_desfazer">%1$s, zapnuto.</string>
+    <string name="goal_feito">%1$s: hotovo.</string>
+    <string name="goal_desfeito">%1$s: vráceno</string>
+</resources>

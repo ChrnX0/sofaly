@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Jiné domácnosti</string>
+    <string name="casas_texto">Propojte tuto televizi s televizí příbuzného a dívejte se spolu i na dálku. Posílá se jen přehrávání, pauza a reakce, šifrovaně. Nikdo nepotřebuje účet.</string>
+    <string name="casas_mostrar">Zobrazit kód</string>
+    <string name="casas_mostrar_det">Druhá domácnost ho zadá na své televizi</string>
+    <string name="casas_digitar">Zadat kód</string>
+    <string name="casas_digitar_det">Kód zobrazený na druhé televizi</string>
+    <string name="casas_conectadas">Propojené domácnosti</string>
+    <string name="casas_remover_det">Společné sledování · odebrat</string>
+    <string name="casas_remover_titulo">Odebrat %1$s?</string>
+    <string name="casas_remover">Odebrat</string>
+    <string name="casas_pedindo">Žádám o kód…</string>
+    <string name="casas_codigo_det">Přečtěte tento kód druhé domácnosti. Na jejich televizi: Nastavení, Rodina, Jiné domácnosti, Zadat kód. Platí 10 minut a jednou.</string>
+    <string name="casas_esperando">Čekám na potvrzení druhé televize…</string>
+    <string name="casas_conectando">Připojuji…</string>
+    <string name="casas_conectar">Připojit</string>
+    <string name="casas_chegou">%1$s zadal(a) kód</string>
+    <string name="casas_confirmou">%1$s potvrdil(a). Porovnejte čísla i tady</string>
+    <string name="casas_pelo_celular">%1$s se připojil(a) ke společnému sledování (přidal(a) %2$s)</string>
+    <string name="casas_conferir_titulo">Připojit k %1$s?</string>
+    <string name="casas_conferir_texto">Ověřte po telefonu, že druhá televize ukazuje stejná čísla:\n\n%1$s\n\nPokud se liší, zrušte to.</string>
+    <string name="casas_pronto">Propojeno s %1$s. Obě televize ukazují tato čísla. Pro společné sledování otevřete titul a zvolte Sledovat spolu.</string>
+    <string name="casas_falhou">Nepovedlo se. Zkontrolujte internet a zkuste to znovu s novým kódem.</string>
+    <string name="casas_sem_rede">Služba Sofaly neodpovídá. Zkontrolujte internet.</string>
+    <string name="casas_codigo_errado">Tento kód nefungoval. Má 8 písmen a číslic a platí 10 minut.</string>
+    <string name="casas_menu">Jiné domácnosti</string>
+    <string name="casas_menu_det">Sledujte spolu s televizí příbuzného, který bydlí daleko</string>
+</resources>
