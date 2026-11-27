@@ -31,8 +31,11 @@ object SubtitleEngines {
 
     @Volatile private var cached: SubtitleEngineProvider? = null
 
+    /** Chamado quando o motor falta (o app liga isto à instalação da parte "translate"; ver PartsInstall). */
+    @Volatile var onMissing: (() -> Unit)? = null
+
     val provider: SubtitleEngineProvider?
-        get() = cached ?: load()?.also { cached = it }
+        get() = cached ?: load()?.also { cached = it } ?: run { onMissing?.invoke(); null }
 
     private fun load(): SubtitleEngineProvider? = try {
         Class.forName(CLASS).getField("INSTANCE").get(null) as? SubtitleEngineProvider

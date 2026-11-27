@@ -229,11 +229,13 @@ jobs:
           cp "$SAIDA/app-armeabi-v7a-release.apk" publicar/sofaly-launcher.apk
           cp "$SAIDA/app-arm64-v8a-release.apk" publicar/sofaly-launcher-arm64.apk
           # Refatoração G (27/11/2026): o mesmo app como base + partes sob demanda (tradutor e túnel), com o MESMO
-          # versionCode. Por enquanto só compila e confere (o Atualizador ainda não instala partes; nada disto é publicado).
+          # versionCode, publicado ao lado do APK cheio: part-*.apk + parts.json (scripts/parts-publish.py). Só as TVs
+          # no canal de teste atualizam por partes (PartsInstall.enabled); as outras e o site seguem no APK cheio.
           # Num "commit=" anterior às partes (sem features/), pula.
           if [ -d features ]; then
             ./gradlew :app:buildPartApks -Psplits -PversionCode=$CODIGO --no-daemon --stacktrace
             python3 scripts/check-parts.py app/build/outputs/parts "$CODIGO"
+            python3 scripts/parts-publish.py app/build/outputs/parts "$CODIGO" publicar
           fi
 
       # Dois APKs (splits em app/build.gradle.kts), com o mesmo versionCode. NOME é o nome dos arquivos do Release
@@ -340,6 +342,8 @@ jobs:
           # Ponte (só com bridge=true): as TVs ainda em br.paulo.tvlauncher instalam a ponte e passam para o app novo.
           [ -f one-tv-launcher.apk ] && EXTRA="$EXTRA one-tv-launcher.apk one-tv-launcher.apk.sha256 one-tv-launcher-arm64.apk one-tv-launcher-arm64.apk.sha256"
           [ -f leveza.json ] && EXTRA="$EXTRA leveza.json"
+          # Partes sob demanda (refatoração G): o índice e os part-*.apk que ele cita.
+          [ -f parts.json ] && EXTRA="$EXTRA parts.json $(ls part-*.apk | tr '\n' ' ')"
           gh release create "v$V" $MARCA \
             "$NOME.apk" "$NOME.apk.sha256" \
             "$NOME-arm64.apk" "$NOME-arm64.apk.sha256" $EXTRA \

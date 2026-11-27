@@ -139,6 +139,8 @@ object TunelTailscale {
     @Synchronized fun ajustar(ctx: Context) {
         val app = ctx.applicationContext
         querRodando = McpServidor.precisaServidor(app) && binario(app).exists()
+        // Instalado em partes e sem a do túnel: pede (PartInstallResult chama este ajustar de novo quando ela entrar).
+        if (McpServidor.precisaServidor(app) && !binario(app).exists()) br.paulo.tvlauncher.parts.PartsInstall.request(app, br.paulo.tvlauncher.parts.Parts.TUNNEL)
         if (querRodando && vigia?.isAlive != true) {
             vigia = Thread({ vigiar(app) }, "Tunel-vigia").apply { isDaemon = true; start() }
         } else if (!querRodando) {

@@ -81,6 +81,17 @@ class PartsPlanTest {
         assertEquals(emptySet<String>(), PartsPlan.keep(emptyList(), emptySet()))
     }
 
+    /** parts.json de verdade, saído de scripts/parts-publish.py (build local de 27/11/2026). */
+    @Test fun readsTheRealIndexFromTheScript() {
+        val texto = javaClass.getResourceAsStream("/parts/parts.json")!!.bufferedReader().readText()
+        val i = PartsPlan.parse(texto)!!
+        assertEquals(9, i.files.size)
+        val base32 = PartsPlan.files(i, "armeabi-v7a", emptySet())!!
+        assertEquals(listOf("part-base.apk", "part-base-armeabi_v7a.apk"), base32.map { it.name })
+        assertEquals(29.0, base32.sumOf { it.size } / 1048576.0, 0.05)
+        assertEquals(6, PartsPlan.files(i, "arm64-v8a", setOf("translate", "tunnel"))!!.size)
+    }
+
     @Test fun abiNames() {
         assertEquals("arm64-v8a", PartsPlan.abi(true))
         assertEquals("armeabi-v7a", PartsPlan.abi(false))
