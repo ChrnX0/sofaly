@@ -43,12 +43,12 @@ class SofyFleetTest {
 
     @Test fun soCamposPermitidos() {
         val p = pacote(casoCheio())
-        assertEquals(setOf("v", "code", "app", "device", "cases"), p.keySet())
-        assertEquals(setOf("maker", "model", "platform", "sdk", "abi", "ram", "disk"), p.getJSONObject("device").keySet())
+        assertEquals(setOf("v", "code", "app", "device", "cases"), p.chaves())
+        assertEquals(setOf("maker", "model", "platform", "sdk", "abi", "ram", "disk"), p.getJSONObject("device").chaves())
         val c = p.getJSONArray("cases").getJSONObject(0)
-        assertEquals(setOf("type", "area", "target", "cause", "before", "state", "tries", "outcome", "relapse", "count"), c.keySet())
-        assertEquals(setOf("uptime", "memory", "net", "period"), c.getJSONObject("state").keySet())
-        assertEquals(setOf("tool", "by", "result"), c.getJSONArray("tries").getJSONObject(0).keySet())
+        assertEquals(setOf("type", "area", "target", "cause", "before", "state", "tries", "outcome", "relapse", "count"), c.chaves())
+        assertEquals(setOf("uptime", "memory", "net", "period"), c.getJSONObject("state").chaves())
+        assertEquals(setOf("tool", "by", "result"), c.getJSONArray("tries").getJSONObject(0).chaves())
     }
 
     @Test fun oCasoVemCertoEmFaixas() {
@@ -113,3 +113,6 @@ class SofyFleetTest {
         assertTrue(d.getString("ram") in set("RAM")); assertTrue(d.getString("disk") in set("DISK"))
     }
 }
+
+/** keySet() não existe no org.json do Android (o da CI); keys() existe nos dois. */
+private fun org.json.JSONObject.chaves(): Set<String> = keys().asSequence().toSet()
