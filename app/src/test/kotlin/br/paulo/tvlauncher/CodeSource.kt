@@ -9,7 +9,7 @@ import java.io.File
 object CodeSource {
     val root: File = listOf(File("src/main/kotlin/br/paulo/tvlauncher"), File("app/src/main/kotlin/br/paulo/tvlauncher")).first { it.isDirectory }
     /** Módulos além do :app com código do launcher (declarado antes de [roots]: ordem de inicialização). */
-    private val MODULES = listOf("core", "features/translate")
+    private val MODULES = listOf("core", "modules/weather", "features/translate")
     /** A pasta do código de cada módulo, a partir da pasta do :app ([root]). */
     val roots: List<File> = listOf(root) + MODULES.map { File(root, "../../../../../../../$it/src/main/kotlin/br/paulo/tvlauncher").normalize() }.filter { it.isDirectory }
     fun all(): Sequence<File> = roots.asSequence().flatMap { r -> r.walkTopDown().filter { it.isFile && it.name.endsWith(".kt") } }

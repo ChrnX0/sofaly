@@ -4,6 +4,7 @@ import android.content.Context
 import br.paulo.tvlauncher.alarm.FaixaDias
 import br.paulo.tvlauncher.player.ServicosContas
 import br.paulo.tvlauncher.settings.Planos
+import br.paulo.tvlauncher.weather.WeatherSource.Kind
 
 /**
  * De onde vêm os dados de fora (19/11/2026, regra do Paulo): "o que existir de alternativa grátis hoje usa para o plano
@@ -23,35 +24,25 @@ import br.paulo.tvlauncher.settings.Planos
  * Puro (DataSourcesTest), menos as funções que recebem Context.
  */
 object DataSources {
-    /** Open-Meteo pago (mediana de ECMWF/ICON/GFS + qualidade do ar). O grátis deles é só não comercial. Sem contrato. */
-    const val OPEN_METEO_LICENSED = false
-    /**
-     * WeatherAPI: a chave fica no Worker (secret WEATHERAPI_KEY). Pode ficar ligado sem a chave: o servidor responde 503
-     * e a TV volta ao MET Norway e só pergunta de novo horas depois ([WeatherApiSource]).
-     */
-    const val WEATHERAPI_ENABLED = true
-    /**
-     * Consenso de 4 modelos abertos (Básico). Pode ficar ligado antes do servidor ter a fonte: ele responde 503 e a TV
-     * fica no MET Norway, perguntando de novo horas depois ([OpenModelsSource]).
-     */
-    const val OPEN_MODELS_ENABLED = true
+    // Clima: as travas de licença e a ordem de reserva moram no módulo :weather (WeatherSource); os nomes seguem aqui.
+    const val OPEN_METEO_LICENSED = WeatherSource.OPEN_METEO_LICENSED
+    const val WEATHERAPI_ENABLED = WeatherSource.WEATHERAPI_ENABLED
+    const val OPEN_MODELS_ENABLED = WeatherSource.OPEN_MODELS_ENABLED
     /** TMDB comercial: só com contrato escrito (themoviedb.org/api-terms-of-use). A chave pessoal de hoje não serve. */
     const val TMDB_LICENSED = false
     /** Simkl: nota para quem não conectou a conta exige a licença paga (Simkl, 17/11/2026). */
     const val SIMKL_LICENSED = false
 
-    enum class Weather { MET_NORWAY, OPEN_MODELS, WEATHERAPI, OPEN_METEO }
-
     fun weather(plano: Planos.Plano, openMeteoLicensed: Boolean = OPEN_METEO_LICENSED,
                 weatherApiEnabled: Boolean = WEATHERAPI_ENABLED, weatherApiDown: Boolean = false,
-                openModelsEnabled: Boolean = OPEN_MODELS_ENABLED, openModelsDown: Boolean = false): Weather = when {
-        openMeteoLicensed && Planos.permite(plano, Planos.Recurso.CLIMA_3_MODELOS) -> Weather.OPEN_METEO
-        weatherApiEnabled && !weatherApiDown && Planos.permite(plano, Planos.Recurso.CLIMA_PRO) -> Weather.WEATHERAPI
-        openModelsEnabled && !openModelsDown -> Weather.OPEN_MODELS
-        else -> Weather.MET_NORWAY
+                openModelsEnabled: Boolean = OPEN_MODELS_ENABLED, openModelsDown: Boolean = false): Kind = when {
+        openMeteoLicensed && Planos.permite(plano, Planos.Recurso.CLIMA_3_MODELOS) -> Kind.OPEN_METEO
+        weatherApiEnabled && !weatherApiDown && Planos.permite(plano, Planos.Recurso.CLIMA_PRO) -> Kind.WEATHERAPI
+        openModelsEnabled && !openModelsDown -> Kind.OPEN_MODELS
+        else -> Kind.MET_NORWAY
     }
 
-    fun weather(ctx: Context): Weather = weather(Planos.atual(ctx), weatherApiDown = WeatherApiSource.emPausa(),
+    fun weather(ctx: Context): Kind = weather(Planos.atual(ctx), weatherApiDown = WeatherApiSource.emPausa(),
         openModelsDown = OpenModelsSource.emPausa())
 
     /** Fichas do TMDB: só com contrato E plano Pro E a chave no build. Fora disso, as fichas vêm do Trakt. */
@@ -66,22 +57,7 @@ object DataSources {
 
     fun simklSemLogin(ctx: Context): Boolean = simklSemLogin(Planos.atual(ctx))
 
-    /**
-     * Previsão no formato da Open-Meteo para a fonte do aparelho, ou null quando a fonte é a Open-Meteo paga (quem chama
-     * monta o pedido dela, como sempre fez) ou quando nada respondeu. A WeatherAPI que falhar cai nos modelos abertos e
-     * depois no MET, na mesma hora; os modelos abertos que falharem caem no MET.
-     */
+    /** A previsão da fonte deste aparelho (a ordem de reserva está em [WeatherSource.forecast]). */
     fun forecast(ctx: Context, lat: Double, lon: Double, desdeAgora: Boolean, dias: Int = FaixaDias.DIAS): org.json.JSONObject? =
-        when (weather(ctx)) {
-            Weather.OPEN_METEO -> null
-            Weather.WEATHERAPI -> WeatherApiSource.previsao(lat, lon, desdeAgora, dias)
-                ?.let { wa -> if (WeatherApiSource.dias(wa) >= dias) wa else WeatherApiSource.completar(wa, ClimaMet.previsao(lat, lon, desdeAgora, dias)) }
-                ?: abertosOuMet(lat, lon, desdeAgora, dias)
-            Weather.OPEN_MODELS -> abertosOuMet(lat, lon, desdeAgora, dias)
-            Weather.MET_NORWAY -> ClimaMet.previsao(lat, lon, desdeAgora, dias)
-        }
-
-    private fun abertosOuMet(lat: Double, lon: Double, desdeAgora: Boolean, dias: Int): org.json.JSONObject? =
-        (if (OPEN_MODELS_ENABLED) OpenModelsSource.previsao(lat, lon, desdeAgora, dias) else null)
-            ?: ClimaMet.previsao(lat, lon, desdeAgora, dias)
+        WeatherSource.forecast(weather(ctx), lat, lon, desdeAgora, dias)
 }

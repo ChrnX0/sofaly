@@ -1,26 +1,14 @@
 package br.paulo.tvlauncher.weather
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.LinearGradient
-import android.graphics.Paint
-import android.graphics.RectF
-import android.graphics.Shader
-import android.view.View
-import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.DicasClima
 import br.paulo.tvlauncher.Http
 import br.paulo.tvlauncher.Prefs
 import br.paulo.tvlauncher.resources.R
-import br.paulo.tvlauncher.Rtl
 import br.paulo.tvlauncher.alarm.FaixaDias
 import org.json.JSONObject
-import kotlin.math.PI
-import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
-import kotlin.math.sin
 
 /**
  * A previsão completa (agora, hora a hora, dias, ar), dividida entre a tela do Clima e a home que adormece
@@ -31,7 +19,7 @@ import kotlin.math.sin
  * Como: [Forecast.load] busca (Open-Meteo, MET ou WeatherAPI, conforme o plano) e guarda o resultado na memória por
  * [CACHE_MS]; o descanso de tela, que abre muitas vezes por dia, reaproveita a busca do Clima em vez de ir à rede.
  */
-internal class ForecastData(
+class ForecastData(
     val ponto: Localizacao.Ponto,
     val agoraTexto: String,            // "2026-11-02T16:15" (hora local do lugar)
     val temp: Double, val sensacao: Double, var umidade: Int, var codigo: Int, val pressao: Double,   // var: o topo da HOME manda
@@ -56,7 +44,7 @@ internal class ForecastData(
     fun orvalho(): Double = orvalhoAgora ?: hOrvalho.getOrElse(i0) { temp }
 
     /** Põe a umidade (e o céu) do topo e acerta o orvalho para concordar com ela. [tempTopo] na unidade do Config. */
-    fun usarTopo(tempTopo: Int?, umidadeTopo: Int?, codigoTopo: Int?, fahrenheit: Boolean = Config.USAR_FAHRENHEIT) {
+    fun usarTopo(tempTopo: Int?, umidadeTopo: Int?, codigoTopo: Int?, fahrenheit: Boolean = WeatherConfig.USAR_FAHRENHEIT) {
         codigoTopo?.let { codigo = it }
         if (umidadeTopo == null) return
         umidade = umidadeTopo
@@ -79,7 +67,7 @@ internal class ForecastData(
     }
 }
 
-internal object Forecast {
+object Forecast {
     /** Teste de telas: uma previsão fixa no formato da Open-Meteo, para desenhar sem rede. */
     @Volatile var dadosDeTeste: JSONObject? = null
 
@@ -94,9 +82,9 @@ internal object Forecast {
     fun load(ctx: Context): ForecastData? {
         dadosDeTeste?.let { return parse(it, Localizacao.Ponto(-23.55, -46.63, "teste", "Bairro de exemplo"), 42) }
         val ponto = Localizacao.atual(ctx) { Http.getText(it) } ?: return null
-        val unidade = if (Config.USAR_FAHRENHEIT) "&temperature_unit=fahrenheit" else ""
-        val openMeteo = DataSources.weather(ctx) == DataSources.Weather.OPEN_METEO
-        val j = if (!openMeteo) DataSources.forecast(ctx, ponto.lat, ponto.lon, desdeAgora = false) ?: return null else JSONObject(Http.getText(
+        val unidade = if (WeatherConfig.USAR_FAHRENHEIT) "&temperature_unit=fahrenheit" else ""
+        val openMeteo = WeatherSource.kind(ctx) == WeatherSource.Kind.OPEN_METEO
+        val j = if (!openMeteo) WeatherSource.forecast(ctx, ponto.lat, ponto.lon, desdeAgora = false) ?: return null else JSONObject(Http.getText(
             "https://api.open-meteo.com/v1/forecast?latitude=${ponto.lat}&longitude=${ponto.lon}" +
                 "&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,pressure_msl,wind_speed_10m,wind_direction_10m,is_day,cloud_cover" +
                 "&hourly=temperature_2m,precipitation_probability,weather_code,wind_speed_10m,visibility,dew_point_2m,uv_index" +
@@ -158,7 +146,7 @@ internal object Forecast {
 }
 
 /** Os textos da previsão no idioma da TV (a frase do dia, as dicas, UV e ar), iguais no Clima e no descanso. */
-internal object ForecastText {
+object ForecastText {
     fun hora(ctx: Context, h: Int) = ctx.getString(R.string.cl_hora, h)
 
     fun frase(ctx: Context, f: DicasClima.Frase): String = when (f.tipo) {
@@ -209,41 +197,8 @@ internal object ForecastText {
     fun rosa(ctx: Context, graus: Int): String = ctx.resources.getStringArray(R.array.rosa_ventos)[((graus + 22.5) / 45).toInt() % 8]
 }
 
-/** Escala de 0 a 300+ do índice de qualidade do ar (verde a vinho) com um marcador onde o valor está. */
-internal class BarraAqi(ctx: Context, val aqi: Int) : View(ctx) {
-    private val p = Paint(Paint.ANTI_ALIAS_FLAG)
-    override fun onDraw(c: Canvas) = Rtl.espelhar(this, c) { desenhar(c) }   // 16.8: o tempo anda para a esquerda no árabe
-    private fun desenhar(c: Canvas) {
-        val h = height.toFloat()
-        p.shader = LinearGradient(0f, 0f, width.toFloat(), 0f,
-            intArrayOf(0xFF7BE0A0.toInt(), 0xFFF2E26B.toInt(), 0xFFFFB566.toInt(), 0xFFFF7A6B.toInt(), 0xFFD08CFF.toInt()), null, Shader.TileMode.CLAMP)
-        c.drawRoundRect(RectF(0f, 0f, width.toFloat(), h), h / 2, h / 2, p); p.shader = null
-        p.color = Color.WHITE
-        c.drawCircle(((aqi.coerceIn(0, 300) / 300f) * (width - h) + h / 2), h / 2, h * 0.9f, p)
-    }
-}
-
-/** O arco do sol: tracejado do nascer ao pôr, com o sol (bolinha amarela) na posição de agora ([fracao] 0 = nascer, 1 = pôr). */
-internal class ArcoSol(ctx: Context, val fracao: Float) : View(ctx) {
-    private val p = Paint(Paint.ANTI_ALIAS_FLAG)
-    override fun onDraw(c: Canvas) = Rtl.espelhar(this, c) { desenhar(c) }   // 16.8: o tempo anda para a esquerda no árabe
-    private fun desenhar(c: Canvas) {
-        val d = resources.displayMetrics.density
-        val raioX = width / 2f - 12 * d; val cy = height - 4 * d; val raioY = cy - 12 * d; val cx = width / 2f   // 12: o halo (11) do sol no alto cabe inteiro
-        p.style = Paint.Style.STROKE; p.strokeWidth = 2 * d; p.color = 0x55FFFFFF
-        p.pathEffect = android.graphics.DashPathEffect(floatArrayOf(5 * d, 5 * d), 0f)
-        c.drawArc(RectF(cx - raioX, cy - raioY, cx + raioX, cy + raioY), 180f, 180f, false, p); p.pathEffect = null
-        p.color = 0x55FFFFFF; c.drawLine(8 * d, cy, width - 8 * d, cy, p)
-        val ang = PI * (1 - fracao.coerceIn(0f, 1f))
-        val x = cx + raioX * cos(ang).toFloat(); val y = cy - raioY * sin(ang).toFloat()
-        p.style = Paint.Style.FILL
-        p.color = 0x55FFD36B; c.drawCircle(x, y, 11 * d, p)
-        p.color = 0xFFFFD36B.toInt(); c.drawCircle(x, y, 6.5f * d, p)
-    }
-}
-
 /** Ponto de orvalho pela fórmula de Magnus (constantes de Sonntag, erro < 0,4 °C entre -45 e 60 °C). */
-internal object Orvalho {
+object Orvalho {
     fun de(temp: Double, umidade: Int, fahrenheit: Boolean = false): Double {
         val c = if (fahrenheit) (temp - 32) * 5 / 9 else temp
         val rh = umidade.coerceIn(1, 100) / 100.0

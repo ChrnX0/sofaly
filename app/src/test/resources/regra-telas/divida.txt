@@ -62,7 +62,8 @@ DnsActivity.kt letra 1
 EscolherAppActivity.kt titulo 1
 FamiliaConectada.kt letra 1
 FilmesActivity.kt letra 2
-Forecast.kt cor 12
+Forecast.kt cor 6
+ForecastViews.kt cor 6
 FotoPerfilActivity.kt letra 1
 Fundos.kt cor 6
 GloboRadios.kt cor 4
