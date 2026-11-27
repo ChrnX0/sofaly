@@ -32,6 +32,13 @@ class SettingsIntentsTest {
         assertEquals(Action.GOAL_ENERGY, SettingsIntents.entender("save some energy", en))
     }
 
+    /** #550: antes a normalização apagava tudo fora de a-z, e as frases em russo (e grego, árabe...) viravam nada. */
+    @Test fun russo() {
+        val ru = frases("values-ru")
+        assertEquals(Action.TEXT_BIGGER, SettingsIntents.entender("Сделай шрифт больше", ru))
+        assertEquals(Action.GOAL_ENERGY, SettingsIntents.entender("хочу экономить энергию", ru))
+    }
+
     @Test fun umaPalavraEhBuscaNaoPedido() {
         assertNull(SettingsIntents.entender("letra", pt))
         assertNull(SettingsIntents.entender("wifi senha", pt))

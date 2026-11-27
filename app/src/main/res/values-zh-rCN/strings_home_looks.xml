@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hl_titulo">现成外观</string>
+    <string name="hl_sofaly">Sofaly</string>
+    <string name="hl_night">夜晚</string>
+    <string name="hl_mountain">山景</string>
+    <string name="hl_easy">清晰易看</string>
+    <string name="hl_minimal">极简</string>
+    <string name="hl_voltar">恢复原样</string>
+    <string name="hl_em_uso">%1$s，使用中</string>
+</resources>

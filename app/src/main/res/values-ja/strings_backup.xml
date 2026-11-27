@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">前回</string>
     <string name="bkn_nunca">なし</string>
     <string name="bkn_pin">バックアップの変更に PIN</string>
+    <string name="bk_motivo_senha">パスワードが正しくありません。</string>
+    <string name="bk_motivo_invalido">このファイルはSofalyのバックアップではないか、壊れています。</string>
+    <string name="bk_motivo_ler">読み取れませんでした（ネットワークまたはストレージ）。</string>
 </resources>
