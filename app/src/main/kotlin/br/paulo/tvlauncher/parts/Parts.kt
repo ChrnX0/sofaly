@@ -33,6 +33,20 @@ object Parts {
     /** A pasta de libs nativas de agora (muda de lugar a cada instalação, inclusive a de uma parte). */
     fun nativeLibDir(ctx: Context): String = fresh(ctx).nativeLibraryDir
 
+    /**
+     * Como o Atualizador lê um APK baixado (getPackageArchiveInfo + chave): pacote, versão e se a chave é a do app
+     * instalado. Para provar que a base de um Release em partes (part-base.apk) passa na mesma conferência do APK cheio.
+     */
+    fun readApk(ctx: Context, path: String): JSONObject {
+        val pm = ctx.packageManager
+        val info = pm.getPackageArchiveInfo(path, android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES)
+            ?: return JSONObject().put("legivel", false)
+        val meu = pm.getPackageInfo(ctx.packageName, android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES)
+        fun chaves(p: android.content.pm.PackageInfo) = p.signingInfo?.apkContentsSigners?.map { it.toCharsString() }?.toSet()
+        return JSONObject().put("legivel", true).put("pacote", info.packageName).put("versao", info.longVersionCode)
+            .put("mesmaChave", chaves(info) != null && chaves(info) == chaves(meu))
+    }
+
     /** Diagnóstico (EXTRAS --es o partes): o que o PackageManager diz e o que o processo enxerga. */
     fun probe(ctx: Context): JSONObject {
         val agora = fresh(ctx)

@@ -283,7 +283,8 @@ object ComandosExtras {
         // Refatoração G: partes sob demanda. "partes" = o que está instalado e o último resultado de cada parte;
         // "partes_pedir --es parte translate|tunnel" = pede como a função pediria; "partes_local --es pasta <pasta>" =
         // instala os part-*.apk de uma pasta (aparelho de teste, sem Release).
-        "partes" -> br.paulo.tvlauncher.parts.Parts.probe(ctx).put("ultimo", br.paulo.tvlauncher.parts.PartsInstall.status(ctx)).toString()
+        "partes" -> br.paulo.tvlauncher.parts.Parts.probe(ctx).put("ultimo", br.paulo.tvlauncher.parts.PartsInstall.status(ctx))
+            .apply { i.getStringExtra("arquivo")?.let { put("arquivo", br.paulo.tvlauncher.parts.Parts.readApk(ctx, it)) } }.toString()
         "partes_pedir" -> i.getStringExtra("parte").orEmpty().let { br.paulo.tvlauncher.parts.PartsInstall.request(ctx, it); "pedido: $it (veja em partes)" }
         "partes_local" -> br.paulo.tvlauncher.parts.PartsInstall.installLocal(ctx, java.io.File(i.getStringExtra("pasta").orEmpty()))
         "leveza" -> LevezaTv.json(ctx).toString()   // degrau 2: memória e tempo da HOME (volte à HOME umas vezes antes)
