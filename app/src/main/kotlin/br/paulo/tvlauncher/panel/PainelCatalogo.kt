@@ -49,6 +49,9 @@ class PainelCatalogo(private val act: Activity) {
         orientation = LinearLayout.VERTICAL; setPaddingRelative(dp(18), dp(10), dp(18), dp(11))
         background = GradientDrawable().apply { cornerRadius = dp(br.paulo.tvlauncher.Estilo.RAIO).toFloat(); setColor(Estilo.SUPERFICIE) }
         addView(info)
+        // Vazia, a caixa ficava como uma barra translúcida sem nada enquanto os filmes carregam (passada da Sala 27/11).
+        // INVISIBLE e não GONE: guarda a altura, e a grade não pula quando a primeira ficha chega.
+        visibility = View.INVISIBLE
     }
 
     /**
@@ -90,6 +93,7 @@ class PainelCatalogo(private val act: Activity) {
     /** A ficha rápida: uma linha (título, nota, ano, duração, gênero). */
     fun mostrarFoco(linha: CharSequence) {
         info.text = linha
+        faixa.visibility = if (linha.isEmpty()) View.INVISIBLE else View.VISIBLE
     }
 
     private fun dp(v: Int) = (v * act.resources.displayMetrics.density + 0.5f).toInt()
