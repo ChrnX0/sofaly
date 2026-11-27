@@ -34,8 +34,25 @@ class ConectarClaudeActivity : Activity() {
     private lateinit var qr: ImageView
     private var qrAtual: String? = null
 
+    // #560: Passo.agora lê contas (AccountManager), arquivos e prefs; a cada 2 s na thread da tela isso travava o controle
+    // em TV fraca. Agora roda em Fundo e só o texto volta para a tela; uma rodada por vez (a próxima espera a anterior).
+    @Volatile private var visivel = false
+    private var rodada = 0   // muda a cada onResume/onPause: a volta de uma rodada antiga não agenda outra (sem laço duplo)
     private val volta = object : Runnable {
-        override fun run() { atualizar(); ui.postDelayed(this, 2000) }
+        override fun run() {
+            if (!visivel) return
+            val g = rodada
+            val app = this@ConectarClaudeActivity
+            Fundo.rodar("ConectarClaude") {
+                val e = runCatching { Passo.agora(app) }.getOrNull()
+                val img = e?.qr?.takeIf { it != qrAtual }?.let { runCatching { QrCodigo.bitmap(it, dp(320)) }.getOrNull() }
+                ui.post {
+                    if (!visivel || isDestroyed || g != rodada) return@post
+                    if (e != null) mostrar(e, img)
+                    ui.postDelayed(this, 2000)
+                }
+            }
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,16 +80,16 @@ class ConectarClaudeActivity : Activity() {
         sair.requestFocus()
     }
 
-    override fun onResume() { super.onResume(); ui.post(volta) }
-    override fun onPause() { ui.removeCallbacks(volta); super.onPause() }
+    override fun onResume() { super.onResume(); visivel = true; rodada++; ui.removeCallbacks(volta); ui.post(volta) }
+    override fun onPause() { visivel = false; rodada++; ui.removeCallbacks(volta); super.onPause() }
 
-    private fun atualizar() {
-        val e = Passo.agora(this)
+    /** Na thread da tela: só põe o texto e o QR já desenhado ([img], feito em Fundo quando o endereço mudou). */
+    private fun mostrar(e: Passo, img: android.graphics.Bitmap?) {
         titulo.text = e.titulo
         texto.text = e.texto
         if (e.qr != qrAtual) {
             qrAtual = e.qr
-            qr.setImageBitmap(e.qr?.let { try { QrCodigo.bitmap(it, dp(320)) } catch (x: Exception) { null } })
+            qr.setImageBitmap(if (e.qr == null) null else img)
             qr.visibility = if (e.qr == null) android.view.View.INVISIBLE else android.view.View.VISIBLE
         }
     }
