@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android(휴대폰 또는 태블릿)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"휴대폰 설정을 열고 상단 검색에 \"인증서\"를 입력하세요.",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"\"인증서 설치\"(또는 \"인증서 설치하기\")를 탭하고 \"CA 인증서\"를 선택하세요. 경고가 나타나면 \"무시하고 설치\"를 탭하세요.",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"다운로드 폴더에서 one-tv-painel.crt를 선택하세요. Android가 화면 잠금 PIN, 패턴 또는 지문을 요청합니다(없으면 만들라고 요청합니다).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"다운로드 폴더에서 sofaly-panel.crt를 선택하세요. Android가 화면 잠금 PIN, 패턴 또는 지문을 요청합니다(없으면 만들라고 요청합니다).",
 "Volte para esta página no Chrome.":"Chrome에서 이 페이지로 돌아오세요.",
 "iPhone ou iPad":"iPhone 또는 iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Safari에서 이 페이지를 열고 \"인증서 다운로드\"를 탭한 다음 \"허용\"을 탭하세요.",

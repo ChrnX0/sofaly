@@ -41,6 +41,6 @@ and in the [README](https://github.com/ChrnX0/sofaly#readme).
 |---|---|
 | `sofaly-launcher.apk` | 32-bit (`armeabi-v7a`), e.g. Chromecast with Google TV. Downloader code **6566820** |
 | `sofaly-launcher-arm64.apk` | 64-bit (`arm64-v8a`). In Downloader: `sofaly.tv/download-arm64` |
-| `one-tv-celular.apk` | The Sofaly phone app (Android 10+): finds your TVs, opens the panel, remote, volume keys, Share to TV |
+| `sofaly-phone.apk` | The Sofaly phone app (Android 10+): finds your TVs, opens the panel, remote, volume keys, Share to TV |
 
 Each APK has a `.sha256` file next to it. Already installed? Sofaly updates itself from here.

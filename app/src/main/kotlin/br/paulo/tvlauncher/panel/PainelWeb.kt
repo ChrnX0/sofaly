@@ -461,7 +461,7 @@ object PainelWeb {
     private fun arquivoCertificado(): Resposta {
         val pem = PainelTls.pemDaCa() ?: return erro(503, "o certificado ainda não foi gerado; tente em 1 minuto")
         return Resposta(200, "application/x-x509-ca-cert", pem.toByteArray(),
-            mapOf("Content-Disposition" to "attachment; filename=\"one-tv-painel.crt\""))
+            mapOf("Content-Disposition" to "attachment; filename=\"sofaly-panel.crt\""))
     }
 
     private fun aceitar(s: ServerSocket, https: Boolean) {

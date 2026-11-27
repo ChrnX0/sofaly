@@ -59,7 +59,7 @@ jobs:
             /^## / { pula = ($0 ~ /^## (Build it yourself|Under the hood|Contributing|License)/) }
             !pula { print }
           ' README.md > pub/README.md
-          printf '\n## Source code\n\nOne TV Launcher is closed-source. This repository holds the releases, the website and the\ncommunity lists. Bug reports and ideas are welcome in [Issues](../../issues).\n' >> pub/README.md
+          printf '\n## Source code\n\nSofaly is closed-source. This repository holds the releases, the website and the\ncommunity lists. Bug reports and ideas are welcome in [Issues](../../issues).\n' >> pub/README.md
           cd pub
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (telefon sau tabletă)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"Deschideți Setările telefonului și, în căutarea de sus, tastați „certificat”.",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"Atingeți „Instalați certificatul” (sau „Instalați un certificat”) și alegeți „Certificat CA”. Apare un avertisment: atingeți „Instalați oricum”.",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Alegeți one-tv-painel.crt din folderul Descărcări. Android cere PIN-ul, modelul sau amprenta pentru blocarea ecranului (dacă telefonul nu are, vă cere să creați una).",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Alegeți sofaly-panel.crt din folderul Descărcări. Android cere PIN-ul, modelul sau amprenta pentru blocarea ecranului (dacă telefonul nu are, vă cere să creați una).",
 "Volte para esta página no Chrome.":"Reveniți la această pagină în Chrome.",
 "iPhone ou iPad":"iPhone sau iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"Deschideți această pagină în Safari, atingeți „Descărcați certificatul” și apoi „Permiteți”.",

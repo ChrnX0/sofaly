@@ -1980,7 +1980,7 @@ traduzirPainelCom({T:{
 "Android (celular ou tablet)":"Android (फ़ोन या टैबलेट)",
 "Abra as Configurações do celular e, na busca do topo, digite \"certificado\".":"फ़ोन की सेटिंग खोलें और ऊपर की खोज में \"सर्टिफ़िकेट\" लिखें।",
 "Toque em \"Instalar certificado\" (ou \"Instalar um certificado\") e escolha \"Certificado de CA\". Aparece um aviso: toque em \"Instalar mesmo assim\".":"\"सर्टिफ़िकेट इंस्टॉल करें\" (या \"एक सर्टिफ़िकेट इंस्टॉल करें\") पर टैप करें और \"CA सर्टिफ़िकेट\" चुनें। एक चेतावनी आएगी: \"फिर भी इंस्टॉल करें\" पर टैप करें।",
-"Escolha one-tv-painel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Downloads फ़ोल्डर में one-tv-painel.crt चुनें। Android स्क्रीन लॉक का PIN, पैटर्न या फ़िंगरप्रिंट माँगेगा (अगर फ़ोन में नहीं है, तो बनाने को कहेगा)।",
+"Escolha sofaly-panel.crt na pasta Downloads. O Android pede o PIN, padrão ou digital da tela de bloqueio (se o celular não tiver, ele pede para criar um).":"Downloads फ़ोल्डर में sofaly-panel.crt चुनें। Android स्क्रीन लॉक का PIN, पैटर्न या फ़िंगरप्रिंट माँगेगा (अगर फ़ोन में नहीं है, तो बनाने को कहेगा)।",
 "Volte para esta página no Chrome.":"Chrome में इस पेज पर वापस आएँ।",
 "iPhone ou iPad":"iPhone या iPad",
 "Abra esta página no Safari, toque em \"Baixar certificado\" e em \"Permitir\".":"यह पेज Safari में खोलें, \"सर्टिफ़िकेट डाउनलोड करें\" और फिर \"अनुमति दें\" पर टैप करें।",

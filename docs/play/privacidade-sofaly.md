@@ -22,7 +22,7 @@ adiciona e backups locais. Apagar os dados do app ou desinstalar remove tudo.
 - Filmes e séries: Trakt (título e ano do que você abre). Legendas: OpenSubtitles, com a sua própria conta.
 - Rádios: Radio Browser. Fundos de arte: The Metropolitan Museum of Art.
 - Compras: Google Play (a Sofaly só lê qual plano está ativo).
-- Login Google e Google Drive: opcionais, com os mesmos escopos e regras de Uso Limitado do One TV Launcher.
+- Login Google e Google Drive: opcionais, com os mesmos escopos e regras de Uso Limitado do Sofaly.
 - Serviços que você mesmo configura: Plex, Jellyfin, pastas da rede, Home Assistant, Tailscale.
 
 **Cuidar de longe.** Desligado de fábrica. Só funciona depois que **quem mora na casa aceita na TV**, com o controle
