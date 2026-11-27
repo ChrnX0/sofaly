@@ -219,12 +219,24 @@ object SofyScreenCheckTv {
 
     private fun lerAgora(app: Context, s: AutorizaShizukuService, nome: String, classe: Class<*>): SofyScreenCheck.Tela? {
         val frente = br.paulo.tvlauncher.privilege.JanelaNaFrente.classe
-        val raiz = runCatching { s.rootInActiveWindow }.getOrNull()
+        val raiz = raizDoApp(s, app.packageName)
         if (raiz == null || raiz.packageName?.toString() != app.packageName || frente != classe.name) {
             Log.w(TAG, "$nome: não deu para ler (janela ${raiz?.packageName ?: "nenhuma"}, na frente $frente)")
             return null
         }
         return ler(raiz, nome)
+    }
+
+    /**
+     * A árvore da tela de app que está mais em cima. A "janela ativa" não serve sozinha (27/11/2026, Sala): depois de acender
+     * a tela com o véu por cima ela vinha nula ("janela nenhuma") mesmo com a nossa tela na frente; a lista de janelas
+     * (flagRetrieveInteractiveWindows) tem a janela do app. Fica a ativa se ela já for nossa.
+     */
+    private fun raizDoApp(s: AutorizaShizukuService, pacote: String): AccessibilityNodeInfo? {
+        runCatching { s.rootInActiveWindow }.getOrNull()?.let { if (it.packageName?.toString() == pacote) return it }
+        val janelas = runCatching { s.windows }.getOrNull() ?: return null
+        val app = janelas.firstOrNull { it.type == android.view.accessibility.AccessibilityWindowInfo.TYPE_APPLICATION } ?: return null
+        return runCatching { app.root }.getOrNull()
     }
 
     private fun analisar(app: Context, tela: SofyScreenCheck.Tela) {
