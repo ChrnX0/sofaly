@@ -8,6 +8,7 @@ import com.google.zxing.EncodeHintType
 import com.google.zxing.qrcode.QRCodeWriter
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
 import java.io.ByteArrayOutputStream
+import br.paulo.tvlauncher.image.Images
 
 /** QR code de um texto curto (URL), em preto no branco com borda: o celular lê da TV a 3 m. Biblioteca: zxing core. */
 object QrCodigo {
@@ -16,7 +17,7 @@ object QrCodigo {
             mapOf(EncodeHintType.MARGIN to 2, EncodeHintType.ERROR_CORRECTION to ErrorCorrectionLevel.M))
         val px = IntArray(m.width * m.height)
         for (y in 0 until m.height) for (x in 0 until m.width) px[y * m.width + x] = if (m[x, y]) Color.BLACK else Color.WHITE
-        return Bitmap.createBitmap(px, m.width, m.height, Bitmap.Config.RGB_565)
+        return Images.create("panel/QrCodigo", px, m.width, m.height, Bitmap.Config.RGB_565)
     }
 
     /** Para o painel web (imagem PNG). */

@@ -14,6 +14,7 @@ import br.paulo.tvlauncher.Estilo
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.home.HomeLooks
 import br.paulo.tvlauncher.home.StripHome
+import br.paulo.tvlauncher.image.Images
 
 /**
  * A fileira "Visuais prontos" no topo da Aparência (onda B da simplificação, 25/11/2026). Ver [HomeLooks].
@@ -71,7 +72,7 @@ private fun ConfigLauncherActivity.cartaoVisual(l: HomeLooks.Look?, escolhido: B
         miniatura.addView(img, FrameLayout.LayoutParams(w, h))
         l.foto.asset?.let { asset ->
             trabalho.execute {
-                val b = runCatching { assets.open(asset).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = 8 }) } }.getOrNull()
+                val b = runCatching { assets.open(asset).use { Images.decodeStream("settings/ConfigLooksRow", it, null, BitmapFactory.Options().apply { inSampleSize = 8 }) } }.getOrNull()
                 ui.post { if (!isDestroyed) img.setImageBitmap(b) }
             }
         }

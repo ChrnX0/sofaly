@@ -50,6 +50,8 @@ object LevezaTv {
             .put("abisTv", JSONArray(android.os.Build.SUPPORTED_ABIS.toList()))
             .put("telaLigada", runCatching { ctx.getSystemService(android.os.PowerManager::class.java).isInteractive }.getOrDefault(false))
             .put("processos", processos(ctx, am))
+            // Imagens vivas por origem (etapa de imagens da G): quanto do heap nativo é bitmap, e de quem.
+            .put("imagens", runCatching { br.paulo.tvlauncher.image.ImageLedger.json() }.getOrNull() ?: JSONObject.NULL)
     }
 
     /** As partes do resumo do Android ("summary.java-heap" etc., em KB) que a régua guarda, com nome curto em MB. */

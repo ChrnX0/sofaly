@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 import org.json.JSONArray
 import org.json.JSONObject
+import br.paulo.tvlauncher.image.Images
 
 /**
  * O que a aba "Aplicativos" do painel no navegador faz, tudo por API em processo (somos Device Owner), sem shell:
@@ -165,7 +166,7 @@ object PainelApps {
         val pm = ctx.packageManager
         // O ícone do app; se o Android não conseguir carregar, o ícone genérico.
         val d = try { ai.loadIcon(pm) } catch (e: Exception) { pm.defaultActivityIcon }
-        val bmp = Bitmap.createBitmap(ICONE_PX, ICONE_PX, Bitmap.Config.ARGB_8888)
+        val bmp = Images.create("PainelApps", ICONE_PX, ICONE_PX, Bitmap.Config.ARGB_8888)
         d.setBounds(0, 0, ICONE_PX, ICONE_PX)
         d.draw(Canvas(bmp))
         val png = ByteArrayOutputStream().use { bmp.compress(Bitmap.CompressFormat.PNG, 100, it); it.toByteArray() }

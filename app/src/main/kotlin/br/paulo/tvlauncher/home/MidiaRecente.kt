@@ -2,7 +2,6 @@ package br.paulo.tvlauncher.home
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.media.MediaMetadata
 import android.media.session.MediaController
 import android.media.session.PlaybackState
@@ -15,6 +14,7 @@ import br.paulo.tvlauncher.player.PlayerCarga
 import java.io.File
 import org.json.JSONArray
 import org.json.JSONObject
+import br.paulo.tvlauncher.image.Images
 
 /**
  * O que os OUTROS apps de mídia tocaram por último, para o "Continuar" da cruz (pedido do dono, 18/11/2026: "continuar
@@ -100,7 +100,7 @@ object MidiaRecente {
     fun ler(ctx: Context): List<Registro> = synchronized(trava) { deJson(runCatching { arquivo(ctx).readText() }.getOrNull()) }
 
     fun capa(ctx: Context, pacote: String, perfil: String = ""): Bitmap? = runCatching {
-        arqCapa(ctx, pacote, perfil).takeIf { it.exists() }?.let { BitmapFactory.decodeFile(it.path) }
+        arqCapa(ctx, pacote, perfil).takeIf { it.exists() }?.let { Images.decodeFile("home/MidiaRecente", it.path) }
     }.getOrNull()
 
     /** Esquece um app (desinstalado ou o dono tirou do Continuar). */
@@ -170,7 +170,7 @@ object MidiaRecente {
     /** Cópia nossa, pequena: o bitmap da sessão é do outro app e pode ser enorme. */
     private fun reduzir(b: Bitmap): Bitmap? = runCatching {
         val maior = maxOf(b.width, b.height)
-        if (maior <= CAPA_PX) b.copy(Bitmap.Config.ARGB_8888, false)
-        else Bitmap.createScaledBitmap(b, b.width * CAPA_PX / maior, b.height * CAPA_PX / maior, true)
+        if (maior <= CAPA_PX) Images.copy("home/MidiaRecente", b, Bitmap.Config.ARGB_8888, false)
+        else Images.scaled("home/MidiaRecente", b, b.width * CAPA_PX / maior, b.height * CAPA_PX / maior, true)
     }.getOrNull()
 }

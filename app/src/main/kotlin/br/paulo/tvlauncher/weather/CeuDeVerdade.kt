@@ -2,7 +2,6 @@ package br.paulo.tvlauncher.weather
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.LinearGradient
 import android.graphics.Paint
@@ -26,6 +25,7 @@ import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.pow
+import br.paulo.tvlauncher.image.Images
 
 /**
  * O tema "Céu de verdade" (caminho 2 do protetor que reage ao tempo, 17/11/2026): o mapa da região da pessoa, escuro,
@@ -148,7 +148,7 @@ object NuvensSatelite {
         val pedido = camada + "|" + caixa.joinToString(",") { String.format(Locale.US, "%.2f", it) }
         if (arq.exists() && System.currentTimeMillis() - arq.lastModified() < VALIDADE_MS &&
             runCatching { chave.readText() }.getOrNull() == pedido) {
-            BitmapFactory.decodeFile(arq.path)?.let { return it }
+            Images.decodeFile("weather/CeuDeVerdade", arq.path)?.let { return it }
         }
         val url = "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&REQUEST=GetMap&VERSION=1.1.1" +
             "&LAYERS=$camada&SRS=EPSG:4326&STYLES=&FORMAT=image/png&TRANSPARENT=TRUE&WIDTH=$LARGURA&HEIGHT=$ALTURA" +
@@ -159,13 +159,13 @@ object NuvensSatelite {
                 c.connectTimeout = 10_000; c.readTimeout = 15_000
                 c.setRequestProperty("User-Agent", Http.USER_AGENT)
                 if (c.responseCode != 200 || c.contentType?.startsWith("image/") != true) null
-                else c.inputStream.use { BitmapFactory.decodeStream(it) }
+                else c.inputStream.use { Images.decodeStream("weather/CeuDeVerdade", it) }
             } finally { c.disconnect() }
         } catch (e: Exception) { Log.w(TAG, "GIBS: ${e.javaClass.simpleName}"); null }
             // Sem rede: a última que tinha, se for DESTA caixa e de até 6 h (antes: nuvens de outro lugar ou de dias atrás
             // apareciam como "agora").
             ?: return if (arq.exists() && System.currentTimeMillis() - arq.lastModified() < 6 * 3_600_000L &&
-                runCatching { chave.readText() }.getOrNull() == pedido) BitmapFactory.decodeFile(arq.path) else null
+                runCatching { chave.readText() }.getOrNull() == pedido) Images.decodeFile("weather/CeuDeVerdade", arq.path) else null
         val bw = bruta.width; val bh = bruta.height
         val px = IntArray(bw * bh)
         bruta.getPixels(px, 0, bw, 0, 0, bw, bh)
@@ -174,7 +174,7 @@ object NuvensSatelite {
         // Duas passadas de média 5x5: a imagem do satélite tem bordas duras (pixel de ~2 km); nuvem tem que ser macia.
         val macio = borrar(borrar(alfa, bw, bh), bw, bh)
         for (i in px.indices) px[i] = (macio[i] shl 24) or 0xFFFFFF
-        val pronta = Bitmap.createBitmap(px, bw, bh, Bitmap.Config.ARGB_8888)
+        val pronta = Images.create("weather/CeuDeVerdade", px, bw, bh, Bitmap.Config.ARGB_8888)
         try {
             val tmp = File(arq.path + ".tmp")
             tmp.outputStream().use { pronta.compress(Bitmap.CompressFormat.PNG, 100, it) }
@@ -190,7 +190,7 @@ object DesenhoCeu {
     private const val PONTO = 0xFFF6C453.toInt()
 
     fun imagem(ctx: Context, w: Int, h: Int, e: EstadoCeu, comSatelite: Boolean = true): Bitmap {
-        val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
+        val bmp = Images.create("weather/CeuDeVerdade", w, h, Bitmap.Config.ARGB_8888)
         val c = Canvas(bmp)
         val v = VistaMapa(e.lat, e.lon, w.toFloat(), h.toFloat())
         val p = Paint(Paint.ANTI_ALIAS_FLAG)

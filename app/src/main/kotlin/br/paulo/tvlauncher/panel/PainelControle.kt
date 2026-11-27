@@ -35,6 +35,7 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import org.json.JSONObject
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Aba "Controle" do painel no navegador e as ações extras de cada app (ver PainelWeb.kt):
@@ -73,9 +74,9 @@ object PainelControle {
                         r.hardwareBuffer.close()
                         if (hw == null) { erro = "o Android não entregou a imagem"; return }
                         // HARDWARE -> memória comum já reduzida (1280x720 = 3,7 MB transitórios em vez de 8 MB).
-                        val sw = hw.copy(Bitmap.Config.ARGB_8888, false)
+                        val sw = Images.copy("panel/PainelControle", hw, Bitmap.Config.ARGB_8888, false)!!
                         hw.recycle()
-                        val menor = if (sw.width > 1280) Bitmap.createScaledBitmap(sw, 1280, sw.height * 1280 / sw.width, true) else sw
+                        val menor = if (sw.width > 1280) Images.scaled("panel/PainelControle", sw, 1280, sw.height * 1280 / sw.width, true) else sw
                         if (menor !== sw) sw.recycle()
                         jpg = ByteArrayOutputStream().use { menor.compress(Bitmap.CompressFormat.JPEG, 70, it); it.toByteArray() }
                         menor.recycle()

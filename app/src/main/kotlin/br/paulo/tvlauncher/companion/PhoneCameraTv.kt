@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import br.paulo.tvlauncher.PhoneCameraActivity
+import br.paulo.tvlauncher.image.Images
 
 /**
  * A câmera do celular na TV (24/11/2026, proposta B; no Apple TV é a "Câmera de Continuidade").
@@ -45,10 +46,10 @@ object PhoneCameraTv {
         if (dismissed) return
         // Lê só o tamanho primeiro: um JPEG pequeno que diz ter 20000 px estouraria a memória da TV ao decodificar.
         val tam = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeByteArray(jpeg, 0, jpeg.size, tam)
+        Images.decodeByteArray("companion/PhoneCameraTv", jpeg, 0, jpeg.size, tam)
         if (tam.outWidth !in 1..1920 || tam.outHeight !in 1..1920) return
         val o = BitmapFactory.Options().apply { inPreferredConfig = Bitmap.Config.RGB_565 }   // metade da memória; foto de câmera não precisa de alfa
-        val b = runCatching { BitmapFactory.decodeByteArray(jpeg, 0, jpeg.size, o) }.getOrNull() ?: return
+        val b = runCatching { Images.decodeByteArray("companion/PhoneCameraTv", jpeg, 0, jpeg.size, o) }.getOrNull() ?: return
         latest = b; lastAt = System.currentTimeMillis()
         listener?.invoke()
     }

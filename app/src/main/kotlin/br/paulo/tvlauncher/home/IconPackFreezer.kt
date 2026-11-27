@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -16,6 +15,7 @@ import br.paulo.tvlauncher.privilege.Congelar
 import java.io.File
 import java.util.concurrent.Executors
 import org.json.JSONObject
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Pacote de ícones CONGELADO (pedido do Paulo, 18/11/2026: "ao instalar o pacote de ícone, ele seja congelado, não fique
@@ -62,13 +62,13 @@ object IconPackFreezer {
     fun copia(ctx: Context, pacote: String, nome: String): Drawable? {
         val f = arquivo(ctx, pacote, nome)
         if (!f.isFile) return null
-        return BitmapFactory.decodeFile(f.path)?.let { BitmapDrawable(ctx.resources, it) }
+        return Images.decodeFile("home/IconPackFreezer", f.path)?.let { BitmapDrawable(ctx.resources, it) }
     }
 
     /** Guarda a cópia (PNG [LADO] x [LADO]). Silencioso se falhar: na próxima vez lê do pacote de novo. */
     fun guardar(ctx: Context, pacote: String, nome: String, d: Drawable) {
         runCatching {
-            val bmp = Bitmap.createBitmap(LADO, LADO, Bitmap.Config.ARGB_8888)
+            val bmp = Images.create("home/IconPackFreezer", LADO, LADO, Bitmap.Config.ARGB_8888)
             d.mutate().setBounds(0, 0, LADO, LADO); d.draw(Canvas(bmp))
             val f = arquivo(ctx, pacote, nome).apply { parentFile?.mkdirs() }
             val tmp = File(f.path + ".part")

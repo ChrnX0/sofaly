@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewOutlineProvider
 import br.paulo.tvlauncher.Config
 import br.paulo.tvlauncher.Estilo
+import br.paulo.tvlauncher.image.Images
 
 /** Desenho dos cartões da HOME que não depende do estado da tela. Saiu da MainActivity em 12/11/2026, sem mudança. */
 object DesenhoHome {
@@ -21,7 +22,7 @@ object DesenhoHome {
      */
     fun iconeRedondo(res: Resources, d: Drawable): Drawable {
         val t = 192
-        val bmp = Bitmap.createBitmap(t, t, Bitmap.Config.ARGB_8888)
+        val bmp = Images.create("home/DesenhoHome", t, t, Bitmap.Config.ARGB_8888)
         val c = Canvas(bmp)
         if (d is android.graphics.drawable.AdaptiveIconDrawable) {
             // As camadas têm 108 unidades; a parte visível são as 72 do meio: desenha 1,5x maior e centralizado.
@@ -29,7 +30,7 @@ object DesenhoHome {
             d.background?.let { it.setBounds(-extra, -extra, t + extra, t + extra); it.draw(c) }
             d.foreground?.let { it.setBounds(-extra, -extra, t + extra, t + extra); it.draw(c) }
         } else {
-            val amostra = Bitmap.createBitmap(t, t, Bitmap.Config.ARGB_8888)
+            val amostra = Images.create("home/DesenhoHome", t, t, Bitmap.Config.ARGB_8888)
             d.setBounds(0, 0, t, t); d.draw(Canvas(amostra))
             val px = amostra.getPixel(t / 2, t / 12)   // perto da borda de cima, no meio: a cor do fundo do ícone
             c.drawColor(if ((px ushr 24) > 200) px else 0xFFF2F2F2.toInt())
@@ -48,7 +49,7 @@ object DesenhoHome {
      */
     fun iconeTraco(res: Resources, d: Drawable, duotom: Boolean): Drawable? {
         val t = 192
-        val mascara = Bitmap.createBitmap(t, t, Bitmap.Config.ALPHA_8)
+        val mascara = Images.create("home/DesenhoHome", t, t, Bitmap.Config.ALPHA_8)
         val c = Canvas(mascara)
         val extra = t / 4
         val adapt = d as? android.graphics.drawable.AdaptiveIconDrawable
@@ -57,7 +58,7 @@ object DesenhoHome {
             mono.setBounds(-extra, -extra, t + extra, t + extra); mono.draw(c)
         } else {
             // Sem camada monocromática: o ícone inteiro, e vira traço o que se afasta da cor do fundo.
-            val cor = Bitmap.createBitmap(t, t, Bitmap.Config.ARGB_8888)
+            val cor = Images.create("home/DesenhoHome", t, t, Bitmap.Config.ARGB_8888)
             val cc = Canvas(cor)
             if (adapt != null) {
                 adapt.background?.let { it.setBounds(-extra, -extra, t + extra, t + extra); it.draw(cc) }
@@ -83,7 +84,7 @@ object DesenhoHome {
         val cobertura = cheio.toFloat() / (t * t)
         if (cobertura < 0.02f || cobertura > 0.6f) { mascara.recycle(); return null }
 
-        val saida = Bitmap.createBitmap(t, t, Bitmap.Config.ARGB_8888)
+        val saida = Images.create("home/DesenhoHome", t, t, Bitmap.Config.ARGB_8888)
         val o = Canvas(saida)
         val tinta = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG or android.graphics.Paint.FILTER_BITMAP_FLAG)
         if (duotom) {

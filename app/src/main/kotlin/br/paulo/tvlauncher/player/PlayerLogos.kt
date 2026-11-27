@@ -15,6 +15,7 @@ import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 import java.security.MessageDigest
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Player universal, lista completa (06/11/2026): os logotipos dos canais (tvg-logo / stream_icon).
@@ -152,11 +153,11 @@ object PlayerLogos {
 
     private fun decodificar(bytes: ByteArray, lado: Int, opaco: Boolean): Bitmap? {
         val medidas = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeByteArray(bytes, 0, bytes.size, medidas)
+        Images.decodeByteArray("player/PlayerLogos", bytes, 0, bytes.size, medidas)
         if (medidas.outWidth <= 0 || medidas.outHeight <= 0) return null
         var amostra = 1
         while (maxOf(medidas.outWidth, medidas.outHeight) / (amostra * 2) >= lado) amostra *= 2
-        val b = BitmapFactory.decodeByteArray(bytes, 0, bytes.size, BitmapFactory.Options().apply {
+        val b = Images.decodeByteArray("player/PlayerLogos", bytes, 0, bytes.size, BitmapFactory.Options().apply {
             inSampleSize = amostra
             // Pôster não tem transparência: RGB_565 gasta metade da memória. Logo pode ter (fundo transparente): ARGB.
             if (opaco) inPreferredConfig = Bitmap.Config.RGB_565
@@ -173,7 +174,7 @@ object PlayerLogos {
         val maior = maxOf(b.width, b.height)
         if (maior <= lado * 11 / 10) return b   // até 10% maior: não vale a cópia
         val esc = lado.toFloat() / maior
-        val r = Bitmap.createScaledBitmap(b, maxOf(1, (b.width * esc).toInt()), maxOf(1, (b.height * esc).toInt()), true)
+        val r = Images.scaled("player/PlayerLogos", b, maxOf(1, (b.width * esc).toInt()), maxOf(1, (b.height * esc).toInt()), true)
         if (r !== b) b.recycle()
         return r
     }

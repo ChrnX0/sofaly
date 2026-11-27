@@ -10,6 +10,7 @@ import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URI
 import java.net.URL
+import br.paulo.tvlauncher.image.Images
 
 /**
  * De onde vem a foto da bolinha do perfil (13/11/2026, pedido do dono: "por que não aparece a foto da conta, igual
@@ -180,13 +181,13 @@ object FotoPerfil {
     /** Abre a imagem já reduzida, recorta o quadrado do meio e ajusta para [LADO] px. Null se não for imagem válida. */
     private fun quadrado(f: File): Bitmap? {
         val limites = BitmapFactory.Options().apply { inJustDecodeBounds = true }   // 1º: só o tamanho, sem gastar RAM
-        BitmapFactory.decodeFile(f.path, limites)
+        Images.decodeFile("family/FotoPerfil", f.path, limites)
         val l = limites.outWidth; val a = limites.outHeight
         if (l <= 0 || a <= 0 || l > MAIOR_LADO_ORIGINAL || a > MAIOR_LADO_ORIGINAL) return null
-        val original = BitmapFactory.decodeFile(f.path, BitmapFactory.Options().apply { inSampleSize = amostra(l, a) }) ?: return null
+        val original = Images.decodeFile("family/FotoPerfil", f.path, BitmapFactory.Options().apply { inSampleSize = amostra(l, a) }) ?: return null
         val menor = minOf(original.width, original.height)
-        val corte = Bitmap.createBitmap(original, (original.width - menor) / 2, (original.height - menor) / 2, menor, menor)
-        val final = Bitmap.createScaledBitmap(corte, LADO, LADO, true)
+        val corte = Images.create("family/FotoPerfil", original, (original.width - menor) / 2, (original.height - menor) / 2, menor, menor)
+        val final = Images.scaled("family/FotoPerfil", corte, LADO, LADO, true)
         if (corte !== original && corte !== final) corte.recycle()
         if (original !== final) original.recycle()
         return final

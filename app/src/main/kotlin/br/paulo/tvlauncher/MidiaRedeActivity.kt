@@ -64,6 +64,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Mídias da rede (card "Na rede" da HOME). 07/11/2026: DLNA, pasta compartilhada e Jellyfin. 10/11/2026: Plex (login
@@ -617,10 +618,10 @@ class MidiaRedeActivity : Activity() {
         c.connectTimeout = 4000; c.readTimeout = 10000; c.instanceFollowRedirects = false
         val bytes = lerFotoComTeto(c, 5 * 1024 * 1024) ?: return null
         val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeByteArray(bytes, 0, bytes.size, o)
+        Images.decodeByteArray("MidiaRedeActivity", bytes, 0, bytes.size, o)
         var amostra = 1
         while (o.outWidth / (amostra * 2) >= 400 && o.outHeight / (amostra * 2) >= 600) amostra *= 2
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.size, BitmapFactory.Options().apply { inSampleSize = amostra })
+        return Images.decodeByteArray("MidiaRedeActivity", bytes, 0, bytes.size, BitmapFactory.Options().apply { inSampleSize = amostra })
     }
 
     /** Toca o arquivo da posição [pos] pedindo o resultado: no fim, a pasta emenda o próximo do mesmo tipo. */
@@ -1462,11 +1463,11 @@ class MidiaRedeActivity : Activity() {
     /** Reduz para caber na tela (1920 px): foto de câmera tem 4000+ px e estouraria a memória do processo. */
     private fun reduzir(bytes: ByteArray): Bitmap? {
         val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        BitmapFactory.decodeByteArray(bytes, 0, bytes.size, o)
+        Images.decodeByteArray("MidiaRedeActivity", bytes, 0, bytes.size, o)
         var amostra = 1
         while (o.outWidth / (amostra * 2) >= 1920 || o.outHeight / (amostra * 2) >= 1080) amostra *= 2
         // RGB_565 (metade da memória, como no FotosProtetor): foto de 24 MP fica 3000x2000 = 12 MB, não 24 MB, na TV de 32 bits.
-        return BitmapFactory.decodeByteArray(bytes, 0, bytes.size, BitmapFactory.Options().apply {
+        return Images.decodeByteArray("MidiaRedeActivity", bytes, 0, bytes.size, BitmapFactory.Options().apply {
             inSampleSize = amostra; inPreferredConfig = Bitmap.Config.RGB_565
         })
     }

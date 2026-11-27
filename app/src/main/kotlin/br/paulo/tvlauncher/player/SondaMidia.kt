@@ -15,6 +15,7 @@ import java.io.IOException
 import java.nio.ByteBuffer
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicLong
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Capítulos (ideia 5, 15/11/2026): contas puras, com teste (CapitulosTest).
@@ -127,7 +128,7 @@ class SondaMidia(private val uri: Uri, private val dados: DataSource.Factory) {
             if (t < 0 || ctx == 0L || fechada) return@execute
             val buf = ByteBuffer.allocateDirect(largura * altura * 4)
             if (!FfNativo.arquivoMiniatura(ctx, t * 1000, buf, largura, altura)) return@execute
-            val bmp = Bitmap.createBitmap(largura, altura, Bitmap.Config.ARGB_8888)
+            val bmp = Images.create("player/SondaMidia", largura, altura, Bitmap.Config.ARGB_8888)
             buf.rewind(); bmp.copyPixelsFromBuffer(buf)
             pronto(t, bmp)
         }

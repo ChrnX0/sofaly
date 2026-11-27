@@ -8,6 +8,7 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
 import br.paulo.tvlauncher.Config
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Fundo do foco dos cards de Assistir (TV, Séries, Filmes, Na rede), 11/11/2026. dono: "sabe esse fundinho que tem do
@@ -30,7 +31,7 @@ object CapaAtalho {
 
     /** Monta a capa: degradê das [cores] do card e, por cima, a [arte] ou o ícone grande. */
     fun montar(cores: IntArray, icone: IconeApp.Tipo, arte: Bitmap?): Bitmap {
-        val bmp = Bitmap.createBitmap(LARGURA, ALTURA, Bitmap.Config.ARGB_8888)
+        val bmp = Images.create("home/CapaAtalho", LARGURA, ALTURA, Bitmap.Config.ARGB_8888)
         val c = Canvas(bmp)
         val w = LARGURA.toFloat(); val h = ALTURA.toFloat()
         // Mesmo degradê do card (canto de cima à esquerda -> de baixo à direita).

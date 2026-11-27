@@ -2,11 +2,11 @@ package br.paulo.tvlauncher.weather
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.view.View
 import android.widget.ImageView
 import br.paulo.tvlauncher.resources.R
 import br.paulo.tvlauncher.txt
+import br.paulo.tvlauncher.image.Images
 
 /**
  * Os ícones do clima: PNGs 3D (160 px) em assets/clima3d/ (Fluent Emoji 3D, Microsoft, MIT) e as fases da lua em
@@ -85,7 +85,7 @@ object IconesClima {
     @Synchronized
     fun bitmap(ctx: Context, chave: String): Bitmap? = cache.getOrPut(chave) {
         try {
-            val img = ctx.assets.open(caminho(chave.removePrefix(PREFIXO))).use { BitmapFactory.decodeStream(it) }
+            val img = ctx.assets.open(caminho(chave.removePrefix(PREFIXO))).use { Images.decodeStream("weather/IconesClima", it)!! }
             aparar(img)
         } catch (e: Exception) { null }
     }
@@ -99,7 +99,7 @@ object IconesClima {
         val px = IntArray(w * h); img.getPixels(px, 0, w, 0, 0, w, h)
         var ini = w; var fim = -1
         for (x in 0 until w) for (y in 0 until h) if ((px[y * w + x] ushr 24) > 8) { if (x < ini) ini = x; if (x > fim) fim = x; break }
-        return if (fim < ini) img else Bitmap.createBitmap(img, ini, 0, fim - ini + 1, h)
+        return if (fim < ini) img else Images.create("weather/IconesClima", img, ini, 0, fim - ini + 1, h)
     }
 
     /**
