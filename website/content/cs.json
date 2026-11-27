@@ -25,10 +25,10 @@
     "of": "z"
   },
   "home": {
-    "title": "Sofaly · Vaše TV, zase jednoduchá",
+    "title": "Sofaly · Pohodový čas u vašeho televizoru",
     "description": "Sofaly je domovská obrazovka pro Google TV a Android TV: vše uspořádané do řad (Sledovat, Poslouchat, Hrát, Aplikace), velké písmo a žádné reklamy.",
     "eyebrow": "Domovská obrazovka pro Google TV a Android TV",
-    "h1": "Vaše TV, zase jednoduchá.",
+    "h1": "Pohodový čas u vašeho televizoru.",
     "lead": "Sofaly nahradí domovskou obrazovku vaší TV přehledným křížem: Sledovat, Poslouchat, Hrát a Aplikace, velkým písmem a bez reklam. Navíc se stará o domácnost, budí vás a mluví s vaším telefonem.",
     "hero_note": "Žádný účet, žádné reklamy, žádné sledování toho, na co se díváte.",
     "cross_title": "Jedna obrazovka, čtyři směry",
@@ -219,7 +219,7 @@
         "Stačí v nastavení TV znovu vybrat domovskou obrazovku Google. Nic vašeho se nesmaže."
       ]
     ],
-    "final_title": "Vaše TV, zase jednoduchá.",
+    "final_title": "Pohodový čas u vašeho televizoru.",
     "final_text": "Nainstalujte, stiskněte HOME a celá domácnost to pochopí."
   },
   "features_page": {

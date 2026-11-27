@@ -25,10 +25,10 @@
     "of": "/"
   },
   "home": {
-    "title": "Sofaly · 让电视重新变简单",
+    "title": "Sofaly · 电视前的温馨时光",
     "description": "Sofaly 是适用于 Google TV 和 Android TV 的主屏幕：一切按行排列（观看、收听、游戏、应用），大字体，没有广告。",
     "eyebrow": "适用于 Google TV 和 Android TV 的主屏幕",
-    "h1": "让电视重新变简单。",
+    "h1": "电视前的温馨时光。",
     "lead": "Sofaly 把电视主屏幕换成整齐的十字：观看、收听、游戏和应用，大字体、无广告。它还能照看家里、叫你起床，并和手机对话。",
     "hero_note": "无需账号，没有广告，不追踪你看什么。",
     "cross_title": "一个屏幕，四个方向",
@@ -219,7 +219,7 @@
         "在电视设置里重新选择 Google 主屏幕即可。你的任何数据都不会被删除。"
       ]
     ],
-    "final_title": "让电视重新变简单。",
+    "final_title": "电视前的温馨时光。",
     "final_text": "安装，按下 HOME，全家都能看懂。"
   },
   "features_page": {

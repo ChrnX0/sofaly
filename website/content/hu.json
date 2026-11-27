@@ -25,10 +25,10 @@
     "of": "/"
   },
   "home": {
-    "title": "Sofaly · A TV újra egyszerű",
+    "title": "Sofaly · Meghitt percek a tévé előtt",
     "description": "A Sofaly kezdőképernyő Google TV-hez és Android TV-hez: minden sorokba rendezve (Nézni, Hallgatni, Játszani, Alkalmazások), nagy betűkkel és reklámok nélkül.",
     "eyebrow": "Kezdőképernyő Google TV-hez és Android TV-hez",
-    "h1": "A TV újra egyszerű.",
+    "h1": "Meghitt percek a tévé előtt.",
     "lead": "A Sofaly egy rendezett keresztre cseréli a TV kezdőképernyőjét: Nézni, Hallgatni, Játszani és Alkalmazások, nagy betűkkel és reklámok nélkül. Emellett vigyáz az otthonra, felébreszti Önt, és beszél a telefonjával.",
     "hero_note": "Nincs fiók, nincs reklám, és senki nem követi, mit néz.",
     "cross_title": "Egy képernyő, négy irány",
@@ -219,7 +219,7 @@
         "Egyszerűen válassza újra a Google kezdőképernyőjét a TV beállításaiban. Semmi nem törlődik."
       ]
     ],
-    "final_title": "A TV újra egyszerű.",
+    "final_title": "Meghitt percek a tévé előtt.",
     "final_text": "Telepítse, nyomja meg a HOME gombot, és az egész család érteni fogja."
   },
   "features_page": {

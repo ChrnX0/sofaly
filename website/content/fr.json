@@ -25,10 +25,10 @@
     "of": "sur"
   },
   "home": {
-    "title": "Sofaly · Votre TV, simple à nouveau",
+    "title": "Sofaly · Des moments douillets devant votre télé",
     "description": "Sofaly est l'écran d'accueil pour Google TV et Android TV : tout est rangé en rangées (Regarder, Écouter, Jouer, Applications), en gros caractères et sans publicité.",
     "eyebrow": "Écran d'accueil pour Google TV et Android TV",
-    "h1": "Votre TV, simple à nouveau.",
+    "h1": "Des moments douillets devant votre télé.",
     "lead": "Sofaly remplace l'écran d'accueil de votre TV par une croix bien rangée : Regarder, Écouter, Jouer et Applications, en gros caractères et sans publicité. Elle veille aussi sur la maison, vous réveille et parle avec votre téléphone.",
     "hero_note": "Sans compte, sans publicité, sans suivre ce que vous regardez.",
     "cross_title": "Un écran, quatre chemins",
@@ -219,7 +219,7 @@
         "Choisissez de nouveau l'écran de Google comme accueil dans les réglages de la TV. Rien n'est effacé."
       ]
     ],
-    "final_title": "Votre TV, simple à nouveau.",
+    "final_title": "Des moments douillets devant votre télé.",
     "final_text": "Installez-la, appuyez sur HOME et toute la maison comprend."
   },
   "features_page": {

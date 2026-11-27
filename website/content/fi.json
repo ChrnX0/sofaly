@@ -25,10 +25,10 @@
     "of": "/"
   },
   "home": {
-    "title": "Sofaly · TV:si, taas yksinkertainen",
+    "title": "Sofaly · Kodikasta aikaa television ääressä",
     "description": "Sofaly on aloitusnäyttö Google TV:lle ja Android TV:lle: kaikki järjestettynä riveihin (Katso, Kuuntele, Pelaa, Sovellukset), isolla tekstillä ja ilman mainoksia.",
     "eyebrow": "Aloitusnäyttö Google TV:lle ja Android TV:lle",
-    "h1": "TV:si, taas yksinkertainen.",
+    "h1": "Kodikasta aikaa television ääressä.",
     "lead": "Sofaly korvaa TV:si aloitusnäytön siistillä ristillä: Katso, Kuuntele, Pelaa ja Sovellukset, isolla tekstillä ja ilman mainoksia. Se myös pitää huolta kodista, herättää sinut ja puhuu puhelimesi kanssa.",
     "hero_note": "Ei tiliä, ei mainoksia, ei katselusi seurantaa.",
     "cross_title": "Yksi näyttö, neljä suuntaa",
@@ -219,7 +219,7 @@
         "Valitse vain Googlen aloitusnäyttö uudelleen TV:n asetuksista. Mitään omaasi ei poisteta."
       ]
     ],
-    "final_title": "TV:si, taas yksinkertainen.",
+    "final_title": "Kodikasta aikaa television ääressä.",
     "final_text": "Asenna se, paina HOME, ja koko perhe ymmärtää sen."
   },
   "features_page": {

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/readme/banner.png" alt="Sofaly: your TV, simple again. The Sofaly home screen on a TV." width="100%">
+  <img src="docs/readme/banner.png" alt="Sofaly: cozy time on your TV. The Sofaly home screen on a TV." width="100%">
 </p>
 
 <p align="center">
