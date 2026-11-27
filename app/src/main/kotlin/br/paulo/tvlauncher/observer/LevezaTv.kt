@@ -14,6 +14,11 @@ import org.json.JSONObject
  *  - memória do processo da HOME (PSS, o número que o Android usa para decidir quem fecha por falta de memória);
  *  - tempo da HOME: carregar a lista de apps (fora da tela) e desenhar (na thread da tela), mediana das últimas voltas.
  * `EXTRAS --es o leveza` devolve o JSON que a thread do Release copia para site/leveza.json depois de testar na Sala.
+ *
+ * Régua da refatoração G (27/11/2026): "processos" traz CADA processo nosso vivo (principal, :player...) com a memória
+ * repartida como o `dumpsys meminfo` mostra (Java, nativo, gráficos, código) e o número de threads, mais "telaLigada".
+ * Por quê: o estudo supunha que os servidores pesavam na HOME; a medida na Sala mostrou que o peso é gráfico da tela
+ * ligada. Cada etapa da G compara este JSON antes e depois, sempre com a tela no mesmo estado.
  */
 object LevezaTv {
     private const val GUARDAR = 15
@@ -43,5 +48,36 @@ object LevezaTv {
             .put("ramTvMb", ActivityManager.MemoryInfo().also { am.getMemoryInfo(it) }.totalMem / 1048576)
             .put("aparelho", android.os.Build.MODEL)
             .put("abisTv", JSONArray(android.os.Build.SUPPORTED_ABIS.toList()))
+            .put("telaLigada", runCatching { ctx.getSystemService(android.os.PowerManager::class.java).isInteractive }.getOrDefault(false))
+            .put("processos", processos(ctx, am))
+    }
+
+    /** As partes do resumo do Android ("summary.java-heap" etc., em KB) que a régua guarda, com nome curto em MB. */
+    val PARTES = linkedMapOf(
+        "javaMb" to "summary.java-heap", "nativoMb" to "summary.native-heap", "graficosMb" to "summary.graphics",
+        "codigoMb" to "summary.code", "pilhaMb" to "summary.stack", "outrosMb" to "summary.private-other",
+    )
+
+    /** De um mapa "summary.x" -> KB (texto, como o Android devolve) para MB com uma casa. Puro, testado. */
+    fun partesMb(stats: Map<String, String>): Map<String, Double> =
+        PARTES.mapValues { (_, chave) -> Math.round((stats[chave]?.toLongOrNull() ?: 0L) / 1024.0 * 10) / 10.0 }
+
+    /** Threads de um processo nosso (/proc/<pid>/task: mesmo uid, dá para ler). -1 se não deu. */
+    private fun threads(pid: Int): Int = File("/proc/$pid/task").list()?.size ?: -1
+
+    /** Obs.: para apps o Android só mede de novo a cada ~5 min (getProcessMemoryInfo); repita depois disso para comparar. */
+    private fun processos(ctx: Context, am: ActivityManager): JSONArray {
+        val lista = JSONArray()
+        val vivos = runCatching { am.runningAppProcesses }.getOrNull().orEmpty()
+            .filter { it.uid == Process.myUid() }.sortedBy { it.processName }
+        val infos = runCatching { am.getProcessMemoryInfo(vivos.map { it.pid }.toIntArray()) }.getOrNull()
+        vivos.forEachIndexed { i, p ->
+            val m = infos?.getOrNull(i)
+            val o = JSONObject().put("nome", p.processName.removePrefix(ctx.packageName).ifEmpty { "principal" })
+                .put("pssMb", ((m?.totalPss ?: 0) + 512) / 1024).put("importancia", p.importance).put("threads", threads(p.pid))
+            if (m != null) for ((k, v) in partesMb(m.memoryStats)) o.put(k, v)
+            lista.put(o)
+        }
+        return lista
     }
 }
