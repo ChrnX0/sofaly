@@ -30,4 +30,6 @@
     <string name="bb_titulo">主屏幕样式</string>
     <string name="bb_cruz">十字</string>
     <string name="bb_barra">底部栏</string>
+    <string name="wo_ultimos">最近使用的在前</string>
+    <string name="wo_aleatorio">随机（每天更换）</string>
 </resources>

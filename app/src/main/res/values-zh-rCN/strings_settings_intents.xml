@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="si_frases">TEXT_BIGGER=字 大一点|字体 放大|文字 放大|字 放大;TEXT_SMALLER=字 小一点|字体 缩小|文字 缩小|字 缩小;GOAL_READ=看 清楚|看 不清;GOAL_CLEAN=屏幕 简洁|界面 简洁;GOAL_ENERGY=节省 电能|省 电;LOOK_SOFALY=sofaly 外观|默认 外观;LOOK_NIGHT=夜晚 外观|夜空 外观;LOOK_MOUNTAIN=山景 外观;LOOK_MINIMAL=极简 外观</string>
+    <string name="si_fazer">立即执行：%1$s</string>
+    <string name="si_desfazer">撤销：%1$s</string>
+    <string name="si_fazer_det">立即生效。</string>
+    <string name="si_maior">文字放大</string>
+    <string name="si_menor">文字缩小</string>
+</resources>

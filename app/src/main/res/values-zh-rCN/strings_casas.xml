@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">其他家庭</string>
+    <string name="casas_texto">把这台电视和亲人的电视连起来，即使相隔很远也能一起看。只传送播放、暂停和表情反应，并且加密。谁都不需要账号。</string>
+    <string name="casas_mostrar">显示代码</string>
+    <string name="casas_mostrar_det">对方在自己的电视上输入</string>
+    <string name="casas_digitar">输入代码</string>
+    <string name="casas_digitar_det">对方电视上显示的代码</string>
+    <string name="casas_conectadas">已连接的家庭</string>
+    <string name="casas_remover_det">一起看 · 移除</string>
+    <string name="casas_remover_titulo">移除 %1$s？</string>
+    <string name="casas_remover">移除</string>
+    <string name="casas_pedindo">正在获取代码…</string>
+    <string name="casas_codigo_det">把这个代码念给对方。在对方电视上：设置、家庭、其他家庭、输入代码。有效 10 分钟，只能用一次。</string>
+    <string name="casas_esperando">正在等待对方电视确认…</string>
+    <string name="casas_conectando">正在连接…</string>
+    <string name="casas_conectar">连接</string>
+    <string name="casas_chegou">%1$s 输入了代码</string>
+    <string name="casas_confirmou">%1$s 已确认。也请在这里核对数字</string>
+    <string name="casas_pelo_celular">%1$s 已连接“一起看”（由 %2$s 添加）</string>
+    <string name="casas_conferir_titulo">与 %1$s 连接？</string>
+    <string name="casas_conferir_texto">请通过电话确认对方电视显示的数字相同：\n\n%1$s\n\n如果不同，请取消。</string>
+    <string name="casas_pronto">已与 %1$s 连接。两台电视都显示这些数字。要一起看，打开一部作品并选择“一起看”。</string>
+    <string name="casas_falhou">没有成功。请检查网络，再用新代码试一次。</string>
+    <string name="casas_sem_rede">Sofaly 服务没有响应。请检查网络。</string>
+    <string name="casas_codigo_errado">这个代码无效。它由 8 个字母和数字组成，有效 10 分钟。</string>
+    <string name="casas_menu">其他家庭</string>
+    <string name="casas_menu_det">和远方亲人的电视一起看</string>
+</resources>
