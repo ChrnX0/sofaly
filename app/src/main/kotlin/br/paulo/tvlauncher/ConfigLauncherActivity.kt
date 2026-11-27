@@ -1611,15 +1611,12 @@ class ConfigLauncherActivity : Activity() {
 internal class AbasQueCabem(ctx: android.content.Context) : LinearLayout(ctx) {
     override fun onMeasure(larguraSpec: Int, alturaSpec: Int) {
         for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = LayoutParams.WRAP_CONTENT; weight = 0f }
-        super.onMeasure(larguraSpec, alturaSpec)
         val limite = MeasureSpec.getSize(larguraSpec)
-        if (MeasureSpec.getMode(larguraSpec) == MeasureSpec.UNSPECIFIED) return
-        var soma = paddingStart + paddingEnd
-        for (i in 0 until childCount) getChildAt(i).takeIf { it.visibility != GONE }?.let {
-            val lp = it.layoutParams as LayoutParams
-            soma += it.measuredWidth + lp.marginStart + lp.marginEnd
-        }
-        if (soma <= limite) return
+        if (MeasureSpec.getMode(larguraSpec) == MeasureSpec.UNSPECIFIED) { super.onMeasure(larguraSpec, alturaSpec); return }
+        // 1º a largura que as abas querem (sem limite): medindo já com o limite, a última vem espremida e a soma "cabe".
+        super.onMeasure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), alturaSpec)
+        val soma = measuredWidth
+        if (soma <= limite) { super.onMeasure(larguraSpec, alturaSpec); return }
         for (i in 0 until childCount) (getChildAt(i).layoutParams as LayoutParams).apply { width = 0; weight = 1f }
         super.onMeasure(MeasureSpec.makeMeasureSpec(limite, MeasureSpec.EXACTLY), alturaSpec)
     }
