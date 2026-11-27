@@ -188,7 +188,7 @@ def header(L, page):
                    f'{esc(L.langs[c]["label"])}</option>' for c in L.langs)
     return f"""<header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="{L.url('index')}" aria-label="Sofaly">{LOGO}<span class="wordmark">sofa<b>ly</b></span></a>
+    <a class="brand" href="{L.url('index')}" aria-label="Sofaly">{LOGO}<span class="wordmark">Sofa<b>ly</b></span></a>
     <nav class="menu" aria-label="Sofaly">{nav}</nav>
     <label class="lang"><span class="sr">{esc(ui['language'])}</span>{icon('globe')}<select id="lang">{opts}</select></label>
   </div>
@@ -202,7 +202,7 @@ def footer(L):
     return f"""</main>
 <footer class="foot">
   <div class="wrap foot-in">
-    <div><a class="brand" href="{L.url('index')}">{LOGO}<span class="wordmark">sofa<b>ly</b></span></a>
+    <div><a class="brand" href="{L.url('index')}">{LOGO}<span class="wordmark">Sofa<b>ly</b></span></a>
       <p>{esc(ui['footer_tagline'])}</p></div>
     <nav aria-label="Links">
       <a href="{L.url('features')}">{esc(ui['nav_features'])}</a>
@@ -337,7 +337,7 @@ def scr_phone(t, m):
     btn = [("remote", t[3]), ("text", t[4]), ("monitor", t[5]), ("photo", t[6])]
     b = "".join(f'<span>{icon(i)}{esc(x)}</span>' for i, x in btn)
     return f"""<div class="ph-tv"><div class="ph-toast">{icon('chat')}<div><small>{esc(t[2])}</small><b>{esc(t[1])}</b></div></div></div>
-    <div class="ph-phone"><div class="ph-scr"><b class="ph-brand">sofa<em>ly</em></b><div class="ph-grid">{b}</div>
+    <div class="ph-phone"><div class="ph-scr"><b class="ph-brand">Sofa<em>ly</em></b><div class="ph-grid">{b}</div>
       <div class="ph-field"><span>{esc(t[1])}</span></div><div class="ph-send">{esc(t[0])}</div><i class="ph-tap"></i></div></div>"""
 
 
