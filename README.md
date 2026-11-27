@@ -75,6 +75,11 @@ TV (Android 14). Download the APK from [**Releases**](../../releases/latest) or 
 
 Already installed? Sofaly updates itself from here.
 
+> **Download Sofaly only from this repository's [Releases](../../releases) or from [sofaly.tv](https://sofaly.tv).** Copies
+> on other sites or GitHub mirrors are not published or checked by this project, and redistributing the APK needs
+> written permission (see [License](#license)). Each Release has a `.sha256` file next to every APK, so you can check
+> that the file you have is the official one.
+
 ### Install with Downloader (no computer needed)
 
 1. Install **Downloader** by AFTVnews from the Play Store on your TV.
