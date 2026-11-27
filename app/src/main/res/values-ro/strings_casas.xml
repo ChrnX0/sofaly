@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Alte case</string>
+    <string name="casas_texto">Conectează acest televizor cu televizorul unei rude și uitați-vă împreună de la distanță. Se trimit doar redarea, pauza și reacțiile, criptat. Nimeni nu are nevoie de cont.</string>
+    <string name="casas_mostrar">Arată codul</string>
+    <string name="casas_mostrar_det">Cealaltă casă îl introduce pe televizorul ei</string>
+    <string name="casas_digitar">Introdu codul</string>
+    <string name="casas_digitar_det">Codul afișat pe celălalt televizor</string>
+    <string name="casas_conectadas">Case conectate</string>
+    <string name="casas_remover_det">Vizionare împreună · eliminare</string>
+    <string name="casas_remover_titulo">Elimini %1$s?</string>
+    <string name="casas_remover">Elimină</string>
+    <string name="casas_pedindo">Se cere codul…</string>
+    <string name="casas_codigo_det">Citește acest cod celeilalte case. Pe televizorul lor: Setări, Familie, Alte case, Introdu codul. Este valabil 10 minute și o singură dată.</string>
+    <string name="casas_esperando">Se așteaptă confirmarea celuilalt televizor…</string>
+    <string name="casas_conectando">Se conectează…</string>
+    <string name="casas_conectar">Conectează</string>
+    <string name="casas_chegou">%1$s a introdus codul</string>
+    <string name="casas_confirmou">%1$s a confirmat. Verifică cifrele și aici</string>
+    <string name="casas_pelo_celular">%1$s s-a conectat pentru vizionare împreună (adăugat de %2$s)</string>
+    <string name="casas_conferir_titulo">Te conectezi cu %1$s?</string>
+    <string name="casas_conferir_texto">Confirmă la telefon că celălalt televizor arată aceleași cifre:\n\n%1$s\n\nDacă diferă, anulează.</string>
+    <string name="casas_pronto">Conectat cu %1$s. Ambele televizoare arată aceste cifre. Ca să vă uitați împreună, deschide un titlu și alege Vizionează împreună.</string>
+    <string name="casas_falhou">Nu a mers. Verifică internetul și încearcă din nou cu un cod nou.</string>
+    <string name="casas_sem_rede">Serviciul Sofaly nu răspunde. Verifică internetul.</string>
+    <string name="casas_codigo_errado">Acest cod nu a mers. Are 8 litere și cifre și este valabil 10 minute.</string>
+    <string name="casas_menu">Alte case</string>
+    <string name="casas_menu_det">Vizionare împreună cu televizorul unei rude care locuiește departe</string>
+</resources>

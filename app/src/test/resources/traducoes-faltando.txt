@@ -39,7 +39,7 @@ values-pt=0
 
 values-pt-rPT=3
 
-values-ro=224
+values-ro=3
 
 values-ru=3
 

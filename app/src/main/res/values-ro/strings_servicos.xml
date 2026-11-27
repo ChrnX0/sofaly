@@ -60,4 +60,7 @@
     <!-- Ficha sem a conta Simkl: convite para conectar (a nota do Simkl só aparece com a conta; licença). -->
     <string name="sv_simkl_convite">Nota Simkl</string>
     <string name="sv_simkl_convite_det">Conectați-vă contul</string>
+    <string name="legenda_muitas">Prea multe căutări de subtitrări acum. Încearcă din nou peste un minut.</string>
+    <string name="legenda_conta_recusada">OpenSubtitles a refuzat contul. Verifică-l în Setări.</string>
+    <string name="legenda_fora">Serviciul de subtitrări nu funcționează. Încearcă mai târziu.</string>
 </resources>
