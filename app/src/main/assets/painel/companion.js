@@ -366,6 +366,8 @@
     try {
       const r = await chamar('GET', '/api/companion');
       const m = r.audio && r.audio[r.route];
+      // Sem a saída ou o atraso em uso (TV antiga ou resposta incompleta), "undefined ms" aparecia na tela (auditoria 27/11).
+      if (!m && (r.route == null || r.delayInUse == null)) { el.textContent = 'Ainda não medido.'; el.hidden = false; return; }
       el.textContent = m && m.verdict === 'GOOD'
         ? `Saída de agora: ${rotuloSaida(r.route)}. Atraso medido: ${m.delay} ms. O Som no fone já usa este número.`
         : `Saída de agora: ${rotuloSaida(r.route)}. Ainda não medido: o Som no fone usa ${r.delayInUse} ms, um valor padrão.`;

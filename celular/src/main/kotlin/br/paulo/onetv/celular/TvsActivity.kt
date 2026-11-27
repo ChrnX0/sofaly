@@ -96,7 +96,7 @@ class TvsActivity : Activity() {
         orientation = LinearLayout.VERTICAL; background = Visual.cartao(context)
         setPadding(dp(18), dp(14), dp(18), dp(14))
         addView(Visual.texto(context, titulo, 19f, negrito = true))
-        addView(Visual.texto(context, detalhe, 14f, Visual.TEXTO_2))
+        addView(Visual.texto(context, detalhe, 15f, Visual.TEXTO_2))   // auditoria 27/11: 14 era a única letra abaixo de 15
         isClickable = true; isFocusable = true
         setOnClickListener { toque() }
         if (segurar != null) setOnLongClickListener { segurar(); true }
