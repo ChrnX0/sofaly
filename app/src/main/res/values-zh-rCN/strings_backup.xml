@@ -24,4 +24,7 @@
     <string name="bkn_ultimo">上次</string>
     <string name="bkn_nunca">从未</string>
     <string name="bkn_pin">更改备份需要 PIN</string>
+    <string name="bk_motivo_senha">密码不正确。</string>
+    <string name="bk_motivo_invalido">这个文件不是 Sofaly 备份，或者已损坏。</string>
+    <string name="bk_motivo_ler">无法读取（网络或存储）。</string>
 </resources>

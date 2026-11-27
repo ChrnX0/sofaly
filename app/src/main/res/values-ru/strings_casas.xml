@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Другие дома</string>
+    <string name="casas_texto">Свяжите этот телевизор с телевизором родных, чтобы смотреть вместе даже издалека. Передаются только воспроизведение, пауза и реакции, в зашифрованном виде. Аккаунт никому не нужен.</string>
+    <string name="casas_mostrar">Показать код</string>
+    <string name="casas_mostrar_det">Другой дом вводит его на своём телевизоре</string>
+    <string name="casas_digitar">Ввести код</string>
+    <string name="casas_digitar_det">Код, который показывает другой телевизор</string>
+    <string name="casas_conectadas">Связанные дома</string>
+    <string name="casas_remover_det">Смотреть вместе · Удалить</string>
+    <string name="casas_remover_titulo">Удалить %1$s?</string>
+    <string name="casas_remover">Удалить</string>
+    <string name="casas_pedindo">Получаем код…</string>
+    <string name="casas_codigo_det">Продиктуйте этот код другому дому. На их телевизоре: Настройки, Семья, Другие дома, Ввести код. Код действует 10 минут и один раз.</string>
+    <string name="casas_esperando">Ждём подтверждения от другого телевизора…</string>
+    <string name="casas_conectando">Связываем…</string>
+    <string name="casas_conectar">Связать</string>
+    <string name="casas_chegou">%1$s ввёл код</string>
+    <string name="casas_confirmou">%1$s подтвердил. Сверьте цифры и здесь</string>
+    <string name="casas_pelo_celular">%1$s подключён для «Смотреть вместе» (добавил %2$s)</string>
+    <string name="casas_conferir_titulo">Связать с %1$s?</string>
+    <string name="casas_conferir_texto">Сверьте по телефону, что другой телевизор показывает те же цифры:\n\n%1$s\n\nЕсли они отличаются, отмените.</string>
+    <string name="casas_pronto">Связано с %1$s. Оба телевизора показывают эти цифры. Чтобы смотреть вместе, откройте фильм и выберите «Смотреть вместе».</string>
+    <string name="casas_falhou">Не получилось. Проверьте интернет и попробуйте новый код.</string>
+    <string name="casas_sem_rede">Сервис Sofaly не отвечает. Проверьте интернет.</string>
+    <string name="casas_codigo_errado">Этот код не подошёл. В нём 8 букв и цифр, он действует 10 минут.</string>
+    <string name="casas_menu">Другие дома</string>
+    <string name="casas_menu_det">Смотреть вместе с телевизором родных издалека</string>
+</resources>
