@@ -201,7 +201,8 @@ internal object ForecastText {
         a <= 150 -> ctx.getString(R.string.aq_sensiveis) to 0xFFFFB566.toInt()
         a <= 200 -> ctx.getString(R.string.aq_ruim) to 0xFFFF7A6B.toInt()
         a <= 300 -> ctx.getString(R.string.aq_muito_ruim) to 0xFFD08CFF.toInt()
-        else -> ctx.getString(R.string.aq_perigosa) to 0xFFFF5C7A.toInt()
+        // Vermelho de alerta, não rosa (era #FF5C7A; Paulo detesta rosa, auditoria de cores 27/11/2026).
+        else -> ctx.getString(R.string.aq_perigosa) to 0xFFF0443A.toInt()
     }
 
     /** "do nordeste" a partir dos graus de onde o vento vem (a rosa dos ventos das strings). */
