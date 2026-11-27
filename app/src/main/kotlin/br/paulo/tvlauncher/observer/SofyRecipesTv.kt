@@ -27,9 +27,13 @@ object SofyRecipesTv {
         if (now - p.getLong("fetched_at", 0L) >= GAP_MS) {
             p.edit().putLong("fetched_at", now).apply()
             Http.getTextOrNull(URL_RECIPES, maxBytes = 256 * 1024)?.let { text ->
-                val list = SofyRecipes.parse(runCatching { JSONObject(text) }.getOrNull())
-                p.edit().putString("list", text).apply()
-                SofyBusTv.emit(app, SofyBus.Source.SOFY, "recipes_received", detail = "${list.size} receitas")
+                // Só guarda o que passou pela assinatura; sem ela (ou velha) fica a lista anterior.
+                val inner = SofyRecipes.open(runCatching { JSONObject(text) }.getOrNull(), now)
+                if (inner == null) ObserverTv.logShadow(app, "recipes_refused", "assinatura, versão ou data")
+                else {
+                    p.edit().putString("list", inner.toString()).apply()
+                    SofyBusTv.emit(app, SofyBus.Source.SOFY, "recipes_received", detail = "${SofyRecipes.parse(inner).size} receitas")
+                }
             }
         }
         judge(app)
