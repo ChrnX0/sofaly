@@ -12,6 +12,8 @@ with no R/BuildConfig lives in `:core` (`core/src/main/kotlin`, same packages); 
 (the folder stays `app/src/main/res`), so R is `br.paulo.tvlauncher.resources.R` (import it, also in root-package files). Tests
 that read sources find files with `CodeSource.file(name)`. Background work goes through `Fundo.rodar`/`Fundo.juntos`
 (coroutines); only endless loops (servers, watchers) keep their own Thread.
+Every bitmap is created through `br.paulo.tvlauncher.image.Images` (in `:core`; origin = area/file), never `BitmapFactory`/
+`Bitmap.createBitmap` directly (`ImagesGateTest`); `EXTRAS --es o leveza` shows the live ones by origin under `imagens`.
 
 ## Rules that protect installed TVs (do not break)
 
