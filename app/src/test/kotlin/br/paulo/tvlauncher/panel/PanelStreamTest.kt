@@ -58,7 +58,33 @@ class PanelStreamTest {
 
     @Test(expected = IOException::class) fun semMascaraRecusa() { ler(quadro(WsFrames.BINARY, "x".toByteArray(), mascara = false)) }
     @Test(expected = IOException::class) fun grandeDemaisRecusa() { ler(quadro(WsFrames.BINARY, ByteArray(200)), limite = 100) }
-    @Test(expected = IOException::class) fun fragmentoRecusa() { ler(quadro(WsFrames.BINARY, "x".toByteArray(), fin = false)) }
+    private fun mensagens(b: ByteArray, limite: Int = 1 shl 20): List<WsFrames.Frame> {
+        val r = WsFrames.Reader(DataInputStream(ByteArrayInputStream(b)), limite)
+        return generateSequence { r.next() }.toList()
+    }
+
+    /** O Chrome parte toda mensagem acima de 64 KiB (Sala, 25/11/2026: a câmera caía na 1ª foto grande). */
+    @Test fun juntaMensagemPartida() {
+        val foto = ByteArray(150_000) { (it * 31).toByte() }
+        val partes = quadro(WsFrames.BINARY, foto.copyOfRange(0, 65_536), fin = false) +
+            quadro(WsFrames.PING, "p".toByteArray()) +   // controle no meio das partes é permitido (RFC 6455 5.4)
+            quadro(WsFrames.CONTINUATION, foto.copyOfRange(65_536, 131_072), fin = false) +
+            quadro(WsFrames.CONTINUATION, foto.copyOfRange(131_072, foto.size)) +
+            quadro(WsFrames.BINARY, "fim".toByteArray())
+        val m = mensagens(partes)
+        assertEquals(listOf(WsFrames.PING, WsFrames.BINARY, WsFrames.BINARY), m.map { it.opcode })
+        assertArrayEquals(foto, m[1].payload)
+        assertArrayEquals("fim".toByteArray(), m[2].payload)
+    }
+
+    @Test(expected = IOException::class) fun continuacaoSemComeco() { mensagens(quadro(WsFrames.CONTINUATION, "x".toByteArray())) }
+    @Test(expected = IOException::class) fun mensagemNovaNoMeio() {
+        mensagens(quadro(WsFrames.BINARY, "a".toByteArray(), fin = false) + quadro(WsFrames.BINARY, "b".toByteArray()))
+    }
+    @Test(expected = IOException::class) fun partesSomamDemais() {
+        mensagens(quadro(WsFrames.BINARY, ByteArray(80), fin = false) + quadro(WsFrames.CONTINUATION, ByteArray(80)), limite = 100)
+    }
+    @Test(expected = IOException::class) fun controleGrandeRecusa() { mensagens(quadro(WsFrames.PING, ByteArray(200))) }
 
     @Test fun escreverSemMascara() {
         for (n in listOf(0, 125, 126, 65535, 65536)) {

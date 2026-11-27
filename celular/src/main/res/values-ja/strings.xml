@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">試行回数が多すぎます。%1$d秒待ってからもう一度お試しください。</string>
     <string name="cel_fora_falhou">うまくいきませんでした。自宅でテレビの電源を入れてもう一度お試しください。</string>
     <string name="cel_fora_pronto">完了しました。このスマホで外出先からもテレビを操作できます。</string>
+    <string name="cel_camera_negada">カメラはテレビ画面のコードを読み取るためだけに使います。</string>
+    <string name="cel_camera_bloqueada">このアプリのカメラがブロックされています。アプリの設定を開いてカメラを許可してください。</string>
+    <string name="cel_abrir_ajustes">設定を開く</string>
 </resources>

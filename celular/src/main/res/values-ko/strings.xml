@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">시도 횟수가 너무 많습니다. %1$d초 후 다시 시도하세요.</string>
     <string name="cel_fora_falhou">실패했습니다. 집에서 TV를 켠 상태로 다시 시도하세요.</string>
     <string name="cel_fora_pronto">완료되었습니다. 이제 이 휴대폰으로 외출 중에도 TV를 제어할 수 있습니다.</string>
+    <string name="cel_camera_negada">앱은 TV 화면의 코드를 읽을 때만 카메라를 사용합니다.</string>
+    <string name="cel_camera_bloqueada">이 앱의 카메라가 차단되어 있습니다. 앱 설정을 열고 카메라를 허용하세요.</string>
+    <string name="cel_abrir_ajustes">설정 열기</string>
 </resources>

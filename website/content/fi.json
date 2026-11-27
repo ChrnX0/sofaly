@@ -25,10 +25,10 @@
     "of": "/"
   },
   "home": {
-    "title": "Sofaly · TV:si, taas yksinkertainen",
-    "description": "Sofaly on aloitusnäyttö Google TV:lle ja Android TV:lle: kaikki järjestettynä ristiin (Katso, Kuuntele, Pelaa, Sovellukset), isolla tekstillä ja ilman mainoksia.",
+    "title": "Sofaly · Kodikasta aikaa television ääressä",
+    "description": "Sofaly on aloitusnäyttö Google TV:lle ja Android TV:lle: kaikki järjestettynä riveihin (Katso, Kuuntele, Pelaa, Sovellukset), isolla tekstillä ja ilman mainoksia.",
     "eyebrow": "Aloitusnäyttö Google TV:lle ja Android TV:lle",
-    "h1": "TV:si, taas yksinkertainen.",
+    "h1": "Kodikasta aikaa television ääressä.",
     "lead": "Sofaly korvaa TV:si aloitusnäytön siistillä ristillä: Katso, Kuuntele, Pelaa ja Sovellukset, isolla tekstillä ja ilman mainoksia. Se myös pitää huolta kodista, herättää sinut ja puhuu puhelimesi kanssa.",
     "hero_note": "Ei tiliä, ei mainoksia, ei katselusi seurantaa.",
     "cross_title": "Yksi näyttö, neljä suuntaa",
@@ -219,7 +219,7 @@
         "Valitse vain Googlen aloitusnäyttö uudelleen TV:n asetuksista. Mitään omaasi ei poisteta."
       ]
     ],
-    "final_title": "TV:si, taas yksinkertainen.",
+    "final_title": "Kodikasta aikaa television ääressä.",
     "final_text": "Asenna se, paina HOME, ja koko perhe ymmärtää sen."
   },
   "features_page": {
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "Risti",
+      "Aloitusnäyttö",
       "Siisti näyttö, jonka kuka tahansa ymmärtää, järjestettynä mieleiseksesi."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "Risti",
-      "Jatka, Katso, Kuuntele, Pelaa ja Sovellukset yhdellä rivillä. Valitsemasi maailma kasvaa isoksi, ja sen sisältö on heti alla.",
-      "◀ ▶ vaihda maailmaa, ▲ ▼ kulje saraketta alas, OK avaa."
+      "Rivit",
+      "Jatka, Katso, Kuuntele, Pelaa ja Sovellukset, kukin omalla rivillään, allekkain. Kaikki näkyvillä, isolla tekstillä.",
+      "Se on aloitusnäyttö: se tulee esiin, kun painat HOME."
     ],
     "continue": [
       "Jatka",
       "Yksi paikka palata siihen, mitä teit: jakso, asema, podcast tai viimeisin sovellus.",
-      "Se on ristin ensimmäinen kohta."
+      "Yksi aloitusnäytön riveistä."
     ],
     "topbar": [
       "Yläpalkki",
@@ -348,7 +348,7 @@
     "card-match": [
       "Joukkueesi seuraava ottelu",
       "Milloin ja ketä vastaan joukkueesi pelaa seuraavaksi, kortilla aloitusnäytöllä.",
-      "Ristin TV-kohdassa. Asetukset › Ulkoasu."
+      "Aloitusnäytöllä. Asetukset › Ulkoasu."
     ],
     "plugin-cards": [
       "Kortit muista sovelluksista",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Suosikkisi edessä",
       "Sovellukset näyttää 8 eniten avaamaasi sovellusta, ja “Kaikki sovellukset” tuo loput ruudukkona.",
-      "Sovellukset, ristissä."
+      "Sovellukset-rivillä."
     ],
     "apps-organize": [
       "Sinun tapasi",
@@ -780,7 +780,7 @@
     "basic_who": "Sille, joka on sohvalla",
     "pro_who": "Sille, joka pitää huolta TV:stä",
     "ultra_who": "Kodille ja perheelle",
-    "basic_text": "Ristiaiheinen aloitusnäyttö, soitin, Kuuntele, Pelaa, herätyskello, näytönsäästäjä ja kaikki saavutettavuus.",
+    "basic_text": "Riveihin järjestetty aloitusnäyttö, soitin, Kuuntele, Pelaa, herätyskello, näytönsäästäjä ja kaikki saavutettavuus.",
     "pro_text": "Kaikki Basicista sekä puhelin, automaatiot, älykoti, viestit kaukaa, valmiit aloitusnäytön kortit ja täysi personointi.",
     "ultra_text": "Kaikki Prosta sekä sää kolmesta mallista, täydet elokuvasivut, automaattiset tekstitykset, useita koteja ja yhdessä katsominen.",
     "includes": "Sisältää",

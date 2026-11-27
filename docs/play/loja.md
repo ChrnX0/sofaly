@@ -1,7 +1,7 @@
 # Página da loja
 
 - **Nome do app (30):** Sofaly — TV simples   ⚠ conferir com a marca; alternativa: "Sofaly"
-- **Slogan sugerido:** "Sua TV, simples de novo."
+- **Slogan:** "Aconchego na sua TV." ("Cozy time on your TV.", Paulo 27/11/2026)
 - **Categoria:** Personalização (launcher). Classificação: Livre. Sem anúncios.
 - **Créditos obrigatórios na página:** "Sofaly uses Trakt but is not endorsed or certified by Trakt." ·
   "Subtitles provided by OpenSubtitles.com" · dados de cidades GeoNames (CC BY 4.0) · clima (⚠ fonte em decisão).

@@ -50,7 +50,7 @@ def world_colors(F):
 # Features the app has that features.json does not list yet (inventory of 19-20/11/2026). No plan label on purpose:
 # the plans are decided after the app is finished.
 EXTRA = {
-    "home": [("A Ilha no alto da tela", "Os avisos se revezam numa pílula no topo: sem internet, lembrete, agenda e despertador. O que é importante cresce por 5 segundos com “▲ para abrir”, a campainha da Casa aparece na hora e, ao ligar a TV, vem um resumo do que aconteceu. Segure ▲ no topo da cruz para abrir a Central.", "Tela inicial, no alto.", "bell"),
+    "home": [("A Ilha no alto da tela", "Os avisos se revezam numa pílula no topo: sem internet, lembrete, agenda e despertador. O que é importante cresce por 5 segundos com “▲ para abrir”, a campainha da Casa aparece na hora e, ao ligar a TV, vem um resumo do que aconteceu.", "Tela inicial, no alto.", "bell"),
              ("Sugestão na hora certa", "Sem inteligência artificial: pelo uso da semana, a TV sugere o que faz sentido naquela hora.", "Tela inicial.", "bulb")],
     "watch": [("Duas legendas ao mesmo tempo", "Por exemplo, português embaixo e a original em cima, para aprender ou para ver junto.", "Menu ▼ do player › Legenda.", "subtitle"),
               ("Diálogo mais alto", "Quando o som 5.1 vira estéreo, a fala fica na frente e as explosões não abafam a voz.", "Menu ▼ do player.", "speaker"),
@@ -74,7 +74,8 @@ EXTRA = {
 }
 FIRST = {"care": ("TV nova em 2 minutos", "Comprou outra TV? Leia um QR e tudo passa para ela, cifrado.",
                   "Sistema › Backup › Levar para uma TV nova.", "tv")}
-SHOT = {"home": "configuracoes", "watch": "home", "listen": "radio", "play": "jogos", "house": "despertador",
+# "watch" had tela-*-home (the old cross home screen): it waits for the final Rows screen (Paulo 27/11/2026).
+SHOT = {"home": "configuracoes", "listen": "radio", "play": "jogos", "house": "despertador",
         "family": "boas-vindas", "phone": "entrar-celular", "care": "mudar-tv", "everyone": "ajuda"}
 LS = 'stroke="#C7A98E" stroke-width="2.4" fill="none" stroke-linejoin="round" stroke-linecap="round"'
 LO = 'stroke="#FF8A55"'
@@ -114,8 +115,6 @@ def page_home(L):
     pre = L.prefix
     sl, pl = screen_lang(L.code), panel_lang(L.code)
     s = (HERE / "base.html").read_text()
-    # The cross counter ("2 of 3") is a JS template literal, which translate() does not reach.
-    s = s.replace("${s+1} de ${c.itens.length}", "${s+1} " + D["ui"]["of"] + " ${c.itens.length}", 1)
 
     # Worlds with every feature
     secs, nav, total, counts = [], [], 0, {}
@@ -133,8 +132,10 @@ def page_home(L):
         if cid in SHOT:
             vis = (f'<div class="shotbig rv"><img loading="lazy" width="1600" height="900" alt="{e(t)}" '
                    f'src="{pre}assets/home/tela-{sl}-{SHOT[cid]}.webp"></div>')
-        else:
+        elif cid in ILL:
             vis = f'<div class="illu rv">{ILL[cid]}</div>'
+        else:
+            vis = ""
         lis = "".join(
             f'<li class="rv"><details><summary><span class="fi">{ico(ic)}</span><span class="fn">{e(a)}</span>'
             f'<i>{PLAN.get(p, "")}</i></summary><div class="sp">{e(b)}<br><b>Onde:</b> <span>{e(c)}</span></div></details></li>'
@@ -189,7 +190,7 @@ def page_home(L):
 
     extra = f'''
 <section class="sec" id="mundos"><div class="wrap">
- <p class="lead rv"><b class="num">{total}</b> <span class="lt">coisas que a sua TV passa a fazer.</span> <span>Organizadas em 12 mundos, do jeito que a cruz organiza a tela.</span></p>
+ <p class="lead rv"><b class="num">{total}</b> <span class="lt">coisas que a sua TV passa a fazer.</span> <span>Organizadas em 12 mundos, do jeito que as fileiras organizam a tela.</span></p>
  {grade}
  <div class="mw"><nav class="side" id="side">{''.join(nav)}</nav><div class="worlds">{''.join(secs)}</div></div>
 </div></section>
@@ -221,9 +222,6 @@ def page_home(L):
 <a href="{pre}privacy.html{'#pt' if L.code.startswith('pt') else ''}">{e(ui['footer_privacy'])}</a><a href="{pre}terms.html{'#pt' if L.code.startswith('pt') else ''}">{e(ui['footer_terms'])}</a></nav>
 <p class="fine">© 2026 Sofaly · <span>{e(ui['footer_trademark'])}</span></p></div></footer>"""
 
-    # Hero: the cross replica follows the app (no live TV on the site; "Na rede" is "Do computador" since #314)
-    s = s.replace('["tv","TV","Os canais da sua TV, com a grade"],', "")
-    s = s.replace('["server","Na rede","Vídeos, músicas e fotos da rede da casa"]', '["server","Do computador","Seus vídeos, músicas e fotos"]')
     s = s.replace(".hero{min-height:calc(100svh - 56px);", ".hero{min-height:calc(100svh - 60px);")
     s = s.replace("width:min(100%,calc((100svh - 110px) * 240 / 168))", "width:min(100%,calc((100svh - 120px) * 240 / 168))")
     s = s.replace('<div class="fig">', '<div class="fig rv">')
@@ -234,7 +232,8 @@ def page_home(L):
 
     s = '<div class="fig rv">'.join(parts)
 
-    # Hero menu: the cross + the ten screens of the old showcase, which run inside the TV (iframe, 1280x720 scaled)
+    # Hero menu: the ten screens of the old showcase, which run inside the TV (iframe, 1280x720 scaled). The cross replica
+    # left on 27/11/2026 (the TV ships with Rows); a Rows replica comes when Paulo finishes improving that layout.
     scr = "".join(f'<div class="scr scr-{k}" data-k="{k}" style="--k:{c}">{B.SCREENS[k](D["show"]["screens"][k][2], D["home"]["mock"])}</div>'
                   for k, c, _ in B.SHOW)
     doc = (f'<!doctype html><html lang="{e(D["lang"])}"{" dir=rtl" if D.get("dir") == "rtl" else ""}><head><meta charset="utf-8">'
@@ -242,24 +241,24 @@ def page_home(L):
            f'<link rel="stylesheet" href="{pre}assets/site.css"><style>html,body{{margin:0;background:#0b0d18;overflow:hidden}}'
            f'.screen{{width:100vw;height:100vh;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none}}.scr:not(.on){{display:none!important}}</style></head>'
            f'<body><div class="screen">{scr}</div><script>window.mostrar=function(k){{document.querySelectorAll(".scr").forEach(function(s){{s.classList.toggle("on",s.dataset.k===k)}})}};mostrar("forecast");</script></body></html>')
-    ifr = f'<iframe class="shot" id="velha" title="Sofaly" tabindex="-1" aria-hidden="true" srcdoc="{e(doc, quote=True)}"></iframe>'
+    ifr = f'<iframe class="shot on" id="velha" title="Sofaly" tabindex="-1" aria-hidden="true" srcdoc="{e(doc, quote=True)}"></iframe>'
     s = re.sub(r'<img class="shot"[^>]*>', "", s)
-    s = s.replace('<div class="tecla" id="tecla"></div>\n    </div>', '<div class="tecla" id="tecla"></div>\n    </div>\n    ' + ifr, 1)
+    assert s.count('<div class="screen" id="screen">\n') == 1
+    s = s.replace('<div class="screen" id="screen">\n', '<div class="screen" id="screen">\n    ' + ifr + '\n', 1)
     s = s.replace(".shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}",
                   ".shot{position:absolute;left:0;top:0;width:1280px;height:720px;border:0;opacity:0;pointer-events:none;transform-origin:0 0;transform:scale(calc(100cqw / 1280px));transition:opacity .45s ease;background:#0b0d18}")
-    s = s.replace("const ro=new ResizeObserver(()=>stage.style.setProperty('--s',scr.clientWidth/960));",
-                  "const ro=new ResizeObserver(()=>{stage.style.setProperty('--s',scr.clientWidth/960);const v=document.getElementById('velha');if(v&&!CSS.supports('width','1cqw'))v.style.transform='scale('+scr.clientWidth/1280+')'});")
+    s = s.replace(" const scr=document.getElementById('screen');\n",
+                  " const scr=document.getElementById('screen');\n new ResizeObserver(()=>{const v=document.getElementById('velha');if(v&&!CSS.supports('width','1cqw'))v.style.transform='scale('+scr.clientWidth/1280+')'}).observe(scr);\n", 1)
     SH = C["show"]["screens"]
-    itens = [("cruz", "A cruz", "Continuar, Assistir, Ouvir, Jogar e Aplicativos numa linha. Anda sozinha.", "cross", "#FF8A55")]
-    itens += [(k, SH[k][0], SH[k][1], i, c) for k, c, i in SHOWL]
+    itens = [(k, SH[k][0], SH[k][1], i, c) for k, c, i in SHOWL]
     menu = ('<ol class="menu" id="menu">' + "".join(
         f'<li data-k="{k}" style="--w:{c}"><button type="button">{ico(i)}<span class="t">{e(t)}</span><span class="d">{e(d)}</span>'
         f'<span class="bar"></span></button></li>' for k, t, d, i, c in itens) + '</ol><p class="cap" id="cap" aria-live="polite"></p>')
     s = re.sub(r'<ol class="menu" id="menu">.*?</ol>', lambda m: menu, s, count=1, flags=re.S)
     s = s.replace("shotsEl.forEach(im=>im.classList.toggle('on',im.dataset.k===k));",
-                  "const fr=document.getElementById('velha');fr.classList.toggle('on',k!=='cruz');try{if(k!=='cruz')fr.contentWindow.mostrar(k)}catch(_){}"
+                  "const fr=document.getElementById('velha');try{fr.contentWindow.mostrar(k)}catch(_){}"
                   "const cp=document.getElementById('cap');cp.textContent=lis[mi].querySelector('.d').textContent;cp.style.setProperty('--w',lis[mi].style.getPropertyValue('--w'));")
-    s = s.replace("const dur=k==='cruz'?14000:6000;", "const dur=k==='cruz'?14000:7000;")
+    s = s.replace("const dur=6000;", "const dur=7000;")
     s = s.replace(".menu li.on .n{color:var(--orange)}", ".menu li.on .n{filter:brightness(1.2)}")
     s = s.replace(".menu li.on .bar{animation", ".menu li.on .bar{background:currentColor;animation")
 
@@ -276,7 +275,7 @@ def page_home(L):
     s = re.sub(r"^<title>.*?</title>\s*<meta name=\"claude:viewport-fit-sides\"[^>]*>\s*", "", s, flags=re.S)
     hd = B.head(L, "index", D["home"]["title"], D["home"]["description"])
     hd = re.sub(r'<link rel="stylesheet" href="[^"]*assets/site.css">\n<script src="[^"]*assets/site.js" defer></script>\n', "", hd)
-    hd = hd.replace('<meta name="theme-color" content="#121528">', '<meta name="theme-color" content="#17110D">')
+    hd = hd.replace('<meta name="theme-color" content="#141413">', '<meta name="theme-color" content="#17110D">')
     hd = hd.replace("</head>\n<body>\n", "")
     s = hd + s.replace("<style>", "<style>", 1)
     s = s.replace("<style>", "</head>\n<body>\n" if False else "<style>", 1)

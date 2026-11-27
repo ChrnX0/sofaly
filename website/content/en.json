@@ -25,10 +25,10 @@
     "of": "of"
   },
   "home": {
-    "title": "Sofaly · Your TV, simple again",
-    "description": "Sofaly is the home screen for Google TV and Android TV: everything organized in a cross (Watch, Listen, Play, Apps), large text and no ads.",
+    "title": "Sofaly · Cozy time on your TV",
+    "description": "Sofaly is the home screen for Google TV and Android TV: everything organized in rows (Watch, Listen, Play, Apps), large text and no ads.",
     "eyebrow": "Home screen for Google TV and Android TV",
-    "h1": "Your TV, simple again.",
+    "h1": "Cozy time on your TV.",
     "lead": "Sofaly replaces your TV's home screen with a tidy cross: Watch, Listen, Play and Apps, in large text and with no ads. It also looks after the house, wakes you up and talks to your phone.",
     "hero_note": "No account, no ads, no tracking of what you watch.",
     "cross_title": "One screen, four ways to go",
@@ -219,7 +219,7 @@
         "Just pick Google's home screen again in the TV's settings. Nothing of yours is deleted."
       ]
     ],
-    "final_title": "Your TV, simple again.",
+    "final_title": "Cozy time on your TV.",
     "final_text": "Install it, press HOME and the whole house gets it."
   },
   "features_page": {
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "The cross",
+      "The home screen",
       "A tidy screen anyone understands, arranged the way you like."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "The cross",
-      "Continue, Watch, Listen, Play and Apps in one row. The world you pick grows big, with what's inside right below it.",
-      "◀ ▶ switch worlds, ▲ ▼ go down the column, OK opens."
+      "The rows",
+      "Continue, Watch, Listen, Play and Apps, each in its own row, one below the other. Everything in view, in large text.",
+      "It's the home screen: it shows up when you press HOME."
     ],
     "continue": [
       "Continue",
       "One place to get back to what you were doing: the episode, the station, the podcast or the last app.",
-      "It's the first item of the cross."
+      "A row on the home screen."
     ],
     "topbar": [
       "Top bar",
@@ -348,7 +348,7 @@
     "card-match": [
       "Your team's next match",
       "When and against whom your team plays next, on a card on the home screen.",
-      "In the TV item of the cross. Settings › Appearance."
+      "On the home screen. Settings › Appearance."
     ],
     "plugin-cards": [
       "Cards from other apps",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Your favorites up front",
       "Apps shows the 8 apps you open most, and “All apps” brings the rest in a grid.",
-      "Apps, on the cross."
+      "In the Apps row."
     ],
     "apps-organize": [
       "Your way",
@@ -780,7 +780,7 @@
     "basic_who": "For whoever is on the couch",
     "pro_who": "For whoever looks after the TV",
     "ultra_who": "For the house and the family",
-    "basic_text": "The cross home screen, the player, Listen, Play, the alarm clock, the screensaver and all the accessibility.",
+    "basic_text": "The home screen in rows, the player, Listen, Play, the alarm clock, the screensaver and all the accessibility.",
     "pro_text": "Everything in Basic, plus the phone, automations, the connected home, messages from afar, ready-made home screen cards and full personalization.",
     "ultra_text": "Everything in Pro, plus weather from three models, full movie pages, automatic subtitles, several homes and watching together.",
     "includes": "Includes",

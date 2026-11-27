@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">Terlalu banyak percobaan. Tunggu %1$d dtk lalu coba lagi.</string>
     <string name="cel_fora_falhou">Tidak berhasil. Coba lagi di rumah dengan TV menyala.</string>
     <string name="cel_fora_pronto">Selesai. Ponsel ini kini juga mengontrol TV dari luar rumah.</string>
+    <string name="cel_camera_negada">Aplikasi memerlukan kamera hanya untuk membaca kode di layar TV.</string>
+    <string name="cel_camera_bloqueada">Kamera diblokir untuk aplikasi ini. Buka setelan aplikasi dan izinkan kamera.</string>
+    <string name="cel_abrir_ajustes">Buka setelan</string>
 </resources>

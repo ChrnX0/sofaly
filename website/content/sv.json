@@ -25,10 +25,10 @@
     "of": "av"
   },
   "home": {
-    "title": "Sofaly · Din tv, enkel igen",
-    "description": "Sofaly är startskärmen för Google TV och Android TV: allt ordnat i ett kors (Titta, Lyssna, Spela, Appar), stor text och inga annonser.",
+    "title": "Sofaly · Mysig tid med din tv",
+    "description": "Sofaly är startskärmen för Google TV och Android TV: allt ordnat i rader (Titta, Lyssna, Spela, Appar), stor text och inga annonser.",
     "eyebrow": "Startskärm för Google TV och Android TV",
-    "h1": "Din tv, enkel igen.",
+    "h1": "Mysig tid med din tv.",
     "lead": "Sofaly ersätter tv:ns startskärm med ett städat kors: Titta, Lyssna, Spela och Appar, i stor text och utan annonser. Den håller också koll på hemmet, väcker dig och pratar med din mobil.",
     "hero_note": "Inget konto, inga annonser, ingen spårning av vad du tittar på.",
     "cross_title": "En skärm, fyra vägar",
@@ -219,7 +219,7 @@
         "Välj bara Googles startskärm igen i tv:ns inställningar. Inget av ditt raderas."
       ]
     ],
-    "final_title": "Din tv, enkel igen.",
+    "final_title": "Mysig tid med din tv.",
     "final_text": "Installera, tryck på HOME och hela hemmet förstår."
   },
   "features_page": {
@@ -231,7 +231,7 @@
   },
   "chapters": {
     "home": [
-      "Korset",
+      "Startskärmen",
       "En städad skärm som alla förstår, ordnad som du vill."
     ],
     "watch": [
@@ -281,14 +281,14 @@
   },
   "features": {
     "cross": [
-      "Korset",
-      "Fortsätt, Titta, Lyssna, Spela och Appar på en rad. Världen du väljer blir stor, med innehållet precis nedanför.",
-      "◀ ▶ byt värld, ▲ ▼ gå ner i kolumnen, OK öppnar."
+      "Raderna",
+      "Fortsätt, Titta, Lyssna, Spela och Appar, var och en i sin egen rad, den ena under den andra. Allt syns, med stor text.",
+      "Det är startskärmen: den visas när du trycker på HOME."
     ],
     "continue": [
       "Fortsätt",
       "Ett ställe för att komma tillbaka till det du höll på med: avsnittet, kanalen, podden eller den senaste appen.",
-      "Det är korsets första objekt."
+      "En rad på startskärmen."
     ],
     "topbar": [
       "Övre listen",
@@ -348,7 +348,7 @@
     "card-match": [
       "Ditt lags nästa match",
       "När och mot vem ditt lag spelar härnäst, på ett kort på startskärmen.",
-      "I korsets tv-objekt. Inställningar › Utseende."
+      "På startskärmen. Inställningar › Utseende."
     ],
     "plugin-cards": [
       "Kort från andra appar",
@@ -463,7 +463,7 @@
     "apps-top": [
       "Dina favoriter längst fram",
       "Appar visar de 8 appar du öppnar mest, och “Alla appar” visar resten i ett rutnät.",
-      "Appar, i korset."
+      "I raden Appar."
     ],
     "apps-organize": [
       "På ditt sätt",
@@ -780,7 +780,7 @@
     "basic_who": "För den som sitter i soffan",
     "pro_who": "För den som tar hand om tv:n",
     "ultra_who": "För hemmet och familjen",
-    "basic_text": "Startskärmen i kors, spelaren, Lyssna, Spela, väckarklockan, skärmsläckaren och all tillgänglighet.",
+    "basic_text": "Startskärmen i rader, spelaren, Lyssna, Spela, väckarklockan, skärmsläckaren och all tillgänglighet.",
     "pro_text": "Allt i Basic, plus mobilen, automatiseringar, det smarta hemmet, meddelanden på avstånd, färdiga kort för startskärmen och full anpassning.",
     "ultra_text": "Allt i Pro, plus väder från tre modeller, kompletta filmsidor, automatiska undertexter, flera hem och titta tillsammans.",
     "includes": "Ingår",
