@@ -7,6 +7,8 @@ import android.content.Intent
 import android.os.Bundle
 import br.paulo.tvlauncher.network.EntreTvs
 import br.paulo.tvlauncher.player.JuntoRegras
+import br.paulo.tvlauncher.relay.RelayCasas
+import br.paulo.tvlauncher.relay.RelayTv
 import org.json.JSONObject
 
 /**
@@ -37,7 +39,8 @@ object ContinuarOutraTv {
     fun doPlayer(ctx: Context, i: Intent) {
         val app = ctx.applicationContext
         val host = i.getStringExtra("host") ?: return
-        val eu = EntreTvs.meuHost(app) ?: return
+        // Casa do relay: quem recebe usa o remetente que o envelope prova, não este "de".
+        val eu = (if (RelayCasas.idDoHost(host) != null) RelayTv.identidade(app)?.id?.let(RelayCasas::host) else EntreTvs.meuHost(app)) ?: return
         val c = JuntoRegras.Continuar(i.getStringExtra("titulo").orEmpty(), i.getStringExtra("chave") ?: return,
             i.getLongExtra("pos", 0), i.getStringExtra("url"), eu, br.paulo.tvlauncher.network.Cenas.gerarToken())
         synchronized(enviados) {
@@ -47,19 +50,25 @@ object ContinuarOutraTv {
         }
         Fundo.rodar("continuar-enviar") {
             val r = EntreTvs.chamar(app, host, "/continuar", JuntoRegras.continuarParaJson(c))
-            val nome = JuntoRegras.nomeBonito(host)
+            val nome = EntreTvs.nome(app, host)
             AvisoTv.rapido(app, app.getString(R.string.cont_titulo),
                 if (r.codigo == 200) app.getString(R.string.cont_enviado, nome) else app.getString(R.string.cont_falhou, nome))
         }
     }
 
-    /** POST /continuar vindo de outra TV da conta. */
-    fun receber(ctx: Context, corpo: JSONObject?): Pair<Int, JSONObject> {
+    /**
+     * POST /continuar vindo de outra TV da conta ou, com [deRelay] ("relay:<id>"), de uma casa ligada em Outras casas
+     * (RelayCasas.receberJunto). Pelo relay o envelope cifrado já prova quem mandou: não confere de volta.
+     */
+    fun receber(ctx: Context, corpo: JSONObject?, deRelay: String? = null): Pair<Int, JSONObject> {
         val app = ctx.applicationContext
-        if (!EntreTvs.ligado(app) || !Planos.permite(app, Planos.Recurso.CONTINUAR_OUTRA_TV))   // plano: Pro
+        if ((deRelay == null && !EntreTvs.ligado(app)) || !Planos.permite(app, Planos.Recurso.CONTINUAR_OUTRA_TV))   // plano: Pro
             return 403 to JSONObject().put("erro", "desligado")
-        val c = JuntoRegras.continuarDeJson(corpo) ?: return 400 to JSONObject().put("erro", "pedido")
-        if (EntreTvs.outras(app).none { it.host == c.de }) return 403 to JSONObject().put("erro", "tv")
+        // Pelo relay o "de" do corpo não vale (o remetente é o do envelope); um nome curto qualquer passa na validação.
+        val lido = JuntoRegras.continuarDeJson(if (deRelay != null) JSONObject((corpo ?: JSONObject()).toString()).put("de", "relay") else corpo)
+            ?: return 400 to JSONObject().put("erro", "pedido")
+        val c = if (deRelay != null) lido.copy(de = deRelay) else lido
+        if (deRelay == null && EntreTvs.outras(app).none { it.host == c.de }) return 403 to JSONObject().put("erro", "tv")
         synchronized(recebidosHora) {
             val (pode, nova) = JuntoRegras.contarConvite(recebidosHora, System.currentTimeMillis())
             recebidosHora.clear(); recebidosHora.addAll(nova)
@@ -67,8 +76,10 @@ object ContinuarOutraTv {
         }
         // Confere de volta, como o convite da Sessão junto: a TV "de" mandou mesmo este pedido? (revisor de segurança,
         // 24/11/2026: sem isto qualquer um na internet abria o cartão com um endereço dele.)
-        val volta = EntreTvs.chamar(app, c.de, "/continuar/${c.token}/estado")
-        if (volta.codigo != 200 || volta.json?.optBoolean("ok") != true) return 403 to JSONObject().put("erro", "conferir")
+        if (deRelay == null) {
+            val volta = EntreTvs.chamar(app, c.de, "/continuar/${c.token}/estado")
+            if (volta.codigo != 200 || volta.json?.optBoolean("ok") != true) return 403 to JSONObject().put("erro", "conferir")
+        }
         pendente = c to System.currentTimeMillis()
         try {
             app.startActivity(Intent(app, ContinuarActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
@@ -125,7 +136,7 @@ class ContinuarActivity : Activity() {
             }
         }
         val texto = getString(if (tipo == JuntoRegras.Tipo.CANAL) R.string.cont_texto_canal else R.string.cont_texto,
-            c.titulo, JuntoRegras.tempo(c.posMs), JuntoRegras.nomeBonito(c.de))
+            c.titulo, JuntoRegras.tempo(c.posMs), EntreTvs.nome(this, c.de))
         setContentView(Estilo.dialogo(this, null, getString(R.string.cont_pergunta), texto, listOf(depois, continuar), larguraDp = 760))
         continuar.post { continuar.requestFocus() }
     }

@@ -66,8 +66,11 @@ object RelayHouses {
     // ---------------------------------------------------------------- Sessão junto pelo relay
 
     const val JUNTO = "junto"
-    /** Só as rotas da Sessão junto (SessaoJunto): convite, evento e sair. Nada de "estado" (o envelope já prova quem manda). */
-    private val CAMINHO = Regex("^/junto/(convite|[0-9a-f]{32}/(evento|sair))$")
+    /**
+     * Só as rotas da Sessão junto (SessaoJunto: convite, evento e sair) e o "Continuar em outra TV" (ContinuarOutraTv).
+     * Nada de "estado" nem de conferir de volta: o envelope já prova quem manda.
+     */
+    private val CAMINHO = Regex("^/(junto/(convite|[0-9a-f]{32}/(evento|sair))|continuar)$")
     private const val MAX_CORPO = 4096
 
     fun junto(caminho: String, corpo: JSONObject?, agora: Long): RelayEnvelope.Mensagem? {

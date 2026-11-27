@@ -188,6 +188,7 @@ object RelayCasas {
 
     fun receberJunto(ctx: Context, de: RelayTv.Pareado, m: RelayEnvelope.Mensagem) {
         val (caminho, corpo) = RelayHouses.lerJunto(m) ?: run { Log.w(TAG, "fora da lista: ${m.tipo.take(20)}"); return }
-        br.paulo.tvlauncher.SessaoJunto.doRelay(ctx, host(de.id), caminho, corpo)
+        if (caminho == "/continuar") br.paulo.tvlauncher.ContinuarOutraTv.receber(ctx, corpo, host(de.id))
+        else br.paulo.tvlauncher.SessaoJunto.doRelay(ctx, host(de.id), caminho, corpo)
     }
 }
