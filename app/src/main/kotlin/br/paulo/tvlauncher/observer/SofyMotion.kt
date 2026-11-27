@@ -126,7 +126,7 @@ object SofyMotion {
         // corpo só inclina um pouco. Sorri no meio e volta ao rosto atento: simpático e neutro, nunca triste nem cobrando.
         Expression.WAVE -> Clip(e, Antennas.UP, listOf(
             tr(Part.BODY, 0, 1500, listOf(k(0f), k(.25f, rot = -3f), k(.75f, rot = -3f), k(1f)), Ease.IN_OUT),
-            tr(Part.ARM_RIGHT, 0, 1500, rots(0f, -100f, -75f, -110f, -75f, -100f, 0f), Ease.IN_OUT),
+            tr(Part.ARM_RIGHT, 0, 1500, rots(0f, -150f, -128f, -165f, -128f, -150f, 0f), Ease.IN_OUT),
             tr(Part.ANTENNA_LEFT, 150, 800, rots(0f, 6f, -3f, 0f)), tr(Part.ANTENNA_RIGHT, 200, 800, rots(0f, -6f, 3f, 0f)),
         ), listOf(Face(0, "o o"), Face(300, "^ ^"), Face(1250, "o o")))
         // Dormindo: boceja espreguiçando, abaixa as antenas e para (sem respiração em loop).
