@@ -250,7 +250,7 @@ def page_home(L):
     s = s.replace("const ro=new ResizeObserver(()=>stage.style.setProperty('--s',scr.clientWidth/960));",
                   "const ro=new ResizeObserver(()=>{stage.style.setProperty('--s',scr.clientWidth/960);const v=document.getElementById('velha');if(v&&!CSS.supports('width','1cqw'))v.style.transform='scale('+scr.clientWidth/1280+')'});")
     SH = C["show"]["screens"]
-    itens = [("cruz", "A cruz", "Continuar, Assistir, Ouvir, Jogar e Aplicativos numa linha. Anda sozinha; no computador, use as setas.", "cross", "#FF8A55")]
+    itens = [("cruz", "A cruz", "Continuar, Assistir, Ouvir, Jogar e Aplicativos numa linha. Anda sozinha.", "cross", "#FF8A55")]
     itens += [(k, SH[k][0], SH[k][1], i, c) for k, c, i in SHOWL]
     menu = ('<ol class="menu" id="menu">' + "".join(
         f'<li data-k="{k}" style="--w:{c}"><button type="button">{ico(i)}<span class="t">{e(t)}</span><span class="d">{e(d)}</span>'

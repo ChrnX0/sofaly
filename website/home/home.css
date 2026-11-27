@@ -56,7 +56,7 @@ html{scroll-behavior:smooth}
 .fl summary:hover .fi{transform:translateY(-2px) rotate(-5deg)}
 .fl summary span.fn{min-width:0;color:#EDE0D2;font-size:17px;font-weight:700;white-space:normal}
 .fl summary span.fi{color:var(--w);font-size:inherit}
-.fl summary i{font-style:normal;font-size:12px;font-weight:800;color:var(--w);border:1.5px solid color-mix(in srgb,var(--w) 50%,transparent);border-radius:999px;padding:1px 8px}
+.fl summary i{font-style:normal;font-size:14px;font-weight:800;color:var(--w);border:1.5px solid color-mix(in srgb,var(--w) 50%,transparent);border-radius:999px;padding:1px 8px}
 .fl summary i:empty{display:none}
 .fl .sp{padding:0 12px 14px 58px;font-size:16px;line-height:1.6;color:var(--mut)}
 .fl .sp b{color:#E6D6C6}
@@ -152,7 +152,7 @@ html{scroll-behavior:smooth}
 .top .in{gap:16px}.top nav{margin-left:auto}
 .foot .wrap{flex-direction:column;align-items:flex-start;gap:18px}.foot .fb{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
 .foot nav{display:flex;flex-wrap:wrap;gap:10px 22px}.foot nav a{color:#C9B8A6;text-decoration:none;font-size:15px}.foot nav a:hover{color:#FF8A55}
-.foot .fine{margin:0;font-size:13px;color:#8F7A69}
+.foot .fine{margin:0;font-size:14px;color:#A8927F}
 .lead .num{color:#FF8A55}
 @media (max-width:900px){.lang select{max-width:9.5em}}
 /* Clock digits keep their order on right-to-left pages. */
