@@ -39,9 +39,14 @@ object ForaDeCasa {
         val situacao = Visual.texto(a, "", 15f, Visual.TEXTO_2).apply { setPadding(0, dp(8), 0, 0) }
         val campo = EditText(a).apply {
             hint = a.getString(R.string.cel_fora_pin)
+            // setSingleLine() ANTES do tipo: depois ele trocava a máscara de senha e o PIN aparecia em claro; e a variação
+            // de senha põe fonte monoespaçada no texto de dica (visto no emulador, 27/11/2026), por isso a fonte normal.
+            setSingleLine()
             inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
+            transformationMethod = android.text.method.PasswordTransformationMethod.getInstance()
+            typeface = android.graphics.Typeface.DEFAULT
             filters = arrayOf(InputFilter.LengthFilter(12))
-            setSingleLine(); textSize = 22f; gravity = Gravity.CENTER
+            textSize = 22f; gravity = Gravity.CENTER
             setTextColor(Visual.TEXTO); setHintTextColor(Visual.TEXTO_2)
             background = Visual.cartao(a); setPadding(dp(16), dp(14), dp(16), dp(14))
             imeOptions = EditorInfo.IME_ACTION_DONE
