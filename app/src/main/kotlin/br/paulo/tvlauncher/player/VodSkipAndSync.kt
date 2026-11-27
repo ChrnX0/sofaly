@@ -256,7 +256,8 @@ internal fun VodActivity.baixarLegenda(c: LegendaExterna.Candidata) {
     val k = chave
     Fundo.rodar {
         val r = LegendaBaixar.baixar(this, k, c)
-        getSharedPreferences(Prefs.PLAYER, android.content.Context.MODE_PRIVATE).edit().remove("atraso:$k").apply()
+        // O atraso só zera quando a legenda nova chegou (revisor 26/11: um 429 apagava o atraso da que continua tocando).
+        if (r.isSuccess) getSharedPreferences(Prefs.PLAYER, android.content.Context.MODE_PRIVATE).edit().remove("atraso:$k").apply()
         tela.post {
             if (isDestroyed) return@post
             r.onFailure { avisoBreve((it as? LegendaBaixar.Falha)?.message ?: getString(R.string.legenda_erro)) }

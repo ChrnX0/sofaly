@@ -349,7 +349,7 @@ class PodcastsActivity : Activity() {
         resultados?.let { (titulo, lista) ->
             val visiveis = lista.filter { !(protegido && it.explicito) }
             l += CruzOuvir.Prateleira("res", titulo, if (deAssunto != null) IconeOuvir.Tipo.GENEROS else IconeOuvir.Tipo.BUSCAR,
-                if (visiveis.isEmpty()) listOf(CruzOuvir.Item("res:nada", getString(R.string.ra_nada), "", IconeOuvir.Tipo.BUSCAR))
+                if (visiveis.isEmpty()) listOf(CruzOuvir.Item("res:nada", getString(textoVazio()), "", IconeOuvir.Tipo.BUSCAR))
                 else visiveis.map { r ->
                     val seguido = assinaturas.any { it.url == r.url }
                     val temas = PodcastAssuntos.de(r.categorias.ifEmpty { feeds[r.url]?.categorias.orEmpty() })
@@ -632,6 +632,14 @@ class PodcastsActivity : Activity() {
         d.show()
     }
 
+    /** Lista vazia: o motivo real (cota do dia, servidor fora, sem rede) ou "nenhum podcast". */
+    private fun textoVazio(): Int = when (PodcastBusca.ultimaFalha) {
+        PodcastBusca.Falha.COTA -> R.string.pod_busca_cota
+        PodcastBusca.Falha.FORA -> R.string.pod_busca_fora
+        PodcastBusca.Falha.REDE -> R.string.pod_busca_rede
+        PodcastBusca.Falha.NENHUMA -> R.string.pod_busca_nada
+    }
+
     private fun procurar(titulo: String, deAssunto: PodcastAssuntos.Assunto? = null, buscar: () -> List<PodcastBusca.Resultado>) {
         this.deAssunto = deAssunto
         val app = applicationContext
@@ -640,7 +648,7 @@ class PodcastsActivity : Activity() {
             runOnUiThread {
                 if (isDestroyed) return@runOnUiThread
                 resultados = titulo to r
-                if (r.isEmpty()) AvisoTv.rapido(app, titulo, getString(R.string.ra_nada), 5)
+                if (r.isEmpty()) AvisoTv.rapido(app, titulo, getString(textoVazio()), 5)
                 focarDepois = "res" to null
                 montar()
             }

@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Sugerencias</string>
     <string name="pod_sugestao_seguir">OK para seguir</string>
     <string name="pod_sugeridos_seguidos">Podcasts sugeridos agregados a Mis podcasts</string>
+    <string name="pod_busca_nada">No se encontró ningún podcast.</string>
+    <string name="pod_busca_cota">La búsqueda de podcasts descansa por hoy. Vuelve mañana.</string>
+    <string name="pod_busca_fora">La búsqueda de podcasts no responde. Inténtalo más tarde.</string>
+    <string name="pod_busca_rede">Sin internet. Revisa la conexión de la TV.</string>
+    <string name="tx_falhou_det">No se pudo generar el texto de este episodio. Inténtalo más tarde.</string>
 </resources>

@@ -431,8 +431,11 @@ class MainActivity : Activity() {
         super.onResume()
         desligarPrevia()   // na frente de novo: o onResume abaixo já confere a aparência
         homeNaFrente = true
-        // "Abrir ao ligar" (menu do card, bloco 4 do clone): na 1ª HOME depois de a TV ligar do zero, abre o app escolhido
-        br.paulo.tvlauncher.home.CardMenu.takeBootApp(this)?.let { p -> ui.postDelayed({ if (!isDestroyed) abrir(p) }, br.paulo.tvlauncher.home.CardMenu.delayMs(this)) }
+        // A HOME foi recriada (pouca memória) e o pedido de PIN de um app travado veio no Intent do onCreate.
+        br.paulo.tvlauncher.home.TravaCartaoTv.doIntent(intent)?.let { abrir(it) }
+        // "Abrir ao ligar" (menu do card, bloco 4 do clone): na 1ª HOME depois de a TV ligar do zero, abre o app escolhido.
+        // Só se a HOME ainda estiver na frente depois da espera (revisor 26/11: a pessoa já podia estar em outro app).
+        br.paulo.tvlauncher.home.CardMenu.takeBootApp(this)?.let { p -> ui.postDelayed({ if (!isDestroyed && homeNaFrente) abrir(p) }, br.paulo.tvlauncher.home.CardMenu.delayMs(this)) }
         // O host guarda UMA view por widget: só depois da tela de edição (que cria as dela) a HOME recria as suas.
         br.paulo.tvlauncher.home.PluginWidgetsTv.ouvir(this)
         camadaWidgets?.let { if (br.paulo.tvlauncher.home.PluginWidgetsTv.editou) { br.paulo.tvlauncher.home.PluginWidgetsTv.editou = false; it.recriar() } else it.atualizar() }
@@ -697,7 +700,7 @@ class MainActivity : Activity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         // App travado por PIN aberto por outro caminho (busca, botão do controle, modo simples): pede o PIN aqui.
-        intent?.getStringExtra(br.paulo.tvlauncher.home.TravaCartaoTv.EXTRA_PACOTE)?.let { intent.removeExtra(br.paulo.tvlauncher.home.TravaCartaoTv.EXTRA_PACOTE); abrir(it); return }
+        br.paulo.tvlauncher.home.TravaCartaoTv.doIntent(intent)?.let { abrir(it); return }
         if (intent?.hasCategory(Intent.CATEGORY_HOME) == true) {
             sairAmbiente(animar = false)
             focoTopo = null

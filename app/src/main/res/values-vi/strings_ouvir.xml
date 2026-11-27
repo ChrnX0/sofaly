@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Gợi ý</string>
     <string name="pod_sugestao_seguir">OK để theo dõi</string>
     <string name="pod_sugeridos_seguidos">Đã thêm podcast gợi ý vào Podcast của tôi</string>
+    <string name="pod_busca_nada">Không tìm thấy podcast.</string>
+    <string name="pod_busca_cota">Tìm kiếm podcast tạm nghỉ hôm nay. Mai sẽ có lại.</string>
+    <string name="pod_busca_fora">Tìm kiếm podcast không phản hồi. Hãy thử lại sau.</string>
+    <string name="pod_busca_rede">Không có internet. Kiểm tra kết nối của TV.</string>
+    <string name="tx_falhou_det">Không tạo được văn bản của tập này. Hãy thử lại sau.</string>
 </resources>

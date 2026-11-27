@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">おすすめ</string>
     <string name="pod_sugestao_seguir">OKでフォロー</string>
     <string name="pod_sugeridos_seguidos">おすすめのポッドキャストをマイポッドキャストに追加しました</string>
+    <string name="pod_busca_nada">ポッドキャストが見つかりません。</string>
+    <string name="pod_busca_cota">ポッドキャスト検索は今日はお休みです。明日また使えます。</string>
+    <string name="pod_busca_fora">ポッドキャスト検索が応答しません。後でもう一度お試しください。</string>
+    <string name="pod_busca_rede">インターネットに接続されていません。テレビの接続を確認してください。</string>
+    <string name="tx_falhou_det">このエピソードのテキストを作成できませんでした。後でもう一度お試しください。</string>
 </resources>

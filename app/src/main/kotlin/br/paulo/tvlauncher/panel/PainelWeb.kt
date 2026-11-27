@@ -1554,7 +1554,7 @@ object PainelWeb {
         val url = android.net.Uri.fromFile(f).toString()
         if (!Pastas.arquivoLocalPermitido(url)) return erro(403, "esse lugar não pode ser tocado")
         AutoDesligar.atividade()
-        VodActivity.abrirUrlEm(app, url, f.nameWithoutExtension, 0L)
+        VodActivity.abrirUrlEm(app, url, f.nameWithoutExtension, -1L)   // -1 = continua de onde parou (revisor 26/11)
         PainelArmazem.registrar(app, ip, "tocar na TV ${f.name.take(80)}", "ok")
         return json(200, JSONObject().put("ok", true))
     }

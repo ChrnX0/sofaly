@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Javaslatok</string>
     <string name="pod_sugestao_seguir">OK a követéshez</string>
     <string name="pod_sugeridos_seguidos">A javasolt podcastok hozzáadva a Podcastjaimhoz</string>
+    <string name="pod_busca_nada">Nem található podcast.</string>
+    <string name="pod_busca_cota">A podcastkeresés ma pihen. Holnap visszajön.</string>
+    <string name="pod_busca_fora">A podcastkeresés nem válaszol. Próbálja később.</string>
+    <string name="pod_busca_rede">Nincs internet. Ellenőrizze a TV kapcsolatát.</string>
+    <string name="tx_falhou_det">Nem sikerült elkészíteni az epizód szövegét. Próbálja később.</string>
 </resources>

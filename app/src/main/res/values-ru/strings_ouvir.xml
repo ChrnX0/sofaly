@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Рекомендации</string>
     <string name="pod_sugestao_seguir">OK — подписаться</string>
     <string name="pod_sugeridos_seguidos">Рекомендованные подкасты добавлены в «Мои подкасты»</string>
+    <string name="pod_busca_nada">Подкасты не найдены.</string>
+    <string name="pod_busca_cota">Поиск подкастов отдыхает до завтра.</string>
+    <string name="pod_busca_fora">Поиск подкастов не отвечает. Попробуйте позже.</string>
+    <string name="pod_busca_rede">Нет интернета. Проверьте подключение телевизора.</string>
+    <string name="tx_falhou_det">Не удалось создать текст этого выпуска. Попробуйте позже.</string>
 </resources>

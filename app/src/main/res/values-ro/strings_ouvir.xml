@@ -50,4 +50,9 @@
     <string name="pod_sugestoes">Sugestii</string>
     <string name="pod_sugestao_seguir">OK pentru a urmări</string>
     <string name="pod_sugeridos_seguidos">Podcasturile sugerate au fost adăugate la Podcasturile mele</string>
+    <string name="pod_busca_nada">Niciun podcast găsit.</string>
+    <string name="pod_busca_cota">Căutarea de podcasturi se odihnește azi. Revine mâine.</string>
+    <string name="pod_busca_fora">Căutarea de podcasturi nu răspunde. Încercați mai târziu.</string>
+    <string name="pod_busca_rede">Fără internet. Verificați conexiunea televizorului.</string>
+    <string name="tx_falhou_det">Nu s-a putut genera textul acestui episod. Încercați mai târziu.</string>
 </resources>
