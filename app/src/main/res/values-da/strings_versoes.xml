@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ver_novidades">Hvad er ændret</string>
+    <string name="ver_novidades_det">%1$d ændringer i version %2$s</string>
+    <string name="ver_novidades_sobre">Version %1$s</string>
+    <string name="ver_ok">OK</string>
+    <string name="ver_conferir">Tjek på tv\'et</string>
+    <string name="ver_conferir_det">%1$d af %2$d tjekket med fjernbetjeningen</string>
+    <string name="ver_conferir_sub">Version %1$s · %2$d punkter</string>
+    <string name="ver_conferido">%1$d af %2$d tjekket</string>
+    <string name="ver_sim">Ja</string>
+    <string name="ver_nao">Nej</string>
+    <string name="ver_respondido_sim">svarede „ja“</string>
+    <string name="ver_respondido_nao">svarede „nej“</string>
+</resources>

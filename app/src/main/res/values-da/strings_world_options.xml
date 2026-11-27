@@ -30,4 +30,6 @@
     <string name="bb_titulo">Startskærmens layout</string>
     <string name="bb_cruz">Kors</string>
     <string name="bb_barra">Bundbjælke</string>
+    <string name="wo_ultimos">Senest brugte først</string>
+    <string name="wo_aleatorio">Vilkårlig rækkefølge (skifter hver dag)</string>
 </resources>

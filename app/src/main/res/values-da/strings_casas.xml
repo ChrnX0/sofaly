@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="casas_titulo">Andre hjem</string>
+    <string name="casas_texto">Forbind dette tv med en slægtnings tv, så I kan se sammen på afstand. Kun afspil, pause og reaktioner sendes, krypteret. Ingen skal have en konto.</string>
+    <string name="casas_mostrar">Vis kode</string>
+    <string name="casas_mostrar_det">Det andet hjem skriver den på sit tv</string>
+    <string name="casas_digitar">Skriv kode</string>
+    <string name="casas_digitar_det">Koden, der vises på det andet tv</string>
+    <string name="casas_conectadas">Forbundne hjem</string>
+    <string name="casas_remover_det">Se sammen · fjern</string>
+    <string name="casas_remover_titulo">Fjern %1$s?</string>
+    <string name="casas_remover">Fjern</string>
+    <string name="casas_pedindo">Henter kode…</string>
+    <string name="casas_codigo_det">Læs denne kode op for det andet hjem. På deres tv: Indstillinger, Familie, Andre hjem, Skriv kode. Den gælder i 10 minutter og én gang.</string>
+    <string name="casas_esperando">Venter på, at det andet tv bekræfter…</string>
+    <string name="casas_conectando">Forbinder…</string>
+    <string name="casas_conectar">Forbind</string>
+    <string name="casas_chegou">%1$s skrev koden</string>
+    <string name="casas_confirmou">%1$s har bekræftet. Sammenlign tallene her også</string>
+    <string name="casas_pelo_celular">%1$s er forbundet for at se sammen (tilføjet af %2$s)</string>
+    <string name="casas_conferir_titulo">Forbind med %1$s?</string>
+    <string name="casas_conferir_texto">Bekræft over telefonen, at det andet tv viser de samme tal:\n\n%1$s\n\nHvis de er forskellige, så annuller.</string>
+    <string name="casas_pronto">Forbundet med %1$s. Begge tv viser disse tal. For at se sammen skal du åbne en titel og vælge Se sammen.</string>
+    <string name="casas_falhou">Det lykkedes ikke. Tjek internettet, og prøv igen med en ny kode.</string>
+    <string name="casas_sem_rede">Sofaly-tjenesten svarer ikke. Tjek internettet.</string>
+    <string name="casas_codigo_errado">Koden virkede ikke. Den har 8 bogstaver og tal og gælder i 10 minutter.</string>
+    <string name="casas_menu">Andre hjem</string>
+    <string name="casas_menu_det">Se sammen med tv\'et hos en slægtning, der bor langt væk</string>
+</resources>
