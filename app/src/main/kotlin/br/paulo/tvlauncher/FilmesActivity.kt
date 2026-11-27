@@ -183,9 +183,9 @@ class FilmesActivity : CatalogActivity<Filme>("filmes", isSeries = false) {
     override fun onResume() {
         super.onResume()
         // Perfis de verdade (ideia 11): os interesses na memória são do perfil de antes; gravar com eles misturaria os dois.
-        if (Perfil.chaveDados(this) != perfilCarregado) { recreate(); return }
+        if (Perfil.chaveDados(this) != perfilCarregado) { recreateOnce(); return }
         // Voltou de "Adicionar lista" (tela vazia): a lista nova só aparece recarregando a tela inteira.
-        if (vazioMostrado) { recreate(); return }
+        if (vazioMostrado) { recreateOnce(); return }
         // Voltou da VodActivity: a posição mudou ("continuar" e os botões da ficha).
         indoAoVideo = false
         val lista = catalogo

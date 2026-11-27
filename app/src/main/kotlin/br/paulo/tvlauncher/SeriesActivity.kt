@@ -198,9 +198,9 @@ class SeriesActivity : CatalogActivity<Serie>("series", isSeries = true) {
     override fun onResume() {
         super.onResume()
         // Perfis de verdade (ideia 11): os interesses na memória são do perfil de antes; gravar com eles misturaria os dois.
-        if (Perfil.chaveDados(this) != perfilCarregado) { recreate(); return }
+        if (Perfil.chaveDados(this) != perfilCarregado) { recreateOnce(); return }
         // Voltou de "Adicionar lista" (tela vazia): a lista nova só aparece recarregando a tela inteira.
-        if (vazioMostrado) { recreate(); return }
+        if (vazioMostrado) { recreateOnce(); return }
         indoAoVideo = false
         // O controle parental pode ter mudado nas Configurações (igual à tela de Filmes): relê as categorias ocultas.
         val lista = catalogo

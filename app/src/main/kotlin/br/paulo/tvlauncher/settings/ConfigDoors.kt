@@ -1,5 +1,7 @@
 package br.paulo.tvlauncher.settings
 
+import br.paulo.tvlauncher.recreateOnce
+
 import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
@@ -158,7 +160,7 @@ private fun ConfigLauncherActivity.objetivos(foco: Int) {
                 }
                 if (g == SettingsGoals.Goal.KIDS) return@setOnClickListener
                 // A letra muda a própria tela das Configurações: refaz e volta o foco ao mesmo botão.
-                if (g == SettingsGoals.Goal.READ) { recreate(); return@setOnClickListener }
+                if (g == SettingsGoals.Goal.READ) { recreateOnce(); return@setOnClickListener }
                 mostrarPortas(foco)
                 grade.post { grade.findViewWithTag<View>("goal:" + g.name)?.requestFocus() }
             }
@@ -274,7 +276,7 @@ private fun ConfigLauncherActivity.objetivo(g: SettingsGoals.Goal, ativo: Settin
         g == ativo -> { SettingsGoals.desfazer(this); aviso(getString(R.string.goal_desfeito, nome)) }
         else -> { SettingsGoals.aplicar(this, g); aviso(getString(R.string.goal_feito, nome)) }
     }
-    if (g == SettingsGoals.Goal.READ) { recreate(); return }
+    if (g == SettingsGoals.Goal.READ) { recreateOnce(); return }
     mostrarPortas(foco)
     grade.post { grade.findViewWithTag<View>("goal:" + g.name)?.requestFocus() }
 }
