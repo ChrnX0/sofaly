@@ -171,9 +171,18 @@ class TodoBotaoFazAlgoTest {
                     val ate = System.currentTimeMillis() + 5000
                     while (a.focoInicialNaTv && System.currentTimeMillis() < ate) { Thread.sleep(50); esperar(50) }
                 }
-                val v = clicaveis(a).filter { nome(it) == alvo }.getOrNull(n - 1)
+                var v = clicaveis(a).filter { nome(it) == alvo }.getOrNull(n - 1)
                 if (v == null) { runCatching { ctl.pause().stop().destroy() }; continue }   // item que só aparece às vezes
                 v.requestFocus(); esperar(100)
+                // #602: a tela pode se refazer no meio (o Rádio refaz os itens quando a resposta da internet chega, com
+                // atraso diferente a cada CI). Item que saiu da janela não é defeito: pega o novo, pelo nome, e tenta de novo.
+                // Um item que de fato não pega o foco continua na janela e segue reprovando.
+                var refeitas = 0
+                while (!v.isFocused && !v.isAttachedToWindow && refeitas++ < 3) {
+                    v = clicaveis(a).filter { nome(it) == alvo }.getOrNull(n - 1) ?: break
+                    v.requestFocus(); esperar(100)
+                }
+                if (!v.isFocused && !v.isAttachedToWindow) { runCatching { ctl.pause().stop().destroy() }; continue }   // sumiu de vez
                 if (!v.isFocused) { mudos += "$tela › $alvo (não pega o foco)"; runCatching { ctl.pause().stop().destroy() }; continue }
                 val antes = retrato(a.window.decorView)
                 val dialogoAntes = ShadowDialog.getLatestDialog()
