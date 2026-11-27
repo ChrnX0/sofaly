@@ -72,4 +72,7 @@
     <string name="cel_fora_esperar">Too many tries. Wait %1$d s and try again.</string>
     <string name="cel_fora_falhou">It didn\'t work. Try again at home, with the TV on.</string>
     <string name="cel_fora_pronto">Done. This phone now controls the TV from away too.</string>
+    <string name="cel_camera_negada">The app needs the camera only to read the code on the TV screen.</string>
+    <string name="cel_camera_bloqueada">The camera is blocked for this app. Open the app settings and allow the camera.</string>
+    <string name="cel_abrir_ajustes">Open settings</string>
 </resources>

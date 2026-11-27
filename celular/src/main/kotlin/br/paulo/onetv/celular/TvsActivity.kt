@@ -1,15 +1,19 @@
 package br.paulo.onetv.celular
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.nsd.NsdManager
+import android.net.Uri
 import android.net.nsd.NsdServiceInfo
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -24,6 +28,7 @@ import java.net.Inet4Address
 class TvsActivity : Activity() {
     companion object {
         private const val PEDIDO_QR = 7
+        private const val PEDIDO_CAMERA = 8
         /** Serviço que o launcher anuncia (PainelVizinhos.TIPO). */
         private const val TIPO_MDNS = "_tvlauncher._tcp."
     }
@@ -176,6 +181,33 @@ class TvsActivity : Activity() {
     // ---------------------------------------------------------------- QR
 
     private fun lerQr() {
+        // Caça 27/11/2026: sem a câmera liberada, o leitor (ZXing) pedia sozinho e, se a pessoa negava, mostrava
+        // "Barcode Scanner: the Android camera encountered a problem, restart the device", em inglês e falso.
+        // O app pede antes e, se negarem, explica do seu jeito (CameraNegadaTest confere).
+        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), PEDIDO_CAMERA)
+            return
+        }
+        abrirLeitor()
+    }
+
+    override fun onRequestPermissionsResult(pedido: Int, permissoes: Array<String>, resultados: IntArray) {
+        super.onRequestPermissionsResult(pedido, permissoes, resultados)
+        // Vazio = a pergunta foi fechada sem resposta (tocou fora): não insiste.
+        if (pedido != PEDIDO_CAMERA || resultados.isEmpty()) return
+        if (resultados[0] == PackageManager.PERMISSION_GRANTED) { abrirLeitor(); return }
+        // Depois de "Não permitir" duas vezes o Android não pergunta mais: só os ajustes do app liberam.
+        val deVez = !shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)
+        val d = AlertDialog.Builder(this).setNegativeButton(android.R.string.cancel, null)
+        if (deVez) d.setMessage(R.string.cel_camera_bloqueada).setPositiveButton(R.string.cel_abrir_ajustes) { _, _ ->
+            runCatching {
+                startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", packageName, null)))
+            }
+        } else d.setMessage(R.string.cel_camera_negada).setPositiveButton(R.string.cel_enviar_de_novo) { _, _ -> lerQr() }
+        d.show()
+    }
+
+    private fun abrirLeitor() {
         val op = ScanOptions().setDesiredBarcodeFormats(ScanOptions.QR_CODE).setBeepEnabled(false)
             .setPrompt(getString(R.string.cel_aponte)).setOrientationLocked(true)
         // QrScannerActivity: em pé e com janela quadrada (a CaptureActivity do ZXing abre deitada, cara de leitor de barras).

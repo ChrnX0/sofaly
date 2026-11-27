@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">Trop d\'essais. Attendez %1$d s et réessayez.</string>
     <string name="cel_fora_falhou">Ça n\'a pas marché. Réessayez à la maison, TV allumée.</string>
     <string name="cel_fora_pronto">C\'est fait. Ce téléphone contrôle aussi la TV hors de chez vous.</string>
+    <string name="cel_camera_negada">L’app a besoin de l’appareil photo uniquement pour lire le code à l’écran du téléviseur.</string>
+    <string name="cel_camera_bloqueada">L’appareil photo est bloqué pour cette app. Ouvrez les paramètres de l’app et autorisez l’appareil photo.</string>
+    <string name="cel_abrir_ajustes">Ouvrir les paramètres</string>
 </resources>

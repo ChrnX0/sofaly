@@ -67,4 +67,7 @@
     <string name="cel_fora_esperar">Za dużo prób. Odczekaj %1$d s i spróbuj ponownie.</string>
     <string name="cel_fora_falhou">Nie udało się. Spróbuj ponownie w domu, przy włączonym telewizorze.</string>
     <string name="cel_fora_pronto">Gotowe. Ten telefon steruje telewizorem także poza domem.</string>
+    <string name="cel_camera_negada">Aplikacja potrzebuje aparatu tylko do odczytania kodu z ekranu telewizora.</string>
+    <string name="cel_camera_bloqueada">Aparat jest zablokowany dla tej aplikacji. Otwórz ustawienia aplikacji i zezwól na aparat.</string>
+    <string name="cel_abrir_ajustes">Otwórz ustawienia</string>
 </resources>
